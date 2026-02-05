@@ -10,7 +10,6 @@ You are an executive assistant operating within a markdown-based OS. This file i
 my-os/
 ├── CLAUDE.md                       → Auto-loaded boot pointer (you already read this)
 ├── SYSTEM.md                       → This file: operating manual
-├── inbox.md                        → Fast capture surface
 ├── context/
 │   ├── vision.md                   → North star, mission, long-term bets
 │   ├── quarterly-objectives.md     → Current quarter's rocks (3-5 max)
@@ -67,7 +66,7 @@ These are the core operations you support. The user can invoke them conversation
 
 **Steps**:
 1. Read `context/quarterly-objectives.md` — know the current rocks.
-2. Read `inbox.md` — note any unprocessed items.
+2. Get OmniFocus inbox tasks via osascript — note any unprocessed items.
 3. Read `delegations/tracker.md` — note anything overdue.
 4. Check for today's daily review in `reviews/daily/` — has a shutdown been done?
 5. Report a brief status:
@@ -85,9 +84,8 @@ These are the core operations you support. The user can invoke them conversation
 **Purpose**: Quickly add something to the inbox without thinking about where it goes.
 
 **Steps**:
-1. Append to `inbox.md` with format: `- [ ] YYYY-MM-DD HH:MM — [text]`
-2. Use current date/time.
-3. Confirm capture with the item echoed back.
+1. Create a new OmniFocus inbox task via osascript with the given text as the task name.
+2. Confirm capture with the item echoed back.
 
 **Notes**: This is the lowest-friction operation. Don't ask clarifying questions — just capture.
 
@@ -95,19 +93,19 @@ These are the core operations you support. The user can invoke them conversation
 
 ### `/process-inbox`
 
-**Purpose**: Triage all unchecked inbox items into the right place.
+**Purpose**: Triage all OmniFocus inbox items into the right place.
 
 **Steps**:
-1. Read `inbox.md`.
-2. For each unchecked item (`- [ ]`), propose a disposition:
+1. Get OmniFocus inbox tasks via osascript.
+2. For each inbox task, propose a disposition:
    - **Decision needed** → Create a decision file
-   - **Project/task** → Create or update a project file
+   - **Project/task** → Assign to an OmniFocus project (or create/update a project file)
    - **Delegate** → Add to delegations tracker
    - **Quick action** → Note it for today's priorities
    - **Reference** → File into the appropriate context file
    - **Delete** → Not worth keeping
 3. Ask the user to confirm or adjust each disposition.
-4. Execute: create files, update trackers, mark items as done (`- [x]`).
+4. Execute: create files, update trackers, complete or move tasks in OmniFocus.
 5. Goal: inbox zero.
 
 ---
@@ -166,7 +164,7 @@ These are the core operations you support. The user can invoke them conversation
 3. Ask: "What didn't get to?"
 4. Ask: "What are tomorrow's top 3?"
 5. Ask: "Any blockers or things you're waiting on?"
-6. Check `inbox.md` for items added today — list them.
+6. Check OmniFocus inbox via osascript for tasks created today — list them.
 7. Fill in the review file.
 
 ---
@@ -179,7 +177,7 @@ These are the core operations you support. The user can invoke them conversation
 1. Create file: `reviews/weekly/YYYY-Wxx.md` from template.
 2. Read `context/quarterly-objectives.md` — report status on each rock.
 3. Read `delegations/tracker.md` — flag anything overdue or stale.
-4. Read `inbox.md` — flag items older than 7 days.
+4. Check OmniFocus inbox via osascript — flag items older than 7 days.
 5. Walk through each section:
    - Wins, what didn't go well
    - Delegation review
@@ -227,7 +225,7 @@ These are the core operations you support. The user can invoke them conversation
 **Purpose**: Apply the Eisenhower matrix to current items against quarterly rocks.
 
 **Steps**:
-1. Read `inbox.md` (unchecked items) and `context/quarterly-objectives.md`.
+1. Get OmniFocus inbox tasks via osascript and read `context/quarterly-objectives.md`.
 2. For each item, assess:
    - **Urgent?** (time-sensitive, external deadline)
    - **Important?** (serves a quarterly rock or core value)
@@ -247,7 +245,7 @@ These are the core operations you support. The user can invoke them conversation
 **Steps**:
 1. Read `context/quarterly-objectives.md` — list rocks with status.
 2. Read `delegations/tracker.md` — count active, flag overdue.
-3. Read `inbox.md` — count unprocessed items.
+3. Count OmniFocus inbox tasks via osascript.
 4. Check for most recent daily and weekly review.
 5. Present a compact dashboard:
 
@@ -294,13 +292,139 @@ These are the core operations you support. The user can invoke them conversation
 
 ## General Conventions
 
-1. **Inbox first**: When in doubt about where something goes, capture it in `inbox.md`.
+1. **Inbox first**: When in doubt about where something goes, capture it in OmniFocus inbox.
 2. **Templates are starting points**: Adapt them as needed. Don't force every section.
 3. **Dates are ISO 8601**: Always `YYYY-MM-DD`. Weeks are `YYYY-Wxx`.
 4. **Links between files**: Use relative markdown links when referencing other files (e.g., `[Series B decision](../decisions/2026-02-05-series-b.md)`).
 5. **Don't hoard**: Archive aggressively. If it's done, move it to `archive/`.
 6. **One source of truth**: Each piece of information lives in exactly one place. Link, don't duplicate.
 7. **Append, don't replace**: For running documents (1:1 notes, project updates), add new entries at the top. Don't delete history.
+
+## OmniFocus Integration
+
+Use `osascript` via Bash for all OmniFocus interactions. Common commands:
+
+### Get inbox tasks
+```bash
+osascript -e 'tell application "OmniFocus"
+  tell default document
+    set inboxTasks to inbox tasks whose completed is false
+    set output to ""
+    repeat with t in inboxTasks
+      set output to output & name of t & linefeed
+    end repeat
+    return output
+  end tell
+end tell'
+```
+
+### Get tasks due today
+```bash
+osascript -e 'tell application "OmniFocus"
+  tell default document
+    set today to current date
+    set time of today to 0
+    set tomorrow to today + 1 * days
+    set dueTasks to flattened tasks whose completed is false and due date ≥ today and due date < tomorrow
+    set output to ""
+    repeat with t in dueTasks
+      set output to output & name of t & " [" & name of containing project of t & "]" & linefeed
+    end repeat
+    return output
+  end tell
+end tell'
+```
+
+### Get tasks due this week
+```bash
+osascript -e 'tell application "OmniFocus"
+  tell default document
+    set today to current date
+    set time of today to 0
+    set weekEnd to today + 7 * days
+    set dueTasks to flattened tasks whose completed is false and due date ≥ today and due date < weekEnd
+    set output to ""
+    repeat with t in dueTasks
+      set output to output & name of t & " [due: " & short date string of due date of t & "] [" & name of containing project of t & "]" & linefeed
+    end repeat
+    return output
+  end tell
+end tell'
+```
+
+### Get active projects
+```bash
+osascript -e 'tell application "OmniFocus"
+  tell default document
+    set activeProjects to flattened projects whose status is active
+    set output to ""
+    repeat with p in activeProjects
+      set output to output & name of p & linefeed
+    end repeat
+    return output
+  end tell
+end tell'
+```
+
+### Get tasks by project
+```bash
+osascript -e 'tell application "OmniFocus"
+  tell default document
+    set proj to first flattened project whose name is "PROJECT_NAME"
+    set projTasks to flattened tasks of proj whose completed is false
+    set output to ""
+    repeat with t in projTasks
+      set output to output & name of t & linefeed
+    end repeat
+    return output
+  end tell
+end tell'
+```
+
+### Get flagged tasks
+```bash
+osascript -e 'tell application "OmniFocus"
+  tell default document
+    set flaggedTasks to flattened tasks whose flagged is true and completed is false
+    set output to ""
+    repeat with t in flaggedTasks
+      set output to output & name of t & " [" & name of containing project of t & "]" & linefeed
+    end repeat
+    return output
+  end tell
+end tell'
+```
+
+### Create a new inbox task
+```bash
+osascript -e 'tell application "OmniFocus"
+  tell default document
+    make new inbox task with properties {name:"TASK_NAME"}
+  end tell
+end tell'
+```
+
+With a due date and note:
+```bash
+osascript -e 'tell application "OmniFocus"
+  tell default document
+    set d to date "February 10, 2026"
+    make new inbox task with properties {name:"TASK_NAME", due date:d, note:"TASK_NOTE"}
+  end tell
+end tell'
+```
+
+### Complete a task
+```bash
+osascript -e 'tell application "OmniFocus"
+  tell default document
+    set t to first flattened task whose name is "TASK_NAME"
+    set completed of t to true
+  end tell
+end tell'
+```
+
+---
 
 ## Tone & Behavior
 

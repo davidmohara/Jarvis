@@ -26,8 +26,8 @@
 
 ## Inbox Zero Check
 
-- [ ] All inbox items processed or scheduled
-- [ ] No stale items older than 7 days
+- [ ] All OmniFocus inbox items processed or scheduled
+- [ ] No stale OmniFocus inbox items older than 7 days
 
 ## Next Week's Priorities
 

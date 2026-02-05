@@ -22,7 +22,7 @@
 
 ## Inbox Items Captured
 
-<!-- Auto-filled from items added to inbox.md today -->
+<!-- Auto-filled from OmniFocus inbox tasks created today -->
 
 -
 
