@@ -2,22 +2,21 @@
 
 ## Mission
 
-<!-- What does success look like in 10 years? One sentence. -->
+Become the trusted partner for all of Texas — growing Improving's Texas operations from ~$72.5M to $150M through Focused Growth, Connected Partnerships, Market Impact, and Collective Excellence.
 
 ## North Star Metric
 
-<!-- The single number that best captures whether you're winning. -->
+Texas revenue and number of $5M+ accounts.
 
 ## Long-Term Bets (3-5 year horizon)
 
-<!-- The 2-3 big bets you're making. These change rarely. -->
-
-1. **Bet 1**: _describe_
-2. **Bet 2**: _describe_
-3. **Bet 3**: _describe_
+1. **One Texas**: Unifying Dallas, Houston, and Austin into a single coordinated go-to-market. Cross-regional account strategies, shared Microsoft play, coordinated partner engagement.
+2. **Executive Growth**: Building the next generation of sales and delivery leaders through EDP, IPS (Improving President System), and executive coaching.
+3. **Thought Leadership**: Establishing Improving (and David personally) as the voice of AI strategy, culture-driven consulting, and Conscious Capitalism in Texas — through speaking, the podcast, Forbes, and executive workshops.
 
 ## What We Don't Do
 
-<!-- Equally important — the things you've explicitly decided to say no to. -->
-
--
+- Resourcing or allocations (GRO, MD, & Presidents)
+- Sales management or CRM discipline (SPARC & Presidents)
+- Client management (local AEs maintain accounts)
+- Writing proposals or decks for the sales team
