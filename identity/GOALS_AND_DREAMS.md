@@ -64,4 +64,4 @@ YPO chairman trajectory (international). Waterstone crew — annual guys golf tr
 | Kare Devices | Needs to finish getting off the ground | Define what "off the ground" means — funding? FDA? Manufacturing? |
 | DoughDiary | Shipped. In App Store. | Maintenance? Growth? Or done? |
 | LuxAviate | Idea stage | Define the idea and first milestone |
-| Cigar Tracker | Personal project | TBD |
+| CigarTrack | Active — building with agentic AI | Web app to track cigar collection & smoke sessions. Skill-building + fun. Plan to deploy and share publicly. |

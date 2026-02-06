@@ -39,7 +39,8 @@
 - **Key Result**: Joint Texas Microsoft play drafted; $15M co-sell pipeline target initiated; 10 C-Suite connections per enterprise at level 4+
 - **Status**: Not Started
 - **Progress Notes**:
-  - FABCON Atlanta (Mar 18-20) — Improving booth + speaking session
+  - Presenting to Ben Holm's Microsoft SME&C East seller team — Mar 25 (Work From Work Wednesday)
+  - FABCON Atlanta (Mar 18-20) — David not involved unless Nada or Lowell provide significant reason
   - John Yurewicz relationship active
   - Microsoft Practice Overview exists
 
