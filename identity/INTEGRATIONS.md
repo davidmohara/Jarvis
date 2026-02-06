@@ -15,6 +15,11 @@
 | OneDrive | Cloud storage for Improving files | Local mount at ~/Library/CloudStorage/OneDrive-Improving/ |
 | Phone / Texts | Quick communication | Not accessible by Jarvis |
 
+## OmniFocus Conventions
+
+- **Person tags** (e.g., Ilse, Bethany): Task has been delegated to that person or is a follow-up with them. These are *waiting-on* items, not David's direct work.
+- **Inbox**: Unprocessed captures. Jarvis triages via `/process-inbox`.
+
 ## Data Flow
 
 ```
