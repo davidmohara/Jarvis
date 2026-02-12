@@ -48,7 +48,9 @@ my-os/
 ├── archive/                        → Completed/closed items
 └── reference/
     ├── frameworks.md               → RAPID, Eisenhower, Pre-Mortem, ICE cheat sheet
-    └── assistant-operations.md     → EA playbook: scheduling, travel, locations, prep, follow-up
+    ├── assistant-operations.md     → EA playbook: scheduling, travel, locations, prep, follow-up
+    └── sops/                       → Standard operating procedures (built on 2nd occurrence, followed on 3rd+)
+        └── one-on-one-prep.md     → SOP for internal Improving 1:1 meeting prep briefs
 ```
 
 ## Naming Conventions
