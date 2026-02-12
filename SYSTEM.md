@@ -39,6 +39,12 @@ my-os/
 │   ├── weekly/_template.md         → Weekly review template
 │   ├── monthly/_template.md        → Monthly review template
 │   └── quarterly/_template.md      → Quarterly review template
+├── bridge/
+│   ├── README.md                  → Bridge protocol spec (both instances read this)
+│   ├── DESKTOP.md                 → Self-contained instructions for Claude Desktop instance
+│   ├── _template.md               → Message template with frontmatter
+│   ├── inbox/                     → Pending requests between instances
+│   └── done/                      → Completed requests (archived)
 ├── archive/                        → Completed/closed items
 └── reference/
     └── frameworks.md               → RAPID, Eisenhower, Pre-Mortem, ICE cheat sheet
@@ -84,6 +90,7 @@ These are the core operations you support. The user can invoke them conversation
    - Number of inbox items pending
    - Any overdue delegations
    - Any actions needed
+7. Check `bridge/inbox/` for any messages addressed to Code (`to: code`). Process them or report what's pending.
 
 **Tone**: Brief, structured. Like a chief of staff morning briefing.
 
@@ -297,6 +304,67 @@ These are the core operations you support. The user can invoke them conversation
 1. Move the specified file to `archive/` (preserving the filename).
 2. Remove any references to it from active trackers (delegations, etc.).
 3. Confirm: "Archived [file]. Removed from active trackers."
+
+---
+
+### `/bridge-send [request]`
+
+**Purpose**: Create a bridge request to the other Jarvis instance (Desktop).
+
+**Steps**:
+1. Determine which instance should handle it using the capability map in `bridge/README.md`.
+2. Generate filename: `YYYYMMDD-HHMMSS-code-{slug}.md` (use current timestamp).
+3. Create the file in `bridge/inbox/` using `bridge/_template.md` format:
+   - Set `from: code`, `to: desktop`, appropriate `category` and `priority`.
+   - Fill in Request and Context sections with enough detail for Desktop to act independently.
+4. Submit to Desktop automatically:
+   ```bash
+   bridge/send-to-desktop.sh "Read bridge/DESKTOP.md for instructions. Check bridge/inbox/ for pending requests addressed to desktop. Execute each one, fill the Response section, set status to done, and move the file to bridge/done/."
+   ```
+5. Poll for the response — run in background, check every 15 seconds:
+   ```bash
+   # Check if file moved to done/ or status changed to done
+   while [ ! -f "bridge/done/FILENAME" ]; do sleep 15; done
+   ```
+6. Once the file appears in `bridge/done/`, read the `## Response` section and report results to David.
+
+**Notes**: This also triggers automatically when David asks for something outside Code's capabilities (email search, calendar lookup, Teams). No need to wait for the explicit command — just route it and confirm. The entire round-trip is hands-off: create request → submit to Desktop → poll → read response → report.
+
+---
+
+### `/bridge-check`
+
+**Purpose**: Scan the bridge inbox for requests addressed to this instance and process them.
+
+**Steps**:
+1. List all files in `bridge/inbox/`.
+2. Read each file. Filter for `to: code` messages.
+3. For each matching request:
+   - Execute the request using available tools (OmniFocus, osascript, git, Obsidian, etc.).
+   - Fill in the `## Response` section with results.
+   - Set `status: done` in frontmatter.
+   - Move the file from `bridge/inbox/` to `bridge/done/`.
+4. Report what was processed and results.
+5. If no messages are pending, report "Bridge inbox clear."
+
+---
+
+### `/bridge-status`
+
+**Purpose**: Quick overview of bridge state.
+
+**Steps**:
+1. Count files in `bridge/inbox/` (exclude `.gitkeep`).
+2. Count files in `bridge/done/` (exclude `.gitkeep`).
+3. Flag any inbox messages older than 24 hours as stale.
+4. Report:
+
+```
+## Bridge Status
+- Inbox: X pending (Y for code, Z for desktop)
+- Done: X completed
+- Stale: [list any >24h old with filename and age]
+```
 
 ---
 

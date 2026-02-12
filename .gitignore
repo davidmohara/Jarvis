@@ -1,3 +1,6 @@
 # MCP config contains API tokens
 .DS_Store
 .claude/mcp.json
+
+# Compiled binaries
+bridge/send-to-desktop
