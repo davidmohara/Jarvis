@@ -47,7 +47,8 @@ my-os/
 │   └── done/                      → Completed requests (archived)
 ├── archive/                        → Completed/closed items
 └── reference/
-    └── frameworks.md               → RAPID, Eisenhower, Pre-Mortem, ICE cheat sheet
+    ├── frameworks.md               → RAPID, Eisenhower, Pre-Mortem, ICE cheat sheet
+    └── assistant-operations.md     → EA playbook: scheduling, travel, locations, prep, follow-up
 ```
 
 ## Naming Conventions
