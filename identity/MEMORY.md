@@ -92,6 +92,7 @@ Core to everything. Not performative — foundational. Sees God's hand in Improv
 - **Nada Ungvarsky** — Microsoft Alliance Partner Manager.
 - **Lowell Messner** — SVP Microsoft Practice.
 - **John Yurewicz** — Microsoft contact.
+- **Ehren Seim** — Partnerships (non-Microsoft). Providing contacts and account overlaps for co-sell.
 
 ## What He's Learning / Growing
 

@@ -1,7 +1,8 @@
 #!/usr/bin/env swift
 //
 // send-to-desktop.swift
-// Activates Claude Desktop, opens a new Cowork task with my-os folder, pastes a prompt, and submits.
+// Activates Claude Desktop, opens a new Cowork task, pastes a prompt, and submits.
+// Desktop's CLAUDE.md handles folder context and boot sequence.
 //
 // Usage:
 //   swift bridge/send-to-desktop.swift "Your prompt here"
@@ -92,15 +93,6 @@ func pasteText(_ text: String) {
         pasteboard.clearContents()
         pasteboard.setString(prev, forType: .string)
     }
-}
-
-func pressEscape() {
-    let source = CGEventSource(stateID: .combinedSessionState)
-    // Escape = keycode 53
-    let down = CGEvent(keyboardEventSource: source, virtualKey: 53, keyDown: true)
-    down?.post(tap: .cghidEventTap)
-    let up = CGEvent(keyboardEventSource: source, virtualKey: 53, keyDown: false)
-    up?.post(tap: .cghidEventTap)
 }
 
 // MARK: - Argument parsing
@@ -198,44 +190,7 @@ guard retry("New task link", attempts: 5, action: {
     exit(1)
 }
 
-// MARK: - Step 3: Select "my-os" folder via "Work in a folder" popup
-
-// Check if my-os is already selected as the folder
-var folderSet = false
-if let _ = findElement(window, role: "AXPopUpButton", title: "my-os") {
-    fputs("Folder already set to my-os.\n", stderr)
-    folderSet = true
-}
-
-// If not set, open the folder picker and select my-os
-if !folderSet {
-    let pickerFound = retry("Folder popup", attempts: 5, action: {
-        findElement(window, role: "AXPopUpButton", title: "Work in a folder") != nil
-    })
-
-    if pickerFound, let popup = findElement(window, role: "AXPopUpButton", title: "Work in a folder") {
-        fputs("Opening folder picker...\n", stderr)
-        _ = pressElement(popup)
-        Thread.sleep(forTimeInterval: 1.0)
-
-        // Click "my-os" from the dropdown menu
-        if let myosItem = findElement(window, role: "AXMenuItem", title: "my-os") {
-            fputs("Selecting my-os folder...\n", stderr)
-            _ = pressElement(myosItem)
-            Thread.sleep(forTimeInterval: 1.0)
-        } else {
-            fputs("Warning: 'my-os' not in recent folders. Dismissing picker.\n", stderr)
-            pressEscape()
-            Thread.sleep(forTimeInterval: 0.5)
-            pressEscape()
-            Thread.sleep(forTimeInterval: 0.5)
-        }
-    } else {
-        fputs("Warning: Could not find folder picker. Continuing without folder.\n", stderr)
-    }
-}
-
-// MARK: - Step 4: Paste prompt into text area
+// MARK: - Step 3: Paste prompt into text area
 
 guard retry("Text area", attempts: 5, action: {
     findElement(window, role: "AXTextArea", description: "Write your prompt to Claude") != nil
@@ -252,7 +207,7 @@ if let textArea = findElement(window, role: "AXTextArea", description: "Write yo
     Thread.sleep(forTimeInterval: 0.5)
 }
 
-// MARK: - Step 5: Click "Start task" button
+// MARK: - Step 4: Click "Start task" button
 
 guard retry("Start task button", attempts: 5, delay: 0.5, action: {
     if let button = findElement(window, role: "AXButton", description: "Start task") {

@@ -322,7 +322,7 @@ These are the core operations you support. The user can invoke them conversation
    - Fill in Request and Context sections with enough detail for Desktop to act independently.
 4. Submit to Desktop automatically:
    ```bash
-   bridge/send-to-desktop.sh "Read bridge/DESKTOP.md for instructions. Check bridge/inbox/ for pending requests addressed to desktop. Execute each one, fill the Response section, set status to done, and move the file to bridge/done/."
+   bridge/send-to-desktop.sh "Boot up. Then check bridge/inbox/ for pending requests addressed to desktop. Execute each one, fill the Response section, set status to done, and move the file to bridge/done/."
    ```
 5. Poll for the response — run in background, check every 15 seconds:
    ```bash
