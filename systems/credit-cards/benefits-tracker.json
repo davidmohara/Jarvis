@@ -1,0 +1,156 @@
+{
+  "last_updated": "2026-02-14",
+  "tracking_year": 2026,
+  "benefits_usage": {
+    "amex-plat": {
+      "resy": { "total": 400, "used": 0, "remaining": 400, "resets": "quarterly", "q1_remaining": 100, "usage_log": [] },
+      "digital_entertainment": { "total": 300, "used": 7.58, "remaining": 292.42, "resets": "monthly", "monthly_cap": 25, "usage_log": [{"date": "2026-01-16", "amount": 7.58, "vendor": "WSJ Online"}] },
+      "hotel_fhr_thc": { "total": 600, "used": 0, "remaining": 600, "resets": "semi_annual", "h1_remaining": 300, "usage_log": [] },
+      "lululemon": { "total": 300, "used": 0, "remaining": 300, "resets": "quarterly", "q1_remaining": 75, "usage_log": [] },
+      "uber_cash": { "total": 200, "used": 0, "remaining": 200, "resets": "calendar_year", "usage_log": [] },
+      "airline_incidental": { "total": 200, "used": 0, "remaining": 200, "resets": "calendar_year", "selected_airline": "American Airlines", "usage_log": [] },
+      "clear_plus": { "total": 209, "used": 0, "remaining": 209, "resets": "calendar_year", "usage_log": [] },
+      "walmart_plus": { "total": 155, "used": 0, "remaining": 155, "resets": "monthly", "monthly_cap": 12.95, "usage_log": [] },
+      "uber_one": { "total": 120, "used": 0, "remaining": 120, "resets": "calendar_year", "usage_log": [] }
+    },
+    "citi-aa-exec": {
+      "grubhub": { "total": 120, "used": 0, "remaining": 120, "resets": "monthly", "monthly_cap": 10, "months_used": [], "usage_log": [] },
+      "lyft": { "total": 120, "used": 0, "remaining": 120, "resets": "monthly", "monthly_cap": 10, "months_used": [], "note": "Requires 3 eligible rides per month first", "usage_log": [] },
+      "avis_budget": { "total": 120, "used": 0, "remaining": 120, "resets": "calendar_year", "usage_log": [] }
+    },
+    "atlas-visa": {
+      "future_fitness": { "total": 300, "used": 0, "remaining": 300, "resets": "calendar_year", "usage_log": [] },
+      "flight_cancellation": { "total": 600, "used": 0, "remaining": 600, "resets": "calendar_year", "claims_used": 0, "max_claims": 6, "usage_log": [] },
+      "rewards_summary": {
+        "available_points": 11255,
+        "pending_points": 3289,
+        "points_ytd_2026": 580,
+        "as_of": "2026-02-14",
+        "current_dining_rate": "2x (was 3x through Aug 2025)",
+        "best_redemption": "hotel_booking at 1cpp ($112.55 value) or airline transfer",
+        "statement_credit_value": "$78.79 at 0.7cpp",
+        "total_spend_all_time": "~$7,500 (since Apr 2025)",
+        "total_dining_spend_all_time": "~$6,200",
+        "notable_non_dining": [
+          { "payee": "New World Trading", "total": 1495, "rate": "1x", "note": "Cuban cigars — occasional purchases. Not optimizable." },
+          { "payee": "American Airlines (2 flights)", "total": 358, "rate": "1x" },
+          { "payee": "Crest Cadillac", "total": 525.79, "rate": "1x" }
+        ],
+        "membership_fee": { "charged": "2025-04-11", "refunded": "2025-04-21", "amount": 1000, "note": "Special membership — fee charged and refunded" },
+        "payment_method": "Chase ····7817"
+      }
+    }
+  },
+  "annual_fee_roi": {
+    "amex-bcp": { "fee_oop": 95, "value_extracted": 0, "roi_positive": false },
+    "amex-plat": { "fee_gross": 1085, "fee_oop": 0, "reimbursed_by": "YPO Lone Star", "value_extracted": 7.58, "roi_positive": true, "note": "All fees paid by YPO. $2,484 in credits = pure upside. ROI is infinite." },
+    "citi-aa-exec": { "fee_oop": 770, "value_extracted": 0, "roi_positive": false, "note": "Includes $175 auth user fee for Susie. Primary ROI driver is Admirals Club access." },
+    "discover-it": { "fee": 0, "value_extracted": 0, "roi_positive": true },
+    "chase-sapphire": { "fee": 0, "value_extracted": 6.39, "roi_positive": true, "note": "$6.39 saved from card-linked offers to date" },
+    "atlas-visa": { "fee": 0, "value_extracted": 0, "roi_positive": true }
+  },
+  "card_linked_offers": {
+    "chase-sapphire": {
+      "last_reviewed": "2026-02-14",
+      "active_offers_added": [
+        { "vendor": "TurboTax", "cashback": "30%", "expires_soon": true, "added": "2026-02-14" },
+        { "vendor": "Dropbox", "cashback": "30%", "expires": "~2026-02-28", "added": "2026-02-14", "note": "Renewal not until Nov 2026. OmniFocus reminder set for Oct 15 to check for new offer." },
+        { "vendor": "Ancestry", "cashback": "10%", "expires_soon": true, "added": "2026-02-14", "note": "Last purchase Aug 2025. OmniFocus reminder set for Jul 15." },
+        { "vendor": "Uber", "cashback": "10%", "expires_soon": true, "added": "2026-02-14", "note": "Backup behind Amex Plat $200/yr Uber Cash credit." }
+      ],
+      "total_saved_to_date": 6.39
+    },
+    "amex-plat": {
+      "last_reviewed": "2026-02-14",
+      "total_saved_to_date": 350.00,
+      "active_offers_added": [
+        { "vendor": "Adobe", "cashback": "$10/mo for 3 months ($30)", "expires": "2026-03-31", "added": "2026-02-14", "note": "Lindsay charges $21.64/mo — guaranteed $30 free money" },
+        { "vendor": "Amex Venue Collection", "cashback": "10% on concessions, up to $250/yr", "expires": "2026-12-31", "added": "2026-02-14", "note": "AAC, stadiums, concert venues. Long-running offer." },
+        { "vendor": "Ancestry", "cashback": "20% back, up to $100", "expires": "2026-03-31", "added": "2026-02-14", "note": "Better than Chase's 10%. Use Plat for next Ancestry purchase." }
+      ],
+      "notable_offers_not_added": [
+        { "vendor": "TurboTax", "value": "$20 back on $40+", "expires": "2026-04-18", "note": "Add if tax charge will land on Plat" },
+        { "vendor": "Docusign", "value": "20% back, up to $100", "expires": "2026-04-30" },
+        { "vendor": "Gametime", "value": "$30 back on $150+", "expires": "2026-04-03" },
+        { "vendor": "HBO Max", "value": "$25 back on $99+ annual", "expires": "2026-03-15" }
+      ]
+    },
+    "amex-bcp": {
+      "last_reviewed": "2026-02-14",
+      "total_saved_to_date": 90.00,
+      "active_offers_added": [],
+      "notable_offers_not_added": [
+        { "vendor": "CLEAR+", "value": "$50 back on $209+", "expires": "2026-03-30", "note": "Only useful if CLEAR charged to BCP instead of using Plat credit" },
+        { "vendor": "TurboTax", "value": "$20 back on $40+", "expires": "2026-04-18" },
+        { "vendor": "Adobe", "value": "$10/mo for 3 months", "expires": "2026-03-31", "note": "Only if any Adobe charges land on BCP" }
+      ]
+    }
+  },
+  "upcoming_deadlines": [
+    { "date": "~2026-02-28", "card": "chase-sapphire", "action": "Chase offers expiring: Dropbox 30%, Ancestry 10%, Uber 10%, TurboTax 30%. Check for renewals after expiry." },
+    { "date": "2026-02-28", "card": "amex-plat", "action": "Use remaining ~$17 of Feb digital entertainment credit ($25/mo cap)" },
+    { "date": "2026-03-31", "card": "amex-plat", "action": "Q1 Resy credit expires ($100) and Q1 lululemon credit expires ($75)" },
+    { "date": "2026-03-31", "card": "discover-it", "action": "Q1 5% category period ends (Grocery, Wholesale, Streaming)" },
+    { "date": "2026-04-01", "card": "discover-it", "action": "Activate Q2 5% categories (TBA)" },
+    { "date": "2026-04-21", "card": "amex-bcp", "action": "Annual fee renewal ($95)" },
+    { "date": "2026-06-30", "card": "amex-plat", "action": "H1 hotel credit expires ($300 FHR/THC)" },
+    { "date": "2026-12-28", "card": "amex-plat", "action": "Annual fee renewal ($695) — ROI review 30 days prior" },
+    { "date": "2026-12-31", "card": "amex-plat", "action": "All credits reset — use remaining Resy Q4, hotel H2, airline, CLEAR, Uber Cash/One, Walmart+" },
+    { "date": "2026-12-31", "card": "citi-aa-exec", "action": "Avis/Budget credit resets" },
+    { "date": "2027-01-28", "card": "citi-aa-exec", "action": "Annual fee renewal ($770)" }
+  ],
+  "spend_threshold_tracker": {
+    "amex_plat_75k": {
+      "target": 75000,
+      "current": 11142,
+      "remaining": 63858,
+      "deadline": "2026-12-31",
+      "unlocks": "Centurion Lounge guest access + unlimited Delta Sky Club through Jan 2028",
+      "note": "At current Lindsay spend rate (~$727/mo + David), pace is ~$8,724/yr on card. Will NOT hit $75K without major change."
+    }
+  },
+  "atlas_statements": {
+    "dec2025_jan2026": {
+      "period": "Dec 9, 2025 - Jan 8, 2026",
+      "total_charges": 1230.98,
+      "category_breakdown": { "dining": 1230.98 },
+      "transactions": [
+        { "date": "2025-12-10", "payee": "New World Trading of Sout, Plantation", "amount": 595.00, "category": "dining" },
+        { "date": "2025-12-28", "payee": "Baonecci, Frisco", "amount": 316.00, "category": "dining" },
+        { "date": "2025-12-31", "payee": "Nikugen Steak & Ramen, Frisco", "amount": 30.00, "category": "dining" },
+        { "date": "2026-01-08", "payee": "Carbone, Dallas", "amount": 289.98, "category": "dining" }
+      ]
+    },
+    "jan_feb2026": {
+      "period": "Jan 9 - Feb 8, 2026",
+      "total_charges": 1644.35,
+      "category_breakdown": { "dining": 1644.35 },
+      "transactions": [
+        { "date": "2026-01-23", "payee": "Sea Breeze Fish Mark, Plano", "amount": 22.00, "category": "dining" },
+        { "date": "2026-01-28", "payee": "Even Coast, Dallas", "amount": 225.00, "category": "dining" },
+        { "date": "2026-02-01", "payee": "Jashan, jashan.us", "amount": 303.10, "category": "dining" },
+        { "date": "2026-02-04", "payee": "Bobs Steak & Chop House, Dallas", "amount": 694.00, "category": "dining" },
+        { "date": "2026-02-05", "payee": "Jashan Dallas LLC, Plano", "amount": 400.25, "category": "dining" }
+      ]
+    }
+  },
+  "plat_jan_2026_statement": {
+    "period": "Dec 29, 2025 - Jan 28, 2026",
+    "total_charges": 734.58,
+    "david_charges": 7.58,
+    "david_credits": -7.58,
+    "lindsay_charges": 727.00,
+    "susie_charges": 0,
+    "transactions": [
+      { "date": "2026-01-25", "payee": "Adobe", "amount": 21.64, "card_member": "Lindsay", "category": "subscription" },
+      { "date": "2026-01-18", "payee": "HP Instant Ink", "amount": 5.94, "card_member": "Lindsay", "category": "subscription" },
+      { "date": "2026-01-16", "payee": "WSJ Online", "amount": 7.58, "card_member": "David", "category": "subscription", "credit_applied": "Digital Entertainment -$7.58" },
+      { "date": "2026-01-15", "payee": "Microsoft", "amount": 31.97, "card_member": "Lindsay", "category": "software" },
+      { "date": "2026-01-10", "payee": "OpenAI ChatGPT", "amount": 21.28, "card_member": "Lindsay", "category": "subscription" },
+      { "date": "2026-01-08", "payee": "Trophy Depot", "amount": 418.84, "card_member": "Lindsay", "category": "retail" },
+      { "date": "2026-01-03", "payee": "Google One", "amount": 10.65, "card_member": "Lindsay", "category": "subscription" },
+      { "date": "2026-01-02", "payee": "Public Storage", "amount": 204.00, "card_member": "Lindsay", "category": "storage" },
+      { "date": "2026-01-01", "payee": "Zoom", "amount": 12.68, "card_member": "Lindsay", "category": "subscription" }
+    ]
+  }
+}

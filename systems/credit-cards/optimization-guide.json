@@ -1,0 +1,141 @@
+{
+  "last_updated": "2026-02-14",
+  "card_selection_guide": {
+    "description": "Which card to use for each spending category to maximize rewards",
+    "categories": {
+      "groceries_us": {
+        "best_card": "amex-bcp",
+        "rate": "6% (up to $6K/yr)",
+        "runner_up": "discover-it",
+        "runner_up_rate": "5% when rotating category is active (Q1 2026), 1% otherwise",
+        "note": "After $6K annual grocery cap on Amex, switch to Discover if in-season or Citi for 1x miles"
+      },
+      "wholesale_clubs": {
+        "best_card": "discover-it",
+        "rate": "5% (Q1 2026 only, up to $1,500/quarter)",
+        "runner_up": "amex-bcp",
+        "runner_up_note": "Amex may not be accepted at Costco. Use Discover or Visa cards at Costco.",
+        "note": "Costco only accepts Visa — use Chase Sapphire (1x) or Atlas (1x) if Discover not in rotating season"
+      },
+      "dining": {
+        "best_card": "atlas-visa",
+        "rate": "2x (was 3x through Aug 2025, dropped to 2x from Oct 2025 — dynamic top category shifted)",
+        "runner_up": "chase-sapphire",
+        "runner_up_rate": "2x UR",
+        "note": "Atlas and Sapphire are now tied at 2x for dining. Atlas still preferred: $0 annual fee, and Atlas points redeem at 1cpp for hotels vs Chase UR at ~1.25cpp via portal. Monitor Atlas rate — if dining goes back to 3x, advantage returns. Chase Sapphire's value proposition is now very thin."
+      },
+      "streaming_us": {
+        "best_card": "amex-bcp",
+        "rate": "6%",
+        "runner_up": "discover-it",
+        "runner_up_rate": "5% when active (Q1 2026)",
+        "note": "Amex BCP is best year-round for streaming"
+      },
+      "gas_stations_us": {
+        "best_card": "amex-bcp",
+        "rate": "3%",
+        "runner_up": "discover-it",
+        "runner_up_rate": "5% when rotating category, otherwise 1%",
+        "note": "Discover beats Amex when gas is rotating category"
+      },
+      "transit_rideshare": {
+        "best_card": "amex-bcp",
+        "rate": "3%",
+        "runner_up": "atlas-visa",
+        "runner_up_rate": "3x if rideshare is top category",
+        "note": "Citi Lyft credit ($10/mo after 3 rides) stacks — use Citi for Lyft specifically"
+      },
+      "american_airlines": {
+        "best_card": "citi-aa-exec",
+        "rate": "4x AA miles (10x on AA hotels/rental cars)",
+        "note": "Always use Citi for AA purchases"
+      },
+      "flights_non_aa": {
+        "best_card": "amex-biz-plat",
+        "rate": "5x MR via Amex Travel",
+        "runner_up": "atlas-visa",
+        "runner_up_rate": "3x if flights is top category",
+        "note": "Must book through Amex Travel for 5x. Direct booking = 1x."
+      },
+      "hotels": {
+        "best_card": "amex-biz-plat",
+        "rate": "5x MR via Amex Travel (prepaid)",
+        "runner_up": "citi-aa-exec",
+        "runner_up_rate": "10x on hotels booked via AA",
+        "note": "Use Biz Plat FHR/THC bookings to also earn $600 hotel credit"
+      },
+      "rental_cars": {
+        "best_card": "citi-aa-exec",
+        "rate": "10x on rental cars booked via AA",
+        "runner_up": "citi-aa-exec",
+        "runner_up_note": "Also use Citi Avis/Budget credit ($120/yr) for prepaid rentals",
+        "note": "Book through AA for 10x miles + use Avis/Budget credit separately"
+      },
+      "wine_spirits": {
+        "best_card": "citi-aa-exec",
+        "rate": "1x AA miles",
+        "note": "No card has a bonus category for this. All earn base rate. Citi 1x miles slightly more valuable than 1% cashback. Consider if Atlas top category could cover this.",
+        "optimization_note": "Large spend category ($3,600+/yr in 2026) — no great option. This is a portfolio gap."
+      },
+      "insurance": {
+        "best_card": "citi-aa-exec",
+        "rate": "1x AA miles",
+        "note": "Massive category ($24K+/yr). All cards earn base rate. A 2% flat card would save $240/yr vs 1x miles. Portfolio gap.",
+        "optimization_note": "BIGGEST optimization opportunity if a 2% card is added to portfolio"
+      },
+      "online_shopping": {
+        "best_card": "discover-it",
+        "rate": "5% if Amazon is rotating category, otherwise 1%",
+        "runner_up": "atlas-visa",
+        "runner_up_rate": "1x-3x depending on category",
+        "note": "Check Discover calendar quarterly for Amazon/online categories"
+      },
+      "business_purchases_5k_plus": {
+        "best_card": "amex-biz-plat",
+        "rate": "2x MR on purchases $5K+",
+        "note": "Up to $2M/yr. Great for large business expenses."
+      },
+      "dell_technology": {
+        "best_card": "amex-biz-plat",
+        "rate": "1x MR + up to $1,150 in credits",
+        "note": "Always use Biz Plat for Dell purchases to earn credits"
+      },
+      "wireless_phone": {
+        "best_card": "amex-biz-plat",
+        "rate": "1x MR + $10/mo credit",
+        "note": "Always pay wireless bill with Biz Plat for $120/yr credit"
+      },
+      "grubhub": {
+        "best_card": "citi-aa-exec",
+        "rate": "1x + $10/mo credit",
+        "note": "Always use Citi for Grubhub orders"
+      },
+      "everything_else": {
+        "best_card": "citi-aa-exec",
+        "rate": "1x AA miles",
+        "runner_up": "atlas-visa",
+        "runner_up_rate": "1x Atlas points",
+        "note": "AA miles generally worth 1.5-1.7cpp vs 1% cashback. Citi wins for uncategorized spend."
+      },
+      "international": {
+        "best_card": "citi-aa-exec OR amex-biz-plat OR atlas-visa",
+        "rate": "Varies",
+        "avoid": "amex-bcp (2.7% FTX fee)",
+        "note": "Never use Amex Blue Cash Preferred internationally"
+      }
+    }
+  },
+  "portfolio_gaps": [
+    {
+      "issue": "No 2% flat-rate card for large uncategorized spend",
+      "impact": "Insurance alone is $24K+/yr earning 1x (~1%). A 2% card would double returns on this category.",
+      "annual_cost": "$240+/yr in missed rewards on insurance alone",
+      "recommendation": "Consider Citi Double Cash (2%) or Wells Fargo Active Cash (2%) for insurance and other uncategorized spend"
+    },
+    {
+      "issue": "Chase Sapphire base card has limited value",
+      "impact": "Only 2x on dining (good), 1x everything else (poor). No transfer partners without CSP/CSR.",
+      "recommendation": "Consider product-changing to Chase Sapphire Preferred ($95/yr) for 3x dining, 2x travel, and transfer partner access — or use dining spend on Atlas if it auto-assigns 3x"
+    }
+  ]
+}

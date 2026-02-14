@@ -1,0 +1,225 @@
+{
+  "last_updated": "2026-02-14",
+  "total_annual_fees": 1760,
+  "cards": [
+    {
+      "id": "amex-bcp",
+      "name": "Amex Blue Cash Preferred",
+      "issuer": "American Express",
+      "network": "Amex",
+      "annual_fee": 95,
+      "annual_fee_with_auth_users": 95,
+      "renewal_date": "2026-04-21",
+      "ynab_account_id": "b4b7a7c8-32f5-4503-baf5-207d87050813",
+      "ynab_account_name": "Amex - Blue",
+      "data_source": "ynab",
+      "foreign_transaction_fee": "2.7%",
+      "rewards_type": "cashback",
+      "rewards_structure": {
+        "grocery_us": { "rate": 6, "unit": "percent", "cap": 6000, "cap_period": "year", "then": 1, "note": "U.S. supermarkets, up to $6K/yr then 1%" },
+        "streaming": { "rate": 6, "unit": "percent", "note": "Select U.S. streaming subscriptions" },
+        "gas_stations": { "rate": 3, "unit": "percent", "note": "U.S. gas stations" },
+        "transit": { "rate": 3, "unit": "percent", "note": "U.S. transit including rideshare" },
+        "everything_else": { "rate": 1, "unit": "percent" }
+      },
+      "benefits": {},
+      "credits": {}
+    },
+    {
+      "id": "amex-plat",
+      "name": "Amex Platinum (Personal)",
+      "issuer": "American Express",
+      "network": "Amex",
+      "annual_fee": 695,
+      "auth_users_detail": [
+        { "name": "Susan W O'Hara", "card_type": "Additional Platinum Card", "fee": 195, "renewal_date": "Dec 28", "confirmed": true, "reimbursed_by": "YPO Lone Star" },
+        { "name": "Lindsay M Smith (-23023)", "card_type": "Additional Platinum Card", "fee": 195, "renewal_date": "Apr 27", "confirmed": true, "reimbursed_by": "YPO Lone Star", "note": "YPO Lone Star admin. Spend cannot be optimized to other cards." }
+      ],
+      "auth_user_fee_total": 390,
+      "auth_user_fee_out_of_pocket": 0,
+      "annual_fee_with_auth_users": 1085,
+      "annual_fee_out_of_pocket": 0,
+      "annual_fee_reimbursed_by": "YPO Lone Star",
+      "annual_fee_note": "ALL Platinum fees reimbursed by YPO Lone Star — $695 primary + $195 Susie + $195 Lindsay = $1,085/yr, $0 out-of-pocket.",
+      "renewal_date": "2026-12-28",
+      "account_last_digits": "21001",
+      "auth_users": ["Lindsay M Smith (-23023, YPO Lone Star admin)", "Susan W O'Hara"],
+      "lindsay_note": "Lindsay's spend is YPO business — cannot be optimized to other cards. Exclude from personal optimization.",
+      "ynab_account_id": null,
+      "data_source": "statement_parsing",
+      "foreign_transaction_fee": "none",
+      "rewards_type": "points",
+      "rewards_currency": "Membership Rewards",
+      "mr_balance": 558552,
+      "mr_balance_as_of": "2026-02-14",
+      "rewards_structure": {
+        "flights_amex_travel": { "rate": 5, "unit": "x", "note": "Flights booked on AmexTravel.com" },
+        "prepaid_hotels_amex_travel": { "rate": 5, "unit": "x", "note": "Prepaid hotels on AmexTravel.com" },
+        "everything_else": { "rate": 1, "unit": "x" }
+      },
+      "benefits": {
+        "centurion_lounges": "Access to 1,550+ airport lounges across 140 countries",
+        "centurion_guest_access": "Spend $75K by Dec 31, 2026 for guest access through Jan 2028. Progress: $11,142/$75,000",
+        "delta_sky_club_unlimited": "Unlimited access unlocked through Jan 31, 2027. Spend $75K by Dec 31, 2026 to extend through Jan 2028. Progress: $11,142/$75,000",
+        "priority_pass": "Enrolled — member 1043702750",
+        "resy_enrolled": true,
+        "no_foreign_transaction_fee": true
+      },
+      "credits": {
+        "resy": { "amount": 400, "period": "year", "reset": "quarterly", "quarterly_cap": 100, "details": "$100/quarter on eligible Resy purchases and U.S. Resy restaurants. Enrolled.", "status": "enrolled" },
+        "digital_entertainment": { "amount": 300, "period": "year", "reset": "monthly", "monthly_cap": 25, "details": "$25/mo on eligible digital subscriptions" },
+        "hotel_fhr_thc": { "amount": 600, "period": "year", "reset": "semi_annual", "semi_annual_cap": 300, "details": "$300 semi-annually on prepaid FHR/THC bookings via Amex Travel" },
+        "lululemon": { "amount": 300, "period": "year", "reset": "quarterly", "quarterly_cap": 75, "details": "$75/quarter on eligible lululemon purchases in U.S. Enrollment required." },
+        "uber_cash": { "amount": 200, "period": "year", "details": "Up to $200 Uber Cash annually when Platinum added to Uber account" },
+        "airline_incidental": { "amount": 200, "period": "year", "reset": "calendar_year", "details": "Incidental fees from selected airline", "selected_airline": "American Airlines" },
+        "clear_plus": { "amount": 209, "period": "year", "reset": "calendar_year", "details": "CLEAR+ membership" },
+        "walmart_plus": { "amount": 155, "period": "year", "reset": "monthly", "monthly_cap": 12.95, "details": "$12.95+tax/mo on Walmart+ monthly membership" },
+        "uber_one": { "amount": 120, "period": "year", "reset": "calendar_year", "details": "Statement credit for auto-renewing Uber One membership" }
+      },
+      "total_credit_value": 2484
+    },
+    {
+      "id": "citi-aa-exec",
+      "name": "Citi AAdvantage Executive World Elite Mastercard",
+      "issuer": "Citi",
+      "network": "Mastercard",
+      "annual_fee": 595,
+      "auth_user_fee": 175,
+      "auth_user": "Susie O'Hara",
+      "annual_fee_with_auth_users": 770,
+      "renewal_date": "2027-01-28",
+      "ynab_account_id": "c95b51b9-5d5b-4aff-8c67-9c54589ff016",
+      "ynab_account_name": "Citi",
+      "data_source": "ynab",
+      "foreign_transaction_fee": "none",
+      "rewards_type": "miles",
+      "rewards_currency": "AAdvantage miles",
+      "rewards_structure": {
+        "aa_hotels_rental_cars": { "rate": 10, "unit": "x", "note": "Eligible hotels & rental cars booked with AA" },
+        "american_airlines": { "rate": 4, "unit": "x", "note": "AA purchases" },
+        "everything_else": { "rate": 1, "unit": "x" },
+        "spend_threshold": { "threshold": 150000, "then_rate": 5, "unit": "x", "note": "After $150K spend, AA purchases become 5x for rest of year" }
+      },
+      "benefits": {
+        "admirals_club": "Full membership + 2 guests or immediate family",
+        "priority_boarding": "Priority check-in and boarding for up to 8 on same reservation",
+        "free_checked_bag": "First checked bag free on AA domestic",
+        "inflight_discount": "25% off inflight food & beverage (not Wi-Fi)",
+        "global_entry_tsa": "$120 every 4 years",
+        "trip_protections": "Trip cancellation, interruption, delay, lost baggage, car rental insurance",
+        "lyft_airport": "10% off scheduled rides to/from U.S. airports (Mastercard benefit, exp 1/31/2027)",
+        "no_foreign_transaction_fee": true
+      },
+      "credits": {
+        "grubhub": { "amount": 120, "period": "year", "reset": "monthly", "details": "$10/mo statement credit on Grubhub", "status": "unknown" },
+        "lyft": { "amount": 120, "period": "year", "reset": "monthly", "details": "$10/mo Lyft credit after 3 eligible rides/mo", "status": "unknown" },
+        "avis_budget": { "amount": 120, "period": "year", "reset": "calendar_year", "details": "Prepaid rentals on Avis.com or Budget.com", "status": "unknown" },
+        "global_entry_tsa": { "amount": 120, "period": "4_years", "details": "Global Entry or TSA PreCheck application fee", "status": "unknown" }
+      },
+      "total_credit_value": 360
+    },
+    {
+      "id": "discover-it",
+      "name": "Discover it Cash Back",
+      "issuer": "Discover",
+      "network": "Discover",
+      "annual_fee": 0,
+      "cardmember_since": 2017,
+      "card_last_four": "8369",
+      "ynab_account_id": "0ff3092d-c9ea-4f56-b558-c760e6da7b04",
+      "ynab_account_name": "Discover",
+      "data_source": "ynab",
+      "foreign_transaction_fee": "none",
+      "rewards_type": "cashback",
+      "rewards_structure": {
+        "rotating_5pct": { "rate": 5, "unit": "percent", "cap": 1500, "cap_period": "quarter", "then": 1, "requires_activation": true, "note": "Rotating categories, $1,500/quarter cap, must activate" },
+        "everything_else": { "rate": 1, "unit": "percent" }
+      },
+      "rotating_categories": {
+        "2026_Q1": { "period": "Jan-Mar 2026", "categories": ["Grocery stores", "Wholesale clubs", "Select streaming"], "activated": true },
+        "2026_Q2": { "period": "Apr-Jun 2026", "categories": ["TBA"] },
+        "2026_Q3": { "period": "Jul-Sep 2026", "categories": ["TBA"] },
+        "2026_Q4": { "period": "Oct-Dec 2026", "categories": ["TBA"] }
+      },
+      "benefits": {
+        "no_annual_fee": true,
+        "rewards_never_expire": true,
+        "no_foreign_transaction_fee": true
+      },
+      "credits": {}
+    },
+    {
+      "id": "chase-sapphire",
+      "name": "Chase Sapphire",
+      "issuer": "Chase",
+      "network": "Visa",
+      "annual_fee": 0,
+      "card_last_four": "0209",
+      "ynab_account_id": "15694d56-fe61-4029-a526-b53fee53d1b6",
+      "ynab_account_name": "Sapphire",
+      "data_source": "ynab",
+      "data_source_secondary": "chrome_login (Chase Private Client portal — card and banking in same portal)",
+      "foreign_transaction_fee": "unknown",
+      "rewards_type": "points",
+      "rewards_currency": "Ultimate Rewards",
+      "ur_balance": 2933,
+      "ur_balance_as_of": "2026-02-14",
+      "credit_limit": 100398,
+      "current_balance": 1070.58,
+      "available_credit": 99327.42,
+      "payment_due": "2026-03-07",
+      "autopay": false,
+      "rewards_structure": {
+        "dining": { "rate": 2, "unit": "x" },
+        "everything_else": { "rate": 1, "unit": "x" }
+      },
+      "benefits": {},
+      "credits": {},
+      "chase_banking_note": "Chase is also David's primary bank. Main Checking ...7817 (pays Atlas), Trust Account ...6375. Same portal as Sapphire card.",
+      "notes": "Base Sapphire card. UR points worth 1cpp without Preferred/Reserve for transfer. Atlas now matches at 2x dining with $0 fee — Sapphire has very thin value proposition. Consider product change or closure."
+    },
+    {
+      "id": "atlas-visa",
+      "name": "Atlas Visa Infinite",
+      "issuer": "Atlas (Lead Bank)",
+      "network": "Visa",
+      "annual_fee": 0,
+      "annual_fee_note": "Special membership — no annual fee for David",
+      "ynab_account_id": null,
+      "data_source": "statement_parsing",
+      "foreign_transaction_fee": "none",
+      "rewards_type": "points",
+      "rewards_currency": "Atlas Points",
+      "points_balance": 11255,
+      "points_pending": 3289,
+      "points_balance_as_of": "2026-02-14",
+      "points_this_year": 580,
+      "redemption_rates": {
+        "statement_credit": { "rate": 0.007, "unit": "cpp" },
+        "hotel_booking": { "rate": 0.01, "unit": "cpp" },
+        "airline_transfer": { "rate": "variable", "note": "Transfer to preferred airline miles program" }
+      },
+      "rewards_structure": {
+        "top_category": { "rate": "dynamic", "note": "Atlas dynamically assigns top category. Was 3x dining through ~Aug 2025, dropped to 2x dining from Oct 2025 onward. Monitor for changes." },
+        "dining_current": { "rate": 2, "unit": "x", "confirmed": "2026-02-14", "note": "Verified from recent transactions: Bob's $694→1388pts, Jashan $400→801pts, Carbone $290→580pts" },
+        "dining_previous": { "rate": 3, "unit": "x", "period": "through ~Aug 2025", "note": "Shinsei $358→1074pts, Chimayo $299→897pts, Jinbeh $324→971pts" },
+        "flights": { "rate": 1, "unit": "x", "note": "AA flights May 2025: $179→179pts each" },
+        "everything_else": { "rate": 1, "unit": "x" }
+      },
+      "benefits": {
+        "priority_pass": "1,300+ airport lounges",
+        "flight_cancellation": "Up to $600/yr ($100/claim, 6 claims)",
+        "concierge": "Text/call/video — restaurants, events, travel booking",
+        "one_medical": "Included",
+        "clear": "Included",
+        "blade_airport": "$100 off every flight + companion pass",
+        "no_foreign_transaction_fee": true
+      },
+      "credits": {
+        "future_fitness": { "amount": 300, "period": "year", "reset": "calendar_year", "details": "FUTURE fitness training membership", "status": "unknown" },
+        "wander": { "amount": 250, "period": "per_reservation", "details": "$250 off per Wander reservation via concierge", "status": "unknown" },
+        "flight_cancellation": { "amount": 600, "period": "year", "details": "$100/claim, up to 6 claims", "status": "unknown" }
+      }
+    }
+  ]
+}
