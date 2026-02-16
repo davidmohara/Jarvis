@@ -5,8 +5,10 @@
 - **Name**: David O'Hara
 - **Role**: Regional Director, Improving (IT services, ~$72.5M Texas revenue)
 - **History**: Co-founded Improving in 2007. President for 14 years. Transitioned to Regional Director to lead One Texas initiative.
-- **Location**: Frisco/Dallas area, Texas
+- **Home**: 1717 Bunkhouse Rd, Frisco, TX 75036
+- **Office**: 5445 Legacy Dr, Suite 100, Plano TX, 75024
 - **Assistant**: Ilse Perez (Teams, text, email — capable, needs direction on prioritization)
+- **Diet**: Gluten-free (Susie too)
 
 ## Family
 
@@ -70,6 +72,11 @@ Core to everything. Not performative — foundational. Sees God's hand in Improv
 - **2013**: Started coaching for Senior Leadership Initiative
 - **Ex-wife**: Darlene. Maintains civility. 3 kids together (Makena, Gemma, Declan).
 - **Susie**: Blended family. Libby and Milan are Susie's kids.
+- **Wedding Anniversary**: February 17, 2019 (David & Susie)
+- **Birthdays**: Libby (Oct 9, 1999), Milan (Feb 3, 2001), Makena (Jan 22, 2003), Gemma (Aug 31, 2005), Declan (Nov 26, 2007)
+- **Parents**: David & Lynn O'Hara
+- **In-Laws**: John & Terri Weiser
+- **Siblings**: Shaun O'Hara, Jennifer Kenney, James O'Hara
 
 ## Side Ventures
 
@@ -93,6 +100,67 @@ Core to everything. Not performative — foundational. Sees God's hand in Improv
 - **Lowell Messner** — SVP Microsoft Practice.
 - **John Yurewicz** — Microsoft contact.
 - **Ehren Seim** — Partnerships (non-Microsoft). Providing contacts and account overlaps for co-sell.
+
+## Travel Preferences
+
+- **Airline**: American (AA# 0U5K806). Aisle, bulkhead (row 8) or first row of emergency exit.
+- **Hotel**: Hilton (937667317), Marriott (376585670), Hyatt (538547033Y) — in that order. Higher floor, away from elevator. Hyatt preferred in GDL.
+- **Rental**: Sixt (16022388), Hertz (54437875), Avis (4XX10E). Regular sedan or larger. Avoid if possible.
+- **Parking**: DFW Terminal D always. Pre-paid via dfwairport.com/park. Backup: FreedomPark valet for late returns/tight schedules.
+- **Fly**: Early morning preferred for full work day. Arrive 2-3 hours early.
+- **TripIt**: Forward all confirmations to plans@tripit.com
+
+## Scheduling Preferences
+
+### Protected Dates — Non-Negotiable
+These dates are **never** to be scheduled over. Jarvis must provide reminders **1 week out and 2 days out** so David can plan accordingly.
+- **Feb 17** — Wedding Anniversary (David & Susie)
+- **Oct 9** — Libby's birthday
+- **Feb 3** — Milan's birthday
+- **Jan 22** — Makena's birthday
+- **Aug 31** — Gemma's birthday
+- **Nov 26** — Declan's birthday
+- **Parents & in-law birthdays** — TBD (get dates)
+
+### General Rules
+- Less than 3 video calls/day (convert to phone if possible)
+- Schedule 25 or 55 min for Teams calls (watch back-to-back)
+- In-person preferred for networking & sales leads
+- Sales leads are highest priority — schedule within 48 hours
+- Confirmations: morning-of to other participants
+- YPO requires 24-hour email response, 80% event attendance
+
+## Reservations
+- **Preferred platform**: Resy (better restaurants, priority access, exclusive inventory). Use Resy first, OpenTable as fallback.
+
+## Favorite Restaurants
+
+- **Coffee**: Kona Reserve (Stonebrook, Frisco), Summer Moon (Legacy, Frisco), Starbucks (Legacy West, Plano), La La Land Kind Cafe (Preston Royal, Dallas)
+- **Lunch**: Ida Claire (Addison), Kenny's Wood Fire (Addison), Mexican Sugar (Plano), Haywire (Plano), Union Bear (Plano), Whiskey Cake (Plano), True Food (Preston Center), Sevy's (Dallas, higher end), Hillstone (Dallas)
+- **Dinner**: Ida Claire (Addison), Mexican Sugar (Plano), Haywire (Plano), Trick Rider (Omni PGA Frisco — anniversary-tier)
+- **Meeting spaces**: Stagen (3535 Travis St, Dallas), Roam (5752 Grandscape, The Colony), 25N Coworking (9355 John W. Elliott Dr, Frisco)
+
+## Providers
+
+- **GP**: Julli Randol @ Performance Medicine (Trend Healthcare)
+- **Chiropractor**: Dr. Ishmael Gonzales @ Performance Medicine
+- **Dermatologist**: Dr. Crawford @ Dallas Associated Dermatologists (Legacy & Preston)
+- **Audiologist**: North Dallas ENT (Plano)
+- **Eye**: Dr. Tom McClintock @ Clarkson Eyecare (Frisco, Stonebrook Pkwy)
+- **Sleep**: Dr. Vikas Jain @ Dream Sleep Medicine (4645 Avon Ln #340, Frisco)
+- **Ortho**: Dr. Mark Mueller @ Carrell Clinic (Star location)
+- **Pharmacy**: CVS at 270 Stonebrook Parkway, Frisco, TX 75036
+- **Blood**: Carter Bloodcare every 2 months. Parker (Plano) or Main St (Frisco).
+- **Dentist**: Dr. Lu @ Heritage Family Dentistry (2 Frisco locations — confirm which)
+- **Haircut**: Every 2 weeks. The Boardroom Lakeside (972.403.0600) with Carissa
+
+## Medical
+
+- Father: Type 1 Diabetic (both grandfathers too)
+- No known allergies to medicine
+- No regular medications
+- Tinnitus
+- Surgeries: ACL replacement (2019), pin in left foot Jones fracture (2017), shoulder tears (1994, 2016)
 
 ## What He's Learning / Growing
 

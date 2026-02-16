@@ -84,6 +84,42 @@
         { "vendor": "TurboTax", "value": "$20 back on $40+", "expires": "2026-04-18" },
         { "vendor": "Adobe", "value": "$10/mo for 3 months", "expires": "2026-03-31", "note": "Only if any Adobe charges land on BCP" }
       ]
+    },
+    "citi-aa-exec": {
+      "last_reviewed": "2026-02-14",
+      "total_saved_to_date": 34.72,
+      "total_offers_available": "283 shopping + 12 entertainment + 2 health + 2 other",
+      "enrolled": [
+        { "vendor": "Shell", "cashback": "4%", "days_left": 13, "added_by": "David" },
+        { "vendor": "BP", "cashback": "5%", "days_left": 13, "added_by": "David" },
+        { "vendor": "Sixt Rent A Car", "cashback": "10%", "days_left": 44, "added_by": "David" },
+        { "vendor": "Chipotle", "cashback": "5%", "days_left": 13, "added_by": "David" },
+        { "vendor": "Dropbox", "cashback": "$20 back", "days_left": 13, "added_by": "David" },
+        { "vendor": "citizenwatch.com", "cashback": "3%", "days_left": 46, "added_by": "David" },
+        { "vendor": "snakeriverfarms.com", "cashback": "4%", "days_left": 76, "added_by": "David" },
+        { "vendor": "bumbleandbumble.com", "cashback": "5%", "days_left": 76, "added_by": "David" },
+        { "vendor": "ancestry.com", "cashback": "4%", "days_left": 76, "added_by": "David" }
+      ],
+      "recommended_to_add": [
+        { "vendor": "Lyft", "cashback": "5%", "days_left": 44, "priority": "high", "note": "STACKS with $10/mo Lyft credit. Double-dip." },
+        { "vendor": "TurboTax", "cashback": "30%", "days_left": 62, "priority": "high", "note": "Tax season. Same rate as Chase/Amex offers." },
+        { "vendor": "Live Nation", "cashback": "5%", "days_left": 44, "priority": "high", "note": "Concert tickets — pairs with Amex Venue Collection 10% on concessions." },
+        { "vendor": "Valvoline", "cashback": "6%", "days_left": 44, "priority": "medium", "note": "Oil changes." },
+        { "vendor": "Edwin Watts Golf", "cashback": "$10 back", "days_left": 13, "priority": "medium", "note": "Golf gear. Expiring soon." },
+        { "vendor": "Microsoft Store", "cashback": "20%", "days_left": 44, "priority": "medium", "note": "Lindsay charges $31.97/mo Microsoft on Plat — could redirect." }
+      ],
+      "notable_offers_not_added": [
+        { "vendor": "ESPN+", "cashback": "15%", "days_left": 62, "note": "If streaming sports" },
+        { "vendor": "FuboTV", "cashback": "20%", "days_left": 62, "note": "Sports streaming alternative" },
+        { "vendor": "Sling TV", "cashback": "18%", "days_left": 44, "note": "Streaming" },
+        { "vendor": "Duolingo", "cashback": "$30 back", "days_left": 44, "note": "If anyone uses Duolingo" },
+        { "vendor": "Hyper Ice", "cashback": "15%", "days_left": 44, "note": "Recovery/massage gear" },
+        { "vendor": "Multiple golf shops", "note": "GlobalGolf 10%, GolfDiscount.com 5%, RockBottomGolf 5%, GolfBalls.com 5%, Golf Galaxy varies" }
+      ],
+      "not_relevant": [
+        { "vendor": "AT&T Wireless", "cashback": "$50 back on $200+", "reason": "David is on T-Mobile" }
+      ],
+      "note": "Full page requires scrolling to load all 283 shopping offers. Jarvis can scroll via JS window.scrollBy() in future sessions."
     }
   },
   "upcoming_deadlines": [

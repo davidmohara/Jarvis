@@ -34,7 +34,7 @@ Jarvis can control Chrome via AppleScript JavaScript execution:
 
 ### Proactive Alerts
 1. **Monthly**: Benefits usage check — flag unused credits before they expire
-2. **Monthly**: Review card-linked offers on Chase Sapphire, Amex Platinum, and Amex BCP. Cross-reference against recent transaction history. Add any offers for vendors David uses. Flag high-value offers.
+2. **Monthly**: Review card-linked offers on Chase Sapphire, Amex Platinum, Amex BCP, and Citi AAdvantage Executive. Cross-reference against recent transaction history. Add any offers for vendors David uses. Flag high-value offers. Note: Citi has 283+ shopping offers that lazy-load — may need David to scroll or filter manually.
 3. **Quarterly**: Discover 5% activation reminder + category optimization review
 4. **Pre-travel**: Card selection guidance (FTX fees, lounge access, insurance)
 5. **Before large purchases**: Best card recommendation + check for active card-linked offer
