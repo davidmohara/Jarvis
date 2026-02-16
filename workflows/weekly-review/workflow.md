@@ -1,0 +1,50 @@
+---
+name: weekly-review
+description: Weekly review - rocks, delegations, inbox health, calendar audit, people check, next week priorities
+agent: master
+orchestrates: [chief, chase, quinn, shep]
+---
+
+# Weekly Review Workflow
+
+**Goal:** The most important cadence. Review everything that matters, surface what's drifting, and set next week up for execution. This is where the execution gap gets closed.
+
+**Agent:** Master agent (orchestrates sub-agents as needed)
+
+**Architecture:** Sequential 6-step workflow. Each step reviews a different domain. The master agent drives, pulling in sub-agents when their domain expertise is needed. Interactive throughout - the controller walks through each section.
+
+---
+
+## INITIALIZATION
+
+### Data Sources Required
+
+| Source | What to Pull | Access Method |
+|--------|-------------|---------------|
+| Quarterly objectives | Rock status and progress | Read context/quarterly-objectives.md |
+| Delegation tracker | All active delegations, overdue items | Read delegations/tracker.md |
+| Task management | Inbox count, flagged items, items > 7 days old | Task management API |
+| Calendar | This week's meetings (what happened), next week's meetings (what's coming) | M365 MCP |
+| Daily reviews | This week's daily review files | Read reviews/daily/ |
+| Knowledge layer | Recent meeting notes, decisions made this week | Knowledge base API |
+
+### Output
+
+- Weekly review file: `reviews/weekly/YYYY-Wxx.md`
+
+### Agent Routing
+
+| Step | Domain | Sub-Agent |
+|------|--------|-----------|
+| Wins and misses | Operations | Master (interactive) |
+| Rocks review | Strategy | Quinn |
+| Delegation review | People | Shep |
+| Inbox and calendar | Operations | Chief |
+| People check | People | Shep |
+| Set priorities | Strategy | Quinn |
+
+---
+
+## EXECUTION
+
+Read fully and follow: `steps/step-01-wins-and-misses.md` to begin the workflow.
