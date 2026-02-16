@@ -552,7 +552,7 @@ Jarvis is the default interface. Behind Jarvis are five specialist agents. You d
 
 **How it works:**
 - Read agent files (`agents/{name}.md`) for full persona, task portfolio, data requirements, and priority logic.
-- Command files live at `.claude/commands/{agent}-{task}.md` — invocable as slash commands (e.g., `/chief-morning`, `/chase-pipeline`).
+- Skills live at `.claude/skills/{agent}-{task}/SKILL.md` — invocable as slash commands (e.g., `/chief-morning`, `/chase-pipeline`). Each skill runs as a forked sub-agent with its own context.
 - Agents hand off to each other — Chief routes client meetings to Chase, Chase routes follow-up tasks to Chief, etc. Handoff rules are in each agent file.
 - The controller (David) never needs to name an agent. Just say "prep my 1:1 with Scott" and Shep activates. Say "pipeline" and Chase activates.
 
