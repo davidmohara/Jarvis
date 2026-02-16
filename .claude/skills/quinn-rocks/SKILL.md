@@ -3,6 +3,13 @@ name: quinn-rocks
 description: Quarterly rock review — progress check with risk flags and corrective actions
 context: fork
 agent: general-purpose
+allowed-tools:
+  - "Bash(*)"
+  - "mcp__obsidian-mcp-tools__*"
+  - "mcp__claude_ai_Microsoft_365__*"
+  - "mcp__claude_ai_Mermaid_Chart__*"
+  - "WebSearch"
+  - "WebFetch(*)"
 ---
 
 # Quinn — Quarterly Rock Review

@@ -3,6 +3,13 @@ name: shep-one-on-one
 description: 1:1 prep — build agenda from delegations, last meeting notes, goals, and coaching themes
 context: fork
 agent: general-purpose
+allowed-tools:
+  - "Bash(*)"
+  - "mcp__obsidian-mcp-tools__*"
+  - "mcp__claude_ai_Microsoft_365__*"
+  - "mcp__claude_ai_Mermaid_Chart__*"
+  - "WebSearch"
+  - "WebFetch(*)"
 ---
 
 # Shep — One-on-One Prep

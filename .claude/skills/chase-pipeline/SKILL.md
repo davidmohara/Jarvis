@@ -3,6 +3,13 @@ name: chase-pipeline
 description: Pipeline review — health check on active deals with stage, risk flags, and next actions
 context: fork
 agent: general-purpose
+allowed-tools:
+  - "Bash(*)"
+  - "mcp__obsidian-mcp-tools__*"
+  - "mcp__claude_ai_Microsoft_365__*"
+  - "mcp__claude_ai_Mermaid_Chart__*"
+  - "WebSearch"
+  - "WebFetch(*)"
 ---
 
 # Chase — Pipeline Review

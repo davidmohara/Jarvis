@@ -3,6 +3,13 @@ name: chief-review
 description: End-of-day review — capture what got done, what didn't, what carries forward
 context: fork
 agent: general-purpose
+allowed-tools:
+  - "Bash(*)"
+  - "mcp__obsidian-mcp-tools__*"
+  - "mcp__claude_ai_Microsoft_365__*"
+  - "mcp__claude_ai_Mermaid_Chart__*"
+  - "WebSearch"
+  - "WebFetch(*)"
 ---
 
 # Chief — Daily Review

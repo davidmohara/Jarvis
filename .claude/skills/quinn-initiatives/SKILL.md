@@ -3,6 +3,13 @@ name: quinn-initiatives
 description: Initiative tracker — living view of strategic initiatives with status, owners, and blockers
 context: fork
 agent: general-purpose
+allowed-tools:
+  - "Bash(*)"
+  - "mcp__obsidian-mcp-tools__*"
+  - "mcp__claude_ai_Microsoft_365__*"
+  - "mcp__claude_ai_Mermaid_Chart__*"
+  - "WebSearch"
+  - "WebFetch(*)"
 ---
 
 # Quinn — Initiative Tracker

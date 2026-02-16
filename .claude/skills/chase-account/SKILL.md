@@ -3,6 +3,13 @@ name: chase-account
 description: Account strategy — deep-dive on a target account with history, contacts, and recommended playbook
 context: fork
 agent: general-purpose
+allowed-tools:
+  - "Bash(*)"
+  - "mcp__obsidian-mcp-tools__*"
+  - "mcp__claude_ai_Microsoft_365__*"
+  - "mcp__claude_ai_Mermaid_Chart__*"
+  - "WebSearch"
+  - "WebFetch(*)"
 ---
 
 # Chase — Account Strategy

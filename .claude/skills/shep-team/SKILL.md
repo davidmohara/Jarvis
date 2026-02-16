@@ -3,6 +3,13 @@ name: shep-team
 description: Team health pulse — who needs attention, who is thriving, who is at risk
 context: fork
 agent: general-purpose
+allowed-tools:
+  - "Bash(*)"
+  - "mcp__obsidian-mcp-tools__*"
+  - "mcp__claude_ai_Microsoft_365__*"
+  - "mcp__claude_ai_Mermaid_Chart__*"
+  - "WebSearch"
+  - "WebFetch(*)"
 ---
 
 # Shep — Team Health Pulse

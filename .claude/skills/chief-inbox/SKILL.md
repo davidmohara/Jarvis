@@ -3,6 +3,13 @@ name: chief-inbox
 description: Process inbox — triage items into do now, delegate, defer, or delete
 context: fork
 agent: general-purpose
+allowed-tools:
+  - "Bash(*)"
+  - "mcp__obsidian-mcp-tools__*"
+  - "mcp__claude_ai_Microsoft_365__*"
+  - "mcp__claude_ai_Mermaid_Chart__*"
+  - "WebSearch"
+  - "WebFetch(*)"
 ---
 
 # Chief — Inbox Processing

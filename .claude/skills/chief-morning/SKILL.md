@@ -3,6 +3,13 @@ name: chief-morning
 description: Morning briefing — calendar, priorities, delegations due, key context for today
 context: fork
 agent: general-purpose
+allowed-tools:
+  - "Bash(*)"
+  - "mcp__obsidian-mcp-tools__*"
+  - "mcp__claude_ai_Microsoft_365__*"
+  - "mcp__claude_ai_Mermaid_Chart__*"
+  - "WebSearch"
+  - "WebFetch(*)"
 ---
 
 # Chief — Morning Briefing

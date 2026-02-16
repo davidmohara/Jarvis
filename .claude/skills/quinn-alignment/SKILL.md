@@ -3,6 +3,13 @@ name: quinn-alignment
 description: Goal alignment check — map current activity against quarterly and annual goals, identify drift
 context: fork
 agent: general-purpose
+allowed-tools:
+  - "Bash(*)"
+  - "mcp__obsidian-mcp-tools__*"
+  - "mcp__claude_ai_Microsoft_365__*"
+  - "mcp__claude_ai_Mermaid_Chart__*"
+  - "WebSearch"
+  - "WebFetch(*)"
 ---
 
 # Quinn — Goal Alignment Check

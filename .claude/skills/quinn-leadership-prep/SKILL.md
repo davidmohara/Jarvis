@@ -3,6 +3,13 @@ name: quinn-leadership-prep
 description: Leadership prep — build materials for board meetings, reviews, or town halls
 context: fork
 agent: general-purpose
+allowed-tools:
+  - "Bash(*)"
+  - "mcp__obsidian-mcp-tools__*"
+  - "mcp__claude_ai_Microsoft_365__*"
+  - "mcp__claude_ai_Mermaid_Chart__*"
+  - "WebSearch"
+  - "WebFetch(*)"
 ---
 
 # Quinn — Leadership Prep

@@ -3,6 +3,13 @@ name: harper-deck
 description: Presentation builder — create or refine slide decks from ideas, outlines, or strategy docs
 context: fork
 agent: general-purpose
+allowed-tools:
+  - "Bash(*)"
+  - "mcp__obsidian-mcp-tools__*"
+  - "mcp__claude_ai_Microsoft_365__*"
+  - "mcp__claude_ai_Mermaid_Chart__*"
+  - "WebSearch"
+  - "WebFetch(*)"
 ---
 
 # Harper — Presentation Builder

@@ -3,6 +3,13 @@ name: chase-win-loss
 description: Win/loss analysis — post-decision debrief with lessons to apply to active pursuits
 context: fork
 agent: general-purpose
+allowed-tools:
+  - "Bash(*)"
+  - "mcp__obsidian-mcp-tools__*"
+  - "mcp__claude_ai_Microsoft_365__*"
+  - "mcp__claude_ai_Mermaid_Chart__*"
+  - "WebSearch"
+  - "WebFetch(*)"
 ---
 
 # Chase — Win/Loss Analysis
