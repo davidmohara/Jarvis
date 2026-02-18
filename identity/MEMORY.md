@@ -140,6 +140,18 @@ These dates are **never** to be scheduled over. Jarvis must provide reminders **
 - **Dinner**: Ida Claire (Addison), Mexican Sugar (Plano), Haywire (Plano), Trick Rider (Omni PGA Frisco — anniversary-tier)
 - **Meeting spaces**: Stagen (3535 Travis St, Dallas), Roam (5752 Grandscape, The Colony), 25N Coworking (9355 John W. Elliott Dr, Frisco)
 
+## Concert Watchlist — David & Susie
+
+| Artist | Nearest DFW Date | Venue | Status |
+|--------|-----------------|-------|--------|
+| Post Malone (w/ Jelly Roll) | May 19, 2026 | McLane Stadium, Waco TX | No DFW date — Waco closest. Monitor for added dates. |
+| Kane Brown | Aug 8, 2026 | Choctaw Grand Theater, Durant OK | ~90 min from Dallas. No DFW date yet — monitor. |
+| Sphere (Las Vegas) | Ongoing 2026 | The Sphere, Las Vegas NV | Interested in a show. Current: Eagles (thru Mar), Phish (Apr-May), No Doubt & Kenny Chesney (TBA). Pick one + make it a trip. |
+
+**Notes**: Check [Ticketmaster](https://www.ticketmaster.com), [Live Nation](https://www.livenation.com), and [thesphere.com/shows](https://www.thesphere.com/shows) periodically for new DFW dates and Sphere lineup additions.
+
+**Card Optimization for Concerts**: When buying tickets, check Citi AAdvantage Executive for Live Nation 5% back offer (and any new ticket vendor offers). At the venue, use Amex Platinum for concessions — Venue Collection offer gives 10% back at stadiums/arenas through 12/31/26. Also check Amex Plat for Gametime offer ($30 back on $150+ resale tickets). Review all card-linked offers before purchasing tickets.
+
 ## Providers
 
 - **GP**: Julli Randol @ Performance Medicine (Trend Healthcare)

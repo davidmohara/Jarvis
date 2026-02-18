@@ -3,7 +3,7 @@ from: code
 to: desktop
 category: calendar
 priority: high
-status: pending
+status: expired
 created: 2026-02-13
 ---
 
@@ -24,4 +24,4 @@ David has a 2pm coffee with Yvonne Kanner. I need everything after that so I can
 
 ## Response
 
-<!-- Desktop fills this in -->
+Never processed — expired after 4 days. Moved to done on 2026-02-17.

@@ -51,12 +51,14 @@
   },
   "card_linked_offers": {
     "chase-sapphire": {
-      "last_reviewed": "2026-02-14",
+      "last_reviewed": "2026-02-16",
       "active_offers_added": [
         { "vendor": "TurboTax", "cashback": "30%", "expires_soon": true, "added": "2026-02-14" },
         { "vendor": "Dropbox", "cashback": "30%", "expires": "~2026-02-28", "added": "2026-02-14", "note": "Renewal not until Nov 2026. OmniFocus reminder set for Oct 15 to check for new offer." },
         { "vendor": "Ancestry", "cashback": "10%", "expires_soon": true, "added": "2026-02-14", "note": "Last purchase Aug 2025. OmniFocus reminder set for Jul 15." },
-        { "vendor": "Uber", "cashback": "10%", "expires_soon": true, "added": "2026-02-14", "note": "Backup behind Amex Plat $200/yr Uber Cash credit." }
+        { "vendor": "Uber", "cashback": "10%", "expires_soon": true, "added": "2026-02-14", "note": "Backup behind Amex Plat $200/yr Uber Cash credit." },
+        { "vendor": "SeatGeek", "cashback": "5%", "added": "2026-02-16", "note": "Resale concert tickets. Part of concert card optimization strategy." },
+        { "vendor": "PopStroke", "cashback": "20%", "added": "2026-02-16", "note": "Tiger Woods mini golf concept." }
       ],
       "total_saved_to_date": 6.39
     },
@@ -71,18 +73,20 @@
       "notable_offers_not_added": [
         { "vendor": "TurboTax", "value": "$20 back on $40+", "expires": "2026-04-18", "note": "Add if tax charge will land on Plat" },
         { "vendor": "Docusign", "value": "20% back, up to $100", "expires": "2026-04-30" },
-        { "vendor": "Gametime", "value": "$30 back on $150+", "expires": "2026-04-03" },
+        { "vendor": "Gametime", "value": "$30 back on $150+", "expires": "2026-04-03", "note": "ADD NEXT LOGIN — resale concert tickets. Part of concert card optimization strategy." },
         { "vendor": "HBO Max", "value": "$25 back on $99+ annual", "expires": "2026-03-15" }
       ]
     },
     "amex-bcp": {
-      "last_reviewed": "2026-02-14",
+      "last_reviewed": "2026-02-16",
       "total_saved_to_date": 90.00,
       "active_offers_added": [],
       "notable_offers_not_added": [
+        { "vendor": "Hollywood Feed", "value": "$20 back on $75+", "expires": "2026-08-02", "note": "Backup dog food supplier. Add if purchase planned on BCP." },
         { "vendor": "CLEAR+", "value": "$50 back on $209+", "expires": "2026-03-30", "note": "Only useful if CLEAR charged to BCP instead of using Plat credit" },
         { "vendor": "TurboTax", "value": "$20 back on $40+", "expires": "2026-04-18" },
-        { "vendor": "Adobe", "value": "$10/mo for 3 months", "expires": "2026-03-31", "note": "Only if any Adobe charges land on BCP" }
+        { "vendor": "Adobe", "value": "$10/mo for 3 months", "expires": "2026-03-31", "note": "Only if any Adobe charges land on BCP" },
+        { "vendor": "FuboTV", "value": "$30 back on $60+, up to 3x ($90)", "expires": "2026-04-30", "note": "Streaming = 6% on BCP. Double-dip if subscribed." }
       ]
     },
     "citi-aa-exec": {
@@ -98,12 +102,12 @@
         { "vendor": "citizenwatch.com", "cashback": "3%", "days_left": 46, "added_by": "David" },
         { "vendor": "snakeriverfarms.com", "cashback": "4%", "days_left": 76, "added_by": "David" },
         { "vendor": "bumbleandbumble.com", "cashback": "5%", "days_left": 76, "added_by": "David" },
-        { "vendor": "ancestry.com", "cashback": "4%", "days_left": 76, "added_by": "David" }
+        { "vendor": "ancestry.com", "cashback": "4%", "days_left": 76, "added_by": "David" },
+        { "vendor": "Live Nation", "cashback": "5%", "days_left": 44, "added_by": "David", "added": "2026-02-16", "note": "Concert tickets — pairs with Amex Venue Collection 10% on concessions." }
       ],
       "recommended_to_add": [
         { "vendor": "Lyft", "cashback": "5%", "days_left": 44, "priority": "high", "note": "STACKS with $10/mo Lyft credit. Double-dip." },
         { "vendor": "TurboTax", "cashback": "30%", "days_left": 62, "priority": "high", "note": "Tax season. Same rate as Chase/Amex offers." },
-        { "vendor": "Live Nation", "cashback": "5%", "days_left": 44, "priority": "high", "note": "Concert tickets — pairs with Amex Venue Collection 10% on concessions." },
         { "vendor": "Valvoline", "cashback": "6%", "days_left": 44, "priority": "medium", "note": "Oil changes." },
         { "vendor": "Edwin Watts Golf", "cashback": "$10 back", "days_left": 13, "priority": "medium", "note": "Golf gear. Expiring soon." },
         { "vendor": "Microsoft Store", "cashback": "20%", "days_left": 44, "priority": "medium", "note": "Lindsay charges $31.97/mo Microsoft on Plat — could redirect." }
