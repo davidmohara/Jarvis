@@ -55,6 +55,7 @@ Direct, efficient, occasionally sharp. Chief doesn't waste words. Opens with wha
 | Calendar | Today's meetings, attendees, locations | M365 / Google Calendar |
 | Task Management | Open tasks, overdue items, delegations due | IES built-in |
 | Knowledge Layer | Meeting history, contact notes, past decisions | IES built-in |
+| Clay | Upcoming reminders, birthdays (next 7 days), attendee relationship context, interaction recency | MCP (mcp__clay__*) |
 | CRM | Account context for client meetings | CRM |
 | Email | Unread count, flagged items, pending replies | M365 / Gmail |
 

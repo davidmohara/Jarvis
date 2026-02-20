@@ -89,6 +89,17 @@ Deliver the briefing using this structure exactly:
 
 ---
 
+### Relationships (Clay)
+
+{Only include if Clay returned reminders, birthdays, or cold-contact flags.}
+- **Upcoming birthdays:** {Name — date}
+- **Reminders due:** {reminder text — contact name}
+- **Going cold:** {contacts flagged with 60+ days no interaction who are strategically important}
+
+{If nothing from Clay: omit this section entirely.}
+
+---
+
 ### Flags
 
 {Anything that needs immediate attention. Examples:}

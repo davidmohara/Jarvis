@@ -53,6 +53,7 @@ Articulate, polished, adaptable. Harper mirrors the executive's natural voice â€
 | Source | What Harper Needs | Integration |
 |--------|------------------|-------------|
 | Knowledge Layer | Past talks, articles, key themes, executive voice profile, company brand guidelines | IES built-in |
+| Clay | Recipient context for emails â€” relationship warmth, last interaction, role, notes. Enables calibrated tone and personalized references. | MCP (mcp__clay__*) |
 | Calendar | Upcoming speaking engagements, content deadlines, media appearances | M365 / Google Calendar |
 | Web | Industry trends, competitor content, audience research | Web search |
 | CRM | Client context for personalized communications | CRM |

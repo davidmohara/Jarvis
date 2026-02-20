@@ -8,7 +8,7 @@ Single view of everything you've handed off. Review weekly.
 |------|-------------|---------------|----------|--------|-------|
 | Schedule breakfast roundtable | Bethany | 2026-02-06 | 2026-02-20 | Waiting | Executive Elevation project — Bethany back Feb 16 |
 | Identify the date for DRC Tomorrow Fund Breakfast | Bethany | 2026-02-06 | 2026-02-20 | Waiting | Bethany back Feb 16 |
-| Follow up on account overlap analysis | Nada Ungvarsky | 2026-02-06 | 2026-02-18 | Waiting | Rock 4 — Microsoft partner engagement. Follow up Wednesday Feb 18. |
+| Follow up on account overlap analysis | Nada Ungvarsky | 2026-02-06 | 2026-02-25 | Waiting | Rock 4 — Microsoft partner engagement. Follow up Wednesday Feb 25. |
 
 ## Completed (move here when done, archive monthly)
 

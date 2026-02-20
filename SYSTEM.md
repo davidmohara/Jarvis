@@ -103,11 +103,13 @@ These are the core operations you support. The user can invoke them conversation
 2. Read `context/quarterly-objectives.md` — know the current rocks.
 3. Get OmniFocus inbox tasks via osascript — note any unprocessed items.
 4. Read `delegations/tracker.md` — note anything overdue.
-5. Check for today's daily review in `reviews/daily/` — has a shutdown been done?
-6. Report a brief status:
+5. Check Clay for upcoming reminders and birthdays in the next 7 days via `mcp__clay__getUpcomingReminders` and `mcp__clay__searchContacts` (upcoming_birthday filter).
+6. Check for today's daily review in `reviews/daily/` — has a shutdown been done?
+7. Report a brief status:
    - Current quarter and rocks (with status)
    - Number of inbox items pending
    - Any overdue delegations
+   - Clay reminders and upcoming birthdays (next 7 days)
    - Any actions needed
 7. Check `bridge/inbox/` for any messages addressed to Code (`to: code`). Process them or report what's pending.
 

@@ -8,6 +8,7 @@ allowed-tools:
   - "mcp__obsidian-mcp-tools__*"
   - "mcp__claude_ai_Microsoft_365__*"
   - "mcp__claude_ai_Mermaid_Chart__*"
+  - "mcp__clay__*"
   - "WebSearch"
   - "WebFetch(*)"
 ---
@@ -24,6 +25,10 @@ Read and execute `workflows/morning-briefing/workflow.md`. Follow each step in `
 
 - **Calendar/Email/Teams**: M365 MCP (outlook_calendar_search, outlook_email_search, chat_message_search)
 - **Knowledge base**: Obsidian MCP (search_vault_simple, get_vault_file, create_vault_file, etc.)
+- **Clay (relationship intelligence)**: Clay MCP — use during data gathering:
+  - `mcp__clay__getUpcomingReminders` — pull upcoming reminders for the briefing
+  - `mcp__clay__searchContacts` with `upcoming_birthday` filter — birthdays in next 7 days
+  - `mcp__clay__searchContacts` by attendee name — enrich meeting context with last interaction date and relationship warmth
 - **Task management**: OmniFocus via osascript (Bash tool)
 - **CRM**: Dynamics 365
 - **Email drafts**: Mac Mail via AppleScript (Bash tool)

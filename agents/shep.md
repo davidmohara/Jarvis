@@ -54,6 +54,7 @@ Warm but direct. Shep leads with empathy and follows with accountability. Uses p
 |--------|----------------|-------------|
 | Delegation Tracker | All active delegations with owners, dates, status | IES built-in |
 | Knowledge Layer | 1:1 history, coaching notes, past conversations, development plans | IES built-in |
+| Clay | Interaction recency per person — last email, last meeting, total touchpoints. Flags when a relationship is going cold (no interaction 14+ days for directs, 30+ days for extended team). Notes and reminders tied to people. | MCP (mcp__clay__*) |
 | Calendar | Upcoming 1:1s, team meetings, skip-levels | M365 / Google Calendar |
 | Task Management | Tasks assigned to/from direct reports | IES built-in |
 | CRM | Team member account assignments (for context) | CRM |

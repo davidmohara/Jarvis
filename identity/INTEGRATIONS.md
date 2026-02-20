@@ -13,8 +13,42 @@
 | PowerPoint | Presentations, strategy decks | Local file access |
 | Excel | Data, planning | Local file access |
 | OneDrive | Cloud storage for Improving files | Local mount at ~/Library/CloudStorage/OneDrive-Improving/ |
+| Clay | Personal relationship management — contacts, notes, reminders, interaction history | MCP server (mcp__clay__*) |
 | Jarvis Bridge | Code-Desktop task handoff | File queue in `bridge/` |
 | Phone / Texts | Quick communication | Not accessible by Jarvis |
+
+## Clay — Personal Relationship Management
+
+Clay is the **network intelligence layer** — it auto-imports contacts from email, calendar, messages, and LinkedIn, enriches them with work/education info, and tracks interaction history across channels. It is NOT a CRM replacement (Dynamics handles pipeline). Clay is for relationship awareness.
+
+### Available Tools
+
+| Tool | Purpose | When to Use |
+|------|---------|-------------|
+| `mcp__clay__searchContacts` | Search contacts by name, company, location, interaction date, keywords | Meeting prep, account strategy, "who do I know at X?" |
+| `mcp__clay__getContact` | Full contact details by ID | Deep context on a specific person |
+| `mcp__clay__createContact` | Create new contact | Post-event capture, new relationships |
+| `mcp__clay__updateContact` | Update existing contact | Role changes, new info learned |
+| `mcp__clay__createNote` | Add note to contact (with optional reminder) | Post-meeting capture, follow-up reminders |
+| `mcp__clay__getGroups` | List all groups/lists | Segment-based lookups |
+| `mcp__clay__getNotes` | Get notes by date range | Review recent relationship notes |
+| `mcp__clay__getEvents` | Calendar events by date range | Interaction history |
+| `mcp__clay__getUpcomingEvents` | Next upcoming events | Pre-meeting awareness |
+| `mcp__clay__getEmails` | Emails by date range | Communication history with a contact |
+| `mcp__clay__getRecentEmails` | Recent email interactions | Quick interaction check |
+| `mcp__clay__getUpcomingReminders` | Pending reminders | Morning briefing, boot |
+| `mcp__clay__getRecentReminders` | Past reminders | Review follow-through |
+| `mcp__clay__find_duplicates` | Find duplicate contacts | Weekly hygiene |
+| `mcp__clay__merge_contacts` | Merge duplicates (destructive) | Only with explicit approval |
+
+### Integration Rules
+
+1. **Auto-lookup on person mention**: When any agent encounters a person by name, search Clay for context before proceeding. This enriches meeting prep, email drafts, and 1:1 prep automatically.
+2. **Post-meeting capture**: After meetings or events, offer to create/update Clay contacts with notes and follow-up reminders.
+3. **Morning briefing**: Check upcoming reminders and birthdays (next 7 days) during `/chief-morning` and `/boot`.
+4. **Relationship warmth**: Use `last_interaction_date` and email/event counts to assess how warm or cold a relationship is. Flag contacts going cold (60+ days no interaction) during relevant prep.
+5. **Never replace CRM**: Clay tracks personal relationships. Dynamics tracks pipeline and revenue. They serve different purposes.
+6. **Duplicate hygiene**: Run `find_duplicates` during weekly reviews. Merge only with David's approval.
 
 ## OmniFocus Conventions
 

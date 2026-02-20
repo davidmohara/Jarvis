@@ -55,6 +55,7 @@ Confident, numbers-driven, action-oriented. Chase leads with data and ends with 
 | CRM | Opportunities, Accounts, Contacts, pipeline stages, deal history | CRM (browser automation V1, native API V2+) |
 | Calendar | Upcoming client meetings, attendee lists | M365 / Google Calendar |
 | Knowledge Layer | Past meeting notes, relationship history, win/loss records | IES built-in |
+| Clay | Relationship map at target accounts — who David knows, last interaction date, warmth signals, contact enrichment (title, company, LinkedIn) | MCP (mcp__clay__*) |
 | Web | Company news, LinkedIn profiles, competitive intel | Web search |
 | Financial Data | Revenue by account, utilization on active engagements | Excel import |
 

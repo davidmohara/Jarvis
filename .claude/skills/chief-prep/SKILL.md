@@ -8,6 +8,7 @@ allowed-tools:
   - "mcp__obsidian-mcp-tools__*"
   - "mcp__claude_ai_Microsoft_365__*"
   - "mcp__claude_ai_Mermaid_Chart__*"
+  - "mcp__clay__*"
   - "WebSearch"
   - "WebFetch(*)"
 ---
@@ -23,6 +24,7 @@ Build pre-briefs for upcoming meetings:
 1. **Pull calendar** — get today's (or specified day's) meetings via M365 MCP calendar search.
 2. **For each meeting, build a brief:**
    - Attendee bios and context (LinkedIn, CRM, knowledge layer)
+   - **Clay lookup**: Search each attendee via `mcp__clay__searchContacts` by name. Surface last interaction date, interaction counts, and any notes. Flag if relationship is cold (60+ days no interaction).
    - Account context if client-facing
    - Open items from last meeting
    - Suggested objectives and talking points
@@ -35,6 +37,7 @@ Output: One brief per meeting, ordered chronologically. Each scannable in under 
 
 - **Calendar/Email/Teams**: M365 MCP (outlook_calendar_search, outlook_email_search, chat_message_search)
 - **Knowledge base**: Obsidian MCP (search_vault_simple, get_vault_file, create_vault_file, etc.)
+- **Clay (relationship intelligence)**: Clay MCP — `mcp__clay__searchContacts` to look up attendees, `mcp__clay__getContact` for deep context on key people
 - **Task management**: OmniFocus via osascript (Bash tool)
 - **CRM**: Dynamics 365
 - **Email drafts**: Mac Mail via AppleScript (Bash tool)

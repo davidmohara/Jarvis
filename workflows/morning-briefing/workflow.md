@@ -24,6 +24,7 @@ agent: chief
 | Calendar | Today's meetings with attendees, times, locations | M365 MCP |
 | Task management | Inbox count, due today, flagged items | Task management API |
 | Delegation tracker | Overdue items, items due today | Read delegations/tracker.md |
+| Clay | Upcoming reminders (next 7 days), upcoming birthdays, attendee relationship context | Clay MCP (mcp__clay__*) |
 | Knowledge layer | Recent meeting notes, previous daily review | Knowledge base API |
 
 ### Paths
