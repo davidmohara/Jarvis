@@ -1,6 +1,6 @@
 # TripIt Integration
 
-**Status**: Planned — waiting on API app registration
+**Status**: Shelved (2026-02-20) — TripIt denied API access request
 **Spec**: [SPEC.md](./SPEC.md)
 
 ## What This Is
@@ -9,14 +9,12 @@ MCP server + Claude skill that pulls travel data from TripIt and generates pre-t
 
 ## Components
 
-1. `tripit-mcp/` — Node.js MCP server (OAuth 1.0a → TripIt API v1)
+1. `tripit-mcp/` — Node.js MCP server (scaffolded, not implemented)
 2. `travel-brief-skill/` — Claude skill for `/travel-brief` command
 
-## Blockers
+## Why Shelved
 
-- [ ] **David**: Register TripIt API app (in OmniFocus inbox)
-- [ ] Get consumer key + secret from registration
-- [ ] Run OAuth authorization flow to get access token
+TripIt denied the request to enable API access. Without official API access, the remaining options (undocumented web API with browser cookies, iCal feed parsing, or pulling travel data from Outlook instead) weren't worth pursuing right now.
 
 ## Related Files
 
