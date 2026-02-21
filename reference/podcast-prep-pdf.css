@@ -27,7 +27,7 @@ body {
   font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
   font-size: 9.5pt;
   line-height: 1.4;
-  color: #333;
+  color: #000000;
 }
 
 /* === HEADER BANNER === */
@@ -163,7 +163,7 @@ th:nth-child(2) {
 /* === PROMPTING QUESTIONS === */
 p > strong:only-child {
   font-size: 9.5pt;
-  color: #222;
+  color: #000000;
 }
 
 blockquote {
@@ -172,7 +172,7 @@ blockquote {
   border: none;
   font-size: 9pt;
   line-height: 1.35;
-  color: #333;
+  color: #000000;
 }
 
 blockquote p {
@@ -181,6 +181,7 @@ blockquote p {
 
 blockquote p em {
   font-style: italic;
+  color: #000000;
 }
 
 /* === REMEMBER BAR === */

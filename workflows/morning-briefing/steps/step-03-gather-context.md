@@ -67,7 +67,14 @@
    - If exists: note it was completed, pull tomorrow's top 3 if listed
    - If missing: flag "No daily review yesterday" as a warning
 
-5. **Store results** in working memory:
+5. **Check credit card deadlines:**
+   - Read `{project-root}/systems/credit-cards/benefits-tracker.json`
+   - Scan `upcoming_deadlines` for anything within the next 7 days
+   - Scan `benefits_usage` for credits with `remaining > 0` and reset date within 14 days
+   - On the 1st briefing of each month: check `spend_threshold_tracker` for pace alerts
+   - Store results as `card_alerts` in working memory
+
+6. **Store results** in working memory:
    ```
    meeting_context:
      - meeting: ...
@@ -78,6 +85,12 @@
    system_status:
      yesterday_review: completed | missing
      yesterday_top_3: [...] | null
+   card_alerts:
+     - card: ...
+       alert_type: deadline | unused_credit | spend_pace
+       description: ...
+       deadline: YYYY-MM-DD
+       amount: ...
    ```
 
 ---

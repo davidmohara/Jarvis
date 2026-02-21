@@ -89,6 +89,7 @@
    - If any carry-forwards or blockers relate to goal drift → note: "Flag for Quinn at next review"
    - If any delegations went cold (overdue > 7 days) → note: "Flag for Shep to nudge"
    - If any content deadlines slipped → note: "Flag for Harper"
+   - If any credit card benefits expire within 7 days → note: "Chase card alert: [credit] on [card] expires [date]. Run /chase-card-optimizer for details."
    - Record handoff notes in the review file under a `## Handoffs` section (only if there are handoffs)
 
 5. **Deliver the closing summary to the controller:**
