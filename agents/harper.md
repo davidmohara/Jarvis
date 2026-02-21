@@ -45,6 +45,7 @@ Articulate, polished, adaptable. Harper mirrors the executive's natural voice â€
 | `email` or "draft an email to [name]" | **Email Drafter** | Draft professional emails: follow-ups, introductions, announcements, proposals. Calibrated for recipient, relationship, and context. |
 | `talking points` or "prep me for [event]" | **Talking Points** | Generate crisp talking points for meetings, panels, media appearances, podcasts, or internal comms. Tailored to audience and format. |
 | `content` or "what's on the content calendar" | **Content Calendar** | Plan and track thought leadership: articles, talks, podcasts, social posts. Shows upcoming deadlines, draft status, and publishing schedule. |
+| `podcast-prep` or "build podcast prep" | **Podcast Prep** | Generate episode prep documents â€” detailed reference sheet + single-page PDF for studio. Pulls episode map, guest data, and questions automatically. |
 
 ---
 

@@ -5,7 +5,7 @@
 1. You MUST reference the template at `reference/podcast-prep-pdf-template.md` for the exact format.
 2. You MUST condense 10+ questions down to exactly 5 focused prompts + 1 wrap-up. Combine related questions. Phrase the way David would actually ask them.
 3. You MUST include all 9 sections in order: header, intro script, season/episode, title, overview, key discussion topics table, prompting questions, remember bar, sportcoat line.
-4. You MUST save to `meetings/podcast-prep/Episode {NN} - {Guest Name}.md` (zero-padded episode number).
+4. You MUST save to `meetings/podcast-prep/Episode {N}.md` (plain episode number, no zero-padding, no guest name).
 5. Do NOT add extra sections. This is a single-page document — every word must earn its place.
 
 ---
@@ -14,7 +14,7 @@
 
 **Agent:** Harper
 **Input:** Detailed prep sheet from step 03, PDF template from reference
-**Output:** PDF-format markdown at `meetings/podcast-prep/Episode {NN} - {Guest Name}.md`
+**Output:** PDF-format markdown at `meetings/podcast-prep/Episode {N}.md`
 
 ---
 
@@ -28,28 +28,22 @@ Read `reference/podcast-prep-pdf-template.md` for the exact format specification
 
 The output file must follow this exact structure:
 
+**IMPORTANT:** The markdown must use specific HTML elements for correct PDF rendering with `reference/podcast-prep-pdf.css`. Do NOT use standard markdown alternatives — these exact tags are required.
+
 ```markdown
-# THE IMPROVING EDGE | {Guest Full Name}, {Guest Title}
+<div class="banner">THE IMPROVING EDGE <span class="pipe">|</span> {Guest Full Name}, {Guest Title}</div>
 
----
+<h4>INTRO SCRIPT</h4>
 
-## INTRO SCRIPT
+Welcome to **The Improving Edge**. This is where we talk about how AI and technology actually show up in real organizations; what works, what doesn't, and what we're learning along the way. I'll be sharing conversations with people doing the work, turning innovation into outcomes.
 
-Welcome to The Improving Edge. This is where we talk about how AI and technology actually show up in real organizations; what works, what doesn't, and what we're learning along the way. I'll be sharing conversations with people doing the work, turning innovation into outcomes.
+<center>Season 1, Episode {N}</center>
 
----
-
-**Season 1, Episode {N}**
-
-# {Episode Title}
-
----
+### {Episode Title}
 
 ## Episode Overview
 
 {2-3 sentences summarizing the episode's focus. First-person plural ("We'll discuss...", "We'll dig into..."). Cover key themes without being exhaustive.}
-
----
 
 ## Key Discussion Topics
 
@@ -61,36 +55,50 @@ Welcome to The Improving Edge. This is where we talk about how AI and technology
 | 4 | **{Topic Name}** | {1-2 sentence description} |
 | 5 | **{Topic Name}** | {1-2 sentence description} |
 
----
-
 ## Prompting Questions
 
-1. **On {Topic}**
-*"{Question phrased naturally, the way David would ask it}"*
+**1. On {Topic}**
 
-2. **On {Topic}**
-*"{Question}"*
+> *"{Question phrased naturally, the way David would ask it}"*
 
-3. **On {Topic}**
-*"{Question}"*
+**2. On {Topic}**
 
-4. **On {Topic}**
-*"{Question}"*
+> *"{Question}"*
 
-5. **On {Topic}**
-*"{Question}"*
+**3. On {Topic}**
 
-6. **Wrap-Up**
-*"What are a couple of takeaways you'd like the listeners to walk away with?"*
+> *"{Question}"*
 
----
+**4. On {Topic}**
 
-**REMEMBER: Keep it conversational (60% guest / 40% host) · Share personal stories · Have fun!**
+> *"{Question}"*
 
----
+**5. On {Topic}**
+
+> *"{Question}"*
+
+**6. Wrap-Up**
+
+> *"What are a couple of takeaways you'd like the listeners to walk away with?"*
+
+<div class="remember"><strong>REMEMBER:</strong> Keep it conversational (60% guest / 40% host) • Share personal stories • Have fun!</div>
 
 Sportcoat: _______________________________
 ```
+
+### Critical Formatting Rules
+
+These rules ensure the PDF renders correctly with the CSS stylesheet:
+
+- **Header**: Use `<div class="banner">THE IMPROVING EDGE <span class="pipe">|</span> {Guest}, {Title}</div>` — renders as dark blue banner with orange pipe and orange bottom border (NOT `#` markdown heading)
+- **Intro label**: Use `<h4>INTRO SCRIPT</h4>` — renders as small orange label (NOT `## INTRO SCRIPT`)
+- **Season/Episode**: Use `<center>Season 1, Episode {N}</center>` — centers the text (NOT bold paragraph)
+- **Episode title**: Use `###` — renders as large centered bold title (NOT `#`)
+- **Section headings**: Use `##` — renders as orange headings with underline
+- **Questions**: Use `**N. On {Topic}**` paragraph + `> *"question"*` blockquote — renders as bold label with indented italic question (NOT ordered list `1.`)
+- **REMEMBER bar**: Use `<div class="remember">` HTML — renders as blue bar with gold top border (NOT bold markdown)
+- **No `---` horizontal rules** — use CSS spacing instead; `hr` elements add unwanted lines
+- **No `<hr>` between sections** — the headings provide visual separation
 
 ### Distillation Rules
 
@@ -119,7 +127,7 @@ The key skill here is **condensation**. The detailed prep sheet has 8-10+ questi
 | Fewer than 5 distinct topics | Broaden the themes. Split a big topic into two angles, or add a "Personal Take" or "Future Outlook" topic. |
 | Questions sound too scripted | Rewrite them more casually. Read them aloud mentally — would David say this in a real conversation? |
 | Document runs long (won't fit one page) | Tighten focus descriptions in the table. Shorten questions. Cut any word that isn't pulling its weight. |
-| Template format unclear | Reference the existing example at `meetings/podcast-prep/Episode 02 - John Ruzick.md` for a real output. |
+| Template format unclear | Reference the existing example at `meetings/podcast-prep/Episode 2.md` for a real output. |
 
 ---
 

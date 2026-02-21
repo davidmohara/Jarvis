@@ -34,9 +34,9 @@ David films "The Improving Edge" at MarketScale in Dallas. Each episode requires
 ### Outputs
 
 1. **Detailed prep sheet:** `meetings/podcast-prep/YYYY-MM-DD-guest-name.md` — logistics, guest background, questions, talking points, checklist
-2. **PDF-format markdown:** `meetings/podcast-prep/Episode {NN} - {Guest Name}.md` — single-page studio reference
-3. **Styled PDF:** `meetings/podcast-prep/Episode {NN} - {Guest Name}.pdf` — print-ready, styled with `reference/podcast-prep-pdf.css`
-4. **Optional:** Upload to reMarkable at `/Improving/Podcast/Episodes`
+2. **PDF-format markdown:** `meetings/podcast-prep/Episode {N}.md` — single-page studio reference
+3. **Styled PDF:** `meetings/podcast-prep/Episode {N}.pdf` — print-ready, styled with `reference/podcast-prep-pdf.css`
+4. **reMarkable upload:** Automatically uploaded to `/Improving/Podcast` via `rmapi put`
 
 ### Key References
 
