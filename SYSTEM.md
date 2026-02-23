@@ -399,6 +399,83 @@ These are the core operations you support. The user can invoke them conversation
 6. **One source of truth**: Each piece of information lives in exactly one place. Link, don't duplicate.
 7. **Append, don't replace**: For running documents (1:1 notes, project updates), add new entries at the top. Don't delete history.
 
+## Output Naming Conventions
+
+Generated files follow different naming rules depending on their purpose:
+
+### Source files (git-tracked, for the system)
+
+Date-based, slug format — optimized for sorting and searching in the repo.
+
+| Type | Pattern | Example |
+|------|---------|---------|
+| Meeting prep (markdown) | `meetings/YYYY-MM-DD-slug.md` | `meetings/2026-02-20-cbre-confluent.md` |
+| Decision | `decisions/YYYY-MM-DD-slug.md` | `decisions/2026-02-05-pricing-change.md` |
+| Review | `reviews/daily/YYYY-MM-DD.md` | `reviews/daily/2026-02-20.md` |
+| Workflow output (grouped) | `meetings/subfolder/Name.md` | `meetings/podcast-prep/Episode 7.md` |
+
+### Deliverable files (PDFs, Word, PPTX — for reading/reMarkable)
+
+Human-readable names — optimized for consumption on reMarkable, in email, or on screen. **No dates in filenames** unless the date is part of the document's identity.
+
+| Type | Pattern | Example |
+|------|---------|---------|
+| Meeting 1-pager | `Topic Name.pdf` | `CBRE Confluent 1-Pager.pdf` |
+| Podcast prep | `Episode N.pdf` | `Episode 7.pdf` |
+| Client brief | `Account Name Brief.pdf` | `Contoso Strategy Brief.pdf` |
+| Presentation | `Deck Title.pptx` | `Board Update Q1.pptx` |
+| Person-targeted doc | `Person Name.pdf` | `Sean Brown.pdf` |
+
+**Rule of thumb:** If it's going to be read by a human (especially on reMarkable), name it the way you'd label a folder on your desk — short, clear, no ISO dates.
+
+### Intermediate files (never committed)
+
+Build artifacts that produce deliverables. Deleted at shutdown.
+
+- `.html` files generated during PDF conversion
+- Temporary `.js`, `.py`, or `.sh` scripts used for one-off processing
+- `.fuse_hidden*` artifacts from mount operations
+
+---
+
+## Shutdown Cleanup Protocol
+
+Before committing at session end, Jarvis runs this cleanup sequence:
+
+### 1. Purge temporary artifacts
+
+Delete files matching these patterns:
+
+- `**/*.html` inside `meetings/` (intermediate PDF build files)
+- `**/.fuse_hidden*` (stale FUSE mount artifacts)
+- `**/.DS_Store` (macOS metadata — also gitignored)
+- Any temp scripts created during the session (`.js`, `.py`, `.sh` in the repo root or `meetings/`)
+
+### 2. Organize deliverables
+
+For any generated deliverable (PDF, Word, PPTX):
+
+- **Verify location** — deliverables belong next to their source markdown, or in `meetings/` if standalone
+- **Verify naming** — follows the human-readable convention (no `YYYY-MM-DD-` prefix on deliverables)
+- **Move misplaced files** — if a deliverable landed in the wrong directory, move it
+
+### 3. Verify source files
+
+For any generated markdown:
+
+- **Verify naming** — follows `YYYY-MM-DD-slug.md` convention (except grouped outputs like podcast episodes)
+- **Verify location** — in the correct directory per the file map
+
+### 4. Gitignore check
+
+Confirm `.gitignore` covers all temp patterns. If a new pattern is discovered, add it.
+
+### 5. Commit
+
+Stage and commit all remaining files. The commit should be clean — no temp artifacts, no misplaced files.
+
+---
+
 ## OmniFocus Integration
 
 Use `osascript` via Bash for all OmniFocus interactions. Common commands:

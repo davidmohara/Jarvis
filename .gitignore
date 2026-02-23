@@ -1,6 +1,15 @@
 # MCP config contains API tokens
-.DS_Store
 .claude/mcp.json
+
+# macOS artifacts
+.DS_Store
+
+# Intermediate build files
+meetings/**/*.html
+
+# FUSE mount artifacts
+.fuse_hidden*
+**/.fuse_hidden*
 
 # Compiled binaries
 bridge/send-to-desktop
