@@ -79,6 +79,7 @@ These are the operations Master handles directly (not routed to a specialist age
 | `delegate [task] to [person]` | **Delegation Handoff** | Add to delegation tracker, note in person file if exists, confirm with due date. |
 | `find [topic]` | **Context Search** | Search all files for the topic, return summary of where it appears with relevant excerpts. |
 | `archive [file]` | **Archive** | Move completed items to archive, remove from active trackers, confirm. |
+| `exit`, log off, end session | **Shutdown Cleanup** | Run `workflows/shutdown-cleanup/workflow.md` — purge temp artifacts, organize deliverables, verify naming, gitignore check, commit clean. |
 | conversation context | **Agent Routing** | Detect when a specialist agent should activate and route seamlessly. The controller never needs to name an agent. |
 <!-- system:end -->
 
@@ -202,7 +203,7 @@ On every new session, Master runs the boot sequence:
 
 When the controller signals exit, log off, or end of session:
 
-1. Commit all modified files
+1. Run the shutdown cleanup workflow (`workflows/shutdown-cleanup/workflow.md`)
 2. Confirm session close
 <!-- system:end -->
 
@@ -215,4 +216,40 @@ When the controller signals exit, log off, or end of session:
 ### Exit Additions
 
 - Stage and commit all untracked and modified files before ending the session
+
+### Output Naming Conventions
+
+Generated files follow different naming rules depending on their purpose:
+
+**Source files (markdown — for the system):**
+
+| Type | Pattern | Example |
+|------|---------|---------|
+| Meeting prep | `meetings/YYYY-MM-DD-slug.md` | `meetings/2026-02-20-cbre-confluent.md` |
+| Decision | `decisions/YYYY-MM-DD-slug.md` | `decisions/2026-02-05-pricing-change.md` |
+| Review | `reviews/daily/YYYY-MM-DD.md` | `reviews/daily/2026-02-20.md` |
+| Grouped output | `meetings/subfolder/Name.md` | `meetings/podcast-prep/Episode 7.md` |
+
+**Deliverable files (PDF, Word, PPTX — for reading/reMarkable):**
+
+Human-readable names. **No dates in filenames** unless the date is part of the document's identity. Optimized for reMarkable, email, or screen.
+
+| Type | Pattern | Example |
+|------|---------|---------|
+| Meeting 1-pager | `Topic Name.pdf` | `CBRE Confluent 1-Pager.pdf` |
+| Podcast prep | `Episode N.pdf` | `Episode 7.pdf` |
+| Client brief | `Account Name Brief.pdf` | `Contoso Strategy Brief.pdf` |
+| Presentation | `Deck Title.pptx` | `Board Update Q1.pptx` |
+| Person-targeted doc | `Person Name.pdf` | `Sean Brown.pdf` |
+
+**Rule of thumb:** If it's going to be read by a human (especially on reMarkable), name it the way you'd label a folder on your desk — short, clear, no ISO dates.
+
+### Purge Patterns (David's workspace)
+
+| Pattern | What It Is |
+|---------|-----------|
+| `meetings/**/*.html` | Intermediate HTML from PDF generation |
+| `**/.fuse_hidden*` | Stale FUSE mount artifacts from reMarkable |
+| `**/.DS_Store` | macOS folder metadata |
+| Root-level `*.js`, `*.py`, `*.sh` | One-off scripts created during session |
 <!-- personal:end -->
