@@ -1,3 +1,4 @@
+<!-- system:start -->
 # Step 02: Gather Tasks & Delegations
 
 ## MANDATORY EXECUTION RULES
@@ -95,3 +96,7 @@
 ## NEXT STEP
 
 Read fully and follow: `step-03-gather-context.md`
+<!-- system:end -->
+
+<!-- personal:start -->
+<!-- personal:end -->

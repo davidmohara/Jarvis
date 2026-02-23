@@ -1,3 +1,4 @@
+<!-- personal:start -->
 # Step 04: Build PDF-Format Prep Sheet
 
 ## MANDATORY EXECUTION RULES
@@ -134,3 +135,4 @@ The key skill here is **condensation**. The detailed prep sheet has 8-10+ questi
 ## NEXT STEP
 
 Read fully and follow: `step-05-generate-pdf.md`
+<!-- personal:end -->

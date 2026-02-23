@@ -1,3 +1,4 @@
+<!-- system:start -->
 # Step 02: Gather Communications
 
 ## MANDATORY EXECUTION RULES
@@ -122,3 +123,7 @@
 ## NEXT STEP
 
 Read fully and follow: `step-03-gather-tasks.md`
+<!-- system:end -->
+
+<!-- personal:start -->
+<!-- personal:end -->

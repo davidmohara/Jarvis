@@ -1,3 +1,4 @@
+<!-- system:start -->
 # Step 04: Build the Partner Meeting Prep Document
 
 ## MANDATORY EXECUTION RULES
@@ -235,3 +236,7 @@ After the document is delivered:
 ## WORKFLOW COMPLETE
 
 The partner meeting prep document has been delivered. The controller reviews, adjusts, and optionally shares with the partner team before the meeting.
+<!-- system:end -->
+
+<!-- personal:start -->
+<!-- personal:end -->

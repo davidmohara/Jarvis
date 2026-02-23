@@ -1,3 +1,4 @@
+<!-- system:start -->
 # Step 01: Pull Pipeline Data
 
 ## MANDATORY EXECUTION RULES
@@ -115,3 +116,7 @@
 ## NEXT STEP
 
 Read fully and follow: `step-02-health-analysis.md`
+<!-- system:end -->
+
+<!-- personal:start -->
+<!-- personal:end -->

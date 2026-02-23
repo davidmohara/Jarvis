@@ -1,3 +1,4 @@
+<!-- system:start -->
 # Step 04: Build the Client Meeting Brief
 
 ## MANDATORY EXECUTION RULES
@@ -222,3 +223,7 @@ Client meeting brief delivered. No further steps.
 | Follow-up tasks generated post-meeting | Chief (Operations) | Capture tasks in task management system, update delegation tracker, schedule next steps |
 | Deal status changed based on meeting | Chase (self) | Update pipeline data and trigger pipeline-review if material change |
 | Meeting notes need to be filed | Chief (Operations) | Create meeting note in knowledge layer with outcomes and action items |
+<!-- system:end -->
+
+<!-- personal:start -->
+<!-- personal:end -->

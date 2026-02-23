@@ -4,6 +4,7 @@ description: End-of-day shutdown - capture completions, carry-forwards, and tomo
 agent: chief
 ---
 
+<!-- system:start -->
 # Daily Review Workflow
 
 **Goal:** Close the day with accountability. Capture what happened, surface what didn't, and set tomorrow's priorities so the morning briefing has something to work with.
@@ -11,9 +12,14 @@ agent: chief
 **Agent:** Chief — Daily Operations & Execution
 
 **Architecture:** Interactive 3-step workflow. Chief guides the controller through a structured shutdown, then updates system files.
+<!-- system:end -->
+
+<!-- personal:start -->
+<!-- personal:end -->
 
 ---
 
+<!-- system:start -->
 ## INITIALIZATION
 
 ### Data Sources Required
@@ -37,9 +43,18 @@ agent: chief
 
 - Daily review file: `reviews/daily/YYYY-MM-DD.md`
 - Updated delegation tracker (if any delegations closed)
+<!-- system:end -->
+
+<!-- personal:start -->
+<!-- personal:end -->
 
 ---
 
+<!-- system:start -->
 ## EXECUTION
 
 Read fully and follow: `steps/step-01-capture.md` to begin the workflow.
+<!-- system:end -->
+
+<!-- personal:start -->
+<!-- personal:end -->

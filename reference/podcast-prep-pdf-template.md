@@ -83,6 +83,25 @@ Fill-in blank for wardrobe choice before filming.
 
 ---
 
+## PDF Generation
+
+The prep sheet .md files use a **hybrid markdown/HTML format** — some elements are raw HTML (`div.banner`, `h4`, `center`, `div.remember`) and others are standard markdown (`##` headings, `###` headings, `**bold**`, `*italic*`, `> blockquotes`, pipe tables).
+
+**Generator:** `generate_pdfs.py` (project root) converts these to clean HTML and renders PDFs via weasyprint.
+
+**Key rules for the generator:**
+- Convert `###` → `<h3>` (episode title), `##` → `<h2>` (section headings) before checking for HTML pass-through
+- Convert `**bold**` → `<strong>` and `*italic*` → `<em>` inside all content including table cells and blockquotes
+- Blockquote text must render in `#000000` black (not gray) — enforced with `!important` in the CSS
+- The sportcoat line uses class `.sportcoat` (not `p:last-child`) to avoid graying out other text
+- HTML elements in the .md file pass through unchanged (with inline markdown still converted)
+
+**CSS:** `reference/podcast-prep-pdf.css`
+
+**To regenerate:** `python3 generate_pdfs.py` — update the `EPISODES` list in the script to include new episodes.
+
+---
+
 ## Source Files
 
 - **Episode question docs (Janine):** SharePoint > Podcast Planning > Season 1_Episode {N}_Topics and Questions.docx

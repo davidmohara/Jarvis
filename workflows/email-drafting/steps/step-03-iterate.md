@@ -1,3 +1,4 @@
+<!-- system:start -->
 # Step 03: Iterate and Deliver
 
 ## MANDATORY EXECUTION RULES
@@ -124,3 +125,7 @@ Downstream actions:
 ## WORKFLOW COMPLETE
 
 The email has been drafted, approved, and routed to delivery. Downstream handoffs have been triggered where applicable. Harper stands by for the next communication task.
+<!-- system:end -->
+
+<!-- personal:start -->
+<!-- personal:end -->

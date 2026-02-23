@@ -1,3 +1,4 @@
+<!-- personal:start -->
 # Step 02: Gather Data
 
 ## MANDATORY EXECUTION RULES
@@ -97,3 +98,4 @@
 ## NEXT STEP
 
 Read fully and follow: `step-03-build-prep-sheet.md`
+<!-- personal:end -->

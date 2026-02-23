@@ -1,3 +1,4 @@
+<!-- system:start -->
 # Step 02: Triage Loop
 
 ## MANDATORY EXECUTION RULES
@@ -145,3 +146,7 @@ Do not route during triage — just flag. The controller decides routing after d
 ## NEXT STEP
 
 When all items are processed (including any retries and skipped items), read fully and follow: `step-03-confirm-zero.md`
+<!-- system:end -->
+
+<!-- personal:start -->
+<!-- personal:end -->

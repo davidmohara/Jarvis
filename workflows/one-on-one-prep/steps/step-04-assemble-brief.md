@@ -1,3 +1,4 @@
+<!-- system:start -->
 # Step 04: Assemble the Brief
 
 ## MANDATORY EXECUTION RULES
@@ -164,3 +165,7 @@ next 2 weeks."}
 ## NEXT STEP
 
 Read fully and follow: `step-05-quality-check-and-save.md`
+<!-- system:end -->
+
+<!-- personal:start -->
+<!-- personal:end -->

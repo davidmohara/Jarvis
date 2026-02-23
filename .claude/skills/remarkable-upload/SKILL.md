@@ -1,15 +1,43 @@
 ---
 name: remarkable-upload
 description: Upload PDF or EPUB files to reMarkable tablet. Use when the user wants to send a document to their reMarkable, upload a PDF/EPUB, or put a file on their tablet.
-context: fork
-agent: general-purpose
-allowed-tools:
-  - "Bash(*)"
 ---
 
+<!-- personal:start -->
 # reMarkable Upload
 
 Upload PDF and EPUB files to the reMarkable tablet via the cloud API using `rmapi`.
+
+## Critical: Execution Environment
+
+This skill runs inside a Linux VM, but `rmapi` is installed on the **host Mac** at `/opt/homebrew/bin/rmapi`. All rmapi commands must be executed via the `osascript` MCP tool (Control your Mac), not via Bash.
+
+The workspace folder in the VM (`/sessions/*/mnt/IES/...`) maps to a OneDrive-synced folder on the Mac. Due to macOS TCC (privacy) restrictions, shell commands run via `osascript` cannot directly read files from OneDrive CloudStorage paths. However, **Finder has full filesystem access** and can copy files without permission issues.
+
+### The File Bridge Pattern
+
+To get files from the workspace to rmapi:
+
+1. **Use Finder to copy files to /tmp** (Finder bypasses TCC restrictions):
+```applescript
+tell application "Finder"
+    set srcFolder to POSIX file "/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/path/to/folder/" as alias
+    set destFolder to POSIX file "/tmp/" as alias
+    duplicate file "filename.pdf" of folder srcFolder to folder destFolder with replacing
+end tell
+```
+
+2. **Run rmapi from /tmp**:
+```applescript
+do shell script "/opt/homebrew/bin/rmapi put '/tmp/filename.pdf' '/target/folder' 2>&1"
+```
+
+If files were generated in the current session and exist in the VM workspace, the Mac-side path is:
+`/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/` + the relative path from the workspace mount.
+
+### Batch Uploads
+
+For multiple files, copy all files via Finder in one AppleScript block, then upload each via separate rmapi calls. This is more reliable than trying to loop within a single osascript invocation.
 
 ## Trigger Phrases
 
@@ -101,29 +129,48 @@ Use these rules to determine the target folder. First match wins:
 
 ## Workflow
 
-1. **Identify the file** to upload. Accept a file path from the user. If the path is relative, resolve it from the current working directory. Confirm the file exists and is a PDF or EPUB.
+1. **Identify the file(s)** to upload. Accept file path(s) from the user or from conversation context (e.g., files just generated). Confirm they exist in the VM workspace and are PDF or EPUB.
 
 2. **Determine the target folder** using the routing rules above. If the user specified a destination, use it. Otherwise, infer from context and confirm with the user if ambiguous.
 
-3. **Create the folder if needed**. If the target subfolder doesn't exist yet (e.g., a new client account):
-
-```bash
-rmapi mkdir "/Improving/Accounts/NewClient"
+3. **Verify the target folder exists** on the tablet:
+```applescript
+do shell script "/opt/homebrew/bin/rmapi ls '/target/folder' 2>&1"
 ```
 
-4. **Upload with rmapi**:
-
-```bash
-rmapi put "<absolute-file-path>" "<target-folder>"
+4. **Create the folder if needed**:
+```applescript
+do shell script "/opt/homebrew/bin/rmapi mkdir '/Improving/Accounts/NewClient' 2>&1"
 ```
 
-5. **Report the result** back to the user. On success, confirm the document name, the folder it was placed in, and that it will sync to the tablet.
+5. **Copy files from OneDrive to /tmp via Finder** (required to bypass TCC):
+```applescript
+tell application "Finder"
+    set srcFolder to POSIX file "/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/relative/path/" as alias
+    set destFolder to POSIX file "/tmp/" as alias
+    duplicate file "Document.pdf" of folder srcFolder to folder destFolder with replacing
+end tell
+```
+
+6. **Upload each file with rmapi**:
+```applescript
+do shell script "/opt/homebrew/bin/rmapi put '/tmp/Document.pdf' '/target/folder' 2>&1"
+```
+
+7. **Verify the upload landed**:
+```applescript
+do shell script "/opt/homebrew/bin/rmapi ls '/target/folder' 2>&1"
+```
+
+8. **Report the result** back to the user. On success, confirm the document name, the folder it was placed in, and that it will sync to the tablet.
 
 ## Notes
 
 - Only PDF and EPUB files are supported.
-- `rmapi` is installed at `/opt/homebrew/bin/rmapi` and handles cloud auth automatically.
-- Use `rmapi ls <folder>` to verify a folder exists before uploading.
-- Use `rmapi mkdir <folder>` to create a new folder if needed.
+- `rmapi` is installed on the **host Mac** at `/opt/homebrew/bin/rmapi` — never try to run it from Bash in the VM.
+- All rmapi and Finder commands must go through the `osascript` MCP tool (Control your Mac).
+- The Finder copy step is mandatory — `do shell script` cannot read from OneDrive CloudStorage due to macOS privacy restrictions, but Finder can.
 - The document name on the tablet will be the filename without extension.
 - When in doubt about routing, ask the user rather than guessing wrong.
+<!-- personal:end -->
+

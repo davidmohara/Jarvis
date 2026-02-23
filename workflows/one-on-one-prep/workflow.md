@@ -4,6 +4,7 @@ description: Build a comprehensive prep brief for an internal 1:1 meeting from e
 agent: shep
 ---
 
+<!-- system:start -->
 # One-on-One Prep Workflow
 
 **Goal:** Produce a prep brief the controller can scan 5 minutes before a 1:1 and walk in fully prepared. Every talking point backed by real data from the last 2 weeks.
@@ -11,9 +12,14 @@ agent: shep
 **Agent:** Shep — People & Delegation
 
 **Architecture:** Sequential 5-step workflow. Data-intensive. Steps 1-3 gather from different sources, step 4 assembles the brief, step 5 quality-checks and saves. Minimal user interaction until the brief is delivered.
+<!-- system:end -->
+
+<!-- personal:start -->
+<!-- personal:end -->
 
 ---
 
+<!-- system:start -->
 ## INITIALIZATION
 
 ### Required Input
@@ -43,9 +49,18 @@ These types of recurring meetings should always be filtered out of the calendar 
 ### Output
 
 - Prep brief saved to knowledge layer: `working directory/{Person Name} - {YYYY-MM-DD}.md`
+<!-- system:end -->
+
+<!-- personal:start -->
+<!-- personal:end -->
 
 ---
 
+<!-- system:start -->
 ## EXECUTION
 
 Read fully and follow: `steps/step-01-identify-meeting.md` to begin the workflow.
+<!-- system:end -->
+
+<!-- personal:start -->
+<!-- personal:end -->

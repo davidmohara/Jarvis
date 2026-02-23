@@ -1,3 +1,4 @@
+<!-- system:start -->
 # Step 03: Confirm Zero
 
 ## MANDATORY EXECUTION RULES
@@ -97,3 +98,7 @@
 ## WORKFLOW COMPLETE
 
 Inbox processing is done. No further steps.
+<!-- system:end -->
+
+<!-- personal:start -->
+<!-- personal:end -->

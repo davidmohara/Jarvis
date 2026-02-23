@@ -4,6 +4,7 @@ description: Partner meeting prep (QBRs, co-sell reviews) - account overlap, mut
 agent: chase
 ---
 
+<!-- system:start -->
 # Partner Meeting Prep Workflow
 
 **Goal:** Walk into partner meetings with a clear picture of where accounts overlap, what's active, and what to propose for co-sell. The output is a collaboration document with intentional blanks for the partner to fill.
@@ -11,9 +12,14 @@ agent: chase
 **Agent:** Chase -- Closer, Revenue, Pipeline & Client Strategy
 
 **Architecture:** Sequential 4-step workflow. Identify the partner and meeting, map account overlap (the centerpiece), gather events and context, then assemble the final document. Minimal user interaction until the document is delivered.
+<!-- system:end -->
+
+<!-- personal:start -->
+<!-- personal:end -->
 
 ---
 
+<!-- system:start -->
 ## INITIALIZATION
 
 ### What Makes This Different from Client Meeting Prep
@@ -50,9 +56,18 @@ Partner meetings are NOT client meetings. The key differences:
 
 - Partner meeting prep doc saved to knowledge layer: `working directory/{Partner} - {YYYY-MM-DD}.md`
 - Designed to be shared with the partner team so they can fill in their side
+<!-- system:end -->
+
+<!-- personal:start -->
+<!-- personal:end -->
 
 ---
 
+<!-- system:start -->
 ## EXECUTION
 
 Read fully and follow: `steps/step-01-identify-partner.md` to begin the workflow.
+<!-- system:end -->
+
+<!-- personal:start -->
+<!-- personal:end -->

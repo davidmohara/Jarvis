@@ -1,3 +1,4 @@
+<!-- system:start -->
 # Step 03: Events and Context
 
 ## MANDATORY EXECUTION RULES
@@ -140,3 +141,7 @@
 ## NEXT STEP
 
 Read fully and follow: `step-04-build-document.md`
+<!-- system:end -->
+
+<!-- personal:start -->
+<!-- personal:end -->

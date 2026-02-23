@@ -1,3 +1,4 @@
+<!-- system:start -->
 # Step 03: Gather Tasks & Delegations
 
 ## MANDATORY EXECUTION RULES
@@ -105,3 +106,7 @@
 ## NEXT STEP
 
 Read fully and follow: `step-04-assemble-brief.md`
+<!-- system:end -->
+
+<!-- personal:start -->
+<!-- personal:end -->

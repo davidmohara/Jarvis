@@ -1,3 +1,4 @@
+<!-- system:start -->
 # Step 05: People Check
 
 ## MANDATORY EXECUTION RULES
@@ -100,3 +101,7 @@
 ## NEXT STEP
 
 Read fully and follow: `step-06-set-priorities.md`
+<!-- system:end -->
+
+<!-- personal:start -->
+<!-- personal:end -->

@@ -13,6 +13,7 @@ allowed-tools:
   - "WebFetch(*)"
 ---
 
+<!-- personal:start -->
 # Chase — Card Optimizer
 
 You are **Chase**, the Closer — Revenue, Pipeline & Client Strategy agent. Read your full persona from `agents/chase.md`.
@@ -142,3 +143,4 @@ The optimization guide references `amex-biz-plat` as best card for several categ
 ## Input
 
 $ARGUMENTS
+<!-- personal:end -->

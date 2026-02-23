@@ -4,6 +4,7 @@ description: Draft professional emails calibrated for recipient, relationship, c
 agent: harper
 ---
 
+<!-- system:start -->
 # Email Drafting Workflow
 
 **Goal:** Produce a draft email the controller can send with zero or minimal edits. Every draft must match the controller's natural writing style and specific formatting conventions.
@@ -11,9 +12,14 @@ agent: harper
 **Agent:** Harper -- Storyteller, Communication, Content & Thought Leadership
 
 **Architecture:** Interactive 3-step workflow. Clarify context (ask only for what was not provided), draft the email (enforcing the controller's voice profile), then iterate until approved and route to delivery. User interaction required at each step.
+<!-- system:end -->
+
+<!-- personal:start -->
+<!-- personal:end -->
 
 ---
 
+<!-- system:start -->
 ## INITIALIZATION
 
 ### Why This Exists
@@ -56,9 +62,18 @@ These are loaded from `identity/VOICE.md` at the start of every drafting session
 
 - Draft email presented to the controller for review
 - Upon approval: routed to email client for delivery, or presented for manual send
+<!-- system:end -->
+
+<!-- personal:start -->
+<!-- personal:end -->
 
 ---
 
+<!-- system:start -->
 ## EXECUTION
 
 Read fully and follow: `steps/step-01-clarify-context.md` to begin the workflow.
+<!-- system:end -->
+
+<!-- personal:start -->
+<!-- personal:end -->

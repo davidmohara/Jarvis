@@ -1,3 +1,4 @@
+<!-- system:start -->
 # Step 01: Capture — What Happened Today
 
 ## MANDATORY EXECUTION RULES
@@ -122,3 +123,7 @@
 ## NEXT STEP
 
 Read fully and follow: `step-02-set-tomorrow.md`
+<!-- system:end -->
+
+<!-- personal:start -->
+<!-- personal:end -->

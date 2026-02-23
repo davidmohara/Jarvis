@@ -1,3 +1,4 @@
+<!-- system:start -->
 # Step 04: Action Report
 
 ## MANDATORY EXECUTION RULES
@@ -172,3 +173,7 @@ Pipeline review delivered. No further steps.
 | Deal needs executive engagement | Shep (People & Leadership) | Flag the deal and the ask — Shep advises on relationship play |
 | Revenue rock at risk (coverage < 2x) | Quinn (Strategy) | Escalate pipeline gap — Quinn assesses rock status and recommends adjustment |
 | Deal requires proposal or deck | Harper (Communications) | Route content request with deal context and audience |
+<!-- system:end -->
+
+<!-- personal:start -->
+<!-- personal:end -->

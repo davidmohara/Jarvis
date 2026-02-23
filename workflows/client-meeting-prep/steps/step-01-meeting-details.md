@@ -1,3 +1,4 @@
+<!-- system:start -->
 # Step 01: Meeting Details & Attendee Identification
 
 ## MANDATORY EXECUTION RULES
@@ -131,3 +132,7 @@
 ## NEXT STEP
 
 Read fully and follow: `step-02-account-context.md`
+<!-- system:end -->
+
+<!-- personal:start -->
+<!-- personal:end -->

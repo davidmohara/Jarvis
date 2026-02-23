@@ -1,3 +1,4 @@
+<!-- system:start -->
 # Step 06: Set Next Week's Priorities
 
 ## MANDATORY EXECUTION RULES
@@ -142,3 +143,7 @@ Post-review actions that may be queued:
 - Rock-related task creation (from step 02 and step 06)
 
 These are separate workflows. The weekly review surfaces them; other workflows execute them.
+<!-- system:end -->
+
+<!-- personal:start -->
+<!-- personal:end -->

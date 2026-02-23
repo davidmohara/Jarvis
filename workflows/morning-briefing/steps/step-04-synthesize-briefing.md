@@ -1,3 +1,4 @@
+<!-- system:start -->
 # Step 04: Synthesize Briefing
 
 ## MANDATORY EXECUTION RULES
@@ -89,28 +90,6 @@ Deliver the briefing using this structure exactly:
 
 ---
 
-### Relationships (Clay)
-
-{Only include if Clay returned reminders, birthdays, or cold-contact flags.}
-- **Upcoming birthdays:** {Name — date}
-- **Reminders due:** {reminder text — contact name}
-- **Going cold:** {contacts flagged with 60+ days no interaction who are strategically important}
-
-{If nothing from Clay: omit this section entirely.}
-
----
-
-### Card Alerts
-
-{Only include if credit card deadlines or unused benefits were flagged in step 03.}
-- **Expiring:** {credit name} — ${amount remaining} — {deadline}
-- **Action needed:** {e.g., "Activate Discover Q2 categories by Apr 1"}
-- **Offers expiring:** {vendor} — {card} — {value} — {days left}
-
-{If nothing flagged: omit this section entirely.}
-
----
-
 ### Flags
 
 {Anything that needs immediate attention. Examples:}
@@ -143,7 +122,6 @@ What do you want to tackle first?
    - 1:1 today with thin context → "Recommend: run Shep prep"
    - Content deadline approaching → "Flag for Harper"
    - Goal drift visible → "Escalate to Quinn"
-   - Card benefit expiring within 7 days → "Chase card alert: [credit] expires [date]"
 
 4. **Omit empty sections** rather than showing "None" — except Flags, which should always appear (either with items or "Nothing urgent. Clean day ahead.").
 
@@ -170,3 +148,7 @@ What do you want to tackle first?
 ## WORKFLOW COMPLETE
 
 The morning briefing has been delivered. The controller drives from here.
+<!-- system:end -->
+
+<!-- personal:start -->
+<!-- personal:end -->

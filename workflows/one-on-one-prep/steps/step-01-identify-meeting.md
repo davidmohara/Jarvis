@@ -1,3 +1,4 @@
+<!-- system:start -->
 # Step 01: Identify the Meeting
 
 ## MANDATORY EXECUTION RULES
@@ -87,3 +88,7 @@
 ## NEXT STEP
 
 Read fully and follow: `step-02-gather-communications.md`
+<!-- system:end -->
+
+<!-- personal:start -->
+<!-- personal:end -->

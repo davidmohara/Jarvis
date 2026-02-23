@@ -5,6 +5,7 @@ agent: master
 orchestrates: [chief, chase, quinn, shep]
 ---
 
+<!-- system:start -->
 # Weekly Review Workflow
 
 **Goal:** The most important cadence. Review everything that matters, surface what's drifting, and set next week up for execution. This is where the execution gap gets closed.
@@ -12,9 +13,14 @@ orchestrates: [chief, chase, quinn, shep]
 **Agent:** Master agent (orchestrates sub-agents as needed)
 
 **Architecture:** Sequential 6-step workflow. Each step reviews a different domain. The master agent drives, pulling in sub-agents when their domain expertise is needed. Interactive throughout - the controller walks through each section.
+<!-- system:end -->
+
+<!-- personal:start -->
+<!-- personal:end -->
 
 ---
 
+<!-- system:start -->
 ## INITIALIZATION
 
 ### Data Sources Required
@@ -42,9 +48,18 @@ orchestrates: [chief, chase, quinn, shep]
 | Inbox and calendar | Operations | Chief |
 | People check | People | Shep |
 | Set priorities | Strategy | Quinn |
+<!-- system:end -->
+
+<!-- personal:start -->
+<!-- personal:end -->
 
 ---
 
+<!-- system:start -->
 ## EXECUTION
 
 Read fully and follow: `steps/step-01-wins-and-misses.md` to begin the workflow.
+<!-- system:end -->
+
+<!-- personal:start -->
+<!-- personal:end -->

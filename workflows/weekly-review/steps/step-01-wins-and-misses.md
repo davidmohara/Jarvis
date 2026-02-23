@@ -1,3 +1,4 @@
+<!-- system:start -->
 # Step 01: Wins and Misses
 
 ## MANDATORY EXECUTION RULES
@@ -79,3 +80,7 @@
 ## NEXT STEP
 
 Read fully and follow: `step-02-rocks-review.md`
+<!-- system:end -->
+
+<!-- personal:start -->
+<!-- personal:end -->

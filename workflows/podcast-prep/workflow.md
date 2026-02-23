@@ -4,6 +4,7 @@ description: Generate episode prep documents for The Improving Edge — detailed
 agent: harper
 ---
 
+<!-- personal:start -->
 # Podcast Prep Workflow
 
 **Goal:** Produce two documents for each episode of "The Improving Edge" podcast: (1) a detailed reference prep sheet with logistics, guest background, questions, talking points, and checklist, and (2) a single-page styled PDF for the studio — printed and brought to filming.
@@ -49,3 +50,4 @@ David films "The Improving Edge" at MarketScale in Dallas. Each episode requires
 ## EXECUTION
 
 Read fully and follow: `steps/step-01-identify-episode.md` to begin the workflow.
+<!-- personal:end -->

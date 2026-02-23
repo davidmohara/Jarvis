@@ -1,3 +1,4 @@
+<!-- personal:start -->
 # Step 05: Generate PDF & Deliver
 
 ## MANDATORY EXECUTION RULES
@@ -94,3 +95,4 @@ If `rmapi` fails or isn't authenticated:
 ## WORKFLOW COMPLETE
 
 The podcast prep workflow is done. David has a detailed prep sheet for deep review, a single-page PDF for the studio, and the PDF on his reMarkable. Harper stands by for any revisions or follow-up tasks.
+<!-- personal:end -->

@@ -1,3 +1,4 @@
+<!-- system:start -->
 # Step 05: Quality Check and Save
 
 ## MANDATORY EXECUTION RULES
@@ -111,3 +112,7 @@ If during brief assembly any of these conditions were detected, flag them in you
 ## WORKFLOW COMPLETE
 
 This concludes the one-on-one-prep workflow. The controller now has a data-backed brief they can scan in 5 minutes before their 1:1.
+<!-- system:end -->
+
+<!-- personal:start -->
+<!-- personal:end -->

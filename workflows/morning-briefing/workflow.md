@@ -4,6 +4,7 @@ description: Start-of-day briefing - calendar, priorities, delegations, meeting 
 agent: chief
 ---
 
+<!-- system:start -->
 # Morning Briefing Workflow
 
 **Goal:** Give the controller complete situational awareness for the day ahead in under 2 minutes of reading.
@@ -11,9 +12,14 @@ agent: chief
 **Agent:** Chief — Daily Operations & Execution
 
 **Architecture:** Sequential 4-step workflow. Each step gathers data from a different source, then the final step synthesizes into a single briefing. No user interaction required until the briefing is delivered.
+<!-- system:end -->
+
+<!-- personal:start -->
+<!-- personal:end -->
 
 ---
 
+<!-- system:start -->
 ## INITIALIZATION
 
 ### Data Sources Required
@@ -24,7 +30,6 @@ agent: chief
 | Calendar | Today's meetings with attendees, times, locations | M365 MCP |
 | Task management | Inbox count, due today, flagged items | Task management API |
 | Delegation tracker | Overdue items, items due today | Read delegations/tracker.md |
-| Clay | Upcoming reminders (next 7 days), upcoming birthdays, attendee relationship context | Clay MCP (mcp__clay__*) |
 | Knowledge layer | Recent meeting notes, previous daily review | Knowledge base API |
 
 ### Paths
@@ -32,9 +37,23 @@ agent: chief
 - `identity_path` = `{project-root}/identity/`
 - `delegation_tracker` = `{project-root}/delegations/tracker.md`
 - `quarterly_objectives` = `{project-root}/context/quarterly-objectives.md`
+<!-- system:end -->
+
+<!-- personal:start -->
+### Additional Data Sources
+
+| Source | What to Pull | Access Method |
+|--------|-------------|---------------|
+| Clay | Upcoming reminders (next 7 days), upcoming birthdays, attendee relationship context | Clay MCP (mcp__clay__*) |
+<!-- personal:end -->
 
 ---
 
+<!-- system:start -->
 ## EXECUTION
 
 Read fully and follow: `steps/step-01-gather-calendar.md` to begin the workflow.
+<!-- system:end -->
+
+<!-- personal:start -->
+<!-- personal:end -->

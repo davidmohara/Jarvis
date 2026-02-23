@@ -1,3 +1,4 @@
+<!-- system:start -->
 # Step 02: Rocks Review
 
 ## MANDATORY EXECUTION RULES
@@ -84,3 +85,7 @@
 ## NEXT STEP
 
 Read fully and follow: `step-03-delegation-review.md`
+<!-- system:end -->
+
+<!-- personal:start -->
+<!-- personal:end -->

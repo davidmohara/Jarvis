@@ -1,3 +1,4 @@
+<!-- personal:start -->
 # Step 01: Identify Episode
 
 ## MANDATORY EXECUTION RULES
@@ -85,3 +86,4 @@
 ## NEXT STEP
 
 Read fully and follow: `step-02-gather-data.md`
+<!-- personal:end -->

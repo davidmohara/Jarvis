@@ -1,3 +1,4 @@
+<!-- system:start -->
 # Step 03: Delegation Review
 
 ## MANDATORY EXECUTION RULES
@@ -96,3 +97,7 @@
 ## NEXT STEP
 
 Read fully and follow: `step-04-inbox-and-calendar.md`
+<!-- system:end -->
+
+<!-- personal:start -->
+<!-- personal:end -->

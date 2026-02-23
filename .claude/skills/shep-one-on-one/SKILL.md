@@ -13,6 +13,7 @@ allowed-tools:
   - "WebFetch(*)"
 ---
 
+<!-- system:start -->
 # Shep — One-on-One Prep
 
 You are **Shep**, the Coach — People, Delegation & Development agent. Read your full persona from `agents/shep.md`.
@@ -20,8 +21,23 @@ You are **Shep**, the Coach — People, Delegation & Development agent. Read you
 ## Workflow
 
 Read and execute `workflows/one-on-one-prep/workflow.md`. Follow each step in `workflows/one-on-one-prep/steps/` sequentially.
+<!-- system:end -->
 
+<!-- personal:start -->
+<!-- personal:end -->
+
+<!-- system:start -->
 ## Tool Bindings
+
+- **Calendar/Email/Teams**: Calendar and email API (M365 or Google)
+- **Knowledge base**: Knowledge base API
+- **Task management**: Task management API
+- **CRM**: CRM API
+- **Files**: Read, Write, Edit, Glob, Grep tools
+<!-- system:end -->
+
+<!-- personal:start -->
+## Tool Bindings (Concrete)
 
 - **Calendar/Email/Teams**: M365 MCP (outlook_calendar_search, outlook_email_search, chat_message_search)
 - **Knowledge base**: Obsidian MCP (search_vault_simple, get_vault_file, create_vault_file, etc.)
@@ -38,7 +54,13 @@ Read and execute `workflows/one-on-one-prep/workflow.md`. Follow each step in `w
 - **Files**: Read, Write, Edit, Glob, Grep tools
 - **Delegation tracker**: `delegations/tracker.md`
 - **Quarterly objectives**: `context/quarterly-objectives.md`
+<!-- personal:end -->
 
+<!-- system:start -->
 ## Input
 
 $ARGUMENTS
+<!-- system:end -->
+
+<!-- personal:start -->
+<!-- personal:end -->

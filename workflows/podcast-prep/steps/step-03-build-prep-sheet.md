@@ -1,3 +1,4 @@
+<!-- personal:start -->
 # Step 03: Build Detailed Prep Sheet
 
 ## MANDATORY EXECUTION RULES
@@ -146,3 +147,4 @@ Action: Confirm with Janine whether she's building one or if you're going freefo
 ## NEXT STEP
 
 Read fully and follow: `step-04-build-pdf-sheet.md`
+<!-- personal:end -->

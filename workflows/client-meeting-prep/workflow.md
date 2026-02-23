@@ -4,6 +4,7 @@ description: Client/prospect meeting prep - attendee research, account context, 
 agent: chase
 ---
 
+<!-- system:start -->
 # Client Meeting Prep Workflow
 
 **Goal:** Walk into every client meeting knowing more about their business than they expect. No surprises. No "remind me what we talked about last time."
@@ -11,9 +12,14 @@ agent: chase
 **Agent:** Chase — Revenue & Pipeline
 
 **Architecture:** Sequential 4-step workflow. Identify the meeting and attendees, pull account context from CRM, research externally, assemble the brief. No user interaction required until the brief is delivered.
+<!-- system:end -->
+
+<!-- personal:start -->
+<!-- personal:end -->
 
 ---
 
+<!-- system:start -->
 ## INITIALIZATION
 
 ### Data Sources Required
@@ -39,9 +45,18 @@ This workflow requires a meeting identifier to begin. One of:
 - A direct request: "Prep me for [meeting/client]"
 
 If triggered from the pipeline-review workflow, the meeting will be pre-identified.
+<!-- system:end -->
+
+<!-- personal:start -->
+<!-- personal:end -->
 
 ---
 
+<!-- system:start -->
 ## EXECUTION
 
 Read fully and follow: `steps/step-01-meeting-details.md` to begin the workflow.
+<!-- system:end -->
+
+<!-- personal:start -->
+<!-- personal:end -->

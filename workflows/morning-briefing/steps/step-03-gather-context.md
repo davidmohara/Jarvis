@@ -1,3 +1,4 @@
+<!-- system:start -->
 # Step 03: Gather Meeting Context
 
 ## MANDATORY EXECUTION RULES
@@ -42,39 +43,21 @@
       - Search by meeting subject / account name — prior meeting history
       - Pull the most recent relevant note (not all history)
 
-   b. **Clay relationship lookup** for each key attendee:
-      - Search `mcp__clay__searchContacts` by attendee name
-      - Note: last interaction date, interaction channel, total touchpoints, any notes
-      - Flag cold relationships (60+ days no interaction) — these need a warm-up line or re-engagement strategy
-      - If Clay returns nothing, move on — not every contact will be in Clay
-
-   c. **Identify open action items** related to attendees:
+   b. **Identify open action items** related to attendees:
       - Check delegation tracker for items involving attendees
       - Check task management system for tasks tagged to attendees (if person-tagged)
 
-   d. **Classify prep urgency:**
+   c. **Classify prep urgency:**
       - `ready` — sufficient context available, no additional prep needed
       - `needs-prep` — meeting within 2 hours, context is thin, recommend running Chase/Shep prep
       - `low-context` — meeting later today, context is thin but time allows prep
 
-3. **Check Clay for reminders and birthdays:**
-   - Call `mcp__clay__getUpcomingReminders` — surface any pending reminders
-   - Call `mcp__clay__searchContacts` with `upcoming_birthday` filter for next 7 days
-   - Store results for the briefing
-
-4. **Check for yesterday's daily review:**
+3. **Check for yesterday's daily review:**
    - Look for `{project-root}/reviews/daily/YYYY-MM-DD.md` (yesterday's date)
    - If exists: note it was completed, pull tomorrow's top 3 if listed
    - If missing: flag "No daily review yesterday" as a warning
 
-5. **Check credit card deadlines:**
-   - Read `{project-root}/systems/credit-cards/benefits-tracker.json`
-   - Scan `upcoming_deadlines` for anything within the next 7 days
-   - Scan `benefits_usage` for credits with `remaining > 0` and reset date within 14 days
-   - On the 1st briefing of each month: check `spend_threshold_tracker` for pace alerts
-   - Store results as `card_alerts` in working memory
-
-6. **Store results** in working memory:
+4. **Store results** in working memory:
    ```
    meeting_context:
      - meeting: ...
@@ -85,12 +68,6 @@
    system_status:
      yesterday_review: completed | missing
      yesterday_top_3: [...] | null
-   card_alerts:
-     - card: ...
-       alert_type: deadline | unused_credit | spend_pace
-       description: ...
-       deadline: YYYY-MM-DD
-       amount: ...
    ```
 
 ---
@@ -114,3 +91,7 @@
 ## NEXT STEP
 
 Read fully and follow: `step-04-synthesize-briefing.md`
+<!-- system:end -->
+
+<!-- personal:start -->
+<!-- personal:end -->

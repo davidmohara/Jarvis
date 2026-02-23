@@ -1,3 +1,4 @@
+<!-- system:start -->
 # Step 01: Gather Calendar
 
 ## MANDATORY EXECUTION RULES
@@ -94,3 +95,7 @@
 ## NEXT STEP
 
 Read fully and follow: `step-02-gather-tasks.md`
+<!-- system:end -->
+
+<!-- personal:start -->
+<!-- personal:end -->

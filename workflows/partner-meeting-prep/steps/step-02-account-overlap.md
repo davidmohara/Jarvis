@@ -1,3 +1,4 @@
+<!-- system:start -->
 # Step 02: Account Overlap Analysis
 
 ## MANDATORY EXECUTION RULES
@@ -122,3 +123,7 @@
 ## NEXT STEP
 
 Read fully and follow: `step-03-events-and-context.md`
+<!-- system:end -->
+
+<!-- personal:start -->
+<!-- personal:end -->

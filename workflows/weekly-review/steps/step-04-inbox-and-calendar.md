@@ -1,3 +1,4 @@
+<!-- system:start -->
 # Step 04: Inbox Health and Calendar Audit
 
 ## MANDATORY EXECUTION RULES
@@ -115,3 +116,7 @@
 ## NEXT STEP
 
 Read fully and follow: `step-05-people-check.md`
+<!-- system:end -->
+
+<!-- personal:start -->
+<!-- personal:end -->

@@ -1,3 +1,4 @@
+<!-- system:start -->
 # Step 02: Set Tomorrow — Priorities and Prep
 
 ## MANDATORY EXECUTION RULES
@@ -146,3 +147,7 @@
 ## NEXT STEP
 
 Read fully and follow: `step-03-update-system.md`
+<!-- system:end -->
+
+<!-- personal:start -->
+<!-- personal:end -->

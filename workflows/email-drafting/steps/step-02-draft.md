@@ -1,3 +1,4 @@
+<!-- system:start -->
 # Step 02: Draft the Email
 
 ## MANDATORY EXECUTION RULES
@@ -149,3 +150,7 @@ Ready to send, or adjustments needed?
 ## NEXT STEP
 
 Read fully and follow: `step-03-iterate.md`
+<!-- system:end -->
+
+<!-- personal:start -->
+<!-- personal:end -->

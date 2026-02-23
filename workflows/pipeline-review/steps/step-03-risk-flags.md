@@ -1,3 +1,4 @@
+<!-- system:start -->
 # Step 03: Risk Flags
 
 ## MANDATORY EXECUTION RULES
@@ -144,3 +145,7 @@
 ## NEXT STEP
 
 Read fully and follow: `step-04-action-report.md`
+<!-- system:end -->
+
+<!-- personal:start -->
+<!-- personal:end -->

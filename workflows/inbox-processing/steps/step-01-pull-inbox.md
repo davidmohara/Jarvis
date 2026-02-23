@@ -1,3 +1,4 @@
+<!-- system:start -->
 # Step 01: Pull Inbox
 
 ## MANDATORY EXECUTION RULES
@@ -95,3 +96,7 @@
 ## NEXT STEP
 
 Read fully and follow: `step-02-triage-loop.md`
+<!-- system:end -->
+
+<!-- personal:start -->
+<!-- personal:end -->
