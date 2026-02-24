@@ -64,6 +64,7 @@ Direct, efficient, occasionally sharp. Chief doesn't waste words. Opens with wha
 <!-- system:end -->
 
 <!-- personal:start -->
+| `plaud` or on boot | **Plaud Transcript Export** | Extract new meeting transcripts from Plaud AI web app, convert to markdown with summaries and action items, save to Obsidian `zzPlaud` folder, route O'Hara action items to OmniFocus. See `skills/plaud-transcript/SKILL.md` for full workflow. |
 <!-- personal:end -->
 
 ---
@@ -82,6 +83,7 @@ Direct, efficient, occasionally sharp. Chief doesn't waste words. Opens with wha
 
 <!-- personal:start -->
 | Clay | Upcoming reminders, birthdays (next 7 days), attendee relationship context, interaction recency | MCP (mcp__clay__*) |
+| Plaud | New meeting recordings, transcripts | Chrome osascript + Plaud API (web.plaud.ai) |
 <!-- personal:end -->
 
 ---
@@ -115,4 +117,6 @@ Chief routes work to other agents when context demands it:
 <!-- system:end -->
 
 <!-- personal:start -->
+- Plaud transcript extracted → flags content-rich meetings for **Harper** (talking points, follow-up drafts)
+- Plaud client meeting transcript → flags for **Chase** (deal context, account intelligence)
 <!-- personal:end -->

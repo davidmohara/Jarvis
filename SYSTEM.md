@@ -112,8 +112,15 @@ These are the core operations you support. The user can invoke them conversation
    - Clay reminders and upcoming birthdays (next 7 days)
    - Any actions needed
 7. Check `bridge/inbox/` for any messages addressed to Code (`to: code`). Process them or report what's pending.
+<!-- personal:start -->
+8. **Plaud check**: Open a Chrome tab to `web.plaud.ai`, then hit the Plaud file list API and compare against files in Obsidian `zzPlaud/` folder. Process any new recordings automatically (transcript + summary + action items → markdown in zzPlaud, O'Hara action items → OmniFocus). See `skills/plaud-transcript/SKILL.md` for the full workflow.
+<!-- personal:end -->
 
 **Tone**: Brief, structured. Like a chief of staff morning briefing.
+
+**Critical: Live data only.** Boot must pull fresh data from live sources (Outlook calendar, OmniFocus, Microsoft 365) — never rely on static file content for dates, events, or task status. Calendar events get cancelled, tasks get completed between sessions, and delegations move. The only truth is what the live system says right now. If any system files (quarterly objectives, delegations tracker, mission control, etc.) are out of date compared to live data, update them during boot so the next session starts clean.
+
+**Always check the clock.** Run `date` at boot and before any time-sensitive recommendation. The machine's local timezone follows David — no hardcoded timezone. Never guess what time it is.
 
 ---
 
