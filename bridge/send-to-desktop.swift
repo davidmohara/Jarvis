@@ -71,6 +71,22 @@ func retry(_ label: String, attempts: Int = 5, delay: TimeInterval = 1.0, action
     return false
 }
 
+func sendCommandPeriod() {
+    // Use osascript/System Events to reliably target the Claude process
+    let script = """
+        tell application "System Events"
+            tell process "Claude"
+                keystroke "." using {command down}
+            end tell
+        end tell
+        """
+    let task = Process()
+    task.launchPath = "/usr/bin/osascript"
+    task.arguments = ["-e", script]
+    task.launch()
+    task.waitUntilExit()
+}
+
 func pasteText(_ text: String) {
     let pasteboard = NSPasteboard.general
     let previous = pasteboard.string(forType: .string)
@@ -177,7 +193,7 @@ guard retry("Cowork tab", attempts: 3, delay: 0.5, action: {
 
 // MARK: - Step 2: Click "New task"
 
-guard retry("New task link", attempts: 5, action: {
+var foundNewTask = retry("New task link", attempts: 5, action: {
     if let link = findElement(window, role: "AXLink", description: "New task") {
         fputs("Starting new task...\n", stderr)
         _ = pressElement(link)
@@ -185,7 +201,24 @@ guard retry("New task link", attempts: 5, action: {
         return true
     }
     return false
-}) else {
+})
+
+if !foundNewTask {
+    fputs("Tray may be closed — sending Command-. to toggle...\n", stderr)
+    sendCommandPeriod()
+    Thread.sleep(forTimeInterval: 1.0)
+    foundNewTask = retry("New task link (after toggle)", attempts: 5, action: {
+        if let link = findElement(window, role: "AXLink", description: "New task") {
+            fputs("Starting new task...\n", stderr)
+            _ = pressElement(link)
+            Thread.sleep(forTimeInterval: 1.5)
+            return true
+        }
+        return false
+    })
+}
+
+guard foundNewTask else {
     fputs("Error: Could not find 'New task' link.\n", stderr)
     exit(1)
 }

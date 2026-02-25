@@ -101,26 +101,28 @@ These are the core operations you support. The user can invoke them conversation
 **Steps**:
 1. Read identity files (`identity/MEMORY.md`, `identity/GOALS_AND_DREAMS.md`, `identity/RESPONSIBILITIES.md`, `identity/AUTOMATION.md`, `identity/MISSION_CONTROL.md`) — know who David is and what you handle.
 2. Read `context/quarterly-objectives.md` — know the current rocks.
-3. Get OmniFocus inbox tasks via osascript — note any unprocessed items.
-4. Read `delegations/tracker.md` — note anything overdue.
-5. Check Clay for upcoming reminders and birthdays in the next 7 days via `mcp__clay__getUpcomingReminders` and `mcp__clay__searchContacts` (upcoming_birthday filter).
-6. Check for today's daily review in `reviews/daily/` — has a shutdown been done?
-7. Report a brief status:
+3. **Pull live calendar via bridge** — send an urgent bridge request to Desktop for today's events and the next 7 days. Use `bridge/send-to-desktop.sh` with a prompt asking Desktop to read the Outlook calendar and return all events for the next 7 days. Poll `bridge/done/` every 15 seconds until the response file appears, then read it. **Do not use static file content for calendar data — always wait for the live pull.**
+4. Get OmniFocus inbox tasks via osascript — note any unprocessed items.
+5. Read `delegations/tracker.md` — note anything overdue.
+6. Check Clay for upcoming reminders and birthdays in the next 7 days via `mcp__clay__getUpcomingReminders` and `mcp__clay__searchContacts` (upcoming_birthday filter).
+7. Check for today's daily review in `reviews/daily/` — has a shutdown been done?
+8. Report a brief status:
    - Current quarter and rocks (with status)
+   - **Today's calendar and next 7 days** (from live Desktop pull)
    - Number of inbox items pending
    - Any overdue delegations
    - Clay reminders and upcoming birthdays (next 7 days)
    - Any actions needed
-7. Check `bridge/inbox/` for any messages addressed to Code (`to: code`). Process them or report what's pending.
+9. Check `bridge/inbox/` for any messages addressed to Code (`to: code`). Process them or report what's pending.
 <!-- personal:start -->
-8. **Plaud check**: Open a Chrome tab to `web.plaud.ai`, then hit the Plaud file list API and compare against files in Obsidian `zzPlaud/` folder. Process any new recordings automatically (transcript + summary + action items → markdown in zzPlaud, O'Hara action items → OmniFocus). See `skills/plaud-transcript/SKILL.md` for the full workflow.
+10. **Plaud check**: Open a Chrome tab to `web.plaud.ai`, then hit the Plaud file list API and compare against files in Obsidian `zzPlaud/` folder. Process any new recordings automatically (transcript + summary + action items → markdown in zzPlaud, O'Hara action items → OmniFocus). See `skills/plaud-transcript/SKILL.md` for the full workflow.
 <!-- personal:end -->
 
 **Tone**: Brief, structured. Like a chief of staff morning briefing.
 
 **Critical: Live data only.** Boot must pull fresh data from live sources (Outlook calendar, OmniFocus, Microsoft 365) — never rely on static file content for dates, events, or task status. Calendar events get cancelled, tasks get completed between sessions, and delegations move. The only truth is what the live system says right now. If any system files (quarterly objectives, delegations tracker, mission control, etc.) are out of date compared to live data, update them during boot so the next session starts clean.
 
-**Always check the clock.** Run `date` at boot and before any time-sensitive recommendation. The machine's local timezone follows David — no hardcoded timezone. Never guess what time it is.
+**Always check the clock.** Run `date` at boot and before any time-sensitive recommendation. The machine's local timezone follows David — no hardcoded timezone. Never guess what time it is. **If the user states a date that conflicts with the local clock, verify before accepting — do not silently override system data based on a casual remark.** Flag the conflict and confirm.
 
 ---
 

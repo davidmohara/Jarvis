@@ -29,16 +29,17 @@
 - **Progress Notes**:
   - Small Business AI Workshop — Feb 6
   - Forbes AI Roundtable — Feb 12
-  - Executive AI Workshops — Feb 26, Mar 10
+  - ~~Executive AI Workshop (Dallas) — Feb 26~~ *(cancelled)*; Mar 10 still on
   - SXSW — Mar 12-18
   - Convergence AI — Mar 30-31
   - "The Improving Edge" podcast in planning
 
-### Rock 4: Deepen Partner Engagement (Microsoft)
-- **Owner**: David (with Nada, Lowell)
-- **Key Result**: Joint Texas Microsoft play drafted; $15M co-sell pipeline target initiated; 10 C-Suite connections per enterprise at level 4+
-- **Status**: Not Started
+### Rock 4: Deepen Partner Engagement (Microsoft + Confluent)
+- **Owner**: David (with Nada, Lowell, Ehren)
+- **Key Result**: Joint Texas Microsoft play drafted; $15M co-sell pipeline target initiated; 10 C-Suite connections per enterprise at level 4+; Confluent partnership initiated with joint account strategy
+- **Status**: In Progress
 - **Progress Notes**:
+  - **Confluent**: Initial meeting held in Austin with Nick Larson and Dante — partnership kicked off
   - Presenting to Ben Holm's Microsoft SME&C East seller team — Mar 25 (Work From Work Wednesday)
   - FABCON Atlanta (Mar 18-20) — David not involved unless Nada or Lowell provide significant reason
   - John Yurewicz relationship active

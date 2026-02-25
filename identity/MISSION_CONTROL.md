@@ -57,7 +57,7 @@ How:
 ### Upcoming Events
 - Small Business AI Workshop — Feb 6, 2026
 - Forbes AI Roundtable — Feb 12, 2026
-- Executive AI Workshop (Dallas) — Feb 26, 2026
+- ~~Executive AI Workshop (Dallas) — Feb 26, 2026~~ *(cancelled)*
 - Executive AI Workshop (Dallas) — Mar 10, 2026
 - SXSW — Mar 12-18, 2026
 - Convergence AI Roundtable — Mar 30-31, 2026

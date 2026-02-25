@@ -6,7 +6,7 @@ Single view of everything you've handed off. Review weekly.
 
 | Task | Delegated To | Date Assigned | Due Date | Status | Notes |
 |------|-------------|---------------|----------|--------|-------|
-| Follow up on account overlap analysis | Nada Ungvarsky | 2026-02-06 | 2026-02-25 | Waiting | Rock 4 — Microsoft partner engagement. Follow up Wednesday Feb 25. |
+| Follow up on account overlap analysis | Nada Ungvarsky | 2026-02-06 | 2026-02-28 | Waiting | Rock 4 — Microsoft partner engagement. Follow up Friday Feb 28. |
 
 ## Completed (move here when done, archive monthly)
 
