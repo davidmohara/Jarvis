@@ -143,7 +143,39 @@ Post-review actions that may be queued:
 - Rock-related task creation (from step 02 and step 06)
 
 These are separate workflows. The weekly review surfaces them; other workflows execute them.
+
+---
+
+## Deep Analysis Protocol
+
+This is the most consequential reasoning step in the system — the priority list drives the entire next week. Before proposing priorities in sequence step 2, reason explicitly through competing signals using structured multi-step analysis.
+
+### When to Invoke
+
+After gathering all step 01-05 data and before presenting the priority proposal to the controller.
+
+### Reasoning Chain
+
+Work through these layers in order:
+
+1. **Signal extraction**: What are the strongest signals from each prior step? (Wins/misses themes, rock momentum or stalls, delegation health, calendar shape, people dynamics)
+2. **Contradiction check**: Which signals conflict? (e.g., "Rock 1 is stalled BUT there's a major client meeting Tuesday that could unblock it" or "Calendar is packed BUT the most important thing isn't on the calendar")
+3. **Rock weighting**: Which rocks need the most attention THIS week based on actual evidence, not just status labels? A "green" rock with no activity in 2 weeks is not green.
+4. **Calendar opportunity mapping**: What does next week's calendar create windows for? What does it make impossible?
+5. **People factor**: Do any people dynamics change what should be prioritized? (Someone overwhelmed, someone going cold, a key relationship at risk)
+6. **Priority synthesis**: Given all the above, what 3-5 outcomes would make next week a win? Rank them with explicit reasoning for why #1 beats #2.
+7. **Rock alignment audit**: Does every priority connect to a rock or critical responsibility? If not, challenge it before presenting.
+
+### What This Produces
+
+- A priority list where the reasoning is surfaced, not hidden
+- When the controller asks "why is this #1?", the thought chain is available
+- Contradicting signals are resolved explicitly, not implicitly averaged away
+- The adversarial check ("is this really a priority or just urgent noise?") happens before presentation
 <!-- system:end -->
 
 <!-- personal:start -->
+## Tool Binding: Structured Reasoning
+
+Use `sequential-thinking` MCP to execute the Deep Analysis Protocol reasoning chain above.
 <!-- personal:end -->

@@ -146,7 +146,36 @@ Do not route during triage — just flag. The controller decides routing after d
 ## NEXT STEP
 
 When all items are processed (including any retries and skipped items), read fully and follow: `step-03-confirm-zero.md`
+
+---
+
+## Deep Analysis Protocol
+
+Before entering the per-item triage loop, reason about the inbox as a system — not just individual items. The relationships between items matter more than any single item's disposition.
+
+### When to Invoke
+
+After the Pre-Loop Batch Analysis scan, before presenting the first batch or item to the controller.
+
+### Reasoning Chain
+
+1. **Cross-item relationship scan**: Which inbox items are actually about the same thing? An item about "follow up with Nada" and another about "Microsoft partner overlap" may be the same work stream. Group them before presenting.
+2. **Rock alignment sweep**: Map each item against quarterly rocks. Items that serve no rock aren't automatically deletes — but they need a higher bar. Reason about which items are genuinely important vs. urgent noise.
+3. **People load awareness**: Before recommending delegations, consider what's already on each person's plate (from the delegation tracker). Recommending 3 new items to someone with 5 overdue delegations is not a recommendation — it's a pile-on.
+4. **Age-significance interaction**: A 14-day-old item with no rock alignment is probably a delete. But a 14-day-old item that blocks a rock is a failure mode, not just stale — escalate the urgency.
+5. **Batch strategy**: Based on the above reasoning, plan the presentation order. Lead with the batches that are easiest to clear (obvious deletes, quick wins), then present the items that need real thought.
+6. **Decision items identification**: Flag any items that are actually decisions masquerading as tasks. "Think about pricing strategy" is not a task — it's a decision file waiting to happen.
+
+### What This Produces
+
+- Smarter batching that groups by actual relationship, not just keyword similarity
+- Delegation recommendations that account for current people load
+- Age-urgency reasoning that distinguishes "stale and irrelevant" from "stale and critical"
+- A presentation order that maximizes the controller's decision velocity
 <!-- system:end -->
 
 <!-- personal:start -->
+## Tool Binding: Structured Reasoning
+
+Use `sequential-thinking` MCP to execute the Deep Analysis Protocol reasoning chain above.
 <!-- personal:end -->

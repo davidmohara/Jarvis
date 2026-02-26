@@ -16,7 +16,15 @@ Extract meeting transcripts and AI-generated summaries from Plaud AI's web inter
 
 ## Architecture
 
-Plaud is a meeting recording device. Transcripts live in their web app at `web.plaud.ai`. The web app is a Vue SPA with a virtual scroller — you cannot scrape the DOM for full transcripts. Instead, use the Plaud REST API directly via JavaScript executed in Chrome.
+Plaud is a meeting recording device. Transcripts live in their web app at `web.plaud.ai`. The web app is a Vue SPA with a virtual scroller — you cannot scrape the DOM for full transcripts.
+
+**Key design principle:** Chrome is only used for auth token capture (a small, reliable operation). ALL data transfer happens via `curl` on the command line — no Chrome JS execution for API calls, no DOM bridges, no chunked AppleScript string transfers.
+
+### Data Flow
+
+```
+Chrome (auth only) → token → curl (all API calls) → filesystem → markdown assembly
+```
 
 ## API Reference
 
@@ -26,6 +34,8 @@ The JWT bearer token is stored in Chrome's localStorage:
 localStorage.getItem('tokenstr')
 // Returns: "bearer eyJhbG..."
 ```
+
+Capture it once via osascript (small string, reliable), then use it in all subsequent `curl` calls.
 
 ### Endpoints
 
@@ -99,9 +109,9 @@ Times are in milliseconds from recording start.
 
 ## Extraction Workflow
 
-### Step 1: Boot Check — Open Plaud and Detect New Recordings
+### Step 1: Open Plaud and Capture Auth Token
 
-During `/boot`, open a Chrome tab to `web.plaud.ai` so the auth token is available:
+During `/boot`, open a Chrome tab to `web.plaud.ai` so the auth session is active:
 ```applescript
 tell application "Google Chrome"
     tell front window
@@ -110,73 +120,78 @@ tell application "Google Chrome"
 end tell
 ```
 
-Wait a few seconds for the page to load and auth to initialize, then fetch the file list API and compare against existing files in zzPlaud:
+Wait 5 seconds for page load and auth initialization, then capture the token (one small osascript read — reliable):
+```bash
+TOKEN=$(osascript -e 'tell application "Google Chrome"
+    execute active tab of front window javascript "localStorage.getItem(\"tokenstr\")"
+end tell')
+```
+
+The token is a small string (`"bearer eyJhbG..."`). This is the ONLY osascript-to-Chrome interaction needed. Everything else uses `curl`.
+
+### Step 2: Detect New Recordings via curl
+
+Fetch the file list directly via `curl` (no Chrome JS execution):
+```bash
+curl -s -H "Authorization: $TOKEN" \
+  "https://api.plaud.ai/file/simple/web?skip=0&limit=99999&is_trash=2&sort_by=start_time&is_desc=true" \
+  -o /tmp/plaud_filelist.json
+```
+
+List existing files in zzPlaud:
 ```bash
 ls '/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/'
 ```
 
-Match by date prefix (YYYY-MM-DD) to identify unprocessed recordings.
-
-### Step 2: Execute JavaScript in Chrome via osascript
-
-All API calls happen inside Chrome's JS context (where the auth token lives). Use this pattern for async operations:
-
-```applescript
-tell application "Google Chrome"
-    set jsCode to "
-        (async () => {
-            try {
-                // ... async work ...
-                var el = document.getElementById('jarvis-data');
-                if (!el) { el = document.createElement('div'); el.id = 'jarvis-data'; el.style.display = 'none'; document.body.appendChild(el); }
-                el.textContent = resultString;
-            } catch(e) {
-                var el = document.getElementById('jarvis-data');
-                if (!el) { el = document.createElement('div'); el.id = 'jarvis-data'; el.style.display = 'none'; document.body.appendChild(el); }
-                el.textContent = 'ERROR: ' + e.message;
-            }
-        })();
-    "
-    execute active tab of front window javascript jsCode
-end tell
-```
-
-Then read back with a separate call (after a delay):
-```applescript
-tell application "Google Chrome"
-    delay 2
-    execute active tab of front window javascript "document.getElementById('jarvis-data').textContent"
-end tell
-```
-
-### Step 3: For each unprocessed recording, fetch ALL content
-
-Fetch the file detail endpoint. Then for each item in `content_list`, fetch the `data_link`:
-
-1. **Transcript** (`data_type === 'transaction'`): Full utterance array
-2. **Summary** (`data_type === 'auto_sum_note'`): AI meeting notes
-3. **Action Items** (`data_type === 'sum_multi_note'`, first): Action items + key decisions
-4. **Highlights** (`data_type === 'sum_multi_note'`, second — check for `category: "Meeting Highlights"`): Strategic highlights
-
-Fetch all non-transcript content types in a single JS call (they're small enough). The transcript needs chunked transfer due to size.
-
-### Step 4: Transfer transcript data from Chrome to Mac filesystem
-
-The transcript JSON can be large (40-60K+ chars). Chunk the transfer in 10K segments:
-
-```applescript
-tell application "Google Chrome"
-    set chunk to execute active tab of front window javascript "document.getElementById('jarvis-data').textContent.substring(0, 10000)"
-end tell
-do shell script "printf '%s' " & quoted form of chunk & " > /tmp/plaud_transcript.json"
-```
-
-Append subsequent chunks with `>> /tmp/plaud_transcript.json`. Validate JSON integrity:
+Compare by date prefix (YYYY-MM-DD) to identify unprocessed recordings. Parse the file list with python3:
 ```bash
-python3 -c "import json; data=json.load(open('/tmp/plaud_transcript.json')); print('Valid, entries:', len(data))"
+python3 -c "
+import json
+data = json.load(open('/tmp/plaud_filelist.json'))
+for f in data['data_file_list']:
+    if f.get('is_trans'):
+        from datetime import datetime
+        dt = datetime.fromtimestamp(f['start_time']/1000).strftime('%Y-%m-%d')
+        print(f'{dt}|{f[\"id\"]}|{f[\"filename\"]}|{f[\"duration\"]}')
+"
 ```
 
-### Step 5: Build the complete markdown document
+### Step 3: Fetch Content for Each New Recording via curl
+
+For each unprocessed recording, fetch the file detail:
+```bash
+curl -s -H "Authorization: $TOKEN" \
+  "https://api.plaud.ai/file/detail/$FILE_ID" \
+  -o /tmp/plaud_detail.json
+```
+
+Parse `content_list` to get S3 signed URLs, then fetch each content type directly to filesystem:
+
+```bash
+# Transcript (can be 40-60K+ — curl handles any size natively)
+curl -s "$TRANSCRIPT_S3_URL" -o /tmp/plaud_transcript.json
+
+# Summary
+curl -s "$SUMMARY_S3_URL" -o /tmp/plaud_summary.json
+
+# Action items (first sum_multi_note)
+curl -s "$ACTIONS_S3_URL" -o /tmp/plaud_actions.json
+
+# Highlights (second sum_multi_note, category: "Meeting Highlights")
+curl -s "$HIGHLIGHTS_S3_URL" -o /tmp/plaud_highlights.json
+```
+
+Validate all JSON files:
+```bash
+python3 -c "import json; data=json.load(open('/tmp/plaud_transcript.json')); print('Transcript valid, entries:', len(data))"
+python3 -c "import json; data=json.load(open('/tmp/plaud_summary.json')); print('Summary valid')"
+```
+
+**Why this is better**: curl writes directly to filesystem — no DOM bridges, no chunked AppleScript string transfers, no blind delays for async operations. A 60K transcript that previously required 6+ chunked osascript round-trips now downloads in one call.
+
+**S3 URL expiration**: Signed URLs expire in ~300 seconds. Fetch all content promptly after getting the file detail response.
+
+### Step 4: Build the complete markdown document
 
 The output file has four sections above the transcript:
 
@@ -186,7 +201,7 @@ The output file has four sections above the transcript:
 4. **AI Highlights**: Extracted from the second `sum_multi_note` (Meeting Highlights). Reformat the categorized bullets.
 5. **Transcript**: Full speaker-labeled, timestamped transcript
 
-### Step 6: Route Action Items
+### Step 5: Route Action Items
 
 After saving the markdown file, parse the action items section and route David's items:
 
@@ -204,7 +219,7 @@ end tell
 - Flag them in the briefing output so David can delegate or follow up
 - Format: "Action items for others from [Meeting]: @Name — description"
 
-### Step 7: Save to Obsidian
+### Step 6: Save to Obsidian
 
 Write the markdown file to:
 ```
@@ -218,7 +233,7 @@ Examples:
 - `2026-02-24 DRC Event Strategy.md`
 - `2026-02-20 Vistage Speaker Opportunity.md`
 
-### Step 8: Clean up
+### Step 7: Clean up
 
 Remove temporary JSON files from `/tmp/`.
 
@@ -272,8 +287,25 @@ Their response text here.
 
 ## Dependencies
 
-- Google Chrome must be open with Plaud Web logged in
-- osascript access (Mac host)
-- Python 3 on the Mac host
+- Google Chrome must be open with Plaud Web logged in (for auth token only)
+- osascript access (Mac host) — used only for Chrome tab open + token read
+- `curl` on the Mac host — all API calls and data transfer
+- Python 3 on the Mac host — JSON parsing and validation
 - Write access to the Obsidian vault iCloud directory
 - OmniFocus for action item routing
+
+## What Changed (v2 — Playwright/curl rewrite)
+
+Previous approach used Chrome's JS context for ALL API calls, requiring:
+- A hidden DOM element (`div#jarvis-data`) as a data bridge
+- Chunked 10K AppleScript string transfers for large transcripts
+- Blind `delay N` calls for async operation timing
+- Multiple osascript round-trips per recording
+
+New approach uses Chrome for ONE thing (auth token capture) and `curl` for everything else:
+- Direct HTTP calls — no DOM bridges
+- Full-size downloads — no chunking
+- Synchronous operations — no blind delays
+- One osascript call total — not dozens
+
+**Future**: When Playwright MCP is configured with Chrome profile access and JS execution capability, the osascript token capture can be replaced with Playwright's `browser_evaluate`. The curl-based data extraction stays the same regardless.

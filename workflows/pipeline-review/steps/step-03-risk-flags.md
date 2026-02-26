@@ -145,7 +145,36 @@
 ## NEXT STEP
 
 Read fully and follow: `step-04-action-report.md`
+
+---
+
+## Deep Analysis Protocol
+
+After applying all risk flag categories (steps 1-7), reason about contradicting signals before finalizing the risk assessment. Individual flags are mechanical; the analysis is where judgment lives.
+
+### When to Invoke
+
+After all individual risk flags are evaluated, before storing results and moving to step 04.
+
+### Reasoning Chain
+
+1. **Signal contradiction resolution**: A deal flagged "stale" (14+ days no activity) BUT with a meeting scheduled this week is not truly stale — it's about to re-engage. A deal with "no buyer access" BUT a strong champion who just got promoted may be about to solve itself. Resolve each contradiction explicitly.
+2. **Risk compounding**: Which deals have multiple flags that compound each other? "Stale + no next step + late stage" is not three independent risks — it's one dying deal. Identify compound patterns.
+3. **Calendar cross-reference**: Check the controller's upcoming calendar against flagged deals. If there's already a meeting with the account next week, the recommended action should reference that meeting, not propose a new outreach.
+4. **Owner pattern detection**: Does one deal owner have a disproportionate share of risk flags? That's not a deal problem — it's a coaching conversation. Flag the pattern, not just the individual deals.
+5. **Kill list honesty**: For each kill candidate, reason through the sunk cost trap. "We've invested 6 months" is not a reason to keep a dead deal. What is the realistic probability this closes in the next 30 days?
+6. **Prioritized risk narrative**: After resolving contradictions, what are the 3 deals that need the controller's attention THIS week? Not all flagged deals are equal — reason about which ones have the highest stakes and the most time-sensitive risk.
+
+### What This Produces
+
+- Risk flags that account for context, not just rules
+- Contradicting signals resolved with explicit reasoning
+- Owner-level patterns surfaced alongside deal-level flags
+- A prioritized "act on these 3 this week" recommendation
 <!-- system:end -->
 
 <!-- personal:start -->
+## Tool Binding: Structured Reasoning
+
+Use `sequential-thinking` MCP to execute the Deep Analysis Protocol reasoning chain above.
 <!-- personal:end -->

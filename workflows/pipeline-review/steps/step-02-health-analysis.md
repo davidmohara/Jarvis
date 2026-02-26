@@ -129,7 +129,35 @@
 ## NEXT STEP
 
 Read fully and follow: `step-03-risk-flags.md`
+
+---
+
+## Deep Analysis Protocol
+
+After calculating all five health metrics (step sequence items 1-6), reason about what the numbers mean *in combination* before storing results. Raw metrics lie when read in isolation.
+
+### When to Invoke
+
+After raw metrics are calculated, before the "Store results" step.
+
+### Reasoning Chain
+
+1. **Coverage reality check**: Is the coverage ratio telling the truth? If coverage is 3x but 60% of weighted value is from deals stale 30+ days, the real coverage is closer to 1.2x. Decompose the number.
+2. **Funnel-velocity interaction**: A top-heavy funnel with fast velocity is different from a top-heavy funnel with slow velocity. The first is a timing artifact; the second is a qualification bottleneck. Name which one.
+3. **Stale value contamination**: How much do stale deals inflate the aggregate metrics? Recalculate totals and coverage excluding stale deals to get the "clean" pipeline view.
+4. **Stage-close alignment**: Do deals approaching close date actually look like they're closing? Match stage progression velocity against timeline. Flag fantasy close dates.
+5. **Owner distribution**: Is pipeline concentration by owner a risk? One person holding 60% of weighted pipeline is a bus-factor problem.
+6. **Net assessment**: Given all the above, what's the honest health rating? Not just the formula output — the reasoned conclusion. "Coverage says healthy but the pipeline is propped up by zombie deals" is a valid and important finding.
+
+### What This Produces
+
+- Health metrics the controller can trust because contradictions are surfaced
+- A "clean pipeline" number alongside the raw number
+- Honest assessment that can't be gamed by stale deals or fantasy dates
 <!-- system:end -->
 
 <!-- personal:start -->
+## Tool Binding: Structured Reasoning
+
+Use `sequential-thinking` MCP to execute the Deep Analysis Protocol reasoning chain above.
 <!-- personal:end -->

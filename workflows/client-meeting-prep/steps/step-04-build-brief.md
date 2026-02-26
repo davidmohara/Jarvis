@@ -223,7 +223,37 @@ Client meeting brief delivered. No further steps.
 | Follow-up tasks generated post-meeting | Chief (Operations) | Capture tasks in task management system, update delegation tracker, schedule next steps |
 | Deal status changed based on meeting | Chase (self) | Update pipeline data and trigger pipeline-review if material change |
 | Meeting notes need to be filed | Chief (Operations) | Create meeting note in knowledge layer with outcomes and action items |
+
+---
+
+## Deep Analysis Protocol
+
+Before building the Talking Points and Desired Outcome sections (steps 7 and 9 in the sequence), connect external context with internal context into strategic conversation objectives. This is the step that turns a meeting brief from a data dump into a strategic tool.
+
+### When to Invoke
+
+After assembling sections 1-6 (header through external context), before writing Talking Points.
+
+### Reasoning Chain
+
+1. **External signal mapping**: What do the company news, exec changes, and financial signals tell us about where this company is headed? What pain are they likely feeling right now?
+2. **Internal signal mapping**: What does the CRM status, relationship history, and activity timeline tell us about where this deal/relationship stands? What has momentum? What's stalled?
+3. **Signal connection**: Where do external and internal signals intersect? "Their CTO just changed (external) AND our proposal has been in Negotiation for 30 days (internal) = the new CTO may not know about or support this deal. Objective: get executive alignment before the deal dies in a leadership transition."
+4. **Rock alignment**: Which quarterly rocks does this meeting serve? How can the conversation be steered toward outcomes that advance a rock, not just maintain the relationship?
+5. **Competitive landscape inference**: Based on external context, is a competitor likely in play? What positioning signals should the controller listen for?
+6. **Desired outcome reasoning**: Given all the above, what's the ONE thing that makes this meeting a success? Not "good conversation" — a concrete outcome. And what's the specific next step to propose before leaving?
+7. **Landmine cross-check**: Do any of the talking points risk triggering a known landmine? Adjust the approach or add a navigation note.
+
+### What This Produces
+
+- Talking points with clear strategic objectives, not just conversation topics
+- A desired outcome that's informed by both external market signals and internal deal dynamics
+- Connected reasoning: "Ask about X because external signal Y + internal signal Z suggests this is the window"
+- Talking points ordered by strategic value, not just conversation flow
 <!-- system:end -->
 
 <!-- personal:start -->
+## Tool Binding: Structured Reasoning
+
+Use `sequential-thinking` MCP to execute the Deep Analysis Protocol reasoning chain above.
 <!-- personal:end -->

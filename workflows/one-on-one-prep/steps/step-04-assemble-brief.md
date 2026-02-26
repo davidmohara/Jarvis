@@ -165,7 +165,36 @@ next 2 weeks."}
 ## NEXT STEP
 
 Read fully and follow: `step-05-quality-check-and-save.md`
+
+---
+
+## Deep Analysis Protocol
+
+Before generating the Suggested Talking Points section, reason about patterns across all data sources. This is where Shep earns the trust — connecting dots that aren't obvious from any single source.
+
+### When to Invoke
+
+After assembling the Summary of Interactions, Action Items table, and Calendar sections — before writing Talking Points.
+
+### Reasoning Chain
+
+1. **Communication pattern analysis**: What's the tone and frequency of recent interactions? Increasing volume may mean engagement or escalation. Decreasing volume may mean alignment or disengagement. Which is it, given context?
+2. **Action item trajectory**: Look at the action items table as a trend, not a snapshot. Are items getting completed or accumulating? Is the same type of item recurring (signal of a systemic issue, not a one-off)?
+3. **Calendar-workload inference**: Cross-reference this person's calendar load (from shared calendar events) with their communication patterns and task completion. "Quiet on email + overdue delegation + heavy calendar" = overwhelmed, not disengaged. "Quiet on email + light calendar + nothing overdue" = coasting or checked out.
+4. **Relationship trajectory**: Is this relationship getting stronger or weaker? Look for: response time trends, tone shifts, whether they're initiating or only responding, whether they're bringing the controller into conversations or being pulled in.
+5. **Development opportunity detection**: Based on everything above, is there a coaching moment here? A skill gap showing? A confidence issue? A delegation that's too big or too small for their current capacity?
+6. **Talking point synthesis**: For each talking point, connect at least two data sources. "Ask about X" is weak. "Ask about X because email on Feb 3 said Y, but the delegation from Feb 10 suggests Z — probe whether those are connected" is Shep-quality.
+
+### What This Produces
+
+- Talking points that feel like a coach whispering in the controller's ear, not a search result
+- Pattern-based observations: "This person has been quiet since [event] — might be worth checking in on that directly"
+- Development-oriented questions alongside operational ones
+- Connected reasoning the controller can use or discard based on their own read of the person
 <!-- system:end -->
 
 <!-- personal:start -->
+## Tool Binding: Structured Reasoning
+
+Use `sequential-thinking` MCP to execute the Deep Analysis Protocol reasoning chain above.
 <!-- personal:end -->
