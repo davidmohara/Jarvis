@@ -1,0 +1,25 @@
+FROM node:20-slim
+
+# Install system packages
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    bash \
+    curl \
+    git \
+    build-essential \
+    python3 \
+    python3-pip \
+    vim \
+    ca-certificates \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install pnpm (devbox uses it)
+RUN corepack enable && corepack prepare pnpm@latest --activate
+
+# Install Claude Code CLI
+RUN npm install -g @anthropic-ai/claude-code
+
+# Working directory — Claude runs from here
+WORKDIR /workspace/devbox
+
+# Default command
+CMD ["bash"]
