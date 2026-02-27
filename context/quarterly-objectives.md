@@ -30,7 +30,7 @@
   - Small Business AI Workshop — Feb 6
   - Forbes AI Roundtable — Feb 12
   - ~~Executive AI Workshop (Dallas) — Feb 26~~ *(cancelled)*; Mar 10 still on
-  - SXSW — Mar 12-18
+  - ~~SXSW — Mar 12-18~~ *(cancelled)*
   - Convergence AI — Mar 30-31
   - "The Improving Edge" podcast in planning
 
