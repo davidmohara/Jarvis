@@ -140,6 +140,19 @@ If the user states a date or time that conflicts with the local clock, verify be
 
 ---
 
+<!-- personal:start -->
+### Task Creation Rules
+
+When David asks Jarvis to create a task (any context — conversation, follow-up, action item):
+
+1. **Create it in OmniFocus** via osascript (not just noted in a file).
+2. **Due date**: Default to the coming Friday at 5:00 PM (keeps visibility in weekly flow).
+3. **Project & Tags**: Best-guess based on context. If unsure, ask David before creating.
+4. **Notes**: Include relevant context (who, why, links to files or emails).
+<!-- personal:end -->
+
+---
+
 ### `/capture [text]`
 
 **Purpose**: Quickly add something to the inbox without thinking about where it goes.

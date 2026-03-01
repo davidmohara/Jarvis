@@ -154,7 +154,7 @@ These dates are **never** to be scheduled over. Jarvis must provide reminders **
 
 ## Providers
 
-- **GP**: Julli Randol @ Performance Medicine (Trend Healthcare)
+- **PC (NP)**: Julli Randol, FNP-C @ Performance Medicine & Sports Therapy (6101 Windhaven Pkwy, Plano TX 75093) — also manages testosterone protocol
 - **Chiropractor**: Dr. Ishmael Gonzales @ Performance Medicine
 - **Dermatologist**: Dr. Crawford @ Dallas Associated Dermatologists (Legacy & Preston)
 - **Audiologist**: North Dallas ENT (Plano)
@@ -178,5 +178,16 @@ These dates are **never** to be scheduled over. Jarvis must provide reminders **
 
 - Executive coaching (Stagen Executive Coaching Cohort)
 - AI strategy (speaking on it, running workshops)
-- Health optimization (bio age, 4 Horsemen framework from Attia)
+- Health optimization (bio age, 4 Horsemen framework from Attia) — see `projects/wellness/protocol.md` for full bio-optimization protocol
 - Lifebook practice — quarterly review of 2 pillars at a time
+
+## Wellness & Bio-Optimization
+
+- **Full protocol**: `projects/wellness/protocol.md`
+- **Bloodwork**: Function Health — 160+ biomarkers, 2x/year at Quest Diagnostics. Ad hoc testing available.
+- **Body Comp**: Hume Body Pod (lean mass, body fat %)
+- **Recovery**: Whoop (HRV, sleep, strain, recovery)
+- **Testosterone**: 70IU/week, managed by Julli Randol (FNP-C)
+- **Peptides**: Self-directed, cycled by phase and goal
+- **Current Phase (as of Feb 2026)**: Phase 1 — Power & Mitochondria (ends Mar 3)
+- **Diet**: Gluten-free. Super Shake morning protocol. Protein-forward.
