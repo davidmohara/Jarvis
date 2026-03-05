@@ -1,0 +1,91 @@
+{
+  "id": "ies-evolution-2026-03",
+  "version": "2026.03",
+  "name": "Rigby System Operator Introduction",
+  "description": "Introduces Rigby, the platform system operator agent, and evolution deployment workflow infrastructure.",
+  "released": "2026-02-25",
+  "type": "system",
+  "compatibility": {
+    "minimum_base_version": "2026.01"
+  },
+  "files": [
+    {
+      "path": "templates/agents/rigby.md",
+      "type": "system",
+      "action": "add",
+      "description": "New Rigby agent — platform infrastructure and evolution management"
+    },
+    {
+      "path": "templates/workflows/evolution-deployment/workflow.md",
+      "type": "system",
+      "action": "add",
+      "description": "Evolution deployment workflow — non-destructive system upgrades"
+    },
+    {
+      "path": "templates/workflows/evolution-deployment/steps/step-01-validate-manifest.md",
+      "type": "system",
+      "action": "add",
+      "description": "Step 01: Manifest validation"
+    },
+    {
+      "path": "templates/workflows/evolution-deployment/steps/step-02-compatibility-check.md",
+      "type": "system",
+      "action": "add",
+      "description": "Step 02: Compatibility checking"
+    },
+    {
+      "path": "templates/workflows/evolution-deployment/steps/step-03-create-snapshot.md",
+      "type": "system",
+      "action": "add",
+      "description": "Step 03: Snapshot creation for rollback"
+    },
+    {
+      "path": "templates/workflows/evolution-deployment/steps/step-04-scan-personal-blocks.md",
+      "type": "system",
+      "action": "add",
+      "description": "Step 04: Personal block scanning and conflict detection"
+    },
+    {
+      "path": "templates/workflows/evolution-deployment/steps/step-05-apply-evolution.md",
+      "type": "system",
+      "action": "add",
+      "description": "Step 05: Evolution application with personal block preservation"
+    },
+    {
+      "path": "templates/workflows/evolution-deployment/steps/step-06-verify-and-log.md",
+      "type": "system",
+      "action": "add",
+      "description": "Step 06: Verification and history logging"
+    },
+    {
+      "path": "evolutions/history.md",
+      "type": "system",
+      "action": "add",
+      "description": "Evolution history log"
+    },
+    {
+      "path": "docs/Evolution System.md",
+      "type": "system",
+      "action": "add",
+      "description": "Evolution system documentation"
+    }
+  ],
+  "changelog": [
+    "Introduced Rigby — System Operator agent for platform infrastructure management",
+    "Added evolution deployment workflow with 6-step process",
+    "Implemented non-destructive personal block preservation during upgrades",
+    "Created snapshot and rollback infrastructure",
+    "Established evolution history logging",
+    "Added conflict detection and resolution for personal vs system content"
+  ],
+  "training_prompts": [
+    {
+      "agent": "rigby",
+      "prompt": "Meet Rigby — ask her to run a system diagnostics check"
+    },
+    {
+      "agent": "rigby",
+      "prompt": "Try deploying an evolution: rigby deploy evolutions/example-evolution-2026-03"
+    }
+  ]
+}

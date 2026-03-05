@@ -1,0 +1,86 @@
+{
+  "manifestVersion": "1.0.0",
+  "systemVersion": "1.0.0",
+  "lastUpdated": "2026-03-02",
+  "components": {
+    "agents": {
+      "version": "1.0.0",
+      "files": [
+        "agents/master.md",
+        "agents/chief.md",
+        "agents/chase.md",
+        "agents/quinn.md",
+        "agents/harper.md",
+        "agents/shep.md",
+        "agents/rigby.md"
+      ],
+      "checksum": "initial"
+    },
+    "identity": {
+      "version": "1.0.0",
+      "files": [
+        "identity/MEMORY.md",
+        "identity/VOICE.md",
+        "identity/GOALS_AND_DREAMS.md",
+        "identity/RESPONSIBILITIES.md",
+        "identity/AUTOMATION.md",
+        "identity/MISSION_CONTROL.md",
+        "identity/INTEGRATIONS.md",
+        "identity/SECURITY.md"
+      ],
+      "checksum": "initial"
+    },
+    "workflows": {
+      "version": "1.0.0",
+      "files": [
+        "workflows/morning-briefing/workflow.md",
+        "workflows/daily-review/workflow.md",
+        "workflows/inbox-processing/workflow.md",
+        "workflows/email-drafting/workflow.md",
+        "workflows/weekly-review/workflow.md",
+        "workflows/client-meeting-prep/workflow.md",
+        "workflows/one-on-one-prep/workflow.md",
+        "workflows/partner-meeting-prep/workflow.md",
+        "workflows/pipeline-review/workflow.md",
+        "workflows/shutdown-cleanup/workflow.md",
+        "workflows/evolution-deployment/workflow.md"
+      ],
+      "checksum": "initial"
+    },
+    "skills": {
+      "version": "1.0.0",
+      "files": [
+        "skills/chief-morning.md",
+        "skills/chief-review.md",
+        "skills/chief-inbox.md",
+        "skills/chief-prep.md",
+        "skills/chase-pipeline.md",
+        "skills/chase-account.md",
+        "skills/chase-client-prep.md",
+        "skills/chase-win-loss.md",
+        "skills/quinn-rocks.md",
+        "skills/quinn-alignment.md",
+        "skills/quinn-initiatives.md",
+        "skills/quinn-leadership-prep.md",
+        "skills/harper-email.md",
+        "skills/harper-deck.md",
+        "skills/harper-talking-points.md",
+        "skills/harper-content.md",
+        "skills/shep-delegations.md",
+        "skills/shep-one-on-one.md",
+        "skills/shep-nudge.md",
+        "skills/shep-team.md",
+        "skills/rigby-evolution-poll.md",
+        "skills/rigby-evolution-download.md",
+        "skills/rigby-evolution-package.md",
+        "skills/rigby-package-install.md",
+        "skills/rigby-package-pull.md",
+        "skills/rigby-capability-status.md",
+        "skills/rigby-capability-build.md"
+      ],
+      "checksum": "initial"
+    }
+  },
+  "pendingEvolutions": [],
+  "appliedEvolutions": []
+}

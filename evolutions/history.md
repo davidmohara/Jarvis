@@ -1,5 +1,34 @@
 # IES Evolution History
 
+This file logs all system evolutions applied to this IES installation. Each entry records what changed, when, and what personal blocks were preserved.
+
+---
+
+## Format
+
+Each evolution entry follows this structure:
+
+```
+## Evolution Name (version) — Applied YYYY-MM-DD
+
+**Evolution ID:** unique-id
+**Applied:** ISO timestamp
+**Snapshot:** snapshot-id
+**Applied by:** user or system
+
+### Files Changed
+- List of files modified with action types
+
+### Conflicts
+- Any conflicts encountered and how resolved
+
+### Personal Blocks Preserved
+- Files with personal blocks and where they were preserved
+
+### Status
+- Success or warnings/errors
+```
+
 ---
 
 ## Quinn Strategy Builder — Applied 2026-03-01
