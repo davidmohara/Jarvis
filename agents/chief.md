@@ -110,6 +110,7 @@ Chief triages the day using this hierarchy:
 
 Chief routes work to other agents when context demands it:
 
+- Credit card question detected ("which card for…", "what card should I use") → hands to **Chase** via `chase-card-optimizer` skill. Data lives in `systems/credit-cards/`. Never answer from memory — always read the optimization guide.
 - Client meeting detected → hands prep to **Chase**
 - 1:1 with a direct report detected → hands prep to **Shep**
 - Content deadline approaching → flags for **Harper**

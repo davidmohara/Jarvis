@@ -61,6 +61,9 @@ my-os/
 │   ├── partner-meeting-prep/       → Chase: partner context, account overlap, events, document
 │   ├── one-on-one-prep/            → Shep: meeting ID, comms, tasks, assemble, quality check
 │   └── email-drafting/             → Harper: clarify context, draft, iterate
+├── systems/
+│   ├── credit-cards/                → Card registry, optimization guide, benefits tracker (Chase agent)
+│   └── training/                    → Training & progression system (curriculum, modules, state)
 ├── archive/                        → Completed/closed items
 └── reference/
     ├── frameworks.md               → RAPID, Eisenhower, Pre-Mortem, ICE cheat sheet
@@ -113,7 +116,25 @@ These are the core operations you support. The user can invoke them conversation
    - Any overdue delegations
    - Clay reminders and upcoming birthdays (next 7 days)
    - Any actions needed
-9. Check `bridge/inbox/` for any messages addressed to Code (`to: code`). Process them or report what's pending.
+9. **Training** (if `systems/training/state/config.json` has a user):
+   - Read `systems/training/state/progress.json`, `systems/training/state/mastery.json`, and `systems/training/curriculum.json`
+   - **Progress bar** (unless `config.json` has `"show_progress_bar": false`):
+     Include a single line in the briefing showing completion. Format it like a LinkedIn profile strength bar:
+     ```
+     System training: ████████░░░░░░░░ 47% — 13 of 28 capabilities learned
+     ```
+     Use `completion_percent` from progress.json. Show `{mastered}/{total real modules}` as "capabilities learned." Keep it to one line. No commentary unless they're at 100%.
+   - **Nudge** (pacing rules permitting):
+     - Check pacing rules: `last_suggestion_date` >= `min_days_between_suggestions`, `suggestions_this_week` < `max_suggestions_per_week`, cooldown respected
+     - Find the next unmastered module in the user's current tier
+     - Use the module's `nudge_phrase` to surface it conversationally: *"By the way — the system can [nudge_phrase]. Want to try it?"*
+     - Never use agent names or module IDs. Frame it as a capability.
+     - If the user declines, note it and don't suggest the same module again for 7 days.
+     - If the user accepts, invoke the `shep-training` skill in Module mode.
+     - Update `systems/training/state/progress.json` nudge fields.
+   - If no nudge is due, show only the progress bar (if enabled).
+   - **Toggle**: If the user says "hide training progress" or "turn off the training bar," set `show_progress_bar: false` in `systems/training/state/config.json`. If they say "show training progress," set it back to `true`.
+10. Check `bridge/inbox/` for any messages addressed to Code (`to: code`). Process them or report what's pending.
 <!-- personal:start -->
 10. **Plaud check**: Open a Chrome tab to `web.plaud.ai`, then hit the Plaud file list API and compare against files in Obsidian `zzPlaud/` folder. Process any new recordings automatically (transcript + summary + action items → markdown in zzPlaud, O'Hara action items → OmniFocus). See `skills/plaud-transcript/SKILL.md` for the full workflow.
 <!-- personal:end -->
@@ -422,6 +443,51 @@ When David asks Jarvis to create a task (any context — conversation, follow-up
 - Done: X completed
 - Stale: [list any >24h old with filename and age]
 ```
+
+---
+
+### `/training-onboard`
+
+**Purpose**: First-launch onboarding for a new IES user. Runs once.
+
+**Steps**:
+1. Invoke the `shep-onboard` skill.
+2. Shep interviews the user (role, rhythm, preferences), creates training state in `systems/training/state/`, walks through system orientation, runs first morning briefing, introduces progression.
+3. If `systems/training/state/config.json` already has a user, redirect to `/training-status`.
+
+**Tone**: Warm, confident, not overwhelming. This is their first impression.
+
+---
+
+### `/training-status`
+
+**Purpose**: Show training progress dashboard.
+
+**Steps**:
+1. Invoke the `shep-training` skill in Status mode.
+2. Shep loads `systems/training/state/progress.json` and `mastery.json`, renders dashboard with tier, completion %, mastery counts, reinforcement flags, and next recommendation.
+
+---
+
+### `/training-next`
+
+**Purpose**: Get Shep's recommendation for the next training module.
+
+**Steps**:
+1. Invoke the `shep-training` skill in Next mode.
+2. Shep analyzes progress, role, recency, and connector availability to recommend the best next module.
+
+---
+
+### `/training-module [name]`
+
+**Purpose**: Run a specific training module with guided coaching.
+
+**Steps**:
+1. Invoke the `shep-training` skill in Module mode with the module ID.
+2. Shep loads the guided walkthrough, coaches the user through with real data, records the attempt in mastery.json, updates progress.json.
+
+**Data**: Curriculum at `systems/training/curriculum.json`. Walkthroughs at `systems/training/modules/{category}/`. State at `systems/training/state/`.
 
 ---
 

@@ -1,0 +1,715 @@
+{
+  "version": "2026.03",
+  "tiers": [
+    {
+      "name": "Getting Started",
+      "range": [
+        0,
+        25
+      ],
+      "description": "Daily operations loop. Run Chief smoothly.",
+      "core_modules": [
+        "chief-morning",
+        "chief-inbox",
+        "chief-daily-review",
+        "chief-calendar-prep"
+      ],
+      "system_modules": [
+        "orientation",
+        "operations-core"
+      ]
+    },
+    {
+      "name": "Building Rhythm",
+      "range": [
+        25,
+        50
+      ],
+      "description": "Delegate, coach, connect daily work to rocks.",
+      "core_modules": [
+        "shep-delegation",
+        "shep-one-on-one",
+        "shep-nudge",
+        "shep-performance-review",
+        "quinn-rocks",
+        "quinn-alignment"
+      ],
+      "system_modules": [
+        "delegation-system",
+        "operations-review",
+        "decisions"
+      ]
+    },
+    {
+      "name": "Strategic Mode",
+      "range": [
+        50,
+        75
+      ],
+      "description": "Pipeline, strategy, and thought leadership.",
+      "core_modules": [
+        "chase-pipeline",
+        "chase-client-prep",
+        "quinn-strategy",
+        "harper-email",
+        "harper-talking-points"
+      ],
+      "system_modules": [
+        "personal-customization"
+      ]
+    },
+    {
+      "name": "Full System",
+      "range": [
+        75,
+        100
+      ],
+      "description": "Orchestrate all agents. Multi-agent workflows.",
+      "core_modules": [
+        "chase-account",
+        "quinn-initiatives",
+        "harper-deck",
+        "harper-content"
+      ],
+      "system_modules": [
+        "evolution-system"
+      ],
+      "connector_modules": [
+        "m365",
+        "crm"
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "chief-morning",
+      "category": "agent",
+      "agent": "chief",
+      "task": "Morning Briefing",
+      "tier": "Getting Started",
+      "guided_file": "systems/training/modules/agent/chief-morning.md",
+      "skill_trigger": "chief-morning",
+      "duration_minutes": 15,
+      "mastery_threshold": 3,
+      "success_criteria": "Run morning briefing 3x independently, capture key insights",
+      "role_notes": {
+        "ceo": "Keep under 5 minutes. Focus on decisions needed today.",
+        "cos": "Emphasize delegation routing and calendar conflicts.",
+        "vp": "Focus on team-facing priorities and upcoming commitments."
+      },
+      "prerequisites": [],
+      "evolution_source": null,
+      "display_name": "Morning Briefings",
+      "nudge_phrase": "start your day with a morning briefing"
+    },
+    {
+      "id": "chief-inbox",
+      "category": "agent",
+      "agent": "chief",
+      "task": "Inbox Processing",
+      "tier": "Getting Started",
+      "guided_file": "systems/training/modules/agent/chief-inbox.md",
+      "skill_trigger": "chief-inbox",
+      "duration_minutes": 15,
+      "mastery_threshold": 3,
+      "success_criteria": "Process inbox to zero 3x using the triage framework (do/delegate/defer/delete)",
+      "role_notes": {
+        "ceo": "Focus on delegation routing. Most inbox items should go to someone else.",
+        "cos": "Emphasize tracking commitments made in responses.",
+        "vp": "Focus on client-facing items and team requests."
+      },
+      "prerequisites": [
+        "chief-morning"
+      ],
+      "evolution_source": null,
+      "display_name": "Inbox Processing",
+      "nudge_phrase": "process your inbox to zero"
+    },
+    {
+      "id": "chief-daily-review",
+      "category": "agent",
+      "agent": "chief",
+      "task": "Daily Review",
+      "tier": "Getting Started",
+      "guided_file": "systems/training/modules/agent/chief-daily-review.md",
+      "skill_trigger": "chief-review",
+      "duration_minutes": 10,
+      "mastery_threshold": 3,
+      "success_criteria": "Run daily review 3x, carry forward incomplete items, update task state",
+      "role_notes": {
+        "ceo": "Focus on what decisions were made vs deferred.",
+        "cos": "Emphasize delegation status and tomorrow's prep.",
+        "vp": "Focus on team deliverables and client commitments."
+      },
+      "prerequisites": [
+        "chief-morning"
+      ],
+      "evolution_source": null,
+      "display_name": "Daily Reviews",
+      "nudge_phrase": "close out your day with a daily review"
+    },
+    {
+      "id": "chief-calendar-prep",
+      "category": "agent",
+      "agent": "chief",
+      "task": "Calendar Prep",
+      "tier": "Getting Started",
+      "guided_file": "systems/training/modules/agent/chief-calendar-prep.md",
+      "skill_trigger": "chief-prep",
+      "duration_minutes": 15,
+      "mastery_threshold": 2,
+      "success_criteria": "Pre-brief 2 meetings with attendee context, objectives, and talking points",
+      "role_notes": {
+        "ceo": "Focus on board and investor meetings. What decision is needed?",
+        "cos": "Emphasize cross-functional meetings and alignment checks.",
+        "vp": "Focus on client meetings and team ceremonies."
+      },
+      "prerequisites": [
+        "chief-morning"
+      ],
+      "evolution_source": null,
+      "display_name": "Meeting Preparation",
+      "nudge_phrase": "prep for your upcoming meetings automatically"
+    },
+    {
+      "id": "shep-delegation",
+      "category": "agent",
+      "agent": "shep",
+      "task": "Delegation Tracking",
+      "tier": "Building Rhythm",
+      "guided_file": "systems/training/modules/agent/shep-delegation.md",
+      "skill_trigger": "shep-delegations",
+      "duration_minutes": 15,
+      "mastery_threshold": 3,
+      "success_criteria": "Create 3 delegations, track through completion, use nudge system for overdue items",
+      "role_notes": {
+        "ceo": "Delegate to your directs, not their teams. Trust the chain.",
+        "cos": "Track both your delegations and the exec's. You're the accountability loop.",
+        "vp": "Balance delegation with coaching. Use delegation as a development tool."
+      },
+      "prerequisites": [
+        "chief-morning"
+      ],
+      "evolution_source": null,
+      "display_name": "Delegation Tracking",
+      "nudge_phrase": "track your delegations so nothing falls through"
+    },
+    {
+      "id": "shep-one-on-one",
+      "category": "agent",
+      "agent": "shep",
+      "task": "One-on-One Prep",
+      "tier": "Building Rhythm",
+      "guided_file": "systems/training/modules/agent/shep-one-on-one.md",
+      "skill_trigger": "shep-one-on-one",
+      "duration_minutes": 20,
+      "mastery_threshold": 3,
+      "success_criteria": "Prep 3 one-on-ones with full context (interactions, action items, talking points)",
+      "role_notes": {
+        "ceo": "Focus on strategic alignment and development. Less operational detail.",
+        "cos": "Full operational detail. You're the connective tissue.",
+        "vp": "Balance career development with project accountability."
+      },
+      "prerequisites": [
+        "shep-delegation"
+      ],
+      "evolution_source": null,
+      "display_name": "One-on-One Preparation",
+      "nudge_phrase": "prep for your one-on-ones with full context"
+    },
+    {
+      "id": "shep-nudge",
+      "category": "agent",
+      "agent": "shep",
+      "task": "Follow-up Nudges",
+      "tier": "Building Rhythm",
+      "guided_file": "systems/training/modules/agent/shep-nudge.md",
+      "skill_trigger": "shep-nudge",
+      "duration_minutes": 10,
+      "mastery_threshold": 2,
+      "success_criteria": "Send 2 calibrated follow-up messages on overdue delegations",
+      "role_notes": {
+        "ceo": "Nudges should be brief and direct. You're the CEO.",
+        "cos": "Calibrate tone \u2014 some nudges are from you, some on behalf of the exec.",
+        "vp": "Balance accountability with empathy. First nudge is a check-in, not a demand."
+      },
+      "prerequisites": [
+        "shep-delegation"
+      ],
+      "evolution_source": null,
+      "display_name": "Follow-Up Nudges",
+      "nudge_phrase": "automatically follow up on overdue items"
+    },
+    {
+      "id": "shep-performance-review",
+      "category": "agent",
+      "agent": "shep",
+      "task": "Performance Review Prep",
+      "tier": "Building Rhythm",
+      "guided_file": "systems/training/modules/agent/shep-performance-review.md",
+      "skill_trigger": null,
+      "duration_minutes": 30,
+      "mastery_threshold": 1,
+      "success_criteria": "Build one performance review with evidence from interactions, delegations, and goals",
+      "role_notes": {
+        "ceo": "Focus on strategic impact and leadership presence.",
+        "cos": "Include operational reliability and cross-functional effectiveness.",
+        "vp": "Include client outcomes and team development metrics."
+      },
+      "prerequisites": [
+        "shep-one-on-one",
+        "shep-delegation"
+      ],
+      "evolution_source": null,
+      "display_name": "Performance Reviews",
+      "nudge_phrase": "build evidence-based performance reviews"
+    },
+    {
+      "id": "quinn-rocks",
+      "category": "agent",
+      "agent": "quinn",
+      "task": "Quarterly Rock Review",
+      "tier": "Building Rhythm",
+      "guided_file": "systems/training/modules/agent/quinn-rocks.md",
+      "skill_trigger": "quinn-rocks",
+      "duration_minutes": 20,
+      "mastery_threshold": 2,
+      "success_criteria": "Run 2 rock reviews, identify at-risk items, propose corrective actions",
+      "role_notes": {
+        "ceo": "Focus on the 2-3 rocks that matter most. Ruthless prioritization.",
+        "cos": "Track all rocks across the leadership team. Surface conflicts.",
+        "vp": "Connect your rocks to the company rocks. Show the thread."
+      },
+      "prerequisites": [
+        "chief-morning"
+      ],
+      "evolution_source": null,
+      "display_name": "Quarterly Rock Reviews",
+      "nudge_phrase": "check progress on your quarterly rocks"
+    },
+    {
+      "id": "quinn-alignment",
+      "category": "agent",
+      "agent": "quinn",
+      "task": "Goal Alignment Check",
+      "tier": "Building Rhythm",
+      "guided_file": "systems/training/modules/agent/quinn-alignment.md",
+      "skill_trigger": "quinn-alignment",
+      "duration_minutes": 15,
+      "mastery_threshold": 2,
+      "success_criteria": "Map current activity against quarterly goals, identify drift, propose corrections",
+      "role_notes": {
+        "ceo": "Are you spending time on what matters? Honest audit.",
+        "cos": "Is the exec's calendar aligned with their stated priorities?",
+        "vp": "Is your team's work rolling up to the right rocks?"
+      },
+      "prerequisites": [
+        "quinn-rocks"
+      ],
+      "evolution_source": null,
+      "display_name": "Goal Alignment Checks",
+      "nudge_phrase": "see if your time aligns with your priorities"
+    },
+    {
+      "id": "quinn-strategy",
+      "category": "agent",
+      "agent": "quinn",
+      "task": "Strategy Builder",
+      "tier": "Strategic Mode",
+      "guided_file": "systems/training/modules/agent/quinn-strategy.md",
+      "skill_trigger": "quinn-strategy",
+      "duration_minutes": 45,
+      "mastery_threshold": 1,
+      "success_criteria": "Build one strategy using the action agenda methodology (diagnosis \u2192 guiding policy \u2192 coherent actions)",
+      "role_notes": {
+        "ceo": "Focus on competitive positioning and resource allocation.",
+        "cos": "Focus on operational strategy and execution planning.",
+        "vp": "Focus on go-to-market and team capability building."
+      },
+      "prerequisites": [
+        "quinn-rocks"
+      ],
+      "evolution_source": null,
+      "display_name": "Strategy Building",
+      "nudge_phrase": "build a real strategy with diagnosis and actions"
+    },
+    {
+      "id": "quinn-initiatives",
+      "category": "agent",
+      "agent": "quinn",
+      "task": "Initiative Tracker",
+      "tier": "Full System",
+      "guided_file": "systems/training/modules/agent/quinn-initiatives.md",
+      "skill_trigger": "quinn-initiatives",
+      "duration_minutes": 20,
+      "mastery_threshold": 2,
+      "success_criteria": "Track 2 initiatives through status updates, surface blockers, connect to rocks",
+      "role_notes": {
+        "ceo": "Portfolio view. Which initiatives are worth continuing?",
+        "cos": "Cross-initiative dependencies. What's blocking what?",
+        "vp": "Your initiatives and their resource requirements."
+      },
+      "prerequisites": [
+        "quinn-rocks",
+        "quinn-strategy"
+      ],
+      "evolution_source": null,
+      "display_name": "Initiative Tracking",
+      "nudge_phrase": "track your strategic initiatives in one place"
+    },
+    {
+      "id": "chase-pipeline",
+      "category": "agent",
+      "agent": "chase",
+      "task": "Pipeline Review",
+      "tier": "Strategic Mode",
+      "guided_file": "systems/training/modules/agent/chase-pipeline.md",
+      "skill_trigger": "chase-pipeline",
+      "duration_minutes": 20,
+      "mastery_threshold": 2,
+      "success_criteria": "Run 2 pipeline reviews, identify at-risk deals, propose next actions",
+      "role_notes": {
+        "ceo": "Top of funnel health and close rate trends. Board-level view.",
+        "cos": "Cross-selling opportunities and resource allocation.",
+        "vp": "Your deals, your team's deals, forecast accuracy."
+      },
+      "prerequisites": [
+        "chief-morning"
+      ],
+      "evolution_source": null,
+      "display_name": "Pipeline Reviews",
+      "nudge_phrase": "review your pipeline and spot at-risk deals"
+    },
+    {
+      "id": "chase-client-prep",
+      "category": "agent",
+      "agent": "chase",
+      "task": "Client Meeting Prep",
+      "tier": "Strategic Mode",
+      "guided_file": "systems/training/modules/agent/chase-client-prep.md",
+      "skill_trigger": "chase-client-prep",
+      "duration_minutes": 20,
+      "mastery_threshold": 2,
+      "success_criteria": "Prep 2 client meetings with account context, attendee research, and talking points",
+      "role_notes": {
+        "ceo": "Focus on relationship and strategic alignment, not deal mechanics.",
+        "cos": "Full context: deal stage, history, blockers, stakeholder map.",
+        "vp": "Technical depth + commercial context. Know the ask."
+      },
+      "prerequisites": [
+        "chief-calendar-prep"
+      ],
+      "evolution_source": null,
+      "display_name": "Client Meeting Preparation",
+      "nudge_phrase": "prep for client meetings with full account context"
+    },
+    {
+      "id": "chase-account",
+      "category": "agent",
+      "agent": "chase",
+      "task": "Account Strategy",
+      "tier": "Full System",
+      "guided_file": "systems/training/modules/agent/chase-account.md",
+      "skill_trigger": "chase-account",
+      "duration_minutes": 30,
+      "mastery_threshold": 1,
+      "success_criteria": "Build one account strategy with history, contacts, whitespace, and recommended playbook",
+      "role_notes": {
+        "ceo": "Portfolio view: which accounts deserve more investment?",
+        "cos": "Execution plan: who does what, by when.",
+        "vp": "Land and expand: where's the next wedge?"
+      },
+      "prerequisites": [
+        "chase-pipeline",
+        "chase-client-prep"
+      ],
+      "evolution_source": null,
+      "display_name": "Account Strategy",
+      "nudge_phrase": "build an account strategy with growth playbook"
+    },
+    {
+      "id": "harper-email",
+      "category": "agent",
+      "agent": "harper",
+      "task": "Email Drafting",
+      "tier": "Strategic Mode",
+      "guided_file": "systems/training/modules/agent/harper-email.md",
+      "skill_trigger": "harper-email",
+      "duration_minutes": 10,
+      "mastery_threshold": 3,
+      "success_criteria": "Draft 3 emails calibrated for recipient, relationship, and context",
+      "role_notes": {
+        "ceo": "Brevity is authority. Short emails, clear asks.",
+        "cos": "Calibrate tone by audience \u2014 board, client, team, vendor.",
+        "vp": "Professional but human. Match the culture."
+      },
+      "prerequisites": [],
+      "evolution_source": null,
+      "display_name": "Email Drafting",
+      "nudge_phrase": "draft emails calibrated for each recipient"
+    },
+    {
+      "id": "harper-talking-points",
+      "category": "agent",
+      "agent": "harper",
+      "task": "Talking Points",
+      "tier": "Strategic Mode",
+      "guided_file": "systems/training/modules/agent/harper-talking-points.md",
+      "skill_trigger": "harper-talking-points",
+      "duration_minutes": 15,
+      "mastery_threshold": 2,
+      "success_criteria": "Generate talking points for 2 events (meetings, panels, podcasts, or internal comms)",
+      "role_notes": {
+        "ceo": "Boardroom-ready. Lead with the headline.",
+        "cos": "Operational precision. Lead with the numbers.",
+        "vp": "Client-facing polish. Lead with the value."
+      },
+      "prerequisites": [],
+      "evolution_source": null,
+      "display_name": "Talking Points",
+      "nudge_phrase": "generate talking points for meetings or events"
+    },
+    {
+      "id": "harper-deck",
+      "category": "agent",
+      "agent": "harper",
+      "task": "Presentation Builder",
+      "tier": "Full System",
+      "guided_file": "systems/training/modules/agent/harper-deck.md",
+      "skill_trigger": "harper-deck",
+      "duration_minutes": 30,
+      "mastery_threshold": 1,
+      "success_criteria": "Build one presentation from an idea or outline with structure, narrative, and visuals",
+      "role_notes": {
+        "ceo": "10 slides max. Story arc: problem \u2192 insight \u2192 solution \u2192 ask.",
+        "cos": "Operational presentations: status, data, recommendations.",
+        "vp": "Client presentations: value proposition, proof points, next steps."
+      },
+      "prerequisites": [
+        "harper-talking-points"
+      ],
+      "evolution_source": null,
+      "display_name": "Presentation Building",
+      "nudge_phrase": "build presentations from ideas to finished decks"
+    },
+    {
+      "id": "harper-content",
+      "category": "agent",
+      "agent": "harper",
+      "task": "Content Calendar",
+      "tier": "Full System",
+      "guided_file": "systems/training/modules/agent/harper-content.md",
+      "skill_trigger": "harper-content",
+      "duration_minutes": 20,
+      "mastery_threshold": 2,
+      "success_criteria": "Plan and track thought leadership output for 2 weeks",
+      "role_notes": {
+        "ceo": "Thought leadership tied to company narrative.",
+        "cos": "Coordinate content across leadership team.",
+        "vp": "Build your personal brand aligned to company positioning."
+      },
+      "prerequisites": [
+        "harper-email"
+      ],
+      "evolution_source": null,
+      "display_name": "Content Planning",
+      "nudge_phrase": "plan and track your thought leadership content"
+    },
+    {
+      "id": "orientation",
+      "category": "system",
+      "agent": null,
+      "task": "System Orientation",
+      "tier": "Getting Started",
+      "guided_file": "systems/training/modules/system/orientation.md",
+      "skill_trigger": null,
+      "duration_minutes": 20,
+      "mastery_threshold": 1,
+      "success_criteria": "User can name all agents and describe their domains",
+      "role_notes": {},
+      "prerequisites": [],
+      "evolution_source": null,
+      "display_name": "System Overview",
+      "nudge_phrase": "get an overview of the full system"
+    },
+    {
+      "id": "operations-core",
+      "category": "system",
+      "agent": null,
+      "task": "Core Operations",
+      "tier": "Getting Started",
+      "guided_file": "systems/training/modules/system/operations-core.md",
+      "skill_trigger": null,
+      "duration_minutes": 15,
+      "mastery_threshold": 2,
+      "success_criteria": "Use /capture, /find, /archive, /status, and /prioritize independently",
+      "role_notes": {},
+      "prerequisites": [
+        "orientation"
+      ],
+      "evolution_source": null,
+      "display_name": "Core Commands",
+      "nudge_phrase": "learn the core commands you'll use every day"
+    },
+    {
+      "id": "delegation-system",
+      "category": "system",
+      "agent": null,
+      "task": "Delegation System",
+      "tier": "Building Rhythm",
+      "guided_file": "systems/training/modules/system/delegation-system.md",
+      "skill_trigger": null,
+      "duration_minutes": 15,
+      "mastery_threshold": 2,
+      "success_criteria": "Create, track, and close delegations using /delegate and the tracker",
+      "role_notes": {},
+      "prerequisites": [
+        "operations-core"
+      ],
+      "evolution_source": null,
+      "display_name": "Delegation System",
+      "nudge_phrase": "understand how delegation tracking works end-to-end"
+    },
+    {
+      "id": "operations-review",
+      "category": "system",
+      "agent": null,
+      "task": "Review Operations",
+      "tier": "Building Rhythm",
+      "guided_file": "systems/training/modules/system/operations-review.md",
+      "skill_trigger": null,
+      "duration_minutes": 15,
+      "mastery_threshold": 2,
+      "success_criteria": "Run daily, weekly, monthly, and quarterly review operations",
+      "role_notes": {},
+      "prerequisites": [
+        "operations-core"
+      ],
+      "evolution_source": null,
+      "display_name": "Review Cadences",
+      "nudge_phrase": "set up daily, weekly, and quarterly review cadences"
+    },
+    {
+      "id": "decisions",
+      "category": "system",
+      "agent": null,
+      "task": "Decision Framework",
+      "tier": "Building Rhythm",
+      "guided_file": "systems/training/modules/system/decisions.md",
+      "skill_trigger": null,
+      "duration_minutes": 20,
+      "mastery_threshold": 1,
+      "success_criteria": "Work through one decision using the RAPID framework via /decide",
+      "role_notes": {},
+      "prerequisites": [
+        "orientation"
+      ],
+      "evolution_source": null,
+      "display_name": "Decision Framework",
+      "nudge_phrase": "work through important decisions with a structured framework"
+    },
+    {
+      "id": "personal-customization",
+      "category": "system",
+      "agent": null,
+      "task": "Personal Customization",
+      "tier": "Strategic Mode",
+      "guided_file": "systems/training/modules/system/personal-customization.md",
+      "skill_trigger": null,
+      "duration_minutes": 20,
+      "mastery_threshold": 1,
+      "success_criteria": "Add a personal block to one agent and verify it survives a mock evolution",
+      "role_notes": {},
+      "prerequisites": [
+        "orientation"
+      ],
+      "evolution_source": null,
+      "display_name": "Personalizing Your System",
+      "nudge_phrase": "customize the system to fit your workflow"
+    },
+    {
+      "id": "evolution-system",
+      "category": "system",
+      "agent": null,
+      "task": "Evolution System",
+      "tier": "Full System",
+      "guided_file": "systems/training/modules/system/evolution-system.md",
+      "skill_trigger": null,
+      "duration_minutes": 20,
+      "mastery_threshold": 1,
+      "success_criteria": "Understand system vs personal blocks, evolution lifecycle, and how updates are applied",
+      "role_notes": {},
+      "prerequisites": [
+        "personal-customization"
+      ],
+      "evolution_source": null,
+      "display_name": "System Updates & Evolutions",
+      "nudge_phrase": "understand how the system evolves and upgrades"
+    },
+    {
+      "id": "m365",
+      "category": "connector",
+      "agent": null,
+      "task": "Microsoft 365 Integration",
+      "tier": "Full System",
+      "guided_file": "systems/training/modules/connector/m365.md",
+      "skill_trigger": null,
+      "duration_minutes": 10,
+      "mastery_threshold": 1,
+      "success_criteria": "Understand what M365 connection enables across agents (email, calendar, Teams)",
+      "role_notes": {},
+      "prerequisites": [
+        "orientation"
+      ],
+      "evolution_source": null,
+      "display_name": "Microsoft 365 Integration",
+      "nudge_phrase": "see how your Microsoft 365 data powers the system"
+    },
+    {
+      "id": "crm",
+      "category": "connector",
+      "agent": null,
+      "task": "CRM Connection",
+      "tier": "Full System",
+      "guided_file": "systems/training/modules/connector/crm.md",
+      "skill_trigger": null,
+      "duration_minutes": 10,
+      "mastery_threshold": 1,
+      "success_criteria": "Understand what CRM connection enables for Chase (pipeline, accounts, contacts)",
+      "role_notes": {},
+      "prerequisites": [
+        "orientation"
+      ],
+      "evolution_source": null,
+      "display_name": "CRM Integration",
+      "nudge_phrase": "connect your CRM for live pipeline data"
+    },
+    {
+      "id": "_connector_template",
+      "category": "connector",
+      "agent": null,
+      "task": "Connector Template",
+      "tier": "Full System",
+      "guided_file": "systems/training/modules/connector/_template.md",
+      "skill_trigger": null,
+      "duration_minutes": 10,
+      "mastery_threshold": 1,
+      "success_criteria": "Template for connector training modules. Evolutions register new connectors using this pattern.",
+      "role_notes": {},
+      "prerequisites": [
+        "orientation"
+      ],
+      "evolution_source": null,
+      "_template": true
+    }
+  ],
+  "pacing": {
+    "nudge_during_boot": true,
+    "min_days_between_suggestions": 2,
+    "max_suggestions_per_week": 3,
+    "cooldown_after_completion_days": 1,
+    "new_user_first_suggestion_after_sessions": 2,
+    "suggestion_style": "capability_focused",
+    "notes": "Suggestions frame capabilities, never agent names. 'Would you like to learn about daily reviews?' not 'Run the chief-daily-review module.'"
+  }
+}
