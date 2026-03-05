@@ -50,7 +50,7 @@ Based on their role and time of day:
 
 ### 4.5 Save & Close
 
-Append to `systems/training/state/history.md`:
+Append to `training/state/history.md`:
 
 ```markdown
 ### {Date} — Onboarding Complete

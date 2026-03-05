@@ -13,7 +13,7 @@ next: step-03-first-task.md
 
 ### 2.1 Load Orientation Module
 
-Read `systems/training/modules/system/orientation.md` for the guided walkthrough.
+Read `training/modules/system/orientation.md` for the guided walkthrough.
 
 ### 2.2 Capability Overview
 
@@ -36,7 +36,7 @@ Show 2-3 examples using their actual data if available:
 
 ### 2.4 Record Orientation
 
-Update `systems/training/state/mastery.json`:
+Update `training/state/mastery.json`:
 ```json
 {
   "modules": {

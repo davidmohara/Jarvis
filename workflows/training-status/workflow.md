@@ -28,15 +28,15 @@ agent: shep
 
 | Source | What to Pull | Access Method |
 |--------|-------------|---------------|
-| Progress state | Tier, completion %, session count, streak | Read systems/training/state/progress.json |
-| Mastery state | Per-module attempts, skill levels | Read systems/training/state/mastery.json |
-| Curriculum | All modules, display_names, tiers | Read systems/training/curriculum.json |
-| User config | Role, preferences | Read systems/training/state/config.json |
+| Progress state | Tier, completion %, session count, streak | Read training/state/progress.json |
+| Mastery state | Per-module attempts, skill levels | Read training/state/mastery.json |
+| Curriculum | All modules, display_names, tiers | Read training/curriculum.json |
+| User config | Role, preferences | Read training/state/config.json |
 
 ### Paths
 
-- `curriculum` = `{project-root}/systems/training/curriculum.json`
-- `state_path` = `{project-root}/systems/training/state/`
+- `curriculum` = `{project-root}/training/curriculum.json`
+- `state_path` = `{project-root}/training/state/`
 <!-- system:end -->
 
 <!-- personal:start -->

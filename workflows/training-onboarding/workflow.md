@@ -28,17 +28,17 @@ agent: shep
 
 | Source | What to Pull | Access Method |
 |--------|-------------|---------------|
-| Training state | config.json, progress.json, mastery.json | Read systems/training/state/ |
-| Curriculum | Module index, tiers, pacing rules | Read systems/training/curriculum.json |
-| Orientation module | System orientation walkthrough | Read systems/training/modules/system/orientation.md |
+| Training state | config.json, progress.json, mastery.json | Read training/state/ |
+| Curriculum | Module index, tiers, pacing rules | Read training/curriculum.json |
+| Orientation module | System orientation walkthrough | Read training/modules/system/orientation.md |
 | Identity files | Current user context if available | Read identity/ |
 
 ### Paths
 
-- `training_root` = `{project-root}/systems/training/`
-- `state_path` = `{project-root}/systems/training/state/`
-- `curriculum` = `{project-root}/systems/training/curriculum.json`
-- `orientation_module` = `{project-root}/systems/training/modules/system/orientation.md`
+- `training_root` = `{project-root}/training/`
+- `state_path` = `{project-root}/training/state/`
+- `curriculum` = `{project-root}/training/curriculum.json`
+- `orientation_module` = `{project-root}/training/modules/system/orientation.md`
 
 ### Pre-check
 

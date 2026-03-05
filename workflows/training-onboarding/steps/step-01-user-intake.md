@@ -38,7 +38,7 @@ Map to:
 
 ### 1.4 Save Config
 
-Write answers to `systems/training/state/config.json`:
+Write answers to `training/state/config.json`:
 - Set `user`, `role`, `role_key`, `timezone`, `team_size`, `direct_reports`
 - Set `daily_rhythm.morning_time` and `daily_rhythm.review_time`
 - Set `learning_preferences.style`

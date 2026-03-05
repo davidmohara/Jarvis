@@ -19,8 +19,8 @@ This skill runs once at first launch. It creates the training profile, walks the
 ## Prerequisites
 
 Before starting, verify:
-- `systems/training/curriculum.json` exists
-- `systems/training/state/` exists with config.json, progress.json, mastery.json, history.md
+- `training/curriculum.json` exists
+- `training/state/` exists with config.json, progress.json, mastery.json, history.md
 
 If `config.json` already has a non-empty `user` field, this is not the first launch. Redirect to `/training-status` instead.
 
@@ -45,7 +45,7 @@ Keep the interview conversational. Don't make it feel like a form.
 
 ## Step 2: Save User Profile
 
-Populate `systems/training/state/config.json` with intake answers:
+Populate `training/state/config.json` with intake answers:
 ```json
 {
   "user": "{Full Name}",
@@ -136,7 +136,7 @@ End with:
 
 ## Tool Bindings
 
-- **Training data**: `systems/training/` — Read and write directly
+- **Training data**: `training/` — Read and write directly
 - **Calendar/Email**: Calendar and email API (M365 or Google)
 - **Task management**: Task management API
 - **CRM**: CRM API

@@ -13,7 +13,7 @@ next: null
 
 ### 5.1 Update Mastery
 
-Write to `systems/training/state/mastery.json`:
+Write to `training/state/mastery.json`:
 
 If new module:
 ```json
@@ -37,7 +37,7 @@ If existing module:
 
 ### 5.2 Update Progress
 
-Write to `systems/training/state/progress.json`:
+Write to `training/state/progress.json`:
 - Recalculate `completion_percent`: (mastered modules / total modules) × 100
 - Update `by_category` counts for the module's category
 - Set `last_session` to now
@@ -50,7 +50,7 @@ Write to `systems/training/state/progress.json`:
 
 ### 5.3 Append to History
 
-Append to `systems/training/state/history.md`:
+Append to `training/state/history.md`:
 
 ```markdown
 ### {Date} — {display_name}

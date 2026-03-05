@@ -28,11 +28,11 @@ agent: shep
 
 | Source | What to Pull | Access Method |
 |--------|-------------|---------------|
-| Curriculum | Module definition, display_name, guided_file path | Read systems/training/curriculum.json |
+| Curriculum | Module definition, display_name, guided_file path | Read training/curriculum.json |
 | Guided walkthrough | Step-by-step coaching content | Read from module's guided_file path |
-| Mastery state | Previous attempts for this module | Read systems/training/state/mastery.json |
-| Progress state | Current tier, session count, streak | Read systems/training/state/progress.json |
-| User config | Role, preferences, connectors | Read systems/training/state/config.json |
+| Mastery state | Previous attempts for this module | Read training/state/mastery.json |
+| Progress state | Current tier, session count, streak | Read training/state/progress.json |
+| User config | Role, preferences, connectors | Read training/state/config.json |
 
 ### Input
 
@@ -40,9 +40,9 @@ agent: shep
 
 ### Paths
 
-- `curriculum` = `{project-root}/systems/training/curriculum.json`
-- `state_path` = `{project-root}/systems/training/state/`
-- `modules_path` = `{project-root}/systems/training/modules/`
+- `curriculum` = `{project-root}/training/curriculum.json`
+- `state_path` = `{project-root}/training/state/`
+- `modules_path` = `{project-root}/training/modules/`
 <!-- system:end -->
 
 <!-- personal:start -->

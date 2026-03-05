@@ -14,9 +14,9 @@ next: step-02-render-dashboard.md
 ### 1.1 Read State Files
 
 Load:
-- `systems/training/state/progress.json` — tier, completion %, category counts, streak
-- `systems/training/state/mastery.json` — per-module mastery data
-- `systems/training/curriculum.json` — full module list with display_names
+- `training/state/progress.json` — tier, completion %, category counts, streak
+- `training/state/mastery.json` — per-module mastery data
+- `training/curriculum.json` — full module list with display_names
 
 ### 1.2 Build Module Status Map
 

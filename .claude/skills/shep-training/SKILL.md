@@ -31,10 +31,10 @@ Use the `display_name` and `nudge_phrase` fields from `curriculum.json` — thos
 
 Read these on every invocation:
 
-- `systems/training/curriculum.json` — master curriculum index, pacing rules, display names, nudge phrases
-- `systems/training/state/config.json` — user's role, rhythm, preferences
-- `systems/training/state/progress.json` — current tier, completion %, session count, nudge tracking
-- `systems/training/state/mastery.json` — per-module attempts, skill level, notes
+- `training/curriculum.json` — master curriculum index, pacing rules, display names, nudge phrases
+- `training/state/config.json` — user's role, rhythm, preferences
+- `training/state/progress.json` — current tier, completion %, session count, nudge tracking
+- `training/state/mastery.json` — per-module attempts, skill level, notes
 
 ## Modes
 
@@ -260,9 +260,9 @@ End with encouragement and a next suggestion using display names:
 
 ## Tool Bindings
 
-- **Training data**: `systems/training/` — Read and write directly
-- **Curriculum**: `systems/training/curriculum.json` — Read
-- **User state**: `systems/training/state/` — Read and write
+- **Training data**: `training/` — Read and write directly
+- **Curriculum**: `training/curriculum.json` — Read
+- **User state**: `training/state/` — Read and write
 - **Calendar/Email**: Calendar and email API (M365 or Google)
 - **Task management**: Task management API
 - **CRM**: CRM API

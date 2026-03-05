@@ -84,7 +84,7 @@ When Rigby applies an evolution that includes `training_prompts`:
 ## File Map
 
 ```
-systems/training/
+training/
 ├── README.md                    ← You are here
 ├── curriculum.json              ← Master curriculum index
 ├── modules/

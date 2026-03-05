@@ -21,7 +21,7 @@ Exceptions:
 
 ### 3.2 Load the Module
 
-Read the guided walkthrough for the selected module from `systems/training/modules/`.
+Read the guided walkthrough for the selected module from `training/modules/`.
 
 ### 3.3 Coach Through It
 
@@ -40,7 +40,7 @@ Note their answer — it tells you what matters to them and informs future modul
 
 ### 3.5 Record First Task
 
-Update `systems/training/state/mastery.json` with the module they ran:
+Update `training/state/mastery.json` with the module they ran:
 ```json
 {
   "{module_id}": {
@@ -53,7 +53,7 @@ Update `systems/training/state/mastery.json` with the module they ran:
 }
 ```
 
-Update `systems/training/state/progress.json`:
+Update `training/state/progress.json`:
 - Set `total_sessions` to 1
 - Set `last_session` to now
 - Set `streak_days` to 1
