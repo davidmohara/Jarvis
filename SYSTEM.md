@@ -94,6 +94,301 @@ All files use predictable, date-based paths:
 
 ---
 
+## System Overview
+
+IES is a local-first AI agent orchestration system designed for executive productivity. The system runs entirely on your local machine via Claude Code/Cowork with optional cloud drive synchronization for backup.
+
+### Core Principles
+
+- **Local-First**: All AI processing happens locally on your machine
+- **Privacy-First**: Your data never leaves your control (NFR1)
+- **Git-Versioned**: All changes tracked for rollback capability (FR38)
+- **File-Based**: All state persists as markdown files with YAML frontmatter — no database
+- **Agent-Orchestrated**: Specialized agents (Chief, Chase, Shep, Quinn, Harper, Rigby) handle domain-specific tasks
+
+### How Agents Operate
+
+Agents interact with the system by directly reading and writing markdown files. There is no programmatic API layer — Claude reads file content, parses YAML frontmatter, and writes files following the conventions documented here.
+
+---
+
+## Knowledge Layer
+
+The Knowledge Layer provides persistent storage for everything your agents learn about your world. Knowledge accumulates over time, making IES increasingly valuable with use.
+
+### Knowledge Storage Architecture
+
+All knowledge is stored as **markdown files with YAML frontmatter** in the local filesystem:
+
+```
+├── context/
+│   ├── people/          # Contact context and relationship notes
+│   ├── projects/        # Project history and status
+│   ├── meetings/        # Meeting notes and follow-ups
+│   ├── decisions/       # Decision rationale and outcomes
+│   └── coaching/        # Coaching observations and development
+└── documents/
+    ├── inputs/          # Source documents for analysis
+    ├── processed/       # Analyzed documents
+    └── templates/       # Document templates (decision, meeting, etc.)
+```
+
+### Knowledge Entry Types
+
+The system supports 5 knowledge entry types:
+
+1. **meeting-notes** — Notes from meetings, 1:1s, calls → stored in `context/meetings/`
+2. **contact-context** — Relationship history, preferences, insights about people → stored in `context/people/`
+3. **project-history** — Project progress, decisions, learnings → stored in `context/projects/`
+4. **coaching-observation** — Team member development observations → stored in `context/coaching/`
+5. **decision-rationale** — Why decisions were made, options considered → stored in `context/decisions/`
+
+### Knowledge YAML Frontmatter Schema
+
+Every knowledge entry must include this standardized frontmatter:
+
+```yaml
+---
+type: meeting-notes | contact-context | project-history | coaching-observation | decision-rationale
+subject: "Brief description"
+date: YYYY-MM-DD
+tags: [tag1, tag2, tag3]
+related-entities:
+  people: [name1, name2]
+  projects: [project-name]
+  accounts: [account-name]
+  meetings: [meeting-id]
+agent-source: chief | chase | quinn | shep | harper | rigby | master
+---
+```
+
+### Knowledge File Naming Convention
+
+Files are named to prevent collisions and enable chronological sorting:
+
+**Format:** `YYYY-MM-DD-HHmmss-{type}-{subject-slug}.md`
+
+**Example:** `2026-02-25-143022-meeting-notes-q1-planning.md`
+
+- Timestamp provides uniqueness and chronological sorting
+- Subject converted to kebab-case for filesystem compatibility
+- Each write creates a new file — agents **never append to existing knowledge files**
+
+### Query Patterns for Agents
+
+Agents query the knowledge layer by reading files from the appropriate `context/` directory and examining their frontmatter. There are 5 query patterns:
+
+#### 1. Query by Person
+
+Find all knowledge entries mentioning a specific person.
+
+**How:** Read all files across `context/` subdirectories. Match entries where `related-entities.people` includes the target person name.
+
+**Use case:** Preparing for a 1:1, understanding relationship history
+
+**Primary directory:** `context/people/` (check others for cross-references)
+
+#### 2. Query by Project
+
+Find all knowledge entries related to a project.
+
+**How:** Read files in `context/projects/` and cross-reference other directories. Match entries where `related-entities.projects` includes the project name.
+
+**Use case:** Project status review, historical context
+
+#### 3. Query by Meeting
+
+Find notes for a specific meeting.
+
+**How:** Read files in `context/meetings/`. Match by filename date or `related-entities.meetings` field.
+
+**Use case:** Meeting follow-up, action item tracking
+
+#### 4. Query by Topic
+
+Find knowledge entries containing specific keywords or tags.
+
+**How:** Search across all `context/` subdirectories. Match entries where `tags` array includes the topic OR file content contains the keyword (case-insensitive).
+
+**Use case:** Thematic research, topic exploration
+
+#### 5. Query by Recency
+
+Retrieve most recent knowledge entries.
+
+**How:** List files across `context/` subdirectories, sort by filename (date-prefixed), return the most recent N entries.
+
+**Use case:** "What's new?", daily briefings, recent activity review
+
+### Handling No Results
+
+When no matching entries are found for a query, this is **not an error**. The agent should report that no results were found and continue execution. Never treat absence of knowledge as a failure.
+
+### Writing Knowledge Entries
+
+When an agent creates a knowledge entry during task execution:
+
+1. Determine the entry type and appropriate directory
+2. Generate a filename following the naming convention
+3. Write the file with proper YAML frontmatter and markdown content
+
+### Concurrent Writes
+
+Multiple agents may write to the knowledge layer in the same session. Each write creates a **separate file** — agents never append to shared files. The timestamp in the filename prevents collisions.
+
+### Knowledge Integration with Agents
+
+| Agent | Writes | Reads |
+|-------|--------|-------|
+| **Chief** | Meeting notes, daily summaries | Meeting context, task status |
+| **Chase** | Account context, deal notes | Deal history, client context |
+| **Shep** | Coaching observations, 1:1 notes | Relationship history, delegation status |
+| **Quinn** | Decision rationale, initiative updates | Strategic context, goal progress |
+| **Harper** | Content drafts | Context for presentations, talking points |
+| **Rigby** | Evolution logs, package status | Manifest, evolution packages |
+| **Master** | Cross-domain synthesis | All knowledge for routing decisions |
+
+### Document Templates
+
+Pre-built templates are available in `documents/templates/` for common document types:
+
+- `decision-template.md` — Decision documentation with context, options, rationale
+- `project-template.md` — Project tracking with milestones and risks
+- `people-template.md` — Contact/team member profiles
+- `meeting-template.md` — Meeting notes with agenda, decisions, action items
+- `review-template.md` — Period reviews with accomplishments and goals
+
+### Knowledge Layer Best Practices
+
+1. **Be Specific in Subjects** — Use descriptive subjects for easy retrieval
+2. **Tag Consistently** — Use consistent tag vocabulary across entries
+3. **Link Entities** — Always populate `related-entities` for rich querying
+4. **Date Accurately** — Use actual event date, not write date
+5. **Attribute Sources** — Set correct `agent-source` for transparency
+
+---
+
+## Task Management Layer
+
+The Task Management Layer provides structured tracking for to-dos, delegations, and initiatives. All task state persists as markdown files with YAML frontmatter.
+
+### Task Storage Architecture
+
+```
+tasks/
+├── todos/              # Personal to-do items
+├── delegations/        # Work delegated to team members
+└── initiatives/        # Strategic initiatives and projects
+```
+
+### Task Types
+
+1. **todo** — Personal to-do items with priority and due dates → stored in `tasks/todos/`
+2. **delegation** — Work assigned to team members → stored in `tasks/delegations/`
+3. **initiative** — Strategic initiatives with owners and blockers → stored in `tasks/initiatives/`
+
+### Task YAML Frontmatter Schema
+
+Every task entry must include this standardized frontmatter:
+
+```yaml
+---
+id: "{type}-YYYY-MM-DD-NNN"
+type: todo | delegation | initiative
+status: pending | in-progress | blocked | done | cancelled
+priority: critical | high | medium | low
+title: "Brief description"
+assignee: "Name (for delegations)"
+owner: "Name (for initiatives)"
+assigned-date: YYYY-MM-DD
+due-date: YYYY-MM-DD
+tags: [tag1, tag2]
+blockers: ["Description of blocker"]
+---
+```
+
+### Task ID Generation
+
+IDs are auto-generated following the pattern: `{type}-YYYY-MM-DD-NNN`
+
+- `{type}` — one of: `todo`, `delegation`, `initiative`
+- `YYYY-MM-DD` — date the task was created
+- `NNN` — sequential 3-digit number for tasks created on the same day
+
+**Examples:**
+- `todo-2026-02-25-001`
+- `delegation-2026-02-25-002`
+- `initiative-2026-03-01-001`
+
+### Task File Naming Convention
+
+**Format:** `{id}.md`
+
+**Example:** `tasks/todos/todo-2026-02-25-001.md`
+
+### Task Status Values
+
+| Status | Description |
+|--------|-------------|
+| `pending` | Created but not started |
+| `in-progress` | Actively being worked |
+| `blocked` | Cannot proceed; blocker documented in `blockers` field |
+| `done` | Completed and verified |
+| `cancelled` | No longer needed |
+
+### Status Transitions
+
+Valid transitions between statuses:
+
+```
+pending → in-progress, cancelled
+in-progress → blocked, done, cancelled
+blocked → in-progress, cancelled
+done — terminal (no transitions out)
+cancelled — terminal (no transitions out)
+```
+
+**Invalid transitions must be rejected.** For example, `done → in-progress` is not allowed. If an agent attempts an invalid transition, report the error and do not update the file.
+
+### Overdue Detection
+
+A task or delegation is **overdue** when:
+- The current date exceeds the `due-date` AND
+- The status is NOT `done` or `cancelled`
+
+Agents should flag overdue items in briefings and reviews.
+
+### Updating Task Status
+
+To update a task's status, read the file, validate the transition is allowed, update the `status` field in the YAML frontmatter, and write the file back.
+
+### Task Query Patterns for Agents
+
+Agents query tasks by reading files from the appropriate `tasks/` subdirectory:
+
+| Query | How |
+|-------|-----|
+| All tasks | Read all files in `tasks/todos/`, `tasks/delegations/`, `tasks/initiatives/` |
+| By type | Read files from the specific subdirectory |
+| By status | Read files, filter by `status` in frontmatter |
+| By assignee | Read `tasks/delegations/`, filter by `assignee` |
+| By owner | Read `tasks/initiatives/`, filter by `owner` |
+| By due date | Read files, filter by `due-date` |
+| By priority | Read files, filter by `priority` |
+| Overdue | Read files where `due-date` < today AND status not `done`/`cancelled` |
+
+### Cross-Agent Task Access
+
+| Agent | Primary Access |
+|-------|---------------|
+| **Chief** | All todos, delegations due today, overdue items |
+| **Shep** | Delegations (primary consumer), team follow-ups |
+| **Quinn** | Initiatives (primary consumer), strategic progress |
+| **Chase** | Revenue-related todos and initiatives |
+| **Harper** | Content-related todos |
+
+---
+
 ## Operations
 
 These are the core operations you support. The user can invoke them conversationally (e.g., "let's do a weekly review") or with slash-style shortcuts (e.g., `/review-weekly`). Interpret intent generously.
@@ -502,6 +797,7 @@ The evolution system enables IES to receive updates (new workflows, agent improv
 
 - `evolution.manifest.json` — Component registry and version tracking (root level)
 - `evolutions/history.md` — Log of applied evolutions
+- `evolutions/README.md` — Evolution system documentation
 - `evolutions/.pending-changes.json` — Locally built capabilities not yet packaged
 - `evolutions/snapshots/` — Pre-deployment backups for rollback
 
@@ -883,3 +1179,25 @@ Jarvis is the default interface. Behind Jarvis are five specialist agents. You d
 - **Don't ask unnecessary questions**: if you can infer the right action, do it and confirm.
 - **Close the execution gap**: David's self-identified weakness is follow-through. Capture everything. Surface daily. Prompt relentlessly. Connect tasks to rocks to vision to Lifebook.
 - **Task transitions**: When a task completes and the user says "move on" or asks "what's next," don't just ask what they want to do. Surface 3-4 items they should consider — open loops, upcoming meetings needing prep, overdue items, in-process work. Keep it tight, not a full briefing. Let them pick.
+
+---
+
+## Appendix: File Conventions
+
+### Template Markers
+
+Agent files use section markers to distinguish system-managed vs. personal content:
+
+- `<!-- system:start -->` / `<!-- system:end -->` — System-managed content, updated by evolutions
+- `<!-- personal:start -->` / `<!-- personal:end -->` — Personal content, preserved during evolutions
+
+### Identity Files
+
+Identity files use `populated: false` in their YAML frontmatter to indicate they haven't been personalized yet. After the initialization interview, this changes to `populated: true`.
+
+### Config Files
+
+- `config/agents.json` — Which agents are enabled
+- `config/settings.json` — User preferences (timezone, communication style)
+- `config/prompts.json` — System prompt templates
+- `config/provider.json` — Cloud provider and MCP connection configuration
