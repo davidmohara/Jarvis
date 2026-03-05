@@ -15,7 +15,8 @@ my-os/
 │   ├── chase.md                    → Closer — revenue, pipeline, client strategy
 │   ├── quinn.md                    → Strategist — goals, planning, alignment
 │   ├── shep.md                     → Coach — people, delegation, development
-│   └── harper.md                   → Storyteller — comms, content, thought leadership
+│   ├── harper.md                   → Storyteller — comms, content, thought leadership
+│   └── rigby.md                    → System Operator — evolution, packages, platform infrastructure
 ├── identity/
 │   ├── MEMORY.md                   → Persistent context about David (who he is, family, faith, key dates)
 │   ├── VOICE.md                    → Jarvis personality, tone, communication style
@@ -60,8 +61,10 @@ my-os/
 │   ├── client-meeting-prep/        → Chase: attendees, account, research, brief
 │   ├── partner-meeting-prep/       → Chase: partner context, account overlap, events, document
 │   ├── one-on-one-prep/            → Shep: meeting ID, comms, tasks, assemble, quality check
-│   └── email-drafting/             → Harper: clarify context, draft, iterate
+│   ├── email-drafting/             → Harper: clarify context, draft, iterate
+│   └── evolution-deployment/       → Rigby: validate, snapshot, merge, verify, log
 ├── training/                        → Training & progression system (curriculum, modules, state)
+├── evolutions/                      → Evolution history, snapshots, pending changes, poll cache
 ├── systems/
 │   └── credit-cards/                → Card registry, optimization guide, benefits tracker (Chase agent)
 ├── archive/                        → Completed/closed items
@@ -491,6 +494,135 @@ When David asks Jarvis to create a task (any context — conversation, follow-up
 
 ---
 
+## Evolution System
+
+The evolution system enables IES to receive updates (new workflows, agent improvements, skill additions) without disrupting the executive's personalized configuration. Rigby owns all evolution operations.
+
+### Key Files
+
+- `evolution.manifest.json` — Component registry and version tracking (root level)
+- `evolutions/history.md` — Log of applied evolutions
+- `evolutions/.pending-changes.json` — Locally built capabilities not yet packaged
+- `evolutions/snapshots/` — Pre-deployment backups for rollback
+
+### How Evolutions Work
+
+1. Rigby polls the IES web app for available evolution packages
+2. Package compatibility is validated against current manifest
+3. A snapshot is created before applying changes
+4. System-owned files (marked `<!-- system:start/end -->`) are updated
+5. Personal sections (marked `<!-- personal:start/end -->`) are preserved
+6. Manifest is updated and evolution is logged to `evolutions/history.md`
+
+### Template Markers
+
+All agent, workflow, and skill files use section markers:
+
+- `<!-- system:start -->` / `<!-- system:end -->` — System-managed content, updated by evolutions
+- `<!-- personal:start -->` / `<!-- personal:end -->` — Personal content, preserved during evolutions
+
+---
+
+### `/rigby-build`
+
+**Purpose**: Build new IES capabilities — skills, workflows, agents.
+
+**Steps**:
+1. Invoke the `rigby-capability-build` skill with the description of what to build.
+2. Rigby identifies existing patterns, plans the files, builds them following conventions, updates dependent agent routing, and tracks all changes in `evolutions/.pending-changes.json`.
+
+---
+
+### `/rigby-status`
+
+**Purpose**: Show pending unpackaged capability changes.
+
+**Steps**:
+1. Invoke the `rigby-capability-status` skill.
+2. Rigby reads `evolutions/.pending-changes.json` and displays all locally built but not yet packaged work items.
+
+---
+
+### `/rigby-poll`
+
+**Purpose**: Check the IES web app for available evolution updates.
+
+**Steps**:
+1. Invoke the `rigby-evolution-poll` skill.
+2. Rigby reads `config/settings.json` for the web app URL, polls the endpoint, caches results locally. Runs silently at boot — no interruption unless updates are available.
+
+---
+
+### `/rigby-download`
+
+**Purpose**: Download and apply an evolution package from the web app.
+
+**Steps**:
+1. Invoke the `rigby-evolution-download` skill.
+2. Rigby downloads the package, presents the manifest for review, then runs the `evolution-deployment` workflow (validate → snapshot → scan personal blocks → apply → verify → log).
+
+---
+
+### `/rigby-package`
+
+**Purpose**: Package locally developed changes and upload as an evolution.
+
+**Steps**:
+1. Invoke the `rigby-evolution-package` skill.
+2. Rigby collects changed files (via git diff, pending changes, or explicit list), classifies them, extracts system content from mixed files, builds the manifest, uploads to the web app.
+
+---
+
+### `/rigby-pull`
+
+**Purpose**: Connect to the organization package endpoint and list/download company packages.
+
+**Steps**:
+1. Invoke the `rigby-package-pull` skill.
+2. Rigby connects to the secured endpoint, lists available packages, validates and downloads on request.
+
+---
+
+### `/rigby-install`
+
+**Purpose**: Install a downloaded company package into the local IES instance.
+
+**Steps**:
+1. Invoke the `rigby-package-install` skill.
+2. Rigby adds MCP config, extracts supporting files, registers in `packages.manifest.json`, verifies installation.
+
+---
+
+### `/rigby-create-package`
+
+**Purpose**: Package custom agents, workflows, and skills for contribution to the IES ecosystem.
+
+**Steps**:
+1. Invoke the `rigby-package-create` skill.
+2. Rigby discovers custom components, validates against base system, strips personal data, builds the contribution package.
+
+---
+
+### `/rigby-submit`
+
+**Purpose**: Submit a contribution package for review, or check submission status.
+
+**Steps**:
+1. Invoke the `rigby-package-submit` skill.
+2. Rigby reads the package, checks submission permissions, collects metadata, uploads to the review queue.
+
+---
+
+### `/install-mcp {slug}`
+
+**Purpose**: Install a connector from the IES Connector Catalog.
+
+**Steps**:
+1. Invoke the `rigby-install-mcp` skill with the slug.
+2. Rigby looks up the connector in the catalog API, confirms with the executive, then hands off to `rigby-connector-setup` for guided installation, followed by `rigby-connector-verify` for health check and registration.
+
+---
+
 ## General Conventions
 
 1. **Inbox first**: When in doubt about where something goes, capture it in OmniFocus inbox.
@@ -730,6 +862,7 @@ Jarvis is the default interface. Behind Jarvis are five specialist agents. You d
 | **Quinn** | Goals, planning, alignment | Rock reviews, goal checks, initiative tracking, leadership prep |
 | **Shep** | People, delegation, development | 1:1 prep, delegation tracking, follow-up nudges, team health |
 | **Harper** | Comms, content, thought leadership | Decks, emails, talking points, content calendar |
+| **Rigby** | System evolution, platform ops | Evolution deployment, capability building, package management, connectors |
 
 **How it works:**
 - Read agent files (`agents/{name}.md`) for full persona, task portfolio, data requirements, and priority logic.
