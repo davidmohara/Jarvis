@@ -1,3 +1,74 @@
 {
-  "pending": []
+  "pending": [
+    {
+      "id": "work-20260306-remarkable-sync",
+      "description": "reMarkable → Obsidian sync skill — pulls handwritten notes, transcribes via vision, saves as markdown. Dispatches to sub-agent for isolated context.",
+      "started": "2026-03-06T10:00:00Z",
+      "classification": "personal",
+      "files": [
+        {
+          "path": ".claude/skills/remarkable-sync/SKILL.md",
+          "action": "add",
+          "type": "personal",
+          "description": "New skill: sync reMarkable handwritten notes to Obsidian via rmapi → rmc → rsvg-convert → Claude vision pipeline. Runs as sub-agent."
+        }
+      ]
+    },
+    {
+      "id": "work-20260306-knox-agent",
+      "description": "New agent: Knox — Knowledge Manager. Owns vault curation, device sync (Remarkable, Plaud), knowledge search, vault health audits, and ingestion workflows. Migrates Plaud from Chief, takes ownership of Remarkable skills.",
+      "started": "2026-03-06T12:00:00Z",
+      "classification": "personal",
+      "files": [
+        {
+          "path": "agents/knox.md",
+          "action": "add",
+          "type": "personal",
+          "description": "New agent: Knox — Knowledge Manager, Vault Curator & Information Architect"
+        },
+        {
+          "path": ".claude/skills/knox-vault-health/SKILL.md",
+          "action": "add",
+          "type": "personal",
+          "description": "New skill: Obsidian vault health audit — orphans, broken links, stale content, missing frontmatter"
+        },
+        {
+          "path": ".claude/skills/knox-search/SKILL.md",
+          "action": "add",
+          "type": "personal",
+          "description": "New skill: deep search across vault — all sources, cross-referenced, with connections"
+        },
+        {
+          "path": ".claude/skills/knox-plaud/SKILL.md",
+          "action": "add",
+          "type": "personal",
+          "description": "New skill: Plaud transcript ingestion — migrated from chief-plaud, re-owned by Knox"
+        },
+        {
+          "path": "workflows/knowledge-ingest/workflow.md",
+          "action": "add",
+          "type": "personal",
+          "description": "New workflow: unified ingestion pipeline — any capture surface → normalize → tag → link → file"
+        },
+        {
+          "path": "workflows/weekly-knowledge-review/workflow.md",
+          "action": "add",
+          "type": "personal",
+          "description": "New workflow: weekly knowledge digest — captures, orphans, floating actions, suggested connections"
+        },
+        {
+          "path": "agents/master.md",
+          "action": "merge",
+          "type": "personal",
+          "description": "Added Knox routing signals to Agent Routing table"
+        },
+        {
+          "path": "agents/chief.md",
+          "action": "merge",
+          "type": "personal",
+          "description": "Transferred Plaud ownership to Knox; Chief now triggers Knox instead of running plaud directly"
+        }
+      ]
+    }
+  ]
 }

@@ -64,7 +64,8 @@ Direct, efficient, occasionally sharp. Chief doesn't waste words. Opens with wha
 <!-- system:end -->
 
 <!-- personal:start -->
-| `plaud` or on boot | **Plaud Transcript Export** | Extract new meeting transcripts from Plaud AI web app, convert to markdown with summaries and action items, save to Obsidian `zzPlaud` folder, route O'Hara action items to OmniFocus. See `skills/plaud-transcript/SKILL.md` for full workflow. |
+| `plaud` or on boot | **Plaud Transcript Export** | *Owned by Knox.* Chief triggers Knox's `knox-plaud` skill during boot. Knox handles the ingestion pipeline; Chief receives the report. |
+| on boot | **Remarkable Sync** | *Owned by Knox.* Chief triggers Knox's `remarkable-sync` skill during boot as a sub-agent. Knox syncs new/updated handwritten notes to Obsidian. |
 <!-- personal:end -->
 
 ---
@@ -118,6 +119,6 @@ Chief routes work to other agents when context demands it:
 <!-- system:end -->
 
 <!-- personal:start -->
-- Plaud transcript extracted → flags content-rich meetings for **Harper** (talking points, follow-up drafts)
-- Plaud client meeting transcript → flags for **Chase** (deal context, account intelligence)
+- Plaud or Remarkable sync needed → triggers **Knox** for knowledge ingestion
+- Knox surfaces content-rich transcripts → Chief routes to **Harper** or **Chase** as appropriate
 <!-- personal:end -->

@@ -163,6 +163,13 @@ Master activates specialist agents based on context. The controller never needs 
 | Deck, presentation, slides | **Harper** | "Build a deck for the board update" |
 | Content, thought leadership, post | **Harper** | "What should I write about this week?" |
 | Talking points, panel, podcast | **Harper** | "I'm on a panel tomorrow — prep me" |
+| Sync remarkable, pull my notes, download remarkable | **Knox** | "Sync my remarkable" |
+| Upload to remarkable, send to tablet | **Knox** | "Send this to my remarkable" |
+| Plaud, pull transcripts, meeting recordings | **Knox** | "Pull my Plaud transcripts" |
+| Vault health, check my vault, audit notes | **Knox** | "How's my vault looking?" |
+| What do I know about, find my notes, search vault | **Knox** | "What do I know about CBRE?" |
+| Knowledge review, what did I capture | **Knox** | "What did I capture this week?" |
+| Sync my stuff, pull everything | **Knox** | "Sync my stuff" |
 
 When multiple agents could apply, Master uses the **dominant context** — the most specific signal wins. "Prep my meeting with the Contoso CTO about renewal pricing" → Chase (client + deal context), not Chief (generic meeting prep).
 

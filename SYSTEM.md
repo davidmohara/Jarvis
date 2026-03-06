@@ -391,11 +391,11 @@ Agents query tasks by reading files from the appropriate `tasks/` subdirectory:
 
 ## Operations
 
-These are the core operations you support. The user can invoke them conversationally (e.g., "let's do a weekly review") or with slash-style shortcuts (e.g., `/review-weekly`). Interpret intent generously.
+These are the core operations the system supports. The controller invokes them conversationally — by keyword, not command. "Let's do a weekly review" and "review my week" both work. Interpret intent generously.
 
 ---
 
-### `/boot`
+### Boot (session start)
 
 **Purpose**: Start-of-session orientation. Get up to speed on current state.
 
@@ -472,7 +472,9 @@ When David asks Jarvis to create a task (any context — conversation, follow-up
 
 ---
 
-### `/capture [text]`
+### Capture
+
+**Trigger**: "capture [text]", "add to inbox", "note this down"
 
 **Purpose**: Quickly add something to the inbox without thinking about where it goes.
 
@@ -484,9 +486,11 @@ When David asks Jarvis to create a task (any context — conversation, follow-up
 
 ---
 
-### `/process-inbox`
+### Process Inbox
 
-**Purpose**: Triage all OmniFocus inbox items into the right place.
+**Trigger**: "process inbox", "triage my inbox", "inbox zero"
+
+**Purpose**: Triage all inbox items into the right place.
 
 **Steps**:
 1. Get OmniFocus inbox tasks via osascript.
@@ -503,7 +507,9 @@ When David asks Jarvis to create a task (any context — conversation, follow-up
 
 ---
 
-### `/decide [topic]`
+### Decide
+
+**Trigger**: "decide [topic]", "I need to think about [topic]", "decision on [topic]"
 
 **Purpose**: Create a structured decision file and walk through the RAPID framework.
 
@@ -520,7 +526,9 @@ When David asks Jarvis to create a task (any context — conversation, follow-up
 
 ---
 
-### `/delegate [task] to [person]`
+### Delegate
+
+**Trigger**: "delegate [task] to [person]", "hand off [task] to [person]"
 
 **Purpose**: Hand off a task and track it.
 
@@ -531,7 +539,9 @@ When David asks Jarvis to create a task (any context — conversation, follow-up
 
 ---
 
-### `/meet [name/topic]`
+### Meet
+
+**Trigger**: "meet [name/topic]", "prep for [meeting]", "meeting with [person]"
 
 **Purpose**: Create a meeting notes file and pull relevant context.
 
@@ -547,7 +557,9 @@ When David asks Jarvis to create a task (any context — conversation, follow-up
 
 ---
 
-### `/review-daily`
+### Daily Review
+
+**Trigger**: "daily review", "end of day", "let's wrap up", "shutdown"
 
 **Purpose**: End-of-day shutdown routine.
 
@@ -562,7 +574,9 @@ When David asks Jarvis to create a task (any context — conversation, follow-up
 
 ---
 
-### `/review-weekly`
+### Weekly Review
+
+**Trigger**: "weekly review", "review my week"
 
 **Purpose**: Weekly review — the most important review cadence.
 
@@ -582,7 +596,9 @@ When David asks Jarvis to create a task (any context — conversation, follow-up
 
 ---
 
-### `/review-monthly`
+### Monthly Review
+
+**Trigger**: "monthly review", "review the month"
 
 **Purpose**: Monthly patterns and adjustments.
 
@@ -595,7 +611,9 @@ When David asks Jarvis to create a task (any context — conversation, follow-up
 
 ---
 
-### `/review-quarterly`
+### Quarterly Review
+
+**Trigger**: "quarterly review", "set rocks", "quarterly planning"
 
 **Purpose**: Quarterly planning — set the next quarter's rocks.
 
@@ -613,7 +631,9 @@ When David asks Jarvis to create a task (any context — conversation, follow-up
 
 ---
 
-### `/prioritize`
+### Prioritize
+
+**Trigger**: "prioritize", "what should I focus on", "triage"
 
 **Purpose**: Apply the Eisenhower matrix to current items against quarterly rocks.
 
@@ -631,7 +651,9 @@ When David asks Jarvis to create a task (any context — conversation, follow-up
 
 ---
 
-### `/status`
+### Status
+
+**Trigger**: "status", "dashboard", "where are we"
 
 **Purpose**: Quick dashboard view of current state.
 
@@ -658,7 +680,9 @@ When David asks Jarvis to create a task (any context — conversation, follow-up
 
 ---
 
-### `/find [topic]`
+### Find
+
+**Trigger**: "find [topic]", "search for [topic]", "what do we have on [topic]"
 
 **Purpose**: Search across all files for relevant context.
 
@@ -672,7 +696,9 @@ When David asks Jarvis to create a task (any context — conversation, follow-up
 
 ---
 
-### `/archive [file]`
+### Archive
+
+**Trigger**: "archive [file]", "close out [item]"
 
 **Purpose**: Move completed items to the archive.
 
@@ -683,7 +709,9 @@ When David asks Jarvis to create a task (any context — conversation, follow-up
 
 ---
 
-### `/bridge-send [request]`
+### Bridge Send
+
+**Trigger**: "bridge send [request]", or automatically when David asks for something outside Code's capabilities
 
 **Purpose**: Create a bridge request to the other Jarvis instance (Desktop).
 
@@ -708,7 +736,9 @@ When David asks Jarvis to create a task (any context — conversation, follow-up
 
 ---
 
-### `/bridge-check`
+### Bridge Check
+
+**Trigger**: "bridge check", "check bridge", or automatically during boot
 
 **Purpose**: Scan the bridge inbox for requests addressed to this instance and process them.
 
@@ -725,7 +755,9 @@ When David asks Jarvis to create a task (any context — conversation, follow-up
 
 ---
 
-### `/bridge-status`
+### Bridge Status
+
+**Trigger**: "bridge status"
 
 **Purpose**: Quick overview of bridge state.
 
@@ -744,7 +776,7 @@ When David asks Jarvis to create a task (any context — conversation, follow-up
 
 ---
 
-### `/training-onboard`
+### Training Onboard
 
 **Purpose**: First-launch onboarding for a new IES user. Runs once.
 
@@ -757,7 +789,7 @@ When David asks Jarvis to create a task (any context — conversation, follow-up
 
 ---
 
-### `/training-status`
+### Training Status
 
 **Purpose**: Show training progress dashboard.
 
@@ -767,7 +799,7 @@ When David asks Jarvis to create a task (any context — conversation, follow-up
 
 ---
 
-### `/training-next`
+### Training Next
 
 **Purpose**: Get Shep's recommendation for the next training module.
 
@@ -777,7 +809,7 @@ When David asks Jarvis to create a task (any context — conversation, follow-up
 
 ---
 
-### `/training-module [name]`
+### Training Module
 
 **Purpose**: Run a specific training module with guided coaching.
 
@@ -819,7 +851,7 @@ All agent, workflow, and skill files use section markers:
 
 ---
 
-### `/rigby-build`
+### Rigby Build
 
 **Purpose**: Build new IES capabilities — skills, workflows, agents.
 
@@ -829,7 +861,7 @@ All agent, workflow, and skill files use section markers:
 
 ---
 
-### `/rigby-status`
+### Rigby Status
 
 **Purpose**: Show pending unpackaged capability changes.
 
@@ -839,7 +871,7 @@ All agent, workflow, and skill files use section markers:
 
 ---
 
-### `/rigby-poll`
+### Rigby Poll
 
 **Purpose**: Check the IES web app for available evolution updates.
 
@@ -849,7 +881,7 @@ All agent, workflow, and skill files use section markers:
 
 ---
 
-### `/rigby-download`
+### Rigby Download
 
 **Purpose**: Download and apply an evolution package from the web app.
 
@@ -859,7 +891,7 @@ All agent, workflow, and skill files use section markers:
 
 ---
 
-### `/rigby-package`
+### Rigby Package
 
 **Purpose**: Package locally developed changes and upload as an evolution.
 
@@ -869,7 +901,7 @@ All agent, workflow, and skill files use section markers:
 
 ---
 
-### `/rigby-pull`
+### Rigby Pull
 
 **Purpose**: Connect to the organization package endpoint and list/download company packages.
 
@@ -879,7 +911,7 @@ All agent, workflow, and skill files use section markers:
 
 ---
 
-### `/rigby-install`
+### Rigby Install
 
 **Purpose**: Install a downloaded company package into the local IES instance.
 
@@ -889,7 +921,7 @@ All agent, workflow, and skill files use section markers:
 
 ---
 
-### `/rigby-create-package`
+### Rigby Create Package
 
 **Purpose**: Package custom agents, workflows, and skills for contribution to the IES ecosystem.
 
@@ -899,7 +931,7 @@ All agent, workflow, and skill files use section markers:
 
 ---
 
-### `/rigby-submit`
+### Rigby Submit
 
 **Purpose**: Submit a contribution package for review, or check submission status.
 
@@ -909,7 +941,7 @@ All agent, workflow, and skill files use section markers:
 
 ---
 
-### `/install-mcp {slug}`
+### Install MCP Connector
 
 **Purpose**: Install a connector from the IES Connector Catalog.
 
@@ -1162,7 +1194,7 @@ Jarvis is the default interface. Behind Jarvis are five specialist agents. You d
 
 **How it works:**
 - Read agent files (`agents/{name}.md`) for full persona, task portfolio, data requirements, and priority logic.
-- Skills live at `.claude/skills/{agent}-{task}/SKILL.md` — invocable as slash commands (e.g., `/chief-morning`, `/chase-pipeline`). Each skill runs as a forked sub-agent with its own context.
+- Skills live at `.claude/skills/{agent}-{task}/SKILL.md` — invoked conversationally or via skill triggers. Each skill runs as a forked sub-agent with its own context.
 - Agents hand off to each other — Chief routes client meetings to Chase, Chase routes follow-up tasks to Chief, etc. Handoff rules are in each agent file.
 - The controller (David) never needs to name an agent. Just say "prep my 1:1 with Scott" and Shep activates. Say "pipeline" and Chase activates.
 
