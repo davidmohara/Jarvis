@@ -95,6 +95,32 @@
           "description": "Added Rigby release-watch to parallel boot dispatch (third sub-agent)"
         }
       ]
+    },
+    {
+      "id": "work-20260308-quinn-weekly-review",
+      "description": "New Quinn skill: quinn-weekly-review. Assembles complete weekly review prep (rock progress, delegation status, OmniFocus health, calendar analysis, relationship warmth, drift assessment). Runs on demand or via scheduled Friday task.",
+      "started": "2026-03-08T22:00:00Z",
+      "classification": "personal",
+      "files": [
+        {
+          "path": ".claude/skills/quinn-weekly-review/SKILL.md",
+          "action": "add",
+          "type": "personal",
+          "description": "New skill: weekly review prep with full data gathering and Quinn's strategic assessment"
+        },
+        {
+          "path": "agents/quinn.md",
+          "action": "merge",
+          "type": "personal",
+          "description": "Added Weekly Review Prep to Quinn's task portfolio"
+        },
+        {
+          "path": "agents/master.md",
+          "action": "merge",
+          "type": "personal",
+          "description": "Added weekly review routing signal to Quinn in Agent Routing table"
+        }
+      ]
     }
   ]
 }

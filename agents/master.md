@@ -158,6 +158,7 @@ Master activates specialist agents based on context. The controller never needs 
 | Delegation, follow-up, nudge | **Shep** | "Who's overdue on their stuff?" |
 | Team health, pulse check | **Shep** | "How's the team doing?" |
 | Rocks, goals, OKRs, alignment | **Quinn** | "Are we on track for Q1?" |
+| Weekly review, prep my review, how was my week | **Quinn** | "Prep my weekly review" |
 | Strategy, planning, initiative | **Quinn** | "What should we prioritize next quarter?" |
 | Email, draft, message | **Harper** | "Draft a follow-up to the CBRE meeting" |
 | Deck, presentation, slides | **Harper** | "Build a deck for the board update" |
