@@ -248,4 +248,15 @@ When things go wrong, Rigby:
 <!-- system:end -->
 
 <!-- personal:start -->
+## Architecture Note: IES as Git-Subdir Plugin
+
+IES (the my-os system) is being extracted into its own repo at `/Users/davidohara/develop/improving/ies/`. Claude Code now supports `git-subdir` as a plugin source type, meaning the personal my-os instance can register as a plugin pointing to a subdirectory of the IES repo.
+
+This means:
+- The IES repo holds the system templates (agents, workflows, skills)
+- David's my-os is a personal instance that receives evolutions from that repo
+- `git-subdir` plugin registration would let Claude Code pull IES updates directly from the repo without manual evolution packaging
+- Rigby should track this capability and recommend migration when the repo structure stabilizes
+
+Current state: IES repo is active development. my-os (this folder) is the live personal instance. The two are not yet formally linked via plugin registration.
 <!-- personal:end -->

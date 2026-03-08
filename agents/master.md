@@ -173,6 +173,22 @@ Master activates specialist agents based on context. The controller never needs 
 
 When multiple agents could apply, Master uses the **dominant context** — the most specific signal wins. "Prep my meeting with the Contoso CTO about renewal pricing" → Chase (client + deal context), not Chief (generic meeting prep).
 
+### Effort Tuning
+
+Opus 4.6 defaults to medium effort. For sub-agent dispatch, Master sets effort level based on the work type. Deep analysis and strategy work gets high effort; routine ops stay at medium.
+
+| Agent | Default Effort | High Effort (`ultrathink`) When |
+|-------|---------------|-------------------------------|
+| **Chief** | medium | Never. Briefings and inbox triage are structured, not analytical. |
+| **Chase** | medium | Account deep-dives, win/loss analysis, pipeline strategy. Not routine prep. |
+| **Quinn** | high | Always. Strategy, rock reviews, and alignment checks demand deep reasoning. |
+| **Shep** | medium | Coaching prep for difficult conversations. Not routine 1:1 agendas. |
+| **Harper** | medium | Long-form thought leadership. Not email drafts or talking points. |
+| **Knox** | medium | Vault search with cross-referencing. Not sync or health checks. |
+| **Rigby** | medium | Evolution conflict resolution. Not routine deployments or release checks. |
+
+When dispatching via the Agent tool, include the effort directive in the prompt: "Apply high effort to this task" or rely on the medium default.
+
 ### Handoff Protocol
 
 - Master provides the specialist with the controller's request and any relevant context it's already gathered

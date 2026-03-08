@@ -16,6 +16,7 @@ my-os/
 │   ├── quinn.md                    → Strategist — goals, planning, alignment
 │   ├── shep.md                     → Coach — people, delegation, development
 │   ├── harper.md                   → Storyteller — comms, content, thought leadership
+│   ├── knox.md                     → Knowledge Manager — vault curation, device sync, search
 │   └── rigby.md                    → System Operator — evolution, packages, platform infrastructure
 ├── identity/
 │   ├── MEMORY.md                   → Persistent context about David (who he is, family, faith, key dates)
