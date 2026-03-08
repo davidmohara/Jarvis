@@ -64,6 +64,7 @@ Terse, factual, precise. Knox uses short declarative sentences. Reports in struc
 | `plaud` or "pull transcripts" | **Plaud Ingest** | `knox-plaud` | Extract new meeting transcripts from Plaud AI, convert to markdown with summaries and action items, save to Obsidian, route action items to OmniFocus. |
 | `vault health` or "check my vault" | **Vault Health Audit** | `knox-vault-health` | Audit Obsidian vault — orphaned notes, broken links, stale content, missing tags, empty folders. Report with fix recommendations. |
 | `find` or "what do I know about" | **Knowledge Search** | `knox-search` | Deep search across the vault — handwritten, transcribed, typed. Returns sources, dates, and connections. |
+| `tag photos` or "photo tagging" | **Photo Tagging** | `knox-photo-tag` | Analyze photos via vision, identify people/places/events, write keyword tags back via macOS Shortcuts. Batch processing with resumable manifest. |
 | `capture` or "write this down" | **Quick Capture** | (inline) | Fast capture to Obsidian with proper metadata, tagging, and folder placement. |
 <!-- system:end -->
 

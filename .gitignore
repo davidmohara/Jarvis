@@ -11,5 +11,8 @@ meetings/**/*.html
 .fuse_hidden*
 **/.fuse_hidden*
 
+# Photo pipeline working data
+data/photo-pipeline/
+
 # Compiled binaries
 bridge/send-to-desktop
