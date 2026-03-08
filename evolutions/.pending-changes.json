@@ -69,6 +69,32 @@
           "description": "Transferred Plaud ownership to Knox; Chief now triggers Knox instead of running plaud directly"
         }
       ]
+    },
+    {
+      "id": "work-20260307-release-watch",
+      "description": "New Rigby skill: rigby-release-watch. Checks Claude Code and Cowork release notes on boot for new features relevant to IES. Classifies as Adopt, Evaluate (ask David), or Skip. Added to parallel boot dispatch in chief-morning.",
+      "started": "2026-03-07T20:00:00Z",
+      "classification": "personal",
+      "files": [
+        {
+          "path": ".claude/skills/rigby-release-watch/SKILL.md",
+          "action": "add",
+          "type": "personal",
+          "description": "New skill: check Claude Code + Cowork release notes, classify relevance to IES"
+        },
+        {
+          "path": "agents/rigby.md",
+          "action": "merge",
+          "type": "personal",
+          "description": "Added Release Watch to Rigby's task portfolio"
+        },
+        {
+          "path": ".claude/skills/chief-morning/SKILL.md",
+          "action": "merge",
+          "type": "personal",
+          "description": "Added Rigby release-watch to parallel boot dispatch (third sub-agent)"
+        }
+      ]
     }
   ]
 }

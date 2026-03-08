@@ -26,9 +26,9 @@ Read and execute `workflows/morning-briefing/workflow.md`. Follow each step in `
 <!-- personal:start -->
 ## Parallel Boot Dispatch
 
-**Before assembling the briefing**, fire off Knox ingestion as sub-agents so they run in parallel while Chief gathers calendar, email, and tasks. These have zero dependency on briefing data.
+**Before assembling the briefing**, fire off background sub-agents so they run in parallel while Chief gathers calendar, email, and tasks. These have zero dependency on briefing data.
 
-Launch both simultaneously using the Agent tool in a single message:
+Launch all three simultaneously using the Agent tool in a single message:
 
 ```
 Agent(
@@ -50,11 +50,23 @@ Agent(
     /Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/plaud_sync_report.md
     when done."
 )
+
+Agent(
+  subagent_type: "general-purpose",
+  description: "Check Claude release notes",
+  prompt: "You are Rigby, the System Operator. Read and execute the full workflow in
+    /sessions/*/mnt/IES/.claude/skills/rigby-release-watch/SKILL.md — check Claude Code
+    and Cowork release notes for new features relevant to IES. Write your report to
+    /Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/release_watch_report.md
+    when done."
+)
 ```
 
-**Do not wait for these to complete.** Immediately proceed with the briefing data gather (calendar, email, Clay, OmniFocus, delegations). The sub-agent reports will be available by the time the briefing is assembled — read them at the end and append a Knox sync summary to the briefing output.
+**Do not wait for these to complete.** Immediately proceed with the briefing data gather (calendar, email, Clay, OmniFocus, delegations). The sub-agent reports will be available by the time the briefing is assembled — read them at the end and append summaries to the briefing output:
+- Knox sync reports: append a knowledge ingestion summary
+- Rigby release watch: if Adopt or Evaluate items exist, append a "Platform Updates" section
 
-If a sub-agent report is not yet available when the briefing is ready, note "Knox sync in progress" and move on. Don't block the briefing.
+If a sub-agent report is not yet available when the briefing is ready, note it as "in progress" and move on. Don't block the briefing.
 <!-- personal:end -->
 
 <!-- system:start -->

@@ -83,6 +83,7 @@ Blunt, direct, efficient. No jargon for jargon's sake. No marketing speak. Rigby
 <!-- system:end -->
 
 <!-- personal:start -->
+| "release notes", "what's new in Claude", "any new features", boot trigger | **Release Watch** | Check Claude Code and Cowork release notes for new features relevant to IES. Classifies as Adopt, Evaluate (ask David), or Skip. Runs on boot and on demand. |
 <!-- personal:end -->
 
 ---
