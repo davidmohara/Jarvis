@@ -36,9 +36,14 @@ How:
 - Account strategies (Dallas + Houston target and hi-pot accounts)
 - Thought leadership (speaking, podcast, writing, workshops)
 - Align Texas GTMs
-- President's System (IPS)
 - Executive AI Workshops
 - "The Improving Edge" Podcast — Season 1 (7 episodes)
+
+### Active Initiatives (IPS — Improving President System)
+- Main IES built and operational
+- First deployment: Steve Hall (pilot)
+- Deliverables: Implementation Plan, Discovery Script, Internal Kickoff Guide, Implementation Guide
+- Status: Active deployment — was previously deferred, now in-flight
 
 ### Active Pursuits
 | Account | Owner | Location |
@@ -58,7 +63,7 @@ How:
 - Small Business AI Workshop — Feb 6, 2026
 - Forbes AI Roundtable — Feb 12, 2026
 - ~~Executive AI Workshop (Dallas) — Feb 26, 2026~~ *(cancelled)*
-- ~~Executive AI Workshop (Dallas) — Mar 10, 2026~~ *(cancelled)*
+- Executive AI Workshop (DRC) — May 21, 2026 — Intelligence OS v2 talk
 - ~~SXSW — Mar 12-18, 2026~~ *(cancelled)*
 - ~~FABCON Atlanta — Mar 18-20, 2026~~ *(cancelled)*
 - Convergence AI Roundtable — Mar 30-31, 2026

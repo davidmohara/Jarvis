@@ -41,19 +41,19 @@ Optimized for 5:30/5:45 AM workouts (Lifting/Yoga/Recovery).
 
 ## II. 2026 Phase Calendar
 
-### Phase 1: Power & Mitochondria (Jan 7 - Mar 3)
+### Phase 1: Power & Mitochondria (Jan 7 - Mar 10)
 
 - **Focus**: Muscle preservation, fat loss, cellular energy
 - **Peptides**: Daily Tesa/Ipam + 5x/week MOTS-C (10mg)
 - **Key Goal**: Maximize anabolic window of 5:45 AM workouts using MOTS-C/Creatine/Whey synergy
 
-### Phase 2: Reset & Washout (Mar 4 - Mar 13)
+### Phase 2: Reset & Washout (Mar 11 - Mar 20)
 
 - **Focus**: Receptor sensitivity reset
 - **Protocol**: Stop ALL peptides
 - **Maintenance**: Continue NAC (liver/kidney support), LMNT (hydration), Vitamin/Mineral stack
 
-### Phase 3: Metabolic & Fat Loss (Mar 14 - May 2)
+### Phase 3: Metabolic & Fat Loss (Mar 21 - May 9)
 
 - **Focus**: Targeted weight management via Retatrutide
 - **Retatrutide Schedule**:
@@ -62,7 +62,7 @@ Optimized for 5:30/5:45 AM workouts (Lifting/Yoga/Recovery).
   - Weeks 5-8: 4.0mg
 - **Critical Rule**: Retatrutide suppresses appetite significantly. MUST prioritize 1.5 scoops Whey (25g protein/scoop) + 1 scoop Collagen (15g protein) to prevent lean muscle loss.
 
-### Phase 4: TBD (May 3+)
+### Phase 4: TBD (May 10+)
 
 - Reassess based on bloodwork and body composition data from Hume/Whoop
 
@@ -103,14 +103,14 @@ Optimized for 5:30/5:45 AM workouts (Lifting/Yoga/Recovery).
 ### Function Health Schedule
 
 - **Cadence**: 2x/year (full 160+ biomarkers at Quest Diagnostics)
-- **Next Test**: TBD — likely March 2026 (end of Phase 1 / during washout)
+- **Next Test**: TBD — likely mid-March 2026 (during washout Mar 11-20)
 - **Ad Hoc**: Available as needed for mid-cycle checks
 
 ### Julli Randol Appointment Cadence
 
 | Appointment | Frequency | Next Due | Notes |
 |-------------|-----------|----------|-------|
-| Annual Wellness Check | 1x/year | OVERDUE — none in 2025, none scheduled for 2026 | Full physical / annual exam. Jessica Fipps asked David to schedule on 2/16/26 — no reply sent. |
+| Annual Wellness Check | 1x/year | **June 8, 2026 — 9:00 AM CT** | Specialty Care Clinics, 6101 Windhaven Pkwy Ste 145, Plano. Scheduled by Ilse. |
 | Quarterly Follow-Up | Every 3 months | TBD | Testosterone monitoring, protocol check-in. Last in-office visit was 8/12/25. |
 
 **Jarvis rule**: On boot, verify these appointments exist on calendar within the expected window. If missing, create an OmniFocus task to schedule with a 1-week-out reminder.

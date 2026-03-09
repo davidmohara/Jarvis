@@ -47,9 +47,15 @@
 
 ## What's Explicitly Off the Table This Quarter
 
-- Improving President System (IPS) — deferred to later in 2026
 - EDP facilitation — H2 2026
 - Austin as primary focus — monitor only
+
+## Active but Unrocked
+
+### Improving President System (IPS)
+- **Owner**: David
+- **Status**: Active — main IES built, deploying to Steve Hall as first pilot
+- **Notes**: Originally deferred to later in 2026 but moved to active. Steve Hall deployment includes implementation plan, discovery script, internal kickoff guide, and implementation guide. This is the productization of the Intelligence Executive System for other Improving presidents.
 
 ## Mid-Quarter Check-in
 
