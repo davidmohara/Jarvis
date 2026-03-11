@@ -33,7 +33,8 @@
 
 1. **Pull all inbox tasks** via the task management API.
    - Capture: task name, task note, creation date
-   - Query for all incomplete inbox/unfiled tasks
+   - Query for **incomplete** inbox/unfiled tasks only — filter out completed items
+   - See `references/omnifocus-commands.md` for the correct query syntax
    - Return each task's name, note/description, and creation date
 
 2. **Count inbox items.** Store the total. This is the starting number for the final report.

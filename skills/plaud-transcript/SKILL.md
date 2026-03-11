@@ -143,18 +143,37 @@ List existing files in zzPlaud:
 ls '/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/'
 ```
 
-Compare by date prefix (YYYY-MM-DD) to identify unprocessed recordings. Parse the file list with python3:
+Compare by date prefix (YYYY-MM-DD) to identify unprocessed recordings. Parse the file list with python3, including transcript status:
 ```bash
 python3 -c "
 import json
 data = json.load(open('/tmp/plaud_filelist.json'))
 for f in data['data_file_list']:
-    if f.get('is_trans'):
-        from datetime import datetime
-        dt = datetime.fromtimestamp(f['start_time']/1000).strftime('%Y-%m-%d')
-        print(f'{dt}|{f[\"id\"]}|{f[\"filename\"]}|{f[\"duration\"]}')
+    from datetime import datetime
+    dt = datetime.fromtimestamp(f['start_time']/1000).strftime('%Y-%m-%d')
+    trans = 'T' if f.get('is_trans') else '-'
+    summ = 'S' if f.get('is_summary') else '-'
+    print(f'{dt}|{trans}{summ}|{f[\"id\"]}|{f[\"filename\"]}|{f[\"duration\"]}')
 "
 ```
+
+### Step 2b: Trigger Generation for Untranscribed Recordings
+
+**CRITICAL**: Recordings where `is_trans` is false have NOT been transcribed yet. Plaud does not auto-generate transcripts — you must trigger it manually via the web UI.
+
+For each recording where `is_trans` is false and it is not already in zzPlaud:
+
+1. **Click into the recording** in the Plaud Chrome tab (click the row in the file list)
+2. **Look for the "Generate" button** — it triggers Plaud's AI transcription pipeline
+3. **Click Generate** to start transcription
+4. **Wait for completion** — Plaud will show "Generating..." status. Transcription time depends on recording length (a 78-minute recording may take 5-15 minutes)
+5. **Re-check the file list** via the API after generation completes — `is_trans` and `is_summary` should now be true
+
+If a recording is already showing "Generating..." status, it has been triggered — just wait for it to finish.
+
+**Do NOT tell the user the recording hasn't synced or isn't available** when it's visible in Plaud but just hasn't been transcribed. The recording IS there — it just needs Generate clicked.
+
+After all untranscribed recordings have been triggered and completed, proceed to Step 3.
 
 ### Step 3: Fetch Content for Each New Recording via curl
 
@@ -190,6 +209,24 @@ python3 -c "import json; data=json.load(open('/tmp/plaud_summary.json')); print(
 **Why this is better**: curl writes directly to filesystem — no DOM bridges, no chunked AppleScript string transfers, no blind delays for async operations. A 60K transcript that previously required 6+ chunked osascript round-trips now downloads in one call.
 
 **S3 URL expiration**: Signed URLs expire in ~300 seconds. Fetch all content promptly after getting the file detail response.
+
+**Gzip-encoded responses**: S3 downloads from Plaud are often gzip-compressed, even when the file extension suggests JSON. If `json.load()` fails with a UTF-8 decode error (byte `0x8b` is the gzip magic number), decompress first:
+```python
+import gzip, json
+with gzip.open('/tmp/plaud_transcript.json', 'rt', encoding='utf-8') as f:
+    data = json.load(f)
+```
+Always try gzip first, then fall back to plain JSON. A robust pattern:
+```python
+import gzip, json
+def load_plaud_json(path):
+    try:
+        with gzip.open(path, 'rt', encoding='utf-8') as f:
+            return json.load(f)
+    except (gzip.BadGzipFile, OSError):
+        with open(path, 'r', encoding='utf-8') as f:
+            return json.load(f)
+```
 
 ### Step 4: Build the complete markdown document
 
@@ -233,7 +270,23 @@ Examples:
 - `2026-02-24 DRC Event Strategy.md`
 - `2026-02-20 Vistage Speaker Opportunity.md`
 
-### Step 7: Clean up
+### Step 7: Close Plaud Browser Tab
+
+After all recordings are processed, close the Plaud Chrome tab to keep the browser clean:
+```applescript
+tell application "Google Chrome"
+    repeat with w in windows
+        set tabList to tabs of w
+        repeat with i from (count of tabList) to 1 by -1
+            if URL of item i of tabList contains "plaud.ai" then
+                close item i of tabList
+            end if
+        end repeat
+    end repeat
+end tell
+```
+
+### Step 8: Clean up
 
 Remove temporary JSON files from `/tmp/`.
 

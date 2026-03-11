@@ -51,13 +51,15 @@ Read and follow the complete workflow documented in `skills/plaud-transcript/SKI
    e. Save to zzPlaud as `YYYY-MM-DD <Short Title>.md`
 6. **Route O'Hara action items to OmniFocus** via osascript
 7. **Report**: List what was processed, action items routed, items for others flagged for delegation
-8. **Clean up** temp files from `/tmp/`
+8. **Close Plaud Chrome tab** via osascript (keep browser clean after ingest)
+9. **Clean up** temp files from `/tmp/`
 
 ### Critical Technical Notes
 
 - Chrome is used for ONE thing only: auth token capture via osascript (small string read)
 - ALL API calls and data transfer happen via `curl` — no Chrome JS execution, no DOM bridges, no chunked transfers
 - S3 signed URLs expire in ~300 seconds — fetch promptly after getting file detail
+- S3 responses are often **gzip-compressed** — use `gzip.open()` first, fall back to plain JSON. See main skill doc for the `load_plaud_json()` helper pattern.
 - The `sum_multi_note` type appears twice: first instance has action items + key decisions, second has meeting highlights (check `category` field for `"Meeting Highlights"`)
 
 ### Post-Ingest Handoffs

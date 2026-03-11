@@ -12,11 +12,133 @@ Companion document to the **AI Implementation Project Plan** (client-facing, Feb
 | **Executive Sponsor** | David O'Hara (value-add, no bill) |
 | **Engagement Type** | T&M · Phase 1 SOW with NTE cap |
 | **CRM** | Dynamics — AI Implementation Plan · Est. Close 03/06/2026 |
-| **Primary Ecosystem** | Google Workspace (Gmail, Calendar, Drive, Contacts) — already established |
+| **Primary Ecosystem** | Gmail (all accounts) + iCloud Calendar (primary) + Google Calendar (invite mirror) + Google Drive + iCloud Contacts |
 | **Runtime** | Claude Cowork (local) + Google Workspace MCP Connectors |
-| **Businesses** | Denver Bentley, Honda of Paris, auto finance company (Bepensa Capital), family foundation |
+| **Businesses** | Denver Bentley, Honda of Paris, auto finance company, family foundation, Generosity Ventures |
+| **EA** | Shelley — business & foundation; Friday weekly recaps |
+| **PA** | Emberleigh (E-M-B-E-R-L-E-I-G-H) — home & personal; weekly email lists with tasks, blockers, updates |
 | **Relationship** | YPO GOLD member, wine club at 55 Seventy (Preston Center), deeply relational, signs "with care" |
 | **Phase 1 Timeline** | 3-4 weeks |
+| **Kickoff Date** | 2026-03-10 (whiteboard + Plaud transcript captured) |
+
+---
+
+## Kickoff Meeting — March 10, 2026
+
+**Source**: Whiteboard photos (Bud) + Plaud transcript (78m 36s)
+**Participants**: O'Hara, Steve Hall, Bud Marrical, Derek Nwamadi (partial — account owner)
+
+### Steve's Current Dataverse (Whiteboard — Black Text)
+
+**AI Tools in Use:**
+- Gemini (image generation, drafting, tone checks)
+- ChatGPT (drafting, tone checks)
+- Claude (Sonnet 4.6 Pro — heavy use for stewardship content)
+- Whisper (voice capture — planned)
+- Goal state: → Jarvis with 6 Agents
+
+**Init Plan:**
+- 10-min quick start
+- 30-min deep dive with strategic materials
+
+**Google / MBP Ecosystem:**
+- Email → Gmail (all accounts)
+- Calendar → iCloud (primary) / Google Calendar (invite mirror only)
+- Data → Google Drive (will host the IES subsystem)
+- Todo → Physical handwritten journal + calendar time blocks (no digital app)
+- Contacts → iCloud (no Google Contacts)
+- CRM → None personal; business CRMs exist per company (reports only via email)
+- Video → Zoom (~50%) + Teams (~50%), both with Plaud
+- Journal → Penzu (~277 pages, 10-12 entries/page; themes: Proverbs, "witnessing vs. judging," daily reflection)
+- Branding → None currently
+- Dropbox → FX / Datarooms (deal docs, financials)
+- Content Capture → needed
+
+**Home/Personal:**
+- Gmail [Todos, Follow Ups]
+- PA: Emberleigh — weekly email lists (tasks, blockers, updates) → route to home folder
+- EA: Shelley — business & foundation work; Friday weekly recaps → route to business/foundation folder
+
+**Active Investments/Board:**
+- CRM Reports → Analysis only (Steve does NOT store underlying data; operates at speedometer/check-engine-light level)
+  - Monthly Reviews (auto finance: tomorrow Mar 11; Bentley: Friday Mar 14)
+- Sales Reports
+- P&L
+- Inventory Analysis (aging lists from Bentley)
+- Marketing (Later)
+- Adversarial Positioning / Challenge Agent
+
+**Foundation (3 activities):**
+- Evaluate leaders' capacity to scale
+- Fund Stagen ILP + pilot investments ($25K-$100K)
+- Produce stewardship content for partners (Mission, Vision, Analysis of Investment, Content Curation)
+- Partner orgs: Conscious Capitalism (transitioning off as exec chair), Just Capital, CECP
+
+**Convening Events:**
+- Logistics → Format, Attendees, Agenda
+- Comms (invites, RSVPs)
+- Topic Gen from Content (journals, events)
+  - Logs
+- Types: Wisdom dinners, Jeffersonian dinners, one-day offsites, two-day retreats, annual CEO Conclave
+
+**Whiteboard To-Do Items (Red):**
+- Todo system needs solving — physical journal + time blocks won't integrate; Steve acknowledged "my to-do list is not going to be user-friendly for this"
+- iCloud Contacts needs attention — primary contact store but no CRM linkage
+
+### Key Decisions Made
+
+1. **Calendar sources**: iCloud and Gmail (NOT Generosity Ventures email)
+2. **Subsystem host**: Google Drive (cloud sync, multi-device)
+3. **No data storage**: Steve does not store reports/underlying data; analysis only — "The alcoholic doesn't need to go to the bar"
+4. **No DMS integration**: Data received via email; Steve explicitly avoids tactical systems
+5. **Single unified system**: All investment contacts, foundation data, convening events in one personal system — no segregation
+6. **Central to-do with delegation**: System's to-do list is source of truth; delegations flow out to Shelley/Emberleigh
+7. **Sender-based email routing**: Emberleigh → home; Shelley → business/foundation; with decision surfacing
+8. **Privacy opt-out**: Claude Pro set up and privacy configured during meeting
+9. **Claude Desktop**: Installed during meeting
+
+### New Use Cases Identified (Not in Prior Plan)
+
+| Ability | Description | Source |
+|---------|-------------|--------|
+| **Adversarial "Challenge Agent"** | Steelmanning Steve's investment theses and strategic hypotheses; attack/critique mode | Transcript |
+| **Communication Coaching Agent** | Review scripts, meeting communication style; Steve wants to be "more curious, less prescriptive" | Transcript |
+| **Whisper Voice Capture + Routing** | Post-event/post-call notes routed by context (Honda, Bentley, auto finance, convening) | Whiteboard + Transcript |
+| **Convening Event Engine** | Topic generation from content/journals, logistics, invites, run-of-show, agendas | Whiteboard + Transcript |
+| **Stewardship Website Rebrand** | Consolidate content from Gemini/ChatGPT/Claude into stewardship-focused site | Transcript |
+| **Assistant Email Parsing** | Extract tasks/blockers/updates from Shelley and Emberleigh emails; sender-based routing | Transcript |
+| **Cross-Model Content Export** | Pull stewardship content from Gemini/ChatGPT/Claude history for consolidation | Transcript |
+
+### Action Items
+
+**O'Hara / Bud:**
+- Set up Plaud desktop for Zoom/Teams capture → route transcripts to common repository
+- Configure brand standards for Steve's generated presentations/PDFs
+- Catalog and consolidate stewardship content from Gemini, ChatGPT, Claude for website rebrand
+- Configure content ingestion from journals/events → generate topic lists and draft communications for convenings
+- Research Whisper integration (output location, ingestion pipeline, routing rules)
+- Implement email parsing to extract tasks/blockers/updates from assistant emails
+- Create sender-based routing (Emberleigh → home; Shelley → business/foundation) with decision surfacing
+- Define and configure adversarial "strategy/challenge agent"
+
+**Steve:**
+- Determine approach for recording important phone calls (AirPods won't capture; hold phone for vibration mic)
+- Provide brand standards, starter templates, logos
+- Provide access/exports from Gemini, ChatGPT, Claude with stewardship content
+- ~~Log into Claude Pro and opt out of training~~ ✓ Done during meeting
+- ~~Install Claude desktop app~~ ✓ Done during meeting
+
+### Key Quotes
+
+> "If I tied into those systems, I would get sucked in." / "The alcoholic doesn't need to go to the bar." — on avoiding tactical depth
+
+> "I need to see the speedometer to make sure I'm not going too fast too slow. There's a check engine light comes on... just something very high level that just says you may want to inquire about this." — on desired insights
+
+> "I might be being too prescriptive. I want to be more curious." — on communication style with operators
+
+> "It's helpful to lay it all out now because now I've got okay, understand where -- I don't know how I am going to get there, but I know where I am going." — on the journey
+
+> "My to-do list is not going to be user-friendly for this. Like, I need to find a better to-do list version." — on his physical todo system (O'Hara redirected: let Jarvis handle it abstractly)
 
 ---
 
@@ -493,5 +615,5 @@ All 8 remaining abilities (#18, #19, #20, #21, #22, #23, #26, #27) — details i
 
 ---
 
-*Last updated: 2026-03-09*
-*Sources: Steve Hall emails (Feb 8, 11, 17, 18, Mar 2, 2026), AI Implementation Plan (Feb 2026), Internal Kickoff Guide (Feb 2026), Steve Hall Discovery Script, IES system documentation (Improving Executive System.md)*
+*Last updated: 2026-03-10*
+*Sources: Steve Hall emails (Feb 8, 11, 17, 18, Mar 2, 2026), AI Implementation Plan (Feb 2026), Internal Kickoff Guide (Feb 2026), Steve Hall Discovery Script, IES system documentation (Improving Executive System.md), Kickoff whiteboard photos (Bud, Mar 10), Plaud transcript — "Executive Assistant AI System Integration" (Mar 10, 78m 36s)*
