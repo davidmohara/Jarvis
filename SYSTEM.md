@@ -440,7 +440,7 @@ These are the core operations the system supports. The controller invokes them c
 **Steps**:
 1. Read identity files (`identity/MEMORY.md`, `identity/GOALS_AND_DREAMS.md`, `identity/RESPONSIBILITIES.md`, `identity/AUTOMATION.md`, `identity/MISSION_CONTROL.md`) — know who David is and what you handle.
 2. Read `context/quarterly-objectives.md` — know the current rocks.
-3. **Pull live calendar via bridge** — send an urgent bridge request to Desktop for today's events and the next 7 days. Use `bridge/send-to-desktop.sh` with a prompt asking Desktop to read the Outlook calendar and return all events for the next 7 days. Poll `bridge/done/` every 15 seconds until the response file appears, then read it. **Do not use static file content for calendar data — always wait for the live pull.**
+3. **Pull live calendar** — use the Microsoft 365 MCP connector (`mcp__claude_ai_Microsoft_365__outlook_calendar_search`) for today's events and the next 7 days. Fall back to the Desktop bridge (`bridge/send-to-desktop.sh`) only if M365 MCP is unavailable. **Do not use static file content for calendar data — always pull live.**
 4. Get OmniFocus inbox tasks via osascript — note any unprocessed items.
 5. Read `delegations/tracker.md` — note anything overdue.
 6. Check Clay for upcoming reminders and birthdays in the next 7 days via `mcp__clay__getUpcomingReminders` and `mcp__clay__searchContacts` (upcoming_birthday filter).
@@ -1078,13 +1078,26 @@ Stage and commit all remaining files. The commit should be clean — no temp art
 
 ## OmniFocus Integration
 
-Use `osascript` via Bash for all OmniFocus interactions. Full command reference: `references/omnifocus-commands.md`
+Use the **OmniFocus MCP server** for all OmniFocus interactions. The Cowork VM does not have `osascript` — MCP is the only path.
+
+Available MCP tools:
+- `mcp__omnifocus__get_active_tasks` — all uncompleted tasks
+- `mcp__omnifocus__get_all_tasks` — all tasks including completed
+- `mcp__omnifocus__get_active_projects` — active projects
+- `mcp__omnifocus__get_all_projects` — all projects including completed/dropped
+
+**Retry policy (mandatory):**
+The OmniFocus MCP server is prone to timeouts (60s). Before reporting failure to David:
+1. Attempt the call up to **3 times** with no delay between retries.
+2. If all 3 attempts timeout, report the failure and suggest restarting OmniFocus on the Mac.
+3. Never silently skip OmniFocus data — if it fails, say so and flag what was missed.
 
 **Critical rules:**
-- Always filter `completed is false` when querying tasks
+- Always filter for active/uncompleted tasks unless David asks for completed ones
 - Inbox tasks can't be completed directly — assign to a project first
 - Never delete inbox tasks to clear them — assign and mark complete for history
 - Always mirror changes in OmniFocus when updating delegation tracker or internal tracking
+- If `osascript` is needed for write operations not supported by MCP, use the Desktop Commander bridge
 
 ---
 

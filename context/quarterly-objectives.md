@@ -32,7 +32,8 @@
   - ~~Executive AI Workshop (Dallas) — Feb 26~~ *(cancelled)*; Mar 10 still on
   - ~~SXSW — Mar 12-18~~ *(cancelled)*
   - Convergence AI — Mar 30-31
-  - "The Improving Edge" podcast in planning
+  - **"The Improving Edge" podcast — Season 1 (7 episodes) COMPLETE** *(wrapped Mar 11)*
+  - Release cadence: Ep 1 drops Apr 9, then every 2 weeks. Guest asks start after Ep 3 (~May 4). David handles LinkedIn engagement (Ilse posts); not responsible for release logistics.
 
 ### Rock 4: Deepen Partner Engagement (Microsoft + Confluent)
 - **Owner**: David (with Nada, Lowell, Ehren)

@@ -23,7 +23,11 @@ Your primary job: **close the execution gap.** David generates ideas and makes d
 
 ## OmniFocus
 
-Use `osascript` via Bash for OmniFocus interactions instead of MCP. Refer to the OmniFocus section in SYSTEM.md for common commands.
+Prefer the OmniFocus MCP server (`mcp__omnifocus__*`) for all OmniFocus interactions. Fall back to `osascript` via Bash only when the MCP server is unavailable. Refer to the OmniFocus section in SYSTEM.md for rules — especially: always filter for active/uncompleted tasks unless David asks for completed ones.
+
+## Calendar
+
+Prefer the Microsoft 365 MCP connector (`mcp__claude_ai_Microsoft_365__outlook_calendar_search`) for calendar pulls. Fall back to the Desktop bridge only when M365 MCP is unavailable.
 
 ## Obsidian
 
