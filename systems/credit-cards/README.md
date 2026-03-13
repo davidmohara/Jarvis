@@ -32,18 +32,25 @@ Jarvis can control Chrome via AppleScript JavaScript execution:
 
 **Workflow for non-YNAB cards**: David logs in → tells Jarvis to read → Jarvis extracts data and updates tracker files
 
+### Active Capabilities (Chase Agent)
+
+| Capability | Trigger | Workflow | Description |
+|------------|---------|----------|-------------|
+| **Which Card?** | "card", "which card for X?", "buying [item]" | `workflows/card-which/` | Full-optimization card selection: category match, rotating categories, caps, spend thresholds, card-linked offers, active credits. Returns best card + reasoning. |
+| **Monthly Benefits Review** | 1st of month @ 9 AM (scheduled) or "card review" | `workflows/card-review/` | Audit all benefit extraction. Dashboard of used/remaining credits, expiring deadlines, rotating category status, spend threshold pace, card-linked offer savings. Surfaces action items. |
+| **Site Walkthrough** | "card walkthrough" or prompted after stale data flag | `workflows/card-walkthrough/` | Guided walkthrough of each card portal with David. Reads pages via Chrome, extracts current data, compares to stored values, updates all data files. |
+
 ### Proactive Alerts
-1. **Monthly**: Benefits usage check — flag unused credits before they expire
-2. **Monthly**: Review card-linked offers on Chase Sapphire, Amex Platinum, Amex BCP, and Citi AAdvantage Executive. Cross-reference against recent transaction history. Add any offers for vendors David uses. Flag high-value offers. Note: Citi has 283+ shopping offers that lazy-load — may need David to scroll or filter manually.
-3. **Quarterly**: Discover 5% activation reminder + category optimization review
+1. **Monthly (scheduled)**: Full benefits review — credit usage audit, expiring credits, rotating category check, spend threshold pace, card-linked offer review
+2. **Monthly (after review)**: Site walkthrough prompt when data is >30 days stale
+3. **On purchase**: Best card recommendation with full optimization (category, caps, thresholds, offers, credits)
 4. **Pre-travel**: Card selection guidance (FTX fees, lounge access, insurance)
-5. **Before large purchases**: Best card recommendation + check for active card-linked offer
-6. **Annual fee renewal**: ROI check 30 days before each renewal
+5. **Annual fee renewal**: ROI check 30 days before each renewal — routed to Chief for briefing
 
 ### Review Cadence
-- Monthly: Pull YNAB data, read Chrome dashboards, update benefits tracker, surface optimization opportunities
-- Quarterly: Full portfolio review — ROI per card, category analysis, gap identification
-- Annually: Renewal decisions — keep/cancel/product-change recommendations
+- **Monthly**: Scheduled benefits review (1st of month) + portal walkthrough to refresh data
+- **Quarterly**: Rotating category activation + full portfolio ROI review
+- **Annually**: Renewal decisions — keep/cancel/product-change recommendations
 
 ### Key Numbers
 - **Total annual fees (gross)**: $1,950 ($1,085 Amex Plat + $770 Citi + $95 Amex BCP)

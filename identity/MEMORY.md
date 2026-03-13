@@ -150,6 +150,8 @@ These dates are **never** to be scheduled over. Jarvis must provide reminders **
 
 **Notes**: Check [Ticketmaster](https://www.ticketmaster.com), [Live Nation](https://www.livenation.com), and [thesphere.com/shows](https://www.thesphere.com/shows) periodically for new DFW dates and Sphere lineup additions.
 
+**Card Registry**: Full card inventory, rewards structures, credits, and balances are in `systems/credit-cards/card-registry.json`. Always read this file before answering any card optimization question.
+
 **Card Optimization for Concerts**: When buying tickets, check Citi AAdvantage Executive for Live Nation 5% back offer (and any new ticket vendor offers). At the venue, use Amex Platinum for concessions — Venue Collection offer gives 10% back at stadiums/arenas through 12/31/26. Also check Amex Plat for Gametime offer ($30 back on $150+ resale tickets). Review all card-linked offers before purchasing tickets.
 
 ## Providers
