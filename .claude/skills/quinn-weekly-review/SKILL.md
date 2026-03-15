@@ -94,7 +94,18 @@ Use Clay MCP:
 - `getUpcomingReminders`: pending reminders that may need follow-up
 - `getRecentReminders`: recent reminders to check follow-through
 
-### 8. Generate Report
+### 8. System Improvement Review (Error Analysis)
+
+Read `systems/error-tracking/error-log.json` and invoke Rigby's error analysis logic:
+
+- Count total corrections this week (filter entries by date range)
+- Identify any recurring patterns (3+ occurrences of same category + failure_mode)
+- For each pattern, note the proposed fix and its tier (auto-propose vs. needs executive call)
+- Summarize agent-level performance (which agents logged the most corrections)
+
+This data feeds into the report's "System Health" section. If no errors were logged this week, note: "Clean week — no corrections logged."
+
+### 9. Generate Report
 
 Write the review prep document. Format:
 
@@ -133,6 +144,20 @@ Write the review prep document. Format:
 | Person | Task | Due | Status | Days Overdue |
 |--------|------|-----|--------|-------------|
 | ... | ... | ... | ... | ... |
+
+## System Health
+
+- **Corrections this week**: X (explicit: X, self-detected: X)
+- **Severity**: major: X | moderate: X | minor: X
+- **Trend**: [improving / stable / degrading]
+
+### Recurring Patterns (if any)
+| Pattern | Occurrences | Proposed Fix | Status |
+|---------|-------------|-------------|--------|
+| [category → failure_mode] | N | [fix description] | [Apply now / Needs your call] |
+
+### Improvement Proposals Ready for Approval
+- [List any Tier 1 auto-proposals ready to apply]
 
 ## Next Week Preview
 - Key meetings coming up

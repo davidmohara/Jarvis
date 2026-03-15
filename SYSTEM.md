@@ -147,6 +147,20 @@ When David corrects Jarvis:
 2. Identify the failure mode (lazy search, bad conversion, sloppy read, wrong assumption).
 3. Propose the systemic fix.
 4. If the fix is a new rule, add it to this section.
+5. **Log the correction** — Master silently appends an entry to `systems/error-tracking/error-log.json` with category, failure mode, severity, and proposed fix. This also applies to self-detected errors caught during execution.
+
+### Error Tracking System
+
+Corrections and self-detected errors are logged to `systems/error-tracking/error-log.json` following the schema in `systems/error-tracking/schema.md`. The system operates transparently — the executive's experience is unchanged (own it, fix it, move on). Behind the scenes:
+
+- **Master** captures every correction (explicit + self-detected) to the error log
+- **All agents** report errors back to Master when they detect them during execution
+- **Chief** includes a one-line error count in the daily review System State section
+- **Quinn** runs full pattern analysis during weekly review prep (via Rigby's `rigby-error-analysis` skill)
+- **Rigby** analyzes patterns, proposes tiered fixes (auto-propose for clear-cut, data-only for ambiguous)
+- **Threshold alerting**: when the same category + failure mode hits 3+ occurrences, Master surfaces it proactively at the next natural break
+
+Data files: `systems/error-tracking/error-log.json`, `systems/error-tracking/schema.md`
 
 ---
 

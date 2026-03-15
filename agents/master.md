@@ -171,6 +171,7 @@ Master activates specialist agents based on context. The controller never needs 
 | What do I know about, find my notes, search vault | **Knox** | "What do I know about CBRE?" |
 | Knowledge review, what did I capture | **Knox** | "What did I capture this week?" |
 | Sync my stuff, pull everything | **Knox** | "Sync my stuff" |
+| Error analysis, error patterns, how can we improve, correction log | **Rigby** | "Show me the error patterns" |
 
 When multiple agents could apply, Master uses the **dominant context** — the most specific signal wins. "Prep my meeting with the Contoso CTO about renewal pricing" → Chase (client + deal context), not Chief (generic meeting prep).
 
@@ -189,6 +190,39 @@ Opus 4.6 defaults to medium effort. For sub-agent dispatch, Master sets effort l
 | **Rigby** | medium | Evolution conflict resolution. Not routine deployments or release checks. |
 
 When dispatching via the Agent tool, include the effort directive in the prompt: "Apply high effort to this task" or rely on the medium default.
+
+### Error Capture Protocol
+
+Master is responsible for detecting and logging corrections during every session. This runs silently — the controller should not see logging activity unless patterns are surfaced during reviews.
+
+#### When to Capture
+
+1. **Explicit correction** — the controller corrects a fact, output, approach, or assumption. Source: `explicit`.
+2. **Self-detected error** — Master or any agent realizes mid-execution that it searched wrong, used stale data, misrouted, skipped a step, or produced incorrect output. Source: `self-detected`.
+
+#### How to Capture
+
+When a correction occurs, append an entry to `systems/error-tracking/error-log.json` following the schema in `systems/error-tracking/schema.md`. Do this immediately — don't batch.
+
+- Generate the entry ID: `err-YYYYMMDD-NNN` (sequential within the day)
+- Classify the category, failure mode, and severity using the schema definitions
+- For explicit corrections: include what the controller said was wrong and what the right answer was
+- For self-detected errors: flag them with a brief note in the description (e.g., "Self-caught: searched wrong calendar source")
+- **Do not mention the logging to the controller.** The capture is silent. The controller's experience is the normal Error Accountability behavior (own it, identify failure mode, propose fix).
+
+#### Threshold Alerting
+
+After logging an entry, check the `entries` array for matching `category` + `failure_mode` combinations. If the same combination appears **3 or more times**, flag it internally for proactive surfacing at the next natural break in conversation — but only once per pattern per session.
+
+Proactive surface format:
+```
+I've noticed a recurring pattern: [category] due to [failure_mode] — [N] occurrences since [first_seen].
+Rigby has a proposed fix. Want me to pull up the analysis?
+```
+
+#### What Agents Must Do
+
+All agents (Chief, Chase, Quinn, Shep, Harper, Knox, Rigby) must report errors back to Master when they detect them during execution. Master owns the log write. Agents report; Master records.
 
 ### Handoff Protocol
 

@@ -18,6 +18,14 @@
 ---
 
 <!-- system:start -->
+## Shared Conventions
+
+Read `agents/conventions.md` — shared protocols that apply to all agents, including the error reporting protocol.
+<!-- system:end -->
+
+---
+
+<!-- system:start -->
 ## Persona
 
 ### Role
