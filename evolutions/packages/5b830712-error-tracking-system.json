@@ -7,6 +7,7 @@
   "minimum_base_version": "1.0.0",
   "author": "David O'Hara",
   "changelog": [
+    "Fixed: rigby-evolution-package now deletes local staging directory after successful upload",
     "New: Error tracking log and schema (systems/error-tracking/)",
     "New: Rigby error analysis skill with tiered fix proposals",
     "New: agents/conventions.md — shared cross-agent protocol file (single source of truth for behavioral standards)",
@@ -40,6 +41,12 @@
       "action": "add",
       "type": "system",
       "description": "Pattern analysis skill — statistics, recurring pattern detection, tiered fix proposals (auto-propose + data-only)"
+    },
+    {
+      "path": ".claude/skills/rigby-evolution-package/SKILL.md",
+      "action": "merge",
+      "type": "system",
+      "description": "Step 7 success path: delete local package staging directory after successful upload"
     },
     {
       "path": "agents/conventions.md",

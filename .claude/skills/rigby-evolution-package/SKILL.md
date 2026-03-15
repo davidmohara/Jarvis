@@ -165,6 +165,7 @@ Content-Type: application/json
 - **Status is now `submitted`** — the evolution is NOT yet visible to IES instances polling for updates. An administrator must approve it via `evolutions.approve` before it appears in the poll endpoint.
 - Update `evolutions/history.md` to record the publication with name, UUID, and submitted status
 - **If `--pending` mode:** remove the packaged work item IDs from `evolutions/.pending-changes.json`
+- **Delete the local package directory** (`evolutions/ies-{name-slug}/`) — it is a staging artifact only. The permanent record is `evolutions/packages/{id}.json` and `evolutions/history.md`. If the directory delete fails, log a warning but do not block the success path.
 
 **On failure:**
 - Log the error and surface it to the executive
