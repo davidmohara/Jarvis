@@ -9,8 +9,10 @@
   "changelog": [
     "New: Error tracking log and schema (systems/error-tracking/)",
     "New: Rigby error analysis skill with tiered fix proposals",
+    "New: agents/conventions.md — shared cross-agent protocol file (single source of truth for behavioral standards)",
     "Updated: Master — Error Capture Protocol for silent correction logging + threshold alerting",
     "Updated: Rigby — Error Analysis in task portfolio, data requirements, handoff behavior",
+    "Updated: All 7 agent files — Shared Conventions block pointing to agents/conventions.md",
     "Updated: SYSTEM.md — Error Tracking System reference section",
     "Updated: Daily review — error count in System State section",
     "Updated: Weekly review — System Health section with pattern analysis"
@@ -38,6 +40,54 @@
       "action": "add",
       "type": "system",
       "description": "Pattern analysis skill — statistics, recurring pattern detection, tiered fix proposals (auto-propose + data-only)"
+    },
+    {
+      "path": "agents/conventions.md",
+      "action": "add",
+      "type": "system",
+      "description": "Shared cross-agent protocol file — single source of truth for behavioral standards. Initial content: Error Reporting Protocol with Self-Corrections output block format and severity guide."
+    },
+    {
+      "path": "agents/chief.md",
+      "action": "merge",
+      "type": "system",
+      "description": "Shared Conventions block added after metadata — instructs agent to read agents/conventions.md on every task"
+    },
+    {
+      "path": "agents/chase.md",
+      "action": "merge",
+      "type": "system",
+      "description": "Shared Conventions block added after metadata — instructs agent to read agents/conventions.md on every task"
+    },
+    {
+      "path": "agents/quinn.md",
+      "action": "merge",
+      "type": "system",
+      "description": "Shared Conventions block added after metadata — instructs agent to read agents/conventions.md on every task"
+    },
+    {
+      "path": "agents/shep.md",
+      "action": "merge",
+      "type": "system",
+      "description": "Shared Conventions block added after metadata — instructs agent to read agents/conventions.md on every task"
+    },
+    {
+      "path": "agents/harper.md",
+      "action": "merge",
+      "type": "system",
+      "description": "Shared Conventions block added after metadata — instructs agent to read agents/conventions.md on every task"
+    },
+    {
+      "path": "agents/knox.md",
+      "action": "merge",
+      "type": "system",
+      "description": "Shared Conventions block added after metadata — instructs agent to read agents/conventions.md on every task"
+    },
+    {
+      "path": "agents/rigby.md",
+      "action": "merge",
+      "type": "system",
+      "description": "Shared Conventions block added after metadata + Error Analysis task portfolio, data requirements, handoff signals"
     },
     {
       "path": "agents/master.md",
