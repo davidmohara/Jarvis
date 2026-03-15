@@ -70,6 +70,7 @@
    - Inbox: X items
    - Overdue delegations: X
    - Delegations due tomorrow: X
+   - Corrections logged today: X (explicit: X, self-detected: X)
 
    ---
    *Review completed by Chief at HH:MM*
@@ -86,13 +87,19 @@
    - For any new blockers from step 01 that should become delegations: add a new row with status "Waiting", today's date, and appropriate due date
    - Write the updated tracker back
 
-4. **Check for handoffs:**
+4. **Pull error tracking count:**
+   - Read `systems/error-tracking/error-log.json`
+   - Count entries with today's date
+   - Include the count in the System State section of the review file
+   - If any threshold patterns were detected today, add a one-line note under Handoffs: "Rigby flagged a recurring [category] pattern — review at weekly."
+
+5. **Check for handoffs:**
    - If any carry-forwards or blockers relate to goal drift → note: "Flag for Quinn at next review"
    - If any delegations went cold (overdue > 7 days) → note: "Flag for Shep to nudge"
    - If any content deadlines slipped → note: "Flag for Harper"
    - Record handoff notes in the review file under a `## Handoffs` section (only if there are handoffs)
 
-5. **Deliver the closing summary to the controller:**
+6. **Deliver the closing summary to the controller:**
 
    ```
    Day closed.

@@ -121,6 +121,62 @@
           "description": "Added weekly review routing signal to Quinn in Agent Routing table"
         }
       ]
+    },
+    {
+      "id": "work-20260315-error-tracking",
+      "description": "Error tracking system — captures corrections (explicit + self-detected) to a structured log, analyzes patterns via Rigby, surfaces improvements through daily/weekly reviews with threshold alerting. Split ownership: Master captures, Rigby analyzes, Chief/Quinn surface.",
+      "started": "2026-03-15T00:00:00Z",
+      "classification": "system",
+      "files": [
+        {
+          "path": "systems/error-tracking/error-log.json",
+          "action": "add",
+          "type": "system",
+          "description": "Structured error/correction log with entries array and pattern tracking"
+        },
+        {
+          "path": "systems/error-tracking/schema.md",
+          "action": "add",
+          "type": "system",
+          "description": "Schema definitions for error categories, failure modes, severity levels, and pattern structure"
+        },
+        {
+          "path": ".claude/skills/rigby-error-analysis/SKILL.md",
+          "action": "add",
+          "type": "system",
+          "description": "New skill: error pattern analysis with tiered fix proposals (auto-propose + data-only)"
+        },
+        {
+          "path": "agents/master.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Added Error Capture Protocol section and error analysis routing signal"
+        },
+        {
+          "path": "agents/rigby.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Added Error Analysis to task portfolio, data requirements, and handoff behavior"
+        },
+        {
+          "path": "SYSTEM.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Expanded Error Accountability with logging step; added Error Tracking System reference section"
+        },
+        {
+          "path": "workflows/daily-review/steps/step-03-update-system.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Added error count to System State section and error tracking pull step"
+        },
+        {
+          "path": ".claude/skills/quinn-weekly-review/SKILL.md",
+          "action": "merge",
+          "type": "personal",
+          "description": "Added System Improvement Review step and System Health section to weekly review report"
+        }
+      ]
     }
   ]
 }

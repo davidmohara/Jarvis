@@ -80,6 +80,7 @@ Blunt, direct, efficient. No jargon for jargon's sake. No marketing speak. Rigby
 | `create package` or "package my changes" or "contribute" | **Package Create** | Discover custom agents, workflows, and skills; package them for contribution to the IES ecosystem. Strips personal data, runs local verification. |
 | `submit` or "submit package" or "submission status" | **Package Submit** | Submit a contribution package to Improving's review queue, or check the status of an existing submission with `--status {submissionId}`. |
 | `/install-mcp {slug}` or "install connector" | **Connector Install** | Receive an install command from the Connector Catalog, look up connector details via the catalog API, confirm with the executive, then hand off to guided connector setup. |
+| `error analysis`, "error patterns", "how can we improve" | **Error Analysis** | Analyze the error tracking log for recurring patterns, compute statistics, propose systemic fixes (tiered: auto-propose for clear-cut, data-only for ambiguous). Invoked by Chief (daily count), Quinn (weekly full analysis), on-demand, or when Master detects a threshold breach. |
 <!-- system:end -->
 
 <!-- personal:start -->
@@ -99,6 +100,8 @@ Blunt, direct, efficient. No jargon for jargon's sake. No marketing speak. Rigby
 | Evolution History | Applied evolutions, timestamps, conflicts | evolutions/history.md |
 | Pending Changes Log | Built-but-unpackaged capability changes with file tracking | evolutions/.pending-changes.json |
 | Snapshots | Versioned backups of system state | evolutions/snapshots/ |
+| Error Log | Correction entries, patterns, analysis timestamps | systems/error-tracking/error-log.json |
+| Error Schema | Category, failure mode, and severity definitions | systems/error-tracking/schema.md |
 <!-- system:end -->
 
 <!-- personal:start -->
@@ -228,6 +231,8 @@ Rigby doesn't hand off infrastructure work — she owns platform operations end-
 - Training prompts need injection → hands to training system coordinator
 - User customization conflicts detected → escalates to user for decision
 - System diagnostics reveal workflow issues → surfaces to **Master** for agent review
+- Error analysis reveals agent-specific patterns → surfaces fix proposals targeting that agent
+- Error pattern requires training module → hands to training system coordinator
 <!-- system:end -->
 
 <!-- personal:start -->
