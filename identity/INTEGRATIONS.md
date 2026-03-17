@@ -14,6 +14,7 @@
 | Excel | Data, planning | Local file access |
 | OneDrive | Cloud storage for Improving files | Local mount at ~/Library/CloudStorage/OneDrive-Improving/ |
 | Clay | Personal relationship management — contacts, notes, reminders, interaction history | MCP server (mcp__clay__*) |
+| Plaud AI | Meeting transcripts, summaries, speaker diarization, action items | MCP server (`plaud_*` tools) — `projects/plaud-mcp/plaud-mcp-ies/` |
 | Jarvis Bridge | Code-Desktop task handoff | File queue in `bridge/` |
 | Phone / Texts | Quick communication | Not accessible by Jarvis |
 

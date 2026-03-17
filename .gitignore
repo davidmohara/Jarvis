@@ -20,3 +20,7 @@ config/.credentials
 
 # Compiled binaries
 bridge/send-to-desktop
+
+# Node.js
+node_modules/
+dist/
