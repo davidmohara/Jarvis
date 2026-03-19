@@ -1,12 +1,13 @@
 ---
 name: knox-plaud
-description: "Extract new Plaud meeting transcripts — open Chrome to web.plaud.ai, pull transcripts + summaries + action items, save to Obsidian zzPlaud folder, route O'Hara's action items to OmniFocus. Runs on demand and when triggered by Chief during boot."
-evolution: personal
+description: "Process pre-fetched Plaud meeting transcripts from staging folder into tagged Obsidian markdown notes. Enriches with calendar metadata, routes action items to OmniFocus, and hands off to other agents. Runs on demand and when triggered by Chief during boot."
 context: fork
 agent: general-purpose
 allowed-tools:
   - "Bash(*)"
   - "mcp__Control_your_Mac__osascript"
+  - "mcp__obsidian-mcp-tools__*"
+  - "mcp__b8c41a14-7a9b-4ea5-ab12-933ee04bc52f__outlook_calendar_search"
   - "Read"
   - "Write"
   - "Glob"
@@ -23,44 +24,41 @@ Check Plaud AI for new meeting recordings, extract transcripts and AI summaries,
 
 ## Workflow
 
-Read and follow the complete workflow documented in `skills/plaud-transcript/SKILL.md`. That file contains:
+Read and follow the complete workflow documented in `skills/plaud-transcripts/SKILL.md`. That file contains:
 
-- Full Plaud API reference (auth, endpoints, content types, data formats)
-- Step-by-step extraction workflow (Chrome JS execution, chunked transfer, markdown assembly)
-- Output format specification
-- Action item routing rules
+- Staging folder architecture (pre-fetched files from daily scheduled task)
+- Transcript parsing and enrichment workflow
+- Calendar cross-referencing for meeting metadata
+- Obsidian note format with frontmatter tags
+- Folder routing and daily note cross-linking
+- Cleanup and reporting
 
 ## Quick Reference
 
 ### Key Paths
-- **Obsidian output**: `/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/`
-- **Conversion script**: `skills/plaud-transcript/scripts/plaud_to_markdown.py`
-- **Full workflow script**: `skills/plaud-transcript/scripts/plaud_workflow.py`
+- **Staging folder**: `~/Downloads/transcript-staging/` (pre-fetched by `plaud-daily-fetch` scheduled task)
+- **Fetch script**: `skills/plaud-transcripts/scripts/fetch_plaud.py`
+- **Obsidian output**: Determined by vault conventions — see `skills/plaud-transcripts/references/vault-conventions.md`
 
 ### Execution Steps (Summary)
 
-1. **Open Plaud in Chrome**: Use osascript to open `https://web.plaud.ai` in a new Chrome tab
-2. **Capture auth token**: One osascript call to read `localStorage.getItem('tokenstr')` from Chrome — small string, reliable
-3. **Fetch file list via curl**: `curl -s -H "Authorization: $TOKEN" "https://api.plaud.ai/file/simple/web?..."` → `/tmp/plaud_filelist.json`
-4. **Compare against zzPlaud**: List existing files, match by YYYY-MM-DD date prefix to find unprocessed recordings
-5. **For each new recording** (all via curl — no Chrome JS execution):
-   a. Fetch file detail via curl: `https://api.plaud.ai/file/detail/{file_id}`
-   b. Fetch transcript, summary, action items, highlights from S3 URLs via curl → `/tmp/` files
-   c. Validate all JSON on Mac filesystem with python3
-   d. Build complete markdown with Summary, Action Items, Key Decisions, AI Highlights, and full Transcript
-   e. Save to zzPlaud as `YYYY-MM-DD <Short Title>.md`
-6. **Route O'Hara action items to OmniFocus** via osascript
-7. **Report**: List what was processed, action items routed, items for others flagged for delegation
-8. **Close Plaud Chrome tab** via osascript (keep browser clean after ingest)
-9. **Clean up** temp files from `/tmp/`
+1. **Check staging folder**: Scan `~/Downloads/transcript-staging/` for `plaud_*.md` and `plaud_*_raw.json` files
+2. **If no staged files**: Either run `fetch_plaud.py` manually or tell user the scheduled task hasn't produced new files
+3. **Parse each staged transcript**: Extract title, date, duration, AI summary, transcript text with speaker labels
+4. **Cross-reference calendar**: Use MS 365 MCP (`outlook_calendar_search`) to match recordings to calendar events for attendees and real meeting titles
+5. **Transform to Obsidian notes**: Apply vault conventions — frontmatter tags, note structure, filename format (`YYYY-MM-DD <Title>.md`)
+6. **Route to correct folder**: Based on meeting type per vault-conventions routing table
+7. **Link from daily calendar note**: Add wikilink under `# Notes` heading in `Calendar/YYYY/MM-MonthName/YYYY-MM-DD.md`
+8. **Route O'Hara action items to OmniFocus** via osascript
+9. **Clean up staging**: Delete processed `plaud_*.md` and `plaud_*_raw.json` files
+10. **Report**: List what was processed, action items routed, items for others flagged for delegation
 
 ### Critical Technical Notes
 
-- Chrome is used for ONE thing only: auth token capture via osascript (small string read)
-- ALL API calls and data transfer happen via `curl` — no Chrome JS execution, no DOM bridges, no chunked transfers
-- S3 signed URLs expire in ~300 seconds — fetch promptly after getting file detail
-- S3 responses are often **gzip-compressed** — use `gzip.open()` first, fall back to plain JSON. See main skill doc for the `load_plaud_json()` helper pattern.
-- The `sum_multi_note` type appears twice: first instance has action items + key decisions, second has meeting highlights (check `category` field for `"Meeting Highlights"`)
+- The fetch script (`fetch_plaud.py`) handles all Plaud API auth and data retrieval — it runs on the Mac host, not inside the VM
+- Auth uses email/password login with cached JWT (~300 day lifetime) stored at `~/.config/plaud/token.json`
+- The staging folder decouples API fetching from vault processing — the scheduled task fetches daily, this skill transforms on demand
+- If a Plaud recording overlaps with a Teams meeting for the same time slot, check for existing Teams-sourced notes and offer to merge or suffix with `(Plaud)`
 
 ### Post-Ingest Handoffs
 
@@ -71,11 +69,11 @@ After ingesting transcripts, Knox flags relevant content for other agents:
 
 ## Tool Bindings
 
-- **Auth token**: osascript → Chrome localStorage (one call)
-- **Plaud API**: curl via Bash (all API calls and S3 downloads)
+- **Staging folder**: Bash, Read tools for scanning `~/Downloads/transcript-staging/`
+- **Fetch script**: `skills/plaud-transcripts/scripts/fetch_plaud.py` via Bash on Mac host (when manual fetch needed)
+- **Calendar cross-reference**: MS 365 MCP (`outlook_calendar_search`) for meeting metadata
 - **OmniFocus**: osascript → OmniFocus inbox task creation
-- **Filesystem**: Bash, Read, Write tools for Mac host file operations
-- **Obsidian vault**: Direct filesystem write to iCloud Obsidian directory
+- **Obsidian vault**: Obsidian MCP or direct filesystem write to iCloud Obsidian directory
 
 ## Input
 

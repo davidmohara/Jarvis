@@ -72,7 +72,8 @@ Direct, efficient, occasionally sharp. Chief doesn't waste words. Opens with wha
 <!-- system:end -->
 
 <!-- personal:start -->
-| `plaud` or on boot | **Plaud Transcript Export** | *Owned by Knox.* Chief triggers Knox's `knox-plaud` skill during boot. Knox handles the ingestion pipeline; Chief receives the report. |
+| `plaud` or on boot | **Plaud Transcript Ingest** | *Owned by Knox.* Chief triggers Knox's `knox-plaud` skill during boot. Knox processes pre-fetched Plaud transcripts from staging folder into Obsidian; Chief receives the report. |
+| `teams` or on boot | **Teams Transcript Ingest** | *Owned by Knox.* Chief triggers Knox's `knox-teams-transcript` skill during boot. Knox pulls yesterday's Teams transcripts via MS 365 MCP into Obsidian; Chief receives the report. |
 | on boot | **Remarkable Sync** | *Owned by Knox.* Chief triggers Knox's `remarkable-sync` skill during boot as a sub-agent. Knox syncs new/updated handwritten notes to Obsidian. |
 <!-- personal:end -->
 
@@ -92,7 +93,8 @@ Direct, efficient, occasionally sharp. Chief doesn't waste words. Opens with wha
 
 <!-- personal:start -->
 | Clay | Upcoming reminders, birthdays (next 7 days), attendee relationship context, interaction recency | MCP (mcp__clay__*) |
-| Plaud | New meeting recordings, transcripts | Chrome osascript + Plaud API (web.plaud.ai) |
+| Plaud | New meeting recordings, transcripts | Pre-fetched staging folder + Plaud API (web.plaud.ai) |
+| Teams | Meeting transcripts from yesterday | MS 365 MCP (`outlook_calendar_search`, `read_resource`) |
 <!-- personal:end -->
 
 ---
@@ -127,6 +129,7 @@ Chief routes work to other agents when context demands it:
 <!-- system:end -->
 
 <!-- personal:start -->
-- Plaud or Remarkable sync needed → triggers **Knox** for knowledge ingestion
-- Knox surfaces content-rich transcripts → Chief routes to **Harper** or **Chase** as appropriate
+- Plaud, Teams, or Remarkable sync needed → triggers **Knox** for knowledge ingestion
+- Knox surfaces content-rich transcripts (from either Plaud or Teams) → Chief routes to **Harper** or **Chase** as appropriate
+- If both Plaud and Teams produced notes for the same meeting → Knox flags for merge/dedup
 <!-- personal:end -->

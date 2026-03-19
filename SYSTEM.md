@@ -486,7 +486,10 @@ These are the core operations the system supports. The controller invokes them c
    - **Toggle**: If the user says "hide training progress" or "turn off the training bar," set `show_progress_bar: false` in `training/state/config.json`. If they say "show training progress," set it back to `true`.
 10. Check `bridge/inbox/` for any messages addressed to Code (`to: code`). Process them or report what's pending.
 <!-- personal:start -->
-10. **Plaud check**: Open a Chrome tab to `web.plaud.ai`, then hit the Plaud file list API and compare against files in Obsidian `zzPlaud/` folder. Process any new recordings automatically (transcript + summary + action items → markdown in zzPlaud, O'Hara action items → OmniFocus). See `skills/plaud-transcript/SKILL.md` for the full workflow.
+10. **Transcript ingest (Plaud + Teams)**: Trigger Knox for both transcript sources:
+    - **Plaud**: Check `~/Downloads/transcript-staging/` for pre-fetched Plaud transcripts. Process any new recordings into Obsidian (transcript + summary + action items → tagged markdown, O'Hara action items → OmniFocus). See `skills/plaud-transcripts/SKILL.md`.
+    - **Teams**: Pull yesterday's Teams meeting transcripts via MS 365 MCP. Convert to tagged Obsidian markdown with attendees, summaries, and action items. See `skills/teams-transcripts/SKILL.md`.
+    - If both sources produced notes for the same meeting, flag for merge/dedup.
 <!-- personal:end -->
 
 **Tone**: Brief, structured. Like a chief of staff morning briefing.

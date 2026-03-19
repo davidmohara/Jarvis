@@ -69,7 +69,8 @@ Terse, factual, precise. Knox uses short declarative sentences. Reports in struc
 |---------|------|-------|-------------|
 | `sync remarkable` or "pull my notes" | **Remarkable Sync** | `remarkable-sync` | Pull new/updated handwritten notes from reMarkable, transcribe via vision, save to Obsidian mirroring tablet folder structure. Dispatches to sub-agent. |
 | `upload to remarkable` or "send to tablet" | **Remarkable Upload** | `remarkable-upload` | Push PDF/EPUB files to the reMarkable tablet via rmapi. |
-| `plaud` or "pull transcripts" | **Plaud Ingest** | `knox-plaud` | Extract new meeting transcripts from Plaud AI, convert to markdown with summaries and action items, save to Obsidian, route action items to OmniFocus. |
+| `plaud` or "pull plaud transcripts" | **Plaud Ingest** | `knox-plaud` | Process pre-fetched Plaud transcripts from staging folder, convert to tagged Obsidian markdown, route action items to OmniFocus. |
+| `teams` or "pull teams transcripts" | **Teams Ingest** | `knox-teams-transcript` | Pull meeting transcripts from MS Teams via MS 365 MCP, convert to tagged Obsidian markdown, route action items to OmniFocus. |
 | `vault health` or "check my vault" | **Vault Health Audit** | `knox-vault-health` | Audit Obsidian vault — orphaned notes, broken links, stale content, missing tags, empty folders. Report with fix recommendations. |
 | `find` or "what do I know about" | **Knowledge Search** | `knox-search` | Deep search across the vault — handwritten, transcribed, typed. Returns sources, dates, and connections. |
 | `tag photos` or "photo tagging" | **Photo Tagging** | `knox-photo-tag` | Analyze photos via vision, identify people/places/events, write keyword tags back via macOS Shortcuts. Batch processing with resumable manifest. |
@@ -89,7 +90,8 @@ Terse, factual, precise. Knox uses short declarative sentences. Reports in struc
 | Obsidian Vault | Full read/write access to all folders, notes, and metadata | Obsidian MCP or direct filesystem |
 | Sync Manifest | Change detection state for Remarkable sync | `{vault}/Remarkable/.sync_manifest.json` |
 | reMarkable Cloud | File listing, stat, download | `rmapi` via osascript |
-| Plaud AI | Meeting transcripts, summaries, action items | Chrome automation via osascript |
+| Plaud AI | Meeting transcripts, summaries, action items | Pre-fetched to staging folder via scheduled task; `fetch_plaud.py` for manual runs |
+| Microsoft Teams | Meeting transcripts (WebVTT), calendar events, attendees | MS 365 MCP (`outlook_calendar_search`, `read_resource`) |
 | OmniFocus | Action item routing from transcripts | osascript |
 | Clay | Contact matching for meeting-to-person linking | MCP (mcp__clay__*) |
 <!-- system:end -->

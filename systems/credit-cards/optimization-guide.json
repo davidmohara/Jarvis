@@ -125,6 +125,33 @@
       }
     }
   },
+  "ynab_integration": {
+    "description": "YNAB-driven offer selection and card optimization workflow",
+    "pre_walkthrough_protocol": {
+      "step_1": "Pull last 90 days of YNAB transactions across all linked accounts",
+      "step_2": "Build vendor-frequency map: payee → count, total_spend, avg_transaction, card_used",
+      "step_3": "Build category-spend map: category → total_spend, primary_card_used, optimal_card",
+      "step_4": "Identify recurring charges: payees appearing 2+ months in a row",
+      "step_5": "Flag suboptimal card usage: any recurring charge where card_used != optimal_card per category rules"
+    },
+    "offer_selection_logic": {
+      "auto_add": "Vendor appears in YNAB transactions within last 90 days, OR vendor is a known recurring charge",
+      "likely_add": "Vendor is in a category where David spends $50+/month (e.g., dining, grocery, gas), OR offer value exceeds $25 with reasonable likelihood of use",
+      "skip": "No YNAB spend history, vendor not in any active spend category, offer value under $10 with no foreseeable use",
+      "always_add": "Free money offers (e.g., Orkin $30 back on $30 = free, CNN/discovery+ subscription credits), TurboTax (annual tax filing), any vendor where David has an active subscription"
+    },
+    "card_migration_rules": {
+      "dining": "Should be on Atlas Visa (2x) or Chase Sapphire (2x) — never on Citi (1x) or Amex (1x unless BCP for specific vendors)",
+      "groceries": "Should be on Amex BCP (6% up to $6K) then Discover (5% when rotating) — never on Citi or Chase",
+      "streaming": "Should be on Amex BCP (6%) — never on Plat (1x) or Chase (1x)",
+      "gas": "Should be on Amex BCP (3%) or Discover (5% when rotating) — never on Citi (1x)",
+      "flights_aa": "Always Citi AA Exec (4x)",
+      "flights_other": "Amex Biz Plat via Amex Travel (5x)",
+      "rideshare": "Lyft → Citi (stacks $10/mo credit + 1x miles). Other rideshare → Amex BCP (3%)",
+      "subscriptions": "Map each sub to its best card. Digital entertainment subs → Amex Plat (up to $25/mo credit). Other subs → category-based optimization.",
+      "insurance": "Portfolio gap — use Citi (1x miles) until a 2% card is added"
+    }
+  },
   "portfolio_gaps": [
     {
       "issue": "No 2% flat-rate card for large uncategorized spend",
