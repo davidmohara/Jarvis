@@ -120,10 +120,14 @@ When no speaker labels exist at all, format as continuous text with paragraph br
 
 ### 5. Route and write
 
-Same folder routing as the Teams skill:
+All transcripts go under `zzPlaud/`, split by context:
 
 | Meeting type | Folder |
 |---|---|
+| Client meetings, customer calls, sales discussions | `zzPlaud/Client/` |
+| Internal Improving meetings (strategy, ops, 1:1s, all-hands) | `zzPlaud/Improving/` |
+| YPO meetings, forum, events, REX calls | `zzPlaud/YPO/` |
+| Personal, faith, family, finances, anything else | `zzPlaud/Other/` |
 
 Check for filename collisions before writing.
 

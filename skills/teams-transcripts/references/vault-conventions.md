@@ -4,11 +4,17 @@ Quick reference for the Obsidian vault.
 
 ## Folder Structure (Meeting-Relevant)
 
-### First Run Instructions
-If this is here, it's the first time this is being run. Ask the user where in the vault these should be stored. Place the answer, and any additional structure that is found under that folder below. After getting an answer, delete this section
+All meeting transcripts (both Plaud and Teams) are stored under `zzPlaud/`, split by context:
 
 ```
+zzPlaud/
+├── Client/       — client-facing meetings, customer calls, sales discussions
+├── Improving/    — internal Improving meetings (strategy, ops, 1:1s, all-hands)
+├── YPO/          — YPO meetings, forum, events, REX calls
+└── Other/        — personal, faith, family, finances, anything that doesn't fit above
 ```
+
+Routing logic: scan meeting title, attendee list, and transcript content to determine the correct subfolder. When ambiguous, default to `Other/`.
 
 ## Tag Taxonomy (Meeting-Relevant Subset)
 
@@ -18,25 +24,23 @@ If this is here, it's the first time this is being run. Ask the user where in th
 
 ### Work tags (pick the most specific)
 
-#### First Run Instructions
-If this is here, it's the first time this is being run. Ask the user for guidance on tags. Use the initial ones as suggestions for guiding the user. Place the answer, and any additional tags given below. After getting an answer, delete this section
-
 - `work/client` — client meetings, customer calls, sales discussions
-- `work/strategy` — strategic planning, vision
+- `work/strategy` — strategic planning, vision, company direction
 - `work/strategy/board` — board meetings
 - `work/strategy/vision` — company vision discussions
+- `work/operations` — internal ops, process, execution
 - `work/operations/sales` — sales pipeline, proposals
 - `work/operations/growth` — employee growth, coaching, 1:1s
 - `work/operations/finance` — financial discussions
-- `work/industry` — industry-specific
+- `work/industry` — industry events, conferences, external panels
+- `work/boards` — board memberships and advisory roles
+- `work/projects` — specific project-related meetings
+- `work/partners` — partner and vendor meetings
 
 ### Personal tags
 
-#### First Run Instructions
-If this is here, it's the first time this is being run. Ask the user for guidance on tags. Use the initial ones as suggestions for guiding the user. Place the answer, and any additional tags given below. After getting an answer, delete this section
-
-- `personal/finances` — Personal finances
-- `personal/ypo` — YPO meetings
+- `personal/ypo` — YPO meetings, forum, events, REX calls
+- `personal/finances` — personal financial discussions
 - `personal/faith` — faith-related meetings
 - `personal/family` — family matters
 

@@ -111,8 +111,14 @@ the note worth creating.
 
 ### 6. Route to the correct folder
 
+All transcripts go under `zzPlaud/`, split by context:
+
 | Meeting type | Folder |
 |---|---|
+| Client meetings, customer calls, sales discussions | `zzPlaud/Client/` |
+| Internal Improving meetings (strategy, ops, 1:1s, all-hands) | `zzPlaud/Improving/` |
+| YPO meetings, forum, events, REX calls | `zzPlaud/YPO/` |
+| Personal, faith, family, finances, anything else | `zzPlaud/Other/` |
 
 Before writing, check if a file with the same name already exists. If so, ask the
 user whether to overwrite or skip.
