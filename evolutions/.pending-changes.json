@@ -160,14 +160,14 @@
       "id": "work-20260320-boot-git-sync",
       "description": "Boot git sync — fetch and rebase from origin at start of every session so boot always runs on latest system files.",
       "started": "2026-03-20T00:00:00Z",
-      "classification": "system",
+      "classification": "personal",
       "evolution_name": "Boot Git Sync",
       "evolution_description": "Adds git fetch + rebase as step 1 of the boot sequence, ensuring every session starts on the latest version of system files.",
       "files": [
         {
           "path": "SYSTEM.md",
           "action": "merge",
-          "type": "system",
+          "type": "personal",
           "description": "Added git fetch + rebase as boot step 1; renumbered existing steps 2-11"
         }
       ]

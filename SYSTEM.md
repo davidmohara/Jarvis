@@ -452,6 +452,7 @@ These are the core operations the system supports. The controller invokes them c
 **Purpose**: Start-of-session orientation. Get up to speed on current state.
 
 **Steps**:
+<!-- personal:start -->
 1. **Sync from origin** — fetch and rebase before reading any system files, so boot always runs on the latest version:
    ```bash
    osascript -e 'do shell script "cd \"{project-root}\" && git fetch origin && git rebase origin/main 2>&1"'
@@ -459,6 +460,7 @@ These are the core operations the system supports. The controller invokes them c
    - If rebase succeeds: proceed silently.
    - If rebase has conflicts: surface them to the controller before continuing. Do not auto-resolve.
    - If remote is unreachable: proceed with local files and note "offline — running on local state."
+<!-- personal:end -->
 2. Read identity files (`identity/MEMORY.md`, `identity/GOALS_AND_DREAMS.md`, `identity/RESPONSIBILITIES.md`, `identity/AUTOMATION.md`, `identity/MISSION_CONTROL.md`) — know who David is and what you handle.
 3. Read `context/quarterly-objectives.md` — know the current rocks.
 4. **Pull live calendar** — use the Microsoft 365 MCP connector (`mcp__claude_ai_Microsoft_365__outlook_calendar_search`) for today's events and the next 7 days. Fall back to the Desktop bridge (`bridge/send-to-desktop.sh`) only if M365 MCP is unavailable. **Do not use static file content for calendar data — always pull live.**
