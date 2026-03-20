@@ -206,9 +206,18 @@ def get_token(force_login=False):
         if cached:
             return cached
 
-    # Need to authenticate
+    # Need to authenticate — try saved credentials first
     creds = load_credentials()
-    if not creds:
+
+    # If no saved credentials and running non-interactively, exit with code 2
+    # so the calling agent can trigger the Chrome login flow
+    if not creds or not creds.get("password"):
+        if not sys.stdin.isatty():
+            print("NO_TOKEN")
+            print("  No cached token and no saved credentials.")
+            print("  Use the Chrome login flow to capture a token from web.plaud.ai.")
+            sys.exit(2)
+        # Interactive mode — prompt for credentials
         creds = prompt_credentials()
 
     token = login(creds)

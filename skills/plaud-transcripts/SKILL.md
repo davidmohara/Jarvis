@@ -36,10 +36,13 @@ and cleans up the staging files when done.
   `scripts/fetch_plaud.py` with a valid bearer token
 - **Write access to the Obsidian vault** — look for it in the mounted directories. `references\vault-conventions.md` contains first-run interactions to setup. Run that once when intiializing this skill for the first time.
 
-If no Plaud files are found in staging, tell the user. They may need to:
-1. Run the fetch script manually: `PLAUD_TOKEN="<token>" python3 ~/Downloads/transcript-staging/fetch_plaud.py`
-2. Or check that the `plaud-daily-fetch` scheduled task is running
-3. Or export recordings from the Plaud app and drop them in the staging folder
+If no Plaud files are found in staging, run the fetch script (see "Running the
+fetch script" below). If the token is missing or expired, use the Chrome login
+flow to capture a fresh one before retrying.
+
+If the fetch script still returns nothing, the user may need to:
+1. Check that the `plaud-daily-fetch` scheduled task is running
+2. Or export recordings from the Plaud app and drop them in the staging folder
 
 ## Execution
 
@@ -167,11 +170,87 @@ Processed X Plaud recordings:
 Staging cleanup: removed X transcript files, X raw JSON files
 ```
 
-## The fetch script
+## Running the fetch script
 
-The `scripts/fetch_plaud.py` script handles the API side. It authenticates with
-email/password via `POST /auth/access-token`, caches the JWT (~300 day lifetime)
-to `~/.config/plaud/token.json`, and auto-refreshes when within 30 days of expiry.
+**The script must run on the user's Mac, not inside the VM** — the VM's network
+proxy blocks direct API calls to api.plaud.ai. Run it via `osascript` on the host:
+
+```
+do shell script "cd <skill-scripts-dir> && /usr/bin/python3 fetch_plaud.py <YYYY-MM-DD> 2>&1"
+```
+
+The script requires `requests` — install with `/usr/bin/python3 -m pip install requests`
+if missing.
+
+### Token lifecycle
+
+The fetch script caches a JWT (~300 day lifetime) to `~/.config/plaud/token.json`
+and auto-refreshes when within 30 days of expiry. When a valid cached token exists,
+the script uses it automatically.
+
+When **no token is cached** (first run, expired, or deleted), the script exits with
+code 2 and prints `NO_TOKEN`. Do **not** attempt interactive credential prompts —
+they will fail in non-interactive contexts. Instead, use the **Chrome login flow**.
+
+### Chrome login flow (no token / expired token)
+
+**Chrome is ONLY used to capture the auth token.** Do NOT use Chrome to browse
+the Plaud dashboard, view recordings, read transcripts, or retrieve any other
+data. All transcript fetching happens exclusively through the Python fetch script
+and the Plaud API. The browser's sole purpose here is to let the user log in so
+we can grab the JWT from localStorage — nothing else.
+
+This authentication method uses the user's existing browser session so they never
+need to share credentials with the script.
+
+1. Open Chrome to `https://web.plaud.ai`:
+   ```
+   mcp__Control_Chrome__open_url(url="https://web.plaud.ai", new_tab=true)
+   ```
+
+2. Ask the user to log in (or confirm they're on the dashboard if already logged in).
+
+3. Extract the JWT from localStorage:
+   ```javascript
+   const tokenstr = localStorage.getItem('tokenstr');
+   JSON.stringify({token: tokenstr});
+   ```
+   The value is `"bearer <JWT>"` — strip the `"bearer "` prefix to get the raw token.
+
+4. Decode the JWT payload to extract `iat` and `exp` timestamps (they're in epoch
+   seconds — multiply by 1000 for milliseconds).
+
+5. Write the token cache file on the Mac:
+   ```
+   mkdir -p ~/.config/plaud && chmod 700 ~/.config/plaud
+   ```
+   Write to `~/.config/plaud/token.json`:
+   ```json
+   {
+     "access_token": "<raw-JWT>",
+     "issued_at": <iat * 1000>,
+     "expires_at": <exp * 1000>,
+     "saved_at": "<ISO-8601>"
+   }
+   ```
+   Set permissions: `chmod 600 ~/.config/plaud/token.json`
+
+6. Also write a minimal credentials file for region detection:
+   ```json
+   {
+     "email": "<user-email-from-plaud>",
+     "region": "us"
+   }
+   ```
+   To `~/.config/plaud/credentials.json` (mode 0600). The email can be extracted
+   from the localStorage key pattern `PLADU_<email>_redDotShow` visible in the
+   same localStorage dump.
+
+7. Re-run the fetch script — it will now pick up the cached token.
+
+### API details
+
+The `scripts/fetch_plaud.py` script handles the API side.
 
 API endpoints (reverse-engineered from plaud-toolkit):
 - `GET /file/simple/web` — list recordings (params: skip, limit, is_trash, sort_by, is_desc)
@@ -185,13 +264,6 @@ API endpoints (reverse-engineered from plaud-toolkit):
 Required headers beyond Authorization: `app-platform: web`, `edit-from: web`,
 `Origin: https://web.plaud.ai`, `Referer: https://web.plaud.ai/`
 
-First run prompts for email/password interactively and optionally saves credentials
-to `~/.config/plaud/credentials.json` (mode 0600). Subsequent runs use cached token.
-
-**The script must run on the user's Mac, not inside the VM** — the VM's network
-proxy blocks direct API calls to api.plaud.ai. The scheduled task handles this by
-running via osascript on the host machine.
-
 ## Tag routing
 
 Same taxonomy as the Teams skill — documented in `references/vault-conventions.md`.
@@ -203,4 +275,4 @@ no clear title), so lean more heavily on transcript content analysis for tagging
 - No files in staging → inform the user, suggest running the fetch script
 - Corrupt or empty transcript files → skip and report
 - Filename collision with Teams note → ask user: merge, rename with (Plaud) suffix, or skip
-- Bearer token expired → tell the user to refresh it from web.plaud.ai DevTools
+- Bearer token expired or missing → run the Chrome login flow (see above), then retry the fetch
