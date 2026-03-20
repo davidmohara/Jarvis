@@ -39,6 +39,7 @@ Read and follow the complete workflow documented in `skills/plaud-transcripts/SK
 - **Staging folder**: `~/Downloads/transcript-staging/` (pre-fetched by `plaud-daily-fetch` scheduled task)
 - **Fetch script**: `skills/plaud-transcripts/scripts/fetch_plaud.py`
 - **Obsidian output**: Determined by vault conventions — see `skills/plaud-transcripts/references/vault-conventions.md`
+- **Sync report**: `reports/plaud_sync_report.md` (overwrite each run)
 
 ### Execution Steps (Summary)
 

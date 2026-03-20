@@ -20,7 +20,7 @@ Agent(
 )
 ```
 
-The sub-agent will write a sync report to `/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/remarkable_sync_report.md`. When it returns, read the report and give David a summary.
+The sub-agent will write a sync report to `/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/reports/remarkable_sync_report.md`. When it returns, read the report and give David a summary.
 
 ---
 
@@ -292,7 +292,7 @@ do shell script "rm -f '/Users/davidohara/Library/CloudStorage/OneDrive-Improvin
 
 ### 10. Report
 
-Write a sync report to `/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/remarkable_sync_report.md` via osascript. Include:
+Write a sync report to `/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/reports/remarkable_sync_report.md` via osascript. Include:
 
 - Total files synced (new vs updated)
 - Each file: name, folder, page count

@@ -73,6 +73,8 @@ For every new feature, fix, or change, classify it:
 
 ### 4. Generate Report
 
+Write the report to `evolutions/release-watch/release_watch_report.md` (overwrite each run — this is a current-state file, not a log).
+
 If there are Adopt or Evaluate items, produce a brief report. No fluff. Format:
 
 ```

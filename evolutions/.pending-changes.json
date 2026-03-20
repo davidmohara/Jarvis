@@ -121,6 +121,40 @@
           "description": "Added weekly review routing signal to Quinn in Agent Routing table"
         }
       ]
+    },
+    {
+      "id": "work-20260320-rigby-root-audit",
+      "description": "Root Audit — Adds root directory hygiene capability to Rigby — surfaces misplaced files, recommends moves or deletions, and executes after confirmation.",
+      "started": "2026-03-20T00:00:00Z",
+      "classification": "system",
+      "evolution_name": "Root Audit",
+      "evolution_description": "Adds root directory hygiene capability to Rigby — surfaces misplaced files, recommends moves or deletions, and executes after confirmation.",
+      "files": [
+        {
+          "path": ".claude/skills/rigby-root-audit/SKILL.md",
+          "action": "add",
+          "type": "system",
+          "description": "New Rigby skill: audit IES root directory, classify misplaced files as Move/Delete/Unknown, execute after confirmation"
+        },
+        {
+          "path": "agents/rigby.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Added Root Audit to Rigby's Task Portfolio under system block"
+        },
+        {
+          "path": "workflows/daily-review/steps/step-04-root-audit.md",
+          "action": "add",
+          "type": "system",
+          "description": "New daily-review step 04: root audit — runs after step 03 as final shutdown housekeeping"
+        },
+        {
+          "path": "workflows/daily-review/steps/step-03-update-system.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Updated WORKFLOW COMPLETE to chain to step-04-root-audit instead of halting"
+        }
+      ]
     }
   ]
 }

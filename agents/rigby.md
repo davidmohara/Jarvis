@@ -89,10 +89,11 @@ Blunt, direct, efficient. No jargon for jargon's sake. No marketing speak. Rigby
 | `submit` or "submit package" or "submission status" | **Package Submit** | Submit a contribution package to Improving's review queue, or check the status of an existing submission with `--status {submissionId}`. |
 | `/install-mcp {slug}` or "install connector" | **Connector Install** | Receive an install command from the Connector Catalog, look up connector details via the catalog API, confirm with the executive, then hand off to guided connector setup. |
 | `error analysis`, "error patterns", "how can we improve" | **Error Analysis** | Analyze the error tracking log for recurring patterns, compute statistics, propose systemic fixes (tiered: auto-propose for clear-cut, data-only for ambiguous). Invoked by Chief (daily count), Quinn (weekly full analysis), on-demand, or when Master detects a threshold breach. |
+| `root audit`, "clean up root", "audit root", "root directory hygiene" | **Root Audit** | Audit the IES root directory for misplaced files. Classifies each file as Move, Delete, or Unknown. Presents a findings table grouped by action type. Executes moves and deletes only after explicit confirmation. Never auto-deletes. |
 <!-- system:end -->
 
 <!-- personal:start -->
-| "release notes", "what's new in Claude", "any new features", boot trigger | **Release Watch** | Check Claude Code and Cowork release notes for new features relevant to IES. Classifies as Adopt, Evaluate (ask David), or Skip. Runs on boot and on demand. |
+| "release notes", "what's new in Claude", "any new features", boot trigger | **Release Watch** | Check Claude Code and Cowork release notes for new features relevant to IES. Classifies as Adopt, Evaluate (ask David), or Skip. Runs on boot and on demand. Report written to `evolutions/release-watch/release_watch_report.md`. State file at `evolutions/release-watch-state.json`. |
 <!-- personal:end -->
 
 ---

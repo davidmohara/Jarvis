@@ -37,7 +37,7 @@ Agent(
   prompt: "You are Knox, the Knowledge Manager. Read and execute the full workflow in
     /sessions/*/mnt/IES/.claude/skills/remarkable-sync/SKILL.md — sync handwritten
     notes from the reMarkable tablet to Obsidian. Write a report to
-    /Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/remarkable_sync_report.md
+    /Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/reports/remarkable_sync_report.md
     when done."
 )
 
@@ -47,7 +47,7 @@ Agent(
   prompt: "You are Knox, the Knowledge Manager. Read and execute the full workflow in
     /sessions/*/mnt/IES/.claude/skills/knox-plaud/SKILL.md — pull new Plaud meeting
     transcripts to Obsidian and route action items to OmniFocus. Write a report to
-    /Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/plaud_sync_report.md
+    /Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/reports/plaud_sync_report.md
     when done."
 )
 
@@ -57,7 +57,7 @@ Agent(
   prompt: "You are Rigby, the System Operator. Read and execute the full workflow in
     /sessions/*/mnt/IES/.claude/skills/rigby-release-watch/SKILL.md — check Claude Code
     and Cowork release notes for new features relevant to IES. Write your report to
-    /Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/release_watch_report.md
+    /Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/evolutions/release-watch/release_watch_report.md
     when done."
 )
 ```

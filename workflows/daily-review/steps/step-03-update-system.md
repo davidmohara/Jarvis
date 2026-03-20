@@ -135,9 +135,9 @@
 
 ---
 
-## WORKFLOW COMPLETE
+## NEXT STEP
 
-This is the final step of the daily-review workflow. No further steps to load.
+Load and execute `steps/step-04-root-audit.md` to complete the daily shutdown sequence.
 
 The daily review file is now the input artifact for tomorrow's morning briefing workflow (step 01 of morning-briefing will look for it).
 <!-- system:end -->
