@@ -452,21 +452,28 @@ These are the core operations the system supports. The controller invokes them c
 **Purpose**: Start-of-session orientation. Get up to speed on current state.
 
 **Steps**:
-1. Read identity files (`identity/MEMORY.md`, `identity/GOALS_AND_DREAMS.md`, `identity/RESPONSIBILITIES.md`, `identity/AUTOMATION.md`, `identity/MISSION_CONTROL.md`) — know who David is and what you handle.
-2. Read `context/quarterly-objectives.md` — know the current rocks.
-3. **Pull live calendar** — use the Microsoft 365 MCP connector (`mcp__claude_ai_Microsoft_365__outlook_calendar_search`) for today's events and the next 7 days. Fall back to the Desktop bridge (`bridge/send-to-desktop.sh`) only if M365 MCP is unavailable. **Do not use static file content for calendar data — always pull live.**
-4. Get OmniFocus inbox tasks via osascript — note any unprocessed items.
-5. Read `delegations/tracker.md` — note anything overdue.
-6. Check Clay for upcoming reminders and birthdays in the next 7 days via `mcp__clay__getUpcomingReminders` and `mcp__clay__searchContacts` (upcoming_birthday filter).
-7. Check for today's daily review in `reviews/daily/` — has a shutdown been done?
-8. Report a brief status:
+1. **Sync from origin** — fetch and rebase before reading any system files, so boot always runs on the latest version:
+   ```bash
+   osascript -e 'do shell script "cd \"{project-root}\" && git fetch origin && git rebase origin/main 2>&1"'
+   ```
+   - If rebase succeeds: proceed silently.
+   - If rebase has conflicts: surface them to the controller before continuing. Do not auto-resolve.
+   - If remote is unreachable: proceed with local files and note "offline — running on local state."
+2. Read identity files (`identity/MEMORY.md`, `identity/GOALS_AND_DREAMS.md`, `identity/RESPONSIBILITIES.md`, `identity/AUTOMATION.md`, `identity/MISSION_CONTROL.md`) — know who David is and what you handle.
+3. Read `context/quarterly-objectives.md` — know the current rocks.
+4. **Pull live calendar** — use the Microsoft 365 MCP connector (`mcp__claude_ai_Microsoft_365__outlook_calendar_search`) for today's events and the next 7 days. Fall back to the Desktop bridge (`bridge/send-to-desktop.sh`) only if M365 MCP is unavailable. **Do not use static file content for calendar data — always pull live.**
+5. Get OmniFocus inbox tasks via osascript — note any unprocessed items.
+6. Read `delegations/tracker.md` — note anything overdue.
+7. Check Clay for upcoming reminders and birthdays in the next 7 days via `mcp__clay__getUpcomingReminders` and `mcp__clay__searchContacts` (upcoming_birthday filter).
+8. Check for today's daily review in `reviews/daily/` — has a shutdown been done?
+9. Report a brief status:
    - Current quarter and rocks (with status)
    - **Today's calendar and next 7 days** (from live Desktop pull)
    - Number of inbox items pending
    - Any overdue delegations
    - Clay reminders and upcoming birthdays (next 7 days)
    - Any actions needed
-9. **Training** (if `training/state/config.json` has a user):
+10. **Training** (if `training/state/config.json` has a user):
    - Read `training/state/progress.json`, `training/state/mastery.json`, and `training/curriculum.json`
    - **Progress bar** (unless `config.json` has `"show_progress_bar": false`):
      Include a single line in the briefing showing completion. Format it like a LinkedIn profile strength bar:
@@ -484,7 +491,7 @@ These are the core operations the system supports. The controller invokes them c
      - Update `training/state/progress.json` nudge fields.
    - If no nudge is due, show only the progress bar (if enabled).
    - **Toggle**: If the user says "hide training progress" or "turn off the training bar," set `show_progress_bar: false` in `training/state/config.json`. If they say "show training progress," set it back to `true`.
-10. Check `bridge/inbox/` for any messages addressed to Code (`to: code`). Process them or report what's pending.
+11. Check `bridge/inbox/` for any messages addressed to Code (`to: code`). Process them or report what's pending.
 <!-- personal:start -->
 10. **Transcript ingest (Plaud + Teams)**: Trigger Knox for both transcript sources:
     - **Plaud**: Check `~/Downloads/transcript-staging/` for pre-fetched Plaud transcripts. Process any new recordings into Obsidian (transcript + summary + action items → tagged markdown, O'Hara action items → OmniFocus). See `skills/plaud-transcripts/SKILL.md`.
