@@ -188,27 +188,6 @@ Read /sessions/*/mnt/IES/remarkable_temp_page.png
 
 ### 7. Save to Obsidian
 
-Build the markdown file with YAML frontmatter:
-
-```markdown
----
-source: reMarkable
-synced: 2026-03-06T10:30:00Z
-pages: 1
-remarkable_path: /Meetings/Wesley Randall
----
-
-# Wesley Randall
-
-January 19, 2026
-
-- Defense Conf - Mar/Apr
-- JPMorgan Guys & VC Liberty Ventures
-...
-```
-
-**Title**: Use the document name from the reMarkable as the H1 heading.
-
 **File path**: Mirror the reMarkable folder structure under `{vault}/Remarkable/`. Examples:
 
 | reMarkable path | Obsidian path |
@@ -223,10 +202,22 @@ Create directories as needed:
 do shell script "mkdir -p '/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/Remarkable/Meetings' 2>&1"
 ```
 
-Write the file:
+#### Deduplication (critical)
 
-```applescript
-do shell script "cat > '/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/Remarkable/Meetings/Wesley Randall.md' << 'ENDOFFILE'
+Before writing, check if the target file already exists. If it does:
+
+1. **Read the existing file content** via osascript `cat`.
+2. **For each transcribed page/section**, check whether substantially similar content already exists in the file. Compare by date headings (e.g., `### March 19, 2026`) and the first few bullet points. If a section with the same date heading and similar content already exists, **skip it** — do not append duplicate entries.
+3. **Only append genuinely new sections** that don't already appear in the file. Use `>>` (append) instead of `>` (overwrite) when adding to an existing file.
+4. **Update the YAML frontmatter** (`synced` timestamp and `pages` count) in the existing file rather than replacing the entire file.
+
+If the file does not exist, create it fresh with full YAML frontmatter and all transcribed content.
+
+#### File format
+
+Build the markdown file with YAML frontmatter:
+
+```markdown
 ---
 source: reMarkable
 synced: 2026-03-06T10:30:00Z
@@ -236,8 +227,42 @@ remarkable_path: /Meetings/Wesley Randall
 
 # Wesley Randall
 
-[transcribed content here]
+### January 19, 2026
+
+- Defense Conf - Mar/Apr
+- JPMorgan Guys & VC Liberty Ventures
+...
+```
+
+**Title**: Use the document name from the reMarkable as the H1 heading.
+
+#### Writing files
+
+For **new files** (no existing file at the target path):
+
+```applescript
+do shell script "cat > '/path/to/file.md' << 'ENDOFFILE'
+[full content with frontmatter]
 ENDOFFILE"
+```
+
+For **existing files** (appending new sections only):
+
+```applescript
+do shell script "cat >> '/path/to/file.md' << 'ENDOFFILE'
+
+---
+
+### March 19, 2026
+
+[new section content only]
+ENDOFFILE"
+```
+
+Then update the `synced` timestamp in the frontmatter using `sed`:
+
+```applescript
+do shell script "sed -i '' 's/^synced: .*/synced: 2026-03-19T10:00:00Z/' '/path/to/file.md'"
 ```
 
 ### 8. Update the manifest
