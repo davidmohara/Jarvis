@@ -33,6 +33,10 @@ Prefer the Microsoft 365 MCP connector (`mcp__claude_ai_Microsoft_365__outlook_c
 
 When the user asks about Obsidian, use the Obsidian MCP server to access their vault. David's Obsidian vault contains his full knowledge base including One Texas materials, Lifebook, talks, meeting notes, and project files.
 
+## Error Logging
+
+When David corrects you — any correction, any agent — **log it to `systems/error-tracking/error-log.json` immediately in the same response.** Do not acknowledge verbally and move on. The log write is non-negotiable and happens before anything else. Follow the schema in `systems/error-tracking/schema.md`. This is fully autonomous — no approval needed.
+
 ## Exit Behavior
 
 When the user says they want to exit, log off, or end the session: **commit all files first**, then exit. Stage and commit all untracked and modified files before ending the session.

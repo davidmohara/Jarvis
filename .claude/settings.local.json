@@ -18,7 +18,12 @@
       "mcp__clay__getUpcomingReminders",
       "Skill(chase-card-optimizer)",
       "mcp__claude_ai_Clay_custom__getUpcomingReminders",
-      "Skill(chief-morning)"
+      "Skill(chief-morning)",
+      "mcp__ghost-blog__create_post",
+      "mcp__ghost-blog__get_tags",
+      "mcp__ghost-blog__update_post",
+      "mcp__ghost-blog__get_post",
+      "mcp__ghost-blog__get_post_by_slug"
     ]
   }
 }

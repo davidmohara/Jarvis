@@ -17,6 +17,10 @@ Report an error when you:
 - Skip a required step and then catch it before or after the fact
 - Detect a routing mistake — you handled something that should have gone to a different agent
 
+### Explicit Corrections from the Executive
+
+When David corrects any behavior — routing, data, process, tone, anything — **Master must log the correction to `systems/error-tracking/error-log.json` immediately in that same response.** This is not optional and does not require a second prompt. Use `"source": "explicit"` in the entry. The correction is logged first, then the conversation continues. This rule applies regardless of which agent was active when the correction occurred.
+
 Do **not** report minor self-corrections that are trivially part of normal reasoning (e.g., rewriting a sentence). Report errors that would matter if they had shipped uncorrected.
 
 ### How to Report

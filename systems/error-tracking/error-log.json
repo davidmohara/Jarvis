@@ -4,7 +4,68 @@
     "created": "2026-03-15",
     "description": "IES error and correction tracking log. Captures explicit corrections from the executive and self-detected errors during execution. Entries accumulate across sessions and are analyzed for patterns during reviews."
   },
-  "entries": [],
+  "entries": [
+    {
+      "id": "err-20260321-001",
+      "timestamp": "2026-03-21T00:00:00Z",
+      "session": "2026-03-21",
+      "source": "explicit",
+      "agent": "jarvis",
+      "category": "routing-error",
+      "description": "Card optimization question ('which card for golf?') was handled directly by Jarvis instead of being routed through Chase, who owns the credit card system and Card Optimizer task.",
+      "correction": "All card selection questions must be routed through Chase's Card Optimizer logic — read optimization-guide.json, benefits-tracker.json, and apply Chase's full decision framework. No eyeballing.",
+      "failure_mode": "protocol-skip",
+      "systemic_fix": "Jarvis must route any 'which card' or purchase-related question to Chase's Card Optimizer task portfolio entry before responding. No direct reads of credit card files without Chase's framework.",
+      "fix_status": "applied",
+      "severity": "moderate",
+      "related_entries": ["err-20260321-002"]
+    },
+    {
+      "id": "err-20260321-002",
+      "timestamp": "2026-03-21T00:00:00Z",
+      "session": "2026-03-21",
+      "source": "self-detected",
+      "agent": "jarvis",
+      "category": "process-skip",
+      "description": "When David explicitly corrected the routing error (err-20260321-001), Jarvis acknowledged verbally but did not automatically log the correction to error-log.json. The executive had to ask 'verify that got recorded' before logging occurred.",
+      "correction": "Any explicit correction from the executive must be logged to error-log.json immediately and transparently — no prompting required. Acknowledge the correction AND write the log entry in the same response.",
+      "failure_mode": "protocol-skip",
+      "systemic_fix": "Whenever the executive corrects Jarvis or any agent behavior, the very next response must include a write to error-log.json. This is non-negotiable and should not require a second prompt.",
+      "fix_status": "applied",
+      "severity": "moderate",
+      "related_entries": ["err-20260321-001"]
+    },
+    {
+      "id": "err-20260321-003",
+      "timestamp": "2026-03-21T00:00:00Z",
+      "session": "2026-03-21",
+      "source": "explicit",
+      "agent": "jarvis",
+      "category": "routing-error",
+      "description": "Evolution package updates (CLAUDE.md error logging section, AUTOMATION.md correction logging, conventions.md explicit corrections protocol, and evolution manifest sync) were handled directly by Jarvis instead of being routed through Rigby, who owns system evolution, package integrity, and deployment.",
+      "correction": "All evolution package changes must be routed through Rigby per the evolution-deployment workflow. Rigby validates, snapshots, merges, verifies, and logs.",
+      "failure_mode": "protocol-skip",
+      "systemic_fix": "Any time David asks to update an evolution package or make systemic changes to the IES platform, route through Rigby. Jarvis coordinates — Rigby executes system changes.",
+      "fix_status": "proposed",
+      "severity": "moderate",
+      "related_entries": ["err-20260321-001", "err-20260321-002"]
+    },
+    {
+      "id": "err-20260321-004",
+      "timestamp": "2026-03-21T00:00:00Z",
+      "session": "2026-03-21",
+      "source": "explicit",
+      "agent": "jarvis",
+      "category": "routing-error",
+      "description": "After Rigby's review identified gaps in the evolution package, Jarvis asked David for permission to have Rigby execute fixes instead of just routing the work. Jarvis coordinates and delegates — David shouldn't be asked to approve internal agent routing decisions.",
+      "correction": "When an agent review surfaces required fixes, Jarvis routes the fix work to the owning agent immediately. No asking the executive to approve internal delegation.",
+      "failure_mode": "wrong-assumption",
+      "systemic_fix": "Jarvis must distinguish between decisions requiring executive approval (external comms, commitments, deletions) and internal agent routing (which is Jarvis's job). Agent task delegation is never escalated to David.",
+      "fix_status": "applied",
+      "severity": "minor",
+      "related_entries": ["err-20260321-003"]
+    }
+  ],
   "patterns": {
     "last_analyzed": null,
     "recurring": []

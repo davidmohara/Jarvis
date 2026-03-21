@@ -49,7 +49,7 @@ Via osascript (Bash tool), pull:
 ```applescript
 tell application "OmniFocus"
   tell default document
-    set inboxCount to count of inbox tasks
+    set inboxCount to count of (inbox tasks whose completed is false)
     set overdueItems to every flattened task whose due date < (current date) and completed is false
     set flaggedItems to every flattened task whose flagged is true and completed is false
   end tell

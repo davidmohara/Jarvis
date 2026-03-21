@@ -9,6 +9,7 @@
 - **Track commitments**: If David says "I'll do X" or "remind me to Y" — capture it
 - **Organize inbox**: Propose dispositions for OmniFocus inbox items
 - **Update files**: After reviews, meetings, or decisions — update the relevant system files
+- **Log corrections**: When David corrects Jarvis or any agent behavior — immediately write to `systems/error-tracking/error-log.json` in the same response. No second prompt required. This includes routing errors, wrong answers, missed context, process skips, or any other correction. Always log before moving on.
 
 ## Prepped for Approval (Jarvis Drafts, David Confirms)
 
