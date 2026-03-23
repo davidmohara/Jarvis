@@ -105,7 +105,38 @@ Read `systems/error-tracking/error-log.json` and invoke Rigby's error analysis l
 
 This data feeds into the report's "System Health" section. If no errors were logged this week, note: "Clean week — no corrections logged."
 
-### 9. Generate Report
+### 9. Commitment Gap Detection
+
+Cross-reference verbal and written commitments made this week against what was actually captured in OmniFocus. The goal: find things that were said but never captured.
+
+**Sources to check (use all that are available):**
+
+- **Teams meeting transcripts** (via M365 MCP): scan this week's meeting transcripts for commitment language — "I'll get you...", "Let me follow up on...", "I'll send...", "We'll schedule...", "I'll take care of...", "Can you send me...", "I'll circle back..."
+- **Teams chat messages** (via M365 MCP `chat_message_search`): scan direct messages and channel threads from this week for the same commitment language, especially in 1:1 conversations
+- **Email** (via M365 MCP `outlook_email_search`): scan sent and received emails for commitments made or received
+- **Plaud transcripts in the knowledge system** (via Obsidian MCP): search for Plaud-sourced notes from this week; apply the same commitment language scan
+- **OmniFocus** (via osascript): pull all tasks created this week as the comparison baseline
+
+**Detection logic:**
+1. Extract all commitment statements found across sources above
+2. For each commitment, check whether a corresponding task exists in OmniFocus (created this week or already open)
+3. Flag commitments with no matching task as gaps
+4. Note the source (who said it, in what context), the commitment itself, and who it was made to
+
+**Gap classification:**
+- `outbound` — David committed to something and it's not captured
+- `inbound` — someone committed to David and it's not tracked as a delegation
+- `mutual` — a shared next step agreed between parties with no owner assigned
+
+**Pattern detection across previous reviews:**
+Search `reviews/weekly-review-prep-*.md` for all existing Commitment Gaps sections. Identify:
+- Gaps that appear across multiple weeks (same type, same person, or same domain)
+- Domains where commitments consistently go uncaptured (e.g., sales calls, 1:1s, client meetings)
+- Whether gap count is trending up or down over recent weeks
+
+Surface recurring patterns as a distinct finding — not just a list of this week's gaps.
+
+### 10. Generate Report
 
 Write the review prep document. Format:
 
@@ -165,9 +196,42 @@ Write the review prep document. Format:
 - Deadlines approaching
 - Birthdays or relationship touchpoints
 
+## Commitment Gaps
+
+{List all commitments found across transcripts, chat, email, and Plaud notes that have no
+corresponding task in OmniFocus. Group by classification.}
+
+### Outbound (David committed, not captured)
+| Commitment | Made To | Source | Context |
+|------------|---------|--------|---------|
+| ... | ... | Teams / Email / Plaud | Meeting name or thread subject |
+
+### Inbound (others committed to David, not tracked)
+| Commitment | From | Source | Context |
+|------------|------|--------|---------|
+| ... | ... | ... | ... |
+
+### Mutual (shared next steps, no owner assigned)
+| Next Step | Parties | Source | Context |
+|-----------|---------|--------|---------|
+| ... | ... | ... | ... |
+
+{If no gaps found: "No untracked commitments detected this week."}
+
+## Gap Patterns
+
+{Surface recurring patterns found by scanning previous weekly reviews. If this is the first
+review with gap detection, note that baseline is being established.}
+
+- **Pattern**: {description} — seen in {N} of last {M} reviews
+- **Trend**: Gap count {increasing / decreasing / stable} over recent weeks
+- **Hot domains**: {areas where commitments consistently go uncaptured}
+
+{If no patterns yet: "Insufficient history for pattern detection — establishing baseline."}
+
 ## Quinn's Take
 
-{One paragraph: the single most important thing to focus on next week and why. Be direct. If drift is happening, name it. If a rock is dying, say so. Quinn doesn't sugarcoat.}
+{One paragraph: the single most important thing to focus on next week and why. Be direct. If drift is happening, name it. If a rock is dying, say so. If a commitment gap pattern is significant, name it. Quinn doesn't sugarcoat.}
 ```
 
 ## Output Location
@@ -187,6 +251,8 @@ If a data source is unavailable (MCP down, OmniFocus not responding):
 While assembling the review, if Quinn identifies:
 - Revenue rock at risk with pipeline concerns --> note for **Chase**
 - Delegation pattern problems (same person overdue repeatedly) --> note for **Shep**
+- Commitment gap pattern involving a specific person (inbound commitments going cold) --> note for **Shep** to nudge
+- Outbound commitment gaps recurring in client or partner meetings --> note for **Chase**
 - Thought leadership rock behind --> note for **Harper**
 - Execution gap widening (lots of tasks, little progress) --> note for **Chief**
 

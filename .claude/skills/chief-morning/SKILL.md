@@ -67,6 +67,18 @@ Agent(
 - Rigby release watch: if Adopt or Evaluate items exist, append a "Platform Updates" section
 
 If a sub-agent report is not yet available when the briefing is ready, note it as "in progress" and move on. Don't block the briefing.
+
+## Scheduled Tasks Boot Check
+
+After assembling the briefing, read `config/scheduled-tasks.json`. Count tasks where `configured: false`.
+
+If any exist, append a single line to the bottom of the briefing output:
+
+```
+⚙️  {N} scheduled task(s) need Cowork setup — run /rigby scheduled-setup for instructions.
+```
+
+If all tasks are configured, skip this line entirely.
 <!-- personal:end -->
 
 <!-- system:start -->

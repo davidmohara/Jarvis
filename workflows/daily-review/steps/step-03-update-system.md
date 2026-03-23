@@ -4,11 +4,12 @@
 ## MANDATORY EXECUTION RULES
 
 1. You MUST write the daily review file to `{project-root}/reviews/daily/YYYY-MM-DD.md`. The review is not done until it's persisted.
-2. You MUST update the delegation tracker if any delegations were completed or if new blockers surfaced that should become delegations.
-3. You MUST include the inbox count in the review file.
-4. You MUST close with a summary. Short and sharp — Chief's style.
-5. Do NOT ask the controller any more questions in this step. This is automated execution based on data from steps 01 and 02.
-6. Do NOT modify quarterly objectives. If rock status needs updating, note it in the review file and flag it for the next weekly review.
+2. You MUST write a narrative journal entry to the knowledge system. Read `references/vault-conventions.md` for routing, format, and tagging. This is non-negotiable — the narrative write happens every session.
+3. You MUST update the delegation tracker if any delegations were completed or if new blockers surfaced that should become delegations.
+4. You MUST include the inbox count in the review file.
+5. You MUST close with a summary. Short and sharp — Chief's style.
+6. Do NOT ask the controller any more questions in this step. This is automated execution based on data from steps 01 and 02.
+7. Do NOT modify quarterly objectives. If rock status needs updating, note it in the review file and flag it for the next weekly review.
 
 ---
 
@@ -99,7 +100,21 @@
    - If any content deadlines slipped → note: "Flag for Harper"
    - Record handoff notes in the review file under a `## Handoffs` section (only if there are handoffs)
 
-6. **Deliver the closing summary to the controller:**
+6. **Write narrative journal entry to the knowledge system:**
+
+   Read `references/vault-conventions.md` for the target folder, frontmatter format, tag taxonomy, and filename convention. Follow those conventions exactly.
+
+   **Title:** Generate a descriptive title that captures the defining theme of the day — what this day was actually about. Do not use generic titles like "Daily Review" or "End of Day". Format: `YYYY-MM-DD <Descriptive Title>` (e.g., `2026-03-22 The Day the Pipeline Moved`, `2026-03-22 Three Meetings and a Decision That Changed the Quarter`).
+
+   **Narrative:** Write a first-person prose account of the day. 3-5 paragraphs. Source from `capture_data` and `tomorrow_data` but do NOT list items — synthesize them into a coherent story of what happened and why it mattered. Cover:
+   - What kind of day it actually was, as distinct from what was planned
+   - What moved, what stalled, what surprised — and the why behind each
+   - What is carrying forward and what that means for the current quarter
+   - The emotional or strategic texture of the day: what does this day mean in context?
+
+   Write in first person, past tense. Direct, honest, occasionally sharp. This entry is a permanent record, not a status report.
+
+7. **Deliver the closing summary to the controller:**
 
    ```
    Day closed.
@@ -118,6 +133,7 @@
 ## SUCCESS METRICS
 
 - Daily review file written to `reviews/daily/YYYY-MM-DD.md`
+- Narrative journal entry written to the knowledge system with descriptive title and first-person prose
 - Delegation tracker updated for any completed or new delegations
 - Inbox count recorded
 - Morning priority scorecard included (if morning briefing existed)

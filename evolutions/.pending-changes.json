@@ -123,6 +123,58 @@
       ]
     },
     {
+      "id": "work-20260322-briefing-narrative-and-auto-review",
+      "description": "Prose narrative morning briefings, autonomous nightly daily review, vault conventions for daily reviews, scheduled task config, and cross-source commitment gap detection in weekly review. Inspired by Gadoci article on AI agent briefing systems.",
+      "started": "2026-03-22T00:00:00Z",
+      "classification": "system",
+      "evolution_name": "Narrative Synthesis + Autonomous Review + Commitment Gap Detection",
+      "evolution_description": "Three capabilities: (1) Morning briefing now delivers a 3-paragraph prose narrative synthesis instead of bullet lists, (2) daily review gains an autonomous mode that runs at 4am, synthesizes from OmniFocus and calendar, and writes a first-person narrative journal entry to Obsidian without user interaction, (3) weekly review gains step 9 for cross-source commitment gap detection across Teams transcripts, chat, email, Plaud, and OmniFocus with pattern tracking across previous reviews.",
+      "files": [
+        {
+          "path": "workflows/daily-review/steps/step-auto.md",
+          "action": "add",
+          "type": "system",
+          "description": "New step: autonomous daily review mode. No user interaction. Pulls OmniFocus, calendar, delegations, and rocks. Synthesizes first-person narrative journal entry and writes to Obsidian knowledge system. Runs on scheduled 4am trigger."
+        },
+        {
+          "path": "workflows/daily-review/references/vault-conventions.md",
+          "action": "add",
+          "type": "system",
+          "description": "New reference: vault conventions for daily review journal entries. Defines target folder (Daily Reviews/), frontmatter format, tag taxonomy, filename convention, note template, writing style, and cross-linking to daily calendar notes."
+        },
+        {
+          "path": "config/scheduled-tasks.json",
+          "action": "add",
+          "type": "system",
+          "description": "New config: three scheduled tasks. chief-morning at 6:30am weekdays (prose narrative briefing), chief-review-auto at 4am Mon-Sat (autonomous nightly review to knowledge system), quinn-weekly-review at 8am Sundays (full weekly review prep with commitment gap detection)."
+        },
+        {
+          "path": "workflows/morning-briefing/steps/step-04-synthesize-briefing.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Replaced bullet/table briefing format with 3-paragraph prose narrative + calendar table only. Added mandatory synthesis rules: prose reasoning not extraction, connections between data points, calendar table as reference not analysis."
+        },
+        {
+          "path": "workflows/daily-review/workflow.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Added auto mode detection via $ARGUMENTS. Updated architecture description to document both modes. Added output routing: auto mode writes to knowledge system only, interactive mode writes review file + knowledge system + delegation updates."
+        },
+        {
+          "path": "workflows/daily-review/steps/step-03-update-system.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Added step 6: mandatory knowledge system narrative journal write using vault-conventions.md. Updated success metrics to include narrative journal entry requirement. Updated mandatory execution rules to make knowledge system write non-negotiable."
+        },
+        {
+          "path": ".claude/skills/quinn-weekly-review/SKILL.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Added step 9: Commitment Gap Detection. Scans Teams transcripts, Teams chat, email, Plaud transcripts in Obsidian, and OmniFocus for commitment language. Classifies gaps as outbound/inbound/mutual. Scans previous weekly reviews for recurring gap patterns. Added Commitment Gaps and Gap Patterns sections to report format. Added two new handoff triggers: inbound commitment gaps going cold to Shep, outbound commitment gaps in client meetings to Chase."
+        }
+      ]
+    },
+    {
       "id": "work-20260320-rigby-root-audit",
       "description": "Root Audit — Adds root directory hygiene capability to Rigby — surfaces misplaced files, recommends moves or deletions, and executes after confirmation.",
       "started": "2026-03-20T00:00:00Z",
@@ -153,6 +205,34 @@
           "action": "merge",
           "type": "system",
           "description": "Updated WORKFLOW COMPLETE to chain to step-04-root-audit instead of halting"
+        }
+      ]
+    },
+    {
+      "id": "work-20260323-cowork-scheduled-tasks",
+      "description": "Scheduled tasks restructured as Cowork-native. Replaces CronCreate session approach with Cowork's built-in Scheduled Tasks panel. Adds Rigby setup skill with copy-paste cards and a boot check in chief-morning that surfaces unconfigured tasks.",
+      "started": "2026-03-23T00:00:00Z",
+      "classification": "system",
+      "evolution_name": "Cowork Scheduled Tasks",
+      "evolution_description": "Replaces session-scoped CronCreate approach with Cowork's native Scheduled Tasks panel. config/scheduled-tasks.json restructured with configured status flags and copy-paste prompts per task. New rigby-scheduled-setup skill presents unconfigured tasks as copy-paste cards. chief-morning boot check surfaces a one-line notice when tasks need setup.",
+      "files": [
+        {
+          "path": "config/scheduled-tasks.json",
+          "action": "merge",
+          "type": "system",
+          "description": "Restructured as Cowork-native config: added configured flag, cowork_prompt, schedule_display, keep_awake per task. Removed CronCreate framing."
+        },
+        {
+          "path": ".claude/skills/rigby-scheduled-setup/SKILL.md",
+          "action": "add",
+          "type": "system",
+          "description": "New Rigby skill: read scheduled-tasks.json, present unconfigured tasks as copy-paste setup cards for Cowork, mark configured after confirmation."
+        },
+        {
+          "path": ".claude/skills/chief-morning/SKILL.md",
+          "action": "merge",
+          "type": "personal",
+          "description": "Added scheduled tasks boot check: reads config/scheduled-tasks.json, surfaces a one-line notice at end of briefing if any tasks have configured: false."
         }
       ]
     }

@@ -4,10 +4,10 @@
 ## MANDATORY EXECUTION RULES
 
 1. You MUST deliver the briefing in the exact format specified below. No freestyle.
-2. You MUST lead with the most urgent items — overdue commitments first, always.
-3. You MUST keep the briefing scannable in under 2 minutes. Bullets and tables. No paragraphs.
+2. You MUST lead with the narrative — synthesize first, don't list.
+3. You MUST write three paragraphs of prose before the calendar table. No bullet points or tables outside the calendar. The prose must reason about connections between data points, not extract and list them.
 4. You MUST end with "What do you want to tackle first?"
-5. Do NOT include data you don't have. If a source was unavailable, omit that section with a one-line note.
+5. Do NOT include data you don't have. If a source was unavailable, weave that gap into the narrative where relevant.
 
 ---
 
@@ -36,18 +36,22 @@ Deliver the briefing using this structure exactly:
 ```
 ## Morning Briefing — {Day of Week}, {Month DD, YYYY}
 
-{One sharp opening line. State the shape of the day.}
-{Example: "5 meetings, 2 need prep, 1 overdue delegation. Let's go."}
+{Paragraph 1 — The day's character. What kind of day is this? What's the dominant theme across
+the calendar, priorities, and current rocks? Connect the meetings to the quarter's objectives.
+Surface the most important tension or opportunity. 4-6 sentences. Do not list items — synthesize
+them into a coherent picture. Weave in rock status, who's on the calendar, and what the day is
+really about underneath the schedule.}
 
----
+{Paragraph 2 — The execution reality. What must happen today and why it matters right now. Weave
+together priority tasks due, overdue delegations, and rock alignment. Name the specific item most
+likely to slip — who owns it, how late it is, what the consequence is. If yesterday's review was
+missing, note it here as an accountability gap. 4-6 sentences.}
 
-### Rocks — Q{N} {Year}
-
-| Rock | Status |
-|------|--------|
-| {Rock 1 name} | {1-line status} |
-| {Rock 2 name} | {1-line status} |
-| ... | ... |
+{Paragraph 3 — The sharp edge. What could go wrong, what needs watching, and what would make
+today a success. Fold in inbox state if critical (>20 items), calendar overload if 3+ video calls
+or back-to-back blocks with no buffer, and any flags demanding immediate attention. Recommend
+running Chase or Shep prep where context is thin — name the meeting. End with one sentence that
+sets the tone for how to attack the day.}
 
 ---
 
@@ -55,50 +59,11 @@ Deliver the briefing using this structure exactly:
 
 | Time | Meeting | Context |
 |------|---------|---------|
-| {HH:MM} | {Subject} | {1-line: type, key attendee, or prep note} |
+| {HH:MM} | {Subject} | {1-line: type, key attendee, prep note, or handoff recommendation} |
 | ... | ... | ... |
 
-{If back-to-back or 3+ video calls, add a warning line here.}
-
----
-
-### Priority Actions
-
-{Bulleted list. What MUST happen today. Derived from:}
-{- Tasks due today}
-{- Flagged tasks}
-{- Items carried forward from yesterday's top 3}
-{- Time-sensitive meeting prep}
-
----
-
-### Delegations
-
-| Item | Owner | Status |
-|------|-------|--------|
-| {Overdue items first, with days late} | {Name} | OVERDUE ({N} days) |
-| {Due today items} | {Name} | Due today |
-
-{If no overdue or due-today delegations: "All delegations on track."}
-
----
-
-### Inbox & System
-
-- **Task inbox:** {N} items {oldest: N days}
-- **Yesterday's review:** {Completed | Missing}
-
----
-
-### Flags
-
-{Anything that needs immediate attention. Examples:}
-{- Meeting in < 60 min with no prep}
-{- Overdue delegation > 3 days}
-{- Inbox > 20 items}
-{- 3+ video calls today}
-{- Yesterday's review missing}
-{If nothing to flag: "Nothing urgent. Clean day ahead."}
+{Warning line if back-to-back blocks with no buffer or 3+ video calls.}
+{If no meetings today: "No meetings scheduled today. Open calendar."}
 
 ---
 
@@ -107,41 +72,42 @@ What do you want to tackle first?
 
 ### Synthesis Rules
 
-1. **Priority ordering within sections:**
-   - Calendar: chronological
-   - Priority actions: urgency then importance
-   - Delegations: overdue first (sorted by days late descending), then due today
+1. **Prose reasoning, not extraction:**
+   - Rocks, priority tasks, delegations, and flags all belong in the narrative paragraphs — not in separate sections.
+   - Force yourself to reason about connections: why does this task matter today given what's on the calendar? Why is this delegation overdue significant right now?
+   - If a day has nothing urgent: the narrative should say so clearly. "Clean calendar, nothing overdue, inbox under control — use the open blocks to push the [rock] forward."
 
-2. **Context compression:**
-   - Meeting context is 1 line max. Not a paragraph.
-   - Rock status is 1 line max. Not a progress report.
-   - Delegation notes are the status column only.
+2. **Calendar table is reference, not analysis:**
+   - Keep context column to 1 line. The analysis belongs in the prose.
+   - Chronological order always.
+   - Flag prep recommendations inline: "Recommend Chase prep" or "Recommend Shep prep" in the context column.
 
-3. **Handoff flags** (embed in context column or flags section):
-   - Client meeting today with thin context → "Recommend: run Chase prep"
-   - 1:1 today with thin context → "Recommend: run Shep prep"
-   - Content deadline approaching → "Flag for Harper"
-   - Goal drift visible → "Escalate to Quinn"
+3. **Handoff callouts** (embed in narrative or calendar context column):
+   - Client meeting today with thin context → name it in paragraph 3, recommend Chase prep in context column
+   - 1:1 today with thin context → recommend Shep prep in context column
+   - Content deadline approaching → name it in paragraph 2
+   - Goal drift visible → name it in paragraph 1, escalate to Quinn
 
-4. **Omit empty sections** rather than showing "None" — except Flags, which should always appear (either with items or "Nothing urgent. Clean day ahead.").
+4. **Nothing urgent is still a signal:**
+   - A clear day with no overdue items and no flags is worth naming explicitly in the narrative. It's an opportunity, not a non-event.
 
 ---
 
 ## SUCCESS METRICS
 
-- Briefing delivered in the exact format above
-- Scannable in under 2 minutes
-- Most urgent items appear first in every section
-- Handoff recommendations included where appropriate
+- Three paragraphs of prose narrative delivered before the calendar table
+- Narrative synthesizes connections between data points rather than listing them
+- Calendar table present with 1-line context per meeting
+- Handoff recommendations named in narrative or calendar context column
 - Ends with "What do you want to tackle first?"
 
 ## FAILURE MODES
 
 | Failure | Action |
 |---------|--------|
-| Missing calendar data | Omit Today's Calendar section. Add to Flags: "Calendar data unavailable — check manually." |
-| Missing task data | Omit Priority Actions section. Add to Flags: "Task management system unavailable — task data missing." |
-| All data sources failed | Deliver a minimal briefing: rocks + delegation tracker (read directly) + "Multiple data sources unavailable. Recommend manual check." |
+| Missing calendar data | Note in paragraph 3: "Calendar data unavailable — check manually before your first meeting." Show empty calendar table with that note. |
+| Missing task data | Weave into paragraph 2: "Task system was unavailable — priorities are based on delegation tracker and rocks only." |
+| All data sources failed | Deliver minimal briefing: read rocks and delegation tracker directly, write 3 paragraphs from that data alone, note all unavailable sources in paragraph 3. |
 
 ---
 

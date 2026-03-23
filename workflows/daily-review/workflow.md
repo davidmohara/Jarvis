@@ -11,7 +11,7 @@ agent: chief
 
 **Agent:** Chief — Daily Operations & Execution
 
-**Architecture:** Interactive 3-step workflow. Chief guides the controller through a structured shutdown, then updates system files.
+**Architecture:** Two modes. Interactive (default): Chief guides the controller through a structured shutdown, then updates system files. Auto (pass `auto` as argument): fully autonomous, no user interaction — synthesizes from data sources and writes narrative to the knowledge system only.
 <!-- system:end -->
 
 <!-- personal:start -->
@@ -41,8 +41,8 @@ agent: chief
 
 ### Output
 
-- Daily review file: `reviews/daily/YYYY-MM-DD.md`
-- Updated delegation tracker (if any delegations closed)
+- Interactive mode: daily review file (`reviews/daily/YYYY-MM-DD.md`) + knowledge system narrative + updated delegation tracker
+- Auto mode: knowledge system narrative only (no local filesystem write, no delegation updates)
 <!-- system:end -->
 
 <!-- personal:start -->
@@ -53,7 +53,10 @@ agent: chief
 <!-- system:start -->
 ## EXECUTION
 
-Read fully and follow: `steps/step-01-capture.md` to begin the workflow.
+Check `$ARGUMENTS` for the word `auto` (case-insensitive).
+
+- If `auto` is present: read fully and follow `steps/step-auto.md`. Do not load any other step files.
+- Otherwise: read fully and follow `steps/step-01-capture.md` to begin the interactive workflow.
 <!-- system:end -->
 
 <!-- personal:start -->

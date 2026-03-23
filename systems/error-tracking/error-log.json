@@ -69,5 +69,22 @@
   "patterns": {
     "last_analyzed": null,
     "recurring": []
-  }
+  },
+  "entries_addendum": [
+    {
+      "id": "err-20260322-001",
+      "timestamp": "2026-03-22T00:00:00Z",
+      "session": "2026-03-22",
+      "source": "explicit",
+      "agent": "jarvis",
+      "category": "routing-error",
+      "description": "Jarvis built new IES capabilities directly — new workflow steps (step-auto.md), vault conventions files, scheduled-tasks.json, and modifications to morning-briefing, daily-review, and quinn-weekly-review — without involving Rigby or routing through the capability-build workflow. Changes were not tracked for evolution packaging.",
+      "correction": "All new capability builds (new files, workflow modifications, skill updates, config creation) must route through Rigby's capability-build workflow so changes are tracked, follow system conventions, and are packageable as evolutions.",
+      "failure_mode": "protocol-skip",
+      "systemic_fix": "Same fix as err-20260321-003 — which was logged as 'proposed' but clearly not applied. Rigby must be invoked for any capability build. Jarvis coordinates; Rigby executes and tracks system changes.",
+      "fix_status": "proposed",
+      "severity": "moderate",
+      "related_entries": ["err-20260321-003"]
+    }
+  ]
 }
