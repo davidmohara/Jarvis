@@ -162,6 +162,21 @@
       "related_entries": ["err-20260323-005"]
     },
     {
+      "id": "err-20260323-007",
+      "timestamp": "2026-03-23T00:00:00Z",
+      "session": "2026-03-23",
+      "source": "explicit",
+      "agent": "jarvis",
+      "category": "routing-error",
+      "description": "When David asked to 'review the plaud evolution that's pending and update it with everything we did here', Jarvis executed the evolution audit and doc updates directly instead of routing through Rigby, who owns evolution packaging, capability builds, and system documentation. This is the same pattern as err-20260321-003 and err-20260322-001 — Jarvis keeps doing Rigby's work.",
+      "correction": "Evolution audits, skill doc updates, and capability reviews must be routed through Rigby. Jarvis coordinates and delegates; Rigby executes system changes and tracks them for evolution packaging.",
+      "failure_mode": "protocol-skip",
+      "systemic_fix": "This is the third occurrence of this pattern. Jarvis must treat any request involving skill updates, evolution reviews, or system documentation changes as a Rigby routing trigger — no exceptions.",
+      "fix_status": "proposed",
+      "severity": "moderate",
+      "related_entries": ["err-20260321-003", "err-20260322-001", "err-20260323-003"]
+    },
+    {
       "id": "err-20260322-001",
       "timestamp": "2026-03-22T00:00:00Z",
       "session": "2026-03-22",
@@ -175,6 +190,51 @@
       "fix_status": "proposed",
       "severity": "moderate",
       "related_entries": ["err-20260321-003"]
+    },
+    {
+      "id": "err-20260323-008",
+      "timestamp": "2026-03-23T00:00:00Z",
+      "session": "2026-03-23",
+      "source": "explicit",
+      "agent": "rigby",
+      "category": "wrong-assumption",
+      "description": "Rigby's stale file audit flagged .fuse_hidden* (14 files) and .DS_Store (5 files) as stale artifacts to delete. These are macOS system files that belong where they are — not stale, not actionable. Audit produced a false-positive cleanup list of 19 files, none of which should be touched.",
+      "correction": ".fuse_hidden* and .DS_Store are system-managed files. They should not be flagged in stale file audits. Audits should focus on files the IES system created or manages, not OS-level artifacts.",
+      "failure_mode": "wrong-assumption",
+      "systemic_fix": "Root/stale audits must exclude OS-managed files (.DS_Store, .fuse_hidden*, .Spotlight-V100, .Trashes, etc.) from findings. Only flag files that IES agents or workflows created.",
+      "fix_status": "applied",
+      "severity": "minor",
+      "related_entries": ["err-20260323-004"]
+    },
+    {
+      "id": "err-20260323-009",
+      "timestamp": "2026-03-23T00:00:00Z",
+      "session": "2026-03-23",
+      "source": "explicit",
+      "agent": "rigby",
+      "category": "wrong-assumption",
+      "description": "Rigby's stale file audit proposed deleting all 15 PDFs in meetings/ without checking which ones have corresponding .md source files. Only PDFs with a matching .md (generated artifacts) are deletable — standalone PDFs without a source markdown are deliverables that must stay. SYSTEM.md Section 2 says deliverables belong next to their source markdown — the .md is the source of truth, the PDF is the build artifact.",
+      "correction": "Stale file audits must cross-reference PDFs against their source .md files. Only delete PDFs that have a corresponding markdown source. Standalone PDFs are deliverables, not temp artifacts.",
+      "failure_mode": "lazy-search",
+      "systemic_fix": "When auditing meetings/ for deletable PDFs: for each PDF, check if a .md file with the same base name exists. If yes → generated artifact, deletable. If no → standalone deliverable, keep.",
+      "fix_status": "applied",
+      "severity": "minor",
+      "related_entries": ["err-20260323-008"]
+    },
+    {
+      "id": "err-20260323-010",
+      "timestamp": "2026-03-23T00:00:00Z",
+      "session": "2026-03-23",
+      "source": "explicit",
+      "agent": "jarvis",
+      "category": "routing-error",
+      "description": "After Rigby's audit returned, Jarvis took over presenting results and proposing bulk deletions instead of routing the corrected criteria back through Rigby for proper execution.",
+      "correction": "Rigby owns stale file audits end-to-end — discovery, analysis, proposal, and execution. Jarvis relays, not re-interprets or extends.",
+      "failure_mode": "protocol-skip",
+      "systemic_fix": "When Rigby's audit returns with errors, send corrections back to Rigby and let her re-run. Don't take over the audit.",
+      "fix_status": "applied",
+      "severity": "minor",
+      "related_entries": ["err-20260321-003", "err-20260322-001", "err-20260323-007"]
     }
   ]
 }
