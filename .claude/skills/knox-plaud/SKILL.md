@@ -43,16 +43,18 @@ Read and follow the complete workflow documented in `skills/plaud-transcripts/SK
 
 ### Execution Steps (Summary)
 
-1. **Check staging folder**: Scan `~/Downloads/transcript-staging/` for `plaud_*.md` and `plaud_*_raw.json` files
+1. **Check staging folder**: Scan `~/Downloads/transcript-staging/` for `plaud_*.md`, `plaud_*_raw.json`, and `plaud_*_speakers.json` files. Skip `plaud_pending.json` (managed by fetch script).
 2. **If no staged files**: Either run `fetch_plaud.py` manually or tell user the scheduled task hasn't produced new files
-3. **Parse each staged transcript**: Extract title, date, duration, AI summary, transcript text with speaker labels
-4. **Cross-reference calendar**: Use MS 365 MCP (`outlook_calendar_search`) to match recordings to calendar events for attendees and real meeting titles
-5. **Transform to Obsidian notes**: Apply vault conventions — frontmatter tags, note structure, filename format (`YYYY-MM-DD <Title>.md`)
-6. **Route to correct folder**: Based on meeting type per vault-conventions routing table
-7. **Link from daily calendar note**: Add wikilink under `# Notes` heading in `Calendar/YYYY/MM-MonthName/YYYY-MM-DD.md`
-8. **Route O'Hara action items to OmniFocus** via osascript
-9. **Clean up staging**: Delete processed `plaud_*.md` and `plaud_*_raw.json` files
-10. **Report**: List what was processed, action items routed, items for others flagged for delegation
+3. **Speaker tagging** (before parsing transcripts): For each `_speakers.json` file, present untagged speakers to David with sample text, segment counts, and calendar attendee context. Once David maps names, run `fetch_plaud.py --rename <file_id> '<json_mapping>'` on the Mac host. This does three things in one pass: (a) renames speaker labels in the transcript, (b) extracts voice embeddings from the recording's diarization, (c) registers each new speaker via Plaud's `/speaker/sync` API so their voice is auto-labeled in future recordings. Speakers already registered are skipped. Then continue processing the refreshed markdown.
+3b. **Spawn watcher for triggered transcriptions**: If the fetch output shows any recordings where transcription was triggered (`"No transcription exists — triggering Plaud to generate one"`), spawn a sub-agent (via the Agent tool) for each recording. The sub-agent polls `fetch_plaud.py --check <file_id>` on the Mac host every 2 minutes (max 30 retries). When the transcript is ready, the sub-agent runs the full ingestion pipeline (steps 4-11), cleans up, and exits. See `skills/plaud-transcripts/SKILL.md` under "Transcription watcher" for full spec.
+4. **Parse each staged transcript**: Extract title, date, duration, AI summary, transcript text with speaker labels
+5. **Cross-reference calendar**: Use MS 365 MCP (`outlook_calendar_search`) to match recordings to calendar events for attendees and real meeting titles
+6. **Transform to Obsidian notes**: Apply vault conventions — frontmatter tags, note structure, filename format (`YYYY-MM-DD <Title>.md`)
+7. **Route to correct folder**: Based on meeting type per vault-conventions routing table
+8. **Link from daily calendar note**: Add wikilink under `# Notes` heading in `Calendar/YYYY/MM-MonthName/YYYY-MM-DD.md`
+9. **Route O'Hara action items to OmniFocus** via osascript
+10. **Clean up staging**: Delete processed `plaud_*.md`, `plaud_*_raw.json`, and `plaud_*_speakers.json` files
+11. **Report**: List what was processed, speakers tagged, action items routed, items for others flagged for delegation
 
 ### Critical Technical Notes
 
@@ -60,6 +62,10 @@ Read and follow the complete workflow documented in `skills/plaud-transcripts/SK
 - Auth uses email/password login with cached JWT (~300 day lifetime) stored at `~/.config/plaud/token.json`
 - The staging folder decouples API fetching from vault processing — the scheduled task fetches daily, this skill transforms on demand
 - If a Plaud recording overlaps with a Teams meeting for the same time slot, check for existing Teams-sourced notes and offer to merge or suffix with `(Plaud)`
+- Speaker renames are pushed to Plaud via `--rename` flag: `fetch_plaud.py --rename <file_id> '<json_mapping>'`. This PATCHes transcript segments, extracts 256-float voice embeddings from the recording's diarization (`POST /ai/transsumm` → `data_others.embeddings`), registers each new speaker via `POST /speaker/sync`, then re-fetches the updated transcript to staging. Run on Mac host via osascript.
+- Speaker registration is permanent — once a voice is synced to Plaud's speaker system, it will be auto-labeled in all future recordings. This is not speculative; it's been tested and confirmed working.
+- Transcription trigger is a two-step process: (1) PATCH config, (2) POST `/ai/transsumm/{file_id}`. Step 1 alone does nothing — both are required. `is_reload: 0` for first-time, `is_reload: 1` to re-transcribe (e.g., after registering speakers to verify auto-labeling).
+- `GET /speaker/list` returns speakers under `data.speakers` (not `data_speaker_list`). Each speaker has `speaker_id`, `speaker_name`, `speaker_type` (1=owner, 2=other), `sample_counts`, and `embeddings`.
 
 ### Post-Ingest Handoffs
 

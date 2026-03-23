@@ -64,6 +64,81 @@
       "fix_status": "applied",
       "severity": "minor",
       "related_entries": ["err-20260321-003"]
+    },
+    {
+      "id": "err-20260323-001",
+      "timestamp": "2026-03-23T00:00:00Z",
+      "session": "2026-03-23",
+      "source": "self-detected",
+      "agent": "jarvis",
+      "category": "wrong-assumption",
+      "description": "Rogers-O'Brien lunch prep sheet assumed a sales/pursuit framing without asking David for meeting context. Defaulted to 'account pursuit' and 'conversation strategy' language when the meeting was actually a friendly peer-level show-and-tell. Also didn't ask about existing relationships before researching attendees cold.",
+      "correction": "For any externally-organized meeting prep, ask David for the meeting's purpose and relationship context before building the sheet. Don't default to a sales framing for meetings David personally organized with known contacts.",
+      "failure_mode": "wrong-assumption",
+      "systemic_fix": "When building prep sheets for meetings David organized with external attendees: (1) ask for meeting purpose/context first, (2) assume warm relationships exist, (3) don't default to sales framing unless David says it's a sales meeting.",
+      "fix_status": "applied",
+      "severity": "minor",
+      "related_entries": []
+    },
+    {
+      "id": "err-20260323-002",
+      "timestamp": "2026-03-23T00:00:00Z",
+      "session": "2026-03-23",
+      "source": "explicit",
+      "agent": "jarvis",
+      "category": "routing-error",
+      "description": "Jarvis pushed a PDF to reMarkable directly via rmapi instead of routing through Knox, who owns the remarkable-upload skill. Knox has explicit task portfolio entries for both remarkable-sync and remarkable-upload.",
+      "correction": "All reMarkable interactions (upload and sync) must route through Knox. Jarvis coordinates; Knox executes device operations.",
+      "failure_mode": "protocol-skip",
+      "systemic_fix": "Any 'push to reMarkable' or 'pull from reMarkable' request routes to Knox. Same pattern as err-20260321-003 — Jarvis must not execute agent-owned skills directly.",
+      "fix_status": "applied",
+      "severity": "minor",
+      "related_entries": ["err-20260321-001", "err-20260321-003"]
+    },
+    {
+      "id": "err-20260323-005",
+      "timestamp": "2026-03-23T00:00:00Z",
+      "session": "2026-03-23",
+      "source": "explicit",
+      "agent": "jarvis",
+      "category": "over-engineering",
+      "description": "Proposed building a local speaker-aliases.json file to map Plaud speaker labels to real names. Plaud already has built-in speaker identification — adding speakers to Plaud's system updates transcripts automatically. Jarvis reinvented a wheel that already exists upstream.",
+      "correction": "Speaker tagging should be done in Plaud's own system, not maintained locally. The skill should focus on getting speakers registered in Plaud so transcripts arrive pre-tagged.",
+      "failure_mode": "wrong-assumption",
+      "systemic_fix": "Before proposing local solutions for third-party tool gaps, check whether the tool already solves it. Prefer upstream fixes over local workarounds.",
+      "fix_status": "applied",
+      "severity": "minor",
+      "related_entries": []
+    },
+    {
+      "id": "err-20260323-004",
+      "timestamp": "2026-03-23T00:00:00Z",
+      "session": "2026-03-23",
+      "source": "explicit",
+      "agent": "rigby",
+      "category": "format-violation",
+      "description": "Rigby surfaced scheduled task format using raw cron expressions, multi-line descriptions with excessive label padding. David asked for plain-English timing, not implementation details. Output was formatted for a sysadmin, not an executive.",
+      "correction": "When presenting scheduling proposals, use plain English timing (e.g., 'Weekdays at 6:00 AM') not cron syntax. Keep descriptions single-line. Don't pad label:value pairs with extra spaces. Better yet — just create the tasks directly instead of previewing config format.",
+      "failure_mode": "wrong-assumption",
+      "systemic_fix": "All agent output to David should be executive-grade, not technical. If a tool can be invoked directly, invoke it — don't show the configuration schema as a preview.",
+      "fix_status": "applied",
+      "severity": "minor",
+      "related_entries": []
+    },
+    {
+      "id": "err-20260323-003",
+      "timestamp": "2026-03-23T00:00:00Z",
+      "session": "2026-03-23",
+      "source": "explicit",
+      "agent": "jarvis",
+      "category": "routing-error",
+      "description": "Jarvis single-threaded the entire Rogers-O'Brien prep workflow — research, content writing, PDF generation, and reMarkable upload — instead of dispatching to agents in parallel. Harper should have built the prep sheet, Knox should have pushed to reMarkable. PDF generation via improving-pdf is shared infrastructure any agent can call. Jarvis doing agent work blocks multi-threading and defeats the purpose of the agent system.",
+      "correction": "Three rules established: (1) improving-pdf is shared infrastructure — any agent producing a deliverable calls it. (2) Jarvis coordinates, agents execute — if an agent owns the work, route it; prefer parallel dispatch. (3) When Jarvis does work directly because no agent owns it, flag it for Quinn's weekly review as a candidate for agent assignment or capability build.",
+      "failure_mode": "protocol-skip",
+      "systemic_fix": "Jarvis must dispatch to agents in parallel whenever possible. Single-threading agent-owned work through Jarvis is a routing error. When no agent owns a task, Jarvis executes but logs it as a gap for Quinn to review.",
+      "fix_status": "applied",
+      "severity": "moderate",
+      "related_entries": ["err-20260321-001", "err-20260321-003", "err-20260322-001", "err-20260323-002"]
     }
   ],
   "patterns": {
@@ -71,6 +146,21 @@
     "recurring": []
   },
   "entries_addendum": [
+    {
+      "id": "err-20260323-006",
+      "timestamp": "2026-03-23T00:00:00Z",
+      "session": "2026-03-23",
+      "source": "explicit",
+      "agent": "jarvis",
+      "category": "tool-misuse",
+      "description": "Plaud transcription trigger function only PATCHed /file/{file_id} with tranConfig (saves config) but never POSTed to /ai/transsumm/{file_id} (starts the pipeline). API returned 200 for the config save, so it looked like success, but no transcription was ever queued. Recording sat in 'missing' state for the entire session.",
+      "correction": "Triggering Plaud transcription is a two-step process: (1) PATCH /file/{file_id} with tranConfig to save settings, (2) POST /ai/transsumm/{file_id} with is_reload, summ_type, info payload to actually start the job. Step 1 alone does nothing.",
+      "failure_mode": "lazy-search",
+      "systemic_fix": "Updated trigger_transcription() in fetch_plaud.py to perform both steps. Added status check on the POST response to confirm Plaud accepted the job (status=0, msg='task processing').",
+      "fix_status": "applied",
+      "severity": "moderate",
+      "related_entries": ["err-20260323-005"]
+    },
     {
       "id": "err-20260322-001",
       "timestamp": "2026-03-22T00:00:00Z",

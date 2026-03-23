@@ -42,7 +42,7 @@ Glob for files at the IES project root (non-recursive). Exclude the items in the
 | Classification | Criteria |
 |---------------|----------|
 | **Move** | File clearly belongs in a known folder (`meetings/`, `accounts/`, `people/`, `projects/`, `reports/`, `evolutions/`, `reviews/`, `delegations/`) — provide the recommended destination path |
-| **Delete** | Clearly temporary: generated reports, working files, scratch outputs, files with names like `*_temp*`, `*_draft*`, `*_working*`, `research-report-*`, `*_sync_report*` |
+| **Delete** | Clearly temporary: generated reports, working files, scratch outputs, files with names like `*_temp*`, `*_draft*`, `*_working*`, `research-report-*`, `*_sync_report*`. Also: any `.pdf` that has a matching `.md` with the same base name (meeting preps, call sheets, one-pagers) — PDF is regenerable, move the `.md` and delete the `.pdf`. |
 | **Unknown** | Purpose unclear — present with file name, extension, last modified date, and a one-line best guess |
 
 ### 3. Present findings table

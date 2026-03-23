@@ -30,6 +30,7 @@ import sys
 import base64
 import getpass
 import random
+import uuid
 from datetime import datetime, timedelta
 from pathlib import Path
 
@@ -404,6 +405,28 @@ def _format_segments(segments):
     return "\n\n".join(lines)
 
 
+def get_transcript_status(detail):
+    """Check the generation status of a recording's transcript.
+
+    Returns one of:
+      "ready"   — task_status == 1, transcript is available
+      "pending" — task_status == 0, generation still in progress
+      "missing" — no transaction content item exists at all
+    """
+    if not detail:
+        return "missing"
+
+    for item in detail.get("content_list", []):
+        if item.get("data_type") == "transaction":
+            status = item.get("task_status")
+            if status == 1:
+                return "ready"
+            else:
+                return "pending"
+
+    return "missing"
+
+
 def extract_transcript(detail):
     """Download and extract transcript text from a recording detail response.
 
@@ -428,6 +451,282 @@ def extract_transcript(detail):
                     print(f"  Warning: failed to download transcript: {e}")
 
     return ""
+
+
+# ---------------------------------------------------------------------------
+# Speaker management — reverse-engineered from arbuzmell/plaud-api
+# ---------------------------------------------------------------------------
+
+FILE_LIST_ENDPOINT = "/file/list"
+SPEAKER_LIST_ENDPOINT = "/speaker/list"
+
+
+def list_speakers(token):
+    """Get all known speakers from the Plaud account."""
+    resp = api_get(token, SPEAKER_LIST_ENDPOINT)
+    if resp.status_code != 200:
+        print(f"  /speaker/list failed: {resp.status_code}")
+        return []
+    data = resp.json()
+    # Response nests speakers under data.speakers (not data_speaker_list)
+    speakers = data.get("data", {}).get("speakers", [])
+    if not speakers:
+        speakers = data.get("data_speaker_list", [])
+    return speakers
+
+
+def get_speaker_embeddings(token, file_id):
+    """Get per-speaker voice embeddings from a recording's diarization.
+
+    Calls POST /ai/transsumm/{file_id} which returns embeddings in
+    data_others.embeddings keyed by original speaker label (e.g. "Speaker 1").
+    These are 256-dimensional float vectors used for voice recognition.
+
+    Returns dict of {"Speaker 1": [256 floats], "Speaker 2": [...], ...}
+    """
+    headers = make_headers(token)
+    api_base = get_api_base()
+    info_payload = json.dumps({
+        "language": "en",
+        "diarization": 1,
+        "llm": "auto",
+    })
+    resp = requests.post(
+        f"{api_base}/ai/transsumm/{file_id}",
+        headers=headers,
+        json={
+            "is_reload": 0,
+            "summ_type": "REASONING-NOTE",
+            "summ_type_type": "system",
+            "info": info_payload,
+            "support_mul_summ": True,
+            "r": random.random(),
+        },
+        timeout=120,
+    )
+    if resp.status_code != 200:
+        print(f"  /ai/transsumm for embeddings failed: {resp.status_code}")
+        return {}
+
+    data = resp.json()
+    return (data.get("data_others") or {}).get("embeddings", {})
+
+
+def sync_speaker(token, speaker_name, embedding):
+    """Register a speaker with their voice embedding for future auto-labeling.
+
+    Calls POST /speaker/sync to create or update a speaker profile.
+    Once synced, Plaud will auto-recognize this voice in future recordings.
+
+    Args:
+        token: Auth token
+        speaker_name: Display name (e.g. "Todd Wynne")
+        embedding: 256-float voice embedding vector
+    """
+    headers = make_headers(token)
+    api_base = get_api_base()
+
+    resp = requests.post(
+        f"{api_base}/speaker/sync",
+        headers=headers,
+        json={
+            "speakers": [{
+                "speaker_id": uuid.uuid4().hex,
+                "speaker_name": speaker_name,
+                "speaker_type": 2,
+                "embeddings": {"mark": embedding},
+                "sample_counts": {"auto": 0, "mark": 1, "me": 0},
+            }]
+        },
+        timeout=30,
+    )
+
+    if resp.status_code != 200:
+        print(f"  /speaker/sync failed for '{speaker_name}': {resp.status_code}")
+        print(f"  Response: {resp.text[:300]}")
+        return False
+
+    data = resp.json()
+    result = (data.get("data", {}).get("results") or [{}])[0]
+    merged = result.get("merged_speaker_id")
+    if merged:
+        print(f"  Registered '{speaker_name}' (merged with existing profile)")
+    else:
+        sid = result.get("speaker_id", "?")
+        print(f"  Registered '{speaker_name}' (speaker_id: {sid[:12]}...)")
+    return True
+
+
+def get_recording_speakers(token, file_id):
+    """Get unique speakers from a recording's transcript segments.
+
+    Uses POST /file/list with [file_id] to get trans_result,
+    then extracts unique speaker names with segment counts.
+    Returns list of {"name": str, "segments_count": int, "sample_text": str}.
+    """
+    headers = make_headers(token)
+    api_base = get_api_base()
+    resp = requests.post(
+        f"{api_base}{FILE_LIST_ENDPOINT}",
+        headers=headers,
+        json=[file_id],
+        timeout=60,
+    )
+    if resp.status_code != 200:
+        print(f"  /file/list for speakers failed: {resp.status_code}")
+        return [], []
+
+    data = resp.json()
+    files = data.get("data_file_list", [])
+    if not files:
+        return [], []
+
+    trans_result = files[0].get("trans_result") or []
+
+    # Build speaker stats with sample text
+    stats = {}
+    samples = {}
+    for seg in trans_result:
+        speaker = (seg.get("speaker") or "").strip()
+        text = (seg.get("text") or seg.get("trans_text") or seg.get("content") or "").strip()
+        if speaker:
+            stats[speaker] = stats.get(speaker, 0) + 1
+            if speaker not in samples and text:
+                samples[speaker] = text[:120]
+
+    speakers = [
+        {
+            "name": name,
+            "segments_count": count,
+            "sample_text": samples.get(name, ""),
+        }
+        for name, count in sorted(stats.items(), key=lambda x: -x[1])
+    ]
+
+    return speakers, trans_result
+
+
+def rename_speaker(token, file_id, trans_result, old_name, new_name):
+    """Rename a speaker in a recording's transcript and save back to Plaud.
+
+    Modifies trans_result in place, then PATCHes /file/{file_id}
+    with the updated segments. Plaud regenerates the transcript automatically.
+    """
+    renamed = 0
+    for seg in trans_result:
+        if (seg.get("speaker") or "").strip() == old_name:
+            seg["speaker"] = new_name
+            renamed += 1
+
+    if renamed == 0:
+        print(f"  Speaker '{old_name}' not found in transcript")
+        return False
+
+    headers = make_headers(token)
+    api_base = get_api_base()
+    resp = requests.patch(
+        f"{api_base}/file/{file_id}",
+        headers=headers,
+        json={"trans_result": trans_result},
+        timeout=60,
+    )
+
+    if resp.status_code != 200:
+        print(f"  PATCH /file/{file_id} failed: {resp.status_code}")
+        print(f"  Response: {resp.text[:300]}")
+        return False
+
+    print(f"  Renamed '{old_name}' → '{new_name}' ({renamed} segments)")
+    return True
+
+
+def trigger_transcription(token, file_id, language="en"):
+    """Trigger transcription and analysis for a recording that hasn't been processed.
+
+    Two-step process:
+      1. PATCH /file/{file_id} with tranConfig to save the configuration
+      2. POST /ai/transsumm/{file_id} to actually kick off the analysis pipeline
+
+    Step 1 alone returns 200 but does NOT start transcription — step 2 is required.
+    """
+    headers = make_headers(token)
+    api_base = get_api_base()
+
+    # Step 1: Save transcription config
+    resp = requests.patch(
+        f"{api_base}/file/{file_id}",
+        headers=headers,
+        json={
+            "extra_data": {
+                "tranConfig": {
+                    "language": language,
+                    "type_type": "system",
+                    "type": "REASONING-NOTE",
+                    "diarization": 1,
+                    "llm": "auto",
+                }
+            }
+        },
+        timeout=60,
+    )
+
+    if resp.status_code != 200:
+        print(f"  Step 1 (config) failed: {resp.status_code}")
+        print(f"  Response: {resp.text[:300]}")
+        return False
+
+    print(f"  Step 1: Config saved for {file_id}")
+
+    # Step 2: Trigger the actual analysis pipeline
+    info_payload = json.dumps({
+        "language": language,
+        "diarization": 1,
+        "llm": "auto",
+    })
+
+    resp2 = requests.post(
+        f"{api_base}/ai/transsumm/{file_id}",
+        headers=headers,
+        json={
+            "is_reload": 0,
+            "summ_type": "REASONING-NOTE",
+            "summ_type_type": "system",
+            "info": info_payload,
+            "support_mul_summ": True,
+            "r": random.random(),
+        },
+        timeout=60,
+    )
+
+    if resp2.status_code != 200:
+        print(f"  Step 2 (trigger) failed: {resp2.status_code}")
+        print(f"  Response: {resp2.text[:300]}")
+        return False
+
+    try:
+        result = resp2.json()
+        status = result.get("status", -1)
+        msg = result.get("msg", "")
+        print(f"  Step 2: Analysis triggered — status={status}, msg='{msg}'")
+    except Exception:
+        print(f"  Step 2: Analysis triggered (response not JSON)")
+
+    print(f"  Transcription triggered for {file_id} — will be pending until Plaud finishes")
+    return True
+
+
+def check_generic_speakers(speakers):
+    """Identify speakers that look like generic labels (Speaker 1, etc).
+
+    Returns list of speaker names that need human identification.
+    """
+    generic_patterns = ["speaker", "spk", "unknown"]
+    untagged = []
+    for s in speakers:
+        name_lower = s["name"].lower().strip()
+        if any(p in name_lower for p in generic_patterns):
+            untagged.append(s)
+    return untagged
 
 
 def extract_summary(detail):
@@ -530,7 +829,39 @@ def main():
             print(f"  {name}: {date_str}")
         sys.exit(0)
 
+    # Re-check any previously pending recordings before processing new ones
+    pending_path = os.path.join(STAGING_DIR, "plaud_pending.json")
+    pending_registry = {}
+    if os.path.exists(pending_path):
+        with open(pending_path) as f:
+            pending_registry = json.load(f)
+
+    resolved_ids = []
+    for pid, pinfo in list(pending_registry.items()):
+        print(f"\nRe-checking pending: {pinfo.get('name', pid)} (ID: {pid})")
+        detail = get_recording_detail(token, pid)
+        status = get_transcript_status(detail)
+
+        if status == "ready":
+            print(f"  Transcript now ready — will process")
+            # Inject into filtered list so it gets processed below
+            filtered.append(pinfo.get("recording", {"id": pid}))
+            resolved_ids.append(pid)
+        else:
+            age_hours = (datetime.now().timestamp() - pinfo.get("first_seen", 0)) / 3600
+            if age_hours > 24:
+                print(f"  WARNING: Pending for {int(age_hours)}h — may have failed generation")
+            else:
+                print(f"  Still pending ({int(age_hours)}h old)")
+
+    # Remove resolved entries
+    for pid in resolved_ids:
+        del pending_registry[pid]
+
     # Fetch detail + transcript for each recording
+    processed_count = 0
+    pending_count = 0
+
     for rec in filtered:
         file_id = rec.get("id", rec.get("file_id", ""))
         name = rec.get("filename", rec.get("fullname", file_id))
@@ -545,11 +876,78 @@ def main():
         # Get full detail (includes transcript)
         detail = get_recording_detail(token, file_id)
 
+        # Check transcript generation status
+        trans_status = get_transcript_status(detail)
+
+        if trans_status == "missing":
+            print(f"  No transcription exists — triggering Plaud to generate one")
+            trigger_transcription(token, file_id)
+            if file_id not in pending_registry:
+                pending_registry[file_id] = {
+                    "name": name,
+                    "first_seen": datetime.now().timestamp(),
+                    "recording": rec,
+                    "triggered": True,
+                }
+            pending_count += 1
+
+            with open(f"{STAGING_DIR}/plaud_{clean_name}_raw.json", "w") as f:
+                json.dump(
+                    {"recording": rec, "detail": detail},
+                    f,
+                    indent=2,
+                    default=str,
+                )
+            continue
+
+        if trans_status == "pending":
+            print(f"  Transcript generation in progress — saving to pending queue")
+            if file_id not in pending_registry:
+                pending_registry[file_id] = {
+                    "name": name,
+                    "first_seen": datetime.now().timestamp(),
+                    "recording": rec,
+                }
+            pending_count += 1
+
+            with open(f"{STAGING_DIR}/plaud_{clean_name}_raw.json", "w") as f:
+                json.dump(
+                    {"recording": rec, "detail": detail},
+                    f,
+                    indent=2,
+                    default=str,
+                )
+            continue
+
         transcript_text = extract_transcript(detail) if detail else ""
         summary_text = extract_summary(detail) if detail else ""
 
         if not transcript_text and has_trans:
             print("  Warning: is_trans=True but no transcript text extracted")
+
+        # Check for generic/untagged speakers
+        speakers, trans_result = get_recording_speakers(token, file_id)
+        untagged = check_generic_speakers(speakers) if speakers else []
+
+        if untagged:
+            print(f"  Found {len(untagged)} untagged speaker(s):")
+            for s in untagged:
+                sample = f' — "{s["sample_text"]}"' if s["sample_text"] else ""
+                print(f"    {s['name']} ({s['segments_count']} segments){sample}")
+
+            # Write speaker mapping file for Knox to act on
+            speaker_file = {
+                "file_id": file_id,
+                "recording_name": name,
+                "all_speakers": speakers,
+                "untagged_speakers": untagged,
+                "known_speakers": list_speakers(token),
+                "status": "needs_mapping",
+            }
+            speaker_path = f"{STAGING_DIR}/plaud_{clean_name}_speakers.json"
+            with open(speaker_path, "w") as f:
+                json.dump(speaker_file, f, indent=2, default=str)
+            print(f"  Speaker mapping file: {speaker_path}")
 
         # Save raw JSON for debugging
         with open(f"{STAGING_DIR}/plaud_{clean_name}_raw.json", "w") as f:
@@ -588,11 +986,273 @@ def main():
             f.write(output)
 
         print(f"  Saved: {outpath}")
+        processed_count += 1
+
+    # Write pending registry
+    if pending_registry:
+        with open(pending_path, "w") as f:
+            json.dump(pending_registry, f, indent=2, default=str)
+        print(f"\n  {len(pending_registry)} recording(s) in pending queue — will retry next run")
+    elif os.path.exists(pending_path):
+        os.remove(pending_path)
 
     print(f"\n{'=' * 60}")
-    print(f"Done. {len(filtered)} transcripts saved to {STAGING_DIR}")
+    print(f"Done. {processed_count} transcripts saved, {pending_count} pending generation")
+    if pending_registry:
+        for pid, pinfo in pending_registry.items():
+            age_hours = (datetime.now().timestamp() - pinfo.get("first_seen", 0)) / 3600
+            flag = " ⚠ >24h" if age_hours > 24 else ""
+            print(f"  Pending: {pinfo.get('name', pid)} ({int(age_hours)}h){flag}")
     print(f"{'=' * 60}")
 
 
+def rename_and_refetch(file_id, mapping_json):
+    """Rename speakers in a recording and re-fetch the updated transcript.
+
+    Called by Knox after David provides a speaker mapping.
+
+    Args:
+        file_id: Plaud recording ID
+        mapping_json: JSON string of {"old_name": "new_name", ...}
+
+    Usage:
+        python3 fetch_plaud.py --rename <file_id> '<json_mapping>'
+    """
+    mapping = json.loads(mapping_json)
+    if not mapping:
+        print("Empty mapping — nothing to rename")
+        sys.exit(1)
+
+    print("=" * 60)
+    print("Plaud Speaker Rename + Re-fetch")
+    print("=" * 60)
+
+    token = get_token()
+    if not verify_auth(token):
+        print("Token invalid. Try --login to re-authenticate.")
+        sys.exit(1)
+
+    # Get current transcript segments
+    speakers, trans_result = get_recording_speakers(token, file_id)
+    if not trans_result:
+        print(f"  Could not load transcript for {file_id}")
+        sys.exit(1)
+
+    # Get voice embeddings before renaming (keyed by original_speaker labels)
+    print(f"\nExtracting voice embeddings...")
+    embeddings = get_speaker_embeddings(token, file_id)
+    if embeddings:
+        print(f"  Got embeddings for {len(embeddings)} speaker(s)")
+    else:
+        print(f"  Warning: no embeddings returned — speakers won't be registered for auto-labeling")
+
+    # Build original_speaker → new_name mapping for embedding sync
+    # trans_result has both "speaker" (current) and "original_speaker" (diarization label)
+    original_to_new = {}
+    for old_name, new_name in mapping.items():
+        for seg in trans_result:
+            if (seg.get("speaker") or "").strip() == old_name:
+                orig = (seg.get("original_speaker") or "").strip()
+                if orig:
+                    original_to_new[orig] = new_name
+                break
+
+    # Apply renames
+    print(f"\nApplying {len(mapping)} rename(s)...")
+    for old_name, new_name in mapping.items():
+        rename_speaker(token, file_id, trans_result, old_name, new_name)
+
+    # Register renamed speakers with voice embeddings for future auto-labeling
+    if embeddings and original_to_new:
+        print(f"\nRegistering speakers for auto-labeling...")
+        existing = {s.get("speaker_name", ""): s for s in list_speakers(token)}
+        for orig_label, new_name in original_to_new.items():
+            if new_name in existing:
+                print(f"  '{new_name}' already registered — skipping")
+                continue
+            emb = embeddings.get(orig_label)
+            if emb:
+                sync_speaker(token, new_name, emb)
+            else:
+                print(f"  No embedding for '{orig_label}' — can't register '{new_name}'")
+
+    # Re-fetch the updated recording detail and transcript
+    print(f"\nRe-fetching updated transcript...")
+    detail = get_recording_detail(token, file_id)
+    transcript_text = extract_transcript(detail) if detail else ""
+    summary_text = extract_summary(detail) if detail else ""
+
+    rec_name = detail.get("filename", detail.get("fullname", file_id)) if detail else file_id
+    clean_name = "".join(c if c.isalnum() or c in " -_" else "_" for c in str(rec_name))
+
+    # Determine recording date
+    start_ts = (detail or {}).get("start_time", 0)
+    if isinstance(start_ts, (int, float)):
+        if start_ts > 1e12:
+            start_ts = start_ts / 1000
+        rec_date = datetime.fromtimestamp(start_ts).strftime("%Y-%m-%d")
+    else:
+        rec_date = "unknown"
+
+    # Overwrite the staged markdown with updated transcript
+    os.makedirs(STAGING_DIR, exist_ok=True)
+    output = f"# {rec_name}\n\n"
+    output += f"**Date:** {rec_date}\n"
+    output += f"**Duration:** {(detail or {}).get('duration', 0)}s\n"
+    output += f"**Source:** Plaud AI\n\n"
+
+    if summary_text:
+        output += f"## AI Summary\n\n{summary_text}\n\n"
+
+    if transcript_text:
+        output += f"## Transcript\n\n{transcript_text}\n"
+    else:
+        output += "## Transcript\n\n_No transcript available._\n"
+
+    outpath = f"{STAGING_DIR}/plaud_{clean_name}.md"
+    with open(outpath, "w") as f:
+        f.write(output)
+    print(f"  Updated transcript saved: {outpath}")
+
+    # Clean up the speaker mapping file
+    speaker_path = f"{STAGING_DIR}/plaud_{clean_name}_speakers.json"
+    if os.path.exists(speaker_path):
+        os.remove(speaker_path)
+        print(f"  Cleaned up speaker mapping file")
+
+    print(f"\n{'=' * 60}")
+    print(f"Done. Speakers renamed and transcript re-fetched.")
+    print(f"{'=' * 60}")
+
+
+def check_single(file_id):
+    """Check a single recording's transcription status and process if ready.
+
+    Called by the watcher scheduled task after a transcription was triggered.
+    If the transcript is ready, fetches it and writes to staging.
+    If still pending, exits with code 3 so the caller knows to retry.
+
+    Usage:
+        python3 fetch_plaud.py --check <file_id>
+    """
+    print("=" * 60)
+    print("Plaud Transcription Watcher")
+    print("=" * 60)
+
+    token = get_token()
+    if not verify_auth(token):
+        print("Token invalid.")
+        sys.exit(1)
+
+    detail = get_recording_detail(token, file_id)
+    status = get_transcript_status(detail)
+
+    rec_name = (detail or {}).get("filename", (detail or {}).get("fullname", file_id))
+    print(f"\nRecording: {rec_name} (ID: {file_id})")
+    print(f"  Status: {status}")
+
+    if status == "pending" or status == "missing":
+        # Check how long it's been pending from the registry
+        pending_path = os.path.join(STAGING_DIR, "plaud_pending.json")
+        if os.path.exists(pending_path):
+            with open(pending_path) as f:
+                pending_registry = json.load(f)
+            pinfo = pending_registry.get(file_id, {})
+            age_hours = (datetime.now().timestamp() - pinfo.get("first_seen", datetime.now().timestamp())) / 3600
+            print(f"  Pending for {int(age_hours)}h")
+            if age_hours > 24:
+                print(f"  WARNING: >24h — may have failed. Check Plaud app.")
+
+        print("  NOT_READY")
+        sys.exit(3)
+
+    if status == "ready":
+        print("  Transcript is ready — fetching...")
+        transcript_text = extract_transcript(detail)
+        summary_text = extract_summary(detail)
+
+        clean_name = "".join(c if c.isalnum() or c in " -_" else "_" for c in str(rec_name))
+
+        start_ts = (detail or {}).get("start_time", 0)
+        if isinstance(start_ts, (int, float)):
+            if start_ts > 1e12:
+                start_ts = start_ts / 1000
+            rec_date = datetime.fromtimestamp(start_ts).strftime("%Y-%m-%d")
+        else:
+            rec_date = "unknown"
+
+        os.makedirs(STAGING_DIR, exist_ok=True)
+        output = f"# {rec_name}\n\n"
+        output += f"**Date:** {rec_date}\n"
+        output += f"**Duration:** {(detail or {}).get('duration', 0)}s\n"
+        output += f"**Source:** Plaud AI\n\n"
+
+        if summary_text:
+            output += f"## AI Summary\n\n{summary_text}\n\n"
+        if transcript_text:
+            output += f"## Transcript\n\n{transcript_text}\n"
+        else:
+            output += "## Transcript\n\n_No transcript available._\n"
+
+        outpath = f"{STAGING_DIR}/plaud_{clean_name}.md"
+        with open(outpath, "w") as f:
+            f.write(output)
+        print(f"  Saved: {outpath}")
+
+        # Check for generic speakers
+        speakers, trans_result = get_recording_speakers(token, file_id)
+        untagged = check_generic_speakers(speakers) if speakers else []
+
+        if untagged:
+            speaker_file = {
+                "file_id": file_id,
+                "recording_name": rec_name,
+                "all_speakers": speakers,
+                "untagged_speakers": untagged,
+                "known_speakers": list_speakers(token),
+                "status": "needs_mapping",
+            }
+            speaker_path = f"{STAGING_DIR}/plaud_{clean_name}_speakers.json"
+            with open(speaker_path, "w") as f:
+                json.dump(speaker_file, f, indent=2, default=str)
+            print(f"  {len(untagged)} untagged speaker(s) — mapping file written")
+
+        # Remove from pending registry
+        pending_path = os.path.join(STAGING_DIR, "plaud_pending.json")
+        if os.path.exists(pending_path):
+            with open(pending_path) as f:
+                pending_registry = json.load(f)
+            if file_id in pending_registry:
+                del pending_registry[file_id]
+                if pending_registry:
+                    with open(pending_path, "w") as f:
+                        json.dump(pending_registry, f, indent=2, default=str)
+                else:
+                    os.remove(pending_path)
+                print(f"  Removed from pending queue")
+
+        # Save raw JSON
+        with open(f"{STAGING_DIR}/plaud_{clean_name}_raw.json", "w") as f:
+            json.dump({"detail": detail}, f, indent=2, default=str)
+
+        print(f"\n{'=' * 60}")
+        print(f"READY — transcript fetched and staged for ingestion")
+        print(f"{'=' * 60}")
+
+
 if __name__ == "__main__":
-    main()
+    if "--rename" in sys.argv:
+        idx = sys.argv.index("--rename")
+        if len(sys.argv) < idx + 3:
+            print("Usage: python3 fetch_plaud.py --rename <file_id> '<json_mapping>'")
+            print('  Example: --rename abc123 \'{"Speaker 1": "David O\'Hara"}\'')
+            sys.exit(1)
+        rename_and_refetch(sys.argv[idx + 1], sys.argv[idx + 2])
+    elif "--check" in sys.argv:
+        idx = sys.argv.index("--check")
+        if len(sys.argv) < idx + 2:
+            print("Usage: python3 fetch_plaud.py --check <file_id>")
+            sys.exit(1)
+        check_single(sys.argv[idx + 1])
+    else:
+        main()

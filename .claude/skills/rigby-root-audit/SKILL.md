@@ -47,6 +47,7 @@ For each file not in the ignore list, determine its classification:
 - Research reports generated during a session (e.g., `research-report-*.md`)
 - Temp outputs, scratch files, one-off generated documents
 - Files with names suggesting they are ephemeral (e.g., `working-*.txt`, `temp-*.json`, `draft-*.md`)
+- **PDF companion files**: Any `.pdf` file that has a corresponding `.md` file with the same base name (e.g., `2026-03-23-client-prep.pdf` when `2026-03-23-client-prep.md` also exists). This applies to meeting notes, call prep sheets, sales prep docs, and one-pagers — the PDF is regenerable from the `.md`. Move the `.md`; delete the `.pdf`.
 - Any file explicitly confirmed as a deletable pattern by the executive in a prior session
 
 **Move** — Files that belong in a known subfolder:

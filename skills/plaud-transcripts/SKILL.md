@@ -54,6 +54,10 @@ Look in `~/Downloads/transcript-staging/` for files matching:
 
 Also check for any `.txt` files that might be manual Plaud exports.
 
+**Skip `plaud_pending.json`** — this is the retry queue managed by the fetch script.
+Recordings with in-progress transcript generation are tracked there and re-checked
+on the next fetch run. Do not process pending entries as notes.
+
 ### 2. Parse each transcript file
 
 The fetch script produces markdown files with this structure:
@@ -120,6 +124,73 @@ Action Items, and Transcript in a `<details>` block. Platform field should say "
 Plaud recordings sometimes lack clear speaker identification. When speakers are labeled
 as "Speaker 1", "Speaker 2", etc., keep those labels — the user can rename them later.
 When no speaker labels exist at all, format as continuous text with paragraph breaks.
+
+### 4b. Speaker tagging
+
+After parsing transcripts, check for `plaud_*_speakers.json` files in the staging
+folder. These are created by the fetch script when a recording has generic speaker
+labels ("Speaker 1", "Speaker 2", etc.).
+
+**Speaker mapping file structure:**
+```json
+{
+  "file_id": "abc123",
+  "recording_name": "Meeting Title",
+  "all_speakers": [
+    {"name": "Speaker 1", "segments_count": 42, "sample_text": "I think we should..."},
+    {"name": "Speaker 2", "segments_count": 31, "sample_text": "The timeline for..."}
+  ],
+  "untagged_speakers": [...],
+  "known_speakers": [{"speaker_id": "...", "speaker_name": "David O'Hara", "speaker_type": 1, "sample_counts": {"auto": 4, "mark": 3, "me": 0}}, ...],
+  "status": "needs_mapping"
+}
+```
+
+**Workflow:**
+
+1. For each `_speakers.json` file, present the untagged speakers to David with:
+   - Their sample text (first line they spoke — helps identify who's who)
+   - Their segment count (more segments = more talkative)
+   - The list of known speakers in Plaud (for reference)
+   - Calendar attendees for that recording's time slot (if available)
+
+2. Ask David to map each generic label to a real name. Example prompt:
+   ```
+   "Meeting with Todd Wynne" has 2 untagged speakers:
+     Speaker 1 (42 segments): "I think we should look at the AI maturity..."
+     Speaker 2 (31 segments): "The timeline for the POC is..."
+   Calendar attendees: David O'Hara, Todd Wynne
+   Who's who?
+   ```
+
+3. Once David provides the mapping, push the renames to Plaud and re-fetch:
+   ```
+   do shell script "cd <skill-scripts-dir> && /usr/bin/python3 fetch_plaud.py --rename <file_id> '{\"Speaker 1\": \"David O\\x27Hara\", \"Speaker 2\": \"Todd Wynne\"}' 2>&1"
+   ```
+
+4. The `--rename` command (full pipeline):
+   - Extracts voice embeddings from `POST /ai/transsumm/{file_id}` → `data_others.embeddings`
+   - Maps original speaker labels to new names via `original_speaker` field in segments
+   - PATCHes the speaker names in Plaud's transcript via `/file/{file_id}`
+   - Registers each new speaker via `POST /speaker/sync` with their 256-float voice embedding
+     (skips speakers already in the system)
+   - Re-fetches the updated transcript from the API
+   - Overwrites the staged markdown with the updated transcript (now with real names)
+   - Cleans up the `_speakers.json` file
+
+5. Continue processing the updated markdown file as normal (step 5 onward).
+
+**Important — Speaker Voice Registration:** The `--rename` mode now does TWO things:
+1. Renames speaker labels in the transcript (PATCH /file/{file_id} with trans_result)
+2. Registers speakers for future auto-labeling (POST /speaker/sync with voice embeddings)
+
+Voice embeddings are extracted from `POST /ai/transsumm/{file_id}` → `data_others.embeddings`,
+keyed by original speaker label (e.g. "Speaker 2"). The script maps original labels to the
+new names via `original_speaker` field, then syncs each new speaker with their 256-float
+embedding. Once registered, Plaud will auto-recognize that voice in future recordings.
+
+Speakers already in the system are skipped (checked via `/speaker/list`).
+Without this sync step, renames only change text labels — Plaud won't learn the voice.
 
 ### 5. Route and write
 
@@ -252,14 +323,35 @@ need to share credentials with the script.
 
 The `scripts/fetch_plaud.py` script handles the API side.
 
-API endpoints (reverse-engineered from plaud-toolkit):
+**Core endpoints** (reverse-engineered from plaud-toolkit + arbuzmell/plaud-api):
 - `GET /file/simple/web` — list recordings (params: skip, limit, is_trash, sort_by, is_desc)
 - `GET /file/detail/{id}` — full recording detail including transcript links
 - `GET /user/me` — verify auth, returns `data_user` with nickname/email
+- `POST /file/list` — POST with `[file_id]` array, returns `data_file_list` with `trans_result` segments
+- `PATCH /file/{file_id}` — update recording metadata (trans_result for renames, extra_data for config)
+
+**Transcription trigger** (two-step, both required):
+- `PATCH /file/{file_id}` with `{"extra_data": {"tranConfig": {...}}}` — saves config only
+- `POST /ai/transsumm/{file_id}` — actually starts the transcription pipeline
+  - `is_reload: 0` for first-time, `is_reload: 1` to re-transcribe
+  - Response: `status=0` + `msg="task processing"` while running, `status=1` + `msg="success"` when done
+  - Also returns `data_others.embeddings` — per-speaker 256-float voice vectors keyed by original label
+
+**Speaker management:**
+- `GET /speaker/list` — returns registered speakers under `data.speakers` (NOT `data_speaker_list`)
+  - Each speaker has: `speaker_id`, `speaker_name`, `speaker_type` (1=owner, 2=other),
+    `sample_counts` (`auto`/`mark`/`me`), `embeddings` (256-float vectors), timestamps
+- `POST /speaker/sync` — register/update speakers with voice embeddings for auto-labeling
+  - Payload: `{"speakers": [{"speaker_id": "<uuid>", "speaker_name": "Name", "speaker_type": 2, "embeddings": {"mark": [256 floats]}, "sample_counts": {"auto": 0, "mark": 1, "me": 0}}]}`
+  - Returns registered speaker with possible `merged_speaker_id` if voice matches existing profile
+
+**Transcript data:**
 - Transcript text is fetched from presigned S3 URLs in `content_list` where
   `data_type == "transaction"` and `task_status == 1`
 - AI summaries are embedded in `pre_download_content_list` under items with
   `data_id` starting with `auto_sum:`, parsed from `data_content.ai_content`
+- `trans_result` segments contain: `start_time`, `end_time`, `content`, `speaker`,
+  `original_speaker` (diarization label), and optionally `embeddingKey` (voice fingerprint UUID)
 
 Required headers beyond Authorization: `app-platform: web`, `edit-from: web`,
 `Origin: https://web.plaud.ai`, `Referer: https://web.plaud.ai/`
@@ -276,3 +368,60 @@ no clear title), so lean more heavily on transcript content analysis for tagging
 - Corrupt or empty transcript files → skip and report
 - Filename collision with Teams note → ask user: merge, rename with (Plaud) suffix, or skip
 - Bearer token expired or missing → run the Chrome login flow (see above), then retry the fetch
+- Transcript generation pending → fetch script writes to `plaud_pending.json` instead of a
+  markdown file. Next fetch run re-checks pending recordings automatically. If pending > 24h,
+  flagged as potentially failed generation in the fetch report.
+- Transcription triggered (missing → triggered) → fetch script kicks off Plaud's transcription
+  pipeline via a two-step API call: (1) PATCH `/file/{file_id}` with `tranConfig` to save settings,
+  (2) POST `/ai/transsumm/{file_id}` to actually start the job. **Both steps are required** — the
+  PATCH alone returns 200 but does nothing. Knox spawns a sub-agent to watch for completion.
+  See "Transcription watcher" below.
+
+## Transcription watcher
+
+When the fetch script triggers a transcription for a recording that had none (`missing` state),
+Knox must spawn a sub-agent to poll for completion, process the transcript, and clean up.
+No scheduled tasks, no orphaned state — the sub-agent runs, finishes, and exits.
+
+**How it works:**
+
+1. During ingestion, Knox runs `fetch_plaud.py` and sees output like:
+   ```
+   No transcription exists — triggering Plaud to generate one
+   Transcription triggered for <file_id> — will be pending until Plaud finishes
+   ```
+
+2. Knox immediately spawns a sub-agent (via the Agent tool) with this mandate:
+   - Poll `fetch_plaud.py --check <file_id>` on the Mac host via osascript every 2 minutes
+   - Max 30 retries (~1 hour). If still not ready after 30, report failure and exit.
+   - When `--check` returns `READY` (exit code 0):
+     a. Process the staged transcript through the full knox-plaud pipeline (parse,
+        calendar cross-ref, speaker tagging if `_speakers.json` exists, vault write,
+        daily note linking, OmniFocus action item routing, cleanup)
+     b. Remove the recording from `plaud_pending.json`
+     c. Report what was processed and exit
+
+3. The `--check` CLI mode on `fetch_plaud.py`:
+   - Takes a single file_id
+   - Checks transcription status via the API
+   - If ready: fetches transcript, writes to staging, checks for generic speakers,
+     writes `_speakers.json` if needed, removes from pending queue, exits 0
+   - If not ready: prints `NOT_READY`, exits 3
+
+**Example sub-agent spawn (Knox does this):**
+```
+Agent(
+  description: "Watch Plaud transcription",
+  prompt: "You are Knox, the Knowledge Manager. Poll for Plaud transcription
+    completion for recording 14d0f41b5dcb80d32ffab947fa94c982.
+    Every 2 minutes, run via osascript:
+      cd '<scripts-dir>' && /usr/bin/python3 fetch_plaud.py --check 14d0f41b5dcb80d32ffab947fa94c982
+    If output contains READY, process the staged transcript through the full
+    knox-plaud ingestion pipeline (read skills/plaud-transcripts/SKILL.md for steps).
+    If output contains NOT_READY, sleep 2 minutes and retry. Max 30 retries.
+    After processing or max retries, clean up the pending queue entry and exit."
+)
+```
+
+The sub-agent is fully self-contained — no scheduled tasks to clean up, no orphaned
+state files. It polls, processes, cleans up, and terminates.
