@@ -40,15 +40,15 @@ Present the available list to the executive and ask which to apply.
 
 Read `config/settings.json` and extract:
 - `ies_app_url` — base URL of the IES web application
-- `api_token` — Auth0 Bearer token
+- Authentication is via Microsoft Entra ID (OIDC) — no static API token needed
 
 ### 3. Download the Package
 
 Call: `GET {ies_app_url}/api/evolutions/{id}/package`
-Authorization: Bearer `{api_token}`
+Authorization: Bearer `{session_token}`
 
 **On failure:**
-- HTTP 401: `Authentication failed — check api_token in config/settings.json`
+- HTTP 401: `Authentication failed — OIDC session may have expired`
 - HTTP 404: `Evolution package not found on server (may not have files uploaded yet)`
 - Network error: `Could not reach {ies_app_url} — check your internet connection`
 

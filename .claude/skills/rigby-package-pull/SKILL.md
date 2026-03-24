@@ -27,7 +27,7 @@ Connect to the organization's secured package endpoint, list available company p
 
 Read `config/settings.json` and extract:
 - `ies_app_url` — base URL of the IES web application
-- `api_token` — Auth0 Bearer token for API calls
+- Authentication is via Microsoft Entra ID (OIDC) — no static API token needed
 - `audience` — audience for this instance (usually `internal`; defaults to `internal`)
 
 If `ies_app_url` is not configured:
@@ -38,11 +38,10 @@ Would you like me to help set that up?
 ```
 Exit.
 
-If `api_token` is not configured:
+If OIDC authentication is not available:
 ```
-I wasn't able to check for company packages because no API token is configured.
-Here's what I can do instead: Add your Auth0 token to config/settings.json under api_token.
-Would you like me to help set that up?
+I wasn't able to check for company packages because no auth session is available.
+Authentication is via Microsoft Entra ID (OIDC). A machine-to-machine auth path is needed for automated access.
 ```
 Exit.
 
@@ -52,13 +51,13 @@ Make a GET request:
 
 ```
 GET {ies_app_url}/api/packages?audience={audience}
-Authorization: Bearer {api_token}
+Authorization: Bearer {session_token}
 ```
 
 **If HTTP 401 Unauthorized:**
 ```
 I wasn't able to connect to the package endpoint because authentication failed.
-Here's what I can do instead: Check config/settings.json — your api_token may have expired.
+Here's what I can do instead: Your OIDC session may have expired — re-authenticate via Entra ID.
 Would you like me to help refresh it?
 ```
 Exit.
@@ -157,7 +156,7 @@ Make a GET request:
 
 ```
 GET {downloadUrl}
-Authorization: Bearer {api_token}
+Authorization: Bearer {session_token}
 ```
 
 If the download fails, report using the error response format and exit.

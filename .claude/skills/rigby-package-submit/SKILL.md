@@ -30,26 +30,25 @@ Submit a contribution package (created by `rigby-package-create`) to Improving's
 
 ## Process
 
+> **Steps must be executed in order.** Always complete Step 1 before any other action, regardless of what arguments were provided. Do not scan directories, look up packages, or take any other action until `config/settings.json` has been read and `ies_app_url` has been validated.
+
 ### 1. Read Configuration
 
 Read `config/settings.json` and extract:
 - `ies_app_url` — base URL of the IES web application
-- `api_token` — Auth0 Bearer token for API calls
+
+Authentication is handled via Microsoft Entra ID (OIDC) — no static API token is needed. The web app uses NextAuth with JWT sessions. Submission requires the user to be authenticated with either `role === "ADMIN"` or `canSubmitPackages === true`.
 
 If `ies_app_url` is not configured:
+
 ```
 I wasn't able to submit the package because the IES app URL isn't configured.
-Here's what I can do instead: Configure it in config/settings.json under ies_app_url.
-Would you like me to help set that up?
-```
-Exit.
 
-If `api_token` is not configured:
-```
-I wasn't able to submit the package because no API token is configured.
-Here's what I can do instead: Add your Auth0 token to config/settings.json under api_token.
+Here's what I can do instead: Configure it in config/settings.json under ies_app_url.
+
 Would you like me to help set that up?
 ```
+
 Exit.
 
 ### 2. Handle --status Flag
@@ -57,23 +56,28 @@ Exit.
 If `--status {submissionId}` was provided, check submission status and exit.
 
 Make a GET request:
+
 ```
 GET {ies_app_url}/api/contributions/{submissionId}/status
-Authorization: Bearer {api_token}
+Authorization: Bearer {session_token}
 ```
 
 **If HTTP 401:**
+
 ```
 I wasn't able to check submission status because authentication failed.
-Your api_token in config/settings.json may have expired.
+Your OIDC session may have expired — re-authenticate via Entra ID.
 ```
+
 Exit.
 
 **If HTTP 404:**
+
 ```
 Submission "{submissionId}" not found.
 Check your submissionId — it should be the UUID returned when you submitted the package.
 ```
+
 Exit.
 
 **If HTTP 200:** Display status:
@@ -87,6 +91,7 @@ Submission Status: {submissionId}
 ```
 
 If status is `rejected`, also show:
+
 ```
   Rejection Feedback:
   {rejectionFeedback}
@@ -96,12 +101,14 @@ If status is `rejected`, also show:
 ```
 
 If status is `published`, also show:
+
 ```
   Published at: {publishedUrl}
   Your package is now available to other IES users!
 ```
 
 If status is `pending` or `under_review`:
+
 ```
   Estimated review: 2-5 business days
   Check again: rigby submit --status {submissionId}
@@ -114,21 +121,28 @@ Exit.
 If no args or `--package` was provided without a found package, list available packages:
 
 Scan `contributions/` for directories (excluding `.` prefixed hidden directories).
+
 For each directory, check if `package.manifest.json` exists.
 
 If `contributions/` doesn't exist or is empty:
+
 ```
 No packages found in contributions/.
 Create a package first: rigby create
 ```
+
 Exit.
 
 If no `--package` argument: display available packages and prompt:
+
 ```
 Packages available for submission:
 
-  {name}-{version}    contributions/{name}-{version}/
-  {name}-{version}    contributions/{name}-{version}/
+  {name}-{version}
+    contributions/{name}-{version}/
+
+  {name}-{version}
+    contributions/{name}-{version}/
 
 Which package would you like to submit? (name-version or number)
 ```
@@ -140,10 +154,12 @@ If `--package {name}-{version}` provided: find the matching directory directly.
 If `--package {name}` provided (no version): find the most recent version by reading each `package.manifest.json` and comparing `version` fields (semver).
 
 If package not found:
+
 ```
 Package "{name}" not found in contributions/.
 Run rigby create to create a package first.
 ```
+
 Exit.
 
 ### 4. Read Package Contents
@@ -151,6 +167,7 @@ Exit.
 Read `contributions/{name}-{version}/package.manifest.json`.
 
 Parse and display:
+
 ```
 Package ready to submit:
 
@@ -171,27 +188,32 @@ Build the files map: `{ [relative_path]: file_content }`.
 ### 5. Check Submission Permissions
 
 Make a GET request:
+
 ```
 GET {ies_app_url}/api/contributions/permissions
-Authorization: Bearer {api_token}
+Authorization: Bearer {session_token}
 ```
 
 **If HTTP 401:**
+
 ```
 I wasn't able to check submission permissions because authentication failed.
-Your api_token in config/settings.json may have expired.
+Your OIDC session may have expired — re-authenticate via Entra ID.
+
 Would you like me to help refresh it?
 ```
+
 Exit.
 
 **If HTTP 200 and `canSubmit: false`:**
+
 ```
 You don't have permission to submit packages.
-
 {reason from response}
 
 Contact an Improving administrator at improving.com to request submission access.
 ```
+
 Exit.
 
 ### 6. Collect Submission Metadata
@@ -199,6 +221,7 @@ Exit.
 Check if a draft exists at `contributions/{name}-{version}/.submission-draft.json`.
 
 If draft exists, display saved values and ask:
+
 ```
 Found a saved submission draft:
 
@@ -213,24 +236,29 @@ Found a saved submission draft:
 If no draft, or "fresh" selected: prompt for each field:
 
 **Description** (what this package does and why it's useful):
+
 ```
 Package description (1-2 sentences, e.g. "A Slack integration agent that delivers daily activity summaries"):
 ```
 
 **Use case** (who benefits, what problem it solves):
+
 ```
 Use case (who benefits and what problem this solves):
 ```
 
 **Target audience** (who this is for):
+
 ```
 Target audience (e.g. "All executives", "Sales leaders", "Engineering managers"):
 ```
 
 **License** (default: same as IES):
+
 ```
 License (press Enter for "Same as IES platform license"):
 ```
+
 If blank, default to `"Same as IES platform license"`.
 
 **Optional fields:**
@@ -242,6 +270,7 @@ Support contact email (optional, press Enter to skip):
 ```
 
 After collecting all metadata, save draft to `contributions/{name}-{version}/.submission-draft.json`:
+
 ```json
 {
   "description": "...",
@@ -255,6 +284,7 @@ After collecting all metadata, save draft to `contributions/{name}-{version}/.su
 ```
 
 Confirm before submitting:
+
 ```
 Ready to submit "{name}" v{version} to Improving?
 
@@ -279,11 +309,13 @@ If "no": exit with "Submission cancelled. Your draft is saved. Run rigby submit 
 ### 7. Upload Package
 
 If package is large (>10 MB), display before uploading:
+
 ```
 Uploading {name} v{version} ({sizeMB} MB)... This may take a moment.
 ```
 
 Build the submission request body:
+
 ```json
 {
   "metadata": {
@@ -304,28 +336,34 @@ Build the submission request body:
 ```
 
 Make a POST request:
+
 ```
 POST {ies_app_url}/api/contributions
-Authorization: Bearer {api_token}
+Authorization: Bearer {session_token}
 Content-Type: application/json
 Body: {submission request body as JSON}
 ```
 
 **If HTTP 401:**
+
 ```
 Submission failed: authentication error.
-Your api_token in config/settings.json may have expired.
+Your OIDC session may have expired — re-authenticate via Entra ID.
 ```
+
 Exit.
 
 **If HTTP 403:**
+
 ```
 Submission failed: permission denied.
 {message from response}
 ```
+
 Exit.
 
 **If HTTP 400 (validation errors):**
+
 ```
 Submission rejected: package validation failed.
 
@@ -334,22 +372,29 @@ Errors:
 
 Fix the errors above and create a new package version with rigby create, then resubmit.
 ```
+
 Exit.
 
 **If HTTP 413:**
+
 ```
 Submission failed: package is too large.
 {error from response}
+
 Reduce the package size and try again.
 ```
+
 Exit.
 
 **If network failure or timeout:**
+
 ```
 Submission failed: could not reach {ies_app_url}.
+
 Check your internet connection and try again.
 The submission draft is saved — run rigby submit --package {name}-{version} to retry.
 ```
+
 Exit.
 
 **If HTTP 201 (success):** extract `submissionId`, `status`, `estimatedReviewDays`, `statusUrl`.
@@ -374,6 +419,7 @@ Store the submission record locally by reading `contributions/submissions.json` 
 Delete the draft file `contributions/{name}-{version}/.submission-draft.json` (submission is complete, draft no longer needed).
 
 Display confirmation:
+
 ```
 ✓ "{name}" v{version} submitted successfully
 

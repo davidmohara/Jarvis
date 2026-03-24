@@ -136,7 +136,7 @@ Create a local package directory at `evolutions/ies-{name-slug}/` (use the evolu
 
 ### 7. Upload to Web App
 
-Read `config/settings.json` for `ies_app_url` and `api_token`.
+Read `config/settings.json` for `ies_app_url`. Authentication is via Microsoft Entra ID (OIDC).
 
 Upload via the tRPC publish procedure. Construct the payload:
 
@@ -157,7 +157,7 @@ Upload via the tRPC publish procedure. Construct the payload:
 ```
 
 Call: `POST {ies_app_url}/api/trpc/evolutions.publish`
-Authorization: Bearer `{api_token}`
+Authorization: Bearer `{session_token}`
 Content-Type: application/json
 
 **On success:**

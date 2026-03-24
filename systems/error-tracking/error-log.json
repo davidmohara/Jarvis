@@ -222,6 +222,21 @@
       "related_entries": ["err-20260323-008"]
     },
     {
+      "id": "err-20260324-001",
+      "timestamp": "2026-03-24T00:00:00Z",
+      "session": "2026-03-24",
+      "source": "explicit",
+      "agent": "jarvis",
+      "category": "tool-misuse",
+      "description": "Sent iMessage test to David's email (david.ohara@improving.com) instead of his phone number (214.317.9659). iMessage to email doesn't trigger phone notifications reliably.",
+      "correction": "iMessages to David must be sent to his cell number 214.317.9659, not his email address.",
+      "failure_mode": "wrong-assumption",
+      "systemic_fix": "David's iMessage recipient is always 2143179659. Store this as the default for all iMessage sends.",
+      "fix_status": "applied",
+      "severity": "minor",
+      "related_entries": []
+    },
+    {
       "id": "err-20260323-010",
       "timestamp": "2026-03-23T00:00:00Z",
       "session": "2026-03-23",
@@ -235,6 +250,66 @@
       "fix_status": "applied",
       "severity": "minor",
       "related_entries": ["err-20260321-003", "err-20260322-001", "err-20260323-007"]
+    },
+    {
+      "id": "err-20260324-002",
+      "timestamp": "2026-03-24T00:00:00Z",
+      "session": "2026-03-24",
+      "source": "explicit",
+      "agent": "jarvis",
+      "category": "tool-misuse",
+      "description": "Morning briefing Slack DM was sent as David (U0ANHV5UXEW) via the Slack MCP connector, not as the Jarvis bot. The scheduled task instruction specified 'Send the output to me as a DM in Slack via Jarvis bot.' The Slack MCP is authenticated as David's user account, so all messages appear from David. No Jarvis bot user exists in the workspace.",
+      "correction": "Briefings must be sent as the Jarvis bot identity, not as David messaging himself. A Slack bot app needs to be created and its token made available to Jarvis for bot-identity sends.",
+      "failure_mode": "tool-ignorance",
+      "systemic_fix": "A Jarvis Slack bot app needs to be created in the Improving workspace. Until then, Jarvis cannot send DMs as a bot — only as David. Flag this as a capability gap for Rigby to resolve. In the interim, consider alternative delivery (iMessage, Obsidian daily note, or noting the limitation when delivering via Slack).",
+      "fix_status": "proposed",
+      "severity": "moderate",
+      "related_entries": ["err-20260324-001"]
+    },
+    {
+      "id": "err-20260324-003",
+      "timestamp": "2026-03-24T00:00:00Z",
+      "session": "2026-03-24",
+      "source": "explicit",
+      "agent": "jarvis",
+      "category": "format-violation",
+      "description": "Pushed PDFs to reMarkable with filenames like '2026-03-24-yall-street-brief' and 'Yall-Street-Brief' instead of simple, clean names like the event or person name. reMarkable document names should be human-readable — no dashes, no date prefixes, just the event/person/company name.",
+      "correction": "reMarkable uploads must use clean, simple names: event name, person name, or company name. No dashes, no date prefixes, no kebab-case filenames.",
+      "failure_mode": "wrong-assumption",
+      "systemic_fix": "Update remarkable-upload mental model: document names on the tablet should read like a label you'd write on a folder — 'Texas Tribune Yall Street', 'YPO Tech Dine Around'. Strip dates and dashes. Match how David would scan for it on the tablet screen.",
+      "fix_status": "in-progress",
+      "severity": "minor",
+      "related_entries": ["err-20260323-002"]
+    },
+    {
+      "id": "err-20260324-004",
+      "timestamp": "2026-03-24T00:00:00Z",
+      "session": "2026-03-24",
+      "source": "explicit",
+      "agent": "jarvis",
+      "category": "routing-error",
+      "description": "Jarvis built both meeting prep sheet PDFs and pushed them to reMarkable directly instead of dispatching Harper (prep sheets) and Knox (reMarkable upload) in parallel. Same single-threading pattern as err-20260323-003.",
+      "correction": "Harper owns meeting prep content. Knox owns reMarkable uploads. Jarvis coordinates and dispatches in parallel — does not execute agent-owned work.",
+      "failure_mode": "protocol-skip",
+      "systemic_fix": "This is the fourth occurrence of Jarvis single-threading agent-owned work. Any meeting prep → Harper. Any reMarkable push → Knox. Any PDF generation is shared infrastructure callable by any agent. Dispatch in parallel.",
+      "fix_status": "proposed",
+      "severity": "moderate",
+      "related_entries": ["err-20260323-003", "err-20260323-002", "err-20260321-003"]
+    },
+    {
+      "id": "err-20260324-005",
+      "timestamp": "2026-03-24T00:00:00Z",
+      "session": "2026-03-24",
+      "source": "explicit",
+      "agent": "jarvis",
+      "category": "routing-error",
+      "description": "Jarvis pulled SharePoint content, wrote the markdown prep sheet, built the PDF with reportlab, and iterated on revisions — all directly — instead of dispatching Harper (meeting prep from source materials) and Knox (PDF delivery). Fifth occurrence of this pattern.",
+      "correction": "Harper owns meeting/event prep content assembly from source materials. Knox owns PDF build and device delivery. Jarvis coordinates and dispatches — does not execute.",
+      "failure_mode": "protocol-skip",
+      "systemic_fix": "Fifth occurrence. The pattern is now chronic. Jarvis must treat ANY prep sheet or brief request as an immediate Harper dispatch. SharePoint content pull can be done by Jarvis as coordination (gathering inputs), but content assembly, PDF generation, and delivery are agent-owned work.",
+      "fix_status": "proposed",
+      "severity": "high",
+      "related_entries": ["err-20260324-004", "err-20260323-003", "err-20260323-002", "err-20260321-003"]
     }
   ]
 }

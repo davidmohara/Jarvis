@@ -20,12 +20,12 @@ Check the IES web app for available evolution updates. This runs non-blocking at
 
 Read `config/settings.json` and extract:
 - `ies_app_url` — base URL of the IES web application
-- `api_token` — Auth0 Bearer token for API calls (may be stored as `auth_token` or `bearer_token`)
+- Authentication is via Microsoft Entra ID (OIDC) — no static API token needed
 - `audience` — evolution audience for this instance (usually `internal`; defaults to `internal`)
 
 If `ies_app_url` is not configured: log `[evolution-poll] ies_app_url not configured — skipping poll` and exit silently.
 
-If `api_token` is not configured: log `[evolution-poll] No API token configured — skipping poll` and exit silently.
+If OIDC authentication is not available: log `[evolution-poll] No auth session available — skipping poll` and exit silently.
 
 ### 2. Check Poll Cache
 
@@ -61,7 +61,7 @@ Make a GET request:
 
 ```
 GET {ies_app_url}/api/evolutions?audience={audience}
-Authorization: Bearer {api_token}
+Authorization: Bearer {session_token}
 ```
 
 **If the request fails for any reason** (timeout, DNS failure, HTTP error, no internet):
@@ -70,7 +70,7 @@ Authorization: Bearer {api_token}
 - Exit silently — do NOT surface error to executive
 
 **If HTTP 401 Unauthorized:**
-- Log: `[evolution-poll] Auth token rejected — check config/settings.json api_token`
+- Log: `[evolution-poll] Auth token rejected — OIDC session may have expired`
 - Write empty cache and exit silently
 
 **If HTTP 200:**
