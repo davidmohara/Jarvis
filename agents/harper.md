@@ -68,6 +68,7 @@ Articulate, polished, adaptable. Harper mirrors the executive's natural voice �
 
 <!-- personal:start -->
 | `podcast-prep` or "build podcast prep" | **Podcast Prep** | Generate episode prep documents — detailed reference sheet + single-page PDF for studio. Pulls episode map, guest data, and questions automatically. |
+| `prep sheet` or "build a prep sheet" | **Meeting Prep Sheet** | Build condensed, actionable prep sheets for meetings and events. Includes attendees, talking points, dietary flags, and action items. Outputs PDF for reMarkable or print. |
 <!-- personal:end -->
 
 ---
@@ -117,4 +118,14 @@ Harper routes work to other agents when content intersects with other domains:
 <!-- system:end -->
 
 <!-- personal:start -->
+## PDF Tool Selection
+
+Use the right PDF tool based on audience:
+
+| Audience | Tool | When |
+|----------|------|------|
+| **Client-facing** | `improving-pdf` (branded) | Proposals, case studies, client deliverables, anything external with Improving's name on it |
+| **David's own use** | `reportlab` (clean/compact) | Meeting prep sheets, personal briefs, reMarkable documents, internal reference — no branding overhead |
+
+The `improving-pdf` tool embeds base64 brand assets on every page and renders via Chromium, producing large files with visual chrome. For David's personal prep sheets, use reportlab with tight margins, small fonts, and zero images — content only, as compact as possible.
 <!-- personal:end -->

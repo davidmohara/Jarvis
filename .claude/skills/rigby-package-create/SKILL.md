@@ -41,7 +41,6 @@ Read `evolution.manifest.json` to:
 Read `config/settings.json` for any author defaults.
 
 Read the Claude settings file to extract the `mcpServers` map — a dictionary of server name → `{ command, args?, env? }`. Check in this order and use the first that exists:
-
 1. `.claude/settings.local.json` — preferred (this is where MCP servers are stored when configured locally and not committed to version control)
 2. `.claude/settings.json` — fallback (project-level settings)
 
@@ -66,6 +65,7 @@ Scan three locations for custom components — files/directories NOT in the base
 - Record: name (filename without `.md`), type = `skill`, file path
 
 If no custom components are found:
+
 ```
 No custom components found in your IES instance.
 
@@ -77,14 +77,17 @@ Scanned:
 To create custom components, add new agent files to agents/, workflow directories
 to workflows/, or skill files to .claude/skills/.
 ```
+
 Exit.
 
 ### 3. Display and Select Components
 
 If `--components` argument provided: parse and validate each entry (format: `type:name`).
+
 If not provided: display discovered components and prompt for selection.
 
 Display:
+
 ```
 Custom components found:
 
@@ -111,7 +114,7 @@ Wait for selection. Accept:
 If `--name`, `--version`, `--description` are all provided via arguments: use them directly.
 
 Otherwise, prompt for any missing fields:
-- `name` — package name (kebab-case, no spaces; e.g., "david-pipeline-workflow")
+- `name` — package name (kebab-case, no spaces; e.g., "my-pipeline-workflow")
 - `version` — semver MAJOR.MINOR.PATCH (e.g., "1.0.0")
 - `description` — what this package provides to other executives
 - `author` — contributor name (attempt to read from `identity/MISSION_CONTROL.md` if not provided)
@@ -155,6 +158,8 @@ Build `package.manifest.json`:
       "files": ["{relative-path-1}", "{relative-path-2}"]
     }
   ],
+  "capabilities": [],
+  "defaults_replaced": {},
   "dependencies": {
     "mcp_servers": [],
     "agents": [],
@@ -169,6 +174,10 @@ Build `package.manifest.json`:
   }
 }
 ```
+
+**`capabilities` field** — array of capability names this package declares (e.g., `["contact-management"]`). Connector packages must populate this so agents and the connector registry know what behavior the package enables. Non-connector packages (agent/workflow/skill packages) leave this empty. See `reference/connectors.md` for the standardized capability name list.
+
+**`defaults_replaced` field** — map of capability name → plain-language description of what default behavior this connector replaces. Example: `{ "contact-management": "Replaces local people/ directory for contact lookup" }`. Omit for non-connector packages.
 
 **`mcp_settings` field** — omit if no MCP servers were detected. When present, this field contains one entry per detected MCP server, taken directly from the `mcpServers` map in `.claude/settings.json`. This allows the recipient to replicate the exact MCP connection configuration needed for the capability. Environment variable values should be included as-is (recipients will supply their own credentials at install time).
 
@@ -198,20 +207,21 @@ Run validation before assembling the package:
 - Warn if a component file contains non-empty `<!-- personal:start -->` blocks (will be stripped)
 
 If validation fails:
+
 ```
 Package validation failed:
-
   Errors:
     ✗ {error with remediation guidance}
 
 Fix the errors above and re-run to create the package.
 ```
+
 Exit.
 
 If validation passes with warnings:
+
 ```
 Validation passed with warnings:
-
   Warnings:
     ⚠ {warning}
 
@@ -221,12 +231,16 @@ These warnings are informational. Proceeding with packaging...
 ### 8. Assemble Package Directory
 
 **Conflict check:**
+
 Before writing any files, check whether `contributions/{name-slug}-{version}/` already exists.
+
 If it does:
+
 ```
 ⚠ Package contributions/{name-slug}-{version}/ already exists.
   Overwrite the existing package? (yes/no)
 ```
+
 Wait for response. If no: exit with `"Package creation cancelled. Increment the version or rename the package and re-run."`
 
 Create the package directory at `contributions/{name-slug}-{version}/` (use `{name}` slugified — replace spaces and special chars with hyphens):
@@ -252,13 +266,16 @@ Create an isolated test environment at `contributions/.test-{name-slug}/`:
 - Check `package.manifest.json` is valid JSON
 
 Report:
+
 ```
 Local test: PASSED
   ✓ package.manifest.json present and valid
   ✓ {n} component files verified
   Test environment: contributions/.test-{name-slug}/
 ```
+
 Or:
+
 ```
 Local test: FAILED
   ✗ {error}
@@ -278,7 +295,6 @@ Clean up the test directory after verification.
     {count} workflow(s)
     {count} skill(s)
   Dependencies: {mcp_count} MCP, {agent_count} agents, {workflow_count} workflows, {skill_count} skills
-
   Package: contributions/{name-slug}-{version}/
     package.manifest.json
     {file-1}

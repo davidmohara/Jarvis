@@ -34,6 +34,7 @@ Read `evolution.manifest.json` to determine the current evolution level.
 Look in `packages/` for directories matching `{name}-*` pattern.
 
 If `$ARGUMENTS` does not include `--package`:
+
 ```
 Staged packages available for installation:
 
@@ -42,15 +43,18 @@ Staged packages available for installation:
 
 To install: rigby install --package {name}
 ```
+
 Exit.
 
 If `--package {name}` provided, find the matching staged package directory. Read its `package.manifest.json`.
 
 If not found:
+
 ```
 No staged package found for "{name}".
 Run rigby pull --pull {name} to download it first.
 ```
+
 Exit.
 
 ### 3. Pre-Installation Validation
@@ -60,10 +64,12 @@ Exit.
 Compare the package's `min_evolution` against the local evolution level from `evolution.manifest.json`.
 
 If local level is below minimum:
+
 ```
 Package "{name}" requires evolution level {min_evolution} but your system is at {local_level}.
 Apply pending evolutions first: rigby poll → rigby download
 ```
+
 Exit.
 
 #### 3b. Check Required Capabilities
@@ -71,12 +77,14 @@ Exit.
 If the package manifest includes `required_capabilities`, verify each exists in the local `packages.manifest.json`.
 
 If any required capability is missing:
+
 ```
 Package "{name}" requires capabilities not present in your system:
   - {missing_capability}
 
 Install the required packages first or contact your organization administrator.
 ```
+
 Exit.
 
 #### 3c. Check for Conflicts
@@ -86,6 +94,7 @@ Check `.claude/settings.json` for an existing MCP server with the same name as t
 **Conflict Type A — MCP server name collision:**
 
 If the MCP server name already exists AND `--force` was NOT provided:
+
 ```
 An MCP server named "{name}" already exists in your Claude settings.
 
@@ -93,22 +102,23 @@ Existing: {existing_command} {existing_args}
 Package:  {new_command} {new_args}
 
 Options:
-1. Skip — do not install (default)
-2. Replace — update to the package version (rigby install --package {name} --force)
-
-What would you like to do?
+- Skip — do not install, preserve the existing entry (default when --force is absent)
+- Replace — update to the package version (re-run: rigby install --package {name} --force)
 ```
-Wait for user decision. If they choose skip, exit. If they choose replace, proceed with installation.
+
+Wait for user decision. **Default: Skip.** If `--force` is not present in `$ARGUMENTS`, always choose Skip — exit without modifying `.claude/settings.json`. Do not overwrite the existing entry under any circumstance unless `--force` was explicitly passed.
 
 **Conflict Type B — Supporting file conflicts:**
 
 If package files already exist in `packages/{name}-{version}/`:
+
 ```
 Some supporting files already exist and will be overwritten:
   - {conflicting_file}
 
 Proceed with installation? (yes/no)
 ```
+
 Wait for user decision.
 
 **No conflicts:** Proceed directly with installation.
@@ -122,13 +132,13 @@ Before modifying `.claude/settings.json`, create a timestamped backup:
 ### 5. Present Installation Plan
 
 Show the executive what will happen:
+
 ```
 Installation plan for {name} v{version}:
 
   MCP Server: {name}
     Command: {command} {args}
     {env vars if any — list env var names, mark secrets}
-
   Supporting files: {count} file(s) → packages/{name}-{version}/
   Registration: packages.manifest.json
 
@@ -177,6 +187,7 @@ Check that:
 3. All supporting files exist on disk
 
 If any verification fails:
+
 ```
 Installation verification failed:
   - {error details}
@@ -184,14 +195,15 @@ Installation verification failed:
 The backup is available at .claude/settings.backup-{timestamp}.json
 You can restore it manually if needed.
 ```
+
 Exit.
 
 ### 8. Handle Environment Variables
 
 If the package connection has `env` vars with `prompt` fields (requiring user input):
+
 ```
 This package needs some configuration:
-
   {env_var_name}: {prompt text}
 ```
 
@@ -223,7 +235,6 @@ Supporting files:
   - {file_2}
 
 Training system updated with new package capabilities.
-
 Backup: .claude/settings.backup-{timestamp}.json
 ```
 <!-- system:end -->

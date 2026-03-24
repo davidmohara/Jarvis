@@ -79,6 +79,31 @@ If any exist, append a single line to the bottom of the briefing output:
 ```
 
 If all tasks are configured, skip this line entirely.
+
+## Send Report — Slack Notification
+
+**After the briefing is fully assembled**, send a summary to David via the Jarvis Slack bot so he gets a real push notification on his phone.
+
+Read the full skill at `.claude/skills/master-send-report/SKILL.md` for channel IDs, formatting rules, and error handling.
+
+**Execution:**
+1. Use `mcp__Desktop_Commander__start_process` to run the bot script
+2. Command: `python3 "$(mdfind -name 'post.py' | grep 'systems/slack-bot/post.py' | head -1)" C0AN2PQNXBR "<message>"`
+3. Timeout: 15000ms
+
+**Message format — keep it tight:**
+```
+*Morning Briefing — {date}*
+
+📅 {meeting count} meetings today
+⚡ {top priority or key item}
+🔴 {overdue count} overdue items (if any)
+📥 {inbox count} inbox items (if any)
+
+{1-2 sentence narrative of what needs David's attention most}
+```
+
+**Do NOT use the Slack MCP connector to send messages** — it posts as David and won't trigger notifications. Slack MCP is read-only for this system.
 <!-- personal:end -->
 
 <!-- system:start -->

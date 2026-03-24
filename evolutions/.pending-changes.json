@@ -235,6 +235,34 @@
           "description": "Added scheduled tasks boot check: reads config/scheduled-tasks.json, surfaces a one-line notice at end of briefing if any tasks have configured: false."
         }
       ]
+    },
+    {
+      "id": "work-20260324-send-report",
+      "description": "New master-level skill: send-report. Sends Slack notifications via Jarvis bot (separate identity from David) through Desktop Commander. Any agent or scheduled task can invoke to deliver reports, alerts, and summaries with real push notifications.",
+      "started": "2026-03-24T00:00:00Z",
+      "classification": "system",
+      "evolution_name": "Send Report",
+      "evolution_description": "Master-level Slack notification skill. Posts via Jarvis bot token through Desktop Commander, bypassing the Slack MCP connector (which posts as David and triggers no notifications). Bot script at systems/slack-bot/post.py. Channels: #jarvis (default), DM to David (urgent).",
+      "files": [
+        {
+          "path": ".claude/skills/master-send-report/SKILL.md",
+          "action": "add",
+          "type": "system",
+          "description": "New skill: send Slack messages as Jarvis bot via Desktop Commander. Channels, formatting rules, agent usage matrix, error handling."
+        },
+        {
+          "path": "systems/slack-bot/post.py",
+          "action": "add",
+          "type": "system",
+          "description": "Python script: posts to Slack API using Jarvis bot token. Args: channel_id, message text."
+        },
+        {
+          "path": "systems/slack-bot/README.md",
+          "action": "add",
+          "type": "system",
+          "description": "Reference doc: bot setup, channel IDs, usage examples, formatting guide."
+        }
+      ]
     }
   ]
 }
