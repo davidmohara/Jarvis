@@ -271,20 +271,34 @@ Extract cookies from authenticated Chrome session. Replay with API requests.
 
 Email support@invintory.com or use partner form. Invintory works with cellar makers and sensor companies — a developer/integration partner request may yield official API access.
 
-### Config Storage
+### Local Token Caching (same pattern as Plaud)
 
+Config directory: `~/.config/invintory/` (mode `0700`)
+
+**Credentials** — `~/.config/invintory/credentials.json` (mode `0600`):
 ```json
-// ~/.invintory/config.json
 {
   "email": "david@...",
-  "password": "...",
   "firebase_api_key": "AIza...",
   "collection_id": "63421",
   "profile_id": "FDi9sqylzBXcnR5Dk6vlPjanNC22"
 }
 ```
 
-Or env vars: `INVINTORY_EMAIL`, `INVINTORY_PASSWORD`, `INVINTORY_FIREBASE_KEY`, `INVINTORY_COLLECTION_ID`
+**Cached tokens** — `~/.config/invintory/token.json` (mode `0600`):
+```json
+{
+  "id_token": "<Firebase idToken — 1hr expiry>",
+  "refresh_token": "<Firebase refreshToken — months>",
+  "issued_at": 1742500000000,
+  "expires_at": 1742503600000,
+  "saved_at": "2026-03-20T14:00:00Z"
+}
+```
+
+**Lifecycle**: Load cached `id_token` → if expired, refresh via `refresh_token` → if refresh fails, re-login via credentials → if no credentials, exit with error (no interactive prompts). Refresh buffer: 5 minutes before expiry.
+
+Env var overrides: `INVINTORY_EMAIL`, `INVINTORY_FIREBASE_KEY`, `INVINTORY_COLLECTION_ID`
 
 ---
 

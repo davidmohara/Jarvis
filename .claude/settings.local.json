@@ -25,7 +25,9 @@
       "mcp__ghost-blog__get_post",
       "mcp__ghost-blog__get_post_by_slug",
       "Skill(rigby-release-watch)",
-      "Skill(chief-plaud)"
+      "Skill(chief-plaud)",
+      "mcp__playwright__browser_run_code",
+      "mcp__playwright__browser_network_requests"
     ]
   }
 }

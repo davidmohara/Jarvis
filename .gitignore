@@ -21,6 +21,9 @@ config/.credentials
 # Compiled binaries
 bridge/send-to-desktop
 
+# Playwright MCP browser data
+.playwright-mcp/
+
 # Node.js
 node_modules/
 dist/
