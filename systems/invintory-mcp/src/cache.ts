@@ -109,14 +109,16 @@ function buildColumnMap(headers: string[]): Record<string, number> {
 // ── Core Functions ──────────────────────────────────────────────────────────
 
 export function importCSV(csvPath: string): Wine[] {
-  const raw = readFileSync(csvPath, 'utf-8');
+  const raw = readFileSync(csvPath, 'utf-8').replace(/^\uFEFF/, ''); // strip BOM
   const lines = raw.split('\n').filter(l => l.trim());
   if (lines.length < 2) throw new Error('CSV has no data rows');
 
   const headers = parseCSVLine(lines[0]);
   const col = buildColumnMap(headers);
-  const wines: Wine[] = [];
+  const hasQuantityCol = col.quantity >= 0;
 
+  // First pass: parse all rows
+  const rows: Wine[] = [];
   for (let i = 1; i < lines.length; i++) {
     const fields = parseCSVLine(lines[i]);
     if (fields.length < 3) continue;
@@ -134,7 +136,7 @@ export function importCSV(csvPath: string): Wine[] {
     const grapesRaw = get('grapes');
     const tagsRaw = get('tags');
 
-    wines.push({
+    rows.push({
       name: get('name'),
       vintage,
       type: normalizeType(get('type')),
@@ -144,7 +146,7 @@ export function importCSV(csvPath: string): Wine[] {
       region: get('region'),
       subregion: get('subregion'),
       size: get('size') || '750ml',
-      quantity: parseInt(get('quantity')) || 0,
+      quantity: hasQuantityCol ? (parseInt(get('quantity')) || 1) : 1,
       market_price: marketRaw ? parseFloat(marketRaw) || null : null,
       purchase_price: purchaseRaw ? parseFloat(purchaseRaw) || null : null,
       drink_window: window,
@@ -154,7 +156,22 @@ export function importCSV(csvPath: string): Wine[] {
     });
   }
 
-  return wines;
+  // If no quantity column, each row = 1 bottle; group by label to aggregate
+  if (!hasQuantityCol) {
+    const labelMap = new Map<string, Wine>();
+    for (const row of rows) {
+      const key = `${row.name}|${row.vintage}|${row.producer}|${row.type}`;
+      const existing = labelMap.get(key);
+      if (existing) {
+        existing.quantity += 1;
+      } else {
+        labelMap.set(key, { ...row });
+      }
+    }
+    return Array.from(labelMap.values());
+  }
+
+  return rows;
 }
 
 export function saveCache(wines: Wine[], sourceFile: string): void {
