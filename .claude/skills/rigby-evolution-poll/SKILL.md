@@ -16,16 +16,33 @@ Check the IES web app for available evolution updates. This runs non-blocking at
 
 ## Process
 
-### 1. Read Configuration
+### 1. Resolve Credentials and Configuration
 
 Read `config/settings.json` and extract:
-- `ies_app_url` — base URL of the IES web application
-- Authentication is via Microsoft Entra ID (OIDC) — no static API token needed
+- `ies_app_url` — base URL of the IES web application (use `IES_APP_URL` env var if set, otherwise this field)
 - `audience` — evolution audience for this instance (usually `internal`; defaults to `internal`)
 
 If `ies_app_url` is not configured: log `[evolution-poll] ies_app_url not configured — skipping poll` and exit silently.
 
-If OIDC authentication is not available: log `[evolution-poll] No auth session available — skipping poll` and exit silently.
+Read `config/.credentials`.
+
+If `config/.credentials` is missing → invoke `@rigby-register`, then re-read. If still missing after registration (user cancelled), log `[evolution-poll] No credentials — skipping poll` and exit silently.
+
+If `expires_at` in credentials is in the past, silently refresh:
+
+```bash
+REFRESH_RESPONSE=$(curl -s -X POST \
+  "https://login.microsoftonline.com/f2267c2e-5a54-49f4-84fa-e4f2f4038a2e/oauth2/v2.0/token" \
+  -d "client_id=e0b97261-d1bb-4284-8987-cdbc74da2ef0" \
+  -d "refresh_token=${REFRESH_TOKEN}" \
+  -d "grant_type=refresh_token" \
+  -d "scope=api://e0b97261-d1bb-4284-8987-cdbc74da2ef0/Rigby.Access offline_access openid profile email")
+```
+
+On success: update `config/.credentials` with new `access_token`, `refresh_token`, and `expires_at`.
+On failure (`invalid_grant` or error): invoke `@rigby-register`, then re-read credentials.
+
+Use `access_token` from credentials as the Bearer token for all API calls.
 
 ### 2. Check Poll Cache
 
@@ -61,7 +78,7 @@ Make a GET request:
 
 ```
 GET {ies_app_url}/api/evolutions?audience={audience}
-Authorization: Bearer {session_token}
+Authorization: Bearer {access_token}
 ```
 
 **If the request fails for any reason** (timeout, DNS failure, HTTP error, no internet):
@@ -70,7 +87,7 @@ Authorization: Bearer {session_token}
 - Exit silently — do NOT surface error to executive
 
 **If HTTP 401 Unauthorized:**
-- Log: `[evolution-poll] Auth token rejected — OIDC session may have expired`
+- Log: `[evolution-poll] Auth token rejected — credentials may be stale, will retry on next poll`
 - Write empty cache and exit silently
 
 **If HTTP 200:**
@@ -101,9 +118,9 @@ Do NOT notify the executive here — that is handled by the evolution-notify ski
 <!-- system:start -->
 ## Tool Bindings
 
-- **Config**: Read `config/settings.json`
+- **Config**: Read `config/settings.json`, Read/Write `config/.credentials`
 - **Cache**: Read/Write `evolutions/.poll-cache.json`
-- **HTTP**: Use Bash with `curl` or equivalent to call the web app endpoint
+- **HTTP**: Use Bash with `curl` or equivalent to call the web app endpoint and refresh tokens
 <!-- system:end -->
 
 <!-- personal:start -->

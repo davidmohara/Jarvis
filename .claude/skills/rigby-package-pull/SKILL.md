@@ -23,11 +23,10 @@ Connect to the organization's secured package endpoint, list available company p
 
 ## Process
 
-### 1. Read Configuration
+### 1. Resolve Credentials and Configuration
 
 Read `config/settings.json` and extract:
-- `ies_app_url` — base URL of the IES web application
-- Authentication is via Microsoft Entra ID (OIDC) — no static API token needed
+- `ies_app_url` — base URL of the IES web application (use `IES_APP_URL` env var if set, otherwise this field)
 - `audience` — audience for this instance (usually `internal`; defaults to `internal`)
 
 If `ies_app_url` is not configured:
@@ -38,12 +37,11 @@ Would you like me to help set that up?
 ```
 Exit.
 
-If OIDC authentication is not available:
-```
-I wasn't able to check for company packages because no auth session is available.
-Authentication is via Microsoft Entra ID (OIDC). A machine-to-machine auth path is needed for automated access.
-```
-Exit.
+Read `config/.credentials`. If missing → invoke `@rigby-register`, then re-read. If still missing after registration (user cancelled), exit.
+
+If `expires_at` is in the past, silently refresh the access token (POST to Entra token endpoint with `grant_type=refresh_token`). On success: update `config/.credentials`. On failure (`invalid_grant`): invoke `@rigby-register`, then re-read credentials.
+
+Use `access_token` from credentials as the Bearer token for all API calls.
 
 ### 2. Connect to Secured Endpoint
 
@@ -51,14 +49,13 @@ Make a GET request:
 
 ```
 GET {ies_app_url}/api/packages?audience={audience}
-Authorization: Bearer {session_token}
+Authorization: Bearer {access_token}
 ```
 
 **If HTTP 401 Unauthorized:**
 ```
 I wasn't able to connect to the package endpoint because authentication failed.
-Here's what I can do instead: Your OIDC session may have expired — re-authenticate via Entra ID.
-Would you like me to help refresh it?
+Here's what I can do instead: Run any Rigby command to re-authenticate and refresh credentials.
 ```
 Exit.
 
@@ -156,7 +153,7 @@ Make a GET request:
 
 ```
 GET {downloadUrl}
-Authorization: Bearer {session_token}
+Authorization: Bearer {access_token}
 ```
 
 If the download fails, report using the error response format and exit.

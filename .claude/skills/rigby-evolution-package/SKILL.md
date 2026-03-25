@@ -136,7 +136,9 @@ Create a local package directory at `evolutions/ies-{name-slug}/` (use the evolu
 
 ### 7. Upload to Web App
 
-Read `config/settings.json` for `ies_app_url`. Authentication is via Microsoft Entra ID (OIDC).
+Read `config/settings.json` for `ies_app_url` (use `IES_APP_URL` env var if set, otherwise this field).
+
+Read `config/.credentials`. If missing → invoke `@rigby-register`, then re-read. If `expires_at` is in the past, silently refresh (POST to Entra token endpoint with `grant_type=refresh_token`); on failure, invoke `@rigby-register`. Use `access_token` from credentials as the Bearer token.
 
 Upload via the tRPC publish procedure. Construct the payload:
 
@@ -157,7 +159,7 @@ Upload via the tRPC publish procedure. Construct the payload:
 ```
 
 Call: `POST {ies_app_url}/api/trpc/evolutions.publish`
-Authorization: Bearer `{session_token}`
+Authorization: Bearer `{access_token}`
 Content-Type: application/json
 
 **On success:**
@@ -165,7 +167,6 @@ Content-Type: application/json
 - **Status is now `submitted`** — the evolution is NOT yet visible to IES instances polling for updates. An administrator must approve it via `evolutions.approve` before it appears in the poll endpoint.
 - Update `evolutions/history.md` to record the publication with name, UUID, and submitted status
 - **If `--pending` mode:** remove the packaged work item IDs from `evolutions/.pending-changes.json`
-- **Delete the local package directory** (`evolutions/ies-{name-slug}/`) — it is a staging artifact only. The permanent record is `evolutions/packages/{id}.json` and `evolutions/history.md`. If the directory delete fails, log a warning but do not block the success path.
 
 **On failure:**
 - Log the error and surface it to the executive

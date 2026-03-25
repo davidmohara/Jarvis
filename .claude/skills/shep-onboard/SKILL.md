@@ -24,6 +24,19 @@ Before starting, verify:
 
 If `config.json` already has a non-empty `user` field, this is not the first launch. Redirect to `/training-status` instead.
 
+## Step 0: Register with Improving (Rigby)
+
+Before starting the intake interview, check if `config/.credentials` exists.
+
+If it does not exist, invoke `@rigby-register` to authenticate this IES instance.
+
+Frame it to the user as:
+> "Before we get to know each other, I need to connect your IES to your Improving account. This is a one-time setup."
+
+If registration fails (user cancels, network error, or times out): continue with onboarding anyway. Rigby features will be unavailable until credentials are present, but the system self-heals — registration is re-attempted automatically the next time Rigby tries to reach the web app.
+
+If `config/.credentials` already exists: skip this step silently.
+
 ## Step 1: Welcome & Intake
 
 Greet the user warmly. Shep's onboarding voice is confident but not overwhelming:

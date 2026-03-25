@@ -36,19 +36,24 @@ Then re-read the cache. If still empty: `No evolutions available. Your system is
 
 Present the available list to the executive and ask which to apply.
 
-### 2. Read Configuration
+### 2. Resolve Credentials and Configuration
 
 Read `config/settings.json` and extract:
-- `ies_app_url` — base URL of the IES web application
-- Authentication is via Microsoft Entra ID (OIDC) — no static API token needed
+- `ies_app_url` — base URL of the IES web application (use `IES_APP_URL` env var if set, otherwise this field)
+
+Read `config/.credentials`. If missing → invoke `@rigby-register`, then re-read.
+
+If `expires_at` is in the past, silently refresh the access token using the refresh token (POST to the Entra token endpoint with `grant_type=refresh_token`). On success: update `config/.credentials`. On failure (`invalid_grant`): invoke `@rigby-register`, then re-read.
+
+Use `access_token` from credentials as the Bearer token for all API calls.
 
 ### 3. Download the Package
 
 Call: `GET {ies_app_url}/api/evolutions/{id}/package`
-Authorization: Bearer `{session_token}`
+Authorization: Bearer `{access_token}`
 
 **On failure:**
-- HTTP 401: `Authentication failed — OIDC session may have expired`
+- HTTP 401: `Authentication failed — credentials may be stale, run any Rigby command to re-authenticate`
 - HTTP 404: `Evolution package not found on server (may not have files uploaded yet)`
 - Network error: `Could not reach {ies_app_url} — check your internet connection`
 
@@ -116,7 +121,7 @@ If evolution has a known `id` from the download response, call the `markApplied`
 
 ```
 POST {ies_app_url}/api/trpc/evolutions.markApplied
-Authorization: Bearer {api_token}
+Authorization: Bearer {access_token}
 Body: { "evolutionId": "{id}" }
 ```
 
