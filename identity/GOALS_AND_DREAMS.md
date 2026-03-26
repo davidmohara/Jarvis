@@ -35,7 +35,7 @@
 - Aikido — pursuing Shodan. Teaching 2x/week at the dojo (shared with Declan)
 - Yoga 2x/week — flexibility and mental clarity
 - Sleep: hacked from 5 hours to 10pm-6am target
-- Weight: ~210 lbs maintained consistently
+- Weight: ~235-240 lbs (as of March 2026; target maintained weight was ~210)
 - Origin: December 28, 2011 — "the fateful day." Never looked back. Weekly exercise since June 2012.
 - Family risk: diabetes, Parkinson's, Celiac — monitors closely
 

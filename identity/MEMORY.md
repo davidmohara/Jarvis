@@ -8,6 +8,8 @@
 - **Home**: 1717 Bunkhouse Rd, Frisco, TX 75036
 - **Office**: 5445 Legacy Dr, Suite 100, Plano TX, 75024
 - **Assistant**: Ilse Perez (Teams, text, email — capable, needs direction on prioritization)
+- **Height**: 6'3"
+- **Weight**: ~235-240 lbs (March 2026)
 - **Diet**: Gluten-free (Susie too)
 
 ## Family

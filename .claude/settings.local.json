@@ -2,7 +2,7 @@
   "permissions": {
     "allow": [
       "Bash(*)",
-      "mcp__obsidian-mcp-tools__*",
+      "mcp__obsidian-local__*",
       "mcp__claude_ai_Microsoft_365__*",
       "mcp__claude_ai_Mermaid_Chart__*",
       "WebSearch",

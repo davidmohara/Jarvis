@@ -1,10 +1,23 @@
 # Bio-Optimization Protocol
 
 **Owner**: David O'Hara
-**Last Updated**: 2026-02-28
-**Status**: Active — Phase 1 (Power & Mitochondria)
+**Last Updated**: 2026-03-25
+**Status**: Active — Phase 3 starting March 29 (Metabolic & Fat Loss)
+**Stats**: 6'3", 235-240 lbs
 
 **Origin**: December 28, 2011 — the day David committed to health transformation. Consistent weekly exercise since June 2012 (never stopped). What started as a fitness commitment has evolved over 14 years into a full bio-optimization practice: peptide cycling, hormone management, body composition tracking, 160-biomarker bloodwork, and phased protocols aligned to specific performance goals. This is a personal evolution, not a program — it compounds.
+
+---
+
+## Health Data Location
+
+All health data lives in **Dropbox → Family → Health**:
+- `David - Bloodwork/` — Quest labs by year (2022-2025)
+- `David - DEXA/` — BodySpec DEXA scans (2024-09 through 2026-04)
+- `David - Health Tracking.xlsx` — tracking spreadsheet
+- `FoundMyFitness/` — genome report (v4, Oct 2025)
+- `Function Food/` — meal plans
+- `Peptide Therapy Trevor Davis.docx` — reference doc
 
 ---
 
