@@ -368,6 +368,11 @@ no clear title), so lean more heavily on transcript content analysis for tagging
 - Corrupt or empty transcript files → skip and report
 - Filename collision with Teams note → ask user: merge, rename with (Plaud) suffix, or skip
 - Bearer token expired or missing → run the Chrome login flow (see above), then retry the fetch
+- **Transcription trigger returns `status=-1` or `status=-12` with `start trans task error`** →
+  This almost certainly means **the Plaud account is out of transcription minutes**. Do NOT
+  debug API parameters, inspect `ori_ready`, or write test scripts. Ask David first: "Are you
+  out of Plaud transcription minutes?" If yes, the recordings must wait until minutes are
+  replenished (new billing cycle or plan upgrade). Log the pending recordings and move on.
 - Transcript generation pending → fetch script writes to `plaud_pending.json` instead of a
   markdown file. Next fetch run re-checks pending recordings automatically. If pending > 24h,
   flagged as potentially failed generation in the fetch report.
