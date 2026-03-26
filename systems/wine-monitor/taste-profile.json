@@ -1,0 +1,88 @@
+{
+  "description": "David O'Hara wine taste profile — used by monitor to score and filter flash offers",
+  "min_score_to_alert": 15,
+  "always_alert_score": 25,
+  "max_price": 250,
+
+  "varietals": {
+    "cabernet sauvignon": 10,
+    "pinot noir": 8,
+    "nebbiolo": 7,
+    "red blend": 4,
+    "sangiovese": 6,
+    "syrah": 4,
+    "malbec": 4,
+    "grenache": 3,
+    "zinfandel": 3,
+    "merlot": 2,
+    "chardonnay": 1,
+    "rosé": 0,
+    "sauvignon blanc": 0,
+    "white blend": 0
+  },
+
+  "regions": {
+    "oakville": 10,
+    "yountville": 9,
+    "rutherford": 9,
+    "st. helena": 8,
+    "spring mountain": 8,
+    "howell mountain": 8,
+    "napa valley": 7,
+    "coombsville": 7,
+    "sta. rita hills": 7,
+    "santa rita hills": 7,
+    "burgundy": 8,
+    "willamette": 6,
+    "oregon": 6,
+    "la morra": 8,
+    "barolo": 8,
+    "barbaresco": 7,
+    "piedmont": 7,
+    "panzano": 7,
+    "chianti": 6,
+    "tuscany": 6,
+    "sonoma": 5,
+    "paso robles": 4,
+    "mendocino": 3
+  },
+
+  "score_bonuses": {
+    "93": 3,
+    "95": 6,
+    "97": 10,
+    "99": 14
+  },
+
+  "discount_bonuses": {
+    "50": 2,
+    "60": 4,
+    "70": 7,
+    "80": 10
+  },
+
+  "cult_producers": [
+    "kapcsandy", "kapcsándy", "vineyard 29", "gallica", "meteor",
+    "opus one", "caymus", "far niente", "stag's leap",
+    "silver oak", "joseph phelps", "dominus", "harlan", "bond",
+    "scarecrow", "hundred acre", "colgin", "dalla valle", "dunn",
+    "heitz", "mayacamas", "ridge", "diamond creek", "screaming eagle",
+    "sine qua non", "realm", "promontory", "eisele", "spottswoode",
+    "shafer", "duckhorn", "beringer", "robert mondavi",
+    "voerzio", "giacomo conterno", "bruno giacosa", "gaja",
+    "romanee", "domaine de la romanee", "leroy", "drc",
+    "williams selyem", "kistler", "aubert", "peter michael",
+    "marcassin", "sea smoke", "paul lato", "rhys", "littorai"
+  ],
+
+  "library_vintage_bonus": 5,
+  "library_vintage_min_age": 8,
+
+  "drop_windows": {
+    "pinot_hour":      { "start": "11:00", "end": "12:59", "relevance": "high",   "note": "Pinot Noir focus" },
+    "hour_of_power":   { "start": "13:00", "end": "14:59", "relevance": "highest", "note": "Cult Cab, collectibles, library" },
+    "steals_and_deals":{ "start": "15:00", "end": "16:59", "relevance": "medium",  "note": "Under $30 value plays" },
+    "five_oclock":     { "start": "17:00", "end": "17:59", "relevance": "high",   "note": "International — Barolo, Super Tuscan" },
+    "skeleton_crew":   { "start": "18:00", "end": "23:59", "relevance": "low",    "note": "Late night leftovers" }
+  }
+}
