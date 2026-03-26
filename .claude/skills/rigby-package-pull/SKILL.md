@@ -23,10 +23,10 @@ Connect to the organization's secured package endpoint, list available company p
 
 ## Process
 
-### 1. Resolve Credentials and Configuration
+### 1. Read Configuration and Authenticate
 
 Read `config/settings.json` and extract:
-- `ies_app_url` — base URL of the IES web application (use `IES_APP_URL` env var if set, otherwise this field)
+- `ies_app_url` — base URL of the IES web application
 - `audience` — audience for this instance (usually `internal`; defaults to `internal`)
 
 If `ies_app_url` is not configured:
@@ -37,11 +37,14 @@ Would you like me to help set that up?
 ```
 Exit.
 
-Read `config/.credentials`. If missing → invoke `@rigby-register`, then re-read. If still missing after registration (user cancelled), exit.
+**Authenticate:** Read and follow `systems/auth/preamble.md` to obtain a valid access token. Use the resolved `ACCESS_TOKEN` for all API calls in this skill.
 
-If `expires_at` is in the past, silently refresh the access token (POST to Entra token endpoint with `grant_type=refresh_token`). On success: update `config/.credentials`. On failure (`invalid_grant`): invoke `@rigby-register`, then re-read credentials.
-
-Use `access_token` from credentials as the Bearer token for all API calls.
+If credentials are missing and registration fails or is declined:
+```
+I wasn't able to check for company packages because authentication failed.
+Would you like me to try connecting your Improving account again?
+```
+Exit.
 
 ### 2. Connect to Secured Endpoint
 
@@ -49,13 +52,13 @@ Make a GET request:
 
 ```
 GET {ies_app_url}/api/packages?audience={audience}
-Authorization: Bearer {access_token}
+Authorization: Bearer {ACCESS_TOKEN}
 ```
 
 **If HTTP 401 Unauthorized:**
+Follow self-healing in `systems/auth/preamble.md` Step D — invoke `rigby-register` with `--context self-healing`, get a fresh token, and retry the request once. If the retry also returns 401:
 ```
-I wasn't able to connect to the package endpoint because authentication failed.
-Here's what I can do instead: Run any Rigby command to re-authenticate and refresh credentials.
+Authentication failed even after re-registration. The server may not support bearer tokens yet.
 ```
 Exit.
 
@@ -153,7 +156,7 @@ Make a GET request:
 
 ```
 GET {downloadUrl}
-Authorization: Bearer {access_token}
+Authorization: Bearer {ACCESS_TOKEN}
 ```
 
 If the download fails, report using the error response format and exit.

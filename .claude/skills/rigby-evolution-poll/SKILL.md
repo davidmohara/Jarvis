@@ -16,33 +16,17 @@ Check the IES web app for available evolution updates. This runs non-blocking at
 
 ## Process
 
-### 1. Resolve Credentials and Configuration
+### 1. Read Configuration and Authenticate
 
 Read `config/settings.json` and extract:
-- `ies_app_url` — base URL of the IES web application (use `IES_APP_URL` env var if set, otherwise this field)
+- `ies_app_url` — base URL of the IES web application
 - `audience` — evolution audience for this instance (usually `internal`; defaults to `internal`)
 
 If `ies_app_url` is not configured: log `[evolution-poll] ies_app_url not configured — skipping poll` and exit silently.
 
-Read `config/.credentials`.
+**Authenticate:** Read and follow `systems/auth/preamble.md` to obtain a valid access token. Use the resolved `ACCESS_TOKEN` for all API calls in this skill.
 
-If `config/.credentials` is missing → invoke `@rigby-register`, then re-read. If still missing after registration (user cancelled), log `[evolution-poll] No credentials — skipping poll` and exit silently.
-
-If `expires_at` in credentials is in the past, silently refresh:
-
-```bash
-REFRESH_RESPONSE=$(curl -s -X POST \
-  "https://login.microsoftonline.com/f2267c2e-5a54-49f4-84fa-e4f2f4038a2e/oauth2/v2.0/token" \
-  -d "client_id=e0b97261-d1bb-4284-8987-cdbc74da2ef0" \
-  -d "refresh_token=${REFRESH_TOKEN}" \
-  -d "grant_type=refresh_token" \
-  -d "scope=api://e0b97261-d1bb-4284-8987-cdbc74da2ef0/Rigby.Access offline_access openid profile email")
-```
-
-On success: update `config/.credentials` with new `access_token`, `refresh_token`, and `expires_at`.
-On failure (`invalid_grant` or error): invoke `@rigby-register`, then re-read credentials.
-
-Use `access_token` from credentials as the Bearer token for all API calls.
+If credentials are missing and registration fails or is declined: log `[evolution-poll] No auth session available — skipping poll` and exit silently. Do NOT interrupt boot for auth failures.
 
 ### 2. Check Poll Cache
 
@@ -78,7 +62,7 @@ Make a GET request:
 
 ```
 GET {ies_app_url}/api/evolutions?audience={audience}
-Authorization: Bearer {access_token}
+Authorization: Bearer {ACCESS_TOKEN}
 ```
 
 **If the request fails for any reason** (timeout, DNS failure, HTTP error, no internet):
@@ -87,8 +71,8 @@ Authorization: Bearer {access_token}
 - Exit silently — do NOT surface error to executive
 
 **If HTTP 401 Unauthorized:**
-- Log: `[evolution-poll] Auth token rejected — credentials may be stale, will retry on next poll`
-- Write empty cache and exit silently
+- The token may have been revoked server-side. Follow the self-healing path in `systems/auth/preamble.md` Step D: invoke `rigby-register` with `--context self-healing`, get a fresh token, and retry the request once.
+- If the retry also returns 401: log `[evolution-poll] Auth rejected after re-registration — server may not support bearer tokens yet` and write empty cache. Exit silently.
 
 **If HTTP 200:**
 - Parse response JSON
@@ -118,9 +102,9 @@ Do NOT notify the executive here — that is handled by the evolution-notify ski
 <!-- system:start -->
 ## Tool Bindings
 
-- **Config**: Read `config/settings.json`, Read/Write `config/.credentials`
+- **Config**: Read `config/settings.json`
 - **Cache**: Read/Write `evolutions/.poll-cache.json`
-- **HTTP**: Use Bash with `curl` or equivalent to call the web app endpoint and refresh tokens
+- **HTTP**: Use Bash with `curl` or equivalent to call the web app endpoint
 <!-- system:end -->
 
 <!-- personal:start -->
