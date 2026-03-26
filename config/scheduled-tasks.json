@@ -39,6 +39,19 @@
       "agent": "Quinn",
       "description": "Sunday morning weekly review prep — rocks, OmniFocus health, delegations, relationship warmth, system error analysis, commitment gap detection across all sources, and pattern analysis. Delivered at 8am before the week begins.",
       "cowork_prompt": "Run the quinn-weekly-review skill to prepare the weekly review document. Pull quarterly rock status, OmniFocus health, delegation review, calendar analysis, email signals, relationship warmth via Clay, system error analysis, and run the commitment gap detection step across all available sources (Teams transcripts, Teams chat, email, Plaud transcripts in Obsidian, OmniFocus). Scan previous weekly review files for recurring gap patterns. Write the full output to reviews/weekly-review-prep-{date}.md."
+    },
+    {
+      "id": "wine-monitor-power",
+      "name": "Wine Monitor — Hour of Power",
+      "skill": "chase-wine-monitor",
+      "cron": "0 13 * * *",
+      "schedule_display": "Daily at 1:00 PM CT",
+      "keep_awake": false,
+      "configured": false,
+      "agent": "Chase",
+      "description": "Last Bottle Wine Monitor — starts daemon at the Hour of Power (highest priority window for cult Napa Cab, collectibles, library vintages). Polls every 2-3 minutes through remaining drop windows and alerts via Slack DM when a match is found.",
+      "cowork_prompt": "Run: python3 /home/user/Jarvis/systems/wine-monitor/monitor.py --daemon. This starts the Last Bottle wine monitor in daemon mode. It will poll lastbottlewines.com every 2-10 minutes depending on the active drop window and send Slack DM alerts when wines matching David's taste profile appear. Let it run — it auto-adjusts polling frequency and stops at midnight.",
+      "setup_note": "Daemon runs from 1 PM through midnight. For earlier coverage (11 AM Pinot Hour), add a second scheduled task at 10:55 AM or install system cron via: bash /home/user/Jarvis/systems/wine-monitor/install.sh"
     }
   ]
 }
