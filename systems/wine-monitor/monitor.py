@@ -116,26 +116,6 @@ def fetch_active_offer() -> dict | None:
     return None
 
 
-def fetch_product_description(handle: str) -> str:
-    """Fetch the full product description from the product page.
-
-    The homepage embed often has description=null, so we fetch the product
-    page for the full body_html with tasting notes and scores.
-    """
-    url = f"{SITE_URL}/products/{handle}.json"
-    req = urllib.request.Request(url, headers={
-        "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36",
-        "Accept": "application/json",
-    })
-    try:
-        resp = urllib.request.urlopen(req, timeout=15)
-        data = json.loads(resp.read().decode())
-        product = data.get("product", {})
-        return product.get("body_html", "") or ""
-    except Exception as e:
-        log(f"WARNING: Could not fetch description for {handle}: {e}")
-        return ""
-
 
 def strip_html(text: str) -> str:
     """Remove HTML tags and decode entities."""
@@ -206,10 +186,13 @@ def extract_varietal(title: str, wine_type: str = "", tags: list = None) -> str:
     return "unknown"
 
 
-def score_wine(product: dict, body_html: str, profile: dict) -> dict:
-    """Score a wine product against the taste profile. Returns scoring breakdown."""
+def score_wine(product: dict, profile: dict) -> dict:
+    """Score a wine product against the taste profile. Returns scoring breakdown.
+
+    Scoring uses title, type, tags, price, and discount only — the homepage
+    embed has no description/tasting notes (those are JS-rendered).
+    """
     title = product.get("title", "")
-    body = strip_html(body_html)
     title_lower = title.lower()
     wine_type = product.get("type", "")
     tags = product.get("tags", [])
@@ -256,8 +239,9 @@ def score_wine(product: dict, body_html: str, profile: dict) -> dict:
         score += best_region_score
         reasons.append(f"Region ({best_region}): +{best_region_score}")
 
-    # 3. Critic score
-    wine_score = extract_score(body) or extract_score(title)
+    # 3. Critic score — not available from homepage embed (JS-rendered)
+    wine_score = extract_score(title)  # rare, but sometimes in title
+
     if wine_score:
         for threshold_str in sorted(profile.get("score_bonuses", {}).keys(), key=int, reverse=True):
             if wine_score >= int(threshold_str):
@@ -276,10 +260,9 @@ def score_wine(product: dict, body_html: str, profile: dict) -> dict:
                 reasons.append(f"Discount ({discount_pct}% off): +{bonus}")
                 break
 
-    # 5. Cult producer — check title and body
-    combined_text = f"{title_lower} {body.lower()}"
+    # 5. Cult producer — title only (no description available)
     for producer in profile.get("cult_producers", []):
-        if producer.lower() in combined_text:
+        if producer.lower() in title_lower:
             score += 8
             reasons.append(f"Cult producer ({producer}): +8")
             break
@@ -403,13 +386,7 @@ def run_poll(profile: dict, seen: dict, dry_run: bool = False) -> dict:
         log(f"Already alerted: {title}")
         return seen
 
-    # Fetch full description (homepage embed often has description=null)
-    handle = product.get("handle", "")
-    body_html = ""
-    if handle:
-        body_html = fetch_product_description(handle)
-
-    result = score_wine(product, body_html, profile)
+    result = score_wine(product, profile)
 
     min_score = profile.get("min_score_to_alert", 15)
     max_price = profile.get("max_price", 250)

@@ -1,7 +1,7 @@
 {
   "description": "David O'Hara wine taste profile — used by monitor to score and filter flash offers",
-  "min_score_to_alert": 15,
-  "always_alert_score": 25,
+  "min_score_to_alert": 12,
+  "always_alert_score": 20,
   "max_price": 250,
 
   "varietals": {
