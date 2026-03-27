@@ -13,12 +13,14 @@
       "agent": "jarvis",
       "category": "routing-error",
       "description": "Card optimization question ('which card for golf?') was handled directly by Jarvis instead of being routed through Chase, who owns the credit card system and Card Optimizer task.",
-      "correction": "All card selection questions must be routed through Chase's Card Optimizer logic — read optimization-guide.json, benefits-tracker.json, and apply Chase's full decision framework. No eyeballing.",
+      "correction": "All card selection questions must be routed through Chase's Card Optimizer logic \u2014 read optimization-guide.json, benefits-tracker.json, and apply Chase's full decision framework. No eyeballing.",
       "failure_mode": "protocol-skip",
       "systemic_fix": "Jarvis must route any 'which card' or purchase-related question to Chase's Card Optimizer task portfolio entry before responding. No direct reads of credit card files without Chase's framework.",
       "fix_status": "applied",
       "severity": "moderate",
-      "related_entries": ["err-20260321-002"]
+      "related_entries": [
+        "err-20260321-002"
+      ]
     },
     {
       "id": "err-20260321-002",
@@ -28,12 +30,14 @@
       "agent": "jarvis",
       "category": "process-skip",
       "description": "When David explicitly corrected the routing error (err-20260321-001), Jarvis acknowledged verbally but did not automatically log the correction to error-log.json. The executive had to ask 'verify that got recorded' before logging occurred.",
-      "correction": "Any explicit correction from the executive must be logged to error-log.json immediately and transparently — no prompting required. Acknowledge the correction AND write the log entry in the same response.",
+      "correction": "Any explicit correction from the executive must be logged to error-log.json immediately and transparently \u2014 no prompting required. Acknowledge the correction AND write the log entry in the same response.",
       "failure_mode": "protocol-skip",
       "systemic_fix": "Whenever the executive corrects Jarvis or any agent behavior, the very next response must include a write to error-log.json. This is non-negotiable and should not require a second prompt.",
       "fix_status": "applied",
       "severity": "moderate",
-      "related_entries": ["err-20260321-001"]
+      "related_entries": [
+        "err-20260321-001"
+      ]
     },
     {
       "id": "err-20260321-003",
@@ -45,10 +49,13 @@
       "description": "Evolution package updates (CLAUDE.md error logging section, AUTOMATION.md correction logging, conventions.md explicit corrections protocol, and evolution manifest sync) were handled directly by Jarvis instead of being routed through Rigby, who owns system evolution, package integrity, and deployment.",
       "correction": "All evolution package changes must be routed through Rigby per the evolution-deployment workflow. Rigby validates, snapshots, merges, verifies, and logs.",
       "failure_mode": "protocol-skip",
-      "systemic_fix": "Any time David asks to update an evolution package or make systemic changes to the IES platform, route through Rigby. Jarvis coordinates — Rigby executes system changes.",
+      "systemic_fix": "Any time David asks to update an evolution package or make systemic changes to the IES platform, route through Rigby. Jarvis coordinates \u2014 Rigby executes system changes.",
       "fix_status": "proposed",
       "severity": "moderate",
-      "related_entries": ["err-20260321-001", "err-20260321-002"]
+      "related_entries": [
+        "err-20260321-001",
+        "err-20260321-002"
+      ]
     },
     {
       "id": "err-20260321-004",
@@ -57,13 +64,15 @@
       "source": "explicit",
       "agent": "jarvis",
       "category": "routing-error",
-      "description": "After Rigby's review identified gaps in the evolution package, Jarvis asked David for permission to have Rigby execute fixes instead of just routing the work. Jarvis coordinates and delegates — David shouldn't be asked to approve internal agent routing decisions.",
+      "description": "After Rigby's review identified gaps in the evolution package, Jarvis asked David for permission to have Rigby execute fixes instead of just routing the work. Jarvis coordinates and delegates \u2014 David shouldn't be asked to approve internal agent routing decisions.",
       "correction": "When an agent review surfaces required fixes, Jarvis routes the fix work to the owning agent immediately. No asking the executive to approve internal delegation.",
       "failure_mode": "wrong-assumption",
       "systemic_fix": "Jarvis must distinguish between decisions requiring executive approval (external comms, commitments, deletions) and internal agent routing (which is Jarvis's job). Agent task delegation is never escalated to David.",
       "fix_status": "applied",
       "severity": "minor",
-      "related_entries": ["err-20260321-003"]
+      "related_entries": [
+        "err-20260321-003"
+      ]
     },
     {
       "id": "err-20260323-001",
@@ -90,10 +99,13 @@
       "description": "Jarvis pushed a PDF to reMarkable directly via rmapi instead of routing through Knox, who owns the remarkable-upload skill. Knox has explicit task portfolio entries for both remarkable-sync and remarkable-upload.",
       "correction": "All reMarkable interactions (upload and sync) must route through Knox. Jarvis coordinates; Knox executes device operations.",
       "failure_mode": "protocol-skip",
-      "systemic_fix": "Any 'push to reMarkable' or 'pull from reMarkable' request routes to Knox. Same pattern as err-20260321-003 — Jarvis must not execute agent-owned skills directly.",
+      "systemic_fix": "Any 'push to reMarkable' or 'pull from reMarkable' request routes to Knox. Same pattern as err-20260321-003 \u2014 Jarvis must not execute agent-owned skills directly.",
       "fix_status": "applied",
       "severity": "minor",
-      "related_entries": ["err-20260321-001", "err-20260321-003"]
+      "related_entries": [
+        "err-20260321-001",
+        "err-20260321-003"
+      ]
     },
     {
       "id": "err-20260323-005",
@@ -102,7 +114,7 @@
       "source": "explicit",
       "agent": "jarvis",
       "category": "over-engineering",
-      "description": "Proposed building a local speaker-aliases.json file to map Plaud speaker labels to real names. Plaud already has built-in speaker identification — adding speakers to Plaud's system updates transcripts automatically. Jarvis reinvented a wheel that already exists upstream.",
+      "description": "Proposed building a local speaker-aliases.json file to map Plaud speaker labels to real names. Plaud already has built-in speaker identification \u2014 adding speakers to Plaud's system updates transcripts automatically. Jarvis reinvented a wheel that already exists upstream.",
       "correction": "Speaker tagging should be done in Plaud's own system, not maintained locally. The skill should focus on getting speakers registered in Plaud so transcripts arrive pre-tagged.",
       "failure_mode": "wrong-assumption",
       "systemic_fix": "Before proposing local solutions for third-party tool gaps, check whether the tool already solves it. Prefer upstream fixes over local workarounds.",
@@ -118,9 +130,9 @@
       "agent": "rigby",
       "category": "format-violation",
       "description": "Rigby surfaced scheduled task format using raw cron expressions, multi-line descriptions with excessive label padding. David asked for plain-English timing, not implementation details. Output was formatted for a sysadmin, not an executive.",
-      "correction": "When presenting scheduling proposals, use plain English timing (e.g., 'Weekdays at 6:00 AM') not cron syntax. Keep descriptions single-line. Don't pad label:value pairs with extra spaces. Better yet — just create the tasks directly instead of previewing config format.",
+      "correction": "When presenting scheduling proposals, use plain English timing (e.g., 'Weekdays at 6:00 AM') not cron syntax. Keep descriptions single-line. Don't pad label:value pairs with extra spaces. Better yet \u2014 just create the tasks directly instead of previewing config format.",
       "failure_mode": "wrong-assumption",
-      "systemic_fix": "All agent output to David should be executive-grade, not technical. If a tool can be invoked directly, invoke it — don't show the configuration schema as a preview.",
+      "systemic_fix": "All agent output to David should be executive-grade, not technical. If a tool can be invoked directly, invoke it \u2014 don't show the configuration schema as a preview.",
       "fix_status": "applied",
       "severity": "minor",
       "related_entries": []
@@ -132,13 +144,33 @@
       "source": "explicit",
       "agent": "jarvis",
       "category": "routing-error",
-      "description": "Jarvis single-threaded the entire Rogers-O'Brien prep workflow — research, content writing, PDF generation, and reMarkable upload — instead of dispatching to agents in parallel. Harper should have built the prep sheet, Knox should have pushed to reMarkable. PDF generation via improving-pdf is shared infrastructure any agent can call. Jarvis doing agent work blocks multi-threading and defeats the purpose of the agent system.",
-      "correction": "Three rules established: (1) improving-pdf is shared infrastructure — any agent producing a deliverable calls it. (2) Jarvis coordinates, agents execute — if an agent owns the work, route it; prefer parallel dispatch. (3) When Jarvis does work directly because no agent owns it, flag it for Quinn's weekly review as a candidate for agent assignment or capability build.",
+      "description": "Jarvis single-threaded the entire Rogers-O'Brien prep workflow \u2014 research, content writing, PDF generation, and reMarkable upload \u2014 instead of dispatching to agents in parallel. Harper should have built the prep sheet, Knox should have pushed to reMarkable. PDF generation via improving-pdf is shared infrastructure any agent can call. Jarvis doing agent work blocks multi-threading and defeats the purpose of the agent system.",
+      "correction": "Three rules established: (1) improving-pdf is shared infrastructure \u2014 any agent producing a deliverable calls it. (2) Jarvis coordinates, agents execute \u2014 if an agent owns the work, route it; prefer parallel dispatch. (3) When Jarvis does work directly because no agent owns it, flag it for Quinn's weekly review as a candidate for agent assignment or capability build.",
       "failure_mode": "protocol-skip",
       "systemic_fix": "Jarvis must dispatch to agents in parallel whenever possible. Single-threading agent-owned work through Jarvis is a routing error. When no agent owns a task, Jarvis executes but logs it as a gap for Quinn to review.",
       "fix_status": "applied",
       "severity": "moderate",
-      "related_entries": ["err-20260321-001", "err-20260321-003", "err-20260322-001", "err-20260323-002"]
+      "related_entries": [
+        "err-20260321-001",
+        "err-20260321-003",
+        "err-20260322-001",
+        "err-20260323-002"
+      ]
+    },
+    {
+      "id": "err-20260326-007",
+      "timestamp": "2026-03-26T23:45:33.686363",
+      "session": "2026-03-26",
+      "source": "self-detected",
+      "agent": "jarvis",
+      "category": "under-delivery",
+      "description": "Missed David buy reply on Tempus Fugit Cab Sauv Napa 2024 (score 24). Alert sent at 23:34, reply \"Buy 10\" came in while polling continued without checking Slack. Wine flipped before purchase could be executed.",
+      "correction": "Should check Slack replies more frequently after high-score alerts (20+), ideally every 20-30 seconds instead of waiting for the next poll cycle.",
+      "failure_mode": "protocol-skip",
+      "systemic_fix": "For always_alert_score (20+) wines, check Slack replies every 20-30 seconds for 3-5 minutes after sending alert, before resuming normal poll cadence.",
+      "fix_status": "proposed",
+      "severity": "moderate",
+      "related_entries": []
     }
   ],
   "patterns": {
@@ -159,7 +191,9 @@
       "systemic_fix": "Updated trigger_transcription() in fetch_plaud.py to perform both steps. Added status check on the POST response to confirm Plaud accepted the job (status=0, msg='task processing').",
       "fix_status": "applied",
       "severity": "moderate",
-      "related_entries": ["err-20260323-005"]
+      "related_entries": [
+        "err-20260323-005"
+      ]
     },
     {
       "id": "err-20260323-007",
@@ -168,13 +202,17 @@
       "source": "explicit",
       "agent": "jarvis",
       "category": "routing-error",
-      "description": "When David asked to 'review the plaud evolution that's pending and update it with everything we did here', Jarvis executed the evolution audit and doc updates directly instead of routing through Rigby, who owns evolution packaging, capability builds, and system documentation. This is the same pattern as err-20260321-003 and err-20260322-001 — Jarvis keeps doing Rigby's work.",
+      "description": "When David asked to 'review the plaud evolution that's pending and update it with everything we did here', Jarvis executed the evolution audit and doc updates directly instead of routing through Rigby, who owns evolution packaging, capability builds, and system documentation. This is the same pattern as err-20260321-003 and err-20260322-001 \u2014 Jarvis keeps doing Rigby's work.",
       "correction": "Evolution audits, skill doc updates, and capability reviews must be routed through Rigby. Jarvis coordinates and delegates; Rigby executes system changes and tracks them for evolution packaging.",
       "failure_mode": "protocol-skip",
-      "systemic_fix": "This is the third occurrence of this pattern. Jarvis must treat any request involving skill updates, evolution reviews, or system documentation changes as a Rigby routing trigger — no exceptions.",
+      "systemic_fix": "This is the third occurrence of this pattern. Jarvis must treat any request involving skill updates, evolution reviews, or system documentation changes as a Rigby routing trigger \u2014 no exceptions.",
       "fix_status": "proposed",
       "severity": "moderate",
-      "related_entries": ["err-20260321-003", "err-20260322-001", "err-20260323-003"]
+      "related_entries": [
+        "err-20260321-003",
+        "err-20260322-001",
+        "err-20260323-003"
+      ]
     },
     {
       "id": "err-20260322-001",
@@ -183,13 +221,15 @@
       "source": "explicit",
       "agent": "jarvis",
       "category": "routing-error",
-      "description": "Jarvis built new IES capabilities directly — new workflow steps (step-auto.md), vault conventions files, scheduled-tasks.json, and modifications to morning-briefing, daily-review, and quinn-weekly-review — without involving Rigby or routing through the capability-build workflow. Changes were not tracked for evolution packaging.",
+      "description": "Jarvis built new IES capabilities directly \u2014 new workflow steps (step-auto.md), vault conventions files, scheduled-tasks.json, and modifications to morning-briefing, daily-review, and quinn-weekly-review \u2014 without involving Rigby or routing through the capability-build workflow. Changes were not tracked for evolution packaging.",
       "correction": "All new capability builds (new files, workflow modifications, skill updates, config creation) must route through Rigby's capability-build workflow so changes are tracked, follow system conventions, and are packageable as evolutions.",
       "failure_mode": "protocol-skip",
-      "systemic_fix": "Same fix as err-20260321-003 — which was logged as 'proposed' but clearly not applied. Rigby must be invoked for any capability build. Jarvis coordinates; Rigby executes and tracks system changes.",
+      "systemic_fix": "Same fix as err-20260321-003 \u2014 which was logged as 'proposed' but clearly not applied. Rigby must be invoked for any capability build. Jarvis coordinates; Rigby executes and tracks system changes.",
       "fix_status": "proposed",
       "severity": "moderate",
-      "related_entries": ["err-20260321-003"]
+      "related_entries": [
+        "err-20260321-003"
+      ]
     },
     {
       "id": "err-20260323-008",
@@ -198,13 +238,15 @@
       "source": "explicit",
       "agent": "rigby",
       "category": "wrong-assumption",
-      "description": "Rigby's stale file audit flagged .fuse_hidden* (14 files) and .DS_Store (5 files) as stale artifacts to delete. These are macOS system files that belong where they are — not stale, not actionable. Audit produced a false-positive cleanup list of 19 files, none of which should be touched.",
+      "description": "Rigby's stale file audit flagged .fuse_hidden* (14 files) and .DS_Store (5 files) as stale artifacts to delete. These are macOS system files that belong where they are \u2014 not stale, not actionable. Audit produced a false-positive cleanup list of 19 files, none of which should be touched.",
       "correction": ".fuse_hidden* and .DS_Store are system-managed files. They should not be flagged in stale file audits. Audits should focus on files the IES system created or manages, not OS-level artifacts.",
       "failure_mode": "wrong-assumption",
       "systemic_fix": "Root/stale audits must exclude OS-managed files (.DS_Store, .fuse_hidden*, .Spotlight-V100, .Trashes, etc.) from findings. Only flag files that IES agents or workflows created.",
       "fix_status": "applied",
       "severity": "minor",
-      "related_entries": ["err-20260323-004"]
+      "related_entries": [
+        "err-20260323-004"
+      ]
     },
     {
       "id": "err-20260323-009",
@@ -213,13 +255,15 @@
       "source": "explicit",
       "agent": "rigby",
       "category": "wrong-assumption",
-      "description": "Rigby's stale file audit proposed deleting all 15 PDFs in meetings/ without checking which ones have corresponding .md source files. Only PDFs with a matching .md (generated artifacts) are deletable — standalone PDFs without a source markdown are deliverables that must stay. SYSTEM.md Section 2 says deliverables belong next to their source markdown — the .md is the source of truth, the PDF is the build artifact.",
+      "description": "Rigby's stale file audit proposed deleting all 15 PDFs in meetings/ without checking which ones have corresponding .md source files. Only PDFs with a matching .md (generated artifacts) are deletable \u2014 standalone PDFs without a source markdown are deliverables that must stay. SYSTEM.md Section 2 says deliverables belong next to their source markdown \u2014 the .md is the source of truth, the PDF is the build artifact.",
       "correction": "Stale file audits must cross-reference PDFs against their source .md files. Only delete PDFs that have a corresponding markdown source. Standalone PDFs are deliverables, not temp artifacts.",
       "failure_mode": "lazy-search",
-      "systemic_fix": "When auditing meetings/ for deletable PDFs: for each PDF, check if a .md file with the same base name exists. If yes → generated artifact, deletable. If no → standalone deliverable, keep.",
+      "systemic_fix": "When auditing meetings/ for deletable PDFs: for each PDF, check if a .md file with the same base name exists. If yes \u2192 generated artifact, deletable. If no \u2192 standalone deliverable, keep.",
       "fix_status": "applied",
       "severity": "minor",
-      "related_entries": ["err-20260323-008"]
+      "related_entries": [
+        "err-20260323-008"
+      ]
     },
     {
       "id": "err-20260324-001",
@@ -244,12 +288,16 @@
       "agent": "jarvis",
       "category": "routing-error",
       "description": "After Rigby's audit returned, Jarvis took over presenting results and proposing bulk deletions instead of routing the corrected criteria back through Rigby for proper execution.",
-      "correction": "Rigby owns stale file audits end-to-end — discovery, analysis, proposal, and execution. Jarvis relays, not re-interprets or extends.",
+      "correction": "Rigby owns stale file audits end-to-end \u2014 discovery, analysis, proposal, and execution. Jarvis relays, not re-interprets or extends.",
       "failure_mode": "protocol-skip",
       "systemic_fix": "When Rigby's audit returns with errors, send corrections back to Rigby and let her re-run. Don't take over the audit.",
       "fix_status": "applied",
       "severity": "minor",
-      "related_entries": ["err-20260321-003", "err-20260322-001", "err-20260323-007"]
+      "related_entries": [
+        "err-20260321-003",
+        "err-20260322-001",
+        "err-20260323-007"
+      ]
     },
     {
       "id": "err-20260324-002",
@@ -261,10 +309,12 @@
       "description": "Morning briefing Slack DM was sent as David (U0ANHV5UXEW) via the Slack MCP connector, not as the Jarvis bot. The scheduled task instruction specified 'Send the output to me as a DM in Slack via Jarvis bot.' The Slack MCP is authenticated as David's user account, so all messages appear from David. No Jarvis bot user exists in the workspace.",
       "correction": "Briefings must be sent as the Jarvis bot identity, not as David messaging himself. A Slack bot app needs to be created and its token made available to Jarvis for bot-identity sends.",
       "failure_mode": "tool-ignorance",
-      "systemic_fix": "A Jarvis Slack bot app needs to be created in the Improving workspace. Until then, Jarvis cannot send DMs as a bot — only as David. Flag this as a capability gap for Rigby to resolve. In the interim, consider alternative delivery (iMessage, Obsidian daily note, or noting the limitation when delivering via Slack).",
+      "systemic_fix": "A Jarvis Slack bot app needs to be created in the Improving workspace. Until then, Jarvis cannot send DMs as a bot \u2014 only as David. Flag this as a capability gap for Rigby to resolve. In the interim, consider alternative delivery (iMessage, Obsidian daily note, or noting the limitation when delivering via Slack).",
       "fix_status": "proposed",
       "severity": "moderate",
-      "related_entries": ["err-20260324-001"]
+      "related_entries": [
+        "err-20260324-001"
+      ]
     },
     {
       "id": "err-20260324-003",
@@ -273,13 +323,15 @@
       "source": "explicit",
       "agent": "jarvis",
       "category": "format-violation",
-      "description": "Pushed PDFs to reMarkable with filenames like '2026-03-24-yall-street-brief' and 'Yall-Street-Brief' instead of simple, clean names like the event or person name. reMarkable document names should be human-readable — no dashes, no date prefixes, just the event/person/company name.",
+      "description": "Pushed PDFs to reMarkable with filenames like '2026-03-24-yall-street-brief' and 'Yall-Street-Brief' instead of simple, clean names like the event or person name. reMarkable document names should be human-readable \u2014 no dashes, no date prefixes, just the event/person/company name.",
       "correction": "reMarkable uploads must use clean, simple names: event name, person name, or company name. No dashes, no date prefixes, no kebab-case filenames.",
       "failure_mode": "wrong-assumption",
-      "systemic_fix": "Update remarkable-upload mental model: document names on the tablet should read like a label you'd write on a folder — 'Texas Tribune Yall Street', 'YPO Tech Dine Around'. Strip dates and dashes. Match how David would scan for it on the tablet screen.",
+      "systemic_fix": "Update remarkable-upload mental model: document names on the tablet should read like a label you'd write on a folder \u2014 'Texas Tribune Yall Street', 'YPO Tech Dine Around'. Strip dates and dashes. Match how David would scan for it on the tablet screen.",
       "fix_status": "in-progress",
       "severity": "minor",
-      "related_entries": ["err-20260323-002"]
+      "related_entries": [
+        "err-20260323-002"
+      ]
     },
     {
       "id": "err-20260324-004",
@@ -289,12 +341,16 @@
       "agent": "jarvis",
       "category": "routing-error",
       "description": "Jarvis built both meeting prep sheet PDFs and pushed them to reMarkable directly instead of dispatching Harper (prep sheets) and Knox (reMarkable upload) in parallel. Same single-threading pattern as err-20260323-003.",
-      "correction": "Harper owns meeting prep content. Knox owns reMarkable uploads. Jarvis coordinates and dispatches in parallel — does not execute agent-owned work.",
+      "correction": "Harper owns meeting prep content. Knox owns reMarkable uploads. Jarvis coordinates and dispatches in parallel \u2014 does not execute agent-owned work.",
       "failure_mode": "protocol-skip",
-      "systemic_fix": "This is the fourth occurrence of Jarvis single-threading agent-owned work. Any meeting prep → Harper. Any reMarkable push → Knox. Any PDF generation is shared infrastructure callable by any agent. Dispatch in parallel.",
+      "systemic_fix": "This is the fourth occurrence of Jarvis single-threading agent-owned work. Any meeting prep \u2192 Harper. Any reMarkable push \u2192 Knox. Any PDF generation is shared infrastructure callable by any agent. Dispatch in parallel.",
       "fix_status": "proposed",
       "severity": "moderate",
-      "related_entries": ["err-20260323-003", "err-20260323-002", "err-20260321-003"]
+      "related_entries": [
+        "err-20260323-003",
+        "err-20260323-002",
+        "err-20260321-003"
+      ]
     },
     {
       "id": "err-20260324-005",
@@ -303,13 +359,18 @@
       "source": "explicit",
       "agent": "jarvis",
       "category": "routing-error",
-      "description": "Jarvis pulled SharePoint content, wrote the markdown prep sheet, built the PDF with reportlab, and iterated on revisions — all directly — instead of dispatching Harper (meeting prep from source materials) and Knox (PDF delivery). Fifth occurrence of this pattern.",
-      "correction": "Harper owns meeting/event prep content assembly from source materials. Knox owns PDF build and device delivery. Jarvis coordinates and dispatches — does not execute.",
+      "description": "Jarvis pulled SharePoint content, wrote the markdown prep sheet, built the PDF with reportlab, and iterated on revisions \u2014 all directly \u2014 instead of dispatching Harper (meeting prep from source materials) and Knox (PDF delivery). Fifth occurrence of this pattern.",
+      "correction": "Harper owns meeting/event prep content assembly from source materials. Knox owns PDF build and device delivery. Jarvis coordinates and dispatches \u2014 does not execute.",
       "failure_mode": "protocol-skip",
       "systemic_fix": "Fifth occurrence. The pattern is now chronic. Jarvis must treat ANY prep sheet or brief request as an immediate Harper dispatch. SharePoint content pull can be done by Jarvis as coordination (gathering inputs), but content assembly, PDF generation, and delivery are agent-owned work.",
       "fix_status": "proposed",
       "severity": "high",
-      "related_entries": ["err-20260324-004", "err-20260323-003", "err-20260323-002", "err-20260321-003"]
+      "related_entries": [
+        "err-20260324-004",
+        "err-20260323-003",
+        "err-20260323-002",
+        "err-20260321-003"
+      ]
     },
     {
       "id": "err-20260324-006",
@@ -318,13 +379,18 @@
       "source": "explicit",
       "agent": "jarvis",
       "category": "routing-error",
-      "description": "Jarvis directly pulled Rigby skill templates from the web app repo into the IES agent system — reading template files, writing skill SKILL.md files, and managing the template sync. This is system evolution work: skill updates, capability builds, and template management are all Rigby's domain.",
+      "description": "Jarvis directly pulled Rigby skill templates from the web app repo into the IES agent system \u2014 reading template files, writing skill SKILL.md files, and managing the template sync. This is system evolution work: skill updates, capability builds, and template management are all Rigby's domain.",
       "correction": "Pulling updated skill templates from the web app repo into the IES is Rigby's work. Jarvis coordinates (identifies that new templates exist, tells Rigby to sync them) but Rigby executes the pull, validates, and tracks for evolution packaging.",
       "failure_mode": "protocol-skip",
       "systemic_fix": "Sixth occurrence of Jarvis executing agent-owned work. Template sync from web app repo to IES skills is a Rigby operation. Jarvis must dispatch to Rigby with the commit reference and let Rigby handle file reads, writes, validation, and evolution tracking.",
       "fix_status": "proposed",
       "severity": "moderate",
-      "related_entries": ["err-20260324-005", "err-20260323-007", "err-20260322-001", "err-20260321-003"]
+      "related_entries": [
+        "err-20260324-005",
+        "err-20260323-007",
+        "err-20260322-001",
+        "err-20260321-003"
+      ]
     },
     {
       "id": "err-20260326-001",
@@ -349,12 +415,14 @@
       "agent": "jarvis",
       "category": "missed-context",
       "description": "1:1 prep sheet for Scott McMichael missed yesterday's Microsoft meetings: 'Work from Work Wednesday' at Microsoft Irving campus (with Lowell Messner), 'Microsoft Partner GTM Check In' (Ben Kennedy et al.), and Monday's 'Prep: Improving WWW Session' with Ben Holm from Microsoft. These are directly relevant to the Scott 1:1 as partner engagement context. Only searched March emails for Scott's name instead of also scanning the prior days' calendar for relevant meetings.",
-      "correction": "Prep sheets should always scan the 3-5 days prior calendar for meetings with shared context — not just email threads mentioning the person.",
+      "correction": "Prep sheets should always scan the 3-5 days prior calendar for meetings with shared context \u2014 not just email threads mentioning the person.",
       "failure_mode": "lazy-search",
       "systemic_fix": "Meeting prep workflow must include: (1) scan prior 5 days of calendar for relevant meetings with the person or related topics, (2) scan upcoming 7 days for shared commitments. Don't limit context gathering to email search by name.",
       "fix_status": "applied",
       "severity": "moderate",
-      "related_entries": ["err-20260326-001"]
+      "related_entries": [
+        "err-20260326-001"
+      ]
     },
     {
       "id": "err-20260326-003",
@@ -378,13 +446,15 @@
       "source": "explicit",
       "agent": "jarvis",
       "category": "assumption-error",
-      "description": "Diagnosed Plaud transcription trigger failure ('start trans task error', status=-1) as 'audio not uploaded from device' based on ori_ready: false. David confirmed the audio IS there. ori_ready is not the gate for transcription — the trigger error has a different root cause. Jarvis fabricated a diagnosis instead of investigating the actual API error.",
-      "correction": "The audio is present. The transcription trigger failure needs actual debugging — inspect the API call parameters, check if the recording format or config is wrong, not blame the device sync.",
+      "description": "Diagnosed Plaud transcription trigger failure ('start trans task error', status=-1) as 'audio not uploaded from device' based on ori_ready: false. David confirmed the audio IS there. ori_ready is not the gate for transcription \u2014 the trigger error has a different root cause. Jarvis fabricated a diagnosis instead of investigating the actual API error.",
+      "correction": "The audio is present. The transcription trigger failure needs actual debugging \u2014 inspect the API call parameters, check if the recording format or config is wrong, not blame the device sync.",
       "failure_mode": "wrong-assumption",
-      "systemic_fix": "When an API call fails, diagnose by examining the actual error response, request parameters, and API docs — don't guess based on loosely correlated metadata fields.",
+      "systemic_fix": "When an API call fails, diagnose by examining the actual error response, request parameters, and API docs \u2014 don't guess based on loosely correlated metadata fields.",
       "fix_status": "applied",
       "severity": "moderate",
-      "related_entries": ["err-20260323-006"]
+      "related_entries": [
+        "err-20260323-006"
+      ]
     },
     {
       "id": "err-20260326-005",
@@ -393,13 +463,15 @@
       "source": "explicit",
       "agent": "jarvis",
       "category": "assumption-error",
-      "description": "Spent multiple rounds debugging Plaud transcription trigger failure ('start trans task error', status=-1/-12) by inspecting API parameters, trying is_reload variants, examining ori_ready fields, and writing debug scripts — when the actual cause was simply that David is out of Plaud transcription minutes. Jarvis never considered the simplest explanation (account quota exhausted) and instead chased increasingly technical API theories.",
+      "description": "Spent multiple rounds debugging Plaud transcription trigger failure ('start trans task error', status=-1/-12) by inspecting API parameters, trying is_reload variants, examining ori_ready fields, and writing debug scripts \u2014 when the actual cause was simply that David is out of Plaud transcription minutes. Jarvis never considered the simplest explanation (account quota exhausted) and instead chased increasingly technical API theories.",
       "correction": "When a transcription trigger fails with a generic error, check account-level issues first: subscription status, remaining minutes/credits, plan limits. The simplest explanation is usually correct.",
       "failure_mode": "wrong-assumption",
       "systemic_fix": "Add to Plaud troubleshooting: if /ai/transsumm returns status=-1 or status=-12 with 'start trans task error', the FIRST thing to check is whether the account has remaining transcription minutes. Add a quota check step to the fetch script before attempting triggers. Also: ask David before spending 10 minutes debugging an API.",
       "fix_status": "applied",
       "severity": "moderate",
-      "related_entries": ["err-20260326-004"]
+      "related_entries": [
+        "err-20260326-004"
+      ]
     },
     {
       "id": "err-20260327-001",

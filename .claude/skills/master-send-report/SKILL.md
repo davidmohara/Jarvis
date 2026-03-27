@@ -51,8 +51,13 @@ Timeout: 15000
 ### Example Calls
 
 ```bash
-# Post morning briefing summary to #jarvis
-python3 "$(mdfind -name 'post.py' | grep 'systems/slack-bot/post.py' | head -1)" C0AN2PQNXBR "*Morning Briefing — March 24, 2026*\n\n📅 4 meetings today\n⚡ Convergence AI prep (6 days out)\n🔴 2 overdue delegations\n📥 7 inbox items"
+# Post morning briefing summary to #jarvis (multi-line — newlines are real)
+python3 "$(mdfind -name 'post.py' | grep 'systems/slack-bot/post.py' | head -1)" C0AN2PQNXBR "*Morning Briefing — March 24, 2026*
+
+📅 4 meetings today
+⚡ Convergence AI prep (6 days out)
+🔴 2 overdue delegations
+📥 7 inbox items"
 
 # DM David about an urgent item
 python3 "$(mdfind -name 'post.py' | grep 'systems/slack-bot/post.py' | head -1)" U0ANHV5UXEW "Integrated Financial Settlements has been unassigned for 35 days post-call. Need an AM decision today."
@@ -75,6 +80,27 @@ python3 "$(mdfind -name 'post.py' | grep 'systems/slack-bot/post.py' | head -1)"
    ```
 4. **Max 5000 chars per message.** Split longer reports into multiple sends.
 5. **No fluff.** Don't open with "Hi David" or "Here's your report." Lead with the content.
+
+### ⚠️ Newline Handling (Critical)
+
+**Never use literal `\n` in the message string.** Desktop Commander passes the command to the shell as-is — `\n` stays as a literal two-character sequence and Slack renders it as visible `\n` instead of line breaks.
+
+**Do this — use actual multi-line strings:**
+```bash
+python3 "$(mdfind -name 'post.py' | grep 'systems/slack-bot/post.py' | head -1)" C0AN2PQNXBR "*Morning Briefing — March 24, 2026*
+
+📅 4 meetings today
+⚡ Convergence AI prep (6 days out)
+🔴 2 overdue delegations
+📥 7 inbox items"
+```
+
+**Don't do this — literal `\n` won't render:**
+```bash
+python3 ... C0AN2PQNXBR "*Morning Briefing*\n\n📅 4 meetings\n⚡ Priority item"
+```
+
+The double-quoted multi-line string preserves real newlines through Desktop Commander → shell → Python → Slack API.
 
 ## Critical Rules
 
