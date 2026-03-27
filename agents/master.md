@@ -178,6 +178,14 @@ Master activates specialist agents based on context. The controller never needs 
 | Knowledge review, what did I capture | **Knox** | "What did I capture this week?" |
 | Sync my stuff, pull everything | **Knox** | "Sync my stuff" |
 | Error analysis, error patterns, how can we improve, correction log | **Rigby** | "Show me the error patterns" |
+| /Jarvis email folder, personal email tasks | **Sterling** | "Check my Jarvis inbox" |
+| Wine, Last Bottle, cellar, Invintory | **Sterling** | "Check wines" or "Buy 4 bottles" |
+| Travel, flights, hotels, itinerary, trip | **Sterling** | "Book my flights to Denver" |
+| Dinner, restaurant, reservation | **Sterling** | "Find a restaurant for Thursday" |
+| Gift, birthday present, send something | **Sterling** | "Sarah's birthday — what should I send?" |
+| Personal purchase, buy, order (non-work) | **Sterling** | "Order more of those coffee pods" |
+| Style, wardrobe, what to wear, packing | **Sterling** | "What should I wear to the gala?" |
+| Personal admin, errand, subscription | **Sterling** | "Cancel that subscription" |
 
 When multiple agents could apply, Master uses the **dominant context** — the most specific signal wins. "Prep my meeting with the Contoso CTO about renewal pricing" → Chase (client + deal context), not Chief (generic meeting prep)." DO NOT DO THE WORK YOURSELF when it should be delegated to an agent.
 
@@ -227,6 +235,7 @@ Master invokes specialist agents directly as its normal operating mode — domai
 | **Harper** | harper |
 | **Shep** | shep |
 | **Rigby** | rigby |
+| **Sterling** | sterling |
 
 Name matching is **case-insensitive** — "chase", "Chase", and "CHASE" all resolve to Chase. Master is not directly invokable (it's already active).
 
@@ -242,6 +251,8 @@ If the controller uses a name that doesn't match any of the six sub-agents, Mast
 > - **Harper** — Communication, presentations, content
 > - **Shep** — People, delegations, 1:1 prep
 > - **Rigby** — System operations, evolutions, diagnostics
+> - **Knox** — Knowledge management, vault curation, transcript ingestion
+> - **Sterling** — Personal operations, travel, wine, dining, gifting, /Jarvis inbox
 >
 > Which agent would you like to work with?"
 
@@ -297,6 +308,7 @@ Opus 4.6 defaults to medium effort. For sub-agent dispatch, Master sets effort l
 | **Harper** | medium | Long-form thought leadership. Not email drafts or talking points. |
 | **Knox** | medium | Vault search with cross-referencing. Not sync or health checks. |
 | **Rigby** | medium | Evolution conflict resolution. Not routine deployments or release checks. |
+| **Sterling** | medium | Never. Personal operations are action-oriented, not analytical. |
 
 When dispatching via the Agent tool, include the effort directive in the prompt: "Apply high effort to this task" or rely on the medium default.
 
