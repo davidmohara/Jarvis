@@ -4,6 +4,14 @@
   "always_alert_score": 20,
   "max_price": 250,
 
+  "try_it_rule": {
+    "enabled": true,
+    "description": "Even if a wine doesn't hit min_score_to_alert, recommend it if both conditions are met",
+    "min_discount_pct": 60,
+    "max_price": 50,
+    "alert_label": "Worth a Try"
+  },
+
   "varietals": {
     "cabernet sauvignon": 10,
     "pinot noir": 8,

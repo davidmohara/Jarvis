@@ -11,6 +11,35 @@ Usage:
     python3 monitor.py              # single poll
     python3 monitor.py --daemon     # continuous polling during drop windows
     python3 monitor.py --test       # dry run, prints score without alerting
+
+OPERATIONAL NOTES (from 2026-03-26 Marathon session):
+
+1. EGRESS: Python urllib may be blocked in sandboxed environments (Cowork VM).
+   Fallback: Use Chrome MCP to load lastbottlewines.com and extract product JSON
+   via JS: document.querySelectorAll('script[type="application/json"]')
+
+2. PURCHASE AUTOMATION: Use Shopify cart API for instant purchases — NOT DOM
+   manipulation (too slow, wines flip in seconds during Marathon):
+     fetch('/cart/add.js', {method:'POST', headers:{'Content-Type':'application/json'},
+       body: JSON.stringify({items:[{id: VARIANT_ID, quantity: QTY}]})})
+     .then(() => window.location.href = '/checkout')
+   Then click "Pay Now" on checkout page. Ship to wine locker: 10400 Clarence Dr,
+   Frisco, TX 75034. Pay with Discover card.
+
+3. SLACK: Always send alerts to #jarvis (C0AN2PQNXBR) via Jarvis bot (post.py),
+   never via Slack MCP connector (posts as David, no notifications). Read replies
+   from #jarvis using bot token + conversations.history API.
+
+4. REPLY CHECKING: For always_alert_score (20+) wines, check Slack replies every
+   20-30 seconds for 3-5 min after alerting. For lower scores, check every 40-60s.
+   Missing a "Buy X" reply because the wine flipped is the worst failure mode.
+
+5. TRY-IT RULE: If discount >60% AND price <$50, alert even if below min_score.
+   Label as "Worth a Try". David added this during Marathon skeleton crew window.
+
+6. MARATHON MODE: Wines flip instantly when sold out. During Marathon events,
+   poll as fast as every 30-60 seconds. Skeleton crew (18:00-23:59) is slower
+   but still active — some offers linger 5-10 minutes.
 """
 
 import json
@@ -304,8 +333,9 @@ def format_alert(result: dict) -> str:
     discount_pct = round((1 - price / compare) * 100) if compare > 0 and price > 0 else 0
     link = f"{SITE_URL}/products/{handle}" if handle else SITE_URL
 
+    alert_label = result.get("alert_label", "BUY THIS")
     lines = [
-        f"*Last Bottle Alert — BUY THIS*",
+        f"*Last Bottle Alert — {alert_label}*",
         f"",
         f"*{title}*",
         f"*${price:.0f}* (was ${compare:.0f} — {discount_pct}% off)" if compare > 0 else f"*${price:.0f}*",
@@ -326,15 +356,20 @@ def format_alert(result: dict) -> str:
     return "\n".join(lines)
 
 
-def send_alert(message: str):
-    """Send Slack alert via Jarvis bot."""
+def send_alert(message: str, channel: str = CHANNEL_JARVIS):
+    """Send Slack alert via Jarvis bot to #jarvis channel (default).
+
+    IMPORTANT: Always send to #jarvis (CHANNEL_JARVIS) so David can reply
+    in-channel. Only DM for urgent/private items. The Slack MCP connector
+    posts as David — never use it for outbound messages.
+    """
     try:
         result = subprocess.run(
-            [sys.executable, str(SLACK_BOT), CHANNEL_DM, message],
+            [sys.executable, str(SLACK_BOT), channel, message],
             capture_output=True, text=True, timeout=15,
         )
         output = result.stdout.strip()
-        log(f"Slack alert sent: {output}")
+        log(f"Slack alert sent to {channel}: {output}")
     except Exception as e:
         log(f"ERROR sending Slack alert: {e}")
 
@@ -400,19 +435,47 @@ def run_poll(profile: dict, seen: dict, dry_run: bool = False) -> dict:
         "alerted": False,
     }
 
+    # Determine alert tier
+    always_alert = profile.get("always_alert_score", 20)
+    try_it_rule = profile.get("try_it_rule", {})
+    try_it_enabled = try_it_rule.get("enabled", False)
+    try_it_min_discount = try_it_rule.get("min_discount_pct", 60)
+    try_it_max_price = try_it_rule.get("max_price", 50)
+
+    discount_pct = 0
+    if result["compare_price"] > 0 and result["price"] > 0:
+        discount_pct = round((1 - result["price"] / result["compare_price"]) * 100)
+
+    # Check try-it rule: >60% off AND <$50, even if below min_score
+    qualifies_try_it = (
+        try_it_enabled
+        and discount_pct > try_it_min_discount
+        and result["price"] < try_it_max_price
+        and result["composite_score"] < min_score
+    )
+
     if not result["available"]:
         log(f"SOLD OUT: {title}")
     elif result["price"] > max_price and result["price"] > 0:
         log(f"TOO EXPENSIVE: {title} — ${result['price']}")
-    elif result["composite_score"] >= min_score:
+    elif result["composite_score"] >= min_score or qualifies_try_it:
+        # Determine alert label
+        if result["composite_score"] >= always_alert:
+            alert_label = "BUY THIS"
+        elif qualifies_try_it and result["composite_score"] < min_score:
+            alert_label = "Worth a Try"
+        else:
+            alert_label = "Worth a Look"
+        result["alert_label"] = alert_label
+
         msg = format_alert(result)
         if dry_run:
             print(f"\n{'='*60}")
-            print(f"WOULD ALERT (score {result['composite_score']}):")
+            print(f"WOULD ALERT (score {result['composite_score']}, label: {alert_label}):")
             print(msg)
             print(f"{'='*60}")
         else:
-            log(f"ALERT: {title} — score {result['composite_score']}, ${result['price']}")
+            log(f"ALERT [{alert_label}]: {title} — score {result['composite_score']}, ${result['price']}")
             send_alert(msg)
         seen[pid]["alerted"] = True
     else:
