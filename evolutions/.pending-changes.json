@@ -245,7 +245,7 @@
       "evolution_description": "Master-level Slack notification skill. Posts via Jarvis bot token through Desktop Commander, bypassing the Slack MCP connector (which posts as David and triggers no notifications). Bot script at systems/slack-bot/post.py. Channels: #jarvis (default), DM to David (urgent).",
       "files": [
         {
-          "path": ".claude/skills/master-send-report/SKILL.md",
+          "path": ".claude/skills/master-slack/SKILL.md",
           "action": "add",
           "type": "system",
           "description": "New skill: send Slack messages as Jarvis bot via Desktop Commander. Channels, formatting rules, agent usage matrix, error handling."

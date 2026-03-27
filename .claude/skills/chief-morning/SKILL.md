@@ -84,7 +84,7 @@ If all tasks are configured, skip this line entirely.
 
 **After the briefing is fully assembled**, send a summary to David via the Jarvis Slack bot so he gets a real push notification on his phone.
 
-Read the full skill at `.claude/skills/master-send-report/SKILL.md` for channel IDs, formatting rules, and error handling.
+Read the full skill at `.claude/skills/master-slack/SKILL.md` for channel IDs, formatting rules, and error handling.
 
 **Execution:**
 1. Use `mcp__Desktop_Commander__start_process` to run the bot script

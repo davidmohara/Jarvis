@@ -112,14 +112,14 @@ curl -s -X POST \
   Exit with `registration_declined`.
 - **Success** (response contains `access_token`): proceed to Step 5.
 
-**Important:** Run the polling loop as a single Bash command with `sleep` between iterations. Do NOT use separate Bash calls for each poll — that would be too slow and flood the conversation. Example:
+**Important:** Run the polling loop as a single Bash command with `sleep` between iterations. Do NOT use separate Bash calls for each poll — that would be too slow and flood the conversation. Cap the loop at 90 seconds wall-clock time to stay within the Bash tool's default timeout.
 
 ```bash
 DEVICE_CODE="{device_code}"
 INTERVAL={interval}
-MAX_ATTEMPTS=60
+DEADLINE=$(($(date +%s) + 90))
 
-for i in $(seq 1 $MAX_ATTEMPTS); do
+while [ $(date +%s) -lt $DEADLINE ]; do
   RESPONSE=$(curl -s -X POST \
     "https://login.microsoftonline.com/f2267c2e-5a54-49f4-84fa-e4f2f4038a2e/oauth2/v2.0/token" \
     -d "client_id=e0b97261-d1bb-4284-8987-cdbc74da2ef0" \
@@ -151,7 +151,16 @@ echo '{"error": "timeout"}'
 exit 1
 ```
 
-Set a timeout of 600000ms (10 minutes) on this Bash command.
+Set a timeout of 100000ms on this Bash command.
+
+**If the result is `{"error": "timeout"}`**, display:
+```
+Still waiting on sign-in. Have you completed the browser step?
+Enter the code {user_code} at {verification_uri} if you haven't yet.
+
+Ready to try again — just say the word.
+```
+Then wait for the executive to confirm before running the polling loop again (go back to Step 4 with the same `device_code` — it's still valid for the remainder of `expires_in`).
 
 ### 5. Extract User Info and Write Credentials
 
