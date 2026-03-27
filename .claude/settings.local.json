@@ -5,29 +5,7 @@
       "mcp__*",
       "Skill(*)",
       "WebSearch",
-      "WebFetch(*)",
-      "mcp__clay__searchContacts",
-      "mcp__claude_ai_Clay_custom__searchContacts",
-      "mcp__claude_ai_Clay_custom__getContact",
-      "mcp__claude_ai_Clay_custom__createContact",
-      "mcp__claude_ai_Clay_custom__updateContact",
-      "mcp__claude_ai_Clay_custom__createNote",
-      "mcp__claude_ai_Clay_custom__merge_contacts",
-      "Skill(harper-podcast-prep)",
-      "mcp__clay__getUpcomingReminders",
-      "Skill(chase-card-optimizer)",
-      "mcp__claude_ai_Clay_custom__getUpcomingReminders",
-      "Skill(chief-morning)",
-      "mcp__ghost-blog__create_post",
-      "mcp__ghost-blog__get_tags",
-      "mcp__ghost-blog__update_post",
-      "mcp__ghost-blog__get_post",
-      "mcp__ghost-blog__get_post_by_slug",
-      "Skill(rigby-release-watch)",
-      "Skill(chief-plaud)",
-      "mcp__playwright__browser_run_code",
-      "mcp__playwright__browser_network_requests",
-      "Skill(rigby-register)"
+      "WebFetch(*)"
     ]
   }
 }
