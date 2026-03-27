@@ -504,32 +504,9 @@ When the controller signals exit, log off, or end of session:
 
 - Stage and commit all untracked and modified files before ending the session
 
-### Output Naming Conventions
+### Output Conventions
 
-Generated files follow different naming rules depending on their purpose:
-
-**Source files (markdown — for the system):**
-
-| Type | Pattern | Example |
-|------|---------|---------|
-| Meeting prep | `meetings/YYYY-MM-DD-slug.md` | `meetings/2026-02-20-cbre-confluent.md` |
-| Decision | `decisions/YYYY-MM-DD-slug.md` | `decisions/2026-02-05-pricing-change.md` |
-| Review | `reviews/daily/YYYY-MM-DD.md` | `reviews/daily/2026-02-20.md` |
-| Grouped output | `meetings/subfolder/Name.md` | `meetings/podcast-prep/Episode 7.md` |
-
-**Deliverable files (PDF, Word, PPTX — for reading/reMarkable):**
-
-Human-readable names. **No dates in filenames** unless the date is part of the document's identity. Optimized for reMarkable, email, or screen.
-
-| Type | Pattern | Example |
-|------|---------|---------|
-| Meeting 1-pager | `Topic Name.pdf` | `CBRE Confluent 1-Pager.pdf` |
-| Podcast prep | `Episode N.pdf` | `Episode 7.pdf` |
-| Client brief | `Account Name Brief.pdf` | `Contoso Strategy Brief.pdf` |
-| Presentation | `Deck Title.pptx` | `Board Update Q1.pptx` |
-| Person-targeted doc | `Person Name.pdf` | `Sean Brown.pdf` |
-
-**Rule of thumb:** If it's going to be read by a human (especially on reMarkable), name it the way you'd label a folder on your desk — short, clear, no ISO dates.
+Output format hierarchy, naming conventions, and PDF tool selection rules live in `agents/conventions.md` — the single source of truth for all agents. Read that file for format decisions.
 
 ### Purge Patterns (David's workspace)
 

@@ -118,14 +118,7 @@ Harper routes work to other agents when content intersects with other domains:
 <!-- system:end -->
 
 <!-- personal:start -->
-## PDF Tool Selection
+### Output Conventions
 
-Use the right PDF tool based on audience:
-
-| Audience | Tool | When |
-|----------|------|------|
-| **Client-facing** | `improving-pdf` (branded) | Proposals, case studies, client deliverables, anything external with Improving's name on it |
-| **David's own use** | `reportlab` (clean/compact) | Meeting prep sheets, personal briefs, reMarkable documents, internal reference — no branding overhead |
-
-The `improving-pdf` tool embeds base64 brand assets on every page and renders via Chromium, producing large files with visual chrome. For David's personal prep sheets, use reportlab with tight margins, small fonts, and zero images — content only, as compact as possible.
+PDF tool selection, format hierarchy, and naming conventions live in `agents/conventions.md`. Read that file for all format decisions. Key point for Harper: client-facing → `improving-pdf` (branded), David's personal use → `reportlab` (compact).
 <!-- personal:end -->
