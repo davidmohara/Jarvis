@@ -115,3 +115,54 @@ None.
 - Error log starts empty — entries accumulate as sessions run
 - The `quinn-weekly-review` integration is classified as personal (skill is personal) even though the error tracking system itself is system-classified
 - Future consideration: training module generation from recurring patterns (Rigby → training system handoff exists but no auto-generation yet)
+
+---
+
+## WHOOP MCP Connector — Applied 2026-03-27
+
+**Evolution ID:** ccf13216-ba05-465c-88bd-b39787b24fcf
+**Type:** Personal evolution
+**Applied:** 2026-03-27T00:00:00Z
+**Applied by:** Manual (David + Jarvis session)
+
+### Summary
+
+Installed community WHOOP MCP server (nissand/whoop-mcp-server-claude) to connect IES to WHOOP fitness data — recovery scores (HRV, resting heart rate), sleep analysis (duration, stages, efficiency), workout strain, and physiological cycles. Uses WHOOP v2 API via OAuth 2.0. 18 tools available. Awaiting OAuth credential registration at developer.whoop.com.
+
+### Files Changed
+
+- `.mcp.json` — added (MCP server config with command, args, env placeholders)
+- `reference/whoop-mcp-setup.md` — added (full setup guide with OAuth flow, tool inventory, pagination docs)
+
+### External Dependencies
+
+- `/home/user/mcp-servers/whoop-mcp/` — cloned from github.com/nissand/whoop-mcp-server-claude, built with npm
+- WHOOP Developer Portal app registration (pending — Client ID + Secret needed)
+- Active WHOOP membership required for API access
+
+### Conflicts
+
+None.
+
+### Personal Blocks Preserved
+
+N/A — all new files.
+
+### Setup Status
+
+| Step | Status |
+|------|--------|
+| Clone and build MCP server | Done |
+| Configure `.mcp.json` | Done (env var placeholders) |
+| Register WHOOP developer app | Pending |
+| Set OAuth credentials | Pending |
+| Complete OAuth flow | Pending |
+| Verify data retrieval | Pending |
+
+### Notes
+
+- Server is built and ready at `/home/user/mcp-servers/whoop-mcp/dist/index.js`
+- OAuth tokens expire ~1 hour; server supports refresh
+- Rate limits: 100 req/min, 10K/day
+- Raw/continuous heart rate NOT available via API
+- Personal evolution — WHOOP integration is instance-specific, not promotable to system

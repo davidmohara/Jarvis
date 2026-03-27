@@ -14,6 +14,7 @@
 | Excel | Data, planning | Local file access |
 | OneDrive | Cloud storage for Improving files | Local mount at ~/Library/CloudStorage/OneDrive-Improving/ |
 | Clay | Personal relationship management — contacts, notes, reminders, interaction history | MCP server (mcp__clay__*) |
+| WHOOP | Recovery, sleep, strain, workout data | MCP server (whoop) — OAuth pending setup |
 | Jarvis Bridge | Code-Desktop task handoff | File queue in `bridge/` |
 | Phone / Texts | Quick communication | Not accessible by Jarvis |
 
