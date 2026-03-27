@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "whoop": {
+      "command": "node",
+      "args": ["/home/user/mcp-servers/whoop-mcp/dist/index.js"],
+      "env": {
+        "WHOOP_CLIENT_ID": "${WHOOP_CLIENT_ID}",
+        "WHOOP_CLIENT_SECRET": "${WHOOP_CLIENT_SECRET}",
+        "WHOOP_REDIRECT_URI": "http://localhost:3000/callback"
+      }
+    }
+  }
+}
