@@ -46,3 +46,20 @@ export interface CacheMetadata {
   wine_count: number;
   source_file: string;
 }
+
+export type DeliveryStatus = 'pending' | 'shipped' | 'arrived' | 'cancelled';
+
+export interface Delivery {
+  id: string;
+  wine_name: string;
+  producer?: string;
+  vintage?: number;
+  quantity: number;
+  source: string;
+  order_date: string;
+  expected_date?: string;
+  price_per_bottle?: number;
+  status: DeliveryStatus;
+  destination?: string;
+  notes?: string;
+}
