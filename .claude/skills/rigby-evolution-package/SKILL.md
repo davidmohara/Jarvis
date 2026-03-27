@@ -140,7 +140,7 @@ Read `config/settings.json` for `ies_app_url`.
 
 **Authenticate:** Read and follow `systems/auth/preamble.md` to obtain a valid access token. Use the resolved `ACCESS_TOKEN` for all API calls in this skill.
 
-Upload via the tRPC publish procedure. Construct the payload:
+Upload via the REST publish endpoint. Construct the payload:
 
 ```json
 {
@@ -149,7 +149,6 @@ Upload via the tRPC publish procedure. Construct the payload:
   "description": "{description}",
   "manifest": { ...manifest... },
   "changelog": [...],
-  "trainingPrompts": [],
   "files": {
     "agents/analyst.md": "...file content...",
     "workflows/new/workflow.md": "...file content..."
@@ -158,9 +157,11 @@ Upload via the tRPC publish procedure. Construct the payload:
 }
 ```
 
-Call: `POST {ies_app_url}/api/trpc/evolutions.publish`
+Call: `POST {ies_app_url}/api/evolutions`
 Authorization: Bearer `{ACCESS_TOKEN}`
 Content-Type: application/json
+
+**On success:** HTTP 201 with `{ id, version, status: "submitted" }`.
 
 **On success:**
 - Log: `[evolution-package] Published "{name}" (ID: {uuid-v4}) — {file_count} files uploaded`

@@ -4,11 +4,12 @@
 import { readFileSync, writeFileSync, existsSync, mkdirSync, statSync } from 'fs';
 import { homedir } from 'os';
 import { join } from 'path';
-import type { Wine, WineType, DrinkStatus, CacheMetadata, CollectionSummary } from './types.js';
+import type { Wine, WineType, DrinkStatus, CacheMetadata, CollectionSummary, Delivery, DeliveryStatus } from './types.js';
 
 const CACHE_DIR = join(homedir(), '.config', 'invintory');
 const CACHE_FILE = join(CACHE_DIR, 'collection.json');
 const META_FILE = join(CACHE_DIR, 'cache-meta.json');
+const DELIVERIES_FILE = join(CACHE_DIR, 'deliveries.json');
 
 // ── CSV Parsing ─────────────────────────────────────────────────────────────
 
@@ -238,6 +239,29 @@ export function summarize(wines: Wine[]): CollectionSummary {
     past_window: pastWindow,
     hold,
   };
+}
+
+// ── Deliveries ───────────────────────────────────────────────────────────────
+
+export function loadDeliveries(): Delivery[] {
+  if (!existsSync(DELIVERIES_FILE)) return [];
+  return JSON.parse(readFileSync(DELIVERIES_FILE, 'utf-8')) as Delivery[];
+}
+
+export function saveDeliveries(deliveries: Delivery[]): void {
+  if (!existsSync(CACHE_DIR)) mkdirSync(CACHE_DIR, { recursive: true });
+  writeFileSync(DELIVERIES_FILE, JSON.stringify(deliveries, null, 2));
+}
+
+export function addDelivery(delivery: Omit<Delivery, 'id'>): Delivery {
+  const deliveries = loadDeliveries();
+  const newDelivery: Delivery = {
+    id: `dlv_${Date.now()}`,
+    ...delivery,
+  };
+  deliveries.push(newDelivery);
+  saveDeliveries(deliveries);
+  return newDelivery;
 }
 
 export { CACHE_DIR, CACHE_FILE };

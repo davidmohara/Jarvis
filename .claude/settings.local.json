@@ -2,6 +2,13 @@
   "permissions": {
     "allow": [
       "Bash(*)",
+      "Read(*)",
+      "Edit(*)",
+      "Write(*)",
+      "Glob(*)",
+      "Grep(*)",
+      "Agent(*)",
+      "TodoWrite(*)",
       "mcp__*",
       "Skill(*)",
       "WebSearch",
