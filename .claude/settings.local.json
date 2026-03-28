@@ -8,11 +8,13 @@
       "Glob(*)",
       "Grep(*)",
       "Agent(*)",
-      "TodoWrite(*)",
-      "mcp__*",
       "Skill(*)",
       "WebSearch",
-      "WebFetch(*)"
+      "WebFetch(*)",
+      "mcp__*"
+    ],
+    "additionalDirectories": [
+      "/Users/davidohara/develop/improving/ies"
     ]
   }
 }
