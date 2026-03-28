@@ -2,7 +2,7 @@
   "pending": [
     {
       "id": "work-20260306-remarkable-sync",
-      "description": "reMarkable → Obsidian sync skill — pulls handwritten notes, transcribes via vision, saves as markdown. Dispatches to sub-agent for isolated context.",
+      "description": "reMarkable \u2192 Obsidian sync skill \u2014 pulls handwritten notes, transcribes via vision, saves as markdown. Dispatches to sub-agent for isolated context.",
       "started": "2026-03-06T10:00:00Z",
       "classification": "personal",
       "files": [
@@ -10,13 +10,13 @@
           "path": ".claude/skills/remarkable-sync/SKILL.md",
           "action": "add",
           "type": "personal",
-          "description": "New skill: sync reMarkable handwritten notes to Obsidian via rmapi → rmc → rsvg-convert → Claude vision pipeline. Runs as sub-agent."
+          "description": "New skill: sync reMarkable handwritten notes to Obsidian via rmapi \u2192 rmc \u2192 rsvg-convert \u2192 Claude vision pipeline. Runs as sub-agent."
         }
       ]
     },
     {
       "id": "work-20260306-knox-agent",
-      "description": "New agent: Knox — Knowledge Manager. Owns vault curation, device sync (Remarkable, Plaud), knowledge search, vault health audits, and ingestion workflows. Migrates Plaud from Chief, takes ownership of Remarkable skills.",
+      "description": "New agent: Knox \u2014 Knowledge Manager. Owns vault curation, device sync (Remarkable, Plaud), knowledge search, vault health audits, and ingestion workflows. Migrates Plaud from Chief, takes ownership of Remarkable skills.",
       "started": "2026-03-06T12:00:00Z",
       "classification": "personal",
       "files": [
@@ -24,37 +24,37 @@
           "path": "agents/knox.md",
           "action": "add",
           "type": "personal",
-          "description": "New agent: Knox — Knowledge Manager, Vault Curator & Information Architect"
+          "description": "New agent: Knox \u2014 Knowledge Manager, Vault Curator & Information Architect"
         },
         {
           "path": ".claude/skills/knox-vault-health/SKILL.md",
           "action": "add",
           "type": "personal",
-          "description": "New skill: Obsidian vault health audit — orphans, broken links, stale content, missing frontmatter"
+          "description": "New skill: Obsidian vault health audit \u2014 orphans, broken links, stale content, missing frontmatter"
         },
         {
           "path": ".claude/skills/knox-search/SKILL.md",
           "action": "add",
           "type": "personal",
-          "description": "New skill: deep search across vault — all sources, cross-referenced, with connections"
+          "description": "New skill: deep search across vault \u2014 all sources, cross-referenced, with connections"
         },
         {
           "path": ".claude/skills/knox-plaud/SKILL.md",
           "action": "add",
           "type": "personal",
-          "description": "New skill: Plaud transcript ingestion — migrated from chief-plaud, re-owned by Knox"
+          "description": "New skill: Plaud transcript ingestion \u2014 migrated from chief-plaud, re-owned by Knox"
         },
         {
           "path": "workflows/knowledge-ingest/workflow.md",
           "action": "add",
           "type": "personal",
-          "description": "New workflow: unified ingestion pipeline — any capture surface → normalize → tag → link → file"
+          "description": "New workflow: unified ingestion pipeline \u2014 any capture surface \u2192 normalize \u2192 tag \u2192 link \u2192 file"
         },
         {
           "path": "workflows/weekly-knowledge-review/workflow.md",
           "action": "add",
           "type": "personal",
-          "description": "New workflow: weekly knowledge digest — captures, orphans, floating actions, suggested connections"
+          "description": "New workflow: weekly knowledge digest \u2014 captures, orphans, floating actions, suggested connections"
         },
         {
           "path": "agents/master.md",
@@ -176,11 +176,11 @@
     },
     {
       "id": "work-20260320-rigby-root-audit",
-      "description": "Root Audit — Adds root directory hygiene capability to Rigby — surfaces misplaced files, recommends moves or deletions, and executes after confirmation.",
+      "description": "Root Audit \u2014 Adds root directory hygiene capability to Rigby \u2014 surfaces misplaced files, recommends moves or deletions, and executes after confirmation.",
       "started": "2026-03-20T00:00:00Z",
       "classification": "system",
       "evolution_name": "Root Audit",
-      "evolution_description": "Adds root directory hygiene capability to Rigby — surfaces misplaced files, recommends moves or deletions, and executes after confirmation.",
+      "evolution_description": "Adds root directory hygiene capability to Rigby \u2014 surfaces misplaced files, recommends moves or deletions, and executes after confirmation.",
       "files": [
         {
           "path": ".claude/skills/rigby-root-audit/SKILL.md",
@@ -198,41 +198,13 @@
           "path": "workflows/daily-review/steps/step-04-root-audit.md",
           "action": "add",
           "type": "system",
-          "description": "New daily-review step 04: root audit — runs after step 03 as final shutdown housekeeping"
+          "description": "New daily-review step 04: root audit \u2014 runs after step 03 as final shutdown housekeeping"
         },
         {
           "path": "workflows/daily-review/steps/step-03-update-system.md",
           "action": "merge",
           "type": "system",
           "description": "Updated WORKFLOW COMPLETE to chain to step-04-root-audit instead of halting"
-        }
-      ]
-    },
-    {
-      "id": "work-20260323-cowork-scheduled-tasks",
-      "description": "Scheduled tasks restructured as Cowork-native. Replaces CronCreate session approach with Cowork's built-in Scheduled Tasks panel. Adds Rigby setup skill with copy-paste cards and a boot check in chief-morning that surfaces unconfigured tasks.",
-      "started": "2026-03-23T00:00:00Z",
-      "classification": "system",
-      "evolution_name": "Cowork Scheduled Tasks",
-      "evolution_description": "Replaces session-scoped CronCreate approach with Cowork's native Scheduled Tasks panel. config/scheduled-tasks.json restructured with configured status flags and copy-paste prompts per task. New rigby-scheduled-setup skill presents unconfigured tasks as copy-paste cards. chief-morning boot check surfaces a one-line notice when tasks need setup.",
-      "files": [
-        {
-          "path": "config/scheduled-tasks.json",
-          "action": "merge",
-          "type": "system",
-          "description": "Restructured as Cowork-native config: added configured flag, cowork_prompt, schedule_display, keep_awake per task. Removed CronCreate framing."
-        },
-        {
-          "path": ".claude/skills/rigby-scheduled-setup/SKILL.md",
-          "action": "add",
-          "type": "system",
-          "description": "New Rigby skill: read scheduled-tasks.json, present unconfigured tasks as copy-paste setup cards for Cowork, mark configured after confirmation."
-        },
-        {
-          "path": ".claude/skills/chief-morning/SKILL.md",
-          "action": "merge",
-          "type": "personal",
-          "description": "Added scheduled tasks boot check: reads config/scheduled-tasks.json, surfaces a one-line notice at end of briefing if any tasks have configured: false."
         }
       ]
     },

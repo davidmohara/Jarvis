@@ -136,7 +136,7 @@ Create a local package directory at `evolutions/ies-{name-slug}/` (use the evolu
 
 ### 7. Upload to Web App
 
-Read `config/settings.json` for `ies_app_url`.
+Read `config/settings.json` for `ies_app_url`. This file is always at `config/settings.json` in the IES root — do not search for it or assume it doesn't exist. If it is missing, stop and tell the executive: "config/settings.json is missing — this file must contain `ies_app_url`. Create it with the production URL before proceeding."
 
 **Authenticate:** Read and follow `systems/auth/preamble.md` to obtain a valid access token. Use the resolved `ACCESS_TOKEN` for all API calls in this skill.
 

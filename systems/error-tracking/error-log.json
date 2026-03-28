@@ -158,19 +158,15 @@
       ]
     },
     {
-      "id": "err-20260326-007",
-      "timestamp": "2026-03-26T23:45:33.686363",
-      "session": "2026-03-26",
-      "source": "self-detected",
-      "agent": "jarvis",
-      "category": "under-delivery",
-      "description": "Missed David buy reply on Tempus Fugit Cab Sauv Napa 2024 (score 24). Alert sent at 23:34, reply \"Buy 10\" came in while polling continued without checking Slack. Wine flipped before purchase could be executed.",
-      "correction": "Should check Slack replies more frequently after high-score alerts (20+), ideally every 20-30 seconds instead of waiting for the next poll cycle.",
-      "failure_mode": "protocol-skip",
-      "systemic_fix": "For always_alert_score (20+) wines, check Slack replies every 20-30 seconds for 3-5 minutes after sending alert, before resuming normal poll cadence.",
-      "fix_status": "proposed",
-      "severity": "moderate",
-      "related_entries": []
+      "id": "err-20260328-001",
+      "timestamp": "2026-03-28T00:00:00Z",
+      "agent": "Rigby",
+      "category": "tool_misuse",
+      "failure_mode": "incomplete_search",
+      "severity": "low",
+      "description": "Used Glob pattern 'config/**' which matched only .env and .credentials \u2014 missed settings.json because it has no extension prefix. Wasted multiple rounds searching for the IES app URL before David pointed out it was in config/settings.json.",
+      "correction": "David pointed out config/settings.json was visible and contained the URL.",
+      "fix_applied": "Added explicit instruction to rigby-evolution-package skill: always read config/settings.json directly \u2014 do not search for it."
     }
   ],
   "patterns": {
@@ -480,13 +476,15 @@
       "source": "explicit",
       "agent": "jarvis",
       "category": "process-skip",
-      "description": "Boot sequence skipped Plaud pull (again — same as err-20260326-003), delivered a skeletal briefing without calendar, OmniFocus, or transcript processing. When corrected, re-fetched transcripts that were already processed into Obsidian. When David said 'they're already in Obsidian', searched Obsidian to verify instead of trusting him and just cleaning staging. Three corrections required before Jarvis caught the actual actionable item: LiftNet follow-up call scheduled today at 2:30 PM with Don, directly tied to action items from the Mar 25 transcript.",
-      "correction": "Boot means full chief-morning workflow. When David says something is done, trust him and move on. Surface action items from recent transcripts that hit today's calendar — that's the whole point of the Plaud pull.",
+      "description": "Boot sequence skipped Plaud pull (again \u2014 same as err-20260326-003), delivered a skeletal briefing without calendar, OmniFocus, or transcript processing. When corrected, re-fetched transcripts that were already processed into Obsidian. When David said 'they're already in Obsidian', searched Obsidian to verify instead of trusting him and just cleaning staging. Three corrections required before Jarvis caught the actual actionable item: LiftNet follow-up call scheduled today at 2:30 PM with Don, directly tied to action items from the Mar 25 transcript.",
+      "correction": "Boot means full chief-morning workflow. When David says something is done, trust him and move on. Surface action items from recent transcripts that hit today's calendar \u2014 that's the whole point of the Plaud pull.",
       "failure_mode": "protocol-skip",
-      "systemic_fix": "This is the second consecutive session with a truncated boot (err-20260326-003). The boot sequence is non-negotiable: identity files → full chief-morning workflow (calendar + OmniFocus + Plaud + reMarkable + lead review in parallel). Also: when David corrects a factual claim, act on it immediately — don't verify what he just told you.",
+      "systemic_fix": "This is the second consecutive session with a truncated boot (err-20260326-003). The boot sequence is non-negotiable: identity files \u2192 full chief-morning workflow (calendar + OmniFocus + Plaud + reMarkable + lead review in parallel). Also: when David corrects a factual claim, act on it immediately \u2014 don't verify what he just told you.",
       "fix_status": "applied",
       "severity": "major",
-      "related_entries": ["err-20260326-003"]
+      "related_entries": [
+        "err-20260326-003"
+      ]
     },
     {
       "id": "err-20260327-002",
@@ -495,13 +493,16 @@
       "source": "explicit",
       "agent": "jarvis",
       "category": "routing-error",
-      "description": "David said 'Rigby Register' — a clear instruction to have Rigby log the M365 auth failure as a system issue. Jarvis did not recognize this as a Rigby dispatch command. When David clarified with 'Ask Rigby if I'm registered', Jarvis still didn't read the Rigby agent file. Instead, retried the M365 call and asked David to explain. Required a third correction ('Rigby is an agent, what is wrong with you?') before Jarvis read the agent file.",
+      "description": "David said 'Rigby Register' \u2014 a clear instruction to have Rigby log the M365 auth failure as a system issue. Jarvis did not recognize this as a Rigby dispatch command. When David clarified with 'Ask Rigby if I'm registered', Jarvis still didn't read the Rigby agent file. Instead, retried the M365 call and asked David to explain. Required a third correction ('Rigby is an agent, what is wrong with you?') before Jarvis read the agent file.",
       "correction": "When David names an agent followed by a command verb, that's a dispatch instruction. 'Rigby Register' = dispatch to Rigby to register/log an issue. Read the agent file, understand the context, execute.",
       "failure_mode": "context-blindness",
       "systemic_fix": "Any '[Agent Name] [Verb]' pattern from David is a dispatch command, not a question. Parse agent name, read agent file if needed, determine what the verb maps to in that agent's task portfolio, and execute. Never ask David to explain his own agent system to you.",
       "fix_status": "applied",
       "severity": "moderate",
-      "related_entries": ["err-20260321-003", "err-20260323-007"]
+      "related_entries": [
+        "err-20260321-003",
+        "err-20260323-007"
+      ]
     },
     {
       "id": "err-20260327-003",
@@ -510,13 +511,18 @@
       "source": "self-detected",
       "agent": "jarvis",
       "category": "routing-error",
-      "description": "Built the TitleBridge prep sheet directly — pulled emails, wrote markdown, generated PDF with reportlab, pushed to reMarkable via rmapi — instead of dispatching Harper (prep content assembly) and Knox (PDF + reMarkable delivery). This is the seventh occurrence of this chronic pattern (err-20260324-005 marked it as 'chronic' at the fifth occurrence).",
+      "description": "Built the TitleBridge prep sheet directly \u2014 pulled emails, wrote markdown, generated PDF with reportlab, pushed to reMarkable via rmapi \u2014 instead of dispatching Harper (prep content assembly) and Knox (PDF + reMarkable delivery). This is the seventh occurrence of this chronic pattern (err-20260324-005 marked it as 'chronic' at the fifth occurrence).",
       "correction": "Harper owns meeting prep content. Knox owns PDF build and reMarkable delivery. Jarvis gathers inputs (email content, Clay data) and dispatches. Does not execute agent-owned work.",
       "failure_mode": "protocol-skip",
       "systemic_fix": "Seventh occurrence. Pattern is now deeply embedded. Every prep sheet request = immediate Harper dispatch. Every reMarkable push = Knox dispatch. No exceptions.",
       "fix_status": "proposed",
       "severity": "moderate",
-      "related_entries": ["err-20260324-005", "err-20260324-004", "err-20260323-003", "err-20260323-002"]
+      "related_entries": [
+        "err-20260324-005",
+        "err-20260324-004",
+        "err-20260323-003",
+        "err-20260323-002"
+      ]
     },
     {
       "id": "err-20260327-004",
@@ -525,13 +531,15 @@
       "source": "explicit",
       "agent": "jarvis",
       "category": "routing-error",
-      "description": "David said 'Fire the skill rigby-register'. Jarvis searched for the skill file in skills/ and .claude/skills/ directories but failed to find it at .claude/skills/rigby-register/SKILL.md. Then declared it doesn't exist. David had to point Jarvis to the exact path. This is a direct follow-up to err-20260327-002 — Jarvis still doesn't know where Rigby's skills live even after the earlier correction.",
+      "description": "David said 'Fire the skill rigby-register'. Jarvis searched for the skill file in skills/ and .claude/skills/ directories but failed to find it at .claude/skills/rigby-register/SKILL.md. Then declared it doesn't exist. David had to point Jarvis to the exact path. This is a direct follow-up to err-20260327-002 \u2014 Jarvis still doesn't know where Rigby's skills live even after the earlier correction.",
       "correction": "The skill exists at .claude/skills/rigby-register/SKILL.md. When told to 'fire a skill', find the SKILL.md file and execute it as written. Skills live in both skills/ (IES skills) and .claude/skills/ (Cowork skills). Search both.",
       "failure_mode": "lazy-search",
       "systemic_fix": "When looking for a skill by name, search BOTH skills/ AND .claude/skills/ directories. The glob pattern should be **/{skill-name}*/SKILL.md across the full IES tree.",
       "fix_status": "applied",
       "severity": "moderate",
-      "related_entries": ["err-20260327-002"]
+      "related_entries": [
+        "err-20260327-002"
+      ]
     },
     {
       "id": "err-20260327-005",
@@ -540,10 +548,10 @@
       "source": "explicit",
       "agent": "jarvis",
       "category": "wrong-assumption",
-      "description": "In the morning briefing leads section, flagged Alcon and AECom as 'unassigned' leads needing action. The '---' value in the 'Passed To' column means the lead is dead/closed — not unassigned. Jarvis treated dead leads as actionable items.",
+      "description": "In the morning briefing leads section, flagged Alcon and AECom as 'unassigned' leads needing action. The '---' value in the 'Passed To' column means the lead is dead/closed \u2014 not unassigned. Jarvis treated dead leads as actionable items.",
       "correction": "'---' in the lead tracker means dead/not going to be assigned. Only truly blank 'Passed To' fields are unassigned leads. Alcon and AECom should not have been surfaced.",
       "failure_mode": "wrong-assumption",
-      "systemic_fix": "Update lead review logic: '---' = dead lead, skip entirely. Only surface leads where 'Passed To' is blank/empty/null — not '---'.",
+      "systemic_fix": "Update lead review logic: '---' = dead lead, skip entirely. Only surface leads where 'Passed To' is blank/empty/null \u2014 not '---'.",
       "fix_status": "applied",
       "severity": "minor",
       "related_entries": []

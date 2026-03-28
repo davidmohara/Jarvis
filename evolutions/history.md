@@ -166,3 +166,28 @@ N/A — all new files.
 - Rate limits: 100 req/min, 10K/day
 - Raw/continuous heart rate NOT available via API
 - Personal evolution — WHOOP integration is instance-specific, not promotable to system
+
+---
+
+## Cowork Scheduled Tasks — Published 2026-03-28
+
+**Evolution ID:** 294593e2-5ca6-419a-8abe-3e8797d818b9
+**DB ID:** cmnapu67100001tptdispl34i
+**Type:** System evolution
+**Published:** 2026-03-28T00:00:00Z
+**Status:** submitted (awaiting admin approval)
+**Published by:** Rigby (David + Jarvis session)
+
+### Summary
+
+Replaces session-scoped CronCreate approach with Cowork's native Scheduled Tasks panel. config/scheduled-tasks.json restructured with configured status flags and copy-paste prompts per task. New rigby-scheduled-setup skill presents unconfigured tasks as copy-paste setup cards. chief-morning boot check surfaces a one-line notice when tasks need setup.
+
+### Files Included
+
+- `config/scheduled-tasks.json` — add (Cowork-native config with configured flag, cowork_prompt, schedule_display, keep_awake per task)
+- `.claude/skills/rigby-scheduled-setup/SKILL.md` — add (new Rigby skill: surface unconfigured tasks as copy-paste setup cards)
+
+### Notes
+
+- chief-morning boot check is a personal block — configure locally, not included in this evolution
+- Status: submitted. Admin approval required before available at poll endpoint.
