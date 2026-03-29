@@ -51,8 +51,13 @@ Timeout: 15000
 ### Example Calls
 
 ```bash
-# Post morning briefing summary to #jarvis
-python3 "$(mdfind -name 'post.py' | grep 'systems/slack-bot/post.py' | head -1)" C0AN2PQNXBR "*Morning Briefing — March 24, 2026*\n\n📅 4 meetings today\n⚡ Convergence AI prep (6 days out)\n🔴 2 overdue delegations\n📥 7 inbox items"
+# Post morning briefing summary to #jarvis (multi-line — newlines are real)
+python3 "$(mdfind -name 'post.py' | grep 'systems/slack-bot/post.py' | head -1)" C0AN2PQNXBR "*Morning Briefing — March 24, 2026*
+
+📅 4 meetings today
+⚡ Convergence AI prep (6 days out)
+🔴 2 overdue delegations
+📥 7 inbox items"
 
 # DM David about an urgent item
 python3 "$(mdfind -name 'post.py' | grep 'systems/slack-bot/post.py' | head -1)" U0ANHV5UXEW "Integrated Financial Settlements has been unassigned for 35 days post-call. Need an AM decision today."
@@ -76,6 +81,27 @@ python3 "$(mdfind -name 'post.py' | grep 'systems/slack-bot/post.py' | head -1)"
 4. **Max 5000 chars per message.** Split longer reports into multiple sends.
 5. **No fluff.** Don't open with "Hi David" or "Here's your report." Lead with the content.
 
+### ⚠️ Newline Handling (Critical)
+
+**Never use literal `\n` in the message string.** Desktop Commander passes the command to the shell as-is — `\n` stays as a literal two-character sequence and Slack renders it as visible `\n` instead of line breaks.
+
+**Do this — use actual multi-line strings:**
+```bash
+python3 "$(mdfind -name 'post.py' | grep 'systems/slack-bot/post.py' | head -1)" C0AN2PQNXBR "*Morning Briefing — March 24, 2026*
+
+📅 4 meetings today
+⚡ Convergence AI prep (6 days out)
+🔴 2 overdue delegations
+📥 7 inbox items"
+```
+
+**Don't do this — literal `\n` won't render:**
+```bash
+python3 ... C0AN2PQNXBR "*Morning Briefing*\n\n📅 4 meetings\n⚡ Priority item"
+```
+
+The double-quoted multi-line string preserves real newlines through Desktop Commander → shell → Python → Slack API.
+
 ## Critical Rules
 
 - **ALWAYS use this skill for outbound Slack messages.** The Slack MCP connector (`mcp__85b26e93-*`) posts as David and does NOT trigger notifications.
@@ -89,6 +115,22 @@ If Desktop Commander is unavailable or the script fails:
 1. Log the failure — do not silently skip notification
 2. Include the report content in the session output so David can still see it
 3. Note: "Slack notification failed — Desktop Commander unavailable" so the issue can be diagnosed
+
+### Missing Bot Token — Self-Healing Setup
+
+If the script returns `SLACK_BOT_TOKEN not found` (or `config/.env` doesn't exist), run through setup inline:
+
+1. **Check if `config/.env` exists.** If not, copy from the template:
+   ```bash
+   cp config/.env.example config/.env
+   ```
+2. **Ask David for the token:**
+   > I need the Slack bot token to send reports as Jarvis.
+   > Grab it from: **https://api.slack.com/apps** → Jarvis → OAuth & Permissions → **Bot User OAuth Token** (starts with `xoxb-`).
+3. **Write the token** into `config/.env` — replace the placeholder value for `SLACK_BOT_TOKEN`.
+4. **Verify** by re-running the send. If it succeeds, continue with the original report. If it fails again, surface the error and stop.
+
+Do NOT skip the notification just because the token is missing — always attempt setup first.
 
 ## Agent Usage
 
