@@ -555,6 +555,26 @@
       "fix_status": "applied",
       "severity": "minor",
       "related_entries": []
+    },
+    {
+      "id": "err-20260329-001",
+      "timestamp": "2026-03-29T15:10:00Z",
+      "session": "2026-03-29",
+      "source": "explicit",
+      "agent": "jarvis",
+      "category": "routing-error",
+      "description": "Jarvis built the jarvis-channel Slack polling daemon entirely from scratch directly \u2014 spec, code, install scripts, scheduled-tasks.json update, testing \u2014 without involving Rigby. New system capabilities are Rigby's domain: capability builds, new system components, evolution packaging, and deployment. This is the eighth occurrence of Jarvis doing Rigby's work directly.",
+      "correction": "Before building any new capability, Jarvis must review the agent roster and route to the owning agent. New capabilities and system components route to Rigby. Jarvis coordinates and provides requirements; Rigby builds, packages, and tracks.",
+      "failure_mode": "protocol-skip",
+      "systemic_fix": "Eighth occurrence of this chronic pattern. Jarvis must treat ANY capability build request as a Rigby dispatch \u2014 no exceptions. The check is: does this involve creating new system files, scripts, or components? If yes, it is Rigby's work. Jarvis provides the spec and requirements; Rigby executes.",
+      "fix_status": "proposed",
+      "severity": "moderate",
+      "related_entries": [
+        "err-20260324-006",
+        "err-20260323-007",
+        "err-20260322-001",
+        "err-20260321-003"
+      ]
     }
   ]
 }

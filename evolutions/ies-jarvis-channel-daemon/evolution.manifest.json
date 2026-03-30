@@ -1,0 +1,55 @@
+{
+  "id": "ies-35eb59a2-646a-4aa0-a26f-4f2ef96fbbe1",
+  "version": "35eb59a2-646a-4aa0-a26f-4f2ef96fbbe1",
+  "name": "Jarvis Channel Daemon",
+  "description": "New system component: Slack channel polling daemon that monitors #jarvis for messages from David, routes them to a headless Claude Code session (Jarvis master agent with full context via CLAUDE.md bootstrap), and posts responses back via Jarvis bot. Includes adaptive polling (5min idle → 30s active → progressive backoff → 5min after silence), session ID persistence for resumption across daemon restarts, automatic context compaction every 10 turns, and stale process cleanup on startup.",
+  "released": "2026-03-29T21:45:40Z",
+  "type": "system",
+  "compatibility": {
+    "minimum_base_version": "1.0.0"
+  },
+  "files": [
+    {
+      "path": "systems/jarvis-channel/jarvis-channel.py",
+      "type": "system",
+      "action": "add",
+      "description": "Main daemon: polls #jarvis Slack channel every 5 min (idle) → 30s (active). Routes messages to headless Claude Code. Posts responses via Jarvis bot. Adaptive polling, session persistence, context compaction, process cleanup."
+    },
+    {
+      "path": "systems/jarvis-channel/install.sh",
+      "type": "system",
+      "action": "add",
+      "description": "Setup script: verifies claude binary, checks SLACK_BOT_TOKEN, creates data directory, runs test mode."
+    },
+    {
+      "path": "systems/jarvis-channel/.gitignore",
+      "type": "system",
+      "action": "add",
+      "description": "Git ignore: excludes data/*.json and data/*.log from version control."
+    },
+    {
+      "path": "config/scheduled-tasks.json",
+      "type": "system",
+      "action": "merge",
+      "description": "Added jarvis-channel task entry: runs Python daemon every 5 minutes (self-managing), keeps session awake, requires ANTHROPIC_API_KEY."
+    },
+    {
+      "path": "config/.env.example",
+      "type": "system",
+      "action": "merge",
+      "description": "Added JARVIS_CHANNEL_ID and JARVIS_USER_ID documentation with defaults and use case for packaging evolution."
+    }
+  ],
+  "changelog": [
+    "New system component: jarvis-channel daemon monitors #jarvis Slack channel for messages from David",
+    "Routes messages to headless Claude Code session running Jarvis master agent with full context",
+    "Posts responses back as Jarvis bot using SLACK_BOT_TOKEN",
+    "Adaptive polling strategy: 5min idle, 30s-300s active with backoff, 5min after silence",
+    "Session ID persistence enables conversation continuity across daemon restarts",
+    "Automatic context compaction every 10 turns prevents context window overflow",
+    "Stale process cleanup on startup prevents orphaned sessions",
+    "Environment variables JARVIS_CHANNEL_ID and JARVIS_USER_ID enable repackaging for other IES users",
+    "Scheduled task configuration supports Cowork's native Scheduled Tasks panel"
+  ],
+  "training_prompts": []
+}

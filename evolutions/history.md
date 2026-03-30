@@ -191,3 +191,49 @@ Replaces session-scoped CronCreate approach with Cowork's native Scheduled Tasks
 
 - chief-morning boot check is a personal block — configure locally, not included in this evolution
 - Status: submitted. Admin approval required before available at poll endpoint.
+
+---
+
+## Jarvis Channel Daemon — Published 2026-03-29
+
+**Evolution ID:** ies-35eb59a2-646a-4aa0-a26f-4f2ef96fbbe1
+**Version:** 35eb59a2-646a-4aa0-a26f-4f2ef96fbbe1
+**Published:** 2026-03-29T21:45:40Z
+**Status:** Submitted (awaiting admin approval)
+**Published by:** Rigby (via Evolution Package workflow)
+
+### Summary
+
+New system component: Slack channel polling daemon that monitors #jarvis for messages from David, routes them to a headless Claude Code session (Jarvis master agent with full context via CLAUDE.md bootstrap), and posts responses back via Jarvis bot. Enables asynchronous interaction with Jarvis from Slack when not in an active Code session.
+
+### Files Included
+
+**Added (3 files):**
+- `systems/jarvis-channel/jarvis-channel.py` — main daemon script
+- `systems/jarvis-channel/install.sh` — setup script with verification
+- `systems/jarvis-channel/.gitignore` — excludes runtime state and logs
+
+**Merged (2 files):**
+- `config/scheduled-tasks.json` — added jarvis-channel task definition
+- `config/.env.example` — documented JARVIS_CHANNEL_ID and JARVIS_USER_ID env vars
+
+### Features
+
+- **Adaptive polling**: 5min idle → 30s-300s active with backoff → 5min after silence
+- **Session persistence**: Claude Code session_id stored in data/state.json for conversation continuity across daemon restarts
+- **Automatic context compaction**: Sends /compact every 10 turns to prevent context overflow
+- **Process cleanup**: Kills stale jarvis-channel.py processes on startup
+- **Configurable ownership**: JARVIS_CHANNEL_ID and JARVIS_USER_ID env vars enable repackaging for other IES users
+- **Cowork integration**: Scheduled task configuration for Cowork's native Scheduled Tasks panel
+
+### Conflicts
+
+None.
+
+### Architecture Notes
+
+- Daemon runs independently of any active Code session — David's #jarvis messages are routed to headless Claude invocations running in JARVIS_ROOT
+- Session bootstrap occurs automatically via CLAUDE.md — no separate context files needed
+- Token-based authentication with Anthropic API (ANTHROPIC_API_KEY in config/.env)
+- Slack bot posts via systems/slack-bot/post.py using SLACK_BOT_TOKEN
+- Extensible polling controller enables future rate-limiting or backpressure strategies
