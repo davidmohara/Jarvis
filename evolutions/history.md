@@ -237,3 +237,55 @@ None.
 - Token-based authentication with Anthropic API (ANTHROPIC_API_KEY in config/.env)
 - Slack bot posts via systems/slack-bot/post.py using SLACK_BOT_TOKEN
 - Extensible polling controller enables future rate-limiting or backpressure strategies
+
+---
+
+## Root Audit — Published 2026-03-29
+
+**Evolution ID:** ies-0b1764ae-74bb-4214-a2ba-2c22e444e5c2
+**Version:** 0b1764ae-74bb-4214-a2ba-2c22e444e5c2
+**DB ID:** cmncmcty000041tpt1m0ca1r2
+**Published:** 2026-03-29T00:00:00Z
+**Status:** Submitted (awaiting admin approval)
+**Published by:** Rigby (via Evolution Package workflow)
+
+### Summary
+
+Root directory hygiene capability for Rigby. Audits the IES root directory, classifies misplaced files as Move/Delete/Unknown, presents findings in grouped table format, and executes confirmed actions. Never auto-deletes — all actions require explicit confirmation. Integrated into daily-review workflow as final shutdown step.
+
+### Files Included
+
+**Added (2 files):**
+- `.claude/skills/rigby-root-audit/SKILL.md` — new Rigby skill: root audit, classification, execution
+- `workflows/daily-review/steps/step-04-root-audit.md` — new daily-review step 04
+
+**Merged (2 files):**
+- `agents/rigby.md` — added Root Audit to Task Portfolio under system block
+- `workflows/daily-review/steps/step-03-update-system.md` — updated WORKFLOW COMPLETE to chain to step-04
+
+### Features
+
+- **File classification**: Move (belongs in known folder), Delete (temporary/ephemeral), Unknown (unclear purpose)
+- **Safe operation**: Never auto-deletes. All moves/deletes require executive confirmation.
+- **System file protection**: Ignores dotfiles, .gitignore, CLAUDE.md, SYSTEM.md, README.md
+- **PDF companion handling**: Detects regenerable PDFs (e.g., meeting prep PDFs when .md exists), recommends deletion
+- **Grouped presentation**: Results table organized by action type with destination/reason columns
+- **Error handling**: Skips inaccessible files, continues with remaining actions
+
+### Integration
+
+- Runs after step-03 (Update System) in daily-review workflow
+- Completes the daily shutdown sequence
+- Non-blocking — review completion doesn't wait for root audit
+- Chief routes "root audit", "clean up root", "audit root" trigger phrases to Rigby
+
+### Conflicts
+
+None.
+
+### Architecture Notes
+
+- Skill uses Bash (ls, mv, rm, mkdir) for file operations
+- Glob used for non-recursive root file enumeration
+- Maintains consistency with Rigby's preference for command-line operations
+- Personal content in root is rare — evolution is system-classified

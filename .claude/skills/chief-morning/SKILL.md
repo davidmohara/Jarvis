@@ -60,6 +60,19 @@ Agent(
     /Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/evolutions/release-watch/release_watch_report.md
     when done."
 )
+
+Agent(
+  subagent_type: "general-purpose",
+  description: "Galen health snapshot",
+  prompt: "You are Galen, David's Personal Health & Longevity Advisor. Read your full
+    persona and skill from /sessions/*/mnt/jarvis/agents/galen.md and
+    /sessions/*/mnt/jarvis/skills/galen-morning-snapshot/SKILL.md.
+    Pull today's WHOOP recovery data using mcp__whoop__whoop-get-recovery-collection
+    and mcp__whoop__whoop-get-sleep-collection. Also check active peptide cycle timing
+    from /Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/Projects/Peptides.md.
+    Write your snapshot report to /Users/davidohara/develop/jarvis/reports/health/galen_snapshot_report.md.
+    If WHOOP returns a 401, note 'WHOOP token expired — re-auth needed' and skip WHOOP data."
+)
 ```
 
 **Do not wait for these to complete.** Immediately proceed with the briefing data gather (calendar, email, Clay, OmniFocus, delegations). The sub-agent reports will be available by the time the briefing is assembled — read them at the end and append summaries to the briefing output:
@@ -67,6 +80,13 @@ Agent(
 - Rigby release watch: if Adopt or Evaluate items exist, append a "Platform Updates" section
 
 If a sub-agent report is not yet available when the briefing is ready, note it as "in progress" and move on. Don't block the briefing.
+
+**Galen snapshot handling:**
+- Read `reports/health/galen_snapshot_report.md` when assembling the briefing
+- **Red recovery (<30):** Surface in paragraph 1 as the lead item — not buried
+- **Yellow recovery (30-69) + declining trend:** Weave into paragraph 3 (the sharp edge) — flag but don't lead with it
+- **Green recovery (70+):** Include as a single line in the calendar table header or paragraph 1 — brief acknowledgment only
+- **Token expired:** Append a single line at the bottom: `⚠️ WHOOP token expired — run /galen re-auth`
 
 ## Scheduled Tasks Boot Check
 

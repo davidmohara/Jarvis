@@ -1,6 +1,62 @@
 {
   "pending": [
     {
+      "id": "work-20260329-galen-agent",
+      "description": "New agent: Galen \u2014 Longevity Advisor. Owns complete health and biometric ecosystem: WHOOP analysis, bloodwork interpretation, supplement/peptide protocol management, physician visit prep, body composition tracking, monthly health reviews. Implements Peter Attia's 4 Horsemen framework for disease prevention.",
+      "started": "2026-03-29T00:00:00Z",
+      "classification": "personal",
+      "files": [
+        {
+          "path": "agents/galen.md",
+          "action": "add",
+          "type": "personal",
+          "description": "New agent: Galen \u2014 Longevity Advisor & Personal Health Systems Manager"
+        },
+        {
+          "path": "skills/galen-morning-snapshot/SKILL.md",
+          "action": "add",
+          "type": "personal",
+          "description": "New skill: Morning health snapshot. Pull today's WHOOP recovery, interpret 7-day context, surface status for Chief's briefing. Flags red recovery, HRV trends, sleep quality, peptide reminders."
+        },
+        {
+          "path": "skills/galen-whoop-analysis/SKILL.md",
+          "action": "add",
+          "type": "personal",
+          "description": "New skill: Deep 30-day WHOOP analysis. Recovery trend, sleep quality drivers, workout load correlation, HRV assessment. Outputs narrative + data table + recommendations."
+        },
+        {
+          "path": "skills/galen-bloodwork/SKILL.md",
+          "action": "add",
+          "type": "personal",
+          "description": "New skill: Interpret Function Health bloodwork. Flag out-of-range markers by severity, cross-reference with protocols, compare prior results, generate Dr. Randol questions. Outputs shareable interpretation brief."
+        },
+        {
+          "path": "skills/galen-protocols/SKILL.md",
+          "action": "add",
+          "type": "personal",
+          "description": "New skill: Protocol management. Track supplement stack and peptide cycles. Monitor cycle timing (Epithalon 2x/year, 4-month pause), surface protocol status, flag conflicts/gaps. Outputs status card."
+        },
+        {
+          "path": "skills/galen-visit-prep/SKILL.md",
+          "action": "add",
+          "type": "personal",
+          "description": "New skill: Physician visit prep. Compile pre-visit brief for Dr. Randol: WHOOP trends, bloodwork changes, protocol changes, outstanding questions, new questions, body comp update. Exportable to Obsidian."
+        },
+        {
+          "path": "workflows/galen-monthly-health-review/workflow.md",
+          "action": "add",
+          "type": "personal",
+          "description": "New workflow: Monthly health review. Pull 30-day WHOOP, latest bloodwork, DEXA data, Lifebook goals. Output comprehensive Obsidian note with monthly summary, 4 Horsemen risk assessment, action items."
+        },
+        {
+          "path": "agents/master.md",
+          "action": "merge",
+          "type": "personal",
+          "description": "Added Galen routing signals to Agent Routing table (recovery, WHOOP, bloodwork, supplements, peptides, Dr. Randol, health visit prep, health trends)"
+        }
+      ]
+    },
+    {
       "id": "work-20260306-remarkable-sync",
       "description": "reMarkable \u2192 Obsidian sync skill \u2014 pulls handwritten notes, transcribes via vision, saves as markdown. Dispatches to sub-agent for isolated context.",
       "started": "2026-03-06T10:00:00Z",
@@ -171,68 +227,6 @@
           "action": "merge",
           "type": "system",
           "description": "Added step 9: Commitment Gap Detection. Scans Teams transcripts, Teams chat, email, Plaud transcripts in Obsidian, and OmniFocus for commitment language. Classifies gaps as outbound/inbound/mutual. Scans previous weekly reviews for recurring gap patterns. Added Commitment Gaps and Gap Patterns sections to report format. Added two new handoff triggers: inbound commitment gaps going cold to Shep, outbound commitment gaps in client meetings to Chase."
-        }
-      ]
-    },
-    {
-      "id": "work-20260320-rigby-root-audit",
-      "description": "Root Audit \u2014 Adds root directory hygiene capability to Rigby \u2014 surfaces misplaced files, recommends moves or deletions, and executes after confirmation.",
-      "started": "2026-03-20T00:00:00Z",
-      "classification": "system",
-      "evolution_name": "Root Audit",
-      "evolution_description": "Adds root directory hygiene capability to Rigby \u2014 surfaces misplaced files, recommends moves or deletions, and executes after confirmation.",
-      "files": [
-        {
-          "path": ".claude/skills/rigby-root-audit/SKILL.md",
-          "action": "add",
-          "type": "system",
-          "description": "New Rigby skill: audit IES root directory, classify misplaced files as Move/Delete/Unknown, execute after confirmation"
-        },
-        {
-          "path": "agents/rigby.md",
-          "action": "merge",
-          "type": "system",
-          "description": "Added Root Audit to Rigby's Task Portfolio under system block"
-        },
-        {
-          "path": "workflows/daily-review/steps/step-04-root-audit.md",
-          "action": "add",
-          "type": "system",
-          "description": "New daily-review step 04: root audit \u2014 runs after step 03 as final shutdown housekeeping"
-        },
-        {
-          "path": "workflows/daily-review/steps/step-03-update-system.md",
-          "action": "merge",
-          "type": "system",
-          "description": "Updated WORKFLOW COMPLETE to chain to step-04-root-audit instead of halting"
-        }
-      ]
-    },
-    {
-      "id": "work-20260324-send-report",
-      "description": "New master-level skill: send-report. Sends Slack notifications via Jarvis bot (separate identity from David) through Desktop Commander. Any agent or scheduled task can invoke to deliver reports, alerts, and summaries with real push notifications.",
-      "started": "2026-03-24T00:00:00Z",
-      "classification": "system",
-      "evolution_name": "Send Report",
-      "evolution_description": "Master-level Slack notification skill. Posts via Jarvis bot token through Desktop Commander, bypassing the Slack MCP connector (which posts as David and triggers no notifications). Bot script at systems/slack-bot/post.py. Channels: #jarvis (default), DM to David (urgent).",
-      "files": [
-        {
-          "path": ".claude/skills/master-slack/SKILL.md",
-          "action": "add",
-          "type": "system",
-          "description": "New skill: send Slack messages as Jarvis bot via Desktop Commander. Channels, formatting rules, agent usage matrix, error handling."
-        },
-        {
-          "path": "systems/slack-bot/post.py",
-          "action": "add",
-          "type": "system",
-          "description": "Python script: posts to Slack API using Jarvis bot token. Args: channel_id, message text."
-        },
-        {
-          "path": "systems/slack-bot/README.md",
-          "action": "add",
-          "type": "system",
-          "description": "Reference doc: bot setup, channel IDs, usage examples, formatting guide."
         }
       ]
     }

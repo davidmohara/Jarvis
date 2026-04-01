@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+from __future__ import annotations
 """
 Last Bottle Wines Monitor — polls the lastbottlewines.com homepage for the
 current active flash offer, scores it against David's taste profile, and
@@ -441,16 +442,18 @@ def run_poll(profile: dict, seen: dict, dry_run: bool = False) -> dict:
     try_it_enabled = try_it_rule.get("enabled", False)
     try_it_min_discount = try_it_rule.get("min_discount_pct", 60)
     try_it_max_price = try_it_rule.get("max_price", 50)
+    try_it_min_score = try_it_rule.get("min_score", 20)
 
     discount_pct = 0
     if result["compare_price"] > 0 and result["price"] > 0:
         discount_pct = round((1 - result["price"] / result["compare_price"]) * 100)
 
-    # Check try-it rule: >60% off AND <$50, even if below min_score
+    # Check try-it rule: >60% off AND <$50 AND score >= floor, even if below min_score
     qualifies_try_it = (
         try_it_enabled
         and discount_pct > try_it_min_discount
         and result["price"] < try_it_max_price
+        and result["composite_score"] >= try_it_min_score
         and result["composite_score"] < min_score
     )
 

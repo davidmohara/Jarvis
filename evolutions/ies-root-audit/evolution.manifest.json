@@ -1,0 +1,49 @@
+{
+  "id": "ies-0b1764ae-74bb-4214-a2ba-2c22e444e5c2",
+  "version": "0b1764ae-74bb-4214-a2ba-2c22e444e5c2",
+  "name": "Root Audit",
+  "description": "Adds root directory hygiene capability to Rigby — surfaces misplaced files, recommends moves or deletions, and executes after confirmation.",
+  "released": "2026-03-29T00:00:00Z",
+  "type": "system",
+  "compatibility": {
+    "minimum_base_version": "1.0.0"
+  },
+  "files": [
+    {
+      "path": ".claude/skills/rigby-root-audit/SKILL.md",
+      "type": "system",
+      "action": "add",
+      "description": "New Rigby skill: audit IES root directory, classify misplaced files as Move/Delete/Unknown, execute after confirmation"
+    },
+    {
+      "path": "agents/rigby.md",
+      "type": "system",
+      "action": "merge",
+      "description": "Added Root Audit to Rigby's Task Portfolio under system block"
+    },
+    {
+      "path": "workflows/daily-review/steps/step-04-root-audit.md",
+      "type": "system",
+      "action": "add",
+      "description": "New daily-review step 04: root audit — runs after step 03 as final shutdown housekeeping"
+    },
+    {
+      "path": "workflows/daily-review/steps/step-03-update-system.md",
+      "type": "system",
+      "action": "merge",
+      "description": "Updated WORKFLOW COMPLETE to chain to step-04-root-audit instead of halting"
+    }
+  ],
+  "changelog": [
+    "New: Root Audit skill for Rigby (.claude/skills/rigby-root-audit/SKILL.md)",
+    "Updated: Rigby task portfolio — added Root Audit to system block",
+    "New: Daily review step 04 — root audit housekeeping runs after system update",
+    "Updated: Daily review step 03 — WORKFLOW COMPLETE chains to step-04-root-audit"
+  ],
+  "training_prompts": [
+    "When root audit surfaces misplaced files, present them grouped by action (Move, Delete, Unknown) in a table format.",
+    "Never execute moves or deletes without explicit confirmation from the executive.",
+    "If a file classification is ambiguous, classify as Unknown and flag for executive decision.",
+    "Always preserve known system files (.gitignore, CLAUDE.md, SYSTEM.md, README.md, dotfiles)."
+  ]
+}

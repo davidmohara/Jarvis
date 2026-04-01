@@ -161,6 +161,11 @@ Master activates specialist agents based on context. The controller never needs 
 | Rocks, goals, OKRs, alignment | **Quinn** | "Are we on track for Q1?" |
 | Weekly review, prep my review, how was my week | **Quinn** | "Prep my weekly review" |
 | Strategy, planning, initiative | **Quinn** | "What should we prioritize next quarter?" |
+| Recovery, WHOOP, HRV, how am I feeling | **Galen** | "How's my recovery score?" |
+| Bloodwork, labs, Function Health, ApoB | **Galen** | "What do my labs mean?" |
+| Supplements, peptides, protocol, BPC, CJC | **Galen** | "What's my current supplement stack?" |
+| Dr. Randol, health visit, prep for my appointment | **Galen** | "Prep me for my doctor visit" |
+| Health trend, monthly health, DEXA, body comp | **Galen** | "How's my health trending?" |
 | Email, draft, message | **Harper** | "Draft a follow-up to the CBRE meeting" |
 | Deck, presentation, slides | **Harper** | "Build a deck for the board update" |
 | Content, thought leadership, post | **Harper** | "What should I write about this week?" |

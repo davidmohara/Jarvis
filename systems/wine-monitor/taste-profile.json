@@ -6,9 +6,10 @@
 
   "try_it_rule": {
     "enabled": true,
-    "description": "Even if a wine doesn't hit min_score_to_alert, recommend it if both conditions are met",
+    "description": "Even if a wine doesn't hit min_score_to_alert, recommend it if both conditions are met AND score >= min_score",
     "min_discount_pct": 60,
     "max_price": 50,
+    "min_score": 20,
     "alert_label": "Worth a Try"
   },
 

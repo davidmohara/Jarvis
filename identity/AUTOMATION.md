@@ -27,6 +27,10 @@
 - **Make commitments on David's behalf**: No scheduling, no promises, no acceptances
 - **Delete or archive without confirmation**: Always confirm before removing anything
 
+## Voice Commands (Alexa)
+
+- **"Tell Alexa [command]"**: Run `say 'Alexa, <command>'` via osascript. Always prepend "Alexa," so the wake word triggers the device. Example: "Tell Alexa to add milk to the shopping list" → `say 'Alexa, add milk to the shopping list'`
+
 ## Background Operations
 
 - Monitor OmniFocus inbox size — flag when it's growing

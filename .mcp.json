@@ -2,10 +2,10 @@
   "mcpServers": {
     "whoop": {
       "command": "node",
-      "args": ["/home/user/mcp-servers/whoop-mcp/dist/index.js"],
+      "args": ["/Users/davidohara/mcp-servers/whoop-mcp/dist/index.js"],
       "env": {
-        "WHOOP_CLIENT_ID": "${WHOOP_CLIENT_ID}",
-        "WHOOP_CLIENT_SECRET": "${WHOOP_CLIENT_SECRET}",
+        "WHOOP_CLIENT_ID": "6b8e1ae4-4f02-4522-b3c2-83daad27ed82",
+        "WHOOP_CLIENT_SECRET": "ea6ef23fd57b73c590877820a8f299185130210cc619902689dc5e902aaadef8",
         "WHOOP_REDIRECT_URI": "http://localhost:3000/callback"
       }
     }
