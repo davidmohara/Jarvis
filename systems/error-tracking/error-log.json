@@ -167,6 +167,21 @@
       "description": "Used Glob pattern 'config/**' which matched only .env and .credentials \u2014 missed settings.json because it has no extension prefix. Wasted multiple rounds searching for the IES app URL before David pointed out it was in config/settings.json.",
       "correction": "David pointed out config/settings.json was visible and contained the URL.",
       "fix_applied": "Added explicit instruction to rigby-evolution-package skill: always read config/settings.json directly \u2014 do not search for it."
+    },
+    {
+      "id": "err-20260330-002",
+      "timestamp": "2026-03-30T09:30:00-05:00",
+      "session": "2026-03-30",
+      "source": "explicit",
+      "agent": "chief",
+      "category": "tool-misuse",
+      "description": "Used improving-pdf skill (Improving-branded PDF) for a personal prep sheet destined for David reMarkable tablet. Improving branding is for company/client deliverables, not personal reference documents.",
+      "correction": "Use a plain/unbranded PDF generator for personal documents. Reserve improving-pdf for Improving deliverables.",
+      "failure_mode": "wrong-assumption",
+      "systemic_fix": "Add rule: improving-pdf is for Improving-branded deliverables only. Personal docs (reMarkable, personal reference, internal notes) should use a clean/unbranded PDF generator.",
+      "fix_status": "proposed",
+      "severity": "minor",
+      "related_entries": []
     }
   ],
   "patterns": {
@@ -575,6 +590,81 @@
         "err-20260322-001",
         "err-20260321-003"
       ]
+    },
+    {
+      "id": "err-20260330-003",
+      "timestamp": "2026-03-30T14:45:00Z",
+      "session": "2026-03-30",
+      "source": "explicit",
+      "agent": "jarvis",
+      "category": "tool-misuse",
+      "description": "Pushed PDF to reMarkable root directory instead of /Meetings folder. This is the second time in the same session \u2014 first with convergence-ai-prep.pdf, now with kathy-kim-prep.pdf. David has to manually reorganize files on the reMarkable.",
+      "correction": "Always use 'rmapi put <file> /Meetings' to target the Meetings folder on reMarkable. Never push to root.",
+      "failure_mode": "wrong-assumption",
+      "systemic_fix": "Rule: All meeting prep PDFs pushed to reMarkable go to /Meetings folder. Use 'rmapi mkdir /Meetings' if folder doesn't exist, then 'rmapi put <file> /Meetings'.",
+      "fix_status": "applied",
+      "severity": "moderate",
+      "related_entries": ["err-20260330-002"]
+    },
+    {
+      "id": "err-20260330-004",
+      "timestamp": "2026-03-30T15:10:00Z",
+      "session": "2026-03-30",
+      "source": "explicit",
+      "agent": "jarvis",
+      "category": "format-violation",
+      "description": "Used em-dashes in drafted email for David. VOICE.md explicitly states 'No em-dashes (use hyphens)'. This has been corrected before.",
+      "correction": "Use hyphens, never em-dashes, in all email drafts for David.",
+      "failure_mode": "protocol-skip",
+      "systemic_fix": "Re-enforce: every email draft must be checked against VOICE.md email conventions before presenting. Em-dash rule is non-negotiable.",
+      "fix_status": "applied",
+      "severity": "minor",
+      "related_entries": []
+    },
+    {
+      "id": "err-20260330-005",
+      "timestamp": "2026-03-30T15:20:00Z",
+      "session": "2026-03-30",
+      "source": "explicit",
+      "agent": "jarvis",
+      "category": "format-violation",
+      "description": "Email draft for David used heavy formatting (bold headers, dash-separated structure) and didn't match David's actual writing voice. Overstructured and read like a Jarvis briefing, not a David email. Also swung from em-dashes to excessive regular dashes, which wasn't the fix David wanted.",
+      "correction": "David's emails are conversational prose, not formatted briefs. Match his natural cadence. The em-dash rule means use hyphens where grammatically needed, not to restructure every sentence around dashes.",
+      "failure_mode": "pattern-mismatch",
+      "systemic_fix": "When drafting emails as David: write natural conversational prose. No bold headers, no bullet-heavy structure, no dash-heavy sentence construction. Read like a human exec wrote it, not a system generated it. Review sent items for David's actual patterns before drafting.",
+      "fix_status": "applied",
+      "severity": "moderate",
+      "related_entries": ["err-20260330-004"]
+    },
+    {
+      "id": "err-20260330-006",
+      "timestamp": "2026-03-30T19:30:00Z",
+      "session": "2026-03-30",
+      "source": "explicit",
+      "agent": "jarvis",
+      "category": "process-skip",
+      "description": "Created OmniFocus inbox task (Jay Liles ILP kickoff reminder) without assigning a project or tag. Task was dropped into inbox with no organizational context.",
+      "correction": "All OmniFocus tasks must include a project and/or tag. Never create bare inbox tasks without organizational metadata.",
+      "failure_mode": "protocol-skip",
+      "systemic_fix": "When creating OmniFocus tasks via AppleScript, always include project assignment and at least one tag. Check SYSTEM.md OmniFocus section for tagging conventions before creating tasks.",
+      "fix_status": "applied",
+      "severity": "moderate",
+      "related_entries": []
+    },
+    {
+      "id": "err-20260330-007",
+      "timestamp": "2026-03-30T20:00:00Z",
+      "session": "2026-03-30",
+      "source": "explicit",
+      "agent": "jarvis",
+      "category": "assumption-error",
+      "description": "Built omnifocus-tasks skill with static hardcoded project and tag lists embedded in the skill file. David corrected: projects and tags should be looked up live via MCP/osascript at task creation time, not maintained as a static reference list.",
+      "correction": "The skill should query OmniFocus for current projects and tags at execution time, not rely on a snapshot that goes stale.",
+      "failure_mode": "wrong-assumption",
+      "systemic_fix": "Update omnifocus-tasks skill to pull live project/tag lists via mcp__omnifocus__get_active_projects and osascript tag query as part of the pre-flight checklist. Remove static lists from the skill file.",
+      "fix_status": "applied",
+      "severity": "moderate",
+      "related_entries": ["err-20260330-006"]
     }
   ]
 }

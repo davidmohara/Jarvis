@@ -526,13 +526,16 @@ If the user states a date or time that conflicts with the local clock, verify be
 <!-- personal:start -->
 ### Task Creation Rules
 
+**MANDATORY: Read `skills/omnifocus-tasks/SKILL.md` before creating ANY OmniFocus task.** That skill contains the pre-flight checklist, the AppleScript template, and the current project/tag lists. Do not write raw OmniFocus AppleScript outside that skill's template.
+
 When David asks Jarvis to create a task (any context — conversation, follow-up, action item):
 
-1. **Create it in OmniFocus** via osascript (not just noted in a file).
+1. **Create it in OmniFocus** via the `omnifocus-tasks` skill (not raw osascript, not just noted in a file).
 2. **Due date**: Default to the coming Friday at 5:00 PM (keeps visibility in weekly flow).
-3. **Project**: Every task MUST be assigned to exactly one existing Project. Do NOT create new Projects without David's explicit approval. If the correct Project is unclear, ask David with a recommendation before creating the task.
-4. **Tag**: Every task MUST be assigned exactly one existing Tag. Do NOT create new Tags without David's explicit approval. If the correct Tag is unclear, ask David with a recommendation before creating the task.
+3. **Project**: Every task MUST be assigned to exactly one existing Project. See `skills/omnifocus-tasks/SKILL.md` for the current list. Do NOT create new Projects without David's explicit approval. If the correct Project is unclear, ask David with a recommendation before creating the task.
+4. **Tag**: Every task MUST be assigned exactly one existing Tag. See `skills/omnifocus-tasks/SKILL.md` for the current list. Do NOT create new Tags without David's explicit approval. If the correct Tag is unclear, ask David with a recommendation before creating the task.
 5. **Notes**: Include relevant context (who, why, links to files or emails).
+6. **Gate enforcement**: If project OR tag is missing, the task MUST NOT be created. Stop and ask David.
 <!-- personal:end -->
 
 ---
@@ -1105,13 +1108,15 @@ Stage and commit all remaining files. The commit should be clean — no temp art
 
 ## OmniFocus Integration
 
-Use the **OmniFocus MCP server** for all OmniFocus interactions. The Cowork VM does not have `osascript` — MCP is the only path.
+Use the **OmniFocus MCP server** for READ operations. The Cowork VM does not have `osascript` — MCP is the only path for reads.
 
 Available MCP tools:
 - `mcp__omnifocus__get_active_tasks` — all uncompleted tasks
 - `mcp__omnifocus__get_all_tasks` — all tasks including completed
 - `mcp__omnifocus__get_active_projects` — active projects
 - `mcp__omnifocus__get_all_projects` — all projects including completed/dropped
+
+**For WRITE operations (creating tasks):** Use `skills/omnifocus-tasks/SKILL.md`. This is mandatory. That skill contains the pre-flight checklist, gate enforcement, AppleScript template, and current project/tag lists. Do NOT write raw OmniFocus AppleScript for task creation outside that skill.
 
 **Retry policy (mandatory):**
 The OmniFocus MCP server is prone to timeouts (60s). Before reporting failure to David:
@@ -1125,6 +1130,7 @@ The OmniFocus MCP server is prone to timeouts (60s). Before reporting failure to
 - Never delete inbox tasks to clear them — assign and mark complete for history
 - Always mirror changes in OmniFocus when updating delegation tracker or internal tracking
 - If `osascript` is needed for write operations not supported by MCP, use the Desktop Commander bridge
+- **Every task created MUST have a project and a tag. No exceptions. See `skills/omnifocus-tasks/SKILL.md`.**
 
 ---
 

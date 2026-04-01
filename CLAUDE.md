@@ -68,7 +68,9 @@ If the 72-hour look-ahead flagged an upcoming event needing prep, weave it into 
 
 ## OmniFocus
 
-Prefer the OmniFocus MCP server (`mcp__omnifocus__*`) for all OmniFocus interactions. Fall back to `osascript` via Bash only when the MCP server is unavailable. Refer to the OmniFocus section in SYSTEM.md for rules — especially: always filter for active/uncompleted tasks unless David asks for completed ones.
+Prefer the OmniFocus MCP server (`mcp__omnifocus__*`) for all READ operations. Fall back to `osascript` via Bash only when the MCP server is unavailable. Refer to the OmniFocus section in SYSTEM.md for rules — especially: always filter for active/uncompleted tasks unless David asks for completed ones.
+
+**For task creation: ALWAYS read `skills/omnifocus-tasks/SKILL.md` first.** That skill is the only authorized path for creating OmniFocus tasks. It contains a pre-flight checklist that gates on project and tag assignment. Do not write raw OmniFocus AppleScript for task creation outside that skill. No exceptions.
 
 ## Calendar
 
