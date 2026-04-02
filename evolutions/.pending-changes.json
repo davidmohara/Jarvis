@@ -53,6 +53,42 @@
           "action": "merge",
           "type": "personal",
           "description": "Added Galen routing signals to Agent Routing table (recovery, WHOOP, bloodwork, supplements, peptides, Dr. Randol, health visit prep, health trends)"
+        },
+        {
+          "path": ".claude/settings.local.json",
+          "action": "merge",
+          "type": "personal",
+          "description": "Pre-approved mcp__whoop__* and mcp__obsidian-mcp-tools__* permission wildcards so Galen morning snapshots and WHOOP data pulls require no permission prompts. Follows same pattern as mcp__playwright__* in global settings."
+        },
+        {
+          "path": ".claude/skills/galen-morning/SKILL.md",
+          "action": "add",
+          "type": "personal",
+          "description": "Slash command /galen-morning — registers morning snapshot skill as user-invocable command. Forks a Galen sub-agent, loads persona from agents/galen.md, executes skills/galen-morning-snapshot/SKILL.md."
+        },
+        {
+          "path": ".claude/skills/galen-whoop/SKILL.md",
+          "action": "add",
+          "type": "personal",
+          "description": "Slash command /galen-whoop — registers 30-day WHOOP analysis skill as user-invocable command. Executes skills/galen-whoop-analysis/SKILL.md."
+        },
+        {
+          "path": ".claude/skills/galen-bloodwork/SKILL.md",
+          "action": "add",
+          "type": "personal",
+          "description": "Slash command /galen-bloodwork — registers bloodwork interpretation skill as user-invocable command. Executes skills/galen-bloodwork/SKILL.md."
+        },
+        {
+          "path": ".claude/skills/galen-protocols/SKILL.md",
+          "action": "add",
+          "type": "personal",
+          "description": "Slash command /galen-protocols — registers protocol management skill as user-invocable command. Executes skills/galen-protocols/SKILL.md."
+        },
+        {
+          "path": ".claude/skills/galen-visit-prep/SKILL.md",
+          "action": "add",
+          "type": "personal",
+          "description": "Slash command /galen-visit-prep — registers physician visit prep skill as user-invocable command. Executes skills/galen-visit-prep/SKILL.md."
         }
       ]
     },

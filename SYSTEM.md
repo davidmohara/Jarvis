@@ -17,7 +17,8 @@ my-os/
 │   ├── shep.md                     → Coach — people, delegation, development
 │   ├── harper.md                   → Storyteller — comms, content, thought leadership
 │   ├── knox.md                     → Knowledge Manager — vault curation, device sync, search
-│   └── rigby.md                    → System Operator — evolution, packages, platform infrastructure
+│   ├── rigby.md                    → System Operator — evolution, packages, platform infrastructure
+│   └── galen.md                    → Longevity Advisor — health data, biometrics, bloodwork, protocols
 ├── identity/
 │   ├── MEMORY.md                   → Persistent context about David (who he is, family, faith, key dates)
 │   ├── VOICE.md                    → Jarvis personality, tone, communication style

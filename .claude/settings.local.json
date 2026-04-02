@@ -11,10 +11,16 @@
       "Skill(*)",
       "WebSearch",
       "WebFetch(*)",
-      "mcp__*"
+      "mcp__*",
+      "mcp__whoop__*",
+      "mcp__obsidian-mcp-tools__*"
     ],
     "additionalDirectories": [
       "/Users/davidohara/develop/improving/ies"
     ]
-  }
+  },
+  "enableAllProjectMcpServers": true,
+  "enabledMcpjsonServers": [
+    "whoop"
+  ]
 }

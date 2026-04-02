@@ -604,7 +604,9 @@
       "systemic_fix": "Rule: All meeting prep PDFs pushed to reMarkable go to /Meetings folder. Use 'rmapi mkdir /Meetings' if folder doesn't exist, then 'rmapi put <file> /Meetings'.",
       "fix_status": "applied",
       "severity": "moderate",
-      "related_entries": ["err-20260330-002"]
+      "related_entries": [
+        "err-20260330-002"
+      ]
     },
     {
       "id": "err-20260330-004",
@@ -634,7 +636,9 @@
       "systemic_fix": "When drafting emails as David: write natural conversational prose. No bold headers, no bullet-heavy structure, no dash-heavy sentence construction. Read like a human exec wrote it, not a system generated it. Review sent items for David's actual patterns before drafting.",
       "fix_status": "applied",
       "severity": "moderate",
-      "related_entries": ["err-20260330-004"]
+      "related_entries": [
+        "err-20260330-004"
+      ]
     },
     {
       "id": "err-20260330-006",
@@ -664,7 +668,54 @@
       "systemic_fix": "Update omnifocus-tasks skill to pull live project/tag lists via mcp__omnifocus__get_active_projects and osascript tag query as part of the pre-flight checklist. Remove static lists from the skill file.",
       "fix_status": "applied",
       "severity": "moderate",
-      "related_entries": ["err-20260330-006"]
+      "related_entries": [
+        "err-20260330-006"
+      ]
+    },
+    {
+      "id": "err-20260401-002",
+      "timestamp": "2026-04-01T17:30:00Z",
+      "session": "2026-04-01",
+      "source": "explicit",
+      "agent": "jarvis",
+      "category": "missed-context",
+      "description": "David asked 'What is Galen capable of?' and Jarvis had no knowledge of the agent. Galen is a fully spec'd agent (agents/galen.md) with 5 skill files (galen-bloodwork, galen-morning-snapshot, galen-protocols, galen-visit-prep, galen-whoop-analysis) and a monthly health review workflow. He was not listed in SYSTEM.md's agent directory and not loaded during boot, so Jarvis searched externally and returned empty-handed before David pointed out to check the agents folder.",
+      "correction": "Galen exists at agents/galen.md. Should have been found immediately by checking agents/ directory. SYSTEM.md agent roster was also missing Galen \u2014 now added. galen.md had incorrect data source paths (Obsidian) for bloodwork that lives on disk in Dropbox \u2014 also corrected.",
+      "failure_mode": "lazy-search",
+      "systemic_fix": "Added Galen to SYSTEM.md agent directory. Updated galen.md and galen-bloodwork SKILL.md to point to correct Dropbox paths for bloodwork PDFs. On boot, all agents/ files should be treated as authoritative \u2014 if David asks about an agent, check agents/ first.",
+      "fix_status": "applied",
+      "severity": "moderate",
+      "related_entries": []
+    },
+    {
+      "id": "err-20260401-001",
+      "timestamp": "2026-04-01T00:00:00Z",
+      "session": "2026-04-01",
+      "source": "explicit",
+      "agent": "jarvis",
+      "category": "tool-misuse",
+      "description": "When OmniFocus MCP timed out, Jarvis improvised its own AppleScript query for inbox tasks instead of deferring to the agent workflows that have correct, validated filter logic. The improvised query returned all inbox tasks including completed ones, producing an inflated and incorrect count. Jarvis then presented this number confidently in the diagnosis.",
+      "correction": "When MCP tools fail, fall back to osascript per SYSTEM.md \u2014 but use established agent scripts, not improvised queries. Agents (Chief) own the correct AppleScript patterns for filtered task queries. Jarvis should surface the fallback approach and let the correct agent execute it, not DIY the query.",
+      "failure_mode": "protocol-skip",
+      "systemic_fix": "Do not write ad-hoc AppleScript task queries. Reference agent-owned scripts or escalate to Chief for OmniFocus fallback queries. If no established script exists, note the gap rather than improvising.",
+      "fix_status": "applied",
+      "severity": "moderate",
+      "related_entries": []
+    },
+    {
+      "id": "err-20260401-003",
+      "timestamp": "2026-04-01T21:00:00Z",
+      "session": "2026-04-01",
+      "source": "explicit",
+      "agent": "jarvis",
+      "category": "style-violation",
+      "description": "Used em-dashes repeatedly in output after being explicitly told three times not to. David flagged this as a persistent, recurring failure requiring permanent correction.",
+      "correction": "Never use em-dashes. Use colons, semicolons, commas, or rewrite the sentence instead.",
+      "failure_mode": "repeated-instruction-ignore",
+      "systemic_fix": "Em-dashes are permanently banned from all output. No exceptions. Recurrence count: 3+.",
+      "fix_status": "applied",
+      "severity": "moderate",
+      "related_entries": []
     }
   ]
 }

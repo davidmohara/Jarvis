@@ -15,8 +15,12 @@ evolution: system
 
 ### Step 1: Locate & Load Bloodwork File
 
-Read latest bloodwork from Obsidian vault:
-- **Path:** `Mind/Health/Visit - [Date].md` (sorted by most recent first)
+Read latest bloodwork from Dropbox (PDF files on disk — not Obsidian):
+- **Base path:** `~/Library/CloudStorage/Dropbox/Family/Health/David - Bloodwork/`
+- **Structure:** Organized by year subdirectory — `2022/`, `2023/`, `2024/`, `2025/`
+- **Latest known:** `2025/2025-12-05.pdf`
+- List all PDFs across year folders, sort by date descending, read the most recent
+- Use `mcp__PDF_Tools__read_pdf_content` or Desktop Commander to extract text from PDF
 - Extract all biomarkers with values and reference ranges
 - Capture test date and lab (Function Health @ Quest Diagnostics)
 - Note ordering physician (Dr. Julli Randol)

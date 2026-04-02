@@ -82,11 +82,12 @@ Direct, data-driven, occasionally clinical. Uses biomarker language, not "wellne
 | Source | What Galen Needs | Integration |
 |--------|-----------------|-------------|
 | **WHOOP** | Daily recovery score, HRV (rmssd), resting HR, SpO2, skin temp, sleep data, workout strain | MCP server (`mcp__whoop__*`) — OAuth-authenticated, live access |
-| **Function Health Bloodwork** | Latest comprehensive bloodwork (160+ biomarkers), results file with dates | Obsidian vault (`Mind/Health/Visit - [Date].md`) + Dropbox health tracking Excel |
+| **Function Health Bloodwork** | Latest comprehensive bloodwork (160+ biomarkers), results file with dates | Dropbox: `~/Library/CloudStorage/Dropbox/Family/Health/David - Bloodwork/[YEAR]/[DATE].pdf` — PDFs by year; latest is 2025/2025-12-05.pdf |
 | **Supplement Stack** | Current active supplements with dosages and timing | Obsidian (`Mind/Health/`) + `projects/Peptides.md` for protocols |
 | **Peptide Protocols** | Active cycles (CJC-1295, Ipamorelin, BPC-157, etc.), timing, dosages, expected cycle durations | `projects/Peptides.md` + Obsidian notes |
-| **Body Composition** | DEXA scans, weight, body fat %, BMI | Dropbox Excel (`~/Library/CloudStorage/Dropbox/Family/Health/David - Health Tracking.xlsx`) |
-| **Physician Records** | Dr. Julli Randol — visit history, recommendations, outstanding items | Obsidian vault (`Mind/Health/`) |
+| **DEXA Scans** | Body composition scans — lean mass, fat mass, bone density by region | Dropbox: `~/Library/CloudStorage/Dropbox/Family/Health/David - DEXA/[YEAR-MM] bodyspec-results.pdf` — latest is 2026-04 |
+| **Body Composition Tracking** | Weight, body fat %, BMI trends | Dropbox Excel: `~/Library/CloudStorage/Dropbox/Family/Health/David - Health Tracking.xlsx` |
+| **Physician Records** | Dr. Julli Randol — visit history, recommendations, outstanding items | Dropbox: `~/Library/CloudStorage/Dropbox/Family/Health/` — check for visit notes; also check Obsidian `Mind/Health/` if present |
 | **Lifebook Health Goals** | Bio age target (-8 yrs), healthspan target (+20 yrs), weight (210 lbs), BMI (<20), body fat (17%), 4 Horsemen risk metrics | Obsidian Lifebook |
 
 ### Key Biomarkers to Track
