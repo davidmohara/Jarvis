@@ -851,6 +851,66 @@
       "fix_status": "applied",
       "severity": "moderate",
       "related_entries": ["err-20260403-002"]
+    },
+    {
+      "id": "err-20260403-004",
+      "timestamp": "2026-04-03T00:00:00Z",
+      "session": "2026-04-03",
+      "source": "self-detected",
+      "agent": "jarvis",
+      "category": "routing-error",
+      "description": "Jarvis attempted to run fetch_plaud.py directly via Bash instead of routing Plaud rename operations through Knox. Knox owns all Plaud operations per SYSTEM.md.",
+      "correction": "All Plaud speaker rename operations must be dispatched to Knox. Jarvis routes, Knox executes.",
+      "failure_mode": "protocol-skip",
+      "systemic_fix": "Any fetch_plaud.py invocation must be routed through Knox agent. Jarvis has no direct execution rights on Plaud operations.",
+      "fix_status": "applied",
+      "severity": "moderate",
+      "related_entries": ["err-20260403-003"]
+    },
+    {
+      "id": "err-20260403-005",
+      "timestamp": "2026-04-03T00:00:00Z",
+      "session": "2026-04-03",
+      "source": "explicit",
+      "agent": "jarvis",
+      "category": "misidentification",
+      "description": "Incorrectly proposed Speaker 7 = Juan Bernal and Speaker 9 = Kristin Johnson. David corrected: Speaker 7 = Robyn Fuentes, Speaker 9 = Oscar Velazquez. Also flagged that Kristin Johnson and Juan Bernal were not in attendance at the Houston weekly meeting.",
+      "correction": "Speaker 7 = Robyn Fuentes. Speaker 9 = Oscar Velazquez. Kristin Johnson and Juan Bernal were not present at this meeting.",
+      "failure_mode": "bad-inference",
+      "systemic_fix": "Do not assume all SKO attendees were present at subsequent internal meetings. Verify attendance independently.",
+      "fix_status": "applied",
+      "severity": "moderate",
+      "related_entries": []
+    },
+    {
+      "id": "err-20260403-006",
+      "timestamp": "2026-04-03T00:00:00Z",
+      "session": "2026-04-03",
+      "source": "explicit",
+      "agent": "jarvis",
+      "category": "misidentification",
+      "description": "Incorrectly proposed Speaker 10 = Robyn Fuentes based on YPO knowledge inference. David corrected: Speaker 10 = Devlin Liles.",
+      "correction": "Speaker 10 = Devlin Liles.",
+      "failure_mode": "bad-inference",
+      "systemic_fix": "Cross-reference against full Houston IES team roster, not just SKO attendees.",
+      "fix_status": "applied",
+      "severity": "moderate",
+      "related_entries": ["err-20260403-005"]
+    },
+    {
+      "id": "err-20260403-007",
+      "timestamp": "2026-04-03T00:00:00Z",
+      "session": "2026-04-03",
+      "source": "explicit",
+      "agent": "jarvis",
+      "category": "misidentification",
+      "description": "Proposed Speaker 11 = Mark Remington tentatively but asked David to confirm rather than concluding directly from available evidence. David confirmed Speaker 11 = Mark Remington.",
+      "correction": "Speaker 11 = Mark Remington.",
+      "failure_mode": "unnecessary-hesitation",
+      "systemic_fix": "When elimination logic clearly points to one remaining candidate and the evidence fits, commit to the identification rather than deferring to the user.",
+      "fix_status": "applied",
+      "severity": "low",
+      "related_entries": ["err-20260403-005"]
     }
   ]
 }
