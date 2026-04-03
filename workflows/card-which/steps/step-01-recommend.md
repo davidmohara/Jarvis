@@ -1,4 +1,11 @@
 ---
+status: not-started
+started-at: ~
+completed-at: ~
+outputs: {}
+---
+
+---
 step: 1
 name: recommend
 description: Analyze the purchase and return the optimal card with full reasoning

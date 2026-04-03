@@ -1,4 +1,11 @@
 ---
+status: not-started
+started-at: ~
+completed-at: ~
+outputs: {}
+---
+
+---
 step: 2
 name: Surface Unassigned Leads and Capture Assignment
 previous: step-01-scan-leads.md

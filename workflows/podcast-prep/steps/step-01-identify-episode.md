@@ -1,3 +1,10 @@
+---
+status: not-started
+started-at: ~
+completed-at: ~
+outputs: {}
+---
+
 <!-- personal:start -->
 # Step 01: Identify Episode
 

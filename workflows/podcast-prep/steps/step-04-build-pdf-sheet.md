@@ -1,3 +1,10 @@
+---
+status: not-started
+started-at: ~
+completed-at: ~
+outputs: {}
+---
+
 <!-- personal:start -->
 # Step 04: Build PDF-Format Prep Sheet
 

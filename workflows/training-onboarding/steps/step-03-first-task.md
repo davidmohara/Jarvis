@@ -1,4 +1,11 @@
 ---
+status: not-started
+started-at: ~
+completed-at: ~
+outputs: {}
+---
+
+---
 step: 3
 name: First Real Task
 next: step-04-progression-intro.md

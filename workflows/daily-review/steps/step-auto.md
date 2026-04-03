@@ -1,3 +1,10 @@
+---
+status: not-started
+started-at: ~
+completed-at: ~
+outputs: {}
+---
+
 <!-- system:start -->
 # Step Auto: Autonomous Daily Review
 

@@ -1,4 +1,11 @@
 ---
+status: not-started
+started-at: ~
+completed-at: ~
+outputs: {}
+---
+
+---
 step: 3
 name: Guided Execution
 next: step-04-reflection.md

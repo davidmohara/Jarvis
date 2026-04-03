@@ -1,4 +1,11 @@
 ---
+status: not-started
+started-at: ~
+completed-at: ~
+outputs: {}
+---
+
+---
 step: 2
 name: Render Dashboard
 next: null

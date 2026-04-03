@@ -1,3 +1,10 @@
+---
+status: not-started
+started-at: ~
+completed-at: ~
+outputs: {}
+---
+
 # Step 04: Scan Personal Blocks
 
 <!-- system:start -->

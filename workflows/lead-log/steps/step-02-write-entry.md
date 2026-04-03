@@ -1,4 +1,11 @@
 ---
+status: not-started
+started-at: ~
+completed-at: ~
+outputs: {}
+---
+
+---
 step: 2
 name: Write Entry to My Leads.xlsx
 previous: step-01-identify-lead.md

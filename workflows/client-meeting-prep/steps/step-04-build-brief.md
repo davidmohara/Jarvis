@@ -1,3 +1,10 @@
+---
+status: not-started
+started-at: ~
+completed-at: ~
+outputs: {}
+---
+
 <!-- system:start -->
 # Step 04: Build the Client Meeting Brief
 

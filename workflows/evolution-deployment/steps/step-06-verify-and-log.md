@@ -1,3 +1,10 @@
+---
+status: not-started
+started-at: ~
+completed-at: ~
+outputs: {}
+---
+
 # Step 06: Verify & Log
 
 <!-- system:start -->

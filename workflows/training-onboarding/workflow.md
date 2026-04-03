@@ -54,6 +54,29 @@ Before starting, verify:
 ---
 
 <!-- system:start -->
+## STATE CHECK — Run Before Any Execution
+
+1. Read `state.yaml` in this workflow directory.
+
+2. If `status: in-progress`:
+   - You are resuming a previous run. Do NOT start over.
+   - Read `current-step` to find where to continue.
+   - Load `accumulated-context` — this is the data already gathered. Do not re-gather it.
+   - Check that step's frontmatter:
+     - If `status: in-progress`: the step was interrupted mid-execution — re-execute it.
+     - If `status: not-started`: begin it fresh.
+   - Notify the controller: "[Agent]: Resuming [workflow-name] from [current-step]."
+
+3. If `status: not-started` or `status: complete`:
+   - Fresh run. Initialize `state.yaml`: set `status: in-progress`, generate `session-id`,
+     write `session-started` and `original-request`, set `current-step: step-01`.
+   - Begin at step-01.
+
+4. If `status: aborted`:
+   - Do not resume automatically. Surface to controller:
+     "[Agent]: [workflow-name] was previously aborted at [current-step]. Resume or start fresh?"
+   - Wait for instruction.
+
 ## EXECUTION
 
 Read fully and follow: `steps/step-01-user-intake.md` to begin the workflow.

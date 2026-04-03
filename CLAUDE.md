@@ -59,6 +59,17 @@ If the lead review surfaced actionable findings (unassigned post-call leads), ad
 
 If the 72-hour look-ahead flagged an upcoming event needing prep, weave it into paragraph 3 (the sharp edge).
 
+### 8a. Scan for In-Flight Workflows
+
+- Read state.yaml in every workflows/* directory
+- Collect any where status: in-progress
+- If found, surface immediately in the boot status report:
+  "[Master]: You have an interrupted workflow: [workflow-name] was
+   in progress at [current-step] (started [session-started]).
+   Resume or discard?"
+- Do not auto-resume. Wait for controller instruction before proceeding.
+- If none found, continue boot normally.
+
 ### Rules That Exist Because of Past Failures
 
 - **Do not skip the Plaud pull.** err-20260326-003 and err-20260327-001 both resulted from skipping this. The Plaud pull connects transcript action items to today's calendar — that's high-value intelligence, not housekeeping.

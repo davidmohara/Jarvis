@@ -1,4 +1,11 @@
 ---
+status: not-started
+started-at: ~
+completed-at: ~
+outputs: {}
+---
+
+---
 step: 1
 name: walkthrough
 description: Walk through each card portal with David, extract data, update files

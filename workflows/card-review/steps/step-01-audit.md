@@ -1,4 +1,11 @@
 ---
+status: not-started
+started-at: ~
+completed-at: ~
+outputs: {}
+---
+
+---
 step: 1
 name: audit
 description: Read all card data and build the monthly status dashboard

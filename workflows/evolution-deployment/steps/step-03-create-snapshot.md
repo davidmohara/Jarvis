@@ -1,3 +1,10 @@
+---
+status: not-started
+started-at: ~
+completed-at: ~
+outputs: {}
+---
+
 # Step 03: Create Snapshot
 
 <!-- system:start -->

@@ -1,3 +1,10 @@
+---
+status: not-started
+started-at: ~
+completed-at: ~
+outputs: {}
+---
+
 <!-- system:start -->
 # Step 01: Identify the Partner and Meeting
 

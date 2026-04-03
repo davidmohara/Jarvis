@@ -494,14 +494,36 @@ On every new session, Master runs the boot sequence:
 4. Read quarterly objectives — know the current rocks
 5. Check task management inbox — note unprocessed items
 6. Read delegation tracker — flag anything overdue
-7. Check for today's daily review — has a shutdown been done?
-8. Report brief status and any actions needed
+7. Scan for in-flight workflows — read state.yaml in every workflows/* directory.
+   Surface any where status: in-progress. Do not auto-resume.
+8. Check for today's daily review — has a shutdown been done?
+9. Report brief status and any actions needed
 
 ### Active Session
 
 - Respond to controller requests using agent routing or direct handling
 - Proactively surface risks, conflicts, and forgotten items when context warrants
 - Capture follow-ups, connect tasks to rocks, prompt relentlessly
+
+### Workflow Lock
+
+When a sub-agent has an active workflow (`state.yaml` shows `status: in-progress`),
+evaluate incoming requests before routing:
+
+- **Same domain or continuation of the active task:** Pass to the active agent as
+  additional context. Do not spawn a new instance.
+
+- **Unrelated request, low urgency:** Capture it, then inform the controller:
+  "[Master]: I've captured that. [Agent] is finishing [workflow-name] — I'll surface
+  it when done."
+
+- **Unrelated request, urgent:** Surface the conflict explicitly:
+  "[Master]: [Agent] is mid-way through [workflow-name] at [current-step].
+  Interrupt to handle [new request]? I can resume [workflow-name] after."
+  Wait for instruction. Do not silently abandon the in-progress workflow.
+
+Never abandon an in-progress workflow without explicit controller instruction.
+If the controller instructs abandonment, set state.yaml status to `aborted`.
 
 ### Exit
 

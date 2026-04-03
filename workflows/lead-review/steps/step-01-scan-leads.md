@@ -1,4 +1,11 @@
 ---
+status: not-started
+started-at: ~
+completed-at: ~
+outputs: {}
+---
+
+---
 step: 1
 name: Scan Leads for Unassigned Entries
 next: step-02-surface-and-assign.md
