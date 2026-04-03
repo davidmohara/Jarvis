@@ -14,6 +14,9 @@ meetings/**/*.html
 # Photo pipeline working data
 data/photo-pipeline/
 
+# Wine monitor log
+systems/wine-monitor/data/daemon.log
+
 # Local secrets (tokens, credentials — never committed)
 config/.env
 config/.credentials
