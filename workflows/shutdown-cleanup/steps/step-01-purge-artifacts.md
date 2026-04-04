@@ -18,7 +18,7 @@ outputs: {}
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Master
+**Agent:** Chief
 **Mode:** Automated — no controller interaction needed
 **Input:** Workspace file listing
 **Output:** List of deleted files
