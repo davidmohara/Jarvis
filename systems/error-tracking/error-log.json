@@ -911,6 +911,21 @@
       "fix_status": "applied",
       "severity": "low",
       "related_entries": ["err-20260403-005"]
+    },
+    {
+      "id": "err-20260403-008",
+      "timestamp": "2026-04-03T00:00:00",
+      "session": "2026-04-03",
+      "source": "explicit",
+      "agent": "chief",
+      "category": "process-skip",
+      "description": "Morning briefing workflow delivered successfully but state.yaml was left at status: in-progress instead of being updated to status: complete.",
+      "correction": "After step-04 delivers the briefing, state.yaml must be written with status: complete before the response is returned.",
+      "failure_mode": "protocol-skip",
+      "systemic_fix": "Added mandatory state.yaml completion write to step-04-synthesize-briefing.md — must write status: complete before returning the briefing.",
+      "fix_status": "applied",
+      "severity": "minor",
+      "related_entries": []
     }
   ]
 }

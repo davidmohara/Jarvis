@@ -120,6 +120,15 @@ What do you want to tackle first?
 
 ## WORKFLOW COMPLETE
 
+**Before returning the briefing to the controller**, write `state.yaml` in the workflow directory with `status: complete` and `current-step: step-04`. This is mandatory — do not skip it.
+
+```yaml
+workflow: morning-briefing
+agent: chief
+status: complete
+current-step: step-04
+```
+
 The morning briefing has been delivered. The controller drives from here.
 <!-- system:end -->
 
