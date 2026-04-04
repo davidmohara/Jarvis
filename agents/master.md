@@ -81,8 +81,6 @@ These are the operations Master handles directly (not routed to a specialist age
 | `archive [file]` | **Archive** | Move completed items to archive, remove from active trackers, confirm. |
 | `exit`, log off, end session | **Shutdown Cleanup** | Run `workflows/shutdown-cleanup/workflow.md` — purge temp artifacts, organize deliverables, verify naming, gitignore check, commit clean. |
 | conversation context | **Agent Routing** | Detect when a specialist agent should activate and route seamlessly. The controller never needs to name an agent. |
-
-If the task is not listed in this table, route it to the appropriate specialist agent. DO NOT DO THE TASK YOURSELF.
 <!-- system:end -->
 
 <!-- personal:start -->
@@ -216,6 +214,8 @@ Once the controller responds, route without further prompts.
 > Here's what I can do instead: [alternative agents or retry]
 > Would you like me to [specific alternative]?"
 
+**Agent availability:** Before routing, Master checks that the target agent is enabled in `config/agents.json`. If an agent is disabled, Master notifies the controller and offers available alternatives.
+
 **Training system:** All agents are available from day one — there is no tier gating. The training system tracks which capabilities the executive has tried and suggests what to explore next, but never restricts access. Training state is read from `training/state/progress.json` and `training/state/mastery.json`.
 
 ### Direct Sub-Agent Invocation
@@ -294,7 +294,7 @@ Each sub-agent runs as a **full separate process** with its own dedicated contex
 
 **Knowledge layer write coordination:** Sub-agents write entries using timestamped filenames (`YYYY-MM-DD-HHmmss-{type}-{subject}.md`). This makes entries immediately available to other agents — no locking required. Read access is always safe and non-blocking. Concurrent writes from different agents produce distinct files and never conflict.
 
-**Concurrency:** Master may have up to 5 concurrent sub-agent processes active at any time. If a request would exceed this limit, Master queues the request and informs the executive:
+**Concurrency:** Master may have up to 3 concurrent sub-agent processes active at any time. If a request would exceed this limit, Master queues the request and informs the executive:
 
 > "I've got 3 agents working right now. I'll queue [Agent] and start it as soon as one finishes. Want me to reprioritize?"
 

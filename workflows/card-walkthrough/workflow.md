@@ -48,58 +48,6 @@ agent: chase
 ---
 
 <!-- system:start -->
-## EXECUTION RULES
-
-These rules must be followed during every card walkthrough. No exceptions.
-
-### Rule 1: Portal URL Navigation
-
-**Always read `portal_url` from `systems/credit-cards/card-registry.json` before navigating to any issuer portal.** Never guess, assume, or hard-code URLs. If a card's portal URL is missing or appears stale, update it during the walkthrough and verify with David that it's correct.
-
-Rationale: Portal URLs change without notice. Using stale or incorrect URLs causes authentication failures and wastes time.
-
-### Rule 2: Amex Benefits Data Source
-
-**For all Amex cards (Platinum, Blue Cash Preferred):** Benefit enrollment status and credit usage must ONLY be read from the "Benefits Activity" section after clicking "Show All". Never use "Your Benefit Highlights" — it is a marketing display and does not reflect actual enrollment or current usage accurately.
-
-Rationale: Amex's "Benefit Highlights" section shows promotional benefits and feature marketing. It is not reliable for determining what is actually enrolled or active. "Benefits Activity" is the source of truth.
-
-### Rule 3: Portal Auth Failure — Automatic YNAB Fallback
-
-**When a card portal requires authentication that cannot be completed (login redirect, multi-factor, domain barrier):** Do NOT block. Do NOT report "unable to complete." Automatically fall back to YNAB API data for that card.
-
-**Fallback procedure:**
-1. Note the auth barrier in the walkthrough log
-2. Immediately execute the YNAB fallback script: `systems/credit-cards/scripts/ynab-card-pull.py`
-3. Pull the last 90 days of transactions for the blocked card from the YNAB REST API (Budget ID: `5185d50a-d25e-47f8-b9d0-283ef6a89d2b`)
-4. Derive spend totals by category, identify rotating bonus category usage, and estimate credit burn rates
-5. Update `benefits-tracker.json` with YNAB-derived data, tagging each field with `"source": "ynab_fallback"` and the pull date
-6. Flag in the walkthrough report: "[Card]: Portal blocked — data derived from YNAB (last 90 days). Balance/credit status estimated, not portal-verified."
-
-**What YNAB can and cannot tell us:**
-
-| Data Point | YNAB Can Provide | Portal Required |
-|---|---|---|
-| Spend by category (last 90 days) | ✓ | |
-| Rotating bonus category progress | ✓ | |
-| Card balance / available credit | ✓ | |
-| Reward points/miles balance | ✗ | ✓ |
-| Credit enrollment status | ✗ | ✓ |
-| Card-linked offers | ✗ | ✓ |
-| Benefit usage (e.g., Grubhub credit) | ✗ (estimated only) | ✓ |
-
-Rationale: Blocking on portal auth wastes the session and leaves David with stale data. YNAB transaction data is available, current, and sufficient to reconstruct most spend-derived values. Portal-only data (points balances, offers) is flagged as requiring manual verification.
-
-### Rule 4: In-Portal Navigation — Click Links, Don't open_url
-
-**Once authenticated on a card portal, navigate by clicking existing links on the page.** Use `execute_javascript` to click elements, or inspect page content to find hrefs and follow them. Do NOT use `open_url` for in-portal navigation.
-
-`open_url` is reserved for the initial jump to a new card issuer's domain (e.g., going from Amex to Citi for the first time). Everything within a portal session — moving between tabs, sections, benefit pages, offer pages — must use link-clicking.
-
-Rationale: `open_url` can break authenticated sessions, trigger security checks, and bypasses the natural navigation flow the portal expects. Clicking links maintains session state and mimics how a real user navigates.
-
----
-
 ## STATE CHECK — Run Before Any Execution
 
 1. Read `state.yaml` in this workflow directory.

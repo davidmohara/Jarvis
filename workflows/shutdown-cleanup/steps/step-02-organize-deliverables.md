@@ -19,7 +19,7 @@ outputs: {}
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Knox
+**Agent:** Master
 **Mode:** Automated — no controller interaction needed
 **Input:** Git status (new and modified files), output naming conventions from system config
 **Output:** List of verified, renamed, or moved files

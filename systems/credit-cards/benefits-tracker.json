@@ -1,59 +1,22 @@
 {
-  "last_updated": "2026-04-04T00:15Z (chase walkthrough session)",
+  "last_updated": "2026-04-01",
   "tracking_year": 2026,
-  "walkthrough_status": "COMPLETE - Citi AAdvantage Executive and Discover it Cash Back extracted successfully. Portal verified all key metrics.",
-  "recent_walkthrough": {
-    "date": "2026-04-04",
-    "cards_reviewed": ["citi-aa-exec", "discover-it"],
-    "cards_blocked": [],
-    "cards_pending": [],
-    "key_changes": [
-      "Resy Q2: $100 earned YTD (Q1 lost $100)",
-      "Lululemon Q2: $0 earned (Q1 lost $75, Q2 starting)",
-      "Hotel FHR/THC H1: $300 earned (portal shows congratulations msg)",
-      "Uber One: $96 earned YTD (likely Mar auto-renew), $24 remaining",
-      "Digital Entertainment: $22.74 earned (WSJ $7.58, ChatGPT $21.28 not covered)"
-    ]
-  },
   "benefits_usage": {
     "amex-plat": {
-      "resy": { "total": 400, "used": 100, "remaining": 300, "resets": "quarterly", "q1_used": 0, "q1_lost": 100, "q2_used": 100, "q2_remaining": 100, "portal_status": "Earned this Year: $100, $0 Earned, $100 To Go", "usage_log": [{"date": "2026-03-31", "amount": 0, "note": "Q1 credit expired unused — $100 lost"}, {"date": "2026-04-03", "amount": 100, "vendor": "Portal verified Q2", "note": "Q2 2026: $100 earned YTD, $100 remaining per portal"}] },
+      "resy": { "total": 400, "used": 0, "remaining": 300, "resets": "quarterly", "q1_used": 0, "q1_lost": 100, "q2_remaining": 100, "usage_log": [{"date": "2026-03-31", "amount": 0, "note": "Q1 credit expired unused — $100 lost"}] },
       "digital_entertainment": { "total": 300, "used": 22.74, "remaining": 277.26, "resets": "monthly", "monthly_cap": 25, "usage_log": [{"date": "2026-01-16", "amount": 7.58, "vendor": "WSJ Online"}, {"date": "2026-03-13", "amount": 7.58, "vendor": "WSJ Online"}, {"date": "2026-03-13", "amount": 7.58, "vendor": "Digital Entertainment Credit applied"}], "note": "Confirmed active via portal 3/19. ChatGPT $21.28 also charged but credit only covered WSJ $7.58 this cycle." },
-      "hotel_fhr_thc": { "total": 600, "used": 300, "remaining": 300, "resets": "semi_annual", "h1_used": 300, "h1_remaining": 0, "portal_status": "Congratulations, you've received $300 of your Hotel credit benefit this half of the year!", "usage_log": [{"date": "2026-04-03", "amount": 300, "vendor": "Portal verified H1 2026", "note": "$300 earned H1 (through mid-June), $300 remaining for H2"}] },
-      "lululemon": { "total": 300, "used": 0, "remaining": 225, "resets": "quarterly", "q1_used": 0, "q1_lost": 75, "q2_used": 0, "q2_remaining": 75, "portal_status": "Earned this Year: $0, $0 Earned, $75 To Go", "usage_log": [{"date": "2026-03-31", "amount": 0, "note": "Q1 credit expired unused — $75 lost"}, {"date": "2026-04-03", "amount": 0, "vendor": "Portal verified Q2", "note": "Q2 2026: $0 earned YTD, $75 remaining"}] },
-      "uber_cash": { "total": 200, "used": 0, "remaining": 200, "resets": "calendar_year", "status": "enrolled", "note": "Confirmed enrolled and active as of 2026-04-03. Amex portal 'Enroll' button is unreliable indicator — David confirmed benefit received.", "usage_log": [] },
-      "airline_incidental": { "total": 200, "used": 0, "remaining": 200, "resets": "calendar_year", "selected_airline": "American Airlines", "portal_status": "$0 Earned, $200 To Go", "usage_log": [{"date": "2026-04-03", "amount": 0, "vendor": "American Airlines (selected)", "note": "Not used yet - $200 remaining for calendar year"}] },
-      "clear_plus": { "total": 209, "used": 0, "remaining": 209, "resets": "calendar_year", "portal_status": "$0 Earned, $209 To Go", "usage_log": [{"date": "2026-04-03", "amount": 0, "vendor": "Portal verified", "note": "Not activated - $209 full annual credit remaining"}] },
-      "walmart_plus": { "total": 155, "used": 0, "remaining": 155, "resets": "monthly", "monthly_cap": 12.95, "portal_status": "Earned this Year: $0, $0 Earned Apr", "usage_log": [{"date": "2026-04-03", "amount": 0, "vendor": "Portal verified", "note": "Not activated - $12.95/mo April credit not yet claimed"}] },
-      "uber_one": { "total": 120, "used": 96, "remaining": 24, "resets": "calendar_year", "status": "enrolled", "portal_status": "$96 Earned, $24 To Go", "note": "Confirmed enrolled and active as of 2026-04-03. David confirmed benefit received. Do not rely on Amex portal button label for enrollment status.", "usage_log": [{"date": "2026-04-03", "amount": 96, "vendor": "Portal verified", "note": "$96 earned YTD (likely Mar auto-renew $96), $24 remaining for calendar year"}] }
-    },
-    "amex-bcp": {
-      "disney_streaming": { "total": 120, "used": 0, "remaining": 120, "resets": "annual", "status": "enrolled", "includes": ["Disney+", "Hulu", "ESPN"], "monthly_cap": 10, "portal_status": "Enrolled — up to $10/mo on eligible streaming", "usage_log": [{"date": "2026-04-03", "amount": 0, "vendor": "Portal verified", "note": "Benefit enrolled and active. Full $120/yr ($10/mo cap) remaining for calendar year"}] },
-      "reward_dollars_balance": { "total": 163.74, "currency": "Reward Dollars (cashback)", "as_of": "2026-04-03", "note": "BCP uses 1% cashback on most purchases. Reward Dollars can be redeemed at checkout." },
-      "other_benefits": ["Amex Offers", "Plan It (payment option)", "Purchase Protection (up to $1,000/item, $50,000/yr)", "Return Protection (up to $300/item, $1,000/yr)", "Car Rental Loss and Damage Insurance", "Global Assist Hotline", "Extended Warranty", "Digital Wallets (Apple Pay, Google Pay, Samsung Pay)", "Send Money (Venmo/PayPal)", "Split Purchases", "FICO Score and Insights", "CreditSecure (optional fee)"],
-      "portal_status": "COMPLETE — BCP Benefits Activity pulled on 2026-04-03",
-      "note": "BCP is cash back card (not points). Disney+ benefit is primary value driver. Annual fee $95 renews 2026-04-21."
+      "hotel_fhr_thc": { "total": 600, "used": 0, "remaining": 600, "resets": "semi_annual", "h1_remaining": 300, "usage_log": [] },
+      "lululemon": { "total": 300, "used": 0, "remaining": 225, "resets": "quarterly", "q1_used": 0, "q1_lost": 75, "q2_remaining": 75, "usage_log": [{"date": "2026-03-31", "amount": 0, "note": "Q1 credit expired unused — $75 lost"}] },
+      "uber_cash": { "total": 200, "used": 0, "remaining": 200, "resets": "calendar_year", "usage_log": [] },
+      "airline_incidental": { "total": 200, "used": 0, "remaining": 200, "resets": "calendar_year", "selected_airline": "American Airlines", "usage_log": [] },
+      "clear_plus": { "total": 209, "used": 0, "remaining": 209, "resets": "calendar_year", "usage_log": [] },
+      "walmart_plus": { "total": 155, "used": 0, "remaining": 155, "resets": "monthly", "monthly_cap": 12.95, "usage_log": [] },
+      "uber_one": { "total": 120, "used": 0, "remaining": 120, "resets": "calendar_year", "usage_log": [] }
     },
     "citi-aa-exec": {
-      "aadvantage_miles": { "balance": 754177, "as_of": "2026-04-04", "source": "portal_verified", "note": "Total AAdvantage miles balance on Citi AAdvantage Executive card" },
-      "grubhub": { "total": 120, "used": 0, "remaining": 120, "resets": "monthly", "monthly_cap": 10, "status": "unknown", "months_used": [], "usage_log": [{"date": "2026-04-04", "source": "portal_verified", "note": "Credit status not visible on dashboard portal — unable to verify enrollment or usage"}] },
-      "lyft": { "total": 120, "used": 0, "remaining": 120, "resets": "monthly", "monthly_cap": 10, "status": "unknown", "months_used": [], "note": "Requires 3 eligible rides per month first", "usage_log": [{"date": "2026-04-04", "source": "portal_verified", "note": "Credit status not visible on dashboard portal — unable to verify enrollment or usage"}] },
-      "avis_budget": { "total": 120, "used": 0, "remaining": 120, "resets": "calendar_year", "status": "unknown", "usage_log": [{"date": "2026-04-04", "source": "portal_verified", "note": "Credit status not visible on dashboard portal — unable to verify enrollment or usage"}] },
-      "card_linked_offers": {
-        "as_of": "2026-04-04",
-        "source": "portal_verified",
-        "active_offers": [
-          { "vendor": "TurboTax", "cashback": "30% Back", "expires_in": "14d", "status": "enrolled" },
-          { "vendor": "Macy's", "cashback": "$5 Back", "expires_in": "26d", "status": "enrolled", "note": "NEW offer" },
-          { "vendor": "Shell", "cashback": "3% Back", "expires_in": "26d", "status": "enrolled", "note": "NEW offer" }
-        ],
-        "note": "High-value offers visible on dashboard. TurboTax expiring in 14 days — recommend enrollment if not already done."
-      }
-    },
-    "discover-it": {
-      "q2_2026_categories": { "as_of": "2026-04-04", "source": "portal_verified", "categories": ["Restaurants", "Home Improvement Stores"], "activation_status": "ACTIVATED", "earning_rate": "5%", "cap": 1500, "cap_period": "quarter", "note": "Q2 categories are fully activated as confirmed on portal" },
-      "cashback_available": { "amount": 5.48, "as_of": "2026-04-04", "source": "portal_verified", "note": "Available for immediate redemption" },
-      "q2_cap_progress": { "as_of": "2026-04-04", "source": "portal_verified", "note": "Exact spend against $1,500 quarterly cap not visible on homepage. Would require navigation to statement/activity details." }
+      "grubhub": { "total": 120, "used": 0, "remaining": 120, "resets": "monthly", "monthly_cap": 10, "months_used": [], "usage_log": [] },
+      "lyft": { "total": 120, "used": 0, "remaining": 120, "resets": "monthly", "monthly_cap": 10, "months_used": [], "note": "Requires 3 eligible rides per month first", "usage_log": [] },
+      "avis_budget": { "total": 120, "used": 0, "remaining": 120, "resets": "calendar_year", "usage_log": [] }
     },
     "atlas-visa": {
       "future_fitness": { "total": 300, "used": 0, "remaining": 300, "resets": "calendar_year", "usage_log": [] },
@@ -130,7 +93,7 @@
       "total_saved_to_date": 350.00,
       "total_offers_added": 75,
       "walkthrough_method": "Chrome automation bulk-add via JS script",
-      "mr_points_balance": 413706,
+      "mr_points_balance": 619381,
       "current_balance": 75.24,
       "uber_one_credit": { "confirmed_active": true, "mar_credit": 96.00, "note": "Uber One $96/mo charged and credited automatically" },
       "active_offers_added": [
@@ -242,7 +205,7 @@
     "last_payment": { "amount": 2566.27, "date": "2026-03-18", "note": "Full balance paid" },
     "rotating_categories": {
       "q1_2026": { "categories": "Grocery Stores, Wholesale Clubs, Select Streaming", "status": "active", "ends": "2026-03-31" },
-      "q2_2026": { "categories": "Restaurants and Home Improvement Stores", "status": "ACTIVE", "starts": "2026-04-01", "ends": "2026-06-30", "confirmed": "2026-04-03", "spend_to_date": 0, "cap": 1500, "strategy": "Use Discover for all dining under $1,500/quarter cap. Beats Atlas 2x. After cap, switch to Atlas/Sapphire." }
+      "q2_2026": { "categories": "Restaurants and Home Improvement Stores", "status": "ACTIVE", "starts": "2026-04-01", "ends": "2026-06-30", "confirmed": "2026-04-01", "strategy": "Use Discover for all dining under $1,500/quarter cap. Beats Atlas 2x. After cap, switch to Atlas/Sapphire." }
     },
     "note": "Q2 already activated! Restaurants + Home Improvement at 5% starting April. NOTE: Discover 5% on restaurants will compete with Atlas 2x for dining Apr-Jun. Discover 5% wins for dining under $1,500/quarter cap. After cap, use Atlas."
   },
@@ -278,9 +241,7 @@
     "lesson": "Quarterly credits need calendar reminders 2 weeks before expiry. Monthly review alone is insufficient — need mid-quarter nudges."
   },
   "monthly_review_log": [
-    { "date": "2026-04-01", "type": "scheduled_automated", "findings": "Q1 Resy ($100) and lululemon ($75) expired unused. $175 lost. Discover Q2 active (Restaurants + Home Improvement). Amex $75K threshold unreachable at current pace. Total offer savings: $481.11 across all cards. 14 action items generated." },
-    { "date": "2026-04-03", "type": "manual_review", "findings": "Full April review. $2,161 Amex Plat credits unused YTD. Discover Q2 (Restaurants + Home Improvement 5%) confirmed active — dining card strategy updated: use Discover through June 30 or $1,500/quarter cap. TurboTax offer (Amex Plat) expires April 18. April 30 cluster: FuboTV/Docusign/TUMI/Home Chef/Stitch Fix all expiring. Amex BCP renewal April 21 ($95). Q2 Resy ($100) + lululemon ($75) must be used before June 30. Hotel H1 credit ($300) unused — needs travel booking via Amex Travel FHR/THC. Uber Cash ($200) + Walmart+ ($155) at $0 — setup/confirmation needed. 10 action items generated." },
-    { "date": "2026-04-03", "type": "card_walkthrough_session", "findings": "Complete walkthrough: Amex Plat portal confirmed — MR points: 413,706 (down 205K from 3/19), Airline Fee: $0/$200, Digital Entertainment: $22.74/$25, all other credits at $0. Amex BCP confirmed — $163.74 reward dollars, Disney $120 enrolled. Discover confirmed Q2 active (Restaurants + Home Improvement 5%, both $1,500 caps). Citi AA + Chase Sapphire accessibility blocked (React SPA + shadow DOM). Portfolio findings: $320 Amex credits at risk (Uber Cash + Uber One not enrolled). Dining card optimization: migrate to Discover Q2 5% (through $1,500/qtr cap) then Atlas 2x. Card migration analysis: Gas $970 misrouted to Citi (use BCP 3%), Streaming $31.97/mo on Plat (use BCP 6%), Dining on Citi 1x (use Atlas 2x or Discover 5% Q2). Q2 credit deadlines: Resy $100 + lululemon $75 + Hotel $300 all expire 6/30 — usage planning required. Comprehensive report generated: /systems/credit-cards/Card-Optimization-Report-2026-04-03.md" }
+    { "date": "2026-04-01", "type": "scheduled_automated", "findings": "Q1 Resy ($100) and lululemon ($75) expired unused. $175 lost. Discover Q2 active (Restaurants + Home Improvement). Amex $75K threshold unreachable at current pace. Total offer savings: $481.11 across all cards. 14 action items generated." }
   ],
   "workflow_improvements": {
     "ynab_first": {

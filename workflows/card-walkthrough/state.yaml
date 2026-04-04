@@ -1,32 +1,10 @@
 ---
 workflow: card-walkthrough
 agent: chase
-status: blocked
-session-started: 2026-04-03T14:30:00Z
-session-id: cw-20260403-001
-current-step: 01-amex-platinum
-current-status: Awaiting BCP account_key
-original-request: Card Optimizer Site Walkthrough
-accumulated-context:
-  cards_to_process:
-    - amex-platinum (COMPLETED)
-    - amex-bcp (BLOCKED - need account_key)
-    - citi-aa-exec
-    - discover-it
-    - chase-sapphire
-    - atlas-visa
-  ynab_data_pulled: false
-  cards_completed:
-    - amex-platinum
-  amex_plat_benefits_captured:
-    resy: {used: 100, remaining: 100, period: quarterly}
-    digital_entertainment: {used: 22.74, remaining: 277.26, period: monthly}
-    hotel_fhr_thc: {used: 0, remaining: 300, message: "Congratulations - $300 earned this H1"}
-    clear_plus: {used: 0, remaining: 209, period: calendar_year}
-    walmart_plus: {used: 0, remaining: 155, period: monthly}
-    airline_incidental: {used: 0, remaining: 200, period: calendar_year}
-    uber_one: {used: 96, remaining: 24, period: calendar_year}
-    lululemon: {used: 0, remaining: 75, period: quarterly}
-    uber_cash: {status: "needs_verification_from_portal"}
-  blocker: "BCP account_key not found in localStorage, sessionStorage, HTML attributes, or portal navigation. Registry notes it differs from Platinum key. Need manual navigation or David to provide key."
+status: not-started
+session-started: ~
+session-id: ~
+current-step: ~
+original-request: ~
+accumulated-context: {}
 ---
