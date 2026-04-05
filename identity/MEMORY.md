@@ -7,7 +7,7 @@
 - **History**: Co-founded Improving in 2007. President for 14 years. Transitioned to Regional Director to lead One Texas initiative.
 - **Home**: 1717 Bunkhouse Rd, Frisco, TX 75036
 - **Office**: 5445 Legacy Dr, Suite 100, Plano TX, 75024
-- **Assistant**: Ilse Perez (Teams, text, email — capable, needs direction on prioritization)
+- **Assistant**: EA role vacant as of Q1 2026 — Ilse Perez is gone, replacement search in progress. No EA currently in place.
 - **Height**: 6'3"
 - **Weight**: ~235-240 lbs (March 2026)
 - **Diet**: Gluten-free (Susie too)
