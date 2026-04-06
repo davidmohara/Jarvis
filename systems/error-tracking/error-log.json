@@ -280,6 +280,21 @@
   },
   "entries_addendum": [
     {
+      "id": "err-20260406-001",
+      "timestamp": "2026-04-06T11:30:00-05:00",
+      "session": "2026-04-06",
+      "source": "explicit",
+      "agent": "jarvis",
+      "category": "data-accuracy",
+      "description": "In the morning briefing, Jarvis flagged the Meredith Anastasio Zoom (April 7) and AA 5607 flight departure (April 8) as a potential scheduling concern, implying Wednesday was a compressed or departure-day. The correct read: Tuesday April 7 is a full work day, departure for the wedding is Wednesday April 8. The two events were not in conflict and the framing was misleading.",
+      "correction": "Today = Monday April 6. Tomorrow = Tuesday April 7 (full work day). Departure for wedding = Wednesday April 8. Do not imply compression or conflict when the events are on separate days.",
+      "failure_mode": "bad-conversion",
+      "systemic_fix": "When flagging look-ahead travel/events, always anchor to explicit day-of-week labels (Mon/Tue/Wed) and confirm no same-day conflict before surfacing as a flag.",
+      "fix_status": "applied",
+      "severity": "minor",
+      "related_entries": []
+    },
+    {
       "id": "err-20260323-006",
       "timestamp": "2026-03-23T00:00:00Z",
       "session": "2026-03-23",

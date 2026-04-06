@@ -1,8 +1,10 @@
 ---
-status: not-started
-started-at: ~
-completed-at: ~
-outputs: {}
+status: complete
+started-at: "2026-04-06T04:13:39"
+completed-at: "2026-04-06T04:16:00"
+outputs:
+  new_clients_captured: true
+  most_recent_month: March
 ---
 
 <!-- system:start -->
@@ -33,8 +35,8 @@ outputs: {}
 - One Texas scope: Dallas and South Texas (Austin + Houston). Never report all-Improving totals.
 - New Logo = brand-new client relationship. New Anchor = new strategic/anchor engagement.
 - South Texas = Austin + Houston selected simultaneously in the dropdown.
-- Q1 targets (2026): Dallas Logo Q1=5, South Texas Logo Q1=4; both Anchor Q1=2.
-- Chart coordinates confirmed at 71% zoom: Jan≈(340,525), Feb≈(380,515), Mar≈(420,515).
+- Q1 targets (2026): Dallas Logo Q1=4, South Texas Logo Q1=4; both Anchor Q1=2.
+- Chart coordinates confirmed at 71% zoom: Jan≈(340,525), Feb≈(380,515), Mar≈(415,515).
   Use `Month Name [Month]` in tooltip to verify the correct data point.
 
 ---

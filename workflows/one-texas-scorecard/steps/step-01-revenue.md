@@ -1,8 +1,10 @@
 ---
-status: not-started
-started-at: ~
-completed-at: ~
-outputs: {}
+status: complete
+started-at: "2026-04-06T03:48:00"
+completed-at: "2026-04-06T03:49:30"
+outputs:
+  revenue_captured: true
+  most_recent_month: February
 ---
 
 <!-- system:start -->

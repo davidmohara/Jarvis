@@ -1,8 +1,10 @@
 ---
-status: not-started
-started-at: ~
-completed-at: ~
-outputs: {}
+status: complete
+started-at: "2026-04-06T04:09:55"
+completed-at: "2026-04-06T04:12:30"
+outputs:
+  pipeline_captured: true
+  weighted_pipeline_captured: true
 ---
 
 <!-- system:start -->
