@@ -149,6 +149,66 @@ Create each file following conventions exactly. For each file:
 - Each `steps/step-{N:02}-{name}.md` is self-contained with entry conditions, process, and outputs
 - Workflow has a ROLLBACK PROTOCOL section if the workflow makes changes to system files
 
+**Workflow state tracking is mandatory — every new workflow must include all three of the following:**
+
+**A. `state.yaml`** — create at `workflows/{name}/state.yaml` with this initial content:
+
+```yaml
+---
+workflow: {workflow-name}
+agent: {agent-name}
+status: not-started
+session-started: ~
+session-id: ~
+current-step: ~
+original-request: ~
+accumulated-context: {}
+---
+```
+
+At runtime, the agent writes `status: in-progress`, `session-id`, `session-started`, `original-request`, and `current-step: step-01` when the workflow starts. After each step, it updates `current-step` to the next step and writes that step's outputs into `accumulated-context`. On completion: `status: complete`. Never delete accumulated-context keys mid-run — later steps depend on them.
+
+**B. Step file frontmatter** — every `steps/step-{N:02}-{name}.md` must begin with this YAML block (before `<!-- system:start -->`):
+
+```yaml
+---
+status: not-started
+started-at: ~
+completed-at: ~
+outputs: {}
+---
+```
+
+The agent writes `status: in-progress` + `started-at` before executing the step, and `status: complete` + `completed-at` + populated `outputs` keys after. The `outputs` keys for each step must be documented in that step's YOUR TASK section. These same keys are written into `state.yaml`'s `accumulated-context` when the step completes.
+
+**C. STATE CHECK block** — add this to `workflow.md` in the INITIALIZATION section, before the EXECUTION instruction:
+
+```markdown
+## STATE CHECK — Run Before Any Execution
+
+1. Read `state.yaml` in this workflow directory.
+
+2. If `status: in-progress`:
+   - You are resuming a previous run. Do NOT start over.
+   - Read `current-step` to find where to continue.
+   - Load `accumulated-context` — data already gathered. Do not re-pull it.
+   - Check that step's frontmatter: if `status: in-progress`, re-execute it; if
+     `status: not-started`, begin it fresh.
+   - Notify the controller: "[{Agent}]: Resuming {workflow-name} from [current-step]."
+
+3. If `status: not-started` or `status: complete`:
+   - Fresh run. Initialize `state.yaml`: set `status: in-progress`, generate `session-id`,
+     write `session-started` and `original-request`, set `current-step: step-01`.
+   - Begin at step-01.
+
+4. If `status: aborted`:
+   - Surface to controller: "[{Agent}]: {workflow-name} was previously aborted at
+     [current-step]. Resume or start fresh?"
+   - Wait for instruction.
+```
+
+Each step file's YOUR TASK section must also include explicit instructions to: (1) write `status: in-progress` to its own frontmatter before executing, (2) write outputs to `state.yaml` accumulated-context after completing, and (3) update `workflow.md`'s `current-step` to the next step before moving on.
+
 **Agents:**
 - All required sections present (Metadata, Persona, Task Portfolio, Data Requirements, Priority Logic, Handoff Behavior)
 - Task Portfolio includes trigger phrases as the first column
