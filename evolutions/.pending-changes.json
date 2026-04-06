@@ -1,6 +1,50 @@
 {
   "pending": [
     {
+      "id": "work-20260405-chase-powerbi-skills",
+      "description": "New Chase skills: bookings-review, co-sell-pipeline, pipeline-snapshot, new-clients. Four PowerBI skills for One Texas tracking via Playwright MCP. Pulls from Sales Analytics and Enterprise Scorecard v4.",
+      "started": "2026-04-05T00:00:00Z",
+      "classification": "personal",
+      "files": [
+        {
+          "path": "skills/bookings-review/SKILL.md",
+          "action": "add",
+          "type": "personal",
+          "description": "New skill: YTD bookings for Dallas and South Texas from Sales Analytics PowerBI. Side-by-side comparison table."
+        },
+        {
+          "path": "skills/co-sell-pipeline/SKILL.md",
+          "action": "add",
+          "type": "personal",
+          "description": "New skill: co-sell pipeline and won revenue by partner. Tracks Rock 4 $15M target gap."
+        },
+        {
+          "path": "skills/pipeline-snapshot/SKILL.md",
+          "action": "add",
+          "type": "personal",
+          "description": "New skill: weekly pipeline health for One Texas. 90-day weighted pipeline (Rock 1 metric) + total pipeline by stage."
+        },
+        {
+          "path": "skills/new-clients/SKILL.md",
+          "action": "add",
+          "type": "personal",
+          "description": "New skill: New Logos and Anchors YTD for Dallas and South Texas from Enterprise Scorecard v4. One Texas total with gap to target."
+        },
+        {
+          "path": "skills/revenue-tracker/SKILL.md",
+          "action": "add",
+          "type": "personal",
+          "description": "New skill: Revenue vs Target, Revenue vs Prior Year, Sequential Quarterly Revenue, Monthly Revenue, and Gross Margin for Dallas and South Texas from Enterprise Scorecard v4 Financial Outlook page."
+        },
+        {
+          "path": "agents/chase.md",
+          "action": "merge",
+          "type": "personal",
+          "description": "Added five trigger rows to personal task portfolio: bookings-review, co-sell-pipeline, pipeline-snapshot, new-clients, revenue-tracker."
+        }
+      ]
+    },
+    {
       "id": "work-20260329-galen-agent",
       "description": "New agent: Galen \u2014 Longevity Advisor. Owns complete health and biometric ecosystem: WHOOP analysis, bloodwork interpretation, supplement/peptide protocol management, physician visit prep, body composition tracking, monthly health reviews. Implements Peter Attia's 4 Horsemen framework for disease prevention.",
       "started": "2026-03-29T00:00:00Z",
