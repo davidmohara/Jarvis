@@ -1,11 +1,11 @@
 ---
 workflow: one-texas-scorecard
 agent: chase
-status: not-started
-session-started: null
-session-id: null
-current-step: null
-original-request: null
+status: in-progress
+session-started: "2026-04-06T00:00:00"
+session-id: "one-texas-scorecard-20260406"
+current-step: step-01-revenue
+original-request: "run one texas scorecard"
 accumulated-context:
   revenue: null
   co_sell: null
