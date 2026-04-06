@@ -1,6 +1,62 @@
 {
   "pending": [
     {
+      "id": "work-20260405-one-texas-scorecard-workflow",
+      "description": "New workflow: one-texas-scorecard. Runs four Chase skills (revenue-tracker, co-sell-pipeline, pipeline-snapshot, new-clients) in sequence and appends consolidated output to Mind/One Texas/One Texas Scorecard Tracking.md in Obsidian. Recency gate prompts before appending if last entry is less than 28 days ago.",
+      "started": "2026-04-05T00:00:00Z",
+      "classification": "personal",
+      "files": [
+        {
+          "path": "workflows/one-texas-scorecard/workflow.md",
+          "action": "add",
+          "type": "personal",
+          "description": "New workflow: One Texas Scorecard — pulls revenue, co-sell, pipeline, new clients via Chase skills and appends to Obsidian."
+        },
+        {
+          "path": "workflows/one-texas-scorecard/state.yaml",
+          "action": "add",
+          "type": "personal",
+          "description": "State file for one-texas-scorecard workflow."
+        },
+        {
+          "path": "workflows/one-texas-scorecard/steps/step-01-revenue.md",
+          "action": "add",
+          "type": "personal",
+          "description": "Step 1: Execute revenue-tracker skill."
+        },
+        {
+          "path": "workflows/one-texas-scorecard/steps/step-02-co-sell.md",
+          "action": "add",
+          "type": "personal",
+          "description": "Step 2: Execute co-sell-pipeline skill."
+        },
+        {
+          "path": "workflows/one-texas-scorecard/steps/step-03-pipeline.md",
+          "action": "add",
+          "type": "personal",
+          "description": "Step 3: Execute pipeline-snapshot skill."
+        },
+        {
+          "path": "workflows/one-texas-scorecard/steps/step-04-new-clients.md",
+          "action": "add",
+          "type": "personal",
+          "description": "Step 4: Execute new-clients skill."
+        },
+        {
+          "path": "workflows/one-texas-scorecard/steps/step-05-save-to-obsidian.md",
+          "action": "add",
+          "type": "personal",
+          "description": "Step 5: Check recency, prompt if <28 days, append to Mind/One Texas/One Texas Scorecard Tracking.md."
+        },
+        {
+          "path": "agents/chase.md",
+          "action": "merge",
+          "type": "personal",
+          "description": "Added /one-texas-scorecard trigger row to Chase task portfolio."
+        }
+      ]
+    },
+    {
       "id": "work-20260405-chase-powerbi-skills",
       "description": "New Chase skills: bookings-review, co-sell-pipeline, pipeline-snapshot, new-clients. Four PowerBI skills for One Texas tracking via Playwright MCP. Pulls from Sales Analytics and Enterprise Scorecard v4.",
       "started": "2026-04-05T00:00:00Z",
