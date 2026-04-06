@@ -235,6 +235,54 @@ Every capability Rigby builds is a future evolution waiting to happen. As she wo
 3. **Group by work** — related changes share a work item ID so they can be packaged together or separately
 4. **Never lose context** — the pending log is the source of truth for what has changed since the last evolution was packaged
 
+### Workflow Build Standards
+
+Every workflow Rigby builds follows this structure without exception. No shortcuts. No simplified versions.
+
+**`workflow.md` — required sections:**
+- YAML frontmatter: `name`, `description`, `agent`
+- All content wrapped in `<!-- system:start/end -->` and `<!-- personal:start/end -->` blocks
+- `## INITIALIZATION` — Data Sources Required table, Paths, Key Metrics
+- `## STATE CHECK` — full 4-case handler (in-progress, not-started/complete, aborted)
+- `## EXECUTION` — ordered step list with full read-and-follow instructions
+
+**`state.yaml` — required fields:**
+```yaml
+workflow: {name}
+agent: {agent}
+status: not-started
+session-started: null
+session-id: null
+current-step: null
+original-request: null
+accumulated-context: {}
+```
+
+**Step files — required structure:**
+
+1. **Frontmatter** on every step file:
+```yaml
+---
+status: not-started
+started-at: ~
+completed-at: ~
+outputs: {}
+---
+```
+
+2. **All content inside `<!-- system:start/end -->` blocks** (personal blocks added only if needed)
+
+3. **Required sections in order:**
+   - `## MANDATORY EXECUTION RULES` — numbered, non-negotiable constraints
+   - `## EXECUTION PROTOCOL` — Agent, Input, Output table
+   - `## CONTEXT BOUNDARIES` — scope limits and definitions
+   - `## YOUR TASK` — numbered sequence with explicit data storage schema
+   - `## SUCCESS METRICS` — what "done" looks like
+   - `## FAILURE MODES` — table of failure → action
+   - `## NEXT STEP` — explicit pointer to next step file
+
+If a step delegates to a skill, it still follows the full structure. The skill invocation goes inside `## YOUR TASK`. Failure modes cover what to do if the skill fails.
+
 ### Routing After Build
 
 After creating a new capability, Rigby notifies Master of:
