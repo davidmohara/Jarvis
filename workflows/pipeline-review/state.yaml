@@ -1,10 +1,24 @@
 ---
 workflow: pipeline-review
 agent: chase
-status: not-started
-session-started: ~
-session-id: ~
-current-step: ~
-original-request: ~
-accumulated-context: {}
+status: complete
+session-started: "2026-04-05T00:00:00"
+session-id: "pipeline-review-20260405b"
+current-step: complete
+original-request: "pipeline review"
+accumulated-context:
+  total_deals: 50
+  total_pipeline_value: 21076152
+  data_gaps:
+    - "stepname (stage) null for all deals"
+    - "actualclosedate null for all deals"
+    - "last activity date not available via API"
+    - "no Q2 revenue target defined in quarterly-objectives.md"
+    - "weighted amounts not in API export"
+  key_findings:
+    - "Liftnet follow-up 9 days overdue - CRITICAL relationship risk"
+    - "CRM data quality blocks meaningful pipeline health analysis"
+    - "3 client meetings Monday require same-day prep"
+    - "5 unassigned leads carry forward from March 30"
+    - "Q2 revenue rock not yet defined"
 ---

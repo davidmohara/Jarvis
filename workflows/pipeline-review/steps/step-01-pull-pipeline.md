@@ -32,6 +32,7 @@ outputs: {}
 - "Active" means the deal has not been marked closed and is not on hold.
 - Include all stages from prospecting through closed-won pending (if that stage exists).
 - Calendar data is limited to client-type meetings in the next 7 days.
+- **Enterprise scope:** Filter opportunities to the controller's assigned enterprises (defined in the personal block of `agents/chase.md`). Do not pull the full company pipeline unless the controller explicitly requests it with "pipeline all". If no enterprise scope is defined in chase.md, pull all and warn that scope is unconfigured.
 
 ---
 
@@ -39,7 +40,10 @@ outputs: {}
 
 ### Sequence
 
-1. **Pull all active opportunities from CRM** (CRM).
+1. **Pull all active opportunities from CRM** (CRM), filtered to the controller's enterprise scope.
+   - Read enterprise scope from personal block of `agents/chase.md` — default is Dallas, Austin, Houston.
+   - Apply filter: `Enterprise IN (Dallas, Austin, Houston)` on the opportunity record before pulling.
+   - If controller said "pipeline all", skip the enterprise filter and note "Company-wide view" in the report header.
    - For each opportunity capture:
      - Deal name
      - Account name

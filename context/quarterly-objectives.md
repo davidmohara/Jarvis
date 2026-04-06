@@ -1,50 +1,44 @@
 # Quarterly Objectives
 
-**Quarter**: Q1 2026 (Jan-Mar)
-**Theme**: One Texas Launch — Establish the regional operating rhythm and drive first wins
+**Quarter**: Q2 2026 (Apr–Jun)
+**Theme**: One Texas Acceleration — Lock the rhythm, build the pipeline, close the writing gap
 
-## Rocks (3-5 max)
+## Rocks (4)
 
-### Rock 1: Drive Revenue Growth in Target Accounts
+### Rock 1: Revenue Visibility
 - **Owner**: David (with Don, Diana, Stephen, Robyn)
-- **Key Result**: At least 2 large accounts showing $2M+ growth trajectory; 4 medium accounts showing $750K+ trajectory
-- **Status**: In Progress
+- **Key Result**: Jarvis pulls account trajectory data weekly; Rock 1 graded on actuals, not feel
+- **Status**: Not Started
 - **Progress Notes**:
-  - Target accounts identified (Dallas & Houston)
-  - Key pursuits active: AT&T, Builders First Source, CBRE, Tenet, Texas Instruments, Marriott
+  - Requires system build — CRM/SPARC data wired into morning briefing
+  - Active pursuits carry over from Q1: AT&T, Builders First Source, CBRE, Tenet, Texas Instruments (Dallas); Marriott, Kirby Corp, Expedia, Masimo, Constellation (Houston)
 
-### Rock 2: Establish One Texas Operating Rhythm
+### Rock 2: One Texas Cadence
 - **Owner**: David
-- **Key Result**: SKO completed, coordination protocol live, 30-day check-in executed
+- **Key Result**: Formal coordination protocol documented; first recurring rhythm (monthly or bi-weekly) running by May 31
+- **Status**: Not Started
+- **Progress Notes**:
+  - SKO created momentum in Q1 — must not coast into Q2 without locking a cadence
+  - Protocol needs an owner below David for execution accountability
+
+### Rock 3: Thought Leadership — Writing + Platform
+- **Owner**: David (with new EA when hired)
+- **Key Result**: 1 Forbes article published; podcast LinkedIn cadence running (engagement post per episode); DRC Intelligence OS v2 talk delivered May 21
 - **Status**: In Progress
 - **Progress Notes**:
-  - SKO agenda drafted (2-day in-person)
-  - One Texas vision and 4 pillars defined
-  - Coordination protocol needs formalization
+  - Podcast Season 1 drops Apr 9 — episodes every 2 weeks after that
+  - Writing is the persistent gap from Q1 — needs protected calendar time
+  - Executive AI Workshop (DRC) — May 21, 2026
+  - Guest asks for podcast begin after Ep 3 (~May 4)
 
-### Rock 3: Launch Thought Leadership Platform
-- **Owner**: David (with Janine, Kristin)
-- **Key Result**: 3+ speaking engagements completed; podcast Season 1 (7 episodes) in production; 1+ Forbes article published
-- **Status**: In Progress
-- **Progress Notes**:
-  - Small Business AI Workshop — Feb 6
-  - Forbes AI Roundtable — Feb 12
-  - ~~Executive AI Workshop (Dallas) — Feb 26~~ *(cancelled)*; Mar 10 still on
-  - ~~SXSW — Mar 12-18~~ *(cancelled)*
-  - Convergence AI — Mar 30-31
-  - **"The Improving Edge" podcast — Season 1 (7 episodes) COMPLETE** *(wrapped Mar 11)*
-  - Release cadence: Ep 1 drops Apr 9, then every 2 weeks. Guest asks start after Ep 3 (~May 4). David handles LinkedIn engagement (Ilse posts); not responsible for release logistics.
-
-### Rock 4: Deepen Partner Engagement (Microsoft + Confluent)
+### Rock 4: Partner Co-Sell Pipeline
 - **Owner**: David (with Nada, Lowell, Ehren)
-- **Key Result**: Joint Texas Microsoft play drafted; $15M co-sell pipeline target initiated; 10 C-Suite connections per enterprise at level 4+; Confluent partnership initiated with joint account strategy
+- **Key Result**: $15M co-sell pipeline tracked with real numbers; at least 1 joint account play (Microsoft or Confluent) with documented strategy
 - **Status**: In Progress
 - **Progress Notes**:
-  - **Confluent**: Initial meeting held in Austin with Nick Larson and Dante — partnership kicked off
-  - Presenting to Ben Holm's Microsoft SME&C East seller team — Mar 25 (Work From Work Wednesday)
-  - FABCON Atlanta (Mar 18-20) — David not involved unless Nada or Lowell provide significant reason
-  - John Yurewicz relationship active
-  - Microsoft Practice Overview exists
+  - Confluent partnership kicked off Q1 — Austin meeting with Nick Larson & Dante
+  - Microsoft SME&C relationship active; John Yurewicz relationship active
+  - Requires pipeline tracking build (same infrastructure need as Rock 1)
 
 ## What's Explicitly Off the Table This Quarter
 
@@ -53,10 +47,21 @@
 
 ## Active but Unrocked
 
-### Improving President System (IPS)
+### IES (Improving Executive System)
 - **Owner**: David
-- **Status**: Active — main IES built, deploying to Steve Hall as first pilot
-- **Notes**: Originally deferred to later in 2026 but moved to active. Steve Hall deployment includes implementation plan, discovery script, internal kickoff guide, and implementation guide. This is the productization of the Intelligence Executive System for other Improving presidents.
+- **Status**: Active — deployed to Steve Hall as first pilot in Q1
+- **Notes**: Productization of the Intelligence Executive System for other Improving presidents. Scope management required — David should not be pulled into delivery work.
+
+### EA Hire
+- **Owner**: David
+- **Status**: Urgent — Ilse Perez departed Q1, replacement search in progress
+- **Notes**: New EA must own cadence surfacing, scheduling, podcast release logistics, and routine follow-up. Jarvis covers intelligence layer until hired. This is a people priority for Q2.
+
+### Forgiveness Letter
+- **Owner**: David
+- **Status**: Carried from Q1 retreat — not completed
+- **Due**: Q2 personal retreat (no later than end of June)
+- **Notes**: Personal commitment, not a rock. Deferred twice. No further deferrals.
 
 ## Mid-Quarter Check-in
 

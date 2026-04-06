@@ -1,5 +1,9 @@
 {
   "mcpServers": {
+    "comet-bridge": {
+      "command": "npx",
+      "args": ["-y", "comet-mcp"]
+    },
     "whoop": {
       "command": "node",
       "args": ["/Users/davidohara/mcp-servers/whoop-mcp/dist/index.js"],

@@ -1017,5 +1017,37 @@
       "severity": "moderate",
       "related_entries": ["err-20260403-008", "err-20260403-009"]
     }
+  ,
+    {
+      "id": "err-20260405-001",
+      "timestamp": "2026-04-05T00:00:00-05:00",
+      "session": "2026-04-05",
+      "source": "explicit",
+      "agent": "chase",
+      "category": "assumption-error",
+      "description": "Chase's co-sell-pipeline skill commentary incorrectly attributed partner pipeline responsibility to Nick Larson (Confluent) and John Yurewicz (Microsoft), suggesting they needed to 'activate' or have pipeline conversations. David is the owner of partner relationships and co-sell pipeline — not the partner contacts.",
+      "correction": "Nick Larson and John Yurewicz are partner contacts, not pipeline owners. David owns the co-sell pipeline and is responsible for driving it. Commentary should surface gaps to David as the accountable party, not suggest the contacts need to move.",
+      "failure_mode": "wrong-assumption",
+      "systemic_fix": "Update co-sell-pipeline skill to remove partner contact callouts from commentary. Commentary should address David directly as the pipeline owner. Also update Key Relationships section to reflect contacts as relationship contacts, not responsible parties.",
+      "fix_status": "applied",
+      "severity": "moderate",
+      "related_entries": []
+    }
+  ,
+    {
+      "id": "err-20260405-002",
+      "timestamp": "2026-04-05T00:00:00-05:00",
+      "session": "2026-04-05",
+      "source": "explicit",
+      "agent": "chase",
+      "category": "assumption-error",
+      "description": "pipeline-snapshot skill included Past Due Opps as a data pull and reported all-Improving pipeline totals. David does not care about past due opps (operational detail, Don handles it) and only cares about One Texas (Dallas + South Texas), not all of Improving.",
+      "correction": "pipeline-snapshot scope is One Texas only (Dallas TX + South Texas). Always filter before reading. Remove Past Due Opps entirely — that is Don's operational layer, not David's funnel-filling view.",
+      "failure_mode": "wrong-assumption",
+      "systemic_fix": "Rewrote pipeline-snapshot skill: removed Past Due Opps step, added explicit One Texas only scope note, changed output format to always show Dallas + South Texas + combined One Texas column. Never show unfiltered all-Improving numbers.",
+      "fix_status": "applied",
+      "severity": "moderate",
+      "related_entries": []
+    }
   ]
 }

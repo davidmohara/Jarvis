@@ -14,8 +14,10 @@
       "mcp__*",
       "mcp__whoop__*",
       "mcp__obsidian-mcp-tools__*",
-      "mcp__claude_ai_Microsoft_365__outlook_calendar_search",
-      "mcp__claude_ai_Clay_custom__getUpcomingReminders"
+      "mcp__claude_ai_Microsoft_365__*",
+      "mcp__claude_ai_Clay_custom__*",
+      "mcp__comet-bridge__*",
+      "mcp__comet-bridge__comet_poll"
     ],
     "additionalDirectories": [
       "/Users/davidohara/develop/improving/ies"
