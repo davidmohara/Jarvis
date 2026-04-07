@@ -213,6 +213,26 @@ No changes: [Cards with no updates]
 ---
 
 <!-- system:start -->
+## RULES — OFFER MANAGEMENT
+
+### Rule 5: Offer Recommendations Must Be Filtered Against YNAB Spend
+
+**Before recommending or adding any card-linked offer, pull 90 days of YNAB transaction data for that card and filter the offer list to vendors where David has actual spend.** Do not recommend offers for services David doesn't use.
+
+**Process:**
+1. Run `systems/credit-cards/scripts/ynab-card-pull.py` for the card being reviewed (requires YNAB_API_TOKEN — if unavailable, ask David before recommending)
+2. Extract the top payees from YNAB output
+3. Cross-reference against available offers — only surface offers where the vendor appears in David's actual spend history
+4. For vendors with no YNAB history, do not recommend unless David explicitly asks
+
+**What this prevents:** Recommending offers for DirectTV, Starlink, Tonal, Eight Sleep, or other services David doesn't subscribe to — which creates noise and wastes review time.
+
+Rationale: A 35% offer on a service you don't use is worth $0. Filter first, then present.
+<!-- system:end -->
+
+---
+
+<!-- system:start -->
 ## CHANGE FLAGS — ESCALATE IMMEDIATELY
 
 These changes require immediate action or notification to David:

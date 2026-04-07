@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-01",
+  "last_updated": "2026-04-07",
   "tracking_year": 2026,
   "benefits_usage": {
     "amex-plat": {
@@ -51,42 +51,29 @@
   },
   "card_linked_offers": {
     "chase-sapphire": {
-      "last_reviewed": "2026-03-19",
-      "total_offers_available": 123,
+      "last_reviewed": "2026-04-04",
+      "total_offers_available": 117,
       "total_saved_to_date": 6.39,
       "current_balance": 724.65,
       "available_credit": 99673.35,
       "payment_due": "2026-04-07",
       "credit_score_vantage": 753,
-      "offers_added": 1,
-      "walkthrough_status": "PARTIAL — Portal loaded, all 123 offers visible, but Chase's web component shadow DOM blocks bulk-add via Chrome automation. David needs to manually add offers or we need a different automation approach.",
+      "offers_added": 3,
+      "walkthrough_status": "Complete — portal accessible and offers readable. 117 offers available as of 2026-04-04. Offer list requires YNAB spend filtering before recommendations are made.",
       "high_value_offers": [
         { "vendor": "fuboTV", "cashback": "35%", "status": "not_added" },
         { "vendor": "TurboTax", "cashback": "30%", "status": "not_added" },
-        { "vendor": "Starlink", "cashback": "30%", "status": "added" },
         { "vendor": "Sam's Club", "cashback": "30%", "status": "not_added" },
-        { "vendor": "Dropbox", "cashback": "30%", "status": "not_added" },
+        { "vendor": "Dropbox", "cashback": "30%", "status": "added", "added_date": "2026-04-04", "expires": "2026-04-30" },
         { "vendor": "Sling TV", "cashback": "30%", "status": "not_added" },
         { "vendor": "Faire", "cashback": "30%", "status": "not_added" },
-        { "vendor": "Calm", "cashback": "50%", "status": "not_added", "note": "Exclusive offer" },
-        { "vendor": "WHOOP", "cashback": "$100", "status": "not_added", "note": "Exclusive offer" },
-        { "vendor": "Tonal", "cashback": "$250", "status": "not_added" },
-        { "vendor": "Eight Sleep", "cashback": "$100", "status": "not_added" },
-        { "vendor": "DISH Network", "cashback": "$85", "status": "not_added" },
-        { "vendor": "DIRECTV", "cashback": "$50", "status": "not_added" },
-        { "vendor": "HP", "cashback": "$50", "status": "not_added" },
         { "vendor": "Trust & Will", "cashback": "$50", "status": "not_added", "note": "Expiring soon" },
         { "vendor": "Club Champion", "cashback": "$100", "status": "not_added", "note": "Golf club fitting" },
-        { "vendor": "Turo", "cashback": "$30", "status": "not_added" },
-        { "vendor": "Dell", "cashback": "15%", "status": "not_added" },
-        { "vendor": "Disney+", "cashback": "15%", "status": "not_added" },
-        { "vendor": "ESPN", "cashback": "15%", "status": "not_added" },
-        { "vendor": "Chewy.com", "cashback": "$15", "status": "not_added" },
-        { "vendor": "eBay", "cashback": "5%", "status": "not_added" },
-        { "vendor": "SeatGeek", "cashback": "5%", "status": "not_added", "note": "Expiring in 5 days!" }
+        { "vendor": "SeatGeek", "cashback": "5%", "status": "added", "added_date": "2026-04-04", "expires": "2026-05-15", "note": "Expires May 15 — use before then, $50 min spend" },
+        { "vendor": "Starlink", "cashback": "30%", "status": "added_accidentally", "added_date": "2026-04-04", "expires": "2026-09-11", "note": "Added accidentally during automation — David not a Starlink customer, will not trigger" }
       ],
-      "action_required": "David needs to manually click 'Add offer' on each in Chase portal — Chrome automation cannot click Chase's shadow DOM buttons. Prioritize: fuboTV, TurboTax, Dropbox, Sam's Club, DIRECTV, Calm, Club Champion, Turo, Disney+, ESPN, eBay, Chewy, SeatGeek (expiring).",
-      "note": "NEXT TIME: Pull YNAB data first to filter to relevant vendors only. Also investigate Chase mobile app automation as alternative to web portal."
+      "action_required": "Pull YNAB spend data before next offer review. Remaining candidates to evaluate against YNAB: fuboTV, TurboTax, Sam's Club, Sling TV, Faire, Club Champion, Trust & Will.",
+      "note": "2026-04-04: Added Dropbox (30%) and SeatGeek (5%) via Chrome automation. Starlink (30%) added accidentally — does not align with David's spending, will expire unused. NEXT TIME: Pull YNAB data first to filter to relevant vendors only."
     },
     "amex-plat": {
       "last_reviewed": "2026-03-19",
@@ -123,35 +110,32 @@
         { "vendor": "Sixt.com", "cashback": "$100 back on $500+", "expires": "2026-05-31", "added": "2026-03-19" },
         { "vendor": "Stitch Fix", "cashback": "$25 back on $50+", "expires": "2026-04-30", "added": "2026-03-19" }
       ],
-      "note": "75 offers bulk-added on 3/19 via Chrome automation. ~15 remaining that the script didn't reach. NEXT TIME: Use YNAB vendor map to selectively add only relevant offers instead of bulk-adding all."
+      "newly_added_2026_04_07": [
+        { "vendor": "Sonesta International Hotels", "cashback": "$60 back on $300+", "expires": "2026-06-20", "added_date": "2026-04-07", "ynab_validated": true, "note": "Hotel spend on travel card" },
+        { "vendor": "WorldHotels", "cashback": "$125 back on $500+", "expires": "2026-07-31", "added_date": "2026-04-07", "ynab_validated": true },
+        { "vendor": "Langham Hotels & Resorts", "cashback": "$200 back on $800+", "expires": "2026-04-30", "added_date": "2026-04-07", "ynab_validated": true, "note": "URGENT — expires Apr 30" },
+        { "vendor": "FOX One", "cashback": "$19.99 back on $19.99+", "expires": "2026-05-16", "added_date": "2026-04-07", "ynab_validated": true },
+        { "vendor": "Replit", "cashback": "$50 back on $100, up to 3x ($150)", "expires": "2026-08-06", "added_date": "2026-04-07", "ynab_validated": true, "note": "Dev tool spend" }
+      ],
+      "note": "75 offers bulk-added on 3/19 via Chrome automation. 2026-04-07: Added 5 more via YNAB-filtered walkthrough. One-time offers shared with BCP cannot be double-enrolled."
     },
     "amex-bcp": {
-      "last_reviewed": "2026-03-19",
+      "last_reviewed": "2026-04-07",
       "total_saved_to_date": 90.00,
-      "total_offers_available": 91,
-      "offers_added": 91,
-      "walkthrough_status": "COMPLETE — 91/91 offers bulk-added on 3/19 via Chrome automation. Zero failures.",
-      "high_value_offers_to_add": [
-        { "vendor": "TurboTax", "value": "$20 back on $40+", "expires": "2026-04-18" },
-        { "vendor": "Orkin", "value": "$30 back on $30+", "expires": "2026-03-31", "note": "Free money" },
-        { "vendor": "Topgolf", "value": "$15 back on $40+", "expires": "2026-03-31" },
-        { "vendor": "Dropbox", "value": "40% back up to $35", "expires": "2026-06-30" },
-        { "vendor": "FuboTV", "value": "$30 back on $60+, up to 3x ($90)", "expires": "2026-04-30", "note": "Streaming = 6% on BCP. Double-dip." },
-        { "vendor": "Hollywood Feed", "value": "$20 back on $75+", "expires": "2026-08-02" },
-        { "vendor": "Docusign", "value": "20% back up to $100", "expires": "2026-04-30" },
-        { "vendor": "Ooma", "value": "$60 back on $75+", "expires": "2026-04-30", "note": "Phone service — great ROI" },
-        { "vendor": "Slack.com", "value": "25% back up to $150", "expires": "2026-04-15", "note": "Business expense" },
-        { "vendor": "Tracfone", "value": "$25 back on $45+", "expires": "2026-03-31", "note": "Basically free" },
-        { "vendor": "Total Wireless", "value": "$15 back on $15+", "expires": "2026-03-31", "note": "Free" },
-        { "vendor": "Grasshopper", "value": "50% back up to $35", "expires": "2026-06-19", "note": "Business phone" },
-        { "vendor": "Faire.com", "value": "30% back up to $150", "expires": "2026-03-31" },
-        { "vendor": "Rocket Lawyer", "value": "$95 back on $239+", "expires": "2026-07-31" },
-        { "vendor": "LegalZoom", "value": "20% back up to $100", "expires": "2026-06-30" }
+      "total_offers_available": 99,
+      "offers_added": 96,
+      "walkthrough_status": "COMPLETE — YNAB-filtered walkthrough 2026-04-07. Added 5 new offers based on verified YNAB spend.",
+      "newly_added_2026_04_07": [
+        { "vendor": "SeatGeek", "cashback": "$40 back on $250+", "expires": "2026-06-01", "added_date": "2026-04-07", "ynab_validated": true },
+        { "vendor": "AllTrails", "cashback": "50% back up to $40", "expires": "2026-07-05", "added_date": "2026-04-07", "ynab_validated": true, "note": "REI + outdoor spend pattern" },
+        { "vendor": "Graham & Fisk's Wine-In-A-Can", "cashback": "$30 back on $75, up to 2x ($60)", "expires": "2026-05-10", "added_date": "2026-04-07", "ynab_validated": true, "note": "$5K+ wine spend on BCP" },
+        { "vendor": "Bad Birdie Golf", "cashback": "$20 back on $100+", "expires": "2026-07-01", "added_date": "2026-04-07", "ynab_validated": true, "note": "Integrity Golf Performance spend" },
+        { "vendor": "Liquid I.V.", "cashback": "$15 back on $75, up to 2x ($30)", "expires": "2026-07-06", "added_date": "2026-04-07", "ynab_validated": true, "note": "Thorne/Toniiq supplement spend pattern" }
       ],
-      "note": "NEXT TIME: Pull YNAB data first, then selectively add only vendors David actually uses."
+      "note": "2026-04-07: YNAB-filtered walkthrough. Added 5 offers matching verified spend. One-time offers (SeatGeek, AllTrails, Graham & Fisk, Bad Birdie, Liquid I.V.) cannot be double-enrolled on Platinum."
     },
     "citi-aa-exec": {
-      "last_reviewed": "2026-03-19",
+      "last_reviewed": "2026-04-07",
       "total_saved_to_date": 34.72,
       "total_offers_available": "278 shopping + 7 travel + 4 dining + 4 featured = 293 total",
       "aa_miles_balance": 733367,
@@ -163,16 +147,21 @@
       "remaining_statement_balance": 3455.66,
       "walkthrough_status": "PARTIAL — Portal loaded, all offers visible, but Citi's React SPA blocks click automation. Enrolled count from prior session still at 10. David needs to manually add offers or try Citi mobile app.",
       "enrolled": [
-        { "vendor": "Shell", "cashback": "4%", "days_left": 13, "added_by": "David" },
-        { "vendor": "BP", "cashback": "5%", "days_left": 13, "added_by": "David" },
-        { "vendor": "Sixt Rent A Car", "cashback": "10%", "days_left": 44, "added_by": "David" },
-        { "vendor": "Chipotle", "cashback": "5%", "days_left": 13, "added_by": "David" },
-        { "vendor": "Dropbox", "cashback": "$20 back", "days_left": 13, "added_by": "David" },
-        { "vendor": "citizenwatch.com", "cashback": "3%", "days_left": 46, "added_by": "David" },
-        { "vendor": "snakeriverfarms.com", "cashback": "4%", "days_left": 76, "added_by": "David" },
-        { "vendor": "bumbleandbumble.com", "cashback": "5%", "days_left": 76, "added_by": "David" },
-        { "vendor": "ancestry.com", "cashback": "4%", "days_left": 76, "added_by": "David" },
-        { "vendor": "Live Nation", "cashback": "5%", "days_left": 44, "added_by": "David", "added": "2026-02-16", "note": "Concert tickets — pairs with Amex Venue Collection 10% on concessions." }
+        { "vendor": "Shell", "cashback": "4%", "added_by": "David" },
+        { "vendor": "BP", "cashback": "5%", "added_by": "David" },
+        { "vendor": "Sixt Rent A Car", "cashback": "10%", "added_by": "David" },
+        { "vendor": "Chipotle", "cashback": "5%", "added_by": "David" },
+        { "vendor": "Dropbox", "cashback": "$20 back", "added_by": "David" },
+        { "vendor": "citizenwatch.com", "cashback": "3%", "added_by": "David" },
+        { "vendor": "snakeriverfarms.com", "cashback": "4%", "added_by": "David" },
+        { "vendor": "bumbleandbumble.com", "cashback": "5%", "added_by": "David" },
+        { "vendor": "ancestry.com", "cashback": "4%", "added_by": "David" },
+        { "vendor": "Live Nation", "cashback": "5%", "added_by": "David", "added": "2026-02-16", "note": "Concert tickets — pairs with Amex Venue Collection 10% on concessions." },
+        { "vendor": "Turo", "cashback": "$15 back on $200+", "expires": "2026-06-30", "added_by": "Jarvis", "added_date": "2026-04-07", "ynab_validated": true, "note": "$794 Turo YNAB spend" },
+        { "vendor": "Graham + Fisk's Wine-In-A-Can", "cashback": "$28 back on $70+", "expires": "2026-05-15", "added_by": "Jarvis", "added_date": "2026-04-07", "ynab_validated": true, "note": "Massive wine spend on Citi" }
+      ],
+      "enrollment_failures_2026_04_07": [
+        { "vendor": "Sixt Rent A Car (new offer)", "error": "Unable to enroll merchant offer — Citi backend error. Retry next session." }
       ],
       "recommended_to_add": [
         { "vendor": "Lyft", "cashback": "5%", "days_left": 44, "priority": "high", "note": "STACKS with $10/mo Lyft credit. Double-dip." },
@@ -214,6 +203,10 @@
     { "date": "2026-04-02", "card": "amex-plat", "action": "Gobble offer expires ($30 back on $65+, up to 3x/$90)" },
     { "date": "2026-04-03", "card": "amex-plat", "action": "Gametime offer expires ($30 back on $150+)" },
     { "date": "2026-04-15", "card": "amex-bcp", "action": "Slack.com offer expires (25% back up to $150)" },
+    { "date": "2026-04-30", "card": "amex-plat", "action": "Langham Hotels offer expires ($200 back on $800+) — ADDED 4/7, use before deadline" },
+    { "date": "2026-05-10", "card": "amex-bcp", "action": "Graham & Fisk's Wine offer expires ($60 total back) — spend $75 twice before this date" },
+    { "date": "2026-05-15", "card": "citi-aa-exec", "action": "Graham + Fisk's Wine offer expires ($28 back on $70+) — ENROLLED 4/7" },
+    { "date": "2026-05-16", "card": "amex-plat", "action": "FOX One offer expires ($19.99 back) — ADDED 4/7" },
     { "date": "2026-04-17", "card": "amex-plat", "action": "Tecovas offer expires ($50 back on $250+)" },
     { "date": "2026-04-18", "card": "amex-plat", "action": "TurboTax offer expires ($20 back on $40+) — FILE TAXES FIRST" },
     { "date": "2026-04-21", "card": "amex-bcp", "action": "Annual fee renewal ($95)" },
@@ -241,7 +234,8 @@
     "lesson": "Quarterly credits need calendar reminders 2 weeks before expiry. Monthly review alone is insufficient — need mid-quarter nudges."
   },
   "monthly_review_log": [
-    { "date": "2026-04-01", "type": "scheduled_automated", "findings": "Q1 Resy ($100) and lululemon ($75) expired unused. $175 lost. Discover Q2 active (Restaurants + Home Improvement). Amex $75K threshold unreachable at current pace. Total offer savings: $481.11 across all cards. 14 action items generated." }
+    { "date": "2026-04-01", "type": "scheduled_automated", "findings": "Q1 Resy ($100) and lululemon ($75) expired unused. $175 lost. Discover Q2 active (Restaurants + Home Improvement). Amex $75K threshold unreachable at current pace. Total offer savings: $481.11 across all cards. 14 action items generated." },
+    { "date": "2026-04-04", "type": "manual_walkthrough", "status": "INCOMPLETE", "findings": "Sapphire card balance updated ($724.65 current, $99,673.35 available, due 4/7). Dashboard accessible. Offers page (117 total) cannot be scraped via automation — Chase shadow DOM blocks content extraction. Manual offer review required. Last data pull: 2026-03-19 showed Starlink as only offer added of 123 available. See high_value_offers list for prioritized adds." }
   ],
   "workflow_improvements": {
     "ynab_first": {

@@ -1100,6 +1100,21 @@
       ]
     },
     {
+      "id": "err-20260404-002",
+      "timestamp": "2026-04-04T00:00:00-05:00",
+      "session": "2026-04-04",
+      "source": "self-detected",
+      "agent": "jarvis",
+      "category": "tool-misuse",
+      "description": "Accidentally added Starlink offer to Chase Sapphire during Chrome automation. Intended to click Dropbox tile but the Starlink 'Add offer' button was rendered in the DOM as a featured offer and intercepted the click event. David explicitly confirmed he is not a Starlink customer and said not to recommend it.",
+      "correction": "Scroll target tile fully into view and verify the modal that opens matches the intended merchant before clicking Add offer. Check modal title/merchant name before confirming add.",
+      "failure_mode": "wrong-assumption",
+      "systemic_fix": "Before clicking 'Add offer' in any modal, read the modal content first to confirm the merchant name matches the intended target. Never click Add offer without verifying the modal is for the correct offer.",
+      "fix_status": "applied",
+      "severity": "minor",
+      "related_entries": ["err-20260404-001"]
+    },
+    {
       "id": "err-20260404-001",
       "timestamp": "2026-04-04T00:00:00-05:00",
       "session": "2026-04-04",
@@ -1113,6 +1128,21 @@
       "fix_status": "applied",
       "severity": "minor",
       "related_entries": []
+    },
+    {
+      "id": "err-20260407-001",
+      "timestamp": "2026-04-07T00:00:00-05:00",
+      "session": "2026-04-07",
+      "source": "explicit",
+      "agent": "jarvis",
+      "category": "tool-misuse",
+      "description": "Used window.location.href (open_url equivalent) for in-portal navigation on Citi instead of clicking nav links. David explicitly corrected: navigate with clicks, not URLs.",
+      "correction": "When already authenticated on a portal, navigate exclusively by clicking links and buttons via execute_javascript. open_url and window.location.href are reserved for the initial jump to a new issuer domain.",
+      "failure_mode": "protocol-skip",
+      "systemic_fix": "Rule 4 in card-walkthrough/workflow.md already exists but was not followed. Reinforce: zero exceptions — no URL navigation once authenticated.",
+      "fix_status": "applied",
+      "severity": "minor",
+      "related_entries": ["err-20260404-001"]
     },
     {
       "id": "err-20260403-012",
