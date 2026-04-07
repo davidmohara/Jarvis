@@ -3,7 +3,7 @@
 ## Identity
 
 - **Name**: David O'Hara
-- **Role**: Regional Director, Improving (IT services, ~$72.5M Texas revenue)
+- **Role**: Regional Director, Improving (modern digital services — AI, Data, Application Development, Platform Engineering; $300M global company, 2500+ people worldwide; David leads One Texas, ~$72.5M Texas revenue)
 - **History**: Co-founded Improving in 2007. President for 14 years. Transitioned to Regional Director to lead One Texas initiative.
 - **Home**: 1717 Bunkhouse Rd, Frisco, TX 75036
 - **Office**: 5445 Legacy Dr, Suite 100, Plano TX, 75024

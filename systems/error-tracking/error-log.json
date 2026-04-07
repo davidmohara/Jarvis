@@ -295,6 +295,21 @@
       "related_entries": []
     },
     {
+      "id": "err-20260407-001",
+      "timestamp": "2026-04-07T09:15:00-05:00",
+      "session": "2026-04-07",
+      "source": "explicit",
+      "agent": "jarvis",
+      "category": "data-accuracy",
+      "description": "Described Improving as a '$100M+ technology services firm' in the Meredith Anastasio call prep sheet and talking points. This is materially incorrect. Improving is a $300M global company with 2500+ people worldwide, focused on modern digital services: AI, Data, Application Development, and Platform Engineering.",
+      "correction": "Improving is a $300M global modern digital services company with 2500+ employees worldwide. Services: AI, Data, Application Development, Platform Engineering. Not '$100M+ Texas-focused IT services'.",
+      "failure_mode": "stale-cache",
+      "systemic_fix": "Update MEMORY.md with correct Improving company description and financials. Always use verified figures from identity files — do not derive company scale from the One Texas revenue target ($72.5M Texas revenue) and mistake it for total company revenue.",
+      "fix_status": "applied",
+      "severity": "major",
+      "related_entries": []
+    },
+    {
       "id": "err-20260323-006",
       "timestamp": "2026-03-23T00:00:00Z",
       "session": "2026-03-23",
