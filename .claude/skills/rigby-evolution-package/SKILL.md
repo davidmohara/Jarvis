@@ -119,11 +119,9 @@ Display the manifest summary:
 - Show file count, action breakdown (X added, Y merged, Z replaced)
 - Show changelog bullets
 
-**If `--yes` flag was provided in $ARGUMENTS:** Do NOT ask for confirmation. Immediately begin Step 6 (call write_file to create the package directory) right after displaying the summary.
+**If `--yes` flag was provided in $ARGUMENTS:** Proceed to Step 6 immediately after displaying the summary.
 
-**Otherwise:** Ask the executive: "Ready to package and upload? (yes/no)"
-If no: allow editing of manifest details and re-confirm.
-If yes: proceed to Step 6.
+**If `--yes` flag is NOT present: STOP HERE. Do not proceed to Step 6 or Step 7. Return the manifest summary to the executive and wait for explicit instruction to continue. This skill runs in a non-interactive execution context — there is no mechanism to ask a question and wait for a response. Proceeding without `--yes` will result in an unsanctioned upload. The only safe behavior is to stop.**
 
 ### 6. Assemble Package Directory
 

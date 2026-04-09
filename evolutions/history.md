@@ -349,3 +349,57 @@ None.
 - Glob used for non-recursive root file enumeration
 - Maintains consistency with Rigby's preference for command-line operations
 - Personal content in root is rare — evolution is system-classified
+
+---
+
+## Error Tracking System (v2 — Updated) — Published 2026-04-09
+
+**Type:** System evolution (multi-package submission due to API size limits)
+**Published:** 2026-04-09T00:00:00Z
+**Status:** submitted (awaiting admin approval)
+**Published by:** Rigby (via Evolution Package workflow)
+
+### Summary
+
+Updated evolution of the Error Tracking System with all corrections logged through 2026-04-07 (28 entries in log), refreshed agent files, and expanded system integration. Due to an API payload size limit (~35-40KB per request), this evolution was split into 7 separate submissions covering all 18 files.
+
+### Submissions
+
+| Evolution Name | Version (UUID) | DB ID | Files |
+|----------------|---------------|-------|-------|
+| Error Tracking System (core) | `6e1c9b4c-1048-46e1-a690-3ff4d0f056bc` | cmnrfp7fh00001tn5vawtl7rj | error-log.json, schema.md, rigby-error-analysis (×2) |
+| ET — Agent Conventions | `8f933d3c-deef-4db1-ad38-f54436768709` | cmnrfrxe2000d1tn5bqcc648c | agents/conventions.md, chief.md, chase.md |
+| ET — Agent Integration Part 2 | `f582f2c3-7faa-4cd8-b511-e3c3b941a988` | cmnrfrxqf000e1tn5crudpvye | agents/quinn.md, shep.md, harper.md |
+| ET — Agent Integration Part 3 | `a97666e4-9749-4dae-a6ac-5c9abbe6048d` | cmnrfry1w000f1tn54x28eatq | agents/knox.md, rigby.md |
+| ET — Config and Workflow Updates | `d36b5779-42b5-415a-bf8c-1392b97a036b` | cmnrfryfp000g1tn5z4h5hf9m | CLAUDE.md, identity/AUTOMATION.md, step-03-update-system.md |
+| ET — Master Agent Update | `80cbf794` (truncated) | cmnrfscr2000h1tn5jqfsh95j | agents/master.md |
+| ET — Weekly Review Integration | `568f7a03` (truncated) | cmnrfsd12000i1tn5kfprbokf | .claude/skills/quinn-weekly-review/SKILL.md |
+
+### Known Limitation
+
+`SYSTEM.md` (54KB) could not be submitted — it exceeds the API's per-request payload limit (~35-40KB). The Error Accountability section additions to SYSTEM.md must be applied manually on receiving instances. Flagged as a platform issue for the IES app team.
+
+### Files Included
+
+**New (added):**
+- `systems/error-tracking/error-log.json` — empty log, ready for new instance
+- `systems/error-tracking/schema.md` — 10 categories, 10 failure modes, 3 severity levels
+- `skills/rigby-error-analysis/SKILL.md` — pattern detection, tiered fix proposals
+- `.claude/skills/rigby-error-analysis/SKILL.md` — skill registration
+
+**Merged (16 files):**
+- `agents/conventions.md` — Error Reporting Protocol; output format hierarchy
+- `agents/chief.md`, `chase.md`, `quinn.md`, `shep.md`, `harper.md`, `knox.md` — Shared Conventions block
+- `agents/rigby.md` — Error Analysis task, data requirements, handoff routing
+- `agents/master.md` — Error Capture Protocol, threshold alerting, Rigby routing
+- `CLAUDE.md` — Error Logging rule in boot file
+- `identity/AUTOMATION.md` — Log corrections in Fully Autonomous
+- `workflows/daily-review/steps/step-03-update-system.md` — error count in System State
+- `.claude/skills/quinn-weekly-review/SKILL.md` — System Health section, System Improvement Review step
+
+**Skipped (API limit):**
+- `SYSTEM.md` — too large (54KB) for current API payload limit
+
+### Conflicts
+
+None.

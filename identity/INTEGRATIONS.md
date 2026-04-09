@@ -114,4 +114,4 @@ bridge/done/  <-- Completed requests archived
 - **One Texas deck**: `~/Library/CloudStorage/OneDrive-Improving/Presentations/One Texas/One Texas.pptx`
 - **Lifebook & Faith deck**: `~/Library/CloudStorage/OneDrive-Improving/Presentations/Lifebook & Faith.pptx`
 - **Obsidian vault**: Accessible via MCP (Mind/, Projects/, Archive/, Remarkable/)
-- **my-os system**: `/Users/davidohara/develop/my-os/`
+
