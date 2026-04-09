@@ -175,7 +175,7 @@ N/A — all new files.
 **DB ID:** cmnapu67100001tptdispl34i
 **Type:** System evolution
 **Published:** 2026-03-28T00:00:00Z
-**Status:** submitted (awaiting admin approval)
+**Status:** denied
 **Published by:** Rigby (David + Jarvis session)
 
 ### Summary
@@ -199,7 +199,7 @@ Replaces session-scoped CronCreate approach with Cowork's native Scheduled Tasks
 **Evolution ID:** ies-35eb59a2-646a-4aa0-a26f-4f2ef96fbbe1
 **Version:** 35eb59a2-646a-4aa0-a26f-4f2ef96fbbe1
 **Published:** 2026-03-29T21:45:40Z
-**Status:** Submitted (awaiting admin approval)
+**Status:** denied
 **Published by:** Rigby (via Evolution Package workflow)
 
 ### Summary
@@ -246,7 +246,7 @@ None.
 **Version:** 2af0b5fb-e89e-4e56-8c4c-3297af7bf1ce
 **DB ID:** cmnp9zjfa00011tr054korc6m
 **Published:** 2026-04-07T00:00:00Z
-**Status:** submitted (awaiting admin approval)
+**Status:** denied
 **Published by:** Rigby (via Evolution Package workflow)
 
 ### Summary
@@ -270,13 +270,41 @@ None.
 
 ---
 
+## Error Tracking System (v3 — Minimal Reset) — Published 2026-04-09
+
+**Evolution ID:** 192e88b3-8b37-44f0-9f54-e37832852fa3
+**Version:** 192e88b3-8b37-44f0-9f54-e37832852fa3
+**Type:** System evolution
+**Published:** 2026-04-09T18:09:05Z
+**Status:** approved
+**Published by:** Rigby (via Evolution Upload skill)
+
+### Summary
+
+Minimal error tracking reset package. Adds silent correction logging to IES: agents write to error-log.json immediately when the executive corrects any behavior. Schema supports pattern analysis by Rigby. Three-file package: error log schema, empty error log, and AUTOMATION.md with fully-autonomous correction logging rule.
+
+### Files Included
+
+**Merged (2 files):**
+- `systems/error-tracking/schema.md` — error log entry schema, error categories, failure modes, severity levels, pattern structure
+- `identity/AUTOMATION.md` — added fully autonomous correction logging rule
+
+**Added (1 file):**
+- `systems/error-tracking/error-log.json` — empty correction log with metadata structure
+
+### Conflicts
+
+None.
+
+---
+
 ## IES Channel Daemon — Published 2026-04-07 (v3)
 
 **Evolution ID:** ies-c7fed94c-ce00-4f65-8676-e907653f5cfc
 **Version:** c7fed94c-ce00-4f65-8676-e907653f5cfc
 **DB ID:** cmnpdjz4j00021tr0d3xyoijd
 **Published:** 2026-04-07T00:00:00Z
-**Status:** submitted (awaiting admin approval)
+**Status:** denied
 **Published by:** Rigby (via Evolution Package workflow)
 
 ### Summary
@@ -306,7 +334,7 @@ None.
 **Version:** 0b1764ae-74bb-4214-a2ba-2c22e444e5c2
 **DB ID:** cmncmcty000041tpt1m0ca1r2
 **Published:** 2026-03-29T00:00:00Z
-**Status:** Submitted (awaiting admin approval)
+**Status:** denied
 **Published by:** Rigby (via Evolution Package workflow)
 
 ### Summary
@@ -356,7 +384,7 @@ None.
 
 **Type:** System evolution (multi-package submission due to API size limits)
 **Published:** 2026-04-09T00:00:00Z
-**Status:** submitted (awaiting admin approval)
+**Status:** denied (7 packages — bad classification, unsanctioned upload)
 **Published by:** Rigby (via Evolution Package workflow)
 
 ### Summary
