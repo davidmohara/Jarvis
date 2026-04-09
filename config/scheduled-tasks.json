@@ -54,17 +54,17 @@
       "setup_note": "Daemon runs from 1 PM through midnight. For earlier coverage (11 AM Pinot Hour), add a second scheduled task at 10:55 AM or install system cron via: bash /home/user/Jarvis/systems/wine-monitor/install.sh"
     },
     {
-      "id": "jarvis-channel",
-      "name": "Jarvis Channel Poller",
-      "skill": "jarvis-channel",
+      "id": "ies-channel",
+      "name": "IES Channel Daemon",
+      "skill": "ies-channel",
       "cron": "*/5 * * * *",
       "schedule_display": "Every 5 minutes (self-managing daemon)",
       "keep_awake": true,
       "configured": false,
       "agent": "Master",
-      "description": "Polls #jarvis Slack channel for messages from David. Routes them to the Jarvis master agent via Anthropic API and posts responses back as Jarvis bot. Adaptive polling: 5min idle, ramps to 30s during active conversation, backs off after silence, returns to 5min default after 5 minutes with no David message. Auto-compacts conversation context at 80% usage.",
-      "cowork_prompt": "Run: python3 /Users/davidohara/develop/jarvis/systems/jarvis-channel/jarvis-channel.py \u2014 this is a long-running daemon. It will poll #jarvis for David messages, pass them to Jarvis via the Anthropic API, and post responses back as the Jarvis bot. It manages its own polling interval and will run until stopped.",
-      "setup_note": "Requires ANTHROPIC_API_KEY in config/.env. Run install.sh first: bash /Users/davidohara/develop/jarvis/systems/jarvis-channel/install.sh"
+      "description": "Polls the configured Slack channel for messages from the owner. Routes them to the IES master agent via Claude Code and posts responses back as the bot. Adaptive polling: 5min idle, ramps to 30s during active conversation, backs off after silence, returns to 5min default after 5 minutes with no new messages. Auto-compacts conversation context every 10 turns.",
+      "cowork_prompt": "Run: python3 {IES_ROOT}/systems/ies-channel/ies-channel.py — this is a long-running daemon. It will poll the configured Slack channel for owner messages, pass them to the IES agent via Claude Code, and post responses back as the bot. It manages its own polling interval and will run until stopped.",
+      "setup_note": "Requires SLACK_BOT_TOKEN, IES_CHANNEL_ID, and IES_OWNER_USER_ID in config/.env. Run install.sh first: bash {IES_ROOT}/systems/ies-channel/install.sh"
     }
   ]
 }

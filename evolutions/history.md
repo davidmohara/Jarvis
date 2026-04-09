@@ -240,6 +240,66 @@ None.
 
 ---
 
+## IES Channel Daemon — Published 2026-04-07 (v2)
+
+**Evolution ID:** ies-2af0b5fb-e89e-4e56-8c4c-3297af7bf1ce
+**Version:** 2af0b5fb-e89e-4e56-8c4c-3297af7bf1ce
+**DB ID:** cmnp9zjfa00011tr054korc6m
+**Published:** 2026-04-07T00:00:00Z
+**Status:** submitted (awaiting admin approval)
+**Published by:** Rigby (via Evolution Package workflow)
+
+### Summary
+
+IES Channel Daemon — Slack channel polling daemon with adaptive polling. Routes messages from a configured channel to the IES agent via Claude Code headless session and posts responses back as the bot. Includes main daemon, install script, .gitignore for runtime data, updated scheduled-tasks.json with daemon entry, and updated .env.example with required env vars.
+
+### Files Included
+
+**Added (3 files):**
+- `systems/ies-channel/ies-channel.py` — main daemon script with adaptive polling, session persistence, auto-compact
+- `systems/ies-channel/install.sh` — setup script: verifies claude binary, config tokens, data dir, dry-run test
+- `systems/ies-channel/.gitignore` — excludes runtime state.json and .log files, preserves .gitkeep
+
+**Replaced (2 files):**
+- `config/scheduled-tasks.json` — adds ies-channel task (every 5 min, Keep Awake, Master agent, Cowork prompt)
+- `config/.env.example` — documents IES_CHANNEL_ID and IES_OWNER_USER_ID env vars
+
+### Conflicts
+
+None.
+
+---
+
+## IES Channel Daemon — Published 2026-04-07 (v3)
+
+**Evolution ID:** ies-c7fed94c-ce00-4f65-8676-e907653f5cfc
+**Version:** c7fed94c-ce00-4f65-8676-e907653f5cfc
+**DB ID:** cmnpdjz4j00021tr0d3xyoijd
+**Published:** 2026-04-07T00:00:00Z
+**Status:** submitted (awaiting admin approval)
+**Published by:** Rigby (via Evolution Package workflow)
+
+### Summary
+
+IES Channel Daemon — Slack channel polling daemon with adaptive polling. Routes messages from a configured channel to the IES agent via Claude Code headless session and posts responses back as the bot. Includes main daemon, install script, .gitignore for runtime data, updated scheduled-tasks.json with daemon entry, and updated .env.example with required env vars (IES_CHANNEL_ID, IES_OWNER_USER_ID).
+
+### Files Included
+
+**Added (3 files):**
+- `systems/ies-channel/ies-channel.py` — main daemon with adaptive polling, session persistence, auto-compact every 10 turns
+- `systems/ies-channel/install.sh` — setup script: verifies claude binary, config tokens, data dir, dry-run test
+- `systems/ies-channel/.gitignore` — excludes data/*.json and data/*.log, preserves .gitkeep
+
+**Replaced (2 files):**
+- `config/scheduled-tasks.json` — adds ies-channel scheduled task entry (every 5 min, Keep Awake, Master agent)
+- `config/.env.example` — documents SLACK_BOT_TOKEN, IES_CHANNEL_ID, IES_OWNER_USER_ID env vars
+
+### Conflicts
+
+None.
+
+---
+
 ## Root Audit — Published 2026-03-29
 
 **Evolution ID:** ies-0b1764ae-74bb-4214-a2ba-2c22e444e5c2

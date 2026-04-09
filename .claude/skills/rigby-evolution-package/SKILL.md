@@ -127,12 +127,20 @@ If yes: proceed to Step 6.
 
 ### 6. Assemble Package Directory
 
-Create a local package directory at `evolutions/ies-{name-slug}/` (use the evolution name, slugified — not the UUID):
-- Write `evolution.manifest.json`
-- Write each file to its relative path within the package directory
-  - For `merge` files: write the system-extracted version (empty personal markers)
-  - For `add`/`replace` files: write the full file content
-  - For `delete` files: do NOT write a file — the action in the manifest is enough
+Create a local package directory at `evolutions/ies-{name-slug}/` (use the evolution name, slugified — not the UUID).
+
+**First:** Write `evolution.manifest.json` with the manifest built in Step 4.
+
+**Then — required — write each source file into the package directory.** For every file in the manifest with action `add`, `replace`, or `merge`:
+1. Read the file's full content from its original path in the IES root (e.g., `skills/analyst.md`)
+   - For `merge` files: use the system-extracted version from Step 3 (empty personal markers)
+   - For `add`/`replace` files: use the unmodified source content
+2. Write that content to `evolutions/ies-{name-slug}/{original-path}` (e.g., `evolutions/ies-{name-slug}/skills/analyst.md`)
+3. Create subdirectories as needed
+
+For `delete` files: do NOT write a file — the manifest action entry is sufficient.
+
+**This step is not complete until every non-delete file is present in the package directory. Do not proceed to Step 7 until all files are written.**
 
 ### 7. Upload to Web App
 
@@ -150,12 +158,13 @@ Upload via the REST publish endpoint. Construct the payload:
   "manifest": { ...manifest... },
   "changelog": [...],
   "files": {
-    "agents/analyst.md": "...file content...",
-    "workflows/new/workflow.md": "...file content..."
+    "{path-from-manifest}": "{full UTF-8 text content of that file}"
   },
   "audience": "internal"
 }
 ```
+
+**Populate `files` as follows:** For each file written to the package directory in Step 6 (all non-delete manifest entries), read the file content from `evolutions/ies-{name-slug}/{path}` and include it as a string value keyed by its relative path. Do NOT base64-encode — send plain UTF-8 text. Every file in the package directory must appear in this object; omitting files from the payload will cause the evolution to be missing content on the receiving end.
 
 Call: `POST {ies_app_url}/api/evolutions`
 Authorization: Bearer `{ACCESS_TOKEN}`

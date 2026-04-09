@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 """
-Jarvis Channel Poller
+IES Channel Daemon
 
-Monitors #jarvis Slack channel for messages from David. Routes each message to
-a local headless Claude Code session (which boots Jarvis via CLAUDE.md), then
-posts the response back as Jarvis bot.
+Monitors a configured Slack channel for messages from a designated owner.
+Routes each message to a local headless Claude Code session (which boots the
+IES agent via CLAUDE.md), then posts the response back as the bot.
 
-The headless session runs in the Jarvis root directory so CLAUDE.md is picked
-up automatically — Jarvis loads its identity files, agents, skills, etc. exactly
+The headless session runs in the IES root directory so CLAUDE.md is picked
+up automatically — the agent loads its identity files, skills, etc. exactly
 as it would in an interactive session. No separate API key needed.
 
 Session continuity: the Claude Code session_id is persisted in data/state.json
@@ -17,14 +17,19 @@ a fresh one is started automatically.
 Polling:
   Idle    → every 5 min
   Active  → 30s → 30s → 45s → 60s → 90s → 120s → 180s → 5min (backoff)
-  Timeout → 5 min of David silence → back to idle
+  Timeout → 5 min of silence → back to idle
 
 Auto-compact: sends /compact to the session every COMPACT_EVERY turns to keep
 context from filling up, then continues the conversation.
 
+Configuration (config/.env):
+  SLACK_BOT_TOKEN     — required
+  IES_CHANNEL_ID      — required: Slack channel ID to monitor
+  IES_OWNER_USER_ID   — required: Slack user ID of the owner this daemon serves
+
 Usage:
-  python3 jarvis-channel.py          # run daemon
-  python3 jarvis-channel.py --test   # single poll, no Claude calls or Slack posts
+  python3 ies-channel.py          # run daemon
+  python3 ies-channel.py --test   # single poll, no Claude calls or Slack posts
 """
 
 from __future__ import annotations
@@ -40,18 +45,16 @@ from datetime import datetime
 from pathlib import Path
 
 # ── Paths ─────────────────────────────────────────────────────────────────────
-SCRIPT_DIR  = Path(__file__).resolve().parent
-JARVIS_ROOT = SCRIPT_DIR.parent.parent       # systems/jarvis-channel → systems → jarvis
-CONFIG_ENV  = JARVIS_ROOT / "config" / ".env"
-STATE_PATH  = SCRIPT_DIR / "data" / "state.json"
-LOG_PATH    = SCRIPT_DIR / "data" / "jarvis-channel.log"
-SLACK_BOT   = JARVIS_ROOT / "systems" / "slack-bot" / "post.py"
-CLAUDE_BIN  = "/opt/homebrew/bin/claude"     # fallback: also checked on PATH
+SCRIPT_DIR = Path(__file__).resolve().parent
+IES_ROOT   = SCRIPT_DIR.parent.parent       # systems/ies-channel → systems → IES root
+CONFIG_ENV = IES_ROOT / "config" / ".env"
+STATE_PATH = SCRIPT_DIR / "data" / "state.json"
+LOG_PATH   = SCRIPT_DIR / "data" / "ies-channel.log"
+SLACK_BOT  = IES_ROOT / "systems" / "slack-bot" / "post.py"
+CLAUDE_BIN = "/opt/homebrew/bin/claude"     # fallback: also checked on PATH
 
 
 # ── Constants ─────────────────────────────────────────────────────────────────
-# Read from env, with defaults for backward compatibility (David's values)
-
 DEFAULT_INTERVAL = 300                           # 5 min idle
 ACTIVE_INTERVALS = [30, 30, 45, 60, 90, 120, 180, 300]
 CONVO_TIMEOUT    = 300                           # seconds of silence → back to idle
@@ -73,8 +76,8 @@ def load_env(path: Path) -> dict:
 
 _env      = load_env(CONFIG_ENV)
 BOT_TOKEN = os.environ.get("SLACK_BOT_TOKEN") or _env.get("SLACK_BOT_TOKEN", "")
-CHANNEL      = _env.get("JARVIS_CHANNEL_ID", "C0AN2PQNXBR")   # #jarvis
-DAVID_ID     = _env.get("JARVIS_USER_ID", "U0ANHV5UXEW")      # Jarvis owner's Slack user ID
+CHANNEL   = os.environ.get("IES_CHANNEL_ID")   or _env.get("IES_CHANNEL_ID", "")
+OWNER_ID  = os.environ.get("IES_OWNER_USER_ID") or _env.get("IES_OWNER_USER_ID", "")
 
 # ── Logging ───────────────────────────────────────────────────────────────────
 def log(msg: str):
@@ -106,11 +109,11 @@ def save_state(state: dict):
 
 # ── Process Cleanup ───────────────────────────────────────────────────────────
 def kill_existing_instances():
-    """Kill any stale jarvis-channel.py processes before starting."""
+    """Kill any stale ies-channel.py processes before starting."""
     my_pid = str(os.getpid())
     try:
         result = subprocess.run(
-            ["pgrep", "-f", "jarvis-channel.py"],
+            ["pgrep", "-f", "ies-channel.py"],
             capture_output=True, text=True
         )
         pids = [
@@ -123,7 +126,7 @@ def kill_existing_instances():
         for pid in pids:
             subprocess.run(["kill", pid], capture_output=True)
         time.sleep(2)
-        result2 = subprocess.run(["pgrep", "-f", "jarvis-channel.py"], capture_output=True, text=True)
+        result2 = subprocess.run(["pgrep", "-f", "ies-channel.py"], capture_output=True, text=True)
         survivors = [
             p.strip() for p in result2.stdout.strip().split("\n")
             if p.strip() and p.strip() != my_pid
@@ -148,11 +151,11 @@ def find_claude() -> str:
     raise RuntimeError("claude binary not found — is Claude Code installed?")
 
 
-# ── Jarvis Session ────────────────────────────────────────────────────────────
-class JarvisSession:
+# ── IES Session ───────────────────────────────────────────────────────────────
+class IESSession:
     """
-    Wraps a headless Claude Code session running in JARVIS_ROOT.
-    CLAUDE.md bootstraps Jarvis on first turn — reads identity files, loads
+    Wraps a headless Claude Code session running in IES_ROOT.
+    CLAUDE.md bootstraps the agent on first turn — reads identity files, loads
     agent context, etc. Session is persisted via session_id for resumption.
     """
 
@@ -163,7 +166,7 @@ class JarvisSession:
 
     def send(self, message: str) -> tuple[str, str]:
         """
-        Send a message to Jarvis. Returns (reply_text, session_id).
+        Send a message to the agent. Returns (reply_text, session_id).
         Compacts the session every COMPACT_EVERY turns before sending.
         """
         # Proactive compact before sending if we're at the threshold
@@ -196,11 +199,11 @@ class JarvisSession:
                 capture_output=True,
                 text=True,
                 timeout=timeout,
-                cwd=str(JARVIS_ROOT),    # CLAUDE.md is picked up from here
+                cwd=str(IES_ROOT),    # CLAUDE.md is picked up from here
             )
         except subprocess.TimeoutExpired:
             log(f"ERROR: claude timed out after {timeout}s")
-            return "[Jarvis timed out]", self.session_id
+            return "[Agent timed out]", self.session_id
 
         if result.returncode != 0:
             stderr = result.stderr.strip()[:300]
@@ -208,7 +211,7 @@ class JarvisSession:
             # Session may have expired — signal caller to start fresh
             if "session" in stderr.lower() or "not found" in stderr.lower():
                 self.session_id = None
-            return f"[Jarvis error — see log]", None
+            return "[Agent error — see log]", None
 
         try:
             data       = json.loads(result.stdout)
@@ -254,7 +257,7 @@ def slack_api(method: str, payload: dict) -> dict:
         return {"ok": False, "error": str(e)}
 
 def fetch_new_messages(oldest_ts: str | None) -> list[dict]:
-    """Fetch top-level #jarvis messages newer than oldest_ts, from David only."""
+    """Fetch top-level messages from the configured channel newer than oldest_ts, from owner only."""
     payload = {"channel": CHANNEL, "limit": 20}
     if oldest_ts:
         payload["oldest"] = oldest_ts
@@ -262,14 +265,14 @@ def fetch_new_messages(oldest_ts: str | None) -> list[dict]:
     if not result.get("ok"):
         return []
     messages = result.get("messages", [])
-    david_msgs = [
+    owner_msgs = [
         m for m in messages
-        if m.get("user") == DAVID_ID and not m.get("bot_id") and not m.get("subtype")
+        if m.get("user") == OWNER_ID and not m.get("bot_id") and not m.get("subtype")
     ]
-    return sorted(david_msgs, key=lambda m: float(m.get("ts", "0")))
+    return sorted(owner_msgs, key=lambda m: float(m.get("ts", "0")))
 
 def post_response(text: str) -> None:
-    """Post Jarvis response to #jarvis via the bot script."""
+    """Post the agent response to the configured channel via the bot script."""
     try:
         result = subprocess.run(
             [sys.executable, str(SLACK_BOT), CHANNEL, text],
@@ -282,7 +285,7 @@ def post_response(text: str) -> None:
 # ── Polling Controller ────────────────────────────────────────────────────────
 class PollingController:
     def __init__(self):
-        self.last_david_ts  = 0.0
+        self.last_owner_ts  = 0.0
         self.interval_index = 0
         self._active        = False
 
@@ -293,7 +296,7 @@ class PollingController:
         return ACTIVE_INTERVALS[min(self.interval_index, len(ACTIVE_INTERVALS) - 1)]
 
     def on_message(self):
-        self.last_david_ts  = time.time()
+        self.last_owner_ts  = time.time()
         self.interval_index = 0
         self._active        = True
         log(f"Active — next poll in {self.current_interval}s")
@@ -301,7 +304,7 @@ class PollingController:
     def on_empty_poll(self):
         if not self._active:
             return
-        if time.time() - self.last_david_ts >= CONVO_TIMEOUT:
+        if time.time() - self.last_owner_ts >= CONVO_TIMEOUT:
             log(f"5min silence — returning to idle ({DEFAULT_INTERVAL}s)")
             self._active        = False
             self.interval_index = 0
@@ -313,7 +316,7 @@ class PollingController:
 # ── Main Daemon ───────────────────────────────────────────────────────────────
 def run_daemon(dry_run: bool = False):
     log("=" * 60)
-    log(f"Jarvis Channel Poller starting (PID {os.getpid()})")
+    log(f"IES Channel Daemon starting (PID {os.getpid()})")
 
     # 1. Kill stale instances
     kill_existing_instances()
@@ -321,6 +324,12 @@ def run_daemon(dry_run: bool = False):
     # 2. Validate config
     if not BOT_TOKEN:
         log("ERROR: SLACK_BOT_TOKEN not found — check config/.env")
+        sys.exit(1)
+    if not CHANNEL:
+        log("ERROR: IES_CHANNEL_ID not set — check config/.env")
+        sys.exit(1)
+    if not OWNER_ID:
+        log("ERROR: IES_OWNER_USER_ID not set — check config/.env")
         sys.exit(1)
 
     # 3. Locate claude binary
@@ -350,11 +359,11 @@ def run_daemon(dry_run: bool = False):
         log("No prior session — will start fresh on first message")
 
     # 5. Init session and poller
-    session = JarvisSession(claude_bin, session_id=session_id)
+    session = IESSession(claude_bin, session_id=session_id)
     poller  = PollingController()
 
     log(f"Idle: {DEFAULT_INTERVAL}s | Active: {ACTIVE_INTERVALS} | Compact every: {COMPACT_EVERY} turns")
-    log(f"Watching #jarvis for David ({DAVID_ID})")
+    log(f"Watching channel {CHANNEL} for owner ({OWNER_ID})")
     log("=" * 60)
 
     while True:
@@ -368,13 +377,13 @@ def run_daemon(dry_run: bool = False):
                     if not text:
                         continue
 
-                    log(f"David [{ts}]: {text[:80]}{'...' if len(text) > 80 else ''}")
+                    log(f"Owner [{ts}]: {text[:80]}{'...' if len(text) > 80 else ''}")
 
                     if dry_run:
-                        log(f"[DRY RUN] Would invoke Jarvis: {text}")
+                        log(f"[DRY RUN] Would invoke agent: {text}")
                     else:
                         reply, new_sid = session.send(text)
-                        log(f"Jarvis: {reply[:100]}{'...' if len(reply) > 100 else ''}")
+                        log(f"Agent: {reply[:100]}{'...' if len(reply) > 100 else ''}")
                         post_response(reply)
                         # Persist updated session_id
                         state["session_id"] = new_sid
