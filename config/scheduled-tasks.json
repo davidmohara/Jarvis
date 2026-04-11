@@ -37,8 +37,8 @@
       "keep_awake": false,
       "configured": false,
       "agent": "Quinn",
-      "description": "Sunday morning weekly review prep \u2014 rocks, OmniFocus health, delegations, relationship warmth, system error analysis, commitment gap detection across all sources, and pattern analysis. Delivered at 8am before the week begins.",
-      "cowork_prompt": "Run the quinn-weekly-review skill to prepare the weekly review document. Pull quarterly rock status, OmniFocus health, delegation review, calendar analysis, email signals, relationship warmth via Clay, system error analysis, and run the commitment gap detection step across all available sources (Teams transcripts, Teams chat, email, Plaud transcripts in Obsidian, OmniFocus). Scan previous weekly review files for recurring gap patterns. Write the full output to reviews/weekly-review-prep-{date}.md."
+      "description": "Sunday morning weekly review prep \u2014 rocks, task management health, delegations, relationship warmth, system error analysis, commitment gap detection across all sources, and pattern analysis. Delivered at 8am before the week begins.",
+      "cowork_prompt": "Run the quinn-weekly-review skill to prepare the weekly review document. Pull quarterly rock status, task management health, delegation review, calendar analysis, email signals, relationship warmth via the contact management connector, system error analysis, and run the commitment gap detection step across all available capture sources (meeting transcripts, chat, email, voice recordings, task management). Scan previous weekly review files for recurring gap patterns. Write the full output to reviews/weekly-review-prep-{date}.md."
     },
     {
       "id": "wine-monitor-power",

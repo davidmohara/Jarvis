@@ -31,6 +31,73 @@ Each evolution entry follows this structure:
 
 ---
 
+## Cowork Scheduled Tasks — Published 2026-04-10
+
+**Evolution ID:** ies-1a88d03a-2f58-40b2-80fc-cf96f0018b0f
+**Version:** 1a88d03a-2f58-40b2-80fc-cf96f0018b0f
+**DB ID:** cmnsu3kgw000s1tn52nehirmk
+**Published:** 2026-04-10T11:39:00Z
+**Status:** submitted (awaiting admin approval)
+
+### Files Uploaded (2)
+
+**Added (2 files):**
+- `config/scheduled-tasks.json` — 3 generic tasks: chief-morning (weekdays 6:30 AM), chief-review-auto (Mon-Sat 4:00 AM), quinn-weekly-review (Sundays 8:00 AM); personal tasks excluded
+- `.claude/skills/rigby-scheduled-setup/SKILL.md` — surfaces unconfigured tasks as copy-paste Cowork setup cards; marks configured after confirmation
+
+### Conflicts
+
+None.
+
+---
+
+## Root Audit — Published 2026-04-09
+
+**Evolution ID:** ies-08f35cb1-32db-4e2a-a960-205caf1b6a5e
+**Version:** 08f35cb1-32db-4e2a-a960-205caf1b6a5e
+**DB ID:** cmnry2y6r000p1tn5dtymavwh
+**Published:** 2026-04-09T20:43:00Z
+**Status:** submitted (awaiting admin approval)
+
+### Files Uploaded (4)
+
+**Added (2 files):**
+- `.claude/skills/rigby-root-audit/SKILL.md` — new Rigby skill: list root files, classify as Move/Delete/Unknown, execute after confirmation
+- `workflows/daily-review/steps/step-04-root-audit.md` — new daily-review step 04: root audit housekeeping at end of shutdown sequence
+
+**Merged (2 files):**
+- `agents/rigby.md` — Root Audit added to Task Portfolio; Task Scheduling row genericized (MCP refs removed from system block)
+- `workflows/daily-review/steps/step-03-update-system.md` — NEXT STEP now chains to step-04-root-audit
+
+### Conflicts
+
+None.
+
+---
+
+## Error Tracking System — Agent Integration — Published 2026-04-09
+
+**Evolution ID:** ies-51702e74-1981-457d-b657-97162d245d12
+**Version:** 51702e74-1981-457d-b657-97162d245d12
+**Published:** 2026-04-09T19:40:00Z
+**Status:** submitted (awaiting admin approval)
+
+### Files Uploaded (12)
+- `skills/rigby-error-analysis/SKILL.md` — merge
+- `agents/conventions.md` — merge (Error Reporting Protocol added; personal refs genericized)
+- `agents/master.md` — merge (Error Capture Protocol added; Galen/Sterling rows removed; Knox rows genericized)
+- `agents/rigby.md` — merge (Error Analysis task added to portfolio)
+- `agents/chief.md` — merge (Shared Conventions reference added)
+- `agents/chase.md` — merge (Shared Conventions reference added)
+- `agents/quinn.md` — merge (Shared Conventions reference added)
+- `agents/shep.md` — merge (Shared Conventions reference added)
+- `agents/harper.md` — merge (Shared Conventions reference added)
+- `agents/knox.md` — merge (Shared Conventions reference added; Task Portfolio genericized)
+- `workflows/daily-review/steps/step-03-update-system.md` — merge (error count step added)
+- `.claude/skills/quinn-weekly-review/SKILL.md` — merge (System Health section added; personal tool refs stripped)
+
+---
+
 ## Quinn Strategy Builder — Applied 2026-03-01
 
 **Type:** System evolution
