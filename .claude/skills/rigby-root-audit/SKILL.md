@@ -35,6 +35,8 @@ Or use Glob with `*` (non-recursive) to enumerate files only.
 | `CLAUDE.md` | System entrypoint |
 | `SYSTEM.md` | Operating manual |
 | `README.md` | Documentation |
+| `SETUP.md` | Onboarding documentation |
+| `evolution.manifest.json` | Evolution system component registry — permanent system file, not an artifact |
 | `.gitignore` | Git config |
 | `.git/` | Git repository |
 | Any file or folder starting with `.` | Dotfiles/dotfolders — ignore all |
@@ -57,7 +59,7 @@ For each file not in the ignore list, determine its classification:
 | A meeting note or prep doc | `meetings/` |
 | An account or client file | `accounts/` |
 | A report or analysis | `reports/` |
-| An evolution or manifest | `evolutions/` |
+| An evolution package or history file | `evolutions/` |
 | A person profile | `people/` |
 | A project file | `projects/` |
 | Identity/persona content | `identity/` |

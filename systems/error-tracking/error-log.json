@@ -211,7 +211,9 @@
       "systemic_fix": "When asked to draft from a meeting or event, read the Obsidian transcript/notes for that event before drafting. Do not infer from a related email when the actual source document is available.",
       "fix_status": "applied",
       "severity": "moderate",
-      "related_entries": ["err-20260403-002"]
+      "related_entries": [
+        "err-20260403-002"
+      ]
     },
     {
       "id": "err-20260403-002",
@@ -221,12 +223,15 @@
       "agent": "jarvis",
       "category": "process-skip",
       "description": "Two explicit corrections were made by David this session before error logging occurred. The protocol requires logging in the same response as any correction. Jarvis did not log until David directly called it out.",
-      "correction": "Every correction must be logged immediately in the same response — not deferred, not skipped, not waiting to be asked.",
+      "correction": "Every correction must be logged immediately in the same response \u2014 not deferred, not skipped, not waiting to be asked.",
       "failure_mode": "protocol-skip",
-      "systemic_fix": "This is a repeat of err-20260321-002. The rule is established. No further systemic fix needed — execution compliance required.",
+      "systemic_fix": "This is a repeat of err-20260321-002. The rule is established. No further systemic fix needed \u2014 execution compliance required.",
       "fix_status": "applied",
       "severity": "moderate",
-      "related_entries": ["err-20260321-002", "err-20260403-001"]
+      "related_entries": [
+        "err-20260321-002",
+        "err-20260403-001"
+      ]
     },
     {
       "id": "err-20260403-003",
@@ -235,13 +240,16 @@
       "source": "explicit",
       "agent": "jarvis",
       "category": "process-skip",
-      "description": "David provided speaker-to-name mappings for the Houston SKO Plaud recordings in a prior session (Intuit=Minu, Oxy=Stephen, Live Nation=Mark, McLane=Shalini, Mainsail=Oscar) but Jarvis did not update the speaker tags in Plaud. This is a repeat failure pattern — err-20260402-001 was logged for the same issue on Specialty Capital.",
-      "correction": "Speaker mappings provided by David must be immediately registered in Plaud via the speaker rename/tag process per skills/plaud-transcripts/SKILL.md. Do not acknowledge and move on — execute the tag.",
+      "description": "David provided speaker-to-name mappings for the Houston SKO Plaud recordings in a prior session (Intuit=Minu, Oxy=Stephen, Live Nation=Mark, McLane=Shalini, Mainsail=Oscar) but Jarvis did not update the speaker tags in Plaud. This is a repeat failure pattern \u2014 err-20260402-001 was logged for the same issue on Specialty Capital.",
+      "correction": "Speaker mappings provided by David must be immediately registered in Plaud via the speaker rename/tag process per skills/plaud-transcripts/SKILL.md. Do not acknowledge and move on \u2014 execute the tag.",
       "failure_mode": "protocol-skip",
       "systemic_fix": "Any time David states 'X is Y' in the context of a Plaud recording, treat it as an immediate speaker-tag instruction. Execute via Plaud skill before continuing. Same session, same response.",
       "fix_status": "applied",
       "severity": "moderate",
-      "related_entries": ["err-20260402-001", "err-20260403-001"]
+      "related_entries": [
+        "err-20260402-001",
+        "err-20260403-001"
+      ]
     },
     {
       "id": "err-20260403-004",
@@ -250,13 +258,17 @@
       "source": "self-detected",
       "agent": "jarvis",
       "category": "routing-error",
-      "description": "Jarvis executed the Plaud speaker rename directly instead of routing to Knox, who owns the plaud-transcripts skill and all Plaud operations. This is the same pattern as err-20260321-003 and err-20260323-002 — Jarvis executing agent-owned work directly. David had to ask 'which agent did you have do this work?' to surface it.",
-      "correction": "All Plaud operations — speaker tagging, transcript processing, rename, vault write — route through Knox. Jarvis coordinates, Knox executes.",
+      "description": "Jarvis executed the Plaud speaker rename directly instead of routing to Knox, who owns the plaud-transcripts skill and all Plaud operations. This is the same pattern as err-20260321-003 and err-20260323-002 \u2014 Jarvis executing agent-owned work directly. David had to ask 'which agent did you have do this work?' to surface it.",
+      "correction": "All Plaud operations \u2014 speaker tagging, transcript processing, rename, vault write \u2014 route through Knox. Jarvis coordinates, Knox executes.",
       "failure_mode": "protocol-skip",
-      "systemic_fix": "Any Plaud operation triggers Knox dispatch. No exceptions. This is a repeat of a logged pattern — execution compliance required, no new rule needed.",
+      "systemic_fix": "Any Plaud operation triggers Knox dispatch. No exceptions. This is a repeat of a logged pattern \u2014 execution compliance required, no new rule needed.",
       "fix_status": "applied",
       "severity": "moderate",
-      "related_entries": ["err-20260321-003", "err-20260323-002", "err-20260403-003"]
+      "related_entries": [
+        "err-20260321-003",
+        "err-20260323-002",
+        "err-20260403-003"
+      ]
     },
     {
       "id": "err-20260402-002",
@@ -272,6 +284,15 @@
       "fix_status": "proposed",
       "severity": "minor",
       "related_entries": []
+    },
+    {
+      "id": "err-20260414-003",
+      "date": "2026-04-14",
+      "agent": "rigby-root-audit",
+      "description": "Deleted evolution.manifest.json during root audit, classifying it as a stale artifact",
+      "correction": "David caught the error \u2014 evolution.manifest.json is Rigbys component registry and belongs in root permanently",
+      "root-cause": "rigby-root-audit skill lacks explicit protection for evolution.manifest.json, similar to how CLAUDE.md and SYSTEM.md are protected. The file was treated as an ephemeral artifact rather than a permanent system file.",
+      "prevention": "Add evolution.manifest.json to the ignore list in the rigby-root-audit skill alongside CLAUDE.md, SYSTEM.md, and README.md"
     }
   ],
   "patterns": {
@@ -304,7 +325,7 @@
       "description": "Described Improving as a '$100M+ technology services firm' in the Meredith Anastasio call prep sheet and talking points. This is materially incorrect. Improving is a $300M global company with 2500+ people worldwide, focused on modern digital services: AI, Data, Application Development, and Platform Engineering.",
       "correction": "Improving is a $300M global modern digital services company with 2500+ employees worldwide. Services: AI, Data, Application Development, Platform Engineering. Not '$100M+ Texas-focused IT services'.",
       "failure_mode": "stale-cache",
-      "systemic_fix": "Update MEMORY.md with correct Improving company description and financials. Always use verified figures from identity files — do not derive company scale from the One Texas revenue target ($72.5M Texas revenue) and mistake it for total company revenue.",
+      "systemic_fix": "Update MEMORY.md with correct Improving company description and financials. Always use verified figures from identity files \u2014 do not derive company scale from the One Texas revenue target ($72.5M Texas revenue) and mistake it for total company revenue.",
       "fix_status": "applied",
       "severity": "major",
       "related_entries": []
@@ -847,7 +868,7 @@
       "description": "Drafted Dallas SKO follow-up email using Houston session accounts and team members (Intuit, Oxy, Live Nation, McLane, Mainsail; Houston sellers). Root cause: Plaud transcripts in staging were from April 2 Houston session; Jarvis did not search for the Dallas-specific recap email David had already sent before drafting.",
       "correction": "Should have searched Outlook for the Dallas SKO recap email David sent to the Dallas team before drafting any follow-up. The correct accounts are Simpson Strong-Tie, AT&T, Entergy, and Rayburn Electric. The correct sellers are Derek, Rod, Diana, and Alexander.",
       "failure_mode": "lazy-search",
-      "systemic_fix": "When drafting follow-ups to a specific event, always search email first for any recap or debrief the executive already sent — that document is the authoritative source of commitments, not the raw transcripts alone.",
+      "systemic_fix": "When drafting follow-ups to a specific event, always search email first for any recap or debrief the executive already sent \u2014 that document is the authoritative source of commitments, not the raw transcripts alone.",
       "fix_status": "applied",
       "severity": "major",
       "related_entries": []
@@ -859,13 +880,15 @@
       "source": "explicit",
       "agent": "jarvis",
       "category": "process-skip",
-      "description": "On session resume after context compaction, Jarvis did not log err-20260403-001 immediately upon resuming. User had to explicitly prompt for the error log. The CLAUDE.md instruction states: 'When David corrects you — any correction, any agent — log it to error-log.json immediately in the same response.'",
+      "description": "On session resume after context compaction, Jarvis did not log err-20260403-001 immediately upon resuming. User had to explicitly prompt for the error log. The CLAUDE.md instruction states: 'When David corrects you \u2014 any correction, any agent \u2014 log it to error-log.json immediately in the same response.'",
       "correction": "Error log write must happen in the same response as the correction is received. On session resume from a summary, any prior corrections in the summary must be logged before proceeding with any other work.",
       "failure_mode": "protocol-skip",
       "systemic_fix": "On boot from a compacted context summary, scan the summary for any corrections flagged in prior turns and log them before executing any other action.",
       "fix_status": "applied",
       "severity": "moderate",
-      "related_entries": ["err-20260403-001"]
+      "related_entries": [
+        "err-20260403-001"
+      ]
     },
     {
       "id": "err-20260403-003",
@@ -880,7 +903,9 @@
       "systemic_fix": "When resuming from a compacted context summary, extract all previously confirmed data points (speaker mappings, decisions, confirmations) and apply them before asking the user to re-confirm anything.",
       "fix_status": "applied",
       "severity": "moderate",
-      "related_entries": ["err-20260403-002"]
+      "related_entries": [
+        "err-20260403-002"
+      ]
     },
     {
       "id": "err-20260403-004",
@@ -895,7 +920,9 @@
       "systemic_fix": "Any fetch_plaud.py invocation must be routed through Knox agent. Jarvis has no direct execution rights on Plaud operations.",
       "fix_status": "applied",
       "severity": "moderate",
-      "related_entries": ["err-20260403-003"]
+      "related_entries": [
+        "err-20260403-003"
+      ]
     },
     {
       "id": "err-20260403-005",
@@ -925,7 +952,9 @@
       "systemic_fix": "Cross-reference against full Houston IES team roster, not just SKO attendees.",
       "fix_status": "applied",
       "severity": "moderate",
-      "related_entries": ["err-20260403-005"]
+      "related_entries": [
+        "err-20260403-005"
+      ]
     },
     {
       "id": "err-20260403-007",
@@ -940,7 +969,9 @@
       "systemic_fix": "When elimination logic clearly points to one remaining candidate and the evidence fits, commit to the identification rather than deferring to the user.",
       "fix_status": "applied",
       "severity": "low",
-      "related_entries": ["err-20260403-005"]
+      "related_entries": [
+        "err-20260403-005"
+      ]
     },
     {
       "id": "err-20260403-008",
@@ -952,12 +983,12 @@
       "description": "Morning briefing workflow delivered successfully but state.yaml was left at status: in-progress instead of being updated to status: complete.",
       "correction": "After step-04 delivers the briefing, state.yaml must be written with status: complete before the response is returned.",
       "failure_mode": "protocol-skip",
-      "systemic_fix": "Added mandatory state.yaml completion write to step-04-synthesize-briefing.md — must write status: complete before returning the briefing.",
+      "systemic_fix": "Added mandatory state.yaml completion write to step-04-synthesize-briefing.md \u2014 must write status: complete before returning the briefing.",
       "fix_status": "applied",
       "severity": "minor",
       "related_entries": []
     },
-{
+    {
       "id": "err-20260403-008",
       "timestamp": "2026-04-03T15:30:00Z",
       "session": "2026-04-03",
@@ -970,7 +1001,9 @@
       "systemic_fix": "Add explicit rule to CLAUDE.md boot sequence: card-related requests (review, walkthrough, which card, charge migration) route to Chase before any action is taken.",
       "fix_status": "proposed",
       "severity": "moderate",
-      "related_entries": ["err-20260403-009"]
+      "related_entries": [
+        "err-20260403-009"
+      ]
     },
     {
       "id": "err-20260403-009",
@@ -979,13 +1012,15 @@
       "source": "explicit",
       "agent": "jarvis",
       "category": "tool-misuse",
-      "description": "Spawned Chase sub-agent but provided only a text handoff message without giving Chase the file paths, identity context, or Chrome session access he needed to actually execute. Chase came back unable to proceed — could not read identity files, could not access Chrome session.",
+      "description": "Spawned Chase sub-agent but provided only a text handoff message without giving Chase the file paths, identity context, or Chrome session access he needed to actually execute. Chase came back unable to proceed \u2014 could not read identity files, could not access Chrome session.",
       "correction": "When spawning a sub-agent, the spawn payload must include: (1) absolute file paths to all referenced files, (2) confirmation of what tools/connectors are available in the session, (3) any runtime state (e.g., active Chrome tab URL, account keys) needed to resume mid-task.",
       "failure_mode": "context-blindness",
       "systemic_fix": "Create a spawn checklist: before Agent tool call, confirm agent has paths to identity files, relevant workflow files, active tool list, and any runtime state. Sub-agents do not inherit session context automatically.",
       "fix_status": "proposed",
       "severity": "moderate",
-      "related_entries": ["err-20260403-008"]
+      "related_entries": [
+        "err-20260403-008"
+      ]
     },
     {
       "id": "err-20260403-010",
@@ -994,10 +1029,10 @@
       "source": "explicit",
       "agent": "chase",
       "category": "data-accuracy",
-      "description": "Reported Uber Cash and Uber One as 'NOT ENROLLED' on Amex Platinum. David confirmed both are enrolled and benefits have been received. Root cause: read benefit status from 'Your Benefit Highlights' section on the Amex portal, which does not accurately reflect enrollment or credit usage. The correct source is the 'Benefits Activity' section — must click 'Show All' to see accurate per-benefit status, credits used, and enrollment state.",
-      "correction": "Uber Cash = enrolled and active. Uber One = enrolled and active. For Amex benefit status, always navigate to Benefits Activity and click 'Show All' — never use 'Your Benefit Highlights' as the source of truth.",
+      "description": "Reported Uber Cash and Uber One as 'NOT ENROLLED' on Amex Platinum. David confirmed both are enrolled and benefits have been received. Root cause: read benefit status from 'Your Benefit Highlights' section on the Amex portal, which does not accurately reflect enrollment or credit usage. The correct source is the 'Benefits Activity' section \u2014 must click 'Show All' to see accurate per-benefit status, credits used, and enrollment state.",
+      "correction": "Uber Cash = enrolled and active. Uber One = enrolled and active. For Amex benefit status, always navigate to Benefits Activity and click 'Show All' \u2014 never use 'Your Benefit Highlights' as the source of truth.",
       "failure_mode": "sloppy-read",
-      "systemic_fix": "Amex portal rule: benefit enrollment status and credit usage must ONLY be read from the 'Benefits Activity' section after clicking 'Show All'. 'Your Benefit Highlights' is a marketing display — it is not reliable for enrollment or usage data. This applies to all Amex card walkthroughs.",
+      "systemic_fix": "Amex portal rule: benefit enrollment status and credit usage must ONLY be read from the 'Benefits Activity' section after clicking 'Show All'. 'Your Benefit Highlights' is a marketing display \u2014 it is not reliable for enrollment or usage data. This applies to all Amex card walkthroughs.",
       "fix_status": "applied",
       "severity": "moderate",
       "related_entries": []
@@ -1012,10 +1047,12 @@
       "description": "Card walkthrough used incorrect portal URLs for Citi, Discover, and Chase Sapphire. Generic/guessed URLs were used instead of verified login portal URLs, resulting in wrong pages loading.",
       "correction": "Correct portal URLs: Amex=https://global.americanexpress.com/overview | Citi=https://www.citi.com/login | Discover=https://www.discover.com/login/ | Chase=https://secure.chase.com/web/auth/dashboard#/dashboard/overview. These are now stored in card-registry.json under portal_url for each card.",
       "failure_mode": "wrong-assumption",
-      "systemic_fix": "Added portal_url field to every card in card-registry.json. Chase must read portal_url from card-registry.json before navigating to any issuer portal — never guess or hard-code URLs.",
+      "systemic_fix": "Added portal_url field to every card in card-registry.json. Chase must read portal_url from card-registry.json before navigating to any issuer portal \u2014 never guess or hard-code URLs.",
       "fix_status": "applied",
       "severity": "moderate",
-      "related_entries": ["err-20260403-008"]
+      "related_entries": [
+        "err-20260403-008"
+      ]
     },
     {
       "id": "err-20260404-001",
@@ -1024,7 +1061,7 @@
       "source": "explicit",
       "agent": "chase",
       "category": "tool-misuse",
-      "description": "Chase used mcp__Control_Chrome__open_url to navigate to card portals instead of clicking existing links on the page. David explicitly established in the previous session that navigation must happen within the current tab by clicking links — open_url should not be used when the page is already loaded and navigable.",
+      "description": "Chase used mcp__Control_Chrome__open_url to navigate to card portals instead of clicking existing links on the page. David explicitly established in the previous session that navigation must happen within the current tab by clicking links \u2014 open_url should not be used when the page is already loaded and navigable.",
       "correction": "When already on an authenticated portal page, navigate by clicking links (execute_javascript to click, or use page content to find hrefs and follow them). open_url is for jumping to a new issuer domain, not for in-portal navigation.",
       "failure_mode": "protocol-skip",
       "systemic_fix": "Add Rule 4 to workflows/card-walkthrough/workflow.md: In-portal navigation uses link-clicking (execute_javascript or page inspection), not open_url. open_url is reserved for initial navigation to a new card issuer domain only.",
@@ -1045,9 +1082,11 @@
       "systemic_fix": "Rule reinforcement: Jarvis routes all agent/skill/system file changes to Rigby via Agent spawn. No exceptions, even for small one-line fixes.",
       "fix_status": "applied",
       "severity": "moderate",
-      "related_entries": ["err-20260403-008", "err-20260403-009"]
-    }
-  ,
+      "related_entries": [
+        "err-20260403-008",
+        "err-20260403-009"
+      ]
+    },
     {
       "id": "err-20260405-001",
       "timestamp": "2026-04-05T00:00:00-05:00",
@@ -1055,15 +1094,14 @@
       "source": "explicit",
       "agent": "chase",
       "category": "assumption-error",
-      "description": "Chase's co-sell-pipeline skill commentary incorrectly attributed partner pipeline responsibility to Nick Larson (Confluent) and John Yurewicz (Microsoft), suggesting they needed to 'activate' or have pipeline conversations. David is the owner of partner relationships and co-sell pipeline — not the partner contacts.",
+      "description": "Chase's co-sell-pipeline skill commentary incorrectly attributed partner pipeline responsibility to Nick Larson (Confluent) and John Yurewicz (Microsoft), suggesting they needed to 'activate' or have pipeline conversations. David is the owner of partner relationships and co-sell pipeline \u2014 not the partner contacts.",
       "correction": "Nick Larson and John Yurewicz are partner contacts, not pipeline owners. David owns the co-sell pipeline and is responsible for driving it. Commentary should surface gaps to David as the accountable party, not suggest the contacts need to move.",
       "failure_mode": "wrong-assumption",
       "systemic_fix": "Update co-sell-pipeline skill to remove partner contact callouts from commentary. Commentary should address David directly as the pipeline owner. Also update Key Relationships section to reflect contacts as relationship contacts, not responsible parties.",
       "fix_status": "applied",
       "severity": "moderate",
       "related_entries": []
-    }
-  ,
+    },
     {
       "id": "err-20260405-002",
       "timestamp": "2026-04-05T00:00:00-05:00",
@@ -1072,14 +1110,13 @@
       "agent": "chase",
       "category": "assumption-error",
       "description": "pipeline-snapshot skill included Past Due Opps as a data pull and reported all-Improving pipeline totals. David does not care about past due opps (operational detail, Don handles it) and only cares about One Texas (Dallas + South Texas), not all of Improving.",
-      "correction": "pipeline-snapshot scope is One Texas only (Dallas TX + South Texas). Always filter before reading. Remove Past Due Opps entirely — that is Don's operational layer, not David's funnel-filling view.",
+      "correction": "pipeline-snapshot scope is One Texas only (Dallas TX + South Texas). Always filter before reading. Remove Past Due Opps entirely \u2014 that is Don's operational layer, not David's funnel-filling view.",
       "failure_mode": "wrong-assumption",
       "systemic_fix": "Rewrote pipeline-snapshot skill: removed Past Due Opps step, added explicit One Texas only scope note, changed output format to always show Dallas + South Texas + combined One Texas column. Never show unfiltered all-Improving numbers.",
       "fix_status": "applied",
       "severity": "moderate",
       "related_entries": []
-    }
-  ,
+    },
     {
       "id": "err-20260413-001",
       "timestamp": "2026-04-13T07:20:00-05:00",
@@ -1094,8 +1131,7 @@
       "fix_status": "proposed",
       "severity": "moderate",
       "related_entries": []
-    }
-  ,
+    },
     {
       "id": "err-20260413-002",
       "timestamp": "2026-04-13T07:20:00-05:00",
