@@ -1,7 +1,7 @@
 ---
 name: jarvis-inbox
 description: >
-  Process items from the "Jarvis" folder in the Improving account of Apple Mail —
+  Process items from the "Jarvis" folder in the Improving account of Microsoft Outlook / M365 —
   David's agent inbox for routing tasks, references, and action items to the IES system.
   Trigger on boot (morning briefing), during daily review, or when David says "check my
   Jarvis folder", "process my inbox", or "anything in the Jarvis folder?"
@@ -12,7 +12,7 @@ agent: chief
 
 ## Purpose
 
-David forwards or moves emails to a **"Jarvis"** folder in Apple Mail (Improving account)
+David forwards or moves emails to a **"Jarvis"** folder in Microsoft Outlook / M365 (Improving account)
 when he wants the IES system to process them. Chief scans this folder, classifies each
 item, routes it to the right agent or system, and reports what was processed.
 
@@ -20,19 +20,13 @@ item, routes it to the right agent or system, and reports what was processed.
 
 ### 1. Scan the Folder
 
-Pull all items from the Jarvis mailbox via AppleScript:
+Pull all items from the Jarvis mailbox via M365 MCP:
 
-```applescript
-tell application "Mail"
-  set improvingAcct to null
-  repeat with a in every account
-    if name of a contains "Improving" then set improvingAcct to a
-  end repeat
-  set jarvisMB to mailbox "Jarvis" of improvingAcct
-  set msgs to messages of jarvisMB
-  -- iterate msgs, collect id, subject, sender name+address, date received, content
-end tell
-```
+Use the M365 email search connector (`mcp__claude_ai_Microsoft_365__outlook_email_search`) 
+to query the "Jarvis" folder. Specify:
+- **Folder**: "Jarvis" 
+- **Sort**: date received (descending)
+- **Return fields**: email ID, subject, sender name and address, date received, message body/content
 
 If the folder is empty, report "Jarvis inbox is empty" and exit.
 
@@ -66,26 +60,13 @@ For each classified item:
    - **Wine / Invintory items**: Call `invintory_add_delivery` for each wine line item. Default destination: Classic. For Marathon shipping orders (Last Bottle), set expected_date ~6 weeks out.
    - **Administrative**: Log and move on unless David flagged it.
 3. **Archive the email**: After successful processing, move the email out of the Jarvis
-   folder via AppleScript:
+   folder via M365 MCP:
 
-   ```applescript
-   tell application "Mail"
-     set improvingAcct to null
-     repeat with a in every account
-       if name of a contains "Improving" then set improvingAcct to a
-     end repeat
-     set archiveMB to mailbox "@Archive" of improvingAcct
-     move theMessage to archiveMB
-   end tell
-   ```
-
-   To move all processed messages at once (more efficient):
-   ```applescript
-   -- collect all non-triage messages first, then:
-   repeat with m in msgsToArchive
-     move m to archiveMB
-   end repeat
-   ```
+   Use the M365 email move or flag operation to move processed messages to the "@Archive" folder.
+   If M365 MCP does not support direct move operations, flag the message as processed and note
+   for manual archive, or use an M365 rule-based approach to move messages flagged by this process.
+   
+   Batch-move all processed non-triage messages at once (more efficient than individual moves).
 
 4. **Exception — Triage items**: Do NOT archive emails classified as **Triage** (unclear
    or needing David's input). Leave these in the Jarvis folder until David decides.
@@ -126,7 +107,7 @@ has been sitting for more than 2 sessions without resolution, re-surface it with
 
 | Failure | Action |
 |---------|--------|
-| Apple Mail AppleScript unavailable | Report "Can't reach Mail — skipping Jarvis inbox" and proceed |
+| M365 email search unavailable | Report "Can't reach M365 Jarvis folder — skipping Jarvis inbox" and proceed |
 | Folder empty | Report "Jarvis inbox is empty" — this is normal, not an error |
 | Classification unclear | Surface the item to David with your best guess and let him decide |
 | Email has attachments | Note the attachment names but don't attempt to download — flag for David if action-dependent |

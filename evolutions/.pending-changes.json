@@ -365,6 +365,20 @@
           "description": "Added step 9: Commitment Gap Detection. Scans Teams transcripts, Teams chat, email, Plaud transcripts in Obsidian, and OmniFocus for commitment language. Classifies gaps as outbound/inbound/mutual. Scans previous weekly reviews for recurring gap patterns. Added Commitment Gaps and Gap Patterns sections to report format. Added two new handoff triggers: inbound commitment gaps going cold to Shep, outbound commitment gaps in client meetings to Chase."
         }
       ]
+    },
+    {
+      "id": "wip-20260413-001",
+      "description": "jarvis-inbox SKILL.md updated to use M365 MCP instead of Apple Mail AppleScript",
+      "started": "2026-04-13T00:00:00Z",
+      "classification": "system",
+      "files": [
+        {
+          "path": "skills/jarvis-inbox/SKILL.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Updated skill description and Section 1 (Scan the Folder) to use M365 MCP email search instead of Apple Mail AppleScript. Updated Section 3 (Archive step) to use M365 email operations instead of AppleScript. Updated failure mode for folder scan. M365 replaces Apple Mail as the authoritative Jarvis folder source."
+        }
+      ]
     }
   ]
 }

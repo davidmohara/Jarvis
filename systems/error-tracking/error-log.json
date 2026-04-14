@@ -1079,5 +1079,37 @@
       "severity": "moderate",
       "related_entries": []
     }
+  ,
+    {
+      "id": "err-20260413-001",
+      "timestamp": "2026-04-13T07:20:00-05:00",
+      "session": "2026-04-13",
+      "source": "explicit",
+      "agent": "jarvis",
+      "category": "tool-misuse",
+      "description": "During boot, Jarvis attempted to scan the Jarvis inbox via Apple Mail AppleScript. The Jarvis folder lives in Microsoft Outlook / M365, not Apple Mail. Skill doc (skills/jarvis-inbox/SKILL.md) references Apple Mail but David's Improving account is M365-based.",
+      "correction": "Jarvis inbox is in the M365 Outlook account, not Apple Mail. Use M365 MCP connector to access the Jarvis folder.",
+      "failure_mode": "wrong-assumption",
+      "systemic_fix": "Update jarvis-inbox SKILL.md to reference M365 MCP (outlook_email_search or folder read) instead of Apple Mail AppleScript. Use M365 on all subsequent boot scans.",
+      "fix_status": "proposed",
+      "severity": "moderate",
+      "related_entries": []
+    }
+  ,
+    {
+      "id": "err-20260413-002",
+      "timestamp": "2026-04-13T07:20:00-05:00",
+      "session": "2026-04-13",
+      "source": "explicit",
+      "agent": "jarvis",
+      "category": "data-accuracy",
+      "description": "Briefing flagged Specialty Capital fixed-bid proposal to Jerry Pender as overdue and unsent. David confirmed the email was already sent and visible in M365 sent items. Jarvis should have verified sent status via M365 before flagging.",
+      "correction": "Specialty Capital proposal was sent. Should have checked M365 sent items before surfacing as an open action item.",
+      "failure_mode": "lazy-search",
+      "systemic_fix": "Before surfacing a task as overdue/unsent, cross-check M365 sent items when the task involves sending an email or proposal. Do not trust OmniFocus task open status alone for communication-type tasks.",
+      "fix_status": "proposed",
+      "severity": "minor",
+      "related_entries": []
+    }
   ]
 }
