@@ -10,6 +10,7 @@ description: >
   becoming vault notes. A scheduled task pre-fetches Plaud data daily via the API, so
   this skill's job is to transform what's already waiting in the staging folder into
   proper Obsidian notes.
+model: sonnet
 ---
 
 # Plaud Transcripts → Obsidian

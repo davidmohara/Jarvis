@@ -11,6 +11,7 @@ allowed-tools:
   - "mcp__clay__*"
   - "WebSearch"
   - "WebFetch(*)"
+model: sonnet
 ---
 
 <!-- personal:start -->

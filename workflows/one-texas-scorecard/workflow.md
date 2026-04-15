@@ -2,6 +2,7 @@
 name: one-texas-scorecard
 description: Pull revenue, co-sell, pipeline, and new client data for One Texas via Chase skills and append a consolidated dated snapshot to the Obsidian tracking file.
 agent: chase
+model: sonnet
 ---
 
 <!-- system:start -->

@@ -2,6 +2,7 @@
 name: card-which
 description: Full-optimization card selection for any purchase
 agent: chase
+model: sonnet
 ---
 
 <!-- system:start -->

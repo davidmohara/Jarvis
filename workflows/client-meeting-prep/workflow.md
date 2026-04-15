@@ -2,6 +2,7 @@
 name: client-meeting-prep
 description: Client/prospect meeting prep - attendee research, account context, opportunity status, talking points, landmines
 agent: chase
+model: sonnet
 ---
 
 <!-- system:start -->

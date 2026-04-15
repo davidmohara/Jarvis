@@ -2,6 +2,7 @@
 name: omnifocus-tasks
 description: Gate-enforced OmniFocus task creation. Every task MUST have a project and tag before the AppleScript executes. No exceptions. No bare inbox drops. This skill is the ONLY path for creating tasks — do not write raw OmniFocus AppleScript outside this skill.
 evolution: system
+model: haiku
 ---
 
 <!-- system:start -->

@@ -2,6 +2,7 @@
 name: evolution-deployment
 description: Deploy system evolution packages with non-destructive personal block preservation
 agent: rigby
+model: sonnet
 ---
 
 <!-- system:start -->

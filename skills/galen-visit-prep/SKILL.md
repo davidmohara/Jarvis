@@ -2,6 +2,7 @@
 name: galen-visit-prep
 description: Pre-visit brief for Dr. Julli Randol. Compile WHOOP trends, bloodwork changes, protocol changes, outstanding questions, new questions, body comp update. Exportable to Obsidian note.
 evolution: system
+model: sonnet
 ---
 
 <!-- system:start -->

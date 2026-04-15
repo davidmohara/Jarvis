@@ -2,6 +2,7 @@
 name: shutdown-cleanup
 description: Session exit cleanup — purge temp artifacts, organize deliverables, verify naming, commit clean
 agent: master
+model: sonnet
 ---
 
 <!-- system:start -->

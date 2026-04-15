@@ -4,6 +4,7 @@ description: "Audit the Obsidian vault — orphaned notes, broken links, empty f
 evolution: personal
 context: fork
 agent: general-purpose
+model: haiku
 ---
 
 <!-- personal:start -->

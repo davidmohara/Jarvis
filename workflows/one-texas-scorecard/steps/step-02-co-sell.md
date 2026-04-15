@@ -5,6 +5,7 @@ completed-at: "2026-04-06T04:09:00"
 outputs:
   co_sell_captured: true
   rock4_gap_calculated: true
+model: sonnet
 ---
 
 <!-- system:start -->

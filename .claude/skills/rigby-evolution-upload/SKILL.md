@@ -3,6 +3,7 @@ name: rigby-evolution-upload
 description: Upload an assembled evolution package to the web app for admin review
 context: fork
 agent: general-purpose
+model: sonnet
 ---
 
 <!-- system:start -->

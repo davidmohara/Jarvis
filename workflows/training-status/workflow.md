@@ -2,6 +2,7 @@
 name: training-status
 description: Training dashboard — load progress, render by domain, suggest next capability
 agent: shep
+model: sonnet
 ---
 
 <!-- system:start -->

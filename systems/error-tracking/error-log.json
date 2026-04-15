@@ -293,6 +293,51 @@
       "correction": "David caught the error \u2014 evolution.manifest.json is Rigbys component registry and belongs in root permanently",
       "root-cause": "rigby-root-audit skill lacks explicit protection for evolution.manifest.json, similar to how CLAUDE.md and SYSTEM.md are protected. The file was treated as an ephemeral artifact rather than a permanent system file.",
       "prevention": "Add evolution.manifest.json to the ignore list in the rigby-root-audit skill alongside CLAUDE.md, SYSTEM.md, and README.md"
+    },
+    {
+      "id": "err-20260415-001",
+      "timestamp": "2026-04-15T16:53:00Z",
+      "session": "2026-04-15",
+      "source": "explicit",
+      "agent": "jarvis",
+      "category": "data-accuracy",
+      "description": "Flagged 'Send fixed-bid proposal to Jerry Pender at Specialty Capital' as an overdue post-call item in the morning briefing. David had already told Jarvis this was handed off to Shalini Arora and is handled. This has been corrected multiple times.",
+      "correction": "Specialty Capital / Jerry Pender is assigned to Shalini. Task is complete. Do not surface it again.",
+      "failure_mode": "stale-cache",
+      "systemic_fix": "Before surfacing any overdue Sales task in a briefing, check OmniFocus notes for handoff language and cross-reference against team assignments. If David has previously stated a task is handled, mark it done in OmniFocus and stop surfacing it.",
+      "fix_status": "applied",
+      "severity": "moderate",
+      "related_entries": []
+    },
+    {
+      "id": "err-20260415-002",
+      "timestamp": "2026-04-15T16:53:00Z",
+      "session": "2026-04-15",
+      "source": "explicit",
+      "agent": "jarvis",
+      "category": "data-accuracy",
+      "description": "Flagged 'Send Birgo AI Deep Learning Program pricing to Melvin Novak' as not sent. David confirmed the pricing email was sent. A follow-up to Melvin is still outstanding.",
+      "correction": "Birgo pricing email to Melvin Novak is out. The open item is the follow-up call/meeting to scope the pilot \u2014 not the initial send.",
+      "failure_mode": "lazy-search",
+      "systemic_fix": "For post-call sales tasks, check Outlook Sent Items before declaring an action item incomplete in a briefing. Sent Items search takes 10 seconds and prevents false flags.",
+      "fix_status": "applied",
+      "severity": "minor",
+      "related_entries": []
+    },
+    {
+      "id": "err-20260415-003",
+      "timestamp": "2026-04-15T00:00:00Z",
+      "session": "pi-20260415-001",
+      "source": "explicit",
+      "agent": "knox",
+      "category": "assumption-error",
+      "description": "Incorrectly identified the recording 04-14 Strategic Perspective on AI Growth and Business Adoption as being from the RBM Fort Worth event. It was from the YPO LS Gold Forum on 2026-04-14.",
+      "correction": "The recording was from YPO LS Gold Forum (brian@delosshipping.com, thomaswheat76@gmail.com, huddy9370@gmail.com, beau.wehrle@gmail.com, geoffbrenner@me.com). The agent looked at the wrong calendar event \u2014 the RBM event also ran on 2026-04-14 which caused the false match.",
+      "failure_mode": "wrong-assumption",
+      "systemic_fix": "When matching a recording to a calendar event, check recording time against event time window more precisely. Do not assume the largest/most prominent event on a date is the correct one. Surface the matched event name when asking for speaker ID so the controller can correct it immediately.",
+      "fix_status": "proposed",
+      "severity": "minor",
+      "related_entries": []
     }
   ],
   "patterns": {

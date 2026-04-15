@@ -6,6 +6,7 @@ description: >
   One Texas total. Trigger on /new-clients, "new logos", "new anchors", "new clients",
   or "logos and anchors".
 agent: chase
+model: sonnet
 ---
 
 # New Clients (New Logos & Anchors)

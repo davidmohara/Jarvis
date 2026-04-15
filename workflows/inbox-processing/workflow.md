@@ -2,6 +2,7 @@
 name: inbox-processing
 description: Triage task inbox items to zero - assign each item a disposition and execute
 agent: chief
+model: sonnet
 ---
 
 <!-- system:start -->

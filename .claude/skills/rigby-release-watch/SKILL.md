@@ -10,6 +10,7 @@ allowed-tools:
   - "Read"
   - "Write"
   - "Glob"
+model: sonnet
 ---
 
 <!-- personal:start -->

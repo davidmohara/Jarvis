@@ -2,6 +2,7 @@
 name: rigby-scheduled-setup
 description: Surface unconfigured Cowork scheduled tasks as copy-paste setup cards. Marks tasks configured after the user confirms setup.
 evolution: system
+model: sonnet
 ---
 
 <!-- system:start -->

@@ -2,6 +2,7 @@
 name: email-drafting
 description: Draft professional emails calibrated for recipient, relationship, context, and the controller's voice
 agent: harper
+model: sonnet
 ---
 
 <!-- system:start -->

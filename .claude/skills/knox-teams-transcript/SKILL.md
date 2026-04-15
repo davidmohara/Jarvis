@@ -13,6 +13,7 @@ allowed-tools:
   - "Read"
   - "Write"
   - "Glob"
+model: haiku
 ---
 
 <!-- personal:start -->

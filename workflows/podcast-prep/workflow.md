@@ -2,6 +2,7 @@
 name: podcast-prep
 description: Generate episode prep documents for The Improving Edge — detailed reference sheet + single-page studio PDF
 agent: harper
+model: sonnet
 ---
 
 <!-- personal:start -->

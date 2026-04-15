@@ -3,6 +3,7 @@ name: rigby-evolution-download
 description: Download an evolution package from the web app and apply it to the local IES instance
 context: fork
 agent: general-purpose
+model: sonnet
 ---
 
 <!-- system:start -->

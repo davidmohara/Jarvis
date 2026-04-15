@@ -5,6 +5,7 @@ completed-at: "2026-04-06T04:17:00"
 outputs:
   appended: true
   entry_date: "2026-04-06"
+model: sonnet
 ---
 
 <!-- system:start -->

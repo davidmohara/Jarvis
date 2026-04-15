@@ -3,6 +3,7 @@ name: rigby-evolution-package
 description: Extract locally developed changes, build an evolution manifest, and assemble a local package directory ready for upload
 context: fork
 agent: general-purpose
+model: sonnet
 ---
 
 <!-- system:start -->

@@ -2,6 +2,7 @@
 name: morning-briefing
 description: Start-of-day briefing - calendar, priorities, delegations, meeting context, and what needs attention today
 agent: chief
+model: sonnet
 ---
 
 <!-- system:start -->

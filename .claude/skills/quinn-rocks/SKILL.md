@@ -10,6 +10,7 @@ allowed-tools:
   - "mcp__claude_ai_Mermaid_Chart__*"
   - "WebSearch"
   - "WebFetch(*)"
+model: opus
 ---
 
 <!-- system:start -->

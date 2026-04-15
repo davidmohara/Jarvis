@@ -1079,6 +1079,64 @@ If a step's frontmatter shows `status: in-progress` at resume time, the step was
 interrupted mid-execution. Re-execute it from the beginning. Do not attempt to
 reconstruct partial results — start the step cleanly and overwrite the frontmatter.
 
+## Model Routing
+
+Every sub-agent spawned via the Agent tool must declare a model. Omitting the `model`
+parameter is a loggable error — the agent inherits the parent's model silently, which
+wastes tokens on haiku-eligible work and under-powers tasks that need deeper reasoning.
+
+### Resolution order
+
+When spawning a sub-agent, resolve the model in this order and use the first match:
+
+1. `model:` in the current **step file's** frontmatter
+2. `model:` in the parent **workflow's** frontmatter
+3. `model:` in the **skill file's** frontmatter (for standalone skill invocations)
+4. Agent default from the routing table below
+5. System default: `sonnet`
+
+<!-- system:start -->
+### Spawn rule
+
+**The `model` parameter is NEVER optional when calling the Agent tool.**
+
+Before any Agent tool call:
+1. Resolve the model using the order above
+2. Pass the resolved value explicitly: `model: "haiku"` / `"sonnet"` / `"opus"`
+3. If resolution fails at all 5 levels, use `sonnet` and log a warning
+
+Omitting `model` from an Agent tool call must be logged to `systems/error-tracking/error-log.json`
+as `category: tool-misuse`, `failure_mode: protocol-skip`.
+<!-- system:end -->
+
+<!-- personal:start -->
+### Agent defaults
+
+| Agent | Default model | Rationale |
+|-------|--------------|-----------|
+| Chief | `sonnet` | Briefing synthesis requires coherent narrative |
+| Knox | `haiku` | Mechanical transforms, file I/O, API calls — most steps are pure data movement |
+| Chase | `sonnet` | Relationship nuance and deal context need judgment |
+| Quinn | `opus` | Strategy, pattern recognition, and coaching require deep reasoning |
+| Rigby | `sonnet` | Error analysis and evolution packaging need careful reading |
+| Shep | `sonnet` | 1:1 prep and coaching tone require interpersonal judgment |
+| Harper | `sonnet` | Writing quality matters |
+| Galen | `sonnet` | Medical interpretation requires care |
+
+### Step-level guidance
+
+When writing or reviewing step files, apply this heuristic:
+
+| Step does this | Use |
+|---|---|
+| API calls, file reads/writes, script execution, staging ops | `haiku` |
+| Calendar cross-reference, heuristic matching, speaker ID | `sonnet` |
+| Synthesis, analytical rewriting, action item extraction | `sonnet` |
+| Strategy, pattern analysis, complex coaching | `opus` |
+<!-- personal:end -->
+
+---
+
 ## Output Naming Conventions
 
 Generated files follow different naming rules depending on their purpose:
@@ -1217,6 +1275,7 @@ Jarvis is the default interface. Behind Jarvis are five specialist agents. You d
 - Skills live at `.claude/skills/{agent}-{task}/SKILL.md` — invoked conversationally or via skill triggers. Each skill runs as a forked sub-agent with its own context.
 - Agents hand off to each other — Chief routes client meetings to Chase, Chase routes follow-up tasks to Chief, etc. Handoff rules are in each agent file.
 - The controller (David) never needs to name an agent. Just say "prep my 1:1 with Scott" and Shep activates. Say "pipeline" and Chase activates.
+- **When spawning any sub-agent, always resolve and pass the `model` parameter.** See Model Routing section above. Never omit it.
 
 ---
 

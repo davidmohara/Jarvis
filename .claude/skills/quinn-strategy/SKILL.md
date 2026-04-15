@@ -9,6 +9,7 @@ allowed-tools:
   - "mcp__claude_ai_Microsoft_365__*"
   - "WebSearch"
   - "WebFetch(*)"
+model: opus
 ---
 
 <!-- system:start -->

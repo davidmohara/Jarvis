@@ -10,6 +10,7 @@ description: >
   decision. Also trigger on pricing strategy, market entry, organizational restructuring, or when someone is clearly
   confusing a goal with a strategy. Even casual phrases like "I need a plan for..." or "how should we approach..." benefit
   from this skill.
+model: sonnet
 ---
 
 <!-- system:start -->

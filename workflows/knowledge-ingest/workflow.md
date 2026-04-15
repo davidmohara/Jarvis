@@ -3,6 +3,7 @@ name: knowledge-ingest
 description: Unified ingestion pipeline — any new content from any capture surface gets normalized, tagged, linked, and filed in the vault
 owner: knox
 evolution: personal
+model: haiku
 ---
 
 <!-- personal:start -->

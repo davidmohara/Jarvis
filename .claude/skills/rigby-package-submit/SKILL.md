@@ -3,6 +3,7 @@ name: rigby-package-submit
 description: Submit a validated contribution package to Improving for review and publication, or check submission status
 context: fork
 agent: general-purpose
+model: sonnet
 ---
 
 <!-- system:start -->

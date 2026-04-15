@@ -3,6 +3,7 @@ name: rigby-evolution-poll
 description: Check the web app for available evolution updates and cache the result locally
 context: fork
 agent: general-purpose
+model: sonnet
 ---
 
 <!-- system:start -->

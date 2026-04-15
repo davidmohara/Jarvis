@@ -7,6 +7,7 @@ description: >
   Trigger on /pipeline-snapshot, "pipeline snapshot", "pipeline health", "rock 1 data", or
   "90 day pipeline".
 agent: chase
+model: sonnet
 ---
 
 # Pipeline Snapshot

@@ -2,6 +2,7 @@
 name: card-walkthrough
 description: Guided monthly walkthrough of each card portal to capture current benefit details, update stored data, and discover new offers
 agent: chase
+model: sonnet
 ---
 
 <!-- system:start -->

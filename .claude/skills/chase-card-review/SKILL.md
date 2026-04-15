@@ -13,6 +13,7 @@ allowed-tools:
   - "Glob(*)"
   - "Grep(*)"
   - "Bash(*)"
+model: sonnet
 ---
 
 <!-- system:start -->

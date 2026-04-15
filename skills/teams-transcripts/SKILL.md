@@ -8,6 +8,7 @@ description: >
   "pull yesterday's transcripts", "import meeting notes", "process my calls from Teams",
   or any variation where Teams meetings need to become vault notes. This handles the full
   pipeline: calendar search → transcript fetch → markdown transform → tag → file → report.
+model: sonnet
 ---
 
 # Teams Transcripts → Obsidian

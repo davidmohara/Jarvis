@@ -157,6 +157,86 @@ Root status: Clean / {N} files still require review
 <!-- system:end -->
 
 <!-- personal:start -->
+## Model Compliance Audit
+
+Run this check as part of every root audit, after the root directory scan. It is
+separate from root hygiene but reported in the same session.
+
+### What to scan
+
+Check frontmatter for a `model:` field in all three file types:
+
+| File pattern | Scope |
+|---|---|
+| `workflows/*/workflow.md` | Workflow-level default model |
+| `workflows/*/steps/step-*.md` | Per-step model override |
+| `skills/*/SKILL.md` | Skill-level model declaration |
+| `.claude/skills/*/SKILL.md` | Installed skill model declaration |
+
+A file **fails** this check if:
+- Its YAML frontmatter block (`---`) exists but has no `model:` field
+- It has no frontmatter block at all
+
+A file **passes** if it has `model: haiku`, `model: sonnet`, or `model: opus` in frontmatter.
+
+### How to determine the correct model for a missing field
+
+Use this routing table. Apply the first rule that matches:
+
+| Condition | Assign model |
+|---|---|
+| Step file is pure I/O: API calls, file reads, script execution, staging ops | `haiku` |
+| Step file involves reasoning: calendar cross-ref, heuristics, synthesis, speaker ID | `sonnet` |
+| Workflow owner is Knox | `haiku` (default; individual steps override up) |
+| Workflow owner is Chief | `sonnet` |
+| Workflow owner is Chase | `sonnet` |
+| Workflow owner is Quinn | `opus` |
+| Workflow owner is Rigby | `sonnet` |
+| Workflow owner is Shep | `sonnet` |
+| Workflow owner is Harper | `sonnet` |
+| Workflow owner is Galen | `sonnet` |
+| Skill is mechanical transform, fetch, or enumeration | `haiku` |
+| Skill involves writing, analysis, or interpretation | `sonnet` |
+| Cannot determine from content | `sonnet` (safe default) |
+
+To determine workflow owner for a step file: read the parent `workflow.md`'s `agent:` field.
+
+### Findings presentation
+
+Add a **Model Compliance** section to the audit report after the root hygiene section:
+
+```
+## Model Compliance — {N} files missing `model:` field
+
+| File | Proposed Model | Reason |
+|------|---------------|--------|
+| workflows/plaud-ingest/steps/step-01-discover.md | haiku | Pure API enumeration, no reasoning |
+| skills/plaud-discover/SKILL.md | haiku | Mechanical fetch skill |
+| workflows/morning-briefing/workflow.md | sonnet | Chief-owned workflow |
+```
+
+If all files pass: `Model compliance: clean — all workflow, step, and skill files declare a model.`
+
+### Execution (same confirmation gate as root hygiene)
+
+When the executive confirms ("execute", "execute model fixes", etc.):
+
+For each file in the findings table:
+1. Read the current frontmatter block
+2. Add `model: <proposed-model>` as a new line after the existing frontmatter fields
+3. Write the updated file
+4. Report: `✓ Added model: haiku to workflows/plaud-ingest/steps/step-01-discover.md`
+
+Do NOT modify any content outside the frontmatter `---` block.
+Do NOT change an existing `model:` value — only add where missing.
+
+If the frontmatter block is missing entirely, add one:
+```yaml
+---
+model: <proposed-model>
+---
+```
+at the top of the file, then report it as added.
 <!-- personal:end -->
 
 <!-- system:start -->

@@ -2,6 +2,7 @@
 name: pipeline-review
 description: Pipeline health check - stage analysis, risk flags, deal velocity, weighted forecast, recommended actions
 agent: chase
+model: sonnet
 ---
 
 <!-- system:start -->

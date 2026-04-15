@@ -3,6 +3,7 @@ status: not-started
 started-at: ~
 completed-at: ~
 outputs: {}
+model: sonnet
 ---
 
 # Step 04: Scan Personal Blocks

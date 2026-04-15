@@ -2,6 +2,7 @@
 name: one-on-one-prep
 description: Build a comprehensive prep brief for an internal 1:1 meeting from email, calendar, Teams, tasks, and previous briefs
 agent: shep
+model: sonnet
 ---
 
 <!-- system:start -->

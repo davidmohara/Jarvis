@@ -5,6 +5,7 @@ description: >
   PowerBI report. Reports both regions side-by-side. Trigger when David says "bookings",
   "bookings review", "/bookings-review", or asks about YTD bookings for Dallas or South Texas.
 agent: chase
+model: sonnet
 ---
 
 # Bookings Review

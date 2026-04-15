@@ -10,6 +10,7 @@ allowed-tools:
   - "Write"
   - "WebFetch(*)"
   - "mcp__invintory__*"
+model: sonnet
 ---
 
 <!-- system:start -->

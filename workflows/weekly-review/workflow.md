@@ -3,6 +3,7 @@ name: weekly-review
 description: Weekly review - rocks, delegations, inbox health, calendar audit, people check, next week priorities
 agent: master
 orchestrates: [chief, chase, quinn, shep]
+model: sonnet
 ---
 
 <!-- system:start -->

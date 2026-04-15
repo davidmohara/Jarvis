@@ -12,6 +12,7 @@ allowed-tools:
   - "mcp__Control_Chrome__*"
   - "WebSearch"
   - "WebFetch(*)"
+model: sonnet
 ---
 
 <!-- system:start -->

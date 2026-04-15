@@ -8,6 +8,7 @@ allowed-tools:
   - "Read"
   - "Glob"
   - "Grep"
+model: sonnet
 ---
 
 <!-- system:start -->

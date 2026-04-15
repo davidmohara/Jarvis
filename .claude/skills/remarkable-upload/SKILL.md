@@ -1,6 +1,7 @@
 ---
 name: remarkable-upload
 description: Upload PDF or EPUB files to reMarkable tablet. Use when the user wants to send a document to their reMarkable, upload a PDF/EPUB, or put a file on their tablet.
+model: haiku
 ---
 
 <!-- personal:start -->

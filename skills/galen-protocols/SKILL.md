@@ -2,6 +2,7 @@
 name: galen-protocols
 description: Track active supplement stack and peptide cycles. Monitor cycle timing (Epithalon max 2x/year, 4-month pause), surface protocol status, flag conflicts or gaps based on bloodwork. Output protocol status card.
 evolution: system
+model: sonnet
 ---
 
 <!-- system:start -->

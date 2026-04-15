@@ -17,6 +17,7 @@ allowed-tools:
   - "Bash(*)"
   - "mcp__Control_Chrome__*"
   - "mcp__Control_your_Mac__osascript"
+model: sonnet
 ---
 
 <!-- system:start -->

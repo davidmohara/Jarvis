@@ -3,6 +3,7 @@ name: rigby-connector-verify
 description: Verify a newly installed connector is functional, confirm success to the executive, increment install count, and register in the local package manifest
 context: fork
 agent: general-purpose
+model: sonnet
 ---
 
 <!-- system:start -->

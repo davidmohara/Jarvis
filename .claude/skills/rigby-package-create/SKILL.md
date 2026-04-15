@@ -3,6 +3,7 @@ name: rigby-package-create
 description: Discover custom agents, workflows, and skills; package them for contribution to the IES ecosystem
 context: fork
 agent: general-purpose
+model: sonnet
 ---
 
 <!-- system:start -->

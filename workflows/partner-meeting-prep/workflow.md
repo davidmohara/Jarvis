@@ -2,6 +2,7 @@
 name: partner-meeting-prep
 description: Partner meeting prep (QBRs, co-sell reviews) - account overlap, mutual opportunities, events, and collaboration points
 agent: chase
+model: sonnet
 ---
 
 <!-- system:start -->

@@ -1,6 +1,7 @@
 ---
 name: knox-photo-tag
 description: "Tag photos with person, place, and event keywords. Use when the user says 'tag my photos', 'photo tagging', 'label my photos', 'photo pipeline', or any request to organize/tag photos from Apple Photos with people, places, and events."
+model: haiku
 ---
 
 <!-- system:start -->

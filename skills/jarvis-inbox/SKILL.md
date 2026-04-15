@@ -6,6 +6,7 @@ description: >
   Trigger on boot (morning briefing), during daily review, or when David says "check my
   Jarvis folder", "process my inbox", or "anything in the Jarvis folder?"
 agent: chief
+model: sonnet
 ---
 
 # Jarvis Inbox — Mail Folder Processing

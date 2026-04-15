@@ -3,6 +3,7 @@ name: rigby-capability-build
 description: Build new capabilities for IES — skills, workflows, and agents — following system conventions and tracking changes for future evolution packaging
 context: fork
 agent: general-purpose
+model: sonnet
 ---
 
 <!-- system:start -->

@@ -3,6 +3,7 @@ name: rigby-package-pull
 description: Connect to the company's secured endpoint and pull available packages for installation
 context: fork
 agent: general-purpose
+model: sonnet
 ---
 
 <!-- system:start -->

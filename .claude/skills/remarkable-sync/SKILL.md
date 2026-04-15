@@ -1,6 +1,7 @@
 ---
 name: remarkable-sync
 description: "Sync handwritten notes from reMarkable tablet to Obsidian as markdown. Use when the user says 'sync my remarkable', 'pull my remarkable notes', 'download remarkable', 'remarkable to obsidian', or any request to get handwritten notes off their tablet. Also trigger when the user asks about recent notes they wrote on the tablet, or wants to find something they jotted down on the reMarkable."
+model: haiku
 ---
 
 <!-- personal:start -->

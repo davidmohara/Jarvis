@@ -5,6 +5,7 @@ completed-at: "2026-04-06T04:16:00"
 outputs:
   new_clients_captured: true
   most_recent_month: March
+model: sonnet
 ---
 
 <!-- system:start -->

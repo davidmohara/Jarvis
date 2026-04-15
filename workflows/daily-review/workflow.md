@@ -2,6 +2,7 @@
 name: daily-review
 description: End-of-day shutdown - capture completions, carry-forwards, and tomorrow's priorities
 agent: chief
+model: sonnet
 ---
 
 <!-- system:start -->

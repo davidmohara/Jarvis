@@ -2,6 +2,7 @@
 name: card-review
 description: Monthly benefits audit — credit usage, expiring deadlines, spend threshold pace, card-linked offer savings
 agent: chase
+model: sonnet
 ---
 
 <!-- system:start -->

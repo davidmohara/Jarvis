@@ -2,6 +2,7 @@
 name: training-onboarding
 description: First-launch onboarding — intake interview, system orientation, first real task, progression intro
 agent: shep
+model: sonnet
 ---
 
 <!-- system:start -->

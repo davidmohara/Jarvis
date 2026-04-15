@@ -7,6 +7,7 @@ allowed-tools:
   - "Bash(*)"
   - "WebSearch"
   - "WebFetch(*)"
+model: sonnet
 ---
 
 <!-- system:start -->

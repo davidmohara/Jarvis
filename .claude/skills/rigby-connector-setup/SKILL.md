@@ -3,6 +3,7 @@ name: rigby-connector-setup
 description: Walk the executive through connector setup step by step in plain language — collect credentials conversationally, write MCP config, show progress, support abort
 context: fork
 agent: general-purpose
+model: sonnet
 ---
 
 <!-- system:start -->

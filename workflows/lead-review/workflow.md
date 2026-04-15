@@ -2,6 +2,7 @@
 name: lead-review
 description: Review David's lead tracker for unassigned leads (blank "Passed To" field) and surface them for Account Manager assignment. Runs during daily briefings and pipeline reviews.
 agent: chase
+model: sonnet
 ---
 
 <!-- system:start -->

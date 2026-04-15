@@ -3,6 +3,7 @@ name: rigby-install-mcp
 description: Receive an /install-mcp command, look up connector details from the catalog, confirm with the executive, then hand off to guided setup
 context: fork
 agent: general-purpose
+model: sonnet
 ---
 
 <!-- system:start -->

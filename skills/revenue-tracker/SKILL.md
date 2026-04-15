@@ -7,6 +7,7 @@ description: >
   then combines for One Texas total. Trigger on /revenue-tracker, "revenue tracker",
   "enterprise revenue", "revenue vs target", "financial outlook", or "scorecard revenue".
 agent: chase
+model: sonnet
 ---
 
 # Revenue Tracker

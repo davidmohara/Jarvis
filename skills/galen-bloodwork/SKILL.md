@@ -2,6 +2,7 @@
 name: galen-bloodwork
 description: Interpret Function Health bloodwork results. Flag out-of-range markers, assess severity, cross-reference with active protocols, compare to prior results, generate Dr. Randol question list. Produces shareable interpretation brief.
 evolution: system
+model: sonnet
 ---
 
 <!-- system:start -->

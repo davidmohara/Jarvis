@@ -6,6 +6,7 @@ description: >
   Rock 4's $15M co-sell pipeline target. Trigger on /co-sell-pipeline, "co-sell", "cosell",
   "partner pipeline", or "rock 4 pipeline".
 agent: chase
+model: sonnet
 ---
 
 # Co-Sell Pipeline

@@ -10,6 +10,7 @@ allowed-tools:
   - "mcp__clay__*"
   - "WebSearch"
   - "WebFetch(*)"
+model: opus
 ---
 
 <!-- system:start -->

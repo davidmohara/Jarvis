@@ -2,6 +2,7 @@
 name: training-module-runner
 description: Generic module runner — load curriculum entry, coach through guided walkthrough with real data, record mastery
 agent: shep
+model: sonnet
 ---
 
 <!-- system:start -->

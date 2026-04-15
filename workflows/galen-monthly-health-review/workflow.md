@@ -2,6 +2,7 @@
 name: galen-monthly-health-review
 description: Monthly health review. Pull 30-day WHOOP, latest bloodwork, DEXA data. Run trend analysis vs. Lifebook goals. Output Obsidian note with monthly summary, progress, and gaps.
 agent: galen
+model: sonnet
 ---
 
 <!-- system:start -->

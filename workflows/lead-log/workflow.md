@@ -2,6 +2,7 @@
 name: lead-log
 description: Log a new lead to David's personal lead tracker (My Leads.xlsx in OneDrive). Captures date, client name, and assigned Account Manager. Fires when a new prospect surfaces in conversation.
 agent: chase
+model: sonnet
 ---
 
 <!-- system:start -->

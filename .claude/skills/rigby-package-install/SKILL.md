@@ -3,6 +3,7 @@ name: rigby-package-install
 description: Install a downloaded company package into the local IES instance
 context: fork
 agent: general-purpose
+model: sonnet
 ---
 
 <!-- system:start -->

@@ -4,6 +4,7 @@ description: "Deep search across the Obsidian vault — handwritten notes, meeti
 evolution: personal
 context: fork
 agent: general-purpose
+model: haiku
 ---
 
 <!-- personal:start -->

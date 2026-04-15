@@ -3,6 +3,7 @@ name: rigby-register
 description: Device code flow registration — authenticate this IES instance with Improving's Entra ID. Called during onboarding and for self-healing when credentials expire.
 context: fork
 agent: general-purpose
+model: sonnet
 ---
 
 <!-- system:start -->

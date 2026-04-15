@@ -3,6 +3,7 @@ name: rigby-capability-status
 description: Show pending unpackaged capability changes — what has been built but not yet packaged as an evolution
 context: fork
 agent: general-purpose
+model: sonnet
 ---
 
 <!-- system:start -->

@@ -2,6 +2,7 @@
 name: master-slack
 description: Send a Slack notification to David as the Jarvis bot. Used by any agent or scheduled task that needs to deliver a report, alert, or summary. Posts via Desktop Commander using the Jarvis bot token — separate identity from David, triggers real push notifications.
 evolution: system
+model: sonnet
 ---
 
 <!-- system:start -->
