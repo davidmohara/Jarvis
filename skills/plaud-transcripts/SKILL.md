@@ -401,7 +401,7 @@ No scheduled tasks, no orphaned state — the sub-agent runs, finishes, and exit
    - Poll `fetch_plaud.py --check <file_id>` on the Mac host via osascript every 2 minutes
    - Max 30 retries (~1 hour). If still not ready after 30, report failure and exit.
    - When `--check` returns `READY` (exit code 0):
-     a. Process the staged transcript through the full knox-plaud pipeline (parse,
+     a. Process the staged transcript through the full knox-transcripts-plaud pipeline (parse,
         calendar cross-ref, speaker tagging if `_speakers.json` exists, vault write,
         daily note linking, OmniFocus action item routing, cleanup)
      b. Remove the recording from `plaud_pending.json`
@@ -423,7 +423,7 @@ Agent(
     Every 2 minutes, run via osascript:
       cd '<scripts-dir>' && /usr/bin/python3 fetch_plaud.py --check 14d0f41b5dcb80d32ffab947fa94c982
     If output contains READY, process the staged transcript through the full
-    knox-plaud ingestion pipeline (read skills/plaud-transcripts/SKILL.md for steps).
+    knox-transcripts-plaud ingestion pipeline (read skills/plaud-transcripts/SKILL.md for steps).
     If output contains NOT_READY, sleep 2 minutes and retry. Max 30 retries.
     After processing or max retries, clean up the pending queue entry and exit."
 )

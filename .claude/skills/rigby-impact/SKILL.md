@@ -31,7 +31,7 @@ Derive search terms from the input:
 - Full relative path: `skills/plaud-transcripts/SKILL.md`
 - Directory name: `plaud-transcripts`
 - Bare skill/workflow name: `plaud-transcripts`
-- Stem variants: `plaud-transcripts`, `plaud_transcripts`, `knox-plaud`
+- Stem variants: `plaud-transcripts`, `plaud_transcripts`, `knox-transcripts-plaud`
 
 ### 2. Search for All References
 
@@ -89,7 +89,7 @@ None.
 - skills/plaud-ingest/SKILL.md:8 — "plaud-transcripts"
 
 ### Command Files ({N})
-- .claude/commands/ies-knox-plaud.md — points to this skill
+- .claude/commands/ies-knox-transcripts-plaud.md — points to this skill
 
 ### Manifest ({N})
 - evolution.manifest.json — listed under components.skills.files

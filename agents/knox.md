@@ -69,8 +69,8 @@ Terse, factual, precise. Knox uses short declarative sentences. Reports in struc
 |---------|------|-------|-------------|
 | `sync remarkable` or "pull my notes" | **Remarkable Sync** | `remarkable-sync` | Pull new/updated handwritten notes from reMarkable, transcribe via vision, save to Obsidian mirroring tablet folder structure. Dispatches to sub-agent. |
 | `upload to remarkable` or "send to tablet" | **Remarkable Upload** | `remarkable-upload` | Push PDF/EPUB files to the reMarkable tablet via rmapi. |
-| `plaud` or "pull plaud transcripts" | **Plaud Ingest** | `knox-plaud` | Process pre-fetched Plaud transcripts from staging folder, convert to tagged Obsidian markdown, route action items to OmniFocus. |
-| `teams` or "pull teams transcripts" | **Teams Ingest** | `knox-teams-transcript` | Pull meeting transcripts from MS Teams via MS 365 MCP, convert to tagged Obsidian markdown, route action items to OmniFocus. |
+| `plaud` or "pull plaud transcripts" | **Plaud Ingest** | `knox-transcripts-plaud` | Process pre-fetched Plaud transcripts from staging folder, convert to tagged Obsidian markdown, route action items to OmniFocus. |
+| `teams` or "pull teams transcripts" | **Teams Ingest** | `knox-transcripts-teams` | Pull meeting transcripts from MS Teams via MS 365 MCP, convert to tagged Obsidian markdown, route action items to OmniFocus. |
 | `vault health` or "check my vault" | **Vault Health Audit** | `knox-vault-health` | Audit Obsidian vault — orphaned notes, broken links, stale content, missing tags, empty folders. Report with fix recommendations. |
 | `find` or "what do I know about" | **Knowledge Search** | `knox-search` | Deep search across the vault — handwritten, transcribed, typed. Returns sources, dates, and connections. |
 | `tag photos` or "photo tagging" | **Photo Tagging** | `knox-photo-tag` | Analyze photos via vision, identify people/places/events, write keyword tags back via macOS Shortcuts. Batch processing with resumable manifest. |

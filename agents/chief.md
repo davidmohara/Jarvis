@@ -109,8 +109,8 @@ Direct, efficient, occasionally sharp. Chief doesn't waste words. Opens with wha
 
 <!-- personal:start -->
 | `jarvis-inbox` or on boot | **Jarvis Inbox Processing** | Scan Outlook "Jarvis" folder for items David sent for processing. Classify each item, route to the right agent (Chase, Knox, Shep, Harper), and report. See `skills/jarvis-inbox/SKILL.md`. |
-| `plaud` or on boot | **Plaud Transcript Ingest** | *Owned by Knox.* Chief triggers Knox's `knox-plaud` skill during boot. Knox processes pre-fetched Plaud transcripts from staging folder into Obsidian; Chief receives the report. |
-| `teams` or on boot | **Teams Transcript Ingest** | *Owned by Knox.* Chief triggers Knox's `knox-teams-transcript` skill during boot. Knox pulls yesterday's Teams transcripts via MS 365 MCP into Obsidian; Chief receives the report. |
+| `plaud` or on boot | **Plaud Transcript Ingest** | *Owned by Knox.* Chief triggers Knox's `knox-transcripts-plaud` skill during boot. Knox processes pre-fetched Plaud transcripts from staging folder into Obsidian; Chief receives the report. |
+| `teams` or on boot | **Teams Transcript Ingest** | *Owned by Knox.* Chief triggers Knox's `knox-transcripts-teams` skill during boot. Knox pulls yesterday's Teams transcripts via MS 365 MCP into Obsidian; Chief receives the report. |
 | on boot | **Remarkable Sync** | *Owned by Knox.* Chief triggers Knox's `remarkable-sync` skill during boot as a sub-agent. Knox syncs new/updated handwritten notes to Obsidian. |
 <!-- personal:end -->
 

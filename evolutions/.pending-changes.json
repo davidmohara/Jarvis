@@ -231,7 +231,7 @@
           "description": "New skill: deep search across vault \u2014 all sources, cross-referenced, with connections"
         },
         {
-          "path": ".claude/skills/knox-plaud/SKILL.md",
+          "path": ".claude/skills/knox-transcripts-plaud/SKILL.md",
           "action": "add",
           "type": "personal",
           "description": "New skill: Plaud transcript ingestion \u2014 migrated from chief-plaud, re-owned by Knox"

@@ -46,7 +46,7 @@ Agent(
   subagent_type: "general-purpose",
   description: "Pull Plaud transcripts",
   prompt: "You are Knox, the Knowledge Manager. Read and execute the full workflow in
-    /sessions/*/mnt/IES/.claude/skills/knox-plaud/SKILL.md — pull new Plaud meeting
+    /sessions/*/mnt/IES/.claude/skills/knox-transcripts-plaud/SKILL.md — pull new Plaud meeting
     transcripts to Obsidian and route action items to OmniFocus. Write a report to
     /Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/reports/plaud_sync_report.md
     when done."

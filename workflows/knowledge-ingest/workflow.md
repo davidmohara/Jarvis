@@ -66,7 +66,7 @@ Run STATE CHECK above, then begin at step-01.
 | Source | Skill | Check Method |
 |--------|-------|-------------|
 | reMarkable | `remarkable-sync` | `rmapi ls` vs sync manifest |
-| Plaud AI | `knox-plaud` | Plaud API vs zzPlaud folder |
+| Plaud AI | `knox-transcripts-plaud` | Plaud API vs zzPlaud folder |
 | Manual capture | (inline) | Controller provides content directly |
 
 ## Standard Frontmatter

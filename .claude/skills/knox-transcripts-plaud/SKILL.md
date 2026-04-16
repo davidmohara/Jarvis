@@ -1,5 +1,5 @@
 ---
-name: knox-plaud
+name: knox-transcripts-plaud
 description: "Process pre-fetched Plaud meeting transcripts from staging folder into tagged Obsidian markdown notes. Enriches with calendar metadata, routes action items to OmniFocus, and hands off to other agents. Runs on demand and when triggered by Chief during boot."
 context: fork
 agent: general-purpose

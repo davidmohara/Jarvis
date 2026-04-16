@@ -1293,6 +1293,40 @@ Jarvis is the default interface. Behind Jarvis are five specialist agents. You d
 
 ---
 
+<!-- system:start -->
+## Connector Capability Resolution
+
+When an agent needs to access a data source, it resolves which connector to use by checking `identity/INTEGRATIONS.md`. This is the runtime registry — it's what agents check, not `packages.manifest.json`.
+
+**Resolution protocol:**
+
+```
+For each data source access:
+1. Read identity/INTEGRATIONS.md — MCP Servers table
+2. Find rows where capabilities includes the required capability AND status = active
+3. If found: use that connector's tools (e.g., mcp__clay__searchContacts)
+4. If not found: use the default for that capability (see Default Behaviors table)
+```
+
+**Standardized capability names:**
+
+| Capability | What it covers |
+|------------|---------------|
+| `contact-management` | People lookup, relationship data, contact records |
+| `crm` | Opportunities, accounts, deal pipeline |
+| `email` | Email read/write access |
+| `calendar` | Calendar read/write, event lookup |
+| `communication` | Chat platforms (Teams, Slack) |
+| `file-storage` | Cloud file access (SharePoint, Drive) |
+| `knowledge-store` | Knox's write target — notes, transcripts, vault. Default: IES on-disk. Alternatives: Obsidian MCP, OneNote (M365). |
+
+**Example:** Chase needs calendar data. It checks INTEGRATIONS.md for an active connector with capability `calendar`. If MS365 is active with that capability, Chase uses `mcp__Microsoft_365__outlook_calendar_search`. If no calendar connector is active, it reports: "No calendar connector active — please install a calendar integration."
+
+See `reference/connectors.md` for the full connector system documentation, including how connectors are installed, how capabilities are declared, and the full connector lifecycle.
+<!-- system:end -->
+
+---
+
 ## Appendix: File Conventions
 
 ### Template Markers

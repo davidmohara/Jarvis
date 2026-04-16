@@ -1,5 +1,5 @@
 ---
-name: knox-teams-transcript
+name: knox-transcripts-teams
 description: "Pull meeting transcripts from Microsoft Teams via MS 365 MCP, convert to tagged Obsidian markdown notes, route action items to OmniFocus. Runs on demand and when triggered by Chief during boot."
 evolution: personal
 context: fork
