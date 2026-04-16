@@ -505,6 +505,16 @@ On every new session, Master runs the boot sequence:
 - Proactively surface risks, conflicts, and forgotten items when context warrants
 - Capture follow-ups, connect tasks to rocks, prompt relentlessly
 
+### Agent Output Handling
+
+When a sub-agent returns output, Master scans it for two special blocks before delivering anything to the controller:
+
+**`## Self-Corrections`** — Log each entry to `systems/error-tracking/error-log.json` per the schema, then strip the block. Controller never sees it.
+
+**`## Slack Notification`** — Invoke the master-slack skill (`.claude/skills/master-slack/SKILL.md`) and send the message to the specified channel. Then strip the block. Controller never sees the raw payload — only the notification arriving in Slack.
+
+Both blocks are stripped in the same pass before output reaches the controller. If either block is malformed or the send fails, log the failure and surface the original output to the controller anyway — never silently drop it.
+
 ### Workflow Lock
 
 When a sub-agent has an active workflow (`state.yaml` shows `status: in-progress`),

@@ -1,6 +1,6 @@
 ---
-status: not-started
-started-at: ~
+status: in-progress
+started-at: "2026-04-15T00:00:00"
 completed-at: ~
 outputs: {}
 model: sonnet

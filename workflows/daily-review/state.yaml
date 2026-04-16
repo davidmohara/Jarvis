@@ -1,10 +1,10 @@
 ---
 workflow: daily-review
 agent: chief
-status: not-started
-session-started: ~
-session-id: ~
-current-step: ~
-original-request: ~
+status: in-progress
+session-started: "2026-04-15T00:00:00"
+session-id: chief-2026-04-15-auto
+current-step: step-auto
+original-request: "auto"
 accumulated-context: {}
 ---
