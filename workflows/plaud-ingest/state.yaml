@@ -1,32 +1,19 @@
 ---
 workflow: plaud-ingest
 agent: knox
-status: complete
-session-started: "2026-04-15T00:00:00Z"
-session-id: pi-20260415-001
-current-step: step-05
-original-request: "Run full plaud-ingest workflow for 2026-04-14 (yesterday)"
+status: in-progress
+session-started: "2026-04-16T14:00:00Z"
+session-id: pi-20260416-002
+current-step: step-01
+original-request: "Run plaud-ingest for April 14-16 recordings not yet in vault"
 accumulated-context:
-  target-date: "2026-04-14"
-  new-recordings:
-    - file_id: f306fb7074e95b9702cf768618390c39
-      name: "04-14 Strategic Perspective on AI Growth and Business Adoption"
-      date: "2026-04-14"
-      duration_seconds: 2708
-      has_transcript: true
-      transcript_status: ready
+  target-date: "2026-04-16"
+  new-recordings: []
   transcription-triggered: []
   pending-recordings: []
-  speaker-mappings:
-    f306fb7074e95b9702cf768618390c39:
-      "Speaker 2": "Thomas Wheat"
-      "Speaker 3": "John Hudson"
-      "Speaker 4": "Geoff Brenner"
+  speaker-mappings: {}
   pending-speaker-mappings: []
-  ready-for-fetch:
-    - f306fb7074e95b9702cf768618390c39
-  staged-files:
-    - "plaud_04-14 Strategic Perspective on AI Growth and Business Adoption.md"
-  ingested-notes:
-    - "zzPlaud/YPO/2026-04-14 Strategic Perspective on AI Growth and Business Adoption.md"
+  ready-for-fetch: []
+  staged-files: []
+  ingested-notes: []
 ---

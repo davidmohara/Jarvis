@@ -307,7 +307,7 @@ skills/travel-brief/
     ├── Read identity/MEMORY.md → preferences, loyalty numbers
     │
     └── Generate → Markdown travel brief
-         └── Save to reviews/travel/ or bridge/outbox/
+         └── Save to reviews/travel/
 ```
 
 ---

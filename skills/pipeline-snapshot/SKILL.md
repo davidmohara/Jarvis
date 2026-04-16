@@ -76,18 +76,46 @@ Take a screenshot and read the following values:
 
 ### Step 2 — Filter to South Texas (same page)
 
-Click South Texas. The slicer is single-select — this deselects Dallas automatically:
+South Texas = Austin, TX + Houston, TX selected simultaneously. There is no "South Texas" slicer
+label — the report uses individual city names. Deselect Dallas first, then select both cities.
+Use `.slicerCheckbox` clicks (not span clicks) to avoid hitting the expand toggle.
 
 ```js
-mcp__playwright__browser_evaluate
-function: () => {
-  const spans = document.querySelectorAll('span.slicerText');
-  for (const span of spans) {
-    if (span.textContent.trim() === 'South Texas') { span.click(); return 'clicked'; }
-  }
-  return 'not found';
-}
+mcp__Control_Chrome__execute_javascript
+code: (function() {
+  return new Promise((resolve) => {
+    // Step 1: Deselect Dallas
+    const items = document.querySelectorAll('.slicerItemContainer');
+    for (const item of items) {
+      if (item.getAttribute('title') === 'Dallas, TX' && item.getAttribute('aria-selected') === 'true') {
+        item.querySelector('.slicerCheckbox')?.click();
+      }
+    }
+    setTimeout(() => {
+      // Step 2: Select Austin and Houston one at a time
+      const items2 = document.querySelectorAll('.slicerItemContainer');
+      for (const item of items2) {
+        const t = item.getAttribute('title');
+        if (t === 'Houston, TX') item.querySelector('.slicerCheckbox')?.click();
+      }
+      setTimeout(() => {
+        const items3 = document.querySelectorAll('.slicerItemContainer');
+        for (const item of items3) {
+          if (item.getAttribute('title') === 'Austin, TX') item.querySelector('.slicerCheckbox')?.click();
+        }
+        setTimeout(() => {
+          const sel = Array.from(document.querySelectorAll('.slicerItemContainer'))
+            .filter(i => i.getAttribute('aria-selected') === 'true')
+            .map(i => i.getAttribute('title'));
+          resolve('Selected: ' + sel.join(', '));
+        }, 500);
+      }, 400);
+    }, 600);
+  });
+})()
 ```
+
+Wait 3 seconds after execution. Verify selection shows Austin, TX + Houston, TX before reading data.
 
 Take a screenshot and read the same set of values: KPI tiles, stage breakdown, opportunity
 type breakdown.
@@ -133,16 +161,8 @@ Take a screenshot and read:
 
 ### Step 4 — Filter to South Texas (same page)
 
-```js
-mcp__playwright__browser_evaluate
-function: () => {
-  const spans = document.querySelectorAll('span.slicerText');
-  for (const span of spans) {
-    if (span.textContent.trim() === 'South Texas') { span.click(); return 'clicked'; }
-  }
-  return 'not found';
-}
-```
+Same pattern as Step 2 — deselect Dallas, then select Houston, TX then Austin, TX with 400ms
+gaps between each click. See Step 2 for the full JS block. Verify selection before reading.
 
 Take a screenshot and read the same values.
 
@@ -198,7 +218,8 @@ David's scope on this rock.
 
 - **One Texas only** — never report all-Improving numbers. Always filter to Dallas TX or South
   Texas before reading KPI tiles.
-- Slicer is single-select on all pages. Read each region separately before navigating away.
+- **South Texas = Austin, TX + Houston, TX** — there is no "South Texas" slicer label. Select both cities. Deselect Dallas first (600ms gap), then click Houston, then Austin (400ms gap each). Verify selection before reading.
+- Slicer is multi-select. Read each region separately before navigating away.
 - If KPI tiles are not visible after navigation, wait 2 seconds and screenshot again.
 - The 90-Day Weighted Pipeline is the primary Rock 1 metric. Lead with it. Total pipeline is
   supporting context.

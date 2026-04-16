@@ -10,7 +10,6 @@ Before starting, confirm these are installed and synced:
 
 - [ ] **Homebrew** — `brew --version`
 - [ ] **Node.js** (v18+) — `node --version`
-- [ ] **Xcode Command Line Tools** — `xcode-select --version` (needed for bridge build)
 - [ ] **OneDrive** — mounted and fully synced at `~/Library/CloudStorage/OneDrive-Improving/`
 - [ ] **iCloud / Obsidian** — vault accessible at `~/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/`
 - [ ] **Claude Code** — installed and authenticated
@@ -28,23 +27,7 @@ cd my-os
 
 ---
 
-## Step 2 — Build the Desktop bridge binary
-
-The Swift source is tracked but the compiled binary is not. Build it once per machine:
-
-```bash
-swiftc bridge/send-to-desktop.swift -o bridge/send-to-desktop
-chmod +x bridge/send-to-desktop
-```
-
-Verify:
-```bash
-./bridge/send-to-desktop.sh --help 2>/dev/null || echo "Built OK"
-```
-
----
-
-## Step 3 — Create `.claude/mcp.json`
+## Step 2 — Create `.claude/mcp.json`
 
 This file is gitignored (it contains API keys). Create it from the template:
 
@@ -58,7 +41,7 @@ Then fill in the actual values. See **`.claude/mcp.json.template`** for required
 
 ---
 
-## Step 4 — Create `config/settings.json`
+## Step 3 — Create `config/settings.json`
 
 Required by Rigby package and evolution skills. Create the file:
 
@@ -82,7 +65,7 @@ Then create `config/settings.json` with this structure (fill in your values):
 
 ---
 
-## Step 5 — Verify git status is clean
+## Step 4 — Verify git status is clean
 
 ```bash
 git status
@@ -94,7 +77,7 @@ If there are unexpected untracked files (temp data, compiled artifacts), check `
 
 ---
 
-## Step 6 — Clear stale pending evolutions (if present)
+## Step 5 — Clear stale pending evolutions (if present)
 
 Check if there are stuck pending evolutions:
 
@@ -112,7 +95,7 @@ git commit -m "Clear stale pending evolutions on new machine setup"
 
 ---
 
-## Step 7 — Boot test
+## Step 6 — Boot test
 
 Open Claude Code in the `my-os/` directory and run:
 
@@ -136,8 +119,6 @@ These don't go in `mcp.json` — configure them in Claude.ai Settings → Connec
 ---
 
 ## Troubleshooting
-
-**Bridge messages not processing** → Rebuild binary (Step 2). Confirm `bridge/send-to-desktop` is executable.
 
 **OmniFocus not responding** → OmniFocus must be running. MCP server connects to the running app.
 

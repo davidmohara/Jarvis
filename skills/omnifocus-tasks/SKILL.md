@@ -125,7 +125,7 @@ This is the ONLY exception to the project requirement. Tag is still mandatory ev
 |---------|--------|
 | Project not found in OmniFocus | Check spelling against the list. If genuinely missing, ask David — do not create a new project. |
 | Tag not found in OmniFocus | Check spelling against the list. If genuinely missing, ask David — do not create a new tag. |
-| OmniFocus unreachable | Retry 3x per SYSTEM.md policy. If still down, capture the task in a pending file (`bridge/inbox/omnifocus-pending.md`) with all fields populated, and process when OmniFocus is back. |
+| OmniFocus unreachable | Retry 3x per SYSTEM.md policy. If still down, capture the task details in a note to David and process when OmniFocus is back. |
 | Ambiguous project/tag | Ask David with a specific recommendation: "I'd put this in [Project] with tag [Tag] — good?" |
 <!-- system:end -->
 

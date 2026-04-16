@@ -76,9 +76,9 @@ Then verify in Photos.app that the keyword "pipeline-test" appears on the photo.
 
 ---
 
-## Phase 2: Calendar Pull (Async via Desktop Bridge)
+## Phase 2: Calendar Pull (via M365 MCP)
 
-Calendar data provides event tags. Send a bridge request to Desktop for 12 months of Outlook calendar events.
+Calendar data provides event tags. Pull 12 months of Outlook calendar events directly via M365 MCP (`mcp__claude_ai_Microsoft_365__outlook_calendar_search`).
 
 **Structure** of `calendar-events.json`:
 ```json
@@ -369,7 +369,7 @@ Generate `data/photo-pipeline/photo_tag_report.md`:
 ## Execution Sequence (POC)
 
 1. **Phase 1**: Test Shortcuts write-back (5 min, validates the whole approach)
-2. **Phase 2 + 3 in parallel**: Calendar pull (bridge) + Reference face set (controller picks photos)
+2. **Phase 2 + 3 in parallel**: Calendar pull (M365 MCP) + Reference face set (controller picks photos)
 3. **Phase 4**: Manifest build for POC month
 4. **Phase 5**: Batch analysis (~30-60 min for one month)
 5. **Phase 6**: Write tags
@@ -420,10 +420,7 @@ Once controller reviews POC results and confirms quality:
 | Final report | `data/photo-pipeline/photo_tag_report.md` |
 | IES root | `/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/` |
 
-## Calendar Pull Command
+## Calendar Pull
 
-```bash
-cd /Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES
-bridge/send-to-desktop.sh "Pull all Outlook calendar events from the last 12 months. For each event return: date (YYYY-MM-DD), start time (HH:MM), end time (HH:MM), title, location (if any), and attendees (names only). Format as JSON array. Save the result to: /Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/data/photo-pipeline/calendar-events.json"
-```
+Use `mcp__claude_ai_Microsoft_365__outlook_calendar_search` to pull all Outlook calendar events from the last 12 months. For each event capture: date (YYYY-MM-DD), start time (HH:MM), end time (HH:MM), title, location (if any), and attendees (names only). Format as JSON array and save to `data/photo-pipeline/calendar-events.json`.
 <!-- personal:end -->

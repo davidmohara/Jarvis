@@ -85,7 +85,7 @@ Prefer the OmniFocus MCP server (`mcp__omnifocus__*`) for all READ operations. F
 
 ## Calendar
 
-Prefer the Microsoft 365 MCP connector (`mcp__claude_ai_Microsoft_365__outlook_calendar_search`) for calendar pulls. Fall back to the Desktop bridge only when M365 MCP is unavailable.
+Prefer the Microsoft 365 MCP connector (`mcp__claude_ai_Microsoft_365__outlook_calendar_search`) for calendar pulls.
 
 ## Obsidian
 

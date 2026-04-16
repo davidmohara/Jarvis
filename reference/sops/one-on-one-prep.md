@@ -10,7 +10,7 @@
 
 ## Step 1: Identify the Meeting
 
-Gather from calendar (via bridge if needed):
+Gather from calendar (via M365 MCP):
 - **Who**: Full name of the person
 - **When**: Date, time, duration
 - **Where**: Teams, in-person, phone
@@ -22,23 +22,18 @@ Pull from the last 2 weeks (since the previous 1:1) across these sources:
 
 | Source | Method | What to Look For |
 |--------|--------|-------------------|
-| Email threads | Bridge → Desktop (M365 MCP) | Direct exchanges, forwarded items, action requests |
-| Calendar | Bridge → Desktop (M365 MCP) | Shared meetings, upcoming events involving both |
-| Teams messages | Bridge → Desktop (M365 MCP) | Chat threads, channel mentions |
+| Email threads | M365 MCP | Direct exchanges, forwarded items, action requests |
+| Calendar | M365 MCP | Shared meetings, upcoming events involving both |
+| Teams messages | M365 MCP | Chat threads, channel mentions |
 | OmniFocus | osascript (Code) | Tasks tagged with person's name, delegated items |
 | Obsidian vault | MCP (Code) | Person files, project notes, previous prep briefs |
 | Previous prep brief | Obsidian `zzClaude/Cowork/` | Last brief's open items and talking points |
 
-**Bridge request template for data gathering:**
-```
-Search David's email, calendar, and Teams for all interactions with [Person Name]
-from [2 weeks ago date] to [today]. Return:
-- Email threads (subject, date, summary of exchange, any open questions)
-- Calendar events they both attended or are both attending in next 2 weeks
-- Teams messages (direct chat threads, key content)
-Exclude: "Come Together", "Sales 2.0", "Sales & Recruiting Meeting",
-"Improving Dallas Scrum", "Improving Daily Bench Report"
-```
+**M365 MCP search scope:**
+- Email threads with [Person Name] from [2 weeks ago] to today
+- Calendar events both attended or are both attending in next 2 weeks
+- Teams direct messages and channel threads
+- Exclude: "Come Together", "Sales 2.0", "Sales & Recruiting Meeting", "Improving Dallas Scrum", "Improving Daily Bench Report"
 
 ## Step 3: Assemble the Brief
 

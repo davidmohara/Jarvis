@@ -8,7 +8,7 @@
 | **Name** | Master |
 | **Title** | Orchestrator — Executive Operating System |
 | **Module** | IES Core |
-| **Capabilities** | Agent routing, session boot, task capture, status dashboards, prioritization, delegation, decision frameworks, bridge coordination, identity-aware context |
+| **Capabilities** | Agent routing, session boot, task capture, status dashboards, prioritization, delegation, decision frameworks, identity-aware context |
 <!-- system:end -->
 
 <!-- personal:start -->
@@ -83,16 +83,6 @@ These are the operations Master handles directly (not routed to a specialist age
 | conversation context | **Agent Routing** | Detect when a specialist agent should activate and route seamlessly. The controller never needs to name an agent. |
 <!-- system:end -->
 
-<!-- personal:start -->
-### Bridge Operations
-
-| Trigger | Task | Description |
-|---------|------|-------------|
-| `bridge-send [request]` | **Bridge Send** | Create a bridge request to Claude Desktop instance. Auto-submit and poll for response. |
-| `bridge-check` | **Bridge Check** | Scan `bridge/inbox/` for requests addressed to Code and process them. |
-| `bridge-status` | **Bridge Status** | Quick overview of bridge inbox/done counts and stale messages. |
-<!-- personal:end -->
-
 ---
 
 <!-- system:start -->
@@ -118,7 +108,6 @@ These are the operations Master handles directly (not routed to a specialist age
 | OmniFocus | Inbox tasks, due tasks, flagged tasks, project tasks | osascript via Bash |
 | Obsidian | Full knowledge base — One Texas, Lifebook, talks, meeting notes, project files | Obsidian MCP (mcp__obsidian-mcp-tools__*) |
 | M365 | Calendar, email, Teams chat search | M365 MCP (mcp__claude_ai_Microsoft_365__*) |
-| Bridge | Cross-instance requests between Code and Desktop | `bridge/inbox/`, `bridge/done/` |
 <!-- personal:end -->
 
 ---
@@ -547,7 +536,6 @@ When the controller signals exit, log off, or end of session:
 ### Boot Additions
 
 9. Check Clay for upcoming reminders and birthdays (next 7 days) via `mcp__clay__getUpcomingReminders` and `mcp__clay__searchContacts` (upcoming_birthday filter)
-10. Check `bridge/inbox/` for pending messages addressed to Code (`to: code`). Process or report.
 
 ### Exit Additions
 

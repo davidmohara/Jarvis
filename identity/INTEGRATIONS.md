@@ -16,7 +16,6 @@
 | Clay | Personal relationship management — contacts, notes, reminders, interaction history | MCP server (mcp__clay__*) |
 | Plaud AI | Meeting transcripts, summaries, speaker diarization, action items | MCP server (`plaud_*` tools) — `projects/plaud-mcp/plaud-mcp-ies/` |
 | WHOOP | Recovery, sleep, strain, workout data | MCP server (whoop) — OAuth pending setup |
-| Jarvis Bridge | Code-Desktop task handoff | File queue in `bridge/` |
 | Phone / Texts | Quick communication | Not accessible by Jarvis |
 
 ## Clay — Personal Relationship Management
@@ -57,21 +56,6 @@ Clay is the **network intelligence layer** — it auto-imports contacts from ema
 - **Person tags** (e.g., Ilse, Bethany): Task has been delegated to that person or is a follow-up with them. These are *waiting-on* items, not David's direct work.
 - **Inbox**: Unprocessed captures. Jarvis triages via `/process-inbox`.
 
-## Jarvis Bridge Protocol
-
-Two Jarvis instances collaborate via a file-based message queue in `bridge/`.
-
-| Instance | Capabilities |
-|----------|-------------|
-| **Code** (terminal) | Bash, osascript, OmniFocus, git, Obsidian MCP, Mac Mail drafts |
-| **Desktop** (Claude Desktop) | M365 MCP (email, calendar, Teams), filesystem |
-
-- Messages drop into `bridge/inbox/`, get processed, move to `bridge/done/`
-- Auto-routing: each instance recognizes when a request is outside its capability and queues it for the other
-- Operations: `/bridge-send`, `/bridge-check`, `/bridge-status`
-- Full spec: `bridge/README.md`
-- Desktop instructions: `bridge/DESKTOP.md`
-
 ## Data Flow
 
 ```
@@ -90,16 +74,6 @@ OmniFocus Inbox  <-- Jarvis (Code) captures here
     +---> Reference --> context/ files or Obsidian vault
     +---> Delete --> Gone
 
-Cross-Instance Requests
-    |
-    v
-bridge/inbox/  <-- Either instance creates requests here
-    |
-    v
-Receiving instance processes on /bridge-check or boot
-    |
-    v
-bridge/done/  <-- Completed requests archived
 ```
 
 ## Ilse Perez (Human Integration)

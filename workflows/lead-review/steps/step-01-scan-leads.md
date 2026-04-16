@@ -25,7 +25,9 @@ Read `My Leads.xlsx` and identify all entries where "Passed To" is blank, empty,
    - Parse all rows from the Leads sheet.
 
 2. **Identify unassigned leads:**
-   - Filter for rows where "Passed To" is blank, empty, null, or contains `---`.
+   - Filter for rows where "Passed To" is blank, empty, or null.
+   - **`---` means the lead is dead — no handoff, no follow-up needed. Skip these entirely.**
+   - Only surface leads where "Passed To" is genuinely blank/empty (no value entered).
 
 3. **Determine post-call status for each unassigned lead:**
    - **Check calendar for a PAST meeting** with the lead company:

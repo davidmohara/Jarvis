@@ -48,12 +48,6 @@ my-os/
 │   ├── weekly/_template.md         → Weekly review template
 │   ├── monthly/_template.md        → Monthly review template
 │   └── quarterly/_template.md      → Quarterly review template
-├── bridge/
-│   ├── README.md                  → Bridge protocol spec (both instances read this)
-│   ├── DESKTOP.md                 → Self-contained instructions for Claude Desktop instance
-│   ├── _template.md               → Message template with frontmatter
-│   ├── inbox/                     → Pending requests between instances
-│   └── done/                      → Completed requests (archived)
 ├── workflows/
 │   ├── morning-briefing/           → Chief: calendar, tasks, context → structured briefing
 │   ├── daily-review/               → Chief: capture, tomorrow prep, write review
@@ -466,7 +460,7 @@ These are the core operations the system supports. The controller invokes them c
 <!-- personal:end -->
 2. Read identity files (`identity/MEMORY.md`, `identity/GOALS_AND_DREAMS.md`, `identity/RESPONSIBILITIES.md`, `identity/AUTOMATION.md`, `identity/MISSION_CONTROL.md`) — know who David is and what you handle.
 3. Read `context/quarterly-objectives.md` — know the current rocks.
-4. **Pull live calendar** — use the Microsoft 365 MCP connector (`mcp__claude_ai_Microsoft_365__outlook_calendar_search`) for today's events and the next 7 days. Fall back to the Desktop bridge (`bridge/send-to-desktop.sh`) only if M365 MCP is unavailable. **Do not use static file content for calendar data — always pull live.**
+4. **Pull live calendar** — use the Microsoft 365 MCP connector (`mcp__claude_ai_Microsoft_365__outlook_calendar_search`) for today's events and the next 7 days. **Do not use static file content for calendar data — always pull live.**
 5. Get OmniFocus inbox tasks via osascript — note any unprocessed items.
 6. Read `delegations/tracker.md` — note anything overdue.
 <!-- personal:start -->
@@ -498,9 +492,6 @@ These are the core operations the system supports. The controller invokes them c
      - Update `training/state/progress.json` nudge fields.
    - If no nudge is due, show only the progress bar (if enabled).
    - **Toggle**: If the user says "hide training progress" or "turn off the training bar," set `show_progress_bar: false` in `training/state/config.json`. If they say "show training progress," set it back to `true`.
-<!-- personal:start -->
-11. Check `bridge/inbox/` for any messages addressed to Code (`to: code`). Process them or report what's pending.
-<!-- personal:end -->
 <!-- personal:start -->
 10. **Transcript ingest (Plaud + Teams)**: Trigger Knox for both transcript sources:
     - **Plaud**: Check `~/Downloads/transcript-staging/` for pre-fetched Plaud transcripts. Process any new recordings into Obsidian (transcript + summary + action items → tagged markdown, O'Hara action items → OmniFocus). See `skills/plaud-transcripts/SKILL.md`.
@@ -786,72 +777,6 @@ When David asks Jarvis to create a task (any context — conversation, follow-up
 
 ---
 
-<!-- personal:start -->
-### Bridge Send
-
-**Trigger**: "bridge send [request]", or automatically when David asks for something outside Code's capabilities
-
-**Purpose**: Create a bridge request to the other Jarvis instance (Desktop).
-
-**Steps**:
-1. Determine which instance should handle it using the capability map in `bridge/README.md`.
-2. Generate filename: `YYYYMMDD-HHMMSS-code-{slug}.md` (use current timestamp).
-3. Create the file in `bridge/inbox/` using `bridge/_template.md` format:
-   - Set `from: code`, `to: desktop`, appropriate `category` and `priority`.
-   - Fill in Request and Context sections with enough detail for Desktop to act independently.
-4. Submit to Desktop automatically:
-   ```bash
-   bridge/send-to-desktop.sh "Boot up. Then check bridge/inbox/ for pending requests addressed to desktop. Execute each one, fill the Response section, set status to done, and move the file to bridge/done/."
-   ```
-5. Poll for the response — run in background, check every 15 seconds:
-   ```bash
-   # Check if file moved to done/ or status changed to done
-   while [ ! -f "bridge/done/FILENAME" ]; do sleep 15; done
-   ```
-6. Once the file appears in `bridge/done/`, read the `## Response` section and report results to David.
-
-**Notes**: This also triggers automatically when David asks for something outside Code's capabilities (email search, calendar lookup, Teams). No need to wait for the explicit command — just route it and confirm. The entire round-trip is hands-off: create request → submit to Desktop → poll → read response → report.
-
----
-
-### Bridge Check
-
-**Trigger**: "bridge check", "check bridge", or automatically during boot
-
-**Purpose**: Scan the bridge inbox for requests addressed to this instance and process them.
-
-**Steps**:
-1. List all files in `bridge/inbox/`.
-2. Read each file. Filter for `to: code` messages.
-3. For each matching request:
-   - Execute the request using available tools (OmniFocus, osascript, git, Obsidian, etc.).
-   - Fill in the `## Response` section with results.
-   - Set `status: done` in frontmatter.
-   - Move the file from `bridge/inbox/` to `bridge/done/`.
-4. Report what was processed and results.
-5. If no messages are pending, report "Bridge inbox clear."
-
----
-
-### Bridge Status
-
-**Trigger**: "bridge status"
-
-**Purpose**: Quick overview of bridge state.
-
-**Steps**:
-1. Count files in `bridge/inbox/` (exclude `.gitkeep`).
-2. Count files in `bridge/done/` (exclude `.gitkeep`).
-3. Flag any inbox messages older than 24 hours as stale.
-4. Report:
-
-```
-## Bridge Status
-- Inbox: X pending (Y for code, Z for desktop)
-- Done: X completed
-- Stale: [list any >24h old with filename and age]
-```
-<!-- personal:end -->
 
 ---
 

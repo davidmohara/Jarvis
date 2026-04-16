@@ -26,12 +26,12 @@ Pull from all available sources:
 
 | Source | Method | What to Look For |
 |--------|--------|-------------------|
-| Email threads | Bridge → Desktop (M365 MCP) | Partner correspondence, account discussions, intro emails |
-| Calendar | Bridge → Desktop (M365 MCP) | Previous meetings, upcoming shared events |
-| Teams messages | Bridge → Desktop (M365 MCP) | Chat threads with Ehren, Nada, Lowell, or partner contacts |
+| Email threads | M365 MCP | Partner correspondence, account discussions, intro emails |
+| Calendar | M365 MCP | Previous meetings, upcoming shared events |
+| Teams messages | M365 MCP | Chat threads with Ehren, Nada, Lowell, or partner contacts |
 | OmniFocus | osascript (Code) | Tasks related to partner, delegated follow-ups |
 | Obsidian vault | MCP (Code) | Previous partner prep docs, project notes |
-| CRM / Account data | Bridge → Desktop (Chrome) | Active accounts, pipeline, account owners |
+| CRM / Account data | M365 MCP (Dynamics) | Active accounts, pipeline, account owners |
 | Partner's account list | Email or shared doc | Their target/active accounts for overlap analysis |
 
 **Key data to collect:**
