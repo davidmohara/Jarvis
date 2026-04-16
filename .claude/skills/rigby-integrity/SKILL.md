@@ -228,6 +228,32 @@ To determine workflow owner for a step file: read the parent `workflow.md`'s `ag
 Add `model: <value>` to the frontmatter block. Do NOT change an existing `model:` value.
 
 **Finding type:** AUTO-FIX
+
+---
+
+#### Rule 10: Delegation Authority Expiry
+
+`identity/AUTOMATION.md` declares what agents are pre-authorized to do autonomously. It must be reviewed on a regular cadence to catch scope drift.
+
+**Check:**
+1. Read `identity/AUTOMATION.md`
+2. Extract the `review-by:` field from the YAML frontmatter at the top of the file
+3. Compare against today's date
+
+**Flag — `review-by` date is in the past:**
+```
+AUTOMATION.md authority review is overdue.
+review-by: {date} ({N} days ago)
+Action: Review standing delegations, update last-reviewed and review-by dates.
+```
+
+**Flag — frontmatter is missing:**
+```
+AUTOMATION.md has no governance header (last-reviewed / review-by).
+Action: Add frontmatter block with today's date and a 90-day review-by.
+```
+
+**Finding type:** FLAG (updating delegation authority requires human judgment — no auto-fix)
 <!-- personal:end -->
 
 <!-- system:start -->

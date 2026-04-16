@@ -1,3 +1,8 @@
+---
+last-reviewed: 2026-04-15
+review-by: 2026-07-15
+---
+
 # Automation — What Jarvis Handles
 
 <!-- system:start -->

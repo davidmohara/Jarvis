@@ -1,0 +1,74 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git *)",
+      "Bash(python3 *)",
+      "Bash(python *)",
+      "Bash(ls*)",
+      "Bash(find *)",
+      "Bash(cat *)",
+      "Bash(mv *)",
+      "Bash(cp *)",
+      "Bash(rm *)",
+      "Bash(mkdir *)",
+      "Bash(chmod *)",
+      "Bash(stat *)",
+      "Bash(echo *)",
+      "Bash(wc *)",
+      "Bash(head *)",
+      "Bash(tail *)",
+      "Bash(sort *)",
+      "Bash(grep *)",
+      "Bash(rg *)",
+      "Bash(awk *)",
+      "Bash(sed *)",
+      "Bash(osascript *)",
+      "Bash(open *)",
+      "Bash(say *)",
+      "Bash(curl *)",
+      "Bash(node *)",
+      "Bash(npm *)",
+      "Bash(brew *)",
+      "Bash(which *)",
+      "Bash(gh *)",
+      "Bash(cat <<*)",
+      "Edit(*)",
+      "Write(*)",
+      "Read(*)",
+      "Glob(*)",
+      "Grep(*)",
+      "WebFetch(*)",
+      "WebSearch(*)",
+      "mcp__obsidian-mcp-tools__*",
+      "mcp__clay__*",
+      "mcp__comet-bridge__*",
+      "mcp__playwright__*",
+      "mcp__sequential-thinking__*",
+      "mcp__whoop__*",
+      "mcp__claude_ai_Microsoft_365__*",
+      "mcp__claude_ai_Clay__*",
+      "mcp__claude_ai_Context7__*"
+    ],
+    "deny": [
+      "Bash(git push --force*)",
+      "Bash(git push -f *)",
+      "Bash(git reset --hard*)",
+      "Bash(git clean -f*)",
+      "Bash(rm -rf /*)",
+      "Bash(rm -fr /*)"
+    ]
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash '/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/.claude/hooks/pre-tool-use.sh'"
+          }
+        ]
+      }
+    ]
+  }
+}
