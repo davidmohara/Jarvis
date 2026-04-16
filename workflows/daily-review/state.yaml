@@ -1,10 +1,15 @@
 ---
 workflow: daily-review
 agent: chief
-status: in-progress
+status: complete
 session-started: "2026-04-15T00:00:00"
 session-id: chief-2026-04-15-auto
 current-step: step-auto
 original-request: "auto"
-accumulated-context: {}
+accumulated-context:
+  narrative-title: "2026-04-14 Closing the Regional Board, Opening New Lanes"
+  narrative-path: "reviews/daily/auto-2026-04-14.md"
+  omnifocus-status: "unavailable (3 timeouts)"
+  obsidian-status: "disabled — local fallback used"
+  calendar-events: 11
 ---

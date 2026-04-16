@@ -1,8 +1,13 @@
 ---
-status: in-progress
+status: complete
 started-at: "2026-04-15T00:00:00"
-completed-at: ~
-outputs: {}
+completed-at: "2026-04-15T00:05:00"
+outputs:
+  narrative-title: "2026-04-14 Closing the Regional Board, Opening New Lanes"
+  narrative-path: "reviews/daily/auto-2026-04-14.md"
+  routing-note: "Obsidian MCP disabled — written to local fallback"
+  omnifocus-status: "unavailable (3 timeouts)"
+  calendar-events: 11
 model: sonnet
 ---
 
