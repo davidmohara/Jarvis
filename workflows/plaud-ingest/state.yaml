@@ -1,9 +1,9 @@
 ---
 workflow: plaud-ingest
 agent: knox
-status: in-progress
-session-started: "2026-04-16T14:00:00Z"
-session-id: pi-20260416-002
+status: not-started
+session-started: ~
+session-id: ~
 current-step: step-01
 original-request: "Run plaud-ingest for April 14-16 recordings not yet in vault"
 accumulated-context:
