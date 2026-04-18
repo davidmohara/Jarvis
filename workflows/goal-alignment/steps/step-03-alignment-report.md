@@ -71,7 +71,7 @@ model: opus
    - Prioritize recommendations by goal importance (annual goals > quarterly rocks > nice-to-have)
 
 3. **Write alignment check to knowledge layer.**
-   - Create a knowledge layer entry in `context/projects/`:
+   - Create a knowledge layer entry in `memory/episodic/projects/`:
      - Filename: `YYYY-MM-DD-goal-alignment-check.md`
      - YAML frontmatter:
        ```yaml

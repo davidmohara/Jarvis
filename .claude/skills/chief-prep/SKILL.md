@@ -57,7 +57,7 @@ Output: One brief per meeting, ordered chronologically. Each scannable in under 
 - **Web**: WebSearch, WebFetch tools
 - **Files**: Read, Write, Edit, Glob, Grep tools
 - **Delegation tracker**: `delegations/tracker.md`
-- **Quarterly objectives**: `context/quarterly-objectives.md`
+- **Quarterly objectives**: `memory/personal/quarterly-objectives.md`
 <!-- personal:end -->
 
 <!-- system:start -->

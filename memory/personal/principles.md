@@ -1,6 +1,6 @@
 ---
 type: personal
-subject: "principles"
+subject: "Principles"
 last-updated: 2026-04-18
 promoted: never
 ---

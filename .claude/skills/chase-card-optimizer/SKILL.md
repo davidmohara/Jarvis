@@ -132,7 +132,7 @@ The optimization guide references `amex-biz-plat` as best card for several categ
 - **Task management**: OmniFocus via osascript (Bash tool)
 - **Web**: WebSearch, WebFetch tools — for current offer research
 - **Files**: Read, Write, Edit, Glob, Grep tools
-- **Quarterly objectives**: `context/quarterly-objectives.md`
+- **Quarterly objectives**: `memory/personal/quarterly-objectives.md`
 
 ## Output Style
 

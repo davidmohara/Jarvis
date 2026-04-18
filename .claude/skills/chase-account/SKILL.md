@@ -65,7 +65,7 @@ Output: Single-page brief. End with "Here's the play" — 3 specific next action
 - **Web**: WebSearch, WebFetch tools
 - **Files**: Read, Write, Edit, Glob, Grep tools
 - **Delegation tracker**: `delegations/tracker.md`
-- **Quarterly objectives**: `context/quarterly-objectives.md`
+- **Quarterly objectives**: `memory/personal/quarterly-objectives.md`
 <!-- personal:end -->
 
 <!-- system:start -->

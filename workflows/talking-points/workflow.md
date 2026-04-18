@@ -44,7 +44,7 @@ model: sonnet
 ### Paths
 
 - `voice_file` = `{project-root}/identity/VOICE.md`
-- `knowledge_layer` = `{project-root}/context/`
+- `knowledge_layer` = `{project-root}/memory/`
 <!-- system:end -->
 
 <!-- personal:start -->

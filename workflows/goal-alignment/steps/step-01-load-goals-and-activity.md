@@ -39,7 +39,7 @@ model: opus
    - For each task capture: title, completion date, tags, any goal references noted in the task
 
 3. **Pull knowledge layer entries** (last 14 calendar days).
-   - Search `context/` directories for entries with `date` within the last 14 days
+   - Search `memory/episodic/` directories for entries with `date` within the last 14 days
    - For each entry capture: type, subject, date, tags, related-entities, brief content summary
 
 4. **Store results** in working memory:

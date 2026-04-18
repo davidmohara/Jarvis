@@ -28,7 +28,7 @@ model: sonnet
 
 | Source | What to Pull | Access Method |
 |--------|-------------|---------------|
-| Quarterly objectives | Rock status and progress | Read context/quarterly-objectives.md |
+| Quarterly objectives | Rock status and progress | Read memory/personal/quarterly-objectives.md |
 | Delegation tracker | All active delegations, overdue items | Read delegations/tracker.md |
 | Task management | Inbox count, flagged items, items > 7 days old | Task management API |
 | Calendar | This week's meetings (what happened), next week's meetings (what's coming) | M365 MCP |

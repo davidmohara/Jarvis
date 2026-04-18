@@ -28,13 +28,13 @@ model: opus
 | Source | What to Pull | Access Method |
 |--------|-------------|---------------|
 | Task management | All initiative entries — status, owners, next actions, blockers, dependencies | Read `tasks/initiatives/` |
-| Knowledge layer | Context entries for each initiative | Knowledge base API — `context/projects/` |
+| Knowledge layer | Context entries for each initiative | Knowledge base API — `memory/episodic/projects/` |
 | Cross-agent | Revenue context from Chase for revenue-impacting initiatives | Cross-agent handoff pattern |
 
 ### Paths
 
 - `initiatives_dir` = `{project-root}/tasks/initiatives/`
-- `knowledge_layer_projects` = `{project-root}/context/projects/`
+- `knowledge_layer_projects` = `{project-root}/memory/episodic/projects/`
 
 ### Initiative Status Values (from shared-definitions.md)
 

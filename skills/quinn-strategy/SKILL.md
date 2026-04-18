@@ -191,7 +191,7 @@ Follow this progression. Read the room — but this is the natural arc:
 - **Email drafts**: Mac Mail via AppleScript (Bash tool)
 - **Web**: WebSearch, WebFetch tools
 - **Files**: Read, Write, Edit, Glob, Grep tools
-- **Quarterly objectives**: `context/quarterly-objectives.md`
+- **Quarterly objectives**: `memory/personal/quarterly-objectives.md`
 <!-- personal:end -->
 
 <!-- system:start -->

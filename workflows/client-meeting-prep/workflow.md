@@ -35,7 +35,7 @@ model: sonnet
 
 ### Paths
 
-- `quarterly_objectives` = `{project-root}/context/quarterly-objectives.md`
+- `quarterly_objectives` = `{project-root}/memory/personal/quarterly-objectives.md`
 - `delegation_tracker` = `{project-root}/delegations/tracker.md`
 
 ### Input

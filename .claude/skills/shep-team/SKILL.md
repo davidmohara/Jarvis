@@ -57,7 +57,7 @@ Output: Team health dashboard. End with "The person who needs you most right now
 - **Web**: WebSearch, WebFetch tools
 - **Files**: Read, Write, Edit, Glob, Grep tools
 - **Delegation tracker**: `delegations/tracker.md`
-- **Quarterly objectives**: `context/quarterly-objectives.md`
+- **Quarterly objectives**: `memory/personal/quarterly-objectives.md`
 <!-- personal:end -->
 
 <!-- system:start -->

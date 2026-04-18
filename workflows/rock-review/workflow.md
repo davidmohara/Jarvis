@@ -35,7 +35,7 @@ model: opus
 ### Paths
 
 - `goals_and_dreams` = `{project-root}/identity/GOALS_AND_DREAMS.md`
-- `knowledge_layer` = `{project-root}/context/`
+- `knowledge_layer` = `{project-root}/memory/`
 - `initiatives_dir` = `{project-root}/tasks/initiatives/`
 
 ### Rock Status Thresholds

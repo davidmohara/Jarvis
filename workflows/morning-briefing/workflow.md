@@ -37,7 +37,7 @@ model: sonnet
 
 - `identity_path` = `{project-root}/identity/`
 - `delegation_tracker` = `{project-root}/delegations/tracker.md`
-- `quarterly_objectives` = `{project-root}/context/quarterly-objectives.md`
+- `quarterly_objectives` = `{project-root}/memory/personal/quarterly-objectives.md`
 <!-- system:end -->
 
 <!-- personal:start -->

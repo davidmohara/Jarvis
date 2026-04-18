@@ -63,7 +63,7 @@ model: sonnet
 
 3. **Read supporting context** (read-only):
    - `{project-root}/delegations/tracker.md` — note any delegations that appear newly overdue
-   - `{project-root}/context/quarterly-objectives.md` — current rocks for alignment framing
+   - `{project-root}/memory/personal/quarterly-objectives.md` — current rocks for alignment framing
    - Yesterday's review at `{project-root}/reviews/daily/YYYY-MM-DD.md` (yesterday's date) — if it exists, pull the top 3 priorities that were set for yesterday
 
 4. **Synthesize the narrative:**

@@ -29,14 +29,14 @@ model: opus
 |--------|-------------|---------------|
 | Goals and Dreams | Annual and quarterly goals / rocks | Read `identity/GOALS_AND_DREAMS.md` |
 | Task management | Completed tasks in last 14 days | Task management API — `tasks/todos/`, `tasks/delegations/` |
-| Knowledge layer | Meeting notes, decisions, interactions in last 14 days | Knowledge base API — `context/` |
+| Knowledge layer | Meeting notes, decisions, interactions in last 14 days | Knowledge base API — `memory/` |
 
 ### Paths
 
 - `goals_and_dreams` = `{project-root}/identity/GOALS_AND_DREAMS.md`
 - `todos_dir` = `{project-root}/tasks/todos/`
 - `delegations_dir` = `{project-root}/tasks/delegations/`
-- `knowledge_layer` = `{project-root}/context/`
+- `knowledge_layer` = `{project-root}/memory/`
 
 ### Analysis Window
 

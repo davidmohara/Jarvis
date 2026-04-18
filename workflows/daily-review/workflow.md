@@ -30,12 +30,12 @@ model: sonnet
 | Task management | Tasks completed today, tasks created today, inbox state | Task management API |
 | Calendar | What meetings happened today | M365 MCP |
 | Delegation tracker | Any delegations completed or created today | Read delegations/tracker.md |
-| Quarterly objectives | Current rocks for alignment check | Read context/quarterly-objectives.md |
+| Quarterly objectives | Current rocks for alignment check | Read memory/personal/quarterly-objectives.md |
 
 ### Paths
 
 - `delegation_tracker` = `{project-root}/delegations/tracker.md`
-- `quarterly_objectives` = `{project-root}/context/quarterly-objectives.md`
+- `quarterly_objectives` = `{project-root}/memory/personal/quarterly-objectives.md`
 - `daily_review_output` = `{project-root}/reviews/daily/YYYY-MM-DD.md`
 - `daily_review_template` = `{project-root}/reviews/daily/_template.md`
 - `morning_briefing` = `{project-root}/reviews/daily/YYYY-MM-DD.md` (if exists, for cross-check)

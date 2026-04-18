@@ -53,7 +53,7 @@ Harper accepts source material in any of these formats:
 ### Paths
 
 - `voice_file` = `{project-root}/identity/VOICE.md`
-- `knowledge_layer` = `{project-root}/context/`
+- `knowledge_layer` = `{project-root}/memory/`
 <!-- system:end -->
 
 <!-- personal:start -->

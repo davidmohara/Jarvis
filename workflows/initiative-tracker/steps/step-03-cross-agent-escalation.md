@@ -90,7 +90,7 @@ handoff:
    ```
 
 6. **Persist Chase escalation to knowledge layer.**
-   - For each escalated initiative, write a knowledge layer entry to `context/projects/`:
+   - For each escalated initiative, write a knowledge layer entry to `memory/episodic/projects/`:
      - Filename: `YYYY-MM-DD-chase-escalation-[initiative-id].md`
      - YAML frontmatter:
 

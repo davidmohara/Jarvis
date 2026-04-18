@@ -29,7 +29,7 @@ model: sonnet
 
 ## CONTEXT BOUNDARIES
 
-- Review only the current quarter's rocks from `context/quarterly-objectives.md`.
+- Review only the current quarter's rocks from `memory/personal/quarterly-objectives.md`.
 - Cross-reference with this week's daily reviews (from step 01) to identify rock-related activity.
 - Do not introduce new rocks or suggest changes here. That happens in step 06 if needed.
 - Do not deep-dive into project plans. This is a status check, not a planning session.
@@ -41,7 +41,7 @@ model: sonnet
 ### Sequence
 
 1. **Load quarterly objectives.**
-   - Read `context/quarterly-objectives.md`.
+   - Read `memory/personal/quarterly-objectives.md`.
    - For each rock, capture: name, key results, current status, last update date.
 
 2. **Cross-reference activity this week.**

@@ -47,7 +47,7 @@ model: sonnet
 
 2. **Count inbox items.** Store the total. This is the starting number for the final report.
 
-3. **Load quarterly objectives** — read `context/quarterly-objectives.md`.
+3. **Load quarterly objectives** — read `memory/personal/quarterly-objectives.md`.
    - Extract the current rocks (name, key results, status).
    - These are the filter for every triage decision in step 02.
 

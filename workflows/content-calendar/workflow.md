@@ -57,7 +57,7 @@ Every content item tracked by Harper has these fields:
 ### Paths
 
 - `tasks_dir` = `{project-root}/tasks/todos/`
-- `knowledge_layer` = `{project-root}/context/`
+- `knowledge_layer` = `{project-root}/memory/`
 <!-- system:end -->
 
 <!-- personal:start -->

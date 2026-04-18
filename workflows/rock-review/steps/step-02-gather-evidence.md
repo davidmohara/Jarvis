@@ -49,7 +49,7 @@ Evidence does NOT include:
    - Count total completed tasks per rock this quarter
 
 2. **Search knowledge layer** for each rock.
-   - Query `context/` directories for entries referencing each rock title or initiative
+   - Query `memory/episodic/` directories for entries referencing each rock title or initiative
    - Include: meeting notes, project updates, decision logs
    - For each match capture: entry type, date, key content summary
    - Identify most recent knowledge layer entry per rock

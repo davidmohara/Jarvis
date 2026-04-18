@@ -61,7 +61,7 @@ model: opus
    ---
 
 2. **Write updated rock status to the knowledge layer.**
-   - Create a new file in `context/projects/` named: `YYYY-MM-DD-HHmmss-rock-review-Q[N]-YYYY.md`
+   - Create a new file in `memory/episodic/projects/` named: `YYYY-MM-DD-HHmmss-rock-review-Q[N]-YYYY.md`
    - Use the knowledge layer entry frontmatter schema:
      ```yaml
      type: project-history
@@ -79,13 +79,13 @@ model: opus
      - Corrective actions recommended
 
 3. **Check for prior rock review in knowledge layer.**
-   - Search `context/projects/` for files matching `rock-review-Q[N]`
+   - Search `memory/episodic/projects/` for files matching `rock-review-Q[N]`
    - If found, compare previous status to current status per rock
    - Note any regressions (e.g., rock moved from on-track to at-risk) in the new entry
    - Note improvements (e.g., blocked rock is now at-risk or on-track)
 
 4. **Confirm knowledge layer write.**
-   - Report: "Rock review written to context/projects/[filename]"
+   - Report: "Rock review written to memory/episodic/projects/[filename]"
 
 ---
 

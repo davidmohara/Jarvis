@@ -28,13 +28,13 @@ model: sonnet
 | Source | What to Pull | Access Method |
 |--------|-------------|---------------|
 | CRM (CRM) | Active opportunities — stage, amount, weighted, age, owner, next step, last activity | CRM via Chrome/M365 auth |
-| Quarterly objectives | Revenue targets, pipeline rocks | Read context/quarterly-objectives.md |
+| Quarterly objectives | Revenue targets, pipeline rocks | Read memory/personal/quarterly-objectives.md |
 | Knowledge layer | Recent client meeting notes, deal context | Knowledge base API |
 | Calendar | Upcoming client meetings this week | M365 MCP |
 
 ### Paths
 
-- `quarterly_objectives` = `{project-root}/context/quarterly-objectives.md`
+- `quarterly_objectives` = `{project-root}/memory/personal/quarterly-objectives.md`
 - `delegation_tracker` = `{project-root}/delegations/tracker.md`
 
 ### Key Metrics

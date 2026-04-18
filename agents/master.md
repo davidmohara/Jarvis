@@ -93,7 +93,7 @@ These are the operations Master handles directly (not routed to a specialist age
 | Identity Files | Controller profile, goals, responsibilities, automation rules | `identity/*.md` |
 | Connector Registry | Active connectors and their capabilities for agent data source resolution | `identity/INTEGRATIONS.md` |
 | System Config | Full operating manual, file map, conventions | `SYSTEM.md` |
-| Quarterly Objectives | Current rocks with status and key results | `context/quarterly-objectives.md` |
+| Quarterly Objectives | Current rocks with status and key results | `memory/personal/quarterly-objectives.md` |
 | Delegation Tracker | All delegated items, owners, due dates, status | `delegations/tracker.md` |
 | Task Management | Inbox items, due tasks, flagged items | Task management API |
 | Calendar | Today's schedule, upcoming meetings | Calendar API |

@@ -18,7 +18,7 @@ model: opus
 ## EXECUTION PROTOCOL
 
 **Agent:** Quinn
-**Input:** `tasks/initiatives/` directory, `context/projects/` knowledge layer
+**Input:** `tasks/initiatives/` directory, `memory/episodic/projects/` knowledge layer
 **Output:** `initiative_registry` — full initiative list with metadata, stored in working memory for step 02
 
 ---
@@ -42,7 +42,7 @@ model: opus
    - Note `last-updated` date or infer from file modification date
 
 2. **Pull knowledge layer context** for each initiative.
-   - Search `context/projects/` for entries whose subject, tags, or related-entities reference the initiative title
+   - Search `memory/episodic/projects/` for entries whose subject, tags, or related-entities reference the initiative title
    - For each match capture: date, type, brief summary
    - Identify most recent knowledge layer entry per initiative
 

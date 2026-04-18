@@ -29,14 +29,14 @@ Assemble a complete weekly review prep document so the controller can walk throu
 ### 1. Load Strategic Context
 
 Read these files for baseline:
-- `context/quarterly-objectives.md` -- current rocks, key results, status
-- `context/vision.md` -- north star for alignment check
+- `memory/personal/quarterly-objectives.md` -- current rocks, key results, status
+- `memory/personal/vision.md` -- north star for alignment check
 - `delegations/tracker.md` -- active delegations with owners and due dates
 - `identity/RESPONSIBILITIES.md` -- what the controller owns vs. delegates
 
 ### 2. Quarterly Rock Assessment
 
-For each rock in `context/quarterly-objectives.md`:
+For each rock in `memory/personal/quarterly-objectives.md`:
 - Calculate weeks remaining in the quarter
 - Check for activity this week: calendar events, emails, OmniFocus completions related to the rock
 - Classify: **on track** / **at risk** / **blocked**

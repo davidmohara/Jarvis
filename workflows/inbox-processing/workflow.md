@@ -28,7 +28,7 @@ model: sonnet
 | Source | What to Pull | Access Method |
 |--------|-------------|---------------|
 | Task management | All inbox tasks (name, note, date created) | Task management API |
-| Quarterly objectives | Current rocks for prioritization | Read context/quarterly-objectives.md |
+| Quarterly objectives | Current rocks for prioritization | Read memory/personal/quarterly-objectives.md |
 | Delegation tracker | Current delegations for context | Read delegations/tracker.md |
 
 ### Disposition Categories

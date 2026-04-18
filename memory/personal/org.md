@@ -1,6 +1,6 @@
 ---
 type: personal
-subject: "org"
+subject: "Org structure"
 last-updated: 2026-04-18
 promoted: never
 ---

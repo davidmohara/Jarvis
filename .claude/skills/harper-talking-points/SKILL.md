@@ -53,7 +53,7 @@ Output: Structured talking points. Designed to be glanced at 5 minutes before th
 - **Web**: WebSearch, WebFetch tools
 - **Files**: Read, Write, Edit, Glob, Grep tools
 - **Delegation tracker**: `delegations/tracker.md`
-- **Quarterly objectives**: `context/quarterly-objectives.md`
+- **Quarterly objectives**: `memory/personal/quarterly-objectives.md`
 <!-- personal:end -->
 
 <!-- system:start -->

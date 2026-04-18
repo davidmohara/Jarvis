@@ -57,7 +57,7 @@ model: sonnet
      - Next step (if defined in CRM)
      - Expected close date
 
-2. **Load quarterly revenue targets** from `{project-root}/context/quarterly-objectives.md`.
+2. **Load quarterly revenue targets** from `{project-root}/memory/personal/quarterly-objectives.md`.
    - Extract the revenue rock / pipeline target for the current quarter
    - Calculate remaining target (target minus closed-won this quarter)
    - Note days remaining in the quarter

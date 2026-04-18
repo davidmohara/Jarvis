@@ -43,7 +43,7 @@ model: sonnet
 ### Sequence
 
 1. **Load context for challenge logic:**
-   - Read `{project-root}/context/quarterly-objectives.md` — know the current rocks
+   - Read `{project-root}/memory/personal/quarterly-objectives.md` — know the current rocks
    - Read `{project-root}/delegations/tracker.md` — check for overdue or due-tomorrow items
    - Pull tomorrow's calendar via M365 MCP — identify meetings that need prep
 

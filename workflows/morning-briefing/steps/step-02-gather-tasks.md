@@ -62,7 +62,7 @@ model: sonnet
    - Identify delegations due this week
    - Note who owns each
 
-6. **Read quarterly objectives** at `{project-root}/context/quarterly-objectives.md`.
+6. **Read quarterly objectives** at `{project-root}/memory/personal/quarterly-objectives.md`.
    - Capture each rock name and current status (1 line each)
    - These anchor the "what matters" frame for the briefing
 

@@ -1,6 +1,6 @@
 ---
 type: personal
-subject: "vision"
+subject: "Vision"
 last-updated: 2026-04-18
 promoted: never
 ---

@@ -1,6 +1,6 @@
 ---
 type: personal
-subject: "quarterly-objectives"
+subject: "Quarterly objectives"
 last-updated: 2026-04-18
 promoted: never
 ---
