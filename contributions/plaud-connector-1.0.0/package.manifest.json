@@ -1,0 +1,98 @@
+{
+  "name": "plaud-connector",
+  "version": "1.0.0",
+  "description": "Plaud.ai recording connector — discovers new recordings, triggers transcription, resolves speakers via calendar, and ingests to the configured knowledge management system",
+  "author": "David O'Hara",
+  "source": "improving",
+  "min_evolution": "1.0.0",
+  "connection": {
+    "type": "mcp",
+    "command": "skills-only",
+    "args": [],
+    "note": "This connector provides skills and workflows only — no dedicated MCP server. It orchestrates existing MCP dependencies (M365, KMS adapter) declared in dependencies.mcp_servers."
+  },
+  "components": [
+    {
+      "name": "plaud-discover",
+      "type": "skill",
+      "files": [
+        "skills/plaud-discover/SKILL.md"
+      ]
+    },
+    {
+      "name": "plaud-trigger",
+      "type": "skill",
+      "files": [
+        "skills/plaud-trigger/SKILL.md"
+      ]
+    },
+    {
+      "name": "plaud-speaker-id",
+      "type": "skill",
+      "files": [
+        "skills/plaud-speaker-id/SKILL.md"
+      ]
+    },
+    {
+      "name": "plaud-transcripts",
+      "type": "skill",
+      "files": [
+        "skills/plaud-transcripts/SKILL.md",
+        "skills/plaud-transcripts/references/vault-conventions.md",
+        "skills/plaud-transcripts/scripts/fetch_plaud.py"
+      ]
+    },
+    {
+      "name": "knox-plaud",
+      "type": "skill",
+      "files": [
+        ".claude/skills/knox-plaud/SKILL.md"
+      ]
+    },
+    {
+      "name": "plaud-ingest",
+      "type": "workflow",
+      "files": [
+        "workflows/plaud-ingest/workflow.md",
+        "workflows/plaud-ingest/state.yaml",
+        "workflows/plaud-ingest/steps/step-01-discover.md",
+        "workflows/plaud-ingest/steps/step-02-trigger-transcription.md",
+        "workflows/plaud-ingest/steps/step-03-identify-speakers.md",
+        "workflows/plaud-ingest/steps/step-04-fetch-staging.md",
+        "workflows/plaud-ingest/steps/step-05-ingest-vault.md"
+      ]
+    }
+  ],
+  "capabilities": [
+    "plaud-recording-ingest"
+  ],
+  "defaults_replaced": {
+    "plaud-recording-ingest": "Provides full Plaud.ai recording pipeline — discovery, transcription triggering, speaker identification, and KMS ingest. Replaces any manual Plaud transcript handling."
+  },
+  "dependencies": {
+    "mcp_servers": [
+      "mcp__claude_ai_Microsoft_365",
+      "mcp__obsidian-mcp-tools"
+    ],
+    "agents": [],
+    "workflows": [],
+    "skills": []
+  },
+  "config_keys": {
+    "kms": {
+      "description": "Knowledge management system target for note ingest",
+      "type": "string",
+      "default": "obsidian",
+      "supported_values": ["obsidian", "filesystem"],
+      "required": false
+    },
+    "dataverse": {
+      "description": "Calendar provider for speaker identification",
+      "type": "string",
+      "default": "m365",
+      "supported_values": ["m365", "google"],
+      "required": false
+    }
+  },
+  "install_notes": "After installing, set 'kms' and 'dataverse' in config/settings.json to match your environment. On first use, run the Chrome login flow documented in skills/plaud-transcripts/SKILL.md to capture your Plaud API token. The fetch script (skills/plaud-transcripts/scripts/fetch_plaud.py) must be accessible on the host Mac."
+}
