@@ -28,11 +28,13 @@ my-os/
 │   ├── INTEGRATIONS.md             → Tools, data flow, Ilse, file locations
 │   ├── SECURITY.md                 → Boundaries, sensitive areas, hard rules
 │   └── MISSION_CONTROL.md          → Execution system, project tracking, the execution gap
-├── context/
-│   ├── vision.md                   → North star, mission, long-term bets
-│   ├── quarterly-objectives.md     → Current quarter's rocks (3-5 max)
-│   ├── principles.md               → Decision-making heuristics & values
-│   └── org.md                      → Org chart, key roles, capacity notes
+├── memory/
+│   ├── personal/                   → User config (vision, objectives, principles, org)
+│   ├── episodic/                   → Event-sourced knowledge (meetings, people, projects, decisions, coaching)
+│   ├── semantic/                   → Dream-cycle-distilled patterns (read-only for agents)
+│   ├── working/                    → Volatile session state (TTL 2 days)
+│   ├── LESSONS.md                  → Global lessons from constraint violations
+│   └── dream.log                   → Dream cycle audit log
 ├── decisions/
 │   └── _template.md                → RAPID decision template
 ├── projects/
@@ -167,34 +169,49 @@ The Knowledge Layer provides persistent storage for everything your agents learn
 
 ### Knowledge Storage Architecture
 
-All knowledge is stored as **markdown files with YAML frontmatter** in the local filesystem:
+All knowledge is stored as **markdown files with YAML frontmatter** in a tiered memory system:
 
 ```
-├── context/
-│   ├── people/          # Contact context and relationship notes
-│   ├── projects/        # Project history and status
-│   ├── meetings/        # Meeting notes and follow-ups
-│   ├── decisions/       # Decision rationale and outcomes
-│   └── coaching/        # Coaching observations and development
-└── documents/
-    ├── inputs/          # Source documents for analysis
-    ├── processed/       # Analyzed documents
-    └── templates/       # Document templates (decision, meeting, etc.)
+memory/
+├── working/              # Volatile task state — TTL 2 days
+├── episodic/             # Event-sourced knowledge (what happened)
+│   ├── meetings/         # Meeting notes and follow-ups
+│   ├── people/           # Contact context and relationship notes
+│   ├── projects/         # Project history and status
+│   ├── decisions/        # Decision rationale and outcomes
+│   ├── coaching/         # Coaching observations and development
+│   └── digests/          # Quarterly compression digests (dream cycle only)
+├── semantic/             # Distilled patterns — written by dream cycle ONLY
+│   ├── relationships/    # Patterns about people and accounts
+│   ├── operational/      # System and process patterns
+│   └── domain/           # Business domain and industry patterns
+├── personal/             # User config — never promoted
+│   ├── org.md
+│   ├── principles.md
+│   ├── quarterly-objectives.md
+│   ├── vision.md
+│   └── PREFERENCES.md
+├── LESSONS.md            # Global lessons from constraint violations
+└── dream.log             # Dream cycle audit log
 ```
+
+**Read priorities at boot:** `personal/` and `semantic/` are always loaded. `episodic/` and `working/` are queried on demand.
+
+**CRITICAL:** `memory/semantic/` is written ONLY by the dream cycle. All other agents read semantic entries but must never write them directly.
 
 ### Knowledge Entry Types
 
-The system supports 5 knowledge entry types:
+The system supports 5 episodic entry types:
 
-1. **meeting-notes** — Notes from meetings, 1:1s, calls → stored in `context/meetings/`
-2. **contact-context** — Relationship history, preferences, insights about people → stored in `context/people/`
-3. **project-history** — Project progress, decisions, learnings → stored in `context/projects/`
-4. **coaching-observation** — Team member development observations → stored in `context/coaching/`
-5. **decision-rationale** — Why decisions were made, options considered → stored in `context/decisions/`
+1. **meeting-notes** — Notes from meetings, 1:1s, calls → stored in `memory/episodic/meetings/`
+2. **contact-context** — Relationship history, preferences, insights about people → stored in `memory/episodic/people/`
+3. **project-history** — Project progress, decisions, learnings → stored in `memory/episodic/projects/`
+4. **coaching-observation** — Team member development observations → stored in `memory/episodic/coaching/`
+5. **decision-rationale** — Why decisions were made, options considered → stored in `memory/episodic/decisions/`
 
 ### Knowledge YAML Frontmatter Schema
 
-Every knowledge entry must include this standardized frontmatter:
+Every episodic entry must include this standardized frontmatter (the `salience` block is managed by the dream cycle):
 
 ```yaml
 ---
@@ -208,6 +225,11 @@ related-entities:
   accounts: [account-name]
   meetings: [meeting-id]
 agent-source: chief | chase | quinn | shep | harper | rigby | master
+salience:
+  score: 0
+  references: []
+  last-promoted-check: YYYY-MM-DD
+  promoted: false
 ---
 ```
 
@@ -225,23 +247,23 @@ Files are named to prevent collisions and enable chronological sorting:
 
 ### Query Patterns for Agents
 
-Agents query the knowledge layer by reading files from the appropriate `context/` directory and examining their frontmatter. There are 5 query patterns:
+Agents query the knowledge layer by reading files from the appropriate `memory/episodic/` directory and examining their frontmatter. There are 5 query patterns:
 
 #### 1. Query by Person
 
 Find all knowledge entries mentioning a specific person.
 
-**How:** Read all files across `context/` subdirectories. Match entries where `related-entities.people` includes the target person name.
+**How:** Read all files across `memory/episodic/` subdirectories. Match entries where `related-entities.people` includes the target person name.
 
 **Use case:** Preparing for a 1:1, understanding relationship history
 
-**Primary directory:** `context/people/` (check others for cross-references)
+**Primary directory:** `memory/episodic/people/` (check others for cross-references)
 
 #### 2. Query by Project
 
 Find all knowledge entries related to a project.
 
-**How:** Read files in `context/projects/` and cross-reference other directories. Match entries where `related-entities.projects` includes the project name.
+**How:** Read files in `memory/episodic/projects/` and cross-reference other directories. Match entries where `related-entities.projects` includes the project name.
 
 **Use case:** Project status review, historical context
 
@@ -249,7 +271,7 @@ Find all knowledge entries related to a project.
 
 Find notes for a specific meeting.
 
-**How:** Read files in `context/meetings/`. Match by filename date or `related-entities.meetings` field.
+**How:** Read files in `memory/episodic/meetings/`. Match by filename date or `related-entities.meetings` field.
 
 **Use case:** Meeting follow-up, action item tracking
 
@@ -257,7 +279,7 @@ Find notes for a specific meeting.
 
 Find knowledge entries containing specific keywords or tags.
 
-**How:** Search across all `context/` subdirectories. Match entries where `tags` array includes the topic OR file content contains the keyword (case-insensitive).
+**How:** Search across all `memory/episodic/` subdirectories. Match entries where `tags` array includes the topic OR file content contains the keyword (case-insensitive).
 
 **Use case:** Thematic research, topic exploration
 
@@ -265,7 +287,7 @@ Find knowledge entries containing specific keywords or tags.
 
 Retrieve most recent knowledge entries.
 
-**How:** List files across `context/` subdirectories, sort by filename (date-prefixed), return the most recent N entries.
+**How:** List files across `memory/episodic/` subdirectories, sort by filename (date-prefixed), return the most recent N entries.
 
 **Use case:** "What's new?", daily briefings, recent activity review
 
@@ -458,16 +480,23 @@ These are the core operations the system supports. The controller invokes them c
    - If rebase has conflicts: surface them to the controller before continuing. Do not auto-resolve.
    - If remote is unreachable: proceed with local files and note "offline — running on local state."
 <!-- personal:end -->
-2. Read identity files (`identity/MEMORY.md`, `identity/GOALS_AND_DREAMS.md`, `identity/RESPONSIBILITIES.md`, `identity/AUTOMATION.md`, `identity/MISSION_CONTROL.md`) — know who David is and what you handle.
-3. Read `context/quarterly-objectives.md` — know the current rocks.
-4. **Pull live calendar** — use the Microsoft 365 MCP connector (`mcp__claude_ai_Microsoft_365__outlook_calendar_search`) for today's events and the next 7 days. **Do not use static file content for calendar data — always pull live.**
-5. Get OmniFocus inbox tasks via osascript — note any unprocessed items.
-6. Read `delegations/tracker.md` — note anything overdue.
+2. **Dream Cycle Check** — read the last entry in `memory/dream.log`:
+   - If the entry date is within the last 8 hours (overnight run):
+     Include a one-line summary in the briefing header: `Dream cycle: {summary field from log}`
+   - If `memory/working/dream-summary-{today}.md` exists:
+     Read it and include key findings in paragraph 3 of the briefing. Delete the file after reading.
+   - If `dream.log` last entry is older than 36 hours:
+     Flag: "Dream cycle has not run in 36+ hours. Check scheduled task."
+3. Read identity files (`identity/MEMORY.md`, `identity/GOALS_AND_DREAMS.md`, `identity/RESPONSIBILITIES.md`, `identity/AUTOMATION.md`, `identity/MISSION_CONTROL.md`) — know who David is and what you handle.
+4. Read `memory/personal/quarterly-objectives.md` — know the current rocks.
+5. **Pull live calendar** — use the Microsoft 365 MCP connector (`mcp__claude_ai_Microsoft_365__outlook_calendar_search`) for today's events and the next 7 days. **Do not use static file content for calendar data — always pull live.**
+6. Get OmniFocus inbox tasks via osascript — note any unprocessed items.
+7. Read `delegations/tracker.md` — note anything overdue.
 <!-- personal:start -->
-7. Check Clay for upcoming reminders and birthdays in the next 7 days via `mcp__clay__getUpcomingReminders` and `mcp__clay__searchContacts` (upcoming_birthday filter).
+8. Check Clay for upcoming reminders and birthdays in the next 7 days via `mcp__clay__getUpcomingReminders` and `mcp__clay__searchContacts` (upcoming_birthday filter).
 <!-- personal:end -->
-8. Check for today's daily review in `reviews/daily/` — has a shutdown been done?
-9. Report a brief status:
+9. Check for today's daily review in `reviews/daily/` — has a shutdown been done?
+10. Report a brief status:
    - Current quarter and rocks (with status)
    - **Today's calendar and next 7 days** (from live Desktop pull)
    - Number of inbox items pending
@@ -650,7 +679,7 @@ When David asks Jarvis to create a task (any context — conversation, follow-up
 
 **Steps**:
 1. Create file: `reviews/weekly/YYYY-Wxx.md` from template.
-2. Read `context/quarterly-objectives.md` — report status on each rock.
+2. Read `memory/personal/quarterly-objectives.md` — report status on each rock.
 3. Read `delegations/tracker.md` — flag anything overdue or stale.
 4. Check OmniFocus inbox via osascript — flag items older than 7 days.
 5. Walk through each section:
@@ -688,14 +717,14 @@ When David asks Jarvis to create a task (any context — conversation, follow-up
 **Steps**:
 1. Create file: `reviews/quarterly/YYYY-Qx.md` from template.
 2. Grade last quarter's rocks.
-3. Review vision and long-term bets (read `context/vision.md`).
+3. Review vision and long-term bets (read `memory/personal/vision.md`).
 4. Walk through lessons, wins, misses.
 5. Facilitate next quarter planning:
    - Brainstorm candidate rocks
    - Apply ICE scoring
    - Narrow to 3-5
    - Define key results for each
-6. Update `context/quarterly-objectives.md` with new rocks.
+6. Update `memory/personal/quarterly-objectives.md` with new rocks.
 
 ---
 
@@ -706,7 +735,7 @@ When David asks Jarvis to create a task (any context — conversation, follow-up
 **Purpose**: Apply the Eisenhower matrix to current items against quarterly rocks.
 
 **Steps**:
-1. Get OmniFocus inbox tasks via osascript and read `context/quarterly-objectives.md`.
+1. Get OmniFocus inbox tasks via osascript and read `memory/personal/quarterly-objectives.md`.
 2. For each item, assess:
    - **Urgent?** (time-sensitive, external deadline)
    - **Important?** (serves a quarterly rock or core value)
@@ -726,7 +755,7 @@ When David asks Jarvis to create a task (any context — conversation, follow-up
 **Purpose**: Quick dashboard view of current state.
 
 **Steps**:
-1. Read `context/quarterly-objectives.md` — list rocks with status.
+1. Read `memory/personal/quarterly-objectives.md` — list rocks with status.
 2. Read `delegations/tracker.md` — count active, flag overdue.
 3. Count OmniFocus inbox tasks via osascript.
 4. Check for most recent daily and weekly review.
@@ -1146,6 +1175,36 @@ Confirm `.gitignore` covers all temp patterns. If a new pattern is discovered, a
 ### 5. Commit
 
 Stage and commit all remaining files. The commit should be clean — no temp artifacts, no misplaced files.
+
+---
+
+## Skill Loading Protocol
+
+### At boot
+Read `skills/_manifest.jsonl` — one pass, all lines. Do NOT pre-load any `SKILL.md` files.
+
+### On any user request or agent task:
+
+1. **KEYWORD MATCH (fast path):**
+   For each entry in `_manifest.jsonl`:
+   If any `trigger_keyword` is a case-insensitive substring of the user request:
+   → Load the full `SKILL.md` from the entry's `path`
+   → Follow its instructions
+
+2. **AGENT ROUTING (fallback):**
+   If no keyword match, determine the owning agent for the request.
+   Find all `_manifest` entries where `owning_agent` == that agent.
+   Evaluate whether any of those skills are relevant to the request.
+   If yes → load the matched `SKILL.md`.
+
+3. **NEITHER PATH MATCHES:**
+   Execute the request without a skill file. This is normal — not all requests need a skill.
+
+### Rules
+- Never load a `SKILL.md` that was not matched by keyword or agent routing.
+- Never pre-load all skills at boot.
+- If multiple skills match, load all of them — they may be complementary.
+- If a skill file is missing from disk, log the error and continue without it.
 
 ---
 

@@ -1,0 +1,12 @@
+{
+  "name": "IES Dream Cycle",
+  "description": "Nightly memory consolidation — compress episodic, promote semantic",
+  "skill": "skills/dream-cycle/SKILL.md",
+  "schedule": "0 3 * * *",
+  "model": "sonnet",
+  "silent": true,
+  "notify_on_complete": false,
+  "surface_at_boot": true,
+  "timeout_minutes": 15,
+  "notes": "Runs at 3:00 AM local time. Chief reads dream.log at boot and surfaces summary if semantic_created > 0 or errors > 0."
+}

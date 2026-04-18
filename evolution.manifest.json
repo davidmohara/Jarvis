@@ -1,7 +1,7 @@
 {
   "manifestVersion": "1.0.0",
-  "systemVersion": "1.0.0",
-  "lastUpdated": "2026-03-02",
+  "systemVersion": "2.0.0",
+  "lastUpdated": "2026-04-18",
   "components": {
     "agents": {
       "version": "1.0.0",
@@ -109,6 +109,28 @@
     }
   },
   "pendingEvolutions": [],
+  "features": {
+    "knowledge-layer": {
+      "version": "2.0.0",
+      "description": "Tiered memory (working/episodic/semantic/personal)",
+      "path": "memory/",
+      "replaces": "context/",
+      "implemented": "2026-04-18"
+    },
+    "dream-cycle": {
+      "version": "1.0.0",
+      "description": "Nightly memory consolidation scheduled task",
+      "path": "skills/dream-cycle/SKILL.md",
+      "schedule": "nightly 03:00",
+      "implemented": "2026-04-18"
+    },
+    "skill-manifest": {
+      "version": "1.0.0",
+      "description": "Progressive disclosure skill loading via _manifest.jsonl",
+      "path": "skills/_manifest.jsonl",
+      "implemented": "2026-04-18"
+    }
+  },
   "appliedEvolutions": [
     {
       "id": "5b830712-192d-42f0-bd1e-65c083ad4278",
