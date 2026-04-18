@@ -344,6 +344,38 @@
     "last_analyzed": null,
     "recurring": []
   },
+  "entries_addendum_2": [
+    {
+      "id": "err-20260417-001",
+      "timestamp": "2026-04-17T00:00:00-05:00",
+      "session": "2026-04-17",
+      "source": "explicit",
+      "agent": "rigby",
+      "category": "data-accuracy",
+      "description": "rigby-package-submit skill used wrong API endpoint: POST /api/contributions instead of POST /api/packages/submit. Also checked permissions at /api/contributions/permissions instead of the correct path. Submission failed with 404 because the endpoint doesn't exist.",
+      "correction": "Correct submission endpoint is api/packages/submit. Permissions check and status check paths likely follow the same pattern.",
+      "failure_mode": "wrong-assumption",
+      "systemic_fix": "Updated rigby-package-submit SKILL.md to use correct endpoint api/packages/submit. Verify all other API paths in the skill use the api/packages/ prefix.",
+      "fix_status": "applied",
+      "severity": "moderate",
+      "related_entries": []
+    },
+    {
+      "id": "err-20260415-004",
+      "timestamp": "2026-04-15T23:16:00-05:00",
+      "session": "2026-04-15-scheduled",
+      "source": "explicit",
+      "agent": "jarvis",
+      "category": "tool-misuse",
+      "description": "Scheduled morning briefing delivered output to session but noted 'Slack delivery unavailable — no Slack MCP connected' instead of using the master-slack skill (.claude/skills/master-slack/SKILL.md) via Desktop Commander. The skill explicitly states: 'ALWAYS use this skill for outbound Slack messages. The Slack MCP connector posts as David and does NOT trigger notifications.' The skill uses Desktop Commander + systems/slack-bot/post.py — not the Slack MCP.",
+      "correction": "Always use master-slack skill (Desktop Commander + post.py) for outbound Slack messages. The Slack MCP is for reading only.",
+      "failure_mode": "protocol-skip",
+      "systemic_fix": "This is a repeat of err-20260324-002. The rule is established. Skill is at .claude/skills/master-slack/SKILL.md. Search .claude/skills/ as well as skills/ when looking for skills — per err-20260327-004.",
+      "fix_status": "applied",
+      "severity": "moderate",
+      "related_entries": ["err-20260324-002", "err-20260327-004"]
+    }
+  ],
   "entries_addendum": [
     {
       "id": "err-20260416-001",

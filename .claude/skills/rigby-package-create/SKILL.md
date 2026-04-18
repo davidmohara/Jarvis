@@ -141,6 +141,143 @@ For each selected component, read its file content and detect external dependenc
 **Skill dependencies** — scan for `skill: NAME` or invoke-skill references:
 - Only record skills NOT already included in the selected components
 
+### 5b. Architectural Compliance Checks
+
+Run these checks on every selected component file before generating the manifest. These are **automatic corrections**, not prompts — apply them and note what was changed in the Step 10 output.
+
+#### KMS-Agnostic Check
+
+Scan all component files for hardcoded knowledge management system bindings:
+- Obsidian-specific: `mcp__obsidian`, `obsidian-mcp-tools`, `vault-conventions`, references to `.md` vault paths assumed to be Obsidian, `append_to_vault`, `create_vault_file`, `get_vault_file`, `patch_vault_file`, `update_active_file`
+- Any other named KMS tool calls (e.g., Notion, Roam)
+
+If found:
+1. Replace hardcoded KMS tool calls with a generic **KMS adapter interface** contract:
+   - Define the required operations: `kms.list`, `kms.read`, `kms.write`, `kms.append`, `kms.exists`
+   - Document that the caller must supply a `kms` config key pointing to a connector that satisfies these operations
+   - The reference implementation (e.g., Obsidian) goes in a comment block, not in the logic path
+2. Add `kms` to `config_keys` in the manifest with `default: "obsidian"` and `supported_values: ["obsidian", "notion", "roam", "logseq"]`
+3. Record: `"Abstracted KMS binding: {original tool} → kms adapter interface"`
+
+If no hardcoded KMS bindings found: skip silently.
+
+#### Dataverse-Aware Calendar/Email Check
+
+Scan all component files for hardcoded calendar or email data source bindings:
+- M365-specific: `mcp__claude_ai_Microsoft_365__outlook_calendar`, `outlook_calendar_search`, `outlook_email_search`, `mcp__claude_ai_Microsoft_365__`
+- Google-specific: `google_calendar`, `mcp__google__calendar`, `gmail`
+- Any UUID-embedded MCP calls (e.g., `mcp__b8c41a14__*`) — these are instance-specific M365 auth tokens
+
+If found:
+1. Replace hardcoded calendar/email tool calls with a **dataverse dispatch table**:
+   ```
+   dataverse: m365  → mcp__claude_ai_Microsoft_365__outlook_calendar_search / outlook_email_search
+   dataverse: google → [google calendar / gmail MCP tool]
+   ```
+   The skill reads the `dataverse` config key at runtime and routes accordingly.
+2. Add `dataverse` to `config_keys` in the manifest with `default: "m365"` and `supported_values: ["m365", "google"]`
+3. Record: `"Abstracted calendar/email binding: {original tool} → dataverse dispatch (m365/google)"`
+
+If no hardcoded calendar/email bindings found: skip silently.
+
+#### Task Manager Check
+
+Scan for hardcoded task management bindings:
+- OmniFocus-specific: `mcp__omnifocus__*`, `tell application "OmniFocus"`, `omnifocus-tasks`
+- AppleScript task patterns targeting any named task app
+
+If found:
+1. Replace with a **task manager adapter interface**: `tasks.create`, `tasks.query`, `tasks.complete`
+2. Add `task_manager` to `config_keys` with `default: "omnifocus"` and `supported_values: ["omnifocus", "todoist", "asana", "things3", "ms-todo"]`
+3. Record: `"Abstracted task manager binding: {original} → task_manager adapter interface"`
+
+#### CRM / Relationship Intelligence Check
+
+Scan for hardcoded CRM bindings:
+- Clay-specific: `mcp__clay__*`, `mcp__cca9d37e__*`, `searchContacts`, `getUpcomingReminders`, `getRecentReminders`
+- HubSpot, Salesforce, or other named CRM tool calls
+
+If found:
+1. Replace with a **crm adapter interface**: `crm.search_contacts`, `crm.get_contact`, `crm.upcoming_reminders`, `crm.recent_interactions`
+2. Add `crm` to `config_keys` with `default: "clay"` and `supported_values: ["clay", "hubspot", "salesforce", "pipedrive", "airtable"]`
+3. Record: `"Abstracted CRM binding: {original} → crm adapter interface"`
+
+#### Notification Channel Check
+
+Scan for hardcoded messaging/notification bindings:
+- Slack channel IDs: string constants matching `C[A-Z0-9]{10}` (e.g., `C0AN2PQNXBR`)
+- Slack user IDs: string constants matching `U[A-Z0-9]{10}` (e.g., `U0ANHV5UXEW`)
+- Hardcoded Slack bot scripts: `systems/slack-bot/post.py`, `master-slack` invocations with channel literals
+- Teams-specific webhook or channel references
+
+If found:
+1. Replace hardcoded channel/user IDs with config references:
+   ```
+   notification_channel: jarvis   → config key: notifications.jarvis_channel_id
+   notification_channel: user_dm  → config key: notifications.user_dm_id
+   ```
+2. Add `notification_channel` to `config_keys` with `default: "slack"` and `supported_values: ["slack", "teams", "discord"]`
+3. Note that channel IDs must be supplied at install time — they cannot have defaults
+4. Record: `"Abstracted notification binding: {original ID} → notification_channel config key"`
+
+#### Meeting Platform Check
+
+Scan for hardcoded meeting platform bindings used in transcript workflows:
+- Teams-specific: `mcp__claude_ai_Microsoft_365__chat_message_search`, Teams transcript fetch patterns, `teams-transcript`
+- Zoom-specific: Zoom API or MCP calls
+- Google Meet references
+
+If found:
+1. Replace with a **meeting_platform dispatch table**:
+   ```
+   meeting_platform: teams  → M365 MCP transcript fetch
+   meeting_platform: zoom   → Zoom MCP transcript fetch
+   ```
+2. Add `meeting_platform` to `config_keys` with `default: "teams"` and `supported_values: ["teams", "zoom", "google-meet"]`
+3. Record: `"Abstracted meeting platform binding: {original} → meeting_platform dispatch"`
+
+#### Health Tracker Check
+
+Scan for hardcoded health/fitness data bindings:
+- WHOOP-specific: `mcp__whoop__*`, `whoop-get-recovery`, `whoop-get-sleep`, `whoop-get-workout`
+- Oura, Garmin, Apple Watch references
+
+If found:
+1. Replace with a **health_tracker adapter interface**: `health.get_recovery`, `health.get_sleep`, `health.get_workouts`, `health.get_body_measurements`
+2. Add `health_tracker` to `config_keys` with `default: "whoop"` and `supported_values: ["whoop", "oura", "garmin", "apple-health"]`
+3. Record: `"Abstracted health tracker binding: {original} → health_tracker adapter interface"`
+
+#### Personal Reference Check (Hard Stop)
+
+Scan for references that are personal to the executive's instance and should **never** appear in a shared package. These are not abstraction candidates — they must be removed entirely:
+- Personal names used as logic targets (e.g., physician names, direct report names hardcoded as strings)
+- Company/client names hardcoded in skill logic (vs. read from config or identity)
+- Specific file paths containing a home directory username (`/Users/davidohara/`, `/home/david/`)
+- Personal account identifiers embedded in tool calls
+
+If found:
+1. **Do not auto-correct.** Report each instance explicitly:
+   ```
+   ⚠ Personal reference found: "{file}" contains "{pattern}" — must be replaced with a config read or removed before packaging.
+   ```
+2. Halt packaging and ask the executive how to handle each one before proceeding.
+
+#### Config Keys in Manifest
+
+Any `config_keys` collected from the above checks are added to the manifest as a top-level field. Only include keys that were actually triggered:
+```json
+"config_keys": {
+  "kms":                  { "default": "obsidian", "supported_values": ["obsidian", "notion", "roam", "logseq"] },
+  "dataverse":            { "default": "m365",     "supported_values": ["m365", "google"] },
+  "task_manager":         { "default": "omnifocus","supported_values": ["omnifocus", "todoist", "asana", "things3", "ms-todo"] },
+  "crm":                  { "default": "clay",     "supported_values": ["clay", "hubspot", "salesforce", "pipedrive", "airtable"] },
+  "notification_channel": { "default": "slack",    "supported_values": ["slack", "teams", "discord"], "note": "channel IDs must be set at install time" },
+  "meeting_platform":     { "default": "teams",    "supported_values": ["teams", "zoom", "google-meet"] },
+  "health_tracker":       { "default": "whoop",    "supported_values": ["whoop", "oura", "garmin", "apple-health"] }
+}
+```
+Omit the field entirely if no config keys were collected.
+
 ### 6. Generate Package Manifest
 
 Build `package.manifest.json`:
@@ -296,6 +433,8 @@ Clean up the test directory after verification.
     {count} workflow(s)
     {count} skill(s)
   Dependencies: {mcp_count} MCP, {agent_count} agents, {workflow_count} workflows, {skill_count} skills
+  Config keys: {config_keys list, or "none"}
+  Architectural corrections: {list each correction from Step 5b, or "none"}
   Package: contributions/{name-slug}-{version}/
     package.manifest.json
     {file-1}

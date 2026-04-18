@@ -59,7 +59,7 @@ If `--status {submissionId}` was provided, check submission status and exit.
 Make a GET request:
 
 ```
-GET {ies_app_url}/api/contributions/{submissionId}/status
+GET {ies_app_url}/api/packages/{submissionId}/status
 Authorization: Bearer {ACCESS_TOKEN}
 ```
 
@@ -191,7 +191,7 @@ Build the files map: `{ [relative_path]: file_content }`.
 Make a GET request:
 
 ```
-GET {ies_app_url}/api/contributions/permissions
+GET {ies_app_url}/api/packages/permissions
 Authorization: Bearer {ACCESS_TOKEN}
 ```
 
@@ -339,7 +339,7 @@ Build the submission request body:
 Make a POST request:
 
 ```
-POST {ies_app_url}/api/contributions
+POST {ies_app_url}/api/packages/submit
 Authorization: Bearer {ACCESS_TOKEN}
 Content-Type: application/json
 Body: {submission request body as JSON}
@@ -451,7 +451,7 @@ Display confirmation:
 - **Package discovery**: List `contributions/` directory; read `package.manifest.json` and component files
 - **Draft**: Read/Write `contributions/{name}-{version}/.submission-draft.json`
 - **Submissions log**: Read/Write `contributions/submissions.json`
-- **HTTP**: Use Bash with `curl` to call: `GET /api/contributions/permissions`, `POST /api/contributions`, `GET /api/contributions/{id}/status`
+- **HTTP**: Use Bash with `curl` to call: `GET /api/packages/permissions`, `POST /api/packages/submit`, `GET /api/packages/{id}/status`
 <!-- system:end -->
 
 <!-- personal:start -->
