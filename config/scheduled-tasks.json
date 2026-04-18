@@ -41,6 +41,34 @@
       "cowork_prompt": "Run the quinn-weekly-review skill to prepare the weekly review document. Pull quarterly rock status, task management health, delegation review, calendar analysis, email signals, relationship warmth via the contact management connector, system error analysis, and run the commitment gap detection step across all available capture sources (meeting transcripts, chat, email, voice recordings, task management). Scan previous weekly review files for recurring gap patterns. Write the full output to reviews/weekly-review-prep-{date}.md."
     },
     {
+      "id": "rock1-revenue-monthly",
+      "name": "Rock 1 — Revenue Monthly Pull",
+      "workflow": "rock1-revenue-monthly",
+      "cron": "0 7 11 * *",
+      "schedule_display": "11th of every month at 7:00 AM",
+      "keep_awake": false,
+      "configured": true,
+      "agent": "Chase",
+      "rock": "Rock 1 — Revenue Visibility",
+      "description": "Monthly revenue pull from Enterprise Scorecard v4. Filters to Dallas and South Texas separately, collects Revenue vs. Target, Revenue vs. Prior Year, Sequential Quarterly, and Monthly Revenue. Appends dated snapshot to Mind/One Texas/Rock 1 - Revenue Snapshots.md in Obsidian. Recency gate prevents double-writes. Run timing assumes data is locked by the 10th — push manually to 12th/13th if 10th falls on a weekend.",
+      "storage": "Mind/One Texas/Rock 1 - Revenue Snapshots.md",
+      "cowork_prompt": "Run the Rock 1 monthly revenue workflow: read and follow workflows/rock1-revenue-monthly/workflow.md in full. Pull Dallas and South Texas revenue data from Enterprise Scorecard v4, check Obsidian for existing month entry, append if not present. No user interaction needed."
+    },
+    {
+      "id": "rock4-pipeline-weekly",
+      "name": "Rock 4 — Pipeline Weekly Pull",
+      "workflow": "rock4-pipeline-weekly",
+      "cron": "0 7 * * 1",
+      "schedule_display": "Every Monday at 7:00 AM",
+      "keep_awake": false,
+      "configured": true,
+      "agent": "Chase",
+      "rock": "Rock 4 — Partner Co-Sell Pipeline",
+      "description": "Weekly co-sell and pipeline pull from Sales Analytics. Runs co-sell-pipeline skill (partner breakdown + Rock 4 gap to $15M target) and pipeline-snapshot skill (90-day weighted pipeline + total pipeline for Dallas and South Texas). Appends dated weekly snapshot to Mind/One Texas/Rock 4 - Pipeline Snapshots.md in Obsidian. Weekly cadence reflects fluid pipeline data.",
+      "storage": "Mind/One Texas/Rock 4 - Pipeline Snapshots.md",
+      "cowork_prompt": "Run the Rock 4 weekly pipeline workflow: read and follow workflows/rock4-pipeline-weekly/workflow.md in full. Pull co-sell pipeline and 90-day weighted pipeline for One Texas, append dated weekly snapshot to Obsidian. No user interaction needed."
+    },
+    {
       "id": "wine-monitor-power",
       "name": "Wine Monitor \u2014 Hour of Power",
       "skill": "chase-wine-monitor",

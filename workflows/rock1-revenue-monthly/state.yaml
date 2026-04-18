@@ -1,0 +1,38 @@
+---
+workflow: rock1-revenue-monthly
+agent: chase
+status: complete
+session-started: "2026-04-17"
+session-id: rock1-2026-04-17
+current-step: step-02-save
+original-request: scheduled-task
+accumulated-context:
+  revenue:
+    pulled: "2026-04-17"
+    most-recent-closed-month: "March 2026"
+    dallas:
+      rev-vs-target: {cq: "+3%", lq: "-44%", ytd: "+3%"}
+      rev-vs-py: {cq: "+3%", lq: "-9%", ytd: "+3%"}
+      sequential: {cq: "+14%", pq: "-9%", forecast-90day: "101%"}
+      monthly-revenue-mar: "$3.1M"
+    austin:
+      rev-vs-target: {cq: "-6%", lq: "-28%", ytd: "-6%"}
+      rev-vs-py: {cq: "-5%", lq: "-5%", ytd: "-5%"}
+      sequential: {cq: "-3%", pq: "0%", forecast-90day: "94%"}
+      monthly-revenue-mar: "$1.5M"
+    houston:
+      rev-vs-target: {cq: "-27%", lq: "-24%", ytd: "-27%"}
+      rev-vs-py: {cq: "-34%", lq: "-19%", ytd: "-34%"}
+      sequential: {cq: "-19%", pq: "-18%", forecast-90day: "69%"}
+      monthly-revenue-mar: "$1.3M"
+    south-texas:
+      rev-vs-target: {cq: "-16%", lq: "-26%", ytd: "-16%"}
+      rev-vs-py: {cq: "-18%", lq: "-11%", ytd: "-18%"}
+      sequential: {cq: "-10%", pq: "-8%", forecast-90day: "83%"}
+      monthly-revenue-mar: "$2.8M"
+    one-texas:
+      rev-vs-target: {cq: "-7%", lq: "-35%", ytd: "-7%"}
+      rev-vs-py: {cq: "-8%", lq: "-10%", ytd: "-8%"}
+      sequential: {cq: "+2%", pq: "-9%", forecast-90day: "92%"}
+      monthly-revenue-mar: "$5.9M"
+---

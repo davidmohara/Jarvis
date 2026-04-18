@@ -1,0 +1,13 @@
+---
+workflow: rock4-pipeline-weekly
+agent: chase
+status: complete
+session-started: "2026-04-17"
+session-id: rock4-weekly-20260417
+current-step: complete
+original-request: scheduled-task
+last-completed: "2026-04-17"
+accumulated-context:
+  cosell: stored-in-obsidian
+  pipeline: stored-in-obsidian
+---

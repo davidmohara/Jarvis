@@ -23,7 +23,7 @@
           "path": "workflows/one-texas-scorecard/workflow.md",
           "action": "add",
           "type": "personal",
-          "description": "New workflow: One Texas Scorecard — pulls revenue, co-sell, pipeline, new clients via Chase skills and appends to Obsidian."
+          "description": "New workflow: One Texas Scorecard \u2014 pulls revenue, co-sell, pipeline, new clients via Chase skills and appends to Obsidian."
         },
         {
           "path": "workflows/one-texas-scorecard/state.yaml",
@@ -177,31 +177,31 @@
           "path": ".claude/skills/galen-morning/SKILL.md",
           "action": "add",
           "type": "personal",
-          "description": "Slash command /galen-morning — registers morning snapshot skill as user-invocable command. Forks a Galen sub-agent, loads persona from agents/galen.md, executes skills/galen-morning-snapshot/SKILL.md."
+          "description": "Slash command /galen-morning \u2014 registers morning snapshot skill as user-invocable command. Forks a Galen sub-agent, loads persona from agents/galen.md, executes skills/galen-morning-snapshot/SKILL.md."
         },
         {
           "path": ".claude/skills/galen-whoop/SKILL.md",
           "action": "add",
           "type": "personal",
-          "description": "Slash command /galen-whoop — registers 30-day WHOOP analysis skill as user-invocable command. Executes skills/galen-whoop-analysis/SKILL.md."
+          "description": "Slash command /galen-whoop \u2014 registers 30-day WHOOP analysis skill as user-invocable command. Executes skills/galen-whoop-analysis/SKILL.md."
         },
         {
           "path": ".claude/skills/galen-bloodwork/SKILL.md",
           "action": "add",
           "type": "personal",
-          "description": "Slash command /galen-bloodwork — registers bloodwork interpretation skill as user-invocable command. Executes skills/galen-bloodwork/SKILL.md."
+          "description": "Slash command /galen-bloodwork \u2014 registers bloodwork interpretation skill as user-invocable command. Executes skills/galen-bloodwork/SKILL.md."
         },
         {
           "path": ".claude/skills/galen-protocols/SKILL.md",
           "action": "add",
           "type": "personal",
-          "description": "Slash command /galen-protocols — registers protocol management skill as user-invocable command. Executes skills/galen-protocols/SKILL.md."
+          "description": "Slash command /galen-protocols \u2014 registers protocol management skill as user-invocable command. Executes skills/galen-protocols/SKILL.md."
         },
         {
           "path": ".claude/skills/galen-visit-prep/SKILL.md",
           "action": "add",
           "type": "personal",
-          "description": "Slash command /galen-visit-prep — registers physician visit prep skill as user-invocable command. Executes skills/galen-visit-prep/SKILL.md."
+          "description": "Slash command /galen-visit-prep \u2014 registers physician visit prep skill as user-invocable command. Executes skills/galen-visit-prep/SKILL.md."
         }
       ]
     },
@@ -380,6 +380,44 @@
       ]
     },
     {
+      "id": "work-20260417-rock-scheduled-workflows",
+      "description": "Two new scheduled data-pull workflows for Rock 1 and Rock 4. Replaces ad-hoc scorecard runs with dedicated lightweight workflows: rock1-revenue-monthly (monthly revenue snapshot) and rock4-pipeline-weekly (weekly co-sell + pipeline snapshot). Both feed the One Texas Scorecard assembly step. Registered as scheduled tasks in Cowork.",
+      "started": "2026-04-17T00:00:00Z",
+      "classification": "personal",
+      "files": [
+        {
+          "path": "workflows/rock1-revenue-monthly/workflow.md",
+          "action": "add",
+          "type": "personal",
+          "description": "New workflow: monthly Rock 1 revenue pull. Executes revenue-tracker skill for Dallas and South Texas, recency-gates on current month, appends dated snapshot to Mind/One Texas/Rock 1 - Revenue Snapshots.md in Obsidian. Scheduled 11th of every month at 7:00 AM."
+        },
+        {
+          "path": "workflows/rock1-revenue-monthly/state.yaml",
+          "action": "add",
+          "type": "personal",
+          "description": "State file for rock1-revenue-monthly workflow. Tracks current step and accumulated revenue context."
+        },
+        {
+          "path": "workflows/rock4-pipeline-weekly/workflow.md",
+          "action": "add",
+          "type": "personal",
+          "description": "New workflow: weekly Rock 4 pipeline pull. Executes co-sell-pipeline and pipeline-snapshot skills, recency-gates on 5-day window, appends dated snapshot to Mind/One Texas/Rock 4 - Pipeline Snapshots.md in Obsidian. Scheduled every Monday at 7:00 AM."
+        },
+        {
+          "path": "workflows/rock4-pipeline-weekly/state.yaml",
+          "action": "add",
+          "type": "personal",
+          "description": "State file for rock4-pipeline-weekly workflow. Tracks current step and accumulated cosell/pipeline context."
+        },
+        {
+          "path": "config/scheduled-tasks.json",
+          "action": "merge",
+          "type": "personal",
+          "description": "Added rock1-revenue-monthly (11th monthly, 7am) and rock4-pipeline-weekly (Monday, 7am) to scheduled tasks registry. Both marked configured: true. Registered in Cowork scheduled tasks panel."
+        }
+      ]
+    },
+    {
       "id": "wip-20260413-001",
       "description": "jarvis-inbox SKILL.md updated to use M365 MCP instead of Apple Mail AppleScript",
       "started": "2026-04-13T00:00:00Z",
@@ -390,6 +428,94 @@
           "action": "merge",
           "type": "system",
           "description": "Updated skill description and Section 1 (Scan the Folder) to use M365 MCP email search instead of Apple Mail AppleScript. Updated Section 3 (Archive step) to use M365 email operations instead of AppleScript. Updated failure mode for folder scan. M365 replaces Apple Mail as the authoritative Jarvis folder source."
+        }
+      ]
+    },
+    {
+      "id": "integrity-2026-04-18-091500",
+      "description": "Integrity scan fixes — 2 auto-corrections applied: 17 workflows added to manifest, 4 agents added to manifest",
+      "started": "2026-04-18T09:15:00Z",
+      "classification": "system",
+      "files": [
+        {
+          "path": "evolution.manifest.json",
+          "action": "merge",
+          "type": "system",
+          "description": "Added 17 workflow entries missing from manifest: card-review, card-walkthrough, card-which, comp-tracker, galen-monthly-health-review, knowledge-ingest, lead-log, lead-review, one-texas-scorecard, plaud-ingest, podcast-prep, rock1-revenue-monthly, rock4-pipeline-weekly, training-module-runner, training-onboarding, training-status, weekly-knowledge-review. Also added 4 agent entries: galen.md, knox.md, sterling.md, conventions.md."
+        }
+      ]
+    },
+    {
+      "id": "comp-tracker-workflow-rebuild",
+      "description": "Comp tracker update workflow for Chase \u2014 monthly compensation tracking from WorkDay. Rebuilds workflow.md and all 8 step files to proper IES spec with system:start/end blocks, MANDATORY EXECUTION RULES, EXECUTION PROTOCOL tables, and detailed SUCCESS METRICS. Updates Chase task portfolio with comp-tracker trigger.",
+      "started": "2026-04-17T00:00:00Z",
+      "classification": "personal",
+      "files": [
+        {
+          "path": "workflows/comp-tracker/workflow.md",
+          "action": "modify",
+          "type": "personal",
+          "description": "Rebuilt to IES spec: proper frontmatter, INITIALIZATION section, STATE CHECK protocol, EXECUTION table with all 8 steps."
+        },
+        {
+          "path": "workflows/comp-tracker/state.yaml",
+          "action": "modify",
+          "type": "personal",
+          "description": "Updated to IES schema: workflow, agent, status, session fields, accumulated-context, notes."
+        },
+        {
+          "path": "workflows/comp-tracker/steps/step-01-ingest-revenue.md",
+          "action": "modify",
+          "type": "personal",
+          "description": "Rebuilt to full IES spec: MANDATORY EXECUTION RULES, EXECUTION PROTOCOL, CONTEXT BOUNDARIES, YOUR TASK (10 numbered sections), SUCCESS METRICS, FAILURE MODES, NEXT STEP."
+        },
+        {
+          "path": "workflows/comp-tracker/steps/step-02-ingest-profitability.md",
+          "action": "modify",
+          "type": "personal",
+          "description": "Rebuilt to full IES spec: MANDATORY EXECUTION RULES, EXECUTION PROTOCOL, CONTEXT BOUNDARIES, YOUR TASK (9 numbered sections), SUCCESS METRICS, FAILURE MODES, NEXT STEP."
+        },
+        {
+          "path": "workflows/comp-tracker/steps/step-03-update-comp1.md",
+          "action": "modify",
+          "type": "personal",
+          "description": "Rebuilt to full IES spec: MANDATORY EXECUTION RULES, EXECUTION PROTOCOL, CONTEXT BOUNDARIES, YOUR TASK (9 numbered sections), SUCCESS METRICS, FAILURE MODES, NEXT STEP."
+        },
+        {
+          "path": "workflows/comp-tracker/steps/step-04-update-comp2.md",
+          "action": "modify",
+          "type": "personal",
+          "description": "Rebuilt to full IES spec: MANDATORY EXECUTION RULES, EXECUTION PROTOCOL, CONTEXT BOUNDARIES, YOUR TASK (7 numbered sections), SUCCESS METRICS, FAILURE MODES, NEXT STEP. Includes pro-rated baseline calculation and growth threshold flagging."
+        },
+        {
+          "path": "workflows/comp-tracker/steps/step-05-sync-leads.md",
+          "action": "modify",
+          "type": "personal",
+          "description": "Rebuilt to full IES spec: MANDATORY EXECUTION RULES, EXECUTION PROTOCOL, CONTEXT BOUNDARIES, YOUR TASK (10 numbered sections), SUCCESS METRICS, FAILURE MODES, NEXT STEP. Uses canonical OneDrive My Leads.xlsx URI."
+        },
+        {
+          "path": "workflows/comp-tracker/steps/step-06-match-commissions.md",
+          "action": "modify",
+          "type": "personal",
+          "description": "Rebuilt to full IES spec: MANDATORY EXECUTION RULES, EXECUTION PROTOCOL, CONTEXT BOUNDARIES, YOUR TASK (10 numbered sections), SUCCESS METRICS, FAILURE MODES, NEXT STEP. Detailed commission calculation (GM \u00d7 3%, 12-month window) with fuzzy matching and event flags."
+        },
+        {
+          "path": "workflows/comp-tracker/steps/step-07-prompt-comp3.md",
+          "action": "modify",
+          "type": "personal",
+          "description": "Rebuilt to full IES spec: MANDATORY EXECUTION RULES, EXECUTION PROTOCOL, CONTEXT BOUNDARIES, YOUR TASK (10 numbered sections), SUCCESS METRICS, FAILURE MODES, NEXT STEP. Calendar + Plaud transcript scanning with pre-populated David prompt for strategic entries."
+        },
+        {
+          "path": "workflows/comp-tracker/steps/step-08-close.md",
+          "action": "modify",
+          "type": "personal",
+          "description": "Rebuilt to full IES spec: MANDATORY EXECUTION RULES, EXECUTION PROTOCOL, CONTEXT BOUNDARIES, YOUR TASK (8 numbered sections), SUCCESS METRICS, FAILURE MODES. Delivers one-screen comp summary, archives WorkDay emails, updates state.yaml, cleans up staging files."
+        },
+        {
+          "path": "agents/chase.md",
+          "action": "merge",
+          "type": "personal",
+          "description": "Added comp-tracker trigger row to Chase task portfolio (personal block). Trigger: 'comp tracker' or 'update comp tracker' or first week of month. Routes monthly compensation updates to workflows/comp-tracker/."
         }
       ]
     }

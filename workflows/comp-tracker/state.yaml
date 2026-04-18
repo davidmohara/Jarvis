@@ -1,0 +1,14 @@
+workflow: comp-tracker
+agent: chase
+status: not-started
+session-started: null
+session-id: null
+current-step: null
+original-request: null
+accumulated-context: {}
+notes: >
+  Waiting on WorkDay automated report configuration.
+  Two emails needed in Jarvis inbox folder:
+    1. Monthly revenue by account (Excel attachment)
+    2. Monthly project profitability (Excel attachment)
+  Once flowing, run monthly in first week of each month.
