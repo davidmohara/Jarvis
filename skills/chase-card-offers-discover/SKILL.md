@@ -2,6 +2,7 @@
 name: chase-card-offers-discover
 description: Check quarterly category activation and read offers on the Discover it Cash Back card via Chrome automation. Covers rotating category activation, YNAB cross-reference, and offer enrollment.
 agent: chase
+model: haiku
 ---
 
 # Discover Offers — Rotating Categories & Offers
@@ -123,7 +124,7 @@ body.substring(0, 3000) // scan for offer content
 Pull Discover YNAB transactions:
 
 ```bash
-YNAB_TOKEN=$(grep YNAB_API_TOKEN /Users/davidohara/develop/jarvis/config/.env | cut -d= -f2)
+YNAB_TOKEN=$(grep YNAB_API_TOKEN $HOME/develop/jarvis/config/.env | cut -d= -f2)
 curl -s "https://api.youneedabudget.com/v1/budgets/5185d50a-d25e-47f8-b9d0-283ef6a89d2b/accounts/0ff3092d-c9ea-4f56-b558-c760e6da7b04/transactions?since_date=$(date -v-90d +%Y-%m-%d)" \
   -H "Authorization: Bearer $YNAB_TOKEN" | \
   python3 -c "import sys,json; txns=json.load(sys.stdin)['data']['transactions']; p={}; [p.update({t['payee_name']: p.get(t['payee_name'],0)+abs(t['amount'])/1000}) for t in txns if t.get('payee_name')]; [print(f'{v:.0f} | {k}') for k,v in sorted(p.items(),key=lambda x:-x[1])[:30]]"

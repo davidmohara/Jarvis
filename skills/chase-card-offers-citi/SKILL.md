@@ -2,6 +2,7 @@
 name: chase-card-offers-citi
 description: Read and enroll in offers on the Citi AAdvantage Executive card (••••9598) via Chrome automation. Covers the Citi Merchant Offers portal flow — navigation, reading the offer list, enrolling, and confirming.
 agent: chase
+model: haiku
 ---
 
 # Citi Offers — Read & Enroll
@@ -101,7 +102,7 @@ for (var i = 0; i < btns.length; i++) {
 Before enrolling, pull Citi's YNAB transactions:
 
 ```bash
-YNAB_TOKEN=$(grep YNAB_API_TOKEN /Users/davidohara/develop/jarvis/config/.env | cut -d= -f2)
+YNAB_TOKEN=$(grep YNAB_API_TOKEN $HOME/develop/jarvis/config/.env | cut -d= -f2)
 curl -s "https://api.youneedabudget.com/v1/budgets/5185d50a-d25e-47f8-b9d0-283ef6a89d2b/accounts/c95b51b9-5d5b-4aff-8c67-9c54589ff016/transactions?since_date=$(date -v-90d +%Y-%m-%d)" \
   -H "Authorization: Bearer $YNAB_TOKEN" | \
   python3 -c "import sys,json; txns=json.load(sys.stdin)['data']['transactions']; p={}; [p.update({t['payee_name']: p.get(t['payee_name'],0)+abs(t['amount'])/1000}) for t in txns if t.get('payee_name')]; [print(f'{v:.0f} | {k}') for k,v in sorted(p.items(),key=lambda x:-x[1])[:30]]"

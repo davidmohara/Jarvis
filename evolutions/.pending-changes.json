@@ -1,6 +1,19 @@
 {
   "pending": [
     {
+      "id": "integrity-2026-04-18-120000",
+      "description": "Integrity scan fixes — 2 auto-corrections applied (manifest currency + model fields)",
+      "started": "2026-04-18T12:00:00Z",
+      "files": [
+        {
+          "path": "evolution.manifest.json",
+          "action": "merge",
+          "type": "system",
+          "description": "Added 15 missing workflows and 24 missing skill subdirectory entries to manifest"
+        }
+      ]
+    },
+    {
       "id": "work-20260405-one-texas-scorecard-workflow",
       "description": "New workflow: one-texas-scorecard. Runs four Chase skills (revenue-tracker, co-sell-pipeline, pipeline-snapshot, new-clients) in sequence and appends consolidated output to Mind/One Texas/One Texas Scorecard Tracking.md in Obsidian. Recency gate prompts before appending if last entry is less than 28 days ago.",
       "started": "2026-04-05T00:00:00Z",

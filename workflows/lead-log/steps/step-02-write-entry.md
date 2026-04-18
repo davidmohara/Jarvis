@@ -23,7 +23,7 @@ Append the new lead entry to the Excel file in OneDrive.
 ### Method 1: Desktop Commander + openpyxl (Preferred)
 
 Use Desktop Commander's `start_process` to run a Python script via openpyxl. The file lives at:
-`/Users/davidohara/Library/CloudStorage/OneDrive-Improving/Sales/My Leads.xlsx`
+`~/Library/CloudStorage/OneDrive-Improving/Sales/My Leads.xlsx`
 
 **CRITICAL:** The sheet uses a defined Excel Table (`Table2`). After writing data to the next empty row, you MUST expand the table range to include the new row, or the entry won't be part of the table.
 
@@ -32,7 +32,7 @@ import openpyxl
 from datetime import datetime
 from copy import copy
 
-path = '/Users/davidohara/Library/CloudStorage/OneDrive-Improving/Sales/My Leads.xlsx'
+path = '~/Library/CloudStorage/OneDrive-Improving/Sales/My Leads.xlsx'
 wb = openpyxl.load_workbook(path)
 ws = wb.active
 

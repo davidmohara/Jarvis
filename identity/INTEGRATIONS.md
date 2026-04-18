@@ -71,7 +71,7 @@ OmniFocus Inbox  <-- Jarvis (Code) captures here
     +---> Projects --> OmniFocus projects + projects/ folder
     +---> Delegations --> delegations/tracker.md
     +---> Quick actions --> Today's priorities
-    +---> Reference --> context/ files or Obsidian vault
+    +---> Reference --> memory/ or Obsidian vault
     +---> Delete --> Gone
 
 ```

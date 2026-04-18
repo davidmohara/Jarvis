@@ -349,7 +349,7 @@ When things go wrong, Rigby:
 <!-- personal:start -->
 ## Architecture Note
 
-IES (the my-os system) is being extracted into its own repo at `/Users/davidohara/develop/improving/ies/`. David's my-os is a personal instance that receives evolutions from that repo via the evolution API.
+IES is being extracted into its own repo at `~/develop/improving/ies/`. David's my-os is a personal instance that receives evolutions from that repo via the evolution API.
 
 Current state: IES repo is active development. my-os (this folder) is the live personal instance.
 <!-- personal:end -->

@@ -33,7 +33,7 @@ model: sonnet
 Run via Bash:
 
 ```bash
-cd /Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES
+cd ~/Library/CloudStorage/OneDrive-Improving/IES
 npx md-to-pdf "meetings/podcast-prep/Episode {N}.md" --stylesheet reference/podcast-prep-pdf.css
 ```
 

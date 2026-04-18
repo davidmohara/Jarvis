@@ -2,6 +2,7 @@
 name: chase-card-offers-amex
 description: Read and add offers on American Express cards (Platinum ••••21001 and Blue Cash Preferred ••••73008) via Chrome automation. Covers the full flow from landing on the offers page to adding individual offers.
 agent: chase
+model: haiku
 ---
 
 # Amex Offers — Read & Add
@@ -102,7 +103,7 @@ Before adding any offer, run the YNAB card pull for the card being reviewed:
 
 ```bash
 # BCP (account: b4b7a7c8)
-YNAB_TOKEN=$(grep YNAB_API_TOKEN /Users/davidohara/develop/jarvis/config/.env | cut -d= -f2)
+YNAB_TOKEN=$(grep YNAB_API_TOKEN $HOME/develop/jarvis/config/.env | cut -d= -f2)
 curl -s "https://api.youneedabudget.com/v1/budgets/5185d50a-d25e-47f8-b9d0-283ef6a89d2b/accounts/b4b7a7c8-32f5-4503-baf5-207d87050813/transactions?since_date=$(date -v-90d +%Y-%m-%d)" \
   -H "Authorization: Bearer $YNAB_TOKEN" | \
   python3 -c "import sys,json; txns=json.load(sys.stdin)['data']['transactions']; p={}; [p.update({t['payee_name']: p.get(t['payee_name'],0)+abs(t['amount'])/1000}) for t in txns if t.get('payee_name')]; [print(f'{v:.0f} | {k}') for k,v in sorted(p.items(),key=lambda x:-x[1])[:30]]"

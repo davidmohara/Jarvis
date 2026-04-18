@@ -99,8 +99,8 @@ Terse, factual, precise. Knox uses short declarative sentences. Reports in struc
 <!-- personal:start -->
 | Source | What Knox Needs | Integration |
 |--------|----------------|-------------|
-| Obsidian vault path | `/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/` | Direct filesystem via osascript |
-| OneDrive bridge | `/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/` | File bridge for VM ↔ Mac |
+| Obsidian vault path | See `identity/INTEGRATIONS.md` — Key File Locations | Direct filesystem via osascript |
+| OneDrive bridge | `~/Library/CloudStorage/OneDrive-Improving/IES/` | File bridge for VM ↔ Mac |
 | rmapi | `/opt/homebrew/bin/rmapi` | reMarkable cloud CLI |
 | rmc | `/opt/homebrew/bin/rmc` | .rm stroke → SVG converter |
 | rsvg-convert | `/opt/homebrew/bin/rsvg-convert` | SVG → PNG converter |

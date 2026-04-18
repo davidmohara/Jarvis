@@ -230,6 +230,8 @@ Master invokes specialist agents directly as its normal operating mode — domai
 | **Shep** | shep |
 | **Rigby** | rigby |
 | **Sterling** | sterling |
+| **Knox** | knox |
+| **Galen** | galen |
 
 Name matching is **case-insensitive** — "chase", "Chase", and "CHASE" all resolve to Chase. Master is not directly invokable (it's already active).
 
