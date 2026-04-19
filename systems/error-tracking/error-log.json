@@ -376,6 +376,38 @@
       "related_entries": ["err-20260324-002", "err-20260327-004"]
     }
   ],
+  "entries_addendum_3": [
+    {
+      "id": "err-20260418-001",
+      "timestamp": "2026-04-18T10:26:00-05:00",
+      "session": "2026-04-18",
+      "source": "explicit",
+      "agent": "jarvis",
+      "category": "routing-error",
+      "description": "Boot sequence executed the morning briefing inline (Jarvis ran calendar pull, OmniFocus, Clay, email triage, and briefing synthesis directly) instead of dispatching to Chief, who owns the morning briefing workflow (steps 01-04). This is a repeat of err-20260326-003 and err-20260327-001.",
+      "correction": "Morning briefing must be dispatched to Chief via the morning-briefing workflow. Jarvis coordinates and reads identity files, then hands off to Chief for the full briefing pipeline.",
+      "failure_mode": "protocol-skip",
+      "systemic_fix": "Boot sequence rule: after identity files are loaded, dispatch Chief immediately for the morning briefing workflow. Jarvis does not inline briefing synthesis.",
+      "fix_status": "proposed",
+      "severity": "moderate",
+      "related_entries": ["err-20260326-003", "err-20260327-001"]
+    },
+    {
+      "id": "err-20260418-002",
+      "timestamp": "2026-04-18T10:30:00-05:00",
+      "session": "2026-04-18",
+      "source": "explicit",
+      "agent": "jarvis",
+      "category": "process-skip",
+      "description": "After David pointed out the routing error (err-20260418-001), Jarvis asked 'Want me to log the error?' instead of logging it immediately without asking. This is a direct repeat of err-20260321-002, err-20260403-002, and err-20260403-008 — all of which established the same rule: log immediately, no approval required.",
+      "correction": "Error logging is fully autonomous. No asking. Log in the same response as the correction is received.",
+      "failure_mode": "protocol-skip",
+      "systemic_fix": "This is the fourth logged instance of asking before logging. The rule is in CLAUDE.md, AUTOMATION.md, and the error log itself. Execution compliance required — no new systemic fix is possible beyond following the existing rule.",
+      "fix_status": "applied",
+      "severity": "moderate",
+      "related_entries": ["err-20260321-002", "err-20260403-002", "err-20260403-008"]
+    }
+  ],
   "entries_addendum": [
     {
       "id": "err-20260416-001",
