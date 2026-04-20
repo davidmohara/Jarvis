@@ -31,19 +31,35 @@ step 5.
 
 | Source | What to Pull | Access Method |
 |--------|-------------|---------------|
-| Enterprise Scorecard v4 | Revenue vs. Target, Revenue vs. Prior Year, Sequential Quarterly, Monthly Revenue | Playwright MCP → `skills/revenue-tracker/SKILL.md` |
-| Sales Analytics | Co-sell pipeline and won revenue by partner, Rock 4 gap | Playwright MCP → `skills/co-sell-pipeline/SKILL.md` |
-| Sales Analytics | 90-day weighted pipeline, total pipeline, stage breakdown | Playwright MCP → `skills/pipeline-snapshot/SKILL.md` |
-| Enterprise Scorecard v4 | New Logos & Anchors YTD by enterprise, gap to Q1 target | Playwright MCP → `skills/new-clients/SKILL.md` |
-| Obsidian | Last entry date in scorecard tracking file | Obsidian MCP → `mcp__obsidian-mcp-tools__get_vault_file` |
+| Enterprise Scorecard v4 | Revenue vs. Target, Revenue vs. Prior Year, Sequential Quarterly, Monthly Revenue | Chrome MCP → `skills/revenue-tracker/SKILL.md` |
+| Sales Analytics | Co-sell pipeline and won revenue by partner, Rock 4 gap | Chrome MCP → `skills/co-sell-pipeline/SKILL.md` |
+| Sales Analytics | 90-day weighted pipeline, total pipeline, stage breakdown | Chrome MCP → `skills/pipeline-snapshot/SKILL.md` |
+| Enterprise Scorecard v4 | New Logos & Anchors YTD by enterprise, gap to Q1 target | Chrome MCP → `skills/new-clients/SKILL.md` |
+| Obsidian | 2026 annual goals and targets | Obsidian MCP → `Mind/One Texas/2026 Goals.md` |
+| Obsidian | Last entry date in scorecard tracking file | Obsidian MCP → `mcp__obsidian-local__get_vault_file` |
 
 ### Paths
 
 - `scorecard_file` = `Mind/One Texas/One Texas Scorecard Tracking.md`
+- `goals_file` = `Mind/One Texas/2026 Goals.md`
 - `revenue_skill` = `skills/revenue-tracker/SKILL.md`
 - `cosell_skill` = `skills/co-sell-pipeline/SKILL.md`
 - `pipeline_skill` = `skills/pipeline-snapshot/SKILL.md`
 - `new_clients_skill` = `skills/new-clients/SKILL.md`
+
+### Goal Alignment Pre-Load
+
+**At the start of every run**, read `Mind/One Texas/2026 Goals.md` via Obsidian MCP.
+Extract the `Annual Target Reference` YAML block and the `Scorecard Alignment Map` table.
+Load these into `accumulated-context.goals` — they inform the goal alignment section
+appended by step-05 and the PPTX scorecard commentary.
+
+Key targets to carry forward:
+- Co-sell target: $15M by Q2 end (Rock 4)
+- New anchors target: 3 per enterprise (6 One Texas annual)
+- New logos: context for account pursuit, not a hard annual number
+- Revenue: beat target, both enterprises — watch large/medium account thresholds
+- Speaking engagements: 10 for year (manual track, not in PowerBI)
 
 ### Key Metrics Collected
 

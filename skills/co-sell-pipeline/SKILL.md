@@ -5,15 +5,17 @@ description: >
   Reports pipeline revenue and opps by partner, won revenue and opps by partner, and gap to
   Rock 4's $15M co-sell pipeline target. Trigger on /co-sell-pipeline, "co-sell", "cosell",
   "partner pipeline", or "rock 4 pipeline".
-agent: chase
+owning_agent: chase
 model: sonnet
+trigger_keywords: [co-sell, partner pipeline, microsoft, cosell]
+trigger_agents: [chase]
 ---
 
 # Co-Sell Pipeline
 
 ## Purpose
 
-Pull live co-sell pipeline and won revenue data from the Improving Sales Analytics PowerBI
+Pull co-sell pipeline and won revenue data from the Improving Sales Analytics PowerBI
 report. Surface partner-level breakdown, progress toward Rock 4's $15M target, and gap
 remaining. David tracks this against two key partners: Microsoft (SME&C, John Yurewicz) and
 Confluent (Nick Larson and Dante).
@@ -24,77 +26,126 @@ Gap formula: `$15M - Pipeline Revenue - Won Revenue = Remaining Gap`
 
 ---
 
-## Execution
+## Phase 0 — Cache Check (Run First)
 
-### Step 1 — Navigate to Coselling Partner Pipeline Page
+**Freshness threshold: 7 days** (co-sell pipeline changes weekly with deal activity).
+
+1. Read `Mind/One Texas/Rock 4 - Pipeline Snapshots.md` via `mcp__obsidian-local__get_vault_file`.
+
+2. Find the most recent `## Week of YYYY-MM-DD — Pipeline Snapshot` entry. Parse its
+   `*Pulled: YYYY-MM-DD*` date.
+
+3. If `pulled_date` >= today minus 7 days: **use cache**.
+   - Extract the Co-Sell Pipeline (Rock 4) section from the most recent snapshot.
+   - Output in standard format below, noting the snapshot date.
+   - Report: `[Chase/CoSell]: Using cached data from {pulled_date} (within 7-day window). Skipping PowerBI pull.`
+   - **Stop here.**
+
+4. If stale: proceed to Phase 1.
+
+---
+
+## Phase 1 — Navigate to Coselling Partner Pipeline Page
 
 ```
-mcp__playwright__browser_navigate
+mcp__Control_Chrome__open_url
 url: https://app.powerbi.com/groups/me/apps/bda222e8-2ca5-4f79-8713-c15ea283f95d/reports/9cba3eb6-e267-45a2-8c8b-747c20f5db21/8a62865681ae18b5ec9b?ctid=f2267c2e-5a54-49f4-84fa-e4f2f4038a2e&experience=power-bi
 ```
 
-SSO auto-authenticates. No manual login needed. Navigate directly to this URL — do NOT use
-the mcas.ms variant or click through nav. The report loads in 3-5 seconds.
+Navigate directly to this URL — do NOT use the mcas.ms variant. Wait 5 seconds for SSO
+and page load. Confirm title contains "Power BI".
 
-### Step 2 — Screenshot and Read Pipeline Data
+---
 
-Take a screenshot to confirm the page has loaded and KPI tiles are visible:
+## Phase 2 — Read Pipeline Data
+
+Read KPI tiles and partner table from the DOM:
+
+```js
+mcp__Control_Chrome__execute_javascript
+code: (() => {
+  const text = document.body.innerText;
+  return text.substring(0, 4000);
+})()
+```
+
+Read the following from the page text:
+- **Pipeline Revenue w/ Coselling Partner** (total $ amount KPI tile)
+- **Pipeline Opps w/ Coselling Partner** (total count KPI tile)
+- **Partner breakdown table**: partner name, revenue amount, opp count for each row
+  (Microsoft, Confluent, SAP, Scrum.org, and any others present)
+- **Quarter/Year table** (bottom right) — confirms the report period
+
+If KPI tiles are not visible in the text, wait 3 seconds and re-read.
+
+---
+
+## Phase 3 — Navigate to Won Coselling Partner Opps Page
 
 ```
-mcp__playwright__browser_take_screenshot
-```
-
-Read the following values from the screenshot:
-
-**KPI tiles:**
-- Pipeline Revenue w/ Coselling Partner (total dollar amount)
-- Pipeline Opps w/ Coselling Partner (total count)
-
-**Partner breakdown table** (columns: Co-Selling Partners, Revenue Amount, Count Opps w/ Co-Seller):
-- Read each partner row: partner name, revenue amount, opp count
-- Capture all rows — typical partners include Microsoft, Confluent, SAP, Scrum.org
-
-**Quarter/Year table** (bottom right): capture the current quarter and year filter active on the page.
-
-If the KPI tiles are not visible, wait 2 seconds and take another screenshot before proceeding.
-
-### Step 3 — Navigate to Won Coselling Partner Opps Page
-
-Navigate to the Won page directly by URL:
-
-```
-mcp__playwright__browser_navigate
+mcp__Control_Chrome__open_url
 url: https://app.powerbi.com/groups/me/apps/bda222e8-2ca5-4f79-8713-c15ea283f95d/reports/9cba3eb6-e267-45a2-8c8b-747c20f5db21/57bac82f202223c91446?ctid=f2267c2e-5a54-49f4-84fa-e4f2f4038a2e&experience=power-bi
 ```
 
-Wait 3-5 seconds for the page to load.
+Wait 5 seconds.
 
-### Step 4 — Screenshot and Read Won Data
+---
 
-Take a screenshot:
+## Phase 4 — Set Date Filter and Read Won Data
 
+The Won page has an "Actual Close Date" slider. Set it to full-year 2026.
+**Critical: change end date BEFORE start date** — changing start date first breaks the filter.
+
+```js
+mcp__Control_Chrome__execute_javascript
+code: (() => {
+  const inputs = document.querySelectorAll('input.date-slicer-date');
+  if (inputs.length >= 2) {
+    // End date first
+    inputs[1].focus();
+    inputs[1].select();
+    inputs[1].value = '12/31/2026';
+    inputs[1].dispatchEvent(new Event('change', {bubbles: true}));
+    inputs[1].dispatchEvent(new KeyboardEvent('keydown', {key: 'Enter', bubbles: true}));
+    // Start date second
+    setTimeout(() => {
+      inputs[0].focus();
+      inputs[0].select();
+      inputs[0].value = '1/1/2026';
+      inputs[0].dispatchEvent(new Event('change', {bubbles: true}));
+      inputs[0].dispatchEvent(new KeyboardEvent('keydown', {key: 'Enter', bubbles: true}));
+    }, 500);
+    return 'date filter set';
+  }
+  return 'inputs not found: ' + inputs.length;
+})()
 ```
-mcp__playwright__browser_take_screenshot
+
+Wait 2 seconds, then read Won data from DOM:
+
+```js
+mcp__Control_Chrome__execute_javascript
+code: (() => {
+  return document.body.innerText.substring(0, 4000);
+})()
 ```
 
-Read the following values:
+Read:
+- **Won Revenue w/ Coselling Partner** (total $ KPI tile)
+- **Won Opps w/ Coselling Partner** (total count KPI tile)
+- **Partner breakdown table**: partner name, won revenue, won opp count
 
-**KPI tiles:**
-- Won Revenue w/ Coselling Partner (total dollar amount)
-- Won Opps w/ Coselling Partner (total count)
+---
 
-**Partner breakdown table** (same structure as pipeline page):
-- Read each partner row: partner name, won revenue amount, won opp count
+## Phase 5 — Save to Obsidian and Output
 
-### Step 5 — Output Formatted Report
+Append the co-sell section to `Mind/One Texas/Rock 4 - Pipeline Snapshots.md` under
+a new `## Week of [today] — Pipeline Snapshot` heading using
+`mcp__obsidian-local__append_to_vault_file`.
 
-Calculate gap to target using live data:
+Calculate gap: `$15,000,000 - Pipeline Revenue - Won Revenue = Remaining Gap`
 
-```
-Remaining Gap = $15,000,000 - Pipeline Revenue - Won Revenue
-```
-
-Output the report using the format below.
+Output using the standard format below.
 
 ---
 
@@ -116,56 +167,46 @@ Output the report using the format below.
 
 ### Rock 4 Gap
 
-| Metric                        | Amount         |
-|-------------------------------|----------------|
-| Target                        | $15,000,000    |
-| Pipeline Revenue              | $X,XXX,XXX     |
-| Won Revenue                   | $XXX,XXX       |
-| **Remaining Gap**             | **$XX,XXX,XXX**|
-| Gap % remaining               | XX%            |
+| Metric                        | Amount          |
+|-------------------------------|-----------------|
+| Target                        | $15,000,000     |
+| Pipeline Revenue              | $X,XXX,XXX      |
+| Won Revenue                   | $XXX,XXX        |
+| **Remaining Gap**             | **$XX,XXX,XXX** |
+| Gap % remaining               | XX%             |
 ```
 
-Follow the table with 2-3 sentences of Chase-voice commentary. David owns the co-sell
-pipeline — address gaps to him directly. If the gap is greater than $10M: call it out as
-critical and state what partner channels need more activity. Do not soften numbers that are
-behind. Do not suggest that partner contacts (Nick Larson, John Yurewicz, etc.) are
-responsible — David is.
+Follow with 2-3 sentences of Chase-voice commentary. David owns the co-sell pipeline —
+address gaps to him directly. If gap > $10M: call it critical and name which partner
+channels need more activity. Do not soften numbers. Do not suggest partner contacts
+(Nick Larson, John Yurewicz) are responsible — David is.
 
-Example at current trajectory: "Pipeline is $954K against a $15M target — 6.4% of goal
-with Q2 just starting. Microsoft is the largest active partner at $587K; Confluent has $315K
-in pipeline but nothing closed. This rock needs significant acceleration to be competitive
-by June."
+---
 
 ## Notes
 
 - Both pages use direct URL navigation — no in-report nav clicks needed.
-- If a page lands on a different tab than expected, use the DOM text-click fallback:
+- If the page lands on the wrong tab, use DOM text-click fallback:
   ```js
-  mcp__playwright__browser_evaluate
-  function: () => {
+  mcp__Control_Chrome__execute_javascript
+  code: (() => {
     const els = document.querySelectorAll('*');
     for (const el of els) {
       if (el.textContent.trim() === 'Coselling Partner Pipeline') { el.click(); return 'clicked'; }
     }
     return 'not found';
-  }
+  })()
   ```
-- The Quarter/Year table in the bottom right of the pipeline page confirms which period the
-  data covers. Always report this period in the output header.
-- Gap calculation uses pipeline + won revenue combined against the $15M target. Pipeline is
-  open opps; won is closed. Both count toward Rock 4 progress.
-- **Date filter — Won Coselling page**: The page has an "Actual Close Date" slider with two
-  date inputs. To see full-year 2026 data, set to 1/1/2026 - 12/31/2026. **Critical: change
-  end date BEFORE start date** — changing start date first breaks the filter. Steps: (1) click
-  end date input (second `input.date-slicer-date`), triple-select, type `12/31/2026`, Enter;
-  (2) click start date input (first), triple-select, type `1/1/2026`, Enter; (3) screenshot to
-  confirm. If the filter already shows the correct range, skip.
+- Quarter/Year table in bottom right confirms the report period. Always include in output header.
+- Gap = pipeline + won combined against $15M. Both count toward Rock 4.
 
 ---
 
 ## Source
 
 PowerBI report: Improving Sales Analytics — Co-Sell Pipeline
-Connector: Playwright MCP (`mcp__playwright__*`)
-Auth: SSO (auto)
+Connector: Chrome MCP (`mcp__Control_Chrome__*`) — primary
+Obsidian cache: `Mind/One Texas/Rock 4 - Pipeline Snapshots.md`
+Freshness threshold: 7 days
+Auth: SSO (auto via Chrome session)
 Rock 4 Target: $15M co-sell pipeline by end of Q2 2026

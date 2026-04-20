@@ -98,7 +98,32 @@ model: sonnet
    {accumulated-context.new_clients}
 
    ---
+
+   ### Goal Alignment — 2026 Annual Goals
+
+   *Source: `Mind/One Texas/2026 Goals.md` — targets set Dec 29, 2025.*
+
+   | Goal | Target | Actuals This Period | RAG |
+   |------|--------|---------------------|-----|
+   | G1 Revenue Growth | Beat target, both enterprises | [Dallas %] vs target · [STX %] vs target | 🟢/🟡/🔴 |
+   | G2 Account Pursuit — Anchors | 3 new anchors / enterprise (6 OTX annual) | [N] anchors YTD of 6 annual | 🟢/🟡/🔴 |
+   | G2 Account Pursuit — Logos | 9 logos Q1 target (annual pace TBD) | [N] logos YTD | 🟢/🟡/🔴 |
+   | G4 Partner Engagement | $15M co-sell by Q2 end | $[N] of $15M ([%] complete) | 🟢/🟡/🔴 |
+   | G3 Improver Growth | 1 EDP H2 + Exec Sales rollout | H2 target — track manually | ⚪ |
+   | G5 Thought Leadership | 10 speaking engagements / year | Manual tracking — see goals file | ⚪ |
+
+   [2-3 sentences of Chase-voice commentary on overall goal trajectory. Lead with the hardest number — what is most at risk of missing for the year? Call out any goal where One Texas is on pace vs. off pace. Do not soften.]
+
+   ---
    ```
+
+   **Populating the Goal Alignment table:**
+   - G1: use Revenue vs. Target QTD % from `accumulated-context.revenue` for both enterprises
+   - G2 Anchors: use New Anchors YTD from `accumulated-context.new_clients` vs. annual target (6)
+   - G2 Logos: use New Logos YTD from `accumulated-context.new_clients`
+   - G4: use co-sell pipeline + won total from `accumulated-context.co_sell`, compute % of $15M
+   - G3, G5: always ⚪ (not in automated pull) — note H2 timing for G3
+   - RAG: 🟢 = on pace for annual target, 🟡 = behind but recoverable, 🔴 = critical / off pace
 
 4. **Append to file**:
    ```

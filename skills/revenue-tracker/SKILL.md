@@ -6,16 +6,18 @@ description: >
   Revenue, and Monthly Revenue for Dallas and South Texas (Austin + Houston) separately,
   then combines for One Texas total. Trigger on /revenue-tracker, "revenue tracker",
   "enterprise revenue", "revenue vs target", "financial outlook", or "scorecard revenue".
-agent: chase
+owning_agent: chase
 model: sonnet
+trigger_keywords: [revenue, bookings, ats, target vs actual]
+trigger_agents: [chase, quinn]
 ---
 
 # Revenue Tracker
 
 ## Purpose
 
-Pull live revenue performance data for Dallas and South Texas from the Enterprise
-Scorecard v4 Financial Outlook page. Report by enterprise, then combine for One Texas.
+Pull revenue performance data for Dallas and South Texas from the Enterprise Scorecard v4
+Financial Outlook page. Report by enterprise, then combine for One Texas.
 
 Key metrics:
 - **Revenue vs. Target**: Current Quarter %, Last Quarter %, YTD %
@@ -27,113 +29,154 @@ Note: South Texas = Austin + Houston. One Texas = Dallas + South Texas combined.
 
 ---
 
-## Execution
+## Phase 0 — Cache Check (Run First)
 
-### Step 1 — Navigate to Financial Outlook Page
+Before touching PowerBI, check if a fresh snapshot already exists in Obsidian.
+
+**Freshness threshold: 30 days** (revenue data updates monthly when a new month closes).
+Additionally: if today is past the 10th of a new month, the prior month has likely closed
+and any snapshot from the prior month or earlier is stale regardless of age.
+
+1. Read the Obsidian file via `mcp__obsidian-local__get_vault_file`:
+   - filename: `Mind/One Texas/Rock 1 - Revenue Snapshots.md`
+
+2. Find the most recent `## [Month] [Year] — Revenue Snapshot` entry. Parse its
+   `*Pulled: YYYY-MM-DD*` date.
+
+3. Determine if the cached data is current:
+   - If `pulled_date` >= today minus 30 days AND the `Most Recent Closed Month` in the
+     snapshot matches the most recently closed calendar month: **use cache**.
+   - Otherwise: **refresh from PowerBI** (proceed to Phase 1).
+
+4. **If using cache:**
+   - Extract the revenue tables from the most recent snapshot entry.
+   - Output the data in the standard Output Format below, noting the snapshot date.
+   - Report: `[Chase/Revenue]: Using cached data from {pulled_date} (within freshness window). Skipping PowerBI pull.`
+   - **Stop here. Do not proceed to Phase 1.**
+
+---
+
+## Phase 1 — Navigate to Financial Outlook Page
+
+Open the PowerBI page in Chrome:
 
 ```
-mcp__playwright__browser_navigate
+mcp__Control_Chrome__open_url
 url: https://app.powerbi.com/groups/me/reports/ff2db561-1548-4c6f-ae43-a3a927bd73e3/3c7c59c7edecc090aa27?experience=power-bi
 ```
 
-Wait 3-5 seconds. Take a screenshot to confirm the KPI tiles are visible.
+Wait 5 seconds for SSO and page load. Confirm by checking the page title:
 
-```
-mcp__playwright__browser_take_screenshot
+```js
+mcp__Control_Chrome__execute_javascript
+code: document.title
 ```
 
-### Step 2 — Filter to Dallas, Read Data
+Expected: contains "Scorecard" or "Power BI". If the page shows a login screen, SSO
+has not completed — wait 3 more seconds and re-check. If still not loaded after two
+attempts, abort and report the failure.
+
+---
+
+## Phase 2 — Filter to Dallas, Read Data
 
 Run this single evaluate to open the dropdown, expand United States if needed, and
 select Dallas. It handles all timing internally — no multi-step open/expand/reopen.
 
 ```js
-mcp__playwright__browser_evaluate
-function: () => {
-  return new Promise((resolve) => {
-    const wrappers = document.querySelectorAll('.slicer-content-wrapper');
-    const dropdown = wrappers[1]?.querySelector('.slicer-dropdown-menu');
-    if (!dropdown) return resolve('no dropdown');
-    dropdown.click();
-
-    const attempt = (tries) => {
+mcp__Control_Chrome__execute_javascript
+code: new Promise((resolve) => {
+  const wrappers = document.querySelectorAll('.slicer-content-wrapper');
+  const dropdown = wrappers[1]?.querySelector('.slicer-dropdown-menu');
+  if (!dropdown) return resolve('no dropdown');
+  dropdown.click();
+  const attempt = (tries) => {
+    setTimeout(() => {
+      const popups = document.querySelectorAll('[id^="slicer-dropdown-popup"]');
+      let popup = null;
+      for (const p of popups) {
+        if (p.querySelectorAll('.slicerItemContainer').length > 0) { popup = p; break; }
+      }
+      if (!popup && tries > 0) return attempt(tries - 1);
+      if (!popup) return resolve('popup never ready');
+      const usItem = Array.from(popup.querySelectorAll('.slicerItemContainer'))
+        .find(i => i.getAttribute('title') === 'United States');
+      if (!usItem) return resolve('US not found');
+      if (usItem.getAttribute('aria-expanded') !== 'true') {
+        usItem.querySelector('.expandButton')?.click();
+        setTimeout(() => { dropdown.click(); attempt(3); }, 400);
+        return;
+      }
+      if (usItem.getAttribute('aria-selected') === 'true') {
+        usItem.querySelector('.slicerCheckbox')?.click();
+      }
       setTimeout(() => {
-        const popups = document.querySelectorAll('[id^="slicer-dropdown-popup"]');
-        let popup = null;
-        for (const p of popups) {
-          if (p.querySelectorAll('.slicerItemContainer').length > 0) { popup = p; break; }
-        }
-        if (!popup && tries > 0) return attempt(tries - 1);
-        if (!popup) return resolve('popup never ready');
-
-        const usItem = Array.from(popup.querySelectorAll('.slicerItemContainer'))
-          .find(i => i.getAttribute('title') === 'United States');
-        if (!usItem) return resolve('US not found');
-
-        if (usItem.getAttribute('aria-expanded') !== 'true') {
-          usItem.querySelector('.expandButton')?.click();
-          setTimeout(() => { dropdown.click(); attempt(3); }, 400);
-          return;
-        }
-
-        if (usItem.getAttribute('aria-selected') === 'true') {
-          usItem.querySelector('.slicerCheckbox')?.click();
-        }
-
-        setTimeout(() => {
-          const dallas = Array.from(popup.querySelectorAll('.slicerItemContainer'))
-            .find(i => i.getAttribute('title') === 'Dallas');
-          dallas?.querySelector('.slicerCheckbox')?.click();
-          resolve('Dallas selected');
-        }, 200);
-      }, 400);
-    };
-    attempt(5);
-  });
-}
+        const dallas = Array.from(popup.querySelectorAll('.slicerItemContainer'))
+          .find(i => i.getAttribute('title') === 'Dallas');
+        dallas?.querySelector('.slicerCheckbox')?.click();
+        resolve('Dallas selected');
+      }, 200);
+    }, 400);
+  };
+  attempt(5);
+})
 ```
 
 Close the dropdown:
 
-```
-mcp__playwright__browser_press_key
-key: Escape
-```
-
-Take a screenshot and read all KPI tile values directly from the image:
-
-```
-mcp__playwright__browser_take_screenshot
+```js
+mcp__Control_Chrome__execute_javascript
+code: document.dispatchEvent(new KeyboardEvent('keydown', {key: 'Escape', bubbles: true}))
 ```
 
-**KPI tiles — Revenue vs. Target:** Current Quarter %, Last Quarter %, YTD %
-
-**KPI tiles — Revenue vs. Previous Year:** Current Quarter %, Last Quarter %, YTD %
-
-**KPI tiles — Sequential Quarterly Revenue:** Current Quarter %, Previous Quarter %, 90-Day Forecast vs. Target %
-
-Now hover to get the most recent month's revenue dollar figure:
+Wait 2 seconds, then read KPI tile values from the DOM:
 
 ```js
-mcp__playwright__browser_run_code
-code: async (page) => {
-  await page.mouse.move(700, 450);
-  await page.waitForTimeout(500);
-  await page.mouse.move(396, 265);
-  await page.waitForTimeout(1200);
-  return page.evaluate(() => {
+mcp__Control_Chrome__execute_javascript
+code: (() => {
+  const tiles = [];
+  document.querySelectorAll('[class*="kpiVisual"], [class*="kpi-"], [class*="card"]').forEach(el => {
+    const text = el.innerText?.trim();
+    if (text) tiles.push(text);
+  });
+  // Also grab all visible numeric text that looks like % or $
+  const allText = document.body.innerText;
+  return { tiles, allText: allText.substring(0, 3000) };
+})()
+```
+
+Read the KPI values from the returned text. The page shows:
+- Revenue vs. Target: Current Quarter %, Last Quarter %, YTD %
+- Revenue vs. Previous Year: Current Quarter %, Last Quarter %, YTD %
+- Sequential Quarterly Revenue: Current Quarter %, Previous Quarter %, 90-Day Forecast %
+
+Now hover to get the most recent month's revenue dollar figure. Move mouse to the
+bar chart hover position (x≈396, y≈265) and read the tooltip div:
+
+```js
+mcp__Control_Chrome__execute_javascript
+code: (() => {
+  // Simulate mousemove to trigger PowerBI tooltip
+  const el = document.elementFromPoint(396, 265);
+  if (el) {
+    el.dispatchEvent(new MouseEvent('mousemove', {bubbles: true, clientX: 396, clientY: 265}));
+    el.dispatchEvent(new MouseEvent('mouseenter', {bubbles: true, clientX: 396, clientY: 265}));
+  }
+  // Read tooltip after brief delay — call again in 1.5s if needed
+  return new Promise(resolve => setTimeout(() => {
     const allDivs = document.querySelectorAll('div');
     for (const div of allDivs) {
       if (div.children.length > 0) continue;
       const text = (div.innerText || div.textContent || '').replace(/\s+/g, ' ').trim();
-      if (text.includes('Month Name') && text.includes('Monthly Revenue')) return text;
+      if (text.includes('Month Name') && text.includes('Monthly Revenue')) return resolve(text);
     }
-    return null;
-  });
-}
+    resolve(null);
+  }, 1500));
+})()
 ```
 
-The tooltip returns: `Month Name [Month], Monthly Revenue $X`. Record the month name and dollar value.
+If tooltip returns null, try reading the bar chart labels directly from DOM text instead.
+The most recent month with a non-zero bar is the last closed month.
 
 Record:
 - Dallas Revenue vs. Target: CQ %, LQ %, YTD %
@@ -141,59 +184,62 @@ Record:
 - Dallas Sequential Quarterly: CQ %, PQ %, 90-Day %
 - Dallas Monthly Revenue: $X (Month)
 
-### Step 3 — Filter to South Texas (Austin + Houston), Read Data
+---
+
+## Phase 3 — Filter to South Texas, Read Data
 
 ```js
-mcp__playwright__browser_evaluate
-function: () => {
-  return new Promise((resolve) => {
-    const wrappers = document.querySelectorAll('.slicer-content-wrapper');
-    const dropdown = wrappers[1]?.querySelector('.slicer-dropdown-menu');
-    if (!dropdown) return resolve('no dropdown');
-    dropdown.click();
-
-    const attempt = (tries) => {
-      setTimeout(() => {
-        const popups = document.querySelectorAll('[id^="slicer-dropdown-popup"]');
-        let popup = null;
-        for (const p of popups) {
-          if (p.querySelectorAll('.slicerItemContainer').length > 0) { popup = p; break; }
-        }
-        if (!popup && tries > 0) return attempt(tries - 1);
-        if (!popup) return resolve('popup never ready');
-
-        const items = popup.querySelectorAll('.slicerItemContainer');
-        for (const item of items) {
-          const title = item.getAttribute('title');
-          const selected = item.getAttribute('aria-selected') === 'true';
-          if (title === 'Dallas' && selected) item.querySelector('.slicerCheckbox')?.click();
-          if ((title === 'Austin' || title === 'Houston') && !selected)
-            item.querySelector('.slicerCheckbox')?.click();
-        }
-        resolve('South Texas selected');
-      }, 400);
-    };
-    attempt(5);
-  });
-}
+mcp__Control_Chrome__execute_javascript
+code: new Promise((resolve) => {
+  const wrappers = document.querySelectorAll('.slicer-content-wrapper');
+  const dropdown = wrappers[1]?.querySelector('.slicer-dropdown-menu');
+  if (!dropdown) return resolve('no dropdown');
+  dropdown.click();
+  const attempt = (tries) => {
+    setTimeout(() => {
+      const popups = document.querySelectorAll('[id^="slicer-dropdown-popup"]');
+      let popup = null;
+      for (const p of popups) {
+        if (p.querySelectorAll('.slicerItemContainer').length > 0) { popup = p; break; }
+      }
+      if (!popup && tries > 0) return attempt(tries - 1);
+      if (!popup) return resolve('popup never ready');
+      const items = popup.querySelectorAll('.slicerItemContainer');
+      for (const item of items) {
+        const title = item.getAttribute('title');
+        const selected = item.getAttribute('aria-selected') === 'true';
+        if (title === 'Dallas' && selected) item.querySelector('.slicerCheckbox')?.click();
+        if ((title === 'Austin' || title === 'Houston') && !selected)
+          item.querySelector('.slicerCheckbox')?.click();
+      }
+      resolve('South Texas selected');
+    }, 400);
+  };
+  attempt(5);
+})
 ```
 
-Close and screenshot:
+Close, wait 2 seconds, read KPI tiles and hover for monthly revenue the same way as Phase 2.
+
+Record:
+- South Texas Revenue vs. Target: CQ %, LQ %, YTD %
+- South Texas Revenue vs. Prior Year: CQ %, LQ %, YTD %
+- South Texas Sequential Quarterly: CQ %, PQ %, 90-Day %
+- South Texas Monthly Revenue: $X (Month) — also read Austin and Houston separately if visible
+
+---
+
+## Phase 4 — Save to Obsidian and Output
+
+Append the new snapshot to `Mind/One Texas/Rock 1 - Revenue Snapshots.md` using
+`mcp__obsidian-local__append_to_vault_file`. Use this header format:
 
 ```
-mcp__playwright__browser_press_key
-key: Escape
+## [Month YYYY] — Revenue Snapshot
+*Pulled: YYYY-MM-DD | Source: Enterprise Scorecard v4 | Most Recent Closed Month: [Month YYYY]*
 ```
 
-```
-mcp__playwright__browser_take_screenshot
-```
-
-Read KPI tiles and hover for monthly revenue the same way as Dallas.
-
-### Step 4 — Output Formatted Report
-
-Compile Dallas and South Texas data and output using the format below.
+Then output the report using the standard format below.
 
 ---
 
@@ -204,19 +250,19 @@ Compile Dallas and South Texas data and output using the format below.
 
 ### Revenue vs. Target
 
-| Metric           | Dallas | South Texas | One Texas (simple avg) |
-|------------------|--------|-------------|------------------------|
-| Current Quarter  | X%     | X%          | X%                     |
-| Last Quarter     | X%     | X%          | X%                     |
-| YTD              | X%     | X%          | X%                     |
+| Metric          | Dallas | South Texas | One Texas (simple avg) |
+|-----------------|--------|-------------|------------------------|
+| Current Quarter | X%     | X%          | X%                     |
+| Last Quarter    | X%     | X%          | X%                     |
+| YTD             | X%     | X%          | X%                     |
 
 ### Revenue vs. Prior Year
 
-| Metric           | Dallas | South Texas | One Texas (simple avg) |
-|------------------|--------|-------------|------------------------|
-| Current Quarter  | X%     | X%          | X%                     |
-| Last Quarter     | X%     | X%          | X%                     |
-| YTD              | X%     | X%          | X%                     |
+| Metric          | Dallas | South Texas | One Texas (simple avg) |
+|-----------------|--------|-------------|------------------------|
+| Current Quarter | X%     | X%          | X%                     |
+| Last Quarter    | X%     | X%          | X%                     |
+| YTD             | X%     | X%          | X%                     |
 
 ### Sequential Quarterly Revenue
 
@@ -233,8 +279,7 @@ Compile Dallas and South Texas data and output using the format below.
 | Monthly Revenue | $X.XM  | $X.XM       | $X.XM     |
 ```
 
-One Texas columns use simple averages for % metrics (Dallas and South Texas are comparable
-size — if that changes materially, weight by revenue instead). Monthly Revenue One Texas
+One Texas % columns = simple average of Dallas and South Texas. Monthly Revenue One Texas
 = Dallas + South Texas sum.
 
 Follow with 2-3 sentences of Chase-voice commentary. Lead with QTD Revenue vs. Target.
@@ -249,11 +294,13 @@ Do not soften misses.
 - **One Texas only** — never report all-Improving numbers. Always filter before reading.
 - The single Promise-based evaluate handles open + expand + select with built-in retry.
   Do not break it into separate steps.
-- KPI tiles are large and readable directly from the screenshot — no DOM scraping needed.
-- Monthly Revenue tooltip: hover at (x≈396, y≈265), read leaf div containing "Month Name"
-  and "Monthly Revenue $X". The most recent month with actual bar data is the last closed month.
+- KPI tile values: read from DOM text if screenshot not available. Look for large % values
+  adjacent to section headers like "Revenue vs. Target".
+- Monthly Revenue tooltip: trigger via mousemove/mouseenter dispatch at (x≈396, y≈265).
+  If mousemove doesn't trigger tooltip, read bar chart axis labels from DOM as fallback.
 - Always use `.slicerCheckbox` for clicks — clicking the treeitem directly hits the expand toggle.
 - South Texas = Austin + Houston selected simultaneously in a single evaluate pass.
+- **Escape key**: use `document.dispatchEvent(new KeyboardEvent('keydown', {key: 'Escape', bubbles: true}))` instead of `mcp__playwright__browser_press_key`.
 
 ---
 
@@ -262,5 +309,7 @@ Do not soften misses.
 PowerBI report: Improving Enterprise Scorecard v4
 Page: Financial Outlook (`3c7c59c7edecc090aa27`)
 Report ID: `ff2db561-1548-4c6f-ae43-a3a927bd73e3`
-Connector: Playwright MCP (`mcp__playwright__*`)
-Auth: SSO (auto)
+Connector: Chrome MCP (`mcp__Control_Chrome__*`) — primary
+Obsidian cache: `Mind/One Texas/Rock 1 - Revenue Snapshots.md`
+Freshness threshold: 30 days (or new month closed since last pull)
+Auth: SSO (auto via Chrome session)

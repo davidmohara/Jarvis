@@ -367,13 +367,16 @@
       "source": "explicit",
       "agent": "jarvis",
       "category": "tool-misuse",
-      "description": "Scheduled morning briefing delivered output to session but noted 'Slack delivery unavailable — no Slack MCP connected' instead of using the master-slack skill (.claude/skills/master-slack/SKILL.md) via Desktop Commander. The skill explicitly states: 'ALWAYS use this skill for outbound Slack messages. The Slack MCP connector posts as David and does NOT trigger notifications.' The skill uses Desktop Commander + systems/slack-bot/post.py — not the Slack MCP.",
+      "description": "Scheduled morning briefing delivered output to session but noted 'Slack delivery unavailable \u2014 no Slack MCP connected' instead of using the master-slack skill (.claude/skills/master-slack/SKILL.md) via Desktop Commander. The skill explicitly states: 'ALWAYS use this skill for outbound Slack messages. The Slack MCP connector posts as David and does NOT trigger notifications.' The skill uses Desktop Commander + systems/slack-bot/post.py \u2014 not the Slack MCP.",
       "correction": "Always use master-slack skill (Desktop Commander + post.py) for outbound Slack messages. The Slack MCP is for reading only.",
       "failure_mode": "protocol-skip",
-      "systemic_fix": "This is a repeat of err-20260324-002. The rule is established. Skill is at .claude/skills/master-slack/SKILL.md. Search .claude/skills/ as well as skills/ when looking for skills — per err-20260327-004.",
+      "systemic_fix": "This is a repeat of err-20260324-002. The rule is established. Skill is at .claude/skills/master-slack/SKILL.md. Search .claude/skills/ as well as skills/ when looking for skills \u2014 per err-20260327-004.",
       "fix_status": "applied",
       "severity": "moderate",
-      "related_entries": ["err-20260324-002", "err-20260327-004"]
+      "related_entries": [
+        "err-20260324-002",
+        "err-20260327-004"
+      ]
     }
   ],
   "entries_addendum_3": [
@@ -390,7 +393,10 @@
       "systemic_fix": "Boot sequence rule: after identity files are loaded, dispatch Chief immediately for the morning briefing workflow. Jarvis does not inline briefing synthesis.",
       "fix_status": "proposed",
       "severity": "moderate",
-      "related_entries": ["err-20260326-003", "err-20260327-001"]
+      "related_entries": [
+        "err-20260326-003",
+        "err-20260327-001"
+      ]
     },
     {
       "id": "err-20260418-002",
@@ -399,13 +405,69 @@
       "source": "explicit",
       "agent": "jarvis",
       "category": "process-skip",
-      "description": "After David pointed out the routing error (err-20260418-001), Jarvis asked 'Want me to log the error?' instead of logging it immediately without asking. This is a direct repeat of err-20260321-002, err-20260403-002, and err-20260403-008 — all of which established the same rule: log immediately, no approval required.",
+      "description": "After David pointed out the routing error (err-20260418-001), Jarvis asked 'Want me to log the error?' instead of logging it immediately without asking. This is a direct repeat of err-20260321-002, err-20260403-002, and err-20260403-008 \u2014 all of which established the same rule: log immediately, no approval required.",
       "correction": "Error logging is fully autonomous. No asking. Log in the same response as the correction is received.",
       "failure_mode": "protocol-skip",
-      "systemic_fix": "This is the fourth logged instance of asking before logging. The rule is in CLAUDE.md, AUTOMATION.md, and the error log itself. Execution compliance required — no new systemic fix is possible beyond following the existing rule.",
+      "systemic_fix": "This is the fourth logged instance of asking before logging. The rule is in CLAUDE.md, AUTOMATION.md, and the error log itself. Execution compliance required \u2014 no new systemic fix is possible beyond following the existing rule.",
       "fix_status": "applied",
       "severity": "moderate",
-      "related_entries": ["err-20260321-002", "err-20260403-002", "err-20260403-008"]
+      "related_entries": [
+        "err-20260321-002",
+        "err-20260403-002",
+        "err-20260403-008"
+      ]
+    },
+    {
+      "id": "err-20260420-001",
+      "timestamp": "2026-04-20T13:00:00-05:00",
+      "session": "2026-04-20",
+      "source": "explicit",
+      "agent": "chief",
+      "category": "missed-context",
+      "description": "Built Scott McMichael 1:1 prep sheet using only email data. Did not check Obsidian (Mind/One Texas/) for scorecard, revenue, and pipeline snapshots that Chase maintains automatically.",
+      "correction": "One Texas scorecard data lives in Obsidian at Mind/One Texas/. Should always be checked when building prep for Scott or any One Texas-related conversation.",
+      "failure_mode": "context-blindness",
+      "systemic_fix": "Add Obsidian One Texas check to 1:1 prep workflow for Scott and any North America conversation touching One Texas metrics.",
+      "fix_status": "proposed",
+      "severity": "moderate",
+      "related_entries": [
+        "err-20260420-002"
+      ]
+    },
+    {
+      "id": "err-20260420-002",
+      "timestamp": "2026-04-20T13:05:00-05:00",
+      "session": "2026-04-20",
+      "source": "explicit",
+      "agent": "chief",
+      "category": "data-accuracy",
+      "description": "Reported Q1 new logos as 0 and new anchors as 0 in Scott McMichael prep sheet. Obsidian scorecard showed 0/0 but David confirmed actual Q1 result was 4 logos and 1 anchor.",
+      "correction": "Q1 One Texas results through end of March: 4 new logos, 1 new anchor. Targets: 8 logos, 4 anchors.",
+      "failure_mode": "stale-cache",
+      "systemic_fix": "Obsidian scorecard may lag actuals \u2014 when David provides a correction on numbers, trust him and update immediately. Cross-check scorecard data against most recent email or verbal confirmation when available.",
+      "fix_status": "applied",
+      "severity": "moderate",
+      "related_entries": [
+        "err-20260420-001"
+      ]
+    },
+    {
+      "id": "err-20260420-003",
+      "timestamp": "2026-04-20T13:15:00-05:00",
+      "session": "2026-04-20",
+      "source": "explicit",
+      "agent": "chief",
+      "category": "process-skip",
+      "description": "Plaud ingest workflow was not launched at boot on April 20. Boot sequence executed but background Agent for plaud-ingest was never fired. Working memory entry recorded 'full boot sequence executed' without noting the omission.",
+      "correction": "Plaud ingest must be launched as a background Agent during Phase 2 of every boot, no exceptions. This is the third recorded instance of this failure (see err-20260326-003, err-20260327-001).",
+      "failure_mode": "protocol-skip",
+      "systemic_fix": "Pattern is recurring. Consider adding explicit plaud-launched checkpoint to boot working memory write so the omission is self-evident on review.",
+      "fix_status": "proposed",
+      "severity": "moderate",
+      "related_entries": [
+        "err-20260326-003",
+        "err-20260327-001"
+      ]
     }
   ],
   "entries_addendum": [
@@ -452,7 +514,9 @@
       "systemic_fix": "Before surfacing any task as overdue in a briefing, note that OmniFocus MCP accuracy is unverified for completion status. Flag for Rigby to investigate MCP filter reliability. Consider adding a verification step or cross-checking with osascript on tasks with past due dates.",
       "fix_status": "proposed",
       "severity": "moderate",
-      "related_entries": ["err-20260401-001"]
+      "related_entries": [
+        "err-20260401-001"
+      ]
     },
     {
       "id": "err-20260406-001",
@@ -1221,7 +1285,9 @@
       "systemic_fix": "Before clicking 'Add offer' in any modal, read the modal content first to confirm the merchant name matches the intended target. Never click Add offer without verifying the modal is for the correct offer.",
       "fix_status": "applied",
       "severity": "minor",
-      "related_entries": ["err-20260404-001"]
+      "related_entries": [
+        "err-20260404-001"
+      ]
     },
     {
       "id": "err-20260404-001",
@@ -1248,10 +1314,12 @@
       "description": "Used window.location.href (open_url equivalent) for in-portal navigation on Citi instead of clicking nav links. David explicitly corrected: navigate with clicks, not URLs.",
       "correction": "When already authenticated on a portal, navigate exclusively by clicking links and buttons via execute_javascript. open_url and window.location.href are reserved for the initial jump to a new issuer domain.",
       "failure_mode": "protocol-skip",
-      "systemic_fix": "Rule 4 in card-walkthrough/workflow.md already exists but was not followed. Reinforce: zero exceptions — no URL navigation once authenticated.",
+      "systemic_fix": "Rule 4 in card-walkthrough/workflow.md already exists but was not followed. Reinforce: zero exceptions \u2014 no URL navigation once authenticated.",
       "fix_status": "applied",
       "severity": "minor",
-      "related_entries": ["err-20260404-001"]
+      "related_entries": [
+        "err-20260404-001"
+      ]
     },
     {
       "id": "err-20260403-012",
