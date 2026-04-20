@@ -1,8 +1,11 @@
 ---
 name: galen-whoop-analysis
+owning_agent: galen
 description: Deep WHOOP analysis over 30 days. Pulls recovery, sleep, and workout data. Identifies patterns (trend, sleep quality drivers, load correlation, HRV drift). Outputs narrative + data table + actionable recommendations.
 evolution: system
 model: sonnet
+trigger_keywords: [whoop, hrv, recovery, strain, sleep score]
+trigger_agents: [galen, chief]
 ---
 
 <!-- system:start -->

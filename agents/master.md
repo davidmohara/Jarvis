@@ -97,8 +97,11 @@ These are the operations Master handles directly (not routed to a specialist age
 | Delegation Tracker | All delegated items, owners, due dates, status | `delegations/tracker.md` |
 | Task Management | Inbox items, due tasks, flagged items | Task management API |
 | Calendar | Today's schedule, upcoming meetings | Calendar API |
-| Knowledge Layer | Meeting history, contact notes, decisions, projects | Knowledge base API |
+| Knowledge Layer | Meeting history, contact notes, decisions, projects | Obsidian / IES built-in |
 | Agent Files | Full persona and capabilities for each specialist | `agents/*.md` |
+| Memory — Working | Read recent session entries for context; write cross-domain synthesis entries | `memory/working/` |
+| Memory — Episodic | Read all entries for cross-domain synthesis | `memory/episodic/` (all subdirectories) |
+| Memory — Semantic | Read distilled patterns for proactive surfacing (read-only) | `memory/semantic/` |
 <!-- system:end -->
 
 <!-- personal:start -->
@@ -259,7 +262,8 @@ When direct invocation is confirmed:
 1. Load the agent's full persona from `agents/{name}.md`
 2. Load the agent's task portfolio and identify the relevant skill from `skills/{name}-*.md` based on the request context
 3. Load domain context for the agent:
-   - Knowledge layer: relevant meeting notes, contact history, and decisions from `knowledge/`
+   - Memory layer: relevant entries from `memory/episodic/` (meetings, people, projects, decisions, coaching) and `memory/semantic/` (distilled patterns) scoped to the agent's domain
+   - Knowledge layer: relevant notes from Obsidian vault scoped to the agent's domain
    - Task management: open tasks, inbox items, and delegations relevant to the agent's domain
 4. The agent operates with standing permissions defined in `identity/AUTOMATION.md` and `config/agents.json`
 5. Pass the controller's original request text (everything after the agent name) as the initial context for the spawned agent
@@ -276,7 +280,7 @@ Each sub-agent runs as a **full separate process** with its own dedicated contex
 **Lifecycle:**
 
 1. **Spawn** — Master (or direct invocation) triggers a skill. The runtime forks a sub-agent with `context: fork`.
-2. **Bootstrap** — The sub-agent reads the skill file, loads its persona from `agents/{name}.md`, and loads domain context: Knowledge layer entries from `knowledge/` scoped to the agent's domain, task management data, and any context passed from the invoking request.
+2. **Bootstrap** — The sub-agent reads the skill file, loads its persona from `agents/{name}.md`, and loads domain context: memory layer entries from `memory/episodic/` and `memory/semantic/` scoped to the agent's domain, knowledge layer entries from Obsidian, task management data, and any context passed from the invoking request.
 3. **Execute** — The sub-agent runs its workflow using its own tools, persona, and context. It may write entries to the knowledge layer during execution.
 4. **Complete** — The sub-agent finishes its task. Its output is captured and returned to the caller (Master or directly to the executive).
 5. **Terminate** — The sub-agent process terminates cleanly, releasing its context window and any held resources.
@@ -430,9 +434,10 @@ When either condition is met, Master synthesizes rather than routes.
 
 **Data sources for synthesis:** Master draws from three data sources when synthesizing:
 
-1. **Knowledge layer** — meeting notes, contact history, decisions, and project context from `knowledge/` scoped to each relevant domain
-2. **Task management** — open tasks, delegations, inbox items, and due dates that cross domain boundaries
-3. **Recent agent outputs** — results from recent sub-agent executions stored in the knowledge layer, providing up-to-date domain-specific context
+1. **Memory layer** — episodic entries from `memory/episodic/` (meetings, people, projects, decisions, coaching) and semantic patterns from `memory/semantic/` scoped to each relevant domain
+2. **Knowledge layer** — Obsidian vault notes, meeting notes, contact history scoped to each relevant domain
+3. **Task management** — open tasks, delegations, inbox items, and due dates that cross domain boundaries
+4. **Recent agent outputs** — working memory entries from `memory/working/` and recent sub-agent execution results, providing up-to-date domain-specific context
 
 **Source attribution:** Every synthesis response attributes each insight to its source agent domain. Master uses the format `[Agent]: insight` so the controller knows where each perspective originates:
 
@@ -498,13 +503,47 @@ On every new session, Master runs the boot sequence:
 
 ### Agent Output Handling
 
-When a sub-agent returns output, Master scans it for two special blocks before delivering anything to the controller:
+When a sub-agent returns output, Master runs three post-execution actions before delivering anything to the controller. All three are mandatory. Execute in this order:
 
-**`## Self-Corrections`** — Log each entry to `systems/error-tracking/error-log.json` per the schema, then strip the block. Controller never sees it.
+**Action 1: `## Self-Corrections`** — Log each entry to `systems/error-tracking/error-log.json` per the schema, then strip the block. Controller never sees it.
 
-**`## Slack Notification`** — Invoke the master-slack skill (`.claude/skills/master-slack/SKILL.md`) and send the message to the specified channel. Then strip the block. Controller never sees the raw payload — only the notification arriving in Slack.
+**Action 2: `## Slack Notification`** — Invoke the master-slack skill (`.claude/skills/master-slack/SKILL.md`) and send the message to the specified channel. Then strip the block. Controller never sees the raw payload — only the notification arriving in Slack.
 
-Both blocks are stripped in the same pass before output reaches the controller. If either block is malformed or the send fails, log the failure and surface the original output to the controller anyway — never silently drop it.
+**Action 3: Working Memory Capture** — Write a working memory entry to `memory/working/` for every sub-agent execution that produced meaningful output. This is Master's responsibility, not the sub-agent's. The sub-agent does not need to include any special block or know about the memory system.
+
+**What counts as meaningful output:** Any sub-agent execution that produced a deliverable (briefing, prep brief, pipeline review, analysis, deck, email draft), ran a workflow to completion, or surfaced actionable findings. Exclude trivial exchanges (quick lookups, confirmations, single-line answers).
+
+**How Master writes the entry:**
+
+Filename: `YYYY-MM-DD-HHmmss-{agent}-{task-slug}.md`
+
+```yaml
+---
+type: working
+task_id: "session"
+session_id: "{agent}-{YYYY-MM-DD}-{HHmmss}"
+agent-source: {agent that executed}
+created: {local timestamp}
+expires: {created + 2 days}
+status: active
+context: "{What the agent did} — {date}"
+---
+```
+
+Body content (Master composes from the sub-agent's output):
+- What was requested and what was produced
+- Key data points, findings, or decisions from the output
+- Data sources used and any that were unavailable
+- Action items or follow-ups surfaced
+- Handoffs initiated to other agents
+
+**Why this is centralized here:** Working memory is the input funnel for the dream cycle. If it isn't written, nothing compounds between sessions. Putting this responsibility on individual agents failed — they skip it. Master owns it because Master is the single chokepoint all output passes through.
+
+**For boot sequences:** Master is both orchestrator and executor during boot. The morning-briefing step-04 completion gate handles the boot working memory write directly. This is the one case where Master writes working memory as part of workflow execution, not post-agent-output.
+
+**For scheduled tasks (no Master present):** Scheduled tasks run without Master. These workflows must embed the working memory write in their final step file. This is the only case where the workflow itself is responsible.
+
+Both Self-Corrections and Slack Notification blocks are stripped before output reaches the controller. Working memory is written silently — the controller never sees it. If any action fails, log the failure and continue — never silently drop the sub-agent's output.
 
 ### Workflow Lock
 

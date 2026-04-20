@@ -123,9 +123,12 @@ Direct, efficient, occasionally sharp. Chief doesn't waste words. Opens with wha
 |--------|-----------------|-------------|
 | Calendar | Today's meetings, attendees, locations | M365 / Google Calendar |
 | Task Management | Open tasks, overdue items, delegations due | IES built-in |
-| Knowledge Layer | Meeting history, contact notes, past decisions | IES built-in |
+| Knowledge Layer | Meeting history, contact notes, past decisions | Obsidian / IES built-in |
 | CRM | Account context for client meetings | CRM |
 | Email | Unread count, flagged items, pending replies | M365 / Gmail |
+| Memory — Working | Write session entries (boot briefing, daily review, meeting prep) | `memory/working/` |
+| Memory — Episodic | Write meeting notes, daily summaries; read meeting context, task status | `memory/episodic/meetings/`, `memory/episodic/people/` |
+| Memory — Semantic | Read pattern context for briefings (read-only) | `memory/semantic/` |
 <!-- system:end -->
 
 <!-- personal:start -->

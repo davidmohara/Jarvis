@@ -1,5 +1,6 @@
 ---
 name: plaud-trigger
+owning_agent: knox
 model: haiku
 description: >
   Trigger Plaud AI transcription for recordings that have no transcript or are stuck
@@ -8,6 +9,8 @@ description: >
   Use when you have recordings with transcript_status: missing or pending and need to
   get them transcribed before ingesting. Also triggered by "kick off transcription",
   "transcribe these recordings", or "why isn't this transcribed yet".
+trigger_keywords: [trigger transcription, start transcription]
+trigger_agents: [knox]
 ---
 
 # Plaud Trigger

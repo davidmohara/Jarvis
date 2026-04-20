@@ -70,13 +70,6 @@ If the 72-hour look-ahead flagged an upcoming event needing prep, weave it into 
 - Do not auto-resume. Wait for controller instruction before proceeding.
 - If none found, continue boot normally.
 
-### Rules That Exist Because of Past Failures
-
-- **Do not skip the Plaud ingest workflow launch.** err-20260326-003 and err-20260327-001 both resulted from skipping this. The Plaud pipeline connects transcript action items to today's calendar — that's high-value intelligence, not housekeeping. Launch it as a background Agent every boot.
-- **Do not hand-roll a partial briefing.** The 4-step workflow exists for a reason. Follow it.
-- **When David says something is done, trust him.** Do not verify what he just told you. Act on it and move on.
-- **Cross-reference transcripts with today's calendar.** If a recent transcript contains a commitment like "I'll follow up Friday," and today is Friday, that's the lead item in the briefing — not buried at the bottom.
-
 ## OmniFocus
 
 Prefer the OmniFocus MCP server (`mcp__omnifocus__*`) for all READ operations. Fall back to `osascript` via Bash only when the MCP server is unavailable. Refer to the OmniFocus section in SYSTEM.md for rules — especially: always filter for active/uncompleted tasks unless David asks for completed ones.
@@ -97,4 +90,7 @@ When David corrects you — any correction, any agent — **log it to `systems/e
 
 ## Exit Behavior
 
-When the user says they want to exit, log off, or end the session: **commit all files first**, then exit. Stage and commit all untracked and modified files before ending the session.
+When the user says they want to exit, log off, or end the session:
+
+1. **Working memory sweep.** Check `memory/working/` for entries written this session (match today's date in filename). If none exist and significant work was done this session, write one now. This is the safety net — Master's Agent Output Handling should have already written entries during the session, but if anything was missed, catch it here.
+2. **Commit all files.** Stage and commit all untracked and modified files before ending the session.

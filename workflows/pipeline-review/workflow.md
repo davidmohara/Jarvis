@@ -80,6 +80,7 @@ model: sonnet
 ## EXECUTION
 
 Read fully and follow: `steps/step-01-pull-pipeline.md` to begin the workflow.
+
 <!-- system:end -->
 
 <!-- personal:start -->

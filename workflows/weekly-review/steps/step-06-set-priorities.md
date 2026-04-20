@@ -142,6 +142,15 @@ model: sonnet
 
 ## WORKFLOW COMPLETE
 
+**Before closing the weekly review**, write `state.yaml` in the workflow directory with `status: complete` and `current-step: step-06`.
+
+```yaml
+workflow: weekly-review
+agent: quinn
+status: complete
+current-step: step-06
+```
+
 The weekly review is done. The review file has been written. Next week's priorities are set.
 
 Post-review actions that may be queued:

@@ -2,12 +2,15 @@
 workflow: rock4-pipeline-weekly
 agent: chase
 status: complete
-session-started: "2026-04-17"
-session-id: rock4-weekly-20260417
-current-step: complete
+session-started: "2026-04-20"
+session-id: "chase-2026-04-20-082000"
+current-step: step-03-save
 original-request: scheduled-task
-last-completed: "2026-04-17"
+last-completed: "2026-04-20"
+last-written-obsidian: "2026-04-20"
+failure-reason: null
 accumulated-context:
-  cosell: stored-in-obsidian
-  pipeline: stored-in-obsidian
+  cosell: "Pipeline $1.14M + Won $747K = $1.89M (12.6% of $15M Rock 4 target). Gap: $13.11M"
+  pipeline: "90-day weighted $21.61M One Texas. Dallas $12.0M, South Texas $9.60M. 166 opps. Data as of 2026-04-17, reconfirmed stable."
+  obsidian-write: "Rock 4 Pipeline Snapshots file created with week-of-2026-04-20 entry"
 ---

@@ -171,7 +171,14 @@ model: sonnet
 
 ## WORKFLOW COMPLETE
 
-Pipeline review delivered. No further steps.
+**Before returning the pipeline report to the controller**, write `state.yaml` in the workflow directory with `status: complete` and `current-step: step-04`.
+
+```yaml
+workflow: pipeline-review
+agent: chase
+status: complete
+current-step: step-04
+```
 
 ### Handoff Rules
 

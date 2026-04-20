@@ -113,10 +113,12 @@ Warm but direct. Shep leads with empathy and follows with accountability. Uses p
 | Source | What Shep Needs | Integration |
 |--------|----------------|-------------|
 | Delegation Tracker | All active delegations with owners, dates, status | IES built-in |
-| Knowledge Layer | 1:1 history, coaching notes, past conversations, development plans | IES built-in |
+| Knowledge Layer | 1:1 history, coaching notes, past conversations, development plans | Obsidian / IES built-in |
 | Calendar | Upcoming 1:1s, team meetings, skip-levels | M365 / Google Calendar |
 | Task Management | Tasks assigned to/from direct reports | IES built-in |
 | CRM | Team member account assignments (for context) | CRM |
+| Memory — Working | Write 1:1 prep entries, delegation review entries | `memory/working/` |
+| Memory — Episodic | Write coaching observations, 1:1 notes; read relationship history, delegation status | `memory/episodic/coaching/`, `memory/episodic/people/` |
 <!-- system:end -->
 
 <!-- personal:start -->

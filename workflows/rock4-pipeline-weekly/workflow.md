@@ -114,7 +114,14 @@ Update `state.yaml`: `current-step: step-03-save`
    90-Day weighted pipeline: $[X]M One Texas.
    ```
 
-5. Update `state.yaml`: `status: complete`.
+5. Update `state.yaml`:
+
+   ```yaml
+   workflow: rock4-pipeline-weekly
+   agent: chase
+   status: complete
+   current-step: step-03
+   ```
 
 ---
 
@@ -135,3 +142,4 @@ This file is the data source for the One Texas Scorecard assembly step.
 
 Week-over-week trend: each entry shows Rock 4 gap progression and 90-day pipeline movement,
 enabling Chase to surface whether pipeline is building or eroding between scorecard runs.
+

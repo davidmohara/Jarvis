@@ -1,8 +1,11 @@
 ---
 name: galen-visit-prep
+owning_agent: galen
 description: Pre-visit brief for Dr. Julli Randol. Compile WHOOP trends, bloodwork changes, protocol changes, outstanding questions, new questions, body comp update. Exportable to Obsidian note.
 evolution: system
 model: sonnet
+trigger_keywords: [doctor, visit prep, appointment, medical]
+trigger_agents: [galen]
 ---
 
 <!-- system:start -->

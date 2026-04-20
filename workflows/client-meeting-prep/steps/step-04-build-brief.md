@@ -220,7 +220,14 @@ model: sonnet
 
 ## WORKFLOW COMPLETE
 
-Client meeting brief delivered. No further steps.
+**Before returning the client meeting brief to the controller**, write `state.yaml` in the workflow directory with `status: complete` and `current-step: step-04`.
+
+```yaml
+workflow: client-meeting-prep
+agent: chase
+status: complete
+current-step: step-04
+```
 
 ### Handoff Rules
 

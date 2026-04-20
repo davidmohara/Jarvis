@@ -81,6 +81,7 @@ Check `$ARGUMENTS` for the word `auto` (case-insensitive).
 
 - If `auto` is present: read fully and follow `steps/step-auto.md`. Do not load any other step files.
 - Otherwise: read fully and follow `steps/step-01-capture.md` to begin the interactive workflow.
+
 <!-- system:end -->
 
 <!-- personal:start -->

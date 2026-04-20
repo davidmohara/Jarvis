@@ -1,10 +1,10 @@
 ---
 status: completed
-started-at: "2026-04-15T00:02:00Z"
-completed-at: "2026-04-15T00:02:30Z"
+started-at: "2026-04-20T18:55:00Z"
+completed-at: "2026-04-20T18:56:00Z"
 model: haiku
 outputs:
-  already-ready: 1
+  already-ready: 2
   triggered: 0
   pending: 0
   skipped: 0

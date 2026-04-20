@@ -119,7 +119,14 @@ If during brief assembly any of these conditions were detected, flag them in you
 
 ## WORKFLOW COMPLETE
 
-This concludes the one-on-one-prep workflow. The controller now has a data-backed brief they can scan in 5 minutes before their 1:1.
+**Before closing the one-on-one-prep workflow**, write `state.yaml` in the workflow directory with `status: complete` and `current-step: step-05`.
+
+```yaml
+workflow: one-on-one-prep
+agent: shep
+status: complete
+current-step: step-05
+```
 <!-- system:end -->
 
 <!-- personal:start -->

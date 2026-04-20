@@ -5,8 +5,10 @@ description: >
   David's agent inbox for routing tasks, references, and action items to the IES system.
   Trigger on boot (morning briefing), during daily review, or when David says "check my
   Jarvis folder", "process my inbox", or "anything in the Jarvis folder?"
-agent: chief
+owning_agent: chief
 model: sonnet
+trigger_keywords: [jarvis inbox, inbox folder, outlook jarvis]
+trigger_agents: [chief]
 ---
 
 # Jarvis Inbox — Mail Folder Processing

@@ -1,8 +1,10 @@
 ---
 name: chase-card-offers-discover
 description: Check quarterly category activation and read offers on the Discover it Cash Back card via Chrome automation. Covers rotating category activation, YNAB cross-reference, and offer enrollment.
-agent: chase
+owning_agent: chase
 model: haiku
+trigger_keywords: [discover offers, discover card]
+trigger_agents: [chase]
 ---
 
 # Discover Offers — Rotating Categories & Offers

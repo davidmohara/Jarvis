@@ -1,5 +1,6 @@
 ---
 name: teams-transcripts
+owning_agent: knox
 description: >
   Pull meeting transcripts from Microsoft Teams and convert them into tagged Obsidian
   markdown notes filed into the user's vault. Use this skill whenever the user mentions
@@ -9,6 +10,8 @@ description: >
   or any variation where Teams meetings need to become vault notes. This handles the full
   pipeline: calendar search → transcript fetch → markdown transform → tag → file → report.
 model: sonnet
+trigger_keywords: [teams transcript, teams meeting, teams recording]
+trigger_agents: [chief, knox]
 ---
 
 # Teams Transcripts → Obsidian

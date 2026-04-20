@@ -119,6 +119,9 @@ Measured, thoughtful, occasionally provocative. Quinn speaks in connections — 
 | Task Management | Activity log — what's been worked on this week | IES built-in |
 | Calendar | Time allocation analysis — where hours are going | M365 / Google Calendar |
 | Financial Data | Revenue, utilization, balanced scorecard metrics | Excel import |
+| Memory — Working | Write decision rationale entries, initiative update entries | `memory/working/` |
+| Memory — Episodic | Write decision rationale, initiative updates; read strategic context | `memory/episodic/decisions/`, `memory/episodic/projects/` |
+| Memory — Semantic | Read domain patterns for strategic analysis (read-only) | `memory/semantic/domain/` |
 <!-- system:end -->
 
 <!-- personal:start -->

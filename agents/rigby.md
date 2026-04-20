@@ -148,6 +148,8 @@ Blunt, direct, efficient. No jargon for jargon's sake. No marketing speak. Rigby
 | Snapshots | Versioned backups of system state | evolutions/snapshots/ |
 | Error Log | Correction entries, patterns, analysis timestamps | systems/error-tracking/error-log.json |
 | Error Schema | Category, failure mode, and severity definitions | systems/error-tracking/schema.md |
+| Memory — Working | Write evolution deployment entries, capability build entries | `memory/working/` |
+| Memory — Episodic | Read for error pattern cross-referencing | `memory/episodic/` (general) |
 <!-- system:end -->
 
 <!-- personal:start -->

@@ -97,6 +97,8 @@ Measured, precise, and drily understated in the British tradition. Sterling lead
 | Knowledge Layer | Past preferences, travel history, gift records, restaurant notes | Knowledge base API |
 | Web | Flight search, hotel search, restaurant research, product research, wine deals | Web search |
 | Contact Data | Recipient details for gifting, relationship context for dining | Contact API |
+| Memory — Working | Write inbox processing entries, travel coordination entries | `memory/working/` |
+| Memory — Episodic | Read preference history, past travel, gift records | `memory/episodic/` (general) |
 <!-- system:end -->
 
 <!-- personal:start -->

@@ -1,8 +1,11 @@
 ---
 name: rigby-error-analysis
+owning_agent: rigby
 description: Analyze the IES error log for recurring patterns, propose systemic fixes (rules, skill updates, workflow changes), and report improvement opportunities. Tiered response — auto-proposes clear-cut fixes, surfaces data-only for ambiguous patterns.
 evolution: system
 model: sonnet
+trigger_keywords: [error analysis, error patterns, failure trends, error log]
+trigger_agents: [rigby, quinn]
 ---
 
 <!-- system:start -->

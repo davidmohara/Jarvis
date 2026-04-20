@@ -1,8 +1,10 @@
 ---
 name: chase-card-offers-citi
 description: Read and enroll in offers on the Citi AAdvantage Executive card (••••9598) via Chrome automation. Covers the Citi Merchant Offers portal flow — navigation, reading the offer list, enrolling, and confirming.
-agent: chase
+owning_agent: chase
 model: haiku
+trigger_keywords: [citi offers, citi card, citibank]
+trigger_agents: [chase]
 ---
 
 # Citi Offers — Read & Enroll

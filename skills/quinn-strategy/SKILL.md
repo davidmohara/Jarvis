@@ -1,5 +1,6 @@
 ---
 name: quinn-strategy
+owning_agent: quinn
 description: >
   Strategy builder — coaches users through rigorous strategy development using a structured action agenda methodology.
   Guides diagnosis of challenges, identification of the crux, building the kernel (diagnosis → guiding policy → coherent
@@ -11,6 +12,8 @@ description: >
   confusing a goal with a strategy. Even casual phrases like "I need a plan for..." or "how should we approach..." benefit
   from this skill.
 model: sonnet
+trigger_keywords: [strategy, rocks, quarterly, planning, alignment]
+trigger_agents: [quinn]
 ---
 
 <!-- system:start -->

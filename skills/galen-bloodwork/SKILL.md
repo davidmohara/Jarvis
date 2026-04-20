@@ -1,8 +1,11 @@
 ---
 name: galen-bloodwork
+owning_agent: galen
 description: Interpret Function Health bloodwork results. Flag out-of-range markers, assess severity, cross-reference with active protocols, compare to prior results, generate Dr. Randol question list. Produces shareable interpretation brief.
 evolution: system
 model: sonnet
+trigger_keywords: [bloodwork, labs, blood panel, results]
+trigger_agents: [galen]
 ---
 
 <!-- system:start -->

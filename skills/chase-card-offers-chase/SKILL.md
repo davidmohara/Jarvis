@@ -1,8 +1,10 @@
 ---
 name: chase-card-offers-chase
 description: Read and add offers on the Chase Sapphire Preferred card via Chrome automation. Covers the Chase "Offers for You" portal — navigation, reading the offer list, adding via the + button, and confirming.
-agent: chase
+owning_agent: chase
 model: haiku
+trigger_keywords: [chase offers, chase card, chase deal]
+trigger_agents: [chase]
 ---
 
 # Chase Sapphire Offers — Read & Add

@@ -1,8 +1,11 @@
 ---
 name: galen-protocols
+owning_agent: galen
 description: Track active supplement stack and peptide cycles. Monitor cycle timing (Epithalon max 2x/year, 4-month pause), surface protocol status, flag conflicts or gaps based on bloodwork. Output protocol status card.
 evolution: system
 model: sonnet
+trigger_keywords: [protocol, supplement, stack, longevity]
+trigger_agents: [galen]
 ---
 
 <!-- system:start -->

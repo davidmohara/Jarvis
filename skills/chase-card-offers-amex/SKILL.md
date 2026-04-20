@@ -1,8 +1,10 @@
 ---
 name: chase-card-offers-amex
 description: Read and add offers on American Express cards (Platinum ••••21001 and Blue Cash Preferred ••••73008) via Chrome automation. Covers the full flow from landing on the offers page to adding individual offers.
-agent: chase
+owning_agent: chase
 model: haiku
+trigger_keywords: [amex offers, american express, amex deals]
+trigger_agents: [chase]
 ---
 
 # Amex Offers — Read & Add

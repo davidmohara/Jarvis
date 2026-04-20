@@ -4,8 +4,10 @@ description: >
   Pull YTD bookings data for Dallas, TX and South Texas from the Improving Sales Analytics
   PowerBI report. Reports both regions side-by-side. Trigger when David says "bookings",
   "bookings review", "/bookings-review", or asks about YTD bookings for Dallas or South Texas.
-agent: chase
+owning_agent: chase
 model: sonnet
+trigger_keywords: [bookings, weekly bookings, bookings review]
+trigger_agents: [chase, chief]
 ---
 
 # Bookings Review

@@ -77,6 +77,7 @@ model: sonnet
 ## EXECUTION
 
 Read fully and follow: `steps/step-01-gather-calendar.md` to begin the workflow.
+
 <!-- system:end -->
 
 <!-- personal:start -->

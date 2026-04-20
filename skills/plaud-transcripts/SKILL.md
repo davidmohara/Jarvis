@@ -1,5 +1,6 @@
 ---
 name: plaud-transcripts
+owning_agent: knox
 description: >
   Process Plaud.ai recording transcripts from a staging folder and convert them into
   tagged Obsidian markdown notes filed into the user's vault. Use this skill whenever
@@ -11,6 +12,8 @@ description: >
   this skill's job is to transform what's already waiting in the staging folder into
   proper Obsidian notes.
 model: sonnet
+trigger_keywords: [plaud, transcript, recording, ingest, audio]
+trigger_agents: [chief, knox]
 ---
 
 # Plaud Transcripts → Obsidian

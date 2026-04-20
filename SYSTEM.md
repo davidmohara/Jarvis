@@ -209,7 +209,24 @@ The system supports 5 episodic entry types:
 4. **coaching-observation** — Team member development observations → stored in `memory/episodic/coaching/`
 5. **decision-rationale** — Why decisions were made, options considered → stored in `memory/episodic/decisions/`
 
-### Knowledge YAML Frontmatter Schema
+### Working Memory Entry Schema
+
+Working entries capture live task state within a session. They expire automatically after 2 days.
+
+```yaml
+---
+type: working
+task_id: "todo-2026-04-17-001"         # OmniFocus or IES task ID (use "session" if no task)
+session_id: "chief-2026-04-17-091532"   # {agent}-{YYYY-MM-DD}-{HHmmss}
+agent-source: chief | chase | quinn | shep | harper | rigby | knox | galen | sterling
+created: 2026-04-17T09:15:32           # Local time, no Z suffix
+expires: 2026-04-19T09:15:32           # created + 2 days
+status: active | archived              # ONLY these two values
+context: "Brief description of what this captures"
+---
+```
+
+### Episodic Entry Schema
 
 Every episodic entry must include this standardized frontmatter (the `salience` block is managed by the dream cycle):
 
@@ -224,12 +241,31 @@ related-entities:
   projects: [project-name]
   accounts: [account-name]
   meetings: [meeting-id]
-agent-source: chief | chase | quinn | shep | harper | rigby | master
+agent-source: chief | chase | quinn | shep | harper | rigby | knox | galen | sterling
 salience:
   score: 0
   references: []
   last-promoted-check: YYYY-MM-DD
   promoted: false
+---
+```
+
+### Semantic Entry Schema
+
+Semantic entries are written exclusively by the dream cycle. They synthesize patterns from episodic clusters. All other agents read but never write semantic files.
+
+```yaml
+---
+type: semantic
+domain: relationships | operational | domain-knowledge | pattern
+subject: "Distilled pattern description"
+synthesized-from:
+  - episodic/meetings/2026-04-01-143022-meeting-notes-healthcare-sync.md
+  - episodic/people/2026-03-18-093011-contact-context-sarah-chen.md
+last-updated: YYYY-MM-DD
+tags: [tag1, tag2]
+agent-source: dream-cycle
+confidence: low | medium | high
 ---
 ```
 
@@ -503,7 +539,7 @@ These are the core operations the system supports. The controller invokes them c
    - Any overdue delegations
    - Clay reminders and upcoming birthdays (next 7 days)
    - Any actions needed
-10. **Training** (if `training/state/config.json` has a user):
+11. **Training** (if `training/state/config.json` has a user):
    - Read `training/state/progress.json`, `training/state/mastery.json`, and `training/curriculum.json`
    - **Progress bar** (unless `config.json` has `"show_progress_bar": false`):
      Include a single line in the briefing showing completion. Format it like a LinkedIn profile strength bar:
@@ -522,10 +558,30 @@ These are the core operations the system supports. The controller invokes them c
    - If no nudge is due, show only the progress bar (if enabled).
    - **Toggle**: If the user says "hide training progress" or "turn off the training bar," set `show_progress_bar: false` in `training/state/config.json`. If they say "show training progress," set it back to `true`.
 <!-- personal:start -->
-10. **Transcript ingest (Plaud + Teams)**: Trigger Knox for both transcript sources:
+12. **Transcript ingest (Plaud + Teams)**: Trigger Knox for both transcript sources:
     - **Plaud**: Check `~/Downloads/transcript-staging/` for pre-fetched Plaud transcripts. Process any new recordings into Obsidian (transcript + summary + action items → tagged markdown, O'Hara action items → OmniFocus). See `skills/plaud-transcripts/SKILL.md`.
     - **Teams**: Pull yesterday's Teams meeting transcripts via MS 365 MCP. Convert to tagged Obsidian markdown with attendees, summaries, and action items. See `skills/teams-transcripts/SKILL.md`.
     - If both sources produced notes for the same meeting, flag for merge/dedup.
+<!-- personal:end -->
+
+<!-- personal:start -->
+13. **Write session working memory** — immediately after the briefing is delivered, write a working memory entry to `memory/working/`. This is non-negotiable. Use the schema in `memory/working/README.md`.
+
+    **Filename**: `YYYY-MM-DD-HHmmss-session-boot-morning-briefing.md`
+
+    **Required fields**:
+    - `session_id`: `chief-{YYYY-MM-DD}-{HHmmss}`
+    - `created` / `expires`: TTL is 2 days from creation
+    - `context`: `"Morning boot + briefing — {date}"`
+
+    **Required content** (in the body):
+    - What data sources ran and what each returned
+    - Today's calendar conflicts or sharp edges surfaced
+    - Overdue OmniFocus items flagged
+    - Any 72-hour look-ahead flags
+    - Any interruptions or missing data (sources that failed)
+
+    **Failure mode**: If working memory is not written, the dream cycle has nothing to promote and the episodic layer stays empty. This is how context dies between sessions. Write it every boot. No exceptions.
 <!-- personal:end -->
 
 **Tone**: Brief, structured. Like a chief of staff morning briefing.

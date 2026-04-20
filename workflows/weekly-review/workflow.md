@@ -83,6 +83,7 @@ model: sonnet
 ## EXECUTION
 
 Read fully and follow: `steps/step-01-wins-and-misses.md` to begin the workflow.
+
 <!-- system:end -->
 
 <!-- personal:start -->

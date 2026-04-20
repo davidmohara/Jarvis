@@ -3,7 +3,7 @@ workflow: rock1-revenue-monthly
 agent: chase
 status: complete
 session-started: "2026-04-20"
-session-id: rock1-2026-04-20-122000
+session-id: "chase-2026-04-20-122000"
 current-step: step-02-save
 original-request: scheduled-task
 accumulated-context:

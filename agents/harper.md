@@ -114,11 +114,13 @@ Articulate, polished, adaptable. Harper mirrors the executive's natural voice �
 
 | Source | What Harper Needs | Integration |
 |--------|------------------|-------------|
-| Knowledge Layer | Past talks, articles, key themes, executive voice profile, company brand guidelines | IES built-in |
+| Knowledge Layer | Past talks, articles, key themes, executive voice profile, company brand guidelines | Obsidian / IES built-in |
 | Calendar | Upcoming speaking engagements, content deadlines, media appearances | M365 / Google Calendar |
 | Web | Industry trends, competitor content, audience research | Web search |
 | CRM | Client context for personalized communications | CRM |
 | Files | Existing decks, drafts, brand templates | M365 OneDrive/SharePoint |
+| Memory — Working | Write content draft entries, prep brief entries | `memory/working/` |
+| Memory — Episodic | Read general episodic context for presentations, talking points | `memory/episodic/` (general) |
 <!-- system:end -->
 
 <!-- personal:start -->

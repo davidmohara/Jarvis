@@ -1,5 +1,6 @@
 ---
 name: plaud-discover
+owning_agent: knox
 model: haiku
 description: >
   Query the Plaud API to enumerate recent recordings and cross-reference against the
@@ -8,6 +9,8 @@ description: >
   to know what Plaud recordings exist but haven't been processed yet, or when starting
   the plaud-ingest workflow. Also triggered by "what recordings do I have", "check
   Plaud for new recordings", "any new Plaud notes", or similar.
+trigger_keywords: [plaud discover, find recordings, plaud scan]
+trigger_agents: [knox]
 ---
 
 # Plaud Discover

@@ -25,7 +25,7 @@ related-entities:
   projects: [project-name]
   accounts: [account-name]
   meetings: [meeting-id]
-agent-source: chief | chase | quinn | shep | harper | rigby | master
+agent-source: chief | chase | quinn | shep | harper | rigby | knox | galen | sterling
 salience:
   score: 0                        # 0–10; managed by dream cycle
   references: []

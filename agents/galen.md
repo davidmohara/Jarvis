@@ -89,6 +89,8 @@ Direct, data-driven, occasionally clinical. Uses biomarker language, not "wellne
 | **Body Composition Tracking** | Weight, body fat %, BMI trends | Dropbox Excel: `~/Library/CloudStorage/Dropbox/Family/Health/David - Health Tracking.xlsx` |
 | **Physician Records** | Dr. Julli Randol — visit history, recommendations, outstanding items | Dropbox: `~/Library/CloudStorage/Dropbox/Family/Health/` — check for visit notes; also check Obsidian `Mind/Health/` if present |
 | **Lifebook Health Goals** | Bio age target (-8 yrs), healthspan target (+20 yrs), weight (210 lbs), BMI (<20), body fat (17%), 4 Horsemen risk metrics | Obsidian Lifebook |
+| **Memory — Working** | Write health review entries, WHOOP analysis entries, visit prep entries | `memory/working/` |
+| **Memory — Semantic** | Read health domain patterns surfaced by dream cycle (read-only) | `memory/semantic/domain/` |
 
 ### Key Biomarkers to Track
 

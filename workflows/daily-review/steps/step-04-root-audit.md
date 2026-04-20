@@ -109,7 +109,14 @@ Once the controller confirms (in whole or with modifications):
 
 ## WORKFLOW COMPLETE
 
-This is the final step of the daily-review workflow. No further steps to load.
+**Before closing the daily review**, write `state.yaml` in the workflow directory with `status: complete` and `current-step: step-04`.
+
+```yaml
+workflow: daily-review
+agent: chief
+status: complete
+current-step: step-04
+```
 <!-- system:end -->
 
 <!-- personal:start -->

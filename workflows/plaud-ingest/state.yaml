@@ -1,19 +1,45 @@
 ---
 workflow: plaud-ingest
 agent: knox
-status: not-started
-session-started: ~
-session-id: ~
-current-step: step-01
-original-request: "Run plaud-ingest for April 14-16 recordings not yet in vault"
+status: complete
+session-started: "2026-04-20T00:00:00Z"
+session-id: "knox-2026-04-20-083000"
+current-step: step-05
+completed-at: "2026-04-20T14:15:00Z"
+original-request: "Boot: Run plaud-ingest workflow to capture new Plaud recordings"
 accumulated-context:
-  target-date: "2026-04-16"
-  new-recordings: []
+  target-date: "2026-04-17"
+  new-recordings:
+    - file_id: "cb309555e0bb3162a433e439eb20d046"
+      name: "04-17 Meeting: SMU–Improving Collaboration on AI Strategy, Education, and Hackathon Planning"
+      date: "2026-04-17"
+      duration_seconds: 2534
+      has_transcript: true
+      transcript_status: "ready"
+    - file_id: "fbf223550f0b06fee0d9ba1d37087669"
+      name: "04-17 Weekly Meeting: Onboarding and Management Training"
+      date: "2026-04-17"
+      duration_seconds: 2239
+      has_transcript: true
+      transcript_status: "ready"
   transcription-triggered: []
   pending-recordings: []
-  speaker-mappings: {}
-  pending-speaker-mappings: []
-  ready-for-fetch: []
-  staged-files: []
-  ingested-notes: []
+  speaker-mappings:
+    "cb309555e0bb3162a433e439eb20d046":
+      "O'Hara": "David O'Hara"
+      "Speaker 3": "Ian O'Neill"
+      "Speaker 2": "Ilma"
+  speaker-renames-applied:
+    - "fbf223550f0b06fee0d9ba1d37087669":
+        "Speaker 1": "David O'Hara"
+        "Speaker 4": "David O'Hara"
+  ready-for-fetch:
+    - "cb309555e0bb3162a433e439eb20d046"
+    - "fbf223550f0b06fee0d9ba1d37087669"
+  staged-files:
+    - "plaud_04-17 Meeting_ SMU_Improving Collaboration on AI Strategy_ Education_ and Hackathon Planning.md"
+    - "plaud_04-17 Weekly Meeting_ Onboarding and Management Training.md"
+  ingested-notes:
+    - "zzPlaud/Improving/2026-04-17 Meeting - SMU Improving Collaboration on AI Strategy Education and Hackathon Planning.md"
+    - "zzPlaud/Improving/2026-04-17 Weekly Meeting - Onboarding and Management Training.md"
 ---

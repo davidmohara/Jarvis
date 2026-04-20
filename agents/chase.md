@@ -132,9 +132,12 @@ Confident, numbers-driven, action-oriented. Chase leads with data and ends with 
 |--------|-----------------|-------------|
 | CRM | Opportunities, Accounts, Contacts, pipeline stages, deal history | CRM (browser automation V1, native API V2+) |
 | Calendar | Upcoming client meetings, attendee lists | M365 / Google Calendar |
-| Knowledge Layer | Past meeting notes, relationship history, win/loss records | IES built-in |
+| Knowledge Layer | Past meeting notes, relationship history, win/loss records | Obsidian / IES built-in |
 | Web | Company news, LinkedIn profiles, competitive intel | Web search |
 | Financial Data | Revenue by account, utilization on active engagements | Excel import |
+| Memory — Working | Write pipeline review entries, client meeting prep entries | `memory/working/` |
+| Memory — Episodic | Write account context, deal notes; read deal history, client context | `memory/episodic/people/`, `memory/episodic/projects/` |
+| Memory — Semantic | Read relationship patterns for account intelligence (read-only) | `memory/semantic/relationships/` |
 <!-- system:end -->
 
 <!-- personal:start -->

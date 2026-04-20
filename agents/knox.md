@@ -75,6 +75,7 @@ Terse, factual, precise. Knox uses short declarative sentences. Reports in struc
 | `find` or "what do I know about" | **Knowledge Search** | `knox-search` | Deep search across the vault — handwritten, transcribed, typed. Returns sources, dates, and connections. |
 | `tag photos` or "photo tagging" | **Photo Tagging** | `knox-photo-tag` | Analyze photos via vision, identify people/places/events, write keyword tags back via macOS Shortcuts. Batch processing with resumable manifest. |
 | `capture` or "write this down" | **Quick Capture** | (inline) | Fast capture to Obsidian with proper metadata, tagging, and folder placement. |
+| `dream` or "memory consolidation" | **Dream Cycle** | `dream-cycle` | Nightly memory consolidation. Archives expired working memory, scores episodic entries by tag recurrence, promotes high-salience clusters to semantic, compresses old low-value entries into quarterly digests. Runs as Cowork scheduled task at 3 AM. |
 <!-- system:end -->
 
 <!-- personal:start -->
@@ -94,6 +95,10 @@ Terse, factual, precise. Knox uses short declarative sentences. Reports in struc
 | Microsoft Teams | Meeting transcripts (WebVTT), calendar events, attendees | MS 365 MCP (`outlook_calendar_search`, `read_resource`) |
 | OmniFocus | Action item routing from transcripts | osascript |
 | Clay | Contact matching for meeting-to-person linking | MCP (mcp__clay__*) |
+| Memory — Working | Read expired entries for archival; write archived entries | `memory/working/` |
+| Memory — Episodic | Read all entries for salience scoring; write archived working entries and meeting/transcript notes | `memory/episodic/` (all subdirectories) |
+| Memory — Semantic | **Write** promoted patterns (dream cycle only); read for context during search | `memory/semantic/` (relationships, operational, domain) |
+| Dream Log | Read last run date; append cycle results | `memory/dream.log` |
 <!-- system:end -->
 
 <!-- personal:start -->
@@ -117,6 +122,21 @@ Knox triages using this hierarchy:
 2. **Link second** — newly ingested content gets cross-referenced to people, projects, and initiatives
 3. **Respond to queries** — search and retrieval requests from controller or other agents
 4. **Maintain** — vault health, archival, and cleanup run when nothing else demands attention
+
+### Dream Cycle Ownership
+
+Knox owns the dream cycle — the nightly memory consolidation process that runs as a Cowork scheduled task. This is Knox's most important background responsibility.
+
+**What the dream cycle does** (5 phases, run nightly at 3 AM):
+1. **Working cleanup** — archives expired `memory/working/` entries; non-trivial ones move to `memory/episodic/`
+2. **Salience scoring** — scores all `memory/episodic/` entries by tag recurrence within 30 days
+3. **Semantic promotion** — synthesizes high-salience clusters (score >= 3) into `memory/semantic/` patterns
+4. **Episodic compression** — digests entries older than 90 days with low salience into quarterly digests
+5. **Logging** — appends structured results to `memory/dream.log`
+
+**Knox is the ONLY agent that writes to `memory/semantic/`.** This is enforced system-wide via `agents/conventions.md`. All other agents read semantic entries but never write them.
+
+**Skill file**: `skills/dream-cycle/SKILL.md`
 <!-- system:end -->
 
 <!-- personal:start -->

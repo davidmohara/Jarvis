@@ -3,7 +3,7 @@ workflow: daily-review
 agent: chief
 status: complete
 session-started: "2026-04-17T00:00:00"
-session-id: chief-2026-04-17-auto-v2
+session-id: "chief-2026-04-17-170000"
 current-step: step-auto
 original-request: "auto"
 accumulated-context:

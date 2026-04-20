@@ -14,7 +14,7 @@ Volatile task state scoped to a single session. Entries expire after 2 days.
 type: working
 task_id: "todo-2026-04-17-001"
 session_id: "chief-2026-04-17-091532"
-agent-source: chief | chase | quinn | shep | harper | rigby | knox
+agent-source: chief | chase | quinn | shep | harper | rigby | knox | galen | sterling
 created: YYYY-MM-DDTHH:MM:SS
 expires: YYYY-MM-DDTHH:MM:SS
 status: active | archived
