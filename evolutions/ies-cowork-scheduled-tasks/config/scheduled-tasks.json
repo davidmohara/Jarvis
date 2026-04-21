@@ -1,0 +1,44 @@
+{
+  "version": "2.0.0",
+  "description": "Scheduled tasks managed by Cowork's native Scheduled Tasks panel. These tasks run independent of any active session. Set each task up in Cowork via /schedule — use the cowork_prompt field as the task prompt. Mark configured: true after setup.",
+  "setup": "Run /rigby scheduled-setup for copy-paste setup cards.",
+  "tasks": [
+    {
+      "id": "chief-morning",
+      "name": "Morning Briefing",
+      "skill": "chief-morning",
+      "cron": "30 6 * * 1-5",
+      "schedule_display": "Weekdays at 6:30 AM",
+      "keep_awake": false,
+      "configured": false,
+      "agent": "Chief",
+      "description": "Weekday morning briefing — prose narrative synthesis of the day's calendar, priorities, overdue delegations, and rock alignment. Delivered at 6:30am before the day starts.",
+      "cowork_prompt": "Run the chief-morning skill to deliver the morning briefing. Pull live calendar, tasks, delegations, and meeting context for today. Synthesize everything into a prose narrative briefing — three paragraphs covering the day's character, execution reality, and sharp edge — followed by the calendar table. End with 'What do you want to tackle first?'"
+    },
+    {
+      "id": "chief-review-auto",
+      "name": "Auto Daily Review",
+      "skill": "chief-review",
+      "cron": "0 4 * * 1-6",
+      "schedule_display": "Monday–Saturday at 4:00 AM",
+      "keep_awake": true,
+      "configured": false,
+      "agent": "Chief",
+      "description": "Autonomous nightly review — synthesizes yesterday's task completions, calendar, and system state into a first-person narrative journal entry written to the knowledge system only. Runs at 4am without user input.",
+      "cowork_prompt": "Run the chief-review skill with arguments: auto. Pull task completions, calendar events, inbox state, delegation status, and quarterly rock context from yesterday. Synthesize into a first-person prose narrative journal entry and write it to the knowledge system. No user interaction. Deliver a two-line confirmation when done.",
+      "setup_note": "Requires Keep Awake to be enabled in Cowork — this task fires at 4am while you're asleep."
+    },
+    {
+      "id": "quinn-weekly-review",
+      "name": "Weekly Review Prep",
+      "skill": "quinn-weekly-review",
+      "cron": "0 8 * * 0",
+      "schedule_display": "Sundays at 8:00 AM",
+      "keep_awake": false,
+      "configured": false,
+      "agent": "Quinn",
+      "description": "Sunday morning weekly review prep — rocks, task management health, delegations, relationship warmth, system error analysis, commitment gap detection across all sources, and pattern analysis. Delivered at 8am before the week begins.",
+      "cowork_prompt": "Run the quinn-weekly-review skill to prepare the weekly review document. Pull quarterly rock status, task management health, delegation review, calendar analysis, email signals, relationship warmth via the contact management connector, system error analysis, and run the commitment gap detection step across all available capture sources (meeting transcripts, chat, email, voice recordings, task management). Scan previous weekly review files for recurring gap patterns. Write the full output to reviews/weekly-review-prep-{date}.md."
+    }
+  ]
+}

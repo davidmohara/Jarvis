@@ -1,0 +1,79 @@
+{
+  "id": "ies-2c1e25b7-1143-404a-971e-5916ec2e8292",
+  "version": "2c1e25b7-1143-404a-971e-5916ec2e8292",
+  "name": "IES v2.0 \u2014 Tiered Memory, Dream Cycle, and Skill Manifest",
+  "description": "Introduces the three-tier memory architecture (working/episodic/semantic), the nightly dream cycle for memory consolidation and semantic promotion, and the skill manifest registry for progressive disclosure loading. Foundational upgrade to how IES stores, scores, and surfaces knowledge across sessions.",
+  "released": "2026-04-18",
+  "type": "system",
+  "compatibility": {
+    "minimum_base_version": "1.0.0"
+  },
+  "files": [
+    {
+      "path": "memory/working/README.md",
+      "type": "system",
+      "action": "add",
+      "description": "Tiered memory layer: working memory. Schema, TTL rules, and agent write conventions for volatile session state."
+    },
+    {
+      "path": "memory/episodic/README.md",
+      "type": "system",
+      "action": "add",
+      "description": "Tiered memory layer: episodic memory. Schema, subdirectory structure, salience scoring, and 90-day compression rules."
+    },
+    {
+      "path": "memory/semantic/README.md",
+      "type": "system",
+      "action": "add",
+      "description": "Tiered memory layer: semantic memory. Schema, subdirectory structure, and hard rule that only the dream cycle writes here."
+    },
+    {
+      "path": "memory/LESSONS.md",
+      "type": "system",
+      "action": "add",
+      "description": "Global lessons file \u2014 populated by the dream cycle when a constraint violation pattern is detected 3+ times in 30 days."
+    },
+    {
+      "path": "skills/dream-cycle/SKILL.md",
+      "type": "system",
+      "action": "add",
+      "description": "New skill: nightly dream cycle. Archives working memory, scores episodic salience, promotes semantic patterns, compresses old episodic entries, logs to dream.log."
+    },
+    {
+      "path": "systems/scheduled-tasks/dream-cycle.json",
+      "type": "system",
+      "action": "add",
+      "description": "Scheduled task: runs dream-cycle skill at 3:00 AM nightly via Knox."
+    },
+    {
+      "path": "skills/_manifest.jsonl",
+      "type": "system",
+      "action": "add",
+      "description": "Skill manifest registry \u2014 JSONL index of all IES skills with id, name, owner, model, trigger keywords, and path. Used for progressive disclosure loading."
+    },
+    {
+      "path": "skills/_index.md",
+      "type": "system",
+      "action": "add",
+      "description": "Human-readable skill index \u2014 markdown table of all registered skills with owner, model, and trigger keywords."
+    },
+    {
+      "path": "SYSTEM.md",
+      "type": "system",
+      "action": "merge",
+      "description": "Adds Knowledge Layer section (tiered memory architecture, dream cycle, skill manifest), updates boot sequence with Skill Loading Protocol."
+    }
+  ],
+  "changelog": [
+    "New: memory/working/ \u2014 volatile session state with 2-day TTL, archived by dream cycle",
+    "New: memory/episodic/ \u2014 event-sourced knowledge with salience scoring and 90-day compression",
+    "New: memory/semantic/ \u2014 dream-cycle-distilled patterns, append-only, read by all agents at boot",
+    "New: memory/LESSONS.md \u2014 global constraint violation patterns populated by dream cycle when 3+ occurrences detected",
+    "New: skills/dream-cycle/SKILL.md \u2014 nightly 5-phase memory consolidation (working cleanup, salience scoring, semantic promotion, episodic compression, logging)",
+    "New: systems/scheduled-tasks/dream-cycle.json \u2014 scheduled trigger at 3:00 AM via Knox",
+    "New: skills/_manifest.jsonl \u2014 JSONL registry of all IES skills for progressive disclosure loading",
+    "New: skills/_index.md \u2014 human-readable skill index with owner, model, and trigger keywords",
+    "Updated: SYSTEM.md \u2014 Knowledge Layer section, boot sequence Skill Loading Protocol"
+  ],
+  "training_prompts": []
+}

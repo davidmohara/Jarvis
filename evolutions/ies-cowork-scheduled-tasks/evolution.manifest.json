@@ -1,0 +1,30 @@
+{
+  "id": "ies-a3040a94-2ead-4d6e-8a03-45c2e7621511",
+  "version": "a3040a94-2ead-4d6e-8a03-45c2e7621511",
+  "name": "Cowork Scheduled Tasks",
+  "description": "Replaces ad-hoc scheduled task configuration with a structured JSON registry. config/scheduled-tasks.json defines each task with its agent, cron schedule, plain-English timing, Cowork prompt, and configured status flag. The rigby-scheduled-setup skill reads the registry and presents unconfigured tasks as copy-paste setup cards for Cowork's Scheduled Tasks panel.",
+  "released": "2026-04-18",
+  "type": "system",
+  "compatibility": {
+    "minimum_base_version": "2.0.0"
+  },
+  "files": [
+    {
+      "path": "config/scheduled-tasks.json",
+      "type": "system",
+      "action": "add",
+      "description": "Structured JSON registry of system-classified scheduled tasks — chief-morning, chief-review-auto, and quinn-weekly-review — each with agent, cron schedule, plain-English timing, Cowork prompt, and configured status flag."
+    },
+    {
+      "path": ".claude/skills/rigby-scheduled-setup/SKILL.md",
+      "type": "system",
+      "action": "add",
+      "description": "New skill that reads config/scheduled-tasks.json, filters unconfigured tasks, and presents each as a copy-paste setup card for Cowork's Scheduled Tasks panel. Marks tasks configured after executive confirmation."
+    }
+  ],
+  "changelog": [
+    "Add config/scheduled-tasks.json — structured registry of system scheduled tasks with agent, cron, schedule display, Cowork prompt, and configured flag",
+    "Add .claude/skills/rigby-scheduled-setup/SKILL.md — skill to surface unconfigured tasks as copy-paste Cowork setup cards and mark them configured after confirmation"
+  ],
+  "training_prompts": []
+}

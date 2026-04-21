@@ -385,6 +385,8 @@ Submission failed: package is too large.
 Reduce the package size and try again.
 ```
 
+> **Note:** The `/api/connectors` endpoint has no enforced payload size limit — a 132KB connector package submitted successfully. HTTP 413 has only been observed on `/api/packages/submit` (evolutions). If submitting a connector and hitting 413, the limit is likely on a proxy or Azure front door, not the app itself — contact the IES platform team.
+
 Exit.
 
 **If network failure or timeout:**

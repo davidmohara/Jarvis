@@ -1,34 +1,24 @@
 # Resubmission Queue
 
-DB was wiped on redeploy 2026-04-18. All pending submissions lost. This file is the authoritative resubmission checklist — work top to bottom when the fix is confirmed in place.
+DB was wiped on redeploy 2026-04-18. All pending submissions lost. This file is the authoritative resubmission checklist.
 
-**Status legend:** `READY` = package files verified on disk. `NEEDS PACKAGE` = files on disk but not yet assembled. `UPDATED` = content changed since original submission.
+**Status legend:** `READY` = package files verified on disk. `NEEDS PACKAGE` = files on disk but not yet assembled. `UPDATED` = content changed since original submission. `SUBMITTED` = resubmitted successfully. `DENIED (error)` = admin denied; submitted in error.
 
 ---
 
-## 1. Connector — plaud-connector-1.0.0
+## 1. Connector — plaud-connector-1.0.0 ✓
 
 **Type:** Connector  
 **Original submission ID:** `cmo4dqchr00001tqg8iqhi8t9` (lost)  
-**Status:** READY  
-**Package:** `contributions/plaud-connector-1.0.0/`  
-
-All package files verified present. No changes since original submission.
-
-**Submit via:**
-```
-Skill: rigby-package-submit
-Package: contributions/plaud-connector-1.0.0
-Endpoint: POST /api/connectors
-```
+**Status:** SUBMITTED — connector ID `cmo5912gu00081tqvw4trq7a8`, submitted Apr 19, 2026, status `pending`
 
 ---
 
-## 2. Evolution — Cowork Scheduled Tasks
+## 2. Evolution — Cowork Scheduled Tasks ✓
 
 **Type:** System evolution  
 **Original DB ID:** `cmnsu3kgw000s1tn52nehirmk` (lost)  
-**Status:** UPDATED — `scheduled-tasks.json` has grown from 3 to 5 tasks since original submission  
+**Status:** SUBMITTED — production ID `a3040a94`, submitted Apr 19, 2026  
 **Evolution classification:** system
 
 **Files to include:**
@@ -46,11 +36,11 @@ Skill: rigby-evolution-package → rigby-evolution-upload
 
 ---
 
-## 3. Evolution — Root Audit
+## 3. Evolution — Root Audit ✓
 
 **Type:** System evolution  
 **Original DB ID:** `cmnry2y6r000p1tn5dtymavwh` (lost)  
-**Status:** UPDATED — `rigby-root-audit` skill was merged into `rigby-integrity` after original submission  
+**Status:** SUBMITTED — production ID `1c318b9f`, submitted Apr 19, 2026. (Duplicate `9ca24702` denied by admin. `err-20260418-001`.)  
 **Evolution classification:** system
 
 **Files to include (updated from original):**
@@ -70,10 +60,10 @@ Skill: rigby-evolution-package → rigby-evolution-upload
 
 ---
 
-## 4. Evolution — Error Tracking System Agent Integration
+## 4. Evolution — Error Tracking System Agent Integration ✓
 
 **Type:** System evolution  
-**Status:** NEEDS PACKAGE — all 12 files on disk, never assembled into a package  
+**Status:** SUBMITTED — Package A and Package B both uploaded Apr 19, 2026  
 **Evolution classification:** system
 
 **Files to include:**
@@ -104,10 +94,11 @@ Skill: rigby-evolution-package → rigby-evolution-upload (×3 packages)
 
 ---
 
-## 5. Evolution — IES v2.0 (Tiered Memory + Dream Cycle + Skill Manifest)
+## 5. Evolution — IES v2.0 (Tiered Memory + Dream Cycle + Skill Manifest) ✓
 
-**Type:** System evolution (NEW — never submitted)  
-**Status:** NEEDS PACKAGE  
+**Type:** System evolution  
+**Status:** SUBMITTED (cleaned) — evolution ID `2c1e25b7-1143-404a-971e-5916ec2e8292`, DB ID `cmo6357lg000a1tqv0ejdgypd`, Apr 19, 2026  
+**Previous submission:** `cmo597t7x00091tqvl1uukdl0` denied — personal refs + path traversal  
 **Evolution classification:** system  
 **Built:** 2026-04-18, commit `d620fed`
 
@@ -136,13 +127,11 @@ Skill: rigby-evolution-package → rigby-evolution-upload
 
 ## Submission Order
 
-Submit in this order — later submissions may reference components from earlier ones:
-
-1. **Connector** — plaud-connector-1.0.0
-2. **Evolution** — Error Tracking System Agent Integration (foundational, others reference it)
-3. **Evolution** — Cowork Scheduled Tasks
-4. **Evolution** — Root Audit
-5. **Evolution** — IES v2.0
+1. **Connector** — plaud-connector-1.0.0 — SUBMITTED (`cmo5912gu00081tqvw4trq7a8`, Apr 19)
+2. **Evolution** — Error Tracking System Agent Integration — SUBMITTED (Pkg A + B, Apr 19)
+3. **Evolution** — Cowork Scheduled Tasks — SUBMITTED (`a3040a94`, Apr 19)
+4. **Evolution** — Root Audit — SUBMITTED (`1c318b9f`, Apr 19)
+5. **Evolution** — IES v2.0 — SUBMITTED (`cmo597t7x00091tqvl1uukdl0`, Apr 19)
 
 ---
 

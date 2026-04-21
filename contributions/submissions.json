@@ -5,6 +5,29 @@
     "submittedAt": "2026-04-18T13:30:00Z",
     "originalSubmissionId": "cmo4dqchr00001tqg8iqhi8t9",
     "status": "lost-db-wipe",
-    "note": "DB wiped on redeploy 2026-04-18. Resubmit when fix confirmed. Package ready at contributions/plaud-connector-1.0.0/."
+    "note": "DB wiped on redeploy 2026-04-18. Resubmitted 2026-04-19."
+  },
+  {
+    "name": "plaud-connector",
+    "version": "1.0.0",
+    "submittedAt": "2026-04-19T04:09:00Z",
+    "submissionId": "cmo5912gu00081tqvw4trq7a8",
+    "status": "pending"
+  },
+  {
+    "name": "ies-v2.0",
+    "version": "f1335732-70e0-4a27-9d25-f1f58eda67e2",
+    "submittedAt": "2026-04-19T04:15:00Z",
+    "submissionId": "cmo597t7x00091tqvl1uukdl0",
+    "status": "denied",
+    "note": "Denied — personal references (Jarvis/David in system blocks, jarvis-inbox in manifest, path traversal in SYSTEM.md)"
+  },
+  {
+    "name": "ies-v2.0",
+    "version": "2c1e25b7-1143-404a-971e-5916ec2e8292",
+    "submittedAt": "2026-04-19T18:14:00Z",
+    "submissionId": "cmo6357lg000a1tqv0ejdgypd",
+    "status": "pending",
+    "note": "Cleaned resubmission — all personal refs genericized, ies-inbox updated in manifest+index, path traversal fixed"
   }
 ]

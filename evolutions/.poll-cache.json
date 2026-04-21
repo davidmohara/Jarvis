@@ -1,4 +1,36 @@
 {
-  "polled_at": "2026-03-28T19:23:27Z",
-  "available": []
+  "polled_at": "2026-04-18T14:20:12Z",
+  "available": [
+    {
+      "id": "cmnrvumn7000n1tn5r2gqchs3",
+      "version": "51702e74-1981-457d-b657-97162d245d12",
+      "name": "Error Tracking System — Agent Integration",
+      "description": "Wires the error tracking system into all IES agents and workflows — adds the rigby-error-analysis skill, Error Capture Protocol to master, Error Analysis ownership to Rigby, Shared Conventions error reporting block to all agents, and error count tracking to daily review and weekly review",
+      "releasedAt": "2026-04-09T19:41:27.704Z",
+      "changelog": [
+        "Added rigby-error-analysis skill — analyzes error log for patterns, proposes tiered fixes (auto-propose for clear-cut, data-only for ambiguous), outputs daily/weekly/on-demand report formats",
+        "Added Error Reporting Protocol to agents/conventions.md — all agents now have a shared Self-Corrections reporting block with category, failure mode, and severity taxonomy",
+        "Added Error Capture Protocol to agents/master.md — Master detects and logs corrections silently, alerts on 3+ occurrence threshold patterns, defines what all sub-agents must report back",
+        "Added error analysis task and Error Log data source to agents/rigby.md — Rigby owns the full error analysis skill",
+        "Added Shared Conventions reference to agents/chief.md, chase.md, quinn.md, shep.md, harper.md, knox.md — all agents now explicitly load agents/conventions.md including the error reporting protocol",
+        "Added error tracking count step to daily review step-03 — pulls today's error count, includes in System State, notes threshold alerts in Handoffs",
+        "Added System Improvement Review (Step 8) to quinn-weekly-review — invokes error analysis logic, surfaces recurring patterns, agent performance, trend direction, and improvement proposals ready for approval"
+      ],
+      "downloadUrl": "https://localhost:3000/api/evolutions/cmnrvumn7000n1tn5r2gqchs3/package"
+    },
+    {
+      "id": "cmnry2y6r000p1tn5dtymavwh",
+      "version": "08f35cb1-32db-4e2a-a960-205caf1b6a5e",
+      "name": "Root Audit",
+      "description": "Adds root directory hygiene capability to Rigby — surfaces misplaced files, recommends moves or deletions, and executes after confirmation. Chains step-04-root-audit into the daily-review workflow after step-03.",
+      "releasedAt": "2026-04-09T20:43:55.155Z",
+      "changelog": [
+        "New: Root Audit skill for Rigby (.claude/skills/rigby-root-audit/SKILL.md) — list, classify, confirm, execute",
+        "New: Daily review step 04 — root audit housekeeping runs after system update step",
+        "Updated: Daily review step 03 — NEXT STEP now chains to step-04-root-audit",
+        "Updated: Rigby task portfolio — Root Audit added to system block; Task Scheduling row genericized (MCP references removed from system block)"
+      ],
+      "downloadUrl": "https://localhost:3000/api/evolutions/cmnry2y6r000p1tn5dtymavwh/package"
+    }
+  ]
 }

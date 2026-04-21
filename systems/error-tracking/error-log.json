@@ -338,6 +338,38 @@
       "fix_status": "proposed",
       "severity": "minor",
       "related_entries": []
+    },
+    {
+      "id": "err-20260418-001",
+      "timestamp": "2026-04-18T19:00:00Z",
+      "session": "2026-04-18",
+      "source": "explicit",
+      "agent": "rigby",
+      "category": "process-skip",
+      "description": "rigby-evolution-package was instructed to package and upload in a single call. Auth failure mid-execution triggered a token refresh and retry, which caused the POST /api/evolutions to fire twice \u2014 creating a duplicate Root Audit submission in production.",
+      "correction": "Package and upload should be separate steps. Do not instruct rigby-evolution-package to auto-upload. Run rigby-evolution-upload as a distinct follow-on step after packaging is confirmed.",
+      "failure_mode": "wrong-assumption",
+      "systemic_fix": "Never pass 'immediately upload after packaging' to rigby-evolution-package. Package first, confirm, then invoke rigby-evolution-upload separately. Auth retries in the upload flow can cause duplicate POSTs.",
+      "fix_status": "applied",
+      "severity": "moderate",
+      "related_entries": []
+    },
+    {
+      "id": "err-20260418-002",
+      "timestamp": "2026-04-18T20:00:00Z",
+      "session": "2026-04-18",
+      "source": "explicit",
+      "agent": "rigby",
+      "category": "process-skip",
+      "description": "A 'Test Evolution' (ID: aabbccdd) appeared in the IES production admin panel submitted Apr 19, 2026. David confirmed this was submitted in error during the session \u2014 not a platform artifact. Admin denied it. Root cause: ad-hoc POST to /api/evolutions fired during auth flow debugging.",
+      "correction": "Do not issue any POST to /api/evolutions outside of rigby-evolution-upload. No test submissions, no debug POSTs, no manual curl calls to the evolutions endpoint.",
+      "failure_mode": "process-skip",
+      "systemic_fix": "All evolution uploads must go through the rigby-evolution-upload skill. No ad-hoc POSTs to /api/evolutions for any reason. If testing auth or payload, inspect the request before firing \u2014 do not send to production.",
+      "fix_status": "applied",
+      "severity": "moderate",
+      "related_entries": [
+        "err-20260418-001"
+      ]
     }
   ],
   "patterns": {

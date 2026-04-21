@@ -31,6 +31,185 @@ Each evolution entry follows this structure:
 
 ---
 
+## IES v2.0 — Tiered Memory, Dream Cycle, and Skill Manifest — Submitted 2026-04-19 (re-uploaded cleaned)
+
+**Evolution ID (original):** f1335732-70e0-4a27-9d25-f1f58eda67e2 — DB ID `cmo597t7x00091tqvl1uukdl0` (denied — personal refs)
+**Evolution ID (cleaned):** 2c1e25b7-1143-404a-971e-5916ec2e8292
+**DB ID:** cmo6357lg000a1tqv0ejdgypd
+**Published:** 2026-04-19T18:14:00Z
+**Status:** submitted (awaiting admin approval)
+**Published by:** Rigby (via Evolution Upload skill)
+
+### Files Uploaded (9)
+
+**Added (8 files):**
+- `memory/working/README.md` — volatile session state schema, TTL rules, agent write conventions
+- `memory/episodic/README.md` — event-sourced knowledge schema, subdirectory structure, salience scoring, 90-day compression rules
+- `memory/semantic/README.md` — distilled pattern schema, subdirectory structure, dream-cycle-only write rule
+- `memory/LESSONS.md` — global constraint violation pattern file (distributed as empty template; instances populate via dream cycle)
+- `skills/dream-cycle/SKILL.md` — nightly 5-phase memory consolidation: working cleanup, salience scoring, semantic promotion, episodic compression, logging
+- `systems/scheduled-tasks/dream-cycle.json` — scheduled trigger at 3:00 AM via Knox
+- `skills/_manifest.jsonl` — JSONL registry of all 24 IES skills for progressive disclosure loading
+- `skills/_index.md` — human-readable skill index with owner, model, and trigger keywords
+
+**Merged (1 file):**
+- `SYSTEM.md` — Knowledge Layer section, Skill Loading Protocol, boot sequence updates; personal blocks stripped (60KB → 44KB)
+
+### Conflicts
+
+None.
+
+### Notes
+
+- memory/personal/ excluded (personal classification)
+- memory/dream.log excluded (personal runtime log)
+- LESSONS.md distributed as schema/template only — personal entries stripped
+- SYSTEM.md personal blocks stripped; first upload (74KB) denied — "Jarvis"/"David" refs in system blocks and `jarvis-inbox` in manifest
+- Cleaned: genericized all instance-specific names to "IES agent"/"the executive", updated jarvis-inbox → ies-inbox in manifest+index, removed `../` path traversal in SYSTEM.md doc example
+- Re-uploaded cleaned package (76KB) — accepted as `cmo6357lg000a1tqv0ejdgypd`
+
+---
+
+## Cowork Scheduled Tasks — Submitted 2026-04-19
+
+**Evolution ID:** a3040a94-2ead-4d6e-8a03-45c2e7621511
+**DB ID:** cmo58ohpe00071tqvys27gtmw
+**Published:** 2026-04-19T04:01:00Z
+**Status:** submitted (awaiting admin approval)
+**Published by:** Rigby (via Evolution Upload skill)
+
+### Files Uploaded (2)
+
+**Added (2 files):**
+- `config/scheduled-tasks.json` — structured registry of system scheduled tasks: chief-morning (weekdays 6:30 AM), chief-review-auto (Mon–Sat 4:00 AM, Keep Awake), quinn-weekly-review (Sundays 8:00 AM); each with agent, cron, schedule_display, cowork_prompt, and configured flag
+- `.claude/skills/rigby-scheduled-setup/SKILL.md` — skill to surface unconfigured tasks as copy-paste Cowork setup cards; marks tasks configured after confirmation
+
+### Conflicts
+
+None.
+
+---
+
+## Root Audit — Submitted 2026-04-19
+
+**Evolution ID:** 9ca24702-d6fa-4200-b641-8155e5a5017a
+**DB ID:** cmo58l37e00061tqve7o2c9ku
+**Published:** 2026-04-19T03:58:00Z
+**Status:** submitted (awaiting admin approval)
+**Published by:** Rigby (via Evolution Upload skill)
+
+### Files Uploaded (4)
+
+**Added (2 files):**
+- `.claude/skills/rigby-integrity/SKILL.md` — unified integrity scan + root audit skill: rules 1-7 (system block) + rules 8-10 (personal block), auto-fixes unambiguous issues, flags items requiring human review, writes timestamped findings log
+- `workflows/daily-review/steps/step-04-root-audit.md` — final step of daily-review workflow: audits IES root for misplaced files, presents Move/Delete/Unknown table, executes after confirmation
+
+**Merged (2 files):**
+- `agents/rigby.md` — Integrity Scan task added to Task Portfolio; Root Audit and related trigger phrases included
+- `workflows/daily-review/steps/step-03-update-system.md` — NEXT STEP updated to chain to step-04-root-audit.md
+
+### Conflicts
+
+None.
+
+---
+
+## Error Tracking System — Agent Integration (Package B) — Submitted 2026-04-18
+
+**Evolution ID:** f6b3cca7-052f-4da4-ae35-d7c6f3f4ad41
+**DB ID:** cmo58bqgu00011tqvgv7qgdby
+**Published:** 2026-04-18T00:00:00Z
+**Status:** submitted (awaiting admin approval)
+**Published by:** Rigby (via Evolution Upload skill)
+
+### Files Uploaded (6)
+
+**Merged (6 files):**
+- `agents/quinn.md` — Shared Conventions reference to agents/conventions.md for error reporting protocol
+- `agents/shep.md` — Shared Conventions reference to agents/conventions.md for error reporting protocol
+- `agents/harper.md` — Shared Conventions reference to agents/conventions.md for error reporting protocol
+- `agents/knox.md` — Shared Conventions reference to agents/conventions.md for error reporting protocol
+- `workflows/daily-review/steps/step-03-update-system.md` — Error tracking count step added to YOUR TASK sequence; threshold pattern note added to Handoffs logic
+- `.claude/skills/quinn-weekly-review/SKILL.md` — System Improvement Review section (step 8) added with error analysis logic; System Health section added to report template
+
+### Conflicts
+
+None.
+
+---
+
+## Error Tracking System — Agent Integration (Package A) — Submitted 2026-04-18
+
+**Evolution ID:** d062d236-d26d-4af3-a386-0e5cf4020539
+**DB ID:** cmo587pij00001tqv3eiqemx9
+**Published:** 2026-04-19T03:47:46Z
+**Status:** submitted (awaiting admin approval)
+**Published by:** Rigby (via Evolution Upload skill)
+
+### Files Uploaded (6)
+
+**Added (1 file):**
+- `skills/rigby-error-analysis/SKILL.md` — new skill: pattern detection, tiered fix proposals (auto-propose vs. data-only), agent performance reporting, daily/weekly/on-demand invocation modes
+
+**Merged (5 files):**
+- `agents/conventions.md` — Error Reporting Protocol (self-report trigger conditions, Self-Corrections block format, severity guide) and Slack Notification Protocol (handoff block format, routing rules)
+- `agents/master.md` — Error Capture Protocol (when to capture, how to capture, threshold alerting at 3+ pattern matches), Agent Output Handling updated to scan for Self-Corrections and Slack Notification blocks
+- `agents/rigby.md` — Error Analysis task added to Task Portfolio, Error Log and Error Schema added to Data Requirements, error pattern → training module handoff added to Handoff Behavior
+- `agents/chief.md` — Shared Conventions reference added for error reporting protocol
+- `agents/chase.md` — Shared Conventions reference added for error reporting protocol
+
+### Conflicts
+
+None.
+
+---
+
+## Error Tracking Base System — Submitted 2026-04-18
+
+**Evolution ID:** 887343b9-a219-4cc0-99e4-a64e88cf4568
+**DB ID:** cmo4nn7a300011uloqjdh1v0w
+**Published:** 2026-04-18T18:09:42Z
+**Status:** submitted (awaiting admin approval)
+**Note:** Initial submission of error tracking infrastructure. Clean package — no personal entries in log, personal blocks stripped from AUTOMATION.md.
+
+### Files Uploaded (3)
+
+**Merged (2 files):**
+- `systems/error-tracking/schema.md` — error entry structure, 10 categories, 10 failure modes, 3 severity levels, pattern format; system block only
+- `identity/AUTOMATION.md` — fully autonomous correction logging rule and never-without-explicit-instruction constraints; personal blocks stripped
+
+**Added (1 file):**
+- `systems/error-tracking/error-log.json` — clean empty log with metadata structure
+
+### Conflicts
+
+None.
+
+---
+
+## Error Tracking System v3 Minimal Reset — Submitted 2026-04-18
+
+**Evolution ID:** f901e423-e2fe-4d7c-96e5-9737cba8c091
+**DB ID:** cmo4ndq8j00001ulokyvggwuq
+**Published:** 2026-04-18T18:02:00Z
+**Status:** submitted (awaiting admin approval)
+**Note:** Resubmission of previously approved evolution (192e88b3-8b37-44f0-9f54-e37832852fa3) following production DB wipe.
+
+### Files Uploaded (3)
+
+**Merged (2 files):**
+- `systems/error-tracking/schema.md` — error entry structure, categories, failure modes, severity levels, and pattern format; personal blocks stripped
+- `identity/AUTOMATION.md` — autonomous logging rules and approval gates; personal blocks stripped
+
+**Added (1 file):**
+- `systems/error-tracking/error-log.json` — accumulated correction entries from all IES agent sessions
+
+### Conflicts
+
+None.
+
+---
+
 ## Cowork Scheduled Tasks — Published 2026-04-10
 
 **Evolution ID:** ies-1a88d03a-2f58-40b2-80fc-cf96f0018b0f

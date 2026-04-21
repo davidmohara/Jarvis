@@ -1,0 +1,44 @@
+{
+  "id": "ies-76a20b6c-6da3-4d28-9f92-06cee458fd1e",
+  "version": "76a20b6c-6da3-4d28-9f92-06cee458fd1e",
+  "name": "Root Audit",
+  "description": "Adds root directory hygiene capability to Rigby. Surfaces misplaced files in the IES root, classifies each as Move, Delete, or Unknown, and executes confirmed actions. Also adds a full system integrity scan that auto-fixes unambiguous issues and flags items requiring human review. Chains into the daily-review workflow as step 04.",
+  "released": "2026-04-18",
+  "type": "system",
+  "compatibility": {
+    "minimum_base_version": "2.0.0"
+  },
+  "files": [
+    {
+      "path": ".claude/skills/rigby-integrity/SKILL.md",
+      "type": "system",
+      "action": "add",
+      "description": "Unified integrity scan + root audit skill for Rigby — runs scan rules 1-7, auto-fixes unambiguous issues, flags items requiring human review, writes timestamped findings log"
+    },
+    {
+      "path": "workflows/daily-review/steps/step-04-root-audit.md",
+      "type": "system",
+      "action": "add",
+      "description": "New final step of the daily-review workflow — audits IES root directory for misplaced files, presents classified findings table, executes moves and deletes after confirmation"
+    },
+    {
+      "path": "agents/rigby.md",
+      "type": "mixed",
+      "action": "merge",
+      "description": "Root Audit and Integrity Scan added to Rigby's task portfolio table"
+    },
+    {
+      "path": "workflows/daily-review/steps/step-03-update-system.md",
+      "type": "mixed",
+      "action": "merge",
+      "description": "NEXT STEP pointer updated to chain into step-04-root-audit.md to complete the daily shutdown sequence"
+    }
+  ],
+  "changelog": [
+    "Add rigby-integrity skill: unified system integrity scan with 7 rules, auto-fix capability, and timestamped findings log",
+    "Add step-04-root-audit to daily-review workflow: root directory hygiene check with Move/Delete/Unknown classification and confirmation gate",
+    "Update agents/rigby.md task portfolio: Root Audit and Integrity Scan entries added with trigger phrases and descriptions",
+    "Update step-03-update-system.md: NEXT STEP now chains to step-04-root-audit.md to complete the daily shutdown sequence"
+  ],
+  "training_prompts": []
+}
