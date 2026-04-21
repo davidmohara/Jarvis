@@ -1,10 +1,11 @@
 ---
 status: complete
-started-at: "2026-04-06T03:50:00"
-completed-at: "2026-04-06T04:09:00"
+started-at: "2026-04-21T15:30:30"
+completed-at: "2026-04-21T15:30:45"
 outputs:
   co_sell_captured: true
   rock4_gap_calculated: true
+  cache_used: true
 model: sonnet
 ---
 

@@ -1432,4 +1432,21 @@
       "related_entries": []
     }
   ]
-}
+},
+  {
+    "timestamp": "2026-04-21T15:35:00Z",
+    "severity": "high",
+    "error_type": "tool_misuse",
+    "description": "Created working memory file in Obsidian vault instead of on disk only",
+    "context": {
+      "action": "Create file for Alice EA log",
+      "incorrect_tool_used": "mcp__obsidian-local__create_vault_file",
+      "incorrect_path": "memory/working/alice-ea-log.md",
+      "correct_tool": "Write",
+      "correct_path": "/sessions/brave-pensive-babbage/mnt/IES/people/alice.md"
+    },
+    "correction_taken": "Deleted Obsidian file, created correct disk-based file in /people/ directory",
+    "rule_violated": "Working memory files must be stored on disk only, never in Obsidian vault",
+    "user_instruction": "You created that in Obsidian - never do that again. Working memory is on disk only."
+  }
+]

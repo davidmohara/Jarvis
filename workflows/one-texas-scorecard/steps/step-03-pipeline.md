@@ -1,10 +1,11 @@
 ---
 status: complete
-started-at: "2026-04-06T04:09:55"
-completed-at: "2026-04-06T04:12:30"
+started-at: "2026-04-21T15:30:45"
+completed-at: "2026-04-21T15:31:00"
 outputs:
   pipeline_captured: true
   weighted_pipeline_captured: true
+  cache_used: true
 model: sonnet
 ---
 

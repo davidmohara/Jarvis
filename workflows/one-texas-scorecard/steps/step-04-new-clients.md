@@ -1,10 +1,14 @@
 ---
 status: complete
-started-at: "2026-04-06T04:13:39"
-completed-at: "2026-04-06T04:16:00"
+started-at: "2026-04-21T15:31:00"
+completed-at: "2026-04-21T15:31:15"
 outputs:
   new_clients_captured: true
   most_recent_month: March
+  dallas_logos: 4
+  dallas_anchors: 0
+  south_texas_logos: 4
+  south_texas_anchors: 1
 model: sonnet
 ---
 
