@@ -36,3 +36,25 @@ compression_skipped: true
 errors: 0
 summary: "Archived dream-summary-2026-04-18 from working to episodic (expired today). Single episodic entry scored at 0 (no cross-references possible with only one entry). No promotion candidates, no compression candidates (<5). Error log scan found no new categories hitting 3+ threshold beyond the 6 already in LESSONS.md. Clean run."
 ---
+
+---
+## 2026-04-22T03:08:48 CDT
+session_id: dream-cycle-2026-04-22-030848
+working_archived: 0
+working_deleted: 0
+episodic_scanned: 1
+score_updates: 1
+clusters_found: 0
+semantic_created: 0
+semantic_updated: 0
+promoted_entries: 0
+entries_compressed: 0
+digests_updated: 0
+compression_skipped: true
+errors: 1
+summary: "7 working memory files present, none expired yet (5 expire later today, 2 in future days). Single episodic entry re-scored at 0 (still only one entry — no cross-references possible). No promotion candidates. No compression candidates (<5). Error log scan: process-skip at 5 and routing-error at 3 both already covered in LESSONS.md. Git index.lock prevented pull/commit — noted as non-blocking error."
+errors_detail:
+  - phase: 0
+    file: .git/index.lock
+    error: "Git index.lock file exists and cannot be removed (Operation not permitted). Pull --rebase and commit operations blocked. Dream cycle ran read/write on memory files successfully but could not sync with origin."
+---

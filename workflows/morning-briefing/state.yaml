@@ -1,11 +1,11 @@
 workflow: morning-briefing
 agent: chief
 status: complete
-session-started: "2026-04-20T06:11:00-05:00"
-session-id: mb-20260420-001
+session-started: "2026-04-22T06:00:00-05:00"
+session-id: chief-2026-04-22-060000
 current-step: step-04
 original-request: "Automated morning briefing"
 accumulated-context:
-  calendar-date: "2026-04-20"
-  meeting-count: 8
+  calendar-date: "2026-04-22"
+  meeting-count: 5
   timezone: "CDT"

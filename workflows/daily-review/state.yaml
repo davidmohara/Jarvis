@@ -2,14 +2,14 @@
 workflow: daily-review
 agent: chief
 status: complete
-session-started: "2026-04-17T00:00:00"
-session-id: "chief-2026-04-17-170000"
+session-started: "2026-04-21T00:00:00"
+session-id: "chief-2026-04-21-auto"
 current-step: step-auto
 original-request: "auto"
 accumulated-context:
-  narrative-title: "2026-04-17 Fridays Are for Rhythm, Alice, and Whoever Ian Is at SMU"
-  narrative-path: "reviews/daily/auto-2026-04-17.md"
+  narrative-title: "2026-04-21 Sales Stack, Vicki's Send-Off, and Coffee with Steve Hall"
+  narrative-path: "reviews/daily/auto-2026-04-21.md"
   omnifocus-status: "unavailable (3 timeouts)"
-  obsidian-status: "disabled — local fallback used (reviews/daily/auto-2026-04-17.md)"
-  calendar-events: 7
+  obsidian-status: "disabled — local fallback used (reviews/daily/auto-2026-04-21.md)"
+  calendar-events: 13
 ---
