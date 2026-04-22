@@ -1449,4 +1449,36 @@
     "rule_violated": "Working memory files must be stored on disk only, never in Obsidian vault",
     "user_instruction": "You created that in Obsidian - never do that again. Working memory is on disk only."
   }
+,
+  {
+    "id": "err-20260421-001",
+    "timestamp": "2026-04-21T20:00:00Z",
+    "session": "2026-04-21",
+    "source": "explicit",
+    "agent": "jarvis",
+    "category": "assumption-error",
+    "description": "Recommended adding 10 offers to Amex Platinum card based on historical spend patterns and assumptions, without first pulling actual YNAB transaction data for the last 90 days. Made vendor matches without validating against real recent spending history. Also opened new Chrome tabs despite explicit instruction to navigate only in current tab.",
+    "correction": "Must pull YNAB transaction history (last 90 days) FIRST to build vendor-frequency map, THEN filter the 100 available offers against actual spend patterns. Only recommend offers where vendor appears in YNAB data or high-probability category spend exists. Do not open new tabs — navigate only in current tab.",
+    "failure_mode": "wrong-assumption",
+    "systemic_fix": "Update chase-card-offers-amex skill to mandate YNAB pull (Step 5) BEFORE any offer recommendations. Add explicit instruction: 'Pull YNAB data before analyzing portal data.' Also reinforce tab management: 'Navigate only in current tab, do not open new tabs.'",
+    "fix_status": "proposed",
+    "severity": "moderate",
+    "related_entries": []
+  }
+,
+  {
+    "id": "err-20260421-002",
+    "timestamp": "2026-04-21T20:05:00Z",
+    "session": "2026-04-21",
+    "source": "explicit",
+    "agent": "jarvis",
+    "category": "tool-misuse",
+    "description": "Asked the user 'Are you still in the Amex Platinum offers page in the current tab?' instead of using mcp__Control_Chrome__get_current_tab to check the tab state directly. Repeated this pattern of asking the user questions about tab state when tools exist to check automatically.",
+    "correction": "Use get_current_tab() to check browser state before asking clarifying questions about which page the user is on. Do not ask the user about tab/page state — read it directly from the browser.",
+    "failure_mode": "tool-ignorance",
+    "systemic_fix": "Rule: Never ask the user 'Are you on X page?' or 'Is tab Y open?' when you have direct browser state tools available. Always call get_current_tab() first to verify state.",
+    "fix_status": "proposed",
+    "severity": "minor",
+    "related_entries": []
+  }
 ]

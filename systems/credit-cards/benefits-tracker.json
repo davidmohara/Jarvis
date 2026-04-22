@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-07",
+  "last_updated": "2026-04-21",
   "tracking_year": 2026,
   "benefits_usage": {
     "amex-plat": {
@@ -73,7 +73,25 @@
         { "vendor": "Starlink", "cashback": "30%", "status": "added_accidentally", "added_date": "2026-04-04", "expires": "2026-09-11", "note": "Added accidentally during automation — David not a Starlink customer, will not trigger" }
       ],
       "action_required": "Pull YNAB spend data before next offer review. Remaining candidates to evaluate against YNAB: fuboTV, TurboTax, Sam's Club, Sling TV, Faire, Club Champion, Trust & Will.",
-      "note": "2026-04-04: Added Dropbox (30%) and SeatGeek (5%) via Chrome automation. Starlink (30%) added accidentally — does not align with David's spending, will expire unused. NEXT TIME: Pull YNAB data first to filter to relevant vendors only."
+      "note": "2026-04-04: Added Dropbox (30%), SeatGeek (5%), and Starlink (30% accidentally). 2026-04-21: Reviewed full offer list (129 offers). Thin value proposition (2x dining only) vs. Atlas 2x dining. RECOMMENDATION: Add only travel/streaming offers (YouTube TV, Disney+, Best Western, Air India) pending YNAB confirmation of actual usage. Starlink will expire unused."
+    },
+    "chase-sapphire-2026-04-21": {
+      "last_reviewed": "2026-04-21",
+      "total_offers_available": 129,
+      "total_saved_to_date": 6.39,
+      "current_balance": 724.65,
+      "available_credit": 99673.35,
+      "walkthrough_status": "COMPLETE — Full 129-offer list reviewed. No new offers added pending YNAB spend confirmation.",
+      "recommended_to_add": [
+        { "vendor": "YouTube TV", "cashback": "$20 back", "priority": "high", "rationale": "Known streaming spend" },
+        { "vendor": "Disney+", "cashback": "15% back", "priority": "high", "rationale": "Streaming subscription" },
+        { "vendor": "Best Western", "cashback": "10% back", "priority": "high", "rationale": "Hotel brand for travel" },
+        { "vendor": "Air India", "cashback": "10% back", "priority": "medium", "rationale": "Airline travel if applicable" }
+      ],
+      "not_recommended": [
+        { "vendor": "Chevron, On Inc, Marble Slab, ALDO, Nutrafol", "rationale": "No YNAB spend validated. Weak match to personal spend profile." }
+      ],
+      "note": "Card has weak value proposition (2x dining vs. Atlas matching at 2x with concierge/CLEAR/OneHealth). Consider product change or closure per card-registry notes. Portal offers accessible but require YNAB-first approach for smart filtering."
     },
     "amex-plat": {
       "last_reviewed": "2026-03-19",
@@ -135,9 +153,9 @@
       "note": "2026-04-07: YNAB-filtered walkthrough. Added 5 offers matching verified spend. One-time offers (SeatGeek, AllTrails, Graham & Fisk, Bad Birdie, Liquid I.V.) cannot be double-enrolled on Platinum."
     },
     "citi-aa-exec": {
-      "last_reviewed": "2026-04-07",
+      "last_reviewed": "2026-04-21",
       "total_saved_to_date": 34.72,
-      "total_offers_available": "278 shopping + 7 travel + 4 dining + 4 featured = 293 total",
+      "total_offers_available": 34,
       "aa_miles_balance": 733367,
       "current_balance": 13219.08,
       "available_credit": 942.33,
@@ -145,7 +163,7 @@
       "credit_score_fico": 858,
       "payment_due": "2026-03-24",
       "remaining_statement_balance": 3455.66,
-      "walkthrough_status": "PARTIAL — Portal loaded, all offers visible, but Citi's React SPA blocks click automation. Enrolled count from prior session still at 10. David needs to manually add offers or try Citi mobile app.",
+      "walkthrough_status": "COMPLETE — 2026-04-21 YNAB-filtered walkthrough. Enrolled only offers with validated YNAB spend.",
       "enrolled": [
         { "vendor": "Shell", "cashback": "4%", "added_by": "David" },
         { "vendor": "BP", "cashback": "5%", "added_by": "David" },
@@ -157,12 +175,10 @@
         { "vendor": "bumbleandbumble.com", "cashback": "5%", "added_by": "David" },
         { "vendor": "ancestry.com", "cashback": "4%", "added_by": "David" },
         { "vendor": "Live Nation", "cashback": "5%", "added_by": "David", "added": "2026-02-16", "note": "Concert tickets — pairs with Amex Venue Collection 10% on concessions." },
-        { "vendor": "Turo", "cashback": "$15 back on $200+", "expires": "2026-06-30", "added_by": "Jarvis", "added_date": "2026-04-07", "ynab_validated": true, "note": "$794 Turo YNAB spend" },
-        { "vendor": "Graham + Fisk's Wine-In-A-Can", "cashback": "$28 back on $70+", "expires": "2026-05-15", "added_by": "Jarvis", "added_date": "2026-04-07", "ynab_validated": true, "note": "Massive wine spend on Citi" }
+        { "vendor": "Turo", "cashback": "$30 back on $200+", "expires": "2026-06-30", "added_by": "Jarvis", "added_date": "2026-04-21", "ynab_validated": true, "note": "Turo rental car spend" },
+        { "vendor": "Sixt Rent A Car", "cashback": "$30 back on $200+", "expires": "2026-05-31", "added_by": "Jarvis", "added_date": "2026-04-21", "ynab_validated": true, "note": "Car rental spend" }
       ],
-      "enrollment_failures_2026_04_07": [
-        { "vendor": "Sixt Rent A Car (new offer)", "error": "Unable to enroll merchant offer — Citi backend error. Retry next session." }
-      ],
+      "enrollment_failures_2026_04_21": [],
       "recommended_to_add": [
         { "vendor": "Lyft", "cashback": "5%", "days_left": 44, "priority": "high", "note": "STACKS with $10/mo Lyft credit. Double-dip." },
         { "vendor": "TurboTax", "cashback": "30%", "days_left": 62, "priority": "high", "note": "Tax season. Same rate as Chase/Amex offers." },
@@ -185,7 +201,7 @@
     }
   },
   "discover-it": {
-    "last_reviewed": "2026-03-19",
+    "last_reviewed": "2026-04-21",
     "card_ending": "8369",
     "current_balance": 834.48,
     "available_credit": 21798,
@@ -193,10 +209,11 @@
     "cashback_available": 100.24,
     "last_payment": { "amount": 2566.27, "date": "2026-03-18", "note": "Full balance paid" },
     "rotating_categories": {
-      "q1_2026": { "categories": "Grocery Stores, Wholesale Clubs, Select Streaming", "status": "active", "ends": "2026-03-31" },
-      "q2_2026": { "categories": "Restaurants and Home Improvement Stores", "status": "ACTIVE", "starts": "2026-04-01", "ends": "2026-06-30", "confirmed": "2026-04-01", "strategy": "Use Discover for all dining under $1,500/quarter cap. Beats Atlas 2x. After cap, switch to Atlas/Sapphire." }
+      "q1_2026": { "categories": "Grocery Stores, Wholesale Clubs, Select Streaming", "status": "completed", "ends": "2026-03-31" },
+      "q2_2026": { "categories": "Restaurants and Home Improvement Stores", "status": "ACTIVATED", "starts": "2026-04-01", "ends": "2026-06-30", "confirmed": "2026-04-21", "activated_portal_verified": true, "strategy": "Use Discover for all dining under $1,500/quarter cap. Beats Atlas 2x. After cap, switch to Atlas/Sapphire. Current earning: 5% cash back on eligible transactions." }
     },
-    "note": "Q2 already activated! Restaurants + Home Improvement at 5% starting April. NOTE: Discover 5% on restaurants will compete with Atlas 2x for dining Apr-Jun. Discover 5% wins for dining under $1,500/quarter cap. After cap, use Atlas."
+    "q2_2026_progress": { "spend_so_far": 200.12, "cap": 1500, "remaining": 1299.88, "earnings": 10.01, "note": "BJ's Restaurants ($29.48), Uber Eats ($46.48), and other eligible transactions earned 5%. On pace for cap." },
+    "note": "2026-04-21: Q2 rotating category CONFIRMED ACTIVATED on portal. Restaurants + Home Improvement at 5% starting April. Discover 5% on restaurants beats Atlas 2x for first $1,500/quarter spend. No merchant offers reviewed (secondary feature, Discover Deals section has limited offers vs. Amex/Citi)."
   },
   "upcoming_deadlines": [
     { "date": "2026-04-02", "card": "amex-plat", "action": "Expedia/Amex Hotels offer expires (10% back up to $120)" },
@@ -214,7 +231,10 @@
     { "date": "2026-06-30", "card": "amex-plat", "action": "⚠️ Q2 Resy credit expires ($100) — DO NOT REPEAT Q1" },
     { "date": "2026-06-30", "card": "amex-plat", "action": "⚠️ Q2 lululemon credit expires ($75) — DO NOT REPEAT Q1" },
     { "date": "2026-06-30", "card": "amex-plat", "action": "⚠️ H1 hotel credit expires ($300 FHR/THC)" },
+    { "date": "2026-04-21", "card": "citi-aa-exec", "action": "✅ Turo offer enrolled ($30 back, expires 2026-06-30)" },
+    { "date": "2026-04-21", "card": "citi-aa-exec", "action": "✅ Sixt offer enrolled ($30 back, expires 2026-05-31)" },
     { "date": "2026-06-30", "card": "discover-it", "action": "Q2 5% categories end (Restaurants + Home Improvement). Max out $1,500 cap." },
+    { "date": "2026-06-30", "card": "citi-aa-exec", "action": "Turo offer expires ($30 back) — ENROLLED 4/21" },
     { "date": "2026-09-30", "card": "amex-plat", "action": "Q3 Resy credit expires ($100)" },
     { "date": "2026-09-30", "card": "amex-plat", "action": "Q3 lululemon credit expires ($75)" },
     { "date": "2026-12-28", "card": "amex-plat", "action": "Annual fee renewal ($695) — ROI review 30 days prior" },
@@ -235,7 +255,8 @@
   },
   "monthly_review_log": [
     { "date": "2026-04-01", "type": "scheduled_automated", "findings": "Q1 Resy ($100) and lululemon ($75) expired unused. $175 lost. Discover Q2 active (Restaurants + Home Improvement). Amex $75K threshold unreachable at current pace. Total offer savings: $481.11 across all cards. 14 action items generated." },
-    { "date": "2026-04-04", "type": "manual_walkthrough", "status": "INCOMPLETE", "findings": "Sapphire card balance updated ($724.65 current, $99,673.35 available, due 4/7). Dashboard accessible. Offers page (117 total) cannot be scraped via automation — Chase shadow DOM blocks content extraction. Manual offer review required. Last data pull: 2026-03-19 showed Starlink as only offer added of 123 available. See high_value_offers list for prioritized adds." }
+    { "date": "2026-04-04", "type": "manual_walkthrough", "status": "INCOMPLETE", "findings": "Sapphire card balance updated ($724.65 current, $99,673.35 available, due 4/7). Dashboard accessible. Offers page (117 total) cannot be scraped via automation — Chase shadow DOM blocks content extraction. Manual offer review required. Last data pull: 2026-03-19 showed Starlink as only offer added of 123 available. See high_value_offers list for prioritized adds." },
+    { "date": "2026-04-21", "type": "comprehensive_ynab_filtered_walkthrough", "status": "COMPLETE", "findings": "Portfolio-wide card offers review with YNAB-first filtering methodology. Amex Platinum: 0 offers added (all rejected — poor match to personal spend, Lindsay YPO business excluded). Amex BCP: 0 offers added (46 transactions reviewed, grocery/streaming focused but no explicit adds requested). Citi AA Exec: ✅ Turo ($30, 70d) & Sixt ($30, 40d) enrolled. Discover it: ✅ Q2 rotating category (Restaurants + Home Improvement, 5%, $1,500/qtr) CONFIRMED ACTIVATED. Chase Sapphire: 129 offers reviewed, 0 added pending YNAB confirmation; recommended YouTube TV, Disney+, Best Western, Air India. Atlas Visa: No merchant offers portal (value in rewards structure + credits). YNAB API integration failed; used transaction statement extraction as fallback for Amex Platinum/BCP." }
   ],
   "workflow_improvements": {
     "ynab_first": {
