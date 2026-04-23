@@ -297,10 +297,10 @@ server.tool(
     const SCRIPT_DIR = `${process.env.HOME}/Library/CloudStorage/OneDrive-Improving/IES/systems/invintory-mcp`;
 
     try {
-      // Run the refresh script on the Mac side via osascript — this uses the Mac's
-      // Node/npx and Playwright persistent profile which has Cloudflare cookies cached.
-      // Use Homebrew Node (v25) — osascript's shell uses nvm default (Node 16) which is too old for Playwright
-      const script = `osascript -e 'do shell script "cd ${SCRIPT_DIR} && PATH=/opt/homebrew/bin:$PATH npx tsx src/refresh.ts 2>&1"'`;
+      // Trigger CSV export from the live Chrome tab via AppleScript.
+      // Playwright/headless is blocked by Cloudflare Turnstile — only the real Chrome
+      // session (already human-verified) can export. Requires app.invintory.com open + logged in.
+      const script = `osascript -e 'do shell script "cd ${SCRIPT_DIR} && PATH=/opt/homebrew/bin:$PATH npx tsx src/export-via-chrome.ts 2>&1"'`;
       const output = execSync(script, { encoding: 'utf-8', timeout: 120000 });
 
       // Reload cache from disk (refresh script wrote it)
