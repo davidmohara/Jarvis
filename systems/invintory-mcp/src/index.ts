@@ -7,6 +7,7 @@ import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js';
 import { z } from 'zod';
 import { loadCache, getCacheAge, summarize, importCSV, saveCache } from './cache.js';
+import { fetchLiveCollection } from './api.js';
 import type { Wine } from './types.js';
 
 // ── State ───────────────────────────────────────────────────────────────────
@@ -234,7 +235,7 @@ server.tool(
 
 server.tool(
   'invintory_cache_status',
-  'Check when collection data was last refreshed and whether it is stale',
+  'Check when collection data was last refreshed and whether it is stale. Use invintory_refresh to pull latest data from the live API.',
   {},
   async () => {
     const age = getCacheAge();
@@ -242,7 +243,7 @@ server.tool(
     if (!age || !data) {
       return jsonResponse({
         status: 'no_cache',
-        message: 'No collection data cached. Run the refresh script to import data.',
+        message: 'No collection data cached. Call invintory_refresh to pull live data from the Invintory API.',
       });
     }
     return jsonResponse({
@@ -251,6 +252,7 @@ server.tool(
       wine_count: data.meta.wine_count,
       exported_at: data.meta.exported_at,
       source_file: data.meta.source_file,
+      hint: age.stale ? 'Cache is stale — call invintory_refresh to update from the live API.' : undefined,
     });
   }
 );
@@ -279,6 +281,40 @@ server.tool(
       return jsonResponse({
         status: 'error',
         message: err instanceof Error ? err.message : String(err),
+      });
+    }
+  }
+);
+
+// ── Tool: Live Refresh ──────────────────────────────────────────────────────
+
+server.tool(
+  'invintory_refresh',
+  'Pull the latest collection data directly from the Invintory API and update the local cache. Requires a cached Firebase refresh token (run the refresh script once if this fails).',
+  {},
+  async () => {
+    try {
+      const { wines: fresh } = await fetchLiveCollection();
+      saveCache(fresh, 'live_api');
+      wines = fresh;
+      cacheLoaded = true;
+      const summary = summarize(fresh);
+      return jsonResponse({
+        status: 'refreshed',
+        wine_count: fresh.length,
+        total_bottles: summary.total_bottles,
+        total_market_value: summary.total_market_value,
+        ready_to_drink: summary.ready_to_drink,
+        refreshed_at: new Date().toISOString(),
+      });
+    } catch (err) {
+      const msg = err instanceof Error ? err.message : String(err);
+      return jsonResponse({
+        status: 'error',
+        message: msg,
+        hint: msg.includes('refresh token') || msg.includes('expired')
+          ? 'Run: cd ~/Library/CloudStorage/OneDrive-Improving/IES/systems/invintory-mcp && npx tsx src/refresh.ts'
+          : undefined,
       });
     }
   }
