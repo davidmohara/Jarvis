@@ -290,31 +290,47 @@ server.tool(
 
 server.tool(
   'invintory_refresh',
-  'Pull the latest collection data directly from the Invintory API and update the local cache. Requires a cached Firebase refresh token (run the refresh script once if this fails).',
+  'Pull the latest collection data from Invintory and update the local cache. Runs the refresh script via osascript on the Mac (bypasses Cloudflare bot protection).',
   {},
   async () => {
+    const { execSync } = await import('child_process');
+    const SCRIPT_DIR = `${process.env.HOME}/Library/CloudStorage/OneDrive-Improving/IES/systems/invintory-mcp`;
+
     try {
-      const { wines: fresh } = await fetchLiveCollection();
-      saveCache(fresh, 'live_api');
-      wines = fresh;
-      cacheLoaded = true;
-      const summary = summarize(fresh);
-      return jsonResponse({
-        status: 'refreshed',
-        wine_count: fresh.length,
-        total_bottles: summary.total_bottles,
-        total_market_value: summary.total_market_value,
-        ready_to_drink: summary.ready_to_drink,
-        refreshed_at: new Date().toISOString(),
-      });
+      // Run the refresh script on the Mac side via osascript — this uses the Mac's
+      // Node/npx and Playwright persistent profile which has Cloudflare cookies cached.
+      const script = `osascript -e 'do shell script "cd ${SCRIPT_DIR} && npx tsx src/refresh.ts 2>&1"'`;
+      const output = execSync(script, { encoding: 'utf-8', timeout: 120000 });
+
+      // Reload cache from disk (refresh script wrote it)
+      cacheLoaded = false;
+      const data = loadCache();
+      if (data) {
+        wines = data.wines;
+        cacheLoaded = true;
+        const summary = summarize(wines);
+        return jsonResponse({
+          status: 'refreshed',
+          wine_count: data.meta.wine_count,
+          total_bottles: summary.total_bottles,
+          total_market_value: summary.total_market_value,
+          ready_to_drink: summary.ready_to_drink,
+          refreshed_at: data.meta.exported_at,
+          script_output: output.trim().slice(-500), // last 500 chars of output
+        });
+      } else {
+        return jsonResponse({
+          status: 'error',
+          message: 'Refresh script ran but cache file not found afterward.',
+          script_output: output.trim().slice(-500),
+        });
+      }
     } catch (err) {
       const msg = err instanceof Error ? err.message : String(err);
       return jsonResponse({
         status: 'error',
-        message: msg,
-        hint: msg.includes('refresh token') || msg.includes('expired')
-          ? 'Run: cd ~/Library/CloudStorage/OneDrive-Improving/IES/systems/invintory-mcp && npx tsx src/refresh.ts'
-          : undefined,
+        message: msg.slice(0, 1000),
+        hint: 'If this fails, run manually: cd ~/Library/CloudStorage/OneDrive-Improving/IES/systems/invintory-mcp && npx tsx src/refresh.ts',
       });
     }
   }
