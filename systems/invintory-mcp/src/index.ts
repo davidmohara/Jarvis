@@ -299,7 +299,8 @@ server.tool(
     try {
       // Run the refresh script on the Mac side via osascript — this uses the Mac's
       // Node/npx and Playwright persistent profile which has Cloudflare cookies cached.
-      const script = `osascript -e 'do shell script "cd ${SCRIPT_DIR} && npx tsx src/refresh.ts 2>&1"'`;
+      // Use Homebrew Node (v25) — osascript's shell uses nvm default (Node 16) which is too old for Playwright
+      const script = `osascript -e 'do shell script "cd ${SCRIPT_DIR} && PATH=/opt/homebrew/bin:$PATH npx tsx src/refresh.ts 2>&1"'`;
       const output = execSync(script, { encoding: 'utf-8', timeout: 120000 });
 
       // Reload cache from disk (refresh script wrote it)
