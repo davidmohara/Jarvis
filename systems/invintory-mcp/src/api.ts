@@ -11,7 +11,64 @@
 import { existsSync, readFileSync, writeFileSync } from 'fs';
 import { join } from 'path';
 import { homedir } from 'os';
+import * as https from 'https';
 import type { Wine, WineType, DrinkStatus } from './types.js';
+
+// ── fetch polyfill using node:https ──────────────────────────────────────────
+// Native fetch may not be available in all Node versions / MCP runtime contexts.
+
+interface FetchResponse {
+  ok: boolean;
+  status: number;
+  text: () => Promise<string>;
+  json: () => Promise<unknown>;
+}
+
+function httpsRequest(url: string, options: https.RequestOptions, body?: string): Promise<FetchResponse> {
+  return new Promise((resolve, reject) => {
+    const req = https.request(url, options, (res) => {
+      const chunks: Buffer[] = [];
+      res.on('data', (chunk: Buffer) => chunks.push(chunk));
+      res.on('end', () => {
+        const raw = Buffer.concat(chunks).toString('utf-8');
+        const status = res.statusCode ?? 0;
+        resolve({
+          ok: status >= 200 && status < 300,
+          status,
+          text: async () => raw,
+          json: async () => JSON.parse(raw),
+        });
+      });
+      res.on('error', reject);
+    });
+    req.on('error', reject);
+    if (body) req.write(body);
+    req.end();
+  });
+}
+
+async function fetchPost(url: string, body: string, contentType: string): Promise<FetchResponse> {
+  const parsed = new URL(url);
+  return httpsRequest(url, {
+    hostname: parsed.hostname,
+    path: parsed.pathname + parsed.search,
+    method: 'POST',
+    headers: {
+      'Content-Type': contentType,
+      'Content-Length': Buffer.byteLength(body),
+    },
+  }, body);
+}
+
+async function fetchGet(url: string, headers: Record<string, string>): Promise<FetchResponse> {
+  const parsed = new URL(url);
+  return httpsRequest(url, {
+    hostname: parsed.hostname,
+    path: parsed.pathname + parsed.search,
+    method: 'GET',
+    headers,
+  });
+}
 
 const CACHE_DIR = join(homedir(), '.config', 'invintory');
 const TOKEN_FILE = join(CACHE_DIR, 'firebase-token.json');
@@ -55,11 +112,8 @@ function saveRefreshToken(refreshToken: string): void {
 }
 
 async function getIdToken(refreshToken: string): Promise<{ idToken: string; newRefreshToken: string }> {
-  const res = await fetch(TOKEN_REFRESH_URL, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    body: `grant_type=refresh_token&refresh_token=${encodeURIComponent(refreshToken)}`,
-  });
+  const body = `grant_type=refresh_token&refresh_token=${encodeURIComponent(refreshToken)}`;
+  const res = await fetchPost(TOKEN_REFRESH_URL, body, 'application/x-www-form-urlencoded');
 
   if (!res.ok) {
     const body = await res.text();
@@ -259,12 +313,10 @@ export async function fetchLiveCollection(): Promise<LiveFetchResult> {
   while (true) {
     const url = `${API_BASE}/collections/${COLLECTION_ID}/labels?limit=${PAGE_LIMIT}&page=${page}`;
 
-    const res = await fetch(url, {
-      headers: {
-        'Authorization': `Bearer ${idToken}`,
-        'Content-Type': 'application/json',
-        'Accept': 'application/json',
-      },
+    const res = await fetchGet(url, {
+      'Authorization': `Bearer ${idToken}`,
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
     });
 
     if (!res.ok) {
