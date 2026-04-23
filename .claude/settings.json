@@ -47,7 +47,8 @@
       "mcp__whoop__*",
       "mcp__claude_ai_Microsoft_365__*",
       "mcp__claude_ai_Clay__*",
-      "mcp__claude_ai_Context7__*"
+      "mcp__claude_ai_Context7__*",
+      "mcp__Control_your_Mac__osascript"
     ],
     "deny": [
       "Bash(git push --force*)",

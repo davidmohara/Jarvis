@@ -8,17 +8,17 @@
 ### Rock 1: Revenue Visibility
 - **Owner**: David (with Don, Diana, Stephen, Robyn)
 - **Key Result**: Jarvis pulls account trajectory data weekly; Rock 1 graded on actuals, not feel
-- **Status**: Not Started
+- **Status**: In Progress
 - **Progress Notes**:
-  - Requires system build — CRM/SPARC data wired into morning briefing
+  - PowerBI skills for pulling in data shared between comp-tracker and one-texas-scorecard
   - Active pursuits carry over from Q1: AT&T, Builders First Source, CBRE, Tenet, Texas Instruments (Dallas); Marriott, Kirby Corp, Expedia, Masimo, Constellation (Houston)
 
 ### Rock 2: One Texas Cadence
 - **Owner**: David
 - **Key Result**: Formal coordination protocol documented; first recurring rhythm (monthly or bi-weekly) running by May 31
-- **Status**: Not Started
+- **Status**: In Progress
 - **Progress Notes**:
-  - SKO created momentum in Q1 — must not coast into Q2 without locking a cadence
+  - Regular cadence of accountability is going
   - Protocol needs an owner below David for execution accountability
 
 ### Rock 3: Thought Leadership — Writing + Platform
@@ -50,7 +50,7 @@
 ### IES (Improving Executive System)
 - **Owner**: David
 - **Status**: Active — deployed to Steve Hall as first pilot in Q1
-- **Notes**: Productization of the Intelligence Executive System for other Improving presidents. Scope management required — David should not be pulled into delivery work.
+- **Notes**: Productization of the Improving Executive System for other Improving presidents. Scope management required — David should not be pulled into delivery work.
 
 ### EA Hire
 - **Owner**: David
