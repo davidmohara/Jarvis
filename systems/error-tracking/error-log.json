@@ -1497,3 +1497,20 @@
     "related_entries": ["err-20260421-001", "err-20260421-002"]
   }
 ]
+[
+  {
+    "id": "err-20260423-001",
+    "timestamp": "2026-04-23T00:00:00Z",
+    "session": "2026-04-23",
+    "source": "explicit",
+    "agent": "chief",
+    "category": "data-accuracy",
+    "description": "Reported Rock 1 (Revenue Visibility) and Rock 2 (One Texas Cadence) as 'Not Started' in the morning briefing. Read status directly from the quarterly-objectives.md file without cross-referencing actual activity. Revenue is actively tracked in the One Texas Scorecard and comp-tracker. One Texas Sales Update is scheduled for next Thursday (Apr 30) and a follow-up task was created Apr 22.",
+    "correction": "Both rocks are In Progress. Rock 1: revenue visible in One Texas Scorecard and comp-tracker. Rock 2: One Texas Sales Update Apr 30, email follow-up task created Apr 22. File updated.",
+    "failure_mode": "stale-cache",
+    "systemic_fix": "At boot, do not read rock status from file and report verbatim. Cross-reference against live calendar, recent tasks, and known activity before surfacing status. If file is stale, update it — don't report it.",
+    "fix_status": "applied",
+    "severity": "moderate",
+    "related_entries": []
+  }
+]

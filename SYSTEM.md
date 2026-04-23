@@ -131,6 +131,10 @@ If all 3 strategies return nothing, THEN report it as not found — and say what
 2. **Verify conversions make logical sense.** If a flight "arrives at 1:39 AM" in UTC, that's 8:39 PM CT — not the next calendar day.
 3. **Never confuse UTC dates with local dates.** A UTC timestamp crossing midnight does NOT mean the event is on the next day in David's timezone.
 
+### URL & Web Content Access
+
+**When a URL cannot be fetched due to content restrictions, immediately open it in Chrome via `mcp__Control_Chrome__open_url` and read the content with `mcp__Control_Chrome__get_page_content`. Do NOT tell David the domain is blocked — just open it. No exceptions.**
+
 ### Verification Before Assertion
 
 1. **Before saying something doesn't exist** — try harder. Minimum 3 search approaches.

@@ -1,14 +1,95 @@
 workflow: comp-tracker
 agent: chase
-status: not-started
-session-started: null
-session-id: null
-current-step: null
-original-request: null
-accumulated-context: {}
-notes: >
-  Waiting on WorkDay automated report configuration.
-  Two emails needed in Jarvis inbox folder:
-    1. Monthly revenue by account (Excel attachment)
-    2. Monthly project profitability (Excel attachment)
-  Once flowing, run monthly in first week of each month.
+status: awaiting-input
+session-started: 2026-04-22T00:00:00Z
+session-id: blissful-hopeful-ride
+current-step: 8
+
+accumulated-context:
+  month: "2026-04"
+  comp_tracker_file_path: "/sessions/blissful-hopeful-ride/mnt/IES/systems/compensation/2026 Comp Tracker.xlsx"
+  workbook_status: "Saved with Comp 2 updates"
+  
+  step_1_status: "BLOCKED"
+  step_1_note: "PowerBI Customer Distribution page inaccessible via URL. Attempted navigation failed. Visual chart format prevents exact data extraction for 20 named accounts."
+  
+  step_2_status: "NOT_STARTED"
+  step_2_note: "Requires Step 1 completion"
+  
+  step_3_status: "BLOCKED_ON_STEP_1"
+  step_3_note: "Comp 1 - BoB sheet F5:F24 (YTD) and G5:G24 (GM%) awaiting PowerBI data"
+  
+  step_4_status: "COMPLETED"
+  step_4_data:
+    jan_revenue: 5440616
+    jan_cost: 3354802
+    jan_gm_percent: 38.3
+    feb_revenue: 5444848
+    feb_cost: 3378546
+    feb_gm_percent: 38.0
+    mar_revenue: 5865309
+    mar_cost: 3965412
+    mar_gm_percent: 32.4
+    ytd_revenue: 16750773
+    ytd_cost: 10698760
+    ytd_gm_percent: 36.1
+  
+  step_5_status: "PARTIAL"
+  step_5_data:
+    identified_new_leads: 8
+    commission_eligible_count: 6
+    named_account_leads:
+      - "CBRE (Mar 3, Me)"
+    active_customer_leads:
+      - "Specialty Capital (Apr 2, Shalini Arora)"
+  
+  step_6_status: "PENDING_LEADS_SYNC"
+  step_6_note: "Blocked on Step 5 completion. Awaiting commission-eligible list."
+  
+  step_7_status: "PARTIAL"
+  step_7_data:
+    strategic_activities_identified: 3
+    awaiting_david_input: true
+    comp3_prompt_generated: true
+  
+  step_8_status: "IN_PROGRESS"
+  step_8_note: "Summary generated. Awaiting David input for Comp 3 to finalize."
+
+standing_issues:
+  issue_1:
+    step: 1
+    severity: "HIGH"
+    description: "PowerBI Customer Distribution page data extraction blocked"
+    impact: "Prevents Comp 1 - BoB completion (20 named accounts, monthly breakdown)"
+    
+  issue_2:
+    step: 5
+    severity: "MEDIUM"
+    description: "My Leads oneDrive read incomplete (truncated fields)"
+    impact: "Prevents complete leads sync and commissions calculation"
+
+outstanding_actions:
+  action_1:
+    priority: "URGENT"
+    title: "Comp 3 Strategic Impact Assessment"
+    owner: "David O'Hara"
+    deadline: "Before finalization"
+    description: "Review One Texas SKO, Specialty Capital engagement, Houston Texans activities. Assess revenue/relationship/market expansion impact."
+    
+  action_2:
+    priority: "HIGH"
+    title: "PowerBI Customer Distribution Data Access"
+    owner: "David O'Hara / Agent"
+    deadline: "Complete Comp 1 workbook update"
+    description: "Access Project Revenue Dataset page in PowerBI. Extract YTD + monthly revenue per named account."
+    
+  action_3:
+    priority: "MEDIUM"
+    title: "Complete Leads Sync"
+    owner: "Agent / David O'Hara"
+    deadline: "Before commission calculations"
+    description: "Verify Feb-Apr My Leads entries from OneDrive. Append CBRE, Specialty Capital, and other new leads to Comp Tracker."
+
+notes: "Comp 2 (Regional) successfully completed with One Texas PowerBI data. Comp 1 & 3 blocked on external data/input. Commissions blocked on leads sync. Strategic activities calendar pulled and assessed. One Texas SKO and Specialty Capital engagement identified as significant April activities."
+
+completion_percentage: 40

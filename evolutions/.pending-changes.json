@@ -1,6 +1,26 @@
 {
   "pending": [
     {
+      "id": "podcast-transcript-extract-001",
+      "description": "New skill: podcast-transcript-extract. Extracts full transcripts from podcast episodes (YouTube + Apple Podcasts via Chrome) and saves structured Obsidian notes. Includes duration verification step that checks stated episode length against last transcript timestamp. File naming convention: {YY-MM-DD} - {Podcast Name}.md",
+      "started": "2026-04-23T00:00:00Z",
+      "classification": "personal",
+      "files": [
+        {
+          "path": "skills/podcast-transcript-extract/SKILL.md",
+          "action": "add",
+          "type": "personal",
+          "description": "New skill: podcast transcript extraction to Obsidian with YouTube/Apple Podcasts support, structured note format, and duration verification."
+        },
+        {
+          "path": "skills/_manifest.jsonl",
+          "action": "merge",
+          "type": "system",
+          "description": "Added podcast-transcript-extract entry to skill manifest."
+        }
+      ]
+    },
+    {
       "id": "integrity-2026-04-18-120000",
       "description": "Integrity scan fixes — 2 auto-corrections applied (manifest currency + model fields)",
       "started": "2026-04-18T12:00:00Z",

@@ -10,35 +10,99 @@ model: sonnet
 
 ## MANDATORY EXECUTION RULES
 
-1. **Only write named account revenue.** If an account doesn't match the 20-account list, leave its row blank. Do not create new rows for non-named accounts.
-2. **Flag all uncertain matches.** Any account matched with confidence < 95% gets a cell note with the recommendation.
-3. **Write monthly, not cumulative.** Each cell in the monthly grid shows that month's revenue/GM%, not YTD.
-4. **Never overwrite prior months** without explicit confirmation from David.
-5. **Document uncertain accounts.** Create an audit trail (cell notes, sidebar notes) for David to verify.
+1. **Only write named account revenue.** Non-matching accounts get no entry.
+2. **Two separate write targets.** (A) Column F = "2026 Actual YTD" (one YTD total per account). (B) Row 30 = "BoB Revenue" monthly totals (one number per month = sum of all named account revenue for that month). Both must be populated.
+3. **Read the sheet before writing.** Spot-check cells below to confirm layout matches before writing anything.
+4. **Never touch formula rows or prior-year columns.** Columns C and D (2024/2025 Revenue) are read-only. Formula rows are listed explicitly below — do not write to them.
+5. **Uncertain matches get written + flagged.** Write the value, add to `comp1_uncertain_matches` in state.yaml.
+6. **Monthly data requires month-by-month PowerBI breakdown.** If PowerBI only shows a YTD total, write to F (YTD) only and leave Row 30 blank — do not estimate monthly splits.
 
 ---
 
-## EXECUTION PROTOCOL
+## COMP 1 — BoB SHEET LAYOUT (verified 2026-04-22)
 
-| Role | Input | Output |
-|------|-------|--------|
-| **Chase** | Open comp tracker; retrieve accumulated-context from Steps 1-2 (revenue_map, profitability_map, named_account_matches, uncertain_matches) | Updated Comp 1 - BoB sheet with monthly revenue and GM% per named account; flagged uncertain matches; revenue summary |
+### Section A: Named Account YTD Table (rows 4–25)
 
----
+```
+Row 4 — Column headers:
+  B4 = "Named Account"
+  C4 = "2024 Revenue"      ← READ ONLY — never write
+  D4 = "2025 Revenue"      ← READ ONLY — never write
+  E4 = "2026 Target"       ← READ ONLY — never write
+  F4 = "2026 Actual YTD"   ← WRITE TARGET A: one YTD total per account
+  G4 = "Gross Margin %"    ← WRITE TARGET (if GM% available from Step 2)
+  H4 = "YoY Growth %"      ← FORMULA — never write
 
-## CONTEXT BOUNDARIES
+Named account rows (B = account name, F = YTD write target, G = GM% write target):
+  Row 5:  7-Eleven                  → F5, G5
+  Row 6:  Charles Schwab & Co       → F6, G6
+  Row 7:  McKesson Corporation      → F7, G7
+  Row 8:  Wendy's International, LLC→ F8, G8
+  Row 9:  Insperity Services, LP    → F9, G9
+  Row 10: PriceSmart                → F10, G10
+  Row 11: Autodesk, Inc             → F11, G11
+  Row 12: Intuit, Inc               → F12, G12
+  Row 13: Siemens Industry, Inc.    → F13, G13
+  Row 14: ORIX Corporation USA      → F14, G14
+  Row 15: AT&T Services, Inc.       → F15, G15
+  Row 16: Constellation Energy      → F16, G16
+  Row 17: Marriott                  → F17, G17
+  Row 18: Kirby Corp                → F18, G18
+  Row 19: Expedia                   → F19, G19
+  Row 20: Massimo                   → F20, G20
+  Row 21: CBRE                      → F21, G21
+  Row 22: Tenet                     → F22, G22
+  Row 23: Texas Instruments         → F23, G23
+  Row 24: Builders First Source     → F24, G24
+  Row 25: TOTALS                    → FORMULA ROW — never write (=SUM(F5:F24) etc)
+```
 
-**In scope for this step:**
-- Opening the comp tracker spreadsheet
-- Writing monthly revenue and GM% for each named account into the Comp 1 sheet
-- Adding cell notes to flag uncertain account matches
-- Writing monthly totals and summary rows
-- Documenting any non-named accounts (unmatched) for David
+### Section B: Monthly Revenue Tracking (rows 28–40)
 
-**Out of scope:**
-- Comp 2 (regional) data — that's step 4
-- Commission calculations — that's step 6
-- Strategic activities (Comp 3) — that's step 7
+```
+Row 28: Section header "MONTHLY REVENUE TRACKING — BOOK OF BUSINESS"
+Row 29: Month headers:
+  B29 = "Metric"
+  C29 = (blank — skip this column in monthly section)
+  D29 = "Jan"   ← January
+  E29 = "Feb"   ← February
+  F29 = "Mar"   ← March
+  G29 = "Apr"   ← April
+  H29 = "May"   ← May
+  I29 = "Jun"   ← June
+  J29 = "Jul"   ← July
+  K29 = "Aug"   ← August
+  L29 = "Sep"   ← September
+  M29 = "Oct"   ← October
+  N29 = "Nov"   ← November
+  O29 = "Dec"   ← December
+  P29 = "YTD Total" ← FORMULA — never write (=SUM(C30:N30))
+
+Row 30: BoB Revenue  ← WRITE TARGET B: monthly total of ALL named account revenue
+Row 31: BoB Cost     ← WRITE TARGET B: monthly total of ALL named account cost
+Row 32: BoB Gross Profit  ← FORMULA (=C30-C31 etc) — never write
+Row 33: BoB Gross Margin % ← FORMULA — never write
+Row 34: Cumulative Revenue ← FORMULA — never write
+Row 35: Cumulative Growth % ← leave blank (David fills)
+Rows 37–40: Bonus Qualification ← formulas or David fills — never write
+```
+
+**Monthly column map for Row 30 (BoB Revenue) and Row 31 (BoB Cost):**
+
+| Month | Column | BoB Revenue Cell | BoB Cost Cell |
+|-------|--------|-----------------|---------------|
+| January | D | D30 | D31 |
+| February | E | E30 | E31 |
+| March | F | F30 | F31 |
+| April | G | G30 | G31 |
+| May | H | H30 | H31 |
+| June | I | I30 | I31 |
+| July | J | J30 | J31 |
+| August | K | K30 | K31 |
+| September | L | L30 | L31 |
+| October | M | M30 | M31 |
+| November | N | N30 | N31 |
+| December | O | O30 | O31 |
 
 ---
 
@@ -46,150 +110,134 @@ model: sonnet
 
 ### 1. Open the comp tracker
 
-Open the spreadsheet:
-```
-systems/compensation/2026_Regional_Director_Comp_Tracker__David_OHara.xlsx
-```
+Use `mcp__Excel__By_Anthropic___open_workbook` with the absolute path from `state.yaml` accumulated-context (`comp_tracker_file_path`). Do NOT hardcode the session prefix — read it from state.yaml.
 
-Use `mcp__Excel__By_Anthropic___open_workbook`.
+### 2. Verify sheet structure before writing anything
 
-Confirm the sheet tabs are present:
-- `Comp 1 - BoB`
-- `Comp 2 - Region`
-- `Leads`
-- `Commissions`
-- `Comp 3 - Strategic`
+Call `mcp__Excel__By_Anthropic___get_cell_value` on these spot-check cells. If any mismatch, **stop and report — do not write**:
 
----
+| Cell | Expected value |
+|------|---------------|
+| B5 | "7-Eleven" (or close variant) |
+| B8 | "Wendy's International, LLC" (or close variant) |
+| B25 | "TOTALS" |
+| F4 | "2026 Actual YTD" |
+| B29 | "Metric" |
+| D29 | "Jan" |
+| G29 | "Apr" |
+| B30 | "BoB Revenue" |
+| B31 | "BoB Cost" |
 
-### 2. Locate the Comp 1 - BoB sheet
+### 3. Check the year-filter gate before writing ANYTHING
 
-Select the `Comp 1 - BoB` tab. This sheet has the named account list and monthly revenue grid.
+Read `accumulated-context.customer_distribution_slicer_set` from state.yaml.
 
-**Expected structure:**
-- Column A: Account names (20 rows for the 20 named accounts)
-- Columns B onward: Monthly columns (e.g., "Jan 2026", "Feb 2026", "Mar 2026", "Apr 2026")
-- Each cell (Account, Month): Revenue and GM%
-- Format: Single cell with revenue value, cell note with GM% and context
+**If `customer_distribution_slicer_set: false`:**
+- Revenue figures in the revenue_map are ALL-TIME totals, not 2026 YTD
+- **Do NOT write any values to cells F5–F24**
+- Instead, output this message to David:
+  > "⚠️ Comp 1 NOT updated — revenue data is all-time, not 2026 YTD. To fix: open PowerBI Customer Distribution page (https://app.powerbi.com/groups/me/reports/c5ce8a51-c79f-4461-9262-932885e44cec/e466d392806eb9e8943e), set the Date slicer to 2026, then re-run the workflow."
+- Skip to step 8 (state.yaml update) and mark comp1 as blocked
+- The monthly Row 30/31 entries also cannot be written
 
-OR
-
-- Separate sections: Revenue grid and GM% grid (confirm with actual sheet structure)
-
-**Adapt to the actual spreadsheet layout.** Read the current sheet structure first if unsure.
-
----
-
-### 3. Write monthly revenue for each named account
-
-From accumulated-context, retrieve `revenue_map` and `named_account_matches`.
-
-For each of the 20 named accounts:
-
-**If matched (confidence ≥ 95%):**
-- Find the account's row in the Comp 1 sheet
-- Locate the column for this month
-- Write the revenue value from revenue_map
-- If profitability_available, add cell note: `"Revenue: $X | GM%: Y% | Source: WorkDay [date]"`
-
-**If matched but confidence < 95% (uncertain):**
-- Write the revenue value
-- Add cell note: `"⚠️  UNCERTAIN MATCH: WorkDay name: [workday_name]. David to confirm. GM%: [gm%]"`
-
-**If no match (unmatched_accounts):**
-- Leave the cell blank
-- Add a sidebar note (or separate log) documenting the unmatched account name and its revenue
-- Output example: `"Unmatched: [workday_name], Revenue: $X. Confirm with David which named account this belongs to."`
+**If `customer_distribution_slicer_set: true`:**
+- Proceed with writes below
 
 ---
 
-### 4. Add GM% in cell notes or supplementary column
+### 4. Write "2026 Actual YTD" to column F (Section A)
 
-For each account with profitability data:
+From `revenue_map` in accumulated-context (Steps 1–2), for each account with `confidence: "high"` or `confidence: "medium"` AND `all_time_not_ytd: false`:
 
-- If cell note format: Include GM% in the note: `"Revenue: $X | GM%: Y.YY%"`
-- If separate column: Write GM% in a dedicated GM% column adjacent to or below the revenue grid
-- If profitability not available: Mark as "Pending" or leave blank
-
----
-
-### 5. Write monthly totals row
-
-At the bottom of the revenue grid, create summary rows:
+- The YTD value = sum of that account's revenue across all current-year months (Jan through current month)
+- Write to the F column cell for that account's row
 
 ```
-Row: "Total Named Account Revenue"
-  Columns: Sum of revenue for all 20 accounts, by month
-  
-Row: "Total One Texas Revenue" (from state.yaml accumulated-context)
-  Columns: Sum of all included revenue (matching Step 1's one_texas_total_revenue)
-  
-Row: "Total One Texas GM%"
-  Columns: One Texas GM% by month (from Step 2's one_texas_gm_pct)
+set_cell_value(sheet="Comp 1 - BoB", cell="F5",  value=[7-Eleven YTD])
+set_cell_value(sheet="Comp 1 - BoB", cell="F6",  value=[Charles Schwab YTD])
+set_cell_value(sheet="Comp 1 - BoB", cell="F7",  value=[McKesson YTD])
+set_cell_value(sheet="Comp 1 - BoB", cell="F8",  value=[Wendy's YTD])
+set_cell_value(sheet="Comp 1 - BoB", cell="F11", value=[Autodesk YTD])
+set_cell_value(sheet="Comp 1 - BoB", cell="F12", value=[Intuit YTD])
+set_cell_value(sheet="Comp 1 - BoB", cell="F13", value=[Siemens YTD])
+set_cell_value(sheet="Comp 1 - BoB", cell="F14", value=[ORIX YTD])
+... (continue for all matched accounts)
 ```
 
-**Formula example (Excel):** For April revenue total:
-```
-=SUM(B2:B21)  // Assuming accounts are rows 2-21, revenue column is B
-```
+For accounts with NO match or confidence: "low" — leave F column cell blank. Do NOT write zero.
 
----
+### 4. Write Gross Margin % to column G (Section A)
 
-### 6. Document non-named accounts
-
-Create an output log (in state.yaml or as a sidebar note in the spreadsheet) listing:
+If `gm_pct` is available from Step 2, write it to column G as a decimal (e.g., 39.8% = 0.398):
 
 ```
-Non-Named Accounts (Not in Comp 1):
-  - Unmatched Account Name: [workday_name], Revenue: $X
-  - Recommendation: [Manual classification or leave blank]
+set_cell_value(sheet="Comp 1 - BoB", cell="G5",  value=0.398)  # 7-Eleven 39.8%
+set_cell_value(sheet="Comp 1 - BoB", cell="G11", value=0.35)   # Autodesk 35%
 ```
 
-This log will be reviewed by David to determine if any unmatched accounts should be added to the named account list or reassigned.
+If GM% is not available (Step 2 deferred): leave G column blank. Do NOT write 0 or an estimate.
 
----
+### 5. Write monthly BoB Revenue totals to Row 30 (Section B)
 
-### 7. Flag uncertain matches
+This requires **month-by-month** revenue from PowerBI — not just a YTD total.
 
-For any account matched with confidence < 95%, add a cell note:
+For each month (Jan through current month), sum the revenue of ALL named accounts that had revenue in that month, and write the total to Row 30.
 
+**How to get monthly breakdowns:**
+- If PowerBI's Customer Distribution page shows month-by-month data per account: use those figures
+- If PowerBI only shows a YTD total: leave Row 30 blank for now and note in state.yaml: `"bob_monthly_data_available": false` — do not estimate monthly splits
+
+Assuming month-by-month data is available, example writes:
 ```
-⚠️  UNCERTAIN MATCH
-  WorkDay Name: [workday_name]
-  Confidence: [confidence%]
-  Recommendation: David to confirm
-  Revenue: $X | GM%: Y%
-```
-
-Example:
-```
-⚠️  UNCERTAIN MATCH
-  WorkDay Name: "Charles Schwab Institutional"
-  Confidence: 85%
-  Recommendation: Likely Charles Schwab & Co
-  Revenue: $125,000 | GM%: 32.5%
+set_cell_value(sheet="Comp 1 - BoB", cell="D30", value=[sum of all named account revenue in Jan])
+set_cell_value(sheet="Comp 1 - BoB", cell="E30", value=[sum of all named account revenue in Feb])
+set_cell_value(sheet="Comp 1 - BoB", cell="F30", value=[sum of all named account revenue in Mar])
+set_cell_value(sheet="Comp 1 - BoB", cell="G30", value=[sum of all named account revenue in Apr])
 ```
 
----
+**Do NOT write to column C (blank in monthly section), P (YTD Total formula), or any month beyond the current month.**
 
-### 8. Save the spreadsheet
+### 6. Write monthly BoB Cost totals to Row 31 (Section B)
 
-Use `mcp__Excel__By_Anthropic___save_workbook` to save changes.
+Same pattern as Row 30, using cost figures (Revenue − Gross Profit) per month:
 
----
+```
+set_cell_value(sheet="Comp 1 - BoB", cell="D31", value=[sum of named account cost in Jan])
+set_cell_value(sheet="Comp 1 - BoB", cell="E31", value=[sum of named account cost in Feb])
+set_cell_value(sheet="Comp 1 - BoB", cell="F31", value=[sum of named account cost in Mar])
+set_cell_value(sheet="Comp 1 - BoB", cell="G31", value=[sum of named account cost in Apr])
+```
 
-### 9. Store outputs in state.yaml
+If cost data is not available (Step 2 deferred): leave Row 31 blank.
 
-Update `state.yaml` with:
+**Do NOT write to Rows 32–35 or 37–40** — those are formulas or David fills manually.
+
+### 7. Save the workbook
+
+Call `mcp__Excel__By_Anthropic___save_workbook`.
+
+### 8. Update state.yaml
+
 ```yaml
 current-step: 3
 accumulated-context:
   (all prior context, plus:)
   comp1_updated: true
-  comp1_timestamp: "2026-04-17T10:00:00Z"
-  comp1_uncertain_matches: [ ... ]
-  comp1_unmatched_revenue: 0.00
-  comp1_notes: "..."
+  comp1_timestamp: "YYYY-MM-DDTHH:MM:SSZ"
+  bob_monthly_data_available: true | false
+  comp1_ytd_cells_written:
+    "7-Eleven": "F5"
+    "Charles Schwab & Co": "F6"
+    "Autodesk Inc": "F11"
+    ...
+  comp1_monthly_cells_written:
+    "Jan": "D30"
+    "Feb": "E30"
+    "Mar": "F30"
+    "Apr": "G30"
+  comp1_accounts_skipped: ["Constellation Energy", "Marriott", ...]
+  comp1_uncertain_matches: ["AccountName — PowerBI name: 'X', confidence 85%"]
+  comp1_gm_written: true | false
 ```
 
 ---
@@ -197,15 +245,16 @@ accumulated-context:
 ## SUCCESS METRICS
 
 ✅ **Step 3 complete when:**
-1. Comp 1 - BoB sheet opened and verified
-2. Monthly revenue written for all 20 named accounts (matched with confidence ≥ 95%)
-3. All uncertain matches (confidence < 95%) flagged with cell notes
-4. GM% added in cell notes (if profitability_available) or marked as "Pending"
-5. Monthly totals row calculated and written
-6. One Texas revenue and GM% rows populated with accumulated totals from Steps 1-2
-7. Unmatched accounts documented in sidebar/notes for David
-8. Spreadsheet saved
-9. accumulated-context in state.yaml updated with comp1 details
+1. Comp tracker opened
+2. Sheet structure verified via spot-check (8 cells confirmed)
+3. YTD revenue written to F5–F24 for all matched accounts (confidence ≥ 80%)
+4. GM% written to G5–G24 where available from Step 2
+5. Monthly BoB Revenue totals written to D30–O30 (Jan–Dec) for available months
+6. Monthly BoB Cost totals written to D31–O31 where cost data is available
+7. Formula rows (25, 32–35, 37–40) and P column NOT touched
+8. Accounts with no data left blank — not zeroed out
+9. Workbook saved
+10. state.yaml updated with exact cells written
 
 ---
 
@@ -213,18 +262,16 @@ accumulated-context:
 
 | Failure | Action |
 |---------|--------|
-| **Comp 1 sheet structure unclear** | Read the sheet structure first (row labels, column headers). Ask David if layout differs from expected. Adapt and proceed. |
-| **Account match confidence ambiguous** | Use ≥ 95% as the threshold. Below that, flag as uncertain and ask David to confirm. |
-| **Multiple WorkDay accounts map to same named account** | Sum their revenue together and note the rollup: "Revenue includes [workday_name1] + [workday_name2]". |
-| **Revenue or GM% cell already has data** | Do not overwrite. Ask David: "This cell already contains data from [prior month]. Should I replace it with this month's data?" |
-| **Profitability not available** | Write revenue only. Mark GM% cells as "Pending — profitability not yet provided." Continue to step 4. |
+| **Spot-check mismatch (e.g., B5 ≠ "7-Eleven")** | Stop. Do not write. Report exact mismatch — row map needs manual correction. |
+| **Cell already has a non-zero value** | Do not overwrite. Report: "Cell F[N] ([account]) already has data: [value]. Overwrite?" Wait for David. |
+| **No monthly breakdown available from PowerBI** | Write F column (YTD) only. Set `bob_monthly_data_available: false`. Leave Row 30–31 blank. |
+| **revenue_map empty (Step 1 failed)** | Report: "No revenue data from Step 1 — Comp 1 not updated." Proceed to Step 4. |
+| **GM% missing (Step 2 deferred)** | Write revenue only. Leave G column blank. Note in summary. |
 
 ---
 
 ## NEXT STEP
 
-→ `step-04-update-comp2.md`
-
-Pass all accumulated-context (including comp1_updated flag) to Step 4. Step 4 will update the Comp 2 - Region sheet with One Texas regional totals.
+→ `step-04-extract-update-comp2.md`
 
 <!-- system:end -->
