@@ -264,7 +264,7 @@ accumulated-context:
 |---------|--------|
 | **Spot-check mismatch (e.g., B5 ≠ "7-Eleven")** | Stop. Do not write. Report exact mismatch — row map needs manual correction. |
 | **Cell already has a non-zero value** | Do not overwrite. Report: "Cell F[N] ([account]) already has data: [value]. Overwrite?" Wait for David. |
-| **No monthly breakdown available from PowerBI** | Write F column (YTD) only. Set `bob_monthly_data_available: false`. Leave Row 30–31 blank. |
+| **No monthly breakdown available from PowerBI** | Write F column (YTD) only. Set `bob_monthly_data_available: false`. Leave Row 30–31 blank. This is the confirmed behavior: Customer Distribution shows YTD totals only, not month-by-month breakdowns. Row 30 and Row 31 cannot be populated from this source — leave them blank rather than estimating splits. |
 | **revenue_map empty (Step 1 failed)** | Report: "No revenue data from Step 1 — Comp 1 not updated." Proceed to Step 4. |
 | **GM% missing (Step 2 deferred)** | Write revenue only. Leave G column blank. Note in summary. |
 

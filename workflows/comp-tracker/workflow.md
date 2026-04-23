@@ -10,22 +10,56 @@ agent: chase
 
 ### STEP 0 — PRE-FLIGHT (run before anything else)
 
-Before opening PowerBI or the comp tracker, establish the browser tab that will be used for the entire workflow. **All PowerBI navigation must happen within this single tab — never open a new tab.**
+Before opening PowerBI or the comp tracker, establish the browser tab and enable "Show visuals as tables". **All PowerBI navigation must happen within this single tab — never open a new tab.**
+
+**browser_batch is unreliable — do NOT use it.** The Claude in Chrome extension may be bound to a different session. The only reliable stack is: `execute_javascript` (via `mcp__Control_Chrome__execute_javascript`) + `cliclick` (via `mcp__Control_your_Mac__osascript`) + `get_page_content` (via `mcp__Control_Chrome__get_page_content`).
+
+#### Step 0a — Establish tab
 
 1. Call `mcp__Control_Chrome__list_tabs` to see what's open
 2. If a PowerBI tab exists: note its `tabId` — this is the **POWERBI_TAB_ID** for all subsequent steps
-3. If no PowerBI tab exists: open one by navigating the current active tab to the report URL — do NOT use `new_tab: true`
+3. If no PowerBI tab exists: call `mcp__Control_Chrome__open_url` with the report URL and `new_tab: false`
 4. Store `POWERBI_TAB_ID` in state.yaml accumulated-context
-5. Test the browser_batch connection: take a screenshot of the tab using `mcp__Claude_in_Chrome__browser_batch` with `{"name": "screenshot", "input": {"tabId": POWERBI_TAB_ID}}`
-6. If screenshot succeeds: proceed to Step 1
-7. If screenshot fails with "Browser connection is unavailable": **stop immediately** and report: "Claude in Chrome extension not connected — cannot proceed. Ask David to reconnect the extension, then re-run." Do NOT attempt PowerBI steps without a working screenshot.
+5. Call `mcp__Control_Chrome__get_page_content` to verify the tab is responsive
+
+#### Step 0b — Enable "Show visuals as tables" (MANDATORY — do once per session)
+
+**This is the critical unlock for all PowerBI data extraction. Without it, every page returns chart-only text with no numeric data.**
+
+1. Use `execute_javascript` to find the View button:
+```javascript
+var buttons = document.querySelectorAll('button');
+for (var i = 0; i < buttons.length; i++) {
+  if ((buttons[i].getAttribute('aria-label') || buttons[i].innerText || '').trim() === 'View') {
+    var rect = buttons[i].getBoundingClientRect();
+    // Returns: top:48, left:1339, centerX:1365, centerY:68
+  }
+}
+```
+
+2. Click View button: `cliclick c:1365,[154+68=222]`
+
+3. Use `execute_javascript` to find "Show visuals as tables (preview)" in the dropdown:
+```javascript
+var all = document.querySelectorAll('*');
+for (var i = 0; i < all.length; i++) {
+  if (all[i].innerText && all[i].innerText.indexOf('Show visuals as tables') !== -1) {
+    var rect = all[i].getBoundingClientRect();
+    // Returns approx: top:271, left:1178
+  }
+}
+```
+
+4. Click it: `cliclick c:[centerX],[154+top+height/2]`
+
+5. Verify: `get_page_content` should show "Now showing visuals as tables" at the bottom.
+
+Set `show_visuals_as_tables_enabled: true` in state.yaml.
 
 **TAB RULE — enforced throughout all steps:**
-- Every `navigate` action must include `"tabId": POWERBI_TAB_ID` — never omit it
-- Every `computer` click action must include `"tabId": POWERBI_TAB_ID`
-- Every `screenshot` must include `"tabId": POWERBI_TAB_ID`
 - Never use `mcp__Control_Chrome__open_url` with `new_tab: true` for PowerBI
-- Never call `navigate` without a tabId — this opens a new tab and breaks the connection
+- Always use POWERBI_TAB_ID when calling execute_javascript or get_page_content
+- All clicks use cliclick via osascript — never browser_batch computer actions
 
 ### Data Sources Required
 
@@ -44,8 +78,12 @@ These must be written to state.yaml in Step 0 before any other step runs:
 accumulated-context:
   month: "YYYY-MM"
   comp_tracker_file_path: "/sessions/{session-id}/mnt/IES/systems/compensation/2026 Comp Tracker.xlsx"
-  powerbi_tab_id: null        # Set in Step 0 pre-flight — required before Steps 1, 2, 4
-  browser_batch_verified: false  # Set to true after first successful screenshot in Step 0
+  powerbi_tab_id: null                   # Set in Step 0 — required before Steps 1, 2, 4
+  show_visuals_as_tables_enabled: false  # Set to true after Step 0b completes
+  cliclick_offset_y: 154                 # screen_y = 154 + page_y (window_y:33 + chrome_ui:121)
+  chrome_ui_height: 121                  # outerHeight(949) - innerHeight(828)
+  slicer_year: "2026"                    # Year filter applied in Step 1 — persists across pages
+  customer_distribution_slicer_set: false # Set to true after Step 1 slicer confirmed
 ```
 
 ### File Paths
@@ -55,59 +93,66 @@ accumulated-context:
 - **Staging Profitability Extract**: `/tmp/powerbi-profitability-extract-YYYY-MM.xlsx`
 - **State File**: `workflows/comp-tracker/state.yaml`
 
+### PowerBI Click Stack
+
+**browser_batch is unreliable.** The only confirmed working click approach:
+
+```
+screen_x = page_x                          (no x offset — window starts at x=0)
+screen_y = window_y + chrome_ui_height + page_y
+         = 33 + 121 + page_y
+         = 154 + page_y
+```
+
+Chrome UI height = `outerHeight(949) - innerHeight(828) = 121px`. Window y = 33. DevicePixelRatio = 2 (Retina) but cliclick uses logical pixels — no scaling needed.
+
+**Workflow:**
+1. `execute_javascript` → `getBoundingClientRect()` on target element → compute screen coords
+2. `osascript` → `cliclick c:[screen_x],[screen_y]`
+3. `get_page_content` → verify the click had the expected effect
+
 ### PowerBI Year Filter Protocol
 
 **This applies to Steps 1, 2, and 4 — all three PowerBI extractions.**
 
-#### Known behavior (confirmed 2026-04-22)
+#### Known behavior (confirmed 2026-04-22 with cliclick stack)
 
-The three PowerBI pages behave differently for data extraction:
+| Page | Table view available? | Year labels in rows? | Slicer clickable via cliclick? |
+|------|----------------------|---------------------|-------------------------------|
+| Customer Distribution | ✅ Yes (when "Show visuals as tables" enabled) — exact dollar values | ❌ No year per row | ✅ YES — confirmed working. Set once, persists across all pages. |
+| Project Consultant Profitability Dataset | ✅ Yes (when "Show visuals as tables" enabled) | ❌ No year per row | ✅ Slicer carries from step 1 — no need to re-set |
+| One Texas | ✅ Yes (tabular with year+month per row) | ✅ Yes — rows labeled "2026, January" etc | ✅ Slicer carries from step 1 — no need to re-set |
+| Project Revenue Dataset | ✅ Yes (tabular, exact dollars) | ❌ No year per row — shows all-time flat list | Fallback only — use if Customer Distribution fails |
 
-| Page | Table view available? | Year labels in rows? | Slicer interactive? |
-|------|----------------------|---------------------|-------------------|
-| One Texas | ✅ Yes (tabular with year+month per row) | ✅ Yes — rows labeled "2026, January" etc | ❌ Cannot click via automation |
-| Customer Distribution | ❌ No — chart only, values truncated with "…" | ❌ No year per row | ❌ Cannot click via automation |
-| Project Revenue Dataset | ✅ Yes (tabular, exact dollars) | ❌ No year per row — shows all-time flat list | ❌ Cannot click via automation |
-| Project Consultant Profitability Dataset | Unknown — not yet confirmed | Unknown | ❌ Cannot click via automation |
+**"Show visuals as tables" PERSISTS across page navigations** within a session. Enable once in Step 0 — it stays active.
 
-**"Show visuals as tables" does NOT persist across page navigations.** It must be enabled fresh on each page.
+**Date slicer PERSISTS across page navigations** once set on Customer Distribution. Set it in Step 1 — it carries automatically to Profitability Dataset and One Texas pages.
 
 #### Extraction strategy per page
 
-**Step 4 — One Texas page (WORKS):**
-- Navigate to the page, call `get_page_content`
-- Rows are labeled "2026, January | Austin $X | Dallas $X | Houston $X"
-- Filter by reading only rows starting with the current year label
-- This works reliably
-
-**Step 1 — Customer Distribution page (BLOCKED — chart only):**
-- Page renders as a visual chart with truncated values ("$1.3…", "$0.6…")
-- Cannot read exact per-account revenue from page content
-- **Workaround**: Use the Project Revenue Dataset page instead — it shows exact per-account YTD totals in table format, but without year filtering
-- **Known limitation**: Project Revenue Dataset shows all-time totals when Date=All. Cannot filter to current year via automation.
-- **Required action**: David must manually set the Date slicer to current year in the browser, THEN Chase reads the content. OR: use the export-to-Excel approach from the visual's "..." menu.
+**Step 1 — Customer Distribution page:**
+- Enable "Show visuals as tables" (Step 0b, if not already done)
+- Navigate to Customer Distribution page via JS click
+- Set Date slicer to current year via cliclick (use JS to find coordinates)
+- Call `get_page_content` — returns exact per-account revenue in tabular format
+- Slicer persists: Steps 2 and 4 inherit this filter automatically
 
 **Step 2 — Project Consultant Profitability Dataset page:**
-- Not yet successfully read in table format
-- Same limitation expected — slicer interaction not possible via automation
+- Navigate via JS click
+- Verify slicer still shows current year (it should carry automatically)
+- Call `get_page_content` — returns GM% and profitability data in tabular format
 
-#### Recommended workaround for Steps 1 and 2
+**Step 4 — One Texas page:**
+- Navigate via JS click
+- Verify slicer still shows current year
+- Call `get_page_content` — rows are labeled "2026, January | Austin $X | Dallas $X | Houston $X"
+- Filter by reading only rows starting with the current year label
 
-Since Chase cannot set the slicer programmatically, there are two options:
-
-**Option A — Manual slicer assist (preferred):**
-1. David opens PowerBI in Chrome
-2. David sets Date slicer to current year on Customer Distribution and Profitability pages
-3. Chase reads `get_page_content` immediately after — data will reflect the current year filter
-4. This is a one-time manual step per run
-
-**Option B — Use Project Revenue Dataset with known limitation:**
-- Read Project Revenue Dataset (shows all-time, but exact figures)
-- Cross-reference against prior year's known totals to estimate current-year portion
-- Flag all figures as "estimated — year filter could not be applied"
-- Do not use for comp calculations — use only as a directional reference
-
-**If neither option is available: do not write Comp 1 data. Leave cells blank. Report the blocker clearly.**
+**Fallback — if Customer Distribution slicer cannot be set:**
+- Navigate to Project Revenue Dataset page
+- Call `get_page_content` — shows all-time flat list (no year filter)
+- Flag ALL data as `all_time_not_ytd: true`
+- Do NOT write to F5:F24 without David's confirmation
 
 ---
 

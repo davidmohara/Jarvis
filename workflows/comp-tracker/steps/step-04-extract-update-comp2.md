@@ -10,12 +10,15 @@ model: haiku
 
 ## MANDATORY EXECUTION RULES
 
-1. **Pro-rate the 2025 baseline.** For month M, baseline = ($72.2M × M/12). Compare YTD current year against pro-rated baseline.
-2. **Recalculate GM% from sums.** Do not average. GM% = SUM(GP) / SUM(Revenue).
-3. **Flag growth status clearly.** Below 6% YoY growth is a bonus risk. Surface gap in dollars.
-4. **Never hide variance.** If below target, show exactly how far and what run rate is needed.
-5. **VERIFY THE YEAR FILTER BEFORE READING ANY NUMBERS.** Only read rows labeled with the current year. Manual row filtering is acceptable — see Step 1 for protocol.
-6. **Write to exact cells only.** The Comp 2 layout is verified below. Do not guess at cells.
+1. **Never open a new tab.** All navigation uses POWERBI_TAB_ID from state.yaml. No exceptions.
+2. **Use cliclick + execute_javascript for all clicks.** Do NOT use browser_batch — it is unreliable. See "Click Protocol" in step-01.
+3. **"Show visuals as tables" MUST be verified active before reading any page.** Check `show_visuals_as_tables_enabled` in state.yaml. If false, re-run the View menu protocol from step-01 before proceeding.
+4. **Pro-rate the 2025 baseline.** For month M, baseline = ($72.2M × M/12). Compare YTD current year against pro-rated baseline.
+5. **Recalculate GM% from sums.** Do not average. GM% = SUM(GP) / SUM(Revenue).
+6. **Flag growth status clearly.** Below 6% YoY growth is a bonus risk. Surface gap in dollars.
+7. **Never hide variance.** If below target, show exactly how far and what run rate is needed.
+8. **VERIFY THE YEAR FILTER BEFORE READING ANY NUMBERS.** Only read rows labeled with the current year. Manual row filtering is acceptable.
+9. **Write to exact cells only.** The Comp 2 layout is verified below. Do not guess at cells.
 
 ---
 
@@ -80,60 +83,84 @@ Row 19: Bonus Earned (enter amount) — David fills manually
 
 ---
 
-## YOUR TASK
+## ROW 14 FORMULA — PRO-RATED GROWTH vs 2025
 
-### 1. Switch to the One Texas page — IN THE EXISTING TAB
+Row 14 shows "Cumulative Growth vs 2025". The formula must compare the YTD cumulative revenue against a **pro-rated** 2025 baseline (not the full $72.2M annual figure mid-year).
 
-**CRITICAL: Never open a new tab. Use POWERBI_TAB_ID from state.yaml for all actions.**
-
-Read `accumulated-context.powerbi_tab_id` from state.yaml.
-
-Take a screenshot to see the current state:
+**Correct formula for Row 14 (apply to C14:N14):**
 ```
-browser_batch: [
-  {"name": "screenshot", "input": {"tabId": POWERBI_TAB_ID}}
-]
+=(C13-($C$4*(COLUMN()-2)/12))/($C$4*(COLUMN()-2)/12)
 ```
 
-Find "One Texas" in the left nav panel and click it:
-```
-browser_batch: [
-  {"name": "computer", "input": {"action": "left_click", "coordinate": [X, Y], "tabId": POWERBI_TAB_ID}},
-  {"name": "screenshot", "input": {"tabId": POWERBI_TAB_ID}}
-]
-```
+Where:
+- `C13` = Cumulative Revenue for that month (formula row — auto-calculated)
+- `$C$4` = 2025 full-year baseline ($72,200,000)
+- `COLUMN()-2` = month number (column C = 3, so 3-2=1 for January; column D = 4, so 4-2=2 for February, etc.)
 
-Confirm from screenshot that the page title shows "One Texas".
+**If Row 14 shows an incorrect formula** (e.g., compares YTD to full $72.2M annual baseline instead of pro-rated), fix it by writing the correct formula to C14 and dragging/filling across C14:N14.
+
+**Confirmed correct values with this formula (2026-04-22):**
+- C14 (Jan): -9.6%
+- D14 (Feb): -9.5%
+- E14 (Mar): -7.2%
+
+If the values shown are wildly off (e.g., -92.5% for a January entry), the formula is comparing to the full annual baseline — fix it.
 
 ---
 
-### 2. Set the Date slicer to current year — click it
+## YOUR TASK
 
-The One Texas page has two slicers: **Date** and **Office**. Only change Date — leave Office as-is.
+### 1. Navigate to One Texas page — IN THE EXISTING TAB
 
-Take a screenshot to find the Date slicer coordinates. Click it, select the current year, verify:
-```
-browser_batch: [
-  {"name": "computer", "input": {"action": "left_click", "coordinate": [SLICER_X, SLICER_Y], "tabId": POWERBI_TAB_ID}},
-  {"name": "screenshot", "input": {"tabId": POWERBI_TAB_ID}}
-]
+Read `accumulated-context.powerbi_tab_id` from state.yaml.
+
+Verify "Show visuals as tables" is active (`show_visuals_as_tables_enabled: true`). If not, re-run the View menu protocol from step-01.
+
+Use `execute_javascript` to find and JS-click the One Texas page tab:
+```javascript
+var buttons = document.querySelectorAll('button');
+for (var i = 0; i < buttons.length; i++) {
+  var text = buttons[i].getAttribute('aria-label') || buttons[i].innerText || '';
+  if (text.trim().indexOf('One Texas') !== -1) {
+    buttons[i].dispatchEvent(new MouseEvent('click', {bubbles: true, cancelable: true}));
+    break;
+  }
+}
 ```
 
-Then click the current year option in the dropdown:
-```
-browser_batch: [
-  {"name": "computer", "input": {"action": "left_click", "coordinate": [YEAR_X, YEAR_Y], "tabId": POWERBI_TAB_ID}},
-  {"name": "screenshot", "input": {"tabId": POWERBI_TAB_ID}}
-]
-```
+Verify via `get_page_content` that the page title shows "One Texas".
 
-**If slicer click is unavailable:** Fall back to manual row filtering — call `get_page_content` and only read rows labeled "2026, ..." — the One Texas page shows year labels in its table rows, making this reliable.
+---
+
+### 2. Verify Date slicer filter
+
+The slicer set in step-01 persists across pages. Verify via `get_page_content` that it still shows 2026.
+
+The One Texas page has two slicers: **Date** and **Office**. Only change Date if needed — leave Office as-is.
+
+**If the slicer reverted to "All":**
+
+Find the Date slicer using execute_javascript:
+```javascript
+var all = document.querySelectorAll('*');
+for (var i = 0; i < all.length; i++) {
+  var text = all[i].innerText ? all[i].innerText.trim() : '';
+  if (text === 'Date\nAll' || text === 'Date\n2026') {
+    var rect = all[i].getBoundingClientRect();
+    // screen_x = rect.left + rect.width/2
+    // screen_y = 154 + rect.top + rect.height/2
+  }
+}
+```
+Click with cliclick. Then find and click "2026" in the dropdown. Verify via `get_page_content`.
+
+**Fallback if slicer cannot be set:** Call `get_page_content` and only read rows labeled "2026, ..." — the One Texas page shows year labels in its table rows, making this reliable.
 
 ---
 
 ### 3. Read the data
 
-Call `mcp__Control_Chrome__get_page_content` on POWERBI_TAB_ID.
+Call `mcp__Control_Chrome__get_page_content`.
 
 The One Texas page shows tabular data (when "Show visuals as tables" is active) with rows like:
 ```
@@ -205,7 +232,24 @@ If any mismatch, stop and report.
 
 ---
 
-### 6. Write monthly Regional Revenue to Row 9
+### 6. Check Row 14 formula — fix if needed
+
+Before writing Row 9 and Row 10 data, read cell C14.
+
+If C14 contains a formula that compares to the full $72.2M annual baseline (e.g., `=(C13-$C$4)/$C$4` or similar), it will show wildly negative values mid-year. Fix it:
+
+Write the pro-rated formula to C14:
+```
+=(C13-($C$4*(COLUMN()-2)/12))/($C$4*(COLUMN()-2)/12)
+```
+
+Then verify this formula auto-propagates across D14:N14. If it doesn't (Excel doesn't always auto-fill), write the same formula individually to D14 through N14.
+
+**After writing Row 9 data, verify Row 14 shows sensible values** (e.g., Jan should be close to 0%, not -90%). If it's still wildly off, the formula needs checking.
+
+---
+
+### 7. Write monthly Regional Revenue to Row 9
 
 For each month with current-year data, write the One Texas total revenue (Austin + Dallas + Houston) to the corresponding cell in Row 9:
 
@@ -217,18 +261,13 @@ April revenue     → F9
 (continue through current month)
 ```
 
-Use `mcp__Excel__By_Anthropic___set_cell_value` for each cell:
-```
-set_cell_value(sheet="Comp 2 - Region", cell="C9", value=5440616)
-set_cell_value(sheet="Comp 2 - Region", cell="D9", value=5444848)
-set_cell_value(sheet="Comp 2 - Region", cell="E9", value=5865309)
-```
+Use `mcp__Excel__By_Anthropic___set_cell_value` for each cell.
 
 **Do NOT write to months beyond the current month** — leave future months blank.
 
 ---
 
-### 7. Write monthly Regional Cost to Row 10
+### 8. Write monthly Regional Cost to Row 10
 
 For each month with current-year data, write the cost (Revenue − Gross Profit) to Row 10:
 
@@ -239,41 +278,34 @@ March cost     → E10
 April cost     → F10
 ```
 
-Example:
-```
-set_cell_value(sheet="Comp 2 - Region", cell="C10", value=3354802)
-set_cell_value(sheet="Comp 2 - Region", cell="D10", value=3378546)
-set_cell_value(sheet="Comp 2 - Region", cell="E10", value=3965412)
-```
-
 **Do NOT write to Rows 11–14 or 17–18** — those are formula rows. They calculate automatically from Rows 9–10.
 
 ---
 
-### 8. Read calculated YTD growth from formula cells (do not write)
+### 9. Read calculated YTD growth from formula cells (do not write)
 
 After writing Rows 9 and 10, the sheet's formulas will auto-calculate:
 - Row 13 (Cumulative Revenue): running YTD sum
-- Row 14 (Cumulative Growth vs 2025): compares cumulative to full-year $72.2M baseline
+- Row 14 (Cumulative Growth vs 2025): compares cumulative to pro-rated 2025 baseline
 
-Read cell O9 (YTD Total Revenue) and O13 (Cumulative Revenue through Dec) to capture the YTD figure.
+Read cell O9 (YTD Total Revenue) to capture the YTD figure.
 Read cell C17 (Regional YoY Growth %) to capture the growth percentage.
 
 Report the growth status:
 - If YoY Growth % ≥ 6%: "✅ ON TRACK"
 - If YoY Growth % < 6%: "⚠️ BELOW TARGET — Gap: $[amount]"
 
-Note: The formula compares cumulative revenue to the FULL 2025 baseline ($72.2M), not a pro-rated amount. If this produces a misleading comparison mid-year, flag it for David.
+**Gap calculation:** `Gap = ($72.2M × 1.06) − (YTD Revenue × 12/month)` (annualized run rate)
 
 ---
 
-### 9. Save the workbook
+### 10. Save the workbook
 
 Call `mcp__Excel__By_Anthropic___save_workbook`.
 
 ---
 
-### 10. Update state.yaml
+### 11. Update state.yaml
 
 ```yaml
 current-step: 4
@@ -303,14 +335,16 @@ accumulated-context:
 ## SUCCESS METRICS
 
 ✅ **Step 4 complete when:**
-1. One Texas page opened and confirmed
-2. Year filter verified — only current-year rows read
-3. Monthly revenue (Row 9) and cost (Row 10) written for all available months
-4. Formula rows (11–14, 17–18) NOT touched
-5. YTD growth % read from formula cell and reported
-6. Growth flag set (on track / below target)
-7. Workbook saved
-8. state.yaml updated with exact cells written and monthly data
+1. One Texas page opened and confirmed via JS click (no new tab)
+2. "Show visuals as tables" verified active
+3. Year filter verified — only current-year rows read
+4. Row 14 formula checked and fixed if needed (pro-rated formula in place)
+5. Monthly revenue (Row 9) and cost (Row 10) written for all available months
+6. Formula rows (11–14, 17–18) NOT touched
+7. YTD growth % read from formula cell and reported
+8. Growth flag set (on track / below target)
+9. Workbook saved
+10. state.yaml updated with exact cells written and monthly data
 
 ---
 
@@ -318,10 +352,14 @@ accumulated-context:
 
 | Failure | Action |
 |---------|--------|
+| **"Show visuals as tables" not active** | Re-run View menu protocol from step-01. Without it, all data is chart-only and unreadable. |
+| **execute_javascript returns "missing value"** | Avoid await, template literals, and .length on large strings. Use var (not const/let). Slice strings with explicit bounds. |
+| **cliclick misses slicer element** | Re-derive coordinates via execute_javascript getBoundingClientRect. Never hardcode — always compute. |
 | **No year labels in page content** | Cannot filter by year — stop and report: "One Texas page data has no year labels. Manual export required." |
 | **April data not yet visible in PowerBI** | Write Jan–Mar only. Note: "April not yet available in PowerBI as of [date]." Leave F9/F10 blank. |
 | **Revenue figures differ from last month by >15%** | Flag for David: "Revenue variance detected — confirm before using for comp calculations." |
 | **Structure mismatch on spot-check** | Stop. Do not write. Report exact mismatch. |
+| **Row 14 shows wildly negative values after write** | Formula is comparing to full annual baseline instead of pro-rated. Fix with: `=(C13-($C$4*(COLUMN()-2)/12))/($C$4*(COLUMN()-2)/12)` |
 
 ---
 

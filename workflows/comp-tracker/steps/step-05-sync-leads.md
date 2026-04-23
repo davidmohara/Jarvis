@@ -110,13 +110,49 @@ For each new entry identified in step 4:
 - Preserve all existing rows (do NOT overwrite or delete)
 - Maintain the same column order and formatting
 
-Write to the end of the current data range in the Leads sheet.
+**IMPORTANT — TOTAL LEADS summary row:** The Leads sheet contains a "TOTAL LEADS" summary row at the **bottom** of the data range. New entries must be inserted **before** this row, not appended after it. Before writing, read the last several rows to identify where the summary row is and insert above it.
 
-Example append:
+Example:
 ```
-Original Leads sheet (rows 1-50): Existing entries
-New entries from My Leads.xlsx: Append as rows 51+
+Read last 5 rows to find "TOTAL LEADS" row — say it's at row 52
+Insert new entries at rows 52, 53, 54... (pushing TOTAL LEADS down)
+OR
+Insert new entries at rows before the TOTAL LEADS row
 ```
+
+If you cannot determine the exact location of the TOTAL LEADS row, report to David before writing.
+
+**IMPORTANT — Copy row formatting from the last data row:**
+
+New rows must match the formatting of existing data rows (font, borders, fill color, number format). The Excel MCP does not copy formatting automatically when writing cell values — you must explicitly copy it.
+
+**Protocol:**
+
+1. Before writing new rows, identify the last existing data row (the row just above where you will insert). Call it `last_row`.
+2. Use `mcp__Excel__By_Anthropic___get_range_values` to read `A{last_row}:D{last_row}` and confirm it is a data row (not a header or summary).
+3. After writing each new row's values via `set_cell_value`, copy the formatting from `last_row` to the new row using `osascript` to run an Excel macro:
+
+```applescript
+-- Copy formatting from last_row to new_row via AppleScript
+tell application "Microsoft Excel"
+  set ws to active sheet of active workbook
+  set src_range to range ("A" & last_row & ":D" & last_row) of ws
+  set dst_range to range ("A" & new_row & ":D" & new_row) of ws
+  copy src_range
+  paste special destination dst_range with paste paste formats
+end tell
+```
+
+4. Repeat for each new row appended.
+5. Press Escape after the paste operations to clear the clipboard marquee:
+
+```applescript
+tell application "Microsoft Excel"
+  key code 53  -- Escape
+end tell
+```
+
+**If AppleScript formatting copy fails:** proceed with writing values only and note in the summary: "New leads appended — formatting copy failed, manual formatting may be needed."
 
 ---
 
