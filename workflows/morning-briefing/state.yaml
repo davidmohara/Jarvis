@@ -1,11 +1,20 @@
 workflow: morning-briefing
 agent: chief
 status: complete
-session-started: "2026-04-22T06:00:00-05:00"
-session-id: chief-2026-04-22-060000
+session-started: "2026-04-24T06:00:00-05:00"
+session-id: chief-2026-04-24-auto
 current-step: step-04
-original-request: "Automated morning briefing"
+original-request: "Automated morning briefing (scheduled task)"
 accumulated-context:
-  calendar-date: "2026-04-22"
-  meeting-count: 5
+  calendar-date: "2026-04-24"
+  meeting-count: 6
   timezone: "CDT"
+  location: "Las Vegas, NV (Google Next Day 4 — returning today)"
+  flight-home: "2026-04-24 AA783 LAS-DFW 1:25 PM CDT seat 9C conf IBJWLO"
+  next-travel: "2026-04-26 AA2896 DFW-ORD YPO GLC Chicago seat 16C conf LAUEFH"
+  conflict: "Alice Wrap-Up 12:00 PM CDT conflicts with flight departure"
+  unassigned-leads: "Alcon, AECom, IFS, Cardinal IT, Paragon, Birgo (carried from Apr 23)"
+  cyber-training-deadline: "2026-04-30"
+  omnifocus-status: "unavailable — 2 timeouts"
+  slack-delivery: "failed — no Slack MCP connector"
+  briefing-file: "reviews/daily/2026-04-24-morning-briefing.md"

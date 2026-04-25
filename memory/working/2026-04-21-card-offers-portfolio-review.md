@@ -5,7 +5,7 @@ session_id: "chase-2026-04-21-portfolio-walk"
 agent_source: chase
 created: 2026-04-21T17:30:00
 expires: 2026-04-23T17:30:00
-status: active
+status: archived
 context: "Comprehensive card offers portfolio review — 6 cards, YNAB-filtered, updated benefits tracker"
 ---
 

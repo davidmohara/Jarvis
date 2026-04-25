@@ -5,7 +5,7 @@ session_id: "chase-2026-04-20-082000"
 agent-source: chase
 created: 2026-04-20T08:20:00
 expires: 2026-04-22T08:20:00
-status: active
+status: archived
 context: "Rock 4 weekly pipeline snapshot automation — scheduled task (Monday 7 AM weekly)"
 ---
 

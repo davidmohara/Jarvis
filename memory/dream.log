@@ -65,3 +65,53 @@ session_id: dream-cycle-2026-04-22-061839
 aborted: already ran today (previous run: 2026-04-22T03:08:48 CDT)
 summary: "Aborted — dream cycle already ran today at 03:08. Previous run had git errors but memory processing completed. No duplicate processing needed."
 ---
+
+---
+## 2026-04-23T03:08:32 CDT
+session_id: dream-cycle-2026-04-23-030832
+working_archived: 5
+working_deleted: 0
+episodic_scanned: 6
+score_updates: 5
+clusters_found: 0
+semantic_created: 0
+semantic_updated: 0
+promoted_entries: 0
+entries_compressed: 0
+digests_updated: 0
+compression_skipped: true
+errors: 1
+summary: "Archived 5 expired working memory entries (all Apr 20 sessions) to episodic — Rock 4 pipeline, morning briefing, Cowboys Club prep, afternoon boot, scorecard/goals session. Could not delete source files (Operation not permitted) — marked as archived in frontmatter instead. 6 episodic entries scored: 4 at score 1 (pipeline↔scorecard share 3 tags; morning↔afternoon share 3 tags), 1 unchanged at 0, 1 new at 0. No promotion candidates (max score 1, threshold 3). No compression candidates (all entries < 30 days old). Error log: process-skip at 5 already in LESSONS.md. Git index.lock still irremovable — pull/commit blocked again."
+errors_detail:
+  - phase: 0
+    file: .git/index.lock
+    error: "Git index.lock file exists and cannot be removed (Operation not permitted). Pull --rebase failed. File deletion (rm) also blocked. Dream cycle completed all memory operations but cannot sync with origin."
+  - phase: 1
+    file: memory/working/2026-04-20-*.md
+    error: "Cannot delete expired working memory files (Operation not permitted). Files marked as archived in frontmatter as fallback."
+---
+
+---
+## 2026-04-24T03:08:35 CDT
+session_id: dream-cycle-2026-04-24-030835
+working_archived: 6
+working_deleted: 0
+episodic_scanned: 12
+score_updates: 10
+clusters_found: 1
+semantic_created: 1
+semantic_updated: 0
+promoted_entries: 2
+entries_compressed: 0
+digests_updated: 0
+compression_skipped: true
+errors: 1
+summary: "Archived 6 expired working memory entries (3 Apr-21 sessions + 1 Apr-22 briefing + 2 dream summaries) to episodic. 12 episodic entries scored — 2 hit promotion threshold (score 3): Apr 20 and Apr 21 morning briefings share calendar/travel/omnifocus/google-next tags. First semantic entry created: operational pattern on briefing-travel-calendar conflicts (travel prep flagged but not actioned, OmniFocus unreliable in automated mode). No compression candidates (all entries < 90 days). Git stash/pull blocked by unstaged changes — cannot sync with origin."
+errors_detail:
+  - phase: 0
+    file: .git
+    error: "Git pull --rebase failed due to unstaged changes. Stash also failed. Dream cycle completed all memory operations but cannot sync with origin."
+  - phase: 1
+    file: memory/working/2026-04-21-*.md
+    error: "Cannot delete expired working memory files (Operation not permitted). Files marked as archived in frontmatter as fallback."
+---

@@ -5,7 +5,7 @@ session_id: "jarvis-2026-04-20-afternoon"
 agent_source: master
 created: 2026-04-20T20:00:00
 expires: 2026-04-22T20:00:00
-status: active
+status: archived
 context: "One Texas scorecard workflow, goals file, PPTX, skill rewrites, Plaud ingest, 1:1 prep"
 ---
 

@@ -5,7 +5,7 @@ session_id: "chief-2026-04-20-172510"
 agent_source: chief
 created: 2026-04-20T17:25:10
 expires: 2026-04-22T17:25:10
-status: active
+status: archived
 context: "Boot session — full calendar pull + OmniFocus inbox triage + quarterly rock alignment"
 ---
 

@@ -5,7 +5,7 @@ session_id: "chief-2026-04-21-onboarding"
 agent_source: chief
 created: 2026-04-21T15:57:22
 expires: 2026-04-23T15:57:22
-status: active
+status: archived
 context: "Alice Mburu EA onboarding — people files, relationship mapping, workflow validation"
 ---
 

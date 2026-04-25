@@ -2,14 +2,15 @@
 workflow: daily-review
 agent: chief
 status: complete
-session-started: "2026-04-21T00:00:00"
-session-id: "chief-2026-04-21-auto"
+session-started: "2026-04-24T00:00:00"
+session-id: "chief-2026-04-24-auto"
 current-step: step-auto
 original-request: "auto"
 accumulated-context:
-  narrative-title: "2026-04-21 Sales Stack, Vicki's Send-Off, and Coffee with Steve Hall"
-  narrative-path: "reviews/daily/auto-2026-04-21.md"
-  omnifocus-status: "unavailable (3 timeouts)"
-  obsidian-status: "disabled — local fallback used (reviews/daily/auto-2026-04-21.md)"
-  calendar-events: 13
+  narrative-title: "2026-04-24 The Flight Home from NEXT, Stacked with Company Meetings"
+  narrative-path: "reviews/daily/auto-2026-04-24.md"
+  omnifocus-status: "unavailable (3 timeouts — 6th consecutive session)"
+  obsidian-status: "disabled — local fallback used (reviews/daily/auto-2026-04-24.md)"
+  calendar-events: 8
+  model: sonnet
 ---

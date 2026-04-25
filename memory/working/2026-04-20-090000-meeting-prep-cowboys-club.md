@@ -5,7 +5,7 @@ session_id: "chief-2026-04-20-083000"
 agent-source: chief
 created: 2026-04-20T09:00:00
 expires: 2026-04-22T09:00:00
-status: active
+status: archived
 context: "Meeting prep built for Cowboys Club CEO Event — Dennis Howard / Intrepid CEO"
 ---
 
