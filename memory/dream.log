@@ -115,3 +115,25 @@ errors_detail:
     file: memory/working/2026-04-21-*.md
     error: "Cannot delete expired working memory files (Operation not permitted). Files marked as archived in frontmatter as fallback."
 ---
+
+---
+## 2026-04-25T10:21:22 CDT
+session_id: dream-cycle-2026-04-25-102122
+working_archived: 3
+working_deleted: 0
+episodic_scanned: 15
+score_updates: 10
+clusters_found: 1
+semantic_created: 0
+semantic_updated: 1
+promoted_entries: 4
+entries_compressed: 0
+digests_updated: 0
+compression_skipped: true
+errors: 1
+summary: "Archived 3 expired working memory entries (2 Apr-23 briefings + dream summary) to episodic. 15 episodic entries scored — 4 new promotions (Apr 20 afternoon boot, Apr 22 Google Next briefing, 2x Apr 23 briefings) all merged into existing semantic pattern on briefing-travel-calendar conflicts. Confidence upgraded low → medium with 6 total evidence sources. No new error patterns. Git pull blocked (SSH unavailable in sandbox)."
+errors_detail:
+  - phase: 0
+    file: .git
+    error: "Git pull --rebase failed: SSH host key verification failed. Remote sync unavailable in sandbox environment."
+---

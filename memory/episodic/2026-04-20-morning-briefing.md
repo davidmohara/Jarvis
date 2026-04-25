@@ -5,9 +5,9 @@ created: 2026-04-20
 tags: [morning-briefing, calendar, omnifocus, google-next, travel]
 related_people: [dennis-howard, scott-mcmichael, alice-mburu]
 salience:
-  score: 3
+  score: 5
   promoted: true
-  last-promoted-check: 2026-04-24
+  last-promoted-check: 2026-04-25
 ---
 
 # Morning Briefing — April 20, 2026

@@ -4,9 +4,9 @@ date: 2026-04-21
 tags: [briefing, calendar, google-next, travel, omnifocus, email, alice-mburu]
 related_people: [scott-pine, ehren-seim, vicki, steve-hall]
 salience:
-  score: 3
+  score: 5
   promoted: true
-  last-promoted-check: 2026-04-24
+  last-promoted-check: 2026-04-25
 source_session: chief-2026-04-21-060000
 ---
 

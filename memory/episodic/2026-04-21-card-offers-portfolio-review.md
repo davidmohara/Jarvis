@@ -6,7 +6,7 @@ related_people: []
 salience:
   score: 0
   promoted: false
-  last-promoted-check: 2026-04-24
+  last-promoted-check: 2026-04-25
 source_session: chase-2026-04-21-portfolio-walk
 ---
 
