@@ -2,44 +2,30 @@
 workflow: plaud-ingest
 agent: knox
 status: complete
-session-started: "2026-04-20T00:00:00Z"
-session-id: "knox-2026-04-20-083000"
+session-started: "2026-04-26T16:38:00Z"
+session-id: "knox-2026-04-26-163800"
 current-step: step-05
-completed-at: "2026-04-20T14:15:00Z"
-original-request: "Boot: Run plaud-ingest workflow to capture new Plaud recordings"
+completed-at: "2026-04-26T17:45:00-05:00"
+original-request: "Knox: Run plaud-ingest workflow to capture new Plaud recordings (fresh run, target: 2026-04-25)"
 accumulated-context:
-  target-date: "2026-04-17"
+  target-date: "2026-04-21"
   new-recordings:
-    - file_id: "cb309555e0bb3162a433e439eb20d046"
-      name: "04-17 Meeting: SMU–Improving Collaboration on AI Strategy, Education, and Hackathon Planning"
-      date: "2026-04-17"
-      duration_seconds: 2534
-      has_transcript: true
-      transcript_status: "ready"
-    - file_id: "fbf223550f0b06fee0d9ba1d37087669"
-      name: "04-17 Weekly Meeting: Onboarding and Management Training"
-      date: "2026-04-17"
-      duration_seconds: 2239
-      has_transcript: true
-      transcript_status: "ready"
-  transcription-triggered: []
+    - "4dcb73fac31085d9258e31b110967163"
+  transcription-triggered:
+    - "4dcb73fac31085d9258e31b110967163"
   pending-recordings: []
   speaker-mappings:
-    "cb309555e0bb3162a433e439eb20d046":
-      "O'Hara": "David O'Hara"
-      "Speaker 3": "Ian O'Neill"
-      "Speaker 2": "Ilma"
+    "4dcb73fac31085d9258e31b110967163":
+      "Speaker 1": "Brian Schultz"
   speaker-renames-applied:
-    - "fbf223550f0b06fee0d9ba1d37087669":
-        "Speaker 1": "David O'Hara"
-        "Speaker 4": "David O'Hara"
+    - "4dcb73fac31085d9258e31b110967163"
   ready-for-fetch:
-    - "cb309555e0bb3162a433e439eb20d046"
-    - "fbf223550f0b06fee0d9ba1d37087669"
+    - "4dcb73fac31085d9258e31b110967163"
   staged-files:
-    - "plaud_04-17 Meeting_ SMU_Improving Collaboration on AI Strategy_ Education_ and Hackathon Planning.md"
-    - "plaud_04-17 Weekly Meeting_ Onboarding and Management Training.md"
+    - "plaud_04-21 Strategic Advisory on Scaling an AI Startup.md"
   ingested-notes:
-    - "zzPlaud/Improving/2026-04-17 Meeting - SMU Improving Collaboration on AI Strategy Education and Hackathon Planning.md"
-    - "zzPlaud/Improving/2026-04-17 Weekly Meeting - Onboarding and Management Training.md"
+    - "zzPlaud/Other/2026-04-21 Strategic Advisory on Scaling an AI Startup.md"
+  daily-note-updated: "Calendar/2026/04-April/2026-04-21.md"
+  omnifocus-tasks-created: 1
+  staging-files-removed: 7
 ---

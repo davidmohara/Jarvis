@@ -1512,5 +1512,51 @@
     "fix_status": "applied",
     "severity": "moderate",
     "related_entries": []
+  },
+  {
+    "id": "err-20260426-001",
+    "timestamp": "2026-04-26T16:38:45",
+    "session": "chief-2026-04-26-163845",
+    "source": "explicit",
+    "agent": "chief",
+    "category": "process-skip",
+    "description": "Boot sequence skipped Plaud ingest workflow launch entirely. Protocol requires launching it as a background Agent and reporting 'Plaud ingest failed to launch' if it errors. Neither happened — the step was omitted from the briefing without acknowledgment.",
+    "correction": "Read workflows/plaud-ingest/workflow.md and launch as background Agent during Phase 2. If the workflow cannot run (credential/sandbox blocker), report the failure explicitly in the briefing. Never silently omit a required boot step.",
+    "failure_mode": "protocol-skip",
+    "systemic_fix": "Added Plaud ingest to boot Phase 2 parallel execution list. Failure mode is documented — Knox cannot reach Plaud API from Cowork sandbox. Failure should be surfaced in briefing, not silently dropped.",
+    "fix_status": "applied",
+    "severity": "moderate",
+    "related_entries": []
+  }
+,
+  {
+    "id": "err-20260426-002",
+    "timestamp": "2026-04-26T16:38:45",
+    "session": "chief-2026-04-26-163845",
+    "source": "explicit",
+    "agent": "chief",
+    "category": "assumption-error",
+    "description": "During boot, assumed Plaud script required Chrome because token was absent from sandbox. Script actually uses cached API token at ~/.config/plaud/token.json on the Mac — Chrome is only a fallback if no token AND no credentials exist. Should have run the script via Desktop Commander and let it fail or succeed on its own.",
+    "correction": "Always attempt to run fetch_plaud.py via Desktop Commander (Mac execution) before concluding it needs a browser flow. The script handles auth gracefully and exits with code 2 only if credentials are truly missing.",
+    "failure_mode": "wrong-assumption",
+    "systemic_fix": "Run fetch_plaud.py via mcp__Desktop_Commander__start_process on the Mac during boot. Do not pre-assume auth failure.",
+    "fix_status": "applied",
+    "severity": "minor",
+    "related_entries": ["err-20260426-001"]
+  },
+  {
+    "id": "err-20260426-003",
+    "timestamp": "2026-04-26T17:30:00-05:00",
+    "session": "chief-2026-04-26-163845",
+    "source": "explicit",
+    "agent": "chief",
+    "category": "missed-context",
+    "description": "Asked David to identify Speaker 1 in the Apr 21 Plaud recording instead of checking the calendar first. Outlook calendar clearly showed 'Lunch with Brian Schultz @ Hudson House, Preston Forest' at noon on Apr 21 — matching the recording time. The sample text ('Movie business') also corroborated via bschultz@lookcinemas.com (Look Cinemas). The information was fully available without user input.",
+    "correction": "Check calendar attendees for the recording's date and time window BEFORE surfacing speaker identification questions to the controller. Only ask David if calendar cross-reference genuinely fails to resolve the identity.",
+    "failure_mode": "lazy-search",
+    "systemic_fix": "Update plaud-speaker-id skill (step-03): always run calendar lookup for recording time window first. Only surface to controller if zero attendee matches or multiple ambiguous matches exist after calendar check.",
+    "fix_status": "proposed",
+    "severity": "minor",
+    "related_entries": ["err-20260426-001", "err-20260426-002"]
   }
 ]
