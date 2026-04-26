@@ -34,3 +34,8 @@ dist/
 # Python bytecode cache
 __pycache__/
 *.pyc
+
+# Debug screenshots
+debug-app.png
+debug-settings.png
+screenshot.png

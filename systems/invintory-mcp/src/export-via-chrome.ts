@@ -95,7 +95,10 @@ async function main() {
   if (!tabUrl.includes('/collection')) {
     console.log('Navigating to collection page...');
     runInChrome('window.location.href = "https://app.invintory.com/collection/bottles"');
-    await sleep(4000);
+    await sleep(6000);
+  } else {
+    // Already on collection page — still wait briefly for any pending renders
+    await sleep(2000);
   }
 
   // 3. Look for Export CSV button — try multiple selector strategies
