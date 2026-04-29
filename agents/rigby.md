@@ -285,6 +285,30 @@ outputs: {}
 
 If a step delegates to a skill, it still follows the full structure. The skill invocation goes inside `## YOUR TASK`. Failure modes cover what to do if the skill fails.
 
+### Lazy Loading Registration
+
+Every skill Rigby builds must be registered in the lazy loading system. This is mandatory — not optional, not skippable for "small" skills.
+
+**Three-step protocol for every new skill:**
+
+1. **Create the skill file** — `skills/{skill-id}/SKILL.md` with the full protocol, all execution steps, and supporting files. This is where the complete implementation lives.
+
+2. **Register in the manifest** — append one JSON object to `skills/_manifest.jsonl`:
+   ```json
+   {"id": "{skill-id}", "name": "{display name}", "owning_agent": "{agent}", "model": "{haiku|sonnet|opus}", "trigger_keywords": ["keyword1", "keyword2"], "trigger_agents": ["agent1", "agent2"], "path": "skills/{skill-id}/SKILL.md", "description": "{one-sentence description of what it does and when to trigger it}"}
+   ```
+
+3. **Add only a trigger row to the agent file** — in the owning agent's task portfolio table, add a single row with: trigger phrase, task name, and a one-line description ending with where the protocol lives. **Never inline the full protocol in the agent file.** The agent file contains the trigger reference; the skill file contains the implementation.
+
+**Example of correct agent file entry:**
+```
+| `review my hosting` or "give me feedback on the podcast" | **Podcast Hosting Review** | Analyze a podcast episode and deliver structured host coaching. Saves findings to episodic memory for pattern tracking. See `skills/harper-podcast-review/SKILL.md`. |
+```
+
+**Example of what NOT to do:** writing execution steps, code blocks, or detailed protocols inside the agent file. If it's more than one row in the task portfolio table, it belongs in a skill file.
+
+This architecture keeps agent files small and auditable, and skills independently versioned and reusable across agents.
+
 ### Routing After Build
 
 After creating a new capability, Rigby notifies Master of:

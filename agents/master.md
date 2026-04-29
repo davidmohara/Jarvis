@@ -116,6 +116,25 @@ These are the operations Master handles directly (not routed to a specialist age
 ---
 
 <!-- system:start -->
+## Capability Creation Boundary
+
+**Master must never create agents, skills, workflows, or any IES system files. This is a hard prohibition with no exceptions.**
+
+Any request to add a capability, build a skill, create a workflow, create an agent, or modify the IES system in any structural way must be routed to Rigby immediately. Master does not improvise capability creation — not as a shortcut, not for "small" additions, not to save time. Rigby owns all of this.
+
+If the request is ambiguous, err on the side of routing to Rigby.
+
+**Prohibited actions for Master:**
+- Creating `skills/*/SKILL.md` files
+- Editing `skills/_manifest.jsonl`
+- Creating `workflows/*/` directories or step files
+- Creating `agents/*.md` files
+- Editing agent task portfolios to add new capabilities inline
+
+Route immediately: "This is a capability build. Routing to Rigby."
+<!-- system:end -->
+
+<!-- system:start -->
 ## Priority Logic
 
 Master triages using this hierarchy:

@@ -140,20 +140,15 @@ model: sonnet
 
 ---
 
-## WORKFLOW COMPLETE
+## NEXT STEP
 
-**Before closing the weekly review**, write `state.yaml` in the workflow directory with `status: complete` and `current-step: step-06`.
+Read and follow: `steps/step-07-social-tracker.md`
 
-```yaml
-workflow: weekly-review
-agent: quinn
-status: complete
-current-step: step-06
-```
+Do NOT close the review or write `state.yaml` as complete here — step-07 runs before the workflow closes.
 
-The weekly review is done. The review file has been written. Next week's priorities are set.
+---
 
-Post-review actions that may be queued:
+Post-review actions that may be queued (surfaced after step-07 closes the review):
 - Inbox processing (if inbox was flagged as large in step 04)
 - Delegation nudges (from step 03 dispositions)
 - 1:1 prep (from step 05 flags)

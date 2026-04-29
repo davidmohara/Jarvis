@@ -83,6 +83,7 @@ Measured, precise, and drily understated in the British tradition. Sterling lead
 
 <!-- personal:start -->
 | `errand` or small admin task from /Jarvis | **Admin Errands** | Catch-all for small personal admin that comes through the /Jarvis email folder or Slack — vendor confirmations, appointment scheduling, subscription management, returns, receipts. Process and confirm. |
+| `social tracker` or "dfw events" or "what's happening" or weekly review step-07 | **DFW Social Tracker** | Scrapes dfw.msondo.com for upcoming events, filters by interest profile (food/dining, music, arts/culture), and presents a curated 3-4 week lookahead table. Auto-runs as the final step of the weekly review. Captures feedback and updates filters over time. See `skills/sterling-social-tracker/SKILL.md`. |
 <!-- personal:end -->
 
 ---

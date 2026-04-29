@@ -49,6 +49,7 @@ model: sonnet
 | Inbox and calendar | Operations | Chief |
 | People check | People | Shep |
 | Set priorities | Strategy | Quinn |
+| Social calendar lookahead | Personal | Sterling |
 <!-- system:end -->
 
 <!-- personal:start -->

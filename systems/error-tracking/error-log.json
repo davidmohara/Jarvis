@@ -1594,5 +1594,20 @@
     "fix_status": "proposed",
     "severity": "moderate",
     "related_entries": []
+  },
+  {
+    "id": "err-20260426-004",
+    "timestamp": "2026-04-26T18:45:00-05:00",
+    "session": "chief-2026-04-26-163845",
+    "source": "explicit",
+    "agent": "chief",
+    "category": "process-skip",
+    "description": "Wrote the full podcast hosting review protocol inline in Harper's agent file instead of creating a dedicated skill file and registering it in the manifest. Bypassed the lazy loading architecture entirely. Also failed to log the self-correction to error-log.json after identifying the mistake — required explicit instruction from David a second time.",
+    "correction": "Create a skill file (skills/harper-podcast-review/SKILL.md), register it in _manifest.jsonl, reference only the trigger in the agent file. After any self-correction is identified, log it to error-log.json immediately in the same response — do not wait for David to ask.",
+    "failure_mode": "protocol-skip",
+    "systemic_fix": "When operating without the Master/sub-agent spawn architecture, Chief must own the full error logging loop. Self-corrections blocks are not a substitute for writing to error-log.json. The log write is non-negotiable regardless of which agent caught the error.",
+    "fix_status": "applied",
+    "severity": "moderate",
+    "related_entries": []
   }
 ]
