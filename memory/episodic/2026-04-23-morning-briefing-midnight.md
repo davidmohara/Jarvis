@@ -5,9 +5,9 @@ created: 2026-04-23
 tags: [briefing, calendar, omnifocus, google-next, travel, las-vegas, email, leads, overdue-tasks]
 related_people: [ehren-seim, mladen-raickovic, ethel-mangum, sam-dobbins]
 salience:
-  score: 5
+  score: 8
   promoted: true
-  last-promoted-check: 2026-04-25
+  last-promoted-check: 2026-04-30
 source_session: chief-2026-04-23-000000
 ---
 

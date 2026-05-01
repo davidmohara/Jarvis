@@ -5,7 +5,7 @@ session_id: "chief-2026-04-24-auto"
 agent-source: chief
 created: 2026-04-24T06:00:00
 expires: 2026-04-26T06:00:00
-status: active
+status: archived
 context: "Morning boot + briefing — 2026-04-24 (automated scheduled task)"
 ---
 

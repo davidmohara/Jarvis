@@ -1,20 +1,31 @@
 workflow: morning-briefing
 agent: chief
 status: complete
-session-started: "2026-04-24T06:00:00-05:00"
-session-id: chief-2026-04-24-auto
+session-started: "2026-04-30T06:12:16-05:00"
+session-id: chief-2026-04-30-061216
 current-step: step-04
 original-request: "Automated morning briefing (scheduled task)"
 accumulated-context:
-  calendar-date: "2026-04-24"
-  meeting-count: 6
+  calendar-date: "2026-04-30"
   timezone: "CDT"
-  location: "Las Vegas, NV (Google Next Day 4 — returning today)"
-  flight-home: "2026-04-24 AA783 LAS-DFW 1:25 PM CDT seat 9C conf IBJWLO"
-  next-travel: "2026-04-26 AA2896 DFW-ORD YPO GLC Chicago seat 16C conf LAUEFH"
-  conflict: "Alice Wrap-Up 12:00 PM CDT conflicts with flight departure"
-  unassigned-leads: "Alcon, AECom, IFS, Cardinal IT, Paragon, Birgo (carried from Apr 23)"
-  cyber-training-deadline: "2026-04-30"
-  omnifocus-status: "unavailable — 2 timeouts"
-  slack-delivery: "failed — no Slack MCP connector"
-  briefing-file: "reviews/daily/2026-04-24-morning-briefing.md"
+  location: "Chicago — returning home today"
+  flight-home: "AA 1693 ORD-DFW 9:45 AM CDT seat 9D conf LAUEFH"
+  flight-conflicts: "AI Mastermind 9:30-10:50 and Sales Scrum 10:00 overlap with flight departure"
+  one-texas-update: "2026-04-30 3:00 PM CDT — Rock 2 milestone first monthly sync (David organizer)"
+  ralph-nicosia-1on1: "2026-04-30 4:00 PM CDT — IBP coaching session"
+  dallas-town-hall: "2026-04-30 11:30 AM CDT — April town hall"
+  ypo-rbm-receipts: "due TODAY COB from Jen Jensen email"
+  jarvis-inbox: "Project Profitability email with attachment (4/26) — needs Chase/Rock 1 review"
+  dustin-shaffer-intro: "unread intro from MShaffer@TalentSuiteLLC.com — family office contact"
+  devlin-ai-training: "thread needs David/Blake response on DLP fit"
+  flight-may13: "conf GNZZYH booked — DFW departure May 13"
+  scott-mcmichael-tomorrow: "2026-05-01 Q1 close-out with Scott — prep block at 10:00 AM"
+  make-a-wish-gala: "2026-05-02 Saturday 5:30 PM black tie Omni Dallas"
+  omnifocus-status: "unavailable — 3 timeouts"
+  daily-review-missing: "no review found for 2026-04-29"
+  slack-delivery: "no Slack MCP — briefing written to daily reviews folder"
+  lead-tracker: "unavailable this session"
+  plaud-staging: "unable to check from Cowork VM"
+  clay-reminders: "none"
+  clay-birthdays: "none in next 7 days"
+  briefing-file: "reviews/daily/auto-2026-04-30.md"

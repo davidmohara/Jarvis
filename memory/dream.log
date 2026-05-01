@@ -137,3 +137,69 @@ errors_detail:
     file: .git
     error: "Git pull --rebase failed: SSH host key verification failed. Remote sync unavailable in sandbox environment."
 ---
+
+---
+## 2026-04-26T03:08:49 CDT
+session_id: dream-cycle-2026-04-26-030849
+working_archived: 1
+working_deleted: 0
+episodic_scanned: 16
+score_updates: 2
+clusters_found: 1
+semantic_created: 1
+semantic_updated: 0
+promoted_entries: 1
+entries_compressed: 0
+digests_updated: 0
+compression_skipped: true
+errors: 1
+summary: "Archived 1 expired working memory entry (dream-summary-2026-04-25) to episodic. 16 episodic entries scored — Apr-24 dream cycle summary hit promotion threshold (score 2→3) via cross-references with other dream-cycle/system-maintenance entries. New semantic entry created: operational/dream-cycle-system-maturation-pattern.md documenting the IES memory pipeline's operational trajectory and git sync fragility. 2 new error patterns added to LESSONS.md: missed-context (5 occurrences) and misidentification (3 occurrences). Git pull blocked by SSH — sandbox limitation."
+errors_detail:
+  - phase: 0
+    file: .git
+    error: "Git pull --rebase failed: SSH host key verification failed. Remote sync unavailable in sandbox environment."
+---
+
+---
+## 2026-04-27T03:08:40 CDT
+session_id: dream-cycle-2026-04-27-030840
+working_archived: 1
+working_deleted: 0
+episodic_scanned: 17
+score_updates: 17
+clusters_found: 1
+semantic_created: 0
+semantic_updated: 1
+promoted_entries: 1
+entries_compressed: 0
+digests_updated: 0
+compression_skipped: true
+errors: 1
+summary: "Archived 1 working memory entry (Apr 24 morning briefing) to episodic. 17 episodic entries scored — Apr 24 morning briefing hit score 6 and promoted into existing briefing-travel-calendar-pattern semantic entry, upgrading confidence from medium to high (7 evidence sources). New implications added: OmniFocus failure is systemic across 4 consecutive travel days, Alice meeting conflict detected but not resolved, lead tracker infrastructure gap. No new error patterns beyond those already in LESSONS.md. Git index.lock and SSH blocks persist."
+errors_detail:
+  - phase: 0
+    file: .git
+    error: "Git pull --rebase failed: uncommitted changes from prior runs + index.lock irremovable (Operation not permitted). Dream cycle completed all memory operations but cannot sync with origin."
+---
+
+---
+## 2026-04-30T08:08:39 UTC
+session_id: dream-cycle-2026-04-28-080839
+working_archived: 4
+working_deleted: 0
+episodic_scanned: 21
+score_updates: 13
+clusters_found: 2
+semantic_created: 0
+semantic_updated: 2
+promoted_entries: 7
+entries_compressed: 0
+digests_updated: 0
+compression_skipped: true
+errors: 1
+summary: "Archived 4 expired working memory entries (Apr 27 briefing, Apr 28 briefing, 2 dream summaries). 21 episodic entries scored with 13 score updates. Two promotion clusters: 5 dream-cycle summaries merged into existing system-maturation-pattern (confidence low→medium, 6 evidence sources); 2 GLC Chicago briefings merged into existing briefing-travel-calendar-pattern (9 evidence sources, still high confidence). Travel-mode gap confirmed across two consecutive trips. Git pull blocked by uncommitted changes."
+errors_detail:
+  - phase: 0
+    file: .git
+    error: "Git pull --rebase not attempted due to extensive uncommitted changes from prior sessions. Dream cycle completed all memory operations but cannot sync with origin."
+---

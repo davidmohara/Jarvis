@@ -53,3 +53,17 @@ Detected: 5 occurrences over 28 days
 Category: format-violation
 Pattern: Em-dashes used despite explicit ban. Heavy formatting (bold headers, bullet-heavy structure) in emails that should be conversational prose. Files saved to wrong directories. reMarkable uploads with ugly filenames instead of clean labels. Cron syntax shown to executive instead of plain English.
 Fix: All output to David must be executive-grade conversational prose. No em-dashes ever. reMarkable filenames are clean labels. Files go in correct subdirectories. When a tool can be invoked directly, invoke it rather than showing config format.
+
+## 2026-04-26 — Missed Context in Prep and Briefings
+Detected: 5 occurrences over 31 days
+Category: missed-context
+Pattern: Agents build prep sheets and briefings from incomplete data sources. Scott McMichael 1:1 prep used only email, missing Obsidian scorecard data. Monday check-in drafted from wrong source thread. Plaud speaker mappings asked of David despite calendar data being available. Agent capabilities unknown despite being fully spec'd in the system. Microsoft meetings at Irving campus missed in 1:1 prep.
+Fix: Before building any prep sheet or briefing, enumerate ALL relevant data sources (Obsidian, email, calendar, Plaud transcripts, agent specs, CRM) and pull from each. Do not present partial-source output as complete. When calendar shows a meeting with known attendees, use that to resolve speaker IDs before asking David.
+Status: active
+
+## 2026-04-26 — Speaker Misidentification in Transcripts
+Detected: 3 occurrences over 1 day
+Category: misidentification
+Pattern: Plaud transcript speaker identification repeatedly guesses wrong people. Speaker 7, 9, and 10 all incorrectly identified in the same session (Houston SKO recordings). Inferences based on YPO knowledge or name matching rather than cross-referencing calendar attendees, meeting context, and voice patterns from prior transcripts.
+Fix: Speaker identification must follow a strict pipeline: (1) match calendar attendees for the recording's time window, (2) cross-reference with prior confirmed speaker IDs from the same event, (3) use content clues (role, company mentions) to narrow. Never guess from general knowledge. If confidence is below 80%, present as "unresolved" rather than proposing a wrong name.
+Status: active

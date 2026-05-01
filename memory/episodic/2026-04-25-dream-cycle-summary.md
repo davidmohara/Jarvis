@@ -1,7 +1,12 @@
 ---
-type: working
-expires: 2026-04-26
-status: archived
+type: working-archive
+date: 2026-04-25
+tags: [dream-cycle, memory-management, semantic-promotion, travel-pattern]
+related_people: []
+salience:
+  score: 3
+  last-promoted-check: 2026-04-30
+  promoted: true
 ---
 
 # Dream Cycle Summary — 2026-04-25
