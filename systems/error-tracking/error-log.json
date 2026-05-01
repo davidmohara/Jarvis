@@ -376,6 +376,27 @@
     "last_analyzed": null,
     "recurring": []
   },
+  "entries_addendum_4": [
+    {
+      "id": "err-20260501-001",
+      "timestamp": "2026-05-01T06:12:00-05:00",
+      "session": "chief-2026-05-01-061300",
+      "source": "explicit",
+      "agent": "chief",
+      "category": "process-skip",
+      "description": "Scheduled morning briefing (automated run) skipped master-slack delivery. Searched only skills/_manifest.jsonl and reported 'no master-slack skill found' and 'Slack MCP not connected'. The skill lives at .claude/skills/master-slack/SKILL.md and uses Desktop Commander + systems/slack-bot/post.py — not the Slack MCP. This is a repeat of err-20260415-004, err-20260324-002, and err-20260327-004. The correct search path was documented in err-20260415-004's systemic_fix: 'Search .claude/skills/ as well as skills/ when looking for skills.'",
+      "correction": "David caught the skip. Slack message was sent after correction via Desktop Commander + post.py. Confirmed ok:true to #jarvis.",
+      "failure_mode": "protocol-skip",
+      "systemic_fix": "This is the fifth logged instance of this failure pattern. The skill location is established. Search .claude/skills/ FIRST for any skill before checking skills/_manifest.jsonl. The manifest only covers domain skills — .claude/skills/ holds system-level skills (master-slack, etc.).",
+      "fix_status": "applied",
+      "severity": "moderate",
+      "related_entries": [
+        "err-20260415-004",
+        "err-20260324-002",
+        "err-20260327-004"
+      ]
+    }
+  ],
   "entries_addendum_2": [
     {
       "id": "err-20260417-001",
