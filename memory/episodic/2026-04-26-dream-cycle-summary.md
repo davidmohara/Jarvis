@@ -5,8 +5,8 @@ date: 2026-04-26
 tags: [dream-cycle, system-maintenance, semantic-promotion, error-patterns, git-issues]
 related_people: []
 salience:
-  score: 6
-  last-promoted-check: 2026-04-30
+  score: 7
+  last-promoted-check: 2026-05-01
   promoted: true
 ---
 

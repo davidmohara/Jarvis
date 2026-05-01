@@ -203,3 +203,32 @@ errors_detail:
     file: .git
     error: "Git pull --rebase not attempted due to extensive uncommitted changes from prior sessions. Dream cycle completed all memory operations but cannot sync with origin."
 ---
+
+---
+## 2026-04-30T21:52:30 CDT
+session_id: dream-cycle-2026-04-30-215230
+aborted: already ran today (previous run: 2026-04-30T08:08:39 UTC / 2026-04-30T03:08:39 CDT)
+summary: "Aborted -- dream cycle already ran today at 03:08 CDT. No duplicate processing needed."
+---
+
+---
+## 2026-05-01T03:09:21 CDT
+session_id: dream-cycle-2026-05-01-030921
+working_archived: 3
+working_deleted: 0
+episodic_scanned: 24
+score_updates: 17
+clusters_found: 2
+semantic_created: 0
+semantic_updated: 2
+promoted_entries: 3
+entries_compressed: 0
+digests_updated: 0
+compression_skipped: true
+errors: 1
+summary: "Archived 3 working memory entries (Apr 26 GLC travel briefing, Apr 29 GLC day 4 briefing, Apr 28 dream summary). 24 episodic entries scored with 17 updates — score inflation continues as tag density grows (12 entries now at score 9-10). Two promotion clusters: Apr 26+29 GLC briefings merged into briefing-travel-calendar-pattern (now 11 evidence sources, still high confidence, 3 new implications added including compliance deadline escalation gap and meeting prep gap); Apr 30 dream summary merged into dream-cycle-system-maturation-pattern (7 evidence sources, still medium confidence, noted score inflation concern). No new error patterns beyond existing LESSONS.md coverage. No compression candidates (all entries < 90 days). Git pull blocked by uncommitted changes."
+errors_detail:
+  - phase: 0
+    file: .git
+    error: "Git pull --rebase failed: unstaged changes from prior sessions. index.lock irremovable. Dream cycle completed all memory operations but cannot sync with origin."
+---

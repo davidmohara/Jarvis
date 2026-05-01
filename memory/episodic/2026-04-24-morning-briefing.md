@@ -5,8 +5,8 @@ date: 2026-04-24
 tags: [briefing, calendar, travel, google-next, flight, omnifocus-timeout, email-triage, quarterly-rocks]
 related_people: [alice-mburu, scott-mcmichael, kovacevich]
 salience:
-  score: 8
-  last-promoted-check: 2026-04-30
+  score: 10
+  last-promoted-check: 2026-05-01
   promoted: true
 ---
 

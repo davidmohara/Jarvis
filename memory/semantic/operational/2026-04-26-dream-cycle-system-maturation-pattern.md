@@ -4,7 +4,7 @@ domain: operational
 tags: [dream-cycle, system-maintenance, memory-system, semantic-promotion, git-issues]
 confidence: medium
 created: 2026-04-26
-last-updated: 2026-04-30
+last-updated: 2026-05-01
 synthesized-from:
   - memory/episodic/2026-04-24-dream-cycle-summary.md
   - memory/episodic/2026-04-22-dream-cycle-summary.md
@@ -12,6 +12,7 @@ synthesized-from:
   - memory/episodic/2026-04-25-dream-cycle-summary.md
   - memory/episodic/2026-04-26-dream-cycle-summary.md
   - memory/episodic/2026-04-27-dream-cycle-summary.md
+  - memory/episodic/2026-04-30-dream-cycle-summary.md
 ---
 
 # Pattern: IES Dream Cycle System Maturation
@@ -48,3 +49,13 @@ The IES dream cycle has been running nightly since April 18, 2026. Across 7 comp
 - **Dream cycle entries themselves form a meta-pattern.** The system's self-referential entries (dream summaries promoting into semantic patterns about the dream cycle) demonstrate genuine emergent behavior in the memory architecture.
 - **Git sync remains the single point of failure.** Every run since Apr 22 has been blocked. SSH host key verification failure, index.lock permissions, and unstaged changes have all surfaced as distinct blockers. The resolution requires manual intervention outside the sandbox.
 - **Error pattern detection is working.** LESSONS.md has grown from 6 to 8 patterns, all automatically detected from error-log.json. The feedback loop from errors to lessons to behavior modification is the system's self-correction mechanism.
+
+## Evidence (continued — 2026-05-01)
+
+7. **2026-04-30 dream cycle (executed as 2026-04-28 catch-up):** Archived 4 entries, scored 21 episodic entries with 13 updates. Two promotion clusters: 5 dream summaries merged into this very pattern (confidence low→medium), 2 GLC Chicago briefings merged into briefing-travel-calendar pattern (now 9 evidence sources). The memory graph density is increasing — entries are now routinely hitting score 6-10 due to rich tag overlap across the GLC Chicago week. Git sync still blocked by uncommitted changes.
+
+## Implications (updated 2026-05-01)
+
+- **Evidence source count is now 7 across 12 runs.** The system has been running nightly since Apr 18 with no skipped nights (one same-day duplicate was correctly caught and aborted). The pipeline is reliable.
+- **Tag density is creating score inflation.** With 24 episodic entries and heavy tag overlap (briefing/calendar/travel appearing in 12+ entries), new entries immediately score 9-10. The scoring algorithm may need recalibration — a score of 10 should indicate exceptional cross-referencing, not be the baseline for any travel-related entry. This is not urgent but worth noting for system evolution.
+- **Two-trip validation strengthens confidence.** The briefing-travel-calendar pattern now spans Google Next Las Vegas and GLC Chicago with identical failure modes. The system is no longer observing a one-time event — it has confirmed a structural gap that reproduces across travel events.

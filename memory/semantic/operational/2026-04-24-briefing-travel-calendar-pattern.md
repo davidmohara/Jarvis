@@ -4,7 +4,7 @@ domain: operational
 tags: [briefing, calendar, omnifocus, google-next, travel, overdue-tasks, leads]
 confidence: high
 created: 2026-04-24
-last-updated: 2026-04-30
+last-updated: 2026-05-01
 synthesized-from:
   - memory/episodic/2026-04-20-morning-briefing.md
   - memory/episodic/2026-04-21-morning-briefing.md
@@ -15,6 +15,8 @@ synthesized-from:
   - memory/episodic/2026-04-24-morning-briefing.md
   - memory/episodic/2026-04-27-morning-briefing.md
   - memory/episodic/2026-04-28-morning-briefing.md
+  - memory/episodic/2026-04-26-morning-briefing-glc-travel.md
+  - memory/episodic/2026-04-29-morning-briefing-glc-day4.md
 ---
 
 # Pattern: Morning Briefings Consistently Flag Travel-Calendar Conflicts
@@ -110,3 +112,24 @@ Morning briefings across the entire Google Next week (Apr 20-23) repeatedly surf
 10. **The pattern extends beyond Google Next to GLC Chicago.** The same failure modes (OmniFocus timeout, unresolved calendar conflicts, lead tracker unavailable, actionable emails accumulating without capture) reproduced identically during a second consecutive travel trip. This is not event-specific — it is a structural travel-mode gap.
 11. **Rock 2 milestone meeting (One Texas Sales Update, Apr 30) is at risk.** Flagged in two consecutive briefings as must-attend but David is flying ORD→DFW that morning. The system detected this but generated no mitigation action (no dial-in link verification, no "join from airport" plan).
 12. **Actionable relationship opportunities decay during travel.** Howard Dierking (Capital One) and "Mick" (Google/Dallas) are both time-sensitive relationship signals that need capture within 24-48 hours. The briefing surfaced them but there is no delegation pathway to Alice or a CRM to log them for follow-up post-travel.
+
+### Apr 26 Morning Briefing — GLC Travel Day (NEW — 2026-05-01 dream cycle)
+- Sunday travel day. AA 2896 DFW→ORD departed 8:49 AM CDT. Boot ran at 4:38 PM when David was already in Chicago.
+- Frontera Grill dinner 6:30 PM. Full GLC week ahead: Apr 27-29 conference, Apr 30 return + stacked meetings, May 1 exec day, May 2 golf + Make a Wish gala.
+- Thursday Apr 30 flagged as brutal: return flight + Dallas Town Hall + One Texas Sales Update + IDSC Kickoff all stacked. This is the 3rd consecutive briefing to flag this day as critical.
+- 37 OmniFocus tasks, most unassigned to projects. 9 Kare Devices tasks all overdue (due Apr 25). Inbox at 205 items — unchanged from Google Next week.
+- Unknown context for 3 upcoming meetings: Devlin catch-up (Tue), SMU collaboration (Wed), McCabe call (Fri). No prep initiated.
+
+### Apr 29 Morning Briefing — GLC Day 4, Final Day (NEW — 2026-05-01 dream cycle)
+- 4 meetings: Sales Scrum (tentative), US Town Hall (tentative), David/Robyn 1:1, SMU Collaboration.
+- Thursday flight conflict STILL unresolved: AA 1693 departs ORD 9:45 AM, 4 morning meetings conflict. One Texas Sales Update (3 PM) must be preserved — Rock 2 milestone. Decision needed before boarding but no mechanism to force it.
+- Cyber training deadline Apr 30 for Don McGreal and Robyn Fuentes — both not started. InfoSecIQ notifications received. Flagged for Alice delegation but no action taken.
+- SMU Collaboration (3 PM) with Aren Cambre — AI for Business program partnership first touch. No prior context in episodic memory.
+- Jarvis inbox: "Project Profitability" email with attachment (Apr 26) still unprocessed after 3 days.
+- OmniFocus failed again (2 timeouts) — 7th travel day in a row across two trips with no task data.
+
+## Implications (continued — 2026-05-01)
+
+13. **The flight-conflict pattern now has a completion data point.** Apr 30 (the day that was flagged across 4+ briefings) has now passed. The system should check in the next boot whether the One Texas Sales Update actually happened, whether the flight conflict was resolved, and what was lost. This is the first pattern that can be validated against outcomes, not just flagged as risk.
+14. **Cyber training compliance deadlines were flagged but not actioned across 3 consecutive briefings.** Don McGreal and Robyn Fuentes had an Apr 30 deadline. The system surfaced this on Apr 22, Apr 29, and in between — but never escalated beyond "flagged for Alice." Compliance deadlines need an automatic escalation path with countdown pressure, not passive flagging.
+15. **Meeting prep gap is widening.** Three meetings on the GLC week (Devlin, SMU, McCabe) had "context unknown" flagged but no prep was initiated despite 2-5 days of lead time. The pre-departure checklist (Implication #4) would have caught this if it existed.

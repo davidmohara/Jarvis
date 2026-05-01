@@ -5,9 +5,9 @@ created: 2026-04-24
 tags: [dream-cycle, system-maintenance, semantic-promotion, memory-system]
 related_people: []
 salience:
-  score: 3
+  score: 6
   promoted: true
-  last-promoted-check: 2026-04-30
+  last-promoted-check: 2026-05-01
 source_session: dream-cycle-2026-04-24-030835
 ---
 

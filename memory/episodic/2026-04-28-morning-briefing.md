@@ -5,8 +5,8 @@ date: 2026-04-28
 tags: [briefing, calendar, glc-chicago, travel, omnifocus-timeout, flight-conflict, rock2, google-next-followup, email-triage]
 related_people: [devlin, tim-rayburn, ehren-seim, howard-dierking, david-belcher, mick]
 salience:
-  score: 7
-  last-promoted-check: 2026-04-30
+  score: 10
+  last-promoted-check: 2026-05-01
   promoted: true
 ---
 

@@ -5,7 +5,7 @@ session_id: "chief-2026-04-26-163845"
 agent-source: chief
 created: 2026-04-26T16:38:45
 expires: 2026-04-28T16:38:45
-status: active
+status: archived
 context: "Morning boot + briefing — 2026-04-26 (Sunday, GLC travel day)"
 ---
 
