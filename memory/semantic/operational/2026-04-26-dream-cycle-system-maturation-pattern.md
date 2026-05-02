@@ -4,7 +4,7 @@ domain: operational
 tags: [dream-cycle, system-maintenance, memory-system, semantic-promotion, git-issues]
 confidence: medium
 created: 2026-04-26
-last-updated: 2026-05-01
+last-updated: 2026-05-02
 synthesized-from:
   - memory/episodic/2026-04-24-dream-cycle-summary.md
   - memory/episodic/2026-04-22-dream-cycle-summary.md
@@ -13,6 +13,7 @@ synthesized-from:
   - memory/episodic/2026-04-26-dream-cycle-summary.md
   - memory/episodic/2026-04-27-dream-cycle-summary.md
   - memory/episodic/2026-04-30-dream-cycle-summary.md
+  - memory/episodic/2026-05-01-dream-cycle-summary.md
 ---
 
 # Pattern: IES Dream Cycle System Maturation
@@ -59,3 +60,13 @@ The IES dream cycle has been running nightly since April 18, 2026. Across 7 comp
 - **Evidence source count is now 7 across 12 runs.** The system has been running nightly since Apr 18 with no skipped nights (one same-day duplicate was correctly caught and aborted). The pipeline is reliable.
 - **Tag density is creating score inflation.** With 24 episodic entries and heavy tag overlap (briefing/calendar/travel appearing in 12+ entries), new entries immediately score 9-10. The scoring algorithm may need recalibration — a score of 10 should indicate exceptional cross-referencing, not be the baseline for any travel-related entry. This is not urgent but worth noting for system evolution.
 - **Two-trip validation strengthens confidence.** The briefing-travel-calendar pattern now spans Google Next Las Vegas and GLC Chicago with identical failure modes. The system is no longer observing a one-time event — it has confirmed a structural gap that reproduces across travel events.
+
+## Evidence (continued — 2026-05-02)
+
+8. **2026-05-01 dream cycle:** Archived 3 entries, scored 24 episodic entries with 17 updates. Score inflation confirmed: 12 entries at score 9-10. Two promotion clusters merged into existing semantic patterns. The system noted that score inflation may need algorithmic recalibration as the tag density makes high scores the norm rather than the exception for any travel-related entry. Git sync still blocked.
+
+## Implications (updated 2026-05-02)
+
+- **Evidence source count is now 8 across 14 runs.** The pipeline continues to run nightly without failure. Reliability is proven.
+- **Score inflation is becoming a real concern.** With 26 episodic entries and 10 of them scoring 10/10, the salience scoring is losing discriminatory power. The 30-day window combined with dense tag overlap means any new briefing-tagged entry immediately hits the cap. A future evolution should consider: (a) reducing the window to 14 days, (b) requiring 3+ shared tags instead of 2, or (c) weighting by tag rarity.
+- **The system's primary value has shifted from pipeline validation to insight generation.** The briefing-travel-calendar pattern now has 12 evidence sources, 18 implications, and high confidence. It has moved from observation to actionable recommendation (build a travel-prep workflow). The dream cycle's job is increasingly about feeding and refining these semantic entries, not just proving the pipeline works.

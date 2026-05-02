@@ -6,7 +6,7 @@ tags: [briefing, calendar, travel, google-next, flight, omnifocus-timeout, email
 related_people: [alice-mburu, scott-mcmichael, kovacevich]
 salience:
   score: 10
-  last-promoted-check: 2026-05-01
+  last-promoted-check: 2026-05-02
   promoted: true
 ---
 

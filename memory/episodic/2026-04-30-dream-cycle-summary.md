@@ -5,9 +5,9 @@ date: 2026-04-30
 tags: [dream-cycle, system-maintenance, memory-pipeline, travel, glc-chicago, git-sync]
 related_people: []
 salience:
-  score: 9
+  score: 10
   promoted: true
-  last-promoted-check: 2026-05-01
+  last-promoted-check: 2026-05-02
 ---
 
 # Dream Cycle Summary — 2026-04-28 (executed 2026-04-30)

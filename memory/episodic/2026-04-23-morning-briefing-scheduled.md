@@ -7,7 +7,7 @@ related_people: [ehren-seim, mladen-raickovic, ethel-mangum, sam-dobbins, vicki-
 salience:
   score: 10
   promoted: true
-  last-promoted-check: 2026-05-01
+  last-promoted-check: 2026-05-02
 source_session: chief-2026-04-23-061158
 ---
 

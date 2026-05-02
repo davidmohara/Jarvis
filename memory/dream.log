@@ -232,3 +232,25 @@ errors_detail:
     file: .git
     error: "Git pull --rebase failed: unstaged changes from prior sessions. index.lock irremovable. Dream cycle completed all memory operations but cannot sync with origin."
 ---
+
+---
+## 2026-05-02T03:09:31 CDT
+session_id: dream-cycle-2026-05-02-030931
+working_archived: 2
+working_deleted: 0
+episodic_scanned: 26
+score_updates: 10
+clusters_found: 2
+semantic_created: 0
+semantic_updated: 2
+promoted_entries: 2
+entries_compressed: 0
+digests_updated: 0
+compression_skipped: true
+errors: 1
+summary: "Archived 2 working memory entries (Apr 30 briefing, May 1 dream summary) to episodic. 26 entries scored with 10 updates — score inflation continues (15 entries now at 9-10). Two promotions: Apr 30 briefing merged into briefing-travel-calendar-pattern (now 12 evidence sources, 18 implications, confidence high — added outcome validation opportunity, external-deadline-on-return-day risk, and Jarvis inbox decay pattern); May 1 dream summary merged into dream-cycle-system-maturation-pattern (8 evidence sources, confidence medium — noted scoring algorithm recalibration need). Error log: assumption-error at 6 occurrences is functionally identical to wrong-assumption already in LESSONS.md (naming inconsistency, not a new pattern). No compression candidates (all entries < 90 days). Git pull blocked by uncommitted changes."
+errors_detail:
+  - phase: 0
+    file: .git
+    error: "Git pull --rebase not attempted due to extensive uncommitted changes from prior sessions. Dream cycle completed all memory operations but cannot sync with origin."
+---

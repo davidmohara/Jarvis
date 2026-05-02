@@ -6,7 +6,7 @@ related_people: [scott-pine, ehren-seim, vicki, steve-hall]
 salience:
   score: 10
   promoted: true
-  last-promoted-check: 2026-05-01
+  last-promoted-check: 2026-05-02
 source_session: chief-2026-04-21-060000
 ---
 

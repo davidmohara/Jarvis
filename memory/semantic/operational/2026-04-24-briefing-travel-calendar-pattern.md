@@ -4,7 +4,7 @@ domain: operational
 tags: [briefing, calendar, omnifocus, google-next, travel, overdue-tasks, leads]
 confidence: high
 created: 2026-04-24
-last-updated: 2026-05-01
+last-updated: 2026-05-02
 synthesized-from:
   - memory/episodic/2026-04-20-morning-briefing.md
   - memory/episodic/2026-04-21-morning-briefing.md
@@ -17,6 +17,7 @@ synthesized-from:
   - memory/episodic/2026-04-28-morning-briefing.md
   - memory/episodic/2026-04-26-morning-briefing-glc-travel.md
   - memory/episodic/2026-04-29-morning-briefing-glc-day4.md
+  - memory/episodic/2026-04-30-morning-briefing.md
 ---
 
 # Pattern: Morning Briefings Consistently Flag Travel-Calendar Conflicts
@@ -133,3 +134,19 @@ Morning briefings across the entire Google Next week (Apr 20-23) repeatedly surf
 13. **The flight-conflict pattern now has a completion data point.** Apr 30 (the day that was flagged across 4+ briefings) has now passed. The system should check in the next boot whether the One Texas Sales Update actually happened, whether the flight conflict was resolved, and what was lost. This is the first pattern that can be validated against outcomes, not just flagged as risk.
 14. **Cyber training compliance deadlines were flagged but not actioned across 3 consecutive briefings.** Don McGreal and Robyn Fuentes had an Apr 30 deadline. The system surfaced this on Apr 22, Apr 29, and in between — but never escalated beyond "flagged for Alice." Compliance deadlines need an automatic escalation path with countdown pressure, not passive flagging.
 15. **Meeting prep gap is widening.** Three meetings on the GLC week (Devlin, SMU, McCabe) had "context unknown" flagged but no prep was initiated despite 2-5 days of lead time. The pre-departure checklist (Implication #4) would have caught this if it existed.
+
+### Apr 30 Morning Briefing — Return Day from GLC (NEW — 2026-05-02 dream cycle)
+- Return day. AA 1693 ORD to DFW departs 9:45 AM CDT, conflicting with AI Mastermind (9:30 AM), DRC Debrief (9:00 AM), Sales Scrum (10:00 AM). The conflict flagged across 4+ consecutive briefings finally arrived.
+- One Texas Sales Update at 3:00 PM (Rock 2 milestone, first monthly sync) flagged as must-attend.
+- OmniFocus timed out 3x — 8th travel day in this streak with no task data.
+- Jarvis inbox: "Project Profitability" email with attachment unprocessed since Apr 26 (now 4 days stale). No delegation pathway existed.
+- YPO RBM receipts due COB same day — first time a hard external deadline landed on a travel return day.
+- Dustin Shaffer intro (Arborstone Capital) and Devlin/Blake AI training thread both actionable but surfaced into a day with zero bandwidth.
+- 72-hour look-ahead: Scott McMichael Q1 close-out (May 1), Make-A-Wish Gala (May 2, black tie), golf (May 2 AM). Recovery window is minimal.
+- Daily review gap: last review was Apr 28 — 2 days of accountability gap during travel.
+
+## Implications (continued — 2026-05-02)
+
+16. **The Apr 30 flight conflict is now a past event and can be validated.** This is the first instance where the pattern's predicted risk has materialized and passed. The next boot should confirm: did the One Texas Sales Update happen? Were the conflicting morning meetings missed, declined, or handled via mobile? This outcome data is critical for calibrating future risk severity.
+17. **External deadlines on travel return days are a new risk category.** YPO RBM receipts were due COB on the same day as the ORD-DFW return. The system had no mechanism to pre-complete this or escalate it before departure. Hard external deadlines within 24 hours of a return flight need to be surfaced at the pre-departure stage, not on the day itself.
+18. **Jarvis inbox items decay without a processing pathway.** The "Project Profitability" email sat for 4 days with no processing because it required Chase-level analysis and attachment review — capabilities unavailable in automated mode. Items that need specific agent capabilities should be auto-routed to the next live session rather than carrying forward in each briefing as an unactionable flag.

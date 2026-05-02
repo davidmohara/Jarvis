@@ -7,7 +7,7 @@ related_people: [vicki, steve-hall, kapil-dai, salah, david-faircloth]
 salience:
   score: 7
   promoted: true
-  last-promoted-check: 2026-05-01
+  last-promoted-check: 2026-05-02
 ---
 
 # Afternoon Boot Session — April 20, 2026
