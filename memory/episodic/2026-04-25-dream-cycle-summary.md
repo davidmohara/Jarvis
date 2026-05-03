@@ -4,8 +4,8 @@ date: 2026-04-25
 tags: [dream-cycle, memory-management, semantic-promotion, travel-pattern]
 related_people: []
 salience:
-  score: 4
-  last-promoted-check: 2026-05-02
+  score: 5
+  last-promoted-check: 2026-05-03
   promoted: true
 ---
 

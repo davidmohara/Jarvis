@@ -1,7 +1,17 @@
 ---
-type: working
-expires: 2026-05-03
-status: archived
+type: working-archive
+date: 2026-05-02
+tags:
+  - dream-cycle
+  - system-maintenance
+  - memory-pipeline
+  - score-inflation
+  - semantic-promotion
+  - error-naming
+salience:
+  score: 8
+  promoted: true
+  last-promoted-check: 2026-05-03
 ---
 
 # Dream Cycle Summary — 2026-05-02

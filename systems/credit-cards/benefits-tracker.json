@@ -1,14 +1,14 @@
 {
-  "last_updated": "2026-04-21",
+  "last_updated": "2026-05-01",
   "tracking_year": 2026,
   "benefits_usage": {
     "amex-plat": {
       "resy": { "total": 400, "used": 0, "remaining": 300, "resets": "quarterly", "q1_used": 0, "q1_lost": 100, "q2_remaining": 100, "usage_log": [{"date": "2026-03-31", "amount": 0, "note": "Q1 credit expired unused — $100 lost"}] },
-      "digital_entertainment": { "total": 300, "used": 22.74, "remaining": 277.26, "resets": "monthly", "monthly_cap": 25, "usage_log": [{"date": "2026-01-16", "amount": 7.58, "vendor": "WSJ Online"}, {"date": "2026-03-13", "amount": 7.58, "vendor": "WSJ Online"}, {"date": "2026-03-13", "amount": 7.58, "vendor": "Digital Entertainment Credit applied"}], "note": "Confirmed active via portal 3/19. ChatGPT $21.28 also charged but credit only covered WSJ $7.58 this cycle." },
+      "digital_entertainment": { "total": 300, "used": 30.32, "remaining": 269.68, "resets": "monthly", "monthly_cap": 25, "monthly_remaining": 25, "usage_log": [{"date": "2026-01-16", "amount": 7.58, "vendor": "WSJ Online"}, {"date": "2026-03-13", "amount": 7.58, "vendor": "WSJ Online"}, {"date": "2026-03-13", "amount": 7.58, "vendor": "Digital Entertainment Credit applied"}, {"date": "2026-05-01", "note": "Portal confirmed $30.32 used YTD, $25 remaining this month (May credit not yet used)"}], "note": "Portal confirmed $30.32 YTD as of May 1 walkthrough. May credit ($25) still available." },
       "hotel_fhr_thc": { "total": 600, "used": 0, "remaining": 600, "resets": "semi_annual", "h1_remaining": 300, "usage_log": [] },
       "lululemon": { "total": 300, "used": 0, "remaining": 225, "resets": "quarterly", "q1_used": 0, "q1_lost": 75, "q2_remaining": 75, "usage_log": [{"date": "2026-03-31", "amount": 0, "note": "Q1 credit expired unused — $75 lost"}] },
       "uber_cash": { "total": 200, "used": 0, "remaining": 200, "resets": "calendar_year", "usage_log": [] },
-      "airline_incidental": { "total": 200, "used": 0, "remaining": 200, "resets": "calendar_year", "selected_airline": "American Airlines", "usage_log": [] },
+      "airline_incidental": { "total": 200, "used": 85, "remaining": 115, "resets": "calendar_year", "selected_airline": "American Airlines", "usage_log": [{"date": "2026-05-01", "note": "Portal confirmed $85 earned / $115 remaining as of May 1 walkthrough"}] },
       "clear_plus": { "total": 209, "used": 0, "remaining": 209, "resets": "calendar_year", "usage_log": [] },
       "walmart_plus": { "total": 155, "used": 0, "remaining": 155, "resets": "monthly", "monthly_cap": 12.95, "usage_log": [] },
       "uber_one": { "total": 120, "used": 0, "remaining": 120, "resets": "calendar_year", "usage_log": [] }
@@ -51,14 +51,15 @@
   },
   "card_linked_offers": {
     "chase-sapphire": {
-      "last_reviewed": "2026-04-04",
-      "total_offers_available": 117,
+      "last_reviewed": "2026-05-01",
+      "total_offers_available": 134,
       "total_saved_to_date": 6.39,
-      "current_balance": 724.65,
-      "available_credit": 99673.35,
-      "payment_due": "2026-04-07",
-      "credit_score_vantage": 753,
-      "offers_added": 3,
+      "current_balance": 2173.87,
+      "available_credit": 98224.13,
+      "payment_due": "2026-05-07",
+      "credit_score_vantage": 809,
+      "credit_score_as_of": "2026-04-12",
+      "offers_added": 2,
       "walkthrough_status": "Complete — portal accessible and offers readable. 117 offers available as of 2026-04-04. Offer list requires YNAB spend filtering before recommendations are made.",
       "high_value_offers": [
         { "vendor": "fuboTV", "cashback": "35%", "status": "not_added" },
@@ -83,10 +84,17 @@
       "available_credit": 99673.35,
       "walkthrough_status": "COMPLETE — Full 129-offer list reviewed. No new offers added pending YNAB spend confirmation.",
       "recommended_to_add": [
-        { "vendor": "YouTube TV", "cashback": "$20 back", "priority": "high", "rationale": "Known streaming spend" },
-        { "vendor": "Disney+", "cashback": "15% back", "priority": "high", "rationale": "Streaming subscription" },
-        { "vendor": "Best Western", "cashback": "10% back", "priority": "high", "rationale": "Hotel brand for travel" },
-        { "vendor": "Air India", "cashback": "10% back", "priority": "medium", "rationale": "Airline travel if applicable" }
+        { "vendor": "YouTube TV", "cashback": "$20 back", "priority": "high", "rationale": "Known streaming spend", "status": "available - New" },
+        { "vendor": "Disney+", "cashback": "15% back", "priority": "high", "rationale": "Streaming subscription", "status": "available - New" },
+        { "vendor": "Best Western", "cashback": "10% back", "priority": "high", "rationale": "Hotel brand for travel", "status": "available" },
+        { "vendor": "fuboTV", "cashback": "35% back", "priority": "high", "rationale": "Sports streaming — upgraded from 30% last review", "status": "available - New" },
+        { "vendor": "Sam's Club", "cashback": "30% back", "priority": "medium", "rationale": "Wholesale spend if applicable", "status": "available - New" },
+        { "vendor": "Club Champion", "cashback": "$100 back", "priority": "high", "rationale": "Golf club fitting", "status": "available - New" },
+        { "vendor": "Faire", "cashback": "30% back", "priority": "low", "rationale": "Wholesale marketplace", "status": "available - New" },
+        { "vendor": "Turo", "cashback": "$30 back", "priority": "high", "rationale": "Car rental — stacks with Citi Turo offer", "status": "available - New" },
+        { "vendor": "SimpliSafe", "cashback": "$100 back", "priority": "medium", "rationale": "Home security — high value", "status": "available - New" },
+        { "vendor": "ESPN", "cashback": "15% back", "priority": "medium", "rationale": "Sports streaming", "status": "available - New" },
+        { "vendor": "Ooma", "cashback": "35% back", "priority": "low", "rationale": "VOIP/phone service", "status": "available - New" }
       ],
       "not_recommended": [
         { "vendor": "Chevron, On Inc, Marble Slab, ALDO, Nutrafol", "rationale": "No YNAB spend validated. Weak match to personal spend profile." }
@@ -153,14 +161,16 @@
       "note": "2026-04-07: YNAB-filtered walkthrough. Added 5 offers matching verified spend. One-time offers (SeatGeek, AllTrails, Graham & Fisk, Bad Birdie, Liquid I.V.) cannot be double-enrolled on Platinum."
     },
     "citi-aa-exec": {
-      "last_reviewed": "2026-04-21",
+      "last_reviewed": "2026-05-01",
       "total_saved_to_date": 34.72,
       "total_offers_available": 34,
-      "aa_miles_balance": 733367,
-      "current_balance": 13219.08,
-      "available_credit": 942.33,
+      "aa_miles_balance": 774255,
+      "aa_miles_as_of": "2026-05-01",
+      "current_balance": 14654.14,
+      "available_credit": 15252.90,
       "credit_limit": 40000,
-      "credit_score_fico": 858,
+      "credit_score_fico": 847,
+      "credit_score_as_of": "2026-04-21",
       "payment_due": "2026-03-24",
       "remaining_statement_balance": 3455.66,
       "walkthrough_status": "COMPLETE — 2026-04-21 YNAB-filtered walkthrough. Enrolled only offers with validated YNAB spend.",
@@ -179,12 +189,21 @@
         { "vendor": "Sixt Rent A Car", "cashback": "$30 back on $200+", "expires": "2026-05-31", "added_by": "Jarvis", "added_date": "2026-04-21", "ynab_validated": true, "note": "Car rental spend" }
       ],
       "enrollment_failures_2026_04_21": [],
+      "expiring_tomorrow_2026_05_02": [
+        { "vendor": "snakeriverfarms.com", "cashback": "4% back", "days_left": 1, "note": "EXPIRES TOMORROW — use or lose" },
+        { "vendor": "bumbleandbumble.com", "cashback": "5% back", "days_left": 1, "note": "EXPIRES TOMORROW — use or lose" },
+        { "vendor": "ancestry.com", "cashback": "4% back", "days_left": 1, "note": "EXPIRES TOMORROW — use or lose" }
+      ],
       "recommended_to_add": [
-        { "vendor": "Lyft", "cashback": "5%", "days_left": 44, "priority": "high", "note": "STACKS with $10/mo Lyft credit. Double-dip." },
-        { "vendor": "TurboTax", "cashback": "30%", "days_left": 62, "priority": "high", "note": "Tax season. Same rate as Chase/Amex offers." },
-        { "vendor": "Valvoline", "cashback": "6%", "days_left": 44, "priority": "medium", "note": "Oil changes." },
-        { "vendor": "Edwin Watts Golf", "cashback": "$10 back", "days_left": 13, "priority": "medium", "note": "Golf gear. Expiring soon." },
-        { "vendor": "Microsoft Store", "cashback": "20%", "days_left": 44, "priority": "medium", "note": "Lindsay charges $31.97/mo Microsoft on Plat — could redirect." }
+        { "vendor": "Lyft", "cashback": "10% back", "days_left": 60, "priority": "high", "note": "STACKS with $10/mo Lyft credit. Double-dip. Confirmed showing on dashboard 2026-05-01." },
+        { "vendor": "Hertz", "cashback": "$75 back", "days_left": 60, "priority": "high", "note": "High value rental car offer. New." },
+        { "vendor": "Graham + Fisk's Wine-In-A-Can", "cashback": "$28 back", "days_left": 14, "priority": "high", "note": "ENROLLED — expires May 15. Already enrolled, just spend $70+ on wine." },
+        { "vendor": "Valvoline", "cashback": "6% back", "days_left": 30, "priority": "medium", "note": "Oil changes." },
+        { "vendor": "FuboTV", "cashback": "20% back", "days_left": 91, "priority": "medium", "note": "Sports streaming." },
+        { "vendor": "ESPN", "cashback": "15% back", "days_left": 30, "priority": "medium", "note": "Sports streaming." },
+        { "vendor": "Chipotle", "cashback": "10% back", "days_left": 30, "priority": "medium", "note": "New. Dining spend." },
+        { "vendor": "Sling TV (sling.com)", "cashback": "18% back", "days_left": 75, "priority": "low", "note": "Streaming." },
+        { "vendor": "Trust & Will", "cashback": "$40 back", "days_left": 60, "priority": "low", "note": "Estate planning." }
       ],
       "notable_offers_not_added": [
         { "vendor": "ESPN+", "cashback": "15%", "days_left": 62, "note": "If streaming sports" },
@@ -254,6 +273,7 @@
     "lesson": "Quarterly credits need calendar reminders 2 weeks before expiry. Monthly review alone is insufficient — need mid-quarter nudges."
   },
   "monthly_review_log": [
+    { "date": "2026-05-01", "type": "site_walkthrough", "status": "COMPLETE", "findings": "Amex Platinum: Airline Fee Credit $85 used/$115 remaining (was $0 — surprise). Digital Entertainment $30.32 YTD/$25 May credit available. MR points 415,951 (down from 558K — ~143K redeemed). $75K threshold CONFIRMED ACHIEVED — Centurion guest access + unlimited Delta Sky Club both active through Jan 2028. Resy Q2, lululemon Q2, Hotel H1 all still $0. Citi AA Exec: Balance $14,654, miles 774,255 (up 41K), FICO 847. Lyft 10% offer (60d) showing on dashboard — not yet added. Grubhub/Lyft/Avis monthly credits still unverifiable via web portal. Chase Sapphire: 134 offers, 2 added (Starlink unused, SeatGeek expires May 15). VantageScore 809 (up from 753). Payment due May 7. 11 high-value new offers identified, none added per David's direction." },
     { "date": "2026-04-01", "type": "scheduled_automated", "findings": "Q1 Resy ($100) and lululemon ($75) expired unused. $175 lost. Discover Q2 active (Restaurants + Home Improvement). Amex $75K threshold unreachable at current pace. Total offer savings: $481.11 across all cards. 14 action items generated." },
     { "date": "2026-04-04", "type": "manual_walkthrough", "status": "INCOMPLETE", "findings": "Sapphire card balance updated ($724.65 current, $99,673.35 available, due 4/7). Dashboard accessible. Offers page (117 total) cannot be scraped via automation — Chase shadow DOM blocks content extraction. Manual offer review required. Last data pull: 2026-03-19 showed Starlink as only offer added of 123 available. See high_value_offers list for prioritized adds." },
     { "date": "2026-04-21", "type": "comprehensive_ynab_filtered_walkthrough", "status": "COMPLETE", "findings": "Portfolio-wide card offers review with YNAB-first filtering methodology. Amex Platinum: 0 offers added (all rejected — poor match to personal spend, Lindsay YPO business excluded). Amex BCP: 0 offers added (46 transactions reviewed, grocery/streaming focused but no explicit adds requested). Citi AA Exec: ✅ Turo ($30, 70d) & Sixt ($30, 40d) enrolled. Discover it: ✅ Q2 rotating category (Restaurants + Home Improvement, 5%, $1,500/qtr) CONFIRMED ACTIVATED. Chase Sapphire: 129 offers reviewed, 0 added pending YNAB confirmation; recommended YouTube TV, Disney+, Best Western, Air India. Atlas Visa: No merchant offers portal (value in rewards structure + credits). YNAB API integration failed; used transaction statement extraction as fallback for Amex Platinum/BCP." }
@@ -275,11 +295,14 @@
   "spend_threshold_tracker": {
     "amex_plat_75k": {
       "target": 75000,
-      "current": 11142,
-      "remaining": 63858,
+      "current": "ACHIEVED",
+      "remaining": 0,
       "deadline": "2026-12-31",
       "unlocks": "Centurion Lounge guest access + unlimited Delta Sky Club through Jan 2028",
-      "note": "At current Lindsay spend rate (~$727/mo + David), pace is ~$8,724/yr on card. Will NOT hit $75K without major change."
+      "status": "COMPLETE — Benefits confirmed active on portal as of 2026-05-01",
+      "centurion_guest_access": "Unlocked until Jan 31, 2028 — confirmed on portal",
+      "delta_sky_club_unlimited": "Unlimited through Jan 31, 2028 — confirmed on portal",
+      "note": "Portal shows both benefits unlocked through Jan 2028. $75K threshold was hit. Prior tracker entry of $11,142 was stale — portal is source of truth. Need to verify what spend achieved threshold."
     }
   },
   "atlas_statements": {

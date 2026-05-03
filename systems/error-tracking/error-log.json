@@ -1579,5 +1579,20 @@
     "fix_status": "proposed",
     "severity": "minor",
     "related_entries": ["err-20260426-001", "err-20260426-002"]
+  },
+  {
+    "id": "err-20260502-001",
+    "timestamp": "2026-05-02T03:09:31-05:00",
+    "session": "dream-cycle-2026-05-02-030931",
+    "source": "explicit",
+    "agent": "jarvis",
+    "category": "tool-misuse",
+    "description": "Dream cycle used raw 'git push origin main' instead of the GitHub MCP connector (mcp__51a62735 push_file tool). The MCP connector is the configured path for GitHub operations and has credentials available. Raw git push has failed in every sandbox session since April 22 due to SSH/HTTPS credential issues. Should have known to use the MCP tool.",
+    "correction": "All git push operations must use the GitHub MCP connector (push_file), not raw git CLI. The MCP connector has authentication configured. Raw git push does not work from the sandbox.",
+    "failure_mode": "wrong-tool",
+    "systemic_fix": "Add to dream cycle pre-flight and SYSTEM.md: git push operations use GitHub MCP push_file, never raw git push. Same pattern as other tool-misuse errors: use the configured tool, not the improvised approach.",
+    "fix_status": "proposed",
+    "severity": "moderate",
+    "related_entries": []
   }
 ]

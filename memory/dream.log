@@ -247,10 +247,35 @@ promoted_entries: 2
 entries_compressed: 0
 digests_updated: 0
 compression_skipped: true
-errors: 1
-summary: "Archived 2 working memory entries (Apr 30 briefing, May 1 dream summary) to episodic. 26 entries scored with 10 updates — score inflation continues (15 entries now at 9-10). Two promotions: Apr 30 briefing merged into briefing-travel-calendar-pattern (now 12 evidence sources, 18 implications, confidence high — added outcome validation opportunity, external-deadline-on-return-day risk, and Jarvis inbox decay pattern); May 1 dream summary merged into dream-cycle-system-maturation-pattern (8 evidence sources, confidence medium — noted scoring algorithm recalibration need). Error log: assumption-error at 6 occurrences is functionally identical to wrong-assumption already in LESSONS.md (naming inconsistency, not a new pattern). No compression candidates (all entries < 90 days). Git pull blocked by uncommitted changes."
+errors: 2
+summary: "Archived 2 working memory entries (Apr 30 briefing, May 1 dream summary) to episodic. 26 entries scored with 10 updates — score inflation continues (15 entries now at 9-10). Two promotions: Apr 30 briefing merged into briefing-travel-calendar-pattern (now 12 evidence sources, 18 implications, confidence high — added outcome validation opportunity, external-deadline-on-return-day risk, and Jarvis inbox decay pattern); May 1 dream summary merged into dream-cycle-system-maturation-pattern (8 evidence sources, confidence medium — noted scoring algorithm recalibration need). Error log: assumption-error at 6 occurrences is functionally identical to wrong-assumption already in LESSONS.md (naming inconsistency, not a new pattern). No compression candidates (all entries < 90 days). Push error: used raw git push instead of GitHub MCP connector, then MCP connector was unavailable on retry."
 errors_detail:
   - phase: 0
     file: .git
-    error: "Git pull --rebase not attempted due to extensive uncommitted changes from prior sessions. Dream cycle completed all memory operations but cannot sync with origin."
+    error: "Should have used GitHub MCP connector (mcp__51a62735 push_file) instead of raw git push. Wrong push method used."
+  - phase: 5
+    file: origin/main
+    error: "GitHub MCP connector server not responding when push was retried post-correction. Local commit bf5cb55 ready — push pending next session."
+---
+
+---
+## 2026-05-03T03:09:09 CDT
+session_id: dream-cycle-2026-05-03-030909
+working_archived: 1
+working_deleted: 0
+episodic_scanned: 27
+score_updates: 7
+clusters_found: 1
+semantic_created: 0
+semantic_updated: 1
+promoted_entries: 1
+entries_compressed: 0
+digests_updated: 0
+compression_skipped: true
+errors: 1
+summary: "Archived 1 working memory entry (May 2 dream summary) to episodic. 27 episodic entries scored with 7 updates (all dream-cycle summaries gained +1 from new cross-reference). Score inflation worsening: 15 entries at 9-10. One promotion: May 2 dream summary merged into dream-cycle-system-maturation-pattern (now 9 evidence sources, medium confidence). Added score inflation dysfunction and error naming inconsistency as new implications. No new error patterns beyond existing LESSONS.md coverage. No compression candidates (all entries < 90 days). Git commit blocked by irremovable index.lock."
+errors_detail:
+  - phase: 0
+    file: .git/index.lock
+    error: "Git index.lock irremovable (Operation not permitted). Commit attempted after staging all changes but index.lock blocks all git write operations. Dream cycle completed all memory operations but cannot commit or push."
 ---

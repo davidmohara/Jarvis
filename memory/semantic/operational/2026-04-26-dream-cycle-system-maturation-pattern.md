@@ -4,7 +4,7 @@ domain: operational
 tags: [dream-cycle, system-maintenance, memory-system, semantic-promotion, git-issues]
 confidence: medium
 created: 2026-04-26
-last-updated: 2026-05-02
+last-updated: 2026-05-03
 synthesized-from:
   - memory/episodic/2026-04-24-dream-cycle-summary.md
   - memory/episodic/2026-04-22-dream-cycle-summary.md
@@ -14,6 +14,7 @@ synthesized-from:
   - memory/episodic/2026-04-27-dream-cycle-summary.md
   - memory/episodic/2026-04-30-dream-cycle-summary.md
   - memory/episodic/2026-05-01-dream-cycle-summary.md
+  - memory/episodic/2026-05-02-dream-cycle-summary.md
 ---
 
 # Pattern: IES Dream Cycle System Maturation
@@ -70,3 +71,13 @@ The IES dream cycle has been running nightly since April 18, 2026. Across 7 comp
 - **Evidence source count is now 8 across 14 runs.** The pipeline continues to run nightly without failure. Reliability is proven.
 - **Score inflation is becoming a real concern.** With 26 episodic entries and 10 of them scoring 10/10, the salience scoring is losing discriminatory power. The 30-day window combined with dense tag overlap means any new briefing-tagged entry immediately hits the cap. A future evolution should consider: (a) reducing the window to 14 days, (b) requiring 3+ shared tags instead of 2, or (c) weighting by tag rarity.
 - **The system's primary value has shifted from pipeline validation to insight generation.** The briefing-travel-calendar pattern now has 12 evidence sources, 18 implications, and high confidence. It has moved from observation to actionable recommendation (build a travel-prep workflow). The dream cycle's job is increasingly about feeding and refining these semantic entries, not just proving the pipeline works.
+
+## Evidence (continued — 2026-05-03)
+
+9. **2026-05-02 dream cycle:** Archived 2 entries, scored 26 episodic entries with 10 updates. Score inflation worsening: 15 entries at score 9-10. Two promotions into existing semantic patterns. Noted that `assumption-error` and `wrong-assumption` are functionally identical categories in the error log, flagging a naming standardization need. Git sync still blocked.
+
+## Implications (updated 2026-05-03)
+
+- **Evidence source count is now 9 across 15 runs.** The pipeline is mature and running without intervention. No missed nights since initialization.
+- **Error log naming inconsistency is a new concern.** The error log uses both `assumption-error` and `wrong-assumption` for the same failure mode. This is not a memory system issue per se, but the dream cycle's error log scan is the mechanism that caught it. Standardization should happen in a future error log cleanup pass.
+- **Score inflation has crossed from concern to dysfunction.** With 15 of 27 entries at score 9-10, the salience scoring no longer discriminates between routine briefings and genuinely cross-cutting patterns. The promotion threshold of 3 is too low when the floor is 7-8. Until recalibrated, the dream cycle will continue promoting every new entry that shares any briefing-related tags. The system is working correctly per spec but the spec needs revision.
