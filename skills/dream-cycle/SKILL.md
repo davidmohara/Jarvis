@@ -13,11 +13,32 @@ You are running the IES nightly dream cycle. Execute all five phases in order.
 Log every action. Be conservative — when in doubt about whether to promote or
 compress an entry, leave it and note it in the log. Preservation over aggression.
 
+## Git Operations — MANDATORY METHOD
+
+**All git operations that touch the remote (pull, push) MUST use Desktop Commander** to run on the host Mac. The sandbox has no GitHub credentials. The repo on the host is at `/Users/davidohara/develop/jarvis`.
+
+Pull example:
+```
+mcp__Desktop_Commander__start_process("cd /Users/davidohara/develop/jarvis && git pull --rebase 2>&1", timeout_ms=30000)
+```
+
+Push example:
+```
+mcp__Desktop_Commander__start_process("cd /Users/davidohara/develop/jarvis && git push origin main 2>&1", timeout_ms=30000)
+```
+
+Local git operations (add, commit, status, diff) can run in the sandbox via Bash since the workspace mount shares the same repo state.
+
+**Do NOT attempt:** raw `git push` in sandbox, GitHub MCP push_file, `gh` CLI, or SSH-based git. They will all fail. Desktop Commander is the only path.
+
+---
+
 ## Pre-flight
 
 - Read `memory/dream.log` — confirm last run date. If last run was today, abort with log entry: `aborted: already ran today`.
 - Get current local date/time via `osascript -e 'return (current date) as string'`.
 - Record `session_id: dream-cycle-{YYYY-MM-DD-HHmmss}`.
+- **Sync from origin** using Desktop Commander (see Git Operations above). Handle any merge conflicts. Do NOT proceed until the folder is clean.
 
 ---
 
@@ -149,6 +170,10 @@ errors_detail:
 Write a file `memory/working/dream-summary-{YYYY-MM-DD}.md` with
 `type: working`, `expires: {today + 1 day}`
 Content: the log entry above, formatted for Chief to read at boot.
+
+**Commit and push (EVERY run, not just notable ones):**
+1. Stage and commit all changes via sandbox Bash (`git add`, `git commit`).
+2. Push to origin via Desktop Commander (see Git Operations section above). This is non-negotiable. Do not skip, do not defer to the next session.
 
 ---
 
