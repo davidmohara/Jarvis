@@ -39,6 +39,7 @@ python3 "$IES_ROOT/systems/slack-bot/post.py" <channel_id> "<message>"
 | Target | Channel ID | When to Use |
 |--------|-----------|-------------|
 | #jarvis | C0AN2PQNXBR | Default — briefings, reports, scheduled task output, alerts |
+| #golf | C0B15SW9FB5 | Golf tee time previews, booking confirmations |
 | DM to David | U0ANHV5UXEW | Urgent or private — overdue items, time-sensitive decisions |
 
 ## How to Send

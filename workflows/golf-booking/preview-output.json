@@ -1,0 +1,69 @@
+{
+  "generated_at": "2026-05-03T19:15:00",
+  "target_weekend": {
+    "friday": "2026-05-08",
+    "saturday": "2026-05-09",
+    "sunday": "2026-05-10"
+  },
+  "day_status": {
+    "friday": {
+      "status": "unavailable",
+      "reason": "Hard blocked — travel day from Cabo. Flight AA 2647 SJD→DFW departs 1:30pm CDT. Work meetings fill morning (Coffee Chat 8am, Sales & Recruiting 9:15am, 2nd Friday Exec Meeting 9:30am, Presidents Pipeline 10am, Weekly Wrap-Up 1pm). No viable 3-hour window."
+    },
+    "saturday": {
+      "status": "already_booked",
+      "reason": "Tee time already on calendar — Frisco Lakes Golf Club, 4:30pm CDT. Yoga 8-9am and Core Session 9-9:30am in morning."
+    },
+    "sunday": {
+      "status": "conditional",
+      "reason": "Mother's Day. Church buffer blocks until 1:30pm. Weiser Dinner at 5pm CDT. Window 2:30-4:30pm is tight and hot (90°F+). Low priority."
+    }
+  },
+  "drought": false,
+  "last_round": {
+    "date": "2026-05-02",
+    "location": "Frisco Lakes Golf Club",
+    "days_ago": 1
+  },
+  "top_options": [
+    {
+      "rank": 1,
+      "day": "saturday",
+      "date": "2026-05-09",
+      "preferred_start": "16:30",
+      "preferred_end": "19:30",
+      "holes": 18,
+      "cost_per_player": 15,
+      "total_cost": 30,
+      "weather": {
+        "rain_pct": 6,
+        "temp_f": 80,
+        "wind_mph": 9,
+        "condition": "clear"
+      },
+      "score": 5,
+      "rationale": "Already booked — Frisco Lakes 4:30pm CDT. Perfect weather, no conflicts after morning workouts. No action needed.",
+      "already_booked": true
+    },
+    {
+      "rank": 2,
+      "day": "sunday",
+      "date": "2026-05-10",
+      "preferred_start": "14:30",
+      "preferred_end": "17:00",
+      "holes": 18,
+      "cost_per_player": 15,
+      "total_cost": 30,
+      "weather": {
+        "rain_pct": 10,
+        "temp_f": 91,
+        "wind_mph": 17,
+        "condition": "hot"
+      },
+      "score": 18,
+      "rationale": "Mother's Day with tight window (2:30-4:30pm before Weiser Dinner at 5pm). 91°F and 17mph wind make this unappealing. Fallback only.",
+      "already_booked": false
+    }
+  ],
+  "override_instructions": null
+}

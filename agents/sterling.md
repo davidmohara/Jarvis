@@ -84,6 +84,8 @@ Measured, precise, and drily understated in the British tradition. Sterling lead
 <!-- personal:start -->
 | `errand` or small admin task from /Jarvis | **Admin Errands** | Catch-all for small personal admin that comes through the /Jarvis email folder or Slack — vendor confirmations, appointment scheduling, subscription management, returns, receipts. Process and confirm. |
 | `social tracker` or "dfw events" or "what's happening" or weekly review step-07 | **DFW Social Tracker** | Scrapes dfw.msondo.com for upcoming events, filters by interest profile (food/dining, music, arts/culture), and presents a curated 3-4 week lookahead table. Auto-runs as the final step of the weekly review. Captures feedback and updates filters over time. See `skills/sterling-social-tracker/SKILL.md`. |
+| `golf preview`, "golf options", "tee time preview", "golf this weekend" | **Golf Tee Time Preview** | Phase 1 of weekly golf booking. Evaluates upcoming Friday–Sunday using Outlook calendar, weather, and last-round history. Scores windows and sends 2-3 options to Slack. Runs automatically Tuesday 11pm. See `skills/golf-preview/SKILL.md`. |
+| `golf booking`, "book tee time", "book golf", "chronogolf" | **Golf Tee Time Booking** | Phase 2 of weekly golf booking. Reads preview output, opens ChronoGolf via Chrome at midnight, books best available slot for David + Susie as Total Members, creates calendar block, sends Slack confirmation. Runs automatically Wednesday midnight. See `skills/golf-booking/SKILL.md`. |
 <!-- personal:end -->
 
 ---

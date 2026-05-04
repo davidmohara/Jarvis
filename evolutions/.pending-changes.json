@@ -1,6 +1,50 @@
 {
   "pending": [
     {
+      "id": "work-20260503-golf-booking",
+      "description": "New golf tee time booking workflow for Frisco Lakes Golf Club. Two-phase: preview skill evaluates calendar + weather + scoring and sends Slack options on Tuesday 11pm; booking skill opens ChronoGolf via Chrome at Wednesday midnight and books best available slot for David + Susie O'Hara as Total Members. Creates calendar block with 30-min range buffer. Two scheduled tasks registered in Cowork.",
+      "started": "2026-05-03T00:00:00Z",
+      "classification": "personal",
+      "files": [
+        {
+          "path": "workflows/golf-booking/workflow.md",
+          "action": "add",
+          "type": "personal",
+          "description": "New workflow: golf-booking. Two-phase orchestrator — preview (Tue 11pm) + booking (Wed midnight). Targets Friday/Saturday/Sunday 8 days out."
+        },
+        {
+          "path": "workflows/golf-booking/state.yaml",
+          "action": "add",
+          "type": "personal",
+          "description": "State file for golf-booking workflow."
+        },
+        {
+          "path": "skills/golf-preview/SKILL.md",
+          "action": "add",
+          "type": "personal",
+          "description": "New skill: Golf Tee Time Preview. Calendar conflict check, weather scoring, last-round drought check, window scoring model, Slack notification with top 2-3 options."
+        },
+        {
+          "path": "skills/golf-booking/SKILL.md",
+          "action": "add",
+          "type": "personal",
+          "description": "New skill: Golf Tee Time Booking. Real-time ChronoGolf booking via Chrome at midnight. Reads preview output, books as Susie O'Hara Total Member + David Total Member, creates Outlook calendar block, sends Slack confirmation."
+        },
+        {
+          "path": "skills/_manifest.jsonl",
+          "action": "merge",
+          "type": "system",
+          "description": "Added golf-preview and golf-booking entries to skill manifest."
+        },
+        {
+          "path": "agents/rigby.md",
+          "action": "merge",
+          "type": "personal",
+          "description": "Added golf-preview and golf-booking trigger rows to Rigby task portfolio."
+        }
+      ]
+    },
+    {
       "id": "podcast-transcript-extract-001",
       "description": "New skill: podcast-transcript-extract. Extracts full transcripts from podcast episodes (YouTube + Apple Podcasts via Chrome) and saves structured Obsidian notes. Includes duration verification step that checks stated episode length against last transcript timestamp. File naming convention: {YY-MM-DD} - {Podcast Name}.md",
       "started": "2026-04-23T00:00:00Z",
