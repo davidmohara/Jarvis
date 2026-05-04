@@ -1,69 +1,72 @@
 {
-  "generated_at": "2026-05-03T19:15:00",
+  "generated_at": "2026-05-04T00:00:00",
   "target_weekend": {
-    "friday": "2026-05-08",
-    "saturday": "2026-05-09",
-    "sunday": "2026-05-10"
+    "friday": "2026-05-15",
+    "saturday": "2026-05-16",
+    "sunday": "2026-05-17"
+  },
+  "last_round": {
+    "date": "2026-05-02",
+    "location": "Frisco Lakes Golf Club",
+    "days_ago": 2
+  },
+  "weather_forecast": {
+    "source": "Web search estimates — 11-day range, lower confidence. Recheck Thu May 14.",
+    "friday_may15": { "high_f": 81, "low_f": 64, "conditions": "Partly cloudy", "rain_chance_pct": null },
+    "saturday_may16": { "high_f": 78, "low_f": 60, "conditions": "Partly cloudy", "rain_chance_pct": null },
+    "sunday_may17": { "high_f": 79, "low_f": 62, "conditions": "Partly cloudy", "rain_chance_pct": null }
   },
   "day_status": {
     "friday": {
       "status": "unavailable",
-      "reason": "Hard blocked — travel day from Cabo. Flight AA 2647 SJD→DFW departs 1:30pm CDT. Work meetings fill morning (Coffee Chat 8am, Sales & Recruiting 9:15am, 2nd Friday Exec Meeting 9:30am, Presidents Pipeline 10am, Weekly Wrap-Up 1pm). No viable 3-hour window."
+      "reason": "YPO 49er retreat at McNarosa Ranch (Malakoff TX) — all-day, out of town. Multiple work meetings plus haircut. Zero viable window."
     },
     "saturday": {
       "status": "already_booked",
-      "reason": "Tee time already on calendar — Frisco Lakes Golf Club, 4:30pm CDT. Yoga 8-9am and Core Session 9-9:30am in morning."
+      "reason": "Tee time already on calendar — Frisco Lakes Golf Club, 4:30pm CDT. Morning has Cookout at Rhonda's (11:15am). No booking action needed."
     },
     "sunday": {
-      "status": "conditional",
-      "reason": "Mother's Day. Church buffer blocks until 1:30pm. Weiser Dinner at 5pm CDT. Window 2:30-4:30pm is tight and hot (90°F+). Low priority."
+      "status": "open",
+      "reason": "No calendar conflicts found. Clean window all day. Morning tee time (7-9am) recommended to beat afternoon heat."
     }
-  },
-  "drought": false,
-  "last_round": {
-    "date": "2026-05-02",
-    "location": "Frisco Lakes Golf Club",
-    "days_ago": 1
   },
   "top_options": [
     {
       "rank": 1,
       "day": "saturday",
-      "date": "2026-05-09",
+      "date": "2026-05-16",
       "preferred_start": "16:30",
       "preferred_end": "19:30",
-      "holes": 18,
-      "cost_per_player": 15,
-      "total_cost": 30,
       "weather": {
-        "rain_pct": 6,
-        "temp_f": 80,
-        "wind_mph": 9,
-        "condition": "clear"
+        "temp_f": 78,
+        "condition": "partly_cloudy",
+        "rain_chance_pct": null
       },
-      "score": 5,
-      "rationale": "Already booked — Frisco Lakes 4:30pm CDT. Perfect weather, no conflicts after morning workouts. No action needed.",
+      "score": 90,
+      "rationale": "Already booked — Frisco Lakes 4:30pm CDT. Best temps of the weekend (78F). No action needed.",
       "already_booked": true
     },
     {
       "rank": 2,
       "day": "sunday",
-      "date": "2026-05-10",
-      "preferred_start": "14:30",
-      "preferred_end": "17:00",
-      "holes": 18,
-      "cost_per_player": 15,
-      "total_cost": 30,
+      "date": "2026-05-17",
+      "preferred_start": "07:00",
+      "preferred_end": "11:00",
       "weather": {
-        "rain_pct": 10,
-        "temp_f": 91,
-        "wind_mph": 17,
-        "condition": "hot"
+        "temp_f": 79,
+        "condition": "partly_cloudy",
+        "rain_chance_pct": null
       },
-      "score": 18,
-      "rationale": "Mother's Day with tight window (2:30-4:30pm before Weiser Dinner at 5pm). 91°F and 17mph wind make this unappealing. Fallback only.",
+      "score": 80,
+      "rationale": "Completely open day. Optional bonus round. Morning slot avoids afternoon heat. Book if desired.",
       "already_booked": false
     }
   ],
-  "override_instructions": null
+  "booking_action": "Saturday May 16 confirmed — no action needed. Sunday May 17 is open for an optional bonus round.",
+  "notes": [
+    "Skill file /skills/rigby-golf-preview/SKILL.md not found in vault — executed from task file instructions directly",
+    "Weather at 11-day range is low-confidence — recheck Thursday May 14 for updated conditions",
+    "Friday is a hard block — David is away at YPO 49er, McNarosa Ranch (Malakoff TX)",
+    "Last round was May 2 (2 days ago) at Frisco Lakes"
+  ]
 }
