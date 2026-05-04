@@ -1,6 +1,6 @@
 # IES Skill Index
 
-Last updated: 2026-04-18 | Total skills: 24
+Last updated: 2026-05-04 | Total skills: 24
 
 | ID | Name | Owner | Model | Trigger Keywords (sample) |
 |----|------|-------|-------|---------------------------|
