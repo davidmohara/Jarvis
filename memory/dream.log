@@ -279,3 +279,25 @@ errors_detail:
     file: .git/index.lock
     error: "Git index.lock irremovable (Operation not permitted). Commit attempted after staging all changes but index.lock blocks all git write operations. Dream cycle completed all memory operations but cannot commit or push."
 ---
+
+---
+## 2026-05-04T03:08:38 CDT
+session_id: dream-cycle-2026-05-04-030838
+working_archived: 2
+working_deleted: 0
+episodic_scanned: 29
+score_updates: 9
+clusters_found: 2
+semantic_created: 0
+semantic_updated: 2
+promoted_entries: 2
+entries_compressed: 0
+digests_updated: 0
+compression_skipped: true
+errors: 1
+summary: "Archived 2 working memory entries (May 1 morning briefing, May 3 dream summary) to episodic. 29 episodic entries scored with 9 updates (7 dream-cycle summaries gained +1 each, 2 new entries scored at 10 and 9). Score inflation continues: 17+ entries at 9-10. Two promotion clusters: May 1 briefing merged into briefing-travel-calendar-pattern (now 13 evidence sources, 21 implications, high confidence — added post-travel recovery gap, OmniFocus 9+ day failure streak, lead accumulation pattern); May 3 dream summary merged into dream-cycle-system-maturation-pattern (now 10 evidence sources, medium confidence — noted score inflation as primary threat to utility, git sync blocked 12 consecutive runs). assumption-error at 4 occurrences is functionally identical to wrong-assumption already in LESSONS.md (naming inconsistency, not new pattern). No compression candidates (all entries < 90 days). Git pull blocked by index.lock."
+errors_detail:
+  - phase: 0
+    file: .git/index.lock
+    error: "Git pull --rebase failed: index.lock irremovable (Operation not permitted). Fetched origin/main (8a15c14..5161c70) but cannot apply. Dream cycle completed all memory operations but cannot sync with origin."
+---

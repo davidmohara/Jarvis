@@ -4,7 +4,7 @@ domain: operational
 tags: [briefing, calendar, omnifocus, google-next, travel, overdue-tasks, leads]
 confidence: high
 created: 2026-04-24
-last-updated: 2026-05-02
+last-updated: 2026-05-04
 synthesized-from:
   - memory/episodic/2026-04-20-morning-briefing.md
   - memory/episodic/2026-04-21-morning-briefing.md
@@ -18,6 +18,7 @@ synthesized-from:
   - memory/episodic/2026-04-26-morning-briefing-glc-travel.md
   - memory/episodic/2026-04-29-morning-briefing-glc-day4.md
   - memory/episodic/2026-04-30-morning-briefing.md
+  - memory/episodic/2026-05-01-morning-briefing.md
 ---
 
 # Pattern: Morning Briefings Consistently Flag Travel-Calendar Conflicts
@@ -150,3 +151,17 @@ Morning briefings across the entire Google Next week (Apr 20-23) repeatedly surf
 16. **The Apr 30 flight conflict is now a past event and can be validated.** This is the first instance where the pattern's predicted risk has materialized and passed. The next boot should confirm: did the One Texas Sales Update happen? Were the conflicting morning meetings missed, declined, or handled via mobile? This outcome data is critical for calibrating future risk severity.
 17. **External deadlines on travel return days are a new risk category.** YPO RBM receipts were due COB on the same day as the ORD-DFW return. The system had no mechanism to pre-complete this or escalate it before departure. Hard external deadlines within 24 hours of a return flight need to be surfaced at the pre-departure stage, not on the day itself.
 18. **Jarvis inbox items decay without a processing pathway.** The "Project Profitability" email sat for 4 days with no processing because it required Chase-level analysis and attachment review — capabilities unavailable in automated mode. Items that need specific agent capabilities should be auto-routed to the next live session rather than carrying forward in each briefing as an unactionable flag.
+
+### May 1 Morning Briefing — First Post-Travel Friday (NEW — 2026-05-04 dream cycle)
+- First briefing after the GLC Chicago / travel stretch. OmniFocus timed out 3x again, maintaining the streak.
+- 6 unassigned leads now (Alcon, AECom, IFS, Cardinal IT, Paragon Brokerage, Birgo) — lead count grew during travel with no triage.
+- Jarvis inbox: "Project Profitability" still unprocessed since Apr 26 (now 5 days stale). No delegation pathway built.
+- Sharp edges: Scott McMichael Q1 close-out at 10:30 AM with only 30 min prep. Stuart Sides lunch at Ida Claire (low context). Randy McCabe / OpenText call (low context). 3 meetings with minimal preparation.
+- Make-A-Wish Gala flagged for Saturday May 3 (black tie, tux status unknown). DRC Executive AI Workshop May 21 is 20 days out with no prep visible.
+- Slack delivery skipped again (5th recorded instance of this failure pattern per error log).
+
+## Implications (continued — 2026-05-04)
+
+19. **Post-travel recovery days are as risky as travel days.** The May 1 briefing shows the aftermath: 3 meetings with minimal context, accumulated leads, stale inbox items, and upcoming events (Make-A-Wish, DRC workshop) with no prep. The system correctly flagged these but generated no mitigation. A post-travel recovery protocol should auto-prioritize: (a) process stale inbox, (b) triage accumulated leads, (c) verify prep for next 72 hours.
+20. **OmniFocus failure now spans 9+ days across two trips plus post-travel.** The timeout streak started Apr 21 and continued through May 1. This is no longer a travel-specific issue — it is a persistent infrastructure failure in automated mode. The system should permanently default to osascript for scheduled runs and treat MCP as best-effort.
+21. **Lead accumulation during travel is worsening.** Count went from 4 (Apr 27) to 6 (May 1). Leads are aging without assignment (Alcon now 370+ days). The travel-mode gap includes no auto-routing of leads to Alice or the assigned AM.

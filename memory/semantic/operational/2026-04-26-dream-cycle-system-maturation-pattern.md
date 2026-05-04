@@ -4,7 +4,7 @@ domain: operational
 tags: [dream-cycle, system-maintenance, memory-system, semantic-promotion, git-issues]
 confidence: medium
 created: 2026-04-26
-last-updated: 2026-05-03
+last-updated: 2026-05-04
 synthesized-from:
   - memory/episodic/2026-04-24-dream-cycle-summary.md
   - memory/episodic/2026-04-22-dream-cycle-summary.md
@@ -15,6 +15,7 @@ synthesized-from:
   - memory/episodic/2026-04-30-dream-cycle-summary.md
   - memory/episodic/2026-05-01-dream-cycle-summary.md
   - memory/episodic/2026-05-02-dream-cycle-summary.md
+  - memory/episodic/2026-05-03-dream-cycle-summary.md
 ---
 
 # Pattern: IES Dream Cycle System Maturation
@@ -81,3 +82,13 @@ The IES dream cycle has been running nightly since April 18, 2026. Across 7 comp
 - **Evidence source count is now 9 across 15 runs.** The pipeline is mature and running without intervention. No missed nights since initialization.
 - **Error log naming inconsistency is a new concern.** The error log uses both `assumption-error` and `wrong-assumption` for the same failure mode. This is not a memory system issue per se, but the dream cycle's error log scan is the mechanism that caught it. Standardization should happen in a future error log cleanup pass.
 - **Score inflation has crossed from concern to dysfunction.** With 15 of 27 entries at score 9-10, the salience scoring no longer discriminates between routine briefings and genuinely cross-cutting patterns. The promotion threshold of 3 is too low when the floor is 7-8. Until recalibrated, the dream cycle will continue promoting every new entry that shares any briefing-related tags. The system is working correctly per spec but the spec needs revision.
+
+## Evidence (continued — 2026-05-04)
+
+10. **2026-05-03 dream cycle:** Archived 1 entry, scored 27 episodic entries with 7 updates. Score inflation confirmed as systemic: 15 of 27 entries at 9-10. One promotion (May 2 dream summary) merged into this pattern. Pipeline reliability at 16 consecutive nightly runs with zero missed nights. Error naming inconsistency (`assumption-error` vs `wrong-assumption`) flagged for standardization.
+
+## Implications (updated 2026-05-04)
+
+- **Evidence source count is now 10 across 16 runs.** The pipeline has not missed a single night since initialization on April 18. This is a mature, self-sustaining system.
+- **Score inflation is now the primary threat to system utility.** With 29 episodic entries and 17+ scoring 9-10, the scoring algorithm is no longer useful for distinguishing signal from noise. Every new briefing-tagged entry auto-promotes. The three proposed fixes remain: (a) reduce window from 30 to 14 days, (b) require 3+ shared tags, or (c) weight by tag rarity. This needs to be addressed in the next system evolution — the dream cycle is generating correct output per spec, but the spec is broken.
+- **Git sync has been blocked for 12 consecutive runs.** The persistence risk has not been mitigated. All memory evolution since April 22 remains local-only. A manual push from a live session is the only viable path until the sandbox environment can be configured for git write operations.
