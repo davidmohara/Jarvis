@@ -1889,5 +1889,21 @@
     "fix_status": "proposed",
     "severity": "moderate",
     "related_entries": ["err-20260426-004"]
+  },
+  {
+    "id": "err-20260504-007",
+    "timestamp": "2026-05-04T18:00:00-05:00",
+    "session": "2026-05-04",
+    "source": "explicit",
+    "agent": "jarvis",
+    "category": "routing-error",
+    "description": "Master built the entire content-pipeline workflow directly — wrote workflow.md, step files, read.py, updated master.md, created scheduled tasks — instead of spawning Rigby. Rigby owns all system evolution: new workflows, new scripts, structural changes to IES. This is the same routing failure documented in err-20260504-005 for Harper, now repeated by Master itself.",
+    "correction": "Any request to build or evolve IES infrastructure (new workflows, new scripts, agent file changes, scheduled tasks) must be routed to Rigby. Master defines the requirements and reviews the output; Rigby does the build.",
+    "failure_mode": "protocol-skip",
+    "systemic_fix": "Add explicit rule to master.md spawning protocol: any request involving 'build a workflow', 'create a new capability', 'add a script', 'evolve the system', or structural IES changes triggers an immediate Rigby spawn. Master does not write IES infrastructure files directly.",
+    "fix_status": "proposed",
+    "severity": "major",
+    "related_entries": ["err-20260504-005"]
   }
 ]
+}

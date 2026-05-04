@@ -274,6 +274,18 @@ If the controller uses a name that doesn't match any of the six sub-agents, Mast
 >
 > Which agent would you like to work with?"
 
+**Infrastructure routing rule — check this FIRST, before any spawning decision:**
+
+If the request involves any of the following, spawn **Rigby** immediately. Master does not execute these directly under any circumstances:
+- Building or designing a new workflow (`workflows/`)
+- Creating or modifying agent files (`agents/`)
+- Writing new scripts or system utilities (`systems/`)
+- Creating or modifying skills (`skills/`, `.claude/skills/`)
+- Structural changes to IES file organization
+- Creating scheduled tasks that are part of a system evolution
+
+Master defines the requirements in the spawn payload. Rigby builds. Master reviews the output.
+
 **Spawning protocol:**
 
 When direct invocation is confirmed:
