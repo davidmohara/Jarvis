@@ -279,7 +279,13 @@ If the controller uses a name that doesn't match any of the six sub-agents, Mast
 When direct invocation is confirmed:
 
 1. Load the agent's full persona from `agents/{name}.md`
-2. Load the agent's task portfolio and identify the relevant skill from `skills/{name}-*.md` based on the request context
+2. **Check for workflows first.** Scan the Workflow Registry table below. If the request context maps to a workflow assigned to this agent, include in the spawn payload:
+   > "Workflow: workflows/{name}/workflow.md — read this file first, run the STATE CHECK, and execute all steps as written."
+   
+   If no workflow matches, fall back to step 2b below.
+
+2b. Load the agent's task portfolio and identify the relevant skill from `skills/{name}-*.md` based on the request context. If neither workflow nor skill clearly applies, surface the ambiguity to Master rather than having the agent improvise.
+
 3. Load domain context for the agent:
    - Memory layer: relevant entries from `memory/episodic/` (meetings, people, projects, decisions, coaching) and `memory/semantic/` (distilled patterns) scoped to the agent's domain
    - Knowledge layer: relevant notes from Obsidian vault scoped to the agent's domain
@@ -287,6 +293,55 @@ When direct invocation is confirmed:
 4. The agent operates with standing permissions defined in `identity/AUTOMATION.md` and `config/agents.json`
 5. Pass the controller's original request text (everything after the agent name) as the initial context for the spawned agent
 6. The spawned agent executes using its own persona, tools, and workflows — it does not defer back to Master for task decisions
+
+### Workflow Registry
+
+This table maps workflow name → assigned agent → trigger context. Master uses this to determine whether to pass a workflow reference in the spawn payload before checking skills.
+
+| Workflow | Agent | Trigger Context |
+|----------|-------|-----------------|
+| account-strategy | Chase | Account deep-dive, strategic planning for a specific client |
+| calendar-prep | Chief | Meeting prep, attendee research, brief building |
+| card-review | Chase | Monthly credit card benefits audit, optimization |
+| card-walkthrough | Chase | Guided monthly portal walkthrough, benefit discovery |
+| card-which | Chase | Card selection optimization for a specific purchase |
+| client-meeting-prep | Chase | Client/prospect meeting prep with attendee research |
+| comp-tracker | Chase | Monthly compensation tracking update from PowerBI |
+| content-calendar | Harper | Content calendar review, deadline management, publishing schedule |
+| daily-review | Chief | End-of-day shutdown, capture completions and tomorrow's priorities |
+| delegation-tracker | Shep | View all delegations, check status, flag overdue items |
+| email-drafting | Harper | Draft a professional email, calibrated for recipient and voice |
+| evolution-deployment | Rigby | Deploy evolution packages with personal block preservation |
+| evolution-training-sync | Shep-Training | Sync training curriculum with newly applied evolution components |
+| follow-up-nudges | Shep | Surface overdue delegations, draft calibrated follow-up messages |
+| galen-monthly-health-review | Galen | Monthly health review, WHOOP + bloodwork + DEXA analysis |
+| goal-alignment | Quinn | Check activity against annual and quarterly goals, detect drift |
+| golf-booking | Sterling | Weekly tee time booking at Frisco Lakes Golf Club |
+| inbox-processing | Chief | Triage task inbox to zero, assign dispositions |
+| initiative-tracker | Quinn | View strategic initiatives, status, owners, blockers |
+| knowledge-ingest | Knox | Unified ingestion pipeline for captured content, tagging, vault filing |
+| lead-log | Chase | Log new leads to My Leads.xlsx when prospects surface |
+| lead-review | Chase | Review and surface unassigned leads from tracker |
+| leadership-prep | Quinn | Build materials for board meetings, quarterly reviews, town halls |
+| morning-briefing | Chief | Start-of-day briefing, calendar, priorities, delegations, context |
+| one-on-one-prep | Shep | Build comprehensive prep brief for internal 1:1 meeting |
+| one-texas-scorecard | Chase | Pull consolidated One Texas revenue + pipeline + co-sell snapshot |
+| partner-meeting-prep | Chase | Partner/QBR meeting prep, account overlap, collaboration |
+| pipeline-review | Chase | Pipeline health check, stage analysis, risk flags, forecast |
+| plaud-ingest | Knox | Full Plaud recording ingestion, transcription, speaker ID, vault fetch |
+| podcast-prep | Harper | Generate episode prep documents for The Improving Edge |
+| presentation-builder | Harper | Convert source materials into polished slide-by-slide text structure |
+| rock-review | Quinn | Quarterly rock review, evidence-based status, risk flags, actions |
+| rock1-revenue-monthly | Chase | Monthly Rock 1 revenue pull, Dallas + South Texas snapshot |
+| rock4-pipeline-weekly | Chase | Weekly Rock 4 pipeline pull, co-sell + pipeline snapshot |
+| shutdown-cleanup | Master | Session exit cleanup, purge artifacts, organize deliverables, commit |
+| talking-points | Harper | Generate talking points for meetings, panels, podcasts, events |
+| training-module-runner | Shep | Load curriculum, coach through guided walkthrough, record mastery |
+| training-onboarding | Shep | First-launch onboarding, intake interview, orientation, first task |
+| training-status | Shep | Training dashboard, progress bar, mastery counts, next recommendation |
+| weekly-knowledge-review | Knox | Weekly review of knowledge capture, ingestion, action items, connections |
+| weekly-review | Master | Weekly review, rocks, delegations, inbox, calendar, people, priorities |
+| win-loss-analysis | Chase | Post-decision debrief, pattern recognition, lessons applied |
 
 ### Sub-Agent Process Model
 

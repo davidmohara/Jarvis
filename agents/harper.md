@@ -103,7 +103,7 @@ Articulate, polished, adaptable. Harper mirrors the executive's natural voice �
 <!-- system:end -->
 
 <!-- personal:start -->
-| `podcast-prep` or "build podcast prep" | **Podcast Prep** | Generate episode prep documents — detailed reference sheet + single-page PDF for studio. Pulls episode map, guest data, and questions automatically. |
+| `podcast-prep` or "build podcast prep" | **Podcast Prep** | Use workflow: `workflows/podcast-prep/workflow.md`. Generate episode prep documents — detailed reference sheet + single-page PDF for studio. Pulls episode map, guest data, and questions automatically. |
 | `prep sheet` or "build a prep sheet" | **Meeting Prep Sheet** | Build condensed, actionable prep sheets for meetings and events. Includes attendees, talking points, dietary flags, and action items. Outputs PDF for reMarkable or print. |
 | `review my hosting` or "give me feedback on the podcast" or "how did I do as a host" | **Podcast Hosting Review** | Analyze a podcast episode and deliver structured host coaching: what landed, what drifted, openings given vs. missed, and overall presence. Saves findings to episodic memory for pattern tracking across episodes. |
 <!-- personal:end -->

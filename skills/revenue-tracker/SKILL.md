@@ -23,9 +23,18 @@ Key metrics:
 - **Revenue vs. Target**: Current Quarter %, Last Quarter %, YTD %
 - **Revenue vs. Prior Year**: Current Quarter %, Last Quarter %, YTD %
 - **Sequential Quarterly Revenue**: Current Quarter %, Previous Quarter %, 90-Day Forecast vs. Target %
-- **Monthly Revenue**: most recent closed month $ from bar chart hover
+- **Monthly Revenue**: most recent closed month $ from bar chart — **actual only (black bars)**
 
 Note: South Texas = Austin + Houston. One Texas = Dallas + South Texas combined.
+
+### Bar Chart Color Encoding — Critical
+
+The Monthly Revenue bar chart uses color to distinguish revenue type:
+- **Black bars** = Actual recognized revenue. This is the only number that counts.
+- **Blue bars** = Backlog (contracted but not yet recognized)
+- **Gold/yellow bars** = Pipeline (not yet contracted)
+
+A month with blue or gold bars — even if it has a visible bar height — is **forecast, not actual**. Do not report it as revenue. The most recent closed month is the last month whose bar is entirely black (no blue/gold component). Months with mixed or blue/gold-only bars are in-progress or future — ignore them for the Monthly Revenue figure.
 
 ---
 
@@ -150,19 +159,58 @@ Read the KPI values from the returned text. The page shows:
 - Revenue vs. Previous Year: Current Quarter %, Last Quarter %, YTD %
 - Sequential Quarterly Revenue: Current Quarter %, Previous Quarter %, 90-Day Forecast %
 
-Now hover to get the most recent month's revenue dollar figure. Move mouse to the
-bar chart hover position (x≈396, y≈265) and read the tooltip div:
+Now identify the most recent **actual** (black bar) month and get its revenue figure.
+
+**Step 1 — Identify actual vs. forecast bars by SVG fill color:**
 
 ```js
 mcp__Control_Chrome__execute_javascript
 code: (() => {
-  // Simulate mousemove to trigger PowerBI tooltip
+  // Find the Monthly Revenue bar chart SVG and inspect rect fill colors
+  // Black bars = actual revenue. Blue/gold bars = backlog/pipeline (forecast). Ignore forecast bars.
+  const svgs = document.querySelectorAll('svg');
+  for (const svg of svgs) {
+    if (!(svg.textContent || '').includes('Jan')) continue;
+    const rects = Array.from(svg.querySelectorAll('rect'));
+    const bars = rects
+      .map(r => {
+        const fill = (r.getAttribute('fill') || r.style?.fill || '').toLowerCase();
+        const computedFill = window.getComputedStyle(r).fill || '';
+        return {
+          x: Math.round(parseFloat(r.getAttribute('x') || 0)),
+          y: Math.round(parseFloat(r.getAttribute('y') || 0)),
+          h: Math.round(parseFloat(r.getAttribute('height') || 0)),
+          w: Math.round(parseFloat(r.getAttribute('width') || 0)),
+          fill: fill || computedFill.substring(0, 40),
+        };
+      })
+      .filter(b => b.h > 10 && b.w > 5 && b.w < 60)
+      .sort((a, b) => a.x - b.x);
+    if (bars.length > 0) return bars;
+  }
+  return 'no bar chart found';
+})()
+```
+
+Inspect the `fill` values returned:
+- Bars with dark/black fill (e.g. `rgb(0,0,0)`, `#000`, `#1a1a1a`, or similar dark colors) = **actual revenue** ✓
+- Bars with blue fill (e.g. `rgb(0,112,192)`, `#0070c0`, or similar) = backlog — **skip**
+- Bars with gold/yellow fill (e.g. `rgb(255,192,0)`, `#ffc000`, or similar) = pipeline — **skip**
+
+The last month (rightmost x position) whose bar is black is the most recently closed month. Record that month and its bar height for value calculation.
+
+**Step 2 — Get the dollar value via tooltip hover on the black bar:**
+
+Move mouse to the x-center of the most recent black bar (use its `x + w/2` and a y-coordinate in the middle of the chart, approximately y≈265 in screen space):
+
+```js
+mcp__Control_Chrome__execute_javascript
+code: (() => {
   const el = document.elementFromPoint(396, 265);
   if (el) {
     el.dispatchEvent(new MouseEvent('mousemove', {bubbles: true, clientX: 396, clientY: 265}));
     el.dispatchEvent(new MouseEvent('mouseenter', {bubbles: true, clientX: 396, clientY: 265}));
   }
-  // Read tooltip after brief delay — call again in 1.5s if needed
   return new Promise(resolve => setTimeout(() => {
     const allDivs = document.querySelectorAll('div');
     for (const div of allDivs) {
@@ -175,8 +223,14 @@ code: (() => {
 })()
 ```
 
-If tooltip returns null, try reading the bar chart labels directly from DOM text instead.
-The most recent month with a non-zero bar is the last closed month.
+**Step 3 — Fallback if tooltip returns null:**
+
+If the tooltip doesn't render, estimate the value from bar height using the SVG scale:
+- Determine the plot baseline (y-coordinate of the $0 line = max y+h of any bar)
+- Determine the axis max from DOM text ($1M, $2M, $3M, etc.)
+- Value ≈ `(bar.h / baseline_height) * axis_max`
+- Flag the result as approximate: `~$X.XM (estimated from bar height)`
+- **Only perform this calculation on black bars.** Do not estimate forecast bar values.
 
 Record:
 - Dallas Revenue vs. Target: CQ %, LQ %, YTD %
@@ -219,13 +273,14 @@ code: new Promise((resolve) => {
 })
 ```
 
-Close, wait 2 seconds, read KPI tiles and hover for monthly revenue the same way as Phase 2.
+Close, wait 2 seconds, read KPI tiles and identify the most recent black bar for monthly revenue
+the same way as Phase 2. Apply the same color rule: black = actual, blue/gold = forecast, skip forecast.
 
 Record:
 - South Texas Revenue vs. Target: CQ %, LQ %, YTD %
 - South Texas Revenue vs. Prior Year: CQ %, LQ %, YTD %
 - South Texas Sequential Quarterly: CQ %, PQ %, 90-Day %
-- South Texas Monthly Revenue: $X (Month) — also read Austin and Houston separately if visible
+- South Texas Monthly Revenue: $X (Month, actual/black bar only) — also read Austin and Houston separately if visible
 
 ---
 
@@ -292,12 +347,16 @@ Do not soften misses.
 ## Notes
 
 - **One Texas only** — never report all-Improving numbers. Always filter before reading.
+- **Black bars = actual. Blue/gold bars = forecast. Never report forecast bars as revenue.**
+  The current in-progress month will have blue/gold bars because it hasn't closed yet. The most
+  recently closed month is the last month with a fully black bar. If you're unsure which month
+  that is, read SVG rect fill colors via `window.getComputedStyle(r).fill` and filter for dark/black.
 - The single Promise-based evaluate handles open + expand + select with built-in retry.
   Do not break it into separate steps.
 - KPI tile values: read from DOM text if screenshot not available. Look for large % values
   adjacent to section headers like "Revenue vs. Target".
 - Monthly Revenue tooltip: trigger via mousemove/mouseenter dispatch at (x≈396, y≈265).
-  If mousemove doesn't trigger tooltip, read bar chart axis labels from DOM as fallback.
+  If mousemove doesn't trigger tooltip, fall back to bar-height estimation — but only on black bars.
 - Always use `.slicerCheckbox` for clicks — clicking the treeitem directly hits the expand toggle.
 - South Texas = Austin + Houston selected simultaneously in a single evaluate pass.
 - **Escape key**: use `document.dispatchEvent(new KeyboardEvent('keydown', {key: 'Escape', bubbles: true}))` instead of `mcp__playwright__browser_press_key`.

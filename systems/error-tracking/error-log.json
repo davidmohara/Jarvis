@@ -1799,8 +1799,95 @@
     "fix_status": "applied",
     "severity": "moderate",
     "related_entries": []
+  },
+  {
+    "id": "err-20260504-001",
+    "timestamp": "2026-05-04T10:00:00-05:00",
+    "session": "chief-2026-05-04-144911",
+    "source": "explicit",
+    "agent": "chief",
+    "category": "data-accuracy",
+    "description": "Stated the Gibson podcast (youtube.com/watch?v=6XsgnDnx03o) was 'about an hour' when the actual runtime is approximately 40 minutes. Web fetch returned duration as unavailable due to bot protection; should have flagged uncertainty instead of estimating.",
+    "correction": "Podcast is ~40 minutes. When duration data is unavailable from a fetch, state that explicitly rather than estimating.",
+    "failure_mode": "wrong-assumption",
+    "systemic_fix": "When metadata is incomplete from a web fetch, flag the gap. Never substitute an estimate for a missing data point without labeling it as an estimate.",
+    "fix_status": "applied",
+    "severity": "minor",
+    "related_entries": []
+  },
+  {
+    "id": "err-20260504-002",
+    "timestamp": "2026-05-04T10:00:00-05:00",
+    "session": "chief-2026-05-04-144911",
+    "source": "explicit",
+    "agent": "chief",
+    "category": "format-violation",
+    "description": "Used em-dashes in the drafted email despite an explicit rule in identity/VOICE.md prohibiting them. Rule states: 'No em-dashes anywhere. Use commas, periods, or parentheses instead.' This is a repeat violation.",
+    "correction": "Em-dashes must never appear in any output. Replace with commas, periods, or parentheses depending on context.",
+    "failure_mode": "protocol-skip",
+    "systemic_fix": "Before finalizing any email draft, run a mental scan for em-dashes. This rule is in VOICE.md and has been violated multiple times — treat it as a hard constraint, not a preference.",
+    "fix_status": "applied",
+    "severity": "moderate",
+    "related_entries": ["err-20260504-001"]
+  },
+  {
+    "id": "err-20260504-003",
+    "timestamp": "2026-05-04T10:00:00-05:00",
+    "session": "chief-2026-05-04-144911",
+    "source": "explicit",
+    "agent": "chief",
+    "category": "data-accuracy",
+    "description": "Referred to Brian Ladin as 'Brian at Delos' — Delos is his company name (Delos Shipping), not his surname. His name is Brian Ladin.",
+    "correction": "Brian Ladin. Delos (or Delos Shipping) is the company.",
+    "failure_mode": "sloppy-read",
+    "systemic_fix": "When a contact's email domain or calendar entry shows a company name, do not conflate it with the person's surname. Look for the display name or ask.",
+    "fix_status": "applied",
+    "severity": "minor",
+    "related_entries": []
+  },
+  {
+    "id": "err-20260504-005",
+    "timestamp": "2026-05-04T13:45:00-05:00",
+    "session": "2026-05-04",
+    "source": "explicit",
+    "agent": "harper",
+    "category": "process-skip",
+    "description": "Harper was spawned twice for podcast Episode 8 prep but never read or followed the podcast-prep workflow at workflows/podcast-prep/workflow.md. The workflow specifies using npx md-to-pdf with reference/podcast-prep-pdf.css (or the weasyprint generate_pdfs.py equivalent) and a strict single-page template. Harper improvised the PDF format both times, producing output that looked nothing like the established Episode 7 format. The workflow file, CSS stylesheet, and template all existed and were correct — they were simply never used.",
+    "correction": "Harper must read workflows/podcast-prep/workflow.md at the start of any podcast prep request, run the STATE CHECK, and execute all 5 steps as written. Step 04 specifies the exact markdown structure. Step 05 specifies the exact PDF generation command. No improvisation.",
+    "failure_mode": "protocol-skip",
+    "systemic_fix": "The spawning protocol in master.md step 2 says to identify the relevant skill from skills/harper-*.md. However, podcast-prep is a WORKFLOW (workflows/podcast-prep/), not a skill. The spawn payload must explicitly reference the workflow path when the task maps to a workflow rather than a skill. Jarvis must pass 'Use workflow: workflows/podcast-prep/workflow.md' in the spawn context for any podcast request.",
+    "fix_status": "proposed",
+    "severity": "major",
+    "related_entries": ["err-20260504-004"]
+  },
+  {
+    "id": "err-20260504-006",
+    "timestamp": "2026-05-04T13:50:00-05:00",
+    "session": "2026-05-04",
+    "source": "explicit",
+    "agent": "master",
+    "category": "hallucination",
+    "description": "When told to use Chrome for CRM access, fabricated a Salesforce URL with no basis. The CRM is Dynamics, not Salesforce. No URL was in context at the time — the correct URL (improving.crm.dynamics.com) was not yet recorded in INTEGRATIONS.md.",
+    "correction": "CRM is Microsoft Dynamics at improving.crm.dynamics.com. Do not guess or invent URLs. If a URL is not in INTEGRATIONS.md, ask the controller before navigating.",
+    "failure_mode": "wrong-assumption",
+    "systemic_fix": "Record improving.crm.dynamics.com in INTEGRATIONS.md under Dynamics CRM. Before navigating to any external system via Chrome, confirm the URL exists in INTEGRATIONS.md — never construct or assume one.",
+    "fix_status": "applied",
+    "severity": "moderate",
+    "related_entries": []
+  },
+  {
+    "id": "err-20260504-004",
+    "timestamp": "2026-05-04T13:30:00-05:00",
+    "session": "chief-2026-05-04-144911",
+    "source": "explicit",
+    "agent": "chief",
+    "category": "routing-error",
+    "description": "Handled podcast prep PDF creation and Remarkable push directly instead of delegating to Harper (the designated podcast prep agent). Spent multiple tool calls attempting PDF generation, rmapi debugging, and reMarkable app automation before eventually spawning a general-purpose agent — still not Harper. David had to explicitly call this out.",
+    "correction": "Podcast prep is Harper's domain. Any request involving podcast episodes — prep sheets, formatting, push to Remarkable — routes to Harper immediately. Jarvis monitors; Harper executes.",
+    "failure_mode": "pattern-mismatch",
+    "systemic_fix": "Add explicit podcast routing rule to CLAUDE.md and SYSTEM.md: podcast prep requests (any mention of 'episode', 'prep sheet', 'podcast', 'Nick Larson', 'Harper') trigger immediate delegation to Harper. Jarvis does not execute podcast work directly.",
+    "fix_status": "proposed",
+    "severity": "moderate",
+    "related_entries": ["err-20260426-004"]
   }
 ]
-=======
-}
->>>>>>> 5c20771 (Cleanup + error log repair — Apr 28)

@@ -7,7 +7,7 @@
 | OmniFocus | Task management, inbox, projects | osascript via Bash |
 | Obsidian | Knowledge base, vault, notes, Lifebook | MCP server |
 | Microsoft Teams | Communication with team, Ilse | MCP server (if available) |
-| Dynamics CRM | Account and pipeline tracking | MCP server (if available) |
+| Dynamics CRM | Account and pipeline tracking | MCP server (if available); web: https://improving.crm.dynamics.com |
 | Outlook / Email | Communication | MCP server (if available) |
 | Calendar | Scheduling, meeting prep | MCP server (if available) |
 | PowerPoint | Presentations, strategy decks | Local file access |

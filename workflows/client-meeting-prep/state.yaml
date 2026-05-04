@@ -2,16 +2,41 @@
 workflow: client-meeting-prep
 agent: chase
 status: complete
-session-started: "2026-04-13"
-session-id: "chase-2026-04-13-140000"
+session-started: "2026-05-04"
+session-id: "chase-2026-05-04-google-mick-juan"
 current-step: step-04
-original-request: "Athena call this afternoon"
+original-request: "Google meeting 2pm today with Mick and Juan"
 accumulated-context:
-  meeting: "Athena EA vendor call — follow-up / check-in post onboarding"
-  contact: "Crystal Foran (crystal.foran@athena.com), Kristin Johnson (Athena Operations)"
-  account: "Athena executive assistant service"
-  purpose: "Post-onboarding check-in or decision call"
-  last-touchpoint: "2026-03-20"
-  onboarding-started: "2026-03-27"
-  days-in: 17
+  meeting_subject: "Improving / Google Sync"
+  meeting_date: "2026-05-04"
+  meeting_time: "14:00 CDT (19:00 UTC)"
+  meeting_duration: "25 minutes"
+  meeting_link: "https://teams.microsoft.com/meet/21372817459408?p=1gy9yPXNmH9xxhoSFH"
+  meeting_purpose: relationship-building
+  organizer: David.OHara@improving.com
+  external_attendees:
+    - name: "Mick Nolen"
+      email: "micknolen@google.com"
+      organization: "Google Cloud"
+      title: "Google Cloud Sales (Dallas-based)"
+      relationship: "new"
+      crm_record: false
+      last_interaction: "2026-04-06 (agentic AI event, Dallas)"
+    - name: "Juan M Santana"
+      email: "santanajuanm@google.com"
+      organization: "Google Cloud"
+      title: "Google Cloud Sales - Energy Vertical"
+      relationship: "new"
+      crm_record: false
+      last_interaction: "2026-04-13 (email intro)"
+  shared_accounts:
+    - "Delek"
+    - "DTE"
+    - "Eversource"
+    - "HF Sinclair"
+    - "UGI"
+    - "WEC"
+  hot_account: "Entergy (active pursuit, GCP opportunity, contact: Cristy Youhouse at Google)"
+  key_context: "First full sync call. Mick met at agentic AI event. Juan brings energy vertical expertise. Entergy flagged by Ehren as requiring coordination. Most other shared accounts assessed as dormant. Co-sell model opportunity to discuss."
+  deliverable: "/sessions/eager-hopeful-volta/mnt/IES/meetings/Google_Sync_Mick_Juan_May4.html"
 ---

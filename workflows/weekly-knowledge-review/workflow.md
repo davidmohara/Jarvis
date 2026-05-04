@@ -1,6 +1,7 @@
 ---
 name: weekly-knowledge-review
 description: Weekly review of knowledge capture — what was ingested, what's unprocessed, what action items are floating, what connections were missed
+agent: knox
 owner: knox
 evolution: personal
 model: haiku
