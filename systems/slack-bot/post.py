@@ -34,8 +34,11 @@ if not BOT_TOKEN:
     print(json.dumps({"ok": False, "error": "SLACK_BOT_TOKEN not found — add it to config/.env"}))
     sys.exit(1)
 
-def post_message(channel, text):
-    data = json.dumps({"channel": channel, "text": text}).encode("utf-8")
+def post_message(channel, text, thread_ts=None):
+    payload = {"channel": channel, "text": text}
+    if thread_ts:
+        payload["thread_ts"] = thread_ts
+    data = json.dumps(payload).encode("utf-8")
     req = urllib.request.Request(
         "https://slack.com/api/chat.postMessage",
         data=data,
@@ -48,9 +51,7 @@ def post_message(channel, text):
         resp = urllib.request.urlopen(req)
         result = json.loads(resp.read().decode())
         if result.get("ok"):
-            ts = result["ts"]
-            ch = result["channel"]
-            print(json.dumps({"ok": True, "channel": ch, "ts": ts}))
+            print(json.dumps({"ok": True, "channel": result["channel"], "ts": result["ts"]}))
         else:
             print(json.dumps({"ok": False, "error": result.get("error")}))
     except urllib.error.URLError as e:
@@ -59,4 +60,5 @@ def post_message(channel, text):
 if __name__ == "__main__":
     channel = sys.argv[1] if len(sys.argv) > 1 else DEFAULT_CHANNEL
     text = sys.argv[2] if len(sys.argv) > 2 else "Jarvis online."
-    post_message(channel, text)
+    thread_ts = sys.argv[3] if len(sys.argv) > 3 else None
+    post_message(channel, text, thread_ts)

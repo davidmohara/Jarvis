@@ -39,11 +39,15 @@ If none: exit cleanly — nothing to process.
 
 ### 2. Check each pending draft for a reply
 
-For each pending draft with a `slack_thread_ts`, read the thread:
+For each pending draft with a `slack_thread_ts`, read the thread via read.py:
 
 ```
-slack_read_thread(channel_id="{slack_channel}", thread_ts="{slack_thread_ts}")
+Tool: mcp__Desktop_Commander__start_process
+Command: python3 "$(mdfind -name 'read.py' | grep 'systems/slack-bot/read.py' | head -1)" thread {slack_channel} {slack_thread_ts}
+Timeout: 15000
 ```
+
+Parse the JSON response — `{"ok": true, "replies": [...]}`. Each reply has `ts`, `user`, `text`.
 
 Look for replies from David (user ID: U0ANHV5UXEW) that arrived after the original bot message.
 
@@ -129,7 +133,7 @@ Same commands: reply `approve` to publish, `reject` to discard, or give more fee
 
 | Failure | Action |
 |---------|--------|
-| Slack MCP unavailable | Report "Slack MCP not connected — content-approval halted" via post.py to #jarvis. Exit. |
+| read.py fails (script not found or token error) | Report failure via post.py to #jarvis: "Content approval halted — read.py error: {error}". Exit. |
 | Ghost update/delete fails | Retry once. If still fails, notify David in #content: "Failed to {publish/delete} '{title}' — Ghost API error. Please check manually at driventodevelop.com/ghost." |
 | pending-drafts.json malformed | Reset to `[]`, log error, notify #jarvis: "pending-drafts.json was corrupted and reset. Active drafts in Ghost may need manual review." |
 | Reply is ambiguous and doesn't fit any category | Treat as feedback. Reply in thread: "Got your reply — treating it as feedback. Here's what I'll change: [interpretation]. Reply `approve` to publish the revision or give me more direction." |
@@ -143,9 +147,9 @@ Periodically (when running): remove entries from pending-drafts.json that are ol
 
 ---
 
-## NOTE ON SLACK MCP
+## NOTE ON SLACK INTEGRATION
 
-The Slack MCP connector (`mcp__85b26e93-*`) is used for READING threads and channel messages only.
-The `master-slack` skill (post.py via Desktop Commander) is used for all OUTBOUND messages.
-Never use the Slack MCP connector to post — it sends as David, not as Jarvis, and does not trigger push notifications.
+`systems/slack-bot/read.py` handles all READ operations (channel history, thread replies) via the Slack Web API using the bot token.
+`systems/slack-bot/post.py` handles all WRITE operations (posting messages, thread replies) via the same bot token.
+Both scripts are invoked via Desktop Commander (mcp__Desktop_Commander__start_process). No Slack MCP connector is used.
 <!-- personal:end -->

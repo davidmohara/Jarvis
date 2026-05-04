@@ -104,10 +104,25 @@ python3 ... C0AN2PQNXBR "*Morning Briefing*\n\n📅 4 meetings\n⚡ Priority ite
 
 The double-quoted multi-line string preserves real newlines through Desktop Commander → shell → Python → Slack API.
 
+## Reading Slack (read.py)
+
+For reading channel history or thread replies, use the companion `systems/slack-bot/read.py` script via Desktop Commander. No Slack MCP connector is used or needed.
+
+```bash
+# Read last 24 hours of a channel (returns top-level messages only)
+python3 "$(mdfind -name 'read.py' | grep 'systems/slack-bot/read.py' | head -1)" channel <channel_id> <hours_ago>
+
+# Read replies in a thread
+python3 "$(mdfind -name 'read.py' | grep 'systems/slack-bot/read.py' | head -1)" thread <channel_id> <thread_ts>
+```
+
+Both return JSON: `{"ok": true, "messages": [...]}` or `{"ok": true, "replies": [...]}`.
+Each message includes: `ts`, `user`, `text`, `thread_ts`.
+
 ## Critical Rules
 
-- **ALWAYS use this skill for outbound Slack messages.** The Slack MCP connector (`mcp__85b26e93-*`) posts as David and does NOT trigger notifications.
-- **Use the Slack MCP connector for reading only** — searching channels, reading threads, pulling context.
+- **ALWAYS use post.py for outbound Slack messages.** It posts as Jarvis bot and triggers push notifications.
+- **ALWAYS use read.py for reading.** No Slack MCP connector is used or available.
 - **#jarvis is the default.** Only DM for urgent/private items.
 - **Every scheduled task that produces output should invoke this skill** to notify David the task is complete and deliver the summary.
 

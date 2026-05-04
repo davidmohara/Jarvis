@@ -34,14 +34,18 @@ model: sonnet
 
 ### 1. Read the channel
 
-Use Slack MCP to read #content channel (ID: C08UZMA7EGV) for messages in the last 24 hours:
+Use read.py via Desktop Commander to pull #content messages from the last 24 hours:
 
 ```
-slack_read_channel(channel_id="C08UZMA7EGV", hours_ago=24)
+Tool: mcp__Desktop_Commander__start_process
+Command: python3 "$(mdfind -name 'read.py' | grep 'systems/slack-bot/read.py' | head -1)" channel C08UZMA7EGV 24
+Timeout: 15000
 ```
 
-Extract all URLs from messages. Skip:
-- Messages that are replies (thread_ts != ts — those are approval responses, Agent 2 handles them)
+Parse the JSON response — `{"ok": true, "messages": [...]}`. Each message has `ts`, `user`, `text`, `thread_ts`.
+
+Extract all URLs from message text. Skip:
+- Messages where thread_ts != ts (those are thread replies — approval responses, Agent 2 handles them)
 - URLs already in pending-drafts.json (source_url field)
 - URLs whose topics already have published Ghost posts
 
@@ -179,7 +183,7 @@ Add the new post to the Candidates table in `reference/blog-ideas.md`:
 
 | Failure | Action |
 |---------|--------|
-| Slack MCP unavailable | Report "Slack MCP not connected — content-discovery halted" via post.py to #jarvis. Exit. |
+| read.py fails (script not found or token error) | Report failure via post.py to #jarvis: "Content discovery halted — read.py error: {error}". Exit. |
 | URL fetch fails + web search returns nothing | Skip URL. Log: "Could not retrieve content for {url} — skipping." |
 | Ghost API fails on post creation | Log error. Notify David in #content: "Draft creation failed for {url} — will retry tomorrow." |
 | Image upload fails | Use a fallback Unsplash URL directly (without uploading) — Ghost accepts external URLs for feature_image. Note in Slack message: "(image not uploaded to CDN — using external URL)" |

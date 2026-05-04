@@ -39,13 +39,30 @@ Scans #content for approval replies → publishes approved Ghost drafts → hand
 
 ## SLACK INTEGRATION
 
-**Reading:** Use Slack MCP connector (`slack_read_channel`, `slack_read_thread`, `slack_search_public_and_private`)
-- The Slack MCP connector is available at `mcp__85b26e93-*` tools for reading
-- If Slack MCP tools are unavailable, report "Slack MCP not connected — cannot read #content channel" and halt
+**Reading:** Use `systems/slack-bot/read.py` via Desktop Commander (mcp__Desktop_Commander__start_process)
+
+```bash
+# Read #content for URLs dropped in last 24 hours
+python3 "$(mdfind -name 'read.py' | grep 'systems/slack-bot/read.py' | head -1)" channel C08UZMA7EGV 24
+
+# Read replies on a specific draft thread
+python3 "$(mdfind -name 'read.py' | grep 'systems/slack-bot/read.py' | head -1)" thread C08UZMA7EGV 1234567890.123456
+```
+
+Both commands return JSON: `{"ok": true, "messages": [...]}` or `{"ok": true, "replies": [...]}`.
+Each message object includes: `ts`, `user`, `text`, `thread_ts` (if part of a thread).
 
 **Writing/Notifying:** Use `master-slack` skill — `systems/slack-bot/post.py` via Desktop Commander
-- This posts as the Jarvis bot and triggers push notifications on David's phone
-- Always use this for outbound messages, never the Slack MCP (which posts as David, no notification)
+
+```bash
+# Post to #content
+python3 "$(mdfind -name 'post.py' | grep 'systems/slack-bot/post.py' | head -1)" C08UZMA7EGV "<message>"
+
+# Reply in a thread (pass thread_ts as 3rd arg)
+python3 "$(mdfind -name 'post.py' | grep 'systems/slack-bot/post.py' | head -1)" C08UZMA7EGV "<message>" 1234567890.123456
+```
+
+No Slack MCP connector is used. Both read and write go through the bot token in config/.env via these two scripts.
 
 ---
 
