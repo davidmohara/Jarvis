@@ -1,22 +1,28 @@
 workflow: morning-briefing
 agent: chief
 status: complete
-session-started: "2026-05-04T06:00:00-05:00"
-session-id: chief-2026-05-04-000000
+session-started: "2026-05-05T06:00:00-05:00"
+session-id: chief-2026-05-05-060000
 current-step: step-04
 original-request: "Automated scheduled morning briefing"
 accumulated-context:
-  calendar-date: "2026-05-04"
+  calendar-date: "2026-05-05"
   timezone: "CDT"
   location: "WFH — Frisco"
-  travel-flag: "AA 1861 DFW→SJD Wednesday May 6 10:40 AM CT, conf YSRAOG — YPO Gold Forum Cabo"
-  drc-ai-debrief: "11:30 AM CDT — Aaliyah Avellaneda (Dallas Chamber) + Bethany Hilton"
-  google-sync: "2:00 PM CDT — Mick Nolen + Juan Santana (Google)"
-  email-actionable: "Liberty Ventures / Austin Summit reply needs scheduling; Dustin Shaffer coffee accepted"
-  leads-unassigned: "6 leads — Alcon, AECom, IFS, Cardinal IT, Paragon Brokerage, Birgo"
-  omnifocus-status: "unavailable — 2 timeouts"
-  daily-review-missing: "no review found for 2026-05-03"
+  travel-flag: "AA 1861 DFW→SJD TOMORROW May 6 10:40 AM CDT, conf YSRAOG — YPO Gold Forum Cabo — DEPARTURE DAY CONFLICT with Sales Prospecting Weekly 10:30-11:30"
+  credit-card-reporting-due: "TODAY by EOD — 5th of month deadline"
+  liberty-ventures-call: "10:30 AM CDT — Austin Principaled Business Summit (Alexander/Michelle at Liberty Ventures)"
+  ai-starting-point: "11:30 AM CDT — YPO contacts discussing Claude EA template (Berch Capital, Delos Shipping, etc.)"
+  drc-exec-council: "3:00 PM CDT — Bethany Hilton + Susan Fojtasek — EWR & Exec Council for DRC AI Workshop May 21"
+  derek-ibp: "1:00 PM CDT — IBP Journaling Discussion with Derek Nwamadi"
+  alex-coaching: "2:00 PM CDT — Coaching call with Alexander Powell (Attention Management, IBP)"
+  google-next-followup: "1:30 PM CDT — Google Cloud Next 26 followup (Sarthak Routh, Ehren Seim)"
+  lsg-party: "6:30 PM CDT — LSG Cinco de Mayo House Party (YPO Lone Star Gold)"
+  omnifocus-status: "unavailable — 3 timeouts"
+  daily-review-missing: "no review found for 2026-05-04"
   clay-reminders: "none"
-  git-sync-blocked: "index.lock blocking push for 12+ consecutive dream cycles — manual fix needed"
-  comp-tracker-workflow: "in-progress at step 5 since 2026-04-23 — test run, not urgent"
-  briefing-file: "reviews/daily/auto-2026-05-04.md"
+  plaud-staging: "no staged files found"
+  leads-unassigned: "6 leads — Alcon (13mo), AECom (6mo), Integrated Financial Settlements (3mo), Cardinal IT/Kashif (3mo), Paragon Brokerage (3mo), Birgo (29 days)"
+  email-actionable: "Orangery invite (unread, schedule drinks May 18-27); YPO Speaker Directory reply from Shelby Meyer (unread, needs quick reply); SMU AI Advisory Board (Don made intro to Aren — Rock 3 opp); Bob Freeburg FYI from Vicki (unread)"
+  jarvis-inbox: "1 item — Project Profitability (with attachment, Apr 26, self-forwarded)"
+  briefing-delivered: "true"

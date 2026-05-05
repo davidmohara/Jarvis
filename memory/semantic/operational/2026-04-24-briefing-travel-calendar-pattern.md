@@ -4,7 +4,7 @@ domain: operational
 tags: [briefing, calendar, omnifocus, google-next, travel, overdue-tasks, leads]
 confidence: high
 created: 2026-04-24
-last-updated: 2026-05-04
+last-updated: 2026-05-05
 synthesized-from:
   - memory/episodic/2026-04-20-morning-briefing.md
   - memory/episodic/2026-04-21-morning-briefing.md
@@ -19,6 +19,9 @@ synthesized-from:
   - memory/episodic/2026-04-29-morning-briefing-glc-day4.md
   - memory/episodic/2026-04-30-morning-briefing.md
   - memory/episodic/2026-05-01-morning-briefing.md
+  - memory/episodic/2026-04-27-morning-briefing-glc-day1.md
+  - memory/episodic/2026-04-28-morning-briefing-glc-day2.md
+  - memory/episodic/2026-05-01-morning-briefing-post-travel.md
 ---
 
 # Pattern: Morning Briefings Consistently Flag Travel-Calendar Conflicts
@@ -165,3 +168,27 @@ Morning briefings across the entire Google Next week (Apr 20-23) repeatedly surf
 19. **Post-travel recovery days are as risky as travel days.** The May 1 briefing shows the aftermath: 3 meetings with minimal context, accumulated leads, stale inbox items, and upcoming events (Make-A-Wish, DRC workshop) with no prep. The system correctly flagged these but generated no mitigation. A post-travel recovery protocol should auto-prioritize: (a) process stale inbox, (b) triage accumulated leads, (c) verify prep for next 72 hours.
 20. **OmniFocus failure now spans 9+ days across two trips plus post-travel.** The timeout streak started Apr 21 and continued through May 1. This is no longer a travel-specific issue — it is a persistent infrastructure failure in automated mode. The system should permanently default to osascript for scheduled runs and treat MCP as best-effort.
 21. **Lead accumulation during travel is worsening.** Count went from 4 (Apr 27) to 6 (May 1). Leads are aging without assignment (Alcon now 370+ days). The travel-mode gap includes no auto-routing of leads to Alice or the assigned AM.
+
+### Apr 27 Morning Briefing — GLC Day 1, Live Boot (NEW — 2026-05-05 dream cycle)
+- Live boot at 7:17 AM CDT from Hyatt Regency. All data sources returned (OmniFocus worked with 45+ tasks). YPO GLC Regional Officers Workshop 9AM-4:30PM, Alice Mburu kick-off 4:30PM, Western Region Happy Hour 6PM.
+- 12 overdue OmniFocus items including Lindsay's Amex Platinum renewal (deadline today), Gold Forum Retreat 9 days out with no prep evidence.
+- Gold Forum Retreat (May 6-8) and DRC Executive AI Workshop (May 21) both flagged in 72-hour look-ahead with unclear prep status.
+- Missing: full week calendar incomplete, no Plaud, no email triage.
+
+### Apr 28 Morning Briefing — GLC Day 2, Live Boot (NEW — 2026-05-05 dream cycle)
+- Live boot at 6:38 AM CDT. 49 events parsed, 27 OmniFocus tasks. Light meeting day: Devlin catch-up, Google Next follow-up sync, Tim Rayburn 1:1.
+- 72-hour look-ahead: Apr 30 flagged as brutal (9AM-4PM wall-to-wall in Dallas while flight ORD-DFW departs 9:45 AM). Gold Forum 8 days out with no completion evidence.
+- 8 overdue items. Dream cycle flagged as 10 days stale. No Plaud or email triage.
+
+### May 1 Morning Briefing — Post-Travel, Live Boot (NEW — 2026-05-05 dream cycle)
+- First post-GLC live session with OmniFocus working (35 tasks). Packed day: chiro, S&R, 1st Friday Exec, Scott Q1 close-out, Stuart lunch, weekly wrap-up, Randy McCabe call.
+- 72-hour look-ahead: May 6 Cabo flight (AA 1861 DFW-SJD 10:40 AM) overlaps Sales Prospecting and UTB Loan Committee. Another travel-calendar collision.
+- 11 overdue items including Gold Forum planning, credit report, inbox clear (205 items), property tax review.
+- Email triage: 7 actionable items including Nikki Fackler Kaye intro, AI OCM deeper deck request, UTB OCC Charter Conversion, YPO RSVP, RBM reimbursement COB deadline.
+- Dream cycle 6 days stale.
+
+## Implications (continued — 2026-05-05)
+
+22. **The Cabo trip (May 6-8) is the third consecutive multi-day travel event.** Google Next (Apr 22-24), GLC Chicago (Apr 26-30), and now YPO Forum Retreat in Cabo (May 6-8). The same failure modes will reproduce unless the travel-prep workflow has been built. The May 1 briefing already flagged a flight-calendar collision on May 6 (AA 1861 departure overlapping two meetings). This is the pattern's prediction: it will happen again.
+23. **Gold Forum Retreat prep has been flagged for 9+ days with no visible progress.** First surfaced Apr 27 (9 days out), still flagged May 1. The OmniFocus task exists but no completion evidence. This is exactly the pattern described in Implication #1: flagging is not fixing.
+24. **Email actionable items are accumulating across the travel gap.** The May 1 post-travel briefing surfaced 7 items, several time-sensitive (RBM reimbursement COB, Nikki Fackler Kaye intro). These were invisible during automated GLC runs because email triage requires live session capabilities. The pre-departure checklist (Implication #4) needs an email sweep component.

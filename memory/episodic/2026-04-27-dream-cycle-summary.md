@@ -5,8 +5,8 @@ date: 2026-04-27
 tags: [dream-cycle, system-maintenance, semantic-promotion, travel-pattern, omnifocus, memory-system]
 related_people: []
 salience:
-  score: 9
-  last-promoted-check: 2026-05-04
+  score: 10
+  last-promoted-check: 2026-05-05
   promoted: true
 ---
 
