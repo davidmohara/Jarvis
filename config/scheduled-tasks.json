@@ -13,7 +13,7 @@
       "configured": false,
       "agent": "Chief",
       "description": "Weekday morning briefing \u2014 prose narrative synthesis of the day's calendar, priorities, overdue delegations, and rock alignment. Delivered at 6:30am before the day starts.",
-      "cowork_prompt": "Run the chief-morning skill to deliver the morning briefing. Pull live calendar, tasks, delegations, and meeting context for today. Synthesize everything into a prose narrative briefing \u2014 three paragraphs covering the day's character, execution reality, and sharp edge \u2014 followed by the calendar table. End with 'What do you want to tackle first?'"
+      "cowork_prompt": "Run the chief-morning skill to deliver the morning briefing."
     },
     {
       "id": "chief-review-auto",
@@ -25,7 +25,7 @@
       "configured": false,
       "agent": "Chief",
       "description": "Autonomous nightly review \u2014 synthesizes yesterday's task completions, calendar, and system state into a first-person narrative journal entry written to the knowledge system only. Runs at 4am without user input.",
-      "cowork_prompt": "Run the chief-review skill with arguments: auto. Pull task completions, calendar events, inbox state, delegation status, and quarterly rock context from yesterday. Synthesize into a first-person prose narrative journal entry and write it to the knowledge system. No user interaction. Deliver a two-line confirmation when done.",
+      "cowork_prompt": "Run the chief-review skill with arguments: auto. No user interaction needed.",
       "setup_note": "Requires Keep Awake to be enabled in Cowork \u2014 this task fires at 4am while you're asleep."
     },
     {
@@ -38,7 +38,7 @@
       "configured": false,
       "agent": "Quinn",
       "description": "Sunday morning weekly review prep \u2014 rocks, task management health, delegations, relationship warmth, system error analysis, commitment gap detection across all sources, and pattern analysis. Delivered at 8am before the week begins.",
-      "cowork_prompt": "Run the quinn-weekly-review skill to prepare the weekly review document. Pull quarterly rock status, task management health, delegation review, calendar analysis, email signals, relationship warmth via the contact management connector, system error analysis, and run the commitment gap detection step across all available capture sources (meeting transcripts, chat, email, voice recordings, task management). Scan previous weekly review files for recurring gap patterns. Write the full output to reviews/weekly-review-prep-{date}.md."
+      "cowork_prompt": "Run the quinn-weekly-review skill to prepare the weekly review document."
     },
     {
       "id": "rock1-revenue-monthly",
@@ -80,6 +80,30 @@
       "description": "Last Bottle Wine Monitor \u2014 starts daemon at the Hour of Power (highest priority window for cult Napa Cab, collectibles, library vintages). Polls every 2-3 minutes through remaining drop windows and alerts via Slack DM when a match is found.",
       "cowork_prompt": "Run: python3 /home/user/Jarvis/systems/wine-monitor/monitor.py --daemon. This starts the Last Bottle wine monitor in daemon mode. It will poll lastbottlewines.com every 2-10 minutes depending on the active drop window and send Slack DM alerts when wines matching David's taste profile appear. Let it run \u2014 it auto-adjusts polling frequency and stops at midnight.",
       "setup_note": "Daemon runs from 1 PM through midnight. For earlier coverage (11 AM Pinot Hour), add a second scheduled task at 10:55 AM or install system cron via: bash /home/user/Jarvis/systems/wine-monitor/install.sh"
+    },
+    {
+      "id": "content-discovery",
+      "name": "Content Pipeline — Discovery",
+      "workflow": "content-pipeline",
+      "cron": "0 6 * * *",
+      "schedule_display": "Daily at 6:00 AM",
+      "keep_awake": false,
+      "configured": true,
+      "agent": "Harper",
+      "description": "Daily content discovery — reads URLs dropped in #content Slack (last 24 hours), drafts a blog post in David's voice, uploads a landscape Unsplash image, creates a Ghost draft with locked tags, and posts a review notification to #content. David replies in the thread to approve, reject, or give feedback.",
+      "cowork_prompt": "You are Harper, the IES Storyteller agent. Run the daily content discovery step of the content pipeline.\n\n1. Get IES root: mdfind -name 'SYSTEM.md' | grep '/IES/SYSTEM.md' | head -1 | sed 's|/SYSTEM.md||'\n2. Read {IES_ROOT}/workflows/content-pipeline/workflow.md\n3. Read {IES_ROOT}/identity/VOICE.md\n4. Read {IES_ROOT}/workflows/content-pipeline/steps/step-01-discover.md\n5. Execute step-01-discover.md exactly as written."
+    },
+    {
+      "id": "content-approval",
+      "name": "Content Pipeline — Approval",
+      "workflow": "content-pipeline",
+      "cron": "0 * * * *",
+      "schedule_display": "Every hour",
+      "keep_awake": false,
+      "configured": true,
+      "agent": "Harper",
+      "description": "Hourly approval sweep — checks #content thread replies on pending Ghost drafts. Publishes on approval, deletes on rejection, regenerates on feedback. Only acts on replies from David (U0ANHV5UXEW). State tracked in workflows/content-pipeline/pending-drafts.json.",
+      "cowork_prompt": "You are Harper, the IES Storyteller agent. Run the hourly content approval step of the content pipeline.\n\n1. Get IES root: mdfind -name 'SYSTEM.md' | grep '/IES/SYSTEM.md' | head -1 | sed 's|/SYSTEM.md||'\n2. Read {IES_ROOT}/workflows/content-pipeline/workflow.md\n3. Read {IES_ROOT}/workflows/content-pipeline/steps/step-02-approve.md\n4. Read {IES_ROOT}/workflows/content-pipeline/pending-drafts.json\n5. Execute step-02-approve.md exactly as written."
     },
     {
       "id": "ies-channel",

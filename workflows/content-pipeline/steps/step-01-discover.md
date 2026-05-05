@@ -67,6 +67,7 @@ For each new URL:
 
 - Read `reference/blog-ideas.md` — Published section
 - Call `mcp__ghost-blog__get_posts(limit=50)` and scan titles/slugs
+- Check `pending-drafts.json` — if the URL is already present in the `source_url` field (any status), skip it with note: "Skipped {url} — already in pipeline (status: {status})."
 - If the source URL topic is already covered: skip with a note, don't draft.
 
 ### 4. Draft the post
@@ -97,12 +98,17 @@ Return the tag IDs (not names) — the Ghost API requires IDs.
 
 ### 6. Source the feature image
 
-Search Unsplash for a thematic image matching the post's core concept (not the source article's topic literally — the *feeling* or *theme* of David's post).
+Identify the single most important high-level keyword from the post (e.g., "leadership", "resilience", "cost", "writing" — conceptual, not literal). Search Unsplash:
 
-Construct the Unsplash URL:
+1. Use `mcp__workspace__web_fetch` to search: `https://unsplash.com/s/photos/{keyword}`
+2. From the results, select an image that is **landscape-oriented** (wider than tall). Avoid portraits of people as the primary subject unless the post is explicitly about a person.
+3. Extract the Unsplash photo URL from the page — it will contain the photo ID in the path.
+4. Construct the Unsplash CDN URL in the format:
 ```
 https://images.unsplash.com/photo-{PHOTO_ID}?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid={IXID}&ixlib=rb-4.1.0&q=80&w=2000
 ```
+
+**Fallback:** If web_fetch to Unsplash is blocked, use a web search for "unsplash {keyword} landscape photo" and extract a usable URL from results.
 
 Upload to Ghost CDN:
 ```
@@ -167,7 +173,11 @@ _Source: {source_url}_
 • Anything else — I'll treat it as feedback and regenerate
 ```
 
-Capture the `ts` (timestamp) of this Slack message. Update `pending-drafts.json` — set `slack_thread_ts` to this value for the entry you just created.
+**Capture the message timestamp:** Run post.py via Desktop Commander. Parse the stdout JSON response.
+- If `ok` is true, extract the `ts` field and set `slack_thread_ts` in the pending draft entry.
+- If `ok` is false or `ts` is missing, set `slack_thread_ts` to the current Unix timestamp as a fallback (close enough for step-02 to find replies).
+
+Update `pending-drafts.json` — set `slack_thread_ts` to this value for the entry you just created.
 
 ### 10. Update reference/blog-ideas.md
 

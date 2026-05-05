@@ -39,7 +39,9 @@ If none: exit cleanly — nothing to process.
 
 ### 2. Check each pending draft for a reply
 
-For each pending draft with a `slack_thread_ts`, read the thread via read.py:
+For each pending draft:
+- If `slack_thread_ts` is null, skip that draft entry — do not attempt thread reads.
+- If `slack_thread_ts` is set, read the thread via read.py:
 
 ```
 Tool: mcp__Desktop_Commander__start_process

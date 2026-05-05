@@ -30,10 +30,9 @@ Scans #content for approval replies → publishes approved Ghost drafts → hand
 
 | Channel | ID | Purpose |
 |---------|-----|---------|
-| #content | C08UZMA7EGV | Drop URLs here. Replies here to approve/reject drafts. |
+| #content | C0B160MA3EK | Drop URLs here. Replies here to approve/reject drafts. |
 
-> **Note:** If the channel ID above is wrong or the channel doesn't exist yet, the agent should search for it:
-> Use `slack_search_channels` with query "content" to find the correct ID. Update this file with the correct ID once confirmed.
+> **Note:** If the channel ID is wrong, David must correct it manually in this file. The channel ID for #content is C0B160MA3EK.
 
 ---
 
@@ -43,10 +42,10 @@ Scans #content for approval replies → publishes approved Ghost drafts → hand
 
 ```bash
 # Read #content for URLs dropped in last 24 hours
-python3 "$(mdfind -name 'read.py' | grep 'systems/slack-bot/read.py' | head -1)" channel C08UZMA7EGV 24
+python3 "$(mdfind -name 'read.py' | grep 'systems/slack-bot/read.py' | head -1)" channel C0B160MA3EK 24
 
 # Read replies on a specific draft thread
-python3 "$(mdfind -name 'read.py' | grep 'systems/slack-bot/read.py' | head -1)" thread C08UZMA7EGV 1234567890.123456
+python3 "$(mdfind -name 'read.py' | grep 'systems/slack-bot/read.py' | head -1)" thread C0B160MA3EK 1234567890.123456
 ```
 
 Both commands return JSON: `{"ok": true, "messages": [...]}` or `{"ok": true, "replies": [...]}`.
@@ -56,10 +55,10 @@ Each message object includes: `ts`, `user`, `text`, `thread_ts` (if part of a th
 
 ```bash
 # Post to #content
-python3 "$(mdfind -name 'post.py' | grep 'systems/slack-bot/post.py' | head -1)" C08UZMA7EGV "<message>"
+python3 "$(mdfind -name 'post.py' | grep 'systems/slack-bot/post.py' | head -1)" C0B160MA3EK "<message>"
 
 # Reply in a thread (pass thread_ts as 3rd arg)
-python3 "$(mdfind -name 'post.py' | grep 'systems/slack-bot/post.py' | head -1)" C08UZMA7EGV "<message>" 1234567890.123456
+python3 "$(mdfind -name 'post.py' | grep 'systems/slack-bot/post.py' | head -1)" C0B160MA3EK "<message>" 1234567890.123456
 ```
 
 No Slack MCP connector is used. Both read and write go through the bot token in config/.env via these two scripts.
