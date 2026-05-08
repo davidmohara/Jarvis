@@ -1,8 +1,11 @@
 ---
-status: not-started
-started-at: ~
+status: blocked
+started-at: 2026-05-07T07:09:34
 completed-at: ~
-outputs: {}
+outputs:
+  failure_reason: "Network connectivity: Slack API blocked (403 Forbidden)"
+  api_error: "Tunnel connection failed on both read.py and post.py"
+  step_blocked_at: 1-read-channel
 model: sonnet
 ---
 
