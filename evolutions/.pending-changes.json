@@ -510,6 +510,50 @@
       ]
     },
     {
+      "id": "work-20260508-session-index",
+      "description": "Session continuity index system. Append-only JSON array at memory/sessions/index.json tracks topics, files touched, and open loops per session. PostToolUse hook captures file writes automatically. SYSTEM.md updated with mandatory topic-setting protocol, boot initialization, and exit flush behavior.",
+      "started": "2026-05-08T00:00:00Z",
+      "classification": "system",
+      "files": [
+        {
+          "path": "memory/sessions/index.json",
+          "action": "add",
+          "type": "system",
+          "description": "New session index file. Append-only JSON array. One record per session with id, started, closed, current_topic, and topics array (topic, files, loops)."
+        },
+        {
+          "path": ".claude/hooks/post-tool-use.py",
+          "action": "add",
+          "type": "system",
+          "description": "New PostToolUse hook. Python 3 script. Captures Write/Edit tool calls, reads current_topic from active session record, appends file path to correct topic bucket. Falls to unattributed bucket with flag if current_topic is null."
+        },
+        {
+          "path": ".claude/settings.json",
+          "action": "merge",
+          "type": "system",
+          "description": "Added PostToolUse hook registrations for Write and Edit matchers pointing to post-tool-use.py."
+        },
+        {
+          "path": "SYSTEM.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Added Session Topic Protocol (mandatory topic-setting rule), Session Index Boot (Phase 1 addition), and Session Index Shutdown (exit behavior addition)."
+        },
+        {
+          "path": "skills/session-index/SKILL.md",
+          "action": "add",
+          "type": "system",
+          "description": "New skill: session index operations. Documents how to read/write/update the session index for Jarvis reference."
+        },
+        {
+          "path": "skills/_manifest.jsonl",
+          "action": "merge",
+          "type": "system",
+          "description": "Added session-index skill entry to lazy loading manifest."
+        }
+      ]
+    },
+    {
       "id": "comp-tracker-workflow-rebuild",
       "description": "Comp tracker update workflow for Chase \u2014 monthly compensation tracking from WorkDay. Rebuilds workflow.md and all 8 step files to proper IES spec with system:start/end blocks, MANDATORY EXECUTION RULES, EXECUTION PROTOCOL tables, and detailed SUCCESS METRICS. Updates Chase task portfolio with comp-tracker trigger.",
       "started": "2026-04-17T00:00:00Z",

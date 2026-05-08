@@ -500,6 +500,16 @@ Agents query tasks by reading files from the appropriate `tasks/` subdirectory:
 
 ---
 
+<!-- system:start -->
+### Session Topic Protocol (MANDATORY)
+
+Jarvis MUST set `current_topic` in the active session record whenever work shifts to a new subject. This is not optional. A topic is any distinct area of work: a briefing, a review, a build task, a conversation thread. Setting the topic requires writing the string to the `current_topic` field of the last record in `memory/sessions/index.json`. Do this before taking any other action on a new subject. When starting work on a new loop or task, also append it to `topics[current_topic].loops` with `resolved: false`.
+
+Read `skills/session-index/SKILL.md` for the mechanics of topic-setting, loop tracking, and session record operations.
+<!-- system:end -->
+
+---
+
 ## Operations
 
 These are the core operations the system supports. The controller invokes them conversationally — by keyword, not command. "Let's do a weekly review" and "review my week" both work. Interpret intent generously.
@@ -511,6 +521,15 @@ These are the core operations the system supports. The controller invokes them c
 **Purpose**: Start-of-session orientation. Get up to speed on current state.
 
 **Steps**:
+
+<!-- system:start -->
+**Session Index Boot** — After reading identity files but before any other operations:
+- If `memory/sessions/index.json` does not exist, create it as an empty JSON array: `[]`
+- Generate session ID: `session-{YYYY-MM-DD}-{HHMMSS}` using the current local timestamp
+- Append a new session record with: `started` = ISO 8601 timestamp, `closed` = null, `current_topic` = null, `topics` = []
+- This record is the active session for the entire conversation. The PostToolUse hook will write file captures to it.
+<!-- system:end -->
+
 <!-- personal:start -->
 1. **Sync from origin** — fetch and rebase before reading any system files, so boot always runs on the latest version:
    ```bash
@@ -1203,6 +1222,18 @@ Build artifacts that produce deliverables. Deleted at shutdown.
 ## Shutdown Cleanup Protocol
 
 Before committing at session end, Jarvis runs this cleanup sequence:
+
+<!-- system:start -->
+### Session Index Shutdown (FIRST)
+
+Before any other cleanup:
+1. Read the active session record from `memory/sessions/index.json` (last item in array)
+2. Set `closed` = current ISO 8601 timestamp
+3. Set `current_topic` = null
+4. Check all topics in the record for any entry with `flag: true` (unattributed bucket) — if present, surface them to David with the question: "These files were written but not attributed to a topic. Assign them to one of these topics:" and the topic list. Wait for David's response and update the unattributed topic name to the correct topic.
+5. Verify the entire session record is valid JSON before writing
+6. Write the updated index back to disk
+<!-- system:end -->
 
 ### 1. Purge temporary artifacts
 

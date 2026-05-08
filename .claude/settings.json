@@ -70,6 +70,26 @@
           }
         ]
       }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 '/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/.claude/hooks/post-tool-use.py'"
+          }
+        ]
+      },
+      {
+        "matcher": "Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 '/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/.claude/hooks/post-tool-use.py'"
+          }
+        ]
+      }
     ]
   }
 }

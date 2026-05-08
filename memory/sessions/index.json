@@ -1,0 +1,33 @@
+[
+  {
+    "id": "session-2026-05-07-072827",
+    "date": "2026-05-07",
+    "started": "2026-05-07T07:28:27-07:00",
+    "closed": null,
+    "current_topic": "session-index-build",
+    "topics": [
+      {
+        "topic": "cabo return + week ahead briefing",
+        "files": [
+          "memory/working/2026-05-07-072827-session-boot-morning-briefing.md"
+        ],
+        "loops": [
+          { "text": "DRC talk prep — May 21, no file started", "resolved": false },
+          { "text": "Topgolf AI brief — needed before Tue noon", "resolved": false }
+        ]
+      },
+      {
+        "topic": "openwork framework review",
+        "files": [],
+        "loops": []
+      },
+      {
+        "topic": "session-index-build",
+        "files": [],
+        "loops": [
+          { "text": "Rigby to build session index system", "resolved": false }
+        ]
+      }
+    ]
+  }
+]
