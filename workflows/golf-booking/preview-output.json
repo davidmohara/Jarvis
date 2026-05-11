@@ -1,72 +1,48 @@
 {
-  "generated_at": "2026-05-04T00:00:00",
+  "generated_at": "2026-05-05T23:00:00",
   "target_weekend": {
-    "friday": "2026-05-15",
-    "saturday": "2026-05-16",
-    "sunday": "2026-05-17"
-  },
-  "last_round": {
-    "date": "2026-05-02",
-    "location": "Frisco Lakes Golf Club",
-    "days_ago": 2
-  },
-  "weather_forecast": {
-    "source": "Web search estimates — 11-day range, lower confidence. Recheck Thu May 14.",
-    "friday_may15": { "high_f": 81, "low_f": 64, "conditions": "Partly cloudy", "rain_chance_pct": null },
-    "saturday_may16": { "high_f": 78, "low_f": 60, "conditions": "Partly cloudy", "rain_chance_pct": null },
-    "sunday_may17": { "high_f": 79, "low_f": 62, "conditions": "Partly cloudy", "rain_chance_pct": null }
+    "friday": "2026-05-13",
+    "saturday": "2026-05-14",
+    "sunday": "2026-05-15"
   },
   "day_status": {
     "friday": {
-      "status": "unavailable",
-      "reason": "YPO 49er retreat at McNarosa Ranch (Malakoff TX) — all-day, out of town. Multiple work meetings plus haircut. Zero viable window."
+      "status": "available",
+      "reason": "David returns from Minneapolis Thursday. Friday meetings end by 2:00 PM CT (HOU AI Tour touchpoint 1:30-2:00 PM). Clear 4-hour window 2:00-6:00 PM. SOH Golf Outing is all-day/free — likely a note, not a block. Viable for afternoon round."
     },
     "saturday": {
-      "status": "already_booked",
-      "reason": "Tee time already on calendar — Frisco Lakes Golf Club, 4:30pm CDT. Morning has Cookout at Rhonda's (11:15am). No booking action needed."
+      "status": "unavailable",
+      "reason": "Drive block to McNarosa Ranch (Malakoff TX) at 10:30 AM CT. YPO Forum Meeting 2:00-5:00 PM CT. YPO 49er Send Off 5:00-8:30 PM CT. Hard block all day."
     },
     "sunday": {
-      "status": "open",
-      "reason": "No calendar conflicts found. Clean window all day. Morning tee time (7-9am) recommended to beat afternoon heat."
+      "status": "unavailable",
+      "reason": "YPO 49er Send Off runs until 3:30 AM Sunday at McNarosa Ranch (Malakoff TX — 2+ hours from Frisco Lakes). Church volunteering 8:30 AM-1:30 PM. Not viable for Frisco Lakes golf."
     }
+  },
+  "drought": false,
+  "last_round": {
+    "date": "2026-05-02",
+    "location": "Frisco Lakes Golf Club",
+    "days_ago": 3
   },
   "top_options": [
     {
       "rank": 1,
-      "day": "saturday",
-      "date": "2026-05-16",
-      "preferred_start": "16:30",
-      "preferred_end": "19:30",
-      "weather": {
-        "temp_f": 78,
-        "condition": "partly_cloudy",
-        "rain_chance_pct": null
-      },
-      "score": 90,
-      "rationale": "Already booked — Frisco Lakes 4:30pm CDT. Best temps of the weekend (78F). No action needed.",
-      "already_booked": true
-    },
-    {
-      "rank": 2,
-      "day": "sunday",
-      "date": "2026-05-17",
-      "preferred_start": "07:00",
-      "preferred_end": "11:00",
-      "weather": {
-        "temp_f": 79,
-        "condition": "partly_cloudy",
-        "rain_chance_pct": null
-      },
-      "score": 80,
-      "rationale": "Completely open day. Optional bonus round. Morning slot avoids afternoon heat. Book if desired.",
-      "already_booked": false
+      "day": "friday",
+      "date": "2026-05-13",
+      "preferred_start": "14:00",
+      "preferred_end": "17:30",
+      "holes": 18,
+      "cost_per_player": 21,
+      "total_cost": 42,
+      "weather": null,
+      "score": 3,
+      "rationale": "Friday 2:00 PM — clear 4-hour window after meetings wrap. May is mild month so $21 rate. Only downside is work day (+3 penalty). Weather data unavailable — verify no storms.",
+      "notes": "Confirm SOH Golf Outing all-day event is informational, not a physical commitment away from Frisco."
     }
   ],
-  "booking_action": "Saturday May 16 confirmed — no action needed. Sunday May 17 is open for an optional bonus round.",
-  "notes": [
-    "Skill file /skills/rigby-golf-preview/SKILL.md not found in vault — executed from task file instructions directly",
-    "Weather at 11-day range is low-confidence — recheck Thursday May 14 for updated conditions",
-    "Friday is a hard block — David is away at YPO 49er, McNarosa Ranch (Malakoff TX)",
-    "Last round was May 2 (2 days ago) at Frisco Lakes"
-  ]
+  "weather": null,
+  "override_instructions": null,
+  "notes": "Corrected: DFW→MSP flight was Wednesday May 13 (not Friday), MSP→DFW return was Thursday May 14 (not Saturday). David is home Friday. Saturday and Sunday remain hard blocked due to YPO 49er at McNarosa Ranch. Weather data unavailable — Open-Meteo fetch blocked. Friday is the only viable window this weekend.",
+  "booking_action": "Book Friday May 13 at 2:00 PM if SOH Golf Outing all-day event is confirmed non-blocking."
 }

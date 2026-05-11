@@ -4,7 +4,7 @@ domain: operational
 tags: [dream-cycle, system-maintenance, memory-system, semantic-promotion, git-issues]
 confidence: medium
 created: 2026-04-26
-last-updated: 2026-05-05
+last-updated: 2026-05-11
 synthesized-from:
   - memory/episodic/2026-04-24-dream-cycle-summary.md
   - memory/episodic/2026-04-22-dream-cycle-summary.md
@@ -17,6 +17,10 @@ synthesized-from:
   - memory/episodic/2026-05-02-dream-cycle-summary.md
   - memory/episodic/2026-05-03-dream-cycle-summary.md
   - memory/episodic/2026-05-04-dream-cycle-summary.md
+  - memory/episodic/2026-04-18-dream-cycle-summary.md
+  - memory/episodic/2026-05-05-dream-cycle-summary.md
+  - memory/episodic/2026-05-06-dream-cycle-summary.md
+  - memory/episodic/2026-05-10-dream-cycle-summary.md
 ---
 
 # Pattern: IES Dream Cycle System Maturation
@@ -103,3 +107,38 @@ The IES dream cycle has been running nightly since April 18, 2026. Across 7 comp
 - **Evidence source count is now 11 across 17 runs.** The pipeline continues to run nightly without failure. 17 consecutive runs with zero missed nights.
 - **Score inflation renders the scoring algorithm non-functional for signal detection.** With 34 episodic entries and 20+ scoring 9-10 after today's recalculation, the promotion threshold of 3 auto-promotes every entry that shares any briefing, travel, or dream-cycle tag. The three new entries today all immediately scored 10 and the dream summary scored 9. The system is operating correctly per specification but the specification is provably broken. The fix priority should be elevated from "future evolution" to "next system revision."
 - **Git sync has been blocked for 13 consecutive runs.** The local-only state persists. With 34 episodic entries, 2 semantic patterns, and 17 runs of accumulated changes, the blast radius of a sandbox session loss continues to grow. This remains the single highest-risk item in the system.
+
+## Evidence (continued -- 2026-05-06)
+
+12. **2026-04-18 dream cycle (initial run, now promoted):** First run on initialized system. All directories empty. No entries to process. Error log scan detected 6 recurring patterns (routing-error x15, tool-misuse x11, data-accuracy x11, wrong-assumption x10, process-skip x8, format-violation x5) across 28 days and wrote all to LESSONS.md. The initial run's error analysis seeded the self-correction mechanism that all subsequent runs build on.
+
+13. **2026-05-05 dream cycle:** Archived 4 working memory entries to episodic. 34 entries scored with 11 updates. Score inflation confirmed at critical level: 20+ of 34 entries at 9-10. Two promotion clusters: 3 GLC briefings merged into briefing-travel-calendar pattern (16 evidence sources, high confidence), May 4 dream summary merged into this pattern (11 evidence sources, medium confidence). Git sync blocked for 14th consecutive run. Score inflation elevated to "next system revision" priority.
+
+## Implications (updated 2026-05-06)
+
+- **Evidence source count is now 13 across 18 runs.** The pipeline has run every night since initialization on April 18 with one correctly caught same-day duplicate (April 22). Zero missed nights, zero data loss within sessions.
+- **The initial run's contribution is now visible in retrospect.** The Apr 18 run that seeded LESSONS.md with 6 error patterns was the foundation for the error-log scan mechanism that every subsequent run relies on. Promoting it closes the provenance loop: the system's self-correction capability traces back to its first execution.
+- **Score inflation is no longer a future concern -- it is a current dysfunction.** 20+ of 37 entries score 9-10. The promotion threshold of 3 is meaningless when the floor is 7+. Every new briefing or dream-cycle entry auto-qualifies for promotion within one cycle. The three proposed algorithmic fixes (reduce window, raise tag threshold, weight by rarity) have been documented for 5 consecutive runs without implementation. This is now the dream cycle's own version of the "flagging is not fixing" pattern it identified in the briefing-travel domain.
+- **Git sync has been blocked for 15 consecutive runs.** index.lock irremovable (Operation not permitted) persists across all session types. The blast radius now covers 37 episodic entries, 2 semantic patterns with extensive evidence chains, and 18 runs of accumulated changes.
+
+## Evidence (continued -- 2026-05-10)
+
+14. **2026-05-06 dream cycle:** Archived 3 working memory entries to episodic. 37 entries scored with 6 updates. Score inflation continues: 22+ of 37 at 9-10. Two promotion clusters merged into existing semantic patterns. Error log has unresolved git merge conflict markers blocking JSON parse -- a new failure mode that disables the error-pattern-to-LESSONS.md feedback loop entirely. Git index.lock irremovable for the 15th consecutive run.
+
+## Implications (updated 2026-05-10)
+
+- **Evidence source count is now 14 across 19 runs (with 3-day gap May 7-9).** This is the first run after the Cabo trip (May 6-8). The gap confirms the system resumes cleanly after multi-day pauses -- no state corruption, no missed-state issues.
+- **Error log merge conflict is a new class of failure.** Previous git issues affected sync (push/pull). This one affects the error-log scan, which is the input to the LESSONS.md feedback loop. Without parseable error-log.json, the dream cycle cannot detect new error patterns. This is a higher-severity issue than git sync because it degrades the system's self-correction capability.
+- **Score inflation has been documented for 7 consecutive runs without remediation.** This is now the longest-running unresolved issue in the system. The dream cycle itself has become the canonical example of its own "flagging is not fixing" pattern. The next system evolution must address this before adding any new capabilities.
+- **Git sync has been blocked for 16+ consecutive runs.** The blast radius now covers 39 episodic entries, 2 semantic patterns with 14+ evidence sources each, and 19 runs of accumulated changes. Manual push from a live session remains the only viable path.
+
+## Evidence (continued -- 2026-05-11)
+
+15. **2026-05-10 dream cycle:** Archived 2 working memory entries to episodic. 39 entries scored with 8 updates. Score inflation at maximum saturation: 25+ of 39 at 9-10. Two promotions merged into existing patterns. Error log merge conflict still blocks JSON parse, disabling error-pattern scan for second consecutive run. Git index.lock irremovable for 16th consecutive run. Identified error-log corruption as a higher-severity issue than git sync because it degrades self-correction capability.
+
+## Implications (updated 2026-05-11)
+
+- **Evidence source count is now 15 across 20 runs.** The pipeline has been running for 23 days since initialization. Despite 3-day gaps (May 7-9 Cabo trip), the system resumes cleanly.
+- **Score inflation has reached terminal saturation.** 35 of 40 episodic entries now score 10/10. The scoring algorithm no longer discriminates at all -- it is a binary: does this entry share any common tags? This has been documented for 8 consecutive runs without remediation. The system is functioning as a rubber stamp for promotion rather than a filter.
+- **Error log corruption creates a compounding failure.** Two consecutive runs (May 6, May 10) could not scan error-log.json due to unresolved merge conflict markers. The error-pattern-to-LESSONS.md feedback loop is fully offline. Combined with score inflation, the dream cycle's two self-correction mechanisms (salience filtering and error pattern detection) are both degraded simultaneously.
+- **Git sync blocked for 17th consecutive run.** The blast radius now covers 40 episodic entries, 2 semantic patterns with 15 evidence sources each, and 20 runs of accumulated changes.

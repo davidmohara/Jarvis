@@ -12,9 +12,28 @@ outputs: {}
 
 <!-- system:start -->
 
+## ⚠️ TIMEZONE — READ FIRST
+
+David is in **America/Chicago (CT)**. This workflow runs at **11:00 PM CT on Tuesday**, which is **04:00 UTC Wednesday** during CDT (Mar–Nov) and **05:00 UTC Wednesday** during CST (Nov–Mar).
+
+**Always get the current local CT time from the Mac before any date calculation:**
+```bash
+osascript -e 'do shell script "date \"+%Y-%m-%d %H:%M %Z\""'
+```
+
+Use this CT date as the anchor for all target weekend calculations — never derive dates from a UTC timestamp. A task firing at 11pm CT will show 04:00 or 05:00 UTC the next calendar day; if you use that UTC date as "today" you will target the wrong weekend.
+
+The MS365 MCP returns all calendar event times in UTC. Convert to CT before evaluating any event:
+- **CDT (Mar–Nov):** UTC − 5 hours
+- **CST (Nov–Mar):** UTC − 6 hours
+
+All timestamps written to `preview-output.json` must be in CT. All times shown in Slack must be in CT.
+
+---
+
 ## MANDATORY EXECUTION RULES
 
-1. Never hardcode dates — always calculate the target weekend dynamically from the current date.
+1. Never hardcode dates — always calculate the target weekend dynamically from the current date **in CT** (see timezone section above).
 2. Never book a round — this skill only evaluates and notifies. Booking is Phase 2.
 3. Always send the Slack notification even if only one viable window is found.
 4. If no viable windows exist, still send Slack explaining why — do not silently skip.
@@ -74,6 +93,9 @@ start_datetime: [target_friday]T00:00:00
 end_datetime: [target_sunday]T23:59:59
 ```
 
+**⚠️ CRITICAL — UTC CONVERSION REQUIRED:**
+The MS365 MCP returns all event times in UTC. David is in the **America/Chicago** timezone (CDT = UTC−5 from mid-March through early November; CST = UTC−6 from early November through mid-March). During May, the offset is **CDT = UTC−5**. Before evaluating any event time, **always subtract 5 hours from the returned UTC timestamp to get local CT time.** Example: `start: 2026-05-13T12:28:00Z` = 7:28 AM CT. Never treat UTC timestamps as local times — this is the most common failure mode for this skill.
+
 For each day, identify conflicts:
 
 **Hard blocks (mark day as unavailable):**
@@ -95,6 +117,7 @@ For each day, identify conflicts:
 
 Store per-day status: `available` | `unavailable` | `conditional`
 Store reason for any unavailable day.
+Store all times in preview-output.json in **CT (local time)** — never UTC.
 
 ---
 
@@ -107,6 +130,8 @@ query: "golf"
 start_datetime: [21 days ago]T00:00:00
 end_datetime: [yesterday]T23:59:59
 ```
+
+Remember: returned event times are UTC. Convert to CT (UTC-5 in May–October) before recording the last-round date.
 
 If no golf round found in 21 days → `drought: true`
 

@@ -4,7 +4,7 @@ domain: operational
 tags: [briefing, calendar, omnifocus, google-next, travel, overdue-tasks, leads]
 confidence: high
 created: 2026-04-24
-last-updated: 2026-05-05
+last-updated: 2026-05-10
 synthesized-from:
   - memory/episodic/2026-04-20-morning-briefing.md
   - memory/episodic/2026-04-21-morning-briefing.md
@@ -22,6 +22,9 @@ synthesized-from:
   - memory/episodic/2026-04-27-morning-briefing-glc-day1.md
   - memory/episodic/2026-04-28-morning-briefing-glc-day2.md
   - memory/episodic/2026-05-01-morning-briefing-post-travel.md
+  - memory/episodic/2026-05-04-morning-briefing-automated.md
+  - memory/episodic/2026-05-04-morning-briefing.md
+  - memory/episodic/2026-05-05-morning-briefing.md
 ---
 
 # Pattern: Morning Briefings Consistently Flag Travel-Calendar Conflicts
@@ -192,3 +195,36 @@ Morning briefings across the entire Google Next week (Apr 20-23) repeatedly surf
 22. **The Cabo trip (May 6-8) is the third consecutive multi-day travel event.** Google Next (Apr 22-24), GLC Chicago (Apr 26-30), and now YPO Forum Retreat in Cabo (May 6-8). The same failure modes will reproduce unless the travel-prep workflow has been built. The May 1 briefing already flagged a flight-calendar collision on May 6 (AA 1861 departure overlapping two meetings). This is the pattern's prediction: it will happen again.
 23. **Gold Forum Retreat prep has been flagged for 9+ days with no visible progress.** First surfaced Apr 27 (9 days out), still flagged May 1. The OmniFocus task exists but no completion evidence. This is exactly the pattern described in Implication #1: flagging is not fixing.
 24. **Email actionable items are accumulating across the travel gap.** The May 1 post-travel briefing surfaced 7 items, several time-sensitive (RBM reimbursement COB, Nikki Fackler Kaye intro). These were invisible during automated GLC runs because email triage requires live session capabilities. The pre-departure checklist (Implication #4) needs an email sweep component.
+
+### May 4 Morning Briefing -- Automated Pre-Dawn (NEW -- 2026-05-06 dream cycle)
+- Automated run. Calendar pulled 13 events. OmniFocus timed out (task data missing). 6 unassigned leads (Alcon, AECom, IFS, Cardinal IT, Paragon, Birgo).
+- 72-hour look-ahead flagged Gold Forum Cabo travel May 6: AA 1861 DFW-SJD 10:40 AM, dinner at Edith's 7:30 PM. No prep doc or logistics block visible on calendar.
+- Tuesday May 5 packed: LSG Cinco de Mayo party, AI Starting Point, Google Cloud follow-up, coaching call. No buffer before travel.
+- Email: Austin Principled Business Summit callback, Dustin Shaffer coffee acceptance. Jarvis inbox: "Project Profitability" still unprocessed (10 days).
+- Q2 rocks all in progress. DRC talk 17 days out.
+
+### May 4 Morning Briefing -- Live Session (NEW -- 2026-05-06 dream cycle)
+- Full boot with OmniFocus working (65 active tasks). Gold Forum Retreat planning overdue since Apr 27 -- flying in 2 days, critical.
+- Property tax review overdue (Apr 30, protest deadline ~May 15). OmniFocus inbox at 205 items. Credit card reporting due May 5.
+- SMU AI Advisory Board approved by Susan Fojtasek -- ready to confirm acceptance.
+- New CRM: College Football Playoff LLC ($28K, Derek Nwamadi). Won: Child Poverty Action Lab ($65K, Diana Stevens).
+- YPO ROW Chicago follow-up received. Multiple overdue items: inbox clear, credit report, Gold Forum planning.
+
+## Implications (continued -- 2026-05-06)
+
+25. **The pattern's prediction is now testable in real time.** Cabo trip departs today (May 6). The same failure modes flagged across Google Next and GLC Chicago -- OmniFocus timeout, unresolved calendar conflicts, lead tracker going dark, email accumulation, missing prep docs -- have all been predicted for this trip. The May 4 briefings confirmed: no prep doc exists, no logistics block on calendar, flight conflicts with at least two meetings. This is the third consecutive event to enter the departure window without the travel-prep workflow that Implication #1 recommended on April 24.
+26. **Overdue task accumulation has reached a new tier.** Gold Forum planning overdue 9+ days, property tax review overdue 6 days, OmniFocus inbox at 205 items, credit report overdue 7 days. The travel-recovery cycle never caught up from GLC before the next trip began. The system is surfacing the same overdue items across 5+ briefings with no resolution mechanism.
+27. **Won and new pipeline opportunities surfaced during the pre-travel window.** Child Poverty Action Lab ($65K won) and College Football Playoff LLC ($28K new) appeared in the May 4 briefing. These are positive signals but they require CRM updates, follow-up scheduling, and handoff actions that will not happen during a 3-day travel gap unless delegated before departure.
+
+### May 5 Morning Briefing -- Pre-Cabo Final Day (NEW -- 2026-05-10 dream cycle)
+- 15 calendar events. OmniFocus unavailable (3 consecutive timeouts). 6 unassigned leads persisting (Alcon now 13 months).
+- Credit card reporting DUE (5th of month). Travel day tomorrow (AA 1861, 10:40 AM CDT) -- conflicts with Sales Prospecting Weekly. Exact same collision pattern as every previous trip.
+- DRC AI Workshop May 21 -- 16 days out, EWR Exec Council call for prep.
+- Email action items accumulating: Orangery invite scheduling, YPO Speaker Directory reply, SMU AI Advisory Board intro.
+- Jarvis inbox: "Project Profitability" still unprocessed (now 10+ days stale).
+- OmniFocus data unavailable for the briefing.
+
+## Implications (continued -- 2026-05-10)
+
+28. **The Cabo trip pattern is now fully documented pre- and post-departure.** The May 5 briefing is the final pre-departure data point for the third consecutive multi-day travel event. Every predicted failure mode materialized: OmniFocus unavailable, flight-meeting conflict detected but unresolved, leads accumulating, Jarvis inbox items aging, compliance deadline (credit card reporting) landing on the last working day before travel. The pattern is now validated across three trips with zero mitigating infrastructure built.
+29. **"Project Profitability" is the canonical example of inbox decay.** First surfaced Apr 26, still unprocessed May 5 -- 10+ days stale across 5+ briefings. The system flagged it every single run but has no mechanism to process Chase-level analysis items in automated mode. This proves Implication #18: items needing specific agent capabilities need auto-routing to the next live session, not passive carry-forward.

@@ -323,3 +323,76 @@ errors_detail:
     file: .git/index.lock
     error: "Git index.lock irremovable (Operation not permitted). Pull --rebase failed. Dream cycle completed all memory operations but cannot sync with origin."
 ---
+
+---
+## 2026-05-06T03:08:45 CDT
+session_id: dream-cycle-2026-05-06-030845
+working_archived: 3
+working_deleted: 0
+episodic_scanned: 37
+score_updates: 6
+clusters_found: 2
+semantic_created: 0
+semantic_updated: 2
+promoted_entries: 4
+entries_compressed: 0
+digests_updated: 0
+compression_skipped: true
+errors: 2
+summary: "Archived 3 working memory entries (2x May 4 briefings, May 5 dream summary) to episodic. 37 episodic entries scored with 6 updates — score inflation continues: 22+ of 37 entries at 9-10, 3 new entries scored 7/8/10 immediately. Two promotion clusters: 2 May 4 briefings merged into briefing-travel-calendar-pattern (now 18 evidence sources, 27 implications, high confidence — Cabo departure day today, same failure modes confirmed: no prep doc, flight-calendar conflicts, overdue task accumulation); Apr 18 initial run + May 5 dream summary merged into dream-cycle-system-maturation-pattern (now 13 evidence sources, medium confidence — noted system's own 'flagging not fixing' pattern on score inflation). No compression candidates (all entries < 90 days). Error log has unresolved git merge conflict preventing JSON parse. Git pull blocked by index.lock — 15th consecutive run without sync."
+errors_detail:
+  - phase: 0
+    file: .git/index.lock
+    error: "Git index.lock irremovable (Operation not permitted). Pull --rebase failed. Dream cycle completed all memory operations but cannot sync with origin."
+  - phase: 3
+    file: systems/error-tracking/error-log.json
+    error: "Error log contains unresolved git merge conflict markers (<<<<<<< HEAD) at line 1645. JSON cannot be parsed. Error pattern scan skipped. Manual conflict resolution required."
+---
+
+---
+## 2026-05-10T03:09:49 CDT
+session_id: dream-cycle-2026-05-10-030949
+working_archived: 2
+working_deleted: 0
+episodic_scanned: 39
+score_updates: 8
+clusters_found: 2
+semantic_created: 0
+semantic_updated: 2
+promoted_entries: 2
+entries_compressed: 0
+digests_updated: 0
+compression_skipped: true
+errors: 2
+summary: "Archived 2 working memory entries (May 5 morning briefing, May 6 dream summary) to episodic. 39 episodic entries scored with 8 updates. Score inflation persists: 25+ of 39 entries at 9-10. Two promotion clusters: May 5 briefing merged into briefing-travel-calendar-pattern (now 19 evidence sources, 29 implications, high confidence — Cabo trip pre-departure pattern fully documented); May 6 dream summary merged into dream-cycle-system-maturation-pattern (now 14 evidence sources, medium confidence — error log merge conflict identified as new failure class degrading self-correction capability). No compression candidates (all entries < 90 days). Git index.lock irremovable — 16th consecutive run without sync."
+errors_detail:
+  - phase: 0
+    file: .git/index.lock
+    error: "Git index.lock irremovable (Operation not permitted). Pull --rebase failed due to unstaged changes. Dream cycle completed all memory operations but cannot sync with origin."
+  - phase: 3
+    file: systems/error-tracking/error-log.json
+    error: "Error log contains unresolved git merge conflict markers. JSON cannot be parsed. Error pattern scan skipped. Manual conflict resolution required."
+---
+
+---
+## 2026-05-11T03:08:30 CDT
+session_id: dream-cycle-2026-05-11-030830
+working_archived: 1
+working_deleted: 0
+episodic_scanned: 40
+score_updates: 1
+clusters_found: 1
+semantic_created: 0
+semantic_updated: 1
+promoted_entries: 1
+entries_compressed: 0
+digests_updated: 0
+compression_skipped: true
+errors: 1
+summary: "Archived 1 working memory entry (May 10 dream summary) to episodic. 40 episodic entries scored -- score inflation at terminal saturation (35 of 40 at 10/10). One promotion: May 10 dream summary merged into dream-cycle-system-maturation-pattern (now 15 evidence sources, medium confidence). Resolved error-log.json merge conflict (stale <<<<<<< HEAD marker + split array), restoring error pattern scan capability after 2 runs offline. Error scan found process-skip (5), data-accuracy (3), assumption-error (3) -- all already in LESSONS.md. Git index.lock irremovable -- 17th consecutive run without sync."
+errors_detail:
+  - phase: 0
+    file: .git/index.lock
+    error: "Git index.lock irremovable (Operation not permitted). Pull --rebase failed. Dream cycle completed all memory operations but cannot sync with origin."
+notes: "Error log merge conflict resolved this run -- JSON now valid with 33 entries. Error pattern scan restored. Score inflation at maximum: 35/40 entries score 10/10, algorithm is non-functional as a filter."
+---

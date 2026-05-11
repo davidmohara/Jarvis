@@ -6,8 +6,8 @@ tags: [dream-cycle, error-patterns, system-health]
 related_people: []
 salience:
   score: 1
-  promoted: false
-  last-promoted-check: 2026-05-02
+  promoted: true
+  last-promoted-check: 2026-05-10
 ---
 
 # Dream Cycle Summary — 2026-04-18
