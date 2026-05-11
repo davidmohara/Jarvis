@@ -1297,6 +1297,23 @@ Read `skills/_manifest.jsonl` — one pass, all lines. Do NOT pre-load any `SKIL
 - If multiple skills match, load all of them — they may be complementary.
 - If a skill file is missing from disk, log the error and continue without it.
 
+### ⚠️ CRITICAL: Hidden Skills Directory
+
+Skills live in TWO locations:
+- `skills/` — standard skills directory
+- `.claude/skills/` — **hidden directory**, NOT traversed by default glob patterns
+
+**When any skill search returns no results, ALWAYS explicitly check `.claude/skills/` before declaring the skill missing.** The `.claude/` directory is hidden (dot-prefix) and standard glob/find commands skip it by default.
+
+Known skills in `.claude/skills/`: `master-slack`, and others. When David says a skill exists and your search found nothing — it is in `.claude/skills/`. Look there immediately.
+
+**Correct explicit search:**
+```bash
+find {IES_ROOT}/.claude/skills -name "SKILL.md"
+```
+
+This failure has been logged 3+ times (err-20260327-004, err-20260404-001, err-20260511-001). No further occurrences are acceptable.
+
 ---
 
 <!-- personal:start -->
