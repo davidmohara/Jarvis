@@ -12,25 +12,6 @@ outputs: {}
 
 <!-- system:start -->
 
-## ⚠️ TIMEZONE — READ FIRST
-
-David is in **America/Chicago (CT)**. This workflow runs at **midnight CT**, which is **06:00 UTC** during CDT (Mar–Nov) and **07:00 UTC** during CST (Nov–Mar).
-
-**Always get the current local CT time from the Mac before doing anything time-sensitive:**
-```bash
-osascript -e 'do shell script "date \"+%Y-%m-%d %H:%M %Z\""'
-```
-
-This applies to:
-- Any timestamp you write to `preview-output.json` (`generated_at` must be CT)
-- Any date calculation (target weekend, booking window)
-- Any Slack message that references a date or time
-- Calendar event start/end times (the MS365 MCP returns UTC — always subtract 5 hours for CDT)
-
-**Never use the system clock in UTC as if it were local time.** A task that fires at midnight CT will show 05:00 or 06:00 UTC — treat that as midnight, not 5am or 6am.
-
----
-
 ## MANDATORY EXECUTION RULES
 
 1. **Speed matters.** Slots fill fast at midnight. Navigate directly — no browsing, no detours.
@@ -336,8 +317,6 @@ Notes: Tee time: [booked_time] · [booked_holes] holes · $[booked_cost] due at 
 ```
 
 **Range time:** Calendar block starts 30 minutes BEFORE the tee time to cover warm-up.
-
-**⚠️ TIMEZONE — All times from preview-output.json are in CT (America/Chicago, CDT = UTC-5 in May–October).** When writing the calendar event, treat these as local CT times. If the MCP requires UTC, convert CT→UTC by adding 5 hours (e.g., 1:00 PM CT = 18:00Z). Never write the CT time directly as a UTC value — that would place the event 5 hours off.
 
 ---
 

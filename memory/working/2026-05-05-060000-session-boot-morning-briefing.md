@@ -5,7 +5,7 @@ session_id: chief-2026-05-05-060000
 agent-source: chief
 created: 2026-05-05T06:00:00
 expires: 2026-05-07T06:00:00
-status: archived
+status: active
 context: "Morning boot + briefing — 2026-05-05"
 ---
 

@@ -1,7 +1,7 @@
 ---
 type: working
 expires: 2026-05-06
-status: archived
+status: active
 ---
 
 # Dream Cycle Summary — 2026-05-05
