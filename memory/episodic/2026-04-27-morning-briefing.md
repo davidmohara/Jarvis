@@ -6,7 +6,7 @@ tags: [briefing, calendar, glc-chicago, travel, omnifocus-timeout, leads, alice-
 related_people: [alice-mburu, ehren-seim, don-mcgreal, robyn, tim-rayburn]
 salience:
   score: 10
-  last-promoted-check: 2026-05-02
+  last-promoted-check: 2026-05-12
   promoted: true
 ---
 

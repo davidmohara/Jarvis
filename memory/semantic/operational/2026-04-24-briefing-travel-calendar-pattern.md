@@ -4,7 +4,7 @@ domain: operational
 tags: [briefing, calendar, omnifocus, google-next, travel, overdue-tasks, leads]
 confidence: high
 created: 2026-04-24
-last-updated: 2026-05-05
+last-updated: 2026-05-12
 synthesized-from:
   - memory/episodic/2026-04-20-morning-briefing.md
   - memory/episodic/2026-04-21-morning-briefing.md
@@ -22,6 +22,10 @@ synthesized-from:
   - memory/episodic/2026-04-27-morning-briefing-glc-day1.md
   - memory/episodic/2026-04-28-morning-briefing-glc-day2.md
   - memory/episodic/2026-05-01-morning-briefing-post-travel.md
+  - memory/episodic/2026-05-04-morning-briefing-automated.md
+  - memory/episodic/2026-05-04-morning-briefing.md
+  - memory/episodic/2026-05-05-morning-briefing.md
+  - memory/episodic/2026-05-07-morning-briefing-cabo.md
 ---
 
 # Pattern: Morning Briefings Consistently Flag Travel-Calendar Conflicts
@@ -192,3 +196,23 @@ Morning briefings across the entire Google Next week (Apr 20-23) repeatedly surf
 22. **The Cabo trip (May 6-8) is the third consecutive multi-day travel event.** Google Next (Apr 22-24), GLC Chicago (Apr 26-30), and now YPO Forum Retreat in Cabo (May 6-8). The same failure modes will reproduce unless the travel-prep workflow has been built. The May 1 briefing already flagged a flight-calendar collision on May 6 (AA 1861 departure overlapping two meetings). This is the pattern's prediction: it will happen again.
 23. **Gold Forum Retreat prep has been flagged for 9+ days with no visible progress.** First surfaced Apr 27 (9 days out), still flagged May 1. The OmniFocus task exists but no completion evidence. This is exactly the pattern described in Implication #1: flagging is not fixing.
 24. **Email actionable items are accumulating across the travel gap.** The May 1 post-travel briefing surfaced 7 items, several time-sensitive (RBM reimbursement COB, Nikki Fackler Kaye intro). These were invisible during automated GLC runs because email triage requires live session capabilities. The pre-departure checklist (Implication #4) needs an email sweep component.
+
+## Evidence (continued — 2026-05-12)
+
+### May 4 Morning Briefing — Automated Run
+- 13 calendar events including WFH Day block. OmniFocus timed out twice. 6 unassigned leads flagged. Jarvis inbox still holding Project Profitability email from Apr 26 (now 8 days stale). No daily review found for May 3. Dream cycle git sync still blocked.
+
+### May 4 Morning Briefing — Manual Boot
+- Full boot with OmniFocus working (65 active tasks). 31+ events for May 4-10. WFH day. Jarvis inbox still holding same Project Profitability email. No in-flight workflows detected.
+
+### May 5 Morning Briefing — Pre-Cabo
+- 15 calendar events. OmniFocus unavailable (3 timeouts). Travel context for tomorrow (Cabo). Key meetings: Liberty Ventures call, AI Starting Point Discussion (YPO), IBP Journaling with Derek Nwamadi. Leads tracker functional but no triage action.
+
+### May 7 Morning Briefing — Cabo/Gold Forum
+- David at YPO Gold Forum Cabo Retreat (May 6-8). MST timezone confirmed. 50 events for May 7-12. OmniFocus returned 12 tasks (minimal, suggesting connectivity limitation). Dream cycle 3+ days stale. Git rebase unavailable.
+
+## Implications (continued — 2026-05-12)
+
+25. **The Cabo trip prediction (Implication #22) materialized exactly as forecast.** The May 5 briefing flagged travel context for the next day, OmniFocus failed again, and the May 7 briefing from Cabo showed reduced task visibility (12 tasks vs. 65 the day before from home). Three consecutive multi-day trips with identical failure modes confirms this is a permanent structural gap, not a transient issue.
+26. **Project Profitability email in Jarvis inbox has been stale for 12+ days.** First surfaced Apr 26, still unprocessed through May 7. This is the longest-lived unprocessed Jarvis inbox item and validates Implication #18: items requiring specific agent capabilities rot without a routing mechanism.
+27. **OmniFocus reliability correlates with session type.** The May 4 automated run failed (timeout) while the same-day manual boot succeeded (65 tasks). The May 7 Cabo run returned only 12 tasks. The infrastructure gap is specifically in automated/remote runs, not the MCP server itself. This refines Implication #20: the fix is not to abandon MCP but to ensure fallback runs automatically in scheduled contexts.

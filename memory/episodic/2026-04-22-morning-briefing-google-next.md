@@ -6,7 +6,7 @@ related_people: [ehren-seim, mladen-raickovic, alice-mburu, gabriela-garza-ramos
 salience:
   score: 10
   promoted: true
-  last-promoted-check: 2026-05-02
+  last-promoted-check: 2026-05-12
 source_session: chief-2026-04-22-060000
 ---
 

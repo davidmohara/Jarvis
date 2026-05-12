@@ -6,7 +6,7 @@ related_people: [alice-mburu, christian-meyers, scott-beck, jarrod-beck, brad-mc
 salience:
   score: 0
   promoted: false
-  last-promoted-check: 2026-05-02
+  last-promoted-check: 2026-05-12
 source_session: chief-2026-04-21-onboarding
 ---
 

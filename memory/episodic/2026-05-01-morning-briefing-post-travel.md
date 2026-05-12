@@ -7,7 +7,7 @@ related_people: [scott-mcmichael, nikki-fackler-kaye, randy-mccabe, stuart]
 salience:
   score: 10
   promoted: true
-  last-promoted-check: 2026-05-05
+  last-promoted-check: 2026-05-12
 ---
 
 # Morning Briefing — May 1, 2026 (Post-Travel Friday)

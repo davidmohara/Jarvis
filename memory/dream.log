@@ -323,3 +323,25 @@ errors_detail:
     file: .git/index.lock
     error: "Git index.lock irremovable (Operation not permitted). Pull --rebase failed. Dream cycle completed all memory operations but cannot sync with origin."
 ---
+
+---
+## 2026-05-12T03:08:39 CDT
+session_id: dream-cycle-2026-05-12-030839
+working_archived: 6
+working_deleted: 0
+episodic_scanned: 40
+score_updates: 39
+clusters_found: 2
+semantic_created: 0
+semantic_updated: 2
+promoted_entries: 5
+entries_compressed: 0
+digests_updated: 0
+compression_skipped: true
+errors: 1
+summary: "Archived 6 working memory entries (May 4 auto briefing, May 4 manual briefing, May 5 briefing, May 7 Cabo briefing, May 8 session index build, May 5 dream summary) to episodic. 40 episodic entries scored with 39 updates. Score inflation unchanged: 25+ entries at 9-10. Two promotion clusters: 4 briefings (May 4 x2, May 5, May 7 Cabo) merged into briefing-travel-calendar-pattern (now 20 evidence sources, 27 implications, high confidence — Cabo trip prediction validated, OmniFocus auto/manual reliability split identified, Project Profitability email at 12+ days stale); 1 dream summary merged into dream-cycle-system-maturation-pattern (now 12 evidence sources, medium confidence — noted 7-day execution gap May 6-11, scoring algorithm fix deferred for 6 consecutive runs). No new error patterns beyond LESSONS.md coverage. No compression candidates (all entries < 90 days). Git index.lock irremovable — 15th consecutive run without sync."
+errors_detail:
+  - phase: 0
+    file: .git/index.lock
+    error: "Git index.lock irremovable (Operation not permitted). Pull --rebase failed due to unstaged changes. Dream cycle completed all memory operations but cannot sync with origin."
+---

@@ -4,7 +4,7 @@ domain: operational
 tags: [dream-cycle, system-maintenance, memory-system, semantic-promotion, git-issues]
 confidence: medium
 created: 2026-04-26
-last-updated: 2026-05-05
+last-updated: 2026-05-12
 synthesized-from:
   - memory/episodic/2026-04-24-dream-cycle-summary.md
   - memory/episodic/2026-04-22-dream-cycle-summary.md
@@ -17,6 +17,7 @@ synthesized-from:
   - memory/episodic/2026-05-02-dream-cycle-summary.md
   - memory/episodic/2026-05-03-dream-cycle-summary.md
   - memory/episodic/2026-05-04-dream-cycle-summary.md
+  - memory/episodic/2026-05-05-dream-cycle-summary.md
 ---
 
 # Pattern: IES Dream Cycle System Maturation
@@ -103,3 +104,13 @@ The IES dream cycle has been running nightly since April 18, 2026. Across 7 comp
 - **Evidence source count is now 11 across 17 runs.** The pipeline continues to run nightly without failure. 17 consecutive runs with zero missed nights.
 - **Score inflation renders the scoring algorithm non-functional for signal detection.** With 34 episodic entries and 20+ scoring 9-10 after today's recalculation, the promotion threshold of 3 auto-promotes every entry that shares any briefing, travel, or dream-cycle tag. The three new entries today all immediately scored 10 and the dream summary scored 9. The system is operating correctly per specification but the specification is provably broken. The fix priority should be elevated from "future evolution" to "next system revision."
 - **Git sync has been blocked for 13 consecutive runs.** The local-only state persists. With 34 episodic entries, 2 semantic patterns, and 17 runs of accumulated changes, the blast radius of a sandbox session loss continues to grow. This remains the single highest-risk item in the system.
+
+## Evidence (continued — 2026-05-12)
+
+12. **2026-05-05 dream cycle:** Archived 4 entries (GLC Day 1, Day 2, post-travel, dream summary) to episodic. 34 entries scored with 11 updates. Score inflation critical: 20+ of 34 at 9-10. Two promotion clusters: 3 briefings merged into briefing-travel-calendar pattern (16 evidence, high), dream summary merged into this pattern (11 evidence, medium). Git sync blocked 14th consecutive run. 7-day gap between this run and the next (May 12), the longest gap since initialization.
+
+## Implications (updated 2026-05-12)
+
+- **Evidence source count is now 12 across 18+ runs.** The pipeline ran 17 consecutive nights through May 5, then went silent for 7 days (May 6-11). This is the first multi-day gap since initialization. The gap coincides with the Cabo trip (May 6-8), suggesting the scheduled task runner may have been unavailable during travel. The gap itself is data: the dream cycle's reliability depends on the scheduling infrastructure being available, which it may not be during extended travel.
+- **Score inflation remains the dominant system concern.** With 40 episodic entries now and the same 2-tag/30-day algorithm, every new briefing-tagged entry auto-scores 10. The scoring is functionally broken for discrimination. The three proposed fixes (reduce window, require 3+ tags, weight by rarity) have been noted in 6 consecutive runs with no implementation. The dream cycle cannot fix its own scoring algorithm — this requires a system revision during a live session.
+- **Git sync has been blocked for 14+ consecutive runs.** The blast radius now includes 40 episodic entries, 2 semantic patterns with 20+ evidence sources each, and all working memory state changes since April 22. This is 3 weeks of local-only evolution.

@@ -6,7 +6,7 @@ tags: [briefing, calendar, glc-chicago, travel, omnifocus-timeout, flight-confli
 related_people: [devlin, tim-rayburn, ehren-seim, howard-dierking, david-belcher, mick]
 salience:
   score: 10
-  last-promoted-check: 2026-05-02
+  last-promoted-check: 2026-05-12
   promoted: true
 ---
 

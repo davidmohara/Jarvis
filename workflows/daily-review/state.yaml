@@ -2,15 +2,16 @@
 workflow: daily-review
 agent: chief
 status: complete
-session-started: "2026-05-04T21:10:00"
-session-id: "chief-2026-05-04-auto"
+session-started: "2026-05-11T00:00:00"
+session-id: "chief-2026-05-11-auto"
 current-step: step-auto
 original-request: "auto"
 accumulated-context:
-  narrative-title: "2026-05-03 Black Tie and Mobile Bidding at the Make-a-Wish Gala"
-  narrative-path: "Daily Reviews/2026-05-03 Black Tie and Mobile Bidding at the Make-a-Wish Gala.md"
+  narrative-title: "2026-05-10 Running on Empty Data"
+  narrative-path: "reviews/daily/auto-2026-05-10.md"
   omnifocus-status: "unavailable (3 timeouts)"
-  obsidian-status: "attempted — written to local fallback"
-  calendar-events: 1
+  calendar-status: "unavailable (M365 connector requires re-authentication)"
+  obsidian-status: "disabled — written to local fallback"
+  calendar-events: 0
   model: sonnet
 ---

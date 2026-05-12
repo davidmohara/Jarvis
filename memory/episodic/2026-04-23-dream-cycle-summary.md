@@ -6,7 +6,7 @@ related_people: []
 salience:
   score: 9
   promoted: true
-  last-promoted-check: 2026-05-05
+  last-promoted-check: 2026-05-12
 source_session: dream-cycle-2026-04-23-030832
 ---
 

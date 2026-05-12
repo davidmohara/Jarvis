@@ -7,7 +7,7 @@ related_people: [devlin, randy-mccabe, stuart]
 salience:
   score: 10
   promoted: true
-  last-promoted-check: 2026-05-02
+  last-promoted-check: 2026-05-12
 ---
 
 # Session Boot — April 26, 2026 (GLC Travel Day)

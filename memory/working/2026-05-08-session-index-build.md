@@ -5,7 +5,7 @@ session_id: "session-2026-05-07-072827"
 agent-source: master
 created: 2026-05-08
 expires: 2026-05-10
-status: active
+status: archived
 context: "Session index system design and build — May 7–8"
 ---
 

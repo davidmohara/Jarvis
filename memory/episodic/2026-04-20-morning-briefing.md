@@ -7,7 +7,7 @@ related_people: [dennis-howard, scott-mcmichael, alice-mburu]
 salience:
   score: 10
   promoted: true
-  last-promoted-check: 2026-05-02
+  last-promoted-check: 2026-05-12
 ---
 
 # Morning Briefing — April 20, 2026
