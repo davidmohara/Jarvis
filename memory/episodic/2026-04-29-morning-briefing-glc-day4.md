@@ -6,8 +6,8 @@ tags: [briefing, calendar, travel, glc-chicago, flight-conflict, omnifocus, cybe
 related_people: [robyn-fuentes, don-mcgreal, aren-cambre, alice-mburu]
 salience:
   score: 10
+  last-promoted-check: 2026-05-13
   promoted: true
-  last-promoted-check: 2026-05-12
 ---
 
 # Morning Briefing — April 29, 2026 (GLC Day 4, Final Day)

@@ -9,9 +9,9 @@ tags:
   - semantic-promotion
   - error-naming
 salience:
-  score: 0
+  score: 10
+  last-promoted-check: 2026-05-13
   promoted: true
-  last-promoted-check: 2026-05-12
 ---
 
 # Dream Cycle Summary — 2026-05-02

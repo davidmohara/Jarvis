@@ -1,12 +1,16 @@
 ---
-type: working
+type: working-archive
 task_id: "session"
 session_id: "chief-2026-05-11-000000"
 agent-source: chief
 created: 2026-05-11T00:00:00
 expires: 2026-05-13T00:00:00
-status: active
+status: archived
 context: "Morning boot + briefing — 2026-05-11 (automated scheduled run)"
+salience:
+  score: 0
+  last-promoted-check: 2026-05-13
+  promoted: true
 ---
 
 # Morning Briefing Session — May 11, 2026

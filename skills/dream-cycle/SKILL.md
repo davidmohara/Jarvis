@@ -27,7 +27,20 @@ Push example:
 mcp__Desktop_Commander__start_process("cd /Users/davidohara/develop/jarvis && git push origin main 2>&1", timeout_ms=30000)
 ```
 
-Local git operations (add, commit, status, diff) can run in the sandbox via Bash since the workspace mount shares the same repo state.
+Local git operations (add, commit, status) can run in the sandbox via Bash since the workspace mount shares the same repo state.
+
+### Index Lock Prevention — CRITICAL
+
+In sandboxed environments, `.git/index.lock` can become irremovable once created. **Every** git command that touches the index (add, commit, diff, stash, pull, rebase, status --long) creates this lock. To prevent it from persisting:
+
+1. **ALWAYS** prefix git write commands with `rm -f .git/index.lock &&` in the same shell call.
+2. **NEVER** run `git diff --stat` or `git diff` — use `git status --short` instead to inspect changes.
+3. **Chain add+commit in a single Bash call** so the lock is held only briefly:
+   ```
+   rm -f .git/index.lock && git add -A && git commit -m "message"
+   ```
+4. **Do NOT run git status, git diff, or git log as separate pre-flight checks.** If you need to confirm repo state, use `git status --short` once, prefixed with the lock removal.
+5. **Never run multiple parallel Bash calls that touch git.** All git operations must be sequential within a single shell invocation.
 
 **Do NOT attempt:** raw `git push` in sandbox, GitHub MCP push_file, `gh` CLI, or SSH-based git. They will all fail. Desktop Commander is the only path.
 
@@ -38,7 +51,8 @@ Local git operations (add, commit, status, diff) can run in the sandbox via Bash
 - Read `memory/dream.log` — confirm last run date. If last run was today, abort with log entry: `aborted: already ran today`.
 - Get current local date/time via `osascript -e 'return (current date) as string'`.
 - Record `session_id: dream-cycle-{YYYY-MM-DD-HHmmss}`.
-- **Sync from origin** using Desktop Commander (see Git Operations above). Handle any merge conflicts. Do NOT proceed until the folder is clean.
+- **Sync from origin** using Desktop Commander (see Git Operations above). Handle any merge conflicts. If sync fails (auth, SSH, uncommitted changes), log it and proceed — do not block the cycle on sync failures.
+- Remove any stale index lock: `rm -f .git/index.lock`
 
 ---
 
@@ -172,7 +186,10 @@ Write a file `memory/working/dream-summary-{YYYY-MM-DD}.md` with
 Content: the log entry above, formatted for Chief to read at boot.
 
 **Commit and push (EVERY run, not just notable ones):**
-1. Stage and commit all changes via sandbox Bash (`git add`, `git commit`).
+1. Stage and commit in a single chained Bash call (see Index Lock Prevention):
+   ```
+   rm -f .git/index.lock && git add -A && git commit -m "Dream cycle YYYY-MM-DD: summary"
+   ```
 2. Push to origin via Desktop Commander (see Git Operations section above). This is non-negotiable. Do not skip, do not defer to the next session.
 
 ---

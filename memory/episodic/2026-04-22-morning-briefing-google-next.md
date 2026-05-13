@@ -5,8 +5,8 @@ tags: [briefing, calendar, google-next, travel, las-vegas, flight, alice-mburu, 
 related_people: [ehren-seim, mladen-raickovic, alice-mburu, gabriela-garza-ramos, christopher-mcmillan]
 salience:
   score: 10
+  last-promoted-check: 2026-05-13
   promoted: true
-  last-promoted-check: 2026-05-12
 source_session: chief-2026-04-22-060000
 ---
 

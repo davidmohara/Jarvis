@@ -1,6 +1,56 @@
 {
   "pending": [
     {
+      "id": "work-20260512-dream-cycle-workflow-rebuild",
+      "description": "Dream cycle workflow rebuilt to full IES spec by Rigby. Master built the initial version without routing, violating the Hard Stop rule. All 7 files rewritten: workflow.md gained system/personal block wrappers, proper Data Sources Required table, full 4-case STATE CHECK with step-status check, and complete EXECUTION table. state.yaml gained missing fields (workflow, agent, original-request). All 5 step files gained correct frontmatter (status/started-at/completed-at/outputs), system:start/end wrappers, and all required sections: MANDATORY EXECUTION RULES, EXECUTION PROTOCOL, CONTEXT BOUNDARIES, YOUR TASK, SUCCESS METRICS, FAILURE MODES, NEXT STEP. Logic from the original SKILL.md source preserved in full.",
+      "started": "2026-05-12T00:00:00Z",
+      "classification": "system",
+      "files": [
+        {
+          "path": "workflows/dream-cycle/workflow.md",
+          "action": "replace",
+          "type": "system",
+          "description": "Rebuilt to IES spec: system/personal block wrappers, Data Sources Required table, Pre-flight Checks in INITIALIZATION, full 4-case STATE CHECK with step-status check, EXECUTION table with all 5 steps."
+        },
+        {
+          "path": "workflows/dream-cycle/state.yaml",
+          "action": "replace",
+          "type": "system",
+          "description": "Added missing required fields: workflow, agent, original-request. All fields now match the Capability Building Protocol schema."
+        },
+        {
+          "path": "workflows/dream-cycle/steps/step-01-working-memory-cleanup.md",
+          "action": "replace",
+          "type": "system",
+          "description": "Rebuilt to full IES spec: correct frontmatter, system blocks, MANDATORY EXECUTION RULES, EXECUTION PROTOCOL table, CONTEXT BOUNDARIES, YOUR TASK (numbered), SUCCESS METRICS, FAILURE MODES, NEXT STEP."
+        },
+        {
+          "path": "workflows/dream-cycle/steps/step-02-salience-scoring.md",
+          "action": "replace",
+          "type": "system",
+          "description": "Rebuilt to full IES spec: correct frontmatter, system blocks, MANDATORY EXECUTION RULES, EXECUTION PROTOCOL table, CONTEXT BOUNDARIES, YOUR TASK (numbered), SUCCESS METRICS, FAILURE MODES, NEXT STEP."
+        },
+        {
+          "path": "workflows/dream-cycle/steps/step-03-semantic-promotion.md",
+          "action": "replace",
+          "type": "system",
+          "description": "Rebuilt to full IES spec: correct frontmatter, system blocks, MANDATORY EXECUTION RULES, EXECUTION PROTOCOL table, CONTEXT BOUNDARIES, YOUR TASK split into Phase A (promotion) and Phase B (error pattern check), SUCCESS METRICS, FAILURE MODES, NEXT STEP."
+        },
+        {
+          "path": "workflows/dream-cycle/steps/step-04-episodic-compression.md",
+          "action": "replace",
+          "type": "system",
+          "description": "Rebuilt to full IES spec: correct frontmatter, system blocks, MANDATORY EXECUTION RULES, EXECUTION PROTOCOL table, CONTEXT BOUNDARIES, YOUR TASK (numbered with safety check gate), SUCCESS METRICS, FAILURE MODES, NEXT STEP."
+        },
+        {
+          "path": "workflows/dream-cycle/steps/step-05-logging.md",
+          "action": "replace",
+          "type": "system",
+          "description": "Rebuilt to full IES spec: correct frontmatter, system blocks, MANDATORY EXECUTION RULES, EXECUTION PROTOCOL table, CONTEXT BOUNDARIES, YOUR TASK split into Phase A (dream log), Phase B (working memory summary), Phase C (finalize + git), SUCCESS METRICS, FAILURE MODES."
+        }
+      ]
+    },
+    {
       "id": "work-20260503-golf-booking",
       "description": "New golf tee time booking workflow for Frisco Lakes Golf Club. Two-phase: preview skill evaluates calendar + weather + scoring and sends Slack options on Tuesday 11pm; booking skill opens ChronoGolf via Chrome at Wednesday midnight and books best available slot for David + Susie O'Hara as Total Members. Creates calendar block with 30-min range buffer. Two scheduled tasks registered in Cowork.",
       "started": "2026-05-03T00:00:00Z",

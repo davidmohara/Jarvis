@@ -6,8 +6,8 @@ tags: [dream-cycle, system-maintenance, memory-pipeline, score-inflation, semant
 related_people: []
 salience:
   score: 10
+  last-promoted-check: 2026-05-13
   promoted: true
-  last-promoted-check: 2026-05-12
 ---
 
 # Dream Cycle Summary — 2026-05-03

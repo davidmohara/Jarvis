@@ -1,0 +1,32 @@
+workflow: dream-cycle
+agent: jarvis
+status: complete
+session-started: 2026-05-13T03:08:45-05:00
+session-id: dream-cycle-2026-05-13-030845
+current-step: null
+original-request: Scheduled dream cycle run
+accumulated-context:
+  working_archived: 1
+  working_deleted: 0
+  working_skipped: 40
+  working_orphan_note: "39 files have status:archived in frontmatter but remain in memory/working/ (orphaned from prior runs). Not actioned per preservation rule."
+  episodic_scanned: 41
+  score_updates: 41
+  score_distribution: "0:6, 1:3, 7:1, 10:31 — score inflation persists (17th consecutive run)"
+  no_tags: 2
+  no_date: 0
+  clusters_found: 2
+  semantic_created: 0
+  semantic_updated: 2
+  promoted_entries: 33
+  error_categories_30d: "process-skip:5, data-accuracy:3, assumption-error:3 — all already in LESSONS.md"
+  lessons_appended: 0
+  entries_compressed: 0
+  digests_updated: 0
+  compression_skipped: true
+  compression_skip_reason: "All 41 episodic entries < 90 days old (oldest is 2026-04-18, 25 days)"
+  errors: 1
+  errors_detail:
+    - phase: 0
+      file: .git/index.lock
+      error: "Git index.lock irremovable. Pull --rebase failed. 16th consecutive run without sync."

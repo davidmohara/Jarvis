@@ -6,7 +6,7 @@ tags: [dream-cycle, system-maintenance, semantic-promotion, error-patterns, git-
 related_people: []
 salience:
   score: 10
-  last-promoted-check: 2026-05-12
+  last-promoted-check: 2026-05-13
   promoted: true
 ---
 

@@ -6,8 +6,8 @@ tags: [morning-briefing, calendar, omnifocus, quarterly-rocks, overdue-tasks, vi
 related_people: [vicki, steve-hall, kapil-dai, salah, david-faircloth]
 salience:
   score: 10
+  last-promoted-check: 2026-05-13
   promoted: true
-  last-promoted-check: 2026-05-12
 ---
 
 # Afternoon Boot Session — April 20, 2026

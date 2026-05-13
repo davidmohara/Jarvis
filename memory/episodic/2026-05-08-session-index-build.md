@@ -6,8 +6,7 @@ tags: [session-index, system-design, openwork, json, infrastructure]
 related_people: [david-ohara]
 salience:
   score: 0
-  last-promoted-check: 2026-05-12
-  promoted: false
+  last-promoted-check: 2026-05-13
 ---
 
 # Session Index Build — May 7-8, 2026

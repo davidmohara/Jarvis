@@ -5,6 +5,9 @@ type: content-review
 subject: The Improving Edge — Hosting Self-Review
 episode: 1
 status: reviewed
+salience:
+  score: 0
+  last-promoted-check: 2026-05-13
 ---
 
 # Podcast Hosting Review — The Improving Edge, Episode 1

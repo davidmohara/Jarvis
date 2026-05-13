@@ -6,8 +6,8 @@ tags: [briefing, calendar, omnifocus, travel, glc-chicago, gold-forum, flight-co
 related_people: [devlin, tim-rayburn]
 salience:
   score: 10
+  last-promoted-check: 2026-05-13
   promoted: true
-  last-promoted-check: 2026-05-12
 ---
 
 # Morning Briefing — April 28, 2026 (GLC Chicago Day 2)

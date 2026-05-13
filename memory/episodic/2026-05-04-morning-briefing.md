@@ -6,7 +6,7 @@ tags: [morning-briefing, calendar, omnifocus, leads, wfh, email-triage]
 related_people: [david-ohara, curtis, richard, ric]
 salience:
   score: 10
-  last-promoted-check: 2026-05-12
+  last-promoted-check: 2026-05-13
   promoted: true
 ---
 

@@ -5,8 +5,7 @@ tags: [credit-cards, rewards, ynab, amex, citi, discover, chase, atlas, portfoli
 related_people: []
 salience:
   score: 0
-  promoted: false
-  last-promoted-check: 2026-05-12
+  last-promoted-check: 2026-05-13
 source_session: chase-2026-04-21-portfolio-walk
 ---
 

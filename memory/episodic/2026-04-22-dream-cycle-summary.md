@@ -4,9 +4,9 @@ date: 2026-04-22
 tags: [dream-cycle, system-maintenance, git-issues]
 related_people: []
 salience:
-  score: 9
+  score: 10
+  last-promoted-check: 2026-05-13
   promoted: true
-  last-promoted-check: 2026-05-12
 source_session: dream-cycle-2026-04-22-030848
 ---
 

@@ -2,16 +2,16 @@
 workflow: daily-review
 agent: chief
 status: complete
-session-started: "2026-05-11T00:00:00"
-session-id: "chief-2026-05-11-auto"
+session-started: "2026-05-12T00:00:00"
+session-id: "chief-2026-05-12-auto"
 current-step: step-auto
 original-request: "auto"
 accumulated-context:
-  narrative-title: "2026-05-10 Running on Empty Data"
-  narrative-path: "reviews/daily/auto-2026-05-10.md"
+  narrative-title: "2026-05-11 Podcast Mics, a Prayer, and Lone Star Gold After Dark"
+  narrative-path: "reviews/daily/auto-2026-05-11.md"
   omnifocus-status: "unavailable (3 timeouts)"
-  calendar-status: "unavailable (M365 connector requires re-authentication)"
+  calendar-status: "available — 13 events retrieved"
   obsidian-status: "disabled — written to local fallback"
-  calendar-events: 0
+  calendar-events: 13
   model: sonnet
 ---

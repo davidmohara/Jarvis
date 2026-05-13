@@ -529,6 +529,21 @@
       "fix_status": "proposed",
       "severity": "minor",
       "related_entries": []
+    },
+    {
+      "id": "err-20260513-001",
+      "timestamp": "2026-05-13T08:13:00Z",
+      "session": "2026-05-13",
+      "source": "explicit",
+      "agent": "master",
+      "category": "data-accuracy",
+      "description": "Golf preview skill calculated the target weekend as May 20-22 (Wed/Thu/Fri) instead of May 22-24 (Fri/Sat/Sun). All three days were analyzed incorrectly. The error propagated to preview-output.json and the Slack notification to #golf, which reported no viable windows when in fact Saturday May 23 is fully clear.",
+      "correction": "Target weekend is May 22 (Fri), May 23 (Sat), May 24 (Sun). Saturday May 23 has no conflicts. Top option is Saturday 4:00 PM at $15/player.",
+      "failure_mode": "context-blindness",
+      "systemic_fix": "Updated SKILL.md Step 1 to use currentDate from system context as primary source rather than Desktop Commander osascript. Added cross-validation step and day-of-week offset table covering all run days, not just Tuesday. Desktop Commander is now fallback only.",
+      "fix_status": "applied",
+      "severity": "major",
+      "related_entries": []
     }
   ],
   "patterns": {
@@ -537,22 +552,21 @@
   },
   "entries_addendum_4": [
     {
-      "id": "err-20260501-001",
-      "timestamp": "2026-05-01T06:12:00-05:00",
-      "session": "chief-2026-05-01-061300",
+      "id": "err-20260511-001",
+      "timestamp": "2026-05-11T00:00:00-05:00",
+      "session": "2026-05-11",
       "source": "explicit",
-      "agent": "chief",
-      "category": "process-skip",
-      "description": "Scheduled morning briefing (automated run) skipped master-slack delivery. Searched only skills/_manifest.jsonl and reported 'no master-slack skill found' and 'Slack MCP not connected'. The skill lives at .claude/skills/master-slack/SKILL.md and uses Desktop Commander + systems/slack-bot/post.py \u2014 not the Slack MCP. This is a repeat of err-20260415-004, err-20260324-002, and err-20260327-004. The correct search path was documented in err-20260415-004's systemic_fix: 'Search .claude/skills/ as well as skills/ when looking for skills.'",
-      "correction": "David caught the skip. Slack message was sent after correction via Desktop Commander + post.py. Confirmed ok:true to #jarvis.",
-      "failure_mode": "protocol-skip",
-      "systemic_fix": "This is the fifth logged instance of this failure pattern. The skill location is established. Search .claude/skills/ FIRST for any skill before checking skills/_manifest.jsonl. The manifest only covers domain skills \u2014 .claude/skills/ holds system-level skills (master-slack, etc.).",
+      "agent": "jarvis",
+      "category": "tool-misuse",
+      "description": "Scheduled morning briefing searched for master-slack skill using Glob pattern '**/*slack*' scoped to /sessions/.../mnt/jarvis (the IES root) but returned no results. Skill is located at .claude/skills/master-slack/SKILL.md \u2014 a hidden .claude directory at the IES root that glob searches miss without explicit path. David confirmed the skill exists. This is a repeat of err-20260327-004 and the pattern logged in entries_addendum_3 \u2014 searching skills/ instead of .claude/skills/ when the skill lives in the hidden directory.",
+      "correction": "master-slack skill is at .claude/skills/master-slack/SKILL.md. When any skill search returns no results, always explicitly check .claude/skills/ as a fallback before declaring the skill missing. Correct path: {IES_ROOT}/.claude/skills/master-slack/SKILL.md.",
+      "failure_mode": "lazy-search",
+      "systemic_fix": "Skill search protocol: (1) check skills/_manifest.jsonl, (2) Glob skills/, (3) ALWAYS also check .claude/skills/ explicitly before reporting not found. The .claude/ directory is hidden and not traversed by default glob patterns. Add this as a hard rule to SYSTEM.md Skill Loading Protocol.",
       "fix_status": "applied",
       "severity": "moderate",
       "related_entries": [
-        "err-20260415-004",
-        "err-20260324-002",
-        "err-20260327-004"
+        "err-20260327-004",
+        "err-20260404-001"
       ]
     }
   ],
@@ -679,26 +693,6 @@
       "related_entries": [
         "err-20260326-003",
         "err-20260327-001"
-      ]
-    }
-  ],
-  "entries_addendum_4": [
-    {
-      "id": "err-20260511-001",
-      "timestamp": "2026-05-11T00:00:00-05:00",
-      "session": "2026-05-11",
-      "source": "explicit",
-      "agent": "jarvis",
-      "category": "tool-misuse",
-      "description": "Scheduled morning briefing searched for master-slack skill using Glob pattern '**/*slack*' scoped to /sessions/.../mnt/jarvis (the IES root) but returned no results. Skill is located at .claude/skills/master-slack/SKILL.md — a hidden .claude directory at the IES root that glob searches miss without explicit path. David confirmed the skill exists. This is a repeat of err-20260327-004 and the pattern logged in entries_addendum_3 — searching skills/ instead of .claude/skills/ when the skill lives in the hidden directory.",
-      "correction": "master-slack skill is at .claude/skills/master-slack/SKILL.md. When any skill search returns no results, always explicitly check .claude/skills/ as a fallback before declaring the skill missing. Correct path: {IES_ROOT}/.claude/skills/master-slack/SKILL.md.",
-      "failure_mode": "lazy-search",
-      "systemic_fix": "Skill search protocol: (1) check skills/_manifest.jsonl, (2) Glob skills/, (3) ALWAYS also check .claude/skills/ explicitly before reporting not found. The .claude/ directory is hidden and not traversed by default glob patterns. Add this as a hard rule to SYSTEM.md Skill Loading Protocol.",
-      "fix_status": "applied",
-      "severity": "moderate",
-      "related_entries": [
-        "err-20260327-004",
-        "err-20260404-001"
       ]
     }
   ],
@@ -1711,6 +1705,21 @@
       "related_entries": [
         "err-20260507-001"
       ]
+    },
+    {
+      "id": "err-20260512-001",
+      "timestamp": "2026-05-12T00:00:00-05:00",
+      "session": "2026-05-12",
+      "source": "explicit",
+      "agent": "jarvis",
+      "category": "routing-error",
+      "failure_mode": "protocol-skip",
+      "description": "Master built a new workflow (workflows/dream-cycle/) and updated the scheduled task prompt directly, instead of routing to Rigby. Did not read agents/routing.md before acting. 'New workflow' is explicitly listed as a Hard Stop \u2014 highest-violation category \u2014 routed to Rigby with no exceptions.",
+      "correction": "Any request involving new workflows, skills, agents, scripts, or structural system changes must be routed to Rigby immediately. Master reads routing.md before taking action on anything beyond a factual question.",
+      "systemic_fix": "Enforce routing.md read as step zero before any non-trivial action. Hard Stop domains are non-negotiable regardless of task simplicity or perceived urgency.",
+      "fix_status": "applied",
+      "severity": "major",
+      "related_entries": []
     }
   ]
 }

@@ -6,8 +6,7 @@ tags: [meeting-prep, networking, cowboys-club, ceo-peer-group, speaking-opportun
 related_people: [dennis-howard]
 salience:
   score: 0
-  promoted: false
-  last-promoted-check: 2026-05-12
+  last-promoted-check: 2026-05-13
 ---
 
 # Meeting Prep — Cowboys Club CEO Event

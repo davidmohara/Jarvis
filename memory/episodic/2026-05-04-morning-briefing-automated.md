@@ -6,7 +6,7 @@ tags: [morning-briefing, calendar, leads, omnifocus, wfh, automated]
 related_people: [david-ohara]
 salience:
   score: 10
-  last-promoted-check: 2026-05-12
+  last-promoted-check: 2026-05-13
   promoted: true
 ---
 

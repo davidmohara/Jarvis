@@ -6,8 +6,7 @@ tags: [rock4, co-sell, pipeline, powerbi, microsoft, confluent, revenue]
 related_people: []
 salience:
   score: 1
-  promoted: false
-  last-promoted-check: 2026-05-12
+  last-promoted-check: 2026-05-13
 ---
 
 # Rock 4 Weekly Pipeline Pull — 2026-04-20

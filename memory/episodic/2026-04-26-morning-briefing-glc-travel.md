@@ -6,8 +6,8 @@ tags: [briefing, calendar, travel, glc-chicago, omnifocus, flight, kare-devices]
 related_people: [devlin, randy-mccabe, stuart]
 salience:
   score: 10
+  last-promoted-check: 2026-05-13
   promoted: true
-  last-promoted-check: 2026-05-12
 ---
 
 # Session Boot — April 26, 2026 (GLC Travel Day)

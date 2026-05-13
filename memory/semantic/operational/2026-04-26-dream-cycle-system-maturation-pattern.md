@@ -4,7 +4,7 @@ domain: operational
 tags: [dream-cycle, system-maintenance, memory-system, semantic-promotion, git-issues]
 confidence: medium
 created: 2026-04-26
-last-updated: 2026-05-12
+last-updated: 2026-05-13
 synthesized-from:
   - memory/episodic/2026-04-24-dream-cycle-summary.md
   - memory/episodic/2026-04-22-dream-cycle-summary.md
@@ -114,3 +114,14 @@ The IES dream cycle has been running nightly since April 18, 2026. Across 7 comp
 - **Evidence source count is now 12 across 18+ runs.** The pipeline ran 17 consecutive nights through May 5, then went silent for 7 days (May 6-11). This is the first multi-day gap since initialization. The gap coincides with the Cabo trip (May 6-8), suggesting the scheduled task runner may have been unavailable during travel. The gap itself is data: the dream cycle's reliability depends on the scheduling infrastructure being available, which it may not be during extended travel.
 - **Score inflation remains the dominant system concern.** With 40 episodic entries now and the same 2-tag/30-day algorithm, every new briefing-tagged entry auto-scores 10. The scoring is functionally broken for discrimination. The three proposed fixes (reduce window, require 3+ tags, weight by rarity) have been noted in 6 consecutive runs with no implementation. The dream cycle cannot fix its own scoring algorithm — this requires a system revision during a live session.
 - **Git sync has been blocked for 14+ consecutive runs.** The blast radius now includes 40 episodic entries, 2 semantic patterns with 20+ evidence sources each, and all working memory state changes since April 22. This is 3 weeks of local-only evolution.
+
+## Evidence (continued — 2026-05-13)
+
+13. **2026-05-12 dream cycle:** Archived 6 entries to episodic, scored 40 with 39 updates. 25+ entries at 9-10 (score inflation unchanged). Two clusters: 4 briefings merged into briefing-travel-calendar pattern (now 20 evidence sources, high), 1 dream summary merged into this pattern (now 12 evidence sources, medium). Cabo trip prediction validated, OmniFocus auto/manual reliability split identified, Project Profitability email at 12+ days stale. Git sync blocked for 15th consecutive run. Score-algorithm fix deferred for 6 consecutive runs.
+
+## Implications (updated 2026-05-13)
+
+- **Evidence source count is now 13 across 19+ runs.** The pipeline resumed nightly cadence after the May 6-11 gap. Tonight's run (May 13) confirms two consecutive successful nights post-Cabo. Reliability is back to the pre-travel baseline but the gap remains the only multi-day silence since initialization.
+- **Score inflation has held flat at 31 of 41 entries scoring 10.** Today's run produced identical distribution to yesterday's because no new tagged episodic content was added. The 2026-05-11 entry archived in this run has no tags field (score 0). This is the second consecutive run where the only meaningful semantic update is "no new pattern observed" — diminishing returns on the current scoring algorithm are now mathematically obvious.
+- **Score-algorithm fix is now deferred for 7 consecutive runs.** Without intervention from a live session, this will be deferred every night indefinitely. The dream cycle is producing semantically correct but informationally null output.
+- **Git sync blocked for 16th consecutive run.** `.git/index.lock` remains irremovable (Operation not permitted). All evolution from April 22 forward is local-only. No remediation path exists from within the dream cycle itself.

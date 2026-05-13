@@ -6,8 +6,8 @@ tags: [briefing, calendar, omnifocus, google-next, travel, las-vegas, email, lea
 related_people: [ehren-seim, mladen-raickovic, ethel-mangum, sam-dobbins]
 salience:
   score: 10
+  last-promoted-check: 2026-05-13
   promoted: true
-  last-promoted-check: 2026-05-12
 source_session: chief-2026-04-23-000000
 ---
 

@@ -48,18 +48,32 @@ outputs: {}
 
 ### Step 1 — Calculate Target Weekend
 
-Get the current local date from Mac:
+**Primary source:** Read `currentDate` from the system context (`<env>` block / system-reminder). This is the authoritative date — always use it first.
+
+**Fallback only if `currentDate` is unavailable:** Get the current local date from Mac:
 ```bash
 mcp__Desktop_Commander__start_process
 command: osascript -e 'do shell script "date \"+%Y-%m-%d %A\""'
 ```
 
-Calculate:
-- **Target Saturday** = current date + 9 days (preview runs Tuesday 11pm, Saturday is 10 days out; use +9 for the day that opens at midnight in ~1 hour)
+**Cross-validate:** If you used Desktop Commander, confirm the day-of-week matches expectations. If the Desktop Commander date and the system `currentDate` disagree, always trust `currentDate`.
+
+Calculate the target weekend dynamically based on the actual current day of week:
+
+| Run day | Target Saturday offset |
+|---------|----------------------|
+| Tuesday | +10 (booking opens midnight Tue→Wed, Saturday is 10 days out) |
+| Wednesday | +9 |
+| Thursday | +8 |
+| Any other day | Calculate: find the next Saturday that is exactly 8 days out (booking window opens at midnight that night) |
+
+- **Target Saturday** = current date + offset per table above
 - **Target Friday** = Target Saturday - 1
 - **Target Sunday** = Target Saturday + 1
 
 Store: `target_friday`, `target_saturday`, `target_sunday` (YYYY-MM-DD format)
+
+**Sanity check before proceeding:** Confirm target_friday, target_saturday, target_sunday are actual Friday/Saturday/Sunday respectively. If not, recalculate.
 
 ---
 

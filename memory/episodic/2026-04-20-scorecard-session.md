@@ -6,8 +6,7 @@ tags: [one-texas, scorecard, revenue, pipeline, co-sell, 1on1-prep, plaud, skill
 related_people: [scott-mcmichael, don-mcgreal, tonya-guadiz]
 salience:
   score: 1
-  promoted: false
-  last-promoted-check: 2026-05-12
+  last-promoted-check: 2026-05-13
 ---
 
 # Session Summary — April 20, 2026 (Afternoon/Evening)

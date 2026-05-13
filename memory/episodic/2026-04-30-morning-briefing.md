@@ -6,8 +6,8 @@ tags: [briefing, calendar, travel, flight-conflict, omnifocus-timeout, rock2, em
 related_people: [alice-mburu, don-mcgreal, robyn-fuentes, ralph-nicosia, dustin-shaffer, devlin]
 salience:
   score: 10
+  last-promoted-check: 2026-05-13
   promoted: true
-  last-promoted-check: 2026-05-12
 ---
 
 # Morning Briefing — April 30, 2026

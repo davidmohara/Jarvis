@@ -6,8 +6,8 @@ tags: [briefing, calendar, omnifocus, travel, glc-chicago, ypo, alice-mburu, gol
 related_people: [alice-mburu]
 salience:
   score: 10
+  last-promoted-check: 2026-05-13
   promoted: true
-  last-promoted-check: 2026-05-12
 ---
 
 # Morning Briefing — April 27, 2026 (GLC Chicago Day 1)

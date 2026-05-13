@@ -4,7 +4,7 @@ domain: operational
 tags: [briefing, calendar, omnifocus, google-next, travel, overdue-tasks, leads]
 confidence: high
 created: 2026-04-24
-last-updated: 2026-05-12
+last-updated: 2026-05-13
 synthesized-from:
   - memory/episodic/2026-04-20-morning-briefing.md
   - memory/episodic/2026-04-21-morning-briefing.md
@@ -26,6 +26,7 @@ synthesized-from:
   - memory/episodic/2026-05-04-morning-briefing.md
   - memory/episodic/2026-05-05-morning-briefing.md
   - memory/episodic/2026-05-07-morning-briefing-cabo.md
+  - memory/episodic/2026-05-11-000000-session-boot-morning-briefing.md
 ---
 
 # Pattern: Morning Briefings Consistently Flag Travel-Calendar Conflicts
@@ -216,3 +217,13 @@ Morning briefings across the entire Google Next week (Apr 20-23) repeatedly surf
 25. **The Cabo trip prediction (Implication #22) materialized exactly as forecast.** The May 5 briefing flagged travel context for the next day, OmniFocus failed again, and the May 7 briefing from Cabo showed reduced task visibility (12 tasks vs. 65 the day before from home). Three consecutive multi-day trips with identical failure modes confirms this is a permanent structural gap, not a transient issue.
 26. **Project Profitability email in Jarvis inbox has been stale for 12+ days.** First surfaced Apr 26, still unprocessed through May 7. This is the longest-lived unprocessed Jarvis inbox item and validates Implication #18: items requiring specific agent capabilities rot without a routing mechanism.
 27. **OmniFocus reliability correlates with session type.** The May 4 automated run failed (timeout) while the same-day manual boot succeeded (65 tasks). The May 7 Cabo run returned only 12 tasks. The infrastructure gap is specifically in automated/remote runs, not the MCP server itself. This refines Implication #20: the fix is not to abandon MCP but to ensure fallback runs automatically in scheduled contexts.
+
+## Evidence (continued — 2026-05-13)
+
+### 2026-05-11 Morning Briefing — Archived this run
+- Automated boot at midnight. The archived file lacks a `tags` field in frontmatter, scoring 0 in the salience pass. No new tagged briefing content has entered episodic since the May 7 Cabo briefing.
+
+## Implications (continued — 2026-05-13)
+
+28. **The May 11 automated briefing surfaced a frontmatter schema gap.** The archived file has no `tags` field — the field was either dropped by the automated boot path or was never populated. This is a regression from the manual boot files (which all include 5–10 tags) and means automated briefings are invisible to the salience algorithm. Fix path: update the automated briefing template to populate `tags` from the calendar/OmniFocus/email triage outputs.
+29. **Cluster growth has slowed to one new source per week.** This pattern incorporated 20 sources from April 20 through May 12. From May 7 to May 13 (six days), zero new tagged sources entered the pool. The combination of the travel gap (May 6-11) and the schema gap (May 11) means the pattern has effectively stopped accumulating evidence. The next signal will require either a manual boot or a schema fix.

@@ -6,8 +6,8 @@ tags: [briefing, calendar, omnifocus-timeout, leads, jarvis-inbox, make-a-wish, 
 related_people: [scott-mcmichael, stuart-sides, randy-mccabe, alice-mburu]
 salience:
   score: 10
+  last-promoted-check: 2026-05-13
   promoted: true
-  last-promoted-check: 2026-05-12
 ---
 
 # Morning Briefing — May 1, 2026 (Friday)
