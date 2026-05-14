@@ -1,13 +1,16 @@
 ---
 status: completed
-started-at: "2026-04-15T00:00:00Z"
-completed-at: "2026-04-15T12:00:00Z"
+started-at: "2026-05-13T17:00:00Z"
+completed-at: "2026-05-13T17:05:00Z"
 model: haiku
 outputs:
   staged-files:
-    - "plaud_04-14 Strategic Perspective on AI Growth and Business Adoption.md"
-  speaker-renames-applied: 3
+    - "plaud_05-12 Meeting Note_ AI Workshop_ Economic Impact _ Data Sourcing.md"
+    - "plaud_05-12 Workshop_ Executive AI Strategy and Departmental Use-Case Prioritization.md"
+    - "plaud_05-12 Lunch Meeting_ DSO Access Strategy_ Cosm Immersive MVP_ Corporate Underwriting_ and Wealth Platform Transition.md"
+  speaker-renames-applied: 0
   gaps: 0
+  notes: "All 3 named transcript files confirmed present in staging. Speaker renames skipped per controller instruction."
 ---
 
 <!-- system:start -->

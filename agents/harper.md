@@ -127,6 +127,8 @@ Articulate, polished, adaptable. Harper mirrors the executive's natural voice �
 <!-- personal:start -->
 | Clay | Recipient context for emails — relationship warmth, last interaction, role, notes. Enables calibrated tone and personalized references. | MCP (mcp__clay__*) |
 | Memory — Episodic (Podcast Reviews) | Prior hosting analysis, recurring patterns, episode-over-episode growth tracking | `memory/episodic/YYYY-MM-DD-podcast-hosting-review-ep*.md` |
+| **Improving Brand Templates** | **MANDATORY for ALL deck builds.** Two `.potx` templates at: `/Users/davidohara/Library/Group Containers/UBF8T346G9.Office/User Content.localized/Templates.localized/`. Files: `Starter - Alternative.potx` (dark/navy) and `Starter - Original.potx` (white/light). Also synced to OneDrive under `Presentations/Starter/`. Use Desktop Commander (`mcp__Desktop_Commander__start_process`) to copy the file to `/tmp/` before opening. Colors: `#005596` primary blue, `#FF9300` orange, `#F5BB41` gold, `#4597D3` light blue, `#5BC2A7` teal. Fonts: Calibri Light (headings), Calibri (body). Never search SharePoint for a brand template — it does not index `.potx` files. | Desktop Commander → copy to /tmp → use as base |
+| Presentations | Existing decks live in OneDrive under the Presentations folder. Use as source content when building new decks. ALL OUTPUT PPTX FILES must be saved to the OneDrive Presentations folder, not locally. | M365 OneDrive/SharePoint |
 <!-- personal:end -->
 
 ---

@@ -1,14 +1,16 @@
 ---
 status: completed
-started-at: "2026-04-15T12:00:00Z"
-completed-at: "2026-04-15T12:30:00Z"
+started-at: "2026-05-13T17:05:00Z"
+completed-at: "2026-05-13T17:30:00Z"
 model: sonnet
 outputs:
   ingested-notes:
-    - "zzPlaud/YPO/2026-04-14 Strategic Perspective on AI Growth and Business Adoption.md"
-  daily-note-updated: "Calendar/2026/04-April/2026-04-14.md"
-  omnifocus-tasks-created: 0
-  staging-files-removed: 4
+    - "zzPlaud/Improving/2026-05-12 AI Workshop Prep — Economic Impact Talking Points and Event Logistics.md"
+    - "zzPlaud/Client/2026-05-12 TopGolf Executive AI Workshop Scoping.md"
+    - "zzPlaud/Client/2026-05-12 Lunch — DSO Cosm MVP, Wedbush Transition, UTB Data, and Goke Intro.md"
+  daily-note-updated: "Calendar/2026/05-May/2026-05-12.md"
+  omnifocus-tasks-created: 8
+  staging-files-removed: 11
 ---
 
 <!-- system:start -->

@@ -1,42 +1,14 @@
 [
   {
-    "id": "session-2026-05-07-072827",
-    "date": "2026-05-07",
-    "started": "2026-05-07T07:28:27-07:00",
-    "closed": "2026-05-08T18:00:00-05:00",
-    "current_topic": null,
+    "id": "session-2026-05-13-095338",
+    "started": "2026-05-13T09:53:38-05:00",
+    "closed": null,
+    "current_topic": "morning-boot",
     "topics": [
       {
-        "topic": "cabo return + week ahead briefing",
-        "files": [
-          "memory/working/2026-05-07-072827-session-boot-morning-briefing.md"
-        ],
+        "name": "morning-boot",
         "loops": [
-          { "text": "DRC talk prep — May 21, no file started", "resolved": false },
-          { "text": "Topgolf AI brief — needed before Tue noon", "resolved": false }
-        ]
-      },
-      {
-        "topic": "openwork framework review",
-        "files": [],
-        "loops": []
-      },
-      {
-        "topic": "session-index-build",
-        "files": [
-          "memory/sessions/index.json",
-          ".claude/hooks/post-tool-use.py",
-          ".claude/settings.json",
-          "SYSTEM.md",
-          "skills/session-index/SKILL.md",
-          "skills/_manifest.jsonl",
-          "evolutions/.pending-changes.json",
-          "memory/working/2026-05-08-session-index-build.md"
-        ],
-        "loops": [
-          { "text": "Rigby to build session index system", "resolved": true },
-          { "text": "Git commit pending — index.lock blocks sandbox commit. Stage is clean.", "resolved": false },
-          { "text": "Evolution review reminder set for Wed May 13", "resolved": true }
+          { "task": "boot-sequence", "resolved": false }
         ]
       }
     ]

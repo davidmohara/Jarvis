@@ -9,6 +9,9 @@ import urllib.request
 import urllib.error
 import urllib.parse
 
+# Force stdout to flush immediately — prevents silent output loss via Desktop Commander
+sys.stdout.reconfigure(line_buffering=True)
+
 # Read bot token from config/.env (gitignored, never committed)
 _SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 _CONFIG_ENV = os.path.join(_SCRIPT_DIR, "..", "..", "config", ".env")

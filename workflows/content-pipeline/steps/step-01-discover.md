@@ -1,11 +1,5 @@
 ---
-status: blocked
-started-at: 2026-05-07T07:09:34
-completed-at: ~
-outputs:
-  failure_reason: "Network connectivity: Slack API blocked (403 Forbidden)"
-  api_error: "Tunnel connection failed on both read.py and post.py"
-  step_blocked_at: 1-read-channel
+status: not-started
 model: sonnet
 ---
 
@@ -41,7 +35,7 @@ Use read.py via Desktop Commander to pull #content messages from the last 24 hou
 
 ```
 Tool: mcp__Desktop_Commander__start_process
-Command: python3 "$(mdfind -name 'read.py' | grep 'systems/slack-bot/read.py' | head -1)" channel C08UZMA7EGV 24
+Command: python3 "/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/systems/slack-bot/read.py" channel C0B160MA3EK 24 2>&1
 Timeout: 15000
 ```
 
@@ -148,7 +142,7 @@ Read the current `workflows/content-pipeline/pending-drafts.json`, append the ne
 {
   "ghost_post_id": "{id from Ghost response}",
   "slack_thread_ts": null,
-  "slack_channel": "C08UZMA7EGV",
+  "slack_channel": "C0B160MA3EK",
   "title": "{Post Title}",
   "source_url": "{original url}",
   "created_at": "{ISO timestamp}",
@@ -160,7 +154,7 @@ Read the current `workflows/content-pipeline/pending-drafts.json`, append the ne
 
 ### 9. Notify David in Slack
 
-Use `master-slack` skill (post.py via Desktop Commander) to post to #content (C08UZMA7EGV):
+Use `master-slack` skill (post.py via Desktop Commander) to post to #content (C0B160MA3EK):
 
 ```
 *New draft ready for review* ✍️
