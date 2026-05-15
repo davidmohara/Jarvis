@@ -1,14 +1,46 @@
 [
   {
-    "id": "session-2026-05-13-095338",
-    "started": "2026-05-13T09:53:38-05:00",
-    "closed": null,
-    "current_topic": "morning-boot",
+    "id": "session-2026-05-14-092600",
+    "started": "2026-05-14T09:26:00-05:00",
+    "closed": "2026-05-15T09:40:50-05:00",
+    "current_topic": null,
     "topics": [
       {
         "name": "morning-boot",
         "loops": [
-          { "task": "boot-sequence", "resolved": false }
+          { "task": "boot-sequence", "resolved": true }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "session-2026-05-15-094050",
+    "started": "2026-05-15T09:40:50-05:00",
+    "closed": "2026-05-15T17:00:00-05:00",
+    "current_topic": null,
+    "topics": [
+      {
+        "name": "morning-boot",
+        "loops": [
+          { "task": "boot-sequence", "resolved": true }
+        ]
+      },
+      {
+        "name": "plaud-ingest",
+        "loops": [
+          { "task": "5 transcripts processed (4 complete, 2 renames pending approval)", "resolved": false }
+        ]
+      },
+      {
+        "name": "synexus-proposal",
+        "loops": [
+          { "task": "proposal drafted, pricing TBD, pending send", "resolved": false }
+        ]
+      },
+      {
+        "name": "ypo-speaker-application",
+        "loops": [
+          { "task": "video script written and saved", "resolved": true }
         ]
       }
     ]
