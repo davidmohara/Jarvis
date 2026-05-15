@@ -1,8 +1,14 @@
 ---
-status: not-started
-started-at: ~
-completed-at: ~
-outputs: {}
+status: completed
+started-at: 2026-05-15T03:10:15-05:00
+completed-at: 2026-05-15T03:10:45-05:00
+outputs:
+  clusters_found: 0
+  semantic_created: 0
+  semantic_updated: 0
+  promoted_entries: 0
+  error_categories_30d: "wrong-assumption:2, data-accuracy:1, routing-error:1 (none meet 3+ threshold)"
+  lessons_appended: 0
 ---
 
 <!-- system:start -->

@@ -1,11 +1,15 @@
 ---
 type: working-archive
 date: 2026-04-25
-tags: [dream-cycle, memory-management, semantic-promotion, travel-pattern]
+tags:
+- dream-cycle
+- memory-management
+- semantic-promotion
+- travel-pattern
 related_people: []
 salience:
   score: 7
-  last-promoted-check: 2026-05-13
+  last-promoted-check: '2026-05-15'
   promoted: true
 ---
 

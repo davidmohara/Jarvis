@@ -1,11 +1,22 @@
 ---
 type: working-archive
 date: 2026-04-21
-tags: [briefing, calendar, google-next, travel, omnifocus, email, alice-mburu]
-related_people: [scott-pine, ehren-seim, vicki, steve-hall]
+tags:
+- briefing
+- calendar
+- google-next
+- travel
+- omnifocus
+- email
+- alice-mburu
+related_people:
+- scott-pine
+- ehren-seim
+- vicki
+- steve-hall
 salience:
   score: 10
-  last-promoted-check: 2026-05-13
+  last-promoted-check: '2026-05-15'
   promoted: true
 source_session: chief-2026-04-21-060000
 ---

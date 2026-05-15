@@ -2,11 +2,22 @@
 type: working-archive
 date: 2026-04-20
 created: 2026-04-20
-tags: [one-texas, scorecard, revenue, pipeline, co-sell, 1on1-prep, plaud, skills-rewrite]
-related_people: [scott-mcmichael, don-mcgreal, tonya-guadiz]
+tags:
+- one-texas
+- scorecard
+- revenue
+- pipeline
+- co-sell
+- 1on1-prep
+- plaud
+- skills-rewrite
+related_people:
+- scott-mcmichael
+- don-mcgreal
+- tonya-guadiz
 salience:
   score: 1
-  last-promoted-check: 2026-05-13
+  last-promoted-check: '2026-05-15'
 ---
 
 # Session Summary — April 20, 2026 (Afternoon/Evening)

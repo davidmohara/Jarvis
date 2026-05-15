@@ -2,11 +2,26 @@
 type: working-archive
 source_file: memory/working/2026-04-28-060000-session-boot-morning-briefing.md
 date: 2026-04-28
-tags: [briefing, calendar, glc-chicago, travel, omnifocus-timeout, flight-conflict, rock2, google-next-followup, email-triage]
-related_people: [devlin, tim-rayburn, ehren-seim, howard-dierking, david-belcher, mick]
+tags:
+- briefing
+- calendar
+- glc-chicago
+- travel
+- omnifocus-timeout
+- flight-conflict
+- rock2
+- google-next-followup
+- email-triage
+related_people:
+- devlin
+- tim-rayburn
+- ehren-seim
+- howard-dierking
+- david-belcher
+- mick
 salience:
   score: 10
-  last-promoted-check: 2026-05-13
+  last-promoted-check: '2026-05-15'
   promoted: true
 ---
 

@@ -2,11 +2,24 @@
 type: working-archive
 source_file: memory/working/2026-04-29-060000-session-boot-morning-briefing.md
 date: 2026-04-29
-tags: [briefing, calendar, travel, glc-chicago, flight-conflict, omnifocus, cyber-training, smu, rock2]
-related_people: [robyn-fuentes, don-mcgreal, aren-cambre, alice-mburu]
+tags:
+- briefing
+- calendar
+- travel
+- glc-chicago
+- flight-conflict
+- omnifocus
+- cyber-training
+- smu
+- rock2
+related_people:
+- robyn-fuentes
+- don-mcgreal
+- aren-cambre
+- alice-mburu
 salience:
   score: 10
-  last-promoted-check: 2026-05-13
+  last-promoted-check: '2026-05-15'
   promoted: true
 ---
 

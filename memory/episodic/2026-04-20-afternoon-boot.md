@@ -2,11 +2,22 @@
 type: working-archive
 date: 2026-04-20
 created: 2026-04-20
-tags: [morning-briefing, calendar, omnifocus, quarterly-rocks, overdue-tasks, vicki-retirement]
-related_people: [vicki, steve-hall, kapil-dai, salah, david-faircloth]
+tags:
+- morning-briefing
+- calendar
+- omnifocus
+- quarterly-rocks
+- overdue-tasks
+- vicki-retirement
+related_people:
+- vicki
+- steve-hall
+- kapil-dai
+- salah
+- david-faircloth
 salience:
   score: 10
-  last-promoted-check: 2026-05-13
+  last-promoted-check: '2026-05-15'
   promoted: true
 ---
 

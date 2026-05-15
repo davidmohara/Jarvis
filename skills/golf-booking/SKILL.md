@@ -210,9 +210,9 @@ From the option's `preferred_start` and `preferred_end` (e.g., "13:00" to "14:30
 1. Find all available times within the preferred window.
 2. If multiple exist, pick the one closest to `preferred_start`.
 3. If none exist in the preferred window, **expand the search**:
-   - For a $21 option (1–3:59 PM): look up to 45 minutes outside the window
-   - For a $15 option (4–5:59 PM): look up to 30 minutes outside the window
-   - Accept any time that's a reasonable substitute (e.g., wanted 1:00 PM, take 1:34 PM)
+   - For any option: look up to 2 hours outside the preferred window (earlier or later)
+   - Accept any time that's a reasonable substitute (e.g., wanted 1:00 PM, take 2:45 PM)
+   - Still respect hard limits: never before 1:00 PM, never before 2:30 PM on Sunday
 4. If still nothing, mark this option as `unavailable` and move to the next ranked option.
 5. **Never book a time before 2:30 PM on Sunday** (church buffer — hard rule).
 6. **Never book a time before 1:00 PM on any day** (below cost threshold).
@@ -258,26 +258,62 @@ body.substring(idx, idx+300).replace(/\\n+/g,\" | \")
 "'
 ```
 
-**Immediately click Confirm Reservation** — do not wait:
+**Check the "I agree" checkbox** (required before Confirm Reservation becomes active):
+
+```javascript
+osascript -e 'tell application "Google Chrome" to tell active tab of front window to execute javascript "
+var boxes = Array.from(document.querySelectorAll(\"input[type=checkbox]\"));
+var agree = boxes.find(function(b){ return !b.checked });
+if (agree) {
+  agree.click();
+  agree.dispatchEvent(new Event(\"change\", {bubbles:true}));
+  \"checked agree\";
+} else {
+  \"no unchecked checkbox found — may already be checked or missing\";
+}
+"'
+```
+
+**Verify the checkbox is now checked before proceeding:**
+
+```javascript
+osascript -e 'tell application "Google Chrome" to tell active tab of front window to execute javascript "
+var boxes = Array.from(document.querySelectorAll(\"input[type=checkbox]\"));
+boxes.length > 0 ? (boxes[0].checked ? \"checkbox-confirmed-checked\" : \"CHECKBOX-STILL-UNCHECKED\") : \"no-checkbox-found\"
+"'
+```
+
+If result is `CHECKBOX-STILL-UNCHECKED` → do NOT proceed. Mark option unavailable. Send Slack failure alert. Move to next option.
+
+Wait 0.5 seconds, then **immediately click Confirm Reservation**:
 
 ```javascript
 osascript -e 'tell application "Google Chrome" to tell active tab of front window to execute javascript "
 var btns = Array.from(document.querySelectorAll(\"button\"));
 var confirm = btns.find(function(b){ return b.innerText.trim().toLowerCase().includes(\"confirm reservation\") });
-confirm.click(); \"confirmed\"
+if (confirm && !confirm.disabled) { confirm.click(); \"clicked-confirm\"; } else if (confirm && confirm.disabled) { \"BUTTON-DISABLED — checkbox may not be checked\"; } else { \"CONFIRM-BUTTON-NOT-FOUND\"; }
 "'
 ```
 
-Wait 2 seconds, verify confirmation success:
+If result is `BUTTON-DISABLED` or `CONFIRM-BUTTON-NOT-FOUND` → abort this option, send Slack failure alert.
+
+Wait 3 seconds, then **verify booking success by checking for a post-booking confirmation page** — NOT the timer screen. The timer screen disappears on success; a receipt/confirmation page appears instead:
 
 ```javascript
 osascript -e 'tell application "Google Chrome" to tell active tab of front window to execute javascript "
 var body = document.body.innerText;
-(body.includes(\"confirmed\") || body.includes(\"Confirmed\") || body.includes(\"booking\") || body.includes(\"Booking\")) ? \"success\" : body.substring(0,200).replace(/\\n+/g,\" | \")
+var timerGone = !body.includes(\"left to confirm\");
+var hasReceipt = body.includes(\"reservation is confirmed\") || body.includes(\"Reservation is confirmed\") || body.includes(\"Your booking\") || body.includes(\"booking number\") || body.includes(\"Booking number\") || body.includes(\"confirmation number\") || body.includes(\"Thank you\");
+timerGone && hasReceipt ? \"BOOKING-SUCCESS\" : (body.includes(\"left to confirm\") ? \"STILL-ON-TIMER-SCREEN — booking did NOT complete\" : \"UNKNOWN-STATE: \" + body.substring(0,300).replace(/\\n+/g,\" | \"))
 "'
 ```
 
-Store booking result: `booked_date`, `booked_time`, `booked_holes`, `booked_cost`.
+**Only proceed to Steps 6 and 7 if result is exactly `BOOKING-SUCCESS`.** Any other result means the booking did not go through:
+- `STILL-ON-TIMER-SCREEN` → checkbox or confirm click failed; do not treat as success
+- `UNKNOWN-STATE` → inspect page text, determine if booked or not before proceeding
+- If uncertain → send Slack alert asking David to verify manually; do NOT send a success notification
+
+Store booking result only on confirmed success: `booked_date`, `booked_time`, `booked_holes`, `booked_cost`.
 
 If confirmation screen never appeared → mark option unavailable, reload widget, try next option.
 

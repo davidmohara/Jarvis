@@ -2,11 +2,21 @@
 type: working-archive
 source_file: memory/working/2026-04-26-163845-session-boot-morning-briefing.md
 date: 2026-04-26
-tags: [briefing, calendar, travel, glc-chicago, omnifocus, flight, kare-devices]
-related_people: [devlin, randy-mccabe, stuart]
+tags:
+- briefing
+- calendar
+- travel
+- glc-chicago
+- omnifocus
+- flight
+- kare-devices
+related_people:
+- devlin
+- randy-mccabe
+- stuart
 salience:
   score: 10
-  last-promoted-check: 2026-05-13
+  last-promoted-check: '2026-05-15'
   promoted: true
 ---
 

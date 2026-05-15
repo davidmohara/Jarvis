@@ -2,11 +2,14 @@
 type: working-archive
 date: 2026-04-18
 created: 2026-04-18
-tags: [dream-cycle, error-patterns, system-health]
+tags:
+- dream-cycle
+- error-patterns
+- system-health
 related_people: []
 salience:
   score: 1
-  last-promoted-check: 2026-05-13
+  last-promoted-check: '2026-05-15'
 ---
 
 # Dream Cycle Summary — 2026-04-18

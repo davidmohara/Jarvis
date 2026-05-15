@@ -1,8 +1,11 @@
 ---
-status: not-started
-started-at: ~
-completed-at: ~
-outputs: {}
+status: completed
+started-at: 2026-05-15T03:09:01-05:00
+completed-at: 2026-05-15T03:09:30-05:00
+outputs:
+  working_archived: 2
+  working_deleted: 0
+  working_skipped: 41
 ---
 
 <!-- system:start -->

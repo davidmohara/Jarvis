@@ -1,11 +1,20 @@
 ---
 type: working-archive
 date: 2026-04-21
-tags: [credit-cards, rewards, ynab, amex, citi, discover, chase, atlas, portfolio-review]
+tags:
+- credit-cards
+- rewards
+- ynab
+- amex
+- citi
+- discover
+- chase
+- atlas
+- portfolio-review
 related_people: []
 salience:
   score: 0
-  last-promoted-check: 2026-05-13
+  last-promoted-check: '2026-05-15'
 source_session: chase-2026-04-21-portfolio-walk
 ---
 

@@ -2,11 +2,19 @@
 type: working-archive
 date: 2026-04-20
 created: 2026-04-20
-tags: [morning-briefing, calendar, omnifocus, google-next, travel]
-related_people: [dennis-howard, scott-mcmichael, alice-mburu]
+tags:
+- morning-briefing
+- calendar
+- omnifocus
+- google-next
+- travel
+related_people:
+- dennis-howard
+- scott-mcmichael
+- alice-mburu
 salience:
   score: 10
-  last-promoted-check: 2026-05-13
+  last-promoted-check: '2026-05-15'
   promoted: true
 ---
 

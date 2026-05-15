@@ -2,11 +2,16 @@
 type: episodic
 source: working-archive
 date: 2026-05-05
-tags: [dream-cycle, system-maintenance, score-inflation, git-sync, semantic-promotion]
+tags:
+- dream-cycle
+- system-maintenance
+- score-inflation
+- git-sync
+- semantic-promotion
 related_people: []
 salience:
   score: 10
-  last-promoted-check: 2026-05-13
+  last-promoted-check: '2026-05-15'
   promoted: true
 ---
 

@@ -2,11 +2,18 @@
 type: working-archive
 source_file: memory/working/dream-summary-2026-05-01.md
 date: 2026-05-01
-tags: [dream-cycle, system-maintenance, memory-pipeline, glc-chicago, travel, score-inflation, semantic-promotion]
+tags:
+- dream-cycle
+- system-maintenance
+- memory-pipeline
+- glc-chicago
+- travel
+- score-inflation
+- semantic-promotion
 related_people: []
 salience:
   score: 10
-  last-promoted-check: 2026-05-13
+  last-promoted-check: '2026-05-15'
   promoted: true
 ---
 

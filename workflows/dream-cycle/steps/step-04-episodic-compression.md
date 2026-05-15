@@ -1,8 +1,12 @@
 ---
-status: not-started
-started-at: ~
-completed-at: ~
-outputs: {}
+status: completed
+started-at: 2026-05-15T03:10:45-05:00
+completed-at: 2026-05-15T03:11:00-05:00
+outputs:
+  entries_compressed: 0
+  digests_updated: 0
+  compression_skipped: true
+  compression_skip_reason: "All episodic entries < 90 days old (oldest is 2026-04-18, 27 days)"
 ---
 
 <!-- system:start -->

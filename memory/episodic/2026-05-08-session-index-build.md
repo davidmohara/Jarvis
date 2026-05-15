@@ -2,11 +2,17 @@
 type: episodic
 source: working-archive
 date: 2026-05-08
-tags: [session-index, system-design, openwork, json, infrastructure]
-related_people: [david-ohara]
+tags:
+- session-index
+- system-design
+- openwork
+- json
+- infrastructure
+related_people:
+- david-ohara
 salience:
   score: 0
-  last-promoted-check: 2026-05-13
+  last-promoted-check: '2026-05-15'
 ---
 
 # Session Index Build — May 7-8, 2026

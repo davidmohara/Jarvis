@@ -544,6 +544,23 @@
       "fix_status": "applied",
       "severity": "major",
       "related_entries": []
+    },
+    {
+      "id": "err-20260513-002",
+      "timestamp": "2026-05-13T08:20:00Z",
+      "session": "2026-05-13",
+      "source": "explicit",
+      "agent": "master",
+      "category": "assumption-error",
+      "description": "First fix to golf-preview SKILL.md still used a day-of-week offset table tied to the scheduled run day. This is wrong \u2014 the skill should always target the upcoming Friday/Saturday/Sunday regardless of when it runs.",
+      "correction": "Replaced offset table with a simple \"days until next Friday\" calculation: (4 - current_day_of_week) % 7, with a special case of 7 if today is Friday. Target Saturday and Sunday follow as +1 and +2. No run-day dependency.",
+      "failure_mode": "wrong-assumption",
+      "systemic_fix": "Updated SKILL.md Step 1 with day-agnostic next-Friday calculation. Skill now works correctly regardless of when it is triggered.",
+      "fix_status": "applied",
+      "severity": "moderate",
+      "related_entries": [
+        "err-20260513-001"
+      ]
     }
   ],
   "patterns": {
@@ -1717,6 +1734,21 @@
       "description": "Master built a new workflow (workflows/dream-cycle/) and updated the scheduled task prompt directly, instead of routing to Rigby. Did not read agents/routing.md before acting. 'New workflow' is explicitly listed as a Hard Stop \u2014 highest-violation category \u2014 routed to Rigby with no exceptions.",
       "correction": "Any request involving new workflows, skills, agents, scripts, or structural system changes must be routed to Rigby immediately. Master reads routing.md before taking action on anything beyond a factual question.",
       "systemic_fix": "Enforce routing.md read as step zero before any non-trivial action. Hard Stop domains are non-negotiable regardless of task simplicity or perceived urgency.",
+      "fix_status": "applied",
+      "severity": "major",
+      "related_entries": []
+    },
+    {
+      "id": "err-20260515-001",
+      "timestamp": "2026-05-15T00:02:31-05:00",
+      "session": "2026-05-15",
+      "source": "explicit",
+      "agent": "jarvis",
+      "category": "process-skip",
+      "failure_mode": "protocol-skip",
+      "description": "Golf booking failed on three counts: (1) skill did not click the 'I agree' checkbox before Confirm Reservation — button was disabled, booking never submitted; (2) success verification checked for the word 'confirmed' which appears on the pre-confirmation timer screen, not only on the post-booking receipt — false positive; (3) Slack success message and calendar block were created based on the false positive, telling David a booking was made when it was not.",
+      "correction": "Three fixes applied to skills/golf-booking/SKILL.md: (1) checkbox click added with a follow-up check that the box is actually checked before proceeding; (2) confirm button checked for disabled state before clicking; (3) success verification now requires timer screen to be GONE and a receipt-page indicator to be present (BOOKING-SUCCESS gate) — calendar block and Slack notification are gated on this check only.",
+      "systemic_fix": "Verification logic must distinguish between 'on the confirmation screen' and 'past the confirmation screen.' Any scheduled booking task must gate all downstream actions (calendar, Slack) on hard evidence of success, not partial page text matches.",
       "fix_status": "applied",
       "severity": "major",
       "related_entries": []

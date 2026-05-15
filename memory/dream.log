@@ -366,3 +366,47 @@ errors_detail:
     file: .git/index.lock
     error: "Git index.lock irremovable (Operation not permitted). Pull --rebase failed due to unstaged changes. Dream cycle completed all memory operations but cannot sync with origin."
 ---
+
+---
+## 2026-05-14T03:08:57 CDT
+session_id: dream-cycle-2026-05-14-030857
+working_archived: 1
+working_deleted: 0
+episodic_scanned: 42
+score_updates: 0
+clusters_found: 0
+semantic_created: 0
+semantic_updated: 0
+promoted_entries: 0
+entries_compressed: 0
+digests_updated: 0
+errors: 1
+summary: "Archived 1 working memory entry (May 12 dream summary) to episodic. 42 episodic entries scored; score distribution unchanged from prior run (31 at score 10, 1 at 7, 3 at 1, 7 at 0 — confirming score inflation persists, 18th consecutive run). Zero score updates: today's tag/date relationships did not shift any entry's score. Zero promotion candidates: all qualifying high-score entries were retroactively flagged promoted:true by the May 13 cleanup pass. Error log scan: wrong-assumption:2, data-accuracy:1, routing-error:1 in last 30 days — none meet 3+ threshold. No lessons appended. Compression skipped: oldest entry is 26 days old (cutoff 90). Git index.lock irremovable AND unstaged changes — 17th consecutive run without sync. May 12 archived dream summary lacks tags/date in frontmatter — same metadata gap as May 11 archived briefing flagged last run. Score-algorithm fix deferred for 8 consecutive runs."
+errors_detail:
+  - phase: 0
+    file: .git/index.lock
+    error: "Git pull --rebase failed: 'cannot pull with rebase: You have unstaged changes.' Pre-existing unstaged changes from prior sessions block sync. Dream cycle completed all memory operations but cannot sync with origin."
+---
+
+---
+## 2026-05-15T03:12:03 CDT
+session_id: dream-cycle-2026-05-15-030901
+working_archived: 2
+working_deleted: 0
+working_skipped: 41
+episodic_scanned: 44
+score_updates: 0
+clusters_found: 0
+semantic_created: 0
+semantic_updated: 0
+promoted_entries: 0
+entries_compressed: 0
+digests_updated: 0
+compression_skipped: true
+errors: 1
+summary: "Archived 2 expired working entries (dream-summary-2026-05-13 and 2026-05-12 morning briefing) to episodic. Scored 44 episodic entries — distribution unchanged at 0:9, 1:3, 7:1, 10:31. Score inflation persists (19th consecutive run). No promotion candidates (all eligible entries already flagged promoted). No new error patterns hit 3+ threshold. Compression skipped — oldest entry only 27 days. Git sync still blocked (19th consecutive run)."
+errors_detail:
+  - phase: 0
+    file: .git/index.lock
+    error: "Git pull --rebase failed: 'cannot pull with rebase: You have unstaged changes.' 19th consecutive run without sync."
+---

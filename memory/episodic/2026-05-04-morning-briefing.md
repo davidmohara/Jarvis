@@ -2,11 +2,21 @@
 type: episodic
 source: working-archive
 date: 2026-05-04
-tags: [morning-briefing, calendar, omnifocus, leads, wfh, email-triage]
-related_people: [david-ohara, curtis, richard, ric]
+tags:
+- morning-briefing
+- calendar
+- omnifocus
+- leads
+- wfh
+- email-triage
+related_people:
+- david-ohara
+- curtis
+- richard
+- ric
 salience:
   score: 10
-  last-promoted-check: 2026-05-13
+  last-promoted-check: '2026-05-15'
   promoted: true
 ---
 

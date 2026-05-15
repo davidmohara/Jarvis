@@ -1,12 +1,18 @@
 ---
 type: working-archive
 date: 2026-05-04
-source_session: "dream-cycle-2026-05-04-030838"
-tags: [dream-cycle, system-maintenance, score-inflation, git-sync, briefing-pattern, travel]
+source_session: dream-cycle-2026-05-04-030838
+tags:
+- dream-cycle
+- system-maintenance
+- score-inflation
+- git-sync
+- briefing-pattern
+- travel
 related_people: []
 salience:
   score: 10
-  last-promoted-check: 2026-05-13
+  last-promoted-check: '2026-05-15'
   promoted: true
 ---
 

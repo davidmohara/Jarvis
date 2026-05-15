@@ -25,27 +25,16 @@
     "location": "Frisco Lakes Golf Club",
     "days_ago": 4
   },
+  "heat_streak": {
+    "active": false,
+    "days_checked": ["2026-05-17", "2026-05-18", "2026-05-19", "2026-05-20", "2026-05-21"],
+    "daily_highs_f": [90.8, 89.1, 80.7, 80.8, 77.4],
+    "days_above_95": 0,
+    "note": "0 of 5 days hit 95°F — heat streak inactive. Default preferred start: 1:00 PM ($21/player)."
+  },
   "top_options": [
     {
       "rank": 1,
-      "day": "saturday",
-      "date": "2026-05-23",
-      "preferred_start": "16:00",
-      "preferred_end": "18:30",
-      "holes": 18,
-      "cost_per_player": 15,
-      "total_cost": 30,
-      "weather": {
-        "rain_pct": null,
-        "temp_f": null,
-        "wind_mph": null,
-        "condition": "unknown — weather API unavailable"
-      },
-      "score": 5,
-      "rationale": "Saturday completely clear. May = hot month preference, 4:00 PM start at $15/player. No conflicts. Top option."
-    },
-    {
-      "rank": 2,
       "day": "saturday",
       "date": "2026-05-23",
       "preferred_start": "13:00",
@@ -54,18 +43,48 @@
       "cost_per_player": 21,
       "total_cost": 42,
       "weather": {
-        "rain_pct": null,
-        "temp_f": null,
-        "wind_mph": null,
-        "condition": "unknown — weather API unavailable"
+        "rain_pct": 14,
+        "temp_f": 83,
+        "wind_mph": 11,
+        "condition": "clear"
       },
       "score": 0,
-      "rationale": "Saturday 1:00 PM start — lowest cost, no conflicts. Ideal if afternoon heat is not a factor."
+      "rationale": "Saturday 1:00 PM — heat streak inactive so 1 PM is default preferred. Clear weather, no conflicts. Ideal."
+    },
+    {
+      "rank": 2,
+      "day": "saturday",
+      "date": "2026-05-23",
+      "preferred_start": "16:00",
+      "preferred_end": "18:30",
+      "holes": 18,
+      "cost_per_player": 15,
+      "total_cost": 30,
+      "weather": {
+        "rain_pct": 21,
+        "temp_f": 86,
+        "wind_mph": 13,
+        "condition": "clear"
+      },
+      "score": 5,
+      "rationale": "Saturday 4:00 PM — saves $6/player but non-default slot without heat streak active. Clear weather."
     }
   ],
-  "weather_status": "unavailable",
-  "weather_note": "Weather API unavailable (Open-Meteo blocked by provenance policy in scheduled task context).",
+  "weather_status": "available",
+  "weather_source": "Open-Meteo (api.open-meteo.com)",
   "override_instructions": null,
-  "booking_action": "pending — Phase 2 will book rank 1 option (Saturday 4:00 PM) unless overridden",
-  "summary": "Saturday May 23 is fully open. Two options: 4 PM (hot-month preference, $15/player) or 1 PM (lowest cost, $21/player). No booking Friday or Sunday — Friday has no 3-hour window, Sunday boxed out by church + graduation party."
+  "booking_result": {
+    "status": "confirmed",
+    "booked_date": "2026-05-23",
+    "booked_time": "15:28",
+    "booked_holes": 18,
+    "booked_cost": 45.47,
+    "fallback_taken": true,
+    "fallback_reason": "Preferred 1:00 PM window fully unavailable — earliest post-1PM slot was 3:28 PM",
+    "confirmed_at": "2026-05-15T00:02:31",
+    "calendar_block": "created",
+    "slack_notification": "sent to #golf"
+  },
+  "booking_action": "complete — booked Saturday 3:28 PM (fallback from preferred 1:00 PM)",
+  "summary": "Saturday May 23 is fully open. Rank 1: 1 PM at $21/player (heat streak inactive — default start). Rank 2: 4 PM at $15/player. Friday unavailable (no 3-hour window). Sunday unavailable (church + graduation party)."
 }

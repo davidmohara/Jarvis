@@ -1,11 +1,23 @@
 ---
 type: working-archive
 date: 2026-04-21
-tags: [alice-mburu, onboarding, ea, people-files, terra-arma, utb, workflow-validation]
-related_people: [alice-mburu, christian-meyers, scott-beck, jarrod-beck, brad-mcknight]
+tags:
+- alice-mburu
+- onboarding
+- ea
+- people-files
+- terra-arma
+- utb
+- workflow-validation
+related_people:
+- alice-mburu
+- christian-meyers
+- scott-beck
+- jarrod-beck
+- brad-mcknight
 salience:
   score: 0
-  last-promoted-check: 2026-05-13
+  last-promoted-check: '2026-05-15'
 source_session: chief-2026-04-21-onboarding
 ---
 

@@ -2,11 +2,22 @@
 type: working-archive
 source_file: memory/working/2026-04-24-morning-briefing-session.md
 date: 2026-04-24
-tags: [briefing, calendar, travel, google-next, flight, omnifocus-timeout, email-triage, quarterly-rocks]
-related_people: [alice-mburu, scott-mcmichael, kovacevich]
+tags:
+- briefing
+- calendar
+- travel
+- google-next
+- flight
+- omnifocus-timeout
+- email-triage
+- quarterly-rocks
+related_people:
+- alice-mburu
+- scott-mcmichael
+- kovacevich
 salience:
   score: 10
-  last-promoted-check: 2026-05-13
+  last-promoted-check: '2026-05-15'
   promoted: true
 ---
 

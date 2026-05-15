@@ -2,15 +2,15 @@
 type: working-archive
 date: 2026-05-02
 tags:
-  - dream-cycle
-  - system-maintenance
-  - memory-pipeline
-  - score-inflation
-  - semantic-promotion
-  - error-naming
+- dream-cycle
+- system-maintenance
+- memory-pipeline
+- score-inflation
+- semantic-promotion
+- error-naming
 salience:
   score: 10
-  last-promoted-check: 2026-05-13
+  last-promoted-check: '2026-05-15'
   promoted: true
 ---
 

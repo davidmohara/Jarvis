@@ -2,11 +2,23 @@
 type: working-archive
 source_file: memory/working/2026-05-01-061300-session-boot-morning-briefing.md
 date: 2026-05-01
-tags: [briefing, calendar, omnifocus-timeout, leads, jarvis-inbox, make-a-wish, drc-workshop, alice-mburu]
-related_people: [scott-mcmichael, stuart-sides, randy-mccabe, alice-mburu]
+tags:
+- briefing
+- calendar
+- omnifocus-timeout
+- leads
+- jarvis-inbox
+- make-a-wish
+- drc-workshop
+- alice-mburu
+related_people:
+- scott-mcmichael
+- stuart-sides
+- randy-mccabe
+- alice-mburu
 salience:
   score: 10
-  last-promoted-check: 2026-05-13
+  last-promoted-check: '2026-05-15'
   promoted: true
 ---
 

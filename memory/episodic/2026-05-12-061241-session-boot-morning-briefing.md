@@ -1,12 +1,15 @@
 ---
-type: working
-task_id: "session"
-session_id: "chief-2026-05-12-061241"
+type: working-archive
+task_id: session
+session_id: chief-2026-05-12-061241
 agent-source: chief
-created: 2026-05-12T06:12:41
-expires: 2026-05-14T06:12:41
-status: active
-context: "Morning boot + briefing — 2026-05-12 (automated scheduled run)"
+created: 2026-05-12 06:12:41
+expires: 2026-05-14 06:12:41
+status: archived
+context: Morning boot + briefing — 2026-05-12 (automated scheduled run)
+salience:
+  score: 0
+  last-promoted-check: '2026-05-15'
 ---
 
 # Morning Boot — Tuesday, May 12, 2026

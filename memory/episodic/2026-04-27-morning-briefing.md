@@ -2,11 +2,25 @@
 type: working-archive
 source_file: memory/working/2026-04-27-080000-session-boot-morning-briefing.md
 date: 2026-04-27
-tags: [briefing, calendar, glc-chicago, travel, omnifocus-timeout, leads, alice-mburu, flight-conflict, rock2]
-related_people: [alice-mburu, ehren-seim, don-mcgreal, robyn, tim-rayburn]
+tags:
+- briefing
+- calendar
+- glc-chicago
+- travel
+- omnifocus-timeout
+- leads
+- alice-mburu
+- flight-conflict
+- rock2
+related_people:
+- alice-mburu
+- ehren-seim
+- don-mcgreal
+- robyn
+- tim-rayburn
 salience:
   score: 10
-  last-promoted-check: 2026-05-13
+  last-promoted-check: '2026-05-15'
   promoted: true
 ---
 

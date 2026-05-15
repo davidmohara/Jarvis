@@ -2,11 +2,18 @@
 type: episodic
 source: working-archive
 date: 2026-05-04
-tags: [morning-briefing, calendar, leads, omnifocus, wfh, automated]
-related_people: [david-ohara]
+tags:
+- morning-briefing
+- calendar
+- leads
+- omnifocus
+- wfh
+- automated
+related_people:
+- david-ohara
 salience:
   score: 10
-  last-promoted-check: 2026-05-13
+  last-promoted-check: '2026-05-15'
   promoted: true
 ---
 

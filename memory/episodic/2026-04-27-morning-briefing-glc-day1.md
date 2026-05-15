@@ -1,12 +1,21 @@
 ---
 type: working-archive
 date: 2026-04-27
-source_session: "chief-2026-04-27-071710"
-tags: [briefing, calendar, omnifocus, travel, glc-chicago, ypo, alice-mburu, gold-forum]
-related_people: [alice-mburu]
+source_session: chief-2026-04-27-071710
+tags:
+- briefing
+- calendar
+- omnifocus
+- travel
+- glc-chicago
+- ypo
+- alice-mburu
+- gold-forum
+related_people:
+- alice-mburu
 salience:
   score: 10
-  last-promoted-check: 2026-05-13
+  last-promoted-check: '2026-05-15'
   promoted: true
 ---
 

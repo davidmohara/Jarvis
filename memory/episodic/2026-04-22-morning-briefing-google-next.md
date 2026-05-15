@@ -1,11 +1,24 @@
 ---
 type: working-archive
 date: 2026-04-22
-tags: [briefing, calendar, google-next, travel, las-vegas, flight, alice-mburu, security-training]
-related_people: [ehren-seim, mladen-raickovic, alice-mburu, gabriela-garza-ramos, christopher-mcmillan]
+tags:
+- briefing
+- calendar
+- google-next
+- travel
+- las-vegas
+- flight
+- alice-mburu
+- security-training
+related_people:
+- ehren-seim
+- mladen-raickovic
+- alice-mburu
+- gabriela-garza-ramos
+- christopher-mcmillan
 salience:
   score: 10
-  last-promoted-check: 2026-05-13
+  last-promoted-check: '2026-05-15'
   promoted: true
 source_session: chief-2026-04-22-060000
 ---

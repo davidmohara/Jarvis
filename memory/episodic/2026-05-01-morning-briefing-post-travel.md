@@ -1,12 +1,27 @@
 ---
 type: working-archive
 date: 2026-05-01
-source_session: "chief-2026-05-01-112542"
-tags: [briefing, calendar, omnifocus, travel, post-travel, gold-forum, cabo, email-triage, leads, scott-mcmichael, one-texas]
-related_people: [scott-mcmichael, nikki-fackler-kaye, randy-mccabe, stuart]
+source_session: chief-2026-05-01-112542
+tags:
+- briefing
+- calendar
+- omnifocus
+- travel
+- post-travel
+- gold-forum
+- cabo
+- email-triage
+- leads
+- scott-mcmichael
+- one-texas
+related_people:
+- scott-mcmichael
+- nikki-fackler-kaye
+- randy-mccabe
+- stuart
 salience:
   score: 10
-  last-promoted-check: 2026-05-13
+  last-promoted-check: '2026-05-15'
   promoted: true
 ---
 

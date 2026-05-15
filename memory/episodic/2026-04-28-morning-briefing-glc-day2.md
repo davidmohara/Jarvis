@@ -1,12 +1,21 @@
 ---
 type: working-archive
 date: 2026-04-28
-source_session: "chief-2026-04-28-063839"
-tags: [briefing, calendar, omnifocus, travel, glc-chicago, gold-forum, flight-conflict]
-related_people: [devlin, tim-rayburn]
+source_session: chief-2026-04-28-063839
+tags:
+- briefing
+- calendar
+- omnifocus
+- travel
+- glc-chicago
+- gold-forum
+- flight-conflict
+related_people:
+- devlin
+- tim-rayburn
 salience:
   score: 10
-  last-promoted-check: 2026-05-13
+  last-promoted-check: '2026-05-15'
   promoted: true
 ---
 

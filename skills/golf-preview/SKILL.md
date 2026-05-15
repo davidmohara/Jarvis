@@ -48,7 +48,7 @@ outputs: {}
 
 ### Step 1 — Calculate Target Weekend
 
-**Primary source:** Read `currentDate` from the system context (`<env>` block / system-reminder). This is the authoritative date — always use it first.
+**Get today's date:** Read `currentDate` from the system context (`<env>` block / system-reminder). This is always the authoritative source.
 
 **Fallback only if `currentDate` is unavailable:** Get the current local date from Mac:
 ```bash
@@ -56,24 +56,62 @@ mcp__Desktop_Commander__start_process
 command: osascript -e 'do shell script "date \"+%Y-%m-%d %A\""'
 ```
 
-**Cross-validate:** If you used Desktop Commander, confirm the day-of-week matches expectations. If the Desktop Commander date and the system `currentDate` disagree, always trust `currentDate`.
+**Calculate the target Friday** — the first Friday that is at least 8 days from today. This ensures the booking window (which opens at midnight 8 days before the target date) has not already passed.
 
-Calculate the target weekend dynamically based on the actual current day of week:
+```
+days_until_friday = (4 - current_day_of_week) % 7
+if days_until_friday == 0:
+    days_until_friday = 7   # If today IS Friday, start from next Friday
+candidate_friday = today + days_until_friday
 
-| Run day | Target Saturday offset |
-|---------|----------------------|
-| Tuesday | +10 (booking opens midnight Tue→Wed, Saturday is 10 days out) |
-| Wednesday | +9 |
-| Thursday | +8 |
-| Any other day | Calculate: find the next Saturday that is exactly 8 days out (booking window opens at midnight that night) |
+# Enforce 8-day minimum — booking window must still be openable
+if candidate_friday < today + 8:
+    candidate_friday = candidate_friday + 7  # Skip to the following Friday
+```
 
-- **Target Saturday** = current date + offset per table above
-- **Target Friday** = Target Saturday - 1
-- **Target Sunday** = Target Saturday + 1
+Where day_of_week: Monday=0, Tuesday=1, Wednesday=2, Thursday=3, Friday=4, Saturday=5, Sunday=6.
+
+Examples (membership requires 8-day advance booking):
+- Run on Wednesday May 13 (2): next Friday is May 15 = 2 days away → too soon (< 8), skip to May 22 ✓
+- Run on Tuesday May 12 (1): next Friday is May 15 = 3 days away → too soon, skip to May 22 ✓
+- Run on Saturday May 16 (5): next Friday is May 22 = 6 days away → too soon, skip to May 29 ✓
+- Run on Saturday May 17 (6): next Friday is May 22 = 5 days away → too soon... wait, (4-6)%7=5, May 22 is 5 days away → too soon, skip to May 29 ✓
+- Run on Friday May 15 (4): days_until=7, candidate=May 22 = 7 days away → too soon (< 8), skip to May 29 ✓
+- Run on Thursday May 14 (3): next Friday May 15 = 1 day away → too soon, skip to May 22 = 8 days away ✓
+
+Then:
+- **Target Saturday** = target_friday + 1
+- **Target Sunday** = target_friday + 2
 
 Store: `target_friday`, `target_saturday`, `target_sunday` (YYYY-MM-DD format)
 
-**Sanity check before proceeding:** Confirm target_friday, target_saturday, target_sunday are actual Friday/Saturday/Sunday respectively. If not, recalculate.
+---
+
+### Step 1a — Date Validation
+
+Before proceeding to any calendar or weather lookups, validate all three dates explicitly. **Do not skip this step.**
+
+Run the following checks and surface any failure immediately — halt execution if any check fails:
+
+| Check | Expected | Failure action |
+|-------|----------|---------------|
+| `target_friday` is a Friday | day_of_week == 4 | Stop. Recalculate. Report error. |
+| `target_saturday` is a Saturday | day_of_week == 5 | Stop. Recalculate. Report error. |
+| `target_sunday` is a Sunday | day_of_week == 6 | Stop. Recalculate. Report error. |
+| `target_saturday` == `target_friday` + 1 day | Date arithmetic check | Stop. Recalculate. |
+| `target_sunday` == `target_friday` + 2 days | Date arithmetic check | Stop. Recalculate. |
+| `target_friday` >= today + 8 | Booking window not yet passed | Stop. Advance to following Friday. |
+| `target_saturday` >= today + 9 | Booking window not yet passed for Saturday | Stop. Advance weekend by 7 days. |
+| `target_sunday` >= today + 10 | Booking window not yet passed for Sunday | Note Sunday may not be bookable yet — proceed with Friday/Saturday only. |
+
+Log the validated dates before moving on:
+```
+[Validation] Today: YYYY-MM-DD (DayOfWeek)
+[Validation] Target Friday:   YYYY-MM-DD (Friday) — N days out ✓
+[Validation] Target Saturday: YYYY-MM-DD (Saturday) — N days out ✓
+[Validation] Target Sunday:   YYYY-MM-DD (Sunday) — N days out ✓
+[Validation] All dates confirmed. Proceeding.
+```
 
 ---
 
@@ -88,27 +126,51 @@ start_datetime: [target_friday]T00:00:00
 end_datetime: [target_sunday]T23:59:59
 ```
 
-For each day, identify conflicts:
+**⚠️ UTC→CT conversion is mandatory and applies everywhere.** All event times returned by the calendar API are in UTC. David is in CT (CDT = UTC-5 in summer, CST = UTC-6 in winter). You must convert every `start` and `end` timestamp to CT before:
+- Assigning an event to a calendar day
+- Calculating when a busy block starts and ends
+- Identifying free windows between events
+- Checking whether a 3-hour gap exists within a target time range
 
-**Hard blocks (mark day as unavailable):**
+**Conversion rule:** Subtract 5 hours from UTC timestamps (CDT, roughly April–October). If the resulting time crosses midnight backward, the event belongs to the previous calendar day.
+
+Example: `2026-05-22T23:30:00.000Z` → subtract 5h → 6:30 PM CT on May 22 (not May 23).
+
+**Build a CT timeline for each day before analysis.** For each of Friday, Saturday, and Sunday:
+1. Collect all events whose CT start or end falls within that calendar day (midnight–11:59 PM CT)
+2. Sort by CT start time
+3. Map out busy blocks as CT time ranges: e.g., `[13:00–14:30, 16:00–17:00]`
+4. Identify free gaps between busy blocks within the target golf window (see per-day rules below)
+
+Do not analyze raw UTC times against CT window boundaries — convert first, analyze second.
+
+---
+
+For each day, identify conflicts and derive the available golf window:
+
+**Hard blocks (mark day as unavailable regardless of timing):**
 - Travel / flights / out of town
 - Evening dinners with family (parents dinner etc.) — check Saturday and Sunday
 - All-day events
 
 **Sunday-specific rules:**
-- Church volunteering blocks 8:30 AM – 1:30 PM every Sunday. Hard-coded — no golf before 2:30 PM on Sundays.
-- If Sunday has a dinner with parents on the calendar → prefer Saturday that week. If Saturday also has an event, Sunday is still viable after 2:30 PM.
+- Church volunteering blocks 8:30 AM – 1:30 PM CT every Sunday. Hard-coded — no golf before 2:30 PM CT on Sundays.
+- If Sunday has a dinner with parents on the calendar → prefer Saturday that week. If Saturday also has an event, Sunday is still viable after 2:30 PM CT.
 
 **Friday-specific rules:**
 - Susie works from home Fridays — her schedule mirrors David's calendar.
-- Scan for back-to-back work meetings that would block a continuous 3-hour window between 1:00 PM and 6:00 PM. If no 3-hour window exists, mark Friday unavailable.
-- If a clear 3-hour window exists (e.g., 3:00–6:00 PM free), Friday is viable.
+- Using the CT timeline built above, check for a continuous 3-hour free gap between 1:00 PM and 6:00 PM CT. If no such gap exists, mark Friday unavailable.
+- If a clear 3-hour window exists (e.g., 3:00–6:00 PM CT free), Friday is viable. Record the exact window start and end.
+
+**Saturday rules:**
+- No standing constraints. Using the CT timeline, identify the earliest available start at or after 1:00 PM CT with at least 4.5 hours free before any hard block or end of day (6:30 PM CT latest start for 18 holes).
 
 **Already booked:**
 - Search calendar for any existing golf block on the target weekend. If found, mark that day unavailable.
 
 Store per-day status: `available` | `unavailable` | `conditional`
 Store reason for any unavailable day.
+Store the available CT window (earliest_start, latest_start) for each available day.
 
 ---
 
@@ -157,7 +219,6 @@ The response contains an `hourly` object with parallel arrays indexed by hour. E
 - Rain 30–60% → mark window `weather_caution` (include with warning)
 - Rain < 30% → `weather_clear`
 - Temperature < 45°F → flag as cold, note in Slack
-- Temperature > 95°F → flag as hot, prefer later windows (4:00 PM+)
 - Wind > 25 mph → flag, note in Slack
 
 **If Open-Meteo fetch fails**, fall back to:
@@ -167,10 +228,16 @@ url: https://forecast.weather.gov/MapClick.php?CityName=Frisco&state=TX&site=FWD
 ```
 NWS provides 7-day hourly JSON — sufficient if the target weekend is within 7 days (e.g., Friday preview with Saturday target). If still insufficient range, proceed with calendar-only scoring and note in Slack: "⚠️ Weather data unavailable for target dates."
 
-**Seasonal time preference:**
-- May–September (hot months): prefer 4:00–4:30 PM start → costs $15/player
-- October–April (mild months): 1:00–2:00 PM start → costs $21/player
-- Current month determines default. Override toward later if temp > 90°F at 1 PM.
+**Determining time preference — heat streak rule:**
+
+Do NOT use calendar month as a proxy for heat. Use the actual forecast data.
+
+1. Pull the daily high temperature for each of the 5 days immediately preceding the target Friday (i.e., the 5 days ending on Thursday before the weekend). For each day, find the max `temperature_2m` value across all hours in `hourly.time` for that date.
+2. Count how many of those 5 days had a daily high ≥ 95°F.
+3. If all 5 days were ≥ 95°F → `heat_streak: true` → default preferred start is **4:00 PM** ($15/player)
+4. If fewer than 5 days were ≥ 95°F → `heat_streak: false` → default preferred start is **1:00 PM** ($21/player)
+
+When `heat_streak: false`, still check the forecast for the candidate tee time window itself. If the average temperature during a 1:00 PM window on the target day exceeds 95°F, apply a +8 scoring penalty to push toward later windows — but do not change the default start.
 
 ---
 
@@ -192,20 +259,24 @@ Start with base score 0. Add penalties:
 
 | Condition | Penalty |
 |-----------|---------|
-| Round cost $21/player (1:00–3:59 PM) | 0 — preferred |
-| Round cost $15/player (4:00–5:59 PM) | +5 |
+| Round cost $21/player (1:00–3:59 PM), heat_streak: false | 0 — preferred |
+| Round cost $15/player (4:00–5:59 PM), heat_streak: true | 0 — preferred when heat streak active |
+| Round cost $15/player (4:00–5:59 PM), heat_streak: false | +5 |
+| Round cost $21/player (1:00–3:59 PM), heat_streak: true | +8 — playing in heat |
 | Round cost $0/player (6:00 PM+, 9-hole only) | +15 |
 | Early morning 9-hole ($21/player) | +20 — drought fallback only |
 | Weather caution (rain 30–60%) | +10 |
 | Sunday (church buffer, tighter window) | +5 |
 | Friday (work day, conditional availability) | +3 |
-| Temperature > 90°F at preferred time | +8 — push toward later |
+| Avg temp > 95°F during candidate window (even without heat streak) | +8 — push toward later |
 | 9-hole round (non-drought fallback) | +25 |
 | Drought override — 9-hole acceptable | -10 penalty removed |
 
-**Saturday at 1 PM in good weather = score 0 (ideal).**
-**Sunday at 4:30 PM in good weather = score ~10.**
-**Friday at 3 PM in good weather = score ~3.**
+**heat_streak: false, Saturday at 1 PM, clear weather = score 0 (ideal).**
+**heat_streak: true, Saturday at 4 PM, clear weather = score 0 (ideal).**
+**heat_streak: false, Saturday at 4 PM = score +5.**
+**Sunday at preferred time in good weather = score ~5.**
+**Friday at preferred time in good weather = score ~3.**
 
 Pick the top 3 scored windows across all available days.
 
@@ -259,39 +330,81 @@ If David replied to a previous Slack preview with instructions, honor them:
 
 ---
 
-### Step 7 — Send Slack Preview
+### Step 7 — Summarize and Send Slack Preview
 
-Read and follow `.claude/skills/master-slack/SKILL.md`.
+Before sending Slack, output the full recommendation summary inline (in the session / task log). This makes the output reviewable without opening Slack. Format it as follows:
 
-Send to **#golf** (C0B15SW9FB5):
+```
+**Target Weekend: [Fri date] – [Sun date]**
+- Friday [date]: [available ✅ | unavailable — reason]
+- Saturday [date]: [available ✅ | unavailable — reason]
+- Sunday [date]: [available ✅ | unavailable — reason]
+
+**Heat streak check ([Mon–Fri before target Friday]):** [temp], [temp], [temp], [temp], [temp] → [N] of 5 hit 95°F → heat_streak: [true|false] → default preferred start [1:00 PM | 4:00 PM]
+
+---
+
+**Rank 1 — [Day Month D, Time]** | Score: [N]
+$[cost]/player · [temp]°F · [rain]% rain · [wind] mph wind · [condition] · [rationale]
+
+**Rank 2 — [Day Month D, Time]** | Score: [N]
+$[cost]/player · [temp]°F · [rain]% rain · [wind] mph wind · [condition] · [rationale]
+
+[Rank 3 if applicable]
+```
+
+Then read and follow `.claude/skills/master-slack/SKILL.md`.
+
+Send to **#golf** (C0B15SW9FB5). The Slack message should mirror the inline summary in condensed form:
 
 ```
 *⛳ Golf Options — Weekend of [Fri date] – [Sun date]*
 
-[For each top option, show:]
-*[Rank]. [Day, Month D] — [Time range]*
-• 🌤 [Weather summary: temp, rain%, wind]
-• 💰 $[cost]/player · [18|9] holes
-• [Any notes: drought flag, weather caution, conflict reason]
+_Heat streak: [active 🔥 → default 4 PM | inactive → default 1 PM]_
+
+*1. [Day, Month D] — [Time]*
+• 🌤 [temp]°F, [rain]% rain, [wind] mph
+• 💰 $[cost]/player · 18 holes · Score: [N]
+
+*2. [Day, Month D] — [Time]*
+• 🌤 [temp]°F, [rain]% rain, [wind] mph
+• 💰 $[cost]/player · 18 holes · Score: [N]
+
+[3rd option if available]
 
 _Booking at midnight. Reply to redirect — otherwise top option is booked._
 ```
 
-Example:
+Example (heat streak inactive, Saturday only available):
 ```
-*⛳ Golf Options — Weekend of May 9–11*
+*⛳ Golf Options — Weekend of May 22–24*
 
-*1. Saturday, May 10 — 1:00–2:30 PM*
-• 🌤 78°F, 10% rain, 8 mph wind
-• 💰 $21/player · 18 holes
+_Heat streak: inactive → default 1 PM ($21/player)_
 
-*2. Sunday, May 11 — 2:30–4:00 PM*
-• 🌤 82°F, 20% rain, 12 mph wind
-• 💰 $21/player · 18 holes
+*1. Saturday, May 23 — 1:00 PM*
+• 🌤 83°F, 14% rain, 11 mph
+• 💰 $21/player · 18 holes · Score: 0
 
-*3. Friday, May 9 — 3:00–5:00 PM*
-• 🌤 75°F, 5% rain, 6 mph wind
-• 💰 $21/player · 18 holes
+*2. Saturday, May 23 — 4:00 PM*
+• 🌤 85°F, 21% rain, 13 mph
+• 💰 $15/player · 18 holes · Score: +5
+
+_Booking at midnight. Reply to redirect — otherwise top option is booked._
+```
+
+Example (heat streak active):
+```
+*⛳ Golf Options — Weekend of Aug 8–10*
+
+_Heat streak: active 🔥 → default 4 PM ($15/player)_
+
+*1. Saturday, Aug 9 — 4:00 PM*
+• 🌤 96°F, 5% rain, 8 mph
+• 💰 $15/player · 18 holes · Score: 0
+
+*2. Saturday, Aug 9 — 1:00 PM*
+• 🌤 102°F, 5% rain, 9 mph
+• 💰 $21/player · 18 holes · Score: +8 (playing in heat)
 
 _Booking at midnight. Reply to redirect — otherwise top option is booked._
 ```

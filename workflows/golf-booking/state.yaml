@@ -1,8 +1,19 @@
 workflow: golf-booking
 agent: sterling
-status: not-started
-session-started: null
+status: complete
+session-started: "2026-05-15T00:00:00"
 session-id: null
-current-step: null
-original-request: null
-accumulated-context: {}
+current-step: "complete"
+original-request: "Book tee time for May 23, 2026"
+accumulated-context:
+  target_date: "2026-05-23"
+  booked_time: "15:28"
+  holes: 18
+  players: 2
+  player_type: "41 - Frisco Lakes Total Member"
+  total_cost: 45.47
+  fallback_taken: true
+  fallback_reason: "Preferred 1:00 PM window unavailable — booked 3:28 PM"
+  calendar_block: "created"
+  slack_sent: "C0B15SW9FB5 (#golf)"
+  completed_at: "2026-05-15T00:02:31"

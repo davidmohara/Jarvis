@@ -1,8 +1,12 @@
 ---
-status: not-started
-started-at: ~
-completed-at: ~
-outputs: {}
+status: completed
+started-at: 2026-05-15T03:11:00-05:00
+completed-at: 2026-05-15T03:12:30-05:00
+outputs:
+  dream_log_appended: true
+  working_summary_written: true
+  git_commit: attempted
+  git_push: deferred
 ---
 
 <!-- system:start -->

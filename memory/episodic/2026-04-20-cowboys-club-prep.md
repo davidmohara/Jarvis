@@ -2,11 +2,17 @@
 type: working-archive
 date: 2026-04-20
 created: 2026-04-20
-tags: [meeting-prep, networking, cowboys-club, ceo-peer-group, speaking-opportunity]
-related_people: [dennis-howard]
+tags:
+- meeting-prep
+- networking
+- cowboys-club
+- ceo-peer-group
+- speaking-opportunity
+related_people:
+- dennis-howard
 salience:
   score: 0
-  last-promoted-check: 2026-05-13
+  last-promoted-check: '2026-05-15'
 ---
 
 # Meeting Prep — Cowboys Club CEO Event

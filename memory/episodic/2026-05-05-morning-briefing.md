@@ -2,11 +2,19 @@
 type: episodic
 source: working-archive
 date: 2026-05-05
-tags: [morning-briefing, calendar, leads, travel, omnifocus, ypo]
-related_people: [david-ohara, derek-nwamadi]
+tags:
+- morning-briefing
+- calendar
+- leads
+- travel
+- omnifocus
+- ypo
+related_people:
+- david-ohara
+- derek-nwamadi
 salience:
   score: 10
-  last-promoted-check: 2026-05-13
+  last-promoted-check: '2026-05-15'
   promoted: true
 ---
 

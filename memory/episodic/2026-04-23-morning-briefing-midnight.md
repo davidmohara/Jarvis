@@ -2,11 +2,24 @@
 type: working-archive
 date: 2026-04-23
 created: 2026-04-23
-tags: [briefing, calendar, omnifocus, google-next, travel, las-vegas, email, leads, overdue-tasks]
-related_people: [ehren-seim, mladen-raickovic, ethel-mangum, sam-dobbins]
+tags:
+- briefing
+- calendar
+- omnifocus
+- google-next
+- travel
+- las-vegas
+- email
+- leads
+- overdue-tasks
+related_people:
+- ehren-seim
+- mladen-raickovic
+- ethel-mangum
+- sam-dobbins
 salience:
   score: 10
-  last-promoted-check: 2026-05-13
+  last-promoted-check: '2026-05-15'
   promoted: true
 source_session: chief-2026-04-23-000000
 ---
