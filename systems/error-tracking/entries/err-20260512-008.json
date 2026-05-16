@@ -1,0 +1,18 @@
+{
+  "id": "err-20260512-008",
+  "timestamp": "2026-05-12T14:40:00-05:00",
+  "session": "2026-05-12-plaud-ingest",
+  "source": "explicit",
+  "agent": "knox",
+  "category": "process-skip",
+  "failure_mode": "lazy-search",
+  "description": "Knox surfaced Speaker 3 and Speaker 4 on the May 5 recording with sample_text of 'I understand,' and 'Oh shit. Was that the junior guy?' respectively. These were the raw sample_text values from the _speakers.json file -- far too short to identify a speaker. Knox should have pulled the first 5 utterances from the .md transcript for each speaker before presenting to the controller. Instead, David had to explicitly request 'Give me segments for speaker 3 & 4 so I can determine who is who.'",
+  "correction": "Knox read the full .md transcript and extracted representative utterance samples. David then confirmed Speaker 3 = Megan Wehrle (spoke most), Speaker 4 = Beau Wehrle.",
+  "systemic_fix": "Edge Case E (sample text too short) is now documented in both skills/plaud-transcripts/SKILL.md (section 4c) and step-03-identify-speakers.md (EDGE CASE CHECKS, section E). Rule: if sample_text is 5 words or fewer, do NOT present it to the controller. Instead, read the .md transcript and extract the first 5 utterances attributed to that speaker label. Present those instead. This check must run before surfacing ANY pending speaker to the controller.",
+  "fix_status": "applied",
+  "severity": "moderate",
+  "related_entries": [
+    "err-20260512-006",
+    "err-20260512-007"
+  ]
+}

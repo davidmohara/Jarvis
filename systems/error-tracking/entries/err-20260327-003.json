@@ -1,0 +1,20 @@
+{
+  "id": "err-20260327-003",
+  "timestamp": "2026-03-27T20:28:00Z",
+  "session": "2026-03-27",
+  "source": "self-detected",
+  "agent": "jarvis",
+  "category": "routing-error",
+  "description": "Built the TitleBridge prep sheet directly — pulled emails, wrote markdown, generated PDF with reportlab, pushed to reMarkable via rmapi — instead of dispatching Harper (prep content assembly) and Knox (PDF + reMarkable delivery). This is the seventh occurrence of this chronic pattern (err-20260324-005 marked it as 'chronic' at the fifth occurrence).",
+  "correction": "Harper owns meeting prep content. Knox owns PDF build and reMarkable delivery. Jarvis gathers inputs (email content, Clay data) and dispatches. Does not execute agent-owned work.",
+  "failure_mode": "protocol-skip",
+  "systemic_fix": "Seventh occurrence. Pattern is now deeply embedded. Every prep sheet request = immediate Harper dispatch. Every reMarkable push = Knox dispatch. No exceptions.",
+  "fix_status": "proposed",
+  "severity": "moderate",
+  "related_entries": [
+    "err-20260324-005",
+    "err-20260324-004",
+    "err-20260323-003",
+    "err-20260323-002"
+  ]
+}

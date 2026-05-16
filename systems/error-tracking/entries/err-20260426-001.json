@@ -1,0 +1,15 @@
+{
+  "id": "err-20260426-001",
+  "timestamp": "2026-04-26T16:38:45",
+  "session": "chief-2026-04-26-163845",
+  "source": "explicit",
+  "agent": "chief",
+  "category": "process-skip",
+  "description": "Boot sequence skipped Plaud ingest workflow launch entirely. Protocol requires launching it as a background Agent and reporting 'Plaud ingest failed to launch' if it errors. Neither happened — the step was omitted from the briefing without acknowledgment.",
+  "correction": "Read workflows/plaud-ingest/workflow.md and launch as background Agent during Phase 2. If the workflow cannot run (credential/sandbox blocker), report the failure explicitly in the briefing. Never silently omit a required boot step.",
+  "failure_mode": "protocol-skip",
+  "systemic_fix": "Added Plaud ingest to boot Phase 2 parallel execution list. Failure mode is documented — Knox cannot reach Plaud API from Cowork sandbox. Failure should be surfaced in briefing, not silently dropped.",
+  "fix_status": "applied",
+  "severity": "moderate",
+  "related_entries": []
+}

@@ -1,0 +1,15 @@
+{
+  "id": "err-20260416-002",
+  "timestamp": "2026-04-16T14:00:00Z",
+  "session": "2026-04-16",
+  "source": "explicit",
+  "agent": "jarvis",
+  "category": "data-accuracy",
+  "description": "Morning briefing framed Tomorrow Fund Breakfast task as David owning event logistics (theme, speaker lineup) rather than delivering closing remarks. He was asked to give closing remarks (May 19) and wants 2 slides. The task to get theme/speakers from the organizer is still valid but it is prep-driven, not ownership.",
+  "correction": "David's role at Tomorrow Fund Breakfast is closing remarks only, with 2 supporting slides. He is not running the event. He needs the theme and speaker lineup from the organizer to write remarks that fit.",
+  "failure_mode": "sloppy-read",
+  "systemic_fix": "When surfacing task context, read the task note carefully before inferring scope. The task note already stated 'Closing remarks confirmed for May 19' -- role was explicit.",
+  "fix_status": "applied",
+  "severity": "minor",
+  "related_entries": []
+}

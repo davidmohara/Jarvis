@@ -1,0 +1,15 @@
+{
+  "id": "err-20260402-002",
+  "timestamp": "2026-04-02T00:00:00Z",
+  "session": "2026-04-02",
+  "source": "explicit",
+  "agent": "jarvis",
+  "category": "format-violation",
+  "description": "DQ-Mastery-Summary.md was written to the IES root directory instead of an appropriate subfolder. Jarvis used the Write tool directly without delegating to the correct agent for file placement decisions.",
+  "correction": "Research output documents should not land in the IES root. The correct location depends on content type (meetings/, docs/, accounts/, etc.). When creating non-system files, use the appropriate subdirectory or delegate to the agent responsible for that domain.",
+  "failure_mode": "protocol-skip",
+  "systemic_fix": "Before writing any new file with the Write tool, confirm the target path is not the IES root. If unsure of correct location, ask David before writing.",
+  "fix_status": "proposed",
+  "severity": "minor",
+  "related_entries": []
+}

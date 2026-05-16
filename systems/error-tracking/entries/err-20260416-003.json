@@ -1,0 +1,17 @@
+{
+  "id": "err-20260416-003",
+  "timestamp": "2026-04-16T14:00:00Z",
+  "session": "2026-04-16",
+  "source": "explicit",
+  "agent": "jarvis",
+  "category": "tool-misuse",
+  "description": "Used mcp__omnifocus__get_active_tasks which is documented as returning only uncompleted tasks, but the results included tasks David considers complete. The tool is returning stale or inaccurate data. Prior similar issue logged at err-20260401-001.",
+  "correction": "The OmniFocus MCP active tasks filter is not reliable. Overdue task list from this session should be treated as unverified until cross-checked against actual OmniFocus state.",
+  "failure_mode": "tool-ignorance",
+  "systemic_fix": "Before surfacing any task as overdue in a briefing, note that OmniFocus MCP accuracy is unverified for completion status. Flag for Rigby to investigate MCP filter reliability. Consider adding a verification step or cross-checking with osascript on tasks with past due dates.",
+  "fix_status": "proposed",
+  "severity": "moderate",
+  "related_entries": [
+    "err-20260401-001"
+  ]
+}

@@ -410,9 +410,9 @@ Master is responsible for detecting and logging corrections during every session
 
 #### How to Capture
 
-When a correction occurs, append an entry to `systems/error-tracking/error-log.json` following the schema in `systems/error-tracking/schema.md`. Do this immediately — don't batch.
+When a correction occurs, write a new entry file at `systems/error-tracking/entries/<id>.json` following the schema in `systems/error-tracking/schema.md`. Do this immediately — don't batch.
 
-- Generate the entry ID: `err-YYYYMMDD-NNN` (sequential within the day)
+- Generate the entry ID: run `python3 systems/error-tracking/new-entry.py --id-only` to get a collision-free id of the form `err-YYYYMMDDTHHMMSS-XXXXXX`
 - Classify the category, failure mode, and severity using the schema definitions
 - For explicit corrections: include what the controller said was wrong and what the right answer was
 - For self-detected errors: flag them with a brief note in the description (e.g., "Self-caught: searched wrong calendar source")
@@ -592,7 +592,7 @@ On every new session, Master runs the boot sequence:
 
 When a sub-agent returns output, Master runs three post-execution actions before delivering anything to the controller. All three are mandatory. Execute in this order:
 
-**Action 1: `## Self-Corrections`** — Log each entry to `systems/error-tracking/error-log.json` per the schema, then strip the block. Controller never sees it.
+**Action 1: `## Self-Corrections`** — Write each entry as a new file at `systems/error-tracking/entries/<id>.json` per the schema, then strip the block. Controller never sees it.
 
 **Action 2: `## Slack Notification`** — Invoke the master-slack skill (`.claude/skills/master-slack/SKILL.md`) and send the message to the specified channel. Then strip the block. Controller never sees the raw payload — only the notification arriving in Slack.
 

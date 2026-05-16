@@ -1,0 +1,17 @@
+{
+  "id": "err-20260403-011",
+  "timestamp": "2026-04-03T16:15:00Z",
+  "session": "2026-04-03",
+  "source": "explicit",
+  "agent": "chase",
+  "category": "tool-misuse",
+  "description": "Card walkthrough used incorrect portal URLs for Citi, Discover, and Chase Sapphire. Generic/guessed URLs were used instead of verified login portal URLs, resulting in wrong pages loading.",
+  "correction": "Correct portal URLs: Amex=https://global.americanexpress.com/overview | Citi=https://www.citi.com/login | Discover=https://www.discover.com/login/ | Chase=https://secure.chase.com/web/auth/dashboard#/dashboard/overview. These are now stored in card-registry.json under portal_url for each card.",
+  "failure_mode": "wrong-assumption",
+  "systemic_fix": "Added portal_url field to every card in card-registry.json. Chase must read portal_url from card-registry.json before navigating to any issuer portal — never guess or hard-code URLs.",
+  "fix_status": "applied",
+  "severity": "moderate",
+  "related_entries": [
+    "err-20260403-008"
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "id": "err-20260403-009",
+  "timestamp": "2026-04-03T15:45:00Z",
+  "session": "2026-04-03",
+  "source": "explicit",
+  "agent": "jarvis",
+  "category": "tool-misuse",
+  "description": "Spawned Chase sub-agent but provided only a text handoff message without giving Chase the file paths, identity context, or Chrome session access he needed to actually execute. Chase came back unable to proceed — could not read identity files, could not access Chrome session.",
+  "correction": "When spawning a sub-agent, the spawn payload must include: (1) absolute file paths to all referenced files, (2) confirmation of what tools/connectors are available in the session, (3) any runtime state (e.g., active Chrome tab URL, account keys) needed to resume mid-task.",
+  "failure_mode": "context-blindness",
+  "systemic_fix": "Create a spawn checklist: before Agent tool call, confirm agent has paths to identity files, relevant workflow files, active tool list, and any runtime state. Sub-agents do not inherit session context automatically.",
+  "fix_status": "proposed",
+  "severity": "moderate",
+  "related_entries": [
+    "err-20260403-008"
+  ]
+}

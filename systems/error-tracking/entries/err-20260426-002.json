@@ -1,0 +1,17 @@
+{
+  "id": "err-20260426-002",
+  "timestamp": "2026-04-26T16:38:45",
+  "session": "chief-2026-04-26-163845",
+  "source": "explicit",
+  "agent": "chief",
+  "category": "assumption-error",
+  "description": "During boot, assumed Plaud script required Chrome because token was absent from sandbox. Script actually uses cached API token at ~/.config/plaud/token.json on the Mac — Chrome is only a fallback if no token AND no credentials exist. Should have run the script via Desktop Commander and let it fail or succeed on its own.",
+  "correction": "Always attempt to run fetch_plaud.py via Desktop Commander (Mac execution) before concluding it needs a browser flow. The script handles auth gracefully and exits with code 2 only if credentials are truly missing.",
+  "failure_mode": "wrong-assumption",
+  "systemic_fix": "Run fetch_plaud.py via mcp__Desktop_Commander__start_process on the Mac during boot. Do not pre-assume auth failure.",
+  "fix_status": "applied",
+  "severity": "minor",
+  "related_entries": [
+    "err-20260426-001"
+  ]
+}

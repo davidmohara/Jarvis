@@ -1,0 +1,17 @@
+{
+  "id": "err-20260420-001",
+  "timestamp": "2026-04-20T13:00:00-05:00",
+  "session": "2026-04-20",
+  "source": "explicit",
+  "agent": "chief",
+  "category": "missed-context",
+  "description": "Built Scott McMichael 1:1 prep sheet using only email data. Did not check Obsidian (Mind/One Texas/) for scorecard, revenue, and pipeline snapshots that Chase maintains automatically.",
+  "correction": "One Texas scorecard data lives in Obsidian at Mind/One Texas/. Should always be checked when building prep for Scott or any One Texas-related conversation.",
+  "failure_mode": "context-blindness",
+  "systemic_fix": "Add Obsidian One Texas check to 1:1 prep workflow for Scott and any North America conversation touching One Texas metrics.",
+  "fix_status": "proposed",
+  "severity": "moderate",
+  "related_entries": [
+    "err-20260420-002"
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "id": "err-20260507-001",
+  "timestamp": "2026-05-07T07:28:27-07:00",
+  "session": "2026-05-07",
+  "source": "explicit",
+  "agent": "jarvis",
+  "category": "data-accuracy",
+  "failure_mode": "stale-data-assertion",
+  "description": "Flagged PGA Tour ticket purchase as potentially lapsed without verifying completion status. Task due date was May 6; surfaced as a risk when David had already purchased tickets.",
+  "correction": "David confirmed tickets are purchased. Frame past-due OmniFocus tasks as 'may be done — confirm?' rather than asserting them as open risks.",
+  "systemic_fix": "When OmniFocus returns a task with a past due date, treat as potentially stale. Never assert 'this lapsed' — ask if it's been handled.",
+  "fix_status": "proposed",
+  "severity": "minor",
+  "related_entries": []
+}

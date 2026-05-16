@@ -1,0 +1,18 @@
+{
+  "id": "err-20260403-003",
+  "timestamp": "2026-04-03T00:00:00-05:00",
+  "session": "2026-04-03",
+  "source": "explicit",
+  "agent": "jarvis",
+  "category": "process-skip",
+  "description": "David provided speaker-to-name mappings for the Houston SKO Plaud recordings in a prior session (Intuit=Minu, Oxy=Stephen, Live Nation=Mark, McLane=Shalini, Mainsail=Oscar) but Jarvis did not update the speaker tags in Plaud. This is a repeat failure pattern — err-20260402-001 was logged for the same issue on Specialty Capital.",
+  "correction": "Speaker mappings provided by David must be immediately registered in Plaud via the speaker rename/tag process per skills/plaud-transcripts/SKILL.md. Do not acknowledge and move on — execute the tag.",
+  "failure_mode": "protocol-skip",
+  "systemic_fix": "Any time David states 'X is Y' in the context of a Plaud recording, treat it as an immediate speaker-tag instruction. Execute via Plaud skill before continuing. Same session, same response.",
+  "fix_status": "applied",
+  "severity": "moderate",
+  "related_entries": [
+    "err-20260402-001",
+    "err-20260403-001"
+  ]
+}

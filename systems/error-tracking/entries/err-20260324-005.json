@@ -1,0 +1,20 @@
+{
+  "id": "err-20260324-005",
+  "timestamp": "2026-03-24T00:00:00Z",
+  "session": "2026-03-24",
+  "source": "explicit",
+  "agent": "jarvis",
+  "category": "routing-error",
+  "description": "Jarvis pulled SharePoint content, wrote the markdown prep sheet, built the PDF with reportlab, and iterated on revisions — all directly — instead of dispatching Harper (meeting prep from source materials) and Knox (PDF delivery). Fifth occurrence of this pattern.",
+  "correction": "Harper owns meeting/event prep content assembly from source materials. Knox owns PDF build and device delivery. Jarvis coordinates and dispatches — does not execute.",
+  "failure_mode": "protocol-skip",
+  "systemic_fix": "Fifth occurrence. The pattern is now chronic. Jarvis must treat ANY prep sheet or brief request as an immediate Harper dispatch. SharePoint content pull can be done by Jarvis as coordination (gathering inputs), but content assembly, PDF generation, and delivery are agent-owned work.",
+  "fix_status": "proposed",
+  "severity": "high",
+  "related_entries": [
+    "err-20260324-004",
+    "err-20260323-003",
+    "err-20260323-002",
+    "err-20260321-003"
+  ]
+}

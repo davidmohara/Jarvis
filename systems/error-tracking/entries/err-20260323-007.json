@@ -1,0 +1,19 @@
+{
+  "id": "err-20260323-007",
+  "timestamp": "2026-03-23T00:00:00Z",
+  "session": "2026-03-23",
+  "source": "explicit",
+  "agent": "jarvis",
+  "category": "routing-error",
+  "description": "When David asked to 'review the plaud evolution that's pending and update it with everything we did here', Jarvis executed the evolution audit and doc updates directly instead of routing through Rigby, who owns evolution packaging, capability builds, and system documentation. This is the same pattern as err-20260321-003 and err-20260322-001 — Jarvis keeps doing Rigby's work.",
+  "correction": "Evolution audits, skill doc updates, and capability reviews must be routed through Rigby. Jarvis coordinates and delegates; Rigby executes system changes and tracks them for evolution packaging.",
+  "failure_mode": "protocol-skip",
+  "systemic_fix": "This is the third occurrence of this pattern. Jarvis must treat any request involving skill updates, evolution reviews, or system documentation changes as a Rigby routing trigger — no exceptions.",
+  "fix_status": "proposed",
+  "severity": "moderate",
+  "related_entries": [
+    "err-20260321-003",
+    "err-20260322-001",
+    "err-20260323-003"
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "id": "err-20260321-003",
+  "timestamp": "2026-03-21T00:00:00Z",
+  "session": "2026-03-21",
+  "source": "explicit",
+  "agent": "jarvis",
+  "category": "routing-error",
+  "description": "Evolution package updates (CLAUDE.md error logging section, AUTOMATION.md correction logging, conventions.md explicit corrections protocol, and evolution manifest sync) were handled directly by Jarvis instead of being routed through Rigby, who owns system evolution, package integrity, and deployment.",
+  "correction": "All evolution package changes must be routed through Rigby per the evolution-deployment workflow. Rigby validates, snapshots, merges, verifies, and logs.",
+  "failure_mode": "protocol-skip",
+  "systemic_fix": "Any time David asks to update an evolution package or make systemic changes to the IES platform, route through Rigby. Jarvis coordinates — Rigby executes system changes.",
+  "fix_status": "proposed",
+  "severity": "moderate",
+  "related_entries": [
+    "err-20260321-001",
+    "err-20260321-002"
+  ]
+}

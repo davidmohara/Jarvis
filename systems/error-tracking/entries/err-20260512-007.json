@@ -1,0 +1,17 @@
+{
+  "id": "err-20260512-007",
+  "timestamp": "2026-05-12T14:35:00-05:00",
+  "session": "2026-05-12-plaud-ingest",
+  "source": "explicit",
+  "agent": "knox",
+  "category": "missed-context",
+  "failure_mode": "stale-cache",
+  "description": "Knox raised Robyn Fuentes as an unresolved speaker on the May 5 recording even though David had already corrected this in a prior session: Robyn was not on the May 5 call. A Plaud voice profile mis-tag had assigned her label to a speaker who was actually Megan Wehrle. Knox had access to this correction from prior context but re-surfaced the question anyway, requiring David to say 'May 5 is wrong. Robyn wasn't even in there (I already told you that).'",
+  "correction": "Robyn Fuentes was not on the May 5 call. The mis-tagged label was mapped to Megan Wehrle via --rename. The --rename flag handles renaming existing named labels (not only generic Speaker N labels).",
+  "systemic_fix": "Edge Case B (known speaker wrongly assigned / voice mis-tag) is now documented in both skills/plaud-transcripts/SKILL.md (section 4c) and step-03-identify-speakers.md (EDGE CASE CHECKS, section B). Before accepting any Plaud-assigned named label, cross-reference the name against the calendar attendee list. If the person does not appear on the invite and their segment count is low or David has previously flagged them as mis-tagged, include in pending-speaker-mappings with a mis-tag note rather than treating the assignment as valid.",
+  "fix_status": "applied",
+  "severity": "moderate",
+  "related_entries": [
+    "err-20260512-006"
+  ]
+}

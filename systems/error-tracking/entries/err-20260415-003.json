@@ -1,0 +1,15 @@
+{
+  "id": "err-20260415-003",
+  "timestamp": "2026-04-15T00:00:00Z",
+  "session": "pi-20260415-001",
+  "source": "explicit",
+  "agent": "knox",
+  "category": "assumption-error",
+  "description": "Incorrectly identified the recording 04-14 Strategic Perspective on AI Growth and Business Adoption as being from the RBM Fort Worth event. It was from the YPO LS Gold Forum on 2026-04-14.",
+  "correction": "The recording was from YPO LS Gold Forum (brian@delosshipping.com, thomaswheat76@gmail.com, huddy9370@gmail.com, beau.wehrle@gmail.com, geoffbrenner@me.com). The agent looked at the wrong calendar event — the RBM event also ran on 2026-04-14 which caused the false match.",
+  "failure_mode": "wrong-assumption",
+  "systemic_fix": "When matching a recording to a calendar event, check recording time against event time window more precisely. Do not assume the largest/most prominent event on a date is the correct one. Surface the matched event name when asking for speaker ID so the controller can correct it immediately.",
+  "fix_status": "proposed",
+  "severity": "minor",
+  "related_entries": []
+}

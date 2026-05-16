@@ -1,0 +1,17 @@
+{
+  "id": "err-20260420-002",
+  "timestamp": "2026-04-20T13:05:00-05:00",
+  "session": "2026-04-20",
+  "source": "explicit",
+  "agent": "chief",
+  "category": "data-accuracy",
+  "description": "Reported Q1 new logos as 0 and new anchors as 0 in Scott McMichael prep sheet. Obsidian scorecard showed 0/0 but David confirmed actual Q1 result was 4 logos and 1 anchor.",
+  "correction": "Q1 One Texas results through end of March: 4 new logos, 1 new anchor. Targets: 8 logos, 4 anchors.",
+  "failure_mode": "stale-cache",
+  "systemic_fix": "Obsidian scorecard may lag actuals — when David provides a correction on numbers, trust him and update immediately. Cross-check scorecard data against most recent email or verbal confirmation when available.",
+  "fix_status": "applied",
+  "severity": "moderate",
+  "related_entries": [
+    "err-20260420-001"
+  ]
+}

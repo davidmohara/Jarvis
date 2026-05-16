@@ -17,7 +17,7 @@ model: sonnet
 
 ### Step 1: Load Error Data
 
-Read `systems/error-tracking/error-log.json`. If the file is empty or has no entries, report: "Clean log — no corrections recorded yet." and exit.
+Run `python3 systems/error-tracking/rebuild-log.py --out /tmp/error-log-view.json` and read the resulting file (or read every `systems/error-tracking/entries/*.json` directly). If no entries exist, report: "Clean log — no corrections recorded yet." and exit.
 
 ### Step 2: Compute Statistics
 
@@ -123,7 +123,7 @@ Full analysis (same as weekly) with additional detail — show individual entrie
 <!-- personal:start -->
 ## Tool Bindings
 
-- File system: `systems/error-tracking/error-log.json`, `systems/error-tracking/schema.md`
+- File system: `systems/error-tracking/entries/`, `systems/error-tracking/_meta.json`, `systems/error-tracking/schema.md`, `systems/error-tracking/rebuild-log.py`
 - SYSTEM.md: for rule additions (Tier 1 auto-proposals)
 - Agent files: `agents/*.md` for agent-specific fixes
 - Skill files: `.claude/skills/*/SKILL.md` for skill updates

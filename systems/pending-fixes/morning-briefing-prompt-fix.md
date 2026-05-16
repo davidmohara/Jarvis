@@ -77,5 +77,5 @@ CRITICAL — this error has recurred 5 times (err-20260501-001 and predecessors)
 
 Send a condensed digest to #jarvis containing: headline with date, top 3-5 calendar items with context, priority/sharp edge of the day, lead flags if any, system status line. Max ~30 lines.
 
-If Desktop Commander or post.py fails: log the failure to `systems/error-tracking/error-log.json`, include the full briefing text in the session output, and note "Slack notification failed — [reason]" so David can see it.
+If Desktop Commander or post.py fails: log the failure as a new entry under `systems/error-tracking/entries/` (use `python3 systems/error-tracking/new-entry.py --id-only` for the id), include the full briefing text in the session output, and note "Slack notification failed — [reason]" so David can see it.
 ```

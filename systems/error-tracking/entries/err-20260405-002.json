@@ -1,0 +1,15 @@
+{
+  "id": "err-20260405-002",
+  "timestamp": "2026-04-05T00:00:00-05:00",
+  "session": "2026-04-05",
+  "source": "explicit",
+  "agent": "chase",
+  "category": "assumption-error",
+  "description": "pipeline-snapshot skill included Past Due Opps as a data pull and reported all-Improving pipeline totals. David does not care about past due opps (operational detail, Don handles it) and only cares about One Texas (Dallas + South Texas), not all of Improving.",
+  "correction": "pipeline-snapshot scope is One Texas only (Dallas TX + South Texas). Always filter before reading. Remove Past Due Opps entirely — that is Don's operational layer, not David's funnel-filling view.",
+  "failure_mode": "wrong-assumption",
+  "systemic_fix": "Rewrote pipeline-snapshot skill: removed Past Due Opps step, added explicit One Texas only scope note, changed output format to always show Dallas + South Texas + combined One Texas column. Never show unfiltered all-Improving numbers.",
+  "fix_status": "applied",
+  "severity": "moderate",
+  "related_entries": []
+}

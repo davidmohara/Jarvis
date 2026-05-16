@@ -1,0 +1,15 @@
+{
+  "id": "err-20260428-001",
+  "timestamp": "2026-04-28T06:45:00-05:00",
+  "session": "chief-2026-04-28-063839",
+  "source": "explicit",
+  "agent": "chief",
+  "category": "process-skip",
+  "description": "Ran filesystem cleanup (DS_Store, fuse_hidden) via VM Bash tool first, which predictably failed due to mount permissions. Should have routed directly to Desktop Commander (Rigby's tool) for any Mac filesystem operations on the OneDrive mount. Wasted a tool call and required explicit correction from David.",
+  "correction": "Mac filesystem cleanup must always go through Desktop Commander. VM Bash cannot delete files on macOS FUSE mounts. Rigby owns cleanup operations — route there first, not as fallback.",
+  "failure_mode": "wrong-tool",
+  "systemic_fix": "Add rule to SYSTEM.md Jarvis Operating Rules: file deletion on the OneDrive IES mount requires Desktop Commander. Bash tool is sandboxed and cannot modify macOS-mounted paths.",
+  "fix_status": "proposed",
+  "severity": "minor",
+  "related_entries": []
+}

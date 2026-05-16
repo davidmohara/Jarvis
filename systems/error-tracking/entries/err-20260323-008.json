@@ -1,0 +1,17 @@
+{
+  "id": "err-20260323-008",
+  "timestamp": "2026-03-23T00:00:00Z",
+  "session": "2026-03-23",
+  "source": "explicit",
+  "agent": "rigby",
+  "category": "wrong-assumption",
+  "description": "Rigby's stale file audit flagged .fuse_hidden* (14 files) and .DS_Store (5 files) as stale artifacts to delete. These are macOS system files that belong where they are — not stale, not actionable. Audit produced a false-positive cleanup list of 19 files, none of which should be touched.",
+  "correction": ".fuse_hidden* and .DS_Store are system-managed files. They should not be flagged in stale file audits. Audits should focus on files the IES system created or manages, not OS-level artifacts.",
+  "failure_mode": "wrong-assumption",
+  "systemic_fix": "Root/stale audits must exclude OS-managed files (.DS_Store, .fuse_hidden*, .Spotlight-V100, .Trashes, etc.) from findings. Only flag files that IES agents or workflows created.",
+  "fix_status": "applied",
+  "severity": "minor",
+  "related_entries": [
+    "err-20260323-004"
+  ]
+}

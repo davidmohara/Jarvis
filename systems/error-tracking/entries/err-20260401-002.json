@@ -1,0 +1,15 @@
+{
+  "id": "err-20260401-002",
+  "timestamp": "2026-04-01T17:30:00Z",
+  "session": "2026-04-01",
+  "source": "explicit",
+  "agent": "jarvis",
+  "category": "missed-context",
+  "description": "David asked 'What is Galen capable of?' and Jarvis had no knowledge of the agent. Galen is a fully spec'd agent (agents/galen.md) with 5 skill files (galen-bloodwork, galen-morning-snapshot, galen-protocols, galen-visit-prep, galen-whoop-analysis) and a monthly health review workflow. He was not listed in SYSTEM.md's agent directory and not loaded during boot, so Jarvis searched externally and returned empty-handed before David pointed out to check the agents folder.",
+  "correction": "Galen exists at agents/galen.md. Should have been found immediately by checking agents/ directory. SYSTEM.md agent roster was also missing Galen — now added. galen.md had incorrect data source paths (Obsidian) for bloodwork that lives on disk in Dropbox — also corrected.",
+  "failure_mode": "lazy-search",
+  "systemic_fix": "Added Galen to SYSTEM.md agent directory. Updated galen.md and galen-bloodwork SKILL.md to point to correct Dropbox paths for bloodwork PDFs. On boot, all agents/ files should be treated as authoritative — if David asks about an agent, check agents/ first.",
+  "fix_status": "applied",
+  "severity": "moderate",
+  "related_entries": []
+}

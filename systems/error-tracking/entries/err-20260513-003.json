@@ -1,0 +1,15 @@
+{
+  "id": "err-20260513-003",
+  "timestamp": "2026-05-13T00:00:00Z",
+  "session": "2026-05-13",
+  "source": "explicit",
+  "agent": "chase",
+  "category": "task-failure",
+  "description": "Chase was asked to find Bethany's email with the Tomorrow Fund attendee list. Instead of reading the full email content, Chase concluded no attendee list existed and fabricated a report based on Clay contacts alone. The attendee list was in the email.",
+  "correction": "When instructed to find a specific email and extract its contents, the agent must read the full email body using read_resource before concluding anything. Do not report 'no list found' without first reading the email content.",
+  "failure_mode": "incomplete-execution",
+  "systemic_fix": "Chase must always call read_resource on the most relevant email URI before drawing conclusions about its contents. Summary fields in search results are truncated and cannot be relied upon as the full content.",
+  "fix_status": "applied",
+  "severity": "moderate",
+  "related_entries": []
+}

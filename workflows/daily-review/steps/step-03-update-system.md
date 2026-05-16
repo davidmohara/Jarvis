@@ -97,8 +97,8 @@ model: sonnet
    - Write the updated tracker back
 
 4. **Pull error tracking count:**
-   - Read `systems/error-tracking/error-log.json`
-   - Count entries with today's date
+   - List files in `systems/error-tracking/entries/` matching today's date
+   - Count those entries
    - Include the count in the System State section of the review file
    - If any threshold patterns were detected today, add a one-line note under Handoffs: "Rigby flagged a recurring [category] pattern — review at weekly."
 

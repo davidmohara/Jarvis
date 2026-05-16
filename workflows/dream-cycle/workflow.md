@@ -31,7 +31,7 @@ model: sonnet
 | Episodic memory | All files in `memory/episodic/` (excluding digests/) | File system |
 | Semantic memory | Existing entries in `memory/semantic/` | File system |
 | Dream log | Last run date | Read `memory/dream.log` |
-| Error log | Recent error categories (last 30 days) | Read `systems/error-tracking/error-log.json` |
+| Error log | Recent error categories (last 30 days) | Read `systems/error-tracking/entries/*.json` (or `python3 systems/error-tracking/rebuild-log.py` for aggregated view) |
 | Lessons | Existing pattern entries | Read `memory/LESSONS.md` |
 
 ### Paths
@@ -41,7 +41,7 @@ model: sonnet
 - `episodic_digests` = `memory/episodic/digests/`
 - `semantic_memory` = `memory/semantic/`
 - `dream_log` = `memory/dream.log`
-- `error_log` = `systems/error-tracking/error-log.json`
+- `error_log` = `systems/error-tracking/entries/` (per-entry files; aggregate via `systems/error-tracking/rebuild-log.py`)
 - `lessons` = `memory/LESSONS.md`
 
 ### Pre-flight Checks

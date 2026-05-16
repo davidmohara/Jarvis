@@ -113,10 +113,14 @@
       "checksum": "initial"
     },
     "error-tracking": {
-      "version": "1.0.0",
+      "version": "2.0.0",
+      "description": "Per-entry JSON files under entries/ replace the monolithic error-log.json to eliminate multi-machine merge conflicts. IDs use err-YYYYMMDDTHHMMSS-XXXXXX format.",
       "files": [
-        "systems/error-tracking/error-log.json",
+        "systems/error-tracking/_meta.json",
+        "systems/error-tracking/entries/",
         "systems/error-tracking/schema.md",
+        "systems/error-tracking/new-entry.py",
+        "systems/error-tracking/rebuild-log.py",
         "skills/rigby-error-analysis/SKILL.md"
       ],
       "checksum": "initial"

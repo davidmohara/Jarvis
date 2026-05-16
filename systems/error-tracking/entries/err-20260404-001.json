@@ -1,0 +1,15 @@
+{
+  "id": "err-20260404-001",
+  "timestamp": "2026-04-04T00:00:00-05:00",
+  "session": "2026-04-04",
+  "source": "explicit",
+  "agent": "chase",
+  "category": "tool-misuse",
+  "description": "Chase used mcp__Control_Chrome__open_url to navigate to card portals instead of clicking existing links on the page. David explicitly established in the previous session that navigation must happen within the current tab by clicking links — open_url should not be used when the page is already loaded and navigable.",
+  "correction": "When already on an authenticated portal page, navigate by clicking links (execute_javascript to click, or use page content to find hrefs and follow them). open_url is for jumping to a new issuer domain, not for in-portal navigation.",
+  "failure_mode": "protocol-skip",
+  "systemic_fix": "Add Rule 4 to workflows/card-walkthrough/workflow.md: In-portal navigation uses link-clicking (execute_javascript or page inspection), not open_url. open_url is reserved for initial navigation to a new card issuer domain only.",
+  "fix_status": "applied",
+  "severity": "minor",
+  "related_entries": []
+}

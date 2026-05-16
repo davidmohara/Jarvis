@@ -1,0 +1,20 @@
+{
+  "id": "err-20260323-003",
+  "timestamp": "2026-03-23T00:00:00Z",
+  "session": "2026-03-23",
+  "source": "explicit",
+  "agent": "jarvis",
+  "category": "routing-error",
+  "description": "Jarvis single-threaded the entire Rogers-O'Brien prep workflow — research, content writing, PDF generation, and reMarkable upload — instead of dispatching to agents in parallel. Harper should have built the prep sheet, Knox should have pushed to reMarkable. PDF generation via improving-pdf is shared infrastructure any agent can call. Jarvis doing agent work blocks multi-threading and defeats the purpose of the agent system.",
+  "correction": "Three rules established: (1) improving-pdf is shared infrastructure — any agent producing a deliverable calls it. (2) Jarvis coordinates, agents execute — if an agent owns the work, route it; prefer parallel dispatch. (3) When Jarvis does work directly because no agent owns it, flag it for Quinn's weekly review as a candidate for agent assignment or capability build.",
+  "failure_mode": "protocol-skip",
+  "systemic_fix": "Jarvis must dispatch to agents in parallel whenever possible. Single-threading agent-owned work through Jarvis is a routing error. When no agent owns a task, Jarvis executes but logs it as a gap for Quinn to review.",
+  "fix_status": "applied",
+  "severity": "moderate",
+  "related_entries": [
+    "err-20260321-001",
+    "err-20260321-003",
+    "err-20260322-001",
+    "err-20260323-002"
+  ]
+}

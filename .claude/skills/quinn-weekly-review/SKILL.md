@@ -97,7 +97,7 @@ Use Clay MCP:
 
 ### 8. System Improvement Review (Error Analysis)
 
-Read `systems/error-tracking/error-log.json` and invoke Rigby's error analysis logic:
+Run `python3 systems/error-tracking/rebuild-log.py --out /tmp/error-log-view.json` (or read `systems/error-tracking/entries/*.json` directly) and invoke Rigby's error analysis logic:
 
 - Count total corrections this week (filter entries by date range)
 - Identify any recurring patterns (3+ occurrences of same category + failure_mode)

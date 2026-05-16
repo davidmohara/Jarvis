@@ -1,0 +1,15 @@
+{
+  "id": "err-20260512-003",
+  "timestamp": "2026-05-12T09:05:00-05:00",
+  "session": "chief-2026-05-12-085352",
+  "source": "explicit",
+  "agent": "chief",
+  "category": "process-skip",
+  "description": "Plaud transcript ingest workflow was not triggered during boot. CLAUDE.md boot sequence explicitly requires launching plaud-ingest as a background agent (fire-and-forget) during Phase 2. Step was skipped entirely with no note in the briefing.",
+  "correction": "Launch plaud-ingest workflow during Phase 2 of every boot, in parallel with calendar and OmniFocus pulls. If skipped, flag it in the briefing rather than silently omitting it.",
+  "failure_mode": "protocol-skip",
+  "systemic_fix": "Add plaud-ingest to boot checklist as a non-optional parallel step. If the workflow file is missing or fails to launch, report it explicitly in the briefing.",
+  "fix_status": "applied",
+  "severity": "moderate",
+  "related_entries": []
+}

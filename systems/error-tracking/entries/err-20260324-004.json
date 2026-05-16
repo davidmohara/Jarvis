@@ -1,0 +1,19 @@
+{
+  "id": "err-20260324-004",
+  "timestamp": "2026-03-24T00:00:00Z",
+  "session": "2026-03-24",
+  "source": "explicit",
+  "agent": "jarvis",
+  "category": "routing-error",
+  "description": "Jarvis built both meeting prep sheet PDFs and pushed them to reMarkable directly instead of dispatching Harper (prep sheets) and Knox (reMarkable upload) in parallel. Same single-threading pattern as err-20260323-003.",
+  "correction": "Harper owns meeting prep content. Knox owns reMarkable uploads. Jarvis coordinates and dispatches in parallel — does not execute agent-owned work.",
+  "failure_mode": "protocol-skip",
+  "systemic_fix": "This is the fourth occurrence of Jarvis single-threading agent-owned work. Any meeting prep → Harper. Any reMarkable push → Knox. Any PDF generation is shared infrastructure callable by any agent. Dispatch in parallel.",
+  "fix_status": "proposed",
+  "severity": "moderate",
+  "related_entries": [
+    "err-20260323-003",
+    "err-20260323-002",
+    "err-20260321-003"
+  ]
+}

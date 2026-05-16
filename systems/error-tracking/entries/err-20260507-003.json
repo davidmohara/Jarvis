@@ -1,0 +1,17 @@
+{
+  "id": "err-20260507-003",
+  "timestamp": "2026-05-07T07:35:00-07:00",
+  "session": "2026-05-07",
+  "source": "explicit",
+  "agent": "jarvis",
+  "category": "wrong-assumption",
+  "failure_mode": "unnecessary-confirmation-request",
+  "description": "After logging the calendar-verification-skip error, still proposed 'may be done — worth confirming?' for past-due OmniFocus tasks instead of committing to self-verification. Half-fixed the rule.",
+  "correction": "David: never ask him to confirm past-due task status. Check OmniFocus completion field directly. If task shows completed:false but due date is past, that is a data staleness problem to resolve autonomously — not a question to surface.",
+  "systemic_fix": "Hard rule: past-due OmniFocus tasks are NEVER surfaced as questions for David. Jarvis checks the completion status autonomously. If uncertain, skip it rather than ask.",
+  "fix_status": "applied",
+  "severity": "minor",
+  "related_entries": [
+    "err-20260507-001"
+  ]
+}

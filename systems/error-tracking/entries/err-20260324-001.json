@@ -1,0 +1,15 @@
+{
+  "id": "err-20260324-001",
+  "timestamp": "2026-03-24T00:00:00Z",
+  "session": "2026-03-24",
+  "source": "explicit",
+  "agent": "jarvis",
+  "category": "tool-misuse",
+  "description": "Sent iMessage test to David's email (david.ohara@improving.com) instead of his phone number (214.317.9659). iMessage to email doesn't trigger phone notifications reliably.",
+  "correction": "iMessages to David must be sent to his cell number 214.317.9659, not his email address.",
+  "failure_mode": "wrong-assumption",
+  "systemic_fix": "David's iMessage recipient is always 2143179659. Store this as the default for all iMessage sends.",
+  "fix_status": "applied",
+  "severity": "minor",
+  "related_entries": []
+}

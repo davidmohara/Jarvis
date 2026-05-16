@@ -1,0 +1,17 @@
+{
+  "id": "err-20260508-002",
+  "timestamp": "2026-05-08T07:14:36-07:00",
+  "session": "2026-05-08",
+  "source": "explicit",
+  "agent": "jarvis",
+  "category": "data-accuracy",
+  "failure_mode": "sloppy-read",
+  "description": "Reported OmniFocus inbox as having 205 items. That number came from the note field of a stale task written weeks ago — not from a live inbox count. Never queried actual current inbox size.",
+  "correction": "David confirmed inbox has 11 items. The 205 figure was from an old task note, not live data.",
+  "systemic_fix": "Inbox item counts must come from a live OmniFocus query, never from task note fields. Never read a number out of a note field and present it as current state.",
+  "fix_status": "applied",
+  "severity": "moderate",
+  "related_entries": [
+    "err-20260508-001"
+  ]
+}

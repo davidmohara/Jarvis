@@ -1,0 +1,17 @@
+{
+  "id": "err-20260326-005",
+  "timestamp": "2026-03-26T00:00:00Z",
+  "session": "2026-03-26",
+  "source": "explicit",
+  "agent": "jarvis",
+  "category": "assumption-error",
+  "description": "Spent multiple rounds debugging Plaud transcription trigger failure ('start trans task error', status=-1/-12) by inspecting API parameters, trying is_reload variants, examining ori_ready fields, and writing debug scripts — when the actual cause was simply that David is out of Plaud transcription minutes. Jarvis never considered the simplest explanation (account quota exhausted) and instead chased increasingly technical API theories.",
+  "correction": "When a transcription trigger fails with a generic error, check account-level issues first: subscription status, remaining minutes/credits, plan limits. The simplest explanation is usually correct.",
+  "failure_mode": "wrong-assumption",
+  "systemic_fix": "Add to Plaud troubleshooting: if /ai/transsumm returns status=-1 or status=-12 with 'start trans task error', the FIRST thing to check is whether the account has remaining transcription minutes. Add a quota check step to the fetch script before attempting triggers. Also: ask David before spending 10 minutes debugging an API.",
+  "fix_status": "applied",
+  "severity": "moderate",
+  "related_entries": [
+    "err-20260326-004"
+  ]
+}

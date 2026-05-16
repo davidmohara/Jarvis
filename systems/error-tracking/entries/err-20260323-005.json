@@ -1,0 +1,15 @@
+{
+  "id": "err-20260323-005",
+  "timestamp": "2026-03-23T00:00:00Z",
+  "session": "2026-03-23",
+  "source": "explicit",
+  "agent": "jarvis",
+  "category": "over-engineering",
+  "description": "Proposed building a local speaker-aliases.json file to map Plaud speaker labels to real names. Plaud already has built-in speaker identification — adding speakers to Plaud's system updates transcripts automatically. Jarvis reinvented a wheel that already exists upstream.",
+  "correction": "Speaker tagging should be done in Plaud's own system, not maintained locally. The skill should focus on getting speakers registered in Plaud so transcripts arrive pre-tagged.",
+  "failure_mode": "wrong-assumption",
+  "systemic_fix": "Before proposing local solutions for third-party tool gaps, check whether the tool already solves it. Prefer upstream fixes over local workarounds.",
+  "fix_status": "applied",
+  "severity": "minor",
+  "related_entries": []
+}

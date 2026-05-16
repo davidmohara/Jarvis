@@ -80,7 +80,7 @@ When the user asks about Obsidian, use the Obsidian MCP server to access their v
 
 ## Error Logging
 
-When David corrects you — any correction, any agent — **log it to `systems/error-tracking/error-log.json` immediately in the same response.** Do not acknowledge verbally and move on. The log write is non-negotiable and happens before anything else. Follow the schema in `systems/error-tracking/schema.md`. This is fully autonomous — no approval needed.
+When David corrects you — any correction, any agent — **log it immediately in the same response by writing a new file to `systems/error-tracking/entries/<id>.json`.** Do not acknowledge verbally and move on. The log write is non-negotiable and happens before anything else. Generate the id with `python3 systems/error-tracking/new-entry.py --id-only` and follow the schema in `systems/error-tracking/schema.md`. This is fully autonomous — no approval needed.
 
 ## Exit Behavior
 

@@ -7,7 +7,7 @@ Shared protocols that apply to every IES agent. Read this file at the start of e
 
 ## Error Reporting Protocol
 
-All agents are responsible for surfacing self-detected errors back to Master so they can be logged to `systems/error-tracking/error-log.json`. Master owns the log write — agents report, Master records.
+All agents are responsible for surfacing self-detected errors back to Master so they can be logged as new entries under `systems/error-tracking/entries/`. Master owns the log write — agents report, Master records.
 
 ### When to Report
 
@@ -19,7 +19,7 @@ Report an error when you:
 
 ### Explicit Corrections from the Executive
 
-When David corrects any behavior — routing, data, process, tone, anything — **Master must log the correction to `systems/error-tracking/error-log.json` immediately in that same response.** This is not optional and does not require a second prompt. Use `"source": "explicit"` in the entry. The correction is logged first, then the conversation continues. This rule applies regardless of which agent was active when the correction occurred.
+When David corrects any behavior — routing, data, process, tone, anything — **Master must log the correction immediately in that same response by writing a new entry file at `systems/error-tracking/entries/<id>.json`.** This is not optional and does not require a second prompt. Generate the id with `python3 systems/error-tracking/new-entry.py --id-only` and use `"source": "explicit"` in the entry. The correction is logged first, then the conversation continues. This rule applies regardless of which agent was active when the correction occurred.
 
 Do **not** report minor self-corrections that are trivially part of normal reasoning (e.g., rewriting a sentence). Report errors that would matter if they had shipped uncorrected.
 

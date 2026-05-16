@@ -8,7 +8,7 @@ review-by: 2026-07-15
 <!-- system:start -->
 ## Fully Autonomous (No Approval Needed)
 
-- **Log corrections**: When the executive corrects any agent behavior — immediately write to `systems/error-tracking/error-log.json` in the same response. No second prompt required. This includes routing errors, wrong answers, missed context, process skips, or any other correction. Always log before moving on.
+- **Log corrections**: When the executive corrects any agent behavior — immediately write a new entry file at `systems/error-tracking/entries/<id>.json` in the same response. Generate the id with `python3 systems/error-tracking/new-entry.py --id-only`. No second prompt required. This includes routing errors, wrong answers, missed context, process skips, or any other correction. Always log before moving on.
 <!-- system:end -->
 
 <!-- personal:start -->

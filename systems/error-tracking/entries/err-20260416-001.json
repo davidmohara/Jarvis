@@ -1,0 +1,15 @@
+{
+  "id": "err-20260416-001",
+  "timestamp": "2026-04-16T14:00:00Z",
+  "session": "2026-04-16",
+  "source": "explicit",
+  "agent": "jarvis",
+  "category": "assumption-error",
+  "description": "Boot briefing declared 'Offline -- running on local state' after git remote returned an SSH host key error. David confirmed he had already done a git pull --rebase. Jarvis should have trusted the controller and noted the discrepancy rather than overriding his statement.",
+  "correction": "When David states something is done, trust him. Note any conflicting signal parenthetically but do not contradict him or declare a state he just told you is wrong.",
+  "failure_mode": "wrong-assumption",
+  "systemic_fix": "Per SYSTEM.md rule: 'When David says something is done, trust him.' If git returns an error but David says he just pulled, accept that and proceed. Flag only if there is clear evidence of a real problem.",
+  "fix_status": "applied",
+  "severity": "minor",
+  "related_entries": []
+}

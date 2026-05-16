@@ -1,0 +1,15 @@
+{
+  "id": "err-20260327-005",
+  "timestamp": "2026-03-27T21:30:00Z",
+  "session": "2026-03-27",
+  "source": "explicit",
+  "agent": "jarvis",
+  "category": "wrong-assumption",
+  "description": "In the morning briefing leads section, flagged Alcon and AECom as 'unassigned' leads needing action. The '---' value in the 'Passed To' column means the lead is dead/closed — not unassigned. Jarvis treated dead leads as actionable items.",
+  "correction": "'---' in the lead tracker means dead/not going to be assigned. Only truly blank 'Passed To' fields are unassigned leads. Alcon and AECom should not have been surfaced.",
+  "failure_mode": "wrong-assumption",
+  "systemic_fix": "Update lead review logic: '---' = dead lead, skip entirely. Only surface leads where 'Passed To' is blank/empty/null — not '---'.",
+  "fix_status": "applied",
+  "severity": "minor",
+  "related_entries": []
+}

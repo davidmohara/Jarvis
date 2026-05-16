@@ -1,0 +1,15 @@
+{
+  "id": "err-20260415-001",
+  "timestamp": "2026-04-15T16:53:00Z",
+  "session": "2026-04-15",
+  "source": "explicit",
+  "agent": "jarvis",
+  "category": "data-accuracy",
+  "description": "Flagged 'Send fixed-bid proposal to Jerry Pender at Specialty Capital' as an overdue post-call item in the morning briefing. David had already told Jarvis this was handed off to Shalini Arora and is handled. This has been corrected multiple times.",
+  "correction": "Specialty Capital / Jerry Pender is assigned to Shalini. Task is complete. Do not surface it again.",
+  "failure_mode": "stale-cache",
+  "systemic_fix": "Before surfacing any overdue Sales task in a briefing, check OmniFocus notes for handoff language and cross-reference against team assignments. If David has previously stated a task is handled, mark it done in OmniFocus and stop surfacing it.",
+  "fix_status": "applied",
+  "severity": "moderate",
+  "related_entries": []
+}

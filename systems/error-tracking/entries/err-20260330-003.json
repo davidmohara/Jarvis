@@ -1,0 +1,17 @@
+{
+  "id": "err-20260330-003",
+  "timestamp": "2026-03-30T14:45:00Z",
+  "session": "2026-03-30",
+  "source": "explicit",
+  "agent": "jarvis",
+  "category": "tool-misuse",
+  "description": "Pushed PDF to reMarkable root directory instead of /Meetings folder. This is the second time in the same session — first with convergence-ai-prep.pdf, now with kathy-kim-prep.pdf. David has to manually reorganize files on the reMarkable.",
+  "correction": "Always use 'rmapi put <file> /Meetings' to target the Meetings folder on reMarkable. Never push to root.",
+  "failure_mode": "wrong-assumption",
+  "systemic_fix": "Rule: All meeting prep PDFs pushed to reMarkable go to /Meetings folder. Use 'rmapi mkdir /Meetings' if folder doesn't exist, then 'rmapi put <file> /Meetings'.",
+  "fix_status": "applied",
+  "severity": "moderate",
+  "related_entries": [
+    "err-20260330-002"
+  ]
+}

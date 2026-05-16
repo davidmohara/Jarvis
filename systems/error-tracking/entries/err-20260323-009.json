@@ -1,0 +1,17 @@
+{
+  "id": "err-20260323-009",
+  "timestamp": "2026-03-23T00:00:00Z",
+  "session": "2026-03-23",
+  "source": "explicit",
+  "agent": "rigby",
+  "category": "wrong-assumption",
+  "description": "Rigby's stale file audit proposed deleting all 15 PDFs in meetings/ without checking which ones have corresponding .md source files. Only PDFs with a matching .md (generated artifacts) are deletable — standalone PDFs without a source markdown are deliverables that must stay. SYSTEM.md Section 2 says deliverables belong next to their source markdown — the .md is the source of truth, the PDF is the build artifact.",
+  "correction": "Stale file audits must cross-reference PDFs against their source .md files. Only delete PDFs that have a corresponding markdown source. Standalone PDFs are deliverables, not temp artifacts.",
+  "failure_mode": "lazy-search",
+  "systemic_fix": "When auditing meetings/ for deletable PDFs: for each PDF, check if a .md file with the same base name exists. If yes → generated artifact, deletable. If no → standalone deliverable, keep.",
+  "fix_status": "applied",
+  "severity": "minor",
+  "related_entries": [
+    "err-20260323-008"
+  ]
+}

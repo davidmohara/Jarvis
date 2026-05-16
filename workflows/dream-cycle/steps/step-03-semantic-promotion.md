@@ -26,7 +26,7 @@ outputs:
 | Field | Value |
 |-------|-------|
 | Agent | Jarvis |
-| Input | Episodic entries with `salience.score >= 3`, `salience.promoted == false`, `salience.last-promoted-check` = today; `systems/error-tracking/error-log.json`; `memory/LESSONS.md` |
+| Input | Episodic entries with `salience.score >= 3`, `salience.promoted == false`, `salience.last-promoted-check` = today; `systems/error-tracking/entries/*.json`; `memory/LESSONS.md` |
 | Output | New or updated semantic entries in `memory/semantic/{domain}/`; `salience.promoted: true` written back to source episodic files; error patterns appended to `memory/LESSONS.md` if applicable |
 
 ## CONTEXT BOUNDARIES
@@ -75,7 +75,7 @@ outputs:
 
 ### Phase B: Error Pattern Check
 
-5. Read `systems/error-tracking/error-log.json`.
+5. Read every `systems/error-tracking/entries/*.json` file (or run `python3 systems/error-tracking/rebuild-log.py` for an aggregated view).
 
 6. Identify any error category appearing 3 or more times in the last 30 days.
 
@@ -109,7 +109,7 @@ outputs:
 | Existing semantic entry found but missing `## Evidence` or `## Implications` section | Append the sections. Do not overwrite any other content. |
 | Semantic file write fails | Log error with file path. Continue with remaining clusters. |
 | `salience.promoted: true` write fails on episodic source | Log error with file path. Continue. Do not abort promotion. |
-| `systems/error-tracking/error-log.json` not found | Log: `error-log-unavailable`. Skip error pattern check. Do not abort step. |
+| `systems/error-tracking/entries/` not found or empty | Log: `error-log-unavailable`. Skip error pattern check. Do not abort step. |
 | `memory/LESSONS.md` not found | Create it with the new entry. Do not abort. |
 | No promotion candidates found | Log `clusters_found: 0`. Proceed directly to error pattern check. |
 

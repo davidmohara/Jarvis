@@ -1,0 +1,19 @@
+{
+  "id": "err-20260403-004",
+  "timestamp": "2026-04-03T00:00:00-05:00",
+  "session": "2026-04-03",
+  "source": "self-detected",
+  "agent": "jarvis",
+  "category": "routing-error",
+  "description": "Jarvis executed the Plaud speaker rename directly instead of routing to Knox, who owns the plaud-transcripts skill and all Plaud operations. This is the same pattern as err-20260321-003 and err-20260323-002 — Jarvis executing agent-owned work directly. David had to ask 'which agent did you have do this work?' to surface it.",
+  "correction": "All Plaud operations — speaker tagging, transcript processing, rename, vault write — route through Knox. Jarvis coordinates, Knox executes.",
+  "failure_mode": "protocol-skip",
+  "systemic_fix": "Any Plaud operation triggers Knox dispatch. No exceptions. This is a repeat of a logged pattern — execution compliance required, no new rule needed.",
+  "fix_status": "applied",
+  "severity": "moderate",
+  "related_entries": [
+    "err-20260321-003",
+    "err-20260323-002",
+    "err-20260403-003"
+  ]
+}

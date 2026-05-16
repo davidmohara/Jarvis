@@ -1,0 +1,17 @@
+{
+  "id": "err-20260403-006",
+  "timestamp": "2026-04-03T00:00:00Z",
+  "session": "2026-04-03",
+  "source": "explicit",
+  "agent": "jarvis",
+  "category": "misidentification",
+  "description": "Incorrectly proposed Speaker 10 = Robyn Fuentes based on YPO knowledge inference. David corrected: Speaker 10 = Devlin Liles.",
+  "correction": "Speaker 10 = Devlin Liles.",
+  "failure_mode": "bad-inference",
+  "systemic_fix": "Cross-reference against full Houston IES team roster, not just SKO attendees.",
+  "fix_status": "applied",
+  "severity": "moderate",
+  "related_entries": [
+    "err-20260403-005"
+  ]
+}

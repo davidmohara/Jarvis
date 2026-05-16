@@ -1,0 +1,15 @@
+{
+  "id": "err-20260421-002",
+  "timestamp": "2026-04-21T20:05:00Z",
+  "session": "2026-04-21",
+  "source": "explicit",
+  "agent": "jarvis",
+  "category": "tool-misuse",
+  "description": "Asked the user 'Are you still in the Amex Platinum offers page in the current tab?' instead of using mcp__Control_Chrome__get_current_tab to check the tab state directly. Repeated this pattern of asking the user questions about tab state when tools exist to check automatically.",
+  "correction": "Use get_current_tab() to check browser state before asking clarifying questions about which page the user is on. Do not ask the user about tab/page state — read it directly from the browser.",
+  "failure_mode": "tool-ignorance",
+  "systemic_fix": "Rule: Never ask the user 'Are you on X page?' or 'Is tab Y open?' when you have direct browser state tools available. Always call get_current_tab() first to verify state.",
+  "fix_status": "proposed",
+  "severity": "minor",
+  "related_entries": []
+}

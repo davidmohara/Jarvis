@@ -149,11 +149,11 @@ When David corrects Jarvis:
 2. Identify the failure mode (lazy search, bad conversion, sloppy read, wrong assumption).
 3. Propose the systemic fix.
 4. If the fix is a new rule, add it to this section.
-5. **Log the correction** — Master silently appends an entry to `systems/error-tracking/error-log.json` with category, failure mode, severity, and proposed fix. This also applies to self-detected errors caught during execution.
+5. **Log the correction** — Master silently writes a new entry file at `systems/error-tracking/entries/<id>.json` with category, failure mode, severity, and proposed fix. Generate the id with `python3 systems/error-tracking/new-entry.py --id-only`. This also applies to self-detected errors caught during execution.
 
 ### Error Tracking System
 
-Corrections and self-detected errors are logged to `systems/error-tracking/error-log.json` following the schema in `systems/error-tracking/schema.md`. The system operates transparently — the executive's experience is unchanged (own it, fix it, move on). Behind the scenes:
+Corrections and self-detected errors are written as individual JSON files under `systems/error-tracking/entries/`, one file per entry. The id format is `err-YYYYMMDDTHHMMSS-XXXXXX` (UTC timestamp plus 6-char random alphanumeric); the filename matches the id. Full schema and storage layout in `systems/error-tracking/schema.md`. The previous monolithic `error-log.json` was retired because multi-machine writes produced unresolvable merge conflicts. The system operates transparently — the executive's experience is unchanged (own it, fix it, move on). Behind the scenes:
 
 - **Master** captures every correction (explicit + self-detected) to the error log
 - **All agents** report errors back to Master when they detect them during execution
@@ -162,7 +162,7 @@ Corrections and self-detected errors are logged to `systems/error-tracking/error
 - **Rigby** analyzes patterns, proposes tiered fixes (auto-propose for clear-cut, data-only for ambiguous)
 - **Threshold alerting**: when the same category + failure mode hits 3+ occurrences, Master surfaces it proactively at the next natural break
 
-Data files: `systems/error-tracking/error-log.json`, `systems/error-tracking/schema.md`
+Data files: `systems/error-tracking/_meta.json`, `systems/error-tracking/entries/*.json`, `systems/error-tracking/schema.md`. For aggregated views, run `python3 systems/error-tracking/rebuild-log.py`.
 <!-- personal:end -->
 
 ---
@@ -1148,8 +1148,7 @@ Before any Agent tool call:
 2. Pass the resolved value explicitly: `model: "haiku"` / `"sonnet"` / `"opus"`
 3. If resolution fails at all 5 levels, use `sonnet` and log a warning
 
-Omitting `model` from an Agent tool call must be logged to `systems/error-tracking/error-log.json`
-as `category: tool-misuse`, `failure_mode: protocol-skip`.
+Omitting `model` from an Agent tool call must be logged as a new entry under `systems/error-tracking/entries/` with `category: tool-misuse`, `failure_mode: protocol-skip`.
 <!-- system:end -->
 
 <!-- personal:start -->

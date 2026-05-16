@@ -1,0 +1,18 @@
+{
+  "id": "err-20260420-003",
+  "timestamp": "2026-04-20T13:15:00-05:00",
+  "session": "2026-04-20",
+  "source": "explicit",
+  "agent": "chief",
+  "category": "process-skip",
+  "description": "Plaud ingest workflow was not launched at boot on April 20. Boot sequence executed but background Agent for plaud-ingest was never fired. Working memory entry recorded 'full boot sequence executed' without noting the omission.",
+  "correction": "Plaud ingest must be launched as a background Agent during Phase 2 of every boot, no exceptions. This is the third recorded instance of this failure (see err-20260326-003, err-20260327-001).",
+  "failure_mode": "protocol-skip",
+  "systemic_fix": "Pattern is recurring. Consider adding explicit plaud-launched checkpoint to boot working memory write so the omission is self-evident on review.",
+  "fix_status": "proposed",
+  "severity": "moderate",
+  "related_entries": [
+    "err-20260326-003",
+    "err-20260327-001"
+  ]
+}

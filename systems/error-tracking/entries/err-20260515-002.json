@@ -1,0 +1,17 @@
+{
+  "id": "err-20260515-002",
+  "timestamp": "2026-05-15T16:45:00-05:00",
+  "session": "session-2026-05-15-094050",
+  "source": "explicit",
+  "agent": "master",
+  "category": "routing-error",
+  "description": "Drafted the Synexus client proposal directly in Master instead of delegating to a content-generation agent with VOICE.md loaded. David asked whether the handoff was correct — it was not.",
+  "correction": "Client-facing proposals should be routed through the brand-voice-enforcement skill or a content-generation agent that reads identity/VOICE.md before generating. Master should orchestrate, not free-form client content.",
+  "failure_mode": "protocol-skip",
+  "systemic_fix": "Add routing rule in agents/routing.md: any client-facing document (proposal, email, case study) must go through brand-voice-enforcement or content-generation agent, not generated directly by Master.",
+  "fix_status": "proposed",
+  "severity": "moderate",
+  "related_entries": [
+    "err-20260515-001"
+  ]
+}

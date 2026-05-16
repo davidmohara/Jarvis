@@ -1,0 +1,17 @@
+{
+  "id": "err-20260330-007",
+  "timestamp": "2026-03-30T20:00:00Z",
+  "session": "2026-03-30",
+  "source": "explicit",
+  "agent": "jarvis",
+  "category": "assumption-error",
+  "description": "Built omnifocus-tasks skill with static hardcoded project and tag lists embedded in the skill file. David corrected: projects and tags should be looked up live via MCP/osascript at task creation time, not maintained as a static reference list.",
+  "correction": "The skill should query OmniFocus for current projects and tags at execution time, not rely on a snapshot that goes stale.",
+  "failure_mode": "wrong-assumption",
+  "systemic_fix": "Update omnifocus-tasks skill to pull live project/tag lists via mcp__omnifocus__get_active_projects and osascript tag query as part of the pre-flight checklist. Remove static lists from the skill file.",
+  "fix_status": "applied",
+  "severity": "moderate",
+  "related_entries": [
+    "err-20260330-006"
+  ]
+}

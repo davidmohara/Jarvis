@@ -1,0 +1,18 @@
+{
+  "id": "err-20260512-004",
+  "timestamp": "2026-05-12T09:10:00-05:00",
+  "session": "chief-2026-05-12-085352",
+  "source": "explicit",
+  "agent": "chief",
+  "category": "data-accuracy",
+  "description": "OmniFocus MCP server returned a completed task (PGA Tour tickets, marked done prior week) as active/uncompleted during boot pull. get_active_tasks is supposed to filter completed tasks. This is a MCP sync reliability issue that produced incorrect briefing data.",
+  "correction": "OmniFocus MCP data cannot be treated as fully authoritative. Known sync lag exists between OmniFocus app state and MCP layer.",
+  "failure_mode": "stale-cache",
+  "systemic_fix": "When executive disputes any task status, re-pull before responding. Flag OmniFocus MCP sync reliability as a known data quality risk.",
+  "fix_status": "proposed",
+  "severity": "moderate",
+  "related_entries": [
+    "err-20260512-001",
+    "err-20260512-002"
+  ]
+}

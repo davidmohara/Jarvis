@@ -1,0 +1,9 @@
+{
+  "id": "err-20260414-003",
+  "date": "2026-04-14",
+  "agent": "rigby-root-audit",
+  "description": "Deleted evolution.manifest.json during root audit, classifying it as a stale artifact",
+  "correction": "David caught the error — evolution.manifest.json is Rigbys component registry and belongs in root permanently",
+  "root-cause": "rigby-root-audit skill lacks explicit protection for evolution.manifest.json, similar to how CLAUDE.md and SYSTEM.md are protected. The file was treated as an ephemeral artifact rather than a permanent system file.",
+  "prevention": "Add evolution.manifest.json to the ignore list in the rigby-root-audit skill alongside CLAUDE.md, SYSTEM.md, and README.md"
+}

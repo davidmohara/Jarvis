@@ -20,7 +20,7 @@ trigger_agents: [rigby, quinn]
 
 ### Step 1: Load Error Data
 
-Read `systems/error-tracking/error-log.json`. If the file is empty or has no entries, report: "Clean log — no corrections recorded yet." and exit.
+Run `python3 systems/error-tracking/rebuild-log.py --out /tmp/error-log-view.json` and read the resulting file (or read every `systems/error-tracking/entries/*.json` directly). If no entries exist, report: "Clean log — no corrections recorded yet." and exit.
 
 ### Step 2: Compute Statistics
 

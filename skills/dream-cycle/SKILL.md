@@ -196,7 +196,7 @@ Content: the log entry above, formatted for Chief to read at boot.
 
 ## LESSONS.md Check
 
-After Phase 3, scan `systems/error-tracking/error-log.json` for any error category
+After Phase 3, scan `systems/error-tracking/entries/*.json` (or use `python3 systems/error-tracking/rebuild-log.py`) for any error category
 appearing 3+ times in the last 30 days. If found and not already in `memory/LESSONS.md`:
 
 Add an entry to `memory/LESSONS.md`:

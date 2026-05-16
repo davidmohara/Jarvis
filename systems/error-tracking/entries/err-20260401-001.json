@@ -1,0 +1,15 @@
+{
+  "id": "err-20260401-001",
+  "timestamp": "2026-04-01T00:00:00Z",
+  "session": "2026-04-01",
+  "source": "explicit",
+  "agent": "jarvis",
+  "category": "tool-misuse",
+  "description": "When OmniFocus MCP timed out, Jarvis improvised its own AppleScript query for inbox tasks instead of deferring to the agent workflows that have correct, validated filter logic. The improvised query returned all inbox tasks including completed ones, producing an inflated and incorrect count. Jarvis then presented this number confidently in the diagnosis.",
+  "correction": "When MCP tools fail, fall back to osascript per SYSTEM.md — but use established agent scripts, not improvised queries. Agents (Chief) own the correct AppleScript patterns for filtered task queries. Jarvis should surface the fallback approach and let the correct agent execute it, not DIY the query.",
+  "failure_mode": "protocol-skip",
+  "systemic_fix": "Do not write ad-hoc AppleScript task queries. Reference agent-owned scripts or escalate to Chief for OmniFocus fallback queries. If no established script exists, note the gap rather than improvising.",
+  "fix_status": "applied",
+  "severity": "moderate",
+  "related_entries": []
+}

@@ -1,0 +1,11 @@
+{
+  "id": "err-20260328-001",
+  "timestamp": "2026-03-28T00:00:00Z",
+  "agent": "Rigby",
+  "category": "tool_misuse",
+  "failure_mode": "incomplete_search",
+  "severity": "low",
+  "description": "Used Glob pattern 'config/**' which matched only .env and .credentials — missed settings.json because it has no extension prefix. Wasted multiple rounds searching for the IES app URL before David pointed out it was in config/settings.json.",
+  "correction": "David pointed out config/settings.json was visible and contained the URL.",
+  "fix_applied": "Added explicit instruction to rigby-evolution-package skill: always read config/settings.json directly — do not search for it."
+}

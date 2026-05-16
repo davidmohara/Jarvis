@@ -1,0 +1,17 @@
+{
+  "id": "err-20260512-002",
+  "timestamp": "2026-05-12T09:05:00-05:00",
+  "session": "chief-2026-05-12-085352",
+  "source": "explicit",
+  "agent": "chief",
+  "category": "data-accuracy",
+  "description": "Reported PGA Tour tickets task as overdue after executive had already marked it complete in OmniFocus. OmniFocus data was pulled once at boot and treated as current throughout the briefing without flagging it as a point-in-time snapshot.",
+  "correction": "Boot data is a snapshot. When referencing task status in conversation, re-query OmniFocus if the executive has indicated changes were made, or flag that the data reflects boot-time state.",
+  "failure_mode": "stale-cache",
+  "systemic_fix": "When executive disputes a task status, re-pull from OmniFocus immediately rather than defending the cached read. Flag boot data as snapshot when surfacing overdue items.",
+  "fix_status": "applied",
+  "severity": "minor",
+  "related_entries": [
+    "err-20260512-001"
+  ]
+}

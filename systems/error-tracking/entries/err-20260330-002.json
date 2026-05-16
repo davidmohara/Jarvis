@@ -1,0 +1,15 @@
+{
+  "id": "err-20260330-002",
+  "timestamp": "2026-03-30T09:30:00-05:00",
+  "session": "2026-03-30",
+  "source": "explicit",
+  "agent": "chief",
+  "category": "tool-misuse",
+  "description": "Used improving-pdf skill (Improving-branded PDF) for a personal prep sheet destined for David reMarkable tablet. Improving branding is for company/client deliverables, not personal reference documents.",
+  "correction": "Use a plain/unbranded PDF generator for personal documents. Reserve improving-pdf for Improving deliverables.",
+  "failure_mode": "wrong-assumption",
+  "systemic_fix": "Add rule: improving-pdf is for Improving-branded deliverables only. Personal docs (reMarkable, personal reference, internal notes) should use a clean/unbranded PDF generator.",
+  "fix_status": "proposed",
+  "severity": "minor",
+  "related_entries": []
+}

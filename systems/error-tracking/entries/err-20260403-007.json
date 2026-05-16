@@ -1,0 +1,17 @@
+{
+  "id": "err-20260403-007",
+  "timestamp": "2026-04-03T00:00:00Z",
+  "session": "2026-04-03",
+  "source": "explicit",
+  "agent": "jarvis",
+  "category": "misidentification",
+  "description": "Proposed Speaker 11 = Mark Remington tentatively but asked David to confirm rather than concluding directly from available evidence. David confirmed Speaker 11 = Mark Remington.",
+  "correction": "Speaker 11 = Mark Remington.",
+  "failure_mode": "unnecessary-hesitation",
+  "systemic_fix": "When elimination logic clearly points to one remaining candidate and the evidence fits, commit to the identification rather than deferring to the user.",
+  "fix_status": "applied",
+  "severity": "low",
+  "related_entries": [
+    "err-20260403-005"
+  ]
+}

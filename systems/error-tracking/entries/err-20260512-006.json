@@ -1,0 +1,17 @@
+{
+  "id": "err-20260512-006",
+  "timestamp": "2026-05-12T14:30:00-05:00",
+  "session": "2026-05-12-plaud-ingest",
+  "source": "explicit",
+  "agent": "knox",
+  "category": "misidentification",
+  "failure_mode": "bad-inference",
+  "description": "On the May 5 recording, Knox identified Speaker 2 (44 segments) as Huddy and O'Hara (36 segments) as David. David corrected: Speaker 2 IS David. Plaud's voice recognition had split David across two labels: a named 'O'Hara' label for part of the recording and a generic 'Speaker 2' label for the rest. Knox did not apply Edge Case A (David split across two labels) before surfacing the mapping to the controller. The named label (O'Hara) with fewer segments should have triggered a check: does any generic speaker's sample text sound like David? Speaker 2's transcript referenced Improving's internal AI tooling decisions, user counts, and the enterprise Anthropic partnership -- clearly David.",
+  "correction": "Speaker 2 = David O'Hara. Both O'Hara and Speaker 2 mapped to David O'Hara in the --rename call. Voice embeddings merged under David's identity.",
+  "systemic_fix": "Edge Case A is now documented in both skills/plaud-transcripts/SKILL.md (section 4c) and workflows/plaud-ingest/steps/step-03-identify-speakers.md (EDGE CASE CHECKS, section A). Before surfacing any generic speaker to the controller: check whether a named David label already exists AND whether the generic speaker's sample text sounds like David. If both are true, auto-map the generic label to David O'Hara without asking.",
+  "fix_status": "applied",
+  "severity": "moderate",
+  "related_entries": [
+    "err-20260512-007"
+  ]
+}

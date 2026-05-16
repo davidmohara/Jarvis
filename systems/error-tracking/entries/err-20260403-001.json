@@ -1,0 +1,17 @@
+{
+  "id": "err-20260403-001",
+  "timestamp": "2026-04-03T00:00:00-05:00",
+  "session": "2026-04-03",
+  "source": "explicit",
+  "agent": "jarvis",
+  "category": "missed-context",
+  "description": "When asked to draft a Monday check-in email based on the Houston SKO follow-up email, Jarvis drafted from Don McGreal's Convergence AI email instead of the actual Houston SKO content. Don is in Dallas and Bethany had no involvement in the Houston SKO. The SKO transcript was already in Obsidian and was cited in the morning briefing.",
+  "correction": "The source was the Houston SKO Plaud transcript in Obsidian (2026-04-02 One Texas Houston SKO Strategy Meeting). Should have read that first before drafting.",
+  "failure_mode": "context-blindness",
+  "systemic_fix": "When asked to draft from a meeting or event, read the Obsidian transcript/notes for that event before drafting. Do not infer from a related email when the actual source document is available.",
+  "fix_status": "applied",
+  "severity": "moderate",
+  "related_entries": [
+    "err-20260403-002"
+  ]
+}

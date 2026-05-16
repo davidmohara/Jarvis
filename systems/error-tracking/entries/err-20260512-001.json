@@ -1,0 +1,15 @@
+{
+  "id": "err-20260512-001",
+  "timestamp": "2026-05-12T00:00:00-05:00",
+  "session": "2026-05-12",
+  "source": "explicit",
+  "agent": "jarvis",
+  "category": "routing-error",
+  "failure_mode": "protocol-skip",
+  "description": "Master built a new workflow (workflows/dream-cycle/) and updated the scheduled task prompt directly, instead of routing to Rigby. Did not read agents/routing.md before acting. 'New workflow' is explicitly listed as a Hard Stop — highest-violation category — routed to Rigby with no exceptions.",
+  "correction": "Any request involving new workflows, skills, agents, scripts, or structural system changes must be routed to Rigby immediately. Master reads routing.md before taking action on anything beyond a factual question.",
+  "systemic_fix": "Enforce routing.md read as step zero before any non-trivial action. Hard Stop domains are non-negotiable regardless of task simplicity or perceived urgency.",
+  "fix_status": "applied",
+  "severity": "major",
+  "related_entries": []
+}

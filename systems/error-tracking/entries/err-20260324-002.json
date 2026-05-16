@@ -1,0 +1,17 @@
+{
+  "id": "err-20260324-002",
+  "timestamp": "2026-03-24T00:00:00Z",
+  "session": "2026-03-24",
+  "source": "explicit",
+  "agent": "jarvis",
+  "category": "tool-misuse",
+  "description": "Morning briefing Slack DM was sent as David (U0ANHV5UXEW) via the Slack MCP connector, not as the Jarvis bot. The scheduled task instruction specified 'Send the output to me as a DM in Slack via Jarvis bot.' The Slack MCP is authenticated as David's user account, so all messages appear from David. No Jarvis bot user exists in the workspace.",
+  "correction": "Briefings must be sent as the Jarvis bot identity, not as David messaging himself. A Slack bot app needs to be created and its token made available to Jarvis for bot-identity sends.",
+  "failure_mode": "tool-ignorance",
+  "systemic_fix": "A Jarvis Slack bot app needs to be created in the Improving workspace. Until then, Jarvis cannot send DMs as a bot — only as David. Flag this as a capability gap for Rigby to resolve. In the interim, consider alternative delivery (iMessage, Obsidian daily note, or noting the limitation when delivering via Slack).",
+  "fix_status": "proposed",
+  "severity": "moderate",
+  "related_entries": [
+    "err-20260324-001"
+  ]
+}

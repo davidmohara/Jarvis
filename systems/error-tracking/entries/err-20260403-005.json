@@ -1,0 +1,15 @@
+{
+  "id": "err-20260403-005",
+  "timestamp": "2026-04-03T00:00:00Z",
+  "session": "2026-04-03",
+  "source": "explicit",
+  "agent": "jarvis",
+  "category": "misidentification",
+  "description": "Incorrectly proposed Speaker 7 = Juan Bernal and Speaker 9 = Kristin Johnson. David corrected: Speaker 7 = Robyn Fuentes, Speaker 9 = Oscar Velazquez. Also flagged that Kristin Johnson and Juan Bernal were not in attendance at the Houston weekly meeting.",
+  "correction": "Speaker 7 = Robyn Fuentes. Speaker 9 = Oscar Velazquez. Kristin Johnson and Juan Bernal were not present at this meeting.",
+  "failure_mode": "bad-inference",
+  "systemic_fix": "Do not assume all SKO attendees were present at subsequent internal meetings. Verify attendance independently.",
+  "fix_status": "applied",
+  "severity": "moderate",
+  "related_entries": []
+}

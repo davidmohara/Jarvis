@@ -1,0 +1,15 @@
+{
+  "id": "err-20260401-003",
+  "timestamp": "2026-04-01T21:00:00Z",
+  "session": "2026-04-01",
+  "source": "explicit",
+  "agent": "jarvis",
+  "category": "style-violation",
+  "description": "Used em-dashes repeatedly in output after being explicitly told three times not to. David flagged this as a persistent, recurring failure requiring permanent correction.",
+  "correction": "Never use em-dashes. Use colons, semicolons, commas, or rewrite the sentence instead.",
+  "failure_mode": "repeated-instruction-ignore",
+  "systemic_fix": "Em-dashes are permanently banned from all output. No exceptions. Recurrence count: 3+.",
+  "fix_status": "applied",
+  "severity": "moderate",
+  "related_entries": []
+}

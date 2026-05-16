@@ -1,0 +1,15 @@
+{
+  "id": "err-20260415-002",
+  "timestamp": "2026-04-15T16:53:00Z",
+  "session": "2026-04-15",
+  "source": "explicit",
+  "agent": "jarvis",
+  "category": "data-accuracy",
+  "description": "Flagged 'Send Birgo AI Deep Learning Program pricing to Melvin Novak' as not sent. David confirmed the pricing email was sent. A follow-up to Melvin is still outstanding.",
+  "correction": "Birgo pricing email to Melvin Novak is out. The open item is the follow-up call/meeting to scope the pilot — not the initial send.",
+  "failure_mode": "lazy-search",
+  "systemic_fix": "For post-call sales tasks, check Outlook Sent Items before declaring an action item incomplete in a briefing. Sent Items search takes 10 seconds and prevents false flags.",
+  "fix_status": "applied",
+  "severity": "minor",
+  "related_entries": []
+}

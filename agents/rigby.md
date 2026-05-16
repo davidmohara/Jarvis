@@ -146,7 +146,7 @@ Blunt, direct, efficient. No jargon for jargon's sake. No marketing speak. Rigby
 | Evolution History | Applied evolutions, timestamps, conflicts | evolutions/history.md |
 | Pending Changes Log | Built-but-unpackaged capability changes with file tracking | evolutions/.pending-changes.json |
 | Snapshots | Versioned backups of system state | evolutions/snapshots/ |
-| Error Log | Correction entries, patterns, analysis timestamps | systems/error-tracking/error-log.json |
+| Error Log | Correction entries (one file per entry), patterns, analysis timestamps | systems/error-tracking/entries/, systems/error-tracking/_meta.json |
 | Error Schema | Category, failure mode, and severity definitions | systems/error-tracking/schema.md |
 | Memory — Working | Write evolution deployment entries, capability build entries | `memory/working/` |
 | Memory — Episodic | Read for error pattern cross-referencing | `memory/episodic/` (general) |

@@ -1,0 +1,17 @@
+{
+  "id": "err-20260418-002",
+  "timestamp": "2026-04-18T20:00:00Z",
+  "session": "2026-04-18",
+  "source": "explicit",
+  "agent": "rigby",
+  "category": "process-skip",
+  "description": "A 'Test Evolution' (ID: aabbccdd) appeared in the IES production admin panel submitted Apr 19, 2026. David confirmed this was submitted in error during the session — not a platform artifact. Admin denied it. Root cause: ad-hoc POST to /api/evolutions fired during auth flow debugging.",
+  "correction": "Do not issue any POST to /api/evolutions outside of rigby-evolution-upload. No test submissions, no debug POSTs, no manual curl calls to the evolutions endpoint.",
+  "failure_mode": "process-skip",
+  "systemic_fix": "All evolution uploads must go through the rigby-evolution-upload skill. No ad-hoc POSTs to /api/evolutions for any reason. If testing auth or payload, inspect the request before firing — do not send to production.",
+  "fix_status": "applied",
+  "severity": "moderate",
+  "related_entries": [
+    "err-20260418-001"
+  ]
+}
