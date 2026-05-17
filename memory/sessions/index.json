@@ -8,7 +8,10 @@
       {
         "name": "morning-boot",
         "loops": [
-          { "task": "boot-sequence", "resolved": true }
+          {
+            "task": "boot-sequence",
+            "resolved": true
+          }
         ]
       }
     ]
@@ -22,26 +25,64 @@
       {
         "name": "morning-boot",
         "loops": [
-          { "task": "boot-sequence", "resolved": true }
+          {
+            "task": "boot-sequence",
+            "resolved": true
+          }
         ]
       },
       {
         "name": "plaud-ingest",
         "loops": [
-          { "task": "5 transcripts processed (4 complete, 2 renames pending approval)", "resolved": false }
+          {
+            "task": "5 transcripts processed (4 complete, 2 renames pending approval)",
+            "resolved": false
+          }
         ]
       },
       {
         "name": "synexus-proposal",
         "loops": [
-          { "task": "proposal drafted, pricing TBD, pending send", "resolved": false }
+          {
+            "task": "proposal drafted, pricing TBD, pending send",
+            "resolved": false
+          }
         ]
       },
       {
         "name": "ypo-speaker-application",
         "loops": [
-          { "task": "video script written and saved", "resolved": true }
+          {
+            "task": "video script written and saved",
+            "resolved": true
+          }
         ]
+      },
+      {
+        "topic": "unattributed",
+        "files": [
+          "systems/error-tracking/rebuild-log.py",
+          "systems/error-tracking/new-entry.py",
+          "systems/error-tracking/schema.md",
+          "SYSTEM.md",
+          "CLAUDE.md",
+          "identity/AUTOMATION.md",
+          "workflows/dream-cycle/workflow.md",
+          "workflows/dream-cycle/steps/step-03-semantic-promotion.md",
+          "workflows/daily-review/steps/step-03-update-system.md",
+          ".claude/skills/rigby-error-analysis/SKILL.md",
+          ".claude/skills/quinn-weekly-review/SKILL.md",
+          "skills/rigby-error-analysis/SKILL.md",
+          "skills/dream-cycle/SKILL.md",
+          "agents/master.md",
+          "agents/conventions.md",
+          "agents/rigby.md",
+          "evolution.manifest.json",
+          "memory/LESSONS.md",
+          "systems/pending-fixes/morning-briefing-prompt-fix.md"
+        ],
+        "loops": [],
+        "flag": true
       }
     ]
   }

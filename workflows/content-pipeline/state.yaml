@@ -1,10 +1,17 @@
 status: complete
 current-step: step-01-discover
-session-id: harper-2026-05-16-060000
-session-started: 2026-05-16T06:00:00
+session-id: harper-2026-05-17-060000
+session-started: 2026-05-17T02:00:00
 original-request: scheduled-content-discovery
 accumulated-context:
-  result: "No new URLs found in #content in the last 24 hours."
-  messages_scanned: 0
-  urls_found: 0
+  result: "Draft created for Spotify episode — The Bill You Haven't Paid Yet"
+  messages_scanned: 2
+  urls_found: 1
+  urls_processed: 1
+  ghost_post_id: "6a092159ccb9480291f7e5f1"
+  slack_thread_ts: "1778983276.337269"
   slack_notification_sent: true
+  known_issues:
+    - "Ghost CDN image upload failed — using external Unsplash URL"
+    - "Ghost tags passed as IDs but API created new tags — needs manual fix in editor"
+    - "Post HTML content may not have rendered in Ghost — verify in editor"

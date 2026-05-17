@@ -78,11 +78,16 @@ These are locked. Do not deviate.
 - **feature_image:** Unsplash URL at w=2000
 - **twitter_image:** Same URL as feature_image
 - **og_image:** Leave null (Ghost generates automatically)
-- **How to set:** Use `mcp__ghost-blog__upload_image_from_url` to upload the Unsplash image to Ghost's CDN first, then use the returned Ghost URL for both feature_image and twitter_image
+- **How to set:** Use `mcp__ghost-blog__upload_image_from_url` to upload the Unsplash image to Ghost's CDN first, then use the returned Ghost URL for both feature_image and twitter_image. If the upload fails, use the Unsplash URL directly — Ghost accepts external URLs for feature_image.
+- **Finding Unsplash images:** `mcp__workspace__web_fetch` has a provenance restriction and cannot directly fetch `unsplash.com/s/photos/...` search pages. Use WebSearch first to find a photo URL, then web_fetch the specific photo page to extract the image ID. See step-01-discover.md for the full protocol.
 - **Filename convention:** Use slug of post title (e.g., `skin-in-the-game-cost-of-free`)
 
 ### Tags — LOCKED LIST (no new tags ever)
 Select 1-3 that best match the post content. IDs are required for the Ghost API.
+
+> **Ghost API format — CRITICAL:** Tags must be passed as objects, not bare strings.
+> ✅ `[{"id": "637ea17e92f3300211b1b23a"}]` — links existing tag
+> ❌ `["637ea17e92f3300211b1b23a"]` — creates a new tag named after the ID string
 
 | Tag Name | ID | Slug |
 |----------|-----|------|

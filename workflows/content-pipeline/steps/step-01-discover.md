@@ -42,6 +42,7 @@ Timeout: 15000
 Parse the JSON response — `{"ok": true, "messages": [...]}`. Each message has `ts`, `user`, `text`, `thread_ts`.
 
 Extract all URLs from message text. Skip:
+- Messages where `bot_id` is set (bot messages — including Jarvis's own notifications)
 - Messages where thread_ts != ts (those are thread replies — approval responses, Agent 2 handles them)
 - URLs already in pending-drafts.json (source_url field)
 - URLs whose topics already have published Ghost posts
@@ -91,21 +92,31 @@ Write a blog post in David's voice using the structure and rules from workflow.m
 
 Choose 1-3 tags from the locked list in workflow.md. Match to the post's core themes. No new tags.
 
-Return the tag IDs (not names) — the Ghost API requires IDs.
+> **CRITICAL — Ghost API tag format:** Tags MUST be passed as an array of objects with an explicit `id` key. Passing bare ID strings causes Ghost to create new tags instead of linking existing ones.
+>
+> ✅ Correct: `tags=[{"id": "637ea17e92f3300211b1b23a"}, {"id": "68fbc4d89e3561027e745c91"}]`
+> ❌ Wrong: `tags=["637ea17e92f3300211b1b23a", "68fbc4d89e3561027e745c91"]`
 
 ### 6. Source the feature image
 
 Identify the single most important high-level keyword from the post (e.g., "leadership", "resilience", "cost", "writing" — conceptual, not literal). Search Unsplash:
 
-1. Use `mcp__workspace__web_fetch` to search: `https://unsplash.com/s/photos/{keyword}`
-2. From the results, select an image that is **landscape-oriented** (wider than tall). Avoid portraits of people as the primary subject unless the post is explicitly about a person.
-3. Extract the Unsplash photo URL from the page — it will contain the photo ID in the path.
-4. Construct the Unsplash CDN URL in the format:
+> **IMPORTANT:** `mcp__workspace__web_fetch` has a provenance restriction — it only fetches URLs that appeared in a prior user message or web_fetch result. Direct fetches to `unsplash.com/s/photos/...` will fail. Always use the two-step process below.
+
+1. **Run a WebSearch** for: `unsplash {keyword} landscape photo site:unsplash.com/photos`
+2. From the search results, pick a free (non-Unsplash+) photo URL — look for results where the title says "Free ... Image on Unsplash". Avoid results that mention "Unsplash+" or "premium".
+3. **Fetch the photo page** with `mcp__workspace__web_fetch` using the exact URL returned by the search — this unlocks it for the provenance check.
+4. From the fetched page, extract the photo ID from the `og:image` or `twitter:image` meta tag. The ID appears as `photo-{PHOTO_ID}` in the URL.
+5. Construct the Unsplash CDN URL:
 ```
 https://images.unsplash.com/photo-{PHOTO_ID}?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid={IXID}&ixlib=rb-4.1.0&q=80&w=2000
 ```
+Use the ixid from the meta tag URL if available; omit the ixid parameter if not — it's optional.
 
-**Fallback:** If web_fetch to Unsplash is blocked, use a web search for "unsplash {keyword} landscape photo" and extract a usable URL from results.
+**Image selection rules:**
+- Must be landscape-oriented (wider than tall)
+- Avoid portraits of people as the primary subject
+- Must be free (no Unsplash+ license required)
 
 Upload to Ghost CDN:
 ```
@@ -120,17 +131,25 @@ Use the returned Ghost CDN URL for both `feature_image` and `twitter_image`.
 
 ### 7. Create Ghost draft
 
+> **KNOWN BEHAVIOR:** The Ghost MCP's `create_post` tool accepts `html` as a parameter, but content passed via `html` may not render — the Ghost API uses Lexical as its internal format and the MCP may silently drop the HTML. Pass content via the `html` parameter AND verify the returned `lexical` field is non-empty. If the lexical field is empty or contains only an empty paragraph node, the content did not transfer and must be entered manually in the Ghost editor.
+
 ```
 mcp__ghost-blog__create_post(
   title="{Post Title}",
   html="{post body as HTML — wrap paragraphs in <p> tags}",
   status="draft",
   authors=["68a3465b9e3561027e745c51"],
-  tags=["{tag_id_1}", "{tag_id_2}"],
+  tags=[{"id": "{tag_id_1}"}, {"id": "{tag_id_2}"}],
   feature_image="{ghost_cdn_url}",
   twitter_image="{ghost_cdn_url}"
 )
 ```
+
+**After creation, verify:**
+- `tags` in the response — each tag should have the correct `name` (e.g., "AI", "business"), not an ID string. If tags show IDs as names, Ghost created new tags instead of linking existing ones.
+- `lexical` field — should NOT be `{"root":{"children":[{"children":[],...}],...}}` (empty). If it is, the HTML body did not render.
+
+If either check fails, note it explicitly in the Slack notification so David knows to fix before approving.
 
 Capture the returned `id` — this is the Ghost post ID needed for approval.
 
