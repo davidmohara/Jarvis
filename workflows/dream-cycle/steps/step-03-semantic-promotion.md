@@ -1,13 +1,13 @@
 ---
 status: completed
-started-at: 2026-05-15T03:10:15-05:00
-completed-at: 2026-05-15T03:10:45-05:00
+started-at: 2026-05-17T03:10:30-05:00
+completed-at: 2026-05-17T03:11:00-05:00
 outputs:
   clusters_found: 0
   semantic_created: 0
   semantic_updated: 0
   promoted_entries: 0
-  error_categories_30d: "wrong-assumption:2, data-accuracy:1, routing-error:1 (none meet 3+ threshold)"
+  error_categories_30d: "process-skip:5, assumption-error:3, data-accuracy:2, tool-misuse:1, process-failure:1, missed-context:1 (qualifying categories process-skip and assumption-error are already represented in LESSONS.md)"
   lessons_appended: 0
 ---
 

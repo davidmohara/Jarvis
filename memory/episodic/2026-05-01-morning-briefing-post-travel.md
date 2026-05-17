@@ -21,7 +21,7 @@ related_people:
 - stuart
 salience:
   score: 10
-  last-promoted-check: '2026-05-15'
+  last-promoted-check: '2026-05-17'
   promoted: true
 ---
 

@@ -410,3 +410,47 @@ errors_detail:
     file: .git/index.lock
     error: "Git pull --rebase failed: 'cannot pull with rebase: You have unstaged changes.' 19th consecutive run without sync."
 ---
+
+---
+## 2026-05-16T03:12:09 CDT
+session_id: dream-cycle-2026-05-16-030911
+working_archived: 2
+working_deleted: 0
+working_skipped: 38
+episodic_scanned: 46
+score_updates: 0
+clusters_found: 0
+semantic_created: 0
+semantic_updated: 0
+promoted_entries: 0
+entries_compressed: 0
+digests_updated: 0
+compression_skipped: true
+errors: 1
+summary: "Archived 2 expired working entries (May 13 morning briefing and May 14 dream summary) to episodic. Scored 46 episodic entries — distribution 0:11, 1:3, 7:1, 10:31. Score inflation persists (20th consecutive run). Zero promotion candidates (32 high-score entries already flagged promoted). No new error patterns hit 3+ threshold. Compression skipped — oldest entry 28 days. Git sync still blocked (20th consecutive run)."
+errors_detail:
+  - phase: 0
+    file: .git/index.lock
+    error: "Git pull --rebase failed: 'cannot pull with rebase: You have unstaged changes.' 20th consecutive run without sync."
+---
+
+---
+## 2026-05-17T03:11:30 CDT
+session_id: dream-cycle-2026-05-17-030920
+working_archived: 1
+working_deleted: 0
+episodic_scanned: 47
+score_updates: 0
+clusters_found: 0
+semantic_created: 0
+semantic_updated: 0
+promoted_entries: 0
+entries_compressed: 0
+digests_updated: 0
+errors: 1
+summary: "Archived dream-summary-2026-05-15 to episodic (source file kept in working/ with status: archived due to filesystem deletion block). 47 episodic entries scored — distribution unchanged (0:12, 1:3, 7:1, 10:31). 21st consecutive run with score inflation. Zero promotion candidates (all eligible already promoted). Error log: process-skip:5 and assumption-error:3 qualify but both patterns already in LESSONS.md. Compression skipped (oldest entry 29 days old). Git pull failed for 21st consecutive run."
+errors_detail:
+  - phase: 0
+    file: .git/index.lock
+    error: "Git pull --rebase failed: 'cannot pull with rebase: You have unstaged changes.' 21st consecutive run without sync. Stale .git/index.lock from prior run cannot be removed (filesystem permission denied)."
+---

@@ -1,8 +1,14 @@
 ---
-type: working
+type: working-archive
 expires: 2026-05-16
 status: archived
-archived_to: memory/episodic/2026-05-15-dream-cycle-summary.md
+date: 2026-05-15
+tags:
+- dream-cycle
+- meta
+salience:
+  score: 0
+  last-promoted-check: '2026-05-17'
 ---
 
 # Dream Cycle Summary — 2026-05-15

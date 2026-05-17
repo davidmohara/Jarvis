@@ -2,16 +2,16 @@
 workflow: daily-review
 agent: chief
 status: complete
-session-started: "2026-05-14T00:00:00"
-session-id: "chief-2026-05-14-auto"
+session-started: "2026-05-15T00:00:00"
+session-id: "chief-2026-05-15-auto"
 current-step: step-auto
 original-request: "auto"
 accumulated-context:
-  narrative-title: "2026-05-13 SOH Golf, a THL Call, and the Simpson Workshop Taking Shape"
-  narrative-path: "reviews/daily/auto-2026-05-13.md"
+  narrative-title: "2026-05-14 YPO Weekend, Cardinal Health in the Mix, and a Forum Night at the Lake"
+  narrative-path: "reviews/daily/auto-2026-05-14.md"
   omnifocus-status: "unavailable (3 timeouts)"
-  calendar-status: "available — 10 events retrieved"
+  calendar-status: "available — 8 events retrieved"
   obsidian-status: "disabled — written to local fallback"
-  calendar-events: 10
+  calendar-events: 8
   model: sonnet
 ---
