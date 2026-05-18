@@ -35,8 +35,8 @@
         "name": "plaud-ingest",
         "loops": [
           {
-            "task": "5 transcripts processed (4 complete, 2 renames pending approval)",
-            "resolved": false
+            "task": "All 5 transcripts fully processed and completed",
+            "resolved": true
           }
         ]
       },
@@ -44,8 +44,8 @@
         "name": "synexus-proposal",
         "loops": [
           {
-            "task": "proposal drafted, pricing TBD, pending send",
-            "resolved": false
+            "task": "Proposal sent — confirmed by David on 2026-05-15, visible in sent items",
+            "resolved": true
           }
         ]
       },
@@ -83,6 +83,50 @@
         ],
         "loops": [],
         "flag": true
+      }
+    ]
+  },
+  {
+    "id": "session-2026-05-18-073333",
+    "started": "2026-05-18T07:33:33-05:00",
+    "closed": "2026-05-18T18:35:00-05:00",
+    "current_topic": null,
+    "topics": [
+      {
+        "name": "morning-boot",
+        "loops": [
+          {
+            "task": "boot-sequence",
+            "resolved": true
+          }
+        ]
+      },
+      {
+        "name": "skimmer-lunch-prep",
+        "loops": [
+          {
+            "task": "Prep sheet built, PDF pushed to reMarkable",
+            "resolved": true
+          }
+        ]
+      },
+      {
+        "name": "sst-innovation-lab-call-prep",
+        "loops": [
+          {
+            "task": "Call prep sheet built, PDF built — reMarkable push failed (400), needs manual push via desktop app",
+            "resolved": false
+          }
+        ]
+      },
+      {
+        "name": "driven-to-develop-ga4-review",
+        "loops": [
+          {
+            "task": "14-day GA4 review completed, recommendations surfaced",
+            "resolved": true
+          }
+        ]
       }
     ]
   }
