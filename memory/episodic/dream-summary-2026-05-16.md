@@ -1,7 +1,12 @@
 ---
-type: working
+type: working-archive
 expires: 2026-05-17
 status: archived
+salience:
+  score: 0
+  last-promoted-check: 2026-05-19
+  references: []
+  promoted: false
 ---
 
 # Dream Cycle Summary — 2026-05-16

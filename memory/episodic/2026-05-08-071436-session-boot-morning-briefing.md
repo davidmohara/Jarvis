@@ -1,5 +1,5 @@
 ---
-type: working
+type: working-archive
 task_id: "session"
 session_id: "chief-2026-05-08-071436"
 agent-source: chief
@@ -7,6 +7,11 @@ created: 2026-05-08T07:14:36
 expires: 2026-05-10T07:14:36
 status: archived
 context: "Morning boot + briefing — 2026-05-08"
+salience:
+  score: 0
+  last-promoted-check: 2026-05-19
+  references: []
+  promoted: false
 ---
 
 ## Data Sources

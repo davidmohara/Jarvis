@@ -1,25 +1,22 @@
 workflow: morning-briefing
 agent: chief
 status: complete
-session-started: "2026-05-13T06:00:00-05:00"
-session-id: chief-2026-05-13-060000
+session-started: "2026-05-18T06:05:00-05:00"
+session-id: chief-2026-05-18-061344
 current-step: step-04
 original-request: "Automated scheduled morning briefing"
 accumulated-context:
-  calendar-date: "2026-05-13"
+  calendar-date: "2026-05-18"
   timezone: "CDT"
-  location: "WFH — Frisco"
-  travel-flag: "YPO 49er retreat Thu-Sat at McNarosa Ranch, Malakoff TX. Leaves tomorrow."
-  deep-work: "9:00 AM–11:30 AM CDT — protected block"
-  thl-call: "12:00 PM CDT — Bob Freeburg, Y Solana (THL) — Teams — no person file"
-  john-martillo: "1:00 PM CDT — call 972.295.9166 — no person file"
-  alex-wilcox: "2:00 PM CDT — no person file"
-  exeter-claude: "3:30 PM CDT — Blake McMillan + Michele Rodgers (Exeter Finance) — tentative, David optional"
-  simpson-workshop-prep: "4:00 PM CDT — Belcher + Dunigan — May 26 workshop coming up"
-  omnifocus-status: "unavailable — 2 timeouts"
-  actionable-email: "Meridian AI follow-up requesting UTB intro — same-day decision"
-  jarvis-inbox: "1 item — Project Profitability (Apr 26, has attachment, unprocessed)"
-  leads-unassigned: "Integrated Financial Settlements (Feb 4), Cardinal IT/Kashif (Feb 13), Alcon — unassigned post-call"
-  in-flight-workflows: "comp-tracker stuck in-progress since Apr 23 at step 5"
+  location: "Travel day — DFW to Austin (Skimmer HQ)"
+  travel-flag: "Round trip DFW↔AUS. AA 1294 departs 8:30 AM, returns AA 2198 2:46 PM. Confirmation MRSCUX."
+  anchor-meeting: "Lunch with Jack @ Skimmer HQ, 728 Northwestern Ave Bldg B, Austin — 12:30 PM"
+  innovation-lab-call: "11:00 AM CDT — Diana Stevens + Strong Tie (McKnight, Speggen, Hitti) + Dunigan — May 26 workshop"
+  omnifocus-status: "unavailable — 3 timeouts"
+  actionable-email: "UTB Board Book available for May 20th meeting — unread, needs review today or tomorrow"
+  steve-hall-email: "IES pilot feedback on Marcus + YPO Western Region Gold Happy Hour at CRAFT Wednesday"
+  in-flight-workflows: "comp-tracker stuck in-progress since Apr 23 at step 5 — 11 unmatched accounts blocking Rock 1"
+  tomorrow-flag: "DRC Tomorrow Fund Breakfast 7:30 AM + Howard Dierking lunch + Tim Rayburn call + Simpson SST Labs + Cresset Capital drinks"
+  drc-workshop: "May 21 Executive AI Workshop — is talk ready?"
   briefing-delivered: "true"
-  slack-ts: "1778670702.767439"
+  slack-ts: "1779102824.767929"

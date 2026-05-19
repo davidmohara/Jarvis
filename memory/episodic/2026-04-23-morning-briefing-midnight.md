@@ -19,7 +19,7 @@ related_people:
 - sam-dobbins
 salience:
   score: 10
-  last-promoted-check: '2026-05-17'
+  last-promoted-check: 2026-05-19
   promoted: true
 source_session: chief-2026-04-23-000000
 ---

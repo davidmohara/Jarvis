@@ -1,38 +1,45 @@
 workflow: dream-cycle
 agent: jarvis
 status: complete
-session-started: 2026-05-17T03:09:20-05:00
-session-id: dream-cycle-2026-05-17-030920
+session-started: 2026-05-19T03:08:49-05:00
+session-id: dream-cycle-2026-05-19-030849
 current-step: null
 original-request: Scheduled dream cycle run
 accumulated-context:
-  git_pull_failed: true
-  git_pull_error: "cannot pull with rebase: You have unstaged changes (21st consecutive run)"
   working_archived: 1
   working_deleted: 0
-  working_skipped: 38
-  working_skipped_breakdown: "37 already-archived (orphaned from prior runs, preservation rule), 1 not yet expired (dream-summary-2026-05-16 expires today)"
-  working_archive_note: "Source file in memory/working/ left in place (filesystem deletion blocked); marked status: archived to prevent re-processing. Copy successfully written to memory/episodic/."
-  episodic_scanned: 47
-  score_updates: 0
-  score_distribution: "0:12, 1:3, 7:1, 10:31 — score inflation persists (21st consecutive run)"
-  no_tags: 7
-  no_date: 3
-  parse_errors: 0
+  working_skipped: 47
+  working_archive_note: "dream-summary-2026-05-17.md marked status: archived (source deletion blocked - 23rd consecutive run); copy written to memory/episodic/2026-05-17-dream-cycle-summary.md. No other active files expired."
+  episodic_scanned: 56
+  score_updates: 56
+  no_tags: 14
+  no_date: 5
+  score_distribution: "0:20, 1:3, 7:1, 10:32 — score inflation persists (23rd consecutive run); score-10 ceiling holds 32 entries (up 1 vs May 18)"
   clusters_found: 0
   semantic_created: 0
   semantic_updated: 0
   promoted_entries: 0
-  error_categories_30d: "process-skip:5, assumption-error:3, data-accuracy:2, tool-misuse:1, process-failure:1, missed-context:1 (both qualifying categories already in LESSONS.md)"
+  promotion_note: "Zero candidates — every score>=3 entry already has promoted:true from prior cycles. Score-inflation algorithm issue (deferred 10+ runs) still unresolved."
+  error_categories_30d: "process-skip:9, data-accuracy:8, routing-error:4, assumption-error:3, missed-context:3 — all 5 qualify; all already represented in LESSONS.md"
   lessons_appended: 0
   entries_compressed: 0
   digests_updated: 0
   compression_skipped: true
-  compression_skip_reason: "All 47 episodic entries < 90 days old (oldest is 2026-04-18, 29 days)"
+  compression_skip_reason: "All 56 episodic entries < 90 days old (oldest is 2026-04-18, 31 days)"
   dream_log_appended: true
   working_summary_written: true
-  errors: 1
+  errors: 2
   errors_detail:
+    - phase: 1
+      file: memory/working/dream-summary-2026-05-17.md
+      error: "Cannot delete archived working memory source file (Operation not permitted). Source marked status: archived; copy written to memory/episodic/. 23rd consecutive run with filesystem deletion block."
     - phase: 0
       file: .git/index.lock
-      error: "Git pull --rebase failed: 'cannot pull with rebase: You have unstaged changes.' 21st consecutive run without sync. Stale .git/index.lock from 2026-05-16 cannot be removed (filesystem permission denied)."
+      error: "Stale zero-byte .git/index.lock present at boot and irremovable (Operation not permitted). git pull --rebase blocked at boot; end-of-run commit will fail. 23rd consecutive run with sandbox-level git interference."
+  git_pull_at_boot: failed
+  git_commit_at_end: success
+  git_commit_sha: 4c3768f
+  git_commit_files: 78
+  git_commit_note: "Controller manually cleared .git/index.lock after initial commit attempt. Retry succeeded: 78 files, 889 insertions, 144 deletions. 23-run sandbox-commit-block streak finally broken."
+  git_push: failed
+  git_push_reason: "https remote requires interactive credentials; sandbox has none. Manual push from privileged context required."

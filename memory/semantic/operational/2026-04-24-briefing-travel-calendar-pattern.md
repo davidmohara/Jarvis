@@ -4,7 +4,7 @@ domain: operational
 tags: [briefing, calendar, omnifocus, google-next, travel, overdue-tasks, leads]
 confidence: high
 created: 2026-04-24
-last-updated: 2026-05-13
+last-updated: 2026-05-18
 synthesized-from:
   - memory/episodic/2026-04-20-morning-briefing.md
   - memory/episodic/2026-04-21-morning-briefing.md
@@ -27,6 +27,7 @@ synthesized-from:
   - memory/episodic/2026-05-05-morning-briefing.md
   - memory/episodic/2026-05-07-morning-briefing-cabo.md
   - memory/episodic/2026-05-11-000000-session-boot-morning-briefing.md
+  - memory/episodic/2026-05-15-094050-session-boot-morning-briefing.md
 ---
 
 # Pattern: Morning Briefings Consistently Flag Travel-Calendar Conflicts
@@ -227,3 +228,21 @@ Morning briefings across the entire Google Next week (Apr 20-23) repeatedly surf
 
 28. **The May 11 automated briefing surfaced a frontmatter schema gap.** The archived file has no `tags` field — the field was either dropped by the automated boot path or was never populated. This is a regression from the manual boot files (which all include 5–10 tags) and means automated briefings are invisible to the salience algorithm. Fix path: update the automated briefing template to populate `tags` from the calendar/OmniFocus/email triage outputs.
 29. **Cluster growth has slowed to one new source per week.** This pattern incorporated 20 sources from April 20 through May 12. From May 7 to May 13 (six days), zero new tagged sources entered the pool. The combination of the travel gap (May 6-11) and the schema gap (May 11) means the pattern has effectively stopped accumulating evidence. The next signal will require either a manual boot or a schema fix.
+
+## Evidence (continued — 2026-05-18)
+
+### May 15 Morning Briefing — Friday Post-49er, Manual Boot
+- Manual boot at 9:40 AM CDT. All data sources returned: Outlook calendar (7-day window), OmniFocus (36 active tasks), Clay (0 reminders). Dream log clean (last run May 13).
+- YPO 49er Send Off mandatory at McNarosa Ranch, then drive home, then stacked afternoon: UTB External Audit (high importance, BDO auditors), 1:1 Tim Rayburn, Friday Wrap-Up with Alice, golf tee time conflicting with drive block.
+- 9 overdue OmniFocus items spanning 1-30+ days (QR code, account plans, strategic items, coherence breathing, prayer list, inbox clear from Apr 16, PGA tickets from May 5).
+- 5 items due today (slides to Mike Rosar, Forbes Q&A, account plans for Autodesk/McKesson, Constellation strategic item).
+- DRC Executive AI Workshop May 21 flagged 6 days out. PGA Tour tickets (Chase Early On Sale May 5) likely expired — needs check.
+- Austin trip May 18 next major travel — flight AA 1294 8:30 AM, day trip with Skimmer HQ lunch.
+- Tags populated (boot, briefing, calendar, omnifocus) — manual boot template intact.
+
+## Implications (continued — 2026-05-18)
+
+30. **Manual-boot template populates tags correctly; automated-boot path remains broken.** The May 15 manual briefing has tags and scored 10 (promoted today). The May 11, 12, 13, 14 briefings archived earlier this week all lack tags and scored 0. The schema gap flagged in Implication #28 has now been validated as a clean split: manual sessions tag, automated sessions don't. Fix needs to land on the automated boot template specifically.
+31. **The pattern is becoming a single-source feed.** Of the 7 working-memory files archived this run, only 1 had tags. The "cluster" is now effectively just the most recent manual boot each week. This degrades the semantic signal — the pattern aggregates breadth of evidence, and a 1-of-7 inclusion rate means we're losing 86% of the runtime signal.
+32. **Austin day trip May 18 fits the predicted pattern.** Single-day fly-out-fly-back (DFW→AUS 8:30 AM, return 2:46 PM) with multiple Teams calls booked during the travel window. This is the fourth flagged travel-calendar collision in the May 15 briefing. The post-49er recovery + same-week travel pattern matches Implication #19 (post-travel recovery days are as risky as travel days).
+33. **Hard external deadlines on the May 15 briefing are concentrated on a single day with no triage path.** 5 items due May 15 (slides, Forbes Q&A, 2 account plans, 1 strategic item) plus 9 overdue items plus 5 sharp-edge meetings. No mechanism to escalate, defer, or delegate from inside the briefing.

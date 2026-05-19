@@ -454,3 +454,60 @@ errors_detail:
     file: .git/index.lock
     error: "Git pull --rebase failed: 'cannot pull with rebase: You have unstaged changes.' 21st consecutive run without sync. Stale .git/index.lock from prior run cannot be removed (filesystem permission denied)."
 ---
+
+---
+## 2026-05-18T03:08:47 CDT
+session_id: dream-cycle-2026-05-18-030847
+working_archived: 7
+working_deleted: 0
+episodic_scanned: 54
+score_updates: 36
+clusters_found: 1
+semantic_created: 0
+semantic_updated: 1
+promoted_entries: 1
+entries_compressed: 0
+digests_updated: 0
+compression_skipped: true
+errors: 1
+summary: "Archived 7 expired working memory entries to episodic (May 8 + May 12-15 briefings, May 15 wrap, May 16 dream summary). 54 episodic entries scored — only 1 hit promotion threshold (May 15 manual boot, score 10, tags boot/briefing/calendar/omnifocus). Merged into existing briefing-travel-calendar-pattern (now 22 evidence sources, 33 implications, high confidence — added Implications 30-33 on manual-vs-automated tag split, single-source-feed degradation, Austin May 18 trip prediction, deadline concentration). Distribution 0:18, 1:3, 7:1, 10:32 — score inflation persists (22nd consecutive run). Of 7 archived working files, only 2 had tags populated — the automated-boot tag-schema gap (flagged in Implication #28 May 13) remains unfixed. Error log scan: process-skip/protocol-skip:6, data-accuracy/stale-cache:5, assumption-error/wrong-assumption:3 all hit threshold but all 3 categories already in LESSONS.md as 2026-04-18 entries. No new lessons appended. Compression skipped (oldest entry 30 days, cutoff 90). Source file deletion still blocked (22nd consecutive run); files marked status: archived to prevent re-processing. Git pull succeeded today (working tree clean for first time in 21 runs)."
+errors_detail:
+  - phase: 1
+    file: memory/working/*.md
+    error: "Cannot delete archived working memory source files (Operation not permitted). 7 source files marked status: archived to prevent re-processing; copies successfully written to memory/episodic/. 22nd consecutive run with filesystem deletion block."
+  - phase: 5
+    file: .git/index.lock
+    error: "Initial git pull --rebase succeeded at boot (working tree was clean), but at commit time a new .git/index.lock appeared and cannot be removed (Operation not permitted). git add -A fails. Commit and push deferred — work remains locally written but not committed. Pull-sync streak ended at 21 runs; commit-sync streak now stands at the 22nd-consecutive run with sandbox interference."
+---
+
+---
+## 2026-05-19T03:13:57 CDT
+session_id: dream-cycle-2026-05-19-030849
+working_archived: 1
+working_deleted: 0
+episodic_scanned: 56
+score_updates: 56
+clusters_found: 0
+semantic_created: 0
+semantic_updated: 0
+promoted_entries: 0
+entries_compressed: 0
+digests_updated: 0
+errors: 2
+summary: "Quiet run, same chronic blockers. Archived 1 expired working entry (dream-summary-2026-05-17) to episodic. 56 episodic entries scored — distribution 0:20, 1:3, 7:1, 10:32. Score inflation persists for the 23rd consecutive run; the score-10 ceiling now holds 32 entries (up from 31 yesterday with one more briefing entered the window). Zero promotion candidates again because every score>=3 entry already has promoted:true from prior cycles — the deferred score-inflation algorithm fix remains the single largest blocker on memory utility (10+ consecutive runs deferred). Error log scan over the last 30 days: process-skip 9, data-accuracy 8, routing-error 4, assumption-error 3, missed-context 3 — all five clear the threshold and all five are already represented in LESSONS.md (2026-04-18 and 2026-04-26 entries). No new lessons appended. Compression skipped: oldest episodic entry is 31 days old, cutoff is 90. Two persistent sandbox-level blocks unchanged from prior 22 runs: (1) source working-memory files cannot be deleted after archival (Operation not permitted), so 47 status:archived files continue to sit in memory/working/; (2) .git/index.lock is present and irremovable, blocking the boot-time pull and the end-of-run commit. Local work is written but unsynced."
+errors_detail:
+  - phase: 1
+    file: memory/working/dream-summary-2026-05-17.md
+    error: "Cannot delete archived working memory source file (Operation not permitted). Source marked status: archived; copy written to memory/episodic/2026-05-17-dream-cycle-summary.md. 23rd consecutive run with filesystem deletion block."
+  - phase: 0
+    file: .git/index.lock
+    error: "Stale zero-byte .git/index.lock present at boot and irremovable (Operation not permitted). git pull --rebase and git commit both blocked. Local memory work written but not synced. 23rd consecutive run with sandbox-level git interference; pull-sync streak from May 18 did not extend (lock recurred between then and now)."
+
+---
+## 2026-05-19T03:16:00 CDT — post-commit update
+session_id: dream-cycle-2026-05-19-030849
+note: "Controller manually cleared .git/index.lock after initial step-05 commit attempt. Retry succeeded: 78 files committed as 4c3768f (889 insertions, 144 deletions). git push origin main failed with 'could not read Username for https://github.com' — sandbox has no GitHub credentials. Local-only commit; manual push from privileged context required."
+git_commit_at_end: success
+git_commit_sha: 4c3768f
+git_push: failed
+git_push_reason: "https remote requires interactive credentials; sandbox has none. Manual push required from David's machine."

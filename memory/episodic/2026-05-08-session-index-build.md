@@ -12,7 +12,8 @@ related_people:
 - david-ohara
 salience:
   score: 0
-  last-promoted-check: '2026-05-17'
+  last-promoted-check: 2026-05-19
+  promoted: false
 ---
 
 # Session Index Build — May 7-8, 2026
