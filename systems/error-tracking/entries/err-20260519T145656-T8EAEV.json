@@ -1,0 +1,15 @@
+{
+  "id": "err-20260519T145656-T8EAEV",
+  "timestamp": "2026-05-19T14:56:56Z",
+  "session": "2026-05-19",
+  "source": "explicit",
+  "agent": "harper",
+  "category": "process-skip",
+  "description": "Content pipeline step-01-discover completed Ghost post creation but: (1) tags were passed as bare ID strings causing Ghost to create new junk tags instead of linking existing ones — same error as prior run, not fixed; (2) claimed success without pulling the post back to verify content rendered, tags linked, and metadata set; (3) post body (lexical), feature_image, and twitter_image were all empty/null in the actual Ghost record but were not caught before notifying David.",
+  "correction": "If the Ghost MCP only accepts bare tag strings (not objects), skip tags entirely rather than creating junk tags. After creating the post, always pull it back with get_post and verify: lexical is non-empty, tags have real names (not ID strings), feature_image is set. Only claim success and notify David after verification passes. Failures must be surfaced accurately — not buried in a warnings list that implies the post is otherwise ready.",
+  "failure_mode": "protocol-skip",
+  "systemic_fix": "Update step-01-discover.md: (1) add explicit rule — if MCP rejects tag objects, omit tags entirely; (2) add mandatory post-creation verification step using get_post before Slack notification; (3) treat empty lexical or null feature_image as hard failures that block the notification or at minimum require accurate failure messaging to David.",
+  "fix_status": "proposed",
+  "severity": "moderate",
+  "related_entries": []
+}

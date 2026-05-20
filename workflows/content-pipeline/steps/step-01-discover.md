@@ -70,23 +70,26 @@ For each new URL:
 
 ### 4. Draft the post
 
-Write a blog post in David's voice using the structure and rules from workflow.md:
+**Before writing a single word: read `identity/CONTENT-VOICE.md` in full.** This is the blog-specific voice guide built from David's actual published posts. It is the source of truth for public content. Do not use `identity/VOICE.md` — that file governs Jarvis's internal communication style and is not appropriate for blog writing. Do not rely on memory or a summary of the rules. Read the file. This is mandatory on every run.
 
-- **Hook:** 1-2 sentences. Something that makes the reader stop. Not "I read an article today."
-- **Story/Observation:** David's personal angle on what he read. What did it surface for him? A memory, a pattern he's seen, something it confirmed or challenged.
-- **Insight:** The distilled truth. What's the one thing the reader should carry away?
-- **Challenge/Takeaway:** A direct ask or provocation. What should the reader do, think, or notice?
+After reading CONTENT-VOICE.md, write a blog post in David's voice following the arc defined there:
 
-**Length:** 300-500 words. No headers. Prose only. No bullet points in the post body.
+- **Hook:** 1-2 sentences. A scene, a question, a contradiction. Something that earns the next sentence. Not "I read an article today." Not a rhetorical question that telegraphs the answer.
+- **Story/Observation:** David's personal angle. What did this surface for him? A pattern from his consulting work, a real situation he has been in, something it confirmed or challenged. Be specific — real details, real friction.
+- **Insight:** The distilled truth. One clean line of reasoning that arrives somewhere. Not a list of takeaways.
+- **Challenge/Takeaway:** A direct question or provocation in the final paragraph. This is non-negotiable. It must appear in every post. It asks something of the reader.
 
-**Voice reminders from identity/VOICE.md:**
-- No em-dashes
-- Parenthetical asides are natural: "(and I've seen this kill teams)"
-- Write like a human exec, not a system
-- First person throughout
-- Exclamation marks when energized — but earned, not reflexive
+**Length:** 300-500 words. No headers in posts under 500 words. Prose only. No bullet points in the body.
 
-**Do not:** Summarize the article. Do not write "According to [source]..." David's reaction and insight is the post.
+> ❌ **NO EM-DASHES. EVER.** Not `—`, not `–`, not `--`. Use commas, periods, or parentheses. No exceptions.
+
+**Do not:** Summarize the article. Do not write "According to [source]..." David's reaction and angle is the post — the source is the spark, not the content.
+
+Also draft at this stage:
+- **meta_title:** Post title (same as title, or slight SEO variation — max 70 chars)
+- **meta_description:** 1-2 sentence summary of the post's core insight — max 155 chars
+- **twitter_title:** Same as meta_title
+- **twitter_description:** Same as meta_description
 
 ### 5. Select tags
 
@@ -131,25 +134,32 @@ Use the returned Ghost CDN URL for both `feature_image` and `twitter_image`.
 
 ### 7. Create Ghost draft
 
-> **KNOWN BEHAVIOR:** The Ghost MCP's `create_post` tool accepts `html` as a parameter, but content passed via `html` may not render — the Ghost API uses Lexical as its internal format and the MCP may silently drop the HTML. Pass content via the `html` parameter AND verify the returned `lexical` field is non-empty. If the lexical field is empty or contains only an empty paragraph node, the content did not transfer and must be entered manually in the Ghost editor.
+> **CONFIRMED MCP LIMITATIONS (verified 2026-05-19):** The Ghost MCP silently drops `html`, `feature_image`, and `twitter_image` on both `create_post` and `update_post`. Tags passed as bare ID strings create junk tags. **Do not rely on the MCP for content or metadata.** Use a two-step approach: create the shell via MCP, then populate everything via the Ghost Admin API directly.
 
+**Step 7a — Create shell via MCP:**
 ```
 mcp__ghost-blog__create_post(
   title="{Post Title}",
-  html="{post body as HTML — wrap paragraphs in <p> tags}",
   status="draft",
-  authors=["68a3465b9e3561027e745c51"],
-  tags=[{"id": "{tag_id_1}"}, {"id": "{tag_id_2}"}],
-  feature_image="{ghost_cdn_url}",
-  twitter_image="{ghost_cdn_url}"
+  authors=["68a3465b9e3561027e745c51"]
 )
 ```
+Capture the returned `id`.
 
-**After creation, verify:**
-- `tags` in the response — each tag should have the correct `name` (e.g., "AI", "business"), not an ID string. If tags show IDs as names, Ghost created new tags instead of linking existing ones.
-- `lexical` field — should NOT be `{"root":{"children":[{"children":[],...}],...}}` (empty). If it is, the HTML body did not render.
+**Step 7b — Populate content, image, and tags via Ghost Admin API:**
 
-If either check fails, note it explicitly in the Slack notification so David knows to fix before approving.
+Use `mcp__Control_your_Mac__osascript` to run a Python script that:
+1. Generates a Ghost JWT from the Admin API key (found in `~/Library/Application Support/Claude/claude_desktop_config.json`, server `ghost-blog`, env `GHOST_ADMIN_API_KEY` — format `{key_id}:{hex_secret}`)
+2. GETs the post to retrieve `updated_at` (required for optimistic locking)
+3. PUTs the full update with `lexical` (build as Lexical JSON — array of paragraph nodes), `feature_image`, `twitter_image`, and `tags` as `[{"id": "{tag_id}"}]` objects
+
+**Step 7c — Verify via `mcp__ghost-blog__get_post`:**
+- `lexical` has correct paragraph count (non-empty)
+- `feature_image` is set
+- `tags` show real names (trust, leadership, etc.) not ID strings
+- `excerpt` is populated (Ghost auto-generates from content)
+
+**Do not send the Slack notification until all three checks pass.** If any check fails, report the specific failure accurately — do not claim partial success.
 
 Capture the returned `id` — this is the Ghost post ID needed for approval.
 

@@ -1,0 +1,12 @@
+{
+  "id": "err-20260519T153441-F36LYO",
+  "timestamp": "2026-05-19T15:34:41Z",
+  "source": "explicit",
+  "category": "stale-context",
+  "failure_mode": "surfaced-resolved-item",
+  "severity": "low",
+  "agent": "master",
+  "description": "Flagged PGA Tour tickets as overdue for the third time. David confirmed purchase twice in prior sessions. Should have been marked complete or removed from active task list.",
+  "correction": "PGA Tour tickets are purchased. Do not surface again.",
+  "proposed_fix": "After David confirms a task is done, immediately complete it in OmniFocus rather than leaving it open and re-surfacing it next boot."
+}

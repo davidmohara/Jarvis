@@ -1,0 +1,12 @@
+{
+  "id": "err-20260519T153444-N91IRX",
+  "timestamp": "2026-05-19T15:34:44Z",
+  "source": "explicit",
+  "category": "stale-context",
+  "failure_mode": "surfaced-resolved-item",
+  "severity": "low",
+  "agent": "master",
+  "description": "Flagged dream cycle as stale (31 days). David clarified it is running on another machine and is being handled — not an IES concern.",
+  "correction": "Dream cycle runs on a separate machine. Do not flag its absence in briefings.",
+  "proposed_fix": "Remove dream cycle staleness check from boot briefing flags, or suppress when David has indicated it runs externally."
+}

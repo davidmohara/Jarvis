@@ -44,7 +44,7 @@
         "name": "synexus-proposal",
         "loops": [
           {
-            "task": "Proposal sent — confirmed by David on 2026-05-15, visible in sent items",
+            "task": "Proposal sent \u2014 confirmed by David on 2026-05-15, visible in sent items",
             "resolved": true
           }
         ]
@@ -114,7 +114,7 @@
         "name": "sst-innovation-lab-call-prep",
         "loops": [
           {
-            "task": "Call prep sheet built, PDF built — reMarkable push failed (400), needs manual push via desktop app",
+            "task": "Call prep sheet built, PDF built \u2014 reMarkable push failed (400), needs manual push via desktop app",
             "resolved": false
           }
         ]
@@ -125,6 +125,40 @@
           {
             "task": "14-day GA4 review completed, recommendations surfaced",
             "resolved": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "session-2026-05-19-095416",
+    "started": "2026-05-19T09:54:16-05:00",
+    "closed": "2026-05-19T23:59:00-05:00",
+    "current_topic": null,
+    "topics": [
+      {
+        "name": "morning-boot",
+        "loops": [
+          {
+            "task": "boot-sequence",
+            "resolved": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "session-2026-05-20-082026",
+    "started": "2026-05-20T08:20:26-05:00",
+    "closed": null,
+    "current_topic": "morning-boot",
+    "topics": [
+      {
+        "name": "morning-boot",
+        "loops": [
+          {
+            "task": "boot-sequence",
+            "resolved": false
           }
         ]
       }

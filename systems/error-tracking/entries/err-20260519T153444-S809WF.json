@@ -1,0 +1,12 @@
+{
+  "id": "err-20260519T153444-S809WF",
+  "timestamp": "2026-05-19T15:34:44Z",
+  "source": "explicit",
+  "category": "stale-context",
+  "failure_mode": "surfaced-resolved-item",
+  "severity": "low",
+  "agent": "master",
+  "description": "Flagged TopGolf SOW tracking task as overdue. David confirmed it is signed and staffing is underway — task is effectively closed.",
+  "correction": "TopGolf Executive AI Workshop SOW is signed and being staffed. Task is done.",
+  "proposed_fix": "When David confirms a delegation or tracking task is resolved, complete it in OmniFocus immediately in the same response."
+}
