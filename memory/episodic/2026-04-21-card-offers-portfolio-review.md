@@ -14,11 +14,10 @@ tags:
 related_people: []
 salience:
   score: 0
-  last-promoted-check: 2026-05-19
+  references: []
+  last-promoted-check: 2026-05-20
   promoted: false
-source_session: chase-2026-04-21-portfolio-walk
 ---
-
 # Card Offers Portfolio Review — April 21, 2026
 
 ## Summary

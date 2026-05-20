@@ -7,10 +7,10 @@ episode: 1
 status: reviewed
 salience:
   score: 0
-  last-promoted-check: 2026-05-19
+  references: []
+  last-promoted-check: 2026-05-20
   promoted: false
 ---
-
 # Podcast Hosting Review — The Improving Edge, Episode 1
 
 **Episode:** "Agentic AI: From Demo to Durable Advantage"

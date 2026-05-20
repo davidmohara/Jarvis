@@ -1,22 +1,26 @@
 workflow: morning-briefing
 agent: chief
 status: complete
-session-started: "2026-05-18T06:05:00-05:00"
-session-id: chief-2026-05-18-061344
+session-started: "2026-05-20T06:05:00-05:00"
+session-id: chief-2026-05-20-060500
 current-step: step-04
 original-request: "Automated scheduled morning briefing"
 accumulated-context:
-  calendar-date: "2026-05-18"
+  calendar-date: "2026-05-20"
   timezone: "CDT"
-  location: "Travel day — DFW to Austin (Skimmer HQ)"
-  travel-flag: "Round trip DFW↔AUS. AA 1294 departs 8:30 AM, returns AA 2198 2:46 PM. Confirmation MRSCUX."
-  anchor-meeting: "Lunch with Jack @ Skimmer HQ, 728 Northwestern Ave Bldg B, Austin — 12:30 PM"
-  innovation-lab-call: "11:00 AM CDT — Diana Stevens + Strong Tie (McKnight, Speggen, Hitti) + Dunigan — May 26 workshop"
+  anchor-meeting: "UTB Board of Directors 1:30-4:30 PM CDT"
+  utb-board-book: "OCC Conversion Binder updated last night via Boardvantage — must read before 1:30 PM"
+  drc-workshop: "TOMORROW May 21 — talk The Enterprise Shift — deck readiness unknown"
+  declan-graduation: "TOMORROW May 21 @ Ford Center 4:00 PM CDT — non-negotiable"
+  calendar-conflict: "1:30 PM — UTB Board vs HOU Microsoft AI Tour touchpoint"
   omnifocus-status: "unavailable — 3 timeouts"
-  actionable-email: "UTB Board Book available for May 20th meeting — unread, needs review today or tomorrow"
-  steve-hall-email: "IES pilot feedback on Marcus + YPO Western Region Gold Happy Hour at CRAFT Wednesday"
-  in-flight-workflows: "comp-tracker stuck in-progress since Apr 23 at step 5 — 11 unmatched accounts blocking Rock 1"
-  tomorrow-flag: "DRC Tomorrow Fund Breakfast 7:30 AM + Howard Dierking lunch + Tim Rayburn call + Simpson SST Labs + Cresset Capital drinks"
-  drc-workshop: "May 21 Executive AI Workshop — is talk ready?"
+  unassigned-leads: "THL (May 13), JSX (May 12), Birgo (Apr 6), Paragon (Feb 17)"
+  thl-lead: "Alice confirmed June 7 meeting w/ John Foley (Cognition) — needs AM assigned"
+  comp-tracker-flag: "stuck in-progress at Step 5 since Apr 23 — 27 days stalled"
+  git-lock-flag: "index.lock blocking commit — manual clear required"
+  jarvis-inbox: "Project Profitability email Apr 26 — 24 days stale, has attachment"
+  plaud-staging: "not checked (no osascript in Cowork VM)"
+  clay-reminders: "0"
   briefing-delivered: "true"
-  slack-ts: "1779102824.767929"
+  slack-ts: "1779275661.599299"
+  slack-channel: "C0AN2PQNXBR"

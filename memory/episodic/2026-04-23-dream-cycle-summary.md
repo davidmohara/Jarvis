@@ -8,11 +8,10 @@ tags:
 related_people: []
 salience:
   score: 10
-  last-promoted-check: 2026-05-19
+  references: []
+  last-promoted-check: 2026-05-20
   promoted: true
-source_session: dream-cycle-2026-04-23-030832
 ---
-
 # Dream Cycle Summary — 2026-04-23
 
 5 working memory files archived (all Apr 20 sessions). 6 episodic entries scored (4 at score 1). No promotions, no compressions. Git index.lock still blocking sync.

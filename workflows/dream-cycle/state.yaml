@@ -1,45 +1,47 @@
 workflow: dream-cycle
 agent: jarvis
 status: complete
-session-started: 2026-05-19T03:08:49-05:00
-session-id: dream-cycle-2026-05-19-030849
+session-started: 2026-05-20T03:09:08-05:00
+session-id: dream-cycle-2026-05-20-030908
 current-step: null
 original-request: Scheduled dream cycle run
 accumulated-context:
   working_archived: 1
   working_deleted: 0
-  working_skipped: 47
-  working_archive_note: "dream-summary-2026-05-17.md marked status: archived (source deletion blocked - 23rd consecutive run); copy written to memory/episodic/2026-05-17-dream-cycle-summary.md. No other active files expired."
+  working_skipped: 51
+  skipped_unparseable:
+    - memory/working/2026-05-18-073333-session-boot-morning-briefing.md
+  working_archive_note: "dream-summary-2026-05-18.md marked status: archived (source deletion blocked - 24th consecutive run); copy written to memory/episodic/2026-05-18-dream-cycle-summary.md. One zero-byte file (2026-05-18-073333-session-boot-morning-briefing.md) had no frontmatter and was skipped as unparseable."
   episodic_scanned: 56
   score_updates: 56
   no_tags: 14
-  no_date: 5
-  score_distribution: "0:20, 1:3, 7:1, 10:32 — score inflation persists (23rd consecutive run); score-10 ceiling holds 32 entries (up 1 vs May 18)"
+  no_date: 4
+  score_distribution: "0:20, 1:3, 7:1, 10:32 — score inflation persists (24th consecutive run); score-10 ceiling holds 32 entries (unchanged vs May 19)"
   clusters_found: 0
   semantic_created: 0
   semantic_updated: 0
   promoted_entries: 0
-  promotion_note: "Zero candidates — every score>=3 entry already has promoted:true from prior cycles. Score-inflation algorithm issue (deferred 10+ runs) still unresolved."
-  error_categories_30d: "process-skip:9, data-accuracy:8, routing-error:4, assumption-error:3, missed-context:3 — all 5 qualify; all already represented in LESSONS.md"
+  promotion_note: "Zero candidates — every score>=3 entry already has promoted:true from prior cycles. Score-inflation algorithm issue (deferred 11+ runs) still unresolved."
+  error_categories_30d: "process-skip:9, data-accuracy:8, routing-error:4, missed-context:3, assumption-error:3 — three combos at 3+ threshold (process-skip/protocol-skip:6, data-accuracy/stale-cache:5, assumption-error/wrong-assumption:3); all already represented in LESSONS.md"
   lessons_appended: 0
   entries_compressed: 0
   digests_updated: 0
   compression_skipped: true
-  compression_skip_reason: "All 56 episodic entries < 90 days old (oldest is 2026-04-18, 31 days)"
+  compression_skip_reason: "All 56 episodic entries < 90 days old (oldest is 2026-04-18, 32 days)"
   dream_log_appended: true
   working_summary_written: true
   errors: 2
   errors_detail:
     - phase: 1
-      file: memory/working/dream-summary-2026-05-17.md
-      error: "Cannot delete archived working memory source file (Operation not permitted). Source marked status: archived; copy written to memory/episodic/. 23rd consecutive run with filesystem deletion block."
-    - phase: 0
-      file: .git/index.lock
-      error: "Stale zero-byte .git/index.lock present at boot and irremovable (Operation not permitted). git pull --rebase blocked at boot; end-of-run commit will fail. 23rd consecutive run with sandbox-level git interference."
-  git_pull_at_boot: failed
+      file: memory/working/dream-summary-2026-05-18.md
+      error: "Cannot delete archived working memory source file (Operation not permitted). Source marked status: archived; copy written to memory/episodic/. 24th consecutive run with filesystem deletion block."
+    - phase: 1
+      file: memory/working/2026-05-18-073333-session-boot-morning-briefing.md
+      error: "Zero-byte file with no frontmatter — skipped as unparseable. Likely produced by interrupted boot."
+  git_pull_at_boot: success
   git_commit_at_end: success
-  git_commit_sha: 4c3768f
-  git_commit_files: 78
-  git_commit_note: "Controller manually cleared .git/index.lock after initial commit attempt. Retry succeeded: 78 files, 889 insertions, 144 deletions. 23-run sandbox-commit-block streak finally broken."
+  git_commit_sha: 97cc7a3
+  git_commit_files: 70
+  git_commit_note: "Initial 'git add -A' created stale .git/index.lock that the sandbox could not unlink. After controller instruction, 'rm -f' on the lock succeeded on retry and the commit went through cleanly: 70 files, 601 insertions, 271 deletions."
   git_push: failed
-  git_push_reason: "https remote requires interactive credentials; sandbox has none. Manual push from privileged context required."
+  git_push_reason: "https remote requires interactive credentials; sandbox has none. Manual push required from David's machine: 'cd /sessions/quirky-happy-rubin/mnt/jarvis && git push origin main'."

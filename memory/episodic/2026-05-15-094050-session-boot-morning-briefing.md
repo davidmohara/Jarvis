@@ -10,11 +10,10 @@ context: "Morning boot + briefing — 2026-05-15"
 tags: [boot, briefing, calendar, omnifocus]
 salience:
   score: 10
-  last-promoted-check: 2026-05-19
   references: []
+  last-promoted-check: 2026-05-20
   promoted: true
 ---
-
 # Boot Briefing — Friday May 15, 2026
 
 ## Data Sources

@@ -9,11 +9,10 @@ status: archived
 context: "Morning boot + briefing — 2026-05-14"
 salience:
   score: 0
-  last-promoted-check: 2026-05-19
   references: []
+  last-promoted-check: 2026-05-20
   promoted: false
 ---
-
 ## Boot Data Sources
 
 - **Local time**: 9:26 AM CDT (Mac-reported, correct timezone)

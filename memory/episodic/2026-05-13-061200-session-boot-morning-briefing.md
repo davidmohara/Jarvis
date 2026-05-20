@@ -9,10 +9,10 @@ status: archived
 context: Morning boot + briefing — 2026-05-13 (automated scheduled task)
 salience:
   score: 0
-  last-promoted-check: 2026-05-19
+  references: []
+  last-promoted-check: 2026-05-20
   promoted: false
 ---
-
 # Morning Briefing Boot — May 13, 2026
 
 ## Data Sources Run

@@ -9,11 +9,10 @@ status: archived
 context: "Morning boot + briefing — 2026-05-08"
 salience:
   score: 0
-  last-promoted-check: 2026-05-19
   references: []
+  last-promoted-check: 2026-05-20
   promoted: false
 ---
-
 ## Data Sources
 
 - **Calendar (Outlook M365)**: Returned full. David is returning from YPO Gold Forum Cabo Retreat today (ends 11:31 AM SJD departure). Mac reporting MST (-0700) — consistent with Cabo location.

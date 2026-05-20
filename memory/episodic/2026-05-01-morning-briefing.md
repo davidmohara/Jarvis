@@ -18,10 +18,10 @@ related_people:
 - alice-mburu
 salience:
   score: 10
-  last-promoted-check: 2026-05-19
+  references: []
+  last-promoted-check: 2026-05-20
   promoted: true
 ---
-
 # Morning Briefing — May 1, 2026 (Friday)
 
 Automated scheduled briefing. Calendar pulled successfully; OmniFocus timed out 3x (recurring pattern). Clay: 0 reminders. Jarvis inbox: 1 unprocessed item ("Project Profitability" from 4/26, needs live session). Lead tracker: 6 unassigned leads (Alcon, AECom, IFS, Cardinal IT, Paragon Brokerage, Birgo).

@@ -4,10 +4,10 @@ expires: 2026-05-14
 status: archived
 salience:
   score: 0
-  last-promoted-check: 2026-05-19
+  references: []
+  last-promoted-check: 2026-05-20
   promoted: false
 ---
-
 # Dream Cycle Summary — 2026-05-13
 
 The overnight consolidation ran cleanly but produced minimal new signal. One working memory entry archived (May 11 automated briefing); the file lacked a `tags` field, scoring 0 in the salience pass. Forty-one episodic entries were rescored — distribution unchanged from yesterday at 31 of 41 scoring the maximum 10. Score inflation has now persisted across 17 consecutive runs.

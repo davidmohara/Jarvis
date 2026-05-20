@@ -17,10 +17,10 @@ related_people:
 - tonya-guadiz
 salience:
   score: 1
-  last-promoted-check: 2026-05-19
+  references: []
+  last-promoted-check: 2026-05-20
   promoted: false
 ---
-
 # Session Summary — April 20, 2026 (Afternoon/Evening)
 
 Major build session. 1:1 prep sheets for Scott McMichael (March actuals) and Don McGreal (Wendy transition, LiftNet, Convergence AI). Plaud auth token refreshed (expires Dec 2026), 2 recordings ingested. Four Chase PowerBI skills rewritten to use Chrome MCP with Obsidian cache-first pattern. One Texas Scorecard PPTX built (single slide, three columns). 2026 Goals file created in Obsidian with all five goal pillars. Key data: Dallas $3.1M (+3%), South Texas $2.8M (-16%), One Texas $5.9M (-7%). Co-sell at $1.1M of $15M — critical. Errors: missed Obsidian context, wrong logo/anchor numbers, Plaud skipped at boot (3rd time).

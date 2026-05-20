@@ -1,90 +1,88 @@
 {
-  "generated_at": "2026-05-13T00:00:00",
+  "generated_at": "2026-05-19T00:00:00",
   "target_weekend": {
-    "friday": "2026-05-22",
-    "saturday": "2026-05-23",
-    "sunday": "2026-05-24"
+    "friday": "2026-05-29",
+    "saturday": "2026-05-30",
+    "sunday": "2026-05-31"
   },
   "day_status": {
     "friday": {
       "status": "unavailable",
-      "reason": "Back-to-back meetings through 1:30 PM CT (Exec Meeting, Presidents Pipeline, Austin Summit, Athena check-in). Lunch meetup at True Food Kitchen 2:00-3:20 PM CT (out of house). Friday Weekly Wrap-Up 3:30 PM, IBP Journaling 4:30 PM. No continuous 3-hour window between 1:00-6:00 PM."
+      "reason": "Travel hard block — Microsoft AI Tour Houston (May 27-29). Hotel checkout, driving to HOU airport at 4:30 PM CT, flight IAH→DFW AA1929 departs 6:50 PM CT. Not in Frisco."
     },
     "saturday": {
       "status": "available",
-      "reason": "No conflicts. Clear all day."
+      "reason": "No conflicts. David returns home Friday night ~9:30 PM CT (flight lands DFW 8:20 PM, transit home by 9:30 PM). Susie's Mom trip ended Friday. Full afternoon window open."
     },
     "sunday": {
-      "status": "unavailable",
-      "reason": "Church hardblock until 2:30 PM. Declan graduation party 4:00-5:00 PM CT (family event). Only 1.5-hour window — insufficient for 18 holes."
+      "status": "available",
+      "reason": "Church volunteering hard block 8:30 AM-1:30 PM CT. No other events found. Golf viable 2:30 PM CT onward."
     }
   },
   "drought": false,
-  "last_round": {
-    "date": "2026-05-09",
-    "location": "Frisco Lakes Golf Club",
-    "days_ago": 4
-  },
+  "last_round_date": "2026-05-15",
+  "days_since_last_round": 14,
   "heat_streak": {
     "active": false,
-    "days_checked": ["2026-05-17", "2026-05-18", "2026-05-19", "2026-05-20", "2026-05-21"],
-    "daily_highs_f": [90.8, 89.1, 80.7, 80.8, 77.4],
-    "days_above_95": 0,
-    "note": "0 of 5 days hit 95°F — heat streak inactive. Default preferred start: 1:00 PM ($21/player)."
+    "note": "Weather API unavailable in this environment — defaulted heat_streak: false. Default preferred start: 1:00 PM ($21/player)."
   },
+  "weather_status": "unavailable",
+  "weather_note": "Both Open-Meteo and NWS APIs blocked in this environment. Scoring based on calendar analysis only.",
   "top_options": [
     {
       "rank": 1,
       "day": "saturday",
-      "date": "2026-05-23",
+      "date": "2026-05-30",
       "preferred_start": "13:00",
       "preferred_end": "17:30",
       "holes": 18,
       "cost_per_player": 21,
       "total_cost": 42,
       "weather": {
-        "rain_pct": 14,
-        "temp_f": 83,
-        "wind_mph": 11,
-        "condition": "clear"
+        "rain_pct": null,
+        "temp_f": null,
+        "wind_mph": null,
+        "condition": "unavailable"
       },
       "score": 0,
-      "rationale": "Saturday 1:00 PM — heat streak inactive so 1 PM is default preferred. Clear weather, no conflicts. Ideal."
+      "rationale": "Saturday 1 PM — heat streak inactive, 1 PM is default preferred, no calendar conflicts, full window available"
     },
     {
       "rank": 2,
-      "day": "saturday",
-      "date": "2026-05-23",
-      "preferred_start": "16:00",
+      "day": "sunday",
+      "date": "2026-05-31",
+      "preferred_start": "14:30",
       "preferred_end": "18:30",
+      "holes": 18,
+      "cost_per_player": 21,
+      "total_cost": 42,
+      "weather": {
+        "rain_pct": null,
+        "temp_f": null,
+        "wind_mph": null,
+        "condition": "unavailable"
+      },
+      "score": 5,
+      "rationale": "Sunday 2:30 PM — church buffer respected, 18 holes fits before dark, no other conflicts. Sunday +5 penalty."
+    },
+    {
+      "rank": 3,
+      "day": "saturday",
+      "date": "2026-05-30",
+      "preferred_start": "16:00",
+      "preferred_end": "19:30",
       "holes": 18,
       "cost_per_player": 15,
       "total_cost": 30,
       "weather": {
-        "rain_pct": 21,
-        "temp_f": 86,
-        "wind_mph": 13,
-        "condition": "clear"
+        "rain_pct": null,
+        "temp_f": null,
+        "wind_mph": null,
+        "condition": "unavailable"
       },
       "score": 5,
-      "rationale": "Saturday 4:00 PM — saves $6/player but non-default slot without heat streak active. Clear weather."
+      "rationale": "Saturday 4 PM — saves $6/player but non-default slot with heat streak inactive. Good fallback if Sat 1 PM unavailable at booking."
     }
   ],
-  "weather_status": "available",
-  "weather_source": "Open-Meteo (api.open-meteo.com)",
-  "override_instructions": null,
-  "booking_result": {
-    "status": "confirmed",
-    "booked_date": "2026-05-23",
-    "booked_time": "15:28",
-    "booked_holes": 18,
-    "booked_cost": 45.47,
-    "fallback_taken": true,
-    "fallback_reason": "Preferred 1:00 PM window fully unavailable — earliest post-1PM slot was 3:28 PM",
-    "confirmed_at": "2026-05-15T00:02:31",
-    "calendar_block": "created",
-    "slack_notification": "sent to #golf"
-  },
-  "booking_action": "complete — booked Saturday 3:28 PM (fallback from preferred 1:00 PM)",
-  "summary": "Saturday May 23 is fully open. Rank 1: 1 PM at $21/player (heat streak inactive — default start). Rank 2: 4 PM at $15/player. Friday unavailable (no 3-hour window). Sunday unavailable (church + graduation party)."
+  "override_instructions": null
 }

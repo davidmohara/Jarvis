@@ -8,10 +8,10 @@ tags:
 - meta
 salience:
   score: 0
-  last-promoted-check: 2026-05-19
+  references: []
+  last-promoted-check: 2026-05-20
   promoted: false
 ---
-
 # Dream Cycle Summary — 2026-05-15
 
 Clean run with one structural issue worth surfacing. Archived two expired working entries to episodic (dream-summary-2026-05-13 and the May 12 automated morning briefing). Scored 44 episodic entries — the salience distribution is unchanged from the prior 18 runs (9 at score 0, 3 at score 1, 1 at score 7, 31 at the score-10 ceiling). Score inflation has now persisted across 19 consecutive runs without intervention.

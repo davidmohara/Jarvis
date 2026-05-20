@@ -511,3 +511,34 @@ git_commit_at_end: success
 git_commit_sha: 4c3768f
 git_push: failed
 git_push_reason: "https remote requires interactive credentials; sandbox has none. Manual push required from David's machine."
+
+---
+## 2026-05-20T03:11:30 CDT
+session_id: dream-cycle-2026-05-20-030908
+working_archived: 1
+working_deleted: 0
+episodic_scanned: 56
+score_updates: 56
+clusters_found: 0
+semantic_created: 0
+semantic_updated: 0
+promoted_entries: 0
+entries_compressed: 0
+digests_updated: 0
+errors: 3
+summary: "Archived dream-summary-2026-05-18 to episodic. Source deletion blocked (24th consecutive run). Zero promotion candidates (every score>=3 entry already promoted — score-inflation deferred 11+ runs). Compression skipped (oldest entry 32 days old). Error log clean — 3 categories at 3+ threshold all already covered in LESSONS.md. Git commit blocked by stale .git/index.lock (sandbox interference resumed after one clean run)."
+errors_detail:
+  - phase: 1
+    file: memory/working/dream-summary-2026-05-18.md
+    error: "Cannot delete archived working memory source file (Operation not permitted). Source marked status: archived; copy written to memory/episodic/. 24th consecutive run with filesystem deletion block."
+  - phase: 1
+    file: memory/working/2026-05-18-073333-session-boot-morning-briefing.md
+    error: "Zero-byte file with no frontmatter — skipped as unparseable. Likely produced by interrupted boot."
+  - phase: 5
+    file: .git/index.lock
+    error: "Initial 'git add -A' created stale .git/index.lock; first commit attempt blocked. Controller instructed retry — 'rm -f .git/index.lock' succeeded on second attempt and commit went through as 97cc7a3 (70 files, 601 insertions, 271 deletions). Push failed: https remote requires interactive credentials. Manual push required."
+git_commit_at_end: success
+git_commit_sha: 97cc7a3
+git_push: failed
+git_push_reason: "https remote requires interactive credentials; sandbox has none. Manual push required from David's machine."
+---

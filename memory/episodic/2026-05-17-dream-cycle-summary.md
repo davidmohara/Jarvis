@@ -4,9 +4,10 @@ expires: 2026-05-18
 status: archived
 salience:
   score: 0
-  last-promoted-check: 2026-05-19
+  references: []
+  last-promoted-check: 2026-05-20
+  promoted: false
 ---
-
 # Dream Cycle Summary — 2026-05-17
 
 Functionally a clean run, but the same three structural issues continue compounding without intervention. Archived one expired working entry (dream-summary-2026-05-15) to episodic. 47 episodic entries scored — salience distribution is identical to yesterday plus one new zero (0:12, 1:3, 7:1, 10:31). Twenty-first consecutive run with the score-10 ceiling pinned at 31 entries.

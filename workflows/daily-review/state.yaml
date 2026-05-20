@@ -2,16 +2,16 @@
 workflow: daily-review
 agent: chief
 status: complete
-session-started: "2026-05-18T00:00:00"
-session-id: "chief-2026-05-18-auto"
+session-started: "2026-05-19T00:00:00"
+session-id: "chief-2026-05-19-auto"
 current-step: step-auto
 original-request: "auto"
 accumulated-context:
-  narrative-title: "2026-05-17 Coming Off the Ranch, No Work on the Books"
-  narrative-path: "reviews/daily/auto-2026-05-17.md"
+  narrative-title: "2026-05-18 Austin Day - Skimmer Lunch, Innovation Lab, and a Delayed Return"
+  narrative-path: "reviews/daily/auto-2026-05-18.md"
   omnifocus-status: "unavailable (3 timeouts)"
-  calendar-status: "available — 4 events retrieved for May 16-17 window"
+  calendar-status: "available — 12 events retrieved for May 18"
   obsidian-status: "disabled — written to local fallback"
-  calendar-events: 4
+  calendar-events: 12
   model: sonnet
 ---

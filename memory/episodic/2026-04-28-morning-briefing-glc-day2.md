@@ -15,10 +15,10 @@ related_people:
 - tim-rayburn
 salience:
   score: 10
-  last-promoted-check: 2026-05-19
+  references: []
+  last-promoted-check: 2026-05-20
   promoted: true
 ---
-
 # Morning Briefing — April 28, 2026 (GLC Chicago Day 2)
 
 Live boot from GLC Chicago. All data sources returned (49 events parsed, 27 OmniFocus tasks). 3 meetings today: Devlin catch-up, Google Next follow-up sync, Tim Rayburn 1:1.
