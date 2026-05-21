@@ -1,45 +1,10 @@
 ---
 workflow: comp-tracker
 agent: chase
-status: in-progress
-session-started: "2026-04-23T00:00:00Z"
-session-id: vibrant-sleepy-dijkstra
-current-step: 5
-original-request: "Re-run the workflow to test it"
-accumulated-context:
-  month: "2026-04"
-  comp_tracker_file_path: "/sessions/vibrant-sleepy-dijkstra/mnt/IES/systems/compensation/2026 Comp Tracker.xlsx"
-  powerbi_tab_id: 1863722629
-  show_visuals_as_tables_enabled: true
-  cliclick_offset_y: 154
-  chrome_ui_height: 121
-  slicer_year: "2026"
-  customer_distribution_slicer_set: true
-  step1_data_source: "customer_distribution"
-  all_time_not_ytd: false
-  excluded_accounts: []
-  uncertain_matches: []
-  unmatched_accounts:
-    - "Insperity Services LP"
-    - "AT&T Services Inc"
-    - "Constellation Energy"
-    - "Marriott"
-    - "Kirby Corp"
-    - "Expedia"
-    - "Massimo"
-    - "CBRE"
-    - "Tenet"
-    - "Texas Instruments"
-    - "Builders First Source"
-  profitability_slicer_verified: true
-  revenue_map:
-    "7-Eleven": { revenue: 122160, city: "Dallas", confidence: "high", gp: 28776, gm_pct: 0.25 }
-    "Charles Schwab & Co": { revenue: 209300, city: "Dallas", confidence: "high", gp: 43045, gm_pct: 0.21 }
-    "McKesson Corporation": { revenue: 277859, city: "Dallas", confidence: "high", gp: 111169, gm_pct: 0.40 }
-    "Wendy's International LLC": { revenue: 1131915, city: "Dallas", confidence: "high", gp: 493056, gm_pct: 0.40 }
-    "PriceSmart": { revenue: 105947, city: "Houston", confidence: "high", gp: 40321, gm_pct: 0.38 }
-    "Autodesk Inc": { revenue: 771212, city: "Austin", confidence: "high", gp: 228680, gm_pct: 0.28 }
-    "Intuit Inc": { revenue: 264730, city: "Austin", confidence: "high", gp: 80948, gm_pct: 0.26 }
-    "Siemens Industry Inc": { revenue: 145356, city: "Austin", confidence: "high", gp: 43530, gm_pct: 0.27 }
-    "ORIX Corporation USA": { revenue: 171908, city: "Dallas", confidence: "high", gp: 38701, gm_pct: 0.22 }
+status: not-started
+session-started: null
+session-id: null
+current-step: null
+original-request: null
+accumulated-context: {}
 ---

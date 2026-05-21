@@ -150,6 +150,23 @@
   {
     "id": "session-2026-05-20-082026",
     "started": "2026-05-20T08:20:26-05:00",
+    "closed": "2026-05-21T06:07:16-05:00",
+    "current_topic": null,
+    "topics": [
+      {
+        "name": "morning-boot",
+        "loops": [
+          {
+            "task": "boot-sequence",
+            "resolved": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "session-2026-05-21-060716",
+    "started": "2026-05-21T06:07:16-05:00",
     "closed": null,
     "current_topic": "morning-boot",
     "topics": [

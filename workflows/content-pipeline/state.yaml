@@ -1,14 +1,14 @@
 status: complete
 current-step: step-01-discover
-session-id: harper-2026-05-20-060000
-session-started: 2026-05-20T06:00:00
+session-id: harper-2026-05-21-060000
+session-started: 2026-05-21T06:00:00
 original-request: scheduled-content-discovery
 accumulated-context:
   result: "No new URLs found — no drafts created"
-  messages_scanned: 2
+  messages_scanned: 1
   urls_found: 0
   urls_processed: 0
   notes:
-    - "All messages in last 24 hours were bot messages (Jarvis notifications) — skipped per protocol"
+    - "Only message in last 24 hours was a bot message (Jarvis's own notification from previous run) — skipped per protocol"
     - "Pending drafts remain: 'The Bill You Haven't Paid Yet' and 'Before You Open Your Mouth'"
     - "Slack notification sent: '_Content pipeline: no new URLs in the last 24 hours._'"
