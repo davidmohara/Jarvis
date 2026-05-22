@@ -1,14 +1,20 @@
 workflow: golf-booking
 agent: sterling
-status: pending
-session-started: "2026-05-21T00:03:00"
+status: complete
+session-started: "2026-05-22T00:00:00"
 session-id: null
-current-step: "awaiting-booking-window"
+current-step: "complete"
 original-request: "Book tee time for May 30, 2026 weekend"
 accumulated-context:
   target_weekend: "2026-05-30 to 2026-05-31"
   top_option: "Saturday May 30 at 1:00 PM · 18 holes · $42"
-  abort_reason: "Booking window not open — 41-Frisco-Lakes-Total-Member rate books 8 days in advance. May 30 is 9 days out at time of this run. Window opens at midnight tonight (May 21→22)."
-  slack_sent: "C0AN2PQNXBR (#jarvis)"
-  aborted_at: "2026-05-21T00:03:00"
-  retry_at: "2026-05-22T00:00:00"
+  booking_result: "BOOKED"
+  booking_number: "9G7Q-9D1D"
+  booked_date: "2026-05-30"
+  booked_time: "1:45 PM"
+  booked_holes: 18
+  booked_cost: "$45.47"
+  fallback_note: "1:00 PM unavailable — booked 1:45 PM (next closest in preferred window)"
+  slack_sent: "C0B15SW9FB5 (#golf)"
+  completed_at: "2026-05-22T00:00:00"
+next-run: "2026-05-26T23:00:00"

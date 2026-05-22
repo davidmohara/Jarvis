@@ -542,3 +542,43 @@ git_commit_sha: 97cc7a3
 git_push: failed
 git_push_reason: "https remote requires interactive credentials; sandbox has none. Manual push required from David's machine."
 ---
+
+---
+## 2026-05-22T03:14:03 CDT
+session_id: dream-cycle-2026-05-22-031400
+working_archived: 5
+working_deleted: 0
+episodic_scanned: 61
+score_updates: 61
+clusters_found: 0
+semantic_created: 0
+semantic_updated: 0
+promoted_entries: 0
+entries_compressed: 0
+digests_updated: 0
+errors: 6
+summary: "Archived 5 working-memory files (4 morning-briefing entries from May 18-19, 2 dream-summaries from May 19-20). Source deletions blocked on all 5 (25th consecutive run with sandbox unlink restriction); copies written to memory/episodic. Zero promotion candidates — every score>=3 entry already has promoted:true. Compression skipped: oldest episodic entry is 34 days old. Error log scan found 3 combos at the 3+ threshold (process-skip/protocol-skip:6, data-accuracy/stale-cache:4, stale-context/surfaced-resolved-item:3); all three already covered by existing entries in LESSONS.md so initial appends were rolled back to honor preservation-over-aggression. One zero-byte file (2026-05-18-073333-session-boot-morning-briefing.md) flagged unparseable again."
+errors_detail:
+  - phase: 1
+    file: memory/working/2026-05-18-061344-session-boot-morning-briefing.md
+    error: "Source deletion blocked (Operation not permitted). Source marked status:archived in place; copy written to memory/episodic/."
+  - phase: 1
+    file: memory/working/2026-05-19-061322-session-boot-morning-briefing.md
+    error: "Source deletion blocked (Operation not permitted). Source marked status:archived in place; copy written to memory/episodic/."
+  - phase: 1
+    file: memory/working/2026-05-19-095416-session-boot-morning-briefing.md
+    error: "Source deletion blocked (Operation not permitted). Source marked status:archived in place; copy written to memory/episodic/."
+  - phase: 1
+    file: memory/working/dream-summary-2026-05-19.md
+    error: "Source deletion blocked (Operation not permitted). Source marked status:archived in place; copy written to memory/episodic/."
+  - phase: 1
+    file: memory/working/dream-summary-2026-05-20.md
+    error: "Source deletion blocked (Operation not permitted). Source marked status:archived in place; copy written to memory/episodic/."
+  - phase: 1
+    file: memory/working/2026-05-18-073333-session-boot-morning-briefing.md
+    error: "Zero-byte file with no frontmatter — skipped as unparseable. Same file flagged in last run; persists across cycles."
+git_pull_at_boot: success (already up to date)
+git_commit_at_end: failed
+git_commit_failure_reason: "Stale .git/index.lock at boot; sandbox blocks unlink and truncate of the lock file. git add -A fails with 'Unable to create .git/index.lock: File exists'. Controller intervention required to clear the lock."
+git_push: failed
+git_push_reason: "Commit blocked first; not attempted."

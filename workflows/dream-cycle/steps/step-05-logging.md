@@ -1,15 +1,13 @@
 ---
 status: completed
-started-at: 2026-05-20T03:11:10-05:00
-completed-at: 2026-05-20T03:12:30-05:00
+started-at: 2026-05-22T03:12:50-05:00
+completed-at: 2026-05-22T03:14:30-05:00
 outputs:
   dream_log_appended: true
   working_summary_written: true
-  git_commit: success
-  git_commit_sha: 97cc7a3
-  git_commit_files: 70
+  git_commit: failed
   git_push: failed
-  git_failure_reason: "Initial commit blocked by stale .git/index.lock; controller instruction unblocked the retry and commit succeeded (70 files, 601 insertions, 271 deletions). Push failed: https remote requires interactive credentials not available in sandbox. Manual push required."
+  git_failure_reason: "Stale .git/index.lock at boot — sandbox blocks both unlink and effective truncate. Same block pattern from prior run. Memory phases all completed; only the commit step is blocked. Controller intervention required: 'rm -f .git/index.lock && git add -A && git commit && git push'."
 ---
 
 <!-- system:start -->

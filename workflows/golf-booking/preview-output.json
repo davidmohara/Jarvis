@@ -84,5 +84,19 @@
       "rationale": "Saturday 4 PM — saves $6/player but non-default slot with heat streak inactive. Good fallback if Sat 1 PM unavailable at booking."
     }
   ],
-  "override_instructions": null
+  "override_instructions": null,
+  "booking_result": {
+    "status": "booked",
+    "booked_at": "2026-05-22T00:00:00",
+    "booking_number": "9G7Q-9D1D",
+    "booked_date": "2026-05-30",
+    "booked_day": "saturday",
+    "booked_time": "13:45",
+    "booked_time_display": "1:45 PM",
+    "booked_holes": 18,
+    "booked_cost": 45.47,
+    "preferred_time_requested": "13:00",
+    "fallback_note": "1:00 PM unavailable — booked 1:45 PM, next closest in preferred window",
+    "rank_used": 1
+  }
 }

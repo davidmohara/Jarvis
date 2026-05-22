@@ -9,6 +9,7 @@ status: archived
 context: "Morning boot + briefing — 2026-05-19"
 salience:
   score: 0
+  last-promoted-check: 2026-05-22
 ---
 # Boot Briefing — Tuesday, May 19, 2026
 

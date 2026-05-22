@@ -381,17 +381,19 @@ Abort. Set workflow state: `status: aborted`.
 
 ### Step 6 — Create Calendar Block
 
-After successful booking, create an Outlook calendar event:
+After successful booking, create a calendar event using **iCal (Calendar.app) on the "Family" calendar** via AppleScript. Do NOT use Outlook or the MS365 MCP — they do not support event creation.
 
-Use MS365 MCP or Desktop Commander to create the event:
+```applescript
+tell application "Calendar"
+  tell calendar "Family"
+    set startDate to date "[booked_date_words] [booked_time - 30min]"
+    set endDate to date "[booked_date_words] [booked_time + 4.5hrs for 18 holes | + 2.5hrs for 9 holes]"
+    set newEvent to make new event with properties {summary:"⛳ Golf — Frisco Lakes", start date:startDate, end date:endDate, location:"Frisco Lakes Golf Club, 7170 Anthem Drive, Frisco TX 75034", description:"Tee time: [booked_time] · [booked_holes] holes · $[booked_cost] due at course · 2 players (David + Susie O'Hara) · Booking #[booking_number] · Arrive by [booked_time - 30min] for range warm-up."}
+  end tell
+end tell
+```
 
-```
-Title: ⛳ Golf — Frisco Lakes
-Start: [booked_date]T[booked_time - 30 minutes] (range warm-up)
-End: [booked_date]T[estimated_end_time] (tee time + 4.5hrs for 18 holes, +2.5hrs for 9 holes)
-Location: Frisco Lakes Golf Club, 7170 Anthem Drive, Frisco TX 75034
-Notes: Tee time: [booked_time] · [booked_holes] holes · $[booked_cost] due at course · 2 players (David + Susie O'Hara)
-```
+Run via `mcp__Desktop_Commander__start_process` with `osascript << 'EOF' ... EOF`. Verify the result is `"created"`.
 
 **Range time:** Calendar block starts 30 minutes BEFORE the tee time to cover warm-up.
 

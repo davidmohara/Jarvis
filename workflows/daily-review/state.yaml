@@ -2,16 +2,16 @@
 workflow: daily-review
 agent: chief
 status: complete
-session-started: "2026-05-20T00:00:00"
-session-id: "chief-2026-05-20-auto"
+session-started: "2026-05-21T00:00:00"
+session-id: "chief-2026-05-21-auto"
 current-step: step-auto
 original-request: "auto"
 accumulated-context:
-  narrative-title: "2026-05-19 DRC Breakfast, Capital One Lunch, and the SST Internal Follow-Through"
-  narrative-path: "reviews/daily/auto-2026-05-19.md"
+  narrative-title: "2026-05-21 DRC Stage, Declan's Cap and Gown, and a Day That Earned Its Length"
+  narrative-path: "reviews/daily/auto-2026-05-21.md"
   omnifocus-status: "unavailable (3 timeouts)"
-  calendar-status: "available — 15 events retrieved for May 19"
+  calendar-status: "available — 28 events retrieved for May 20-21"
   obsidian-status: "disabled — written to local fallback"
-  calendar-events: 15
+  calendar-events: 28
   model: sonnet
 ---

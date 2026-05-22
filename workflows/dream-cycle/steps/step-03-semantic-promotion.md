@@ -1,13 +1,13 @@
 ---
 status: completed
-started-at: 2026-05-20T03:10:30-05:00
-completed-at: 2026-05-20T03:11:00-05:00
+started-at: 2026-05-22T03:11:00-05:00
+completed-at: 2026-05-22T03:12:30-05:00
 outputs:
   clusters_found: 0
   semantic_created: 0
   semantic_updated: 0
   promoted_entries: 0
-  error_categories_30d: "process-skip:9, data-accuracy:8, routing-error:4, missed-context:3, assumption-error:3 — three combos at 3+ threshold (process-skip/protocol-skip:6, data-accuracy/stale-cache:5, assumption-error/wrong-assumption:3); all already represented in LESSONS.md"
+  error_categories_30d: "process-skip:9, data-accuracy:7, routing-error:4, stale-context:3, assumption-error:2, missed-context:2, wrong-assumption:2 — three combos at 3+ threshold (process-skip/protocol-skip:6, data-accuracy/stale-cache:4, stale-context/surfaced-resolved-item:3); all already covered in LESSONS.md under existing entries"
   lessons_appended: 0
 ---
 

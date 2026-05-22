@@ -16,9 +16,9 @@ related_people:
 - don-mcgreal
 - tonya-guadiz
 salience:
-  score: 1
+  score: 0
   references: []
-  last-promoted-check: 2026-05-20
+  last-promoted-check: 2026-05-22
   promoted: false
 ---
 # Session Summary — April 20, 2026 (Afternoon/Evening)
