@@ -2,62 +2,37 @@
 workflow: plaud-ingest
 agent: knox
 status: complete
-session-started: "2026-05-13T15:55:00Z"
-session-completed: "2026-05-13T17:30:00Z"
-session-id: "pi-20260513-001"
-current-step: step-05
-original-request: "Knox: Run plaud-ingest workflow — Chrome login recovery completed, token cached"
+session-started: "2026-05-22T00:00:00Z"
+session-id: "pi-20260522-001"
+current-step: complete
+original-request: "Knox: Run plaud-ingest workflow — fresh run, discover all new recordings since 2026-05-13. Priority: Alexander McCobin call (2026-05-22)."
 accumulated-context:
-  target-date: "2026-05-12"
+  target-date: "2026-05-22"
+  last-run-date: "2026-05-22"
   new-recordings:
-    - file_id: "377d41b97ab9d60c30a30cd87ceeec54"
-      name: "2026-05-12 15:33:17"
-      date: "2026-05-12"
-      duration_seconds: 5088000
-      has_transcript: true
-      transcript_status: "complete"
-    - file_id: "d78ff55e9668cba156d300e635883202"
-      name: "2026-05-12 14:30:51"
-      date: "2026-05-12"
-      duration_seconds: 1685000
-      has_transcript: true
-      transcript_status: "complete"
-    - file_id: "d4e20c86509bab3eb86e7f371945d798"
-      name: "2026-05-12 12:00:20"
-      date: "2026-05-12"
-      duration_seconds: 4843000
-      has_transcript: true
-      transcript_status: "complete"
-  transcription-triggered:
-    - "377d41b97ab9d60c30a30cd87ceeec54"
-    - "d78ff55e9668cba156d300e635883202"
-    - "d4e20c86509bab3eb86e7f371945d798"
+    - file_id: "0ccc186e295be5298e1abf2ab46f8d3a"
+      name: "05-22 Meeting: Austin Summit Planning, Speakers, Sponsorships, YPO Outreach, and Ethical AI Talk"
+      date: "2026-05-22"
+      transcript_status: ready
+    - file_id: "e2651d9388d120eb4c25087ec51bb070"
+      name: "05-22 Consultation: THL & Odessa - Service Margin Erosion"
+      date: "2026-05-22"
+      transcript_status: ready
+  transcription-triggered: []
   pending-recordings: []
-  speaker-mappings: {}
-  speaker-id-disposition: "skipped-per-controller-instruction"
+  speaker-mappings:
+    "0ccc186e295be5298e1abf2ab46f8d3a":
+      "Speaker 1": "Alexander McCobin"
+    "e2651d9388d120eb4c25087ec51bb070":
+      "Speaker 2": "Rob Spies"
   pending-speaker-mappings: []
   ready-for-fetch:
-    - "377d41b97ab9d60c30a30cd87ceeec54"
-    - "d78ff55e9668cba156d300e635883202"
-    - "d4e20c86509bab3eb86e7f371945d798"
+    - "0ccc186e295be5298e1abf2ab46f8d3a"
+    - "e2651d9388d120eb4c25087ec51bb070"
   staged-files:
-    - "plaud_05-12 Meeting Note_ AI Workshop_ Economic Impact _ Data Sourcing.md"
-    - "plaud_05-12 Workshop_ Executive AI Strategy and Departmental Use-Case Prioritization.md"
-    - "plaud_05-12 Lunch Meeting_ DSO Access Strategy_ Cosm Immersive MVP_ Corporate Underwriting_ and Wealth Platform Transition.md"
+    - "plaud_05-22 Meeting_ Austin Summit Planning_ Speakers_ Sponsorships_ YPO Outreach_ and Ethical AI Talk.md"
+    - "plaud_05-22 Consultation_ THL _ Odessa - Service Margin Erosion.md"
   ingested-notes:
-    - "zzPlaud/Improving/2026-05-12 AI Workshop Prep — Economic Impact Talking Points and Event Logistics.md"
-    - "zzPlaud/Client/2026-05-12 TopGolf Executive AI Workshop Scoping.md"
-    - "zzPlaud/Client/2026-05-12 Lunch — DSO Cosm MVP, Wedbush Transition, UTB Data, and Goke Intro.md"
-  daily-note-updated: "Calendar/2026/05-May/2026-05-12.md"
-  omnifocus-tasks-created: 8
-  staging-files-removed: 11
-  session-notes: >
-    Steps 03-05 completed. Speaker ID skipped per controller instruction — existing Plaud
-    labels (O'Hara, Bethany Hilton, Robyn Fuentes, Jay Spears, Diana Stevens, Amy Carenza,
-    William Floyd, Rebecca Hern, Goke, John Hudson) retained as-is in vault notes. Three
-    transcripts ingested: one to zzPlaud/Improving, two to zzPlaud/Client. Daily note created
-    for 2026-05-12 with wikilinks to all three. Eight OmniFocus tasks created across projects:
-    Workshops (2), Speaking (1), Sales (1), UTB (1), Networking (3). Staging cleanup removed
-    11 files — 3 named transcripts, 3 raw timestamp transcripts, 5 raw JSON files.
-    plaud_all_recordings.json retained (fetch script index).
+    - "zzPlaud/Client/2026-05-22 Austin Principaled Business Summit Planning with Alexander McCobin.md"
+    - "zzPlaud/Client/2026-05-22 THL and Odessa - Service Margin Erosion Intro with Rob Spies.md"
 ---

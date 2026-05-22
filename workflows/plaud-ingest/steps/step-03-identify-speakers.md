@@ -13,10 +13,17 @@ outputs:
 <!-- system:start -->
 # Step 03: Identify Speakers
 
+## ⛔ HARD GATE
+
+**CALENDAR FIRST. ALWAYS. DO NOT ASK THE CONTROLLER UNTIL THE CALENDAR HAS BEEN QUERIED.**
+
+This rule was violated on 2026-05-22 (err-20260522T191304-TO2VXV). The calendar resolved
+both speakers without any controller input. Asking the controller first is never acceptable.
+
 ## MANDATORY EXECUTION RULES
 
 1. You MUST check for `_speakers.json` files in `~/Downloads/transcript-staging/` for every recording in `ready-for-fetch`.
-2. You MUST attempt calendar cross-reference BEFORE asking the controller.
+2. You MUST attempt calendar cross-reference BEFORE asking the controller. This is non-negotiable.
 3. You MUST batch all unresolved speakers into a single consolidated question — never ask one recording at a time.
 4. If ALL speakers resolve via calendar, proceed silently — no user interaction needed.
 5. Do NOT rename speakers in Plaud during this step — that happens in step-04 via `--rename`.

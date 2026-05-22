@@ -18,6 +18,22 @@ trigger_agents: [knox, chief]
 Resolve generic speaker labels in Plaud recordings to real names, using calendar
 data as the primary signal and controller input as the fallback.
 
+## ⛔ HARD GATE — READ BEFORE ANYTHING ELSE
+
+**You MUST query the calendar before asking the controller. No exceptions.**
+
+The calendar resolves most speakers automatically. Asking the controller before checking
+the calendar is a protocol violation (logged as err-20260522T191304-TO2VXV).
+
+Do not surface any speaker question to the controller until:
+1. The M365 calendar has been searched for every recording with unresolved speakers
+2. All auto-resolution heuristics have been applied
+3. One or more speakers genuinely cannot be resolved from calendar + heuristics
+
+If the calendar resolves all speakers: proceed silently. No user interaction at all.
+
+---
+
 ## How this works
 
 The Plaud fetch script detects when a transcript contains generic speaker labels
