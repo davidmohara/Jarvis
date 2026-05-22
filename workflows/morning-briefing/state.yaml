@@ -1,26 +1,27 @@
 workflow: morning-briefing
 agent: chief
 status: complete
-session-started: "2026-05-20T06:05:00-05:00"
-session-id: chief-2026-05-20-060500
+session-started: "2026-05-22T06:05:00-05:00"
+session-id: chief-2026-05-22-060500
 current-step: step-04
 original-request: "Automated scheduled morning briefing"
 accumulated-context:
-  calendar-date: "2026-05-20"
-  timezone: "CDT"
-  anchor-meeting: "UTB Board of Directors 1:30-4:30 PM CDT"
-  utb-board-book: "OCC Conversion Binder updated last night via Boardvantage — must read before 1:30 PM"
-  drc-workshop: "TOMORROW May 21 — talk The Enterprise Shift — deck readiness unknown"
-  declan-graduation: "TOMORROW May 21 @ Ford Center 4:00 PM CDT — non-negotiable"
-  calendar-conflict: "1:30 PM — UTB Board vs HOU Microsoft AI Tour touchpoint"
+  calendar-date: "2026-05-22"
+  timezone: "CDT (VM reports UTC — Mac timezone assumed CDT)"
+  meeting-count: 8
+  key-conflict: "10:00 AM — IBP Coaching (Venkat) overlaps Presidents Pipeline"
+  thl-call: "TODAY 10:30 AM with Rob Spies — first contact — assign AM post-call"
+  birgo-overdue: "46 days post-call, still unassigned — critical"
+  jsx-status: "Pre-call, 10 days in"
+  paragon-status: "Blank, Feb 17 — confirm"
+  rock2-flag: "One Texas Cadence rhythm due May 31 — 9 days out"
+  rock3-flag: "DRC talk delivered May 21 — Forbes article still the gap"
   omnifocus-status: "unavailable — 3 timeouts"
-  unassigned-leads: "THL (May 13), JSX (May 12), Birgo (Apr 6), Paragon (Feb 17)"
-  thl-lead: "Alice confirmed June 7 meeting w/ John Foley (Cognition) — needs AM assigned"
-  comp-tracker-flag: "stuck in-progress at Step 5 since Apr 23 — 27 days stalled"
-  git-lock-flag: "index.lock blocking commit — manual clear required"
-  jarvis-inbox: "Project Profitability email Apr 26 — 24 days stale, has attachment"
-  plaud-staging: "not checked (no osascript in Cowork VM)"
+  jarvis-inbox: "Project Profitability Apr 26 — 26 days stale, has attachment"
+  plaud-staging: "no staging directory found"
   clay-reminders: "0"
+  delegations: "clear"
+  look-ahead: "Golf lesson Sat, Declan graduation party Sun, Memorial Day Mon + Rangers game"
   briefing-delivered: "true"
-  slack-ts: "1779275661.599299"
+  slack-ts: "1779448595.828379"
   slack-channel: "C0AN2PQNXBR"
