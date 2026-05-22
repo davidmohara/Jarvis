@@ -43,6 +43,15 @@ Run `git diff --name-only main` (or `HEAD~1` if no main branch) to get the list 
 Filter to only IES system files: `agents/`, `workflows/`, `skills/`, `docs/`, `config/settings.json`.
 Exclude personal directories: `identity/`, `context/`, `training/`, `data/`, `logs/`, `tasks/`.
 
+**Exclude skill eval evidence.** Anything matching these glob patterns is personal by definition (user-specific eval prompts, executor transcripts, feedback) and must never be packaged, regardless of how it was surfaced:
+
+- `systems/evals/work-*/evals/**`
+- `systems/evals/work-*/iteration-*/**`
+- `systems/evals/work-*/skill-snapshot/**`
+- `systems/evals/work-*/description-tuning/**`
+
+These should already be gitignored, but apply the filter defensively in case they were force-added. If any file in the input list matches one of these patterns, drop it silently and log a one-line warning to stderr.
+
 **If `--files`:**
 Use the explicitly listed file paths.
 

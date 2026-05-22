@@ -145,6 +145,12 @@ Create each file following conventions exactly. For each file:
 - Tool bindings section names every tool used
 - Ends with `$ARGUMENTS` input block
 
+**Execution-side-effect skills must declare a plan-only mode.** If the skill writes to external systems (rmapi, MCP write tools, Slack, Outlook, file uploads, anything irreversible), include a top-level section titled `## Plan-Only Mode` that says:
+
+> If the prompt contains the phrase "do not execute" or `eval-mode: plan-only`, do not run any side-effect tools. Instead, produce a markdown plan describing the commands you would issue, in order, with rationale and the inputs you would pass to each. Save the plan to the requested output path and stop. Do not call rmapi/Slack/MCP-write/etc. under any circumstances.
+
+This is required because evals against execution skills run executor subagents that cannot safely produce real side effects. Without an explicit plan-only branch, the executor has to infer the override, which produces inconsistent behavior and false grader failures. Skills with no side effects (drafting, analysis, persona work) do not need this section.
+
 **Workflows:**
 - `workflow.md` lists all steps with one-line descriptions and step file references
 - Each `steps/step-{N:02}-{name}.md` is self-contained with entry conditions, process, and outputs
@@ -226,7 +232,266 @@ After creating the capability:
 
 **If new workflow:** Check if any agent should reference it in its Task Portfolio. If yes, update accordingly.
 
-### 6. Track in Pending Changes
+### 6. Author Evals
+
+Every capability Rigby builds must be validated. No skipping.
+
+Initialize the per-build workspace:
+
+```
+systems/evals/work-{id}/
+  evals/evals.json
+  iteration-1/
+```
+
+Ask the executive for **2-3 realistic invocation prompts** that exercise the capability. For each prompt, write **objectively verifiable assertions**. Assertion text should read clearly in the benchmark viewer — someone glancing at results should immediately understand what each one checks.
+
+For inherently subjective capabilities (drafted email tone, talking-point quality, persona-voice work), leave the `assertions` array empty and rely on blind comparison via `subagents/comparator.md` in Step 8 instead.
+
+Write `systems/evals/work-{id}/evals/evals.json`:
+
+```json
+{
+  "skill_name": "{agent}-{verb-noun}",
+  "skill_path": "skills/{agent}-{verb-noun}.md",
+  "agent_persona_path": "agents/{agent}.md",
+  "evals": [
+    {
+      "eval_id": 0,
+      "eval_name": "descriptive-name-here",
+      "prompt": "Realistic invocation prompt with full context",
+      "input_files": [],
+      "mcp_mode": "fabricated",
+      "assertions": [
+        "Output is a markdown file written to drafts/<id>.md",
+        "Output references the executive's correct title (Regional Director)",
+        "Output does not contain em-dashes"
+      ]
+    }
+  ]
+}
+```
+
+Assertion quality bar: an assertion that passes for a clearly-wrong output is worse than no assertion at all. Prefer assertions that check content correctness over surface compliance. See `references/eval-authoring-guide.md` for the full rubric on writing assertions, handling MCP context, and authoring trigger queries.
+
+### 7. Run Tests and Grade
+
+For each eval in `evals/evals.json`, spawn paired executor subagents **in parallel** using `subagents/executor.md`.
+
+**Output directory structure** (the aggregator expects this exact layout — every config gets a `run-{N}/` subdirectory, default `run-1`):
+
+```
+systems/evals/work-{id}/iteration-N/
+└── eval-{name}/
+    ├── with_skill/run-1/
+    │   ├── grading.json
+    │   ├── timing.json
+    │   ├── metrics.json
+    │   ├── transcript.md
+    │   ├── user_notes.md
+    │   └── outputs/
+    ├── without_skill/run-1/   # for new-skill builds
+    │   └── ...
+    └── old_skill/run-1/        # for skill improvements (mutually exclusive with without_skill)
+        └── ...
+```
+
+The `run-N/` level exists so future versions can run multiple stochastic passes per config and aggregate variance. For now Rigby always writes `run-1/`.
+
+**For a new skill:**
+- `with_skill` — executor loaded with the new skill path, prompt, input files; saves to `.../with_skill/run-1/`
+- `without_skill` — same prompt, no skill loaded but persona still loaded; saves to `.../without_skill/run-1/`
+
+**For an existing skill being improved:**
+- Snapshot the pre-edit skill on first iteration: `cp -r {skill-path} systems/evals/work-{id}/skill-snapshot/`
+- `with_skill` — executor loaded with the edited skill; saves to `.../with_skill/run-1/`
+- `old_skill` — executor loaded with the snapshot; saves to `.../old_skill/run-1/`
+
+Each executor returns a task notification containing `total_tokens` and `duration_ms`. **Capture timing immediately on notification** by invoking the helper — this is the only opportunity, the data is not persisted anywhere else:
+
+```bash
+(cd .claude/skills/rigby-capability-build && python3 -m scripts.capture_timing \
+  --run-dir ../../../systems/evals/work-{id}/iteration-N/eval-{name}/{config}/run-1 \
+  --total-tokens {total_tokens-from-notification} \
+  --duration-ms {duration_ms-from-notification})
+```
+
+Run this once per executor notification. The script writes `timing.json` with the right shape.
+
+While runs progress, review and refine the assertions in `evals.json`.
+
+After runs complete:
+
+**Substep 7a — Grade each run.** Spawn the grader subagent (`subagents/grader.md`) for each run directory. Grader writes `grading.json` per run with fields `text`, `passed`, `evidence`. For programmatic assertions (file-format checks, schema validation), the grader writes and executes a verification script rather than eyeballing.
+
+**Substep 7b — Aggregate.** Always pass `--skill-path` and `--executor-model` so `benchmark.json` metadata is reproducible (not placeholder strings). `runs_per_configuration` and the single-config benchmark layout are handled automatically.
+
+```bash
+(cd .claude/skills/rigby-capability-build && python3 -m scripts.aggregate_benchmark \
+  ../../../systems/evals/work-{id}/iteration-N \
+  --skill-name {skill-name} \
+  --skill-path {skill-path} \
+  --executor-model claude-opus-4-7)
+```
+
+Produces `iteration-N/benchmark.json` and `iteration-N/benchmark.md`. With paired configs the table shows With Skill, Baseline, and Delta. With only one config (iteration-1 of an existing-skill improvement, before any edit), the markdown collapses to a single-column layout with a note that there's no baseline yet.
+
+**Substep 7c — Analyzer pass.** Spawn the analyzer subagent (`subagents/analyzer.md` in benchmark-notes mode) with `benchmark.json` and the skill path. **The analyzer returns the analysis as markdown text in its response — it does not write the file itself.** Subagent Write permissions are inconsistent in some IES runtimes, so Rigby (you) persists the returned text to `iteration-N/analysis.md` after the subagent completes. Surface non-discriminating assertions, high-variance evals, and any time/token regressions.
+
+**Substep 7d — Generate review and surface to the executive.** Run the eval viewer in static mode (IES has no live browser session):
+
+```bash
+(cd .claude/skills/rigby-capability-build && python3 -m scripts.generate_review \
+  ../../../systems/evals/work-{id}/iteration-N \
+  --skill-name {skill-name} \
+  --benchmark ../../../systems/evals/work-{id}/iteration-N/benchmark.json \
+  --static ../../../systems/evals/work-{id}/iteration-N/review.html)
+```
+
+For iteration 2+, add `--previous-workspace systems/evals/work-{id}/iteration-{N-1}` so the viewer shows the diff.
+
+**Surface to the executive — runtime-aware.** Detect the runtime by checking the `CLAUDECODE` environment variable (set to `1` by Claude Code; absent in Cowork):
+
+- **Claude Code (`CLAUDECODE=1`):** Open the file directly so it loads in the default browser.
+  ```bash
+  open systems/evals/work-{id}/iteration-N/review.html
+  ```
+
+- **Cowork (no `CLAUDECODE`):** Do NOT call `open`. Surface the absolute file path in the chat so the executive can click it to preview in the Cowork app.
+  ```
+  Review ready. Preview it here:
+  /Users/{user}/.../systems/evals/work-{id}/iteration-N/review.html
+  ```
+  Use `pwd` to resolve the absolute path before printing.
+
+The viewer collects per-eval feedback and exports `feedback.json`. On Claude Code (local Mac) the export lands in `~/Downloads/`; on Cowork the executive will save it back into the iteration directory directly. After the executive confirms the export is complete:
+
+```bash
+# Claude Code path:
+[ -f ~/Downloads/feedback.json ] && mv ~/Downloads/feedback.json \
+  systems/evals/work-{id}/iteration-N/feedback.json
+
+# Cowork: feedback.json should already be at the iteration path. Verify it exists.
+test -f systems/evals/work-{id}/iteration-N/feedback.json
+```
+
+**`feedback.json` shape** — produced by the viewer, consumed in Step 8:
+
+```json
+{
+  "reviews": [
+    {
+      "run_id": "eval-0-with_skill",
+      "feedback": "Missing the contract reference from the prompt context. Tone too formal for Sarah.",
+      "timestamp": "2026-05-22T15:42:18Z"
+    },
+    {
+      "run_id": "eval-1-with_skill",
+      "feedback": "",
+      "timestamp": "2026-05-22T15:43:02Z"
+    }
+  ],
+  "status": "complete"
+}
+```
+
+One entry per executor run shown in the viewer. `feedback` is freeform text; empty string means the executive was satisfied with that run. `status: "complete"` means the executive finished the review pass (versus saved partial progress). The iteration loop in Step 8 reads this file to know what to fix and to decide when to exit.
+
+### 8. Iterate (hard cap: 5 iterations)
+
+Read `systems/evals/work-{id}/iteration-N/feedback.json` and the analyzer notes from `analysis.md`. Apply the four iteration principles:
+
+1. **Generalize.** Skills must work across many prompts, not just the eval cases. Avoid overfitting edits to specific eval failures.
+2. **Stay lean.** Read transcripts in `iteration-N/eval-*/with_skill/transcript.md`. Remove instructions that didn't change behavior.
+3. **Explain why, not just what.** Replace rigid ALL-CAPS ALWAYS/NEVER directives with reasoning the executor can apply to edge cases.
+4. **Bundle repeated work.** If multiple test cases independently wrote the same helper script, add it once under the skill's `scripts/` directory.
+
+Apply edits. Rerun all evals into `iteration-{N+1}/` following Step 7. Spawn the comparator subagent (`subagents/comparator.md`) to blind-judge `iteration-{N+1}/with_skill` outputs against `iteration-N/with_skill` outputs per eval. Save to `iteration-{N+1}/comparison-vs-prior.json`. This confirms the change actually improved things rather than just changing them.
+
+Generate the review viewer again with `--previous-workspace iteration-N`, surface to the executive, wait for `feedback.json`.
+
+**Exit conditions** (any of these ends the loop):
+- Executive indicates satisfaction
+- All feedback entries in the latest `feedback.json` are empty
+- Iteration counter reaches 5 (hard cap)
+- Comparator reports no improvement over the prior iteration for two consecutive iterations
+
+If exiting at the cap without satisfaction, surface this explicitly:
+
+```
+[Rigby]: Stopped at iteration 5 with {N} failing assertions remaining.
+Recommend manual review before packaging. See systems/evals/work-{id}/iteration-5/
+for full artifacts.
+```
+
+### 9. Optimize Description (hard cap: 5 iterations)
+
+This step only runs when the capability is **phrase-triggered** — that is, the skill or workflow is invoked because the user said something that matched the description. Skills invoked by explicit `/skill-name` syntax skip this step (note the skip in the Step 11 summary).
+
+**Substep 9a — Generate trigger eval set.** Author 20 queries: 8-10 should-trigger and 8-10 should-not-trigger. Should-not-trigger queries are **near-misses** sharing keywords or concepts but needing different tools, not obviously-irrelevant negatives. Mix formal and casual phrasings, include typos and abbreviations, prioritize edge cases over clarity.
+
+Write to `systems/evals/work-{id}/description-tuning/trigger_eval.json`:
+
+```json
+[
+  {"query": "draft an email to the AT&T VP about the migration risk", "should_trigger": true},
+  {"query": "what's on my calendar tomorrow", "should_trigger": false}
+]
+```
+
+**Substep 9b — Executive review of the eval set.** Render `assets/eval_review.html` with the query set, skill name, and current description substituted in:
+
+1. Read `.claude/skills/rigby-capability-build/assets/eval_review.html`
+2. Replace `__EVAL_DATA_PLACEHOLDER__` with the JSON array (no quotes; it's a JS variable assignment)
+3. Replace `__SKILL_NAME_PLACEHOLDER__` with the skill name
+4. Replace `__SKILL_DESCRIPTION_PLACEHOLDER__` with the current description
+5. Write to `/tmp/eval_review_{skill-name}.html`
+6. Surface using the same runtime-aware pattern as Step 7d:
+   - **Claude Code:** `open /tmp/eval_review_{skill-name}.html`
+   - **Cowork:** print the absolute path so the executive can click to preview in the app
+
+The executive edits queries, toggles `should_trigger`, adds and removes entries, and clicks "Export Eval Set." Retrieve the exported file:
+
+```bash
+# Claude Code: arrives in ~/Downloads
+[ -f ~/Downloads/eval_set.json ] && mv ~/Downloads/eval_set.json \
+  systems/evals/work-{id}/description-tuning/trigger_eval.json
+
+# Cowork: executive saves directly to the tuning dir. Verify.
+test -f systems/evals/work-{id}/description-tuning/trigger_eval.json
+```
+
+**Substep 9c — Run the optimization loop.**
+
+Preflight: confirm the `claude` CLI is available (it's required by `run_eval.py` and `improve_description.py`, which shell out via `claude -p`). On Claude Code it's always present. On Cowork Desktop it is also present; on Cowork web it is not, so this step is gated to Desktop runtimes:
+
+```bash
+if ! command -v claude >/dev/null 2>&1; then
+  echo "[Rigby]: claude CLI not on PATH — Step 9 requires Claude Code or Cowork Desktop." >&2
+  echo "[Rigby]: Skipping description optimization. Update description manually if needed." >&2
+  exit 0
+fi
+```
+
+Then run the loop:
+
+```bash
+(cd .claude/skills/rigby-capability-build && python3 -m scripts.run_loop \
+  --eval-set ../../../systems/evals/work-{id}/description-tuning/trigger_eval.json \
+  --skill-path ../../../{skill-path} \
+  --model claude-opus-4-7 \
+  --max-iterations 5 \
+  --results-dir ../../../systems/evals/work-{id}/description-tuning/ \
+  --verbose)
+```
+
+`run_loop.py` splits the eval set 60% train / 40% test, evaluates the current description (3 runs per query), proposes improvements via Claude, re-evaluates, iterates up to 5 times. It selects `best_description` by test-set score to avoid overfitting.
+
+Run this in the background. Periodically tail the output and report iteration progress to the executive.
+
+**Substep 9d — Apply.** When the loop exits, read `description-tuning/results.json`. Show the executive a before/after diff with trigger-rate scores. On approval, update the `description:` field in the skill's frontmatter.
+
+### 10. Track in Pending Changes
 
 After all files are written, append to `evolutions/.pending-changes.json`:
 
@@ -248,7 +513,18 @@ After all files are written, append to `evolutions/.pending-changes.json`:
       "type": "mixed",
       "description": "Added {capability} to Task Portfolio"
     }
-  ]
+  ],
+  "validation": {
+    "evals_run": true,
+    "eval_count": 3,
+    "iterations": 2,
+    "stopped_at_cap": false,
+    "final_pass_rate": 0.92,
+    "description_optimized": true,
+    "description_train_score": 0.95,
+    "description_test_score": 0.88,
+    "eval_artifacts_path": "systems/evals/work-{id}/"
+  }
 }
 ```
 
@@ -264,20 +540,30 @@ Append the new work item to the `pending` array.
 
 If `--work-id` was provided, merge the files into that existing work item instead of creating a new one.
 
-### 7. Summary
+### 11. Summary
 
 Output to the executive:
 
 ```
 ✓ Built: {name}
+✓ Validated: {eval_count} evals, {iterations} iteration(s), {final_pass_rate}% assertions passing
+✓ Description tuned: {train_score}/{test_score} train/test trigger rate
+  (or: "Description optimization: skipped — invoked by explicit /name syntax")
 
 Files created:
   + {file path} ({action})
   ~ {file path} (updated)
 
 Tracked in pending changes as: work-{id}
+Eval artifacts: systems/evals/work-{id}/
 Ready to use: "{trigger example}"
 Package when ready: rigby package --pending
+```
+
+If iteration hit the cap with failures remaining, prefix the summary with:
+
+```
+⚠ Stopped at iteration cap with {N} failing assertions. Manual review recommended.
 ```
 <!-- system:end -->
 

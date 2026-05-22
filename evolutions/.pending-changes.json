@@ -60,7 +60,7 @@
           "path": "workflows/golf-booking/workflow.md",
           "action": "add",
           "type": "personal",
-          "description": "New workflow: golf-booking. Two-phase orchestrator — preview (Tue 11pm) + booking (Wed midnight). Targets Friday/Saturday/Sunday 8 days out."
+          "description": "New workflow: golf-booking. Two-phase orchestrator \u2014 preview (Tue 11pm) + booking (Wed midnight). Targets Friday/Saturday/Sunday 8 days out."
         },
         {
           "path": "workflows/golf-booking/state.yaml",
@@ -116,7 +116,7 @@
     },
     {
       "id": "integrity-2026-04-18-120000",
-      "description": "Integrity scan fixes — 2 auto-corrections applied (manifest currency + model fields)",
+      "description": "Integrity scan fixes \u2014 2 auto-corrections applied (manifest currency + model fields)",
       "started": "2026-04-18T12:00:00Z",
       "files": [
         {
@@ -547,7 +547,7 @@
     },
     {
       "id": "integrity-2026-04-18-091500",
-      "description": "Integrity scan fixes — 2 auto-corrections applied: 17 workflows added to manifest, 4 agents added to manifest",
+      "description": "Integrity scan fixes \u2014 2 auto-corrections applied: 17 workflows added to manifest, 4 agents added to manifest",
       "started": "2026-04-18T09:15:00Z",
       "classification": "system",
       "files": [
@@ -676,6 +676,148 @@
           "description": "Added comp-tracker trigger row to Chase task portfolio (personal block). Trigger: 'comp tracker' or 'update comp tracker' or first week of month. Routes monthly compensation updates to workflows/comp-tracker/."
         }
       ]
+    },
+    {
+      "id": "work-20260522-rigby-eval-loop-integration",
+      "description": "Bolted the Anthropic skill-creator's test-and-improve loop onto Rigby. Added Steps 6-9 to capability-build (Author Evals, Run Tests and Grade, Iterate with hard-cap 5, Optimize Description with hard-cap 5). Wired in the previously-orphaned analyzer/comparator/grader subagent specs by moving them to subagents/ and referencing them from SKILL.md. Created new executor subagent that produces transcript/metrics/user_notes for the grader to consume. Ported 8 Python scripts and the eval-viewer + assets/eval_review.html from anthropics/skills verbatim. Every Rigby build now produces a validated artifact set in systems/evals/work-{id}/ before entering the evolution pipeline. Also added .gitignore rules and rigby-evolution-package exclusion logic so eval evidence (which is intrinsically personal) never enters git or a published evolution. Made Step 7d and Step 9b runtime-aware (Claude Code uses 'open', Cowork prints the absolute path). Added claude-CLI preflight to Step 9c that bails cleanly if invoked from a runtime where the binary is not on PATH.",
+      "started": "2026-05-22T00:00:00Z",
+      "classification": "system",
+      "files": [
+        {
+          "path": ".claude/skills/rigby-capability-build/SKILL.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Inserted Steps 6-9 (Author Evals, Run Tests and Grade, Iterate, Optimize Description). Renumbered existing 6\u219210 and 7\u219211. Augmented pending-changes block with validation metadata and Summary block with eval pass rates. Post-trial changes: capture_timing helper invocation in Step 7; aggregate_benchmark CLI updated to pass --skill-path and --executor-model; analyzer subagent now returns text and Rigby persists; new Plan-Only Mode requirement in Step 4 for execution-side-effect skills."
+        },
+        {
+          "path": ".claude/skills/rigby-capability-build/subagents/analyzer.md",
+          "action": "move",
+          "type": "system",
+          "description": "Moved from .claude/skills/rigby-capability-build/analyzer.md. Now referenced from Step 7c (benchmark notes mode) and Step 8 (post-hoc mode). Post-trial change: analyzer now returns analysis as markdown text in its response instead of writing the file itself. Rigby persists to {output_path}. Works around inconsistent subagent Write permissions."
+        },
+        {
+          "path": ".claude/skills/rigby-capability-build/subagents/comparator.md",
+          "action": "move",
+          "type": "system",
+          "description": "Moved from .claude/skills/rigby-capability-build/comparator.md. Used in Step 8 to blind-judge iteration N+1 vs iteration N outputs."
+        },
+        {
+          "path": ".claude/skills/rigby-capability-build/subagents/grader.md",
+          "action": "move",
+          "type": "system",
+          "description": "Moved from .claude/skills/rigby-capability-build/grader.md. Spawned in Step 7a to grade each executor run against assertions."
+        },
+        {
+          "path": ".claude/skills/rigby-capability-build/subagents/executor.md",
+          "action": "add",
+          "type": "system",
+          "description": "New subagent spec. Runs a single eval (with_skill/without_skill/old_skill config) and produces transcript.md, metrics.json, user_notes.md, and outputs/ for grader to consume. Always loads agent persona regardless of skill config."
+        },
+        {
+          "path": ".claude/skills/rigby-capability-build/references/eval-authoring-guide.md",
+          "action": "add",
+          "type": "system",
+          "description": "IES-specific guide on writing assertions and trigger queries. Covers assertion discrimination, MCP context handling (fabricated vs live modes), persona requirements, when to skip trigger optimization. Post-trial addition: UTB-typo case study showing how a 100% pass rate concealed a real defect, and how to write substance-check assertions instead of presence checks."
+        },
+        {
+          "path": ".claude/skills/rigby-capability-build/scripts/__init__.py",
+          "action": "add",
+          "type": "system",
+          "description": "Package init for scripts/ module so 'python -m scripts.X' works."
+        },
+        {
+          "path": ".claude/skills/rigby-capability-build/scripts/utils.py",
+          "action": "add",
+          "type": "system",
+          "description": "Ported from anthropics/skills. Shared utility helpers (parse_skill_md, etc)."
+        },
+        {
+          "path": ".claude/skills/rigby-capability-build/scripts/quick_validate.py",
+          "action": "add",
+          "type": "system",
+          "description": "Ported from anthropics/skills. Pre-flight skill structure check."
+        },
+        {
+          "path": ".claude/skills/rigby-capability-build/scripts/aggregate_benchmark.py",
+          "action": "add",
+          "type": "system",
+          "description": "Ported from anthropics/skills. Reads grading.json files in iteration-N/eval-*/*/ and produces benchmark.json + benchmark.md with mean \u00b1 stddev and deltas between configurations. Post-trial patches: counts actual runs_per_configuration instead of hardcoding 3; accepts --executor-model and --analyzer-model to eliminate placeholder metadata; renders single-config benchmarks with a one-column layout instead of fake-pairing. Post-iter-2 patches: normalized delta to (experiment \u2212 baseline) regardless of directory iteration order \u2014 uses with_skill as experiment, old_skill or without_skill as baseline; delta JSON block now records experiment/baseline/convention fields; markdown table reorders columns experiment-first."
+        },
+        {
+          "path": ".claude/skills/rigby-capability-build/scripts/run_eval.py",
+          "action": "add",
+          "type": "system",
+          "description": "Ported from anthropics/skills. Trigger-eval runner \u2014 tests whether a skill description triggers across a set of queries via claude -p."
+        },
+        {
+          "path": ".claude/skills/rigby-capability-build/scripts/improve_description.py",
+          "action": "add",
+          "type": "system",
+          "description": "Ported from anthropics/skills. Called by run_loop.py to propose an improved description based on eval results."
+        },
+        {
+          "path": ".claude/skills/rigby-capability-build/scripts/run_loop.py",
+          "action": "add",
+          "type": "system",
+          "description": "Ported from anthropics/skills. Eval-plus-improve loop for description optimization. Default max-iterations 5 matches our hard cap."
+        },
+        {
+          "path": ".claude/skills/rigby-capability-build/scripts/generate_report.py",
+          "action": "add",
+          "type": "system",
+          "description": "Ported from anthropics/skills. HTML report generator for trigger-eval results."
+        },
+        {
+          "path": ".claude/skills/rigby-capability-build/scripts/generate_review.py",
+          "action": "add",
+          "type": "system",
+          "description": "Ported from anthropics/skills/eval-viewer. Generates per-iteration review HTML in --static mode for headless IES use."
+        },
+        {
+          "path": ".claude/skills/rigby-capability-build/scripts/viewer.html",
+          "action": "add",
+          "type": "system",
+          "description": "Ported from anthropics/skills/eval-viewer. HTML template consumed by generate_review.py."
+        },
+        {
+          "path": ".claude/skills/rigby-capability-build/assets/eval_review.html",
+          "action": "add",
+          "type": "system",
+          "description": "Ported from anthropics/skills/assets. Trigger-eval query review template rendered in Step 9 Substep 9b."
+        },
+        {
+          "path": ".claude/skills/rigby-evolution-package/SKILL.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Added exclusion rules for skill eval evidence \u2014 work-*/evals/, iteration-*/, skill-snapshot/, description-tuning/ globs are filtered out of any --git-diff or --files input before packaging. Eval evidence is personal by definition and must never enter a system evolution."
+        },
+        {
+          "path": ".gitignore",
+          "action": "replace",
+          "type": "system",
+          "description": "Added gitignore rules for systems/evals/work-*/{evals,iteration-*,skill-snapshot,description-tuning}/ so eval evidence stays out of version control."
+        },
+        {
+          "path": ".claude/skills/rigby-capability-build/scripts/capture_timing.py",
+          "action": "add",
+          "type": "system",
+          "description": "New helper script. Captures total_tokens and duration_ms from a subagent task notification and writes timing.json into the run-N directory. Called inline by Rigby after each executor/grader returns."
+        }
+      ],
+      "validation": {
+        "evals_run": false,
+        "note": "This is the bootstrap evolution that creates Rigby's eval infrastructure. Self-application of the new flow requires the scripts to be in place first. First real eval-loop validation will be on the next Rigby build after this one packages. Eval workspace path corrected from evolutions/work-{id}/ to systems/evals/work-{id}/ (evolutions/ is reserved for the packaging system).",
+        "framework_issues_addressed": [
+          "Manual timing capture \u2192 capture_timing.py helper",
+          "Subagent write inconsistency \u2192 analyzer returns text, parent persists",
+          "Placeholder metadata \u2192 required --skill-path and --executor-model",
+          "Empty Config B column \u2192 single-config layout in benchmark.md",
+          "Hardcoded runs_per_configuration: 3 \u2192 counted from disk",
+          "No assertion-quality guidance \u2192 UTB-typo case study in authoring guide",
+          "Plan-only ambiguity \u2192 required section in Step 4 for execution skills",
+          "Delta sign was direction-dependent on directory order \u2192 normalized to experiment\u2212baseline with explicit fields"
+        ]
+      }
     }
   ]
 }

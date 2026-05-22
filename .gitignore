@@ -39,3 +39,10 @@ __pycache__/
 debug-app.png
 debug-settings.png
 screenshot.png
+
+# Skill eval evidence — personal/local-only, never published
+# Contains user-specific eval prompts, executor transcripts, and feedback
+systems/evals/work-*/evals/
+systems/evals/work-*/iteration-*/
+systems/evals/work-*/skill-snapshot/
+systems/evals/work-*/description-tuning/
