@@ -3,13 +3,13 @@ type: working-archive
 task_id: session
 session_id: chief-2026-05-19-061322
 agent-source: chief
-created: 2026-05-19T06:13:22
-expires: 2026-05-21T06:13:22
+created: 2026-05-19 06:13:22
+expires: 2026-05-21 06:13:22
 status: archived
-context: "Morning boot + briefing — 2026-05-19 (automated scheduled run)"
+context: Morning boot + briefing — 2026-05-19 (automated scheduled run)
 salience:
   score: 0
-  last-promoted-check: 2026-05-22
+  last-promoted-check: '2026-05-23'
 ---
 # Morning Briefing Session — May 19, 2026
 

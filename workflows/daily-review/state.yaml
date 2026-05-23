@@ -2,16 +2,16 @@
 workflow: daily-review
 agent: chief
 status: complete
-session-started: "2026-05-21T00:00:00"
-session-id: "chief-2026-05-21-auto"
+session-started: "2026-05-22T00:00:00"
+session-id: "chief-2026-05-22-auto"
 current-step: step-auto
 original-request: "auto"
 accumulated-context:
-  narrative-title: "2026-05-21 DRC Stage, Declan's Cap and Gown, and a Day That Earned Its Length"
-  narrative-path: "reviews/daily/auto-2026-05-21.md"
+  narrative-title: "2026-05-22 The Friday After the Stage - Sales Signals, a New Doctor, and Alice Finding Her Footing"
+  narrative-path: "reviews/daily/auto-2026-05-22.md"
   omnifocus-status: "unavailable (3 timeouts)"
-  calendar-status: "available — 28 events retrieved for May 20-21"
+  calendar-status: "available — 31 events retrieved for May 21-22"
   obsidian-status: "disabled — written to local fallback"
-  calendar-events: 28
+  calendar-events: 31
   model: sonnet
 ---

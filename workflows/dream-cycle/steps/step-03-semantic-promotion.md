@@ -1,13 +1,13 @@
 ---
 status: completed
-started-at: 2026-05-22T03:11:00-05:00
-completed-at: 2026-05-22T03:12:30-05:00
+started-at: 2026-05-23T03:11:00-05:00
+completed-at: 2026-05-23T03:12:30-05:00
 outputs:
-  clusters_found: 0
+  clusters_found: 1
   semantic_created: 0
-  semantic_updated: 0
-  promoted_entries: 0
-  error_categories_30d: "process-skip:9, data-accuracy:7, routing-error:4, stale-context:3, assumption-error:2, missed-context:2, wrong-assumption:2 — three combos at 3+ threshold (process-skip/protocol-skip:6, data-accuracy/stale-cache:4, stale-context/surfaced-resolved-item:3); all already covered in LESSONS.md under existing entries"
+  semantic_updated: 1
+  promoted_entries: 1
+  error_categories_30d: "process-skip:13, data-accuracy:7, routing-error:4, stale-context:3 — all four already covered by existing entries in LESSONS.md (stale-context covered under data-accuracy's stale task status fix); no combos crossed 3+ threshold this run"
   lessons_appended: 0
 ---
 

@@ -1,7 +1,7 @@
 ---
 salience:
   score: 0
-  last-promoted-check: 2026-05-19
+  last-promoted-check: '2026-05-23'
 ---
 
 # Episodic Memory

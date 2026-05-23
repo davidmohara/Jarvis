@@ -4,7 +4,7 @@ domain: operational
 tags: [briefing, calendar, omnifocus, google-next, travel, overdue-tasks, leads]
 confidence: high
 created: 2026-04-24
-last-updated: 2026-05-18
+last-updated: 2026-05-23
 synthesized-from:
   - memory/episodic/2026-04-20-morning-briefing.md
   - memory/episodic/2026-04-21-morning-briefing.md
@@ -28,6 +28,7 @@ synthesized-from:
   - memory/episodic/2026-05-07-morning-briefing-cabo.md
   - memory/episodic/2026-05-11-000000-session-boot-morning-briefing.md
   - memory/episodic/2026-05-15-094050-session-boot-morning-briefing.md
+  - memory/episodic/2026-05-20-061400-session-boot-morning-briefing.md
 ---
 
 # Pattern: Morning Briefings Consistently Flag Travel-Calendar Conflicts
@@ -246,3 +247,23 @@ Morning briefings across the entire Google Next week (Apr 20-23) repeatedly surf
 31. **The pattern is becoming a single-source feed.** Of the 7 working-memory files archived this run, only 1 had tags. The "cluster" is now effectively just the most recent manual boot each week. This degrades the semantic signal — the pattern aggregates breadth of evidence, and a 1-of-7 inclusion rate means we're losing 86% of the runtime signal.
 32. **Austin day trip May 18 fits the predicted pattern.** Single-day fly-out-fly-back (DFW→AUS 8:30 AM, return 2:46 PM) with multiple Teams calls booked during the travel window. This is the fourth flagged travel-calendar collision in the May 15 briefing. The post-49er recovery + same-week travel pattern matches Implication #19 (post-travel recovery days are as risky as travel days).
 33. **Hard external deadlines on the May 15 briefing are concentrated on a single day with no triage path.** 5 items due May 15 (slides, Forbes Q&A, 2 account plans, 1 strategic item) plus 9 overdue items plus 5 sharp-edge meetings. No mechanism to escalate, defer, or delegate from inside the briefing.
+
+
+## Evidence (continued — 2026-05-23)
+
+### May 20 Morning Briefing — Automated Scheduled Run
+- Automated boot 6:14 AM CDT. Tags populated correctly (briefing, calendar, leads, utb-board, drc-workshop, graduation) — automated template now produces tags, closing the schema gap flagged in Implication #28.
+- OmniFocus failed 3x — timeout streak continues. Pattern of automated-mode MCP failure is now indistinguishable from baseline.
+- DRC AI Workshop (May 21) flagged 1 day out with "deck readiness unknown" — exact match to the pre-departure prep-gap pattern (Implication #4). The workshop has been flagged across multiple briefings since Apr 27 (24+ days) with no completion evidence.
+- Declan graduation May 21 4 PM Ford Center flagged as non-negotiable, conflicting with workshop exit window. Same conflict-flagging-without-resolution pattern.
+- Jarvis inbox: Project Profitability email (Apr 26) now 24 days stale. Longest-lived unprocessed item; validates Implication #18 (no routing pathway for capability-gated items).
+- 4 unassigned leads (THL most urgent — Cognition meeting June 7), Paragon Brokerage at 3+ months.
+- git.index.lock blocking commit — same sandbox restriction across 25+ runs.
+
+## Implications (continued — 2026-05-23)
+
+34. **Automated boot template now populates tags (Implication #28 partially resolved).** The May 20 archived briefing has 6 tags and scored 10. This is the first automated-mode briefing since the schema gap was flagged that contributes meaningful salience signal. The fix held — automated runs are no longer invisible to the algorithm.
+
+35. **DRC AI Workshop (May 21) prep gap is the longest-running unaddressed flag in this pattern.** First surfaced Apr 27 (24 days out), now flagged the day before with deck readiness still unknown. This is a 24-day "flagging is not fixing" cycle — the longest single instance of Implication #1 in the pattern's history. The talk happens tomorrow regardless of system action.
+
+36. **Hard personal commitments are now part of the conflict matrix.** Declan graduation (non-negotiable family event) conflicts with workshop exit window. The pattern previously tracked work-vs-work and travel-vs-work conflicts; this extends to work-vs-family. The system flagged it but generated no mitigation (no early-exit plan from workshop, no Ford Center logistics check).

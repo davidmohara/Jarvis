@@ -14,7 +14,7 @@ related_people:
 salience:
   score: 10
   references: []
-  last-promoted-check: 2026-05-22
+  last-promoted-check: '2026-05-23'
   promoted: true
 ---
 # Morning Briefing — May 4, 2026 (Automated)

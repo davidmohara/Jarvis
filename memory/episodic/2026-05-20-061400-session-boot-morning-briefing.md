@@ -3,13 +3,21 @@ type: working-archive
 task_id: session
 session_id: chief-2026-05-20-061400
 agent-source: chief
-created: 2026-05-20T06:14:00
-expires: 2026-05-22T06:14:00
+created: 2026-05-20 06:14:00
+expires: 2026-05-22 06:14:00
 status: archived
-context: "Morning boot + briefing — 2026-05-20 (automated scheduled task)"
-tags: [briefing, calendar, leads, utb-board, drc-workshop, graduation]
+context: Morning boot + briefing — 2026-05-20 (automated scheduled task)
+tags:
+- briefing
+- calendar
+- leads
+- utb-board
+- drc-workshop
+- graduation
 salience:
-  score: 0
+  score: 10
+  last-promoted-check: '2026-05-23'
+  promoted: true
 ---
 
 # Morning Briefing — May 20, 2026

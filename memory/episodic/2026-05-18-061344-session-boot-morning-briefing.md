@@ -1,15 +1,15 @@
 ---
 type: working-archive
-task_id: "session"
-session_id: "chief-2026-05-18-061344"
+task_id: session
+session_id: chief-2026-05-18-061344
 agent-source: chief
-created: 2026-05-18T06:13:44
-expires: 2026-05-20T06:13:44
+created: 2026-05-18 06:13:44
+expires: 2026-05-20 06:13:44
 status: archived
-context: "Morning boot + briefing — 2026-05-18"
+context: Morning boot + briefing — 2026-05-18
 salience:
   score: 0
-  last-promoted-check: 2026-05-22
+  last-promoted-check: '2026-05-23'
 ---
 # Session Working Memory — May 18, 2026
 

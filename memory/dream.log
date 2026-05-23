@@ -582,3 +582,33 @@ git_commit_at_end: failed
 git_commit_failure_reason: "Stale .git/index.lock at boot; sandbox blocks unlink and truncate of the lock file. git add -A fails with 'Unable to create .git/index.lock: File exists'. Controller intervention required to clear the lock."
 git_push: failed
 git_push_reason: "Commit blocked first; not attempted."
+
+
+---
+## 2026-05-23T03:12:53 CDT
+session_id: dream-cycle-2026-05-23-031253
+working_archived: 1
+working_deleted: 0
+episodic_scanned: 63
+score_updates: 63
+clusters_found: 1
+semantic_created: 0
+semantic_updated: 1
+promoted_entries: 1
+entries_compressed: 0
+digests_updated: 0
+errors: 2
+summary: "Archived 1 working file (2026-05-20 morning briefing — newly expired today). Source deletion blocked again (26th consecutive sandbox unlink restriction); archived in place with copy in episodic. Score distribution: 0:28, 1:1, 7:1, 9:2, 10:31 — first time the score ceiling shows a 9-point band, suggesting algorithm produced some intermediate scores this run. Phase 3 promoted the May 20 briefing (score 10) into the existing 'briefing-travel-calendar-pattern' semantic entry: appended Evidence section (May 20 automated run with tags populated — closes Implication #28 schema gap) and three new Implications (#34 automated tags working, #35 24-day DRC workshop prep gap, #36 family vs work conflicts now in the matrix). Error log scan: process-skip:13, data-accuracy:7, routing-error:4, stale-context:3 — all four already covered by existing LESSONS.md entries (stale-context covered under data-accuracy's 'stale task status' fix). No LESSONS.md appends per preservation-over-aggression. Compression skipped: oldest episodic entry is 35 days old, no candidates."
+errors_detail:
+  - phase: 1
+    file: memory/working/2026-05-20-061400-session-boot-morning-briefing.md
+    error: "Source deletion blocked (Operation not permitted). Source marked status:archived in place; copy written to memory/episodic/."
+  - phase: 1
+    file: memory/working/2026-05-18-073333-session-boot-morning-briefing.md
+    error: "Zero-byte file with no frontmatter — skipped as unparseable. Same file flagged across 26+ runs; persists across cycles."
+git_pull_at_boot: blocked
+git_pull_failure_reason: "Unstaged changes from daily-review workflow (workflows/daily-review/state.yaml + reviews/daily/auto-2026-05-22.md untracked) prevented rebase. Stale .git/index.lock also present (sandbox blocks unlink). Proceeded with memory phases without pull — origin/main was up to date at session start."
+git_commit_at_end: failed
+git_commit_failure_reason: "Stale .git/index.lock present at boot (pre-existing, 0 bytes). Sandbox blocks unlink AND truncate. Same block pattern as previous 25+ runs — controller intervention required to clear the lock (manual 'rm -f .git/index.lock' from David's machine), then 'git add -A && git commit -m \"dream-cycle: 2026-05-23\" && git push origin'."
+git_push: failed
+git_push_reason: "Commit blocked first; not attempted."

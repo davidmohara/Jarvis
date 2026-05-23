@@ -1,13 +1,13 @@
 ---
 status: completed
-started-at: 2026-05-22T03:12:50-05:00
-completed-at: 2026-05-22T03:14:30-05:00
+started-at: 2026-05-23T03:12:45-05:00
+completed-at: 2026-05-23T03:14:00-05:00
 outputs:
   dream_log_appended: true
   working_summary_written: true
   git_commit: failed
   git_push: failed
-  git_failure_reason: "Stale .git/index.lock at boot — sandbox blocks both unlink and effective truncate. Same block pattern from prior run. Memory phases all completed; only the commit step is blocked. Controller intervention required: 'rm -f .git/index.lock && git add -A && git commit && git push'."
+  git_failure_reason: "Stale .git/index.lock at boot — sandbox blocks both unlink and truncate. Same block pattern as prior 25+ runs. Memory phases all completed; only the commit step is blocked. Controller intervention required: 'rm -f .git/index.lock && git add -A && git commit && git push'."
 ---
 
 <!-- system:start -->

@@ -1,11 +1,11 @@
 ---
 status: completed
-started-at: 2026-05-22T03:09:27-05:00
-completed-at: 2026-05-22T03:10:10-05:00
+started-at: 2026-05-23T03:09:07-05:00
+completed-at: 2026-05-23T03:10:00-05:00
 outputs:
-  working_archived: 5
+  working_archived: 1
   working_deleted: 0
-  working_skipped: 50
+  working_skipped: 56
   skipped_unparseable:
     - memory/working/2026-05-18-073333-session-boot-morning-briefing.md
 ---
