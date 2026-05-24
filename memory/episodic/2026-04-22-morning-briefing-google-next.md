@@ -19,7 +19,7 @@ related_people:
 salience:
   score: 10
   references: []
-  last-promoted-check: '2026-05-23'
+  last-promoted-check: 2026-05-24
   promoted: true
 ---
 # Morning Briefing — April 22, 2026 (Google Next Travel Day)

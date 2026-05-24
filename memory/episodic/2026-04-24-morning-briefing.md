@@ -18,7 +18,7 @@ related_people:
 salience:
   score: 10
   references: []
-  last-promoted-check: '2026-05-23'
+  last-promoted-check: 2026-05-24
   promoted: true
 ---
 # Session Working Memory — 2026-04-24 Morning Briefing

@@ -612,3 +612,37 @@ git_commit_at_end: failed
 git_commit_failure_reason: "Stale .git/index.lock present at boot (pre-existing, 0 bytes). Sandbox blocks unlink AND truncate. Same block pattern as previous 25+ runs — controller intervention required to clear the lock (manual 'rm -f .git/index.lock' from David's machine), then 'git add -A && git commit -m \"dream-cycle: 2026-05-23\" && git push origin'."
 git_push: failed
 git_push_reason: "Commit blocked first; not attempted."
+
+---
+## 2026-05-24T03:13:00 CDT
+session_id: dream-cycle-2026-05-24-030855
+working_archived: 1
+working_deleted: 0
+episodic_scanned: 63
+score_updates: 63
+clusters_found: 0
+semantic_created: 0
+semantic_updated: 0
+promoted_entries: 0
+entries_compressed: 0
+digests_updated: 0
+errors: 2
+summary: "Quiet run, same chronic blockers. Archived dream-summary-2026-05-22 (newly expired today) to episodic; source deletion still blocked (27th consecutive run). Salience scoring distribution: 0:28, 1:1, 7:1, 8:1, 9:8, 10:24 — score-10 ceiling slightly down (24 vs 31 yesterday) because two prior-promoted entries fell out of the 30-day window. Score-inflation algorithm fix still deferred (14+ consecutive runs). Zero promotion candidates: every score>=3 entry already has salience.promoted: true. Error log scan: process-skip:13, data-accuracy:6, routing-error:4, stale-context:3 — all four already covered by existing LESSONS.md entries (stale-context covered under data-accuracy's stale task status fix). Compression skipped (oldest episodic entry 36 days old, cutoff 90). One positive: the May 18 zero-byte file that persisted across 26+ runs is gone — exception either dropped between runs or was finally cleaned by an unrelated process. Git pull blocked at boot by unstaged changes from prior sessions (.git/index.lock also briefly stale but then cleared automatically before retry); proceeded with memory phases without sync."
+errors_detail:
+  - phase: 1
+    file: memory/working/dream-summary-2026-05-22.md
+    error: "Source deletion blocked (Operation not permitted). Source marked status:archived in place; copy written to memory/episodic/. 27th consecutive run with sandbox unlink restriction."
+  - phase: 0
+    file: .git
+    error: "git pull --rebase failed: unstaged changes from prior sessions block rebase. Dream cycle completed memory phases without sync — same chronic blocker as 23 of last 24 runs."
+git_pull_at_boot: blocked
+git_pull_failure_reason: "Unstaged changes from prior sessions block rebase."
+git_commit_at_end: pending
+git_push: pending
+
+## 2026-05-24T03:14:00 CDT — commit attempt
+session_id: dream-cycle-2026-05-24-030855
+git_commit_at_end: failed
+git_commit_failure_reason: "Stale .git/index.lock present (0 bytes, owned by sandbox uid). Sandbox blocks unlink. git add -A fails with 'Unable to create .git/index.lock: File exists'. Same block pattern as 25+ prior runs. Controller intervention required: 'rm -f .git/index.lock' from David's machine, then 'git add -A && git commit -m \"dream-cycle: 2026-05-24 — archived 1, promoted 0, compressed 0\" && git push origin'."
+git_push: failed
+git_push_reason: "Commit blocked first; not attempted."

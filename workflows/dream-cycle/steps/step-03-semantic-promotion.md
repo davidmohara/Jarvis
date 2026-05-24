@@ -1,13 +1,13 @@
 ---
 status: completed
-started-at: 2026-05-23T03:11:00-05:00
-completed-at: 2026-05-23T03:12:30-05:00
+started-at: 2026-05-24T03:11:00-05:00
+completed-at: 2026-05-24T03:12:30-05:00
 outputs:
-  clusters_found: 1
+  clusters_found: 0
   semantic_created: 0
-  semantic_updated: 1
-  promoted_entries: 1
-  error_categories_30d: "process-skip:13, data-accuracy:7, routing-error:4, stale-context:3 — all four already covered by existing entries in LESSONS.md (stale-context covered under data-accuracy's stale task status fix); no combos crossed 3+ threshold this run"
+  semantic_updated: 0
+  promoted_entries: 0
+  error_categories_30d: "process-skip:13, data-accuracy:6, routing-error:4, stale-context:3 — all four already covered by existing entries in LESSONS.md (stale-context covered under data-accuracy's stale task status fix). No new promotion candidates: all 34 entries with score>=3 already have salience.promoted: true from prior cycles."
   lessons_appended: 0
 ---
 
