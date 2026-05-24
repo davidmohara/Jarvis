@@ -1,0 +1,14 @@
+{
+  "name": "content-calendar",
+  "type": "workflow",
+  "assertions": [
+    {
+      "id": "contcal-001-state-complete",
+      "check": "yaml_field_equals",
+      "path": "workflows/content-calendar/state.yaml",
+      "field": "status",
+      "value": "complete",
+      "description": "Content calendar workflow state.yaml shows status: complete"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "name": "delegation-tracker",
+  "type": "workflow",
+  "assertions": [
+    {
+      "id": "deleg-001-state-complete",
+      "check": "yaml_field_equals",
+      "path": "workflows/delegation-tracker/state.yaml",
+      "field": "status",
+      "value": "complete",
+      "description": "Delegation tracker workflow state.yaml shows status: complete"
+    }
+  ]
+}

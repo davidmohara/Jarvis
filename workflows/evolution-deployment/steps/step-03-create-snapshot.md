@@ -140,7 +140,7 @@ To restore from this snapshot (user invokes via Rigby's `rollback` command):
 
 ## Next Step
 
-If snapshot creation succeeds: proceed to `step-04-scan-personal-blocks.md`
+If snapshot creation succeeds: proceed to `step-04-benchmark-snapshot.md`
 
 If snapshot fails: HALT workflow
 <!-- system:end -->

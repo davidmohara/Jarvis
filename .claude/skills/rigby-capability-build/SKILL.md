@@ -272,6 +272,44 @@ Write `systems/evals/work-{id}/evals/evals.json`:
 }
 ```
 
+**Generate runtime assertion file.** After writing `evals.json`, also generate the runtime assertion file for the eval harness. Convert the eval assertions into the runtime assertion format and write to `systems/eval-harness/assertions/{name}.json`:
+
+```json
+{
+  "name": "{agent}-{verb-noun}",
+  "type": "skill",
+  "assertions": [
+    {
+      "id": "assert-001",
+      "check": "file_exists",
+      "path": "drafts/*.md",
+      "description": "Output file written to drafts/"
+    },
+    {
+      "id": "assert-002",
+      "check": "file_contains",
+      "path": "drafts/*.md",
+      "pattern": "Regional Director",
+      "description": "Output references correct title"
+    },
+    {
+      "id": "assert-003",
+      "check": "file_not_contains",
+      "path": "drafts/*.md",
+      "pattern": "—",
+      "description": "Output does not contain em-dashes"
+    }
+  ]
+}
+```
+
+Mapping from eval assertions to runtime checks:
+- "Output is a markdown file written to {path}" → `file_exists` check on that path
+- "Output contains {text}" → `file_contains` with regex pattern
+- "Output does not contain {text}" → `file_not_contains` with regex pattern
+- "Output is substantive (>N bytes)" → `file_min_bytes` check
+- "Workflow state.yaml shows status: complete" → `yaml_field_equals` check
+
 Assertion quality bar: an assertion that passes for a clearly-wrong output is worse than no assertion at all. Prefer assertions that check content correctness over surface compliance. See `references/eval-authoring-guide.md` for the full rubric on writing assertions, handling MCP context, and authoring trigger queries.
 
 ### 7. Run Tests and Grade

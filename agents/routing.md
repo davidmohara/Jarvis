@@ -10,7 +10,7 @@ These domains route to specialists immediately. Master does not execute these ta
 
 | Domain | Agent | Trigger Keywords | What Master Passes |
 |--------|-------|-----------------|-------------------|
-| **Infrastructure** | **Rigby** | "new workflow," "new skill," "new agent," "new script," "create capability," "build system," "system change," "evolution," "deployment," "connector" | Original request + requirements spec |
+| **Infrastructure** | **Rigby** | "new workflow," "new skill," "new agent," "new script," "create capability," "build system," "system change," "evolution," "deployment," "connector," "grade evals," "eval analysis," "eval dashboard," "eval trends" | Original request + requirements spec |
 | **Content & Communication** | **Harper** | "draft email," "build deck," "presentation," "slides," "content," "writing," "blog post," "talking points," "podcast prep," "message" | Original request + context (audience, purpose, tone, deadline) |
 | **Pipeline & Revenue** | **Chase** | "pipeline," "deal," "account," "opportunity," "forecast," "post-mortem," "loss," "client meeting," "CRM," "lead," "revenue" | Original request + account/deal context from vault |
 | **Strategy & Planning** | **Quinn** | "rocks," "strategy," "goals," "OKRs," "quarterly," "initiative," "alignment," "planning," "roadmap" | Original request + current quarterly objectives |
@@ -28,7 +28,7 @@ These are the few things Master legitimately handles without routing:
 
 | Trigger | Task | Scope |
 |---------|------|-------|
-| **Factual question** | **Answer from knowledge** | Questions that require no action or routing (e.g., "What's the capital of Texas?", "Remind me what happened at the CBRE meeting") |
+| **Factual question** | **Web lookups** | Questions that require no action or routing (e.g., "What's the capital of Texas?") |
 | **Quick capture** | **Capture to inbox** | "Capture [text]" — add to task inbox, no questions asked |
 | **Status request** | **Dashboard** | "What's my status?" — brief view of rocks, delegations, overdue items |
 | **Decision framework** | **RAPID file** | "Help me decide [topic]" — walk through decision structure |

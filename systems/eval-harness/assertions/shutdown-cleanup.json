@@ -1,0 +1,14 @@
+{
+  "name": "shutdown-cleanup",
+  "type": "workflow",
+  "assertions": [
+    {
+      "id": "shutdown-001-state-complete",
+      "check": "yaml_field_equals",
+      "path": "workflows/shutdown-cleanup/state.yaml",
+      "field": "status",
+      "value": "complete",
+      "description": "Shutdown cleanup workflow state.yaml shows status: complete"
+    }
+  ]
+}

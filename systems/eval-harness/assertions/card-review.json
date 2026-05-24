@@ -1,0 +1,14 @@
+{
+  "name": "card-review",
+  "type": "workflow",
+  "assertions": [
+    {
+      "id": "cardrev-001-state-complete",
+      "check": "yaml_field_equals",
+      "path": "workflows/card-review/state.yaml",
+      "field": "status",
+      "value": "complete",
+      "description": "Card review workflow state.yaml shows status: complete"
+    }
+  ]
+}

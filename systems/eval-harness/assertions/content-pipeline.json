@@ -1,0 +1,14 @@
+{
+  "name": "content-pipeline",
+  "type": "workflow",
+  "assertions": [
+    {
+      "id": "contpipe-001-state-complete",
+      "check": "yaml_field_equals",
+      "path": "workflows/content-pipeline/state.yaml",
+      "field": "status",
+      "value": "complete",
+      "description": "Content pipeline workflow state.yaml shows status: complete"
+    }
+  ]
+}

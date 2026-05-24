@@ -1,0 +1,33 @@
+{
+  "name": "rigby-eval-analyze",
+  "type": "skill",
+  "assertions": [
+    {
+      "id": "eval-analyze-001-report-written",
+      "check": "file_exists",
+      "path": "systems/eval-harness/grading/analysis-*.md",
+      "description": "Analysis report was written to systems/eval-harness/grading/"
+    },
+    {
+      "id": "eval-analyze-002-report-substantive",
+      "check": "file_min_bytes",
+      "path": "systems/eval-harness/grading/analysis-*.md",
+      "min_bytes": 500,
+      "description": "Analysis report is substantive (>500 bytes)"
+    },
+    {
+      "id": "eval-analyze-003-report-has-metrics",
+      "check": "file_contains",
+      "path": "systems/eval-harness/grading/analysis-*.md",
+      "pattern": "(?i)(success rate|failure rate|assertion)",
+      "description": "Analysis report contains metric sections"
+    },
+    {
+      "id": "eval-analyze-004-report-has-recommendations",
+      "check": "file_contains",
+      "path": "systems/eval-harness/grading/analysis-*.md",
+      "pattern": "(?i)(recommend|action|improve|suggest)",
+      "description": "Analysis report contains recommendations section"
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 # IES Skill Index
 
-Last updated: 2026-05-04 | Total skills: 24
+Last updated: 2026-05-23 | Total skills: 27
 
 | ID | Name | Owner | Model | Trigger Keywords (sample) |
 |----|------|-------|-------|---------------------------|
@@ -28,6 +28,9 @@ Last updated: 2026-05-04 | Total skills: 24
 | chase-card-offers-citi | Citi Card Offers | chase | haiku | citi offers, citi card |
 | chase-card-offers-discover | Discover Card Offers | chase | haiku | discover offers, discover card |
 | dream-cycle | Dream Cycle | knox | sonnet | dream, memory consolidation |
+| rigby-eval-grade | Rigby Eval Grade | rigby | sonnet | grade evals, eval grading |
+| rigby-eval-analyze | Rigby Eval Analyze | rigby | sonnet | eval analysis, eval trends |
+| rigby-eval-dashboard | Rigby Eval Dashboard | rigby | sonnet | eval dashboard, generate dashboard |
 
 ## Adding a New Skill
 

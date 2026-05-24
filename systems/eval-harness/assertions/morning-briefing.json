@@ -1,0 +1,41 @@
+{
+  "name": "morning-briefing",
+  "type": "workflow",
+  "assertions": [
+    {
+      "id": "morning-001-state-complete",
+      "check": "yaml_field_equals",
+      "path": "workflows/morning-briefing/state.yaml",
+      "field": "status",
+      "value": "complete",
+      "description": "Morning briefing workflow state.yaml shows status: complete"
+    },
+    {
+      "id": "morning-002-briefing-written",
+      "check": "file_exists",
+      "path": "memory/working/morning-briefing-*.md",
+      "description": "Morning briefing output file was written to memory/working/"
+    },
+    {
+      "id": "morning-003-briefing-substantive",
+      "check": "file_min_bytes",
+      "path": "memory/working/morning-briefing-*.md",
+      "min_bytes": 500,
+      "description": "Morning briefing output is substantive (>500 bytes)"
+    },
+    {
+      "id": "morning-004-calendar-section",
+      "check": "file_contains",
+      "path": "memory/working/morning-briefing-*.md",
+      "pattern": "(?i)(calendar|schedule|today)",
+      "description": "Morning briefing contains calendar/schedule section"
+    },
+    {
+      "id": "morning-005-priorities-section",
+      "check": "file_contains",
+      "path": "memory/working/morning-briefing-*.md",
+      "pattern": "(?i)(priority|task|todo)",
+      "description": "Morning briefing contains priorities/tasks section"
+    }
+  ]
+}

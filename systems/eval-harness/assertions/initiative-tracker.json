@@ -1,0 +1,14 @@
+{
+  "name": "initiative-tracker",
+  "type": "workflow",
+  "assertions": [
+    {
+      "id": "init-001-state-complete",
+      "check": "yaml_field_equals",
+      "path": "workflows/initiative-tracker/state.yaml",
+      "field": "status",
+      "value": "complete",
+      "description": "Initiative tracker workflow state.yaml shows status: complete"
+    }
+  ]
+}

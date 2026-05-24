@@ -1,0 +1,14 @@
+{
+  "name": "lead-review",
+  "type": "workflow",
+  "assertions": [
+    {
+      "id": "leadrev-001-state-complete",
+      "check": "yaml_field_equals",
+      "path": "workflows/lead-review/state.yaml",
+      "field": "status",
+      "value": "complete",
+      "description": "Lead review workflow state.yaml shows status: complete"
+    }
+  ]
+}

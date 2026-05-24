@@ -1,0 +1,14 @@
+{
+  "name": "email-drafting",
+  "type": "workflow",
+  "assertions": [
+    {
+      "id": "email-001-state-complete",
+      "check": "yaml_field_equals",
+      "path": "workflows/email-drafting/state.yaml",
+      "field": "status",
+      "value": "complete",
+      "description": "Email drafting workflow state.yaml shows status: complete"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "name": "calendar-prep",
+  "type": "workflow",
+  "assertions": [
+    {
+      "id": "calprep-001-state-complete",
+      "check": "yaml_field_equals",
+      "path": "workflows/calendar-prep/state.yaml",
+      "field": "status",
+      "value": "complete",
+      "description": "Calendar prep workflow state.yaml shows status: complete"
+    }
+  ]
+}

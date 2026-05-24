@@ -1,0 +1,14 @@
+{
+  "name": "pipeline-review",
+  "type": "workflow",
+  "assertions": [
+    {
+      "id": "pipe-001-state-complete",
+      "check": "yaml_field_equals",
+      "path": "workflows/pipeline-review/state.yaml",
+      "field": "status",
+      "value": "complete",
+      "description": "Pipeline review workflow state.yaml shows status: complete"
+    }
+  ]
+}

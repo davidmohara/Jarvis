@@ -1,0 +1,14 @@
+{
+  "name": "rock4-pipeline-weekly",
+  "type": "workflow",
+  "assertions": [
+    {
+      "id": "rock4-001-state-complete",
+      "check": "yaml_field_equals",
+      "path": "workflows/rock4-pipeline-weekly/state.yaml",
+      "field": "status",
+      "value": "complete",
+      "description": "Rock 4 pipeline weekly workflow state.yaml shows status: complete"
+    }
+  ]
+}

@@ -55,7 +55,14 @@ model: sonnet
    - If one exists, extract the "Top 3 priorities" that were set this morning
    - These become the cross-reference for what got done vs. what was planned
 
-4. **Present reference data to the controller:**
+4. **Check eval harness health** (if installed):
+   - Verify `systems/eval-harness/` directory exists
+   - If present, check eval records from today in `systems/eval-harness/runs/`
+   - Calculate simple metrics: total runs today, success rate (Tier 1 pass/fail)
+   - Generate one-liner summary: "Eval health: X runs today, Y% success rate" or "Eval health: no runs today"
+   - If eval harness not installed, skip this check
+
+5. **Present reference data to the controller:**
    ```
    Here's what I can see from today:
 
@@ -63,6 +70,7 @@ model: sonnet
    Tasks created: [list from task management system]
    Meetings: [list from calendar]
    Inbox: X items
+   Eval health: [one-liner summary, or "Not installed"]
 
    Morning priorities were:
    1. [priority from briefing, or "No morning briefing found"]
@@ -70,7 +78,7 @@ model: sonnet
    3. ...
    ```
 
-5. **Ask the three capture questions** (one at a time or batched based on controller preference):
+6. **Ask the three capture questions** (one at a time or batched based on controller preference):
 
    **Q1: "What got done today?"**
    - Let the controller add wins beyond what the task management system shows
@@ -87,7 +95,7 @@ model: sonnet
    - Note who the blocker is and what's needed
    - Flag anything that should become a delegation or a nudge
 
-6. **Store results** in working memory:
+7. **Store results** in working memory:
    ```
    capture_data:
      date: YYYY-MM-DD
@@ -105,6 +113,10 @@ model: sonnet
          action_needed: delegation | nudge | escalation
      inbox_count: N
      morning_priorities_hit: X/3
+     eval_health:
+       total_runs: N
+       success_rate: X%
+       one_liner: "Eval health: X runs today, Y% success rate"
    ```
 
 ---

@@ -1,0 +1,14 @@
+{
+  "name": "inbox-processing",
+  "type": "workflow",
+  "assertions": [
+    {
+      "id": "inbox-001-state-complete",
+      "check": "yaml_field_equals",
+      "path": "workflows/inbox-processing/state.yaml",
+      "field": "status",
+      "value": "complete",
+      "description": "Inbox processing workflow state.yaml shows status: complete"
+    }
+  ]
+}

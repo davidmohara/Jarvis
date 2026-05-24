@@ -1,0 +1,14 @@
+{
+  "name": "account-strategy",
+  "type": "workflow",
+  "assertions": [
+    {
+      "id": "acct-001-state-complete",
+      "check": "yaml_field_equals",
+      "path": "workflows/account-strategy/state.yaml",
+      "field": "status",
+      "value": "complete",
+      "description": "Account strategy workflow state.yaml shows status: complete"
+    }
+  ]
+}

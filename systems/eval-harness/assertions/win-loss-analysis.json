@@ -1,0 +1,14 @@
+{
+  "name": "win-loss-analysis",
+  "type": "workflow",
+  "assertions": [
+    {
+      "id": "winloss-001-state-complete",
+      "check": "yaml_field_equals",
+      "path": "workflows/win-loss-analysis/state.yaml",
+      "field": "status",
+      "value": "complete",
+      "description": "Win-loss analysis workflow state.yaml shows status: complete"
+    }
+  ]
+}

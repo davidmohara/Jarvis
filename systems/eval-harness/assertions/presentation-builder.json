@@ -1,0 +1,14 @@
+{
+  "name": "presentation-builder",
+  "type": "workflow",
+  "assertions": [
+    {
+      "id": "pres-001-state-complete",
+      "check": "yaml_field_equals",
+      "path": "workflows/presentation-builder/state.yaml",
+      "field": "status",
+      "value": "complete",
+      "description": "Presentation builder workflow state.yaml shows status: complete"
+    }
+  ]
+}

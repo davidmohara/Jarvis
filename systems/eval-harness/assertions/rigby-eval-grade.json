@@ -1,0 +1,13 @@
+{
+  "name": "rigby-eval-grade",
+  "type": "skill",
+  "assertions": [
+    {
+      "id": "eval-grade-001-records-graded",
+      "check": "file_contains",
+      "path": "systems/eval-harness/runs/eval-*.json",
+      "pattern": "\"grade\":\\s*\"[A-F]\"",
+      "description": "At least one eval record has a grade assigned"
+    }
+  ]
+}

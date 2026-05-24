@@ -117,6 +117,7 @@ When drafting any public content for David (blog posts, LinkedIn, articles, thou
 | `podcast-prep` or "build podcast prep" | **Podcast Prep** | Use workflow: `workflows/podcast-prep/workflow.md`. Generate episode prep documents — detailed reference sheet + single-page PDF for studio. Pulls episode map, guest data, and questions automatically. |
 | `prep sheet` or "build a prep sheet" | **Meeting Prep Sheet** | Build condensed, actionable prep sheets for meetings and events. Includes attendees, talking points, dietary flags, and action items. Outputs PDF for reMarkable or print. |
 | `review my hosting` or "give me feedback on the podcast" or "how did I do as a host" | **Podcast Hosting Review** | Analyze a podcast episode and deliver structured host coaching: what landed, what drifted, openings given vs. missed, and overall presence. Saves findings to episodic memory for pattern tracking across episodes. |
+| `reddit monitor` or "show me Reddit posts to respond to" or "find posts to engage with" or "update my subreddit list" | **Reddit Monitor** | Use skill: `.claude/skills/reddit-monitor/SKILL.md`. Build or update a live Reddit engagement queue artifact. Fetches posts from monitored subreddits, filters by recency and keywords, scores by priority, auto-detects responded threads via username tracking. Outputs go to `systems/reddit-monitor/`. |
 <!-- personal:end -->
 
 ---

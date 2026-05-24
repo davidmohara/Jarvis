@@ -1,0 +1,20 @@
+{
+  "name": "dream-cycle",
+  "type": "workflow",
+  "assertions": [
+    {
+      "id": "dream-001-state-complete",
+      "check": "yaml_field_equals",
+      "path": "workflows/dream-cycle/state.yaml",
+      "field": "status",
+      "value": "complete",
+      "description": "Dream cycle workflow state.yaml shows status: complete"
+    },
+    {
+      "id": "dream-002-working-memory-written",
+      "check": "file_exists",
+      "path": "memory/working/dream-*.md",
+      "description": "Dream cycle wrote output to working memory"
+    }
+  ]
+}

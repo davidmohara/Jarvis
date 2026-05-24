@@ -64,6 +64,7 @@ my-os/
 ├── training/                        → Training & progression system (curriculum, modules, state)
 ├── evolutions/                      → Evolution history, snapshots, pending changes, poll cache
 ├── systems/
+│   ├── eval-harness/               → Evaluation harness with 4-tier assessment (mechanical, structural, grading, controller feedback)
 │   └── credit-cards/                → Card registry, optimization guide, benefits tracker (Chase agent)
 ├── archive/                        → Completed/closed items
 └── reference/

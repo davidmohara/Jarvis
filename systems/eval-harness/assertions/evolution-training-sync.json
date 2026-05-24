@@ -1,0 +1,14 @@
+{
+  "name": "evolution-training-sync",
+  "type": "workflow",
+  "assertions": [
+    {
+      "id": "evo-sync-001-state-complete",
+      "check": "yaml_field_equals",
+      "path": "workflows/evolution-training-sync/state.yaml",
+      "field": "status",
+      "value": "complete",
+      "description": "Evolution training sync workflow state.yaml shows status: complete"
+    }
+  ]
+}

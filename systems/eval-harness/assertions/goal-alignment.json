@@ -1,0 +1,14 @@
+{
+  "name": "goal-alignment",
+  "type": "workflow",
+  "assertions": [
+    {
+      "id": "goal-001-state-complete",
+      "check": "yaml_field_equals",
+      "path": "workflows/goal-alignment/state.yaml",
+      "field": "status",
+      "value": "complete",
+      "description": "Goal alignment workflow state.yaml shows status: complete"
+    }
+  ]
+}

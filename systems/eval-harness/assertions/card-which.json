@@ -1,0 +1,14 @@
+{
+  "name": "card-which",
+  "type": "workflow",
+  "assertions": [
+    {
+      "id": "cardwhich-001-state-complete",
+      "check": "yaml_field_equals",
+      "path": "workflows/card-which/state.yaml",
+      "field": "status",
+      "value": "complete",
+      "description": "Card-which workflow state.yaml shows status: complete"
+    }
+  ]
+}

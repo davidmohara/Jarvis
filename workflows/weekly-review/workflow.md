@@ -13,7 +13,7 @@ model: sonnet
 
 **Agent:** Master agent (orchestrates sub-agents as needed)
 
-**Architecture:** Sequential 6-step workflow. Each step reviews a different domain. The master agent drives, pulling in sub-agents when their domain expertise is needed. Interactive throughout - the controller walks through each section.
+**Architecture:** Sequential 8-step workflow. Each step reviews a different domain. The master agent drives, pulling in sub-agents when their domain expertise is needed. Interactive throughout - the controller walks through each section.
 <!-- system:end -->
 
 <!-- personal:start -->
@@ -50,6 +50,7 @@ model: sonnet
 | People check | People | Shep |
 | Set priorities | Strategy | Quinn |
 | Social calendar lookahead | Personal | Sterling |
+| Eval summary + close | System Health | Master (invokes rigby-eval-analyze skill, then closes workflow) |
 <!-- system:end -->
 
 <!-- personal:start -->

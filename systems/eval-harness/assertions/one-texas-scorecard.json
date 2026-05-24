@@ -1,0 +1,14 @@
+{
+  "name": "one-texas-scorecard",
+  "type": "workflow",
+  "assertions": [
+    {
+      "id": "scorecard-001-state-complete",
+      "check": "yaml_field_equals",
+      "path": "workflows/one-texas-scorecard/state.yaml",
+      "field": "status",
+      "value": "complete",
+      "description": "One Texas scorecard workflow state.yaml shows status: complete"
+    }
+  ]
+}

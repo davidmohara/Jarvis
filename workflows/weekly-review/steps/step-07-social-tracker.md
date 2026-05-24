@@ -11,9 +11,9 @@ model: sonnet
 
 ## MANDATORY EXECUTION RULES
 
-1. This step runs AFTER step-06 (priorities are already set). It is the final step before closing.
+1. This step runs AFTER step-06 (priorities are already set).
 2. Route to Sterling. Sterling runs `skills/sterling-social-tracker/SKILL.md` in full.
-3. Do NOT skip this step if the site is unavailable — report the failure and close cleanly.
+3. Do NOT skip this step if the site is unavailable — report the failure and proceed to step-08.
 4. Do NOT ask David for his interest profile — it lives in the skill file. Read and apply it.
 5. Append results to the weekly review file that step-06 already created.
 
@@ -45,9 +45,6 @@ model: sonnet
 
 4. **Present the feedback prompt** if this is one of the first 8 runs (per Learned Preferences count in the skill file). Wait for feedback. If feedback is given, Sterling updates the skill file immediately — do not defer.
 
-5. **Close the weekly review** after feedback is captured (or if David declines to give feedback):
-   > "Review complete. Priorities are set. Social calendar is loaded. Go execute."
-
 ---
 
 ## SUCCESS METRICS
@@ -55,31 +52,21 @@ model: sonnet
 - Social tracker table presented inline
 - Results appended to weekly review file
 - Feedback captured and applied to skill file (if within first 8 runs)
-- Weekly review closed cleanly
 
 ## FAILURE MODES
 
 | Failure | Action |
 |---------|--------|
-| dfw.msondo.com unavailable | Note in review file: "Social tracker unavailable this week." Close the review. |
-| No events found in lookahead window | Report to David: "Nothing on the DFW radar for the next 4 weeks." Close the review. |
-| Weekly review file from step-06 not found | Append table to working memory instead: `memory/working/YYYY-MM-DD-social-tracker.md`. Report the file path. |
-| David provides feedback mid-table | Stop, apply the feedback update to the skill file, then continue. |
+| dfw.msondo.com unavailable | Note in review file: "Social tracker unavailable this week." Proceed to step-08. |
+| No events found in lookahead window | Report to David: "Nothing on the DFW radar for the next 4 weeks." Proceed to step-08. |
+| Weekly review file from step-06 not found | Append table to working memory instead: `memory/working/YYYY-MM-DD-social-tracker.md`. Report the file path. Proceed to step-08. |
+| David provides feedback mid-table | Stop, apply the feedback update to the skill file, then continue to step-08. |
 
 ---
 
 ## NEXT STEP
 
-This is the final step. After closing:
-
-Write `state.yaml` in the workflow directory with `status: complete` and `current-step: step-07`.
-
-```yaml
-workflow: weekly-review
-agent: master
-status: complete
-current-step: step-07
-```
+Read fully and follow: `step-08-eval-summary.md`
 <!-- system:end -->
 
 <!-- personal:start -->

@@ -6,7 +6,7 @@ outputs: {}
 model: sonnet
 ---
 
-# Step 06: Verify & Log
+# Step 07: Verify & Log
 
 <!-- system:start -->
 ## Purpose
@@ -15,10 +15,11 @@ Final verification that personal blocks were preserved, system integrity is inta
 
 ## Inputs
 
-- `application_result` — From Step 05
-- `files_processed` — From Step 05
-- `personal_blocks_preserved` — From Step 05
-- `personal_block_registry` — From Step 04
+- `application_result` — From Step 06
+- `files_processed` — From Step 06
+- `personal_blocks_preserved` — From Step 06
+- `personal_block_registry` — From Step 05
+- `benchmark_snapshot` — From Step 04 (eval harness baseline data)
 - `validated_manifest` — From Step 01
 - `snapshot_id` — From Step 03
 - `evolution_id` — From Step 01
@@ -78,7 +79,40 @@ If issues found:
 - Log warnings (non-blocking)
 - Surface to user for review
 
-### 3. Write to Evolution History
+### 3. Comparative Eval Grading (if benchmark snapshot exists)
+
+**Important timing note:** Eval records created DURING this deployment workflow are not meaningful comparisons — the system has not been exercised yet. This step captures the current state immediately post-deployment. A meaningful comparison will only exist after the system has been exercised in production (next day or next use). The `eval_comparison` block is written now but expected to be `neutral` or `pending` until post-exercise eval records accumulate.
+
+If `benchmark_snapshot.skipped` is false (eval harness baseline was captured):
+
+1. **Grade any new post-deployment eval records**
+   - List all eval records in `systems/eval-harness/runs/*.json` that are NOT present in `evolutions/snapshots/{snapshot_id}-eval-baseline/`
+   - These are records created after the baseline snapshot (i.e., during this deployment session)
+   - If none exist (expected immediately post-deployment): log `post_deployment_metrics: none_yet` and skip to step 4
+   - If any exist: grade them inline (Rigby reviews output quality directly, no sub-skill spawn)
+
+2. **Calculate post-deployment metrics**
+   - Compute metrics only for eval records NOT in the baseline snapshot
+   - If no post-deployment records exist, store `post_deployment_metrics: {total_records: 0}`
+   - If records exist, compute: success rate, grade distribution
+   - Store in `post_deployment_metrics`
+
+3. **Compare with baseline metrics**
+   - Compare `post_deployment_metrics` with `benchmark_snapshot.baseline_metrics`
+   - If `post_deployment_metrics.total_records == 0`, set `eval_comparison.trend: pending` with note: "No post-deployment eval records yet. Re-check after system has been exercised."
+   - Otherwise calculate deltas and determine trend: `improved | degraded | neutral`
+
+4. **Log comparison results**
+   - If trend is "improved": Surface as positive finding
+   - If trend is "degraded": Surface as warning for review
+   - If trend is "neutral": Log informational note
+   - If trend is "pending": Log: "Eval comparison deferred — no post-deployment runs yet. Check rigby-eval-analyze after next use."
+
+If `benchmark_snapshot.skipped` is true (no eval harness):
+- Skip comparative grading
+- Log note: eval comparison skipped (no baseline available)
+
+### 5. Write to Evolution History
 
 Append entry to `{project-root}/evolutions/history.md`:
 
@@ -125,11 +159,21 @@ No personal blocks in target files.
 {list errors}
 {end if}
 
+### Eval Comparison (if benchmark snapshot exists)
+
+{if eval_comparison was performed:}
+**Trend:** {trend} (success rate: {success_rate_delta}, composite score: {avg_composite_score_delta})
+**Baseline:** {baseline_metrics}
+**Post-deployment:** {post_deployment_metrics}
+{else:}
+Eval comparison skipped (no baseline available)
+{end if}
+
 ---
 
 ```
 
-### 4. Update System Version
+### 6. Update System Version
 
 If evolution includes version bump:
 
@@ -141,7 +185,7 @@ Write or update `{project-root}/.ies-version`:
 
 This tracks the current IES system version.
 
-### 5. Surface Changelog to User
+### 7. Surface Changelog to User
 
 Present the evolution's changelog from manifest:
 
@@ -163,7 +207,7 @@ New capabilities unlocked! Try these:
 {end for}
 ```
 
-### 6. Queue Training Prompts (if present)
+### 8. Queue Training Prompts (if present)
 
 If manifest includes `training_prompts`:
 
@@ -171,7 +215,7 @@ If manifest includes `training_prompts`:
 2. If yes: Pass training_prompts to training system for progressive unlock
 3. If no: Log prompts to `{project-root}/evolutions/training-queue.json` for manual review
 
-### 7. Output Final Summary
+### 9. Output Final Summary
 
 **If deployment fully successful:**
 
@@ -219,6 +263,7 @@ History logged to: evolutions/history.md
 - `history_entry` — Written to evolutions/history.md
 - `changelog_presented` — Boolean
 - `training_prompts_queued` — Boolean
+- `eval_comparison` — Comparative grading results (if benchmark snapshot exists)
 
 ## Workflow Complete
 

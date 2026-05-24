@@ -1,0 +1,14 @@
+{
+  "name": "partner-meeting-prep",
+  "type": "workflow",
+  "assertions": [
+    {
+      "id": "pmp-001-state-complete",
+      "check": "yaml_field_equals",
+      "path": "workflows/partner-meeting-prep/state.yaml",
+      "field": "status",
+      "value": "complete",
+      "description": "Partner meeting prep workflow state.yaml shows status: complete"
+    }
+  ]
+}

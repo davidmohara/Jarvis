@@ -1,0 +1,14 @@
+{
+  "name": "podcast-prep",
+  "type": "workflow",
+  "assertions": [
+    {
+      "id": "podcast-001-state-complete",
+      "check": "yaml_field_equals",
+      "path": "workflows/podcast-prep/state.yaml",
+      "field": "status",
+      "value": "complete",
+      "description": "Podcast prep workflow state.yaml shows status: complete"
+    }
+  ]
+}

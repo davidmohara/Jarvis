@@ -1,0 +1,14 @@
+{
+  "name": "weekly-knowledge-review",
+  "type": "workflow",
+  "assertions": [
+    {
+      "id": "wkr-001-state-complete",
+      "check": "yaml_field_equals",
+      "path": "workflows/weekly-knowledge-review/state.yaml",
+      "field": "status",
+      "value": "complete",
+      "description": "Weekly knowledge review workflow state.yaml shows status: complete"
+    }
+  ]
+}

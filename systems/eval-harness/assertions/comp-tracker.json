@@ -1,0 +1,14 @@
+{
+  "name": "comp-tracker",
+  "type": "workflow",
+  "assertions": [
+    {
+      "id": "comp-001-state-complete",
+      "check": "yaml_field_equals",
+      "path": "workflows/comp-tracker/state.yaml",
+      "field": "status",
+      "value": "complete",
+      "description": "Comp tracker workflow state.yaml shows status: complete"
+    }
+  ]
+}

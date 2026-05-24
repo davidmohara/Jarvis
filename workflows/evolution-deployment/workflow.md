@@ -92,9 +92,10 @@ This workflow MUST be executed in order. Each step has defined outputs that feed
 1. **Step 01: Validate Manifest** — Parse and validate evolution manifest structure, verify all referenced files exist in package
 2. **Step 02: Compatibility Check** — Verify minimum_base_version requirement, check for breaking changes
 3. **Step 03: Create Snapshot** — Backup current state of all files listed in manifest before any modifications
-4. **Step 04: Scan Personal Blocks** — Parse all target files, extract personal block locations and content
-5. **Step 05: Apply Evolution** — Execute file operations (add/replace/merge/delete) according to manifest
-6. **Step 06: Verify & Log** — Confirm integrity, verify personal blocks preserved, write to history
+4. **Step 04: Benchmark Snapshot** — Capture eval harness baseline: grade recent eval records, snapshot eval-harness/runs/ for comparative analysis
+5. **Step 05: Scan Personal Blocks** — Parse all target files, extract personal block locations and content
+6. **Step 06: Apply Evolution** — Execute file operations (add/replace/merge/delete) according to manifest
+7. **Step 07: Verify & Log** — Confirm integrity, verify personal blocks preserved, run comparative eval grading, write to history
 
 ### Execution Entry Point
 

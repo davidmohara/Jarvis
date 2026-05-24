@@ -590,13 +590,41 @@ On every new session, Master runs the boot sequence:
 
 ### Agent Output Handling
 
-When a sub-agent returns output, Master runs three post-execution actions before delivering anything to the controller. All three are mandatory. Execute in this order:
+When a sub-agent returns output, Master runs four post-execution actions before delivering anything to the controller. All four are mandatory. Execute in this order:
 
 **Action 1: `## Self-Corrections`** — Write each entry as a new file at `systems/error-tracking/entries/<id>.json` per the schema, then strip the block. Controller never sees it.
 
 **Action 2: `## Slack Notification`** — Invoke the master-slack skill (`.claude/skills/master-slack/SKILL.md`) and send the message to the specified channel. Then strip the block. Controller never sees the raw payload — only the notification arriving in Slack.
 
 **Action 3: Working Memory Capture** — Write a working memory entry to `memory/working/` for every sub-agent execution that produced meaningful output. This is Master's responsibility, not the sub-agent's. The sub-agent does not need to include any special block or know about the memory system.
+
+**Action 4: Tier 4 Controller Feedback (Sampling)** — Occasionally prompt the controller for subjective feedback on output quality. This is Tier 4 of the 4-tier success assessment strategy.
+
+**Sampling logic:** Only fire on ~10% of runs to reduce controller fatigue. Use a simple hash-based sampling: compute `hash(session_id + agent_name) % 10 == 0` to determine whether to prompt. This ensures consistent behavior across sessions while keeping the rate low.
+
+**When sampling triggers:**
+
+1. Find the active eval record for this sub-agent execution in `systems/eval-harness/runs/`. Match by `session_id` and `agent` fields.
+2. Prompt the controller inline with a minimal-friction feedback request:
+
+> "Quick feedback on this output (optional):
+> Rating: 1-5 (5 = excellent, 1 = poor)
+> Comment: (optional, what worked or didn't)
+>
+> Skip to skip feedback — I won't ask again for this run."
+
+3. If the controller provides a rating/comment, update the eval record's `assessment.controller_feedback` block:
+```json
+{
+  "rating": 5,
+  "comment": "Excellent briefing, covered everything I needed",
+  "timestamp": "2026-05-23T14:00:00Z"
+}
+```
+
+4. If the controller skips, set `controller_feedback.rating` to `null` and add a note that feedback was declined. This prevents re-prompting on the same run.
+
+5. Write the updated eval record back to `systems/eval-harness/runs/{id}.json`.
 
 **What counts as meaningful output:** Any sub-agent execution that produced a deliverable (briefing, prep brief, pipeline review, analysis, deck, email draft), ran a workflow to completion, or surfaced actionable findings. Exclude trivial exchanges (quick lookups, confirmations, single-line answers).
 

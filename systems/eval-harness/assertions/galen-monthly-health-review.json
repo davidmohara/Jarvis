@@ -1,0 +1,14 @@
+{
+  "name": "galen-monthly-health-review",
+  "type": "workflow",
+  "assertions": [
+    {
+      "id": "galen-001-state-complete",
+      "check": "yaml_field_equals",
+      "path": "workflows/galen-monthly-health-review/state.yaml",
+      "field": "status",
+      "value": "complete",
+      "description": "Galen monthly health review workflow state.yaml shows status: complete"
+    }
+  ]
+}
