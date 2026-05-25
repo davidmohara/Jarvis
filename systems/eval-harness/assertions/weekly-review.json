@@ -49,6 +49,26 @@
       "path": "memory/working/weekly-review-*.md",
       "pattern": "(?i)(delegation|follow.?up)",
       "description": "Weekly review contains delegations/follow-up section"
+    },
+    {
+      "id": "weekly_revie-wm-written",
+      "check": "file_exists",
+      "path": "memory/working/weekly-review-*.md",
+      "description": "Weekly review working memory file was written to memory/working/"
+    },
+    {
+      "id": "weekly_revie-wm-size",
+      "check": "file_min_bytes",
+      "path": "memory/working/weekly-review-*.md",
+      "min_bytes": 200,
+      "description": "Weekly review working memory file is substantive (>200 bytes)"
+    },
+    {
+      "id": "weekly_revie-wm-content",
+      "check": "file_contains",
+      "path": "memory/working/weekly-review-*.md",
+      "pattern": "(?i)(rock|week|review)",
+      "description": "Weekly review working memory contains expected content"
     }
   ]
 }

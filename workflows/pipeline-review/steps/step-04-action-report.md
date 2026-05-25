@@ -190,5 +190,34 @@ current-step: step-04
 | Deal requires proposal or deck | Harper (Communications) | Route content request with deal context and audience |
 <!-- system:end -->
 
+
+## WRITE WORKING MEMORY
+
+After the workflow output has been delivered, write a working memory file to `memory/working/` using this filename pattern:
+
+```
+pipeline-review-YYYY-MM-DD-HHmmss.md
+```
+
+where `YYYY-MM-DD-HHmmss` is the local date and time at the moment of writing. Use the session start time from `state.yaml` if available; otherwise use current time.
+
+The file must begin with this YAML frontmatter (all fields required):
+
+```yaml
+---
+type: working
+task_id: "session"
+session_id: "chase-{YYYY-MM-DD}-{HHmmss}"
+agent-source: chase
+created: {YYYY-MM-DD}T{HH:MM:SS}
+expires: {YYYY-MM-DD+2}T{HH:MM:SS}
+status: active
+context: "Pipeline health review — {YYYY-MM-DD}"
+---
+```
+
+Body: 3-5 bullet points summarizing key outputs, decisions, and any flags from this run. Keep it under 200 words.
+
+---
 <!-- personal:start -->
 <!-- personal:end -->

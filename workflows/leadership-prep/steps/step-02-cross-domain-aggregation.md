@@ -1,5 +1,9 @@
 ---
+status: not-started
 model: opus
+started-at: ~
+completed-at: ~
+outputs: {}
 ---
 
 <!-- system:start -->

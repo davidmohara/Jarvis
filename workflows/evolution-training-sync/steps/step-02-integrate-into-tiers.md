@@ -1,8 +1,12 @@
 ---
+status: not-started
 step: 2
 name: integrate-into-curriculum
 workflow: evolution-training-sync
 model: sonnet
+started-at: ~
+completed-at: ~
+outputs: {}
 ---
 
 <!-- system:start -->

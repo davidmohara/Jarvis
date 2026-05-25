@@ -9,6 +9,26 @@
       "field": "status",
       "value": "complete",
       "description": "Goal alignment workflow state.yaml shows status: complete"
+    },
+    {
+      "id": "goal_alignme-wm-written",
+      "check": "file_exists",
+      "path": "memory/working/goal-alignment-*.md",
+      "description": "Goal alignment working memory file was written to memory/working/"
+    },
+    {
+      "id": "goal_alignme-wm-size",
+      "check": "file_min_bytes",
+      "path": "memory/working/goal-alignment-*.md",
+      "min_bytes": 200,
+      "description": "Goal alignment working memory file is substantive (>200 bytes)"
+    },
+    {
+      "id": "goal_alignme-wm-content",
+      "check": "file_contains",
+      "path": "memory/working/goal-alignment-*.md",
+      "pattern": "(?i)(goal|drift|align)",
+      "description": "Goal alignment working memory contains expected content"
     }
   ]
 }

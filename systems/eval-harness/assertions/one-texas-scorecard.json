@@ -9,6 +9,26 @@
       "field": "status",
       "value": "complete",
       "description": "One Texas scorecard workflow state.yaml shows status: complete"
+    },
+    {
+      "id": "one_texas_sc-wm-written",
+      "check": "file_exists",
+      "path": "memory/working/one-texas-scorecard-*.md",
+      "description": "One Texas scorecard working memory file was written to memory/working/"
+    },
+    {
+      "id": "one_texas_sc-wm-size",
+      "check": "file_min_bytes",
+      "path": "memory/working/one-texas-scorecard-*.md",
+      "min_bytes": 200,
+      "description": "One Texas scorecard working memory file is substantive (>200 bytes)"
+    },
+    {
+      "id": "one_texas_sc-wm-content",
+      "check": "file_contains",
+      "path": "memory/working/one-texas-scorecard-*.md",
+      "pattern": "(?i)(score|texas|metric)",
+      "description": "One Texas scorecard working memory contains expected content"
     }
   ]
 }

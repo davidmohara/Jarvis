@@ -1,8 +1,12 @@
 ---
+status: not-started
 step: 1
 name: detect-new-components
 workflow: evolution-training-sync
 model: sonnet
+started-at: ~
+completed-at: ~
+outputs: {}
 ---
 
 <!-- system:start -->

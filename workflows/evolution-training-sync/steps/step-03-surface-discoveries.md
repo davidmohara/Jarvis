@@ -1,8 +1,12 @@
 ---
+status: not-started
 step: 3
 name: surface-discoveries
 workflow: evolution-training-sync
 model: sonnet
+started-at: ~
+completed-at: ~
+outputs: {}
 ---
 
 <!-- system:start -->

@@ -1,5 +1,9 @@
 ---
+status: not-started
 model: sonnet
+started-at: ~
+completed-at: ~
+outputs: {}
 ---
 
 <!-- system:start -->

@@ -1,6 +1,9 @@
 ---
 status: not-started
 step: step-04-benchmark-snapshot
+started-at: ~
+completed-at: ~
+outputs: {}
 ---
 
 # Step 04: Benchmark Snapshot
