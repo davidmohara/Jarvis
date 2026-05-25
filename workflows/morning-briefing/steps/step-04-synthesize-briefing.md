@@ -121,15 +121,64 @@ What do you want to tackle first?
 
 ## WRITE OUTPUT FILE
 
-**After delivering the briefing**, write the complete briefing text to:
+**After delivering the briefing**, write a working memory file to `memory/working/` using this exact filename pattern:
 
 ```
-memory/working/morning-briefing-YYYY-MM-DD.md
+morning-briefing-YYYY-MM-DD-HHmmss.md
 ```
 
-where `YYYY-MM-DD` is today's date (e.g., `memory/working/morning-briefing-2026-05-24.md`).
+where `YYYY-MM-DD-HHmmss` is the local date and time at the moment of writing (e.g., `morning-briefing-2026-05-25-071532.md`). Use the session start time from `state.yaml` if available; otherwise use current time.
 
-The file must contain the full briefing exactly as delivered — all three narrative paragraphs, the calendar table, and the closing line. This file is the durable record consumed by the eval harness assertions. Do not skip this write. Do not abbreviate the content.
+The file **must** begin with this YAML frontmatter block (all fields required):
+
+```yaml
+---
+type: working
+task_id: "session"
+session_id: "chief-{YYYY-MM-DD}-{HHmmss}"
+agent-source: chief
+created: {YYYY-MM-DD}T{HH:MM:SS}
+expires: {YYYY+0 days, MM, DD+2}T{HH:MM:SS}
+status: active
+context: "Morning briefing — {YYYY-MM-DD}"
+---
+```
+
+Field rules:
+- `session_id`: `chief-` followed by the same timestamp used in the filename (e.g., `chief-2026-05-25-071532`)
+- `created`: ISO 8601 local time, no Z suffix (e.g., `2026-05-25T07:15:32`)
+- `expires`: `created` + exactly 2 days, same time (e.g., `2026-05-27T07:15:32`)
+- `status`: always `active` when first written
+
+After the frontmatter, include the full briefing body:
+
+```
+# Morning Briefing — {Day of Week}, {Month DD, YYYY}
+
+## Data Sources
+- Calendar (M365): {pulled successfully | unavailable}
+- OmniFocus: {pulled successfully | unavailable}
+- Clay: {pulled | unavailable | nothing to surface}
+- Delegations tracker: {summary}
+
+## Calendar Conflicts Surfaced
+{List any back-to-back blocks, overload warnings, or "None"}
+
+## Overdue Items Flagged
+{List overdue tasks or delegations, or "None"}
+
+## 72-Hour Look-Ahead Flags
+{Any flags for the next 3 days from look-ahead scan, or "None surfaced"}
+
+## Interruptions / Missing Data
+{Any data sources that failed or returned no data, or "None"}
+
+---
+
+{Full briefing text exactly as delivered to the controller — all three narrative paragraphs, the calendar table, and the closing line}
+```
+
+This file is the durable record consumed by the eval harness assertions. Do not skip this write. Do not abbreviate the content. The filename timestamp pattern is mandatory — a date-only filename will fail the assertion.
 
 ---
 

@@ -90,6 +90,36 @@ def find_active_eval_record(session_id: str) -> Path | None:
         log_error(f"Failed to find eval record: {e}")
     return None
 
+
+def find_completed_eval_record(workflow_name: str, session_id: str) -> Path | None:
+    """Find any completed (non-in-progress) eval record for this workflow + session.
+
+    Used to detect duplicate cowork-hook records before creating a new one.
+    Returns the most recent match, or None if none exists.
+    """
+    try:
+        if not EVAL_RUNS_DIR.exists():
+            return None
+
+        records = []
+        for f in EVAL_RUNS_DIR.glob("eval-*.json"):
+            try:
+                with open(f, "r") as file:
+                    data = json.load(file)
+                if (data.get("session_id") == session_id
+                        and data.get("name") == workflow_name
+                        and data.get("status") != "in-progress"):
+                    records.append((f, data.get("started", "")))
+            except Exception:
+                continue
+
+        if records:
+            records.sort(key=lambda x: x[1], reverse=True)
+            return records[0][0]
+    except Exception as e:
+        log_error(f"Failed to find completed eval record: {e}")
+    return None
+
 def infer_trigger(state_data: dict) -> str:
     """Infer trigger from state.yaml content."""
     # state.yaml may have an explicit trigger field
@@ -407,6 +437,10 @@ def create_eval_record_from_skill_run(skill_run_data: dict, session_id: str):
 def create_eval_record_from_state(state_data: dict, session_id: str):
     """Create a complete eval record when state.yaml reaches status: complete
     and no in-progress stub exists (Cowork path — SubagentStart hook never fired).
+
+    Guard: if a completed record already exists for this workflow + session, or if
+    steps would be empty and this appears to be a duplicate cowork-hook trigger,
+    skip creation and log a warning instead of writing a phantom record.
     """
     try:
         EVAL_RUNS_DIR.mkdir(parents=True, exist_ok=True)
@@ -414,6 +448,20 @@ def create_eval_record_from_state(state_data: dict, session_id: str):
         workflow_name = state_data.get("workflow", "unknown")
         agent = state_data.get("agent", "unknown")
         trigger = infer_trigger(state_data)
+
+        # GUARD: Check for an existing completed record for this workflow + session.
+        # close-eval-record.py (invoked by workflow final steps) writes a proper record
+        # with steps populated. If that already exists, this cowork-hook path would
+        # produce a duplicate phantom with steps: [] — skip it.
+        existing = find_completed_eval_record(workflow_name, session_id)
+        if existing is not None:
+            log_error(
+                f"[GUARD] Skipped phantom workflow eval creation for '{workflow_name}' "
+                f"session='{session_id}': completed record already exists at {existing.name}. "
+                f"This was a cowork-hook state.yaml trigger that would have produced steps: []."
+            )
+            return
+
         now = datetime.now(timezone.utc)
         completed_iso = now.isoformat().replace("+00:00", "Z")
 
@@ -481,6 +529,18 @@ def create_eval_record_from_state(state_data: dict, session_id: str):
 
         # Run structural assertions and merge results
         record["assessment"]["structural"] = run_assertions(workflow_name, record)
+
+        # GUARD: If steps are empty after record construction, this record is unverifiable.
+        # Tag it as a phantom-candidate and log a warning so it can be filtered from metrics.
+        # A proper record will arrive via close-eval-record.py when the workflow step calls it.
+        if not record.get("steps"):
+            log_error(
+                f"[GUARD] Writing cowork-hook workflow eval for '{workflow_name}' "
+                f"session='{session_id}' with steps: [] — record is unverifiable. "
+                f"Tagging as phantom-candidate. Ensure close-eval-record.py is called "
+                f"by the workflow's final step to produce an authoritative record."
+            )
+            record["tags"] = list(set(record.get("tags", [])) | {"phantom-candidate"})
 
         path = EVAL_RUNS_DIR / f"{eval_id}.json"
         atomic_write_json(path, record)

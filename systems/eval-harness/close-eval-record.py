@@ -117,16 +117,28 @@ def find_stub(name: str, session_id: str) -> tuple[Path, dict] | tuple[None, Non
     return candidates[0]
 
 
-def build_steps(step_list: list[str], started_iso: str) -> list[dict]:
-    """Build minimal step records from a name list."""
-    now = datetime.now(timezone.utc)
+def build_steps(step_list: list[str], started_dt: datetime, completed_dt: datetime) -> list[dict]:
+    """Build minimal step records from a name list.
+
+    Since individual per-step timestamps are not tracked at the call site, we
+    distribute the total elapsed time evenly across steps so that duration_seconds
+    is a real number rather than null, and timestamps are monotonically ordered.
+    Each step gets an equal slice of the total wall-clock window.
+    """
+    n = len(step_list)
+    if n == 0:
+        return []
+    total_seconds = max(0.0, (completed_dt - started_dt).total_seconds())
+    slice_seconds = total_seconds / n
     steps = []
-    for name in step_list:
+    for i, name in enumerate(step_list):
+        step_start = started_dt + timedelta(seconds=slice_seconds * i)
+        step_end = started_dt + timedelta(seconds=slice_seconds * (i + 1))
         steps.append({
             "name": name,
-            "started": started_iso,
-            "completed": now.isoformat().replace("+00:00", "Z"),
-            "duration_seconds": None,
+            "started": step_start.isoformat().replace("+00:00", "Z"),
+            "completed": step_end.isoformat().replace("+00:00", "Z"),
+            "duration_seconds": round(slice_seconds, 1),
             "status": "success",
             "data_sources_used": [],
             "data_source_failures": []
@@ -152,29 +164,50 @@ def main():
 
     EVAL_RUNS_DIR.mkdir(parents=True, exist_ok=True)
 
+    # Capture real wall-clock completion time at the moment this script runs.
     now = datetime.now(timezone.utc)
     completed_iso = now.isoformat().replace("+00:00", "Z")
 
-    # Determine start time
-    if args.started:
+    session_id = current_session_id()
+
+    # Try to find an existing stub (Claude Code hook created it) before resolving
+    # the start time so we can use the stub's real started value.
+    vhash = version_hash(args.name, args.eval_type)
+    stub_path, stub = find_stub(args.name, session_id)
+
+    # Determine start time — preference order:
+    #   1. Stub's recorded started (most accurate; written at actual boot/spawn time)
+    #   2. --started argument passed by the caller
+    #   3. Warn and use now (no fabricated 60s offset; duration will be ~0 but honest)
+    if stub is not None and stub.get("started"):
+        try:
+            started_dt = datetime.fromisoformat(stub["started"].replace("Z", "+00:00"))
+        except ValueError:
+            started_dt = None
+    else:
+        started_dt = None
+
+    if started_dt is None and args.started:
         try:
             started_dt = datetime.fromisoformat(args.started.replace("Z", "+00:00"))
         except ValueError:
-            started_dt = now - timedelta(seconds=60)
-    else:
-        started_dt = now - timedelta(seconds=60)
-    started_iso = started_dt.isoformat().replace("+00:00", "Z")
-    duration = max(0, (now - started_dt).total_seconds())
+            started_dt = None
 
-    session_id = current_session_id()
+    if started_dt is None:
+        print(
+            "[close-eval] WARNING: no real started timestamp available; "
+            "duration_seconds will be near-zero. Pass --started or ensure a stub exists.",
+            file=sys.stderr,
+        )
+        started_dt = now
+
+    started_iso = started_dt.isoformat().replace("+00:00", "Z")
+    duration = max(0.0, (now - started_dt).total_seconds())
+
     step_names = [s.strip() for s in args.steps.split(",") if s.strip()]
-    steps = build_steps(step_names, started_iso)
+    steps = build_steps(step_names, started_dt, now)
     completed_flag = args.status in ("success", "partial")
     all_steps = bool(step_names) and args.status in ("success", "partial")
-    vhash = version_hash(args.name, args.eval_type)
-
-    # Try to find an existing stub (Claude Code hook created it)
-    stub_path, stub = find_stub(args.name, session_id)
 
     if stub is not None:
         # Close the existing stub
