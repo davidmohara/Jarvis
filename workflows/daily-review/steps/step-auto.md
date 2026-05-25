@@ -115,6 +115,26 @@ model: sonnet
 
 ---
 
+## EVAL RECORD
+
+**Before closing**, write an eval record for this autonomous run.
+
+Determine status:
+- `success` — narrative written to knowledge system (or fallback file) with descriptive title
+- `partial` — narrative written but one major source failed (OmniFocus OR calendar, not both)
+- `failure` — both primary sources failed and no substantive narrative could be written
+
+Run:
+```bash
+python3 systems/eval-harness/close-eval-record.py \
+  --name daily-review \
+  --type workflow \
+  --agent chief \
+  --status {success|partial|failure} \
+  --trigger scheduled \
+  --steps "step-auto"
+```
+
 ## STEP COMPLETE
 
 This is the only step for auto mode. No further steps to load.

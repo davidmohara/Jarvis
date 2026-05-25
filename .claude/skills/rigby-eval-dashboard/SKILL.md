@@ -81,6 +81,29 @@ Date range: {start-date} to {end-date}
 - **Eval Records**: Read `systems/eval-harness/runs/*.json`
 - **Dashboard Generator**: Execute `systems/eval-harness/generate-dashboard.py`
 - **Output**: Write dashboard HTML to specified path
+
+## SKILL COMPLETE
+
+After the summary is delivered, write the skill-run signal file so the eval harness captures this execution:
+
+```
+systems/eval-harness/skill-runs/rigby-eval-dashboard-latest.json
+```
+
+Content:
+```json
+{
+  "skill": "rigby-eval-dashboard",
+  "agent": "rigby",
+  "trigger": "manual",
+  "started": "<ISO-8601 timestamp when this skill began>",
+  "status": "success",
+  "tool_failures": 0,
+  "error_ids": []
+}
+```
+
+Set `status` to `"partial"` if the dashboard was generated but with incomplete data, `"failure"` if the dashboard could not be generated. Use the actual start time of this skill execution for `started`. This write is always the final action — it is what creates the eval record in the harness.
 <!-- system:end -->
 
 <!-- personal:start -->

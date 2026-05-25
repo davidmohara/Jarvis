@@ -1,7 +1,7 @@
 ---
 name: omnifocus-tasks
 owning_agent: chief
-description: Gate-enforced OmniFocus task creation. Every task MUST have a project and tag before the AppleScript executes. No exceptions. No bare inbox drops. This skill is the ONLY path for creating tasks — do not write raw OmniFocus AppleScript outside this skill.
+description: Gate-enforced OmniFocus task creation. Every task MUST have a project and tag before creation executes. No exceptions. No bare inbox drops. This skill is the ONLY path for creating tasks — do not call mcp__omnifocus__create_task or write raw OmniFocus AppleScript outside this skill.
 evolution: system
 model: haiku
 trigger_keywords: [create task, add task, omnifocus, new task, task for]
@@ -27,27 +27,15 @@ Any time Jarvis creates a task in OmniFocus. Every time. Including:
 
 ## Pre-Flight Checklist (MANDATORY)
 
-Before writing ANY `tell application "OmniFocus"` block, complete these steps in order:
+Before executing ANY task creation call, complete these steps in order:
 
 ### Step 1: Pull Live Project and Tag Lists
 
 Do NOT use static/hardcoded lists. Always query OmniFocus for current data:
 
-**Projects:** Call `mcp__omnifocus__get_active_projects` via MCP. Filter out archived/on-hold projects (folder = "Archive" or status = "on hold status"). The result is your valid project list for this task.
+**Projects:** Call `mcp__omnifocus__list_projects` with `status: active` via MCP. This returns only active projects — on-hold and completed projects are automatically excluded. The result is your valid project list for this task.
 
-**Tags:** Run via osascript (Desktop Commander or Mac bridge):
-```applescript
-tell application "OmniFocus"
-    tell default document
-        set tagNames to {}
-        repeat with t in (every flattened tag whose effectively hidden is false)
-            set end of tagNames to name of t
-        end repeat
-        return tagNames
-    end tell
-end tell
-```
-The result is your valid tag list for this task.
+**Tags:** Call `mcp__omnifocus__list_tags` via MCP. The result is your valid tag list for this task.
 
 ### Step 2: Populate All Fields
 
@@ -76,27 +64,41 @@ Do NOT create new projects or tags without David's explicit approval. If the cor
 - If the task is a personal errand → Errands
 - If none of the above clearly fit → ask David
 
-## AppleScript Template
+## Task Creation — MCP (Primary)
 
-Use this exact template. Fill in all variables before executing. The template enforces the gate.
+Use `mcp__omnifocus__create_task`. All fields must be resolved before calling.
+
+```
+mcp__omnifocus__create_task:
+  name:    "{{TASK_NAME}}"          # required
+  project: "{{PROJECT}}"            # exact name from Step 1 list
+  tags:    ["{{TAG}}"]              # exact name(s) from Step 1 list
+  note:    "{{NOTES}}"              # context: who, why, source. min one sentence.
+  dueDate: "{{DUE_DATE}}"           # ISO 8601, e.g. "2026-05-30T17:00:00"
+  deferDate: "{{DEFER_DATE}}"       # optional — omit if not needed
+  flagged: false                    # true only if David explicitly says urgent/priority
+```
+
+On success the tool returns the created task ID and name. Confirm to David:
+`Created: [task name] | Project: [project] | Tag: [tag]`
+
+## Task Creation — AppleScript Fallback
+
+Use only if `mcp__omnifocus__create_task` is unavailable. Requires Desktop Commander.
 
 ```applescript
 tell application "OmniFocus"
     tell default document
-        -- GATE CHECK: All 4 variables must be populated. If any is empty string, STOP.
+        -- GATE CHECK: All variables must be populated. If any is empty string, STOP.
         set taskName to "{{TASK_NAME}}"
         set projectName to "{{PROJECT}}"
         set tagName to "{{TAG}}"
         set taskNotes to "{{NOTES}}"
         set dueDate to date "{{DUE_DATE}}"
 
-        -- Find the project
         set targetProject to first flattened project whose name is projectName
-
-        -- Find the tag
         set targetTag to first flattened tag whose name is tagName
 
-        -- Create the task IN the project, not in inbox
         tell targetProject
             set newTask to make new task with properties {name:taskName, note:taskNotes, due date:dueDate}
             add targetTag to tags of newTask
@@ -107,17 +109,15 @@ tell application "OmniFocus"
 end tell
 ```
 
-**Optional additions (append to the task creation block as needed):**
-- Defer date: `set defer date of newTask to date "{{DEFER_DATE}}"`
-- Flagged: `set flagged of newTask to true`
+Optional additions: `set defer date of newTask to date "{{DEFER_DATE}}"` / `set flagged of newTask to true`
 
 ## Quick Capture Exception
 
 When David says "capture [text]" or "add to inbox", this is the ONE case where speed matters more than full classification. But even then:
 
-1. Create the task in inbox (no project assignment)
+1. Create the task in inbox — call `mcp__omnifocus__create_task` with no `project` field
 2. **Still add a tag** — best guess based on context
-3. **Flag it for inbox processing** — note in the task: "Needs project assignment"
+3. **Note it needs project assignment:** set note to "Needs project assignment"
 4. Tell David: "Captured to inbox with [tag] tag. Needs project assignment during next inbox triage."
 
 This is the ONLY exception to the project requirement. Tag is still mandatory even for captures.
@@ -128,7 +128,8 @@ This is the ONLY exception to the project requirement. Tag is still mandatory ev
 |---------|--------|
 | Project not found in OmniFocus | Check spelling against the list. If genuinely missing, ask David — do not create a new project. |
 | Tag not found in OmniFocus | Check spelling against the list. If genuinely missing, ask David — do not create a new tag. |
-| OmniFocus unreachable | Retry 3x per SYSTEM.md policy. If still down, capture the task details in a note to David and process when OmniFocus is back. |
+| `create_task` MCP error | Fall back to AppleScript template above via Desktop Commander. |
+| OmniFocus unreachable entirely | Capture the task details in a note to David and process when OmniFocus is back. |
 | Ambiguous project/tag | Ask David with a specific recommendation: "I'd put this in [Project] with tag [Tag] — good?" |
 <!-- system:end -->
 

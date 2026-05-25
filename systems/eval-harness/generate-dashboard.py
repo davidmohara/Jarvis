@@ -32,7 +32,8 @@ def load_eval_records(eval_dir, recent, period, workflow, skill, agent):
         return []
 
     records = []
-    cutoff = datetime.now() - timedelta(days=period)
+    from datetime import timezone
+    cutoff = datetime.now(tz=timezone.utc) - timedelta(days=period)
 
     for f in eval_path.glob("eval-*.json"):
         try:
@@ -126,7 +127,9 @@ def calculate_metrics(records):
 
 
 def generate_html(records, metrics, output_path):
-    """Generate the HTML dashboard."""
+    """Generate the HTML dashboard with data baked in — no runtime fetches."""
+    import json as _json
+    records_json = _json.dumps(records, indent=2)
 
     html = f"""<!DOCTYPE html>
 <html>
@@ -305,11 +308,33 @@ def generate_html(records, metrics, output_path):
     print(f"Dashboard generated: {output_path}")
 
 
+def update_artifact_ids(eval_dir, artifact_path="systems/eval-harness/dashboard-artifact.html"):
+    """Keep KNOWN_IDS in dashboard-artifact.html in sync with actual run files."""
+    import re
+    runs = sorted(Path(eval_dir).glob("eval-*.json"))
+    ids = [r.stem for r in runs]
+    if not ids:
+        return
+    artifact = Path(artifact_path)
+    if not artifact.exists():
+        return
+    new_ids = ',\n    '.join(f"'{i}'" for i in ids)
+    updated = re.sub(
+        r'(const KNOWN_IDS = \[)[^\]]*(\];)',
+        f'const KNOWN_IDS = [\n    {new_ids}\n];',
+        artifact.read_text(),
+        flags=re.DOTALL
+    )
+    artifact.write_text(updated)
+    print(f"dashboard-artifact.html KNOWN_IDS updated: {len(ids)} records")
+
+
 def main():
     args = parse_args()
     records = load_eval_records(args.eval_dir, args.recent, args.period, args.workflow, args.skill, args.agent)
     metrics = calculate_metrics(records)
     generate_html(records, metrics, args.output)
+    update_artifact_ids(args.eval_dir)
 
 
 if __name__ == "__main__":

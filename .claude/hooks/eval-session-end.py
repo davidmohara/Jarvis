@@ -7,13 +7,12 @@ Finds any in-progress eval records and marks them as aborted.
 
 import json
 import sys
-import os
 import fcntl
 from pathlib import Path
 from datetime import datetime
 
 # Configuration — IES_ROOT from env var, fallback to default
-IES_ROOT = Path(os.environ.get("IES_ROOT", "/Users/davidohara/develop/jarvis"))
+IES_ROOT = Path(__file__).resolve().parents[2]
 EVAL_RUNS_DIR = IES_ROOT / "systems" / "eval-harness" / "runs"
 ERROR_LOG = Path("/tmp/ies-hook-errors.log")
 

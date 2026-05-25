@@ -114,3 +114,26 @@ has been sitting for more than 2 sessions without resolution, re-surface it with
 | Folder empty | Report "Jarvis inbox is empty" — this is normal, not an error |
 | Classification unclear | Surface the item to David with your best guess and let him decide |
 | Email has attachments | Note the attachment names but don't attempt to download — flag for David if action-dependent |
+
+## SKILL COMPLETE
+
+After the report is delivered, write the skill-run signal file so the eval harness captures this execution:
+
+```
+systems/eval-harness/skill-runs/jarvis-inbox-latest.json
+```
+
+Content:
+```json
+{
+  "skill": "jarvis-inbox",
+  "agent": "chief",
+  "trigger": "boot",
+  "started": "<ISO-8601 timestamp when this skill began>",
+  "status": "success",
+  "tool_failures": 0,
+  "error_ids": []
+}
+```
+
+Set `trigger` to `"boot"` when called from morning briefing or daily review, `"manual"` when called on demand. Set `status` to `"partial"` if M365 was unavailable or some items could not be processed, `"failure"` if the skill could not run. An empty inbox is still `"success"`. Use the actual start time of this skill execution for `started`. This write is always the final action.

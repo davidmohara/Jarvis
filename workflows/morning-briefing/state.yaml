@@ -1,27 +1,4 @@
 workflow: morning-briefing
 agent: chief
 status: complete
-session-started: "2026-05-22T06:05:00-05:00"
-session-id: chief-2026-05-22-060500
 current-step: step-04
-original-request: "Automated scheduled morning briefing"
-accumulated-context:
-  calendar-date: "2026-05-22"
-  timezone: "CDT (VM reports UTC — Mac timezone assumed CDT)"
-  meeting-count: 8
-  key-conflict: "10:00 AM — IBP Coaching (Venkat) overlaps Presidents Pipeline"
-  thl-call: "TODAY 10:30 AM with Rob Spies — first contact — assign AM post-call"
-  birgo-overdue: "46 days post-call, still unassigned — critical"
-  jsx-status: "Pre-call, 10 days in"
-  paragon-status: "Blank, Feb 17 — confirm"
-  rock2-flag: "One Texas Cadence rhythm due May 31 — 9 days out"
-  rock3-flag: "DRC talk delivered May 21 — Forbes article still the gap"
-  omnifocus-status: "unavailable — 3 timeouts"
-  jarvis-inbox: "Project Profitability Apr 26 — 26 days stale, has attachment"
-  plaud-staging: "no staging directory found"
-  clay-reminders: "0"
-  delegations: "clear"
-  look-ahead: "Golf lesson Sat, Declan graduation party Sun, Memorial Day Mon + Rangers game"
-  briefing-delivered: "true"
-  slack-ts: "1779448595.828379"
-  slack-channel: "C0AN2PQNXBR"

@@ -7,7 +7,6 @@ Creates an eval record stub with agent_id, agent_type, and started timestamp.
 
 import json
 import sys
-import os
 import secrets
 import string
 import fcntl
@@ -15,7 +14,7 @@ from pathlib import Path
 from datetime import datetime, timezone
 
 # Configuration — IES_ROOT from env var, fallback to default
-IES_ROOT = Path(os.environ.get("IES_ROOT", "/Users/davidohara/develop/jarvis"))
+IES_ROOT = Path(__file__).resolve().parents[2]
 EVAL_RUNS_DIR = IES_ROOT / "systems" / "eval-harness" / "runs"
 ERROR_LOG = Path("/tmp/ies-hook-errors.log")
 ALPHABET = string.ascii_uppercase + string.digits  # 36 chars, ~2.1B combos

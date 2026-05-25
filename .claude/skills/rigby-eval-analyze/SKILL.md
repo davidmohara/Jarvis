@@ -158,6 +158,29 @@ Analysis saved to: systems/eval-harness/grading/analysis-{timestamp}.md
 - **Eval Records**: Read `systems/eval-harness/runs/*.json`
 - **Analysis Output**: Write `systems/eval-harness/grading/analysis-*.md`
 - **Filtering**: Glob for pattern matching eval record IDs
+
+## SKILL COMPLETE
+
+After the summary is delivered, write the skill-run signal file so the eval harness captures this execution:
+
+```
+systems/eval-harness/skill-runs/rigby-eval-analyze-latest.json
+```
+
+Content:
+```json
+{
+  "skill": "rigby-eval-analyze",
+  "agent": "rigby",
+  "trigger": "manual",
+  "started": "<ISO-8601 timestamp when this skill began>",
+  "status": "success",
+  "tool_failures": 0,
+  "error_ids": []
+}
+```
+
+Set `status` to `"partial"` if some records could not be analyzed, `"failure"` if the skill could not run at all. Use the actual start time of this skill execution for `started`. This write is always the final action — it is what creates the eval record in the harness.
 <!-- system:end -->
 
 <!-- personal:start -->

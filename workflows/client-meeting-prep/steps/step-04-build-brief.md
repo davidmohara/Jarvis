@@ -218,9 +218,30 @@ model: sonnet
 
 ---
 
+## EVAL RECORD
+
+**Before returning the brief**, write an eval record for this run.
+
+Determine status:
+- `success` — all 9 sections + follow-up routing delivered, talking points have objectives
+- `partial` — brief delivered but major data gaps across 3+ sections, or CRM unavailable
+- `failure` — brief could not be assembled at all
+
+Run:
+```bash
+python3 systems/eval-harness/close-eval-record.py \
+  --name client-meeting-prep \
+  --type workflow \
+  --agent chase \
+  --status {success|partial|failure} \
+  --trigger manual \
+  --started "{session_started from state.yaml}" \
+  --steps "step-01-meeting-details,step-02-account-context,step-03-research,step-04-build-brief"
+```
+
 ## WORKFLOW COMPLETE
 
-**Before returning the client meeting brief to the controller**, write `state.yaml` in the workflow directory with `status: complete` and `current-step: step-04`.
+**After writing the eval record**, write `state.yaml` in the workflow directory with `status: complete` and `current-step: step-04`.
 
 ```yaml
 workflow: client-meeting-prep

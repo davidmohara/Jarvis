@@ -1,0 +1,15 @@
+{
+  "id": "err-20260525T144217-HYKRGQ",
+  "timestamp": "2026-05-25T14:42:17Z",
+  "session": "2026-05-25-morning-briefing",
+  "source": "self-detected",
+  "agent": "chief",
+  "category": "tool-misuse",
+  "description": "OmniFocus MCP server was replaced with an entirely new server (40+ tools, new API) but SYSTEM.md, omnifocus-tasks SKILL.md, step-02-gather-tasks.md, agents/master.md, and reference/omnifocus-commands.md all continued to reference the old tool names (get_active_tasks, get_all_tasks, get_active_projects, get_all_projects). Any agent following those instructions would have called non-existent tools and failed silently or reported a confusing error.",
+  "correction": "Updated all five files to reference the new API: get_inbox, list_tasks (with status filters), list_projects (with status: active), search_tasks, get_task, get_project, get_forecast. Marked the Rigby osascript-as-primary recommendation as superseded since the new MCP server is sub-second.",
+  "failure_mode": "stale-cache",
+  "systemic_fix": "Applied. All live OmniFocus references updated. Historical fix doc (rigby-omnifocus-mcp-fix-2026-04-01.md) preserved as-is with a superseded note added to reference/omnifocus-commands.md. Error entry err-20260525T142556-0J7PUZ (the timeout bug) should be updated to fix_status: applied since the root cause was the MCP server replacement, not a code patch.",
+  "fix_status": "applied",
+  "severity": "major",
+  "related_entries": ["err-20260525T142556-0J7PUZ"]
+}

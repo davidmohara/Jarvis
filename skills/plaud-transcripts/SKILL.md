@@ -496,3 +496,26 @@ Agent(
 
 The sub-agent is fully self-contained — no scheduled tasks to clean up, no orphaned
 state files. It polls, processes, cleans up, and terminates.
+
+## SKILL COMPLETE
+
+After the report is delivered (Step 7) and staging cleanup is done, write the skill-run signal file so the eval harness captures this execution:
+
+```
+systems/eval-harness/skill-runs/plaud-transcripts-latest.json
+```
+
+Content:
+```json
+{
+  "skill": "plaud-transcripts",
+  "agent": "knox",
+  "trigger": "boot",
+  "started": "<ISO-8601 timestamp when this skill began>",
+  "status": "success",
+  "tool_failures": 0,
+  "error_ids": []
+}
+```
+
+Set `trigger` to `"boot"` when called from the Plaud ingest workflow, `"manual"` when called on demand. Set `status` to `"partial"` if some transcripts were processed but others failed or remain pending, `"failure"` if no transcripts could be processed. An empty staging folder is still `"success"`. Use the actual start time of this skill execution for `started`. This write is always the final action.

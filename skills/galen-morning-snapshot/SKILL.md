@@ -67,13 +67,15 @@ Check for:
 
 ### Step 5: Surface Peptide Cycle Reminders
 
-If a peptide protocol is active:
-- **CJC-1295 w/DAC (1mg/wk):** note if this is an injection day (helps frame recovery expectation)
-- **Ipamorelin (1400ug/wk):** note if this is a pulse day
-- **BPC-157 (as needed):** remind if recent injury/recovery protocol active
-- **Epithalon, DSIP, MOTS-C cycles:** note if in active cycle (these affect recovery markers)
+Read `memory/personal/health-protocols.md` via Obsidian MCP (`mcp__obsidian-mcp-tools__get_vault_file`).
 
-Reminder format: "Active: CJC-1295 cycle (week 4 of 8)" or "BPC-157 protocol ongoing"
+Surface any compound with `Status: Active`. Format:
+- **BPC-157 (30 IU daily):** note that today is a dosing day (every day). Flag if recovery or HRV trends down 2+ consecutive days — possible sign the dose needs review.
+- **Retatrutide / Reta (40 IU weekly):** note if this is injection day if known; otherwise surface as "Reta cycle active." Flag if appetite suppression or energy suppression is concurrent with declining recovery scores.
+
+If `health-protocols.md` does not exist or has no active protocols, omit this step entirely. Keep output clean.
+
+Reminder format: `"Active: BPC-157 (30 IU daily), Reta (40 IU weekly)"` with any relevant flags appended.
 
 ### Step 6: Generate Brief Output for Chief
 
@@ -139,3 +141,26 @@ Pass structured brief to Chief's morning briefing input. Chief decides whether t
 - Output is NOT a standalone deliverable — it's consumed by Chief's step-04 synthesis
 - If red recovery detected, Chief may choose to escalate load/schedule adjustments through Master
 - Repeated red flags (3+ in a week) should trigger Galen's Recovery Coaching task on demand
+
+## SKILL COMPLETE
+
+After routing output to Chief (Step 7), write the skill-run signal file so the eval harness captures this execution:
+
+```
+systems/eval-harness/skill-runs/galen-morning-snapshot-latest.json
+```
+
+Content:
+```json
+{
+  "skill": "galen-morning-snapshot",
+  "agent": "galen",
+  "trigger": "boot",
+  "started": "<ISO-8601 timestamp when this skill began>",
+  "status": "success",
+  "tool_failures": 0,
+  "error_ids": []
+}
+```
+
+Set `trigger` to `"boot"` when called from the morning briefing sequence, `"manual"` when called on demand. Set `status` to `"partial"` if WHOOP data was unavailable or incomplete, `"failure"` if the skill could not run. Use the actual start time of this skill execution for `started`. This write is always the final action.

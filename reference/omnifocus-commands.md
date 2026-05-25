@@ -1,6 +1,37 @@
 # OmniFocus Command Reference
 
-Use `osascript` via Bash for all OmniFocus interactions.
+## Which Path to Use
+
+| Situation | Use |
+|-----------|-----|
+| Reading inbox, tasks, projects, forecast from Cowork | **OmniFocus MCP** (`mcp__omnifocus__*`) — sub-second, filtered, structured JSON |
+| Writing tasks (create, complete, update) from Cowork | **`skills/omnifocus-tasks/SKILL.md`** — gated skill using osascript via Desktop Commander |
+| Reading/writing from scheduled tasks or Desktop Commander context | **osascript** via `mcp__Desktop_Commander__start_process` using commands below |
+| Fallback if MCP is unavailable during a Cowork session | osascript via Desktop Commander (retry MCP once first) |
+
+## MCP Tool Quick Reference
+
+The OmniFocus MCP server (`mcp__omnifocus__*`) is the primary read path. Key tools:
+
+| Tool | When to Use |
+|------|-------------|
+| `get_inbox` | Pull inbox items for briefing or triage |
+| `list_tasks` | Filter tasks by status (available/overdue/due_soon/all), project, tag, date, flagged |
+| `search_tasks` | Find tasks by name/note text |
+| `get_task` | Full detail on one task by ID or exact name |
+| `list_projects` | List projects; use `status: active` for active-only |
+| `get_project` | Full project detail including task counts |
+| `get_forecast` | Tasks + calendar for today and upcoming days |
+| `get_task_counts` | Fast counts by status — use when you only need numbers |
+| `list_tags` | All tags — use for pre-flight validation in task creation |
+
+See `SYSTEM.md` → OmniFocus Integration for full parameter reference and query patterns.
+
+---
+
+## osascript Commands
+
+Use `osascript` via Bash for OmniFocus interactions outside the Cowork MCP context (scheduled tasks, Desktop Commander scripts).
 
 **Critical**: Always filter `completed is false` when querying tasks. Never use `every inbox task` without this filter — it pulls completed items too.
 
@@ -163,3 +194,16 @@ end tell'
 - **Inbox tasks can't be completed directly** — assign to a project first, then mark complete.
 - **Always mirror changes in OmniFocus** — if a delegation tracker or internal tracking changes, update OmniFocus too.
 - **Never delete inbox tasks to clear them** — assign to a project and mark complete so they appear in completion history.
+
+---
+
+## Historical Note: osascript-as-Primary Recommendation (Superseded)
+
+`systems/error-tracking/rigby-omnifocus-mcp-fix-2026-04-01.md` recommended making osascript the **primary** path for task reads, with MCP as fallback. That recommendation was correct for the old `mcp-server-omnifocus` npm package, which had a hard-coded 60-second timeout and consistently failed on large databases.
+
+The OmniFocus MCP server was replaced in May 2026 with a new server that:
+- Returns inbox data in <1 second
+- Supports filtered queries (by status, project, tag, date, flagged) without fetching the full database
+- Has a richer API surface (40+ tools vs. 4)
+
+**The osascript-as-primary recommendation is now superseded.** MCP is the preferred read path for Cowork sessions. osascript via Desktop Commander remains valid for scheduled tasks and write operations not covered by MCP.

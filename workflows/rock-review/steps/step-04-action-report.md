@@ -109,6 +109,15 @@ model: opus
 
 ## WORKFLOW COMPLETE
 
+Write `state.yaml` in the workflow directory with `status: complete` and `current-step: step-04`:
+
+```yaml
+workflow: rock-review
+agent: quinn
+status: complete
+current-step: step-04
+```
+
 Rock review delivered and knowledge layer updated.
 <!-- system:end -->
 

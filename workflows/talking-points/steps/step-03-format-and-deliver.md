@@ -135,6 +135,15 @@ model: sonnet
 
 ## WORKFLOW COMPLETE
 
+Write `state.yaml` in the workflow directory with `status: complete` and `current-step: step-03`:
+
+```yaml
+workflow: talking-points
+agent: harper
+status: complete
+current-step: step-03
+```
+
 Talking points formatted and delivered. Harper stands by for refinements or the next communication task.
 <!-- system:end -->
 

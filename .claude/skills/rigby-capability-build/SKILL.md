@@ -145,6 +145,35 @@ Create each file following conventions exactly. For each file:
 - Tool bindings section names every tool used
 - Ends with `$ARGUMENTS` input block
 
+**Every skill must include a `## SKILL COMPLETE` section.** This is mandatory — it is what connects the skill to the eval harness. Add it as the last section before `<!-- system:end -->` in the primary system block (the block containing the Process section, not the Tool Bindings or Input blocks). It must instruct the executing agent to write the skill-run signal file after the skill's final output is delivered:
+
+```markdown
+## SKILL COMPLETE
+
+After [the skill's final output step], write the skill-run signal file so the eval harness captures this execution:
+
+```
+systems/eval-harness/skill-runs/{skill-name}-latest.json
+```
+
+Content:
+```json
+{
+  "skill": "{skill-name}",
+  "agent": "{owning-agent}",
+  "trigger": "manual",
+  "started": "<ISO-8601 timestamp when this skill began>",
+  "status": "success",
+  "tool_failures": 0,
+  "error_ids": []
+}
+```
+
+Set `trigger` to `"boot"` if called from the morning briefing or a workflow, `"scheduled"` if called from a scheduled task, `"manual"` otherwise. Set `status` to `"partial"` if the skill completed with degraded output, `"failure"` if it could not run at all. Use the actual start time of this skill execution for `started`. This write is always the final action — it is what creates the eval record in the harness.
+```
+
+The hook (`post-tool-use.py`) watches for writes matching `systems/eval-harness/skill-runs/*.json` and automatically creates the eval record in `systems/eval-harness/runs/` from the signal file content. No other instrumentation code is needed — the write itself is the trigger.
+
 **Execution-side-effect skills must declare a plan-only mode.** If the skill writes to external systems (rmapi, MCP write tools, Slack, Outlook, file uploads, anything irreversible), include a top-level section titled `## Plan-Only Mode` that says:
 
 > If the prompt contains the phrase "do not execute" or `eval-mode: plan-only`, do not run any side-effect tools. Instead, produce a markdown plan describing the commands you would issue, in order, with rationale and the inputs you would pass to each. Save the plan to the requested output path and stop. Do not call rmapi/Slack/MCP-write/etc. under any circumstances.

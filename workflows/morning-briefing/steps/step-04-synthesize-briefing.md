@@ -119,9 +119,46 @@ What do you want to tackle first?
 
 ---
 
+## WRITE OUTPUT FILE
+
+**After delivering the briefing**, write the complete briefing text to:
+
+```
+memory/working/morning-briefing-YYYY-MM-DD.md
+```
+
+where `YYYY-MM-DD` is today's date (e.g., `memory/working/morning-briefing-2026-05-24.md`).
+
+The file must contain the full briefing exactly as delivered — all three narrative paragraphs, the calendar table, and the closing line. This file is the durable record consumed by the eval harness assertions. Do not skip this write. Do not abbreviate the content.
+
+---
+
+## EVAL RECORD
+
+**Before returning the briefing**, write an eval record for this run. This is mandatory — it feeds the dashboard and weekly review health check.
+
+Determine status based on what actually happened:
+- `success` — briefing delivered with all 3 paragraphs + calendar table
+- `partial` — briefing delivered but one or more data sources failed (OmniFocus, calendar, Clay)
+- `failure` — briefing could not be delivered
+
+Run:
+```bash
+python3 systems/eval-harness/close-eval-record.py \
+  --name morning-briefing \
+  --type workflow \
+  --agent chief \
+  --status {success|partial|failure} \
+  --trigger boot \
+  --started "{session_started from state.yaml}" \
+  --steps "step-01-gather-calendar,step-02-gather-tasks,step-03-meeting-context,step-04-synthesize-briefing"
+```
+
+If any data source failed, use `--status partial`. If the briefing was not delivered at all, use `--status failure`.
+
 ## WORKFLOW COMPLETE
 
-**Before returning the briefing to the controller**, write `state.yaml` in the workflow directory with `status: complete` and `current-step: step-04`. This is mandatory — do not skip it.
+**After writing the eval record**, write `state.yaml` in the workflow directory with `status: complete` and `current-step: step-04`. This is mandatory — do not skip it.
 
 ```yaml
 workflow: morning-briefing

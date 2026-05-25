@@ -8,17 +8,22 @@ Triggered after every Write or Edit tool call.
 
 import json
 import sys
-import os
 import fcntl
+import hashlib
+import re
+import secrets
+import string
 import yaml
 from pathlib import Path
-from datetime import datetime
+from datetime import datetime, timezone
 
-# Configuration — IES_ROOT from env var, fallback to default
-IES_ROOT = Path(os.environ.get("IES_ROOT", "/Users/davidohara/develop/jarvis"))
+# Derive IES_ROOT from this file's location: .claude/hooks/post-tool-use.py → project root
+IES_ROOT = Path(__file__).resolve().parents[2]
 INDEX_PATH = IES_ROOT / "memory" / "sessions" / "index.json"
 EVAL_RUNS_DIR = IES_ROOT / "systems" / "eval-harness" / "runs"
+SKILL_RUNS_DIR = IES_ROOT / "systems" / "eval-harness" / "skill-runs"
 ERROR_LOG = Path("/tmp/ies-hook-errors.log")
+ALPHABET = string.ascii_uppercase + string.digits
 
 def log_error(msg: str):
     """Log error to /tmp/ies-hook-errors.log without blocking."""
@@ -98,6 +103,389 @@ def infer_trigger(state_data: dict) -> str:
     if "boot" in original_request:
         return "boot"
     return "manual"
+
+
+def new_eval_id() -> str:
+    now = datetime.now(timezone.utc)
+    ts = now.strftime("%Y%m%dT%H%M%S")
+    suffix = "".join(secrets.choice(ALPHABET) for _ in range(6))
+    return f"eval-{ts}-{suffix}"
+
+
+def workflow_version_hash(workflow_name: str) -> str | None:
+    """Compute a short SHA256 of the workflow.md at execution time."""
+    candidate = IES_ROOT / "workflows" / workflow_name / "workflow.md"
+    if candidate.exists():
+        return hashlib.sha256(candidate.read_bytes()).hexdigest()[:16]
+    return None
+
+
+def skill_version_hash(skill_name: str) -> str | None:
+    """Compute a short SHA256 of the skill's SKILL.md at execution time."""
+    # Skills live in .claude/skills/ or skills/
+    for candidate in [
+        IES_ROOT / ".claude" / "skills" / skill_name / "SKILL.md",
+        IES_ROOT / "skills" / skill_name / "SKILL.md",
+    ]:
+        if candidate.exists():
+            return hashlib.sha256(candidate.read_bytes()).hexdigest()[:16]
+    return None
+
+
+ASSERTIONS_DIR = IES_ROOT / "systems" / "eval-harness" / "assertions"
+
+
+def run_assertions(name: str, eval_record: dict) -> dict:
+    """Load and evaluate structural assertions for a workflow or skill.
+
+    Returns an updated assessment.structural dict. Returns the original dict
+    unchanged if no assertion file exists for the given name.
+    """
+    structural = eval_record.get("assessment", {}).get("structural", {
+        "expected_outputs_written": None,
+        "outputs_non_empty": None,
+        "assertions_checked": 0,
+        "assertions_passed": 0,
+        "assertion_results": []
+    })
+
+    assertion_file = ASSERTIONS_DIR / f"{name}.json"
+    if not assertion_file.exists():
+        return structural
+
+    try:
+        with open(assertion_file, "r") as f:
+            assertion_data = json.load(f)
+    except Exception as e:
+        log_error(f"run_assertions: failed to load {assertion_file}: {e}")
+        return structural
+
+    assertions = assertion_data.get("assertions", [])
+    results = []
+
+    for a in assertions:
+        check = a.get("check")
+        a_id = a.get("id", "unknown")
+        description = a.get("description", "")
+
+        # tool_was_called cannot be evaluated at hook time — skip it
+        if check == "tool_was_called":
+            results.append({
+                "assertion": a_id,
+                "description": description,
+                "passed": None,
+                "skipped": True,
+                "reason": "tool_was_called not available at hook time"
+            })
+            continue
+
+        try:
+            if check == "file_exists":
+                pattern = a.get("path", "")
+                matches = list(IES_ROOT.glob(pattern))
+                passed = len(matches) > 0
+                results.append({"assertion": a_id, "description": description, "passed": passed})
+
+            elif check == "file_min_bytes":
+                pattern = a.get("path", "")
+                min_bytes = a.get("min_bytes", 0)
+                matches = list(IES_ROOT.glob(pattern))
+                if not matches:
+                    passed = False
+                else:
+                    passed = all(m.stat().st_size >= min_bytes for m in matches)
+                results.append({"assertion": a_id, "description": description, "passed": passed})
+
+            elif check == "file_contains":
+                pattern = a.get("path", "")
+                regex = a.get("pattern", "")
+                matches = list(IES_ROOT.glob(pattern))
+                if not matches:
+                    passed = False
+                else:
+                    found = False
+                    for m in matches:
+                        try:
+                            content = m.read_text(encoding="utf-8", errors="replace")
+                            if re.search(regex, content, re.IGNORECASE):
+                                found = True
+                                break
+                        except Exception:
+                            pass
+                    passed = found
+                results.append({"assertion": a_id, "description": description, "passed": passed})
+
+            elif check == "file_not_contains":
+                pattern = a.get("path", "")
+                regex = a.get("pattern", "")
+                matches = list(IES_ROOT.glob(pattern))
+                if not matches:
+                    # No file = no forbidden content = passes
+                    passed = True
+                else:
+                    found_forbidden = False
+                    for m in matches:
+                        try:
+                            content = m.read_text(encoding="utf-8", errors="replace")
+                            if re.search(regex, content, re.IGNORECASE):
+                                found_forbidden = True
+                                break
+                        except Exception:
+                            pass
+                    passed = not found_forbidden
+                results.append({"assertion": a_id, "description": description, "passed": passed})
+
+            elif check == "yaml_field_equals":
+                path = a.get("path", "")
+                field = a.get("field", "")
+                value = a.get("value")
+                yaml_path = IES_ROOT / path
+                if not yaml_path.exists():
+                    passed = False
+                else:
+                    try:
+                        data = yaml.safe_load(yaml_path.read_text()) or {}
+                        passed = data.get(field) == value
+                    except Exception:
+                        passed = False
+                results.append({"assertion": a_id, "description": description, "passed": passed})
+
+            elif check == "step_count_gte":
+                min_steps = a.get("min_steps", 0)
+                passed = len(eval_record.get("steps", [])) >= min_steps
+                results.append({"assertion": a_id, "description": description, "passed": passed})
+
+            elif check == "duration_lte":
+                max_duration = a.get("max_duration_seconds", float("inf"))
+                actual = eval_record.get("duration_seconds", 0)
+                passed = actual <= max_duration
+                results.append({"assertion": a_id, "description": description, "passed": passed})
+
+            else:
+                # Unknown check type — skip it
+                results.append({
+                    "assertion": a_id,
+                    "description": description,
+                    "passed": None,
+                    "skipped": True,
+                    "reason": f"unknown check type: {check}"
+                })
+
+        except Exception as e:
+            log_error(f"run_assertions: error evaluating {a_id}: {e}")
+            results.append({
+                "assertion": a_id,
+                "description": description,
+                "passed": None,
+                "skipped": True,
+                "reason": f"evaluation error: {e}"
+            })
+
+    # Compute summary counts (exclude skipped assertions)
+    non_skipped = [r for r in results if not r.get("skipped")]
+    checked = len(non_skipped)
+    passed_count = sum(1 for r in non_skipped if r.get("passed") is True)
+
+    # Derive aggregate flags from specific check types
+    file_exists_results = [
+        r for r in non_skipped
+        if any(
+            a.get("id") == r["assertion"] and a.get("check") == "file_exists"
+            for a in assertions
+        )
+    ]
+    file_min_bytes_results = [
+        r for r in non_skipped
+        if any(
+            a.get("id") == r["assertion"] and a.get("check") == "file_min_bytes"
+            for a in assertions
+        )
+    ]
+
+    expected_outputs_written = (
+        all(r.get("passed") for r in file_exists_results)
+        if file_exists_results else None
+    )
+    outputs_non_empty = (
+        all(r.get("passed") for r in file_min_bytes_results)
+        if file_min_bytes_results else None
+    )
+
+    structural["assertion_results"] = results
+    structural["assertions_checked"] = checked
+    structural["assertions_passed"] = passed_count
+    structural["expected_outputs_written"] = expected_outputs_written
+    structural["outputs_non_empty"] = outputs_non_empty
+
+    return structural
+
+
+def create_eval_record_from_skill_run(skill_run_data: dict, session_id: str):
+    """Create a complete eval record when a skill writes its skill-runs JSON signal file."""
+    try:
+        EVAL_RUNS_DIR.mkdir(parents=True, exist_ok=True)
+
+        skill_name = skill_run_data.get("skill", "unknown")
+        agent = skill_run_data.get("agent", "unknown")
+        trigger = skill_run_data.get("trigger", "manual")
+        status_raw = skill_run_data.get("status", "success")
+        # Normalize status to eval harness values
+        status = status_raw if status_raw in ("success", "partial", "failure", "aborted") else "success"
+
+        now = datetime.now(timezone.utc)
+        completed_iso = now.isoformat().replace("+00:00", "Z")
+
+        started_raw = skill_run_data.get("started")
+        if started_raw:
+            try:
+                started_dt = datetime.fromisoformat(str(started_raw).replace("Z", "+00:00"))
+                started_iso = started_dt.isoformat().replace("+00:00", "Z")
+            except ValueError:
+                from datetime import timedelta
+                started_dt = now - timedelta(seconds=60)
+                started_iso = started_dt.isoformat().replace("+00:00", "Z")
+        else:
+            from datetime import timedelta
+            started_dt = now - timedelta(seconds=60)
+            started_iso = started_dt.isoformat().replace("+00:00", "Z")
+
+        duration = max(0, round((now - started_dt).total_seconds(), 1))
+        eval_id = new_eval_id()
+        vhash = skill_version_hash(skill_name)
+
+        record = {
+            "id": eval_id,
+            "type": "skill",
+            "name": skill_name,
+            "agent": agent,
+            "session_id": session_id,
+            "trigger": trigger,
+            "started": started_iso,
+            "completed": completed_iso,
+            "duration_seconds": duration,
+            "status": status,
+            "steps": [],
+            "assessment": {
+                "mechanical": {
+                    "completed": status in ("success", "partial"),
+                    "all_steps_finished": status == "success",
+                    "tool_failures": skill_run_data.get("tool_failures", 0),
+                    "error_ids": skill_run_data.get("error_ids", [])
+                },
+                "structural": {
+                    "expected_outputs_written": None,
+                    "outputs_non_empty": None,
+                    "assertions_checked": 0,
+                    "assertions_passed": 0,
+                    "assertion_results": []
+                },
+                "grading": {
+                    "last_graded": None,
+                    "grade": None,
+                    "grader_notes": None
+                },
+                "controller_feedback": {
+                    "rating": None,
+                    "comment": None,
+                    "timestamp": None
+                }
+            },
+            "version_hash": vhash,
+            "prior_baseline_id": None,
+            "tags": ["cowork-hook", "skill"]
+        }
+
+        # Run structural assertions and merge results
+        record["assessment"]["structural"] = run_assertions(skill_name, record)
+
+        path = EVAL_RUNS_DIR / f"{eval_id}.json"
+        atomic_write_json(path, record)
+    except Exception as e:
+        log_error(f"Failed to create eval record from skill-run signal: {e}")
+
+
+def create_eval_record_from_state(state_data: dict, session_id: str):
+    """Create a complete eval record when state.yaml reaches status: complete
+    and no in-progress stub exists (Cowork path — SubagentStart hook never fired).
+    """
+    try:
+        EVAL_RUNS_DIR.mkdir(parents=True, exist_ok=True)
+
+        workflow_name = state_data.get("workflow", "unknown")
+        agent = state_data.get("agent", "unknown")
+        trigger = infer_trigger(state_data)
+        now = datetime.now(timezone.utc)
+        completed_iso = now.isoformat().replace("+00:00", "Z")
+
+        # Use session-started time if available; fall back to now-60s
+        session_started = state_data.get("session-started")
+        if session_started:
+            try:
+                started_iso = datetime.fromisoformat(
+                    str(session_started).replace("Z", "+00:00")
+                ).isoformat().replace("+00:00", "Z")
+                started_dt = datetime.fromisoformat(str(session_started).replace("Z", "+00:00"))
+            except ValueError:
+                started_iso = completed_iso
+                started_dt = now
+        else:
+            from datetime import timedelta
+            started_dt = now - timedelta(seconds=60)
+            started_iso = started_dt.isoformat().replace("+00:00", "Z")
+
+        duration = max(0, round((now - started_dt).total_seconds(), 1))
+        eval_id = new_eval_id()
+        vhash = workflow_version_hash(workflow_name)
+
+        record = {
+            "id": eval_id,
+            "type": "workflow",
+            "name": workflow_name,
+            "agent": agent,
+            "session_id": session_id,
+            "trigger": trigger,
+            "started": started_iso,
+            "completed": completed_iso,
+            "duration_seconds": duration,
+            "status": "success",  # state.yaml complete = mechanical success
+            "steps": [],
+            "assessment": {
+                "mechanical": {
+                    "completed": True,
+                    "all_steps_finished": True,
+                    "tool_failures": 0,
+                    "error_ids": []
+                },
+                "structural": {
+                    "expected_outputs_written": None,
+                    "outputs_non_empty": None,
+                    "assertions_checked": 0,
+                    "assertions_passed": 0,
+                    "assertion_results": []
+                },
+                "grading": {
+                    "last_graded": None,
+                    "grade": None,
+                    "grader_notes": None
+                },
+                "controller_feedback": {
+                    "rating": None,
+                    "comment": None,
+                    "timestamp": None
+                }
+            },
+            "version_hash": vhash,
+            "prior_baseline_id": None,
+            "tags": ["cowork-hook"]
+        }
+
+        # Run structural assertions and merge results
+        record["assessment"]["structural"] = run_assertions(workflow_name, record)
+
+        path = EVAL_RUNS_DIR / f"{eval_id}.json"
+        atomic_write_json(path, record)
+    except Exception as e:
+        log_error(f"Failed to create eval record from state.yaml: {e}")
 
 
 def update_eval_record_state_yaml(eval_path: Path, file_path: str, content: str):
@@ -250,72 +638,72 @@ def main():
     # Normalize the file path
     rel_path = normalize_path(file_path)
 
-    # Read current index
+    # --- Block 1: Session Index Update (best-effort, does not gate Block 2) ---
+    session_id = ""
     index = read_index()
     if not index:
         log_error("Session index is empty or missing")
-        return
-
-    # Get the last (current) session record
-    current_session = index[-1]
-    current_topic = current_session.get("current_topic")
-    topics = current_session.get("topics", [])
-
-    # If no current_topic set, create/use an "unattributed" bucket
-    if not current_topic:
-        # Find or create unattributed topic
-        unattributed = None
-        for t in topics:
-            if t.get("topic") == "unattributed":
-                unattributed = t
-                break
-
-        if not unattributed:
-            unattributed = {
-                "topic": "unattributed",
-                "files": [],
-                "loops": [],
-                "flag": True
-            }
-            topics.append(unattributed)
-
-        # Add file if not already present (deduplicate)
-        if rel_path not in unattributed.get("files", []):
-            unattributed["files"].append(rel_path)
     else:
-        # Find the topic matching current_topic
-        matching_topic = None
-        for t in topics:
-            if t.get("topic") == current_topic:
-                matching_topic = t
-                break
+        current_session = index[-1]
+        session_id = current_session.get("id", "")
+        current_topic = current_session.get("current_topic")
+        topics = current_session.get("topics", [])
 
-        if matching_topic:
-            # Add file if not already present (deduplicate)
-            if rel_path not in matching_topic.get("files", []):
-                matching_topic["files"].append(rel_path)
+        updated_index = True
+        if not current_topic:
+            # Find or create unattributed bucket
+            unattributed = None
+            for t in topics:
+                if t.get("topic") == "unattributed":
+                    unattributed = t
+                    break
+            if not unattributed:
+                unattributed = {"topic": "unattributed", "files": [], "loops": [], "flag": True}
+                topics.append(unattributed)
+            if rel_path not in unattributed.get("files", []):
+                unattributed["files"].append(rel_path)
         else:
-            log_error(f"Current topic '{current_topic}' not found in topics list")
-            return
+            matching_topic = None
+            for t in topics:
+                if t.get("topic") == current_topic or t.get("name") == current_topic:
+                    matching_topic = t
+                    break
+            if matching_topic:
+                if "files" not in matching_topic:
+                    matching_topic["files"] = []
+                if rel_path not in matching_topic["files"]:
+                    matching_topic["files"].append(rel_path)
+            else:
+                log_error(f"Current topic '{current_topic}' not found in topics list")
+                updated_index = False
 
-    # Write updated index back
-    write_index(index)
+        if updated_index:
+            write_index(index)
 
-    # Eval Harness Integration
-    # Get session ID for eval record correlation
-    session_id = current_session.get("id", "")
+    # --- Block 2: Eval Harness Integration (independent of Block 1) ---
 
     # Check if this is a state.yaml write
     if rel_path.endswith("state.yaml"):
-        eval_path = find_active_eval_record(session_id)
-        if eval_path:
-            # Read the file content
-            try:
-                with open(file_path, "r") as f:
-                    content = f.read()
+        try:
+            with open(file_path, "r") as f:
+                content = f.read()
+        except Exception as e:
+            log_error(f"Failed to read state.yaml for eval: {e}")
+            content = None
+
+        if content:
+            eval_path = find_active_eval_record(session_id)
+            if eval_path:
+                # Claude Code path: close the existing stub
                 update_eval_record_state_yaml(eval_path, rel_path, content)
-            except Exception as e:
-                log_error(f"Failed to read state.yaml for eval: {e}")
+            else:
+                # Cowork path: no SubagentStart hook fired — create record on complete
+                try:
+                    state_data = yaml.safe_load(content) or {}
+                    if state_data.get("status") == "complete":
+                        create_eval_record_from_state(state_data, session_id)
+                except Exception as e:
+                    log_error(f"Failed to parse state.yaml for eval creation: {e}")
 
     # Check if this is a step frontmatter write
     elif "/steps/" in rel_path and rel_path.endswith(".md"):
@@ -327,6 +715,15 @@ def main():
                 update_eval_record_step_frontmatter(eval_path, rel_path, content)
             except Exception as e:
                 log_error(f"Failed to read step frontmatter for eval: {e}")
+
+    # Check if this is a skill-run signal write
+    elif "eval-harness/skill-runs/" in rel_path and rel_path.endswith(".json"):
+        try:
+            with open(file_path, "r") as f:
+                skill_run_data = json.load(f)
+            create_eval_record_from_skill_run(skill_run_data, session_id)
+        except Exception as e:
+            log_error(f"Failed to create eval record from skill-run write: {e}")
 
     # Check if this is an error-tracking write
     check_error_tracking_write(rel_path, session_id)

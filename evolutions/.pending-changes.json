@@ -1,6 +1,150 @@
 {
   "pending": [
     {
+      "id": "work-20260524-eval-harness-assertion-wiring",
+      "description": "Wired structural assertions into post-tool-use.py hook and fixed missing morning-briefing output file instruction. P1: Added run_assertions() function to post-tool-use.py that loads systems/eval-harness/assertions/{name}.json, evaluates all 7 evaluable check types (file_exists, file_min_bytes, file_contains, file_not_contains, yaml_field_equals, step_count_gte, duration_lte) using IES_ROOT as base, skips tool_was_called with a reason note, and populates assessment.structural with assertion_results, assertions_checked, assertions_passed, expected_outputs_written, and outputs_non_empty. Added import re. Wired run_assertions() into both create_eval_record_from_state() and create_eval_record_from_skill_run() just before atomic_write_json. P2: Added mandatory WRITE OUTPUT FILE section to workflows/morning-briefing/steps/step-04-synthesize-briefing.md instructing the agent to write the full briefing to memory/working/morning-briefing-YYYY-MM-DD.md after delivery. Root cause was that step-04 had no write instruction — the assertion file expected the file but the workflow never told the agent to create it.",
+      "started": "2026-05-24T00:00:00Z",
+      "classification": "system",
+      "files": [
+        {
+          "path": ".claude/hooks/post-tool-use.py",
+          "action": "merge",
+          "type": "system",
+          "description": "Added import re. Added ASSERTIONS_DIR constant. Added run_assertions(name, eval_record) function implementing all 7 evaluable check types with glob-based path resolution using IES_ROOT. Added two call sites: create_eval_record_from_state() and create_eval_record_from_skill_run(), both merging run_assertions() output into record['assessment']['structural'] before atomic_write_json."
+        },
+        {
+          "path": "workflows/morning-briefing/steps/step-04-synthesize-briefing.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Added WRITE OUTPUT FILE section between the briefing format/synthesis rules and the EVAL RECORD section. Instructs the agent to write the full briefing to memory/working/morning-briefing-YYYY-MM-DD.md after delivery. Fixes the gap where the eval harness assertion morning-002-briefing-written expected this file but the workflow never instructed its creation."
+        }
+      ]
+    },
+    {
+      "id": "work-20260524-skill-instrumentation",
+      "description": "Skill instrumentation for eval harness. Skills lack state.yaml, so a different signal mechanism is needed. Convention: skills write systems/eval-harness/skill-runs/{skill-name}-latest.json at completion; the post-tool-use.py hook watches for writes matching that path and auto-creates eval records from the signal file content. Extended post-tool-use.py with: SKILL_RUNS_DIR constant, skill_version_hash() (looks in both .claude/skills/ and skills/), create_eval_record_from_skill_run() which builds a full eval record tagged ['cowork-hook', 'skill'] from the signal JSON. Added ## SKILL COMPLETE sections to 7 target skills: rigby-eval-analyze, rigby-eval-grade, rigby-eval-dashboard, galen-morning-snapshot, jarvis-inbox, plaud-transcripts, pipeline-snapshot. Updated rigby-capability-build/SKILL.md Step 4 to make ## SKILL COMPLETE mandatory in every new skill build, with a full worked example of the signal file format and trigger/status guidance. Created systems/eval-harness/skill-runs/ directory.",
+      "started": "2026-05-24T21:00:00Z",
+      "classification": "system",
+      "files": [
+        {
+          "path": ".claude/hooks/post-tool-use.py",
+          "action": "merge",
+          "type": "system",
+          "description": "Added SKILL_RUNS_DIR constant, skill_version_hash() (searches .claude/skills/ then skills/), and create_eval_record_from_skill_run(). Block 2 now handles writes matching 'eval-harness/skill-runs/*.json' as a third branch alongside state.yaml and step-frontmatter. Creates eval records tagged ['cowork-hook', 'skill'] from the signal JSON."
+        },
+        {
+          "path": "systems/eval-harness/skill-runs/.gitkeep",
+          "action": "add",
+          "type": "system",
+          "description": "Empty placeholder to ensure skill-runs/ directory is tracked in git."
+        },
+        {
+          "path": ".claude/skills/rigby-eval-analyze/SKILL.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Added ## SKILL COMPLETE section instructing the agent to write skill-runs/rigby-eval-analyze-latest.json after the summary is delivered."
+        },
+        {
+          "path": ".claude/skills/rigby-eval-grade/SKILL.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Added ## SKILL COMPLETE section instructing the agent to write skill-runs/rigby-eval-grade-latest.json after the summary is delivered."
+        },
+        {
+          "path": ".claude/skills/rigby-eval-dashboard/SKILL.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Added ## SKILL COMPLETE section instructing the agent to write skill-runs/rigby-eval-dashboard-latest.json after the summary is delivered."
+        },
+        {
+          "path": "skills/galen-morning-snapshot/SKILL.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Added ## SKILL COMPLETE section instructing the agent to write skill-runs/galen-morning-snapshot-latest.json. Trigger: 'boot' when called from morning briefing, 'manual' otherwise."
+        },
+        {
+          "path": "skills/jarvis-inbox/SKILL.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Added ## SKILL COMPLETE section instructing the agent to write skill-runs/jarvis-inbox-latest.json. Trigger: 'boot' for morning/daily-review, 'manual' on demand."
+        },
+        {
+          "path": "skills/plaud-transcripts/SKILL.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Added ## SKILL COMPLETE section instructing the agent to write skill-runs/plaud-transcripts-latest.json after cleanup. Empty staging = success."
+        },
+        {
+          "path": "skills/pipeline-snapshot/SKILL.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Added ## SKILL COMPLETE section instructing the agent to write skill-runs/pipeline-snapshot-latest.json. Cache hit = success. Trigger: 'scheduled' or 'manual'."
+        },
+        {
+          "path": ".claude/skills/rigby-capability-build/SKILL.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Added mandatory ## SKILL COMPLETE convention to Step 4 (Build the Files), with a full worked example of the signal file format, trigger values, status values, and the instruction that this write is always the final action. Teaches Rigby to include this section in every new skill build going forward."
+        }
+      ]
+    },
+    {
+      "id": "work-20260524-eval-harness-wiring",
+      "description": "Eval harness wiring — hook-driven, model-independent. The PostToolUse hook (post-tool-use.py) now auto-creates eval records when any workflow writes state.yaml with status: complete. In Claude Code: the existing SubagentStart/Stop hooks create/close stubs as before. In Cowork: no SubagentStart fires, so the hook creates a complete record on the state.yaml completion write (tagged 'cowork-hook'). Also added close-eval-record.py helper for manual/scripted record creation, and instrumented 5 workflow final steps with eval record instructions as a documentation-only backstop. Core fix: (1) eval block is now independent of the session index block in main() — previously a topic-not-found error in Block 1 caused an early return that silently skipped the eval harness; (2) fixed topic lookup to check both 'topic' and 'name' keys; (3) added missing 'files' key initialization for topic objects that lack it. Created runs/ directory and .gitkeep. Test-verified: state.yaml write triggers record creation with correct name/agent/status/version_hash.",
+      "started": "2026-05-24T19:00:00Z",
+      "classification": "system",
+      "files": [
+        {
+          "path": ".claude/hooks/post-tool-use.py",
+          "action": "replace",
+          "type": "system",
+          "description": "Core fix for eval harness wiring. (1) Restructured main() into two independent blocks: Block 1 (session index update) and Block 2 (eval harness). Previously a topic-not-found error in Block 1 caused an early return that silently skipped eval record creation. (2) Added create_eval_record_from_state() — fires in Cowork when state.yaml status=complete and no active in-progress stub exists. Creates complete record tagged 'cowork-hook'. (3) Fixed topic lookup: checks both 'topic' and 'name' keys (session index uses 'name', not 'topic'). (4) Added missing 'files' key initialization for topic objects without it. Added imports: hashlib, secrets, string, timezone."
+        },
+        {
+          "path": "systems/eval-harness/close-eval-record.py",
+          "action": "add",
+          "type": "system",
+          "description": "Helper script for manual/scripted eval record creation. Idempotent: finds existing hook stubs by name+session_id and closes them; creates from scratch if none found. Supports --name, --type, --agent, --status, --trigger, --started, --steps. Computes version_hash from workflow.md or SKILL.md. Tags Cowork-created records with 'cowork-instrumented'. Secondary to the hook-driven path."
+        },
+        {
+          "path": "systems/eval-harness/runs/.gitkeep",
+          "action": "add",
+          "type": "system",
+          "description": "Empty placeholder to ensure runs/ directory is tracked in git."
+        },
+        {
+          "path": "workflows/morning-briefing/steps/step-04-synthesize-briefing.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Added EVAL RECORD documentation section — backstop reference showing eval record creation criteria. Hook handles this automatically; section exists for transparency and manual fallback."
+        },
+        {
+          "path": "workflows/daily-review/steps/step-04-root-audit.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Added EVAL RECORD documentation section with status criteria for daily-review."
+        },
+        {
+          "path": "workflows/daily-review/steps/step-auto.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Added EVAL RECORD documentation section for autonomous daily review mode."
+        },
+        {
+          "path": "workflows/client-meeting-prep/steps/step-04-build-brief.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Added EVAL RECORD documentation section with status criteria for client-meeting-prep."
+        },
+        {
+          "path": "workflows/one-on-one-prep/steps/step-05-quality-check-and-save.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Added EVAL RECORD documentation section with status criteria for one-on-one-prep."
+        }
+      ]
+    },
+    {
       "id": "work-20260512-dream-cycle-workflow-rebuild",
       "description": "Dream cycle workflow rebuilt to full IES spec by Rigby. Master built the initial version without routing, violating the Hard Stop rule. All 7 files rewritten: workflow.md gained system/personal block wrappers, proper Data Sources Required table, full 4-case STATE CHECK with step-status check, and complete EXECUTION table. state.yaml gained missing fields (workflow, agent, original-request). All 5 step files gained correct frontmatter (status/started-at/completed-at/outputs), system:start/end wrappers, and all required sections: MANDATORY EXECUTION RULES, EXECUTION PROTOCOL, CONTEXT BOUNDARIES, YOUR TASK, SUCCESS METRICS, FAILURE MODES, NEXT STEP. Logic from the original SKILL.md source preserved in full.",
       "started": "2026-05-12T00:00:00Z",

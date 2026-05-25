@@ -253,3 +253,28 @@ Obsidian cache: `Mind/One Texas/Rock 4 - Pipeline Snapshots.md`
 Freshness threshold: 7 days
 Auth: SSO (auto via Chrome session)
 Rock 1 context: Revenue Visibility — "graded on actuals, not feel." One Texas only.
+
+---
+
+## SKILL COMPLETE
+
+After the output is delivered (Phase 5), write the skill-run signal file so the eval harness captures this execution:
+
+```
+systems/eval-harness/skill-runs/pipeline-snapshot-latest.json
+```
+
+Content:
+```json
+{
+  "skill": "pipeline-snapshot",
+  "agent": "chase",
+  "trigger": "manual",
+  "started": "<ISO-8601 timestamp when this skill began>",
+  "status": "success",
+  "tool_failures": 0,
+  "error_ids": []
+}
+```
+
+Set `trigger` to `"scheduled"` if called from a scheduled task, `"manual"` otherwise. Set `status` to `"partial"` if only one region's data was captured or cache was used due to staleness detection, `"failure"` if PowerBI could not be reached. A cache hit (Phase 0 early exit) is still `"success"`. Use the actual start time of this skill execution for `started`. This write is always the final action.

@@ -117,9 +117,30 @@ If during brief assembly any of these conditions were detected, flag them in you
 
 ---
 
+## EVAL RECORD
+
+**Before closing the one-on-one-prep workflow**, write an eval record for this run.
+
+Determine status:
+- `success` — all 7 quality checks passed, brief saved, controller received confirmation
+- `partial` — brief saved but one or more quality checks had to be skipped (knowledge base down), or brief delivered inline due to save failure
+- `failure` — brief could not be assembled or quality checks failed without resolution
+
+Run:
+```bash
+python3 systems/eval-harness/close-eval-record.py \
+  --name one-on-one-prep \
+  --type workflow \
+  --agent shep \
+  --status {success|partial|failure} \
+  --trigger manual \
+  --started "{session_started from state.yaml}" \
+  --steps "step-01-identify-meeting,step-02-gather-communications,step-03-gather-tasks,step-04-assemble-brief,step-05-quality-check-and-save"
+```
+
 ## WORKFLOW COMPLETE
 
-**Before closing the one-on-one-prep workflow**, write `state.yaml` in the workflow directory with `status: complete` and `current-step: step-05`.
+**After writing the eval record**, write `state.yaml` in the workflow directory with `status: complete` and `current-step: step-05`.
 
 ```yaml
 workflow: one-on-one-prep

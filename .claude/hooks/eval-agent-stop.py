@@ -8,7 +8,6 @@ and error-log correlation.
 
 import json
 import sys
-import os
 import re
 import hashlib
 import fcntl
@@ -17,7 +16,7 @@ from pathlib import Path
 from datetime import datetime, timezone
 
 # Configuration — IES_ROOT from env var, fallback to default
-IES_ROOT = Path(os.environ.get("IES_ROOT", "/Users/davidohara/develop/jarvis"))
+IES_ROOT = Path(__file__).resolve().parents[2]
 EVAL_RUNS_DIR = IES_ROOT / "systems" / "eval-harness" / "runs"
 EVAL_ASSERTIONS_DIR = IES_ROOT / "systems" / "eval-harness" / "assertions"
 ERROR_TRACKING_DIR = IES_ROOT / "systems" / "error-tracking" / "entries"

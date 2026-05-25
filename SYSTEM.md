@@ -1319,21 +1319,48 @@ This failure has been logged 3+ times (err-20260327-004, err-20260404-001, err-2
 <!-- personal:start -->
 ## OmniFocus Integration
 
-Use the **OmniFocus MCP server** for READ operations. The Cowork VM does not have `osascript` — MCP is the only path for reads.
+Use the **OmniFocus MCP server** (`mcp__omnifocus__*`) for all READ operations. The Cowork VM does not have `osascript` — MCP is the only path for reads.
 
-Available MCP tools:
-- `mcp__omnifocus__get_active_tasks` — all uncompleted tasks
-- `mcp__omnifocus__get_all_tasks` — all tasks including completed
-- `mcp__omnifocus__get_active_projects` — active projects
-- `mcp__omnifocus__get_all_projects` — all projects including completed/dropped
+### Read Tool Reference
 
-**For WRITE operations (creating tasks):** Use `skills/omnifocus-tasks/SKILL.md`. This is mandatory. That skill contains the pre-flight checklist, gate enforcement, AppleScript template, and current project/tag lists. Do NOT write raw OmniFocus AppleScript for task creation outside that skill.
+| Tool | Purpose |
+|------|---------|
+| `mcp__omnifocus__get_inbox` | Inbox tasks (uncompleted, unassigned). Primary for inbox count and items. |
+| `mcp__omnifocus__list_tasks` | Tasks with filtering by status, project, tag, date, flagged. Use `status: available` for active tasks, `status: overdue` for overdue, `status: due_soon` for this week. |
+| `mcp__omnifocus__search_tasks` | Text search across task names and notes. |
+| `mcp__omnifocus__get_task` | Full details for a single task by ID or name. |
+| `mcp__omnifocus__list_projects` | Projects with status filter. Use `status: active` for active projects. |
+| `mcp__omnifocus__get_project` | Full details for a single project including task counts and next actions. |
+| `mcp__omnifocus__get_forecast` | Tasks and calendar events for a date range (today + N days). |
+| `mcp__omnifocus__list_tags` | All tags. Use for pre-flight tag validation in task creation. |
+| `mcp__omnifocus__get_task_counts` | Fast count of tasks by status — use this instead of list_tasks when you only need a number. |
+| `mcp__omnifocus__create_task` | Create a task. Accepts name, project, tags (array), note, dueDate, deferDate, flagged, estimatedMinutes. **Never call this directly — always go through `skills/omnifocus-tasks/SKILL.md`.** |
 
-**Retry policy (mandatory):**
-The OmniFocus MCP server is prone to timeouts (60s). Before reporting failure to David:
-1. Attempt the call up to **3 times** with no delay between retries.
-2. If all 3 attempts timeout, report the failure and suggest restarting OmniFocus on the Mac.
-3. Never silently skip OmniFocus data — if it fails, say so and flag what was missed.
+### Common Query Patterns
+
+```
+# Inbox items (for briefing inbox count)
+mcp__omnifocus__get_inbox
+
+# Tasks due today
+mcp__omnifocus__list_tasks  status: due_soon  sortBy: dueDate
+
+# Overdue tasks
+mcp__omnifocus__list_tasks  status: overdue  sortBy: dueDate
+
+# Flagged tasks
+mcp__omnifocus__list_tasks  flagged: true  status: available
+
+# Active projects (for task creation pre-flight)
+mcp__omnifocus__list_projects  status: active
+```
+
+**Note on `list_tasks` limit parameter:** Pass as integer, not string. Omit the parameter entirely to get all results (output may be large).
+
+**For WRITE operations (creating tasks):** Use `skills/omnifocus-tasks/SKILL.md`. This is mandatory. That skill gates on project + tag assignment, calls `mcp__omnifocus__create_task` as primary, and falls back to AppleScript via Desktop Commander only if MCP is unavailable. Do NOT call `mcp__omnifocus__create_task` or write raw OmniFocus AppleScript for task creation outside that skill.
+
+**Failure handling:**
+If an MCP call fails or returns an error, retry once. If it fails again, report clearly what was unavailable and proceed with what you have. Never silently skip OmniFocus data — if it fails, say so and flag what was missed.
 
 **Critical rules:**
 - Always filter for active/uncompleted tasks unless David asks for completed ones

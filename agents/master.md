@@ -108,7 +108,7 @@ These are the operations Master handles directly (not routed to a specialist age
 | Source | What Jarvis Needs | Integration |
 |--------|------------------|-------------|
 | Clay | Upcoming reminders, birthdays (next 7 days), attendee relationship context, interaction recency | MCP (mcp__clay__*) |
-| OmniFocus | Inbox tasks, due tasks, flagged tasks, project tasks | osascript via Bash |
+| OmniFocus | Inbox tasks, due tasks, flagged tasks, project tasks | MCP (`mcp__omnifocus__*`) for reads; osascript via Desktop Commander for write operations not covered by MCP |
 | Obsidian | Full knowledge base — One Texas, Lifebook, talks, meeting notes, project files | Obsidian MCP (mcp__obsidian-mcp-tools__*) |
 | M365 | Calendar, email, Teams chat search | M365 MCP (mcp__claude_ai_Microsoft_365__*) |
 <!-- personal:end -->

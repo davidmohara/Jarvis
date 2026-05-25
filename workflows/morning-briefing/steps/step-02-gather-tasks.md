@@ -39,21 +39,22 @@ model: sonnet
 
 ### Sequence
 
-1. **Pull inbox count** via the task management API.
-   - Get count of incomplete inbox tasks
-   - If count > 0, get the task names
-   - Note age of oldest inbox item if possible
+1. **Pull inbox** via `mcp__omnifocus__get_inbox`.
+   - Returns all uncompleted, unassigned inbox tasks
+   - Capture: task name, note, creation date (age is a triage signal)
+   - Count = `inbox_count`
 
-2. **Pull tasks due today** via the task management API.
-   - Get all incomplete tasks with due date = today
+2. **Pull tasks due today** via `mcp__omnifocus__list_tasks`.
+   - Parameters: `status: due_soon`, `sortBy: dueDate`, `dueBefore: <end of today ISO>`
    - Include project name for each task
+   - Alternatively: `mcp__omnifocus__get_forecast` covers today's due tasks + calendar in one call
 
-3. **Pull tasks due this week** via the task management API.
-   - Get all incomplete tasks with due date within 7 days
-   - Include project name and due date for each
+3. **Pull overdue tasks** via `mcp__omnifocus__list_tasks`.
+   - Parameters: `status: overdue`, `sortBy: dueDate`
+   - These are higher urgency than due-today — surface them first in the briefing
 
-4. **Pull flagged tasks** via the task management API.
-   - Get all incomplete flagged tasks
+4. **Pull flagged tasks** via `mcp__omnifocus__list_tasks`.
+   - Parameters: `flagged: true`, `status: available`
    - These represent controller-designated priorities
 
 5. **Read delegation tracker** at `{project-root}/delegations/tracker.md`.
@@ -70,9 +71,9 @@ model: sonnet
    ```
    task_data:
      inbox_count: N
-     inbox_items: [...]
+     inbox_items: [{name, note, created, age_days}, ...]
      due_today: [{task, project}, ...]
-     due_this_week: [{task, project, due_date}, ...]
+     overdue: [{task, project, due_date, days_late}, ...]
      flagged: [{task, project}, ...]
    delegation_data:
      overdue: [{task, owner, due_date, days_late}, ...]
@@ -86,8 +87,9 @@ model: sonnet
 
 ## SUCCESS METRICS
 
-- Inbox count retrieved
-- Due-today and flagged tasks captured with project context
+- Inbox retrieved via `get_inbox` — count and item list captured
+- Due-today and overdue tasks captured via `list_tasks` with project context
+- Flagged tasks captured via `list_tasks`
 - Delegation tracker parsed — overdue items identified with days late
 - Quarterly rocks loaded with current status
 
@@ -95,7 +97,7 @@ model: sonnet
 
 | Failure | Action |
 |---------|--------|
-| Task management system unavailable / API error | Report: "Task management system unavailable. Task data missing from briefing." Proceed with delegation and rocks data only. |
+| OmniFocus MCP error | Retry once. If still failing, report: "OmniFocus MCP unavailable. Task data missing from briefing." Proceed with delegation and rocks data only. |
 | Delegation tracker file missing | Report: "Delegation tracker not found." Proceed without delegation data. |
 | Quarterly objectives file missing | Report: "Quarterly objectives not found." Proceed without rocks context. |
 
