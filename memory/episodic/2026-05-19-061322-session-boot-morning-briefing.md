@@ -9,7 +9,7 @@ status: archived
 context: Morning boot + briefing — 2026-05-19 (automated scheduled run)
 salience:
   score: 0
-  last-promoted-check: 2026-05-24
+  last-promoted-check: 2026-05-25
 ---
 # Morning Briefing Session — May 19, 2026
 

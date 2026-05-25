@@ -1,46 +1,46 @@
 workflow: dream-cycle
 agent: jarvis
 status: complete
-session-started: 2026-05-24T03:08:55-05:00
-session-id: dream-cycle-2026-05-24-030855
+session-started: 2026-05-25T03:09:01-05:00
+session-id: dream-cycle-2026-05-25-030901
 current-step: null
 original-request: Scheduled dream cycle run
 accumulated-context:
   working_archived: 1
   working_deleted: 0
-  working_skipped: 57
-  working_archive_note: "dream-summary-2026-05-22 newly expired today, archived in place (status:archived); copy written to memory/episodic/. Source deletion still blocked (27th consecutive run). No unparseable files this run — the May 18 zero-byte file that persisted across 26+ runs is no longer present."
-  episodic_scanned: 63
-  score_updates: 63
-  no_tags: 20
-  no_date: 7
-  score_distribution: "0:28, 1:1, 7:1, 8:1, 9:8, 10:24 — score-10 ceiling dropped from 31 to 24 today as two prior-promoted entries fell out of the 30-day matching window. Score-inflation algorithm fix still deferred 14+ runs."
+  working_skipped: 58
+  working_archive_note: "dream-summary-2026-05-23 newly expired today, archived in place (status:archived); copy written to memory/episodic/. Source deletion still blocked (28th consecutive run)."
+  episodic_scanned: 65
+  score_updates: 65
+  no_tags: 22
+  no_date: 24
+  score_distribution: "0:30, 1:1, 6:1, 7:1, 8:7, 9:2, 10:23 — score-10 ceiling drifted down again (31→24→23 over last three runs) as prior-promoted entries fall out of the 30-day window. Score-inflation algorithm fix still deferred 15+ runs."
   clusters_found: 0
   semantic_created: 0
   semantic_updated: 0
   promoted_entries: 0
-  promotion_note: "Zero promotion candidates. All 34 entries with score>=3 already have salience.promoted: true from prior cycles. Memory promotion is functionally idle — single biggest blocker on memory utility."
+  promotion_note: "Zero promotion candidates. All 33 entries with score>=3 already have salience.promoted: true from prior cycles. Memory promotion is functionally idle — single biggest blocker on memory utility."
   error_categories_30d: "process-skip:13, data-accuracy:6, routing-error:4, stale-context:3"
   error_combos_3plus: "all four categories at threshold already covered in LESSONS.md"
   lessons_appended: 0
-  lessons_note: "All four 3+ categories already covered by existing entries in LESSONS.md (process-skip, data-accuracy, routing-error, stale-context-via-stale-task-status). No appends per preservation-over-aggression."
+  lessons_note: "All four 3+ categories already covered by existing entries in LESSONS.md. No appends per preservation-over-aggression."
   entries_compressed: 0
   digests_updated: 0
   compression_skipped: true
-  compression_skip_reason: "All episodic entries < 90 days old (oldest is 2026-04-18, 36 days)"
+  compression_skip_reason: "All episodic entries < 90 days old (oldest is 2026-04-18, 37 days)"
   dream_log_appended: true
   working_summary_written: true
   errors: 2
   errors_detail:
     - phase: 1
-      file: memory/working/dream-summary-2026-05-22.md
-      error: "Source deletion blocked (Operation not permitted). Source marked status:archived in place; copy written to memory/episodic/. 27th consecutive run with sandbox unlink restriction."
+      file: memory/working/dream-summary-2026-05-23.md
+      error: "Source deletion blocked (Operation not permitted). Source marked status:archived in place; copy written to memory/episodic/. 28th consecutive run with sandbox unlink restriction."
     - phase: 0
       file: .git
-      error: "git pull --rebase failed: unstaged changes from prior sessions block rebase. Memory phases completed without sync."
+      error: "git pull --rebase failed: stale .git/index.lock + staged/unstaged changes from prior sessions. Memory phases completed without sync."
   git_pull_at_boot: blocked
-  git_pull_failure_reason: "Unstaged changes from prior sessions prevented rebase."
+  git_pull_failure_reason: "Stale .git/index.lock + uncommitted changes from prior sessions block rebase."
   git_commit_at_end: failed
-  git_commit_failure_reason: "Stale .git/index.lock present (0 bytes, owned by sandbox uid). Sandbox blocks unlink. git add -A fails with 'Unable to create .git/index.lock: File exists'. Same block pattern as 25+ prior runs. Controller intervention required to clear the lock."
+  git_commit_failure_reason: "Stale .git/index.lock present (0 bytes, owned by sandbox uid). Sandbox blocks unlink. git add -A fails with 'Unable to create .git/index.lock: File exists'. Same block pattern as 28+ prior runs. Controller intervention required."
   git_push: failed
   git_push_reason: "Commit blocked first; not attempted."
