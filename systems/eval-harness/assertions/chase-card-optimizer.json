@@ -1,0 +1,20 @@
+{
+  "name": "chase-card-optimizer",
+  "type": "skill",
+  "assertions": [
+    {
+      "id": "chase-card-optimizer-signal-written",
+      "check": "file_exists",
+      "path": "systems/eval-harness/skill-runs/chase-card-optimizer-latest.json",
+      "description": "chase-card-optimizer skill-run signal file was written"
+    },
+    {
+      "id": "chase-card-optimizer-signal-status",
+      "check": "json_field_not_equals",
+      "path": "systems/eval-harness/skill-runs/chase-card-optimizer-latest.json",
+      "field": "status",
+      "value": "failure",
+      "description": "chase-card-optimizer skill-run did not end in failure"
+    }
+  ]
+}

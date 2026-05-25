@@ -1,0 +1,40 @@
+{
+  "name": "quinn-initiatives",
+  "type": "skill",
+  "assertions": [
+    {
+      "id": "quinn-initiatives-signal-written",
+      "check": "file_exists",
+      "path": "systems/eval-harness/skill-runs/quinn-initiatives-latest.json",
+      "description": "quinn-initiatives skill-run signal file was written"
+    },
+    {
+      "id": "quinn-initiatives-signal-status",
+      "check": "json_field_not_equals",
+      "path": "systems/eval-harness/skill-runs/quinn-initiatives-latest.json",
+      "field": "status",
+      "value": "failure",
+      "description": "quinn-initiatives skill-run did not end in failure"
+    },
+    {
+      "id": "quinn-initiatives-wm-written",
+      "check": "file_exists",
+      "path": "memory/working/initiative-tracker-*.md",
+      "description": "quinn-initiatives working memory file written to memory/working/"
+    },
+    {
+      "id": "quinn-initiatives-wm-size",
+      "check": "file_min_bytes",
+      "path": "memory/working/initiative-tracker-*.md",
+      "min_bytes": 200,
+      "description": "quinn-initiatives working memory file is substantive (>200 bytes)"
+    },
+    {
+      "id": "quinn-initiatives-wm-content",
+      "check": "file_contains",
+      "path": "memory/working/initiative-tracker-*.md",
+      "pattern": "(?i)(initiative|block|owner)",
+      "description": "quinn-initiatives working memory contains expected content"
+    }
+  ]
+}

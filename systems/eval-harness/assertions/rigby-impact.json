@@ -1,0 +1,20 @@
+{
+  "name": "rigby-impact",
+  "type": "skill",
+  "assertions": [
+    {
+      "id": "rigby-impact-signal-written",
+      "check": "file_exists",
+      "path": "systems/eval-harness/skill-runs/rigby-impact-latest.json",
+      "description": "rigby-impact skill-run signal file was written"
+    },
+    {
+      "id": "rigby-impact-signal-status",
+      "check": "json_field_not_equals",
+      "path": "systems/eval-harness/skill-runs/rigby-impact-latest.json",
+      "field": "status",
+      "value": "failure",
+      "description": "rigby-impact skill-run did not end in failure"
+    }
+  ]
+}

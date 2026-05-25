@@ -1,0 +1,20 @@
+{
+  "name": "rigby-evolution-package",
+  "type": "skill",
+  "assertions": [
+    {
+      "id": "rigby-evolution-package-signal-written",
+      "check": "file_exists",
+      "path": "systems/eval-harness/skill-runs/rigby-evolution-package-latest.json",
+      "description": "rigby-evolution-package skill-run signal file was written"
+    },
+    {
+      "id": "rigby-evolution-package-signal-status",
+      "check": "json_field_not_equals",
+      "path": "systems/eval-harness/skill-runs/rigby-evolution-package-latest.json",
+      "field": "status",
+      "value": "failure",
+      "description": "rigby-evolution-package skill-run did not end in failure"
+    }
+  ]
+}

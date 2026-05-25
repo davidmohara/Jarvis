@@ -1,0 +1,20 @@
+{
+  "name": "rigby-release-watch",
+  "type": "skill",
+  "assertions": [
+    {
+      "id": "rigby-release-watch-signal-written",
+      "check": "file_exists",
+      "path": "systems/eval-harness/skill-runs/rigby-release-watch-latest.json",
+      "description": "rigby-release-watch skill-run signal file was written"
+    },
+    {
+      "id": "rigby-release-watch-signal-status",
+      "check": "json_field_not_equals",
+      "path": "systems/eval-harness/skill-runs/rigby-release-watch-latest.json",
+      "field": "status",
+      "value": "failure",
+      "description": "rigby-release-watch skill-run did not end in failure"
+    }
+  ]
+}

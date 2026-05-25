@@ -1,0 +1,20 @@
+{
+  "name": "shep-onboard",
+  "type": "skill",
+  "assertions": [
+    {
+      "id": "shep-onboard-signal-written",
+      "check": "file_exists",
+      "path": "systems/eval-harness/skill-runs/shep-onboard-latest.json",
+      "description": "shep-onboard skill-run signal file was written"
+    },
+    {
+      "id": "shep-onboard-signal-status",
+      "check": "json_field_not_equals",
+      "path": "systems/eval-harness/skill-runs/shep-onboard-latest.json",
+      "field": "status",
+      "value": "failure",
+      "description": "shep-onboard skill-run did not end in failure"
+    }
+  ]
+}

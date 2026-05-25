@@ -1,0 +1,20 @@
+{
+  "name": "shep-training",
+  "type": "skill",
+  "assertions": [
+    {
+      "id": "shep-training-signal-written",
+      "check": "file_exists",
+      "path": "systems/eval-harness/skill-runs/shep-training-latest.json",
+      "description": "shep-training skill-run signal file was written"
+    },
+    {
+      "id": "shep-training-signal-status",
+      "check": "json_field_not_equals",
+      "path": "systems/eval-harness/skill-runs/shep-training-latest.json",
+      "field": "status",
+      "value": "failure",
+      "description": "shep-training skill-run did not end in failure"
+    }
+  ]
+}

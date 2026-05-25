@@ -1,0 +1,20 @@
+{
+  "name": "rigby-register",
+  "type": "skill",
+  "assertions": [
+    {
+      "id": "rigby-register-signal-written",
+      "check": "file_exists",
+      "path": "systems/eval-harness/skill-runs/rigby-register-latest.json",
+      "description": "rigby-register skill-run signal file was written"
+    },
+    {
+      "id": "rigby-register-signal-status",
+      "check": "json_field_not_equals",
+      "path": "systems/eval-harness/skill-runs/rigby-register-latest.json",
+      "field": "status",
+      "value": "failure",
+      "description": "rigby-register skill-run did not end in failure"
+    }
+  ]
+}

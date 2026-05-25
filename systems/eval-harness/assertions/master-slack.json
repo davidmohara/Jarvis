@@ -1,0 +1,20 @@
+{
+  "name": "master-slack",
+  "type": "skill",
+  "assertions": [
+    {
+      "id": "master-slack-signal-written",
+      "check": "file_exists",
+      "path": "systems/eval-harness/skill-runs/master-slack-latest.json",
+      "description": "master-slack skill-run signal file was written"
+    },
+    {
+      "id": "master-slack-signal-status",
+      "check": "json_field_not_equals",
+      "path": "systems/eval-harness/skill-runs/master-slack-latest.json",
+      "field": "status",
+      "value": "failure",
+      "description": "master-slack skill-run did not end in failure"
+    }
+  ]
+}

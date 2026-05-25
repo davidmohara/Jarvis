@@ -1,0 +1,20 @@
+{
+  "name": "harper-content",
+  "type": "skill",
+  "assertions": [
+    {
+      "id": "harper-content-signal-written",
+      "check": "file_exists",
+      "path": "systems/eval-harness/skill-runs/harper-content-latest.json",
+      "description": "harper-content skill-run signal file was written"
+    },
+    {
+      "id": "harper-content-signal-status",
+      "check": "json_field_not_equals",
+      "path": "systems/eval-harness/skill-runs/harper-content-latest.json",
+      "field": "status",
+      "value": "failure",
+      "description": "harper-content skill-run did not end in failure"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "name": "remarkable-sync",
+  "type": "skill",
+  "assertions": [
+    {
+      "id": "remarkable-sync-signal-written",
+      "check": "file_exists",
+      "path": "systems/eval-harness/skill-runs/remarkable-sync-latest.json",
+      "description": "remarkable-sync skill-run signal file was written"
+    },
+    {
+      "id": "remarkable-sync-signal-status",
+      "check": "json_field_not_equals",
+      "path": "systems/eval-harness/skill-runs/remarkable-sync-latest.json",
+      "field": "status",
+      "value": "failure",
+      "description": "remarkable-sync skill-run did not end in failure"
+    }
+  ]
+}

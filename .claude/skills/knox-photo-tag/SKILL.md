@@ -404,6 +404,30 @@ Once controller reviews POC results and confirms quality:
 - It does not upload photos anywhere — all processing is local
 - It does not train or fine-tune any model — uses Claude's built-in vision
 - It does not access iCloud Photo Library directly — works through Photos.app APIs
+
+## SKILL COMPLETE
+
+After the skill's final output is delivered, write the skill-run signal file so the eval harness captures this execution:
+
+```
+systems/eval-harness/skill-runs/knox-photo-tag-latest.json
+```
+
+Content:
+```json
+{
+  "skill": "knox-photo-tag",
+  "agent": "knox",
+  "trigger": "manual",
+  "started": "<ISO-8601 timestamp when this skill began>",
+  "completed": "<ISO-8601 timestamp when this skill finished>",
+  "status": "success",
+  "tool_failures": 0,
+  "error_ids": []
+}
+```
+
+Set `trigger` to `"boot"` if called from the morning briefing or a boot workflow, `"scheduled"` if called from a scheduled task, `"manual"` otherwise. Set `status` to `"partial"` if the skill completed with degraded output, `"failure"` if it could not run at all. Use the actual start time of this skill execution for `started`. This write is always the final action.
 <!-- system:end -->
 
 <!-- personal:start -->

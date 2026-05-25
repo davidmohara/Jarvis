@@ -258,6 +258,53 @@ While assembling the review, if Quinn identifies:
 - Execution gap widening (lots of tasks, little progress) --> note for **Chief**
 
 Include these as "Recommended Handoffs" at the bottom of the report.
+
+## SKILL COMPLETE
+
+After the skill's final output is delivered, write the skill-run signal file so the eval harness captures this execution:
+
+```
+systems/eval-harness/skill-runs/quinn-weekly-review-latest.json
+```
+
+Content:
+```json
+{
+  "skill": "quinn-weekly-review",
+  "agent": "quinn",
+  "trigger": "manual",
+  "started": "<ISO-8601 timestamp when this skill began>",
+  "completed": "<ISO-8601 timestamp when this skill finished>",
+  "status": "success",
+  "tool_failures": 0,
+  "error_ids": []
+}
+```
+
+Set `trigger` to `"boot"` if called from the morning briefing or a boot workflow, `"scheduled"` if called from a scheduled task, `"manual"` otherwise. Set `status` to `"partial"` if the skill completed with degraded output, `"failure"` if it could not run at all. Use the actual start time of this skill execution for `started`. This write is always the final action.
+
+After writing the signal file, also write a working memory file to `memory/working/` using this filename pattern:
+
+```
+weekly-review-prep-YYYY-MM-DD-HHmmss.md
+```
+
+The file must begin with this YAML frontmatter (all fields required):
+
+```yaml
+---
+type: working
+task_id: "session"
+session_id: "quinn-{YYYY-MM-DD}-{HHmmss}"
+agent-source: quinn
+created: {YYYY-MM-DD}T{HH:MM:SS}
+expires: {YYYY-MM-DD+2}T{HH:MM:SS}
+status: active
+context: "Weekly review prep — {YYYY-MM-DD}"
+---
+```
+
+Body: 3-5 bullet points summarizing key outputs, decisions, and any flags from this run. Keep it under 200 words.
 <!-- system:end -->
 
 <!-- personal:start -->

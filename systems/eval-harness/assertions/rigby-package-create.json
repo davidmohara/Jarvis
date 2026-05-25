@@ -1,0 +1,20 @@
+{
+  "name": "rigby-package-create",
+  "type": "skill",
+  "assertions": [
+    {
+      "id": "rigby-package-create-signal-written",
+      "check": "file_exists",
+      "path": "systems/eval-harness/skill-runs/rigby-package-create-latest.json",
+      "description": "rigby-package-create skill-run signal file was written"
+    },
+    {
+      "id": "rigby-package-create-signal-status",
+      "check": "json_field_not_equals",
+      "path": "systems/eval-harness/skill-runs/rigby-package-create-latest.json",
+      "field": "status",
+      "value": "failure",
+      "description": "rigby-package-create skill-run did not end in failure"
+    }
+  ]
+}

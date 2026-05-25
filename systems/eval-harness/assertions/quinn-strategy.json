@@ -1,0 +1,20 @@
+{
+  "name": "quinn-strategy",
+  "type": "skill",
+  "assertions": [
+    {
+      "id": "quinn-strategy-signal-written",
+      "check": "file_exists",
+      "path": "systems/eval-harness/skill-runs/quinn-strategy-latest.json",
+      "description": "quinn-strategy skill-run signal file was written"
+    },
+    {
+      "id": "quinn-strategy-signal-status",
+      "check": "json_field_not_equals",
+      "path": "systems/eval-harness/skill-runs/quinn-strategy-latest.json",
+      "field": "status",
+      "value": "failure",
+      "description": "quinn-strategy skill-run did not end in failure"
+    }
+  ]
+}

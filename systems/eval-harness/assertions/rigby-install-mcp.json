@@ -1,0 +1,20 @@
+{
+  "name": "rigby-install-mcp",
+  "type": "skill",
+  "assertions": [
+    {
+      "id": "rigby-install-mcp-signal-written",
+      "check": "file_exists",
+      "path": "systems/eval-harness/skill-runs/rigby-install-mcp-latest.json",
+      "description": "rigby-install-mcp skill-run signal file was written"
+    },
+    {
+      "id": "rigby-install-mcp-signal-status",
+      "check": "json_field_not_equals",
+      "path": "systems/eval-harness/skill-runs/rigby-install-mcp-latest.json",
+      "field": "status",
+      "value": "failure",
+      "description": "rigby-install-mcp skill-run did not end in failure"
+    }
+  ]
+}

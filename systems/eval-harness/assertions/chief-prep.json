@@ -1,0 +1,20 @@
+{
+  "name": "chief-prep",
+  "type": "skill",
+  "assertions": [
+    {
+      "id": "chief-prep-signal-written",
+      "check": "file_exists",
+      "path": "systems/eval-harness/skill-runs/chief-prep-latest.json",
+      "description": "chief-prep skill-run signal file was written"
+    },
+    {
+      "id": "chief-prep-signal-status",
+      "check": "json_field_not_equals",
+      "path": "systems/eval-harness/skill-runs/chief-prep-latest.json",
+      "field": "status",
+      "value": "failure",
+      "description": "chief-prep skill-run did not end in failure"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "name": "shep-delegations",
+  "type": "skill",
+  "assertions": [
+    {
+      "id": "shep-delegations-signal-written",
+      "check": "file_exists",
+      "path": "systems/eval-harness/skill-runs/shep-delegations-latest.json",
+      "description": "shep-delegations skill-run signal file was written"
+    },
+    {
+      "id": "shep-delegations-signal-status",
+      "check": "json_field_not_equals",
+      "path": "systems/eval-harness/skill-runs/shep-delegations-latest.json",
+      "field": "status",
+      "value": "failure",
+      "description": "shep-delegations skill-run did not end in failure"
+    }
+  ]
+}

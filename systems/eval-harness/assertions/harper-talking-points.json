@@ -1,0 +1,20 @@
+{
+  "name": "harper-talking-points",
+  "type": "skill",
+  "assertions": [
+    {
+      "id": "harper-talking-points-signal-written",
+      "check": "file_exists",
+      "path": "systems/eval-harness/skill-runs/harper-talking-points-latest.json",
+      "description": "harper-talking-points skill-run signal file was written"
+    },
+    {
+      "id": "harper-talking-points-signal-status",
+      "check": "json_field_not_equals",
+      "path": "systems/eval-harness/skill-runs/harper-talking-points-latest.json",
+      "field": "status",
+      "value": "failure",
+      "description": "harper-talking-points skill-run did not end in failure"
+    }
+  ]
+}

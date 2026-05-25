@@ -1,0 +1,20 @@
+{
+  "name": "rigby-package-submit",
+  "type": "skill",
+  "assertions": [
+    {
+      "id": "rigby-package-submit-signal-written",
+      "check": "file_exists",
+      "path": "systems/eval-harness/skill-runs/rigby-package-submit-latest.json",
+      "description": "rigby-package-submit skill-run signal file was written"
+    },
+    {
+      "id": "rigby-package-submit-signal-status",
+      "check": "json_field_not_equals",
+      "path": "systems/eval-harness/skill-runs/rigby-package-submit-latest.json",
+      "field": "status",
+      "value": "failure",
+      "description": "rigby-package-submit skill-run did not end in failure"
+    }
+  ]
+}

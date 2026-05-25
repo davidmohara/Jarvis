@@ -1,0 +1,20 @@
+{
+  "name": "rigby-evolution-upload",
+  "type": "skill",
+  "assertions": [
+    {
+      "id": "rigby-evolution-upload-signal-written",
+      "check": "file_exists",
+      "path": "systems/eval-harness/skill-runs/rigby-evolution-upload-latest.json",
+      "description": "rigby-evolution-upload skill-run signal file was written"
+    },
+    {
+      "id": "rigby-evolution-upload-signal-status",
+      "check": "json_field_not_equals",
+      "path": "systems/eval-harness/skill-runs/rigby-evolution-upload-latest.json",
+      "field": "status",
+      "value": "failure",
+      "description": "rigby-evolution-upload skill-run did not end in failure"
+    }
+  ]
+}

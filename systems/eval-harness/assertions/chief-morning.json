@@ -1,0 +1,40 @@
+{
+  "name": "chief-morning",
+  "type": "skill",
+  "assertions": [
+    {
+      "id": "chief-morning-signal-written",
+      "check": "file_exists",
+      "path": "systems/eval-harness/skill-runs/chief-morning-latest.json",
+      "description": "chief-morning skill-run signal file was written"
+    },
+    {
+      "id": "chief-morning-signal-status",
+      "check": "json_field_not_equals",
+      "path": "systems/eval-harness/skill-runs/chief-morning-latest.json",
+      "field": "status",
+      "value": "failure",
+      "description": "chief-morning skill-run did not end in failure"
+    },
+    {
+      "id": "chief-morning-wm-written",
+      "check": "file_exists",
+      "path": "memory/working/morning-briefing-*.md",
+      "description": "chief-morning working memory file written to memory/working/"
+    },
+    {
+      "id": "chief-morning-wm-size",
+      "check": "file_min_bytes",
+      "path": "memory/working/morning-briefing-*.md",
+      "min_bytes": 200,
+      "description": "chief-morning working memory file is substantive (>200 bytes)"
+    },
+    {
+      "id": "chief-morning-wm-content",
+      "check": "file_contains",
+      "path": "memory/working/morning-briefing-*.md",
+      "pattern": "(?i)(calendar|brief|task)",
+      "description": "chief-morning working memory contains expected content"
+    }
+  ]
+}

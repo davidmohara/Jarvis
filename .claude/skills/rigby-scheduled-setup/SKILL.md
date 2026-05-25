@@ -94,6 +94,30 @@ Scheduled Tasks Status
 | `config/scheduled-tasks.json` not found | Report: "Scheduled tasks config not found at config/scheduled-tasks.json. Has this file been created?" |
 | JSON parse error | Report: "Could not parse scheduled-tasks.json — check for syntax errors." |
 | Write fails on config update | Report inline. Do not halt — continue with remaining confirmations. |
+
+## SKILL COMPLETE
+
+After the skill's final output is delivered, write the skill-run signal file so the eval harness captures this execution:
+
+```
+systems/eval-harness/skill-runs/rigby-scheduled-setup-latest.json
+```
+
+Content:
+```json
+{
+  "skill": "rigby-scheduled-setup",
+  "agent": "rigby",
+  "trigger": "manual",
+  "started": "<ISO-8601 timestamp when this skill began>",
+  "completed": "<ISO-8601 timestamp when this skill finished>",
+  "status": "success",
+  "tool_failures": 0,
+  "error_ids": []
+}
+```
+
+Set `trigger` to `"boot"` if called from the morning briefing or a boot workflow, `"scheduled"` if called from a scheduled task, `"manual"` otherwise. Set `status` to `"partial"` if the skill completed with degraded output, `"failure"` if it could not run at all. Use the actual start time of this skill execution for `started`. This write is always the final action.
 <!-- system:end -->
 
 <!-- personal:start -->
