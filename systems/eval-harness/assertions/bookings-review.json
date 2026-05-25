@@ -1,0 +1,40 @@
+{
+  "name": "bookings-review",
+  "type": "skill",
+  "assertions": [
+    {
+      "id": "bookings-review-signal-written",
+      "check": "file_exists",
+      "path": "systems/eval-harness/skill-runs/bookings-review-latest.json",
+      "description": "bookings-review skill-run signal file was written"
+    },
+    {
+      "id": "bookings-review-signal-status",
+      "check": "json_field_not_equals",
+      "path": "systems/eval-harness/skill-runs/bookings-review-latest.json",
+      "field": "status",
+      "value": "failure",
+      "description": "bookings-review skill-run did not end in failure"
+    },
+    {
+      "id": "bookings-review-wm-written",
+      "check": "file_exists",
+      "path": "memory/working/bookings-review-*.md",
+      "description": "bookings-review working memory file written to memory/working/"
+    },
+    {
+      "id": "bookings-review-wm-size",
+      "check": "file_min_bytes",
+      "path": "memory/working/bookings-review-*.md",
+      "min_bytes": 200,
+      "description": "bookings-review working memory file is substantive (>200 bytes)"
+    },
+    {
+      "id": "bookings-review-wm-content",
+      "check": "file_contains",
+      "path": "memory/working/bookings-review-*.md",
+      "pattern": "(?i)(booking|revenue|win)",
+      "description": "bookings-review working memory contains expected content"
+    }
+  ]
+}

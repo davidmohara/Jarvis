@@ -1,0 +1,20 @@
+{
+  "name": "plaud-trigger",
+  "type": "skill",
+  "assertions": [
+    {
+      "id": "plaud-trigger-signal-written",
+      "check": "file_exists",
+      "path": "systems/eval-harness/skill-runs/plaud-trigger-latest.json",
+      "description": "plaud-trigger skill-run signal file was written"
+    },
+    {
+      "id": "plaud-trigger-signal-status",
+      "check": "json_field_not_equals",
+      "path": "systems/eval-harness/skill-runs/plaud-trigger-latest.json",
+      "field": "status",
+      "value": "failure",
+      "description": "plaud-trigger skill-run did not end in failure"
+    }
+  ]
+}

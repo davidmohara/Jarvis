@@ -1,0 +1,20 @@
+{
+  "name": "chase-card-offers-citi",
+  "type": "skill",
+  "assertions": [
+    {
+      "id": "chase-card-offers-citi-signal-written",
+      "check": "file_exists",
+      "path": "systems/eval-harness/skill-runs/chase-card-offers-citi-latest.json",
+      "description": "chase-card-offers-citi skill-run signal file was written"
+    },
+    {
+      "id": "chase-card-offers-citi-signal-status",
+      "check": "json_field_not_equals",
+      "path": "systems/eval-harness/skill-runs/chase-card-offers-citi-latest.json",
+      "field": "status",
+      "value": "failure",
+      "description": "chase-card-offers-citi skill-run did not end in failure"
+    }
+  ]
+}

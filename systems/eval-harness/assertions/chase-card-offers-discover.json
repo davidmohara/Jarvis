@@ -1,0 +1,20 @@
+{
+  "name": "chase-card-offers-discover",
+  "type": "skill",
+  "assertions": [
+    {
+      "id": "chase-card-offers-discover-signal-written",
+      "check": "file_exists",
+      "path": "systems/eval-harness/skill-runs/chase-card-offers-discover-latest.json",
+      "description": "chase-card-offers-discover skill-run signal file was written"
+    },
+    {
+      "id": "chase-card-offers-discover-signal-status",
+      "check": "json_field_not_equals",
+      "path": "systems/eval-harness/skill-runs/chase-card-offers-discover-latest.json",
+      "field": "status",
+      "value": "failure",
+      "description": "chase-card-offers-discover skill-run did not end in failure"
+    }
+  ]
+}

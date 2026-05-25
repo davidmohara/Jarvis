@@ -1,0 +1,20 @@
+{
+  "name": "podcast-transcript-extract",
+  "type": "skill",
+  "assertions": [
+    {
+      "id": "podcast-transcript-extract-signal-written",
+      "check": "file_exists",
+      "path": "systems/eval-harness/skill-runs/podcast-transcript-extract-latest.json",
+      "description": "podcast-transcript-extract skill-run signal file was written"
+    },
+    {
+      "id": "podcast-transcript-extract-signal-status",
+      "check": "json_field_not_equals",
+      "path": "systems/eval-harness/skill-runs/podcast-transcript-extract-latest.json",
+      "field": "status",
+      "value": "failure",
+      "description": "podcast-transcript-extract skill-run did not end in failure"
+    }
+  ]
+}

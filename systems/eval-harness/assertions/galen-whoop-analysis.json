@@ -1,0 +1,20 @@
+{
+  "name": "galen-whoop-analysis",
+  "type": "skill",
+  "assertions": [
+    {
+      "id": "galen-whoop-analysis-signal-written",
+      "check": "file_exists",
+      "path": "systems/eval-harness/skill-runs/galen-whoop-analysis-latest.json",
+      "description": "galen-whoop-analysis skill-run signal file was written"
+    },
+    {
+      "id": "galen-whoop-analysis-signal-status",
+      "check": "json_field_not_equals",
+      "path": "systems/eval-harness/skill-runs/galen-whoop-analysis-latest.json",
+      "field": "status",
+      "value": "failure",
+      "description": "galen-whoop-analysis skill-run did not end in failure"
+    }
+  ]
+}

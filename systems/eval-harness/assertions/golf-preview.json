@@ -1,0 +1,20 @@
+{
+  "name": "golf-preview",
+  "type": "skill",
+  "assertions": [
+    {
+      "id": "golf-preview-signal-written",
+      "check": "file_exists",
+      "path": "systems/eval-harness/skill-runs/golf-preview-latest.json",
+      "description": "golf-preview skill-run signal file was written"
+    },
+    {
+      "id": "golf-preview-signal-status",
+      "check": "json_field_not_equals",
+      "path": "systems/eval-harness/skill-runs/golf-preview-latest.json",
+      "field": "status",
+      "value": "failure",
+      "description": "golf-preview skill-run did not end in failure"
+    }
+  ]
+}

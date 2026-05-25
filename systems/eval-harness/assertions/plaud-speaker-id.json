@@ -1,0 +1,20 @@
+{
+  "name": "plaud-speaker-id",
+  "type": "skill",
+  "assertions": [
+    {
+      "id": "plaud-speaker-id-signal-written",
+      "check": "file_exists",
+      "path": "systems/eval-harness/skill-runs/plaud-speaker-id-latest.json",
+      "description": "plaud-speaker-id skill-run signal file was written"
+    },
+    {
+      "id": "plaud-speaker-id-signal-status",
+      "check": "json_field_not_equals",
+      "path": "systems/eval-harness/skill-runs/plaud-speaker-id-latest.json",
+      "field": "status",
+      "value": "failure",
+      "description": "plaud-speaker-id skill-run did not end in failure"
+    }
+  ]
+}

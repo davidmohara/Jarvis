@@ -169,6 +169,30 @@ Follow this progression. Read the room — but this is the natural arc:
 - **Asymmetry is your friend.** Look for areas where the user has asymmetric knowledge, position, or capability. That's where strategy lives.
 - **Don't call it strategy.** Call it an action agenda. "Here's what we're going to do about this problem."
 - **Read the reference file** at `references/strategy-framework.md` for deeper detail on any concept — extended examples, question bank, common traps.
+
+## SKILL COMPLETE
+
+After the skill's final output is delivered, write the skill-run signal file so the eval harness captures this execution:
+
+```
+systems/eval-harness/skill-runs/quinn-strategy-latest.json
+```
+
+Content:
+```json
+{
+  "skill": "quinn-strategy",
+  "agent": "quinn",
+  "trigger": "manual",
+  "started": "<ISO-8601 timestamp when this skill began>",
+  "completed": "<ISO-8601 timestamp when this skill finished>",
+  "status": "success",
+  "tool_failures": 0,
+  "error_ids": []
+}
+```
+
+Set `trigger` to `"boot"` if called from the morning briefing or a boot workflow, `"scheduled"` if called from a scheduled task, `"manual"` otherwise. Set `status` to `"partial"` if the skill completed with degraded output, `"failure"` if it could not run at all. Use the actual start time of this skill execution for `started`. This write is always the final action.
 <!-- system:end -->
 
 <!-- personal:start -->
