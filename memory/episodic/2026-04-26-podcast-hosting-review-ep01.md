@@ -8,7 +8,7 @@ status: reviewed
 salience:
   score: 0
   references: []
-  last-promoted-check: 2026-05-25
+  last-promoted-check: '2026-05-26'
   promoted: false
 ---
 # Podcast Hosting Review — The Improving Edge, Episode 1

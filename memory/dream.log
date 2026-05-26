@@ -680,3 +680,37 @@ git_commit_at_end: failed
 git_commit_failure_reason: "Stale .git/index.lock present (0 bytes, owned by sandbox uid, created May 25 03:09). Sandbox blocks unlink. git add -A fails with 'Unable to create .git/index.lock: File exists'. Same block pattern as 28+ prior runs. Controller intervention required: from David's machine run 'rm -f .git/index.lock && git add -A && git commit -m \"dream-cycle: 2026-05-25 — archived 1, promoted 0, compressed 0\" && git push origin'."
 git_push: failed
 git_push_reason: "Commit blocked first; not attempted."
+
+---
+## 2026-05-26T03:14:29 CDT
+session_id: dream-cycle-2026-05-26-030942
+working_archived: 3
+working_deleted: 0
+episodic_scanned: 68
+score_updates: 68
+clusters_found: 1
+semantic_created: 0
+semantic_updated: 1
+promoted_entries: 1
+entries_compressed: 0
+digests_updated: 0
+errors: 2
+summary: "Productive run — first semantic update since prior promotion stall. Archived 3 newly expired working files (2026-05-22 chief boot ×2, dream-summary-2026-05-24); copies written to episodic, source deletion blocked again (29th consecutive sandbox unlink restriction). Episodic scanned grew 65→68. Salience distribution: 0:32, 1:1, 6:1, 7:6, 8:3, 10:25 — score-10 ceiling ticked up from 23 to 25 as 3 newly archived boot briefings entered the 30-day window with cluster-matching tags. One new promotion candidate (2026-05-22-061501 chief boot, score 10) — appended evidence + implications #37 and #38 to existing semantic/operational/2026-04-24-briefing-travel-calendar-pattern.md. Source marked promoted. Sibling 06:16:51 boot file had no tags and scored 0 (automated-template regression resurfacing). Error log scan: process-skip:13, data-accuracy:6, routing-error:5, tool-misuse:4, stale-context:3 — all five covered in LESSONS.md (stale-context inline within data-accuracy). Compression skipped (oldest episodic 38 days, cutoff 90). Git pull blocked at boot by unstaged changes from prior sessions; .git/index.lock present and sandbox-blocked. Proceeded with memory phases without sync — same chronic blocker pattern, now 29 consecutive runs."
+errors_detail:
+  - phase: 1
+    file: memory/working/2026-05-22-061501-session-boot-morning-briefing.md, 2026-05-22-061651-session-boot-morning-briefing.md, dream-summary-2026-05-24.md
+    error: "Source deletion blocked (Operation not permitted) on all 3 archived files. Sources marked status:archived in place; copies written to memory/episodic/. 29th consecutive run with sandbox unlink restriction."
+  - phase: 0
+    file: .git
+    error: "git pull --rebase failed: stale .git/index.lock + unstaged changes from prior sessions. Memory phases completed without sync."
+git_pull_at_boot: blocked
+git_pull_failure_reason: "Stale .git/index.lock + uncommitted changes from prior sessions block rebase."
+git_commit_at_end: pending
+git_push: pending
+
+## 2026-05-26T03:15:00 CDT — commit attempt
+session_id: dream-cycle-2026-05-26-030942
+git_commit_at_end: failed
+git_commit_failure_reason: "Stale .git/index.lock present (0 bytes, owned by sandbox uid, created May 26 03:09). Sandbox blocks unlink. git add -A fails with 'Unable to create .git/index.lock: File exists'. Same block pattern as 29th consecutive run. Controller intervention required: from David's machine run 'rm -f .git/index.lock && git add -A && git commit -m \"dream-cycle: 2026-05-26 — archived 3, promoted 1 to semantic, compressed 0\" && git push origin'."
+git_push: failed
+git_push_reason: "Commit blocked first; not attempted."

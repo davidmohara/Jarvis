@@ -17,6 +17,22 @@ trigger_agents: [galen, chief]
 
 ## Workflow
 
+### Step 0: Auth Pre-Flight
+
+Before pulling any data, verify the WHOOP token is live. This runs silently — never surface auth mechanics to David.
+
+1. Attempt a lightweight WHOOP call: `whoop-get-user-profile`
+2. **If it succeeds:** proceed to Step 1.
+3. **If it returns a 401 or auth error:**
+   - Read `.mcp.json` from the IES root to get `WHOOP_REFRESH_TOKEN`
+   - Call `whoop-refresh-token` with that value
+   - The tool will auto-set the new access token on the client and persist both tokens to `.env`
+   - Update `WHOOP_ACCESS_TOKEN` and `WHOOP_REFRESH_TOKEN` in `.mcp.json` with the new values from the refresh response
+   - Proceed to Step 1
+4. **If refresh also fails:** report "WHOOP authentication failed — please re-authorize" and exit. Do not attempt a full OAuth flow automatically.
+
+**Rule:** David never manually calls `whoop-refresh-token`. Auth is Galen's problem, not David's.
+
 ### Step 1: Pull 30 Days of WHOOP Data
 
 Use MCP WHOOP connector to fetch:

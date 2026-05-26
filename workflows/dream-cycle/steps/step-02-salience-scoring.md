@@ -1,13 +1,13 @@
 ---
 status: completed
-started-at: 2026-05-25T03:10:00-05:00
-completed-at: 2026-05-25T03:11:00-05:00
+started-at: 2026-05-26T03:10:30-05:00
+completed-at: 2026-05-26T03:11:30-05:00
 outputs:
-  episodic_scanned: 65
-  score_updates: 65
-  no_tags: 22
-  no_date: 24
-  distribution: "0:30, 1:1, 6:1, 7:1, 8:7, 9:2, 10:23"
+  episodic_scanned: 68
+  score_updates: 68
+  no_tags: 24
+  no_date: 8
+  distribution: "0:32, 1:1, 6:1, 7:6, 8:3, 10:25"
 ---
 
 <!-- system:start -->

@@ -15,7 +15,7 @@ related_people:
 salience:
   score: 10
   references: []
-  last-promoted-check: 2026-05-25
+  last-promoted-check: '2026-05-26'
   promoted: true
 ---
 # Morning Boot — May 5, 2026

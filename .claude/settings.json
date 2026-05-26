@@ -122,6 +122,16 @@
         ]
       }
     ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 '/Users/davidohara/develop/jarvis/.claude/hooks/routing-compliance.py'"
+          }
+        ]
+      }
+    ],
     "SessionEnd": [
       {
         "hooks": [

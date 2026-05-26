@@ -1,17 +1,22 @@
 ---
 type: working-archive
-task_id: "session"
-session_id: "chief-2026-05-22-061501"
+task_id: session
+session_id: chief-2026-05-22-061501
 agent-source: chief
-created: 2026-05-22T06:15:01
-expires: 2026-05-24T06:15:01
+created: 2026-05-22 06:15:01
+expires: 2026-05-24 06:15:01
 status: archived
 salience:
-  score: 0
-context: "Morning boot + briefing — 2026-05-22"
-tags: [boot, briefing, calendar, omnifocus]
+  score: 10
+  last-promoted-check: '2026-05-26'
+  promoted: true
+context: Morning boot + briefing — 2026-05-22
+tags:
+- boot
+- briefing
+- calendar
+- omnifocus
 ---
-
 # Boot Summary — Friday, May 22, 2026
 
 ## Data Sources

@@ -1,9 +1,8 @@
 ---
 salience:
   score: 0
-  last-promoted-check: 2026-05-25
+  last-promoted-check: '2026-05-26'
 ---
-
 # Episodic Memory
 
 Event-sourced knowledge entries. What happened, who was involved, what was decided.

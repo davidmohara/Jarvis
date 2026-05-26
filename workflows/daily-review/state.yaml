@@ -2,16 +2,16 @@
 workflow: daily-review
 agent: chief
 status: complete
-session-started: "2026-05-22T00:00:00"
-session-id: "chief-2026-05-22-auto"
+session-started: "2026-05-26T00:00:00"
+session-id: "chief-2026-05-26-auto"
 current-step: step-auto
 original-request: "auto"
 accumulated-context:
-  narrative-title: "2026-05-22 The Friday After the Stage - Sales Signals, a New Doctor, and Alice Finding Her Footing"
-  narrative-path: "reviews/daily/auto-2026-05-22.md"
-  omnifocus-status: "unavailable (3 timeouts)"
-  calendar-status: "available — 31 events retrieved for May 21-22"
+  narrative-title: "2026-05-24 Declan's Day and the Quiet Work of Staying Grounded"
+  narrative-path: "reviews/daily/auto-2026-05-24.md"
+  omnifocus-status: "available — 3 completions, 3 overdue, 13 inbox items"
+  calendar-status: "available — 1 event retrieved for May 24"
   obsidian-status: "disabled — written to local fallback"
-  calendar-events: 31
+  calendar-events: 1
   model: sonnet
 ---

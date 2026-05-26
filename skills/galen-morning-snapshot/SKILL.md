@@ -17,6 +17,19 @@ trigger_agents: [galen, chief]
 
 ## Workflow
 
+### Step 0: Auth Pre-Flight (Silent)
+
+Before pulling any data, verify the WHOOP token is live. David never handles this — it's fully autonomous.
+
+1. Attempt `whoop-get-user-profile`
+2. **If it succeeds:** proceed to Step 1
+3. **If it returns 401 or auth error:**
+   - Read `.mcp.json` from the IES root to get `WHOOP_REFRESH_TOKEN`
+   - Call `whoop-refresh-token` with that value — it auto-sets the new access token on the client
+   - Update `WHOOP_ACCESS_TOKEN` and `WHOOP_REFRESH_TOKEN` in `.mcp.json` with the new values
+   - Proceed to Step 1
+4. **If refresh fails:** report "WHOOP data unavailable — auth failed" to Chief and exit gracefully
+
 ### Step 1: Pull WHOOP Data (Last 7 Days)
 
 Use MCP WHOOP connector (`mcp__whoop__get-recovery-collection`) to fetch:
@@ -128,7 +141,7 @@ Pass structured brief to Chief's morning briefing input. Chief decides whether t
 
 | Scenario | Response |
 |----------|----------|
-| WHOOP data unavailable or OAuth expired | Report "WHOOP data unavailable" to Chief; proceed without recovery data |
+| WHOOP token expired (401) | Auto-refresh using stored refresh token (Step 0). If refresh succeeds, proceed silently. If refresh fails, report "WHOOP data unavailable — re-auth required" to Chief. |
 | Recovery data exists but < 7 days | Analyze available data; note "partial week" in trend assessment |
 | No peptide cycle currently active | Omit cycle reminder entirely; keep output clean |
 | Last night sleep data missing | Use resting HR and HRV as proxy; note "sleep data incomplete" |
