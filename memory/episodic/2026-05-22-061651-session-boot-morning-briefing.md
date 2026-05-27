@@ -8,8 +8,9 @@ expires: 2026-05-24 06:16:51
 status: archived
 salience:
   score: 0
-  last-promoted-check: '2026-05-26'
+  last-promoted-check: 2026-05-27
 context: Morning boot + briefing — 2026-05-22
+
 ---
 # Morning Briefing Boot — Friday May 22, 2026
 

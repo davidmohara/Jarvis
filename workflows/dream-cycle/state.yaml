@@ -1,47 +1,48 @@
 workflow: dream-cycle
 agent: jarvis
 status: complete
-session-started: 2026-05-26T03:09:42-05:00
-session-id: dream-cycle-2026-05-26-030942
+session-started: 2026-05-27T03:08:57-05:00
+session-id: dream-cycle-2026-05-27-030857
 current-step: null
 original-request: Scheduled dream cycle run
 accumulated-context:
   git_pull_at_boot: blocked
-  git_pull_failure_reason: "Stale .git/index.lock + uncommitted changes from prior sessions block rebase. 29th consecutive run."
-  working_archived: 3
+  git_pull_failure_reason: "Stale .git/index.lock + unstaged changes from prior sessions. 30th consecutive run."
+  working_archived: 1
   working_deleted: 0
-  working_skipped: 58
+  working_skipped: 62
   skipped_unparseable_count: 1
-  working_archive_note: "3 newly expired today (2026-05-22 chief boot ×2, dream-summary-2026-05-24). All marked status:archived in place; copies written to memory/episodic/. Source deletion still blocked (29th consecutive run)."
+  skipped_unparseable:
+    - "memory/working/2026-05-25-200000-galen-health-review.md"
+  working_archive_note: "1 newly expired today (dream-summary-2026-05-25.md, expires 2026-05-26 < today 2026-05-27). Marked status:archived in place; copy written to memory/episodic/. Source deletion still blocked (30th consecutive run with sandbox unlink restriction)."
   episodic_scanned: 68
   score_updates: 68
   no_tags: 24
-  no_date: 8
-  score_distribution: "0:32, 1:1, 6:1, 7:6, 8:3, 10:25 — score-10 ceiling ticked up (23→25) from 3 newly archived entries sharing tags with boot-briefing cluster."
-  clusters_found: 1
+  no_date: 10
+  score_distribution: "0:33, 5:1, 6:5, 7:4, 10:25 — score-10 cluster steady at 25."
+  clusters_found: 0
   semantic_created: 0
-  semantic_updated: 1
-  promoted_entries: 1
-  promotion_note: "One new promotion candidate: 2026-05-22-061501 chief boot briefing (score 10). Appended evidence + implications #37 & #38 to existing semantic/operational/2026-04-24-briefing-travel-calendar-pattern.md (confidence already high). Source episodic file marked promoted:true. Sibling 2026-05-22-061651 file had no tags (scored 0) — not eligible."
-  error_categories_30d: "process-skip:13, data-accuracy:6, routing-error:5, tool-misuse:4, stale-context:3"
-  error_combos_3plus: "All five categories at 3+ threshold are already covered in LESSONS.md. stale-context pattern is materially captured inline within the data-accuracy entry."
+  semantic_updated: 0
+  promoted_entries: 0
+  promotion_note: "Zero new promotion candidates. All 35 entries with score >= 3 already carry promoted:true from prior cycles. Semantic promotion idle for 17+ consecutive runs — score-inflation pattern (boot-briefing tag overlap saturating the top bucket) deferred deliberately, noted in prior dream summaries."
+  error_categories_30d: "process-skip:11, data-accuracy:6, routing-error:5, tool-misuse:4, stale-context:3 — all five at 3+ threshold already covered in LESSONS.md (stale-context inline within data-accuracy)."
   lessons_appended: 0
   lessons_note: "No appends per preservation-over-aggression. All thresholded categories already represented."
   entries_compressed: 0
   digests_updated: 0
   compression_skipped: true
-  compression_skip_reason: "All episodic entries < 90 days old (oldest is 2026-04-18, 38 days)"
+  compression_skip_reason: "All episodic entries < 90 days old (oldest is 2026-04-18, 39 days)"
   dream_log_appended: true
   working_summary_written: true
   errors: 2
   errors_detail:
     - phase: 1
-      file: "memory/working/2026-05-22-061501-session-boot-morning-briefing.md, 2026-05-22-061651-session-boot-morning-briefing.md, dream-summary-2026-05-24.md"
-      error: "Source deletion blocked (Operation not permitted) on all 3 archived files. Sources marked status:archived in place; copies written to memory/episodic/. 29th consecutive run with sandbox unlink restriction."
+      file: "memory/working/dream-summary-2026-05-25.md"
+      error: "Source deletion blocked (Operation not permitted). Source marked status:archived in place; copy written to memory/episodic/. 30th consecutive run with sandbox unlink restriction."
     - phase: 0
       file: .git
       error: "git pull --rebase failed: stale .git/index.lock + unstaged changes from prior sessions. Memory phases completed without sync."
   git_commit_at_end: failed
-  git_commit_failure_reason: "Stale .git/index.lock present (0 bytes, owned by sandbox uid). Sandbox blocks unlink. git add -A fails with 'Unable to create .git/index.lock: File exists'. Same block pattern as 29 consecutive runs. Controller intervention required."
+  git_commit_failure_reason: "Stale .git/index.lock present, sandbox blocks unlink. Same block pattern as 30th consecutive run. Controller intervention required: from David's machine run 'rm -f .git/index.lock && git add -A && git commit -m \"dream-cycle: 2026-05-27 — archived 1, promoted 0, compressed 0\" && git push origin'."
   git_push: failed
   git_push_reason: "Commit blocked first; not attempted."

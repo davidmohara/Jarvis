@@ -3,15 +3,15 @@ workflow: daily-review
 agent: chief
 status: complete
 session-started: "2026-05-26T00:00:00"
-session-id: "chief-2026-05-26-auto"
+session-id: "chief-2026-05-26-000000"
 current-step: step-auto
 original-request: "auto"
 accumulated-context:
-  narrative-title: "2026-05-24 Declan's Day and the Quiet Work of Staying Grounded"
-  narrative-path: "reviews/daily/auto-2026-05-24.md"
-  omnifocus-status: "available — 3 completions, 3 overdue, 13 inbox items"
-  calendar-status: "available — 1 event retrieved for May 24"
+  narrative-title: "2026-05-26 Account Plans, Eval Harness, and Three Introductions Still Waiting"
+  narrative-path: "reviews/daily/auto-2026-05-26.md"
+  omnifocus-status: "available — 13 completions, 3 overdue, 13 inbox items"
+  calendar-status: "unavailable — M365 connector not authenticated"
   obsidian-status: "disabled — written to local fallback"
-  calendar-events: 1
+  calendar-events: 0
   model: sonnet
 ---

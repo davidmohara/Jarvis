@@ -8,10 +8,11 @@ tags:
 - system-health
 related_people: []
 salience:
-  score: 1
+  score: 0
   references: []
-  last-promoted-check: '2026-05-26'
+  last-promoted-check: 2026-05-27
   promoted: false
+
 ---
 # Dream Cycle Summary — 2026-04-18
 

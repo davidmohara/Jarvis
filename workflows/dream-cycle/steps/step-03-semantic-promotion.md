@@ -1,13 +1,13 @@
 ---
 status: completed
-started-at: 2026-05-26T03:11:30-05:00
-completed-at: 2026-05-26T03:13:00-05:00
+started-at: 2026-05-27T03:12:00-05:00
+completed-at: 2026-05-27T03:13:30-05:00
 outputs:
-  clusters_found: 1
+  clusters_found: 0
   semantic_created: 0
-  semantic_updated: 1
-  promoted_entries: 1
-  error_categories_30d: "process-skip:13, data-accuracy:6, routing-error:5, tool-misuse:4, stale-context:3 — all five already covered in LESSONS.md (stale-context inline within data-accuracy)."
+  semantic_updated: 0
+  promoted_entries: 0
+  error_categories_30d: "process-skip:11, data-accuracy:6, routing-error:5, tool-misuse:4, stale-context:3 — all five already covered in LESSONS.md (stale-context inline within data-accuracy)."
   lessons_appended: 0
 ---
 

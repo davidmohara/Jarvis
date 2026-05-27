@@ -16,8 +16,9 @@ tags:
 - graduation
 salience:
   score: 10
-  last-promoted-check: '2026-05-26'
+  last-promoted-check: 2026-05-27
   promoted: true
+
 ---
 # Morning Briefing — May 20, 2026
 
