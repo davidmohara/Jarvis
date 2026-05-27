@@ -14,9 +14,11 @@ model: sonnet
 1. You MUST read pending-drafts.json first — only process posts that are tracked there.
 2. You MUST read the reply content carefully before acting — do not publish on ambiguous signals.
 3. You MUST only publish posts with `status: pending` — never re-process already published or rejected entries.
-4. You MUST update pending-drafts.json after every action (publish, reject, regenerate).
+4. You MUST update pending-drafts.json after every action (publish, reject, regenerate, or cleanup).
 5. You MUST NOT create new Ghost tags during regeneration.
 6. Approval signal is ONLY valid from David's Slack user ID (U0ANHV5UXEW). Ignore replies from others.
+7. You MUST remove `status: "published"` entries from pending-drafts.json on every run — they are done and take up space.
+8. You MUST remove `status: "scheduled"` entries from pending-drafts.json once their `scheduled_at` date has passed.
 
 ---
 
@@ -31,9 +33,19 @@ model: sonnet
 
 ## YOUR TASK
 
-### 1. Load pending drafts
+### 1. Load and clean pending-drafts.json
 
-Read `workflows/content-pipeline/pending-drafts.json`. Filter for entries where `status: "pending"`.
+Read `workflows/content-pipeline/pending-drafts.json`.
+
+**Before anything else, run cleanup:**
+
+- Remove all entries where `status: "published"` — they are done.
+- Remove all entries where `status: "scheduled"` AND `scheduled_at` is in the past (before current UTC time) — Ghost has already published them.
+- Remove all entries where `status: "rejected"` AND `created_at` is older than 30 days.
+
+If any entries were removed, write the updated array back to pending-drafts.json immediately.
+
+Now filter the remaining entries for `status: "pending"`.
 
 If none: exit cleanly — nothing to process.
 
@@ -145,7 +157,12 @@ Same commands: reply `approve` to publish, `reject` to discard, or give more fee
 
 ## CLEANUP
 
-Periodically (when running): remove entries from pending-drafts.json that are older than 30 days with status "rejected" or "published". Keep the file lean.
+Cleanup now runs at the top of every execution (Step 1), not periodically. Rules:
+- `status: "published"` — remove immediately on any run.
+- `status: "scheduled"` with `scheduled_at` in the past — remove immediately (Ghost has published it).
+- `status: "rejected"` older than 30 days — remove.
+
+Keep the file lean. An empty array `[]` is a valid and healthy state.
 
 ---
 

@@ -1,0 +1,15 @@
+{
+  "id": "err-20260526T174550-H43LIF",
+  "timestamp": "2026-05-26T17:45:50Z",
+  "session": "session-2026-05-26-024700",
+  "source": "explicit",
+  "agent": "Master",
+  "category": "data-accuracy",
+  "description": "Repeatedly mentioned a git index.lock file as a blocking issue after David confirmed it does not exist.",
+  "correction": "There is no index.lock in the git repo. Stop surfacing this as an issue.",
+  "failure_mode": "wrong-assumption",
+  "systemic_fix": "Remove git index.lock from the standard briefing checklist. Do not resurface unless David reports dream cycle failures and explicitly asks for diagnosis.",
+  "fix_status": "applied",
+  "severity": "minor",
+  "related_entries": []
+}

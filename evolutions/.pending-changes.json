@@ -1174,6 +1174,98 @@
           "description": "Added step 4: eval harness health one-liner check. Reads today's eval runs, computes success rate, presents one-liner health summary to controller, stores in working memory."
         }
       ]
+    },
+    {
+      "id": "work-20260526-skill-optimize",
+      "description": "Built SkillOpt-style optimization loop for IES skills. Implements the text-space skill optimization paradigm from arXiv:2605.23904 (Microsoft/SJTU, May 2026) adapted to IES architecture: uses the 4-tier eval harness as the scoring signal, IES composite score formula as the gate criterion, and a new rigby-skill-reflect skill as the reflection engine. Core components: (1) rigby-skill-reflect — trajectory-to-edits reflection skill that reads eval records + session transcripts, separates successes from failures, identifies procedural patterns, and proposes bounded add/delete/replace edits to SKILL.md files; (2) 8-step skill-optimize workflow — setup, baseline scoring, reflect, apply candidate, score candidate, gate, slow update, report; (3) score_eval.py — authoritative Python implementation of the composite scoring formula (mechanical×0.25 + assertion_rate×0.35 + grade_score×0.20 + feedback×0.10 + no_errors×0.10) with weight redistribution for null components; (4) manifest and Rigby agent updates. Key architectural decisions: simulated improvement assessment for gate (IES cannot re-run skills with candidate versions), SLOW_UPDATE_START/END protected region convention for epoch-boundary durable guidance (analogous to dream cycle for memory layer), train/selection 70/30 split of eval records.",
+      "started": "2026-05-26T00:00:00Z",
+      "classification": "system",
+      "files": [
+        {
+          "path": "skills/rigby-skill-reflect/SKILL.md",
+          "action": "add",
+          "type": "system",
+          "description": "New skill: trajectory-to-edits reflection engine. Core component of skill-optimize workflow. Loads eval records and session transcripts, partitions into success/failure minibatches, analyzes failure patterns, proposes corrective edits, filters against rejected-edit buffer, applies edit budget, writes structured JSON to candidates/round-{N}-edits.json. Edit schema: {op, target, content, pattern_type, affected_runs, source, priority_rank}. Respects all protected regions (system:start/end, personal:start/end, SLOW_UPDATE_START/END)."
+        },
+        {
+          "path": "workflows/skill-optimize/workflow.md",
+          "action": "add",
+          "type": "system",
+          "description": "8-step orchestrating workflow for SkillOpt-style skill optimization. Termination conditions: rounds exhausted, 3 consecutive zero-edit rounds, size ceiling (max_token_budget), controller termination. STATE CHECK protocol on entry. Owned by Rigby."
+        },
+        {
+          "path": "workflows/skill-optimize/state.yaml",
+          "action": "add",
+          "type": "system",
+          "description": "Initial state template for skill-optimize workflow. Fields: skill_id, skill_path, edit_budget (default 4), total_rounds (default 4), epoch_size (default 2), rounds_completed, consecutive_zero_edit_rounds, baseline_score, best_score, best_skill_path, eval_record_ids[], selection_record_ids[], rejected_edits_path, slow_update_history_path, accepted_edits_total, last_round_delta, max_token_budget (default 2000)."
+        },
+        {
+          "path": "workflows/skill-optimize/step-01-setup.md",
+          "action": "add",
+          "type": "system",
+          "description": "Step 1: Configure target skill, scan eval records from both systems/eval-harness/runs/ and systems/evals/ directories, apply 70/30 train/selection split, create candidates/ directory, initialize rejected-edits.json buffer."
+        },
+        {
+          "path": "workflows/skill-optimize/step-02-score-baseline.md",
+          "action": "add",
+          "type": "system",
+          "description": "Step 2: Score all selection records using score_eval.py, handle no-assertions case (neutral 0.5 with warning surfaced to controller), initialize best_score = baseline_score in state.yaml."
+        },
+        {
+          "path": "workflows/skill-optimize/step-03-reflect.md",
+          "action": "add",
+          "type": "system",
+          "description": "Step 3: Invoke rigby-skill-reflect with train batch. Handle insufficient_data flag (skip to step-08 with note). Handle zero edits (increment consecutive_zero_edit_rounds counter, proceed to gate)."
+        },
+        {
+          "path": "workflows/skill-optimize/step-04-apply-candidate.md",
+          "action": "add",
+          "type": "system",
+          "description": "Step 4: Load best_skill_path, apply edits in priority order, respect all protected regions (system:start/end, personal:start/end, SLOW_UPDATE_START/END). Write to candidates/round-{N}-candidate.md only — never overwrites SKILL.md directly. Adds traceability header comment."
+        },
+        {
+          "path": "workflows/skill-optimize/step-05-score-candidate.md",
+          "action": "add",
+          "type": "system",
+          "description": "Step 5: Score candidate against selection records using score_eval.py. IES adaptation: simulated_improvement assessment checks if accepted edits directly address specific failed assertions. Compute delta = candidate_score - best_score."
+        },
+        {
+          "path": "workflows/skill-optimize/step-06-gate.md",
+          "action": "add",
+          "type": "system",
+          "description": "Step 6: Strict delta > 0 gate (ties rejected). Accept: copy candidate to SKILL.md, update best_score, log to pending-changes. Reject: SKILL.md unchanged. Always update rejected-edits buffer. Determine next step dynamically (slow update at epoch boundary, report at termination, reflect otherwise)."
+        },
+        {
+          "path": "workflows/skill-optimize/step-07-slow-update.md",
+          "action": "add",
+          "type": "system",
+          "description": "Step 7: Epoch-boundary consolidation. Reads all round outputs for the epoch, synthesizes longitudinal guidance (what worked/didn't/is durable), writes to SLOW_UPDATE_START/END protected region (max 300 tokens). Gates through same validation before committing. Updates slow-update-history.json."
+        },
+        {
+          "path": "workflows/skill-optimize/step-08-report.md",
+          "action": "add",
+          "type": "system",
+          "description": "Step 8: Final report. Computes statistics (rounds, accepted/rejected, delta), generates skill diff, writes optimization-report-{YYYY-MM-DD}.md, cleans candidate directory (keep winner + latest edit JSON), confirms pending-changes current, sets state.yaml status: complete."
+        },
+        {
+          "path": "systems/eval-harness/scoring/score_eval.py",
+          "action": "add",
+          "type": "system",
+          "description": "Authoritative Python implementation of IES composite scoring formula. CLI: --record, --batch, --skill, --limit, --pretty, --summary. Functions: find_record() (checks runs/ then evals/**/ recursively), find_records_for_skill() (scans both directories, sorts by started desc), compute_score() (implements formula with null weight redistribution, returns score/components/notes), score_batch() (per-record + aggregate stats). Verified working against eval-20260524T194258-HBF752."
+        },
+        {
+          "path": "skills/_manifest.jsonl",
+          "action": "merge",
+          "type": "system",
+          "description": "Appended rigby-skill-reflect entry: id, name, owning_agent=rigby, model=sonnet, trigger_keywords=[skill reflect, reflect on skill, skill improvement, optimize skill], trigger_agents=[rigby], path, description."
+        },
+        {
+          "path": "agents/rigby.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Added 3 new rows to Rigby task portfolio in system:start block: (1) optimize skill/run skill optimization/SkillOpt → Skill Optimize → workflows/skill-optimize/workflow.md; (2) skill reflect/reflect on skill/analyze skill runs → Skill Reflect → skills/rigby-skill-reflect/SKILL.md; (3) score evals/score this skill/compute eval score → Eval Score → systems/eval-harness/scoring/score_eval.py."
+        }
+      ]
     }
   ]
 }

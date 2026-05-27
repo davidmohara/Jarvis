@@ -1,0 +1,25 @@
+workflow: skill-optimize
+agent: rigby
+status: not-started
+session-started: null
+session-id: null
+current-step: null
+original-request: null
+accumulated-context:
+  skill_id: null
+  skill_path: null
+  edit_budget: 4
+  total_rounds: 4
+  epoch_size: 2
+  rounds_completed: 0
+  consecutive_zero_edit_rounds: 0
+  baseline_score: null
+  best_score: null
+  best_skill_path: null
+  eval_record_ids: []
+  selection_record_ids: []
+  rejected_edits_path: null
+  slow_update_history_path: null
+  accepted_edits_total: 0
+  last_round_delta: null
+  max_token_budget: 2000
