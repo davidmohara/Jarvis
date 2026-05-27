@@ -9,7 +9,7 @@
   "correction": "OmniFocus MCP data cannot be treated as fully authoritative. Known sync lag exists between OmniFocus app state and MCP layer.",
   "failure_mode": "stale-cache",
   "systemic_fix": "When executive disputes any task status, re-pull before responding. Flag OmniFocus MCP sync reliability as a known data quality risk.",
-  "fix_status": "proposed",
+  "fix_status": "applied",
   "severity": "moderate",
   "related_entries": [
     "err-20260512-001",

@@ -23,10 +23,11 @@ item, routes it to the right agent or system, and reports what was processed.
 
 ### 1. Scan the Folder
 
-Pull all items from the Jarvis mailbox via M365 MCP:
+Pull all items from the Jarvis mailbox via the M365 MCP connector only:
 
-Use the M365 email search connector (`mcp__claude_ai_Microsoft_365__outlook_email_search`) 
-to query the "Jarvis" folder. Specify:
+> **CRITICAL:** Use the M365 email search connector (`mcp__b8c41a14-7a9b-4ea5-ab12-933ee04bc52f__outlook_email_search`) exclusively. **Do not use Apple Mail, AppleScript, or any local mail client.** Improving uses Microsoft 365 / Exchange Online as its sole email platform. Apple Mail is not configured and any AppleScript targeting it will fail or hit the wrong account.
+
+Specify:
 - **Folder**: "Jarvis" 
 - **Sort**: date received (descending)
 - **Return fields**: email ID, subject, sender name and address, date received, message body/content

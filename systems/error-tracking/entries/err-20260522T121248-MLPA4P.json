@@ -9,7 +9,10 @@
   "correction": "Staging cleanup (step 7 of Plaud skill) runs once at the end, after all recordings in the current run are vaulted. Never delete individual files mid-run.",
   "failure_mode": "protocol-skip",
   "systemic_fix": "Skill step 7 should be gated: only execute after a final reconciliation confirms zero unprocessed recordings remain from the current run.",
-  "fix_status": "proposed",
+  "fix_status": "applied",
   "severity": "moderate",
-  "related_entries": ["err-20260522T121242-C74YUW", "err-20260522T121248-KKK0TN"]
+  "related_entries": [
+    "err-20260522T121242-C74YUW",
+    "err-20260522T121248-KKK0TN"
+  ]
 }

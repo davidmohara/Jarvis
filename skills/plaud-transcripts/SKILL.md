@@ -286,9 +286,27 @@ The short version:
 The wikilink path is relative to vault root, without `.md` extension. For example:
 `- [[Improving/Meeting Notes/2026-03-18 Consultation AI Partnership]]`
 
-### 7. Clean up staging
+### 7. Reconcile before cleanup — MANDATORY
 
-After all notes are successfully written to the vault:
+**Before deleting any staging files, reconcile the ingest run against `all_recordings.json`.**
+
+Run:
+```
+do shell script "cd <scripts-dir> && /usr/bin/python3 fetch_plaud.py --list-all --out /tmp/all_recordings_current.json 2>&1"
+```
+
+Compare the list of file IDs that were just processed against the full recording list. Confirm:
+1. Every recording that has a transcript in staging was processed (no silent skips)
+2. No recording shows `status: transcript_ready` in the API but was not staged (indicates a prior fetch wrote to API but staging was cleared early)
+3. The count of processed files matches the count of staged `plaud_*.md` files at the start of this run
+
+If reconciliation finds unprocessed transcripts: process them before cleanup. Do NOT clean staging until reconciliation confirms zero unprocessed transcripts.
+
+> **WHY THIS EXISTS:** A prior bug (err-20260522T191304-TO2VXV + related) caused staging cleanup to run after the first batch, discarding transcripts that hadn't been processed yet. Reconciliation is the gate that prevents this.
+
+### 7b. Clean up staging
+
+After reconciliation confirms a full run:
 1. Delete the processed `plaud_*.md` files from staging
 2. Delete the corresponding `plaud_*_raw.json` files
 3. Leave the `fetch_plaud.py` script and any config files intact

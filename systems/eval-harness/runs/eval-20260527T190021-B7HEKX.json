@@ -1,0 +1,107 @@
+{
+  "id": "eval-20260527T190021-B7HEKX",
+  "type": "workflow",
+  "name": "error-improvement",
+  "agent": "rigby",
+  "session_id": "session-2026-05-27-112421",
+  "trigger": "manual",
+  "started": "2026-05-27T18:55:26.524005Z",
+  "completed": "2026-05-27T19:00:21.171586Z",
+  "duration_seconds": 294.6,
+  "status": "success",
+  "steps": [
+    {
+      "name": "step-01-intake",
+      "started": "2026-05-27T18:55:26.524005Z",
+      "completed": "2026-05-27T18:56:08.616517Z",
+      "duration_seconds": 42.1,
+      "status": "success",
+      "data_sources_used": [],
+      "data_source_failures": []
+    },
+    {
+      "name": "step-02-analyze",
+      "started": "2026-05-27T18:56:08.616517Z",
+      "completed": "2026-05-27T18:56:50.709028Z",
+      "duration_seconds": 42.1,
+      "status": "success",
+      "data_sources_used": [],
+      "data_source_failures": []
+    },
+    {
+      "name": "step-03-triage",
+      "started": "2026-05-27T18:56:50.709028Z",
+      "completed": "2026-05-27T18:57:32.801540Z",
+      "duration_seconds": 42.1,
+      "status": "success",
+      "data_sources_used": [],
+      "data_source_failures": []
+    },
+    {
+      "name": "step-04-apply",
+      "started": "2026-05-27T18:57:32.801540Z",
+      "completed": "2026-05-27T18:58:14.894051Z",
+      "duration_seconds": 42.1,
+      "status": "success",
+      "data_sources_used": [],
+      "data_source_failures": []
+    },
+    {
+      "name": "step-05-verify",
+      "started": "2026-05-27T18:58:14.894051Z",
+      "completed": "2026-05-27T18:58:56.986563Z",
+      "duration_seconds": 42.1,
+      "status": "success",
+      "data_sources_used": [],
+      "data_source_failures": []
+    },
+    {
+      "name": "step-06-compact",
+      "started": "2026-05-27T18:58:56.986563Z",
+      "completed": "2026-05-27T18:59:39.079074Z",
+      "duration_seconds": 42.1,
+      "status": "success",
+      "data_sources_used": [],
+      "data_source_failures": []
+    },
+    {
+      "name": "step-07-summary",
+      "started": "2026-05-27T18:59:39.079074Z",
+      "completed": "2026-05-27T19:00:21.171586Z",
+      "duration_seconds": 42.1,
+      "status": "success",
+      "data_sources_used": [],
+      "data_source_failures": []
+    }
+  ],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    }
+  },
+  "version_hash": "c0878347f5dde16a",
+  "prior_baseline_id": null,
+  "tags": [
+    "cowork-instrumented"
+  ]
+}

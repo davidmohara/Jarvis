@@ -171,4 +171,19 @@ Keep the file lean. An empty array `[]` is a valid and healthy state.
 `systems/slack-bot/read.py` handles all READ operations (channel history, thread replies) via the Slack Web API using the bot token.
 `systems/slack-bot/post.py` handles all WRITE operations (posting messages, thread replies) via the same bot token.
 Both scripts are invoked via Desktop Commander (mcp__Desktop_Commander__start_process). No Slack MCP connector is used.
+
+---
+
+## NOTE ON EVAL RECORDS
+
+**Harper does NOT write eval records.** The eval harness is owned by Rigby. Harper's job is to execute the content pipeline correctly and report outcomes. Rigby observes those outcomes and writes eval records.
+
+If this workflow run is being executed as part of an observed/instrumented session (i.e., a Rigby eval run is active), Harper surfaces the following outcome data for Rigby to record:
+- Run timestamp (started/completed)
+- Number of drafts checked
+- Number of actions taken (published/rejected/regenerated)
+- Any tool failures encountered
+- Ghost post IDs of published posts
+
+Harper does NOT write to `systems/eval-harness/runs/` or `systems/eval-harness/skill-runs/`. Any eval record write from Harper is a routing error — log it as such.
 <!-- personal:end -->

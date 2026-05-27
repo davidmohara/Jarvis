@@ -8,8 +8,11 @@
   "description": "Declared Plaud ingest complete after finding 2 May 13 transcripts already in the vault. Did not check plaud_all_recordings.json to inventory all recordings before concluding. The May 18 recording was never checked.",
   "correction": "Before declaring ingest complete, parse plaud_all_recordings.json to get the full recording list, cross-reference against vault contents, and confirm every recording is either vaulted or explicitly skipped.",
   "failure_mode": "lazy-search",
-  "systemic_fix": "Plaud ingest skill step 1 should explicitly require reading all_recordings.json and producing a reconciliation list (recording ID → vault status) before any cleanup.",
-  "fix_status": "proposed",
+  "systemic_fix": "Plaud ingest skill step 1 should explicitly require reading all_recordings.json and producing a reconciliation list (recording ID \u2192 vault status) before any cleanup.",
+  "fix_status": "applied",
   "severity": "major",
-  "related_entries": ["err-20260522T121242-C74YUW", "err-20260522T121248-MLPA4P"]
+  "related_entries": [
+    "err-20260522T121242-C74YUW",
+    "err-20260522T121248-MLPA4P"
+  ]
 }

@@ -5,15 +5,31 @@
 
 ```
 systems/error-tracking/
-  _meta.json              # log-level metadata (version, description)
+  _meta.json              # log-level metadata (version, description, compaction history)
   entries/
     err-<id>.json         # one file per entry — see ID Format below
+  digests/
+    compact-YYYY-MM.json  # monthly compaction digests (archived resolved entries)
   schema.md               # this file
   new-entry.py            # generate a new id and skeleton entry file
   rebuild-log.py          # aggregate entries into a single view for analysis
+  compact.py              # compact resolved entries into monthly digests
 ```
 
 One file per entry is the canonical form. The previous monolithic `error-log.json` was retired because it produced unresolvable merge conflicts when the same vault was written from two machines via GitHub.
+
+### Compaction Lifecycle
+
+Active entries in `entries/` are compacted into monthly digest files once a calendar month closes and all entries in that month reach `fix_status: applied` or `fix_status: deferred`. Compaction is executed by Rigby via the `rigby-error-compact` skill, which calls `compact.py`.
+
+**Digest files** (`digests/compact-YYYY-MM.json`) contain:
+- Full aggregate stats for the period (category, failure_mode, severity, agent breakdowns)
+- Per-entry records truncated to 1 sentence each (id, date, category, failure_mode, severity, agent, description, correction, systemic_fix)
+- Patterns identified during analysis runs for that period
+
+Entries in `proposed` or `in-progress` status block compaction for their month. Months are compacted independently — a blocked March does not prevent April from being compacted.
+
+See `skills/rigby-error-compact/SKILL.md` for the full compaction protocol.
 
 ## ID Format
 

@@ -4,7 +4,7 @@
   "session": "2026-03-23",
   "source": "self-detected",
   "agent": "jarvis",
-  "category": "wrong-assumption",
+  "category": "assumption-error",
   "description": "Rogers-O'Brien lunch prep sheet assumed a sales/pursuit framing without asking David for meeting context. Defaulted to 'account pursuit' and 'conversation strategy' language when the meeting was actually a friendly peer-level show-and-tell. Also didn't ask about existing relationships before researching attendees cold.",
   "correction": "For any externally-organized meeting prep, ask David for the meeting's purpose and relationship context before building the sheet. Don't default to a sales framing for meetings David personally organized with known contacts.",
   "failure_mode": "wrong-assumption",

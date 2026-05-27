@@ -75,6 +75,8 @@ These need executive judgment. Rigby presents the data and asks for direction:
 
 Write identified patterns to `patterns.recurring` in the error log. Update `patterns.last_analyzed` timestamp.
 
+Then run `python3 systems/error-tracking/compact.py --status` and capture the output. If any months are marked **✓ eligible**, surface it in the report: "April 2026 is eligible for compaction — [N] entries, all resolved. Run `rigby-error-compact` after this triage pass closes." Do not compact now — compaction runs after fixes are applied.
+
 ### Step 6: Present Results
 
 **Daily review integration (Chief calls this):**

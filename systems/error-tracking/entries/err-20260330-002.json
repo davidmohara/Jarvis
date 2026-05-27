@@ -9,7 +9,7 @@
   "correction": "Use a plain/unbranded PDF generator for personal documents. Reserve improving-pdf for Improving deliverables.",
   "failure_mode": "wrong-assumption",
   "systemic_fix": "Add rule: improving-pdf is for Improving-branded deliverables only. Personal docs (reMarkable, personal reference, internal notes) should use a clean/unbranded PDF generator.",
-  "fix_status": "proposed",
+  "fix_status": "applied",
   "severity": "minor",
   "related_entries": []
 }

@@ -2,7 +2,7 @@
   "pending": [
     {
       "id": "work-20260524-eval-harness-assertion-wiring",
-      "description": "Wired structural assertions into post-tool-use.py hook and fixed missing morning-briefing output file instruction. P1: Added run_assertions() function to post-tool-use.py that loads systems/eval-harness/assertions/{name}.json, evaluates all 7 evaluable check types (file_exists, file_min_bytes, file_contains, file_not_contains, yaml_field_equals, step_count_gte, duration_lte) using IES_ROOT as base, skips tool_was_called with a reason note, and populates assessment.structural with assertion_results, assertions_checked, assertions_passed, expected_outputs_written, and outputs_non_empty. Added import re. Wired run_assertions() into both create_eval_record_from_state() and create_eval_record_from_skill_run() just before atomic_write_json. P2: Added mandatory WRITE OUTPUT FILE section to workflows/morning-briefing/steps/step-04-synthesize-briefing.md instructing the agent to write the full briefing to memory/working/morning-briefing-YYYY-MM-DD.md after delivery. Root cause was that step-04 had no write instruction — the assertion file expected the file but the workflow never told the agent to create it.",
+      "description": "Wired structural assertions into post-tool-use.py hook and fixed missing morning-briefing output file instruction. P1: Added run_assertions() function to post-tool-use.py that loads systems/eval-harness/assertions/{name}.json, evaluates all 7 evaluable check types (file_exists, file_min_bytes, file_contains, file_not_contains, yaml_field_equals, step_count_gte, duration_lte) using IES_ROOT as base, skips tool_was_called with a reason note, and populates assessment.structural with assertion_results, assertions_checked, assertions_passed, expected_outputs_written, and outputs_non_empty. Added import re. Wired run_assertions() into both create_eval_record_from_state() and create_eval_record_from_skill_run() just before atomic_write_json. P2: Added mandatory WRITE OUTPUT FILE section to workflows/morning-briefing/steps/step-04-synthesize-briefing.md instructing the agent to write the full briefing to memory/working/morning-briefing-YYYY-MM-DD.md after delivery. Root cause was that step-04 had no write instruction \u2014 the assertion file expected the file but the workflow never told the agent to create it.",
       "started": "2026-05-24T00:00:00Z",
       "classification": "system",
       "files": [
@@ -90,7 +90,7 @@
     },
     {
       "id": "work-20260524-eval-harness-wiring",
-      "description": "Eval harness wiring — hook-driven, model-independent. The PostToolUse hook (post-tool-use.py) now auto-creates eval records when any workflow writes state.yaml with status: complete. In Claude Code: the existing SubagentStart/Stop hooks create/close stubs as before. In Cowork: no SubagentStart fires, so the hook creates a complete record on the state.yaml completion write (tagged 'cowork-hook'). Also added close-eval-record.py helper for manual/scripted record creation, and instrumented 5 workflow final steps with eval record instructions as a documentation-only backstop. Core fix: (1) eval block is now independent of the session index block in main() — previously a topic-not-found error in Block 1 caused an early return that silently skipped the eval harness; (2) fixed topic lookup to check both 'topic' and 'name' keys; (3) added missing 'files' key initialization for topic objects that lack it. Created runs/ directory and .gitkeep. Test-verified: state.yaml write triggers record creation with correct name/agent/status/version_hash.",
+      "description": "Eval harness wiring \u2014 hook-driven, model-independent. The PostToolUse hook (post-tool-use.py) now auto-creates eval records when any workflow writes state.yaml with status: complete. In Claude Code: the existing SubagentStart/Stop hooks create/close stubs as before. In Cowork: no SubagentStart fires, so the hook creates a complete record on the state.yaml completion write (tagged 'cowork-hook'). Also added close-eval-record.py helper for manual/scripted record creation, and instrumented 5 workflow final steps with eval record instructions as a documentation-only backstop. Core fix: (1) eval block is now independent of the session index block in main() \u2014 previously a topic-not-found error in Block 1 caused an early return that silently skipped the eval harness; (2) fixed topic lookup to check both 'topic' and 'name' keys; (3) added missing 'files' key initialization for topic objects that lack it. Created runs/ directory and .gitkeep. Test-verified: state.yaml write triggers record creation with correct name/agent/status/version_hash.",
       "started": "2026-05-24T19:00:00Z",
       "classification": "system",
       "files": [
@@ -98,7 +98,7 @@
           "path": ".claude/hooks/post-tool-use.py",
           "action": "replace",
           "type": "system",
-          "description": "Core fix for eval harness wiring. (1) Restructured main() into two independent blocks: Block 1 (session index update) and Block 2 (eval harness). Previously a topic-not-found error in Block 1 caused an early return that silently skipped eval record creation. (2) Added create_eval_record_from_state() — fires in Cowork when state.yaml status=complete and no active in-progress stub exists. Creates complete record tagged 'cowork-hook'. (3) Fixed topic lookup: checks both 'topic' and 'name' keys (session index uses 'name', not 'topic'). (4) Added missing 'files' key initialization for topic objects without it. Added imports: hashlib, secrets, string, timezone."
+          "description": "Core fix for eval harness wiring. (1) Restructured main() into two independent blocks: Block 1 (session index update) and Block 2 (eval harness). Previously a topic-not-found error in Block 1 caused an early return that silently skipped eval record creation. (2) Added create_eval_record_from_state() \u2014 fires in Cowork when state.yaml status=complete and no active in-progress stub exists. Creates complete record tagged 'cowork-hook'. (3) Fixed topic lookup: checks both 'topic' and 'name' keys (session index uses 'name', not 'topic'). (4) Added missing 'files' key initialization for topic objects without it. Added imports: hashlib, secrets, string, timezone."
         },
         {
           "path": "systems/eval-harness/close-eval-record.py",
@@ -116,7 +116,7 @@
           "path": "workflows/morning-briefing/steps/step-04-synthesize-briefing.md",
           "action": "merge",
           "type": "system",
-          "description": "Added EVAL RECORD documentation section — backstop reference showing eval record creation criteria. Hook handles this automatically; section exists for transparency and manual fallback."
+          "description": "Added EVAL RECORD documentation section \u2014 backstop reference showing eval record creation criteria. Hook handles this automatically; section exists for transparency and manual fallback."
         },
         {
           "path": "workflows/daily-review/steps/step-04-root-audit.md",
@@ -965,7 +965,7 @@
     },
     {
       "id": "work-20260524-eval-harness-4tier",
-      "description": "IES Eval Harness — 4-Tier Assessment Framework. Full system instrumentation for workflows, skills, and agents with automated Tier 1 (mechanical success/fail), Tier 2 (structural assertions), Tier 3 (on-demand letter grading), and Tier 4 (controller feedback sampling) assessment. Includes 4 hook scripts wired into Claude Code lifecycle (SubagentStart, SubagentStop, PostToolUseFailure, SessionEnd), 6 assertion definition files covering all major workflows and the eval skills themselves, 3 new skills (rigby-eval-grade, rigby-eval-analyze, rigby-eval-dashboard), an HTML dashboard generator, eval schema, and integration into weekly-review, daily-review, and evolution-deployment workflows. Post-build adversarial review applied 15 fixes: Tier 2 assertion lookup (name over agent-type), Tier 1 no longer overwrites with hardcoded values, agent_id stored in stubs for reliable correlation, yaml import moved to top-level, tool_failure increments preserved through stop hook, failure_entry attached to records, all hooks use IES_ROOT env var, atomic writes with fcntl locking, trigger detection from state.yaml, log_error/log_info separated, weekly-review step-08 owns workflow close, daily-review and evolution-deployment assertion files added, self-assertion files for eval skills, benchmark snapshot comparison clarified as deferred, and weekly-review routing table corrected.",
+      "description": "IES Eval Harness \u2014 4-Tier Assessment Framework. Full system instrumentation for workflows, skills, and agents with automated Tier 1 (mechanical success/fail), Tier 2 (structural assertions), Tier 3 (on-demand letter grading), and Tier 4 (controller feedback sampling) assessment. Includes 4 hook scripts wired into Claude Code lifecycle (SubagentStart, SubagentStop, PostToolUseFailure, SessionEnd), 6 assertion definition files covering all major workflows and the eval skills themselves, 3 new skills (rigby-eval-grade, rigby-eval-analyze, rigby-eval-dashboard), an HTML dashboard generator, eval schema, and integration into weekly-review, daily-review, and evolution-deployment workflows. Post-build adversarial review applied 15 fixes: Tier 2 assertion lookup (name over agent-type), Tier 1 no longer overwrites with hardcoded values, agent_id stored in stubs for reliable correlation, yaml import moved to top-level, tool_failure increments preserved through stop hook, failure_entry attached to records, all hooks use IES_ROOT env var, atomic writes with fcntl locking, trigger detection from state.yaml, log_error/log_info separated, weekly-review step-08 owns workflow close, daily-review and evolution-deployment assertion files added, self-assertion files for eval skills, benchmark snapshot comparison clarified as deferred, and weekly-review routing table corrected.",
       "started": "2026-05-23T00:00:00Z",
       "classification": "system",
       "files": [
@@ -979,7 +979,7 @@
           "path": "systems/eval-harness/schema.md",
           "action": "add",
           "type": "system",
-          "description": "Eval record JSON schema — full field documentation for 4-tier assessment including composite scoring formula and field lifecycle."
+          "description": "Eval record JSON schema \u2014 full field documentation for 4-tier assessment including composite scoring formula and field lifecycle."
         },
         {
           "path": "systems/eval-harness/generate-dashboard.py",
@@ -997,7 +997,7 @@
           "path": "systems/eval-harness/assertions/README.md",
           "action": "add",
           "type": "system",
-          "description": "Assertion system documentation — format spec, check types, and authoring guide."
+          "description": "Assertion system documentation \u2014 format spec, check types, and authoring guide."
         },
         {
           "path": "systems/eval-harness/assertions/template.json",
@@ -1045,25 +1045,25 @@
           "path": ".claude/hooks/eval-agent-start.py",
           "action": "add",
           "type": "system",
-          "description": "SubagentStart hook — creates eval record stub with agent_id (for reliable correlation), type, name, session_id, and initialized 4-tier assessment block. Uses atomic writes with fcntl locking. IES_ROOT from env var."
+          "description": "SubagentStart hook \u2014 creates eval record stub with agent_id (for reliable correlation), type, name, session_id, and initialized 4-tier assessment block. Uses atomic writes with fcntl locking. IES_ROOT from env var."
         },
         {
           "path": ".claude/hooks/eval-agent-stop.py",
           "action": "add",
           "type": "system",
-          "description": "SubagentStop hook — completes eval record: reads existing Tier 1 mechanical state (not overwritten), runs Tier 2 assertions (lookup by name then agent-type), correlates error entries, computes version_hash from workflow.md/SKILL.md, derives status (success/failure/partial/aborted) from real data. yaml imported at top-level. Atomic writes."
+          "description": "SubagentStop hook \u2014 completes eval record: reads existing Tier 1 mechanical state (not overwritten), runs Tier 2 assertions (lookup by name then agent-type), correlates error entries, computes version_hash from workflow.md/SKILL.md, derives status (success/failure/partial/aborted) from real data. yaml imported at top-level. Atomic writes."
         },
         {
           "path": ".claude/hooks/eval-tool-failure.py",
           "action": "add",
           "type": "system",
-          "description": "PostToolUseFailure hook — increments tool_failures counter and appends full failure_entry (tool, error, duration_ms, timestamp) to tool_failure_log in the active eval record. Atomic writes."
+          "description": "PostToolUseFailure hook \u2014 increments tool_failures counter and appends full failure_entry (tool, error, duration_ms, timestamp) to tool_failure_log in the active eval record. Atomic writes."
         },
         {
           "path": ".claude/hooks/eval-session-end.py",
           "action": "add",
           "type": "system",
-          "description": "SessionEnd hook — marks any in-progress eval records as aborted with abort_reason. Uses log_info (not log_error) for normal session-end events. Atomic writes."
+          "description": "SessionEnd hook \u2014 marks any in-progress eval records as aborted with abort_reason. Uses log_info (not log_error) for normal session-end events. Atomic writes."
         },
         {
           "path": ".claude/hooks/post-tool-use.py",
@@ -1075,7 +1075,7 @@
           "path": ".claude/settings.json",
           "action": "merge",
           "type": "system",
-          "description": "Registered new hooks: SubagentStart → eval-agent-start.py, SubagentStop → eval-agent-stop.py, PostToolUseFailure → eval-tool-failure.py, SessionEnd → eval-session-end.py."
+          "description": "Registered new hooks: SubagentStart \u2192 eval-agent-start.py, SubagentStop \u2192 eval-agent-stop.py, PostToolUseFailure \u2192 eval-tool-failure.py, SessionEnd \u2192 eval-session-end.py."
         },
         {
           "path": ".claude/skills/rigby-eval-grade/SKILL.md",
@@ -1099,7 +1099,7 @@
           "path": "agents/master.md",
           "action": "merge",
           "type": "system",
-          "description": "Added Tier 4 Controller Feedback Sampling to Agent Output Handling — Master samples sub-agent outputs for subjective quality ratings and writes them to eval records (assessment.feedback block)."
+          "description": "Added Tier 4 Controller Feedback Sampling to Agent Output Handling \u2014 Master samples sub-agent outputs for subjective quality ratings and writes them to eval records (assessment.feedback block)."
         },
         {
           "path": "agents/rigby.md",
@@ -1177,7 +1177,7 @@
     },
     {
       "id": "work-20260526-skill-optimize",
-      "description": "Built SkillOpt-style optimization loop for IES skills. Implements the text-space skill optimization paradigm from arXiv:2605.23904 (Microsoft/SJTU, May 2026) adapted to IES architecture: uses the 4-tier eval harness as the scoring signal, IES composite score formula as the gate criterion, and a new rigby-skill-reflect skill as the reflection engine. Core components: (1) rigby-skill-reflect — trajectory-to-edits reflection skill that reads eval records + session transcripts, separates successes from failures, identifies procedural patterns, and proposes bounded add/delete/replace edits to SKILL.md files; (2) 8-step skill-optimize workflow — setup, baseline scoring, reflect, apply candidate, score candidate, gate, slow update, report; (3) score_eval.py — authoritative Python implementation of the composite scoring formula (mechanical×0.25 + assertion_rate×0.35 + grade_score×0.20 + feedback×0.10 + no_errors×0.10) with weight redistribution for null components; (4) manifest and Rigby agent updates. Key architectural decisions: simulated improvement assessment for gate (IES cannot re-run skills with candidate versions), SLOW_UPDATE_START/END protected region convention for epoch-boundary durable guidance (analogous to dream cycle for memory layer), train/selection 70/30 split of eval records.",
+      "description": "Built SkillOpt-style optimization loop for IES skills. Implements the text-space skill optimization paradigm from arXiv:2605.23904 (Microsoft/SJTU, May 2026) adapted to IES architecture: uses the 4-tier eval harness as the scoring signal, IES composite score formula as the gate criterion, and a new rigby-skill-reflect skill as the reflection engine. Core components: (1) rigby-skill-reflect \u2014 trajectory-to-edits reflection skill that reads eval records + session transcripts, separates successes from failures, identifies procedural patterns, and proposes bounded add/delete/replace edits to SKILL.md files; (2) 8-step skill-optimize workflow \u2014 setup, baseline scoring, reflect, apply candidate, score candidate, gate, slow update, report; (3) score_eval.py \u2014 authoritative Python implementation of the composite scoring formula (mechanical\u00d70.25 + assertion_rate\u00d70.35 + grade_score\u00d70.20 + feedback\u00d70.10 + no_errors\u00d70.10) with weight redistribution for null components; (4) manifest and Rigby agent updates. Key architectural decisions: simulated improvement assessment for gate (IES cannot re-run skills with candidate versions), SLOW_UPDATE_START/END protected region convention for epoch-boundary durable guidance (analogous to dream cycle for memory layer), train/selection 70/30 split of eval records.",
       "started": "2026-05-26T00:00:00Z",
       "classification": "system",
       "files": [
@@ -1221,7 +1221,7 @@
           "path": "workflows/skill-optimize/step-04-apply-candidate.md",
           "action": "add",
           "type": "system",
-          "description": "Step 4: Load best_skill_path, apply edits in priority order, respect all protected regions (system:start/end, personal:start/end, SLOW_UPDATE_START/END). Write to candidates/round-{N}-candidate.md only — never overwrites SKILL.md directly. Adds traceability header comment."
+          "description": "Step 4: Load best_skill_path, apply edits in priority order, respect all protected regions (system:start/end, personal:start/end, SLOW_UPDATE_START/END). Write to candidates/round-{N}-candidate.md only \u2014 never overwrites SKILL.md directly. Adds traceability header comment."
         },
         {
           "path": "workflows/skill-optimize/step-05-score-candidate.md",
@@ -1263,7 +1263,132 @@
           "path": "agents/rigby.md",
           "action": "merge",
           "type": "system",
-          "description": "Added 3 new rows to Rigby task portfolio in system:start block: (1) optimize skill/run skill optimization/SkillOpt → Skill Optimize → workflows/skill-optimize/workflow.md; (2) skill reflect/reflect on skill/analyze skill runs → Skill Reflect → skills/rigby-skill-reflect/SKILL.md; (3) score evals/score this skill/compute eval score → Eval Score → systems/eval-harness/scoring/score_eval.py."
+          "description": "Added 3 new rows to Rigby task portfolio in system:start block: (1) optimize skill/run skill optimization/SkillOpt \u2192 Skill Optimize \u2192 workflows/skill-optimize/workflow.md; (2) skill reflect/reflect on skill/analyze skill runs \u2192 Skill Reflect \u2192 skills/rigby-skill-reflect/SKILL.md; (3) score evals/score this skill/compute eval score \u2192 Eval Score \u2192 systems/eval-harness/scoring/score_eval.py."
+        }
+      ]
+    },
+    {
+      "work_item_id": "error-improvement-cycle-run-2026-05-27",
+      "created": "2026-05-27T18:59:30Z",
+      "classification": "system",
+      "description": "Error improvement cycle run \u2014 0 fixes applied, 48 entries compacted to April 2026 digest, 10 routing-gate Needs Your Call items deferred",
+      "files": [
+        {
+          "path": "systems/error-tracking/digests/compact-2026-04.json",
+          "action": "add",
+          "summary": "April 2026 monthly digest \u2014 48 entries archived, source deletion deferred (sandbox permissions)"
+        },
+        {
+          "path": "memory/episodic/decisions/2026-05-27-185930-decision-rationale-error-improvement-2026-03-21-to-2026-05-27.md",
+          "action": "add",
+          "summary": "Episodic memory entry recording the inaugural error-improvement workflow run"
+        },
+        {
+          "path": "workflows/error-improvement/state.yaml",
+          "action": "merge",
+          "summary": "State updated with step timings for steps 4-7 and compaction results"
+        },
+        {
+          "path": "systems/eval-harness/assertions/error-improvement.json",
+          "action": "add",
+          "summary": "Structural assertions for error-improvement workflow"
+        },
+        {
+          "path": "workflows/error-improvement/steps/step-07-summary.md",
+          "action": "add",
+          "summary": "Step 7: Summary and close \u2014 delivers cycle report, closes state, runs eval record"
+        }
+      ]
+    },
+    {
+      "work_item_id": "error-improvement-workflow-2026-05-27",
+      "created": "2026-05-27T18:43:03.033621Z",
+      "classification": "system",
+      "description": "Error improvement workflow \u2014 full triage-to-compact cycle for Rigby",
+      "files": [
+        {
+          "path": "workflows/error-improvement/workflow.md",
+          "action": "add"
+        },
+        {
+          "path": "workflows/error-improvement/state.yaml",
+          "action": "add"
+        },
+        {
+          "path": "workflows/error-improvement/steps/step-01-intake.md",
+          "action": "add"
+        },
+        {
+          "path": "workflows/error-improvement/steps/step-02-analyze.md",
+          "action": "add"
+        },
+        {
+          "path": "workflows/error-improvement/steps/step-03-triage.md",
+          "action": "add"
+        },
+        {
+          "path": "workflows/error-improvement/steps/step-04-apply.md",
+          "action": "add"
+        },
+        {
+          "path": "workflows/error-improvement/steps/step-05-verify.md",
+          "action": "add"
+        },
+        {
+          "path": "workflows/error-improvement/steps/step-06-compact.md",
+          "action": "add"
+        },
+        {
+          "path": "skills/rigby-error-compact/SKILL.md",
+          "action": "add"
+        },
+        {
+          "path": "systems/error-tracking/compact.py",
+          "action": "add"
+        },
+        {
+          "path": "systems/error-tracking/schema.md",
+          "action": "merge"
+        },
+        {
+          "path": "agents/rigby.md",
+          "action": "merge"
+        },
+        {
+          "path": "workflows/weekly-review/workflow.md",
+          "action": "merge"
+        },
+        {
+          "path": "skills/_manifest.jsonl",
+          "action": "merge"
+        },
+        {
+          "path": "skills/rigby-error-analysis/SKILL.md",
+          "action": "merge"
+        },
+        {
+          "path": "SYSTEM.md",
+          "action": "merge"
+        },
+        {
+          "path": "skills/jarvis-inbox/SKILL.md",
+          "action": "merge"
+        },
+        {
+          "path": "skills/plaud-speaker-id/SKILL.md",
+          "action": "merge"
+        },
+        {
+          "path": "skills/plaud-transcripts/SKILL.md",
+          "action": "merge"
+        },
+        {
+          "path": "workflows/content-pipeline/steps/step-01-discover.md",
+          "action": "merge"
+        },
+        {
+          "path": "workflows/content-pipeline/steps/step-02-approve.md",
+          "action": "merge"
         }
       ]
     }

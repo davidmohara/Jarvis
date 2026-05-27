@@ -5,11 +5,11 @@
   "source": "explicit",
   "agent": "knox",
   "category": "process-skip",
-  "description": "During plaud-ingest step-03 speaker identification, Knox asked David to manually identify the two untagged speakers instead of first querying the Outlook calendar for the recordings' time slots. The calendar lookup was the prescribed first step — it resolved both speakers cleanly (Alexander McCobin from the Austin Summit calendar event; Rob Spies from the THL intro event) — but Knox did not attempt it and instead surfaced the question directly to the controller.",
+  "description": "During plaud-ingest step-03 speaker identification, Knox asked David to manually identify the two untagged speakers instead of first querying the Outlook calendar for the recordings' time slots. The calendar lookup was the prescribed first step \u2014 it resolved both speakers cleanly (Alexander McCobin from the Austin Summit calendar event; Rob Spies from the THL intro event) \u2014 but Knox did not attempt it and instead surfaced the question directly to the controller.",
   "correction": "Check the calendar first. The plaud-discover and plaud-speaker-id skills both specify cross-referencing recording timestamps against calendar attendees before asking the controller. The calendar resolved both speakers without any controller input needed.",
   "failure_mode": "protocol-skip",
   "systemic_fix": "Update skills/plaud-speaker-id/SKILL.md and workflows/plaud-ingest/steps/step-03-identify-speakers.md to make the calendar lookup MANDATORY and BLOCKING before the controller is ever asked. Specifically: add a hard gate that reads 'DO NOT surface speaker questions to the controller until the calendar has been queried for each unresolved recording. If the calendar resolves the speaker, proceed silently. Only ask the controller if the calendar lookup fails or is ambiguous.' Also update the fetch script's _speakers.json output to include the recording's UTC timestamp so the calendar lookup can be triggered automatically from the file without re-querying the API.",
-  "fix_status": "proposed",
+  "fix_status": "applied",
   "severity": "moderate",
   "related_entries": []
 }

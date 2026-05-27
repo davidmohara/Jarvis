@@ -1,5 +1,20 @@
 {
   "version": "1.0.0",
   "created": "2026-03-15",
-  "description": "IES error and correction tracking log. Captures explicit corrections from the executive and self-detected errors during execution. Entries accumulate across sessions and are analyzed for patterns during reviews."
+  "description": "IES error and correction tracking log. Captures explicit corrections from the executive and self-detected errors during execution. Entries accumulate across sessions and are analyzed for patterns during reviews.",
+  "compaction_history": [
+    {
+      "compacted_at": "2026-05-27T18:58:56.704867+00:00",
+      "period": "2026-04",
+      "entries_compacted": 0,
+      "digest_path": "systems/error-tracking/digests/compact-2026-04.json"
+    },
+    {
+      "compacted_at": "2026-05-27T19:04:25.230168+00:00",
+      "period": "2026-04",
+      "entries_compacted": 48,
+      "digest_path": "systems/error-tracking/digests/compact-2026-04.json"
+    }
+  ],
+  "last_compacted": "2026-05-27T19:04:25.230168+00:00"
 }

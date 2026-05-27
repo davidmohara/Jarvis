@@ -77,17 +77,19 @@ Group by recording (one JSON file per recording that has generic speakers).
 
 **a. Extract recording time window**
 
-The recording's date is in the `_speakers.json` metadata. Use it to query:
+The recording's date AND time are in the `_speakers.json` metadata. Use the precise timestamp for matching:
+
 ```
-mcp__claude_ai_Microsoft_365__outlook_calendar_search(
+mcp__b8c41a14-7a9b-4ea5-ab12-933ee04bc52f__outlook_calendar_search(
   query="",
   start: "<recording-date>T00:00:00",
   end: "<recording-date>T23:59:59"
 )
 ```
 
-Find calendar events that overlap the recording's time (compare by start/end if
-available in the recording metadata, or search by recording date and title similarity).
+> **TIMESTAMP MATCHING — MANDATORY:** Match the recording to the calendar event whose time window **contains or closely overlaps the recording's start timestamp** (converted to local time). Do NOT pick the largest or most prominent event on the day. A recording at 14:32 CDT must match against the event scheduled for that time window — not a morning standup or an unrelated afternoon block. Recordings start when David presses record, which may be a few minutes before or after the scheduled start. Use a ±15 minute window for the start time match, expanding to ±45 minutes only when no event is found in the tighter window (see edge case 3 below).
+
+Find calendar events that overlap the recording's time window with the precision rules above.
 
 **b. Get attendee list from matching calendar event**
 

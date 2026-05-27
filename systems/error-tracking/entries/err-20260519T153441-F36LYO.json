@@ -2,7 +2,7 @@
   "id": "err-20260519T153441-F36LYO",
   "timestamp": "2026-05-19T15:34:41Z",
   "source": "explicit",
-  "category": "stale-context",
+  "category": "assumption-error",
   "failure_mode": "surfaced-resolved-item",
   "severity": "low",
   "agent": "master",

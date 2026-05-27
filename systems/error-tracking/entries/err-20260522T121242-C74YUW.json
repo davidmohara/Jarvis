@@ -9,7 +9,10 @@
   "correction": "Plaud ingest is a required Phase 2 boot step. It must fire in parallel with calendar and OmniFocus pulls on every boot, not as an afterthought.",
   "failure_mode": "protocol-skip",
   "systemic_fix": "Add explicit checklist assertion in boot working memory: confirm each Phase 2 parallel task fired before marking boot complete.",
-  "fix_status": "proposed",
+  "fix_status": "applied",
   "severity": "moderate",
-  "related_entries": ["err-20260522T121248-KKK0TN", "err-20260522T121248-MLPA4P"]
+  "related_entries": [
+    "err-20260522T121248-KKK0TN",
+    "err-20260522T121248-MLPA4P"
+  ]
 }

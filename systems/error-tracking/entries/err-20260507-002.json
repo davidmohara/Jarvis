@@ -4,12 +4,12 @@
   "session": "2026-05-07",
   "source": "explicit",
   "agent": "jarvis",
-  "category": "wrong-assumption",
+  "category": "assumption-error",
   "failure_mode": "calendar-verification-skip",
   "description": "Asked David to confirm if Orangery was on his calendar when calendar data had already been pulled for the session. Should have searched pulled data before asking.",
   "correction": "David confirmed Orangery is on the calendar. New rule: search pulled calendar data before asking scheduling confirmation questions.",
   "systemic_fix": "If calendar data was pulled this session, always search it before asking the user a scheduling question.",
-  "fix_status": "proposed",
+  "fix_status": "applied",
   "severity": "minor",
   "related_entries": []
 }

@@ -51,6 +51,7 @@ model: sonnet
 | Set priorities | Strategy | Quinn |
 | Social calendar lookahead | Personal | Sterling |
 | Eval summary + close | System Health | Master (invokes rigby-eval-analyze skill, then closes workflow) |
+| Error improvement | System Health | Rigby — runs `workflows/error-improvement/` Phase A only (Steps 1-3: intake, analyze, triage). Surfaces Apply Now list and Needs Your Call items to controller. Controller approves or defers. Weekly review then closes. Rigby runs Phase B (Steps 4-7: apply, verify, compact, summary) as a follow-on task after the review session ends — the summary report is delivered separately. |
 <!-- system:end -->
 
 <!-- personal:start -->

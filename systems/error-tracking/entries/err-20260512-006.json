@@ -4,7 +4,7 @@
   "session": "2026-05-12-plaud-ingest",
   "source": "explicit",
   "agent": "knox",
-  "category": "misidentification",
+  "category": "assumption-error",
   "failure_mode": "bad-inference",
   "description": "On the May 5 recording, Knox identified Speaker 2 (44 segments) as Huddy and O'Hara (36 segments) as David. David corrected: Speaker 2 IS David. Plaud's voice recognition had split David across two labels: a named 'O'Hara' label for part of the recording and a generic 'Speaker 2' label for the rest. Knox did not apply Edge Case A (David split across two labels) before surfacing the mapping to the controller. The named label (O'Hara) with fewer segments should have triggered a check: does any generic speaker's sample text sound like David? Speaker 2's transcript referenced Improving's internal AI tooling decisions, user counts, and the enterprise Anthropic partnership -- clearly David.",
   "correction": "Speaker 2 = David O'Hara. Both O'Hara and Speaker 2 mapped to David O'Hara in the --rename call. Voice embeddings merged under David's identity.",

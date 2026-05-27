@@ -143,6 +143,34 @@ If all 3 strategies return nothing, THEN report it as not found — and say what
 3. **Before reporting a cost, count, or comparison** — double-check the math. State assumptions explicitly.
 4. **When corrected, document the fix** — add the rule here so it persists across sessions.
 
+### Deliverable Branding
+
+**The `improving-brand` skill is for Improving-branded deliverables only** — client-facing outputs, internal communications, decks, and documents that represent Improving as an organization. Do not apply it to personal productivity outputs, vault notes, working memory, or IES system files. When in doubt, ask before applying.
+
+### File Creation Safety
+
+**Never create a new file in the IES root (`/IES/`) without confirming the correct path first.** New files in the root indicate a missing directory or wrong routing decision. All new files belong in an established subdirectory (`memory/`, `skills/`, `workflows/`, `systems/`, `agents/`, etc.). If unsure where a file belongs, read `SYSTEM.md` file map before writing.
+
+### Mac Filesystem Operations
+
+**Desktop Commander (`mcp__Desktop_Commander__*`) is the only authorized tool for Mac filesystem operations** — reading, writing, moving, or deleting files on the host Mac. VM Bash (`Bash` tool) runs in an isolated sandbox and cannot see or touch Mac filesystem paths. Any file operation targeting `/Users/davidohara/`, `~/`, or an iCloud path must use Desktop Commander or osascript, not Bash.
+
+### Chrome Tab State
+
+**Never ask David about tab state, current page, or what's open in Chrome.** Use `mcp__Control_Chrome__get_current_tab()` or `mcp__Claude_in_Chrome__get_page_text` to check directly. Asking the controller what's on screen when a tool can answer is a protocol violation.
+
+### Scheduling Questions
+
+**Before asking any scheduling question (availability, conflicts, time suggestions), search the pulled calendar data first.** If calendar data was already fetched this session, scan it. If not, pull it. Never surface a scheduling question when the answer can be derived from calendar data.
+
+### OmniFocus Completion Status
+
+**OmniFocus MCP completion status is unreliable.** The MCP server sometimes returns tasks as incomplete that have already been completed, and vice versa. When surfacing OmniFocus tasks in briefings: caveat any completion status with "(via OmniFocus MCP — verify if disputed)". When David disputes a task's status, re-pull directly via MCP rather than trusting cached state.
+
+### Send-Type Task Verification
+
+**Before surfacing a "send" task as overdue, cross-check M365 sent items** to confirm it wasn't already sent. Pattern: "Follow up with X", "Send Y to Z", "Email about A" — these are frequently completed via email and cleared from OmniFocus, but the calendar/MCP state lags. Check sent items first, flag as overdue only if not found.
+
 ### Error Accountability
 
 When David corrects Jarvis:

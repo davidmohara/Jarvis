@@ -99,6 +99,8 @@ Choose 1-3 tags from the locked list in workflow.md. Match to the post's core th
 >
 > ✅ Correct: `tags=[{"id": "637ea17e92f3300211b1b23a"}, {"id": "68fbc4d89e3561027e745c91"}]`
 > ❌ Wrong: `tags=["637ea17e92f3300211b1b23a", "68fbc4d89e3561027e745c91"]`
+>
+> **If the Ghost MCP rejects tag objects (returns an error about tag format):** Omit `tags` from the `create_post` call entirely. Apply tags via the Ghost Admin API PUT in Step 7b instead — the Admin API handles the object format correctly. Do NOT fall back to bare strings — that creates junk tags in the database.
 
 ### 6. Source the feature image
 
@@ -159,7 +161,12 @@ Use `mcp__Control_your_Mac__osascript` to run a Python script that:
 - `tags` show real names (trust, leadership, etc.) not ID strings
 - `excerpt` is populated (Ghost auto-generates from content)
 
-**Do not send the Slack notification until all three checks pass.** If any check fails, report the specific failure accurately — do not claim partial success.
+**Do not send the Slack notification until ALL verification checks pass.** If any check fails, report the specific failure accurately — do not claim partial success. Specifically:
+- If `lexical` is empty or null: the content PUT failed. Retry Step 7b before proceeding.
+- If `tags` show ID strings instead of names: the tags were not applied correctly. Re-apply via Admin API PUT.
+- If `feature_image` is null: the upload failed. Retry Step 6 before proceeding.
+
+Only a clean `get_post` response with content, image, and real tag names unlocks the Slack notification in Step 9.
 
 Capture the returned `id` — this is the Ghost post ID needed for approval.
 
