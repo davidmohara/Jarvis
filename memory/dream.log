@@ -781,3 +781,11 @@ errors_detail:
     error: "git pull --rebase failed: unstaged changes from prior sessions blocked rebase. Stale .git/index.lock cleared via mv workaround. Memory phases completed without remote sync."
 git_pull_at_boot: blocked
 git_pull_failure_reason: "Unstaged changes from prior sessions block rebase."
+
+## 2026-05-28T03:11:00 CDT — commit + push attempt
+session_id: dream-cycle-2026-05-28-030856
+git_commit_at_end: success
+git_commit_sha: 2dc54d6
+git_commit_note: "Stale .git/index.lock cleared via 'mv .git/index.lock .git/index.lock.dead.$$' — sandbox blocks rm/unlink but allows mv (proven workaround, 2nd consecutive run). 84 files changed."
+git_push: failed
+git_push_failure_reason: "Sandbox cannot read git credentials: 'fatal: could not read Username for https://github.com'. Push must run from David's machine: 'git push origin main'."

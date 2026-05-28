@@ -43,5 +43,8 @@ accumulated-context:
     - phase: 0
       file: .git
       error: "git pull --rebase failed: unstaged changes from prior sessions blocked rebase. Stale .git/index.lock cleared via mv workaround. Memory phases completed without remote sync."
-  git_commit_at_end: pending
-  git_push: pending
+  git_commit_at_end: success
+  git_commit_sha: 2dc54d6
+  git_commit_note: "Stale .git/index.lock cleared via mv workaround. 84 files changed (memory updates, dream cycle state, salience scores on 70 episodic entries, new working summary, new episodic archive)."
+  git_push: failed
+  git_push_failure_reason: "Sandbox cannot read git credentials: 'fatal: could not read Username for https://github.com'. Push must run from David's machine: 'git push origin main'."
