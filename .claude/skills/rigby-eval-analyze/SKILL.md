@@ -64,6 +64,36 @@ Compute the following metrics across the selected records:
 - Average step count
 - Duration percentiles (p50, p90, p95)
 
+### 2.5. Run Assertion Checks
+
+For each eval record selected, load the corresponding assertion file from `systems/eval-harness/assertions/{workflow-name}.json` and evaluate each assertion against the actual filesystem. Back-fill `assessment.structural` on the record if assertions haven't been run yet (i.e., `assertions_checked: 0`).
+
+**Standard assertion types:**
+
+| `check` | Behavior |
+|---------|----------|
+| `yaml_field_equals` | Read the YAML file at `path`, check that `field` equals `value` |
+| `file_exists` | Glob `path` — passes if at least one file matches |
+| `file_min_bytes` | Glob `path` — passes if the matched file is ≥ `min_bytes` |
+| `file_contains` | Glob `path` — passes if the matched file contains `pattern` (regex, case-insensitive) |
+
+**Date-specific assertions (`date_specific: true`):**
+
+When an assertion has `date_specific: true`, do NOT use the bare `path` glob. Instead:
+
+1. Extract `run_date` from the eval record's `started` field: `YYYY-MM-DD` (convert from UTC to local date if needed — use the date portion of `started`).
+2. Substitute `{run_date}` in `date_path_template` to get the exact path to check.
+3. Evaluate the assertion against that exact path only — not a glob.
+4. If the exact path does not exist, the assertion **fails** — do not fall back to glob matching.
+
+Example: assertion has `date_path_template: "reviews/daily/auto-{run_date}.md"` and eval record started `2026-05-27T02:11:53Z`. Resolved path: `reviews/daily/auto-2026-05-27.md`. Check that file specifically.
+
+**Back-filling rules:**
+- Only back-fill if `assertions_checked == 0` on the record (i.e., never been run).
+- After evaluating, update `assertions_checked`, `assertions_passed`, `assertion_results`, `expected_outputs_written`, and `outputs_non_empty` on the record in-place.
+- Write the updated record back to its file.
+- Log each back-filled record in the analysis output under a "Assertions Back-filled" section.
+
 ### 3. Identify Patterns
 
 Look for patterns across the analyzed records:
