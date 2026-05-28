@@ -115,9 +115,9 @@
       "grader_notes": "error-improvement inaugural run by rigby on 2026-05-27, manual trigger. Tier 1 mechanical: PASS \u2014 7 steps completed, 294.6s real duration, 0 tool failures, no error IDs. Tier 2 structural: 5/5 assertions passed \u2014 state.yaml=complete, eval record written, episodic memory entry written, pending-changes updated, proposed count=10 (within 15-entry ceiling). Concrete evidence: 127 entries analyzed, 8 patterns across 6 categories, 48 April entries compacted, trend=degrading. Cross-system insight connecting morning-briefing assertion failures to boot-skip error pattern. Gaps: 0 fixes applied (all 10 routing-gate Needs Your Call), compaction source deletion deferred (sandbox permissions). Grade B: strong first run, all assertions pass, substantive episodic output. To reach A: apply at least one fix or surface routing-gate decisions to David for resolution."
     },
     "controller_feedback": {
-      "rating": null,
-      "comment": null,
-      "timestamp": null
+      "rating": "negative",
+      "comment": "Good analysis, zero fixes applied. Surfacing 10 routing-gate entries as Needs Your Call without escalating them sooner is the actual failure — these were March entries sitting unresolved through May. Next cycle should result in at least one concrete fix applied. Routing-gate entries now compacted; inline gate added to master.md.",
+      "timestamp": "2026-05-28T19:01:54Z"
     }
   },
   "version_hash": "c0878347f5dde16a",

@@ -121,8 +121,14 @@ model: sonnet
 
 Determine status:
 - `success` — narrative written to knowledge system (or fallback file) with descriptive title
-- `partial` — narrative written but one major source failed (OmniFocus OR calendar, not both)
+- `partial` — narrative written but one major source failed in a way that indicates a real problem (NOT headless calendar — see below)
 - `failure` — both primary sources failed and no substantive narrative could be written
+
+**Headless calendar rule:** When this step runs as a scheduled (headless) task — i.e., `trigger = scheduled` and there is no active interactive session — the M365 calendar connector will return unauthenticated. This is expected behavior, not a failure. Do NOT set `status: partial` solely because calendar was unavailable in a scheduled run. Instead:
+- Set `calendar-status` in `accumulated-context` to `"unavailable — headless scheduled run (expected)"`
+- Proceed with OmniFocus and delegation data only
+- Set eval status to `success` if a substantive narrative was produced
+- Only set `partial` if OmniFocus is also unavailable, or if calendar is unavailable in an *interactive* session where auth should be present
 
 Run:
 ```bash

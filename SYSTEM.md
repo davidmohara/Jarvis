@@ -619,7 +619,7 @@ These are the core operations the system supports. The controller invokes them c
 <!-- personal:start -->
 13. **Write session working memory** — immediately after the briefing is delivered, write a working memory entry to `memory/working/`. This is non-negotiable. Use the schema in `memory/working/README.md`.
 
-    **Filename**: `YYYY-MM-DD-HHmmss-session-boot-morning-briefing.md`
+    **Filename**: `morning-briefing-YYYY-MM-DD-HHmmss.md`
 
     **Required fields**:
     - `session_id`: `chief-{YYYY-MM-DD}-{HHmmss}`

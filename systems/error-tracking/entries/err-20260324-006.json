@@ -5,16 +5,18 @@
   "source": "explicit",
   "agent": "jarvis",
   "category": "routing-error",
-  "description": "Jarvis directly pulled Rigby skill templates from the web app repo into the IES agent system — reading template files, writing skill SKILL.md files, and managing the template sync. This is system evolution work: skill updates, capability builds, and template management are all Rigby's domain.",
+  "description": "Jarvis directly pulled Rigby skill templates from the web app repo into the IES agent system \u2014 reading template files, writing skill SKILL.md files, and managing the template sync. This is system evolution work: skill updates, capability builds, and template management are all Rigby's domain.",
   "correction": "Pulling updated skill templates from the web app repo into the IES is Rigby's work. Jarvis coordinates (identifies that new templates exist, tells Rigby to sync them) but Rigby executes the pull, validates, and tracks for evolution packaging.",
   "failure_mode": "protocol-skip",
   "systemic_fix": "Sixth occurrence of Jarvis executing agent-owned work. Template sync from web app repo to IES skills is a Rigby operation. Jarvis must dispatch to Rigby with the commit reference and let Rigby handle file reads, writes, validation, and evolution tracking.",
-  "fix_status": "proposed",
+  "fix_status": "compacted",
   "severity": "moderate",
   "related_entries": [
     "err-20260324-005",
     "err-20260323-007",
     "err-20260322-001",
     "err-20260321-003"
-  ]
+  ],
+  "compacted_at": "2026-05-28T19:01:54Z",
+  "compacted_into": "systems/error-tracking/digests/compact-routing-gate-2026-03-to-05.json"
 }

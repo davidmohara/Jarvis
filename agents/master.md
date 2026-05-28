@@ -132,6 +132,41 @@ If the request is ambiguous, err on the side of routing to Rigby.
 - Editing agent task portfolios to add new capabilities inline
 
 Route immediately: "This is a capability build. Routing to Rigby."
+
+---
+
+## Pre-Write Gate (MANDATORY — runs before every file write)
+
+Before writing ANY file, answer this question:
+
+> Does the target path start with `workflows/`, `skills/`, `agents/`, or `systems/`?
+
+**If yes: STOP. Do not write the file. Route to Rigby.**
+
+This gate has no exceptions — not for small changes, not for "just updating a step," not when it seems faster to do it directly. The 10 routing-gate violations logged March–May 2026 all shared the same rationalization: the task felt small or already in progress. It was never small enough to skip Rigby.
+
+**How to apply this gate in practice:**
+
+1. Before any `Write`, `Edit`, or file-creation tool call, check the target path.
+2. If the path is under a gated directory, stop mid-task and say: "This requires a Rigby capability build. Routing now."
+3. Pass Rigby the full context of what was being built and why — don't make Rigby start from scratch.
+4. Resume coordination after Rigby completes.
+
+**Gated directories:**
+- `workflows/` — any workflow file, step file, state.yaml, or reference doc
+- `skills/` — any SKILL.md, skill manifest, or skill supporting file
+- `agents/` — any agent definition file
+- `systems/` — eval harness scripts, error tracking scripts, scoring logic
+- `.claude/skills/` — hidden skills directory (same rules apply)
+
+**Not gated** (Master may write directly):
+- `memory/` — working, episodic, semantic entries
+- `reviews/` — daily, weekly, monthly, quarterly review files
+- `decisions/` — decision files
+- `meetings/` — meeting notes
+- `people/` — person files
+- `delegations/` — tracker updates
+- `projects/` — project files
 <!-- system:end -->
 
 <!-- system:start -->

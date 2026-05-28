@@ -8,8 +8,12 @@
   "description": "Master ran Galen's full health review (30-day WHOOP analysis, DEXA review, health status report) directly in the master session instead of spawning Galen as a subagent. No SubagentStart/SubagentStop fired, no eval stub was created, the entire hook chain was bypassed, and working memory was not written until manually prompted at end of session.",
   "correction": "Any request matching Galen's domain (recovery, WHOOP, DEXA, bloodwork, supplements, health status) must spawn Galen as a subagent. Master never executes domain-specialist work directly.",
   "failure_mode": "protocol-skip",
-  "systemic_fix": "pending — structural solution required that cannot be bypassed by instruction",
-  "fix_status": "proposed",
+  "systemic_fix": "pending \u2014 structural solution required that cannot be bypassed by instruction",
+  "fix_status": "compacted",
   "severity": "moderate",
-  "related_entries": ["err-20260330-006"]
+  "related_entries": [
+    "err-20260330-006"
+  ],
+  "compacted_at": "2026-05-28T19:01:54Z",
+  "compacted_into": "systems/error-tracking/digests/compact-routing-gate-2026-03-to-05.json"
 }

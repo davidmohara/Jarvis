@@ -6,14 +6,16 @@
   "agent": "jarvis",
   "category": "routing-error",
   "description": "Jarvis built both meeting prep sheet PDFs and pushed them to reMarkable directly instead of dispatching Harper (prep sheets) and Knox (reMarkable upload) in parallel. Same single-threading pattern as err-20260323-003.",
-  "correction": "Harper owns meeting prep content. Knox owns reMarkable uploads. Jarvis coordinates and dispatches in parallel — does not execute agent-owned work.",
+  "correction": "Harper owns meeting prep content. Knox owns reMarkable uploads. Jarvis coordinates and dispatches in parallel \u2014 does not execute agent-owned work.",
   "failure_mode": "protocol-skip",
-  "systemic_fix": "This is the fourth occurrence of Jarvis single-threading agent-owned work. Any meeting prep → Harper. Any reMarkable push → Knox. Any PDF generation is shared infrastructure callable by any agent. Dispatch in parallel.",
-  "fix_status": "proposed",
+  "systemic_fix": "This is the fourth occurrence of Jarvis single-threading agent-owned work. Any meeting prep \u2192 Harper. Any reMarkable push \u2192 Knox. Any PDF generation is shared infrastructure callable by any agent. Dispatch in parallel.",
+  "fix_status": "compacted",
   "severity": "moderate",
   "related_entries": [
     "err-20260323-003",
     "err-20260323-002",
     "err-20260321-003"
-  ]
+  ],
+  "compacted_at": "2026-05-28T19:01:54Z",
+  "compacted_into": "systems/error-tracking/digests/compact-routing-gate-2026-03-to-05.json"
 }
