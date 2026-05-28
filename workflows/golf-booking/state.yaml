@@ -1,20 +1,15 @@
 workflow: golf-booking
 agent: sterling
-status: complete
-session-started: "2026-05-22T00:00:00"
+status: aborted
+session-started: "2026-05-28T00:00:00"
 session-id: null
-current-step: "complete"
-original-request: "Book tee time for May 30, 2026 weekend"
+current-step: "abort-no-eligible-dates"
+original-request: "Book tee time for Jun 5-7, 2026 weekend"
 accumulated-context:
-  target_weekend: "2026-05-30 to 2026-05-31"
-  top_option: "Saturday May 30 at 1:00 PM · 18 holes · $42"
-  booking_result: "BOOKED"
-  booking_number: "9G7Q-9D1D"
-  booked_date: "2026-05-30"
-  booked_time: "1:45 PM"
-  booked_holes: 18
-  booked_cost: "$45.47"
-  fallback_note: "1:00 PM unavailable — booked 1:45 PM (next closest in preferred window)"
-  slack_sent: "C0B15SW9FB5 (#golf)"
-  completed_at: "2026-05-22T00:00:00"
-next-run: "2026-05-26T23:00:00"
+  target_weekend: "2026-06-05 to 2026-06-07"
+  reason_aborted: "Italy trip Jun 5-7 with return flight Jun 7 — entire weekend hard-blocked"
+  preview_top_options: "[]"
+  override_instructions: "Full Jun 5-7 weekend blocked — Italy trip, return flight Jun 7. No booking. Next target: Jun 12-14 weekend."
+  completed_at: "2026-05-28T00:00:00"
+next-run: "2026-06-02T23:00:00"
+next-target: "Jun 12-14 weekend"

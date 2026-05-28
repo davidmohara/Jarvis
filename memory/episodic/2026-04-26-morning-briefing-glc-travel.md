@@ -17,9 +17,8 @@ related_people:
 salience:
   score: 10
   references: []
-  last-promoted-check: 2026-05-27
+  last-promoted-check: '2026-05-28'
   promoted: true
-
 ---
 # Session Boot — April 26, 2026 (GLC Travel Day)
 

@@ -12,11 +12,10 @@ tags:
 - semantic-promotion
 related_people: []
 salience:
-  score: 10
+  score: 8
   references: []
-  last-promoted-check: 2026-05-27
+  last-promoted-check: '2026-05-28'
   promoted: true
-
 ---
 # Dream Cycle Summary — 2026-05-01
 

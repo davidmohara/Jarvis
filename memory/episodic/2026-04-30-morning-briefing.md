@@ -21,11 +21,10 @@ related_people:
 - dustin-shaffer
 - devlin
 salience:
-  score: 10
+  score: 9
   references: []
-  last-promoted-check: 2026-05-27
+  last-promoted-check: '2026-05-28'
   promoted: true
-
 ---
 # Morning Briefing — April 30, 2026
 

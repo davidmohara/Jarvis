@@ -10,9 +10,8 @@ context: Morning boot + briefing — 2026-05-11 (automated scheduled run)
 salience:
   score: 0
   references: []
-  last-promoted-check: 2026-05-27
+  last-promoted-check: '2026-05-28'
   promoted: true
-
 ---
 # Morning Briefing Session — May 11, 2026
 

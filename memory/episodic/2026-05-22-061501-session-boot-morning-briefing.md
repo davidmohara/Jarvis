@@ -8,7 +8,7 @@ expires: 2026-05-24 06:15:01
 status: archived
 salience:
   score: 10
-  last-promoted-check: 2026-05-27
+  last-promoted-check: '2026-05-28'
   promoted: true
 context: Morning boot + briefing — 2026-05-22
 tags:
@@ -16,7 +16,6 @@ tags:
 - briefing
 - calendar
 - omnifocus
-
 ---
 # Boot Summary — Friday, May 22, 2026
 

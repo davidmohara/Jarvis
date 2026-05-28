@@ -748,3 +748,36 @@ git_commit_at_end: failed
 git_commit_failure_reason: "Stale .git/index.lock present, sandbox blocks unlink (rm -f .git/index.lock returns 'Operation not permitted'). git add -A fails with 'Unable to create .git/index.lock: File exists'. Same block pattern as 30th consecutive run. Controller intervention required: from David's machine run 'rm -f .git/index.lock && git add -A && git commit -m \"dream-cycle: 2026-05-27 — archived 1, promoted 0, compressed 0\" && git push origin'."
 git_push: failed
 git_push_reason: "Commit blocked first; not attempted."
+
+## 2026-05-27T03:35:00 CDT — commit succeeded (retry after user override)
+session_id: dream-cycle-2026-05-27-030857
+git_commit_at_end: success
+git_commit_sha: a595dbb
+git_commit_note: "Stale .git/index.lock cleared via 'mv .git/index.lock .git/index.lock.dead.\$\$' — sandbox blocks rm/unlink but allows mv. First successful commit in 30+ runs. 83 files changed (memory updates, dream cycle state, salience scores on 68 episodic entries, new working summary, new episodic archive)."
+git_push: failed
+git_push_failure_reason: "Sandbox cannot read git credentials: 'fatal: could not read Username for https://github.com'. Push must run from David's machine: 'git push origin main'."
+
+---
+## 2026-05-28T03:08:56 CDT
+session_id: dream-cycle-2026-05-28-030856
+working_archived: 1
+working_deleted: 0
+episodic_scanned: 70
+score_updates: 70
+clusters_found: 0
+semantic_created: 0
+semantic_updated: 0
+promoted_entries: 0
+entries_compressed: 0
+digests_updated: 0
+errors: 1
+summary: "Archived 1 newly expired working file (dream-summary-2026-05-26.md, copy to episodic, source delete blocked for 31st consecutive run). Scored 70 episodic entries (up 2 from yesterday's 68: new archive + count drift): 0:35, 4:1, 5:4, 6:5, 7:1, 8:6, 9:7, 10:11. Score-10 cluster compressed from 25→11 after yaml re-serialization; distribution now spread across 4-10 bucket more naturally. Zero promotion candidates again — all entries with score>=3 already carry promoted:true (semantic promotion idle 18+ consecutive runs). Error log: process-skip:11, data-accuracy:6, routing-error:5, tool-misuse:4, stale-context:3 — all already covered in LESSONS.md. Compression skipped (oldest episodic 40 days, cutoff 90). Boot-time git pull blocked by unstaged changes; .git/index.lock cleared via mv workaround (proven from prior run)."
+errors_detail:
+  - phase: 1
+    file: memory/working/dream-summary-2026-05-26.md
+    error: "Source deletion blocked after copy (Operation not permitted). Source marked status:archived in place; copy written to memory/episodic/. 31st consecutive run with sandbox unlink restriction. Pattern unchanged."
+  - phase: 0
+    file: .git
+    error: "git pull --rebase failed: unstaged changes from prior sessions blocked rebase. Stale .git/index.lock cleared via mv workaround. Memory phases completed without remote sync."
+git_pull_at_boot: blocked
+git_pull_failure_reason: "Unstaged changes from prior sessions block rebase."

@@ -20,11 +20,10 @@ related_people:
 - randy-mccabe
 - stuart
 salience:
-  score: 10
+  score: 9
   references: []
-  last-promoted-check: 2026-05-27
+  last-promoted-check: '2026-05-28'
   promoted: true
-
 ---
 # Morning Briefing — May 1, 2026 (Post-Travel Friday)
 

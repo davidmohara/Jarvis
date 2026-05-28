@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-05-26T00:00:00",
-  "override_applied": "Italy trip Jun 5-6 — Friday and Saturday hard-blocked",
+  "generated_at": "2026-05-27T05:34:00",
+  "override_applied": "Italy trip Jun 5-7 — entire weekend hard-blocked (flying back Jun 7)",
   "target_weekend": {
     "friday": "2026-06-05",
     "saturday": "2026-06-06",
@@ -9,30 +9,10 @@
   "day_status": {
     "friday": { "status": "unavailable", "reason": "Italy trip" },
     "saturday": { "status": "unavailable", "reason": "Italy trip" },
-    "sunday": { "status": "available", "reason": "Church 8:30-1:30 PM; golf from 2:30 PM. ⚠️ Calendar not verified (MS365 unavailable)." }
+    "sunday": { "status": "unavailable", "reason": "Return flight from Italy" }
   },
   "drought": false,
   "heat_streak": false,
-  "calendar_verified": false,
-  "top_options": [
-    {
-      "rank": 1,
-      "day": "sunday",
-      "date": "2026-06-07",
-      "preferred_start": "14:30",
-      "preferred_end": "19:00",
-      "holes": 18,
-      "cost_per_player": 21,
-      "total_cost": 42,
-      "weather": {
-        "rain_pct": 6,
-        "temp_f": 84.0,
-        "wind_mph": 8.1,
-        "condition": "clear"
-      },
-      "score": 5,
-      "rationale": "Only available day (Fri/Sat Italy). Sunday 2:30 PM — after church, clear weather, $21/player."
-    }
-  ],
-  "override_instructions": "Fri Jun 5 and Sat Jun 6 blocked — Italy trip. Confirmed by David in session."
+  "top_options": [],
+  "override_instructions": "Full Jun 5-7 weekend blocked — Italy trip, return flight Jun 7. No booking. Next target: Jun 12-14 weekend."
 }

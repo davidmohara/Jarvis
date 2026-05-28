@@ -8,11 +8,10 @@ tags:
 - travel-pattern
 related_people: []
 salience:
-  score: 5
+  score: 4
   references: []
-  last-promoted-check: 2026-05-27
+  last-promoted-check: '2026-05-28'
   promoted: true
-
 ---
 # Dream Cycle Summary — 2026-04-25
 

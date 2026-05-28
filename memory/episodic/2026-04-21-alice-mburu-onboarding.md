@@ -18,9 +18,8 @@ related_people:
 salience:
   score: 0
   references: []
-  last-promoted-check: 2026-05-27
+  last-promoted-check: '2026-05-28'
   promoted: false
-
 ---
 # April 21, 2026 — Alice Mburu Onboarding Session
 

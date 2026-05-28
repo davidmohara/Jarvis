@@ -6,8 +6,7 @@ created: 2026-05-23T03:12:53 CDT
 session_id: dream-cycle-2026-05-23-031253
 salience:
   score: 0
-  last-promoted-check: 2026-05-27
-
+  last-promoted-check: '2026-05-28'
 ---
 # Dream Cycle Summary — 2026-05-23
 
