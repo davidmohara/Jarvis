@@ -1,0 +1,123 @@
+{
+  "expectations": [
+    {
+      "text": "The STATE CHECK in workflow.md correctly detected status: in-progress",
+      "passed": true,
+      "evidence": "Transcript section 'STATE CHECK Evaluation' states: 'On reading state.yaml, the STATE CHECK table in workflow.md was applied: status: in-progress → Resume from current-step: step-03-grade'. Summary.md confirms: 'STATE CHECK correctly detected in-progress — read state.yaml, matched status: in-progress, applied the resume case from the STATE CHECK table.' [RESULT 1] tagged PASS."
+    },
+    {
+      "text": "The workflow surfaced '[Rigby]: Resuming system-eval from step step-03-grade.'",
+      "passed": true,
+      "evidence": "Transcript explicitly quotes the resume message: '> [Rigby]: Resuming system-eval from step step-03-grade.' Summary.md also confirms: 'Resume message surfaced — output: \"[Rigby]: Resuming system-eval from step step-03-grade.\"'"
+    },
+    {
+      "text": "Steps 1 (intake) and 2 (assert) were not executed — no new intake scan or assertion run",
+      "passed": true,
+      "evidence": "Transcript 'Steps 1 and 2: SKIPPED' section states: 'Per the STATE CHECK logic, Steps 1 (step-01-intake) and 2 (step-02-assert) were not executed. The workflow resumed directly at step-03-grade... No intake scan was performed. No assertion runs were attempted.' Summary.md confirms: 'Steps 1 and 2 were skipped — no intake scan, no assertion run performed.' The transcript contains no evidence of any intake or assertion tooling being invoked."
+    },
+    {
+      "text": "Steps 3 through 6 all ran and completed successfully",
+      "passed": true,
+      "evidence": "Transcript documents all four steps with start/completion timestamps. Step 3: 10:15–10:18:30Z, 4 records graded. Step 4: 10:18:30–10:19:15Z, score_eval.py exit code 0. Step 5: 10:19:15–10:21:00Z, analysis report written. Step 6: 10:21:00–10:21:30Z, dashboard generated and eval record closed. Summary.md confirms steps 3–6 all listed as completed. Physical output files exist: analysis-20260527T102000.md and eval-20260527T210400-QKIAVQ.json were verified on disk."
+    },
+    {
+      "text": "Step 3 used the needs_grade list from accumulated-context in state.yaml rather than re-scanning",
+      "passed": true,
+      "evidence": "Transcript: 'Records in needs_grade from state.yaml (4 total): eval-20260526T125258-Q3KWG7, eval-20260526T215647-T3Q5PX, eval-20260527T021153-F0GRE1, eval-20260527T190021-B7HEKX'. These exactly match the 4 IDs in the simulated state.yaml's needs_grade list shown in the Pre-Execution block. The workflow did not perform a scan; it used the pre-populated list."
+    },
+    {
+      "text": "state.yaml was reset to not-started at the end of the test",
+      "passed": false,
+      "evidence": "The transcript claims a clean not-started state was written at the end. However, the actual state.yaml on disk contains 'status: complete' from session rigby-2026-05-27-205926, not 'status: not-started'. The transcript explains this was due to the concurrent PCHVJ1 run overwriting state.yaml after the reset was written. The claimed reset is documented but cannot be independently verified — the physical file contradicts the claim. The transcript itself hedges: 'due to concurrent writes from the PCHVJ1 run, state.yaml was in contention throughout execution.' No evidence exists that the not-started state persisted."
+    },
+    {
+      "text": "The concurrent run conflict was identified and documented (important finding for workflow design)",
+      "passed": true,
+      "evidence": "Transcript 'Environmental Notes' section explicitly documents: a concurrent system-eval run (session PCHVJ1) was active simultaneously, causing competing writes to state.yaml, eval-20260526T125258-Q3KWG7.json, and rigby-eval-grade-latest.json. Summary.md also contains an 'Environmental Note' section documenting the conflict. The transcript even traces specific impacts: content-approval grade was reverted and re-applied. The finding is documented as relevant to workflow design: 'running two concurrent eval tests in the same IES instance' is called out as a design concern."
+    }
+  ],
+  "summary": {
+    "passed": 6,
+    "failed": 1,
+    "total": 7,
+    "pass_rate": 0.857
+  },
+  "execution_metrics": {
+    "tool_calls": null,
+    "total_tool_calls": null,
+    "total_steps": 6,
+    "errors_encountered": 0,
+    "output_chars": 5847,
+    "transcript_chars": 8062,
+    "note": "No metrics.json found in outputs_dir. output_chars estimated from summary.md + transcript.md character counts."
+  },
+  "timing": {
+    "executor_duration_seconds": null,
+    "total_duration_seconds": 448.4,
+    "note": "timing.json contained total_duration_seconds (448.4) and duration_ms (448363) but no separate executor vs. grader split."
+  },
+  "claims": [
+    {
+      "claim": "The workflow resumed from step-03-grade using accumulated-context without re-running steps 1 or 2",
+      "type": "process",
+      "verified": true,
+      "evidence": "The needs_grade list graded in step 3 exactly matches the pre-populated list in the simulated state.yaml — 4 IDs, all consistent. No intake or assertion tooling is mentioned anywhere in the transcript."
+    },
+    {
+      "claim": "score_eval.py ran successfully with exit code 0",
+      "type": "factual",
+      "verified": true,
+      "evidence": "Transcript: 'Exit code: 0 (success)' immediately following the score_eval.py command block. The eval record eval-20260527T210400-QKIAVQ.json exists on disk with step-03-grade marked 'success', corroborating execution."
+    },
+    {
+      "claim": "analysis-20260527T102000.md was written to systems/eval-harness/grading/",
+      "type": "factual",
+      "verified": true,
+      "evidence": "File confirmed on disk at the exact path claimed. Content matches the described findings (morning-briefing assertion failures, 4 patterns, bimodal quality split)."
+    },
+    {
+      "claim": "state.yaml was reset to not-started at the end of the test",
+      "type": "factual",
+      "verified": false,
+      "evidence": "state.yaml on disk shows status: complete from a later concurrent run (session rigby-2026-05-27-205926). The claimed reset may have occurred and was subsequently overwritten, but it cannot be verified from the current file state."
+    },
+    {
+      "claim": "4 records were graded with evidence-based grades (A, B, C, D)",
+      "type": "quality",
+      "verified": true,
+      "evidence": "Transcript documents grade rationale for all 4 records with specific evidence cited for each grade — e.g., D grade for F0GRE1 because 'No output file found for 2026-05-27; auto-2026-05-27.md does not exist.'"
+    },
+    {
+      "claim": "The concurrent PCHVJ1 run did not invalidate the resume-path test results",
+      "type": "quality",
+      "verified": true,
+      "evidence": "The step-03-grade records in question (4 IDs from pre-seeded state.yaml) were graded correctly despite concurrent interference. The one impact documented (Q3KWG7 grade reverted and re-applied) was caught and corrected within the run. The core resume-path behavior (detect in-progress, skip steps 1-2, resume from step 3) was unaffected by the concurrent run."
+    }
+  ],
+  "user_notes_summary": {
+    "uncertainties": [],
+    "needs_review": [
+      "state.yaml reset cannot be independently verified due to concurrent PCHVJ1 run overwriting the file after the reset was written"
+    ],
+    "workarounds": [
+      "eval-test-resume-XXXXXX was a synthetic eval-record-id with no backing file; close script created a new real record eval-20260527T210400-QKIAVQ.json instead"
+    ]
+  },
+  "eval_feedback": {
+    "suggestions": [
+      {
+        "assertion": "state.yaml was reset to not-started at the end of the test",
+        "reason": "This assertion is unverifiable when concurrent runs are in play — any subsequent run overwrites the file. The test design should either (a) snapshot state.yaml immediately after the reset and check the snapshot, or (b) run this test in a branch/copy of state.yaml to avoid concurrent write conflicts. As currently structured, the assertion passes on the transcript's say-so, not on a durable artifact."
+      },
+      {
+        "assertion": null,
+        "reason": "No assertion checks that the 4 graded records in step 3 are exactly the 4 IDs from the pre-seeded needs_grade list (not a subset, superset, or different records). A workflow bug that re-scanned and found different records would pass expectations 3 and 5 as written if it happened to grade 4 records."
+      },
+      {
+        "assertion": null,
+        "reason": "No assertion verifies that the grades produced in step 3 differ from (or agree with) what would be expected for those records — the grading quality is implicit. Adding an assertion that at least one grade contains explicit evidence text (not just a letter grade) would catch a workflow that assigns grades mechanically without examination."
+      }
+    ],
+    "overall": "The core behavioral assertions (resume detection, skip, surface message) are well-formed and discriminating. The weakest assertion is the state.yaml reset check — it's unverifiable in a concurrent test environment. Consider architectural mitigations for concurrent run interference, which this test inadvertently exposed as a real systemic risk."
+  }
+}

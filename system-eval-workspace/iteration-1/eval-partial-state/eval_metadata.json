@@ -1,0 +1,42 @@
+{
+  "eval_id": 2,
+  "eval_name": "eval-partial-state",
+  "prompt": "Write an in-progress state.yaml pointing to step-03-grade and verify the workflow resumes there, skipping Steps 1 and 2.",
+  "assertions": [
+    {
+      "id": "resume-state-check-detected",
+      "description": "The STATE CHECK in workflow.md correctly detected status: in-progress",
+      "check": "qualitative"
+    },
+    {
+      "id": "resume-message-surfaced",
+      "description": "The workflow surfaced '[Rigby]: Resuming system-eval from step step-03-grade.'",
+      "check": "qualitative"
+    },
+    {
+      "id": "resume-steps-1-2-skipped",
+      "description": "Steps 1 (intake) and 2 (assert) were not executed — no new intake scan or assertion run",
+      "check": "qualitative"
+    },
+    {
+      "id": "resume-steps-3-to-6-completed",
+      "description": "Steps 3 through 6 all ran and completed successfully",
+      "check": "qualitative"
+    },
+    {
+      "id": "resume-grades-assigned-from-context",
+      "description": "Step 3 used the needs_grade list from accumulated-context in state.yaml rather than re-scanning",
+      "check": "qualitative"
+    },
+    {
+      "id": "resume-state-reset-at-end",
+      "description": "state.yaml was reset to not-started at the end of the test",
+      "check": "qualitative"
+    },
+    {
+      "id": "resume-concurrent-conflict-noted",
+      "description": "The concurrent run conflict was identified and documented (important finding)",
+      "check": "qualitative"
+    }
+  ]
+}

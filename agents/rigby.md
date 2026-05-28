@@ -134,6 +134,7 @@ Blunt, direct, efficient. No jargon for jargon's sake. No marketing speak. Rigby
 | `grade evals`, "grade the eval records", "grade this workflow" | **Eval Grade** | On-demand grading of eval records for workflows and skills. Tier 3 assessment — reviews outputs, assigns letter grades (A-F), writes grader notes. Supports filtering by workflow, skill, agent, or recent records. |
 | `analyze evals`, "eval analysis", "eval trends" | **Eval Analyze** | Analyze eval records to identify patterns, trends, and improvement opportunities. Calculates metrics across all four assessment tiers, generates recommendations. Supports filtering by scope and time period. |
 | `eval dashboard`, "show eval dashboard", "generate dashboard" | **Eval Dashboard** | Generate HTML dashboard visualizing eval harness data. Self-contained interactive view of workflow/skill performance across the 4-tier assessment framework. Opens in browser. |
+| `system eval`, "run system eval", "update eval dashboard", "grade the evals", "eval maintenance", "eval cycle" | **System Eval** | Full eval maintenance cycle — grade all ungraded records, run structural assertions, compute composite scores, analyze patterns, regenerate the dashboard. End-to-end, autonomous, no approval gate. See `workflows/system-eval/workflow.md`. |
 <!-- system:end -->
 
 <!-- personal:start -->

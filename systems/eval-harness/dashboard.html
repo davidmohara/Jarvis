@@ -38,13 +38,13 @@
 <body>
     <div class="container">
         <h1>IES Eval Harness Dashboard</h1>
-        <div class="timestamp">Generated: 2026-05-25T09:55:41.871258 | Records: 2</div>
+        <div class="timestamp">Generated: 2026-05-27T16:34:26.422211 | Records: 9</div>
 
         <div class="metrics-grid">
             <div class="metric-card">
                 <h3>Success Rate</h3>
-                <div class="value">100.0%</div>
-                <div class="sub">2 / 2 successful</div>
+                <div class="value">55.6%</div>
+                <div class="sub">5 / 9 successful</div>
             </div>
             <div class="metric-card">
                 <h3>Failure Rate</h3>
@@ -53,13 +53,13 @@
             </div>
             <div class="metric-card">
                 <h3>Avg Duration</h3>
-                <div class="value">60.0s</div>
+                <div class="value">199.7s</div>
                 <div class="sub">Across all records</div>
             </div>
             <div class="metric-card">
                 <h3>Assertion Pass Rate</h3>
-                <div class="value">20.0%</div>
-                <div class="sub">2 / 10 passed</div>
+                <div class="value">80.0%</div>
+                <div class="sub">32 / 40 passed</div>
             </div>
         </div>
 
@@ -68,7 +68,7 @@
             <div class="tier-grid">
                 <div class="tier-metric">
                     <div class="label">Completion Rate</div>
-                    <div class="val">100.0%</div>
+                    <div class="val">77.8%</div>
                 </div>
                 <div class="tier-metric">
                     <div class="label">Avg Tool Failures</div>
@@ -86,15 +86,15 @@
             <div class="tier-grid">
                 <div class="tier-metric">
                     <div class="label">Assertions Checked</div>
-                    <div class="val">10</div>
+                    <div class="val">40</div>
                 </div>
                 <div class="tier-metric">
                     <div class="label">Assertions Passed</div>
-                    <div class="val">2</div>
+                    <div class="val">32</div>
                 </div>
                 <div class="tier-metric">
                     <div class="label">Pass Rate</div>
-                    <div class="val">20.0%</div>
+                    <div class="val">80.0%</div>
                 </div>
             </div>
         </div>
@@ -104,22 +104,22 @@
             <div class="tier-grid">
                 <div class="tier-metric">
                     <div class="label">Graded Records</div>
-                    <div class="val">2</div>
+                    <div class="val">7</div>
                 </div>
 
                 <div class="tier-metric">
                     <div class="label">Grade A</div>
-                    <div class="val grade-A">0</div>
+                    <div class="val grade-A">2</div>
                 </div>
 
                 <div class="tier-metric">
                     <div class="label">Grade B</div>
-                    <div class="val grade-B">0</div>
+                    <div class="val grade-B">2</div>
                 </div>
 
                 <div class="tier-metric">
                     <div class="label">Grade C</div>
-                    <div class="val grade-C">1</div>
+                    <div class="val grade-C">2</div>
                 </div>
 
                 <div class="tier-metric">
@@ -150,6 +150,76 @@
                     </tr>
                 </thead>
                 <tbody>
+
+                    <tr>
+                        <td><code>eval-20260527T210611-GVFJWB</code></td>
+                        <td>system-eval</td>
+                        <td>workflow</td>
+                        <td class="status-success">success</td>
+                        <td>405.9s</td>
+                        <td><span class="grade grade-A">A</span></td>
+                        <td>2026-05-27T20:59:26</td>
+                    </tr>
+
+                    <tr>
+                        <td><code>eval-20260527T205926-PCHVJ1</code></td>
+                        <td>system-eval</td>
+                        <td>workflow</td>
+                        <td class="status-aborted">aborted</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>2026-05-27T20:59:26</td>
+                    </tr>
+
+                    <tr>
+                        <td><code>eval-20260527T190021-B7HEKX</code></td>
+                        <td>error-improvement</td>
+                        <td>workflow</td>
+                        <td class="status-success">success</td>
+                        <td>294.6s</td>
+                        <td><span class="grade grade-B">B</span></td>
+                        <td>2026-05-27T18:55:26</td>
+                    </tr>
+
+                    <tr>
+                        <td><code>eval-20260527T185503-NDAYK6</code></td>
+                        <td>error-improvement</td>
+                        <td>workflow</td>
+                        <td class="status-aborted">aborted</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>2026-05-27T18:55:03</td>
+                    </tr>
+
+                    <tr>
+                        <td><code>eval-20260527T021153-F0GRE1</code></td>
+                        <td>daily-review</td>
+                        <td>workflow</td>
+                        <td class="status-partial">partial</td>
+                        <td>-</td>
+                        <td><span class="grade grade-C">C</span></td>
+                        <td>2026-05-27T02:11:53</td>
+                    </tr>
+
+                    <tr>
+                        <td><code>eval-20260526T215647-T3Q5PX</code></td>
+                        <td>daily-review</td>
+                        <td>workflow</td>
+                        <td class="status-partial">partial</td>
+                        <td>-</td>
+                        <td><span class="grade grade-B">B</span></td>
+                        <td>2026-05-26T21:56:47</td>
+                    </tr>
+
+                    <tr>
+                        <td><code>eval-20260526T125258-Q3KWG7</code></td>
+                        <td>content-approval</td>
+                        <td>workflow</td>
+                        <td class="status-success">success</td>
+                        <td>178.0s</td>
+                        <td><span class="grade grade-A">A</span></td>
+                        <td>2026-05-26T12:50:00</td>
+                    </tr>
 
                     <tr>
                         <td><code>eval-20260524T194915-DVQDRF</code></td>

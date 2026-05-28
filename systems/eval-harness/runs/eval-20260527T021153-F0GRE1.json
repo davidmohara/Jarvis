@@ -28,16 +28,49 @@
       "error_ids": []
     },
     "structural": {
-      "expected_outputs_written": null,
-      "outputs_non_empty": null,
-      "assertions_checked": 0,
-      "assertions_passed": 0,
-      "assertion_results": []
+      "expected_outputs_written": true,
+      "outputs_non_empty": true,
+      "assertions_checked": 8,
+      "assertions_passed": 8,
+      "assertion_results": [
+        {
+          "assertion": "Daily review workflow state.yaml shows status: complete",
+          "passed": true
+        },
+        {
+          "assertion": "Daily review output file was written to reviews/daily/",
+          "passed": true
+        },
+        {
+          "assertion": "Daily review output is substantive (>300 bytes)",
+          "passed": true
+        },
+        {
+          "assertion": "Daily review contains priorities or next-day planning section",
+          "passed": true
+        },
+        {
+          "assertion": "Daily review contains completed items or wins section",
+          "passed": true
+        },
+        {
+          "assertion": "Daily review working memory file was written to memory/working/",
+          "passed": true
+        },
+        {
+          "assertion": "Daily review working memory file is substantive (>200 bytes)",
+          "passed": true
+        },
+        {
+          "assertion": "Daily review working memory contains expected content",
+          "passed": true
+        }
+      ]
     },
     "grading": {
-      "last_graded": null,
-      "grade": null,
-      "grader_notes": null
+      "last_graded": "2026-05-27T21:11:00Z",
+      "grade": "C",
+      "grader_notes": "daily-review by chief on 2026-05-27 02:11 UTC, scheduled. Tier 1: PASS. Tier 2: 8/8 assertions technically passed \u2014 but glob patterns match any file in output directories. The 2026-05-27 run matched the same 2026-05-26 output files as T3Q5PX. No 2026-05-27 review file exists in reviews/daily/ or memory/working/. Assertions confirm output exists in the system but cannot confirm this specific run produced fresh output. Grade C: assertions pass via glob matching, but matched files belong to prior day's run. To reach B: produce a distinct review file for 2026-05-27."
     },
     "controller_feedback": {
       "rating": null,

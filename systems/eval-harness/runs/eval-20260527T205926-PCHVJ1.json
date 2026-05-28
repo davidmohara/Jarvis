@@ -1,11 +1,11 @@
 {
-  "id": "eval-20260527T185503-NDAYK6",
+  "id": "eval-20260527T205926-PCHVJ1",
   "type": "workflow",
-  "name": "error-improvement",
+  "name": "system-eval",
   "agent": "rigby",
-  "session_id": "",
+  "session_id": "rigby-2026-05-27-205926",
   "trigger": "manual",
-  "started": "2026-05-27T18:55:03.595956Z",
+  "started": "2026-05-27T20:59:26.108146Z",
   "completed": "2026-05-27T21:33:42Z",
   "duration_seconds": 0,
   "status": "aborted",
@@ -27,7 +27,7 @@
     "grading": {
       "last_graded": null,
       "grade": null,
-      "grader_notes": "Phantom duplicate \u2014 aborted. Real error-improvement run is B7HEKX."
+      "grader_notes": "Orphan stub from new-eval.py \u2014 superseded by GVFJWB (close-eval-record.py created a new record due to session_id mismatch). Aborted on cleanup."
     },
     "controller_feedback": {
       "rating": null,

@@ -1,0 +1,70 @@
+workflow: system-eval
+agent: rigby
+status: complete
+session-started: "2026-05-27T20:59:26Z"
+session-id: rigby-2026-05-27-205926
+eval-record-id: eval-20260527T210611-GVFJWB
+current-step: null
+original-request: "manual trigger — iteration-1 eval-full-run test"
+accumulated-context:
+  records_total: 9
+  records_skipped_in_progress: 3
+  closed_assessable: 6
+  records_complete: 6
+  assertion_files_available:
+    - morning-briefing
+    - daily-review
+    - error-improvement
+    - content-pipeline
+    - system-eval
+  assertions_run:
+    total_records_asserted: 3
+    total_assertions_evaluated: 21
+    total_assertions_passed: 21
+    records_fully_passing: 3
+    records_with_failures: 0
+    no_assertion_definition: []
+  grading:
+    total_graded: 3
+    grade_distribution:
+      A: 1
+      B: 2
+      C: 1
+      D: 1
+      F: 0
+    no_output_found: []
+  scoring:
+    records_scored: 6
+    batch_average: 0.6747
+    score_by_id:
+      eval-20260524T194258-HBF752: 0.60
+      eval-20260524T194915-DVQDRF: 0.5556
+      eval-20260526T125258-Q3KWG7: 1.00
+      eval-20260526T215647-T3Q5PX: 0.5714
+      eval-20260527T021153-F0GRE1: 0.5714
+      eval-20260527T190021-B7HEKX: 0.75
+    score_script_error: null
+  analysis:
+    report_path: systems/eval-harness/grading/analysis-20260527T211000.md
+    top_recommendation: "Verify morning-briefing output fix — run once manually and confirm memory/working/morning-briefing-YYYY-MM-DD.md is written"
+    patterns_count: 5
+    recommendations_count: 6
+  step_timings:
+    - step: step-01-intake
+      started: "2026-05-27T20:59:26Z"
+      completed: "2026-05-27T21:01:00Z"
+    - step: step-02-assert
+      started: "2026-05-27T21:01:00Z"
+      completed: "2026-05-27T21:03:00Z"
+    - step: step-03-grade
+      started: "2026-05-27T21:03:00Z"
+      completed: "2026-05-27T21:06:00Z"
+    - step: step-04-score
+      started: "2026-05-27T21:06:00Z"
+      completed: "2026-05-27T21:07:00Z"
+    - step: step-05-analyze
+      started: "2026-05-27T21:07:00Z"
+      completed: "2026-05-27T21:10:00Z"
+    - step: step-06-dashboard
+      started: "2026-05-27T21:10:00Z"
+      completed: "2026-05-27T21:11:00Z"

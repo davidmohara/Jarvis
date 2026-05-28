@@ -28,16 +28,49 @@
       "error_ids": []
     },
     "structural": {
-      "expected_outputs_written": null,
-      "outputs_non_empty": null,
-      "assertions_checked": 0,
-      "assertions_passed": 0,
-      "assertion_results": []
+      "expected_outputs_written": true,
+      "outputs_non_empty": true,
+      "assertions_checked": 8,
+      "assertions_passed": 8,
+      "assertion_results": [
+        {
+          "assertion": "Daily review workflow state.yaml shows status: complete",
+          "passed": true
+        },
+        {
+          "assertion": "Daily review output file was written to reviews/daily/",
+          "passed": true
+        },
+        {
+          "assertion": "Daily review output is substantive (>300 bytes)",
+          "passed": true
+        },
+        {
+          "assertion": "Daily review contains priorities or next-day planning section",
+          "passed": true
+        },
+        {
+          "assertion": "Daily review contains completed items or wins section",
+          "passed": true
+        },
+        {
+          "assertion": "Daily review working memory file was written to memory/working/",
+          "passed": true
+        },
+        {
+          "assertion": "Daily review working memory file is substantive (>200 bytes)",
+          "passed": true
+        },
+        {
+          "assertion": "Daily review working memory contains expected content",
+          "passed": true
+        }
+      ]
     },
     "grading": {
-      "last_graded": null,
-      "grade": null,
-      "grader_notes": null
+      "last_graded": "2026-05-27T21:11:00Z",
+      "grade": "B",
+      "grader_notes": "daily-review by chief on 2026-05-26, scheduled. Tier 1: PASS \u2014 completed, all_steps_finished, 0 tool failures. Status=partial reflects infrastructure gaps (M365 calendar unauth, Obsidian fallback). Tier 2: 8/8 passed \u2014 state complete, review at reviews/daily/auto-2026-05-26.md (2859 bytes), working memory at memory/working/daily-review-2026-05-26-000000.md (926 bytes), both contain expected sections. Output covers IES eval harness completion, 7 account plans reviewed, 3 overdue networking items flagged with specific names. Grade B: substantive output, all assertions pass. To reach A: resolve M365 calendar connector authentication."
     },
     "controller_feedback": {
       "rating": null,

@@ -1391,6 +1391,92 @@
           "action": "merge"
         }
       ]
+    },
+    {
+      "id": "work-20260527-system-eval-workflow",
+      "description": "Built system-eval workflow \u2014 full eval maintenance cycle that chains grade, assert, score, analyze, and dashboard regeneration into a single autonomous, stateful, resumable workflow. Registers in skills/_manifest.jsonl and adds trigger row to agents/rigby.md task portfolio. Also adds assertion definition file for system-eval itself.",
+      "started": "2026-05-27T20:47:49Z",
+      "classification": "system",
+      "files": [
+        {
+          "path": "workflows/system-eval/workflow.md",
+          "action": "add",
+          "type": "system",
+          "description": "New workflow \u2014 full eval maintenance cycle. 6 steps: intake, assert, grade, score, analyze, dashboard."
+        },
+        {
+          "path": "workflows/system-eval/state.yaml",
+          "action": "add",
+          "type": "system",
+          "description": "Initial state file for system-eval workflow."
+        },
+        {
+          "path": "workflows/system-eval/steps/step-01-intake.md",
+          "action": "add",
+          "type": "system",
+          "description": "Open eval record, inventory all closed records, classify by coverage gaps."
+        },
+        {
+          "path": "workflows/system-eval/steps/step-02-assert.md",
+          "action": "add",
+          "type": "system",
+          "description": "Run structural assertions on records with assertions_checked == 0."
+        },
+        {
+          "path": "workflows/system-eval/steps/step-03-grade.md",
+          "action": "add",
+          "type": "system",
+          "description": "Grade all ungraded eval records \u2014 review output files, assign A-F with grader notes."
+        },
+        {
+          "path": "workflows/system-eval/steps/step-04-score.md",
+          "action": "add",
+          "type": "system",
+          "description": "Compute composite scores for all closed records via score_eval.py."
+        },
+        {
+          "path": "workflows/system-eval/steps/step-05-analyze.md",
+          "action": "add",
+          "type": "system",
+          "description": "Analyze full eval corpus for patterns and recommendations, write analysis report."
+        },
+        {
+          "path": "workflows/system-eval/steps/step-06-dashboard.md",
+          "action": "add",
+          "type": "system",
+          "description": "Regenerate dashboard, close eval record, deliver summary."
+        },
+        {
+          "path": "systems/eval-harness/assertions/system-eval.json",
+          "action": "add",
+          "type": "system",
+          "description": "Assertion definition for system-eval workflow \u2014 8 assertions covering state completion, analysis report, dashboard, and skill-run signals."
+        },
+        {
+          "path": "skills/_manifest.jsonl",
+          "action": "merge",
+          "type": "system",
+          "description": "Registered system-eval workflow in lazy-loading manifest."
+        },
+        {
+          "path": "agents/rigby.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Added system-eval trigger row to Rigby task portfolio."
+        },
+        {
+          "path": "workflows/system-eval/steps/step-01-intake.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Fixed early-exit path \u2014 routes to step-04-score instead of step-05-analyze so composite scores are always refreshed even when no grading/assertion work is needed."
+        },
+        {
+          "path": "workflows/system-eval/steps/step-06-dashboard.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Added fallback for close-eval-record.py session_id mismatch in Cowork: directly patch the stub by eval-record-id and delete the spurious new record if the script creates instead of closes."
+        }
+      ]
     }
   ]
 }

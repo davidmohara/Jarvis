@@ -1,0 +1,54 @@
+{
+  "skill_name": "system-eval",
+  "evals": [
+    {
+      "id": 0,
+      "name": "eval-full-run",
+      "prompt": "Run the system-eval workflow end-to-end against the real eval harness (7 records, most ungraded and unasserted).",
+      "expected_output": "All 6 steps execute. Ungraded records get grades. Assertions written to structural blocks. Scores computed. Analysis report written. Dashboard regenerated. state.yaml complete. Summary delivered.",
+      "files": [],
+      "assertions": [
+        {"id": "full-run-all-six-steps-executed", "description": "All six steps are recorded in the transcript"},
+        {"id": "full-run-grades-assigned", "description": "At least one grade was assigned to a previously-ungraded record"},
+        {"id": "full-run-assertions-evaluated", "description": "Structural assertions were run and results written"},
+        {"id": "full-run-score-computed", "description": "score_eval.py ran and produced a batch average"},
+        {"id": "full-run-analysis-report-written", "description": "An analysis report was written to systems/eval-harness/grading/"},
+        {"id": "full-run-dashboard-regenerated", "description": "Dashboard HTML was regenerated"},
+        {"id": "full-run-state-complete", "description": "state.yaml ends as complete"},
+        {"id": "full-run-summary-delivered", "description": "Final summary delivered with record counts"},
+        {"id": "full-run-self-tracking-eval-record", "description": "Workflow opened and closed its own self-tracking eval record"}
+      ]
+    },
+    {
+      "id": 1,
+      "name": "eval-early-exit",
+      "prompt": "Simulate fully-assessed state and verify the workflow skips Steps 2-4 and jumps directly to analyze and dashboard.",
+      "expected_output": "Step 1 detects early-exit condition. Steps 2 and 3 skipped. Steps 5 and 6 run. state.yaml complete.",
+      "files": [],
+      "assertions": [
+        {"id": "early-exit-condition-detected", "description": "Step 1 correctly detected early-exit condition"},
+        {"id": "early-exit-steps-2-3-skipped", "description": "Steps 2 and 3 were not executed"},
+        {"id": "early-exit-step-5-ran", "description": "Step 5 (analyze) ran and produced a report"},
+        {"id": "early-exit-step-6-ran", "description": "Step 6 (dashboard) ran and regenerated dashboard"},
+        {"id": "early-exit-scoring-gap", "description": "Step 4 (score) skipped in early-exit — design gap flagged"},
+        {"id": "early-exit-records-restored", "description": "Test-injected data was restored to original state"}
+      ]
+    },
+    {
+      "id": 2,
+      "name": "eval-partial-state",
+      "prompt": "Write an in-progress state.yaml pointing to step-03-grade and verify the workflow resumes there, skipping Steps 1 and 2.",
+      "expected_output": "STATE CHECK detects in-progress. Resume message surfaced. Steps 1-2 skipped. Steps 3-6 complete. state.yaml reset.",
+      "files": [],
+      "assertions": [
+        {"id": "resume-state-check-detected", "description": "STATE CHECK correctly detected status: in-progress"},
+        {"id": "resume-message-surfaced", "description": "Resume message correctly surfaced"},
+        {"id": "resume-steps-1-2-skipped", "description": "Steps 1 and 2 not executed"},
+        {"id": "resume-steps-3-to-6-completed", "description": "Steps 3 through 6 all completed"},
+        {"id": "resume-grades-assigned-from-context", "description": "Step 3 used needs_grade from accumulated-context"},
+        {"id": "resume-state-reset-at-end", "description": "state.yaml reset to not-started at end"},
+        {"id": "resume-concurrent-conflict-noted", "description": "Concurrent run conflict identified and documented"}
+      ]
+    }
+  ]
+}

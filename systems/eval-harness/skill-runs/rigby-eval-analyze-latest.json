@@ -1,9 +1,15 @@
 {
   "skill": "rigby-eval-analyze",
   "agent": "rigby",
-  "trigger": "manual",
-  "started": "2026-05-24T22:00:00Z",
+  "trigger": "workflow:system-eval",
+  "started": "2026-05-27T21:07:00Z",
+  "completed": "2026-05-27T21:10:00Z",
   "status": "success",
   "tool_failures": 0,
-  "error_ids": []
+  "error_ids": [],
+  "records_analyzed": 6,
+  "patterns_identified": 5,
+  "recommendations_generated": 6,
+  "report_path": "systems/eval-harness/grading/analysis-20260527T211000.md",
+  "session_id": "rigby-2026-05-27-205926"
 }
