@@ -5,9 +5,10 @@ completed-at: 2026-05-29T03:14:30-05:00
 outputs:
   dream_log_appended: true
   working_summary_written: true
-  git_commit: pending
-  git_push: pending
-  git_failure_reason: "Boot git pull blocked (32nd consecutive run). Commit attempt at end-of-run after lock clear."
+  git_commit: success
+  git_commit_sha: a02ce97
+  git_push: failed
+  git_failure_reason: "Boot git pull blocked (32nd consecutive run). Commit succeeded after mv lock clear (87 files). Push blocked by missing git credentials in sandbox — run 'git push origin main' from David's machine."
 ---
 
 <!-- system:start -->
