@@ -1,6 +1,6 @@
 # IES Skill Index
 
-Last updated: 2026-05-23 | Total skills: 27
+Last updated: 2026-05-29 | Total skills: 29
 
 | ID | Name | Owner | Model | Trigger Keywords (sample) |
 |----|------|-------|-------|---------------------------|
@@ -31,6 +31,8 @@ Last updated: 2026-05-23 | Total skills: 27
 | rigby-eval-grade | Rigby Eval Grade | rigby | sonnet | grade evals, eval grading |
 | rigby-eval-analyze | Rigby Eval Analyze | rigby | sonnet | eval analysis, eval trends |
 | rigby-eval-dashboard | Rigby Eval Dashboard | rigby | sonnet | eval dashboard, generate dashboard |
+| obsidian-source-note | Obsidian Source Note | harper | sonnet | save to obsidian, source note, talk research, save podcast notes |
+| podcast-transcript-extract | Podcast Transcript Extract | knox | haiku | podcast, transcript, episode, spotify transcript |
 
 ## Adding a New Skill
 

@@ -46,7 +46,11 @@ model: sonnet
 
 ### Pre-flight Checks
 
-- Read `memory/dream.log` — confirm last run date. If last run was today, abort with log entry: `aborted: already ran today`.
+- Check last run date via tail — the log is append-only and grows unboundedly; reading from line 1 returns the initialization entry, not the latest run:
+  ```
+  tail -30 memory/dream.log
+  ```
+  Parse the most recent `## YYYY-MM-DD` header. If last run was today, abort with log entry: `aborted: already ran today`. **Never use the Read tool on dream.log without an offset — it will return the first entry, not the last.**
 - Get current local date/time via `osascript -e 'return (current date) as string'`.
 - Record `session_id: dream-cycle-{YYYY-MM-DD-HHmmss}`.
 - Get latest from origin: `git pull --rebase`. Handle any merge conflicts. Do NOT proceed until the folder is clean.

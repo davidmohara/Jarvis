@@ -57,8 +57,7 @@ promoted: never
 
 ### IES (Improving Executive System)
 - **Owner**: David
-- **Status**: Active — deployed to Steve Hall as first pilot in Q1
-- **Notes**: Productization of the Intelligence Executive System for other Improving presidents. Scope management required — David should not be pulled into delivery work.
+- **Status**: Dropped/Completed — no longer active
 
 ### EA Hire
 - **Owner**: David

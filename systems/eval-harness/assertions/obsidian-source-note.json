@@ -1,0 +1,110 @@
+{
+  "name": "obsidian-source-note",
+  "type": "skill",
+  "assertions": [
+    {
+      "id": "file-exists",
+      "check": "file_exists",
+      "path": "Research/Talks/*.md",
+      "description": "Output file was written to Research/Talks/ in the vault"
+    },
+    {
+      "id": "file-min-bytes",
+      "check": "file_min_bytes",
+      "path": "Research/Talks/*.md",
+      "min_bytes": 2000,
+      "description": "Output file is substantive — not a stub"
+    },
+    {
+      "id": "has-transcript",
+      "check": "file_contains",
+      "path": "Research/Talks/*.md",
+      "pattern": "## Full Transcript",
+      "description": "Note contains a Full Transcript section"
+    },
+    {
+      "id": "transcript-non-empty",
+      "check": "file_contains",
+      "path": "Research/Talks/*.md",
+      "pattern": "This transcript was generated automatically",
+      "description": "Transcript section has actual content (not empty)"
+    },
+    {
+      "id": "has-key-concept-summary",
+      "check": "file_contains",
+      "path": "Research/Talks/*.md",
+      "pattern": "## Key Concept Summary",
+      "description": "Note contains Key Concept Summary section"
+    },
+    {
+      "id": "has-minimum-concepts",
+      "check": "file_contains",
+      "path": "Research/Talks/*.md",
+      "pattern": "### [0-9]+\\.",
+      "description": "Key Concept Summary has at least one numbered concept"
+    },
+    {
+      "id": "has-talk-angles",
+      "check": "file_contains",
+      "path": "Research/Talks/*.md",
+      "pattern": "\\*\\*Talk angle:\\*\\*",
+      "description": "Concepts include Talk angle notes"
+    },
+    {
+      "id": "has-tags-block",
+      "check": "file_contains",
+      "path": "Research/Talks/*.md",
+      "pattern": "#### Tags",
+      "description": "Tags block is present"
+    },
+    {
+      "id": "tags-has-source-type",
+      "check": "file_contains",
+      "path": "Research/Talks/*.md",
+      "pattern": "Source Type: (Book|Post|Video|Podcast)",
+      "description": "Tags block has Source Type populated"
+    },
+    {
+      "id": "tags-has-author",
+      "check": "file_contains",
+      "path": "Research/Talks/*.md",
+      "pattern": "Author: \\[\\[",
+      "description": "Tags block has Author as a wikilink"
+    },
+    {
+      "id": "tags-has-domains",
+      "check": "file_contains",
+      "path": "Research/Talks/*.md",
+      "pattern": "Domain\\(s\\): \\[\\[",
+      "description": "Tags block has at least one Domain wikilink"
+    },
+    {
+      "id": "tags-has-link",
+      "check": "file_contains",
+      "path": "Research/Talks/*.md",
+      "pattern": "Link: https?://",
+      "description": "Tags block has source URL"
+    },
+    {
+      "id": "tags-has-motive",
+      "check": "file_contains",
+      "path": "Research/Talks/*.md",
+      "pattern": "Motive:",
+      "description": "Tags block has Motive field populated"
+    },
+    {
+      "id": "tags-has-date",
+      "check": "file_contains",
+      "path": "Research/Talks/*.md",
+      "pattern": "Date Created: \\[\\[",
+      "description": "Tags block has Date Created as a wikilink"
+    },
+    {
+      "id": "no-duplicate-headings",
+      "check": "file_not_contains",
+      "path": "Research/Talks/*.md",
+      "pattern": "# Key Concept Summary\\n[\\s\\S]*# Key Concept Summary",
+      "description": "No duplicate Key Concept Summary headings (patch artifact)"
+    }
+  ]
+}

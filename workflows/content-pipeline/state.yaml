@@ -1,13 +1,18 @@
 status: complete
 current-step: step-01-discover
-session-id: harper-2026-05-26-060000
-session-started: 2026-05-26T06:00:00
+session-id: harper-2026-05-29-060000
+session-started: 2026-05-29T06:00:00
 original-request: scheduled-content-discovery
 accumulated-context:
-  result: "No new URLs found — no drafts created"
-  messages_scanned: 0
-  urls_found: 0
-  urls_processed: 0
+  result: "Draft created and submitted for review"
+  messages_scanned: 1
+  urls_found: 1
+  urls_processed: 1
+  ghost_post_id: "6a19a29ba5406802901411e3"
+  slack_thread_ts: "1780065020.027249"
   notes:
-    - "Channel C0B160MA3EK returned 0 messages in last 24 hours"
-    - "Sent 'no new URLs' notification to #content"
+    - "Source: WSJ article on AI cost rationing via Slack PDF attachment"
+    - "Draft title: The Audit Nobody Wanted"
+    - "Tags: AI, business, thoughts"
+    - "Image uploaded to Ghost CDN successfully"
+    - "Content, image, tags verified via get_post before notification"

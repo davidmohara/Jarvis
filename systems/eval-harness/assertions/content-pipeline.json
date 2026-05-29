@@ -3,12 +3,48 @@
   "type": "workflow",
   "assertions": [
     {
-      "id": "contpipe-001-state-complete",
+      "id": "state-complete",
       "check": "yaml_field_equals",
       "path": "workflows/content-pipeline/state.yaml",
       "field": "status",
       "value": "complete",
       "description": "Content pipeline workflow state.yaml shows status: complete"
+    },
+    {
+      "id": "messages-scanned",
+      "check": "yaml_field_not_equals",
+      "path": "workflows/content-pipeline/state.yaml",
+      "field": "accumulated-context.messages_scanned",
+      "value": null,
+      "description": "Workflow recorded how many Slack messages were scanned (not null)"
+    },
+    {
+      "id": "routing-outcome-recorded",
+      "check": "yaml_field_not_equals",
+      "path": "workflows/content-pipeline/state.yaml",
+      "field": "accumulated-context.result",
+      "value": null,
+      "description": "accumulated-context.result records the routing outcome (draft created / obsidian note / flagged)"
+    },
+    {
+      "id": "pending-drafts-valid-json",
+      "check": "file_exists",
+      "path": "workflows/content-pipeline/pending-drafts.json",
+      "description": "pending-drafts.json file exists (workflow maintains it)"
+    },
+    {
+      "id": "blog-route-has-ghost-id",
+      "check": "file_contains",
+      "path": "workflows/content-pipeline/pending-drafts.json",
+      "pattern": "\"ghost_post_id\"",
+      "description": "Any blog-routed message in pending-drafts has a ghost_post_id field"
+    },
+    {
+      "id": "no-missing-status",
+      "check": "file_not_contains",
+      "path": "workflows/content-pipeline/pending-drafts.json",
+      "pattern": "\"status\": null",
+      "description": "No pending-draft entry has a null status"
     },
     {
       "id": "content--001-exists",

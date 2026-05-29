@@ -39,11 +39,8 @@ How:
 - Executive AI Workshops
 - "The Improving Edge" Podcast — Season 1 (7 episodes) ✓ COMPLETE (Mar 11, 2026)
 
-### Active Initiatives (IPS — Improving President System)
-- Main IES built and operational
-- First deployment: Steve Hall (pilot)
-- Deliverables: Implementation Plan, Discovery Script, Internal Kickoff Guide, Implementation Guide
-- Status: Active deployment — was previously deferred, now in-flight
+### IES Productization
+- Status: Dropped/Completed — no longer active
 
 ### Active Pursuits
 | Account | Owner | Location |

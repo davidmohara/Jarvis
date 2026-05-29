@@ -25,6 +25,7 @@ Obsidian note with timestamps, key quotes, and summary sections.
 |--------|--------|
 | YouTube | Open in Chrome → click "Show transcript" → scrape panel |
 | Apple Podcasts | Open in Chrome → find episode webpage link → follow to RSS/show site |
+| Spotify | Open in Chrome (logged-in session required) → click Transcript tab → JS extraction via local server |
 | RSS / Show website | Open in Chrome → scrape episode page |
 
 ## File Naming Convention
@@ -167,6 +168,128 @@ has a full transcript or richer show notes.
 // Duration is typically visible in page text near the episode header
 document.body.innerText.match(/(\d+)\s*min/i);
 ```
+
+---
+
+### Step 3d: Spotify Extraction
+
+Spotify is a heavily client-rendered app with a Content Security Policy that blocks clipboard writes and outbound fetch to localhost from the page context. Use the local server method.
+
+#### Prerequisites
+- Chrome must be open and logged into Spotify
+- Use `mcp__Claude_in_Chrome__select_browser` to connect to "Work Chrome" before any tab operations
+- The Spotify episode page must be open (navigate there if not)
+
+#### Connect to Chrome and navigate
+
+```
+mcp__Claude_in_Chrome__list_connected_browsers()
+mcp__Claude_in_Chrome__select_browser(deviceId="{id of Work Chrome}")
+mcp__Claude_in_Chrome__tabs_context_mcp(createIfEmpty=true)
+mcp__Claude_in_Chrome__navigate(tabId={tab_id}, url="{spotify_episode_url}")
+```
+
+Wait for the page title to update to the episode name before proceeding.
+
+#### Click the Transcript tab
+
+```javascript
+const tab = document.querySelector('[data-testid="transcript-tab"]');
+if (tab) { tab.click(); 'clicked'; } else { 'not found'; }
+```
+
+Wait ~1 second for the transcript panel to render.
+
+#### Spin up a local receiver server via Desktop Commander
+
+```
+Tool: mcp__Desktop_Commander__start_process
+Command: python3 -c "
+import http.server, json, os
+
+class Handler(http.server.BaseHTTPRequestHandler):
+    def do_POST(self):
+        length = int(self.headers['Content-Length'])
+        data = self.rfile.read(length).decode('utf-8')
+        with open('/tmp/spotify_transcript.txt', 'w') as f:
+            f.write(data)
+        self.send_response(200)
+        self.send_header('Access-Control-Allow-Origin','*')
+        self.end_headers()
+        self.wfile.write(b'ok')
+    def do_OPTIONS(self):
+        self.send_response(200)
+        self.send_header('Access-Control-Allow-Origin','*')
+        self.send_header('Access-Control-Allow-Methods','POST')
+        self.send_header('Access-Control-Allow-Headers','Content-Type')
+        self.end_headers()
+    def log_message(self, *a): pass
+
+server = http.server.HTTPServer(('127.0.0.1', 9876), Handler)
+print('READY', flush=True)
+server.serve_forever()
+"
+Timeout: 5000
+```
+
+Wait for `READY` in output before proceeding.
+
+#### POST the transcript from the browser
+
+```javascript
+const full = document.body.innerText;
+const start = full.indexOf('This transcript was generated automatically');
+const transcript = full.substring(start, start + 60000);
+fetch('http://127.0.0.1:9876', {
+  method: 'POST',
+  headers: {'Content-Type': 'text/plain'},
+  body: transcript
+}).then(r => r.text()).then(t => { window.__postResult = t; }).catch(e => { window.__postResult = 'error: ' + e; });
+'fetch fired'
+```
+
+**Important:** Spotify's CSP may block the fetch depending on permissions granted to the Chrome extension. If a permissions popup appears in the Claude in Chrome side panel, approve it before re-running. The `fetch fired` response confirms the JS executed — check the file was written before proceeding.
+
+#### Verify and read the file
+
+```
+mcp__Desktop_Commander__read_file(path="/tmp/spotify_transcript.txt")
+```
+
+If the file is empty or missing, the CSP blocked the fetch. In that case, use the JS chunking fallback:
+
+```javascript
+// Store full transcript in window variable first
+const full = document.body.innerText;
+const start = full.indexOf('This transcript was generated automatically');
+window.__transcript = full.substring(start, start + 60000);
+window.__transcript.length + ' chars stored'
+```
+
+Then read in chunks (reconnecting between each call if the extension drops):
+```javascript
+window.__transcript.substring(0, 8000)
+window.__transcript.substring(8000, 16000)
+// ...continue until empty string returned
+```
+
+#### Kill the server after extraction
+
+```
+mcp__Desktop_Commander__kill_process(pid={server_pid})
+```
+
+#### Extract episode metadata from Spotify page
+
+```javascript
+JSON.stringify({
+  title: document.querySelector('[data-testid="episode-name"], h1')?.textContent?.trim(),
+  show: document.querySelector('[data-testid="podcast-name"], [data-testid="show-name"]')?.textContent?.trim(),
+  url: document.URL
+})
+```
+
+Chapter markers (if present) are visible in the page body under "Chapters" — include them in the note if found.
 
 ---
 

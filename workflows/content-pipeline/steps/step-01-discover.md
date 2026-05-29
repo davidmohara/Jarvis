@@ -47,7 +47,34 @@ Extract all URLs from message text. Skip:
 - URLs already in pending-drafts.json (source_url field)
 - URLs whose topics already have published Ghost posts
 
-If no new URLs found: post to #content via post.py:
+### Message routing — CRITICAL
+
+Before processing any URL as a blog draft, read the full message text for explicit instructions.
+If David's message contains any of the following signals, it is **NOT a blog draft request**
+and must be routed accordingly:
+
+| Signal in message text | Route to |
+|------------------------|----------|
+| "do not draft a post" / "don't draft a post" | `skills/obsidian-source-note/SKILL.md` |
+| "save to obsidian" / "save as a note" / "for a talk" / "reference" | `skills/obsidian-source-note/SKILL.md` |
+| "PowerPoint" / "slides" / "deck" / "presentation" | Flag for manual handling — notify David in #content |
+| "draft a post" / "write a post" / no instruction | Standard blog draft pipeline (continue below) |
+
+**For Obsidian-routed messages:** Execute `skills/obsidian-source-note/SKILL.md` inline.
+Read the full skill before acting. Use Spotify extraction (Step 3d in podcast-transcript-extract)
+for Spotify URLs. After saving the note, notify David in #content:
+```
+"_Saved to Obsidian: [{Note Title}] — {vault_path}_"
+```
+
+**For manual-handling messages:** Post to #content:
+```
+"_@david — [{source title}] needs manual handling: {brief reason}. I can't process this automatically._"
+```
+
+Do NOT treat non-blog messages as failed pipeline items. Route them correctly or flag them.
+
+If no new URLs found after routing: post to #content via post.py:
 ```
 "_Content pipeline: no new URLs in the last 24 hours._"
 ```
@@ -65,7 +92,8 @@ For each new URL:
 
 - Read `reference/blog-ideas.md` — Published section
 - Call `mcp__ghost-blog__get_posts(limit=50)` and scan titles/slugs
-- Check `pending-drafts.json` — if the URL is already present in the `source_url` field (any status), skip it with note: "Skipped {url} — already in pipeline (status: {status})."
+- **Normalize URLs before dedup:** Strip tracking parameters before comparing. Spotify URLs include `?si=…` tokens; WSJ/NYT/others append `?mod=`, `?ref=`, `?campaign=`, etc. Compare base URLs only (scheme + host + path). Example: `https://open.spotify.com/episode/51IawJ6m9JcByFjLlzOwfV?si=xLu7qQ7g…` → `https://open.spotify.com/episode/51IawJ6m9JcByFjLlzOwfV`.
+- Check `pending-drafts.json` — if the normalized URL is already present in the `source_url` field (any status), skip it with note: "Skipped {url} — already in pipeline (status: {status})."
 - If the source URL topic is already covered: skip with a note, don't draft.
 
 ### 4. Draft the post

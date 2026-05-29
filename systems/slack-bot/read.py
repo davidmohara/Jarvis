@@ -52,7 +52,13 @@ def _api_get(endpoint, params):
 
 
 def read_channel(channel, hours_ago=24, limit=100):
-    """Read top-level messages from a channel posted in the last N hours."""
+    """Read top-level messages from a channel posted in the last N hours.
+
+    Sanity check: if the API returns ok=True but zero messages, we retry once
+    with a 2x wider window before accepting the empty result. This guards against
+    the silent-empty failure mode where the Slack API returns ok with no messages
+    despite recent activity existing (observed 2026-05-29, err-20260529T200913-OZ7D7N).
+    """
     oldest = str(time.time() - (hours_ago * 3600))
     result = _api_get("conversations.history", {
         "channel": channel,
@@ -64,6 +70,34 @@ def read_channel(channel, hours_ago=24, limit=100):
         print(json.dumps({"ok": False, "error": result.get("error")}))
         return
     messages = result.get("messages", [])
+
+    # Sanity check: ok=True but empty — retry with 2x window before trusting it
+    if not messages:
+        retry_oldest = str(time.time() - (hours_ago * 2 * 3600))
+        retry_result = _api_get("conversations.history", {
+            "channel": channel,
+            "oldest": retry_oldest,
+            "limit": limit,
+            "inclusive": True,
+        })
+        if retry_result.get("ok") and retry_result.get("messages"):
+            messages = retry_result["messages"]
+            # Surface a warning so the caller knows the window was widened
+            sys.stderr.write(
+                f"[read.py WARNING] Initial {hours_ago}h window returned 0 messages; "
+                f"retry with {hours_ago * 2}h window found {len(messages)}. "
+                f"Check bot permissions or channel activity timing.\n"
+            )
+        else:
+            # Truly empty or API error on retry — emit warning in payload
+            print(json.dumps({
+                "ok": True,
+                "messages": [],
+                "warning": f"Zero messages returned for {hours_ago}h window and {hours_ago * 2}h retry. "
+                           "Verify bot is a member of the channel and has conversations:history scope.",
+            }))
+            return
+
     # Top-level only — exclude threaded replies
     top_level = [m for m in messages if not m.get("thread_ts") or m.get("thread_ts") == m.get("ts")]
     print(json.dumps({"ok": True, "messages": top_level}))

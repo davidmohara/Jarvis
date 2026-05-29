@@ -48,7 +48,11 @@ In sandboxed environments, `.git/index.lock` can become irremovable once created
 
 ## Pre-flight
 
-- Read `memory/dream.log` — confirm last run date. If last run was today, abort with log entry: `aborted: already ran today`.
+- Check last run date via tail — the log is append-only and grows unboundedly; reading from line 1 will return the initialization entry, not the latest run:
+  ```
+  tail -30 memory/dream.log
+  ```
+  Parse the most recent `## YYYY-MM-DD` header from the output. If last run was today, abort with log entry: `aborted: already ran today`. **Never use the Read tool on dream.log without an offset — it will return the first entry, not the last.**
 - Get current local date/time via `osascript -e 'return (current date) as string'`.
 - Record `session_id: dream-cycle-{YYYY-MM-DD-HHmmss}`.
 - **Sync from origin** using Desktop Commander (see Git Operations above). Handle any merge conflicts. If sync fails (auth, SSH, uncommitted changes), log it and proceed — do not block the cycle on sync failures.

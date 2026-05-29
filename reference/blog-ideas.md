@@ -16,6 +16,7 @@ Running list of potential blog topics. Jarvis captures these proactively from co
 | What the Small Business AI Workshop taught you about the room | Post-workshop follow-up (Feb 6) | AI, speaking | First-hand observations from delivering the workshop — what surprised you, what landed, what the audience actually needed vs. what you planned. |
 | "The Bill You Haven't Paid Yet" | Content pipeline (2026-05-17) | business, AI, systems thinking | Ghost draft — pending approval |
 | "Before You Open Your Mouth" | Content pipeline (2026-05-19) | trust, leadership, business | Ghost draft — pending approval |
+| "The Audit Nobody Wanted" | Content pipeline (2026-05-29) | AI, business, thoughts | Ghost draft — pending approval |
 
 ## Published (for reference / avoid repeats)
 

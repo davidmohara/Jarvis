@@ -247,6 +247,23 @@
   {
     "id": "session-2026-05-27-112421",
     "started": "2026-05-27T11:24:21-05:00",
+    "closed": "2026-05-29T07:09:48-05:00",
+    "current_topic": null,
+    "topics": [
+      {
+        "name": "morning-boot",
+        "loops": [
+          {
+            "task": "boot-sequence",
+            "resolved": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "session-2026-05-29-070948",
+    "started": "2026-05-29T07:09:48-05:00",
     "closed": null,
     "current_topic": "morning-boot",
     "topics": [
