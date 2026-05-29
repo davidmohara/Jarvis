@@ -2,13 +2,13 @@
 date: 2026-04-26
 agent: harper
 type: content-review
-subject: The Improving Edge — Hosting Self-Review
+subject: "The Improving Edge \u2014 Hosting Self-Review"
 episode: 1
 status: reviewed
 salience:
   score: 0
   references: []
-  last-promoted-check: '2026-05-28'
+  last-promoted-check: '2026-05-29'
   promoted: false
 ---
 # Podcast Hosting Review — The Improving Edge, Episode 1

@@ -15,9 +15,9 @@ related_people:
 - vicki
 - steve-hall
 salience:
-  score: 10
+  score: 8
   references: []
-  last-promoted-check: '2026-05-28'
+  last-promoted-check: '2026-05-29'
   promoted: true
 ---
 # Morning Briefing — April 21, 2026

@@ -6,7 +6,7 @@ agent-source: chief
 created: 2026-05-20 06:14:00
 expires: 2026-05-22 06:14:00
 status: archived
-context: Morning boot + briefing — 2026-05-20 (automated scheduled task)
+context: "Morning boot + briefing \u2014 2026-05-20 (automated scheduled task)"
 tags:
 - briefing
 - calendar
@@ -15,9 +15,10 @@ tags:
 - drc-workshop
 - graduation
 salience:
-  score: 9
-  last-promoted-check: '2026-05-28'
+  score: 7
+  last-promoted-check: '2026-05-29'
   promoted: true
+  references: []
 ---
 # Morning Briefing — May 20, 2026
 

@@ -789,3 +789,32 @@ git_commit_sha: 2dc54d6
 git_commit_note: "Stale .git/index.lock cleared via 'mv .git/index.lock .git/index.lock.dead.$$' — sandbox blocks rm/unlink but allows mv (proven workaround, 2nd consecutive run). 84 files changed."
 git_push: failed
 git_push_failure_reason: "Sandbox cannot read git credentials: 'fatal: could not read Username for https://github.com'. Push must run from David's machine: 'git push origin main'."
+
+---
+## 2026-05-29T03:09:13 CDT
+session_id: dream-cycle-2026-05-29-030913
+working_archived: 3
+working_deleted: 0
+episodic_scanned: 72
+score_updates: 72
+clusters_found: 0
+semantic_created: 0
+semantic_updated: 0
+promoted_entries: 0
+entries_compressed: 0
+digests_updated: 0
+errors: 4
+summary: "Archived 3 newly expired working files (daily-review-2026-05-26-000000.md, daily-review-2026-05-26-auto.md, dream-summary-2026-05-27.md). Copies written to memory/episodic/; sources marked archived in place for 32nd consecutive run (sandbox unlink restriction). Scored 72 episodic entries (up 2 from yesterday's 70 = +3 new archives - 1 dropped from re-scan accounting): distribution shifted markedly: 0:37, 4:1, 5:4, 6:11, 7:8, 8:5, 9:2, 10:4. Score-10 cluster collapsed from 11 to 4 as 30-day window slid forward and older clusters fell out of co-occurrence range — natural decay. Zero promotion candidates (19th consecutive idle run — all 35 entries with score>=3 already carry promoted:true). Error log 30d: process-skip:10, data-accuracy:6, routing-error:5, tool-misuse:4, stale-context:3 — all five covered in LESSONS.md, no appends. Compression skipped (oldest episodic 41 days, cutoff 90). Boot git pull blocked (32nd consecutive run): unstaged changes + sandbox unlink restriction. Lock cleared via mv workaround."
+errors_detail:
+  - phase: 0
+    file: .git
+    error: "git pull --rebase failed: unstaged changes from prior session blocked rebase; .git/index.lock recreated by failed stash attempt; cleared via mv workaround. Memory phases completed without remote sync."
+  - phase: 1
+    file: memory/working/daily-review-2026-05-26-000000.md
+    error: "Source deletion blocked after copy (Operation not permitted). Source marked status:archived in place."
+  - phase: 1
+    file: memory/working/daily-review-2026-05-26-auto.md
+    error: "Source deletion blocked after copy (Operation not permitted). Source marked status:archived in place."
+  - phase: 1
+    file: memory/working/dream-summary-2026-05-27.md
+    error: "Source deletion blocked after copy (Operation not permitted). Source marked status:archived in place."

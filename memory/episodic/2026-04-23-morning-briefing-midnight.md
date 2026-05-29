@@ -18,9 +18,9 @@ related_people:
 - ethel-mangum
 - sam-dobbins
 salience:
-  score: 10
+  score: 8
   references: []
-  last-promoted-check: '2026-05-28'
+  last-promoted-check: '2026-05-29'
   promoted: true
 ---
 # Morning Briefing — April 23, 2026 (Midnight Run)

@@ -4,7 +4,9 @@ expires: 2026-05-26
 status: archived
 salience:
   score: 0
-  last-promoted-check: '2026-05-28'
+  last-promoted-check: '2026-05-29'
+  promoted: false
+  references: []
 ---
 
 # Dream Cycle Summary — 2026-05-25

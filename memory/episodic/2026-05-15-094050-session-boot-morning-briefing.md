@@ -6,16 +6,16 @@ agent-source: chief
 created: 2026-05-15 09:40:50
 expires: 2026-05-17 09:40:50
 status: archived
-context: Morning boot + briefing — 2026-05-15
+context: "Morning boot + briefing \u2014 2026-05-15"
 tags:
 - boot
 - briefing
 - calendar
 - omnifocus
 salience:
-  score: 10
+  score: 8
   references: []
-  last-promoted-check: '2026-05-28'
+  last-promoted-check: '2026-05-29'
   promoted: true
 ---
 # Boot Briefing — Friday May 15, 2026

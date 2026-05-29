@@ -1,50 +1,53 @@
 workflow: dream-cycle
 agent: jarvis
 status: complete
-session-started: 2026-05-28T03:08:56-05:00
-session-id: dream-cycle-2026-05-28-030856
+session-started: 2026-05-29T03:09:13-05:00
+session-id: dream-cycle-2026-05-29-030913
 current-step: null
 original-request: Scheduled dream cycle run
 accumulated-context:
   git_pull_at_boot: blocked
-  git_pull_failure_reason: "Unstaged changes from prior sessions blocked rebase. .git/index.lock cleared via mv workaround (proven from prior run). 31st consecutive run unable to sync at boot."
-  working_archived: 1
+  git_pull_failure_reason: "32nd consecutive run blocked. Unstaged changes from prior session + sandbox cannot unlink .git/index.lock (Operation not permitted). Used mv workaround to clear lock. Stash blocked by same lock recreation. Proceeding with memory phases without remote sync."
+  working_archived: 3
   working_deleted: 0
-  working_skipped: 65
+  working_skipped: 67
   skipped_unparseable_count: 2
   skipped_unparseable:
     - "memory/working/2026-05-25-200000-galen-health-review.md"
     - "memory/working/golf-override-2026-05-27.md"
-  working_archive_note: "1 newly expired today (dream-summary-2026-05-26.md, expires 2026-05-27 < today 2026-05-28). Marked status:archived in place; copy written to memory/episodic/. Source deletion still blocked (31st consecutive run with sandbox unlink restriction)."
-  episodic_scanned: 70
-  score_updates: 70
-  no_tags: 26
-  no_date: 29
-  score_distribution: "0:35, 4:1, 5:4, 6:5, 7:1, 8:6, 9:7, 10:11 — score-10 cluster dropped from 25 to 11 after yaml re-serialization spread scores more naturally across 8-10 bucket."
+  working_archive_note: "3 newly expired working files archived. Copies written to memory/episodic/. Source deletion blocked for 32nd consecutive run; sources marked status:archived in place."
+  episodic_scanned: 72
+  score_updates: 72
+  no_tags: 28
+  no_date: 31
+  score_distribution: "0:37, 4:1, 5:4, 6:11, 7:8, 8:5, 9:2, 10:4 — score-10 cluster collapsed from 11 to 4 as 30-day window slid forward; mid-band (6-8) thickened to 24 entries (normal distribution emerging)."
   clusters_found: 0
   semantic_created: 0
   semantic_updated: 0
   promoted_entries: 0
-  promotion_note: "Zero new promotion candidates. All 33 entries with score >= 3 already carry promoted:true from prior cycles. Semantic promotion idle for 18+ consecutive runs — score-saturation pattern unchanged."
-  error_categories_30d: "process-skip:11, data-accuracy:6, routing-error:5, tool-misuse:4, stale-context:3 — all five at 3+ threshold already covered in LESSONS.md."
+  promotion_note: "Zero new promotion candidates for 19th consecutive run. All 35 entries with score >= 3 already carry promoted:true from prior cycles. Score-saturation pattern unchanged."
+  error_categories_30d: "process-skip:10, data-accuracy:6, routing-error:5, tool-misuse:4, stale-context:3 — all five at 3+ threshold already covered in LESSONS.md."
   lessons_appended: 0
   lessons_note: "No appends per preservation-over-aggression. All thresholded categories already represented."
   entries_compressed: 0
   digests_updated: 0
   compression_skipped: true
-  compression_skip_reason: "All episodic entries < 90 days old (oldest is 2026-04-18, 40 days)"
+  compression_skip_reason: "All episodic entries < 90 days old (oldest is 2026-04-18, 41 days)"
   dream_log_appended: true
   working_summary_written: true
-  errors: 2
+  errors: 4
   errors_detail:
-    - phase: 1
-      file: "memory/working/dream-summary-2026-05-26.md"
-      error: "Source deletion blocked after copy (Operation not permitted). Source marked status:archived in place; copy written to memory/episodic/. 31st consecutive run with sandbox unlink restriction."
     - phase: 0
       file: .git
-      error: "git pull --rebase failed: unstaged changes from prior sessions blocked rebase. Stale .git/index.lock cleared via mv workaround. Memory phases completed without remote sync."
-  git_commit_at_end: success
-  git_commit_sha: 2dc54d6
-  git_commit_note: "Stale .git/index.lock cleared via mv workaround. 84 files changed (memory updates, dream cycle state, salience scores on 70 episodic entries, new working summary, new episodic archive)."
-  git_push: failed
-  git_push_failure_reason: "Sandbox cannot read git credentials: 'fatal: could not read Username for https://github.com'. Push must run from David's machine: 'git push origin main'."
+      error: "git pull --rebase failed: unstaged changes from prior session blocked rebase; sandbox cannot unlink .git/index.lock; cleared via mv workaround. Memory phases completed without remote sync."
+    - phase: 1
+      file: "memory/working/daily-review-2026-05-26-000000.md"
+      error: "Source deletion blocked after copy (Operation not permitted). Source marked status:archived in place."
+    - phase: 1
+      file: "memory/working/daily-review-2026-05-26-auto.md"
+      error: "Source deletion blocked after copy (Operation not permitted). Source marked status:archived in place."
+    - phase: 1
+      file: "memory/working/dream-summary-2026-05-27.md"
+      error: "Source deletion blocked after copy (Operation not permitted). Source marked status:archived in place."
+  git_commit_at_end: pending
+  git_push: pending

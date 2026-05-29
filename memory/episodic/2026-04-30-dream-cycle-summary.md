@@ -11,9 +11,9 @@ tags:
 - git-sync
 related_people: []
 salience:
-  score: 8
+  score: 6
   references: []
-  last-promoted-check: '2026-05-28'
+  last-promoted-check: '2026-05-29'
   promoted: true
 ---
 # Dream Cycle Summary — 2026-04-28 (executed 2026-04-30)

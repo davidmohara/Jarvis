@@ -9,7 +9,7 @@ tags:
 salience:
   score: 0
   references: []
-  last-promoted-check: '2026-05-28'
+  last-promoted-check: '2026-05-29'
   promoted: false
 ---
 # Dream Cycle Summary — 2026-05-15

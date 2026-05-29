@@ -6,11 +6,11 @@ agent-source: chief
 created: 2026-05-14 09:26:00
 expires: 2026-05-16 09:26:00
 status: archived
-context: Morning boot + briefing — 2026-05-14
+context: "Morning boot + briefing \u2014 2026-05-14"
 salience:
   score: 0
   references: []
-  last-promoted-check: '2026-05-28'
+  last-promoted-check: '2026-05-29'
   promoted: false
 ---
 ## Boot Data Sources

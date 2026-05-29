@@ -22,9 +22,9 @@ related_people:
 - don-mcgreal
 - alice-mburu
 salience:
-  score: 10
+  score: 8
   references: []
-  last-promoted-check: '2026-05-28'
+  last-promoted-check: '2026-05-29'
   promoted: true
 ---
 # Morning Briefing — April 23, 2026 (Scheduled 6:11 AM)

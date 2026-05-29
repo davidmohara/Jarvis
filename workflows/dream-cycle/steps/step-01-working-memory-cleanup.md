@@ -1,12 +1,12 @@
 ---
 status: completed
-started-at: 2026-05-27T03:08:57-05:00
-completed-at: 2026-05-27T03:10:00-05:00
+started-at: 2026-05-29T03:09:15-05:00
+completed-at: 2026-05-29T03:10:30-05:00
 outputs:
-  working_archived: 1
+  working_archived: 3
   working_deleted: 0
-  working_skipped: 62
-  skipped_unparseable_count: 1
+  working_skipped: 67
+  skipped_unparseable_count: 2
 ---
 
 <!-- system:start -->
