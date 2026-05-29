@@ -15,6 +15,20 @@
       "field": "status",
       "value": "failure",
       "description": "rigby-error-analysis skill-run did not end in failure"
+    },
+    {
+      "id": "rigby-er-002-substantive",
+      "check": "file_min_bytes",
+      "path": "memory/working/rigby-error-analysis-*.md",
+      "min_bytes": 200,
+      "description": "rigby-error-analysis output is substantive (>200 bytes)"
+    },
+    {
+      "id": "rigby-er-003-content",
+      "check": "file_contains",
+      "path": "memory/working/rigby-error-analysis-*.md",
+      "pattern": "(?i)(complete|done|finished|output|result)",
+      "description": "rigby-error-analysis output contains expected content"
     }
   ]
 }

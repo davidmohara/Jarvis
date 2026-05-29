@@ -15,6 +15,20 @@
       "field": "status",
       "value": "failure",
       "description": "harper-content skill-run did not end in failure"
+    },
+    {
+      "id": "harper-c-002-substantive",
+      "check": "file_min_bytes",
+      "path": "memory/working/harper-content-*.md",
+      "min_bytes": 200,
+      "description": "harper-content output is substantive (>200 bytes)"
+    },
+    {
+      "id": "harper-c-003-content",
+      "check": "file_contains",
+      "path": "memory/working/harper-content-*.md",
+      "pattern": "(?i)(complete|done|finished|output|result)",
+      "description": "harper-content output contains expected content"
     }
   ]
 }

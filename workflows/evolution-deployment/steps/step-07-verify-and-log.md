@@ -79,34 +79,108 @@ If issues found:
 - Log warnings (non-blocking)
 - Surface to user for review
 
-### 3. Comparative Eval Grading (if benchmark snapshot exists)
+### 3. Benchmark Snapshot (capture post-deployment baseline)
+
+**Critical:** This captures the eval harness baseline AFTER the evolution is applied, not before. This ensures regression detection compares future runs against the post-deployment state.
+
+1. **Check for eval harness presence**
+   - Verify `systems/eval-harness/` directory exists
+   - If not present, skip benchmarking and proceed to step 4
+   - Log to state.yaml: `benchmark_snapshot: skipped (no eval harness)`
+
+2. **Grade recent ungraded eval records**
+   - List all eval records in `systems/eval-harness/runs/*.json`
+   - Filter for records where `assessment.grading` is null or missing
+   - Read and grade each ungraded record inline (Rigby reviews output quality directly)
+   - Assign grades based on output files and grader rubric in `systems/eval-harness/schema.md`
+   - Update each record's `assessment.grading` block with grade and grader_notes
+   - Log count of newly graded records to state.yaml: `benchmark_snapshot.records_graded: N`
+   - **Note:** If no ungraded records exist, skip this sub-step
+
+3. **Create benchmark snapshot**
+   - Generate benchmark ID: `bench-{evolution_id}-{timestamp}`
+   - Copy entire `systems/eval-harness/runs/` directory to benchmark location
+   - Destination: `systems/eval-harness/benchmarks/{benchmark_id}/`
+   - Preserve all JSON files with their grading data
+   - Log benchmark path to state.yaml: `benchmark_snapshot.benchmark_path: systems/eval-harness/benchmarks/{benchmark_id}/`
+
+4. **Calculate baseline metrics**
+   - Compute success rate across all eval records (Tier 1 mechanical pass/fail)
+   - Compute average duration seconds
+   - Compute average assertion pass rate
+   - Count records by grade (A-F) for graded records
+   - Store metrics in benchmark metadata file:
+     ```
+     systems/eval-harness/benchmarks/{benchmark_id}/metadata.json:
+     {
+       "benchmark_id": "bench-{evolution_id}-{timestamp}",
+       "evolution_id": "{evolution_id}",
+       "created": "ISO timestamp",
+       "metrics": {
+         "total_records": N,
+         "success_rate": X%,
+         "avg_duration_seconds": Y,
+         "avg_assertion_pass_rate": Z%,
+         "grade_distribution": {A: N, B: N, C: N, D: N, F: N}
+       }
+     }
+     ```
+
+5. **Cleanup old benchmarks (keep only prior 2)**
+   - List all benchmarks in `systems/eval-harness/benchmarks/`
+   - Sort by creation date (newest first)
+   - Keep: current (just created) + prior 2
+   - Delete all older benchmarks
+   - Log cleanup action to state.yaml: `benchmark_snapshot.benchmarks_cleaned: N`
+
+6. **Log benchmark snapshot to state.yaml**
+   - Store in `accumulated-context`:
+     ```
+     benchmark_snapshot:
+       skipped: false
+       benchmark_path: systems/eval-harness/benchmarks/{benchmark_id}/
+       benchmark_id: {benchmark_id}
+       records_graded: N
+       benchmarks_cleaned: N
+       baseline_metrics:
+         total_records: N
+         success_rate: X%
+         avg_duration_seconds: Y
+         avg_assertion_pass_rate: Z%
+         grade_distribution: {A: N, B: N, C: N, D: N, F: N}
+     ```
+
+### 4. Comparative Eval Grading (if benchmark snapshot exists)
 
 **Important timing note:** Eval records created DURING this deployment workflow are not meaningful comparisons — the system has not been exercised yet. This step captures the current state immediately post-deployment. A meaningful comparison will only exist after the system has been exercised in production (next day or next use). The `eval_comparison` block is written now but expected to be `neutral` or `pending` until post-exercise eval records accumulate.
 
 If `benchmark_snapshot.skipped` is false (eval harness baseline was captured):
 
-1. **Grade any new post-deployment eval records**
-   - List all eval records in `systems/eval-harness/runs/*.json` that are NOT present in `evolutions/snapshots/{snapshot_id}-eval-baseline/`
-   - These are records created after the baseline snapshot (i.e., during this deployment session)
-   - If none exist (expected immediately post-deployment): log `post_deployment_metrics: none_yet` and skip to step 4
-   - If any exist: grade them inline (Rigby reviews output quality directly, no sub-skill spawn)
+1. **Compare with prior benchmark (if exists)**
+   - List all benchmarks in `systems/eval-harness/benchmarks/`
+   - Sort by creation date (newest first)
+   - The second newest benchmark is the prior baseline (current is the one just created)
+   - If no prior benchmark exists: log `eval_comparison.trend: pending` with note: "No prior benchmark to compare against. First evolution or benchmark cleanup removed all priors."
+   - If prior benchmark exists: load its metadata.json
 
-2. **Calculate post-deployment metrics**
-   - Compute metrics only for eval records NOT in the baseline snapshot
-   - If no post-deployment records exist, store `post_deployment_metrics: {total_records: 0}`
-   - If records exist, compute: success rate, grade distribution
-   - Store in `post_deployment_metrics`
+2. **Calculate current metrics from eval-harness/runs/**
+   - Compute metrics for all eval records in `systems/eval-harness/runs/*.json`
+   - This represents the current state (includes records from before, during, and after deployment)
+   - Compute: success rate, avg duration, avg assertion pass rate, grade distribution
 
-3. **Compare with baseline metrics**
-   - Compare `post_deployment_metrics` with `benchmark_snapshot.baseline_metrics`
-   - If `post_deployment_metrics.total_records == 0`, set `eval_comparison.trend: pending` with note: "No post-deployment eval records yet. Re-check after system has been exercised."
-   - Otherwise calculate deltas and determine trend: `improved | degraded | neutral`
+3. **Compare current metrics against prior benchmark**
+   - Compare current metrics with prior benchmark metrics
+   - Apply regression thresholds (hardcoded):
+     - Success rate drops >10%: regression
+     - Avg duration increases >25%: regression
+     - Error rate doubles: regression
+   - Determine trend: `improved | degraded | neutral`
 
 4. **Log comparison results**
    - If trend is "improved": Surface as positive finding
-   - If trend is "degraded": Surface as warning for review
+   - If trend is "degraded": Surface as warning for review (potential regression)
    - If trend is "neutral": Log informational note
-   - If trend is "pending": Log: "Eval comparison deferred — no post-deployment runs yet. Check rigby-eval-analyze after next use."
+   - If trend is "pending": Log: "Eval comparison deferred — no prior benchmark exists."
 
 If `benchmark_snapshot.skipped` is true (no eval harness):
 - Skip comparative grading

@@ -15,6 +15,20 @@
       "field": "status",
       "value": "failure",
       "description": "knox-photo-tag skill-run did not end in failure"
+    },
+    {
+      "id": "knox-pho-002-substantive",
+      "check": "file_min_bytes",
+      "path": "memory/working/knox-photo-tag-*.md",
+      "min_bytes": 200,
+      "description": "knox-photo-tag output is substantive (>200 bytes)"
+    },
+    {
+      "id": "knox-pho-003-content",
+      "check": "file_contains",
+      "path": "memory/working/knox-photo-tag-*.md",
+      "pattern": "(?i)(complete|done|finished|output|result)",
+      "description": "knox-photo-tag output contains expected content"
     }
   ]
 }

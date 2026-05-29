@@ -101,6 +101,15 @@ Detect event type from the executive's request:
 
 ---
 
+
+## STEP COMPLETION TRACKING
+
+Record step completion for eval harness:
+
+```bash
+python3 systems/eval-harness/record-step.py leadership-prep step-01-event-context complete "${{frontmatter.started-at}}" "${{frontmatter.completed-at}}"
+```
+
 ## NEXT STEP
 
 Read fully and follow: `step-02-cross-domain-aggregation.md`

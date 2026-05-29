@@ -15,6 +15,20 @@
       "field": "status",
       "value": "failure",
       "description": "reddit-monitor skill-run did not end in failure"
+    },
+    {
+      "id": "reddit-m-002-substantive",
+      "check": "file_min_bytes",
+      "path": "memory/working/reddit-monitor-*.md",
+      "min_bytes": 200,
+      "description": "reddit-monitor output is substantive (>200 bytes)"
+    },
+    {
+      "id": "reddit-m-003-content",
+      "check": "file_contains",
+      "path": "memory/working/reddit-monitor-*.md",
+      "pattern": "(?i)(complete|done|finished|output|result)",
+      "description": "reddit-monitor output contains expected content"
     }
   ]
 }

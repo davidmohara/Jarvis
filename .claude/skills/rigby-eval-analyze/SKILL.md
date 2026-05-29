@@ -113,6 +113,37 @@ Look for patterns across the analyzed records:
 - Which tools fail most often?
 - Which error IDs correlate most strongly with failures?
 
+### 3.5. Regression Detection (if benchmarks exist)
+
+Check for regressions by comparing current eval records against prior benchmarks.
+
+1. **Load benchmarks**
+   - List all directories in `systems/eval-harness/benchmarks/`
+   - Sort by creation date (newest first)
+   - Load metadata.json from the two most recent benchmarks (current and prior)
+   - If fewer than 2 benchmarks exist, skip regression detection
+
+2. **Calculate current metrics**
+   - Compute metrics for all eval records in `systems/eval-harness/runs/*.json`
+   - Calculate: success rate, avg duration, avg assertion pass rate, error rate
+
+3. **Compare against prior benchmark**
+   - Extract prior benchmark metrics from metadata.json
+   - Calculate deltas:
+     - Success rate delta = current_success_rate - prior_success_rate
+     - Duration delta = (current_avg_duration - prior_avg_duration) / prior_avg_duration
+     - Error rate delta = current_error_rate / prior_error_rate
+
+4. **Apply regression thresholds (hardcoded)**
+   - Regression if: success rate drops >10% (delta < -0.10)
+   - Regression if: avg duration increases >25% (duration delta > 0.25)
+   - Regression if: error rate doubles (error rate delta > 2.0)
+
+5. **Report regressions**
+   - If any regression detected: flag in analysis output with specific metrics
+   - Include workflow/skill-specific regression analysis if data permits
+   - Suggest rollback or investigation for significant regressions
+
 ### 4. Generate Recommendations
 
 Based on the patterns identified, generate actionable recommendations:

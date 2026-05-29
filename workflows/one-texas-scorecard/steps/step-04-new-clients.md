@@ -102,6 +102,15 @@ model: sonnet
 
 ---
 
+
+## STEP COMPLETION TRACKING
+
+Record step completion for eval harness:
+
+```bash
+python3 systems/eval-harness/record-step.py one-texas-scorecard step-04-new-clients complete "${{frontmatter.started-at}}" "${{frontmatter.completed-at}}"
+```
+
 ## NEXT STEP
 
 Read fully and follow: `steps/step-05-save-to-obsidian.md`

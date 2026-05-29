@@ -9,6 +9,26 @@
       "field": "status",
       "value": "complete",
       "description": "Content pipeline workflow state.yaml shows status: complete"
+    },
+    {
+      "id": "content--001-exists",
+      "check": "file_exists",
+      "path": "memory/working/content-pipeline-*.md",
+      "description": "content-pipeline output file was written"
+    },
+    {
+      "id": "content--002-substantive",
+      "check": "file_min_bytes",
+      "path": "memory/working/content-pipeline-*.md",
+      "min_bytes": 200,
+      "description": "content-pipeline output is substantive (>200 bytes)"
+    },
+    {
+      "id": "content--003-content",
+      "check": "file_contains",
+      "path": "memory/working/content-pipeline-*.md",
+      "pattern": "(?i)(complete|done|finished|output|result)",
+      "description": "content-pipeline output contains expected content"
     }
   ]
 }

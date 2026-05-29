@@ -162,6 +162,15 @@ model: sonnet
 
 ---
 
+
+## STEP COMPLETION TRACKING
+
+Record step completion for eval harness:
+
+```bash
+python3 systems/eval-harness/record-step.py client-meeting-prep step-03-research complete "${{frontmatter.started-at}}" "${{frontmatter.completed-at}}"
+```
+
 ## NEXT STEP
 
 Read fully and follow: `step-04-build-brief.md`

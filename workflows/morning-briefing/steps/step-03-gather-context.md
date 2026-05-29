@@ -96,6 +96,15 @@ model: sonnet
 
 ---
 
+
+## STEP COMPLETION TRACKING
+
+Record step completion for eval harness:
+
+```bash
+python3 systems/eval-harness/record-step.py morning-briefing step-03-gather-context complete "${{frontmatter.started-at}}" "${{frontmatter.completed-at}}"
+```
+
 ## NEXT STEP
 
 Read fully and follow: `step-04-synthesize-briefing.md`

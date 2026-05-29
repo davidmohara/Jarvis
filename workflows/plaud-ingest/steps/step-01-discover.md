@@ -83,6 +83,15 @@ outputs:
 
 ---
 
+
+## STEP COMPLETION TRACKING
+
+Record step completion for eval harness:
+
+```bash
+python3 systems/eval-harness/record-step.py plaud-ingest step-01-discover complete "${{frontmatter.started-at}}" "${{frontmatter.completed-at}}"
+```
+
 ## NEXT STEP
 
 Read fully and follow: `step-02-trigger-transcription.md`

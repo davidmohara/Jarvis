@@ -36,9 +36,24 @@
       "check": "directory_file_count_max",
       "path": "systems/error-tracking/entries",
       "pattern": "err-*.json",
-      "field_filter": {"fix_status": "proposed"},
+      "field_filter": {
+        "fix_status": "proposed"
+      },
       "max_count": 15,
-      "description": "Proposed entries not growing unboundedly (soft ceiling — routing-gate entries expected)"
+      "description": "Proposed entries not growing unboundedly (soft ceiling \u2014 routing-gate entries expected)"
+    },
+    {
+      "id": "error-im-001-exists",
+      "check": "file_exists",
+      "path": "memory/working/error-improvement-*.md",
+      "description": "error-improvement output file was written"
+    },
+    {
+      "id": "error-im-002-substantive",
+      "check": "file_min_bytes",
+      "path": "memory/working/error-improvement-*.md",
+      "min_bytes": 200,
+      "description": "error-improvement output is substantive (>200 bytes)"
     }
   ]
 }

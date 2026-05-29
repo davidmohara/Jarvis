@@ -15,6 +15,20 @@
       "field": "status",
       "value": "failure",
       "description": "podcast-transcript-extract skill-run did not end in failure"
+    },
+    {
+      "id": "podcast--002-substantive",
+      "check": "file_min_bytes",
+      "path": "memory/working/podcast-transcript-extract-*.md",
+      "min_bytes": 200,
+      "description": "podcast-transcript-extract output is substantive (>200 bytes)"
+    },
+    {
+      "id": "podcast--003-content",
+      "check": "file_contains",
+      "path": "memory/working/podcast-transcript-extract-*.md",
+      "pattern": "(?i)(complete|done|finished|output|result)",
+      "description": "podcast-transcript-extract output contains expected content"
     }
   ]
 }

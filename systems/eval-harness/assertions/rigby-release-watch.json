@@ -15,6 +15,20 @@
       "field": "status",
       "value": "failure",
       "description": "rigby-release-watch skill-run did not end in failure"
+    },
+    {
+      "id": "rigby-re-002-substantive",
+      "check": "file_min_bytes",
+      "path": "memory/working/rigby-release-watch-*.md",
+      "min_bytes": 200,
+      "description": "rigby-release-watch output is substantive (>200 bytes)"
+    },
+    {
+      "id": "rigby-re-003-content",
+      "check": "file_contains",
+      "path": "memory/working/rigby-release-watch-*.md",
+      "pattern": "(?i)(complete|done|finished|output|result)",
+      "description": "rigby-release-watch output contains expected content"
     }
   ]
 }

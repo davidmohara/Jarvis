@@ -15,6 +15,20 @@
       "field": "status",
       "value": "failure",
       "description": "chase-card-offers-discover skill-run did not end in failure"
+    },
+    {
+      "id": "chase-ca-002-substantive",
+      "check": "file_min_bytes",
+      "path": "memory/working/chase-card-offers-discover-*.md",
+      "min_bytes": 200,
+      "description": "chase-card-offers-discover output is substantive (>200 bytes)"
+    },
+    {
+      "id": "chase-ca-003-content",
+      "check": "file_contains",
+      "path": "memory/working/chase-card-offers-discover-*.md",
+      "pattern": "(?i)(complete|done|finished|output|result)",
+      "description": "chase-card-offers-discover output contains expected content"
     }
   ]
 }

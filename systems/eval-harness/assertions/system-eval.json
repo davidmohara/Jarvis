@@ -53,6 +53,13 @@
       "check": "file_exists",
       "path": "systems/eval-harness/skill-runs/rigby-eval-dashboard-latest.json",
       "description": "Eval dashboard skill-run signal was written"
+    },
+    {
+      "id": "system-e-003-content",
+      "check": "file_contains",
+      "path": "memory/working/system-eval-*.md",
+      "pattern": "(?i)(complete|done|finished|output|result)",
+      "description": "system-eval output contains expected content"
     }
   ]
 }

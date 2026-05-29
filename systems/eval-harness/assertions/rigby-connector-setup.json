@@ -15,6 +15,20 @@
       "field": "status",
       "value": "failure",
       "description": "rigby-connector-setup skill-run did not end in failure"
+    },
+    {
+      "id": "rigby-co-002-substantive",
+      "check": "file_min_bytes",
+      "path": "memory/working/rigby-connector-setup-*.md",
+      "min_bytes": 200,
+      "description": "rigby-connector-setup output is substantive (>200 bytes)"
+    },
+    {
+      "id": "rigby-co-003-content",
+      "check": "file_contains",
+      "path": "memory/working/rigby-connector-setup-*.md",
+      "pattern": "(?i)(complete|done|finished|output|result)",
+      "description": "rigby-connector-setup output contains expected content"
     }
   ]
 }

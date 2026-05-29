@@ -9,6 +9,26 @@
       "field": "status",
       "value": "complete",
       "description": "Golf booking workflow state.yaml shows status: complete"
+    },
+    {
+      "id": "golf-boo-001-exists",
+      "check": "file_exists",
+      "path": "memory/working/golf-booking-*.md",
+      "description": "golf-booking output file was written"
+    },
+    {
+      "id": "golf-boo-002-substantive",
+      "check": "file_min_bytes",
+      "path": "memory/working/golf-booking-*.md",
+      "min_bytes": 200,
+      "description": "golf-booking output is substantive (>200 bytes)"
+    },
+    {
+      "id": "golf-boo-003-content",
+      "check": "file_contains",
+      "path": "memory/working/golf-booking-*.md",
+      "pattern": "(?i)(complete|done|finished|output|result)",
+      "description": "golf-booking output contains expected content"
     }
   ]
 }

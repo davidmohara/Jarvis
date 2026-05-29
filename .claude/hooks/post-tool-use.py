@@ -2,8 +2,13 @@
 """
 PostToolUse Hook: Session Index Capture + Eval Harness Integration
 Triggered after every Write or Edit tool call.
-1. Reads current session's topic and appends file path to the active topic in session index.
-2. Detects state.yaml and step frontmatter writes to update eval records with workflow lifecycle and step timing.
+
+Two independent concerns:
+1. Session Index: Reads current session's topic and appends file path to active topic
+2. Eval Harness: Detects state.yaml and step frontmatter writes to update eval records
+
+Since Cowork doesn't support multiple hooks on the same event, both concerns
+are handled in this single file but are logically separated.
 """
 
 import json
@@ -25,6 +30,10 @@ SKILL_RUNS_DIR = IES_ROOT / "systems" / "eval-harness" / "skill-runs"
 ERROR_LOG = Path("/tmp/ies-hook-errors.log")
 ALPHABET = string.ascii_uppercase + string.digits
 
+# ============================================================================
+# SHARED UTILITIES
+# ============================================================================
+
 def log_error(msg: str):
     """Log error to /tmp/ies-hook-errors.log without blocking."""
     try:
@@ -32,7 +41,6 @@ def log_error(msg: str):
             f.write(f"[{datetime.now().isoformat()}] [ERROR] {msg}\n")
     except Exception:
         pass
-
 
 def atomic_write_json(path: Path, data: dict):
     """Write JSON atomically using a temp file + rename, with exclusive lock."""
@@ -61,11 +69,74 @@ def normalize_path(abs_path: str) -> str:
     """Convert absolute path to relative path from IES root."""
     try:
         path_obj = Path(abs_path)
-        # Try to make it relative to IES_ROOT
         return str(path_obj.relative_to(IES_ROOT))
     except ValueError:
-        # If not under IES_ROOT, return the absolute path as-is
         return abs_path
+
+# ============================================================================
+# SESSION INDEX FUNCTIONS
+# ============================================================================
+
+def read_index() -> list:
+    """Read the current session index."""
+    if not INDEX_PATH.exists():
+        return []
+    try:
+        with open(INDEX_PATH, "r") as f:
+            return json.load(f)
+    except Exception as e:
+        log_error(f"Failed to read index: {e}")
+        return []
+
+def write_index(data: list):
+    """Write the updated session index atomically."""
+    atomic_write_json(INDEX_PATH, data)
+
+def update_session_index(rel_path: str):
+    """Update session index with the current file path."""
+    index = read_index()
+    if not index:
+        log_error("Session index is empty or missing")
+        return
+
+    current_session = index[-1]
+    current_topic = current_session.get("current_topic")
+    topics = current_session.get("topics", [])
+
+    updated = True
+    if not current_topic:
+        # Find or create unattributed bucket
+        unattributed = None
+        for t in topics:
+            if t.get("topic") == "unattributed":
+                unattributed = t
+                break
+        if not unattributed:
+            unattributed = {"topic": "unattributed", "files": [], "loops": [], "flag": True}
+            topics.append(unattributed)
+        if rel_path not in unattributed.get("files", []):
+            unattributed["files"].append(rel_path)
+    else:
+        matching_topic = None
+        for t in topics:
+            if t.get("topic") == current_topic or t.get("name") == current_topic:
+                matching_topic = t
+                break
+        if matching_topic:
+            if "files" not in matching_topic:
+                matching_topic["files"] = []
+            if rel_path not in matching_topic["files"]:
+                matching_topic["files"].append(rel_path)
+        else:
+            log_error(f"Current topic '{current_topic}' not found in topics list")
+            updated = False
+
+    if updated:
+        write_index(index)
+
+# ============================================================================
+# EVAL HARNESS FUNCTIONS
+# ============================================================================
 
 def find_active_eval_record(session_id: str) -> Path | None:
     """Find the most recent in-progress eval record for this session."""
@@ -667,81 +738,8 @@ def check_error_tracking_write(file_path: str, session_id: str):
     except Exception as e:
         log_error(f"Failed to check error tracking write: {e}")
 
-def read_index() -> list:
-    """Read the current session index."""
-    if not INDEX_PATH.exists():
-        return []
-    try:
-        with open(INDEX_PATH, "r") as f:
-            return json.load(f)
-    except Exception as e:
-        log_error(f"Failed to read index: {e}")
-        return []
-
-def write_index(data: list):
-    """Write the updated session index atomically."""
-    atomic_write_json(INDEX_PATH, data)
-
-def main():
-    """Main hook logic."""
-    payload = read_stdin()
-
-    # Extract tool info
-    tool_name = payload.get("tool_name")
-    tool_input = payload.get("tool_input", {})
-    file_path = tool_input.get("file_path")
-
-    # Only process Write and Edit tools
-    if tool_name not in ["Write", "Edit"] or not file_path:
-        return  # Silent exit for non-matching tools
-
-    # Normalize the file path
-    rel_path = normalize_path(file_path)
-
-    # --- Block 1: Session Index Update (best-effort, does not gate Block 2) ---
-    session_id = ""
-    index = read_index()
-    if not index:
-        log_error("Session index is empty or missing")
-    else:
-        current_session = index[-1]
-        session_id = current_session.get("id", "")
-        current_topic = current_session.get("current_topic")
-        topics = current_session.get("topics", [])
-
-        updated_index = True
-        if not current_topic:
-            # Find or create unattributed bucket
-            unattributed = None
-            for t in topics:
-                if t.get("topic") == "unattributed":
-                    unattributed = t
-                    break
-            if not unattributed:
-                unattributed = {"topic": "unattributed", "files": [], "loops": [], "flag": True}
-                topics.append(unattributed)
-            if rel_path not in unattributed.get("files", []):
-                unattributed["files"].append(rel_path)
-        else:
-            matching_topic = None
-            for t in topics:
-                if t.get("topic") == current_topic or t.get("name") == current_topic:
-                    matching_topic = t
-                    break
-            if matching_topic:
-                if "files" not in matching_topic:
-                    matching_topic["files"] = []
-                if rel_path not in matching_topic["files"]:
-                    matching_topic["files"].append(rel_path)
-            else:
-                log_error(f"Current topic '{current_topic}' not found in topics list")
-                updated_index = False
-
-        if updated_index:
-            write_index(index)
-
-    # --- Block 2: Eval Harness Integration (independent of Block 1) ---
-
+def process_eval_harness(rel_path: str, file_path: str, session_id: str):
+    """Process eval harness integration for this file write."""
     # Check if this is a state.yaml write
     if rel_path.endswith("state.yaml"):
         try:
@@ -787,6 +785,41 @@ def main():
 
     # Check if this is an error-tracking write
     check_error_tracking_write(rel_path, session_id)
+
+def get_session_id() -> str:
+    """Extract session_id from the current session index."""
+    index = read_index()
+    if not index:
+        log_error("Session index is empty or missing")
+        return ""
+    return index[-1].get("id", "")
+
+# ============================================================================
+# MAIN HOOK ENTRY POINT
+# ============================================================================
+
+def main():
+    """Main hook logic - routes to session index or eval harness based on file type."""
+    payload = read_stdin()
+
+    # Extract tool info
+    tool_name = payload.get("tool_name")
+    tool_input = payload.get("tool_input", {})
+    file_path = tool_input.get("file_path")
+
+    # Only process Write and Edit tools
+    if tool_name not in ["Write", "Edit"] or not file_path:
+        return  # Silent exit for non-matching tools
+
+    # Normalize the file path
+    rel_path = normalize_path(file_path)
+
+    # Block 1: Session Index Update (best-effort, independent of eval harness)
+    update_session_index(rel_path)
+
+    # Block 2: Eval Harness Integration (independent of session index)
+    session_id = get_session_id()
+    process_eval_harness(rel_path, file_path, session_id)
 
 if __name__ == "__main__":
     main()

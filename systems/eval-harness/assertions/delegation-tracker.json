@@ -9,6 +9,26 @@
       "field": "status",
       "value": "complete",
       "description": "Delegation tracker workflow state.yaml shows status: complete"
+    },
+    {
+      "id": "delegati-001-exists",
+      "check": "file_exists",
+      "path": "memory/working/delegation-tracker-*.md",
+      "description": "delegation-tracker output file was written"
+    },
+    {
+      "id": "delegati-002-substantive",
+      "check": "file_min_bytes",
+      "path": "memory/working/delegation-tracker-*.md",
+      "min_bytes": 200,
+      "description": "delegation-tracker output is substantive (>200 bytes)"
+    },
+    {
+      "id": "delegati-003-content",
+      "check": "file_contains",
+      "path": "memory/working/delegation-tracker-*.md",
+      "pattern": "(?i)(complete|done|finished|output|result)",
+      "description": "delegation-tracker output contains expected content"
     }
   ]
 }

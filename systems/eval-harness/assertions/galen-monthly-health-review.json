@@ -9,6 +9,26 @@
       "field": "status",
       "value": "complete",
       "description": "Galen monthly health review workflow state.yaml shows status: complete"
+    },
+    {
+      "id": "galen-mo-001-exists",
+      "check": "file_exists",
+      "path": "memory/working/galen-monthly-health-review-*.md",
+      "description": "galen-monthly-health-review output file was written"
+    },
+    {
+      "id": "galen-mo-002-substantive",
+      "check": "file_min_bytes",
+      "path": "memory/working/galen-monthly-health-review-*.md",
+      "min_bytes": 200,
+      "description": "galen-monthly-health-review output is substantive (>200 bytes)"
+    },
+    {
+      "id": "galen-mo-003-content",
+      "check": "file_contains",
+      "path": "memory/working/galen-monthly-health-review-*.md",
+      "pattern": "(?i)(complete|done|finished|output|result)",
+      "description": "galen-monthly-health-review output contains expected content"
     }
   ]
 }

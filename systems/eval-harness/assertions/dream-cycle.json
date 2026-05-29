@@ -15,6 +15,20 @@
       "check": "file_exists",
       "path": "memory/working/dream-*.md",
       "description": "Dream cycle wrote output to working memory"
+    },
+    {
+      "id": "dream-cy-002-substantive",
+      "check": "file_min_bytes",
+      "path": "memory/working/dream-cycle-*.md",
+      "min_bytes": 200,
+      "description": "dream-cycle output is substantive (>200 bytes)"
+    },
+    {
+      "id": "dream-cy-003-content",
+      "check": "file_contains",
+      "path": "memory/working/dream-cycle-*.md",
+      "pattern": "(?i)(complete|done|finished|output|result)",
+      "description": "dream-cycle output contains expected content"
     }
   ]
 }

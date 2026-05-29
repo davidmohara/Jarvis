@@ -15,6 +15,20 @@
       "field": "status",
       "value": "failure",
       "description": "plaud-discover skill-run did not end in failure"
+    },
+    {
+      "id": "plaud-di-002-substantive",
+      "check": "file_min_bytes",
+      "path": "memory/working/plaud-discover-*.md",
+      "min_bytes": 200,
+      "description": "plaud-discover output is substantive (>200 bytes)"
+    },
+    {
+      "id": "plaud-di-003-content",
+      "check": "file_contains",
+      "path": "memory/working/plaud-discover-*.md",
+      "pattern": "(?i)(complete|done|finished|output|result)",
+      "description": "plaud-discover output contains expected content"
     }
   ]
 }

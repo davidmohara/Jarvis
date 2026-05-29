@@ -113,6 +113,15 @@ outputs:
 | `memory/LESSONS.md` not found | Create it with the new entry. Do not abort. |
 | No promotion candidates found | Log `clusters_found: 0`. Proceed directly to error pattern check. |
 
+
+## STEP COMPLETION TRACKING
+
+Record step completion for eval harness:
+
+```bash
+python3 systems/eval-harness/record-step.py dream-cycle step-03-semantic-promotion complete "${{frontmatter.started-at}}" "${{frontmatter.completed-at}}"
+```
+
 ## NEXT STEP
 
 Read fully and follow: `steps/step-04-episodic-compression.md`

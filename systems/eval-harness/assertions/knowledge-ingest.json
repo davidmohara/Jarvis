@@ -9,6 +9,26 @@
       "field": "status",
       "value": "complete",
       "description": "Knowledge ingest workflow state.yaml shows status: complete"
+    },
+    {
+      "id": "knowledg-001-exists",
+      "check": "file_exists",
+      "path": "memory/working/knowledge-ingest-*.md",
+      "description": "knowledge-ingest output file was written"
+    },
+    {
+      "id": "knowledg-002-substantive",
+      "check": "file_min_bytes",
+      "path": "memory/working/knowledge-ingest-*.md",
+      "min_bytes": 200,
+      "description": "knowledge-ingest output is substantive (>200 bytes)"
+    },
+    {
+      "id": "knowledg-003-content",
+      "check": "file_contains",
+      "path": "memory/working/knowledge-ingest-*.md",
+      "pattern": "(?i)(complete|done|finished|output|result)",
+      "description": "knowledge-ingest output contains expected content"
     }
   ]
 }

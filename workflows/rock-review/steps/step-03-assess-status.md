@@ -134,6 +134,15 @@ A rock is stale when `days_since_last_activity` >= 14. Stale rocks with > 30% of
 
 ---
 
+
+## STEP COMPLETION TRACKING
+
+Record step completion for eval harness:
+
+```bash
+python3 systems/eval-harness/record-step.py rock-review step-03-assess-status complete "${{frontmatter.started-at}}" "${{frontmatter.completed-at}}"
+```
+
 ## NEXT STEP
 
 Read fully and follow: `step-04-action-report.md`

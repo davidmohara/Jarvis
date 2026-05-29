@@ -15,6 +15,20 @@
       "field": "status",
       "value": "failure",
       "description": "remarkable-sync skill-run did not end in failure"
+    },
+    {
+      "id": "remarkab-002-substantive",
+      "check": "file_min_bytes",
+      "path": "memory/working/remarkable-sync-*.md",
+      "min_bytes": 200,
+      "description": "remarkable-sync output is substantive (>200 bytes)"
+    },
+    {
+      "id": "remarkab-003-content",
+      "check": "file_contains",
+      "path": "memory/working/remarkable-sync-*.md",
+      "pattern": "(?i)(complete|done|finished|output|result)",
+      "description": "remarkable-sync output contains expected content"
     }
   ]
 }

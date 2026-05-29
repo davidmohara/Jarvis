@@ -15,6 +15,20 @@
       "field": "status",
       "value": "failure",
       "description": "master-slack skill-run did not end in failure"
+    },
+    {
+      "id": "master-s-002-substantive",
+      "check": "file_min_bytes",
+      "path": "memory/working/master-slack-*.md",
+      "min_bytes": 200,
+      "description": "master-slack output is substantive (>200 bytes)"
+    },
+    {
+      "id": "master-s-003-content",
+      "check": "file_contains",
+      "path": "memory/working/master-slack-*.md",
+      "pattern": "(?i)(complete|done|finished|output|result)",
+      "description": "master-slack output contains expected content"
     }
   ]
 }

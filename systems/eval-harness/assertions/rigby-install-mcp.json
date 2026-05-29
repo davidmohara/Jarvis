@@ -15,6 +15,20 @@
       "field": "status",
       "value": "failure",
       "description": "rigby-install-mcp skill-run did not end in failure"
+    },
+    {
+      "id": "rigby-in-002-substantive",
+      "check": "file_min_bytes",
+      "path": "memory/working/rigby-install-mcp-*.md",
+      "min_bytes": 200,
+      "description": "rigby-install-mcp output is substantive (>200 bytes)"
+    },
+    {
+      "id": "rigby-in-003-content",
+      "check": "file_contains",
+      "path": "memory/working/rigby-install-mcp-*.md",
+      "pattern": "(?i)(complete|done|finished|output|result)",
+      "description": "rigby-install-mcp output contains expected content"
     }
   ]
 }

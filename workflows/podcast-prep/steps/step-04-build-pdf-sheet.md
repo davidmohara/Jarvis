@@ -140,6 +140,15 @@ The key skill here is **condensation**. The detailed prep sheet has 8-10+ questi
 
 ---
 
+
+## STEP COMPLETION TRACKING
+
+Record step completion for eval harness:
+
+```bash
+python3 systems/eval-harness/record-step.py podcast-prep step-04-build-pdf-sheet complete "${{frontmatter.started-at}}" "${{frontmatter.completed-at}}"
+```
+
 ## NEXT STEP
 
 Read fully and follow: `step-05-generate-pdf.md`

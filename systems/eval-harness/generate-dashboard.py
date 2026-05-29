@@ -131,17 +131,28 @@ def generate_html(records, metrics, output_path):
     import json as _json
     records_json = _json.dumps(records, indent=2)
 
+    # Extract unique values for filters
+    agents = sorted(set(r.get('agent') for r in records if r.get('agent')))
+    workflows = sorted(set(r.get('name') for r in records if r.get('name')))
+    statuses = sorted(set(r.get('status') for r in records if r.get('status')))
+
     html = f"""<!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
     <title>IES Eval Harness Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
     <style>
         * {{ margin: 0; padding: 0; box-sizing: border-box; }}
         body {{ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f5f5f5; padding: 20px; }}
         .container {{ max-width: 1400px; margin: 0 auto; }}
         h1 {{ color: #333; margin-bottom: 20px; }}
         .timestamp {{ color: #666; font-size: 14px; margin-bottom: 30px; }}
+        .filters {{ background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); margin-bottom: 30px; display: flex; gap: 15px; flex-wrap: wrap; align-items: center; }}
+        .filters select {{ padding: 8px 12px; border: 1px solid #d1d5db; border-radius: 6px; font-size: 14px; background: white; }}
+        .filters label {{ font-size: 14px; color: #374151; font-weight: 500; }}
+        .filters button {{ padding: 8px 16px; background: #2563eb; color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 14px; }}
+        .filters button:hover {{ background: #1d4ed8; }}
         .metrics-grid {{ display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-bottom: 30px; }}
         .metric-card {{ background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }}
         .metric-card h3 {{ color: #333; font-size: 14px; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.5px; }}
@@ -156,7 +167,8 @@ def generate_html(records, metrics, output_path):
         .records-table {{ width: 100%; border-collapse: collapse; background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }}
         .records-table th {{ background: #f3f4f6; padding: 12px; text-align: left; font-size: 12px; color: #666; text-transform: uppercase; }}
         .records-table td {{ padding: 12px; border-bottom: 1px solid #e5e5e5; font-size: 14px; }}
-        .records-table tr:hover {{ background: #f9fafb; }}
+        .records-table tbody tr {{ cursor: pointer; }}
+        .records-table tbody tr:hover {{ background: #f9fafb; }}
         .status-success {{ color: #059669; font-weight: bold; }}
         .status-failure {{ color: #dc2626; font-weight: bold; }}
         .status-aborted {{ color: #d97706; font-weight: bold; }}
@@ -166,12 +178,48 @@ def generate_html(records, metrics, output_path):
         .grade-C {{ color: #d97706; }}
         .grade-D {{ color: #dc2626; }}
         .grade-F {{ color: #7c2d12; }}
+        .modal {{ display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000; }}
+        .modal-content {{ background: white; margin: 5% auto; padding: 30px; border-radius: 8px; max-width: 800px; max-height: 80vh; overflow-y: auto; }}
+        .modal-header {{ display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }}
+        .modal-close {{ background: none; border: none; font-size: 24px; cursor: pointer; }}
+        .modal-section {{ margin-bottom: 20px; }}
+        .modal-section h3 {{ color: #333; margin-bottom: 10px; font-size: 16px; }}
+        .modal-section pre {{ background: #f3f4f6; padding: 15px; border-radius: 6px; overflow-x: auto; font-size: 12px; }}
+        .regression-alert {{ background: #fef2f2; border: 1px solid #fecaca; padding: 15px; border-radius: 8px; margin-bottom: 20px; display: none; }}
+        .regression-alert h3 {{ color: #dc2626; margin-bottom: 10px; }}
     </style>
 </head>
 <body>
     <div class="container">
         <h1>IES Eval Harness Dashboard</h1>
         <div class="timestamp">Generated: {datetime.now().isoformat()} | Records: {metrics.get('total', 0)}</div>
+
+        <div class="filters">
+            <label>Agent:
+                <select id="agentFilter" onchange="filterRecords()">
+                    <option value="">All Agents</option>
+                    {"".join(f'<option value="{a}">{a}</option>' for a in agents)}
+                </select>
+            </label>
+            <label>Workflow:
+                <select id="workflowFilter" onchange="filterRecords()">
+                    <option value="">All Workflows</option>
+                    {"".join(f'<option value="{w}">{w}</option>' for w in workflows)}
+                </select>
+            </label>
+            <label>Status:
+                <select id="statusFilter" onchange="filterRecords()">
+                    <option value="">All Statuses</option>
+                    {"".join(f'<option value="{s}">{s}</option>' for s in statuses)}
+                </select>
+            </label>
+            <button onclick="resetFilters()">Reset Filters</button>
+        </div>
+
+        <div class="regression-alert" id="regressionAlert">
+            <h3>⚠️ Regression Detected</h3>
+            <p id="regressionMessage"></p>
+        </div>
 
         <div class="metrics-grid">
             <div class="metric-card">
@@ -273,7 +321,7 @@ def generate_html(records, metrics, output_path):
                 <tbody>
 """
 
-    # Add records table
+    # Add records table with data attributes for filtering
     for record in records:
         status_class = f"status-{record.get('status', 'unknown')}"
         grade = record.get('assessment', {}).get('grading', {}).get('grade')
@@ -283,7 +331,7 @@ def generate_html(records, metrics, output_path):
         started = record.get('started', '')[:19] if record.get('started') else '-'
 
         html += f"""
-                    <tr>
+                    <tr data-agent="{record.get('agent', '')}" data-workflow="{record.get('name', '')}" data-status="{record.get('status', '')}" onclick="showRecordDetails({records.index(record)})">
                         <td><code>{record.get('id', 'unknown')}</code></td>
                         <td>{record.get('name', 'unknown')}</td>
                         <td>{record.get('type', 'unknown')}</td>
@@ -298,7 +346,97 @@ def generate_html(records, metrics, output_path):
                 </tbody>
             </table>
         </div>
+
+        <!-- Modal for record details -->
+        <div class="modal" id="recordModal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 id="modalTitle">Eval Record Details</h2>
+                    <button class="modal-close" onclick="closeModal()">&times;</button>
+                </div>
+                <div id="modalBody"></div>
+            </div>
+        </div>
     </div>
+
+    <script>
+        const records = """ + records_json + """;
+
+        function filterRecords() {
+            const agentFilter = document.getElementById('agentFilter').value;
+            const workflowFilter = document.getElementById('workflowFilter').value;
+            const statusFilter = document.getElementById('statusFilter').value;
+
+            const rows = document.querySelectorAll('.records-table tbody tr');
+            rows.forEach(row => {
+                const agent = row.dataset.agent;
+                const workflow = row.dataset.workflow;
+                const status = row.dataset.status;
+
+                const agentMatch = !agentFilter || agent === agentFilter;
+                const workflowMatch = !workflowFilter || workflow === workflowFilter;
+                const statusMatch = !statusFilter || status === statusFilter;
+
+                row.style.display = (agentMatch && workflowMatch && statusMatch) ? '' : 'none';
+            });
+        }
+
+        function resetFilters() {
+            document.getElementById('agentFilter').value = '';
+            document.getElementById('workflowFilter').value = '';
+            document.getElementById('statusFilter').value = '';
+            filterRecords();
+        }
+
+        function showRecordDetails(index) {
+            const record = records[index];
+            const modal = document.getElementById('recordModal');
+            const title = document.getElementById('modalTitle');
+            const body = document.getElementById('modalBody');
+
+            title.textContent = `Eval Record: ${record.id}`;
+            body.innerHTML = `
+                <div class="modal-section">
+                    <h3>Basic Info</h3>
+                    <pre>${JSON.stringify({
+                        id: record.id,
+                        name: record.name,
+                        type: record.type,
+                        agent: record.agent,
+                        status: record.status,
+                        started: record.started,
+                        duration_seconds: record.duration_seconds
+                    }, null, 2)}</pre>
+                </div>
+                <div class="modal-section">
+                    <h3>Tier 1: Mechanical</h3>
+                    <pre>${JSON.stringify(record.assessment?.mechanical || {}, null, 2)}</pre>
+                </div>
+                <div class="modal-section">
+                    <h3>Tier 2: Structural</h3>
+                    <pre>${JSON.stringify(record.assessment?.structural || {}, null, 2)}</pre>
+                </div>
+                <div class="modal-section">
+                    <h3>Tier 3: Grading</h3>
+                    <pre>${JSON.stringify(record.assessment?.grading || {}, null, 2)}</pre>
+                </div>
+            `;
+
+            modal.style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('recordModal').style.display = 'none';
+        }
+
+        // Close modal on outside click
+        window.onclick = function(event) {
+            const modal = document.getElementById('recordModal');
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+    </script>
 </body>
 </html>
 """

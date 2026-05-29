@@ -36,6 +36,13 @@
       "field": "conflicts_found",
       "value": false,
       "description": "No unresolved conflicts reported in state.yaml"
+    },
+    {
+      "id": "evolutio-003-content",
+      "check": "file_contains",
+      "path": "memory/working/evolution-deployment-*.md",
+      "pattern": "(?i)(complete|done|finished|output|result)",
+      "description": "evolution-deployment output contains expected content"
     }
   ]
 }

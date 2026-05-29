@@ -73,6 +73,15 @@ outputs:
 | File deletion fails | Log error. Leave file in place. Continue with next file. |
 | `memory/working/` directory not found | Abort this step. Log: `step-01-failed: working directory not found`. Do not proceed to step-02. Surface to controller. |
 
+
+## STEP COMPLETION TRACKING
+
+Record step completion for eval harness:
+
+```bash
+python3 systems/eval-harness/record-step.py dream-cycle step-01-working-memory-cleanup complete "${{frontmatter.started-at}}" "${{frontmatter.completed-at}}"
+```
+
 ## NEXT STEP
 
 Read fully and follow: `steps/step-02-salience-scoring.md`
