@@ -826,3 +826,32 @@ git_commit_sha: a02ce97
 git_commit_note: "Cleared .git/index.lock + .git/HEAD.lock via mv workaround (sandbox blocks unlink — proven pattern, 3rd consecutive successful commit). 87 files changed."
 git_push: failed
 git_push_failure_reason: "Sandbox cannot read git credentials: 'fatal: could not read Username for https://github.com'. Push must run from David's machine: 'git push origin main'."
+
+---
+## 2026-05-30T03:09:19 CDT
+session_id: dream-cycle-2026-05-30-030919
+working_archived: 3
+working_deleted: 0
+episodic_scanned: 77
+score_updates: 77
+clusters_found: 0
+semantic_created: 0
+semantic_updated: 0
+promoted_entries: 0
+entries_compressed: 0
+digests_updated: 0
+errors: 4
+summary: "Archived 3 newly expired working files (daily-review-2026-05-27-000000.md, dream-summary-2026-05-28.md, morning-briefing-2026-05-27-060943.md). Copies written to memory/episodic/ with proper frontmatter; sources marked archived in place for 33rd consecutive run (sandbox unlink restriction unchanged). Scored 77 episodic entries (up 5 from yesterday's 72 = +3 new archives + 2 misc): distribution shifted again as 30-day window slid: 0:42, 4:1, 5:10, 6:13, 7:5, 8:1, 9:5. Score-10 cluster fully collapsed (4→0); 9-band held steady at 5; mid-band (5-7) thickened to 28 entries. Zero promotion candidates (20th consecutive idle run — all entries with score>=3 already carry promoted:true). Error log 30d threshold patterns: process-skip/protocol-skip:10, data-accuracy/stale-cache:4, routing-error/protocol-skip:4, assumption-error/surfaced-resolved-item:3 — all four root categories covered in LESSONS.md, no appends per preservation-over-aggression. Compression skipped (oldest episodic 42 days, cutoff 90). Boot git pull blocked (33rd consecutive run): unstaged changes + sandbox unlink restriction. Lock cleared via mv workaround. Memory phases completed without remote sync."
+errors_detail:
+  - phase: 0
+    file: .git
+    error: "git pull --rebase failed: unstaged changes from prior session blocked rebase; .git/index.lock recreated by failed pull; cleared via mv workaround. Memory phases completed without remote sync."
+  - phase: 1
+    file: memory/working/daily-review-2026-05-27-000000.md
+    error: "Source deletion blocked after copy (Operation not permitted). Source marked status:archived in place."
+  - phase: 1
+    file: memory/working/dream-summary-2026-05-28.md
+    error: "Source deletion blocked after copy (Operation not permitted). Source marked status:archived in place."
+  - phase: 1
+    file: memory/working/morning-briefing-2026-05-27-060943.md
+    error: "Source deletion blocked after copy (Operation not permitted). Source marked status:archived in place."

@@ -10,7 +10,7 @@ context: "Daily review \u2014 2026-05-24"
 salience:
   score: 0
   references: []
-  last-promoted-check: '2026-05-29'
+  last-promoted-check: 2026-05-30
   promoted: false
 ---
 

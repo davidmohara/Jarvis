@@ -10,7 +10,7 @@ context: "Morning boot + briefing \u2014 2026-05-14"
 salience:
   score: 0
   references: []
-  last-promoted-check: '2026-05-29'
+  last-promoted-check: 2026-05-30
   promoted: false
 ---
 ## Boot Data Sources

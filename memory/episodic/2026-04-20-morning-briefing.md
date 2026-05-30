@@ -13,9 +13,9 @@ related_people:
 - scott-mcmichael
 - alice-mburu
 salience:
-  score: 7
+  score: 6
   references: []
-  last-promoted-check: '2026-05-29'
+  last-promoted-check: 2026-05-30
   promoted: true
 ---
 # Morning Briefing — April 20, 2026

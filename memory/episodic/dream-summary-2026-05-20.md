@@ -4,7 +4,7 @@ expires: 2026-05-21
 status: archived
 salience:
   score: 0
-  last-promoted-check: '2026-05-29'
+  last-promoted-check: 2026-05-30
   promoted: false
   references: []
 ---

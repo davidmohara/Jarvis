@@ -50,29 +50,22 @@ Pass through any workflow/skill/agent filters as additional arguments:
 - `--skill {name}`
 - `--agent {agent}`
 
-### 3. Open Dashboard
+### 3. Output as Artifact
 
-Detect the runtime by checking the `CLAUDECODE` environment variable:
+Read the generated `dashboard.html` file and output it as an artifact so it renders inline in both Claude Code and Cowork Desktop:
 
-- **Claude Code (`CLAUDECODE=1`):** Open the dashboard directly:
-  ```bash
-  open {output-path}
-  ```
+```bash
+cat {output-path}
+```
 
-- **Cowork (no `CLAUDECODE`):** Surface the absolute file path so the executive can click to preview:
-  ```
-  Dashboard ready. Preview it here:
-  /Users/{user}/.../systems/eval-harness/dashboard.html
-  ```
-  Use `pwd` to resolve the absolute path before printing.
+Then render the HTML content as an artifact in your response.
 
 ### 4. Summary
 
 Output a summary to the executive:
 
 ```
-Dashboard generated: {output-path}
-Records visualized: {N}
+Dashboard generated: {N} records visualized
 Date range: {start-date} to {end-date}
 ```
 

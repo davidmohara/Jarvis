@@ -20,9 +20,9 @@ related_people:
 - david-belcher
 - mick
 salience:
-  score: 9
+  score: 8
   references: []
-  last-promoted-check: '2026-05-29'
+  last-promoted-check: 2026-05-30
   promoted: true
 ---
 # Morning Briefing — April 28, 2026

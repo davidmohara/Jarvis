@@ -17,9 +17,9 @@ related_people:
 - randy-mccabe
 - alice-mburu
 salience:
-  score: 6
+  score: 5
   references: []
-  last-promoted-check: '2026-05-29'
+  last-promoted-check: 2026-05-30
   promoted: true
 ---
 # Morning Briefing — May 1, 2026 (Friday)

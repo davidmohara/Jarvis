@@ -1,11 +1,13 @@
 {
   "skill": "golf-booking",
-  "agent": "sterling",
+  "agent": "jarvis",
   "trigger": "scheduled",
-  "started": "2026-05-28T00:00:00Z",
-  "completed": "2026-05-28T00:05:00Z",
-  "status": "partial",
-  "reason": "No eligible dates — Italy trip Jun 5-7 blocks entire target weekend",
-  "tool_failures": 0,
+  "started": "2026-05-30T00:00:00Z",
+  "completed": "2026-05-30T00:02:15Z",
+  "status": "aborted",
+  "abort_reason": "top_options empty — Jun 5-7 weekend hard-blocked (Italy trip, return flight Jun 7)",
+  "tool_failures": 1,
+  "tool_failure_detail": "Slack webhook returned 403 proxy error",
+  "fallback_action": "Working memory entry created per failure mode table",
   "error_ids": []
 }

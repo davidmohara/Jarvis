@@ -1,239 +1,615 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>IES Eval Harness Dashboard</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f5f5f5; padding: 20px; }
-        .container { max-width: 1400px; margin: 0 auto; }
-        h1 { color: #333; margin-bottom: 20px; }
-        .timestamp { color: #666; font-size: 14px; margin-bottom: 30px; }
-        .metrics-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-bottom: 30px; }
-        .metric-card { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
-        .metric-card h3 { color: #333; font-size: 14px; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.5px; }
-        .metric-card .value { font-size: 32px; font-weight: bold; color: #2563eb; }
-        .metric-card .sub { font-size: 12px; color: #666; margin-top: 5px; }
-        .tier-section { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); margin-bottom: 20px; }
-        .tier-section h2 { color: #333; margin-bottom: 15px; font-size: 18px; border-bottom: 2px solid #e5e5e5; padding-bottom: 10px; }
-        .tier-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; }
-        .tier-metric { text-align: center; padding: 15px; background: #f9fafb; border-radius: 6px; }
-        .tier-metric .label { font-size: 12px; color: #666; margin-bottom: 5px; }
-        .tier-metric .val { font-size: 24px; font-weight: bold; color: #333; }
-        .records-table { width: 100%; border-collapse: collapse; background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
-        .records-table th { background: #f3f4f6; padding: 12px; text-align: left; font-size: 12px; color: #666; text-transform: uppercase; }
-        .records-table td { padding: 12px; border-bottom: 1px solid #e5e5e5; font-size: 14px; }
-        .records-table tr:hover { background: #f9fafb; }
-        .status-success { color: #059669; font-weight: bold; }
-        .status-failure { color: #dc2626; font-weight: bold; }
-        .status-aborted { color: #d97706; font-weight: bold; }
-        .grade { font-weight: bold; }
-        .grade-A { color: #059669; }
-        .grade-B { color: #2563eb; }
-        .grade-C { color: #d97706; }
-        .grade-D { color: #dc2626; }
-        .grade-F { color: #7c2d12; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rigby · Eval Dashboard</title>
+<style>
+  :root {
+    --bg: #0f0f12;
+    --surface: #17171c;
+    --surface2: #1e1e26;
+    --border: #2a2a35;
+    --text: #e2e2e8;
+    --muted: #7a7a90;
+    --accent: #7c6aff;
+    --accent2: #4fc3f7;
+    --green: #4caf7d;
+    --yellow: #f5c842;
+    --red: #f06060;
+    --orange: #f5924e;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-size: 14px; line-height: 1.5; min-height: 100vh; }
+
+  .header { padding: 20px 28px 0; display: flex; align-items: center; justify-content: space-between; }
+  .header-title { font-size: 17px; font-weight: 600; letter-spacing: -0.2px; }
+  .header-sub { font-size: 12px; color: var(--muted); }
+  .badge { background: var(--surface2); border: 1px solid var(--border); border-radius: 5px; padding: 3px 8px; font-size: 11px; color: var(--muted); font-family: "SF Mono", "Fira Code", monospace; }
+  .last-updated { font-size: 11px; color: var(--muted); }
+
+  .kpi-row { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; padding: 20px 28px; }
+  .kpi { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 16px; }
+  .kpi-label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px; }
+  .kpi-value { font-size: 26px; font-weight: 700; line-height: 1; }
+  .kpi-sub { font-size: 11px; color: var(--muted); margin-top: 4px; }
+  .val-green { color: var(--green); }
+  .val-yellow { color: var(--yellow); }
+  .val-red { color: var(--red); }
+  .val-accent { color: var(--accent); }
+  .val-muted { color: var(--muted); }
+  .val-orange { color: var(--orange); }
+
+  .section { padding: 0 28px 24px; }
+  .section-title { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.6px; color: var(--muted); margin-bottom: 12px; }
+
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px; }
+  .card-title { font-size: 13px; font-weight: 600; margin-bottom: 14px; }
+
+  table { width: 100%; border-collapse: collapse; }
+  th { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.4px; text-align: left; padding: 0 10px 8px 0; border-bottom: 1px solid var(--border); font-weight: 500; }
+  td { padding: 9px 10px 9px 0; border-bottom: 1px solid var(--border); font-size: 13px; vertical-align: middle; }
+  tr:last-child td { border-bottom: none; }
+  .mono { font-family: "SF Mono", "Fira Code", monospace; font-size: 11px; }
+
+  .grade { display: inline-flex; align-items: center; justify-content: center; width: 26px; height: 26px; border-radius: 6px; font-size: 13px; font-weight: 700; }
+  .grade-A { background: rgba(76,175,125,0.18); color: var(--green); }
+  .grade-B { background: rgba(79,195,247,0.15); color: var(--accent2); }
+  .grade-C { background: rgba(245,200,66,0.15); color: var(--yellow); }
+  .grade-D { background: rgba(240,96,96,0.15); color: var(--red); }
+  .grade-F { background: rgba(240,96,96,0.25); color: var(--red); }
+  .grade-null { background: var(--surface2); color: var(--muted); font-size: 10px; }
+
+  .status { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 500; }
+  .status-success { background: rgba(76,175,125,0.15); color: var(--green); }
+  .status-partial { background: rgba(245,200,66,0.12); color: var(--yellow); }
+  .status-aborted { background: rgba(240,96,96,0.12); color: var(--red); }
+  .status-in-progress { background: rgba(79,195,247,0.12); color: var(--accent2); }
+
+  .score-bar-wrap { display: flex; align-items: center; gap: 8px; }
+  .score-bar { flex: 1; height: 5px; background: var(--surface2); border-radius: 3px; overflow: hidden; }
+  .score-bar-fill { height: 100%; border-radius: 3px; }
+  .score-val { font-size: 12px; font-weight: 600; min-width: 34px; text-align: right; }
+
+  .fb-pos { color: var(--green); }
+  .fb-neg { color: var(--red); }
+  .fb-neu { color: var(--muted); }
+
+  .tier-row { display: flex; gap: 8px; margin-bottom: 10px; align-items: center; }
+  .tier-label { font-size: 11px; color: var(--muted); min-width: 80px; }
+  .tier-bar-track { flex: 1; height: 8px; background: var(--surface2); border-radius: 4px; overflow: hidden; }
+  .tier-bar-fill { height: 100%; border-radius: 4px; }
+  .tier-pct { font-size: 11px; min-width: 36px; text-align: right; }
+
+  .timeline { display: flex; flex-direction: column; gap: 1px; }
+  .tl-item { display: flex; gap: 10px; padding: 8px 0; border-bottom: 1px solid var(--border); align-items: flex-start; }
+  .tl-item:last-child { border-bottom: none; }
+  .tl-dot { width: 8px; height: 8px; border-radius: 50%; margin-top: 5px; flex-shrink: 0; }
+  .tl-dot-green { background: var(--green); }
+  .tl-dot-yellow { background: var(--yellow); }
+  .tl-dot-red { background: var(--red); }
+  .tl-dot-grey { background: var(--muted); }
+  .tl-dot-blue { background: var(--accent2); }
+  .tl-name { font-size: 12px; font-weight: 500; }
+  .tl-meta { font-size: 11px; color: var(--muted); margin-top: 2px; }
+
+  .agent-row { display: flex; align-items: center; gap: 10px; padding: 8px 0; border-bottom: 1px solid var(--border); }
+  .agent-row:last-child { border-bottom: none; }
+  .agent-name { font-size: 13px; min-width: 60px; }
+  .agent-runs { font-size: 11px; color: var(--muted); min-width: 40px; }
+
+  .issue { padding: 8px 10px; background: var(--surface2); border-radius: 7px; margin-bottom: 6px; border-left: 3px solid var(--red); }
+  .issue:last-child { margin-bottom: 0; }
+  .issue-title { font-size: 12px; font-weight: 500; }
+  .issue-desc { font-size: 11px; color: var(--muted); margin-top: 3px; }
+  .issue-warn { border-left-color: var(--yellow); }
+
+  .divider { height: 1px; background: var(--border); margin: 0 28px 24px; }
+  .tag { display: inline-block; background: var(--surface2); border: 1px solid var(--border); border-radius: 4px; padding: 1px 6px; font-size: 10px; color: var(--muted); margin-right: 3px; }
+</style>
 </head>
 <body>
-    <div class="container">
-        <h1>IES Eval Harness Dashboard</h1>
-        <div class="timestamp">Generated: 2026-05-28T14:05:55.746642 | Records: 8</div>
 
-        <div class="metrics-grid">
-            <div class="metric-card">
-                <h3>Success Rate</h3>
-                <div class="value">50.0%</div>
-                <div class="sub">4 / 8 successful</div>
-            </div>
-            <div class="metric-card">
-                <h3>Failure Rate</h3>
-                <div class="value">0</div>
-                <div class="sub">0.0% of total</div>
-            </div>
-            <div class="metric-card">
-                <h3>Avg Duration</h3>
-                <div class="value">234.6s</div>
-                <div class="sub">Across all records</div>
-            </div>
-            <div class="metric-card">
-                <h3>Assertion Pass Rate</h3>
-                <div class="value">88.6%</div>
-                <div class="sub">31 / 35 passed</div>
-            </div>
-        </div>
+<div class="header">
+  <div>
+    <div class="header-title">🔧 Rigby · Eval Dashboard</div>
+    <div class="header-sub">IES 4-Tier Assessment Framework · 13 records</div>
+  </div>
+  <div style="display:flex;align-items:center;gap:12px;">
+    <span class="badge">eval-harness v1.0</span>
+    <span class="last-updated">Generated 2026-05-29</span>
+  </div>
+</div>
 
-        <div class="tier-section">
-            <h2>Tier 1: Mechanical Assessment</h2>
-            <div class="tier-grid">
-                <div class="tier-metric">
-                    <div class="label">Completion Rate</div>
-                    <div class="val">75.0%</div>
-                </div>
-                <div class="tier-metric">
-                    <div class="label">Avg Tool Failures</div>
-                    <div class="val">0.00</div>
-                </div>
-                <div class="tier-metric">
-                    <div class="label">Error Correlated</div>
-                    <div class="val">0</div>
-                </div>
-            </div>
-        </div>
+<div class="kpi-row">
+  <div class="kpi">
+    <div class="kpi-label">Total Records</div>
+    <div class="kpi-value val-accent">13</div>
+    <div class="kpi-sub">8 graded · 5 ungraded</div>
+  </div>
+  <div class="kpi">
+    <div class="kpi-label">Success Rate</div>
+    <div class="kpi-value val-green">57%</div>
+    <div class="kpi-sub">excl. phantoms &amp; in-progress</div>
+  </div>
+  <div class="kpi">
+    <div class="kpi-label">Avg Score</div>
+    <div class="kpi-value val-yellow">0.67</div>
+    <div class="kpi-sub">graded records only</div>
+  </div>
+  <div class="kpi">
+    <div class="kpi-label">Assertion Pass Rate</div>
+    <div class="kpi-value val-yellow">73%</div>
+    <div class="kpi-sub">38/52 checked assertions</div>
+  </div>
+  <div class="kpi">
+    <div class="kpi-label">Phantoms / Aborts</div>
+    <div class="kpi-value val-red">3</div>
+    <div class="kpi-sub">NDAYK6 · PCHVJ1 · 2 in-progress</div>
+  </div>
+</div>
 
-        <div class="tier-section">
-            <h2>Tier 2: Structural Assessment</h2>
-            <div class="tier-grid">
-                <div class="tier-metric">
-                    <div class="label">Assertions Checked</div>
-                    <div class="val">35</div>
-                </div>
-                <div class="tier-metric">
-                    <div class="label">Assertions Passed</div>
-                    <div class="val">31</div>
-                </div>
-                <div class="tier-metric">
-                    <div class="label">Pass Rate</div>
-                    <div class="val">88.6%</div>
-                </div>
-            </div>
-        </div>
+<div class="divider"></div>
 
-        <div class="tier-section">
-            <h2>Tier 3: Grading</h2>
-            <div class="tier-grid">
-                <div class="tier-metric">
-                    <div class="label">Graded Records</div>
-                    <div class="val">6</div>
-                </div>
+<div class="section">
+  <div class="section-title">All Eval Records</div>
+  <div style="background:var(--surface);border:1px solid var(--border);border-radius:10px;overflow:hidden;">
+    <table>
+      <thead>
+        <tr style="background:var(--surface2);">
+          <th style="padding-left:16px;">ID</th>
+          <th>Workflow / Skill</th>
+          <th>Agent</th>
+          <th>Date</th>
+          <th>Status</th>
+          <th>Tier 2</th>
+          <th>Grade</th>
+          <th>Score</th>
+          <th>Feedback</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="padding-left:16px;"><span class="mono">Q3KWG7</span></td>
+          <td><span style="font-weight:500;">content-approval</span><br><span class="tag">content-pipeline</span><span class="tag">optimization</span></td>
+          <td>harper</td>
+          <td>2026-05-26</td>
+          <td><span class="status status-success">success</span></td>
+          <td><div class="score-bar-wrap"><div class="score-bar"><div class="score-bar-fill" style="width:100%;background:var(--green);"></div></div><span class="score-val val-green">1/1</span></div></td>
+          <td><span class="grade grade-A">A</span></td>
+          <td><div class="score-bar-wrap"><div class="score-bar"><div class="score-bar-fill" style="width:100%;background:var(--green);"></div></div><span class="score-val val-green">1.00</span></div></td>
+          <td><span class="fb-pos">● positive</span></td>
+        </tr>
+        <tr>
+          <td style="padding-left:16px;"><span class="mono">ypo001</span></td>
+          <td><span style="font-weight:500;">obsidian-source-note</span><br><span class="tag">spotify</span><span class="tag">ypo-podcast</span></td>
+          <td>harper</td>
+          <td>2026-05-29</td>
+          <td><span class="status status-success">success</span></td>
+          <td><div class="score-bar-wrap"><div class="score-bar"><div class="score-bar-fill" style="width:100%;background:var(--green);"></div></div><span class="score-val val-green">15/15</span></div></td>
+          <td><span class="grade grade-null">—</span></td>
+          <td><div class="score-bar-wrap"><div class="score-bar"><div class="score-bar-fill" style="width:75%;background:var(--yellow);"></div></div><span class="score-val val-yellow">~0.75</span></div></td>
+          <td><span class="fb-neu">—</span></td>
+        </tr>
+        <tr>
+          <td style="padding-left:16px;"><span class="mono">GVFJWB</span></td>
+          <td><span style="font-weight:500;">system-eval</span></td>
+          <td>rigby</td>
+          <td>2026-05-27</td>
+          <td><span class="status status-success">success</span></td>
+          <td><div class="score-bar-wrap"><div class="score-bar"><div class="score-bar-fill" style="width:100%;background:var(--green);"></div></div><span class="score-val val-green">8/8</span></div></td>
+          <td><span class="grade grade-A">A</span></td>
+          <td><div class="score-bar-wrap"><div class="score-bar"><div class="score-bar-fill" style="width:100%;background:var(--green);"></div></div><span class="score-val val-green">~1.00</span></div></td>
+          <td><span class="fb-neu">—</span></td>
+        </tr>
+        <tr>
+          <td style="padding-left:16px;"><span class="mono">B7HEKX</span></td>
+          <td><span style="font-weight:500;">error-improvement</span></td>
+          <td>rigby</td>
+          <td>2026-05-27</td>
+          <td><span class="status status-success">success</span></td>
+          <td><div class="score-bar-wrap"><div class="score-bar"><div class="score-bar-fill" style="width:100%;background:var(--green);"></div></div><span class="score-val val-green">5/5</span></div></td>
+          <td><span class="grade grade-B">B</span></td>
+          <td><div class="score-bar-wrap"><div class="score-bar"><div class="score-bar-fill" style="width:75%;background:var(--yellow);"></div></div><span class="score-val val-yellow">0.75</span></div></td>
+          <td><span class="fb-neg">● negative</span></td>
+        </tr>
+        <tr>
+          <td style="padding-left:16px;"><span class="mono">T3Q5PX</span></td>
+          <td><span style="font-weight:500;">daily-review</span><br><span style="font-size:11px;color:var(--muted);">2026-05-26</span></td>
+          <td>chief</td>
+          <td>2026-05-26</td>
+          <td><span class="status status-partial">partial</span></td>
+          <td><div class="score-bar-wrap"><div class="score-bar"><div class="score-bar-fill" style="width:100%;background:var(--green);"></div></div><span class="score-val val-green">8/8</span></div></td>
+          <td><span class="grade grade-B">B</span></td>
+          <td><div class="score-bar-wrap"><div class="score-bar"><div class="score-bar-fill" style="width:68%;background:var(--yellow);"></div></div><span class="score-val val-yellow">0.68</span></div></td>
+          <td><span class="fb-neu">● neutral</span></td>
+        </tr>
+        <tr>
+          <td style="padding-left:16px;"><span class="mono">HBF752</span></td>
+          <td><span style="font-weight:500;">morning-briefing</span></td>
+          <td>chief</td>
+          <td>2026-05-24</td>
+          <td><span class="status status-success">success</span></td>
+          <td><div class="score-bar-wrap"><div class="score-bar"><div class="score-bar-fill" style="width:20%;background:var(--red);"></div></div><span class="score-val val-red">1/5</span></div></td>
+          <td><span class="grade grade-C">C</span></td>
+          <td><div class="score-bar-wrap"><div class="score-bar"><div class="score-bar-fill" style="width:60%;background:var(--yellow);"></div></div><span class="score-val val-yellow">0.60</span></div></td>
+          <td><span class="fb-neg">● negative</span></td>
+        </tr>
+        <tr>
+          <td style="padding-left:16px;"><span class="mono">F0GRE1</span></td>
+          <td><span style="font-weight:500;">daily-review</span><br><span style="font-size:11px;color:var(--muted);">2026-05-27 — matched prior-day files ⚠</span></td>
+          <td>chief</td>
+          <td>2026-05-27</td>
+          <td><span class="status status-partial">partial</span></td>
+          <td><div class="score-bar-wrap"><div class="score-bar"><div class="score-bar-fill" style="width:100%;background:var(--yellow);"></div></div><span class="score-val val-yellow">8/8⚠</span></div></td>
+          <td><span class="grade grade-C">C</span></td>
+          <td><div class="score-bar-wrap"><div class="score-bar"><div class="score-bar-fill" style="width:43%;background:var(--orange);"></div></div><span class="score-val val-orange">0.43</span></div></td>
+          <td><span class="fb-neu">● neutral</span></td>
+        </tr>
+        <tr>
+          <td style="padding-left:16px;"><span class="mono">IMUITJ</span></td>
+          <td><span style="font-weight:500;">daily-review</span><br><span style="font-size:11px;color:var(--muted);">2026-05-28 — no assertions run</span></td>
+          <td>chief</td>
+          <td>2026-05-28</td>
+          <td><span class="status status-partial">partial</span></td>
+          <td><span style="color:var(--muted);font-size:12px;">0/0</span></td>
+          <td><span class="grade grade-null">—</span></td>
+          <td><span class="val-muted">—</span></td>
+          <td><span class="fb-neu">—</span></td>
+        </tr>
+        <tr>
+          <td style="padding-left:16px;"><span class="mono">T3TGHW</span></td>
+          <td><span style="font-weight:500;">daily-review</span><br><span style="font-size:11px;color:var(--muted);">2026-05-29 — no assertions run</span></td>
+          <td>chief</td>
+          <td>2026-05-29</td>
+          <td><span class="status status-partial">partial</span></td>
+          <td><span style="color:var(--muted);font-size:12px;">0/0</span></td>
+          <td><span class="grade grade-null">—</span></td>
+          <td><span class="val-muted">—</span></td>
+          <td><span class="fb-neu">—</span></td>
+        </tr>
+        <tr style="opacity:0.55;">
+          <td style="padding-left:16px;"><span class="mono">2Y8GSF</span></td>
+          <td><span style="font-weight:500;">general-purpose</span></td>
+          <td>general</td>
+          <td>2026-05-29</td>
+          <td><span class="status status-in-progress">in-progress</span></td>
+          <td>—</td><td>—</td><td>—</td><td>—</td>
+        </tr>
+        <tr style="opacity:0.55;">
+          <td style="padding-left:16px;"><span class="mono">BQEM4B</span></td>
+          <td><span style="font-weight:500;">general-purpose</span></td>
+          <td>general</td>
+          <td>2026-05-29</td>
+          <td><span class="status status-in-progress">in-progress</span></td>
+          <td>—</td><td>—</td><td>—</td><td>—</td>
+        </tr>
+        <tr style="opacity:0.4;">
+          <td style="padding-left:16px;"><span class="mono">NDAYK6</span></td>
+          <td><span style="font-weight:500;">error-improvement</span><br><span class="tag">phantom</span></td>
+          <td>rigby</td>
+          <td>2026-05-27</td>
+          <td><span class="status status-aborted">aborted</span></td>
+          <td>—</td><td>—</td><td>—</td><td>—</td>
+        </tr>
+        <tr style="opacity:0.4;">
+          <td style="padding-left:16px;"><span class="mono">PCHVJ1</span></td>
+          <td><span style="font-weight:500;">system-eval</span><br><span class="tag">phantom</span></td>
+          <td>rigby</td>
+          <td>2026-05-27</td>
+          <td><span class="status status-aborted">aborted</span></td>
+          <td>—</td><td>—</td><td>—</td><td>—</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:var(--muted);">⚠ assertions passed via glob match but may reference prior-day output files &nbsp;·&nbsp; Dimmed rows are phantoms/aborts or in-progress</div>
+</div>
 
-                <div class="tier-metric">
-                    <div class="label">Grade A</div>
-                    <div class="val grade-A">2</div>
-                </div>
+<div class="divider"></div>
 
-                <div class="tier-metric">
-                    <div class="label">Grade B</div>
-                    <div class="val grade-B">2</div>
-                </div>
+<div class="section">
+  <div class="grid2">
 
-                <div class="tier-metric">
-                    <div class="label">Grade C</div>
-                    <div class="val grade-C">2</div>
-                </div>
-
-                <div class="tier-metric">
-                    <div class="label">Grade D</div>
-                    <div class="val grade-D">0</div>
-                </div>
-
-                <div class="tier-metric">
-                    <div class="label">Grade F</div>
-                    <div class="val grade-F">0</div>
-                </div>
-
-            </div>
-        </div>
-
-        <div class="tier-section">
-            <h2>Recent Eval Records</h2>
-            <table class="records-table">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Name</th>
-                        <th>Type</th>
-                        <th>Status</th>
-                        <th>Duration</th>
-                        <th>Grade</th>
-                        <th>Started</th>
-                    </tr>
-                </thead>
-                <tbody>
-
-                    <tr>
-                        <td><code>eval-20260527T210611-GVFJWB</code></td>
-                        <td>system-eval</td>
-                        <td>workflow</td>
-                        <td class="status-success">success</td>
-                        <td>405.9s</td>
-                        <td><span class="grade grade-A">A</span></td>
-                        <td>2026-05-27T20:59:26</td>
-                    </tr>
-
-                    <tr>
-                        <td><code>eval-20260527T205926-PCHVJ1</code></td>
-                        <td>system-eval</td>
-                        <td>workflow</td>
-                        <td class="status-aborted">aborted</td>
-                        <td>-</td>
-                        <td>-</td>
-                        <td>2026-05-27T20:59:26</td>
-                    </tr>
-
-                    <tr>
-                        <td><code>eval-20260527T190021-B7HEKX</code></td>
-                        <td>error-improvement</td>
-                        <td>workflow</td>
-                        <td class="status-success">success</td>
-                        <td>294.6s</td>
-                        <td><span class="grade grade-B">B</span></td>
-                        <td>2026-05-27T18:55:26</td>
-                    </tr>
-
-                    <tr>
-                        <td><code>eval-20260527T185503-NDAYK6</code></td>
-                        <td>error-improvement</td>
-                        <td>workflow</td>
-                        <td class="status-aborted">aborted</td>
-                        <td>-</td>
-                        <td>-</td>
-                        <td>2026-05-27T18:55:03</td>
-                    </tr>
-
-                    <tr>
-                        <td><code>eval-20260527T021153-F0GRE1</code></td>
-                        <td>daily-review</td>
-                        <td>workflow</td>
-                        <td class="status-partial">partial</td>
-                        <td>-</td>
-                        <td><span class="grade grade-C">C</span></td>
-                        <td>2026-05-27T02:11:53</td>
-                    </tr>
-
-                    <tr>
-                        <td><code>eval-20260526T215647-T3Q5PX</code></td>
-                        <td>daily-review</td>
-                        <td>workflow</td>
-                        <td class="status-partial">partial</td>
-                        <td>-</td>
-                        <td><span class="grade grade-B">B</span></td>
-                        <td>2026-05-26T21:56:47</td>
-                    </tr>
-
-                    <tr>
-                        <td><code>eval-20260526T125258-Q3KWG7</code></td>
-                        <td>content-approval</td>
-                        <td>workflow</td>
-                        <td class="status-success">success</td>
-                        <td>178.0s</td>
-                        <td><span class="grade grade-A">A</span></td>
-                        <td>2026-05-26T12:50:00</td>
-                    </tr>
-
-                    <tr>
-                        <td><code>eval-20260524T194258-HBF752</code></td>
-                        <td>morning-briefing</td>
-                        <td>workflow</td>
-                        <td class="status-success">success</td>
-                        <td>60.0s</td>
-                        <td><span class="grade grade-C">C</span></td>
-                        <td>2026-05-24T19:41:58</td>
-                    </tr>
-
-                </tbody>
-            </table>
-        </div>
+    <div class="card">
+      <div class="card-title">Tier Health (graded records)</div>
+      <div class="tier-row">
+        <span class="tier-label">T1 Mechanical</span>
+        <div class="tier-bar-track"><div class="tier-bar-fill" style="width:100%;background:var(--green);"></div></div>
+        <span class="tier-pct val-green">100%</span>
+      </div>
+      <div style="font-size:11px;color:var(--muted);margin:-6px 0 10px 88px;">All 8 graded records: completed=true, 0 tool failures</div>
+      <div class="tier-row">
+        <span class="tier-label">T2 Assertions</span>
+        <div class="tier-bar-track"><div class="tier-bar-fill" style="width:73%;background:var(--yellow);"></div></div>
+        <span class="tier-pct val-yellow">73%</span>
+      </div>
+      <div style="font-size:11px;color:var(--muted);margin:-6px 0 10px 88px;">38/52 checked · morning-briefing cascade drags avg</div>
+      <div class="tier-row">
+        <span class="tier-label">T3 Grading</span>
+        <div class="tier-bar-track"><div class="tier-bar-fill" style="width:62%;background:var(--yellow);"></div></div>
+        <span class="tier-pct val-yellow">62%</span>
+      </div>
+      <div style="font-size:11px;color:var(--muted);margin:-6px 0 10px 88px;">8/13 records graded · 5 ungraded (incl. in-progress)</div>
+      <div class="tier-row">
+        <span class="tier-label">T4 Feedback</span>
+        <div class="tier-bar-track"><div class="tier-bar-fill" style="width:31%;background:var(--red);"></div></div>
+        <span class="tier-pct val-red">31%</span>
+      </div>
+      <div style="font-size:11px;color:var(--muted);margin:-6px 0 4px 88px;">4/13 have controller feedback · systemic gap</div>
     </div>
+
+    <div class="card">
+      <div class="card-title">Grade Distribution &amp; Score Spread</div>
+      <div style="display:flex;align-items:flex-end;gap:12px;height:80px;margin-bottom:12px;">
+        <div style="display:flex;flex-direction:column;align-items:center;gap:4px;flex:1;">
+          <span style="font-size:11px;font-weight:600;color:var(--green);">2</span>
+          <div style="width:100%;border-radius:4px 4px 0 0;height:60px;background:rgba(76,175,125,0.3);"></div>
+          <span style="font-size:11px;color:var(--muted);">A</span>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:4px;flex:1;">
+          <span style="font-size:11px;font-weight:600;color:var(--accent2);">2</span>
+          <div style="width:100%;border-radius:4px 4px 0 0;height:60px;background:rgba(79,195,247,0.25);"></div>
+          <span style="font-size:11px;color:var(--muted);">B</span>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:4px;flex:1;">
+          <span style="font-size:11px;font-weight:600;color:var(--yellow);">2</span>
+          <div style="width:100%;border-radius:4px 4px 0 0;height:60px;background:rgba(245,200,66,0.25);"></div>
+          <span style="font-size:11px;color:var(--muted);">C</span>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:4px;flex:1;">
+          <span style="font-size:11px;font-weight:600;color:var(--muted);">0</span>
+          <div style="width:100%;border-radius:4px 4px 0 0;height:4px;background:rgba(240,96,96,0.15);"></div>
+          <span style="font-size:11px;color:var(--muted);">D</span>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:4px;flex:1;">
+          <span style="font-size:11px;font-weight:600;color:var(--muted);">0</span>
+          <div style="width:100%;border-radius:4px 4px 0 0;height:4px;background:rgba(240,96,96,0.15);"></div>
+          <span style="font-size:11px;color:var(--muted);">F</span>
+        </div>
+        <div style="flex:1;"></div>
+        <div style="text-align:right;">
+          <div style="font-size:11px;color:var(--muted);">Avg grade</div>
+          <div style="font-size:22px;font-weight:700;color:var(--yellow);">B–</div>
+          <div style="font-size:11px;color:var(--muted);">2 ungraded eligible</div>
+        </div>
+      </div>
+      <div style="border-top:1px solid var(--border);padding-top:12px;">
+        <table>
+          <tr><td style="color:var(--muted);font-size:11px;padding-bottom:4px;">Best</td><td style="font-weight:600;color:var(--green);">1.00</td><td style="color:var(--muted);font-size:11px;">Q3KWG7 (content-approval)</td></tr>
+          <tr><td style="color:var(--muted);font-size:11px;padding-bottom:4px;">Worst</td><td style="font-weight:600;color:var(--red);">0.43</td><td style="color:var(--muted);font-size:11px;">F0GRE1 (daily-review, glob mismatch)</td></tr>
+          <tr><td style="color:var(--muted);font-size:11px;">Avg</td><td style="font-weight:600;color:var(--yellow);">0.67</td><td style="color:var(--muted);font-size:11px;">graded records</td></tr>
+        </table>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<div class="section">
+  <div class="grid2">
+
+    <div class="card">
+      <div class="card-title">Performance by Workflow / Skill</div>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Runs</th>
+            <th>Success%</th>
+            <th>Avg Score</th>
+            <th>Top Issue</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="font-weight:500;">content-approval</td>
+            <td>1</td>
+            <td><span class="val-green">100%</span></td>
+            <td><span class="val-green">1.00</span></td>
+            <td style="font-size:11px;color:var(--muted);">None</td>
+          </tr>
+          <tr>
+            <td style="font-weight:500;">obsidian-source-note</td>
+            <td>1</td>
+            <td><span class="val-green">100%</span></td>
+            <td><span class="val-yellow">~0.75</span></td>
+            <td style="font-size:11px;color:var(--muted);">Ungraded · 1 tool failure</td>
+          </tr>
+          <tr>
+            <td style="font-weight:500;">system-eval</td>
+            <td>1</td>
+            <td><span class="val-green">100%</span></td>
+            <td><span class="val-green">~1.00</span></td>
+            <td style="font-size:11px;color:var(--muted);">Orphan stub PCHVJ1 created</td>
+          </tr>
+          <tr>
+            <td style="font-weight:500;">error-improvement</td>
+            <td>1</td>
+            <td><span class="val-green">100%</span></td>
+            <td><span class="val-yellow">0.75</span></td>
+            <td style="font-size:11px;color:var(--muted);">0 fixes applied; 10 routing-gate items</td>
+          </tr>
+          <tr>
+            <td style="font-weight:500;">daily-review</td>
+            <td>4</td>
+            <td><span class="val-yellow">0% success</span></td>
+            <td><span class="val-orange">0.56</span></td>
+            <td style="font-size:11px;color:var(--muted);">All partial; M365 unauth; glob date issue</td>
+          </tr>
+          <tr>
+            <td style="font-weight:500;">morning-briefing</td>
+            <td>1</td>
+            <td><span class="val-yellow">100%</span></td>
+            <td><span class="val-yellow">0.60</span></td>
+            <td style="font-size:11px;color:var(--red);">Output file not written (1/5 assertions)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Active Issues</div>
+      <div class="issue">
+        <div class="issue-title">daily-review: M365 calendar not authenticated</div>
+        <div class="issue-desc">All 4 daily-review runs are partial. calendar_events: 0 every run. Root cause: M365 connector unauthenticated in headless context. Fix: auth persistence for scheduled tasks.</div>
+      </div>
+      <div class="issue issue-warn">
+        <div class="issue-title">daily-review: assertion glob matches prior-day files</div>
+        <div class="issue-desc">F0GRE1 (2026-05-27) passed 8/8 assertions by matching 2026-05-26 output. Assertions should be date-scoped. F0GRE1 true score ~0.43.</div>
+      </div>
+      <div class="issue issue-warn">
+        <div class="issue-title">T4 controller feedback: 4/13 records only</div>
+        <div class="issue-desc">Systemic gap. ypo001, GVFJWB, T3Q5PX, IMUITJ, T3TGHW, B7HEKX all missing feedback. Tier 4 weight redistributed to T1–T3 for scoring.</div>
+      </div>
+      <div class="issue issue-warn">
+        <div class="issue-title">2 in-progress records unclosed (general-purpose)</div>
+        <div class="issue-desc">2Y8GSF and BQEM4B — status: in-progress, no completed timestamp. Likely orphaned agent sessions. Should be closed or archived.</div>
+      </div>
+      <div class="issue">
+        <div class="issue-title">morning-briefing: assertions 002–005 cascade fail</div>
+        <div class="issue-desc">HBF752: output file written with non-standard filename. Root cause documented and fixed per controller feedback. Next run should validate fix.</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<div class="section">
+  <div class="grid2">
+
+    <div class="card">
+      <div class="card-title">Run Timeline</div>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-dot tl-dot-blue"></div>
+          <div>
+            <div class="tl-name">general-purpose · 2Y8GSF, BQEM4B <span style="font-size:11px;color:var(--accent2);">in-progress</span></div>
+            <div class="tl-meta">2026-05-29 22:20–22:26 · unclosed agent sessions</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot tl-dot-green"></div>
+          <div>
+            <div class="tl-name">obsidian-source-note · ypo001 <span class="grade grade-null" style="font-size:10px;width:20px;height:20px;margin-left:4px;">—</span></div>
+            <div class="tl-meta">2026-05-29 22:30 · harper · 15/15 assertions · 900s · 1 tool failure</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot tl-dot-yellow"></div>
+          <div>
+            <div class="tl-name">daily-review · T3TGHW</div>
+            <div class="tl-meta">2026-05-29 02:12 · chief · partial · no assertions run</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot tl-dot-yellow"></div>
+          <div>
+            <div class="tl-name">daily-review · IMUITJ</div>
+            <div class="tl-meta">2026-05-28 02:12 · chief · partial · no assertions run</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot tl-dot-green"></div>
+          <div>
+            <div class="tl-name">system-eval · GVFJWB <span class="grade grade-A" style="font-size:10px;width:20px;height:20px;margin-left:4px;">A</span></div>
+            <div class="tl-meta">2026-05-27 20:59 · rigby · 8/8 assertions · 406s</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot tl-dot-green"></div>
+          <div>
+            <div class="tl-name">error-improvement · B7HEKX <span class="grade grade-B" style="font-size:10px;width:20px;height:20px;margin-left:4px;">B</span></div>
+            <div class="tl-meta">2026-05-27 18:55 · rigby · 5/5 assertions · 295s · feedback: negative</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot tl-dot-yellow"></div>
+          <div>
+            <div class="tl-name">daily-review · F0GRE1 <span class="grade grade-C" style="font-size:10px;width:20px;height:20px;margin-left:4px;">C</span></div>
+            <div class="tl-meta">2026-05-27 02:11 · chief · partial · ⚠ glob date mismatch</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot tl-dot-yellow"></div>
+          <div>
+            <div class="tl-name">daily-review · T3Q5PX <span class="grade grade-B" style="font-size:10px;width:20px;height:20px;margin-left:4px;">B</span></div>
+            <div class="tl-meta">2026-05-26 21:56 · chief · partial · 8/8 assertions</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot tl-dot-green"></div>
+          <div>
+            <div class="tl-name">content-approval · Q3KWG7 <span class="grade grade-A" style="font-size:10px;width:20px;height:20px;margin-left:4px;">A</span></div>
+            <div class="tl-meta">2026-05-26 12:50 · harper · 1/1 assertions · 178s · feedback: positive</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot tl-dot-yellow"></div>
+          <div>
+            <div class="tl-name">morning-briefing · HBF752 <span class="grade grade-C" style="font-size:10px;width:20px;height:20px;margin-left:4px;">C</span></div>
+            <div class="tl-meta">2026-05-24 19:41 · chief · 1/5 assertions · filename mismatch fixed</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:16px;">
+
+      <div class="card">
+        <div class="card-title">By Agent</div>
+        <div class="agent-row">
+          <span class="agent-name">harper</span>
+          <span class="agent-runs">2 runs</span>
+          <div class="score-bar" style="flex:1;"><div class="score-bar-fill" style="width:88%;background:var(--green);"></div></div>
+          <span style="font-size:12px;color:var(--green);min-width:48px;text-align:right;">0.88 avg</span>
+        </div>
+        <div class="agent-row">
+          <span class="agent-name">rigby</span>
+          <span class="agent-runs">2 runs</span>
+          <div class="score-bar" style="flex:1;"><div class="score-bar-fill" style="width:88%;background:var(--green);"></div></div>
+          <span style="font-size:12px;color:var(--green);min-width:48px;text-align:right;">0.88 avg</span>
+        </div>
+        <div class="agent-row">
+          <span class="agent-name">chief</span>
+          <span class="agent-runs">6 runs</span>
+          <div class="score-bar" style="flex:1;"><div class="score-bar-fill" style="width:54%;background:var(--yellow);"></div></div>
+          <span style="font-size:12px;color:var(--yellow);min-width:48px;text-align:right;">0.54 avg</span>
+        </div>
+        <div class="agent-row" style="opacity:0.45;">
+          <span class="agent-name">general</span>
+          <span class="agent-runs">2 runs</span>
+          <div class="score-bar" style="flex:1;"><div class="score-bar-fill" style="width:0%;background:var(--muted);"></div></div>
+          <span style="font-size:12px;color:var(--muted);min-width:48px;text-align:right;">in-progress</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Scoring Formula</div>
+        <table>
+          <tr><td style="font-size:12px;font-weight:500;padding-bottom:6px;">T1 Mechanical</td><td style="font-size:12px;color:var(--muted);">25%</td><td style="font-size:11px;color:var(--green);">✓ all pass</td></tr>
+          <tr><td style="font-size:12px;font-weight:500;padding-bottom:6px;">T2 Assertions</td><td style="font-size:12px;color:var(--muted);">35%</td><td style="font-size:11px;color:var(--yellow);">73% avg pass rate</td></tr>
+          <tr><td style="font-size:12px;font-weight:500;padding-bottom:6px;">T3 Grading</td><td style="font-size:12px;color:var(--muted);">20%</td><td style="font-size:11px;color:var(--yellow);">62% graded</td></tr>
+          <tr><td style="font-size:12px;font-weight:500;padding-bottom:6px;">T4 Feedback</td><td style="font-size:12px;color:var(--muted);">10%</td><td style="font-size:11px;color:var(--red);">31% have feedback</td></tr>
+          <tr><td style="font-size:12px;font-weight:500;">No Errors</td><td style="font-size:12px;color:var(--muted);">10%</td><td style="font-size:11px;color:var(--green);">✓ all pass</td></tr>
+        </table>
+        <div style="margin-top:10px;font-size:11px;color:var(--muted);">Null weights redistributed proportionally to non-null components per score_eval.py.</div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div style="padding:0 28px 28px;font-size:11px;color:var(--muted);">
+  IES Eval Harness · system-eval cycle · dashboard.html · regenerated 2026-05-29
+</div>
+
 </body>
 </html>

@@ -20,7 +20,7 @@ related_people:
 salience:
   score: 9
   references: []
-  last-promoted-check: '2026-05-29'
+  last-promoted-check: 2026-05-30
   promoted: true
 ---
 # Morning Briefing — April 29, 2026 (GLC Day 4, Final Day)

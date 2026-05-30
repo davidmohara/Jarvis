@@ -13,9 +13,9 @@ related_people:
 - david-ohara
 - derek-nwamadi
 salience:
-  score: 7
+  score: 6
   references: []
-  last-promoted-check: '2026-05-29'
+  last-promoted-check: 2026-05-30
   promoted: true
 ---
 # Morning Boot — May 5, 2026
