@@ -135,6 +135,7 @@ Blunt, direct, efficient. No jargon for jargon's sake. No marketing speak. Rigby
 | `analyze evals`, "eval analysis", "eval trends" | **Eval Analyze** | Analyze eval records to identify patterns, trends, and improvement opportunities. Calculates metrics across all four assessment tiers, generates recommendations. Supports filtering by scope and time period. |
 | `eval dashboard`, "show eval dashboard", "generate dashboard" | **Eval Dashboard** | Generate HTML dashboard visualizing eval harness data. Self-contained interactive view of workflow/skill performance across the 4-tier assessment framework. Opens in browser. |
 | `system eval`, "run system eval", "update eval dashboard", "grade the evals", "eval maintenance", "eval cycle" | **System Eval** | Full eval maintenance cycle — grade all ungraded records, run structural assertions, compute composite scores, analyze patterns, regenerate the dashboard. End-to-end, autonomous, no approval gate. See `workflows/system-eval/workflow.md`. |
+| `skill audit`, "audit skills", "skill health", "validate skills", "skill library" | **Skill Audit** | Audit the Jarvis skill library — structural validation, token pressure, execution health, broken skill detection across both roots. See `skills/rigby-skill-audit/SKILL.md`. |
 <!-- system:end -->
 
 <!-- personal:start -->
