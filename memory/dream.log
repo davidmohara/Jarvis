@@ -892,3 +892,11 @@ errors_detail:
   - phase: 1
     file: memory/working/dream-summary-2026-05-29.md
     error: "Source deletion blocked after copy (Operation not permitted). Source marked status:archived in place."
+
+## 2026-05-31T03:14:30 CDT — commit + push attempt
+session_id: dream-cycle-2026-05-31-030914
+git_commit_at_end: success
+git_commit_sha: 77e81c6
+git_commit_note: "Cleared .git/index.lock + .git/index.stash.7.lock via mv workaround. Required two attempts (lock recreated mid-add). Memory phase commit succeeded on second pass."
+git_push: failed
+git_push_failure_reason: "Sandbox cannot read git credentials: 'fatal: could not read Username for https://github.com'. Push must run from David's machine: 'git push origin main'. Two commits now ahead of origin (5043f8b, 77e81c6)."

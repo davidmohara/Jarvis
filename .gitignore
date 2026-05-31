@@ -20,6 +20,7 @@ systems/wine-monitor/data/daemon.log
 # Local secrets (tokens, credentials — never committed)
 config/.env
 config/.credentials
+systems/sandbox-credentials/.git-credentials
 
 # Compiled binaries
 bridge/send-to-desktop
