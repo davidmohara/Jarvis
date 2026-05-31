@@ -855,3 +855,40 @@ errors_detail:
   - phase: 1
     file: memory/working/morning-briefing-2026-05-27-060943.md
     error: "Source deletion blocked after copy (Operation not permitted). Source marked status:archived in place."
+
+## 2026-05-30T03:22:00 CDT — commit + push attempt
+session_id: dream-cycle-2026-05-30-030919
+git_commit_at_end: success
+git_commit_sha: 5043f8b
+git_commit_note: "Cleared .git/index.lock via mv workaround — 4th consecutive successful commit using this pattern."
+git_push: failed
+git_push_failure_reason: "Sandbox cannot read git credentials: 'fatal: could not read Username for https://github.com'. Push must run from David's machine: 'git push origin main'."
+
+---
+## 2026-05-31T03:12:28 CDT
+session_id: dream-cycle-2026-05-31-030914
+working_archived: 3
+working_deleted: 0
+episodic_scanned: 79
+score_updates: 79
+clusters_found: 0
+semantic_created: 0
+semantic_updated: 0
+promoted_entries: 0
+entries_compressed: 0
+digests_updated: 0
+errors: 4
+summary: "Archived 3 newly expired working files (daily-review-2026-05-28-000000.md, daily-review-2026-05-28-163825.md, dream-summary-2026-05-29.md). Copies written to memory/episodic/ with proper frontmatter; sources marked archived in place for 34th consecutive run (sandbox unlink restriction unchanged). Scored 79 episodic entries (up 2 from yesterday's 77 = +3 new archives - 1 dedup or filter shift): distribution shifted as 30-day window slid: 0:44, 4:9, 5:14, 6:7, 7:5. Score ceiling dropped from 9 to 7 (old high-score entries aged out of 30-day window); mid-band thickened to 35 entries (5-7 range). Zero promotion candidates (21st consecutive idle run — all entries with score>=3 already carry promoted:true). Error log 30d threshold patterns: process-skip/protocol-skip:10, data-accuracy/stale-cache:4, routing-error/protocol-skip:4, assumption-error/surfaced-resolved-item:3 — all four root categories covered in LESSONS.md, no appends per preservation-over-aggression. Compression skipped (oldest episodic 43 days, cutoff 90). Boot git pull blocked (34th consecutive run): unstaged changes + sandbox unlink restriction on .git/index.lock. Memory phases completed without remote sync."
+errors_detail:
+  - phase: 0
+    file: .git
+    error: "git pull --rebase failed: unstaged changes from prior session + sandbox unlink restriction on .git/index.lock; git stash also blocked by same restriction. Memory phases completed without remote sync."
+  - phase: 1
+    file: memory/working/daily-review-2026-05-28-000000.md
+    error: "Source deletion blocked after copy (Operation not permitted). Source marked status:archived in place."
+  - phase: 1
+    file: memory/working/daily-review-2026-05-28-163825.md
+    error: "Source deletion blocked after copy (Operation not permitted). Source marked status:archived in place."
+  - phase: 1
+    file: memory/working/dream-summary-2026-05-29.md
+    error: "Source deletion blocked after copy (Operation not permitted). Source marked status:archived in place."

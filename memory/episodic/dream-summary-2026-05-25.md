@@ -4,11 +4,10 @@ expires: 2026-05-26
 status: archived
 salience:
   score: 0
-  last-promoted-check: 2026-05-30
+  last-promoted-check: '2026-05-31'
   promoted: false
   references: []
 ---
-
 # Dream Cycle Summary — 2026-05-25
 
 Routine run, no surprises. Memory phases all completed. The chronic blockers from the past month continue: source-deletion sandbox restriction (28th consecutive run blocking removal of expired working-memory copies after they're archived to episodic) and the stale `.git/index.lock` plus uncommitted changes that prevent `git pull --rebase` and any commit/push at the end.

@@ -13,9 +13,9 @@ tags:
 - calendar
 - omnifocus
 salience:
-  score: 7
+  score: 6
   references: []
-  last-promoted-check: 2026-05-30
+  last-promoted-check: '2026-05-31'
   promoted: true
 ---
 # Boot Briefing — Friday May 15, 2026

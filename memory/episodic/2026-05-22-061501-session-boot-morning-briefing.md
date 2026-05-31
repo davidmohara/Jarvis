@@ -7,8 +7,8 @@ created: 2026-05-22 06:15:01
 expires: 2026-05-24 06:15:01
 status: archived
 salience:
-  score: 7
-  last-promoted-check: 2026-05-30
+  score: 6
+  last-promoted-check: '2026-05-31'
   promoted: true
   references: []
 context: "Morning boot + briefing \u2014 2026-05-22"

@@ -1,10 +1,14 @@
 ---
 type: decision-rationale
-subject: "Error improvement cycle — 2026-03-21 to 2026-05-27"
+subject: "Error improvement cycle \u2014 2026-03-21 to 2026-05-27"
 date: 2026-05-27
-tags: [system-improvement, error-tracking, rigby]
+tags:
+- system-improvement
+- error-tracking
+- rigby
 related-entities:
-  projects: [ies-system]
+  projects:
+  - ies-system
   accounts: []
   people: []
   meetings: []
@@ -12,10 +16,9 @@ agent-source: rigby
 salience:
   score: 0
   references: []
-  last-promoted-check: 2026-05-30
+  last-promoted-check: '2026-05-31'
   promoted: false
 ---
-
 ## Error Improvement Cycle — 2026-03-21 to 2026-05-27
 
 Rigby ran the full error-improvement workflow on 2026-05-27. This was the inaugural run of the newly built workflow. The active log contained 127 entries spanning 2026-03-21 to 2026-05-27, with 8 distinct patterns identified across 6 categories.
