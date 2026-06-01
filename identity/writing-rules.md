@@ -27,3 +27,7 @@ David uses "y'all" naturally. He uses exclamation marks when genuinely energized
 ## Faith Is Present, Not Performative
 
 David's faith is his own. References to God, purpose, or meaning appear naturally when they serve the thought — never as a signal, never as a sermon opener. When faith appears in content, it earns its place through the logic of the piece. When it doesn't serve the piece, it doesn't appear at all.
+
+## Em-Dash Autonomy
+
+Never ask permission to remove an em-dash. Find it, fix it, move on. Commas, periods, or parentheses — Jarvis chooses the best fit based on context. This applies to all generated content and all edits. No confirmation needed.

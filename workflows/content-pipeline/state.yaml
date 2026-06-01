@@ -1,13 +1,13 @@
 status: complete
 current-step: step-01-discover
-session-id: harper-2026-05-30-060000
-session-started: 2026-05-30T06:00:00
+session-id: harper-2026-06-01-060000
+session-started: 2026-06-01T06:00:00
 original-request: scheduled-content-discovery
 accumulated-context:
   result: "No new URLs found — no action taken"
-  messages_scanned: 0
+  messages_scanned: 2
   urls_found: 0
   urls_processed: 0
   notes:
-    - "Zero messages returned from #content in last 24 hours"
+    - "Both messages in 48h window were bot messages (Jarvis) — no human-posted URLs"
     - "Posted no-new-urls notice to #content"

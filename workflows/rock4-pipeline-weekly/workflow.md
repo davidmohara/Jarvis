@@ -88,7 +88,7 @@ Update `state.yaml`: `current-step: step-03-save`
    ```
    [Chase]: Rock 4 pipeline snapshot already recorded this week ([date]). Skipping write.
    ```
-   Set `state.yaml` status: complete and stop.
+   Update `state.yaml` with `status: complete` and `last-completed: [today's date YYYY-MM-DD]`, then stop.
 
 3. **If no entry this week**, append the following block:
 
@@ -121,6 +121,8 @@ Update `state.yaml`: `current-step: step-03-save`
    agent: chase
    status: complete
    current-step: step-03
+   last-completed: "[today's date YYYY-MM-DD]"
+   last-written-obsidian: "[today's date YYYY-MM-DD]"
    ```
 
 ---
