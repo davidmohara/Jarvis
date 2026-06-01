@@ -16,9 +16,9 @@ related_people:
 - salah
 - david-faircloth
 salience:
-  score: 5
+  score: 0
+  last-promoted-check: 2026-06-01
   references: []
-  last-promoted-check: '2026-05-31'
   promoted: true
 ---
 # Afternoon Boot Session — April 20, 2026

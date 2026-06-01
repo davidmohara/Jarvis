@@ -1,14 +1,18 @@
 ---
-type: working
+type: working-archive
 task_id: "session"
 session_id: "dream-cycle-2026-05-30-030919"
 agent-source: jarvis
 created: 2026-05-30T03:09:19-05:00
 expires: 2026-05-31T03:09:19-05:00
-status: active
+status: archived
 context: "Dream cycle summary — 2026-05-30"
+salience:
+  score: 0
+  last-promoted-check: 2026-06-01
+  references: []
+  promoted: false
 ---
-
 # Dream Cycle Summary — 2026-05-30
 
 ## What ran

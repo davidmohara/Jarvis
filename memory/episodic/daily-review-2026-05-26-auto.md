@@ -9,8 +9,8 @@ status: archived
 context: "Daily review \u2014 2026-05-24"
 salience:
   score: 0
+  last-promoted-check: 2026-06-01
   references: []
-  last-promoted-check: '2026-05-31'
   promoted: false
 ---
 - Sunday May 24 was a family day: Declan's graduation party (4-5 PM CT) was the only calendar event; no work meetings.

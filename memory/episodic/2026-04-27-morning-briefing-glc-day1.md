@@ -14,9 +14,9 @@ tags:
 related_people:
 - alice-mburu
 salience:
-  score: 7
+  score: 0
+  last-promoted-check: 2026-06-01
   references: []
-  last-promoted-check: '2026-05-31'
   promoted: true
 ---
 # Morning Briefing — April 27, 2026 (GLC Chicago Day 1)

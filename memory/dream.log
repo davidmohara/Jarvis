@@ -900,3 +900,19 @@ git_commit_sha: 77e81c6
 git_commit_note: "Cleared .git/index.lock + .git/index.stash.7.lock via mv workaround. Required two attempts (lock recreated mid-add). Memory phase commit succeeded on second pass."
 git_push: failed
 git_push_failure_reason: "Sandbox cannot read git credentials: 'fatal: could not read Username for https://github.com'. Push must run from David's machine: 'git push origin main'. Two commits now ahead of origin (5043f8b, 77e81c6)."
+
+---
+## 2026-06-01T03:13:30 CDT
+session_id: dream-cycle-2026-06-01-030900
+working_archived: 4
+working_deleted: 0
+episodic_scanned: 84
+score_updates: 84
+clusters_found: 0
+semantic_created: 0
+semantic_updated: 0
+promoted_entries: 0
+entries_compressed: 0
+digests_updated: 0
+errors: 0
+summary: "Move-on-write succeeded for the first time since prior sandbox unlink restriction — 4 newly expired working files renamed cleanly to memory/episodic/ (2026-05-29-145100-session-boot-morning-briefing.md, daily-review-2026-05-29-000000.md, dream-summary-2026-05-30.md, morning-briefing-2026-05-29-070948.md); zero stranded, zero copy+delete fallback. Scored 84 episodic entries (up 5 from yesterday's 79 = +4 new archives + 1 reconciliation). Score distribution: 0:84 — every entry scored 0 because none carry a populated tags frontmatter field. This is the structural gap: episodic writers (Master post-sub-agent capture; Knox transcript ingest) are not setting tags, so co-occurrence scoring cannot fire. 22nd consecutive run with zero promotion candidates. Error log 30d thresholds: process-skip/protocol-skip:9, data-accuracy/stale-cache:4, routing-error/protocol-skip:4, assumption-error/surfaced-resolved-item:3 — all four root categories already represented in LESSONS.md (Chronic Routing Bypass, Tool Misuse, Wrong Assumptions, Data Accuracy, Process Skip on Boot). No LESSONS appends per preservation-over-aggression. Compression skipped (oldest episodic 44 days, threshold 90). Git pull at boot succeeded (sandbox unlink restriction resolved). Working tree was clean entering this run."

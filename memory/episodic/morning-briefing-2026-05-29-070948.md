@@ -1,14 +1,18 @@
 ---
-type: working
+type: working-archive
 task_id: "session"
 session_id: "chief-2026-05-29-070948"
 agent-source: chief
 created: 2026-05-29T07:09:48
 expires: 2026-05-31T07:09:48
-status: active
+status: archived
 context: "Morning boot + briefing — 2026-05-29"
+salience:
+  score: 0
+  last-promoted-check: 2026-06-01
+  references: []
+  promoted: false
 ---
-
 ## Boot Summary — Friday, May 29, 2026
 
 ### Data Sources

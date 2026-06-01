@@ -15,9 +15,9 @@ related_people:
 - richard
 - ric
 salience:
-  score: 5
+  score: 0
+  last-promoted-check: 2026-06-01
   references: []
-  last-promoted-check: '2026-05-31'
   promoted: true
 ---
 # Session Boot — May 4, 2026

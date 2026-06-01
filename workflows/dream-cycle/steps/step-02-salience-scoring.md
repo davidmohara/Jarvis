@@ -1,13 +1,14 @@
 ---
-status: completed
-started-at: 2026-05-31T03:10:30-05:00
-completed-at: 2026-05-31T03:12:00-05:00
+status: complete
+started-at: 2026-06-01T03:10:45-05:00
+completed-at: 2026-06-01T03:11:30-05:00
 outputs:
-  episodic_scanned: 79
-  score_updates: 79
-  no_tags: 34
-  no_date: 37
-  distribution: "0:44, 4:9, 5:14, 6:7, 7:5"
+  episodic_scanned: 84
+  score_updates: 84
+  no_tags: 84
+  no_date: 42
+  score_distribution: "0:84"
+  note: "All entries scored 0 — no entry carries a populated tags field. Structural gap: episodic writers (Master, sub-agents) are not setting tags. Co-occurrence scoring will remain dormant until the agents that write episodic entries (post-sub-agent working-memory writers, Master) start populating tags. Flag for Rigby."
 ---
 
 <!-- system:start -->

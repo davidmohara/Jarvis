@@ -1,8 +1,17 @@
 ---
-status: not-started
-started-at: ~
-completed-at: ~
-outputs: {}
+status: complete
+started-at: 2026-06-01T03:09:30-05:00
+completed-at: 2026-06-01T03:10:30-05:00
+outputs:
+  working_archived: 4
+  working_deleted: 0
+  working_skipped: 76
+  working_stranded: 0
+  archived_files:
+    - 2026-05-29-145100-session-boot-morning-briefing.md
+    - daily-review-2026-05-29-000000.md
+    - dream-summary-2026-05-30.md
+    - morning-briefing-2026-05-29-070948.md
 ---
 
 <!-- system:start -->

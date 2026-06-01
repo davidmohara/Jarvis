@@ -15,10 +15,10 @@ tags:
 - drc-workshop
 - graduation
 salience:
-  score: 5
-  last-promoted-check: '2026-05-31'
-  promoted: true
+  score: 0
+  last-promoted-check: 2026-06-01
   references: []
+  promoted: true
 ---
 # Morning Briefing — May 20, 2026
 

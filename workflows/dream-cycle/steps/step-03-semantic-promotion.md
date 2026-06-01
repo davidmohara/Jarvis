@@ -1,14 +1,16 @@
 ---
-status: completed
-started-at: 2026-05-31T03:12:00-05:00
-completed-at: 2026-05-31T03:13:30-05:00
+status: complete
+started-at: 2026-06-01T03:11:45-05:00
+completed-at: 2026-06-01T03:12:30-05:00
 outputs:
   clusters_found: 0
   semantic_created: 0
   semantic_updated: 0
   promoted_entries: 0
-  error_categories_30d: "process-skip/protocol-skip:10, data-accuracy/stale-cache:4, routing-error/protocol-skip:4, assumption-error/surfaced-resolved-item:3 — all four already covered in LESSONS.md."
+  promotion_note: "All entries scored 0 in step-02 (no tags) — nothing met score>=3 threshold. 22nd consecutive idle promotion run."
+  error_categories_30d: "process-skip/protocol-skip:9, data-accuracy/stale-cache:4, routing-error/protocol-skip:4, assumption-error/surfaced-resolved-item:3 — all four root categories already represented in LESSONS.md."
   lessons_appended: 0
+  lessons_note: "No appends per preservation-over-aggression."
 ---
 
 <!-- system:start -->

@@ -9,9 +9,9 @@ status: archived
 context: "Morning boot + briefing \u2014 2026-05-18"
 salience:
   score: 0
-  last-promoted-check: '2026-05-31'
-  promoted: false
+  last-promoted-check: 2026-06-01
   references: []
+  promoted: false
 ---
 # Session Working Memory — May 18, 2026
 

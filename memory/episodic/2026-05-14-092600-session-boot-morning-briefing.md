@@ -9,8 +9,8 @@ status: archived
 context: "Morning boot + briefing \u2014 2026-05-14"
 salience:
   score: 0
+  last-promoted-check: 2026-06-01
   references: []
-  last-promoted-check: '2026-05-31'
   promoted: false
 ---
 ## Boot Data Sources

@@ -1,14 +1,18 @@
 ---
-type: working
+type: working-archive
 task_id: "session"
 session_id: "chief-2026-05-29-145100"
 agent-source: chief
 created: 2026-05-29T14:51:00
 expires: 2026-05-31T14:51:00
-status: active
+status: archived
 context: "Morning briefing (afternoon run) — 2026-05-29"
+salience:
+  score: 0
+  last-promoted-check: 2026-06-01
+  references: []
+  promoted: false
 ---
-
 # Morning Briefing — Friday, May 29, 2026 (Afternoon Run — 2:51 PM CDT)
 
 ## Data Sources

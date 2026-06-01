@@ -1,12 +1,12 @@
 ---
-status: completed
-started-at: 2026-05-31T03:13:30-05:00
-completed-at: 2026-05-31T03:13:40-05:00
+status: complete
+started-at: 2026-06-01T03:12:45-05:00
+completed-at: 2026-06-01T03:13:00-05:00
 outputs:
   entries_compressed: 0
   digests_updated: 0
   compression_skipped: true
-  compression_skip_reason: "All episodic entries < 90 days old (oldest is 2026-04-18, 43 days)"
+  compression_skip_reason: "All episodic entries < 90 days old (oldest is 2026-04-18, 44 days). 0 candidates meet date<90d AND score<2 AND promoted=false."
 ---
 
 <!-- system:start -->

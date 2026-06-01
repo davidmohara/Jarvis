@@ -17,9 +17,9 @@ related_people:
 - gabriela-garza-ramos
 - christopher-mcmillan
 salience:
-  score: 4
+  score: 0
+  last-promoted-check: 2026-06-01
   references: []
-  last-promoted-check: '2026-05-31'
   promoted: true
 ---
 # Morning Briefing — April 22, 2026 (Google Next Travel Day)

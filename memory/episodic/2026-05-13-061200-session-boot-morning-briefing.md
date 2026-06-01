@@ -9,8 +9,8 @@ status: archived
 context: "Morning boot + briefing \u2014 2026-05-13 (automated scheduled task)"
 salience:
   score: 0
+  last-promoted-check: 2026-06-01
   references: []
-  last-promoted-check: '2026-05-31'
   promoted: false
 ---
 # Morning Briefing Boot — May 13, 2026

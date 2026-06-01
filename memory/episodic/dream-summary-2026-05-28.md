@@ -5,8 +5,8 @@ status: archived
 session_id: dream-cycle-2026-05-28-030856
 salience:
   score: 0
+  last-promoted-check: 2026-06-01
   references: []
-  last-promoted-check: '2026-05-31'
   promoted: false
 ---
 # Dream Cycle Summary — 2026-05-28

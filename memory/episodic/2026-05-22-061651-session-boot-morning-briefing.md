@@ -8,9 +8,9 @@ expires: 2026-05-24 06:16:51
 status: archived
 salience:
   score: 0
-  last-promoted-check: '2026-05-31'
-  promoted: false
+  last-promoted-check: 2026-06-01
   references: []
+  promoted: false
 context: "Morning boot + briefing \u2014 2026-05-22"
 ---
 # Morning Briefing Boot — Friday May 22, 2026

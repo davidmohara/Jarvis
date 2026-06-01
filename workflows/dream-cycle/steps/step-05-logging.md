@@ -1,14 +1,13 @@
 ---
-status: completed
-started-at: 2026-05-31T03:13:40-05:00
-completed-at: 2026-05-31T03:14:30-05:00
+status: complete
+started-at: 2026-06-01T03:13:15-05:00
+completed-at: 2026-06-01T03:14:00-05:00
 outputs:
   dream_log_appended: true
-  working_summary_written: true
-  git_commit: success
-  git_commit_sha: 77e81c6
-  git_push: failed
-  git_failure_reason: "Boot git pull blocked (34th consecutive run). Commit succeeded after mv lock clear (required two attempts — lock recreated mid-add). Push blocked by missing git credentials in sandbox — run 'git push origin main' from David's machine. Two commits now ahead of origin (5043f8b, 77e81c6)."
+  working_summary_written: false
+  working_summary_skip_reason: "errors=0, semantic_created=0, semantic_updated=0 — spec says skip"
+  git_commit: pending
+  git_push: pending
 ---
 
 <!-- system:start -->
