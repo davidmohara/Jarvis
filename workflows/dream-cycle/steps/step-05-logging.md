@@ -6,8 +6,10 @@ outputs:
   dream_log_appended: true
   working_summary_written: false
   working_summary_skip_reason: "errors=0, semantic_created=0, semantic_updated=0 — spec says skip"
-  git_commit: pending
-  git_push: pending
+  git_commit: success
+  git_commit_sha: 2417f05
+  git_push: success
+  git_push_note: "First clean end-to-end push since prior sandbox unlink/credentials restriction. f246e68..2417f05 main -> main."
 ---
 
 <!-- system:start -->
