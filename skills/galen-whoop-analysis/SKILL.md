@@ -240,6 +240,21 @@ Each recommendation should include:
 
 ---
 
+### Step 9: Write to Health Metrics Log
+
+After the analysis output is complete, append a new `whoop_monthly` entry to `data/health/metrics-log.json`.
+
+- Use `entry_id` format: `whoop-monthly-{YYYY-MM}` (use the end month of the analysis window)
+- Set `date` to today's date (analysis date), and `period_start` / `period_end` to the actual 30-day window pulled
+- Populate all metric fields with real computed values from Steps 2-5: recovery_avg, hrv_rmssd_avg, rhr_avg, sleep_duration_avg_min, sleep_efficiency_avg_pct, trend directions, day distribution counts
+- `key_patterns`: array of 2-3 brief strings (e.g., `["sleep efficiency driving low recovery", "no structured deload days"]`)
+- Follow the schema in `data/health/schema.md` exactly
+- Use `null` for any metric that could not be computed from available data
+
+This write happens after the analysis is delivered — it is the final action before SKILL COMPLETE.
+
+---
+
 ## Success Metrics
 
 - All 30 days of data captured (recovery, sleep, workout, HRV)
