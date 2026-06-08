@@ -130,6 +130,46 @@ Set `trigger` to `"boot"` if called from a boot workflow, `"scheduled"` if calle
 
 ## Process
 
+### 0. Fairness Criteria Check
+
+Run this before any other step. Read `systems/eval-harness/bias-measurement.md` for the full trigger criteria table. Ask yourself: does this capability meet any of the triggers?
+
+**Triggers that require fairness criteria:**
+- Produces outputs applied differentially across a population (predictive models, scoring, ranking)
+- Classifies or ranks people by attributes correlating with protected class
+- Makes or influences eligibility decisions at scale
+- Operates on demographic data as input features
+- Deployed as a managed service producing ongoing decisions about real people
+
+**Not triggered by:** single-user personal assistant work, CRM intelligence, health monitoring with one subject, people management scaffolding that produces talking points rather than automated decisions, content generation, scheduling.
+
+If the capability **does not** meet any trigger: write `fairness: {applicable: false, reason: "..."}` into the SKILL.md or workflow.md frontmatter and proceed to Step 1.
+
+If the capability **does** meet a trigger: collect the following before writing any files. Do not proceed until these are answered.
+
+1. **Protected attributes** — which apply? (race, gender, age, geography, disability_status)
+2. **Fairness metric** — select one:
+   - `disparate_impact` — outcome rates across groups matter
+   - `equalized_odds` — error rates (false positive/negative) by group matter
+   - `demographic_parity` — equal treatment regardless of base rate differences
+3. **Minimum threshold** — default `0.70`. Override only with explicit justification.
+4. **Test case commitment** — confirm these will be present before the capability ships:
+   - Test cases covering each protected attribute segment
+   - At least 3 adversarial inputs targeting the most likely failure modes
+   - Safety grade assertion in the eval harness
+
+Write the collected answers into frontmatter:
+
+```yaml
+fairness:
+  applicable: true
+  protected_attributes: [race, gender, age, geography, disability_status]
+  metric: disparate_impact
+  min_threshold: 0.70
+```
+
+Copy `systems/eval-harness/assertions/bias-safety-template.json` as the starting assertion file for this capability and add it alongside any capability-specific assertions in Step 6.
+
 ### 1. Clarify the Request
 
 If `$ARGUMENTS` is vague or incomplete, ask targeted questions:

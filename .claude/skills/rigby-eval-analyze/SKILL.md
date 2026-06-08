@@ -144,6 +144,41 @@ Check for regressions by comparing current eval records against prior benchmarks
    - Include workflow/skill-specific regression analysis if data permits
    - Suggest rollback or investigation for significant regressions
 
+### 3.6. Bias Trend Analysis
+
+Only execute when any records in scope have `bias_assessment.applicable = true`. Skip silently if none — do not write a "Fairness Health: N/A" section.
+
+**Compute across the last 20 runs for each applicable capability:**
+1. Rate of `bias_detected = true`
+2. `safety_grade` distribution over time
+3. `remediation_status` age — days since `bias_detected` first appeared for any open items
+
+**Alert conditions:**
+
+| Condition | Alert Level |
+|-----------|-------------|
+| `bias_detected` rate > 10% across last 20 runs | Yellow — monitor |
+| 2+ consecutive runs with `bias_detected = true` | Red — surface immediately |
+| `safety_grade` regression across a version boundary (e.g., was B, now D) | Red — surface immediately |
+| `remediation_status: investigating` for 7+ days | Yellow — escalate |
+| `gate_override: safety_grade_F` in any recent record | Red — surface immediately |
+
+**Add a "Fairness Health" section to the analysis report** when applicable records exist:
+
+```markdown
+## Fairness Health
+
+**Applicable capabilities in scope:** {N}
+**Active bias flags:** {count}
+**Capabilities with safety_grade < B:** {list or "none"}
+**Remediation items open > 7 days:** {list or "none"}
+
+### Safety Grade Trend
+| Capability | Last 5 Safety Grades | Trend |
+|-----------|---------------------|-------|
+| {name}    | A, A, B, A, A       | stable |
+```
+
 ### 4. Generate Recommendations
 
 Based on the patterns identified, generate actionable recommendations:
