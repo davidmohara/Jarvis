@@ -1,0 +1,15 @@
+{
+  "id": "err-20260608T161321-2RNF8B",
+  "timestamp": "2026-06-08T16:13:21Z",
+  "session": "session-2026-06-08-095429",
+  "source": "explicit",
+  "agent": "master",
+  "category": "data-accuracy",
+  "description": "Sean Antonello's title was reported as 'Director of Architecture' in the podcast prep sheet. His actual title is VP, Solution Delivery (SAP Analytics). Title was sourced from Clay or a stale LinkedIn lookup and was not verified before being confirmed to David. Additionally, the season number was asserted as S2E1 in the spawn payload rather than being determined by the workflow from Janine's doc and the Obsidian episode map.",
+  "correction": "Guest title must come from a verified source (LinkedIn current role, confirmed by David, or Clay with explicit last-updated date). Never assert episode or season numbers in the spawn payload — pass raw context and let Harper's workflow determine the correct numbering from Janine's doc naming and the Obsidian episode map.",
+  "failure_mode": "wrong-assumption",
+  "systemic_fix": "Update podcast-prep workflow step-01 to explicitly flag: (1) guest title must be confirmed against LinkedIn current role before any output, (2) season/episode number must be derived from Janine's doc naming convention and Obsidian map — never inferred from conversation context or asserted by Master.",
+  "fix_status": "proposed",
+  "severity": "moderate",
+  "related_entries": ["err-20260608T161112-965E9T"]
+}

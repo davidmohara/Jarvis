@@ -5,15 +5,7 @@
     "closed": "2026-05-15T09:40:50-05:00",
     "current_topic": null,
     "topics": [
-      {
-        "name": "morning-boot",
-        "loops": [
-          {
-            "task": "boot-sequence",
-            "resolved": true
-          }
-        ]
-      }
+      {"name": "morning-boot", "loops": [{"task": "boot-sequence", "resolved": true}]}
     ]
   },
   {
@@ -22,68 +14,11 @@
     "closed": "2026-05-15T17:00:00-05:00",
     "current_topic": null,
     "topics": [
-      {
-        "name": "morning-boot",
-        "loops": [
-          {
-            "task": "boot-sequence",
-            "resolved": true
-          }
-        ]
-      },
-      {
-        "name": "plaud-ingest",
-        "loops": [
-          {
-            "task": "All 5 transcripts fully processed and completed",
-            "resolved": true
-          }
-        ]
-      },
-      {
-        "name": "synexus-proposal",
-        "loops": [
-          {
-            "task": "Proposal sent \u2014 confirmed by David on 2026-05-15, visible in sent items",
-            "resolved": true
-          }
-        ]
-      },
-      {
-        "name": "ypo-speaker-application",
-        "loops": [
-          {
-            "task": "video script written and saved",
-            "resolved": true
-          }
-        ]
-      },
-      {
-        "topic": "unattributed",
-        "files": [
-          "systems/error-tracking/rebuild-log.py",
-          "systems/error-tracking/new-entry.py",
-          "systems/error-tracking/schema.md",
-          "SYSTEM.md",
-          "CLAUDE.md",
-          "identity/AUTOMATION.md",
-          "workflows/dream-cycle/workflow.md",
-          "workflows/dream-cycle/steps/step-03-semantic-promotion.md",
-          "workflows/daily-review/steps/step-03-update-system.md",
-          ".claude/skills/rigby-error-analysis/SKILL.md",
-          ".claude/skills/quinn-weekly-review/SKILL.md",
-          "skills/rigby-error-analysis/SKILL.md",
-          "skills/dream-cycle/SKILL.md",
-          "agents/master.md",
-          "agents/conventions.md",
-          "agents/rigby.md",
-          "evolution.manifest.json",
-          "memory/LESSONS.md",
-          "systems/pending-fixes/morning-briefing-prompt-fix.md"
-        ],
-        "loops": [],
-        "flag": true
-      }
+      {"name": "morning-boot", "loops": [{"task": "boot-sequence", "resolved": true}]},
+      {"name": "plaud-ingest", "loops": [{"task": "All 5 transcripts fully processed and completed", "resolved": true}]},
+      {"name": "synexus-proposal", "loops": [{"task": "Proposal sent — confirmed by David on 2026-05-15, visible in sent items", "resolved": true}]},
+      {"name": "ypo-speaker-application", "loops": [{"task": "video script written and saved", "resolved": true}]},
+      {"topic": "unattributed", "files": ["systems/error-tracking/rebuild-log.py","systems/error-tracking/new-entry.py","systems/error-tracking/schema.md","SYSTEM.md","CLAUDE.md","identity/AUTOMATION.md","workflows/dream-cycle/workflow.md","workflows/dream-cycle/steps/step-03-semantic-promotion.md","workflows/daily-review/steps/step-03-update-system.md",".claude/skills/rigby-error-analysis/SKILL.md",".claude/skills/quinn-weekly-review/SKILL.md","skills/rigby-error-analysis/SKILL.md","skills/dream-cycle/SKILL.md","agents/master.md","agents/conventions.md","agents/rigby.md","evolution.manifest.json","memory/LESSONS.md","systems/pending-fixes/morning-briefing-prompt-fix.md"], "loops": [], "flag": true}
     ]
   },
   {
@@ -92,42 +27,10 @@
     "closed": "2026-05-18T18:35:00-05:00",
     "current_topic": null,
     "topics": [
-      {
-        "name": "morning-boot",
-        "loops": [
-          {
-            "task": "boot-sequence",
-            "resolved": true
-          }
-        ]
-      },
-      {
-        "name": "skimmer-lunch-prep",
-        "loops": [
-          {
-            "task": "Prep sheet built, PDF pushed to reMarkable",
-            "resolved": true
-          }
-        ]
-      },
-      {
-        "name": "sst-innovation-lab-call-prep",
-        "loops": [
-          {
-            "task": "Call prep sheet built, PDF built \u2014 reMarkable push failed (400), needs manual push via desktop app",
-            "resolved": false
-          }
-        ]
-      },
-      {
-        "name": "driven-to-develop-ga4-review",
-        "loops": [
-          {
-            "task": "14-day GA4 review completed, recommendations surfaced",
-            "resolved": true
-          }
-        ]
-      }
+      {"name": "morning-boot", "loops": [{"task": "boot-sequence", "resolved": true}]},
+      {"name": "skimmer-lunch-prep", "loops": [{"task": "Prep sheet built, PDF pushed to reMarkable", "resolved": true}]},
+      {"name": "sst-innovation-lab-call-prep", "loops": [{"task": "Call prep sheet built, PDF built — reMarkable push failed (400), needs manual push via desktop app", "resolved": false}]},
+      {"name": "driven-to-develop-ga4-review", "loops": [{"task": "14-day GA4 review completed, recommendations surfaced", "resolved": true}]}
     ]
   },
   {
@@ -135,88 +38,35 @@
     "started": "2026-05-19T09:54:16-05:00",
     "closed": "2026-05-19T23:59:00-05:00",
     "current_topic": null,
-    "topics": [
-      {
-        "name": "morning-boot",
-        "loops": [
-          {
-            "task": "boot-sequence",
-            "resolved": false
-          }
-        ]
-      }
-    ]
+    "topics": [{"name": "morning-boot", "loops": [{"task": "boot-sequence", "resolved": false}]}]
   },
   {
     "id": "session-2026-05-20-082026",
     "started": "2026-05-20T08:20:26-05:00",
     "closed": "2026-05-21T06:07:16-05:00",
     "current_topic": null,
-    "topics": [
-      {
-        "name": "morning-boot",
-        "loops": [
-          {
-            "task": "boot-sequence",
-            "resolved": false
-          }
-        ]
-      }
-    ]
+    "topics": [{"name": "morning-boot", "loops": [{"task": "boot-sequence", "resolved": false}]}]
   },
   {
     "id": "session-2026-05-21-060716",
     "started": "2026-05-21T06:07:16-05:00",
     "closed": "2026-05-22T06:15:01-05:00",
     "current_topic": null,
-    "topics": [
-      {
-        "name": "morning-boot",
-        "loops": [
-          {
-            "task": "boot-sequence",
-            "resolved": false
-          }
-        ]
-      }
-    ]
+    "topics": [{"name": "morning-boot", "loops": [{"task": "boot-sequence", "resolved": false}]}]
   },
   {
     "id": "session-2026-05-22-061501",
     "started": "2026-05-22T06:15:01-05:00",
     "closed": "2026-05-24T14:35:00-05:00",
     "current_topic": null,
-    "topics": [
-      {
-        "name": "morning-boot",
-        "loops": [
-          {
-            "task": "boot-sequence",
-            "resolved": false
-          }
-        ]
-      }
-    ]
+    "topics": [{"name": "morning-boot", "loops": [{"task": "boot-sequence", "resolved": false}]}]
   },
   {
     "id": "session-2026-05-24-143554",
     "started": "2026-05-24T14:35:54-05:00",
     "closed": "2026-05-26T02:47:00-05:00",
     "current_topic": null,
-    "topics": [
-      {
-        "name": "morning-boot",
-        "loops": [
-          {
-            "task": "boot-sequence",
-            "resolved": false
-          }
-        ],
-        "files": [
-          "workflows/morning-briefing/state.yaml"
-        ]
-      }
-    ]
+    "topics": [{"name": "morning-boot", "loops": [{"task": "boot-sequence", "resolved": false}], "files": ["workflows/morning-briefing/state.yaml"]}]
   },
   {
     "id": "session-2026-05-26-024700",
@@ -224,24 +74,8 @@
     "closed": "2026-05-27T11:24:21-05:00",
     "current_topic": null,
     "topics": [
-      {
-        "name": "morning-boot",
-        "loops": [
-          {
-            "task": "boot-sequence",
-            "resolved": false
-          }
-        ]
-      },
-      {
-        "name": "ai-tour-houston-intel",
-        "loops": [
-          {
-            "task": "Reviewed registered company list from SharePoint; flagged SynergenX, AT&T, Tenet, TI, CBRE, Builders FirstSource, Marriott, Expedia, and Masimo as priority targets for AI Tour floor",
-            "resolved": true
-          }
-        ]
-      }
+      {"name": "morning-boot", "loops": [{"task": "boot-sequence", "resolved": false}]},
+      {"name": "ai-tour-houston-intel", "loops": [{"task": "Reviewed registered company list from SharePoint; flagged SynergenX, AT&T, Tenet, TI, CBRE, Builders FirstSource, Marriott, Expedia, and Masimo as priority targets for AI Tour floor", "resolved": true}]}
     ]
   },
   {
@@ -249,33 +83,22 @@
     "started": "2026-05-27T11:24:21-05:00",
     "closed": "2026-05-29T07:09:48-05:00",
     "current_topic": null,
-    "topics": [
-      {
-        "name": "morning-boot",
-        "loops": [
-          {
-            "task": "boot-sequence",
-            "resolved": false
-          }
-        ]
-      }
-    ]
+    "topics": [{"name": "morning-boot", "loops": [{"task": "boot-sequence", "resolved": false}]}]
   },
   {
     "id": "session-2026-05-29-070948",
     "started": "2026-05-29T07:09:48-05:00",
+    "closed": "2026-06-08T09:54:29-05:00",
+    "current_topic": null,
+    "topics": [{"name": "morning-boot", "loops": [{"task": "boot-sequence", "resolved": false}]}]
+  },
+  {
+    "id": "session-2026-06-08-095429",
+    "started": "2026-06-08T09:54:29-05:00",
     "closed": null,
     "current_topic": "morning-boot",
     "topics": [
-      {
-        "name": "morning-boot",
-        "loops": [
-          {
-            "task": "boot-sequence",
-            "resolved": false
-          }
-        ]
-      }
+      {"name": "morning-boot", "loops": [{"task": "boot-sequence", "resolved": false}]}
     ]
   }
 ]

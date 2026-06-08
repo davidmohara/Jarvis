@@ -2,8 +2,10 @@
   "skill": "plaud-transcripts",
   "agent": "knox",
   "trigger": "boot",
-  "started": "2026-05-26T13:10:00Z",
-  "status": "success",
+  "started": "2026-06-04T00:00:00Z",
+  "completed": "2026-06-04T01:30:00Z",
+  "status": "partial",
   "tool_failures": 0,
-  "error_ids": []
+  "error_ids": [],
+  "notes": "5 of 5 target recordings ingested. OmniFocus task creation skipped this run — action items captured in vault notes. JSX CCO name unknown (flagged). Alice Mburu name corrected. Large staging backlog (~40+ recordings from Jan-May) remains unprocessed — outside scope of this run."
 }

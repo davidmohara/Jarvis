@@ -1,0 +1,15 @@
+{
+  "id": "err-20260604T133606-6KQAJA",
+  "timestamp": "2026-06-04T13:36:06Z",
+  "session": "2026-06-04",
+  "source": "explicit",
+  "agent": "knox",
+  "category": "missed-context",
+  "description": "Knox paused the plaud-ingest workflow and asked David to manually identify speakers for 3 recordings, despite having access to calendar data via the Microsoft 365 MCP connector that should have been used to resolve names first.",
+  "correction": "Knox should query the calendar for meetings on or around each recording date before surfacing speaker questions to the controller. Only escalate to the controller if calendar lookup fails to resolve the speaker.",
+  "failure_mode": "context-blindness",
+  "systemic_fix": "Update skills/plaud-speaker-id/SKILL.md to require calendar lookup via mcp__b8c41a14-7a9b-4ea5-ab12-933ee04bc52f__outlook_calendar_search as the first resolution step before any controller prompt.",
+  "fix_status": "proposed",
+  "severity": "moderate",
+  "related_entries": []
+}

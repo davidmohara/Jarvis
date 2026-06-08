@@ -32,7 +32,7 @@ Read and execute `workflows/podcast-prep/workflow.md`. Follow each step in `work
   - `mcp__clay__getContact` for full context on key guests
   - Use Clay data for guest background, title, relationship context in prep materials
 - **Task management**: OmniFocus via osascript (Bash tool)
-- **PDF generation**: `npx md-to-pdf` with custom CSS (Bash tool)
+- **PDF generation**: Python/weasyprint with inline CSS (Bash tool) — do NOT use `npx md-to-pdf`, it does not apply stylesheets correctly in the sandbox
 - **reMarkable upload**: `rmapi put` (Bash tool)
 - **Web**: WebSearch, WebFetch tools
 - **Files**: Read, Write, Edit, Glob, Grep tools

@@ -1537,6 +1537,46 @@
           "description": "Added fallback for close-eval-record.py session_id mismatch in Cowork: directly patch the stub by eval-record-id and delete the spurious new record if the script creates instead of closes."
         }
       ]
+    },
+    {
+      "id": "work-20260608-chase-call-prep-skill",
+      "description": "Built canonical call and meeting prep skill for Chase. Defines a strict five-section template (Background/History, Company Overview, Improving's Position, Proposed Agenda, Talking Points) that governs all prep sheet output. Covers both call prep (first-call/prospect) and meeting prep (existing client/partner) contexts — same template, depth varies. Explicitly prohibits post-call sections (Action Items, Notes, Follow-up Checklists, Next Steps). Registered in manifest and added trigger row to Chase personal task portfolio.",
+      "started": "2026-06-08T00:00:00Z",
+      "classification": "personal",
+      "files": [
+        {
+          "path": "skills/chase-call-prep/SKILL.md",
+          "action": "add",
+          "type": "personal",
+          "description": "Canonical call and meeting prep skill. Five-section template, context depth guidance, prohibited sections enforcement, output specification, and execution steps."
+        },
+        {
+          "path": "skills/_manifest.jsonl",
+          "action": "merge",
+          "type": "personal",
+          "description": "Registered chase-call-prep skill in lazy-loading manifest."
+        },
+        {
+          "path": "agents/chase.md",
+          "action": "merge",
+          "type": "personal",
+          "description": "Added Call & Meeting Prep trigger row to Chase personal task portfolio block."
+        }
+      ]
+    },
+    {
+      "id": "work-20260608-chase-call-prep-source-priority",
+      "description": "Defined explicit research source priority for Sections 1 and 2 of the chase-call-prep skill. Section 1 (Background/History): LinkedIn primary, CRM for relationship history, Clay supplemental only. Section 2 (Company Overview): company website primary, web search for news/signals, CRM for account history, Clay supplemental only. Updated Execution Step 3 to enforce this order and explicitly prohibit presenting Clay data as authoritative. Prevents Chase from skipping LinkedIn/company site in favor of Clay or treating Clay as a primary source.",
+      "started": "2026-06-08T00:00:00Z",
+      "classification": "personal",
+      "files": [
+        {
+          "path": "skills/chase-call-prep/SKILL.md",
+          "action": "merge",
+          "type": "personal",
+          "description": "Added Research source priority blocks to Section 1 and Section 2 depth guidance. Updated Execution Step 3 to enforce LinkedIn-first for people research, company-website-first for company research, and Clay-as-supplemental-only in both cases."
+        }
+      ]
     }
   ]
 }

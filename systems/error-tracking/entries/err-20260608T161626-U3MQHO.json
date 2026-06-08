@@ -1,0 +1,15 @@
+{
+  "id": "err-20260608T161626-U3MQHO",
+  "timestamp": "2026-06-08T16:16:26Z",
+  "session": "session-2026-06-08-095429",
+  "source": "explicit",
+  "agent": "master",
+  "category": "format-violation",
+  "description": "Em-dashes used in podcast prep output despite explicit standing ban. This is a chronic repeat violation.",
+  "correction": "Em-dashes are banned in all IES output without exception. Use commas, colons, parentheses, or rewrite the sentence.",
+  "failure_mode": "protocol-skip",
+  "systemic_fix": "Add em-dash prohibition to harper-podcast-prep skill and podcast-prep workflow as an explicit output rule.",
+  "fix_status": "proposed",
+  "severity": "minor",
+  "related_entries": []
+}

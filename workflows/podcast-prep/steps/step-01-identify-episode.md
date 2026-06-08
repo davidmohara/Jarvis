@@ -12,7 +12,7 @@ model: sonnet
 ## MANDATORY EXECUTION RULES
 
 1. You MUST parse the input to determine whether the user provided an episode number or a guest name.
-2. You MUST read the Obsidian episode map to match the input to a specific episode.
+2. You MUST search SharePoint for Janine's episode doc first — this is the authoritative source. Obsidian notes are secondary and should only be used if SharePoint yields nothing.
 3. You MUST search the calendar for the filming event to get date, time, location, and attendees.
 4. You MUST store all episode details in working memory before proceeding.
 5. Do NOT proceed to step 02 without a confirmed episode match.
@@ -40,10 +40,13 @@ model: sonnet
    | Guest name | "Robyn Fuentes", "Robyn", "John Ruzick" | Match against primary or secondary guest columns |
    | Topic | "agent orchestration", "AI business model" | Match against topic/title column |
 
-2. **Read the Obsidian episode map.**
-   - Use Obsidian MCP: `get_vault_file` for `zzClaude/Cowork/Podcast Sync Prep - 2026-02-13.md`
-   - This file contains the master episode table with: episode number, topic/title, primary guest, secondary guest, filming date, status
-   - Find the matching row
+2. **Search SharePoint for Janine's episode doc (primary source).**
+   - Use M365 MCP: `sharepoint_search` with the guest name and/or episode number as search terms — e.g., `"{Guest Name} podcast episode"` or `"episode {N} podcast topics"`
+   - Do not assume a specific filename or folder path — search broadly and read whatever doc surfaces that contains the episode's title, topic framing, and interview questions
+   - Read the full doc via `read_resource` and extract: episode title, season/episode number (if stated), topic framing, and the complete question list — use all of it verbatim in the prep sheet
+   - If multiple docs match, prefer the most recently modified one and note the others
+   - If Janine's doc is not found on SharePoint: fall back to Obsidian (`search_vault_simple` for "podcast episode {N}" or guest name) and flag: "Janine's SharePoint doc not found — using Obsidian notes as fallback. Content may be incomplete."
+   - Do NOT use the old Obsidian sync doc (`zzClaude/Cowork/Podcast Sync Prep - 2026-02-13.md`) — it only covers Episodes 1-7 and is out of date.
 
 3. **Search the calendar for the filming event.**
    - Use M365 MCP: `outlook_calendar_search` for "Improving Edge" or "MarketScale" or "podcast" near the expected date
@@ -84,10 +87,10 @@ model: sonnet
 
 | Failure | Action |
 |---------|--------|
-| No match in episode map | Ask: "I couldn't find an episode matching '{input}'. Can you give me the episode number or the guest's full name?" |
-| Multiple matches (e.g., guest on two episodes) | Present options: "Found multiple matches: Episode {N} ({Title}) and Episode {M} ({Title}). Which one?" |
-| Episode map file not found in Obsidian | Search vault for alternative locations: `search_vault_simple` for "podcast" or "episode". Flag: "Episode map not at expected path — searching vault." |
-| Calendar event not found | Proceed with episode map date. Flag: "No calendar event found for this filming date. Using the episode map schedule." |
+| Janine's doc not found on SharePoint | Fall back to Obsidian `search_vault_simple` for "podcast episode {N}". Flag: "Janine's doc not found on SharePoint — using Obsidian notes as fallback." |
+| No match anywhere | Ask: "I couldn't find an episode matching '{input}'. Can you give me the episode number or the guest's full name?" |
+| Multiple matches | Present options: "Found multiple matches: Episode {N} ({Title}) and Episode {M} ({Title}). Which one?" |
+| Calendar event not found | Proceed with date from Janine's doc or Obsidian. Flag: "No calendar event found — using episode doc schedule." |
 
 ---
 

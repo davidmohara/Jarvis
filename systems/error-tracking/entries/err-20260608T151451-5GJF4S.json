@@ -1,0 +1,15 @@
+{
+  "id": "err-20260608T151451-5GJF4S",
+  "timestamp": "2026-06-08T15:14:51Z",
+  "session": "session-2026-06-08-095429",
+  "source": "explicit",
+  "agent": "master",
+  "category": "format-violation",
+  "description": "Call prep sheets for Kate Bugakova and Wendy's/Cognition both included an 'Action Items' checklist section and a blank 'Notes' section. These are post-call artifacts and do not belong in prep sheets. Prior prep sheets (SST Innovation Lab, Issac Hicks) do not include these sections.",
+  "correction": "Call prep sheets end after the talking points or a light 'After the Call' pointer section if there are specific follow-up hooks. No action item checkboxes, no blank notes fields.",
+  "failure_mode": "wrong-assumption",
+  "systemic_fix": "Reference existing call-prep files (e.g., 2026-05-18-sst-innovation-lab-call-prep.md) before generating new ones. Do not add sections not present in canonical examples.",
+  "fix_status": "applied",
+  "severity": "minor",
+  "related_entries": []
+}
