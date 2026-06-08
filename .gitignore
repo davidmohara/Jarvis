@@ -7,6 +7,9 @@
 # Intermediate build files
 meetings/**/*.html
 
+# Podcast prep PDFs — generated on demand from MD source, never committed
+meetings/podcast-prep/*.pdf
+
 # FUSE mount artifacts
 .fuse_hidden*
 **/.fuse_hidden*
