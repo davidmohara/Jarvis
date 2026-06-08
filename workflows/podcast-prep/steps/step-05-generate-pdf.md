@@ -100,7 +100,7 @@ If ANY check fails: fix the Python script and re-render. Do NOT present a broken
 
 If the PDF is 2 pages: reduce font sizes and/or tighten spacing, then re-render. Repeat until single page.
 
-### 4. reMarkable Upload (immediately after visual verification passes)
+### 5. reMarkable Upload (immediately after visual verification passes)
 
 Only after David approves, route to Knox for the reMarkable upload:
 
@@ -149,4 +149,14 @@ Knox executes the upload using the reMarkable upload skill. Refer to `skills/rem
 ## WORKFLOW COMPLETE
 
 The podcast prep workflow is done when: (1) the PDF passes all 15 visual checks, (2) David has approved it, and (3) it is on the reMarkable. Harper stands by for revisions.
+
+---
+
+## STEP COMPLETION TRACKING
+
+Record step completion for eval harness:
+
+```bash
+python3 systems/eval-harness/record-step.py podcast-prep step-05-generate-pdf complete "${{frontmatter.started-at}}" "${{frontmatter.completed-at}}"
+```
 <!-- personal:end -->
