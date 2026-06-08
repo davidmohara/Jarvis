@@ -46,6 +46,7 @@ model: sonnet
 - `dropbox_health_tracking` = `~/Library/CloudStorage/Dropbox/Family/Health/David - Health Tracking.xlsx`
 - `obsidian_health_folder` = `Mind/Health/`
 - `monthly_output` = `Mind/Health/Monthly Review - [Month Year].md`
+- `metrics_log` = `data/health/metrics-log.json` (schema: `data/health/schema.md`)
 
 <!-- system:end -->
 
@@ -87,6 +88,15 @@ Read and follow in sequence:
 3. **Step 03:** Pull DEXA and body composition data from Dropbox Excel
 4. **Step 04:** Load Lifebook health goals and compute progress vs. targets
 5. **Step 05:** Synthesize monthly health note for Obsidian
+
+---
+
+## PRE-FLIGHT: Load Metrics History
+
+Before pulling any live data, read `data/health/metrics-log.json`. This gives Galen the full longitudinal picture:
+- Identify the most recent entry for each category (`bloodwork`, `whoop_monthly`, `dexa`) — these establish the baseline for trend comparison
+- Note any gaps (e.g., if no `whoop_monthly` entry exists for last month, this month's analysis is the first data point, not a trend)
+- Use prior log entries as authoritative values for trend deltas — do not re-derive them from memory
 
 ---
 
@@ -455,6 +465,20 @@ tags: [health, monthly-review, WHOOP, bloodwork, body-comp]
 **Review Completed By:** Galen (Longevity Advisor)
 **Ready for:** Obsidian vault, quarterly review input, physician context
 ```
+
+---
+
+## STEP 06: Write Monthly Summary to Health Metrics Log
+
+After the Obsidian note is written (Step 05), append a `monthly_review` entry to `data/health/metrics-log.json`.
+
+- Use `entry_id` format: `monthly-review-{YYYY-MM}`
+- Set `period` to the month name and year (e.g., "June 2026")
+- Populate `summary` with the actual status assessments derived from this review — not defaults
+- Set `obsidian_note` to the exact path of the note written in Step 05
+- Follow the schema in `data/health/schema.md`
+
+This is the final step before the workflow is marked complete in `state.yaml`.
 
 ---
 

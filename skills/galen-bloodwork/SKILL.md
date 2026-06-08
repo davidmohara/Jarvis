@@ -17,6 +17,10 @@ trigger_agents: [galen]
 
 ## Workflow
 
+### DATA INTEGRITY RULE
+
+Before proceeding: every value in this analysis must come from the actual source file. The output format templates below contain placeholder values (e.g., "ApoB: 80", "E2: 45") — these are FORMAT EXAMPLES ONLY. Never use them in real output. If a marker is not present in the source file, record it as `null` or omit it. Report unavailable data as unavailable.
+
 ### Step 1: Locate & Load Bloodwork File
 
 Read latest bloodwork from Dropbox (PDF files on disk — not Obsidian):
@@ -189,6 +193,15 @@ For each biomarker, map to David's longevity framework:
 - Fasting insulin, HbA1c, fasting glucose, triglycerides, HDL, body composition, leptin (if available)
 - Summary: "Metabolic health — insulin sensitivity is [good/declining], glucose control is [tight/loose]"
 
+### Step 6b: Prior Trend from Metrics Log
+
+Before writing new recommendations, read `data/health/metrics-log.json` and filter entries where `category == "bloodwork"`, sorted by `date` descending. Use this to:
+- Confirm prior values (supplement or override values from PDF if the log has more history)
+- Identify multi-draw trends (not just current vs. prior)
+- Note if a marker has been persistently out of range across 2+ draws — that's a higher-priority concern than a single deviation
+
+If the log has no prior bloodwork entries, proceed with PDF-only comparison and note "no prior log entries."
+
 ### Step 7: Generate Dr. Randol Question List
 
 Create a priority-ordered list of questions for the next physician visit:
@@ -207,6 +220,15 @@ Create a priority-ordered list of questions for the next physician visit:
 **Priority 4 (Lifestyle/Context):**
 - "Any additional testing recommended (Omega-3 index, Lp(a), advanced lipid panel)?"
 - "Sleep patterns have been [good/variable] — any impact you'd expect on metabolic markers?"
+
+### Step 7b: Citation Requirement for All Recommendations
+
+Every recommendation in the interpretation brief must include:
+- **Mechanism:** Why this intervention affects this marker (one sentence)
+- **Evidence:** Author / study name / publication year / clinical body (e.g., "Ballantyne et al., JACC 2020" or "ACC/AHA Cholesterol Guidelines 2018"). Use PubMed or established guidelines — do not cite from memory without a verifiable source.
+- **Confidence:** `strong evidence` (RCT or meta-analysis) / `emerging evidence` (observational or small trial) / `expert consensus` (guideline-based without strong RCT)
+
+If you cannot cite a source for a recommendation, state it as an observation for discussion rather than a recommendation.
 
 ### Step 8: Synthesize Interpretation Brief
 
@@ -298,6 +320,21 @@ Create a priority-ordered list of questions for the next physician visit:
 **Data Source:** Function Health Bloodwork Portal
 **Next Retest:** [Recommended date, typically 8-12 weeks for protocol adjustments]
 ```
+
+---
+
+### Step 9: Write to Health Metrics Log
+
+After the interpretation brief is complete, append a new `bloodwork` entry to `data/health/metrics-log.json`.
+
+- Use `entry_id` format: `bloodwork-{test-date}` (e.g., `bloodwork-2026-06-01`)
+- Set `date` to the bloodwork draw date (from the PDF), not today's date
+- Set `source_file` to the actual PDF path used
+- Populate every metric field that appeared on the panel with its real value; set `null` for any marker not on this panel
+- Populate `out_of_range` as an array of marker names that were flagged (e.g., `["apob_mg_dl", "estradiol_e2_pg_ml"]`)
+- Follow the schema in `data/health/schema.md` exactly
+
+This write happens after the brief is delivered — it is the final action before SKILL COMPLETE.
 
 ---
 

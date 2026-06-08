@@ -154,6 +154,15 @@ upcoming_changes:
   - "DSIP eligible November 2026 → seasonal, winter focus for sleep optimization"
 ```
 
+### Step 5b: Citation Requirement for Protocol Recommendations
+
+Any recommendation to start, stop, or adjust a supplement or peptide must include:
+- **Mechanism:** How this compound affects the target marker or system
+- **Evidence:** Citation (author / study / year / publication or clinical body)
+- **Confidence:** `strong evidence` / `emerging evidence` / `expert consensus`
+
+Peptide protocols in particular have limited RCT data — flag those as `emerging evidence` and note the primary research source (e.g., "Sikiric et al., BPC-157 GI healing studies" or "Walker et al., Ipamorelin phase II trial").
+
 ### Step 6: Generate Protocol Status Card
 
 **Format: Shareable markdown or HTML summary**
@@ -277,6 +286,19 @@ upcoming_changes:
 **Next Protocol Review:** Monthly (aligned with monthly health review)
 **Physician:** Dr. Julli Randol
 ```
+
+---
+
+### Step 7: Write Protocol Changes to Health Metrics Log
+
+If any protocol change occurred since the last logged entry (a supplement started, stopped, or adjusted; a peptide cycle started or ended), append a `protocol_change` entry to `data/health/metrics-log.json`.
+
+- Use `entry_id` format: `protocol-change-{YYYY-MM-DD}`
+- List each change as an object in the `changes` array with: `item`, `type` (supplement/peptide), `action` (started/stopped/adjusted/paused), `dose`, `frequency`, `rationale`
+- If no changes occurred since the last log entry, skip this write
+- Follow the schema in `data/health/schema.md` exactly
+
+This write happens after the status card is delivered — it is the final action before SKILL COMPLETE.
 
 ---
 

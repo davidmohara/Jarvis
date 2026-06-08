@@ -27,6 +27,16 @@ Read from Obsidian vault:
 
 If visit is less than 1 week away, this should be high priority. If more than 4 weeks away, mark for "future prep" but still gather data.
 
+### Step 1b: Load Metrics History
+
+Read `data/health/metrics-log.json`. This supplements (and may be more complete than) session memory:
+- Filter `bloodwork` entries sorted by date — use these as the authoritative trend series for biomarkers
+- Filter `whoop_monthly` entries for the relevant period — use these for recovery/HRV/sleep trend context
+- Filter `dexa` entries — use for body composition trend
+- Filter `protocol_change` entries — use to document what changed between visits
+
+If the log has entries that predate what's available in Obsidian or Dropbox PDFs, prefer the log values for trend analysis (they were extracted from the same source files). Note any discrepancies.
+
 ### Step 2: Gather WHOOP Data Since Last Visit
 
 Pull 90-day WHOOP data (or from last visit date to today):
@@ -386,6 +396,18 @@ new_questions_for_dr:
 **Next Review:** [post-visit summary after appointment]
 **Data Sources:** WHOOP API (90-day), Function Health Bloodwork (latest), Obsidian vault, Dropbox health tracking
 ```
+
+### Step 8b: Write DEXA Entry to Health Metrics Log (if new scan)
+
+After reading body composition data in Step 5, check if the DEXA scan date is already in `data/health/metrics-log.json` (look for a `dexa` entry with matching `date`). If not present, append a new `dexa` entry:
+
+- Use `entry_id` format: `dexa-{YYYY-MM}` (scan year-month)
+- Set `date` to the actual DEXA scan date
+- Populate all metrics with real values from the file: `weight_lbs`, `body_fat_pct`, `lean_mass_lbs`, `fat_mass_lbs`, `bmi`, `vat_lbs`, `ag_ratio`, `bone_density_t_score`
+- Use `null` for any metric not captured in the scan
+- Follow the schema in `data/health/schema.md`
+
+If the entry already exists (same scan date), skip the write.
 
 ### Step 9: Route to Obsidian
 

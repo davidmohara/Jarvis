@@ -67,7 +67,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "bash '/Users/davidohara/develop/jarvis/.claude/hooks/pre-tool-use.sh'"
+            "command": "bash '.claude/hooks/pre-tool-use.sh'"
           }
         ]
       }
@@ -78,7 +78,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "python3 '/Users/davidohara/develop/jarvis/.claude/hooks/post-tool-use.py'"
+            "command": "python3 '.claude/hooks/post-tool-use.py'"
           }
         ]
       },
@@ -87,7 +87,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "python3 '/Users/davidohara/develop/jarvis/.claude/hooks/post-tool-use.py'"
+            "command": "python3 '.claude/hooks/post-tool-use.py'"
           }
         ]
       }
@@ -97,7 +97,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "python3 '/Users/davidohara/develop/jarvis/.claude/hooks/eval-tool-failure.py'"
+            "command": "python3 '.claude/hooks/eval-tool-failure.py'"
           }
         ]
       }
@@ -107,7 +107,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "python3 '/Users/davidohara/develop/jarvis/.claude/hooks/eval-agent-start.py'"
+            "command": "python3 '.claude/hooks/eval-agent-start.py'"
           }
         ]
       }
@@ -117,7 +117,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "python3 '/Users/davidohara/develop/jarvis/.claude/hooks/eval-agent-stop.py'"
+            "command": "python3 '.claude/hooks/eval-agent-stop.py'"
           }
         ]
       }
@@ -127,7 +127,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "python3 '/Users/davidohara/develop/jarvis/.claude/hooks/routing-compliance.py'"
+            "command": "python3 '.claude/hooks/routing-compliance.py'"
           }
         ]
       }
@@ -137,7 +137,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "python3 '/Users/davidohara/develop/jarvis/.claude/hooks/eval-session-end.py'"
+            "command": "python3 '.claude/hooks/eval-session-end.py'"
           }
         ]
       }
