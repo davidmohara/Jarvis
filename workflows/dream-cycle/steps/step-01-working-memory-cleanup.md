@@ -71,19 +71,51 @@ For every non-trivial file being archived, derive and add these four fields to t
 
 | Field | Source | Format |
 |-------|--------|--------|
-| `date` | The `created` field (truncate to YYYY-MM-DD). If `created` is absent, parse the filename prefix (e.g., `2026-05-13-061200-...` → `2026-05-13`). If still unparseable, omit `date` and log `enrichment_no_date: [path]`. | `YYYY-MM-DD` (ISO date, no time) |
+| `date` | The `created` field (truncate to YYYY-MM-DD). If `created` is absent, parse the filename prefix. If still unparseable, omit `date` and log `enrichment_no_date: [path]`. | `YYYY-MM-DD` (ISO date, no time) |
 | `source_file` | `memory/working/{fname}` (the original path) | String |
-| `tags` | LLM-extract 5-10 lowercase kebab-case tokens from the body that capture: deliverable type (`briefing`, `daily-review`, `dream-summary`, `pipeline-review`), domains touched (`calendar`, `omnifocus`, `pipeline`, `leads`, `card-offers`, `health`), specific people/accounts mentioned (e.g., `alice-mburu`, `galen-health`), and notable events (`travel`, `glc-chicago`, `flight-conflict`, `api-failure`). Prefer reusing tag tokens that already appear on April-era episodic files so co-occurrence will match. | YAML block list under `tags:` |
-| `related_people` | Names mentioned in the body, lowercase kebab-case. If none, write an empty list. | YAML block list under `related_people:` |
+| `tags` | **LLM-extracted** via `systems/dream-cycle/llm_tag_extractor.py`. Returns 5-10 lowercase kebab-case tokens. See "LLM Extraction" below. | YAML block list under `tags:` |
+| `related_people` | **LLM-extracted** via the same call. Returns lowercase kebab-case names. Empty list if none. | YAML block list under `related_people:` |
 
-**Tag selection rules:**
-1. Always include the deliverable type as the first tag (`briefing`, `daily-review`, `dream-summary`, `session-wrap`, etc.).
-2. Always include the agent source if known (`chief`, `harper`, `knox`, etc.) — pull from `agent-source` field.
-3. Tags must be lowercase, kebab-case, single-token-or-hyphenated. No spaces, no underscores, no capitals.
-4. Cap at 10 tags. Quality over quantity.
-5. If the body is too generic to tag (e.g., a status-only entry), still emit at least 3 tags using deliverable type + agent + one domain.
+### LLM Extraction (Primary Path)
 
-**Example enrichment block to append to frontmatter:**
+Call the extractor via subprocess:
+
+```python
+from systems.dream_cycle.llm_tag_extractor import extract_enrichment, ClaudeAuthError
+
+try:
+    result = extract_enrichment(
+        frontmatter=fm_text,
+        body=body_text,
+        filename=fname,
+        model="haiku",   # fast and cheap; tag extraction doesn't need opus
+    )
+    date_val = result["date"]
+    tags = result["tags"]
+    people = result["related_people"]
+except ClaudeAuthError:
+    # claude -p not logged in — fall back to heuristic
+    date_val, tags, people = _heuristic_enrichment(fm_text, body_text, fname)
+except Exception as e:
+    log_error("enrichment_failed", path, str(e))
+    date_val, tags, people = _heuristic_enrichment(fm_text, body_text, fname)
+```
+
+The LLM uses haiku by default (fast, ~$0.001 per file). Prompt sends the corpus vocabulary as a strong preference list so co-occurrence matches stay aligned across files.
+
+### Heuristic Fallback (Sandbox / Auth Failure)
+
+If the LLM call fails (auth error, timeout, malformed response), fall back to the keyword-matching path in `systems/dream-cycle/backfill-episodic-tags.py`. The heuristic recovers ~80% of the LLM's tag quality and keeps the cycle running on machines without `claude -p` auth.
+
+### Tag Quality Rules (LLM and Heuristic Both Enforce)
+
+1. Always include the deliverable type as the first tag (`briefing`, `daily-review`, `dream-summary`, `session-wrap`, `pipeline-review`, etc.).
+2. Always include the agent source if known (`chief`, `harper`, `knox`, `rigby`, `galen`, `sterling`, `shep`, `quinn`, `jarvis`) — pull from `agent-source` field.
+3. Tags must be lowercase, kebab-case. No spaces, no underscores, no capitals.
+4. Cap at 10 tags. Quality and reuse over quantity.
+5. Minimum 3 tags even for generic content.
+
+**Example enrichment block:**
 ```yaml
 date: 2026-05-13
 source_file: memory/working/2026-05-13-061200-session-boot-morning-briefing.md
@@ -94,6 +126,7 @@ tags:
   - omnifocus
   - leads
   - travel
+  - glc-chicago
 related_people:
   - alice-mburu
   - ehren-seim

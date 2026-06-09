@@ -1,0 +1,15 @@
+{
+  "id": "err-20260609T150039-M88XLU",
+  "timestamp": "2026-06-09T15:00:39Z",
+  "session": "2026-06-09",
+  "source": "explicit",
+  "agent": "master",
+  "category": "tool-misuse",
+  "description": "Used mcp__omnifocus__* MCP server for OmniFocus reads during morning briefing. David's instruction is to use osascript via mcp__Control_your_Mac__osascript (Desktop Commander) instead.",
+  "correction": "All OmniFocus read operations (inbox, tasks, projects, overdue, due-soon, flagged) must use mcp__Control_your_Mac__osascript with AppleScript. Do not use mcp__omnifocus__* for reads.",
+  "failure_mode": "wrong-assumption",
+  "systemic_fix": "Update SYSTEM.md OmniFocus section to set osascript as the primary path for all reads, demoting mcp__omnifocus__* to not-preferred. Update CLAUDE.md boot instruction accordingly.",
+  "fix_status": "proposed",
+  "severity": "moderate",
+  "related_entries": []
+}

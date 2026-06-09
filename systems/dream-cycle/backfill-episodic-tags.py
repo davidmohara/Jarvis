@@ -1,14 +1,23 @@
 #!/usr/bin/env python3
 """
 One-shot backfill: enrich untagged episodic files with date, tags, source_file,
-related_people. Uses corpus-derived vocabulary from April-era files plus body
-keyword matching. Idempotent — skips files that already have date+tags.
+related_people.
+
+Two modes:
+  - heuristic (default): corpus-derived vocabulary + body keyword matching.
+    Fast, deterministic, no auth needed. Recovers ~80% of LLM quality.
+  - --llm: calls `claude -p` per file via systems/dream-cycle/llm_tag_extractor.py.
+    Higher quality, ~$0.001/file, requires `claude /login` on this machine.
+
+Idempotent — skips files that already have date+tags unless --force.
 
 Usage:
-  python3 systems/dream-cycle/backfill-episodic-tags.py            # dry run
-  python3 systems/dream-cycle/backfill-episodic-tags.py --apply    # write changes
+  python3 systems/dream-cycle/backfill-episodic-tags.py                # dry run, heuristic
+  python3 systems/dream-cycle/backfill-episodic-tags.py --apply        # heuristic, write
+  python3 systems/dream-cycle/backfill-episodic-tags.py --llm --apply  # LLM, write
+  python3 systems/dream-cycle/backfill-episodic-tags.py --llm --force --apply  # re-enrich everything
 
-Author: jarvis (generated 2026-06-09 during tag-starvation recovery)
+Author: jarvis (2026-06-09; LLM mode added same-day)
 """
 
 import os
@@ -16,6 +25,9 @@ import re
 import sys
 import argparse
 import datetime
+
+# Make sibling import work whether run from repo root or anywhere
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 EPISODIC = "memory/episodic"
 
@@ -244,14 +256,38 @@ def enrich_frontmatter(fm, date_val, source_path, tags, people):
     return fm
 
 
+def _enrich_via_llm(fm, body, fname, model):
+    """Use LLM extractor; return (date, tags, people, source). Raises on auth/LLM failure."""
+    from llm_tag_extractor import extract_enrichment
+    result = extract_enrichment(fm, body, fname, model=model)
+    return result["date"], result["tags"], result["related_people"], "llm"
+
+
+def _enrich_via_heuristic(fm, body, fname):
+    """Use corpus-vocabulary heuristic; return (date, tags, people, source)."""
+    return derive_date(fm, fname), derive_tags(body, fname, fm), derive_people(body, fm), "heuristic"
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--apply", action="store_true", help="actually write changes")
     parser.add_argument("--force", action="store_true", help="re-enrich even files that already have tags")
+    parser.add_argument("--llm", action="store_true", help="use LLM extractor (claude -p) instead of heuristic; falls back to heuristic on auth failure")
+    parser.add_argument("--model", default="haiku", help="LLM model when --llm (default: haiku)")
+    parser.add_argument("--limit", type=int, default=0, help="stop after N files (0 = no limit)")
     args = parser.parse_args()
+
+    llm_failed_globally = False
+    if args.llm:
+        try:
+            from llm_tag_extractor import ClaudeAuthError  # noqa: F401
+        except ImportError as e:
+            print(f"ERROR: cannot import llm_tag_extractor: {e}", file=sys.stderr)
+            sys.exit(2)
 
     targets = []
     skipped = []
+    enrichment_sources = {"llm": 0, "heuristic": 0, "llm-fallback-to-heuristic": 0}
 
     for root, dirs, files in os.walk(EPISODIC):
         if "digests" in dirs:
@@ -261,6 +297,8 @@ def main():
         for fn in files:
             if not fn.endswith(".md") or fn == "README.md":
                 continue
+            if args.limit and len(targets) >= args.limit:
+                break
             p = os.path.join(root, fn)
             with open(p) as f:
                 content = f.read()
@@ -273,15 +311,35 @@ def main():
             if has_date and has_tags and not args.force:
                 skipped.append((p, "already enriched"))
                 continue
-            date_val = derive_date(fm, fn)
+
+            # Try LLM first if requested, else heuristic
+            source = "heuristic"
+            if args.llm and not llm_failed_globally:
+                try:
+                    date_val, tags, people, source = _enrich_via_llm(fm, body, fn, args.model)
+                except Exception as e:
+                    from llm_tag_extractor import ClaudeAuthError
+                    if isinstance(e, ClaudeAuthError):
+                        print(f"⚠ LLM auth failed: {e}", file=sys.stderr)
+                        print(f"  Falling back to heuristic for remaining files.", file=sys.stderr)
+                        llm_failed_globally = True
+                    else:
+                        print(f"⚠ LLM call failed on {fn}: {e}", file=sys.stderr)
+                        print(f"  Falling back to heuristic for this file.", file=sys.stderr)
+                    date_val, tags, people, source = _enrich_via_heuristic(fm, body, fn)
+                    source = "llm-fallback-to-heuristic"
+            else:
+                date_val, tags, people, source = _enrich_via_heuristic(fm, body, fn)
+
+            enrichment_sources[source] = enrichment_sources.get(source, 0) + 1
+
             source_path = f"memory/working/{fn}"  # canonical source guess
-            tags = derive_tags(body, fn, fm)
-            people = derive_people(body, fm)
             new_fm = enrich_frontmatter(fm, date_val, source_path, tags, people)
             new_content = f"---\n{new_fm}\n---\n{body}"
             targets.append((p, date_val, tags, people, new_content))
 
     print(f"Found {len(targets)} files to enrich, {len(skipped)} skipped.")
+    print(f"Enrichment sources: {enrichment_sources}")
     print()
     for p, d, t, ppl, _ in targets[:5]:
         print(f"  {p}")

@@ -66,7 +66,7 @@ Read `state.yaml` in every `workflows/*/` directory. Surface any `status: in-pro
 
 ## OmniFocus
 
-Prefer the OmniFocus MCP server (`mcp__omnifocus__*`) for all READ operations. Fall back to `osascript` via Bash only when the MCP server is unavailable. Refer to the OmniFocus section in SYSTEM.md for rules — especially: always filter for active/uncompleted tasks unless David asks for completed ones.
+Use **`mcp__Control_your_Mac__osascript`** (Desktop Commander) for all OmniFocus READ operations. Do not use the `mcp__omnifocus__*` MCP server for reads — it times out on this machine. Refer to the OmniFocus section in SYSTEM.md for AppleScript patterns. Always filter for active/uncompleted tasks unless David asks for completed ones.
 
 **For task creation: ALWAYS read `skills/omnifocus-tasks/SKILL.md` first.** That skill is the only authorized path for creating OmniFocus tasks. It contains a pre-flight checklist that gates on project and tag assignment. Do not write raw OmniFocus AppleScript for task creation outside that skill. No exceptions.
 
