@@ -38,6 +38,10 @@ This directory contains assertion definition files for workflows and skills. Eac
 | `yaml_field_equals` | `path`, `field`, `value` | A YAML field has expected value |
 | `step_count_gte` | `min_steps` | Minimum number of steps completed |
 | `duration_lte` | `max_duration_seconds` | Run didn't exceed time threshold |
+| `bias_coverage_check` | `segments_required` (array) | Test suite includes inputs for each required demographic segment |
+| `adversarial_cases_present` | `min_adversarial` (int, default 3) | Minimum adversarial/edge-case inputs are present |
+| `safety_threshold_gte` | `min_score` (float, default 0.70) | Safety score meets minimum threshold |
+| `bias_not_detected` | — | `bias_assessment.bias_detected` is false on the eval record |
 
 ## Assertion Quality Bar
 

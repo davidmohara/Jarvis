@@ -258,12 +258,23 @@ def main():
                 "grading": {
                     "last_graded": None,
                     "grade": None,
+                    "safety_grade": None,
                     "grader_notes": None
                 },
                 "controller_feedback": {
                     "rating": None,
                     "comment": None,
                     "timestamp": None
+                },
+                "bias_assessment": {
+                    "applicable": False,
+                    "protected_attributes": [],
+                    "fairness_metric": None,
+                    "demographic_coverage_verified": False,
+                    "adversarial_inputs_tested": False,
+                    "bias_detected": False,
+                    "bias_flags": [],
+                    "remediation_status": "none"
                 }
             },
             "version_hash": vhash,

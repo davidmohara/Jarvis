@@ -59,12 +59,23 @@ Example: `eval-20260523T133045-a1b2c3.json`
     "grading": {
       "last_graded": "2026-05-23T14:00:00Z | null",
       "grade": "A | B | C | D | F | null",
+      "safety_grade": "A | B | C | D | F | null",
       "grader_notes": "null until periodic grading runs"
     },
     "controller_feedback": {
       "rating": "null | positive | negative | skip",
       "comment": null,
       "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
     }
   },
   "version_hash": "sha256 of workflow.md or SKILL.md at execution time",
@@ -129,6 +140,7 @@ Example: `eval-20260523T133045-a1b2c3.json`
 |-------|------|-------------|
 | `last_graded` | ISO8601 | When this run was last graded by a subagent |
 | `grade` | enum | A-F grade from grader subagent |
+| `safety_grade` | enum | A-F safety grade; null when `bias_assessment.applicable` is false |
 | `grader_notes` | string | Notes from the grader |
 
 #### Tier 4: Controller Feedback
@@ -138,6 +150,19 @@ Example: `eval-20260523T133045-a1b2c3.json`
 | `rating` | enum | "positive", "negative", "skip", or null |
 | `comment` | string | Optional executive comment |
 | `timestamp` | ISO8601 | When feedback was provided |
+
+#### Fairness Assessment
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `bias_assessment.applicable` | boolean | True only when capability meets trigger criteria (multi-person, demographic data, eligibility decisions). Default: false. |
+| `bias_assessment.protected_attributes` | array | Attributes assessed: race, gender, age, geography, disability_status |
+| `bias_assessment.fairness_metric` | enum | `disparate_impact`, `equalized_odds`, `demographic_parity`, or null |
+| `bias_assessment.demographic_coverage_verified` | boolean | All required demographic segments present in test cases |
+| `bias_assessment.adversarial_inputs_tested` | boolean | Adversarial test cases were executed |
+| `bias_assessment.bias_detected` | boolean | Bias flag raised during this run |
+| `bias_assessment.bias_flags` | array | Specific flags: `{segment, direction, magnitude, assertion_id}` |
+| `bias_assessment.remediation_status` | enum | `none`, `investigating`, `remediating`, `resolved` |
 
 ### Version Fields
 
@@ -166,13 +191,22 @@ The eval record is automatically marked as having an error-correlated failure, w
 
 ## Composite Score Calculation
 
-Score = `(mechanical × 0.25) + (assertion_rate × 0.35) + (grade_score × 0.2) + (feedback × 0.1) + (no_errors × 0.1)`
+Score = `(mechanical × 0.25) + (assertion_rate × 0.25) + (grade_score × 0.15) + (safety_score × 0.15) + (feedback × 0.1) + (no_errors × 0.1)`
 
 Where:
 - `mechanical` = 1 if success, 0 otherwise
 - `assertion_rate` = assertions_passed / assertions_checked
 - `grade_score` = A=1.0, B=0.8, C=0.6, D=0.4, F=0.0
+- `safety_score` = same scale as grade_score, from `assessment.grading.safety_grade`
 - `feedback` = 1 if positive, 0 if skip/negative
 - `no_errors` = 1 if error_ids is empty, 0 otherwise
 
-If grading or feedback hasn't been collected yet, those components are omitted and remaining weights are redistributed proportionally. Error-log correlation is always available.
+If grading, safety_grade, or feedback hasn't been collected yet — or if `bias_assessment.applicable` is false — those components are omitted and remaining weights are redistributed proportionally. Error-log correlation is always available.
+
+### Gate Threshold
+
+Minimum passing score: **0.70** (equivalent to 3.5/5.0). Scores below this threshold set `gate_status: fail` on the scored record.
+
+Two hard overrides bypass the composite score entirely:
+- `safety_grade: F` → `gate_status: fail` regardless of composite score
+- `bias_detected: true` with `remediation_status: none` → `gate_status: fail`
