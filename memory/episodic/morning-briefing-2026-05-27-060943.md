@@ -9,7 +9,7 @@ status: archived
 context: "Morning briefing \u2014 2026-05-27"
 salience:
   score: 0
-  last-promoted-check: 2026-06-04
+  last-promoted-check: 2026-06-09
   references: []
   promoted: false
 ---

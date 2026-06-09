@@ -10,7 +10,7 @@ context: "Morning boot + briefing — 2026-06-01 (travel day, Italy/wedding)"
 salience:
   score: 0
   references: []
-  last-promoted-check: 2026-06-04
+  last-promoted-check: 2026-06-09
   promoted: false
 ---
 # Morning Briefing Session — June 1, 2026

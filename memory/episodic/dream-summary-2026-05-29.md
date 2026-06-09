@@ -8,7 +8,7 @@ status: archived
 context: "Dream cycle summary \u2014 2026-05-29 \u2014 for Chief's morning briefing"
 salience:
   score: 0
-  last-promoted-check: 2026-06-04
+  last-promoted-check: 2026-06-09
   references: []
   promoted: false
 ---

@@ -8,7 +8,7 @@ status: archived
 context: "Dream cycle summary — 2026-05-31"
 salience:
   score: 0
-  last-promoted-check: 2026-06-04
+  last-promoted-check: 2026-06-09
   references: []
   promoted: false
 ---

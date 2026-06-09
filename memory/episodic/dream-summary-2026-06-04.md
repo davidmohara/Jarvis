@@ -1,10 +1,13 @@
 ---
 type: working
 expires: 2026-06-05
-status: active
+status: archived
 session_id: dream-cycle-2026-06-04-081000
 created: 2026-06-04T08:12:00
 context: "Dream cycle summary for Chief boot — 2026-06-04"
+salience:
+  score: 0
+  last-promoted-check: 2026-06-09
 ---
 
 # Dream Cycle Summary — 2026-06-04

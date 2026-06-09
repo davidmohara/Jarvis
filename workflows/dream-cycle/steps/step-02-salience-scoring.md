@@ -1,16 +1,16 @@
 ---
 status: complete
-started-at: 2026-06-04T08:10:30Z
-completed-at: 2026-06-04T08:11:00Z
+started-at: 2026-06-09T14:27:00Z
+completed-at: 2026-06-09T14:28:00Z
 outputs:
-  episodic_scanned: 87
-  score_updates: 87
-  no_tags: 42
-  no_date: 27
+  episodic_scanned: 91
+  score_updates: 91
+  no_tags: 46
+  no_date: 49
   files_with_tags: 45
-  score_distribution: "0:53, 1:11, 3:2, 4:6, 5:15"
-  promotion_candidates: 23
-  note: "Yesterday's run claimed 23 promoted but salience.promoted on episodic files remained false (state.yaml drift from actual file state). Today's scoring confirms the same 23 morning-briefing entries still qualify (score>=3, promoted=false). Score distribution shifted — fewer 6/7 scores, more 4/5 scores, because the 30-day window now excludes pre-2026-05-05 cross-matches that helped April clusters."
+  score_distribution: "0:91"
+  promotion_candidates: 0
+  note: "Window shifted to 2026-05-10 → 2026-06-09. Only 2 episodic files in window have tags (2026-05-15 dream-cycle-summary and 2026-05-27 decision-rationale). They do not share 2+ tags with each other or with anything else in the window. All previously promotion-eligible morning-briefings now fall outside the 30-day window. Result: 0 promotion candidates. Score distribution collapsed entirely to 0."
 ---
 
 <!-- system:start -->

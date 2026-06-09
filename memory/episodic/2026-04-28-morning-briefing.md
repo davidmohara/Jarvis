@@ -20,8 +20,8 @@ related_people:
 - david-belcher
 - mick
 salience:
-  score: 5
-  last-promoted-check: 2026-06-04
+  score: 0
+  last-promoted-check: 2026-06-09
   references: []
   promoted: true
 ---

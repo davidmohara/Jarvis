@@ -8,7 +8,7 @@ tags:
 - meta
 salience:
   score: 0
-  last-promoted-check: 2026-06-04
+  last-promoted-check: 2026-06-09
   references: []
   promoted: false
 ---

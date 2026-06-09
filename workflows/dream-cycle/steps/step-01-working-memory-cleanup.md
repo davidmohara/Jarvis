@@ -1,15 +1,17 @@
 ---
 status: complete
-started-at: 2026-06-04T08:10:00Z
-completed-at: 2026-06-04T08:10:20Z
+started-at: 2026-06-09T14:26:12Z
+completed-at: 2026-06-09T14:27:00Z
 outputs:
-  working_archived: 2
+  working_archived: 4
   working_deleted: 0
-  working_skipped: 78
+  working_skipped: 77
   working_stranded: 0
   archived_files:
-    - daily-review-2026-06-01-000000.md
-    - morning-briefing-2026-06-01-061018.md
+    - daily-review-2026-06-05-021137.md
+    - dream-summary-2026-06-03.md
+    - dream-summary-2026-06-04.md
+    - morning-briefing-2026-06-02-061028.md
 ---
 
 <!-- system:start -->

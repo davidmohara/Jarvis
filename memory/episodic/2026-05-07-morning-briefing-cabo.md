@@ -13,8 +13,8 @@ tags:
 related_people:
 - david-ohara
 salience:
-  score: 3
-  last-promoted-check: 2026-06-04
+  score: 0
+  last-promoted-check: 2026-06-09
   references: []
   promoted: true
 ---

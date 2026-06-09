@@ -1,18 +1,14 @@
 ---
 status: complete
-started-at: 2026-06-04T08:11:55Z
-completed-at: 2026-06-04T08:12:20Z
+started-at: 2026-06-09T14:29:10Z
+completed-at: 2026-06-09T14:30:30Z
 outputs:
   dream_log_appended: true
-  working_summary_written: true
-  working_summary_path: memory/working/dream-summary-2026-06-04.md
-  working_summary_reason: "semantic_updated=1 triggers summary write per spec."
-  git_commit: success
-  commit_sha: befb9a54f4c0536eb64e27b48aba640d4ae3c98a
-  commit_method: "GIT_INDEX_FILE=/tmp/jarvis-index2 workaround — bypassed the chronic .git/index.lock restriction by routing through an alternative index. 123 files committed (1392 insertions, 266 deletions)."
-  git_push: blocked
-  git_push_blocker: "Remote has new work (origin/main at 146488f, local HEAD at befb9a5). Fetch failed — .git/refs/remotes/origin/main.lock cannot be unlinked by sandbox. Cannot fast-forward or rebase from inside the sandbox."
-  manual_recovery_command: "cd ~/develop/jarvis && rm -f .git/index.lock .git/index.stash.*.lock .git/refs/remotes/origin/*.lock && git fetch origin && git pull --rebase origin main && git push origin main"
+  working_summary_written: false
+  working_summary_reason: "All semantic and error counts are zero — spec does not trigger summary write."
+  git_commit: pending
+  git_push: pending
+  manual_recovery_command: "cd ~/develop/jarvis && rm -f .git/index.lock .git/index.stash.*.lock .git/refs/remotes/origin/*.lock && git fetch origin && git pull --rebase origin main && GIT_INDEX_FILE=/tmp/jarvis-index-$(date +%s) git add -A && git commit -m 'dream-cycle: 2026-06-09 — archived 4, 0 promoted, 0 compressed' && git push origin main"
 ---
 
 <!-- system:start -->

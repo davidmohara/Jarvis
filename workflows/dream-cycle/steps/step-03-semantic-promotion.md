@@ -1,19 +1,16 @@
 ---
 status: complete
-started-at: 2026-06-04T08:11:00Z
-completed-at: 2026-06-04T08:11:40Z
+started-at: 2026-06-09T14:28:00Z
+completed-at: 2026-06-09T14:29:00Z
 outputs:
-  clusters_found: 1
+  clusters_found: 0
   semantic_created: 0
-  semantic_updated: 1
-  promoted_entries: 23
-  semantic_path: memory/semantic/operational/2026-04-24-briefing-travel-calendar-pattern.md
-  confidence_new: high
-  total_evidence: 24
-  promotion_note: "Re-promoted yesterday's 23 candidates after detecting the promoted-flag drift (all 23 sources had salience.promoted: false despite yesterday's state claiming success). Added 2026-06-04 Evidence + Implications stub noting the sync-gap-induced state drift and pattern saturation. Zero new sources added to synthesized-from (all 23 already linked yesterday)."
-  error_categories_30d: "process-skip/protocol-skip:9, data-accuracy/stale-cache:4, routing-error/protocol-skip:4, assumption-error/surfaced-resolved-item:3"
+  semantic_updated: 0
+  promoted_entries: 0
+  promotion_note: "No candidates qualified — step-02 score distribution collapsed to 0:91 because the 30-day window (2026-05-10 → 2026-06-09) contains only 2 tagged episodic entries and they share no co-occurring tags. The morning-briefing cluster that drove all prior promotions has aged out of the window."
+  error_categories_30d: "process-skip:13, data-accuracy:6, assumption-error:5, tool-misuse:4, routing-error:4"
   lessons_appended: 0
-  lessons_note: "All four threshold categories already covered in LESSONS.md (Process Skip on Boot Sequence, Data Accuracy Failures, Chronic Routing Bypass, Surfacing Already-Resolved Items). No new lessons appended."
+  lessons_note: "All five threshold categories already covered in LESSONS.md (Process Skip on Boot Sequence, Data Accuracy Failures in Briefings, Wrong Assumptions, Tool Misuse Across Agents, Chronic Routing Bypass). No new lessons appended."
 ---
 
 <!-- system:start -->

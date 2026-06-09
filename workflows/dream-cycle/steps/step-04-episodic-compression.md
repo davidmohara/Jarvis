@@ -1,12 +1,12 @@
 ---
 status: complete
-started-at: 2026-06-04T08:11:45Z
-completed-at: 2026-06-04T08:11:50Z
+started-at: 2026-06-09T14:29:00Z
+completed-at: 2026-06-09T14:29:10Z
 outputs:
   entries_compressed: 0
   digests_updated: 0
   compression_skipped: true
-  compression_skip_reason: "Oldest episodic entry is 2026-04-18 (47 days old). 0 entries meet the date<90d-ago AND score<2 AND promoted=false criteria. 5-entry safety threshold not met."
+  compression_skip_reason: "Oldest episodic entry is 2026-04-18 (52 days old). 90-day threshold = 2026-03-11. 0 entries meet date<90d-ago. 5-entry safety threshold not met."
 ---
 
 <!-- system:start -->

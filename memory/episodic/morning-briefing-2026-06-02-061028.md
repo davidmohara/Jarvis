@@ -5,8 +5,11 @@ session_id: "chief-2026-06-02-061028"
 agent-source: chief
 created: 2026-06-02T06:10:28
 expires: 2026-06-04T06:10:28
-status: active
+status: archived
 context: "Morning briefing — 2026-06-02"
+salience:
+  score: 0
+  last-promoted-check: 2026-06-09
 ---
 
 # Morning Briefing — Tuesday, June 2, 2026
