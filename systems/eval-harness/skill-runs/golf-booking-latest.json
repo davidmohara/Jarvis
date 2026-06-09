@@ -1,13 +1,12 @@
 {
   "skill": "golf-booking",
-  "agent": "jarvis",
+  "agent": "chief",
   "trigger": "scheduled",
-  "started": "2026-05-30T00:00:00Z",
-  "completed": "2026-05-30T00:02:15Z",
-  "status": "aborted",
-  "abort_reason": "top_options empty — Jun 5-7 weekend hard-blocked (Italy trip, return flight Jun 7)",
+  "started": "2026-06-04T00:00:00Z",
+  "completed": "2026-06-04T00:03:00Z",
+  "status": "failure",
   "tool_failures": 1,
-  "tool_failure_detail": "Slack webhook returned 403 proxy error",
-  "fallback_action": "Working memory entry created per failure mode table",
-  "error_ids": []
+  "error_ids": [],
+  "reason": "ChronoGolf session expired — login verification failed. Page loaded but 'logged-in' check returned false. Session authentication required before booking can proceed.",
+  "action_required": "Manual login to ChronoGolf dashboard required by David before re-running skill"
 }

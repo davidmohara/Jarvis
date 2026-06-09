@@ -1,16 +1,19 @@
 ---
 status: complete
-started-at: 2026-06-01T03:11:45-05:00
-completed-at: 2026-06-01T03:12:30-05:00
+started-at: 2026-06-04T08:11:00Z
+completed-at: 2026-06-04T08:11:40Z
 outputs:
-  clusters_found: 0
+  clusters_found: 1
   semantic_created: 0
-  semantic_updated: 0
-  promoted_entries: 0
-  promotion_note: "All entries scored 0 in step-02 (no tags) — nothing met score>=3 threshold. 22nd consecutive idle promotion run."
-  error_categories_30d: "process-skip/protocol-skip:9, data-accuracy/stale-cache:4, routing-error/protocol-skip:4, assumption-error/surfaced-resolved-item:3 — all four root categories already represented in LESSONS.md."
+  semantic_updated: 1
+  promoted_entries: 23
+  semantic_path: memory/semantic/operational/2026-04-24-briefing-travel-calendar-pattern.md
+  confidence_new: high
+  total_evidence: 24
+  promotion_note: "Re-promoted yesterday's 23 candidates after detecting the promoted-flag drift (all 23 sources had salience.promoted: false despite yesterday's state claiming success). Added 2026-06-04 Evidence + Implications stub noting the sync-gap-induced state drift and pattern saturation. Zero new sources added to synthesized-from (all 23 already linked yesterday)."
+  error_categories_30d: "process-skip/protocol-skip:9, data-accuracy/stale-cache:4, routing-error/protocol-skip:4, assumption-error/surfaced-resolved-item:3"
   lessons_appended: 0
-  lessons_note: "No appends per preservation-over-aggression."
+  lessons_note: "All four threshold categories already covered in LESSONS.md (Process Skip on Boot Sequence, Data Accuracy Failures, Chronic Routing Bypass, Surfacing Already-Resolved Items). No new lessons appended."
 ---
 
 <!-- system:start -->

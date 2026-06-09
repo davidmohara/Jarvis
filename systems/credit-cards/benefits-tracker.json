@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-01",
+  "last_updated": "2026-06-01",
   "tracking_year": 2026,
   "benefits_usage": {
     "amex-plat": {
@@ -220,7 +220,7 @@
     }
   },
   "discover-it": {
-    "last_reviewed": "2026-04-21",
+    "last_reviewed": "2026-06-01",
     "card_ending": "8369",
     "current_balance": 834.48,
     "available_credit": 21798,
@@ -229,9 +229,10 @@
     "last_payment": { "amount": 2566.27, "date": "2026-03-18", "note": "Full balance paid" },
     "rotating_categories": {
       "q1_2026": { "categories": "Grocery Stores, Wholesale Clubs, Select Streaming", "status": "completed", "ends": "2026-03-31" },
-      "q2_2026": { "categories": "Restaurants and Home Improvement Stores", "status": "ACTIVATED", "starts": "2026-04-01", "ends": "2026-06-30", "confirmed": "2026-04-21", "activated_portal_verified": true, "strategy": "Use Discover for all dining under $1,500/quarter cap. Beats Atlas 2x. After cap, switch to Atlas/Sapphire. Current earning: 5% cash back on eligible transactions." }
+      "q2_2026": { "categories": "Restaurants and Home Improvement Stores", "status": "ACTIVATED", "starts": "2026-04-01", "ends": "2026-06-30", "confirmed": "2026-06-01", "activated_portal_verified": true, "strategy": "Use Discover for all dining under $1,500/quarter cap. Beats Atlas 2x. After cap, switch to Atlas/Sapphire. Current earning: 5% cash back on eligible transactions." },
+      "q3_2026": { "categories": "Gas Stations, Transportation and Drug Stores", "status": "ACTIVATED", "starts": "2026-07-01", "ends": "2026-09-30", "confirmed": "2026-06-01", "activated_portal_verified": true, "strategy": "Use Discover for gas (beats BCP 3%). Also covers Uber/Lyft (transportation) and CVS/Walgreens." }
     },
-    "q2_2026_progress": { "spend_so_far": 200.12, "cap": 1500, "remaining": 1299.88, "earnings": 10.01, "note": "BJ's Restaurants ($29.48), Uber Eats ($46.48), and other eligible transactions earned 5%. On pace for cap." },
+    "q2_2026_progress": { "spend_so_far": 75.80, "cap": 1500, "remaining": 1424.20, "earnings": 3.79, "note": "Portal confirmed $3.79 earned as of 2026-06-01. $1,424 cap remaining. Heavy use needed through June 30." },
     "note": "2026-04-21: Q2 rotating category CONFIRMED ACTIVATED on portal. Restaurants + Home Improvement at 5% starting April. Discover 5% on restaurants beats Atlas 2x for first $1,500/quarter spend. No merchant offers reviewed (secondary feature, Discover Deals section has limited offers vs. Amex/Citi)."
   },
   "upcoming_deadlines": [
@@ -273,6 +274,7 @@
     "lesson": "Quarterly credits need calendar reminders 2 weeks before expiry. Monthly review alone is insufficient — need mid-quarter nudges."
   },
   "monthly_review_log": [
+    { "date": "2026-06-01", "type": "site_walkthrough", "status": "COMPLETE", "findings": "BCP (73008): Added Topgolf ($15, exp 6/30), Sunbasket ($90, exp 8/4), Wine Insiders ($60, exp 9/7), Sherwin-Williams ($20, exp 9/30), Walmart+ Annual ($49, exp 11/14). Skipped Sling TV (no YNAB confirmation available). Platinum (21001): Added Fontainebleau Las Vegas ($300, exp 8/31), Hotels.com ($100, exp 8/31), ARMRA ($25, exp 7/14). Citizen Watch panel unresponsive — may be single-enrollment locked to Citi. Citi AA Exec (9598): Enrolled Lyft 10% (29d), Hertz $75 (29d). Savings to date $34.72. Discover (8369): Q2 confirmed active (Restaurants + Home Improvement, $3.79/$75 earned). Q3 ACTIVATED early — Gas Stations, Transportation, Drug Stores starting July 1." },
     { "date": "2026-05-01", "type": "site_walkthrough", "status": "COMPLETE", "findings": "Amex Platinum: Airline Fee Credit $85 used/$115 remaining (was $0 — surprise). Digital Entertainment $30.32 YTD/$25 May credit available. MR points 415,951 (down from 558K — ~143K redeemed). $75K threshold CONFIRMED ACHIEVED — Centurion guest access + unlimited Delta Sky Club both active through Jan 2028. Resy Q2, lululemon Q2, Hotel H1 all still $0. Citi AA Exec: Balance $14,654, miles 774,255 (up 41K), FICO 847. Lyft 10% offer (60d) showing on dashboard — not yet added. Grubhub/Lyft/Avis monthly credits still unverifiable via web portal. Chase Sapphire: 134 offers, 2 added (Starlink unused, SeatGeek expires May 15). VantageScore 809 (up from 753). Payment due May 7. 11 high-value new offers identified, none added per David's direction." },
     { "date": "2026-04-01", "type": "scheduled_automated", "findings": "Q1 Resy ($100) and lululemon ($75) expired unused. $175 lost. Discover Q2 active (Restaurants + Home Improvement). Amex $75K threshold unreachable at current pace. Total offer savings: $481.11 across all cards. 14 action items generated." },
     { "date": "2026-04-04", "type": "manual_walkthrough", "status": "INCOMPLETE", "findings": "Sapphire card balance updated ($724.65 current, $99,673.35 available, due 4/7). Dashboard accessible. Offers page (117 total) cannot be scraped via automation — Chase shadow DOM blocks content extraction. Manual offer review required. Last data pull: 2026-03-19 showed Starlink as only offer added of 123 available. See high_value_offers list for prioritized adds." },

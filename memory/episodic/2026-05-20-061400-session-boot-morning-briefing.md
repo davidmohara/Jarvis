@@ -15,8 +15,8 @@ tags:
 - drc-workshop
 - graduation
 salience:
-  score: 0
-  last-promoted-check: 2026-06-01
+  score: 3
+  last-promoted-check: 2026-06-04
   references: []
   promoted: true
 ---

@@ -1,6 +1,6 @@
 ---
 name: chase-card-offers-citi
-description: Read and enroll in offers on the Citi AAdvantage Executive card (••••9598) via Chrome automation. Covers the Citi Merchant Offers portal flow — navigation, reading the offer list, enrolling, and confirming.
+description: Autonomously log in and enroll in offers on the Citi AAdvantage Executive card (••••9598) via Chrome automation. Retrieves credentials from 1Password, handles login, navigates to Merchant Offers via clicks only, and enrolls YNAB-validated offers.
 owning_agent: chase
 model: haiku
 trigger_keywords: [citi offers, citi card, citibank]
@@ -13,13 +13,114 @@ trigger_agents: [chase]
 
 **Portal:** `https://online.citi.com/US/nga/products-offers/merchantoffers`
 
-**Requires David logged in** to online.citi.com before this skill runs.
-
 ---
 
 ## Navigation Rules
 
-**Rule:** Once authenticated, navigate exclusively by clicking links and buttons. Do NOT use `open_url` or `window.location.href` — Citi's SPA will redirect to a 404. The only exception is the initial jump to `online.citi.com` if not already there.
+**Rule:** Navigate exclusively by clicking links and buttons. Do NOT use `open_url` or `window.location.href` for any navigation — Citi's SPA will redirect to a 404 or trigger logout. No new tabs.
+
+---
+
+## Step 0 — Login via 1Password
+
+### 0a — Retrieve credentials
+
+```bash
+cat > /tmp/op-citi-login.sh << 'SCRIPT'
+#!/usr/bin/env bash
+set +x
+set -euo pipefail
+USER=$(/opt/homebrew/bin/op item get "citi.com" --account my.1password.com --fields "label=User ID" 2>/dev/null)
+PASS=$(/opt/homebrew/bin/op item get "citi.com" --account my.1password.com --fields "label=password" 2>/dev/null)
+echo "USER_LEN:${#USER}"
+echo "PASS_LEN:${#PASS}"
+echo "$USER" > /tmp/.citi_user
+echo "$PASS" > /tmp/.citi_pass
+chmod 600 /tmp/.citi_user /tmp/.citi_pass
+SCRIPT
+chmod 700 /tmp/op-citi-login.sh
+bash /tmp/op-citi-login.sh; rm -f /tmp/op-citi-login.sh
+```
+
+Verify `USER_LEN` and `PASS_LEN` both > 0.
+
+### 0b — Navigate to login and sign in
+
+Check current URL:
+
+```javascript
+document.title + ' | ' + window.location.href
+```
+
+If already on `online.citi.com` and authenticated (dashboard visible, no login form), skip to Step 1.
+
+If not authenticated, find and click Log In:
+
+```javascript
+var links = document.querySelectorAll('a, button');
+for (var i = 0; i < links.length; i++) {
+  var txt = (links[i].textContent || '').trim().toLowerCase();
+  var href = links[i].href || '';
+  if (txt === 'log in' || txt === 'sign on' || href.indexOf('login') > -1 || href.indexOf('signon') > -1) {
+    links[i].click(); break;
+  }
+}
+'navigated to login'
+```
+
+Wait for the login page, then fill credentials (construct JS string in bash with actual values from temp files — never log values):
+
+```javascript
+// Fill username
+var userField = document.querySelector('#username, [name="username"], #userId, input[type="text"]');
+if (userField) {
+  userField.value = 'INJECT_USER';
+  userField.dispatchEvent(new Event('input', {bubbles: true}));
+  userField.dispatchEvent(new Event('change', {bubbles: true}));
+}
+'filled username'
+```
+
+```javascript
+// Fill password
+var passField = document.querySelector('#password, [name="password"], input[type="password"]');
+if (passField) {
+  passField.value = 'INJECT_PASS';
+  passField.dispatchEvent(new Event('input', {bubbles: true}));
+  passField.dispatchEvent(new Event('change', {bubbles: true}));
+}
+'filled password'
+```
+
+Click sign on:
+
+```javascript
+var btns = document.querySelectorAll('button, input[type="submit"]');
+for (var i = 0; i < btns.length; i++) {
+  var txt = (btns[i].textContent || btns[i].value || '').trim().toLowerCase();
+  if (txt.indexOf('sign on') > -1 || txt.indexOf('log in') > -1 || txt.indexOf('submit') > -1) {
+    btns[i].click(); break;
+  }
+}
+'submitted login'
+```
+
+### 0c — Verify authentication
+
+Wait 4 seconds, then confirm:
+
+```javascript
+document.title + ' | ' + window.location.href
+// Expected: "Citibank Account Dashboard" or similar, URL contains online.citi.com/US/ag/
+```
+
+### 0d — Clean up
+
+```bash
+rm -f /tmp/.citi_user /tmp/.citi_pass
+```
+
+Once on the Citi dashboard, proceed to Step 1.
 
 ---
 

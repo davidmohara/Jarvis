@@ -7,7 +7,7 @@ episode: 1
 status: reviewed
 salience:
   score: 0
-  last-promoted-check: 2026-06-01
+  last-promoted-check: 2026-06-04
   references: []
   promoted: false
 ---

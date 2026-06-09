@@ -1,14 +1,16 @@
 ---
 status: complete
-started-at: 2026-06-01T03:10:45-05:00
-completed-at: 2026-06-01T03:11:30-05:00
+started-at: 2026-06-04T08:10:30Z
+completed-at: 2026-06-04T08:11:00Z
 outputs:
-  episodic_scanned: 84
-  score_updates: 84
-  no_tags: 84
-  no_date: 42
-  score_distribution: "0:84"
-  note: "All entries scored 0 — no entry carries a populated tags field. Structural gap: episodic writers (Master, sub-agents) are not setting tags. Co-occurrence scoring will remain dormant until the agents that write episodic entries (post-sub-agent working-memory writers, Master) start populating tags. Flag for Rigby."
+  episodic_scanned: 87
+  score_updates: 87
+  no_tags: 42
+  no_date: 27
+  files_with_tags: 45
+  score_distribution: "0:53, 1:11, 3:2, 4:6, 5:15"
+  promotion_candidates: 23
+  note: "Yesterday's run claimed 23 promoted but salience.promoted on episodic files remained false (state.yaml drift from actual file state). Today's scoring confirms the same 23 morning-briefing entries still qualify (score>=3, promoted=false). Score distribution shifted — fewer 6/7 scores, more 4/5 scores, because the 30-day window now excludes pre-2026-05-05 cross-matches that helped April clusters."
 ---
 
 <!-- system:start -->

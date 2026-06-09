@@ -9,7 +9,7 @@ status: archived
 context: "Daily review \u2014 2026-05-24"
 salience:
   score: 0
-  last-promoted-check: 2026-06-01
+  last-promoted-check: 2026-06-04
   references: []
   promoted: false
 ---

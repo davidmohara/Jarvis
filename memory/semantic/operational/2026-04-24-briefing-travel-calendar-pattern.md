@@ -4,7 +4,7 @@ domain: operational
 tags: [briefing, calendar, omnifocus, google-next, travel, overdue-tasks, leads]
 confidence: high
 created: 2026-04-24
-last-updated: 2026-05-26
+last-updated: 2026-06-04
 synthesized-from:
   - memory/episodic/2026-04-20-morning-briefing.md
   - memory/episodic/2026-04-21-morning-briefing.md
@@ -31,7 +31,6 @@ synthesized-from:
   - memory/episodic/2026-05-20-061400-session-boot-morning-briefing.md
   - memory/episodic/2026-05-22-061501-session-boot-morning-briefing.md
 ---
-
 # Pattern: Morning Briefings Consistently Flag Travel-Calendar Conflicts
 
 ## Pattern Summary
@@ -283,3 +282,42 @@ Morning briefings across the entire Google Next week (Apr 20-23) repeatedly surf
 37. **Manual boot path remains the only reliable signal source 33 days into the pattern.** May 22 manual boot at 6:15 AM produced full data on all four sources with tags populated. A second boot 1 minute 50 seconds later (6:16:51) wrote a working file with no tags — automated-template regression sneaking back even when the live session was the same morning. The tag-population gap (Implication #28/#30) is still present in some boot paths.
 
 38. **The 205-item OmniFocus inbox is now a structural fixture, not a flag.** It has been surfaced in every briefing since April with a "Clear OmniFocus inbox" task due Apr 16 — now 36 days overdue. This is no longer actionable signal; it is background noise the briefing keeps echoing. Either the task gets reframed (smaller, time-boxed) or the system should stop flagging the inbox count until something materially changes.
+
+## Evidence (added 2026-06-03)
+
+On 2026-06-03, the salience scoring system surfaced 23 morning-briefing entries with co-occurrence scores 3-7, all clustering on the same calendar/omnifocus/travel/briefing tag spine. This is the first run in 24 nightly dream-cycles where co-occurrence scoring produced non-zero scores — the upstream writer fix populating `tags` on episodic entries took effect between 2026-06-02 and 2026-06-03. The pattern that was visible to humans for weeks (travel weeks generate cascading calendar conflicts and OmniFocus timeouts) is now machine-detectable.
+
+Specific new cluster members:
+- score=7: `2026-04-23-morning-briefing-midnight.md`
+- score=7: `2026-04-29-morning-briefing-glc-day4.md`
+- score=7: `2026-04-23-morning-briefing-scheduled.md`
+- score=7: `2026-04-21-morning-briefing.md`
+- score=7: `2026-04-27-morning-briefing-glc-day1.md`
+- score=7: `2026-04-27-morning-briefing.md`
+- score=7: `2026-04-28-morning-briefing-glc-day2.md`
+- score=7: `2026-04-30-morning-briefing.md`
+- score=7: `2026-05-01-morning-briefing-post-travel.md`
+- score=7: `2026-04-26-morning-briefing-glc-travel.md`
+- score=6: `2026-05-01-morning-briefing.md`
+- score=6: `2026-05-04-morning-briefing-automated.md`
+- score=6: `2026-05-04-morning-briefing.md`
+- score=6: `2026-05-05-morning-briefing.md`
+- score=6: `2026-04-20-afternoon-boot.md`
+
+## Implications (added 2026-06-03)
+
+- The structural gap that kept the dream cycle dormant for 23 nights has closed. Future runs will produce real semantic synthesis instead of zero-promotion records.
+- The morning-briefing → travel → calendar conflict pattern is now reinforced by 23+ new pieces of evidence across April 20 – May 22. Confidence escalates to `high`.
+- The system should now consider promoting subsidiary patterns: `glc-chicago + flight-conflict` (7 entries), `alice-mburu + travel` (6 entries), `gold-forum + cabo` (4 entries) — these may warrant their own semantic entries in subsequent runs.
+- The error-categories pipeline (LESSONS.md) should be cross-referenced with these promoted patterns to identify whether known errors map to the operational realities the briefings capture.
+
+## Evidence (added 2026-06-04)
+
+Today's dream cycle re-scored the morning-briefing cluster (87 episodic entries scanned, 23 promotion candidates at score 3-5). All 23 source files had `salience.promoted: false` despite yesterday's run claiming they were promoted — the prior write either failed silently or was lost to the chronic git-sync gap. Today's run successfully wrote `salience.promoted: true` on all 23 sources. No new sources added to synthesized-from (all 23 were already linked yesterday).
+
+Threshold patterns in the 30-day error log are unchanged from yesterday: process-skip/protocol-skip (9), data-accuracy/stale-cache (4), routing-error/protocol-skip (4), assumption-error/surfaced-resolved-item (3). All four already covered in LESSONS.md — no new lessons appended.
+
+## Implications (added 2026-06-04)
+
+- The promoted-flag drift from 2026-06-03 → 2026-06-04 confirms the chronic sync gap is corrupting state across runs. Even when a step claims success in state.yaml, the file-system writes can be silently rolled back if the sandbox/git interaction loses them. Need an external integrity check that re-reads files after writes to confirm persistence.
+- Pattern saturation is real. After yesterday's confidence escalation to `high` and 23 sources added, today's run found zero new evidence to add — only the same sources to re-promote. The pattern has stabilized; future dream cycles should expect to find subsidiary patterns (glc-chicago + flight-conflict, alice-mburu + travel, gold-forum + cabo) rather than further evidence for the parent.

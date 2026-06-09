@@ -1,15 +1,17 @@
 ---
 status: complete
-started-at: 2026-06-01T03:13:15-05:00
-completed-at: 2026-06-01T03:14:00-05:00
+started-at: 2026-06-04T08:11:55Z
+completed-at: 2026-06-04T08:12:20Z
 outputs:
   dream_log_appended: true
-  working_summary_written: false
-  working_summary_skip_reason: "errors=0, semantic_created=0, semantic_updated=0 — spec says skip"
-  git_commit: success
-  git_commit_sha: 2417f05
-  git_push: success
-  git_push_note: "First clean end-to-end push since prior sandbox unlink/credentials restriction. f246e68..2417f05 main -> main."
+  working_summary_written: true
+  working_summary_path: memory/working/dream-summary-2026-06-04.md
+  working_summary_reason: "semantic_updated=1 triggers summary write per spec."
+  git_commit: failed
+  git_commit_failure_reason: "Sandbox cannot create .git/index.lock — 'fatal: Unable to create index.lock: File exists' on every git add. Same chronic sync gap as 24+ prior runs. 116 modified files + today's archive/scoring/promotion writes are on disk but uncommitted."
+  git_push: blocked
+  git_push_blocker: "No commit to push. Sandbox has no git credentials regardless. Push returned 'Everything up-to-date' against the empty staging area."
+  manual_recovery_command: "cd ~/develop/jarvis && rm -f .git/index.lock .git/index.stash.*.lock && git add -A && git commit -m 'dream-cycle: 2026-06-04 — archived 2, re-promoted 23 (sync-drift fix)' && git push origin main"
 ---
 
 <!-- system:start -->

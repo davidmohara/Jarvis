@@ -1,18 +1,62 @@
 {
-  "generated_at": "2026-05-27T05:34:00",
-  "override_applied": "Italy trip Jun 5-7 — entire weekend hard-blocked (flying back Jun 7)",
+  "generated_at": "2026-06-02T00:00:00",
   "target_weekend": {
-    "friday": "2026-06-05",
-    "saturday": "2026-06-06",
-    "sunday": "2026-06-07"
+    "friday": "2026-06-19",
+    "saturday": "2026-06-20",
+    "sunday": "2026-06-21"
   },
   "day_status": {
-    "friday": { "status": "unavailable", "reason": "Italy trip" },
-    "saturday": { "status": "unavailable", "reason": "Italy trip" },
-    "sunday": { "status": "unavailable", "reason": "Return flight from Italy" }
+    "friday": {
+      "status": "available",
+      "reason": "Father's Day outing — manual override. 11 AM tee time, 4 players."
+    },
+    "saturday": {
+      "status": "available",
+      "reason": "Weiser Dinner at 5 PM CT is hard stop. Golf window: 1:00 PM–4:30 PM. Adequate for 18 holes."
+    },
+    "sunday": {
+      "status": "not_evaluated",
+      "reason": "Two rounds already targeted for Fri/Sat."
+    }
   },
   "drought": false,
-  "heat_streak": false,
-  "top_options": [],
-  "override_instructions": "Full Jun 5-7 weekend blocked — Italy trip, return flight Jun 7. No booking. Next target: Jun 12-14 weekend."
+  "last_round": {
+    "date": "2026-05-30",
+    "days_ago": 3,
+    "subject": "Tee time",
+    "location": "Frisco Lakes Golf Club"
+  },
+  "heat_streak": null,
+  "weather_note": "Weather APIs blocked on this network — booking skill should evaluate independently.",
+  "top_options": [
+    {
+      "rank": 1,
+      "day": "friday",
+      "date": "2026-06-19",
+      "preferred_start": "11:00",
+      "preferred_end": "15:30",
+      "holes": 18,
+      "players": 4,
+      "cost_per_player": 21,
+      "total_cost": 84,
+      "weather": null,
+      "score": 0,
+      "rationale": "Father's Day outing — 11 AM, 4 players (David + father + 2 others). Manual override."
+    },
+    {
+      "rank": 2,
+      "day": "saturday",
+      "date": "2026-06-20",
+      "preferred_start": "13:00",
+      "preferred_end": "17:30",
+      "holes": 18,
+      "players": 2,
+      "cost_per_player": 21,
+      "total_cost": 42,
+      "weather": null,
+      "score": 0,
+      "rationale": "Standard Saturday round — 1 PM, David + Susie. Hard stop: Weiser Dinner ~5 PM CT."
+    }
+  ],
+  "override_instructions": "Two separate bookings this weekend. Jun 19: 11 AM, 4 players, Father's Day. Jun 20: 1 PM, 2 players (David + Susie), standard Saturday round. Hard stop Jun 20 at 4:30 PM due to Weiser Dinner at 5 PM CT."
 }

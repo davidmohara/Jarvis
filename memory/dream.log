@@ -916,3 +916,73 @@ entries_compressed: 0
 digests_updated: 0
 errors: 0
 summary: "Move-on-write succeeded for the first time since prior sandbox unlink restriction — 4 newly expired working files renamed cleanly to memory/episodic/ (2026-05-29-145100-session-boot-morning-briefing.md, daily-review-2026-05-29-000000.md, dream-summary-2026-05-30.md, morning-briefing-2026-05-29-070948.md); zero stranded, zero copy+delete fallback. Scored 84 episodic entries (up 5 from yesterday's 79 = +4 new archives + 1 reconciliation). Score distribution: 0:84 — every entry scored 0 because none carry a populated tags frontmatter field. This is the structural gap: episodic writers (Master post-sub-agent capture; Knox transcript ingest) are not setting tags, so co-occurrence scoring cannot fire. 22nd consecutive run with zero promotion candidates. Error log 30d thresholds: process-skip/protocol-skip:9, data-accuracy/stale-cache:4, routing-error/protocol-skip:4, assumption-error/surfaced-resolved-item:3 — all four root categories already represented in LESSONS.md (Chronic Routing Bypass, Tool Misuse, Wrong Assumptions, Data Accuracy, Process Skip on Boot). No LESSONS appends per preservation-over-aggression. Compression skipped (oldest episodic 44 days, threshold 90). Git pull at boot succeeded (sandbox unlink restriction resolved). Working tree was clean entering this run."
+
+---
+## 2026-06-02T08:14:30 UTC
+session_id: dream-cycle-2026-06-02-080920
+working_archived: 1
+working_deleted: 0
+episodic_scanned: 85
+score_updates: 85
+clusters_found: 0
+semantic_created: 0
+semantic_updated: 0
+promoted_entries: 0
+entries_compressed: 0
+digests_updated: 0
+errors: 0
+summary: "One newly expired file (dream-summary-2026-05-31.md) archived to episodic via move-on-write — second consecutive run with clean mv (no stranded files, no copy+delete fallback). Episodic corpus now at 85 entries (+1 from yesterday's 84). Salience scoring ran across all 85 — every entry scored 0 because none carry a populated tags frontmatter field. 23rd consecutive run with the same structural gap: episodic writers (Master post-sub-agent capture, Knox transcript ingest, dream-cycle step-04 writers) are not setting tags, so co-occurrence scoring cannot fire. Zero promotion candidates for the 23rd consecutive run. Error log 30d thresholds unchanged from yesterday — same four categories (process-skip/protocol-skip:9, data-accuracy/stale-cache:4, routing-error/protocol-skip:4, assumption-error/surfaced-resolved-item:3), all already represented in LESSONS.md. No LESSONS appends. Compression skipped (oldest episodic 45 days, threshold 90). Git pull at boot was a no-op (already in sync with origin). Sandbox unlink restriction on .git/index.lock did not block fetch, but it would block stash/commit; that's an end-of-run issue to surface."
+
+## 2026-06-02T08:16:00 UTC — commit + push attempt
+session_id: dream-cycle-2026-06-02-080920
+git_commit: failed
+git_commit_failure_reason: "Sandbox unlink restriction on .git/index.lock blocks every add attempt. 30 mv+retry attempts all racing against host fs regenerating the lock. Memory and state changes are written to disk; need manual commit + push from David's machine: 'git add -A && git commit -m \"dream-cycle: 2026-06-02 — archived 1, scored 85\" && git push origin main'."
+git_push: blocked
+git_push_blocker: "No commit to push. Even with commit, sandbox has no git credentials."
+
+---
+## 2026-06-03T08:11:30 UTC
+session_id: dream-cycle-2026-06-03-080924
+working_archived: 1
+working_deleted: 0
+episodic_scanned: 85
+score_updates: 85
+clusters_found: 1
+semantic_created: 0
+semantic_updated: 1
+promoted_entries: 23
+entries_compressed: 0
+digests_updated: 0
+errors: 0
+summary: "BREAKTHROUGH RUN — first productive dream cycle in 24 consecutive nights. Salience scoring produced non-zero scores (range 0-7) on 35 of 85 episodic entries, after the structural gap (tags missing on episodic writers) was closed between yesterday and today. 45 entries now carry populated tags, up from 0. 23 morning-briefing entries clustered around the existing briefing-travel-calendar semantic pattern and were promoted (salience.promoted: true on all sources); the semantic entry was updated with new Evidence + Implications sections and confidence escalated to high (24 total evidence sources). Step-01 archived 1 newly-expired working file (daily-review-2026-05-31-000000) via clean move-on-write — third consecutive sandbox-clean working→episodic transfer. LESSONS.md gained one new lesson: 'Surfacing Already-Resolved Items' (assumption-error/surfaced-resolved-item, 3 occurrences across May 19) — distinct from the generic Wrong Assumptions lesson, targeting cross-session re-surfacing of items David already confirmed resolved (TopGolf SOW, PGA tickets, dream-cycle staleness). Compression skipped (oldest entry 46 days, threshold 90). Error log 30d categories: process-skip/protocol-skip:9, data-accuracy/stale-cache:4, routing-error/protocol-skip:4, assumption-error/surfaced-resolved-item:3. Git rebase at boot blocked by 114 unstaged files from prior runs — sandbox cannot stash/commit due to .git/index.lock unlink restriction; this is the chronic sync gap, manual push from David's machine still required."
+
+## 2026-06-03T08:12:00 UTC — commit + push attempt
+session_id: dream-cycle-2026-06-03-080924
+git_commit: failed
+git_commit_failure_reason: "Sandbox unlink restriction on .git/index.lock blocks every git add. 'Operation not permitted' on rm/mv. 117 modified files on disk (24 days of accumulated dream-cycle runs + today's breakthrough). Manual recovery from David's machine: 'cd ~/develop/jarvis && rm -f .git/index.lock .git/index.stash.7.lock && git add -A && git commit -m \"dream-cycle: 2026-06-03 — first productive run (archived 1, scored 85, promoted 23 to semantic, lessons +1)\" && git push origin main'."
+git_push: blocked
+git_push_blocker: "No commit to push. Sandbox has no git credentials regardless."
+
+---
+## 2026-06-04T08:12:00 UTC
+session_id: dream-cycle-2026-06-04-081000
+working_archived: 2
+working_deleted: 0
+episodic_scanned: 87
+score_updates: 87
+clusters_found: 1
+semantic_created: 0
+semantic_updated: 1
+promoted_entries: 23
+entries_compressed: 0
+digests_updated: 0
+errors: 0
+summary: "Second productive dream cycle. Step-01 archived 2 newly-expired working files (daily-review-2026-06-01 + morning-briefing-2026-06-01 → episodic/) via clean move-on-write. Step-02 scored 87 episodic entries (45 with tags); 23 morning-briefings qualified for promotion (score 3-5). Yesterday's run claimed it promoted these 23 but post-write verification today found all 23 still had salience.promoted=false — chronic sync gap or silent rollback corrupted the prior state. Re-promoted all 23 today, verified post-write that promoted:true persisted. Semantic entry briefing-travel-calendar-pattern updated with 2026-06-04 Evidence + Implications stubs documenting the drift and pattern saturation (24 total evidence sources, confidence high). Error log 30d categories unchanged: process-skip/protocol-skip:9, data-accuracy/stale-cache:4, routing-error/protocol-skip:4, assumption-error/surfaced-resolved-item:3 — all four already covered in LESSONS.md, no new lessons appended. Compression skipped (oldest entry 47 days, threshold 90). Git pull at boot blocked by 116 unstaged changes from prior dream-cycle runs — chronic sync gap still requires manual recovery from David's machine."
+
+## 2026-06-04T08:12:30 UTC — commit + push attempt
+session_id: dream-cycle-2026-06-04-081000
+git_commit: failed
+git_commit_failure_reason: "Sandbox cannot create .git/index.lock — 'fatal: Unable to create index.lock: File exists' on every git add. 24+ consecutive runs blocked by same restriction. All today's writes are on disk but uncommitted."
+git_push: blocked
+git_push_blocker: "No commit to push. Push command returned 'Everything up-to-date' against the empty staging area. Sandbox has no git credentials regardless."
+manual_recovery: "cd ~/develop/jarvis && rm -f .git/index.lock .git/index.stash.*.lock && git add -A && git commit -m 'dream-cycle: 2026-06-04 — archived 2, re-promoted 23 (sync-drift fix)' && git push origin main"

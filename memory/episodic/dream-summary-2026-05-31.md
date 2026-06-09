@@ -1,13 +1,17 @@
 ---
-type: working
+type: working-archive
 session_id: dream-cycle-2026-05-31-030914
 agent-source: jarvis
 created: 2026-05-31T03:12:28
 expires: 2026-06-01T03:12:28
-status: active
+status: archived
 context: "Dream cycle summary — 2026-05-31"
+salience:
+  score: 0
+  last-promoted-check: 2026-06-04
+  references: []
+  promoted: false
 ---
-
 # Dream Cycle — 2026-05-31
 
 **Quiet night. Memory consolidation ran clean on the phases that work in this sandbox; git sync remains blocked.**

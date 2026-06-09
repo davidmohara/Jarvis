@@ -1,6 +1,32 @@
 {
   "pending": [
     {
+      "id": "work-20260601-card-skill-autonomous-login",
+      "description": "Added autonomous login capability to three Chase card offer skills. Each skill now retrieves credentials from 1Password via the op CLI (at /opt/homebrew/bin/op), writes credential temp files with 600 permissions, fills the login form via JavaScript injection, verifies authentication, and cleans up. Removes the manual 'Requires David logged in' prerequisite. Navigation remains click-only, no new tabs. 1Password item mapping confirmed: Amex → 'American Express' (fields: UserID, Password), Citi → 'citi.com' (fields: User ID, password), Discover → 'discover.com' (fields: userID, password). Desktop Commander used as tmux substitute when tmux is unavailable in the execution environment.",
+      "started": "2026-06-01T16:00:00",
+      "classification": "personal",
+      "files": [
+        {
+          "path": "skills/chase-card-offers-amex/SKILL.md",
+          "action": "merge",
+          "type": "personal",
+          "description": "Added Step 0 (Login via 1Password): retrieve credentials via op CLI, navigate to login via clicks, fill username/password fields via JS injection, verify authentication, clean up temp files. Updated description. Updated navigation rule to prohibit open_url for all navigation. Added no-new-tabs rule."
+        },
+        {
+          "path": "skills/chase-card-offers-citi/SKILL.md",
+          "action": "merge",
+          "type": "personal",
+          "description": "Added Step 0 (Login via 1Password): op CLI credential retrieval for 'citi.com' item, click-only navigation to login, JS form fill, auth verification, cleanup. Updated description and navigation rules."
+        },
+        {
+          "path": "skills/chase-card-offers-discover/SKILL.md",
+          "action": "merge",
+          "type": "personal",
+          "description": "Added Step 0 (Login via 1Password): op CLI credential retrieval for 'discover.com' item, click-only navigation to login, JS form fill, auth verification, cleanup. Updated description and navigation rules."
+        }
+      ]
+    },
+    {
       "id": "work-20260531-dream-cycle-move-on-write",
       "description": "Redesigned step-01-working-memory-cleanup to use rename (mv) instead of copy+delete for archiving working memory entries to episodic. The old pattern failed on every scheduled run for 33 nights because the sandbox cannot unlink files (Operation not permitted) but can rename them. New pattern: mutate frontmatter in-place on the source file first (set status:archived, add type:working-archive, salience.score:0), then mv to memory/episodic/{fname} — one inode operation. Added working_stranded counter and skipped_already_archived skip rule to handle dead files left by the old pattern. Trivial-body delete fallback now also leaves the file in place with status:archived on failure rather than losing it. Rename hypothesis verified empirically in sandbox: mv exit code 0, source gone, destination present. rm on the destination confirmed still blocked (unlink still fails). Added systems/sandbox-credentials/SETUP.md runbook for GitHub PAT credential flow via git credential.helper store.",
       "started": "2026-05-31T00:00:00Z",

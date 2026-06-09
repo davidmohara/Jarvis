@@ -6,7 +6,7 @@ created: 2026-05-24
 session_id: dream-cycle-2026-05-24-030855
 salience:
   score: 0
-  last-promoted-check: 2026-06-01
+  last-promoted-check: 2026-06-04
   references: []
   promoted: false
 ---

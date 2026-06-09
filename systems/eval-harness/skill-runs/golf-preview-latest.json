@@ -2,10 +2,10 @@
   "skill": "golf-preview",
   "agent": "chief",
   "trigger": "scheduled",
-  "started": "2026-05-27T05:30:00",
-  "completed": "2026-05-27T05:33:30",
+  "started": "2026-06-02T23:10:00",
+  "completed": "2026-06-02T23:11:15",
   "status": "partial",
   "tool_failures": 1,
   "error_ids": [],
-  "notes": "MS365 calendar connector unavailable — calendar conflicts unverified. Italy override applied (Fri/Sat Jun 5-6 blocked). Single option surfaced: Sunday Jun 7 2:30 PM. Slack sent to #golf."
+  "notes": "Weather APIs (Open-Meteo, NWS) blocked on cowork egress — scoring proceeded without weather data. Calendar and Slack succeeded."
 }

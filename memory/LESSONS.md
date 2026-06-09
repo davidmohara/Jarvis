@@ -67,3 +67,10 @@ Category: misidentification
 Pattern: Plaud transcript speaker identification repeatedly guesses wrong people. Speaker 7, 9, and 10 all incorrectly identified in the same session (Houston SKO recordings). Inferences based on YPO knowledge or name matching rather than cross-referencing calendar attendees, meeting context, and voice patterns from prior transcripts.
 Fix: Speaker identification must follow a strict pipeline: (1) match calendar attendees for the recording's time window, (2) cross-reference with prior confirmed speaker IDs from the same event, (3) use content clues (role, company mentions) to narrow. Never guess from general knowledge. If confidence is below 80%, present as "unresolved" rather than proposing a wrong name.
 Status: active
+
+## 2026-06-03 — Surfacing Already-Resolved Items
+Detected: 3 occurrences over 30 days
+Category: assumption-error/surfaced-resolved-item
+Pattern: Briefings repeatedly flag items that David has already resolved or that are tracked elsewhere as if they were live problems. Examples: TopGolf SOW flagged overdue when staffing is underway; PGA Tour tickets flagged overdue for the third time despite purchase confirmed twice; dream cycle flagged stale when it is running on another machine. The common thread is taking a tracker's status at face value without checking the latest signal (sent email, prior session confirmation, off-host execution).
+Fix: Before surfacing any item as overdue, stale, or actionable: (1) check the agent's own prior session notes for a resolution confirmation, (2) check sent items / DM history for the task's outcome, (3) verify the task isn't owned outside the local system (other machine, other person). When David has confirmed completion in any prior session, treat the item as closed until new evidence reopens it. Never re-surface the same resolved item across sessions.
+Status: active

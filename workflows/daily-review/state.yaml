@@ -2,16 +2,16 @@
 workflow: daily-review
 agent: chief
 status: complete
-session-started: "2026-05-29T00:00:00"
-session-id: "chief-2026-05-29-000000"
+session-started: "2026-06-05T02:11:37"
+session-id: "chief-2026-06-05-021137"
 current-step: step-auto
 original-request: "auto"
 accumulated-context:
-  narrative-title: "2026-05-29 Houston Fly-Out, Relational Debts Paid, and the Deliberate Practices Stack Finally Clears"
-  narrative-path: "reviews/daily/auto-2026-05-29.md"
-  omnifocus-status: "available — 18 completions, 4 overdue, 16 inbox items"
-  calendar-status: "available via M365 MCP — 5 events (Dallas Virtual Coffee Chat, Sales & Recruiting, travel to airport, AA 4285 HOU→DFW, Friday Wrap-Up with Alice)"
+  narrative-title: "2026-06-03 Sales Cadence Day, Italy on the Horizon, and a Overdue Queue That Needs a Reckoning"
+  narrative-path: "reviews/daily/auto-2026-06-03.md"
+  omnifocus-status: "available — 0 completions, 21 overdue, 14 inbox items"
+  calendar-status: "available — 7 events on June 3 (recurring sales scrums, yWhales, YPO sessions)"
   obsidian-status: "disabled — written to local fallback"
-  calendar-events: 5
+  calendar-events: 7
   model: sonnet
 ---

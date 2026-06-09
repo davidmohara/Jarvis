@@ -1,15 +1,15 @@
 workflow: golf-booking
 agent: sterling
 status: aborted
-session-started: "2026-05-28T00:00:00"
+session-started: "2026-06-04T00:00:00"
 session-id: null
-current-step: "abort-no-eligible-dates"
-original-request: "Book tee time for Jun 5-7, 2026 weekend"
+current-step: "session-expired-chronogolf"
+original-request: "Book tee time for Jun 12-14, 2026 weekend"
 accumulated-context:
-  target_weekend: "2026-06-05 to 2026-06-07"
-  reason_aborted: "Italy trip Jun 5-7 with return flight Jun 7 — entire weekend hard-blocked"
-  preview_top_options: "[]"
-  override_instructions: "Full Jun 5-7 weekend blocked — Italy trip, return flight Jun 7. No booking. Next target: Jun 12-14 weekend."
-  completed_at: "2026-05-28T00:00:00"
-next-run: "2026-06-02T23:00:00"
+  target_weekend: "2026-06-12 to 2026-06-14"
+  reason_aborted: "ChronoGolf session expired — not logged in at dashboard. David must manually log in and re-trigger booking."
+  preview_top_options: "[Saturday Jun 13 1PM-5:30PM (18h, $42), Saturday Jun 13 4PM-8PM (18h, $30), Sunday Jun 14 2:30PM-7PM (18h, $42)]"
+  override_instructions: null
+  completed_at: "2026-06-04T00:00:00"
+next-run: "manual-retry-required"
 next-target: "Jun 12-14 weekend"

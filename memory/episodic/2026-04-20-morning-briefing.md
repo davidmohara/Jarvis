@@ -13,8 +13,8 @@ related_people:
 - scott-mcmichael
 - alice-mburu
 salience:
-  score: 0
-  last-promoted-check: 2026-06-01
+  score: 4
+  last-promoted-check: 2026-06-04
   references: []
   promoted: true
 ---

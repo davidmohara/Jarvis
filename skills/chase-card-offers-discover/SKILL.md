@@ -1,6 +1,6 @@
 ---
 name: chase-card-offers-discover
-description: Check quarterly category activation and read offers on the Discover it Cash Back card via Chrome automation. Covers rotating category activation, YNAB cross-reference, and offer enrollment.
+description: Autonomously log in and check/activate rotating categories on the Discover it Cash Back card (••••8369) via Chrome automation. Retrieves credentials from 1Password, handles login, navigates via clicks only, activates quarterly categories, and checks cap progress.
 owning_agent: chase
 model: haiku
 trigger_keywords: [discover offers, discover card]
@@ -13,13 +13,114 @@ trigger_agents: [chase]
 
 **Portal:** `https://www.discover.com/credit-cards/cash-back/activate.html`
 
-**Requires David logged in** to discover.com before this skill runs.
-
 ---
 
 ## Navigation Rules
 
-**Rule:** Once authenticated, navigate by clicking links and buttons only. Do not use `open_url` for in-portal navigation.
+**Rule:** Navigate by clicking links and buttons only. Do not use `open_url` for any navigation. No new tabs.
+
+---
+
+## Step 0 — Login via 1Password
+
+### 0a — Retrieve credentials
+
+```bash
+cat > /tmp/op-discover-login.sh << 'SCRIPT'
+#!/usr/bin/env bash
+set +x
+set -euo pipefail
+USER=$(/opt/homebrew/bin/op item get "discover.com" --account my.1password.com --fields "label=userID" 2>/dev/null)
+PASS=$(/opt/homebrew/bin/op item get "discover.com" --account my.1password.com --fields "label=password" 2>/dev/null)
+echo "USER_LEN:${#USER}"
+echo "PASS_LEN:${#PASS}"
+echo "$USER" > /tmp/.discover_user
+echo "$PASS" > /tmp/.discover_pass
+chmod 600 /tmp/.discover_user /tmp/.discover_pass
+SCRIPT
+chmod 700 /tmp/op-discover-login.sh
+bash /tmp/op-discover-login.sh; rm -f /tmp/op-discover-login.sh
+```
+
+Verify `USER_LEN` and `PASS_LEN` both > 0.
+
+### 0b — Navigate to login and sign in
+
+Check current URL:
+
+```javascript
+document.title + ' | ' + window.location.href
+```
+
+If already on `card.discover.com` and authenticated (Account Center visible), skip to the Primary Job section.
+
+If not authenticated, find and click Log In:
+
+```javascript
+var links = document.querySelectorAll('a, button');
+for (var i = 0; i < links.length; i++) {
+  var txt = (links[i].textContent || '').trim().toLowerCase();
+  var href = links[i].href || '';
+  if (txt === 'log in' || txt === 'sign in' || href.indexOf('login') > -1 || href.indexOf('logon') > -1) {
+    links[i].click(); break;
+  }
+}
+'navigated to login'
+```
+
+Wait for login page, then fill credentials (construct JS string in bash with actual values from temp files — never log values):
+
+```javascript
+// Fill username
+var userField = document.querySelector('#userid-content, [name="userId"], [name="userID"], input[type="text"]');
+if (userField) {
+  userField.value = 'INJECT_USER';
+  userField.dispatchEvent(new Event('input', {bubbles: true}));
+  userField.dispatchEvent(new Event('change', {bubbles: true}));
+}
+'filled username'
+```
+
+```javascript
+// Fill password
+var passField = document.querySelector('#password-content, [name="password"], input[type="password"]');
+if (passField) {
+  passField.value = 'INJECT_PASS';
+  passField.dispatchEvent(new Event('input', {bubbles: true}));
+  passField.dispatchEvent(new Event('change', {bubbles: true}));
+}
+'filled password'
+```
+
+Click log in:
+
+```javascript
+var btns = document.querySelectorAll('button, input[type="submit"]');
+for (var i = 0; i < btns.length; i++) {
+  var txt = (btns[i].textContent || btns[i].value || '').trim().toLowerCase();
+  if (txt.indexOf('log in') > -1 || txt.indexOf('sign in') > -1 || txt.indexOf('submit') > -1) {
+    btns[i].click(); break;
+  }
+}
+'submitted login'
+```
+
+### 0c — Verify authentication
+
+Wait 4 seconds, then confirm:
+
+```javascript
+document.title + ' | ' + window.location.href
+// Expected: "Account Center Home" or similar, URL contains card.discover.com
+```
+
+### 0d — Clean up
+
+```bash
+rm -f /tmp/.discover_user /tmp/.discover_pass
+```
+
+Once on the Discover Account Center, proceed to the Primary Job section below.
 
 ---
 

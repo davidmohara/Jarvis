@@ -1,6 +1,6 @@
 ---
 name: chase-card-offers-amex
-description: Read and add offers on American Express cards (Platinum ••••21001 and Blue Cash Preferred ••••73008) via Chrome automation. Covers the full flow from landing on the offers page to adding individual offers.
+description: Autonomously log in and add offers on American Express cards (Platinum ••••21001 and Blue Cash Preferred ••••73008) via Chrome automation. Retrieves credentials from 1Password, handles login, navigates to the offers page via clicks only, and adds YNAB-validated offers.
 owning_agent: chase
 model: haiku
 trigger_keywords: [amex offers, american express, amex deals]
@@ -13,13 +13,138 @@ trigger_agents: [chase]
 
 **Cards:** Platinum ••••21001 | Blue Cash Preferred ••••73008
 
-**Requires David logged in** to americanexpress.com before this skill runs.
-
 ---
 
 ## Navigation Rules
 
-**Rule:** Once authenticated, navigate exclusively by clicking links and buttons via `execute_javascript`. Do NOT use `open_url` or `window.location.href` for in-portal navigation — this breaks React SPA routing and triggers redirects. `open_url` is only allowed for the initial jump to `global.americanexpress.com` if not already there.
+**Rule:** Navigate exclusively by clicking links and buttons via `execute_javascript`. Do NOT use `open_url` or `window.location.href` for any navigation — this breaks React SPA routing and triggers redirects or logouts. The only exception is the very first tab load to get onto americanexpress.com (Step 0 below).
+
+**Do not open new tabs.** All navigation happens within the existing active tab.
+
+---
+
+## Step 0 — Login via 1Password
+
+Run this before doing anything in the browser. Uses Desktop Commander to call `op` on the host Mac (no tmux required when tmux is unavailable — Desktop Commander provides an equivalent isolated shell).
+
+### 0a — Retrieve credentials
+
+```bash
+cat > /tmp/op-amex-login.sh << 'SCRIPT'
+#!/usr/bin/env bash
+set +x
+set -euo pipefail
+USER=$(/opt/homebrew/bin/op item get "American Express" --account my.1password.com --fields label=UserID 2>/dev/null)
+PASS=$(/opt/homebrew/bin/op item get "American Express" --account my.1password.com --fields label=Password 2>/dev/null)
+echo "USER_LEN:${#USER}"
+echo "PASS_LEN:${#PASS}"
+# Write to temp files readable by the browser step — never log values
+echo "$USER" > /tmp/.amex_user
+echo "$PASS" > /tmp/.amex_pass
+chmod 600 /tmp/.amex_user /tmp/.amex_pass
+SCRIPT
+chmod 700 /tmp/op-amex-login.sh
+bash /tmp/op-amex-login.sh; rm -f /tmp/op-amex-login.sh
+```
+
+Verify output shows `USER_LEN` and `PASS_LEN` both > 0 before proceeding.
+
+### 0b — Navigate to login page and sign in
+
+Check current tab URL first:
+
+```javascript
+document.title + ' | ' + window.location.href
+```
+
+If already on `global.americanexpress.com` and authenticated (no login form visible), skip to Step 1.
+
+If not authenticated, find and click the Log In link:
+
+```javascript
+var links = document.querySelectorAll('a');
+for (var i = 0; i < links.length; i++) {
+  var txt = (links[i].textContent || '').trim();
+  var href = links[i].href || '';
+  if (txt === 'Log In' || href.indexOf('account/login') > -1) {
+    links[i].click(); break;
+  }
+}
+'navigated to login'
+```
+
+Wait for the login page to load, then fill credentials using values from the temp files:
+
+```bash
+# Read credentials from temp files (shape-check only, never print)
+USER=$(cat /tmp/.amex_user)
+PASS=$(cat /tmp/.amex_pass)
+echo "USER_LEN:${#USER} PASS_LEN:${#PASS}"
+```
+
+Inject into the login form via JavaScript (read the values from temp files in the same Desktop Commander process, then pass into the browser via execute_javascript — do not log values):
+
+```javascript
+// Fill username field
+var userField = document.querySelector('#UserID, [name="UserID"], [name="userID"], input[type="text"]');
+if (userField) {
+  userField.value = 'INJECT_USER';
+  userField.dispatchEvent(new Event('input', {bubbles: true}));
+  userField.dispatchEvent(new Event('change', {bubbles: true}));
+}
+'filled username'
+```
+
+```javascript
+// Fill password field
+var passField = document.querySelector('#Password, [name="Password"], [name="password"], input[type="password"]');
+if (passField) {
+  passField.value = 'INJECT_PASS';
+  passField.dispatchEvent(new Event('input', {bubbles: true}));
+  passField.dispatchEvent(new Event('change', {bubbles: true}));
+}
+'filled password'
+```
+
+**Important:** Replace `INJECT_USER` and `INJECT_PASS` with the actual values read from `/tmp/.amex_user` and `/tmp/.amex_pass` in the same Desktop Commander shell step — construct the JS string in bash before passing to `execute_javascript`. Never log or print the values.
+
+Click the submit button:
+
+```javascript
+var btns = document.querySelectorAll('button, input[type="submit"]');
+for (var i = 0; i < btns.length; i++) {
+  var txt = (btns[i].textContent || btns[i].value || '').trim().toLowerCase();
+  if (txt === 'log in' || txt === 'sign in' || txt === 'submit') {
+    btns[i].click(); break;
+  }
+}
+'submitted login'
+```
+
+### 0c — Verify authentication
+
+Wait 3-4 seconds, then confirm:
+
+```javascript
+document.title + ' | ' + window.location.href
+// Expected: title contains "Overview" or "Dashboard" and URL is global.americanexpress.com
+```
+
+If still on login page, check for error message:
+
+```javascript
+var body = document.body.innerText;
+var errIdx = body.indexOf('incorrect') > -1 || body.indexOf('Invalid') > -1 || body.indexOf('error') > -1;
+errIdx ? 'Login error detected — check credentials' : 'No error visible'
+```
+
+### 0d — Clean up temp files
+
+```bash
+rm -f /tmp/.amex_user /tmp/.amex_pass
+```
+
+Once authenticated and on `global.americanexpress.com`, proceed to Step 1.
 
 ---
 
