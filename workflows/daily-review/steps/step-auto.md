@@ -87,6 +87,12 @@ model: sonnet
    - Filename: `YYYY-MM-DD <Descriptive Title>.md`
    - Target folder and cross-linking: as specified in vault-conventions.md
 
+   **Minimum-output guard:** Immediately after writing, verify the file exists and is non-empty (>100 bytes). Use `ls -la` or `wc -c` via Bash. If the file is missing or empty:
+   - Do NOT exit with `success` or `partial`
+   - Write to the local fallback path: `{project-root}/reviews/daily/auto-YYYY-MM-DD.md`
+   - If the fallback also fails, set `status: failure` in the eval record
+   - This guard fires for both the Obsidian path and the local fallback path
+
 6. **Deliver confirmation** (one or two lines):
    ```
    Auto review written: "{title}"
@@ -110,8 +116,10 @@ model: sonnet
 | OmniFocus unavailable | Proceed with calendar and delegation data only. Note in narrative: "OmniFocus was unavailable — this account is based on the calendar alone." |
 | Calendar unavailable | Proceed with OmniFocus data only. Note in narrative: "Calendar data was unavailable — this account is based on the task record alone." |
 | Both OmniFocus and calendar unavailable | Write minimal narrative noting both sources failed. Pull rocks and delegation tracker directly. Note the data gap. Still write to knowledge system. |
-| Knowledge system unavailable | Write the narrative to `{project-root}/reviews/daily/auto-YYYY-MM-DD.md` as fallback. Note routing failure in confirmation. |
-| No completions and no meetings | Write the narrative honestly: it appears to have been a light or untracked day. Do not invent activity. |
+| Knowledge system unavailable | Write the narrative to `{project-root}/reviews/daily/auto-YYYY-MM-DD.md` as fallback. Note routing failure in confirmation. Run minimum-output guard on the fallback path. |
+| No completions and no meetings | Write the narrative honestly: it appears to have been a light or untracked day. Do not invent activity. Still write the file — a short honest entry is not a failure. |
+| Output file missing after write attempt | Do not exit with success or partial. Retry the write (fallback path if primary failed). If both fail, set `status: failure` in the eval record and log the error in state.yaml. |
+| Working memory write fails | Log `working-memory-status: failed` in state.yaml. Do not let this block the state.yaml `complete` write — a working memory failure is non-blocking but must be recorded. |
 
 ---
 
@@ -175,6 +183,27 @@ context: "Daily review — {YYYY-MM-DD}"
 ```
 
 Body: 3-5 bullet points summarizing key outputs, decisions, and any flags from this run. Keep it under 200 words.
+
+**Working memory guard:** After writing, verify the file exists and is >200 bytes via Bash (`wc -c {path}`). If verification fails:
+- Retry the write once
+- If still failing, log `working-memory-status: failed` in `state.yaml` under `accumulated-context`
+- Do NOT silently skip — a failed working memory write must be visible in the state record
+
+## CLOSE STATE
+
+After working memory is written (or its failure is logged), write the final `state.yaml`:
+
+```yaml
+status: complete
+current-step: step-auto
+accumulated-context:
+  # ... preserve all accumulated-context fields from the run ...
+  narrative-path: "{path to output file}"
+  working-memory-path: "{path to working memory file, or null if failed}"
+  working-memory-status: "{written|failed}"
+```
+
+This write is mandatory. If `status: complete` is not written, the workflow will attempt to resume on the next run rather than starting fresh.
 
 ---
 <!-- personal:start -->
