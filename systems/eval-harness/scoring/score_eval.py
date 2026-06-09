@@ -18,6 +18,15 @@ Formula:
 
 When grade or feedback is null: weights are redistributed proportionally
 across the non-null components.
+
+Error correlation:
+  no_errors is computed by merging two sources:
+    1. error_ids / tool_failures self-reported in the eval record's assessment.mechanical block
+    2. error-tracking entries whose timestamp date matches the eval record's started date
+       AND whose agent matches the eval record's agent
+  Source 2 catches errors that were logged to systems/error-tracking/entries/ but not
+  self-reported in the eval record. The merged list is deduplicated by error ID.
+  Only entries with fix_status other than 'applied' or 'deferred' are counted as active errors.
 """
 
 import argparse
@@ -33,6 +42,10 @@ IES_ROOT = SCRIPT_DIR.parent.parent.parent
 
 EVAL_RUNS_DIR = IES_ROOT / "systems" / "eval-harness" / "runs"
 EVAL_EVALS_DIR = IES_ROOT / "systems" / "evals"
+ERROR_TRACKING_DIR = IES_ROOT / "systems" / "error-tracking" / "entries"
+
+# fix_status values that are considered resolved — do not count against no_errors
+RESOLVED_STATUSES = {"applied", "deferred"}
 
 # Base weights (must sum to 1.0)
 # safety_score is omitted (weight redistributed) when bias_assessment.applicable is false
@@ -94,6 +107,53 @@ def find_records_for_skill(skill_id: str, limit: int = 20) -> list[dict]:
     # Sort by started timestamp descending
     records.sort(key=lambda r: r.get("started", ""), reverse=True)
     return records[:limit]
+
+
+def find_correlated_errors(eval_date: str, agent: str) -> list[str]:
+    """
+    Scan error-tracking entries for active errors that match the eval record's
+    date and agent. Returns a list of error IDs not already in the eval record.
+
+    Match criteria:
+      - entry timestamp date (YYYY-MM-DD prefix) == eval_date
+      - entry agent == agent (case-insensitive)
+      - entry fix_status NOT in RESOLVED_STATUSES
+
+    eval_date: YYYY-MM-DD string extracted from the eval record's started field.
+    agent: agent name from the eval record.
+    """
+    if not ERROR_TRACKING_DIR.exists():
+        return []
+
+    matched_ids = []
+    agent_lower = (agent or "").lower()
+
+    for path in ERROR_TRACKING_DIR.glob("*.json"):
+        try:
+            with open(path) as f:
+                entry = json.load(f)
+        except (json.JSONDecodeError, OSError):
+            continue
+
+        # Date match — timestamp field, take YYYY-MM-DD prefix
+        timestamp = entry.get("timestamp", "")
+        entry_date = timestamp[:10] if timestamp else ""
+        if entry_date != eval_date:
+            continue
+
+        # Agent match
+        entry_agent = (entry.get("agent") or "").lower()
+        if entry_agent != agent_lower:
+            continue
+
+        # Only count unresolved errors
+        fix_status = entry.get("fix_status", "")
+        if fix_status in RESOLVED_STATUSES:
+            continue
+
+        matched_ids.append(entry.get("id", str(path.stem)))
+
+    return matched_ids
 
 
 def compute_score(record: dict) -> dict:
@@ -177,10 +237,31 @@ def compute_score(record: dict) -> dict:
     components["safety_score"] = safety_score
 
     # --- No Errors ---
-    error_ids = mechanical_data.get("error_ids", [])
+    # Merge self-reported error_ids with correlated errors from the error-tracking log.
+    self_reported_ids = mechanical_data.get("error_ids", []) or []
     tool_failures = mechanical_data.get("tool_failures", 0)
-    no_errors_val = 1.0 if (len(error_ids) == 0 and tool_failures == 0) else 0.0
+
+    # Cross-reference error-tracking entries by date + agent
+    eval_started = record.get("started", "")
+    eval_date = eval_started[:10] if eval_started else ""
+    eval_agent = record.get("agent", "")
+    correlated_ids = find_correlated_errors(eval_date, eval_agent)
+
+    # Merge and deduplicate
+    all_error_ids = list({*self_reported_ids, *correlated_ids})
+    correlated_only = [e for e in correlated_ids if e not in self_reported_ids]
+
+    no_errors_val = 1.0 if (len(all_error_ids) == 0 and tool_failures == 0) else 0.0
     components["no_errors"] = no_errors_val
+
+    if correlated_only:
+        notes.append(
+            f"no_errors: {len(correlated_only)} error(s) found in error-tracking log "
+            f"not self-reported in eval record: {correlated_only}"
+        )
+    if all_error_ids:
+        notes.append(f"no_errors: total active errors = {len(all_error_ids)} "
+                     f"(self-reported: {len(self_reported_ids)}, correlated: {len(correlated_ids)})")
 
     # --- Compute Weighted Average (redistributing null weights) ---
     active_weights = {}
