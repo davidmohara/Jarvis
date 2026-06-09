@@ -1012,3 +1012,12 @@ entries_compressed: 0
 digests_updated: 0
 errors: 0
 summary: "Quiet run. Step-01 archived 4 newly-expired working files (daily-review-2026-06-05, dream-summary-2026-06-03/04, morning-briefing-2026-06-02) via move-on-write. Step-02 scored 91 episodic entries (45 with tags) — score distribution collapsed entirely to 0:91 because only 2 tagged entries (2026-05-15 and 2026-05-27) fall within the 30-day window and they share no co-occurring tags. All prior promotion-eligible morning-briefings have aged out. Step-03 found 0 promotion candidates; error-pattern scan showed 5 categories >=3 occurrences (process-skip:13, data-accuracy:6, assumption-error:5, tool-misuse:4, routing-error:4) — all already covered in LESSONS.md. Step-04 compression skipped (oldest entry 52 days old; 90-day threshold not met). Git pull at boot blocked by chronic refs/remotes lock — same 25+ run pattern. Episodic memory is starving: incoming working entries are not getting tagged consistently, so co-occurrence scoring has no signal to work with."
+
+## 2026-06-09T14:32:00 UTC — commit + push
+session_id: dream-cycle-2026-06-09-142612
+git_commit: success
+commit_sha: ea35fea
+commit_method: "GIT_INDEX_FILE=/tmp/jarvis-index-2026-06-09 workaround (same as 2026-06-04). 98 files committed, 240 insertions, 222 deletions."
+git_push: blocked
+git_push_blocker: "Remote rejected push: non-fast-forward. Local HEAD ea35fea is behind origin/main 146488f. Sandbox cannot fetch/rebase due to refs/remotes/origin/main.lock unlink restriction."
+manual_recovery: "cd ~/develop/jarvis && rm -f .git/index.lock .git/index.stash.*.lock .git/refs/remotes/origin/*.lock .git/HEAD.lock .git/objects/*/tmp_obj_* && git fetch origin && git pull --rebase origin main && git push origin main"

@@ -6,9 +6,12 @@ outputs:
   dream_log_appended: true
   working_summary_written: false
   working_summary_reason: "All semantic and error counts are zero — spec does not trigger summary write."
-  git_commit: pending
-  git_push: pending
-  manual_recovery_command: "cd ~/develop/jarvis && rm -f .git/index.lock .git/index.stash.*.lock .git/refs/remotes/origin/*.lock && git fetch origin && git pull --rebase origin main && GIT_INDEX_FILE=/tmp/jarvis-index-$(date +%s) git add -A && git commit -m 'dream-cycle: 2026-06-09 — archived 4, 0 promoted, 0 compressed' && git push origin main"
+  git_commit: success
+  commit_sha: ea35fea
+  commit_method: "GIT_INDEX_FILE=/tmp/jarvis-index-2026-06-09 workaround. 98 files committed (240 insertions, 222 deletions)."
+  git_push: blocked
+  git_push_blocker: "non-fast-forward. Local HEAD ea35fea is behind origin/main 146488f. Sandbox cannot fetch/rebase."
+  manual_recovery_command: "cd ~/develop/jarvis && rm -f .git/index.lock .git/index.stash.*.lock .git/refs/remotes/origin/*.lock .git/HEAD.lock && git fetch origin && git pull --rebase origin main && git push origin main"
 ---
 
 <!-- system:start -->
