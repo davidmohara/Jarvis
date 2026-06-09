@@ -12,6 +12,20 @@ salience:
   last-promoted-check: 2026-06-09
   references: []
   promoted: false
+date: 2026-05-13
+source_file: memory/working/2026-05-13-061200-session-boot-morning-briefing.md
+tags:
+  - briefing
+  - chief
+  - morning-briefing
+  - calendar
+  - omnifocus
+  - omnifocus-timeout
+  - leads
+  - ypo
+  - utb-board
+  - email
+related_people:
 ---
 # Morning Briefing Boot — May 13, 2026
 

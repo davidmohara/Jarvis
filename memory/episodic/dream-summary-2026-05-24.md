@@ -9,6 +9,17 @@ salience:
   last-promoted-check: 2026-06-09
   references: []
   promoted: false
+date: 2026-05-24
+source_file: memory/working/dream-summary-2026-05-24.md
+tags:
+  - dream-summary
+  - omnifocus
+  - boot
+  - score-inflation
+  - dream-cycle
+  - git-issues
+  - lessons
+related_people:
 ---
 # Dream Cycle Summary — 2026-05-24
 

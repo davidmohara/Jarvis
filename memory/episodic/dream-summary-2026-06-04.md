@@ -8,6 +8,21 @@ context: "Dream cycle summary for Chief boot — 2026-06-04"
 salience:
   score: 0
   last-promoted-check: 2026-06-09
+date: 2026-06-04
+source_file: memory/working/dream-summary-2026-06-04.md
+tags:
+  - dream-summary
+  - briefing
+  - calendar
+  - omnifocus
+  - travel
+  - flight
+  - flight-conflict
+  - glc-chicago
+  - cabo
+  - boot
+related_people:
+  - alice-mburu
 ---
 
 # Dream Cycle Summary — 2026-06-04

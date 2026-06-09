@@ -7,6 +7,20 @@ salience:
   last-promoted-check: 2026-06-09
   references: []
   promoted: false
+date: 2026-05-12
+source_file: memory/working/dream-summary-2026-05-12.md
+tags:
+  - dream-summary
+  - briefing
+  - calendar
+  - omnifocus
+  - travel
+  - flight
+  - cabo
+  - gold-forum
+  - email
+  - jarvis-inbox
+related_people:
 ---
 # Dream Cycle Summary — 2026-05-12
 

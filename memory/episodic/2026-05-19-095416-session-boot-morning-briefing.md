@@ -12,6 +12,21 @@ salience:
   last-promoted-check: 2026-06-09
   references: []
   promoted: false
+date: 2026-05-19
+source_file: memory/working/2026-05-19-095416-session-boot-morning-briefing.md
+tags:
+  - briefing
+  - chief
+  - calendar
+  - omnifocus
+  - ypo
+  - drc-workshop
+  - utb-board
+  - graduation
+  - email
+  - jarvis-inbox
+related_people:
+  - tim-rayburn
 ---
 # Boot Briefing — Tuesday, May 19, 2026
 

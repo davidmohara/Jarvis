@@ -12,6 +12,22 @@ salience:
   last-promoted-check: 2026-06-09
   references: []
   promoted: false
+date: 2026-05-27
+source_file: memory/working/morning-briefing-2026-05-27-060943.md
+tags:
+  - briefing
+  - chief
+  - morning-briefing
+  - calendar
+  - omnifocus
+  - leads
+  - utb-board
+  - rock4
+  - email
+  - plaud
+related_people:
+  - devlin
+  - curtis
 ---
 # Morning Briefing — Wednesday, May 27, 2026
 

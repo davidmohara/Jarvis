@@ -7,6 +7,20 @@ salience:
   last-promoted-check: 2026-06-09
   references: []
   promoted: false
+date: 2026-05-18
+source_file: memory/working/2026-05-18-dream-cycle-summary.md
+tags:
+  - dream-summary
+  - briefing
+  - morning-briefing
+  - calendar
+  - omnifocus
+  - travel
+  - boot
+  - semantic-promotion
+  - dream-cycle
+  - git-issues
+related_people:
 ---
 # Dream Cycle Summary — 2026-05-18
 

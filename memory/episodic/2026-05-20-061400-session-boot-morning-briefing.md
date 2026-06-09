@@ -7,8 +7,6 @@ created: 2026-05-20 06:14:00
 expires: 2026-05-22 06:14:00
 status: archived
 context: "Morning boot + briefing \u2014 2026-05-20 (automated scheduled task)"
-tags:
-- briefing
 - calendar
 - leads
 - utb-board
@@ -19,6 +17,20 @@ salience:
   last-promoted-check: 2026-06-09
   references: []
   promoted: true
+date: 2026-05-20
+source_file: memory/working/2026-05-20-061400-session-boot-morning-briefing.md
+tags:
+  - briefing
+  - chief
+  - morning-briefing
+  - calendar
+  - omnifocus
+  - omnifocus-timeout
+  - leads
+  - ypo
+  - drc-workshop
+  - utb-board
+related_people:
 ---
 # Morning Briefing — May 20, 2026
 

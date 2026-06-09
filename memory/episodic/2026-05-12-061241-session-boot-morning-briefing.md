@@ -12,6 +12,21 @@ salience:
   last-promoted-check: 2026-06-09
   references: []
   promoted: false
+date: 2026-05-12
+source_file: memory/working/2026-05-12-061241-session-boot-morning-briefing.md
+tags:
+  - briefing
+  - chief
+  - calendar
+  - omnifocus
+  - leads
+  - drc-workshop
+  - one-texas
+  - revenue
+  - co-sell
+  - email
+related_people:
+  - devlin
 ---
 # Morning Boot — Tuesday, May 12, 2026
 

@@ -25,6 +25,7 @@ outputs:
 6. **Move-on-write only.** Do not copy files then delete. Use `mv` (rename) for the working→episodic transfer. This is a single inode operation and succeeds in the sandbox even when `rm`/`unlink` does not.
 7. Mutate frontmatter **before** moving. Write the updated file content to the source path first, then `mv` it to episodic. Never attempt `mv` on an un-mutated file.
 8. Do NOT attempt `rm` on non-trivial files at any point. The only delete target is trivial-body files, and if that delete fails, fall back to leaving the file in place with `status: archived` — do not lose data.
+9. **Enrichment is required for non-trivial archives.** Before mutating to `working-archive`, derive `date`, `tags`, `source_file`, and `related_people` from the file's frontmatter and body. The dream cycle's salience scoring depends on these fields; without them step-02 collapses to zero scores and step-03 finds zero promotion candidates. This was the proximate cause of the 2026-05-08 → 2026-06-09 tag-starvation gap.
 
 ## EXECUTION PROTOCOL
 
@@ -54,14 +55,49 @@ outputs:
    e. If `expires` < today AND `status: active`:
       - Evaluate body content (lines below frontmatter delimiter).
       - **If non-trivial:**
-        1. Update frontmatter in-place: set `status: archived`, add `type: working-archive`, add `salience.score: 0`.
-        2. Write the mutated content back to the source file at `memory/working/{fname}`.
-        3. Rename (mv) the source file to `memory/episodic/{fname}` — one operation.
-        4. If rename fails: log error with path and reason. Leave the mutated file in `memory/working/`. Continue.
+        1. **Enrich frontmatter** (see "Enrichment Protocol" below): derive `date`, `source_file`, `tags`, `related_people`.
+        2. Update frontmatter in-place: set `status: archived`, add `type: working-archive`, add `salience.score: 0`, and add the four enrichment fields from the previous step.
+        3. Write the mutated content back to the source file at `memory/working/{fname}`.
+        4. Rename (mv) the source file to `memory/episodic/{fname}` — one operation.
+        5. If rename fails: log error with path and reason. Leave the mutated file in `memory/working/`. Continue.
       - **If trivial:**
         1. Set `status: archived` in frontmatter. Write back to source file.
         2. Attempt to delete the file.
         3. If deletion fails: log error. Leave file in `memory/working/` with `status: archived`. Continue. Do not lose data.
+
+## ENRICHMENT PROTOCOL
+
+For every non-trivial file being archived, derive and add these four fields to the frontmatter before the `mv`:
+
+| Field | Source | Format |
+|-------|--------|--------|
+| `date` | The `created` field (truncate to YYYY-MM-DD). If `created` is absent, parse the filename prefix (e.g., `2026-05-13-061200-...` → `2026-05-13`). If still unparseable, omit `date` and log `enrichment_no_date: [path]`. | `YYYY-MM-DD` (ISO date, no time) |
+| `source_file` | `memory/working/{fname}` (the original path) | String |
+| `tags` | LLM-extract 5-10 lowercase kebab-case tokens from the body that capture: deliverable type (`briefing`, `daily-review`, `dream-summary`, `pipeline-review`), domains touched (`calendar`, `omnifocus`, `pipeline`, `leads`, `card-offers`, `health`), specific people/accounts mentioned (e.g., `alice-mburu`, `galen-health`), and notable events (`travel`, `glc-chicago`, `flight-conflict`, `api-failure`). Prefer reusing tag tokens that already appear on April-era episodic files so co-occurrence will match. | YAML block list under `tags:` |
+| `related_people` | Names mentioned in the body, lowercase kebab-case. If none, write an empty list. | YAML block list under `related_people:` |
+
+**Tag selection rules:**
+1. Always include the deliverable type as the first tag (`briefing`, `daily-review`, `dream-summary`, `session-wrap`, etc.).
+2. Always include the agent source if known (`chief`, `harper`, `knox`, etc.) — pull from `agent-source` field.
+3. Tags must be lowercase, kebab-case, single-token-or-hyphenated. No spaces, no underscores, no capitals.
+4. Cap at 10 tags. Quality over quantity.
+5. If the body is too generic to tag (e.g., a status-only entry), still emit at least 3 tags using deliverable type + agent + one domain.
+
+**Example enrichment block to append to frontmatter:**
+```yaml
+date: 2026-05-13
+source_file: memory/working/2026-05-13-061200-session-boot-morning-briefing.md
+tags:
+  - briefing
+  - chief
+  - calendar
+  - omnifocus
+  - leads
+  - travel
+related_people:
+  - alice-mburu
+  - ehren-seim
+```
 
 3. Record counts in `state.yaml` under `accumulated-context`:
    ```yaml

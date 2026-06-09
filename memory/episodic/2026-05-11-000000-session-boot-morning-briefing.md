@@ -12,6 +12,25 @@ salience:
   last-promoted-check: 2026-06-09
   references: []
   promoted: false
+date: 2026-05-11
+source_file: memory/working/2026-05-11-000000-session-boot-morning-briefing.md
+tags:
+  - briefing
+  - chief
+  - morning-briefing
+  - calendar
+  - omnifocus
+  - leads
+  - travel
+  - flight
+  - ypo
+  - drc-workshop
+related_people:
+  - alice-mburu
+  - scott-mcmichael
+  - robyn-fuentes
+  - curtis
+  - richard
 ---
 # Morning Briefing Session — May 11, 2026
 

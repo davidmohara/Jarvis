@@ -12,6 +12,21 @@ salience:
   last-promoted-check: 2026-06-09
   references: []
   promoted: false
+date: 2026-05-14
+source_file: memory/working/2026-05-14-092600-session-boot-morning-briefing.md
+tags:
+  - briefing
+  - chief
+  - calendar
+  - omnifocus
+  - travel
+  - flight
+  - flight-conflict
+  - ypo
+  - drc-workshop
+  - utb-board
+related_people:
+  - tim-rayburn
 ---
 ## Boot Data Sources
 

@@ -12,6 +12,20 @@ salience:
   last-promoted-check: 2026-06-09
   references: []
   promoted: false
+date: 2026-05-22
+source_file: memory/working/2026-05-22-061651-session-boot-morning-briefing.md
+tags:
+  - briefing
+  - chief
+  - morning-briefing
+  - calendar
+  - omnifocus
+  - omnifocus-timeout
+  - leads
+  - drc-workshop
+  - graduation
+  - rock2
+related_people:
 ---
 # Morning Briefing Boot — Friday May 22, 2026
 

@@ -12,6 +12,21 @@ salience:
   last-promoted-check: 2026-06-09
   references: []
   promoted: false
+date: 2026-05-08
+source_file: memory/working/2026-05-08-071436-session-boot-morning-briefing.md
+tags:
+  - briefing
+  - chief
+  - calendar
+  - omnifocus
+  - travel
+  - flight
+  - cabo
+  - ypo
+  - drc-workshop
+  - gold-forum
+related_people:
+  - curtis
 ---
 ## Data Sources
 

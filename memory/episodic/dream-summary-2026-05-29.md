@@ -11,6 +11,20 @@ salience:
   last-promoted-check: 2026-06-09
   references: []
   promoted: false
+date: 2026-05-29
+source_file: memory/working/dream-summary-2026-05-29.md
+tags:
+  - dream-summary
+  - jarvis
+  - briefing
+  - morning-briefing
+  - omnifocus
+  - boot
+  - system-health
+  - semantic-promotion
+  - dream-cycle
+  - git-issues
+related_people:
 ---
 # Dream Cycle Summary — 2026-05-29
 

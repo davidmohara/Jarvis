@@ -12,6 +12,21 @@ salience:
   last-promoted-check: 2026-06-09
   references: []
   promoted: false
+date: 2026-05-13
+source_file: memory/working/2026-05-13-095338-session-boot-morning-briefing.md
+tags:
+  - briefing
+  - chief
+  - calendar
+  - omnifocus
+  - travel
+  - flight
+  - ypo
+  - drc-workshop
+  - graduation
+  - email
+related_people:
+  - curtis
 ---
 # Boot Briefing — Wednesday, May 13, 2026
 

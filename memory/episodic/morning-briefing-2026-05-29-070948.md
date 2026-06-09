@@ -12,6 +12,22 @@ salience:
   last-promoted-check: 2026-06-09
   references: []
   promoted: false
+date: 2026-05-29
+source_file: memory/working/morning-briefing-2026-05-29-070948.md
+tags:
+  - briefing
+  - chief
+  - calendar
+  - omnifocus
+  - travel
+  - email
+  - overdue-tasks
+  - boot
+  - dream-cycle
+  - health
+related_people:
+  - alice-mburu
+  - steve-hall
 ---
 ## Boot Summary — Friday, May 29, 2026
 

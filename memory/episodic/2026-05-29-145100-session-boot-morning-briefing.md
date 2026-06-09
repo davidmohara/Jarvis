@@ -12,6 +12,21 @@ salience:
   last-promoted-check: 2026-06-09
   references: []
   promoted: false
+date: 2026-05-29
+source_file: memory/working/2026-05-29-145100-session-boot-morning-briefing.md
+tags:
+  - briefing
+  - chief
+  - morning-briefing
+  - calendar
+  - omnifocus
+  - leads
+  - travel
+  - flight
+  - rock2
+  - one-texas
+related_people:
+  - alice-mburu
 ---
 # Morning Briefing — Friday, May 29, 2026 (Afternoon Run — 2:51 PM CDT)
 

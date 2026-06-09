@@ -8,6 +8,18 @@ salience:
   last-promoted-check: 2026-06-09
   references: []
   promoted: false
+date: 2026-05-28
+source_file: memory/working/dream-summary-2026-05-28.md
+tags:
+  - dream-summary
+  - semantic-promotion
+  - dream-cycle
+  - git-issues
+  - error-patterns
+  - health
+  - lessons
+  - galen
+related_people:
 ---
 # Dream Cycle Summary — 2026-05-28
 

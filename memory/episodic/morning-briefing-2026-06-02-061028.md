@@ -10,6 +10,21 @@ context: "Morning briefing — 2026-06-02"
 salience:
   score: 0
   last-promoted-check: 2026-06-09
+date: 2026-06-02
+source_file: memory/working/morning-briefing-2026-06-02-061028.md
+tags:
+  - briefing
+  - chief
+  - morning-briefing
+  - calendar
+  - omnifocus
+  - leads
+  - travel
+  - ypo
+  - drc-workshop
+  - rock2
+related_people:
+  - scott-mcmichael
 ---
 
 # Morning Briefing — Tuesday, June 2, 2026

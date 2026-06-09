@@ -12,6 +12,24 @@ salience:
   last-promoted-check: 2026-06-09
   references: []
   promoted: false
+date: 2026-05-19
+source_file: memory/working/2026-05-19-061322-session-boot-morning-briefing.md
+tags:
+  - briefing
+  - chief
+  - morning-briefing
+  - calendar
+  - omnifocus
+  - omnifocus-timeout
+  - leads
+  - travel
+  - ypo
+  - drc-workshop
+related_people:
+  - scott-mcmichael
+  - don-mcgreal
+  - tim-rayburn
+  - curtis
 ---
 # Morning Briefing Session — May 19, 2026
 

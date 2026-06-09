@@ -1,5 +1,4 @@
 ---
-date: 2026-04-26
 agent: harper
 type: content-review
 subject: "The Improving Edge \u2014 Hosting Self-Review"
@@ -10,6 +9,14 @@ salience:
   last-promoted-check: 2026-06-09
   references: []
   promoted: false
+date: 2026-04-26
+source_file: memory/working/2026-04-26-podcast-hosting-review-ep01.md
+tags:
+  - calendar
+  - omnifocus
+  - podcast
+  - harper
+related_people:
 ---
 # Podcast Hosting Review — The Improving Edge, Episode 1
 

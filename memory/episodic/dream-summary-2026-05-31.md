@@ -11,6 +11,20 @@ salience:
   last-promoted-check: 2026-06-09
   references: []
   promoted: false
+date: 2026-05-31
+source_file: memory/working/dream-summary-2026-05-31.md
+tags:
+  - dream-summary
+  - jarvis
+  - omnifocus
+  - boot
+  - semantic-promotion
+  - dream-cycle
+  - git-issues
+  - git-sync
+  - error-patterns
+  - lessons
+related_people:
 ---
 # Dream Cycle — 2026-05-31
 

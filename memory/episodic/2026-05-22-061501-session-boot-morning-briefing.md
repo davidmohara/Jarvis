@@ -7,8 +7,6 @@ created: 2026-05-22 06:15:01
 expires: 2026-05-24 06:15:01
 status: archived
 context: "Morning boot + briefing \u2014 2026-05-22"
-tags:
-- boot
 - briefing
 - calendar
 - omnifocus
@@ -17,6 +15,22 @@ salience:
   last-promoted-check: 2026-06-09
   references: []
   promoted: true
+date: 2026-05-22
+source_file: memory/working/2026-05-22-061501-session-boot-morning-briefing.md
+tags:
+  - briefing
+  - chief
+  - calendar
+  - omnifocus
+  - leads
+  - graduation
+  - pipeline
+  - email
+  - overdue-tasks
+  - boot
+related_people:
+  - curtis
+  - derek-nwamadi
 ---
 # Boot Summary — Friday, May 22, 2026
 

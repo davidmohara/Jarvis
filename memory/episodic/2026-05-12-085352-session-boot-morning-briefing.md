@@ -12,6 +12,22 @@ salience:
   last-promoted-check: 2026-06-09
   references: []
   promoted: false
+date: 2026-05-12
+source_file: memory/working/2026-05-12-085352-session-boot-morning-briefing.md
+tags:
+  - briefing
+  - chief
+  - calendar
+  - omnifocus
+  - travel
+  - flight
+  - flight-conflict
+  - ypo
+  - drc-workshop
+  - email
+related_people:
+  - scott-mcmichael
+  - devlin
 ---
 # Boot Data Summary — Tuesday May 12, 2026
 

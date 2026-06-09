@@ -12,6 +12,22 @@ salience:
   last-promoted-check: 2026-06-09
   references: []
   promoted: false
+date: 2026-05-18
+source_file: memory/working/2026-05-18-061344-session-boot-morning-briefing.md
+tags:
+  - briefing
+  - chief
+  - calendar
+  - omnifocus
+  - omnifocus-timeout
+  - leads
+  - travel
+  - flight
+  - ypo
+  - drc-workshop
+related_people:
+  - tim-rayburn
+  - steve-hall
 ---
 # Session Working Memory — May 18, 2026
 

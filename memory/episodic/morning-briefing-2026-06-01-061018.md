@@ -12,6 +12,23 @@ salience:
   references: []
   last-promoted-check: 2026-06-09
   promoted: false
+date: 2026-06-01
+source_file: memory/working/morning-briefing-2026-06-01-061018.md
+tags:
+  - briefing
+  - chief
+  - morning-briefing
+  - calendar
+  - omnifocus
+  - leads
+  - travel
+  - ypo
+  - drc-workshop
+  - utb-board
+related_people:
+  - scott-mcmichael
+  - curtis
+  - richard
 ---
 # Morning Briefing Session — June 1, 2026
 
