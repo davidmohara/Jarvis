@@ -61,7 +61,17 @@ Write the skill-run signal for `rigby-eval-dashboard`:
 
 Write to `systems/eval-harness/skill-runs/rigby-eval-dashboard-latest.json`.
 
-### 2. Close this workflow's eval record
+### 2. Update the pinned Cowork artifact
+
+Push the regenerated dashboard to the pinned artifact so it reflects current data. Use the `mcp__cowork__update_artifact` tool (load via ToolSearch if deferred):
+
+- **Artifact ID:** `rigby-eval-dashboard`
+- **html_path:** `systems/eval-harness/dashboard.html`
+- **update_summary:** Brief description of what this run changed (records assessed, grades assigned, avg score, top finding).
+
+If the tool is unavailable or fails, log the failure in state.yaml under `dashboard_artifact_error` and continue — do not halt.
+
+### 4. Close this workflow's eval record
 
 Read `eval-record-id` from state.yaml (set by Step 1). Try the close script first:
 
@@ -92,7 +102,7 @@ Determine `--status`:
 - `partial` — one or more steps completed with non-blocking failures (e.g., score script errored but continued)
 - `failure` — a step had to be skipped due to a blocking error
 
-### 3. Set state.yaml to complete
+### 5. Set state.yaml to complete
 
 ```yaml
 status: complete
@@ -104,7 +114,7 @@ accumulated-context:
       completed: <ISO-8601>
 ```
 
-### 4. Deliver summary
+### 6. Deliver summary
 
 Output the following to the controller:
 
