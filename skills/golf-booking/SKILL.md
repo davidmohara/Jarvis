@@ -24,6 +24,7 @@ outputs: {}
 8. **Never book on a hard-blocked day** from the calendar check.
 9. **Create the calendar block and send Slack notification** regardless of which slot was booked.
 10. **If no slots are available**, notify David immediately and do not retry silently.
+11. **VISUAL VERIFICATION IS MANDATORY (Step 4h).** Do NOT claim success until you navigate to the Bookings page and visually confirm the booking is listed. Confirmation page appearance is not enough — the booking must be visible in the Bookings list. If verification fails, abort and send a critical alert to David.
 
 ---
 
@@ -349,7 +350,7 @@ timerGone && hasReceipt ? \"BOOKING-SUCCESS\" : (body.includes(\"left to confirm
 "'
 ```
 
-**Only proceed to Steps 6 and 7 if result is exactly `BOOKING-SUCCESS`.** Any other result means the booking did not go through:
+**Only proceed to Steps 5 (Visual Verification) if result is exactly `BOOKING-SUCCESS`.** Any other result means the booking did not go through:
 - `STILL-ON-TIMER-SCREEN` → checkbox or confirm click failed; do not treat as success
 - `UNKNOWN-STATE` → inspect page text, determine if booked or not before proceeding
 - If uncertain → send Slack alert asking David to verify manually; do NOT send a success notification
@@ -360,7 +361,69 @@ If confirmation screen never appeared → mark option unavailable, reload widget
 
 ---
 
-### Step 5 — If All Options Exhausted
+### Step 4h — MANDATORY VISUAL VERIFICATION ON BOOKINGS PAGE
+
+**This step is non-negotiable.** Do not claim success without visual confirmation.
+
+Navigate to the Bookings page:
+
+```javascript
+osascript -e 'tell application "Google Chrome" to tell active tab of front window to execute javascript "
+window.location.href = \"https://www.chronogolf.com/dashboard/#/bookings\";
+\"navigating-to-bookings\"
+"'
+```
+
+Wait 3 seconds for the page to load.
+
+**Visually inspect the Bookings list** on screen. Look for:
+- The booked date (e.g., "Saturday, June 13")
+- The booked time (e.g., "1:00 PM")
+- Frisco Lakes Golf Club listed
+- 2 players shown (David + Susie O'Hara)
+
+Read the DOM to confirm the booking is present:
+
+```javascript
+osascript -e 'tell application "Google Chrome" to tell active tab of front window to execute javascript "
+var body = document.body.innerText;
+var hasBooking = body.includes(\"Frisco Lakes\") && (body.includes(\"[booked_date]\") || body.includes(\"[booked_month]\"));
+hasBooking ? \"BOOKING-VISIBLE-ON-PAGE\" : \"BOOKING-NOT-FOUND-ON-PAGE: \" + body.substring(0,500).replace(/\\n+/g,\" | \")
+"'
+```
+
+**If result is `BOOKING-VISIBLE-ON-PAGE`:**
+→ Booking confirmed. Proceed to calendar and Slack steps.
+
+**If result is `BOOKING-NOT-FOUND-ON-PAGE`:**
+→ **CRITICAL FAILURE.** The booking confirmation page appeared, but the booking is NOT in the Bookings list. This indicates:
+- A UI state inconsistency (confirmation triggered but booking never saved)
+- A session or network issue
+- A ChronoGolf platform error
+
+**Action:** Send Slack alert to David immediately:
+```
+*⛳ BOOKING VERIFICATION FAILED*
+
+Confirmation screen appeared and was accepted, but the booking does NOT appear in your Bookings list on ChronoGolf.
+
+Date/Time attempted: [booked_date] at [booked_time]
+Course: Frisco Lakes Golf Club
+Players: David + Susie O'Hara
+
+This may be a platform error. Please:
+1. Refresh your Bookings page manually
+2. Contact ChronoGolf support if the booking is still missing
+3. Check your email for a confirmation receipt
+
+Do NOT assume the booking succeeded.
+```
+
+Abort. Do not proceed to calendar or Slack success notification. Set workflow state: `status: verification-failed`.
+
+---
+
+### Step 5 — If All Options Exhausted (after verification fails on all options)
 
 If all top options were tried and none could be booked:
 
@@ -381,6 +444,8 @@ Abort. Set workflow state: `status: aborted`.
 
 ### Step 6 — Create Calendar Block
 
+**Only execute this step after Step 4h visual verification confirms booking is visible on Bookings page.**
+
 After successful booking, create a calendar event using **iCal (Calendar.app) on the "Family" calendar** via AppleScript. Do NOT use Outlook or the MS365 MCP — they do not support event creation.
 
 ```applescript
@@ -400,6 +465,8 @@ Run via `mcp__Desktop_Commander__start_process` with `osascript << 'EOF' ... EOF
 ---
 
 ### Step 7 — Send Booking Confirmation via Slack
+
+**Only execute this step after Step 6 completes and visual verification from Step 4h has confirmed the booking.**
 
 Read and follow `.claude/skills/master-slack/SKILL.md`.
 
@@ -424,9 +491,11 @@ Send to **#jarvis** (C0AN2PQNXBR):
 ## SUCCESS METRICS
 
 - Booking confirmed on ChronoGolf within 10 minutes of midnight
+- **Booking visually verified on Bookings page** (Step 4h — MANDATORY)
 - Calendar block created with correct times (including 30-min range buffer)
 - Slack confirmation sent with all required fields
 - `preview-output.json` updated with booking result
+- **No success claimed without visual confirmation on Bookings page**
 
 ---
 
@@ -439,7 +508,8 @@ Send to **#jarvis** (C0AN2PQNXBR):
 | Calendar date not clickable (outside booking window) | This shouldn't happen — membership is 8 days. If it does, send Slack and abort. |
 | Confirmation timer expires | Move to next option. |
 | All options unavailable | Send Slack with explanation. Abort. |
-| Booking confirmed but calendar write fails | Send Slack with booking details so David can add manually. Log failure. |
+| **Confirmation page appears but booking NOT visible on Bookings page (Step 4h)** | **CRITICAL: Send Slack alert with booking details. Abort. Do NOT send success notification.** Set status: `verification-failed`. |
+| Booking confirmed and visible but calendar write fails | Send Slack with booking details so David can add manually. Log failure. |
 | Slack fails | Log booking details to `memory/working/golf-booking-YYYY-MM-DD.md`. |
 
 ---
