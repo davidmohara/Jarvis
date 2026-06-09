@@ -1,0 +1,15 @@
+{
+  "id": "err-20260608T230833-ZP52PV",
+  "timestamp": "2026-06-08T23:08:33Z",
+  "session": "session-2026-06-08-095429",
+  "source": "explicit",
+  "agent": "master",
+  "category": "agent-not-found",
+  "description": "Master failed to locate Galen when asked to route a health/skincare question. Claimed Galen was not a connected agent, answered the question directly instead of routing. Galen exists at agents/galen.md and is a fully defined IES agent with health, biometrics, supplements, and longevity advisory scope.",
+  "correction": "Before claiming an agent doesn't exist, check agents/ directory. Do not answer directly for questions that belong to a specialist agent. Route to Galen for all health, skincare, supplements, biometrics, WHOOP, bloodwork, and longevity questions.",
+  "failure_mode": "agent-lookup-skip",
+  "systemic_fix": "On boot, read agents/ directory to know all active agents. Never claim an agent doesn't exist without checking the filesystem first. Health questions route to Galen — no exceptions.",
+  "fix_status": "noted",
+  "severity": "moderate",
+  "related_entries": []
+}

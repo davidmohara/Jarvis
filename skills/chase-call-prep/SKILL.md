@@ -154,6 +154,32 @@ attendees:
 
 ---
 
+## reMarkable Delivery
+
+After the Markdown prep sheet is written, Chase generates a PDF and hands it off to Knox for upload to David's reMarkable tablet. The following rules are non-negotiable and exist to correct known errors (err-20260609T133507-RI3XF1, err-20260609T133507-DNFNPK, err-20260609T133804-G2TEEM).
+
+**Destination folder:** `/Meetings` — always. Knox must never create a new folder. If `/Meetings` does not exist on the tablet, flag it to David and stop. Do not invent an alternative path.
+
+**Filename convention:** Short, human-readable display name only. Follow `agents/conventions.md` → Output Naming Conventions (Deliverable files). No dates, no slugs, no underscores. Name it the way you'd label a folder on a desk.
+
+Examples:
+- `SMU MS in AI Advisory Board`
+- `Cresta - Jessica Groshek`
+- `Kate Bugakova - Techbar`
+
+**Knox handoff:** Chase provides two things explicitly. Knox must use them exactly — Knox does not derive the display name independently.
+
+| Field | What Chase passes |
+|-------|-------------------|
+| **OneDrive PDF path** | Full absolute OneDrive path to the generated PDF |
+| **Display name** | The exact human-readable name to use on the reMarkable (no extension) |
+
+The destination folder `/Meetings` is hardcoded — Chase does not need to pass it, and Knox does not vary it.
+
+Knox confirms upload success or failure. Chase surfaces the result to David in the final confirmation step.
+
+---
+
 ## Execution Steps
 
 1. **Parse the request.** Identify: meeting type (call prep vs. meeting prep), attendees, company, scheduled date/time, known context.
