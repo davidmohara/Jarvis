@@ -2,16 +2,16 @@
 workflow: daily-review
 agent: chief
 status: complete
-session-started: "2026-06-05T02:11:37"
-session-id: "chief-2026-06-05-021137"
+session-started: "2026-06-08T21:24:50"
+session-id: "chief-2026-06-08-212450"
 current-step: step-auto
 original-request: "auto"
 accumulated-context:
-  narrative-title: "2026-06-03 Sales Cadence Day, Italy on the Horizon, and a Overdue Queue That Needs a Reckoning"
-  narrative-path: "reviews/daily/auto-2026-06-03.md"
-  omnifocus-status: "available — 0 completions, 21 overdue, 14 inbox items"
-  calendar-status: "available — 7 events on June 3 (recurring sales scrums, yWhales, YPO sessions)"
+  narrative-title: "2026-06-08 Italy Is Over, The Machine Spun Back Up"
+  narrative-path: "reviews/daily/auto-2026-06-08.md"
+  omnifocus-status: "available — 25 completions, 11 overdue, 22 inbox items"
+  calendar-status: "available — 23 events (June 7-8), first day back from Italy"
   obsidian-status: "disabled — written to local fallback"
-  calendar-events: 7
+  calendar-events: 23
   model: sonnet
 ---
