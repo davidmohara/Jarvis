@@ -18,11 +18,40 @@
       "error_ids": []
     },
     "structural": {
-      "expected_outputs_written": null,
-      "outputs_non_empty": null,
-      "assertions_checked": 0,
-      "assertions_passed": 0,
-      "assertion_results": []
+      "expected_outputs_written": false,
+      "outputs_non_empty": false,
+      "assertions_checked": 7,
+      "assertions_passed": 5,
+      "assertion_results": [
+        {
+          "assertion": "Workflow state.yaml shows status: complete",
+          "passed": true
+        },
+        {
+          "assertion": "Eval record was written for this workflow run",
+          "passed": true
+        },
+        {
+          "assertion": "Episodic memory entry was written for the improvement cycle",
+          "passed": true
+        },
+        {
+          "assertion": "error-improvement work item logged to pending-changes",
+          "passed": true
+        },
+        {
+          "assertion": "Proposed entries not growing unboundedly (soft ceiling \u2014 routing-gate entries expected)",
+          "passed": true
+        },
+        {
+          "assertion": "error-improvement output file was written",
+          "passed": false
+        },
+        {
+          "assertion": "error-improvement output is substantive (>200 bytes)",
+          "passed": false
+        }
+      ]
     },
     "grading": {
       "last_graded": null,

@@ -2,17 +2,19 @@
   "skill": "rigby-eval-grade",
   "agent": "rigby",
   "trigger": "workflow:system-eval",
-  "started": "2026-05-27T21:01:00Z",
-  "completed": "2026-05-27T21:06:00Z",
+  "started": "2026-06-09T15:30:00Z",
+  "completed": "2026-06-09T15:35:00Z",
   "status": "success",
   "tool_failures": 0,
   "error_ids": [],
-  "records_graded": 3,
+  "records_graded": 7,
   "grades_assigned": {
-    "eval-20260526T215647-T3Q5PX": "B",
-    "eval-20260527T021153-F0GRE1": "C",
-    "eval-20260527T190021-B7HEKX": "B"
-  },
-  "session_id": "rigby-2026-05-27-205926",
-  "note": "iteration-1 eval-full-run — real grades replacing test-simulation placeholders"
+    "eval-20260528T021206-IMUITJ": "B",
+    "eval-20260529T021226-T3TGHW": "C",
+    "eval-20260529T224500-ypo001": "A",
+    "eval-20260530T021202-MKO2P3": "F",
+    "eval-20260602T021149-SL6FJ9": "F",
+    "eval-20260603T021219-4T8MSY": "C",
+    "eval-20260605T021223-ARZ3WN": "F"
+  }
 }
