@@ -1,13 +1,18 @@
 status: complete
-current-step: step-01-discover
-session-id: harper-2026-06-09-060000
-session-started: 2026-06-09T06:00:00
-original-request: scheduled-content-discovery
+current-step: step-02-approve
+session-id: harper-2026-06-10-hourly-approval-v3
+session-started: 2026-06-10T21:04:16Z
+original-request: scheduled-content-approval
 accumulated-context:
-  result: "No new URLs — notified #content"
-  messages_scanned: 1
-  urls_found: 0
-  urls_processed: 0
+  result: "Cleanup completed. 1 pending draft checked — no approval signal from David yet."
+  drafts_checked: 1
+  threads_read: 1
+  actions_taken: 0
+  published: 0
+  rejected: 0
+  regenerated: 0
+  cleanup_removed: 1
   notes:
-    - "Only message in window was bot's own notification from 2026-06-08 (bot_id set, skipped)"
-    - "Posted no-new-URLs notice to #content at ts: 1781012127.058029"
+    - "Removed published entry (6a19a29ba5406802901411e3) during cleanup"
+    - "Draft (6a264eb4a540680290141205): Awaiting David's approval — thread has only bot update, no user signal"
+    - "pending-drafts.json cleaned and updated"

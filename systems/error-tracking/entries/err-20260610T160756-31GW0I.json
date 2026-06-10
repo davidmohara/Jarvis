@@ -1,0 +1,15 @@
+{
+  "id": "err-20260610T160756-31GW0I",
+  "timestamp": "2026-06-10T16:07:56Z",
+  "session": "session-2026-06-10-063515",
+  "source": "explicit",
+  "agent": "master",
+  "category": "process-skip",
+  "description": "Inserted slides 3-5 from PRESO-THEME-WIDE-June2026.pptx into Topgolf Executive Briefing.pptx but produced a broken deck. This was the third attempt at this task. Previous attempts (err-20260610T154803-RI633R) used python-pptx to reconstruct slides; this attempt used raw zip byte copy but still resulted in a deck David described as 'an absolute mess.' Root cause not fully diagnosed — likely slide layout dependencies (slideLayouts, slideMasters, theme) were not copied from source, causing slides to render incorrectly against the target deck's theme.",
+  "correction": "When copying slides between decks with different themes/masters, the slide layout and slide master dependencies must also be copied or remapped. Simply copying slide XML and media is insufficient if the source deck uses different slideLayout/slideMaster files than the target. Correct approach: either (a) copy source slideLayouts and slideMasters into target and update all references, or (b) use a tool like LibreOffice or PowerPoint's own merge capability to handle the theme reconciliation.",
+  "failure_mode": "protocol-skip",
+  "systemic_fix": "For cross-deck slide insertion, always inspect the slideLayout and slideMaster dependencies of the source slides and verify they exist in the target deck before inserting. If they don't match, either copy the full dependency chain or use an application-level merge (LibreOffice impress --headless, python-pptx clone_slide from master) rather than raw zip manipulation alone.",
+  "fix_status": "proposed",
+  "severity": "major",
+  "related_entries": ["err-20260610T154803-RI633R"]
+}

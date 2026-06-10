@@ -1006,6 +1006,69 @@ def main():
     print(f"{'=' * 60}")
 
 
+def check_speaker_names_in_transcript(transcript_text, mapping):
+    """Verify that new speaker names appear in the transcript markdown.
+
+    Returns tuple: (has_new_names, missing_names)
+    - has_new_names: True if any new speaker names found in transcript
+    - missing_names: list of new speaker names NOT found in transcript
+    """
+    missing = []
+    found_any = False
+
+    for old_name, new_name in mapping.items():
+        # Check if new_name appears in transcript (case-insensitive)
+        if new_name.lower() in transcript_text.lower():
+            found_any = True
+        else:
+            missing.append(new_name)
+
+    return found_any, missing
+
+
+def trigger_transcript_regeneration(token, file_id):
+    """Trigger regeneration of transcript output files after speaker changes.
+
+    Uses POST /ai/transsumm with is_reload: 1 to regenerate without re-transcribing.
+    """
+    headers = make_headers(token)
+    api_base = get_api_base()
+
+    info_payload = json.dumps({
+        "language": "en",
+        "diarization": 1,
+        "llm": "auto",
+    })
+
+    resp = requests.post(
+        f"{api_base}/ai/transsumm/{file_id}",
+        headers=headers,
+        json={
+            "is_reload": 1,  # Signal to regenerate outputs, don't re-transcribe
+            "summ_type": "REASONING-NOTE",
+            "summ_type_type": "system",
+            "info": info_payload,
+            "support_mul_summ": True,
+            "r": random.random(),
+        },
+        timeout=120,
+    )
+
+    if resp.status_code != 200:
+        print(f"  Regeneration trigger failed: {resp.status_code}")
+        return False
+
+    try:
+        result = resp.json()
+        status = result.get("status", -1)
+        msg = result.get("msg", "")
+        print(f"  Regeneration triggered — status={status}")
+    except Exception:
+        print(f"  Regeneration triggered (response not JSON)")
+
+    return True
+
+
 def rename_and_refetch(file_id, mapping_json):
     """Rename speakers in a recording and re-fetch the updated transcript.
 
@@ -1076,11 +1139,53 @@ def rename_and_refetch(file_id, mapping_json):
             else:
                 print(f"  No embedding for '{orig_label}' — can't register '{new_name}'")
 
+    # Verify speaker names were updated in trans_result
+    print(f"\nVerifying speaker updates in database...")
+    speakers_after, trans_result_after = get_recording_speakers(token, file_id)
+    trans_result_has_new = all(
+        any((s.get("speaker") or "").strip() == new_name for s in trans_result_after)
+        for old_name, new_name in mapping.items()
+    )
+    if trans_result_has_new:
+        print(f"  ✓ Database reflects speaker renames")
+    else:
+        print(f"  ⚠ Speaker names not yet updated in database — retrying...")
+
     # Re-fetch the updated recording detail and transcript
     print(f"\nRe-fetching updated transcript...")
     detail = get_recording_detail(token, file_id)
     transcript_text = extract_transcript(detail) if detail else ""
     summary_text = extract_summary(detail) if detail else ""
+
+    # VERIFY: Check if new speaker names are in the downloaded transcript
+    has_new_names, missing = check_speaker_names_in_transcript(transcript_text, mapping)
+
+    if not has_new_names or missing:
+        print(f"\n  ⚠ REGENERATION NEEDED: Speaker names not in transcript")
+        print(f"    Found in database but missing from markdown: {missing}")
+        print(f"    Triggering transcript regeneration...")
+
+        if trigger_transcript_regeneration(token, file_id):
+            # Wait a moment for Plaud to process
+            import time
+            time.sleep(2)
+
+            # Re-fetch after regeneration
+            print(f"  Re-fetching after regeneration...")
+            detail = get_recording_detail(token, file_id)
+            transcript_text = extract_transcript(detail) if detail else ""
+            summary_text = extract_summary(detail) if detail else ""
+
+            has_new_names, missing = check_speaker_names_in_transcript(transcript_text, mapping)
+            if has_new_names and not missing:
+                print(f"  ✓ Speaker names now in transcript")
+            elif missing:
+                print(f"  ⚠ After regeneration, still missing: {missing}")
+                print(f"    (These may be rare speakers or may need another sync attempt)")
+        else:
+            print(f"  ✗ Regeneration trigger failed — proceeding with current transcript")
+    else:
+        print(f"  ✓ Speaker names verified in transcript")
 
     rec_name = detail.get("filename", detail.get("fullname", file_id)) if detail else file_id
     clean_name = "".join(c if c.isalnum() or c in " -_" else "_" for c in str(rec_name))
