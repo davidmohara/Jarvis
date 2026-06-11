@@ -1577,6 +1577,100 @@
           "description": "Added Research source priority blocks to Section 1 and Section 2 depth guidance. Updated Execution Step 3 to enforce LinkedIn-first for people research, company-website-first for company research, and Clay-as-supplemental-only in both cases."
         }
       ]
+    },
+    {
+      "id": "ref-pointer-audit-2026-06-11",
+      "description": "Added reference pointer to knowledge-layer.md in knox.md personal block, and reference pointers to workflow-conventions.md and model-routing.md in rigby.md Capability Building Protocol personal block.",
+      "started": "2026-06-11T00:00:00Z",
+      "classification": "personal",
+      "files": [
+        {
+          "path": "agents/knox.md",
+          "action": "modify",
+          "work_item": "ref-pointer-audit-2026-06-11",
+          "description": "Added pointer to reference/knowledge-layer.md after the data access table in the personal block."
+        },
+        {
+          "path": "agents/rigby.md",
+          "action": "modify",
+          "work_item": "ref-pointer-audit-2026-06-11",
+          "description": "Added pointers to reference/workflow-conventions.md and reference/model-routing.md in the Capability Building Protocol personal block."
+        }
+      ]
+    },
+    {
+      "id": "ref-pointer-audit-2026-06-11-rigby-fixes",
+      "description": "Three surgical reference pointer fixes: (1) conventions.md personal block — added pointer to reference/knowledge-layer.md for episodic/semantic schemas. (2) reference/file-map.md — renamed root label from my-os/ to IES/ and added 17 missing top-level directories. (3) dream-cycle step-03 and step-04 personal blocks — added authoritative schema pointers to reference/knowledge-layer.md.",
+      "started": "2026-06-11T00:00:00Z",
+      "classification": "personal",
+      "files": [
+        {
+          "path": "agents/conventions.md",
+          "action": "modify",
+          "work_item": "ref-pointer-audit-2026-06-11",
+          "description": "Added Memory Schema Reference section in personal block pointing to reference/knowledge-layer.md for episodic entry schema, semantic entry schema, entry type definitions, and query patterns."
+        },
+        {
+          "path": "reference/file-map.md",
+          "action": "modify",
+          "work_item": "ref-pointer-audit-2026-06-11",
+          "description": "Replaced root label my-os/ with IES/. Added 17 missing top-level directories: accounts/, briefs/, config/, contacts/, context/, contributions/, data/, hooks/, logs/, podcast/, presentations/, proposals/, reports/, scripts/, skills/, specs/, tasks/."
+        },
+        {
+          "path": "workflows/dream-cycle/steps/step-03-semantic-promotion.md",
+          "action": "modify",
+          "work_item": "ref-pointer-audit-2026-06-11",
+          "description": "Added pointer to reference/knowledge-layer.md for authoritative semantic entry schema in personal block."
+        },
+        {
+          "path": "workflows/dream-cycle/steps/step-04-episodic-compression.md",
+          "action": "modify",
+          "work_item": "ref-pointer-audit-2026-06-11",
+          "description": "Added pointer to reference/knowledge-layer.md for authoritative episodic entry schema in personal block."
+        }
+      ]
+    },
+    {
+      "id": "ref-pointer-audit-2026-06-11-rigby-fixes",
+      "description": "Four surgical fixes: added working-archive and account-intelligence entry types to knowledge-layer.md type list and YAML schema; added Working-Archive Entry Notes subsection to knowledge-layer.md; fixed wrong skill root path in step-05-generate-pdf.md (skills/ → .claude/skills/); created missing reference/connectors.md with standardized capability name table.",
+      "started": "2026-06-11T00:00:00",
+      "classification": "system",
+      "work_item": "ref-pointer-audit-2026-06-11",
+      "files": [
+        {
+          "path": "reference/knowledge-layer.md",
+          "action": "modify",
+          "work_item": "ref-pointer-audit-2026-06-11",
+          "description": "Added types 6 (working-archive) and 7 (account-intelligence) to Knowledge Entry Types list. Updated type field in Episodic Entry Schema YAML to include both. Added Working-Archive Entry Notes subsection documenting dream-cycle-only mutation behavior."
+        },
+        {
+          "path": "workflows/podcast-prep/steps/step-05-generate-pdf.md",
+          "action": "modify",
+          "work_item": "ref-pointer-audit-2026-06-11",
+          "description": "Fixed wrong skill path: skills/remarkable-upload/SKILL.md → .claude/skills/remarkable-upload/SKILL.md."
+        },
+        {
+          "path": "reference/connectors.md",
+          "action": "create",
+          "work_item": "ref-pointer-audit-2026-06-11",
+          "description": "Created missing reference/connectors.md with connector system overview, standardized capability name table (12 capabilities), connector lifecycle, and guidance for adding new capability names."
+        }
+      ]
+    },
+    {
+      "id": "ref-pointer-audit-2026-06-11-knowledge-types",
+      "description": "Added three missing episodic entry types to reference/knowledge-layer.md: content-review (Harper podcast hosting reviews), cross-agent-escalation (Quinn initiative tracker escalations to Chase), and alignment-check (Quinn goal alignment snapshots). Updated both the Knowledge Entry Types list (items 8-10) and the Episodic Entry Schema type field.",
+      "started": "2026-06-11T00:00:00",
+      "classification": "system",
+      "work_item": "ref-pointer-audit-2026-06-11",
+      "files": [
+        {
+          "path": "reference/knowledge-layer.md",
+          "action": "modify",
+          "work_item": "ref-pointer-audit-2026-06-11",
+          "description": "Added types 8 (content-review), 9 (cross-agent-escalation), and 10 (alignment-check) to Knowledge Entry Types list. Updated type field in Episodic Entry Schema YAML to include all three."
+        }
+      ]
     }
   ]
 }

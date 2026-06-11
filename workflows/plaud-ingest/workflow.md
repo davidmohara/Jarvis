@@ -64,7 +64,7 @@ Run STATE CHECK above, then begin at step-01.
 | 01 | `steps/step-01-discover.md` | `skills/plaud-discover/SKILL.md` | Query Plaud API and identify recordings not yet in vault |
 | 02 | `steps/step-02-trigger-transcription.md` | `skills/plaud-trigger/SKILL.md` | Trigger transcription for recordings missing it; check pending queue |
 | 03 | `steps/step-03-identify-speakers.md` | `skills/plaud-speaker-id/SKILL.md` | Cross-reference speakers against calendar; prompt controller if unresolvable |
-| 04 | `steps/step-04-fetch-staging.md` | `scripts/fetch_plaud.py` | Run fetch script to pull all ready transcripts to staging |
+| 04 | `steps/step-04-fetch-staging.md` | `skills/plaud-transcripts/scripts/fetch_plaud.py` | Run fetch script to pull all ready transcripts to staging |
 | 05 | `steps/step-05-ingest-vault.md` | `skills/plaud-transcripts/SKILL.md` | Transform staged files into Obsidian notes, route OmniFocus, clean up |
 
 ---

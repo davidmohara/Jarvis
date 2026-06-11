@@ -155,6 +155,12 @@ Any output destined for the knowledge layer — Obsidian vault, reMarkable sync,
 <!-- system:end -->
 
 <!-- personal:start -->
+### Memory Schema Reference
+
+See `reference/knowledge-layer.md` for the episodic entry schema, semantic entry schema, entry type definitions, and query patterns.
+
+---
+
 ### PDF Tool Selection
 
 Use the right PDF tool based on audience:

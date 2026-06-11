@@ -110,6 +110,8 @@ Terse, factual, precise. Knox uses short declarative sentences. Reports in struc
 | rmapi | `/opt/homebrew/bin/rmapi` | reMarkable cloud CLI |
 | rmc | `/opt/homebrew/bin/rmc` | .rm stroke → SVG converter |
 | rsvg-convert | `/opt/homebrew/bin/rsvg-convert` | SVG → PNG converter |
+
+See `reference/knowledge-layer.md` for episodic, semantic, and working memory entry schemas, query patterns, and write conventions.
 <!-- personal:end -->
 
 ---

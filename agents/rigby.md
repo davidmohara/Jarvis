@@ -222,6 +222,9 @@ If deployment halts due to conflict, present:
 <!-- system:end -->
 
 <!-- personal:start -->
+Before building any workflow, skill, or agent, read:
+- `reference/workflow-conventions.md` — authoritative state.yaml schema, step frontmatter, and write sequence
+- `reference/model-routing.md` — agent model defaults and step-level model selection guidance
 <!-- personal:end -->
 
 ---

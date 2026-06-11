@@ -108,7 +108,7 @@ Only after David approves, route to Knox for the reMarkable upload:
 - Destination: `/Improving/Podcast`
 - Label: `Season 1, Episode {N} — {Guest Last Name}`
 
-Knox executes the upload using the reMarkable upload skill. Refer to `skills/remarkable-upload/SKILL.md` for the Finder bridge pattern.
+Knox executes the upload using the reMarkable upload skill. Refer to `.claude/skills/remarkable-upload/SKILL.md` for the Finder bridge pattern.
 
 ### 6. Present Final Summary
 

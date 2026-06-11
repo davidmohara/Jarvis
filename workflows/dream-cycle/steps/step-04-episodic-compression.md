@@ -99,4 +99,5 @@ Read fully and follow: `steps/step-05-logging.md`
 <!-- system:end -->
 
 <!-- personal:start -->
+Before writing any episodic entry, read `reference/knowledge-layer.md` for the authoritative episodic entry schema.
 <!-- personal:end -->

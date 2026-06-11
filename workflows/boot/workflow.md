@@ -77,4 +77,11 @@ Read fully and follow: `steps/step-01-load-context.md` to begin the workflow.
 <!-- system:end -->
 
 <!-- personal:start -->
+## Session Index Boot
+
+After reading identity files but before any other operations in step-01:
+- If `memory/sessions/index.json` does not exist, create it as an empty JSON array: `[]`
+- Generate session ID: `session-{YYYY-MM-DD}-{HHMMSS}` using the current local timestamp
+- Append a new session record with: `started` = ISO 8601 timestamp, `closed` = null, `current_topic` = null, `topics` = []
+- This record is the active session for the entire conversation. The PostToolUse hook will write file captures to it.
 <!-- personal:end -->

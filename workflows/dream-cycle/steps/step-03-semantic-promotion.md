@@ -130,4 +130,5 @@ Read fully and follow: `steps/step-04-episodic-compression.md`
 <!-- system:end -->
 
 <!-- personal:start -->
+Before writing any semantic entry, read `reference/knowledge-layer.md` for the authoritative semantic entry schema.
 <!-- personal:end -->

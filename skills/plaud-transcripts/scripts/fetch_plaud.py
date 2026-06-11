@@ -1166,21 +1166,30 @@ def rename_and_refetch(file_id, mapping_json):
         print(f"    Triggering transcript regeneration...")
 
         if trigger_transcript_regeneration(token, file_id):
-            # Wait a moment for Plaud to process
             import time
-            time.sleep(2)
+            REGEN_WAIT = 12  # seconds between retry attempts
+            MAX_RETRIES = 4
 
-            # Re-fetch after regeneration
-            print(f"  Re-fetching after regeneration...")
-            detail = get_recording_detail(token, file_id)
-            transcript_text = extract_transcript(detail) if detail else ""
-            summary_text = extract_summary(detail) if detail else ""
+            confirmed = False
+            for attempt in range(1, MAX_RETRIES + 1):
+                print(f"  Waiting {REGEN_WAIT}s for Plaud to regenerate (attempt {attempt}/{MAX_RETRIES})...")
+                time.sleep(REGEN_WAIT)
 
-            has_new_names, missing = check_speaker_names_in_transcript(transcript_text, mapping)
-            if has_new_names and not missing:
-                print(f"  ✓ Speaker names now in transcript")
-            elif missing:
-                print(f"  ⚠ After regeneration, still missing: {missing}")
+                print(f"  Re-fetching after regeneration...")
+                detail = get_recording_detail(token, file_id)
+                transcript_text = extract_transcript(detail) if detail else ""
+                summary_text = extract_summary(detail) if detail else ""
+
+                has_new_names, missing = check_speaker_names_in_transcript(transcript_text, mapping)
+                if has_new_names and not missing:
+                    print(f"  ✓ Speaker names now in transcript")
+                    confirmed = True
+                    break
+                else:
+                    print(f"  Still missing after attempt {attempt}: {missing}")
+
+            if not confirmed:
+                print(f"  ⚠ After {MAX_RETRIES} retries, still missing: {missing}")
                 print(f"    (These may be rare speakers or may need another sync attempt)")
         else:
             print(f"  ✗ Regeneration trigger failed — proceeding with current transcript")

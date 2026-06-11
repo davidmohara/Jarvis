@@ -158,4 +158,53 @@ Set `trigger` to `"boot"` if called from the morning briefing or a boot workflow
 <!-- system:end -->
 
 <!-- personal:start -->
+## OmniFocus Read Patterns (osascript)
+
+All OmniFocus reads go through AppleScript via `mcp__Control_your_Mac__osascript`. Common patterns:
+
+```applescript
+-- Inbox tasks
+tell application "OmniFocus"
+  tell default document
+    set inboxTasks to every inbox task where completed is false
+    set output to {}
+    repeat with t in inboxTasks
+      set end of output to name of t
+    end repeat
+    return output
+  end tell
+end tell
+
+-- Due soon (today + next N days)
+tell application "OmniFocus"
+  tell default document
+    set theTasks to every flattened task where (due date is not missing value) and (due date ≤ (current date) + (7 * days)) and (completed is false)
+    -- iterate and return name, due date, project
+  end tell
+end tell
+
+-- Overdue tasks
+tell application "OmniFocus"
+  tell default document
+    set theTasks to every flattened task where (due date is not missing value) and (due date < current date) and (completed is false)
+  end tell
+end tell
+
+-- Flagged tasks
+tell application "OmniFocus"
+  tell default document
+    set theTasks to every flattened task where flagged is true and completed is false
+  end tell
+end tell
+```
+
+**Failure handling:**
+If an osascript call fails, retry once with a simpler query scope. If it fails again, report clearly what was unavailable and proceed with what you have. Never silently skip OmniFocus data — if it fails, say so and flag what was missed.
+
+**Critical read rules:**
+- Always filter for active/uncompleted tasks unless David asks for completed ones
+- Inbox tasks can't be completed directly — assign to a project first
+- Never delete inbox tasks to clear them — assign and mark complete for history
+- Always mirror changes in OmniFocus when updating delegation tracker or internal tracking
+- If `osascript` is needed for write operations not supported by MCP, use the Desktop Commander bridge
 <!-- personal:end -->
