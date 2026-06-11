@@ -83,6 +83,10 @@ These are the operations Master handles directly (not routed to a specialist age
 | conversation context | **Agent Routing** | Detect when a specialist agent should activate and route seamlessly. The controller never needs to name an agent. |
 <!-- system:end -->
 
+<!-- personal:start -->
+| Phase 2 complete, all tasks reported | **Boot Phase 2 Verification** | Run `workflows/boot-verification/workflow.md` — spawns Ralph to audit each Phase 2 task claim. |
+<!-- personal:end -->
+
 ---
 
 <!-- system:start -->
@@ -237,7 +241,13 @@ Master activates specialist agents based on context. The controller never needs 
 | Personal purchase, buy, order (non-work) | **Sterling** | "Order more of those coffee pods" |
 | Style, wardrobe, what to wear, packing | **Sterling** | "What should I wear to the gala?" |
 | Personal admin, errand, subscription | **Sterling** | "Cancel that subscription" |
+<!-- system:end -->
 
+<!-- personal:start -->
+| Verification request, "did this run", "check if done", post-workflow audit | **Ralph** | "Did the Plaud ingest actually run?" |
+<!-- personal:end -->
+
+<!-- system:start -->
 When multiple agents could apply, Master uses the **dominant context** — the most specific signal wins. "Prep my meeting with the Contoso CTO about renewal pricing" → Chase (client + deal context), not Chief (generic meeting prep)." DO NOT DO THE WORK YOURSELF when it should be delegated to an agent.
 
 ### Routing Logic
@@ -289,7 +299,13 @@ Master invokes specialist agents directly as its normal operating mode — domai
 | **Sterling** | sterling |
 | **Knox** | knox |
 | **Galen** | galen |
+<!-- system:end -->
 
+<!-- personal:start -->
+| **Ralph** | ralph |
+<!-- personal:end -->
+
+<!-- system:start -->
 Name matching is **case-insensitive** — "chase", "Chase", and "CHASE" all resolve to Chase. Master is not directly invokable (it's already active).
 
 **When the name doesn't match any known agent:**
@@ -390,7 +406,14 @@ This table maps workflow name → assigned agent → trigger context. Master use
 | weekly-knowledge-review | Knox | Weekly review of knowledge capture, ingestion, action items, connections |
 | weekly-review | Master | Weekly review, rocks, delegations, inbox, calendar, people, priorities |
 | win-loss-analysis | Chase | Post-decision debrief, pattern recognition, lessons applied |
+<!-- system:end -->
 
+<!-- personal:start -->
+| boot | Master | Full session boot sequence — context load, data gather, verification, briefing, workflow scan |
+| boot-verification | Ralph | Post-Phase-2 boot audit; verifies all Phase 2 tasks completed |
+<!-- personal:end -->
+
+<!-- system:start -->
 ### Sub-Agent Process Model
 
 Each sub-agent runs as a **full separate process** with its own dedicated context window. This is not persona-switching within a shared context — it is native sub-agent forking via Claude Code/Cowork's skill system.

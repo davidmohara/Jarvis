@@ -1,82 +1,23 @@
 ---
 workflow: plaud-ingest
 agent: knox
-status: complete
-session-started: "2026-06-04T00:00:00Z"
-session-id: "pi-20260604-001"
-current-step: step-05-complete
-original-request: "Knox: Run plaud-ingest workflow — fresh run for 2026-06-04."
+status: awaiting-input
+session-started: "2026-06-11T10:28:00Z"
+session-id: "pi-20260611-001"
+current-step: step-03-identify-speakers
+original-request: "Knox: Ingest all 49 staged Plaud transcripts (Dec 2025–May 2026) through full pipeline"
+controller-decision: "Ingest all 49 files"
 accumulated-context:
-  target-date: "2026-06-03"
-  last-run-date: "2026-05-22"
-  new-recordings:
-    - file_id: "c520ac7225be4406317916692dbf547c"
-      name: "05-28 Consultation: 3-Month AI Build Program for Remote Leadership Offsite (Windsor, Oct 2026)"
-      date: "2026-05-28"
-      duration_seconds: 1400
-      has_transcript: true
-      transcript_status: ready
-    - file_id: "eab4fe18acbded848fcb11f33f71d26d"
-      name: "05-26 Interview: Head of IT/Technology Role"
-      date: "2026-05-26"
-      duration_seconds: 471
-      has_transcript: true
-      transcript_status: ready
-    - file_id: "ddb571e94fb49f233b72bb85597539b2"
-      name: "04-13 Meeting: Kickoff for David O'Hara and Alice Muro"
-      date: "2026-04-13"
-      duration_seconds: 2344
-      has_transcript: true
-      transcript_status: ready
-    - file_id: "30573086ed95fedbaf674ce123145ad4"
-      name: "04-07 Consultation: Meredith - Conference Speaker Search"
-      date: "2026-04-07"
-      duration_seconds: 1325
-      has_transcript: true
-      transcript_status: ready
-    - file_id: "a8590d37eb001b62b0d25fc9fb40bf45"
-      name: "04-06 Consultation: Don - Vistage Membership"
-      date: "2026-04-06"
-      duration_seconds: 2750
-      has_transcript: true
-      transcript_status: ready
-  transcription-triggered: []
-  pending-recordings: []
-  speaker-mappings:
-    "eab4fe18acbded848fcb11f33f71d26d":
-      "O'Hara": "David O'Hara"
-      "David O'Hara": "JSX_CCO_UNKNOWN"
-      "Adeel Ali": "Adeel Ali"
-    "a8590d37eb001b62b0d25fc9fb40bf45":
-      "Speaker 1": "Don McGreal"
-      "Speaker 2": "David O'Hara"
-      "Speaker 3": "Becky Powell"
-    "ddb571e94fb49f233b72bb85597539b2":
-      "Speaker 3": "Rose Masese Nyanchera"
-      "Alice Mburu": "Alice Mburu"
-      "Kristin Johnson": "Kristin Johnson"
-  speaker-resolution-method:
-    "eab4fe18acbded848fcb11f33f71d26d": "partial-auto (calendar: Fractional CTO role / JSX CTO interview 2026-05-26T22:00Z; O'Hara=David confirmed; Adeel Ali=candidate confirmed; 'David O'Hara' label = voice mis-tag by Plaud = JSX acting CCO/hiring manager — name unknown, needs controller input)"
-    "a8590d37eb001b62b0d25fc9fb40bf45": "auto (calendar: Vistage Introduction event 2026-04-06T21:00Z — attendees Don McGreal, becky.powell@vistagechair.com; heuristic: Don greeting David = Speaker 1, Becky Powell = Vistage chair facilitating = Speaker 3)"
-    "ddb571e94fb49f233b72bb85597539b2": "auto (calendar: Athena Kick-Off Call event 2026-04-13T22:00Z — organizer rosemasese.nyanchera@athena.com = Rose Masese Nyanchera = Speaker 3)"
-  pending-speaker-mappings: []
-  ready-for-fetch:
-    - "c520ac7225be4406317916692dbf547c"
-    - "eab4fe18acbded848fcb11f33f71d26d"
-    - "ddb571e94fb49f233b72bb85597539b2"
-    - "30573086ed95fedbaf674ce123145ad4"
-    - "a8590d37eb001b62b0d25fc9fb40bf45"
-  staged-files:
-    - "plaud_a8590d37eb001b62b0d25fc9fb40bf45.md"
-    - "plaud_ddb571e94fb49f233b72bb85597539b2.md"
-    - "plaud_eab4fe18acbded848fcb11f33f71d26d.md"
-    - "plaud_04-07 Consultation_ Meredith - Conference Speaker Search.md"
-    - "plaud_05-28 Consultation_ 3_Month AI Build Program for Remote Leadership Offsite _Windsor_ Oct 2026_.md"
-  ingested-notes:
-    - "zzPlaud/Client/2026-04-06 Don McGreal - Vistage Membership Consultation.md"
-    - "zzPlaud/Client/2026-04-07 Meredith Anastasio - Opal Conference Speaker Search.md"
-    - "zzPlaud/Other/2026-04-13 Athena Kickoff - Alice Mburu Onboarding.md"
-    - "zzPlaud/Client/2026-05-26 JSX Head of IT Interview - Adeel Ali.md"
-    - "zzPlaud/Client/2026-05-28 Bridger - 3-Month AI Build Program for Windsor Leadership Offsite.md"
-  staging-cleanup: complete
+  target-date: "2026-06-11"
+  strategy: "Process all 49: 29 ready for vault transform immediately; 20 need speaker ID from controller input"
+  files-to-process: 49
+  files-analyzed: 49
+  files-ready-for-vault: 29
+  files-needing-speaker-id: 20
+  files-processed-to-vault: 0
+  staging-files: 49
+  speaker-mappings: {}
+  pending-speaker-mappings: 20
+  request-document: "workflows/plaud-ingest/SPEAKER_ID_REQUEST.md"
+  vault-target-path: "Obsidian vault - zzPlaud subfolder"
 ---

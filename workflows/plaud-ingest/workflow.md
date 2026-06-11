@@ -111,4 +111,5 @@ This workflow only adds files to the vault and OmniFocus — it never modifies o
 <!-- system:end -->
 
 <!-- personal:start -->
+> **⚠️ Task E enforcement — Plaud ingest:** Spawning Knox as a background Agent with `workflows/plaud-ingest/workflow.md` is the ONLY way to satisfy this step. A manual `ls` of `~/Downloads/transcript-staging/` or reading `plaud_pending.json` does NOT count. If Knox is not spawned and allowed to run all 5 steps (discover → trigger → identify speakers → fetch → ingest), Task E is NOT complete. Mark it failed, not completed. (Error ref: err-20260611T113806-g0pfoq)
 <!-- personal:end -->

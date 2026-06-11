@@ -31,38 +31,9 @@ Before taking any action beyond answering a factual question, read `agents/routi
 
 ## Boot Sequence
 
-Every step below executes on every boot. Each step either completes or reports why it didn't — silence is not an option. Read the referenced file for full instructions; do not improvise from memory.
-
-### Phase 1: Load Context (sequential)
-
-1. Read `SYSTEM.md`
-2. Read all identity files listed above
-
-### Phase 2: Gather Data (parallel — fire all at once)
-
-Run the morning briefing workflow steps 01-02 (`workflows/morning-briefing/workflow.md`) and the following background tasks simultaneously:
-
-| # | Task | File |
-|---|------|------|
-| E | Plaud ingest (background Agent, fire-and-forget) | `workflows/plaud-ingest/workflow.md` |
-| F | Lead review | `workflows/lead-review/workflow.md` |
-| G | 72-hour look-ahead (calendar scan, next 3 days) | — |
-| H | Email triage (flagged/time-sensitive only) | — |
-| I | Jarvis inbox | `skills/jarvis-inbox/SKILL.md` |
-
-Each task reports one of: completed, nothing to surface, or failed — [reason]. Nothing is silent.
-
-### Phase 3: Gather Meeting Context
-
-Run morning briefing step 03. Also check Clay for reminders and birthdays (next 7 days).
-
-### Phase 4: Synthesize Briefing
-
-Run morning briefing step 04. Incorporate findings from all Phase 2 tasks.
-
-### Phase 5: Scan In-Flight Workflows
-
-Read `state.yaml` in every `workflows/*/` directory. Surface any `status: in-progress` immediately — do not auto-resume.
+<!-- personal:start -->
+Read and follow `workflows/boot/workflow.md` in full.
+<!-- personal:end -->
 
 ## OmniFocus
 
