@@ -1,10 +1,11 @@
 ---
 workflow: plaud-ingest
 agent: knox
-status: in-progress
+status: completed
 session-started: "2026-06-11T10:28:00Z"
+session-completed: "2026-06-11T12:00:00Z"
 session-id: "pi-20260611-001"
-current-step: step-05-vault-ingest
+current-step: step-07-complete
 original-request: "Knox: Ingest all 49 staged Plaud transcripts (Dec 2025–May 2026) through full pipeline"
 controller-decision: "Simplify to current recordings only — purge anything older than 2026-05-11"
 accumulated-context:
@@ -16,8 +17,9 @@ accumulated-context:
   files-analyzed: 13
   files-ready-for-vault: 12
   files-needing-speaker-id: 1
-  files-processed-to-vault: 0
-  staging-files: 13
+  files-processed-to-vault: 13
+  staging-files-cleaned: true
+  daily-note-links-inserted: 7
   speaker-mappings:
     "05-12 Lunch Meeting DSO Access":
       speakers: "William Floyd (Wedbush), Rebecca Hern (Wedbush), Amy Carenza (ActivePure), James Leffler (PMV Capital), David O'Hara"

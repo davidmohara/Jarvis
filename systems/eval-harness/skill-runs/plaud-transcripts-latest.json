@@ -1,11 +1,20 @@
 {
   "skill": "plaud-transcripts",
   "agent": "knox",
-  "trigger": "boot",
-  "started": "2026-06-04T00:00:00Z",
-  "completed": "2026-06-04T01:30:00Z",
-  "status": "partial",
-  "tool_failures": 0,
+  "session-id": "pi-20260611-001",
+  "trigger": "manual",
+  "started": "2026-06-11T10:28:00Z",
+  "completed": "2026-06-11T12:00:00Z",
+  "status": "completed",
+  "tool_failures": 1,
   "error_ids": [],
-  "notes": "5 of 5 target recordings ingested. OmniFocus task creation skipped this run — action items captured in vault notes. JSX CCO name unknown (flagged). Alice Mburu name corrected. Large staging backlog (~40+ recordings from Jan-May) remains unprocessed — outside scope of this run."
+  "recordings_in_staging": 49,
+  "recordings_purged_stale": 36,
+  "recordings_ingested": 13,
+  "speaker_ids_unresolved": 1,
+  "vault_notes_written": 13,
+  "daily_notes_linked": 7,
+  "staging_cleaned": true,
+  "omnifocus_tasks_created": false,
+  "notes": "Session pi-20260611-001. 49 staged recordings: 36 purged (pre-2026-05-11 cutoff), 13 ingested (2026-05-12 through 2026-05-28). Speakers resolved via Outlook calendar for 12/13 recordings; 1 unresolvable (Speaker 4/5 in multi-person DRC panel on 05-12). All 13 vault notes written to zzPlaud/Client, zzPlaud/Improving, zzPlaud/Other. Wikilinks inserted into 7 daily calendar notes. Staging cleaned — 28 processed files deleted; 5 June 2026 raw recordings remain for next session. OmniFocus action items captured in vault notes but not pushed to OmniFocus inbox this run. tool_failures: 1 (osascript heredoc triple-quote conflict, resolved by writing Python script to temp file)."
 }
