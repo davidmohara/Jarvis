@@ -430,14 +430,39 @@ def get_transcript_status(detail):
 def extract_transcript(detail):
     """Download and extract transcript text from a recording detail response.
 
-    The actual transcript lives behind a presigned S3 URL in content_list
-    where data_type == 'transaction'. The URL returns a JSON array of segments.
+    Plaud stores transcripts in two S3 layers inside content_list:
+      - transaction_polish: the polished/formatted version rendered by the web UI
+      - transaction: the raw diarization segments
+
+    We prefer transaction_polish because it is what users see in the Plaud web UI,
+    and it is what gets updated when is_reload=1 regeneration runs after a speaker
+    rename. If transaction_polish is not available (e.g. during regeneration), we
+    fall back to transaction.
+
+    Both layers are presigned S3 URLs that expire after ~300 seconds — always
+    fetch from a fresh /file/detail response, never cache the URL.
     """
     if not detail:
         return ""
 
-    # Primary: download from content_list transaction link
-    for item in detail.get("content_list", []):
+    content_list = detail.get("content_list", [])
+
+    # Prefer transaction_polish (web UI layer)
+    for item in content_list:
+        if item.get("data_type") == "transaction_polish" and item.get("task_status") == 1:
+            url = item.get("data_link", "")
+            if url:
+                try:
+                    resp = requests.get(url, timeout=30)
+                    if resp.status_code == 200:
+                        segments = resp.json()
+                        if isinstance(segments, list) and segments:
+                            return _format_segments(segments)
+                except Exception as e:
+                    print(f"  Warning: failed to download transaction_polish transcript: {e}")
+
+    # Fall back to raw transaction layer
+    for item in content_list:
         if item.get("data_type") == "transaction" and item.get("task_status") == 1:
             url = item.get("data_link", "")
             if url:
@@ -448,7 +473,7 @@ def extract_transcript(detail):
                         if isinstance(segments, list) and segments:
                             return _format_segments(segments)
                 except Exception as e:
-                    print(f"  Warning: failed to download transcript: {e}")
+                    print(f"  Warning: failed to download transaction transcript: {e}")
 
     return ""
 
@@ -1162,39 +1187,54 @@ def rename_and_refetch(file_id, mapping_json):
 
     if not has_new_names or missing:
         print(f"\n  ⚠ REGENERATION NEEDED: Speaker names not in transcript")
-        print(f"    Found in database but missing from markdown: {missing}")
-        print(f"    Triggering transcript regeneration...")
+        print(f"    Found in database but missing from transaction_polish layer: {missing}")
+        print(f"    Triggering transcript regeneration (is_reload=1)...")
+        print(f"    NOTE: regeneration temporarily clears content_list — this is normal.")
 
         if trigger_transcript_regeneration(token, file_id):
             import time
-            REGEN_WAIT = 12  # seconds between retry attempts
-            MAX_RETRIES = 4
+            # Regeneration takes 20-60s. Use longer waits to avoid hammering
+            # while content_list is transiently empty during rebuild.
+            REGEN_WAIT = 20  # seconds between retry attempts
+            MAX_RETRIES = 6  # up to 120s total
 
             confirmed = False
             for attempt in range(1, MAX_RETRIES + 1):
                 print(f"  Waiting {REGEN_WAIT}s for Plaud to regenerate (attempt {attempt}/{MAX_RETRIES})...")
                 time.sleep(REGEN_WAIT)
 
-                print(f"  Re-fetching after regeneration...")
+                # Must re-fetch detail to get fresh S3 presigned URLs —
+                # the old URLs expire after ~300s and content_list is rebuilt
+                # from scratch during regeneration.
+                print(f"  Re-fetching updated detail...")
                 detail = get_recording_detail(token, file_id)
+
+                # Check if transaction_polish is back yet (it's removed during regen)
+                cl = (detail or {}).get("content_list", []) if detail else []
+                types_present = [i.get("data_type") for i in cl]
+                if "transaction_polish" not in types_present:
+                    print(f"  transaction_polish not yet in content_list ({types_present}) — still regenerating")
+                    continue
+
                 transcript_text = extract_transcript(detail) if detail else ""
                 summary_text = extract_summary(detail) if detail else ""
 
                 has_new_names, missing = check_speaker_names_in_transcript(transcript_text, mapping)
                 if has_new_names and not missing:
-                    print(f"  ✓ Speaker names now in transcript")
+                    print(f"  ✓ Speaker names now confirmed in transaction_polish")
                     confirmed = True
                     break
                 else:
-                    print(f"  Still missing after attempt {attempt}: {missing}")
+                    print(f"  transaction_polish present but still missing: {missing}")
 
             if not confirmed:
-                print(f"  ⚠ After {MAX_RETRIES} retries, still missing: {missing}")
-                print(f"    (These may be rare speakers or may need another sync attempt)")
+                print(f"  ⚠ After {MAX_RETRIES} retries ({MAX_RETRIES * REGEN_WAIT}s), still missing: {missing}")
+                print(f"    Check Plaud web UI — regeneration may still be in progress.")
+                print(f"    Re-run --rename to retry, or wait and re-ingest manually.")
         else:
             print(f"  ✗ Regeneration trigger failed — proceeding with current transcript")
     else:
-        print(f"  ✓ Speaker names verified in transcript")
+        print(f"  ✓ Speaker names verified in transaction_polish layer")
 
     rec_name = detail.get("filename", detail.get("fullname", file_id)) if detail else file_id
     clean_name = "".join(c if c.isalnum() or c in " -_" else "_" for c in str(rec_name))

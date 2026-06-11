@@ -11,145 +11,137 @@ status: Implemented
 
 When speakers were renamed in Plaud transcripts (e.g., "Speaker 1" → "David O'Hara"), the names were being updated in Plaud's internal database but **not appearing in the final Obsidian notes**. The workflow was broken at the sync boundary between the Plaud API and the downloaded markdown files.
 
-### Root Cause: Two Separate Data Stores
+### Root Cause: Three Separate Data Stores
 
-Plaud has two separate storage layers for transcript data:
+Plaud stores transcript data in three distinct layers. A speaker rename must propagate through all three to be complete.
 
-1. **File Record** (`trans_result`) — The raw transcript segments stored in Plaud's database
-   - Accessible via `GET /file/detail/{file_id}` → `trans_result` field
-   - Updated by `PATCH /file/{file_id}` with modified segments
+1. **Database** (`trans_result` via `/file/list`) — Segment-level speaker labels in Plaud's database
+   - Updated by `PATCH /file/{file_id}` with `{"trans_result": [...modified segments...]}`
+   - Returns `null` transiently during active `is_reload` regeneration (not an error)
 
-2. **S3-Stored Transcript** — Pre-generated markdown files stored on AWS S3
+2. **S3 `transaction` layer** — Raw diarization segments stored on AWS S3
    - Referenced by presigned URL in `content_list[data_type='transaction'].data_link`
-   - Downloaded by `extract_transcript()` function
-   - Generated once during initial transcription, **not auto-updated** when segments change
+   - Updated by `is_reload: 1` regeneration, sourced from the DB `trans_result`
+   - Presigned URLs expire after ~300 seconds — always fetch fresh `/file/detail`
+
+3. **S3 `transaction_polish` layer** — Polished/formatted version stored on AWS S3
+   - Referenced by presigned URL in `content_list[data_type='transaction_polish'].data_link`
+   - **This is what the Plaud web UI renders**
+   - Also updated by `is_reload: 1` regeneration
+   - If you only PATCH without regenerating, the web UI still shows old labels
+
+`content_list` also contains `outline` (topic segments, speaker always `?`) and
+`auto_sum_note` (AI summary). The outline survives regeneration; the others are
+transiently cleared during the rebuild window.
 
 ### The Workflow Bug
 
-The `rename_and_refetch` function was doing:
+The original `rename_and_refetch` function was doing:
 
 ```
-1. PATCH /file/{file_id} with {"trans_result": trans_result}  ← Updates database
-2. Re-fetch transcript from S3 URL                             ← Gets OLD transcript
-3. Save to vault with original speaker names                  ← Names never changed
+1. PATCH /file/{file_id} with {"trans_result": trans_result}  ← Updates DB only
+2. Re-fetch transcript from S3 transaction layer               ← Gets updated raw segs
+3. Save to vault — names look correct in transaction layer
+4. Web UI still shows "Speaker 2"                             ← transaction_polish unchanged
 ```
 
-The PATCH succeeded and names were in the database, but the S3 object was unchanged, so the downloaded markdown still had generic labels like "Speaker 1".
+The PATCH updated the DB and the `transaction` S3 layer propagated correctly, but
+`transaction_polish` — the layer the web UI actually renders — was not regenerated.
+
+A second bug: the original fix's verification checked the markdown text from
+`extract_transcript()`, which read from `transaction` (which was already correct).
+This gave false confidence that `transaction_polish` was also updated.
 
 ## The Solution
 
-Added three-step verification and regeneration:
+Three changes to `rename_and_refetch()`:
 
-### 1. Verification: Check if Names Sync
-
-After renaming and re-fetching, check if new speaker names actually appear in the downloaded transcript:
+### 1. `extract_transcript()` now reads `transaction_polish` first
 
 ```python
-def check_speaker_names_in_transcript(transcript_text, mapping):
-    """Verify that new speaker names appear in the transcript markdown."""
-    missing = []
-    for old_name, new_name in mapping.items():
-        if new_name.lower() not in transcript_text.lower():
-            missing.append(new_name)
-    return len(missing) == 0, missing
+# Prefer transaction_polish (web UI layer)
+for item in content_list:
+    if item.get("data_type") == "transaction_polish" and item.get("task_status") == 1:
+        ...fetch and return segments...
+
+# Fall back to raw transaction layer
+for item in content_list:
+    if item.get("data_type") == "transaction" and item.get("task_status") == 1:
+        ...fetch and return segments...
 ```
 
-### 2. Regeneration: Trigger Output Update
+### 2. Verification explicitly checks `transaction_polish` presence
 
-If names are missing from the transcript, trigger Plaud to regenerate the S3 output:
+After triggering `is_reload: 1`, regeneration temporarily clears `content_list`.
+The retry loop now checks that `transaction_polish` has reappeared before verifying names:
 
 ```python
-def trigger_transcript_regeneration(token, file_id):
-    """Trigger regeneration of transcript output files after speaker changes.
-    
-    Uses POST /ai/transsumm with is_reload: 1 to regenerate without re-transcribing.
-    """
-    resp = requests.post(
-        f"{api_base}/ai/transsumm/{file_id}",
-        json={
-            "is_reload": 1,  # Regenerate outputs, don't re-transcribe
-            ...
-        },
-        timeout=120,
-    )
+cl = (detail or {}).get("content_list", [])
+types_present = [i.get("data_type") for i in cl]
+if "transaction_polish" not in types_present:
+    print("transaction_polish not yet in content_list — still regenerating")
+    continue  # keep polling
 ```
 
-The key is `is_reload: 1`, which signals Plaud to regenerate output files (update the S3 transcript) rather than re-running the full transcription pipeline.
+### 3. Retry timing increased
 
-### 3. Retry: Verify Again
+Old: 12s × 4 attempts = 48s maximum wait.
+New: 20s × 6 attempts = 120s maximum wait.
 
-After regeneration, re-fetch and verify the names appear:
-
-```python
-if trigger_transcript_regeneration(token, file_id):
-    time.sleep(2)  # Wait for processing
-    detail = get_recording_detail(token, file_id)
-    transcript_text = extract_transcript(detail)
-    has_new_names, missing = check_speaker_names_in_transcript(transcript_text, mapping)
-    if has_new_names and not missing:
-        print("✓ Speaker names now in transcript")
-    elif missing:
-        print(f"⚠ Still missing: {missing}")
-```
+Observed regeneration time in production: 15-30s, but can be longer under load.
 
 ## How It Works Now
 
 ```
 rename_and_refetch() flow:
 
-1. Get transcript segments (trans_result) from Plaud
+1. Get trans_result from /file/list (DB layer)
 2. Extract voice embeddings
-3. Apply renames via PATCH /file/{file_id}
+3. Apply renames via PATCH /file/{file_id}  ← updates DB layer only
 4. Register speakers for auto-labeling
-5. Re-fetch detail and extract transcript from S3
-6. CHECK: Are new names in the downloaded transcript?
-   ├─ YES: ✓ Proceed to save (names already synced)
-   └─ NO:  Trigger regeneration
+5. Re-fetch detail, extract from transaction_polish (web UI layer)
+6. CHECK: Are new names in transaction_polish?
+   ├─ YES: ✓ Proceed to save
+   └─ NO:  Trigger is_reload=1 regeneration
            ├─ POST /ai/transsumm with is_reload: 1
-           ├─ Wait 2 seconds for Plaud
-           ├─ Re-fetch and re-extract
-           ├─ CHECK again:
-           │  ├─ YES: ✓ Proceed to save
-           │  └─ NO:  ⚠ Warn (rare case, may need retry)
-           └─ Save to vault
+           ├─ Poll every 20s for transaction_polish to reappear
+           │  (content_list is transiently cleared during rebuild)
+           ├─ When transaction_polish is back, re-extract and CHECK again
+           ├─ YES: ✓ Proceed to save
+           └─ NO after 120s: ⚠ Warn, save with whatever is available
 ```
 
 ## Changes Made
 
 ### Scripts
 - `skills/plaud-transcripts/scripts/fetch_plaud.py`
-  - Added `check_speaker_names_in_transcript()`
-  - Added `trigger_transcript_regeneration()`
-  - Updated `rename_and_refetch()` with verification loop
+  - `extract_transcript()`: reads `transaction_polish` first, falls back to `transaction`
+  - `rename_and_refetch()`: polls for `transaction_polish` presence, 20s×6 retry timing
+  - `check_speaker_names_in_transcript()`: unchanged, still checks markdown text
+  - `trigger_transcript_regeneration()`: unchanged
 
-### Workflows
-- `workflows/plaud-ingest/steps/step-04-fetch-staging.md`
-  - Updated rules to document regeneration
-  - Updated success metrics to include name verification
-  - Added failure modes for regeneration edge cases
-  - Reset step status to `not-started` to reflect fix
+### Documentation
+- `skills/plaud-transcripts/SKILL.md`: API docs section updated with three-layer model
+- `systems/plaud-speaker-sync-fix.md` (this file): corrected root cause and solution
 
 ## Testing
 
-To verify the fix:
-
-1. Run a Plaud recording through the workflow
-2. Provide speaker mappings in step-03
-3. Observe step-04 output:
-   - Should see "Speaker names verified in transcript" if names sync immediately
-   - OR see "REGENERATION NEEDED" message, followed by regeneration and re-fetch
-   - OR see "✓ Speaker names now in transcript" after regeneration
-4. Check the final vault note — speaker names should appear, not "Speaker 1", "Speaker 2"
+1. Run `--rename` on a recording with generic speaker labels
+2. Observe output:
+   - "REGENERATION NEEDED: Speaker names not in transaction_polish layer"
+   - "transaction_polish not yet in content_list — still regenerating" (during rebuild)
+   - "✓ Speaker names now confirmed in transaction_polish" (after rebuild)
+3. Verify in Plaud web UI — speakers should show real names, not "Speaker 1"
 
 ## Edge Cases & Fallbacks
 
 | Scenario | Behavior |
 |----------|----------|
-| Names sync immediately (rare) | ✓ Saves immediately, no regeneration needed |
-| Regeneration trigger fails | ⚠ Script warns, proceeds with current transcript (may have old names) |
-| Names still missing after 2nd fetch | ⚠ Script warns with instructions to check Plaud app and retry manually |
-| S3 URL changes during regeneration | ✓ New URL is fetched and used automatically |
-| Timeout on regeneration call | ⚠ Script continues with current transcript, user can re-run rename if needed |
+| transaction_polish already has real names | ✓ Saves immediately, no regeneration needed |
+| Regeneration trigger fails (HTTP error) | ⚠ Script warns, saves with transaction layer (may differ from web UI) |
+| transaction_polish never reappears in 120s | ⚠ Warns, saves best available. Re-run --rename to retry. |
+| S3 presigned URL expires during polling | ✓ Fresh /file/detail is fetched each poll attempt |
+| trans_result returns null during regen | Expected — transient. Don't treat as data loss. |
 
 ## References
 

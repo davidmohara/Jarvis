@@ -429,9 +429,31 @@ The `scripts/fetch_plaud.py` script handles the API side.
   - Payload: `{"speakers": [{"speaker_id": "<uuid>", "speaker_name": "Name", "speaker_type": 2, "embeddings": {"mark": [256 floats]}, "sample_counts": {"auto": 0, "mark": 1, "me": 0}}]}`
   - Returns registered speaker with possible `merged_speaker_id` if voice matches existing profile
 
-**Transcript data:**
-- Transcript text is fetched from presigned S3 URLs in `content_list` where
-  `data_type == "transaction"` and `task_status == 1`
+**Transcript data — THREE separate storage layers (critical to understand):**
+
+`content_list` in `/file/detail` contains up to four items by `data_type`:
+  - `transaction`: raw diarization segments. Updated by `PATCH /file/{id}` with `trans_result`.
+  - `transaction_polish`: polished/formatted version. **This is what the Plaud web UI renders.**
+    Not updated by the PATCH — requires `POST /ai/transsumm` with `is_reload: 1` to regenerate.
+  - `outline`: topic outline segments (speaker field is always `?`, not useful for speaker ID).
+  - `auto_sum_note`: AI summary note (fetched separately via presigned URL).
+
+`/file/list` (POST with `[file_id]`) returns a fourth layer:
+  - `trans_result`: the database-side segment list. Updated by `PATCH /file/{id}`.
+    May return `null` during active regeneration — this is transient, not an error.
+
+Speaker rename workflow touches: `trans_result` (DB) via PATCH, then `transaction_polish`
+(S3/web UI) via `is_reload: 1` regeneration. If you only PATCH without regenerating,
+the web UI will still show old labels. Both steps are mandatory.
+
+Presigned S3 URLs in `content_list[*].data_link` expire after ~300 seconds.
+Always fetch fresh `/file/detail` before accessing them — never cache the URL.
+
+During `is_reload: 1` regeneration, `content_list` is transiently cleared (only `outline`
+survives). `transaction` and `transaction_polish` reappear once regeneration completes,
+typically within 20-60 seconds. `trans_result` in `/file/list` also returns `null` during
+this window. Poll for `transaction_polish` presence in `content_list` before proceeding.
+
 - AI summaries are embedded in `pre_download_content_list` under items with
   `data_id` starting with `auto_sum:`, parsed from `data_content.ai_content`
 - `trans_result` segments contain: `start_time`, `end_time`, `content`, `speaker`,
