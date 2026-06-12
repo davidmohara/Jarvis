@@ -18,6 +18,7 @@ Running list of potential blog topics. Jarvis captures these proactively from co
 | "Before You Open Your Mouth" | Content pipeline (2026-05-19) | trust, leadership, business | Ghost draft — pending approval |
 | "The Audit Nobody Wanted" | Content pipeline (2026-05-29) | AI, business, thoughts | Ghost draft — pending approval |
 | "Cities That Win" | Content pipeline (2026-06-08) | business, leadership | Ghost draft — pending approval |
+| "The AI Value Question Has an Answer Now" | Content pipeline (2026-06-12) | AI, business, systems thinking | Ghost draft — pending approval |
 
 ## Published (for reference / avoid repeats)
 

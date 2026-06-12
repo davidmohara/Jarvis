@@ -332,8 +332,8 @@
   {
     "id": "session-2026-06-11-062152",
     "started": "2026-06-11T06:21:52",
-    "closed": null,
-    "current_topic": "boot",
+    "closed": "2026-06-12T08:27:00-05:00",
+    "current_topic": null,
     "topics": [
       {
         "name": "boot",
@@ -342,6 +342,38 @@
             "description": "Morning boot and briefing",
             "resolved": false
           }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "session-2026-06-12-082700",
+    "started": "2026-06-12T08:27:00-05:00",
+    "closed": null,
+    "current_topic": "plaud-ingest",
+    "topics": [
+      {
+        "name": "morning-boot",
+        "loops": [
+          {
+            "task": "boot-sequence",
+            "resolved": true
+          }
+        ]
+      },
+      {
+        "name": "plaud-ingest",
+        "loops": [
+          {
+            "task": "3 Jun 9 transcripts processed: Cresta PE (3558ce2d), IBP/Joshua Fryer (8a61f1e), SMU/Aren Cambre (a0c8a0e). Speaker tags corrected (Andrew Neuberger, Cresta Funds). Vault notes updated, staging cleaned. 2 pending recordings surfaced.",
+            "resolved": true
+          }
+        ],
+        "files": [
+          "zzPlaud/Client/2026-06-09 PE Firm AI Consultation - Data Strategy and AI Adoption for Lower Middle Market Fund.md",
+          "zzPlaud/Improving/2026-06-09 IBP Coaching Call - Joshua Fryer on Cohort Dynamics, AI Coaching, and Career Development.md",
+          "zzPlaud/Improving/2026-06-09 SMU MS in AI for Business - Advisory Board Partnership Discussion with Aren Cambre.md",
+          "systems/error-tracking/entries/err-20260612T143248-35EWVQ.json"
         ]
       }
     ]
