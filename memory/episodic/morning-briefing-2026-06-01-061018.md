@@ -7,11 +7,6 @@ created: 2026-06-01T06:10:18
 expires: 2026-06-03T06:10:18
 status: archived
 context: "Morning boot + briefing — 2026-06-01 (travel day, Italy/wedding)"
-salience:
-  score: 0
-  references: []
-  last-promoted-check: 2026-06-09
-  promoted: false
 date: 2026-06-01
 source_file: memory/working/morning-briefing-2026-06-01-061018.md
 tags:
@@ -29,6 +24,10 @@ related_people:
   - scott-mcmichael
   - curtis
   - richard
+salience:
+  score: 10
+  last-promoted-check: 2026-06-12
+  promoted: true
 ---
 # Morning Briefing Session — June 1, 2026
 

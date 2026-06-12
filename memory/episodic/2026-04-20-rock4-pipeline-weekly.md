@@ -13,9 +13,7 @@ tags:
 related_people: []
 salience:
   score: 0
-  last-promoted-check: 2026-06-09
-  references: []
-  promoted: false
+  last-promoted-check: 2026-06-12
 ---
 # Rock 4 Weekly Pipeline Pull — 2026-04-20
 

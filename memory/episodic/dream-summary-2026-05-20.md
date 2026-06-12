@@ -2,11 +2,6 @@
 type: working-archive
 expires: 2026-05-21
 status: archived
-salience:
-  score: 0
-  last-promoted-check: 2026-06-09
-  references: []
-  promoted: false
 date: 2026-05-20
 source_file: memory/working/dream-summary-2026-05-20.md
 tags:
@@ -20,6 +15,10 @@ tags:
   - error-patterns
   - lessons
 related_people:
+salience:
+  score: 10
+  last-promoted-check: 2026-06-12
+  promoted: true
 ---
 # Dream Cycle Summary — 2026-05-20
 

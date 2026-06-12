@@ -7,11 +7,6 @@ created: 2026-05-13 06:12:00
 expires: 2026-05-15 06:12:00
 status: archived
 context: "Morning boot + briefing \u2014 2026-05-13 (automated scheduled task)"
-salience:
-  score: 0
-  last-promoted-check: 2026-06-09
-  references: []
-  promoted: false
 date: 2026-05-13
 source_file: memory/working/2026-05-13-061200-session-boot-morning-briefing.md
 tags:
@@ -26,6 +21,10 @@ tags:
   - utb-board
   - email
 related_people:
+salience:
+  score: 10
+  last-promoted-check: 2026-06-12
+  promoted: true
 ---
 # Morning Briefing Boot — May 13, 2026
 

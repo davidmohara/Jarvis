@@ -7,11 +7,6 @@ created: 2026-05-19 09:54:16
 expires: 2026-05-21 09:54:16
 status: archived
 context: "Morning boot + briefing \u2014 2026-05-19"
-salience:
-  score: 0
-  last-promoted-check: 2026-06-09
-  references: []
-  promoted: false
 date: 2026-05-19
 source_file: memory/working/2026-05-19-095416-session-boot-morning-briefing.md
 tags:
@@ -27,6 +22,10 @@ tags:
   - jarvis-inbox
 related_people:
   - tim-rayburn
+salience:
+  score: 10
+  last-promoted-check: 2026-06-12
+  promoted: true
 ---
 # Boot Briefing — Tuesday, May 19, 2026
 

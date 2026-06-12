@@ -74,3 +74,27 @@ Category: assumption-error/surfaced-resolved-item
 Pattern: Briefings repeatedly flag items that David has already resolved or that are tracked elsewhere as if they were live problems. Examples: TopGolf SOW flagged overdue when staffing is underway; PGA Tour tickets flagged overdue for the third time despite purchase confirmed twice; dream cycle flagged stale when it is running on another machine. The common thread is taking a tracker's status at face value without checking the latest signal (sent email, prior session confirmation, off-host execution).
 Fix: Before surfacing any item as overdue, stale, or actionable: (1) check the agent's own prior session notes for a resolution confirmation, (2) check sent items / DM history for the task's outcome, (3) verify the task isn't owned outside the local system (other machine, other person). When David has confirmed completion in any prior session, treat the item as closed until new evidence reopens it. Never re-surface the same resolved item across sessions.
 Status: active
+
+
+## 2026-06-12 — Routing Error Pattern
+Detected: 5 occurrences over 30 days
+Category: routing-error
+Pattern: Recurring routing-error errors logged across agents
+Fix: Review systems/error-tracking entries with category=routing-error; tighten the relevant agent's guardrails
+Status: active
+
+
+## 2026-06-12 — Assumption Error Pattern
+Detected: 6 occurrences over 30 days
+Category: assumption-error
+Pattern: Recurring assumption-error errors logged across agents
+Fix: Review systems/error-tracking entries with category=assumption-error; tighten the relevant agent's guardrails
+Status: active
+
+
+## 2026-06-12 — Format Violation Pattern
+Detected: 4 occurrences over 30 days
+Category: format-violation
+Pattern: Recurring format-violation errors logged across agents
+Fix: Review systems/error-tracking entries with category=format-violation; tighten the relevant agent's guardrails
+Status: active

@@ -7,11 +7,6 @@ created: 2026-05-19 06:13:22
 expires: 2026-05-21 06:13:22
 status: archived
 context: "Morning boot + briefing \u2014 2026-05-19 (automated scheduled run)"
-salience:
-  score: 0
-  last-promoted-check: 2026-06-09
-  references: []
-  promoted: false
 date: 2026-05-19
 source_file: memory/working/2026-05-19-061322-session-boot-morning-briefing.md
 tags:
@@ -30,6 +25,10 @@ related_people:
   - don-mcgreal
   - tim-rayburn
   - curtis
+salience:
+  score: 10
+  last-promoted-check: 2026-06-12
+  promoted: true
 ---
 # Morning Briefing Session — May 19, 2026
 

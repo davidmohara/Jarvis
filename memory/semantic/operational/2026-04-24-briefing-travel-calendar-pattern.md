@@ -4,7 +4,7 @@ domain: operational
 tags: [briefing, calendar, omnifocus, google-next, travel, overdue-tasks, leads]
 confidence: high
 created: 2026-04-24
-last-updated: 2026-06-04
+last-updated: 2026-06-12
 synthesized-from:
   - memory/episodic/2026-04-20-morning-briefing.md
   - memory/episodic/2026-04-21-morning-briefing.md
@@ -51,6 +51,47 @@ Morning briefings across the entire Google Next week (Apr 20-23) repeatedly surf
 - OmniFocus timed out (2x) — unavailable
 - Google Cloud Next badge confirmation unread
 - Sharp edges: prep gap persisted from previous day's warning
+- 2026-05-25 — `memory/episodic/dream-summary-2026-05-25.md` (score 10)
+- 2026-05-12 — `memory/episodic/2026-05-12-061241-session-boot-morning-briefing.md` (score 10)
+- 2026-06-02 — `memory/episodic/morning-briefing-2026-06-02-061028.md` (score 10)
+- 2026-05-08 — `memory/episodic/2026-05-08-071436-session-boot-morning-briefing.md` (score 10)
+- 2026-05-13 — `memory/episodic/2026-05-13-095338-session-boot-morning-briefing.md` (score 10)
+- 2026-05-20 — `memory/episodic/2026-05-20-061400-session-boot-morning-briefing.md` (score 10)
+- 2026-05-20 — `memory/episodic/dream-summary-2026-05-20.md` (score 10)
+- 2026-05-14 — `memory/episodic/dream-summary-2026-05-14.md` (score 10)
+- 2026-05-30 — `memory/episodic/dream-summary-2026-05-30.md` (score 10)
+- 2026-05-14 — `memory/episodic/2026-05-14-092600-session-boot-morning-briefing.md` (score 10)
+- 2026-05-12 — `memory/episodic/2026-05-12-085352-session-boot-morning-briefing.md` (score 10)
+- 2026-06-09 — `memory/episodic/morning-briefing-2026-06-09-092323.md` (score 10)
+- 2026-06-08 — `memory/episodic/morning-briefing-2026-06-08-095429.md` (score 10)
+- 2026-05-13 — `memory/episodic/2026-05-13-061200-session-boot-morning-briefing.md` (score 10)
+- 2026-06-04 — `memory/episodic/dream-summary-2026-06-04.md` (score 10)
+- 2026-05-28 — `memory/episodic/daily-review-2026-05-28-163825.md` (score 10)
+- 2026-05-11 — `memory/episodic/2026-05-11-000000-session-boot-morning-briefing.md` (score 10)
+- 2026-05-15 — `memory/episodic/2026-05-15-094050-session-wrap.md` (score 10)
+- 2026-05-29 — `memory/episodic/dream-summary-2026-05-29.md` (score 10)
+- 2026-05-18 — `memory/episodic/2026-05-18-061344-session-boot-morning-briefing.md` (score 10)
+- 2026-05-19 — `memory/episodic/dream-summary-2026-05-19.md` (score 10)
+- 2026-06-03 — `memory/episodic/dream-summary-2026-06-03.md` (score 10)
+- 2026-05-22 — `memory/episodic/2026-05-22-061651-session-boot-morning-briefing.md` (score 10)
+- 2026-05-19 — `memory/episodic/2026-05-19-061322-session-boot-morning-briefing.md` (score 10)
+- 2026-05-29 — `memory/episodic/2026-05-29-145100-session-boot-morning-briefing.md` (score 10)
+- 2026-05-17 — `memory/episodic/2026-05-17-dream-cycle-summary.md` (score 10)
+- 2026-05-27 — `memory/episodic/morning-briefing-2026-05-27-060943.md` (score 10)
+- 2026-05-23 — `memory/episodic/dream-summary-2026-05-23.md` (score 10)
+- 2026-06-01 — `memory/episodic/morning-briefing-2026-06-01-061018.md` (score 10)
+- 2026-05-19 — `memory/episodic/2026-05-19-095416-session-boot-morning-briefing.md` (score 10)
+- 2026-05-13 — `memory/episodic/dream-summary-2026-05-13.md` (score 10)
+- 2026-05-27 — `memory/episodic/dream-summary-2026-05-27.md` (score 10)
+- 2026-05-22 — `memory/episodic/2026-05-22-061501-session-boot-morning-briefing.md` (score 10)
+- 2026-05-15 — `memory/episodic/2026-05-15-094050-session-boot-morning-briefing.md` (score 10)
+- 2026-05-12 — `memory/episodic/dream-summary-2026-05-12.md` (score 10)
+- 2026-05-26 — `memory/episodic/dream-summary-2026-05-26.md` (score 10)
+- 2026-05-18 — `memory/episodic/2026-05-18-dream-cycle-summary.md` (score 10)
+- 2026-05-22 — `memory/episodic/dream-summary-2026-05-22.md` (score 10)
+- 2026-05-29 — `memory/episodic/morning-briefing-2026-05-29-070948.md` (score 10)
+- 2026-05-16 — `memory/episodic/dream-summary-2026-05-16.md` (score 10)
+- 2026-04-26 — `memory/episodic/2026-04-26-podcast-hosting-review-ep01.md` (score 10)
 
 ## Implications
 

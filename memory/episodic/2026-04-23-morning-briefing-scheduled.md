@@ -23,9 +23,7 @@ related_people:
 - alice-mburu
 salience:
   score: 0
-  last-promoted-check: 2026-06-09
-  references: []
-  promoted: true
+  last-promoted-check: 2026-06-12
 ---
 # Morning Briefing — April 23, 2026 (Scheduled 6:11 AM)
 

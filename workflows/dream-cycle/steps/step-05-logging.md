@@ -1,17 +1,13 @@
 ---
 status: complete
-started-at: 2026-06-09T14:29:10Z
-completed-at: 2026-06-09T14:30:30Z
+started-at: 2026-06-12T13:25:10Z
+completed-at: 2026-06-12T13:26:30Z
 outputs:
   dream_log_appended: true
-  working_summary_written: false
-  working_summary_reason: "All semantic and error counts are zero — spec does not trigger summary write."
-  git_commit: success
-  commit_sha: ea35fea
-  commit_method: "GIT_INDEX_FILE=/tmp/jarvis-index-2026-06-09 workaround. 98 files committed (240 insertions, 222 deletions)."
-  git_push: blocked
-  git_push_blocker: "non-fast-forward. Local HEAD ea35fea is behind origin/main 146488f. Sandbox cannot fetch/rebase."
-  manual_recovery_command: "cd ~/develop/jarvis && rm -f .git/index.lock .git/index.stash.*.lock .git/refs/remotes/origin/*.lock .git/HEAD.lock && git fetch origin && git pull --rebase origin main && git push origin main"
+  working_summary_written: true
+  working_summary_reason: "semantic_created=4 > 0 triggered summary write."
+  git_commit: pending
+  git_commit_note: "Git commit attempted at end of run; sandbox restrictions on .git/index.lock and refs/remotes/origin/*.lock remain. See dream.log for details."
 ---
 
 <!-- system:start -->

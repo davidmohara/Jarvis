@@ -6,9 +6,6 @@ created: 2026-06-03T08:11:30
 expires: 2026-06-04T08:11:30
 status: archived
 context: "Dream cycle summary for Chief — 2026-06-03 breakthrough run"
-salience:
-  score: 0
-  last-promoted-check: 2026-06-09
 date: 2026-06-03
 source_file: memory/working/dream-summary-2026-06-03.md
 tags:
@@ -24,6 +21,10 @@ tags:
   - cabo
 related_people:
   - alice-mburu
+salience:
+  score: 10
+  last-promoted-check: 2026-06-12
+  promoted: true
 ---
 
 # Dream Cycle Summary — 2026-06-03

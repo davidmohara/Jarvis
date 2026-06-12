@@ -16,9 +16,7 @@ related_people:
 - stuart
 salience:
   score: 0
-  last-promoted-check: 2026-06-09
-  references: []
-  promoted: true
+  last-promoted-check: 2026-06-12
 ---
 # Session Boot — April 26, 2026 (GLC Travel Day)
 

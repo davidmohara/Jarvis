@@ -12,11 +12,6 @@ context: "Morning boot + briefing \u2014 2026-05-20 (automated scheduled task)"
 - utb-board
 - drc-workshop
 - graduation
-salience:
-  score: 0
-  last-promoted-check: 2026-06-09
-  references: []
-  promoted: true
 date: 2026-05-20
 source_file: memory/working/2026-05-20-061400-session-boot-morning-briefing.md
 tags:
@@ -31,6 +26,10 @@ tags:
   - drc-workshop
   - utb-board
 related_people:
+salience:
+  score: 10
+  last-promoted-check: 2026-06-12
+  promoted: true
 ---
 # Morning Briefing — May 20, 2026
 

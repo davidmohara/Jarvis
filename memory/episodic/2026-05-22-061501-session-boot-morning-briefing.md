@@ -10,11 +10,6 @@ context: "Morning boot + briefing \u2014 2026-05-22"
 - briefing
 - calendar
 - omnifocus
-salience:
-  score: 0
-  last-promoted-check: 2026-06-09
-  references: []
-  promoted: true
 date: 2026-05-22
 source_file: memory/working/2026-05-22-061501-session-boot-morning-briefing.md
 tags:
@@ -31,6 +26,10 @@ tags:
 related_people:
   - curtis
   - derek-nwamadi
+salience:
+  score: 10
+  last-promoted-check: 2026-06-12
+  promoted: true
 ---
 # Boot Summary — Friday, May 22, 2026
 

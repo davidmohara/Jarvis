@@ -1,16 +1,17 @@
 ---
 status: complete
-started-at: 2026-06-09T14:27:00Z
-completed-at: 2026-06-09T14:28:00Z
+started-at: 2026-06-12T13:23:00Z
+completed-at: 2026-06-12T13:24:00Z
 outputs:
-  episodic_scanned: 91
-  score_updates: 91
-  no_tags: 46
-  no_date: 49
-  files_with_tags: 45
-  score_distribution: "0:91"
-  promotion_candidates: 0
-  note: "Window shifted to 2026-05-10 → 2026-06-09. Only 2 episodic files in window have tags (2026-05-15 dream-cycle-summary and 2026-05-27 decision-rationale). They do not share 2+ tags with each other or with anything else in the window. All previously promotion-eligible morning-briefings now fall outside the 30-day window. Result: 0 promotion candidates. Score distribution collapsed entirely to 0."
+  episodic_scanned: 104
+  score_updates: 104
+  no_tags: 41
+  no_date: 0
+  files_with_tags: 63
+  in_window_count: 59
+  score_distribution: "0:42, 1:2, 5:5, 6:1, 10:54"
+  promotion_candidates: 60
+  note: "Window 2026-05-13 → 2026-06-12. The 13 files archived in step-01 carried real co-occurrence tag signal (briefing, daily-review, pipeline, co-sell, revenue, etc.) into the window. Score distribution flipped from collapsed-zero (last run) to heavy-tail with 54 entries hitting the score-10 cap. Tag-starvation gap closed."
 ---
 
 <!-- system:start -->

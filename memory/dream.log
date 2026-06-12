@@ -1032,3 +1032,19 @@ files_pending_commit:
   - systems/dream-cycle/backfill-episodic-tags.py (modified, +90 lines for --llm support)
   - workflows/dream-cycle/steps/step-01-working-memory-cleanup.md (modified, enrichment protocol now LLM-first)
 manual_recovery: "cd ~/develop/jarvis && rm -f .git/HEAD.lock .git/index.lock .git/refs/remotes/origin/*.lock && git add -A && git commit -m 'dream-cycle: LLM-based tag extractor as primary enrichment path' && git push origin main"
+
+---
+## 2026-06-12T13:25:30 UTC
+session_id: dream-cycle-2026-06-12-132045
+working_archived: 13
+working_deleted: 0
+episodic_scanned: 104
+score_updates: 104
+clusters_found: 6
+semantic_created: 4
+semantic_updated: 2
+promoted_entries: 60
+entries_compressed: 0
+digests_updated: 0
+errors: 0
+summary: "Recovery run — tagging gap closed. Step-01 archived 13 newly-expired working files (6 co-sell-pipelines, 2 morning-briefings, 2 revenue-trackers, daily-review, plaud-ingest, session-work) with heuristic enrichment (LLM extractor unavailable in scheduled-task subprocess). Step-02 scored 104 episodic entries — distribution flipped from collapsed 0:91 (last run) to heavy-tail 0:42, 1:2, 5:5, 6:1, 10:54. 59 in-window entries vs 2 last run. Step-03 promoted 60 entries across 6 clusters into 4 new semantic patterns (dream-summary, daily-review, pipeline, plaud) and updated 2 existing. Error pattern check found process-skip:10, assumption-error:6, data-accuracy:5, routing-error:5, tool-misuse:4, format-violation:4 — 3 new lessons appended for sub-categories. Step-04 compression skipped (oldest 55 days, 90-day threshold not met)."

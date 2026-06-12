@@ -7,11 +7,6 @@ created: 2026-05-27 06:09:43
 expires: 2026-05-29 06:09:43
 status: archived
 context: "Morning briefing \u2014 2026-05-27"
-salience:
-  score: 0
-  last-promoted-check: 2026-06-09
-  references: []
-  promoted: false
 date: 2026-05-27
 source_file: memory/working/morning-briefing-2026-05-27-060943.md
 tags:
@@ -28,6 +23,10 @@ tags:
 related_people:
   - devlin
   - curtis
+salience:
+  score: 10
+  last-promoted-check: 2026-06-12
+  promoted: true
 ---
 # Morning Briefing — Wednesday, May 27, 2026
 

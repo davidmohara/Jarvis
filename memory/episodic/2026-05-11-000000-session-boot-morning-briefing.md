@@ -7,11 +7,6 @@ created: 2026-05-11 00:00:00
 expires: 2026-05-13 00:00:00
 status: archived
 context: "Morning boot + briefing \u2014 2026-05-11 (automated scheduled run)"
-salience:
-  score: 0
-  last-promoted-check: 2026-06-09
-  references: []
-  promoted: false
 date: 2026-05-11
 source_file: memory/working/2026-05-11-000000-session-boot-morning-briefing.md
 tags:
@@ -31,6 +26,10 @@ related_people:
   - robyn-fuentes
   - curtis
   - richard
+salience:
+  score: 10
+  last-promoted-check: 2026-06-12
+  promoted: true
 ---
 # Morning Briefing Session — May 11, 2026
 

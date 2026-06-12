@@ -7,11 +7,6 @@ created: 2026-05-22 06:16:51
 expires: 2026-05-24 06:16:51
 status: archived
 context: "Morning boot + briefing \u2014 2026-05-22"
-salience:
-  score: 0
-  last-promoted-check: 2026-06-09
-  references: []
-  promoted: false
 date: 2026-05-22
 source_file: memory/working/2026-05-22-061651-session-boot-morning-briefing.md
 tags:
@@ -26,6 +21,10 @@ tags:
   - graduation
   - rock2
 related_people:
+salience:
+  score: 10
+  last-promoted-check: 2026-06-12
+  promoted: true
 ---
 # Morning Briefing Boot — Friday May 22, 2026
 

@@ -7,11 +7,6 @@ created: 2026-05-29T07:09:48
 expires: 2026-05-31T07:09:48
 status: archived
 context: "Morning boot + briefing — 2026-05-29"
-salience:
-  score: 0
-  last-promoted-check: 2026-06-09
-  references: []
-  promoted: false
 date: 2026-05-29
 source_file: memory/working/morning-briefing-2026-05-29-070948.md
 tags:
@@ -28,6 +23,10 @@ tags:
 related_people:
   - alice-mburu
   - steve-hall
+salience:
+  score: 10
+  last-promoted-check: 2026-06-12
+  promoted: true
 ---
 ## Boot Summary — Friday, May 29, 2026
 

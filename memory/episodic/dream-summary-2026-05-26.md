@@ -4,11 +4,6 @@ expires: 2026-05-27
 status: archived
 created: 2026-05-26
 session_id: dream-cycle-2026-05-26-030942
-salience:
-  score: 0
-  last-promoted-check: 2026-06-09
-  references: []
-  promoted: false
 date: 2026-05-26
 source_file: memory/working/dream-summary-2026-05-26.md
 tags:
@@ -23,6 +18,10 @@ tags:
   - git-issues
   - error-patterns
 related_people:
+salience:
+  score: 10
+  last-promoted-check: 2026-06-12
+  promoted: true
 ---
 # Dream Cycle Summary — 2026-05-26
 

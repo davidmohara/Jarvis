@@ -10,11 +10,6 @@ context: "Morning boot + briefing \u2014 2026-05-15"
 - briefing
 - calendar
 - omnifocus
-salience:
-  score: 0
-  last-promoted-check: 2026-06-09
-  references: []
-  promoted: true
 date: 2026-05-15
 source_file: memory/working/2026-05-15-094050-session-boot-morning-briefing.md
 tags:
@@ -30,6 +25,10 @@ tags:
   - rock3
 related_people:
   - tim-rayburn
+salience:
+  score: 10
+  last-promoted-check: 2026-06-12
+  promoted: true
 ---
 # Boot Briefing — Friday May 15, 2026
 

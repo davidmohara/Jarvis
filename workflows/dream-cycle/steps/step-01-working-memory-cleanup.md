@@ -1,17 +1,27 @@
 ---
 status: complete
-started-at: 2026-06-09T14:26:12Z
-completed-at: 2026-06-09T14:27:00Z
+started-at: 2026-06-12T13:21:00Z
+completed-at: 2026-06-12T13:22:30Z
 outputs:
-  working_archived: 4
+  working_archived: 13
   working_deleted: 0
-  working_skipped: 77
+  working_skipped: 78
   working_stranded: 0
+  enrichment_method: "heuristic:13, llm:0"
   archived_files:
-    - daily-review-2026-06-05-021137.md
-    - dream-summary-2026-06-03.md
-    - dream-summary-2026-06-04.md
-    - morning-briefing-2026-06-02-061028.md
+    - co-sell-pipeline-2026-06-01-000100.md
+    - co-sell-pipeline-2026-06-08-000000.md
+    - co-sell-pipeline-2026-06-09-133410.md
+    - co-sell-pipeline-2026-06-09-133800.md
+    - co-sell-pipeline-2026-06-09-140500.md
+    - co-sell-pipeline-2026-06-09-142000.md
+    - daily-review-2026-06-08-212450.md
+    - morning-briefing-2026-06-08-095429.md
+    - morning-briefing-2026-06-09-092323.md
+    - plaud-ingest-2026-06-04-013000.md
+    - revenue-tracker-2026-06-01-000000.md
+    - revenue-tracker-2026-06-09-133407.md
+    - session-work-2026-06-08-162353.md
 ---
 
 <!-- system:start -->

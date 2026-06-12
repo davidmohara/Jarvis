@@ -7,11 +7,6 @@ created: 2026-05-14 09:26:00
 expires: 2026-05-16 09:26:00
 status: archived
 context: "Morning boot + briefing \u2014 2026-05-14"
-salience:
-  score: 0
-  last-promoted-check: 2026-06-09
-  references: []
-  promoted: false
 date: 2026-05-14
 source_file: memory/working/2026-05-14-092600-session-boot-morning-briefing.md
 tags:
@@ -27,6 +22,10 @@ tags:
   - utb-board
 related_people:
   - tim-rayburn
+salience:
+  score: 10
+  last-promoted-check: 2026-06-12
+  promoted: true
 ---
 ## Boot Data Sources
 

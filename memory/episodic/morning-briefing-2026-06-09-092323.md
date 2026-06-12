@@ -1,12 +1,30 @@
 ---
-type: working
+type: working-archive
 task_id: "session"
 session_id: "chief-2026-06-09-092323"
 agent-source: chief
 created: 2026-06-09T09:23:23
 expires: 2026-06-11T09:23:23
-status: active
+status: archived
 context: "Morning boot + briefing — 2026-06-09"
+related_people:
+tags:
+  - briefing
+  - morning-briefing
+  - chief
+  - omnifocus
+  - calendar
+  - email
+  - rock1
+  - rock3
+  - leads
+  - travel
+date: 2026-06-09
+source_file: memory/working/morning-briefing-2026-06-09-092323.md
+salience:
+  score: 10
+  last-promoted-check: 2026-06-12
+  promoted: true
 ---
 
 ## Boot Summary

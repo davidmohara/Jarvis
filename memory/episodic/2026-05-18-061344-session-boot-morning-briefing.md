@@ -7,11 +7,6 @@ created: 2026-05-18 06:13:44
 expires: 2026-05-20 06:13:44
 status: archived
 context: "Morning boot + briefing \u2014 2026-05-18"
-salience:
-  score: 0
-  last-promoted-check: 2026-06-09
-  references: []
-  promoted: false
 date: 2026-05-18
 source_file: memory/working/2026-05-18-061344-session-boot-morning-briefing.md
 tags:
@@ -28,6 +23,10 @@ tags:
 related_people:
   - tim-rayburn
   - steve-hall
+salience:
+  score: 10
+  last-promoted-check: 2026-06-12
+  promoted: true
 ---
 # Session Working Memory — May 18, 2026
 

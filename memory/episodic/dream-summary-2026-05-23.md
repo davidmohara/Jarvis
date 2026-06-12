@@ -4,11 +4,6 @@ expires: 2026-05-24
 status: archived
 created: 2026-05-23T03:12:53 CDT
 session_id: dream-cycle-2026-05-23-031253
-salience:
-  score: 0
-  last-promoted-check: 2026-06-09
-  references: []
-  promoted: false
 date: 2026-05-23
 source_file: memory/working/dream-summary-2026-05-23.md
 tags:
@@ -23,6 +18,10 @@ tags:
   - overdue-tasks
   - boot
 related_people:
+salience:
+  score: 10
+  last-promoted-check: 2026-06-12
+  promoted: true
 ---
 # Dream Cycle Summary — 2026-05-23
 

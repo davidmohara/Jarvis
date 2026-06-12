@@ -7,11 +7,6 @@ created: 2026-05-13 09:53:38
 expires: 2026-05-15 09:53:38
 status: archived
 context: "Morning boot + briefing \u2014 2026-05-13"
-salience:
-  score: 0
-  last-promoted-check: 2026-06-09
-  references: []
-  promoted: false
 date: 2026-05-13
 source_file: memory/working/2026-05-13-095338-session-boot-morning-briefing.md
 tags:
@@ -27,6 +22,10 @@ tags:
   - email
 related_people:
   - curtis
+salience:
+  score: 10
+  last-promoted-check: 2026-06-12
+  promoted: true
 ---
 # Boot Briefing — Wednesday, May 13, 2026
 

@@ -7,11 +7,6 @@ created: 2026-05-26 00:00:00
 expires: 2026-05-28 00:00:00
 status: archived
 context: "Daily review \u2014 2026-05-24"
-salience:
-  score: 0
-  last-promoted-check: 2026-06-09
-  references: []
-  promoted: false
 date: 2026-05-26
 source_file: memory/working/daily-review-2026-05-26-auto.md
 tags:
@@ -25,6 +20,10 @@ tags:
   - overdue-tasks
   - system-maintenance
 related_people:
+salience:
+  score: 10
+  last-promoted-check: 2026-06-12
+  promoted: true
 ---
 - Sunday May 24 was a family day: Declan's graduation party (4-5 PM CT) was the only calendar event; no work meetings.
 - OmniFocus: 3 completions (coherence breathing, prayer list review, humidor check — all Deliberate Practices / Maintenance). 3 overdue networking tasks since May 22 (movie night invite to Amy/William/Rebecca, Amy-Derek Alley DSO intro, Goke-Scott UTB intro).

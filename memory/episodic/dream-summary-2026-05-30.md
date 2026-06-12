@@ -7,11 +7,6 @@ created: 2026-05-30T03:09:19-05:00
 expires: 2026-05-31T03:09:19-05:00
 status: archived
 context: "Dream cycle summary — 2026-05-30"
-salience:
-  score: 0
-  last-promoted-check: 2026-06-09
-  references: []
-  promoted: false
 date: 2026-05-30
 source_file: memory/working/dream-summary-2026-05-30.md
 tags:
@@ -26,6 +21,10 @@ tags:
   - lessons
   - rigby
 related_people:
+salience:
+  score: 10
+  last-promoted-check: 2026-06-12
+  promoted: true
 ---
 # Dream Cycle Summary — 2026-05-30
 

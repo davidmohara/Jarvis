@@ -1,15 +1,17 @@
 workflow: golf-booking
 agent: sterling
 status: aborted
-session-started: "2026-06-04T00:00:00"
-session-id: null
-current-step: "session-expired-chronogolf"
-original-request: "Book tee time for Jun 12-14, 2026 weekend"
+session-started: "2026-06-12T00:00:00"
+session-id: "scheduled-midnight-run"
+current-step: "step-2-login-verification"
+original-request: "Book tee time for Jun 19-21, 2026 weekend"
 accumulated-context:
-  target_weekend: "2026-06-12 to 2026-06-14"
-  reason_aborted: "ChronoGolf session expired — not logged in at dashboard. David must manually log in and re-trigger booking."
-  preview_top_options: "[Saturday Jun 13 1PM-5:30PM (18h, $42), Saturday Jun 13 4PM-8PM (18h, $30), Sunday Jun 14 2:30PM-7PM (18h, $42)]"
-  override_instructions: null
-  completed_at: "2026-06-04T00:00:00"
+  target_weekend: "2026-06-19 to 2026-06-21"
+  target_date: "2026-06-20 Saturday"
+  preview_generated: "2026-06-02T00:00:00"
+  reason_aborted: "ChronoGolf session not authenticated. Document.body.innerText does not include '41 - Frisco Lakes Total Member'. Session expired or never logged in."
+  preference_rank_1: "Saturday Jun 20, 1:00 PM - 5:30 PM, 18 holes, 2 players (David + Susie), $42 total"
+  override_instructions: "Only one booking this run. Jun 20: 1 PM, 2 players (David + Susie)."
+  completed_at: "2026-06-12T00:00:00"
 next-run: "manual-retry-required"
-next-target: "Jun 12-14 weekend"
+next-target: "Jun 19-21, 2026 weekend"

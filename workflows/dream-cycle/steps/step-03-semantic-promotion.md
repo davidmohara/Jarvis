@@ -1,16 +1,16 @@
 ---
 status: complete
-started-at: 2026-06-09T14:28:00Z
-completed-at: 2026-06-09T14:29:00Z
+started-at: 2026-06-12T13:24:00Z
+completed-at: 2026-06-12T13:25:00Z
 outputs:
-  clusters_found: 0
-  semantic_created: 0
-  semantic_updated: 0
-  promoted_entries: 0
-  promotion_note: "No candidates qualified — step-02 score distribution collapsed to 0:91 because the 30-day window (2026-05-10 → 2026-06-09) contains only 2 tagged episodic entries and they share no co-occurring tags. The morning-briefing cluster that drove all prior promotions has aged out of the window."
-  error_categories_30d: "process-skip:13, data-accuracy:6, assumption-error:5, tool-misuse:4, routing-error:4"
-  lessons_appended: 0
-  lessons_note: "All five threshold categories already covered in LESSONS.md (Process Skip on Boot Sequence, Data Accuracy Failures in Briefings, Wrong Assumptions, Tool Misuse Across Agents, Chronic Routing Bypass). No new lessons appended."
+  clusters_found: 6
+  semantic_created: 4
+  semantic_updated: 2
+  promoted_entries: 60
+  promotion_note: "60 episodic entries promoted across 6 clusters (briefing, dream-summary, daily-review, pipeline, plaud, session-work). Four new semantic entries created in memory/semantic/operational and memory/semantic/domain. Existing briefing-travel-calendar pattern received fresh evidence."
+  error_categories_30d: "process-skip:10, assumption-error:6, data-accuracy:5, routing-error:5, tool-misuse:4, format-violation:4"
+  lessons_appended: 3
+  lessons_note: "Three new entries appended for sub-categories not previously covered (format-violation among others). Core five categories already covered, not duplicated."
 ---
 
 <!-- system:start -->

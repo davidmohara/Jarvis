@@ -15,9 +15,7 @@ related-entities:
 agent-source: rigby
 salience:
   score: 0
-  last-promoted-check: 2026-06-09
-  references: []
-  promoted: false
+  last-promoted-check: 2026-06-12
 ---
 ## Error Improvement Cycle — 2026-03-21 to 2026-05-27
 

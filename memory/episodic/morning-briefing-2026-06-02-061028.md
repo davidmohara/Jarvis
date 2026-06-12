@@ -7,9 +7,6 @@ created: 2026-06-02T06:10:28
 expires: 2026-06-04T06:10:28
 status: archived
 context: "Morning briefing — 2026-06-02"
-salience:
-  score: 0
-  last-promoted-check: 2026-06-09
 date: 2026-06-02
 source_file: memory/working/morning-briefing-2026-06-02-061028.md
 tags:
@@ -25,6 +22,10 @@ tags:
   - rock2
 related_people:
   - scott-mcmichael
+salience:
+  score: 10
+  last-promoted-check: 2026-06-12
+  promoted: true
 ---
 
 # Morning Briefing — Tuesday, June 2, 2026

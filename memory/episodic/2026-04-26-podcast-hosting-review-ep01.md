@@ -4,11 +4,6 @@ type: content-review
 subject: "The Improving Edge \u2014 Hosting Self-Review"
 episode: 1
 status: reviewed
-salience:
-  score: 0
-  last-promoted-check: 2026-06-09
-  references: []
-  promoted: false
 date: 2026-04-26
 source_file: memory/working/2026-04-26-podcast-hosting-review-ep01.md
 tags:
@@ -17,6 +12,10 @@ tags:
   - podcast
   - harper
 related_people:
+salience:
+  score: 10
+  last-promoted-check: 2026-06-12
+  promoted: true
 ---
 # Podcast Hosting Review — The Improving Edge, Episode 1
 

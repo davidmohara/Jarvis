@@ -2,11 +2,6 @@
 type: working-archive
 expires: 2026-05-19
 status: archived
-salience:
-  score: 0
-  last-promoted-check: 2026-06-09
-  references: []
-  promoted: false
 date: 2026-05-18
 source_file: memory/working/2026-05-18-dream-cycle-summary.md
 tags:
@@ -21,6 +16,10 @@ tags:
   - dream-cycle
   - git-issues
 related_people:
+salience:
+  score: 10
+  last-promoted-check: 2026-06-12
+  promoted: true
 ---
 # Dream Cycle Summary — 2026-05-18
 

@@ -1,48 +1,67 @@
 {
-  "generated_at": "2026-06-02T00:00:00",
+  "generated_at": "2026-06-12T00:00:00",
   "target_weekend": {
-    "friday": "2026-06-19",
-    "saturday": "2026-06-20",
-    "sunday": "2026-06-21"
+    "friday": "2026-06-26",
+    "saturday": "2026-06-27",
+    "sunday": "2026-06-28"
   },
   "day_status": {
     "friday": {
       "status": "unavailable",
-      "reason": "Handled by separate task — do not book."
+      "reason": "No continuous 3-hour gap between 1–6 PM CT. Podcast Filming 11:30 AM–1:30 PM, Drive Block 1:30–2:00 PM, PREP Kazakhstan 2:00–2:30 PM, Kazakhstan AI Discussion 2:30–4:00 PM, Weekly Wrap-Up 4:20–5:00 PM."
     },
     "saturday": {
       "status": "available",
-      "reason": "Weiser Dinner at 5 PM CT is hard stop. Golf window: 1:00 PM–4:30 PM. Adequate for 18 holes."
+      "reason": "No calendar conflicts. Full day open."
     },
     "sunday": {
-      "status": "not_evaluated",
-      "reason": "Not needed this weekend."
+      "status": "available",
+      "reason": "Church volunteering hard block 8:30 AM–1:30 PM CT. Alyssa baptism 9:00–10:00 AM CT (within church block). Available from 2:30 PM CT."
     }
   },
   "drought": false,
-  "last_round": {
-    "date": "2026-05-30",
-    "days_ago": 3,
-    "subject": "Tee time",
-    "location": "Frisco Lakes Golf Club"
-  },
   "heat_streak": null,
-  "weather_note": "Weather APIs blocked on this network — booking skill should evaluate independently.",
+  "weather_note": "Weather data unavailable — both Open-Meteo and NWS APIs blocked by network allowlist. Scoring based on calendar only.",
   "top_options": [
     {
       "rank": 1,
       "day": "saturday",
-      "date": "2026-06-20",
+      "date": "2026-06-27",
       "preferred_start": "13:00",
-      "preferred_end": "17:30",
+      "preferred_end": "17:00",
       "holes": 18,
-      "players": 2,
       "cost_per_player": 21,
       "total_cost": 42,
       "weather": null,
       "score": 0,
-      "rationale": "Standard Saturday round — 1 PM, David + Susie. Hard stop: Weiser Dinner ~5 PM CT."
+      "rationale": "Saturday 1 PM — no conflicts, preferred rate ($21/player), heat streak unknown (weather API blocked)"
+    },
+    {
+      "rank": 2,
+      "day": "saturday",
+      "date": "2026-06-27",
+      "preferred_start": "16:00",
+      "preferred_end": "20:00",
+      "holes": 18,
+      "cost_per_player": 15,
+      "total_cost": 30,
+      "weather": null,
+      "score": 5,
+      "rationale": "Saturday 4 PM — no conflicts, $15/player rate, +5 penalty vs 1 PM default (heat streak unknown)"
+    },
+    {
+      "rank": 3,
+      "day": "sunday",
+      "date": "2026-06-28",
+      "preferred_start": "14:30",
+      "preferred_end": "18:30",
+      "holes": 18,
+      "cost_per_player": 21,
+      "total_cost": 42,
+      "weather": null,
+      "score": 5,
+      "rationale": "Sunday 2:30 PM — church buffer clears at 1:30 PM, 1-hour buffer applied, +5 Sunday penalty"
     }
   ],
-  "override_instructions": "Only one booking this run. Jun 20: 1 PM, 2 players (David + Susie)."
+  "override_instructions": null
 }

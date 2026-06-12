@@ -7,11 +7,6 @@ created: 2026-05-08 07:14:36
 expires: 2026-05-10 07:14:36
 status: archived
 context: "Morning boot + briefing \u2014 2026-05-08"
-salience:
-  score: 0
-  last-promoted-check: 2026-06-09
-  references: []
-  promoted: false
 date: 2026-05-08
 source_file: memory/working/2026-05-08-071436-session-boot-morning-briefing.md
 tags:
@@ -27,6 +22,10 @@ tags:
   - gold-forum
 related_people:
   - curtis
+salience:
+  score: 10
+  last-promoted-check: 2026-06-12
+  promoted: true
 ---
 ## Data Sources
 

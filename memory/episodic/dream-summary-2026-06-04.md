@@ -5,9 +5,6 @@ status: archived
 session_id: dream-cycle-2026-06-04-081000
 created: 2026-06-04T08:12:00
 context: "Dream cycle summary for Chief boot — 2026-06-04"
-salience:
-  score: 0
-  last-promoted-check: 2026-06-09
 date: 2026-06-04
 source_file: memory/working/dream-summary-2026-06-04.md
 tags:
@@ -23,6 +20,10 @@ tags:
   - boot
 related_people:
   - alice-mburu
+salience:
+  score: 10
+  last-promoted-check: 2026-06-12
+  promoted: true
 ---
 
 # Dream Cycle Summary — 2026-06-04

@@ -7,11 +7,6 @@ created: 2026-05-12 08:53:52
 expires: 2026-05-14 08:53:52
 status: archived
 context: "Morning boot + briefing \u2014 2026-05-12"
-salience:
-  score: 0
-  last-promoted-check: 2026-06-09
-  references: []
-  promoted: false
 date: 2026-05-12
 source_file: memory/working/2026-05-12-085352-session-boot-morning-briefing.md
 tags:
@@ -28,6 +23,10 @@ tags:
 related_people:
   - scott-mcmichael
   - devlin
+salience:
+  score: 10
+  last-promoted-check: 2026-06-12
+  promoted: true
 ---
 # Boot Data Summary — Tuesday May 12, 2026
 
