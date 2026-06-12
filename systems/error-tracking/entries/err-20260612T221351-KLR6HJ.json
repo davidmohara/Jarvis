@@ -1,0 +1,15 @@
+{
+  "id": "err-20260612T221351-KLR6HJ",
+  "timestamp": "2026-06-12T22:13:51Z",
+  "session": "session-2026-06-12-082700",
+  "source": "explicit",
+  "agent": "master",
+  "category": "process-skip",
+  "description": "After the Brackney email thread was resolved, no agent was spawned to file the Spring Line Advisory materials into the appropriate IES location (meetings/, contacts/, or equivalent). Master handled the email draft directly and skipped the post-execution Agent Output Handling step that requires spawning the appropriate specialist to file outputs.",
+  "correction": "After any client or prospect interaction is resolved, spawn the appropriate agent (Chase for sales/prospect filing, or Sterling for contact/relationship filing) to move artifacts into their canonical IES locations.",
+  "failure_mode": "process-skip",
+  "systemic_fix": "Add post-email-draft step to Master protocol: after any client email thread closes, spawn filing agent to capture contact, context, and any artifacts into IES.",
+  "fix_status": "proposed",
+  "severity": "moderate",
+  "related_entries": ["err-20260612T210351-FJ6H91"]
+}
