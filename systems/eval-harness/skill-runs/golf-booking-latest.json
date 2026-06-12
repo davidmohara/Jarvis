@@ -1,14 +1,11 @@
 {
   "skill": "golf-booking",
-  "agent": "sterling",
-  "trigger": "scheduled",
-  "started": "2026-06-12T00:00:00Z",
-  "completed": "2026-06-12T00:02:15Z",
-  "status": "failure",
+  "agent": "chief",
+  "trigger": "manual",
+  "started": "2026-06-12T15:55:00",
+  "completed": "2026-06-12T15:57:15",
+  "status": "partial",
   "tool_failures": 0,
   "error_ids": [],
-  "reason": "ChronoGolf session not authenticated. Login verification check (Step 2) failed. Page loaded successfully but document.body.innerText does not include '41 - Frisco Lakes Total Member'. Session expired or never logged in.",
-  "target_weekend": "2026-06-19 to 2026-06-21",
-  "target_booking": "Saturday 2026-06-20 at 13:00 (1:00 PM)",
-  "action_required": "David must manually log in to ChronoGolf at https://www.chronogolf.com/dashboard with Susie O'Hara credentials and keep session open, or manually book the tee time."
+  "notes": "No tee times available for Sunday June 21 (Father's Day — fully booked). Slack alert sent to #jarvis."
 }
