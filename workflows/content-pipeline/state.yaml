@@ -1,20 +1,16 @@
 status: complete
-current-step: step-02-approve
-session-id: harper-2026-06-12-hourly-approval-scheduled
-session-started: 2026-06-12T00:00:00Z
-session-completed: 2026-06-12T00:01:00Z
-original-request: scheduled-content-approval
+current-step: step-01-discover
+session-id: harper-2026-06-13-daily-discovery-scheduled
+session-started: 2026-06-13T06:00:00Z
+session-completed: 2026-06-13T06:01:00Z
+original-request: scheduled-content-discovery
 accumulated-context:
-  result: "No cleanup needed. 1 pending draft checked — no approval signal from David yet."
-  drafts_checked: 1
-  threads_read: 1
-  actions_taken: 0
-  published: 0
-  rejected: 0
-  regenerated: 0
-  cleanup_removed: 0
+  result: "No new URLs found in last 24 hours. Notified David in #content."
+  urls_found: 0
+  urls_skipped: 1
+  drafts_created: 0
   notes:
-    - "Draft (6a264eb4a540680290141205): 'Two Kinds of Public Servant' — Awaiting David's approval"
-    - "Thread verified (6/12): only Jarvis bot message present; no new replies from David (U0ANHV5UXEW)"
-    - "Pending drafts remain unchanged"
-    - "Next run: check again in 1 hour"
+    - "Read #content (48h window due to low activity): 3 messages"
+    - "cognition.ai/blog/ai-guarantee — already in pending-drafts.json (status: pending), skipped"
+    - "2 bot messages skipped (Jarvis bot_id)"
+    - "Posted 'no new URLs' notification to #content (ts: 1781350989.872949)"
