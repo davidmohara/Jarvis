@@ -1,0 +1,15 @@
+{
+  "id": "err-20260608T224456-4H0VS2",
+  "timestamp": "2026-06-08T22:44:56Z",
+  "session": "session-2026-06-08-095429",
+  "source": "explicit",
+  "agent": "master",
+  "category": "routing-violation",
+  "description": "Master executed file cleanup (deleting redundant PDFs, moving root strays, adding .gitignore rule) directly instead of routing to Rigby. Cleanup and .gitignore updates are Rigby's domain per routing rules.",
+  "correction": "File system cleanup tasks — deleting files, reorganizing folder structure, updating .gitignore — must route to Rigby. Master should identify the work needed and delegate, not execute directly.",
+  "failure_mode": "protocol-skip",
+  "systemic_fix": "Before any file deletion, folder reorganization, or .gitignore change, check routing.md. If the task touches skills/, agents/, workflows/, systems/, or involves structural file operations, route to Rigby.",
+  "fix_status": "noted",
+  "severity": "minor",
+  "related_entries": ["err-20260608T151536-5Z3ZQH"]
+}

@@ -1,0 +1,17 @@
+{
+  "id": "err-20260330-005",
+  "timestamp": "2026-03-30T15:20:00Z",
+  "session": "2026-03-30",
+  "source": "explicit",
+  "agent": "jarvis",
+  "category": "format-violation",
+  "description": "Email draft for David used heavy formatting (bold headers, dash-separated structure) and didn't match David's actual writing voice. Overstructured and read like a Jarvis briefing, not a David email. Also swung from em-dashes to excessive regular dashes, which wasn't the fix David wanted.",
+  "correction": "David's emails are conversational prose, not formatted briefs. Match his natural cadence. The em-dash rule means use hyphens where grammatically needed, not to restructure every sentence around dashes.",
+  "failure_mode": "pattern-mismatch",
+  "systemic_fix": "When drafting emails as David: write natural conversational prose. No bold headers, no bullet-heavy structure, no dash-heavy sentence construction. Read like a human exec wrote it, not a system generated it. Review sent items for David's actual patterns before drafting.",
+  "fix_status": "applied",
+  "severity": "moderate",
+  "related_entries": [
+    "err-20260330-004"
+  ]
+}

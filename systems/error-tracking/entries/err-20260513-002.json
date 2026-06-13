@@ -1,0 +1,17 @@
+{
+  "id": "err-20260513-002",
+  "timestamp": "2026-05-13T08:20:00Z",
+  "session": "2026-05-13",
+  "source": "explicit",
+  "agent": "master",
+  "category": "assumption-error",
+  "description": "First fix to golf-preview SKILL.md still used a day-of-week offset table tied to the scheduled run day. This is wrong — the skill should always target the upcoming Friday/Saturday/Sunday regardless of when it runs.",
+  "correction": "Replaced offset table with a simple \"days until next Friday\" calculation: (4 - current_day_of_week) % 7, with a special case of 7 if today is Friday. Target Saturday and Sunday follow as +1 and +2. No run-day dependency.",
+  "failure_mode": "wrong-assumption",
+  "systemic_fix": "Updated SKILL.md Step 1 with day-agnostic next-Friday calculation. Skill now works correctly regardless of when it is triggered.",
+  "fix_status": "applied",
+  "severity": "moderate",
+  "related_entries": [
+    "err-20260513-001"
+  ]
+}

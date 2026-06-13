@@ -1,0 +1,17 @@
+{
+  "id": "err-20260512-005",
+  "timestamp": "2026-05-12T09:15:00-05:00",
+  "session": "chief-2026-05-12-085352",
+  "source": "explicit",
+  "agent": "knox",
+  "category": "process-skip",
+  "description": "Knox declared Plaud ingest blocked due to missing API token without reading the Chrome login flow documented in skills/plaud-transcripts/SKILL.md. The skill explicitly covers the no-token case: open Chrome to web.plaud.ai, extract token from localStorage via JavaScript, cache it, then proceed. Knox read the fetch script output and stopped instead of following the skill recovery path.",
+  "correction": "When a skill documents a recovery path for a failure mode, follow it. Do not declare blocked until all documented recovery steps are exhausted.",
+  "failure_mode": "sloppy-read",
+  "systemic_fix": "Agent must read the full skill file before executing any step. Failure modes and recovery paths are part of the skill spec, not optional reading.",
+  "fix_status": "applied",
+  "severity": "moderate",
+  "related_entries": [
+    "err-20260512-003"
+  ]
+}

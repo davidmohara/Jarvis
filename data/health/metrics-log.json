@@ -1,0 +1,7 @@
+{
+  "_version": "1.0",
+  "_description": "Galen longitudinal health metrics log. Append-only. Written by Galen after each skill execution that produces real metric values. Never manually edited — always written by Galen via skills.",
+  "_instructions": "Append new entries to the entries array. Never delete or modify existing entries. Each entry represents one data event (a bloodwork draw, a monthly WHOOP summary, a DEXA scan, a body composition update, a protocol change). Read this file for trend analysis — filter by category and sort by date.",
+  "_schema_ref": "data/health/schema.md",
+  "entries": []
+}

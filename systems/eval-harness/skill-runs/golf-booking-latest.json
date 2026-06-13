@@ -1,0 +1,12 @@
+{
+  "skill": "golf-booking",
+  "agent": "chief",
+  "trigger": "scheduled",
+  "started": "2026-06-13T00:00:00Z",
+  "completed": "2026-06-13T00:05:30Z",
+  "status": "failure",
+  "tool_failures": 1,
+  "error_ids": [],
+  "failure_reason": "ChronoGolf platform error: tee time availability lookup failed with 'We're sorry, but the resource you requested could not be found.' No tee times retrieved for Sunday June 21, 2026.",
+  "notes": "Workflow executed at midnight as scheduled. Login verified (Susie O'Hara), widget opened, date/course/players configured successfully. Failed at Step 4d when querying available tee times. Manual intervention required. See booking-failure-2026-06-13.md for details."
+}

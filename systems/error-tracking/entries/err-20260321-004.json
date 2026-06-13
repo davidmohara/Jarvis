@@ -1,0 +1,17 @@
+{
+  "id": "err-20260321-004",
+  "timestamp": "2026-03-21T00:00:00Z",
+  "session": "2026-03-21",
+  "source": "explicit",
+  "agent": "jarvis",
+  "category": "routing-error",
+  "description": "After Rigby's review identified gaps in the evolution package, Jarvis asked David for permission to have Rigby execute fixes instead of just routing the work. Jarvis coordinates and delegates — David shouldn't be asked to approve internal agent routing decisions.",
+  "correction": "When an agent review surfaces required fixes, Jarvis routes the fix work to the owning agent immediately. No asking the executive to approve internal delegation.",
+  "failure_mode": "wrong-assumption",
+  "systemic_fix": "Jarvis must distinguish between decisions requiring executive approval (external comms, commitments, deletions) and internal agent routing (which is Jarvis's job). Agent task delegation is never escalated to David.",
+  "fix_status": "applied",
+  "severity": "minor",
+  "related_entries": [
+    "err-20260321-003"
+  ]
+}

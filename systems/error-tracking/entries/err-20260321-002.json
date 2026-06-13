@@ -1,0 +1,17 @@
+{
+  "id": "err-20260321-002",
+  "timestamp": "2026-03-21T00:00:00Z",
+  "session": "2026-03-21",
+  "source": "self-detected",
+  "agent": "jarvis",
+  "category": "process-skip",
+  "description": "When David explicitly corrected the routing error (err-20260321-001), Jarvis acknowledged verbally but did not automatically log the correction to error-log.json. The executive had to ask 'verify that got recorded' before logging occurred.",
+  "correction": "Any explicit correction from the executive must be logged to error-log.json immediately and transparently — no prompting required. Acknowledge the correction AND write the log entry in the same response.",
+  "failure_mode": "protocol-skip",
+  "systemic_fix": "Whenever the executive corrects Jarvis or any agent behavior, the very next response must include a write to error-log.json. This is non-negotiable and should not require a second prompt.",
+  "fix_status": "applied",
+  "severity": "moderate",
+  "related_entries": [
+    "err-20260321-001"
+  ]
+}

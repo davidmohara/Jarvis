@@ -1,0 +1,17 @@
+{
+  "id": "err-20260326-004",
+  "timestamp": "2026-03-26T00:00:00Z",
+  "session": "2026-03-26",
+  "source": "explicit",
+  "agent": "jarvis",
+  "category": "assumption-error",
+  "description": "Diagnosed Plaud transcription trigger failure ('start trans task error', status=-1) as 'audio not uploaded from device' based on ori_ready: false. David confirmed the audio IS there. ori_ready is not the gate for transcription — the trigger error has a different root cause. Jarvis fabricated a diagnosis instead of investigating the actual API error.",
+  "correction": "The audio is present. The transcription trigger failure needs actual debugging — inspect the API call parameters, check if the recording format or config is wrong, not blame the device sync.",
+  "failure_mode": "wrong-assumption",
+  "systemic_fix": "When an API call fails, diagnose by examining the actual error response, request parameters, and API docs — don't guess based on loosely correlated metadata fields.",
+  "fix_status": "applied",
+  "severity": "moderate",
+  "related_entries": [
+    "err-20260323-006"
+  ]
+}

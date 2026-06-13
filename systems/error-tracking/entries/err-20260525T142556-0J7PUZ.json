@@ -1,0 +1,15 @@
+{
+  "id": "err-20260525T142556-0J7PUZ",
+  "timestamp": "2026-05-25T14:25:56Z",
+  "session": "2026-05-25-morning-briefing",
+  "source": "explicit",
+  "agent": "chief",
+  "category": "tool-misuse",
+  "description": "mcp__omnifocus__get_active_tasks timed out on 3 consecutive calls during the morning briefing despite OmniFocus running normally. Only 12 inbox items present. get_active_projects returned instantly. Diagnosis: the underlying AppleScript behind get_active_tasks is likely fetching all tasks (including completed) rather than filtering to uncompleted only, causing the query to enumerate the full historical database and exceed the MCP timeout. The tool accepts no parameters so no client-side workaround is possible.",
+  "correction": "get_active_tasks should scope its AppleScript query to uncompleted tasks only. David confirmed inbox is 12 items — a correctly scoped query should return near-instantly at that volume.",
+  "failure_mode": "pattern-mismatch",
+  "systemic_fix": "Rigby to inspect the AppleScript behind mcp__omnifocus__get_active_tasks and verify it filters to uncompleted tasks only (not all tasks). If it is running a full database scan, add the appropriate OmniFocus AppleScript filter (e.g. 'where completed is false'). Also consider adding a per-project task fetch fallback if the single bulk call continues to be unreliable.",
+  "fix_status": "applied",
+  "severity": "moderate",
+  "related_entries": ["err-20260525T144217-HYKRGQ"]
+}

@@ -1,0 +1,59 @@
+{
+  "id": "ies-34d47cfa-4a13-4cf1-b724-f740b313ec91",
+  "version": "34d47cfa-4a13-4cf1-b724-f740b313ec91",
+  "name": "Error Tracking System — Agent Integration (Package A)",
+  "description": "Wires the error tracking system into the core IES agents and skills. Package A covers the new rigby-error-analysis skill, shared agent conventions (error reporting protocol, self-correction block format, severity guide), and updates to master, rigby, chief, and chase agent files with error capture protocols, threshold alerting, and agent performance reporting.",
+  "released": "2026-04-18",
+  "type": "system",
+  "compatibility": {
+    "minimum_base_version": "1.0.0"
+  },
+  "files": [
+    {
+      "path": "skills/rigby-error-analysis/SKILL.md",
+      "type": "system",
+      "action": "add",
+      "description": "New skill: analyze error log for recurring patterns, compute statistics by category/agent/severity, propose tiered fixes (auto-propose vs data-only), update pattern log. Invoked by Chief (daily count), Quinn (weekly full analysis), on-demand, or on threshold breach."
+    },
+    {
+      "path": "agents/conventions.md",
+      "type": "mixed",
+      "action": "merge",
+      "description": "Adds Error Reporting Protocol section: when agents self-report errors, how explicit corrections are handled, the Self-Corrections block format, and the severity guide. Also adds Slack Notification Protocol for agent output handoff."
+    },
+    {
+      "path": "agents/master.md",
+      "type": "mixed",
+      "action": "merge",
+      "description": "Adds Error Capture Protocol section: when to capture, how to capture, threshold alerting logic (3+ same pattern), silent logging behavior. Updates Agent Output Handling to scan for Self-Corrections blocks and log them before delivery."
+    },
+    {
+      "path": "agents/rigby.md",
+      "type": "mixed",
+      "action": "merge",
+      "description": "Adds error analysis to task portfolio (new trigger phrases), adds Error Log and Error Schema to data requirements, adds error pattern → training module handoff trigger to handoff behavior."
+    },
+    {
+      "path": "agents/chief.md",
+      "type": "mixed",
+      "action": "merge",
+      "description": "Adds Shared Conventions reference to agents/conventions.md for error reporting protocol."
+    },
+    {
+      "path": "agents/chase.md",
+      "type": "mixed",
+      "action": "merge",
+      "description": "Adds Shared Conventions reference to agents/conventions.md for error reporting protocol."
+    }
+  ],
+  "changelog": [
+    "New skill: rigby-error-analysis — pattern detection, tiered fix proposals, agent performance reporting, daily/weekly/on-demand invocation modes",
+    "New protocol in agents/conventions.md: error reporting (when to report, how to report, Self-Corrections block format, severity guide)",
+    "New protocol in agents/conventions.md: Slack notification handoff block format and routing rules",
+    "Master now owns error log writes — captures explicit corrections and self-detected errors silently, triggers threshold alerts at 3+ pattern matches",
+    "Master Agent Output Handling updated: scans for Self-Corrections blocks, logs each to error-log.json, strips block before delivery",
+    "Rigby task portfolio updated with error analysis trigger phrases and error log/schema data requirements",
+    "Chief and Chase updated with shared conventions reference for error reporting protocol"
+  ],
+  "training_prompts": []
+}

@@ -1,0 +1,34 @@
+{
+  "name": "rigby-package-submit",
+  "type": "skill",
+  "assertions": [
+    {
+      "id": "rigby-package-submit-signal-written",
+      "check": "file_exists",
+      "path": "systems/eval-harness/skill-runs/rigby-package-submit-latest.json",
+      "description": "rigby-package-submit skill-run signal file was written"
+    },
+    {
+      "id": "rigby-package-submit-signal-status",
+      "check": "json_field_not_equals",
+      "path": "systems/eval-harness/skill-runs/rigby-package-submit-latest.json",
+      "field": "status",
+      "value": "failure",
+      "description": "rigby-package-submit skill-run did not end in failure"
+    },
+    {
+      "id": "rigby-pa-002-substantive",
+      "check": "file_min_bytes",
+      "path": "memory/working/rigby-package-submit-*.md",
+      "min_bytes": 200,
+      "description": "rigby-package-submit output is substantive (>200 bytes)"
+    },
+    {
+      "id": "rigby-pa-003-content",
+      "check": "file_contains",
+      "path": "memory/working/rigby-package-submit-*.md",
+      "pattern": "(?i)(complete|done|finished|output|result)",
+      "description": "rigby-package-submit output contains expected content"
+    }
+  ]
+}

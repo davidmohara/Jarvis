@@ -1,0 +1,18 @@
+{
+  "id": "err-20260323-002",
+  "timestamp": "2026-03-23T00:00:00Z",
+  "session": "2026-03-23",
+  "source": "explicit",
+  "agent": "jarvis",
+  "category": "routing-error",
+  "description": "Jarvis pushed a PDF to reMarkable directly via rmapi instead of routing through Knox, who owns the remarkable-upload skill. Knox has explicit task portfolio entries for both remarkable-sync and remarkable-upload.",
+  "correction": "All reMarkable interactions (upload and sync) must route through Knox. Jarvis coordinates; Knox executes device operations.",
+  "failure_mode": "protocol-skip",
+  "systemic_fix": "Any 'push to reMarkable' or 'pull from reMarkable' request routes to Knox. Same pattern as err-20260321-003 — Jarvis must not execute agent-owned skills directly.",
+  "fix_status": "applied",
+  "severity": "minor",
+  "related_entries": [
+    "err-20260321-001",
+    "err-20260321-003"
+  ]
+}

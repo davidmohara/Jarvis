@@ -1,0 +1,34 @@
+{
+  "name": "galen-visit-prep",
+  "type": "skill",
+  "assertions": [
+    {
+      "id": "galen-visit-prep-signal-written",
+      "check": "file_exists",
+      "path": "systems/eval-harness/skill-runs/galen-visit-prep-latest.json",
+      "description": "galen-visit-prep skill-run signal file was written"
+    },
+    {
+      "id": "galen-visit-prep-signal-status",
+      "check": "json_field_not_equals",
+      "path": "systems/eval-harness/skill-runs/galen-visit-prep-latest.json",
+      "field": "status",
+      "value": "failure",
+      "description": "galen-visit-prep skill-run did not end in failure"
+    },
+    {
+      "id": "galen-vi-002-substantive",
+      "check": "file_min_bytes",
+      "path": "memory/working/galen-visit-prep-*.md",
+      "min_bytes": 200,
+      "description": "galen-visit-prep output is substantive (>200 bytes)"
+    },
+    {
+      "id": "galen-vi-003-content",
+      "check": "file_contains",
+      "path": "memory/working/galen-visit-prep-*.md",
+      "pattern": "(?i)(complete|done|finished|output|result)",
+      "description": "galen-visit-prep output contains expected content"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "id": "err-20260515-001",
+  "timestamp": "2026-05-15T00:02:31-05:00",
+  "session": "2026-05-15",
+  "source": "explicit",
+  "agent": "jarvis",
+  "category": "process-skip",
+  "failure_mode": "protocol-skip",
+  "description": "Golf booking failed on three counts: (1) skill did not click the 'I agree' checkbox before Confirm Reservation — button was disabled, booking never submitted; (2) success verification checked for the word 'confirmed' which appears on the pre-confirmation timer screen, not only on the post-booking receipt — false positive; (3) Slack success message and calendar block were created based on the false positive, telling David a booking was made when it was not.",
+  "correction": "Three fixes applied to skills/golf-booking/SKILL.md: (1) checkbox click added with a follow-up check that the box is actually checked before proceeding; (2) confirm button checked for disabled state before clicking; (3) success verification now requires timer screen to be GONE and a receipt-page indicator to be present (BOOKING-SUCCESS gate) — calendar block and Slack notification are gated on this check only.",
+  "systemic_fix": "Verification logic must distinguish between 'on the confirmation screen' and 'past the confirmation screen.' Any scheduled booking task must gate all downstream actions (calendar, Slack) on hard evidence of success, not partial page text matches.",
+  "fix_status": "applied",
+  "severity": "major",
+  "related_entries": []
+}

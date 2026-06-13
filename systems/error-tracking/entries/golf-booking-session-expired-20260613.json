@@ -1,0 +1,28 @@
+{
+  "id": "golf-booking-session-expired-20260613",
+  "timestamp": "2026-06-13T00:05:30Z",
+  "severity": "critical",
+  "category": "authentication",
+  "system": "golf-booking-skill",
+  "agent": "chief",
+  "error_type": "SessionExpired",
+  "description": "ChronoGolf login session had expired before the scheduled midnight booking run. The skill verified login status but did not have recovery mechanism to re-authenticate using 1Password.",
+  "root_cause": "Step 2 of golf-booking skill had no login recovery logic. When session expired, skill aborted instead of retrieving Susie O'Hara credentials from 1Password and re-authenticating.",
+  "impact": "Booking failed to execute. No tee time was booked for Father's Day (June 21). Manual intervention required.",
+  "correction_made": "Updated golf-booking/SKILL.md Step 2 to include automatic login recovery:\n1. Detect expired session (check for '41 - Frisco Lakes Total Member' in page text)\n2. If not logged in, use 1Password skill to fetch susie@oharafamily.com credentials\n3. Execute login flow via Chrome\n4. Re-verify login status\n5. Only abort if login fails after retry\n\nAdded Rule #1 to MANDATORY EXECUTION RULES to emphasize automatic recovery.",
+  "files_updated": [
+    "skills/golf-booking/SKILL.md"
+  ],
+  "related_failures": [
+    "workflows/golf-booking/booking-failure-2026-06-13.md"
+  ],
+  "lessons": [
+    "Scheduled midnight tasks must include automatic session recovery for authenticated services",
+    "Do not assume Chrome session state persists between previous run and scheduled execution",
+    "Build login recovery into the workflow — treat it as a normal step, not an error condition",
+    "Use password managers (1Password) as a service dependency for critical automations"
+  ],
+  "follow_up": "Next scheduled golf booking run (Tuesday June 17 11pm) will include login recovery. Manually test recovery logic if possible before then.",
+  "logged_by": "chief-agent",
+  "ticket": null
+}

@@ -1,0 +1,15 @@
+{
+  "id": "err-20260323-004",
+  "timestamp": "2026-03-23T00:00:00Z",
+  "session": "2026-03-23",
+  "source": "explicit",
+  "agent": "rigby",
+  "category": "format-violation",
+  "description": "Rigby surfaced scheduled task format using raw cron expressions, multi-line descriptions with excessive label padding. David asked for plain-English timing, not implementation details. Output was formatted for a sysadmin, not an executive.",
+  "correction": "When presenting scheduling proposals, use plain English timing (e.g., 'Weekdays at 6:00 AM') not cron syntax. Keep descriptions single-line. Don't pad label:value pairs with extra spaces. Better yet — just create the tasks directly instead of previewing config format.",
+  "failure_mode": "wrong-assumption",
+  "systemic_fix": "All agent output to David should be executive-grade, not technical. If a tool can be invoked directly, invoke it — don't show the configuration schema as a preview.",
+  "fix_status": "applied",
+  "severity": "minor",
+  "related_entries": []
+}

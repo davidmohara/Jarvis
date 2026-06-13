@@ -1,0 +1,16 @@
+---
+workflow: rock4-pipeline-weekly
+agent: chase
+status: complete
+session-started: "2026-06-01"
+session-id: "chase-2026-06-01-000100"
+current-step: step-03-save
+original-request: scheduled-task
+last-completed: "2026-06-01"
+last-written-obsidian: "2026-04-20"
+failure-reason: null
+accumulated-context:
+  cosell: "Gap critical at $9,720,170 (64.8% of $15M remaining). Pipeline flat 3 weeks: Microsoft $1.64M (3 opps), Confluent $785K (2 opps). CRM anomaly 176360014 ($2.6M, Stephen Johnson) distorting won totals. Cache hit — data from 2026-05-26."
+  pipeline: "90-day weighted $21.61M One Texas. Dallas $12.0M, South Texas $9.60M. 166 opps. Data as of 2026-04-17, reconfirmed stable."
+  obsidian-write: "Cache hit — snapshot from week-of-2026-05-26 still current. No Obsidian write this run."
+---

@@ -1,0 +1,34 @@
+{
+  "name": "rigby-integrity",
+  "type": "skill",
+  "assertions": [
+    {
+      "id": "rigby-integrity-signal-written",
+      "check": "file_exists",
+      "path": "systems/eval-harness/skill-runs/rigby-integrity-latest.json",
+      "description": "rigby-integrity skill-run signal file was written"
+    },
+    {
+      "id": "rigby-integrity-signal-status",
+      "check": "json_field_not_equals",
+      "path": "systems/eval-harness/skill-runs/rigby-integrity-latest.json",
+      "field": "status",
+      "value": "failure",
+      "description": "rigby-integrity skill-run did not end in failure"
+    },
+    {
+      "id": "rigby-in-002-substantive",
+      "check": "file_min_bytes",
+      "path": "memory/working/rigby-integrity-*.md",
+      "min_bytes": 200,
+      "description": "rigby-integrity output is substantive (>200 bytes)"
+    },
+    {
+      "id": "rigby-in-003-content",
+      "check": "file_contains",
+      "path": "memory/working/rigby-integrity-*.md",
+      "pattern": "(?i)(complete|done|finished|output|result)",
+      "description": "rigby-integrity output contains expected content"
+    }
+  ]
+}

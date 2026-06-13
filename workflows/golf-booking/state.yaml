@@ -1,0 +1,18 @@
+workflow: golf-booking
+agent: sterling
+status: failure
+session-started: "2026-06-13T00:00:00"
+session-id: "scheduled-midnight-run"
+current-step: "step-4d-tee-time-availability-lookup"
+original-request: "Book tee time for Jun 21, 2026 (Father's Day) — Manual Override"
+accumulated-context:
+  target_weekend: "2026-06-21 Sunday only"
+  target_date: "2026-06-21 Sunday"
+  preview_generated: "2026-06-12T15:58:00"
+  reason_failed: "ChronoGolf platform error: 'We're sorry, but the resource you requested could not be found.' Booking engine failed to retrieve tee time availability for Sunday June 21, 2026 (18 holes, 2 players) after successful widget navigation and player/course configuration."
+  preference_rank_1: "Sunday Jun 21, 2:30 PM–6:30 PM, 18 holes, 2 players (David + Susie), $42 total"
+  override_instructions: "Manual override from David: Book Sunday June 21 at earliest available slot at/after 2:30 PM CT. Do not skip to other days."
+  failure_log: "workflows/golf-booking/booking-failure-2026-06-13.md"
+  completed_at: "2026-06-13T00:XX:XX"
+next-run: "manual-intervention-required"
+next-target: "Manual booking at chronogolf.com or alternate weekend if June 21 unavailable"

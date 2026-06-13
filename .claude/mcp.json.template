@@ -1,0 +1,33 @@
+{
+  "mcpServers": {
+
+    "obsidian-mcp-tools": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "mcp-obsidian",
+        "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian"
+      ]
+    },
+
+    "clay": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@clay-hq/mcp-server"
+      ],
+      "env": {
+        "CLAY_API_KEY": "REPLACE_WITH_CLAY_API_KEY"
+      }
+    },
+
+    "omnifocus": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "mcp-server-omnifocus"
+      ]
+    }
+
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "name": "harper-deck",
+  "type": "skill",
+  "assertions": [
+    {
+      "id": "harper-deck-signal-written",
+      "check": "file_exists",
+      "path": "systems/eval-harness/skill-runs/harper-deck-latest.json",
+      "description": "harper-deck skill-run signal file was written"
+    },
+    {
+      "id": "harper-deck-signal-status",
+      "check": "json_field_not_equals",
+      "path": "systems/eval-harness/skill-runs/harper-deck-latest.json",
+      "field": "status",
+      "value": "failure",
+      "description": "harper-deck skill-run did not end in failure"
+    },
+    {
+      "id": "harper-d-002-substantive",
+      "check": "file_min_bytes",
+      "path": "memory/working/harper-deck-*.md",
+      "min_bytes": 200,
+      "description": "harper-deck output is substantive (>200 bytes)"
+    },
+    {
+      "id": "harper-d-003-content",
+      "check": "file_contains",
+      "path": "memory/working/harper-deck-*.md",
+      "pattern": "(?i)(complete|done|finished|output|result)",
+      "description": "harper-deck output contains expected content"
+    }
+  ]
+}

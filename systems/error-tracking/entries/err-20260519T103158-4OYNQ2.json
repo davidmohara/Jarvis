@@ -1,0 +1,15 @@
+{
+  "id": "err-20260519T103158-4OYNQ2",
+  "timestamp": "2026-05-19T10:31:58Z",
+  "session": "session-2026-05-19",
+  "source": "self-detected",
+  "agent": "master",
+  "category": "under-delivery",
+  "description": "Diff of sent PDF vs. original docx clearly showed the contact line ('Reach me directly: ...') was removed by David. Applied all other diff changes but missed this one, requiring a second correction.",
+  "correction": "Remove the contact line entirely from the Next Steps section when syncing PDF edits back to the script.",
+  "failure_mode": "sloppy-read",
+  "systemic_fix": "When applying a set of diff changes, work through them line by line in order rather than pattern-matching by category. Deletions are easy to miss when rewriting large blocks.",
+  "fix_status": "applied",
+  "severity": "minor",
+  "related_entries": []
+}

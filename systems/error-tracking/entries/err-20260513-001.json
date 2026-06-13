@@ -1,0 +1,15 @@
+{
+  "id": "err-20260513-001",
+  "timestamp": "2026-05-13T08:13:00Z",
+  "session": "2026-05-13",
+  "source": "explicit",
+  "agent": "master",
+  "category": "data-accuracy",
+  "description": "Golf preview skill calculated the target weekend as May 20-22 (Wed/Thu/Fri) instead of May 22-24 (Fri/Sat/Sun). All three days were analyzed incorrectly. The error propagated to preview-output.json and the Slack notification to #golf, which reported no viable windows when in fact Saturday May 23 is fully clear.",
+  "correction": "Target weekend is May 22 (Fri), May 23 (Sat), May 24 (Sun). Saturday May 23 has no conflicts. Top option is Saturday 4:00 PM at $15/player.",
+  "failure_mode": "context-blindness",
+  "systemic_fix": "Updated SKILL.md Step 1 to use currentDate from system context as primary source rather than Desktop Commander osascript. Added cross-validation step and day-of-week offset table covering all run days, not just Tuesday. Desktop Commander is now fallback only.",
+  "fix_status": "applied",
+  "severity": "major",
+  "related_entries": []
+}

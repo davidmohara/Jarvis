@@ -1,0 +1,34 @@
+{
+  "name": "knox-photo-tag",
+  "type": "skill",
+  "assertions": [
+    {
+      "id": "knox-photo-tag-signal-written",
+      "check": "file_exists",
+      "path": "systems/eval-harness/skill-runs/knox-photo-tag-latest.json",
+      "description": "knox-photo-tag skill-run signal file was written"
+    },
+    {
+      "id": "knox-photo-tag-signal-status",
+      "check": "json_field_not_equals",
+      "path": "systems/eval-harness/skill-runs/knox-photo-tag-latest.json",
+      "field": "status",
+      "value": "failure",
+      "description": "knox-photo-tag skill-run did not end in failure"
+    },
+    {
+      "id": "knox-pho-002-substantive",
+      "check": "file_min_bytes",
+      "path": "memory/working/knox-photo-tag-*.md",
+      "min_bytes": 200,
+      "description": "knox-photo-tag output is substantive (>200 bytes)"
+    },
+    {
+      "id": "knox-pho-003-content",
+      "check": "file_contains",
+      "path": "memory/working/knox-photo-tag-*.md",
+      "pattern": "(?i)(complete|done|finished|output|result)",
+      "description": "knox-photo-tag output contains expected content"
+    }
+  ]
+}

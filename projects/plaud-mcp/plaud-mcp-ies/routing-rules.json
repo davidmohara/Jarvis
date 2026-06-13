@@ -1,0 +1,60 @@
+{
+  "rules": [
+    {
+      "match": "Steve Hall|Bud Marrical|Generosity|Derek Nwamadi",
+      "destination": "Projects/Steve Hall/meetings",
+      "tag": "steve-hall"
+    },
+    {
+      "match": "AT&T|ATT",
+      "destination": "Projects/AT&T/meetings",
+      "tag": "att"
+    },
+    {
+      "match": "Builders First|BFS",
+      "destination": "Projects/Builders First Source/meetings",
+      "tag": "bfs"
+    },
+    {
+      "match": "CBRE",
+      "destination": "Projects/CBRE/meetings",
+      "tag": "cbre"
+    },
+    {
+      "match": "Texas Instruments|TI",
+      "destination": "Projects/Texas Instruments/meetings",
+      "tag": "ti"
+    },
+    {
+      "match": "Nexben|Lauren Sweda",
+      "destination": "Projects/Nexben/meetings",
+      "tag": "nexben"
+    },
+    {
+      "match": "Kare Devices|kare",
+      "destination": "Projects/Kare Devices/meetings",
+      "tag": "kare"
+    },
+    {
+      "match": "podcast|episode|Improving Edge",
+      "destination": "Projects/Podcast/meetings",
+      "tag": "podcast"
+    },
+    {
+      "match": "1:1|one-on-one|one on one",
+      "destination": "People",
+      "tag": "1on1"
+    },
+    {
+      "match": "workshop|presentation|keynote|talk",
+      "destination": "Events",
+      "tag": "event"
+    },
+    {
+      "match": "Vistage|DRC|Convergence|roundtable|FABCON",
+      "destination": "Events",
+      "tag": "event"
+    }
+  ],
+  "default": "zzPlaud"
+}

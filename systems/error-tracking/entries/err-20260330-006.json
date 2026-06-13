@@ -1,0 +1,15 @@
+{
+  "id": "err-20260330-006",
+  "timestamp": "2026-03-30T19:30:00Z",
+  "session": "2026-03-30",
+  "source": "explicit",
+  "agent": "jarvis",
+  "category": "process-skip",
+  "description": "Created OmniFocus inbox task (Jay Liles ILP kickoff reminder) without assigning a project or tag. Task was dropped into inbox with no organizational context.",
+  "correction": "All OmniFocus tasks must include a project and/or tag. Never create bare inbox tasks without organizational metadata.",
+  "failure_mode": "protocol-skip",
+  "systemic_fix": "When creating OmniFocus tasks via AppleScript, always include project assignment and at least one tag. Check SYSTEM.md OmniFocus section for tagging conventions before creating tasks.",
+  "fix_status": "applied",
+  "severity": "moderate",
+  "related_entries": []
+}

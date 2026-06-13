@@ -1,0 +1,66 @@
+---
+workflow: plaud-ingest
+agent: knox
+status: completed
+session-started: "2026-06-11T10:28:00Z"
+session-completed: "2026-06-11T12:00:00Z"
+session-id: "pi-20260611-001"
+current-step: step-07-complete
+original-request: "Knox: Ingest all 49 staged Plaud transcripts (Dec 2025–May 2026) through full pipeline"
+controller-decision: "Simplify to current recordings only — purge anything older than 2026-05-11"
+accumulated-context:
+  target-date: "2026-06-11"
+  cutoff-date: "2026-05-11"
+  purge-note: "36 recordings dated before 2026-05-11 (all Jan-Apr, 05-05, and Dec-2025) deleted from staging"
+  strategy: "Process 13 current recordings (2026-05-12 through 2026-05-28)"
+  files-to-process: 13
+  files-analyzed: 13
+  files-ready-for-vault: 12
+  files-needing-speaker-id: 1
+  files-processed-to-vault: 13
+  staging-files-cleaned: true
+  daily-note-links-inserted: 7
+  speaker-mappings:
+    "05-12 Lunch Meeting DSO Access":
+      speakers: "William Floyd (Wedbush), Rebecca Hern (Wedbush), Amy Carenza (ActivePure), James Leffler (PMV Capital), David O'Hara"
+      source: calendar
+    "05-12 Meeting Note AI Workshop":
+      speakers: "Bethany Hilton, O'Hara — Speaker 4/5 unresolved (multi-person panel)"
+      source: transcript-named
+    "05-12 Workshop Executive AI Strategy":
+      speakers: "Diana Stevens, Jay Spears (Topgolf), David O'Hara"
+      source: calendar
+    "05-13 Consultation Bob Odessa":
+      speakers: "Bob Freeburg (THL), Yesenia Solana (THL), David O'Hara"
+      source: calendar
+    "05-13 Enterprise Claude Exeter":
+      speakers: "Blake McMillan, Michele Rodgers (Exeter Finance), David O'Hara"
+      source: calendar
+    "05-13 Fractional CTO":
+      speakers: "Alex Wilcox, David O'Hara"
+      source: calendar
+    "05-14 Synexus Workshop":
+      speakers: "Matthew Smart (Cardinal Health), Alice Mburu, David O'Hara"
+      source: calendar
+    "05-18 AI Workshop Planning":
+      speakers: "Diana Stevens, Alex McKnight (Simpson Strong-Tie), Randall Dunigan, Espeggen (Simpson Strong-Tie), Zhitti (Simpson Strong-Tie), David O'Hara"
+      source: calendar
+    "05-22 THL Odessa":
+      speakers: "Rob Spies (THL), Alice Mburu, David O'Hara"
+      source: calendar
+    "05-22 Austin Summit Planning":
+      speakers: "Michelle (Liberty Ventures), Alexander (Liberty Ventures), David O'Hara"
+      source: calendar
+    "05-22 Partner-Led AI":
+      speakers: "Venkat Palivela, David O'Hara"
+      source: calendar
+    "05-26 Interview Head of IT":
+      speakers: "David O'Hara, Adeel Ali — identified in transcript"
+      source: transcript-named
+    "05-28 3-Month AI Build Windsor":
+      speakers: "Multi-party — no Speaker labels in transcript"
+      source: transcript-clean
+  pending-speaker-mappings: 1
+  unresolved-note: "05-12 Meeting Note Speaker 4/5 are group panel attendees at a DRC event — not individually calendar-resolvable. Proceeding with generic labels."
+  vault-target-path: "Obsidian vault - zzPlaud subfolder"
+---

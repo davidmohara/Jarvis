@@ -1,0 +1,15 @@
+{
+  "id": "err-20260330-004",
+  "timestamp": "2026-03-30T15:10:00Z",
+  "session": "2026-03-30",
+  "source": "explicit",
+  "agent": "jarvis",
+  "category": "format-violation",
+  "description": "Used em-dashes in drafted email for David. VOICE.md explicitly states 'No em-dashes (use hyphens)'. This has been corrected before.",
+  "correction": "Use hyphens, never em-dashes, in all email drafts for David.",
+  "failure_mode": "protocol-skip",
+  "systemic_fix": "Re-enforce: every email draft must be checked against VOICE.md email conventions before presenting. Em-dash rule is non-negotiable.",
+  "fix_status": "applied",
+  "severity": "minor",
+  "related_entries": []
+}

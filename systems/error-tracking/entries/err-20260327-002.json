@@ -1,0 +1,18 @@
+{
+  "id": "err-20260327-002",
+  "timestamp": "2026-03-27T20:28:00Z",
+  "session": "2026-03-27",
+  "source": "explicit",
+  "agent": "jarvis",
+  "category": "routing-error",
+  "description": "David said 'Rigby Register' — a clear instruction to have Rigby log the M365 auth failure as a system issue. Jarvis did not recognize this as a Rigby dispatch command. When David clarified with 'Ask Rigby if I'm registered', Jarvis still didn't read the Rigby agent file. Instead, retried the M365 call and asked David to explain. Required a third correction ('Rigby is an agent, what is wrong with you?') before Jarvis read the agent file.",
+  "correction": "When David names an agent followed by a command verb, that's a dispatch instruction. 'Rigby Register' = dispatch to Rigby to register/log an issue. Read the agent file, understand the context, execute.",
+  "failure_mode": "context-blindness",
+  "systemic_fix": "Any '[Agent Name] [Verb]' pattern from David is a dispatch command, not a question. Parse agent name, read agent file if needed, determine what the verb maps to in that agent's task portfolio, and execute. Never ask David to explain his own agent system to you.",
+  "fix_status": "applied",
+  "severity": "moderate",
+  "related_entries": [
+    "err-20260321-003",
+    "err-20260323-007"
+  ]
+}

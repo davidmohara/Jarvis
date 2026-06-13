@@ -1,0 +1,57 @@
+{
+  "id": "ies-0ffd120e-2a8d-44a2-8941-07ceeba503db",
+  "version": "0ffd120e-2a8d-44a2-8941-07ceeba503db",
+  "name": "Error Tracking System — Agent Integration (Package B)",
+  "description": "Wires the error tracking system into the remaining IES agents and workflows. Package B covers quinn, shep, harper, and knox agent files (shared conventions reference), the daily-review step-03 update-system workflow step (error count in System State section), and the quinn-weekly-review skill (full error analysis and System Health section).",
+  "released": "2026-04-18",
+  "type": "system",
+  "compatibility": {
+    "minimum_base_version": "1.0.0"
+  },
+  "files": [
+    {
+      "path": "agents/quinn.md",
+      "type": "mixed",
+      "action": "merge",
+      "description": "Adds Shared Conventions reference to agents/conventions.md for error reporting protocol."
+    },
+    {
+      "path": "agents/shep.md",
+      "type": "mixed",
+      "action": "merge",
+      "description": "Adds Shared Conventions reference to agents/conventions.md for error reporting protocol."
+    },
+    {
+      "path": "agents/harper.md",
+      "type": "mixed",
+      "action": "merge",
+      "description": "Adds Shared Conventions reference to agents/conventions.md for error reporting protocol."
+    },
+    {
+      "path": "agents/knox.md",
+      "type": "mixed",
+      "action": "merge",
+      "description": "Adds Shared Conventions reference to agents/conventions.md for error reporting protocol."
+    },
+    {
+      "path": "workflows/daily-review/steps/step-03-update-system.md",
+      "type": "mixed",
+      "action": "merge",
+      "description": "Adds error tracking count step to YOUR TASK sequence: read error-log.json, count today's entries, include in System State section of review file. Also adds threshold pattern note to Handoffs section logic."
+    },
+    {
+      "path": ".claude/skills/quinn-weekly-review/SKILL.md",
+      "type": "mixed",
+      "action": "merge",
+      "description": "Adds System Improvement Review section (step 8): invokes Rigby error analysis logic — count corrections this week, identify patterns, summarize agent performance. Adds System Health section to report template including corrections count, severity breakdown, trend, recurring patterns table, and improvement proposals."
+    }
+  ],
+  "changelog": [
+    "Quinn, Shep, Harper, and Knox updated with shared conventions reference for error reporting protocol",
+    "daily-review step-03 now pulls error tracking count from error-log.json and includes it in the System State section of the daily review file",
+    "daily-review step-03 adds threshold pattern detection note to Handoffs logic",
+    "quinn-weekly-review skill adds System Improvement Review step: count corrections, identify patterns, summarize agent performance",
+    "quinn-weekly-review report template adds System Health section: corrections count, severity, trend, recurring patterns table, improvement proposals ready for approval"
+  ],
+  "training_prompts": []
+}

@@ -1,0 +1,18 @@
+{
+  "id": "err-20260511-001",
+  "timestamp": "2026-05-11T00:00:00-05:00",
+  "session": "2026-05-11",
+  "source": "explicit",
+  "agent": "jarvis",
+  "category": "tool-misuse",
+  "description": "Scheduled morning briefing searched for master-slack skill using Glob pattern '**/*slack*' scoped to /sessions/.../mnt/jarvis (the IES root) but returned no results. Skill is located at .claude/skills/master-slack/SKILL.md — a hidden .claude directory at the IES root that glob searches miss without explicit path. David confirmed the skill exists. This is a repeat of err-20260327-004 and the pattern logged in entries_addendum_3 — searching skills/ instead of .claude/skills/ when the skill lives in the hidden directory.",
+  "correction": "master-slack skill is at .claude/skills/master-slack/SKILL.md. When any skill search returns no results, always explicitly check .claude/skills/ as a fallback before declaring the skill missing. Correct path: {IES_ROOT}/.claude/skills/master-slack/SKILL.md.",
+  "failure_mode": "lazy-search",
+  "systemic_fix": "Skill search protocol: (1) check skills/_manifest.jsonl, (2) Glob skills/, (3) ALWAYS also check .claude/skills/ explicitly before reporting not found. The .claude/ directory is hidden and not traversed by default glob patterns. Add this as a hard rule to SYSTEM.md Skill Loading Protocol.",
+  "fix_status": "applied",
+  "severity": "moderate",
+  "related_entries": [
+    "err-20260327-004",
+    "err-20260404-001"
+  ]
+}

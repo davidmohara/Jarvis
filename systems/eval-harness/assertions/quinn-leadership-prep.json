@@ -1,0 +1,40 @@
+{
+  "name": "quinn-leadership-prep",
+  "type": "skill",
+  "assertions": [
+    {
+      "id": "quinn-leadership-prep-signal-written",
+      "check": "file_exists",
+      "path": "systems/eval-harness/skill-runs/quinn-leadership-prep-latest.json",
+      "description": "quinn-leadership-prep skill-run signal file was written"
+    },
+    {
+      "id": "quinn-leadership-prep-signal-status",
+      "check": "json_field_not_equals",
+      "path": "systems/eval-harness/skill-runs/quinn-leadership-prep-latest.json",
+      "field": "status",
+      "value": "failure",
+      "description": "quinn-leadership-prep skill-run did not end in failure"
+    },
+    {
+      "id": "quinn-leadership-prep-wm-written",
+      "check": "file_exists",
+      "path": "memory/working/leadership-prep-*.md",
+      "description": "quinn-leadership-prep working memory file written to memory/working/"
+    },
+    {
+      "id": "quinn-leadership-prep-wm-size",
+      "check": "file_min_bytes",
+      "path": "memory/working/leadership-prep-*.md",
+      "min_bytes": 200,
+      "description": "quinn-leadership-prep working memory file is substantive (>200 bytes)"
+    },
+    {
+      "id": "quinn-leadership-prep-wm-content",
+      "check": "file_contains",
+      "path": "memory/working/leadership-prep-*.md",
+      "pattern": "(?i)(prep|event|talk)",
+      "description": "quinn-leadership-prep working memory contains expected content"
+    }
+  ]
+}

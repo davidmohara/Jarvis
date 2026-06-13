@@ -1,0 +1,40 @@
+{
+  "name": "co-sell-pipeline",
+  "type": "skill",
+  "assertions": [
+    {
+      "id": "co-sell-pipeline-signal-written",
+      "check": "file_exists",
+      "path": "systems/eval-harness/skill-runs/co-sell-pipeline-latest.json",
+      "description": "co-sell-pipeline skill-run signal file was written"
+    },
+    {
+      "id": "co-sell-pipeline-signal-status",
+      "check": "json_field_not_equals",
+      "path": "systems/eval-harness/skill-runs/co-sell-pipeline-latest.json",
+      "field": "status",
+      "value": "failure",
+      "description": "co-sell-pipeline skill-run did not end in failure"
+    },
+    {
+      "id": "co-sell-pipeline-wm-written",
+      "check": "file_exists",
+      "path": "memory/working/co-sell-pipeline-*.md",
+      "description": "co-sell-pipeline working memory file written to memory/working/"
+    },
+    {
+      "id": "co-sell-pipeline-wm-size",
+      "check": "file_min_bytes",
+      "path": "memory/working/co-sell-pipeline-*.md",
+      "min_bytes": 200,
+      "description": "co-sell-pipeline working memory file is substantive (>200 bytes)"
+    },
+    {
+      "id": "co-sell-pipeline-wm-content",
+      "check": "file_contains",
+      "path": "memory/working/co-sell-pipeline-*.md",
+      "pattern": "(?i)(pipeline|co.sell|partner)",
+      "description": "co-sell-pipeline working memory contains expected content"
+    }
+  ]
+}

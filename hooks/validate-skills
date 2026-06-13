@@ -1,0 +1,100 @@
+#!/usr/bin/env python3
+# Jarvis skill library pre-commit validation hook.
+# Runs structural checks only: YAML parse, required fields per schema, duplicate names.
+# Completes in under 2 seconds on a full skill library.
+#
+# Wire it up:
+#   git config core.hooksPath hooks
+#
+# Or symlink directly:
+#   ln -s ../../hooks/validate-skills .git/hooks/pre-commit
+
+import json
+import sys
+from pathlib import Path
+
+try:
+    import yaml
+except ImportError:
+    print("[validate-skills] ERROR: PyYAML not installed. Run: pip3 install pyyaml")
+    sys.exit(1)
+
+LIBRARY_ROOT = Path("skills")
+FORK_ROOT = Path(".claude/skills")
+
+LIBRARY_REQUIRED = {"name", "description", "model", "owning_agent", "trigger_keywords", "trigger_agents"}
+FORK_REQUIRED = {"name", "description", "model", "context", "agent", "allowed-tools"}
+
+errors = []
+names_seen = {}
+
+
+def parse_fm(skill_path):
+    try:
+        text = skill_path.read_text(encoding="utf-8")
+    except Exception as e:
+        return None, f"cannot read: {e}"
+
+    if not text.startswith("---"):
+        return {}, None
+
+    lines = text.split("\n")
+    end_idx = None
+    for i, line in enumerate(lines[1:], 1):
+        if line.strip() == "---":
+            end_idx = i
+            break
+
+    if end_idx is None:
+        return None, "unclosed frontmatter"
+
+    try:
+        return yaml.safe_load("\n".join(lines[1:end_idx])) or {}, None
+    except yaml.YAMLError as e:
+        return None, f"YAML error: {e}"
+
+
+def check_root(root_dir, schema_label, required_fields):
+    if not root_dir.exists():
+        return
+    for skill_dir in sorted(root_dir.iterdir()):
+        if not skill_dir.is_dir() or skill_dir.name.startswith("_"):
+            continue
+        skill_md = skill_dir / "SKILL.md"
+        if not skill_md.exists():
+            continue
+
+        fm, err = parse_fm(skill_md)
+        label = str(skill_md)
+
+        if err:
+            errors.append(f"PARSE ERROR [{label}]: {err}")
+            continue
+
+        missing = required_fields - set(fm.keys())
+        if missing:
+            errors.append(f"MISSING FIELDS [{label}]: {', '.join(sorted(missing))}")
+
+        if schema_label == "fork" and fm.get("context") != "fork":
+            errors.append(f"FORK CONTEXT [{label}]: context must equal 'fork' (got {fm.get('context')!r})")
+
+        name = fm.get("name")
+        if name:
+            names_seen.setdefault(name, []).append(label)
+
+
+check_root(LIBRARY_ROOT, "library", LIBRARY_REQUIRED)
+check_root(FORK_ROOT, "fork", FORK_REQUIRED)
+
+for name, paths in names_seen.items():
+    if len(paths) > 1:
+        errors.append(f"DUPLICATE NAME '{name}': {', '.join(paths)}")
+
+if errors:
+    print("[validate-skills] Skill validation FAILED:")
+    for e in errors:
+        print(f"  {e}")
+    sys.exit(1)
+
+print(f"[validate-skills] OK — {sum(1 for _ in names_seen)} skills validated")
+sys.exit(0)

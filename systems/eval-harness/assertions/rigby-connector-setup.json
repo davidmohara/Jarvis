@@ -1,0 +1,34 @@
+{
+  "name": "rigby-connector-setup",
+  "type": "skill",
+  "assertions": [
+    {
+      "id": "rigby-connector-setup-signal-written",
+      "check": "file_exists",
+      "path": "systems/eval-harness/skill-runs/rigby-connector-setup-latest.json",
+      "description": "rigby-connector-setup skill-run signal file was written"
+    },
+    {
+      "id": "rigby-connector-setup-signal-status",
+      "check": "json_field_not_equals",
+      "path": "systems/eval-harness/skill-runs/rigby-connector-setup-latest.json",
+      "field": "status",
+      "value": "failure",
+      "description": "rigby-connector-setup skill-run did not end in failure"
+    },
+    {
+      "id": "rigby-co-002-substantive",
+      "check": "file_min_bytes",
+      "path": "memory/working/rigby-connector-setup-*.md",
+      "min_bytes": 200,
+      "description": "rigby-connector-setup output is substantive (>200 bytes)"
+    },
+    {
+      "id": "rigby-co-003-content",
+      "check": "file_contains",
+      "path": "memory/working/rigby-connector-setup-*.md",
+      "pattern": "(?i)(complete|done|finished|output|result)",
+      "description": "rigby-connector-setup output contains expected content"
+    }
+  ]
+}

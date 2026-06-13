@@ -1,0 +1,15 @@
+{
+  "id": "err-20260326-003",
+  "timestamp": "2026-03-26T00:00:00Z",
+  "session": "2026-03-26",
+  "source": "explicit",
+  "agent": "jarvis",
+  "category": "process-skip",
+  "description": "On boot, Jarvis ran identity files, calendar pull, and lead review but did not execute the full chief-morning workflow, which includes parallel dispatch of Knox for Plaud transcript sync, Knox for reMarkable sync, and Rigby for release watch. The chief-morning skill explicitly documents these as boot-time parallel dispatches. Jarvis improvised a partial briefing instead of running the established workflow.",
+  "correction": "Boot means running the full chief-morning workflow, not a subset. The parallel boot dispatch (Plaud sync, reMarkable sync, release watch) should fire immediately alongside calendar/email/task gathering.",
+  "failure_mode": "protocol-skip",
+  "systemic_fix": "On 'boot up' or session start: (1) read identity files, (2) immediately dispatch the chief-morning skill which handles the full boot sequence including parallel sub-agent launches. Don't hand-roll a partial briefing.",
+  "fix_status": "applied",
+  "severity": "moderate",
+  "related_entries": []
+}

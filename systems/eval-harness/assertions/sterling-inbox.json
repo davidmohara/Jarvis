@@ -1,0 +1,40 @@
+{
+  "name": "sterling-inbox",
+  "type": "skill",
+  "assertions": [
+    {
+      "id": "sterling-inbox-signal-written",
+      "check": "file_exists",
+      "path": "systems/eval-harness/skill-runs/sterling-inbox-latest.json",
+      "description": "sterling-inbox skill-run signal file was written"
+    },
+    {
+      "id": "sterling-inbox-signal-status",
+      "check": "json_field_not_equals",
+      "path": "systems/eval-harness/skill-runs/sterling-inbox-latest.json",
+      "field": "status",
+      "value": "failure",
+      "description": "sterling-inbox skill-run did not end in failure"
+    },
+    {
+      "id": "sterling-inbox-wm-written",
+      "check": "file_exists",
+      "path": "memory/working/sterling-inbox-*.md",
+      "description": "sterling-inbox working memory file written to memory/working/"
+    },
+    {
+      "id": "sterling-inbox-wm-size",
+      "check": "file_min_bytes",
+      "path": "memory/working/sterling-inbox-*.md",
+      "min_bytes": 200,
+      "description": "sterling-inbox working memory file is substantive (>200 bytes)"
+    },
+    {
+      "id": "sterling-inbox-wm-content",
+      "check": "file_contains",
+      "path": "memory/working/sterling-inbox-*.md",
+      "pattern": "(?i)(wine|deliver|inbox)",
+      "description": "sterling-inbox working memory contains expected content"
+    }
+  ]
+}

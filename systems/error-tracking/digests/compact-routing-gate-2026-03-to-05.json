@@ -1,0 +1,39 @@
+{
+  "period": "2026-03 to 2026-05 (routing-gate batch)",
+  "period_label": "March–May 2026 Routing-Gate Entries",
+  "compacted_at": "2026-05-28T19:01:54Z",
+  "compacted_by": "jarvis (controller-approved)",
+  "reason": "Controller approved compaction of all 10 routing-gate Needs Your Call entries. All entries share the same pattern: Master/Jarvis executed capability builds or agent-domain tasks directly instead of routing to Rigby. Classified as early-system growing pains (March–April 2026 peak, fading by May). Systemic fix applied: inline Pre-Write Gate added to agents/master.md on 2026-05-28.",
+  "entry_count": 10,
+  "entry_ids": [
+    "err-20260321-003",
+    "err-20260322-001",
+    "err-20260323-007",
+    "err-20260324-004",
+    "err-20260324-005",
+    "err-20260324-006",
+    "err-20260327-003",
+    "err-20260329-001",
+    "err-20260515-002",
+    "err-20260525T202012-VP9JEI"
+  ],
+  "pattern": {
+    "category": "routing-error",
+    "failure_mode": "protocol-skip",
+    "description": "Master executed capability builds and agent-domain tasks directly without routing to Rigby or the appropriate specialist agent.",
+    "top_agent": "jarvis / master",
+    "occurrences_in_period": 10
+  },
+  "fix_applied": {
+    "file": "agents/master.md",
+    "description": "Pre-Write Gate section added to Capability Creation Boundary block. Gate requires Master to check target path before any file write — if path starts with workflows/, skills/, agents/, or systems/, Master must stop and route to Rigby. Includes explicit list of gated vs. non-gated directories and rationale referencing these 10 entries.",
+    "applied_at": "2026-05-28T19:01:54Z"
+  },
+  "severity_breakdown": {
+    "moderate": 10
+  },
+  "source_breakdown": {
+    "explicit": 10
+  },
+  "april_2026_compaction_status": "unblocked — April 2026 was already compacted in compact-2026-04.json (48 entries). These March–May routing-gate entries were the remaining blocker for April compaction per error-improvement run B7HEKX."
+}

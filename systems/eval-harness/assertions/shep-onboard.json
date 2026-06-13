@@ -1,0 +1,34 @@
+{
+  "name": "shep-onboard",
+  "type": "skill",
+  "assertions": [
+    {
+      "id": "shep-onboard-signal-written",
+      "check": "file_exists",
+      "path": "systems/eval-harness/skill-runs/shep-onboard-latest.json",
+      "description": "shep-onboard skill-run signal file was written"
+    },
+    {
+      "id": "shep-onboard-signal-status",
+      "check": "json_field_not_equals",
+      "path": "systems/eval-harness/skill-runs/shep-onboard-latest.json",
+      "field": "status",
+      "value": "failure",
+      "description": "shep-onboard skill-run did not end in failure"
+    },
+    {
+      "id": "shep-onb-002-substantive",
+      "check": "file_min_bytes",
+      "path": "memory/working/shep-onboard-*.md",
+      "min_bytes": 200,
+      "description": "shep-onboard output is substantive (>200 bytes)"
+    },
+    {
+      "id": "shep-onb-003-content",
+      "check": "file_contains",
+      "path": "memory/working/shep-onboard-*.md",
+      "pattern": "(?i)(complete|done|finished|output|result)",
+      "description": "shep-onboard output contains expected content"
+    }
+  ]
+}

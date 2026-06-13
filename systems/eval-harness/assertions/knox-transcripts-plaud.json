@@ -1,0 +1,34 @@
+{
+  "name": "knox-transcripts-plaud",
+  "type": "skill",
+  "assertions": [
+    {
+      "id": "knox-transcripts-plaud-signal-written",
+      "check": "file_exists",
+      "path": "systems/eval-harness/skill-runs/knox-transcripts-plaud-latest.json",
+      "description": "knox-transcripts-plaud skill-run signal file was written"
+    },
+    {
+      "id": "knox-transcripts-plaud-signal-status",
+      "check": "json_field_not_equals",
+      "path": "systems/eval-harness/skill-runs/knox-transcripts-plaud-latest.json",
+      "field": "status",
+      "value": "failure",
+      "description": "knox-transcripts-plaud skill-run did not end in failure"
+    },
+    {
+      "id": "knox-tra-002-substantive",
+      "check": "file_min_bytes",
+      "path": "memory/working/knox-transcripts-plaud-*.md",
+      "min_bytes": 200,
+      "description": "knox-transcripts-plaud output is substantive (>200 bytes)"
+    },
+    {
+      "id": "knox-tra-003-content",
+      "check": "file_contains",
+      "path": "memory/working/knox-transcripts-plaud-*.md",
+      "pattern": "(?i)(complete|done|finished|output|result)",
+      "description": "knox-transcripts-plaud output contains expected content"
+    }
+  ]
+}

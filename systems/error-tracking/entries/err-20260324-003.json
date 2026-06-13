@@ -1,0 +1,17 @@
+{
+  "id": "err-20260324-003",
+  "timestamp": "2026-03-24T00:00:00Z",
+  "session": "2026-03-24",
+  "source": "explicit",
+  "agent": "jarvis",
+  "category": "format-violation",
+  "description": "Pushed PDFs to reMarkable with filenames like '2026-03-24-yall-street-brief' and 'Yall-Street-Brief' instead of simple, clean names like the event or person name. reMarkable document names should be human-readable — no dashes, no date prefixes, just the event/person/company name.",
+  "correction": "reMarkable uploads must use clean, simple names: event name, person name, or company name. No dashes, no date prefixes, no kebab-case filenames.",
+  "failure_mode": "wrong-assumption",
+  "systemic_fix": "Update remarkable-upload mental model: document names on the tablet should read like a label you'd write on a folder — 'Texas Tribune Yall Street', 'YPO Tech Dine Around'. Strip dates and dashes. Match how David would scan for it on the tablet screen.",
+  "fix_status": "in-progress",
+  "severity": "minor",
+  "related_entries": [
+    "err-20260323-002"
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "skill": "golf-preview",
+  "agent": "chief",
+  "trigger": "scheduled",
+  "started": "2026-06-12T08:24:00",
+  "completed": "2026-06-12T08:25:53",
+  "status": "partial",
+  "tool_failures": 2,
+  "error_ids": [],
+  "notes": "Weather APIs (Open-Meteo, NWS) blocked by network allowlist. Calendar and drought check completed. Scoring based on calendar only. Slack sent with weather warning."
+}

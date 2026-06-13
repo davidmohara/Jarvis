@@ -1,0 +1,17 @@
+{
+  "id": "err-20260326-002",
+  "timestamp": "2026-03-26T00:00:00Z",
+  "session": "2026-03-26",
+  "source": "explicit",
+  "agent": "jarvis",
+  "category": "missed-context",
+  "description": "1:1 prep sheet for Scott McMichael missed yesterday's Microsoft meetings: 'Work from Work Wednesday' at Microsoft Irving campus (with Lowell Messner), 'Microsoft Partner GTM Check In' (Ben Kennedy et al.), and Monday's 'Prep: Improving WWW Session' with Ben Holm from Microsoft. These are directly relevant to the Scott 1:1 as partner engagement context. Only searched March emails for Scott's name instead of also scanning the prior days' calendar for relevant meetings.",
+  "correction": "Prep sheets should always scan the 3-5 days prior calendar for meetings with shared context — not just email threads mentioning the person.",
+  "failure_mode": "lazy-search",
+  "systemic_fix": "Meeting prep workflow must include: (1) scan prior 5 days of calendar for relevant meetings with the person or related topics, (2) scan upcoming 7 days for shared commitments. Don't limit context gathering to email search by name.",
+  "fix_status": "applied",
+  "severity": "moderate",
+  "related_entries": [
+    "err-20260326-001"
+  ]
+}

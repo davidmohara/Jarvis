@@ -1,0 +1,34 @@
+{
+  "name": "quinn-strategy",
+  "type": "skill",
+  "assertions": [
+    {
+      "id": "quinn-strategy-signal-written",
+      "check": "file_exists",
+      "path": "systems/eval-harness/skill-runs/quinn-strategy-latest.json",
+      "description": "quinn-strategy skill-run signal file was written"
+    },
+    {
+      "id": "quinn-strategy-signal-status",
+      "check": "json_field_not_equals",
+      "path": "systems/eval-harness/skill-runs/quinn-strategy-latest.json",
+      "field": "status",
+      "value": "failure",
+      "description": "quinn-strategy skill-run did not end in failure"
+    },
+    {
+      "id": "quinn-st-002-substantive",
+      "check": "file_min_bytes",
+      "path": "memory/working/quinn-strategy-*.md",
+      "min_bytes": 200,
+      "description": "quinn-strategy output is substantive (>200 bytes)"
+    },
+    {
+      "id": "quinn-st-003-content",
+      "check": "file_contains",
+      "path": "memory/working/quinn-strategy-*.md",
+      "pattern": "(?i)(complete|done|finished|output|result)",
+      "description": "quinn-strategy output contains expected content"
+    }
+  ]
+}

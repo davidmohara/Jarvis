@@ -1,0 +1,34 @@
+{
+  "name": "galen-protocols",
+  "type": "skill",
+  "assertions": [
+    {
+      "id": "galen-protocols-signal-written",
+      "check": "file_exists",
+      "path": "systems/eval-harness/skill-runs/galen-protocols-latest.json",
+      "description": "galen-protocols skill-run signal file was written"
+    },
+    {
+      "id": "galen-protocols-signal-status",
+      "check": "json_field_not_equals",
+      "path": "systems/eval-harness/skill-runs/galen-protocols-latest.json",
+      "field": "status",
+      "value": "failure",
+      "description": "galen-protocols skill-run did not end in failure"
+    },
+    {
+      "id": "galen-pr-002-substantive",
+      "check": "file_min_bytes",
+      "path": "memory/working/galen-protocols-*.md",
+      "min_bytes": 200,
+      "description": "galen-protocols output is substantive (>200 bytes)"
+    },
+    {
+      "id": "galen-pr-003-content",
+      "check": "file_contains",
+      "path": "memory/working/galen-protocols-*.md",
+      "pattern": "(?i)(complete|done|finished|output|result)",
+      "description": "galen-protocols output contains expected content"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "id": "err-20260321-001",
+  "timestamp": "2026-03-21T00:00:00Z",
+  "session": "2026-03-21",
+  "source": "explicit",
+  "agent": "jarvis",
+  "category": "routing-error",
+  "description": "Card optimization question ('which card for golf?') was handled directly by Jarvis instead of being routed through Chase, who owns the credit card system and Card Optimizer task.",
+  "correction": "All card selection questions must be routed through Chase's Card Optimizer logic — read optimization-guide.json, benefits-tracker.json, and apply Chase's full decision framework. No eyeballing.",
+  "failure_mode": "protocol-skip",
+  "systemic_fix": "Jarvis must route any 'which card' or purchase-related question to Chase's Card Optimizer task portfolio entry before responding. No direct reads of credit card files without Chase's framework.",
+  "fix_status": "applied",
+  "severity": "moderate",
+  "related_entries": [
+    "err-20260321-002"
+  ]
+}

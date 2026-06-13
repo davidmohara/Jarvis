@@ -1,0 +1,34 @@
+{
+  "name": "remarkable-upload",
+  "type": "skill",
+  "assertions": [
+    {
+      "id": "remarkable-upload-signal-written",
+      "check": "file_exists",
+      "path": "systems/eval-harness/skill-runs/remarkable-upload-latest.json",
+      "description": "remarkable-upload skill-run signal file was written"
+    },
+    {
+      "id": "remarkable-upload-signal-status",
+      "check": "json_field_not_equals",
+      "path": "systems/eval-harness/skill-runs/remarkable-upload-latest.json",
+      "field": "status",
+      "value": "failure",
+      "description": "remarkable-upload skill-run did not end in failure"
+    },
+    {
+      "id": "remarkab-002-substantive",
+      "check": "file_min_bytes",
+      "path": "memory/working/remarkable-upload-*.md",
+      "min_bytes": 200,
+      "description": "remarkable-upload output is substantive (>200 bytes)"
+    },
+    {
+      "id": "remarkab-003-content",
+      "check": "file_contains",
+      "path": "memory/working/remarkable-upload-*.md",
+      "pattern": "(?i)(complete|done|finished|output|result)",
+      "description": "remarkable-upload output contains expected content"
+    }
+  ]
+}

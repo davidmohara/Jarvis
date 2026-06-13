@@ -1,0 +1,86 @@
+{
+  "id": "eval-20260526T215647-T3Q5PX",
+  "type": "workflow",
+  "name": "daily-review",
+  "agent": "chief",
+  "session_id": "session-2026-05-24-143554",
+  "trigger": "scheduled",
+  "started": "2026-05-26T21:56:47.400897Z",
+  "completed": "2026-05-26T21:56:47.400897Z",
+  "duration_seconds": 0.0,
+  "status": "partial",
+  "steps": [
+    {
+      "name": "step-auto",
+      "started": "2026-05-26T21:56:47.400897Z",
+      "completed": "2026-05-26T21:56:47.400897Z",
+      "duration_seconds": 0.0,
+      "status": "success",
+      "data_sources_used": [],
+      "data_source_failures": []
+    }
+  ],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": true,
+      "outputs_non_empty": true,
+      "assertions_checked": 8,
+      "assertions_passed": 8,
+      "assertion_results": [
+        {
+          "assertion": "Daily review workflow state.yaml shows status: complete",
+          "passed": true
+        },
+        {
+          "assertion": "Daily review output file was written to reviews/daily/",
+          "passed": true
+        },
+        {
+          "assertion": "Daily review output is substantive (>300 bytes)",
+          "passed": true
+        },
+        {
+          "assertion": "Daily review contains priorities or next-day planning section",
+          "passed": true
+        },
+        {
+          "assertion": "Daily review contains completed items or wins section",
+          "passed": true
+        },
+        {
+          "assertion": "Daily review working memory file was written to memory/working/",
+          "passed": true
+        },
+        {
+          "assertion": "Daily review working memory file is substantive (>200 bytes)",
+          "passed": true
+        },
+        {
+          "assertion": "Daily review working memory contains expected content",
+          "passed": true
+        }
+      ]
+    },
+    "grading": {
+      "last_graded": "2026-05-27T21:11:00Z",
+      "grade": "B",
+      "grader_notes": "daily-review by chief on 2026-05-26, scheduled. Tier 1: PASS \u2014 completed, all_steps_finished, 0 tool failures. Status=partial reflects infrastructure gaps (M365 calendar unauth, Obsidian fallback). Tier 2: 8/8 passed \u2014 state complete, review at reviews/daily/auto-2026-05-26.md (2859 bytes), working memory at memory/working/daily-review-2026-05-26-000000.md (926 bytes), both contain expected sections. Output covers IES eval harness completion, 7 account plans reviewed, 3 overdue networking items flagged with specific names. Grade B: substantive output, all assertions pass. To reach A: resolve M365 calendar connector authentication."
+    },
+    "controller_feedback": {
+      "rating": "neutral",
+      "comment": "Substantive output produced. partial status is a headless calendar limitation, not a workflow failure. Assertion false-pass issue is structural, not Chief's fault. Both root causes now addressed.",
+      "timestamp": "2026-05-28T19:01:54Z"
+    }
+  },
+  "version_hash": "2a045accfec69bac",
+  "prior_baseline_id": null,
+  "tags": [
+    "cowork-instrumented"
+  ]
+}

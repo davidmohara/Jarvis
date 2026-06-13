@@ -1,0 +1,11 @@
+{
+  "skill": "obsidian-source-note",
+  "agent": "harper",
+  "trigger": "scheduled",
+  "started": "2026-05-29T22:30:00Z",
+  "completed": "2026-05-29T22:45:00Z",
+  "status": "success",
+  "tool_failures": 1,
+  "error_ids": [],
+  "notes": "tool_failures: 1 patch attempt created duplicate heading; resolved by rewrite. Final output clean."
+}

@@ -1,0 +1,40 @@
+{
+  "name": "quinn-rocks",
+  "type": "skill",
+  "assertions": [
+    {
+      "id": "quinn-rocks-signal-written",
+      "check": "file_exists",
+      "path": "systems/eval-harness/skill-runs/quinn-rocks-latest.json",
+      "description": "quinn-rocks skill-run signal file was written"
+    },
+    {
+      "id": "quinn-rocks-signal-status",
+      "check": "json_field_not_equals",
+      "path": "systems/eval-harness/skill-runs/quinn-rocks-latest.json",
+      "field": "status",
+      "value": "failure",
+      "description": "quinn-rocks skill-run did not end in failure"
+    },
+    {
+      "id": "quinn-rocks-wm-written",
+      "check": "file_exists",
+      "path": "memory/working/rock-review-*.md",
+      "description": "quinn-rocks working memory file written to memory/working/"
+    },
+    {
+      "id": "quinn-rocks-wm-size",
+      "check": "file_min_bytes",
+      "path": "memory/working/rock-review-*.md",
+      "min_bytes": 200,
+      "description": "quinn-rocks working memory file is substantive (>200 bytes)"
+    },
+    {
+      "id": "quinn-rocks-wm-content",
+      "check": "file_contains",
+      "path": "memory/working/rock-review-*.md",
+      "pattern": "(?i)(rock|quarter|progress)",
+      "description": "quinn-rocks working memory contains expected content"
+    }
+  ]
+}

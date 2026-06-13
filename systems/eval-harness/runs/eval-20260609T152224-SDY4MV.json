@@ -1,0 +1,146 @@
+{
+  "id": "eval-20260609T152224-SDY4MV",
+  "type": "workflow",
+  "name": "system-eval",
+  "agent": "rigby",
+  "session_id": "session-2026-05-29-070948",
+  "trigger": "scheduled",
+  "started": "2026-06-09T15:18:29Z",
+  "completed": "2026-06-09T15:22:24.953353Z",
+  "duration_seconds": 236.0,
+  "status": "success",
+  "steps": [
+    {
+      "name": "step-01-intake",
+      "started": "2026-06-09T15:18:29Z",
+      "completed": "2026-06-09T15:19:08.325559Z",
+      "duration_seconds": 39.3,
+      "status": "success",
+      "data_sources_used": [],
+      "data_source_failures": []
+    },
+    {
+      "name": "step-02-assert",
+      "started": "2026-06-09T15:19:08.325559Z",
+      "completed": "2026-06-09T15:19:47.651118Z",
+      "duration_seconds": 39.3,
+      "status": "success",
+      "data_sources_used": [],
+      "data_source_failures": []
+    },
+    {
+      "name": "step-03-grade",
+      "started": "2026-06-09T15:19:47.651118Z",
+      "completed": "2026-06-09T15:20:26.976676Z",
+      "duration_seconds": 39.3,
+      "status": "success",
+      "data_sources_used": [],
+      "data_source_failures": []
+    },
+    {
+      "name": "step-04-score",
+      "started": "2026-06-09T15:20:26.976676Z",
+      "completed": "2026-06-09T15:21:06.302235Z",
+      "duration_seconds": 39.3,
+      "status": "success",
+      "data_sources_used": [],
+      "data_source_failures": []
+    },
+    {
+      "name": "step-05-analyze",
+      "started": "2026-06-09T15:21:06.302235Z",
+      "completed": "2026-06-09T15:21:45.627794Z",
+      "duration_seconds": 39.3,
+      "status": "success",
+      "data_sources_used": [],
+      "data_source_failures": []
+    },
+    {
+      "name": "step-06-dashboard",
+      "started": "2026-06-09T15:21:45.627794Z",
+      "completed": "2026-06-09T15:22:24.953353Z",
+      "duration_seconds": 39.3,
+      "status": "success",
+      "data_sources_used": [],
+      "data_source_failures": []
+    }
+  ],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": true,
+      "outputs_non_empty": true,
+      "assertions_checked": 9,
+      "assertions_passed": 7,
+      "assertion_results": [
+        {
+          "assertion": "system-eval state.yaml shows status: complete",
+          "passed": false
+        },
+        {
+          "assertion": "Analysis report was written to grading/",
+          "passed": true
+        },
+        {
+          "assertion": "Analysis report is substantive (>500 bytes)",
+          "passed": true
+        },
+        {
+          "assertion": "Dashboard HTML file exists",
+          "passed": true
+        },
+        {
+          "assertion": "Dashboard HTML is substantive (>1000 bytes)",
+          "passed": true
+        },
+        {
+          "assertion": "Eval grade skill-run signal was written",
+          "passed": true
+        },
+        {
+          "assertion": "Eval analyze skill-run signal was written",
+          "passed": true
+        },
+        {
+          "assertion": "Eval dashboard skill-run signal was written",
+          "passed": true
+        },
+        {
+          "assertion": "system-eval output contains expected content",
+          "passed": false
+        }
+      ]
+    },
+    "grading": {
+      "last_graded": "2026-06-13T04:08:24.739898Z",
+      "grade": "B",
+      "safety_grade": null,
+      "grader_notes": "Duplicate record for same session as eval-20260609T151829-OUXB1P (same started timestamp: 2026-06-09T15:18:29Z, same workflow name, same agent). Likely created by a double-invocation of new-eval.py. Assertion results mirror the primary record: 7/9 pass \u2014 all signals and output files confirmed present, same two failures (state.yaml timing artifact, missing working memory file). Grade matches primary. The existence of a duplicate record is itself a minor process issue worth noting."
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": "19d8e244d5f77822",
+  "prior_baseline_id": null,
+  "tags": [
+    "cowork-instrumented"
+  ]
+}

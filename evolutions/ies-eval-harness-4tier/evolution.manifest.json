@@ -1,0 +1,254 @@
+{
+  "id": "ies-eval-harness-4tier",
+  "version": "2026.05",
+  "name": "IES Eval Harness — 4-Tier Assessment Framework",
+  "description": "Instruments IES with an automated 4-tier evaluation system covering mechanical success tracking (Tier 1), structural assertion checks (Tier 2), on-demand letter grading (Tier 3), and controller feedback sampling (Tier 4). Wires 4 hook scripts into the Claude Code agent lifecycle, adds 3 new Rigby skills, integrates eval health checks into weekly-review, daily-review, and evolution-deployment workflows, and includes a post-build adversarial fix set of 15 targeted corrections validated by code review.",
+  "released": "2026-05-24",
+  "type": "system",
+  "compatibility": {
+    "minimum_base_version": "2026.04",
+    "notes": "Requires Claude Code hooks support (SubagentStart, SubagentStop, PostToolUseFailure, SessionEnd). Requires Python 3 available at hook runtime. IES_ROOT environment variable recommended; falls back to /Users/davidohara/develop/jarvis for local use."
+  },
+  "files": [
+    {
+      "path": "systems/eval-harness/_meta.json",
+      "type": "system",
+      "action": "add",
+      "description": "Eval harness system directory metadata and configuration"
+    },
+    {
+      "path": "systems/eval-harness/schema.md",
+      "type": "system",
+      "action": "add",
+      "description": "Eval record JSON schema — 4-tier field documentation and composite scoring formula"
+    },
+    {
+      "path": "systems/eval-harness/generate-dashboard.py",
+      "type": "system",
+      "action": "add",
+      "description": "HTML dashboard generator for eval harness metrics"
+    },
+    {
+      "path": "systems/eval-harness/new-eval.py",
+      "type": "system",
+      "action": "add",
+      "description": "ID generation script for manual eval record creation"
+    },
+    {
+      "path": "systems/eval-harness/assertions/README.md",
+      "type": "system",
+      "action": "add",
+      "description": "Assertion system documentation — format spec, check types, and authoring guide"
+    },
+    {
+      "path": "systems/eval-harness/assertions/template.json",
+      "type": "system",
+      "action": "add",
+      "description": "Assertion file template for new workflow/skill definitions"
+    },
+    {
+      "path": "systems/eval-harness/assertions/morning-briefing.json",
+      "type": "system",
+      "action": "add",
+      "description": "Tier 2 structural assertions for morning-briefing workflow"
+    },
+    {
+      "path": "systems/eval-harness/assertions/weekly-review.json",
+      "type": "system",
+      "action": "add",
+      "description": "Tier 2 structural assertions for weekly-review workflow"
+    },
+    {
+      "path": "systems/eval-harness/assertions/daily-review.json",
+      "type": "system",
+      "action": "add",
+      "description": "Tier 2 structural assertions for daily-review workflow"
+    },
+    {
+      "path": "systems/eval-harness/assertions/evolution-deployment.json",
+      "type": "system",
+      "action": "add",
+      "description": "Tier 2 structural assertions for evolution-deployment workflow"
+    },
+    {
+      "path": "systems/eval-harness/assertions/rigby-eval-analyze.json",
+      "type": "system",
+      "action": "add",
+      "description": "Tier 2 self-assertions for rigby-eval-analyze skill"
+    },
+    {
+      "path": "systems/eval-harness/assertions/rigby-eval-grade.json",
+      "type": "system",
+      "action": "add",
+      "description": "Tier 2 self-assertions for rigby-eval-grade skill"
+    },
+    {
+      "path": ".claude/hooks/eval-agent-start.py",
+      "type": "system",
+      "action": "add",
+      "description": "SubagentStart hook — creates eval record stub with agent_id, atomic writes, IES_ROOT from env var"
+    },
+    {
+      "path": ".claude/hooks/eval-agent-stop.py",
+      "type": "system",
+      "action": "add",
+      "description": "SubagentStop hook — completes eval record: Tier 1 mechanical (reads existing, not overwritten), Tier 2 assertions, version_hash, derived status"
+    },
+    {
+      "path": ".claude/hooks/eval-tool-failure.py",
+      "type": "system",
+      "action": "add",
+      "description": "PostToolUseFailure hook — increments tool_failures and appends failure_entry to tool_failure_log in active eval record"
+    },
+    {
+      "path": ".claude/hooks/eval-session-end.py",
+      "type": "system",
+      "action": "add",
+      "description": "SessionEnd hook — marks in-progress eval records as aborted; log_info for normal events"
+    },
+    {
+      "path": ".claude/hooks/post-tool-use.py",
+      "type": "system",
+      "action": "replace",
+      "description": "Extended PostToolUse hook: detects state.yaml, step frontmatter, and error-tracking writes to update eval records in real-time"
+    },
+    {
+      "path": ".claude/settings.json",
+      "type": "system",
+      "action": "merge",
+      "description": "Register 4 new hook bindings: SubagentStart, SubagentStop, PostToolUseFailure, SessionEnd"
+    },
+    {
+      "path": ".claude/skills/rigby-eval-grade/SKILL.md",
+      "type": "system",
+      "action": "add",
+      "description": "New skill: on-demand Tier 3 letter grading of eval records"
+    },
+    {
+      "path": ".claude/skills/rigby-eval-analyze/SKILL.md",
+      "type": "system",
+      "action": "add",
+      "description": "New skill: periodic eval analysis across all four tiers with trend detection"
+    },
+    {
+      "path": ".claude/skills/rigby-eval-dashboard/SKILL.md",
+      "type": "system",
+      "action": "add",
+      "description": "New skill: HTML dashboard generation for eval harness data"
+    },
+    {
+      "path": "agents/master.md",
+      "type": "system",
+      "action": "merge",
+      "description": "Add Tier 4 Controller Feedback Sampling to Agent Output Handling"
+    },
+    {
+      "path": "agents/rigby.md",
+      "type": "system",
+      "action": "merge",
+      "description": "Add eval-grade, eval-analyze, eval-dashboard to Rigby task portfolio"
+    },
+    {
+      "path": "agents/routing.md",
+      "type": "system",
+      "action": "merge",
+      "description": "Add eval routing keywords to Rigby domain"
+    },
+    {
+      "path": "skills/_index.md",
+      "type": "system",
+      "action": "replace",
+      "description": "Update skill count and add entries for 3 new rigby eval skills"
+    },
+    {
+      "path": "skills/_manifest.jsonl",
+      "type": "system",
+      "action": "merge",
+      "description": "Add manifest entries for rigby-eval-grade, rigby-eval-analyze, rigby-eval-dashboard"
+    },
+    {
+      "path": "SYSTEM.md",
+      "type": "system",
+      "action": "merge",
+      "description": "Add systems/eval-harness/ to directory structure"
+    },
+    {
+      "path": "workflows/evolution-deployment/steps/step-04-benchmark-snapshot.md",
+      "type": "system",
+      "action": "add",
+      "description": "New step: capture eval harness baseline before evolution application"
+    },
+    {
+      "path": "workflows/evolution-deployment/steps/step-03-create-snapshot.md",
+      "type": "system",
+      "action": "merge",
+      "description": "Update NEXT STEP pointer to new step-04-benchmark-snapshot"
+    },
+    {
+      "path": "workflows/evolution-deployment/steps/step-07-verify-and-log.md",
+      "type": "system",
+      "action": "merge",
+      "description": "Add Comparative Eval Grading section with deferred-comparison logic"
+    },
+    {
+      "path": "workflows/weekly-review/steps/step-08-eval-summary.md",
+      "type": "system",
+      "action": "add",
+      "description": "New final step: eval summary + workflow close (writes state.yaml status: complete)"
+    },
+    {
+      "path": "workflows/weekly-review/steps/step-07-social-tracker.md",
+      "type": "system",
+      "action": "merge",
+      "description": "Update NEXT STEP to route to step-08-eval-summary"
+    },
+    {
+      "path": "workflows/weekly-review/workflow.md",
+      "type": "system",
+      "action": "merge",
+      "description": "Update architecture from 6-step to 8-step, correct routing table entry for eval step"
+    },
+    {
+      "path": "workflows/daily-review/steps/step-01-capture.md",
+      "type": "system",
+      "action": "merge",
+      "description": "Add step 4: eval harness health one-liner check"
+    }
+  ],
+  "changelog": [
+    "New: 4-tier eval harness instrumentation wired into Claude Code agent lifecycle via 4 hook scripts",
+    "New: systems/eval-harness/ directory with schema, assertion definitions, and utility scripts",
+    "New: rigby-eval-grade skill for on-demand Tier 3 letter grading",
+    "New: rigby-eval-analyze skill for trend analysis and pattern detection",
+    "New: rigby-eval-dashboard skill for HTML visualization of eval metrics",
+    "New: Tier 2 assertion files for morning-briefing, weekly-review, daily-review, evolution-deployment, and self-assertions for the eval skills themselves",
+    "New: evolution-deployment step-04-benchmark-snapshot captures eval baseline before each evolution",
+    "New: weekly-review step-08 owns eval summary and workflow close (writes state.yaml complete)",
+    "Fix: Tier 2 assertion lookup uses workflow/skill name, not agent type — assertions now reliably activate",
+    "Fix: Tier 1 mechanical block preserved from real-time accumulation, not overwritten by stop hook",
+    "Fix: agent_id stored in stubs for reliable SubagentStop correlation (multi-agent safe)",
+    "Fix: yaml import at top-level in eval-agent-stop.py — no more silent assertion failures",
+    "Fix: tool_failures count flows through stop hook correctly (not reset to 0)",
+    "Fix: failure_entry objects attached to eval records — full tool failure log preserved",
+    "Fix: all hooks use IES_ROOT env var with local fallback (no hardcoded paths)",
+    "Fix: atomic writes with fcntl.LOCK_EX across all hooks — no partial write corruption",
+    "Fix: trigger inferred from state.yaml content, not hardcoded to unknown",
+    "Fix: log_info separated from log_error in session-end hook — no false error log noise",
+    "Fix: benchmark snapshot comparison deferred until post-exercise runs accumulate",
+    "Fix: weekly-review routing table and architecture description corrected to 8-step"
+  ],
+  "training_prompts": [
+    {
+      "agent": "rigby",
+      "prompt": "Ask Rigby to show the eval harness status: rigby analyze evals"
+    },
+    {
+      "agent": "rigby",
+      "prompt": "After running a workflow, ask Rigby to grade recent eval records"
+    },
+    {
+      "agent": "rigby",
+      "prompt": "Ask Rigby to generate the eval dashboard: rigby eval dashboard"
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "name": "chase-card-offers-amex",
+  "type": "skill",
+  "assertions": [
+    {
+      "id": "chase-card-offers-amex-signal-written",
+      "check": "file_exists",
+      "path": "systems/eval-harness/skill-runs/chase-card-offers-amex-latest.json",
+      "description": "chase-card-offers-amex skill-run signal file was written"
+    },
+    {
+      "id": "chase-card-offers-amex-signal-status",
+      "check": "json_field_not_equals",
+      "path": "systems/eval-harness/skill-runs/chase-card-offers-amex-latest.json",
+      "field": "status",
+      "value": "failure",
+      "description": "chase-card-offers-amex skill-run did not end in failure"
+    },
+    {
+      "id": "chase-ca-002-substantive",
+      "check": "file_min_bytes",
+      "path": "memory/working/chase-card-offers-amex-*.md",
+      "min_bytes": 200,
+      "description": "chase-card-offers-amex output is substantive (>200 bytes)"
+    },
+    {
+      "id": "chase-ca-003-content",
+      "check": "file_contains",
+      "path": "memory/working/chase-card-offers-amex-*.md",
+      "pattern": "(?i)(complete|done|finished|output|result)",
+      "description": "chase-card-offers-amex output contains expected content"
+    }
+  ]
+}

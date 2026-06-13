@@ -1,0 +1,34 @@
+{
+  "name": "rigby-register",
+  "type": "skill",
+  "assertions": [
+    {
+      "id": "rigby-register-signal-written",
+      "check": "file_exists",
+      "path": "systems/eval-harness/skill-runs/rigby-register-latest.json",
+      "description": "rigby-register skill-run signal file was written"
+    },
+    {
+      "id": "rigby-register-signal-status",
+      "check": "json_field_not_equals",
+      "path": "systems/eval-harness/skill-runs/rigby-register-latest.json",
+      "field": "status",
+      "value": "failure",
+      "description": "rigby-register skill-run did not end in failure"
+    },
+    {
+      "id": "rigby-re-002-substantive",
+      "check": "file_min_bytes",
+      "path": "memory/working/rigby-register-*.md",
+      "min_bytes": 200,
+      "description": "rigby-register output is substantive (>200 bytes)"
+    },
+    {
+      "id": "rigby-re-003-content",
+      "check": "file_contains",
+      "path": "memory/working/rigby-register-*.md",
+      "pattern": "(?i)(complete|done|finished|output|result)",
+      "description": "rigby-register output contains expected content"
+    }
+  ]
+}

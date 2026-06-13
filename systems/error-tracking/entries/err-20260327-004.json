@@ -1,0 +1,17 @@
+{
+  "id": "err-20260327-004",
+  "timestamp": "2026-03-27T21:15:00Z",
+  "session": "2026-03-27",
+  "source": "explicit",
+  "agent": "jarvis",
+  "category": "routing-error",
+  "description": "David said 'Fire the skill rigby-register'. Jarvis searched for the skill file in skills/ and .claude/skills/ directories but failed to find it at .claude/skills/rigby-register/SKILL.md. Then declared it doesn't exist. David had to point Jarvis to the exact path. This is a direct follow-up to err-20260327-002 — Jarvis still doesn't know where Rigby's skills live even after the earlier correction.",
+  "correction": "The skill exists at .claude/skills/rigby-register/SKILL.md. When told to 'fire a skill', find the SKILL.md file and execute it as written. Skills live in both skills/ (IES skills) and .claude/skills/ (Cowork skills). Search both.",
+  "failure_mode": "lazy-search",
+  "systemic_fix": "When looking for a skill by name, search BOTH skills/ AND .claude/skills/ directories. The glob pattern should be **/{skill-name}*/SKILL.md across the full IES tree.",
+  "fix_status": "applied",
+  "severity": "moderate",
+  "related_entries": [
+    "err-20260327-002"
+  ]
+}

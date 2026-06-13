@@ -1,0 +1,15 @@
+{
+  "id": "err-20260527T114155-71MXXF",
+  "timestamp": "2026-05-27T11:41:55-05:00",
+  "session": "session-2026-05-27-112421",
+  "source": "self-detected",
+  "agent": "master",
+  "category": "process-skip",
+  "description": "Boot sequence on 2026-05-27 executed Phase 1 (identity load) but skipped the majority of Phase 2 and all subsequent phases. Steps skipped: git sync, dream summary check, Plaud ingest (background agent), Teams transcript ingest, lead review workflow, 72-hour look-ahead, email triage, Jarvis inbox, Clay reminders/birthdays, working memory write. Morning briefing was not synthesized. Boot was reported as complete when it was not.",
+  "correction": "All skipped Phase 2 steps must be executed every boot \u2014 no exceptions, no silent skips. Each step must report completed, nothing to surface, or failed with reason. User had to explicitly identify the skips and request remediation.",
+  "failure_mode": "protocol-skip",
+  "systemic_fix": "Boot sequence steps should be tracked via a checklist written to a temp state file at boot start, with each step marking itself complete. Rigby should audit the boot checklist at session close and flag any incomplete steps.",
+  "fix_status": "applied",
+  "severity": "major",
+  "related_entries": []
+}

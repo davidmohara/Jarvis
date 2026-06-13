@@ -1,0 +1,15 @@
+{
+  "id": "err-20260326-001",
+  "timestamp": "2026-03-26T00:00:00Z",
+  "session": "2026-03-26",
+  "source": "explicit",
+  "agent": "jarvis",
+  "category": "assumption-error",
+  "description": "In the Scott McMichael 1:1 prep sheet, speculated about whether Scott was attending the One Texas SKO ('Does he want to attend or receive a debrief?') instead of checking the actual calendar invite attendees. Scott is explicitly listed on all four SKO invites: Dallas session, Dallas dinner, Houston session, Houston dinner.",
+  "correction": "Check calendar invite attendee lists before making statements or asking speculative questions about attendance. The data was one search away.",
+  "failure_mode": "lazy-search",
+  "systemic_fix": "For any meeting prep involving a shared event, always pull the event invite and check the attendee list. Never speculate about attendance when the data is available.",
+  "fix_status": "applied",
+  "severity": "moderate",
+  "related_entries": []
+}

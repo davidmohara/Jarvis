@@ -1,0 +1,17 @@
+{
+  "id": "err-20260323-006",
+  "timestamp": "2026-03-23T00:00:00Z",
+  "session": "2026-03-23",
+  "source": "explicit",
+  "agent": "jarvis",
+  "category": "tool-misuse",
+  "description": "Plaud transcription trigger function only PATCHed /file/{file_id} with tranConfig (saves config) but never POSTed to /ai/transsumm/{file_id} (starts the pipeline). API returned 200 for the config save, so it looked like success, but no transcription was ever queued. Recording sat in 'missing' state for the entire session.",
+  "correction": "Triggering Plaud transcription is a two-step process: (1) PATCH /file/{file_id} with tranConfig to save settings, (2) POST /ai/transsumm/{file_id} with is_reload, summ_type, info payload to actually start the job. Step 1 alone does nothing.",
+  "failure_mode": "lazy-search",
+  "systemic_fix": "Updated trigger_transcription() in fetch_plaud.py to perform both steps. Added status check on the POST response to confirm Plaud accepted the job (status=0, msg='task processing').",
+  "fix_status": "applied",
+  "severity": "moderate",
+  "related_entries": [
+    "err-20260323-005"
+  ]
+}

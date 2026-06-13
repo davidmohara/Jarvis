@@ -1,0 +1,73 @@
+{
+  "id": "eval-20260527T185503-NDAYK6",
+  "type": "workflow",
+  "name": "error-improvement",
+  "agent": "rigby",
+  "session_id": "",
+  "trigger": "manual",
+  "started": "2026-05-27T18:55:03.595956Z",
+  "completed": "2026-05-27T21:33:42Z",
+  "duration_seconds": 0,
+  "status": "aborted",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": false,
+      "all_steps_finished": null,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": false,
+      "outputs_non_empty": false,
+      "assertions_checked": 7,
+      "assertions_passed": 5,
+      "assertion_results": [
+        {
+          "assertion": "Workflow state.yaml shows status: complete",
+          "passed": true
+        },
+        {
+          "assertion": "Eval record was written for this workflow run",
+          "passed": true
+        },
+        {
+          "assertion": "Episodic memory entry was written for the improvement cycle",
+          "passed": true
+        },
+        {
+          "assertion": "error-improvement work item logged to pending-changes",
+          "passed": true
+        },
+        {
+          "assertion": "Proposed entries not growing unboundedly (soft ceiling \u2014 routing-gate entries expected)",
+          "passed": true
+        },
+        {
+          "assertion": "error-improvement output file was written",
+          "passed": false
+        },
+        {
+          "assertion": "error-improvement output is substantive (>200 bytes)",
+          "passed": false
+        }
+      ]
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "grader_notes": "Phantom duplicate \u2014 aborted. Real error-improvement run is B7HEKX."
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [
+    "phantom",
+    "aborted-cleanup"
+  ]
+}

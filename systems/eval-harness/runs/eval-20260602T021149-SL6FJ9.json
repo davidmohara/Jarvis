@@ -1,0 +1,86 @@
+{
+  "id": "eval-20260602T021149-SL6FJ9",
+  "type": "workflow",
+  "name": "daily-review",
+  "agent": "chief",
+  "session_id": "session-2026-05-29-070948",
+  "trigger": "scheduled",
+  "started": "2026-06-02T02:11:49.255268Z",
+  "completed": "2026-06-02T02:11:49.255268Z",
+  "duration_seconds": 0.0,
+  "status": "success",
+  "steps": [
+    {
+      "name": "step-auto",
+      "started": "2026-06-02T02:11:49.255268Z",
+      "completed": "2026-06-02T02:11:49.255268Z",
+      "duration_seconds": 0.0,
+      "status": "success",
+      "data_sources_used": [],
+      "data_source_failures": []
+    }
+  ],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": false,
+      "outputs_non_empty": false,
+      "assertions_checked": 8,
+      "assertions_passed": 0,
+      "assertion_results": [
+        {
+          "assertion": "Daily review workflow state.yaml shows status: complete",
+          "passed": false
+        },
+        {
+          "assertion": "Daily review output file was written to reviews/daily/ for the run date (not a prior day)",
+          "passed": false
+        },
+        {
+          "assertion": "Daily review output for run date is substantive (>300 bytes)",
+          "passed": false
+        },
+        {
+          "assertion": "Daily review for run date contains priorities or next-day planning section",
+          "passed": false
+        },
+        {
+          "assertion": "Daily review for run date contains completed items or wins section",
+          "passed": false
+        },
+        {
+          "assertion": "Daily review working memory file was written for the run date",
+          "passed": false
+        },
+        {
+          "assertion": "Daily review working memory for run date is substantive (>200 bytes)",
+          "passed": false
+        },
+        {
+          "assertion": "Daily review working memory for run date contains expected content",
+          "passed": false
+        }
+      ]
+    },
+    "grading": {
+      "last_graded": "2026-06-09T15:35:00Z",
+      "grade": "F",
+      "grader_notes": "daily-review for 2026-06-02: 0/8 assertions passed. No output file auto-2026-06-02.md exists in reviews/daily/. No working memory file exists for 2026-06-02. Same pattern as 2026-05-30 \u2014 workflow ran but produced zero persistent output. This is the second consecutive zero-output daily-review, indicating a systemic failure mode, not a one-off. To earn D or higher: the output file must be written. Pattern warrants investigation in Step 5 analysis."
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    }
+  },
+  "version_hash": "2a045accfec69bac",
+  "prior_baseline_id": null,
+  "tags": [
+    "cowork-instrumented"
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "name": "omnifocus-tasks",
+  "type": "skill",
+  "assertions": [
+    {
+      "id": "omnifocus-tasks-signal-written",
+      "check": "file_exists",
+      "path": "systems/eval-harness/skill-runs/omnifocus-tasks-latest.json",
+      "description": "omnifocus-tasks skill-run signal file was written"
+    },
+    {
+      "id": "omnifocus-tasks-signal-status",
+      "check": "json_field_not_equals",
+      "path": "systems/eval-harness/skill-runs/omnifocus-tasks-latest.json",
+      "field": "status",
+      "value": "failure",
+      "description": "omnifocus-tasks skill-run did not end in failure"
+    },
+    {
+      "id": "omnifocu-002-substantive",
+      "check": "file_min_bytes",
+      "path": "memory/working/omnifocus-tasks-*.md",
+      "min_bytes": 200,
+      "description": "omnifocus-tasks output is substantive (>200 bytes)"
+    },
+    {
+      "id": "omnifocu-003-content",
+      "check": "file_contains",
+      "path": "memory/working/omnifocus-tasks-*.md",
+      "pattern": "(?i)(complete|done|finished|output|result)",
+      "description": "omnifocus-tasks output contains expected content"
+    }
+  ]
+}

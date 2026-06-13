@@ -1,0 +1,77 @@
+{
+  "name": "daily-review",
+  "type": "workflow",
+  "run_date_required": true,
+  "_note": "run_date is injected by close-eval-record.py at eval write time. Assertions marked date_specific: true use run_date to construct an exact path instead of a bare glob — preventing false passes from prior-day output files.",
+  "assertions": [
+    {
+      "id": "daily-001-state-complete",
+      "check": "yaml_field_equals",
+      "path": "workflows/daily-review/state.yaml",
+      "field": "status",
+      "value": "complete",
+      "description": "Daily review workflow state.yaml shows status: complete"
+    },
+    {
+      "id": "daily-002-review-written",
+      "check": "file_exists",
+      "path": "reviews/daily/????-??-??.md",
+      "date_specific": true,
+      "date_path_template": "reviews/daily/auto-{run_date}.md",
+      "description": "Daily review output file was written to reviews/daily/ for the run date (not a prior day)"
+    },
+    {
+      "id": "daily-003-review-substantive",
+      "check": "file_min_bytes",
+      "path": "reviews/daily/????-??-??.md",
+      "date_specific": true,
+      "date_path_template": "reviews/daily/auto-{run_date}.md",
+      "min_bytes": 300,
+      "description": "Daily review output for run date is substantive (>300 bytes)"
+    },
+    {
+      "id": "daily-004-priorities-section",
+      "check": "file_contains",
+      "path": "reviews/daily/????-??-??.md",
+      "date_specific": true,
+      "date_path_template": "reviews/daily/auto-{run_date}.md",
+      "pattern": "(?i)(priorit|tomorrow|tomorrow's|next)",
+      "description": "Daily review for run date contains priorities or next-day planning section"
+    },
+    {
+      "id": "daily-005-shutdown-section",
+      "check": "file_contains",
+      "path": "reviews/daily/????-??-??.md",
+      "date_specific": true,
+      "date_path_template": "reviews/daily/auto-{run_date}.md",
+      "pattern": "(?i)(completed|done|accomplished|finished|wins)",
+      "description": "Daily review for run date contains completed items or wins section"
+    },
+    {
+      "id": "daily_review-wm-written",
+      "check": "file_exists",
+      "path": "memory/working/daily-review-*.md",
+      "date_specific": true,
+      "date_path_template": "memory/working/daily-review-{run_date}*.md",
+      "description": "Daily review working memory file was written for the run date"
+    },
+    {
+      "id": "daily_review-wm-size",
+      "check": "file_min_bytes",
+      "path": "memory/working/daily-review-*.md",
+      "date_specific": true,
+      "date_path_template": "memory/working/daily-review-{run_date}*.md",
+      "min_bytes": 200,
+      "description": "Daily review working memory for run date is substantive (>200 bytes)"
+    },
+    {
+      "id": "daily_review-wm-content",
+      "check": "file_contains",
+      "path": "memory/working/daily-review-*.md",
+      "date_specific": true,
+      "date_path_template": "memory/working/daily-review-{run_date}*.md",
+      "pattern": "(?i)(today|task|priority)",
+      "description": "Daily review working memory for run date contains expected content"
+    }
+  ]
+}

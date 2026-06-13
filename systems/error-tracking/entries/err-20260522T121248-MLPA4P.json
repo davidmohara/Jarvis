@@ -1,0 +1,18 @@
+{
+  "id": "err-20260522T121248-MLPA4P",
+  "timestamp": "2026-05-22T12:12:48Z",
+  "session": "session-2026-05-22-061501",
+  "source": "explicit",
+  "agent": "chief",
+  "category": "process-skip",
+  "description": "Deleted staging files for May 13 transcripts immediately after confirming they were already vaulted, before completing the full ingest run. Staging cleanup should only happen after all recordings are processed, not incrementally.",
+  "correction": "Staging cleanup (step 7 of Plaud skill) runs once at the end, after all recordings in the current run are vaulted. Never delete individual files mid-run.",
+  "failure_mode": "protocol-skip",
+  "systemic_fix": "Skill step 7 should be gated: only execute after a final reconciliation confirms zero unprocessed recordings remain from the current run.",
+  "fix_status": "applied",
+  "severity": "moderate",
+  "related_entries": [
+    "err-20260522T121242-C74YUW",
+    "err-20260522T121248-KKK0TN"
+  ]
+}

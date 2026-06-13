@@ -1,0 +1,34 @@
+{
+  "name": "presentation-builder",
+  "type": "workflow",
+  "assertions": [
+    {
+      "id": "pres-001-state-complete",
+      "check": "yaml_field_equals",
+      "path": "workflows/presentation-builder/state.yaml",
+      "field": "status",
+      "value": "complete",
+      "description": "Presentation builder workflow state.yaml shows status: complete"
+    },
+    {
+      "id": "presenta-001-exists",
+      "check": "file_exists",
+      "path": "memory/working/presentation-builder-*.md",
+      "description": "presentation-builder output file was written"
+    },
+    {
+      "id": "presenta-002-substantive",
+      "check": "file_min_bytes",
+      "path": "memory/working/presentation-builder-*.md",
+      "min_bytes": 200,
+      "description": "presentation-builder output is substantive (>200 bytes)"
+    },
+    {
+      "id": "presenta-003-content",
+      "check": "file_contains",
+      "path": "memory/working/presentation-builder-*.md",
+      "pattern": "(?i)(complete|done|finished|output|result)",
+      "description": "presentation-builder output contains expected content"
+    }
+  ]
+}

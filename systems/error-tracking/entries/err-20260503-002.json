@@ -1,0 +1,17 @@
+{
+  "id": "err-20260503-002",
+  "timestamp": "2026-05-03T00:00:00-05:00",
+  "session": "2026-05-03",
+  "source": "explicit",
+  "agent": "jarvis",
+  "category": "routing-error",
+  "description": "After correcting Rigby as owning agent for golf-booking workflow, assigned Chief as the owner. Chief's domain is daily ops and business logistics — not personal leisure. Golf is a social/lifestyle activity owned by Sterling.",
+  "correction": "Sterling owns all social life, leisure, and lifestyle workflows including golf. Chief owns calendar and business ops. Sterling is the correct owning agent for golf-booking.",
+  "failure_mode": "pattern-mismatch",
+  "systemic_fix": "When assigning workflow ownership, leisure and lifestyle activities (golf, dining, travel, social events) always route to Sterling. Chief owns professional daily ops only. Add this to agent routing heuristic.",
+  "fix_status": "applied",
+  "severity": "moderate",
+  "related_entries": [
+    "err-20260503-001"
+  ]
+}

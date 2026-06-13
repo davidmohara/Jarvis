@@ -1,0 +1,34 @@
+{
+  "name": "plaud-trigger",
+  "type": "skill",
+  "assertions": [
+    {
+      "id": "plaud-trigger-signal-written",
+      "check": "file_exists",
+      "path": "systems/eval-harness/skill-runs/plaud-trigger-latest.json",
+      "description": "plaud-trigger skill-run signal file was written"
+    },
+    {
+      "id": "plaud-trigger-signal-status",
+      "check": "json_field_not_equals",
+      "path": "systems/eval-harness/skill-runs/plaud-trigger-latest.json",
+      "field": "status",
+      "value": "failure",
+      "description": "plaud-trigger skill-run did not end in failure"
+    },
+    {
+      "id": "plaud-tr-002-substantive",
+      "check": "file_min_bytes",
+      "path": "memory/working/plaud-trigger-*.md",
+      "min_bytes": 200,
+      "description": "plaud-trigger output is substantive (>200 bytes)"
+    },
+    {
+      "id": "plaud-tr-003-content",
+      "check": "file_contains",
+      "path": "memory/working/plaud-trigger-*.md",
+      "pattern": "(?i)(complete|done|finished|output|result)",
+      "description": "plaud-trigger output contains expected content"
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "name": "content-calendar",
+  "type": "workflow",
+  "assertions": [
+    {
+      "id": "contcal-001-state-complete",
+      "check": "yaml_field_equals",
+      "path": "workflows/content-calendar/state.yaml",
+      "field": "status",
+      "value": "complete",
+      "description": "Content calendar workflow state.yaml shows status: complete"
+    },
+    {
+      "id": "content_cale-wm-written",
+      "check": "file_exists",
+      "path": "memory/working/content-calendar-*.md",
+      "description": "Content calendar working memory file was written to memory/working/"
+    },
+    {
+      "id": "content_cale-wm-size",
+      "check": "file_min_bytes",
+      "path": "memory/working/content-calendar-*.md",
+      "min_bytes": 200,
+      "description": "Content calendar working memory file is substantive (>200 bytes)"
+    },
+    {
+      "id": "content_cale-wm-content",
+      "check": "file_contains",
+      "path": "memory/working/content-calendar-*.md",
+      "pattern": "(?i)(content|calendar|deadline)",
+      "description": "Content calendar working memory contains expected content"
+    }
+  ]
+}

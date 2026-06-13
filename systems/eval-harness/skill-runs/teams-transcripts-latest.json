@@ -1,0 +1,11 @@
+{
+  "skill": "teams-transcripts",
+  "agent": "knox",
+  "trigger": "boot",
+  "started": "2026-05-27T11:42:00-05:00",
+  "completed": "2026-05-27T11:58:00-05:00",
+  "status": "success",
+  "tool_failures": 1,
+  "error_ids": [],
+  "notes": "1 transcript fetched and filed (SST FP&A AI Workshop). Obsidian MCP unavailable — note written via osascript filesystem write. Other May 26 meetings (Sales Scrum, Sales & Recruiting, SAP Group, Devlin AI Talk) checked — no transcript access (external org or transcription not enabled)."
+}

@@ -1,0 +1,21 @@
+{
+  "tier": "Getting Started",
+  "completion_percent": 0,
+  "by_category": {
+    "agent": { "tried": 0, "mastered": 0, "total": 19 },
+    "system": { "tried": 0, "mastered": 0, "total": 7 },
+    "connector": { "tried": 0, "mastered": 0, "total": 2 }
+  },
+  "last_session": null,
+  "total_sessions": 0,
+  "streak_days": 0,
+  "nudge": {
+    "last_suggestion_date": null,
+    "suggestions_this_week": 0,
+    "week_start": null,
+    "last_suggested_module": null,
+    "declined_modules": {},
+    "accepted_count": 0,
+    "declined_count": 0
+  }
+}

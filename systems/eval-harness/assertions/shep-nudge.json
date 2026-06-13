@@ -1,0 +1,34 @@
+{
+  "name": "shep-nudge",
+  "type": "skill",
+  "assertions": [
+    {
+      "id": "shep-nudge-signal-written",
+      "check": "file_exists",
+      "path": "systems/eval-harness/skill-runs/shep-nudge-latest.json",
+      "description": "shep-nudge skill-run signal file was written"
+    },
+    {
+      "id": "shep-nudge-signal-status",
+      "check": "json_field_not_equals",
+      "path": "systems/eval-harness/skill-runs/shep-nudge-latest.json",
+      "field": "status",
+      "value": "failure",
+      "description": "shep-nudge skill-run did not end in failure"
+    },
+    {
+      "id": "shep-nud-002-substantive",
+      "check": "file_min_bytes",
+      "path": "memory/working/shep-nudge-*.md",
+      "min_bytes": 200,
+      "description": "shep-nudge output is substantive (>200 bytes)"
+    },
+    {
+      "id": "shep-nud-003-content",
+      "check": "file_contains",
+      "path": "memory/working/shep-nudge-*.md",
+      "pattern": "(?i)(complete|done|finished|output|result)",
+      "description": "shep-nudge output contains expected content"
+    }
+  ]
+}

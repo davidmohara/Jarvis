@@ -1,0 +1,1176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Wars of King David — A Biblical Study Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Cinzel+Decorative:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #C9973A;
+    --gold-light: #E8C270;
+    --gold-dim: #8B6520;
+    --crimson: #8B1A1A;
+    --crimson-light: #B52A2A;
+    --parchment: #F5EDD8;
+    --parchment-dark: #E8D9B8;
+    --ink: #1A120A;
+    --ink-mid: #3D2B1A;
+    --stone: #2C2416;
+    --stone-light: #4A3828;
+    --sand: #D4B896;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background-color: var(--stone);
+    color: var(--parchment);
+    font-family: 'EB Garamond', serif;
+    font-size: 17px;
+    line-height: 1.75;
+    background-image: 
+      radial-gradient(ellipse at 20% 0%, rgba(201,151,58,0.08) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 100%, rgba(139,26,26,0.08) 0%, transparent 50%),
+      url("data:image/svg+xml,%3Csvg width='200' height='200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  }
+
+  /* HERO */
+  .hero {
+    position: relative;
+    min-height: 340px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 60px 40px 50px;
+    overflow: hidden;
+    border-bottom: 1px solid rgba(201,151,58,0.3);
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: 
+      radial-gradient(ellipse 80% 60% at 50% 40%, rgba(201,151,58,0.12) 0%, transparent 70%),
+      linear-gradient(180deg, rgba(26,18,10,0) 0%, rgba(44,36,22,0.6) 100%);
+    pointer-events: none;
+  }
+
+  .hero-eyebrow {
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.85;
+    margin-bottom: 18px;
+  }
+
+  .hero h1 {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: clamp(28px, 5vw, 52px);
+    font-weight: 700;
+    color: var(--gold-light);
+    line-height: 1.15;
+    text-shadow: 0 2px 30px rgba(201,151,58,0.4), 0 0 60px rgba(201,151,58,0.15);
+    margin-bottom: 16px;
+    position: relative;
+  }
+
+  .hero-sub {
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 19px;
+    color: var(--sand);
+    opacity: 0.85;
+    max-width: 520px;
+    margin-bottom: 28px;
+  }
+
+  .hero-verse {
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 14px;
+    color: var(--gold-dim);
+    letter-spacing: 0.05em;
+    border-top: 1px solid rgba(201,151,58,0.2);
+    padding-top: 14px;
+    width: 100%;
+    max-width: 460px;
+  }
+
+  .divider-ornament {
+    text-align: center;
+    color: var(--gold);
+    font-size: 22px;
+    opacity: 0.5;
+    margin: 8px 0;
+    letter-spacing: 8px;
+  }
+
+  /* NAV TABS */
+  .nav-container {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(26,18,10,0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(201,151,58,0.25);
+    padding: 0 20px;
+  }
+
+  .nav-tabs {
+    display: flex;
+    gap: 0;
+    max-width: 1100px;
+    margin: 0 auto;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .nav-tabs::-webkit-scrollbar { display: none; }
+
+  .nav-tab {
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--sand);
+    opacity: 0.6;
+    padding: 14px 20px;
+    cursor: pointer;
+    border: none;
+    background: none;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+  }
+  .nav-tab:hover { opacity: 0.9; color: var(--gold-light); }
+  .nav-tab.active { 
+    opacity: 1; 
+    color: var(--gold-light); 
+    border-bottom-color: var(--gold); 
+  }
+
+  /* CONTENT */
+  .content-area {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 24px 80px;
+  }
+
+  .section { display: none; animation: fadeIn 0.35s ease; }
+  .section.active { display: block; }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .section-header {
+    text-align: center;
+    padding: 48px 0 36px;
+    border-bottom: 1px solid rgba(201,151,58,0.2);
+    margin-bottom: 40px;
+  }
+
+  .section-header h2 {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(22px, 4vw, 36px);
+    color: var(--gold-light);
+    margin-bottom: 10px;
+  }
+
+  .section-header p {
+    font-style: italic;
+    color: var(--sand);
+    opacity: 0.75;
+    font-size: 15px;
+  }
+
+  /* BATTLE CARDS */
+  .battle-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 24px;
+  }
+
+  .battle-card {
+    background: linear-gradient(145deg, rgba(74,56,40,0.5), rgba(44,36,22,0.7));
+    border: 1px solid rgba(201,151,58,0.2);
+    border-radius: 4px;
+    padding: 28px 28px 22px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .battle-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    opacity: 0;
+    transition: opacity 0.25s;
+  }
+
+  .battle-card:hover {
+    border-color: rgba(201,151,58,0.5);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+  }
+
+  .battle-card:hover::before { opacity: 1; }
+  .battle-card.expanded { border-color: rgba(201,151,58,0.5); }
+  .battle-card.expanded::before { opacity: 1; }
+
+  .battle-num {
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    color: var(--gold-dim);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .battle-title {
+    font-family: 'Cinzel', serif;
+    font-size: 17px;
+    color: var(--gold-light);
+    margin-bottom: 6px;
+    line-height: 1.3;
+  }
+
+  .battle-ref {
+    font-size: 13px;
+    color: var(--gold-dim);
+    font-style: italic;
+    margin-bottom: 12px;
+  }
+
+  .battle-enemy-tag {
+    display: inline-block;
+    font-family: 'Cinzel', serif;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border: 1px solid rgba(201,151,58,0.35);
+    border-radius: 2px;
+    color: var(--gold);
+    margin-bottom: 14px;
+  }
+
+  .battle-summary {
+    font-size: 15px;
+    color: var(--sand);
+    line-height: 1.65;
+    opacity: 0.85;
+  }
+
+  .battle-detail {
+    display: none;
+    margin-top: 18px;
+    padding-top: 18px;
+    border-top: 1px solid rgba(201,151,58,0.15);
+  }
+  .battle-card.expanded .battle-detail { display: block; }
+
+  .detail-block {
+    margin-bottom: 16px;
+  }
+
+  .detail-label {
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold-dim);
+    margin-bottom: 6px;
+  }
+
+  .detail-text {
+    font-size: 15px;
+    color: var(--parchment);
+    opacity: 0.88;
+    line-height: 1.7;
+  }
+
+  .scripture-block {
+    background: rgba(0,0,0,0.3);
+    border-left: 3px solid var(--gold-dim);
+    padding: 14px 18px;
+    margin: 14px 0;
+    font-style: italic;
+    font-size: 15px;
+    color: var(--parchment-dark);
+    line-height: 1.75;
+  }
+
+  .scripture-cite {
+    display: block;
+    font-style: normal;
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: var(--gold-dim);
+    margin-top: 8px;
+  }
+
+  .toggle-detail {
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold-dim);
+    cursor: pointer;
+    margin-top: 14px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.2s;
+    background: none;
+    border: none;
+    padding: 0;
+  }
+  .toggle-detail:hover { color: var(--gold-light); }
+  .toggle-detail .arrow { transition: transform 0.2s; }
+  .battle-card.expanded .toggle-detail .arrow { transform: rotate(180deg); }
+
+  /* THEOLOGICAL THEMES */
+  .themes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+    margin-bottom: 40px;
+  }
+
+  .theme-card {
+    background: linear-gradient(145deg, rgba(74,56,40,0.4), rgba(44,36,22,0.6));
+    border: 1px solid rgba(201,151,58,0.18);
+    border-radius: 4px;
+    padding: 26px;
+  }
+
+  .theme-icon {
+    font-size: 28px;
+    margin-bottom: 12px;
+    display: block;
+  }
+
+  .theme-title {
+    font-family: 'Cinzel', serif;
+    font-size: 14px;
+    color: var(--gold-light);
+    margin-bottom: 10px;
+    letter-spacing: 0.05em;
+  }
+
+  .theme-body {
+    font-size: 15px;
+    color: var(--sand);
+    line-height: 1.7;
+    opacity: 0.85;
+  }
+
+  .theme-verses {
+    margin-top: 12px;
+    font-size: 13px;
+    font-style: italic;
+    color: var(--gold-dim);
+  }
+
+  /* HISTORICAL CONTEXT */
+  .context-two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    margin-bottom: 36px;
+  }
+
+  @media (max-width: 700px) {
+    .context-two-col { grid-template-columns: 1fr; }
+    .battle-grid { grid-template-columns: 1fr; }
+    .themes-grid { grid-template-columns: 1fr; }
+  }
+
+  .context-card {
+    background: rgba(44,36,22,0.5);
+    border: 1px solid rgba(201,151,58,0.15);
+    padding: 26px;
+    border-radius: 4px;
+  }
+
+  .context-card h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 14px;
+    color: var(--gold-light);
+    margin-bottom: 14px;
+    letter-spacing: 0.08em;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(201,151,58,0.15);
+  }
+
+  .context-card ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .context-card ul li {
+    font-size: 15px;
+    color: var(--sand);
+    padding: 6px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    opacity: 0.85;
+    padding-left: 14px;
+    position: relative;
+  }
+
+  .context-card ul li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--gold-dim);
+    font-size: 11px;
+  }
+
+  /* STUDY QUESTIONS */
+  .question-list {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .question-item {
+    background: rgba(44,36,22,0.5);
+    border: 1px solid rgba(201,151,58,0.15);
+    border-radius: 4px;
+    padding: 22px 26px;
+  }
+
+  .question-num {
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    color: var(--gold-dim);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .question-text {
+    font-size: 17px;
+    color: var(--parchment);
+    font-weight: 500;
+    margin-bottom: 10px;
+    line-height: 1.5;
+  }
+
+  .question-hint {
+    font-size: 14px;
+    color: var(--sand);
+    font-style: italic;
+    opacity: 0.75;
+  }
+
+  /* REFERENCES */
+  .ref-section {
+    margin-bottom: 36px;
+  }
+
+  .ref-section h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 14px;
+    color: var(--gold-light);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(201,151,58,0.2);
+  }
+
+  .ref-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 14px;
+  }
+
+  .ref-item {
+    background: rgba(44,36,22,0.5);
+    border: 1px solid rgba(201,151,58,0.12);
+    padding: 16px 18px;
+    border-radius: 3px;
+    font-size: 14px;
+    color: var(--sand);
+    line-height: 1.55;
+  }
+
+  .ref-item strong {
+    display: block;
+    font-family: 'Cinzel', serif;
+    font-size: 12px;
+    color: var(--gold-light);
+    margin-bottom: 4px;
+    letter-spacing: 0.03em;
+  }
+
+  /* TIMELINE */
+  .timeline {
+    position: relative;
+    padding-left: 32px;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 8px;
+    top: 0; bottom: 0;
+    width: 1px;
+    background: linear-gradient(180deg, var(--gold-dim), transparent);
+  }
+
+  .tl-item {
+    position: relative;
+    margin-bottom: 28px;
+  }
+
+  .tl-item::before {
+    content: '';
+    position: absolute;
+    left: -28px;
+    top: 7px;
+    width: 9px; height: 9px;
+    border-radius: 50%;
+    background: var(--gold-dim);
+    border: 1px solid var(--gold);
+  }
+
+  .tl-date {
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    color: var(--gold-dim);
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+
+  .tl-title {
+    font-family: 'Cinzel', serif;
+    font-size: 14px;
+    color: var(--gold-light);
+    margin-bottom: 5px;
+  }
+
+  .tl-body {
+    font-size: 14px;
+    color: var(--sand);
+    opacity: 0.85;
+    line-height: 1.65;
+  }
+
+  /* FOOTER */
+  footer {
+    text-align: center;
+    padding: 40px 24px;
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    color: var(--gold-dim);
+    border-top: 1px solid rgba(201,151,58,0.15);
+    opacity: 0.7;
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-eyebrow">A Biblically Grounded Study</div>
+  <h1>The Wars of King David</h1>
+  <div class="hero-sub">From the death of Saul to the expansion of Israel's kingdom</div>
+  <div class="divider-ornament">✦ ✦ ✦</div>
+  <div class="hero-verse">"The Lord made David victorious wherever he went." — 2 Samuel 8:14 (NLT)</div>
+</div>
+
+<div class="nav-container">
+  <div class="nav-tabs">
+    <button class="nav-tab active" onclick="showSection('battles')">The Battles</button>
+    <button class="nav-tab" onclick="showSection('timeline')">Timeline</button>
+    <button class="nav-tab" onclick="showSection('themes')">Theology</button>
+    <button class="nav-tab" onclick="showSection('history')">Historical Context</button>
+    <button class="nav-tab" onclick="showSection('questions')">Study Questions</button>
+    <button class="nav-tab" onclick="showSection('references')">References</button>
+  </div>
+</div>
+
+<div class="content-area">
+
+  <!-- ======= BATTLES ======= -->
+  <div id="battles" class="section active">
+    <div class="section-header">
+      <h2>David's Military Campaigns</h2>
+      <p>Beginning after the death of Saul — click any card to expand full study notes</p>
+    </div>
+
+    <div class="battle-grid">
+
+      <!-- 1. Civil War / Ish-bosheth -->
+      <div class="battle-card" onclick="toggleCard(this)">
+        <div class="battle-num">Campaign I</div>
+        <div class="battle-title">The Civil War — House of David vs. House of Saul</div>
+        <div class="battle-ref">2 Samuel 2–4 · 1 Chronicles 11–12</div>
+        <div class="battle-enemy-tag">Ish-bosheth · Abner</div>
+        <div class="battle-summary">
+          After Saul's death at Gilboa, David is anointed king of Judah at Hebron while Abner, Saul's general, installs Ish-bosheth over the northern tribes. A protracted civil war follows — roughly 1010–1003 BC.
+        </div>
+        <div class="battle-detail">
+          <div class="detail-block">
+            <div class="detail-label">Key Engagement</div>
+            <div class="detail-text">The battle at the Pool of Gibeon is the first major clash. Joab (David's general) and Abner agree to a champion contest, which escalates into full battle. 360 of Abner's men die versus 19 of David's. Abner later kills Joab's brother Asahel in pursuit.</div>
+          </div>
+          <div class="scripture-block">
+            "So David reigned in Hebron over the house of Judah seven years and six months."
+            <span class="scripture-cite">2 Samuel 2:11 (ESV)</span>
+          </div>
+          <div class="detail-block">
+            <div class="detail-label">Theological Insight</div>
+            <div class="detail-text">David never pursued Ish-bosheth militarily for the throne — he waited on God's timing. When Ish-bosheth was murdered, David executed the assassins rather than rewarding them. God's sovereignty in establishing David is the throughline (2 Sam 3:9–10).</div>
+          </div>
+          <div class="detail-block">
+            <div class="detail-label">Archaeological Note</div>
+            <div class="detail-text">The Pool of Gibeon excavated by J.B. Pritchard (1956–1960) confirms this location as a real, identifiable site — a rock-cut cylindrical pool approximately 11m wide and 10m deep at el-Jib, matching biblical geography.</div>
+          </div>
+        </div>
+        <button class="toggle-detail">Study Notes <span class="arrow">▾</span></button>
+      </div>
+
+      <!-- 2. Capture of Jerusalem -->
+      <div class="battle-card" onclick="toggleCard(this)">
+        <div class="battle-num">Campaign II</div>
+        <div class="battle-title">The Capture of Jerusalem (Zion)</div>
+        <div class="battle-ref">2 Samuel 5:6–10 · 1 Chronicles 11:4–9</div>
+        <div class="battle-enemy-tag">Jebusites</div>
+        <div class="battle-summary">
+          After becoming king of all Israel, David captures the Jebusite stronghold of Jerusalem — a city the tribes had failed to take for centuries. David calls it the "City of David."
+        </div>
+        <div class="battle-detail">
+          <div class="detail-block">
+            <div class="detail-label">The Jebusite Taunt</div>
+            <div class="detail-text">The Jebusites mockingly tell David that "even the blind and lame" can defend their city. David and his men enter through the water shaft (tsinnor), a bold tactical move. Joab leads the assault and is rewarded with the position of commander.</div>
+          </div>
+          <div class="scripture-block">
+            "Nevertheless, David captured the stronghold of Zion, that is, the city of David."
+            <span class="scripture-cite">2 Samuel 5:7 (ESV)</span>
+          </div>
+          <div class="detail-block">
+            <div class="detail-label">Historical Significance</div>
+            <div class="detail-text">Jerusalem was strategically brilliant: it belonged to no single tribe, sitting on the border of Benjamin and Judah — making it a neutral capital. Archaeologist Kathleen Kenyon confirmed the Bronze/Iron Age remains on the southeastern hill of Jerusalem as the ancient City of David.</div>
+          </div>
+          <div class="detail-block">
+            <div class="detail-label">Theological Insight</div>
+            <div class="detail-text">Jerusalem becomes God's chosen city (Psalm 132:13–14). The capture signals the beginning of a united Israelite capital and sets the stage for the Davidic covenant and later the Temple of Solomon.</div>
+          </div>
+        </div>
+        <button class="toggle-detail">Study Notes <span class="arrow">▾</span></button>
+      </div>
+
+      <!-- 3. Philistines at Baal-Perazim -->
+      <div class="battle-card" onclick="toggleCard(this)">
+        <div class="battle-num">Campaign III</div>
+        <div class="battle-title">Baal-Perazim — The Philistine Invasions</div>
+        <div class="battle-ref">2 Samuel 5:17–25 · 1 Chronicles 14:8–17</div>
+        <div class="battle-enemy-tag">Philistines</div>
+        <div class="battle-summary">
+          When the Philistines hear David has been crowned king of all Israel, they mobilize twice against him in the Valley of Rephaim. David inquires of the Lord before each battle — and receives two different tactical instructions.
+        </div>
+        <div class="battle-detail">
+          <div class="detail-block">
+            <div class="detail-label">Battle One — Direct Assault</div>
+            <div class="detail-text">David asks God directly: "Shall I go up against the Philistines?" God says go. David defeats them at Baal-Perazim ("Lord of the Breakthroughs"), declaring: "The Lord has broken through my enemies like a bursting flood."</div>
+          </div>
+          <div class="detail-block">
+            <div class="detail-label">Battle Two — Flanking Maneuver</div>
+            <div class="detail-text">When the Philistines return, David inquires again. This time God gives a completely different strategy: circle behind them and attack at the sound of marching in the balsam trees — a divine signal of angelic advance. David obeys and drives them from Gibeon to Gezer.</div>
+          </div>
+          <div class="scripture-block">
+            "And when David inquired of the Lord, he said, 'You shall not go up; go around to their rear, and come against them opposite the balsam trees.'"
+            <span class="scripture-cite">2 Samuel 5:23 (ESV)</span>
+          </div>
+          <div class="detail-block">
+            <div class="detail-label">Theological Insight</div>
+            <div class="detail-text">The repeated inquiry of God is a model of dependence. David does not assume yesterday's strategy works today. Contrast this with Saul, who never truly waited on God. The "sound in the trees" underscores that Israel's victories are God's victories — He fights for them.</div>
+          </div>
+        </div>
+        <button class="toggle-detail">Study Notes <span class="arrow">▾</span></button>
+      </div>
+
+      <!-- 4. Moab -->
+      <div class="battle-card" onclick="toggleCard(this)">
+        <div class="battle-num">Campaign IV</div>
+        <div class="battle-title">Conquest of Moab</div>
+        <div class="battle-ref">2 Samuel 8:2 · 1 Chronicles 18:2</div>
+        <div class="battle-enemy-tag">Moabites</div>
+        <div class="battle-summary">
+          David defeats Moab (modern-day Jordan) and imposes tribute. Notably, David had Moabite ancestry through Ruth, and had once entrusted his parents to Moab's king for protection during his flight from Saul.
+        </div>
+        <div class="battle-detail">
+          <div class="detail-block">
+            <div class="detail-label">The Measuring Lines</div>
+            <div class="detail-text">David measures prisoners with a cord — two portions to be executed, one to be spared. This harsh treatment is historically consistent with ancient Near Eastern conquest customs, though it surprises given David's personal Moabite connections (Ruth 4:13–22).</div>
+          </div>
+          <div class="scripture-block">
+            "He measured them with a line, making them lie down on the ground. Two lines he measured to be put to death, and one full line to be kept alive."
+            <span class="scripture-cite">2 Samuel 8:2 (ESV)</span>
+          </div>
+          <div class="detail-block">
+            <div class="detail-label">Historical Note</div>
+            <div class="detail-text">The Moabite Stone (Mesha Stele, c. 840 BC) provides fascinating archaeological context — it's an inscription by Moab's king Mesha lamenting Israelite dominance, corroborating that Israel did indeed control Moab during David and Solomon's era.</div>
+          </div>
+        </div>
+        <button class="toggle-detail">Study Notes <span class="arrow">▾</span></button>
+      </div>
+
+      <!-- 5. Hadadezer / Zobah / Aram -->
+      <div class="battle-card" onclick="toggleCard(this)">
+        <div class="battle-num">Campaign V</div>
+        <div class="battle-title">Defeat of Hadadezer & the Arameans</div>
+        <div class="battle-ref">2 Samuel 8:3–8 · 1 Chronicles 18:3–8</div>
+        <div class="battle-enemy-tag">Zobah · Aram-Damascus</div>
+        <div class="battle-summary">
+          David defeats Hadadezer, king of Zobah, as he was expanding toward the Euphrates. When the Arameans of Damascus arrive to help Hadadezer, David kills 22,000 of them. Israel's territory reaches its greatest northern extent.
+        </div>
+        <div class="battle-detail">
+          <div class="detail-block">
+            <div class="detail-label">Scale of Victory</div>
+            <div class="detail-text">David captures 1,000 chariots, 7,000 horsemen, and 20,000 foot soldiers. He hamstrings all the chariot horses except 100 — deliberately limiting his own military capacity, likely in obedience to Deuteronomy 17:16's prohibition against kings multiplying horses.</div>
+          </div>
+          <div class="scripture-block">
+            "And David hamstrung all the chariot horses but left enough for a hundred chariots."
+            <span class="scripture-cite">2 Samuel 8:4 (ESV)</span>
+          </div>
+          <div class="detail-block">
+            <div class="detail-label">Hamath Alliance</div>
+            <div class="detail-text">King Toi of Hamath — an enemy of Hadadezer — sends his son with gifts of gold, silver, and bronze to congratulate David, essentially submitting diplomatically. David dedicates all the spoils to the Lord.</div>
+          </div>
+          <div class="detail-block">
+            <div class="detail-label">Theological Insight</div>
+            <div class="detail-text">David's restraint with the horses reflects covenant obedience. The dedication of spoils to God (2 Sam 8:11) shows that David understood these victories belonged to God, not to his military genius.</div>
+          </div>
+        </div>
+        <button class="toggle-detail">Study Notes <span class="arrow">▾</span></button>
+      </div>
+
+      <!-- 6. Edom - Valley of Salt -->
+      <div class="battle-card" onclick="toggleCard(this)">
+        <div class="battle-num">Campaign VI</div>
+        <div class="battle-title">Valley of Salt — Defeat of Edom</div>
+        <div class="battle-ref">2 Samuel 8:13–14 · Psalm 60 (superscription)</div>
+        <div class="battle-enemy-tag">Edomites</div>
+        <div class="battle-summary">
+          David defeats 18,000 Edomites in the Valley of Salt (near the Dead Sea) and installs garrisons throughout Edom. Psalm 60 was written during this campaign, revealing David's inner experience even in a time of struggle.
+        </div>
+        <div class="battle-detail">
+          <div class="detail-block">
+            <div class="detail-label">Psalm 60 — The Warrior's Lament</div>
+            <div class="detail-text">Psalm 60 is unique: it is a psalm of distress written during what ultimately became a victory. It suggests the Edom campaign was difficult. David cries: "O God, you have rejected us, broken our defenses" — yet ends with faith: "With God we shall do valiantly."</div>
+          </div>
+          <div class="scripture-block">
+            "With God we shall do valiantly; it is he who will tread down our foes."
+            <span class="scripture-cite">Psalm 60:12 (ESV)</span>
+          </div>
+          <div class="detail-block">
+            <div class="detail-label">Joab's Role</div>
+            <div class="detail-text">1 Chronicles 18:12 attributes the killing of 18,000 to Abishai; the Psalm superscription attributes the campaign to Joab and says 12,000. These different numbers likely reflect different phases of the same campaign or different participants in multiple engagements.</div>
+          </div>
+        </div>
+        <button class="toggle-detail">Study Notes <span class="arrow">▾</span></button>
+      </div>
+
+      <!-- 7. Ammonites -->
+      <div class="battle-card" onclick="toggleCard(this)">
+        <div class="battle-num">Campaign VII</div>
+        <div class="battle-title">War with Ammon & the Aramean Coalition</div>
+        <div class="battle-ref">2 Samuel 10–12 · 1 Chronicles 19–20</div>
+        <div class="battle-enemy-tag">Ammonites · Arameans</div>
+        <div class="battle-summary">
+          David sends envoys to comfort the new Ammonite king after his father's death. The Ammonites humiliate his ambassadors, triggering a massive two-year war. Joab leads brilliantly. This campaign also frames the Bathsheba episode.
+        </div>
+        <div class="battle-detail">
+          <div class="detail-block">
+            <div class="detail-label">The Diplomatic Insult</div>
+            <div class="detail-text">Hanun, the Ammonite king, is advised that David's envoys are spies. He shaves half their beards and cuts their garments to the waist — an extreme humiliation in the ANE (Ancient Near East) where the beard was a mark of dignity. This sparks the war.</div>
+          </div>
+          <div class="detail-block">
+            <div class="detail-label">Joab's Two-Front Strategy</div>
+            <div class="detail-text">Joab divides his force: he faces the Aramean mercenaries while his brother Abishai holds the Ammonite front. Joab's battlefield speech is one of the Bible's great expressions of courage: "Be strong, and let us be courageous for our people, and for the cities of our God."</div>
+          </div>
+          <div class="scripture-block">
+            "Be strong, and let us be courageous for our people, and for the cities of our God, and may the Lord do what seems good to him."
+            <span class="scripture-cite">2 Samuel 10:12 (ESV)</span>
+          </div>
+          <div class="detail-block">
+            <div class="detail-label">David's Fatal Absence</div>
+            <div class="detail-text">It is in the second year of this campaign — "at the time when kings go out to battle" — that David stays behind in Jerusalem. His idleness leads to the Bathsheba incident. The war that reveals David's greatest military success also reveals his greatest moral failure.</div>
+          </div>
+        </div>
+        <button class="toggle-detail">Study Notes <span class="arrow">▾</span></button>
+      </div>
+
+      <!-- 8. Absalom's Rebellion -->
+      <div class="battle-card" onclick="toggleCard(this)">
+        <div class="battle-num">Campaign VIII</div>
+        <div class="battle-title">Absalom's Rebellion</div>
+        <div class="battle-ref">2 Samuel 15–18</div>
+        <div class="battle-enemy-tag">Internal · Absalom</div>
+        <div class="battle-summary">
+          David's own son Absalom stages a coup that forces David to flee Jerusalem. The battle of the Forest of Ephraim ends with Absalom's death at Joab's hands despite David's command to spare him.
+        </div>
+        <div class="battle-detail">
+          <div class="detail-block">
+            <div class="detail-label">A Father's Grief in War</div>
+            <div class="detail-text">David commands his generals: "Deal gently with the young man Absalom." When Joab kills Absalom anyway (caught by his hair in a terebinth tree), David's victory cry becomes one of Scripture's most anguished laments: "O my son Absalom, my son, my son Absalom! Would I had died instead of you."</div>
+          </div>
+          <div class="scripture-block">
+            "O my son Absalom, my son, my son Absalom! Would I had died instead of you, O Absalom, my son, my son!"
+            <span class="scripture-cite">2 Samuel 18:33 (ESV)</span>
+          </div>
+          <div class="detail-block">
+            <div class="detail-label">Nathan's Prophecy Fulfilled</div>
+            <div class="detail-text">Nathan had told David: "The sword shall never depart from your house." Absalom's rebellion — which began after the Bathsheba/Uriah affair — is the direct fulfillment of this judgment (2 Sam 12:10–11). David's military victories cannot insulate him from the consequences of moral failure.</div>
+          </div>
+        </div>
+        <button class="toggle-detail">Study Notes <span class="arrow">▾</span></button>
+      </div>
+
+      <!-- 9. Later Philistine giants -->
+      <div class="battle-card" onclick="toggleCard(this)">
+        <div class="battle-num">Campaign IX</div>
+        <div class="battle-title">Final Philistine Wars — The Giants</div>
+        <div class="battle-ref">2 Samuel 21:15–22 · 1 Chronicles 20:4–8</div>
+        <div class="battle-enemy-tag">Philistines · Giants of Gath</div>
+        <div class="battle-summary">
+          Four final battles against the Philistines are recorded, each featuring a giant — descendants of the Raphah. One had six fingers on each hand and six toes on each foot. David's Mighty Men slay them all.
+        </div>
+        <div class="battle-detail">
+          <div class="detail-block">
+            <div class="detail-label">David Pulled from the Line</div>
+            <div class="detail-text">In one battle, David nearly dies — Ishbi-benob, a giant with a spear weighing 300 shekels of bronze, corners a weary David. Abishai rescues him. After this, David's men swear he will never go to battle again: "You shall no longer go out with us to battle, lest you quench the lamp of Israel."</div>
+          </div>
+          <div class="scripture-block">
+            "You shall no longer go out with us to battle, lest you quench the lamp of Israel."
+            <span class="scripture-cite">2 Samuel 21:17 (ESV)</span>
+          </div>
+          <div class="detail-block">
+            <div class="detail-label">Theological Insight</div>
+            <div class="detail-text">The "lamp of Israel" language anticipates the Davidic covenant — the king's life is not just personal but messianic. Extinguishing David means extinguishing the lineage from which the Messiah would come. This is why the men protect him so fiercely.</div>
+          </div>
+          <div class="detail-block">
+            <div class="detail-label">The Twelve-Fingered Giant</div>
+            <div class="detail-text">One of the Philistine warriors had twelve fingers and twelve toes — likely a rare but real polydactyly condition. He is killed by Jonathan, son of Shimei (David's brother). These are the last recorded Philistine giant-warriors in Scripture.</div>
+          </div>
+        </div>
+        <button class="toggle-detail">Study Notes <span class="arrow">▾</span></button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ======= TIMELINE ======= -->
+  <div id="timeline" class="section">
+    <div class="section-header">
+      <h2>Chronological Timeline</h2>
+      <p>From Saul's death to the close of David's military campaigns</p>
+    </div>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-date">c. 1010 BC</div>
+        <div class="tl-title">Saul Dies at Mount Gilboa</div>
+        <div class="tl-body">Saul and Jonathan are killed by the Philistines. David receives the news and composes his great lament (2 Sam 1:17–27). David is anointed king of Judah at Hebron.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">c. 1010–1003 BC</div>
+        <div class="tl-title">Civil War with the House of Saul</div>
+        <div class="tl-body">Ish-bosheth rules the northern tribes; David rules Judah from Hebron. Seven-year civil war, characterized by battles of attrition. Joab kills Abner; assassins kill Ish-bosheth. David mourns both deaths.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">c. 1003 BC</div>
+        <div class="tl-title">David Crowned King of All Israel</div>
+        <div class="tl-body">All twelve tribes submit to David. He is anointed for the third time (first by Samuel, second by Judah, now by all Israel) at Hebron — 2 Samuel 5:1–5.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">c. 1002 BC</div>
+        <div class="tl-title">Capture of Jerusalem</div>
+        <div class="tl-body">David takes the Jebusite city through the water shaft. Joab leads the assault. Jerusalem becomes the City of David — the political and eventually spiritual capital of Israel.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">c. 1001–997 BC</div>
+        <div class="tl-title">Philistine Wars I & II (Baal-Perazim)</div>
+        <div class="tl-body">The Philistines attack twice in the Valley of Rephaim. Two inquiries of God yield two different strategies, both resulting in victory. The Philistines are driven from Gibeon to Gezer.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">c. 997–990 BC</div>
+        <div class="tl-title">Northern & Eastern Campaigns</div>
+        <div class="tl-body">David subdues Moab, defeats Hadadezer of Zobah, defeats Aram-Damascus (22,000 killed), and destroys 18,000 Edomites in the Valley of Salt. Israel's borders reach from the Nile tributary to the Euphrates.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">c. 990–988 BC</div>
+        <div class="tl-title">Ammonite War & Aramean Coalition</div>
+        <div class="tl-body">The diplomatic insult triggers a two-year war. Joab defeats both the Ammonites and the Aramean coalition. David's absence from the front leads to the Bathsheba episode and Uriah's murder — the pivot point of David's reign.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">c. 980 BC</div>
+        <div class="tl-title">Absalom's Rebellion</div>
+        <div class="tl-body">Absalom's coup forces David to flee Jerusalem barefoot, weeping. The climactic Battle of the Forest of Ephraim ends with Absalom caught in a tree and killed by Joab. David's grief overshadows the victory.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">c. 975–970 BC</div>
+        <div class="tl-title">Final Philistine Battles</div>
+        <div class="tl-body">Four battles against Philistine giants (descendants of Raphah) are waged by David's Mighty Men. David himself is nearly killed and is thereafter prohibited from battle. Israel's last recorded Philistine giant-warriors are slain.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">c. 970 BC</div>
+        <div class="tl-title">David's Reign Ends</div>
+        <div class="tl-body">David reigns 40 years total — 7 in Hebron, 33 in Jerusalem. He passes the kingdom to Solomon, leaving plans for the Temple he was not permitted to build. The Davidic covenant endures as the foundation of messianic hope.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======= THEOLOGY ======= -->
+  <div id="themes" class="section">
+    <div class="section-header">
+      <h2>Theological Themes</h2>
+      <p>The spiritual architecture beneath the military narrative</p>
+    </div>
+    <div class="themes-grid">
+      <div class="theme-card">
+        <span class="theme-icon">🗣️</span>
+        <div class="theme-title">Inquiring of the Lord</div>
+        <div class="theme-body">Before every major engagement, David asks God — and God answers with specific tactical direction. The contrast with Saul (who consulted a medium) could not be sharper. David's victories flow from his dependence, not his military genius.</div>
+        <div class="theme-verses">See: 2 Sam 5:19, 23; 1 Sam 23:2; 30:8</div>
+      </div>
+      <div class="theme-card">
+        <span class="theme-icon">✋</span>
+        <div class="theme-title">God as the True Warrior</div>
+        <div class="theme-body">"The Lord made David victorious wherever he went" (2 Sam 8:14) is the editorial summary of his entire military career. Victory is consistently attributed to God, not to tactics. Even when David asks "shall I go?", God must confirm it — the campaign belongs to Him.</div>
+        <div class="theme-verses">See: 2 Sam 8:6, 14; 5:20; 1 Chron 18:13</div>
+      </div>
+      <div class="theme-card">
+        <span class="theme-icon">⚖️</span>
+        <div class="theme-title">The Davidic Covenant</div>
+        <div class="theme-body">2 Samuel 7 (the Davidic Covenant) falls between the Ark's arrival in Jerusalem and the military campaigns of chapter 8. God's promise of an eternal dynasty gives theological meaning to the conquests: David's victories expand the territory of the promised kingdom.</div>
+        <div class="theme-verses">See: 2 Sam 7:8–16; Ps 89:3–4; Luke 1:32–33</div>
+      </div>
+      <div class="theme-card">
+        <span class="theme-icon">🕊️</span>
+        <div class="theme-title">Grace Amid Moral Failure</div>
+        <div class="theme-body">The Ammonite War (2 Sam 10–12) brackets both Israel's greatest external victories and David's greatest personal sin. Nathan's rebuke, David's Psalm 51 confession, and God's forgiveness demonstrate that the Davidic covenant rests on grace — not David's merit.</div>
+        <div class="theme-verses">See: 2 Sam 12:13; Ps 51; 2 Sam 7:14–15</div>
+      </div>
+      <div class="theme-card">
+        <span class="theme-icon">⚔️</span>
+        <div class="theme-title">The Sword That Does Not Depart</div>
+        <div class="theme-body">Nathan's judgment — "the sword shall never depart from your house" — creates a dark undertow to every subsequent military narrative. Amnon's murder, Absalom's coup, Sheba's revolt, and the Adonijah crisis all fulfill this prophetic word. David's personal sins entangle his public legacy.</div>
+        <div class="theme-verses">See: 2 Sam 12:10; 13:28–29; 15:14; 1 Kings 2</div>
+      </div>
+      <div class="theme-card">
+        <span class="theme-icon">🏛️</span>
+        <div class="theme-title">Typology — David and Christ</div>
+        <div class="theme-body">David is the supreme messianic type in the OT. His kingdom anticipates Christ's kingdom; his defeat of enemies foreshadows Christ's defeat of sin and death; his role as shepherd-king points to Jesus the Good Shepherd. "Son of David" is a messianic title.</div>
+        <div class="theme-verses">See: Matt 1:1; Luke 1:32; Rev 5:5; Acts 2:25–36</div>
+      </div>
+    </div>
+
+    <div style="background: rgba(44,36,22,0.5); border: 1px solid rgba(201,151,58,0.2); padding: 28px; border-radius: 4px; margin-top: 8px;">
+      <div style="font-family: 'Cinzel', serif; font-size: 13px; color: var(--gold-light); letter-spacing: 0.1em; margin-bottom: 16px;">Key Passage: 2 Samuel 7 — The Hinge of David's Story</div>
+      <p style="font-size: 16px; color: var(--sand); line-height: 1.8; opacity: 0.9;">Every battle David fights after 2 Samuel 7 is fought within the framework of God's covenant promise. The Lord tells David: <em>"I will make your name great... I will give you rest from all your enemies... I will raise up your offspring after you... and I will establish his kingdom forever."</em> The military campaigns of 2 Samuel 8–21 are not merely political history — they are the outworking of covenant faithfulness, even when David is unfaithful. They are God keeping His word.</p>
+    </div>
+  </div>
+
+  <!-- ======= HISTORICAL CONTEXT ======= -->
+  <div id="history" class="section">
+    <div class="section-header">
+      <h2>Historical & Archaeological Context</h2>
+      <p>Grounding the biblical narrative in the ancient world</p>
+    </div>
+
+    <div class="context-two-col">
+      <div class="context-card">
+        <h3>Geopolitical Setting (~1010–970 BC)</h3>
+        <ul>
+          <li>Egypt is in a period of weakness (Third Intermediate Period) — no interference in Canaan</li>
+          <li>Assyria has not yet risen to regional dominance</li>
+          <li>The Philistines (Sea Peoples) are David's primary western threat</li>
+          <li>Aram-Damascus is emerging as a northern power</li>
+          <li>Moab, Ammon, and Edom occupy the Transjordan</li>
+          <li>Iron Age IIA marks increasing use of iron weapons across the region</li>
+        </ul>
+      </div>
+      <div class="context-card">
+        <h3>David's Military Organization</h3>
+        <ul>
+          <li>Joab commanded the standing army (2 Sam 8:16)</li>
+          <li>Benaiah commanded the Cherethites and Pelethites (royal bodyguard)</li>
+          <li>The Thirty — elite warriors with distinguished battlefield records (2 Sam 23)</li>
+          <li>The Three — inner circle: Jashobeam, Eleazar, Shammah (1 Chron 11:11–14)</li>
+          <li>Monthly rotational divisions of 24,000 men each (1 Chron 27)</li>
+          <li>Mercenaries from Gath (the 600) loyal to David personally</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="context-two-col">
+      <div class="context-card">
+        <h3>Key Archaeological Confirmations</h3>
+        <ul>
+          <li>Tel Dan Stele (9th c. BC) — first extrabiblical reference to "House of David"</li>
+          <li>Mesha Stele (Moabite Stone) — confirms Israelite control of Moab</li>
+          <li>Pool of Gibeon — excavated by J.B. Pritchard, confirmed at el-Jib</li>
+          <li>City of David excavations — Kathleen Kenyon; Iron Age remains on SE hill of Jerusalem</li>
+          <li>Khirbet Qeiyafa — 10th c. BC Israelite fortification near Elah Valley (Goliath territory)</li>
+          <li>Gath (Tell es-Safi) excavations — Philistine city, confirms Philistine presence and culture</li>
+        </ul>
+      </div>
+      <div class="context-card">
+        <h3>David's Weapons & Warfare</h3>
+        <ul>
+          <li>Iron swords and spears were valuable status symbols in early Iron Age</li>
+          <li>Chariots were the "tanks" of the ANE — David hamstrings horses per Deut 17:16</li>
+          <li>Sling warfare was a skilled military art, not a shepherd's improvisation</li>
+          <li>Siege warfare required long supply lines — see Rabbah/Ammon campaign</li>
+          <li>Water shaft tactics (Jerusalem capture) confirmed by archaeological excavation</li>
+          <li>ANE treaties involved tribute, garrisons, and vassal arrangements — David uses all three</li>
+        </ul>
+      </div>
+    </div>
+
+    <div style="background: rgba(44,36,22,0.5); border: 1px solid rgba(201,151,58,0.2); padding: 28px; border-radius: 4px;">
+      <div style="font-family: 'Cinzel', serif; font-size: 13px; color: var(--gold-light); letter-spacing: 0.1em; margin-bottom: 14px;">Why David Won</div>
+      <p style="font-size: 16px; color: var(--sand); line-height: 1.8; opacity: 0.9; margin-bottom: 12px;">The Bible attributes David's victories to God (2 Sam 8:14). Historically, several factors converged: <strong style="color: var(--parchment);">Egypt</strong> was in decline, removing the dominant regional power; the <strong style="color: var(--parchment);">Philistines</strong> were weakened after Saul's reign; <strong style="color: var(--parchment);">Assyria</strong> had not yet risen; and David unified a previously fractured nation. David also possessed a rare combination of charismatic loyalty, tactical flexibility, and — critically — the willingness to stop and ask God before acting.</p>
+      <p style="font-size: 14px; color: var(--gold-dim); font-style: italic;">Scholar reference: The Bible Journey — "The success of David's military campaigns...reflected the weakness of his neighbours at that point in history."</p>
+    </div>
+  </div>
+
+  <!-- ======= STUDY QUESTIONS ======= -->
+  <div id="questions" class="section">
+    <div class="section-header">
+      <h2>Study Questions</h2>
+      <p>For personal reflection, small group, or sermon preparation</p>
+    </div>
+    <div class="question-list">
+      <div class="question-item">
+        <div class="question-num">Observation · 2 Samuel 5:17–25</div>
+        <div class="question-text">David inquires of God before both Philistine battles at Baal-Perazim and receives different instructions each time. What does this reveal about the nature of prayer and strategy in the life of the believer?</div>
+        <div class="question-hint">Hint: Notice he doesn't assume God's answer will be the same the second time.</div>
+      </div>
+      <div class="question-item">
+        <div class="question-num">Interpretation · 2 Samuel 7–8</div>
+        <div class="question-text">2 Samuel 7 (the Davidic Covenant) immediately precedes 2 Samuel 8 (the military victories). Why does the author place these two chapters together, and what does this sequence say about the relationship between God's promises and human action?</div>
+        <div class="question-hint">Hint: David does not fight to earn God's favor — he fights within the security of already having it.</div>
+      </div>
+      <div class="question-item">
+        <div class="question-num">Application · 2 Samuel 8:4</div>
+        <div class="question-text">David hamstrings captured war horses — deliberately limiting his own military power in obedience to Deuteronomy 17:16. Where in your life might God be asking you to limit an advantage you have, as an act of trust?</div>
+        <div class="question-hint">Hint: This is the tension between competence and dependence.</div>
+      </div>
+      <div class="question-item">
+        <div class="question-num">Observation · 2 Samuel 10:12</div>
+        <div class="question-text">Joab's pre-battle speech ("Be strong, and let us be courageous for our people, and for the cities of our God, and may the Lord do what seems good to him") balances human courage with divine sovereignty. What is the significance of his final phrase — "may the Lord do what seems good to him"?</div>
+        <div class="question-hint">Hint: This is not fatalism — it is faithful courage without demanding outcomes.</div>
+      </div>
+      <div class="question-item">
+        <div class="question-num">Synthesis · 2 Samuel 11–12</div>
+        <div class="question-text">David's greatest military victories (the Ammonite war) frame his greatest personal failure (Bathsheba/Uriah). What does the juxtaposition of external success and internal collapse teach us about the nature of human character and spiritual vigilance?</div>
+        <div class="question-hint">Hint: Consider the phrase "at the time when kings go out to battle" as a moral turning point.</div>
+      </div>
+      <div class="question-item">
+        <div class="question-num">Theology · 2 Samuel 18:33</div>
+        <div class="question-text">David wins the battle against Absalom but is devastated by his son's death. How does this moment illuminate the difference between God's providential purposes and a father's personal grief? How can both be simultaneously true?</div>
+        <div class="question-hint">Hint: The victory fulfills Nathan's prophecy — but David cries "would I had died instead of you."</div>
+      </div>
+      <div class="question-item">
+        <div class="question-num">Typology · Psalms of the Campaign</div>
+        <div class="question-text">Psalm 60 was written during the Edomite campaign — a victory — yet it reads like a lament. How does this psalm model what authentic prayer looks like even in the midst of eventual victory? How does it compare to Psalm 18 (written after God delivered David from all enemies)?</div>
+        <div class="question-hint">Hint: Compare Psalm 60:1–3 with Psalm 18:1–6. Both are war psalms — the emotional register is completely different.</div>
+      </div>
+      <div class="question-item">
+        <div class="question-num">Christ in David</div>
+        <div class="question-text">The people call David "the lamp of Israel" (2 Sam 21:17) and swear to protect him. In what ways is David's role as "lamp of Israel" a shadow of Christ's claim "I am the light of the world" (John 8:12)? What does the messianic trajectory of the Davidic line mean for how we read these battle accounts?</div>
+        <div class="question-hint">Hint: See also Revelation 22:16 — "I am the root and the descendant of David, the bright morning star."</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======= REFERENCES ======= -->
+  <div id="references" class="section">
+    <div class="section-header">
+      <h2>References & Further Study</h2>
+      <p>Biblical texts, scholarly resources, and archaeological sources</p>
+    </div>
+
+    <div class="ref-section">
+      <h3>Primary Biblical Texts</h3>
+      <div class="ref-list">
+        <div class="ref-item"><strong>2 Samuel 2–5</strong>Civil war, capture of Jerusalem, Philistine battles</div>
+        <div class="ref-item"><strong>2 Samuel 7</strong>The Davidic Covenant — theological foundation</div>
+        <div class="ref-item"><strong>2 Samuel 8</strong>Military victories summary: Philistia, Moab, Zobah, Aram, Edom</div>
+        <div class="ref-item"><strong>2 Samuel 10–12</strong>Ammonite war, Aramean coalition, Bathsheba episode</div>
+        <div class="ref-item"><strong>2 Samuel 15–18</strong>Absalom's rebellion and death</div>
+        <div class="ref-item"><strong>2 Samuel 21–23</strong>Final Philistine wars, Mighty Men, David's song</div>
+        <div class="ref-item"><strong>1 Chronicles 11–12; 18–20</strong>Parallel accounts (often adds detail)</div>
+        <div class="ref-item"><strong>Psalms 18, 51, 60, 132</strong>Psalms directly tied to campaign events</div>
+      </div>
+    </div>
+
+    <div class="ref-section">
+      <h3>Recommended Scholarly Resources</h3>
+      <div class="ref-list">
+        <div class="ref-item"><strong>Harmony of Samuel, Kings & Chronicles</strong>W. Crockett — reconciles parallel accounts and chronology</div>
+        <div class="ref-item"><strong>The Bible Journey (thebiblejourney.org)</strong>Geographical and historical commentary on David's campaigns</div>
+        <div class="ref-item"><strong>Yale Bible Study — Books of Samuel</strong>Academic-grade narrative analysis; available free online</div>
+        <div class="ref-item"><strong>BibleStudy.org — King David's Battles Map</strong>Comprehensive chronological listing with maps and references</div>
+        <div class="ref-item"><strong>Willmington's Complete Guide to Bible Knowledge</strong>Classic evangelical reference work on David's military career</div>
+        <div class="ref-item"><strong>Complete Book of Who's Who in the Bible</strong>Philip Comfort & Walter Elwell — prosopographical reference</div>
+        <div class="ref-item"><strong>Ancient Israel: Its Life and Institutions</strong>Roland de Vaux — ANE social and military context</div>
+        <div class="ref-item"><strong>A History of Israel (4th ed.)</strong>John Bright — standard scholarly history of the biblical period</div>
+      </div>
+    </div>
+
+    <div class="ref-section">
+      <h3>Archaeological Resources</h3>
+      <div class="ref-list">
+        <div class="ref-item"><strong>Tel Dan Stele (9th c. BC)</strong>First extrabiblical "House of David" reference; Israel Museum</div>
+        <div class="ref-item"><strong>Mesha Stele (Moabite Stone)</strong>Confirms Israelite dominance over Moab; Louvre, Paris</div>
+        <div class="ref-item"><strong>Gibeon Pool Excavation</strong>J.B. Pritchard, 1956–1960; published ASOR reports confirm el-Jib identification</div>
+        <div class="ref-item"><strong>City of David Excavations</strong>Kathleen Kenyon; confirms Iron Age occupation of Jerusalem's SE hill</div>
+        <div class="ref-item"><strong>Khirbet Qeiyafa</strong>Yosef Garfinkel excavations; 10th c. BC Israelite fort overlooking Philistine territory</div>
+        <div class="ref-item"><strong>Tell es-Safi / Gath</strong>Aren Maeir ongoing excavations; major Philistine city near David's early career</div>
+      </div>
+    </div>
+
+    <div style="background: rgba(44,36,22,0.5); border: 1px solid rgba(201,151,58,0.2); padding: 24px; border-radius: 4px; text-align: center;">
+      <div style="font-family: 'Cinzel', serif; font-size: 11px; color: var(--gold-dim); letter-spacing: 0.3em; text-transform: uppercase; margin-bottom: 12px;">A Note on Sources</div>
+      <p style="font-size: 15px; color: var(--sand); opacity: 0.8; max-width: 600px; margin: 0 auto; line-height: 1.75;">All biblical references use the ESV (English Standard Version) or NLT (New Living Translation) unless otherwise noted. Dates are approximate, following W. Crockett's harmony and mainstream evangelical chronology (David's reign c. 1010–970 BC). Archaeological dates reflect current scholarly consensus as of 2025.</p>
+    </div>
+  </div>
+
+</div>
+
+<footer>The Wars of King David — A Biblical Study Guide &nbsp;·&nbsp; Built for Personal & Group Study &nbsp;·&nbsp; All Scripture for Educational Use</footer>
+
+<script>
+  function showSection(id) {
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    event.target.classList.add('active');
+  }
+
+  function toggleCard(card) {
+    card.classList.toggle('expanded');
+  }
+</script>
+</body>
+</html>

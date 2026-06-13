@@ -1,0 +1,18 @@
+{
+  "id": "err-20260508-001",
+  "timestamp": "2026-05-08T07:14:36-07:00",
+  "session": "2026-05-08",
+  "source": "explicit",
+  "agent": "jarvis",
+  "category": "data-accuracy",
+  "failure_mode": "stale-cache",
+  "description": "OmniFocus get_active_tasks returned completed tasks including PGA ticket purchase (marked done by David) and the OmniFocus inbox clear task. Presented these as open/active items during boot briefing.",
+  "correction": "Both tasks were already completed. OmniFocus MCP appears to return completed tasks despite the get_active_tasks call contract. Must verify completion field before surfacing any task.",
+  "systemic_fix": "Always check completed:false explicitly on each task returned by get_active_tasks before surfacing it. Do not trust the call filter alone — MCP may return stale or completed items.",
+  "fix_status": "applied",
+  "severity": "moderate",
+  "related_entries": [
+    "err-20260507-001",
+    "err-20260507-003"
+  ]
+}

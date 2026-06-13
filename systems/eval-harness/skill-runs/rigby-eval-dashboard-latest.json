@@ -1,0 +1,12 @@
+{
+  "skill": "rigby-eval-dashboard",
+  "agent": "rigby",
+  "trigger": "workflow:system-eval",
+  "started": "2026-06-13T04:25:00Z",
+  "completed": "2026-06-13T04:27:00Z",
+  "status": "success",
+  "tool_failures": 0,
+  "error_ids": [],
+  "records_visualized": 22,
+  "output_path": "systems/eval-harness/dashboard.html"
+}
