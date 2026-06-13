@@ -1,67 +1,61 @@
 workflow: system-eval
 agent: rigby
 status: complete
-session-started: "2026-06-09T15:18:29Z"
-session-id: rigby-2026-06-09-151829
-eval-record-id: eval-20260609T151829-OUXB1P
+session-started: "2026-06-13T04:05:49Z"
+session-id: rigby-2026-06-13-040549
+eval-record-id: eval-20260613T040549-SOOE69
 current-step: null
 original-request: "scheduled weekly-system-eval task"
 accumulated-context:
-  records_total: 17
+  records_total: 22
   records_skipped_in_progress: 1
   needs_assertions:
-    - eval-20260527T185503-NDAYK6
-    - eval-20260527T205926-PCHVJ1
-    - eval-20260528T021206-IMUITJ
-    - eval-20260529T021226-T3TGHW
-    - eval-20260530T021202-MKO2P3
-    - eval-20260602T021149-SL6FJ9
-    - eval-20260603T021219-4T8MSY
-    - eval-20260605T021223-ARZ3WN
+    - eval-20260609T151829-OUXB1P
+    - eval-20260609T152224-SDY4MV
+    - eval-20260612T132309-PSAUO8
+    - eval-20260613T021205-CFZ2ZA
   needs_grade:
-    - eval-20260528T021206-IMUITJ
-    - eval-20260529T021226-T3TGHW
-    - eval-20260529T224500-ypo001
-    - eval-20260530T021202-MKO2P3
-    - eval-20260602T021149-SL6FJ9
-    - eval-20260603T021219-4T8MSY
-    - eval-20260605T021223-ARZ3WN
-  records_complete: 8
+    - eval-20260609T151829-OUXB1P
+    - eval-20260609T152224-SDY4MV
+    - eval-20260612T132309-PSAUO8
+    - eval-20260613T021205-CFZ2ZA
+  records_complete: 17
   assertion_files_available:
-    - morning-briefing
+    - system-eval
     - daily-review
+    - morning-briefing
     - error-improvement
     - content-pipeline
-    - system-eval
     - obsidian-source-note
   assertions_run:
-    total_records_asserted: 8
-    total_assertions_evaluated: 64
-    total_assertions_passed: 27
+    total_records_asserted: 4
+    total_assertions_evaluated: 34
+    total_assertions_passed: 20
     records_fully_passing: 0
-    records_with_failures: 8
+    records_with_failures: 4
     no_assertion_definition: []
   grading:
-    total_graded: 7
+    total_graded: 4
     grade_distribution:
-      A: 1
-      B: 1
-      C: 2
+      A: 0
+      B: 3
+      C: 0
       D: 0
-      F: 3
-    no_output_found: []
+      F: 1
+    no_output_found:
+      - eval-20260613T021205-CFZ2ZA
   scoring:
-    records_scored: 17
-    batch_average: 0.649
+    records_scored: 21
+    batch_average: 0.6738
     score_by_id:
       eval-20260524T194258-HBF752: 0.5765
-      eval-20260526T125258-Q3KWG7: 1.000
+      eval-20260526T125258-Q3KWG7: 1.0
       eval-20260526T215647-T3Q5PX: 0.7933
       eval-20260527T021153-F0GRE1: 0.7533
       eval-20260527T185503-NDAYK6: 0.4643
       eval-20260527T190021-B7HEKX: 0.8471
       eval-20260527T205926-PCHVJ1: 0.4907
-      eval-20260527T210611-GVFJWB: 1.000
+      eval-20260527T210611-GVFJWB: 1.0
       eval-20260528T021206-IMUITJ: 0.7517
       eval-20260529T021226-T3TGHW: 0.5867
       eval-20260529T222024-2Y8GSF: 0.375
@@ -71,28 +65,32 @@ accumulated-context:
       eval-20260602T021149-SL6FJ9: 0.4667
       eval-20260603T021219-4T8MSY: 0.7533
       eval-20260605T021223-ARZ3WN: 0.4667
+      eval-20260609T151829-OUXB1P: 0.8859
+      eval-20260609T152224-SDY4MV: 0.8859
+      eval-20260612T132309-PSAUO8: 0.8767
+      eval-20260613T021205-CFZ2ZA: 0.4667
     score_script_error: null
   analysis:
-    report_path: systems/eval-harness/grading/analysis-20260609T154000.md
-    top_recommendation: "Investigate daily-review silent output failure on 2026-05-30, 2026-06-02, 2026-06-05 — workflow reports success/partial but writes zero output files; add minimum-output guard before status close"
-    patterns_count: 5
+    report_path: systems/eval-harness/grading/analysis-20260613T042000.md
+    top_recommendation: "Add minimum-output guard to daily-review step-auto before status close — workflow reports success but writes zero output files on 4/10 runs (2026-05-30, 2026-06-02, 2026-06-05, 2026-06-13)"
+    patterns_count: 6
     recommendations_count: 6
   step_timings:
     - step: step-01-intake
-      started: "2026-06-09T15:18:29Z"
-      completed: "2026-06-09T15:22:00Z"
+      started: "2026-06-13T04:05:49Z"
+      completed: "2026-06-13T04:08:00Z"
     - step: step-02-assert
-      started: "2026-06-09T15:22:00Z"
-      completed: "2026-06-09T15:28:00Z"
+      started: "2026-06-13T04:08:00Z"
+      completed: "2026-06-13T04:12:00Z"
     - step: step-03-grade
-      started: "2026-06-09T15:28:00Z"
-      completed: "2026-06-09T15:38:00Z"
+      started: "2026-06-13T04:12:00Z"
+      completed: "2026-06-13T04:18:00Z"
     - step: step-04-score
-      started: "2026-06-09T15:38:00Z"
-      completed: "2026-06-09T15:39:00Z"
+      started: "2026-06-13T04:18:00Z"
+      completed: "2026-06-13T04:20:00Z"
     - step: step-05-analyze
-      started: "2026-06-09T15:39:00Z"
-      completed: "2026-06-09T15:41:00Z"
+      started: "2026-06-13T04:20:00Z"
+      completed: "2026-06-13T04:25:00Z"
     - step: step-06-dashboard
-      started: "2026-06-09T15:41:00Z"
-      completed: "2026-06-09T15:42:00Z"
+      started: "2026-06-13T04:25:00Z"
+      completed: "2026-06-13T04:28:00Z"

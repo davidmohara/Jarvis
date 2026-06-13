@@ -1,19 +1,19 @@
 {
-  "id": "eval-20260612T132309-PSAUO8",
+  "id": "eval-20260613T021205-CFZ2ZA",
   "type": "workflow",
   "name": "daily-review",
   "agent": "chief",
-  "session_id": "session-2026-06-09-092323",
+  "session_id": "session-2026-06-12-082700",
   "trigger": "scheduled",
-  "started": "2026-06-12T13:23:09.228803Z",
-  "completed": "2026-06-12T13:23:09.228803Z",
+  "started": "2026-06-13T02:12:05.446590Z",
+  "completed": "2026-06-13T02:12:05.446590Z",
   "duration_seconds": 0.0,
   "status": "success",
   "steps": [
     {
       "name": "step-auto",
-      "started": "2026-06-12T13:23:09.228803Z",
-      "completed": "2026-06-12T13:23:09.228803Z",
+      "started": "2026-06-13T02:12:05.446590Z",
+      "completed": "2026-06-13T02:12:05.446590Z",
       "duration_seconds": 0.0,
       "status": "success",
       "data_sources_used": [],
@@ -28,10 +28,10 @@
       "error_ids": []
     },
     "structural": {
-      "expected_outputs_written": true,
-      "outputs_non_empty": true,
+      "expected_outputs_written": false,
+      "outputs_non_empty": false,
       "assertions_checked": 8,
-      "assertions_passed": 6,
+      "assertions_passed": 0,
       "assertion_results": [
         {
           "assertion": "Daily review workflow state.yaml shows status: complete",
@@ -39,15 +39,15 @@
         },
         {
           "assertion": "Daily review output file was written to reviews/daily/ for the run date (not a prior day)",
-          "passed": true
+          "passed": false
         },
         {
           "assertion": "Daily review output for run date is substantive (>300 bytes)",
-          "passed": true
+          "passed": false
         },
         {
           "assertion": "Daily review for run date contains priorities or next-day planning section",
-          "passed": true
+          "passed": false
         },
         {
           "assertion": "Daily review for run date contains completed items or wins section",
@@ -55,23 +55,23 @@
         },
         {
           "assertion": "Daily review working memory file was written for the run date",
-          "passed": true
+          "passed": false
         },
         {
           "assertion": "Daily review working memory for run date is substantive (>200 bytes)",
-          "passed": true
+          "passed": false
         },
         {
           "assertion": "Daily review working memory for run date contains expected content",
-          "passed": true
+          "passed": false
         }
       ]
     },
     "grading": {
       "last_graded": "2026-06-13T04:08:24.739898Z",
-      "grade": "B",
+      "grade": "F",
       "safety_grade": null,
-      "grader_notes": "Daily review for 2026-06-12 written at reviews/daily/auto-2026-06-12.md. Output is substantive (~2.5KB prose), covers the Topgolf Executive AI Briefing as the day's anchor event, names OmniFocus completions (7), analyzes overdue items, and connects the day to Q2 Rock 1 and Rock 4 context. Assertion results: 6/8 pass. Failures: (1) state.yaml 'status: complete' is a timing artifact from this eval run setting daily-review state to in-progress; (2) 'completed items or wins' regex pattern `(?i)(completed|done|accomplished|finished|wins)` fails because the file uses 'completions' and 'cleared' instead \u2014 the assertion pattern is too narrow, not an output failure. Content quality is solid. Grade would be A if the assertion pattern were updated to include 'complet' stem and 'cleared'."
+      "grader_notes": "No output file found. Daily review workflow ran at 2026-06-13T02:12:05Z and reported status: success, but reviews/daily/auto-2026-06-13.md does not exist and memory/working/daily-review-2026-06-13*.md does not exist. All 8 assertions fail. This is a silent output failure \u2014 the workflow completed without writing any deliverable. Consistent with the pattern identified in the 2026-06-09 analysis report ('daily-review silent output failure on 2026-05-30, 2026-06-02, 2026-06-05'). To earn a passing grade: the workflow must write reviews/daily/auto-YYYY-MM-DD.md with substantive content before closing its eval record."
     },
     "controller_feedback": {
       "rating": null,

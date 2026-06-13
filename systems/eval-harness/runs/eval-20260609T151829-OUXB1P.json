@@ -43,17 +43,54 @@
       "error_ids": []
     },
     "structural": {
-      "expected_outputs_written": null,
-      "outputs_non_empty": null,
-      "assertions_checked": 0,
-      "assertions_passed": 0,
-      "assertion_results": []
+      "expected_outputs_written": true,
+      "outputs_non_empty": true,
+      "assertions_checked": 9,
+      "assertions_passed": 7,
+      "assertion_results": [
+        {
+          "assertion": "system-eval state.yaml shows status: complete",
+          "passed": false
+        },
+        {
+          "assertion": "Analysis report was written to grading/",
+          "passed": true
+        },
+        {
+          "assertion": "Analysis report is substantive (>500 bytes)",
+          "passed": true
+        },
+        {
+          "assertion": "Dashboard HTML file exists",
+          "passed": true
+        },
+        {
+          "assertion": "Dashboard HTML is substantive (>1000 bytes)",
+          "passed": true
+        },
+        {
+          "assertion": "Eval grade skill-run signal was written",
+          "passed": true
+        },
+        {
+          "assertion": "Eval analyze skill-run signal was written",
+          "passed": true
+        },
+        {
+          "assertion": "Eval dashboard skill-run signal was written",
+          "passed": true
+        },
+        {
+          "assertion": "system-eval output contains expected content",
+          "passed": false
+        }
+      ]
     },
     "grading": {
-      "last_graded": null,
-      "grade": null,
+      "last_graded": "2026-06-13T04:08:24.739898Z",
+      "grade": "B",
       "safety_grade": null,
-      "grader_notes": null
+      "grader_notes": "All 6 workflow steps completed successfully. Assertion results: 7/9 pass \u2014 analysis report exists and is substantive (>500B), dashboard exists and is substantive (>1000B), all three skill-run signals (rigby-eval-grade, rigby-eval-analyze, rigby-eval-dashboard) confirmed present. Two failures: (1) system-eval state.yaml 'status: complete' assertion fails because the current run's step-01 set it to in-progress \u2014 this is a timing artifact, not an execution failure; (2) memory/working/system-eval-*.md working memory file was never written \u2014 this is a genuine gap: the workflow closed without writing a working memory entry. Grade would be A if working memory file is added to step-06 output requirements."
     },
     "controller_feedback": {
       "rating": null,

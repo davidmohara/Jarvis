@@ -73,17 +73,54 @@
       "error_ids": []
     },
     "structural": {
-      "expected_outputs_written": null,
-      "outputs_non_empty": null,
-      "assertions_checked": 0,
-      "assertions_passed": 0,
-      "assertion_results": []
+      "expected_outputs_written": true,
+      "outputs_non_empty": true,
+      "assertions_checked": 9,
+      "assertions_passed": 7,
+      "assertion_results": [
+        {
+          "assertion": "system-eval state.yaml shows status: complete",
+          "passed": false
+        },
+        {
+          "assertion": "Analysis report was written to grading/",
+          "passed": true
+        },
+        {
+          "assertion": "Analysis report is substantive (>500 bytes)",
+          "passed": true
+        },
+        {
+          "assertion": "Dashboard HTML file exists",
+          "passed": true
+        },
+        {
+          "assertion": "Dashboard HTML is substantive (>1000 bytes)",
+          "passed": true
+        },
+        {
+          "assertion": "Eval grade skill-run signal was written",
+          "passed": true
+        },
+        {
+          "assertion": "Eval analyze skill-run signal was written",
+          "passed": true
+        },
+        {
+          "assertion": "Eval dashboard skill-run signal was written",
+          "passed": true
+        },
+        {
+          "assertion": "system-eval output contains expected content",
+          "passed": false
+        }
+      ]
     },
     "grading": {
-      "last_graded": null,
-      "grade": null,
+      "last_graded": "2026-06-13T04:08:24.739898Z",
+      "grade": "B",
       "safety_grade": null,
-      "grader_notes": null
+      "grader_notes": "Duplicate record for same session as eval-20260609T151829-OUXB1P (same started timestamp: 2026-06-09T15:18:29Z, same workflow name, same agent). Likely created by a double-invocation of new-eval.py. Assertion results mirror the primary record: 7/9 pass \u2014 all signals and output files confirmed present, same two failures (state.yaml timing artifact, missing working memory file). Grade matches primary. The existence of a duplicate record is itself a minor process issue worth noting."
     },
     "controller_feedback": {
       "rating": null,

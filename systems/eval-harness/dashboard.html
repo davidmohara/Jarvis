@@ -54,7 +54,7 @@
 <body>
     <div class="container">
         <h1>IES Eval Harness Dashboard</h1>
-        <div class="timestamp">Generated: 2026-06-09T15:22:19.493425 | Records: 18</div>
+        <div class="timestamp">Generated: 2026-06-13T04:11:36.730944 | Records: 22</div>
 
         <div class="filters">
             <label>Agent:
@@ -86,8 +86,8 @@
         <div class="metrics-grid">
             <div class="metric-card">
                 <h3>Success Rate</h3>
-                <div class="value">50.0%</div>
-                <div class="sub">9 / 18 successful</div>
+                <div class="value">59.1%</div>
+                <div class="sub">13 / 22 successful</div>
             </div>
             <div class="metric-card">
                 <h3>Failure Rate</h3>
@@ -96,13 +96,13 @@
             </div>
             <div class="metric-card">
                 <h3>Avg Duration</h3>
-                <div class="value">367.7s</div>
+                <div class="value">331.4s</div>
                 <div class="sub">Across all records</div>
             </div>
             <div class="metric-card">
                 <h3>Assertion Pass Rate</h3>
-                <div class="value">64.0%</div>
-                <div class="sub">73 / 114 passed</div>
+                <div class="value">62.8%</div>
+                <div class="sub">93 / 148 passed</div>
             </div>
         </div>
 
@@ -111,11 +111,11 @@
             <div class="tier-grid">
                 <div class="tier-metric">
                     <div class="label">Completion Rate</div>
-                    <div class="val">72.2%</div>
+                    <div class="val">77.3%</div>
                 </div>
                 <div class="tier-metric">
                     <div class="label">Avg Tool Failures</div>
-                    <div class="val">0.06</div>
+                    <div class="val">0.05</div>
                 </div>
                 <div class="tier-metric">
                     <div class="label">Error Correlated</div>
@@ -129,15 +129,15 @@
             <div class="tier-grid">
                 <div class="tier-metric">
                     <div class="label">Assertions Checked</div>
-                    <div class="val">114</div>
+                    <div class="val">148</div>
                 </div>
                 <div class="tier-metric">
                     <div class="label">Assertions Passed</div>
-                    <div class="val">73</div>
+                    <div class="val">93</div>
                 </div>
                 <div class="tier-metric">
                     <div class="label">Pass Rate</div>
-                    <div class="val">64.0%</div>
+                    <div class="val">62.8%</div>
                 </div>
             </div>
         </div>
@@ -147,7 +147,7 @@
             <div class="tier-grid">
                 <div class="tier-metric">
                     <div class="label">Graded Records</div>
-                    <div class="val">13</div>
+                    <div class="val">17</div>
                 </div>
 
                 <div class="tier-metric">
@@ -157,7 +157,7 @@
 
                 <div class="tier-metric">
                     <div class="label">Grade B</div>
-                    <div class="val grade-B">3</div>
+                    <div class="val grade-B">6</div>
                 </div>
 
                 <div class="tier-metric">
@@ -172,7 +172,7 @@
 
                 <div class="tier-metric">
                     <div class="label">Grade F</div>
-                    <div class="val grade-F">3</div>
+                    <div class="val grade-F">4</div>
                 </div>
 
             </div>
@@ -195,16 +195,56 @@
                 <tbody>
 
                     <tr data-agent="rigby" data-workflow="system-eval" data-status="in-progress" onclick="showRecordDetails(0)">
-                        <td><code>eval-20260609T151829-OUXB1P</code></td>
+                        <td><code>eval-20260613T040549-SOOE69</code></td>
                         <td>system-eval</td>
                         <td>workflow</td>
                         <td class="status-in-progress">in-progress</td>
                         <td>-</td>
                         <td>-</td>
-                        <td>2026-06-09T15:18:29</td>
+                        <td>2026-06-13T04:05:49</td>
                     </tr>
 
                     <tr data-agent="chief" data-workflow="daily-review" data-status="success" onclick="showRecordDetails(1)">
+                        <td><code>eval-20260613T021205-CFZ2ZA</code></td>
+                        <td>daily-review</td>
+                        <td>workflow</td>
+                        <td class="status-success">success</td>
+                        <td>-</td>
+                        <td><span class="grade grade-F">F</span></td>
+                        <td>2026-06-13T02:12:05</td>
+                    </tr>
+
+                    <tr data-agent="chief" data-workflow="daily-review" data-status="success" onclick="showRecordDetails(2)">
+                        <td><code>eval-20260612T132309-PSAUO8</code></td>
+                        <td>daily-review</td>
+                        <td>workflow</td>
+                        <td class="status-success">success</td>
+                        <td>-</td>
+                        <td><span class="grade grade-B">B</span></td>
+                        <td>2026-06-12T13:23:09</td>
+                    </tr>
+
+                    <tr data-agent="rigby" data-workflow="system-eval" data-status="success" onclick="showRecordDetails(3)">
+                        <td><code>eval-20260609T152224-SDY4MV</code></td>
+                        <td>system-eval</td>
+                        <td>workflow</td>
+                        <td class="status-success">success</td>
+                        <td>236.0s</td>
+                        <td><span class="grade grade-B">B</span></td>
+                        <td>2026-06-09T15:18:29</td>
+                    </tr>
+
+                    <tr data-agent="rigby" data-workflow="system-eval" data-status="success" onclick="showRecordDetails(4)">
+                        <td><code>eval-20260609T151829-OUXB1P</code></td>
+                        <td>system-eval</td>
+                        <td>workflow</td>
+                        <td class="status-success">success</td>
+                        <td>245.0s</td>
+                        <td><span class="grade grade-B">B</span></td>
+                        <td>2026-06-09T15:18:29</td>
+                    </tr>
+
+                    <tr data-agent="chief" data-workflow="daily-review" data-status="success" onclick="showRecordDetails(5)">
                         <td><code>eval-20260605T021223-ARZ3WN</code></td>
                         <td>daily-review</td>
                         <td>workflow</td>
@@ -214,7 +254,7 @@
                         <td>2026-06-05T02:12:23</td>
                     </tr>
 
-                    <tr data-agent="chief" data-workflow="daily-review" data-status="success" onclick="showRecordDetails(2)">
+                    <tr data-agent="chief" data-workflow="daily-review" data-status="success" onclick="showRecordDetails(6)">
                         <td><code>eval-20260603T021219-4T8MSY</code></td>
                         <td>daily-review</td>
                         <td>workflow</td>
@@ -224,7 +264,7 @@
                         <td>2026-06-03T02:12:19</td>
                     </tr>
 
-                    <tr data-agent="chief" data-workflow="daily-review" data-status="success" onclick="showRecordDetails(3)">
+                    <tr data-agent="chief" data-workflow="daily-review" data-status="success" onclick="showRecordDetails(7)">
                         <td><code>eval-20260602T021149-SL6FJ9</code></td>
                         <td>daily-review</td>
                         <td>workflow</td>
@@ -234,7 +274,7 @@
                         <td>2026-06-02T02:11:49</td>
                     </tr>
 
-                    <tr data-agent="chief" data-workflow="daily-review" data-status="success" onclick="showRecordDetails(4)">
+                    <tr data-agent="chief" data-workflow="daily-review" data-status="success" onclick="showRecordDetails(8)">
                         <td><code>eval-20260530T021202-MKO2P3</code></td>
                         <td>daily-review</td>
                         <td>workflow</td>
@@ -244,7 +284,7 @@
                         <td>2026-05-30T02:12:02</td>
                     </tr>
 
-                    <tr data-agent="harper" data-workflow="obsidian-source-note" data-status="success" onclick="showRecordDetails(5)">
+                    <tr data-agent="harper" data-workflow="obsidian-source-note" data-status="success" onclick="showRecordDetails(9)">
                         <td><code>eval-20260529T224500-ypo001</code></td>
                         <td>obsidian-source-note</td>
                         <td>skill</td>
@@ -254,7 +294,7 @@
                         <td>2026-05-29T22:30:00</td>
                     </tr>
 
-                    <tr data-agent="general-purpose" data-workflow="general-purpose" data-status="aborted" onclick="showRecordDetails(6)">
+                    <tr data-agent="general-purpose" data-workflow="general-purpose" data-status="aborted" onclick="showRecordDetails(10)">
                         <td><code>eval-20260529T222602-BQEM4B</code></td>
                         <td>general-purpose</td>
                         <td>agent</td>
@@ -264,7 +304,7 @@
                         <td>2026-05-29T22:26:02</td>
                     </tr>
 
-                    <tr data-agent="general-purpose" data-workflow="general-purpose" data-status="aborted" onclick="showRecordDetails(7)">
+                    <tr data-agent="general-purpose" data-workflow="general-purpose" data-status="aborted" onclick="showRecordDetails(11)">
                         <td><code>eval-20260529T222024-2Y8GSF</code></td>
                         <td>general-purpose</td>
                         <td>agent</td>
@@ -274,7 +314,7 @@
                         <td>2026-05-29T22:20:24</td>
                     </tr>
 
-                    <tr data-agent="chief" data-workflow="daily-review" data-status="partial" onclick="showRecordDetails(8)">
+                    <tr data-agent="chief" data-workflow="daily-review" data-status="partial" onclick="showRecordDetails(12)">
                         <td><code>eval-20260529T021226-T3TGHW</code></td>
                         <td>daily-review</td>
                         <td>workflow</td>
@@ -284,7 +324,7 @@
                         <td>2026-05-29T02:12:26</td>
                     </tr>
 
-                    <tr data-agent="chief" data-workflow="daily-review" data-status="partial" onclick="showRecordDetails(9)">
+                    <tr data-agent="chief" data-workflow="daily-review" data-status="partial" onclick="showRecordDetails(13)">
                         <td><code>eval-20260528T021206-IMUITJ</code></td>
                         <td>daily-review</td>
                         <td>workflow</td>
@@ -294,7 +334,7 @@
                         <td>2026-05-28T02:12:06</td>
                     </tr>
 
-                    <tr data-agent="rigby" data-workflow="system-eval" data-status="success" onclick="showRecordDetails(10)">
+                    <tr data-agent="rigby" data-workflow="system-eval" data-status="success" onclick="showRecordDetails(14)">
                         <td><code>eval-20260527T210611-GVFJWB</code></td>
                         <td>system-eval</td>
                         <td>workflow</td>
@@ -304,7 +344,7 @@
                         <td>2026-05-27T20:59:26</td>
                     </tr>
 
-                    <tr data-agent="rigby" data-workflow="system-eval" data-status="aborted" onclick="showRecordDetails(11)">
+                    <tr data-agent="rigby" data-workflow="system-eval" data-status="aborted" onclick="showRecordDetails(15)">
                         <td><code>eval-20260527T205926-PCHVJ1</code></td>
                         <td>system-eval</td>
                         <td>workflow</td>
@@ -314,7 +354,7 @@
                         <td>2026-05-27T20:59:26</td>
                     </tr>
 
-                    <tr data-agent="rigby" data-workflow="error-improvement" data-status="success" onclick="showRecordDetails(12)">
+                    <tr data-agent="rigby" data-workflow="error-improvement" data-status="success" onclick="showRecordDetails(16)">
                         <td><code>eval-20260527T190021-B7HEKX</code></td>
                         <td>error-improvement</td>
                         <td>workflow</td>
@@ -324,7 +364,7 @@
                         <td>2026-05-27T18:55:26</td>
                     </tr>
 
-                    <tr data-agent="rigby" data-workflow="error-improvement" data-status="aborted" onclick="showRecordDetails(13)">
+                    <tr data-agent="rigby" data-workflow="error-improvement" data-status="aborted" onclick="showRecordDetails(17)">
                         <td><code>eval-20260527T185503-NDAYK6</code></td>
                         <td>error-improvement</td>
                         <td>workflow</td>
@@ -334,7 +374,7 @@
                         <td>2026-05-27T18:55:03</td>
                     </tr>
 
-                    <tr data-agent="chief" data-workflow="daily-review" data-status="partial" onclick="showRecordDetails(14)">
+                    <tr data-agent="chief" data-workflow="daily-review" data-status="partial" onclick="showRecordDetails(18)">
                         <td><code>eval-20260527T021153-F0GRE1</code></td>
                         <td>daily-review</td>
                         <td>workflow</td>
@@ -344,7 +384,7 @@
                         <td>2026-05-27T02:11:53</td>
                     </tr>
 
-                    <tr data-agent="chief" data-workflow="daily-review" data-status="partial" onclick="showRecordDetails(15)">
+                    <tr data-agent="chief" data-workflow="daily-review" data-status="partial" onclick="showRecordDetails(19)">
                         <td><code>eval-20260526T215647-T3Q5PX</code></td>
                         <td>daily-review</td>
                         <td>workflow</td>
@@ -354,7 +394,7 @@
                         <td>2026-05-26T21:56:47</td>
                     </tr>
 
-                    <tr data-agent="harper" data-workflow="content-approval" data-status="success" onclick="showRecordDetails(16)">
+                    <tr data-agent="harper" data-workflow="content-approval" data-status="success" onclick="showRecordDetails(20)">
                         <td><code>eval-20260526T125258-Q3KWG7</code></td>
                         <td>content-approval</td>
                         <td>workflow</td>
@@ -364,7 +404,7 @@
                         <td>2026-05-26T12:50:00</td>
                     </tr>
 
-                    <tr data-agent="chief" data-workflow="morning-briefing" data-status="success" onclick="showRecordDetails(17)">
+                    <tr data-agent="chief" data-workflow="morning-briefing" data-status="success" onclick="showRecordDetails(21)">
                         <td><code>eval-20260524T194258-HBF752</code></td>
                         <td>morning-briefing</td>
                         <td>workflow</td>
@@ -393,13 +433,13 @@
     <script>
         const records = [
   {
-    "id": "eval-20260609T151829-OUXB1P",
+    "id": "eval-20260613T040549-SOOE69",
     "type": "workflow",
     "name": "system-eval",
     "agent": "rigby",
-    "session_id": "rigby-2026-06-09-151829",
+    "session_id": "rigby-2026-06-13-040549",
     "trigger": "scheduled",
-    "started": "2026-06-09T15:18:29.247736Z",
+    "started": "2026-06-13T04:05:49.798209Z",
     "completed": null,
     "duration_seconds": null,
     "status": "in-progress",
@@ -423,6 +463,460 @@
         "grade": null,
         "safety_grade": null,
         "grader_notes": null
+      },
+      "controller_feedback": {
+        "rating": null,
+        "comment": null,
+        "timestamp": null
+      },
+      "bias_assessment": {
+        "applicable": false,
+        "protected_attributes": [],
+        "fairness_metric": null,
+        "demographic_coverage_verified": false,
+        "adversarial_inputs_tested": false,
+        "bias_detected": false,
+        "bias_flags": [],
+        "remediation_status": "none"
+      }
+    },
+    "version_hash": null,
+    "prior_baseline_id": null,
+    "tags": []
+  },
+  {
+    "id": "eval-20260613T021205-CFZ2ZA",
+    "type": "workflow",
+    "name": "daily-review",
+    "agent": "chief",
+    "session_id": "session-2026-06-12-082700",
+    "trigger": "scheduled",
+    "started": "2026-06-13T02:12:05.446590Z",
+    "completed": "2026-06-13T02:12:05.446590Z",
+    "duration_seconds": 0.0,
+    "status": "success",
+    "steps": [
+      {
+        "name": "step-auto",
+        "started": "2026-06-13T02:12:05.446590Z",
+        "completed": "2026-06-13T02:12:05.446590Z",
+        "duration_seconds": 0.0,
+        "status": "success",
+        "data_sources_used": [],
+        "data_source_failures": []
+      }
+    ],
+    "assessment": {
+      "mechanical": {
+        "completed": true,
+        "all_steps_finished": true,
+        "tool_failures": 0,
+        "error_ids": []
+      },
+      "structural": {
+        "expected_outputs_written": false,
+        "outputs_non_empty": false,
+        "assertions_checked": 8,
+        "assertions_passed": 0,
+        "assertion_results": [
+          {
+            "assertion": "Daily review workflow state.yaml shows status: complete",
+            "passed": false
+          },
+          {
+            "assertion": "Daily review output file was written to reviews/daily/ for the run date (not a prior day)",
+            "passed": false
+          },
+          {
+            "assertion": "Daily review output for run date is substantive (>300 bytes)",
+            "passed": false
+          },
+          {
+            "assertion": "Daily review for run date contains priorities or next-day planning section",
+            "passed": false
+          },
+          {
+            "assertion": "Daily review for run date contains completed items or wins section",
+            "passed": false
+          },
+          {
+            "assertion": "Daily review working memory file was written for the run date",
+            "passed": false
+          },
+          {
+            "assertion": "Daily review working memory for run date is substantive (>200 bytes)",
+            "passed": false
+          },
+          {
+            "assertion": "Daily review working memory for run date contains expected content",
+            "passed": false
+          }
+        ]
+      },
+      "grading": {
+        "last_graded": "2026-06-13T04:08:24.739898Z",
+        "grade": "F",
+        "safety_grade": null,
+        "grader_notes": "No output file found. Daily review workflow ran at 2026-06-13T02:12:05Z and reported status: success, but reviews/daily/auto-2026-06-13.md does not exist and memory/working/daily-review-2026-06-13*.md does not exist. All 8 assertions fail. This is a silent output failure \u2014 the workflow completed without writing any deliverable. Consistent with the pattern identified in the 2026-06-09 analysis report ('daily-review silent output failure on 2026-05-30, 2026-06-02, 2026-06-05'). To earn a passing grade: the workflow must write reviews/daily/auto-YYYY-MM-DD.md with substantive content before closing its eval record."
+      },
+      "controller_feedback": {
+        "rating": null,
+        "comment": null,
+        "timestamp": null
+      },
+      "bias_assessment": {
+        "applicable": false,
+        "protected_attributes": [],
+        "fairness_metric": null,
+        "demographic_coverage_verified": false,
+        "adversarial_inputs_tested": false,
+        "bias_detected": false,
+        "bias_flags": [],
+        "remediation_status": "none"
+      }
+    },
+    "version_hash": "2a045accfec69bac",
+    "prior_baseline_id": null,
+    "tags": [
+      "cowork-instrumented"
+    ]
+  },
+  {
+    "id": "eval-20260612T132309-PSAUO8",
+    "type": "workflow",
+    "name": "daily-review",
+    "agent": "chief",
+    "session_id": "session-2026-06-09-092323",
+    "trigger": "scheduled",
+    "started": "2026-06-12T13:23:09.228803Z",
+    "completed": "2026-06-12T13:23:09.228803Z",
+    "duration_seconds": 0.0,
+    "status": "success",
+    "steps": [
+      {
+        "name": "step-auto",
+        "started": "2026-06-12T13:23:09.228803Z",
+        "completed": "2026-06-12T13:23:09.228803Z",
+        "duration_seconds": 0.0,
+        "status": "success",
+        "data_sources_used": [],
+        "data_source_failures": []
+      }
+    ],
+    "assessment": {
+      "mechanical": {
+        "completed": true,
+        "all_steps_finished": true,
+        "tool_failures": 0,
+        "error_ids": []
+      },
+      "structural": {
+        "expected_outputs_written": true,
+        "outputs_non_empty": true,
+        "assertions_checked": 8,
+        "assertions_passed": 6,
+        "assertion_results": [
+          {
+            "assertion": "Daily review workflow state.yaml shows status: complete",
+            "passed": false
+          },
+          {
+            "assertion": "Daily review output file was written to reviews/daily/ for the run date (not a prior day)",
+            "passed": true
+          },
+          {
+            "assertion": "Daily review output for run date is substantive (>300 bytes)",
+            "passed": true
+          },
+          {
+            "assertion": "Daily review for run date contains priorities or next-day planning section",
+            "passed": true
+          },
+          {
+            "assertion": "Daily review for run date contains completed items or wins section",
+            "passed": false
+          },
+          {
+            "assertion": "Daily review working memory file was written for the run date",
+            "passed": true
+          },
+          {
+            "assertion": "Daily review working memory for run date is substantive (>200 bytes)",
+            "passed": true
+          },
+          {
+            "assertion": "Daily review working memory for run date contains expected content",
+            "passed": true
+          }
+        ]
+      },
+      "grading": {
+        "last_graded": "2026-06-13T04:08:24.739898Z",
+        "grade": "B",
+        "safety_grade": null,
+        "grader_notes": "Daily review for 2026-06-12 written at reviews/daily/auto-2026-06-12.md. Output is substantive (~2.5KB prose), covers the Topgolf Executive AI Briefing as the day's anchor event, names OmniFocus completions (7), analyzes overdue items, and connects the day to Q2 Rock 1 and Rock 4 context. Assertion results: 6/8 pass. Failures: (1) state.yaml 'status: complete' is a timing artifact from this eval run setting daily-review state to in-progress; (2) 'completed items or wins' regex pattern `(?i)(completed|done|accomplished|finished|wins)` fails because the file uses 'completions' and 'cleared' instead \u2014 the assertion pattern is too narrow, not an output failure. Content quality is solid. Grade would be A if the assertion pattern were updated to include 'complet' stem and 'cleared'."
+      },
+      "controller_feedback": {
+        "rating": null,
+        "comment": null,
+        "timestamp": null
+      },
+      "bias_assessment": {
+        "applicable": false,
+        "protected_attributes": [],
+        "fairness_metric": null,
+        "demographic_coverage_verified": false,
+        "adversarial_inputs_tested": false,
+        "bias_detected": false,
+        "bias_flags": [],
+        "remediation_status": "none"
+      }
+    },
+    "version_hash": "2a045accfec69bac",
+    "prior_baseline_id": null,
+    "tags": [
+      "cowork-instrumented"
+    ]
+  },
+  {
+    "id": "eval-20260609T152224-SDY4MV",
+    "type": "workflow",
+    "name": "system-eval",
+    "agent": "rigby",
+    "session_id": "session-2026-05-29-070948",
+    "trigger": "scheduled",
+    "started": "2026-06-09T15:18:29Z",
+    "completed": "2026-06-09T15:22:24.953353Z",
+    "duration_seconds": 236.0,
+    "status": "success",
+    "steps": [
+      {
+        "name": "step-01-intake",
+        "started": "2026-06-09T15:18:29Z",
+        "completed": "2026-06-09T15:19:08.325559Z",
+        "duration_seconds": 39.3,
+        "status": "success",
+        "data_sources_used": [],
+        "data_source_failures": []
+      },
+      {
+        "name": "step-02-assert",
+        "started": "2026-06-09T15:19:08.325559Z",
+        "completed": "2026-06-09T15:19:47.651118Z",
+        "duration_seconds": 39.3,
+        "status": "success",
+        "data_sources_used": [],
+        "data_source_failures": []
+      },
+      {
+        "name": "step-03-grade",
+        "started": "2026-06-09T15:19:47.651118Z",
+        "completed": "2026-06-09T15:20:26.976676Z",
+        "duration_seconds": 39.3,
+        "status": "success",
+        "data_sources_used": [],
+        "data_source_failures": []
+      },
+      {
+        "name": "step-04-score",
+        "started": "2026-06-09T15:20:26.976676Z",
+        "completed": "2026-06-09T15:21:06.302235Z",
+        "duration_seconds": 39.3,
+        "status": "success",
+        "data_sources_used": [],
+        "data_source_failures": []
+      },
+      {
+        "name": "step-05-analyze",
+        "started": "2026-06-09T15:21:06.302235Z",
+        "completed": "2026-06-09T15:21:45.627794Z",
+        "duration_seconds": 39.3,
+        "status": "success",
+        "data_sources_used": [],
+        "data_source_failures": []
+      },
+      {
+        "name": "step-06-dashboard",
+        "started": "2026-06-09T15:21:45.627794Z",
+        "completed": "2026-06-09T15:22:24.953353Z",
+        "duration_seconds": 39.3,
+        "status": "success",
+        "data_sources_used": [],
+        "data_source_failures": []
+      }
+    ],
+    "assessment": {
+      "mechanical": {
+        "completed": true,
+        "all_steps_finished": true,
+        "tool_failures": 0,
+        "error_ids": []
+      },
+      "structural": {
+        "expected_outputs_written": true,
+        "outputs_non_empty": true,
+        "assertions_checked": 9,
+        "assertions_passed": 7,
+        "assertion_results": [
+          {
+            "assertion": "system-eval state.yaml shows status: complete",
+            "passed": false
+          },
+          {
+            "assertion": "Analysis report was written to grading/",
+            "passed": true
+          },
+          {
+            "assertion": "Analysis report is substantive (>500 bytes)",
+            "passed": true
+          },
+          {
+            "assertion": "Dashboard HTML file exists",
+            "passed": true
+          },
+          {
+            "assertion": "Dashboard HTML is substantive (>1000 bytes)",
+            "passed": true
+          },
+          {
+            "assertion": "Eval grade skill-run signal was written",
+            "passed": true
+          },
+          {
+            "assertion": "Eval analyze skill-run signal was written",
+            "passed": true
+          },
+          {
+            "assertion": "Eval dashboard skill-run signal was written",
+            "passed": true
+          },
+          {
+            "assertion": "system-eval output contains expected content",
+            "passed": false
+          }
+        ]
+      },
+      "grading": {
+        "last_graded": "2026-06-13T04:08:24.739898Z",
+        "grade": "B",
+        "safety_grade": null,
+        "grader_notes": "Duplicate record for same session as eval-20260609T151829-OUXB1P (same started timestamp: 2026-06-09T15:18:29Z, same workflow name, same agent). Likely created by a double-invocation of new-eval.py. Assertion results mirror the primary record: 7/9 pass \u2014 all signals and output files confirmed present, same two failures (state.yaml timing artifact, missing working memory file). Grade matches primary. The existence of a duplicate record is itself a minor process issue worth noting."
+      },
+      "controller_feedback": {
+        "rating": null,
+        "comment": null,
+        "timestamp": null
+      },
+      "bias_assessment": {
+        "applicable": false,
+        "protected_attributes": [],
+        "fairness_metric": null,
+        "demographic_coverage_verified": false,
+        "adversarial_inputs_tested": false,
+        "bias_detected": false,
+        "bias_flags": [],
+        "remediation_status": "none"
+      }
+    },
+    "version_hash": "19d8e244d5f77822",
+    "prior_baseline_id": null,
+    "tags": [
+      "cowork-instrumented"
+    ]
+  },
+  {
+    "id": "eval-20260609T151829-OUXB1P",
+    "type": "workflow",
+    "name": "system-eval",
+    "agent": "rigby",
+    "session_id": "rigby-2026-06-09-151829",
+    "trigger": "scheduled",
+    "started": "2026-06-09T15:18:29.247736Z",
+    "completed": "2026-06-09T15:22:34.156612+00:00",
+    "duration_seconds": 245,
+    "status": "success",
+    "steps": [
+      {
+        "name": "step-01-intake",
+        "status": "success"
+      },
+      {
+        "name": "step-02-assert",
+        "status": "success"
+      },
+      {
+        "name": "step-03-grade",
+        "status": "success"
+      },
+      {
+        "name": "step-04-score",
+        "status": "success"
+      },
+      {
+        "name": "step-05-analyze",
+        "status": "success"
+      },
+      {
+        "name": "step-06-dashboard",
+        "status": "success"
+      }
+    ],
+    "assessment": {
+      "mechanical": {
+        "completed": true,
+        "all_steps_finished": true,
+        "tool_failures": 0,
+        "error_ids": []
+      },
+      "structural": {
+        "expected_outputs_written": true,
+        "outputs_non_empty": true,
+        "assertions_checked": 9,
+        "assertions_passed": 7,
+        "assertion_results": [
+          {
+            "assertion": "system-eval state.yaml shows status: complete",
+            "passed": false
+          },
+          {
+            "assertion": "Analysis report was written to grading/",
+            "passed": true
+          },
+          {
+            "assertion": "Analysis report is substantive (>500 bytes)",
+            "passed": true
+          },
+          {
+            "assertion": "Dashboard HTML file exists",
+            "passed": true
+          },
+          {
+            "assertion": "Dashboard HTML is substantive (>1000 bytes)",
+            "passed": true
+          },
+          {
+            "assertion": "Eval grade skill-run signal was written",
+            "passed": true
+          },
+          {
+            "assertion": "Eval analyze skill-run signal was written",
+            "passed": true
+          },
+          {
+            "assertion": "Eval dashboard skill-run signal was written",
+            "passed": true
+          },
+          {
+            "assertion": "system-eval output contains expected content",
+            "passed": false
+          }
+        ]
+      },
+      "grading": {
+        "last_graded": "2026-06-13T04:08:24.739898Z",
+        "grade": "B",
+        "safety_grade": null,
+        "grader_notes": "All 6 workflow steps completed successfully. Assertion results: 7/9 pass \u2014 analysis report exists and is substantive (>500B), dashboard exists and is substantive (>1000B), all three skill-run signals (rigby-eval-grade, rigby-eval-analyze, rigby-eval-dashboard) confirmed present. Two failures: (1) system-eval state.yaml 'status: complete' assertion fails because the current run's step-01 set it to in-progress \u2014 this is a timing artifact, not an execution failure; (2) memory/working/system-eval-*.md working memory file was never written \u2014 this is a genuine gap: the workflow closed without writing a working memory entry. Grade would be A if working memory file is added to step-06 output requirements."
       },
       "controller_feedback": {
         "rating": null,

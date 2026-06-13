@@ -2,18 +2,18 @@
 workflow: daily-review
 agent: chief
 status: complete
-session-started: "2026-06-12T08:20:58"
-session-id: "chief-2026-06-12-082058"
+session-started: "2026-06-12T07:00:00"
+session-id: "chief-2026-06-12-070000"
 current-step: step-auto
 original-request: "auto"
 accumulated-context:
-  narrative-title: "2026-06-11 Houston Closed Out, The Forum Capped It"
-  narrative-path: "reviews/daily/auto-2026-06-11.md"
-  omnifocus-status: "available — 18 completions, 7 overdue, 7 inbox items"
-  calendar-status: "available — 14 events (Jun 11), Houston trip final day"
+  narrative-title: "2026-06-12 Topgolf Day, Fridays That Stack"
+  narrative-path: "reviews/daily/auto-2026-06-12.md"
+  omnifocus-status: "available — 7 completions, 7 overdue, 8 inbox items"
+  calendar-status: "available — 25 events (Jun 11-12 window); Jun 12 dominated by Topgolf Executive AI Briefing"
   obsidian-status: "disabled — written to local fallback"
-  calendar-events: 14
-  working-memory-path: "memory/working/daily-review-2026-06-11-082100.md"
+  calendar-events: 25
+  working-memory-path: "memory/working/daily-review-2026-06-12-070000.md"
   working-memory-status: "written"
   model: sonnet
 ---
