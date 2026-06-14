@@ -23,7 +23,7 @@ tags:
 related_people:
 salience:
   score: 10
-  last-promoted-check: 2026-06-13
+  last-promoted-check: 2026-06-14
   promoted: true
 ---
 # Morning Briefing Boot — May 13, 2026

@@ -4,7 +4,7 @@ domain: operational
 tags: [briefing, calendar, omnifocus, google-next, travel, overdue-tasks, leads]
 confidence: high
 created: 2026-04-24
-last-updated: 2026-06-13
+last-updated: 2026-06-14
 synthesized-from:
   - memory/episodic/2026-04-20-morning-briefing.md
   - memory/episodic/2026-04-21-morning-briefing.md
@@ -30,6 +30,29 @@ synthesized-from:
   - memory/episodic/2026-05-15-094050-session-boot-morning-briefing.md
   - memory/episodic/2026-05-20-061400-session-boot-morning-briefing.md
   - memory/episodic/2026-05-22-061501-session-boot-morning-briefing.md
+  - 2026-05-12-061241-session-boot-morning-briefing.md
+  - morning-briefing-2026-06-02-061028.md
+  - 2026-05-08-071436-session-boot-morning-briefing.md
+  - 2026-05-13-095338-session-boot-morning-briefing.md
+  - 2026-05-20-061400-session-boot-morning-briefing.md
+  - morning-briefing-2026-06-10-063515.md
+  - 2026-05-14-092600-session-boot-morning-briefing.md
+  - 2026-05-12-085352-session-boot-morning-briefing.md
+  - morning-briefing-2026-06-09-092323.md
+  - morning-briefing-2026-06-08-095429.md
+  - 2026-05-13-061200-session-boot-morning-briefing.md
+  - morning-briefing-2026-06-11-062152.md
+  - 2026-05-11-000000-session-boot-morning-briefing.md
+  - 2026-05-18-061344-session-boot-morning-briefing.md
+  - 2026-05-22-061651-session-boot-morning-briefing.md
+  - 2026-05-19-061322-session-boot-morning-briefing.md
+  - 2026-05-29-145100-session-boot-morning-briefing.md
+  - morning-briefing-2026-05-27-060943.md
+  - morning-briefing-2026-06-01-061018.md
+  - 2026-05-19-095416-session-boot-morning-briefing.md
+  - 2026-05-22-061501-session-boot-morning-briefing.md
+  - 2026-05-15-094050-session-boot-morning-briefing.md
+  - morning-briefing-2026-05-29-070948.md
 ---
 # Pattern: Morning Briefings Consistently Flag Travel-Calendar Conflicts
 
@@ -117,6 +140,9 @@ Morning briefings across the entire Google Next week (Apr 20-23) repeatedly surf
 - 2026-05-22 — `memory/episodic/2026-05-22-061501-session-boot-morning-briefing.md` (score 10)
 - 2026-05-15 — `memory/episodic/2026-05-15-094050-session-boot-morning-briefing.md` (score 10)
 - 2026-05-29 — `memory/episodic/morning-briefing-2026-05-29-070948.md` (score 10)
+### 2026-06-14 — Dream Cycle Run
+- 23 entries promoted in cluster `briefing`
+- Source files (sample): 2026-05-12-061241-session-boot-morning-briefing.md, morning-briefing-2026-06-02-061028.md, 2026-05-08-071436-session-boot-morning-briefing.md...
 
 ## Implications
 
@@ -161,6 +187,9 @@ Morning briefings across the entire Google Next week (Apr 20-23) repeatedly surf
 - Q2 Cyber Security Training deadline 6 days out, still unflagged as action item
 - 72-hour look-ahead surfaced yet another flight (DFW to ORD, YPO GLC Chicago) two days out — pattern of back-to-back travel weeks with no recovery buffer
 - Quarterly rocks: Rock 1 and Rock 2 still "Not Started" — travel week consumed all bandwidth
+### 2026-06-14 — Dream Cycle Run
+- 23 entries promoted in cluster `briefing`
+- Source files (sample): 2026-05-12-061241-session-boot-morning-briefing.md, morning-briefing-2026-06-02-061028.md, 2026-05-08-071436-session-boot-morning-briefing.md...
 
 ## Implications
 
@@ -279,6 +308,9 @@ Morning briefings across the entire Google Next week (Apr 20-23) repeatedly surf
 
 ### May 7 Morning Briefing — Cabo/Gold Forum
 - David at YPO Gold Forum Cabo Retreat (May 6-8). MST timezone confirmed. 50 events for May 7-12. OmniFocus returned 12 tasks (minimal, suggesting connectivity limitation). Dream cycle 3+ days stale. Git rebase unavailable.
+### 2026-06-14 — Dream Cycle Run
+- 23 entries promoted in cluster `briefing`
+- Source files (sample): 2026-05-12-061241-session-boot-morning-briefing.md, morning-briefing-2026-06-02-061028.md, 2026-05-08-071436-session-boot-morning-briefing.md...
 
 ## Implications (continued — 2026-05-12)
 
@@ -290,6 +322,9 @@ Morning briefings across the entire Google Next week (Apr 20-23) repeatedly surf
 
 ### 2026-05-11 Morning Briefing — Archived this run
 - Automated boot at midnight. The archived file lacks a `tags` field in frontmatter, scoring 0 in the salience pass. No new tagged briefing content has entered episodic since the May 7 Cabo briefing.
+### 2026-06-14 — Dream Cycle Run
+- 23 entries promoted in cluster `briefing`
+- Source files (sample): 2026-05-12-061241-session-boot-morning-briefing.md, morning-briefing-2026-06-02-061028.md, 2026-05-08-071436-session-boot-morning-briefing.md...
 
 ## Implications (continued — 2026-05-13)
 
@@ -306,6 +341,9 @@ Morning briefings across the entire Google Next week (Apr 20-23) repeatedly surf
 - DRC Executive AI Workshop May 21 flagged 6 days out. PGA Tour tickets (Chase Early On Sale May 5) likely expired — needs check.
 - Austin trip May 18 next major travel — flight AA 1294 8:30 AM, day trip with Skimmer HQ lunch.
 - Tags populated (boot, briefing, calendar, omnifocus) — manual boot template intact.
+### 2026-06-14 — Dream Cycle Run
+- 23 entries promoted in cluster `briefing`
+- Source files (sample): 2026-05-12-061241-session-boot-morning-briefing.md, morning-briefing-2026-06-02-061028.md, 2026-05-08-071436-session-boot-morning-briefing.md...
 
 ## Implications (continued — 2026-05-18)
 
@@ -325,6 +363,9 @@ Morning briefings across the entire Google Next week (Apr 20-23) repeatedly surf
 - Jarvis inbox: Project Profitability email (Apr 26) now 24 days stale. Longest-lived unprocessed item; validates Implication #18 (no routing pathway for capability-gated items).
 - 4 unassigned leads (THL most urgent — Cognition meeting June 7), Paragon Brokerage at 3+ months.
 - git.index.lock blocking commit — same sandbox restriction across 25+ runs.
+### 2026-06-14 — Dream Cycle Run
+- 23 entries promoted in cluster `briefing`
+- Source files (sample): 2026-05-12-061241-session-boot-morning-briefing.md, morning-briefing-2026-06-02-061028.md, 2026-05-08-071436-session-boot-morning-briefing.md...
 
 ## Implications (continued — 2026-05-23)
 
@@ -342,6 +383,9 @@ Morning briefings across the entire Google Next week (Apr 20-23) repeatedly surf
 - Conflict flagged: 10:00 AM IBP Coaching (in-person with Venkat) vs. Presidents Pipeline Roundtable (Teams). Detected, not resolved — same "flagging is not fixing" pattern (Implication #1).
 - Rob Spies (THL) intro 10:30 AM — sales lead, no prior context surfaced in briefing. Same prep-gap pattern (Implication #15).
 - OmniFocus inbox at 205 items, due Apr 16 — chronic open loop, now 36 days overdue. Multiple strategic items (7-Eleven, Kirby Corp, AT&T, Wendy's, Constellation account plans) overdue from May 21 or earlier. PGA Tour tickets task due May 5 likely expired (matches Implication #23 — flag without action).
+### 2026-06-14 — Dream Cycle Run
+- 23 entries promoted in cluster `briefing`
+- Source files (sample): 2026-05-12-061241-session-boot-morning-briefing.md, morning-briefing-2026-06-02-061028.md, 2026-05-08-071436-session-boot-morning-briefing.md...
 
 ## Implications (continued — 2026-05-26)
 
@@ -369,6 +413,9 @@ Specific new cluster members:
 - score=6: `2026-05-04-morning-briefing.md`
 - score=6: `2026-05-05-morning-briefing.md`
 - score=6: `2026-04-20-afternoon-boot.md`
+### 2026-06-14 — Dream Cycle Run
+- 23 entries promoted in cluster `briefing`
+- Source files (sample): 2026-05-12-061241-session-boot-morning-briefing.md, morning-briefing-2026-06-02-061028.md, 2026-05-08-071436-session-boot-morning-briefing.md...
 
 ## Implications (added 2026-06-03)
 
@@ -382,6 +429,9 @@ Specific new cluster members:
 Today's dream cycle re-scored the morning-briefing cluster (87 episodic entries scanned, 23 promotion candidates at score 3-5). All 23 source files had `salience.promoted: false` despite yesterday's run claiming they were promoted — the prior write either failed silently or was lost to the chronic git-sync gap. Today's run successfully wrote `salience.promoted: true` on all 23 sources. No new sources added to synthesized-from (all 23 were already linked yesterday).
 
 Threshold patterns in the 30-day error log are unchanged from yesterday: process-skip/protocol-skip (9), data-accuracy/stale-cache (4), routing-error/protocol-skip (4), assumption-error/surfaced-resolved-item (3). All four already covered in LESSONS.md — no new lessons appended.
+### 2026-06-14 — Dream Cycle Run
+- 23 entries promoted in cluster `briefing`
+- Source files (sample): 2026-05-12-061241-session-boot-morning-briefing.md, morning-briefing-2026-06-02-061028.md, 2026-05-08-071436-session-boot-morning-briefing.md...
 
 ## Implications (added 2026-06-04)
 

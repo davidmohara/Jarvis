@@ -1,17 +1,17 @@
 ---
 status: complete
-started-at: 2026-06-12T13:23:00Z
-completed-at: 2026-06-12T13:24:00Z
+started-at: 2026-06-14T08:10:30Z
+completed-at: 2026-06-14T08:11:30Z
 outputs:
-  episodic_scanned: 104
-  score_updates: 104
-  no_tags: 41
-  no_date: 0
-  files_with_tags: 63
-  in_window_count: 59
-  score_distribution: "0:42, 1:2, 5:5, 6:1, 10:54"
-  promotion_candidates: 60
-  note: "Window 2026-05-13 → 2026-06-12. The 13 files archived in step-01 carried real co-occurrence tag signal (briefing, daily-review, pipeline, co-sell, revenue, etc.) into the window. Score distribution flipped from collapsed-zero (last run) to heavy-tail with 54 entries hitting the score-10 cap. Tag-starvation gap closed."
+  episodic_scanned: 108
+  score_updates: 108
+  no_tags: 42
+  no_date: 2
+  files_with_tags: 66
+  in_window_count: 56
+  score_distribution: "0:43, 1:2, 5:6, 6:1, 10:56"
+  promotion_candidates: 63
+  note: "Window 2026-05-15 → 2026-06-14. Heavy-tail distribution preserved (56 entries at score-10 cap). 2 new files archived from working/ (dream-summary, briefing) added to in-window pool."
 ---
 
 <!-- system:start -->

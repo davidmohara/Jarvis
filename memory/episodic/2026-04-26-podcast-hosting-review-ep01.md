@@ -14,7 +14,7 @@ tags:
 related_people:
 salience:
   score: 10
-  last-promoted-check: 2026-06-13
+  last-promoted-check: 2026-06-14
 ---
 # Podcast Hosting Review — The Improving Edge, Episode 1
 

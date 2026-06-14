@@ -1,12 +1,30 @@
 ---
-type: working
 task_id: "session"
 session_id: "chief-2026-06-11-062152"
 agent-source: chief
 created: 2026-06-11T06:21:52
 expires: 2026-06-13T06:21:52
-status: active
+status: archived
 context: "Morning boot + briefing — 2026-06-11"
+type: working-archive
+date: 2026-06-11
+source_file: memory/working/morning-briefing-2026-06-11-062152.md
+tags:
+  - briefing
+  - chief
+  - dream-summary
+  - pipeline-review
+  - revenue-tracker
+  - calendar
+  - omnifocus
+  - leads
+  - travel
+  - scorecard
+related_people:
+salience:
+  score: 10
+  last-promoted-check: 2026-06-14
+  promoted: true
 ---
 
 ## Data Sources

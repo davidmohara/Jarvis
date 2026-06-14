@@ -1,13 +1,26 @@
 ---
-type: working
 task_id: "dream-cycle"
 session_id: "dream-cycle-2026-06-12-132045"
 agent-source: jarvis
 created: 2026-06-12T13:25:30
 expires: 2026-06-13T13:25:30
-status: active
+status: archived
 context: "Dream cycle summary — 2026-06-12 (recovery run)"
-tags: [dream-cycle, dream-summary, memory, recovery]
+type: working-archive
+date: 2026-06-12
+source_file: memory/working/dream-summary-2026-06-12.md
+tags:
+  - dream-summary
+  - jarvis
+  - daily-review
+  - pipeline-review
+  - plaud-ingest
+  - revenue-tracker
+related_people:
+salience:
+  score: 5
+  last-promoted-check: 2026-06-14
+  promoted: true
 ---
 
 ## Dream Cycle — June 12, 2026

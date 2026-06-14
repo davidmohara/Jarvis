@@ -1,16 +1,16 @@
 ---
 status: complete
-started-at: 2026-06-12T13:24:00Z
-completed-at: 2026-06-12T13:25:00Z
+started-at: 2026-06-14T08:11:30Z
+completed-at: 2026-06-14T08:13:00Z
 outputs:
-  clusters_found: 6
-  semantic_created: 4
-  semantic_updated: 2
+  clusters_found: 4
+  semantic_created: 0
+  semantic_updated: 4
   promoted_entries: 60
-  promotion_note: "60 episodic entries promoted across 6 clusters (briefing, dream-summary, daily-review, pipeline, plaud, session-work). Four new semantic entries created in memory/semantic/operational and memory/semantic/domain. Existing briefing-travel-calendar pattern received fresh evidence."
-  error_categories_30d: "process-skip:10, assumption-error:6, data-accuracy:5, routing-error:5, tool-misuse:4, format-violation:4"
-  lessons_appended: 3
-  lessons_note: "Three new entries appended for sub-categories not previously covered (format-violation among others). Core five categories already covered, not duplicated."
+  promotion_note: "60 episodic entries promoted across 4 clusters (briefing:23, dream-summary:21, daily-review:10, pipeline:6). All appended to existing semantic patterns. No new semantic files created."
+  error_categories_30d: "process-skip:16, routing-error:7, assumption-error:5, tool-misuse:5, data-accuracy:4, format-violation:4, missed-context:3"
+  lessons_appended: 0
+  lessons_note: "All 7 threshold-breaching categories already covered in LESSONS.md. No new lessons appended."
 ---
 
 <!-- system:start -->

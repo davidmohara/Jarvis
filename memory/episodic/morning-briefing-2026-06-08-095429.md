@@ -23,7 +23,7 @@ date: 2026-06-08
 source_file: memory/working/morning-briefing-2026-06-08-095429.md
 salience:
   score: 10
-  last-promoted-check: 2026-06-13
+  last-promoted-check: 2026-06-14
   promoted: true
 ---
 

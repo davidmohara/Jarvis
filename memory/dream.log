@@ -1083,3 +1083,35 @@ manual_recovery_required: |
     git commit -m "dream-cycle: 2026-06-13 — archived 1, promoted 58, 4 clusters appended (recovery commit)"
     git push --force-with-lease origin main   # restore origin/main with correct tree
 known_pattern: "Same GIT_INDEX_FILE workaround used on 2026-06-09 (commit ea35fea) succeeded because it staged files via the alternate index BEFORE the commit. Today's invocation skipped 'git add -A' against the alternate index, so the alternate index was empty at commit time."
+
+---
+## 2026-06-14T08:14:00 UTC
+session_id: dream-cycle-2026-06-14-080857
+working_archived: 2
+working_deleted: 0
+episodic_scanned: 108
+score_updates: 108
+clusters_found: 4
+semantic_created: 0
+semantic_updated: 4
+promoted_entries: 60
+entries_compressed: 0
+digests_updated: 0
+errors: 0
+summary: "Steady-state run. Step-01 archived 2 newly-expired working files (dream-summary-2026-06-12, morning-briefing-2026-06-11) — most other expired files already had status: archived (72 skips). Step-02 scored 108 episodic entries; heavy-tail distribution preserved (0:43, 1:2, 5:6, 6:1, 10:56) with 56 in-window entries. Step-03 promoted 60 entries across 4 clusters (briefing:23, dream-summary:21, daily-review:10, pipeline:6) — all appended to existing semantic patterns. Error-pattern scan: 7 categories breached threshold (process-skip:16, routing-error:7, assumption-error:5, tool-misuse:5, data-accuracy:4, format-violation:4, missed-context:3) — all already covered in LESSONS.md. Step-04 compression skipped (oldest 57 days, 90-day threshold not met). Git pull succeeded at boot (already up to date)."
+---
+
+## 2026-06-14T08:15:00 UTC — git commit blocked
+session_id: dream-cycle-2026-06-14-080857
+git_pull: success (already up to date)
+git_commit: blocked
+git_commit_blocker: ".git/index.lock present from sandbox-owned process, cannot unlink (chronic 28+ run pattern). Did NOT attempt GIT_INDEX_FILE workaround — that workaround caused destructive push on 2026-06-13 commit 21e7395 (wiped 1420 files from origin)."
+local_state: "All dream-cycle changes applied to disk: 2 working files archived, 60 episodic files marked promoted, 4 semantic patterns updated, dream.log + working summary written, state.yaml set to complete. 122 modified files staged in tree."
+manual_recovery_required: |
+  Run from host Mac:
+    cd ~/develop/jarvis
+    rm -f .git/index.lock .git/HEAD.lock
+    git status
+    git add -A
+    git commit -m "dream-cycle: 2026-06-14 — archived 2, promoted 60, 4 clusters appended"
+    git push origin main

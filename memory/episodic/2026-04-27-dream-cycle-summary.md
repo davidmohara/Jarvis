@@ -12,7 +12,7 @@ tags:
 related_people: []
 salience:
   score: 0
-  last-promoted-check: 2026-06-13
+  last-promoted-check: 2026-06-14
 ---
 # Dream Cycle Summary — 2026-04-27
 
