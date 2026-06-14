@@ -87,12 +87,21 @@ outputs:
 
 6. Update `state.yaml`: set `status: complete`, `current-step: null`. Update this step's frontmatter `status: completed` and `completed-at: {timestamp}`.
 
-7. Stage all changed files and commit:
+7. Stage, commit, and push using SIMPLE, SEPARATE commands via Desktop Commander. Do NOT chain with `&&`. Do NOT add `rm -f .git/index.lock` or any other cleanup. Do NOT use `GIT_INDEX_FILE` workarounds — the 2026-06-13 destructive push originated from that workaround.
+
+   Run each command as its own Desktop Commander process. Wait for output before the next:
+
    ```
-   git add -A
-   git commit -m "dream-cycle: {YYYY-MM-DD} — archived {N}, promoted {N} to semantic, compressed {N} episodic"
-   git push origin
+   cd ~/develop/jarvis && git add -A
    ```
+   ```
+   cd ~/develop/jarvis && git commit -m "dream-cycle: {YYYY-MM-DD} — archived {N}, promoted {N} to semantic, compressed {N} episodic"
+   ```
+   ```
+   cd ~/develop/jarvis && git push
+   ```
+
+   If a command fails: stop, log the failure, surface to controller. Do not retry with a more complex workaround.
 
 ## SUCCESS METRICS
 
