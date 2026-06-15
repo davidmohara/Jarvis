@@ -75,6 +75,26 @@ sets the tone for how to attack the day.}
 
 ---
 
+### Reminders
+
+{If no due reminders from Task J: omit this section entirely — do not show a "no reminders" message.}
+
+{If due reminders exist, render each as:}
+
+**[N reminder(s) waiting on you]**
+
+{For each reminder:}
+> {trigger_prompt} — respond **yes** or **no** (no snoozes for {snooze_days} days)
+
+{After David responds to each:}
+- **Yes** → spawn `routing.agent` with `routing.action_prompt` as a sub-agent. On success: remove entry from `data/reminders.json`. Confirm: "Done — [1-line summary of what was logged]."
+- **No** → advance `trigger_date` by `snooze_days`, write updated `data/reminders.json`. Confirm: "{on_no.message}"
+- **If action fails** → keep the entry. Note: "Action failed — will retry at next boot."
+
+{Surface reminders one at a time if multiple are due. Do not batch them.}
+
+---
+
 What do you want to tackle first?
 ```
 
@@ -107,6 +127,8 @@ What do you want to tackle first?
 - Narrative synthesizes connections between data points rather than listing them
 - Calendar table present with 1-line context per meeting
 - Handoff recommendations named in narrative or calendar context column
+- Reminders section present and interactive if Task J returned due reminders; omitted entirely if none
+- Each reminder response (yes/no) handled and `data/reminders.json` updated before closing briefing
 - Ends with "What do you want to tackle first?"
 
 ## FAILURE MODES

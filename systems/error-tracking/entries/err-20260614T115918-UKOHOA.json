@@ -1,0 +1,15 @@
+{
+  "id": "err-20260614T115918-UKOHOA",
+  "timestamp": "2026-06-14T11:59:18Z",
+  "session": "2026-06-14",
+  "source": "explicit",
+  "agent": "Jarvis (Master)",
+  "category": "tool-misuse",
+  "description": "Attempted to look up Galen via the Contacts MCP (search_contacts) instead of reading the agents/ folder where Galen is defined as an IES agent file.",
+  "correction": "Galen is an agent defined in agents/galen.md — always check agents/ first before treating a named agent as an external contact.",
+  "failure_mode": "wrong-assumption",
+  "systemic_fix": "When a named entity could be an IES agent, check agents/ directory before invoking contact search tools.",
+  "fix_status": "proposed",
+  "severity": "minor",
+  "related_entries": []
+}

@@ -15,6 +15,7 @@ outputs: {}
 3. Every task must report one of three outcomes: **completed**, **nothing to surface**, or **failed — [reason]**. Silence is not an option.
 4. Do NOT proceed to step-03 until all tasks have returned a status.
 5. Do NOT wait for Knox (Task E) — it is fire-and-forget. Record its spawn as completed and move on.
+6. Task J (Boot Reminders) always runs — even if `data/reminders.json` is empty, record `nothing-to-surface`.
 
 ---
 
@@ -70,6 +71,21 @@ Do NOT pull full inbox. Surface only what needs action today.
 
 Run `skills/jarvis-inbox/SKILL.md` — read the skill file and execute as written. Surface any items requiring David's attention.
 
+### Task J: Boot Reminders
+
+Read `data/reminders.json`. Filter for entries where `trigger_date <= today`.
+
+For each due reminder, capture:
+- `id`
+- `trigger_prompt` — the question to surface to David
+- `routing.agent` — who handles the yes response
+- `routing.action_prompt` — the self-contained execution prompt (store, don't execute yet)
+- `on_no.snooze_days` and `on_no.message`
+
+**Do NOT execute any action_prompt during data gather.** Just load the due reminders into accumulated-context. Execution happens in step-04 after David responds.
+
+If the file is missing or empty: record `nothing-to-surface`.
+
 ---
 
 ## RECORDING RESULTS
@@ -84,6 +100,7 @@ accumulated-context:
     task-g-72hr-lookahead: completed | nothing-to-surface | failed — [reason]
     task-h-email-triage: completed | nothing-to-surface | failed — [reason]
     task-i-jarvis-inbox: completed | nothing-to-surface | failed — [reason]
+    task-j-reminders: completed ([N] due) | nothing-to-surface | failed — [reason]
 ```
 
 Update step frontmatter: Set `status: complete` and `completed-at` with current timestamp.
@@ -108,6 +125,8 @@ Update state.yaml: Set `current-step: step-03-verify-phase2.md`.
 | M365 calendar unavailable (Task G) | Record: "Task G: failed — M365 unavailable". Surface in briefing as "72-hour look-ahead unavailable." |
 | M365 email unavailable (Task H) | Record: "Task H: failed — M365 unavailable". Note in briefing. |
 | Jarvis inbox fails | Record: "Task I: failed — [reason]". Continue. |
+| `data/reminders.json` missing | Record: "Task J: nothing-to-surface — file not found". Continue. Do not halt boot. |
+| Reminders file malformed JSON | Record: "Task J: failed — JSON parse error". Continue. Do not halt boot. |
 
 ---
 

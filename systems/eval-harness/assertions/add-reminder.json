@@ -1,0 +1,61 @@
+{
+  "name": "add-reminder",
+  "type": "skill",
+  "assertions": [
+    {
+      "id": "add-reminder-001-signal-written",
+      "check": "file_exists",
+      "path": "systems/eval-harness/skill-runs/add-reminder-latest.json",
+      "description": "add-reminder skill-run signal file was written"
+    },
+    {
+      "id": "add-reminder-002-signal-status",
+      "check": "json_field_not_equals",
+      "path": "systems/eval-harness/skill-runs/add-reminder-latest.json",
+      "field": "status",
+      "value": "failure",
+      "description": "add-reminder skill-run did not end in failure"
+    },
+    {
+      "id": "add-reminder-003-registry-exists",
+      "check": "file_exists",
+      "path": "data/reminders.json",
+      "description": "data/reminders.json exists after skill run"
+    },
+    {
+      "id": "add-reminder-004-registry-substantive",
+      "check": "file_min_bytes",
+      "path": "data/reminders.json",
+      "min_bytes": 100,
+      "description": "data/reminders.json has at least one entry (not empty)"
+    },
+    {
+      "id": "add-reminder-005-entry-has-trigger-prompt",
+      "check": "file_contains",
+      "path": "data/reminders.json",
+      "pattern": "trigger_prompt",
+      "description": "reminders.json contains at least one entry with a trigger_prompt field"
+    },
+    {
+      "id": "add-reminder-006-entry-has-routing-agent",
+      "check": "file_contains",
+      "path": "data/reminders.json",
+      "pattern": "\"agent\"",
+      "description": "reminders.json routing block contains an agent field"
+    },
+    {
+      "id": "add-reminder-007-entry-has-action-prompt",
+      "check": "file_contains",
+      "path": "data/reminders.json",
+      "pattern": "action_prompt",
+      "description": "reminders.json routing block contains an action_prompt (no silent drops)"
+    },
+    {
+      "id": "add-reminder-008-signal-has-reminder-id",
+      "check": "file_contains",
+      "path": "systems/eval-harness/skill-runs/add-reminder-latest.json",
+      "pattern": "rem-",
+      "description": "skill-run signal includes the reminder_id of the entry written"
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "_version": "1.0",
+  "_description": "Boot-time reminders registry. Any agent appends entries. Boot reads and surfaces them. Entries self-remove on successful acknowledgment.",
+  "_instructions": "Append new entries to the reminders array using the add-reminder skill. Never manually edit ids. Boot surfaces entries where trigger_date <= today. On yes: execute action_prompt via routing.agent, then remove the entry. On no: advance trigger_date by snooze_days.",
+  "_schema_ref": "skills/add-reminder/SKILL.md",
+  "reminders": [
+    {
+      "id": "rem-20260614T125115-LJJC1M",
+      "created": "2026-06-14T12:51:15",
+      "created_by": "galen",
+      "trigger_date": "2026-06-21",
+      "trigger_prompt": "Did you start the stack (MOTS-C, Tesamorelin, Ipamorelin)?",
+      "routing": {
+        "agent": "galen",
+        "action_prompt": "David has confirmed he started his peptide stack. Your job is to log the start in the health metrics system.\n\n1. Ask David for the exact start date if he hasn't provided it. If he says 'today', use today's date.\n\n2. Append a new protocol_change entry to `/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/data/health/metrics-log.json` with the following for each peptide:\n\nMOTS-C: action=started, dose='5mg per injection (50 units @ 10mg/ml — 40mg vial + 4ml BW)', frequency='every 5 days, morning fasted', cycle_length_weeks=8, vials_this_cycle=1.5, inventory_remaining_after_cycle='~3.5 vials (40mg each)', last_cycle_ended='2026-03-14', rest_period_weeks=13, rest_period_adequate=true, rationale='Metabolic optimization — AMPK activation, visceral fat reduction, insulin sensitivity.'\n\nTesamorelin: action=started, dose='2mg per injection (50 units @ 4mg/ml — 10mg vial + 2.5ml BW)', frequency='5 nights/week Mon-Fri, 90 min post-meal', cycle_length_weeks=9, vials_this_cycle=9, inventory_remaining_after_cycle=0, last_cycle_ended='2026-03-14', rest_period_weeks=13, rest_period_adequate=true, rationale='GHRH analog — GH/IGF-1 stimulation for visceral fat reduction. Target: VAT 76.3 in³, A/G ratio 1.51.'\n\nIpamorelin: action=started, dose='333mcg per injection (10 units @ 3333mcg/ml — 10mg vial + 3ml BW)', frequency='5 nights/week Mon-Fri, same window as Tesamorelin', cycle_length_weeks=9, vials_this_cycle=1.5, inventory_remaining_after_cycle='~4.5 vials (10mg each)', last_cycle_ended='2026-03-14', rest_period_weeks=13, rest_period_adequate=true, rationale='GH secretagogue — pulsatile GH without cortisol/prolactin spike. Synergistic with Tesamorelin.'\n\n3. Update `/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/skills/galen-protocols/SKILL.md` — change MOTS-C, Tesamorelin, and Ipamorelin status from PENDING START to ACTIVE. Fill in actual cycle_start and cycle_end_expected dates based on the confirmed start date (MOTS-C 8 weeks, Tesamorelin/Ipamorelin 9 weeks).\n\n4. Report back: 'Stack logged. Cycle ends: MOTS-C [date], Tesamorelin/Ipamorelin [date]. Rest windows documented.'"
+      },
+      "on_yes": "execute_action_prompt",
+      "on_no": {
+        "action": "snooze",
+        "snooze_days": 2,
+        "message": "Got it. I'll check again in 2 days."
+      },
+      "auto_remove_on": "acknowledged",
+      "notes": "Stack was ready as of June 14, 2026. David chose to hold at least 1 week before starting. Also on Retatrutide 5mg weekly ending ~July 5."
+    }
+  ]
+}

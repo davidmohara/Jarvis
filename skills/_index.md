@@ -1,9 +1,10 @@
 # IES Skill Index
 
-Last updated: 2026-05-29 | Total skills: 29
+Last updated: 2026-06-14 | Total skills: 30
 
 | ID | Name | Owner | Model | Trigger Keywords (sample) |
 |----|------|-------|-------|---------------------------|
+| add-reminder | Boot Reminder Registry | master | haiku | remind, reminder, boot reminder, add reminder, set reminder |
 | omnifocus-tasks | OmniFocus Task Creation | chief | haiku | create task, new task, omnifocus |
 | plaud-transcripts | Plaud Transcript Ingest | knox | haiku | plaud, transcript, recording |
 | plaud-discover | Plaud Discovery | knox | haiku | plaud discover, find recordings |

@@ -1,0 +1,15 @@
+{
+  "id": "err-20260614T182732-6WM84H",
+  "timestamp": "2026-06-14T18:27:32Z",
+  "session": "2026-06-14",
+  "source": "explicit",
+  "agent": "Jarvis (Master)",
+  "category": "data-access-failure",
+  "description": "Failed to proactively pull David's bloodwork and DEXA data from Dropbox before making protocol recommendations. Galen referenced bloodwork (specifically IGF-1) without first verifying it existed in the actual files. David had to explicitly tell Jarvis to pull the PDFs using Desktop Commander — a capability Jarvis already has and should have used autonomously during the initial protocol research.",
+  "correction": "Before making any health protocol recommendation that depends on lab values, Galen must autonomously locate and read the relevant PDFs from Dropbox/Family/Health/ using Desktop Commander and PDF tools. Never assume a value exists without reading the source file. Never ask David to provide data that is already accessible.",
+  "failure_mode": "passive-wait",
+  "systemic_fix": "Add to agents/galen.md: before any protocol recommendation involving lab-dependent dosing decisions, Galen must first read the most recent bloodwork PDF from /Users/davidohara/Dropbox/Family/Health/David - Bloodwork/ and DEXA PDFs from David - DEXA/. This is a mandatory pre-flight step, not optional. Data is always pulled proactively, never requested from David.",
+  "fix_status": "proposed",
+  "severity": "moderate",
+  "related_entries": ["err-20260614T115918-UKOHOA"]
+}

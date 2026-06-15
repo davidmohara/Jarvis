@@ -1,0 +1,15 @@
+{
+  "id": "err-20260614T191443-2UQPSZ",
+  "timestamp": "2026-06-14T19:14:43Z",
+  "session": "2026-06-14",
+  "source": "explicit",
+  "agent": "Jarvis (Master)",
+  "category": "data-integrity",
+  "description": "Recommended starting B-complex for elevated homocysteine (19.5 umol/L) without checking whether David already takes one. Thorne B-Complex #12 was discussed earlier in the session context but was never logged in skills/galen-protocols/SKILL.md supplement table. The supplement table is incomplete — it was seeded from March 2026 Obsidian notes and never validated against David's actual current stack.",
+  "correction": "Thorne B-Complex #12 added to supplement table in galen-protocols/SKILL.md. Going forward, before recommending any supplement, Galen must cross-reference the full supplement table. Before any session that touches protocol management, validate that the supplement table reflects what David actually takes — not just what was documented at the time the skill was created.",
+  "failure_mode": "incomplete-data",
+  "systemic_fix": "The supplement table in galen-protocols/SKILL.md must be treated as a living document. Any time a supplement is confirmed as current in conversation, log it immediately. Do not assume the table is complete — it was bootstrapped from scratch notes and will have gaps until actively validated.",
+  "fix_status": "applied",
+  "severity": "minor",
+  "related_entries": ["err-20260614T182732-6WM84H"]
+}

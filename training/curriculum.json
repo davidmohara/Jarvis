@@ -647,6 +647,26 @@
       "nudge_phrase": "understand how the system evolves and upgrades"
     },
     {
+      "id": "add-reminder",
+      "category": "system",
+      "agent": null,
+      "task": "Boot Reminders",
+      "tier": "Building Rhythm",
+      "guided_file": "training/modules/system/add-reminder.md",
+      "skill_trigger": "add-reminder",
+      "duration_minutes": 10,
+      "mastery_threshold": 2,
+      "success_criteria": "Understand trigger_prompt, routing, and on_no structure; trace a reminder from creation through boot acknowledgment",
+      "role_notes": {},
+      "prerequisites": [
+        "operations-core",
+        "chief-morning"
+      ],
+      "evolution_source": "boot-reminders",
+      "display_name": "Boot Reminders",
+      "nudge_phrase": "learn how agents leave reminders for you at morning boot"
+    },
+    {
       "id": "m365",
       "category": "connector",
       "agent": null,

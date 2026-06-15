@@ -1671,6 +1671,74 @@
           "description": "Added types 8 (content-review), 9 (cross-agent-escalation), and 10 (alignment-check) to Knowledge Entry Types list. Updated type field in Episodic Entry Schema YAML to include all three."
         }
       ]
+    },
+    {
+      "id": "work-20260614-boot-reminders",
+      "description": "New system-wide boot reminders capability. Any agent can write a boot-time reminder to data/reminders.json via the add-reminder skill. Boot reads due reminders (trigger_date <= today) at step-02 Task J and surfaces them interactively in the morning briefing (step-04 Reminders block). On yes: spawns routing.agent with a fully self-contained action_prompt, removes entry on success. On no: advances trigger_date by snooze_days. Self-removing on acknowledgment. ID format: rem- prefix replacing err- prefix from the shared new-entry.py generator.",
+      "started": "2026-06-14T12:51:15",
+      "classification": "personal",
+      "files": [
+        {
+          "path": "data/reminders.json",
+          "action": "add",
+          "type": "personal",
+          "description": "New boot-time reminders registry. JSON with _version, _description, _instructions, _schema_ref, and reminders array. Seeded with one entry: peptide stack start check (rem-20260614T125115-LJJC1M), trigger_date 2026-06-21, routed to galen."
+        },
+        {
+          "path": "skills/add-reminder/SKILL.md",
+          "action": "add",
+          "type": "system",
+          "description": "New system-wide skill. Generates rem- IDs via new-entry.py, builds and appends reminder entries to data/reminders.json. Append-only — Boot handles removal. Full schema reference, boot integration docs, error handling, and usage examples for all agents."
+        },
+        {
+          "path": "skills/_manifest.jsonl",
+          "action": "merge",
+          "type": "system",
+          "description": "Registered add-reminder skill. owning_agent: master, model: haiku, trigger_keywords: [remind, reminder, boot reminder, add reminder, set reminder, check at boot, follow up on boot], trigger_agents: all agents."
+        },
+        {
+          "path": "skills/_index.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Added add-reminder row (first in table). Incremented total skills count to 30."
+        },
+        {
+          "path": "workflows/boot/steps/step-02-gather-data.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Added Task J (Boot Reminders) to parallel Phase 2 gather. Reads data/reminders.json, filters trigger_date <= today, stores due reminders in accumulated-context. Added task-j-reminders to RECORDING RESULTS yaml block and to MANDATORY EXECUTION RULES rule 6. Added failure modes for missing file and malformed JSON."
+        },
+        {
+          "path": "workflows/morning-briefing/steps/step-04-synthesize-briefing.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Added Reminders block to briefing format after the calendar table. Renders due reminders as interactive yes/no prompts. On yes: spawns routing.agent, removes entry from data/reminders.json. On no: advances trigger_date by snooze_days. Section omitted entirely if no due reminders."
+        },
+        {
+          "path": "systems/eval-harness/assertions/add-reminder.json",
+          "action": "add",
+          "type": "system",
+          "description": "8 assertions for add-reminder skill: signal file written (file_exists), signal status not failure (json_field_not_equals), data/reminders.json exists (file_exists), registry substantive (file_min_bytes 100), entry has trigger_prompt (file_contains), routing.agent present (file_contains), action_prompt present (file_contains), signal includes reminder_id with rem- prefix (file_contains)."
+        },
+        {
+          "path": "training/modules/system/add-reminder.md",
+          "action": "add",
+          "type": "system",
+          "description": "Training module for boot reminders capability. Category: system, Tier: Building Rhythm, Duration: 10 min. Covers why boot reminders exist vs OmniFocus tasks, the three-part entry structure (trigger_prompt, routing, on_no), how any agent invokes add-reminder, what makes a valid action_prompt, and the full boot lifecycle from Task J gather through step-04 surface to self-remove on acknowledgment."
+        },
+        {
+          "path": "training/curriculum.json",
+          "action": "merge",
+          "type": "system",
+          "description": "Added add-reminder module entry under system category, Building Rhythm tier. Prerequisites: operations-core + chief-morning. evolution_source: boot-reminders. nudge_phrase: 'learn how agents leave reminders for you at morning boot'."
+        },
+        {
+          "path": "skills/add-reminder/SKILL.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Added mandatory SKILL COMPLETE block. After confirming reminder written to data/reminders.json, skill writes systems/eval-harness/skill-runs/add-reminder-latest.json with skill, agent, trigger, started, completed, status, tool_failures, error_ids, and reminder_id fields. Rigby gap fix."
+        }
+      ]
     }
   ]
 }

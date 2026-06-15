@@ -1,4 +1,14 @@
-# Health Metrics Log Schema
+# Health Data Schema
+
+## Supplement Stack Registry
+
+**File:** `data/health/supplement-stack.json`
+
+Current active supplement stack — authoritative source for what David is taking right now, at what dose, and when. Galen reads this before any protocol analysis. Changes to this file must also be logged as a `protocol_change` entry in `metrics-log.json` so the history is preserved.
+
+---
+
+## Health Metrics Log
 
 **File:** `data/health/metrics-log.json`
 
@@ -167,6 +177,61 @@ Written by `galen-protocols` skill when supplement or peptide status changes.
       "dose": "500mg",
       "frequency": "daily",
       "rationale": "ApoB management per June 1 bloodwork"
+    }
+  ],
+  "notes": ""
+}
+```
+
+For peptide entries in `changes`, include these additional fields:
+
+```json
+{
+  "item": "Tesamorelin",
+  "type": "peptide",
+  "action": "started | stopped | adjusted | paused",
+  "dose": "2mg per injection",
+  "frequency": "5 nights/week",
+  "cycle_length_weeks": 9,
+  "cycle_end_expected": "2026-08-16",
+  "vials_this_cycle": 9,
+  "inventory_remaining_after_cycle": 0,
+  "last_cycle_ended": "2026-03-14",
+  "rest_period_weeks": 13,
+  "rest_period_adequate": true,
+  "rationale": "reason for change"
+}
+```
+
+### `peptide_cycle_checkpoint`
+
+Written by `galen-protocols` skill at mid-cycle and cycle-end to track adherence and flag upcoming rest windows. Also written when a cycle ends (action: `completed`).
+
+```json
+{
+  "entry_id": "peptide-checkpoint-2026-07-15",
+  "date": "2026-07-15",
+  "category": "peptide_cycle_checkpoint",
+  "source": "galen-protocols skill",
+  "peptides": [
+    {
+      "item": "Tesamorelin",
+      "cycle_start": "2026-06-14",
+      "cycle_end_expected": "2026-08-16",
+      "status": "active | completed | paused | stopped-early",
+      "week_of_cycle": 5,
+      "injections_completed": 25,
+      "injections_remaining": 20,
+      "adherence_pct": null,
+      "notes": ""
+    }
+  ],
+  "upcoming_rest_windows": [
+    {
+      "item": "Tesamorelin",
+      "rest_start": "2026-08-17",
+      "rest_end_minimum": "2026-09-14",
+      "next_eligible": "2026-09-14"
     }
   ],
   "notes": ""
