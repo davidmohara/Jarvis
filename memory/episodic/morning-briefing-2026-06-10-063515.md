@@ -18,10 +18,9 @@ tags:
 related_people: []
 salience:
   score: 10
-  last-promoted-check: 2026-06-14
+  last-promoted-check: 2026-06-15
   promoted: true
 ---
-
 # Morning Briefing — 2026-06-10
 
 ## Boot Status

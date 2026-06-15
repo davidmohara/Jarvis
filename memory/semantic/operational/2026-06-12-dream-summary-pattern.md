@@ -3,7 +3,7 @@ type: semantic
 domain: operational
 primary-tag: dream-summary
 created: 2026-06-12
-last-updated: 2026-06-14
+last-updated: 2026-06-15
 confidence: medium
 synthesized-from: 23
   - dream-summary-2026-05-25.md
@@ -32,7 +32,6 @@ tags:
   - pattern
   - dream-cycle-promoted
 ---
-
 # Pattern: Dream Summary
 
 ## Pattern Summary
@@ -70,6 +69,13 @@ The `dream-summary` tag cluster shows persistent co-occurrence in episodic memor
 ### 2026-06-14 — Dream Cycle Run
 - 21 entries promoted in cluster `dream-summary`
 - Source files (sample): dream-summary-2026-05-25.md, dream-summary-2026-05-31.md, dream-summary-2026-05-20.md...
+
+### Promoted 2026-06-15
+- unknown-date — dream-summary-2026-05-31.md (score 10)
+- unknown-date — dream-summary-2026-05-24.md (score 10)
+- unknown-date — dream-summary-2026-06-13.md (score 10)
+- unknown-date — dream-summary-2026-06-12.md (score 6)
+- unknown-date — dream-summary-2026-05-28.md (score 10)
 
 ## Implications
 

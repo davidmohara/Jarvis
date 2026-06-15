@@ -28,7 +28,7 @@ related_people:
   - richard
 salience:
   score: 10
-  last-promoted-check: 2026-06-14
+  last-promoted-check: 2026-06-15
   promoted: true
 ---
 # Morning Briefing Session — May 11, 2026

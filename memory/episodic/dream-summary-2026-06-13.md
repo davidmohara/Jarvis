@@ -1,14 +1,27 @@
 ---
-type: working
+type: working-archive
 task_id: session
 session_id: dream-cycle-2026-06-13-081000
 agent-source: jarvis
 created: 2026-06-13T08:15:00Z
 expires: 2026-06-14
-status: active
+status: archived
 context: "Dream cycle nightly run — 2026-06-13"
+source_file: memory/working/dream-summary-2026-06-13.md
+tags:
+  - dream-summary
+  - jarvis
+  - omnifocus
+  - pipeline
+  - wellness
+  - evolution
+related_people:
+date: 2026-06-13
+salience:
+  score: 10
+  last-promoted-check: 2026-06-15
+  promoted: true
 ---
-
 # Dream Cycle Summary — 2026-06-13
 
 Steady-state run. Memory consolidation is working as designed now that the tag-starvation gap closed on 2026-06-12.

@@ -10,7 +10,7 @@ tags:
 - error-naming
 salience:
   score: 0
-  last-promoted-check: 2026-06-14
+  last-promoted-check: 2026-06-15
 ---
 # Dream Cycle Summary — 2026-05-02
 

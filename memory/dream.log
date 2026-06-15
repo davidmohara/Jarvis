@@ -1115,3 +1115,34 @@ manual_recovery_required: |
     git add -A
     git commit -m "dream-cycle: 2026-06-14 — archived 2, promoted 60, 4 clusters appended"
     git push origin main
+
+## 2026-06-15T08:12:00 UTC
+session_id: dream-cycle-2026-06-15-080844
+working_archived: 3
+working_deleted: 0
+episodic_scanned: 111
+score_updates: 111
+clusters_found: 6
+semantic_created: 1
+semantic_updated: 5
+promoted_entries: 66
+entries_compressed: 0
+digests_updated: 0
+errors: 0
+summary: "Steady-state run. Step-01 archived 3 newly-expired working files (daily-review x2, dream-summary). Step-02 scored 111 episodic entries; heavy-tail distribution preserved (0:43, 1:2, 5:5, 6:2, 10:59) with 56 in-window. Step-03 promoted 66 entries across 6 clusters (briefing:42, daily-review:11, pipeline:6, dream-summary:5, calendar:1, leads:1) — 5 semantic patterns appended, 1 new (leads-pattern in domain/). Error-pattern scan: 7 categories breached threshold (process-skip:15, routing-error:6, assumption-error:5, tool-misuse:5, data-accuracy:4, format-violation:4, missed-context:3) — all already covered in LESSONS.md. Step-04 compression skipped (oldest 58 days, 90-day threshold not met). Git pull succeeded at boot (already up to date). Heuristic enrichment used — claude -p unavailable in scheduled-task subprocess."
+---
+
+## 2026-06-15T08:13:00 UTC — git commit blocked
+session_id: dream-cycle-2026-06-15-080844
+git_pull: success (already up to date)
+git_commit: blocked
+git_commit_blocker: ".git/index.lock present from sandbox-owned process, cannot unlink (chronic 29+ run pattern). Did NOT attempt GIT_INDEX_FILE workaround — that workaround caused destructive push on 2026-06-13 commit 21e7395 (wiped 1420 files from origin)."
+local_state: "All dream-cycle changes applied to disk: 3 working files archived, 66 episodic files marked promoted, 1 new semantic file created (leads-pattern), 5 semantic patterns updated, dream.log + working summary written, state.yaml set to complete."
+manual_recovery_required: |
+  Run from host Mac:
+    cd ~/develop/jarvis
+    rm -f .git/index.lock .git/HEAD.lock
+    git status
+    git add -A
+    git commit -m "dream-cycle: 2026-06-15 — archived 3, promoted 66, 1 new semantic + 5 appended"
+    git push origin main

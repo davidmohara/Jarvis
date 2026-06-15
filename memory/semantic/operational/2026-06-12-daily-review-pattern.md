@@ -3,7 +3,7 @@ type: semantic
 domain: operational
 primary-tag: daily-review
 created: 2026-06-12
-last-updated: 2026-06-14
+last-updated: 2026-06-15
 confidence: medium
 synthesized-from: 19
   - daily-review-2026-06-08-212450.md
@@ -21,7 +21,6 @@ tags:
   - pattern
   - dream-cycle-promoted
 ---
-
 # Pattern: Daily Review
 
 ## Pattern Summary
@@ -55,6 +54,19 @@ The `daily-review` tag cluster shows persistent co-occurrence in episodic memory
 ### 2026-06-14 — Dream Cycle Run
 - 10 entries promoted in cluster `daily-review`
 - Source files (sample): daily-review-2026-06-08-212450.md, daily-review-2026-05-26-auto.md, daily-review-2026-05-26-000000.md...
+
+### Promoted 2026-06-15
+- unknown-date — daily-review-2026-06-08-212450.md (score 10)
+- unknown-date — daily-review-2026-05-26-auto.md (score 10)
+- unknown-date — daily-review-2026-06-11-082100.md (score 10)
+- unknown-date — daily-review-2026-05-26-000000.md (score 10)
+- unknown-date — daily-review-2026-05-27-000000.md (score 10)
+- unknown-date — daily-review-2026-06-12-070000.md (score 10)
+- unknown-date — daily-review-2026-05-29-000000.md (score 10)
+- unknown-date — daily-review-2026-06-05-021137.md (score 10)
+- unknown-date — daily-review-2026-06-01-000000.md (score 10)
+- unknown-date — daily-review-2026-05-28-000000.md (score 10)
+- unknown-date — daily-review-2026-05-31-000000.md (score 10)
 
 ## Implications
 

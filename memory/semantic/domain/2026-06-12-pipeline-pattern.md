@@ -3,7 +3,7 @@ type: semantic
 domain: domain
 primary-tag: pipeline
 created: 2026-06-12
-last-updated: 2026-06-14
+last-updated: 2026-06-15
 confidence: medium
 synthesized-from: 12
   - co-sell-pipeline-2026-06-09-142000.md
@@ -17,7 +17,6 @@ tags:
   - pattern
   - dream-cycle-promoted
 ---
-
 # Pattern: Pipeline
 
 ## Pattern Summary
@@ -44,6 +43,14 @@ The `pipeline` tag cluster shows persistent co-occurrence in episodic memory ove
 ### 2026-06-14 — Dream Cycle Run
 - 6 entries promoted in cluster `pipeline`
 - Source files (sample): co-sell-pipeline-2026-06-09-142000.md, co-sell-pipeline-2026-06-09-133410.md, co-sell-pipeline-2026-06-08-000000.md...
+
+### Promoted 2026-06-15
+- unknown-date — co-sell-pipeline-2026-06-09-142000.md (score 5)
+- unknown-date — co-sell-pipeline-2026-06-09-133410.md (score 5)
+- unknown-date — co-sell-pipeline-2026-06-08-000000.md (score 5)
+- unknown-date — co-sell-pipeline-2026-06-09-133800.md (score 5)
+- unknown-date — co-sell-pipeline-2026-06-09-140500.md (score 6)
+- unknown-date — co-sell-pipeline-2026-06-01-000100.md (score 5)
 
 ## Implications
 

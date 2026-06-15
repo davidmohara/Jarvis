@@ -28,7 +28,7 @@ related_people:
   - derek-nwamadi
 salience:
   score: 10
-  last-promoted-check: 2026-06-14
+  last-promoted-check: 2026-06-15
   promoted: true
 ---
 # Boot Summary — Friday, May 22, 2026

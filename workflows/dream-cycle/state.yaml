@@ -1,49 +1,51 @@
 workflow: dream-cycle
 agent: jarvis
 status: complete
-session-started: 2026-06-14T08:08:57Z
-session-id: dream-cycle-2026-06-14-080857
+session-started: 2026-06-15T08:08:44Z
+session-id: dream-cycle-2026-06-15-080844
 current-step: null
 original-request: Scheduled dream cycle run
 accumulated-context:
   git_pull_at_boot: success
-  working_archived: 2
+  working_archived: 3
   working_deleted: 0
-  working_skipped: 86
+  working_skipped: 84
   working_stranded: 0
-  enrichment_method: "heuristic:2, llm:0 (claude -p unavailable in scheduled-task subprocess)"
+  enrichment_method: "heuristic:3, llm:0 (claude -p unavailable in scheduled-task subprocess)"
   archived_files:
-    - dream-summary-2026-06-12.md
-    - morning-briefing-2026-06-11-062152.md
+    - daily-review-2026-06-11-082100.md
+    - daily-review-2026-06-12-070000.md
+    - dream-summary-2026-06-13.md
   skipped_already_archived_count: 72
   skipped_unparseable_count: 10
-  skipped_not_expired_count: 4
-  episodic_scanned: 108
-  score_updates: 108
+  skipped_not_expired_count: 2
+  episodic_scanned: 111
+  score_updates: 111
   no_tags: 42
   no_date: 2
-  files_with_tags: 66
+  files_with_tags: 69
   in_window_count: 56
-  score_distribution: "0:43, 1:2, 5:6, 6:1, 10:56"
-  promotion_candidates: 63
-  clusters_found: 4
-  semantic_created: 0
-  semantic_updated: 4
-  promoted_entries: 60
+  score_distribution: "0:43, 1:2, 5:5, 6:2, 10:59"
+  promotion_candidates: 66
+  clusters_found: 6
+  semantic_created: 1
+  semantic_updated: 5
+  promoted_entries: 66
   semantic_updated_files:
-    - 2026-06-12-dream-summary-pattern.md
     - 2026-04-24-briefing-travel-calendar-pattern.md
+    - 2026-06-12-dream-summary-pattern.md
     - 2026-06-12-daily-review-pattern.md
     - 2026-06-12-pipeline-pattern.md
-  promotion_note: "60 entries across 4 clusters (briefing:23, dream-summary:21, daily-review:10, pipeline:6) appended to existing semantic entries."
-  error_categories_30d: "process-skip:16, routing-error:7, assumption-error:5, tool-misuse:5, data-accuracy:4, format-violation:4, missed-context:3"
+    - 2026-06-15-leads-pattern.md
+  promotion_note: "66 entries across 6 clusters (briefing:42, daily-review:11, pipeline:6, dream-summary:5, calendar:1, leads:1). 1 new semantic file created (leads-pattern); 5 existing semantic patterns appended."
+  error_categories_30d: "process-skip:15, routing-error:6, assumption-error:5, tool-misuse:5, data-accuracy:4, format-violation:4, missed-context:3"
   lessons_appended: 0
   lessons_note: "All 7 threshold-breaching categories already covered in LESSONS.md."
   entries_compressed: 0
   digests_updated: 0
   compression_skipped: true
-  compression_skip_reason: "Oldest episodic entry is 2026-04-18 (57 days old). 90-day cutoff = 2026-03-16. 0 entries eligible."
+  compression_skip_reason: "Oldest episodic entry is 2026-04-18 (58 days old). 90-day cutoff = 2026-03-17. 0 entries eligible."
   dream_log_appended: true
   working_summary_written: true
-  working_summary_reason: "semantic_updated=4 > 0 triggered summary write."
+  working_summary_reason: "semantic_created=1, semantic_updated=5 — both > 0 triggered summary write."
   errors: 0

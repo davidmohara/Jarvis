@@ -20,7 +20,7 @@ related_people:
 - tim-rayburn
 salience:
   score: 0
-  last-promoted-check: 2026-06-14
+  last-promoted-check: 2026-06-15
 ---
 # Morning Briefing — April 27, 2026
 
