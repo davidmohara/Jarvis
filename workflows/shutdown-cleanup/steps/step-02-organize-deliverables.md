@@ -50,9 +50,14 @@ Deliverables follow two tracks:
 
 2. **For each PDF in `meetings/`, apply the reMarkable push rule first:**
 
-   > **RULE:** A PDF in `meetings/` that has a corresponding `.md` file with the same base name (e.g., `Tim Brackney.pdf` alongside `2026-06-16-tim-brackney-springline.md`) is a **reMarkable push artifact — a temp file, not a deliverable.** The markdown is canonical. Delete the PDF before staging. Do not commit it.
+   > **RULE:** A PDF in `meetings/` that was generated as a reMarkable push artifact is a **temp file, not a deliverable.** The markdown is canonical. Delete the PDF before staging. Do not commit it.
 
-   To check: for each `meetings/*.pdf`, search for any `.md` file in `meetings/` whose content or slug clearly corresponds to the same meeting or person. If a match exists: **delete the PDF**. If no markdown source exists anywhere: treat as standalone deliverable and proceed to the checks below.
+   PDF and markdown filenames will often differ — the PDF uses a short human-readable name (e.g., `Tim Brackney.pdf`) while the markdown uses a date-slug (e.g., `2026-06-16-tim-brackney-springline.md`). Do not rely on filename matching. Instead, for each `meetings/*.pdf`:
+
+   - Read the first few lines of the PDF filename and any `.md` files created or modified this session in `meetings/`
+   - Ask: does any markdown file cover the same person or meeting as this PDF? Match on person name, company, or meeting topic — not filename
+   - If a corresponding markdown exists: **delete the PDF**
+   - If no markdown source exists for this PDF anywhere in `meetings/`: treat as standalone deliverable and proceed to the checks below
 
 3. **For each remaining deliverable (no corresponding markdown source), verify:**
 
