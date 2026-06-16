@@ -1,0 +1,15 @@
+{
+  "id": "err-20260616T121658-DM6ZK5",
+  "timestamp": "2026-06-16T12:16:58",
+  "session": "2026-06-16",
+  "source": "explicit",
+  "agent": "master",
+  "category": "routing-error",
+  "description": "Ran the IES root-check (canonical root entry audit) as Master during shutdown-cleanup, instead of routing to Rigby. Rigby owns root audit explicitly in her task portfolio under 'root audit' / 'audit root' / 'root directory hygiene'.",
+  "correction": "Root audit step in shutdown-cleanup workflow should spawn Rigby, not execute inline as Master. The shutdown-cleanup step-01 protocol should be updated to route the root-check to Rigby rather than running it directly.",
+  "failure_mode": "protocol-skip",
+  "systemic_fix": "Update shutdown-cleanup/steps/step-01-purge-artifacts.md to hand the IES Root-Check to Rigby rather than running it as Master. Rigby's root audit skill is the canonical path.",
+  "fix_status": "proposed",
+  "severity": "minor",
+  "related_entries": ["err-20260615T165150-67F7TW"]
+}
