@@ -1,0 +1,15 @@
+{
+  "id": "err-20260616T121831-5PAAHI",
+  "timestamp": "2026-06-16T12:18:31",
+  "session": "2026-06-16",
+  "source": "explicit",
+  "agent": "master",
+  "category": "process-skip",
+  "description": "Shutdown cleanup committed Dustin Schaffer.pdf and Tim Brackney.pdf alongside their markdown source files. PDFs generated as reMarkable push artifacts are temp deliverables — the markdown is the canonical source. Both PDFs should have been deleted before commit, not committed.",
+  "correction": "When a meetings PDF has a corresponding .md source file in the same directory, the PDF is a temp artifact and must be deleted before commit. The markdown is canonical; the PDF is a push/distribution artifact only.",
+  "failure_mode": "protocol-skip",
+  "systemic_fix": "Update shutdown-cleanup/steps/step-02-organize-deliverables.md to explicitly flag meetings/*.pdf files that have a corresponding *.md source as temp artifacts for deletion, not as deliverables to verify.",
+  "fix_status": "proposed",
+  "severity": "minor",
+  "related_entries": ["err-20260616T121658-DM6ZK5"]
+}
