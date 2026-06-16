@@ -1,0 +1,15 @@
+{
+  "id": "err-20260615T165150-67F7TW",
+  "timestamp": "2026-06-15T16:51:50",
+  "session": "2026-06-15",
+  "source": "explicit",
+  "agent": "master",
+  "category": "routing-error",
+  "description": "Built the shep-1on1-prep skill directly — wrote SKILL.md, updated shep.md and chief.md — without routing to Rigby. Also began manually editing .pending-changes.json before being stopped. Rigby owns all capability building: new skills, manifest registration, and pending changes tracking.",
+  "correction": "New skill creation must be routed to Rigby via the Capability Building Protocol. Rigby writes the skill file, registers it in skills/_manifest.jsonl, logs it to evolutions/.pending-changes.json, and notifies Master of new trigger phrases.",
+  "failure_mode": "protocol-skip",
+  "systemic_fix": "Before building any new skill, workflow, or agent, check routing.md and Rigby's Capability Building Protocol. If the request is 'build a skill', route to Rigby unconditionally.",
+  "fix_status": "proposed",
+  "severity": "moderate",
+  "related_entries": []
+}

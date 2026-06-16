@@ -1,17 +1,15 @@
 status: complete
-current-step: step-02-approve
-session-id: harper-2026-06-15-hourly-approval
-session-started: 2026-06-15T09:03:00Z
-session-completed: 2026-06-15T09:03:30Z
-original-request: scheduled-content-approval
+current-step: step-01-discover
+session-id: harper-2026-06-16-discovery
+session-started: 2026-06-16T06:00:00Z
+session-completed: 2026-06-16T06:01:00Z
+original-request: scheduled-content-discovery
 accumulated-context:
-  result: "No approval signals received. Both pending drafts remain unchanged."
-  drafts_checked: 2
-  actions_taken: 0
-  published: 0
-  rejected: 0
-  regenerated: 0
+  result: "No new URLs found in #content in the last 24 hours."
+  urls_found: 0
+  urls_processed: 0
+  drafts_created: 0
   notes:
-    - "Draft 1: 'Two Kinds of Public Servant' — bot reply only (Jarvis draft update note), no David approval signal"
-    - "Draft 2: 'The AI Value Question Has an Answer Now' — no replies yet"
-    - "Pending drafts.json unchanged: both entries still status: pending"
+    - "Only message in channel was a bot message from Jarvis itself (bot_id set) — skipped per routing rules"
+    - "24h window returned 0 messages; 48h retry found 1 (the bot's own prior notification)"
+    - "2 pending drafts still awaiting approval: 'Two Kinds of Public Servant', 'The AI Value Question Has an Answer Now'"

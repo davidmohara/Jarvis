@@ -1673,6 +1673,38 @@
       ]
     },
     {
+      "id": "work-20260615-shep-1on1-prep",
+      "description": "New 1:1 Prep skill for Shep. Builds a research-backed markdown prep sheet for internal 1:1 meetings with direct reports. Research sequence covers M365 email (30-60 day window), M365 calendar, Obsidian vault (prior notes, coaching observations, previous 1:1 preps), OmniFocus tasks, Teams chat, and reMarkable notes. Output format strictly matches the mcgreal/tim-rayburn template: prose interaction threads, open threads with warning emoji, action items table, optional calendar events, and talking points tied to named threads. Pre-write gate and post-write validation checklist enforce format compliance. Output delivery writes to meetings/YYYY-MM-DD-{name}-1on1.md and presents via cowork. Explicit prohibitions: no PDF, no push to reMarkable, no external call prep template (that belongs to Chase). SKILL COMPLETE block included for eval harness signal. Manifest registered. Shep agent task portfolio updated with single trigger row referencing the skill. Chief handoff line updated to name the skill explicitly and prohibit self-handling.",
+      "started": "2026-06-15T00:00:00",
+      "classification": "personal",
+      "files": [
+        {
+          "path": "skills/shep-1on1-prep/SKILL.md",
+          "action": "add",
+          "type": "personal",
+          "description": "New 1:1 Prep skill for Shep. Full research sequence (M365 email, calendar, Obsidian, OmniFocus, Teams, reMarkable), mandatory output format matching mcgreal/tim-rayburn template, pre-write gate, post-write validation checklist, output delivery spec, common errors table, and SKILL COMPLETE block for eval harness."
+        },
+        {
+          "path": "skills/_manifest.jsonl",
+          "action": "merge",
+          "type": "personal",
+          "description": "Prepended shep-1on1-prep entry to lazy-loading manifest. Fields: id, name, owning_agent=shep, model=sonnet, trigger_keywords, trigger_agents=[shep, chief], path, description."
+        },
+        {
+          "path": "agents/shep.md",
+          "action": "merge",
+          "type": "personal",
+          "description": "Added 1:1 Prep trigger row to Shep task portfolio (system block). Trigger: 1:1 / prep for my 1:1 with [name] / build a 1:1 prep sheet for [name]. Single row referencing skills/shep-1on1-prep/SKILL.md — no protocol inlined."
+        },
+        {
+          "path": "agents/chief.md",
+          "action": "merge",
+          "type": "personal",
+          "description": "Updated 1:1 handoff line in Chief Handoff Behavior to name skills/shep-1on1-prep/SKILL.md explicitly and prohibit self-handling and use of the chase-call-prep template."
+        }
+      ]
+    },
+    {
       "id": "work-20260614-boot-reminders",
       "description": "New system-wide boot reminders capability. Any agent can write a boot-time reminder to data/reminders.json via the add-reminder skill. Boot reads due reminders (trigger_date <= today) at step-02 Task J and surfaces them interactively in the morning briefing (step-04 Reminders block). On yes: spawns routing.agent with a fully self-contained action_prompt, removes entry on success. On no: advances trigger_date by snooze_days. Self-removing on acknowledgment. ID format: rem- prefix replacing err- prefix from the shared new-entry.py generator.",
       "started": "2026-06-14T12:51:15",
