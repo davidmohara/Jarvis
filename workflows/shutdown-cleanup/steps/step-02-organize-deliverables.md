@@ -48,7 +48,13 @@ Deliverables follow two tracks:
    - Filter for: `.pdf`, `.docx`, `.pptx`, `.epub`
    - These are the deliverables to check
 
-2. **For each deliverable, verify:**
+2. **For each PDF in `meetings/`, apply the reMarkable push rule first:**
+
+   > **RULE:** A PDF in `meetings/` that has a corresponding `.md` file with the same base name (e.g., `Tim Brackney.pdf` alongside `2026-06-16-tim-brackney-springline.md`) is a **reMarkable push artifact — a temp file, not a deliverable.** The markdown is canonical. Delete the PDF before staging. Do not commit it.
+
+   To check: for each `meetings/*.pdf`, search for any `.md` file in `meetings/` whose content or slug clearly corresponds to the same meeting or person. If a match exists: **delete the PDF**. If no markdown source exists anywhere: treat as standalone deliverable and proceed to the checks below.
+
+3. **For each remaining deliverable (no corresponding markdown source), verify:**
 
    | Check | Pass | Fail Action |
    |-------|------|-------------|
