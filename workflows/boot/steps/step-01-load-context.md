@@ -53,9 +53,20 @@ outputs: {}
      files_loaded: [SYSTEM.md, identity/MEMORY.md, ...]
    ```
 
-4. **Update step frontmatter:** Set `status: complete` and `completed-at` with current timestamp.
+4. **Spawn Knox immediately (fire-and-forget):** Immediately after reading identity files, spawn Knox as a background Agent:
 
-5. **Update state.yaml:** Set `current-step: step-02-gather-data.md`.
+   > "Knox — run `workflows/plaud-ingest/workflow.md` in full. Read the workflow, run the STATE CHECK, and execute all steps as written. This is a background task — do not wait for confirmation before starting."
+
+   Record the spawn in outputs:
+   ```yaml
+   outputs:
+     knox_spawn: spawned — fire-and-forget
+   ```
+   Do NOT wait for Knox. Continue to the next step immediately.
+
+5. **Update step frontmatter:** Set `status: complete` and `completed-at` with current timestamp.
+
+6. **Update state.yaml:** Set `current-step: step-02-gather-data.md`.
 
 ---
 
@@ -64,6 +75,7 @@ outputs: {}
 - SYSTEM.md read in full
 - All 6 identity files read (or absences explicitly noted)
 - No file silently skipped
+- Knox spawned as a background Agent immediately after identity files are read
 - Outputs recorded in step frontmatter
 
 ## FAILURE MODES

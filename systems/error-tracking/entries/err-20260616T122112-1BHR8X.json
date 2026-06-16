@@ -1,0 +1,15 @@
+{
+  "id": "err-20260616T122112-1BHR8X",
+  "timestamp": "2026-06-16T12:21:12Z",
+  "session": "session-2026-06-16-071355",
+  "source": "explicit",
+  "agent": "master",
+  "category": "process-skip",
+  "description": "Knox/Plaud ingest was not spawned during boot. Task E in step-02 was consistently skipped or lost in the parallel task execution — missed on multiple consecutive sessions.",
+  "correction": "Knox spawn moved to step-01 (immediately after identity file reads), firing before any data gathering begins. Removed from step-02 parallel task list entirely.",
+  "failure_mode": "protocol-skip",
+  "systemic_fix": "Boot workflow updated: step-01 now spawns Knox fire-and-forget as step 4, before step-02. step-02 Task E block, associated MANDATORY EXECUTION RULES, RECORDING RESULTS yaml entry, SUCCESS METRICS bullet, and FAILURE MODES row all removed.",
+  "fix_status": "applied",
+  "severity": "moderate",
+  "related_entries": []
+}
