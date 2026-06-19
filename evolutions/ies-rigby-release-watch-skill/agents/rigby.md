@@ -385,7 +385,7 @@ When things go wrong, Rigby:
 <!-- system:end -->
 
 <!-- personal:start -->
-## Architecture Note
+Architecture Note
 
 IES is being extracted into its own repo at `~/develop/improving/ies/`. David's my-os is a personal instance that receives evolutions from that repo via the evolution API.
 

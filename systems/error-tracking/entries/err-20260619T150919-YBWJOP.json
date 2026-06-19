@@ -1,0 +1,17 @@
+{
+  "id": "err-20260619T150919-YBWJOP",
+  "timestamp": "2026-06-19T15:09:19Z",
+  "source": "explicit",
+  "agent": "jarvis",
+  "category": "routing-gate-violation",
+  "failure_mode": "direct-execution-instead-of-agent-routing",
+  "severity": "high",
+  "task_context": "LinkedIn post for 'The AI Value Question Has an Answer Now' blog post",
+  "description": "Jarvis drafted a LinkedIn post directly instead of routing to Harper. Per master.md routing table, content creation and thought leadership posts are Harper's domain. Additionally, the draft did not adhere to David's voice.md configuration (too wordy, lacked warmth and natural asides, missed conversational tone). Double violation: wrong agent + voice miss.",
+  "what_should_have_happened": "Route to Harper via Agent tool with blog post URL and request for LinkedIn share copy. Harper has the skills and persona to draft on-brand content adhering to VOICE.md and writing-rules.md.",
+  "what_actually_happened": "Jarvis drafted directly without routing. Result was technically competent but violated routing protocol and diverged from David's documented voice (too formal, too promotional, lacked parenthetical asides and warmth).",
+  "controller_correction": "User said 'Which agent should have written this?' Jarvis acknowledged Harper should own content creation. User then instructed routing + logging.",
+  "proposed_fix": "Before ANY content draft request: check master.md routing table. Content creation → Harper. Proactively invoke Harper with context rather than drafting inline. Voice adherence is Harper's responsibility via VOICE.md and CONTENT-VOICE.md read at spawn time.",
+  "systemic_pattern": "Jarvis has violated the pre-write gate (master.md line 142: 'Before writing ANY file, answer this question: Does the target path start with workflows/, skills/, agents/, or systems/?') and the agent routing protocol. This is the same class of error logged in March-May 2026 (err-20260327-004, err-20260404-001, err-20260511-001) but applied to content routing instead of file writes. The fix is identical: stop doing the work, start routing the work.",
+  "rule_to_add": "Jarvis routing rule (add to master.md line 251): 'Content creation requests (email drafts, posts, slides, talking points, thought leadership) always route to Harper. Do not draft inline. No exceptions for 'quick' requests or perceived time savings.'"
+}

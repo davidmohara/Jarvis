@@ -1,0 +1,40 @@
+{
+  "id": "ies-3a445079-7aa2-40d6-b22c-cb6adcc2eea5",
+  "version": "3a445079-7aa2-40d6-b22c-cb6adcc2eea5",
+  "name": "rigby-release-watch-skill",
+  "description": "New Rigby skill: rigby-release-watch. Checks Claude Code and Cowork release notes on boot for new features relevant to IES. Classifies findings as Adopt, Evaluate, or Skip. Added to parallel boot dispatch in chief-morning. Adds release-watch dispatch to chief-morning skill (system blocks only).",
+  "released": "2026-06-19",
+  "type": "system",
+  "compatibility": {
+    "minimum_base_version": "2.0.0"
+  },
+  "files": [
+    {
+      "path": ".claude/skills/rigby-release-watch/SKILL.md",
+      "type": "system",
+      "action": "replace",
+      "description": "New Rigby skill that checks Claude Code and Cowork release notes. Classifies changes as Adopt, Evaluate (ask David), or Skip. Maintains state in evolutions/release-watch-state.json. Writes report to evolutions/release-watch/release_watch_report.md. Includes SKILL COMPLETE eval harness signal."
+    },
+    {
+      "path": "agents/rigby.md",
+      "type": "mixed",
+      "action": "merge",
+      "description": "Added Release Watch trigger row to Rigby task portfolio (system block): triggers on 'release notes', 'what's new in Claude', 'any new features', and boot. Routes to skills/rigby-release-watch/SKILL.md."
+    },
+    {
+      "path": ".claude/skills/chief-morning/SKILL.md",
+      "type": "mixed",
+      "action": "merge",
+      "description": "System blocks: Chief morning briefing skill framework, SKILL COMPLETE section with eval harness signal and working memory write instruction, Tool Bindings (abstract), and Input passthrough. Personal blocks preserved as empty markers."
+    }
+  ],
+  "changelog": [
+    "Added rigby-release-watch skill: checks Claude Code GitHub releases, Claude Code changelog, and Claude Help Center release notes on boot",
+    "Classifies each change as Adopt (immediate IES benefit), Evaluate (uncertain fit, needs David's call), or Skip (no IES relevance)",
+    "State persisted in evolutions/release-watch-state.json — only reports new entries since last check",
+    "Report written to evolutions/release-watch/release_watch_report.md (overwrite-each-run current-state file)",
+    "Added Release Watch trigger row to Rigby task portfolio (system block) with boot, on-demand, and scheduled triggers",
+    "chief-morning system blocks updated to include SKILL COMPLETE eval harness signal and working memory write convention"
+  ],
+  "training_prompts": []
+}

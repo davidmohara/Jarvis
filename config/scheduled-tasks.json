@@ -141,6 +141,18 @@
       "agent": "Rigby",
       "description": "Weekly eval grading — grades a larger sample of recent ungraded eval records for deeper quality assessment. Runs Sunday morning before weekly review.",
       "cowork_prompt": "Run the rigby-eval-grade skill with arguments: --recent 50. This grades the 50 most recent ungraded eval records. No user interaction needed."
+    },
+    {
+      "id": "rigby-release-watch-weekly",
+      "name": "Release Watch — Weekly",
+      "skill": "rigby-release-watch",
+      "cron": "0 7 * * 0",
+      "schedule_display": "Sundays at 7:00 AM",
+      "keep_awake": false,
+      "configured": false,
+      "agent": "Rigby",
+      "description": "Weekly Claude Code and Cowork release check — scans release notes for features relevant to IES, classifies as Adopt or Evaluate, reports findings. Runs early Sunday before weekly review.",
+      "cowork_prompt": "Run the rigby-release-watch skill to check Claude Code and Cowork release notes for new features relevant to IES. No user interaction needed."
     }
   ]
 }

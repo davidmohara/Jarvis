@@ -1,0 +1,15 @@
+{
+  "id": "err-20260619T195015-D958F8",
+  "timestamp": "2026-06-19T19:50:15Z",
+  "session": "2026-06-19",
+  "source": "explicit",
+  "agent": "Master",
+  "category": "over-engineering",
+  "description": "Created two separate Forbes guidance files: identity/FORBES-GUIDELINES.md (raw guidelines dump) and content/forbes/forbes-guidance.md (authored authoring guide). Harper's agent definition was not updated to reference either file. Result: duplicate sources with no clear canonical reference and Harper unaware of both.",
+  "correction": "Delete identity/FORBES-GUIDELINES.md. Keep content/forbes/forbes-guidance.md as the single authoritative source. Update agents/harper.md personal section to reference forbes-guidance.md. Rigby to execute.",
+  "failure_mode": "scope-creep",
+  "systemic_fix": "When creating guidance files, write one file in the right location and immediately route agent definition update to Rigby in the same response. Do not create raw dump files alongside authored guidance files.",
+  "fix_status": "proposed",
+  "severity": "minor",
+  "related_entries": []
+}

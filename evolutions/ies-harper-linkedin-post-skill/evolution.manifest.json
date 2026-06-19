@@ -1,0 +1,30 @@
+{
+  "id": "ies-455be7ce-f920-4294-a8a3-d2c525370298",
+  "version": "455be7ce-f920-4294-a8a3-d2c525370298",
+  "name": "Harper LinkedIn Post Skill",
+  "description": "Adds the harper-blog-linkedin-post skill to IES. Harper can now draft a LinkedIn post from a Ghost blog URL using a strict contrast-hook structure. Enforces em-dash prohibition, 120-word limit, and David's consulting vantage point. Includes quality gate with 7 checks before returning output. Registered in skills/_manifest.jsonl.",
+  "released": "2026-06-19",
+  "type": "system",
+  "compatibility": {
+    "minimum_base_version": "2.0"
+  },
+  "files": [
+    {
+      "path": "skills/harper-blog-linkedin-post/SKILL.md",
+      "type": "system",
+      "action": "add",
+      "description": "New Harper skill for drafting LinkedIn posts from Ghost blog posts. Contrast-hook structure, quality gate (em-dash scan, word count, hook clarity, consulting lens, challenge present, no generic closes, voice check), output format spec, edge cases, and voice reminders."
+    },
+    {
+      "path": "skills/_manifest.jsonl",
+      "type": "system",
+      "action": "replace",
+      "description": "Added harper-blog-linkedin-post manifest entry: owning_agent=harper, model=sonnet, trigger_keywords for LinkedIn post/share drafting, path and description."
+    }
+  ],
+  "changelog": [
+    "Added skills/harper-blog-linkedin-post/SKILL.md — Harper can now draft LinkedIn posts from a Ghost blog URL using a contrast-hook structure with 7-check quality gate",
+    "Updated skills/_manifest.jsonl — registered harper-blog-linkedin-post for lazy loading with trigger keywords: LinkedIn post, LinkedIn share, draft LinkedIn"
+  ],
+  "training_prompts": []
+}
