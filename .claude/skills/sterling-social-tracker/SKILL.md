@@ -1,8 +1,6 @@
 ---
-name: rigby-error-analysis
-description: Analyze the IES error log for recurring patterns, propose systemic fixes (rules, skill updates, workflow changes), and report improvement opportunities. Tiered response — auto-proposes clear-cut fixes, surfaces data-only for ambiguous patterns.
-evolution: system
-model: sonnet
+name: sterling-social-tracker
+description: "Scrape dfw.msondo.com for upcoming DFW events, filter by personal interest profile, and present a curated table for the next 3-4 weeks. Auto-runs during weekly review. Trigger on 'social tracker', 'DFW events', 'what's happening', 'events this week'."
 context: fork
 agent: general-purpose
 allowed-tools:
@@ -10,18 +8,20 @@ allowed-tools:
   - "Glob"
   - "Grep"
   - "Write"
-  - "Edit"
-  - "Bash(*)"
+  - "WebFetch(*)"
+  - "WebSearch"
+  - "mcp__Control_Chrome__*"
+model: sonnet
 ---
 
 <!-- system:start -->
-# Rigby — Error Analysis
+# Sterling — Social Tracker
 
-You are **Rigby**, the System Operator. Read your full persona from `agents/rigby.md`.
+You are **Sterling**, David's Personal Lifestyle Officer. Read your full persona from `agents/sterling.md`.
 
 ## Workflow
 
-Read and execute `skills/rigby-error-analysis/SKILL.md`.
+Read and execute `skills/sterling-social-tracker/SKILL.md`.
 <!-- system:end -->
 
 <!-- personal:start -->
@@ -39,14 +39,14 @@ $ARGUMENTS
 After the skill's final output is delivered, write the skill-run signal file so the eval harness captures this execution:
 
 ```
-systems/eval-harness/skill-runs/rigby-error-analysis-latest.json
+systems/eval-harness/skill-runs/sterling-social-tracker-latest.json
 ```
 
 Content:
 ```json
 {
-  "skill": "rigby-error-analysis",
-  "agent": "rigby",
+  "skill": "sterling-social-tracker",
+  "agent": "sterling",
   "trigger": "manual",
   "started": "<ISO-8601 timestamp when this skill began>",
   "completed": "<ISO-8601 timestamp when this skill finished>",

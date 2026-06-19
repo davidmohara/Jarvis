@@ -171,7 +171,7 @@ const APP_HTML = `<!DOCTYPE html>
 </div>
 
 <script>
-const DEFAULTS={subreddits:['feedingtube','Gastroparesis','nursing','ChronicIllness','spinalcordinjury','neurogenicbladder','caregiving'],keywords:['catheter','tube securement','skin irritation','Grip-Lok','adhesive','dislodge','tape','GJ tube','NG tube','PEG tube','feeding tube','stoma','tubie','MCAS','skin breakdown'],usernames:[],lookback_days:10};
+const DEFAULTS={subreddits:['feedingtube','Gastroparesis','nursing','ChronicIllness','spinalcordinjury','neurogenicbladder','Parenting','NICU','CaregiverSupport','POTS','EhlersDanlos','MultipleSclerosis'],keywords:['catheter','tube securement','skin irritation','Grip-Lok','adhesive','dislodge','tape','GJ tube','NG tube','PEG tube','feeding tube','stoma','tubie','MCAS','skin breakdown'],usernames:[],lookback_days:10};
 const SK={subreddits:'reddit_monitor_subreddits',keywords:'reddit_monitor_keywords',usernames:'reddit_monitor_usernames'};
 const ls={g:(k,d)=>{try{const v=localStorage.getItem(k);return v!==null?JSON.parse(v):d}catch{return d}},s:(k,v)=>{try{localStorage.setItem(k,JSON.stringify(v))}catch{}}};
 const cfg=()=>({subreddits:ls.g('reddit_monitor_subreddits',DEFAULTS.subreddits),keywords:ls.g('reddit_monitor_keywords',DEFAULTS.keywords),usernames:ls.g('reddit_monitor_usernames',DEFAULTS.usernames),lookback_days:ls.g('reddit_monitor_lookback_days',DEFAULTS.lookback_days)});
@@ -294,8 +294,10 @@ function card(p,resp,inResp){
 }
 
 function renderAll(){
-  const active=posts.filter(p=>!isResp(p.id)&&!isSkipped(p.id)).sort((a,b)=>b.score-a.score);
-  const resp=posts.filter(p=>isResp(p.id)).sort((a,b)=>b.score-a.score);
+  const bandOrder=s=>s>=55?0:s>=30?1:2;
+  const byBandThenRecency=(a,b)=>bandOrder(a.score)-bandOrder(b.score)||b.created_utc-a.created_utc;
+  const active=posts.filter(p=>!isResp(p.id)&&!isSkipped(p.id)).sort(byBandThenRecency);
+  const resp=posts.filter(p=>isResp(p.id)).sort(byBandThenRecency);
   document.getElementById('actCt').textContent=active.length+' post'+(active.length!==1?'s':'');
   document.getElementById('actList').innerHTML=active.length?active.map(p=>card(p,false,false)).join(''):'<div class="empty">No active posts — all caught up! ✓</div>';
   document.getElementById('respCt').textContent=resp.length;
@@ -386,6 +388,17 @@ function proxyRequest(targetPath, res) {
   req.end();
 }
 
+// ── Idle shutdown ─────────────────────────────────────────────────────────────
+const IDLE_MS = 30 * 60 * 1000; // 30 minutes
+let idleTimer;
+function resetIdle() {
+  clearTimeout(idleTimer);
+  idleTimer = setTimeout(() => {
+    console.log('\n💤 No activity for 30 minutes — shutting down.');
+    server.close(() => process.exit(0));
+  }, IDLE_MS);
+}
+
 const server = http.createServer((req, res) => {
   const url = new URL(req.url, `http://localhost:${PORT}`);
 
@@ -393,6 +406,18 @@ const server = http.createServer((req, res) => {
     res.writeHead(204, {'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET'});
     res.end(); return;
   }
+
+  // Graceful shutdown endpoint (called by artifact close/unload)
+  if (url.pathname === '/shutdown') {
+    res.writeHead(200, {'Content-Type': 'text/plain', 'Access-Control-Allow-Origin': '*'});
+    res.end('shutting down');
+    console.log('\n🛑 Shutdown requested via /shutdown');
+    server.close(() => process.exit(0));
+    return;
+  }
+
+  // Reset idle timer on every real request
+  resetIdle();
 
   // Serve the app
   if (url.pathname === '/' || url.pathname === '/index.html') {
@@ -425,5 +450,6 @@ const server = http.createServer((req, res) => {
 
 server.listen(PORT, '127.0.0.1', () => {
   console.log(`\n✅ Reddit Monitor running at http://localhost:${PORT}`);
-  console.log('   Open that URL in any browser window.\n');
+  console.log(`   Auto-shuts down after 30 min of inactivity.\n`);
+  resetIdle(); // start the idle clock
 });

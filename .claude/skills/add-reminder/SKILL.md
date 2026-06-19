@@ -1,8 +1,6 @@
 ---
-name: rigby-error-analysis
-description: Analyze the IES error log for recurring patterns, propose systemic fixes (rules, skill updates, workflow changes), and report improvement opportunities. Tiered response — auto-proposes clear-cut fixes, surfaces data-only for ambiguous patterns.
-evolution: system
-model: sonnet
+name: add-reminder
+description: "Write a boot-time reminder to data/reminders.json. Any agent calls this when it needs to surface a question to David at a future boot. Trigger on 'remind', 'reminder', 'boot reminder', 'add reminder', 'set reminder'."
 context: fork
 agent: general-purpose
 allowed-tools:
@@ -10,18 +8,17 @@ allowed-tools:
   - "Glob"
   - "Grep"
   - "Write"
-  - "Edit"
-  - "Bash(*)"
+model: haiku
 ---
 
 <!-- system:start -->
-# Rigby — Error Analysis
+# Master — Add Reminder
 
-You are **Rigby**, the System Operator. Read your full persona from `agents/rigby.md`.
+You are **Master**, the IES orchestrator. Read your full persona from `agents/master.md`.
 
 ## Workflow
 
-Read and execute `skills/rigby-error-analysis/SKILL.md`.
+Read and execute `skills/add-reminder/SKILL.md`.
 <!-- system:end -->
 
 <!-- personal:start -->
@@ -39,14 +36,14 @@ $ARGUMENTS
 After the skill's final output is delivered, write the skill-run signal file so the eval harness captures this execution:
 
 ```
-systems/eval-harness/skill-runs/rigby-error-analysis-latest.json
+systems/eval-harness/skill-runs/add-reminder-latest.json
 ```
 
 Content:
 ```json
 {
-  "skill": "rigby-error-analysis",
-  "agent": "rigby",
+  "skill": "add-reminder",
+  "agent": "master",
   "trigger": "manual",
   "started": "<ISO-8601 timestamp when this skill began>",
   "completed": "<ISO-8601 timestamp when this skill finished>",

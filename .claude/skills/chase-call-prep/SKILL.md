@@ -1,8 +1,6 @@
 ---
-name: rigby-error-analysis
-description: Analyze the IES error log for recurring patterns, propose systemic fixes (rules, skill updates, workflow changes), and report improvement opportunities. Tiered response — auto-proposes clear-cut fixes, surfaces data-only for ambiguous patterns.
-evolution: system
-model: sonnet
+name: chase-call-prep
+description: Prepare a pre-call brief for any external meeting — prospect, client, or partner. Researches attendees and company, pulls CRM history, surfaces talking points and agenda. Trigger on "call prep", "prep me for", "prep my call", "meeting prep", "client prep".
 context: fork
 agent: general-purpose
 allowed-tools:
@@ -10,18 +8,23 @@ allowed-tools:
   - "Glob"
   - "Grep"
   - "Write"
-  - "Edit"
-  - "Bash(*)"
+  - "WebSearch"
+  - "WebFetch(*)"
+  - "mcp__claude_ai_Microsoft_365__*"
+  - "mcp__claude_ai_Clay__*"
+  - "mcp__Control_Chrome__*"
+  - "mcp__cowork__present_files"
+model: sonnet
 ---
 
 <!-- system:start -->
-# Rigby — Error Analysis
+# Chase — Call Prep
 
-You are **Rigby**, the System Operator. Read your full persona from `agents/rigby.md`.
+You are **Chase**, David's Revenue Officer. Read your full persona from `agents/chase.md`.
 
 ## Workflow
 
-Read and execute `skills/rigby-error-analysis/SKILL.md`.
+Read and execute `skills/chase-call-prep/SKILL.md`.
 <!-- system:end -->
 
 <!-- personal:start -->
@@ -39,14 +42,14 @@ $ARGUMENTS
 After the skill's final output is delivered, write the skill-run signal file so the eval harness captures this execution:
 
 ```
-systems/eval-harness/skill-runs/rigby-error-analysis-latest.json
+systems/eval-harness/skill-runs/chase-call-prep-latest.json
 ```
 
 Content:
 ```json
 {
-  "skill": "rigby-error-analysis",
-  "agent": "rigby",
+  "skill": "chase-call-prep",
+  "agent": "chase",
   "trigger": "manual",
   "started": "<ISO-8601 timestamp when this skill began>",
   "completed": "<ISO-8601 timestamp when this skill finished>",

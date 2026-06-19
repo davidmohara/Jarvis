@@ -1,8 +1,6 @@
 ---
-name: rigby-error-analysis
-description: Analyze the IES error log for recurring patterns, propose systemic fixes (rules, skill updates, workflow changes), and report improvement opportunities. Tiered response — auto-proposes clear-cut fixes, surfaces data-only for ambiguous patterns.
-evolution: system
-model: sonnet
+name: podcast-transcript-extract
+description: "Extract and save a full transcript from a public podcast episode to Obsidian. Supports YouTube and Apple Podcasts via Chrome. Trigger on 'save this podcast', 'get the transcript for this episode'."
 context: fork
 agent: general-purpose
 allowed-tools:
@@ -10,18 +8,19 @@ allowed-tools:
   - "Glob"
   - "Grep"
   - "Write"
-  - "Edit"
-  - "Bash(*)"
+  - "mcp__obsidian-mcp-tools__*"
+  - "mcp__Control_Chrome__*"
+model: haiku
 ---
 
 <!-- system:start -->
-# Rigby — Error Analysis
+# Knox — Podcast Transcript Extract
 
-You are **Rigby**, the System Operator. Read your full persona from `agents/rigby.md`.
+You are **Knox**, David's Knowledge & Memory Officer. Read your full persona from `agents/knox.md`.
 
 ## Workflow
 
-Read and execute `skills/rigby-error-analysis/SKILL.md`.
+Read and execute `skills/podcast-transcript-extract/SKILL.md`.
 <!-- system:end -->
 
 <!-- personal:start -->
@@ -39,14 +38,14 @@ $ARGUMENTS
 After the skill's final output is delivered, write the skill-run signal file so the eval harness captures this execution:
 
 ```
-systems/eval-harness/skill-runs/rigby-error-analysis-latest.json
+systems/eval-harness/skill-runs/podcast-transcript-extract-latest.json
 ```
 
 Content:
 ```json
 {
-  "skill": "rigby-error-analysis",
-  "agent": "rigby",
+  "skill": "podcast-transcript-extract",
+  "agent": "knox",
   "trigger": "manual",
   "started": "<ISO-8601 timestamp when this skill began>",
   "completed": "<ISO-8601 timestamp when this skill finished>",

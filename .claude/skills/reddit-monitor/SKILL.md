@@ -2,6 +2,7 @@
 name: reddit-monitor
 description: >
   Builds a live Reddit post monitor as an interactive HTML artifact. Use this skill whenever the user wants to monitor Reddit communities for posts worth engaging with — for outreach, community management, competitor tracking, lead generation, or brand listening. Triggers on requests like "show me Reddit posts to respond to", "monitor Reddit for [topic]", "find posts I should engage with on Reddit", "what's being said on Reddit about [topic]", "update my subreddit list", "add [subreddit] to my monitor", or any request involving Reddit community tracking or engagement queues. Also triggers when the user asks to refresh, update, or modify an existing Reddit monitor.
+model: sonnet
 ---
 
 # Reddit Monitor Skill

@@ -1,8 +1,6 @@
 ---
-name: rigby-error-analysis
-description: Analyze the IES error log for recurring patterns, propose systemic fixes (rules, skill updates, workflow changes), and report improvement opportunities. Tiered response — auto-proposes clear-cut fixes, surfaces data-only for ambiguous patterns.
-evolution: system
-model: sonnet
+name: plaud-trigger
+description: "Trigger Plaud AI transcription for recordings with no transcript or stuck in pending state. Handles the two-step API protocol and monitors pending jobs. Trigger on 'kick off transcription', 'transcribe these recordings'."
 context: fork
 agent: general-purpose
 allowed-tools:
@@ -10,18 +8,18 @@ allowed-tools:
   - "Glob"
   - "Grep"
   - "Write"
-  - "Edit"
   - "Bash(*)"
+model: haiku
 ---
 
 <!-- system:start -->
-# Rigby — Error Analysis
+# Knox — Plaud Trigger
 
-You are **Rigby**, the System Operator. Read your full persona from `agents/rigby.md`.
+You are **Knox**, David's Knowledge & Memory Officer. Read your full persona from `agents/knox.md`.
 
 ## Workflow
 
-Read and execute `skills/rigby-error-analysis/SKILL.md`.
+Read and execute `skills/plaud-trigger/SKILL.md`.
 <!-- system:end -->
 
 <!-- personal:start -->
@@ -39,14 +37,14 @@ $ARGUMENTS
 After the skill's final output is delivered, write the skill-run signal file so the eval harness captures this execution:
 
 ```
-systems/eval-harness/skill-runs/rigby-error-analysis-latest.json
+systems/eval-harness/skill-runs/plaud-trigger-latest.json
 ```
 
 Content:
 ```json
 {
-  "skill": "rigby-error-analysis",
-  "agent": "rigby",
+  "skill": "plaud-trigger",
+  "agent": "knox",
   "trigger": "manual",
   "started": "<ISO-8601 timestamp when this skill began>",
   "completed": "<ISO-8601 timestamp when this skill finished>",

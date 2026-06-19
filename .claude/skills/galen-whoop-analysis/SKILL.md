@@ -1,8 +1,6 @@
 ---
-name: rigby-error-analysis
-description: Analyze the IES error log for recurring patterns, propose systemic fixes (rules, skill updates, workflow changes), and report improvement opportunities. Tiered response — auto-proposes clear-cut fixes, surfaces data-only for ambiguous patterns.
-evolution: system
-model: sonnet
+name: galen-whoop-analysis
+description: "Deep WHOOP analysis over 30 days. Pulls recovery, sleep, and workout data. Identifies patterns — trend, sleep quality drivers, load correlation, HRV drift. Outputs narrative + data table + actionable recommendations. Trigger on 'WHOOP analysis', 'analyze my recovery', 'WHOOP deep dive'."
 context: fork
 agent: general-purpose
 allowed-tools:
@@ -10,18 +8,19 @@ allowed-tools:
   - "Glob"
   - "Grep"
   - "Write"
-  - "Edit"
-  - "Bash(*)"
+  - "mcp__whoop__*"
+  - "mcp__obsidian-mcp-tools__*"
+model: sonnet
 ---
 
 <!-- system:start -->
-# Rigby — Error Analysis
+# Galen — WHOOP Analysis
 
-You are **Rigby**, the System Operator. Read your full persona from `agents/rigby.md`.
+You are **Galen**, David's Longevity & Performance Advisor. Read your full persona from `agents/galen.md`.
 
 ## Workflow
 
-Read and execute `skills/rigby-error-analysis/SKILL.md`.
+Read and execute `skills/galen-whoop-analysis/SKILL.md`.
 <!-- system:end -->
 
 <!-- personal:start -->
@@ -39,14 +38,14 @@ $ARGUMENTS
 After the skill's final output is delivered, write the skill-run signal file so the eval harness captures this execution:
 
 ```
-systems/eval-harness/skill-runs/rigby-error-analysis-latest.json
+systems/eval-harness/skill-runs/galen-whoop-analysis-latest.json
 ```
 
 Content:
 ```json
 {
-  "skill": "rigby-error-analysis",
-  "agent": "rigby",
+  "skill": "galen-whoop-analysis",
+  "agent": "galen",
   "trigger": "manual",
   "started": "<ISO-8601 timestamp when this skill began>",
   "completed": "<ISO-8601 timestamp when this skill finished>",

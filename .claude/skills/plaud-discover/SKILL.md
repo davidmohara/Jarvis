@@ -1,8 +1,6 @@
 ---
-name: rigby-error-analysis
-description: Analyze the IES error log for recurring patterns, propose systemic fixes (rules, skill updates, workflow changes), and report improvement opportunities. Tiered response — auto-proposes clear-cut fixes, surfaces data-only for ambiguous patterns.
-evolution: system
-model: sonnet
+name: plaud-discover
+description: "Query the Plaud API to enumerate recent recordings and cross-reference against the Obsidian vault to identify which have not yet been ingested. Trigger on 'what recordings do I have', 'check Plaud for new recordings'."
 context: fork
 agent: general-purpose
 allowed-tools:
@@ -10,18 +8,19 @@ allowed-tools:
   - "Glob"
   - "Grep"
   - "Write"
-  - "Edit"
+  - "mcp__obsidian-mcp-tools__*"
   - "Bash(*)"
+model: haiku
 ---
 
 <!-- system:start -->
-# Rigby — Error Analysis
+# Knox — Plaud Discover
 
-You are **Rigby**, the System Operator. Read your full persona from `agents/rigby.md`.
+You are **Knox**, David's Knowledge & Memory Officer. Read your full persona from `agents/knox.md`.
 
 ## Workflow
 
-Read and execute `skills/rigby-error-analysis/SKILL.md`.
+Read and execute `skills/plaud-discover/SKILL.md`.
 <!-- system:end -->
 
 <!-- personal:start -->
@@ -39,14 +38,14 @@ $ARGUMENTS
 After the skill's final output is delivered, write the skill-run signal file so the eval harness captures this execution:
 
 ```
-systems/eval-harness/skill-runs/rigby-error-analysis-latest.json
+systems/eval-harness/skill-runs/plaud-discover-latest.json
 ```
 
 Content:
 ```json
 {
-  "skill": "rigby-error-analysis",
-  "agent": "rigby",
+  "skill": "plaud-discover",
+  "agent": "knox",
   "trigger": "manual",
   "started": "<ISO-8601 timestamp when this skill began>",
   "completed": "<ISO-8601 timestamp when this skill finished>",

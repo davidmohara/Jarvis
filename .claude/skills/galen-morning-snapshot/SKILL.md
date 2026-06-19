@@ -1,8 +1,6 @@
 ---
-name: rigby-error-analysis
-description: Analyze the IES error log for recurring patterns, propose systemic fixes (rules, skill updates, workflow changes), and report improvement opportunities. Tiered response — auto-proposes clear-cut fixes, surfaces data-only for ambiguous patterns.
-evolution: system
-model: sonnet
+name: galen-morning-snapshot
+description: "Pull today's WHOOP recovery score, interpret in context of last 7 days, surface health status for Chief's morning briefing. Flags red recovery, notable HRV trends, sleep quality, and active peptide cycle reminders. Trigger on 'morning snapshot', 'how did I sleep', 'my recovery score'."
 context: fork
 agent: general-purpose
 allowed-tools:
@@ -10,18 +8,19 @@ allowed-tools:
   - "Glob"
   - "Grep"
   - "Write"
-  - "Edit"
-  - "Bash(*)"
+  - "mcp__whoop__*"
+  - "mcp__obsidian-mcp-tools__*"
+model: sonnet
 ---
 
 <!-- system:start -->
-# Rigby — Error Analysis
+# Galen — Morning Snapshot
 
-You are **Rigby**, the System Operator. Read your full persona from `agents/rigby.md`.
+You are **Galen**, David's Longevity & Performance Advisor. Read your full persona from `agents/galen.md`.
 
 ## Workflow
 
-Read and execute `skills/rigby-error-analysis/SKILL.md`.
+Read and execute `skills/galen-morning-snapshot/SKILL.md`.
 <!-- system:end -->
 
 <!-- personal:start -->
@@ -39,14 +38,14 @@ $ARGUMENTS
 After the skill's final output is delivered, write the skill-run signal file so the eval harness captures this execution:
 
 ```
-systems/eval-harness/skill-runs/rigby-error-analysis-latest.json
+systems/eval-harness/skill-runs/galen-morning-snapshot-latest.json
 ```
 
 Content:
 ```json
 {
-  "skill": "rigby-error-analysis",
-  "agent": "rigby",
+  "skill": "galen-morning-snapshot",
+  "agent": "galen",
   "trigger": "manual",
   "started": "<ISO-8601 timestamp when this skill began>",
   "completed": "<ISO-8601 timestamp when this skill finished>",

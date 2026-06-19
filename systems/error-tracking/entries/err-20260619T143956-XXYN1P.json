@@ -1,0 +1,10 @@
+{
+  "id": "err-20260619T143956-XXYN1P",
+  "timestamp": "2026-06-19T14:39:56Z",
+  "agent": "master",
+  "task": "Reddit seed post rewrite for Driven2Dev",
+  "error_type": "voice_violation",
+  "description": "After being explicitly told to fix em-dashes, rewrote both posts and left em-dashes in. Did not scan output before delivering. Fourth documented instance.",
+  "correction": "Before delivering any written content, scan for em-dashes and replace every instance. No exceptions.",
+  "source_file": "identity/VOICE.md"
+}

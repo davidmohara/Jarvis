@@ -3,7 +3,7 @@ name: rigby-capability-build
 description: Build new capabilities for IES — skills, workflows, and agents — following system conventions and tracking changes for future evolution packaging
 context: fork
 agent: general-purpose
-model: sonnet
+model: opus
 ---
 
 <!-- system:start -->
@@ -213,6 +213,89 @@ Create each file following conventions exactly. For each file:
 - Steps are numbered and specific — no vague "handle it" instructions
 - Tool bindings section names every tool used
 - Ends with `$ARGUMENTS` input block
+
+**IES uses a two-tier skill architecture. You must follow it for every agent-specific skill.**
+
+Skills fall into two categories:
+
+| Type | Location | Rule |
+|------|----------|------|
+| Agent-specific | `skills/{name}/SKILL.md` + `.claude/skills/{name}/SKILL.md` | Two files required — see below |
+| Agent-agnostic | `skills/{name}/SKILL.md` only | Single file, no stub needed |
+
+**Agent-agnostic skills** (e.g. `git`, `one-password`, `golf-booking`) have no owning agent and are invoked directly or via scheduled task. Write the full skill content in `skills/{name}/SKILL.md` only. No `.claude/skills/` entry.
+
+**Agent-specific skills** require two files:
+
+1. **Content file** at `skills/{name}/SKILL.md` — the full workflow, steps, data sources, output templates, error handling, and SKILL COMPLETE block. This is where all logic lives.
+
+2. **Stub file** at `.claude/skills/{name}/SKILL.md` — thin dispatcher that Claude Code auto-loads. Contains only the frontmatter (with `context: fork`, `agent: general-purpose`, the owning agent's `allowed-tools`, and `model`) plus three blocks:
+   - A `<!-- system:start -->` block with the agent persona line and a single `Read and execute \`skills/{name}/SKILL.md\`.` instruction
+   - The `$ARGUMENTS` input block
+   - The `SKILL COMPLETE` signal-file block
+
+   Stub template:
+   ```markdown
+   ---
+   name: {name}
+   description: {one-line description}
+   context: fork
+   agent: general-purpose
+   allowed-tools:
+     - "Read"
+     - "Glob"
+     - "Grep"
+     - {any additional tools the skill needs}
+   model: {sonnet|haiku|opus}
+   ---
+
+   <!-- system:start -->
+   # {Agent} — {Task Name}
+
+   You are **{Agent}**, {role one-liner}. Read your full persona from `agents/{agent}.md`.
+
+   ## Workflow
+
+   Read and execute `skills/{name}/SKILL.md`.
+   <!-- system:end -->
+
+   <!-- personal:start -->
+   <!-- personal:end -->
+
+   <!-- system:start -->
+   ## Input
+
+   $ARGUMENTS
+   <!-- system:end -->
+
+   <!-- system:start -->
+   ## SKILL COMPLETE
+
+   After the skill's final output is delivered, write the skill-run signal file so the eval harness captures this execution:
+
+   \`\`\`
+   systems/eval-harness/skill-runs/{name}-latest.json
+   \`\`\`
+
+   Content:
+   \`\`\`json
+   {
+     "skill": "{name}",
+     "agent": "{agent}",
+     "trigger": "manual",
+     "started": "<ISO-8601 timestamp when this skill began>",
+     "completed": "<ISO-8601 timestamp when this skill finished>",
+     "status": "success",
+     "tool_failures": 0,
+     "error_ids": []
+   }
+   \`\`\`
+
+   Set `trigger` to `"boot"` if called from a boot workflow, `"scheduled"` if called from a scheduled task, `"manual"` otherwise. Set `status` to `"partial"` if the skill completed with degraded output, `"failure"` if it could not run at all. Use the actual start time of this skill execution for `started`. This write is always the final action.
+   <!-- system:end -->
+   ```
+
+**The SKILL COMPLETE block belongs in the stub (`.claude/skills/`), not the content file (`skills/`).** The eval harness signal write is triggered by Claude Code after execution — it must live in the file Claude Code loaded, which is the stub. The content file in `skills/` handles the actual work; the stub handles the harness handshake.
 
 **Every skill must include a `## SKILL COMPLETE` section.** This is mandatory — it is what connects the skill to the eval harness. Add it as the last section before `<!-- system:end -->` in the primary system block (the block containing the Process section, not the Tool Bindings or Input blocks). It must instruct the executing agent to write the skill-run signal file after the skill's final output is delivered:
 

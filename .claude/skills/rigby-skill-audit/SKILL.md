@@ -1,8 +1,6 @@
 ---
-name: rigby-error-analysis
-description: Analyze the IES error log for recurring patterns, propose systemic fixes (rules, skill updates, workflow changes), and report improvement opportunities. Tiered response — auto-proposes clear-cut fixes, surfaces data-only for ambiguous patterns.
-evolution: system
-model: sonnet
+name: rigby-skill-audit
+description: "Audit the Jarvis skill library — structural validation, token pressure, execution health, broken skill detection across both skills/ and .claude/skills/. Trigger on 'skill audit', 'audit skills', 'skill health', 'validate skills'."
 context: fork
 agent: general-purpose
 allowed-tools:
@@ -10,18 +8,18 @@ allowed-tools:
   - "Glob"
   - "Grep"
   - "Write"
-  - "Edit"
   - "Bash(*)"
+model: sonnet
 ---
 
 <!-- system:start -->
-# Rigby — Error Analysis
+# Rigby — Skill Audit
 
 You are **Rigby**, the System Operator. Read your full persona from `agents/rigby.md`.
 
 ## Workflow
 
-Read and execute `skills/rigby-error-analysis/SKILL.md`.
+Read and execute `skills/rigby-skill-audit/SKILL.md`.
 <!-- system:end -->
 
 <!-- personal:start -->
@@ -39,13 +37,13 @@ $ARGUMENTS
 After the skill's final output is delivered, write the skill-run signal file so the eval harness captures this execution:
 
 ```
-systems/eval-harness/skill-runs/rigby-error-analysis-latest.json
+systems/eval-harness/skill-runs/rigby-skill-audit-latest.json
 ```
 
 Content:
 ```json
 {
-  "skill": "rigby-error-analysis",
+  "skill": "rigby-skill-audit",
   "agent": "rigby",
   "trigger": "manual",
   "started": "<ISO-8601 timestamp when this skill began>",

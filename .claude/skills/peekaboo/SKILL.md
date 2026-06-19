@@ -1,8 +1,6 @@
 ---
-name: rigby-error-analysis
-description: Analyze the IES error log for recurring patterns, propose systemic fixes (rules, skill updates, workflow changes), and report improvement opportunities. Tiered response — auto-proposes clear-cut fixes, surfaces data-only for ambiguous patterns.
-evolution: system
-model: sonnet
+name: peekaboo
+description: "macOS screenshots, UI inspection, clicks, typing, and app/window automation via the Peekaboo CLI. Trigger on 'screenshot', 'screen capture', 'inspect the UI', 'click on', 'automate the window'."
 context: fork
 agent: general-purpose
 allowed-tools:
@@ -10,18 +8,19 @@ allowed-tools:
   - "Glob"
   - "Grep"
   - "Write"
-  - "Edit"
   - "Bash(*)"
+  - "mcp__Control_your_Mac__osascript"
+model: sonnet
 ---
 
 <!-- system:start -->
-# Rigby — Error Analysis
+# Rigby — Peekaboo
 
 You are **Rigby**, the System Operator. Read your full persona from `agents/rigby.md`.
 
 ## Workflow
 
-Read and execute `skills/rigby-error-analysis/SKILL.md`.
+Read and execute `skills/peekaboo/SKILL.md`.
 <!-- system:end -->
 
 <!-- personal:start -->
@@ -39,13 +38,13 @@ $ARGUMENTS
 After the skill's final output is delivered, write the skill-run signal file so the eval harness captures this execution:
 
 ```
-systems/eval-harness/skill-runs/rigby-error-analysis-latest.json
+systems/eval-harness/skill-runs/peekaboo-latest.json
 ```
 
 Content:
 ```json
 {
-  "skill": "rigby-error-analysis",
+  "skill": "peekaboo",
   "agent": "rigby",
   "trigger": "manual",
   "started": "<ISO-8601 timestamp when this skill began>",

@@ -1,8 +1,6 @@
 ---
-name: rigby-error-analysis
-description: Analyze the IES error log for recurring patterns, propose systemic fixes (rules, skill updates, workflow changes), and report improvement opportunities. Tiered response — auto-proposes clear-cut fixes, surfaces data-only for ambiguous patterns.
-evolution: system
-model: sonnet
+name: obsidian-source-note
+description: "Write a structured Source Note to Obsidian from any content type (podcast, article, video, book). Applies Source Note template, writes verbatim transcript or raw content, appends Key Concept Summary. Trigger on 'save to obsidian', 'source note', 'save podcast notes', 'talk research'."
 context: fork
 agent: general-purpose
 allowed-tools:
@@ -10,18 +8,18 @@ allowed-tools:
   - "Glob"
   - "Grep"
   - "Write"
-  - "Edit"
-  - "Bash(*)"
+  - "mcp__obsidian-mcp-tools__*"
+model: sonnet
 ---
 
 <!-- system:start -->
-# Rigby — Error Analysis
+# Harper — Obsidian Source Note
 
-You are **Rigby**, the System Operator. Read your full persona from `agents/rigby.md`.
+You are **Harper**, David's Content & Communications Officer. Read your full persona from `agents/harper.md`.
 
 ## Workflow
 
-Read and execute `skills/rigby-error-analysis/SKILL.md`.
+Read and execute `skills/obsidian-source-note/SKILL.md`.
 <!-- system:end -->
 
 <!-- personal:start -->
@@ -39,14 +37,14 @@ $ARGUMENTS
 After the skill's final output is delivered, write the skill-run signal file so the eval harness captures this execution:
 
 ```
-systems/eval-harness/skill-runs/rigby-error-analysis-latest.json
+systems/eval-harness/skill-runs/obsidian-source-note-latest.json
 ```
 
 Content:
 ```json
 {
-  "skill": "rigby-error-analysis",
-  "agent": "rigby",
+  "skill": "obsidian-source-note",
+  "agent": "harper",
   "trigger": "manual",
   "started": "<ISO-8601 timestamp when this skill began>",
   "completed": "<ISO-8601 timestamp when this skill finished>",

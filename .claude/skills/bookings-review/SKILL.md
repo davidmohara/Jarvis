@@ -1,8 +1,6 @@
 ---
-name: rigby-error-analysis
-description: Analyze the IES error log for recurring patterns, propose systemic fixes (rules, skill updates, workflow changes), and report improvement opportunities. Tiered response — auto-proposes clear-cut fixes, surfaces data-only for ambiguous patterns.
-evolution: system
-model: sonnet
+name: bookings-review
+description: "Pull YTD bookings data for Dallas, TX and South Texas from the Improving Sales Analytics PowerBI report. Trigger on 'bookings', 'bookings review', '/bookings-review'."
 context: fork
 agent: general-purpose
 allowed-tools:
@@ -10,18 +8,19 @@ allowed-tools:
   - "Glob"
   - "Grep"
   - "Write"
-  - "Edit"
-  - "Bash(*)"
+  - "mcp__Control_Chrome__*"
+  - "mcp__cowork__present_files"
+model: sonnet
 ---
 
 <!-- system:start -->
-# Rigby — Error Analysis
+# Chase — Bookings Review
 
-You are **Rigby**, the System Operator. Read your full persona from `agents/rigby.md`.
+You are **Chase**, David's Revenue Officer. Read your full persona from `agents/chase.md`.
 
 ## Workflow
 
-Read and execute `skills/rigby-error-analysis/SKILL.md`.
+Read and execute `skills/bookings-review/SKILL.md`.
 <!-- system:end -->
 
 <!-- personal:start -->
@@ -39,14 +38,14 @@ $ARGUMENTS
 After the skill's final output is delivered, write the skill-run signal file so the eval harness captures this execution:
 
 ```
-systems/eval-harness/skill-runs/rigby-error-analysis-latest.json
+systems/eval-harness/skill-runs/bookings-review-latest.json
 ```
 
 Content:
 ```json
 {
-  "skill": "rigby-error-analysis",
-  "agent": "rigby",
+  "skill": "bookings-review",
+  "agent": "chase",
   "trigger": "manual",
   "started": "<ISO-8601 timestamp when this skill began>",
   "completed": "<ISO-8601 timestamp when this skill finished>",

@@ -1,0 +1,10 @@
+{
+  "id": "err-20260619T143537-MEBVI6",
+  "timestamp": "2026-06-19T14:35:37Z",
+  "agent": "master",
+  "task": "Reddit seed post drafting for Driven2Dev",
+  "error_type": "voice_violation",
+  "description": "Used em-dashes in drafted Reddit posts despite explicit instruction in VOICE.md to never use em-dashes. Third documented instance of this error.",
+  "correction": "Never use em-dashes in any content written for or as David. Use commas, colons, or sentence breaks instead.",
+  "source_file": "identity/VOICE.md"
+}

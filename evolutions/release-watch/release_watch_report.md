@@ -1,48 +1,49 @@
-# Release Watch -- 2026-03-23
+## Release Watch -- 2026-06-19
 
-Sources checked: Claude Code GitHub (latest: v2.1.81), Claude Help Center (latest: March 17, 2026).
-First run since 2026-03-07. Reporting changes from v2.1.76 through v2.1.81 and Cowork updates since March 7.
-
----
-
-## Adopt
-
-- **`--bare` flag for scripted `-p` calls** (v2.1.81): Skips hooks, LSP, plugin sync, and skill directory walks for clean headless execution. Recommendation: Use this in any automated/scripted IES invocations where boot overhead and hook interference are unwanted.
-
-- **`effort` frontmatter for skills and slash commands** (v2.1.80): Skills can now declare their effort level in frontmatter, overriding the default. Recommendation: Add `effort:` to heavy skills (release-watch, quinn-weekly-review) to ensure they use full reasoning; add `effort: low` to lightweight ones for speed.
-
-- **`PostCompact` hook** (v2.1.76): Fires after compaction completes. Recommendation: Hook this to re-inject persistent context (mission control, current rocks) that gets dropped during long-session compaction.
-
-- **`StopFailure` hook event** (v2.1.78): Fires when a turn ends due to API error (rate limit, auth failure, etc.). Recommendation: Wire this into the error-log system to auto-capture API failures without manual reporting.
-
-- **`source: 'settings'` plugin marketplace source** (v2.1.80): Declare plugin entries inline in settings.json rather than via marketplace. Recommendation: Cleaner way to pin IES plugins without marketplace dependency. Consider migrating current plugin declarations.
-
-- **Plugin freshness: ref-tracked re-clone on every load** (v2.1.81): Ref-tracked plugins now re-clone on load to pick up upstream changes. Recommendation: If any IES plugins are ref-tracked, this ensures they stay current automatically. Verify plugin declarations use refs where appropriate.
-
-- **`CLAUDE_CODE_PLUGIN_SEED_DIR` multi-directory support** (v2.1.79): Now accepts colon-separated list of seed directories. Recommendation: Useful if IES ever splits skills across directories. Low urgency but worth knowing.
-
-- **Persistent Cowork thread for session management** (March 17, 2026 -- Pro/Max research preview): Persistent thread in Cowork for managing claude.ai sessions via Desktop and mobile. Recommendation: Worth enabling once out of research preview. Could provide a durable control surface for IES agent management from phone.
+Last checked: 2026-03-23 (v2.1.81). Latest: v2.1.158. Covering ~3 months of releases.
 
 ---
 
-## Evaluate (Need Your Call)
+### Adopt
 
-- **`--channels` permission relay** (v2.1.81, research preview): Channel servers can forward tool approval prompts to your phone. Uncertainty: Could be useful for approving IES agent actions remotely, but it's research preview and channel server infrastructure isn't documented yet. Worth watching. Do you want to track this for when it ships?
+- **Skills auto-load from `.claude/skills/`** (v2.1.157): Plugins in `.claude/skills` are now loaded automatically without marketplace registration. IES already stores skills there -- verify nothing breaks on next boot. Also check if any skills were previously marketplace-registered and are now double-loading.
 
-- **MCP elicitation support + `Elicitation`/`ElicitationResult` hooks** (v2.1.76): MCP servers can request structured input mid-task via interactive dialog. Uncertainty: Could change how IES agents collect dynamic input mid-run. Need to know if any current MCP servers will start using this, which could interrupt automated flows. Should we add an ElicitationResult hook to control behavior?
+- **`agent` field in `settings.json` honored for dispatched sessions** (v2.1.154): The `agent` field is now respected when Claude dispatches subagents, `--agent <name>` overrides it. Directly affects how IES routes agent calls. Review `settings.json` to confirm the right default agent is set.
 
-- **`worktree.sparsePaths` setting** (v2.1.76): Sparse checkout for `--worktree` in large monorepos. Uncertainty: IES uses worktrees. If the repo grows, this could speed up worktree boots. Low urgency now -- worth adding to evolutions backlog?
+- **`SessionStart` hook can return `reloadSkills: true`** (v2.1.152): Hook can trigger a skill re-scan without restarting. The boot workflow could install or update skills during startup and have them available in the same session.
 
-- **Plugin marketplace + org admin controls** (Feb 24, 2026): Plugin marketplace live with Team/Enterprise org controls. Uncertainty: If Improving's org moves to managed settings, plugin installs may require admin approval. Does Improving have an Enterprise org? Could affect IES plugin installs.
+- **`SessionStart` hook can set session title** (v2.1.152): `hookSpecificOutput.sessionTitle` sets the session name on startup and resume. Useful for labeling Jarvis boot sessions in `claude agents`.
 
-- **Agent Skills open standard** (Dec 18, 2025): Anthropic published an open standard for agent skills; third-party skills directory launched. Uncertainty: Could mean the SKILL.md format gets updated or superseded by the standard. Worth reviewing whether IES skills comply. Should I pull the spec?
+- **`disallowed-tools` in skill frontmatter** (v2.1.152): Skills can now remove specific tools from the model while active. Useful for constraining sensitive skills -- e.g., the git skill could disallow raw bash.
 
----
+- **Stdio MCP servers receive `CLAUDE_CODE_SESSION_ID`** (v2.1.154): MCP server subprocesses get the session ID in their environment. Useful if IES MCP servers need to correlate logs by session.
 
-## Skipped
-
-~40 changes with no IES relevance: voice mode fixes, Windows/WSL bugs, VS Code UI polish, CJK rendering, IDE-specific features, billing/plan management, Claude for Excel/PowerPoint, mobile health data, iTerm2/tmux rendering edge cases, interactive charts, LLM gateway integrations.
+- **Background sessions get correct date after sleep/wake** (v2.1.154): Bug fix for stale date context in background sessions. Already shipped. Explains any past stale-date behavior in IES background agents.
 
 ---
 
-*Next run will report changes newer than 2026-03-23.*
+### Evaluate (Need Your Call)
+
+- **Dynamic workflows** (v2.1.154): `/workflows` command lets Claude orchestrate tens-to-hundreds of agents in the background for large tasks. Uncertainty: could overlap with or complement IES dispatch architecture. Worth running `/workflows` to inspect before deciding whether to integrate or ignore.
+
+- **Opus 4.8 now default** (v2.1.154): Opus 4.8 is new default; fast mode at 2x rate for 2.5x speed. Uncertainty: IES agents may have model pins in frontmatter, but any that don't will silently upgrade. Check `agents/*.md` for unpinned models. Cost/behavior change may or may not be acceptable.
+
+- **`MessageDisplay` hook** (v2.1.152): New hook type that transforms or suppresses assistant message text before display. Uncertainty: no clear IES use case right now, but this is a meaningful hook system extension. Worth noting for future instrumentation or output filtering.
+
+- **`tool_decision` telemetry with `tool_parameters`** (v2.1.157): When `OTEL_LOG_TOOL_DETAILS=1`, telemetry events include bash commands and MCP/skill names. Uncertainty: IES eval harness doesn't use OpenTelemetry. Could be a path to richer skill-run data, but requires wiring in OTEL. Decide if worth pursuing.
+
+- **`claude plugin init <name>` scaffolding** (v2.1.157): Scaffolds a new skill in `.claude/skills`. Uncertainty: IES has its own SKILL.md conventions. Check if generated scaffold matches IES format or conflicts.
+
+- **Claude Compliance API integrations** (May 21, 2026): IT/security teams can govern Claude via compliance API. Uncertainty: if Improving IT has deployed this, it could restrict which tools or MCP servers IES can use. Worth asking Global IT Services.
+
+- **Subagent MCP servers now honor managed-settings allow/deny** (v2.1.153): Previously, subagent MCP servers bypassed managed settings. Now enforced. Uncertainty: if Improving has managed settings deployed, this could silently restrict IES subagent MCP access. Verify no IES subagents are affected.
+
+---
+
+### Skipped
+
+12 changes with no IES relevance (bug fixes for unused features, WSL/Windows-specific, IDE-specific, cosmetic UI, Bedrock/Vertex/Foundry-specific, suspended model access, billing/plan management).
+
+---
+
+*Next run will report changes newer than 2026-06-19.*
