@@ -1,0 +1,15 @@
+{
+  "id": "err-20260618T050229-COB0BF",
+  "timestamp": "2026-06-18T05:02:29Z",
+  "session": "golf-tee-time-booking-scheduled-task",
+  "source": "self-detected",
+  "agent": "chief",
+  "category": "assumption-error",
+  "description": "Golf booking workflow assumes it runs exactly 8 days before target weekend (Fri-Sun June 26-28), but ChronoGolf member booking window is strict: only 8 days in advance maximum. Running on June 18 allows booking through June 25 only. June 26 (Friday) is only day within window, but preview output marks Friday unavailable due to calendar conflicts (podcast, Kazakhstan hosting 2:30-4:00 PM). Workflow attempted to book preferred dates (June 27-28) which are outside the member booking window.",
+  "correction": "Preview output generated for June 26-28 target weekend should either: (1) Run the booking task on June 20 to have June 28 within window, or (2) Change target weekend to June 19-21 if running June 18. The workflow assumes a Tuesday 11pm run for Friday-Sunday weekend booking, but the 8-day constraint means Tuesday books through Tuesday of following week, not Friday-Sunday.",
+  "failure_mode": "pattern-mismatch",
+  "systemic_fix": "Update golf-booking workflow documentation or state logic to account for the 8-day advance booking constraint when determining valid booking dates. Either adjust the preview generation timing or modify the booking window expectations in the skill.",
+  "fix_status": "proposed",
+  "severity": "moderate",
+  "related_entries": []
+}

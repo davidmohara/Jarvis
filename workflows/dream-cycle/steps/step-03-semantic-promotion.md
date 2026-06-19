@@ -1,14 +1,14 @@
 ---
 status: complete
-started-at: 2026-06-14T08:11:30Z
-completed-at: 2026-06-14T08:13:00Z
+started-at: 2026-06-16T08:12:00Z
+completed-at: 2026-06-16T08:13:30Z
 outputs:
-  clusters_found: 4
-  semantic_created: 0
-  semantic_updated: 4
-  promoted_entries: 60
-  promotion_note: "60 episodic entries promoted across 4 clusters (briefing:23, dream-summary:21, daily-review:10, pipeline:6). All appended to existing semantic patterns. No new semantic files created."
-  error_categories_30d: "process-skip:16, routing-error:7, assumption-error:5, tool-misuse:5, data-accuracy:4, format-violation:4, missed-context:3"
+  clusters_found: 11
+  semantic_created: 8
+  semantic_updated: 3
+  promoted_entries: 37
+  promotion_note: "37 episodic entries promoted across 11 clusters (briefing:16, system-maintenance:3, travel:3, leads:3, calendar:3, error-patterns:2, memory-pipeline:2, pipeline:2, memory-system:1, semantic-promotion:1, travel-pattern:1). 8 new semantic files created (system-maintenance, error-patterns, memory-pipeline, travel, memory-system, semantic-promotion, calendar, travel-pattern); 3 existing patterns appended (briefing-travel-calendar, pipeline, leads). Cluster diversity expanded as tag enrichment matures."
+  error_categories_30d: "process-skip:15, routing-error:7, tool-misuse:6, assumption-error:5, data-accuracy:4, format-violation:4, missed-context:3"
   lessons_appended: 0
   lessons_note: "All 7 threshold-breaching categories already covered in LESSONS.md. No new lessons appended."
 ---

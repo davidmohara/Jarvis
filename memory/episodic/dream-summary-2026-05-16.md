@@ -5,19 +5,19 @@ status: archived
 date: 2026-05-16
 source_file: memory/working/dream-summary-2026-05-16.md
 tags:
-  - dream-summary
-  - briefing
-  - morning-briefing
-  - omnifocus
-  - pipeline
-  - score-inflation
-  - dream-cycle
-  - git-issues
-  - git-sync
-related_people:
+- dream-summary
+- briefing
+- morning-briefing
+- omnifocus
+- pipeline
+- score-inflation
+- dream-cycle
+- git-issues
+- git-sync
+related_people: null
 salience:
   score: 10
-  last-promoted-check: 2026-06-15
+  last-promoted-check: 2026-06-19
   promoted: true
 ---
 # Dream Cycle Summary — 2026-05-16

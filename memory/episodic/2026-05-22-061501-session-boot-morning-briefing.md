@@ -1,35 +1,8 @@
 ---
-type: working-archive
-task_id: session
-session_id: chief-2026-05-22-061501
-agent-source: chief
-created: 2026-05-22 06:15:01
-expires: 2026-05-24 06:15:01
-status: archived
-context: "Morning boot + briefing \u2014 2026-05-22"
-- briefing
-- calendar
-- omnifocus
-date: 2026-05-22
-source_file: memory/working/2026-05-22-061501-session-boot-morning-briefing.md
-tags:
-  - briefing
-  - chief
-  - calendar
-  - omnifocus
-  - leads
-  - graduation
-  - pipeline
-  - email
-  - overdue-tasks
-  - boot
-related_people:
-  - curtis
-  - derek-nwamadi
+
 salience:
-  score: 10
-  last-promoted-check: 2026-06-15
-  promoted: true
+  score: 0
+  last-promoted-check: 2026-06-19
 ---
 # Boot Summary — Friday, May 22, 2026
 

@@ -13,8 +13,9 @@ tags:
 related_people:
 - david-ohara
 salience:
-  score: 0
-  last-promoted-check: 2026-06-15
+  score: 10
+  last-promoted-check: 2026-06-19
+  promoted: true
 ---
 # Morning Briefing — May 7, 2026 (Cabo)
 

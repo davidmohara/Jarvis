@@ -1,30 +1,30 @@
 ---
 type: working
-task_id: "session"
-session_id: "chief-2026-06-02-061028"
+task_id: session
+session_id: chief-2026-06-02-061028
 agent-source: chief
-created: 2026-06-02T06:10:28
-expires: 2026-06-04T06:10:28
+created: 2026-06-02 06:10:28
+expires: 2026-06-04 06:10:28
 status: archived
-context: "Morning briefing — 2026-06-02"
+context: "Morning briefing \u2014 2026-06-02"
 date: 2026-06-02
 source_file: memory/working/morning-briefing-2026-06-02-061028.md
 tags:
-  - briefing
-  - chief
-  - morning-briefing
-  - calendar
-  - omnifocus
-  - leads
-  - travel
-  - ypo
-  - drc-workshop
-  - rock2
+- briefing
+- chief
+- morning-briefing
+- calendar
+- omnifocus
+- leads
+- travel
+- ypo
+- drc-workshop
+- rock2
 related_people:
-  - scott-mcmichael
+- scott-mcmichael
 salience:
   score: 10
-  last-promoted-check: 2026-06-15
+  last-promoted-check: 2026-06-19
   promoted: true
 ---
 # Morning Briefing — Tuesday, June 2, 2026

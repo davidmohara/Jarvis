@@ -1,13 +1,13 @@
 ---
 status: complete
-started-at: 2026-06-14T08:13:30Z
-completed-at: 2026-06-14T08:14:30Z
+started-at: 2026-06-16T08:13:45Z
+completed-at: 2026-06-16T08:14:30Z
 outputs:
   dream_log_appended: true
   working_summary_written: true
-  working_summary_reason: "semantic_updated=4 > 0 triggered summary write."
+  working_summary_reason: "semantic_created=8, semantic_updated=3 — both > 0 triggered summary write."
   git_commit: pending
-  git_commit_note: "Git commit attempted at end of run. Sandbox restriction on .git/index.lock remains a chronic issue."
+  git_commit_note: "Git commit attempted at end of run."
 ---
 
 <!-- system:start -->

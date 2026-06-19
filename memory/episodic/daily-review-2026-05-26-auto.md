@@ -10,19 +10,19 @@ context: "Daily review \u2014 2026-05-24"
 date: 2026-05-26
 source_file: memory/working/daily-review-2026-05-26-auto.md
 tags:
-  - daily-review
-  - chief
-  - calendar
-  - omnifocus
-  - utb-board
-  - graduation
-  - email
-  - overdue-tasks
-  - system-maintenance
-related_people:
+- daily-review
+- chief
+- calendar
+- omnifocus
+- utb-board
+- graduation
+- email
+- overdue-tasks
+- system-maintenance
+related_people: null
 salience:
   score: 10
-  last-promoted-check: 2026-06-15
+  last-promoted-check: 2026-06-19
   promoted: true
 ---
 - Sunday May 24 was a family day: Declan's graduation party (4-5 PM CT) was the only calendar event; no work meetings.

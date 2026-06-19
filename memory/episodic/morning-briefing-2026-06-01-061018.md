@@ -3,30 +3,30 @@ type: working-archive
 task_id: session
 session_id: chief-2026-06-01-061018
 agent-source: chief
-created: 2026-06-01T06:10:18
-expires: 2026-06-03T06:10:18
+created: 2026-06-01 06:10:18
+expires: 2026-06-03 06:10:18
 status: archived
-context: "Morning boot + briefing — 2026-06-01 (travel day, Italy/wedding)"
+context: "Morning boot + briefing \u2014 2026-06-01 (travel day, Italy/wedding)"
 date: 2026-06-01
 source_file: memory/working/morning-briefing-2026-06-01-061018.md
 tags:
-  - briefing
-  - chief
-  - morning-briefing
-  - calendar
-  - omnifocus
-  - leads
-  - travel
-  - ypo
-  - drc-workshop
-  - utb-board
+- briefing
+- chief
+- morning-briefing
+- calendar
+- omnifocus
+- leads
+- travel
+- ypo
+- drc-workshop
+- utb-board
 related_people:
-  - scott-mcmichael
-  - curtis
-  - richard
+- scott-mcmichael
+- curtis
+- richard
 salience:
   score: 10
-  last-promoted-check: 2026-06-15
+  last-promoted-check: 2026-06-19
   promoted: true
 ---
 # Morning Briefing Session — June 1, 2026

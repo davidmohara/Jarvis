@@ -7,17 +7,17 @@ session_id: dream-cycle-2026-05-24-030855
 date: 2026-05-24
 source_file: memory/working/dream-summary-2026-05-24.md
 tags:
-  - dream-summary
-  - omnifocus
-  - boot
-  - score-inflation
-  - dream-cycle
-  - git-issues
-  - lessons
-related_people:
+- dream-summary
+- omnifocus
+- boot
+- score-inflation
+- dream-cycle
+- git-issues
+- lessons
+related_people: null
 salience:
   score: 10
-  last-promoted-check: 2026-06-15
+  last-promoted-check: 2026-06-19
   promoted: true
 ---
 # Dream Cycle Summary — 2026-05-24

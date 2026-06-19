@@ -3,7 +3,7 @@ type: semantic
 domain: operational
 primary-tag: plaud
 created: 2026-06-12
-last-updated: 2026-06-12
+last-updated: 2026-06-17
 confidence: low
 synthesized-from: 1
 tags:
@@ -19,6 +19,10 @@ tags:
 The `plaud` tag cluster shows persistent co-occurrence in episodic memory over a 30-day window. This is a recurring operational signal in the Jarvis system.
 
 ## Evidence
+
+_2026-06-17 run:_
+- 2026-06-04 — Plaud ingest summary — 2026-06-04 (score 10, source: `memory/episodic/plaud-ingest-2026-06-04-013000.md`)
+
 
 - 2026-06-04 — `memory/episodic/plaud-ingest-2026-06-04-013000.md` (score 10)
 

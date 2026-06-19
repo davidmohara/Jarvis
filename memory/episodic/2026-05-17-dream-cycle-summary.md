@@ -5,20 +5,20 @@ status: archived
 date: 2026-05-17
 source_file: memory/working/2026-05-17-dream-cycle-summary.md
 tags:
-  - dream-summary
-  - briefing
-  - omnifocus
-  - travel
-  - flight
-  - boot
-  - memory-system
-  - semantic-promotion
-  - score-inflation
-  - dream-cycle
-related_people:
+- dream-summary
+- briefing
+- omnifocus
+- travel
+- flight
+- boot
+- memory-system
+- semantic-promotion
+- score-inflation
+- dream-cycle
+related_people: null
 salience:
   score: 10
-  last-promoted-check: 2026-06-15
+  last-promoted-check: 2026-06-19
   promoted: true
 ---
 # Dream Cycle Summary — 2026-05-17

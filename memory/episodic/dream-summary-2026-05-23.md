@@ -7,20 +7,20 @@ session_id: dream-cycle-2026-05-23-031253
 date: 2026-05-23
 source_file: memory/working/dream-summary-2026-05-23.md
 tags:
-  - dream-summary
-  - briefing
-  - morning-briefing
-  - calendar
-  - omnifocus
-  - travel
-  - drc-workshop
-  - graduation
-  - overdue-tasks
-  - boot
-related_people:
+- dream-summary
+- briefing
+- morning-briefing
+- calendar
+- omnifocus
+- travel
+- drc-workshop
+- graduation
+- overdue-tasks
+- boot
+related_people: null
 salience:
   score: 10
-  last-promoted-check: 2026-06-15
+  last-promoted-check: 2026-06-19
   promoted: true
 ---
 # Dream Cycle Summary — 2026-05-23

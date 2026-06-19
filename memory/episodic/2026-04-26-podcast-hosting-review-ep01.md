@@ -7,14 +7,14 @@ status: reviewed
 date: 2026-04-26
 source_file: memory/working/2026-04-26-podcast-hosting-review-ep01.md
 tags:
-  - calendar
-  - omnifocus
-  - podcast
-  - harper
-related_people:
+- calendar
+- omnifocus
+- podcast
+- harper
+related_people: null
 salience:
   score: 10
-  last-promoted-check: 2026-06-15
+  last-promoted-check: 2026-06-19
   promoted: true
 ---
 # Podcast Hosting Review — The Improving Edge, Episode 1

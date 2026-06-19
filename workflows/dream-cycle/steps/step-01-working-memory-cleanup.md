@@ -1,16 +1,16 @@
 ---
 status: complete
-started-at: 2026-06-14T08:09:00Z
-completed-at: 2026-06-14T08:10:00Z
+started-at: 2026-06-16T08:09:05Z
+completed-at: 2026-06-16T08:11:00Z
 outputs:
   working_archived: 2
   working_deleted: 0
-  working_skipped: 86
+  working_skipped: 87
   working_stranded: 0
   enrichment_method: "heuristic:2, llm:0 (claude -p unavailable in scheduled-task subprocess)"
   archived_files:
-    - dream-summary-2026-06-12.md
-    - morning-briefing-2026-06-11-062152.md
+    - dream-cycle-alert-2026-06-13.md
+    - dream-summary-2026-06-14.md
 ---
 
 <!-- system:start -->

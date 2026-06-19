@@ -1,31 +1,31 @@
 ---
 type: working-archive
-task_id: "session"
-session_id: "chief-2026-05-29-070948"
+task_id: session
+session_id: chief-2026-05-29-070948
 agent-source: chief
-created: 2026-05-29T07:09:48
-expires: 2026-05-31T07:09:48
+created: 2026-05-29 07:09:48
+expires: 2026-05-31 07:09:48
 status: archived
-context: "Morning boot + briefing — 2026-05-29"
+context: "Morning boot + briefing \u2014 2026-05-29"
 date: 2026-05-29
 source_file: memory/working/morning-briefing-2026-05-29-070948.md
 tags:
-  - briefing
-  - chief
-  - calendar
-  - omnifocus
-  - travel
-  - email
-  - overdue-tasks
-  - boot
-  - dream-cycle
-  - health
+- briefing
+- chief
+- calendar
+- omnifocus
+- travel
+- email
+- overdue-tasks
+- boot
+- dream-cycle
+- health
 related_people:
-  - alice-mburu
-  - steve-hall
+- alice-mburu
+- steve-hall
 salience:
   score: 10
-  last-promoted-check: 2026-06-15
+  last-promoted-check: 2026-06-19
   promoted: true
 ---
 ## Boot Summary — Friday, May 29, 2026

@@ -10,21 +10,21 @@ context: "Morning boot + briefing \u2014 2026-05-12 (automated scheduled run)"
 date: 2026-05-12
 source_file: memory/working/2026-05-12-061241-session-boot-morning-briefing.md
 tags:
-  - briefing
-  - chief
-  - calendar
-  - omnifocus
-  - leads
-  - drc-workshop
-  - one-texas
-  - revenue
-  - co-sell
-  - email
+- briefing
+- chief
+- calendar
+- omnifocus
+- leads
+- drc-workshop
+- one-texas
+- revenue
+- co-sell
+- email
 related_people:
-  - devlin
+- devlin
 salience:
   score: 10
-  last-promoted-check: 2026-06-15
+  last-promoted-check: 2026-06-19
   promoted: true
 ---
 # Morning Boot — Tuesday, May 12, 2026

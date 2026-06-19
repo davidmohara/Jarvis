@@ -1,29 +1,29 @@
 ---
-task_id: "session"
-session_id: "chief-2026-06-11-062152"
+task_id: session
+session_id: chief-2026-06-11-062152
 agent-source: chief
-created: 2026-06-11T06:21:52
-expires: 2026-06-13T06:21:52
+created: 2026-06-11 06:21:52
+expires: 2026-06-13 06:21:52
 status: archived
-context: "Morning boot + briefing — 2026-06-11"
+context: "Morning boot + briefing \u2014 2026-06-11"
 type: working-archive
 date: 2026-06-11
 source_file: memory/working/morning-briefing-2026-06-11-062152.md
 tags:
-  - briefing
-  - chief
-  - dream-summary
-  - pipeline-review
-  - revenue-tracker
-  - calendar
-  - omnifocus
-  - leads
-  - travel
-  - scorecard
-related_people:
+- briefing
+- chief
+- dream-summary
+- pipeline-review
+- revenue-tracker
+- calendar
+- omnifocus
+- leads
+- travel
+- scorecard
+related_people: null
 salience:
   score: 10
-  last-promoted-check: 2026-06-15
+  last-promoted-check: 2026-06-19
   promoted: true
 ---
 ## Data Sources

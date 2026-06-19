@@ -1,29 +1,29 @@
 ---
 type: working-archive
-task_id: "session"
-session_id: "chief-2026-06-09-092323"
+task_id: session
+session_id: chief-2026-06-09-092323
 agent-source: chief
-created: 2026-06-09T09:23:23
-expires: 2026-06-11T09:23:23
+created: 2026-06-09 09:23:23
+expires: 2026-06-11 09:23:23
 status: archived
-context: "Morning boot + briefing — 2026-06-09"
-related_people:
+context: "Morning boot + briefing \u2014 2026-06-09"
+related_people: null
 tags:
-  - briefing
-  - morning-briefing
-  - chief
-  - omnifocus
-  - calendar
-  - email
-  - rock1
-  - rock3
-  - leads
-  - travel
+- briefing
+- morning-briefing
+- chief
+- omnifocus
+- calendar
+- email
+- rock1
+- rock3
+- leads
+- travel
 date: 2026-06-09
 source_file: memory/working/morning-briefing-2026-06-09-092323.md
 salience:
   score: 10
-  last-promoted-check: 2026-06-15
+  last-promoted-check: 2026-06-19
   promoted: true
 ---
 ## Boot Summary

@@ -10,20 +10,20 @@ context: "Morning boot + briefing \u2014 2026-05-13 (automated scheduled task)"
 date: 2026-05-13
 source_file: memory/working/2026-05-13-061200-session-boot-morning-briefing.md
 tags:
-  - briefing
-  - chief
-  - morning-briefing
-  - calendar
-  - omnifocus
-  - omnifocus-timeout
-  - leads
-  - ypo
-  - utb-board
-  - email
-related_people:
+- briefing
+- chief
+- morning-briefing
+- calendar
+- omnifocus
+- omnifocus-timeout
+- leads
+- ypo
+- utb-board
+- email
+related_people: null
 salience:
   score: 10
-  last-promoted-check: 2026-06-15
+  last-promoted-check: 2026-06-19
   promoted: true
 ---
 # Morning Briefing Boot — May 13, 2026

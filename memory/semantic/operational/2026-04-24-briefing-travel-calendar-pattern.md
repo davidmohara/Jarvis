@@ -4,8 +4,8 @@ domain: operational
 tags: [briefing, calendar, omnifocus, google-next, travel, overdue-tasks, leads]
 confidence: high
 created: 2026-04-24
-last-updated: 2026-06-15
-synthesized-from:
+last-updated: 2026-06-16
+synthesized-from: 16
   - memory/episodic/2026-04-20-morning-briefing.md
   - memory/episodic/2026-04-21-morning-briefing.md
   - memory/episodic/2026-04-20-afternoon-boot.md
@@ -61,6 +61,24 @@ synthesized-from:
 Morning briefings across the entire Google Next week (Apr 20-23) repeatedly surface the same pattern: travel events (Google Next Las Vegas, AA flights) create cascading calendar conflicts with recurring internal meetings, and the system detects these but the response gap persists. OmniFocus timeouts compound the problem — when task data is unavailable during travel weeks, the briefing loses half its value. Additionally, overdue tasks and unassigned leads accumulate during travel with no mechanism to delegate or triage them in David's absence.
 
 ## Evidence
+### 2026-06-16 — dream-cycle promotion (16 entries)
+- 2026-05-01-morning-briefing.md
+- dream-cycle-alert-2026-06-13.md
+- 2026-04-23-morning-briefing-midnight.md
+- dream-summary-2026-06-14.md
+- 2026-04-29-morning-briefing-glc-day4.md
+- 2026-04-23-morning-briefing-scheduled.md
+- 2026-04-21-morning-briefing.md
+- 2026-04-22-morning-briefing-google-next.md
+- 2026-04-27-morning-briefing-glc-day1.md
+- 2026-04-27-morning-briefing.md
+- 2026-04-28-morning-briefing-glc-day2.md
+- 2026-04-24-morning-briefing.md
+- 2026-04-28-morning-briefing.md
+- 2026-04-30-morning-briefing.md
+- 2026-05-01-morning-briefing-post-travel.md
+- 2026-04-26-morning-briefing-glc-travel.md
+
 
 ### Apr 20 Morning Briefing
 - Google Next travel Wed Apr 22 flagged 2 days ahead

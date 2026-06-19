@@ -5,20 +5,20 @@ status: archived
 type: working-archive
 source_file: memory/working/morning-briefing-2026-06-10-063515.md
 tags:
-  - briefing
-  - chief
-  - calendar
-  - omnifocus
-  - pipeline
-  - co-sell
-  - rock-4
-  - delegation
-  - plaud
-  - golf
+- briefing
+- chief
+- calendar
+- omnifocus
+- pipeline
+- co-sell
+- rock-4
+- delegation
+- plaud
+- golf
 related_people: []
 salience:
   score: 10
-  last-promoted-check: 2026-06-15
+  last-promoted-check: 2026-06-19
   promoted: true
 ---
 # Morning Briefing — 2026-06-10

@@ -1,34 +1,8 @@
 ---
-type: working-archive
-task_id: session
-session_id: chief-2026-05-15-094050
-agent-source: chief
-created: 2026-05-15 09:40:50
-expires: 2026-05-17 09:40:50
-status: archived
-context: "Morning boot + briefing \u2014 2026-05-15"
-- briefing
-- calendar
-- omnifocus
-date: 2026-05-15
-source_file: memory/working/2026-05-15-094050-session-boot-morning-briefing.md
-tags:
-  - briefing
-  - chief
-  - calendar
-  - omnifocus
-  - travel
-  - ypo
-  - drc-workshop
-  - utb-board
-  - graduation
-  - rock3
-related_people:
-  - tim-rayburn
+
 salience:
-  score: 10
-  last-promoted-check: 2026-06-15
-  promoted: true
+  score: 0
+  last-promoted-check: 2026-06-19
 ---
 # Boot Briefing — Friday May 15, 2026
 

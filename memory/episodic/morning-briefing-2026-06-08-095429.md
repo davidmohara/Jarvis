@@ -1,29 +1,30 @@
 ---
 type: working-archive
-task_id: "session"
-session_id: "chief-2026-06-08-095429"
+task_id: session
+session_id: chief-2026-06-08-095429
 agent-source: chief
-created: 2026-06-08T09:54:29
-expires: 2026-06-10T09:54:29
+created: 2026-06-08 09:54:29
+expires: 2026-06-10 09:54:29
 status: archived
-context: "Morning boot + briefing — 2026-06-08 (return from UK/Jason & Amber wedding trip)"
+context: "Morning boot + briefing \u2014 2026-06-08 (return from UK/Jason & Amber\
+  \ wedding trip)"
 tags:
-  - briefing
-  - morning-briefing
-  - chief
-  - omnifocus
-  - calendar
-  - rock1
-  - rock2
-  - rock3
-  - rock4
-  - leads
-related_people:
+- briefing
+- morning-briefing
+- chief
+- omnifocus
+- calendar
+- rock1
+- rock2
+- rock3
+- rock4
+- leads
+related_people: null
 date: 2026-06-08
 source_file: memory/working/morning-briefing-2026-06-08-095429.md
 salience:
   score: 10
-  last-promoted-check: 2026-06-15
+  last-promoted-check: 2026-06-19
   promoted: true
 ---
 ## Boot Summary — Monday June 8, 2026 — 9:54 AM CDT

@@ -12,7 +12,7 @@ related_people:
 - dennis-howard
 salience:
   score: 0
-  last-promoted-check: 2026-06-15
+  last-promoted-check: 2026-06-19
 ---
 # Meeting Prep — Cowboys Club CEO Event
 

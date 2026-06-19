@@ -1,18 +1,21 @@
 workflow: golf-booking
-agent: sterling
-status: failure
-session-started: "2026-06-13T00:00:00"
-session-id: "scheduled-midnight-run"
-current-step: "step-4d-tee-time-availability-lookup"
-original-request: "Book tee time for Jun 21, 2026 (Father's Day) — Manual Override"
+agent: chief
+status: window-constraint-failure
+session-started: "2026-06-18T05:02:00"
+session-id: "scheduled-midnight-run-2026-06-18"
+current-step: "step-4a-date-selection"
+original-request: "Book tee time for Jun 26-28, 2026 weekend (Friday-Sunday)"
 accumulated-context:
-  target_weekend: "2026-06-21 Sunday only"
-  target_date: "2026-06-21 Sunday"
-  preview_generated: "2026-06-12T15:58:00"
-  reason_failed: "ChronoGolf platform error: 'We're sorry, but the resource you requested could not be found.' Booking engine failed to retrieve tee time availability for Sunday June 21, 2026 (18 holes, 2 players) after successful widget navigation and player/course configuration."
-  preference_rank_1: "Sunday Jun 21, 2:30 PM–6:30 PM, 18 holes, 2 players (David + Susie), $42 total"
-  override_instructions: "Manual override from David: Book Sunday June 21 at earliest available slot at/after 2:30 PM CT. Do not skip to other days."
-  failure_log: "workflows/golf-booking/booking-failure-2026-06-13.md"
-  completed_at: "2026-06-13T00:XX:XX"
-next-run: "manual-intervention-required"
-next-target: "Manual booking at chronogolf.com or alternate weekend if June 21 unavailable"
+  target_weekend: "2026-06-26 to 2026-06-28 (Fri-Sun)"
+  target_date_primary: "2026-06-27 Saturday"
+  preview_generated: "2026-06-16T00:00:00"
+  reason_failed: "Member booking window constraint: Can only book 8 days in advance. Today June 18 allows booking through June 25 only. Target weekend (June 26-28) starts one day outside window. Friday June 26 is bookable but has calendar conflicts 2:30-4:00 PM (Kazakhstan hosting)."
+  preference_rank_1: "Saturday Jun 27, 1:00 PM–5:00 PM, 18 holes, 2 players (David + Susie), $42 total"
+  preference_rank_2: "Sunday Jun 28, 2:30 PM–6:30 PM, 18 holes, 2 players (David + Susie), $42 total"
+  dates_attempted: ["2026-06-27", "2026-06-28", "2026-06-26"]
+  dates_bookable: ["2026-06-18 through 2026-06-25"]
+  error_entry: "err-20260618T050229-COB0BF"
+  failure_log: "memory/working/golf-booking-failure-2026-06-18.md"
+  completed_at: "2026-06-18T05:15:00"
+next-run: "pending-clarification"
+next-target: "Clarify booking window expectations or reschedule for week of June 30-July 2"

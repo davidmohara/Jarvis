@@ -5,20 +5,20 @@ status: archived
 date: 2026-05-18
 source_file: memory/working/2026-05-18-dream-cycle-summary.md
 tags:
-  - dream-summary
-  - briefing
-  - morning-briefing
-  - calendar
-  - omnifocus
-  - travel
-  - boot
-  - semantic-promotion
-  - dream-cycle
-  - git-issues
-related_people:
+- dream-summary
+- briefing
+- morning-briefing
+- calendar
+- omnifocus
+- travel
+- boot
+- semantic-promotion
+- dream-cycle
+- git-issues
+related_people: null
 salience:
   score: 10
-  last-promoted-check: 2026-06-15
+  last-promoted-check: 2026-06-19
   promoted: true
 ---
 # Dream Cycle Summary — 2026-05-18

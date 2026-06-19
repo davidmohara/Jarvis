@@ -11,8 +11,9 @@ tags:
 - memory-system
 related_people: []
 salience:
-  score: 0
-  last-promoted-check: 2026-06-15
+  score: 10
+  last-promoted-check: 2026-06-19
+  promoted: true
 ---
 # Dream Cycle Summary — 2026-04-27
 

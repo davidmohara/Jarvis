@@ -10,22 +10,22 @@ context: "Morning boot + briefing \u2014 2026-05-18"
 date: 2026-05-18
 source_file: memory/working/2026-05-18-061344-session-boot-morning-briefing.md
 tags:
-  - briefing
-  - chief
-  - calendar
-  - omnifocus
-  - omnifocus-timeout
-  - leads
-  - travel
-  - flight
-  - ypo
-  - drc-workshop
+- briefing
+- chief
+- calendar
+- omnifocus
+- omnifocus-timeout
+- leads
+- travel
+- flight
+- ypo
+- drc-workshop
 related_people:
-  - tim-rayburn
-  - steve-hall
+- tim-rayburn
+- steve-hall
 salience:
   score: 10
-  last-promoted-check: 2026-06-15
+  last-promoted-check: 2026-06-19
   promoted: true
 ---
 # Session Working Memory — May 18, 2026

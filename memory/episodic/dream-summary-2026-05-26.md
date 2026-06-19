@@ -7,20 +7,20 @@ session_id: dream-cycle-2026-05-26-030942
 date: 2026-05-26
 source_file: memory/working/dream-summary-2026-05-26.md
 tags:
-  - dream-summary
-  - briefing
-  - calendar
-  - omnifocus
-  - travel
-  - email
-  - boot
-  - dream-cycle
-  - git-issues
-  - error-patterns
-related_people:
+- dream-summary
+- briefing
+- calendar
+- omnifocus
+- travel
+- email
+- boot
+- dream-cycle
+- git-issues
+- error-patterns
+related_people: null
 salience:
   score: 10
-  last-promoted-check: 2026-06-15
+  last-promoted-check: 2026-06-19
   promoted: true
 ---
 # Dream Cycle Summary — 2026-05-26

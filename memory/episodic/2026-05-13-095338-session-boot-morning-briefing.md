@@ -10,21 +10,21 @@ context: "Morning boot + briefing \u2014 2026-05-13"
 date: 2026-05-13
 source_file: memory/working/2026-05-13-095338-session-boot-morning-briefing.md
 tags:
-  - briefing
-  - chief
-  - calendar
-  - omnifocus
-  - travel
-  - flight
-  - ypo
-  - drc-workshop
-  - graduation
-  - email
+- briefing
+- chief
+- calendar
+- omnifocus
+- travel
+- flight
+- ypo
+- drc-workshop
+- graduation
+- email
 related_people:
-  - curtis
+- curtis
 salience:
   score: 10
-  last-promoted-check: 2026-06-15
+  last-promoted-check: 2026-06-19
   promoted: true
 ---
 # Boot Briefing — Wednesday, May 13, 2026

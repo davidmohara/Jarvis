@@ -1,35 +1,8 @@
 ---
-type: working-archive
-task_id: session
-session_id: chief-2026-05-20-061400
-agent-source: chief
-created: 2026-05-20 06:14:00
-expires: 2026-05-22 06:14:00
-status: archived
-context: "Morning boot + briefing \u2014 2026-05-20 (automated scheduled task)"
-- calendar
-- leads
-- utb-board
-- drc-workshop
-- graduation
-date: 2026-05-20
-source_file: memory/working/2026-05-20-061400-session-boot-morning-briefing.md
-tags:
-  - briefing
-  - chief
-  - morning-briefing
-  - calendar
-  - omnifocus
-  - omnifocus-timeout
-  - leads
-  - ypo
-  - drc-workshop
-  - utb-board
-related_people:
+
 salience:
-  score: 10
-  last-promoted-check: 2026-06-15
-  promoted: true
+  score: 0
+  last-promoted-check: 2026-06-19
 ---
 # Morning Briefing — May 20, 2026
 

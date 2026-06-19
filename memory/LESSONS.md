@@ -98,3 +98,75 @@ Category: format-violation
 Pattern: Recurring format-violation errors logged across agents
 Fix: Review systems/error-tracking entries with category=format-violation; tighten the relevant agent's guardrails
 Status: active
+
+
+## 2026-06-17 — Process Skip
+Detected: 12 occurrences over 30 days
+Category: process-skip
+Pattern: protocol-skip
+Fix: review recent corrections under this category and update agent runbooks
+Status: active
+
+
+## 2026-06-17 — Routing Error
+Detected: 6 occurrences over 30 days
+Category: routing-error
+Pattern: protocol-skip
+Fix: review recent corrections under this category and update agent runbooks
+Status: active
+
+
+## 2026-06-18 — process-skip / protocol-skip
+Detected: 12 occurrences over 30 days
+Category: process-skip
+Pattern: Repeated process-skip errors with failure mode `protocol-skip`.
+Fix: Review recent corrections in this category; tighten the relevant skill or rule.
+Status: active
+
+
+## 2026-06-18 — routing-error / protocol-skip
+Detected: 6 occurrences over 30 days
+Category: routing-error
+Pattern: Repeated routing-error errors with failure mode `protocol-skip`.
+Fix: Review recent corrections in this category; tighten the relevant skill or rule.
+Status: active
+
+
+## 2026-06-18 — assumption-error / surfaced-resolved-item
+Detected: 3 occurrences over 30 days
+Category: assumption-error
+Pattern: Repeated assumption-error errors with failure mode `surfaced-resolved-item`.
+Fix: Review recent corrections in this category; tighten the relevant skill or rule.
+Status: active
+
+
+## 2026-06-18 — tool-misuse / wrong-assumption
+Detected: 3 occurrences over 30 days
+Category: tool-misuse
+Pattern: Repeated tool-misuse errors with failure mode `wrong-assumption`.
+Fix: Review recent corrections in this category; tighten the relevant skill or rule.
+Status: active
+
+## 2026-06-19 — process-skip / protocol-skip
+Detected: 11 occurrences in last 30 days (category total: 14)
+Category: process-skip
+Failure mode: protocol-skip
+Pattern: Recurring process-skip errors via protocol-skip — surfaced by dream-cycle threshold check.
+Fix: Review category process-skip entries in systems/error-tracking/entries/ and apply tier-1 (data) or tier-2 (assertion) remediation. Route to Rigby for tier-3.
+Status: active
+
+## 2026-06-19 — routing-error / protocol-skip
+Detected: 6 occurrences in last 30 days (category total: 7)
+Category: routing-error
+Failure mode: protocol-skip
+Pattern: Recurring routing-error errors via protocol-skip — surfaced by dream-cycle threshold check.
+Fix: Review category routing-error entries in systems/error-tracking/entries/ and apply tier-1 (data) or tier-2 (assertion) remediation. Route to Rigby for tier-3.
+Status: active
+
+## 2026-06-19 — tool-misuse / wrong-assumption
+Detected: 3 occurrences in last 30 days (category total: 6)
+Category: tool-misuse
+Failure mode: wrong-assumption
+Pattern: Recurring tool-misuse errors via wrong-assumption — surfaced by dream-cycle threshold check.
+Fix: Review category tool-misuse entries in systems/error-tracking/entries/ and apply tier-1 (data) or tier-2 (assertion) remediation. Route to Rigby for tier-3.
+Status: active

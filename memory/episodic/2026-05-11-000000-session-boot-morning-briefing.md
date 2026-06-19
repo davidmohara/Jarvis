@@ -10,25 +10,25 @@ context: "Morning boot + briefing \u2014 2026-05-11 (automated scheduled run)"
 date: 2026-05-11
 source_file: memory/working/2026-05-11-000000-session-boot-morning-briefing.md
 tags:
-  - briefing
-  - chief
-  - morning-briefing
-  - calendar
-  - omnifocus
-  - leads
-  - travel
-  - flight
-  - ypo
-  - drc-workshop
+- briefing
+- chief
+- morning-briefing
+- calendar
+- omnifocus
+- leads
+- travel
+- flight
+- ypo
+- drc-workshop
 related_people:
-  - alice-mburu
-  - scott-mcmichael
-  - robyn-fuentes
-  - curtis
-  - richard
+- alice-mburu
+- scott-mcmichael
+- robyn-fuentes
+- curtis
+- richard
 salience:
   score: 10
-  last-promoted-check: 2026-06-15
+  last-promoted-check: 2026-06-19
   promoted: true
 ---
 # Morning Briefing Session — May 11, 2026

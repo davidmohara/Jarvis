@@ -1,0 +1,17 @@
+{
+  "id": "err-20260619T081444-0MPW08",
+  "timestamp": "2026-06-19T08:14:44Z",
+  "source": "self-detected",
+  "agent": "jarvis",
+  "workflow": "dream-cycle",
+  "step": "step-02-salience-scoring",
+  "category": "data-accuracy",
+  "failure_mode": "wrong-assumption",
+  "severity": "high",
+  "description": "Step-02 salience scoring tag-list parser used regex `^\\s+-\\s+(.+)` which required at least one whitespace character before the list item dash. Most episodic frontmatter stores tags as unindented YAML block lists (`- tag` at column 0), so the parser returned an empty tag list for 119 of 122 files. Result: files_with_tags=3, in_window_count=3, score_distribution=0:119,1:2,2:1 — effectively zero co-occurrence signal. The same bug likely shaped prior-run distributions because dream-cycle reports listed heavy-tail at score-10 with no investigation. Caught when the v1 step-02 run looked wrong against prior log entries; fixed inline by changing the regex to `^\\s*-\\s+(.+)`. After fix: files_with_tags=117, in_window_count=58, distribution 0:12,2:3,6:2,7:8,9:6,10:91.",
+  "what_was_expected": "Tag parser accepts both `- tag` (column 0) and `  - tag` (indented) block list formats per YAML spec.",
+  "what_happened": "Parser only accepted indented list items; rejected the canonical layout used in the bulk of episodic memory; produced a near-zero score distribution that masked the issue.",
+  "proposed_fix": "Permanently update the step-02 reference parser (and any future re-implementations) to use `^\\s*-\\s+(.+)` for block-list items. Add a sanity assertion: if files_with_tags < 50% of episodic_scanned and episodic_scanned > 20, surface a warning to the dream log because that ratio indicates a parser failure rather than corpus state.",
+  "status": "fixed-inline",
+  "controller_visible": false
+}

@@ -6,18 +6,18 @@ session_id: dream-cycle-2026-05-28-030856
 date: 2026-05-28
 source_file: memory/working/dream-summary-2026-05-28.md
 tags:
-  - dream-summary
-  - semantic-promotion
-  - dream-cycle
-  - git-issues
-  - error-patterns
-  - health
-  - lessons
-  - galen
-related_people:
+- dream-summary
+- semantic-promotion
+- dream-cycle
+- git-issues
+- error-patterns
+- health
+- lessons
+- galen
+related_people: null
 salience:
   score: 10
-  last-promoted-check: 2026-06-15
+  last-promoted-check: 2026-06-19
   promoted: true
 ---
 # Dream Cycle Summary — 2026-05-28

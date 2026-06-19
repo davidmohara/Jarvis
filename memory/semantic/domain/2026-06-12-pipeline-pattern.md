@@ -3,9 +3,9 @@ type: semantic
 domain: domain
 primary-tag: pipeline
 created: 2026-06-12
-last-updated: 2026-06-15
+last-updated: 2026-06-16
 confidence: medium
-synthesized-from: 12
+synthesized-from: 14
   - co-sell-pipeline-2026-06-09-142000.md
   - co-sell-pipeline-2026-06-09-133410.md
   - co-sell-pipeline-2026-06-08-000000.md
@@ -24,6 +24,10 @@ tags:
 The `pipeline` tag cluster shows persistent co-occurrence in episodic memory over a 30-day window. This is a recurring operational signal in the Jarvis system.
 
 ## Evidence
+### 2026-06-16 — dream-cycle promotion (2 entries)
+- 2026-04-20-scorecard-session.md
+- 2026-04-20-rock4-pipeline-weekly.md
+
 
 - 2026-06-09 — `memory/episodic/co-sell-pipeline-2026-06-09-142000.md` (score 5)
 - 2026-06-09 — `memory/episodic/co-sell-pipeline-2026-06-09-133410.md` (score 5)

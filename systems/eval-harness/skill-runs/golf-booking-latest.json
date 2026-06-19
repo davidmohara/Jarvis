@@ -2,11 +2,11 @@
   "skill": "golf-booking",
   "agent": "chief",
   "trigger": "scheduled",
-  "started": "2026-06-13T00:00:00Z",
-  "completed": "2026-06-13T00:05:30Z",
+  "started": "2026-06-18T05:02:29Z",
+  "completed": "2026-06-18T05:20:00Z",
   "status": "failure",
-  "tool_failures": 1,
-  "error_ids": [],
-  "failure_reason": "ChronoGolf platform error: tee time availability lookup failed with 'We're sorry, but the resource you requested could not be found.' No tee times retrieved for Sunday June 21, 2026.",
-  "notes": "Workflow executed at midnight as scheduled. Login verified (Susie O'Hara), widget opened, date/course/players configured successfully. Failed at Step 4d when querying available tee times. Manual intervention required. See booking-failure-2026-06-13.md for details."
+  "tool_failures": 0,
+  "error_ids": ["err-20260618T050229-COB0BF"],
+  "failure_reason": "Booking window constraint: Target weekend June 26-28 falls outside member 8-day advance booking limit when executing on June 18. Member can only book through June 25.",
+  "notes": "Workflow attempted rank-1 option (Saturday June 27) and rank-2 option (Sunday June 28). Both rejected by ChronoGolf with 'out of booking range' message. Friday June 26 is bookable (within window) but has calendar conflicts 2:30-4:00 PM (Kazakhstan hosting). Error logged and working memory updated. Requires clarification on booking window expectations or rescheduling for following week (June 30-July 2 weekend). See golf-booking-failure-2026-06-18.md."
 }

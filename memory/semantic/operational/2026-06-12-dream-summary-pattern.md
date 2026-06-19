@@ -3,7 +3,7 @@ type: semantic
 domain: operational
 primary-tag: dream-summary
 created: 2026-06-12
-last-updated: 2026-06-15
+last-updated: 2026-06-17
 confidence: medium
 synthesized-from: 23
   - dream-summary-2026-05-25.md
@@ -39,6 +39,32 @@ tags:
 The `dream-summary` tag cluster shows persistent co-occurrence in episodic memory over a 30-day window. This is a recurring operational signal in the Jarvis system.
 
 ## Evidence
+
+_2026-06-17 run:_
+- 2026-05-25 — dream-summary-2026-05-25 (score 10, source: `memory/episodic/dream-summary-2026-05-25.md`)
+- 2026-05-31 — Dream cycle summary — 2026-05-31 (score 10, source: `memory/episodic/dream-summary-2026-05-31.md`)
+- 2026-05-20 — dream-summary-2026-05-20 (score 10, source: `memory/episodic/dream-summary-2026-05-20.md`)
+- 2026-05-14 — dream-summary-2026-05-14 (score 10, source: `memory/episodic/dream-summary-2026-05-14.md`)
+- 2026-05-30 — Dream cycle summary — 2026-05-30 (score 10, source: `memory/episodic/dream-summary-2026-05-30.md`)
+- 2026-05-24 — dream-summary-2026-05-24 (score 10, source: `memory/episodic/dream-summary-2026-05-24.md`)
+- 2026-06-04 — Dream cycle summary for Chief boot — 2026-06-04 (score 10, source: `memory/episodic/dream-summary-2026-06-04.md`)
+- 2026-06-14 — dream-summary-2026-06-14 (score 10, source: `memory/episodic/dream-summary-2026-06-14.md`)
+- 2026-05-29 — Dream cycle summary \u2014 2026-05-29 \u2014 for Chief's morning briefing (score 10, source: `memory/episodic/dream-summary-2026-05-29.md`)
+- 2026-05-19 — dream-summary-2026-05-19 (score 10, source: `memory/episodic/dream-summary-2026-05-19.md`)
+- 2026-06-03 — Dream cycle summary for Chief — 2026-06-03 breakthrough run (score 10, source: `memory/episodic/dream-summary-2026-06-03.md`)
+- 2026-06-13 — Dream cycle nightly run — 2026-06-13 (score 10, source: `memory/episodic/dream-summary-2026-06-13.md`)
+- 2026-06-12 — Dream cycle summary — 2026-06-12 (recovery run) (score 9, source: `memory/episodic/dream-summary-2026-06-12.md`)
+- 2026-05-28 — dream-summary-2026-05-28 (score 10, source: `memory/episodic/dream-summary-2026-05-28.md`)
+- 2026-05-17 — 2026-05-17-dream-cycle-summary (score 10, source: `memory/episodic/2026-05-17-dream-cycle-summary.md`)
+- 2026-05-23 — dream-summary-2026-05-23 (score 10, source: `memory/episodic/dream-summary-2026-05-23.md`)
+- 2026-05-13 — dream-summary-2026-05-13 (score 10, source: `memory/episodic/dream-summary-2026-05-13.md`)
+- 2026-05-27 — dream-summary-2026-05-27 (score 10, source: `memory/episodic/dream-summary-2026-05-27.md`)
+- 2026-05-12 — dream-summary-2026-05-12 (score 10, source: `memory/episodic/dream-summary-2026-05-12.md`)
+- 2026-05-26 — dream-summary-2026-05-26 (score 10, source: `memory/episodic/dream-summary-2026-05-26.md`)
+- 2026-05-18 — 2026-05-18-dream-cycle-summary (score 10, source: `memory/episodic/2026-05-18-dream-cycle-summary.md`)
+- 2026-05-22 — dream-summary-2026-05-22 (score 10, source: `memory/episodic/dream-summary-2026-05-22.md`)
+- 2026-05-16 — dream-summary-2026-05-16 (score 10, source: `memory/episodic/dream-summary-2026-05-16.md`)
+
 
 - 2026-05-31 — `memory/episodic/dream-summary-2026-05-31.md` (score 10)
 - 2026-05-24 — `memory/episodic/dream-summary-2026-05-24.md` (score 10)
