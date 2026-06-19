@@ -1,0 +1,15 @@
+{
+  "id": "err-20260618T192402-ROAQON",
+  "timestamp": "2026-06-18T19:24:02Z",
+  "session": "2026-06-18 Springline CAIO game plan / playbook",
+  "source": "explicit",
+  "agent": "master",
+  "category": "tool-misuse",
+  "description": "When asked to review the call transcript for implied needs, searched only the local IES filesystem (meetings/, memory/, contacts/), found only pre-call prep docs, and told David no verbatim transcript existed. David corrected twice: transcripts live in Obsidian. The transcript was present at zzPlaud/Client/2026-06-16 Spring Line Advisory... and contained the actual call content.",
+  "correction": "Transcripts live in the Obsidian vault (Plaud recordings under zzPlaud/Client/). CLAUDE.md directs use of the Obsidian MCP server for vault content. Should have searched Obsidian before reporting the transcript missing.",
+  "failure_mode": "tool-ignorance",
+  "systemic_fix": "When asked about meeting transcripts/recordings, check the Obsidian vault (Plaud transcripts under zzPlaud/Client/) via the Obsidian MCP before concluding none exists. Filesystem meetings/ holds prep docs, not transcripts.",
+  "fix_status": "applied",
+  "severity": "moderate",
+  "related_entries": ["err-20260618T192402-P86J1F"]
+}

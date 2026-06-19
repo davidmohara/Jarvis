@@ -59,13 +59,6 @@ outputs: {}
 
 5. **Update step frontmatter:** Set `status: complete` and `completed-at` with current timestamp.
 
-6. **Update `workflows/boot/state.yaml`:**
-   - Set `status: complete`
-   - Set `current-step: null`
-   - Record `completed-at` with current timestamp
-
-7. Boot is complete.
-
 ---
 
 ## SUCCESS METRICS
@@ -73,7 +66,7 @@ outputs: {}
 - All workflow state.yaml files read
 - In-progress workflows surfaced (or absence confirmed)
 - Controller informed and awaiting instruction (not auto-resumed)
-- Boot state.yaml updated to complete
+- Step frontmatter updated to complete
 
 ## FAILURE MODES
 
@@ -87,7 +80,7 @@ outputs: {}
 
 ## NEXT STEP
 
-None. Boot workflow complete. Update `workflows/boot/state.yaml` status to `complete`.
+Read and follow: `steps/step-07-verify-completion.md`
 <!-- system:end -->
 
 <!-- personal:start -->

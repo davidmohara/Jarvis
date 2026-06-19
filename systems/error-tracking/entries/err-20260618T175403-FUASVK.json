@@ -1,0 +1,15 @@
+{
+  "id": "err-20260618T175403-FUASVK",
+  "timestamp": "2026-06-18T17:54:03Z",
+  "session": "session-2026-06-18-084148",
+  "source": "explicit",
+  "agent": "knox",
+  "category": "hallucination",
+  "description": "Knox created two OmniFocus tasks from the Spring Line Advisory transcript that contradicted the actual state of the engagement: (1) 'Reply to Tim Brackney — follow-up questions on engagement scope' and (2) 'Spring Line Advisory — draft engagement proposal'. In reality, Tim is following up with questions TO David, and the proposal had already been sent and was referenced in the call. Knox invented commitments that did not exist.",
+  "correction": "No OmniFocus tasks should have been created. The correct state: proposal already sent, Tim Brackney will follow up with questions. Knox should have noted this as context, not action items.",
+  "failure_mode": "fabricated-action-items",
+  "systemic_fix": "Plaud ingest action item extraction must require explicit commitment language from David in the transcript (e.g., 'I will', 'I need to', 'I'll send'). References to prior work already done or counterparty follow-ups are not David's action items and must not be routed to OmniFocus.",
+  "fix_status": "proposed",
+  "severity": "major",
+  "related_entries": ["err-20260618T175403-LXB4TJ"]
+}

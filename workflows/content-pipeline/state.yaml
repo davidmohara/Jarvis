@@ -1,15 +1,15 @@
 status: complete
 current-step: step-01-discover
-session-id: harper-2026-06-16-discovery
-session-started: 2026-06-16T06:00:00Z
-session-completed: 2026-06-16T06:01:00Z
+session-id: harper-2026-06-19-discovery
+session-started: 2026-06-19T06:00:00Z
+session-completed: 2026-06-19T06:00:30Z
 original-request: scheduled-content-discovery
 accumulated-context:
-  result: "No new URLs found in #content in the last 24 hours."
+  result: "No new URLs in the last 24 hours. Posted standard no-URLs notice to #content. No drafts created."
   urls_found: 0
-  urls_processed: 0
   drafts_created: 0
   notes:
-    - "Only message in channel was a bot message from Jarvis itself (bot_id set) — skipped per routing rules"
-    - "24h window returned 0 messages; 48h retry found 1 (the bot's own prior notification)"
-    - "2 pending drafts still awaiting approval: 'Two Kinds of Public Servant', 'The AI Value Question Has an Answer Now'"
+    - "Channel scan (24h, auto-retried to 48h by read.py) returned 1 message, a Jarvis bot notification (bot_id B0ANBSA9Z1R) — skipped per routing rules."
+    - "No user-dropped URLs to process."
+    - "Posted '_Content pipeline: no new URLs in the last 24 hours._' to #content (ts 1781873374.923549)."
+    - "pending-drafts.json unchanged — 2 drafts still pending (Two Kinds of Public Servant, The AI Value Question Has an Answer Now)."

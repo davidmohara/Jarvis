@@ -1,0 +1,15 @@
+{
+  "id": "err-20260618T175403-LXB4TJ",
+  "timestamp": "2026-06-18T17:54:03Z",
+  "session": "session-2026-06-18-084148",
+  "source": "explicit",
+  "agent": "knox",
+  "category": "hallucination",
+  "description": "Knox reported Devlin Liles as an attendee on the June 16 Spring Line Advisory call. Devlin was not on the call. Knox fabricated this from either the calendar match heuristic or the speaker ID step without verification.",
+  "correction": "Devlin Liles was not an attendee. Attendees were David O'Hara, Tim Brackney, and Anthony Laria (Spring Line Advisory).",
+  "failure_mode": "unverified-inference",
+  "systemic_fix": "Speaker ID step must flag calendar-matched attendees as unconfirmed unless explicitly heard in the transcript or confirmed by David. Do not assert attendance as fact from calendar lookup alone.",
+  "fix_status": "proposed",
+  "severity": "moderate",
+  "related_entries": ["err-20260618T175403-FUASVK"]
+}

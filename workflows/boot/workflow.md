@@ -12,7 +12,7 @@ model: sonnet
 
 **Agent:** Master — Orchestrator & Executive Operating System
 
-**Architecture:** Sequential 6-step workflow. Steps 1 and 2 are data-gathering phases. Step 3 verifies Step 2 via Ralph. Steps 4 and 5 complete the briefing. Step 6 scans in-flight workflows and concludes boot.
+**Architecture:** Sequential 7-step workflow. Steps 1 and 2 are data-gathering phases. Step 3 verifies Step 2 via Ralph. Steps 4 and 5 complete the briefing. Step 6 scans in-flight workflows. Step 7 is a hard gate — verifies all prior steps completed before marking boot complete.
 
 ---
 
@@ -71,6 +71,16 @@ model: sonnet
    - Wait for instruction.
 
 ## EXECUTION
+
+Steps execute in order. Each step's NEXT STEP section chains to the following step.
+
+1. `steps/step-01-load-context.md`
+2. `steps/step-02-gather-data.md`
+3. `steps/step-03-verify-phase2.md`
+4. `steps/step-04-gather-meeting-context.md`
+5. `steps/step-05-synthesize-briefing.md`
+6. `steps/step-06-scan-workflows.md`
+7. `steps/step-07-verify-completion.md` ← hard gate; boot is NOT complete until this passes
 
 Read fully and follow: `steps/step-01-load-context.md` to begin the workflow.
 

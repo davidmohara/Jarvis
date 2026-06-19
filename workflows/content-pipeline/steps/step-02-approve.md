@@ -1,8 +1,14 @@
 ---
-status: not-started
-started-at: ~
-completed-at: ~
-outputs: {}
+status: complete
+started-at: 2026-06-19T09:03:00Z
+completed-at: 2026-06-19T09:03:35Z
+outputs:
+  drafts_checked: 2
+  actions_taken: 0
+  published: 0
+  rejected: 0
+  regenerated: 0
+  outcome: "No approval signals received. Both drafts remain pending."
 model: sonnet
 ---
 

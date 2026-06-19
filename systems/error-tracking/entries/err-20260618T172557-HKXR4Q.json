@@ -1,0 +1,15 @@
+{
+  "id": "err-20260618T172557-HKXR4Q",
+  "timestamp": "2026-06-18T17:25:57Z",
+  "session": "session-2026-06-18-084148",
+  "source": "explicit",
+  "agent": "master",
+  "category": "protocol-skip",
+  "description": "Boot step-01 explicitly requires spawning Knox (Plaud ingest) as a fire-and-forget background agent immediately after reading identity files. Master read the instruction, then skipped it and proceeded directly to calendar and OmniFocus data gathering.",
+  "correction": "Spawn Knox with workflow workflows/plaud-ingest/workflow.md immediately after identity files are read in step-01, before any other data gathering.",
+  "failure_mode": "instruction-ignored",
+  "systemic_fix": "No systemic fix needed — instruction is clear. Failure is execution discipline. Flagging for pattern watch: this is a recurring skip.",
+  "fix_status": "not-applicable",
+  "severity": "moderate",
+  "related_entries": []
+}

@@ -1,0 +1,15 @@
+{
+  "id": "err-20260618T192402-P86J1F",
+  "timestamp": "2026-06-18T19:24:02Z",
+  "session": "2026-06-18 Springline CAIO game plan / playbook",
+  "source": "explicit",
+  "agent": "master",
+  "category": "data-accuracy",
+  "description": "Built the Springline CAIO game plan and playbook positioning Devlin Liles as engagement/delivery lead with David deferring to him, and the stakeholder map listed Devlin as a weekly counterpart. David corrected: Devlin is NOT on the engagement at all. David is the solo Fractional CAIO. Devlin had one prior call with Tim and sent off-the-rack materials; he was not on the June 16 call and has no engagement role.",
+  "correction": "David O'Hara is the sole Fractional CAIO on the Springline engagement. Remove Devlin from all delivery, stakeholder, and division-of-labor framing. Execution pods are an Improving capability David can pull, not a Devlin-led handoff.",
+  "failure_mode": "stale-cache",
+  "systemic_fix": "Sourced the Devlin framing from pre-call prep docs (June 11/16) that pre-dated the actual call and assumed continuity. Should have validated engagement roles against the post-call transcript before encoding them in deliverables. Removing Devlin references from the game-plan docx and playbook.",
+  "fix_status": "applied",
+  "severity": "major",
+  "related_entries": ["err-20260618T192402-ROAQON", "err-20260618T175403-LXB4TJ"]
+}
