@@ -41,6 +41,10 @@ Use **`mcp__Control_your_Mac__osascript`** (Desktop Commander) for all OmniFocus
 
 **For task creation: ALWAYS read `skills/omnifocus-tasks/SKILL.md` first.** That skill is the only authorized path for creating OmniFocus tasks. It contains a pre-flight checklist that gates on project and tag assignment. Do not write raw OmniFocus AppleScript for task creation outside that skill. No exceptions.
 
+## Git
+
+**For ALL git operations, read `skills/git/SKILL.md` first.** This is the only authorized path for commits, pushes, branch management, merges, and PR creation. Every agent is bound by this rule. No raw git commands outside the skill. No exceptions.
+
 ## Calendar
 
 Prefer the Microsoft 365 MCP connector (`mcp__claude_ai_Microsoft_365__outlook_calendar_search`) for calendar pulls.
