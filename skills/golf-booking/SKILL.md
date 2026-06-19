@@ -26,6 +26,7 @@ outputs: {}
 10. **Create the calendar block and send Slack notification** regardless of which slot was booked.
 11. **If no slots are available**, notify David immediately and do not retry silently.
 12. **VISUAL VERIFICATION IS MANDATORY (Step 4h).** Do NOT claim success until you navigate to the Bookings page and visually confirm the booking is listed. Confirmation page appearance is not enough — the booking must be visible in the Bookings list. If verification fails, abort and send a critical alert to David.
+13. **SLACK NOTIFICATION IS MANDATORY (Step 7).** After visual verification confirms the booking is on the Bookings page, ALWAYS invoke master-slack skill to send booking confirmation to #jarvis. Do NOT skip, suppress, or omit this step under any circumstances. If Desktop Commander is unavailable, log the failure explicitly and create a fallback notification. Silence on Step 7 is a critical failure mode.
 
 ---
 
@@ -577,9 +578,23 @@ Run via `mcp__Desktop_Commander__start_process` with `osascript << 'EOF' ... EOF
 
 ### Step 7 — Send Booking Confirmation via Slack
 
-**Only execute this step after Step 6 completes and visual verification from Step 4h has confirmed the booking.**
+**MANDATORY: This step MUST execute after Step 4h visual verification confirms the booking is visible on the Bookings page.**
 
-Read and follow `.claude/skills/master-slack/SKILL.md`.
+**Do NOT skip this step under any circumstances.** If master-slack is unavailable, log the failure but attempt the send via Desktop Commander directly.
+
+#### 7a — Invoke master-slack Skill
+
+Execute the master-slack skill from `.claude/skills/master-slack/SKILL.md` using the Desktop Commander MCP tool:
+
+```
+Tool: mcp__Desktop_Commander__start_process
+Command: python3 "$(mdfind -name 'post.py' | grep 'systems/slack-bot/post.py' | head -1)" C0AN2PQNXBR "[MESSAGE]"
+Timeout: 15000
+```
+
+Where `[MESSAGE]` is the formatted Slack notification (below).
+
+#### 7b — Message Template
 
 Send to **#jarvis** (C0AN2PQNXBR):
 
@@ -593,9 +608,56 @@ Send to **#jarvis** (C0AN2PQNXBR):
 📍 Frisco Lakes Golf Club
 🚗 Arrive by [tee_time - 30min] for range warm-up
 
+Booking #[booking_number]
+
 [If any fallback was taken]: _Note: booked [time] — preferred [preferred_time] was unavailable._
 [If drought flag]: _First round in 21+ days — enjoy it._
 ```
+
+**Variable substitution**:
+- `[Day, Month D]`: e.g., "Saturday, June 27"
+- `[Time]`: e.g., "4:45 PM"
+- `[18|9]`: Replace with actual hole count (18 or 9)
+- `[cost]`: e.g., "$32.48"
+- `[temp]`: From weather data in preview output (e.g., "95")
+- `[rain]`: From weather data in preview output (e.g., "5")
+- `[wind]`: From weather data in preview output (e.g., "16.9")
+- `[tee_time - 30min]`: Calculate arrival time (e.g., if tee is 4:45 PM, arrive by 4:15 PM)
+- `[booking_number]`: From ChronoGolf confirmation (e.g., "5J4F-5F0W")
+
+#### 7c — Critical Rules for Slack Message
+
+1. **Use actual multi-line strings** — do NOT use literal `\n` characters. Pass the message with real newlines through the shell.
+2. **Escape special characters** — dollar signs need `\$` in double-quoted strings: `\$32.48` not `$32.48`
+3. **Max 5000 characters** — if notification exceeds, split into multiple sends
+4. **No "Hi David"** — lead with the content
+5. **Tight formatting** — Slack markdown with emojis for scannability
+
+#### 7d — Verify Success
+
+After running Desktop Commander command, check the response:
+
+```json
+{"ok": true, "channel": "C0AN2PQNXBR", "ts": "1234567890.123456"}
+```
+
+If `ok: true`, the notification was sent successfully. Record the timestamp for your logs.
+
+If the response indicates failure, log the error and surface it:
+```
+Slack notification failed. Response: [error_message]
+Booking still confirmed (#[booking_number]), but notification not delivered.
+```
+
+#### 7e — Fallback (if Desktop Commander unavailable)
+
+If Desktop Commander or the post.py script is unavailable, do NOT skip this step. Instead:
+
+1. Log the failure with error details
+2. Create a fallback notification file in `memory/working/` with the booking confirmation
+3. Notify in the task output: "Slack notification could not be sent — booking confirmed but Desktop Commander unavailable"
+
+**Under no circumstances should the notification be silently omitted.**
 
 ---
 
@@ -604,9 +666,12 @@ Send to **#jarvis** (C0AN2PQNXBR):
 - Booking confirmed on ChronoGolf within 10 minutes of midnight
 - **Booking visually verified on Bookings page** (Step 4h — MANDATORY)
 - Calendar block created with correct times (including 30-min range buffer)
-- Slack confirmation sent with all required fields
+- **Slack confirmation sent to #jarvis with all required fields** (Step 7 — MANDATORY)
+  - Response includes `"ok": true` and valid `ts` timestamp
+  - Message formatted per template with all variable substitutions completed
 - `preview-output.json` updated with booking result
-- **No success claimed without visual confirmation on Bookings page**
+- **Workflow state updated to `complete`**
+- **No success claimed without: (1) visual confirmation on Bookings page, AND (2) Slack notification delivered**
 
 ---
 
@@ -623,8 +688,10 @@ Send to **#jarvis** (C0AN2PQNXBR):
 | Confirmation timer expires | Move to next option. |
 | All options unavailable | Send Slack with explanation. Abort. |
 | **Confirmation page appears but booking NOT visible on Bookings page (Step 4h)** | **CRITICAL: Send Slack alert with booking details. Abort. Do NOT send success notification.** Set status: `verification-failed`. |
-| Booking confirmed and visible but calendar write fails | Send Slack with booking details so David can add manually. Log failure. |
-| Slack fails | Log booking details to `memory/working/golf-booking-YYYY-MM-DD.md`. |
+| Booking confirmed and visible but calendar write fails | Send Slack with booking details so David can add manually. Log failure. Continue. |
+| **Slack notification fails (Step 7)** | **CRITICAL: Do NOT skip or suppress the error.** (1) Log the failure with error details. (2) Create fallback notification in `memory/working/`. (3) Surface the error in task output: "Booking confirmed (#XXX) but Slack notification failed — Desktop Commander unavailable or post.py script error." (4) Set workflow state to `complete` but note `slack_notification_failed: true` in accumulated-context. |
+| post.py script not found | Use Desktop Commander to search: `mdfind -name 'post.py' \| grep 'systems/slack-bot/post.py'`. If not found, log error and create fallback notification. Do not proceed silently. |
+| SLACK_BOT_TOKEN missing | Log error and follow token setup in master-slack SKILL.md. Do not proceed without token. |
 
 ---
 

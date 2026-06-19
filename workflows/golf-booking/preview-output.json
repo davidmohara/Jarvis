@@ -89,5 +89,18 @@
       "rationale": "Saturday 4 PM — cheaper ($15/player) but hotter (97.5F avg). Tied in score with Sunday 2:30 but preferred day."
     }
   ],
-  "override_instructions": null
+  "override_instructions": null,
+  "booking_result": {
+    "status": "confirmed",
+    "booking_number": "5J4F-5F0W",
+    "date": "2026-06-27",
+    "day": "Saturday",
+    "time": "4:45 PM",
+    "course": "Frisco Lakes Golf Club",
+    "holes": 18,
+    "players": 2,
+    "cost": 32.48,
+    "booked_at": "2026-06-19T00:15:00Z",
+    "note": "Rank 1 option (Saturday 1:00 PM window) — booked at 4:45 PM within preferred window. Cost $32.48 due at course for 2 players."
+  }
 }

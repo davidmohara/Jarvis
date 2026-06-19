@@ -1,0 +1,27 @@
+{
+  "id": "err-20260619T121855-S669II",
+  "timestamp": "2026-06-19T00:18:55Z",
+  "category": "skill-execution",
+  "failure_mode": "skipped-required-skill",
+  "severity": "high",
+  "source": "explicit-correction",
+  "context": {
+    "workflow": "golf-booking",
+    "step": "step-7-slack-notification",
+    "agent": "sterling"
+  },
+  "description": "Skill execution error: Master-slack skill was available and required (per golf-booking SKILL.md Step 7 instructions) but was not invoked. Instead, created a working memory entry and skipped the Slack notification to #jarvis with booking confirmation. This violates the mandatory Slack notification requirement.",
+  "what_happened": "After successful booking confirmation and visual verification, the workflow required invoking the master-slack skill to send a booking confirmation message to #jarvis. The skill file explicitly states: 'Read and follow `.claude/skills/master-slack/SKILL.md`. Send to **#jarvis** (C0AN2PQNXBR)'. Instead, the agent attempted to locate the skill, found no direct access, and abandoned the step without invoking it properly.",
+  "what_should_have_happened": "Should have invoked the master-slack skill with the booking confirmation message template from SKILL.md Step 7, sending the formatted notification to #jarvis channel with all required fields: date, time, holes, players, cost, location, arrival time, and any fallback notes.",
+  "root_cause": "Incorrect assumption that the skill was unavailable because it wasn't found via Glob/grep. Did not attempt to invoke it via the Skill tool directly. Assumed skill absence without verification.",
+  "proposed_fix": "Before declaring a skill unavailable, attempt invocation via the Skill tool with the explicit skill name from the skill registry. The master-slack skill exists and should be callable regardless of file-system discoverability.",
+  "systemic_issue": "Skill invocation protocol was not followed. Should have used Skill tool to invoke 'master-slack' rather than searching for the file.",
+  "files_affected": [
+    "workflows/golf-booking/SKILL.md (Step 7 not executed)",
+    "memory/working/2026-06-19-000000-golf-booking-confirmed.md (created as workaround, but insufficient)"
+  ],
+  "impact": "Slack notification to #jarvis was not sent. David did not receive the booking confirmation message in the expected channel. The workflow is incomplete.",
+  "correction_action_taken": "Error logged. Master-slack skill invoked retroactively after correction. Slack notification sent successfully to #jarvis at 2026-06-19T07:21:14Z (Slack TS: 1781871674.936469).",
+  "follow_up": "Resolved. Slack notification delivered.",
+  "resolution_status": "corrected"
+}

@@ -1,21 +1,26 @@
 workflow: golf-booking
-agent: chief
-status: window-constraint-failure
-session-started: "2026-06-18T05:02:00"
-session-id: "scheduled-midnight-run-2026-06-18"
-current-step: "step-4a-date-selection"
+agent: sterling
+status: complete
+session-started: "2026-06-19T00:00:00"
+session-id: "scheduled-midnight-run-2026-06-19"
+current-step: "step-7-slack-notification"
 original-request: "Book tee time for Jun 26-28, 2026 weekend (Friday-Sunday)"
 accumulated-context:
   target_weekend: "2026-06-26 to 2026-06-28 (Fri-Sun)"
   target_date_primary: "2026-06-27 Saturday"
   preview_generated: "2026-06-16T00:00:00"
-  reason_failed: "Member booking window constraint: Can only book 8 days in advance. Today June 18 allows booking through June 25 only. Target weekend (June 26-28) starts one day outside window. Friday June 26 is bookable but has calendar conflicts 2:30-4:00 PM (Kazakhstan hosting)."
-  preference_rank_1: "Saturday Jun 27, 1:00 PM–5:00 PM, 18 holes, 2 players (David + Susie), $42 total"
-  preference_rank_2: "Sunday Jun 28, 2:30 PM–6:30 PM, 18 holes, 2 players (David + Susie), $42 total"
-  dates_attempted: ["2026-06-27", "2026-06-28", "2026-06-26"]
-  dates_bookable: ["2026-06-18 through 2026-06-25"]
-  error_entry: "err-20260618T050229-COB0BF"
-  failure_log: "memory/working/golf-booking-failure-2026-06-18.md"
-  completed_at: "2026-06-18T05:15:00"
-next-run: "pending-clarification"
-next-target: "Clarify booking window expectations or reschedule for week of June 30-July 2"
+  booking_window_status: "OPEN — June 19 allows booking through June 27"
+  preference_rank_1_status: "BOOKED ✓"
+  booked_date: "2026-06-27"
+  booked_day: "Saturday"
+  booked_time: "4:45 PM"
+  booked_holes: 18
+  booked_course: "Frisco Lakes Golf Club"
+  booked_cost: 32.48
+  booking_number: "5J4F-5F0W"
+  players: "2 (David O'Hara + Susie O'Hara)"
+  visual_verification: "CONFIRMED — Booking visible on Bookings page"
+  calendar_event_created: true
+  completed_at: "2026-06-19T00:15:00"
+next-run: "2026-06-25 11:00 PM"
+next-target: "Book tee time for July 3-5, 2026 weekend"
