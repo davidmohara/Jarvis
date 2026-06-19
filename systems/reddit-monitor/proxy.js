@@ -149,6 +149,13 @@ const APP_HTML = `<!DOCTYPE html>
         <option value="7">7 days</option><option value="10" selected>10 days</option>
         <option value="14">14 days</option><option value="30">30 days</option>
       </select>
+      <label style="margin-left:16px">Auto-skip older than</label>
+      <select id="asSel" onchange="saveAs()">
+        <option value="3">3 days</option><option value="5">5 days</option>
+        <option value="7">7 days</option><option value="8" selected>8 days</option>
+        <option value="10">10 days</option><option value="14">14 days</option>
+        <option value="0">Off</option>
+      </select>
       <button class="btn btn-sm btn-primary" onclick="loadAll()" style="margin-left:8px">Apply & Reload</button>
     </div>
   </div>
@@ -171,10 +178,10 @@ const APP_HTML = `<!DOCTYPE html>
 </div>
 
 <script>
-const DEFAULTS={subreddits:['feedingtube','Gastroparesis','nursing','ChronicIllness','spinalcordinjury','neurogenicbladder','Parenting','NICU','CaregiverSupport','POTS','EhlersDanlos','MultipleSclerosis'],keywords:['catheter','tube securement','skin irritation','Grip-Lok','adhesive','dislodge','tape','GJ tube','NG tube','PEG tube','feeding tube','stoma','tubie','MCAS','skin breakdown'],usernames:[],lookback_days:10};
+const DEFAULTS={subreddits:['feedingtube','Gastroparesis','nursing','ChronicIllness','spinalcordinjury','neurogenicbladder','Parenting','NICU','CaregiverSupport','POTS','EhlersDanlos','MultipleSclerosis'],keywords:['catheter','tube securement','skin irritation','Grip-Lok','adhesive','dislodge','tape','GJ tube','NG tube','PEG tube','feeding tube','stoma','tubie','MCAS','skin breakdown'],usernames:[],lookback_days:10,auto_skip_days:8};
 const SK={subreddits:'reddit_monitor_subreddits',keywords:'reddit_monitor_keywords',usernames:'reddit_monitor_usernames'};
 const ls={g:(k,d)=>{try{const v=localStorage.getItem(k);return v!==null?JSON.parse(v):d}catch{return d}},s:(k,v)=>{try{localStorage.setItem(k,JSON.stringify(v))}catch{}}};
-const cfg=()=>({subreddits:ls.g('reddit_monitor_subreddits',DEFAULTS.subreddits),keywords:ls.g('reddit_monitor_keywords',DEFAULTS.keywords),usernames:ls.g('reddit_monitor_usernames',DEFAULTS.usernames),lookback_days:ls.g('reddit_monitor_lookback_days',DEFAULTS.lookback_days)});
+const cfg=()=>({subreddits:ls.g('reddit_monitor_subreddits',DEFAULTS.subreddits),keywords:ls.g('reddit_monitor_keywords',DEFAULTS.keywords),usernames:ls.g('reddit_monitor_usernames',DEFAULTS.usernames),lookback_days:ls.g('reddit_monitor_lookback_days',DEFAULTS.lookback_days),auto_skip_days:ls.g('reddit_monitor_auto_skip_days',DEFAULTS.auto_skip_days)});
 
 let posts=[],responded=new Set(ls.g('reddit_monitor_responded',[])),autoResp=new Set(ls.g('reddit_monitor_auto_responded',[])),skipped=new Set(ls.g('reddit_monitor_skipped',[])),settOpen=false,respOpen=false,loading=false;
 
@@ -185,6 +192,7 @@ function sleep(ms){return new Promise(r=>setTimeout(r,ms))}
 function toggleSettings(){settOpen=!settOpen;document.getElementById('settBody').classList.toggle('open',settOpen)}
 function toggleResp(){respOpen=!respOpen;const el=document.getElementById('respList');el.style.display=respOpen?'flex':'none';if(respOpen){el.style.flexDirection='column';el.style.gap='8px'}document.getElementById('respChev').classList.toggle('open',respOpen)}
 function saveLb(){ls.s('reddit_monitor_lookback_days',parseInt(document.getElementById('lbSel').value))}
+function saveAs(){ls.s('reddit_monitor_auto_skip_days',parseInt(document.getElementById('asSel').value))}
 
 function renderTags(){
   const c=cfg();
@@ -193,6 +201,7 @@ function renderTags(){
     document.getElementById(id).innerHTML=c[k].map((v,j)=>\`<span class="tag">\${esc(v)}<span class="tag-x" onclick="removeTag('\${k}','\${SK[k]}',\${j})">×</span></span>\`).join('');
   });
   document.getElementById('lbSel').value=String(c.lookback_days);
+  document.getElementById('asSel').value=String(c.auto_skip_days);
 }
 
 function addTag(key,inputId){
@@ -338,6 +347,14 @@ async function loadAll(){
 
   document.getElementById('sFetched').textContent=fetched.length;
   posts=fetched.map(p=>{const{score:s,matched}=score(p,c.keywords,now,c.lookback_days);return{...p,score:s,matched}}).filter(p=>p.matched.length>0);
+
+  // Auto-skip posts older than threshold
+  if(c.auto_skip_days>0){
+    const threshold=c.auto_skip_days*86400;
+    let changed=false;
+    posts.forEach(p=>{if(!isResp(p.id)&&!skipped.has(p.id)&&(now-p.created_utc)>threshold){skipped.add(p.id);changed=true}});
+    if(changed)ls.s('reddit_monitor_skipped',[...skipped]);
+  }
 
   if(errors.length)document.getElementById('errBox').innerHTML=errors.map(e=>\`<div class="err">⚠ \${esc(e)}</div>\`).join('');
 
