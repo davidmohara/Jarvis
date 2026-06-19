@@ -1,4 +1,5 @@
 {
+  "agent": "master",
   "permissions": {
     "allow": [
       "Bash(rm .git/index.lock)",
