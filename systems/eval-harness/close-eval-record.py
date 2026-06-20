@@ -42,6 +42,7 @@ import string
 import sys
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
+from typing import Optional
 
 IES_ROOT = Path(os.environ.get("IES_ROOT", Path(__file__).resolve().parents[2]))
 EVAL_RUNS_DIR = IES_ROOT / "systems" / "eval-harness" / "runs"
@@ -67,7 +68,7 @@ def current_session_id() -> str:
     return ""
 
 
-def version_hash(name: str, eval_type: str) -> str | None:
+def version_hash(name: str, eval_type: str) -> Optional[str]:
     """Compute SHA256 of the workflow.md or SKILL.md for this run."""
     import hashlib
     candidates = []
@@ -96,7 +97,7 @@ def atomic_write(path: Path, data: dict):
         raise
 
 
-def find_stub(name: str, session_id: str) -> tuple[Path, dict] | tuple[None, None]:
+def find_stub(name: str, session_id: str) -> tuple:
     """Find the most recent in-progress eval stub for this name and session."""
     if not EVAL_RUNS_DIR.exists():
         return None, None
@@ -160,6 +161,10 @@ def main():
                     help="ISO8601 start time (optional)")
     ap.add_argument("--steps", default="",
                     help="Comma-separated step names that completed")
+    ap.add_argument("--abort-reason", default=None,
+                    help="Machine-readable abort cause (e.g. api-error, session-ended, tool-failure, "
+                         "outage-suspected). Written to assessment.mechanical.abort_reason. "
+                         "Only meaningful when --status aborted.")
     args = ap.parse_args()
 
     EVAL_RUNS_DIR.mkdir(parents=True, exist_ok=True)
@@ -222,6 +227,8 @@ def main():
             stub["steps"] = steps
         stub["assessment"]["mechanical"]["completed"] = completed_flag
         stub["assessment"]["mechanical"]["all_steps_finished"] = all_steps
+        if args.abort_reason is not None:
+            stub["assessment"]["mechanical"]["abort_reason"] = args.abort_reason
         if vhash:
             stub["version_hash"] = vhash
         atomic_write(stub_path, stub)
@@ -246,7 +253,8 @@ def main():
                     "completed": completed_flag,
                     "all_steps_finished": all_steps,
                     "tool_failures": 0,
-                    "error_ids": []
+                    "error_ids": [],
+                    "abort_reason": args.abort_reason
                 },
                 "structural": {
                     "expected_outputs_written": None,

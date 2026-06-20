@@ -166,6 +166,44 @@ Partial failures:
   - {step}: {error description}
 ```
 
+### 7. Weekly feedback prompt (Option C)
+
+After delivering the summary, surface up to 3 eval records from the past 7 days that:
+- Have `controller_feedback.rating == null`
+- Have a composite score below 0.75 (most in need of signal)
+- Are NOT orphaned abort stubs (must have at least 1 step)
+
+Sort by score ascending (lowest first — most in need of feedback).
+
+Output this prompt to the controller:
+
+```
+[Rigby]: Quick feedback request — {N} recent runs could use a rating.
+For each, reply "positive", "negative", or "skip":
+
+1. {eval_id} — {name} on {date}, score {score}, grade {grade}
+   "{grader_notes truncated to 80 chars}"
+
+2. {eval_id} — ...
+
+3. {eval_id} — ...
+
+(Or reply "skip all" to defer.)
+```
+
+**If this is a scheduled (headless) run:** omit this prompt entirely. The controller is not present. Write a note to state.yaml under `feedback_prompt: skipped (headless)` and stop.
+
+**If this is a manual/interactive run:** wait for the controller's reply. For each rating received, write it back to the eval record immediately:
+
+```python
+# For each rated record:
+record["assessment"]["controller_feedback"]["rating"] = "{positive|negative}"
+record["assessment"]["controller_feedback"]["timestamp"] = "{ISO-8601 now}"
+# Write back to systems/eval-harness/runs/{eval_id}.json
+```
+
+Write `feedback_prompt: complete` to state.yaml after collecting ratings. If the controller replies "skip all" or gives no reply within the same turn, write `feedback_prompt: deferred`.
+
 ---
 
 ## SUCCESS METRICS
