@@ -26,7 +26,8 @@ outputs: {}
 10. **Create the calendar block and send Slack notification** regardless of which slot was booked.
 11. **If no slots are available**, notify David immediately and do not retry silently.
 12. **VISUAL VERIFICATION IS MANDATORY (Step 4h).** Do NOT claim success until you navigate to the Bookings page and visually confirm the booking is listed. Confirmation page appearance is not enough — the booking must be visible in the Bookings list. If verification fails, abort and send a critical alert to David.
-13. **SLACK NOTIFICATION IS MANDATORY (Step 7).** After visual verification confirms the booking is on the Bookings page, ALWAYS invoke master-slack skill to send booking confirmation to #jarvis. Do NOT skip, suppress, or omit this step under any circumstances. If Desktop Commander is unavailable, log the failure explicitly and create a fallback notification. Silence on Step 7 is a critical failure mode.
+13. **CALENDAR EVENT CREATION MUST BE VERIFIED (Step 6).** After executing the AppleScript to create a calendar event on the Family calendar, ALWAYS verify the event actually exists before proceeding. If verification fails, invoke the fallback protocol immediately — send Slack notification to David with manual add instructions. Do NOT proceed to Step 7 assuming the calendar event was created if verification fails.
+14. **SLACK NOTIFICATION IS MANDATORY (Step 7).** After visual verification confirms the booking is on the Bookings page, ALWAYS invoke master-slack skill to send booking confirmation to #jarvis. Do NOT skip, suppress, or omit this step under any circumstances. If Desktop Commander is unavailable, log the failure explicitly and create a fallback notification. Silence on Step 7 is a critical failure mode.
 
 ---
 
@@ -556,9 +557,11 @@ Abort. Set workflow state: `status: aborted`.
 
 ### Step 6 — Create Calendar Block
 
-**Only execute this step after Step 4h visual verification confirms booking is visible on Bookings page.**
+**MANDATORY: Only execute this step after Step 4h visual verification confirms booking is visible on Bookings page.**
 
 After successful booking, create a calendar event using **iCal (Calendar.app) on the "Family" calendar** via AppleScript. Do NOT use Outlook or the MS365 MCP — they do not support event creation.
+
+#### 6a — Create Event via AppleScript
 
 ```applescript
 tell application "Calendar"
@@ -570,9 +573,58 @@ tell application "Calendar"
 end tell
 ```
 
-Run via `mcp__Desktop_Commander__start_process` with `osascript << 'EOF' ... EOF`. Verify the result is `"created"`.
+Run via `mcp__Desktop_Commander__start_process` with `osascript << 'EOF' ... EOF`.
 
 **Range time:** Calendar block starts 30 minutes BEFORE the tee time to cover warm-up.
+
+#### 6b — VERIFY Calendar Event Was Created (MANDATORY)
+
+After AppleScript execution, verify the event was actually created on the Family calendar:
+
+```applescript
+tell application "Calendar"
+  tell calendar "Family"
+    set eventCount to count of events
+    set lastEvent to the last event
+    set lastEventSummary to summary of lastEvent
+    set lastEventDate to start date of lastEvent
+    if lastEventSummary contains "⛳" and lastEventSummary contains "Frisco Lakes" then
+      "calendar-event-verified"
+    else
+      "calendar-event-not-found"
+    end if
+  end tell
+end tell
+```
+
+Run this verification query immediately after Step 6a. Check the response:
+
+**If result is `"calendar-event-verified"`:**
+→ Event successfully created. Proceed to Step 7.
+
+**If result is `"calendar-event-not-found"` OR AppleScript execution returned error/timeout:**
+→ Event creation failed. Proceed to Step 6c (Fallback).
+
+#### 6c — FALLBACK: If Calendar Event Creation Fails
+
+**Do NOT skip or suppress the failure.** Follow this protocol:
+
+1. **Log the failure** — record that AppleScript calendar event creation failed
+2. **Send Slack notification to David** with booking details so he can add manually:
+   ```
+   *⛳ Golf Booking Confirmed — Calendar Event Failed*
+   
+   Booking #[booking_number] confirmed on ChronoGolf
+   But calendar event creation failed (AppleScript or Family calendar not available)
+   
+   Please add manually:
+   📅 [Day, Month D] at [booked_time - 30min]–[end_time]
+   📍 Frisco Lakes Golf Club, 7170 Anthem Drive, Frisco TX 75034
+   🏌️ Tee time: [booked_time] · [booked_holes] holes · $[booked_cost]
+   👥 David + Susie O'Hara · Booking #[booking_number]
+   ```
+3. **Continue to Step 7** — booking is still confirmed; just missing calendar block
+4. **Note in workflow state** — add `calendar_event_failed: true` to accumulated-context
 
 ---
 
@@ -665,13 +717,15 @@ If Desktop Commander or the post.py script is unavailable, do NOT skip this step
 
 - Booking confirmed on ChronoGolf within 10 minutes of midnight
 - **Booking visually verified on Bookings page** (Step 4h — MANDATORY)
-- Calendar block created with correct times (including 30-min range buffer)
+- **Calendar event verified to exist on Family calendar** (Step 6b — MANDATORY)
+  - If verification fails, fallback notification sent to David with manual add instructions
+  - Workflow can continue with `calendar_event_failed: true` flag if needed, but event must be addressed
 - **Slack confirmation sent to #jarvis with all required fields** (Step 7 — MANDATORY)
   - Response includes `"ok": true` and valid `ts` timestamp
   - Message formatted per template with all variable substitutions completed
 - `preview-output.json` updated with booking result
 - **Workflow state updated to `complete`**
-- **No success claimed without: (1) visual confirmation on Bookings page, AND (2) Slack notification delivered**
+- **No success claimed without: (1) visual confirmation on Bookings page, (2) calendar event verified OR fallback initiated, AND (3) Slack notification delivered**
 
 ---
 
@@ -689,6 +743,9 @@ If Desktop Commander or the post.py script is unavailable, do NOT skip this step
 | All options unavailable | Send Slack with explanation. Abort. |
 | **Confirmation page appears but booking NOT visible on Bookings page (Step 4h)** | **CRITICAL: Send Slack alert with booking details. Abort. Do NOT send success notification.** Set status: `verification-failed`. |
 | Booking confirmed and visible but calendar write fails | Send Slack with booking details so David can add manually. Log failure. Continue. |
+| **Calendar event creation fails (Step 6a-6b)** | **Do NOT skip or suppress.** (1) Log the failure with osascript error details. (2) Attempt verification query. If verification still fails, proceed to Step 6c fallback. (3) Send Slack notification to David: "Calendar event creation failed; please add manually: [booking details]". (4) Set workflow state to `complete` but note `calendar_event_failed: true` in accumulated-context. (5) Continue to Step 7 for main booking notification. |
+| AppleScript osascript timeout | Do NOT assume success. Proceed immediately to Step 6b verification query. If verification fails, invoke Step 6c fallback. |
+| Family calendar not available | Log error. Invoke Step 6c fallback notification. Do not try Outlook/MS365 — they do not support event creation. |
 | **Slack notification fails (Step 7)** | **CRITICAL: Do NOT skip or suppress the error.** (1) Log the failure with error details. (2) Create fallback notification in `memory/working/`. (3) Surface the error in task output: "Booking confirmed (#XXX) but Slack notification failed — Desktop Commander unavailable or post.py script error." (4) Set workflow state to `complete` but note `slack_notification_failed: true` in accumulated-context. |
 | post.py script not found | Use Desktop Commander to search: `mdfind -name 'post.py' \| grep 'systems/slack-bot/post.py'`. If not found, log error and create fallback notification. Do not proceed silently. |
 | SLACK_BOT_TOKEN missing | Log error and follow token setup in master-slack SKILL.md. Do not proceed without token. |

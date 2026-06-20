@@ -170,3 +170,31 @@ Failure mode: wrong-assumption
 Pattern: Recurring tool-misuse errors via wrong-assumption — surfaced by dream-cycle threshold check.
 Fix: Review category tool-misuse entries in systems/error-tracking/entries/ and apply tier-1 (data) or tier-2 (assertion) remediation. Route to Rigby for tier-3.
 Status: active
+
+## 2026-06-20 — Process-Skip / Protocol-Skip
+Detected: 13 occurrences over 29 days
+Category: process-skip
+Pattern: Recurring process-skip due to protocol-skip
+Fix: Review related error entries in `systems/error-tracking/entries/` and update protocols
+Status: active
+
+## 2026-06-20 — Data-Accuracy / Wrong-Assumption
+Detected: 3 occurrences over 25 days
+Category: data-accuracy
+Pattern: Recurring data-accuracy due to wrong-assumption
+Fix: Review related error entries in `systems/error-tracking/entries/` and update protocols
+Status: active
+
+## 2026-06-20 — Routing-Error / Protocol-Skip
+Detected: 8 occurrences over 26 days
+Category: routing-error
+Pattern: Recurring routing-error due to protocol-skip
+Fix: Review related error entries in `systems/error-tracking/entries/` and update protocols
+Status: active
+
+## 2026-06-20 — Tool-Misuse / Wrong-Assumption
+Detected: 3 occurrences over 29 days
+Category: tool-misuse
+Pattern: Recurring tool-misuse due to wrong-assumption
+Fix: Review related error entries in `systems/error-tracking/entries/` and update protocols
+Status: active

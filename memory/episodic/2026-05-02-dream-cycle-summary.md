@@ -10,9 +10,10 @@ tags:
 - error-naming
 salience:
   score: 9
-  last-promoted-check: 2026-06-19
+  last-promoted-check: 2026-06-20
   promoted: true
 ---
+
 # Dream Cycle Summary — 2026-05-02
 
 **Session:** dream-cycle-2026-05-02-030931

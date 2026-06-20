@@ -11,10 +11,11 @@ tags:
 - git-sync
 related_people: []
 salience:
-  score: 9
-  last-promoted-check: 2026-06-19
+  score: 8
+  last-promoted-check: 2026-06-20
   promoted: true
 ---
+
 # Dream Cycle Summary — 2026-04-28 (executed 2026-04-30)
 
 Archived 4 expired working memory entries (Apr 27 briefing, Apr 28 briefing, dream summaries for Apr 26 and Apr 27). 21 episodic entries scored, 13 updates.

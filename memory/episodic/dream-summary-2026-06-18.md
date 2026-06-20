@@ -1,9 +1,23 @@
 ---
-type: working
 expires: 2026-06-19
-status: active
 created: 2026-06-18
 agent-source: jarvis
+status: archived
+type: working-archive
+source_file: memory/working/dream-summary-2026-06-18.md
+tags:
+  - dream-summary
+  - jarvis
+  - memory-pipeline
+  - pipeline
+  - co-sell
+  - one-texas
+related_people:
+date: 2026-06-18
+salience:
+  score: 10
+  last-promoted-check: 2026-06-20
+  promoted: true
 ---
 
 # Dream Cycle Summary — 2026-06-18

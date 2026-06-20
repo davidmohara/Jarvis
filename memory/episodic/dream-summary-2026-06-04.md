@@ -22,9 +22,10 @@ related_people:
 - alice-mburu
 salience:
   score: 10
-  last-promoted-check: 2026-06-19
+  last-promoted-check: 2026-06-20
   promoted: true
 ---
+
 # Dream Cycle Summary — 2026-06-04
 
 Second productive run after yesterday's breakthrough. Working memory cleanup archived 2 newly-expired files (daily-review and morning-briefing from June 1) via clean move-on-write to episodic. No deletions, no stranded files.

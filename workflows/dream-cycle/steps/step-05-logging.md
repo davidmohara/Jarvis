@@ -1,11 +1,11 @@
 ---
 status: complete
-started-at: 2026-06-16T08:13:45Z
-completed-at: 2026-06-16T08:14:30Z
+started-at: 2026-06-20T08:12:30Z
+completed-at: 2026-06-20T08:13:00Z
 outputs:
   dream_log_appended: true
   working_summary_written: true
-  working_summary_reason: "semantic_created=8, semantic_updated=3 — both > 0 triggered summary write."
+  working_summary_reason: "semantic_updated=2 — triggered summary write."
   git_commit: pending
   git_commit_note: "Git commit attempted at end of run."
 ---

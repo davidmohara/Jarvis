@@ -25,9 +25,10 @@ related_people:
 - curtis
 salience:
   score: 10
-  last-promoted-check: 2026-06-19
+  last-promoted-check: 2026-06-20
   promoted: true
 ---
+
 # Morning Briefing — Wednesday, May 27, 2026
 
 ## Data Sources

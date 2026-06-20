@@ -10,9 +10,10 @@ tags:
 related_people: []
 salience:
   score: 7
-  last-promoted-check: 2026-06-19
+  last-promoted-check: 2026-06-20
   promoted: true
 ---
+
 # Dream Cycle Summary — 2026-04-24
 
 6 working memory files archived. 12 episodic entries scored — 2 hit promotion threshold (score 3): Apr 20 and Apr 21 morning briefings sharing calendar/travel/omnifocus/google-next tags. First semantic entry created: `operational/2026-04-24-briefing-travel-calendar-pattern.md` documenting repeated travel-calendar conflict warnings that weren't actioned. Git sync still blocked.

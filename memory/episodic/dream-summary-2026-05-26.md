@@ -20,9 +20,10 @@ tags:
 related_people: null
 salience:
   score: 10
-  last-promoted-check: 2026-06-19
+  last-promoted-check: 2026-06-20
   promoted: true
 ---
+
 # Dream Cycle Summary — 2026-05-26
 
 Productive run, first semantic update in several cycles.

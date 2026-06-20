@@ -18,9 +18,10 @@ related_people:
 - christopher-mcmillan
 salience:
   score: 10
-  last-promoted-check: 2026-06-19
+  last-promoted-check: 2026-06-20
   promoted: true
 ---
+
 # Morning Briefing — April 22, 2026 (Google Next Travel Day)
 
 ## Flight

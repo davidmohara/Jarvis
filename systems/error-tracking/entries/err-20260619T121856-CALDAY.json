@@ -1,0 +1,25 @@
+{
+  "id": "err-20260619T121856-CALDAY",
+  "timestamp": "2026-06-19T00:18:56Z",
+  "category": "skill-execution",
+  "failure_mode": "unverified-calendar-event-creation",
+  "severity": "high",
+  "source": "self-detected",
+  "context": {
+    "workflow": "golf-booking",
+    "step": "step-6-create-calendar-block",
+    "agent": "sterling"
+  },
+  "description": "Calendar event creation in Step 6 was attempted via osascript but never verified. The AppleScript command executed with no output and a timeout, leaving uncertainty about whether the event was actually created on the Family calendar.",
+  "what_happened": "osascript was executed with an AppleScript block to create a calendar event. The process returned '(No output produced)' and 'Response may be incomplete (timeout reached)'. No verification step followed to confirm the event was actually created.",
+  "what_should_have_happened": "After executing the osascript, should have: (1) Verified the event exists via AppleScript query, (2) Checked the Family calendar for the event, OR (3) If verification fails, logged the failure and sent a Slack alert to David so he can manually add it.",
+  "root_cause": "Step 6 lacks verification and fallback protocol. AppleScript command execution alone is not sufficient — need to verify the calendar event actually exists before claiming success.",
+  "proposed_fix": "Add Step 6c (Verification): Query the Family calendar to verify the event was created. If query fails or event not found, log error and notify David via Slack: 'Golf booking confirmed but calendar event creation failed. Please add manually: Saturday June 27, 4:15 PM–8:45 PM, Frisco Lakes Golf Club, Booking #5J4F-5F0W'.",
+  "systemic_issue": "Step 6 mirrors Step 7 problem: external tool invocation without verification. Both need explicit success criteria and fallback handling.",
+  "files_affected": [
+    "skills/golf-booking/SKILL.md (Step 6 needs verification protocol)"
+  ],
+  "impact": "Golf booking is confirmed on ChronoGolf and in Slack, but calendar event may not exist on David's Mac. If event was not created, David will not have it on his calendar despite the booking being confirmed.",
+  "correction_action_taken": "Error logged. Step 6 in golf-booking SKILL.md needs to be updated with explicit verification and fallback protocol (similar to Step 7 hardening).",
+  "follow_up": "Update Step 6 to add verification step and fallback notification"
+}

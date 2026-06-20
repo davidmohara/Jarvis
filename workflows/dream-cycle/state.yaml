@@ -1,50 +1,51 @@
 workflow: dream-cycle
 agent: jarvis
 status: complete
-session-started: 2026-06-19T08:09:16Z
-session-id: dream-cycle-2026-06-19-080916
+session-started: 2026-06-20T08:10:00Z
+session-id: dream-cycle-2026-06-20-081000
 current-step: null
 original-request: Scheduled dream cycle run
 accumulated-context:
-  git_pull_at_boot: aborted_unstaged_changes_from_prior_run
+  git_pull_at_boot: success
   working_archived: 3
   working_deleted: 0
-  working_skipped: 87
+  working_skipped: 89
   working_stranded: 0
   enrichment_method: "heuristic:3, llm:0 (claude -p unavailable in scheduled-task subprocess)"
   archived_files:
-    - daily-review-2026-06-16-021126.md
-    - dream-summary-2026-06-17.md
-    - morning-briefing-2026-06-16-061004.md
+    - daily-review-2026-06-17-020000.md
+    - dream-summary-2026-06-18.md
+    - shutdown-cleanup-2026-06-16-071444.md
   skipped_already_archived_count: 72
   skipped_unparseable_count: 11
-  skipped_not_expired_count: 4
-  episodic_scanned: 122
-  score_updates: 122
-  no_tags: 5
-  no_date: 6
-  files_with_tags: 117
-  in_window_count: 58
-  score_distribution: "0:12, 2:3, 6:2, 7:8, 9:6, 10:91"
-  step02_parser_fix: "Tag list parser was rejecting zero-indent block lists. Fixed inline — files_with_tags jumped 3→117."
-  promotion_candidates: 3
-  clusters_found: 0
+  skipped_not_expired_count: 6
+  episodic_scanned: 124
+  score_updates: 124
+  no_tags: 4
+  no_date: 5
+  files_with_tags: 120
+  in_window_count: 60
+  score_distribution: "0:11, 2:3, 6:1, 7:2, 8:4, 9:12, 10:91"
+  window_start: 2026-05-21
+  window_end: 2026-06-20
+  candidates_count: 6
+  clusters_found: 2
   semantic_created: 0
-  semantic_updated: 0
-  promoted_entries: 0
+  semantic_updated: 2
+  promoted_entries: 4
   semantic_created_files: []
-  semantic_updated_files: []
-  promotion_note: "Only 3 candidates this run because most score-10 entries carry salience.promoted=true from prior runs. No clusters formed (>=2 entries required). Expected to resume promotion churn tomorrow as today's archived entries age into the candidate window."
-  error_categories_30d: "process-skip:14, routing-error:7, tool-misuse:6, data-accuracy:4, format-violation:4, assumption-error:3, missed-context:3, authentication:2"
-  lessons_appended: 3
-  lessons_note: "3 newly-threshold-breaching combos appended (process-skip/protocol-skip, routing-error/protocol-skip, tool-misuse/wrong-assumption)."
+  semantic_updated_files:
+    - memory/semantic/operational/2026-06-12-daily-review-pattern.md
+    - memory/semantic/operational/2026-06-12-dream-summary-pattern.md
+  promotion_note: "Only 6 candidates this cycle (most score-10 entries carry salience.promoted=true from prior runs). 2 valid clusters formed (daily-review, dream-summary); both appended to existing operational/ semantic patterns. 0 new semantic patterns created."
+  error_categories_30d: "process-skip:16, routing-error:9, tool-misuse:7, data-accuracy:6, format-violation:4, assumption-error:3, missed-context:3"
+  lessons_appended: 4
+  lessons_note: "4 newly-threshold-breaching combos appended to LESSONS.md."
   entries_compressed: 0
   digests_updated: 0
   compression_skipped: true
-  compression_skip_reason: "Oldest episodic entry is 2026-04-18 (62 days old). 90-day cutoff = 2026-03-21. 0 entries eligible."
+  compression_skip_reason: "Oldest episodic entry is 2026-04-18 (63 days old). 90-day cutoff = 2026-03-22. 0 entries eligible."
   dream_log_appended: true
   working_summary_written: true
-  working_summary_reason: "errors=0 but step02 self-detected parser bug → summary written for Chief context."
+  working_summary_reason: "semantic_updated=2 → summary written for Chief context."
   errors: 0
-  git_commit_blocked: true
-  git_commit_blocker: "Sandbox sees stale staged state from prior runs; not retrying destructive workarounds. Disk writes succeeded; manual host-side commit recommended."

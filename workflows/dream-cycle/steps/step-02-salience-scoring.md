@@ -1,17 +1,17 @@
 ---
 status: complete
-started-at: 2026-06-16T08:11:00Z
-completed-at: 2026-06-16T08:12:00Z
+started-at: 2026-06-20T08:10:43Z
+completed-at: 2026-06-20T08:11:30Z
 outputs:
-  episodic_scanned: 112
-  score_updates: 112
-  no_tags: 0
-  no_date: 1
-  files_with_tags: 112
-  in_window_count: 57
-  score_distribution: "0:7, 1:2, 5:5, 6:3, 7:1, 8:1, 9:1, 10:92"
-  promotion_candidates: 103
-  note: "Window 2026-05-17 → 2026-06-16. Heavy-tail distribution intensified (92 entries at score-10 cap). 2 new files archived from working/ (dream-cycle-alert, dream-summary) added the pool; all 112 episodic entries now have tags."
+  episodic_scanned: 124
+  score_updates: 124
+  no_tags: 4
+  no_date: 5
+  files_with_tags: 120
+  in_window_count: 60
+  score_distribution: "0:11, 2:3, 6:1, 7:2, 8:4, 9:12, 10:91"
+  promotion_candidates: 6
+  note: "Window 2026-05-21 → 2026-06-20. Heavy-tail distribution holds (91 entries at score-10 cap, most carry promoted=true from prior runs). 3 new files archived from working/ added the pool; 120/124 episodic entries parse tags correctly."
 ---
 
 <!-- system:start -->

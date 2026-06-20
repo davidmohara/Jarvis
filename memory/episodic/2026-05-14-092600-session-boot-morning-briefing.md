@@ -24,9 +24,10 @@ related_people:
 - tim-rayburn
 salience:
   score: 10
-  last-promoted-check: 2026-06-19
+  last-promoted-check: 2026-06-20
   promoted: true
 ---
+
 ## Boot Data Sources
 
 - **Local time**: 9:26 AM CDT (Mac-reported, correct timezone)

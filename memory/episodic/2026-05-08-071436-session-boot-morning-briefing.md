@@ -24,9 +24,10 @@ related_people:
 - curtis
 salience:
   score: 10
-  last-promoted-check: 2026-06-19
+  last-promoted-check: 2026-06-20
   promoted: true
 ---
+
 ## Data Sources
 
 - **Calendar (Outlook M365)**: Returned full. David is returning from YPO Gold Forum Cabo Retreat today (ends 11:31 AM SJD departure). Mac reporting MST (-0700) — consistent with Cabo location.

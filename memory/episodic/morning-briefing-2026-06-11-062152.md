@@ -23,9 +23,10 @@ tags:
 related_people: null
 salience:
   score: 10
-  last-promoted-check: 2026-06-19
+  last-promoted-check: 2026-06-20
   promoted: true
 ---
+
 ## Data Sources
 
 - **Mac clock**: 2026-06-11 06:21:29 CDT (-0500) — home timezone confirmed

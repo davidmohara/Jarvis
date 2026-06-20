@@ -1,9 +1,9 @@
 ---
-
 salience:
   score: 0
-  last-promoted-check: 2026-06-19
+  last-promoted-check: 2026-06-20
 ---
+
 # Morning Briefing — May 20, 2026
 
 ## Data Sources Run

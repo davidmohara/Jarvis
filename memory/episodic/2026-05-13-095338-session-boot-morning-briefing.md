@@ -24,9 +24,10 @@ related_people:
 - curtis
 salience:
   score: 10
-  last-promoted-check: 2026-06-19
+  last-promoted-check: 2026-06-20
   promoted: true
 ---
+
 # Boot Briefing — Wednesday, May 13, 2026
 
 ## Data Sources

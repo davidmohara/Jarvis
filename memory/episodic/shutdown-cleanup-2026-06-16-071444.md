@@ -1,12 +1,28 @@
 ---
-type: working
 task_id: "session"
 session_id: "chief-2026-06-16-071444"
 agent-source: chief
 created: 2026-06-16T07:14:44
 expires: 2026-06-18T07:14:44
-status: active
 context: "Shutdown cleanup — 2026-06-16"
+status: archived
+type: working-archive
+source_file: memory/working/shutdown-cleanup-2026-06-16-071444.md
+tags:
+  - session-wrap
+  - shutdown
+  - calendar
+  - omnifocus
+  - pipeline
+  - co-sell
+  - obsidian
+  - rock4
+  - one-on-one
+related_people:
+date: 2026-06-16
+salience:
+  score: 10
+  last-promoted-check: 2026-06-20
 ---
 
 - Built `skills/shep-1on1-prep/SKILL.md` — canonical 1:1 prep skill with full research sequence (M365 email, calendar, Obsidian, OmniFocus, Teams), pre-write gate, post-write validation checklist, and person-specific data rules for Robyn (South Texas PowerBI) and Don (Dallas PowerBI). Rigby audited and added eval harness SKILL COMPLETE block.
