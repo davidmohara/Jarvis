@@ -2,18 +2,18 @@
 workflow: daily-review
 agent: chief
 status: complete
-session-started: "2026-06-18T02:00:00"
-session-id: "chief-2026-06-18-020000"
+session-started: "2026-06-19T02:00:00"
+session-id: "chief-2026-06-19-020000"
 current-step: step-auto
 original-request: "auto"
 accumulated-context:
-  narrative-title: "2026-06-18 Last Day of Declan's Orientation, Medical Pit Stop, and Seventeen Things That Finally Moved"
-  narrative-path: "reviews/daily/auto-2026-06-18.md"
-  omnifocus-status: "available — 17 completions, 16 overdue, 0 flagged, 6 inbox"
-  calendar-status: "available — 16 events; Declan orientation checkout, Imaging Centre appt, Dallas/Houston sales scrums, IBP 1:1, UTB/Claude discussion, blog interview, Scott McMichael 1:1, Alice weekly wrap-up"
+  narrative-title: "2026-06-19 Q2's Last Morning, Father's Day, and the Things That Didn't Make the Quarter"
+  narrative-path: "reviews/daily/auto-2026-06-19.md"
+  omnifocus-status: "available — 8 completions, 4 overdue, 0 flagged, 4 inbox"
+  calendar-status: "available — 3 events: Father's Day Outing (all-day), Dallas Virtual Coffee Chat, Sales & Recruiting (tentative)"
   obsidian-status: "disabled — written to local fallback"
-  calendar-events: 16
-  working-memory-path: "memory/working/daily-review-2026-06-18-020000.md"
+  calendar-events: 3
+  working-memory-path: "memory/working/daily-review-2026-06-19-020000.md"
   working-memory-status: "written"
   model: sonnet
 ---
