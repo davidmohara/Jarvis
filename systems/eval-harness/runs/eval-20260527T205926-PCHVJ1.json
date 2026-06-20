@@ -62,9 +62,9 @@
       ]
     },
     "grading": {
-      "last_graded": null,
-      "grade": null,
-      "grader_notes": "Orphan stub from new-eval.py \u2014 superseded by GVFJWB (close-eval-record.py created a new record due to session_id mismatch). Aborted on cleanup."
+      "last_graded": "2026-06-20T04:09:59.890738Z",
+      "grade": "F",
+      "grader_notes": "Status: aborted with 0 steps recorded. System-eval workflow failed to complete any steps \u2014 no intake, no assertions, no grades, no scoring, no dashboard generated. Assertions were checked (9 evaluated) but the record itself never progressed past initialization. No output produced. To earn a D, at least one step would need to complete and produce a traceable artifact."
     },
     "controller_feedback": {
       "rating": null,

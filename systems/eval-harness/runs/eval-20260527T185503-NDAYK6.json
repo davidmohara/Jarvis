@@ -54,9 +54,9 @@
       ]
     },
     "grading": {
-      "last_graded": null,
-      "grade": null,
-      "grader_notes": "Phantom duplicate \u2014 aborted. Real error-improvement run is B7HEKX."
+      "last_graded": "2026-06-20T04:09:59.890738Z",
+      "grade": "D",
+      "grader_notes": "Status: aborted. Assertions 5/7 passed \u2014 state.yaml complete, eval record written, episodic memory entry present, pending-changes logged. Two failures: output file not written (error-improvement output file missing, >200 bytes check also fails). The episodic memory at memory/episodic/decisions/2026-05-27-185930 confirms real work occurred (full decision rationale written). However, the workflow aborted before producing the primary output artifact. Grade D: meaningful mechanical progress but primary deliverable absent."
     },
     "controller_feedback": {
       "rating": null,

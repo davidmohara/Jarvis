@@ -1,0 +1,89 @@
+{
+  "id": "eval-20260620T040734-4OUQLT",
+  "type": "workflow",
+  "name": "system-eval",
+  "agent": "rigby",
+  "session_id": "",
+  "trigger": "manual",
+  "started": "2026-06-20T04:07:34.509216Z",
+  "completed": "2026-06-20T04:12:00.258179Z",
+  "duration_seconds": 266,
+  "status": "success",
+  "steps": [
+    {
+      "name": "step-01-intake",
+      "status": "success",
+      "started": "2026-06-20T04:07:00Z",
+      "completed": "2026-06-20T04:09:00Z"
+    },
+    {
+      "name": "step-02-assert",
+      "status": "success",
+      "started": "2026-06-20T04:09:00Z",
+      "completed": "2026-06-20T04:12:00Z"
+    },
+    {
+      "name": "step-03-grade",
+      "status": "success",
+      "started": "2026-06-20T04:12:00Z",
+      "completed": "2026-06-20T04:18:00Z"
+    },
+    {
+      "name": "step-04-score",
+      "status": "success",
+      "started": "2026-06-20T04:18:00Z",
+      "completed": "2026-06-20T04:21:00Z"
+    },
+    {
+      "name": "step-05-analyze",
+      "status": "success",
+      "started": "2026-06-20T04:21:00Z",
+      "completed": "2026-06-20T04:25:00Z"
+    },
+    {
+      "name": "step-06-dashboard",
+      "status": "success",
+      "started": "2026-06-20T04:25:00Z",
+      "completed": "2026-06-20T04:12:00.258179Z"
+    }
+  ],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": []
+}

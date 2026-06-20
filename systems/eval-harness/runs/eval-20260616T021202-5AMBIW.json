@@ -28,17 +28,50 @@
       "error_ids": []
     },
     "structural": {
-      "expected_outputs_written": null,
-      "outputs_non_empty": null,
-      "assertions_checked": 0,
-      "assertions_passed": 0,
-      "assertion_results": []
+      "expected_outputs_written": false,
+      "outputs_non_empty": false,
+      "assertions_checked": 8,
+      "assertions_passed": 4,
+      "assertion_results": [
+        {
+          "assertion": "Daily review workflow state.yaml shows status: complete",
+          "passed": true
+        },
+        {
+          "assertion": "Daily review output file was written to reviews/daily/ for the run date (not a prior day)",
+          "passed": true
+        },
+        {
+          "assertion": "Daily review output for run date is substantive (>300 bytes)",
+          "passed": true
+        },
+        {
+          "assertion": "Daily review for run date contains priorities or next-day planning section",
+          "passed": false
+        },
+        {
+          "assertion": "Daily review for run date contains completed items or wins section",
+          "passed": true
+        },
+        {
+          "assertion": "Daily review working memory file was written for the run date",
+          "passed": false
+        },
+        {
+          "assertion": "Daily review working memory for run date is substantive (>200 bytes)",
+          "passed": false
+        },
+        {
+          "assertion": "Daily review working memory for run date contains expected content",
+          "passed": false
+        }
+      ]
     },
     "grading": {
-      "last_graded": null,
-      "grade": null,
+      "last_graded": "2026-06-20T04:09:59.890738Z",
+      "grade": "C",
       "safety_grade": null,
-      "grader_notes": null
+      "grader_notes": "Assertions 4/8 passed. Review file auto-2026-06-16.md exists at 3279 bytes with substantive content covering the San Marcos day, Spring Line Advisory meeting, overdue task trends, and delegation gap. Failed assertions: daily-004 (no priorities/tomorrow section found in review), and all three working-memory assertions (daily_review-wm-written, -size, -content) \u2014 no memory/working/daily-review-2026-06-16*.md exists. The review file itself is high quality but the workflow skipped writing the working memory artifact entirely. Grade C: output meets purpose but notable structural gap (working memory not written)."
     },
     "controller_feedback": {
       "rating": null,

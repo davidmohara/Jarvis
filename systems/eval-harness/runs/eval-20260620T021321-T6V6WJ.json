@@ -28,17 +28,50 @@
       "error_ids": []
     },
     "structural": {
-      "expected_outputs_written": null,
-      "outputs_non_empty": null,
-      "assertions_checked": 0,
-      "assertions_passed": 0,
-      "assertion_results": []
+      "expected_outputs_written": false,
+      "outputs_non_empty": false,
+      "assertions_checked": 8,
+      "assertions_passed": 1,
+      "assertion_results": [
+        {
+          "assertion": "Daily review workflow state.yaml shows status: complete",
+          "passed": true
+        },
+        {
+          "assertion": "Daily review output file was written to reviews/daily/ for the run date (not a prior day)",
+          "passed": false
+        },
+        {
+          "assertion": "Daily review output for run date is substantive (>300 bytes)",
+          "passed": false
+        },
+        {
+          "assertion": "Daily review for run date contains priorities or next-day planning section",
+          "passed": false
+        },
+        {
+          "assertion": "Daily review for run date contains completed items or wins section",
+          "passed": false
+        },
+        {
+          "assertion": "Daily review working memory file was written for the run date",
+          "passed": false
+        },
+        {
+          "assertion": "Daily review working memory for run date is substantive (>200 bytes)",
+          "passed": false
+        },
+        {
+          "assertion": "Daily review working memory for run date contains expected content",
+          "passed": false
+        }
+      ]
     },
     "grading": {
-      "last_graded": null,
-      "grade": null,
+      "last_graded": "2026-06-20T04:09:59.890738Z",
+      "grade": "F",
       "safety_grade": null,
-      "grader_notes": null
+      "grader_notes": "Assertions 1/8 passed \u2014 only daily-001 (state.yaml complete). No review file written for 2026-06-20: daily-002, daily-003, daily-004, daily-005 all fail. No working memory file written (daily_review-wm-written, -size, -content all fail). The workflow claims success in state.yaml but produced no output. This is the same failure pattern seen in eval-20260530T021202-MKO2P3, eval-20260602T021149-SL6FJ9, eval-20260605T021223-ARZ3WN, and eval-20260613T021205-CFZ2ZA. To earn a D, the review file would need to exist with at least partial content. Grade F: workflow reported success but wrote nothing."
     },
     "controller_feedback": {
       "rating": null,

@@ -55,17 +55,38 @@
       "error_ids": []
     },
     "structural": {
-      "expected_outputs_written": null,
-      "outputs_non_empty": null,
-      "assertions_checked": 0,
-      "assertions_passed": 0,
-      "assertion_results": []
+      "expected_outputs_written": true,
+      "outputs_non_empty": true,
+      "assertions_checked": 5,
+      "assertions_passed": 5,
+      "assertion_results": [
+        {
+          "assertion": "Morning briefing workflow state.yaml shows status: complete",
+          "passed": true
+        },
+        {
+          "assertion": "Morning briefing output file was written to memory/working/",
+          "passed": true
+        },
+        {
+          "assertion": "Morning briefing output is substantive (>500 bytes)",
+          "passed": true
+        },
+        {
+          "assertion": "Morning briefing contains calendar/schedule section",
+          "passed": true
+        },
+        {
+          "assertion": "Morning briefing contains priorities/tasks section",
+          "passed": true
+        }
+      ]
     },
     "grading": {
-      "last_graded": null,
-      "grade": null,
+      "last_graded": "2026-06-20T04:09:59.890738Z",
+      "grade": "B",
       "safety_grade": null,
-      "grader_notes": null
+      "grader_notes": "All 5 assertions passed \u2014 state.yaml complete, briefing file exists (morning-briefing-2026-06-18-060923.md, >500 bytes), calendar and priorities sections present. Status is partial but the output file is substantive: calendar conflicts surfaced (1:30 PM double-booking), overdue items flagged (CHL renewal 17 days overdue), data sources documented. Partial status likely reflects a step that did not fully complete but the primary briefing artifact was written and is useful. Grade B: meets purpose with minor completeness concern given partial status."
     },
     "controller_feedback": {
       "rating": null,

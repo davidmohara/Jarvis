@@ -43,17 +43,54 @@
       "error_ids": []
     },
     "structural": {
-      "expected_outputs_written": null,
-      "outputs_non_empty": null,
-      "assertions_checked": 0,
-      "assertions_passed": 0,
-      "assertion_results": []
+      "expected_outputs_written": true,
+      "outputs_non_empty": true,
+      "assertions_checked": 9,
+      "assertions_passed": 8,
+      "assertion_results": [
+        {
+          "assertion": "system-eval state.yaml shows status: complete",
+          "passed": true
+        },
+        {
+          "assertion": "Analysis report was written to grading/",
+          "passed": true
+        },
+        {
+          "assertion": "Analysis report is substantive (>500 bytes)",
+          "passed": true
+        },
+        {
+          "assertion": "Dashboard HTML file exists",
+          "passed": true
+        },
+        {
+          "assertion": "Dashboard HTML is substantive (>1000 bytes)",
+          "passed": true
+        },
+        {
+          "assertion": "Eval grade skill-run signal was written",
+          "passed": true
+        },
+        {
+          "assertion": "Eval analyze skill-run signal was written",
+          "passed": true
+        },
+        {
+          "assertion": "Eval dashboard skill-run signal was written",
+          "passed": true
+        },
+        {
+          "assertion": "system-eval output contains expected content",
+          "passed": false
+        }
+      ]
     },
     "grading": {
-      "last_graded": null,
-      "grade": null,
+      "last_graded": "2026-06-20T04:09:59.890738Z",
+      "grade": "B",
       "safety_grade": null,
-      "grader_notes": null
+      "grader_notes": "Assertions 8/9 passed. Dashboard HTML exists and is substantive, analysis report written to systems/eval-harness/grading/, all three skill-run signals present, state.yaml complete. Single failure: system-e-003-content \u2014 no memory/working/system-eval-*.md found, meaning the workflow did not write a working memory file for itself. All primary deliverables present and valid. Minor omission of self-tracking working memory. Grade B: meets purpose with one missing artifact."
     },
     "controller_feedback": {
       "rating": null,
