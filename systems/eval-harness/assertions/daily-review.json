@@ -35,8 +35,8 @@
       "path": "reviews/daily/????-??-??.md",
       "date_specific": true,
       "date_path_template": "reviews/daily/auto-{run_date}.md",
-      "pattern": "(?i)(priorit|tomorrow|tomorrow's|next)",
-      "description": "Daily review for run date contains priorities or next-day planning section"
+      "pattern": "(?i)(priorit|tomorrow|next|Q[1-4]|next week|carry into|going into|heading into|final window|rest of)",
+      "description": "Daily review for run date contains priorities or forward-planning section (tomorrow, next, Q-ref, carry-forward language)"
     },
     {
       "id": "daily-005-shutdown-section",

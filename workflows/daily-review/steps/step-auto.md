@@ -191,14 +191,23 @@ Body: 3-5 bullet points summarizing key outputs, decisions, and any flags from t
 
 ## CLOSE STATE
 
-After working memory is written (or its failure is logged), write the final `state.yaml`:
+After working memory is written (or its failure is logged), write the final `state.yaml`.
+
+**Output file guard — required before writing `status: complete`:**
+Verify the narrative output file exists and is >100 bytes:
+```bash
+wc -c "{narrative-path}"
+```
+- If the file exists and is >100 bytes → set `status: complete`
+- If the file is missing or ≤100 bytes → set `status: partial` and log `output-guard: failed` in `accumulated-context`. Do NOT write `status: complete`. The workflow will be treated as partial on the next eval run.
 
 ```yaml
-status: complete
+status: complete          # or "partial" if output guard failed — see above
 current-step: step-auto
 accumulated-context:
   # ... preserve all accumulated-context fields from the run ...
-  narrative-path: "{path to output file}"
+  narrative-path: "{path to output file, or null if missing}"
+  output-guard: "{passed|failed}"
   working-memory-path: "{path to working memory file, or null if failed}"
   working-memory-status: "{written|failed}"
 ```
