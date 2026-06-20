@@ -35,6 +35,7 @@ import json
 import os
 import sys
 from pathlib import Path
+from typing import Optional
 
 # IES root — resolve relative to this script's location
 SCRIPT_DIR = Path(__file__).parent
@@ -61,7 +62,7 @@ BASE_WEIGHTS = {
 PASSING_THRESHOLD = 0.70
 
 
-def find_record(record_id: str) -> dict | None:
+def find_record(record_id: str) -> Optional[dict]:
     """Locate and load an eval record by ID."""
     # Check primary runs directory
     primary = EVAL_RUNS_DIR / f"{record_id}.json"
@@ -79,7 +80,7 @@ def find_record(record_id: str) -> dict | None:
     return None
 
 
-def find_records_for_skill(skill_id: str, limit: int = 20) -> list[dict]:
+def find_records_for_skill(skill_id: str, limit: int = 20) -> list:
     """Find all eval records for a given skill, most recent first."""
     records = []
 
