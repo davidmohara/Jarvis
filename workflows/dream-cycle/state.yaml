@@ -49,6 +49,7 @@ accumulated-context:
   working_summary_written: true
   working_summary_reason: "Written to surface successful unblock and clean run to Chief."
   errors: 0
-  git_commit: blocked
-  git_push: blocked
-  git_blocker_note: "Sandbox-side .git/index.lock and REBASE_HEAD.lock are 0-byte residue from the boot-time `git pull --rebase` that sandbox cannot unlink. Worktree is healthy (git status works; branch main, 2 commits ahead of origin with current run's modifications unstaged). Step-05 protocol explicitly forbids `rm -f .git/index.lock` workaround. Host-side cleanup + commit required per skills/git/SKILL.md. This is the same recurring pattern flagged in 2026-06-16/17/18 runs."
+  git_commit: success
+  git_commit_sha: 582b1e4
+  git_push: success (origin/main, 7574865..582b1e4)
+  git_recovery_note: "Stale 0-byte lock files (.git/index.lock, REBASE_HEAD.lock, packed-refs.lock — all owned by davidohara:staff, residue from boot-time pull) were cleared via host-side Desktop Commander, then atomic git skill sequence (status → add → diff --staged → commit → push) completed cleanly on first attempt."

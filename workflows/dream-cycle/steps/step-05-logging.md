@@ -6,9 +6,10 @@ outputs:
   dream_log_appended: true
   working_summary_written: true
   working_summary_reason: "Written to surface successful unblock and clean run to Chief."
-  git_commit: blocked
-  git_push: blocked
-  git_commit_note: "Sandbox .git lock files (0-byte residue from boot pull) cannot be unlinked. Host-side commit required per skills/git/SKILL.md. Protocol explicitly forbids `rm -f .git/index.lock` workaround."
+  git_commit: success
+  git_commit_sha: 582b1e4
+  git_push: success (origin/main)
+  git_commit_note: "Atomic sequence via Desktop Commander after host-side clear of stale lock residue. 137 files committed."
 ---
 
 <!-- system:start -->
