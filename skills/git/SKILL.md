@@ -63,9 +63,19 @@ Before any git operation, answer these questions:
 
 Never use `&&`, `||`, `;`, pipes, or multi-line bash scripts to chain git commands. Chaining prevents git from releasing its lock files between operations, which produces `index.lock` and `HEAD.lock` errors that block all further git use until manually cleared.
 
+### `git status` is FORBIDDEN
+
+**Do not run `git status` — ever.** Even as a standalone read-only check, `git status` writes `.git/index.lock` as part of its index refresh. In sandboxed environments (e.g., Cowork's sleepy-stoic-bohr VM), the lock file is created owned by the host user (`davidohara:staff`) but cannot be unlinked by the sandbox user. This orphaned lock blocks all subsequent `git add`, `git commit`, and `git push` calls until manually cleared on the host. This pattern has caused recurring blockers since 2026-06-16.
+
+Safe read-only alternatives:
+- `git diff --name-only HEAD` — shows all changed files relative to HEAD (no lock)
+- `git diff --name-only` — shows unstaged changes (no lock)
+- `git diff --staged --name-only` — shows staged files (no lock)
+- `git ls-files --modified --others --exclude-standard` — porcelain-equivalent file list (no lock)
+
 ✅ Correct — one command per call:
 ```
-Call 1: git status
+Call 1: git diff --name-only HEAD
 Call 2: git add -A
 Call 3: git commit -m "feat(rigby): add git skill"
 Call 4: git push origin main
@@ -74,6 +84,11 @@ Call 4: git push origin main
 ❌ Wrong — chained in one call:
 ```bash
 git add -A && git commit -m "feat(rigby): add git skill" && git push origin main
+```
+
+❌ Wrong — triggers index lock:
+```bash
+git status
 ```
 
 Wait for each call to return a result before issuing the next.
@@ -151,8 +166,8 @@ refactor(chase): consolidate call-prep and meeting-prep into single skill
 **Run each command as a separate, atomic call. Never chain commands with `&&`, `|`, `;`, or multi-line scripts.** Chaining causes `index.lock` and `HEAD.lock` files that block subsequent operations and require manual cleanup.
 
 ```bash
-# Step 1 — check status (separate call)
-git status
+# Step 1 — check what changed (separate call; do NOT use git status — see Atomic Command Rule)
+git diff --name-only HEAD
 
 # Step 2 — stage specific files (preferred for precision; separate call per file or group)
 git add path/to/file
@@ -275,8 +290,9 @@ Follow Conventional Commits: `feat(scope): description`
 **Every command is a separate, atomic call. Do not chain. Wait for each to return before issuing the next.**
 
 ```
-Call 1:  git status
+Call 1:  git diff --name-only HEAD
          → review output; identify what to stage and what to purge
+         (do NOT use git status — it writes .git/index.lock; see Atomic Command Rule)
 
 Call 2:  [delete temp artifacts individually via Desktop Commander]
          → meetings/**/*.html, .DS_Store, .fuse_hidden*, root scripts
