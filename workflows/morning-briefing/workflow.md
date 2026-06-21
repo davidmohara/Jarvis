@@ -74,6 +74,16 @@ model: sonnet
      "[Agent]: [workflow-name] was previously aborted at [current-step]. Resume or start fresh?"
    - Wait for instruction.
 
+## WATCHTOWER INVOCATION
+
+Before step-01, delegate the Watchtower daily awareness pipeline to Knox so its output is fresh for the briefing. Chief does NOT execute the gather steps directly — this is a hand-off.
+
+1. Spawn Knox with the following payload: "Run the Watchtower daily workflow: `workflows/watchtower/workflow.md` — read this file first, run the STATE CHECK, and execute the full daily run (daily-step-01 through daily-step-07-prune through daily-step-06) as written. Return `watchtower_output`."
+2. Knox executes the gather→dedupe→score→summarize→synthesize→capture→prune chain, writes the Obsidian daily note and dashboard (with through-line banner and consulting-read callout), and returns the result of `daily-step-06-report.md` as `watchtower_output`.
+3. Store `watchtower_output` in this workflow's `accumulated-context`. The top 5 items by score (from `watchtower_output.scored_items`) are surfaced in the morning briefing Watchtower section (step-04).
+
+If Knox fails to spawn or the Watchtower run produces no items above the awareness floor, note it and proceed. Do NOT let a Watchtower failure block the morning briefing.
+
 ## EXECUTION
 
 Read fully and follow: `steps/step-01-gather-calendar.md` to begin the workflow.

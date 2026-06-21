@@ -1,0 +1,209 @@
+# Watchtower — Source Registry
+# Owned by: Chief (runtime), Rigby (structure/maintenance)
+# Edit this file to add/pause/remove sources.
+# GATE: No source may be added here without explicit David approval.
+#       Proposed sources go to proposed-sources.md first.
+#
+# Schema per entry:
+#   name:          Display name
+#   url:           Homepage or primary URL
+#   rss:           RSS/Atom feed URL (null if none)
+#   gather_method: rss | search  (search = site-scoped web search fallback)
+#   topic:         ai-agentic | it-consulting | texas-regional | leadership
+#   trust:         high | med
+#   added:         YYYY-MM-DD
+#   status:        active | paused
+#   notes:         optional — feed verification notes
+#
+# Topics map to config.yaml obsidian_topic_tags for per-item tagging.
+# gather_method:search sources use a site-scoped web search in step-01 instead of RSS polling.
+
+sources:
+
+  # ── Batch 0 — Approved 2026-06-19 ──────────────────────────────────────────
+
+  - name: The Pragmatic Engineer
+    url: https://newsletter.pragmaticengineer.com
+    rss: https://newsletter.pragmaticengineer.com/feed # host must poll this feed directly; site-search does not substitute
+    gather_method: rss
+    topic: it-consulting
+    trust: high
+    added: 2026-06-19
+    status: active
+
+  - name: Import AI (Jack Clark)
+    url: https://importai.substack.com
+    rss: https://jack-clark.net/feed/ # host must poll this feed directly; site-search does not substitute; alt: https://importai.substack.com/feed (may redirect)
+    gather_method: rss
+    topic: ai-agentic
+    trust: high
+    added: 2026-06-19
+    status: active
+
+  - name: Ben's Bites
+    url: https://bensbites.beehiiv.com
+    rss: https://bensbites.beehiiv.com/feed # host must poll this feed directly; site-search does not substitute
+    gather_method: rss
+    topic: ai-agentic
+    trust: med
+    added: 2026-06-19
+    status: active
+
+  - name: Texas Tribune
+    url: https://www.texastribune.org
+    rss: https://www.texastribune.org/feed/
+    gather_method: rss
+    topic: texas-regional
+    trust: high
+    added: 2026-06-19
+    status: active
+
+  - name: Dallas Morning News — Business
+    url: https://www.dallasnews.com/business
+    rss: null
+    gather_method: search
+    topic: texas-regional
+    trust: med
+    added: 2026-06-19
+    status: active
+    notes: "No clean public RSS feed; step-01 uses site:dallasnews.com/business search"
+
+  - name: Gartner Newsroom
+    url: https://www.gartner.com/en/newsroom
+    rss: null
+    gather_method: search
+    topic: it-consulting
+    trust: high
+    added: 2026-06-19
+    status: active
+    notes: "No public RSS feed; step-01 uses site:gartner.com/en/newsroom search"
+
+  - name: The Information
+    url: https://www.theinformation.com
+    rss: null
+    gather_method: search
+    topic: ai-agentic
+    trust: high
+    added: 2026-06-19
+    status: active
+    notes: "Paid publication; no public RSS; step-01 uses site:theinformation.com search (headlines only)"
+
+  - name: Hacker News (top stories)
+    url: https://news.ycombinator.com
+    rss: https://hnrss.org/frontpage
+    gather_method: rss
+    topic: ai-agentic
+    trust: med
+    added: 2026-06-19
+    status: active
+
+  - name: Axios Pro — Tech
+    url: https://www.axios.com/pro/tech-deals
+    rss: null
+    gather_method: search
+    topic: it-consulting
+    trust: med
+    added: 2026-06-19
+    status: active
+    notes: "No public RSS for Pro tier; step-01 uses site:axios.com/pro/tech-deals search"
+
+  - name: EOS Worldwide Blog
+    url: https://www.eosworldwide.com/blog
+    rss: https://www.eosworldwide.com/blog/rss.xml # feed unverified — confirm on first host run, fall back to gather_method:search if 404
+    gather_method: rss
+    topic: leadership
+    trust: med
+    added: 2026-06-19
+    status: active
+
+  # ── David-Named Sources — Approved 2026-06-19 ──────────────────────────────
+
+  - name: Superhuman AI
+    url: https://www.superhuman.ai
+    rss: null
+    gather_method: search
+    topic: ai-agentic
+    trust: med
+    added: 2026-06-19
+    status: active
+    notes: "feed unverified — no standard RSS path found; step-01 uses site:superhuman.ai search"
+
+  - name: The Rundown AI
+    url: https://www.therundown.ai
+    rss: null
+    gather_method: search
+    topic: ai-agentic
+    trust: med
+    added: 2026-06-19
+    status: active
+    notes: "feed unverified — newsletter/Beehiiv feed not publicly confirmed; step-01 uses site:therundown.ai search"
+
+  - name: NVIDIA Newsroom
+    url: https://nvidianews.nvidia.com
+    rss: https://nvidianews.nvidia.com/releases.xml
+    gather_method: rss
+    topic: ai-agentic
+    trust: high
+    added: 2026-06-19
+    status: active
+    notes: "feed unverified — URL from spec; confirm on first run"
+
+  - name: OpenAI News
+    url: https://openai.com/news/
+    rss: null
+    gather_method: search
+    topic: ai-agentic
+    trust: high
+    added: 2026-06-19
+    status: active
+    notes: "feed unverified — OpenAI does not publish a standard public RSS feed; step-01 uses site:openai.com/news search"
+
+  - name: Anthropic News
+    url: https://www.anthropic.com/news
+    rss: null
+    gather_method: search
+    topic: ai-agentic
+    trust: high
+    added: 2026-06-19
+    status: active
+    notes: "feed unverified — Anthropic does not publish a standard public RSS feed; step-01 uses site:anthropic.com/news search"
+
+  - name: xAI News
+    url: https://x.ai/news
+    rss: null
+    gather_method: search
+    topic: ai-agentic
+    trust: high
+    added: 2026-06-19
+    status: active
+    notes: "feed unverified — xAI site does not expose a public RSS endpoint; step-01 uses site:x.ai/news search"
+
+  - name: Google DeepMind / Google AI Blog
+    url: https://blog.google/technology/ai/
+    rss: https://blog.google/technology/ai/rss/ # feed unverified — confirm on first host run, fall back to gather_method:search if 404
+    gather_method: rss
+    topic: ai-agentic
+    trust: high
+    added: 2026-06-19
+    status: active
+    notes: "feed unverified — URL from spec; confirm on first run"
+
+  - name: Meta AI Blog
+    url: https://ai.meta.com/blog/
+    rss: null
+    gather_method: search
+    topic: ai-agentic
+    trust: med
+    added: 2026-06-19
+    status: active
+    notes: "feed unverified — Meta AI blog does not expose a public RSS feed; step-01 uses site:ai.meta.com/blog search"
+
+  - name: Microsoft AI Blog
+    url: https://blogs.microsoft.com/ai/
+    rss: https://blogs.microsoft.com/ai/feed/ # feed unverified — confirm on first host run, fall back to gather_method:search if 404
+    gather_method: rss
+    topic: ai-agentic
+    trust: high
+    added: 2026-06-19
+    status: active
+    notes: "feed unverified — URL from spec; confirm on first run"

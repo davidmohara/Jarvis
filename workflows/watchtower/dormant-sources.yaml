@@ -1,0 +1,27 @@
+# Watchtower — Dormant Source Registry
+# Owned by: Chief (runtime), Rigby (structure/maintenance)
+#
+# Sources land here when the dormancy rule fires:
+#   a source that surfaces NO item clearing awareness_floor for 21 consecutive days
+#   is automatically moved here from sources.yaml by daily-step-07-prune.
+#
+# Dormant sources are NOT polled. They are NOT deleted.
+# To revive a source: move it back to sources.yaml manually (Rigby) after David confirms.
+# Retirements are surfaced in the weekly report so David can see what dropped off.
+#
+# Schema per entry (same as sources.yaml plus retirement fields):
+#   name:          Display name
+#   url:           Homepage or primary URL
+#   rss:           RSS/Atom feed URL (null if none)
+#   gather_method: rss | search
+#   topic:         ai-agentic | it-consulting | texas-regional | leadership
+#   trust:         high | med
+#   added:         YYYY-MM-DD (date first added to sources.yaml)
+#   retired:       YYYY-MM-DD (date moved here)
+#   reason:        Why it was retired
+
+dormant: []
+
+# No sources have been retired yet.
+# Sources are retired here automatically when they go 21 days without surfacing
+# an item that clears awareness_floor (daily-step-07-prune fires the check).

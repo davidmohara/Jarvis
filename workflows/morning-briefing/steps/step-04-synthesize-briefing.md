@@ -75,6 +75,26 @@ sets the tone for how to attack the day.}
 
 ---
 
+### Watchtower
+
+{If the Watchtower daily run produced items above the awareness floor, render the top 5 by score. If no items, omit the section entirely — do not show a "nothing today" placeholder.}
+
+**Watchtower — top {N} signals today**
+
+{For each of the top 5 items by score (descending), one line each:}
+
+> **[Title](url)** — {1-sentence takeaway from the summary} *(Score: XX | {source_name})*
+
+{After the list:}
+
+[Full Watchtower dashboard →]  *(async review — watchtower_daily artifact)*
+
+{Content candidates flagged for weekly: if any items are content_worthy, add a single line:}
+
+{N} content candidate(s) queued for weekly run.
+
+---
+
 ### Reminders
 
 {If no due reminders from Task J: omit this section entirely — do not show a "no reminders" message.}
@@ -127,6 +147,7 @@ What do you want to tackle first?
 - Narrative synthesizes connections between data points rather than listing them
 - Calendar table present with 1-line context per meeting
 - Handoff recommendations named in narrative or calendar context column
+- Watchtower section present with top 5 items (or omitted if zero items above floor); full dashboard linked
 - Reminders section present and interactive if Task J returned due reminders; omitted entirely if none
 - Each reminder response (yes/no) handled and `data/reminders.json` updated before closing briefing
 - Ends with "What do you want to tackle first?"
@@ -222,7 +243,7 @@ python3 systems/eval-harness/close-eval-record.py \
   --status {success|partial|failure} \
   --trigger boot \
   --started "{session_started from state.yaml}" \
-  --steps "step-01-gather-calendar,step-02-gather-tasks,step-03-meeting-context,step-04-synthesize-briefing"
+  --steps "watchtower-daily,step-01-gather-calendar,step-02-gather-tasks,step-03-meeting-context,step-04-synthesize-briefing"
 ```
 
 If any data source failed, use `--status partial`. If the briefing was not delivered at all, use `--status failure`.

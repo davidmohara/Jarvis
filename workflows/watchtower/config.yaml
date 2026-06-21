@@ -1,0 +1,59 @@
+# Watchtower — runtime configuration
+# Owned by Knox (information gathering + vault capture); hands daily digest to Chief, weekly content candidates to Harper.
+# Edit thresholds and paths here; edit sources in sources.yaml.
+
+cadence:
+  daily:
+    purpose: "Things David should be aware of. Scan sources, dedupe, one-paragraph summaries."
+    schedule_cron: "0 6 * * *"   # reference only — daily does NOT run as a standalone scheduled task
+    enabled: false               # daily runs via workflows/morning-briefing/ — do NOT wire a separate scheduled task
+  weekly:
+    purpose: "Content candidates + source suggestions for approval. Deeper synthesis of the week."
+    schedule_cron: "0 7 * * 1"   # Monday 7am local — WIRED as scheduled task "watchtower-weekly" (runs 07:05 Mon as Knox)
+    enabled: true
+
+relevance:
+  # 0-100 score the run assigns each item against David's profile + topics.
+  # Tunable. Items at/above content_flag also get a hook + outline drafted.
+  awareness_floor: 40            # below this, item is dropped from the daily brief
+  content_flag: 75               # at/above this, flag as content-worthy
+  content_channels: [blog, linkedin, forbes]
+
+dedupe:
+  # Items seen in the last N days are suppressed from new briefs.
+  lookback_days: 14
+  match_on: [url, normalized_title]
+
+outputs:
+  # Daily brief: live dashboard (async review) + Obsidian capture.
+  dashboard_artifact_title: "watchtower_daily"
+  # Obsidian vault capture (surfaced knowledge is tagged for future reference).
+  obsidian_awareness_folder: "Watchtower/Daily"          # one note per day
+  obsidian_source_tag: "#watchtower"
+  obsidian_topic_tags:                                   # applied per item by topic
+    ai-agentic: "#ai"
+    it-consulting: "#consulting"
+    texas-regional: "#texas"
+    leadership: "#leadership"
+  # Content candidates feed the existing pipeline, NOT a parallel one.
+  content_ideas_register: "reference/blog-ideas.md"      # append candidates here
+  content_drafts_folder: "Mind/Posts"                    # Obsidian, underscore-prefix = draft
+  weekly_brief_folder: "Watchtower/Weekly"               # one note per week (YYYY-Www)
+
+source_suggestions:
+  # Weekly run proposes new sources for yes/no approval. Approved -> sources.yaml.
+  max_per_week: 5
+  staging_file: "workflows/watchtower/proposed-sources.md"
+  require_approval: true         # never auto-add a source
+
+profile:
+  # What "highly relevant to what David does" means — used to score content_flag.
+  # Kept terse; the run reads identity/ files for the full picture.
+  controller: "David O'Hara — Regional Director, Improving"
+  lenses:
+    - "Enterprise AI adoption and agentic systems in real delivery, not hype"
+    - "IT consulting market: delivery models, competitive moves, M&A"
+    - "Texas / regional tech and business ecosystem"
+    - "Leadership, EOS/Traction, building durable orgs"
+  voice_ref: "identity/VOICE.md"
+  blog_style_ref: "reference/blog-ideas.md"

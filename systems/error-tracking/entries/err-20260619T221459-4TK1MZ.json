@@ -1,0 +1,15 @@
+{
+  "id": "err-20260619T221459-4TK1MZ",
+  "timestamp": "2026-06-19T22:14:59Z",
+  "session": "2026-06-19",
+  "source": "explicit",
+  "agent": "master",
+  "category": "routing-error",
+  "description": "Began building the Watchtower system directly (wrote workflows/watchtower/config.yaml) instead of routing the build to Rigby. Creating a new workflow under workflows/*/ is a hard-stop infrastructure task per agents/routing.md.",
+  "correction": "All building, creating, or modifying of workflows/skills/agents/scripts must route to Rigby. David flagged this mid-build: 'Make sure that any building is done by Rigby.'",
+  "failure_mode": "protocol-skip",
+  "systemic_fix": "Hand the full Watchtower scaffold to Rigby, including the already-written config.yaml so it is brought under her ownership/snapshot. Reinforce: clarifying-questions and spec-writing are Master's role, but the moment a file lands under workflows/, route to Rigby.",
+  "fix_status": "applied",
+  "severity": "minor",
+  "related_entries": []
+}

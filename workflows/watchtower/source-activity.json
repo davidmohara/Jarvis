@@ -1,0 +1,108 @@
+{
+  "_meta": {
+    "purpose": "Per-source activity ledger for dormancy tracking. Updated by daily step-01 (gather) and step-03 (score) whenever a source contributes an item that clears awareness_floor. Pruned by daily-step-07-prune.",
+    "dormancy_rule": "Source is retired after 21 consecutive days with no item clearing awareness_floor. Trigger is surfaced items only — not feed activity. Retired sources move to dormant-sources.yaml.",
+    "schema": {
+      "source_name": "Matches name field in sources.yaml",
+      "added": "Date source was added to sources.yaml (YYYY-MM-DD)",
+      "last_surfaced": "Date an item from this source last cleared awareness_floor (YYYY-MM-DD), or null if never surfaced"
+    }
+  },
+  "sources": [
+    {
+      "source_name": "The Pragmatic Engineer",
+      "added": "2026-06-19",
+      "last_surfaced": null
+    },
+    {
+      "source_name": "Import AI (Jack Clark)",
+      "added": "2026-06-19",
+      "last_surfaced": null
+    },
+    {
+      "source_name": "Ben's Bites",
+      "added": "2026-06-19",
+      "last_surfaced": null
+    },
+    {
+      "source_name": "Texas Tribune",
+      "added": "2026-06-19",
+      "last_surfaced": null
+    },
+    {
+      "source_name": "Dallas Morning News — Business",
+      "added": "2026-06-19",
+      "last_surfaced": null
+    },
+    {
+      "source_name": "Gartner Newsroom",
+      "added": "2026-06-19",
+      "last_surfaced": null
+    },
+    {
+      "source_name": "The Information",
+      "added": "2026-06-19",
+      "last_surfaced": null
+    },
+    {
+      "source_name": "Hacker News (top stories)",
+      "added": "2026-06-19",
+      "last_surfaced": null
+    },
+    {
+      "source_name": "Axios Pro — Tech",
+      "added": "2026-06-19",
+      "last_surfaced": null
+    },
+    {
+      "source_name": "EOS Worldwide Blog",
+      "added": "2026-06-19",
+      "last_surfaced": null
+    },
+    {
+      "source_name": "Superhuman AI",
+      "added": "2026-06-19",
+      "last_surfaced": null
+    },
+    {
+      "source_name": "The Rundown AI",
+      "added": "2026-06-19",
+      "last_surfaced": null
+    },
+    {
+      "source_name": "NVIDIA Newsroom",
+      "added": "2026-06-19",
+      "last_surfaced": null
+    },
+    {
+      "source_name": "OpenAI News",
+      "added": "2026-06-19",
+      "last_surfaced": null
+    },
+    {
+      "source_name": "Anthropic News",
+      "added": "2026-06-19",
+      "last_surfaced": null
+    },
+    {
+      "source_name": "xAI News",
+      "added": "2026-06-19",
+      "last_surfaced": null
+    },
+    {
+      "source_name": "Google DeepMind / Google AI Blog",
+      "added": "2026-06-19",
+      "last_surfaced": null
+    },
+    {
+      "source_name": "Meta AI Blog",
+      "added": "2026-06-19",
+      "last_surfaced": null
+    },
+    {
+      "source_name": "Microsoft AI Blog",
+      "added": "2026-06-19",
+      "last_surfaced": null
+    }
+  ]
+}
