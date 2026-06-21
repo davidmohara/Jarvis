@@ -20,6 +20,10 @@ data/photo-pipeline/
 # Wine monitor log
 systems/wine-monitor/data/daemon.log
 
+# Political monitor transient build files (regenerated each run)
+systems/political-monitor/harvest.json
+systems/political-monitor/clusters.json
+
 # Local secrets (tokens, credentials — never committed)
 config/.env
 config/.credentials
