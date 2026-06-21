@@ -6,9 +6,10 @@ date: 2026-05-15
 tags:
 - dream-cycle
 - meta
+  last-promoted-check: 2026-06-20
 salience:
   score: 0
-  last-promoted-check: 2026-06-20
+  last-promoted-check: 2026-06-21
 ---
 
 # Dream Cycle Summary — 2026-05-15

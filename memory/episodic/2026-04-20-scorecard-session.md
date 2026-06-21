@@ -15,9 +15,10 @@ related_people:
 - scott-mcmichael
 - don-mcgreal
 - tonya-guadiz
+  promoted: true
 salience:
   score: 9
-  last-promoted-check: 2026-06-20
+  last-promoted-check: 2026-06-21
   promoted: true
 ---
 

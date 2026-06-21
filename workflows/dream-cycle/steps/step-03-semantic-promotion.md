@@ -1,14 +1,16 @@
 ---
 status: complete
-started-at: 2026-06-20T08:11:30Z
-completed-at: 2026-06-20T08:12:15Z
+started-at: 2026-06-21T11:43:00Z
+completed-at: 2026-06-21T11:43:10Z
 outputs:
-  clusters_found: 2
+  candidates_count: 5
+  clusters_found: 0
   semantic_created: 0
-  semantic_updated: 2
-  promoted_entries: 4
-  promotion_note: "Only 6 candidates this cycle (most score-10 entries carry salience.promoted=true from prior runs). 2 clusters formed (daily-review, dream-summary); both appended to existing operational/ semantic patterns. 0 new semantic created."
-  error_categories_30d: "process-skip:16, routing-error:9, tool-misuse:7, data-accuracy:6, format-violation:4, assumption-error:3, missed-context:3"
+  semantic_updated: 0
+  promoted_entries: 0
+  promotion_note: "5 candidates this cycle; each had a unique dominant non-agent tag, so no clusters of >=2 formed. 0 new semantic patterns created or updated."
+  error_categories_30d: "process-skip:16, routing-error:10, tool-misuse:7, data-accuracy:6, format-violation:4, assumption-error:3, missed-context:3"
+  error_total_30d: 70
   lessons_appended: 4
   lessons_note: "4 newly-threshold-breaching combos appended to LESSONS.md."
 ---

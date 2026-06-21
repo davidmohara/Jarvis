@@ -16,9 +16,10 @@ tags:
 - email
 - jarvis-inbox
 related_people: null
+  promoted: true
 salience:
   score: 10
-  last-promoted-check: 2026-06-20
+  last-promoted-check: 2026-06-21
   promoted: true
 ---
 

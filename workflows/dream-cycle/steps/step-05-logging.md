@@ -1,13 +1,14 @@
 ---
 status: complete
-started-at: 2026-06-20T08:12:30Z
-completed-at: 2026-06-20T08:13:00Z
+started-at: 2026-06-21T11:43:15Z
+completed-at: 2026-06-21T11:43:35Z
 outputs:
   dream_log_appended: true
   working_summary_written: true
-  working_summary_reason: "semantic_updated=2 — triggered summary write."
-  git_commit: pending
-  git_commit_note: "Git commit attempted at end of run."
+  working_summary_reason: "Written to surface successful unblock and clean run to Chief."
+  git_commit: blocked
+  git_push: blocked
+  git_commit_note: "Sandbox .git lock files (0-byte residue from boot pull) cannot be unlinked. Host-side commit required per skills/git/SKILL.md. Protocol explicitly forbids `rm -f .git/index.lock` workaround."
 ---
 
 <!-- system:start -->

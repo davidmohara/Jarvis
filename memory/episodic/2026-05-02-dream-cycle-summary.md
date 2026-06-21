@@ -8,9 +8,10 @@ tags:
 - score-inflation
 - semantic-promotion
 - error-naming
+  promoted: true
 salience:
-  score: 9
-  last-promoted-check: 2026-06-20
+  score: 10
+  last-promoted-check: 2026-06-21
   promoted: true
 ---
 

@@ -1,12 +1,33 @@
 ---
-type: working
+type: working-archive
 task_id: "session"
 session_id: "chief-2026-06-18-060923"
 agent-source: chief
 created: 2026-06-18T06:09:23
 expires: 2026-06-20T06:09:23
-status: active
+status: archived
 context: "Morning briefing — 2026-06-18"
+date: 2026-06-18
+source_file: memory/working/morning-briefing-2026-06-18-060923.md
+tags:
+  - briefing
+  - chief
+  - morning-briefing
+  - calendar
+  - omnifocus
+  - leads
+  - travel
+  - utb-board
+  - email
+  - plaud
+related_people:
+  - scott-mcmichael
+  - robyn-fuentes
+  - curtis
+  - derek-nwamadi
+salience:
+  score: 10
+  last-promoted-check: 2026-06-21
 ---
 
 # Morning Briefing — Thursday, June 18, 2026

@@ -1,54 +1,54 @@
 workflow: dream-cycle
 agent: jarvis
 status: complete
-session-started: 2026-06-20T08:10:00Z
-session-id: dream-cycle-2026-06-20-081000
+session-started: 2026-06-21T08:14:30Z
+session-id: dream-cycle-2026-06-21-081430
 current-step: null
-original-request: Scheduled dream cycle run
+original-request: Scheduled dream cycle run (rerun after host-side git unblock)
 accumulated-context:
   git_pull_at_boot: success
+  rerun_context: "Re-running after 2026-06-20 state was restored and git lock cleared by host."
   working_archived: 3
   working_deleted: 0
-  working_skipped: 89
+  working_skipped: 87
   working_stranded: 0
   enrichment_method: "heuristic:3, llm:0 (claude -p unavailable in scheduled-task subprocess)"
   archived_files:
-    - daily-review-2026-06-17-020000.md
-    - dream-summary-2026-06-18.md
-    - shutdown-cleanup-2026-06-16-071444.md
+    - daily-review-2026-06-18-020000.md
+    - dream-summary-2026-06-19.md
+    - morning-briefing-2026-06-18-060923.md
   skipped_already_archived_count: 72
   skipped_unparseable_count: 11
-  skipped_not_expired_count: 6
-  episodic_scanned: 124
-  score_updates: 124
-  no_tags: 4
-  no_date: 5
-  files_with_tags: 120
-  in_window_count: 60
-  score_distribution: "0:11, 2:3, 6:1, 7:2, 8:4, 9:12, 10:91"
-  window_start: 2026-05-21
-  window_end: 2026-06-20
-  candidates_count: 6
-  clusters_found: 2
+  skipped_not_expired_count: 4
+  episodic_scanned: 128
+  score_updates: 128
+  no_tags: 5
+  no_date: 6
+  files_with_tags: 123
+  in_window_count: 63
+  score_distribution: "0:12, 2:3, 6:1, 8:3, 9:12, 10:97"
+  window_start: 2026-05-22
+  window_end: 2026-06-21
+  candidates_count: 5
+  clusters_found: 0
   semantic_created: 0
-  semantic_updated: 2
-  promoted_entries: 4
+  semantic_updated: 0
+  promoted_entries: 0
   semantic_created_files: []
-  semantic_updated_files:
-    - memory/semantic/operational/2026-06-12-daily-review-pattern.md
-    - memory/semantic/operational/2026-06-12-dream-summary-pattern.md
-  promotion_note: "Only 6 candidates this cycle (most score-10 entries carry salience.promoted=true from prior runs). 2 valid clusters formed (daily-review, dream-summary); both appended to existing operational/ semantic patterns. 0 new semantic patterns created."
-  error_categories_30d: "process-skip:16, routing-error:9, tool-misuse:7, data-accuracy:6, format-violation:4, assumption-error:3, missed-context:3"
+  semantic_updated_files: []
+  promotion_note: "5 candidates this cycle; each had a unique dominant non-agent tag, so no clusters of >=2 formed. 0 new semantic patterns created or updated."
+  error_categories_30d: "process-skip:16, routing-error:10, tool-misuse:7, data-accuracy:6, format-violation:4, assumption-error:3, missed-context:3"
+  error_total_30d: 70
   lessons_appended: 4
   lessons_note: "4 newly-threshold-breaching combos appended to LESSONS.md."
   entries_compressed: 0
   digests_updated: 0
   compression_skipped: true
-  compression_skip_reason: "Oldest episodic entry is 2026-04-18 (63 days old). 90-day cutoff = 2026-03-22. 0 entries eligible."
+  compression_skip_reason: "Oldest episodic entry is 2026-04-18 (64 days old). 90-day cutoff = 2026-03-23. 0 entries eligible (< 5 threshold)."
   dream_log_appended: true
   working_summary_written: true
-  working_summary_reason: "semantic_updated=2 → summary written for Chief context."
+  working_summary_reason: "Written to surface successful unblock and clean run to Chief."
   errors: 0
-  git_commit: success
-  git_commit_sha: 76d8479
-  git_push: success (origin/main)
+  git_commit: blocked
+  git_push: blocked
+  git_blocker_note: "Sandbox-side .git/index.lock and REBASE_HEAD.lock are 0-byte residue from the boot-time `git pull --rebase` that sandbox cannot unlink. Worktree is healthy (git status works; branch main, 2 commits ahead of origin with current run's modifications unstaged). Step-05 protocol explicitly forbids `rm -f .git/index.lock` workaround. Host-side cleanup + commit required per skills/git/SKILL.md. This is the same recurring pattern flagged in 2026-06-16/17/18 runs."

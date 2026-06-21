@@ -14,9 +14,10 @@ related_people:
 - ehren-seim
 - vicki
 - steve-hall
+  promoted: true
 salience:
   score: 10
-  last-promoted-check: 2026-06-20
+  last-promoted-check: 2026-06-21
   promoted: true
 ---
 

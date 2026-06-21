@@ -198,3 +198,31 @@ Category: tool-misuse
 Pattern: Recurring tool-misuse due to wrong-assumption
 Fix: Review related error entries in `systems/error-tracking/entries/` and update protocols
 Status: active
+
+## 2026-06-21 — Process-Skip / protocol-skip
+Detected: 13 occurrences in last 30 days
+Category: process-skip
+Pattern: Recurring protocol skip in the process-skip category.
+Fix: Review error entries for this category; tighten the guard in the workflow or skill that owns it.
+Status: active
+
+## 2026-06-21 — Data-Accuracy / wrong-assumption
+Detected: 3 occurrences in last 30 days
+Category: data-accuracy
+Pattern: Recurring wrong assumption in the data-accuracy category.
+Fix: Review error entries for this category; tighten the guard in the workflow or skill that owns it.
+Status: active
+
+## 2026-06-21 — Routing-Error / protocol-skip
+Detected: 9 occurrences in last 30 days
+Category: routing-error
+Pattern: Recurring protocol skip in the routing-error category.
+Fix: Review error entries for this category; tighten the guard in the workflow or skill that owns it.
+Status: active
+
+## 2026-06-21 — Tool-Misuse / wrong-assumption
+Detected: 3 occurrences in last 30 days
+Category: tool-misuse
+Pattern: Recurring wrong assumption in the tool-misuse category.
+Fix: Review error entries for this category; tighten the guard in the workflow or skill that owns it.
+Status: active

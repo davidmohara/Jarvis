@@ -9,9 +9,10 @@ tags:
 - git-sync
 - semantic-promotion
 related_people: []
+  promoted: true
 salience:
-  score: 8
-  last-promoted-check: 2026-06-20
+  score: 9
+  last-promoted-check: 2026-06-21
   promoted: true
 ---
 

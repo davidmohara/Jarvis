@@ -12,9 +12,10 @@ tags:
 - omnifocus
 related_people:
 - david-ohara
+  promoted: true
 salience:
   score: 10
-  last-promoted-check: 2026-06-20
+  last-promoted-check: 2026-06-21
   promoted: true
 ---
 

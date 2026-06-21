@@ -15,9 +15,10 @@ related_people:
 - scott-beck
 - jarrod-beck
 - brad-mcknight
+  last-promoted-check: 2026-06-20
 salience:
   score: 0
-  last-promoted-check: 2026-06-20
+  last-promoted-check: 2026-06-21
 ---
 
 # April 21, 2026 — Alice Mburu Onboarding Session
