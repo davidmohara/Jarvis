@@ -1,8 +1,17 @@
 ---
-status: not-started
-started-at: ~
-completed-at: ~
-outputs: {}
+status: complete
+started-at: "2026-06-20T12:05:00Z"
+completed-at: "2026-06-20T12:15:00Z"
+outputs:
+  themes_processed: 4
+  drafts_created: 5
+  draft_paths:
+    - "Mind/Posts/_the-74-percent-rollback-is-a-feature.md"
+    - "Mind/Posts/_why-governance-doesnt-scale-the-way-you-think.md"
+    - "Mind/Posts/_the-middle-is-getting-squeezed-out-of-consulting.md"
+    - "Mind/Posts/_why-im-bullish-on-dallas-as-an-ai-market.md"
+    - "Mind/Posts/_fulfillment-is-not-a-benefit-its-a-business-model.md"
+  blog_ideas_appended: 5
 ---
 
 <!-- system:start -->

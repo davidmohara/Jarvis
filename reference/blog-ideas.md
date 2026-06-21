@@ -19,6 +19,11 @@ Running list of potential blog topics. Jarvis captures these proactively from co
 | "The Audit Nobody Wanted" | Content pipeline (2026-05-29) | AI, business, thoughts | Ghost draft — pending approval |
 | "Cities That Win" | Content pipeline (2026-06-08) | business, leadership | Ghost draft — pending approval |
 | "The AI Value Question Has an Answer Now" | Content pipeline (2026-06-12) | AI, business, systems thinking | Ghost draft — pending approval |
+| "The 74% Rollback Number Is a Feature, Not a Bug" | Watchtower (2026-06-20) [watchtower] | AI, business, systems thinking | Draft at `Mind/Posts/_the-74-percent-rollback-is-a-feature.md` |
+| "Why Governance Doesn't Scale the Way You Think" | Watchtower (2026-06-20) [watchtower] | AI, business, leadership | Draft at `Mind/Posts/_why-governance-doesnt-scale-the-way-you-think.md` |
+| "The Middle Is Getting Squeezed Out of Consulting" | Watchtower (2026-06-20) [watchtower] | consulting, business, leadership, AI | Draft at `Mind/Posts/_the-middle-is-getting-squeezed-out-of-consulting.md` |
+| "Why I'm Bullish on Dallas as an AI Market" | Watchtower (2026-06-20) [watchtower] | texas, AI, business, leadership | Draft at `Mind/Posts/_why-im-bullish-on-dallas-as-an-ai-market.md` |
+| "Fulfillment Is Not a Benefit. It's a Business Model." | Watchtower (2026-06-20) [watchtower] | leadership, growth, business, purpose | Draft at `Mind/Posts/_fulfillment-is-not-a-benefit-its-a-business-model.md` |
 
 ## Published (for reference / avoid repeats)
 

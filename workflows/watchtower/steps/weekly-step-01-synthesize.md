@@ -1,8 +1,11 @@
 ---
-status: not-started
-started-at: ~
-completed-at: ~
-outputs: {}
+status: complete
+started-at: "2026-06-20T12:00:00Z"
+completed-at: "2026-06-20T12:05:00Z"
+outputs:
+  items_in_queue: 0
+  themes_identified: 4
+  used_fallback: true
 ---
 
 <!-- system:start -->

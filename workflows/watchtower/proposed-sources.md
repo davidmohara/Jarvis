@@ -20,11 +20,27 @@ This file is the only path to `sources.yaml`. Watchtower's weekly run appends ne
 |------|-----|-----|-------|-------|--------------|--------|
 -->
 
-*(No proposals pending. Weekly run will append new suggestions here.)*
+### Batch 1 — Weekly Run (2026-06-20)
+
+| Name | URL | RSS | Topic | Trust | Why Relevant | Status |
+|------|-----|-----|-------|-------|--------------|--------|
+| AI Governance Institute | https://aigovernance.com/news | https://aigovernance.com/news/feed | ai-agentic | high | Publishes "AI Governance Weekly" — tracks agentic AI governance, enterprise rollback patterns, and regulatory frameworks. Directly feeds David's AI advisory conversations with clients. | approved |
+| Turing Post | https://www.turingpost.com | https://www.turingpost.com/feed | ai-agentic | high | Regarded as the newsletter of record for AI governance, geopolitics, and open-source AI policy. High signal, low noise. Covers the "why this matters" layer above vendor news. | approved |
+| Dallas Innovates | https://dallasinnovates.com | https://dallasinnovates.com/feed | texas-regional | high | Dedicated DFW innovation/tech coverage. Ranks DFW third nationally for tech job postings. Fills the local tech story gap that Dallas Morning News (search-only) misses on depth. | approved |
+| Consulting Magazine | https://www.consultingmag.com | https://www.consultingmag.com/feed | it-consulting | med | Industry trade publication covering consulting firm news, M&A, delivery model trends, and market moves. Useful for tracking competitive landscape and mid-market bifurcation signals. | rejected |
+| Agentic AI Institute | https://agenticaiinstitute.org | null | ai-agentic | med | Research-focused coverage of enterprise agentic AI adoption data (sourced the 72% production / 60% governance gap stats). No confirmed RSS but publishes regularly. Relevant for client-facing research grounding. | rejected |
 
 ---
 
 ## Approved — Moved to sources.yaml
+
+### Batch 1 — Approved 2026-06-20
+
+| Name | URL | Topic | Trust | Approved |
+|------|-----|-------|-------|---------|
+| AI Governance Institute | https://aigovernance.com/news | ai-agentic | high | 2026-06-20 |
+| Turing Post | https://www.turingpost.com | ai-agentic | high | 2026-06-20 |
+| Dallas Innovates | https://dallasinnovates.com | texas-regional | high | 2026-06-20 |
 
 ### Batch 0 — Approved 2026-06-19
 
@@ -61,7 +77,12 @@ Also added by David as named sources (approved same session, 2026-06-19):
 
 ## Rejected
 
-*(Empty.)*
+### Batch 1 — 2026-06-20
+
+| Name | URL | Topic | Reason |
+|------|-----|-------|--------|
+| Consulting Magazine | https://www.consultingmag.com | it-consulting | Rejected by David 2026-06-20 |
+| Agentic AI Institute | https://agenticaiinstitute.org | ai-agentic | Rejected by David 2026-06-20 |
 <!-- system:end -->
 
 <!-- personal:start -->

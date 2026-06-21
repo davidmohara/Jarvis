@@ -1,8 +1,11 @@
 ---
-status: not-started
-started-at: ~
-completed-at: ~
-outputs: {}
+status: complete
+started-at: "2026-06-20T12:15:00Z"
+completed-at: "2026-06-20T12:20:00Z"
+outputs:
+  proposed_count: 5
+  excluded_count: 19
+  batch_number: 1
 ---
 
 <!-- system:start -->

@@ -1,8 +1,12 @@
 ---
-status: not-started
-started-at: ~
-completed-at: ~
-outputs: {}
+status: complete
+started-at: "2026-06-20T12:22:00Z"
+completed-at: "2026-06-20T12:25:00Z"
+outputs:
+  themes_surfaced: 4
+  candidates_surfaced: 5
+  sources_proposed: 5
+  weekly_note_path: "Watchtower/Weekly/2026-W25.md"
 ---
 
 <!-- system:start -->

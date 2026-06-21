@@ -207,3 +207,35 @@ sources:
     added: 2026-06-19
     status: active
     notes: "feed unverified — URL from spec; confirm on first run"
+
+  # ── Batch 1 — Approved 2026-06-20 ──────────────────────────────────────────
+
+  - name: AI Governance Institute
+    url: https://aigovernance.com/news
+    rss: https://aigovernance.com/news/feed
+    gather_method: rss
+    topic: ai-agentic
+    trust: high
+    added: 2026-06-20
+    status: active
+    notes: "Publishes AI Governance Weekly. Feed URL unverified — confirm on first run."
+
+  - name: Turing Post
+    url: https://www.turingpost.com
+    rss: https://www.turingpost.com/feed
+    gather_method: rss
+    topic: ai-agentic
+    trust: high
+    added: 2026-06-20
+    status: active
+    notes: "Newsletter of record for AI governance and geopolitics. Feed URL unverified — confirm on first run."
+
+  - name: Dallas Innovates
+    url: https://dallasinnovates.com
+    rss: https://dallasinnovates.com/feed
+    gather_method: rss
+    topic: texas-regional
+    trust: high
+    added: 2026-06-20
+    status: active
+    notes: "Dedicated DFW innovation/tech coverage. Feed URL unverified — confirm on first run."
