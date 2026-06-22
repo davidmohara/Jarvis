@@ -1,12 +1,26 @@
 ---
-type: working
 task_id: dream-cycle
 session_id: dream-cycle-2026-06-20-081000
 agent-source: jarvis
 created: 2026-06-20T08:12:50Z
 expires: 2026-06-21
-status: active
+status: archived
 context: "Dream cycle nightly consolidation — 2026-06-20"
+type: working-archive
+date: 2026-06-20
+source_file: memory/working/dream-summary-2026-06-20.md
+tags:
+  - dream-summary
+  - boot
+  - semantic-promotion
+  - dream-cycle
+  - error-patterns
+  - lessons
+related_people:
+  - dream-cycle
+salience:
+  score: 10
+  last-promoted-check: 2026-06-22
 ---
 
 # Dream Cycle Summary — 2026-06-20

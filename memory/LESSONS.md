@@ -226,3 +226,11 @@ Category: tool-misuse
 Pattern: Recurring wrong assumption in the tool-misuse category.
 Fix: Review error entries for this category; tighten the guard in the workflow or skill that owns it.
 Status: active
+
+## 2026-06-22 — data-accuracy / wrong-assumption
+Detected: 3 occurrences over 30 days
+Category: data-accuracy
+Failure mode: wrong-assumption
+Pattern: Recurring data-accuracy category errors with failure mode `wrong-assumption`.
+Fix: Tighten the guard rail in the relevant agent/workflow. See systems/error-tracking/entries/ for source records.
+Status: active

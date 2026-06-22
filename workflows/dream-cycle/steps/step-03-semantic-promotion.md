@@ -1,18 +1,20 @@
 ---
 status: complete
-started-at: 2026-06-21T11:43:00Z
-completed-at: 2026-06-21T11:43:10Z
+started-at: 2026-06-22T08:11:00Z
+completed-at: 2026-06-22T08:11:45Z
 outputs:
-  candidates_count: 5
-  clusters_found: 0
+  candidates_count: 7
+  clusters_found: 1
   semantic_created: 0
-  semantic_updated: 0
-  promoted_entries: 0
-  promotion_note: "5 candidates this cycle; each had a unique dominant non-agent tag, so no clusters of >=2 formed. 0 new semantic patterns created or updated."
-  error_categories_30d: "process-skip:16, routing-error:10, tool-misuse:7, data-accuracy:6, format-violation:4, assumption-error:3, missed-context:3"
-  error_total_30d: 70
-  lessons_appended: 4
-  lessons_note: "4 newly-threshold-breaching combos appended to LESSONS.md."
+  semantic_updated: 1
+  promoted_entries: 4
+  promotion_note: "7 candidates; 1 cluster (calendar) merged into existing operational semantic entry. 4 episodic entries flagged promoted."
+  semantic_updated_files:
+    - memory/semantic/operational/2026-06-16-calendar-pattern.md
+  error_categories_30d: "process-skip:13, routing-error:10, data-accuracy:6, tool-misuse:6, format-violation:4, assumption-error:3, missed-context:3"
+  error_total_30d: 66
+  lessons_appended: 1
+  lessons_note: "1 newly-threshold-breaching combo appended to LESSONS.md."
 ---
 
 <!-- system:start -->

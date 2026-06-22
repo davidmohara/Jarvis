@@ -1,17 +1,16 @@
 ---
 status: complete
-started-at: 2026-06-21T11:42:00Z
-completed-at: 2026-06-21T11:42:45Z
+started-at: 2026-06-22T08:09:33Z
+completed-at: 2026-06-22T08:10:30Z
 outputs:
-  working_archived: 3
+  working_archived: 2
   working_deleted: 0
-  working_skipped: 87
+  working_skipped: 86
   working_stranded: 0
-  enrichment_method: "heuristic:3, llm:0 (claude -p unavailable in scheduled-task subprocess)"
+  enrichment_method: "heuristic:2, llm:0 (claude -p unavailable in scheduled-task subprocess)"
   archived_files:
-    - daily-review-2026-06-18-020000.md
-    - dream-summary-2026-06-19.md
-    - morning-briefing-2026-06-18-060923.md
+    - daily-review-2026-06-19-020000.md
+    - dream-summary-2026-06-20.md
 ---
 
 <!-- system:start -->

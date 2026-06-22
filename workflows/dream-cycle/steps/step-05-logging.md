@@ -1,15 +1,14 @@
 ---
 status: complete
-started-at: 2026-06-21T11:43:15Z
-completed-at: 2026-06-21T11:43:35Z
+started-at: 2026-06-22T08:12:00Z
+completed-at: 2026-06-22T08:15:00Z
 outputs:
   dream_log_appended: true
   working_summary_written: true
-  working_summary_reason: "Written to surface successful unblock and clean run to Chief."
-  git_commit: success
-  git_commit_sha: 582b1e4
-  git_push: success (origin/main)
-  git_commit_note: "Atomic sequence via Desktop Commander after host-side clear of stale lock residue. 137 files committed."
+  working_summary_reason: "semantic_updated=1 + lessons_appended=1 — surface to Chief for visibility."
+  git_commit: deferred
+  git_push: deferred
+  git_note: "Commit/push deferred — sandbox cannot acquire .git/index lock (Operation not permitted on .git/index.lock). Host-side commit required per recurring pattern."
 ---
 
 <!-- system:start -->
