@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>NSHealthShareUsageDescription</key>
+    <string>HealthQuery needs access to your health data to export metrics for analysis.</string>
+    <key>NSHealthUpdateUsageDescription</key>
+    <string>HealthQuery reads health data from Apple Health.</string>
+    <key>CFBundleIdentifier</key>
+    <string>com.improving.healthquery</string>
+    <key>CFBundleVersion</key>
+    <string>1.0.0</string>
+    <key>CFBundleShortVersionString</key>
+    <string>1.0</string>
+</dict>
+</plist>
