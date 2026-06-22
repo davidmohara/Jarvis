@@ -53,7 +53,7 @@ model: sonnet
   Parse the most recent `## YYYY-MM-DD` header. If last run was today, abort with log entry: `aborted: already ran today`. **Never use the Read tool on dream.log without an offset — it will return the first entry, not the last.**
 - Get current local date/time via `osascript -e 'return (current date) as string'`.
 - Record `session_id: dream-cycle-{YYYY-MM-DD-HHmmss}`.
-- Get latest from origin: `git pull --rebase`. Handle any merge conflicts. Do NOT proceed until the folder is clean.
+- Get latest from origin via the git skill. **Read `skills/git/SKILL.md` before issuing any git command** — it enforces atomic commands, forbids `git status` (writes `.git/index.lock`), and defines pull/conflict handling. Use `git pull --rebase` as a single atomic Desktop Commander call. Handle any merge conflicts per the skill's Error Handling table. Do NOT proceed until the folder is clean.
 <!-- system:end -->
 
 <!-- personal:start -->

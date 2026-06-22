@@ -88,21 +88,15 @@ outputs:
 
 6. Update `state.yaml`: set `status: complete`, `current-step: null`. Update this step's frontmatter `status: completed` and `completed-at: {timestamp}`.
 
-7. Stage, commit, and push using SIMPLE, SEPARATE commands via Desktop Commander. Do NOT chain with `&&`. Do NOT add `rm -f .git/index.lock` or any other cleanup. Do NOT use `GIT_INDEX_FILE` workarounds — the 2026-06-13 destructive push originated from that workaround.
+7. **MANDATORY: Read `skills/git/SKILL.md` in full before issuing any git command.** The skill is the only authorized path for git operations in Jarvis. It enforces the atomic-command rule (no `&&` chaining), forbids `git status` (which writes `.git/index.lock` and breaks the sandbox), requires Conventional Commits, and defines the session-end commit protocol. Do NOT use the inline snippets that existed in prior versions of this step — they predated the skill and chained commands with `&&`, which is now forbidden.
 
-   Run each command as its own Desktop Commander process. Wait for output before the next:
+   Execute the git skill's **Session-End Commit Protocol** exactly. Every command is a separate Desktop Commander call. Wait for each to return before the next. Commit message format:
 
    ```
-   cd ~/develop/jarvis && git add -A
-   ```
-   ```
-   cd ~/develop/jarvis && git commit -m "dream-cycle: {YYYY-MM-DD} — archived {N}, promoted {N} to semantic, compressed {N} episodic"
-   ```
-   ```
-   cd ~/develop/jarvis && git push
+   chore(memory): dream-cycle {YYYY-MM-DD} — archived {N}, promoted {N} to semantic ({pattern-summary}), {N} compressed
    ```
 
-   If a command fails: stop, log the failure, surface to controller. Do not retry with a more complex workaround.
+   If a command fails: stop, log the failure, surface to controller. Do not retry with workarounds. Do not run `rm -f .git/index.lock` or use `GIT_INDEX_FILE` — the 2026-06-13 destructive push originated from that workaround.
 
 ## SUCCESS METRICS
 
