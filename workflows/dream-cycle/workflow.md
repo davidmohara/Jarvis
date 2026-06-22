@@ -53,7 +53,11 @@ model: sonnet
   Parse the most recent `## YYYY-MM-DD` header. If last run was today, abort with log entry: `aborted: already ran today`. **Never use the Read tool on dream.log without an offset — it will return the first entry, not the last.**
 - Get current local date/time via `osascript -e 'return (current date) as string'`.
 - Record `session_id: dream-cycle-{YYYY-MM-DD-HHmmss}`.
-- Get latest from origin via the git skill. **Read `skills/git/SKILL.md` before issuing any git command** — it enforces atomic commands, forbids `git status` (writes `.git/index.lock`), and defines pull/conflict handling. Use `git pull --rebase` as a single atomic Desktop Commander call. Handle any merge conflicts per the skill's Error Handling table. Do NOT proceed until the folder is clean.
+- Get latest from origin via the git skill. **Read `skills/git/SKILL.md` before issuing any git command.** Per the skill, every git command is a separate atomic call and `git status` is forbidden (writes `.git/index.lock`).
+
+  **CRITICAL — host-side only:** ALL git commands in this workflow MUST be issued via `mcp__Desktop_Commander__start_process` (host process). NEVER run `git` via the sandboxed `mcp__workspace__bash` tool. The sandbox runs as a different user against a FUSE mount; any `git` invocation there (including read-only ones like `git pull` or `git diff`) creates `.git/index.lock` files that neither the sandbox nor the host can unlink, blocking every subsequent git operation until manually cleared. This is the root cause of the recurring 2026-06-13 → 2026-06-21 lock blocker pattern. The fix is mechanical: choose the right tool, not the right command.
+
+  Boot pull: one atomic Desktop Commander call to `cd /Users/davidohara/develop/jarvis && git pull --rebase`. Handle conflicts per the skill's Error Handling table. Do NOT proceed until clean.
 <!-- system:end -->
 
 <!-- personal:start -->

@@ -67,6 +67,10 @@ Never use `&&`, `||`, `;`, pipes, or multi-line bash scripts to chain git comman
 
 **Do not run `git status` — ever.** Even as a standalone read-only check, `git status` writes `.git/index.lock` as part of its index refresh. In sandboxed environments (e.g., Cowork's sleepy-stoic-bohr VM), the lock file is created owned by the host user (`davidohara:staff`) but cannot be unlinked by the sandbox user. This orphaned lock blocks all subsequent `git add`, `git commit`, and `git push` calls until manually cleared on the host. This pattern has caused recurring blockers since 2026-06-16.
 
+### Sandbox bash is FORBIDDEN for git
+
+**Never run any `git` command via `mcp__workspace__bash` (the Cowork sandbox).** Use `mcp__Desktop_Commander__start_process` (host process) for every git operation — pulls, diffs, adds, commits, pushes, branch ops, everything. The sandbox runs as a different user against a FUSE mount of the repo; even read-only `git pull` or `git diff` calls there create `.git/index.lock` files that neither the sandbox nor the host user can unlink (the sandbox lacks delete permission on its own mount writes; the host sees them as foreign-owned). Once that orphaned lock exists, every subsequent git operation in the sandbox fails with `fatal: Unable to create '...index.lock': File exists`, and the only fix is host-side cleanup. This caused the 2026-06-13 → 2026-06-22 recurring lock blocker pattern visible in `memory/dream.log`. The fix is mechanical: choose the right tool. Sandbox bash is fine for `tail`, `cat`, `python3`, `ls`, etc. — never for `git`.
+
 Safe read-only alternatives:
 - `git diff --name-only HEAD` — shows all changed files relative to HEAD (no lock)
 - `git diff --name-only` — shows unstaged changes (no lock)

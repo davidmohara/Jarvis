@@ -90,6 +90,8 @@ outputs:
 
 7. **MANDATORY: Read `skills/git/SKILL.md` in full before issuing any git command.** The skill is the only authorized path for git operations in Jarvis. It enforces the atomic-command rule (no `&&` chaining), forbids `git status` (which writes `.git/index.lock` and breaks the sandbox), requires Conventional Commits, and defines the session-end commit protocol. Do NOT use the inline snippets that existed in prior versions of this step — they predated the skill and chained commands with `&&`, which is now forbidden.
 
+   **CRITICAL — host-side only:** Every git command MUST be issued via `mcp__Desktop_Commander__start_process` (host process). NEVER run git via the sandboxed `mcp__workspace__bash` tool. Sandbox git invocations create `.git/index.lock` files that neither user can unlink, blocking subsequent operations until manually cleared. If the boot-phase pull (workflow.md) was accidentally run via the sandbox, the lock will already exist by the time this step runs — surface to controller for manual host-side cleanup; do not attempt sandbox `rm -f .git/index.lock` (it will fail with "Operation not permitted").
+
    Execute the git skill's **Session-End Commit Protocol** exactly. Every command is a separate Desktop Commander call. Wait for each to return before the next. Commit message format:
 
    ```
