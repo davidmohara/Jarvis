@@ -26,8 +26,7 @@ related_people:
   promoted: true
 salience:
   score: 10
-  last-promoted-check: 2026-06-22
-  promoted: true
+  last-promoted-check: 2026-06-23
 ---
 
 # DREAM CYCLE ALERT — 2026-06-13 — CRITICAL

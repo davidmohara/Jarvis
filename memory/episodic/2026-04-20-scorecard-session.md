@@ -18,8 +18,7 @@ related_people:
   promoted: true
 salience:
   score: 9
-  last-promoted-check: 2026-06-22
-  promoted: true
+  last-promoted-check: 2026-06-23
 ---
 
 # Session Summary — April 20, 2026 (Afternoon/Evening)

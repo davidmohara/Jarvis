@@ -20,8 +20,7 @@ related_people: null
   promoted: true
 salience:
   score: 10
-  last-promoted-check: 2026-06-22
-  promoted: true
+  last-promoted-check: 2026-06-23
 ---
 
 ## Dream Cycle — June 12, 2026

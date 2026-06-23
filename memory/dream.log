@@ -1297,3 +1297,20 @@ digests_updated: 0
 errors: 0
 summary: "Steady-state run. Step-01 archived 2 newly-expired working files (daily-review 06-19, dream-summary 06-20); 72 already-archived stragglers, 11 unparseable, 3 not-expired. Step-02 scored 129 episodic entries; window 2026-05-23 → 2026-06-22 with 63 in-window; distribution 0:11, 2:3, 6:1, 8:6, 9:9, 10:99. Step-03 promotion: 7 candidates, 1 cluster (calendar) formed → appended to existing operational semantic entry 2026-06-16-calendar-pattern.md; 4 entries flagged promoted. Error scan 30d: 66 entries (process-skip:13, routing-error:10 lead); 1 newly-threshold-breaching combo appended to LESSONS.md. Step-04 compression skipped (oldest episodic 65 days, 90-day threshold not met; 0 candidates)."
 git_pull: success
+
+---
+## 2026-06-23T08:14:30 UTC
+session_id: dream-cycle-2026-06-23-080947
+working_archived: 1
+working_deleted: 0
+episodic_scanned: 130
+score_updates: 130
+clusters_found: 5
+semantic_created: 1
+semantic_updated: 4
+promoted_entries: 107
+entries_compressed: 0
+digests_updated: 0
+errors: 0
+summary: "Steady-state run. Step-01 archived 1 newly-expired working file (dream-summary-2026-06-21); 72 already-archived stragglers, 11 unparseable, 4 not-expired. Step-02 scored 130 episodic entries; window 2026-05-24 → 2026-06-23 with 63 in-window; distribution 0:11, 2:3, 6:1, 8:2, 9:11, 10:102. Step-03 promotion: 116 candidates, 5 valid clusters (omnifocus, calendar, dream-cycle, pipeline, boot) → 1 new operational semantic entry (omnifocus), 4 evidence appends to existing entries; 107 entries flagged promoted. Error scan 30d: 66 entries (process-skip:13, routing-error:10 lead); 0 newly-threshold-breaching combos. Step-04 compression skipped (oldest episodic 66 days, 90-day threshold not met; 0 candidates)."
+git_pull: success
