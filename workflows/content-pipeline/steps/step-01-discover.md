@@ -39,46 +39,113 @@ Command: python3 "/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/
 Timeout: 15000
 ```
 
-Parse the JSON response — `{"ok": true, "messages": [...]}`. Each message has `ts`, `user`, `text`, `thread_ts`.
+Parse the JSON response — `{"ok": true, "messages": [...]}`. Each message has `ts`, `user`, `text`, `thread_ts`, and optionally `bot_id`.
 
-Extract all URLs from message text. Skip:
-- Messages where `bot_id` is set (bot messages — including Jarvis's own notifications)
-- Messages where thread_ts != ts (those are thread replies — approval responses, Agent 2 handles them)
-- URLs already in pending-drafts.json (source_url field)
-- URLs whose topics already have published Ghost posts
+Skip messages where `thread_ts != ts` — those are thread replies handled by Agent 2.
 
-### Message routing — CRITICAL
+For all remaining messages, apply the router below to each one before doing anything else.
 
-Before processing any URL as a blog draft, read the full message text for explicit instructions.
-If David's message contains any of the following signals, it is **NOT a blog draft request**
-and must be routed accordingly:
+---
 
-| Signal in message text | Route to |
-|------------------------|----------|
-| "do not draft a post" / "don't draft a post" | `skills/obsidian-source-note/SKILL.md` |
-| "save to obsidian" / "save as a note" / "for a talk" / "reference" | `skills/obsidian-source-note/SKILL.md` |
-| "PowerPoint" / "slides" / "deck" / "presentation" | Flag for manual handling — notify David in #content |
-| "draft a post" / "write a post" / no instruction | Standard blog draft pipeline (continue below) |
+### MESSAGE ROUTER — apply in priority order
 
-**For Obsidian-routed messages:** Execute `skills/obsidian-source-note/SKILL.md` inline.
-Read the full skill before acting. Use Spotify extraction (Step 3d in podcast-transcript-extract)
-for Spotify URLs. After saving the note, notify David in #content:
+Evaluate each message against the following rules in sequence. Stop at the first match.
+
+```
+1. Bot message WITHOUT (# + ##) headers  →  SKIP (operational noise)
+2. Bot message WITH (# + ##) headers     →  DIGEST PATH
+3. User message WITH routing keywords    →  OBSIDIAN ROUTE
+   (keywords: "save to obsidian", "save as a note", "for a talk", "reference",
+    "do not draft a post", "don't draft a post")
+4. User message WITH (# + ##) headers   →  DIGEST PATH
+5. User message WITH URL, no routing keywords  →  URL PATH
+6. User message with deck/slides/presentation/PowerPoint  →  MANUAL FLAG
+```
+
+**Detection rule for digest signal:** A message has `# ` AND `## ` — an H1 title line and at least one H2 section header.
+
+**For SKIP:** Do nothing. Move to next message.
+
+**For OBSIDIAN ROUTE:** Execute `skills/obsidian-source-note/SKILL.md` inline. Read the full skill before acting. Use Spotify extraction (Step 3d in podcast-transcript-extract) for Spotify URLs. After saving the note, notify David in #content:
 ```
 "_Saved to Obsidian: [{Note Title}] — {vault_path}_"
 ```
 
-**For manual-handling messages:** Post to #content:
+**For MANUAL FLAG:** Post to #content:
 ```
 "_@david — [{source title}] needs manual handling: {brief reason}. I can't process this automatically._"
 ```
 
+**For URL PATH and DIGEST PATH:** Continue to the relevant section below.
+
 Do NOT treat non-blog messages as failed pipeline items. Route them correctly or flag them.
 
-If no new URLs found after routing: post to #content via post.py:
+If no messages route to URL PATH or DIGEST PATH after evaluating all messages: post to #content via post.py:
 ```
-"_Content pipeline: no new URLs in the last 24 hours._"
+"_Content pipeline: no new URLs or digests in the last 24 hours._"
 ```
 Then exit cleanly.
+
+---
+
+### DIGEST PATH
+
+Execute this section for any message (bot or user) that matched the digest signal.
+
+**A. Parse the digest**
+
+Extract the H1 line as the post title. Then extract content under each `##` section. Match sections by keyword — do not require exact header text:
+
+| Keyword match | Maps to |
+|--------------|---------|
+| "hook" in header | Hook |
+| "story" or "angle" in header | Story/Observation |
+| "insight" in header | Insight |
+| "challenge" or "cta" in header | Challenge/CTA |
+| "source" in header | Sources (reference only) |
+
+Strip leading/trailing whitespace from each section's content.
+
+**B. Strip em-dashes**
+
+Before drafting, replace all em-dashes (`—`, Unicode U+2014) in the extracted content with commas or periods, whichever reads more naturally in context. This is mandatory — Watchtower posts contain em-dashes and David's blog voice prohibits them.
+
+**C. Handle Sources (if present)**
+
+If a `## Sources` section exists, extract the URLs listed there. Fetch each URL with `mcp__workspace__web_fetch` for context only. Do not cite these sources in the post body. The source is a spark for context, not content to reference.
+
+**D. Draft the post**
+
+Before writing a single word: read `identity/CONTENT-VOICE.md` in full.
+
+Map the parsed digest sections to the post arc:
+- Hook section → post opening hook
+- Story/Angle section → body (David's personal angle and observation)
+- Insight section → insight paragraph
+- Challenge/CTA section → closing challenge
+
+For any section that is missing from the digest, Harper writes it from scratch using CONTENT-VOICE.md as the voice guide. The four post-arc elements (Hook, Story, Insight, Challenge) must all appear in the final post — no exceptions.
+
+Apply all standard drafting rules from the URL PATH section:
+- 300-500 words. No headers. No bullet points in body. Prose only.
+- No em-dashes. Use commas, periods, or parentheses.
+- The post must be David's voice and reaction — not a restatement of the digest content.
+- End with a direct challenge or question to the reader.
+
+Also draft at this stage: `meta_title`, `meta_description`, `twitter_title`, `twitter_description` (same rules as URL PATH).
+
+**E. Continue with steps 5 onward (tag selection, image, Ghost creation, notify)**
+
+After drafting from a digest, continue at **Step 5 (Select tags)** below. The digest path merges with the URL path at that point and follows the identical process through Ghost creation, pending-drafts.json write, and Slack notification.
+
+In the pending-drafts.json entry, set:
+```json
+"source_type": "digest"
+```
+
+In the Slack notification teaser (Step 9), append `_(drafted from digest)_` on a new line after the teaser sentences.
+
+---
 
 ### 2. Fetch and research each URL
 
@@ -164,35 +231,57 @@ Use the returned Ghost CDN URL for both `feature_image` and `twitter_image`.
 
 ### 7. Create Ghost draft
 
-> **CONFIRMED MCP LIMITATIONS (verified 2026-05-19):** The Ghost MCP silently drops `html`, `feature_image`, and `twitter_image` on both `create_post` and `update_post`. Tags passed as bare ID strings create junk tags. **Do not rely on the MCP for content or metadata.** Use a two-step approach: create the shell via MCP, then populate everything via the Ghost Admin API directly.
+> **CONFIRMED MCP LIMITATIONS (verified 2026-05-19):** The Ghost MCP silently drops `feature_image`, `twitter_image`, and `lexical` content on both `create_post` and `update_post`. Tags passed as bare ID strings create junk tags. **Do not use the Ghost MCP for post creation.** Use a single Admin API POST instead.
 
-**Step 7a — Create shell via MCP:**
-```
-mcp__ghost-blog__create_post(
-  title="{Post Title}",
-  status="draft",
-  authors=["68a3465b9e3561027e745c51"]
-)
-```
-Capture the returned `id`.
-
-**Step 7b — Populate content, image, and tags via Ghost Admin API:**
+**Step 7 — Create post via Ghost Admin API (single call, replaces the old 7a/7b two-step):**
 
 Use `mcp__Control_your_Mac__osascript` to run a Python script that:
-1. Generates a Ghost JWT from the Admin API key (found in `~/Library/Application Support/Claude/claude_desktop_config.json`, server `ghost-blog`, env `GHOST_ADMIN_API_KEY` — format `{key_id}:{hex_secret}`)
-2. GETs the post to retrieve `updated_at` (required for optimistic locking)
-3. PUTs the full update with `lexical` (build as Lexical JSON — array of paragraph nodes), `feature_image`, `twitter_image`, and `tags` as `[{"id": "{tag_id}"}]` objects
 
-**Step 7c — Verify via `mcp__ghost-blog__get_post`:**
-- `lexical` has correct paragraph count (non-empty)
+1. **Get Admin API key:** Read `~/Library/Application Support/Claude/claude_desktop_config.json`. Find the server named `ghost-blog`. Read `GHOST_ADMIN_API_KEY` from its env block. The format is `{key_id}:{hex_secret}`.
+
+2. **Generate JWT:**
+   - Header: `{"alg": "HS256", "kid": "{key_id}", "typ": "JWT"}`
+   - Payload: `{"exp": now + 300, "iat": now, "aud": "/admin/"}`
+   - Sign using `hex_secret` decoded from hex to bytes (not base64)
+   - Use PyJWT: `jwt.encode(payload, bytes.fromhex(hex_secret), algorithm="HS256", headers={"kid": key_id})`
+
+3. **Build Lexical JSON** from the drafted post body. Structure: `{"root": {"children": [{paragraph nodes}], "direction": "ltr", "format": "", "indent": 0, "type": "root", "version": 1}}`. Each paragraph: `{"children": [{"detail": 0, "format": 0, "mode": "normal", "style": "", "text": "{paragraph text}", "type": "text", "version": 1}], "direction": "ltr", "format": "", "indent": 0, "type": "paragraph", "version": 1}`.
+
+4. **POST to Ghost Admin API:**
+   ```
+   POST https://driventodevelop.com/ghost/api/admin/posts/
+   Authorization: Ghost {jwt}
+   Content-Type: application/json
+
+   {
+     "posts": [{
+       "title": "{Post Title}",
+       "status": "draft",
+       "authors": [{"id": "68a3465b9e3561027e745c51"}],
+       "feature_image": "{ghost_cdn_url}",
+       "twitter_image": "{ghost_cdn_url}",
+       "tags": [{"id": "{tag_id}"}, ...],
+       "lexical": "{lexical_json_string}",
+       "meta_title": "{meta_title}",
+       "meta_description": "{meta_description}",
+       "twitter_title": "{twitter_title}",
+       "twitter_description": "{twitter_description}"
+     }]
+   }
+   ```
+
+5. **Capture returned post ID** from the response (`posts[0].id`).
+
+**Step 7 verify — `mcp__ghost-blog__get_post`:**
+- `lexical` is non-empty (has paragraph nodes)
 - `feature_image` is set
-- `tags` show real names (trust, leadership, etc.) not ID strings
+- `tags` show real tag names (e.g., "leadership", "trust") not bare ID strings
 - `excerpt` is populated (Ghost auto-generates from content)
 
-**Do not send the Slack notification until ALL verification checks pass.** If any check fails, report the specific failure accurately — do not claim partial success. Specifically:
-- If `lexical` is empty or null: the content PUT failed. Retry Step 7b before proceeding.
-- If `tags` show ID strings instead of names: the tags were not applied correctly. Re-apply via Admin API PUT.
-- If `feature_image` is null: the upload failed. Retry Step 6 before proceeding.
+**Do not send the Slack notification until ALL verification checks pass.** Report specific failures accurately — do not claim partial success:
+- `lexical` empty or null: the POST failed to write content. Check the API response for errors and retry.
+- Tags show ID strings: tag format was wrong. Retry with correct `{"id": "..."}` object format.
+- `feature_image` null: the image upload failed. Retry Step 6 before proceeding.
 
 Only a clean `get_post` response with content, image, and real tag names unlocks the Slack notification in Step 9.
 
@@ -208,11 +297,14 @@ Read the current `workflows/content-pipeline/pending-drafts.json`, append the ne
   "slack_thread_ts": null,
   "slack_channel": "C0B160MA3EK",
   "title": "{Post Title}",
-  "source_url": "{original url}",
+  "source_url": "{original url or null for digest}",
   "created_at": "{ISO timestamp}",
-  "status": "pending"
+  "status": "pending",
+  "source_type": "url"
 }
 ```
+
+Set `source_type` to `"url"` for the standard URL path, or `"digest"` for the digest path. For digest entries, `source_url` may be null or set to the first source URL from the digest's `## Sources` section if one exists.
 
 `slack_thread_ts` starts as null — it gets filled in step 9 after posting.
 

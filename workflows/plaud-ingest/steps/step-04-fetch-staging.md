@@ -12,20 +12,18 @@ notes: "REGENERATION FIX (2026-06-10): Added automatic transcript regeneration t
 
 ## MANDATORY EXECUTION RULES
 
-1. **Mac filesystem operations use Desktop Commander, NOT bash.** Bash runs in an isolated Linux sandbox and cannot see Mac paths (`/Users/`, `~/`). Run the fetch script using `mcp__Desktop_Commander__start_process`. Read Mac files using `mcp__Desktop_Commander__read_file`. List Mac directories using `mcp__Desktop_Commander__list_directory`. Do NOT use bash for any Mac-side operation.
-
-2. You MUST run `fetch_plaud.py` for the target date — do not assume staging already has everything.
-3. You MUST apply speaker renames before writing final staged files — the script automatically triggers regeneration if needed.
-4. You MUST process all recordings in `ready-for-fetch`, not just the ones with speaker mappings.
-5. The script will verify speaker names appear in the transcript and trigger regeneration if they don't — wait for this to complete.
-6. Do NOT proceed to step-05 until all ready recordings are in staging with correct speaker names.
+1. You MUST run `fetch_plaud.py` for the target date — do not assume staging already has everything.
+2. You MUST apply speaker renames before writing final staged files — the script automatically triggers regeneration if needed.
+3. You MUST process all recordings in `ready-for-fetch`, not just the ones with speaker mappings.
+4. The script will verify speaker names appear in the transcript and trigger regeneration if they don't — wait for this to complete.
+5. Do NOT proceed to step-05 until all ready recordings are in staging with correct speaker names.
 
 ---
 
 ## EXECUTION PROTOCOL
 
 **Agent:** Knox
-**Tool:** `skills/plaud-transcripts/scripts/fetch_plaud.py` via `mcp__Desktop_Commander__start_process` on host Mac (NOT bash — bash cannot reach Mac paths)
+**Tool:** `skills/plaud-transcripts/scripts/fetch_plaud.py` via osascript on host Mac
 **Input:** `accumulated-context.target-date`, `accumulated-context.ready-for-fetch`, `accumulated-context.speaker-mappings`
 **Output:** `accumulated-context.staged-files` — list of markdown files written to staging
 
@@ -35,19 +33,17 @@ notes: "REGENERATION FIX (2026-06-10): Added automatic transcript regeneration t
 
 ### Sequence
 
-1. **Run the fetch script** for the target date using `mcp__Desktop_Commander__start_process`:
+1. **Run the fetch script** for the target date:
    ```
-   command: "/usr/bin/python3 fetch_plaud.py <target-date>"
-   working_directory: "<skill-scripts-dir>"  # absolute path to skills/plaud-transcripts/scripts/
+   do shell script "cd <skill-scripts-dir> && /usr/bin/python3 fetch_plaud.py <target-date> 2>&1"
    ```
-   Do NOT use bash to run this. `mcp__Desktop_Commander__start_process` executes on the Mac where the script and API token live.
+   Where `<skill-scripts-dir>` is `skills/plaud-transcripts/scripts/` resolved to absolute path.
    This downloads transcripts for all ready recordings to `~/Downloads/transcript-staging/`.
 
 2. **Apply speaker renames** for any recording in `accumulated-context.speaker-mappings`:
-   - For each file_id with a mapping, run the rename command via `mcp__Desktop_Commander__start_process`:
+   - For each file_id with a mapping, run the rename command:
      ```
-     command: "/usr/bin/python3 fetch_plaud.py --rename <file_id> '<JSON-mapping>'"
-     working_directory: "<skill-scripts-dir>"
+     do shell script "cd <skill-scripts-dir> && /usr/bin/python3 fetch_plaud.py --rename <file_id> '<JSON-mapping>' 2>&1"
      ```
      Where `<JSON-mapping>` is a JSON object: `{"Speaker 1": "Real Name", "Speaker 2": "Other Name"}`
    - The `--rename` mode:
@@ -60,7 +56,7 @@ notes: "REGENERATION FIX (2026-06-10): Added automatic transcript regeneration t
    - **Do not interrupt**: The script handles verification and regeneration automatically. Wait for each rename to complete (may take 5-10 seconds if regeneration is triggered).
 
 3. **Verify staging files.** After all fetches and renames:
-   - List `~/Downloads/transcript-staging/plaud_*.md` files via `mcp__Desktop_Commander__list_directory`
+   - List `~/Downloads/transcript-staging/plaud_*.md` files
    - Cross-reference against `ready-for-fetch` — confirm every expected recording has a staged file
    - Note any gaps (recording in ready-for-fetch but no staged file found)
 

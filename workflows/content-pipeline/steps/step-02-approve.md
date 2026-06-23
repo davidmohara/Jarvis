@@ -39,6 +39,17 @@ model: sonnet
 
 ## YOUR TASK
 
+### 0. Fast-exit gate (runs before anything else)
+
+Read `workflows/content-pipeline/pending-drafts.json`.
+
+- If the array is **empty** (`[]`): exit immediately. Do not read Slack, do not call Ghost, do not run cleanup. Nothing to process.
+- If all entries have `slack_thread_ts == null`: exit immediately. There are no threads to check for approval replies. Do not call Slack.
+
+Only proceed to Step 1 if there is at least one entry with a non-null `slack_thread_ts`.
+
+---
+
 ### 1. Load and clean pending-drafts.json
 
 Read `workflows/content-pipeline/pending-drafts.json`.

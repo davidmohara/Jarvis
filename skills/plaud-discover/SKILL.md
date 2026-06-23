@@ -36,11 +36,9 @@ Downloading happens in step-04 of the plaud-ingest workflow.
 
 ## Execution
 
-> **MANDATORY — MAC FILESYSTEM RULE:** All Mac filesystem operations use Desktop Commander (`mcp__Desktop_Commander__*`), NOT bash. Bash runs in an isolated Linux sandbox and cannot see Mac paths (`/Users/`, `~/`). Read `~/.config/plaud/token.json` using `mcp__Desktop_Commander__read_file`. Run the fetch script using `mcp__Desktop_Commander__start_process`. List staging contents using `mcp__Desktop_Commander__list_directory`. This applies to every step below.
-
 ### 1. Get token and API base
 
-Load token from `~/.config/plaud/token.json` using `mcp__Desktop_Commander__read_file`. Extract `access_token` and check `expires_at`.
+Load token from `~/.config/plaud/token.json`. Extract `access_token` and check `expires_at`.
 If within 30 days of expiry, the fetch script will auto-refresh — proceed normally.
 If expired, run Chrome login flow before continuing.
 
@@ -134,13 +132,11 @@ new_recordings:
 
 ## Running via the fetch script
 
-As an alternative to direct API calls, invoke `fetch_plaud.py` using `mcp__Desktop_Commander__start_process` (NOT bash — bash cannot reach the Mac):
+As an alternative to direct API calls, you can invoke `fetch_plaud.py` with discovery
+intent using osascript:
 
 ```
-mcp__Desktop_Commander__start_process(
-  command: "/usr/bin/python3 fetch_plaud.py <YYYY-MM-DD>",
-  working_directory: "<absolute-path-to-skills/plaud-transcripts/scripts/>"
-)
+do shell script "cd <skill-scripts-dir> && /usr/bin/python3 fetch_plaud.py <YYYY-MM-DD> 2>&1"
 ```
 
 Read the output to identify which recordings were found, their statuses, and which ones

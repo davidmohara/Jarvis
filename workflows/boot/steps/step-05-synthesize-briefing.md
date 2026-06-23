@@ -10,14 +10,9 @@ outputs: {}
 
 ## MANDATORY EXECUTION RULES
 
-1. **BOOT STATE GATE — Run this before anything else.** Read `workflows/boot/state.yaml`. If `status` is `not-started` or `current-step` is null, STOP. The boot workflow was never initialized. Do not synthesize a briefing. Instead:
-   - State: "[Master]: Boot state gate triggered at step-05. state.yaml shows status: not-started — boot workflow was skipped. Restarting from step-01."
-   - Write state.yaml: set `status: in-progress`, generate `session-id`, set `session-started`, set `current-step: step-01`.
-   - Read and follow `steps/step-01-load-context.md` to restart the full boot sequence.
-   - Do not return to step-05 until steps 01-04 have executed and updated state.yaml.
-2. You MUST run morning briefing step-04 as written. This step handles briefing synthesis — do not replace it with an ad-hoc summary.
-3. You MUST incorporate all Phase 2 task findings into the briefing. Data gathered in step-02 is not optional input.
-4. Do NOT proceed to step-06 until the briefing is delivered to the controller.
+1. You MUST run morning briefing step-04 as written. This step handles briefing synthesis — do not replace it with an ad-hoc summary.
+2. You MUST incorporate all Phase 2 task findings into the briefing. Data gathered in step-02 is not optional input.
+3. Do NOT proceed to step-06 until the briefing is delivered to the controller.
 
 ---
 
@@ -71,8 +66,6 @@ outputs: {}
 
 | Failure | Action |
 |---------|--------|
-| state.yaml shows status: not-started at step-05 entry | Boot state gate fires. Halt synthesis. Restart from step-01. Do not deliver a briefing until the full sequence has run. |
-| state.yaml unreadable or missing | Treat as not-started. Boot state gate fires. Halt synthesis. Surface: "[Master]: Boot state file missing — cannot verify workflow ran. Restarting from step-01." |
 | Morning briefing step-04 file missing | Synthesize the briefing directly from accumulated-context using standard briefing format (calendar, tasks, leads, email, look-ahead, Clay). Note: "Step-04 template unavailable — using raw synthesis." |
 | No accumulated-context available | Surface what is available. Flag each missing data source explicitly. Do not deliver an empty briefing — deliver a degraded one with clear flags. |
 

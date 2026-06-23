@@ -36,6 +36,62 @@ Scans #content for approval replies → publishes approved Ghost drafts → hand
 
 ---
 
+## DIGEST FORMAT
+
+The Watchtower workflow (and David directly) posts structured content digests to #content. These are the primary input for the digest drafting path.
+
+### What a digest looks like
+
+```
+# Post Title
+
+## Hook
+2-4 sentences — the opening move
+
+## Story Angle
+David's personal vantage point, first-person
+
+## Core Insight
+The distilled truth
+
+## Challenge / CTA
+The closing ask/challenge
+
+## Sources
+- Source name — URL
+- Source name — URL
+```
+
+Section header variations are valid: `## Challenge / CTA` and `## Challenge/CTA` are both acceptable. Other section names may vary slightly — match by keyword (see detection rule below).
+
+### Detection rule
+
+A message (bot or user) is a **digest** if it contains BOTH:
+- `# ` (an H1 header — the post title)
+- At least one `## ` (an H2 section header)
+
+### Section mapping
+
+| Digest section | Post arc role |
+|---------------|--------------|
+| `## Hook` | Post hook (opening) |
+| `## Story Angle` / `## Story` | Body — David's personal angle |
+| `## Core Insight` / `## Insight` | Insight — the distilled truth |
+| `## Challenge / CTA` / `## Challenge/CTA` / `## Challenge` | Closing challenge/CTA |
+| `## Sources` | Reference context only — not cited in the post body |
+
+Match sections by keyword presence in the header, not exact string match. "Hook" matches `## Hook`. "Story" or "Angle" matches `## Story Angle`. "Insight" matches `## Core Insight`. "Challenge" or "CTA" matches any challenge/CTA variant.
+
+### Missing sections
+
+If a digest is missing any of the four post-arc sections (Hook, Story, Insight, Challenge), Harper fills them using `identity/CONTENT-VOICE.md`. Sources are always optional.
+
+### Bot message skip rule (updated)
+
+Previously: skip all bot messages. **Updated rule:** Skip bot messages UNLESS they contain `# ` AND `## ` (digest signal). Bot messages with the digest signal are processed on the DIGEST PATH, not skipped.
+
+---
+
 ## SLACK INTEGRATION
 
 **Reading:** Use `systems/slack-bot/read.py` via Desktop Commander (mcp__Desktop_Commander__start_process)
@@ -173,10 +229,13 @@ Format:
     "title": "Post title",
     "source_url": "https://...",
     "created_at": "2026-05-04T06:00:00Z",
-    "status": "pending"
+    "status": "pending",
+    "source_type": "url"
   }
 ]
 ```
+
+**`source_type` field:** String. Values: `"url"` (standard URL path) or `"digest"` (drafted from a Slack digest message). Optional for backward compatibility — existing entries without this field are treated as `"url"`.
 
 ---
 

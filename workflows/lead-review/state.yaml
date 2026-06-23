@@ -1,10 +1,10 @@
 ---
 workflow: lead-review
 agent: chase
-status: complete
-session-started: "2026-06-22"
-session-id: "lead-review-20260622"
-current-step: step-02
-original-request: "Run lead-review workflow — scan My Leads.xlsx for unassigned leads and surface them"
+status: not-started
+session-started: ~
+session-id: ~
+current-step: ~
+original-request: ~
 accumulated-context: {}
 ---

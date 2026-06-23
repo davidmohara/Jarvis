@@ -124,20 +124,6 @@ When David corrects Jarvis:
 4. If the fix is a new rule, add it to this section.
 5. **Log the correction** — Master silently writes a new entry file at `systems/error-tracking/entries/<id>.json` with category, failure mode, severity, and proposed fix. Generate the id with `python3 systems/error-tracking/new-entry.py --id-only`. This also applies to self-detected errors caught during execution.
 
-### Boot Workflow Enforcement
-
-**Before delivering ANY morning briefing output, read `workflows/boot/state.yaml` and verify `status` is `in-progress` or `complete`.**
-
-If `status` is `not-started` or `current-step` is null when you are about to synthesize or deliver a briefing, STOP. Do not deliver the briefing. Instead:
-
-1. State: "[Master]: Boot workflow was not initialized. Initializing now from step-01."
-2. Write `workflows/boot/state.yaml`: set `status: in-progress`, generate a `session-id`, write `session-started` with current timestamp, set `current-step: step-01`.
-3. Read and follow `workflows/boot/steps/step-01-load-context.md` to begin the full workflow sequence.
-
-This rule exists because reading identity files and firing data pulls is NOT the same as running the boot workflow. The workflow sequence — state initialization, parallel Phase 2 tasks, Ralph verification, step-07 hard gate — must execute as written. Identity file reads are step-01 inputs, not substitutes for the workflow.
-
-**This rule fires on every session that begins with a morning briefing request, regardless of what was already read or pulled in the current context.**
-
 ### Error Tracking System
 
 Corrections and self-detected errors are written as individual JSON files under `systems/error-tracking/entries/`, one file per entry. The id format is `err-YYYYMMDDTHHMMSS-XXXXXX` (UTC timestamp plus 6-char random alphanumeric); the filename matches the id. Full schema and storage layout in `systems/error-tracking/schema.md`. The previous monolithic `error-log.json` was retired because multi-machine writes produced unresolvable merge conflicts. The system operates transparently — the executive's experience is unchanged (own it, fix it, move on). Behind the scenes:

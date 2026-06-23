@@ -34,12 +34,6 @@ This file is the only path to `sources.yaml`. Watchtower's weekly run appends ne
 
 ## Approved — Moved to sources.yaml
 
-### Batch 2 — Approved 2026-06-22
-
-| Name | URL | Topic | Trust | Approved |
-|------|-----|-------|-------|---------|
-| Dallas Fed — Economic Research | https://www.dallasfed.org/research | texas-regional | high | 2026-06-22 |
-
 ### Batch 1 — Approved 2026-06-20
 
 | Name | URL | Topic | Trust | Approved |
@@ -93,13 +87,3 @@ Also added by David as named sources (approved same session, 2026-06-19):
 
 <!-- personal:start -->
 <!-- personal:end -->
-
-### Batch 2 — Weekly Run (2026-06-22)
-
-| Name | URL | RSS | Topic | Trust | Why Relevant | Status |
-|------|-----|-----|-------|-------|--------------|--------|
-| MIT Technology Review — AI | https://www.technologyreview.com/topic/artificial-intelligence/ | https://www.technologyreview.com/feed/ | ai-agentic | high | Editorial-standard AI coverage with strong enterprise and governance angle. Covers the "why it matters" layer — not just model releases but deployment realities. Fills a gap between vendor news (already covered) and practitioner depth. | rejected |
-| The Pragmatic Engineer (EU AI / Compliance beat) — via TLDL/AI Weekly | https://aiweekly.co | https://aiweekly.co/feed/ | ai-agentic | med | AI Weekly curates the week's best AI and ML news since 2015. Complements Import AI on the governance/compliance signal — specifically useful for tracking EU AI Act developments heading into August 2 deadline. | rejected |
-| Deltek Clarity (Consulting Industry Report) | https://www.deltek.com/en/blog | https://www.deltek.com/blog/feed | it-consulting | high | Publishes annual consulting industry benchmark data and trend analysis. This week's source for consulting bifurcation data. Publishes regularly on project-based business economics — directly relevant for Improving's positioning. | rejected |
-| Dallas Fed — Economic Research | https://www.dallasfed.org/research | https://www.dallasfed.org/api/rss/research | texas-regional | high | Federal Reserve Bank of Dallas publishes Texas economic outlook, regional labor data, and sector analysis monthly. Authoritative ground-truth for Texas market thesis. No competitor overlap in sources.yaml. | approved |
-| Ahead of AI (Sebastian Raschka) | https://magazine.sebastianraschka.com | https://magazine.sebastianraschka.com/feed | ai-agentic | high | Practitioner-written ML/AI newsletter by a former Meta AI researcher. Covers model architecture, agentic systems, and enterprise AI with technical depth. Ranked among top RSS AI feeds for 2026. Complements Import AI without duplicating it. | rejected |

@@ -432,8 +432,8 @@
   {
     "id": "session-2026-06-19-092735",
     "started": "2026-06-19T09:27:35-05:00",
-    "closed": "2026-06-22T09:13:29-05:00",
-    "current_topic": null,
+    "closed": null,
+    "current_topic": "morning-boot",
     "topics": [
       {
         "name": "morning-boot",
@@ -447,25 +447,16 @@
     ]
   },
   {
-    "id": "session-2026-06-22-091329",
-    "started": "2026-06-22T09:13:29-05:00",
-    "closed": "2026-06-23T09:44:57-05:00",
-    "current_topic": null,
+    "id": "session-2026-06-23-094457",
+    "started": "2026-06-23T09:44:57-05:00",
+    "closed": null,
+    "current_topic": "morning-boot",
     "topics": [
       {
         "name": "morning-boot",
         "loops": [
           {
-            "task": "boot-sequence — short-changed, no full workflow, no daily review, no commit",
-            "resolved": false
-          }
-        ]
-      },
-      {
-        "name": "xai-mnda",
-        "loops": [
-          {
-            "task": "SpaceXAI sync with Cole Estrate (cestrate@x.ai) — TOLA opportunity discussed, MNDA received post-call",
+            "task": "boot-sequence",
             "resolved": false
           }
         ]

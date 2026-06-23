@@ -30,8 +30,6 @@ and tracks pending jobs so they don't get lost.
 - Valid Plaud API token (see `skills/plaud-transcripts/SKILL.md` for login flow)
 - A list of recording `file_id` values with `transcript_status: missing` or `pending`
 
-> **MANDATORY — MAC FILESYSTEM RULE:** All Mac filesystem operations in this skill use Desktop Commander (`mcp__Desktop_Commander__*`), NOT bash. Bash runs in an isolated Linux sandbox and cannot see Mac paths (`/Users/`, `~/`). Use `mcp__Desktop_Commander__start_process` to run fetch_plaud.py. Use `mcp__Desktop_Commander__read_file` to read token/config files. Use `mcp__Desktop_Commander__list_directory` to check staging. This applies to watcher sub-agents as well — pass this rule in their spawn prompt.
-
 ## Execution
 
 ### 1. Partition the work queue
@@ -120,11 +118,8 @@ Agent(
   description: "Watch Plaud transcription",
   prompt: "You are Knox, the Knowledge Manager. Poll for Plaud transcription
     completion for recording {file_id} ('{name}').
-    MANDATORY: Use mcp__Desktop_Commander__start_process to run scripts — bash runs
-    in an isolated Linux sandbox and cannot see Mac paths. Do NOT use bash for Mac-side ops.
-    Every 2 minutes, run via mcp__Desktop_Commander__start_process:
-      command: '/usr/bin/python3 fetch_plaud.py --check {file_id}'
-      working_directory: '<absolute-path-to-skills/plaud-transcripts/scripts/>'
+    Every 2 minutes, run via osascript:
+      cd '<scripts-dir>' && /usr/bin/python3 fetch_plaud.py --check {file_id}
     If output contains READY: write the staged file path to
     workflows/plaud-ingest/state.yaml accumulated-context.staged-files, then exit.
     If output contains NOT_READY: wait 2 minutes and retry. Max 30 retries (~1 hour).
