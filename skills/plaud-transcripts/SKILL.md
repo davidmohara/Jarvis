@@ -52,7 +52,9 @@ If the fetch script still returns nothing, the user may need to:
 
 ### 1. Scan the staging folder
 
-Look in `~/Downloads/transcript-staging/` for files matching:
+Use `mcp__Desktop_Commander__list_directory` to scan `~/Downloads/transcript-staging/`. Read individual files with `mcp__Desktop_Commander__read_file`. Do NOT use bash — bash cannot see Mac paths.
+
+Look for files matching:
 - `plaud_*.md` — processed transcript files from the fetch script
 - `plaud_*_raw.json` — raw API responses (useful for metadata extraction)
 
@@ -167,9 +169,12 @@ labels ("Speaker 1", "Speaker 2", etc.).
    Who's who?
    ```
 
-3. Once David provides the mapping, push the renames to Plaud and re-fetch:
+3. Once David provides the mapping, push the renames to Plaud and re-fetch using `mcp__Desktop_Commander__start_process`:
    ```
-   do shell script "cd <skill-scripts-dir> && /usr/bin/python3 fetch_plaud.py --rename <file_id> '{\"Speaker 1\": \"David O\\x27Hara\", \"Speaker 2\": \"Todd Wynne\"}' 2>&1"
+   mcp__Desktop_Commander__start_process(
+     command: "/usr/bin/python3 fetch_plaud.py --rename <file_id> '{\"Speaker 1\": \"David O'Hara\", \"Speaker 2\": \"Todd Wynne\"}'",
+     working_directory: "<absolute-path-to-skills/plaud-transcripts/scripts/>"
+   )
    ```
 
 4. The `--rename` command (full pipeline):
@@ -290,9 +295,12 @@ The wikilink path is relative to vault root, without `.md` extension. For exampl
 
 **Before deleting any staging files, reconcile the ingest run against `all_recordings.json`.**
 
-Run:
+Run using `mcp__Desktop_Commander__start_process`:
 ```
-do shell script "cd <scripts-dir> && /usr/bin/python3 fetch_plaud.py --list-all --out /tmp/all_recordings_current.json 2>&1"
+mcp__Desktop_Commander__start_process(
+  command: "/usr/bin/python3 fetch_plaud.py --list-all --out /tmp/all_recordings_current.json",
+  working_directory: "<absolute-path-to-skills/plaud-transcripts/scripts/>"
+)
 ```
 
 Compare the list of file IDs that were just processed against the full recording list. Confirm:
@@ -327,11 +335,15 @@ Staging cleanup: removed X transcript files, X raw JSON files
 
 ## Running the fetch script
 
-**The script must run on the user's Mac, not inside the VM** — the VM's network
-proxy blocks direct API calls to api.plaud.ai. Run it via `osascript` on the host:
+**MANDATORY — MAC FILESYSTEM RULE:** All Mac filesystem operations in this skill use Desktop Commander (`mcp__Desktop_Commander__*`), NOT bash. Bash runs in an isolated Linux sandbox and cannot see Mac paths (`/Users/`, `~/`). This applies to running scripts, reading token files, writing token files, listing staging directories, and cleaning up staging files.
+
+**The script must run on the user's Mac, not inside the sandbox** — the sandbox network proxy blocks direct API calls to api.plaud.ai AND the sandbox cannot see Mac filesystem paths. Use `mcp__Desktop_Commander__start_process` on the host:
 
 ```
-do shell script "cd <skill-scripts-dir> && /usr/bin/python3 fetch_plaud.py <YYYY-MM-DD> 2>&1"
+mcp__Desktop_Commander__start_process(
+  command: "/usr/bin/python3 fetch_plaud.py <YYYY-MM-DD>",
+  working_directory: "<absolute-path-to-skills/plaud-transcripts/scripts/>"
+)
 ```
 
 The script requires `requests` — install with `/usr/bin/python3 -m pip install requests`
@@ -375,10 +387,8 @@ need to share credentials with the script.
 4. Decode the JWT payload to extract `iat` and `exp` timestamps (they're in epoch
    seconds — multiply by 1000 for milliseconds).
 
-5. Write the token cache file on the Mac:
-   ```
-   mkdir -p ~/.config/plaud && chmod 700 ~/.config/plaud
-   ```
+5. Write the token cache file on the Mac using `mcp__Desktop_Commander__write_file`:
+   - Path: `/Users/davidohara/.config/plaud/token.json` (absolute path — do NOT use `~/`)
    Write to `~/.config/plaud/token.json`:
    ```json
    {
@@ -390,14 +400,14 @@ need to share credentials with the script.
    ```
    Set permissions: `chmod 600 ~/.config/plaud/token.json`
 
-6. Also write a minimal credentials file for region detection:
+6. Also write a minimal credentials file for region detection using `mcp__Desktop_Commander__write_file`:
+   - Path: `/Users/davidohara/.config/plaud/credentials.json` (absolute path)
    ```json
    {
      "email": "<user-email-from-plaud>",
      "region": "us"
    }
-   ```
-   To `~/.config/plaud/credentials.json` (mode 0600). The email can be extracted
+   ``` The email can be extracted
    from the localStorage key pattern `PLADU_<email>_redDotShow` visible in the
    same localStorage dump.
 
@@ -525,8 +535,11 @@ Agent(
   description: "Watch Plaud transcription",
   prompt: "You are Knox, the Knowledge Manager. Poll for Plaud transcription
     completion for recording 14d0f41b5dcb80d32ffab947fa94c982.
-    Every 2 minutes, run via osascript:
-      cd '<scripts-dir>' && /usr/bin/python3 fetch_plaud.py --check 14d0f41b5dcb80d32ffab947fa94c982
+    MANDATORY: Use mcp__Desktop_Commander__start_process to run scripts — bash runs
+    in an isolated Linux sandbox and cannot see Mac paths (/Users/, ~/). Do NOT use bash.
+    Every 2 minutes, run via mcp__Desktop_Commander__start_process:
+      command: '/usr/bin/python3 fetch_plaud.py --check 14d0f41b5dcb80d32ffab947fa94c982'
+      working_directory: '<absolute-path-to-skills/plaud-transcripts/scripts/>'
     If output contains READY, process the staged transcript through the full
     knox-transcripts-plaud ingestion pipeline (read skills/plaud-transcripts/SKILL.md for steps).
     If output contains NOT_READY, sleep 2 minutes and retry. Max 30 retries.

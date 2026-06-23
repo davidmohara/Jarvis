@@ -1,47 +1,47 @@
 workflow: watchtower
 agent: knox
 status: complete
-session-started: "2026-06-20T12:00:00Z"
-session-id: "wt-weekly-2026-W25"
+session-started: "2026-06-22T07:05:00Z"
+session-id: "wt-weekly-2026-W26"
 current-step: complete
 original-request: "watchtower-weekly scheduled run (Knox)"
 accumulated-context:
   content_queue: []
-  used_fallback: true
+  used_fallback: false
   weekly_themes:
     - theme_id: 1
-      theme_title: "The AI Governance Paradox"
-      synthesis: "74% of enterprises are rolling back AI agents post-launch, and Gartner warns that uniform governance frameworks actually backfire. The striking twist: organizations with the most mature governance are rolling back MORE often, not less, because they catch failures faster. For David, this is the slide that reframes the whole AI consulting conversation from 'are you deploying agents?' to 'are you catching the failures before your clients do?'"
+      theme_title: "The Governance Clock Is Running Out"
+      synthesis: "The EU AI Act's high-risk enforcement deadline hits August 2, 2026 — six weeks away — and most enterprises aren't ready. Over half lack systematic AI system inventories, and 79% report challenges adopting AI at pace. Clients racing to deploy agents are about to discover they need governance infrastructure they don't have. For David and Improving, this is a concrete, time-boxed engagement hook."
       source_items:
-        - "Why 74% of Companies Are Pulling Their AI Agents After Deploying Them"
-        - "Gartner Says Applying Uniform Governance Across AI Agents Will Lead to Enterprise AI Agent Failure"
-        - "Agentic AI Enterprise Adoption 2026: 72% Production Proven"
+        - "EU AI Act High-Risk Deadline: Enterprise Readiness Gap"
+        - "U.S. Companies Face EU AI Act's Possible August 2026 Compliance Deadline"
+        - "EU AI Act Compliance for Autonomous AI Agents in 2026"
+        - "Enterprise AI adoption in 2026: Why 79% face challenges despite high investment"
       content_angles:
-        - "The 74% Rollback Number Is a Feature, Not a Bug"
-        - "Why Governance Doesn't Scale the Way You Think"
+        - "Six Weeks. Your AI Is Either Compliant or It Isn't."
+        - "The Audit Your Clients Haven't Done (And Are About to Need)"
     - theme_id: 2
-      theme_title: "Consulting Market Bifurcation"
-      synthesis: "The IT consulting market is splitting in two: scaled ecosystem integrators (hyperscaler-partnered global firms) and deep vertical specialists. The middle, firms too big to be nimble and too small to compete on scale, is being squeezed out. Improving sits precisely at this inflection point as a regional mid-market firm building an AI delivery practice. This is a strategic map, not just a market trend."
+      theme_title: "Anthropic at $965B — What the AI Platform War Means for Enterprise Buyers"
+      synthesis: "Anthropic confidentially filed for IPO on June 1 at a $965B valuation, surpassing OpenAI, with 80% of revenue from enterprise and Andrej Karpathy joining from OpenAI. The AI platform consolidation is happening now, and enterprise buyers are picking sides with real 3-5 year lock-in implications."
+      source_items:
+        - "Anthropic confidentially files for IPO after raising $65 billion"
+        - "Microsoft and Google take on Anthropic and OpenAI in AI coding models"
+      content_angles:
+        - "Picking Your AI Platform Is a 5-Year Decision. Treat It Like One."
+    - theme_id: 3
+      theme_title: "Dallas Surpasses D.C. as North America's Leading Tech Hub"
+      synthesis: "Site Selection Magazine ranked Dallas #1 above D.C. in North American tech hubs. Wistron announced $761M in AI supercomputer investment in Fort Worth, DFW added 47,100 tech jobs 2022-2024, and the region has 7,000+ open AI roles. The regional thesis for Improving's AI advisory practice just got a national headline."
+      source_items:
+        - "Dallas surpasses Washington D.C. as North America's leading tech hub"
+        - "AI Gold Rush Set to Rewrite Dallas-Fort Worth for a Generation"
+        - "Report: Dallas-Fort Worth Ranks No. 3 in the U.S. for Tech Job Postings"
+      content_angles:
+        - "Dallas Just Topped D.C. Here's What That Actually Means"
+    - theme_id: 4
+      theme_title: "The Middle Gets Squeezed — Again, With New Data"
+      synthesis: "New 2026 consulting market analysis confirms bifurcation with sharper data: scaled ecosystem integrators vs. deep specialists, with the middle shrinking. AI is doubling client consulting spend but routing to whoever shows the tightest expertise-to-outcome connection."
       source_items:
         - "The Consulting Bifurcation: How AI Is Splitting the Industry"
-        - "Why consulting firm margins are shrinking in 2026"
-        - "Global technology consulting market to surpass $400 billion in 2026"
+        - "Consulting Industry Trends to Watch in 2026"
       content_angles:
-        - "The Middle Is Getting Squeezed Out of Consulting"
-    - theme_id: 3
-      theme_title: "DFW as the AI Economic Anchor"
-      synthesis: "Dallas-Fort Worth is leading U.S. job growth with 7,000+ open AI roles, anchoring Texas as a national AI hub alongside Austin. For David running One Texas at $72.5M revenue, this is the regional thesis that justifies the AI pivot. The talent, the enterprise demand, and the headquarters concentration are all here."
-      source_items:
-        - "D-FW Leads U.S. in Job Growth with AI and Tech Expansion"
-        - "Austin and Dallas-Fort Worth Anchor Texas' Expanding AI Economy"
-        - "AI is quietly reshaping Texas jobs and many workers are not prepared"
-      content_angles:
-        - "Why I'm Bullish on Dallas as an AI Market"
-    - theme_id: 4
-      theme_title: "Fulfilled People as Business Imperative"
-      synthesis: "The 2026 EOS Conference theme was 'Fulfilled People Build Stronger Companies.' Wickman's keynote argued that open, honest leadership and tough love aren't soft ideas, they're operational requirements. For David, this connects Conscious Capitalism, his Stagen work, and what he sees on the ground running a regional practice: the leaders who prioritize human fulfillment aren't sacrificing performance, they're compounding it."
-      source_items:
-        - "The Defining Theme of the 2026 EOS Conference: Fulfilled People Build Stronger Companies"
-        - "EOS Conference 2026: Built to Lead: The Human Side of Visionary Work"
-      content_angles:
-        - "Fulfillment Is Not a Benefit. It's a Business Model."
+        - "The Consulting Middle Is Disappearing. Which Side Are You On?"

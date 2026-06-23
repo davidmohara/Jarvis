@@ -239,3 +239,15 @@ sources:
     added: 2026-06-20
     status: active
     notes: "Dedicated DFW innovation/tech coverage. Feed URL unverified — confirm on first run."
+
+  # ── Batch 2 — Approved 2026-06-22 ──────────────────────────────────────────
+
+  - name: Dallas Fed — Economic Research
+    url: https://www.dallasfed.org/research
+    rss: https://www.dallasfed.org/api/rss/research
+    gather_method: rss
+    topic: texas-regional
+    trust: high
+    added: 2026-06-22
+    status: active
+    notes: "Federal Reserve Bank of Dallas. Monthly Texas economic outlook, regional labor data, sector analysis. Feed URL unverified — confirm on first run."

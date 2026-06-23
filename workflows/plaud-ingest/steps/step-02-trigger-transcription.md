@@ -15,12 +15,14 @@ outputs:
 
 ## MANDATORY EXECUTION RULES
 
-1. You MUST process every recording in `accumulated-context.new-recordings`.
-2. For `missing` recordings: trigger transcription immediately — do not skip.
-3. For `pending` recordings: check current status. If still pending, add to pending queue.
-4. For `ready` recordings: no action needed — pass through to step-03.
-5. Do NOT wait here for pending transcriptions to complete — spawn the watcher and move on.
-6. Do NOT proceed to step-03 until all `missing` recordings have been triggered and state is updated.
+1. **Mac filesystem operations use Desktop Commander, NOT bash.** Bash runs in an isolated Linux sandbox and cannot see Mac paths (`/Users/`, `~/`). Use `mcp__Desktop_Commander__start_process` to run scripts, `mcp__Desktop_Commander__read_file` to read Mac files, `mcp__Desktop_Commander__list_directory` to list Mac directories.
+
+2. You MUST process every recording in `accumulated-context.new-recordings`.
+3. For `missing` recordings: trigger transcription immediately — do not skip.
+4. For `pending` recordings: check current status. If still pending, add to pending queue.
+5. For `ready` recordings: no action needed — pass through to step-03.
+6. Do NOT wait here for pending transcriptions to complete — spawn the watcher and move on.
+7. Do NOT proceed to step-03 until all `missing` recordings have been triggered and state is updated.
 
 ---
 

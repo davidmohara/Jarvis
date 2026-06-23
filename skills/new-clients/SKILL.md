@@ -17,11 +17,52 @@ trigger_agents: [chase, chief]
 
 Pull YTD New Logos & Anchors counts for Dallas and South Texas from the Enterprise
 Scorecard v4 Sales Momentum page. Report by enterprise, combine for One Texas total,
-and compare against Q1 targets.
+and compare against the current quarter's targets.
 
 - **New Logo**: a brand-new client relationship
 - **New Anchor**: a new strategic/anchor engagement
 - South Texas = Austin + Houston
+
+## Runtime: Determine Current Quarter and Latest Month
+
+Before doing anything else, determine today's date and derive:
+
+- `current_quarter` = Q1 (Jan–Mar), Q2 (Apr–Jun), Q3 (Jul–Sep), or Q4 (Oct–Dec)
+- `latest_month` = the most recent completed month (e.g., if today is June 22, latest_month = May)
+- `latest_month_name` = short name used in tooltip confirmation (e.g., "May")
+- `latest_month_x` = approximate x-coordinate for that month on the cumulative chart at 71% zoom
+
+**Chart x-coordinate map (71% zoom, cumulative bar chart):**
+
+| Month | Approx x |
+|-------|----------|
+| Jan   | 340      |
+| Feb   | 380      |
+| Mar   | 420      |
+| Apr   | 460      |
+| May   | 500      |
+| Jun   | 540      |
+| Jul   | 580      |
+| Aug   | 620      |
+| Sep   | 660      |
+| Oct   | 700      |
+| Nov   | 740      |
+| Dec   | 780      |
+
+The y-coordinate is approximately 515 for all months. If the tooltip returns null at the computed x, scan ±20px on x and confirm via `Month Name {latest_month_name}` in the tooltip text.
+
+Hover the **latest completed month** — that data point gives the YTD cumulative total.
+
+**Annual targets (2026, One Texas):**
+
+| Metric         | Q1 cumulative | Q2 cumulative | Q3 cumulative | Annual |
+|----------------|---------------|---------------|---------------|--------|
+| Dallas Logos   | 5             | 10 (est)      | 15 (est)      | 20     |
+| STX Logos      | 4             | 8 (est)       | 12 (est)      | 16     |
+| Dallas Anchors | 2             | 2             | 3             | 3      |
+| STX Anchors    | 2             | 2             | 3             | 3      |
+
+Use the cumulative target for the current quarter when reporting gap. If the PowerBI tooltip shows a `Target Logos` or `Target Anchors` value, use that in preference to the table above.
 
 ---
 
@@ -106,8 +147,8 @@ mcp__Control_Chrome__execute_javascript
 code: document.dispatchEvent(new KeyboardEvent('keydown', {key: 'Escape', bubbles: true}))
 ```
 
-Wait 2 seconds. Now hover over the March data point in the New Logos & Anchors chart.
-The chart position at 71% zoom is approximately (420, 515) for March. Dispatch mouse events:
+Wait 2 seconds. Now hover over the **latest completed month** data point in the New Logos & Anchors chart.
+Use `latest_month_x` computed above (e.g., May = x≈500, Jun = x≈540). Dispatch mouse events:
 
 ```js
 mcp__Control_Chrome__execute_javascript
@@ -130,12 +171,12 @@ code: new Promise(resolve => {
 
 The tooltip text contains:
 - Company names prefixed with "Select Row" — count them per section for actual Logos/Anchors
-- `Target Logos: N` — cumulative Q1 logo target at March
-- `Target Anchors: N` — cumulative Q1 anchor target at March
-- `Month Name Mar` — confirms you're reading March data
+- `Target Logos: N` — cumulative YTD logo target at that month
+- `Target Anchors: N` — cumulative YTD anchor target at that month
+- `Month Name {month}` — confirms you're reading the right month
 
-If tooltip returns null, try February (x≈380, y≈515) or January (x≈340, y≈525).
-The chart is cumulative — most recent month with data = YTD total.
+If tooltip returns null at `latest_month_x`, step back one month (subtract ~40px on x) and retry.
+The chart is cumulative — always hover the latest month with data to get the full YTD total.
 
 If mouse dispatch doesn't trigger tooltips, fall back to reading all visible body text:
 
@@ -155,8 +196,8 @@ code: (() => {
 Record:
 - Dallas Logos YTD = count of "Select Row" entries in the Logo section
 - Dallas Anchors YTD = count of "Select Row" entries in the Anchor section
-- Dallas Q1 Logo Target = value after "Target Logos:"
-- Dallas Q1 Anchor Target = value after "Target Anchors:"
+- Dallas Logo Target (cumulative YTD) = value after "Target Logos:" in tooltip, or use runtime table above
+- Dallas Anchor Target (cumulative YTD) = value after "Target Anchors:" in tooltip, or use runtime table above
 
 ---
 
@@ -193,7 +234,7 @@ code: new Promise((resolve) => {
 })
 ```
 
-Close and hover March again the same way. Record South Texas Logos, Anchors, and targets.
+Close and hover the same `latest_month_x` coordinate again for South Texas. Record South Texas Logos, Anchors, and targets.
 
 ---
 
@@ -211,13 +252,13 @@ Output using the standard format below.
 ```
 ## New Clients — One Texas — [Today's Date]
 
-### New Logos & Anchors YTD (through March 2026)
+### New Logos & Anchors YTD (through [latest_month_name] [YYYY])
 
-| Metric              | Dallas | South Texas | One Texas | Q1 Target         |
-|---------------------|--------|-------------|-----------|-------------------|
-| New Logos YTD       | X      | X           | X         | 9 (5 DFW + 4 STX) |
-| New Anchors YTD     | X      | X           | X         | 4 (2 DFW + 2 STX) |
-| Total New Clients   | X      | X           | X         | —                 |
+| Metric              | Dallas | South Texas | One Texas | [current_quarter] Target  |
+|---------------------|--------|-------------|-----------|---------------------------|
+| New Logos YTD       | X      | X           | X         | X (DFW + STX)             |
+| New Anchors YTD     | X      | X           | X         | X (DFW + STX)             |
+| Total New Clients   | X      | X           | X         | —                         |
 
 ### Gap to Target
 
@@ -230,6 +271,8 @@ Output using the standard format below.
 **South Texas logos:** [list company names, or "none"]
 ```
 
+Substitute `[latest_month_name]`, `[YYYY]`, and `[current_quarter]` with actual runtime values before outputting.
+
 Follow with 2-3 sentences of Chase-voice commentary. Lead with One Texas total vs target.
 Call out any enterprise at zero — that is a funnel problem, not a timing problem.
 Do not soften the numbers.
@@ -238,12 +281,12 @@ Do not soften the numbers.
 
 ## Notes
 
-- The chart is **cumulative YTD** — the March data point is the YTD total through March.
-  Hover the latest month with data to get the full YTD number.
+- The chart is **cumulative YTD** — hover the latest completed month to get the full YTD total.
+  Do not hover the current partial month — it will undercount.
 - Count logos/anchors by counting "Select Row" entries in each section of the tooltip.
   Zero "Select Row" entries = zero clients that period.
-- Confirmed chart coordinates (71% zoom): January ≈ (340, 525), February ≈ (380, 515), March ≈ (420, 515).
-  If coordinates drift (page re-renders), scan ±15px on y-axis and confirm via `Month Name Mar`.
+- Chart x-coordinates (71% zoom, y≈515 for all): Jan≈340, Feb≈380, Mar≈420, Apr≈460, May≈500, Jun≈540, Jul≈580, Aug≈620, Sep≈660, Oct≈700, Nov≈740, Dec≈780.
+  If coordinates drift, scan ±20px on x and confirm month via `Month Name {name}` in tooltip.
 - Mouse dispatch via Chrome: use `mouseover` + `mousemove` events. If tooltip doesn't appear,
   try `mouseenter` at the same coordinates.
 - Tooltip persists in DOM after hover — move mouse away before switching regions to clear stale data:
@@ -254,7 +297,8 @@ Do not soften the numbers.
     el?.dispatchEvent(new MouseEvent('mousemove', {bubbles: true, clientX: 100, clientY: 100}));
   })()
   ```
-- Q1 targets (confirmed 2026): Dallas Logo Q1=5, South Texas Logo Q1=4; both Anchor Q1=2.
+- Annual targets (2026): Dallas Logos=20, STX Logos=16, Dallas Anchors=3, STX Anchors=3.
+  Cumulative quarterly targets are in the Runtime section above. Always use tooltip `Target Logos/Anchors` values if present — they take precedence.
 - **Escape key**: `document.dispatchEvent(new KeyboardEvent('keydown', {key: 'Escape', bubbles: true}))`
 
 ---

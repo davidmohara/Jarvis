@@ -18,11 +18,13 @@ outputs:
 
 ## MANDATORY EXECUTION RULES
 
-1. You MUST follow `skills/plaud-transcripts/SKILL.md` exactly for every staged file — no shortcuts.
-2. You MUST cross-reference each note against today's calendar for action items before routing to OmniFocus.
-3. You MUST link every meeting note to the daily calendar note in the vault.
-4. You MUST clean up staging after all notes are successfully written.
-5. Do NOT mark this step complete until staging is clean and all notes are confirmed written to vault.
+1. **Mac filesystem operations use Desktop Commander, NOT bash.** Bash runs in an isolated Linux sandbox and cannot see Mac paths (`/Users/`, `~/`). Use `mcp__Desktop_Commander__start_process` to run scripts, `mcp__Desktop_Commander__read_file` to read staged files, `mcp__Desktop_Commander__list_directory` to scan the staging folder.
+
+2. You MUST follow `skills/plaud-transcripts/SKILL.md` exactly for every staged file — no shortcuts.
+3. You MUST cross-reference each note against today's calendar for action items before routing to OmniFocus.
+4. You MUST link every meeting note to the daily calendar note in the vault.
+5. You MUST clean up staging after all notes are successfully written.
+6. Do NOT mark this step complete until staging is clean and all notes are confirmed written to vault.
 
 ---
 

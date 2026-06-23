@@ -13,11 +13,13 @@ outputs:
 
 ## MANDATORY EXECUTION RULES
 
-1. You MUST query the Plaud API for recordings — do not rely solely on what is already in staging.
-2. You MUST cross-reference against the Obsidian vault to avoid reprocessing already-ingested recordings.
-3. You MUST capture recording ID, name, date, duration, and transcription status for every new recording.
-4. Do NOT begin downloading or processing transcripts in this step — discovery only.
-5. Do NOT proceed to step-02 until the new-recordings list is populated in state.
+1. **Mac filesystem operations use Desktop Commander, NOT bash.** Bash runs in an isolated Linux sandbox and cannot see Mac paths (`/Users/`, `~/`). Use `mcp__Desktop_Commander__start_process` to run scripts, `mcp__Desktop_Commander__read_file` to read Mac files, `mcp__Desktop_Commander__list_directory` to list Mac directories.
+
+2. You MUST query the Plaud API for recordings — do not rely solely on what is already in staging.
+3. You MUST cross-reference against the Obsidian vault to avoid reprocessing already-ingested recordings.
+4. You MUST capture recording ID, name, date, duration, and transcription status for every new recording.
+5. Do NOT begin downloading or processing transcripts in this step — discovery only.
+6. Do NOT proceed to step-02 until the new-recordings list is populated in state.
 
 ---
 

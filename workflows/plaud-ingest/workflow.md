@@ -51,6 +51,27 @@ model: haiku
 
 ---
 
+## MANDATORY EXECUTION RULE — MAC FILESYSTEM OPERATIONS
+
+**ALL Mac filesystem operations in this workflow use Desktop Commander (`mcp__Desktop_Commander__*`), NOT bash.**
+
+Bash runs in an isolated Linux sandbox and CANNOT see Mac filesystem paths (`/Users/`, `~/`, etc.). Any attempt to read, write, list, or execute on the Mac via bash will silently fail or produce path errors.
+
+Required tools for Mac-side operations:
+
+| Operation | Tool |
+|-----------|------|
+| Run a script on the Mac | `mcp__Desktop_Commander__start_process` |
+| Read a file on the Mac | `mcp__Desktop_Commander__read_file` |
+| Write a file on the Mac | `mcp__Desktop_Commander__write_file` |
+| List a Mac directory | `mcp__Desktop_Commander__list_directory` |
+
+Chrome operations use `mcp__Control_Chrome__*` tools.
+
+This rule applies to Knox and any sub-agent spawned by this workflow. No exceptions.
+
+---
+
 ## EXECUTION
 
 Run STATE CHECK above, then begin at step-01.

@@ -1,0 +1,15 @@
+{
+  "id": "err-20260622T141525-TYV82Y",
+  "timestamp": "2026-06-22T14:15:25Z",
+  "session": "session-2026-06-22-091329",
+  "source": "explicit",
+  "agent": "master",
+  "category": "process-skip",
+  "description": "Boot sequence executed as ad-hoc context load rather than running workflows/boot/workflow.md. state.yaml was never initialized (status: not-started). Steps 01-07 were skipped entirely. Knox/Plaud spawn (step-01 task), Phase 2 parallel task fire (step-02), Ralph verification gate (step-03), and hard completion gate (step-07) all bypassed. Plaud ingest was not run as a result.",
+  "correction": "Boot must initialize state.yaml, execute all 7 steps in order, spawn Knox fire-and-forget during step-01, run all Phase 2 tasks in parallel during step-02, invoke Ralph verification in step-03 before proceeding, and pass the step-07 hard gate before reporting boot complete.",
+  "failure_mode": "protocol-skip",
+  "systemic_fix": "The boot workflow needs a stronger enforcement hook — the system currently relies on Master voluntarily reading and following workflow.md rather than being gated on it. Rigby should evaluate whether a pre-boot check (verify state.yaml initialized before any briefing output is allowed) can be added as an architectural constraint.",
+  "fix_status": "proposed",
+  "severity": "major",
+  "related_entries": ["err-20260327-004", "err-20260404-001", "err-20260511-001"]
+}

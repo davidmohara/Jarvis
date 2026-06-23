@@ -1,8 +1,8 @@
 workflow: boot
 agent: master
 status: not-started
-session-started: null
-session-id: null
-current-step: null
-original-request: null
+session-started: ~
+session-id: ~
+current-step: ~
+original-request: ~
 accumulated-context: {}

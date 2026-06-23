@@ -48,6 +48,8 @@ auto-resolved to the controller as a single consolidated prompt.
 - M365 calendar access (via MCP) for the recording's date
 - (Optional) Clay contact data for additional name context
 
+> **MANDATORY — MAC FILESYSTEM RULE:** All Mac filesystem operations in this skill use Desktop Commander (`mcp__Desktop_Commander__*`), NOT bash. Bash runs in an isolated Linux sandbox and cannot see Mac paths (`/Users/`, `~/`). Use `mcp__Desktop_Commander__list_directory` to enumerate staging files. Use `mcp__Desktop_Commander__read_file` to read `_speakers.json` and transcript `.md` files.
+
 ## Input: Speaker mapping file structure
 
 ```json
@@ -70,7 +72,7 @@ auto-resolved to the controller as a single consolidated prompt.
 
 ### 1. Load all `_speakers.json` files from staging
 
-Enumerate `~/Downloads/transcript-staging/plaud_*_speakers.json`. Load each.
+Enumerate `~/Downloads/transcript-staging/plaud_*_speakers.json` using `mcp__Desktop_Commander__list_directory`. Read each file using `mcp__Desktop_Commander__read_file`.
 Group by recording (one JSON file per recording that has generic speakers).
 
 ### 2. For each recording: attempt calendar auto-resolution
@@ -193,9 +195,9 @@ resolution_method:
 
 This skill can be invoked directly (outside the plaud-ingest workflow) when the
 controller asks about speaker identification for a specific recording. In that case:
-1. Load the relevant `_speakers.json` from staging (or reconstruct from the staged markdown)
+1. Load the relevant `_speakers.json` from staging using `mcp__Desktop_Commander__read_file` (or reconstruct from the staged markdown)
 2. Run steps 2-5 above
-3. Apply the mappings via `fetch_plaud.py --rename` immediately (no workflow state to update)
+3. Apply the mappings via `fetch_plaud.py --rename` using `mcp__Desktop_Commander__start_process` immediately (no workflow state to update)
 
 ## Error handling
 

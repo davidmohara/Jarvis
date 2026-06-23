@@ -1,43 +1,24 @@
 ---
 workflow: plaud-ingest
 agent: knox
-status: completed
-session-started: "2026-06-18T00:00:00Z"
-session-completed: "2026-06-18T17:45:00Z"
-session-id: "pi-20260618-001"
-current-step: step-05-complete
-original-request: "Knox: Run Plaud ingest workflow — discover new recordings since last run (2026-06-11)"
+status: complete
+session-started: "2026-06-22T12:00:00Z"
+session-id: "pi-20260622-002"
+current-step: step-05
+original-request: "Knox: Run Plaud ingest workflow — discover new recordings since last run (2026-06-18)"
+completed-at: "2026-06-22T12:15:00Z"
+abort-reason: null
 accumulated-context:
-  target-date: "2026-06-18"
-  last-run-date: "2026-06-11"
-  api-total-recordings: 60
-  recordings-scanned: 60
-  new-recordings:
-    - file_id: fd49dbb1f51f51e94a95de225cce8b24
-      name: "06-16 Consultation: AI Strategy & Governance"
-      date: "2026-06-16"
-      duration_seconds: 1890
-      has_transcript: true
-      transcript_status: ready
+  target-date: "2026-06-22"
+  last-run-date: "2026-06-18"
+  new-recordings: []
   transcription-triggered: []
   pending-recordings: []
-  speaker-mappings:
-    "06-16 Consultation AI Strategy Governance":
-      "O'Hara": "David O'Hara"
-      "Speaker 2": "Anthony Laria (anthony.laria@springlineadvisory.com)"
-      "Speaker 3": "Tim Brackney (tim@springlineadvisory.com)"
-      source: calendar+transcript
-      calendar-event: "Tim Brackney, Spring Line Advisory / David O'Hara"
+  speaker-mappings: {}
   pending-speaker-mappings: []
-  ready-for-fetch:
-    - fd49dbb1f51f51e94a95de225cce8b24
+  ready-for-fetch: []
   staged-files: []
-  ingested-notes:
-    - "zzPlaud/Client/2026-06-16 Spring Line Advisory - AI Strategy Governance and Investor Readiness.md"
-  omnifocus-tasks-created: 2
-  notes: >
-    All other recordings from Jun 8-15 were already in vault from prior sessions.
-    Transcript fetched directly from Plaud S3 via /file/detail/{id} endpoint.
-    Speaker identification resolved via calendar match (Tim Brackney / Spring Line Advisory)
-    and transcript content (Anthony = Miami/COO context, Tim = West Coast/strategy context).
+  ingested-notes: []
+  omnifocus-tasks-created: 0
+  summary: "Catch-up run completed. Discovered 60 total recordings across all dates. 0 new recordings since 2026-06-18 — all recordings already in vault. Most recent vault entry: 2026-06-16."
 ---

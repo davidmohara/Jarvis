@@ -37,3 +37,8 @@ Running list of potential blog topics. Jarvis captures these proactively from co
 - Find What You Seek (May 2025)
 - Health Journey: Augment (May 2025)
 - Digging Deep (Apr 2025)
+| "Six Weeks. Your AI Is Either Compliant or It Isn't." | Watchtower (2026-06-22) [watchtower] | AI, business, consulting, compliance | Draft at `Mind/Posts/_six-weeks-your-ai-is-compliant-or-it-isnt.md` |
+| "The Audit Your Clients Haven't Done (And Are About to Need)" | Watchtower (2026-06-22) [watchtower] | AI, business, consulting, compliance | Draft at `Mind/Posts/_the-audit-your-clients-havent-done.md` |
+| "Picking Your AI Platform Is a 5-Year Decision. Treat It Like One." | Watchtower (2026-06-22) [watchtower] | AI, business, leadership, consulting | Draft at `Mind/Posts/_picking-your-ai-platform-is-a-5-year-decision.md` |
+| "Dallas Just Topped D.C. Here's What That Actually Means" | Watchtower (2026-06-22) [watchtower] | texas, AI, business, leadership | Draft at `Mind/Posts/_dallas-just-topped-dc.md` |
+| "The Consulting Middle Is Disappearing. Which Side Are You On?" | Watchtower (2026-06-22) [watchtower] | consulting, business, leadership, AI | Draft at `Mind/Posts/_the-consulting-middle-is-disappearing.md` |
