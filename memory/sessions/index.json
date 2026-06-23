@@ -449,15 +449,33 @@
   {
     "id": "session-2026-06-23-094457",
     "started": "2026-06-23T09:44:57-05:00",
-    "closed": null,
-    "current_topic": "morning-boot",
+    "closed": "2026-06-23T17:00:00-05:00",
+    "current_topic": null,
     "topics": [
       {
         "name": "morning-boot",
         "loops": [
           {
-            "task": "boot-sequence",
-            "resolved": false
+            "task": "boot-sequence — full workflow completed",
+            "resolved": true
+          }
+        ]
+      },
+      {
+        "name": "content-pipeline-rework",
+        "loops": [
+          {
+            "task": "Digest input path, Ghost Admin API consolidation, fast-exit gate — Rigby built and committed",
+            "resolved": true
+          }
+        ]
+      },
+      {
+        "name": "kazakhstan-deck",
+        "loops": [
+          {
+            "task": "13-slide Improving-branded deck built — Enterprise Shift slides, Agent Receipts, MIT NANDA, real client stories on What We've Built slide",
+            "resolved": true
           }
         ]
       }

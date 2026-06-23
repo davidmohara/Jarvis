@@ -1,0 +1,56 @@
+{
+  "_meta": {
+    "version": 1,
+    "notes": "Each workout is a sequence of pattern slots. The app picks the next exercise from each pattern pool in exercises.json, cycling round-robin. Change the slot order or add/remove slots to reshape any workout. The app handles the rest."
+  },
+  "workouts": [
+    {
+      "id": "d1",
+      "name": "Day 1 — Heavy Strength",
+      "short": "Heavy Strength",
+      "badge": "Strength",
+      "badgeClass": "bs",
+      "slots": [
+        { "pattern": "mobility",        "label": "Movement prep" },
+        { "pattern": "hip-hinge",       "label": "Primary hinge" },
+        { "pattern": "squat",           "label": "Squat pattern" },
+        { "pattern": "horizontal-pull", "label": "Horizontal pull" },
+        { "pattern": "unilateral",      "label": "Unilateral lower" },
+        { "pattern": "conditioning",    "label": "Conditioning" }
+      ]
+    },
+    {
+      "id": "d2",
+      "name": "Day 2 — Hypertrophy",
+      "short": "Hypertrophy",
+      "badge": "Hypertrophy",
+      "badgeClass": "bh",
+      "slots": [
+        { "pattern": "mobility",        "label": "Movement prep" },
+        { "pattern": "horizontal-push", "label": "Horizontal push" },
+        { "pattern": "unilateral",      "label": "Unilateral lower" },
+        { "pattern": "vertical-pull",   "label": "Vertical pull" },
+        { "pattern": "horizontal-push", "label": "Secondary push" },
+        { "pattern": "rotator-cuff",    "label": "Shoulder health" },
+        { "pattern": "anti-rotation",   "label": "Core / anti-rotation" },
+        { "pattern": "loaded-carry",    "label": "Loaded carry" },
+        { "pattern": "conditioning",    "label": "Conditioning" }
+      ]
+    },
+    {
+      "id": "d3",
+      "name": "Day 3 — Power / Metabolic",
+      "short": "Power & Metabolic",
+      "badge": "Metabolic",
+      "badgeClass": "bm",
+      "slots": [
+        { "pattern": "mobility",         "label": "Movement prep" },
+        { "pattern": "hip-hinge-power",  "label": "Power hinge" },
+        { "pattern": "metabolic",        "label": "Metabolic push" },
+        { "pattern": "unilateral",       "label": "Unilateral lower" },
+        { "pattern": "horizontal-pull",  "label": "Pull finisher" },
+        { "pattern": "conditioning",     "label": "Conditioning" }
+      ]
+    }
+  ]
+}
