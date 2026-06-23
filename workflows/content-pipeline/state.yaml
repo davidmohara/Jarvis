@@ -1,15 +1,16 @@
 status: complete
 current-step: step-01-discover
-session-id: harper-2026-06-22-discovery
-session-started: 2026-06-22T06:00:00Z
-session-completed: 2026-06-22T06:08:00Z
+session-id: harper-2026-06-23-discovery
+session-started: 2026-06-23T06:00:00Z
+session-completed: 2026-06-23T06:05:00Z
 original-request: scheduled-content-discovery
 accumulated-context:
   result: "No new URLs in the last 24 hours. Posted standard no-URLs notice to #content. No drafts created."
   urls_found: 0
   drafts_created: 0
   notes:
-    - "Channel scan (24h) returned 1 message, a Jarvis bot notification (bot_id B0ANBSA9Z1R) — skipped per routing rules."
+    - "Channel scan (24h) returned 7 messages, all from Jarvis bot (bot_id B0ANBSA9Z1R) — skipped per routing rules."
+    - "Messages were Jarvis-generated content briefs/research posts from prior pipeline runs, not user-dropped URLs."
     - "No user-dropped URLs to process."
-    - "Posted '_Content pipeline: no new URLs in the last 24 hours._' to #content (ts 1782126496.762259)."
+    - "Posted '_Content pipeline: no new URLs in the last 24 hours._' to #content (ts 1782212899.790519)."
     - "pending-drafts.json unchanged."

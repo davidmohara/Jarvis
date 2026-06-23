@@ -1,0 +1,65 @@
+{
+  "id": "eval-20260623T021234-DH9VSD",
+  "type": "workflow",
+  "name": "daily-review",
+  "agent": "chief",
+  "session_id": "session-2026-06-19-092735",
+  "trigger": "scheduled",
+  "started": "2026-06-23T02:12:34.713732Z",
+  "completed": "2026-06-23T02:12:34.713732Z",
+  "duration_seconds": 0.0,
+  "status": "success",
+  "steps": [
+    {
+      "name": "step-auto",
+      "started": "2026-06-23T02:12:34.713732Z",
+      "completed": "2026-06-23T02:12:34.713732Z",
+      "duration_seconds": 0.0,
+      "status": "success",
+      "data_sources_used": [],
+      "data_source_failures": []
+    }
+  ],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": [],
+      "abort_reason": null
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": "2a045accfec69bac",
+  "prior_baseline_id": null,
+  "tags": [
+    "cowork-instrumented"
+  ]
+}

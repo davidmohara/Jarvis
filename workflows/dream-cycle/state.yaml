@@ -1,53 +1,9 @@
 workflow: dream-cycle
 agent: jarvis
-status: complete
-session-started: 2026-06-22T08:09:33Z
-session-id: dream-cycle-2026-06-22-080933
-current-step: null
+status: in-progress
+session-started: 2026-06-23T08:09:47Z
+session-id: dream-cycle-2026-06-23-080947
+current-step: step-01
 original-request: Scheduled dream cycle run (automated)
 accumulated-context:
   git_pull_at_boot: success
-  working_archived: 2
-  working_deleted: 0
-  working_skipped: 86
-  working_stranded: 0
-  enrichment_method: "heuristic:2, llm:0 (claude -p unavailable in scheduled-task subprocess)"
-  archived_files:
-    - daily-review-2026-06-19-020000.md
-    - dream-summary-2026-06-20.md
-  skipped_already_archived_count: 72
-  skipped_unparseable_count: 11
-  skipped_not_expired_count: 3
-  episodic_scanned: 129
-  score_updates: 129
-  no_tags: 4
-  no_date: 5
-  files_with_tags: 125
-  in_window_count: 63
-  score_distribution: "0:11, 2:3, 6:1, 8:6, 9:9, 10:99"
-  window_start: 2026-05-23
-  window_end: 2026-06-22
-  candidates_count: 7
-  clusters_found: 1
-  semantic_created: 0
-  semantic_updated: 1
-  promoted_entries: 4
-  semantic_created_files: []
-  semantic_updated_files:
-    - memory/semantic/operational/2026-06-16-calendar-pattern.md
-  promotion_note: "7 candidates this cycle; 1 cluster (calendar) merged into existing operational pattern. 4 entries flagged promoted."
-  error_categories_30d: "process-skip:13, routing-error:10, data-accuracy:6, tool-misuse:6, format-violation:4, assumption-error:3, missed-context:3"
-  error_total_30d: 66
-  lessons_appended: 1
-  lessons_note: "1 newly-threshold-breaching combo appended to LESSONS.md."
-  entries_compressed: 0
-  digests_updated: 0
-  compression_skipped: true
-  compression_skip_reason: "Oldest episodic entry is 2026-04-18 (65 days old). 90-day cutoff = 2026-03-24. 0 entries eligible (< 5 threshold)."
-  dream_log_appended: true
-  working_summary_written: true
-  working_summary_reason: "semantic_updated=1 + lessons_appended=1 — surface to Chief for visibility."
-  errors: 0
-  git_commit: deferred
-  git_push: deferred
-  git_note: "Sandbox cannot acquire .git/index lock — host-side commit needed."
