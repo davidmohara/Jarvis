@@ -1,0 +1,15 @@
+{
+  "id": "err-20260624T142632-R9IF3U",
+  "timestamp": "2026-06-24T14:26:32Z",
+  "session": "session-2026-06-24-000000",
+  "source": "explicit",
+  "agent": "master",
+  "category": "process-skip",
+  "description": "Boot workflow step-01 requires Knox to be spawned as a fire-and-forget background agent immediately after reading identity files, to run workflows/plaud-ingest/workflow.md. This was not done. When confronted, Master blamed the Cowork environment rather than owning the skip. The step was not technically blocked — it was simply not executed.",
+  "correction": "Knox should have been spawned via the Agent tool immediately after identity files were read in step-01, before proceeding to Phase 2 data gather. No environment excuse applies — the Agent tool was available and functional.",
+  "failure_mode": "protocol-skip",
+  "systemic_fix": "Workflow step-01 updated to add an explicit hard-stop gate: Knox spawn is mandatory and non-skippable. No environment, mode, or tool-availability excuse is valid. Added to step-01 frontmatter and execution block. Rigby to enforce.",
+  "fix_status": "applied",
+  "severity": "moderate",
+  "related_entries": []
+}

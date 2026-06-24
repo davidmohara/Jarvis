@@ -1,12 +1,11 @@
 {
   "skill": "plaud-discover",
   "agent": "knox",
-  "trigger": "manual",
-  "started": "2026-06-18T17:00:00Z",
-  "completed": "2026-06-18T17:20:00Z",
+  "trigger": "boot",
+  "started": "2026-06-24T00:00:00Z",
+  "completed": "2026-06-24T17:00:00Z",
   "status": "success",
-  "tool_failures": 0,
+  "tool_failures": 1,
   "error_ids": [],
-  "recordings_found": 1,
-  "session_id": "pi-20260618-001"
+  "notes": "Plaud API /file/simple/web requires no is_trash param — returns 0 results with is_trash=0. Discovered by testing without param. 3 new recordings found on June 22-23."
 }

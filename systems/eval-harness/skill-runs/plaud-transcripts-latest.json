@@ -1,13 +1,11 @@
 {
   "skill": "plaud-transcripts",
   "agent": "knox",
-  "trigger": "manual",
-  "started": "2026-06-18T17:20:00Z",
-  "completed": "2026-06-18T17:45:00Z",
-  "status": "success",
-  "tool_failures": 0,
+  "trigger": "boot",
+  "started": "2026-06-24T00:00:00Z",
+  "completed": "2026-06-24T17:00:00Z",
+  "status": "partial",
+  "tool_failures": 1,
   "error_ids": [],
-  "notes_ingested": 1,
-  "omnifocus_tasks_created": 2,
-  "session_id": "pi-20260618-001"
+  "notes": "Plaud --rename returned trans_result null for both recordings with generic speakers (transient condition post-fetch). Speaker names applied manually in vault notes. All 3 transcripts successfully ingested to vault."
 }

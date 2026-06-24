@@ -53,7 +53,11 @@ outputs: {}
      files_loaded: [SYSTEM.md, identity/MEMORY.md, ...]
    ```
 
-4. **Spawn Knox immediately (fire-and-forget):** Immediately after reading identity files, spawn Knox as a background Agent:
+4. **Spawn Knox immediately (fire-and-forget) — NON-SKIPPABLE:**
+
+   This step is mandatory. There is no environment, mode, or tool-availability excuse that permits skipping it. If you are tempted to skip it, that is a protocol violation — log it and do it anyway.
+
+   Immediately after reading identity files, spawn Knox as a background Agent using the Agent tool:
 
    > "Knox — run `workflows/plaud-ingest/workflow.md` in full. Read the workflow, run the STATE CHECK, and execute all steps as written. This is a background task — do not wait for confirmation before starting."
 
@@ -63,6 +67,8 @@ outputs: {}
      knox_spawn: spawned — fire-and-forget
    ```
    Do NOT wait for Knox. Continue to the next step immediately.
+
+   **If the Agent tool is unavailable:** Record `knox_spawn: failed — Agent tool unavailable` in outputs, surface it explicitly in the boot briefing, and offer to run Plaud ingest manually as an alternative. This is the ONLY valid reason to not spawn Knox — and it still requires surfacing to David, not silent skipping.
 
 5. **Update step frontmatter:** Set `status: complete` and `completed-at` with current timestamp.
 
@@ -85,6 +91,8 @@ outputs: {}
 | SYSTEM.md missing | Note the failure. Proceed from memory of system structure. Flag prominently in boot output. |
 | One or more identity files missing | Note each missing file by name. Continue with remaining files. Surface missing files in the boot briefing. |
 | File unreadable (permissions error) | Log as failed — [reason]. Treat same as missing. |
+| Knox NOT spawned (any reason other than Agent tool unavailable) | This is a protocol violation. Log immediately to error-tracking. Do not rationalize. Do not blame the environment. Spawn Knox now. |
+| Agent tool unavailable | Record failure in outputs. Surface in boot briefing. Offer to run Plaud ingest manually. This is the only acceptable reason for Knox not running. |
 
 ---
 

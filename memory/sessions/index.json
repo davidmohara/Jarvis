@@ -480,5 +480,22 @@
         ]
       }
     ]
+  },
+  {
+    "id": "session-2026-06-24-000000",
+    "started": "2026-06-24T00:00:00-05:00",
+    "closed": null,
+    "current_topic": "morning-boot",
+    "topics": [
+      {
+        "name": "morning-boot",
+        "loops": [
+          {
+            "task": "boot-sequence",
+            "resolved": false
+          }
+        ]
+      }
+    ]
   }
 ]
