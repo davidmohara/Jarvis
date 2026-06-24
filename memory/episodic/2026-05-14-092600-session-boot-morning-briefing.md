@@ -25,10 +25,9 @@ related_people:
   promoted: true
 salience:
   score: 10
-  last-promoted-check: 2026-06-23
+  last-promoted-check: 2026-06-24
   promoted: true
 ---
-
 ## Boot Data Sources
 
 - **Local time**: 9:26 AM CDT (Mac-reported, correct timezone)

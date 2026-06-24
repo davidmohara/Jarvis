@@ -1,106 +1,95 @@
 {
-  "generated_at": "2026-06-16T00:00:00",
+  "generated_at": "2026-06-23T17:30:00",
   "target_weekend": {
-    "friday": "2026-06-26",
-    "saturday": "2026-06-27",
-    "sunday": "2026-06-28"
+    "friday": "2026-07-03",
+    "saturday": "2026-07-04",
+    "sunday": "2026-07-05"
   },
   "day_status": {
     "friday": {
       "status": "unavailable",
-      "reason": "No 3-hour gap between 1-6 PM CT. Podcast Filming 11:30 AM-1:30 PM, Drive Block 1:30-2:00 PM, Kazakhstan PREP 2:00-2:30 PM, Kazakhstan Hosting 2:30-4:00 PM, Wrap-Up 4:20-5:00 PM. Longest free stretch: 5:00-6:00 PM (1 hour)."
+      "reason": "Already booked — Golf with Dad & Susie confirmed on calendar, 1:00–5:00 PM CT (July 4th Holiday weekend)"
     },
     "saturday": {
       "status": "available",
-      "reason": "No calendar events. Day is clear."
+      "reason": "Independence Day (all-day, showAs=free) — no hard blocks, day is clear"
     },
     "sunday": {
       "status": "available",
-      "reason": "Church volunteering blocks 8:30 AM-1:30 PM CT. Alyssa baptism 9:00-10:00 AM falls within church block. Golf window opens 2:30 PM CT."
+      "reason": "Church volunteering blocks 8:30 AM–1:30 PM CT (hardcoded). Monthly credit card reminder at 3 PM is showAs=free, non-blocking. Golf window opens 2:30 PM CT."
     }
   },
   "drought": false,
-  "heat_streak": false,
-  "heat_streak_detail": {
-    "days_checked": ["2026-06-21","2026-06-22","2026-06-23","2026-06-24","2026-06-25"],
-    "highs": [97.6, 96.7, 92.3, 94.0, 96.3],
-    "days_above_95": 3,
-    "streak": false,
-    "default_start": "1:00 PM"
-  },
+  "drought_note": "June 27 round confirmed (4 days out) — drought clock resets before this weekend. Last played round: May 30, 2026.",
+  "heat_streak": null,
+  "heat_streak_note": "Weather API blocked (open-meteo.com not on network allowlist). Heat streak could not be evaluated. Defaulting to heat_streak: false (1 PM preferred, $21/player). Verify manually if forecast shows 5+ days >= 95F.",
   "last_round": {
     "date": "2026-05-30",
     "course": "Frisco Lakes Golf Club",
-    "days_ago": 17
+    "days_ago": 24,
+    "note": "June 27 booking confirmed — next round before this target weekend"
   },
   "top_options": [
     {
       "rank": 1,
       "day": "saturday",
-      "date": "2026-06-27",
+      "date": "2026-07-04",
       "preferred_start": "13:00",
       "preferred_end": "17:00",
       "holes": 18,
       "cost_per_player": 21,
       "total_cost": 42,
       "weather": {
-        "rain_pct": 5,
-        "temp_f": 95.0,
-        "wind_mph": 16.9,
-        "condition": "clear"
+        "rain_pct": null,
+        "temp_f": null,
+        "wind_mph": null,
+        "condition": "unknown — weather API blocked"
       },
       "score": 0,
-      "rationale": "Saturday 1 PM — ideal cost, clear weather, no conflicts. Avg temp right at 95F — hot but below penalty threshold. 17 mph wind is noticeable but under 25 mph flag."
+      "rationale": "Saturday July 4 at 1 PM — preferred cost and time, no conflicts. Independence Day holiday — verify course is open before midnight booking."
     },
     {
       "rank": 2,
-      "day": "sunday",
-      "date": "2026-06-28",
-      "preferred_start": "14:30",
-      "preferred_end": "18:30",
-      "holes": 18,
-      "cost_per_player": 21,
-      "total_cost": 42,
-      "weather": {
-        "rain_pct": 0,
-        "temp_f": 96.7,
-        "wind_mph": 14.4,
-        "condition": "clear"
-      },
-      "score": 13,
-      "rationale": "Sunday 2:30 PM — after church and Alyssa baptism. Zero rain, lighter wind than Saturday, but avg 96.7F and Sunday penalty (+5)."
-    },
-    {
-      "rank": 3,
       "day": "saturday",
-      "date": "2026-06-27",
+      "date": "2026-07-04",
       "preferred_start": "16:00",
       "preferred_end": "20:00",
       "holes": 18,
       "cost_per_player": 15,
       "total_cost": 30,
       "weather": {
-        "rain_pct": 4,
-        "temp_f": 97.5,
-        "wind_mph": 18.1,
-        "condition": "clear"
+        "rain_pct": null,
+        "temp_f": null,
+        "wind_mph": null,
+        "condition": "unknown — weather API blocked"
       },
-      "score": 13,
-      "rationale": "Saturday 4 PM — cheaper ($15/player) but hotter (97.5F avg). Tied in score with Sunday 2:30 but preferred day."
+      "score": 5,
+      "rationale": "Saturday July 4 at 4 PM — lower cost $15/player, avoids afternoon heat. Score +5 (non-preferred when heat streak inactive)."
+    },
+    {
+      "rank": 3,
+      "day": "sunday",
+      "date": "2026-07-05",
+      "preferred_start": "14:30",
+      "preferred_end": "18:30",
+      "holes": 18,
+      "cost_per_player": 21,
+      "total_cost": 42,
+      "weather": {
+        "rain_pct": null,
+        "temp_f": null,
+        "wind_mph": null,
+        "condition": "unknown — weather API blocked"
+      },
+      "score": 5,
+      "rationale": "Sunday July 5 at 2:30 PM — earliest viable after church buffer. Score +5 (Sunday penalty)."
     }
   ],
   "override_instructions": null,
-  "booking_result": {
-    "status": "confirmed",
-    "booking_number": "5J4F-5F0W",
-    "date": "2026-06-27",
-    "day": "Saturday",
-    "time": "4:45 PM",
-    "course": "Frisco Lakes Golf Club",
-    "holes": 18,
-    "players": 2,
-    "cost": 32.48,
-    "booked_at": "2026-06-19T00:15:00Z",
-    "note": "Rank 1 option (Saturday 1:00 PM window) — booked at 4:45 PM within preferred window. Cost $32.48 due at course for 2 players."
-  }
+  "notes": [
+    "Friday already booked: Golf with Dad & Susie confirmed on calendar (1:00–5:00 PM CT, July 3)",
+    "Saturday and Sunday remain open for booking",
+    "Weather data unavailable — open-meteo.com blocked by network allowlist. Verify forecast manually before booking.",
+    "June 27 round booked (4 days out) — drought condition does not apply"
+  ]
 }

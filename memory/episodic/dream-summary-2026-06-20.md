@@ -20,10 +20,9 @@ related_people:
   - dream-cycle
 salience:
   score: 10
-  last-promoted-check: 2026-06-23
+  last-promoted-check: 2026-06-24
   promoted: true
 ---
-
 # Dream Cycle Summary — 2026-06-20
 
 Steady-state run. Working memory archived 3 newly-expired files (daily-review 06-17, dream-summary 06-18, shutdown-cleanup 06-16). Salience scoring covered 124 episodic entries; 60 fall inside the 30-day window and the distribution stayed heavy-tailed at the score-10 cap (91 entries), reflecting that most high-score entries already carry `promoted: true` from prior cycles.

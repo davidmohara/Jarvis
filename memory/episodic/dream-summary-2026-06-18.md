@@ -17,9 +17,9 @@ date: 2026-06-18
   promoted: true
 salience:
   score: 10
-  last-promoted-check: 2026-06-23
+  last-promoted-check: 2026-06-24
+  promoted: true
 ---
-
 # Dream Cycle Summary — 2026-06-18
 
 Nightly memory consolidation completed. Highlights:

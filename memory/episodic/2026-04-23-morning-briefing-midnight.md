@@ -20,10 +20,9 @@ related_people:
   promoted: true
 salience:
   score: 10
-  last-promoted-check: 2026-06-23
+  last-promoted-check: 2026-06-24
   promoted: true
 ---
-
 # Morning Briefing — April 23, 2026 (Midnight Run)
 
 ## Calendar Highlights

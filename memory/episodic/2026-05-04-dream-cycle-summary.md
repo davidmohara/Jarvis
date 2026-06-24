@@ -12,11 +12,10 @@ tags:
 related_people: []
   promoted: true
 salience:
-  score: 8
-  last-promoted-check: 2026-06-23
+  score: 7
+  last-promoted-check: 2026-06-24
   promoted: true
 ---
-
 # Dream Cycle Summary — May 4, 2026
 
 Archived 2 working memory entries (May 1 morning briefing, May 3 dream summary). 29 episodic entries scored with 9 updates. Score inflation at critical level: 17+ of 29 entries at 9-10.

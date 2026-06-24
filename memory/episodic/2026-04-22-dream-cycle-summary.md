@@ -8,11 +8,10 @@ tags:
 related_people: []
   promoted: true
 salience:
-  score: 9
-  last-promoted-check: 2026-06-23
+  score: 8
+  last-promoted-check: 2026-06-24
   promoted: true
 ---
-
 # Dream Cycle Summary — 2026-04-22
 
 7 working memory files present, 0 archived, 0 deleted. Single episodic entry scored at 0. No promotions, no compressions. Git index.lock irremovable — pull/commit blocked.

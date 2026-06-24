@@ -29,10 +29,9 @@ related_people:
   promoted: true
 salience:
   score: 10
-  last-promoted-check: 2026-06-23
+  last-promoted-check: 2026-06-24
   promoted: true
 ---
-
 # Morning Briefing Session — May 11, 2026
 
 ## Data Sources

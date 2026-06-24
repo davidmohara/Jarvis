@@ -15,10 +15,9 @@ related_people:
   promoted: true
 salience:
   score: 10
-  last-promoted-check: 2026-06-23
+  last-promoted-check: 2026-06-24
   promoted: true
 ---
-
 # Morning Boot — May 5, 2026
 
 15 calendar events. OmniFocus unavailable (3 timeouts). Travel context flagged for tomorrow. Key meetings: Liberty Ventures call (Austin Summit), AI Starting Point Discussion (YPO contacts), IBP Journaling with Derek Nwamadi. Leads tracker pulled successfully. Jarvis inbox still has Project Profitability email.

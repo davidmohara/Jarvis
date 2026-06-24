@@ -19,10 +19,9 @@ related_people: null
   promoted: true
 salience:
   score: 10
-  last-promoted-check: 2026-06-23
+  last-promoted-check: 2026-06-24
   promoted: true
 ---
-
 # Dream Cycle Summary — 2026-05-22
 
 Quiet run. Five working-memory files moved to episodic (four old morning briefings from May 18-19, two dream summaries from May 19-20). All five source deletions blocked again — sandbox can't unlink in `memory/working/`. That's the 25th consecutive run with this filesystem block. Sources are marked `status: archived` in place; the actual content is safely copied to `memory/episodic/`. Working memory clutter keeps growing because of this.

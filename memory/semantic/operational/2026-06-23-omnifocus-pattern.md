@@ -20,7 +20,9 @@ synthesized-from:
   - memory/episodic/dream-summary-2026-06-19.md
   - memory/episodic/dream-summary-2026-05-22.md
   - memory/episodic/dream-summary-2026-05-16.md
-last-updated: 2026-06-23
+  - memory/episodic/shutdown-cleanup-2026-06-16-071444.md
+  - memory/episodic/morning-briefing-2026-06-11-062152.md
+last-updated: 2026-06-24
 tags:
   - omnifocus
   - boot
@@ -30,9 +32,8 @@ tags:
   - daily-review
   - dream-cycle
 agent-source: dream-cycle
-confidence: low
+confidence: high
 ---
-
 # Omnifocus Pattern
 
 ## Pattern Summary
@@ -63,9 +64,12 @@ The `omnifocus` tag appeared in 17 episodic entries within the rolling 30-day sa
 - `memory/episodic/dream-summary-2026-06-19.md` (score 10, run 2026-06-23)
 - `memory/episodic/dream-summary-2026-05-22.md` (score 10, run 2026-06-23)
 - `memory/episodic/dream-summary-2026-05-16.md` (score 10, run 2026-06-23)
+- memory/episodic/shutdown-cleanup-2026-06-16-071444.md (score 10)
+- memory/episodic/morning-briefing-2026-06-11-062152.md (score 10)
 
 ## Implications
 
+- 2026-06-24: New episodic cluster (omnifocus, 2 entries) reinforces pattern.
 - The `omnifocus` activity surface is recurring and worth tracking in subsequent dream cycles.
 - Future episodic writes touching this surface should reuse the `omnifocus` tag to keep co-occurrence scoring stable.
 - If this entry's evidence count crosses 12, escalate confidence from low → medium on the next cycle.

@@ -3,8 +3,8 @@ type: semantic
 domain: domain
 primary-tag: pipeline
 created: 2026-06-12
-last-updated: 2026-06-23
-confidence: medium
+last-updated: 2026-06-24
+confidence: high
 synthesized-from: 14
   - co-sell-pipeline-2026-06-09-142000.md
   - co-sell-pipeline-2026-06-09-133410.md
@@ -16,6 +16,12 @@ tags:
   - pipeline
   - pattern
   - dream-cycle-promoted
+synthesized-from:
+  - memory/episodic/2026-04-20-scorecard-session.md
+  - memory/episodic/shutdown-cleanup-2026-06-16-071444.md
+  - memory/episodic/dream-cycle-alert-2026-06-13.md
+  - memory/episodic/2026-04-20-rock4-pipeline-weekly.md
+  - memory/episodic/dream-summary-2026-06-18.md
 ---
 # Pattern: Pipeline
 
@@ -65,9 +71,15 @@ The `pipeline` tag cluster shows persistent co-occurrence in episodic memory ove
 - unknown-date — co-sell-pipeline-2026-06-09-133800.md (score 5)
 - unknown-date — co-sell-pipeline-2026-06-09-140500.md (score 6)
 - unknown-date — co-sell-pipeline-2026-06-01-000100.md (score 5)
+- memory/episodic/2026-04-20-scorecard-session.md (score 9)
+- memory/episodic/shutdown-cleanup-2026-06-16-071444.md (score 10)
+- memory/episodic/dream-cycle-alert-2026-06-13.md (score 10)
+- memory/episodic/2026-04-20-rock4-pipeline-weekly.md (score 9)
+- memory/episodic/dream-summary-2026-06-18.md (score 10)
 
 ## Implications
 
+- 2026-06-24: New episodic cluster (pipeline, 5 entries) reinforces pattern.
 Cluster of 6 entries sharing tag `pipeline`. Recurrence indicates this is a stable operational pattern in the Jarvis system.
 
 - 2026-06-13: confidence escalated low → medium based on 12 total evidence entries.

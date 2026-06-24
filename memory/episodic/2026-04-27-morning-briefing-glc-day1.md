@@ -16,10 +16,9 @@ related_people:
   promoted: true
 salience:
   score: 10
-  last-promoted-check: 2026-06-23
+  last-promoted-check: 2026-06-24
   promoted: true
 ---
-
 # Morning Briefing — April 27, 2026 (GLC Chicago Day 1)
 
 Live boot session from GLC Chicago at Hyatt Regency. All data sources returned successfully (OmniFocus, calendar, Clay). 8 events on calendar including YPO GLC Regional Officers Workshop (9AM-4:30PM), Alice Mburu week kick-off call (4:30PM), and Western Region Happy Hour (6PM).

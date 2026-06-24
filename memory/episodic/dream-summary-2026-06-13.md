@@ -20,10 +20,9 @@ date: 2026-06-13
   promoted: true
 salience:
   score: 10
-  last-promoted-check: 2026-06-23
+  last-promoted-check: 2026-06-24
   promoted: true
 ---
-
 # Dream Cycle Summary — 2026-06-13
 
 Steady-state run. Memory consolidation is working as designed now that the tag-starvation gap closed on 2026-06-12.

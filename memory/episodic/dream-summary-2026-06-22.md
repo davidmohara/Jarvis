@@ -1,11 +1,13 @@
 ---
-type: working
 expires: 2026-06-23
-status: active
+status: archived
 created: 2026-06-22
 agent-source: jarvis
+type: working-archive
+salience:
+  score: 0
+  last-promoted-check: 2026-06-24
 ---
-
 # Dream Cycle Summary — 2026-06-22
 
 **Session:** `dream-cycle-2026-06-22-080933`

@@ -13,10 +13,9 @@ related_people: []
   promoted: true
 salience:
   score: 10
-  last-promoted-check: 2026-06-23
+  last-promoted-check: 2026-06-24
   promoted: true
 ---
-
 # Dream Cycle Summary — 2026-04-27
 
 1 working memory archived (Apr 24 briefing). 17 episodic entries scored. Apr 24 briefing hit score 6 and promoted into existing briefing-travel-calendar-pattern semantic entry. Confidence upgraded medium to high (7 evidence sources). New implications: OmniFocus failure systemic across 4 consecutive travel days; Alice Wrap-Up conflict detected but never resolved; lead tracker directory missing on Apr 24. Pattern now strong enough to justify dedicated travel-prep workflow.

@@ -26,10 +26,9 @@ related_people:
   promoted: true
 salience:
   score: 10
-  last-promoted-check: 2026-06-23
+  last-promoted-check: 2026-06-24
   promoted: true
 ---
-
 # Session Working Memory — May 18, 2026
 
 ## Data Sources Run

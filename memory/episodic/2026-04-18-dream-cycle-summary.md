@@ -10,10 +10,9 @@ related_people: []
   promoted: true
 salience:
   score: 10
-  last-promoted-check: 2026-06-23
+  last-promoted-check: 2026-06-24
   promoted: true
 ---
-
 # Dream Cycle Summary — 2026-04-18
 
 First run on the initialized IES memory system. All memory directories are empty (working, episodic, semantic have only README.md files). No entries to score, promote, or compress.

@@ -11,10 +11,9 @@ tags:
   promoted: true
 salience:
   score: 10
-  last-promoted-check: 2026-06-23
+  last-promoted-check: 2026-06-24
   promoted: true
 ---
-
 # Dream Cycle Summary — 2026-05-02
 
 **Session:** dream-cycle-2026-05-02-030931

@@ -19,10 +19,9 @@ related_people: null
   promoted: true
 salience:
   score: 10
-  last-promoted-check: 2026-06-23
+  last-promoted-check: 2026-06-24
   promoted: true
 ---
-
 # Dream Cycle Summary — 2026-05-27
 
 Quiet run. Memory phases all completed. The two chronic blockers are now at 30 consecutive runs each: source-deletion sandbox restriction (can't unlink expired working-memory files after they're archived to episodic) and the stale `.git/index.lock` + uncommitted changes that block `git pull --rebase` at boot and any commit/push at the end.

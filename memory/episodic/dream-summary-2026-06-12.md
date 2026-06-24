@@ -20,9 +20,9 @@ related_people: null
   promoted: true
 salience:
   score: 10
-  last-promoted-check: 2026-06-23
+  last-promoted-check: 2026-06-24
+  promoted: true
 ---
-
 ## Dream Cycle — June 12, 2026
 
 **Recovery run.** The tagging gap that collapsed last night's run (and the three before it) is closed. Working memory finally had freshly-expired tagged content to push into the episodic window, and the co-occurrence engine came back to life.

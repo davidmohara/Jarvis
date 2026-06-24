@@ -19,10 +19,9 @@ related_people:
   promoted: true
 salience:
   score: 10
-  last-promoted-check: 2026-06-23
+  last-promoted-check: 2026-06-24
   promoted: true
 ---
-
 # Morning Briefing — May 1, 2026 (Friday)
 
 Automated scheduled briefing. Calendar pulled successfully; OmniFocus timed out 3x (recurring pattern). Clay: 0 reminders. Jarvis inbox: 1 unprocessed item ("Project Profitability" from 4/26, needs live session). Lead tracker: 6 unassigned leads (Alcon, AECom, IFS, Cardinal IT, Paragon Brokerage, Birgo).

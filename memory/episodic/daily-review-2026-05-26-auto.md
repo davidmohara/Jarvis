@@ -23,10 +23,9 @@ related_people: null
   promoted: true
 salience:
   score: 10
-  last-promoted-check: 2026-06-23
+  last-promoted-check: 2026-06-24
   promoted: true
 ---
-
 - Sunday May 24 was a family day: Declan's graduation party (4-5 PM CT) was the only calendar event; no work meetings.
 - OmniFocus: 3 completions (coherence breathing, prayer list review, humidor check — all Deliberate Practices / Maintenance). 3 overdue networking tasks since May 22 (movie night invite to Amy/William/Rebecca, Amy-Derek Alley DSO intro, Goke-Scott UTB intro).
 - Inbox: 13 items including "Declan: long distance" (captured May 24, same day as party) and "Email Andy love for lunch."

@@ -20,10 +20,9 @@ related_people:
   promoted: true
 salience:
   score: 10
-  last-promoted-check: 2026-06-23
+  last-promoted-check: 2026-06-24
   promoted: true
 ---
-
 # Morning Briefing — April 29, 2026 (GLC Day 4, Final Day)
 
 Automated briefing. David in Chicago at Hyatt Regency. 4 meetings today: Sales Scrum (tentative), US Town Hall (tentative), David/Robyn 1:1, SMU Collaboration.

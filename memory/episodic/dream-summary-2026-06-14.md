@@ -21,10 +21,9 @@ related_people: null
   promoted: true
 salience:
   score: 10
-  last-promoted-check: 2026-06-23
+  last-promoted-check: 2026-06-24
   promoted: true
 ---
-
 # Dream Cycle Summary — 2026-06-14
 
 Steady-state nightly run. The system processed two newly-expired working memory files (a dream summary and a morning briefing from June 11-12), scored 108 episodic entries, and promoted 60 of them into four existing semantic patterns: briefing/travel/calendar, dream summary, daily review, and pipeline.

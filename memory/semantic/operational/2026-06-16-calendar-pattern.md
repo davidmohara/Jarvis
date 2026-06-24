@@ -2,14 +2,17 @@
 type: semantic
 domain: operational
 created: 2026-06-16
-last-updated: 2026-06-23
-confidence: low
+last-updated: 2026-06-24
+confidence: high
 synthesized-from: 3
 tags:
   - calendar
   - dream-cycle
+synthesized-from:
+  - memory/episodic/shutdown-cleanup-2026-06-16-071444.md
+  - memory/episodic/morning-briefing-2026-06-11-062152.md
+  - memory/episodic/plaud-ingest-2026-06-04-013000.md
 ---
-
 # Calendar Pattern
 
 ## Pattern Summary
@@ -118,8 +121,11 @@ _2026-06-17 run:_
   - `memory/episodic/morning-briefing-2026-06-16-061004.md`
   - `memory/episodic/daily-review-2026-06-19-020000.md`
   - `memory/episodic/daily-review-2026-06-18-020000.md`
-
+- memory/episodic/shutdown-cleanup-2026-06-16-071444.md (score 10)
+- memory/episodic/morning-briefing-2026-06-11-062152.md (score 10)
+- memory/episodic/plaud-ingest-2026-06-04-013000.md (score 10)
 
 ## Implications
 
+- 2026-06-24: New episodic cluster (calendar, 3 entries) reinforces pattern.
 - Cluster is recurring; monitor for further reinforcement during subsequent dream cycles.

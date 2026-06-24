@@ -2,9 +2,10 @@
   "skill": "golf-preview",
   "agent": "chief",
   "trigger": "scheduled",
-  "started": "2026-06-16T23:11:00",
-  "completed": "2026-06-16T23:12:40",
-  "status": "success",
-  "tool_failures": 0,
-  "error_ids": []
+  "started": "2026-06-23T17:25:00",
+  "completed": "2026-06-23T17:32:00",
+  "status": "partial",
+  "tool_failures": 1,
+  "error_ids": [],
+  "notes": "Weather API (open-meteo.com) blocked by network allowlist — proceeded with calendar-only scoring. All other steps completed. Slack sent to #golf."
 }
