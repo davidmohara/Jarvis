@@ -1,0 +1,15 @@
+{
+  "id": "err-20260624T171633-YTH6YU",
+  "timestamp": "2026-06-24T17:16:33Z",
+  "session": "session-2026-06-24-000000",
+  "source": "explicit",
+  "agent": "master",
+  "category": "hallucination",
+  "description": "When instructing Rigby to add Obsidian path fallbacks for the content-pipeline step-02 approval workflow, Master fabricated two vault folder paths — `_drafts/` and `Writing/` — that do not exist. These were invented without checking the vault structure. The only correct path is `Mind/Posts/`.",
+  "correction": "All draft posts live in `Mind/Posts/` only. No other folders exist for this purpose. The lookup and rename must use `Mind/Posts/_{title}.md` exclusively.",
+  "failure_mode": "wrong-assumption",
+  "systemic_fix": "Before specifying any vault path in a workflow instruction, check the Obsidian vault structure via mcp__obsidian-local__list_vault_files or ask David. Never invent paths.",
+  "fix_status": "applied",
+  "severity": "moderate",
+  "related_entries": []
+}

@@ -78,6 +78,17 @@ Example: `eval-20260523T133045-a1b2c3.json`
       "remediation_status": "none"
     }
   },
+  "reliability": {
+    "trials": 3,
+    "mcp_mode": "fabricated",
+    "per_trial": ["success", "success", "failure"],
+    "pass_at_k": 1.0,
+    "pass_hat_k": 0.667,
+    "gated": true,
+    "tier": "unattended",
+    "threshold": 1.0,
+    "gate_result": "fail"
+  },
   "version_hash": "sha256 of workflow.md or SKILL.md at execution time",
   "prior_baseline_id": "eval-... for version comparison",
   "tags": []
@@ -163,6 +174,30 @@ Example: `eval-20260523T133045-a1b2c3.json`
 | `bias_assessment.bias_detected` | boolean | Bias flag raised during this run |
 | `bias_assessment.bias_flags` | array | Specific flags: `{segment, direction, magnitude, assertion_id}` |
 | `bias_assessment.remediation_status` | enum | `none`, `investigating`, `remediating`, `resolved` |
+
+### Multi-Trial Reliability Block (`assessment.reliability`)
+
+Present only on records that have been through a multi-trial reliability pass. Added by `scoring/reliability.py`. Only fabricated-context evals run multi-trial; live-mode evals remain single-trial integration canaries.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `trials` | number | Number of trials k that were run |
+| `mcp_mode` | enum | `"fabricated"` or `"live"` — context used for all k trials |
+| `per_trial` | array | Ordered list of outcomes: `"success"` or `"failure"` |
+| `pass_at_k` | float | 1.0 if at least one trial succeeded, else 0.0 |
+| `pass_hat_k` | float | Fraction of trials that succeeded (successes/k). This is the gate metric. |
+| `gated` | boolean | Whether this capability has a reliability gate threshold |
+| `tier` | enum | `"unattended"`, `"high-stakes"`, or `"standard"` |
+| `threshold` | float\|null | Gate threshold: 1.0 for unattended, 0.70 for high-stakes, null for standard |
+| `gate_result` | enum | `"pass"` or `"fail"` (present only when `gated: true`) |
+
+Tier definitions:
+
+| Tier | Capabilities | k | Threshold |
+|------|-------------|---|-----------|
+| `unattended` | morning-briefing, daily-review, rock1-revenue-monthly, rock4-pipeline-weekly, follow-up-nudges, inbox-processing | 3 | 1.0 (all 3 must pass) |
+| `high-stakes` | client-meeting-prep, pipeline-review, presentation-builder | 3 | 0.70 |
+| `standard` | all others | 1 | none |
 
 ### Version Fields
 

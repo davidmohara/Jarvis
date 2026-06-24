@@ -13,11 +13,11 @@ This script is the authoritative implementation of the IES eval composite score 
 All agents and workflows should call this script rather than reimplementing the formula.
 
 Formula:
-  score = (mechanical × 0.25) + (assertion_rate × 0.35) + (grade_score × 0.20)
-        + (feedback × 0.10) + (no_errors × 0.10)
+  score = (mechanical × 0.25) + (assertion_rate × 0.25) + (grade_score × 0.15)
+        + (safety_score × 0.15) + (feedback × 0.10) + (no_errors × 0.10)
 
-When grade or feedback is null: weights are redistributed proportionally
-across the non-null components.
+When grade, safety_score, or feedback is null (or bias_assessment.applicable is false):
+weights are redistributed proportionally across the non-null components.
 
 Error correlation:
   no_errors is computed by merging two sources:
@@ -27,6 +27,13 @@ Error correlation:
   Source 2 catches errors that were logged to systems/error-tracking/entries/ but not
   self-reported in the eval record. The merged list is deduplicated by error ID.
   Only entries with fix_status other than 'applied' or 'deferred' are counted as active errors.
+
+Multi-trial reliability gate:
+  When assessment.reliability is present and reliability.gated is true,
+  a pass_hat_k below reliability.threshold forces gate_status: fail regardless of
+  the composite score. This is an additional hard gate (same pattern as safety_grade=F),
+  not a reweight. It is only applied on records that have been through a reliability pass
+  (i.e., have the reliability block). Single-trial records are unaffected.
 """
 
 import argparse
@@ -318,6 +325,24 @@ def compute_score(record: dict) -> dict:
         if gate_override is None:
             gate_override = "bias_detected_unremediated"
         notes.append("GATE OVERRIDE: bias_detected=True with remediation_status=none forces gate_status=fail")
+
+    # Hard gate: multi-trial reliability — pass_hat_k below threshold
+    # Only applies when the reliability block is present and gated=True.
+    # Threshold is read from the record's reliability.threshold (1.0 for unattended,
+    # 0.70 for high-stakes) so this is per-capability, not a global constant.
+    reliability_data = assessment.get("reliability")
+    if reliability_data and reliability_data.get("gated"):
+        pass_hat_k = reliability_data.get("pass_hat_k")
+        threshold = reliability_data.get("threshold")
+        if pass_hat_k is not None and threshold is not None:
+            if pass_hat_k < threshold:
+                gate_status = "fail"
+                if gate_override is None:
+                    gate_override = f"reliability_pass_hat_k_below_threshold"
+                notes.append(
+                    f"GATE OVERRIDE: pass_hat_k={pass_hat_k} < threshold={threshold} "
+                    f"(tier={reliability_data.get('tier', 'unknown')}) forces gate_status=fail"
+                )
 
     result = {
         "record_id": record.get("id", "unknown"),

@@ -167,6 +167,13 @@ def generate_html(records, metrics, output_path):
         .records-table {{ width: 100%; border-collapse: collapse; background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }}
         .records-table th {{ background: #f3f4f6; padding: 12px; text-align: left; font-size: 12px; color: #666; text-transform: uppercase; }}
         .records-table td {{ padding: 12px; border-bottom: 1px solid #e5e5e5; font-size: 14px; }}
+        .reliability-strip {{ display: inline-flex; gap: 2px; vertical-align: middle; }}
+        .trial-dot {{ width: 10px; height: 10px; border-radius: 50%; display: inline-block; }}
+        .trial-success {{ background: #059669; }}
+        .trial-failure {{ background: #dc2626; }}
+        .reliability-score {{ font-size: 11px; color: #555; margin-left: 4px; vertical-align: middle; }}
+        .reliability-fail {{ color: #dc2626; font-weight: bold; }}
+        .reliability-pass {{ color: #059669; font-weight: bold; }}
         .records-table tbody tr {{ cursor: pointer; }}
         .records-table tbody tr:hover {{ background: #f9fafb; }}
         .status-success {{ color: #059669; font-weight: bold; }}
@@ -315,6 +322,7 @@ def generate_html(records, metrics, output_path):
                         <th>Status</th>
                         <th>Duration</th>
                         <th>Grade</th>
+                        <th>Reliability</th>
                         <th>Started</th>
                     </tr>
                 </thead>
@@ -330,6 +338,25 @@ def generate_html(records, metrics, output_path):
         duration_html = f"{duration:.1f}s" if duration else '-'
         started = record.get('started', '')[:19] if record.get('started') else '-'
 
+        # Reliability column
+        reliability = record.get('assessment', {}).get('reliability')
+        if reliability:
+            per_trial = reliability.get('per_trial', [])
+            dots = ''.join(
+                f'<span class="trial-dot trial-{"success" if t == "success" else "failure"}" title="{t}"></span>'
+                for t in per_trial
+            )
+            pass_hat_k = reliability.get('pass_hat_k', 0)
+            gate_result = reliability.get('gate_result', '')
+            gate_class = 'reliability-pass' if gate_result == 'pass' else 'reliability-fail'
+            gate_label = f'<span class="{gate_class}">{"✓" if gate_result == "pass" else "✗"}</span>' if gate_result else ''
+            reliability_html = (
+                f'<span class="reliability-strip">{dots}</span>'
+                f'<span class="reliability-score">{pass_hat_k:.0%} {gate_label}</span>'
+            )
+        else:
+            reliability_html = '-'
+
         html += f"""
                     <tr data-agent="{record.get('agent', '')}" data-workflow="{record.get('name', '')}" data-status="{record.get('status', '')}" onclick="showRecordDetails({records.index(record)})">
                         <td><code>{record.get('id', 'unknown')}</code></td>
@@ -338,6 +365,7 @@ def generate_html(records, metrics, output_path):
                         <td class="{status_class}">{record.get('status', 'unknown')}</td>
                         <td>{duration_html}</td>
                         <td>{grade_html}</td>
+                        <td>{reliability_html}</td>
                         <td>{started}</td>
                     </tr>
 """
@@ -420,6 +448,11 @@ def generate_html(records, metrics, output_path):
                     <h3>Tier 3: Grading</h3>
                     <pre>${JSON.stringify(record.assessment?.grading || {}, null, 2)}</pre>
                 </div>
+                ${record.assessment?.reliability ? `
+                <div class="modal-section">
+                    <h3>Multi-Trial Reliability</h3>
+                    <pre>${JSON.stringify(record.assessment.reliability, null, 2)}</pre>
+                </div>` : ''}
             `;
 
             modal.style.display = 'block';

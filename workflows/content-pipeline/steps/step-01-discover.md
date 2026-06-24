@@ -15,6 +15,7 @@ model: sonnet
 5. You MUST upload the image to Ghost CDN before setting it on the post.
 6. You MUST write the pending draft entry to pending-drafts.json after successful Ghost creation.
 7. You MUST notify David via post.py (Jarvis bot) — not the Slack MCP connector.
+8. You MUST set content_type on every pending-drafts.json entry — "post" or "article". Never omit it.
 
 ---
 
@@ -58,6 +59,7 @@ Evaluate each message against the following rules in sequence. Stop at the first
    (keywords: "save to obsidian", "save as a note", "for a talk", "reference",
     "do not draft a post", "don't draft a post")
 4. User message WITH (# + ##) headers   →  DIGEST PATH
+4.5. User message WITH "article" keyword (case-insensitive) AND URL  →  URL PATH (content_type: "article")
 5. User message WITH URL, no routing keywords  →  URL PATH
 6. User message with deck/slides/presentation/PowerPoint  →  MANUAL FLAG
 ```
@@ -300,9 +302,12 @@ Read the current `workflows/content-pipeline/pending-drafts.json`, append the ne
   "source_url": "{original url or null for digest}",
   "created_at": "{ISO timestamp}",
   "status": "pending",
-  "source_type": "url"
+  "source_type": "url",
+  "content_type": "post"
 }
 ```
+
+> Set `content_type` to `"article"` if the message contained the `article` keyword (detected in the router above). Otherwise use `"post"`. For digest entries, apply the same logic based on the digest message text or title.
 
 Set `source_type` to `"url"` for the standard URL path, or `"digest"` for the digest path. For digest entries, `source_url` may be null or set to the first source URL from the digest's `## Sources` section if one exists.
 

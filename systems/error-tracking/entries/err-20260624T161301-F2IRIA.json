@@ -1,0 +1,15 @@
+{
+  "id": "err-20260624T161301-F2IRIA",
+  "timestamp": "2026-06-24T16:13:01Z",
+  "session": "2026-06-24",
+  "source": "explicit",
+  "agent": "master",
+  "category": "data-accuracy",
+  "description": "David corrected the contact name from 'Aaron Syme' to 'Ehren Seim' in the xAI partner meeting prep. The correction was acknowledged verbally and applied to the markdown source doc, but was NOT carried through to the condensed PDF delivered to the user. The PDF still contained 'Aaron Syme' at the time of delivery.",
+  "correction": "The correct name is Ehren Seim. Both the markdown source and the PDF must reflect this. The PDF was re-rendered after the error was flagged.",
+  "failure_mode": "sloppy-read",
+  "systemic_fix": "When a correction is made mid-session, apply it to ALL downstream artifacts immediately — not just the source file. Downstream artifacts include any PDF, working memory entry, or other output derived from the corrected source.",
+  "fix_status": "applied",
+  "severity": "moderate",
+  "related_entries": []
+}

@@ -105,6 +105,49 @@ mcp__ghost-blog__update_post(
 
 Update pending-drafts.json — set `status: "published"`.
 
+**Obsidian Note Update (runs before Slack notification):**
+
+> **Note for step-01 (content-discovery):** When Agent 1 creates a pending-drafts.json entry, it should set a `content_type` field on that entry — either `"post"` or `"article"`. Harper uses this field here to route to the correct vault folder. If `content_type` is absent, Harper defaults to `"post"`.
+
+1. **Determine the vault folder** from the `content_type` field on the pending-drafts.json entry:
+   - If `content_type == "article"`: vault folder is `Mind/Articles/`
+   - If `content_type == "post"`, is absent, or is null: vault folder is `Mind/Posts/`
+
+2. **Determine the filename** using the following priority:
+   - If the pending-drafts.json entry has an `obsidian_slug` field that is non-null and non-empty: use it exactly as the filename. Example: `obsidian_slug: "_dallas-just-topped-dc.md"` → filename is `_dallas-just-topped-dc.md`.
+   - If `obsidian_slug` is absent or null: derive the filename from the `title` field — lowercase, hyphens for spaces, strip punctuation, prepend `_`, append `.md`. Example: title "Why Governance Doesn't Scale" → `_why-governance-doesnt-scale.md`.
+
+   Note: `obsidian_slug` should be set by Agent 1 when the draft note is created. If absent, slug is derived from title.
+
+3. **Find the note** using `mcp__obsidian-local__get_vault_file` with the path `{vault_folder}/{filename}` (e.g., `Mind/Posts/_dallas-just-topped-dc.md`). This is the ONLY location — do not try any other paths. If the file is not found at the expected path, this is a hard failure — surface it to David immediately.
+
+4. **If the note is NOT found:** This is a hard failure — do NOT skip silently. Prepend the following warning to the Slack notification (not as a postscript):
+   ```
+   ⚠️ *Obsidian note not found* — expected `{vault_folder}/_{title}.md`. Post is live but vault is out of sync. Update manually.
+   ```
+   Then send the Slack notification with this warning prepended, and continue.
+
+5. **If found:** proceed with the following:
+
+   a. **Rename the file** — strip the leading `_` from the filename, keeping it in the same vault folder.
+      Example (post): `Mind/Posts/_AI and the Future of Work.md` → `Mind/Posts/AI and the Future of Work.md`
+      Example (article): `Mind/Articles/_AI and the Future of Work.md` → `Mind/Articles/AI and the Future of Work.md`
+
+      Preferred: use `mcp__obsidian-local__patch_vault_file` to rename if the tool supports it.
+      Fallback: use `mcp__Desktop_Commander__move_file` with the full vault path to rename the file.
+
+   b. **Update frontmatter** — add or update these two fields in the note's YAML frontmatter:
+      - `status: Published`
+      - `published_url: {url from Ghost response}`
+
+      Use `mcp__obsidian-local__patch_vault_file` to write the frontmatter changes to the renamed file.
+
+6. **If the rename or frontmatter update fails:** This is a hard failure — do NOT skip silently. Prepend the following warning to the Slack notification (not as a postscript):
+   ```
+   ⚠️ *Obsidian update failed* — {specific error}. Post is live but vault is out of sync. Update manually.
+   ```
+   Then send the Slack notification with this warning prepended, and continue.
+
 Notify David via post.py to #content:
 ```
 ✅ *Published!*
