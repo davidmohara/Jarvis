@@ -1,0 +1,15 @@
+{
+  "id": "err-20260625T025852-NYPSN2",
+  "timestamp": "2026-06-25T02:58:52Z",
+  "session": "session-2026-06-24-000000",
+  "source": "explicit",
+  "agent": "master",
+  "category": "data-accuracy",
+  "description": "Two errors in daily review context passed to Chief: (1) Everbridge proposal value stated as $1.5M — correct figure is $150K. (2) Dinner with Derek/Don/jvaughan was a UTB regroup, not an Everbridge conversation. Chief was briefed with wrong deal value and wrong meeting context, producing incorrect questions to David.",
+  "correction": "Everbridge proposal is $150K. The dinner (Regroup/Dinner) was UTB-related — jvaughan is a UTB contact, not Everbridge. These are separate accounts and should not be conflated.",
+  "failure_mode": "wrong-assumption",
+  "systemic_fix": "When passing context to sub-agents, cross-check attendee lists against known account contacts before attributing meeting context to a deal. Do not assume deal value from Knox ingest without verification.",
+  "fix_status": "applied",
+  "severity": "moderate",
+  "related_entries": []
+}

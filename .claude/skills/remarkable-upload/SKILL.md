@@ -1,3 +1,5 @@
+[Reading 242 lines from start (total: 242 lines, 0 remaining)]
+
 ---
 name: remarkable-upload
 description: Upload PDF or EPUB files to reMarkable tablet. Use when the user wants to send a document to their reMarkable, upload a PDF/EPUB, or put a file on their tablet.
@@ -138,11 +140,12 @@ The tablet is organized by domain. **Always route uploads to the correct folder 
 
 ## Routing Rules
 
-Use these rules to determine the target folder. First match wins:
+**Never create a new folder on the tablet without David's explicit instruction.** If no routing rule matches exactly, surface candidate folders using the "Asking When Ambiguous" protocol. Do not invent a new folder path.
 
 | Context signal | Target folder |
 |---|---|
 | User specifies a folder explicitly | Use that folder exactly |
+| External prospect, sales, or partner meeting prep (not a named direct report, not a named client account already listed) | `/Meetings` |
 | Book or ebook | `/Books` |
 | Improving client/account (LTSA, McKesson, ORIX, OZK, Siemens, UTB, Veritas) | `/Improving/Accounts/{client}` |
 | 1:1 prep for a direct report (Devlin, Don, Kevin, Robyn, Scott, Tim) | `/Improving/One-on-ones/{person}` |
@@ -165,6 +168,8 @@ Use these rules to determine the target folder. First match wins:
 | No clear match | Surface 3-5 candidate folders and ask (see "Asking when ambiguous" below) |
 
 ### Asking When Ambiguous
+
+Never create a new folder as part of routing ambiguity resolution. Candidate folders must all be existing folders from the structure above.
 
 When the routing rules above don't produce a clear single match, do not ask a bare "where should this go?" question and do not guess. Instead:
 
@@ -239,4 +244,3 @@ do shell script "/opt/homebrew/bin/rmapi ls '/target/folder' 2>&1"
 - The document name on the tablet will be the filename without extension.
 - When routing is ambiguous, surface 3-5 ranked candidate folders rather than asking a bare "where?" question.
 <!-- personal:end -->
-

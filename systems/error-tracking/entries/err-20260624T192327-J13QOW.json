@@ -1,0 +1,15 @@
+{
+  "id": "err-20260624T192327-J13QOW",
+  "timestamp": "2026-06-24T19:23:27Z",
+  "session": "session-2026-06-24-000000",
+  "source": "explicit",
+  "agent": "master",
+  "category": "format-violation",
+  "description": "Meeting prep PDF was named 'xAI-Cole-2026-06-24.pdf' — a date-stamped slug format. conventions.md explicitly states deliverable files use human-readable names with no dates unless the date is part of the document's identity. The conventions file was not read before naming the deliverable.",
+  "correction": "Deliverable should be named 'Cole Estrate — xAI.pdf'. conventions.md must be read before naming any deliverable output.",
+  "failure_mode": "protocol-skip",
+  "systemic_fix": "Before naming any deliverable file (PDF, HTML, PPTX), read agents/conventions.md Output Naming Conventions section. Never apply source file naming patterns (YYYY-MM-DD-slug) to deliverables.",
+  "fix_status": "applied",
+  "severity": "minor",
+  "related_entries": ["err-20260624T191746-8IN3FP", "err-20260624T192307-WI7B5O"]
+}

@@ -1,0 +1,15 @@
+{
+  "id": "err-20260624T191746-8IN3FP",
+  "timestamp": "2026-06-24T19:17:46Z",
+  "session": "session-2026-06-24-000000",
+  "source": "explicit",
+  "agent": "master",
+  "category": "format-violation",
+  "description": "When pushing the xAI/Cole Estrate meeting prep PDF to reMarkable, a new folder 'Improving | Meeting Prep' was created instead of using the existing 'Meetings' folder. Fabricated a folder structure rather than checking where meeting prep documents actually live on the device.",
+  "correction": "All meeting prep PDFs go to the 'Meetings' folder on reMarkable. No new folders should be created without explicit instruction from David.",
+  "failure_mode": "wrong-assumption",
+  "systemic_fix": "Before pushing any file to reMarkable, check the existing folder structure or use the canonical folder documented in the relevant skill. Never create a new folder without David's explicit direction.",
+  "fix_status": "applied",
+  "severity": "minor",
+  "related_entries": []
+}

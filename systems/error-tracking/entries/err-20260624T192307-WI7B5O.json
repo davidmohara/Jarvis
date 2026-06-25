@@ -1,0 +1,15 @@
+{
+  "id": "err-20260624T192307-WI7B5O",
+  "timestamp": "2026-06-24T19:23:07Z",
+  "session": "session-2026-06-24-000000",
+  "source": "explicit",
+  "agent": "master",
+  "category": "assumption-error",
+  "description": "When cleaning up the wrongly-placed reMarkable file, saw 'Cole Estrate' already in /Meetings and assumed it was the file just uploaded. Did not verify the existing file was from a prior session. Deleted xAI-Cole-2026-06-24 from the only place it existed, then had to re-upload it.",
+  "correction": "Before deleting any file on reMarkable, verify it is actually the file in question — check the name, not just the folder. An existing file with a similar name is not the same file.",
+  "failure_mode": "wrong-assumption",
+  "systemic_fix": "When cleaning up reMarkable files, always match on the exact filename. Never assume an existing file with a related name is the target.",
+  "fix_status": "applied",
+  "severity": "minor",
+  "related_entries": ["err-20260624T191746-8IN3FP"]
+}
