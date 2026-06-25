@@ -167,4 +167,27 @@ The daily review file is now the input artifact for tomorrow's morning briefing 
 <!-- system:end -->
 
 <!-- personal:start -->
+5b. **Root cleanup — run before commit:**
+
+Scan the IES root directory for files that don't belong there. The only files permitted in root are:
+- `CLAUDE.md`, `SYSTEM.md`, `evolution.manifest.json`, `.gitignore`, `README.md` (and other standard repo config files)
+- Any file explicitly placed there by David in this session
+
+Flag pattern — files that indicate a routing failure:
+- `*.py` scripts (build scripts, one-off tools)
+- `*.md` files with names that look like deliverables (account plans, meeting notes, strategy docs)
+- `*.pdf`, `*.pptx`, `*.docx` (deliverables dumped at root)
+- `*.html` (intermediate build artifacts)
+
+For each flagged file:
+1. Read the first 3 lines to determine what it is
+2. Route it to the correct directory per SYSTEM.md file map:
+   - Account plans → `meetings/accounts/`
+   - Build scripts → delete (move to /tmp)
+   - Meeting notes → `meetings/`
+   - Deliverable files → appropriate subfolder per conventions
+3. Move it using Desktop Commander
+4. Note each move in the daily review file under a `## Cleanup` section
+
+If root is clean, note "Root: clean" in System State and continue.
 <!-- personal:end -->
