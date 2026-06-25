@@ -1,61 +1,47 @@
 workflow: dream-cycle
 agent: jarvis
 status: complete
-session-started: 2026-06-24T08:09:30Z
-session-id: dream-cycle-2026-06-24-080930
+session-started: 2026-06-25T08:09:00Z
+session-id: dream-cycle-2026-06-25-030900
 current-step: null
 original-request: Scheduled dream cycle run (automated)
 accumulated-context:
   git_pull_at_boot: success
-  working_archived: 1
+  working_archived: 2
   working_deleted: 0
-  working_skipped: 88
+  working_skipped: 91
   working_stranded: 0
-  enrichment_method: "heuristic:1, llm:0 (dream_cycle module import failed)"
+  enrichment_method: "heuristic:2, llm:0 (dream_cycle module import failed)"
   archived_files:
-    - dream-summary-2026-06-22.md
+    - daily-review-2026-06-22-020000.md
+    - dream-summary-2026-06-23.md
   skipped_already_archived_count: 72
-  skipped_unparseable_count: 12
-  skipped_not_expired_count: 4
-  episodic_scanned: 131
-  score_updates: 131
-  no_tags: 5
-  no_date: 6
-  files_with_tags: 126
-  in_window_count: 62
-  score_distribution: "0:12, 2:3, 6:1, 7:1, 8:3, 9:10, 10:101"
-  window_start: 2026-05-25
-  window_end: 2026-06-24
-  candidates_count: 9
-  clusters_found: 13
-  semantic_created: 5
-  semantic_updated: 8
-  promoted_entries: 32
-  semantic_created_files:
-    - memory/semantic/operational/2026-06-24-co-sell-pattern.md
-    - memory/semantic/operational/2026-06-24-scorecard-pattern.md
-    - memory/semantic/operational/2026-06-24-revenue-pattern.md
-    - memory/semantic/operational/2026-06-24-lessons-pattern.md
-    - memory/semantic/operational/2026-06-24-revenue-tracker-pattern.md
-  semantic_updated_files:
-    - memory/semantic/domain/2026-06-12-pipeline-pattern.md
-    - memory/semantic/operational/2026-06-16-calendar-pattern.md
-    - memory/semantic/pattern/2026-06-18-one-texas-pattern.md
-    - memory/semantic/operational/2026-06-12-plaud-pattern.md
-    - memory/semantic/operational/2026-06-23-omnifocus-pattern.md
-    - memory/semantic/pattern/2026-06-18-rock4-pattern.md
-    - memory/semantic/operational/2026-06-18-pipeline-review-pattern.md
-    - memory/semantic/operational/2026-06-15-leads-pattern.md
-  promotion_note: "9 candidates this cycle; 13 valid clusters. 5 new operational semantic entries (co-sell, scorecard, revenue, lessons, revenue-tracker); 8 evidence appends to existing entries. 32 entries flagged promoted."
-  error_categories_30d: "process-skip:13, routing-error:10, data-accuracy:6, tool-misuse:6, format-violation:4, assumption-error:3, missed-context:3"
-  error_total_30d: 66
-  lessons_appended: 0
-  lessons_note: "No newly-threshold-breaching combos — top categories already documented in LESSONS.md."
+  skipped_unparseable_count: 13
+  skipped_not_expired_count: 6
+  episodic_scanned: 134
+  score_updates: 134
+  no_tags: 6
+  no_date: 1
+  files_with_tags: 128
+  in_window_count: 65
+  score_distribution: "0:13, 2:3, 6:2, 7:2, 8:3, 9:6, 10:105"
+  window_start: 2026-05-26
+  window_end: 2026-06-25
+  candidates_count: 116
+  clusters_found: 62
+  semantic_created: 38
+  semantic_updated: 23
+  promoted_entries: 116
+  promotion_note: "116 candidates this cycle; 62 valid clusters. 38 new semantic entries; 23 evidence appends. 116 entries flagged promoted."
+  error_categories_30d: "process-skip:14, routing-error:9, data-accuracy:8, format-violation:6, tool-misuse:4, assumption-error:4, hallucination:3, missed-context:3"
+  error_total_30d: 70
+  lessons_appended: 1
+  lessons_note: "1 newly-threshold-breaching combo appended to LESSONS.md."
   entries_compressed: 0
   digests_updated: 0
   compression_skipped: true
-  compression_skip_reason: "Oldest episodic entry is 2026-04-18 (67 days old). 90-day cutoff = 2026-03-26. 0 entries eligible (< 5 threshold)."
+  compression_skip_reason: "Oldest episodic entry is 2026-04-18 (68 days old). 90-day cutoff = 2026-03-27. 0 entries eligible (< 5 threshold)."
   dream_log_appended: true
   working_summary_written: true
-  working_summary_reason: "semantic_created=5 + semantic_updated=8 — surface to Chief for visibility."
+  working_summary_reason: "semantic_created=38 + semantic_updated=23 — surface to Chief for visibility."
   errors: 0

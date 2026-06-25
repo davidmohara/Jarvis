@@ -1332,3 +1332,20 @@ errors: 0
 summary: "Heavy promotion run. Step-01 archived 1 newly-expired working file (dream-summary-2026-06-22); 72 already-archived stragglers, 12 unparseable, 4 not-expired. Step-02 scored 131 episodic entries; window 2026-05-25 → 2026-06-24 with 62 in-window; distribution 0:12, 2:3, 6:1, 7:1, 8:3, 9:10, 10:101. Step-03 promotion: 9 candidates expanded into 13 tag-clusters (pipeline, co-sell, calendar, one-texas, scorecard, revenue, plaud, omnifocus, rock4, lessons, pipeline-review, revenue-tracker, leads) → 5 new operational semantic entries (co-sell, scorecard, revenue, lessons, revenue-tracker), 8 evidence appends to existing entries; 32 episodic entries flagged promoted. Error scan 30d: 66 entries (process-skip:13, routing-error:10 lead); 0 newly-threshold-breaching combos. Step-04 compression skipped (oldest episodic 67 days, 90-day threshold not met; 0 candidates)."
 git_pull: success
 
+
+---
+## 2026-06-25T08:13:45 UTC
+session_id: dream-cycle-2026-06-25-030900
+working_archived: 2
+working_deleted: 0
+episodic_scanned: 134
+score_updates: 134
+clusters_found: 62
+semantic_created: 38
+semantic_updated: 23
+promoted_entries: 116
+entries_compressed: 0
+digests_updated: 0
+errors: 0
+summary: "Heavy promotion cycle. Step-01 archived 2 newly-expired files (daily-review-2026-06-22, dream-summary-2026-06-23); 72 already-archived stragglers, 13 unparseable, 6 not-expired. Step-02 scored 134 episodic entries; window 2026-05-26 → 2026-06-25 with 65 in-window; distribution 0:13, 2:3, 6:2, 7:2, 8:3, 9:6, 10:105. Step-03 promotion: 116 candidates expanded into 62 tag-clusters (including new clusters around email, ypo, flight, jarvis, lessons, utb-board, co-sell, glc-chicago, rock2/3, omnifocus-timeout, git-sync, plaud, alice-mburu, las-vegas, health, system-health, golf, scorecard, lifebook, wfh, obsidian, quarterly-rocks, cyber-training) → 38 new semantic entries, 23 evidence appends; 116 entries flagged promoted. Note: heavy creation count reflects backlog of unpromoted episodic from prior cycles; expect tapered counts next run. Error scan 30d: 70 entries (process-skip:14, routing-error:9, data-accuracy:8 lead); 1 newly-threshold-breaching combo appended to LESSONS.md. Step-04 compression skipped (oldest episodic 68 days, 90-day threshold not met; 0 candidates)."
+git_pull: success

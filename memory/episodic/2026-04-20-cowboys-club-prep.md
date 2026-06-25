@@ -10,7 +10,7 @@ tags:
 - speaking-opportunity
 related_people:
 - dennis-howard
-  last-promoted-check: 2026-06-20
+  last-promoted-check: 2026-06-25
 salience:
   score: 0
   last-promoted-check: 2026-06-24

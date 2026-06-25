@@ -1,14 +1,13 @@
 ---
 status: complete
-started-at: 2026-06-22T08:12:00Z
-completed-at: 2026-06-22T08:15:00Z
+started-at: 2026-06-25T08:13:30Z
+completed-at: 2026-06-25T08:14:30Z
 outputs:
   dream_log_appended: true
   working_summary_written: true
-  working_summary_reason: "semantic_updated=1 + lessons_appended=1 — surface to Chief for visibility."
-  git_commit: deferred
-  git_push: deferred
-  git_note: "Commit/push deferred — sandbox cannot acquire .git/index lock (Operation not permitted on .git/index.lock). Host-side commit required per recurring pattern."
+  working_summary_reason: "semantic_created=38 + semantic_updated=23 — surface to Chief for visibility."
+  git_commit: pending
+  git_push: pending
 ---
 
 <!-- system:start -->

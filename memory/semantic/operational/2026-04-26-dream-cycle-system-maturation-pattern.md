@@ -2,9 +2,9 @@
 type: semantic
 domain: operational
 tags: [dream-cycle, system-maintenance, memory-system, semantic-promotion, git-issues]
-confidence: medium
+confidence: high
 created: 2026-04-26
-last-updated: 2026-05-13
+last-updated: 2026-06-25
 synthesized-from:
   - memory/episodic/2026-04-24-dream-cycle-summary.md
   - memory/episodic/2026-04-22-dream-cycle-summary.md
@@ -29,6 +29,59 @@ The IES dream cycle has been running nightly since April 18, 2026. Across 7 comp
 ## Evidence
 
 1. **2026-04-24 dream cycle (source):** First semantic entry created from the system itself. 12 episodic entries scored, 2 promoted, travel-calendar pattern identified. Marked the inflection point where the memory system began producing second-order insights. Git blocked by unstaged changes.
+- 2026-06-25: memory/episodic/dream-summary-2026-05-25.md (tags: dream-summary, briefing, omnifocus, boot, semantic-promotion)
+- 2026-06-25: memory/episodic/2026-04-24-dream-cycle-summary.md (tags: dream-cycle, system-maintenance, semantic-promotion, memory-system)
+- 2026-06-25: memory/episodic/dream-summary-2026-05-31.md (tags: dream-summary, jarvis, omnifocus, boot, semantic-promotion)
+- 2026-06-25: memory/episodic/2026-05-03-dream-cycle-summary.md (tags: dream-cycle, system-maintenance, memory-pipeline, score-inflation, semantic-promotion)
+- 2026-06-25: memory/episodic/dream-summary-2026-05-30.md (tags: dream-summary, jarvis, briefing, boot, semantic-promotion)
+- 2026-06-25: memory/episodic/2026-04-27-dream-cycle-summary.md (tags: dream-cycle, system-maintenance, semantic-promotion, travel-pattern, omnifocus)
+- 2026-06-25: memory/episodic/2026-05-05-dream-cycle-summary.md (tags: dream-cycle, system-maintenance, score-inflation, git-sync, semantic-promotion)
+- 2026-06-25: memory/episodic/2026-04-26-dream-cycle-summary.md (tags: dream-cycle, system-maintenance, semantic-promotion, error-patterns, git-issues)
+- 2026-06-25: memory/episodic/dream-summary-2026-06-21.md (tags: dream-summary, jarvis, briefing, morning-briefing, omnifocus)
+- 2026-06-25: memory/episodic/2026-05-02-dream-cycle-summary.md (tags: dream-cycle, system-maintenance, memory-pipeline, score-inflation, semantic-promotion)
+- 2026-06-25: memory/episodic/dream-summary-2026-06-20.md (tags: dream-summary, boot, semantic-promotion, dream-cycle, error-patterns)
+- 2026-06-25: memory/episodic/2026-05-01-dream-cycle-summary.md (tags: dream-cycle, system-maintenance, memory-pipeline, glc-chicago, travel)
+- 2026-06-25: memory/episodic/2026-04-25-dream-cycle-summary.md (tags: dream-cycle, memory-management, semantic-promotion, travel-pattern)
+- 2026-06-25: memory/episodic/dream-summary-2026-05-29.md (tags: dream-summary, jarvis, briefing, morning-briefing, omnifocus)
+- 2026-06-25: memory/episodic/dream-summary-2026-05-28.md (tags: dream-summary, semantic-promotion, dream-cycle, git-issues, error-patterns)
+- 2026-06-25: memory/episodic/2026-05-17-dream-cycle-summary.md (tags: dream-summary, briefing, omnifocus, travel, flight)
+- 2026-06-25: memory/episodic/dream-summary-2026-05-13.md (tags: dream-summary, briefing, calendar, omnifocus, travel)
+- 2026-06-25: memory/episodic/dream-summary-2026-05-27.md (tags: dream-summary, briefing, omnifocus, boot, semantic-promotion)
+- 2026-06-25: memory/episodic/dream-summary-2026-06-19.md (tags: dream-summary, jarvis, briefing, omnifocus, pipeline)
+- 2026-06-25: memory/episodic/2026-05-18-dream-cycle-summary.md (tags: dream-summary, briefing, morning-briefing, calendar, omnifocus)
+- 2026-06-25: memory/episodic/dream-summary-2026-05-22.md (tags: dream-summary, briefing, omnifocus, boot, semantic-promotion)
+- 2026-06-25: memory/episodic/dream-summary-2026-05-25.md (tags: dream-summary, briefing, omnifocus, boot, semantic-promotion)
+- 2026-06-25: memory/episodic/2026-04-23-dream-cycle-summary.md (tags: dream-cycle, system-maintenance, git-issues)
+- 2026-06-25: memory/episodic/dream-summary-2026-05-31.md (tags: dream-summary, jarvis, omnifocus, boot, semantic-promotion)
+- 2026-06-25: memory/episodic/dream-summary-2026-05-20.md (tags: dream-summary, briefing, omnifocus, boot, dream-cycle)
+- 2026-06-25: memory/episodic/dream-summary-2026-05-14.md (tags: dream-summary, briefing, omnifocus, pipeline, score-inflation)
+- 2026-06-25: memory/episodic/dream-summary-2026-05-30.md (tags: dream-summary, jarvis, briefing, boot, semantic-promotion)
+- 2026-06-25: memory/episodic/dream-summary-2026-05-24.md (tags: dream-summary, omnifocus, boot, score-inflation, dream-cycle)
+- 2026-06-25: memory/episodic/2026-04-26-dream-cycle-summary.md (tags: dream-cycle, system-maintenance, semantic-promotion, error-patterns, git-issues)
+- 2026-06-25: memory/episodic/dream-summary-2026-06-21.md (tags: dream-summary, jarvis, briefing, morning-briefing, omnifocus)
+- 2026-06-25: memory/episodic/2026-04-22-dream-cycle-summary.md (tags: dream-cycle, system-maintenance, git-issues)
+- 2026-06-25: memory/episodic/dream-summary-2026-05-29.md (tags: dream-summary, jarvis, briefing, morning-briefing, omnifocus)
+- 2026-06-25: memory/episodic/dream-summary-2026-05-19.md (tags: dream-summary, briefing, omnifocus, boot, memory-system)
+- 2026-06-25: memory/episodic/dream-summary-2026-05-28.md (tags: dream-summary, semantic-promotion, dream-cycle, git-issues, error-patterns)
+- 2026-06-25: memory/episodic/dream-summary-2026-05-27.md (tags: dream-summary, briefing, omnifocus, boot, semantic-promotion)
+- 2026-06-25: memory/episodic/dream-summary-2026-05-26.md (tags: dream-summary, briefing, calendar, omnifocus, travel)
+- 2026-06-25: memory/episodic/2026-05-18-dream-cycle-summary.md (tags: dream-summary, briefing, morning-briefing, calendar, omnifocus)
+- 2026-06-25: memory/episodic/dream-summary-2026-05-22.md (tags: dream-summary, briefing, omnifocus, boot, semantic-promotion)
+- 2026-06-25: memory/episodic/dream-summary-2026-05-16.md (tags: dream-summary, briefing, morning-briefing, omnifocus, pipeline)
+- 2026-06-25: memory/episodic/2026-04-24-dream-cycle-summary.md (tags: dream-cycle, system-maintenance, semantic-promotion, memory-system)
+- 2026-06-25: memory/episodic/2026-04-23-dream-cycle-summary.md (tags: dream-cycle, system-maintenance, git-issues)
+- 2026-06-25: memory/episodic/2026-05-03-dream-cycle-summary.md (tags: dream-cycle, system-maintenance, memory-pipeline, score-inflation, semantic-promotion)
+- 2026-06-25: memory/episodic/daily-review-2026-05-26-auto.md (tags: daily-review, chief, calendar, omnifocus, utb-board)
+- 2026-06-25: memory/episodic/2026-05-04-dream-cycle-summary.md (tags: dream-cycle, system-maintenance, score-inflation, git-sync, briefing-pattern)
+- 2026-06-25: memory/episodic/2026-04-27-dream-cycle-summary.md (tags: dream-cycle, system-maintenance, semantic-promotion, travel-pattern, omnifocus)
+- 2026-06-25: memory/episodic/2026-05-05-dream-cycle-summary.md (tags: dream-cycle, system-maintenance, score-inflation, git-sync, semantic-promotion)
+- 2026-06-25: memory/episodic/2026-04-26-dream-cycle-summary.md (tags: dream-cycle, system-maintenance, semantic-promotion, error-patterns, git-issues)
+- 2026-06-25: memory/episodic/2026-05-02-dream-cycle-summary.md (tags: dream-cycle, system-maintenance, memory-pipeline, score-inflation, semantic-promotion)
+- 2026-06-25: memory/episodic/2026-04-22-dream-cycle-summary.md (tags: dream-cycle, system-maintenance, git-issues)
+- 2026-06-25: memory/episodic/2026-05-01-dream-cycle-summary.md (tags: dream-cycle, system-maintenance, memory-pipeline, glc-chicago, travel)
+- 2026-06-25: memory/episodic/2026-04-30-dream-cycle-summary.md (tags: dream-cycle, system-maintenance, memory-pipeline, travel, glc-chicago)
+- 2026-06-25: memory/episodic/morning-briefing-2026-06-15-070000.md (tags: briefing, chief, morning-briefing, daily-review, calendar)
+- 2026-06-25: memory/episodic/dream-summary-2026-06-16.md (tags: briefing, jarvis, dream-summary, calendar, leads)
 
 ## Implications
 

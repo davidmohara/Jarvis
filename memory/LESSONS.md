@@ -234,3 +234,11 @@ Failure mode: wrong-assumption
 Pattern: Recurring data-accuracy category errors with failure mode `wrong-assumption`.
 Fix: Tighten the guard rail in the relevant agent/workflow. See systems/error-tracking/entries/ for source records.
 Status: active
+
+
+## 2026-06-25 — Hallucination Pattern
+Detected: 3 occurrences over 30 days
+Category: hallucination
+Pattern: Recurring hallucination occurrences across multiple sessions
+Fix: Review error entries for hallucination; consider tightening protocols
+Status: active

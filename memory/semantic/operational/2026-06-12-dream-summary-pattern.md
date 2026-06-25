@@ -3,8 +3,8 @@ type: semantic
 domain: operational
 primary-tag: dream-summary
 created: 2026-06-12
-last-updated: 2026-06-20
-confidence: medium
+last-updated: 2026-06-25
+confidence: high
 synthesized-from: 23
   - dream-summary-2026-05-25.md
   - dream-summary-2026-05-31.md
@@ -107,6 +107,38 @@ _2026-06-17 run:_
 - unknown-date — dream-summary-2026-06-13.md (score 10)
 - unknown-date — dream-summary-2026-06-12.md (score 6)
 - unknown-date — dream-summary-2026-05-28.md (score 10)
+- 2026-06-25: memory/episodic/dream-summary-2026-05-25.md (tags: dream-summary, briefing, omnifocus, boot, semantic-promotion)
+- 2026-06-25: memory/episodic/dream-summary-2026-05-31.md (tags: dream-summary, jarvis, omnifocus, boot, semantic-promotion)
+- 2026-06-25: memory/episodic/dream-summary-2026-05-20.md (tags: dream-summary, briefing, omnifocus, boot, dream-cycle)
+- 2026-06-25: memory/episodic/dream-summary-2026-05-14.md (tags: dream-summary, briefing, omnifocus, pipeline, score-inflation)
+- 2026-06-25: memory/episodic/dream-summary-2026-05-30.md (tags: dream-summary, jarvis, briefing, boot, semantic-promotion)
+- 2026-06-25: memory/episodic/dream-summary-2026-05-24.md (tags: dream-summary, omnifocus, boot, score-inflation, dream-cycle)
+- 2026-06-25: memory/episodic/dream-summary-2026-06-15.md (tags: briefing, jarvis, dream-summary, calendar, leads)
+- 2026-06-25: memory/episodic/dream-summary-2026-06-21.md (tags: dream-summary, jarvis, briefing, morning-briefing, omnifocus)
+- 2026-06-25: memory/episodic/morning-briefing-2026-06-11-062152.md (tags: briefing, chief, dream-summary, pipeline-review, revenue-tracker)
+- 2026-06-25: memory/episodic/dream-summary-2026-06-04.md (tags: dream-summary, briefing, calendar, omnifocus, travel)
+- 2026-06-25: memory/episodic/dream-summary-2026-06-14.md (tags: dream-summary, briefing, pipeline, jarvis, memory)
+- 2026-06-25: memory/episodic/dream-summary-2026-06-20.md (tags: dream-summary, boot, semantic-promotion, dream-cycle, error-patterns)
+- 2026-06-25: memory/episodic/dream-summary-2026-05-29.md (tags: dream-summary, jarvis, briefing, morning-briefing, omnifocus)
+- 2026-06-25: memory/episodic/dream-summary-2026-06-17.md (tags: dream-summary, session-wrap, calendar, plaud, dream-cycle)
+- 2026-06-25: memory/episodic/dream-summary-2026-06-23.md (tags: dream-summary, dream-cycle, jarvis, pipeline, lessons)
+- 2026-06-25: memory/episodic/dream-summary-2026-05-19.md (tags: dream-summary, briefing, omnifocus, boot, memory-system)
+- 2026-06-25: memory/episodic/dream-summary-2026-06-03.md (tags: dream-summary, jarvis, briefing, calendar, omnifocus)
+- 2026-06-25: memory/episodic/dream-summary-2026-06-13.md (tags: dream-summary, jarvis, omnifocus, pipeline, wellness)
+- 2026-06-25: memory/episodic/dream-summary-2026-06-12.md (tags: dream-summary, jarvis, daily-review, pipeline-review, plaud-ingest)
+- 2026-06-25: memory/episodic/dream-summary-2026-05-28.md (tags: dream-summary, semantic-promotion, dream-cycle, git-issues, error-patterns)
+- 2026-06-25: memory/episodic/2026-05-17-dream-cycle-summary.md (tags: dream-summary, briefing, omnifocus, travel, flight)
+- 2026-06-25: memory/episodic/dream-summary-2026-06-16.md (tags: briefing, jarvis, dream-summary, calendar, leads)
+- 2026-06-25: memory/episodic/dream-summary-2026-05-23.md (tags: dream-summary, briefing, morning-briefing, calendar, omnifocus)
+- 2026-06-25: memory/episodic/dream-summary-2026-05-13.md (tags: dream-summary, briefing, calendar, omnifocus, travel)
+- 2026-06-25: memory/episodic/dream-summary-2026-05-27.md (tags: dream-summary, briefing, omnifocus, boot, semantic-promotion)
+- 2026-06-25: memory/episodic/dream-summary-2026-06-19.md (tags: dream-summary, jarvis, briefing, omnifocus, pipeline)
+- 2026-06-25: memory/episodic/dream-summary-2026-05-12.md (tags: dream-summary, briefing, calendar, omnifocus, travel)
+- 2026-06-25: memory/episodic/dream-summary-2026-05-26.md (tags: dream-summary, briefing, calendar, omnifocus, travel)
+- 2026-06-25: memory/episodic/2026-05-18-dream-cycle-summary.md (tags: dream-summary, briefing, morning-briefing, calendar, omnifocus)
+- 2026-06-25: memory/episodic/dream-summary-2026-06-18.md (tags: dream-summary, jarvis, memory-pipeline, pipeline, co-sell)
+- 2026-06-25: memory/episodic/dream-summary-2026-05-22.md (tags: dream-summary, briefing, omnifocus, boot, semantic-promotion)
+- 2026-06-25: memory/episodic/dream-summary-2026-05-16.md (tags: dream-summary, briefing, morning-briefing, omnifocus, pipeline)
 
 ## Implications
 

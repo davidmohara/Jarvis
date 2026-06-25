@@ -1,17 +1,17 @@
 ---
 status: complete
-started-at: 2026-06-22T08:10:30Z
-completed-at: 2026-06-22T08:11:00Z
+started-at: 2026-06-25T08:10:00Z
+completed-at: 2026-06-25T08:11:00Z
 outputs:
-  episodic_scanned: 129
-  score_updates: 129
-  no_tags: 4
-  no_date: 5
-  files_with_tags: 125
-  in_window_count: 63
-  score_distribution: "0:11, 2:3, 6:1, 8:6, 9:9, 10:99"
-  promotion_candidates: 114
-  note: "Window 2026-05-23 → 2026-06-22. Heavy-tail distribution holds (99 entries at score-10 cap, most carry promoted=true from prior runs). 125/129 episodic entries parse tags correctly."
+  episodic_scanned: 134
+  score_updates: 134
+  no_tags: 6
+  no_date: 1
+  files_with_tags: 128
+  in_window_count: 65
+  score_distribution: "0:13, 2:3, 6:2, 7:2, 8:3, 9:6, 10:105"
+  window_start: 2026-05-26
+  window_end: 2026-06-25
 ---
 
 <!-- system:start -->

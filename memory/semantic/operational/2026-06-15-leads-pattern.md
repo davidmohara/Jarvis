@@ -2,8 +2,8 @@
 type: semantic
 domain: operational
 created: 2026-06-15
-last-updated: 2026-06-24
-confidence: medium
+last-updated: 2026-06-25
+confidence: high
 tags:
   - leads
 synthesized-from: 3
@@ -27,6 +27,34 @@ Recurring pattern observed in leads entries: cluster of 1 episodic memories shar
 - unknown-date — plaud-ingest-2026-06-04-013000.md (score 10)
 - memory/episodic/morning-briefing-2026-06-11-062152.md (score 10)
 - memory/episodic/plaud-ingest-2026-06-04-013000.md (score 10)
+- 2026-06-25: memory/episodic/2026-05-12-061241-session-boot-morning-briefing.md (tags: briefing, chief, calendar, omnifocus, leads)
+- 2026-06-25: memory/episodic/morning-briefing-2026-06-02-061028.md (tags: briefing, chief, morning-briefing, calendar, omnifocus)
+- 2026-06-25: memory/episodic/2026-05-01-morning-briefing.md (tags: briefing, calendar, omnifocus-timeout, leads, jarvis-inbox)
+- 2026-06-25: memory/episodic/morning-briefing-2026-06-09-092323.md (tags: briefing, morning-briefing, chief, omnifocus, calendar)
+- 2026-06-25: memory/episodic/morning-briefing-2026-06-08-095429.md (tags: briefing, morning-briefing, chief, omnifocus, calendar)
+- 2026-06-25: memory/episodic/2026-05-04-morning-briefing-automated.md (tags: morning-briefing, calendar, leads, omnifocus, wfh)
+- 2026-06-25: memory/episodic/2026-04-23-morning-briefing-midnight.md (tags: briefing, calendar, omnifocus, google-next, travel)
+- 2026-06-25: memory/episodic/morning-briefing-2026-06-18-060923.md (tags: briefing, chief, morning-briefing, calendar, omnifocus)
+- 2026-06-25: memory/episodic/dream-summary-2026-06-15.md (tags: briefing, jarvis, dream-summary, calendar, leads)
+- 2026-06-25: memory/episodic/2026-05-13-061200-session-boot-morning-briefing.md (tags: briefing, chief, morning-briefing, calendar, omnifocus)
+- 2026-06-25: memory/episodic/2026-05-04-morning-briefing.md (tags: morning-briefing, calendar, omnifocus, leads, wfh)
+- 2026-06-25: memory/episodic/morning-briefing-2026-06-11-062152.md (tags: briefing, chief, dream-summary, pipeline-review, revenue-tracker)
+- 2026-06-25: memory/episodic/2026-05-05-morning-briefing.md (tags: morning-briefing, calendar, leads, travel, omnifocus)
+- 2026-06-25: memory/episodic/2026-05-11-000000-session-boot-morning-briefing.md (tags: briefing, chief, morning-briefing, calendar, omnifocus)
+- 2026-06-25: memory/episodic/2026-04-23-morning-briefing-scheduled.md (tags: briefing, calendar, google-next, travel, las-vegas)
+- 2026-06-25: memory/episodic/2026-05-18-061344-session-boot-morning-briefing.md (tags: briefing, chief, calendar, omnifocus, omnifocus-timeout)
+- 2026-06-25: memory/episodic/co-sell-pipeline-2026-06-09-140500.md (tags: pipeline, co-sell, chase, leads)
+- 2026-06-25: memory/episodic/morning-briefing-2026-06-15-070000.md (tags: briefing, chief, morning-briefing, daily-review, calendar)
+- 2026-06-25: memory/episodic/2026-05-22-061651-session-boot-morning-briefing.md (tags: briefing, chief, morning-briefing, calendar, omnifocus)
+- 2026-06-25: memory/episodic/2026-04-27-morning-briefing.md (tags: briefing, calendar, glc-chicago, travel, omnifocus-timeout)
+- 2026-06-25: memory/episodic/2026-05-19-061322-session-boot-morning-briefing.md (tags: briefing, chief, morning-briefing, calendar, omnifocus)
+- 2026-06-25: memory/episodic/2026-05-29-145100-session-boot-morning-briefing.md (tags: briefing, chief, morning-briefing, calendar, omnifocus)
+- 2026-06-25: memory/episodic/plaud-ingest-2026-06-04-013000.md (tags: plaud, knox, calendar, email, leads)
+- 2026-06-25: memory/episodic/dream-summary-2026-06-16.md (tags: briefing, jarvis, dream-summary, calendar, leads)
+- 2026-06-25: memory/episodic/morning-briefing-2026-05-27-060943.md (tags: briefing, chief, morning-briefing, calendar, omnifocus)
+- 2026-06-25: memory/episodic/morning-briefing-2026-06-01-061018.md (tags: briefing, chief, morning-briefing, calendar, omnifocus)
+- 2026-06-25: memory/episodic/2026-04-30-morning-briefing.md (tags: briefing, calendar, travel, flight-conflict, omnifocus-timeout)
+- 2026-06-25: memory/episodic/2026-05-01-morning-briefing-post-travel.md (tags: briefing, calendar, omnifocus, travel, post-travel)
 
 ## Implications
 

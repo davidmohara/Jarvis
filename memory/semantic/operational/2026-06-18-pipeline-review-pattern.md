@@ -3,9 +3,9 @@ type: semantic-pattern
 domain: operational
 tags:
 - pipeline-review
-confidence: low
+confidence: medium
 created: '2026-06-18'
-last-updated: 2026-06-24
+last-updated: 2026-06-25
 synthesized-from:
 - co-sell-pipeline-2026-06-15-143245.md
 synthesized-from:
@@ -22,6 +22,9 @@ Recurring `pipeline-review` activity observed in episodic memory.
 - [2026-06-15] `co-sell-pipeline-2026-06-15-143245.md` (score:6)
 - memory/episodic/morning-briefing-2026-06-11-062152.md (score 10)
 - memory/episodic/dream-summary-2026-06-12.md (score 10)
+- 2026-06-25: memory/episodic/co-sell-pipeline-2026-06-15-143245.md (tags: pipeline-review, chase, pipeline, rock)
+- 2026-06-25: memory/episodic/morning-briefing-2026-06-11-062152.md (tags: briefing, chief, dream-summary, pipeline-review, revenue-tracker)
+- 2026-06-25: memory/episodic/dream-summary-2026-06-12.md (tags: dream-summary, jarvis, daily-review, pipeline-review, plaud-ingest)
 
 ## Implications
 

@@ -2,8 +2,8 @@
 type: semantic
 domain: operational
 created: 2026-06-16
-last-updated: 2026-06-17
-confidence: low
+last-updated: 2026-06-25
+confidence: medium
 synthesized-from: 2
 tags:
   - memory-pipeline
@@ -30,6 +30,14 @@ _2026-06-17 run:_
 ### 2026-06-16 — dream-cycle promotion
 - 2026-05-03-dream-cycle-summary.md
 - 2026-05-02-dream-cycle-summary.md
+- 2026-06-25: memory/episodic/2026-05-03-dream-cycle-summary.md (tags: dream-cycle, system-maintenance, memory-pipeline, score-inflation, semantic-promotion)
+- 2026-06-25: memory/episodic/dream-summary-2026-06-15.md (tags: briefing, jarvis, dream-summary, calendar, leads)
+- 2026-06-25: memory/episodic/2026-05-02-dream-cycle-summary.md (tags: dream-cycle, system-maintenance, memory-pipeline, score-inflation, semantic-promotion)
+- 2026-06-25: memory/episodic/2026-05-01-dream-cycle-summary.md (tags: dream-cycle, system-maintenance, memory-pipeline, glc-chicago, travel)
+- 2026-06-25: memory/episodic/2026-04-30-dream-cycle-summary.md (tags: dream-cycle, system-maintenance, memory-pipeline, travel, glc-chicago)
+- 2026-06-25: memory/episodic/dream-summary-2026-06-16.md (tags: briefing, jarvis, dream-summary, calendar, leads)
+- 2026-06-25: memory/episodic/dream-summary-2026-06-19.md (tags: dream-summary, jarvis, briefing, omnifocus, pipeline)
+- 2026-06-25: memory/episodic/dream-summary-2026-06-18.md (tags: dream-summary, jarvis, memory-pipeline, pipeline, co-sell)
 
 ## Implications
 

@@ -21,7 +21,7 @@ tags:
   - leads
   - 1-on-1
 related_people: []
-  last-promoted-check: 2026-06-20
+  last-promoted-check: 2026-06-25
 salience:
   score: 10
   last-promoted-check: 2026-06-24

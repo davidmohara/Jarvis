@@ -5,11 +5,11 @@ subject: "Recurring pattern around revenue-tracker"
 synthesized-from:
   - memory/episodic/morning-briefing-2026-06-11-062152.md
   - memory/episodic/dream-summary-2026-06-12.md
-last-updated: 2026-06-24
+last-updated: 2026-06-25
 tags:
   - revenue-tracker
 agent-source: dream-cycle
-confidence: low
+confidence: medium
 ---
 # Revenue Tracker Pattern
 
@@ -20,6 +20,8 @@ Episodic memory shows 2 entries clustered under the `revenue-tracker` tag during
 ## Evidence
 - memory/episodic/morning-briefing-2026-06-11-062152.md (score 10)
 - memory/episodic/dream-summary-2026-06-12.md (score 10)
+- 2026-06-25: memory/episodic/morning-briefing-2026-06-11-062152.md (tags: briefing, chief, dream-summary, pipeline-review, revenue-tracker)
+- 2026-06-25: memory/episodic/dream-summary-2026-06-12.md (tags: dream-summary, jarvis, daily-review, pipeline-review, plaud-ingest)
 
 ## Implications
 - 2026-06-24: Initial pattern detection. Confidence will rise with additional evidence.

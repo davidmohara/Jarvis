@@ -23,7 +23,7 @@ related_people: null
   promoted: true
 salience:
   score: 10
-  last-promoted-check: 2026-06-24
+  last-promoted-check: 2026-06-25
   promoted: true
 ---
 - Sunday May 24 was a family day: Declan's graduation party (4-5 PM CT) was the only calendar event; no work meetings.

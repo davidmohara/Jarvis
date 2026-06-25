@@ -4,7 +4,7 @@ domain: operational
 tags: [briefing, calendar, omnifocus, google-next, travel, overdue-tasks, leads]
 confidence: high
 created: 2026-04-24
-last-updated: 2026-06-16
+last-updated: 2026-06-25
 synthesized-from: 16
   - memory/episodic/2026-04-20-morning-briefing.md
   - memory/episodic/2026-04-21-morning-briefing.md
@@ -208,6 +208,27 @@ Morning briefings across the entire Google Next week (Apr 20-23) repeatedly surf
 
 ### Promoted 2026-06-15
 - 2026-04-26 — 2026-04-26-podcast-hosting-review-ep01.md (score 10)
+- 2026-06-25: memory/episodic/daily-review-2026-05-26-auto.md (tags: daily-review, chief, calendar, omnifocus, utb-board)
+- 2026-06-25: memory/episodic/daily-review-2026-05-26-000000.md (tags: daily-review, chief, calendar, omnifocus, utb-board)
+- 2026-06-25: memory/episodic/2026-04-23-morning-briefing-midnight.md (tags: briefing, calendar, omnifocus, google-next, travel)
+- 2026-06-25: memory/episodic/daily-review-2026-05-28-163825.md (tags: daily-review, chief, briefing, calendar, omnifocus)
+- 2026-06-25: memory/episodic/2026-04-20-afternoon-boot.md (tags: morning-briefing, calendar, omnifocus, quarterly-rocks, overdue-tasks)
+- 2026-06-25: memory/episodic/daily-review-2026-05-27-000000.md (tags: daily-review, chief, calendar, omnifocus, utb-board)
+- 2026-06-25: memory/episodic/daily-review-2026-05-29-000000.md (tags: daily-review, chief, calendar, omnifocus, travel)
+- 2026-06-25: memory/episodic/daily-review-2026-06-19-020000.md (tags: daily-review, calendar, omnifocus, email, overdue-tasks)
+- 2026-06-25: memory/episodic/dream-summary-2026-05-23.md (tags: dream-summary, briefing, morning-briefing, calendar, omnifocus)
+- 2026-06-25: memory/episodic/daily-review-2026-06-05-021137.md (tags: daily-review, chief, calendar, omnifocus, ypo)
+- 2026-06-25: memory/episodic/daily-review-2026-06-01-000000.md (tags: daily-review, chief, calendar, omnifocus, travel)
+- 2026-06-25: memory/episodic/daily-review-2026-05-28-000000.md (tags: daily-review, chief, calendar, omnifocus, utb-board)
+- 2026-06-25: memory/episodic/morning-briefing-2026-05-29-070948.md (tags: briefing, chief, calendar, omnifocus, travel)
+- 2026-06-25: memory/episodic/daily-review-2026-06-18-020000.md (tags: daily-review, chief, calendar, omnifocus, utb-board)
+- 2026-06-25: memory/episodic/daily-review-2026-05-31-000000.md (tags: daily-review, chief, calendar, omnifocus, rock2)
+- 2026-06-25: memory/episodic/2026-04-23-morning-briefing-midnight.md (tags: briefing, calendar, omnifocus, google-next, travel)
+- 2026-06-25: memory/episodic/2026-04-23-morning-briefing-scheduled.md (tags: briefing, calendar, google-next, travel, las-vegas)
+- 2026-06-25: memory/episodic/2026-04-21-morning-briefing.md (tags: briefing, calendar, google-next, travel, omnifocus)
+- 2026-06-25: memory/episodic/2026-04-22-morning-briefing-google-next.md (tags: briefing, calendar, google-next, travel, las-vegas)
+- 2026-06-25: memory/episodic/2026-04-20-morning-briefing.md (tags: morning-briefing, calendar, omnifocus, google-next, travel)
+- 2026-06-25: memory/episodic/2026-04-24-morning-briefing.md (tags: briefing, calendar, travel, google-next, flight)
 
 ## Implications
 
