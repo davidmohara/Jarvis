@@ -63,5 +63,7 @@ def post_message(channel, text, thread_ts=None):
 if __name__ == "__main__":
     channel = sys.argv[1] if len(sys.argv) > 1 else DEFAULT_CHANNEL
     text = sys.argv[2] if len(sys.argv) > 2 else "Jarvis online."
+    # Replace literal \n strings with actual newlines
+    text = text.replace('\\n', '\n')
     thread_ts = sys.argv[3] if len(sys.argv) > 3 else None
     post_message(channel, text, thread_ts)

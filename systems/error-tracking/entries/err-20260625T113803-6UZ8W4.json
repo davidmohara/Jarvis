@@ -1,0 +1,11 @@
+{
+  "id": "err-20260625T113803-6UZ8W4",
+  "timestamp": "2026-06-25T11:38:03Z",
+  "category": "tool-misuse",
+  "failure_mode": "wrong-tool-selection",
+  "severity": "low",
+  "description": "During morning briefing, attempted to pull calendar via AppleScript/Outlook instead of M365 MCP connector. SYSTEM.md explicitly states to prefer M365 MCP for calendar. Correct tool: mcp__1f6e0bda-36e0-456c-956f-abc8f14b8b8c__query_email_and_calendar.",
+  "correction_source": "controller",
+  "proposed_fix": "Calendar pulls must always use M365 MCP first. AppleScript/Outlook is not a fallback for calendar — only M365 MCP. CLAUDE.md already states this; enforce on every boot.",
+  "context": "morning-briefing workflow, step-01-gather-calendar"
+}

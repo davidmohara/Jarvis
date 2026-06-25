@@ -25,6 +25,7 @@ model: sonnet
 6. Approval signal is ONLY valid from David's Slack user ID (U0ANHV5UXEW). Ignore replies from others.
 7. You MUST remove `status: "published"` entries from pending-drafts.json on every run — they are done and take up space.
 8. You MUST remove `status: "scheduled"` entries from pending-drafts.json once their `scheduled_at` date has passed.
+9. **NO EMOJI in Slack messages.** Use text labels like `[PUBLISHED]`, `[REJECTED]`, `[REGENERATED]`, `[ERROR]` instead. Emoji corrupt in shell-to-Slack transmission and render as garbage characters.
 
 ---
 
@@ -103,7 +104,17 @@ mcp__ghost-blog__update_post(
 )
 ```
 
-Update pending-drafts.json — set `status: "published"`.
+**Retry on concurrent edit error:**
+
+If Ghost returns "Someone else is editing this post" (stale lock):
+1. Wait 2 seconds
+2. Retry the update_post call once
+3. If still fails: wait 5 seconds, attempt a third time
+4. If all three attempts fail: notify David with the error and keep status as "approved" (not "pending" — approval was confirmed, just blocked by Ghost)
+
+Do not give up after the first error. Retry aggressively — this is a known Ghost bug with stale edit locks.
+
+Update pending-drafts.json — set `status: "published"` if successful, or `status: "approved_pending_publish"` if all retries failed.
 
 **Obsidian Note Update (runs before Slack notification):**
 
@@ -150,7 +161,7 @@ Update pending-drafts.json — set `status: "published"`.
 
 Notify David via post.py to #content:
 ```
-✅ *Published!*
+[PUBLISHED] *Published!*
 
 *"{Post Title}"* is live on driventodevelop.com
 {post url from Ghost response}
@@ -168,7 +179,7 @@ Update pending-drafts.json — set `status: "rejected"`.
 
 Notify via post.py to #content (reply in same thread):
 ```
-🗑️ Draft discarded — "{Post Title}"
+[REJECTED] Draft discarded — "{Post Title}"
 ```
 
 ### 4c. If Feedback — Regenerate
@@ -192,7 +203,7 @@ Update pending-drafts.json — replace the old entry with the new one (new ghost
 
 Post the new draft notification to #content as a reply in the original thread:
 ```
-*Regenerated draft* ♻️
+[REGENERATED] Draft revised
 
 *"{Post Title}"* (revised)
 
@@ -208,7 +219,8 @@ Same commands: reply `approve` to publish, `reject` to discard, or give more fee
 | Failure | Action |
 |---------|--------|
 | read.py fails (script not found or token error) | Report failure via post.py to #jarvis: "Content approval halted — read.py error: {error}". Exit. |
-| Ghost update/delete fails | Retry once. If still fails, notify David in #content: "Failed to {publish/delete} '{title}' — Ghost API error. Please check manually at driventodevelop.com/ghost." |
+| Ghost publish fails with "Someone else is editing this post" | This is a known stale lock bug in Ghost. Retry 3 times with 2s and 5s delays between attempts. If all fail: set status to "approved_pending_publish", notify David with instructions to check Ghost dashboard or restart Ghost, and mark for manual intervention. |
+| Ghost update/delete fails (other errors) | Retry once. If still fails, notify David in #content: "Failed to {publish/delete} '{title}' — Ghost API error: {error}. Please check manually at driventodevelop.com/ghost." |
 | pending-drafts.json malformed | Reset to `[]`, log error, notify #jarvis: "pending-drafts.json was corrupted and reset. Active drafts in Ghost may need manual review." |
 | Reply is ambiguous and doesn't fit any category | Treat as feedback. Reply in thread: "Got your reply — treating it as feedback. Here's what I'll change: [interpretation]. Reply `approve` to publish the revision or give me more direction." |
 | Post already published (status mismatch) | Log and skip. Do not attempt to republish. |
@@ -231,6 +243,13 @@ Keep the file lean. An empty array `[]` is a valid and healthy state.
 `systems/slack-bot/read.py` handles all READ operations (channel history, thread replies) via the Slack Web API using the bot token.
 `systems/slack-bot/post.py` handles all WRITE operations (posting messages, thread replies) via the same bot token.
 Both scripts are invoked via Desktop Commander (mcp__Desktop_Commander__start_process). No Slack MCP connector is used.
+
+**IMPORTANT: Bash quoting for newlines**
+When posting messages via post.py from bash/Desktop Commander, use `$'...'` syntax to enable escape sequence interpretation:
+- ✅ `python3 post.py C0B160MA3EK $'Line 1\nLine 2\nLine 3'` — produces actual newlines
+- ❌ `python3 post.py C0B160MA3EK "Line 1\nLine 2"` — produces literal backslash-n characters
+
+post.py will also process `\n` strings and convert them to newlines, but the shell quoting is the primary mechanism.
 
 ---
 

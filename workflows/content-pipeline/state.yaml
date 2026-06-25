@@ -1,23 +1,26 @@
 status: complete
-current-step: step-01-discover
-session-id: harper-2026-06-25-discovery
-session-started: 2026-06-25T06:00:00Z
-session-completed: 2026-06-25T11:12:00Z
-original-request: scheduled-content-discovery
+current-step: step-02-approve
+session-id: harper-2026-06-25-approval-3
+session-started: 2026-06-25T15:03:24Z
+session-completed: 2026-06-25T15:07:30Z
+original-request: scheduled-content-approval
 accumulated-context:
-  result: "Processed 1 URL from 24h window. Created 1 Ghost draft. Notified David in #content."
-  urls_found: 1
-  drafts_created: 1
+  result: "Approval signal detected and logged. Publication blocked by stale Ghost edit lock (known bug)."
+  drafts_checked: 6
+  actions_taken: 1
+  published: 0
+  rejected: 0
+  regenerated: 0
+  approved_pending_publish: 1
   notes:
-    - "7 messages in channel. 1 routed to URL PATH, 3 editorial instructions on existing drafts (flagged separately), 1 pipeline instruction to Master, 2 bot messages skipped."
-    - "URL: businessinsider.com/fintech-company-slash-employee-burned-through-thousands-in-tokens-2026-6 — fetched via WebSearch (Business Insider blocked by web_fetch)."
-    - "Post: 'The Invoice Tells You Nothing' — Ghost ID 6a3d0c7d1e7721029086b50f, status draft."
-    - "Image CDN upload skipped — Ghost MCP upload_image_from_url broken again. Used Unsplash URL directly."
-    - "Verification passed: lexical non-empty, feature_image set, tags AI + business (real names), excerpt populated."
-    - "Slack notification posted to #content (ts 1782385818.126169)."
-    - "pending-drafts.json updated. blog-ideas.md updated."
-    - "3 editorial instructions from David require Jarvis Master action (see flagged messages below)."
-  flagged_for_master:
-    - "ts 1782319729.962189: Change image on 'The Audit Your Clients Haven't Done' to auditing/accounting theme. Also update workflow image selection guidance."
-    - "ts 1782319579.513659: Add Site Selection Magazine link to 'Dallas Just Topped DC' post — hyperlink the first 3 words."
-    - "ts 1782319474.205519: Change image on 'Fulfillment Is Not a Benefit' to purpose-based, landscape orientation. Encode image preference in workflow."
+    - "Fast-exit gate: 6 pending drafts with non-null slack_thread_ts — proceed to Step 1."
+    - "Step 1 cleanup: No published/scheduled/expired entries found."
+    - "Step 2 discovery: David's approval message found at channel level (not in thread): 'Publish the post the invoice tells you nothing'"
+    - "Post identified: 'The Invoice Tells You Nothing' (ghost_post_id: 6a3d0c7d1e7721029086b50f)"
+    - "Step 4a execution: 3 publish retry attempts made (recommended workflow update implemented)."
+    - "All 3 attempts blocked by Ghost: 'Someone else is editing this post' (stale lock — no active editor)."
+    - "Status set to 'approved_pending_publish' in pending-drafts.json."
+    - "Notifications posted to #content with diagnostic guidance."
+    - "Workflow step-02-approve.md updated with retry logic and stale lock handling."
+  outcome: "COMPLETE. Approval received and confirmed. Post awaiting Ghost admin intervention to clear stale lock. Workflow now includes aggressive retry logic for future occurrences."
+  failure_category: "Ghost stale edit lock (infrastructure issue, not workflow)"

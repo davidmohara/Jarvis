@@ -62,6 +62,9 @@ Evaluate each message against the following rules in sequence. Stop at the first
 4.5. User message WITH "article" keyword (case-insensitive) AND URL  →  URL PATH (content_type: "article")
 5. User message WITH URL, no routing keywords  →  URL PATH
 6. User message with deck/slides/presentation/PowerPoint  →  MANUAL FLAG
+7. User message referencing an existing post with editorial instructions (no URL, no digest signal)  →  EDITORIAL EDIT PATH
+   (keywords: "change the image", "update the image", "add the link", "add a link", "change image",
+    "swap image", "replace image", "fix the image", "update the post", "edit the post")
 ```
 
 **Detection rule for digest signal:** A message has `# ` AND `## ` — an H1 title line and at least one H2 section header.
@@ -77,6 +80,14 @@ Evaluate each message against the following rules in sequence. Stop at the first
 ```
 "_@david — [{source title}] needs manual handling: {brief reason}. I can't process this automatically._"
 ```
+
+**For EDITORIAL EDIT PATH:** Execute the edit inline. Do not defer to Jarvis Master. Do not flag to #content. Handle it directly:
+
+1. **Identify the target post.** Match the post name from the message to a Ghost draft or published post. Use `mcp__ghost-blog__get_posts` or search by slug if needed.
+2. **Image swap:** If the instruction is to change the image, find a new Unsplash image following the Step 6 protocol (WebSearch → fetch photo page → extract ID → construct CDN URL). Upload via `mcp__ghost-blog__upload_image_from_url` if available; fall back to direct Unsplash URL if upload fails. Update the post via Ghost Admin API (same JWT pattern as Step 7) — PATCH to `/ghost/api/admin/posts/{id}/` with `{"posts": [{"feature_image": "{new_url}", "twitter_image": "{new_url}", "updated_at": "{current_updated_at}"}]}`.
+3. **Link insertion:** If the instruction is to add a hyperlink to specific text, fetch the current post's `lexical` from Ghost, locate the target text node, wrap it in a link node, and PATCH the updated lexical back via Ghost Admin API.
+4. **Confirm silently** by verifying the post via `mcp__ghost-blog__get_post` after the update. No Slack notification needed unless the edit fails.
+5. **If the edit also includes a workflow update instruction** ("encode this in the workflow", "update the workflow"): apply the change to this file (step-01-discover.md) or workflow.md as appropriate, then confirm with a brief #content reply: `"_Workflow updated: {what changed}._"`
 
 **For URL PATH and DIGEST PATH:** Continue to the relevant section below.
 
@@ -216,9 +227,11 @@ https://images.unsplash.com/photo-{PHOTO_ID}?crop=entropy&cs=tinysrgb&fit=max&fm
 Use the ixid from the meta tag URL if available; omit the ixid parameter if not — it's optional.
 
 **Image selection rules:**
-- Must be landscape-oriented (wider than tall)
+- Must be landscape-oriented (wider than tall). No portrait-oriented images. Ever.
+- Must be thematically aligned with the post's core concept — not just generically "professional." A post about auditing should show paperwork, spreadsheets, or financial review. A post about purpose/fulfillment should show open space, horizon, or journey imagery. A post about AI governance should show systems/infrastructure. Match the metaphor, not just the industry.
 - Avoid portraits of people as the primary subject
 - Must be free (no Unsplash+ license required)
+- If the first candidate is premium (Unsplash+) or portrait, discard it and try the next search result — do not settle
 
 Upload to Ghost CDN:
 ```

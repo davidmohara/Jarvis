@@ -1,0 +1,15 @@
+{
+  "id": "err-20260625T180401-I1JPXO",
+  "timestamp": "2026-06-25T16:34:01Z",
+  "session": "harper-content-approval-scheduled-2026-06-25T16:34",
+  "source": "self-detected",
+  "agent": "harper",
+  "category": "tool-misuse",
+  "description": "Content approval workflow (step-02-approve.md) aborted when attempting to read Slack thread replies. The read.py script failed with 'Tunnel connection failed: 403 Forbidden'. This is a network/VPN connectivity issue on the host machine, not a script or token error. The bot token is configured in config/.env but the outbound HTTPS tunnel to Slack API is blocked.",
+  "correction": "Network connectivity to Slack API must be restored before the content approval workflow can continue. This is an infrastructure issue outside the agent's control. The workflow should be retried when network access is restored.",
+  "failure_mode": "external-dependency-failure",
+  "systemic_fix": "Add network connectivity check as a gate in step-02-approve.md (step 0a). If read.py fails with tunnel/connection errors, exit with a clear message to David: 'Content approval skipped — Slack API unreachable (network/VPN issue). Please check connectivity and retry.' This prevents silent failures and makes the cause visible.",
+  "fix_status": "proposed",
+  "severity": "moderate",
+  "related_entries": []
+}
