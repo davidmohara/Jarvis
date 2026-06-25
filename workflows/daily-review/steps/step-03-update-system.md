@@ -181,11 +181,11 @@ Flag pattern — files that indicate a routing failure:
 
 For each flagged file:
 1. Read the first 3 lines to determine what it is
-2. Route it to the correct directory per SYSTEM.md file map:
-   - Account plans → `meetings/accounts/`
-   - Build scripts → delete (move to /tmp)
+2. Route it to the correct directory per `reference/file-map.md`:
+   - Account/client strategy files → `accounts/{Account Name}/` (each account gets its own folder at the root `accounts/` level — never a flat file or a generic subfolder)
+   - Build scripts, one-off `.py` files → delete (move to /tmp)
    - Meeting notes → `meetings/`
-   - Deliverable files → appropriate subfolder per conventions
+   - Deliverable files (PDF, PPTX, DOCX) → `meetings/` or appropriate subfolder per conventions
 3. Move it using Desktop Commander
 4. Note each move in the daily review file under a `## Cleanup` section
 
