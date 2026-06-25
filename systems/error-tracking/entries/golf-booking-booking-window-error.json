@@ -1,0 +1,12 @@
+{
+  "id": "golf-booking-booking-window-error-20260625",
+  "timestamp": "2026-06-25T00:00:00Z",
+  "severity": "critical",
+  "component": "golf-booking-workflow",
+  "error_type": "booking_window_mismatch",
+  "description": "Scheduled task executed at June 25 midnight to book for July 4 (9 days out), but ChronoGolf enforces 8-day advance booking window. July 4 requires booking window to open June 26. The scheduled task trigger rule 'runs Thu/Fri/Sat at midnight, books on the night before rank 1's target day' is incorrect.",
+  "root_cause": "Misinterpretation of '8 days in advance' requirement. If rank 1 target is Saturday July 4, booking must occur on June 26 (8 days before). The workflow scheduled this task for June 25 (9 days before), which is outside the booking window.",
+  "solution": "Update scheduling logic: Calculate booking date as `target_date - 8 days`. For July 4 target, schedule booking for June 26 at 11 PM. Update state.yaml next-run accordingly.",
+  "affected_booking": "Saturday, July 4, 2026",
+  "next_action": "Update workflow scheduling in state.yaml and scheduling configuration to run on June 26, not June 25"
+}

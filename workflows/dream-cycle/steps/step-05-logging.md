@@ -6,8 +6,9 @@ outputs:
   dream_log_appended: true
   working_summary_written: true
   working_summary_reason: "semantic_created=38 + semantic_updated=23 — surface to Chief for visibility."
-  git_commit: pending
-  git_push: pending
+  git_commit: success
+  git_push: success
+  commit_sha: d558db2
 ---
 
 <!-- system:start -->

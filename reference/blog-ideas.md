@@ -28,6 +28,7 @@ Running list of potential blog topics. Jarvis captures these proactively from co
 | "The Audit Your Clients Haven't Done (And Are About to Need)" | Content pipeline (2026-06-24) | AI, business, thoughts | Ghost draft — pending approval |
 | "Fulfillment Is Not a Benefit. It's a Business Model." | Content pipeline (2026-06-24) | leadership, growth, purpose | Ghost draft — pending approval |
 | "Why Governance Doesn't Scale the Way You Think" | Content pipeline (2026-06-24) | AI, business, leadership | Ghost draft — pending approval |
+| "The Invoice Tells You Nothing" | Content pipeline (2026-06-25) | AI, business | Ghost draft — pending approval |
 
 ## Published (for reference / avoid repeats)
 
