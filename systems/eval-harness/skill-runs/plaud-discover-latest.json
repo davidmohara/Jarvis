@@ -2,10 +2,10 @@
   "skill": "plaud-discover",
   "agent": "knox",
   "trigger": "boot",
-  "started": "2026-06-24T00:00:00Z",
-  "completed": "2026-06-24T17:00:00Z",
+  "started": "2026-06-25T00:00:00Z",
+  "completed": "2026-06-25T00:05:00Z",
   "status": "success",
-  "tool_failures": 1,
+  "tool_failures": 0,
   "error_ids": [],
-  "notes": "Plaud API /file/simple/web requires no is_trash param — returns 0 results with is_trash=0. Discovered by testing without param. 3 new recordings found on June 22-23."
+  "notes": "No new recordings found. 63 total recordings scanned via API. Most recent is 2026-06-23. All already ingested in pi-20260624-001. Workflow terminated at step-01 as expected. Also cleaned up 2 stale file-ID-named .md files from staging."
 }

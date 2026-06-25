@@ -31,7 +31,7 @@ Read `data/health/supplement-stack.json` for current stack state, timing, doses,
 
 | Peptide | Dosage | Frequency | Status | Cycle Window | Purpose | Notes |
 |---------|--------|-----------|--------|--------------|---------|-------|
-| Retatrutide (Reta) | **3mg** | Weekly subQ | **ACTIVE** | Mar 28 – ongoing | GLP-1/GIP/glucagon triple agonist — weight loss, VAT, metabolic | Continuing at 3mg through next stack (confirmed Jun 15, 2026). Recomp phase — maintaining 3mg rather than escalating. Jastreboff et al. NEJM 2023. |
+| Retatrutide (Reta) | **3mg** | Weekly subQ | **ACTIVE** | Mar 28 – ongoing | GLP-1/GIP/glucagon triple agonist — weight loss, VAT, metabolic | Current dose and phase tracked in `data/health/tracking.json`. Jastreboff et al. NEJM 2023. |
 | MOTS-C | 5mg (50u) | **Every 4 days**, morning fasted | **PENDING START** (target Jul 7–14, 2026) | TBD – ~8 wks from start | Metabolic — AMPK, VAT reduction, insulin sensitivity | 40mg vial + 4ml BW = 10mg/ml. Last cycle ended ~Mar 14. Rest: 13 wks ✅. Upgraded from every-5-days: better AMPK signaling continuity. |
 | Tesamorelin | **1mg (25u)** | 5 nights/wk (Mon–Fri), **2+ hours post-meal, 30-60 min pre-sleep** | **PENDING START** (target Jul 7–14, 2026) | TBD – ~9 wks from start | GHRH analog — GH/IGF-1, visceral fat reduction, executive function | 10mg vial + **2.5ml BW = 4mg/ml. Draw 0.25ml (25u) per injection.** Each vial = 10 doses. 4.5 vials this 9-wk cycle. Reduced from 2mg: diabetic family hx, glycemic caution, Ipa augmentation makes 1mg sufficient. Baker et al. Neurology 2021 (cognition at 1mg). |
 | Ipamorelin | **300mcg (9u)** | 5 nights/wk (Mon–Fri), **15–20 min BEFORE Tesamorelin** | **PENDING START** (target Jul 7–14, 2026) | TBD – ~9 wks from start | GH secretagogue — pulsatile GH, no cortisol/prolactin spike | 10mg vial + 3ml BW = 3,333mcg/ml. Draw 9 units (0.09ml) per injection. ~1.35 vials this cycle (nights only); ~4.65 remaining after. Reduced from 333mcg: receptor saturation ceiling at ~300mcg. Sequenced before Tesa: primes somatotrophs, amplifies GH pulse. Raun et al. Eur J Endocrinol 1998. |
@@ -101,13 +101,10 @@ Read `data/health/supplement-stack.json` for current stack state, timing, doses,
 - Tesamorelin: min 4 weeks off after 9-week cycle
 - Ipamorelin: min 4 weeks off after 9-week cycle
 
-**Retatrutide Post-Cycle Transition Protocol:**
-- Last Reta injection: ~July 5, 2026
-- Start new stack: 1–2 weeks after last Reta injection (target July 7–14, 2026)
-- Rationale: avoid acute stimulus overlap; allow baseline recovery assessment
-- Expect appetite resurgence weeks 2–4 post-Reta — protein-forward diet, maintain caloric structure
-- If weight gain >2 lbs/week: restart Berberine 500mg BID immediately
-- Creatine 5g/day during transition window buffers lean mass dip
+**Retatrutide + Stack Overlap Protocol:**
+- Current state and confirmed plan are tracked in `data/health/tracking.json` (peptide section)
+- Protein target, weight floor triggers, and recomposition phase decisions: see `data/health/tracking.json`
+- If weight gain >2 lbs/week during lean mass recovery phase: restart Berberine 500mg BID
 
 **Tesamorelin Dose — FINALIZED (2026-06-14, Galen bloodwork review):**
 

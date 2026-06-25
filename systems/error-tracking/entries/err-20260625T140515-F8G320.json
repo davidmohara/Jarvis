@@ -1,0 +1,24 @@
+{
+  "id": "err-20260625T140515-F8G320",
+  "timestamp": "2026-06-25T14:05:15Z",
+  "source": "explicit",
+  "agent": "master/galen",
+  "session_id": "session-2026-06-25-080000",
+  "category": "data-accuracy",
+  "failure_mode": "wrong-value-reported",
+  "severity": "low",
+  "description": "Galen's DEXA analysis reported BF% goal as 17% (actual: 15%). Creatine dose reported as 5g/day in post-cycle transition protocol (actual: 10g/day — David confirmed). Both values were read from protocols file but goal was stated incorrectly.",
+  "corrections": [
+    {
+      "field": "BF% goal",
+      "reported": "17%",
+      "correct": "15%"
+    },
+    {
+      "field": "Creatine daily dose",
+      "reported": "5g/day",
+      "correct": "10g/day"
+    }
+  ],
+  "proposed_fix": "Update galen-protocols SKILL.md: (1) correct creatine dose to 10g/day in post-cycle transition protocol; (2) update quarterly-objectives and any health goal references to reflect 15% BF target. Cross-check identity/GOALS_AND_DREAMS.md."
+}

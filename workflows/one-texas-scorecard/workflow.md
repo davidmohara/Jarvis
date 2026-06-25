@@ -20,6 +20,14 @@ step 5.
 <!-- system:end -->
 
 <!-- personal:start -->
+### Deliverable Output Path
+
+PPTX outputs must be saved to:
+`/Users/davidohara/Library/CloudStorage/OneDrive-Improving/Presentations/One Texas/Monthly Meetings/`
+
+**Filename convention:** `YYYY-MM - One Texas Update.pptx` — e.g. `2026-06 - One Texas Update.pptx`
+
+Do NOT save to `meetings/` in the IES repo. That directory is for markdown source files only.
 <!-- personal:end -->
 
 ---
@@ -78,6 +86,12 @@ Key targets to carry forward:
 <!-- system:end -->
 
 <!-- personal:start -->
+### Deliverable Output Path
+
+PPTX outputs (monthly update deck, scorecard) must be saved to:
+`/Users/davidohara/Library/CloudStorage/OneDrive-Improving/Presentations/One Texas/Monthly Meetings/`
+
+Do NOT save to `meetings/` in the IES repo. The IES `meetings/` directory is for markdown source files only.
 <!-- personal:end -->
 
 ---

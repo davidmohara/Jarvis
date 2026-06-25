@@ -482,6 +482,38 @@
     ]
   },
   {
+    "id": "session-2026-06-25-080000",
+    "started": "2026-06-25T08:00:00-05:00",
+    "closed": "2026-06-25T21:11:58-05:00",
+    "current_topic": null,
+    "topics": [
+      {
+        "name": "morning-boot",
+        "loops": [{"task": "boot-sequence — full workflow completed", "resolved": true}]
+      },
+      {
+        "name": "dexa-review",
+        "loops": [{"task": "DEXA Jun 25 reviewed by Galen — 16.5% BF, -7.4 lbs lean mass, VAT -44%. tracking.json created, supplement-stack corrected.", "resolved": true}]
+      },
+      {
+        "name": "one-texas-decks",
+        "loops": [{"task": "Monthly Update + Q2 Scorecard recovered from git, moved to OneDrive/Presentations/One Texas/Monthly Meetings/, renamed to convention.", "resolved": true}]
+      },
+      {
+        "name": "systemic-compliance-prep",
+        "loops": [{"task": "Full research + call prep PDF built and pushed to reMarkable. SOW signed, kick-off Jun 30 4PM.", "resolved": true}]
+      },
+      {
+        "name": "rmapi-fix",
+        "loops": [{"task": "rmapi config repaired (corrupt JWT → re-authenticated). Working.", "resolved": true}]
+      },
+      {
+        "name": "daily-review",
+        "loops": [{"task": "Daily review written to reviews/daily/2026-06-25.md", "resolved": true}]
+      }
+    ]
+  },
+  {
     "id": "session-2026-06-24-000000",
     "started": "2026-06-24T00:00:00-05:00",
     "closed": "2026-06-25T03:05:33-05:00",

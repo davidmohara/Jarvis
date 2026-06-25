@@ -1,0 +1,1099 @@
+{
+  "_version": "2.0",
+  "_description": "Longitudinal body composition tracking and health goal state. DEXA history, bloodwork history, supplement history, peptide history. Galen reads and writes this file. supplement-stack.json is the parallel file for supplement/peptide current state.",
+  "_last_updated": "2026-06-25",
+  "_updated_by": "jarvis/galen session — full historical consolidation of all DEXA scans and bloodwork draws",
+
+  "goals": {
+    "body_fat_pct": 15.0,
+    "weight_lbs": 210,
+    "lean_mass_lbs_target": 184.6,
+    "lean_mass_lbs_note": "Peak from Aug 2025 scan — recovery target",
+    "vat_volume_in3": 40.0,
+    "ag_ratio": 1.0,
+    "bio_age_years_younger_than_chronological": 8,
+    "bmi_target": "below 20"
+  },
+
+  "dexa_history": [
+    {
+      "scan_date": "2024-09-20",
+      "source": "BodySpec DEXA",
+      "weight_lbs": 234.5,
+      "body_fat_pct": 21.2,
+      "fat_mass_lbs": 49.8,
+      "lean_mass_lbs": 175.9,
+      "bmc_lbs": 8.8,
+      "vat_volume_in3": 74.22,
+      "vat_mass_lbs": 2.53,
+      "ag_ratio": 1.56,
+      "android_fat_pct": 28.0,
+      "gynoid_fat_pct": 18.0,
+      "bone_density_t_score": 3.3,
+      "bone_density_z_score": 3.3,
+      "rmr_kcal_day": 2064,
+      "regional": {
+        "arms_fat_lbs": 5.7,
+        "arms_lean_lbs": 26.3,
+        "legs_fat_lbs": 15.3,
+        "legs_lean_lbs": 61.9,
+        "trunk_fat_lbs": 26.5,
+        "trunk_lean_lbs": 79.2
+      },
+      "notes": "Baseline scan. First BodySpec scan on record."
+    },
+    {
+      "scan_date": "2024-12-07",
+      "source": "BodySpec DEXA",
+      "weight_lbs": 232.9,
+      "body_fat_pct": 18.1,
+      "fat_mass_lbs": 42.1,
+      "lean_mass_lbs": 182.0,
+      "bmc_lbs": 8.9,
+      "vat_volume_in3": 59.24,
+      "vat_mass_lbs": 2.02,
+      "ag_ratio": 1.54,
+      "android_fat_pct": 25.2,
+      "gynoid_fat_pct": 16.3,
+      "bone_density_t_score": 2.8,
+      "bone_density_z_score": 2.8,
+      "rmr_kcal_day": 2118,
+      "regional": {
+        "arms_fat_lbs": 4.9,
+        "arms_lean_lbs": 26.8,
+        "legs_fat_lbs": 11.5,
+        "legs_lean_lbs": 63.4,
+        "trunk_fat_lbs": 23.4,
+        "trunk_lean_lbs": 83.5
+      },
+      "notes": "Strong improvement from Sep 2024 baseline. BF -3.1%, fat mass -7.7 lbs, lean mass +6.1 lbs."
+    },
+    {
+      "scan_date": "2025-04-15",
+      "source": "BodySpec DEXA",
+      "weight_lbs": 236.3,
+      "body_fat_pct": 19.6,
+      "fat_mass_lbs": 46.3,
+      "lean_mass_lbs": 181.1,
+      "bmc_lbs": 9.0,
+      "vat_volume_in3": 57.35,
+      "vat_mass_lbs": 1.95,
+      "ag_ratio": 1.33,
+      "android_fat_pct": 25.0,
+      "gynoid_fat_pct": 18.8,
+      "bone_density_t_score": 2.7,
+      "bone_density_z_score": 2.7,
+      "rmr_kcal_day": 2111,
+      "regional": {
+        "arms_fat_lbs": 4.5,
+        "arms_lean_lbs": 25.9,
+        "legs_fat_lbs": 13.3,
+        "legs_lean_lbs": 63.1,
+        "trunk_fat_lbs": 26.1,
+        "trunk_lean_lbs": 83.1
+      },
+      "notes": "Regression from Dec 2024. Fat mass up 4.2 lbs vs Dec; lean mass down 0.9 lbs. VAT improved slightly to 57.35."
+    },
+    {
+      "scan_date": "2025-08-05",
+      "source": "BodySpec DEXA",
+      "weight_lbs": 243.7,
+      "body_fat_pct": 20.5,
+      "fat_mass_lbs": 50.0,
+      "lean_mass_lbs": 184.6,
+      "bmc_lbs": 9.1,
+      "vat_volume_in3": 71.60,
+      "vat_mass_lbs": 2.44,
+      "ag_ratio": 1.43,
+      "android_fat_pct": 27.3,
+      "gynoid_fat_pct": 19.1,
+      "bone_density_t_score": 3.0,
+      "bone_density_z_score": 3.0,
+      "rmr_kcal_day": 2144,
+      "regional": {
+        "arms_fat_lbs": 5.1,
+        "arms_lean_lbs": 26.4,
+        "legs_fat_lbs": 12.4,
+        "legs_lean_lbs": 65.6,
+        "trunk_fat_lbs": 30.0,
+        "trunk_lean_lbs": 84.0
+      },
+      "notes": "Peak lean mass at 184.6 lbs — all-time high. Fat also increased; VAT worsened to 71.60. Weight 243.7 lbs."
+    },
+    {
+      "scan_date": "2025-11-04",
+      "source": "BodySpec DEXA",
+      "weight_lbs": 227.2,
+      "body_fat_pct": 19.6,
+      "fat_mass_lbs": 44.6,
+      "lean_mass_lbs": 173.6,
+      "bmc_lbs": 9.1,
+      "vat_volume_in3": 91.64,
+      "vat_mass_lbs": 3.12,
+      "ag_ratio": 1.44,
+      "android_fat_pct": 26.9,
+      "gynoid_fat_pct": 18.6,
+      "rmr_kcal_day": 2045,
+      "regional": {
+        "arms_fat_lbs": 4.9,
+        "arms_lean_lbs": 23.0,
+        "legs_fat_lbs": 11.5,
+        "legs_lean_lbs": 62.6,
+        "trunk_fat_lbs": 25.8,
+        "trunk_lean_lbs": 79.4
+      },
+      "notes": "Significant lean mass loss (-11.0 lbs vs Aug). VAT spiked to 91.64 — highest recorded. Weight dropped to 227.2."
+    },
+    {
+      "scan_date": "2026-03-24",
+      "source": "BodySpec DEXA",
+      "weight_lbs": 237.8,
+      "body_fat_pct": 19.6,
+      "fat_mass_lbs": 46.6,
+      "lean_mass_lbs": 182.0,
+      "bmc_lbs": 9.2,
+      "vat_volume_in3": 76.32,
+      "vat_mass_lbs": 2.60,
+      "ag_ratio": 1.51,
+      "android_fat_pct": 26.2,
+      "gynoid_fat_pct": 17.4,
+      "bone_density_t_score": 3.7,
+      "bone_density_z_score": 3.7,
+      "rmr_kcal_day": 2122,
+      "regional": {
+        "arms_lean_lbs": 26.9,
+        "legs_lean_lbs": 63.2,
+        "trunk_lean_lbs": 82.6,
+        "arms_fat_lbs": 4.7,
+        "legs_fat_lbs": 12.6,
+        "trunk_fat_lbs": 26.7
+      },
+      "notes": "Pre-Retatrutide-acceleration baseline. VAT 76.32 was highest recorded at that time."
+    },
+    {
+      "scan_date": "2026-06-25",
+      "source": "BodySpec DEXA — 3333 Preston Rd, Frisco TX",
+      "weight_lbs": 219.9,
+      "body_fat_pct": 16.5,
+      "fat_mass_lbs": 36.2,
+      "lean_mass_lbs": 174.6,
+      "bmc_lbs": 9.1,
+      "vat_volume_in3": 42.39,
+      "vat_mass_lbs": 1.44,
+      "ag_ratio": 1.06,
+      "android_fat_pct": 17.5,
+      "gynoid_fat_pct": 16.4,
+      "bone_density_t_score": 3.9,
+      "bone_density_z_score": 3.9,
+      "rmr_kcal_day": 2055,
+      "regional": {
+        "arms_lean_lbs": 24.1,
+        "legs_lean_lbs": 60.9,
+        "trunk_lean_lbs": 81.1,
+        "arms_fat_lbs": 4.1,
+        "legs_fat_lbs": 11.7,
+        "trunk_fat_lbs": 18.1
+      },
+      "notes": "Best VAT result in tracked history (-44% vs Mar 2026). BF% goal achieved at 16.5% (goal 15%, 1.5% remaining). Lean mass loss of 7.4 lbs vs Mar — primary concern. Weight training focus starting July 2026 to drive lean mass recovery."
+    }
+  ],
+
+  "bloodwork_history": [
+    {
+      "draw_date": "2022-03-31",
+      "lab": "Clinical Pathology Laboratories (CPL) / Bent Tree Family Physicians",
+      "ordering_physician": "Jones MD",
+      "fasting": true,
+      "cardiovascular": {
+        "total_cholesterol": {"value": 214, "unit": "mg/dL", "ref": "<200", "flag": "H"},
+        "triglycerides": {"value": 152, "unit": "mg/dL", "ref": "<150", "flag": "H"},
+        "hdl": {"value": 50, "unit": "mg/dL", "ref": ">39"},
+        "ldl_calc": {"value": 136, "unit": "mg/dL", "ref": "<100", "flag": "H"},
+        "ldl_hdl_ratio": {"value": 2.72, "unit": "ratio", "ref": "<3.55"}
+      },
+      "metabolic": {
+        "glucose": {"value": 101, "unit": "mg/dL", "ref": "70-99", "flag": "H"},
+        "bun": {"value": 15, "unit": "mg/dL", "ref": "6-20"},
+        "creatinine": {"value": 1.26, "unit": "mg/dL", "ref": "0.80-1.40"},
+        "egfr": {"value": 71, "unit": "mL/min/1.73m2", "ref": ">60"},
+        "uric_acid": {"value": 5.9, "unit": "mg/dL", "ref": "3.7-8.0"},
+        "sodium": {"value": 140, "unit": "mEq/L", "ref": "133-146"},
+        "potassium": {"value": 3.9, "unit": "mEq/L", "ref": "3.5-5.4"},
+        "calcium": {"value": 9.8, "unit": "mg/dL", "ref": "8.5-10.5"},
+        "albumin": {"value": 4.5, "unit": "g/dL", "ref": "3.5-5.2"},
+        "protein_total": {"value": 7.0, "unit": "g/dL", "ref": "6.1-8.3"}
+      },
+      "liver": {
+        "ast": {"value": 40, "unit": "U/L", "ref": "9-50"},
+        "alt": {"value": 48, "unit": "U/L", "ref": "5-50"},
+        "ggt": {"value": 36, "unit": "U/L", "ref": "<60"},
+        "alkaline_phosphatase": {"value": 21, "unit": "U/L", "ref": "40-118", "flag": "L"},
+        "bilirubin_total": {"value": 0.5, "unit": "mg/dL", "ref": "<=1.2"},
+        "ldh": {"value": 181, "unit": "U/L", "ref": "135-225"}
+      },
+      "blood_health": {
+        "wbc": {"value": 5.4, "unit": "K/uL", "ref": "3.5-11.0"},
+        "rbc": {"value": 4.20, "unit": "M/uL", "ref": "4.50-6.10", "flag": "L"},
+        "hemoglobin": {"value": 14.6, "unit": "g/dL", "ref": "13.5-17.0"},
+        "hematocrit": {"value": 42.2, "unit": "%", "ref": "40.0-51.0"},
+        "mcv": {"value": 100.5, "unit": "fL", "ref": "80.0-99.0", "flag": "H"},
+        "mch": {"value": 34.8, "unit": "pg", "ref": "25.0-33.0", "flag": "H"},
+        "mchc": {"value": 34.6, "unit": "g/dL", "ref": "31.0-36.0"},
+        "rdw": {"value": 12.8, "unit": "%", "ref": "11.5-15.0"},
+        "platelets": {"value": 124, "unit": "K/uL", "ref": "130-400", "flag": "L"},
+        "iron_serum": {"value": 97, "unit": "ug/dL", "ref": "59-158"}
+      },
+      "hormonal": {
+        "tsh": {"value": 1.650, "unit": "uIU/mL", "ref": "0.400-4.100"},
+        "t4_thyroxine": {"value": 5.1, "unit": "ug/dL", "ref": "4.5-10.5"},
+        "t_uptake": {"value": 36.1, "unit": "%", "ref": "24.3-39.0"}
+      },
+      "other": {
+        "psa_total": {"value": 0.24, "unit": "ng/mL", "ref": "<=4.00"}
+      }
+    },
+    {
+      "draw_date": "2022-04-20",
+      "lab": "Clinical Pathology Laboratories (CPL) / Bent Tree Family Physicians",
+      "ordering_physician": "Jones MD",
+      "fasting": null,
+      "hormonal": {
+        "testosterone_total": {"value": 202, "unit": "ng/dL", "ref": "300-890", "flag": "L"}
+      },
+      "micronutrients": {
+        "vitamin_d_25oh": {"value": 20, "unit": "ng/mL", "note": "suboptimal (range 20-29)"},
+        "vitamin_b12": {"value": 596, "unit": "pg/mL", "ref": "200-950"}
+      }
+    },
+    {
+      "draw_date": "2022-06-21",
+      "lab": "Clinical Pathology Laboratories (CPL) / Bent Tree Family Physicians",
+      "ordering_physician": "Jones MD",
+      "fasting": null,
+      "hormonal": {
+        "testosterone_total": {"value": 263, "unit": "ng/dL", "ref": "300-890", "flag": "L"},
+        "shbg": {"value": 16.8, "unit": "nmol/L", "ref": "16.5-55.9"},
+        "free_testosterone_calc": {"value": 71.3, "unit": "pg/mL", "ref": "47.0-244.0"}
+      },
+      "micronutrients": {
+        "vitamin_d_25oh": {"value": 54, "unit": "ng/mL", "note": "optimal"}
+      }
+    },
+    {
+      "draw_date": "2022-08-23",
+      "lab": "Clinical Pathology Laboratories (CPL) / Bent Tree Family Physicians",
+      "ordering_physician": "Jones MD",
+      "fasting": null,
+      "hormonal": {
+        "testosterone_total": {"value": 415, "unit": "ng/dL", "ref": "300-890"},
+        "shbg": {"value": 16.5, "unit": "nmol/L", "ref": "16.5-55.9"},
+        "free_testosterone_calc": {"value": 118.1, "unit": "pg/mL", "ref": "47.0-244.0"}
+      }
+    },
+    {
+      "draw_date": "2022-12-27",
+      "lab": "Clinical Pathology Laboratories (CPL) / Bent Tree Family Physicians",
+      "ordering_physician": "Jones MD",
+      "fasting": true,
+      "cardiovascular": {
+        "total_cholesterol": {"value": 225, "unit": "mg/dL", "ref": "<200", "flag": "H"},
+        "triglycerides": {"value": 180, "unit": "mg/dL", "ref": "<150", "flag": "H"},
+        "hdl": {"value": 64, "unit": "mg/dL", "ref": ">39"},
+        "ldl_calc": {"value": 129, "unit": "mg/dL", "ref": "<100", "flag": "H"},
+        "ldl_hdl_ratio": {"value": 2.02, "unit": "ratio", "ref": "<3.55"}
+      },
+      "metabolic": {
+        "glucose": {"value": 106, "unit": "mg/dL", "ref": "70-99", "flag": "H"},
+        "bun": {"value": 15, "unit": "mg/dL", "ref": "6-20"},
+        "creatinine": {"value": 1.13, "unit": "mg/dL", "ref": "0.80-1.40"},
+        "egfr": {"value": 81, "unit": "mL/min/1.73m2", "ref": ">60"},
+        "uric_acid": {"value": 6.6, "unit": "mg/dL", "ref": "3.7-8.0"},
+        "sodium": {"value": 142, "unit": "mEq/L", "ref": "133-146"},
+        "potassium": {"value": 4.6, "unit": "mEq/L", "ref": "3.5-5.4"},
+        "calcium": {"value": 9.7, "unit": "mg/dL", "ref": "8.5-10.5"},
+        "albumin": {"value": 4.7, "unit": "g/dL", "ref": "3.5-5.2"},
+        "protein_total": {"value": 7.0, "unit": "g/dL", "ref": "6.1-8.3"},
+        "iron_serum": {"value": 91, "unit": "ug/dL", "ref": "59-158"}
+      },
+      "liver": {
+        "ast": {"value": 42, "unit": "U/L", "ref": "9-50"},
+        "alt": {"value": 41, "unit": "U/L", "ref": "5-50"},
+        "ggt": {"value": 33, "unit": "U/L", "ref": "<60"},
+        "alkaline_phosphatase": {"value": 17, "unit": "U/L", "ref": "40-118", "flag": "L"},
+        "bilirubin_total": {"value": 0.4, "unit": "mg/dL", "ref": "<=1.2"},
+        "ldh": {"value": 184, "unit": "U/L", "ref": "135-225"}
+      },
+      "blood_health": {
+        "wbc": {"value": 4.7, "unit": "K/uL", "ref": "3.5-11.0"},
+        "rbc": {"value": 4.79, "unit": "M/uL", "ref": "4.50-6.10"},
+        "hemoglobin": {"value": 16.8, "unit": "g/dL", "ref": "13.5-17.0"},
+        "hematocrit": {"value": 47.4, "unit": "%", "ref": "40.0-51.0"},
+        "mcv": {"value": 99.0, "unit": "fL", "ref": "80.0-99.0"},
+        "mch": {"value": 35.1, "unit": "pg", "ref": "25.0-33.0", "flag": "H"},
+        "mchc": {"value": 35.4, "unit": "g/dL", "ref": "31.0-36.0"},
+        "rdw": {"value": 12.3, "unit": "%", "ref": "11.5-15.0"},
+        "platelets": {"value": 142, "unit": "K/uL", "ref": "130-400"}
+      },
+      "hormonal": {
+        "testosterone_total": {"value": 226, "unit": "ng/dL", "ref": "300-890", "flag": "L"},
+        "shbg": {"value": 17.4, "unit": "nmol/L", "ref": "16.5-55.9"},
+        "free_testosterone_calc": {"value": 59.7, "unit": "pg/mL", "ref": "47.0-244.0"}
+      }
+    },
+    {
+      "draw_date": "2023-03-17",
+      "lab": "Function Health (Ultimate panel)",
+      "ordering_physician": null,
+      "fasting": true,
+      "source_file": "Bloodwork History for David OHara.pdf (Function Health export)",
+      "cardiovascular": {
+        "total_cholesterol": {"value": 180, "unit": "mg/dL", "ref": "125-200"},
+        "triglycerides": {"value": 76, "unit": "mg/dL", "ref": "0-150"},
+        "hdl": {"value": 54, "unit": "mg/dL", "ref": "40-200"},
+        "ldl": {"value": 109, "unit": "mg/dL", "ref": "0-100"},
+        "apob": {"value": 89, "unit": "mg/dL", "ref": "0-119"}
+      },
+      "metabolic": {
+        "glucose": {"value": 91, "unit": "mg/dL", "ref": "65-99"},
+        "hba1c": {"value": 4.8, "unit": "%", "ref": "3-5.7"},
+        "alt": {"value": 32, "unit": "U/L", "ref": "9-46"}
+      },
+      "blood_health": {
+        "wbc": {"value": 5.3, "unit": "K/uL", "ref": "3.8-10.8"},
+        "hemoglobin": {"value": 17.9, "unit": "g/dL", "ref": "13.2-17.1", "flag": "H"},
+        "hematocrit": {"value": 51.0, "unit": "%", "ref": "38.5-50.0", "flag": "H"},
+        "mcv": {"value": 100.4, "unit": "fL", "ref": "80-100"},
+        "platelets": {"value": 130, "unit": "K/uL", "ref": "140-400", "flag": "L"},
+        "ferritin": {"value": 156, "unit": "ng/mL", "ref": "20-345"}
+      },
+      "hormonal": {
+        "testosterone_total": {"value": 687, "unit": "ng/dL", "ref": "250-1100"},
+        "free_testosterone": {"value": 13.3, "unit": "ng/dL", "ref": "4.6-22.4"},
+        "shbg": {"value": 15, "unit": "nmol/L", "ref": "10-50"}
+      },
+      "micronutrients": {
+        "vitamin_d_25oh": {"value": 86, "unit": "ng/mL", "ref": "30-100"},
+        "vitamin_b12": {"value": 547, "unit": "pg/mL", "ref": "200-1100"},
+        "magnesium_rbc": {"value": 5.4, "unit": "mg/dL", "ref": "4-6.4"}
+      },
+      "other": {
+        "hs_crp": {"value": 1.7, "unit": "mg/L", "ref": "0-3"},
+        "cortisol": {"value": 15.3, "unit": "ug/dL", "ref": "4-22"},
+        "creatine_kinase": {"value": 221, "unit": "U/L", "ref": "44-1083"}
+      }
+    },
+    {
+      "draw_date": "2023-04-25",
+      "lab": "Clinical Pathology Laboratories (CPL) / Bent Tree Family Physicians Frisco",
+      "ordering_physician": "Khan MD",
+      "fasting": true,
+      "cardiovascular": {
+        "total_cholesterol": {"value": 189, "unit": "mg/dL", "ref": "<200"},
+        "triglycerides": {"value": 104, "unit": "mg/dL", "ref": "<150"},
+        "hdl": {"value": 53, "unit": "mg/dL", "ref": ">39"},
+        "ldl_calc": {"value": 115, "unit": "mg/dL", "ref": "<100", "flag": "H"},
+        "ldl_hdl_ratio": {"value": 2.17, "unit": "ratio", "ref": "<3.55"}
+      },
+      "metabolic": {
+        "glucose": {"value": 92, "unit": "mg/dL", "ref": "70-99"},
+        "bun": {"value": 16, "unit": "mg/dL", "ref": "6-20"},
+        "creatinine": {"value": 1.32, "unit": "mg/dL", "ref": "0.80-1.40"},
+        "egfr": {"value": 67, "unit": "mL/min/1.73m2", "ref": ">60"},
+        "uric_acid": {"value": 7.8, "unit": "mg/dL", "ref": "3.7-8.0"},
+        "sodium": {"value": 141, "unit": "mEq/L", "ref": "133-146"},
+        "potassium": {"value": 4.2, "unit": "mEq/L", "ref": "3.5-5.4"},
+        "calcium": {"value": 9.9, "unit": "mg/dL", "ref": "8.5-10.5"},
+        "albumin": {"value": 4.6, "unit": "g/dL", "ref": "3.5-5.2"},
+        "iron_serum": {"value": 111, "unit": "ug/dL", "ref": "59-158"}
+      },
+      "liver": {
+        "ast": {"value": 41, "unit": "U/L", "ref": "9-50"},
+        "alt": {"value": 31, "unit": "U/L", "ref": "5-50"},
+        "ggt": {"value": 22, "unit": "U/L", "ref": "<60"},
+        "alkaline_phosphatase": {"value": 15, "unit": "U/L", "ref": "40-118", "flag": "L"},
+        "bilirubin_total": {"value": 0.8, "unit": "mg/dL", "ref": "<=1.2"}
+      },
+      "blood_health": {
+        "wbc": {"value": 9.8, "unit": "K/uL", "ref": "3.5-11.0"},
+        "rbc": {"value": 4.91, "unit": "M/uL", "ref": "4.50-6.10"},
+        "hemoglobin": {"value": 17.6, "unit": "g/dL", "ref": "13.5-17.0", "flag": "H"},
+        "hematocrit": {"value": 49.5, "unit": "%", "ref": "40.0-51.0"},
+        "mcv": {"value": 100.8, "unit": "fL", "ref": "80.0-99.0", "flag": "H"},
+        "mch": {"value": 35.8, "unit": "pg", "ref": "25.0-33.0", "flag": "H"},
+        "mchc": {"value": 35.6, "unit": "g/dL", "ref": "31.0-36.0"},
+        "rdw": {"value": 11.8, "unit": "%", "ref": "11.5-15.0"},
+        "platelets": {"value": 113, "unit": "K/uL", "ref": "130-400", "flag": "L"}
+      },
+      "hormonal": {
+        "testosterone_total": {"value": 1228, "unit": "ng/dL", "ref": "300-890", "flag": "H"},
+        "tsh": {"value": 1.950, "unit": "uIU/mL", "ref": "0.400-4.100"},
+        "t4_thyroxine": {"value": 5.0, "unit": "ug/dL", "ref": "4.5-10.5"},
+        "estradiol": {"value": 49.8, "unit": "pg/mL", "ref": "<=60.7"}
+      },
+      "micronutrients": {
+        "vitamin_d_25oh": {"value": 96, "unit": "ng/mL", "note": "optimal"},
+        "vitamin_b12": {"value": 683, "unit": "pg/mL", "ref": "200-950"}
+      },
+      "metabolic_extended": {
+        "hba1c": {"value": 5.1, "unit": "%", "ref": "4.2-5.6"}
+      },
+      "other": {
+        "psa_total": {"value": 0.45, "unit": "ng/mL", "ref": "<=4.00"}
+      }
+    },
+    {
+      "draw_date": "2023-06-05",
+      "lab": "Quest Diagnostics / Function Health",
+      "ordering_physician": "Jefferis, Lauren (Function Health)",
+      "fasting": true,
+      "source_file": "Lab Results of Record.pdf (June 2023)",
+      "inflammatory": {
+        "homocysteine": {"value": 15.9, "unit": "umol/L", "ref": "<11.4", "flag": "H"}
+      },
+      "hormonal": {
+        "testosterone_total_ms": {"value": 864, "unit": "ng/dL", "ref": "250-1100"},
+        "testosterone_free_dialysis": {"value": 266.6, "unit": "pg/mL", "ref": "35.0-155.0", "flag": "H"},
+        "shbg": {"value": 15, "unit": "nmol/L", "ref": "10-50"},
+        "estradiol": {"value": 59, "unit": "pg/mL", "ref": "<=39", "flag": "H"},
+        "fsh": {"value": "<0.7", "unit": "mIU/mL", "ref": "1.6-8.0", "flag": "L"},
+        "lh": {"value": "<0.2", "unit": "mIU/mL", "ref": "1.5-9.3", "flag": "L"},
+        "prolactin": {"value": 5.5, "unit": "ng/mL", "ref": "2.0-18.0"},
+        "dhea_sulfate": {"value": 120, "unit": "mcg/dL", "ref": "61-442"}
+      },
+      "liver": {
+        "ggt": {"value": 21, "unit": "U/L", "ref": "3-95"},
+        "amylase": {"value": 29, "unit": "U/L", "ref": "21-101"},
+        "lipase": {"value": 38, "unit": "U/L", "ref": "7-60"}
+      },
+      "other": {
+        "psa_total": {"value": 0.3, "unit": "ng/mL", "ref": "<=4.0"},
+        "psa_free": {"value": 0.2, "unit": "ng/mL"},
+        "psa_pct_free": {"value": 67, "unit": "%", "ref": ">25"},
+        "adiponectin": {"value": 15, "unit": "ug/mL"},
+        "leptin": {"value": 2.0, "unit": "ng/mL"},
+        "methylmalonic_acid": {"value": 149, "unit": "nmol/L", "ref": "87-318"},
+        "zinc": {"value": 63, "unit": "mcg/dL", "ref": "60-130"},
+        "lead_venous": {"value": "<1.0", "unit": "mcg/dL", "ref": "<3.5"}
+      }
+    },
+    {
+      "draw_date": "2023-09-18",
+      "lab": "Function Health (Ultimate panel)",
+      "ordering_physician": null,
+      "fasting": true,
+      "source_file": "Bloodwork History for David OHara.pdf (Function Health export)",
+      "cardiovascular": {
+        "total_cholesterol": {"value": 176, "unit": "mg/dL", "ref": "125-200"},
+        "triglycerides": {"value": 77, "unit": "mg/dL", "ref": "0-150"},
+        "hdl": {"value": 58, "unit": "mg/dL", "ref": "40-200"},
+        "ldl": {"value": 101, "unit": "mg/dL", "ref": "0-100"},
+        "apob": {"value": 79, "unit": "mg/dL", "ref": "0-119"}
+      },
+      "metabolic": {
+        "glucose": {"value": 99, "unit": "mg/dL", "ref": "65-99"},
+        "hba1c": {"value": 4.7, "unit": "%", "ref": "3-5.7"},
+        "alt": {"value": 22, "unit": "U/L", "ref": "9-46"}
+      },
+      "blood_health": {
+        "wbc": {"value": 4.4, "unit": "K/uL", "ref": "3.8-10.8"},
+        "hemoglobin": {"value": 15.5, "unit": "g/dL", "ref": "13.2-17.1"},
+        "hematocrit": {"value": 44.2, "unit": "%", "ref": "38.5-50.0"},
+        "mcv": {"value": 101.6, "unit": "fL", "ref": "80-100", "flag": "H"},
+        "platelets": {"value": 129, "unit": "K/uL", "ref": "140-400", "flag": "L"},
+        "ferritin": {"value": 52, "unit": "ng/mL", "ref": "20-345"}
+      },
+      "hormonal": {
+        "testosterone_total": {"value": 469, "unit": "ng/dL", "ref": "250-1100"},
+        "free_testosterone": {"value": 9, "unit": "ng/dL", "ref": "4.6-22.4"},
+        "shbg": {"value": 16, "unit": "nmol/L", "ref": "10-50"}
+      },
+      "micronutrients": {
+        "vitamin_d_25oh": {"value": 85, "unit": "ng/mL", "ref": "30-100"},
+        "vitamin_b12": {"value": 765, "unit": "pg/mL", "ref": "200-1100"},
+        "magnesium_rbc": {"value": 5.3, "unit": "mg/dL", "ref": "4-6.4"},
+        "folate": {"value": 19.5, "unit": "ng/mL", "ref": "3.4-40"}
+      },
+      "inflammatory": {
+        "hs_crp": {"value": 1, "unit": "mg/L", "ref": "0-3"}
+      },
+      "other": {
+        "cortisol": {"value": 13.7, "unit": "ug/dL", "ref": "4-22"},
+        "creatine_kinase": {"value": 122, "unit": "U/L", "ref": "44-1083"}
+      }
+    },
+    {
+      "draw_date": "2023-12-04",
+      "lab": "Quest Diagnostics / Function Health",
+      "ordering_physician": "Weir, Alec MD",
+      "fasting": true,
+      "source_file": "Lab Results from 2023-12-04.pdf",
+      "cardiovascular": {
+        "total_cholesterol": {"value": 168, "unit": "mg/dL", "ref": "<200"},
+        "triglycerides": {"value": 63, "unit": "mg/dL", "ref": "<150"},
+        "hdl": {"value": 69, "unit": "mg/dL", "ref": ">39"},
+        "ldl_calc": {"value": 85, "unit": "mg/dL", "ref": "<100"},
+        "chol_hdl_ratio": {"value": 2.4, "unit": "ratio", "ref": "<5.0"},
+        "non_hdl_cholesterol": {"value": 99, "unit": "mg/dL", "ref": "<130"},
+        "omega3_index_epa_dha": {"value": 3.4, "unit": "%", "ref": "1.4-4.9", "note": "optimal >3.2%"},
+        "omega6_omega3_ratio": {"value": 6.6, "unit": "ratio", "ref": "5.7-21.3"}
+      },
+      "metabolic": {
+        "glucose": {"value": 92, "unit": "mg/dL", "ref": "65-99"},
+        "bun": {"value": 20, "unit": "mg/dL", "ref": "7-25"},
+        "creatinine": {"value": 1.03, "unit": "mg/dL", "ref": "0.60-1.29"},
+        "egfr": {"value": 90, "unit": "mL/min/1.73m2", "ref": ">=60"},
+        "sodium": {"value": 139, "unit": "mmol/L", "ref": "135-146"},
+        "potassium": {"value": 4.1, "unit": "mmol/L", "ref": "3.5-5.3"},
+        "calcium": {"value": 9.2, "unit": "mg/dL", "ref": "8.6-10.3"},
+        "albumin": {"value": 4.4, "unit": "g/dL", "ref": "3.6-5.1"},
+        "protein_total": {"value": 6.6, "unit": "g/dL", "ref": "6.1-8.1"},
+        "hba1c": {"value": 5.2, "unit": "%", "ref": "<5.7"},
+        "insulin": {"value": 3.4, "unit": "uIU/mL", "ref": "<=18.4"}
+      },
+      "liver": {
+        "ast": {"value": 32, "unit": "U/L", "ref": "10-40"},
+        "alt": {"value": 23, "unit": "U/L", "ref": "9-46"},
+        "alkaline_phosphatase": {"value": 14, "unit": "U/L", "ref": "36-130", "flag": "L"},
+        "bilirubin_total": {"value": 0.7, "unit": "mg/dL", "ref": "0.2-1.2"}
+      },
+      "blood_health": {
+        "wbc": {"value": 4.7, "unit": "K/uL", "ref": "3.8-10.8"},
+        "rbc": {"value": 4.33, "unit": "M/uL", "ref": "4.20-5.80"},
+        "hemoglobin": {"value": 15.1, "unit": "g/dL", "ref": "13.2-17.1"},
+        "hematocrit": {"value": 42.2, "unit": "%", "ref": "38.5-50.0"},
+        "mcv": {"value": 97.5, "unit": "fL", "ref": "80.0-100.0"},
+        "mch": {"value": 34.9, "unit": "pg", "ref": "27.0-33.0", "flag": "H"},
+        "mchc": {"value": 35.8, "unit": "g/dL", "ref": "32.0-36.0"},
+        "rdw": {"value": 11.9, "unit": "%", "ref": "11.0-15.0"},
+        "platelets": {"value": 142, "unit": "K/uL", "ref": "140-400"},
+        "mpv": {"value": 11.6, "unit": "fL", "ref": "7.5-12.5"}
+      },
+      "inflammatory": {
+        "hs_crp": {"value": 0.9, "unit": "mg/L", "ref": "<1.0 optimal"}
+      }
+    },
+    {
+      "draw_date": "2024-01-26",
+      "lab": "Labcorp / Transcend (R Veyna)",
+      "ordering_physician": "R Veyna (Transcend)",
+      "fasting": true,
+      "source_file": "2024-01-26 OHARA_DAVID.PDF",
+      "cardiovascular": {
+        "total_cholesterol": {"value": 219, "unit": "mg/dL", "ref": "100-199", "flag": "H"},
+        "triglycerides": {"value": 100, "unit": "mg/dL", "ref": "0-149"},
+        "hdl": {"value": 67, "unit": "mg/dL", "ref": ">39"},
+        "ldl_calc_nih": {"value": 134, "unit": "mg/dL", "ref": "0-99", "flag": "H"},
+        "vldl": {"value": 18, "unit": "mg/dL", "ref": "5-40"},
+        "chol_hdl_ratio": {"value": 3.3, "unit": "ratio", "ref": "0.0-5.0"}
+      },
+      "metabolic": {
+        "glucose": {"value": 98, "unit": "mg/dL", "ref": "70-99"},
+        "bun": {"value": 18, "unit": "mg/dL", "ref": "6-24"},
+        "creatinine": {"value": 1.13, "unit": "mg/dL", "ref": "0.76-1.27"},
+        "egfr": {"value": 80, "unit": "mL/min/1.73m2", "ref": ">59"},
+        "sodium": {"value": 139, "unit": "mmol/L", "ref": "134-144"},
+        "potassium": {"value": 4.4, "unit": "mmol/L", "ref": "3.5-5.2"},
+        "calcium": {"value": 9.6, "unit": "mg/dL", "ref": "8.7-10.2"},
+        "albumin": {"value": 4.8, "unit": "g/dL", "ref": "4.1-5.1"},
+        "protein_total": {"value": 7.2, "unit": "g/dL", "ref": "6.0-8.5"},
+        "hba1c": {"value": 5.4, "unit": "%", "ref": "4.8-5.6"}
+      },
+      "liver": {
+        "ast": {"value": 33, "unit": "IU/L", "ref": "0-40"},
+        "alt": {"value": 29, "unit": "IU/L", "ref": "0-44"},
+        "alkaline_phosphatase": {"value": 18, "unit": "IU/L", "ref": "44-121", "flag": "L"},
+        "bilirubin_total": {"value": 0.8, "unit": "mg/dL", "ref": "0.0-1.2"}
+      },
+      "blood_health": {
+        "wbc": {"value": 4.6, "unit": "K/uL", "ref": "3.4-10.8"},
+        "rbc": {"value": 4.59, "unit": "M/uL", "ref": "4.14-5.80"},
+        "hemoglobin": {"value": 15.1, "unit": "g/dL", "ref": "13.0-17.7"},
+        "hematocrit": {"value": 43.9, "unit": "%", "ref": "37.5-51.0"},
+        "mcv": {"value": 96, "unit": "fL", "ref": "79-97"},
+        "mch": {"value": 32.9, "unit": "pg", "ref": "26.6-33.0"},
+        "mchc": {"value": 34.4, "unit": "g/dL", "ref": "31.5-35.7"},
+        "rdw": {"value": 13.6, "unit": "%", "ref": "11.6-15.4"},
+        "platelets": {"value": 146, "unit": "K/uL", "ref": "150-450", "flag": "L"}
+      },
+      "hormonal": {
+        "testosterone_total": {"value": 198, "unit": "ng/dL", "ref": "264-916", "flag": "L"},
+        "free_testosterone_direct": {"value": 8.2, "unit": "pg/mL", "ref": "6.8-21.5"},
+        "tsh": {"value": 2.220, "unit": "uIU/mL", "ref": "0.450-4.500"},
+        "t4_free_direct": {"value": 1.09, "unit": "ng/dL", "ref": "0.82-1.77"},
+        "t3_free": {"value": 2.8, "unit": "pg/mL", "ref": "2.0-4.4"},
+        "estradiol": {"value": 24.5, "unit": "pg/mL", "ref": "7.6-42.6"},
+        "fsh": {"value": 2.1, "unit": "mIU/mL", "ref": "1.5-12.4"},
+        "lh": {"value": 3.2, "unit": "mIU/mL", "ref": "1.7-8.6"},
+        "dhea_sulfate": {"value": 192.0, "unit": "ug/dL", "ref": "71.6-375.4"},
+        "igf_1": {"value": 179, "unit": "ng/mL", "ref": "81-263"}
+      },
+      "inflammatory": {
+        "hs_crp_cardiac": {"value": 1.46, "unit": "mg/L", "ref": "0.00-3.00"}
+      },
+      "other": {
+        "psa_total": {"value": 0.3, "unit": "ng/mL", "ref": "0.0-4.0"},
+        "biometrics_weight_lbs": 233.0,
+        "biometrics_height_in": 74.0,
+        "biometrics_bmi": 29.9,
+        "biometrics_waist_in": 38.0,
+        "bp_systolic": 151,
+        "bp_diastolic": 86
+      }
+    },
+    {
+      "draw_date": "2024-06-05",
+      "lab": "Quest Diagnostics / Function Health",
+      "ordering_physician": "Lin, Billiken T MD",
+      "fasting": true,
+      "source_files": ["2024-06-05 - Lab Results of Record.pdf", "2024-06-07 - Lab Results of Record.pdf"],
+      "note": "Two report files from same draw week merged into one entry. Collection dates 06/05/2024 and 06/07/2024 — treated as same draw.",
+      "cardiovascular": {
+        "total_cholesterol": {"value": 195, "unit": "mg/dL", "ref": "<200"},
+        "triglycerides": {"value": 78, "unit": "mg/dL", "ref": "<150"},
+        "hdl": {"value": 60, "unit": "mg/dL", "ref": ">39"},
+        "ldl_calc": {"value": 118, "unit": "mg/dL", "ref": "<100", "flag": "H"},
+        "chol_hdl_ratio": {"value": 3.3, "unit": "calc", "ref": "<5.0"},
+        "non_hdl_cholesterol": {"value": 135, "unit": "mg/dL", "ref": "<130", "flag": "H"},
+        "apob": {"value": 88, "unit": "mg/dL", "ref": "<90"},
+        "lipoprotein_a": {"value": 42, "unit": "nmol/L", "ref": "<75"},
+        "ldl_particle_number": {"value": 2190, "unit": "nmol/L", "ref": "<1138", "flag": "H"},
+        "ldl_small": {"value": 436, "unit": "nmol/L", "ref": "<142", "flag": "H"},
+        "ldl_medium": {"value": 582, "unit": "nmol/L", "ref": "<215", "flag": "H"},
+        "hdl_large": {"value": 6017, "unit": "nmol/L", "ref": ">6729", "flag": "L"},
+        "ldl_pattern": "A",
+        "ldl_peak_size": {"value": 217.4, "unit": "Angstrom", "ref": ">222.9", "flag": "L"},
+        "omega3_check_epa_dpa_dha": {"value": 6.0, "unit": "% by wt", "ref": ">5.4"},
+        "omega6_omega3_ratio": {"value": 7.0, "unit": "ratio", "ref": "3.7-14.4"}
+      },
+      "metabolic": {
+        "glucose": {"value": 93, "unit": "mg/dL", "ref": "65-99"},
+        "bun": {"value": 19, "unit": "mg/dL", "ref": "7-25"},
+        "creatinine": {"value": 1.14, "unit": "mg/dL", "ref": "0.60-1.29"},
+        "egfr": {"value": 79, "unit": "mL/min/1.73m2", "ref": ">=60"},
+        "sodium": {"value": 136, "unit": "mmol/L", "ref": "135-146"},
+        "potassium": {"value": 4.6, "unit": "mmol/L", "ref": "3.5-5.3"},
+        "calcium": {"value": 9.6, "unit": "mg/dL", "ref": "8.6-10.3"},
+        "albumin": {"value": 4.5, "unit": "g/dL", "ref": "3.6-5.1"},
+        "protein_total": {"value": 7.4, "unit": "g/dL", "ref": "6.1-8.1"},
+        "uric_acid": {"value": 6.8, "unit": "mg/dL", "ref": "4.0-8.0"},
+        "hba1c": {"value": 5.3, "unit": "%", "ref": "<5.7"},
+        "insulin": {"value": 4.8, "unit": "uIU/mL", "ref": "<=18.4"}
+      },
+      "liver": {
+        "ast": {"value": 26, "unit": "U/L", "ref": "10-40"},
+        "alt": {"value": 22, "unit": "U/L", "ref": "9-46"},
+        "ggt": {"value": 19, "unit": "U/L", "ref": "3-95"},
+        "alkaline_phosphatase": {"value": 17, "unit": "U/L", "ref": "36-130", "flag": "L"},
+        "bilirubin_total": {"value": 0.7, "unit": "mg/dL", "ref": "0.2-1.2"},
+        "amylase": {"value": 28, "unit": "U/L", "ref": "21-101"},
+        "lipase": {"value": 36, "unit": "U/L", "ref": "7-60"}
+      },
+      "blood_health": {
+        "wbc": {"value": 4.3, "unit": "K/uL", "ref": "3.8-10.8"},
+        "rbc": {"value": 4.76, "unit": "M/uL", "ref": "4.20-5.80"},
+        "hemoglobin": {"value": 15.7, "unit": "g/dL", "ref": "13.2-17.1"},
+        "hematocrit": {"value": 46.2, "unit": "%", "ref": "38.5-50.0"},
+        "mcv": {"value": 97.1, "unit": "fL", "ref": "80.0-100.0"},
+        "mch": {"value": 33.0, "unit": "pg", "ref": "27.0-33.0"},
+        "mchc": {"value": 34.0, "unit": "g/dL", "ref": "32.0-36.0"},
+        "rdw": {"value": 12.7, "unit": "%", "ref": "11.0-15.0"},
+        "platelets": {"value": 140, "unit": "K/uL", "ref": "140-400"},
+        "mpv": {"value": 11.2, "unit": "fL", "ref": "7.5-12.5"},
+        "iron_total": {"value": 88, "unit": "mcg/dL", "ref": "50-180"},
+        "iron_binding_capacity": {"value": 413, "unit": "mcg/dL", "ref": "250-425"},
+        "iron_saturation_pct": {"value": 21, "unit": "%", "ref": "20-48"},
+        "ferritin": {"value": 24, "unit": "ng/mL", "ref": "38-380", "flag": "L"},
+        "magnesium_rbc": {"value": 5.6, "unit": "mg/dL", "ref": "4.0-6.4"}
+      },
+      "hormonal": {
+        "testosterone_total_ms": {"value": 348, "unit": "ng/dL", "ref": "250-1100"},
+        "testosterone_free_dialysis": {"value": 79.4, "unit": "pg/mL", "ref": "35.0-155.0"},
+        "shbg": {"value": 13, "unit": "nmol/L", "ref": "10-50"},
+        "estradiol": {"value": 42, "unit": "pg/mL", "ref": "<=39", "flag": "H"},
+        "fsh": {"value": "<0.7", "unit": "mIU/mL", "ref": "1.4-12.8", "flag": "L"},
+        "lh": {"value": "<0.2", "unit": "mIU/mL", "ref": "1.5-9.3", "flag": "L"},
+        "prolactin": {"value": 5.7, "unit": "ng/mL", "ref": "2.0-18.0"},
+        "dhea_sulfate": {"value": 128, "unit": "mcg/dL", "ref": "61-442"},
+        "tsh": {"value": 1.58, "unit": "mIU/L", "ref": "0.40-4.50"},
+        "t4_free": {"value": 1.0, "unit": "ng/dL", "ref": "0.8-1.8"},
+        "t3_free": {"value": 3.3, "unit": "pg/mL", "ref": "2.3-4.2"},
+        "cortisol_total_lcms": {"value": 8.8, "unit": "mcg/dL"}
+      },
+      "inflammatory": {
+        "hs_crp": {"value": 2.4, "unit": "mg/L", "ref": "<1.0 optimal"},
+        "homocysteine": {"value": 11.5, "unit": "umol/L", "ref": "<11.4", "flag": "H"}
+      },
+      "micronutrients": {
+        "vitamin_d_25oh": {"value": 57, "unit": "ng/mL", "ref": "30-100"},
+        "zinc": {"value": 69, "unit": "mcg/dL", "ref": "60-130"},
+        "mercury_blood": {"value": 8, "unit": "mcg/L", "ref": "<11"},
+        "methylmalonic_acid": {"value": 147, "unit": "nmol/L", "ref": "87-318"},
+        "leptin": {"value": 1.3, "unit": "ng/mL"}
+      },
+      "other": {
+        "psa_total": {"value": 0.3, "unit": "ng/mL", "ref": "<=4.0"},
+        "psa_free": {"value": 0.2, "unit": "ng/mL"},
+        "psa_pct_free": {"value": 67, "unit": "%", "ref": ">25"},
+        "lead_venous": {"value": "<1.0", "unit": "mcg/dL", "ref": "<3.5"}
+      }
+    },
+    {
+      "draw_date": "2024-12-06",
+      "lab": "Quest Diagnostics / Function Health",
+      "ordering_physician": "Emdur, Joshua A DO",
+      "fasting": true,
+      "source_file": "2024-12-06 Lab Results of Record.pdf",
+      "cardiovascular": {
+        "total_cholesterol": {"value": 189, "unit": "mg/dL", "ref": "<200"},
+        "triglycerides": {"value": 101, "unit": "mg/dL", "ref": "<150"},
+        "hdl": {"value": 62, "unit": "mg/dL", "ref": ">39"},
+        "ldl_calc": {"value": 108, "unit": "mg/dL", "ref": "<100", "flag": "H"},
+        "chol_hdl_ratio": {"value": 3.0, "unit": "calc", "ref": "<5.0"},
+        "non_hdl_cholesterol": {"value": 127, "unit": "mg/dL", "ref": "<130"}
+      },
+      "metabolic": {
+        "glucose": {"value": 99, "unit": "mg/dL", "ref": "65-99"},
+        "bun": {"value": 14, "unit": "mg/dL", "ref": "7-25"},
+        "creatinine": {"value": 1.10, "unit": "mg/dL", "ref": "0.60-1.29"},
+        "egfr": {"value": 82, "unit": "mL/min/1.73m2", "ref": ">=60"},
+        "sodium": {"value": 137, "unit": "mmol/L", "ref": "135-146"},
+        "potassium": {"value": 4.8, "unit": "mmol/L", "ref": "3.5-5.3"},
+        "calcium": {"value": 9.5, "unit": "mg/dL", "ref": "8.6-10.3"},
+        "albumin": {"value": 4.5, "unit": "g/dL", "ref": "3.6-5.1"},
+        "protein_total": {"value": 6.9, "unit": "g/dL", "ref": "6.1-8.1"},
+        "hba1c": {"value": 5.2, "unit": "%", "ref": "<5.7"},
+        "insulin": {"value": 4.6, "unit": "uIU/mL", "ref": "<=18.4"}
+      },
+      "liver": {
+        "ast": {"value": 30, "unit": "U/L", "ref": "10-40"},
+        "alt": {"value": 23, "unit": "U/L", "ref": "9-46"},
+        "alkaline_phosphatase": {"value": 14, "unit": "U/L", "ref": "36-130", "flag": "L"},
+        "bilirubin_total": {"value": 0.4, "unit": "mg/dL", "ref": "0.2-1.2"}
+      },
+      "blood_health": {
+        "wbc": {"value": 5.1, "unit": "K/uL", "ref": "3.8-10.8"},
+        "rbc": {"value": 4.94, "unit": "M/uL", "ref": "4.20-5.80"},
+        "hemoglobin": {"value": 17.2, "unit": "g/dL", "ref": "13.2-17.1", "flag": "H"},
+        "hematocrit": {"value": 49.8, "unit": "%", "ref": "38.5-50.0"},
+        "mcv": {"value": 100.8, "unit": "fL", "ref": "80.0-100.0", "flag": "H"},
+        "mch": {"value": 34.8, "unit": "pg", "ref": "27.0-33.0", "flag": "H"},
+        "mchc": {"value": 34.5, "unit": "g/dL", "ref": "32.0-36.0"},
+        "rdw": {"value": 12.5, "unit": "%", "ref": "11.0-15.0"},
+        "platelets": {"value": 141, "unit": "K/uL", "ref": "140-400"},
+        "mpv": {"value": 11.4, "unit": "fL", "ref": "7.5-12.5"}
+      },
+      "inflammatory": {
+        "hs_crp": {"value": 1.1, "unit": "mg/L", "ref": "<1.0 optimal"}
+      }
+    },
+    {
+      "draw_date": "2025-06-16",
+      "lab": "Quest Diagnostics / Function Health",
+      "ordering_physician": "Emdur, Joshua A DO",
+      "fasting": true,
+      "source_file": "2025-06-16.pdf",
+      "cardiovascular": {
+        "total_cholesterol": {"value": 193, "unit": "mg/dL", "ref": "<200"},
+        "triglycerides": {"value": 124, "unit": "mg/dL", "ref": "<150"},
+        "hdl": {"value": 55, "unit": "mg/dL", "ref": ">39"},
+        "ldl_calc": {"value": 115, "unit": "mg/dL", "ref": "<100", "flag": "H"},
+        "chol_hdl_ratio": {"value": 3.5, "unit": "calc", "ref": "<5.0"},
+        "non_hdl_cholesterol": {"value": 138, "unit": "mg/dL", "ref": "<130", "flag": "H"},
+        "omega3_check_epa_dpa_dha": {"value": 5.5, "unit": "% by wt", "ref": ">5.4"},
+        "omega6_omega3_ratio": {"value": 6.1, "unit": "ratio", "ref": "3.7-14.4"},
+        "epa_dpa_dha_breakdown": {"epa": 1.0, "dpa": 1.3, "dha": 3.2, "unit": "% by wt"}
+      },
+      "hormonal": {
+        "testosterone_total_ms": {"value": 567, "unit": "ng/dL", "ref": "250-1100"},
+        "testosterone_free_dialysis": {"value": 136.1, "unit": "pg/mL", "ref": "35.0-155.0"},
+        "shbg": {"value": 12, "unit": "nmol/L", "ref": "10-50"},
+        "estradiol": {"value": 45, "unit": "pg/mL", "ref": "<=39", "flag": "H"},
+        "fsh": {"value": "<0.7", "unit": "mIU/mL", "ref": "1.4-12.8", "flag": "L"},
+        "lh": {"value": "<0.2", "unit": "mIU/mL", "ref": "1.5-9.3", "flag": "L"},
+        "prolactin": {"value": 4.7, "unit": "ng/mL", "ref": "2.0-18.0"},
+        "dhea_sulfate": {"value": 111, "unit": "mcg/dL", "ref": "61-442"}
+      },
+      "inflammatory": {
+        "homocysteine": {"value": 12.0, "unit": "umol/L", "ref": "<=15.2"}
+      },
+      "micronutrients": {
+        "zinc": {"value": 78, "unit": "mcg/dL", "ref": "60-130"},
+        "methylmalonic_acid": {"value": 230, "unit": "nmol/L", "ref": "55-335"},
+        "leptin": {"value": 2.6, "unit": "ng/mL"}
+      },
+      "liver": {
+        "ggt": {"value": 19, "unit": "U/L", "ref": "3-95"},
+        "amylase": {"value": 33, "unit": "U/L", "ref": "21-101"},
+        "lipase": {"value": 40, "unit": "U/L", "ref": "7-60"}
+      },
+      "other": {
+        "psa_total": {"value": 0.3, "unit": "ng/mL", "ref": "<=4.0"},
+        "psa_free": {"value": 0.2, "unit": "ng/mL"},
+        "psa_pct_free": {"value": 67, "unit": "%", "ref": ">25"},
+        "lead_venous": {"value": "<1.0", "unit": "mcg/dL", "ref": "<3.5"}
+      }
+    },
+    {
+      "draw_date": "2025-12-05",
+      "lab": "Quest Diagnostics / Function Health",
+      "ordering_physician": "Emdur, Joshua A DO",
+      "fasting": true,
+      "source_file": "2025-12-05.pdf",
+      "cardiovascular": {
+        "total_cholesterol": {"value": 150, "unit": "mg/dL", "ref": "<200"},
+        "triglycerides": {"value": 86, "unit": "mg/dL", "ref": "<150"},
+        "hdl": {"value": 49, "unit": "mg/dL", "ref": ">=40"},
+        "ldl_calc": {"value": 83, "unit": "mg/dL", "ref": "<100"},
+        "chol_hdl_ratio": {"value": 3.1, "unit": "calc", "ref": "<5.0"},
+        "non_hdl_cholesterol": {"value": 101, "unit": "mg/dL", "ref": "<130"}
+      },
+      "metabolic": {
+        "glucose": {"value": 96, "unit": "mg/dL", "ref": "65-99"},
+        "bun": {"value": 17, "unit": "mg/dL", "ref": "7-25"},
+        "creatinine": {"value": 1.32, "unit": "mg/dL", "ref": "0.70-1.30", "flag": "H"},
+        "egfr": {"value": 66, "unit": "mL/min/1.73m2", "ref": ">=60"},
+        "sodium": {"value": 137, "unit": "mmol/L", "ref": "135-146"},
+        "potassium": {"value": 4.3, "unit": "mmol/L", "ref": "3.5-5.3"},
+        "calcium": {"value": 9.2, "unit": "mg/dL", "ref": "8.6-10.3"},
+        "albumin": {"value": 4.2, "unit": "g/dL", "ref": "3.6-5.1"},
+        "protein_total": {"value": 6.5, "unit": "g/dL", "ref": "6.1-8.1"},
+        "hba1c": {"value": 4.8, "unit": "%", "ref": "<5.7"},
+        "insulin": {"value": 5.6, "unit": "uIU/mL", "ref": "<=18.4"}
+      },
+      "liver": {
+        "ast": {"value": 29, "unit": "U/L", "ref": "10-35"},
+        "alt": {"value": 27, "unit": "U/L", "ref": "9-46"},
+        "alkaline_phosphatase": {"value": 13, "unit": "U/L", "ref": "35-144", "flag": "L"},
+        "bilirubin_total": {"value": 1.5, "unit": "mg/dL", "ref": "0.2-1.2", "flag": "H"}
+      },
+      "blood_health": {
+        "wbc": {"value": 5.5, "unit": "K/uL", "ref": "3.8-10.8"},
+        "rbc": {"value": 4.78, "unit": "M/uL", "ref": "4.20-5.80"},
+        "hemoglobin": {"value": 16.9, "unit": "g/dL", "ref": "13.2-17.1"},
+        "hematocrit": {"value": 49.5, "unit": "%", "ref": "39.4-51.1"},
+        "mcv": {"value": 103.6, "unit": "fL", "ref": "81.4-101.7", "flag": "H"},
+        "mch": {"value": 35.4, "unit": "pg", "ref": "27.0-33.0", "flag": "H"},
+        "mchc": {"value": 34.1, "unit": "g/dL", "ref": "31.6-35.4"},
+        "rdw": {"value": 12.5, "unit": "%", "ref": "11.0-15.0"},
+        "platelets": {"value": 102, "unit": "K/uL", "ref": "140-400", "flag": "L"},
+        "mpv": {"value": 10.8, "unit": "fL", "ref": "7.5-12.5"}
+      },
+      "inflammatory": {
+        "hs_crp": {"value": 1.6, "unit": "mg/L", "ref": "<1.0 optimal"}
+      }
+    },
+    {
+      "draw_date": "2026-06-01",
+      "lab": "Quest Diagnostics / Function Health",
+      "ordering_physician": "Emdur, Joshua A DO",
+      "fasting": true,
+      "source_file": "2026-06-01.pdf",
+      "status": "Preliminary",
+      "cardiovascular": {
+        "total_cholesterol": {"value": 166, "unit": "mg/dL", "ref": "<200"},
+        "triglycerides": {"value": 96, "unit": "mg/dL", "ref": "<150"},
+        "hdl": {"value": 56, "unit": "mg/dL", "ref": ">=40"},
+        "ldl_calc": {"value": 91, "unit": "mg/dL", "ref": "<100"},
+        "chol_hdl_ratio": {"value": 3.0, "unit": "calc", "ref": "<5.0"},
+        "non_hdl_cholesterol": {"value": 110, "unit": "mg/dL", "ref": "<130"},
+        "apob": {"value": 84, "unit": "mg/dL", "ref": "<90"},
+        "lipoprotein_a": {"value": 21, "unit": "nmol/L", "ref": "<75"},
+        "omega3_check_epa_dpa_dha": {"value": 6.7, "unit": "% by wt", "ref": ">5.4"}
+      },
+      "metabolic": {
+        "glucose": {"value": 48, "unit": "mg/dL", "ref": "65-99", "flag": "L", "note": "critically low — likely collection artifact or fasting extreme"},
+        "bun": {"value": 21, "unit": "mg/dL", "ref": "7-25"},
+        "creatinine": {"value": 1.22, "unit": "mg/dL", "ref": "0.70-1.30"},
+        "egfr": {"value": 72, "unit": "mL/min/1.73m2", "ref": ">=60"},
+        "sodium": {"value": 139, "unit": "mmol/L", "ref": "135-146"},
+        "potassium": {"value": 4.7, "unit": "mmol/L", "ref": "3.5-5.3"},
+        "calcium": {"value": 9.7, "unit": "mg/dL", "ref": "8.6-10.3"},
+        "albumin": {"value": 4.9, "unit": "g/dL", "ref": "3.6-5.1"},
+        "protein_total": {"value": 7.5, "unit": "g/dL", "ref": "6.1-8.1"},
+        "uric_acid": {"value": 3.7, "unit": "mg/dL", "ref": "4.0-8.0", "flag": "L"},
+        "hba1c": {"value": 4.9, "unit": "%", "ref": "<5.7"},
+        "insulin": {"value": 3.4, "unit": "uIU/mL", "ref": "<=18.4"}
+      },
+      "liver": {
+        "ast": {"value": 42, "unit": "U/L", "ref": "10-35", "flag": "H"},
+        "alt": {"value": 31, "unit": "U/L", "ref": "9-46"},
+        "ggt": {"value": 19, "unit": "U/L", "ref": "3-95"},
+        "alkaline_phosphatase": {"value": 12, "unit": "U/L", "ref": "35-144", "flag": "L"},
+        "bilirubin_total": {"value": 0.4, "unit": "mg/dL", "ref": "0.2-1.2"},
+        "amylase": {"value": 24, "unit": "U/L", "ref": "21-101"},
+        "lipase": {"value": 40, "unit": "U/L", "ref": "7-60"}
+      },
+      "blood_health": {
+        "wbc": {"value": 5.6, "unit": "K/uL", "ref": "3.8-10.8"},
+        "rbc": {"value": 4.74, "unit": "M/uL", "ref": "4.20-5.80"},
+        "hemoglobin": {"value": 16.8, "unit": "g/dL", "ref": "13.2-17.1"},
+        "hematocrit": {"value": 51.0, "unit": "%", "ref": "39.4-51.1"},
+        "mcv": {"value": 107.6, "unit": "fL", "ref": "81.4-101.7", "flag": "H"},
+        "mch": {"value": 35.4, "unit": "pg", "ref": "27.0-33.0", "flag": "H"},
+        "mchc": {"value": 32.9, "unit": "g/dL", "ref": "31.6-35.4"},
+        "rdw": {"value": 12.8, "unit": "%", "ref": "11.0-15.0"},
+        "platelets": {"value": 114, "unit": "K/uL", "ref": "140-400", "flag": "L"},
+        "mpv": {"value": 10.3, "unit": "fL", "ref": "7.5-12.5"},
+        "iron_total": {"value": 129, "unit": "mcg/dL", "ref": "50-180"},
+        "iron_binding_capacity": {"value": 280, "unit": "mcg/dL", "ref": "250-425"},
+        "iron_saturation_pct": {"value": 46, "unit": "%", "ref": "20-48"},
+        "ferritin": {"value": 223, "unit": "ng/mL", "ref": "38-380"}
+      },
+      "hormonal": {
+        "testosterone_total_ms": {"value": 1498, "unit": "ng/dL", "ref": "250-1100", "flag": "H"},
+        "testosterone_free_dialysis": {"value": 543.4, "unit": "pg/mL", "ref": "35.0-155.0", "flag": "H"},
+        "shbg": {"value": 16, "unit": "nmol/L", "ref": "10-50"},
+        "estradiol": {"value": 69, "unit": "pg/mL", "ref": "<=39", "flag": "H"},
+        "fsh": {"value": "<0.7", "unit": "mIU/mL", "ref": "1.4-12.8", "flag": "L"},
+        "lh": {"value": "<0.2", "unit": "mIU/mL", "ref": "1.5-9.3", "flag": "L"},
+        "prolactin": {"value": 7.8, "unit": "ng/mL", "ref": "2.0-18.0"},
+        "dhea_sulfate": {"value": 535, "unit": "mcg/dL", "ref": "32-279", "flag": "H"},
+        "tsh": {"value": 1.15, "unit": "mIU/L", "ref": "0.40-4.50"},
+        "t4_free": {"value": 1.4, "unit": "ng/dL", "ref": "0.8-1.8"},
+        "t3_free": {"value": 2.9, "unit": "pg/mL", "ref": "2.3-4.2"},
+        "cortisol_total": {"value": 13.5, "unit": "mcg/dL", "note": "reference 4-22 AM"}
+      },
+      "inflammatory": {
+        "hs_crp": {"value": 2.2, "unit": "mg/L", "ref": "<1.0 optimal"},
+        "homocysteine": {"value": 19.5, "unit": "umol/L", "ref": "<=15.2", "flag": "H"}
+      },
+      "micronutrients": {
+        "vitamin_d_25oh": {"value": 51, "unit": "ng/mL", "ref": "30-100"},
+        "methylmalonic_acid": {"value": 138, "unit": "nmol/L", "ref": "55-335"},
+        "leptin": {"value": 0.4, "unit": "ng/mL", "note": "very low, consistent with significant fat loss"},
+        "magnesium_rbc": {"value": null, "note": "preliminary — result pending at time of report"}
+      },
+      "other": {
+        "psa_total": {"value": 0.5, "unit": "ng/mL", "ref": "<=4.0"},
+        "psa_free": {"value": 0.2, "unit": "ng/mL"},
+        "psa_pct_free": {"value": 40, "unit": "%", "ref": ">25"},
+        "lead_venous": {"value": "<1.0", "unit": "mcg/dL", "ref": "<3.5"}
+      }
+    }
+  ],
+
+  "health_tracking_spreadsheet": {
+    "source_file": "/Users/davidohara/Dropbox/Family/Health/David - Health Tracking.xlsx",
+    "sheets_found": ["Supplements"],
+    "note": "Spreadsheet contains only supplement tracking data — no longitudinal weight, body fat, or workout log data found.",
+    "supplements_tracked": [
+      {"supplement": "Niagen", "amount": "300mg", "start": "2023-06-19", "duration_days": 90, "end": "2023-09-17"},
+      {"supplement": "Alpha Brain", "amount": "2 caps", "start": "2023-06-19", "duration_days": 90, "end": "2023-09-17"},
+      {"supplement": "PQQ 99%", "amount": "20mg", "start": "2023-06-19", "duration_days": 360, "end": "2024-06-13"},
+      {"supplement": "Resveratrol+ 98%", "amount": "500mg", "start": "2023-06-19", "duration_days": 180, "end": "2023-12-16", "benefits": "Heart health, liver disease, diabetes"},
+      {"supplement": "Quercetin", "amount": "250mg", "start": "2023-11-16", "duration_days": 30, "end": "2023-12-16"},
+      {"supplement": "MCT Oil Powder", "amount": "850mg", "start": "2023-11-16", "duration_days": 30, "end": "2023-12-16"},
+      {"supplement": "Berberine", "amount": "1500mg", "start": "2023-06-19", "duration_days": 180, "end": "2023-12-16", "benefits": "Blood sugar stability"},
+      {"supplement": "Nutrafol", "amount": "4 caps", "start": "2023-09-06", "duration_days": 180, "end": "2024-03-04", "benefits": "Hair"},
+      {"supplement": "NMN", "amount": "1200mg", "start": "2023-09-15", "duration_days": 90, "end": "2023-12-14", "benefits": "Age-associated weight gain, energy production"},
+      {"supplement": "NAC", "amount": null, "start": "2023-09-15", "duration_days": 90, "end": "2023-12-14", "benefits": "Glutathione levels; brain health"},
+      {"supplement": "Fuel", "amount": null, "start": "2023-09-15", "duration_days": 90, "end": "2023-12-14", "benefits": "Nitric oxide"},
+      {"supplement": "Dihexa", "amount": "30mg", "start": "2024-02-23", "duration_days": 120, "end": "2024-06-22"},
+      {"supplement": "Tesamorelin/Ipamorelin", "amount": "12mg/6mg", "start": "2024-02-23", "end": "2024-02-23", "note": "End date same as start — likely incomplete entry"},
+      {"supplement": "MOTS-C", "amount": "10mg", "start": "2024-02-23", "end": "2024-02-23", "note": "End date same as start — likely incomplete entry"},
+      {"supplement": "BPC-157", "amount": "5mg", "start": null, "end": null, "note": "No dates entered"},
+      {"supplement": "TB-500", "amount": "5mg", "start": null, "end": null, "note": "No dates entered"}
+    ]
+  },
+
+  "peptide_history": {
+    "source_file": "/Users/davidohara/Dropbox/Family/Health/Peptide Therapy Trevor Davis.docx",
+    "source_type": "Educational/marketing document from Transcend (Trevor Davis, wellness specialist)",
+    "note": "This document is an informational brochure describing available peptide options from Transcend — it does NOT contain David's personal cycle history, dosing records, or protocol timeline. No personal prescription data was extractable.",
+    "peptides_described_as_available": [
+      {
+        "name": "Tesamorelin/Ipamorelin",
+        "category": "GHRP (growth hormone releasing peptide)",
+        "key_benefits": ["VAT reduction (FDA approved)", "sleep quality", "LDL reduction", "triglyceride reduction", "IGF-1 increase", "lean muscle improvement", "VAT reduction"]
+      },
+      {
+        "name": "CJC1295/Ipamorelin",
+        "category": "GHRP",
+        "key_benefits": ["body fat decrease", "sleep quality", "cognitive function", "recovery", "muscle mass", "strength"]
+      },
+      {
+        "name": "IGF-1 LR3",
+        "category": "GHRP",
+        "key_benefits": ["muscle mass and strength", "reduces inflammation", "reduces muscle wasting", "gut health", "fat loss"]
+      },
+      {
+        "name": "BPC-157",
+        "category": "Anti-inflammatory/Healing",
+        "key_benefits": ["tendon healing", "pain reduction", "collagen synthesis", "wound/bone healing", "GI disorder recovery"]
+      },
+      {
+        "name": "TB-500",
+        "category": "Anti-inflammatory/Healing",
+        "key_benefits": ["wound healing", "inflammation reduction", "tissue remodeling"]
+      },
+      {
+        "name": "Tesofensine",
+        "category": "Fat loss",
+        "key_benefits": ["appetite regulation", "metabolic rate increase", "body fat reduction"],
+        "note": "Requires full lab eval before prescribing"
+      },
+      {
+        "name": "MOTS-C",
+        "category": "Fat loss / Metabolic",
+        "key_benefits": ["insulin sensitivity", "glucose metabolism", "fat accumulation reduction", "energy expenditure"]
+      },
+      {
+        "name": "Semaglutide",
+        "category": "Fat loss / GLP-1",
+        "key_benefits": ["appetite reduction", "weight loss", "HbA1c reduction"],
+        "note": "Requires full lab eval before prescribing"
+      },
+      {
+        "name": "AOD-9604",
+        "category": "Fat loss",
+        "key_benefits": ["lipolysis induction", "fat as energy source when fasted"]
+      },
+      {
+        "name": "Dihexa-Acetate",
+        "category": "Nootropic/Cognitive",
+        "key_benefits": ["memory consolidation", "cognitive enhancement", "antidementia", "focus/learning"]
+      },
+      {
+        "name": "Semax",
+        "category": "Nootropic/Cognitive",
+        "key_benefits": ["neuroprotective", "BDNF elevation", "cognitive disorders", "memory", "anxiety reduction"]
+      },
+      {
+        "name": "Epitalon",
+        "category": "Health/Longevity",
+        "key_benefits": ["telomerase activation", "telomere regrowth", "melatonin normalization", "cardiovascular disease reduction", "metabolic normalization"]
+      },
+      {
+        "name": "Glutathione",
+        "category": "Health/Longevity",
+        "key_benefits": ["oxidative stress reduction", "liver protection", "insulin resistance improvement", "free radical clearance"]
+      },
+      {
+        "name": "GHK-Cu",
+        "category": "Health/Longevity",
+        "key_benefits": ["skin repair", "collagen/elastin synthesis", "wound healing", "anti-inflammatory", "hair growth"]
+      },
+      {
+        "name": "PT-141 (Bremelanotide)",
+        "category": "Sexual health",
+        "key_benefits": ["libido enhancement", "CNS-mediated sexual response", "both men and women"]
+      }
+    ],
+    "personal_protocol_notes": "No personal cycle history, start dates, doses, or outcomes were included in this document. Cross-reference the supplement tracker xlsx for Dihexa (started 2024-02-23), Tesamorelin/Ipamorelin (started 2024-02-23), MOTS-C (started 2024-02-23), BPC-157, and TB-500."
+  },
+
+  "current_phase": {
+    "name": "Recomposition — Lean Mass Recovery",
+    "started": "2026-06-25",
+    "description": "BF% goal (15%) nearly achieved (16.5%). Primary objective shifts to recovering lean mass lost during Reta-only phase (7.4 lbs since Mar). Reta continues at 3mg concurrent with GH peptide stack.",
+    "reta_dose_mg": 3,
+    "reta_status": "active — continuing concurrent with peptide stack",
+    "peptide_stack_target_start": "2026-07-07 to 2026-07-14",
+    "training_shift": "Weight training focus starting July 2026 — more compound/progressive overload, less cardio",
+    "protein_target_g_day": "160-220",
+    "creatine_g_day": 10,
+    "weight_floor_lbs": 215,
+    "weight_floor_action": "If weight drops below 215 lbs, reassess Reta dose with Dr. Randol",
+    "next_dexa_target": "Mid-August 2026"
+  }
+}

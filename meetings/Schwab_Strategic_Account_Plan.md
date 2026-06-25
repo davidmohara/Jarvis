@@ -109,16 +109,67 @@ Lead peer-to-peer on agentic AI specifically — not a generic AI pitch. He is p
 
 ---
 
+## Referral Network — Corporate Strategy & Innovation Org
+
+This is a second, warmer path into Schwab that does not depend on the instructional-design sponsor. **Cole at SpaceX/xAI can refer into all four contacts below**, and David has a **direct YPO relationship with Nikhil Sudan**, the most senior of the four. This group sits in corporate strategy and innovation — they shape *where Schwab invests in AI*, which is upstream of the engineering execution the rest of this plan targets. Winning here is a top-down complement to the bottoms-up technical entry through Sean Law and Don Yuan.
+
+A note on positioning this group: strategy-and-innovation leaders buy *outcomes and theses*, not engineering capacity. Lead with point of view and proof, not staffing. The bridge from this org to revenue is: they sponsor a thesis, and Improving becomes the team that executes it — which hands you back to the technical contacts with executive air cover.
+
+### Nikhil Sudan — MD, Chief Strategy and Innovation Officer (warmest — YPO tie)
+
+**Confirmed.** Joined Schwab June 2025. Owns corporate strategy, corporate development, innovation, **AI strategy, and vendor management** — the last point matters: he influences who gets on the approved-vendor path. Ex-President of Victory Capital InVest, ex-Partner at McKinsey (Wealth & Asset Management practice), ex-Bridgewater, began as a technologist at GE and Cisco. **Active YPO member — this is David's direct connection.**
+
+**Why he's the anchor.** He is the most senior contact in the plan after Dennis Howard, he explicitly owns AI strategy and vendor management, and David can reach him peer-to-peer through YPO rather than as a vendor. That combination is rare and should be treated as the highest-value relationship in the account.
+
+**Pitch angle (peer-to-peer, thesis-level — via YPO, not a sales motion):**
+> "Nikhil — you own AI strategy at a moment when Schwab has committed to shipping multiple client-facing AI products this year. The pattern I see across financial-services firms is that the strategy is sound but the bottleneck moves to production engineering — getting models out of the lab and running reliably at scale. I'd value comparing notes on where you're seeing that gap, and where an execution partner who's done it elsewhere could de-risk the roadmap."
+
+**What to avoid:** Don't turn a YPO relationship into a pitch on first contact. Lead with peer exchange of perspective; let him pull you toward a need. His McKinsey background means he'll respect a sharp thesis and dismiss a capabilities dump instantly.
+
+### Andy Furbush — MD, Head of Corporate Strategy (via Cole)
+
+**Confirmed.** Head of Corporate Strategy, based in Westlake, TX. Ex-Bain Associate Partner; earlier corporate-strategy and digital-analyst roles at Wells Fargo Advisors. Reports into the strategy/innovation org alongside Sudan.
+
+**What his role likely means.** He runs the analytical engine behind Schwab's strategic bets — including, almost certainly, the build-vs-buy-vs-partner calls on major technology and AI initiatives. He is the person who frames the case that a Sudan or a Howard signs off on.
+
+**Pitch angle (consultant-to-consultant):**
+> "Given your Bain background you'll appreciate this framing — the firms that win the AI race aren't the ones with the best strategy decks, they're the ones who close the execution gap fastest. We're the team clients bring in when a strategic bet needs to become a shipped product. Where on Schwab's roadmap is that gap widest right now?"
+
+**Hook:** His public posts mention his team is expanding — a strategy org scaling headcount is a strategy org with more initiatives than execution capacity. That is the opening.
+
+### Nate Knowlton — Director, AI Strategy (via Cole)
+
+**Title per screenshot; limited public profile — confirm via Cole/LinkedIn.** Sits in the AI-strategy function, reporting up through the Sudan/Furbush org. This is the working-level strategy contact who translates AI strategy into specific initiatives and likely interfaces directly with the technical teams (Sean Law, Don Yuan) on the other side of this plan.
+
+**Why he matters.** He is the connective tissue between the strategy org (this section) and the execution org (the technical contacts above). A relationship with Knowlton lets you triangulate: strategic priority from the top, technical pain from the bottom, and Knowlton sitting where the two meet.
+
+**Pitch angle (working-level, specific):**
+> "You're the person turning Schwab's AI strategy into actual initiatives. Where's the list longer than the team can execute? That's usually where an outside delivery partner earns their place — taking one well-defined thing off the backlog and shipping it cleanly."
+
+### Sarah Wolf — Director of Business Strategy (via Cole)
+
+**Title per screenshot.** Public sources show a Sarah Wolf with ~10 years at TD Ameritrade / Charles Schwab in strategic roles, more recently linked to other firms — **confirm with Cole that this is the current, in-seat Schwab contact** before outreach, as there may be more than one person by this name. If current, her TDA tenure is an asset: she carries institutional memory of the integration that still drives much of Schwab's data and platform rationalization work (see Section 2).
+
+**Pitch angle:** Lead on the business-outcome framing of modernization — not the technology. "The post-integration platform work isn't an IT project, it's a business-capability unlock. Where's the gap between what the strategy needs the platform to do and what it can do today?"
+
+---
+
 ## Contact Prioritization & Sequencing
+
+Two parallel paths now exist: a **top-down strategy path** (the referral network, warmest via David's YPO tie and Cole's intros) and a **bottoms-up technical path** (the ID sponsor into the practitioner contacts). Run both; they reinforce each other.
 
 | Priority | Contact | Entry Point | Goal |
 |---|---|---|---|
-| 1 | **Current ID sponsor** | Existing relationship | Warm intro to Sean Law and/or Don Yuan |
-| 2 | **Sean Law** | Intro via ID sponsor or LinkedIn | Understand R&D pain points; position around research-to-production gap |
-| 3 | **Don Yuan** | Intro via ID sponsor or LinkedIn | Understand delivery pain points; position around AI program throughput |
-| 4 | **AI.x team head** | Via Sean Law or LinkedIn search (SF-based MD/SVP) | Access to the GenAI product build-out |
-| 5 | **Director, Portfolio Management Technology Engineering** | Open role — hiring manager is the target | Direct entry into AI-driven application modernization |
-| 6 | **Dennis Howard** | Via credibility built through 2–5 | Economic buyer; engage only after proof points are established |
+| 1 | **Nikhil Sudan** (Chief Strategy & Innovation Officer) | **David's YPO relationship** | Peer-level AI-strategy conversation; executive air cover for the whole account |
+| 2 | **Current ID sponsor** | Existing relationship | Warm intro to Sean Law and/or Don Yuan |
+| 3 | **Sean Law** | Intro via ID sponsor or LinkedIn | Understand R&D pain points; position around research-to-production gap |
+| 4 | **Don Yuan** | Intro via ID sponsor or LinkedIn | Understand delivery pain points; position around AI program throughput |
+| 5 | **Andy Furbush** (Head of Corporate Strategy) | **Via Cole (SpaceX/xAI)** | Build-vs-buy-vs-partner influence; he frames the bets execs sign off on |
+| 6 | **Nate Knowlton** (Director, AI Strategy) | **Via Cole (SpaceX/xAI)** | Working-level bridge between strategy and the technical execution org |
+| 7 | **Sarah Wolf** (Director of Business Strategy) | **Via Cole (SpaceX/xAI)** | Business-outcome framing of platform modernization; confirm she's in-seat |
+| 8 | **AI.x team head** | Via Sean Law or LinkedIn search (SF-based MD/SVP) | Access to the GenAI product build-out |
+| 9 | **Director, Portfolio Management Technology Engineering** | Open role — hiring manager is the target | Direct entry into AI-driven application modernization |
+| 10 | **Dennis Howard** | Via credibility built through the paths above | Economic buyer; engage only after proof points are established |
 
 ---
 
@@ -156,13 +207,15 @@ The goal is to become Schwab's go-to implementation partner for AI and data — 
 
 ## Immediate Next Actions
 
-1. **AgentCon Dallas is this Friday, June 26.** Don Yuan is actively promoting it. If you or someone from Improving can attend, do it — it's free, in Plano, and puts you in the room with Don on his turf, not in a formal sales meeting. Even if you can't attend, reference it when you reach out: "I saw you're involved with AgentCon this week — that's exactly the right conversation."
-2. **Ask the ID sponsor for warm intros to Sean Law and Don Yuan** — keep it casual. "We've been doing some interesting AI and data work and I'd love to connect with the right people."
-3. **Research Dennis Howard on LinkedIn** — identify mutual connections; do not cold-reach him yet.
-4. **Confirm Don Yuan's reporting relationship and exact function** before the meeting — ask the intro contact whether he sits in the data science org or a broader enterprise AI function.
-5. **Prepare the Thrivent TEID win-wire story** — one page, outcome-focused, ready to share.
-6. **Scan Schwab's open AI/engineering roles weekly** — job postings reveal current pain points and give fresh conversation hooks.
-7. **Know which AI products are in-flight at Schwab** before any meeting — Portfolio Insights (live), AI voice/chat assistant (summer 2026), AI research platform (internal beta).
+1. **Reach Nikhil Sudan through YPO — highest-value, warmest path.** Frame it as a peer exchange on AI strategy execution, not a sales call. He owns AI strategy and vendor management; a single good conversation here gives the entire account executive air cover. This is the priority action.
+2. **Ask Cole (SpaceX/xAI) for intros to Furbush, Knowlton, and Wolf.** Confirm with Cole that Sarah Wolf is the current in-seat Schwab contact before reaching out. Keep the asks specific and individual.
+3. **AgentCon Dallas is this Friday, June 26.** Don Yuan is actively promoting it. If you or someone from Improving can attend, do it — it's free, in Plano, and puts you in the room with Don on his turf, not in a formal sales meeting. Even if you can't attend, reference it when you reach out: "I saw you're involved with AgentCon this week — that's exactly the right conversation."
+4. **Ask the ID sponsor for warm intros to Sean Law and Don Yuan** — keep it casual. "We've been doing some interesting AI and data work and I'd love to connect with the right people."
+5. **Research Dennis Howard on LinkedIn** — identify mutual connections; do not cold-reach him yet.
+6. **Confirm Don Yuan's reporting relationship and exact function** before the meeting — ask the intro contact whether he sits in the data science org or a broader enterprise AI function.
+7. **Prepare the Thrivent TEID win-wire story** — one page, outcome-focused, ready to share.
+8. **Scan Schwab's open AI/engineering roles weekly** — job postings reveal current pain points and give fresh conversation hooks.
+9. **Know which AI products are in-flight at Schwab** before any meeting — Portfolio Insights (live), AI voice/chat assistant (summer 2026), AI research platform (internal beta).
 
 ---
 
@@ -176,6 +229,9 @@ The goal is to become Schwab's go-to implementation partner for AI and data — 
 - [Dennis Howard — About Schwab](https://www.aboutschwab.com/dennis-howard)
 - [Sean Law — LinkedIn](https://www.linkedin.com/in/seanmylaw/)
 - [Don Yuan — LinkedIn](https://www.linkedin.com/in/donyuan/)
+- [Nikhil Sudan — About Schwab](https://www.aboutschwab.com/nikhil-sudan)
+- [Andy Furbush — The Org (Head of Corporate Strategy)](https://theorg.com/org/charles-schwab/org-chart/andy-furbush)
+- [Sarah Wolf — LinkedIn](https://www.linkedin.com/in/sarah-k-wolf/)
 - [Improving Financial Services Capabilities](https://www.improving.com/toronto/financial-services/)
 - [Schwab selects Microsoft Azure — AppsRunTheWorld](https://www.appsruntheworld.com/customers-database/purchases/view/the-charles-schwab-corporation-united-states-selects-microsoft-azure-cloud-services-for-application-hosting-and-computing-services)
 - [Charles Schwab AI Strategy — Klover.ai](https://www.klover.ai/charles-schwab-ai-strategy-analysis-of-dominance-in-financial-services/)

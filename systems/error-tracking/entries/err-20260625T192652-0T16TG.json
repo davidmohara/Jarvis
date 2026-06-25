@@ -1,0 +1,24 @@
+{
+  "id": "err-20260625T192652-0T16TG",
+  "timestamp": "2026-06-25T19:26:52Z",
+  "source": "explicit",
+  "agent": "master",
+  "session_id": "session-2026-06-25-080000",
+  "category": "missed-context",
+  "failure_mode": "wrong-assumption",
+  "severity": "moderate",
+  "description": "Two errors in Systemic Compliance prep sheet: (1) Included Devlin references throughout despite David running solo — 'If stuck, bring Devlin in' is unhelpful when he's not there. (2) Treated Robin Graham as an unknown stakeholder with TBD influence when she is Kevin's wife — attending as family/support, not a primary decision driver.",
+  "corrections": [
+    {
+      "field": "Devlin references",
+      "reported": "Multiple fallback lines referencing Devlin for technical depth",
+      "correct": "Remove entirely — David owns the technical conversation solo"
+    },
+    {
+      "field": "Robin Graham",
+      "reported": "Unknown stakeholder, TBD title, potentially the decision-maker",
+      "correct": "Kevin's wife — may attend, not driving the meeting"
+    }
+  ],
+  "proposed_fix": "Never surface fallback references to absent people in prep sheets. When attendee identity is unclear, ask before building rather than speculating."
+}

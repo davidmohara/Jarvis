@@ -2,67 +2,27 @@
 workflow: plaud-ingest
 agent: knox
 status: completed
-session-started: "2026-06-24T00:00:00Z"
-session-completed: "2026-06-24T17:00:00Z"
-session-id: "pi-20260624-001"
-current-step: step-05-complete
-original-request: "Knox: Run Plaud ingest workflow — discover new recordings since last run (2026-06-18)"
+session-started: "2026-06-25T00:00:00Z"
+session-completed: "2026-06-25T00:00:00Z"
+session-id: "pi-20260625-001"
+current-step: step-01-complete
+original-request: "Knox: Run Plaud ingest workflow — discover new recordings since last run (2026-06-24)"
 accumulated-context:
-  target-date: "2026-06-24"
-  last-run-date: "2026-06-18"
+  target-date: "2026-06-25"
+  last-run-date: "2026-06-24"
   api-total-recordings: 63
   recordings-scanned: 63
-  new-recordings:
-    - file_id: bebfb9e0734bc8b241e2cec9ce233c05
-      name: "06-22 Consultation: Improving & Grok Partnership for AI Adoption in TOLA"
-      date: "2026-06-22"
-      duration_seconds: 1958
-      has_transcript: true
-      transcript_status: ready
-    - file_id: 13f671600541c5ae68bff2a2b8b5baaa
-      name: "06-23 Meeting: Sales Team Performance Review, Commission Attribution, and Vistage Coaching Fit"
-      date: "2026-06-23"
-      duration_seconds: 2089
-      has_transcript: true
-      transcript_status: ready
-    - file_id: 501f25606d43ffa2b4ee675923475cd4
-      name: "06-23 Strategic Dialogue on Corporate Structure, Leadership, and Growth"
-      date: "2026-06-23"
-      duration_seconds: 1931
-      has_transcript: true
-      transcript_status: ready
+  new-recordings: []
   transcription-triggered: []
   pending-recordings: []
-  speaker-mappings:
-    bebfb9e0734bc8b241e2cec9ce233c05:
-      "Speaker 1": "Cole Estrate"
-      source: "calendar+transcript"
-      calendar-event: "SpaceXAI <> Improving: Sync (cestrate@x.ai)"
-      rename-api-status: "failed-trans_result-null-applied-manually"
-    13f671600541c5ae68bff2a2b8b5baaa:
-      "Speaker 2": "Don McGreal"
-      source: "calendar+transcript"
-      calendar-event: "One on one - McGreal (Don.McGreal@Improving.com)"
-      rename-api-status: "failed-trans_result-null-applied-manually"
-    501f25606d43ffa2b4ee675923475cd4:
-      resolved: "all-speakers-named-in-transcript"
-      note: "Devlin Liles and O'Hara auto-recognized; Robyn Fuentes brief appearance"
+  speaker-mappings: {}
   pending-speaker-mappings: []
-  ready-for-fetch:
-    - bebfb9e0734bc8b241e2cec9ce233c05
-    - 13f671600541c5ae68bff2a2b8b5baaa
-    - 501f25606d43ffa2b4ee675923475cd4
+  ready-for-fetch: []
   staged-files: []
-  ingested-notes:
-    - "zzPlaud/Client/2026-06-22 SpaceXAI Improving Partnership - Grok AI Adoption in TOLA.md"
-    - "zzPlaud/Improving/2026-06-23 Sales Team Performance Review - Commission Attribution and Vistage Coaching Fit.md"
-    - "zzPlaud/Improving/2026-06-23 Strategic Dialogue - Corporate Structure Leadership and Growth.md"
-  omnifocus-tasks-created: 6
-  staging-files-removed: 5
+  ingested-notes: []
   notes: >
-    Dates June 19-21 and June 24 had zero recordings. New recordings found on June 22 and 23 only.
-    Plaud rename API returned trans_result null for both recordings with generic speakers (transient condition).
-    Speaker names applied manually in vault notes. All 3 recordings fully ingested. 6 OmniFocus tasks
-    created via URL scheme (AppleScript tag assignment not working in OF4 for new tasks).
-    Daily notes created for 2026-06-22 and 2026-06-23.
+    No new recordings found. Most recent Plaud recording is 2026-06-23. All recordings
+    from 06-22 and 06-23 were already ingested in session pi-20260624-001. Two stale
+    file-ID-named .md files in staging (from prior run before names were resolved) were
+    cleaned up. Workflow terminates at step-01 per failure mode: "No new recordings found."
 ---
