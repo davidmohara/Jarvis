@@ -1,16 +1,21 @@
 status: complete
 current-step: step-01-discover
-session-id: harper-2026-06-23-discovery
-session-started: 2026-06-23T06:00:00Z
-session-completed: 2026-06-23T06:05:00Z
+session-id: harper-2026-06-24-discovery
+session-started: 2026-06-24T06:00:00Z
+session-completed: 2026-06-24T11:20:00Z
 original-request: scheduled-content-discovery
 accumulated-context:
-  result: "No new URLs in the last 24 hours. Posted standard no-URLs notice to #content. No drafts created."
+  result: "Processed 5 digest messages from 72h window. Created 5 Ghost drafts. Notified David in #content. Skipped 1 duplicate digest (older consulting bifurcation variant)."
   urls_found: 0
-  drafts_created: 0
+  drafts_created: 5
   notes:
-    - "Channel scan (24h) returned 7 messages, all from Jarvis bot (bot_id B0ANBSA9Z1R) — skipped per routing rules."
-    - "Messages were Jarvis-generated content briefs/research posts from prior pipeline runs, not user-dropped URLs."
-    - "No user-dropped URLs to process."
-    - "Posted '_Content pipeline: no new URLs in the last 24 hours._' to #content (ts 1782212899.790519)."
-    - "pending-drafts.json unchanged."
+    - "72h channel scan returned 8 messages total."
+    - "2 no-URL bot notices skipped."
+    - "6 bot digest messages with # + ## signal routed to DIGEST PATH."
+    - "1 digest skipped as duplicate topic (The Middle Is Getting Squeezed Out of Consulting — older variant of The Consulting Middle Is Disappearing)."
+    - "5 drafts created via Ghost Admin API (image CDN upload unavailable — Ghost MCP upload_image_from_url broken, used Unsplash URLs directly)."
+    - "All 5 verified: lexical non-empty, feature_image set, tags correct names, excerpts populated."
+    - "Slack notification posted to #content (ts 1782299706.381359) — single thread with all 5 drafts."
+    - "pending-drafts.json updated with all 5 entries."
+    - "reference/blog-ideas.md updated with 5 new Ghost draft entries."
+    - "Ghost post IDs: 6a3bbc1d1e7721029086b4c8, 6a3bbc201e7721029086b4d0, 6a3bbc201e7721029086b4d8, 6a3bbc211e7721029086b4e0, 6a3bbc221e7721029086b4e8"

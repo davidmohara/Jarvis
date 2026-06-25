@@ -23,6 +23,11 @@ Running list of potential blog topics. Jarvis captures these proactively from co
 | "The Middle Is Getting Squeezed Out of Consulting" | Watchtower (2026-06-20) [watchtower] | consulting, business, leadership, AI | Draft at `Mind/Posts/_the-middle-is-getting-squeezed-out-of-consulting.md` |
 | "Why I'm Bullish on Dallas as an AI Market" | Watchtower (2026-06-20) [watchtower] | texas, AI, business, leadership | Draft at `Mind/Posts/_why-im-bullish-on-dallas-as-an-ai-market.md` |
 | "Fulfillment Is Not a Benefit. It's a Business Model." | Watchtower (2026-06-20) [watchtower] | leadership, growth, business, purpose | Draft at `Mind/Posts/_fulfillment-is-not-a-benefit-its-a-business-model.md` |
+| "The Consulting Middle Is Disappearing. Which Side Are You On?" | Content pipeline (2026-06-24) | business, leadership, AI | Ghost draft — pending approval |
+| "Dallas Just Topped D.C. Here's What That Actually Means" | Content pipeline (2026-06-24) | business, AI, thoughts | Ghost draft — pending approval |
+| "The Audit Your Clients Haven't Done (And Are About to Need)" | Content pipeline (2026-06-24) | AI, business, thoughts | Ghost draft — pending approval |
+| "Fulfillment Is Not a Benefit. It's a Business Model." | Content pipeline (2026-06-24) | leadership, growth, purpose | Ghost draft — pending approval |
+| "Why Governance Doesn't Scale the Way You Think" | Content pipeline (2026-06-24) | AI, business, leadership | Ghost draft — pending approval |
 
 ## Published (for reference / avoid repeats)
 
