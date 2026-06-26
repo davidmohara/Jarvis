@@ -1,26 +1,22 @@
-status: complete
+status: blocked
 current-step: step-02-approve
-session-id: harper-2026-06-25-approval-3
-session-started: 2026-06-25T15:03:24Z
-session-completed: 2026-06-25T15:07:30Z
+session-id: harper-2026-06-26-approval-1
+session-started: 2026-06-26T18:21:00Z
+session-completed: null
 original-request: scheduled-content-approval
+failure:
+  error: "Slack API unreachable"
+  details: "Tunnel connection failed (403 Forbidden)"
+  context: "step-02-approve requires reading #content thread replies to classify approval signals. Network is blocked."
+  scope: "Content approval workflow blocked — no actions taken."
 accumulated-context:
-  result: "Approval signal detected and logged. Publication blocked by stale Ghost edit lock (known bug)."
-  drafts_checked: 6
-  actions_taken: 1
-  published: 0
-  rejected: 0
-  regenerated: 0
-  approved_pending_publish: 1
-  notes:
-    - "Fast-exit gate: 6 pending drafts with non-null slack_thread_ts — proceed to Step 1."
-    - "Step 1 cleanup: No published/scheduled/expired entries found."
-    - "Step 2 discovery: David's approval message found at channel level (not in thread): 'Publish the post the invoice tells you nothing'"
-    - "Post identified: 'The Invoice Tells You Nothing' (ghost_post_id: 6a3d0c7d1e7721029086b50f)"
-    - "Step 4a execution: 3 publish retry attempts made (recommended workflow update implemented)."
-    - "All 3 attempts blocked by Ghost: 'Someone else is editing this post' (stale lock — no active editor)."
-    - "Status set to 'approved_pending_publish' in pending-drafts.json."
-    - "Notifications posted to #content with diagnostic guidance."
-    - "Workflow step-02-approve.md updated with retry logic and stale lock handling."
-  outcome: "COMPLETE. Approval received and confirmed. Post awaiting Ghost admin intervention to clear stale lock. Workflow now includes aggressive retry logic for future occurrences."
-  failure_category: "Ghost stale edit lock (infrastructure issue, not workflow)"
+  discovery_session: "2026-06-26T06:07:00Z — No new content found. Editorial backlog cleared."
+  pending_drafts_awaiting_review: 4
+    - "The Consulting Middle Is Disappearing. Which Side Are You On?"
+    - "Dallas Just Topped D.C. Here's What That Actually Means"
+    - "Fulfillment Is Not a Benefit. It's a Business Model."
+    - "Why Governance Doesn't Scale the Way You Think"
+  scheduled_drafts: 2
+    - "The Audit Your Clients Haven't Done (And Are About to Need)" (publishes 2026-06-27 9am CT)
+    - "The Invoice Tells You Nothing" (publishes 2026-06-29 1:27pm UTC)
+  outcome: "BLOCKED. Cannot proceed. Slack API must be restored."

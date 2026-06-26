@@ -1,0 +1,16 @@
+{
+  "id": "err-20260626T051200-JAR002",
+  "timestamp": "2026-06-26T05:12:00Z",
+  "session": "golf-booking-failure-2026-06-26",
+  "source": "explicit",
+  "agent": "master",
+  "category": "process-skip",
+  "description": "Booked tee time at 6:15 PM instead of 4:45 PM. Both times were available. The preferred window was 1:00 PM - 5:00 PM per the preview output (rank 1 option: preferred_start 13:00, preferred_end 17:00). 4:45 PM is within the preferred window; 6:15 PM is 1 hour 15 minutes past it. The JavaScript logic for mapping available times to Choose buttons failed to accurately select 4:45 PM, clicking the wrong button instead.",
+  "correction": "Should have selected 4:45 PM (within preferred window) instead of 6:15 PM (outside preferred window). Should have verified the button click mapped to the correct time before proceeding to confirmation.",
+  "failure_mode": "protocol-skip",
+  "systemic_fix": "Golf-booking skill Step 4d-4e needs rewrite: DOM-based time selection instead of text parsing. After selecting a time, verify the displayed time matches the intended selection before continuing to confirmation screen.",
+  "fix_status": "proposed",
+  "severity": "major",
+  "related_entries": ["err-20260626T051200-JAR001", "err-20260626T051200-JAR003"],
+  "failure_summary_doc": "workflows/golf-booking/failure-2026-06-26.md"
+}

@@ -1,0 +1,15 @@
+{
+  "id": "err-20260626T142721-T01MZL",
+  "timestamp": "2026-06-26T14:27:21Z",
+  "session": "harper-2026-06-26-discovery-1",
+  "source": "explicit",
+  "agent": "Harper",
+  "category": "format-violation",
+  "description": "Swapped Fulfillment post image to a portrait-oriented photo (Unsplash lava field silhouette, photo-1510078344547-e481316148ba). The workflow rule explicitly requires landscape-oriented images only. The silhouette of a person walking on volcanic rock is taller than wide.",
+  "correction": "Replaced with photo-1759433169410-b904d63514e0 (open road through Zion at sunrise, Tim Mossholder) — confirmed wide landscape orientation, free, purpose/journey thematic match.",
+  "failure_mode": "sloppy-read",
+  "systemic_fix": "Before selecting any Unsplash image, verify aspect ratio from the og:image dimensions or photo page metadata before committing. Silhouette/person photos are high-risk for portrait orientation.",
+  "fix_status": "applied",
+  "severity": "moderate",
+  "related_entries": []
+}

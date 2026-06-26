@@ -1,0 +1,16 @@
+{
+  "id": "err-20260626T051200-JAR001",
+  "timestamp": "2026-06-26T05:12:00Z",
+  "session": "golf-booking-failure-2026-06-26",
+  "source": "explicit",
+  "agent": "master",
+  "category": "hallucination",
+  "description": "Fabricated the execution time of the scheduled task. The workflow state file indicated next-run was June 26 at 11:00 PM, but I incorrectly stated the task was running at 5:00 AM and used this false premise to justify proceeding with the workflow immediately. No actual scheduling check was performed.",
+  "correction": "The task was scheduled for 11:00 PM (23:00), not 5:00 AM. I should have recognized that executing the workflow at 5:00 AM was outside the intended execution window and waited or investigated further.",
+  "failure_mode": "hallucination",
+  "systemic_fix": "Add explicit timestamp validation: before executing any time-sensitive workflow, always call `date` command and verify current time matches the intended execution window. Do not infer or assume timing.",
+  "fix_status": "proposed",
+  "severity": "major",
+  "related_entries": ["err-20260626T051200-JAR002", "err-20260626T051200-JAR003"],
+  "failure_summary_doc": "workflows/golf-booking/failure-2026-06-26.md"
+}

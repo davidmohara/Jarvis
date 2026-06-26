@@ -1,0 +1,16 @@
+{
+  "id": "err-20260626T051200-JAR003",
+  "timestamp": "2026-06-26T05:12:00Z",
+  "session": "golf-booking-failure-2026-06-26",
+  "source": "explicit",
+  "agent": "master",
+  "category": "missed-context",
+  "description": "Proceeded to confirmation and clicked 'Confirm Reservation' for a 6:15 PM tee time without verifying it matched the preferred window. The confirmation screen explicitly displayed '6:15 PM' before checkbox and confirmation button. I should have caught this discrepancy and gone back to reselect before confirming.",
+  "correction": "When the confirmation screen appeared showing 6:15 PM, I should have recognized this was outside the preferred 1:00 PM - 5:00 PM window and found a way to edit/cancel and reselect 4:45 PM before confirming the reservation.",
+  "failure_mode": "context-blindness",
+  "systemic_fix": "Golf-booking skill Step 4g: Before clicking Confirm Reservation, explicitly verify the displayed time is within the preferred window for the selected option. If not, abort confirmation and go back to Step 4 to try the next ranked option.",
+  "fix_status": "proposed",
+  "severity": "major",
+  "related_entries": ["err-20260626T051200-JAR001", "err-20260626T051200-JAR002"],
+  "failure_summary_doc": "workflows/golf-booking/failure-2026-06-26.md"
+}
