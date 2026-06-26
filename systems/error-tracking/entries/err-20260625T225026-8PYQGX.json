@@ -1,0 +1,15 @@
+{
+  "id": "err-20260625T225026-8PYQGX",
+  "timestamp": "2026-06-25T22:50:26Z",
+  "session": "2026-06-25 IES rebuild evaluation",
+  "source": "explicit",
+  "agent": "master",
+  "category": "data-accuracy",
+  "description": "In the IES Rebuild Evaluation memo and in multiple chat answers, I characterized Pydantic AI 1.0 as being under the Sustainable Use License (source-available, not OSI-approved) and even recommended a LangGraph prebuilt-agent fallback to avoid the license. Pydantic AI the agent framework is actually MIT-licensed. The Sustainable Use License applies to Pydantic Logfire (the hosted observability product), not to the framework or to the Pydantic validation library.",
+  "correction": "Pydantic AI, Pydantic, and FastAPI are MIT. There is no licensing cost or commercial trigger to ship Pydantic AI to a client. The SUL only matters if Logfire is adopted as the observability backend, and that is a service subscription, not a code-license obligation. The Pydantic-AI-vs-LangGraph-prebuilt-agent choice is purely a typing-strength tradeoff, not a license tradeoff.",
+  "failure_mode": "wrong-assumption",
+  "systemic_fix": "Remove the SUL/license caveat from the memo's recommendation and concept-replication sections; state Pydantic AI is MIT and the leaf-agent choice is typing-strength only. When asserting a license for any dependency in a client-shipping context, verify against the actual repo LICENSE file rather than recalling it, and flag that legal should confirm before shipping.",
+  "fix_status": "proposed",
+  "severity": "major",
+  "related_entries": []
+}
