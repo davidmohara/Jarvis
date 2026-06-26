@@ -1,14 +1,13 @@
 ---
 status: complete
-started-at: 2026-06-25T08:13:30Z
-completed-at: 2026-06-25T08:14:30Z
+started-at: 2026-06-26T08:16:30Z
+completed-at: 2026-06-26T08:18:00Z
 outputs:
   dream_log_appended: true
   working_summary_written: true
-  working_summary_reason: "semantic_created=38 + semantic_updated=23 — surface to Chief for visibility."
-  git_commit: success
-  git_push: success
-  commit_sha: d558db2
+  working_summary_reason: "Notable finding — YAML corruption from prior promotion writes discovered; recovered via regex fallback. Surface to Chief / Rigby for visibility."
+  git_commit: pending
+  git_push: pending
 ---
 
 <!-- system:start -->

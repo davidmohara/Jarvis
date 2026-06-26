@@ -1,18 +1,18 @@
 ---
 status: complete
-started-at: 2026-06-25T08:11:00Z
-completed-at: 2026-06-25T08:13:00Z
+started-at: 2026-06-26T08:14:00Z
+completed-at: 2026-06-26T08:16:00Z
 outputs:
-  candidates_count: 116
-  clusters_found: 62
-  semantic_created: 38
-  semantic_updated: 23
-  promoted_entries: 116
-  promotion_note: "116 candidates this cycle; 62 valid clusters. 38 new semantic entries; 23 evidence appends. 116 entries flagged promoted."
-  error_categories_30d: "process-skip:14, routing-error:9, data-accuracy:8, format-violation:6, tool-misuse:4, assumption-error:4, hallucination:3, missed-context:3"
-  error_total_30d: 70
-  lessons_appended: 1
-  lessons_note: "1 newly-threshold-breaching combo appended to LESSONS.md."
+  candidates_count: 0
+  clusters_found: 0
+  semantic_created: 0
+  semantic_updated: 0
+  promoted_entries: 0
+  promotion_note: "0 candidates this cycle — all high-salience episodic entries were promoted in the prior cycle (heavy backlog flush 2026-06-25). Expected tapered count."
+  error_categories_30d: "process-skip:13, routing-error:8, data-accuracy:7, tool-misuse:6, format-violation:6, assumption-error:4, missed-context:4, hallucination:3"
+  error_total_30d: 71
+  lessons_appended: 3
+  lessons_note: "3 newly threshold-breaching combos appended: assumption-error/wrong-assumption, format-violation/wrong-assumption, format-violation/protocol-skip."
 ---
 
 <!-- system:start -->

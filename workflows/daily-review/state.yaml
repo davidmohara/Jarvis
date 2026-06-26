@@ -2,18 +2,18 @@
 workflow: daily-review
 agent: chief
 status: complete
-session-started: "2026-06-24T17:00:00"
-session-id: "chief-2026-06-24-170000"
+session-started: "2026-06-25T14:30:00"
+session-id: "chief-2026-06-25-143000"
 current-step: step-auto
 original-request: "auto"
 accumulated-context:
-  narrative-title: "Relationships Moved, Rocks Held, and the MRI That Changes the Calculus"
-  narrative-path: "reviews/daily/auto-2026-06-24.md"
-  omnifocus-status: "available — 9 completions confirmed"
+  narrative-title: "Account Plans, Kare Devices, and the Final Days of Q2"
+  narrative-path: "reviews/daily/auto-2026-06-25.md"
+  omnifocus-status: "available — 7 completions confirmed"
   calendar-status: "unavailable — headless scheduled run (expected)"
   delegation-status: "no active delegations"
   output-guard: "passed"
-  working-memory-path: "memory/working/daily-review-2026-06-24-170000.md"
+  working-memory-path: "memory/working/daily-review-2026-06-25-143000.md"
   working-memory-status: "written"
   routing-note: "Obsidian MCP disabled — written to local fallback"
   model: sonnet

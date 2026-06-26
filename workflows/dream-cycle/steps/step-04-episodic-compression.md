@@ -1,13 +1,13 @@
 ---
 status: complete
-started-at: 2026-06-25T08:13:00Z
-completed-at: 2026-06-25T08:13:30Z
+started-at: 2026-06-26T08:16:00Z
+completed-at: 2026-06-26T08:16:30Z
 outputs:
   candidates_count: 0
   entries_compressed: 0
   digests_updated: 0
   compression_skipped: true
-  compression_skip_reason: "Oldest episodic entry is 2026-04-18 (68 days old). 90-day cutoff = 2026-03-27. 0 entries eligible (< 5 threshold)."
+  compression_skip_reason: "Oldest episodic entry is 2026-04-18 (69 days old). 90-day cutoff = 2026-03-28. 0 entries eligible (< 5 threshold)."
 ---
 
 <!-- system:start -->

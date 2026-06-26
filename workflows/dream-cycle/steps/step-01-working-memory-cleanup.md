@@ -1,16 +1,20 @@
 ---
 status: complete
-started-at: 2026-06-25T08:09:00Z
-completed-at: 2026-06-25T08:10:00Z
+started-at: 2026-06-26T08:09:41Z
+completed-at: 2026-06-26T08:11:00Z
 outputs:
-  working_archived: 2
+  working_archived: 0
   working_deleted: 0
-  working_skipped: 91
+  working_skipped: 95
   working_stranded: 0
-  enrichment_method: "heuristic:2, llm:0 (claude -p unavailable in scheduled-task subprocess)"
-  archived_files:
-    - daily-review-2026-06-22-020000.md
-    - dream-summary-2026-06-23.md
+  enrichment_method: "n/a — no candidates this cycle"
+  archived_files: []
+  skipped_already_archived_count: 72
+  skipped_unparseable_count: 13
+  skipped_not_expired_count: 9
+  skipped_not_active_count: 1
+  skipped_not_active:
+    - 2026-06-19-000000-golf-booking-confirmed.md (status: completed)
 ---
 
 <!-- system:start -->

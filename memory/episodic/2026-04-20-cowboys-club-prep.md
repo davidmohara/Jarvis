@@ -13,7 +13,7 @@ related_people:
   last-promoted-check: 2026-06-25
 salience:
   score: 0
-  last-promoted-check: 2026-06-24
+  last-promoted-check: 2026-06-26
 ---
 # Meeting Prep — Cowboys Club CEO Event
 

@@ -242,3 +242,27 @@ Category: hallucination
 Pattern: Recurring hallucination occurrences across multiple sessions
 Fix: Review error entries for hallucination; consider tightening protocols
 Status: active
+
+## 2026-06-26 — assumption-error / wrong-assumption
+Detected: 3 occurrences in last 30 days
+Category: assumption-error
+Failure mode: wrong-assumption
+Pattern: Recurring assumption-error category errors with failure mode `wrong-assumption` — surfaced by dream-cycle threshold check.
+Fix: Review category assumption-error entries in `systems/error-tracking/entries/` and apply tier-1 (data) or tier-2 (assertion) remediation. Route to Rigby for tier-3.
+Status: active
+
+## 2026-06-26 — format-violation / wrong-assumption
+Detected: 3 occurrences in last 30 days
+Category: format-violation
+Failure mode: wrong-assumption
+Pattern: Recurring format-violation category errors with failure mode `wrong-assumption` — surfaced by dream-cycle threshold check.
+Fix: Review category format-violation entries in `systems/error-tracking/entries/` and apply tier-1 (data) or tier-2 (assertion) remediation. Route to Rigby for tier-3.
+Status: active
+
+## 2026-06-26 — format-violation / protocol-skip
+Detected: 3 occurrences in last 30 days
+Category: format-violation
+Failure mode: protocol-skip
+Pattern: Recurring format-violation category errors with failure mode `protocol-skip` — surfaced by dream-cycle threshold check.
+Fix: Review category format-violation entries in `systems/error-tracking/entries/` and apply tier-1 (data) or tier-2 (assertion) remediation. Route to Rigby for tier-3.
+Status: active

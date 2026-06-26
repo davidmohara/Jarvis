@@ -1349,3 +1349,21 @@ digests_updated: 0
 errors: 0
 summary: "Heavy promotion cycle. Step-01 archived 2 newly-expired files (daily-review-2026-06-22, dream-summary-2026-06-23); 72 already-archived stragglers, 13 unparseable, 6 not-expired. Step-02 scored 134 episodic entries; window 2026-05-26 → 2026-06-25 with 65 in-window; distribution 0:13, 2:3, 6:2, 7:2, 8:3, 9:6, 10:105. Step-03 promotion: 116 candidates expanded into 62 tag-clusters (including new clusters around email, ypo, flight, jarvis, lessons, utb-board, co-sell, glc-chicago, rock2/3, omnifocus-timeout, git-sync, plaud, alice-mburu, las-vegas, health, system-health, golf, scorecard, lifebook, wfh, obsidian, quarterly-rocks, cyber-training) → 38 new semantic entries, 23 evidence appends; 116 entries flagged promoted. Note: heavy creation count reflects backlog of unpromoted episodic from prior cycles; expect tapered counts next run. Error scan 30d: 70 entries (process-skip:14, routing-error:9, data-accuracy:8 lead); 1 newly-threshold-breaching combo appended to LESSONS.md. Step-04 compression skipped (oldest episodic 68 days, 90-day threshold not met; 0 candidates)."
 git_pull: success
+
+
+---
+## 2026-06-26T08:16:30 UTC
+session_id: dream-cycle-2026-06-26-030941
+working_archived: 0
+working_deleted: 0
+episodic_scanned: 133
+score_updates: 133
+clusters_found: 0
+semantic_created: 0
+semantic_updated: 0
+promoted_entries: 0
+entries_compressed: 0
+digests_updated: 0
+errors: 0
+summary: "Tapered cycle. Step-01: 0 newly-expired working files (only candidate 2026-06-19-golf-booking-confirmed has status:completed not :active, skipped per rules); 72 already-archived stragglers, 13 unparseable, 9 not-expired, 1 not-active. Step-02 scored 133 episodic entries; window 2026-05-27 → 2026-06-26 with 61 in-window; distribution 0:12, 2:3, 5:1, 6:3, 8:7, 9:8, 10:99. Yesterday's promotion writes corrupted YAML on 120+ files (related_people: null followed by indented promoted: true) — recovered via regex-based tag/date extraction; pyyaml parse failed but salience write succeeded. Step-03 promotion: 0 candidates (yesterday's heavy run flushed the backlog as expected). Error scan 30d: 71 entries (process-skip:13, routing-error:8, data-accuracy:7 lead); 3 newly threshold-breaching combos appended to LESSONS.md (assumption-error/wrong-assumption, format-violation/wrong-assumption, format-violation/protocol-skip). Step-04 compression skipped (oldest episodic 69 days, 90-day threshold not met; 0 candidates)."
+git_pull: success

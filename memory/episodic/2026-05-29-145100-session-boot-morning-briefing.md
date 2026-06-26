@@ -25,7 +25,7 @@ related_people:
   promoted: true
 salience:
   score: 10
-  last-promoted-check: 2026-06-25
+  last-promoted-check: 2026-06-26
   promoted: true
 ---
 # Morning Briefing — Friday, May 29, 2026 (Afternoon Run — 2:51 PM CDT)
