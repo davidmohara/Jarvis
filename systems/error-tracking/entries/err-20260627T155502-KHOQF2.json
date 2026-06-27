@@ -1,0 +1,16 @@
+{
+  "id": "err-20260627T155502-KHOQF2",
+  "timestamp": "2026-06-27T15:55:02Z",
+  "session_id": "session-2026-06-26-000000",
+  "source": "explicit",
+  "agent": "master",
+  "category": "data-interpretation",
+  "failure_mode": "date-miscalculation",
+  "severity": "medium",
+  "description": "Calendar widget displayed July 13 in the Sunday column, making it appear the week started on the 13th. July 13 is Monday, not Sunday. The grid was offset by one day. First Semax dose is Monday July 13, not Tuesday July 14 as stated in the follow-up text.",
+  "what_was_wrong": "Calendar widget had week grid shifted by one day. Stated first dose was July 14 (Tuesday) when it should be July 13 (Monday).",
+  "what_was_right": "July 12 = Sunday (off day). July 13 = Monday = first active dose. Recurring Mon-Fri Jul 13 to Aug 14.",
+  "proposed_fix": "Always verify day-of-week with python3 datetime before rendering any calendar widget. Never construct week grids from memory.",
+  "recurrence_count": 2,
+  "tags": ["date-error", "weekday-miscalculation", "calendar-widget", "semax"]
+}

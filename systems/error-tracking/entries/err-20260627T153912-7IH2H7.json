@@ -1,0 +1,16 @@
+{
+  "id": "err-20260627T153912-7IH2H7",
+  "timestamp": "2026-06-27T15:39:12Z",
+  "session_id": "session-2026-06-26-000000",
+  "source": "explicit",
+  "agent": "master",
+  "category": "data-interpretation",
+  "failure_mode": "date-miscalculation",
+  "severity": "medium",
+  "description": "Repeatedly stated 'Sunday June 29' when June 29 is Monday. June 28 is Sunday. Error propagated into session notes, protocol files (metrics-log.json, galen-protocols/SKILL.md), and the daily review. All references to the peptide stack start date need to be verified and corrected.",
+  "what_was_wrong": "Peptide stack start date stated as 'Sunday June 29' throughout the session.",
+  "what_was_right": "June 28 is Sunday. June 29 is Monday. David confirmed he will start on Sunday — correct date is June 28, 2026.",
+  "proposed_fix": "Before stating any day-of-week + date combination, verify with: python3 -c \"import datetime; print(datetime.date(2026,6,28).strftime('%A'))\" or equivalent. Never assert a weekday from memory alone.",
+  "recurrence_count": 1,
+  "tags": ["date-error", "weekday-miscalculation", "protocol", "galen"]
+}

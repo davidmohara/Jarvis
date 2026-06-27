@@ -40,7 +40,7 @@ Optimized for 5:30/5:45 AM workouts (Lifting/Yoga/Recovery).
 
 | Time | Activity / Supplement | Dosage & Instructions |
 |------|----------------------|----------------------|
-| 05:00 AM | Fasted Peptides | Tesamorelin (2mg) + Ipamorelin (300mcg) + MOTS-C (10mg). Sub-Q, empty stomach. |
+| 05:00 AM | Fasted Peptides | Tesamorelin (2mg) + Ipamorelin (300mcg) + MOTS-C (5mg). Sub-Q, empty stomach. |
 | 05:30 AM | Intra-Workout | LMNT Electrolytes: 1 packet in 16-32oz water. Sip throughout session. |
 | 07:00 AM | Foundation | AG1 (1 scoop) + Toniiq NAD+ Complex (2 caps/450mg NAD+) + Toniiq Resveratrol (2 caps/1,000mg). |
 | 08:30 AM | The Super Shake | 1.5 scoops Whey + 1 scoop Collagen Plus + 10g Creatine + 2 drops D3/K2. |

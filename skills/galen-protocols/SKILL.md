@@ -32,10 +32,10 @@ Read `data/health/supplement-stack.json` for current stack state, timing, doses,
 | Peptide | Dosage | Frequency | Status | Cycle Window | Purpose | Notes |
 |---------|--------|-----------|--------|--------------|---------|-------|
 | Retatrutide (Reta) | **3mg** | Weekly subQ | **ACTIVE** | Mar 28 – ongoing | GLP-1/GIP/glucagon triple agonist — weight loss, VAT, metabolic | Current dose and phase tracked in `data/health/tracking.json`. Jastreboff et al. NEJM 2023. |
-| MOTS-C | 5mg (50u) | **Every 5 days**, morning fasted | **ACTIVE** | Jun 29, 2026 – Aug 24, 2026 (8 wks) | Metabolic — AMPK, VAT reduction, insulin sensitivity | 40mg vial + 4ml BW = 10mg/ml. Last cycle ended ~Mar 14. Rest: 13 wks ✅. Cycle 2 started Jun 29, 2026. |
-| Tesamorelin | **2mg (50u)** | 5 nights/wk (Mon–Fri), **90 min post-meal** | **ACTIVE** | Jun 29, 2026 – Aug 31, 2026 (9 wks) | GHRH analog — GH/IGF-1, visceral fat reduction, lean mass preservation | 10mg vial + **2.5ml BW = 4mg/ml. Draw 0.5ml (50u) per injection.** Each vial = 10 doses. 9 vials this 9-wk cycle. Full 2mg dose per Dr. Randol clearance. Baker et al. Neurology 2021 (cognition support). |
-| Ipamorelin | **333mcg (10u)** | 5 nights/wk (Mon–Fri), **same window as Tesamorelin** | **ACTIVE** | Jun 29, 2026 – Aug 31, 2026 (9 wks) | GH secretagogue — pulsatile GH, no cortisol/prolactin spike | 10mg vial + 3ml BW = 3,333mcg/ml. Draw 10 units (0.1ml) per injection. ~1.5 vials this cycle (nights only); ~4.5 remaining after. Sequenced same window as Tesa: synergistic GH axis amplification. Raun et al. Eur J Endocrinol 1998. |
-| Semax | **200mcg per nostril (400mcg total)** AM; 100mcg/nostril PM optional | 5 days on / 2 days off | **PENDING START** | TBD – **6 weeks on / 2 weeks off** | Nootropic — BDNF/NGF upregulation, cognitive enhancement, neuroprotection, focus | Intranasal only. AM dose required, PM optional (≥5 hrs pre-sleep). 400mcg is the established cognitive enhancement sweet spot. Dolotov et al. J Neurochem 2006. Order second vial before starting. |
+| MOTS-C | 5mg (50u) | **Every 5 days**, morning fasted | **ACTIVE** | Jun 28, 2026 – Aug 23, 2026 (8 wks) | Metabolic — AMPK, VAT reduction, insulin sensitivity | 40mg vial + 4ml BW = 10mg/ml. Last cycle ended ~Mar 14. Rest: 13 wks ✅. Cycle 2 started Jun 28, 2026. |
+| Tesamorelin | **2mg (50u)** | 5 nights/wk (Mon–Fri), **90 min post-meal** | **ACTIVE** | Jun 28, 2026 – Aug 30, 2026 (9 wks) | GHRH analog — GH/IGF-1, visceral fat reduction, lean mass preservation | 10mg vial + **2.5ml BW = 4mg/ml. Draw 0.5ml (50u) per injection.** Each vial = 10 doses. 9 vials this 9-wk cycle. Full 2mg dose per Dr. Randol clearance. Baker et al. Neurology 2021 (cognition support). |
+| Ipamorelin | **333mcg (10u)** | 5 nights/wk (Mon–Fri), **same window as Tesamorelin** | **ACTIVE** | Jun 28, 2026 – Aug 30, 2026 (9 wks) | GH secretagogue — pulsatile GH, no cortisol/prolactin spike | 10mg vial + 3ml BW = 3,333mcg/ml. Draw 10 units (0.1ml) per injection. ~1.5 vials this cycle (nights only); ~4.5 remaining after. Sequenced same window as Tesa: synergistic GH axis amplification. Raun et al. Eur J Endocrinol 1998. |
+| Semax | **200mcg per nostril (400mcg total)** AM; 100mcg/nostril PM optional | 5 days on / 2 days off | **PENDING START** | Jul 12 – Aug 16, 2026 (4.5 wks); staggered 2 wks post-GH stack (Jun 28) to isolate cognitive effects | Nootropic — BDNF/NGF upregulation, cognitive enhancement, neuroprotection, focus | Intranasal only. AM dose required, PM optional (≥5 hrs pre-sleep). 400mcg is the established cognitive enhancement sweet spot. Dolotov et al. J Neurochem 2006. Order second vial before starting. |
 | CJC-1295 w/DAC | 1mg | Weekly (1x/wk) | **PAUSED** (while Tesa/Ipa planned) | 8-12 weeks on, 4 weeks off | GH secretagogue | Do not stack with Tesamorelin — redundant upstream GH stimulus |
 | BPC-157 | As needed | PRN | Active (PRN) | Injury/recovery cycles | Healing, recovery, GI support | Minimal side effects, safe for chronic use |
 | Epithalon | [dose] | Cycling | **PAUSED/Planned** | 2x/year max, 4-month pause between | Telomerase activation, aging | Max 2 cycles per year, 10-day cycle duration |
@@ -75,7 +75,7 @@ Read `data/health/supplement-stack.json` for current stack state, timing, doses,
 - **Dose:** **200mcg per nostril (400mcg total)** per AM session. Optional PM dose: 100mcg/nostril (200mcg total) on high-demand days only.
 - **Frequency:** 5 days on / 2 days off (Mon–Fri)
 - **Timing:** AM — immediately upon waking (before food, before other agents). PM dose — ≥5 hours before intended sleep. Do NOT use PM dose if bed is before 10 PM and PM dose would be after 5 PM.
-- **Cycle:** **6 weeks on / 2 weeks off.** Repeat cycles as needed. (Previous: 30 days/14 days — revised to match 5/2 frequency and avoid BDNF receptor downregulation on continuous use.)
+- **Cycle:** **~4.5 week test run (single vial).** Intentional test run to assess response before committing to longer cycling. (Previous: 6 weeks on / 2 weeks off.)
 - **Mechanism:** ACTH(4-7)PGP analog. Upregulates BDNF and NGF expression (Dolotov et al., 2006, *Journal of Neurochemistry*); modulates melanocortin receptors (MC4R); enhances dopaminergic and serotonergic signaling in prefrontal cortex. Downstream BDNF effects last 20–24 hours despite short peptide half-life. BDNF mRNA tripling in hippocampus documented at single-dose level in animal models.
 - **Evidence level:** Emerging evidence — Russian clinical data (stroke, cognitive dysfunction, ADHD). Limited Western RCT data. Protocol based on established peptide community consensus and Russian pharmacological literature.
 - **Dose rationale:** 200mcg/nostril (400mcg total) is the established effective cognitive enhancement range. Prior protocol at 100mcg/nostril (200mcg total) was at the low end of documented efficacy. Upper dose boundary for cognitive use is 600–800mcg/day — 400mcg provides meaningful BDNF stimulus without reaching MC4R over-activation threshold.
@@ -85,7 +85,7 @@ Read `data/health/supplement-stack.json` for current stack state, timing, doses,
   - MOTS-C mitochondrial/metabolic effects are mechanistically orthogonal — no interaction
   - Space PM dose ≥4 hours from any sedating supplements (DSIP if active, PM ashwagandha)
 - **Contraindications / cautions:** MC4R stimulation is activating — avoid in acute anxiety states. If anxiety increases, reduce to 100mcg/nostril 1x/day AM only or drop to 3x/week. Monitor WHOOP sleep onset on PM-dose days.
-- **Inventory note:** One 10mg vial covers ~4.5–5 weeks at 400mcg/day (5/2). A 6-week cycle requires ~12mg. **Order a second vial before starting** if running a full 6-week cycle.
+- **Inventory note:** 1 vial on hand — intentional test run, no reorder needed before start.
 - **Reconstitution:** 2ml BW = 5mg/ml = 500mcg per 0.1ml actuation. Draw 0.08ml per nostril for 400mcg total (200mcg/nostril). Verify concentration with supplier before use.
 
 **Inventory as of June 14, 2026 (at revised doses):**
@@ -138,7 +138,7 @@ Rationale: Without a baseline IGF-1, the default conservative protocol applies. 
 - **ACTIVE: DHEA reduction — reduce from 50mg to 25mg** — Dr. Randol recommendation for E2 and DHEA-S management. Not yet confirmed as actioned; David to confirm timing.
 - **ACTIVE: Methylated B-complex** — methylcobalamin + methylfolate + P5P for homocysteine 19.5 (was 12.0; significant upward trend in 12 months). Continue until recheck.
 - **ACTIVE: Restart Berberine 500mg BID** — LDL Pattern B + small LDL 274; metabolic protection during Reta transition.
-- Confirm stack start date — target July 7–14, 2026 (1–2 weeks post-Reta end ~July 5)
+- GH stack (MOTS-C/Tesa/Ipa) target start: July 7–14, 2026 (1–2 weeks post-Reta end ~July 5). Semax to follow 2 weeks later: Jul 12, 2026
 - Recheck IGF-1 at week 6 of stack — target 150–225 ng/mL (upper-normal for age, not supraphysiologic)
 - Order second Semax vial before starting (one vial insufficient for 6-week cycle at 400mcg/day)
 - Book DEXA mid-August 2026 vs. March 2026 baseline (VAT, A/G ratio, BF%)

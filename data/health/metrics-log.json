@@ -532,8 +532,8 @@
       "notes": "Dose reduction confirmed June 15, 2026. Reta continues at 3mg weekly, ongoing. Next stack target (MOTS-C/Tesamorelin/Ipamorelin/Semax) still July 7–14, 2026. Reta will run concurrently with that stack at 3mg."
     },
     {
-      "entry_id": "protocol-change-2026-06-29-mots-c-started",
-      "date": "2026-06-29",
+      "entry_id": "protocol-change-2026-06-28-mots-c-started",
+      "date": "2026-06-28",
       "category": "protocol_change",
       "source": "David confirmed stack activation",
       "changes": [
@@ -541,8 +541,8 @@
           "item": "MOTS-C",
           "type": "peptide",
           "action": "started",
-          "cycle_start": "2026-06-29",
-          "cycle_end_expected": "2026-08-24",
+          "cycle_start": "2026-06-28",
+          "cycle_end_expected": "2026-08-23",
           "dose": "5mg per injection (50 units @ 10mg/ml — 40mg vial + 4ml BW)",
           "frequency": "every 5 days, morning fasted",
           "cycle_length_weeks": 8,
@@ -554,11 +554,11 @@
           "rationale": "Metabolic optimization — AMPK activation, visceral fat reduction, insulin sensitivity. DEXA June 2026: 16.5% BF, VAT 42.39 in³, A/G ratio 1.06 — excellent progress from March baseline (19.6% BF, VAT 76.3 in³, A/G 1.51). Stack continuation targets further lean mass optimization and metabolic sustainment."
         }
       ],
-      "notes": "MOTS-C cycle 2 initiated. Start date 2026-06-29 confirmed by David. Rest period since last cycle (Mar 14 → Jun 29) = 13 weeks — adequate. Running concurrently with Retatrutide 3mg weekly and preparation for Tesamorelin/Ipamorelin stack start same date."
+      "notes": "MOTS-C cycle 2 initiated. Start date 2026-06-28 confirmed by David. Rest period since last cycle (Mar 14 → Jun 28) = 13 weeks — adequate. Running concurrently with Retatrutide 3mg weekly and preparation for Tesamorelin/Ipamorelin stack start same date."
     },
     {
-      "entry_id": "protocol-change-2026-06-29-tesamorelin-ipamorelin-started",
-      "date": "2026-06-29",
+      "entry_id": "protocol-change-2026-06-28-tesamorelin-ipamorelin-started",
+      "date": "2026-06-28",
       "category": "protocol_change",
       "source": "David confirmed stack activation",
       "changes": [
@@ -566,8 +566,8 @@
           "item": "Tesamorelin",
           "type": "peptide",
           "action": "started",
-          "cycle_start": "2026-06-29",
-          "cycle_end_expected": "2026-08-31",
+          "cycle_start": "2026-06-28",
+          "cycle_end_expected": "2026-08-30",
           "dose": "2mg per injection (50 units @ 4mg/ml — 10mg vial + 2.5ml BW)",
           "frequency": "5 nights/week (Mon–Fri), 90 min post-meal",
           "cycle_length_weeks": 9,
@@ -582,8 +582,8 @@
           "item": "Ipamorelin",
           "type": "peptide",
           "action": "started",
-          "cycle_start": "2026-06-29",
-          "cycle_end_expected": "2026-08-31",
+          "cycle_start": "2026-06-28",
+          "cycle_end_expected": "2026-08-30",
           "dose": "333mcg per injection (10 units @ 3,333mcg/ml — 10mg vial + 3ml BW)",
           "frequency": "5 nights/week (Mon–Fri), same window as Tesamorelin",
           "cycle_length_weeks": 9,
@@ -595,7 +595,7 @@
           "rationale": "GH secretagogue — pulsatile GH without cortisol/prolactin spike. Synergistic with Tesamorelin (GHRH upstream + direct pituitary gland stimulation). Supports lean mass preservation, collagen synthesis, connective tissue integrity. Stacks orthogonally with MOTS-C (AMPK/mitochondrial) and Retatrutide (GLP-1/GIP/glucagon)."
         }
       ],
-      "notes": "Tesamorelin/Ipamorelin cycle 2 initiated. Start date 2026-06-29 confirmed by David. Rest period since last cycle (Mar 14 → Jun 29) = 13 weeks — adequate. Dr. Randol E2 hold lifted June 14, 2026 — clearance active. Both peptides share 9-week cycle → common end date Aug 31, 2026. Concurrent with MOTS-C (8-week cycle, ends Aug 24) and Retatrutide 3mg maintenance. Post-cycle DEXA recommended mid-to-late September 2026 for efficacy assessment vs. June 2026 baseline."
+      "notes": "Tesamorelin/Ipamorelin cycle 2 initiated. Start date 2026-06-28 confirmed by David. Rest period since last cycle (Mar 14 → Jun 28) = 13 weeks — adequate. Dr. Randol E2 hold lifted June 14, 2026 — clearance active. Both peptides share 9-week cycle → common end date Aug 30, 2026. Concurrent with MOTS-C (8-week cycle, ends Aug 23) and Retatrutide 3mg maintenance. Post-cycle DEXA recommended mid-to-late September 2026 for efficacy assessment vs. June 2026 baseline."
     }
   ]
 }
