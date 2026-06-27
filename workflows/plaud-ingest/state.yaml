@@ -2,14 +2,14 @@
 workflow: plaud-ingest
 agent: knox
 status: completed
-session-started: "2026-06-25T00:00:00Z"
-session-completed: "2026-06-25T00:00:00Z"
-session-id: "pi-20260625-001"
+session-started: "2026-06-26T00:00:00Z"
+session-completed: "2026-06-26T00:00:00Z"
+session-id: "pi-20260626-001"
 current-step: step-01-complete
-original-request: "Knox: Run Plaud ingest workflow — discover new recordings since last run (2026-06-24)"
+original-request: "Knox: Run Plaud ingest workflow — discover new recordings (2026-06-26)"
 accumulated-context:
-  target-date: "2026-06-25"
-  last-run-date: "2026-06-24"
+  target-date: "2026-06-26"
+  last-run-date: "2026-06-25"
   api-total-recordings: 63
   recordings-scanned: 63
   new-recordings: []
@@ -21,8 +21,10 @@ accumulated-context:
   staged-files: []
   ingested-notes: []
   notes: >
-    No new recordings found. Most recent Plaud recording is 2026-06-23. All recordings
-    from 06-22 and 06-23 were already ingested in session pi-20260624-001. Two stale
-    file-ID-named .md files in staging (from prior run before names were resolved) were
-    cleaned up. Workflow terminates at step-01 per failure mode: "No new recordings found."
+    No new recordings found. Most recent Plaud recording is 2026-06-23 (ingested in
+    prior session pi-20260625-001). Full diff performed against all 63 API recordings
+    vs vault (zzPlaud/ — Client, Improving, Other, Speaking, YPO subdirs). Eight
+    recordings flagged by fuzzy match (score <0.5) were manually verified against vault
+    note content and confirmed ingested under renamed titles. Workflow terminates at
+    step-01 per failure mode: "No new recordings found."
 ---

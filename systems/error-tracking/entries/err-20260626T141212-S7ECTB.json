@@ -1,0 +1,16 @@
+{
+  "id": "err-20260626T141212-S7ECTB",
+  "timestamp": "2026-06-26T14:12:12Z",
+  "session_id": "session-2026-06-26-000000",
+  "source": "explicit",
+  "agent": "master",
+  "category": "data-interpretation",
+  "failure_mode": "calendar-misread",
+  "severity": "medium",
+  "description": "Boot briefing incorrectly surfaced 'Improving Movie Night' as tonight's event and listed David as organizer. Two distinct errors: (1) UTC-to-CT conversion failure — event start was 2026-06-25T22:00 UTC = 5:00 PM CT on June 25 (yesterday), not tonight. (2) Organizer misattribution — the calendar entry showed isOrganizer: true, but the organizer email was David.O'Hara@improving.com (apostrophe variant), which is a different account alias from David.OHara@improving.com. Should have flagged the ambiguity rather than asserting David organized the event.",
+  "what_was_wrong": "Briefing said 'Improving Movie Night' was tonight and that David was the organizer.",
+  "what_was_right": "It was last night (June 25), and David did not organize it.",
+  "proposed_fix": "Add a UTC midnight-crossing check: any event with UTC start on date N that converts to CT date N-1 must be labeled as yesterday, not today. Also: when organizer email contains an apostrophe variant (O'Hara vs OHara), treat as ambiguous and do not assert isOrganizer without cross-checking the organizer field against David's known sending addresses.",
+  "recurrence_count": 1,
+  "tags": ["calendar", "timezone", "organizer-check", "boot-briefing"]
+}

@@ -1,0 +1,16 @@
+{
+  "id": "err-20260626T141308-A62LIP",
+  "timestamp": "2026-06-26T14:13:08Z",
+  "session_id": "session-2026-06-26-000000",
+  "source": "explicit",
+  "agent": "master",
+  "category": "data-interpretation",
+  "failure_mode": "field-overreach",
+  "severity": "low",
+  "description": "Previous error log (err-20260626T141212-S7ECTB) proposed 'apostrophe alias ambiguity' as the root cause of the organizer misattribution. David clarified both emails are his — the real failure is treating isOrganizer: true as proof that David created or arranged the event. Exchange sets isOrganizer on the calendar copy belonging to the organizer's account; it does not confirm David was the one who planned or scheduled the event in any meaningful sense.",
+  "what_was_wrong": "Asserted David organized Movie Night based on isOrganizer: true in the calendar API response.",
+  "what_was_right": "isOrganizer: true is a calendar object property, not evidence of intent or authorship. Organizer status requires corroboration (sent email, explicit statement, invite trail).",
+  "proposed_fix": "Never surface 'you organized this' in briefings based solely on isOrganizer: true. Only assert organizer role if corroborated by a sent email or David's explicit statement. Flag isOrganizer events neutrally: 'You are listed as organizer.'",
+  "recurrence_count": 1,
+  "tags": ["calendar", "isOrganizer", "boot-briefing", "field-overreach"]
+}

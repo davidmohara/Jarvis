@@ -1,7 +1,7 @@
 # Bio-Optimization Protocol
 
 **Owner**: David O'Hara
-**Last Updated**: 2026-03-25
+**Last Updated**: 2026-06-26
 **Status**: Active — Phase 3 starting March 29 (Metabolic & Fat Loss)
 **Stats**: 6'3", 235-240 lbs
 
@@ -147,7 +147,45 @@ Given this protocol, priority bloodwork markers include:
 
 ---
 
-## VII. Phase Transition Checklist
+## VII. Protein Shake Protocol
+
+**Added**: 2026-06-26 — Following DEXA scan (June 25, 2026) findings: 16.5% BF, -7.4 lbs lean mass, VAT -44%. Shake added to close the protein gap and support lean mass recovery.
+
+### Post-Workout / Protein Shake (Timing: Daily, AM post-workout)
+
+**Ingredients:**
+
+| Ingredient | Amount |
+|---|---|
+| Thorne Whey Protein Isolate (Vanilla) | 1.5 scoops |
+| Frozen blueberries | 1 cup |
+| Banana | 2 medium |
+| Unsweetened almond milk | 1 cup |
+
+**Macros (approximate):**
+
+| Macro | Amount |
+|---|---|
+| Protein | 42g |
+| Carbohydrates | 79g |
+| Fat | 5g |
+| Calories | ~504 kcal |
+
+**Frequency**: Daily, AM post-workout. Sometimes follows breakfast (2 eggs + meat) — combined AM protein calculation below.
+
+**Purpose**: Lean mass support per DEXA findings. High-protein, whole-food carb base to support muscle protein synthesis and glycogen replenishment around training.
+
+**Gluten-free**: Yes — all ingredients are naturally GF. Thorne Whey Isolate is GF-certified.
+
+**Notes**:
+- 42g protein per serving meaningfully supplements the existing 08:30 AM shake (1.5 scoops Whey + 1 scoop Collagen = ~52.5g protein). Combined daily protein from shakes alone: ~94.5g.
+- The banana load (54g carbs, ~27g sugar) is significant. **Banana flag cleared for this timing.** AM post-workout is the optimal window for that carb load — glycogen replenishment after training is exactly the right use case. The insulin spike is productive here, not problematic. No adjustment needed.
+- **Combined AM protein window (when shake follows breakfast)**: 2 eggs (~12g) + meat serving (~20g, estimate) + shake (42g) = **~74g total AM protein**. This is a strong lean mass signal concentrated in the anabolic post-workout window. Well-positioned given the -7.4 lbs lean mass finding.
+- This shake does NOT include creatine, collagen, or D3/K2 (those remain in the 08:30 AM shake). No stack overlap concern.
+
+---
+
+## VIII. Phase Transition Checklist
 
 Use before each phase change:
 

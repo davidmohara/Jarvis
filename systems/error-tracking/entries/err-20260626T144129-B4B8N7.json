@@ -1,0 +1,16 @@
+{
+  "id": "err-20260626T144129-B4B8N7",
+  "timestamp": "2026-06-26T14:41:29Z",
+  "session_id": "session-2026-06-26-000000",
+  "source": "explicit",
+  "agent": "master",
+  "category": "hallucination",
+  "failure_mode": "fabricated-name",
+  "severity": "high",
+  "description": "Briefing and follow-up referenced 'Adam Lowrance' as the podcast prospect. The email sender was alowrance@glsc.com — no first name was visible in the data. Instead of flagging the unknown, fabricated 'Adam'. Correct first name is Ashley.",
+  "what_was_wrong": "Called the prospect 'Adam Lowrance' in both the boot briefing and the next-steps summary.",
+  "what_was_right": "Name is Ashley Lowrance. First name was not in the email data and should have been flagged as unknown rather than invented.",
+  "proposed_fix": "When a contact's first name is not present in the data source, surface as '[first name unknown] Lowrance' or look up the contact via Clay/people files before asserting a name. Never fabricate names.",
+  "recurrence_count": 1,
+  "tags": ["hallucination", "contact-name", "boot-briefing", "fabrication"]
+}
