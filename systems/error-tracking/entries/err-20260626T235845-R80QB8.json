@@ -1,0 +1,15 @@
+{
+  "id": "err-20260626T235845-R80QB8",
+  "timestamp": "2026-06-26T23:58:45Z",
+  "session": "harper-content-approval-2026-06-26",
+  "source": "explicit",
+  "agent": "Harper",
+  "category": "data-accuracy",
+  "description": "Harper misread pending-drafts.json three times: (1) counted 4 pending when there are only 2 (Consulting Middle + Fulfillment); (2) incorrectly reported 'Audit' as scheduled for tomorrow when it published today; (3) failed to identify that Dallas, Governance, and Invoice are all scheduled posts, not pending.",
+  "correction": "Correct state is: 2 pending posts (Consulting Middle, Fulfillment); 3 scheduled posts (Audit already published, Dallas, Governance, Invoice). David corrected the agent verbally. Audit post must be moved to published status and removed from pending-drafts.json. Dallas and Governance must be marked scheduled in the JSON.",
+  "failure_mode": "sloppy-read",
+  "systemic_fix": "Add a pre-execution validation step to step-02-approve that explicitly counts and logs pending vs scheduled entries before attempting any Slack operations. Categorize each entry by status visually to prevent misreading. Consider adding a dry-run mode that prints the draft list for verification before proceeding.",
+  "fix_status": "proposed",
+  "severity": "major",
+  "related_entries": []
+}

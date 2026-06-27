@@ -1,10 +1,10 @@
 {
   "skill": "master-slack",
-  "agent": "master",
+  "agent": "harper",
   "trigger": "scheduled",
-  "started": "2026-06-23T11:00:00Z",
-  "completed": "2026-06-23T11:11:00Z",
+  "started": "2026-06-26T23:58:45Z",
+  "completed": "2026-06-26T23:59:00Z",
   "status": "success",
   "tool_failures": 0,
-  "error_ids": []
+  "error_ids": ["err-20260626T235845-R80QB8"]
 }
