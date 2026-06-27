@@ -145,16 +145,17 @@ The decisive point: **the error log is not just the argument for the rebuild —
 ### 6. What Leaving Cowork Costs (and What It Does Not)
 Today IES does not just run on Cowork — it lives inside it. Cowork is the conversational surface, the connector host, and the bridge to local apps. A rebuild must replace the platform, not only the agent logic.
 
-| Cowork Capability | Real Loss? | Replacement |
+| Next.js App Capability | Kept? | New Role |
 | :--- | :---: | :--- |
-| **Chat UI / desktop app** | Partial | Build or adopt a streaming chat front-end. Days, not weeks, with current scaffolding — but real work that does not improve the agent |
-| **MCP connector hosting** | No | MCP is an open protocol; any host is a client. You inherit only the token/auth lifecycle, which is plumbing |
-| **Document generation** (docx/pptx) | No | These are libraries (docx, python-pptx, openpyxl, LibreOffice). Run anywhere |
-| **Branded output** | No | A template and stylesheet, not a runtime feature |
-| **Scheduled tasks** | No | Cron is a solved problem |
-| **Live artifacts** | No | A small web view hitting your own API |
-| **Local-first / privacy guarantee** | Yes | A server-deployed, DB-backed system inverts `SYSTEM.md`'s first principle. This is a deliberate posture change, not a feature to rebuild |
-| **Mac-native app control** | Yes (conditional) | Bound to local macOS execution, not to Cowork. Survives only if the agent runs on the Mac, or via a local sidecar (see Section 7) |
+| **Cowork initialization endpoint** | Yes — repurposed | Becomes the Python agent session initialization endpoint. Same URL and auth, new payload. |
+| **Artifact-serving endpoints** (markdown pull-down) | Yes — progressively retired | Evolve into the evolution package distribution API. Each endpoint retired only after its replacing Python agent has green evals. |
+| **Evolution management UI** | Yes — extended | Already exists. Phase 3 adds the distribution engine behind it. No rebuild. |
+| **Connector management UI** | Yes — extended | Already exists. Phase 3 adds the catalog UI (submission, approval, publishing). No rebuild. |
+| **Chat UI** | N/A — does not exist today | **New build** in Phase 1. Streaming chat page added to the Next.js app, calling the Python agent API. Not a Cowork replacement; a net-new capability. |
+| **Local-first posture** | No — deliberate trade | Server-deployed multi-tenant platform. Accepted trade-off. |
+| **Mac-native app control** | Conditional | Handled by optional connector packages in the catalog. |
+
+The corrected conclusion: the current Next.js app is the **Cowork bootstrap and artifact distribution layer** — not an interaction surface. Nothing gets thrown away. Initialization endpoints are re-purposed, artifact endpoints evolve into the evolution distribution API, and the management UI is the right foundation for Phase 3 admin tooling. The only net-new surface is the chat UI, which is a Phase 1 deliverable.
 
 The corrected conclusion: most of what first looked like a Cowork loss is replaceable commodity work. The two genuine items are the local-first privacy posture and Mac-native app control — and the second is really a question of where the agent process runs, not which framework it uses.
 

@@ -128,6 +128,12 @@ Prompts are versioned code, not editable text. Behavioral drift from prompt chan
 * [ ] Dry-run output to local JSON before writing to Postgres
 * [ ] Integrity check: 10 benchmark semantic queries return expected results with similarity > 0.82
 
+#### 4.5 Next.js App Integration (Phase 0)
+* [ ] Audit existing Next.js endpoints: initialization, artifact-serving, evolution management, connector management — catalogue what exists and what each returns
+* [ ] Add Python agent API base URL to Next.js environment config (points to Container Apps internal URL)
+* [ ] Stub Python agent API call from a new `/chat` Next.js route — returns a hardcoded response to prove the connection before real agent logic ships
+* [ ] Confirm existing evolution and connector management UI still functional after any schema migrations
+
 **Phase 0 Gate (BRD AC-P0-01 through AC-P0-07):** All infrastructure operational, RLS confirmed, eval harness running >=197 cases, legacy data seeded.
 
 ---
@@ -153,7 +159,17 @@ Prompts are versioned code, not editable text. Behavioral drift from prompt chan
 * [ ] 5-day quality validation with David: output rated acceptable on 5 consecutive mornings
 * [ ] Chief eval suite derived from Phase 0b cases tagged `chief` or `daily-briefing`
 
-#### 5.3 Prompt Governance (Active from Phase 1)
+#### 5.3 Chat UI — New Interaction Surface (Phase 1)
+The chat UI is a **new build** — the current Next.js app has no interaction surface. It ships in Phase 1 alongside the Chief vertical slice because there is no point proving the morning briefing works without a surface to run it from.
+
+* [ ] Streaming chat page in Next.js (`/chat` route) using Server-Sent Events or WebSocket
+* [ ] Calls Python agent API, streams LangGraph output tokens to browser as they arrive
+* [ ] Session continuity: conversation history persisted in Postgres, resumable
+* [ ] Entra ID auth gate: only authenticated Improving users can access the chat route
+* [ ] Basic session list: user can see and resume prior conversations
+* [ ] Error states: agent timeout, connector failure, model error — all surface clearly in UI
+
+#### 5.4 Prompt Governance (Active from Phase 1)
 * [ ] Chief prompt committed to `prompts/chief/morning-briefing.md` with version header
 * [ ] CI runs Chief eval suite on every change to `prompts/chief/**`
 * [ ] Prompt registry updated on deployment with commit SHA and eval score
@@ -215,6 +231,8 @@ For each agent — Chase, Quinn, Shep, Harper, Rigby — in priority order:
 **Duration:** 8-10 weeks (2-3 engineers)
 
 #### 7.1 Evolution Distribution Engine
+> The evolution management UI already exists in the current Next.js app. Phase 3 adds the distribution engine behind it and extends the UI — does not rebuild it.
+
 * [ ] Evolution package format: `evolution.manifest.json` with file actions (add, replace, merge, delete)
 * [ ] Merge action: extract personal blocks, write system version, re-inject personal blocks, verify all blocks present
 * [ ] Replace/delete halt: if personal blocks detected, halt and present conflict to user
@@ -226,6 +244,8 @@ For each agent — Chase, Quinn, Shep, Harper, Rigby — in priority order:
 * [ ] System evolution deployed to all 3 pilot tenants simultaneously: personal blocks preserved for all tenants
 
 #### 7.2 Connector Catalog Web UI
+> The connector management UI already exists in the current Next.js app. Phase 3 extends it — does not rebuild it.
+
 * [ ] Catalog browsing: list all approved connectors by category and audience
 * [ ] Connector detail view: manifest, version history, capabilities, installation instructions
 * [ ] Admin submission flow: upload connector package, validate manifest + signature, review queue

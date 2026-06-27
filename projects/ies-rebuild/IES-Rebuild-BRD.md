@@ -42,6 +42,8 @@ IES today is a working specification for an executive agent platform expressed a
 
 Evidence of the substrate problem is direct: the IES error-tracking system holds ~197 logged corrections, with protocol-skip (rules stated in prose that get ignored) as the single largest failure class at 64 entries.
 
+The existing Next.js app (`ies-app-production.azurewebsites.net`) is **not** the agent runtime — it is the Cowork bootstrap and artifact distribution layer: an initialization endpoint Cowork calls on startup, endpoints that serve markdown agent artifacts to Cowork, and the evolution and connector management UI. This app is kept and extended, not replaced. The chat interaction surface is a new build.
+
 #### 1.2 Scope
 
 **In Scope:**
@@ -108,6 +110,18 @@ Evidence of the substrate problem is direct: the IES error-tracking system holds
     * *AC:* Configure Chief to use Model A and Chase to use Model B. Langfuse traces confirm different models invoked.
 * **FR-05:** All routing rules currently in agents/routing.md must be encoded as LangGraph conditional edges, not prose.
     * *AC:* Code review confirms no routing logic depends on prose interpretation.
+
+#### 4.1b Next.js Web Application Layer
+* **FR-N1:** The existing Next.js app must be extended (not replaced) to serve as the primary web interaction surface and management portal.
+    * *AC:* Existing evolution management and connector catalog UI remain functional throughout all phases. No regressions in existing endpoints.
+* **FR-N2:** The Cowork initialization endpoint must be migrated to return Python agent session configuration instead of Cowork bootstrap data. The URL and auth mechanism are preserved.
+    * *AC:* Existing Cowork clients receive a 200 during transition. New Python agent clients receive a valid session config from the same endpoint post-migration.
+* **FR-N3:** A streaming chat UI must be added to the Next.js app as the primary agent interaction surface. It must call the Python agent API and stream responses to the browser.
+    * *AC:* A user can send a message, receive a streamed response from a LangGraph agent, and view the session in Langfuse — all from the Next.js chat page.
+* **FR-N4:** The existing markdown artifact-serving endpoints must be progressively retired as agents migrate to Python. Each endpoint is retired only after its corresponding agent's eval suite passes.
+    * *AC:* No artifact endpoint is retired before the replacing Python agent reaches Phase gate. Endpoint retirement is tracked in the deployment record.
+* **FR-N5:** The existing evolution and connector management UI is the foundation for Phase 3 admin tooling. It must be extended, not rebuilt.
+    * *AC:* Phase 3 evolution distribution engine and connector catalog UI ship as additions to the existing management pages. No existing management functionality is removed.
 
 #### 4.2 Specialist Agents
 * **FR-06:** Each specialist agent (Chief, Chase, Quinn, Shep, Harper, Rigby) must be implemented as a Pydantic AI agent with typed inputs and outputs.
