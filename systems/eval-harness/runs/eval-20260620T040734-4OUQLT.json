@@ -55,17 +55,55 @@
       "error_ids": []
     },
     "structural": {
-      "expected_outputs_written": null,
-      "outputs_non_empty": null,
-      "assertions_checked": 0,
-      "assertions_passed": 0,
-      "assertion_results": []
+      "expected_outputs_written": true,
+      "outputs_non_empty": true,
+      "assertions_checked": 9,
+      "assertions_passed": 7,
+      "assertion_results": [
+        {
+          "assertion": "system-eval state.yaml shows status: complete",
+          "passed": false
+        },
+        {
+          "assertion": "Analysis report was written to grading/",
+          "passed": true
+        },
+        {
+          "assertion": "Analysis report is substantive (>500 bytes)",
+          "passed": true
+        },
+        {
+          "assertion": "Dashboard HTML file exists",
+          "passed": true
+        },
+        {
+          "assertion": "Dashboard HTML is substantive (>1000 bytes)",
+          "passed": true
+        },
+        {
+          "assertion": "Eval grade skill-run signal was written",
+          "passed": true
+        },
+        {
+          "assertion": "Eval analyze skill-run signal was written",
+          "passed": true
+        },
+        {
+          "assertion": "Eval dashboard skill-run signal was written",
+          "passed": true
+        },
+        {
+          "assertion": "system-eval output contains expected content",
+          "passed": false,
+          "reason": "file not found"
+        }
+      ]
     },
     "grading": {
-      "last_graded": null,
-      "grade": null,
+      "last_graded": "2026-06-27T04:09:00Z",
+      "grade": "B",
       "safety_grade": null,
-      "grader_notes": null
+      "grader_notes": "7/9 assertions passed. All 6 steps executed successfully. analysis-20260620T041138.md is substantive (full corpus analysis, patterns, recommendations). Two assertion failures: state.yaml shows prior run status (not reset) and no working memory file written \u2014 this is the recurring system-eval gap identified in the analysis itself. Output quality is strong; the missing working memory write is a systematic gap that prevents A. To earn A: write memory/working/system-eval-*.md after each run."
     },
     "controller_feedback": {
       "rating": null,

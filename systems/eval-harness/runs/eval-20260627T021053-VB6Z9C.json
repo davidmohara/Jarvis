@@ -1,19 +1,19 @@
 {
-  "id": "eval-20260626T021138-W3TDFA",
+  "id": "eval-20260627T021053-VB6Z9C",
   "type": "workflow",
   "name": "daily-review",
   "agent": "chief",
   "session_id": "session-2026-06-24-000000",
   "trigger": "scheduled",
-  "started": "2026-06-26T02:11:38.426006Z",
-  "completed": "2026-06-26T02:11:38.426006Z",
+  "started": "2026-06-27T02:10:53.774419Z",
+  "completed": "2026-06-27T02:10:53.774419Z",
   "duration_seconds": 0.0,
   "status": "success",
   "steps": [
     {
       "name": "step-auto",
-      "started": "2026-06-26T02:11:38.426006Z",
-      "completed": "2026-06-26T02:11:38.426006Z",
+      "started": "2026-06-27T02:10:53.774419Z",
+      "completed": "2026-06-27T02:10:53.774419Z",
       "duration_seconds": 0.0,
       "status": "success",
       "data_sources_used": [],
@@ -71,9 +71,9 @@
     },
     "grading": {
       "last_graded": "2026-06-27T04:09:00Z",
-      "grade": "B",
+      "grade": "F",
       "safety_grade": null,
-      "grader_notes": "7/8 assertions passed (same YAML parse false-fail on state.yaml check). Output auto-2026-06-26.md is substantive: covers 4 completions (prayer list, coherence breathing, Q&A, Autodesk account plan), two missed items (McKesson and Constellation due today), Lifebook/forgiveness letter crossed Q2 boundary. Calendar explicitly flagged as unavailable due to headless run \u2014 the review notes this limitation honestly. Working memory daily-review-2026-06-26-211000.md written and substantive. Grade B rather than A because the headless calendar absence is a recurring limitation that reduces situational completeness, even though it is logged."
+      "grader_notes": "No output file found. reviews/daily/ contains no 2026-06-27 file; memory/working/ has no daily-review-2026-06-27 entry. This is the same structural failure pattern as the 5 prior F-grade daily-review runs (2026-05-30, 2026-06-02, 2026-06-05, 2026-06-13, 2026-06-20): workflow reports status:success and all steps complete, but no output is written to disk. 7/8 assertions passed only because 7 assertions check the state.yaml and working memory for the prior day (2026-06-26), not today. The single relevant output assertion (file_exists for today's review) passed because it checks a glob that matched 2026-06-26. Real output for 2026-06-27 is absent. Recurring structural failure \u2014 output-write guard needed in step-auto."
     },
     "controller_feedback": {
       "rating": null,

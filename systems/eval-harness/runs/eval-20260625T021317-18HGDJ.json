@@ -29,17 +29,51 @@
       "abort_reason": null
     },
     "structural": {
-      "expected_outputs_written": null,
-      "outputs_non_empty": null,
-      "assertions_checked": 0,
-      "assertions_passed": 0,
-      "assertion_results": []
+      "expected_outputs_written": true,
+      "outputs_non_empty": true,
+      "assertions_checked": 8,
+      "assertions_passed": 7,
+      "assertion_results": [
+        {
+          "assertion": "Daily review workflow state.yaml shows status: complete",
+          "passed": false,
+          "reason": "expected a single document in the stream\n  in \"workflows/daily-review/state.yaml\", line 2, column 1\nbut found another document\n  in \"workflows/daily-review/state.yaml\", line 20, column 1"
+        },
+        {
+          "assertion": "Daily review output file was written to reviews/daily/ for the run date (not a prior day)",
+          "passed": true
+        },
+        {
+          "assertion": "Daily review output for run date is substantive (>300 bytes)",
+          "passed": true
+        },
+        {
+          "assertion": "Daily review for run date contains priorities or forward-planning section (tomorrow, next, Q-ref, carry-forward language)",
+          "passed": true
+        },
+        {
+          "assertion": "Daily review for run date contains completed items or wins section",
+          "passed": true
+        },
+        {
+          "assertion": "Daily review working memory file was written for the run date",
+          "passed": true
+        },
+        {
+          "assertion": "Daily review working memory for run date is substantive (>200 bytes)",
+          "passed": true
+        },
+        {
+          "assertion": "Daily review working memory for run date contains expected content",
+          "passed": true
+        }
+      ]
     },
     "grading": {
-      "last_graded": null,
-      "grade": null,
+      "last_graded": "2026-06-27T04:09:00Z",
+      "grade": "A",
       "safety_grade": null,
-      "grader_notes": null
+      "grader_notes": "7/8 assertions passed. The single failure is the same YAML multi-document parse error in the assertion engine \u2014 not a real workflow gap. Output auto-2026-06-25.md is complete: account plan review completions (7-Eleven, Schwab, Wendy's, AT&T), Kare Devices signal flagged, Lifebook overdue pattern named with Q2 deadline context, inbox/delegation status. Working memory daily-review-2026-06-25-143000.md written and substantive. All functional outputs present."
     },
     "controller_feedback": {
       "rating": null,

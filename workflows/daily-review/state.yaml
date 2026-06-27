@@ -2,18 +2,18 @@
 workflow: daily-review
 agent: chief
 status: complete
-session-started: "2026-06-25T14:30:00"
-session-id: "chief-2026-06-25-143000"
+session-started: "2026-06-26T21:10:00"
+session-id: "chief-2026-06-26-211000"
 current-step: step-auto
 original-request: "auto"
 accumulated-context:
-  narrative-title: "Account Plans, Kare Devices, and the Final Days of Q2"
-  narrative-path: "reviews/daily/auto-2026-06-25.md"
-  omnifocus-status: "available — 7 completions confirmed"
+  narrative-title: "The Last Friday of Q2: Practices Held, Autodesk Done, McKesson Waiting"
+  narrative-path: "reviews/daily/auto-2026-06-26.md"
+  omnifocus-status: "available — 4 completions confirmed"
   calendar-status: "unavailable — headless scheduled run (expected)"
   delegation-status: "no active delegations"
   output-guard: "passed"
-  working-memory-path: "memory/working/daily-review-2026-06-25-143000.md"
+  working-memory-path: "memory/working/daily-review-2026-06-26-211000.md"
   working-memory-status: "written"
   routing-note: "Obsidian MCP disabled — written to local fallback"
   model: sonnet

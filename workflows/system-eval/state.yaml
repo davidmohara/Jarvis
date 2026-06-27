@@ -1,43 +1,33 @@
 workflow: system-eval
 agent: rigby
 status: complete
-session-started: "2026-06-20T04:07:34Z"
-session-id: rigby-2026-06-20-040734
-eval-record-id: eval-20260620T040734-4OUQLT
+session-started: "2026-06-27T04:06:21Z"
+session-id: rigby-2026-06-27-040621
+eval-record-id: eval-20260627T040618-54LOEH
 current-step: null
-original-request: "manual system-eval run 2026-06-20"
+original-request: "scheduled weekly-system-eval run 2026-06-27"
 accumulated-context:
-  records_total: 35
-  records_skipped_in_progress: 0
+  records_total: 44
+  records_skipped_in_progress: 1
   needs_assertions:
-    - eval-20260613T040549-SOOE69
-    - eval-20260616T021202-5AMBIW
-    - eval-20260616T111108-KB2K15
-    - eval-20260617T021222-ZQTYH1
-    - eval-20260618T021249-SMAWWC
-    - eval-20260618T111047-8BE1NF
-    - eval-20260619T021216-OI0WLY
-    - eval-20260620T021321-T6V6WJ
+    - eval-20260620T040734-4OUQLT
+    - eval-20260623T021234-DH9VSD
+    - eval-20260624T155626-B8WRE2
+    - eval-20260625T021317-18HGDJ
+    - eval-20260625T113915-ZBW3B3
+    - eval-20260626T021138-W3TDFA
+    - eval-20260626T111111-SDWZM9
+    - eval-20260627T021053-VB6Z9C
   needs_grade:
-    - eval-20260527T185503-NDAYK6
-    - eval-20260527T205926-PCHVJ1
-    - eval-20260529T222024-2Y8GSF
-    - eval-20260529T222602-BQEM4B
-    - eval-20260613T040549-SOOE69
-    - eval-20260616T021202-5AMBIW
-    - eval-20260616T111108-KB2K15
-    - eval-20260617T021222-ZQTYH1
-    - eval-20260618T021249-SMAWWC
-    - eval-20260618T111047-8BE1NF
-    - eval-20260619T021216-OI0WLY
-    - eval-20260619T151710-0M80W7
-    - eval-20260619T151711-KEZHL6
-    - eval-20260619T155239-YUFRKN
-    - eval-20260619T155240-POVPT0
-    - eval-20260619T155721-W7DPHP
-    - eval-20260619T155749-FY9JS4
-    - eval-20260620T021321-T6V6WJ
-  records_complete: 17
+    - eval-20260620T040734-4OUQLT
+    - eval-20260623T021234-DH9VSD
+    - eval-20260624T155626-B8WRE2
+    - eval-20260625T021317-18HGDJ
+    - eval-20260625T113915-ZBW3B3
+    - eval-20260626T021138-W3TDFA
+    - eval-20260626T111111-SDWZM9
+    - eval-20260627T021053-VB6Z9C
+  records_complete: 35
   assertion_files_available:
     - system-eval
     - daily-review
@@ -47,31 +37,23 @@ accumulated-context:
     - obsidian-source-note
   assertions_run:
     total_records_asserted: 8
-    total_assertions_evaluated: 59
-    total_assertions_passed: 46
-    records_fully_passing: 4
-    records_with_failures: 4
+    total_assertions_evaluated: 55
+    total_assertions_passed: 48
+    records_fully_passing: 2
+    records_with_failures: 6
     no_assertion_definition: []
   grading:
-    total_graded: 18
+    total_graded: 8
     grade_distribution:
-      A: 3
-      B: 3
-      C: 1
-      D: 1
-      F: 10
-    no_output_found:
-      - eval-20260529T222024-2Y8GSF
-      - eval-20260529T222602-BQEM4B
-      - eval-20260619T151710-0M80W7
-      - eval-20260619T151711-KEZHL6
-      - eval-20260619T155239-YUFRKN
-      - eval-20260619T155240-POVPT0
-      - eval-20260619T155721-W7DPHP
-      - eval-20260619T155749-FY9JS4
+      A: 5
+      B: 2
+      C: 0
+      D: 0
+      F: 1
+    no_output_found: []
   scoring:
-    records_scored: 35
-    batch_average: 0.6253
+    records_scored: 43
+    batch_average: 0.6732
     score_by_id:
       eval-20260524T194258-HBF752: 0.5765
       eval-20260526T125258-Q3KWG7: 1.0
@@ -108,28 +90,37 @@ accumulated-context:
       eval-20260619T155721-W7DPHP: 0.3
       eval-20260619T155749-FY9JS4: 0.1667
       eval-20260620T021321-T6V6WJ: 0.5083
+      eval-20260620T040734-4OUQLT: 0.8859
+      eval-20260623T021234-DH9VSD: 0.9583
+      eval-20260624T155626-B8WRE2: 0.9167
+      eval-20260625T021317-18HGDJ: 0.9583
+      eval-20260625T113915-ZBW3B3: 0.8333
+      eval-20260626T021138-W3TDFA: 0.9183
+      eval-20260626T111111-SDWZM9: 0.8333
+      eval-20260627T021053-VB6Z9C: 0.7583
     score_script_error: null
   analysis:
-    report_path: systems/eval-harness/grading/analysis-20260620T041138.md
-    top_recommendation: "Add output-write verification guard to daily-review step-auto — workflow reports success but writes no output file on 5 of 15 runs (2026-05-30, 2026-06-02, 2026-06-05, 2026-06-13, 2026-06-20)"
-    patterns_count: 6
+    report_path: systems/eval-harness/grading/analysis-20260627T041800.md
+    top_recommendation: "Add output-write guard to daily-review step-auto — workflow reports success but writes no output file on 6 of 19 runs (2026-05-30, 2026-06-02, 2026-06-05, 2026-06-13, 2026-06-20, 2026-06-27)"
+    patterns_count: 7
     recommendations_count: 6
+  feedback_prompt: "skipped (headless)"
   step_timings:
     - step: step-01-intake
-      started: "2026-06-20T04:07:34Z"
-      completed: "2026-06-20T04:09:00Z"
+      started: "2026-06-27T04:06:21Z"
+      completed: "2026-06-27T04:08:00Z"
     - step: step-02-assert
-      started: "2026-06-20T04:09:00Z"
-      completed: "2026-06-20T04:12:00Z"
+      started: "2026-06-27T04:08:00Z"
+      completed: "2026-06-27T04:10:00Z"
     - step: step-03-grade
-      started: "2026-06-20T04:12:00Z"
-      completed: "2026-06-20T04:18:00Z"
+      started: "2026-06-27T04:10:00Z"
+      completed: "2026-06-27T04:16:00Z"
     - step: step-04-score
-      started: "2026-06-20T04:18:00Z"
-      completed: "2026-06-20T04:21:00Z"
+      started: "2026-06-27T04:16:00Z"
+      completed: "2026-06-27T04:18:00Z"
     - step: step-05-analyze
-      started: "2026-06-20T04:21:00Z"
-      completed: "2026-06-20T04:25:00Z"
+      started: "2026-06-27T04:18:00Z"
+      completed: "2026-06-27T04:21:00Z"
     - step: step-06-dashboard
-      started: "2026-06-20T04:25:00Z"
-      completed: "2026-06-20T04:32:00Z"
+      started: "2026-06-27T04:21:00Z"
+      completed: "2026-06-27T04:23:00Z"
