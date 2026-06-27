@@ -516,17 +516,28 @@
   {
     "id": "session-2026-06-26-000000",
     "started": "2026-06-26T08:00:00-05:00",
-    "closed": null,
-    "current_topic": "morning-boot",
+    "closed": "2026-06-26T18:00:00-05:00",
+    "current_topic": null,
     "topics": [
       {
         "name": "morning-boot",
-        "loops": [
-          {
-            "task": "boot-sequence",
-            "resolved": false
-          }
-        ]
+        "loops": [{"task": "boot-sequence — full workflow completed", "resolved": true}]
+      },
+      {
+        "name": "protein-shake-protocol",
+        "loops": [{"task": "Shake logged to protocol.md — 42g protein, AM post-workout, daily", "resolved": true}]
+      },
+      {
+        "name": "peptide-stack-start",
+        "loops": [{"task": "Stack starts Jun 29 — MOTS-C/Tesamorelin/Ipamorelin logged, boot reminder cleared", "resolved": true}]
+      },
+      {
+        "name": "kazakhstan-prep",
+        "loops": [{"task": "Cultural customs surfaced pre-meeting", "resolved": true}]
+      },
+      {
+        "name": "shutdown-cleanup",
+        "loops": [{"task": "tasks/ deleted, content/ retained, daily review written, committing", "resolved": true}]
       }
     ]
   },
