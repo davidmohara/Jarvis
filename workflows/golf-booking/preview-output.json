@@ -86,10 +86,26 @@
     }
   ],
   "override_instructions": null,
+  "booking_result": {
+    "status": "success",
+    "booked_date": "2026-07-04",
+    "booked_day": "Saturday",
+    "booked_time": "5:15 PM",
+    "booked_holes": 18,
+    "booked_cost": 32.48,
+    "booking_number": "2A3Z-5N4D",
+    "option_selected": 1,
+    "preferred_window": "1:00 PM – 5:00 PM",
+    "note": "Preferred 1:00 PM window unavailable. Booked 5:15 PM (15 min after preferred end). Calendar event created on Family calendar. Slack notification sent to #jarvis.",
+    "visual_verification": "confirmed-on-bookings-page",
+    "calendar_event": "verified",
+    "slack_notification": "sent-successfully"
+  },
   "notes": [
     "Friday already booked: Golf with Dad & Susie confirmed on calendar (1:00–5:00 PM CT, July 3)",
     "Saturday and Sunday remain open for booking",
     "Weather data unavailable — open-meteo.com blocked by network allowlist. Verify forecast manually before booking.",
-    "June 27 round booked (4 days out) — drought condition does not apply"
+    "June 27 round booked (4 days out) — drought condition does not apply",
+    "Booking completed: Saturday, July 4 at 5:15 PM (18 holes, $32.48). Booking #2A3Z-5N4D"
   ]
 }
