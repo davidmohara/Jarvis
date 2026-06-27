@@ -479,25 +479,64 @@ def generate_html(records, metrics, output_path):
     print(f"Dashboard generated: {output_path}")
 
 
-def update_artifact_ids(eval_dir, artifact_path="systems/eval-harness/dashboard-artifact.html"):
-    """Keep KNOWN_IDS in dashboard-artifact.html in sync with actual run files."""
-    import re
-    runs = sorted(Path(eval_dir).glob("eval-*.json"))
-    ids = [r.stem for r in runs]
-    if not ids:
-        return
+def update_artifact_records(eval_dir, artifact_path="systems/eval-harness/dashboard-artifact.html", exclude_ids=None):
+    """Rebuild the RECORDS array in dashboard-artifact.html from current eval run files.
+
+    Previously this function only updated a KNOWN_IDS list, which was never read by the
+    render logic — leaving the artifact with stale hardcoded data.  Now it loads every
+    closed record, serialises the full array, and regex-replaces the ALL_RECORDS (or
+    legacy RECORDS) constant so the artifact always reflects the live corpus.
+    """
+    import re, json
+    from datetime import datetime, timezone
+
+    exclude_ids = set(exclude_ids or [])
     artifact = Path(artifact_path)
     if not artifact.exists():
         return
-    new_ids = ',\n    '.join(f"'{i}'" for i in ids)
+
+    runs = sorted(Path(eval_dir).glob("eval-*.json"))
+    records = []
+    for run_path in runs:
+        try:
+            with open(run_path) as fh:
+                rec = json.load(fh)
+        except Exception:
+            continue
+        if rec.get("status") == "in-progress":
+            continue
+        if rec.get("id") in exclude_ids:
+            continue
+        records.append(rec)
+
+    records.sort(key=lambda r: r.get("started", ""), reverse=True)
+    records_json = json.dumps(records, separators=(",", ":"))
+
+    text = artifact.read_text()
+    # Replace ALL_RECORDS = [...] or legacy RECORDS = [...]
+    # Use a lambda replacement to avoid re.sub interpreting backslashes in the JSON
+    replacement = f'const ALL_RECORDS = {records_json};'
     updated = re.sub(
-        r'(const KNOWN_IDS = \[)[^\]]*(\];)',
-        f'const KNOWN_IDS = [\n    {new_ids}\n];',
-        artifact.read_text(),
-        flags=re.DOTALL
+        r'const (ALL_RECORDS|RECORDS) = \[.*?\];',
+        lambda _: replacement,
+        text,
+        flags=re.DOTALL,
+        count=1,
+    )
+    # Update the snapshot timestamp and record count in the subtitle line
+    now_str = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%S")
+    updated = re.sub(
+        r'Snapshot: [^&]+',
+        f'Snapshot: {now_str}Z',
+        updated,
+    )
+    updated = re.sub(
+        r'<span id="rec-count">\d+</span>',
+        f'<span id="rec-count">{len(records)}</span>',
+        updated,
     )
     artifact.write_text(updated)
-    print(f"dashboard-artifact.html KNOWN_IDS updated: {len(ids)} records")
+    print(f"dashboard-artifact.html RECORDS updated: {len(records)} records")
 
 
 def main():
@@ -505,7 +544,7 @@ def main():
     records = load_eval_records(args.eval_dir, args.recent, args.period, args.workflow, args.skill, args.agent)
     metrics = calculate_metrics(records)
     generate_html(records, metrics, args.output)
-    update_artifact_ids(args.eval_dir)
+    update_artifact_records(args.eval_dir)
 
 
 if __name__ == "__main__":
