@@ -15,7 +15,7 @@ related_people:
 - scott-beck
 - jarrod-beck
 - brad-mcknight
-  last-promoted-check: 2026-06-25
+  last-promoted-check: 2026-06-27
 salience:
   score: 0
   last-promoted-check: 2026-06-26

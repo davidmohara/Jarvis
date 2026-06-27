@@ -3,7 +3,7 @@ type: semantic
 domain: operational
 primary-tag: dream-summary
 created: 2026-06-12
-last-updated: 2026-06-25
+last-updated: 2026-06-27
 confidence: high
 synthesized-from: 23
   - dream-summary-2026-05-25.md
@@ -32,7 +32,6 @@ tags:
   - pattern
   - dream-cycle-promoted
 ---
-
 # Pattern: Dream Summary
 
 ## Pattern Summary
@@ -140,6 +139,11 @@ _2026-06-17 run:_
 - 2026-06-25: memory/episodic/dream-summary-2026-05-22.md (tags: dream-summary, briefing, omnifocus, boot, semantic-promotion)
 - 2026-06-25: memory/episodic/dream-summary-2026-05-16.md (tags: dream-summary, briefing, morning-briefing, omnifocus, pipeline)
 
+
+
+### Cycle 2026-06-27
+- 2026-06-27: dream-summary-2026-06-25.md (score 10) — tags: dream-summary, jarvis, omnifocus, omnifocus-timeout, travel, flight, glc-chicago, cabo, ypo, drc-workshop
+- 2026-06-27: dream-summary-2026-06-24.md (score 10) — tags: dream-summary, jarvis, calendar, omnifocus, leads, rock4, quarterly-rocks, one-texas, revenue, pipeline
 ## Implications
 
 

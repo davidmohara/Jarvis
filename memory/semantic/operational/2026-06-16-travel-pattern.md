@@ -2,14 +2,13 @@
 type: semantic
 domain: operational
 created: 2026-06-16
-last-updated: 2026-06-25
+last-updated: 2026-06-27
 confidence: high
 synthesized-from: 3
 tags:
   - travel
   - dream-cycle
 ---
-
 # Travel Pattern
 
 ## Pattern Summary
@@ -73,6 +72,11 @@ Recurring pattern detected via dream-cycle promotion. 3 entries clustered on `tr
 - 2026-06-25: memory/episodic/2026-04-27-dream-cycle-summary.md (tags: dream-cycle, system-maintenance, semantic-promotion, travel-pattern, omnifocus)
 - 2026-06-25: memory/episodic/2026-04-25-dream-cycle-summary.md (tags: dream-cycle, memory-management, semantic-promotion, travel-pattern)
 
+
+
+### Cycle 2026-06-27
+- 2026-06-27: dream-summary-2026-06-25.md (score 10) — tags: dream-summary, jarvis, omnifocus, omnifocus-timeout, travel, flight, glc-chicago, cabo, ypo, drc-workshop
+- 2026-06-27: morning-briefing-2026-06-24-061500.md (score 10) — tags: briefing, chief, morning-briefing, calendar, omnifocus, leads, travel, utb-board, rock2, rock4
 ## Implications
 
 - Cluster is recurring; monitor for further reinforcement during subsequent dream cycles.

@@ -1,14 +1,31 @@
 ---
-type: working
+type: working-archive
 task_id: "session"
 session_id: "dream-cycle-2026-06-24-080930"
 agent-source: jarvis
 created: 2026-06-24T03:09:30
 expires: 2026-06-26T03:09:30
-status: active
+status: archived
 context: "Dream cycle 2026-06-24 summary — heavy promotion run; 5 new semantic entries; 32 episodic entries flagged promoted"
+salience:
+  score: 10
+  last-promoted-check: 2026-06-27
+  promoted: true
+date: 2026-06-24
+source_file: memory/working/dream-summary-2026-06-24.md
+tags:
+  - dream-summary
+  - jarvis
+  - calendar
+  - omnifocus
+  - leads
+  - rock4
+  - quarterly-rocks
+  - one-texas
+  - revenue
+  - pipeline
+related_people:
 ---
-
 # Dream Cycle Summary — 2026-06-24
 
 ## What ran

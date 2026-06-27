@@ -12,7 +12,7 @@ tags:
 - atlas
 - portfolio-review
 related_people: []
-  last-promoted-check: 2026-06-25
+  last-promoted-check: 2026-06-27
 salience:
   score: 0
   last-promoted-check: 2026-06-26

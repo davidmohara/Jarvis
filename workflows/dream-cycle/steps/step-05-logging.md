@@ -1,14 +1,13 @@
 ---
 status: complete
-started-at: 2026-06-26T08:16:30Z
-completed-at: 2026-06-26T08:18:00Z
+started-at: 2026-06-27T08:15:15Z
+completed-at: 2026-06-27T08:16:30Z
 outputs:
   dream_log_appended: true
   working_summary_written: true
-  working_summary_reason: "Notable finding — YAML corruption from prior promotion writes discovered; recovered via regex fallback. Surface to Chief / Rigby for visibility."
-  git_commit: success
-  git_push: success
-  commit_sha: a26bf42
+  working_summary_reason: "Notable activity — 8 cluster promotions including 1 new semantic entry. Surfaces LLM-fallback observation for Rigby."
+  git_commit: pending
+  git_push: pending
 ---
 
 <!-- system:start -->

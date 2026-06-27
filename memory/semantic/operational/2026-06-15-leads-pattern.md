@@ -2,7 +2,7 @@
 type: semantic
 domain: operational
 created: 2026-06-15
-last-updated: 2026-06-25
+last-updated: 2026-06-27
 confidence: high
 tags:
   - leads
@@ -56,6 +56,12 @@ Recurring pattern observed in leads entries: cluster of 1 episodic memories shar
 - 2026-06-25: memory/episodic/2026-04-30-morning-briefing.md (tags: briefing, calendar, travel, flight-conflict, omnifocus-timeout)
 - 2026-06-25: memory/episodic/2026-05-01-morning-briefing-post-travel.md (tags: briefing, calendar, omnifocus, travel, post-travel)
 
+
+
+### Cycle 2026-06-27
+- 2026-06-27: morning-briefing-2026-06-24-061500.md (score 10) — tags: briefing, chief, morning-briefing, calendar, omnifocus, leads, travel, utb-board, rock2, rock4
+- 2026-06-27: dream-summary-2026-06-24.md (score 10) — tags: dream-summary, jarvis, calendar, omnifocus, leads, rock4, quarterly-rocks, one-texas, revenue, pipeline
+- 2026-06-27: plaud-ingest-2026-06-24-170000.md (score 10) — tags: chief, calendar, omnifocus, leads, 1on1-prep, plaud
 ## Implications
 
 - 2026-06-24: New episodic cluster (leads, 2 entries) reinforces pattern.

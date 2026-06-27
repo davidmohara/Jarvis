@@ -1,9 +1,9 @@
 ---
 type: semantic
 domain: operational
-confidence: low
+confidence: high
 created: 2026-06-25
-last-updated: 2026-06-25
+last-updated: 2026-06-27
 tags:
   - jarvis
 synthesized-from:
@@ -23,7 +23,6 @@ synthesized-from:
   - memory/episodic/dream-summary-2026-06-19.md
   - memory/episodic/dream-summary-2026-06-18.md
 ---
-
 # Jarvis Pattern
 
 ## Pattern Summary
@@ -48,6 +47,11 @@ Recurring jarvis activity observed across 15 episodic entries within the 30-day 
 - 2026-06-25: memory/episodic/dream-summary-2026-06-19.md (tags: dream-summary, jarvis, briefing, omnifocus, pipeline)
 - 2026-06-25: memory/episodic/dream-summary-2026-06-18.md (tags: dream-summary, jarvis, memory-pipeline, pipeline, co-sell)
 
+
+
+### Cycle 2026-06-27
+- 2026-06-27: dream-summary-2026-06-25.md (score 10) — tags: dream-summary, jarvis, omnifocus, omnifocus-timeout, travel, flight, glc-chicago, cabo, ypo, drc-workshop
+- 2026-06-27: dream-summary-2026-06-24.md (score 10) — tags: dream-summary, jarvis, calendar, omnifocus, leads, rock4, quarterly-rocks, one-texas, revenue, pipeline
 ## Implications
 
 - jarvis is a meaningful operational signal — appears frequently enough across distinct sessions to warrant a semantic record.

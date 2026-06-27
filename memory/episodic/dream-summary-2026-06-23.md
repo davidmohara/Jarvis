@@ -7,7 +7,7 @@ agent-source: jarvis
 context: "Dream cycle summary for 2026-06-23"
 salience:
   score: 10
-  last-promoted-check: 2026-06-26
+  last-promoted-check: 2026-06-27
   promoted: true
 date: 2026-06-23
 source_file: memory/working/dream-summary-2026-06-23.md
@@ -22,7 +22,6 @@ tags:
   - boot
 related_people: []
 ---
-
 # Dream Cycle Summary — 2026-06-23
 
 Steady-state run. One new operational semantic pattern emerged (omnifocus); the recurring calendar and pipeline patterns received new evidence.

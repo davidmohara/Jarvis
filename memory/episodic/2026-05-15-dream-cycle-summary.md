@@ -6,7 +6,7 @@ date: 2026-05-15
 tags:
 - dream-cycle
 - meta
-  last-promoted-check: 2026-06-25
+  last-promoted-check: 2026-06-27
 salience:
   score: 0
   last-promoted-check: 2026-06-26

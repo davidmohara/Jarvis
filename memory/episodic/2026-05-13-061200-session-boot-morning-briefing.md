@@ -24,7 +24,7 @@ related_people: null
   promoted: true
 salience:
   score: 10
-  last-promoted-check: 2026-06-26
+  last-promoted-check: 2026-06-27
   promoted: true
 ---
 # Morning Briefing Boot — May 13, 2026

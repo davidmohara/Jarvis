@@ -1,47 +1,51 @@
 workflow: dream-cycle
 agent: jarvis
 status: complete
-session-started: 2026-06-26T08:09:41Z
-session-id: dream-cycle-2026-06-26-030941
+session-started: 2026-06-27T08:09:20Z
+session-id: dream-cycle-2026-06-27-030920
 current-step: null
 original-request: Scheduled dream cycle run (automated)
 accumulated-context:
   git_pull_at_boot: success
-  working_archived: 0
+  working_archived: 5
   working_deleted: 0
-  working_skipped: 95
+  working_skipped: 94
   working_stranded: 0
-  enrichment_method: "n/a — no candidates this cycle"
-  archived_files: []
+  enrichment_method: "heuristic (LLM unavailable in sandbox)"
+  archived_files:
+    - daily-review-2026-06-24-170000.md
+    - dream-summary-2026-06-24.md
+    - dream-summary-2026-06-25.md
+    - morning-briefing-2026-06-24-061500.md
+    - plaud-ingest-2026-06-24-170000.md
   skipped_already_archived_count: 72
   skipped_unparseable_count: 13
-  skipped_not_expired_count: 9
+  skipped_not_expired_count: 8
   skipped_not_active_count: 1
-  episodic_scanned: 133
-  score_updates: 133
-  no_tags: 5
-  no_date: 1
-  files_with_tags: 128
-  in_window_count: 61
-  score_distribution: "0:12, 2:3, 5:1, 6:3, 8:7, 9:8, 10:99"
-  window_start: 2026-05-27
-  window_end: 2026-06-26
-  candidates_count: 0
-  clusters_found: 0
-  semantic_created: 0
-  semantic_updated: 0
-  promoted_entries: 0
-  promotion_note: "0 candidates — yesterday's heavy promotion flushed the backlog. Expected."
-  error_categories_30d: "process-skip:13, routing-error:8, data-accuracy:7, tool-misuse:6, format-violation:6, assumption-error:4, missed-context:4, hallucination:3"
-  error_total_30d: 71
-  lessons_appended: 3
-  lessons_note: "3 newly threshold-breaching combos: assumption-error/wrong-assumption, format-violation/wrong-assumption, format-violation/protocol-skip."
+  episodic_scanned: 139
+  score_updates: 139
+  no_tags: 6
+  no_date: 8
+  files_with_tags: 133
+  in_window_count: 60
+  score_distribution: "0:13, 2:3, 4:1, 5:2, 6:1, 7:6, 8:2, 9:6, 10:105"
+  window_start: 2026-05-28
+  window_end: 2026-06-27
+  candidates_count: 5
+  clusters_found: 8
+  semantic_created: 1
+  semantic_updated: 7
+  promoted_entries: 5
+  promotion_note: "Standard cycle. 5 freshly-archived working files promoted into 8 tag-clusters; 7 evidence appends + 1 new (chief-pattern)."
+  error_categories_30d: "process-skip:11, data-accuracy:9, routing-error:8, format-violation:7, tool-misuse:6, missed-context:5, assumption-error:4, hallucination:4"
+  error_total_30d: 73
+  lessons_appended: 1
+  lessons_note: "1 newly threshold-breaching combo appended (missed-context/context-blindness, 3 occurrences). Suppressed unknown/unknown spurious match from null-category entries."
   entries_compressed: 0
   digests_updated: 0
   compression_skipped: true
-  compression_skip_reason: "Oldest episodic 2026-04-18 (69 days). 90-day cutoff = 2026-03-28. 0 candidates (< 5 threshold)."
+  compression_skip_reason: "Oldest episodic 2026-04-18 (70 days). 90-day cutoff = 2026-03-29. 0 candidates (< 5 threshold)."
   dream_log_appended: true
   working_summary_written: true
-  working_summary_reason: "Notable discovery — YAML corruption from prior promotion writes."
-  yaml_corruption_finding: "pyyaml failed on ~120 of 133 episodic frontmatters; recovered via regex fallback. Root cause: yesterday's promotion writes inserted 'promoted: true' indented under 'related_people: null'. Recommend Rigby fix in step-03 mutation logic."
+  working_summary_reason: "Notable activity — 8 cluster promotions including 1 new semantic entry. Surfaces LLM-fallback observation for Rigby."
   errors: 0

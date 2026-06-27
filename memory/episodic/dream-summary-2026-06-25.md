@@ -1,14 +1,32 @@
 ---
-type: working
+type: working-archive
 task_id: "dream-cycle"
 session_id: "dream-cycle-2026-06-25-030900"
 agent-source: jarvis
 created: 2026-06-25T08:13:45Z
 expires: 2026-06-26
-status: active
+status: archived
 context: "Dream cycle 2026-06-25 — heavy promotion run, 38 new semantic entries"
+salience:
+  score: 10
+  last-promoted-check: 2026-06-27
+  promoted: true
+date: 2026-06-25
+source_file: memory/working/dream-summary-2026-06-25.md
+tags:
+  - dream-summary
+  - jarvis
+  - omnifocus
+  - omnifocus-timeout
+  - travel
+  - flight
+  - glc-chicago
+  - cabo
+  - ypo
+  - drc-workshop
+related_people:
+  - alice-mburu
 ---
-
 # Dream Cycle Summary — 2026-06-25
 
 Heavy promotion run. The cycle worked through a sizable backlog of unpromoted episodic entries; expect counts to taper next cycle.

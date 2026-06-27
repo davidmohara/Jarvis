@@ -266,3 +266,11 @@ Failure mode: protocol-skip
 Pattern: Recurring format-violation category errors with failure mode `protocol-skip` — surfaced by dream-cycle threshold check.
 Fix: Review category format-violation entries in `systems/error-tracking/entries/` and apply tier-1 (data) or tier-2 (assertion) remediation. Route to Rigby for tier-3.
 Status: active
+
+
+## 2026-06-27 — missed-context/context-blindness
+Detected: 3 occurrences over 30 days
+Category: missed-context
+Pattern: Repeated occurrences of `missed-context` with failure mode `context-blindness` across the 30-day window.
+Fix: Review category-specific systemic fixes from individual entries in `systems/error-tracking/entries/`. Schedule a Rigby-led pattern-analysis pass if recurrence continues.
+Status: active

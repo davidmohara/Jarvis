@@ -3,9 +3,9 @@ type: semantic-pattern
 domain: pattern
 tags:
 - rock4
-confidence: medium
+confidence: high
 created: '2026-06-18'
-last-updated: 2026-06-25
+last-updated: 2026-06-27
 synthesized-from:
 - 2026-04-20-rock4-pipeline-weekly.md
 synthesized-from:
@@ -30,6 +30,11 @@ Recurring `rock4` activity observed in episodic memory.
 - 2026-06-25: memory/episodic/morning-briefing-2026-05-27-060943.md (tags: briefing, chief, morning-briefing, calendar, omnifocus)
 - 2026-06-25: memory/episodic/2026-04-20-rock4-pipeline-weekly.md (tags: rock4, co-sell, pipeline, powerbi, microsoft)
 
+
+
+### Cycle 2026-06-27
+- 2026-06-27: morning-briefing-2026-06-24-061500.md (score 10) — tags: briefing, chief, morning-briefing, calendar, omnifocus, leads, travel, utb-board, rock2, rock4
+- 2026-06-27: dream-summary-2026-06-24.md (score 10) — tags: dream-summary, jarvis, calendar, omnifocus, leads, rock4, quarterly-rocks, one-texas, revenue, pipeline
 ## Implications
 
 - 2026-06-24: New episodic cluster (rock4, 2 entries) reinforces pattern.
