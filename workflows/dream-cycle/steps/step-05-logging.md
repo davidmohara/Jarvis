@@ -6,8 +6,9 @@ outputs:
   dream_log_appended: true
   working_summary_written: true
   working_summary_reason: "Notable activity — 4 cluster promotions including 1 new semantic entry. 6 threshold-breaching error combos appended to LESSONS.md. Worth surfacing for Rigby pattern analysis."
-  git_commit: pending
-  git_push: pending
+  git_commit: success
+  git_push: success
+  commit_sha: 5197a2e
 ---
 
 <!-- system:start -->

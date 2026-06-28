@@ -1,16 +1,9 @@
 status: complete
 current-step: step-01-discover
-session-id: harper-2026-06-27-discovery-1
-session-started: 2026-06-27T06:00:00Z
-session-completed: 2026-06-27T06:02:00Z
+session-id: harper-2026-06-28-discovery-1
+session-started: 2026-06-28T06:00:00Z
+session-completed: 2026-06-28T06:05:00Z
 original-request: scheduled-content-discovery
 accumulated-context:
-  discovery_session: "2026-06-27T06:00:00Z — No new content found in #content (last 24h). Zero messages returned."
-  pending_drafts_awaiting_review: 2
-    - "The Consulting Middle Is Disappearing. Which Side Are You On?"
-    - "Fulfillment Is Not a Benefit. It's a Business Model."
-  scheduled_drafts: 3
-    - "Dallas Just Topped D.C. Here's What That Actually Means" (scheduled 2026-06-27 9am CT)
-    - "Why Governance Doesn't Scale the Way You Think" (scheduled 2026-06-27 11am CT)
-    - "The Invoice Tells You Nothing" (publishes 2026-06-29 1:27pm UTC)
+  discovery_session: "2026-06-28T06:00:00Z — No new content found in #content (last 24h). Only message was yesterday's bot no-content notice (skipped — bot message without digest headers)."
   outcome: "COMPLETE. No new content to process."
