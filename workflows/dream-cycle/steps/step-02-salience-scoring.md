@@ -1,17 +1,17 @@
 ---
 status: complete
-started-at: 2026-06-27T08:11:30Z
-completed-at: 2026-06-27T08:13:00Z
+started-at: 2026-06-28T08:12:00Z
+completed-at: 2026-06-28T08:13:30Z
 outputs:
-  episodic_scanned: 139
-  score_updates: 139
-  no_tags: 6
-  no_date: 8
-  files_with_tags: 133
-  in_window_count: 60
-  score_distribution: "0:13, 2:3, 4:1, 5:2, 6:1, 7:6, 8:2, 9:6, 10:105"
-  window_start: 2026-05-28
-  window_end: 2026-06-27
+  episodic_scanned: 142
+  score_updates: 142
+  no_tags: 5
+  no_date: 2
+  files_with_tags: 137
+  in_window_count: 62
+  score_distribution: "0:12, 3:3, 4:3, 6:2, 7:4, 8:4, 9:1, 10:113"
+  window_start: 2026-05-29
+  window_end: 2026-06-28
 ---
 
 <!-- system:start -->

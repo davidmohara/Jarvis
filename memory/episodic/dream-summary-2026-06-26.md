@@ -1,14 +1,30 @@
 ---
-type: working
+type: working-archive
 task_id: "dream-cycle-2026-06-26"
 session_id: "dream-cycle-2026-06-26-030941"
 agent-source: jarvis
 created: 2026-06-26T08:16:30Z
 expires: 2026-06-27T08:00:00Z
-status: active
+status: archived
 context: "Dream cycle 2026-06-26 — tapered run; surface YAML corruption discovery from prior promotion writes."
----
+date: 2026-06-26
+source_file: memory/working/dream-summary-2026-06-26.md
+tags:
+  - dream-summary
+  - omnifocus
+  - semantic-promotion
+  - dream-cycle
+  - lessons
+  - rigby
+  - jarvis
+related_people: []
+salience:
 
+
+  score: 10
+  last-promoted-check: 2026-06-28
+  promoted: true
+---
 # Dream Cycle Summary — 2026-06-26
 
 Routine run, light counts as expected after yesterday's backlog flush.

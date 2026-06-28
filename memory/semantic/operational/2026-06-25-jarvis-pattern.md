@@ -3,7 +3,7 @@ type: semantic
 domain: operational
 confidence: high
 created: 2026-06-25
-last-updated: 2026-06-27
+last-updated: 2026-06-28
 tags:
   - jarvis
 synthesized-from:
@@ -52,6 +52,10 @@ Recurring jarvis activity observed across 15 episodic entries within the 30-day 
 ### Cycle 2026-06-27
 - 2026-06-27: dream-summary-2026-06-25.md (score 10) — tags: dream-summary, jarvis, omnifocus, omnifocus-timeout, travel, flight, glc-chicago, cabo, ypo, drc-workshop
 - 2026-06-27: dream-summary-2026-06-24.md (score 10) — tags: dream-summary, jarvis, calendar, omnifocus, leads, rock4, quarterly-rocks, one-texas, revenue, pipeline
+
+### 2026-06-28 — promoted from cluster 'jarvis'
+- 2026-06-26 — Dream cycle 2026-06-26 — tapered run; surface YAML corruption discovery from prior promotion writes. (score 10) [source: memory/episodic/dream-summary-2026-06-26.md]
+
 ## Implications
 
 - jarvis is a meaningful operational signal — appears frequently enough across distinct sessions to warrant a semantic record.

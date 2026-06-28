@@ -7,10 +7,6 @@ created: 2026-06-25T08:13:45Z
 expires: 2026-06-26
 status: archived
 context: "Dream cycle 2026-06-25 — heavy promotion run, 38 new semantic entries"
-salience:
-  score: 10
-  last-promoted-check: 2026-06-27
-  promoted: true
 date: 2026-06-25
 source_file: memory/working/dream-summary-2026-06-25.md
 tags:
@@ -26,6 +22,10 @@ tags:
   - drc-workshop
 related_people:
   - alice-mburu
+salience:
+  score: 10
+  last-promoted-check: 2026-06-28
+  promoted: true
 ---
 # Dream Cycle Summary — 2026-06-25
 

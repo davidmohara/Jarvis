@@ -3,7 +3,7 @@ type: semantic
 domain: operational
 primary-tag: dream-summary
 created: 2026-06-12
-last-updated: 2026-06-27
+last-updated: 2026-06-28
 confidence: high
 synthesized-from: 23
   - dream-summary-2026-05-25.md
@@ -144,6 +144,10 @@ _2026-06-17 run:_
 ### Cycle 2026-06-27
 - 2026-06-27: dream-summary-2026-06-25.md (score 10) — tags: dream-summary, jarvis, omnifocus, omnifocus-timeout, travel, flight, glc-chicago, cabo, ypo, drc-workshop
 - 2026-06-27: dream-summary-2026-06-24.md (score 10) — tags: dream-summary, jarvis, calendar, omnifocus, leads, rock4, quarterly-rocks, one-texas, revenue, pipeline
+
+### 2026-06-28 — promoted from cluster 'dream-summary'
+- 2026-06-26 — Dream cycle 2026-06-26 — tapered run; surface YAML corruption discovery from prior promotion writes. (score 10) [source: memory/episodic/dream-summary-2026-06-26.md]
+
 ## Implications
 
 

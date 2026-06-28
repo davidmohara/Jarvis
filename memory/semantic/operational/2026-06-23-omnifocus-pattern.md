@@ -22,7 +22,7 @@ synthesized-from:
   - memory/episodic/dream-summary-2026-05-16.md
   - memory/episodic/shutdown-cleanup-2026-06-16-071444.md
   - memory/episodic/morning-briefing-2026-06-11-062152.md
-last-updated: 2026-06-27
+last-updated: 2026-06-28
 tags:
   - omnifocus
   - boot
@@ -214,6 +214,13 @@ The `omnifocus` tag appeared in 17 episodic entries within the rolling 30-day sa
 - 2026-06-27: dream-summary-2026-06-24.md (score 10) — tags: dream-summary, jarvis, calendar, omnifocus, leads, rock4, quarterly-rocks, one-texas, revenue, pipeline
 - 2026-06-27: daily-review-2026-06-24-170000.md (score 10) — tags: daily-review, chief, calendar, omnifocus, email, overdue-tasks, amex
 - 2026-06-27: plaud-ingest-2026-06-24-170000.md (score 10) — tags: chief, calendar, omnifocus, leads, 1on1-prep, plaud
+
+### 2026-06-28 — promoted from cluster 'omnifocus'
+- 2026-06-25 — Morning briefing — 2026-06-25 (score 10) [source: memory/episodic/morning-briefing-2026-06-25-063900.md]
+- 2026-06-25 — Daily review — 2026-06-25 (score 10) [source: memory/episodic/daily-review-2026-06-25-143000.md]
+- 2026-06-26 — Dream cycle 2026-06-26 — tapered run; surface YAML corruption discovery from prior promotion writes. (score 10) [source: memory/episodic/dream-summary-2026-06-26.md]
+- 2026-06-25 — Revenue tracker snapshot — 2026-06-25 (score 8) [source: memory/episodic/revenue-tracker-2026-06-25-000130.md]
+
 ## Implications
 
 - 2026-06-24: New episodic cluster (omnifocus, 2 entries) reinforces pattern.

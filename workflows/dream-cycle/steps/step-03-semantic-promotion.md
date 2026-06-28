@@ -1,18 +1,23 @@
 ---
 status: complete
-started-at: 2026-06-27T08:13:00Z
-completed-at: 2026-06-27T08:15:00Z
+started-at: 2026-06-28T08:13:30Z
+completed-at: 2026-06-28T08:16:00Z
 outputs:
-  candidates_count: 5
-  clusters_found: 8
+  candidates_count: 4
+  clusters_found: 4
   semantic_created: 1
-  semantic_updated: 7
-  promoted_entries: 5
-  promotion_note: "Standard cycle. 5 freshly-archived working files promoted into 8 tag-clusters; 7 evidence appends + 1 new (chief-pattern)."
-  error_categories_30d: "process-skip:11, data-accuracy:9, routing-error:8, format-violation:7, tool-misuse:6, missed-context:5, assumption-error:4, hallucination:4"
-  error_total_30d: 73
-  lessons_appended: 1
-  lessons_note: "1 newly threshold-breaching combo appended (missed-context/context-blindness, 3 occurrences)."
+  semantic_updated: 3
+  promoted_entries: 4
+  promotion_note: "Standard cycle. 4 freshly-archived working files promoted; 3 evidence appends (calendar/email/omnifocus operational) + 1 new (one-texas domain-knowledge)."
+  cluster_actions:
+    - {tag: calendar, domain: operational, action: update}
+    - {tag: email, domain: operational, action: update}
+    - {tag: omnifocus, domain: operational, action: update}
+    - {tag: one-texas, domain: domain-knowledge, action: create}
+  error_categories_30d: "process-skip:12, data-accuracy:9, routing-error:8, format-violation:7, tool-misuse:6, missed-context:5, hallucination:5, assumption-error:4"
+  error_total_30d: 80
+  lessons_appended: 6
+  lessons_note: "6 threshold-breaching combos appended (process-skip/protocol-skip:10, routing-error/protocol-skip:7, data-accuracy/wrong-assumption:4, assumption-error/wrong-assumption:3, format-violation/wrong-assumption:3, format-violation/protocol-skip:3). First-run domain-knowledge mis-clusters were rolled back before re-running with corrected logic."
 ---
 
 <!-- system:start -->

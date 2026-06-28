@@ -2,7 +2,7 @@
 type: semantic
 domain: operational
 created: 2026-06-16
-last-updated: 2026-06-27
+last-updated: 2026-06-28
 confidence: high
 synthesized-from: 3
 tags:
@@ -206,6 +206,11 @@ _2026-06-17 run:_
 - 2026-06-27: dream-summary-2026-06-24.md (score 10) — tags: dream-summary, jarvis, calendar, omnifocus, leads, rock4, quarterly-rocks, one-texas, revenue, pipeline
 - 2026-06-27: daily-review-2026-06-24-170000.md (score 10) — tags: daily-review, chief, calendar, omnifocus, email, overdue-tasks, amex
 - 2026-06-27: plaud-ingest-2026-06-24-170000.md (score 10) — tags: chief, calendar, omnifocus, leads, 1on1-prep, plaud
+
+### 2026-06-28 — promoted from cluster 'calendar'
+- 2026-06-25 — Morning briefing — 2026-06-25 (score 10) [source: memory/episodic/morning-briefing-2026-06-25-063900.md]
+- 2026-06-25 — Daily review — 2026-06-25 (score 10) [source: memory/episodic/daily-review-2026-06-25-143000.md]
+
 ## Implications
 
 - 2026-06-24: New episodic cluster (calendar, 3 entries) reinforces pattern.

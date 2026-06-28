@@ -1,14 +1,33 @@
 ---
-type: working
+type: working-archive
 task_id: "session"
 session_id: "chief-2026-06-25-063900"
 agent-source: chief
 created: 2026-06-25T06:39:00
 expires: 2026-06-27T06:39:00
-status: active
+status: archived
 context: "Morning briefing — 2026-06-25"
----
+date: 2026-06-25
+source_file: memory/working/morning-briefing-2026-06-25-063900.md
+tags:
+  - briefing
+  - morning-briefing
+  - calendar
+  - omnifocus
+  - leads
+  - travel
+  - one-texas
+  - pipeline
+  - email
+  - plaud
+related_people: []
+salience:
 
+
+  score: 10
+  last-promoted-check: 2026-06-28
+  promoted: true
+---
 # Morning Briefing — Thursday, June 25, 2026
 
 ## Data Sources

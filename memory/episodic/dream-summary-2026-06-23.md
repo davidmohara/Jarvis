@@ -5,10 +5,6 @@ status: archived
 created: 2026-06-23T08:14:30Z
 agent-source: jarvis
 context: "Dream cycle summary for 2026-06-23"
-salience:
-  score: 10
-  last-promoted-check: 2026-06-27
-  promoted: true
 date: 2026-06-23
 source_file: memory/working/dream-summary-2026-06-23.md
 tags:
@@ -21,6 +17,10 @@ tags:
   - omnifocus
   - boot
 related_people: []
+salience:
+  score: 10
+  last-promoted-check: 2026-06-28
+  promoted: true
 ---
 # Dream Cycle Summary — 2026-06-23
 

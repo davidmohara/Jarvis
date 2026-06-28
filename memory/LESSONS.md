@@ -274,3 +274,45 @@ Category: missed-context
 Pattern: Repeated occurrences of `missed-context` with failure mode `context-blindness` across the 30-day window.
 Fix: Review category-specific systemic fixes from individual entries in `systems/error-tracking/entries/`. Schedule a Rigby-led pattern-analysis pass if recurrence continues.
 Status: active
+
+## 2026-06-28 — Process Skip / Protocol Skip
+Detected: 10 occurrences over 30 days
+Category: process-skip
+Pattern: process-skip/protocol-skip — appearing repeatedly in recent error log
+Fix: Review failure mode; tighten protocol or add guardrail. See systems/error-tracking/entries/ for instances.
+Status: active
+
+## 2026-06-28 — Routing Error / Protocol Skip
+Detected: 7 occurrences over 30 days
+Category: routing-error
+Pattern: routing-error/protocol-skip — appearing repeatedly in recent error log
+Fix: Review failure mode; tighten protocol or add guardrail. See systems/error-tracking/entries/ for instances.
+Status: active
+
+## 2026-06-28 — Data Accuracy / Wrong Assumption
+Detected: 4 occurrences over 30 days
+Category: data-accuracy
+Pattern: data-accuracy/wrong-assumption — appearing repeatedly in recent error log
+Fix: Review failure mode; tighten protocol or add guardrail. See systems/error-tracking/entries/ for instances.
+Status: active
+
+## 2026-06-28 — Assumption Error / Wrong Assumption
+Detected: 3 occurrences over 30 days
+Category: assumption-error
+Pattern: assumption-error/wrong-assumption — appearing repeatedly in recent error log
+Fix: Review failure mode; tighten protocol or add guardrail. See systems/error-tracking/entries/ for instances.
+Status: active
+
+## 2026-06-28 — Format Violation / Wrong Assumption
+Detected: 3 occurrences over 30 days
+Category: format-violation
+Pattern: format-violation/wrong-assumption — appearing repeatedly in recent error log
+Fix: Review failure mode; tighten protocol or add guardrail. See systems/error-tracking/entries/ for instances.
+Status: active
+
+## 2026-06-28 — Format Violation / Protocol Skip
+Detected: 3 occurrences over 30 days
+Category: format-violation
+Pattern: format-violation/protocol-skip — appearing repeatedly in recent error log
+Fix: Review failure mode; tighten protocol or add guardrail. See systems/error-tracking/entries/ for instances.
+Status: active
