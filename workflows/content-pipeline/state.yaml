@@ -1,9 +1,11 @@
 status: complete
 current-step: step-01-discover
-session-id: harper-2026-06-28-discovery-1
-session-started: 2026-06-28T06:00:00Z
-session-completed: 2026-06-28T06:05:00Z
+session-id: harper-2026-06-29-discovery-1
+session-started: 2026-06-29T06:00:00Z
+session-completed: 2026-06-29T06:12:00Z
 original-request: scheduled-content-discovery
 accumulated-context:
-  discovery_session: "2026-06-28T06:00:00Z — No new content found in #content (last 24h). Only message was yesterday's bot no-content notice (skipped — bot message without digest headers)."
-  outcome: "COMPLETE. No new content to process."
+  discovery_session: "2026-06-29T06:00:00Z — Found 1 new URL in #content (last 24h): https://fortune.com/2026/05/18/smartphones-days-numbered-ai-wearable-devices/"
+  post_created: "Ghost draft ID 6a42529d1e7721029086b543 — 'The Pocket Barrier Is Gone'"
+  slack_notified: "Thread ts 1782731438.807809 in #content (C0B160MA3EK)"
+  outcome: "COMPLETE. 1 draft created and David notified."
