@@ -1,0 +1,17 @@
+{
+  "id": "err-20260629T223906-G1FUBB",
+  "timestamp": "2026-06-29T22:39:06Z",
+  "session_id": "session-2026-06-29-094900",
+  "agent": "master",
+  "category": "date-handling",
+  "failure_mode": "wrong-date-assertion",
+  "severity": "high",
+  "description": "Stated Systemic Compliance kick-off was 'today' (June 29) in the daily review and EOD wrap-up. Actual kick-off is June 30. This is a recurring pattern — dates from working memory and calendar data are being stated incorrectly, particularly for near-term events.",
+  "source": "co-sell-pipeline skill run + EOD daily review",
+  "controller_correction": "David corrected: kick-off is tomorrow (June 30), not today. Also rated the co-sell pipeline skill run a D due to errors requiring correction.",
+  "eval_rating": "D",
+  "eval_id": "eval-20260629T152135-WVFASP",
+  "proposed_fix": "Before stating any event date in a review or wrap-up, cross-check against calendar data rather than inferring from working memory context strings. If calendar data was not pulled this session, do not state dates as fact — qualify them.",
+  "recurrence": "repeated — see prior error log entries for date-handling failures",
+  "prior_related": ["err-20260327-004", "err-20260404-001"]
+}
