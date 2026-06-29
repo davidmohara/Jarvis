@@ -1,0 +1,15 @@
+{
+  "id": "err-20260629T155429-PCC4BZ",
+  "timestamp": "2026-06-29T15:54:29Z",
+  "session": "2026-06-29",
+  "source": "explicit",
+  "agent": "knox",
+  "category": "data-accuracy",
+  "description": "Used ISO week W26 throughout the entire Watchtower weekly run when the correct week was W27. June 29, 2026 is ISO week 27. The error propagated to: state.yaml session-id, Obsidian weekly note (Watchtower/Weekly/2026-W26.md), all four step file frontmatters, blog-ideas.md source labels, and the dashboard artifact. Knox never verified the week number before writing output.",
+  "correction": "Run `date +%V` (or equivalent) at the start of every weekly run to confirm the ISO week number before writing any output. W27 is the correct identifier for 2026-06-29.",
+  "failure_mode": "wrong-assumption",
+  "systemic_fix": "Add a mandatory week-verification step to weekly-step-01-synthesize.md: derive ISO week via bash/date before writing anything. Store as a variable in state.yaml accumulated-context so all downstream steps use the confirmed value rather than computing it independently.",
+  "fix_status": "proposed",
+  "severity": "moderate",
+  "related_entries": []
+}

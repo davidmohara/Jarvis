@@ -208,6 +208,38 @@ sources:
     status: active
     notes: "feed unverified — URL from spec; confirm on first run"
 
+  # ── Batch 2 — Approved 2026-06-29 ──────────────────────────────────────────
+
+  - name: MIT Technology Review — Making AI Work
+    url: https://www.technologyreview.com
+    rss: https://www.technologyreview.com/feed
+    gather_method: rss
+    topic: ai-agentic
+    trust: high
+    added: 2026-06-29
+    status: active
+    notes: "Launched Feb 2026. Practitioner-focused newsletter on applying LLMs and agentic AI across industries. Feed URL unverified — confirm on first run."
+
+  - name: BCG Insights — AI & Tech Services
+    url: https://www.bcg.com/capabilities/artificial-intelligence
+    rss: null
+    gather_method: search
+    topic: it-consulting
+    trust: high
+    added: 2026-06-29
+    status: active
+    notes: "No public RSS. step-01 uses site:bcg.com/publications search scoped to AI and tech services topics."
+
+  - name: Stratechery
+    url: https://stratechery.com
+    rss: https://stratechery.com/feed
+    gather_method: rss
+    topic: it-consulting
+    trust: high
+    added: 2026-06-29
+    status: active
+    notes: "Ben Thompson. Paid publication — free articles available via RSS. Feed URL unverified — confirm on first run. Signal-depth analysis, not news."
+
   # ── Batch 1 — Approved 2026-06-20 ──────────────────────────────────────────
 
   - name: AI Governance Institute

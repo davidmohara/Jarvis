@@ -1,4 +1,5 @@
 # Charles Schwab — Strategic Account Plan
+
 **Improving | Prepared for: David O'Hara | June 2026**
 **Classification: Internal — Business Development**
 
@@ -11,31 +12,41 @@ Improving has an active engagement at Charles Schwab in Instructional Design —
 Schwab's CEO has called AI "the most significant growth opportunity in the company's history." Their 2026 Investor Day committed to shipping multiple client-facing AI products this year. Their technology organization just restructured under a single executive covering technology, operations, and data. The window is open and the timing is right.
 
 **Goals:**
+
 - Short-term (90 days): Identify and close a scoped SOW in Data/AI or Software Engineering
 - Long-term (12–24 months): Establish Improving as a preferred implementation partner across Schwab's AI and data platform engineering orgs
 
 ---
+
+
 
 ## Schwab's Strategic Technology Priorities (2026)
 
 These are drawn from their FY2025 10-K, 2026 Institutional Investor Day materials, and public press releases.
 
 ### 1. AI at Scale — Client-Facing and Internal
+
 Schwab launched its first generative AI retail product (Portfolio Insights) in May 2026, combining portfolio performance data, market news, and research commentary into a single client view. A voice/chat AI assistant for common service requests rolls out summer 2026. An AI-driven research platform for markets is in internal beta. Internally, their Schwab Knowledge Assistant hit 90% employee adoption growth in 2024.
 
 ### 2. Data Platform Modernization
+
 Post-TD Ameritrade integration (17M+ accounts migrated, $1.3T in assets transitioned), Schwab is rationalizing data centers, decommissioning duplicate systems, and consolidating disparate data architectures — including merging Schwab's static holdings data with TDA's high-frequency behavioral data. "Books and records modernization" and real-time data pipelines are explicitly cited priorities.
 
 ### 3. Application Modernization
+
 Platform rationalization continues post-integration. APIs for RIAs and fintechs are expanding. Personalized Indexing (iRebal) and digital lending are active investment areas. A public job posting for a Director of Software Development & Engineering (Portfolio Management Technology) specifically calls out migrating from legacy development to "GenAI- and agentic-AI-driven development."
 
 ### 4. Serving the Under-$1M Client Segment with AI
+
 CEO Rick Wurster has stated AI will serve clients below the $1M threshold — Schwab's largest segment — in ways that weren't economically viable through human advisors. This is a product and engineering execution challenge.
 
 ### 5. Workforce AI Enablement
+
 GitHub Copilot adoption is visible in engineering job postings. The Schwab Knowledge Assistant is their internal GenAI productivity tool. Schwab has been explicit about using AI to increase employee productivity without displacing workers.
 
 ---
+
+
 
 ## Improving's Competitive Positioning
 
@@ -50,9 +61,14 @@ Improving's advantage at Schwab is not scale — it's precision. We show up as p
 
 ---
 
+
+
 ## Technology Leadership Map
 
+
+
 ### Dennis Howard — MD, Chief Technology, Operations & Data Officer
+
 **Effective:** January 29, 2026
 **Reports to:** Rick Wurster (CEO)
 
@@ -63,6 +79,8 @@ This is the economic buyer for any meaningful AI or data engagement. His expande
 **Approach:** Do not cold-reach Howard. Use warm intros from the contacts below to build credibility first. When you do reach his level, frame the conversation around platform modernization and AI engineering capacity — not a tool, not a product, not a methodology.
 
 ---
+
+
 
 ### Sean Law — Principal Data Scientist, Director — R&D, Office of the CTO & A.I. Council
 
@@ -83,6 +101,8 @@ Lead peer-to-peer, not vendor-to-client. Reference STUMPY or a time series use c
 
 ---
 
+
+
 ### Don Yuan — AI Transformation & Governance Leader, Charles Schwab (Plano, TX)
 
 **Background:**
@@ -101,6 +121,7 @@ Lead peer-to-peer on agentic AI specifically — not a generic AI pitch. He is p
 > "I saw you're involved with AgentCon — that's the right conversation to be in right now. Agentic AI is where the real delivery complexity lives. We're working through exactly that with clients: how do you move from a demo that works in a sandbox to an agent that runs reliably in production, with proper guardrails, at enterprise scale? Given what Schwab is shipping this year, I'd love to understand where you're seeing that friction."
 
 **Specific hooks:**
+
 - **AgentCon Dallas** (June 26, 2026 — this Friday) — if timing allows, attending or referencing it shows you're in the same community, not pitching from outside it.
 - **Microsoft Fabric** — his certification is directly relevant to Schwab's Azure-native data platform. Improving can come in as an experienced Fabric implementation partner.
 - **AI governance** — his updated headline now leads with governance, which reflects a real maturation in how Schwab is thinking about AI risk. Responsible AI, auditability, and guardrails are as important to him as delivery speed.
@@ -108,6 +129,8 @@ Lead peer-to-peer on agentic AI specifically — not a generic AI pitch. He is p
 **What to clarify before the meeting:** Confirm whether Don sits within the data science org (under Meena) or in a broader enterprise AI/automation function. His agentic AI focus suggests he may span both. Either way, the pitch above works — just adjust whether you emphasize data pipeline infrastructure or agent orchestration and governance.
 
 ---
+
+
 
 ## Referral Network — Corporate Strategy & Innovation Org
 
@@ -122,6 +145,7 @@ A note on positioning this group: strategy-and-innovation leaders buy *outcomes 
 **Why he's the anchor.** He is the most senior contact in the plan after Dennis Howard, he explicitly owns AI strategy and vendor management, and David can reach him peer-to-peer through YPO rather than as a vendor. That combination is rare and should be treated as the highest-value relationship in the account.
 
 **Pitch angle (peer-to-peer, thesis-level — via YPO, not a sales motion):**
+
 > "Nikhil — you own AI strategy at a moment when Schwab has committed to shipping multiple client-facing AI products this year. The pattern I see across financial-services firms is that the strategy is sound but the bottleneck moves to production engineering — getting models out of the lab and running reliably at scale. I'd value comparing notes on where you're seeing that gap, and where an execution partner who's done it elsewhere could de-risk the roadmap."
 
 **What to avoid:** Don't turn a YPO relationship into a pitch on first contact. Lead with peer exchange of perspective; let him pull you toward a need. His McKinsey background means he'll respect a sharp thesis and dismiss a capabilities dump instantly.
@@ -133,6 +157,7 @@ A note on positioning this group: strategy-and-innovation leaders buy *outcomes 
 **What his role likely means.** He runs the analytical engine behind Schwab's strategic bets — including, almost certainly, the build-vs-buy-vs-partner calls on major technology and AI initiatives. He is the person who frames the case that a Sudan or a Howard signs off on.
 
 **Pitch angle (consultant-to-consultant):**
+
 > "Given your Bain background you'll appreciate this framing — the firms that win the AI race aren't the ones with the best strategy decks, they're the ones who close the execution gap fastest. We're the team clients bring in when a strategic bet needs to become a shipped product. Where on Schwab's roadmap is that gap widest right now?"
 
 **Hook:** His public posts mention his team is expanding — a strategy org scaling headcount is a strategy org with more initiatives than execution capacity. That is the opening.
@@ -144,7 +169,10 @@ A note on positioning this group: strategy-and-innovation leaders buy *outcomes 
 **Why he matters.** He is the connective tissue between the strategy org (this section) and the execution org (the technical contacts above). A relationship with Knowlton lets you triangulate: strategic priority from the top, technical pain from the bottom, and Knowlton sitting where the two meet.
 
 **Pitch angle (working-level, specific):**
+
 > "You're the person turning Schwab's AI strategy into actual initiatives. Where's the list longer than the team can execute? That's usually where an outside delivery partner earns their place — taking one well-defined thing off the backlog and shipping it cleanly."
+
+
 
 ### Sarah Wolf — Director of Business Strategy (via Cole)
 
@@ -154,56 +182,73 @@ A note on positioning this group: strategy-and-innovation leaders buy *outcomes 
 
 ---
 
+
+
 ## Contact Prioritization & Sequencing
 
 Two parallel paths now exist: a **top-down strategy path** (the referral network, warmest via David's YPO tie and Cole's intros) and a **bottoms-up technical path** (the ID sponsor into the practitioner contacts). Run both; they reinforce each other.
 
-| Priority | Contact | Entry Point | Goal |
-|---|---|---|---|
-| 1 | **Nikhil Sudan** (Chief Strategy & Innovation Officer) | **David's YPO relationship** | Peer-level AI-strategy conversation; executive air cover for the whole account |
-| 2 | **Current ID sponsor** | Existing relationship | Warm intro to Sean Law and/or Don Yuan |
-| 3 | **Sean Law** | Intro via ID sponsor or LinkedIn | Understand R&D pain points; position around research-to-production gap |
-| 4 | **Don Yuan** | Intro via ID sponsor or LinkedIn | Understand delivery pain points; position around AI program throughput |
-| 5 | **Andy Furbush** (Head of Corporate Strategy) | **Via Cole (SpaceX/xAI)** | Build-vs-buy-vs-partner influence; he frames the bets execs sign off on |
-| 6 | **Nate Knowlton** (Director, AI Strategy) | **Via Cole (SpaceX/xAI)** | Working-level bridge between strategy and the technical execution org |
-| 7 | **Sarah Wolf** (Director of Business Strategy) | **Via Cole (SpaceX/xAI)** | Business-outcome framing of platform modernization; confirm she's in-seat |
-| 8 | **AI.x team head** | Via Sean Law or LinkedIn search (SF-based MD/SVP) | Access to the GenAI product build-out |
-| 9 | **Director, Portfolio Management Technology Engineering** | Open role — hiring manager is the target | Direct entry into AI-driven application modernization |
-| 10 | **Dennis Howard** | Via credibility built through the paths above | Economic buyer; engage only after proof points are established |
+
+| Priority | Contact                                                   | Entry Point                                       | Goal                                                                           |
+| -------- | --------------------------------------------------------- | ------------------------------------------------- | ------------------------------------------------------------------------------ |
+| 1        | **Nikhil Sudan** (Chief Strategy & Innovation Officer)    | **Invited to meet at YPO Fin Svcs Conf in Nov**   | Peer-level AI-strategy conversation; executive air cover for the whole account |
+| 2        | **Current ID sponsor**                                    | Existing relationship                             | Warm intro to Sean Law and/or Don Yuan                                         |
+| 3        | **Sean Law**                                              | Intro via Caleb Jenkins - follow up pending       | Understand R&D pain points; position around research-to-production gap         |
+| 4        | **Don Yuan**                                              | Intro via ID sponsor or LinkedIn                  | Understand delivery pain points; position around AI program throughput         |
+| 5        | **Andy Furbush** (Head of Corporate Strategy)             | **Via Cole (SpaceX/xAI)**                         | Build-vs-buy-vs-partner influence; he frames the bets execs sign off on        |
+| 6        | **Nate Knowlton** (Director, AI Strategy)                 | **Via Cole (SpaceX/xAI)**                         | Working-level bridge between strategy and the technical execution org          |
+| 7        | **Sarah Wolf** (Director of Business Strategy)            | **Via Cole (SpaceX/xAI)**                         | Business-outcome framing of platform modernization; confirm she's in-seat      |
+| 8        | **AI.x team head**                                        | Via Sean Law or LinkedIn search (SF-based MD/SVP) | Access to the GenAI product build-out                                          |
+| 9        | **Director, Portfolio Management Technology Engineering** | Open role — hiring manager is the target          | Direct entry into AI-driven application modernization                          |
+| 10       | **Dennis Howard**                                         | Via credibility built through the paths above     | Economic buyer; engage only after proof points are established                 |
+
 
 ---
 
+
+
 ## Opportunity Scenarios (90-Day Targets)
 
+
+
 ### Option A — GenAI Application Delivery Pod
+
 Schwab is shipping multiple client-facing AI products in 2026 (Portfolio Insights, AI assistant, research platform). They are actively hiring AI engineers. Offer a dedicated engineering pod (2–3 engineers + technical lead) to accelerate a specific product feature or backlog.
 
 **Entry pitch:** "We can put experienced Azure OpenAI engineers on your team within 30 days. What's the highest-priority AI feature that's waiting on engineering capacity?"
 
 ### Option B — Data Platform Modernization Sprint
+
 Schwab's post-TDA data architecture still requires rationalization. Pitch a scoped 8–12 week engagement — discovery + build — for a specific data integration or pipeline problem. Lead with the Thrivent TEID story.
 
 **Entry pitch:** "We've done this exact consolidation pattern before with another large financial services firm. An 8-week scoped engagement could take a specific integration problem off your backlog and give you a replicable pattern for the broader platform work."
 
 ### Option C — AI Developer Productivity Enablement
+
 Schwab is adopting GitHub Copilot and internal GenAI tooling. Offer a practitioner-led enablement engagement — not training (that's ID), but embedded engineering coaching that measurably accelerates their teams' AI-assisted delivery. This bridges the current ID engagement into technical delivery without seeming like a hard pivot.
 
 **Entry pitch:** "There's a real difference between having GitHub Copilot licenses and actually shipping faster. We embed engineers who help teams develop the habits and patterns that turn the tool into a delivery accelerator."
 
 ---
 
+
+
 ## Multi-Year Strategic Path
 
 The goal is to become Schwab's go-to implementation partner for AI and data — sitting between their internal strategy and the hyperscalers. Improving's positioning: *we build the production-grade systems that turn Schwab's AI strategy into client-facing reality.*
 
-| Phase | Timeline | Milestone |
-|---|---|---|
-| **Access** | Month 1–3 | Warm intro through ID sponsor → meeting with Sean Law and/or Don Yuan |
-| **Prove** | Month 3–6 | Land one scoped SOW; execute flawlessly; embed a senior Improving engineer |
-| **Expand** | Month 6–12 | 2–3 parallel workstreams; known entity in the AI Engineering and Data orgs |
-| **Partner** | Year 2+ | Named preferred partner for AI/data implementation; positioned for enterprise engagements |
+
+| Phase       | Timeline   | Milestone                                                                                 |
+| ----------- | ---------- | ----------------------------------------------------------------------------------------- |
+| **Access**  | Month 1–3  | Warm intro through ID sponsor → meeting with Sean Law and/or Don Yuan                     |
+| **Prove**   | Month 3–6  | Land one scoped SOW; execute flawlessly; embed a senior Improving engineer                |
+| **Expand**  | Month 6–12 | 2–3 parallel workstreams; known entity in the AI Engineering and Data orgs                |
+| **Partner** | Year 2+    | Named preferred partner for AI/data implementation; positioned for enterprise engagements |
+
 
 ---
+
+
 
 ## Immediate Next Actions
 
@@ -218,6 +263,8 @@ The goal is to become Schwab's go-to implementation partner for AI and data — 
 9. **Know which AI products are in-flight at Schwab** before any meeting — Portfolio Insights (live), AI voice/chat assistant (summer 2026), AI research platform (internal beta).
 
 ---
+
+
 
 ## Reference Sources
 
@@ -235,3 +282,4 @@ The goal is to become Schwab's go-to implementation partner for AI and data — 
 - [Improving Financial Services Capabilities](https://www.improving.com/toronto/financial-services/)
 - [Schwab selects Microsoft Azure — AppsRunTheWorld](https://www.appsruntheworld.com/customers-database/purchases/view/the-charles-schwab-corporation-united-states-selects-microsoft-azure-cloud-services-for-application-hosting-and-computing-services)
 - [Charles Schwab AI Strategy — Klover.ai](https://www.klover.ai/charles-schwab-ai-strategy-analysis-of-dominance-in-financial-services/)
+

@@ -1,17 +1,16 @@
 ---
 status: complete
-started-at: "2026-06-20T12:05:00Z"
-completed-at: "2026-06-20T12:15:00Z"
+started-at: "2026-06-29T07:10:00Z"
+completed-at: "2026-06-29T07:20:00Z"
 outputs:
   themes_processed: 4
-  drafts_created: 5
+  drafts_created: 4
   draft_paths:
-    - "Mind/Posts/_the-74-percent-rollback-is-a-feature.md"
-    - "Mind/Posts/_why-governance-doesnt-scale-the-way-you-think.md"
-    - "Mind/Posts/_the-middle-is-getting-squeezed-out-of-consulting.md"
-    - "Mind/Posts/_why-im-bullish-on-dallas-as-an-ai-market.md"
-    - "Mind/Posts/_fulfillment-is-not-a-benefit-its-a-business-model.md"
-  blog_ideas_appended: 5
+    - "Mind/Posts/_the-200b-gap-is-yours-if-you-want-it.md"
+    - "Mind/Posts/_we-need-to-talk-about-how-consulting-gets-paid.md"
+    - "Mind/Posts/_fort-worth-just-became-a-tier-one-ai-city.md"
+    - "Mind/Posts/_the-forward-deployed-model-changes-everything.md"
+  blog_ideas_appended: 4
 ---
 
 <!-- system:start -->

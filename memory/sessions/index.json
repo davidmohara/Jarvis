@@ -456,7 +456,7 @@
         "name": "morning-boot",
         "loops": [
           {
-            "task": "boot-sequence — full workflow completed",
+            "task": "boot-sequence \u2014 full workflow completed",
             "resolved": true
           }
         ]
@@ -465,7 +465,7 @@
         "name": "content-pipeline-rework",
         "loops": [
           {
-            "task": "Digest input path, Ghost Admin API consolidation, fast-exit gate — Rigby built and committed",
+            "task": "Digest input path, Ghost Admin API consolidation, fast-exit gate \u2014 Rigby built and committed",
             "resolved": true
           }
         ]
@@ -474,7 +474,7 @@
         "name": "kazakhstan-deck",
         "loops": [
           {
-            "task": "13-slide Improving-branded deck built — Enterprise Shift slides, Agent Receipts, MIT NANDA, real client stories on What We've Built slide",
+            "task": "13-slide Improving-branded deck built \u2014 Enterprise Shift slides, Agent Receipts, MIT NANDA, real client stories on What We've Built slide",
             "resolved": true
           }
         ]
@@ -489,27 +489,57 @@
     "topics": [
       {
         "name": "morning-boot",
-        "loops": [{"task": "boot-sequence — full workflow completed", "resolved": true}]
+        "loops": [
+          {
+            "task": "boot-sequence \u2014 full workflow completed",
+            "resolved": true
+          }
+        ]
       },
       {
         "name": "dexa-review",
-        "loops": [{"task": "DEXA Jun 25 reviewed by Galen — 16.5% BF, -7.4 lbs lean mass, VAT -44%. tracking.json created, supplement-stack corrected.", "resolved": true}]
+        "loops": [
+          {
+            "task": "DEXA Jun 25 reviewed by Galen \u2014 16.5% BF, -7.4 lbs lean mass, VAT -44%. tracking.json created, supplement-stack corrected.",
+            "resolved": true
+          }
+        ]
       },
       {
         "name": "one-texas-decks",
-        "loops": [{"task": "Monthly Update + Q2 Scorecard recovered from git, moved to OneDrive/Presentations/One Texas/Monthly Meetings/, renamed to convention.", "resolved": true}]
+        "loops": [
+          {
+            "task": "Monthly Update + Q2 Scorecard recovered from git, moved to OneDrive/Presentations/One Texas/Monthly Meetings/, renamed to convention.",
+            "resolved": true
+          }
+        ]
       },
       {
         "name": "systemic-compliance-prep",
-        "loops": [{"task": "Full research + call prep PDF built and pushed to reMarkable. SOW signed, kick-off Jun 30 4PM.", "resolved": true}]
+        "loops": [
+          {
+            "task": "Full research + call prep PDF built and pushed to reMarkable. SOW signed, kick-off Jun 30 4PM.",
+            "resolved": true
+          }
+        ]
       },
       {
         "name": "rmapi-fix",
-        "loops": [{"task": "rmapi config repaired (corrupt JWT → re-authenticated). Working.", "resolved": true}]
+        "loops": [
+          {
+            "task": "rmapi config repaired (corrupt JWT \u2192 re-authenticated). Working.",
+            "resolved": true
+          }
+        ]
       },
       {
         "name": "daily-review",
-        "loops": [{"task": "Daily review written to reviews/daily/2026-06-25.md", "resolved": true}]
+        "loops": [
+          {
+            "task": "Daily review written to reviews/daily/2026-06-25.md",
+            "resolved": true
+          }
+        ]
       }
     ]
   },
@@ -521,31 +551,56 @@
     "topics": [
       {
         "name": "morning-boot",
-        "loops": [{"task": "boot-sequence — full workflow completed", "resolved": true}]
+        "loops": [
+          {
+            "task": "boot-sequence \u2014 full workflow completed",
+            "resolved": true
+          }
+        ]
       },
       {
         "name": "protein-shake-protocol",
-        "loops": [{"task": "Shake logged to protocol.md — 42g protein, AM post-workout, daily", "resolved": true}]
+        "loops": [
+          {
+            "task": "Shake logged to protocol.md \u2014 42g protein, AM post-workout, daily",
+            "resolved": true
+          }
+        ]
       },
       {
         "name": "peptide-stack-start",
-        "loops": [{"task": "Stack starts Jun 29 — MOTS-C/Tesamorelin/Ipamorelin logged, boot reminder cleared", "resolved": true}]
+        "loops": [
+          {
+            "task": "Stack starts Jun 29 \u2014 MOTS-C/Tesamorelin/Ipamorelin logged, boot reminder cleared",
+            "resolved": true
+          }
+        ]
       },
       {
         "name": "kazakhstan-prep",
-        "loops": [{"task": "Cultural customs surfaced pre-meeting", "resolved": true}]
+        "loops": [
+          {
+            "task": "Cultural customs surfaced pre-meeting",
+            "resolved": true
+          }
+        ]
       },
       {
         "name": "shutdown-cleanup",
-        "loops": [{"task": "tasks/ deleted, content/ retained, daily review written, committing", "resolved": true}]
+        "loops": [
+          {
+            "task": "tasks/ deleted, content/ retained, daily review written, committing",
+            "resolved": true
+          }
+        ]
       }
     ]
   },
   {
     "id": "session-2026-06-29-094900",
     "started": "2026-06-29T09:49:00-05:00",
-    "closed": null,
-    "current_topic": "morning-boot",
+    "closed": "2026-06-29T18:00:00-05:00",
+    "current_topic": null,
     "topics": [
       {
         "name": "morning-boot",
@@ -553,6 +608,33 @@
           {
             "task": "boot-sequence",
             "resolved": false
+          }
+        ]
+      },
+      {
+        "name": "revenue-tracker",
+        "loops": [
+          {
+            "task": "Revenue tracker pulled \u2014 South Texas 74% 90-day, One Texas -11% vs target, Q2 high-risk close",
+            "resolved": true
+          }
+        ]
+      },
+      {
+        "name": "co-sell-pipeline",
+        "loops": [
+          {
+            "task": "Co-sell snapshot \u2014 Q2 closed with $9.4M gap, PowerBI filter issue identified, June 9 data is accurate One Texas view",
+            "resolved": true
+          }
+        ]
+      },
+      {
+        "name": "daily-review",
+        "loops": [
+          {
+            "task": "Daily review written to reviews/daily/2026-06-29.md",
+            "resolved": true
           }
         ]
       }
@@ -586,7 +668,7 @@
         "name": "content-pipeline-obsidian",
         "loops": [
           {
-            "task": "step-02 Obsidian publish integration built — rename, status:Published, published_url, article vs post routing, obsidian_slug field; step-01 content_type detection added; 5 pending Ghost drafts backfilled",
+            "task": "step-02 Obsidian publish integration built \u2014 rename, status:Published, published_url, article vs post routing, obsidian_slug field; step-01 content_type detection added; 5 pending Ghost drafts backfilled",
             "resolved": true
           }
         ]
@@ -595,7 +677,7 @@
         "name": "remarkable-fixes",
         "loops": [
           {
-            "task": "Cole Estrate — xAI.pdf renamed and moved to /Meetings; skill updated to prevent new folder creation and enforce conventions",
+            "task": "Cole Estrate \u2014 xAI.pdf renamed and moved to /Meetings; skill updated to prevent new folder creation and enforce conventions",
             "resolved": true
           }
         ]

@@ -24,11 +24,11 @@ This file is the only path to `sources.yaml`. Watchtower's weekly run appends ne
 
 | Name | URL | RSS | Topic | Trust | Why Relevant | Status |
 |------|-----|-----|-------|-------|--------------|--------|
-| MIT Technology Review — Making AI Work | https://www.technologyreview.com | https://www.technologyreview.com/feed | ai-agentic | high | MIT TR launched "Making AI Work" in Feb 2026 — a dedicated newsletter on applying LLMs and agentic AI across industries. High editorial standards, practitioner-focused, not hype-driven. Directly relevant to David's AI consulting conversations. | pending |
-| BCG Insights (AI & Tech Services) | https://www.bcg.com/capabilities/artificial-intelligence | null | it-consulting | high | BCG's AI practice publishes primary research — the $200B agentic opportunity report, executive perspectives on AI and software futures. No RSS but search-based gather works. Essential for competitive intelligence on where the big firms are positioning. | pending |
-| Stratechery | https://stratechery.com | https://stratechery.com/feed | it-consulting | high | Ben Thompson's analysis of how technology reshapes markets and business models — consistently the most rigorous strategic framing available for the AI/consulting bifurcation story. Not news; signal. | pending |
-| AI Business Weekly | https://aibusinessweekly.net | https://aibusinessweekly.net/feed | ai-agentic | med | Daily newsletter written specifically for business leaders and executives — AI funding, product launches, enterprise deployments. 7 AM EST. Complements the technical depth of Import AI with executive-layer news. | pending |
-| Fort Worth Report | https://fortworthreport.org | https://fortworthreport.org/feed | texas-regional | high | Independent nonprofit local newsroom covering Fort Worth and Tarrant County. Broke the Wistron $761M AI facility story. Complements Dallas Innovates with west DFW coverage — the AllianceTexas corridor is now the AI infrastructure epicenter of the region. | pending |
+| MIT Technology Review — Making AI Work | https://www.technologyreview.com | https://www.technologyreview.com/feed | ai-agentic | high | MIT TR launched "Making AI Work" in Feb 2026 — a dedicated newsletter on applying LLMs and agentic AI across industries. High editorial standards, practitioner-focused, not hype-driven. Directly relevant to David's AI consulting conversations. | approved |
+| BCG Insights (AI & Tech Services) | https://www.bcg.com/capabilities/artificial-intelligence | null | it-consulting | high | BCG's AI practice publishes primary research — the $200B agentic opportunity report, executive perspectives on AI and software futures. No RSS but search-based gather works. Essential for competitive intelligence on where the big firms are positioning. | approved |
+| Stratechery | https://stratechery.com | https://stratechery.com/feed | it-consulting | high | Ben Thompson's analysis of how technology reshapes markets and business models — consistently the most rigorous strategic framing available for the AI/consulting bifurcation story. Not news; signal. | approved |
+| AI Business Weekly | https://aibusinessweekly.net | https://aibusinessweekly.net/feed | ai-agentic | med | Daily newsletter written specifically for business leaders and executives — AI funding, product launches, enterprise deployments. 7 AM EST. Complements the technical depth of Import AI with executive-layer news. | rejected |
+| Fort Worth Report | https://fortworthreport.org | https://fortworthreport.org/feed | texas-regional | high | Independent nonprofit local newsroom covering Fort Worth and Tarrant County. Broke the Wistron $761M AI facility story. Complements Dallas Innovates with west DFW coverage — the AllianceTexas corridor is now the AI infrastructure epicenter of the region. | rejected |
 
 ### Batch 1 — Weekly Run (2026-06-20)
 
@@ -43,6 +43,14 @@ This file is the only path to `sources.yaml`. Watchtower's weekly run appends ne
 ---
 
 ## Approved — Moved to sources.yaml
+
+### Batch 2 — Approved 2026-06-29
+
+| Name | URL | Topic | Trust | Approved |
+|------|-----|-------|-------|---------|
+| MIT Technology Review — Making AI Work | https://www.technologyreview.com | ai-agentic | high | 2026-06-29 |
+| BCG Insights (AI & Tech Services) | https://www.bcg.com/capabilities/artificial-intelligence | it-consulting | high | 2026-06-29 |
+| Stratechery | https://stratechery.com | it-consulting | high | 2026-06-29 |
 
 ### Batch 1 — Approved 2026-06-20
 
@@ -86,6 +94,13 @@ Also added by David as named sources (approved same session, 2026-06-19):
 ---
 
 ## Rejected
+
+### Batch 2 — 2026-06-29
+
+| Name | URL | Topic | Reason |
+|------|-----|-------|--------|
+| AI Business Weekly | https://aibusinessweekly.net | ai-agentic | Rejected by David 2026-06-29 |
+| Fort Worth Report | https://fortworthreport.org | texas-regional | Rejected by David 2026-06-29 |
 
 ### Batch 1 — 2026-06-20
 

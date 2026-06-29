@@ -1,0 +1,13 @@
+{
+  "id": "err-20260629T151908-DEKEF1",
+  "timestamp": "2026-06-29T15:19:08Z",
+  "session_id": "session-2026-06-29-094900",
+  "agent": "master",
+  "source": "explicit",
+  "category": "routing",
+  "failure_mode": "wrong-agent-executed-task",
+  "severity": "medium",
+  "description": "David asked for a LinkedIn hook in his voice for a blog post. Master executed the task directly instead of routing to Harper, who owns content, thought leadership, and comms drafting. The routing table is unambiguous: 'Email, draft, message' and 'Content, thought leadership, post' both route to Harper. Master also failed to apply David's voice correctly on both attempts.",
+  "correction": "Should have routed to Harper immediately. Harper owns voice-matched content drafting.",
+  "proposed_fix": "Any request involving drafting content, posts, or thought leadership for David routes to Harper without exception. Master does not attempt these directly."
+}

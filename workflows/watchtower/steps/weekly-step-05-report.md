@@ -1,12 +1,13 @@
 ---
 status: complete
-started-at: "2026-06-20T12:22:00Z"
-completed-at: "2026-06-20T12:25:00Z"
+started-at: "2026-06-29T07:27:00Z"
+completed-at: "2026-06-29T07:30:00Z"
 outputs:
   themes_surfaced: 4
-  candidates_surfaced: 5
+  candidates_surfaced: 4
   sources_proposed: 5
-  weekly_note_path: "Watchtower/Weekly/2026-W25.md"
+  weekly_note_path: "Watchtower/Weekly/2026-W27.md"
+  artifact_updated: true
 ---
 
 <!-- system:start -->
@@ -16,8 +17,9 @@ outputs:
 2. Keep the report under 200 words. This is a surface, not a brief.
 3. Explicitly name each content candidate and each source proposal by name — David needs to act on these.
 4. The report surfaces two action items: (a) review content candidates in Obsidian, (b) approve/reject source proposals in proposed-sources.md.
-5. Set `state.yaml status: complete` and clear `content_queue` after report is surfaced.
-6. Write `status: complete`, `completed-at`, and `outputs` when done.
+5. **UPDATE THE DASHBOARD ARTIFACT.** Read the existing `watchtower-weekly` artifact HTML, prepend a new `<div class="week-view active" id="view-wNN">` block for this week using this run's themes/drafts/proposals, update the `<select>` to include the new week option, archive the previous latest week's block (remove `active` class), update `runMeta` in the JS, then call `mcp__cowork__update_artifact` with `id: "watchtower-weekly"`. **This is non-negotiable. The dashboard is the primary way David reviews the week's output.** If the artifact update fails, log the failure in `outputs` but do not abort — surface the report anyway.
+6. Set `state.yaml status: complete` and clear `content_queue` after report is surfaced.
+7. Write `status: complete`, `completed-at`, and `outputs` when done.
 
 ---
 
@@ -82,13 +84,14 @@ outputs:
 
 4. Set `state.yaml status: complete`.
 
-5. Write `outputs` to this file's frontmatter:
+6. Write `outputs` to this file's frontmatter:
    ```yaml
    outputs:
      themes_surfaced: <int>
      candidates_surfaced: <int>
      sources_proposed: <int>
      weekly_note_path: "Watchtower/Weekly/YYYY-Www.md"
+     artifact_updated: <true | false>
    ```
 
 ---
@@ -98,6 +101,7 @@ outputs:
 - Report surfaced to David under 200 words.
 - Content candidate post titles named explicitly.
 - Source proposals named/batched explicitly with the file path.
+- **`watchtower-weekly` artifact updated** with this week's themes, drafts, and proposals.
 - `content_queue` cleared in `state.yaml`.
 - `state.yaml status: complete`.
 
@@ -110,6 +114,7 @@ outputs:
 | Any step output missing | Surface what is available; note what is missing; still close state |
 | `state.yaml` write fails | Log; surface the report anyway — David has the information |
 | Zero themes, candidates, and proposals | Surface: "Watchtower ran — nothing surfaced this week. Awareness floor may be too high, or source coverage is thin." |
+| Dashboard artifact update fails | Log `artifact_updated: false` in outputs; surface: "Dashboard update failed — open `watchtower-weekly` artifact manually and it will show stale data until next run." |
 
 ---
 

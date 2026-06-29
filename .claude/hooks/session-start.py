@@ -20,6 +20,7 @@ def main():
 
     response = {
         "hookSpecificOutput": {
+            "hookEventName": "SessionStart",
             "sessionTitle": f"Jarvis — {today}"
         },
         "reloadSkills": True
