@@ -1,11 +1,21 @@
-status: complete
-current-step: step-01-discover
-session-id: harper-2026-06-29-discovery-1
-session-started: 2026-06-29T06:00:00Z
-session-completed: 2026-06-29T06:12:00Z
-original-request: scheduled-content-discovery
+status: blocked
+current-step: step-02-approve
+session-id: harper-2026-06-29-approval-hourly
+session-started: 2026-06-29T16:03:00Z
+attempted-at: 2026-06-29T20:03:00Z
+original-request: scheduled-content-approval
+outputs:
+  drafts_checked: 0
+  actions_taken: 0
+  published: 0
+  rejected: 0
+  regenerated: 0
+  cleaned_scheduled: 1
+  pending_drafts: 3
+  scheduled_drafts: 0
+  outcome: "BLOCKED: Slack API unreachable — persistent tunnel failure (403 Forbidden). Cannot read thread replies from #content or notify David. 3 pending drafts awaiting approval cannot be processed."
 accumulated-context:
-  discovery_session: "2026-06-29T06:00:00Z — Found 1 new URL in #content (last 24h): https://fortune.com/2026/05/18/smartphones-days-numbered-ai-wearable-devices/"
-  post_created: "Ghost draft ID 6a42529d1e7721029086b543 — 'The Pocket Barrier Is Gone'"
-  slack_notified: "Thread ts 1782731438.807809 in #content (C0B160MA3EK)"
-  outcome: "COMPLETE. 1 draft created and David notified."
+  blocked_reason: "read.py fails with 'Tunnel connection failed: 403 Forbidden' on all thread reads — Slack Web API inaccessible. This is a network/auth issue outside the content pipeline."
+  pending_entries: "3 pending drafts in pending-drafts.json awaiting approval replies: (1) Consulting Middle, (2) Fulfillment Is Not a Benefit, (3) Pocket Barrier"
+  cleanup_actions: "No cleanup needed — pending-drafts.json contains only status:pending entries with valid slack_thread_ts values"
+  next_action: "Manual intervention required — David must check Slack bot token and network tunnel configuration in config/.env and Ghost/Slack integration health"

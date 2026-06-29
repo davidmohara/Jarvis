@@ -1,0 +1,15 @@
+{
+  "id": "err-20260629T200410-RDUYIT",
+  "timestamp": "2026-06-29T20:04:10Z",
+  "session": "harper-2026-06-29-approval-hourly",
+  "source": "self-detected",
+  "agent": "harper",
+  "category": "process-skip",
+  "description": "Content approval workflow (step-02-approve) blocked by Slack API tunnel failure. read.py fails with 'Tunnel connection failed: 403 Forbidden' when attempting to read thread replies from #content. 3 pending drafts cannot be processed for approval/rejection/regeneration.",
+  "correction": "The workflow correctly identified the blocking condition and halted execution. No correction needed at the agent level. This is an infrastructure/auth issue requiring manual intervention on the Slack bot token or network tunnel configuration.",
+  "failure_mode": "context-blindness",
+  "systemic_fix": "Add a pre-flight health check to the content pipeline that validates Slack API connectivity before attempting scheduled approval runs. If unreachable, bypass approval step and notify David immediately rather than silently blocking.",
+  "fix_status": "proposed",
+  "severity": "major",
+  "related_entries": []
+}

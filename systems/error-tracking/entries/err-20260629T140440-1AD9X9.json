@@ -1,0 +1,15 @@
+{
+  "id": "err-20260629T140440-1AD9X9",
+  "timestamp": "2026-06-29T14:04:40Z",
+  "session": "harper-2026-06-29-approval-hourly",
+  "source": "self-detected",
+  "agent": "Harper (content-approval scheduled task)",
+  "category": "tool-misuse",
+  "description": "Slack API unreachable during hourly content approval run. Both read.py and post.py fail with 'Tunnel connection failed: 403 Forbidden'. Cannot read thread replies from #content or notify David of approval/rejection actions. Workflow blocked.",
+  "correction": "Restore Slack API network tunnel access. Verify bot token in config/.env. Check proxy/firewall rules blocking Slack Web API calls.",
+  "failure_mode": "network-outage",
+  "systemic_fix": "Implement fallback notification via Ghost webhook or polling Ghost API instead of Slack thread reads; cache API responses to reduce tunnel dependencies.",
+  "fix_status": "proposed",
+  "severity": "major",
+  "related_entries": ["err-20260626T182100-BLOCKED"]
+}
