@@ -16,8 +16,8 @@ related_people:
   promoted: true
 salience:
   score: 10
-  last-promoted-check: 2026-06-28
   promoted: true
+  last-promoted-check: "2026-06-29"
 ---
 # Morning Briefing — April 28, 2026 (GLC Chicago Day 2)
 

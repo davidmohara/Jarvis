@@ -1,23 +1,22 @@
 ---
 status: complete
-started-at: 2026-06-28T08:13:30Z
-completed-at: 2026-06-28T08:16:00Z
+started-at: 2026-06-29T08:11:30Z
+completed-at: 2026-06-29T08:12:30Z
 outputs:
-  candidates_count: 4
-  clusters_found: 4
-  semantic_created: 1
+  candidates_count: 3
+  clusters_found: 3
+  semantic_created: 0
   semantic_updated: 3
-  promoted_entries: 4
-  promotion_note: "Standard cycle. 4 freshly-archived working files promoted; 3 evidence appends (calendar/email/omnifocus operational) + 1 new (one-texas domain-knowledge)."
+  promoted_entries: 3
+  promotion_note: "Light cycle. 3 freshly-archived working files promoted; 3 evidence appends to existing operational entries (daily-review, chief, dream-summary). No new semantic entries created."
   cluster_actions:
-    - {tag: calendar, domain: operational, action: update}
-    - {tag: email, domain: operational, action: update}
-    - {tag: omnifocus, domain: operational, action: update}
-    - {tag: one-texas, domain: domain-knowledge, action: create}
-  error_categories_30d: "process-skip:12, data-accuracy:9, routing-error:8, format-violation:7, tool-misuse:6, missed-context:5, hallucination:5, assumption-error:4"
-  error_total_30d: 80
-  lessons_appended: 6
-  lessons_note: "6 threshold-breaching combos appended (process-skip/protocol-skip:10, routing-error/protocol-skip:7, data-accuracy/wrong-assumption:4, assumption-error/wrong-assumption:3, format-violation/wrong-assumption:3, format-violation/protocol-skip:3). First-run domain-knowledge mis-clusters were rolled back before re-running with corrected logic."
+    - {tag: daily-review, domain: operational, action: update}
+    - {tag: chief, domain: operational, action: update}
+    - {tag: dream-summary, domain: operational, action: update}
+  error_categories_30d: "process-skip:12, data-accuracy:8, routing-error:8, format-violation:7, tool-misuse:6, hallucination:5, missed-context:5, assumption-error:4, data-interpretation:4"
+  error_total_30d: 78
+  lessons_appended: 0
+  lessons_note: "Only the unknown/unknown bucket newly crossed threshold; rolled back as non-actionable. All other threshold-breaching combos were already in LESSONS.md from prior cycles."
 ---
 
 <!-- system:start -->

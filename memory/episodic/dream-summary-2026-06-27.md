@@ -1,10 +1,28 @@
 ---
 type: working
 expires: 2026-06-28
-status: active
+status: archived
 created: 2026-06-27
 agent-source: jarvis
 context: "Dream cycle summary 2026-06-27 — for Chief to read at boot"
+salience:
+  score: 10
+  promoted: true
+  last-promoted-check: "2026-06-29"
+date: 2026-06-27
+source_file: memory/working/dream-summary-2026-06-27.md
+tags:
+  - dream-summary
+  - jarvis
+  - briefing
+  - calendar
+  - omnifocus
+  - leads
+  - travel
+  - rock4
+  - pipeline
+  - plaud
+related_people:
 ---
 
 # Dream Cycle Summary — 2026-06-27

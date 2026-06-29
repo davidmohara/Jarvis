@@ -3,7 +3,7 @@ type: semantic
 domain: operational
 primary-tag: daily-review
 created: 2026-06-12
-last-updated: 2026-06-20
+last-updated: 2026-06-29
 confidence: medium
 synthesized-from: 19
   - daily-review-2026-06-08-212450.md
@@ -20,6 +20,8 @@ tags:
   - daily-review
   - pattern
   - dream-cycle-promoted
+synthesized-from:
+  - memory/episodic/daily-review-2026-06-26-211000.md
 ---
 
 # Pattern: Daily Review
@@ -31,6 +33,7 @@ The `daily-review` tag cluster shows persistent co-occurrence in episodic memory
 ## Evidence
 
 
+- 2026-06-29: `memory/episodic/daily-review-2026-06-26-211000.md` — daily-review-2026-06-26-211000 (score 10)
 ### Added 2026-06-20
 - 2026-06-17: `daily-review-2026-06-17-020000.md` (score 10, tags: daily-review, chief, calendar, omnifocus, obsidian)
 - 2026-06-16: `daily-review-2026-06-16-021126.md` (score 10, tags: daily-review, calendar, omnifocus, delegations, chief)
@@ -92,6 +95,7 @@ _2026-06-17 run:_
 ## Implications
 
 
+- 2026-06-29: 1 new entries reinforce this pattern; salience trending steady.
 ### 2026-06-20
 - 2 additional entries observed clustering on `daily-review` — pattern continues.
 Cluster of 9 entries sharing tag `daily-review`. Recurrence indicates this is a stable operational pattern in the Jarvis system.

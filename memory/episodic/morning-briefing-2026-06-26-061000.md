@@ -5,8 +5,31 @@ session_id: "chief-2026-06-26-061000"
 agent-source: chief
 created: 2026-06-26T06:10:00
 expires: 2026-06-28T06:10:00
-status: active
+status: archived
 context: "Morning briefing — 2026-06-26"
+salience:
+  score: 10
+  promoted: true
+  last-promoted-check: "2026-06-29"
+date: 2026-06-26
+source_file: memory/working/morning-briefing-2026-06-26-061000.md
+tags:
+  - briefing
+  - chief
+  - morning-briefing
+  - calendar
+  - omnifocus
+  - leads
+  - rock3
+  - rock4
+  - quarterly-rocks
+  - revenue
+related_people:
+  - alice-mburu
+  - scott-mcmichael
+  - devlin
+  - tim-rayburn
+  - curtis
 ---
 
 # Morning Briefing — Friday, June 26, 2026

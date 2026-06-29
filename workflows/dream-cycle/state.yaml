@@ -1,49 +1,48 @@
 workflow: dream-cycle
 agent: jarvis
 status: complete
-session-started: 2026-06-28T08:09:42Z
-session-id: dream-cycle-2026-06-28-030942
+session-started: 2026-06-29T08:09:40Z
+session-id: dream-cycle-2026-06-29-030943
 current-step: null
 original-request: Scheduled dream cycle run (automated)
 accumulated-context:
   git_pull_at_boot: success
-  working_archived: 4
+  working_archived: 3
   working_deleted: 0
-  working_skipped: 91
+  working_skipped: 89
   working_stranded: 0
   enrichment_method: "heuristic (LLM unavailable in sandbox)"
   archived_files:
-    - daily-review-2026-06-25-143000.md
-    - dream-summary-2026-06-26.md
-    - morning-briefing-2026-06-25-063900.md
-    - revenue-tracker-2026-06-25-000130.md
+    - daily-review-2026-06-26-211000.md
+    - dream-summary-2026-06-27.md
+    - morning-briefing-2026-06-26-061000.md
   skipped_already_archived_count: 72
   skipped_unparseable_count: 13
-  skipped_not_expired_count: 5
+  skipped_not_expired_count: 3
   skipped_not_active_count: 1
-  episodic_scanned: 142
-  score_updates: 142
+  episodic_scanned: 145
+  score_updates: 145
   no_tags: 5
-  no_date: 2
-  files_with_tags: 137
+  no_date: 5
+  files_with_tags: 140
   in_window_count: 62
-  score_distribution: "0:12, 3:3, 4:3, 6:2, 7:4, 8:4, 9:1, 10:113"
-  window_start: 2026-05-29
-  window_end: 2026-06-28
-  candidates_count: 4
-  clusters_found: 4
-  semantic_created: 1
+  score_distribution: "0:12, 3:6, 5:1, 6:5, 7:2, 8:6, 10:113"
+  window_start: 2026-05-30
+  window_end: 2026-06-29
+  candidates_count: 3
+  clusters_found: 3
+  semantic_created: 0
   semantic_updated: 3
-  promoted_entries: 4
-  promotion_note: "Standard cycle. 4 freshly-archived working files promoted; 3 operational evidence appends + 1 new one-texas domain-knowledge entry. First-run mis-clusters rolled back before re-run with corrected domain inference."
-  error_total_30d: 80
-  error_categories_30d: "process-skip:12, data-accuracy:9, routing-error:8, format-violation:7, tool-misuse:6, missed-context:5, hallucination:5, assumption-error:4"
-  lessons_appended: 6
-  lessons_note: "6 threshold-breaching combos appended."
+  promoted_entries: 3
+  promotion_note: "Light cycle. 3 freshly-archived working files promoted; 3 evidence appends to existing operational entries (daily-review, chief, dream-summary)."
+  error_total_30d: 78
+  error_categories_30d: "process-skip:12, data-accuracy:8, routing-error:8, format-violation:7, tool-misuse:6, hallucination:5, missed-context:5, assumption-error:4, data-interpretation:4"
+  lessons_appended: 0
+  lessons_note: "Only the unknown/unknown bucket newly crossed threshold; rolled back as non-actionable."
   entries_compressed: 0
   digests_updated: 0
   compression_skipped: true
-  compression_skip_reason: "Oldest episodic 71 days, 90-day threshold not met."
+  compression_skip_reason: "Oldest episodic entry is 2026-04-18 (72 days old). 90-day cutoff = 2026-03-31."
   dream_log_appended: true
   working_summary_written: true
   errors: 0

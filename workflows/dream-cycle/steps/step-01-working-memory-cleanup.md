@@ -1,21 +1,20 @@
 ---
 status: complete
-started-at: 2026-06-28T08:09:42Z
-completed-at: 2026-06-28T08:12:00Z
+started-at: 2026-06-29T08:09:40Z
+completed-at: 2026-06-29T08:10:30Z
 outputs:
-  working_archived: 4
+  working_archived: 3
   working_deleted: 0
-  working_skipped: 91
+  working_skipped: 89
   working_stranded: 0
   enrichment_method: "heuristic (LLM unavailable in sandbox)"
   archived_files:
-    - daily-review-2026-06-25-143000.md
-    - dream-summary-2026-06-26.md
-    - morning-briefing-2026-06-25-063900.md
-    - revenue-tracker-2026-06-25-000130.md
+    - daily-review-2026-06-26-211000.md
+    - dream-summary-2026-06-27.md
+    - morning-briefing-2026-06-26-061000.md
   skipped_already_archived_count: 72
   skipped_unparseable_count: 13
-  skipped_not_expired_count: 5
+  skipped_not_expired_count: 3
   skipped_not_active_count: 1
   skipped_not_active:
     - 2026-06-19-000000-golf-booking-confirmed.md (status: completed)

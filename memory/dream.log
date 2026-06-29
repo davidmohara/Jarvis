@@ -1402,3 +1402,20 @@ digests_updated: 0
 errors: 0
 summary: "Standard cycle. Step-01 archived 4 newly-expired working files (daily-review-2026-06-25, dream-summary-2026-06-26, morning-briefing-2026-06-25, revenue-tracker-2026-06-25) via heuristic enrichment; 72 already-archived stragglers, 13 unparseable, 5 not-expired, 1 not-active. Step-02 scored 142 episodic entries; window 2026-05-29 → 2026-06-28 with 62 in-window; distribution 0:12, 3:3, 4:3, 6:2, 7:4, 8:4, 9:1, 10:113. Step-03 promotion: 4 candidates → 4 tag-clusters → 1 new (one-texas domain-knowledge) + 3 evidence appends (calendar, email, omnifocus — all operational). Initial run mis-classified all candidate tags as domain-knowledge; rolled back 19 spurious creations, fixed domain inference (tag-key first), and re-ran. Error scan 30d: 80 entries (process-skip:12, data-accuracy:9, routing-error:8 lead); 6 newly threshold-breaching combos appended to LESSONS.md (process-skip/protocol-skip, routing-error/protocol-skip, data-accuracy/wrong-assumption, assumption-error/wrong-assumption, format-violation/wrong-assumption, format-violation/protocol-skip). Step-04 compression skipped (oldest episodic 71 days, 90-day threshold not met)."
 git_pull: success
+
+---
+## 2026-06-29T08:13:30 UTC
+session_id: dream-cycle-2026-06-29-030943
+working_archived: 3
+working_deleted: 0
+episodic_scanned: 145
+score_updates: 145
+clusters_found: 3
+semantic_created: 0
+semantic_updated: 3
+promoted_entries: 3
+entries_compressed: 0
+digests_updated: 0
+errors: 0
+summary: "Light cycle. Step-01 archived 3 newly-expired working files (daily-review-2026-06-26, dream-summary-2026-06-27, morning-briefing-2026-06-26) via heuristic enrichment; 72 already-archived stragglers, 13 unparseable, 3 not-expired, 1 not-active. Step-02 scored 145 episodic entries; window 2026-05-30 → 2026-06-29 with 62 in-window; distribution 0:12, 3:6, 5:1, 6:5, 7:2, 8:6, 10:113. Step-03 promotion: 3 candidates → 3 tag-clusters (daily-review, chief, dream-summary — all operational) → 0 new entries + 3 evidence appends. Error scan 30d: 78 entries (process-skip:12, data-accuracy:8, routing-error:8 lead); 0 newly threshold-breaching combos appended to LESSONS.md (unknown/unknown rolled back as non-actionable). Step-04 compression skipped (oldest episodic 72 days, 90-day threshold not met)."
+git_pull: success

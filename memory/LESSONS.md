@@ -316,3 +316,10 @@ Category: format-violation
 Pattern: format-violation/protocol-skip — appearing repeatedly in recent error log
 Fix: Review failure mode; tighten protocol or add guardrail. See systems/error-tracking/entries/ for instances.
 Status: active
+
+## 2026-06-29 — unknown/unknown
+Detected: 3 occurrences over 30 days
+Category: unknown
+Pattern: Recurring unknown errors with failure_mode=unknown.
+Fix: Review recent error-tracking entries with this signature; codify guardrail in the relevant agent/skill.
+Status: active
