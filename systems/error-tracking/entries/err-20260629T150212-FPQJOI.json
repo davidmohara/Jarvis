@@ -1,0 +1,13 @@
+{
+  "id": "err-20260629T150212-FPQJOI",
+  "timestamp": "2026-06-29T15:02:12Z",
+  "session_id": "session-2026-06-29-094900",
+  "agent": "master",
+  "source": "explicit",
+  "category": "stale-data",
+  "failure_mode": "session-index-without-health-verification",
+  "severity": "low",
+  "description": "Surfaced peptide stack start reminder from session index (Jun 26 entry noted 'Stack starts Jun 29') without checking Galen's health files for current status. Stack had already been confirmed started by Galen. Should have cross-checked projects/wellness/protocol.md or Galen's most recent notes before surfacing health reminders.",
+  "correction": "Peptide stack already started — confirmed by Galen. Reminder was stale.",
+  "proposed_fix": "Before surfacing any health/protocol reminder from session index, check Galen's most recent health notes or protocol.md to confirm current status first."
+}

@@ -310,6 +310,7 @@ function dispatch(a,el){
   if(a==='sync-pull'){pullFromGitHub();return;}
   if(a==='export'){exportJSON();return;}
   if(a==='settings'){switchTab('settings');return;}
+  if(a==='reset-week'){weekPlan=null;buildWeekPlan();switchTab('week');return;}
 }
 
 // ─── TAB SWITCHING ───────────────────────────────────────────────
@@ -331,14 +332,42 @@ function switchTab(name){
 }
 
 // ─── WEEK PLAN ───────────────────────────────────────────────────
+// cfg.workoutDays: array of JS day numbers [0=Sun,1=Mon,...,6=Sat]
+// Default: Tue=2, Thu=4, Sat=6
+function getWorkoutDays(){
+  if(cfg.workoutDays&&cfg.workoutDays.length)return cfg.workoutDays.slice().sort(function(a,b){return a-b;});
+  return[2,4,6];
+}
+
 function buildWeekPlan(){
-  var wk=getWeekKey(),tue=addDays(wk,1),thu=addDays(wk,3),sun=addDays(wk,6);
-  var ni=getNextWoIdx(),wos=getWorkouts();
-  weekPlan={weekKey:wk,days:[
-    {woIdx:ni%wos.length,date:tue,status:'upcoming',sessionId:null},
-    {woIdx:(ni+1)%wos.length,date:thu,status:'upcoming',sessionId:null},
-    {woIdx:(ni+2)%wos.length,date:sun,status:'upcoming',sessionId:null}
-  ]};
+  var wk=getWeekKey(); // Monday ISO date of this week
+  var days=getWorkoutDays();
+  var wos=getWorkouts();
+
+  // Carry-forward: count skipped sessions from last week
+  var skippedCount=0;
+  if(weekPlan&&weekPlan.weekKey&&weekPlan.weekKey!==wk){
+    skippedCount=(weekPlan.days||[]).filter(function(d){return d.status!=='done';}).length;
+  }
+
+  var ni=getNextWoIdx();
+  // Roll ni back by skippedCount to replay missed workouts
+  ni=((ni-skippedCount)%wos.length+wos.length)%wos.length;
+
+  // getWeekKey returns Monday; wkDate is that Monday as a Date
+  var wkDate=new Date(wk+'T12:00:00');
+  var wkDayOfWeek=wkDate.getDay(); // should be 1 (Monday)
+
+  var planDays=days.map(function(dayNum,i){
+    // offset from Monday: dayNum - wkDayOfWeek, wrapping Sun (0) to 7
+    var offset=dayNum-wkDayOfWeek;
+    if(offset<0)offset+=7;
+    var d=new Date(wkDate);d.setDate(wkDate.getDate()+offset);
+    var iso=d.toISOString().split('T')[0];
+    return{woIdx:(ni+i)%wos.length,date:iso,status:'upcoming',sessionId:null};
+  });
+
+  weekPlan={weekKey:wk,days:planDays};
   saveWeek();
 }
 function checkWeekReset(){if(isNewWeek())buildWeekPlan();}
@@ -358,6 +387,30 @@ function renderSetup(isEdit){
      '<strong>4.</strong> Paste your details below'
     ].forEach(function(s){var d=mk('div','sstep');d.innerHTML=s;w.appendChild(d);});
   }
+  // ── Workout days picker ──
+  var dlbl=mkT('label','flbl','Workout days');w.appendChild(dlbl);
+  var dayNames=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  var activeDays=getWorkoutDays();
+  var dayWrap=mk('div');dayWrap.style.cssText='display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px;';
+  dayNames.forEach(function(dn,di){
+    var on=activeDays.indexOf(di)>-1;
+    var btn=document.createElement('button');
+    btn.type='button';btn.textContent=dn;btn.setAttribute('data-daybtn',di);
+    btn.style.cssText='padding:6px 12px;border-radius:20px;border:1.5px solid '+(on?'var(--bl)':'var(--g5)')+';background:'+(on?'var(--bl)':'var(--wh)')+';color:'+(on?'var(--wh)':'var(--g3)')+';font-size:13px;font-weight:500;cursor:pointer;';
+    btn.addEventListener('click',function(){
+      var cur=getWorkoutDays();
+      var idx=cur.indexOf(di);
+      if(idx>-1)cur.splice(idx,1);else cur.push(di);
+      cur.sort(function(a,b){return a-b;});
+      cfg.workoutDays=cur;saveCfg();
+      // re-render to refresh button states
+      renderSetup(true);
+    });
+    dayWrap.appendChild(btn);
+  });
+  w.appendChild(dayWrap);
+  w.appendChild(mkT('div','fhint','Changes apply next week (or force a reset by clearing this week\'s plan).'));
+
   [{id:'gh-owner',lbl:'GitHub username',ph:'davidmohara',val:cfg.owner||'',type:'text'},
    {id:'gh-repo',lbl:'Private data repo name',ph:'workout-data',val:cfg.dataRepo||'workout-data',type:'text'},
    {id:'gh-pat',lbl:'Personal Access Token',ph:'ghp_xxxxxxxxxxxx',val:cfg.pat||'',type:'password'}
@@ -374,6 +427,7 @@ function renderSetup(isEdit){
     var tb=mk('button','bigbtn sec');tb.textContent='Test GitHub connection';tb.setAttribute('data-a','gh-test');tb.style.marginTop='8px';w.appendChild(tb);
     var to=mk('div','testout');to.id='gh-test-out';w.appendChild(to);
     var xb=mk('button','bigbtn sec');xb.textContent='Export local log as JSON';xb.setAttribute('data-a','export');xb.style.marginTop='8px';w.appendChild(xb);
+    var rb=mk('button','bigbtn sec');rb.textContent='Reset week plan now';rb.setAttribute('data-a','reset-week');rb.style.marginTop='8px';w.appendChild(rb);
   }
   sc.appendChild(w);
 }

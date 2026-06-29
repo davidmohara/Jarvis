@@ -27,19 +27,13 @@ Read supplement stack and peptide protocols from:
 
 Read `data/health/supplement-stack.json` for current stack state, timing, doses, and status. That file is the authoritative source. Do not maintain a duplicate here. Stack changes are logged as `protocol_change` entries in `data/health/metrics-log.json`.
 
-**Current Known Peptide Protocols (as of June 14, 2026):**
+**Current Peptide Protocols — read from data files (authoritative source):**
 
-| Peptide | Dosage | Frequency | Status | Cycle Window | Purpose | Notes |
-|---------|--------|-----------|--------|--------------|---------|-------|
-| Retatrutide (Reta) | **3mg** | Weekly subQ | **ACTIVE** | Mar 28 – ongoing | GLP-1/GIP/glucagon triple agonist — weight loss, VAT, metabolic | Current dose and phase tracked in `data/health/tracking.json`. Jastreboff et al. NEJM 2023. |
-| MOTS-C | 5mg (50u) | **Every 5 days**, morning fasted | **ACTIVE** | Jun 28, 2026 – Aug 23, 2026 (8 wks) | Metabolic — AMPK, VAT reduction, insulin sensitivity | 40mg vial + 4ml BW = 10mg/ml. Last cycle ended ~Mar 14. Rest: 13 wks ✅. Cycle 2 started Jun 28, 2026. |
-| Tesamorelin | **2mg (50u)** | 5 nights/wk (Mon–Fri), **90 min post-meal** | **ACTIVE** | Jun 28, 2026 – Aug 30, 2026 (9 wks) | GHRH analog — GH/IGF-1, visceral fat reduction, lean mass preservation | 10mg vial + **2.5ml BW = 4mg/ml. Draw 0.5ml (50u) per injection.** Each vial = 10 doses. 9 vials this 9-wk cycle. Full 2mg dose per Dr. Randol clearance. Baker et al. Neurology 2021 (cognition support). |
-| Ipamorelin | **333mcg (10u)** | 5 nights/wk (Mon–Fri), **same window as Tesamorelin** | **ACTIVE** | Jun 28, 2026 – Aug 30, 2026 (9 wks) | GH secretagogue — pulsatile GH, no cortisol/prolactin spike | 10mg vial + 3ml BW = 3,333mcg/ml. Draw 10 units (0.1ml) per injection. ~1.5 vials this cycle (nights only); ~4.5 remaining after. Sequenced same window as Tesa: synergistic GH axis amplification. Raun et al. Eur J Endocrinol 1998. |
-| Semax | **200mcg per nostril (400mcg total)** AM; 100mcg/nostril PM optional | 5 days on / 2 days off | **PENDING START** | Jul 12 – Aug 16, 2026 (4.5 wks); staggered 2 wks post-GH stack (Jun 28) to isolate cognitive effects | Nootropic — BDNF/NGF upregulation, cognitive enhancement, neuroprotection, focus | Intranasal only. AM dose required, PM optional (≥5 hrs pre-sleep). 400mcg is the established cognitive enhancement sweet spot. Dolotov et al. J Neurochem 2006. Order second vial before starting. |
-| CJC-1295 w/DAC | 1mg | Weekly (1x/wk) | **PAUSED** (while Tesa/Ipa planned) | 8-12 weeks on, 4 weeks off | GH secretagogue | Do not stack with Tesamorelin — redundant upstream GH stimulus |
-| BPC-157 | As needed | PRN | Active (PRN) | Injury/recovery cycles | Healing, recovery, GI support | Minimal side effects, safe for chronic use |
-| Epithalon | [dose] | Cycling | **PAUSED/Planned** | 2x/year max, 4-month pause between | Telomerase activation, aging | Max 2 cycles per year, 10-day cycle duration |
-| DSIP | [dose] | Cycling | **PAUSED/Planned** | Seasonal (winter focus) | Sleep quality, mood | Excellent for sleep architecture |
+- Active cycles, dosing, timing, cycle windows: `data/health/tracking.json` → `peptide_cycles` array
+- Cycle constraints (max frequency, pause windows, restart eligibility): `data/health/tracking.json` → `peptide_constraints`
+- Current phase and Retatrutide status: `data/health/tracking.json` → `current_phase`
+
+Do not hardcode peptide status in this skill. Always read from `tracking.json` before generating output.
 
 **Full Stack Protocol (MOTS-C + Tesamorelin + Ipamorelin + Semax — ACTIVE as of Jun 29, 2026):**
 

@@ -2,29 +2,121 @@
 workflow: plaud-ingest
 agent: knox
 status: completed
-session-started: "2026-06-26T00:00:00Z"
-session-completed: "2026-06-26T00:00:00Z"
-session-id: "pi-20260626-001"
-current-step: step-01-complete
-original-request: "Knox: Run Plaud ingest workflow — discover new recordings (2026-06-26)"
+session-started: "2026-06-29T00:00:00Z"
+session-id: "pi-20260629-001"
+current-step: step-05
+original-request: "Knox: Run Plaud ingest workflow — background task 2026-06-29"
 accumulated-context:
-  target-date: "2026-06-26"
-  last-run-date: "2026-06-25"
-  api-total-recordings: 63
-  recordings-scanned: 63
-  new-recordings: []
+  target-date: "2026-06-29"
+  last-run-date: "2026-06-26"
+  api-total-recordings: 64
+  recordings-scanned: 64
+  new-recordings:
+    - file_id: "81ff9b6a467037b188fa10a8360350b3"
+      name: "2026-06-26 Kazakhstan AI Discussion"
+      date: "2026-06-26"
+      duration_seconds: 2267
+      has_transcript: true
+      transcript_status: ready
+    - file_id: backlog
+      name: "03-10 Meeting Executive Assistant AI System Integration"
+      date: "2026-03-10"
+      has_transcript: true
+      transcript_status: ready
+    - file_id: backlog
+      name: "03-25 Vendor Partnership Failure Guatemala"
+      date: "2026-03-25"
+      has_transcript: true
+      transcript_status: ready
+    - file_id: backlog
+      name: "04-01 Account Plan Strategy Key Accounts"
+      date: "2026-04-01"
+      has_transcript: true
+      transcript_status: ready
+    - file_id: backlog
+      name: "04-13 Executive Partner Kickoff Call"
+      date: "2026-04-13"
+      has_transcript: true
+      transcript_status: ready
+    - file_id: backlog
+      name: "05-22 Austin Summit Planning"
+      date: "2026-05-22"
+      has_transcript: true
+      transcript_status: ready
+    - file_id: backlog
+      name: "06-08 Partnership Exploration Kate Bugakova"
+      date: "2026-06-08"
+      has_transcript: true
+      transcript_status: ready
+    - file_id: backlog
+      name: "06-08 Mentoring Session Randall Dunigan"
+      date: "2026-06-08"
+      has_transcript: true
+      transcript_status: ready
+    - file_id: backlog
+      name: "06-09 SMU MS AI for Business"
+      date: "2026-06-09"
+      has_transcript: true
+      transcript_status: ready
+    - file_id: backlog
+      name: "06-15 Leveraging AI for Business Operations"
+      date: "2026-06-15"
+      has_transcript: true
+      transcript_status: ready
+    - file_id: backlog
+      name: "06-22 xAI Improving Partnership"
+      date: "2026-06-22"
+      has_transcript: true
+      transcript_status: ready
   transcription-triggered: []
   pending-recordings: []
-  speaker-mappings: {}
+  speaker-mappings:
+    "81ff9b6a467037b188fa10a8360350b3":
+      "Speaker 3": "Amaldik Muratov"
+      "Speaker 5": "Deputy Chairman (Ministry of Digital Progress)"
+      "Speaker 6": "Daulet (Nazarbayev University)"
+      "Speaker 1": "Association Member (AI Startups)"
+      "Speaker 7": "World Bank Speaker"
+    "fd49dbb1f51f51e94a95de225cce8b24":
+      "Speaker 2": "Tim Brackney"
+      "Speaker 3": "Anthony Laria"
+    "06-08-partnership":
+      "Speaker 1": "Kate Bugakova"
   pending-speaker-mappings: []
-  ready-for-fetch: []
-  staged-files: []
-  ingested-notes: []
-  notes: >
-    No new recordings found. Most recent Plaud recording is 2026-06-23 (ingested in
-    prior session pi-20260625-001). Full diff performed against all 63 API recordings
-    vs vault (zzPlaud/ — Client, Improving, Other, Speaking, YPO subdirs). Eight
-    recordings flagged by fuzzy match (score <0.5) were manually verified against vault
-    note content and confirmed ingested under renamed titles. Workflow terminates at
-    step-01 per failure mode: "No new recordings found."
+  ready-for-fetch:
+    - "81ff9b6a467037b188fa10a8360350b3"
+    - backlog-03-10
+    - backlog-03-25
+    - backlog-04-01
+    - backlog-04-13
+    - backlog-05-22
+    - backlog-06-08-kate
+    - backlog-06-08-randall
+    - backlog-06-09
+    - backlog-06-15
+    - backlog-06-22
+  staged-files:
+    - "plaud_2026-06-26 15_24_33.md"
+    - "plaud_03-10 Meeting_ Executive Assistant AI System Integration_ Calendar_Storage Mapping_ and Onboarding Plan.md"
+    - "plaud_03-25 Vendor Partnership Failure and Strategic Reset Due to Guatemala Team_s Capability Gap.md"
+    - "plaud_04-01 Meeting_ Account Plan Strategy _ Key Accounts _Simpson_ Entergy_ AT_T_.md"
+    - "plaud_04-13 Executive Partner Kickoff Call_ Aligning Goals_ Access_ and Operating Rhythm.md"
+    - "plaud_05-22 Meeting_ Austin Summit Planning_ Speakers_ Sponsorships_ YPO Outreach_ and Ethical AI Talk.md"
+    - "plaud_06-08 Introductory Meeting_ Partnership Exploration with Improving for Data Engineering _ AI.md"
+    - "plaud_06-08 Mentoring Session on Professional Development and Self-Improvement.md"
+    - "plaud_06-09 SMU and Improving Explore Partnership for New MS in AI for Business Program_ Focusing on Guest Lecturing and Curriculum Advising.md"
+    - "plaud_06-15 Leveraging AI for Business Operations and Competitive Advantage.md"
+    - "plaud_06-22 Strategic Partnership Exploration between xAI and Improving.md"
+  ingested-notes:
+    - "zzPlaud/Improving/2026-03-10 Steve Hall EA System Integration — Jarvis Onboarding and Ecosystem Alignment.md"
+    - "zzPlaud/Client/2026-03-25 Vendor Partnership Failure and Strategic Reset — Guatemala Team Capability Gap.md"
+    - "zzPlaud/Improving/2026-04-01 One Texas Account Plan Strategy — Simpson, Entergy, AT&T Brainstorm.md"
+    - "zzPlaud/Other/2026-04-13 Athena Kickoff — Alice Mburu Partnership Manager Onboarding.md"
+    - "zzPlaud/Other/2026-05-22 Austin Principled Business Summit Planning — Alexander McCobin.md"
+    - "zzPlaud/Client/2026-06-08 Kate Bugakova — TechBar SW Partnership Exploration for Data Engineering and AI.md"
+    - "zzPlaud/Improving/2026-06-08 IBP Mentorship — Randall Dunigan on Sales Identity, Quick Thinking, and One Texas.md"
+    - "zzPlaud/Improving/2026-06-09 SMU MS in AI for Business — Advisory Board and Guest Lecture Partnership with Aren Cambre.md"
+    - "zzPlaud/Client/2026-06-15 Dustin Shaffer — Leveraging AI for Business Operations and Competitive Advantage.md"
+    - "zzPlaud/Client/2026-06-22 Cole Estrate — xAI and Improving Strategic Partnership Exploration.md"
+    - "zzPlaud/Client/2026-06-26 Kazakhstan IVLP Delegation — AI Strategy and US Approaches to Regulation.md"
 ---

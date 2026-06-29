@@ -1082,6 +1082,116 @@
     "personal_protocol_notes": "No personal cycle history, start dates, doses, or outcomes were included in this document. Cross-reference the supplement tracker xlsx for Dihexa (started 2024-02-23), Tesamorelin/Ipamorelin (started 2024-02-23), MOTS-C (started 2024-02-23), BPC-157, and TB-500."
   },
 
+  "peptide_cycles": [
+    {
+      "peptide": "Epithalon",
+      "cycle_number": 1,
+      "status": "completed",
+      "start_date": "2025-12",
+      "duration_days": 10,
+      "end_date": "2025-12",
+      "dose": null,
+      "frequency": null,
+      "purpose": "Telomerase activation, aging marker",
+      "notes": "Exact start/end dates within December 2025 not recorded. Source: galen-protocols SKILL.md."
+    },
+    {
+      "peptide": "MOTS-C",
+      "cycle_number": 1,
+      "status": "completed",
+      "start_date": "2024-02-23",
+      "duration_days": null,
+      "end_date": "2024-03-14",
+      "dose": "10mg",
+      "frequency": "weekly",
+      "purpose": "Metabolic — AMPK, VAT reduction, insulin sensitivity",
+      "notes": "From health tracking spreadsheet. End date estimated (rest window of 13 wks confirmed before cycle 2)."
+    },
+    {
+      "peptide": "MOTS-C",
+      "cycle_number": 2,
+      "status": "active",
+      "start_date": "2026-06-28",
+      "duration_days": 56,
+      "end_date": "2026-08-23",
+      "dose": "5mg",
+      "frequency": "every 5 days, morning fasted",
+      "purpose": "Metabolic — AMPK, VAT reduction, insulin sensitivity",
+      "notes": "40mg vial + 4ml BW = 10mg/ml. Draw 0.5ml (50u). Rest window: min 4 weeks off after cycle."
+    },
+    {
+      "peptide": "Tesamorelin",
+      "cycle_number": 1,
+      "status": "active",
+      "start_date": "2026-06-28",
+      "duration_days": 63,
+      "end_date": "2026-08-30",
+      "dose": "1mg (25u)",
+      "frequency": "5 nights/week (Mon-Fri), 90 min post-meal",
+      "purpose": "GHRH analog — GH/IGF-1, visceral fat reduction, lean mass preservation",
+      "notes": "10mg vial + 2.5ml BW = 4mg/ml. Draw 0.25ml (25u). Each vial = 10 doses. Dr. Randol cleared Jun 14, 2026."
+    },
+    {
+      "peptide": "Ipamorelin",
+      "cycle_number": 1,
+      "status": "active",
+      "start_date": "2026-06-28",
+      "duration_days": 63,
+      "end_date": "2026-08-30",
+      "dose": "300mcg (9u)",
+      "frequency": "5 nights/week (Mon-Fri), same window as Tesamorelin",
+      "purpose": "GH secretagogue — pulsatile GH, no cortisol/prolactin spike",
+      "notes": "10mg vial + 3ml BW = 3,333mcg/ml. Draw ~0.09ml (9u). Optional AM dose on training days (3x/week)."
+    },
+    {
+      "peptide": "Semax",
+      "cycle_number": 1,
+      "status": "planned",
+      "start_date": "2026-07-12",
+      "duration_days": 32,
+      "end_date": "2026-08-16",
+      "dose": "200mcg/nostril (400mcg total) AM; 100mcg/nostril PM optional",
+      "frequency": "5 days on / 2 days off (Mon-Fri)",
+      "purpose": "Nootropic — BDNF/NGF upregulation, cognitive enhancement, neuroprotection",
+      "notes": "Staggered 2 wks post-GH stack to isolate cognitive effects. 1 vial on hand — test run. Order 2nd vial before starting."
+    },
+    {
+      "peptide": "DSIP",
+      "cycle_number": null,
+      "status": "planned",
+      "start_date": "2026-11",
+      "duration_days": 10,
+      "end_date": null,
+      "dose": null,
+      "frequency": null,
+      "purpose": "Sleep quality, mood, recovery",
+      "notes": "Seasonal — winter focus. Planned November 2026."
+    }
+  ],
+
+  "peptide_constraints": {
+    "epithalon": {
+      "max_cycles_per_year": 2,
+      "min_pause_between_cycles_days": 120,
+      "cycle_duration_days": 10,
+      "last_cycle_completed": "2025-12",
+      "next_eligible_date": "2026-08",
+      "notes": "4-month pause required between cycles. Max 2x/year."
+    },
+    "dsip": {
+      "cadence": "seasonal",
+      "preferred_window": "winter (November-January)",
+      "cycle_duration_days": 10,
+      "notes": "Seasonal focus for sleep optimization."
+    },
+    "cjc_1295_dac": {
+      "status": "paused",
+      "pause_reason": "Redundant upstream GH stimulus while Tesamorelin active",
+      "restart_eligible_date": "2026-09-14",
+      "notes": "Do not stack with Tesamorelin."
+    }
+  },
+
   "current_phase": {
     "name": "Recomposition — Lean Mass Recovery",
     "started": "2026-06-25",

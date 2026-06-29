@@ -2,10 +2,9 @@
   "skill": "plaud-discover",
   "agent": "knox",
   "trigger": "boot",
-  "started": "2026-06-26T00:00:00Z",
-  "completed": "2026-06-26T00:05:00Z",
+  "started": "2026-06-29T00:00:00Z",
+  "completed": "2026-06-29T00:15:00Z",
   "status": "success",
   "tool_failures": 0,
-  "error_ids": [],
-  "notes": "Full discovery run. 63 API recordings cross-referenced against vault. No new recordings found. Most recent is 2026-06-23."
+  "error_ids": []
 }

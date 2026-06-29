@@ -29,7 +29,14 @@ Running list of potential blog topics. Jarvis captures these proactively from co
 | "Fulfillment Is Not a Benefit. It's a Business Model." | Content pipeline (2026-06-24) | leadership, growth, purpose | Ghost draft — pending approval |
 | "Why Governance Doesn't Scale the Way You Think" | Content pipeline (2026-06-24) | AI, business, leadership | Ghost draft — pending approval |
 | "The Invoice Tells You Nothing" | Content pipeline (2026-06-25) | AI, business | Ghost draft — pending approval |
+<<<<<<< HEAD
 | "The Pocket Barrier Is Gone" | Content pipeline (2026-06-29) | AI, technology, thinking | Ghost draft — pending approval |
+=======
+| "The $200B Gap Is Yours If You Want It" | Watchtower (2026-06-29) [watchtower] | consulting, AI, business | Draft at `Mind/Posts/_the-200b-gap-is-yours-if-you-want-it.md` |
+| "We Need to Talk About How Consulting Gets Paid" | Watchtower (2026-06-29) [watchtower] | consulting, AI, business, leadership | Draft at `Mind/Posts/_we-need-to-talk-about-how-consulting-gets-paid.md` |
+| "Fort Worth Just Became a Tier-One AI City" | Watchtower (2026-06-29) [watchtower] | texas, AI, business | Draft at `Mind/Posts/_fort-worth-just-became-a-tier-one-ai-city.md` |
+| "The Forward Deployed Model Changes Everything" | Watchtower (2026-06-29) [watchtower] | consulting, AI, business, leadership | Draft at `Mind/Posts/_the-forward-deployed-model-changes-everything.md` |
+>>>>>>> 2e93fb9 (Early commit on some work)
 
 ## Published (for reference / avoid repeats)
 

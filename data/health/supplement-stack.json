@@ -93,15 +93,15 @@
     },
     {
       "id": "b_complex",
-      "name": "B-Complex #12",
+      "name": "Methyl-Guard Plus",
       "brand": "Thorne",
       "dose": "1 capsule",
       "unit": "capsule",
       "frequency": "daily",
       "timing": "Midday — with lunch",
       "status": "active",
-      "purpose": "Methylated B vitamins — B12, folate, B6. Homocysteine management, energy metabolism, methylation support",
-      "notes": "Homocysteine 19.5 umol/L (Jun 2026) — elevated. B-complex already in place. Monitor at next draw."
+      "purpose": "Therapeutic methylation support — methylfolate, methylcobalamin, P5P, riboflavin-5-phosphate. Homocysteine reduction.",
+      "notes": "Switched from B-Complex #12 Jun 2026. Homocysteine 19.5 umol/L (was 12.0 Jun 2025) — therapeutic dosing required. Recheck at next draw."
     },
     {
       "id": "dhea",
@@ -182,15 +182,15 @@
     },
     {
       "id": "berberine",
-      "name": "Berberine",
-      "brand": "unknown",
+      "name": "Berberine 1500",
+      "brand": "Toniiq",
       "dose": "500mg BID",
       "unit": "mg",
       "frequency": "twice daily with meals",
       "timing": "with lunch and dinner",
-      "status": "paused — restart recommended",
+      "status": "paused — ordered, arriving Jul 27 2026",
       "purpose": "Metabolic — PCSK9 inhibition, LDL particle size improvement, glucose control, AMPK activation",
-      "notes": "LDL Pattern B with small dense LDL 274 (Jun 2026). Restart recommended. Kong et al. J Lipid Res 2004."
+      "notes": "LDL Pattern B with small dense LDL 274 (Jun 2026). Restart recommended. Kong et al. J Lipid Res 2004. Toniiq 1500mg caps confirmed Jun 2026. Ordered — shipping with Toniiq order Jul 27, 2026."
     }
   ]
 }
