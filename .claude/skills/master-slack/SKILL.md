@@ -19,20 +19,28 @@ model: sonnet
 
 ## Locating the Script
 
-The IES folder may live at different paths across David's machines. **Never hardcode the path.** Use Spotlight to find it at runtime:
+The IES folder may live at different paths across David's machines. Use this priority order to locate the script:
 
-```
-Tool: mcp__Desktop_Commander__start_process
-Command: python3 "$(mdfind -name 'post.py' | grep 'systems/slack-bot/post.py' | head -1)" <channel_id> "<message>"
-Timeout: 15000
-```
-
-**Alternative** — if `mdfind` is slow or returns multiple hits, find the IES root via `SYSTEM.md` (guaranteed unique marker):
+**Option 1: Use mdfind (macOS interactive shells)**
 
 ```bash
-IES_ROOT="$(mdfind -name 'SYSTEM.md' | grep '/IES/SYSTEM.md' | head -1 | sed 's|/SYSTEM.md||')"
+python3 "$(mdfind -name 'post.py' | grep 'systems/slack-bot/post.py' | head -1)" <channel_id> "<message>"
+```
+
+**Option 2: Find via SYSTEM.md (reliable fallback for scripted/non-interactive environments)**
+
+```bash
+IES_ROOT="$(find ~ -name 'SYSTEM.md' -path '*/jarvis/SYSTEM.md' 2>/dev/null | head -1 | sed 's|/SYSTEM.md||')"
 python3 "$IES_ROOT/systems/slack-bot/post.py" <channel_id> "<message>"
 ```
+
+**Option 3: Direct path (if IES_ROOT is known)**
+
+```bash
+python3 "$IES_ROOT/systems/slack-bot/post.py" <channel_id> "<message>"
+```
+
+Use Option 2 or 3 when executing from scheduled tasks, agents, or non-interactive environments where `mdfind` is unavailable.
 
 ## Channels
 
@@ -46,15 +54,25 @@ python3 "$IES_ROOT/systems/slack-bot/post.py" <channel_id> "<message>"
 
 ```
 Tool: mcp__Desktop_Commander__start_process
-Command: python3 "$(mdfind -name 'post.py' | grep 'systems/slack-bot/post.py' | head -1)" <channel_id> "<message>"
+Command: python3 "$IES_ROOT/systems/slack-bot/post.py" <channel_id> "<message>"
 Timeout: 15000
+```
+
+Where `$IES_ROOT` is found via:
+```bash
+IES_ROOT="$(find ~ -name 'SYSTEM.md' -path '*/jarvis/SYSTEM.md' 2>/dev/null | head -1 | sed 's|/SYSTEM.md||')"
 ```
 
 ### Example Calls
 
+**Pattern — always use the find-based path lookup:**
+
 ```bash
+# Set IES_ROOT once, then reuse it
+IES_ROOT="$(find ~ -name 'SYSTEM.md' -path '*/jarvis/SYSTEM.md' 2>/dev/null | head -1 | sed 's|/SYSTEM.md||')"
+
 # Post morning briefing summary to #jarvis (multi-line — newlines are real)
-python3 "$(mdfind -name 'post.py' | grep 'systems/slack-bot/post.py' | head -1)" C0AN2PQNXBR "*Morning Briefing — March 24, 2026*
+python3 "$IES_ROOT/systems/slack-bot/post.py" C0AN2PQNXBR "*Morning Briefing — March 24, 2026*
 
 📅 4 meetings today
 ⚡ Convergence AI prep (6 days out)
@@ -62,7 +80,7 @@ python3 "$(mdfind -name 'post.py' | grep 'systems/slack-bot/post.py' | head -1)"
 📥 7 inbox items"
 
 # DM David about an urgent item
-python3 "$(mdfind -name 'post.py' | grep 'systems/slack-bot/post.py' | head -1)" U0ANHV5UXEW "Integrated Financial Settlements has been unassigned for 35 days post-call. Need an AM decision today."
+python3 "$IES_ROOT/systems/slack-bot/post.py" U0ANHV5UXEW "Integrated Financial Settlements has been unassigned for 35 days post-call. Need an AM decision today."
 ```
 
 ## Message Formatting Rules
@@ -109,11 +127,14 @@ The double-quoted multi-line string preserves real newlines through Desktop Comm
 For reading channel history or thread replies, use the companion `systems/slack-bot/read.py` script via Desktop Commander. No Slack MCP connector is used or needed.
 
 ```bash
+# Find IES_ROOT once
+IES_ROOT="$(find ~ -name 'SYSTEM.md' -path '*/jarvis/SYSTEM.md' 2>/dev/null | head -1 | sed 's|/SYSTEM.md||')"
+
 # Read last 24 hours of a channel (returns top-level messages only)
-python3 "$(mdfind -name 'read.py' | grep 'systems/slack-bot/read.py' | head -1)" channel <channel_id> <hours_ago>
+python3 "$IES_ROOT/systems/slack-bot/read.py" channel <channel_id> <hours_ago>
 
 # Read replies in a thread
-python3 "$(mdfind -name 'read.py' | grep 'systems/slack-bot/read.py' | head -1)" thread <channel_id> <thread_ts>
+python3 "$IES_ROOT/systems/slack-bot/read.py" thread <channel_id> <thread_ts>
 ```
 
 Both return JSON: `{"ok": true, "messages": [...]}` or `{"ok": true, "replies": [...]}`.
