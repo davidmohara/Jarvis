@@ -1,21 +1,15 @@
-status: blocked
-current-step: step-02-approve
-session-id: harper-2026-06-29-approval-hourly
-session-started: 2026-06-29T16:03:00Z
-attempted-at: 2026-06-29T20:03:00Z
-original-request: scheduled-content-approval
+status: complete
+current-step: step-01-discover
+session-id: harper-2026-06-30-discovery-daily
+session-started: 2026-06-30T06:00:00Z
+completed-at: 2026-06-30T06:08:00Z
+original-request: scheduled-content-discovery
 outputs:
-  drafts_checked: 0
+  messages_read: 1
+  messages_routed_skip: 1
+  urls_found: 0
+  digests_found: 0
+  drafts_created: 0
   actions_taken: 0
-  published: 0
-  rejected: 0
-  regenerated: 0
-  cleaned_scheduled: 1
-  pending_drafts: 3
-  scheduled_drafts: 0
-  outcome: "BLOCKED: Slack API unreachable — persistent tunnel failure (403 Forbidden). Cannot read thread replies from #content or notify David. 3 pending drafts awaiting approval cannot be processed."
-accumulated-context:
-  blocked_reason: "read.py fails with 'Tunnel connection failed: 403 Forbidden' on all thread reads — Slack Web API inaccessible. This is a network/auth issue outside the content pipeline."
-  pending_entries: "3 pending drafts in pending-drafts.json awaiting approval replies: (1) Consulting Middle, (2) Fulfillment Is Not a Benefit, (3) Pocket Barrier"
-  cleanup_actions: "No cleanup needed — pending-drafts.json contains only status:pending entries with valid slack_thread_ts values"
-  next_action: "Manual intervention required — David must check Slack bot token and network tunnel configuration in config/.env and Ghost/Slack integration health"
+  outcome: "No new URLs or digests in the last 24 hours. Bot notification posted to #content."
+accumulated-context: {}
