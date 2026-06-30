@@ -7,8 +7,8 @@ agent-source: jarvis
 context: "Dream cycle summary 2026-06-27 — for Chief to read at boot"
 salience:
   score: 10
+  last-promoted-check: 2026-06-30
   promoted: true
-  last-promoted-check: "2026-06-29"
 date: 2026-06-27
 source_file: memory/working/dream-summary-2026-06-27.md
 tags:
@@ -24,7 +24,6 @@ tags:
   - plaud
 related_people:
 ---
-
 # Dream Cycle Summary — 2026-06-27
 
 Standard cycle. Memory pipeline running healthy.

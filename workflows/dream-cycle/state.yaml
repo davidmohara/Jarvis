@@ -1,48 +1,47 @@
 workflow: dream-cycle
 agent: jarvis
 status: complete
-session-started: 2026-06-29T08:09:40Z
-session-id: dream-cycle-2026-06-29-030943
+session-started: 2026-06-30T08:09:12Z
+session-id: dream-cycle-2026-06-30-030912
 current-step: null
 original-request: Scheduled dream cycle run (automated)
 accumulated-context:
   git_pull_at_boot: success
-  working_archived: 3
+  git_pull_note: "stashed unstaged daily-review state.yaml + 3 untracked files, pulled (5118cad..3f16ad3), popped stash cleanly; cleared stale HEAD.lock"
+  working_archived: 1
   working_deleted: 0
-  working_skipped: 89
+  working_skipped: 91
   working_stranded: 0
   enrichment_method: "heuristic (LLM unavailable in sandbox)"
   archived_files:
-    - daily-review-2026-06-26-211000.md
-    - dream-summary-2026-06-27.md
-    - morning-briefing-2026-06-26-061000.md
+    - system-eval-2026-06-27-040621.md
   skipped_already_archived_count: 72
   skipped_unparseable_count: 13
-  skipped_not_expired_count: 3
+  skipped_not_expired_count: 5
   skipped_not_active_count: 1
-  episodic_scanned: 145
-  score_updates: 145
+  episodic_scanned: 147
+  score_updates: 147
   no_tags: 5
-  no_date: 5
-  files_with_tags: 140
-  in_window_count: 62
-  score_distribution: "0:12, 3:6, 5:1, 6:5, 7:2, 8:6, 10:113"
-  window_start: 2026-05-30
-  window_end: 2026-06-29
-  candidates_count: 3
-  clusters_found: 3
-  semantic_created: 0
-  semantic_updated: 3
-  promoted_entries: 3
-  promotion_note: "Light cycle. 3 freshly-archived working files promoted; 3 evidence appends to existing operational entries (daily-review, chief, dream-summary)."
-  error_total_30d: 78
-  error_categories_30d: "process-skip:12, data-accuracy:8, routing-error:8, format-violation:7, tool-misuse:6, hallucination:5, missed-context:5, assumption-error:4, data-interpretation:4"
+  no_date: 1
+  files_with_tags: 142
+  in_window_count: 63
+  score_distribution: "0:13, 2:2, 3:4, 4:1, 5:4, 6:3, 7:3, 8:3, 10:114"
+  window_start: 2026-05-31
+  window_end: 2026-06-30
+  candidates_count: 132
+  clusters_found: 17
+  semantic_created: 6
+  semantic_updated: 11
+  promoted_entries: 132
+  promotion_note: "Heavier cycle. 132 candidates across 17 tag-clusters; created 6 new semantic entries (dream-cycle, revenue, omnifocus, etc.) and updated 11 existing operational entries. Distribution shift driven by 2 prior cycles of tag enrichment producing well-formed co-occurrence."
+  error_total_30d: 84
+  error_categories_30d: "process-skip:10, routing-error:7, data-accuracy:5, missed-context:3, assumption-error:3, format-violation:6, unknown:3"
   lessons_appended: 0
-  lessons_note: "Only the unknown/unknown bucket newly crossed threshold; rolled back as non-actionable."
+  lessons_note: "All 8 threshold-breaching combos already present in LESSONS.md from prior cycles."
   entries_compressed: 0
   digests_updated: 0
   compression_skipped: true
-  compression_skip_reason: "Oldest episodic entry is 2026-04-18 (72 days old). 90-day cutoff = 2026-03-31."
+  compression_skip_reason: "Oldest episodic entry is 2026-04-18 (73 days old). 90-day cutoff = 2026-04-01. 0 entries eligible."
   dream_log_appended: true
   working_summary_written: true
   errors: 0

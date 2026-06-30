@@ -2,9 +2,21 @@
 type: semantic
 domain: operational
 created: 2026-06-16
-last-updated: 2026-06-28
+last-updated: 2026-06-30
 confidence: high
 synthesized-from: 3
+  - memory/episodic/2026-04-24-dream-cycle-summary.md
+  - memory/episodic/2026-04-18-dream-cycle-summary.md
+  - memory/episodic/2026-05-03-dream-cycle-summary.md
+  - memory/episodic/2026-05-04-dream-cycle-summary.md
+  - memory/episodic/2026-04-27-dream-cycle-summary.md
+  - memory/episodic/2026-05-05-dream-cycle-summary.md
+  - memory/episodic/2026-04-26-dream-cycle-summary.md
+  - memory/episodic/2026-05-02-dream-cycle-summary.md
+  - memory/episodic/2026-05-01-dream-cycle-summary.md
+  - memory/episodic/2026-04-25-dream-cycle-summary.md
+  - memory/episodic/2026-04-30-dream-cycle-summary.md
+  - memory/episodic/2026-04-26-podcast-hosting-review-ep01.md
 tags:
   - calendar
   - dream-cycle
@@ -12,6 +24,18 @@ synthesized-from:
   - memory/episodic/shutdown-cleanup-2026-06-16-071444.md
   - memory/episodic/morning-briefing-2026-06-11-062152.md
   - memory/episodic/plaud-ingest-2026-06-04-013000.md
+  - memory/episodic/2026-04-24-dream-cycle-summary.md
+  - memory/episodic/2026-04-18-dream-cycle-summary.md
+  - memory/episodic/2026-05-03-dream-cycle-summary.md
+  - memory/episodic/2026-05-04-dream-cycle-summary.md
+  - memory/episodic/2026-04-27-dream-cycle-summary.md
+  - memory/episodic/2026-05-05-dream-cycle-summary.md
+  - memory/episodic/2026-04-26-dream-cycle-summary.md
+  - memory/episodic/2026-05-02-dream-cycle-summary.md
+  - memory/episodic/2026-05-01-dream-cycle-summary.md
+  - memory/episodic/2026-04-25-dream-cycle-summary.md
+  - memory/episodic/2026-04-30-dream-cycle-summary.md
+  - memory/episodic/2026-04-26-podcast-hosting-review-ep01.md
 ---
 # Calendar Pattern
 
@@ -210,8 +234,22 @@ _2026-06-17 run:_
 ### 2026-06-28 — promoted from cluster 'calendar'
 - 2026-06-25 — Morning briefing — 2026-06-25 (score 10) [source: memory/episodic/morning-briefing-2026-06-25-063900.md]
 - 2026-06-25 — Daily review — 2026-06-25 (score 10) [source: memory/episodic/daily-review-2026-06-25-143000.md]
+- 2026-06-30 | 2026-04-24-dream-cycle-summary.md | tags: dream-cycle, system-maintenance, semantic-promotion, memory-system | score: 5
+- 2026-06-30 | 2026-04-18-dream-cycle-summary.md | tags: dream-cycle, error-patterns, system-health | score: 4
+- 2026-06-30 | 2026-05-03-dream-cycle-summary.md | tags: dream-cycle, system-maintenance, memory-pipeline, score-inflation, semantic-promotion | score: 6
+- 2026-06-30 | 2026-05-04-dream-cycle-summary.md | tags: dream-cycle, system-maintenance, score-inflation, git-sync, briefing-pattern | score: 3
+- 2026-06-30 | 2026-04-27-dream-cycle-summary.md | tags: dream-cycle, system-maintenance, semantic-promotion, travel-pattern, omnifocus | score: 7
+- 2026-06-30 | 2026-05-05-dream-cycle-summary.md | tags: dream-cycle, system-maintenance, score-inflation, git-sync, semantic-promotion | score: 5
+- 2026-06-30 | 2026-04-26-dream-cycle-summary.md | tags: dream-cycle, system-maintenance, semantic-promotion, error-patterns, git-issues | score: 5
+- 2026-06-30 | 2026-05-02-dream-cycle-summary.md | tags: dream-cycle, system-maintenance, memory-pipeline, score-inflation, semantic-promotion | score: 6
+- 2026-06-30 | 2026-05-01-dream-cycle-summary.md | tags: dream-cycle, system-maintenance, memory-pipeline, glc-chicago, travel | score: 10
+- 2026-06-30 | 2026-04-25-dream-cycle-summary.md | tags: dream-cycle, memory-management, semantic-promotion, travel-pattern | score: 5
+- 2026-06-30 | 2026-04-30-dream-cycle-summary.md | tags: dream-cycle, system-maintenance, memory-pipeline, travel, glc-chicago | score: 8
+- 2026-06-30 | 2026-04-26-podcast-hosting-review-ep01.md | tags: calendar, omnifocus, podcast, harper | score: 10
 
 ## Implications
 
 - 2026-06-24: New episodic cluster (calendar, 3 entries) reinforces pattern.
 - Cluster is recurring; monitor for further reinforcement during subsequent dream cycles.
+- 2026-06-30: 11 new episodic entries reinforce this pattern (cluster anchor: dream-cycle).
+- 2026-06-30: 1 new episodic entries reinforce this pattern (cluster anchor: calendar).

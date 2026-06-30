@@ -3,7 +3,7 @@ type: semantic
 domain: operational
 primary-tag: dream-summary
 created: 2026-06-12
-last-updated: 2026-06-29
+last-updated: 2026-06-30
 confidence: high
 synthesized-from: 23
   - dream-summary-2026-05-25.md
@@ -27,12 +27,78 @@ synthesized-from: 23
   - 2026-05-18-dream-cycle-summary.md
   - dream-summary-2026-05-22.md
   - dream-summary-2026-05-16.md
+  - memory/episodic/dream-summary-2026-05-25.md
+  - memory/episodic/dream-summary-2026-05-31.md
+  - memory/episodic/dream-summary-2026-05-20.md
+  - memory/episodic/dream-summary-2026-05-14.md
+  - memory/episodic/dream-summary-2026-05-30.md
+  - memory/episodic/dream-summary-2026-05-24.md
+  - memory/episodic/dream-summary-2026-06-25.md
+  - memory/episodic/dream-summary-2026-06-21.md
+  - memory/episodic/dream-summary-2026-06-04.md
+  - memory/episodic/dream-summary-2026-06-14.md
+  - memory/episodic/dream-summary-2026-06-20.md
+  - memory/episodic/dream-summary-2026-06-24.md
+  - memory/episodic/dream-summary-2026-05-29.md
+  - memory/episodic/dream-summary-2026-06-17.md
+  - memory/episodic/dream-summary-2026-06-23.md
+  - memory/episodic/dream-summary-2026-05-19.md
+  - memory/episodic/dream-summary-2026-06-03.md
+  - memory/episodic/dream-summary-2026-06-13.md
+  - memory/episodic/dream-summary-2026-06-26.md
+  - memory/episodic/dream-summary-2026-06-12.md
+  - memory/episodic/dream-summary-2026-05-28.md
+  - memory/episodic/2026-05-17-dream-cycle-summary.md
+  - memory/episodic/dream-summary-2026-05-23.md
+  - memory/episodic/dream-summary-2026-05-13.md
+  - memory/episodic/dream-summary-2026-05-27.md
+  - memory/episodic/dream-summary-2026-06-19.md
+  - memory/episodic/dream-summary-2026-05-12.md
+  - memory/episodic/dream-summary-2026-05-26.md
+  - memory/episodic/2026-05-18-dream-cycle-summary.md
+  - memory/episodic/dream-summary-2026-06-18.md
+  - memory/episodic/dream-summary-2026-05-22.md
+  - memory/episodic/dream-summary-2026-05-16.md
+  - memory/episodic/dream-summary-2026-06-28.md
 tags:
   - dream-summary
   - pattern
   - dream-cycle-promoted
 synthesized-from:
   - memory/episodic/dream-summary-2026-06-27.md
+  - memory/episodic/dream-summary-2026-05-25.md
+  - memory/episodic/dream-summary-2026-05-31.md
+  - memory/episodic/dream-summary-2026-05-20.md
+  - memory/episodic/dream-summary-2026-05-14.md
+  - memory/episodic/dream-summary-2026-05-30.md
+  - memory/episodic/dream-summary-2026-05-24.md
+  - memory/episodic/dream-summary-2026-06-25.md
+  - memory/episodic/dream-summary-2026-06-21.md
+  - memory/episodic/dream-summary-2026-06-04.md
+  - memory/episodic/dream-summary-2026-06-14.md
+  - memory/episodic/dream-summary-2026-06-20.md
+  - memory/episodic/dream-summary-2026-06-24.md
+  - memory/episodic/dream-summary-2026-05-29.md
+  - memory/episodic/dream-summary-2026-06-17.md
+  - memory/episodic/dream-summary-2026-06-23.md
+  - memory/episodic/dream-summary-2026-05-19.md
+  - memory/episodic/dream-summary-2026-06-03.md
+  - memory/episodic/dream-summary-2026-06-13.md
+  - memory/episodic/dream-summary-2026-06-26.md
+  - memory/episodic/dream-summary-2026-06-12.md
+  - memory/episodic/dream-summary-2026-05-28.md
+  - memory/episodic/2026-05-17-dream-cycle-summary.md
+  - memory/episodic/dream-summary-2026-05-23.md
+  - memory/episodic/dream-summary-2026-05-13.md
+  - memory/episodic/dream-summary-2026-05-27.md
+  - memory/episodic/dream-summary-2026-06-19.md
+  - memory/episodic/dream-summary-2026-05-12.md
+  - memory/episodic/dream-summary-2026-05-26.md
+  - memory/episodic/2026-05-18-dream-cycle-summary.md
+  - memory/episodic/dream-summary-2026-06-18.md
+  - memory/episodic/dream-summary-2026-05-22.md
+  - memory/episodic/dream-summary-2026-05-16.md
+  - memory/episodic/dream-summary-2026-06-28.md
 ---
 # Pattern: Dream Summary
 
@@ -150,6 +216,40 @@ _2026-06-17 run:_
 
 ### 2026-06-28 — promoted from cluster 'dream-summary'
 - 2026-06-26 — Dream cycle 2026-06-26 — tapered run; surface YAML corruption discovery from prior promotion writes. (score 10) [source: memory/episodic/dream-summary-2026-06-26.md]
+- 2026-06-30 | dream-summary-2026-05-25.md | tags: dream-summary, briefing, omnifocus, boot, semantic-promotion | score: 10
+- 2026-06-30 | dream-summary-2026-05-31.md | tags: dream-summary, jarvis, omnifocus, boot, semantic-promotion | score: 10
+- 2026-06-30 | dream-summary-2026-05-20.md | tags: dream-summary, briefing, omnifocus, boot, dream-cycle | score: 10
+- 2026-06-30 | dream-summary-2026-05-14.md | tags: dream-summary, briefing, omnifocus, pipeline, score-inflation | score: 10
+- 2026-06-30 | dream-summary-2026-05-30.md | tags: dream-summary, jarvis, briefing, boot, semantic-promotion | score: 10
+- 2026-06-30 | dream-summary-2026-05-24.md | tags: dream-summary, omnifocus, boot, score-inflation, dream-cycle | score: 10
+- 2026-06-30 | dream-summary-2026-06-25.md | tags: dream-summary, jarvis, omnifocus, omnifocus-timeout, travel | score: 10
+- 2026-06-30 | dream-summary-2026-06-21.md | tags: dream-summary, jarvis, briefing, morning-briefing, omnifocus | score: 10
+- 2026-06-30 | dream-summary-2026-06-04.md | tags: dream-summary, briefing, calendar, omnifocus, travel | score: 10
+- 2026-06-30 | dream-summary-2026-06-14.md | tags: dream-summary, briefing, pipeline, jarvis, memory | score: 10
+- 2026-06-30 | dream-summary-2026-06-20.md | tags: dream-summary, boot, semantic-promotion, dream-cycle, error-patterns | score: 7
+- 2026-06-30 | dream-summary-2026-06-24.md | tags: dream-summary, jarvis, calendar, omnifocus, leads | score: 10
+- 2026-06-30 | dream-summary-2026-05-29.md | tags: dream-summary, jarvis, briefing, morning-briefing, omnifocus | score: 10
+- 2026-06-30 | dream-summary-2026-06-17.md | tags: dream-summary, session-wrap, calendar, plaud, dream-cycle | score: 10
+- 2026-06-30 | dream-summary-2026-06-23.md | tags: dream-summary, dream-cycle, jarvis, pipeline, lessons | score: 10
+- 2026-06-30 | dream-summary-2026-05-19.md | tags: dream-summary, briefing, omnifocus, boot, memory-system | score: 10
+- 2026-06-30 | dream-summary-2026-06-03.md | tags: dream-summary, jarvis, briefing, calendar, omnifocus | score: 10
+- 2026-06-30 | dream-summary-2026-06-27.md | tags: dream-summary, jarvis, briefing, calendar, omnifocus | score: 10
+- 2026-06-30 | dream-summary-2026-06-13.md | tags: dream-summary, jarvis, omnifocus, pipeline, wellness | score: 10
+- 2026-06-30 | dream-summary-2026-06-26.md | tags: dream-summary, omnifocus, semantic-promotion, dream-cycle, lessons | score: 10
+- 2026-06-30 | dream-summary-2026-06-12.md | tags: dream-summary, jarvis, daily-review, pipeline-review, plaud-ingest | score: 10
+- 2026-06-30 | dream-summary-2026-05-28.md | tags: dream-summary, semantic-promotion, dream-cycle, git-issues, error-patterns | score: 7
+- 2026-06-30 | 2026-05-17-dream-cycle-summary.md | tags: dream-summary, briefing, omnifocus, travel, flight | score: 10
+- 2026-06-30 | dream-summary-2026-05-23.md | tags: dream-summary, briefing, morning-briefing, calendar, omnifocus | score: 10
+- 2026-06-30 | dream-summary-2026-05-13.md | tags: dream-summary, briefing, calendar, omnifocus, travel | score: 10
+- 2026-06-30 | dream-summary-2026-05-27.md | tags: dream-summary, briefing, omnifocus, boot, semantic-promotion | score: 10
+- 2026-06-30 | dream-summary-2026-06-19.md | tags: dream-summary, jarvis, briefing, omnifocus, pipeline | score: 10
+- 2026-06-30 | dream-summary-2026-05-12.md | tags: dream-summary, briefing, calendar, omnifocus, travel | score: 10
+- 2026-06-30 | dream-summary-2026-05-26.md | tags: dream-summary, briefing, calendar, omnifocus, travel | score: 10
+- 2026-06-30 | 2026-05-18-dream-cycle-summary.md | tags: dream-summary, briefing, morning-briefing, calendar, omnifocus | score: 10
+- 2026-06-30 | dream-summary-2026-06-18.md | tags: dream-summary, jarvis, memory-pipeline, pipeline, co-sell | score: 10
+- 2026-06-30 | dream-summary-2026-05-22.md | tags: dream-summary, briefing, omnifocus, boot, semantic-promotion | score: 10
+- 2026-06-30 | dream-summary-2026-05-16.md | tags: dream-summary, briefing, morning-briefing, omnifocus, pipeline | score: 10
+- 2026-06-30 | dream-summary-2026-06-28.md | tags: dream-summary, jarvis, calendar, omnifocus, email | score: 10
 
 ## Implications
 
@@ -160,3 +260,4 @@ _2026-06-17 run:_
 Cluster of 3 entries sharing tag `dream-summary`. Recurrence indicates this is a stable operational pattern in the Jarvis system.
 
 - 2026-06-13: confidence escalated low → medium based on 23 total evidence entries.
+- 2026-06-30: 34 new episodic entries reinforce this pattern (cluster anchor: dream-summary).

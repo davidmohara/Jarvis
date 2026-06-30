@@ -26,8 +26,8 @@ related_people:
   promoted: true
 salience:
   score: 10
+  last-promoted-check: 2026-06-30
   promoted: true
-  last-promoted-check: "2026-06-29"
 ---
 # Morning Briefing — Wednesday, May 27, 2026
 

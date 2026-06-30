@@ -2,8 +2,7 @@
 last-promoted-check: 2026-06-27
 salience:
   score: 0
-  promoted: false
-  last-promoted-check: "2026-06-29"
+  last-promoted-check: 2026-06-30
 ---
 # Morning Briefing — May 20, 2026
 

@@ -1419,3 +1419,21 @@ digests_updated: 0
 errors: 0
 summary: "Light cycle. Step-01 archived 3 newly-expired working files (daily-review-2026-06-26, dream-summary-2026-06-27, morning-briefing-2026-06-26) via heuristic enrichment; 72 already-archived stragglers, 13 unparseable, 3 not-expired, 1 not-active. Step-02 scored 145 episodic entries; window 2026-05-30 → 2026-06-29 with 62 in-window; distribution 0:12, 3:6, 5:1, 6:5, 7:2, 8:6, 10:113. Step-03 promotion: 3 candidates → 3 tag-clusters (daily-review, chief, dream-summary — all operational) → 0 new entries + 3 evidence appends. Error scan 30d: 78 entries (process-skip:12, data-accuracy:8, routing-error:8 lead); 0 newly threshold-breaching combos appended to LESSONS.md (unknown/unknown rolled back as non-actionable). Step-04 compression skipped (oldest episodic 72 days, 90-day threshold not met)."
 git_pull: success
+
+---
+## 2026-06-30T08:09:12 UTC
+session_id: dream-cycle-2026-06-30-030912
+working_archived: 1
+working_deleted: 0
+episodic_scanned: 147
+score_updates: 147
+clusters_found: 17
+semantic_created: 6
+semantic_updated: 11
+promoted_entries: 132
+entries_compressed: 0
+digests_updated: 0
+errors: 0
+summary: "Heavier cycle. Step-01 archived 1 newly-expired working file (system-eval-2026-06-27) via heuristic enrichment; 72 already-archived stragglers, 13 unparseable, 5 not-expired, 1 not-active. Step-02 scored 147 episodic entries; window 2026-05-31 -> 2026-06-30 with 63 in-window; distribution 0:13, 2:2, 3:4, 4:1, 5:4, 6:3, 7:3, 8:3, 10:114 — sharp recovery from yesterday's 0:147 false zero (root cause: regex parser couldn't read block-style YAML tag lists; fixed by line-walking the lists field). Step-03 promotion: 132 candidates -> 17 tag-clusters -> 6 new entries (dream-summary, dream-cycle, revenue, daily-review, omnifocus + 1) + 11 evidence appends. Error scan 30d: 84 entries (process-skip:10, routing-error:7, format-violation:6 lead); 8 threshold-breaching combos all already in LESSONS.md; 0 new lessons appended. Step-04 compression skipped (oldest episodic 73 days, 90-day threshold not met)."
+git_pull: success
+git_pull_note: "stashed unstaged daily-review state.yaml + 3 untracked files; pulled (5118cad..3f16ad3); popped stash cleanly; cleared stale HEAD.lock from interrupted prior session"

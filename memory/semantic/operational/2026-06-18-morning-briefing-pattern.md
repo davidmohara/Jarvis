@@ -3,10 +3,17 @@ type: semantic-pattern
 domain: operational
 tags:
 - morning-briefing
-confidence: medium
+confidence: high
 created: '2026-06-18'
-last-updated: 2026-06-25
+last-updated: 2026-06-30
 synthesized-from:
+  - memory/episodic/2026-05-04-morning-briefing-automated.md
+  - memory/episodic/2026-05-04-morning-briefing.md
+  - memory/episodic/2026-05-05-morning-briefing.md
+  - memory/episodic/2026-04-20-afternoon-boot.md
+  - memory/episodic/2026-05-07-morning-briefing-cabo.md
+  - memory/episodic/morning-briefing-2026-06-16-061004.md
+  - memory/episodic/2026-04-20-morning-briefing.md
 - 2026-05-04-morning-briefing-automated.md
 - 2026-05-04-morning-briefing.md
 - 2026-05-05-morning-briefing.md
@@ -50,7 +57,15 @@ Recurring `morning-briefing` activity observed in episodic memory.
 - 2026-06-25: memory/episodic/morning-briefing-2026-06-01-061018.md (tags: briefing, chief, morning-briefing, calendar, omnifocus)
 - 2026-06-25: memory/episodic/2026-05-18-dream-cycle-summary.md (tags: dream-summary, briefing, morning-briefing, calendar, omnifocus)
 - 2026-06-25: memory/episodic/dream-summary-2026-05-16.md (tags: dream-summary, briefing, morning-briefing, omnifocus, pipeline)
+- 2026-06-30 | 2026-05-04-morning-briefing-automated.md | tags: morning-briefing, calendar, leads, omnifocus, wfh | score: 10
+- 2026-06-30 | 2026-05-04-morning-briefing.md | tags: morning-briefing, calendar, omnifocus, leads, wfh | score: 10
+- 2026-06-30 | 2026-05-05-morning-briefing.md | tags: morning-briefing, calendar, leads, travel, omnifocus | score: 10
+- 2026-06-30 | 2026-04-20-afternoon-boot.md | tags: morning-briefing, calendar, omnifocus, quarterly-rocks, overdue-tasks | score: 10
+- 2026-06-30 | 2026-05-07-morning-briefing-cabo.md | tags: morning-briefing, calendar, travel, cabo, ypo | score: 10
+- 2026-06-30 | morning-briefing-2026-06-16-061004.md | tags: morning-briefing, briefing, calendar, omnifocus, rock4 | score: 10
+- 2026-06-30 | 2026-04-20-morning-briefing.md | tags: morning-briefing, calendar, omnifocus, google-next, travel | score: 10
 
 ## Implications
 
 _TBD — pattern just emerged. Watch for stability over the next 2-3 dream cycles before drawing conclusions._
+- 2026-06-30: 7 new episodic entries reinforce this pattern (cluster anchor: morning-briefing).

@@ -9,8 +9,8 @@ status: archived
 context: "Morning briefing — 2026-06-26"
 salience:
   score: 10
+  last-promoted-check: 2026-06-30
   promoted: true
-  last-promoted-check: "2026-06-29"
 date: 2026-06-26
 source_file: memory/working/morning-briefing-2026-06-26-061000.md
 tags:
@@ -31,7 +31,6 @@ related_people:
   - tim-rayburn
   - curtis
 ---
-
 # Morning Briefing — Friday, June 26, 2026
 
 ## Data Sources

@@ -1,14 +1,27 @@
 ---
-type: working
+type: working-archive
 task_id: dream-cycle
 session_id: dream-cycle-2026-06-28-030942
 agent-source: jarvis
 created: 2026-06-28T08:16:30Z
 expires: 2026-06-29
-status: active
+status: archived
 context: "Dream cycle nightly run — 2026-06-28"
+salience:
+  score: 10
+  last-promoted-check: 2026-06-30
+  promoted: true
+date: 2026-06-28
+source_file: memory/working/dream-summary-2026-06-28.md
+tags:
+  - dream-summary
+  - jarvis
+  - calendar
+  - omnifocus
+  - email
+related_people:
+  - dream-cycle
 ---
-
 # Dream Cycle — 2026-06-28
 
 Standard nightly run, completed cleanly with one self-correction.

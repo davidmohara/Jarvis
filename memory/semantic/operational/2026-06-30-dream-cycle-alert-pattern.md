@@ -1,0 +1,32 @@
+---
+type: semantic
+domain: operational
+subject: "Pattern around dream-cycle-alert"
+synthesized-from:
+  - memory/episodic/dream-cycle-alert-2026-06-13.md
+last-updated: 2026-06-30
+tags:
+  - briefing
+  - dream-cycle-alert
+  - git
+  - jarvis
+  - lessons
+  - memory
+  - pipeline
+  - promotion
+  - recovery
+  - salience
+agent-source: dream-cycle
+confidence: low
+---
+## Pattern Summary
+
+Recurring cluster anchored on tag `dream-cycle-alert` (1 episodic entries with salience >= 3 in the last 30 days). Domain: operational.
+
+## Evidence
+
+- 2026-06-30 | dream-cycle-alert-2026-06-13.md | tags: dream-cycle-alert, briefing, pipeline, jarvis, memory | score: 10
+
+## Implications
+
+- 2026-06-30: 1 entries reinforce relevance of `dream-cycle-alert` cluster. Watch for further co-occurrence.

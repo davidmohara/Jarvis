@@ -19,8 +19,8 @@ related_people: []
   promoted: true
 salience:
   score: 10
+  last-promoted-check: 2026-06-30
   promoted: true
-  last-promoted-check: "2026-06-29"
 ---
 # Morning Briefing — 2026-06-10
 
