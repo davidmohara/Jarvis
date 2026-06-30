@@ -1,16 +1,15 @@
 ---
-status: blocked
-started-at: 2026-06-26T16:03:25Z
-attempted-at: 2026-06-26T18:21:00Z
+status: complete
+started-at: 2026-06-30T11:03:40Z
+completed-at: 2026-06-30T11:03:47Z
 outputs:
-  drafts_checked: 0
+  drafts_checked: 3
   actions_taken: 0
   published: 0
   rejected: 0
   regenerated: 0
-  outcome: "BLOCKED: Slack API unreachable. Network tunnel failed (403 Forbidden). Cannot read thread replies. Manual review required."
-  pending_drafts: 4
-  scheduled_drafts: 2
+  outcome: "SUCCESS: All 3 pending drafts checked. No approval signals found. All remain pending."
+  pending_drafts: 3
 model: haiku
 ---
 
