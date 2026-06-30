@@ -1,0 +1,15 @@
+{
+  "id": "err-20260630T133801-EKN4QM",
+  "timestamp": "2026-06-30T13:38:01Z",
+  "session": "harper-2026-06-29-approval-hourly",
+  "source": "self-detected",
+  "agent": "harper",
+  "category": "tool-misuse",
+  "description": "master-slack skill documented using mdfind (macOS Spotlight) for path discovery, but mdfind is unavailable in non-interactive shell environments (scheduled tasks, agents). When agents invoke master-slack from scripted contexts, the mdfind command fails silently or returns nothing, breaking Slack notifications.",
+  "correction": "Updated master-slack skill to use find-based path lookup that works in all environments: `find ~ -name 'SYSTEM.md' -path '*/jarvis/SYSTEM.md'`. This is portable across interactive and non-interactive shells, and works in CI/scheduled task environments.",
+  "failure_mode": "tool-ignorance",
+  "systemic_fix": "Documented three-tier path resolution strategy in master-slack skill: (1) mdfind for interactive shells, (2) find-based fallback for scripted environments, (3) direct $IES_ROOT usage if available. Updated all example code patterns.",
+  "fix_status": "applied",
+  "severity": "moderate",
+  "related_entries": []
+}
