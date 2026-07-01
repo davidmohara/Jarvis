@@ -2,6 +2,7 @@
 date: 2026-06-12
 type: working-archive
 session: cowork
+archived-from: memory/working/2026-06-12-ai-innovation-lab-pdf.md
 tags: [pdf, brand, improving, deliverable]
 ---
 

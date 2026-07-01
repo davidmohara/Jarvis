@@ -1,11 +1,11 @@
 {
   "skill": "plaud-speaker-id",
   "agent": "knox",
-  "trigger": "boot",
-  "started": "2026-06-24T00:00:00Z",
-  "completed": "2026-06-24T17:00:00Z",
+  "trigger": "manual",
+  "started": "2026-07-01T09:34:00-05:00",
+  "completed": "2026-07-01T09:45:00-05:00",
   "status": "success",
   "tool_failures": 0,
   "error_ids": [],
-  "notes": "All speakers auto-resolved via calendar + transcript content. Cole Estrate via calendar event organizer cestrate@x.ai. Don McGreal via One on one - McGreal calendar event. Recording 3 had named speakers already. No controller input required."
+  "notes": "Target-date 2026-06-30 recordings: David resolved Speaker 3/4/6 for the Systemic Compliance recording directly in Plaud between sessions (Speaker 3=Stephen Johnson, Speaker 4=Kevin Graham, Speaker 6=Mehmet Yasar). Repulled fresh; grep confirmed zero remaining 'Speaker N' generic labels across all 3 files (Systemic Compliance, Concentrate AI, Xero). No controller interaction needed this run — prior pending-speaker-mappings in state.yaml (session pi-20260701-001) were stale/moot and correctly not re-surfaced."
 }

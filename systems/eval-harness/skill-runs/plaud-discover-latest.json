@@ -1,11 +1,11 @@
 {
   "skill": "plaud-discover",
   "agent": "knox",
-  "trigger": "boot",
-  "started": "2026-06-30T00:00:00Z",
-  "completed": "2026-06-30T00:15:00Z",
+  "trigger": "manual",
+  "started": "2026-07-01T08:50:00-05:00",
+  "completed": "2026-07-01T09:00:00-05:00",
   "status": "success",
   "tool_failures": 0,
   "error_ids": [],
-  "notes": "64 API recordings scanned. All confirmed present in vault. No new recordings found. Workflow terminated at step-01."
+  "notes": "Target date 2026-06-30. 67 recordings scanned via API, cross-referenced against vault. 3 new recordings identified (all already transcript-ready after David's manual Plaud speaker-tag corrections): af25aad4... (Systemic Compliance), 74637ca1... (Concentrate AI), ae88bdbb... (Xero). Prior stale state.yaml from session pi-20260701-001 was superseded — treated as fresh full pipeline run."
 }

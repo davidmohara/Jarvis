@@ -1,0 +1,15 @@
+{
+  "id": "err-20260701T163000-QNVX8R",
+  "timestamp": "2026-07-01T16:30:00Z",
+  "session": "chief-2026-07-01-113000",
+  "source": "self-detected",
+  "agent": "knox",
+  "category": "missed-context",
+  "description": "skills/plaud-transcripts/SKILL.md step 7 (reconcile before cleanup) instructs running `fetch_plaud.py --list-all --out /tmp/all_recordings_current.json` before staging cleanup. That flag combination does not exist in the current scripts/fetch_plaud.py — the script only implements `--all` (full date-unbounded fetch/reprocess), `--check <file_id>`, `--rename`, and `--login`. Running the documented command fails with 'Invalid date format: --list-all'. Worked around by running scoped `--check` calls against only the 3 target file_ids for this run's reconciliation, which achieved the same verification intent (confirmed server-side ready status matches staged content) without triggering an unwanted full-backlog reprocess via bare `--all`.",
+  "correction": "SKILL.md documents a reconciliation flag that was either never implemented or was removed from fetch_plaud.py in a later revision, without the skill doc being updated. Should not follow stale skill documentation verbatim without a syntax/exit-code sanity check when a script command errors immediately, and should default to the narrowest safe method (scoped --check per file_id) rather than falling back to `--all`, which would have reprocessed the entire ~64+ recording backlog and pulled unrelated files into scope.",
+  "failure_mode": "stale-cache",
+  "systemic_fix": "Either add a `--list-all`/`--out` mode to fetch_plaud.py that enumerates all recordings with status (read-only, no staging writes) matching what SKILL.md step 7 describes, or update SKILL.md step 7 to document the scoped `--check <file_id>` per-recording reconciliation pattern actually supported by the script today.",
+  "fix_status": "proposed",
+  "severity": "minor",
+  "related_entries": ["err-20260701T142449-HKCA7U"]
+}

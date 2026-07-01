@@ -1,3 +1,11 @@
+---
+type: working-archive
+task_id: "obsidian-pipeline-build"
+created: 2026-05-29
+archived-from: memory/working/session-2026-05-29-obsidian-pipeline.md
+context: "obsidian-source-note skill build, Spotify transcript extraction, content-pipeline routing, eval harness assertions"
+---
+
 # Session Working Memory — 2026-05-29 (Evening)
 
 ## What Was Built

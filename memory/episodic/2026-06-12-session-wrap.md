@@ -1,7 +1,8 @@
 ---
 date: 2026-06-12
 session: session-2026-06-12-082700
-type: working-memory
+archived-from: memory/working/2026-06-12-session-wrap.md
+type: working-archive
 ---
 
 # Session Wrap — June 12, 2026

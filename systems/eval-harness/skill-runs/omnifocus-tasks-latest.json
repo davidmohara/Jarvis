@@ -1,0 +1,11 @@
+{
+  "skill": "omnifocus-tasks",
+  "agent": "knox",
+  "trigger": "manual",
+  "started": "2026-07-01T11:15:00-05:00",
+  "completed": "2026-07-01T11:25:00-05:00",
+  "status": "success",
+  "tool_failures": 0,
+  "error_ids": [],
+  "notes": "7 tasks created in Sales project (mcp__omnifocus__create_task unavailable this session — used AppleScript fallback via Desktop Commander per skill's documented fallback path). Live project/tag lists pulled via osascript before creation, per CLAUDE.md OmniFocus-read routing rule. All tasks carry project + tag + note + due date, no bare inbox drops."
+}

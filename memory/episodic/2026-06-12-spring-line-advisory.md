@@ -1,7 +1,8 @@
 ---
 date: 2026-06-12
-type: working-memory
+type: working-archive
 account: Spring Line Advisory
+archived-from: memory/working/2026-06-12-spring-line-advisory.md
 agent: chase
 ---
 

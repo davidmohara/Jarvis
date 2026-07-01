@@ -1,11 +1,11 @@
 ---
 workflow: plaud-ingest
 agent: knox
-status: awaiting-input
+status: complete
 session-started: "2026-07-01T00:00:00Z"
-session-id: "pi-20260701-001"
-current-step: step-03
-original-request: "Knox: Run Plaud ingest workflow — background task 2026-07-01"
+session-id: "pi-20260701-002"
+current-step: step-05
+original-request: "Knox: Run Plaud ingest workflow — background task 2026-07-01 (fresh full pipeline run, superseding stale pi-20260701-001)"
 accumulated-context:
   target-date: "2026-06-30"
   last-run-date: "2026-06-30"
@@ -13,52 +13,51 @@ accumulated-context:
   recordings-scanned: 67
   new-recordings:
     - file_id: ae88bdbb37c2f7b0d29933fdbc036686
-      name: "2026-06-30 18:29:38"
+      name: "06-30 Proposal Review: Large-Scale AI Training Workshop for Xero's Leadership"
       date: "2026-06-30"
       duration_seconds: 1961
-      has_transcript: false
-      transcript_status: missing
+      has_transcript: true
+      transcript_status: ready
     - file_id: af25aad40b86546fad1a74ff3608235d
-      name: "06-30 Meeting: Systemic Compliance AI Strategy and Platform Development"
+      name: "06-30 Strategic AI Advisory for Systemic Compliance"
       date: "2026-06-30"
       duration_seconds: 3472
       has_transcript: true
       transcript_status: ready
     - file_id: 74637ca13f2bb04cd8a23e6459cae199
-      name: "06-30 Consultation: O'Hara - Unified AI Gateway Platform"
+      name: "06-30 Product Demo and Strategic Partnership Proposal for an AI Model Management Platform"
       date: "2026-06-30"
       duration_seconds: 1876
       has_transcript: true
       transcript_status: ready
-  transcription-triggered:
-    - ae88bdbb37c2f7b0d29933fdbc036686
-  pending-recordings:
-    - ae88bdbb37c2f7b0d29933fdbc036686
+  transcription-triggered: []
+  pending-recordings: []
   speaker-mappings:
     74637ca13f2bb04cd8a23e6459cae199:
       Speaker 2: "Ari Jacoby"
     af25aad40b86546fad1a74ff3608235d:
       Speaker 3: "Stephen Johnson"
-  speaker-mapping-sync-status: "attempted — fetch_plaud.py --rename failed with 'Could not load transcript' (transient API error) for both file_ids; text-label renames not yet pushed to Plaud. Retry next run before step-04."
-  pending-speaker-mappings:
+      Speaker 4: "Kevin Graham"
+      Speaker 6: "Mehmet Yasar"
+      note: "Also present: Robyn Fuentes, Robin Graham, David O'Hara"
+    ae88bdbb37c2f7b0d29933fdbc036686:
+      note: "David corrected all speaker tags directly in Plaud prior to this run; repull confirmed real names throughout (Tristan Blom, Stephen Johnson, David O'Hara, Blake McMillan, Devlin, Brad Knight) — no generic labels."
+  speaker-mapping-sync-status: "resolved — David tagged Speaker 3/4/6 directly in Plaud (source of record) between sessions. This run repulled all 3 transcripts fresh; grep confirmed zero remaining generic 'Speaker N' labels across all 3 files. No further rename/sync action needed."
+  pending-speaker-mappings: []
+  watch-items-resolved:
     - file_id: af25aad40b86546fad1a74ff3608235d
-      recording_name: "06-30 Meeting: Systemic Compliance AI Strategy and Platform Development"
-      date: "2026-06-30 (~16:00 CDT)"
-      calendar_attendees: ["Robyn Fuentes", "Robin Graham (rgraham@systemic-compliance.com)", "M Yasar (myasar@systemic-compliance.com)", "K Graham (kgraham@systemic-compliance.com)", "Stephen Johnson"]
-      unresolved_speakers:
-        - speaker: "Speaker 4"
-          segments: 44
-          sample_text: "I actually have a t-shirt that says \"you're on mute.\""
-        - speaker: "Speaker 6"
-          segments: 17
-          sample_text: "Can you hear me?"
-      note: "Speaker 3 auto-resolved to Stephen Johnson via direct name-drop (David: 'On mute, Stephen') confirmed against calendar attendee. Speaker 4 and Speaker 6 remain ambiguous among 3 client-side attendees (Robin Graham, M Yasar, K Graham) — no further name-drop or segment-count signal to disambiguate."
+      issue: "transcript_status regressed to 'missing' at 2026-07-01T14:24 (err-20260701T142449-HKCA7U) after a prior failed --rename attempt"
+      resolution: "Confirmed via --check at start of this run: status had already rebuilt to 'ready' server-side. Fetched successfully; speaker names (Robyn Fuentes, Robin Graham, Kevin Graham, Stephen Johnson, Mehmet Yasar, David O'Hara) all present and intact. No regeneration or controller escalation was needed."
+  known-issues:
+    - "skills/plaud-transcripts/SKILL.md step 7 documents a `fetch_plaud.py --list-all --out <path>` reconciliation flag that does not exist in the current script (only --all [full reprocess], --check <id>, --rename, --login are implemented). Reconciliation for this run was done by scoped --check calls against the 3 target file_ids instead of the documented --list-all. SKILL.md needs updating or the script needs the flag added."
   ready-for-fetch: []
-  staged-files:
-    - "plaud_06-30 Meeting_ Systemic Compliance AI Strategy and Platform Development.md"
-    - "plaud_06-30 Meeting_ Systemic Compliance AI Strategy and Platform Development_speakers.json"
-    - "plaud_06-30 Consultation_ O_Hara - Unified AI Gateway Platform.md"
-    - "plaud_06-30 Consultation_ O_Hara - Unified AI Gateway Platform_speakers.json"
-  ingested-notes: []
-  completion-reason: "Paused at step-03 — awaiting controller speaker ID for 2 speakers in Systemic Compliance recording. 1 recording (ae88bdbb...) still pending Plaud transcription generation, will be picked up on next run."
+  staged-files: []
+  ingested-notes:
+    - "zzPlaud/Client/2026-06-30 Concentrate AI Demo and Reconnect with Ari Jacoby.md"
+    - "zzPlaud/Client/2026-06-30 Systemic Compliance — Fractional AI Advisory Kickoff with Kevin Graham and Mehmet Yasar.md"
+    - "zzPlaud/Client/2026-06-30 Improving x Xero — AI Training Workshop Proposal Discussion.md"
+  daily-note-updated: "Calendar/2026/06-June/2026-06-30.md"
+  omnifocus-tasks-created: 7
+  staging-files-removed: 12
+  completion-reason: "Full pipeline run complete for target-date 2026-06-30. All 3 recordings ingested to vault, daily note linked, 7 OmniFocus tasks created, staging cleaned, reconciliation performed via scoped --check (see known-issues re: stale --list-all flag)."
 ---

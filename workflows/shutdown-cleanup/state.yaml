@@ -1,10 +1,10 @@
 ---
 workflow: shutdown-cleanup
 agent: master
-status: not-started
-session-started: ~
-session-id: ~
-current-step: ~
-original-request: ~
+status: in-progress
+session-started: 2026-07-01T16:00:00
+session-id: master-2026-07-01-160000
+current-step: step-01
+original-request: "Run shutdown cleanup now"
 accumulated-context: {}
 ---

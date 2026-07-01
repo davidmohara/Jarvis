@@ -1,0 +1,15 @@
+{
+  "id": "err-20260701T150534-3ZORJ9",
+  "timestamp": "2026-07-01T15:05:34",
+  "session": "2026-07-01-nexben-call-prep",
+  "source": "explicit",
+  "agent": "master",
+  "category": "format-violation",
+  "description": "Named the Nexben call prep PDF with an ISO-date-prefixed, lowercase-hyphenated filename ('2026-07-01-nexben-discussion-prep.pdf') and uploaded it to reMarkable that way, violating the Output Naming Conventions in agents/conventions.md. Deliverable files (PDF/HTML/PPTX for reading or sharing) should use human-readable names with no date prefix unless the date is part of the document's identity — e.g. 'Nexben Call Prep.pdf'.",
+  "correction": "Rename the deliverable to a human-readable title-case name with no ISO date prefix (e.g. 'Nexben Call Prep.pdf'), replace the incorrectly-named file on reMarkable with the corrected one.",
+  "failure_mode": "protocol-skip",
+  "systemic_fix": null,
+  "fix_status": "proposed",
+  "severity": "minor",
+  "related_entries": []
+}
