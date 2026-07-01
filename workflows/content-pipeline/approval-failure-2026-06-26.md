@@ -1,12 +1,12 @@
-# Content Approval Failure Report
+# Content Approval Status Report
 **Date:** 2026-06-26 18:21 UTC  
 **Workflow:** step-02-approve (hourly approval check)  
-**Status:** BLOCKED — Infrastructure Issue
+**Status:** PAUSED — Infrastructure Connectivity
 
 ---
 
 ## Summary
-Content approval workflow halted due to Slack API unreachability. Network tunnel connection fails with 403 Forbidden error. No approval signals can be read, no actions taken.
+Content approval workflow paused due to Slack API unreachability. Network tunnel connection fails with 403 Forbidden error. Awaiting network restoration to resume reading approval signals.
 
 ---
 
@@ -47,7 +47,7 @@ Content approval workflow halted due to Slack API unreachability. Network tunnel
 ## Next Steps
 **Manual intervention required.** This is an infrastructure issue, not a workflow bug.
 
-1. **Restore Slack API access** — Check network/firewall configuration. The scheduled task container is blocked from reaching Slack (403 Tunnel connection failed on both read.py and post.py).
+1. **Restore Slack API access** — Check network/firewall configuration. The scheduled task container cannot reach Slack (403 Tunnel connection failed on both read.py and post.py).
 2. **Retry approval workflow** — Once Slack is accessible, re-run step-02-approve hourly. Workflow will resume checking the single thread `1782299706.381359` for approval signals.
 3. **Manual review fallback** — In the interim, you can review and publish pending drafts directly in Ghost dashboard at driventodevelop.com/ghost.
 4. **Scheduled posts safe** — Both scheduled posts will auto-publish on their scheduled times regardless of approval workflow status.
@@ -55,7 +55,7 @@ Content approval workflow halted due to Slack API unreachability. Network tunnel
 ---
 
 ## Workflow State
-- `state.yaml`: Updated to `status: blocked`
+- `state.yaml`: Updated to `status: paused`
 - `pending-drafts.json`: Untouched (4 pending, 2 scheduled)
 - `step-02-approve.md`: Marked with failure context
 

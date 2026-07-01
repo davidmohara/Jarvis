@@ -107,15 +107,15 @@ mcp__ghost-blog__update_post(
 
 **Retry on concurrent edit error:**
 
-If Ghost returns "Someone else is editing this post" (stale lock):
+If Ghost returns "Someone else is editing this post" (concurrent edit):
 1. Wait 2 seconds
 2. Retry the update_post call once
 3. If still fails: wait 5 seconds, attempt a third time
-4. If all three attempts fail: notify David with the error and keep status as "approved" (not "pending" — approval was confirmed, just blocked by Ghost)
+4. If all three attempts fail: notify David with the error and keep status as "approved" (not "pending" — approval was confirmed, awaiting Ghost to clear the concurrent edit)
 
-Do not give up after the first error. Retry aggressively — this is a known Ghost bug with stale edit locks.
+Retry aggressively on concurrent edits — this is a known Ghost behavior when multiple sessions access the post.
 
-Update pending-drafts.json — set `status: "published"` if successful, or `status: "approved_pending_publish"` if all retries failed.
+Update pending-drafts.json — set `status: "published"` if successful, or `status: "approved_pending_publish"` if retries are needed.
 
 **Obsidian Note Update (runs before Slack notification):**
 
@@ -219,8 +219,8 @@ Same commands: reply `approve` to publish, `reject` to discard, or give more fee
 
 | Failure | Action |
 |---------|--------|
-| read.py fails (script not found or token error) | Report failure via post.py to #jarvis: "Content approval halted — read.py error: {error}". Exit. |
-| Ghost publish fails with "Someone else is editing this post" | This is a known stale lock bug in Ghost. Retry 3 times with 2s and 5s delays between attempts. If all fail: set status to "approved_pending_publish", notify David with instructions to check Ghost dashboard or restart Ghost, and mark for manual intervention. |
+| read.py fails (script not found or token error) | Report failure via post.py to #jarvis: "Content approval paused — read.py error: {error}". Exit. |
+| Ghost publish fails with "Someone else is editing this post" | This is a known concurrent edit behavior in Ghost. Retry 3 times with 2s and 5s delays between attempts. If all fail: set status to "approved_pending_publish", notify David with instructions to check Ghost dashboard, and prepare for retry on next run. |
 | Ghost update/delete fails (other errors) | Retry once. If still fails, notify David in #content: "Failed to {publish/delete} '{title}' — Ghost API error: {error}. Please check manually at driventodevelop.com/ghost." |
 | pending-drafts.json malformed | Reset to `[]`, log error, notify #jarvis: "pending-drafts.json was corrupted and reset. Active drafts in Ghost may need manual review." |
 | Reply is ambiguous and doesn't fit any category | Treat as feedback. Reply in thread: "Got your reply — treating it as feedback. Here's what I'll change: [interpretation]. Reply `approve` to publish the revision or give me more direction." |

@@ -165,7 +165,7 @@ In the Slack notification teaser (Step 9), append `_(drafted from digest)_` on a
 For each new URL:
 
 1. **Fetch the article:** `mcp__workspace__web_fetch(url="{url}")`
-2. **If fetch fails or returns minimal content:** Run a web search for the article title or topic to gather context. The model should self-recover — don't halt on a blocked URL.
+2. **If fetch fails or returns minimal content:** Run a web search for the article title or topic to gather context. The model should self-recover — proceed with search-gathered context.
 3. **Extract:** Core argument, key insight, memorable quote or stat, the "so what" for David's audience.
 
 ### 3. Check deduplication
@@ -364,7 +364,7 @@ Add the new post to the Candidates table in `reference/blog-ideas.md`:
 
 | Failure | Action |
 |---------|--------|
-| read.py fails (script not found or token error) | Report failure via post.py to #jarvis: "Content discovery halted — read.py error: {error}". Exit. |
+| read.py fails (script not found or token error) | Report failure via post.py to #jarvis: "Content discovery paused — read.py error: {error}". Exit. |
 | URL fetch fails + web search returns nothing | Skip URL. Log: "Could not retrieve content for {url} — skipping." |
 | Ghost API fails on post creation | Log error. Notify David in #content: "Draft creation failed for {url} — will retry tomorrow." |
 | Image upload fails | Use a fallback Unsplash URL directly (without uploading) — Ghost accepts external URLs for feature_image. Note in Slack message: "(image not uploaded to CDN — using external URL)" |
