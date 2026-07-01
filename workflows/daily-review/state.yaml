@@ -2,19 +2,19 @@
 workflow: daily-review
 agent: chief
 status: complete
-session-started: "2026-06-29T21:11:00"
-session-id: "chief-2026-06-29-211100"
+session-started: "2026-06-30T21:12:00"
+session-id: "chief-2026-06-30-211200"
 current-step: step-auto
 original-request: "auto"
 accumulated-context:
-  narrative-title: "Q2's Last Stand: Ten Completions, Six Accounts Reviewed, and the Personal Items That Didn't Make It"
-  narrative-path: "reviews/daily/auto-2026-06-29.md"
-  omnifocus-status: "available — 10 completions confirmed, 4 overdue, 7 inbox"
-  calendar-status: "unavailable — headless scheduled run (expected)"
+  narrative-title: "Coaching Doubled Up While the Lifebook Waited"
+  narrative-path: "reviews/daily/auto-2026-06-30.md"
+  omnifocus-status: "available — 11 completions confirmed, 5 overdue, 0 flagged, 9 inbox"
+  calendar-status: "available — 14 events pulled for 2026-06-29"
   delegation-status: "no active delegations"
   output-guard: "passed"
-  working-memory-path: "memory/working/daily-review-2026-06-29-211155.md"
+  working-memory-path: "memory/working/daily-review-2026-06-30-211200.md"
   working-memory-status: "written"
-  routing-note: "Obsidian MCP disabled — written to local fallback"
+  routing-note: "Obsidian MCP disabled in connector settings — written to local fallback"
   model: sonnet
 ---
