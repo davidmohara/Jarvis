@@ -1,0 +1,66 @@
+{
+  "id": "eval-20260630T000000-PLAUD1",
+  "type": "workflow",
+  "name": "plaud-ingest",
+  "agent": "knox",
+  "session_id": "pi-20260630-001",
+  "trigger": "boot",
+  "started": "2026-06-30T00:00:00Z",
+  "completed": "2026-06-30T00:15:00Z",
+  "duration_seconds": 900,
+  "status": "success",
+  "steps": [
+    {
+      "name": "step-01-discover",
+      "started": "2026-06-30T00:00:00Z",
+      "completed": "2026-06-30T00:15:00Z",
+      "duration_seconds": 900,
+      "status": "complete",
+      "data_sources_used": ["plaud-api", "obsidian-vault"],
+      "data_source_failures": [],
+      "notes": "64 recordings scanned. All confirmed in vault. No new recordings. Workflow terminated early per protocol."
+    }
+  ],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": [],
+      "abort_reason": null
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": true,
+      "assertions_checked": 1,
+      "assertions_passed": 1,
+      "assertion_results": [
+        {"assertion": "new-recordings-empty-when-none-found", "passed": true}
+      ]
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": ["cowork-instrumented", "early-termination"]
+}

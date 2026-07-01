@@ -26,6 +26,10 @@ David's preferences for how IES agents behave. Updated by David or Rigby on requ
 - Default project: assign to the nearest active rock or project
 - Default tags: at minimum one context tag (office, computer, call)
 
+## reMarkable Folder Routing
+
+- **Systemic Compliance** — all client materials go to `/Improving/Accounts/Systemic Compliance`
+
 ## Dream Cycle
 - Run at 3:00 AM — do not notify unless semantic promotions or errors
 - Preservation over aggression — when in doubt, do not compress

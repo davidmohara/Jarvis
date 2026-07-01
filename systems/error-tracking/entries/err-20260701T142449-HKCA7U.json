@@ -1,0 +1,15 @@
+{
+  "id": "err-20260701T142449-HKCA7U",
+  "timestamp": "2026-07-01T14:24:49Z",
+  "session": "chief-2026-07-01-085000",
+  "source": "self-detected",
+  "agent": "chief",
+  "category": "tool-misuse",
+  "description": "Ran fetch_plaud.py --rename for file_id af25aad40b86546fad1a74ff3608235d (Systemic Compliance recording) to push Speaker 3/4/6 name tags to Plaud. Rename failed twice in a row with 'Could not load transcript'. --check confirmed transcript_status has regressed to 'missing' (no transaction content_list entry at all) even though state.yaml recorded it as 'ready' as of this morning's boot. This is not the documented transient-API-error case (state.yaml's prior note) — the underlying content appears to have been cleared and not rebuilt, likely a side effect of an earlier failed rename/regeneration attempt from before this session.",
+  "correction": "Do not keep blind-retrying --rename against an API that's returning a structurally different failure (missing content_list vs. transient load error) without surfacing it. Should have stopped after the --check diagnostic confirmed 'missing' status and reported to controller instead of the plan being to re-trigger regeneration unilaterally, since re-triggering transcription risks re-diarizing and could shift/invalidate the already-resolved Speaker 3/4/6 labels.",
+  "failure_mode": "pattern-mismatch",
+  "systemic_fix": "Add a documented failure mode to step-04-fetch-staging.md: 'transcript_status regresses to missing after a prior failed rename' -> run --check first, and if status is missing (not just polish-layer-missing), stop and ask the controller before triggering full regeneration or retranscription.",
+  "fix_status": "proposed",
+  "severity": "moderate",
+  "related_entries": ["err-20260701T142054-P0PRBP"]
+}

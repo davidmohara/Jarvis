@@ -1,0 +1,15 @@
+{
+  "id": "err-20260630T225715-EHT3SK",
+  "timestamp": "2026-06-30T22:57:15Z",
+  "session": "2026-06-30",
+  "source": "explicit",
+  "agent": "master",
+  "category": "routing-error",
+  "description": "PDF generation and reMarkable upload were handled directly by Master instead of routing to Knox. Knox owns both the PDF-to-remarkable pipeline and the remarkable-upload skill. Master should have spawned Knox with the markdown source and let Knox handle naming, PDF creation, folder routing, and upload.",
+  "correction": "Route all reMarkable upload requests to Knox immediately. Knox's remarkable-upload skill handles naming conventions, folder routing, Finder bridge pattern, and upload verification.",
+  "failure_mode": "protocol-skip",
+  "systemic_fix": "Knox trigger keywords in routing.md already include 'upload to remarkable' and 'send to tablet'. Master must read routing.md before acting on any file delivery request. No exceptions for 'quick' uploads.",
+  "fix_status": "applied",
+  "severity": "moderate",
+  "related_entries": ["err-20260630T224221-79GDVV", "err-20260630T225715-POXG37"]
+}

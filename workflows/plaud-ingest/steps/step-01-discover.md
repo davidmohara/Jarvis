@@ -1,11 +1,14 @@
 ---
 status: completed
-started-at: "2026-04-20T18:50:00Z"
-completed-at: "2026-04-20T18:55:00Z"
-model: haiku
+started-at: "2026-06-30T00:00:00Z"
+completed-at: "2026-06-30T00:15:00Z"
+model: sonnet
 outputs:
-  new-recordings-count: 2
-  target-date: "2026-04-17"
+  new-recordings-count: 0
+  target-date: "2026-06-30"
+  api-total: 64
+  confirmed-in-vault: 64
+  completion-reason: "No new recordings — workflow terminated at step-01"
 ---
 
 <!-- system:start -->

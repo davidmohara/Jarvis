@@ -29,6 +29,27 @@
       "path": "memory/working/remarkable-upload-*.md",
       "pattern": "(?i)(complete|done|finished|output|result)",
       "description": "remarkable-upload output contains expected content"
+    },
+    {
+      "id": "remarkab-004-visual-check",
+      "check": "manual",
+      "description": "PDF rendered via pdftoppm and visually inspected before push. All pages readable, no orphaned rows, no text overflow, font size >= 9pt.",
+      "added": "2026-06-30",
+      "rationale": "Multiple push failures traced to unverified PDFs. Visual check via pdftoppm+Read is mandatory before every rmapi put."
+    },
+    {
+      "id": "remarkab-005-filename-convention",
+      "check": "manual",
+      "description": "File named with human-readable words and spaces, no underscores, no dates (e.g. 'GeniusSpark Meeting Prep.pdf'). Matches agents/conventions.md deliverable naming rule.",
+      "added": "2026-06-30",
+      "rationale": "Naming violation caught in session — deliverable files use human-readable names, not slug format. Checked against agents/conventions.md before every push."
+    },
+    {
+      "id": "remarkab-006-persistent-path",
+      "check": "manual",
+      "description": "PDF copied to OneDrive/IES before rmapi call. /tmp does not persist across osascript invocations.",
+      "added": "2026-06-30",
+      "rationale": "Push failed when source path was /tmp — file not found across osascript boundary. Always stage to OneDrive/IES first."
     }
   ]
 }

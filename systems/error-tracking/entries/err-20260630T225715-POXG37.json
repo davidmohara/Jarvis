@@ -1,0 +1,15 @@
+{
+  "id": "err-20260630T225715-POXG37",
+  "timestamp": "2026-06-30T22:57:15Z",
+  "session": "2026-06-30",
+  "source": "explicit",
+  "agent": "master",
+  "category": "format-violation",
+  "description": "PDF delivered to reMarkable was named '2026-06-30-xero-call-prep.pdf' — an ISO date slug format. conventions.md (Output Naming Conventions) states deliverable files (HTML, PDF, PPTX) use human-readable names with no dates unless the date is part of the document's identity. The correct name is 'Xero Call Prep.pdf'.",
+  "correction": "Renamed to 'Xero Call Prep.pdf', deleted the old tablet entry, and re-uploaded to /Meetings.",
+  "failure_mode": "sloppy-read",
+  "systemic_fix": "When generating PDFs for reMarkable or any deliverable output, apply the deliverable naming rule from conventions.md before writing the file: human-readable, no ISO dates, short and clear.",
+  "fix_status": "applied",
+  "severity": "minor",
+  "related_entries": ["err-20260630T224221-79GDVV"]
+}

@@ -1,8 +1,14 @@
 ---
-status: not-started
-started-at: ~
-completed-at: ~
-outputs: {}
+status: complete
+started-at: "2026-07-01T08:32:00-05:00"
+completed-at: "2026-07-01T08:40:00-05:00"
+outputs:
+  morning-briefing-steps-01-02: "completed — full calendar (34 events, Jul 1-4) and OmniFocus inbox (9 items) pulled"
+  task-g-72hr-lookahead: "completed — Jul 2-4 events captured"
+  task-h-email-triage: "completed — nothing flagged, no time-sensitive items"
+  task-i-jarvis-inbox: "completed — Jarvis folder empty, nothing to surface"
+  task-j-reminders: "nothing-to-surface — data/reminders.json empty"
+  task-f-lead-review: "skipped — scope decision, not run this boot; offered to David as follow-up"
 ---
 
 <!-- system:start -->
@@ -43,19 +49,21 @@ Run `workflows/morning-briefing/workflow.md` through step-02 (calendar gather + 
 
 ### Task G: 72-Hour Look-Ahead
 
-Pull calendar events for the next 3 days via M365 MCP (`outlook_calendar_search`). Capture:
+Read calendar data from `data/calendar-unified.json` (already pulled in step-01.5). Filter for days+1 to day+3. Capture:
 - Meeting subjects, times, attendees
 - Any client or partner meetings that will need prep
 - Back-to-back blocks or heavy meeting days
 
+**NOTE:** Do NOT call M365 directly. The unified pull in step-01.5 provides all calendar data for the 4-day window.
+
 ### Task H: Email Triage (flagged/time-sensitive only)
 
-Pull email via M365 MCP (`outlook_email_search`). Filter for:
+Read email from `data/email-unified.json` (already pulled by step-01.2). Filter for:
 - Flagged messages
 - Unread messages from the last 24 hours marked high priority
 - Any message with an explicit deadline or time-sensitive subject line
 
-Do NOT pull full inbox. Surface only what needs action today.
+Do NOT call M365 directly. The unified pull in step-01.2 provides all flagged/time-sensitive data.
 
 ### Task I: Jarvis Inbox
 
@@ -94,7 +102,9 @@ accumulated-context:
 
 Update step frontmatter: Set `status: complete` and `completed-at` with current timestamp.
 
-Update state.yaml: Set `current-step: step-03-verify-phase2.md`.
+Update state.yaml: 
+- Set `current-step: step-02.5-measure-phase2.md` (proceed to instrumentation/measurement step).
+- Append Phase 2 outcomes to `accumulated-context.phase2`.
 
 ---
 

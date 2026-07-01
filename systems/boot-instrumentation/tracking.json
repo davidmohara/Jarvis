@@ -1,0 +1,65 @@
+{
+  "project": "IES Boot Workflow Instrumentation",
+  "created": "2026-07-01T00:00:00Z",
+  "last_updated": "2026-07-01T00:00:00Z",
+  "optimization_target": {
+    "description": "Reduce Phase 2 context bloat to eliminate first-run compaction",
+    "target_total_kb": 150,
+    "target_total_tokens": 600,
+    "baseline_total_kb": null,
+    "baseline_session_id": null
+  },
+  "measurements": [
+    {
+      "measurement_id": "baseline-pre-optimization",
+      "timestamp": "2026-06-29T09:49:00Z",
+      "session_id": "session-2026-06-29-094900",
+      "phase": "pre-optimization",
+      "total_kb": 500,
+      "total_tokens": 125000,
+      "top_bloat_sources": [
+        "phase2.calendar: 200+ KB (raw API responses)",
+        "phase2.email: 150+ KB (message bodies)",
+        "phase2.omnifocus: 50+ KB (task objects)"
+      ],
+      "issue": "context-window-compaction-triggered",
+      "status": "historical-baseline"
+    },
+    {
+      "measurement_id": "post-calendar-consolidation",
+      "timestamp": "2026-07-01T11:35:00Z",
+      "session_id": "session-2026-07-01-112500",
+      "phase": "post-optimization",
+      "total_kb": 0.827,
+      "total_tokens": 211,
+      "top_bloat_sources": [
+        "phase2.plaud_ingest: 121 bytes",
+        "phase2.clay_reminders: 84 bytes",
+        "phase2.email: 78 bytes"
+      ],
+      "optimization": "calendar-consolidation",
+      "reduction_pct": 99.9,
+      "calendar_file_created": "data/calendar-unified.json (78 KB)",
+      "m365_api_calls": 1,
+      "status": "current-baseline"
+    }
+  ],
+  "comparisons": [
+    {
+      "comparison_id": "optimization-cycle-1",
+      "before_measurement_id": null,
+      "after_measurement_id": null,
+      "timestamp": null,
+      "reduction_kb": null,
+      "reduction_pct": null,
+      "target_field": null,
+      "status": "pending"
+    }
+  ],
+  "notes": [
+    "Instrumentation added 2026-07-01",
+    "Step 02.5 (measure-phase2) now runs automatically after Phase 2 data gathering",
+    "All measurements are read-only and non-blocking",
+    "First run will establish baseline; subsequent runs will show optimization progress"
+  ]
+}

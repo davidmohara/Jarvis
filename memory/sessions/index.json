@@ -641,6 +641,23 @@
     ]
   },
   {
+    "id": "session-2026-06-30-091420",
+    "started": "2026-06-30T09:14:20-05:00",
+    "closed": null,
+    "current_topic": "morning-boot",
+    "topics": [
+      {
+        "name": "morning-boot",
+        "loops": [
+          {
+            "task": "boot-sequence",
+            "resolved": false
+          }
+        ]
+      }
+    ]
+  },
+  {
     "id": "session-2026-06-24-000000",
     "started": "2026-06-24T00:00:00-05:00",
     "closed": "2026-06-25T03:05:33-05:00",
@@ -688,6 +705,32 @@
           {
             "task": "Daily review written to reviews/daily/2026-06-24.md",
             "resolved": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "session-2026-07-01-083000",
+    "started": "2026-07-01T08:30:00-05:00",
+    "closed": null,
+    "current_topic": "morning-boot",
+    "topics": [
+      {
+        "name": "morning-boot",
+        "loops": [
+          {
+            "task": "boot-sequence — full 7-step workflow completed, briefing delivered",
+            "resolved": true
+          }
+        ]
+      },
+      {
+        "name": "plaud-ingest",
+        "loops": [
+          {
+            "task": "Knox ran plaud-ingest — 3 new Jun 30 recordings found, 1 pending transcription, 2 staged. Awaiting David on 2 ambiguous speaker IDs (Systemic Compliance AI Strategy call).",
+            "resolved": false
           }
         ]
       }

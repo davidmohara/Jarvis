@@ -1,0 +1,15 @@
+{
+  "id": "err-20260701T143628-YBXLK1",
+  "timestamp": "2026-07-01T14:36:28Z",
+  "session": "2026-07-01-boot-optimization",
+  "source": "self-detected",
+  "agent": "Jarvis",
+  "category": "process-skip",
+  "description": "During boot workflow optimization review, clarified that Clay MCP should ALWAYS attempt to pull reminders, even if previously marked unavailable. This ensures current state validation rather than relying on stale assumptions.",
+  "correction": "Updated step-01.2-unified-data-pull.md to mark Clay pull as MANDATORY ALWAYS with explicit note that availability check is for current state, not cached assumptions.",
+  "failure_mode": "context-blindness",
+  "systemic_fix": "Added 'mandatory always-pull' strategy for Clay to prevent stale data assumptions in consolidated workflow. Pattern: any MCP that provides time-sensitive state (Clay reminders/birthdays) should always attempt pull.",
+  "fix_status": "applied",
+  "severity": "moderate",
+  "related_entries": []
+}

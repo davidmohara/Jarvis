@@ -1,0 +1,15 @@
+{
+  "id": "err-20260630T185521-OMALPP",
+  "timestamp": "2026-06-30T18:55:21Z",
+  "session": "2026-06-30",
+  "source": "explicit",
+  "agent": "master",
+  "category": "data-accuracy",
+  "description": "Generated a discovery question asking Xero which AI tool their employees use — but the Infrastructure & Setup Guide and Xero's Anthropic partnership confirm Claude is the tool. Also left 'Copilot, ChatGPT, Claude, other?' language in the infrastructure section. Multiple references treated the AI tool as unknown when it was confirmed.",
+  "correction": "All references to unknown AI tool selection replaced with Claude-specific language. Discovery question asking about tool choice removed. Infrastructure section updated to ask about Claude access and Anthropic endpoint availability specifically.",
+  "failure_mode": "sloppy-read",
+  "systemic_fix": "When the Infrastructure & Setup Guide lists specific tools (OpenAI, Anthropic, Microsoft) as examples, cross-reference with company context before generating questions. Xero's Anthropic partnership was visible in the web search results and should have resolved the tool question before the prep sheet was written.",
+  "fix_status": "applied",
+  "severity": "minor",
+  "related_entries": []
+}

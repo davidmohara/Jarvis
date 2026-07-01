@@ -1,0 +1,15 @@
+{
+  "id": "err-20260630T192529-B8Z478",
+  "timestamp": "2026-06-30T19:25:29Z",
+  "session": "2026-06-30",
+  "source": "explicit",
+  "agent": "master",
+  "category": "routing-error",
+  "description": "User asked to push a PDF to their reMarkable. Instead of delegating to a general-purpose agent to discover rmapi and the correct push method, Master attempted the task directly using bash and osascript — tools insufficient for discovering and operating rmapi without proper environment context.",
+  "correction": "Should have spawned a general-purpose agent with instructions to locate rmapi or an equivalent reMarkable CLI tool, generate the PDF, and execute the push. Direct execution was premature given the unknown environment state.",
+  "failure_mode": "protocol-skip",
+  "systemic_fix": "When a task involves an external device or CLI tool not confirmed to exist, always delegate to a general-purpose agent to discover the tool before attempting direct execution.",
+  "fix_status": "proposed",
+  "severity": "minor",
+  "related_entries": []
+}

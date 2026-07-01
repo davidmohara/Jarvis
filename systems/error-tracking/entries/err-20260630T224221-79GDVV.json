@@ -1,0 +1,16 @@
+{
+  "id": "err-20260630T224221-79GDVV",
+  "timestamp": "2026-06-30T22:42:21Z",
+  "session": "2026-06-30",
+  "source": "explicit",
+  "agent": "master",
+  "category": "routing-error",
+  "description": "Handled a reMarkable upload directly instead of routing to Knox. Knox owns the 'upload to remarkable' trigger and has a dedicated remarkable-upload skill with routing rules, folder conventions, and naming conventions. Master executed the upload via raw rmapi, bypassing Knox's routing logic entirely — resulting in the file landing in the tablet root instead of /Improving/Accounts/ and without following Knox's file naming conventions.",
+  "correction": "reMarkable upload requests must route to Knox. Knox's remarkable-upload skill determines the correct target folder (per routing table: external account meeting prep → /Improving/Accounts/{client}), handles the Finder bridge pattern for TCC-restricted paths, verifies the folder exists before uploading, and follows naming conventions. Master should have spawned Knox immediately on 'push to remarkable'.",
+  "failure_mode": "protocol-skip",
+  "systemic_fix": "Add 'remarkable' and 'push to tablet' to the Knox hard-stop trigger keywords in routing.md so Master cannot handle these directly. The routing table already lists Knox for 'upload to remarkable' — this was a protocol-skip, not a gap in the table.",
+  "routing_rule_added": "Xero (and prospects generally) route to /Meetings until they become a customer. Once contracted, create /Improving/Accounts/{client} and move future materials there.",
+  "fix_status": "applied",
+  "severity": "moderate",
+  "related_entries": []
+}

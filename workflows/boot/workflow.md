@@ -74,8 +74,18 @@ model: sonnet
 
 Steps execute in order. Each step's NEXT STEP section chains to the following step.
 
+**Phase 0: Context Load**
 1. `steps/step-01-load-context.md`
+
+**Phase 1: Unified Data Pull** ← **NEW CONSOLIDATION PHASE**
+1.2. `steps/step-01.2-unified-data-pull.md` ← Pulls ALL external data (email, tasks, reminders, inbox) in parallel, writes to disk
+1.5. `steps/step-01.5-unified-calendar-pull.md` ← Calendar consolidation (single M365 call)
+
+**Phase 2: Data Verification & Measurement**
 2. `steps/step-02-gather-data.md`
+2.5. `steps/step-02.5-measure-phase2.md` ← Measures context (should show minimal bloat now)
+
+**Phase 3-7: Processing**
 3. `steps/step-03-verify-phase2.md`
 4. `steps/step-04-gather-meeting-context.md`
 5. `steps/step-05-synthesize-briefing.md`

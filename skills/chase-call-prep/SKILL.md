@@ -178,6 +178,8 @@ The destination folder `/Meetings` is hardcoded — Chase does not need to pass 
 
 Knox confirms upload success or failure. Chase surfaces the result to David in the final confirmation step.
 
+**rmapi error recovery:** If rmapi fails with a config parse error (`failed to parse /Users/davidohara/.rmapi` or similar), the fix is to delete `~/.rmapi` and re-run rmapi. The tool will prompt for a new one-time code from my.remarkable.com to re-authenticate. Do not ask David to re-authenticate manually first — delete the file, then retry. This resolves corrupt token state without requiring any manual steps beyond the one-time code.
+
 ---
 
 ## Execution Steps

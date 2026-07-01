@@ -1,0 +1,84 @@
+{
+  "id": "eval-20260630T194444-4NSY9M",
+  "type": "workflow",
+  "name": "genius-spark-meeting-prep",
+  "agent": "master",
+  "session_id": "master-2026-06-30-194444",
+  "trigger": "manual",
+  "started": "2026-06-30T19:00:00Z",
+  "completed": "2026-06-30T19:44:44Z",
+  "duration_seconds": 2684,
+  "status": "success",
+  "steps": [
+    {
+      "name": "step-01-fetch-and-analyze",
+      "started": "2026-06-30T19:00:00Z",
+      "completed": "2026-06-30T19:05:00Z",
+      "duration_seconds": 300,
+      "status": "complete",
+      "data_sources_used": ["vicinityventures.co"],
+      "data_source_failures": [],
+      "notes": "Fetched GeniusSpark offering via Chrome. Investor assessment delivered."
+    },
+    {
+      "name": "step-02-meeting-prep-doc",
+      "started": "2026-06-30T19:05:00Z",
+      "completed": "2026-06-30T19:25:00Z",
+      "duration_seconds": 1200,
+      "status": "complete",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "notes": "Created .docx then rebuilt as .md per user correction. Format choice not pre-clarified."
+    },
+    {
+      "name": "step-03-remarkable-push",
+      "started": "2026-06-30T19:25:00Z",
+      "completed": "2026-06-30T19:44:44Z",
+      "duration_seconds": 1184,
+      "status": "complete",
+      "data_sources_used": ["rmapi", "reportlab"],
+      "data_source_failures": [],
+      "notes": "Multiple failures: (1) attempted rmapi discovery without delegating to agent; (2) named file with underscores instead of human-readable convention; (3) argued when corrected on naming rather than reading conventions.md immediately; (4) used improving-pdf producing 7-page branded output for a personal doc. Required 4+ correction cycles before correct 2-page PDF delivered."
+    }
+  ],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 2,
+      "error_ids": ["err-20260630T192529-B8Z478", "err-20260630T192955-65R08L"],
+      "abort_reason": null
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": true,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": "2026-06-30T19:44:44Z",
+      "grade": "F",
+      "safety_grade": null,
+      "grader_notes": "Correct final output eventually delivered but required multiple explicit corrections: wrong format (.docx before .md), wrong tool approach (attempted rmapi directly instead of delegating), wrong file naming (underscores vs human-readable), pushback on naming correction instead of reading conventions.md, and wrong PDF tool (improving-pdf for personal doc). Each failure required controller intervention."
+    },
+    "controller_feedback": {
+      "rating": "negative",
+      "comment": "Took multiple corrections and arguing to get it right.",
+      "timestamp": "2026-06-30T19:44:44Z"
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": ["cowork-instrumented", "multi-correction", "convention-violation", "routing-error"]
+}

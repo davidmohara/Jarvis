@@ -1,0 +1,15 @@
+{
+  "id": "err-20260630T151441-T2VKTQ",
+  "timestamp": "2026-06-30T15:14:41Z",
+  "session": "session-2026-06-30-091420",
+  "source": "explicit",
+  "agent": "knox",
+  "category": "tool-misuse",
+  "description": "rmapi push failed with 'failed to parse .rmapi' error. Knox reported the failure and surfaced manual instructions but did not attempt the known fix: removing the corrupt .rmapi file, which forces rmapi to re-authenticate cleanly.",
+  "correction": "When rmapi returns 'failed to parse .rmapi' (or any config parse error), delete ~/.rmapi and re-run rmapi. The tool will prompt for a new one-time code from my.remarkable.com. The corrupt file is the cause — removal forces a clean re-auth.",
+  "failure_mode": "missing-recovery-path",
+  "systemic_fix": "Add rmapi error recovery protocol to chase-call-prep SKILL.md reMarkable Delivery section: if rmapi fails with a config parse error, delete ~/.rmapi before retrying.",
+  "fix_status": "applied",
+  "severity": "minor",
+  "related_entries": []
+}

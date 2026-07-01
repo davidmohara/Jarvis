@@ -1,0 +1,15 @@
+{
+  "id": "err-20260701T142005-TOWZ3J",
+  "timestamp": "2026-07-01T14:20:05Z",
+  "session": "chief-2026-07-01-085000",
+  "source": "explicit",
+  "agent": "chief",
+  "category": "assumption-error",
+  "description": "After resolving Speaker 4 = Kevin (Graham) and Speaker 6 = Mehmet 'Matt' Yasar from transcript self-identification, I offered to write these resolved names directly into workflows/plaud-ingest/state.yaml speaker-mappings, treating my own transcript-read inference as sufficient to persist as ground truth.",
+  "correction": "Never write resolved speaker names into state.yaml from inference. Names must be tagged in Plaud's own system (the source of record) and the recording must be repulled so the ingest pipeline reflects Plaud-side truth, not a locally-inferred value.",
+  "failure_mode": "wrong-assumption",
+  "systemic_fix": "Update plaud-ingest workflow docs (workflow.md / SKILL.md if one exists) to state explicitly: speaker identity resolution found via transcript/heuristic inference is a proposal only; the write path is (1) tag speaker in Plaud UI/API, (2) repull/resync the recording, (3) let the resync populate state.yaml. Direct state.yaml edits of speaker-mappings from inferred names are prohibited.",
+  "fix_status": "proposed",
+  "severity": "moderate",
+  "related_entries": []
+}

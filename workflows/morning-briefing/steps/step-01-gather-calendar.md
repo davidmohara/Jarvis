@@ -22,14 +22,15 @@ model: sonnet
 ## EXECUTION PROTOCOL
 
 **Agent:** Chief
-**Input:** M365 calendar access, today's date
-**Output:** Structured calendar data stored in working memory for step 04
+**Input:** Unified calendar data from `data/calendar-unified.json` (pulled by boot step-01.5)
+**Output:** Structured calendar data for today, stored in working memory for step 04
 
 ---
 
 ## CONTEXT BOUNDARIES
 
-- Pull today's calendar only. Do not look ahead to tomorrow unless today is empty.
+- Read today's events from the unified calendar file (already pulled in boot step-01.5).
+- Do NOT call M365 directly — reuse the cached data.
 - Include all events regardless of status (accepted, tentative, cancelled).
 - Attendee names are required. Attendee count is required for meetings with 5+.
 
@@ -39,8 +40,9 @@ model: sonnet
 
 ### Sequence
 
-1. **Pull today's calendar** via M365 MCP (`outlook_calendar_search`).
-   - Query: all events for today
+1. **Load today's calendar from disk** via `data/calendar-unified.json`.
+   - Parse: JSON file with 4-day calendar data
+   - Filter: Extract events where date == today
    - Capture: subject, start time, end time, location, attendees, response status
 
 2. **Classify each meeting** by type:

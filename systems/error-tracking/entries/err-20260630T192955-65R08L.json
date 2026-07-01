@@ -1,0 +1,15 @@
+{
+  "id": "err-20260630T192955-65R08L",
+  "timestamp": "2026-06-30T19:29:55Z",
+  "session": "2026-06-30",
+  "source": "explicit",
+  "agent": "master",
+  "category": "format-violation",
+  "description": "Named the reMarkable PDF 'GeniusSpark_MeetingPrep' using underscore slug format instead of the human-readable naming convention defined in agents/conventions.md for deliverable files. Should have been 'GeniusSpark Meeting Prep.pdf' — no dates, no underscores, human-readable.",
+  "correction": "Deliverable files (HTML, PDF, PPTX) destined for reading/sharing use human-readable names with no dates and no underscores. Convention example: 'Account Name Brief.pdf'. Source markdown files use the slug pattern; deliverables do not.",
+  "failure_mode": "context-blindness",
+  "systemic_fix": "Read agents/conventions.md before naming any deliverable file, not just source files. The naming rules differ by file type and destination.",
+  "fix_status": "proposed",
+  "severity": "minor",
+  "related_entries": ["err-20260630T192529-B8Z478"]
+}

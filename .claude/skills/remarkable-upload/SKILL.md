@@ -145,7 +145,7 @@ The tablet is organized by domain. **Always route uploads to the correct folder 
 | Context signal | Target folder |
 |---|---|
 | User specifies a folder explicitly | Use that folder exactly |
-| External prospect, sales, or partner meeting prep (not a named direct report, not a named client account already listed) | `/Meetings` |
+| External prospect, sales, or partner meeting prep (not a named direct report, not a named client account already listed) | `/Meetings` — even if the prospect has a named account folder in IES. Move to `/Improving/Accounts/{client}` only after they become a paying customer. |
 | Book or ebook | `/Books` |
 | Improving client/account (LTSA, McKesson, ORIX, OZK, Siemens, UTB, Veritas) | `/Improving/Accounts/{client}` |
 | 1:1 prep for a direct report (Devlin, Don, Kevin, Robyn, Scott, Tim) | `/Improving/One-on-ones/{person}` |

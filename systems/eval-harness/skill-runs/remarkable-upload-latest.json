@@ -1,10 +1,11 @@
 {
   "skill": "remarkable-upload",
-  "agent": "knox",
+  "agent": "master",
   "trigger": "manual",
-  "started": "2026-06-24T00:00:00Z",
-  "completed": "2026-06-24T00:01:00Z",
+  "started": "2026-06-30T19:25:00Z",
+  "completed": "2026-06-30T20:39:49Z",
   "status": "success",
-  "tool_failures": 0,
-  "error_ids": []
+  "tool_failures": 4,
+  "error_ids": ["err-20260630T192529-B8Z478", "err-20260630T192955-65R08L"],
+  "notes": "Pattern established: reportlab for personal PDFs, pdftoppm visual check mandatory before push, copy to OneDrive/IES before rmapi, use --force flag, human-readable filename with spaces."
 }

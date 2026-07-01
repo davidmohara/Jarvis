@@ -22,14 +22,15 @@ model: sonnet
 ## EXECUTION PROTOCOL
 
 **Agent:** Chief
-**Input:** All working memory from steps 01-03
+**Input:** All working memory from steps 01-03, consolidated data from boot pulls (`data/clay-reminders-unified.json` for reminders, already in working memory)
 **Output:** Structured morning briefing delivered to the controller
 
 ---
 
 ## CONTEXT BOUNDARIES
 
-- This step is synthesis only. Do not make new data calls.
+- This step is synthesis only. Do NOT make new Clay API calls or data pulls.
+- Use consolidated data from boot step-01.2 (Clay reminders already pulled and available in `data/clay-reminders-unified.json`)
 - Use Chief's voice: direct, efficient, occasionally sharp. No filler. No pleasantries beyond the opening line.
 - The briefing is the deliverable. It should stand alone — the controller should not need to ask follow-up questions to understand their day.
 

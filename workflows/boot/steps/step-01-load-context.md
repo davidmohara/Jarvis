@@ -1,8 +1,11 @@
 ---
-status: not-started
-started-at: ~
-completed-at: ~
-outputs: {}
+status: complete
+started-at: "2026-07-01T08:30:00-05:00"
+completed-at: "2026-07-01T08:32:00-05:00"
+outputs:
+  files_loaded: [SYSTEM.md, identity/MEMORY.md, identity/VOICE.md, identity/GOALS_AND_DREAMS.md, identity/RESPONSIBILITIES.md, identity/AUTOMATION.md, identity/MISSION_CONTROL.md, identity/INTEGRATIONS.md]
+  missing_files: []
+  knox_spawn: "spawned — fire-and-forget, ran plaud-ingest workflow; returned awaiting-input (2 speakers need ID confirmation on the Systemic Compliance recording)"
 ---
 
 <!-- system:start -->
@@ -72,7 +75,7 @@ outputs: {}
 
 5. **Update step frontmatter:** Set `status: complete` and `completed-at` with current timestamp.
 
-6. **Update state.yaml:** Set `current-step: step-02-gather-data.md`.
+6. **Update state.yaml:** Set `current-step: step-01.2-unified-data-pull.md` (chain to consolidated data pull).
 
 ---
 
@@ -98,7 +101,7 @@ outputs: {}
 
 ## NEXT STEP
 
-Read fully and follow: `step-02-gather-data.md`
+Read fully and follow: `step-01.5-unified-calendar-pull.md`
 <!-- system:end -->
 
 <!-- personal:start -->

@@ -1,0 +1,87 @@
+{
+  "id": "eval-20260630T203949-E747AF",
+  "type": "skill",
+  "name": "remarkable-upload",
+  "agent": "master",
+  "session_id": "master-2026-06-30-203949",
+  "trigger": "manual",
+  "started": "2026-06-30T19:25:00Z",
+  "completed": "2026-06-30T20:39:49Z",
+  "duration_seconds": 4489,
+  "status": "success",
+  "steps": [
+    {
+      "name": "step-01-discover-rmapi",
+      "started": "2026-06-30T19:25:00Z",
+      "completed": "2026-06-30T19:30:00Z",
+      "duration_seconds": 300,
+      "status": "complete",
+      "data_sources_used": ["rmapi at /opt/homebrew/bin/rmapi"],
+      "data_source_failures": [],
+      "notes": "rmapi v0.0.34 found at /opt/homebrew/bin/rmapi, already authenticated. Discovery required delegation to general-purpose agent — direct bash attempts failed. Pattern: always delegate tool discovery for external device CLIs."
+    },
+    {
+      "name": "step-02-generate-pdf",
+      "started": "2026-06-30T19:30:00Z",
+      "completed": "2026-06-30T20:30:00Z",
+      "duration_seconds": 3600,
+      "status": "complete",
+      "data_sources_used": ["reportlab", "pypdf", "pdftoppm"],
+      "data_source_failures": [],
+      "notes": "Multiple iterations required. Key failures: (1) improving-pdf produced 7-page branded output — wrong tool for personal docs; use reportlab. (2) questions rendered as 3-column table caused text overflow and orphaned rows across pages; fix is plain numbered paragraphs. (3) font size 7pt unreadable on reMarkable — minimum 9pt. (4) visual check via pdftoppm+Read was the correct verification method and should be mandatory before every push."
+    },
+    {
+      "name": "step-03-push-to-remarkable",
+      "started": "2026-06-30T20:30:00Z",
+      "completed": "2026-06-30T20:39:49Z",
+      "duration_seconds": 580,
+      "status": "complete",
+      "data_sources_used": ["rmapi"],
+      "data_source_failures": [],
+      "notes": "Correct push pattern established: copy PDF to persistent path (OneDrive/IES), then rmapi put --force '<path>' /Meetings. /tmp does not persist across osascript calls. File naming: human-readable with spaces, no dates, no underscores (e.g. 'GeniusSpark Meeting Prep.pdf')."
+    }
+  ],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 4,
+      "error_ids": ["err-20260630T192529-B8Z478", "err-20260630T192955-65R08L"],
+      "abort_reason": null
+    },
+    "structural": {
+      "expected_outputs_written": true,
+      "outputs_non_empty": true,
+      "assertions_checked": 2,
+      "assertions_passed": 2,
+      "assertion_results": [
+        {"assertion": "file-lands-in-correct-folder", "passed": true},
+        {"assertion": "correct-name-format", "passed": true}
+      ]
+    },
+    "grading": {
+      "last_graded": "2026-06-30T20:39:49Z",
+      "grade": "D",
+      "safety_grade": null,
+      "grader_notes": "Final output correct but required 8+ iterations and significant controller intervention. Pattern is now documented and repeatable. Grade reflects execution quality, not outcome."
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": ["cowork-instrumented", "multi-correction", "pattern-established", "remarkable"]
+}

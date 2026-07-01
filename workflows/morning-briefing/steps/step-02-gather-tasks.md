@@ -22,14 +22,14 @@ model: sonnet
 ## EXECUTION PROTOCOL
 
 **Agent:** Chief
-**Input:** Task management system (API), delegation tracker (markdown), quarterly objectives (markdown)
+**Input:** Consolidated task data from `data/omnifocus-unified.json` (pulled by boot step-01.2), delegation tracker (markdown), quarterly objectives (markdown)
 **Output:** Task and delegation data stored in working memory for step 04
 
 ---
 
 ## CONTEXT BOUNDARIES
 
-- The task management system is the task source. Do not pull tasks from calendar, email, or anywhere else.
+- Task data comes from consolidated file (pulled once in boot step-01.2), not from OmniFocus API
 - Delegation tracker is the single source for delegated items. Do not reconstruct from memory.
 - Quarterly objectives provide priority context — read but do not update.
 
@@ -39,23 +39,26 @@ model: sonnet
 
 ### Sequence
 
-1. **Pull inbox** via `mcp__omnifocus__get_inbox`.
-   - Returns all uncompleted, unassigned inbox tasks
+1. **Read inbox from consolidated file** `data/omnifocus-unified.json`.
+   - File contains all uncompleted, unassigned inbox tasks (pulled by boot step-01.2)
    - Capture: task name, note, creation date (age is a triage signal)
    - Count = `inbox_count`
+   - Do NOT call OmniFocus API directly.
 
-2. **Pull tasks due today** via `mcp__omnifocus__list_tasks`.
-   - Parameters: `status: due_soon`, `sortBy: dueDate`, `dueBefore: <end of today ISO>`
+2. **Extract tasks due today** from `data/omnifocus-unified.json`.
+   - Filter for `due_date == today`
    - Include project name for each task
-   - Alternatively: `mcp__omnifocus__get_forecast` covers today's due tasks + calendar in one call
+   - This data was pulled once in boot step-01.2
 
-3. **Pull overdue tasks** via `mcp__omnifocus__list_tasks`.
-   - Parameters: `status: overdue`, `sortBy: dueDate`
+3. **Extract overdue tasks** from `data/omnifocus-unified.json`.
+   - Filter for `due_date < today`
    - These are higher urgency than due-today — surface them first in the briefing
+   - Pulled once in boot step-01.2, no API call needed
 
-4. **Pull flagged tasks** via `mcp__omnifocus__list_tasks`.
-   - Parameters: `flagged: true`, `status: available`
+4. **Extract flagged tasks** from `data/omnifocus-unified.json`.
+   - Filter for `is_flagged == true`
    - These represent controller-designated priorities
+   - Pulled once in boot step-01.2
 
 5. **Read delegation tracker** at `{project-root}/delegations/tracker.md`.
    - Identify overdue delegations (due date < today)
