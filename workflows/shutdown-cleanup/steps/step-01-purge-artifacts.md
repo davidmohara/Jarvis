@@ -105,6 +105,7 @@ model: sonnet
    | `workflows/` | dir |
    | `Remarkable/` | dir |
    | `YPO/` | dir |
+   | `content/` | dir |
 
    **For any entry NOT in this list:**
    - Flag it immediately with: `[ROOT ALERT] Non-canonical entry found: {name}`
