@@ -1,19 +1,16 @@
-status: complete
-current-step: step-01-discover
-session-id: harper-2026-07-01-discovery-daily
-session-started: 2026-07-01T06:00:00Z
-completed-at: 2026-07-01T14:35:00Z
-original-request: scheduled-content-discovery
+status: failed
+current-step: step-02-approve
+session-id: harper-2026-07-01-approval-hourly
+session-started: 2026-07-01T14:35:00Z
+completed-at: 2026-07-01T14:35:47Z
+original-request: scheduled-content-approval
 outputs:
-  messages_read: 3
-  messages_routed_obsidian: 2
-  messages_routed_skip: 1
-  urls_found: 0
-  digests_found: 0
-  drafts_created: 0
-  obsidian_notes_created: 2
-  outcome: "2 Spotify podcast URLs routed to OBSIDIAN ROUTE. Notes written to Mind/Research/Talks/. No blog drafts created. David notified in #content."
-accumulated-context:
+  drafts_checked: 0
+  actions_taken: 0
+  pending_drafts: 3
+  error: "Network access failure — read.py unable to reach Slack API (403 Tunnel connection failed). Bot token may be invalid/expired or sandbox network is blocked."
+  outcome: "FAILURE: Content approval halted due to Slack API connectivity. 3 drafts remain pending in pending-drafts.json."
+previous-step-context:
   obsidian_notes:
     - path: "Mind/Research/Talks/Graded by Clients Cloned by Criminals - YPO Tech Network Podcast.md"
       episode: "Graded by Clients, Cloned by Criminals"
@@ -21,4 +18,3 @@ accumulated-context:
     - path: "Mind/Research/Talks/Your AI Agents Leak Data and Money - YPO Tech Network Podcast.md"
       episode: "Your AI Agents Leak Data and Money"
       url: "https://open.spotify.com/episode/5ahP7iZBDpO1ZNXwLUA1xS"
-  transcript_note: "Spotify not logged in — transcripts unavailable. Stats researched from primary sources with verified links."
