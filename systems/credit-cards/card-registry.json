@@ -184,6 +184,8 @@
       "name": "Atlas Visa Infinite",
       "issuer": "Atlas (Lead Bank)",
       "network": "Visa",
+      "status": "closed",
+      "closure_date": "2026-07-01",
       "annual_fee": 0,
       "annual_fee_note": "Special membership — no annual fee for David",
       "ynab_account_id": null,
@@ -191,36 +193,29 @@
       "foreign_transaction_fee": "none",
       "rewards_type": "points",
       "rewards_currency": "Atlas Points",
-      "points_balance": 11255,
-      "points_pending": 3289,
+      "points_balance_final": 11255,
+      "points_pending_final": 3289,
       "points_balance_as_of": "2026-02-14",
-      "points_this_year": 580,
+      "points_this_year_final": 580,
       "redemption_rates": {
         "statement_credit": { "rate": 0.007, "unit": "cpp" },
         "hotel_booking": { "rate": 0.01, "unit": "cpp" },
         "airline_transfer": { "rate": "variable", "note": "Transfer to preferred airline miles program" }
       },
       "rewards_structure": {
-        "top_category": { "rate": "dynamic", "note": "Atlas dynamically assigns top category. Was 3x dining through ~Aug 2025, dropped to 2x dining from Oct 2025 onward. Monitor for changes." },
-        "dining_current": { "rate": 2, "unit": "x", "confirmed": "2026-02-14", "note": "Verified from recent transactions: Bob's $694→1388pts, Jashan $400→801pts, Carbone $290→580pts" },
-        "dining_previous": { "rate": 3, "unit": "x", "period": "through ~Aug 2025", "note": "Shinsei $358→1074pts, Chimayo $299→897pts, Jinbeh $324→971pts" },
-        "flights": { "rate": 1, "unit": "x", "note": "AA flights May 2025: $179→179pts each" },
+        "dining_at_closure": { "rate": 2, "unit": "x", "confirmed": "2026-02-14", "note": "Final rate was 2x dining (was 3x through Aug 2025, dropped Oct 2025)" },
+        "flights": { "rate": 1, "unit": "x" },
         "everything_else": { "rate": 1, "unit": "x" }
       },
-      "benefits": {
+      "benefits_at_closure": {
         "priority_pass": "1,300+ airport lounges",
-        "flight_cancellation": "Up to $600/yr ($100/claim, 6 claims)",
-        "concierge": "Text/call/video — restaurants, events, travel booking",
+        "flight_cancellation": "Up to $600/yr",
+        "concierge": "Restaurant, events, travel booking",
         "one_medical": "Included",
         "clear": "Included",
-        "blade_airport": "$100 off every flight + companion pass",
         "no_foreign_transaction_fee": true
       },
-      "credits": {
-        "future_fitness": { "amount": 300, "period": "year", "reset": "calendar_year", "details": "FUTURE fitness training membership", "status": "unknown" },
-        "wander": { "amount": 250, "period": "per_reservation", "details": "$250 off per Wander reservation via concierge", "status": "unknown" },
-        "flight_cancellation": { "amount": 600, "period": "year", "details": "$100/claim, up to 6 claims", "status": "unknown" }
-      }
+      "closure_notes": "Card closed 2026-07-01. Final points balance: 11,255 available + 3,289 pending. Dining 2x benefit lost. Route dining now to Chase Sapphire (2x, $0 fee) or Discover Q3 (5% restaurants through June 30, then rotates)."
     }
   ]
 }

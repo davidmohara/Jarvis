@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-01",
+  "last_updated": "2026-07-01",
   "tracking_year": 2026,
   "benefits_usage": {
     "amex-plat": {
@@ -19,24 +19,22 @@
       "avis_budget": { "total": 120, "used": 0, "remaining": 120, "resets": "calendar_year", "usage_log": [] }
     },
     "atlas-visa": {
-      "future_fitness": { "total": 300, "used": 0, "remaining": 300, "resets": "calendar_year", "usage_log": [] },
-      "flight_cancellation": { "total": 600, "used": 0, "remaining": 600, "resets": "calendar_year", "claims_used": 0, "max_claims": 6, "usage_log": [] },
+      "status": "closed",
+      "closure_date": "2026-07-01",
+      "future_fitness": { "total": 300, "used": 0, "remaining": 300, "resets": "calendar_year", "usage_log": [], "status": "forfeited_on_closure" },
+      "flight_cancellation": { "total": 600, "used": 0, "remaining": 600, "resets": "calendar_year", "claims_used": 0, "max_claims": 6, "usage_log": [], "status": "forfeited_on_closure" },
       "rewards_summary": {
         "available_points": 11255,
         "pending_points": 3289,
         "points_ytd_2026": 580,
+        "total_points_accumulated": 14544,
         "as_of": "2026-02-14",
         "current_dining_rate": "2x (was 3x through Aug 2025)",
-        "best_redemption": "hotel_booking at 1cpp ($112.55 value) or airline transfer",
+        "best_redemption_value": "hotel_booking at 1cpp ($112.55 value) or airline transfer (variable rate)",
         "statement_credit_value": "$78.79 at 0.7cpp",
-        "total_spend_all_time": "~$7,500 (since Apr 2025)",
+        "total_spend_all_time": "~$7,500 (Apr 2025 - Jul 2026)",
         "total_dining_spend_all_time": "~$6,200",
-        "notable_non_dining": [
-          { "payee": "New World Trading", "total": 1495, "rate": "1x", "note": "Cuban cigars — occasional purchases. Not optimizable." },
-          { "payee": "American Airlines (2 flights)", "total": 358, "rate": "1x" },
-          { "payee": "Crest Cadillac", "total": 525.79, "rate": "1x" }
-        ],
-        "membership_fee": { "charged": "2025-04-11", "refunded": "2025-04-21", "amount": 1000, "note": "Special membership — fee charged and refunded" },
+        "closure_notes": "Card closed July 1, 2026. Final balances: 11,255 available points + 3,289 pending points. Total 14,544 points earned since account open (April 2025). Dining 2x cash advantage lost — now must route to Chase Sapphire (2x, $0 fee) or Discover rotating categories.",
         "payment_method": "Chase ····7817"
       }
     }
@@ -274,6 +272,7 @@
     "lesson": "Quarterly credits need calendar reminders 2 weeks before expiry. Monthly review alone is insufficient — need mid-quarter nudges."
   },
   "monthly_review_log": [
+    { "date": "2026-07-01", "type": "comprehensive_site_walkthrough", "status": "COMPLETE", "findings": "CRITICAL: Q2 Resy ($100) & Lululemon ($75) on Amex Plat EXPIRED TODAY (6/30). H1 Hotel credit ($300) EXPIRED TODAY. Total Q1+Q2 losses: $475. Amex Platinum (21001): 23 offers enrolled, Q3 Resy/Lululemon ($100/$75) now available July-Sept, H2 Hotel ($300) available July-Dec. 7 offers expiring 7/1-7/14: Bad Birdie (7/1-EXPIRED), TileBar (7/2), IXL Learning (7/4), Liquid I.V. (7/6), Cozy Earth (7/14), ShipSticks (7/14), Collars & Co (7/14). YTD savings: $90. Amex BCP (73008): 23 offers enrolled (identical to Platinum). Same 7 critical expirations 7/1-7/14. Digital Entertainment $30.32 used YTD. YTD savings: $90. Citi AA Exec (9598): ~12 offers enrolled (Credit & Lending 6, Other 2, Citi Product 1, Dining & Entertainment 1). Portal verified offers menu structure intact. YTD savings: $34.72. Discover it (8369): PORTAL WALKTHROUGH COMPLETE — Q2 (Apr-Jun): Restaurants + Home Improvement (5% cap $1,500/qtr, activated, portal-confirmed 6/1, only $3.79 earned of $75 potential). Q3 (Jul-Sep): Gas Stations, Transportation & Drug Stores (5% cap $1,500/qtr, activated 7/1, portal-confirmed, status 'You're Earning 5%'). YTD earnings as of 6/23: $218.28 total ($89.49 from 1%, $78.79 from 5%, $50 from base rate). Strategy: Max Q3 gas/transportation spend through Sept 30. Chase Sapphire (0209): PORTAL WALKTHROUGH COMPLETE — 122 total offers available (updated from 134 as of 7/1), 1 added, $6.39 YTD savings. Offers page accessible and sortable by category (Shopping, Groceries, Home & pet, Entertainment, Health & beauty, Travel, Food & drink, Gas & auto, Other). Portfolio YTD savings: $263.11 (updated with Discover YTD). ACTION ITEMS: (1) Activate Resy/Lululemon spending immediately in Q3; (2) Max Discover Q3 gas/transportation through Sept 30; (3) No more Q-end credit losses." },
     { "date": "2026-06-01", "type": "site_walkthrough", "status": "COMPLETE", "findings": "BCP (73008): Added Topgolf ($15, exp 6/30), Sunbasket ($90, exp 8/4), Wine Insiders ($60, exp 9/7), Sherwin-Williams ($20, exp 9/30), Walmart+ Annual ($49, exp 11/14). Skipped Sling TV (no YNAB confirmation available). Platinum (21001): Added Fontainebleau Las Vegas ($300, exp 8/31), Hotels.com ($100, exp 8/31), ARMRA ($25, exp 7/14). Citizen Watch panel unresponsive — may be single-enrollment locked to Citi. Citi AA Exec (9598): Enrolled Lyft 10% (29d), Hertz $75 (29d). Savings to date $34.72. Discover (8369): Q2 confirmed active (Restaurants + Home Improvement, $3.79/$75 earned). Q3 ACTIVATED early — Gas Stations, Transportation, Drug Stores starting July 1." },
     { "date": "2026-05-01", "type": "site_walkthrough", "status": "COMPLETE", "findings": "Amex Platinum: Airline Fee Credit $85 used/$115 remaining (was $0 — surprise). Digital Entertainment $30.32 YTD/$25 May credit available. MR points 415,951 (down from 558K — ~143K redeemed). $75K threshold CONFIRMED ACHIEVED — Centurion guest access + unlimited Delta Sky Club both active through Jan 2028. Resy Q2, lululemon Q2, Hotel H1 all still $0. Citi AA Exec: Balance $14,654, miles 774,255 (up 41K), FICO 847. Lyft 10% offer (60d) showing on dashboard — not yet added. Grubhub/Lyft/Avis monthly credits still unverifiable via web portal. Chase Sapphire: 134 offers, 2 added (Starlink unused, SeatGeek expires May 15). VantageScore 809 (up from 753). Payment due May 7. 11 high-value new offers identified, none added per David's direction." },
     { "date": "2026-04-01", "type": "scheduled_automated", "findings": "Q1 Resy ($100) and lululemon ($75) expired unused. $175 lost. Discover Q2 active (Restaurants + Home Improvement). Amex $75K threshold unreachable at current pace. Total offer savings: $481.11 across all cards. 14 action items generated." },
