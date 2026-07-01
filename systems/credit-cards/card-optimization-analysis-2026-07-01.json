@@ -1,0 +1,482 @@
+{
+  "analysis_date": "2026-07-01",
+  "date_range": "2026-04-02 to 2026-07-01",
+  "top_10_vendors_by_spend": [
+    {
+      "rank": 1,
+      "payee": "Charles Schwab",
+      "spend": 475000.0,
+      "transactions": 5,
+      "avg_transaction": 95000.0,
+      "card_used": "Chase Checking",
+      "is_recurring": true,
+      "categories": [
+        "Car Fund",
+        "Inflow: Ready to Assign",
+        "Investment"
+      ]
+    },
+    {
+      "rank": 2,
+      "payee": "Rydex Monthly Nasdaq",
+      "spend": 186185.8,
+      "transactions": 42,
+      "avg_transaction": 4432.99,
+      "card_used": "Scarecrow",
+      "is_recurring": true,
+      "categories": [
+        "Uncategorized"
+      ]
+    },
+    {
+      "rank": 3,
+      "payee": "Farmers Insurance",
+      "spend": 103233.6,
+      "transactions": 2,
+      "avg_transaction": 51616.8,
+      "card_used": "Citi",
+      "is_recurring": false,
+      "categories": [
+        "Homeowner's Insurance"
+      ]
+    },
+    {
+      "rank": 4,
+      "payee": "IMPROVING ENTERP PAYROLL 6280XXXXX613K1V PPD ID: 9111111101",
+      "spend": 49421.2,
+      "transactions": 1,
+      "avg_transaction": 49421.2,
+      "card_used": "Chase Checking",
+      "is_recurring": false,
+      "categories": [
+        "Inflow: Ready to Assign"
+      ]
+    },
+    {
+      "rank": 5,
+      "payee": "IMPROVING ENTERP PAYROLL 9429XXXXX897K1V PPD ID: 9111111101",
+      "spend": 49421.1,
+      "transactions": 1,
+      "avg_transaction": 49421.1,
+      "card_used": "Chase Checking",
+      "is_recurring": false,
+      "categories": [
+        "Inflow: Ready to Assign"
+      ]
+    },
+    {
+      "rank": 6,
+      "payee": "Online Transfer from SAV ...6375 transaction#: 29287031091",
+      "spend": 44973.0,
+      "transactions": 1,
+      "avg_transaction": 44973.0,
+      "card_used": "Chase Checking",
+      "is_recurring": false,
+      "categories": [
+        "Inflow: Ready to Assign"
+      ]
+    },
+    {
+      "rank": 7,
+      "payee": "IMPROVING ENTERP PAYROLL 3200XXXXX069K1V PPD ID: 9111111101",
+      "spend": 42088.3,
+      "transactions": 1,
+      "avg_transaction": 42088.3,
+      "card_used": "Chase Checking",
+      "is_recurring": false,
+      "categories": [
+        "Inflow: Ready to Assign"
+      ]
+    },
+    {
+      "rank": 8,
+      "payee": "IMPROVING ENTERP PAYROLL 9389XXXXX558K1V PPD ID: 9111111101",
+      "spend": 42088.2,
+      "transactions": 1,
+      "avg_transaction": 42088.2,
+      "card_used": "Chase Checking",
+      "is_recurring": false,
+      "categories": [
+        "Inflow: Ready to Assign"
+      ]
+    },
+    {
+      "rank": 9,
+      "payee": "IMPROVING ENTERP PAYROLL 0002XXXXX021K1V PPD ID: 9111111101",
+      "spend": 42088.1,
+      "transactions": 1,
+      "avg_transaction": 42088.1,
+      "card_used": "Chase Checking",
+      "is_recurring": false,
+      "categories": [
+        "Inflow: Ready to Assign"
+      ]
+    },
+    {
+      "rank": 10,
+      "payee": "MagdaleSM-260415 Payroll OHaraS PPD ID: 1731681659",
+      "spend": 40984.3,
+      "transactions": 1,
+      "avg_transaction": 40984.3,
+      "card_used": "Everyday Entries",
+      "is_recurring": false,
+      "categories": [
+        "Inflow: Ready to Assign"
+      ]
+    }
+  ],
+  "top_20_vendors_suboptimal": [
+    {
+      "payee": "Charles Schwab",
+      "card_used": "Chase Checking",
+      "optimal_card": "citi-aa-exec",
+      "category": "Car Fund",
+      "total_spend": 475000.0,
+      "transaction_count": 5,
+      "is_recurring": true
+    },
+    {
+      "payee": "Rydex Monthly Nasdaq",
+      "card_used": "Scarecrow",
+      "optimal_card": "citi-aa-exec",
+      "category": "Uncategorized",
+      "total_spend": 186185.8,
+      "transaction_count": 42,
+      "is_recurring": true
+    },
+    {
+      "payee": "Farmers Insurance",
+      "card_used": "Citi",
+      "optimal_card": "citi-aa-exec",
+      "category": "Homeowner's Insurance",
+      "total_spend": 103233.6,
+      "transaction_count": 2,
+      "is_recurring": false
+    },
+    {
+      "payee": "IMPROVING ENTERP PAYROLL 6280XXXXX613K1V PPD ID: 9111111101",
+      "card_used": "Chase Checking",
+      "optimal_card": "citi-aa-exec",
+      "category": "Inflow: Ready to Assign",
+      "total_spend": 49421.2,
+      "transaction_count": 1,
+      "is_recurring": false
+    },
+    {
+      "payee": "IMPROVING ENTERP PAYROLL 9429XXXXX897K1V PPD ID: 9111111101",
+      "card_used": "Chase Checking",
+      "optimal_card": "citi-aa-exec",
+      "category": "Inflow: Ready to Assign",
+      "total_spend": 49421.1,
+      "transaction_count": 1,
+      "is_recurring": false
+    },
+    {
+      "payee": "Online Transfer from SAV ...6375 transaction#: 29287031091",
+      "card_used": "Chase Checking",
+      "optimal_card": "citi-aa-exec",
+      "category": "Inflow: Ready to Assign",
+      "total_spend": 44973.0,
+      "transaction_count": 1,
+      "is_recurring": false
+    },
+    {
+      "payee": "IMPROVING ENTERP PAYROLL 3200XXXXX069K1V PPD ID: 9111111101",
+      "card_used": "Chase Checking",
+      "optimal_card": "citi-aa-exec",
+      "category": "Inflow: Ready to Assign",
+      "total_spend": 42088.3,
+      "transaction_count": 1,
+      "is_recurring": false
+    },
+    {
+      "payee": "IMPROVING ENTERP PAYROLL 9389XXXXX558K1V PPD ID: 9111111101",
+      "card_used": "Chase Checking",
+      "optimal_card": "citi-aa-exec",
+      "category": "Inflow: Ready to Assign",
+      "total_spend": 42088.2,
+      "transaction_count": 1,
+      "is_recurring": false
+    },
+    {
+      "payee": "IMPROVING ENTERP PAYROLL 0002XXXXX021K1V PPD ID: 9111111101",
+      "card_used": "Chase Checking",
+      "optimal_card": "citi-aa-exec",
+      "category": "Inflow: Ready to Assign",
+      "total_spend": 42088.1,
+      "transaction_count": 1,
+      "is_recurring": false
+    },
+    {
+      "payee": "MagdaleSM-260415 Payroll OHaraS PPD ID: 1731681659",
+      "card_used": "Everyday Entries",
+      "optimal_card": "citi-aa-exec",
+      "category": "Inflow: Ready to Assign",
+      "total_spend": 40984.3,
+      "transaction_count": 1,
+      "is_recurring": false
+    },
+    {
+      "payee": "IRS Treasury 310 Tax",
+      "card_used": "Chase Checking",
+      "optimal_card": "citi-aa-exec",
+      "category": "Inflow: Ready to Assign",
+      "total_spend": 35120.0,
+      "transaction_count": 1,
+      "is_recurring": false
+    },
+    {
+      "payee": "MagdaleSM-260430 Payroll OHaraS PPD ID: 1731681659",
+      "card_used": "Everyday Entries",
+      "optimal_card": "citi-aa-exec",
+      "category": "Inflow: Ready to Assign",
+      "total_spend": 33984.5,
+      "transaction_count": 1,
+      "is_recurring": false
+    },
+    {
+      "payee": "MagdaleSM-260529 Payroll OHaraS PPD ID: 1731681659",
+      "card_used": "Everyday Entries",
+      "optimal_card": "citi-aa-exec",
+      "category": "Inflow: Ready to Assign",
+      "total_spend": 33984.4,
+      "transaction_count": 1,
+      "is_recurring": false
+    },
+    {
+      "payee": "MagdaleSM-260515 Payroll OHaraS PPD ID: 1731681659",
+      "card_used": "Everyday Entries",
+      "optimal_card": "citi-aa-exec",
+      "category": "Inflow: Ready to Assign",
+      "total_spend": 33984.3,
+      "transaction_count": 1,
+      "is_recurring": false
+    },
+    {
+      "payee": "MagdaleSM-260615 Payroll OHaraS PPD ID: 1731681659",
+      "card_used": "Everyday Entries",
+      "optimal_card": "citi-aa-exec",
+      "category": "Inflow: Ready to Assign",
+      "total_spend": 33984.3,
+      "transaction_count": 1,
+      "is_recurring": false
+    },
+    {
+      "payee": "MagdaleSM-260630 Payroll OHaraS PPD ID: 1731681659",
+      "card_used": "Everyday Entries",
+      "optimal_card": "citi-aa-exec",
+      "category": "Inflow: Ready to Assign",
+      "total_spend": 33984.3,
+      "transaction_count": 1,
+      "is_recurring": false
+    },
+    {
+      "payee": "Online Transfer from CHK ...3537 transaction#: 29024742575",
+      "card_used": "Chase Checking",
+      "optimal_card": "citi-aa-exec",
+      "category": "Inflow: Ready to Assign",
+      "total_spend": 30000.0,
+      "transaction_count": 1,
+      "is_recurring": false
+    },
+    {
+      "payee": "Online Transfer from CHK ...3537 transaction#: 29431195636",
+      "card_used": "Chase Checking",
+      "optimal_card": "citi-aa-exec",
+      "category": "Inflow: Ready to Assign",
+      "total_spend": 30000.0,
+      "transaction_count": 1,
+      "is_recurring": false
+    },
+    {
+      "payee": "Online Transfer from CHK ...3537 transaction#: 29279439159",
+      "card_used": "Chase Checking",
+      "optimal_card": "citi-aa-exec",
+      "category": "Inflow: Ready to Assign",
+      "total_spend": 21000.0,
+      "transaction_count": 1,
+      "is_recurring": false
+    },
+    {
+      "payee": "Online Transfer from SAV ...6375 transaction#: 28933765462",
+      "card_used": "Chase Checking",
+      "optimal_card": "citi-aa-exec",
+      "category": "Inflow: Ready to Assign",
+      "total_spend": 20000.0,
+      "transaction_count": 1,
+      "is_recurring": false
+    }
+  ],
+  "category_spend_analysis": [
+    {
+      "category": "Inflow: Ready to Assign",
+      "total_spend": 815395.3,
+      "transactions": 42,
+      "primary_card_used": "Chase Checking",
+      "optimal_card": "citi-aa-exec",
+      "card_match": false
+    },
+    {
+      "category": "Investment",
+      "total_spend": 120000.0,
+      "transactions": 1,
+      "primary_card_used": "Chase Checking",
+      "optimal_card": "citi-aa-exec",
+      "card_match": false
+    },
+    {
+      "category": "Homeowner's Insurance",
+      "total_spend": 103233.6,
+      "transactions": 2,
+      "primary_card_used": "Citi",
+      "optimal_card": "citi-aa-exec",
+      "card_match": false
+    },
+    {
+      "category": "Internet",
+      "total_spend": -30.0,
+      "transactions": 3,
+      "primary_card_used": "Amex - Blue",
+      "optimal_card": "citi-aa-exec",
+      "card_match": false
+    },
+    {
+      "category": "Car Maintenance",
+      "total_spend": -1455.7,
+      "transactions": 3,
+      "primary_card_used": "Amex - Blue",
+      "optimal_card": "citi-aa-exec",
+      "card_match": false
+    },
+    {
+      "category": "Memberships",
+      "total_spend": -1741.4,
+      "transactions": 4,
+      "primary_card_used": "Citi",
+      "optimal_card": "citi-aa-exec",
+      "card_match": false
+    },
+    {
+      "category": "Business Expense",
+      "total_spend": -1931.2,
+      "transactions": 4,
+      "primary_card_used": "Citi",
+      "optimal_card": "citi-aa-exec",
+      "card_match": false
+    },
+    {
+      "category": "Golf",
+      "total_spend": -2169.7,
+      "transactions": 7,
+      "primary_card_used": "Citi",
+      "optimal_card": "citi-aa-exec",
+      "card_match": false
+    },
+    {
+      "category": "Kid's Activities",
+      "total_spend": -2238.3,
+      "transactions": 23,
+      "primary_card_used": "Chase Checking",
+      "optimal_card": "citi-aa-exec",
+      "card_match": false
+    },
+    {
+      "category": "Reimbursable Items",
+      "total_spend": -2885.0,
+      "transactions": 11,
+      "primary_card_used": "Chase Checking",
+      "optimal_card": "citi-aa-exec",
+      "card_match": false
+    },
+    {
+      "category": "Streaming Services",
+      "total_spend": -4009.8,
+      "transactions": 3,
+      "primary_card_used": "Amex - Blue",
+      "optimal_card": "citi-aa-exec",
+      "card_match": false
+    },
+    {
+      "category": "Restaurants",
+      "total_spend": -4157.9,
+      "transactions": 11,
+      "primary_card_used": "Citi",
+      "optimal_card": "citi-aa-exec",
+      "card_match": false
+    },
+    {
+      "category": "Personal Care",
+      "total_spend": -4672.8,
+      "transactions": 8,
+      "primary_card_used": "Citi",
+      "optimal_card": "citi-aa-exec",
+      "card_match": false
+    },
+    {
+      "category": "Erica",
+      "total_spend": -5800.0,
+      "transactions": 2,
+      "primary_card_used": "Chase Checking",
+      "optimal_card": "citi-aa-exec",
+      "card_match": false
+    },
+    {
+      "category": "Subscription",
+      "total_spend": -6376.2,
+      "transactions": 16,
+      "primary_card_used": "Amex - Blue",
+      "optimal_card": "citi-aa-exec",
+      "card_match": false
+    },
+    {
+      "category": "Tolls",
+      "total_spend": -6400.0,
+      "transactions": 15,
+      "primary_card_used": "Citi",
+      "optimal_card": "citi-aa-exec",
+      "card_match": false
+    },
+    {
+      "category": "Medical",
+      "total_spend": -6873.5,
+      "transactions": 22,
+      "primary_card_used": "HSA",
+      "optimal_card": "citi-aa-exec",
+      "card_match": false
+    },
+    {
+      "category": "HOA",
+      "total_spend": -6990.0,
+      "transactions": 3,
+      "primary_card_used": "Chase Checking",
+      "optimal_card": "citi-aa-exec",
+      "card_match": false
+    },
+    {
+      "category": "Home Maintenance",
+      "total_spend": -7874.8,
+      "transactions": 5,
+      "primary_card_used": "Amex - Blue",
+      "optimal_card": "citi-aa-exec",
+      "card_match": false
+    },
+    {
+      "category": "Charitable",
+      "total_spend": -8495.0,
+      "transactions": 13,
+      "primary_card_used": "Chase Checking",
+      "optimal_card": "citi-aa-exec",
+      "card_match": false
+    }
+  ],
+  "summary_stats": {
+    "total_transactions": 618,
+    "total_spend_cents": -2160140,
+    "total_spend": -21601.4,
+    "avg_transaction_cents": -3496,
+    "avg_transaction": -34.96,
+    "pct_suboptimal_usage": 38.08,
+    "suboptimal_vendors_count": 91,
+    "total_vendors": 239
+  }
+}

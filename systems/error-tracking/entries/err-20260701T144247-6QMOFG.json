@@ -1,0 +1,15 @@
+{
+  "id": "err-20260701T144247-6QMOFG",
+  "timestamp": "2026-07-01T14:42:47Z",
+  "session": "2026-07-01",
+  "source": "explicit",
+  "agent": "Jarvis",
+  "category": "routing-error",
+  "description": "Failed to invoke agents correctly during credit card benefits review. When encountering YNAB data gap mid-workflow, asked user which agent to use instead of consulting routing.md. Did not proactively read agents/routing.md or agents/master.md to understand delegation rules. Operated passively asking \"Should I check if YNAB is available?\" instead of autonomously determining correct agent and invoking it.",
+  "correction": "Should have read agents/routing.md at workflow start to identify which agent handles credit card optimization with YNAB analysis. When YNAB gap appeared, should have immediately invoked that agent rather than pausing for user direction. User instruction was explicit: 'Stop making me tell you which agents to invoke, you have routing guidance.'",
+  "failure_mode": "protocol-skip + context-blindness",
+  "systemic_fix": "Before any multi-step task, read agents/routing.md and agents/master.md. Understand which agents own which domains. Delegate proactively based on routing rules, not user prompts. Never ask user 'which agent should I use' — that's a routing decision, not a user decision.",
+  "fix_status": "applied",
+  "severity": "major",
+  "related_entries": []
+}
