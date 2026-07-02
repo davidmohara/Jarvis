@@ -24,9 +24,9 @@ related_people:
 - tim-rayburn
   promoted: true
 salience:
-  score: 10
-  last-promoted-check: 2026-06-30
   promoted: true
+  score: 10
+  last-promoted-check: 2026-07-02
 ---
 ## Boot Data Sources
 

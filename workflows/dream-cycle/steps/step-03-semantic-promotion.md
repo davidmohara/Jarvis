@@ -1,22 +1,30 @@
 ---
 status: complete
-started-at: 2026-06-29T08:11:30Z
-completed-at: 2026-06-29T08:12:30Z
+started-at: 2026-07-02T03:13:30Z
+completed-at: 2026-07-02T03:15:00Z
 outputs:
-  candidates_count: 3
-  clusters_found: 3
-  semantic_created: 0
-  semantic_updated: 3
-  promoted_entries: 3
-  promotion_note: "Light cycle. 3 freshly-archived working files promoted; 3 evidence appends to existing operational entries (daily-review, chief, dream-summary). No new semantic entries created."
+  candidates_count: 5
+  clusters_found: 22
+  semantic_created: 1
+  semantic_updated: 21
+  promoted_entries: 5
+  promotion_note: "Light-medium cycle. 5 freshly-archived episodic files (co-sell-pipeline, daily-review, 2x dream-summary, revenue-tracker) grouped into 22 tag-clusters. 1 new semantic entry (semantic-promotion pattern in domain/pattern) + 21 evidence appends across operational, pattern, and domain-knowledge entries."
   cluster_actions:
-    - {tag: daily-review, domain: operational, action: update}
-    - {tag: chief, domain: operational, action: update}
-    - {tag: dream-summary, domain: operational, action: update}
-  error_categories_30d: "process-skip:12, data-accuracy:8, routing-error:8, format-violation:7, tool-misuse:6, hallucination:5, missed-context:5, assumption-error:4, data-interpretation:4"
-  error_total_30d: 78
-  lessons_appended: 0
-  lessons_note: "Only the unknown/unknown bucket newly crossed threshold; rolled back as non-actionable. All other threshold-breaching combos were already in LESSONS.md from prior cycles."
+    - {tag: omnifocus, domain: operational, size: 5, action: update}
+    - {tag: briefing, domain: operational, size: 2, action: update}
+    - {tag: chase, domain: operational, size: 2, action: update}
+    - {tag: chief, domain: operational, size: 2, action: update}
+    - {tag: dream-cycle, domain: operational, size: 2, action: update}
+    - {tag: dream-summary, domain: operational, size: 2, action: update}
+    - {tag: error-patterns, domain: pattern, size: 2, action: update}
+    - {tag: jarvis, domain: operational, size: 2, action: update}
+    - {tag: one-texas, domain: domain-knowledge, size: 2, action: update}
+    - {tag: revenue, domain: operational, size: 2, action: update}
+    - {tag: semantic-promotion, domain: pattern, size: 2, action: create}
+  error_categories_30d: "process-skip:13, routing-error:12, tool-misuse:11, format-violation:10, data-accuracy:10, missed-context:6, assumption-error:5, hallucination:5, data-interpretation:4"
+  error_total_30d: 98
+  lessons_appended: 1
+  lessons_note: "1 new lesson appended (data-interpretation, 4 occurrences over 30 days — newly crossed threshold, not previously in LESSONS.md). All other threshold-breaching combos already present."
 ---
 
 <!-- system:start -->

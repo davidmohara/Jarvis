@@ -8,9 +8,9 @@ expires: 2026-06-29
 status: archived
 context: "Dream cycle nightly run — 2026-06-28"
 salience:
-  score: 10
-  last-promoted-check: 2026-06-30
   promoted: true
+  score: 10
+  last-promoted-check: 2026-07-02
 date: 2026-06-28
 source_file: memory/working/dream-summary-2026-06-28.md
 tags:

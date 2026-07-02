@@ -4,6 +4,9 @@ task_id: "galen-health-review"
 created: 2026-05-25T20:04:00Z
 archived-from: memory/working/2026-05-25-200000-galen-health-review.md
 context: "Galen health status review — WHOOP 30-day summary, DEXA scan, bloodwork plan"
+salience:
+  score: 0
+  last-promoted-check: 2026-07-02
 ---
 
 # Galen Health Review — 2026-05-25

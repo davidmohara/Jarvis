@@ -7,7 +7,8 @@ synthesized-from:
   - memory/episodic/shutdown-cleanup-2026-06-16-071444.md
   - memory/episodic/2026-04-20-rock4-pipeline-weekly.md
   - memory/episodic/dream-summary-2026-06-18.md
-last-updated: 2026-06-24
+  - memory/episodic/co-sell-pipeline-20260629-001245.md
+last-updated: 2026-07-02
 tags:
   - co-sell
 agent-source: dream-cycle
@@ -20,10 +21,14 @@ confidence: low
 Episodic memory shows 4 entries clustered under the `co-sell` tag during the 30-day window ending 2026-06-24. These co-occurring entries indicate a recurring operational, relational, or domain pattern worth elevating to semantic memory for cross-session reuse.
 
 ## Evidence
+
+- 2026-07-02 | co-sell-pipeline-20260629-001245.md | tags: pipeline-review, chase, omnifocus, one-texas, pipeline, co-sell | score: 10
 - memory/episodic/2026-04-20-scorecard-session.md (score 9)
 - memory/episodic/shutdown-cleanup-2026-06-16-071444.md (score 10)
 - memory/episodic/2026-04-20-rock4-pipeline-weekly.md (score 9)
 - memory/episodic/dream-summary-2026-06-18.md (score 10)
 
 ## Implications
+
+- 2026-07-02: 1 entries reinforce relevance of `co-sell` cluster. Watch for further co-occurrence.
 - 2026-06-24: Initial pattern detection. Confidence will rise with additional evidence.

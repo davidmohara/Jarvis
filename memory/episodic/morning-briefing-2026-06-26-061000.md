@@ -8,9 +8,9 @@ expires: 2026-06-28T06:10:00
 status: archived
 context: "Morning briefing — 2026-06-26"
 salience:
-  score: 10
-  last-promoted-check: 2026-06-30
   promoted: true
+  score: 10
+  last-promoted-check: 2026-07-02
 date: 2026-06-26
 source_file: memory/working/morning-briefing-2026-06-26-061000.md
 tags:

@@ -5,7 +5,7 @@ tags:
 - morning-briefing
 confidence: high
 created: '2026-06-18'
-last-updated: 2026-06-30
+last-updated: 2026-07-02
 synthesized-from:
   - memory/episodic/2026-05-04-morning-briefing-automated.md
   - memory/episodic/2026-05-04-morning-briefing.md
@@ -20,6 +20,7 @@ synthesized-from:
 - 2026-04-20-afternoon-boot.md
 - 2026-05-07-morning-briefing-cabo.md
 - 2026-04-20-morning-briefing.md
+  - memory/episodic/dream-summary-2026-06-30.md
 ---
 ## Pattern Summary
 
@@ -27,6 +28,8 @@ Recurring `morning-briefing` activity observed in episodic memory.
 
 ## Evidence
 
+
+- 2026-07-02 | dream-summary-2026-06-30.md | tags: dream-summary, jarvis, briefing, morning-briefing, omnifocus, revenue | score: 10
 ### 2026-06-18 run
 - [2026-05-04] `2026-05-04-morning-briefing-automated.md` (score:10)
 - [2026-05-04] `2026-05-04-morning-briefing.md` (score:10)
@@ -67,5 +70,7 @@ Recurring `morning-briefing` activity observed in episodic memory.
 
 ## Implications
 
+
+- 2026-07-02: 1 entries reinforce relevance of `morning-briefing` cluster. Watch for further co-occurrence.
 _TBD — pattern just emerged. Watch for stability over the next 2-3 dream cycles before drawing conclusions._
 - 2026-06-30: 7 new episodic entries reinforce this pattern (cluster anchor: morning-briefing).

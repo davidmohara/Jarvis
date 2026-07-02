@@ -1,23 +1,29 @@
 ---
 status: complete
-started-at: 2026-06-29T08:09:40Z
-completed-at: 2026-06-29T08:10:30Z
+started-at: 2026-07-02T03:09:00Z
+completed-at: 2026-07-02T03:12:00Z
 outputs:
-  working_archived: 3
+  working_archived: 5
   working_deleted: 0
-  working_skipped: 89
+  working_skipped: 7
   working_stranded: 0
   enrichment_method: "heuristic (LLM unavailable in sandbox)"
   archived_files:
-    - daily-review-2026-06-26-211000.md
-    - dream-summary-2026-06-27.md
-    - morning-briefing-2026-06-26-061000.md
-  skipped_already_archived_count: 72
-  skipped_unparseable_count: 13
-  skipped_not_expired_count: 3
-  skipped_not_active_count: 1
-  skipped_not_active:
-    - 2026-06-19-000000-golf-booking-confirmed.md (status: completed)
+    - co-sell-pipeline-20260629-001245.md
+    - daily-review-2026-06-29-211155.md
+    - dream-summary-2026-06-29.md
+    - dream-summary-2026-06-30.md
+    - revenue-tracker-2026-06-29-000800.md
+  skipped_not_expired_count: 6
+  skipped_no_status_count: 1
+  skipped_not_expired:
+    - 2026-06-19-session.md (no status; expires 2026-07-03)
+    - 2026-07-01-153433-harper-watchtower-content-digest-post.md
+    - daily-review-2026-06-30-211200.md
+    - daily-review-2026-07-01-000000.md
+    - daily-review-2026-07-01-tomorrow.md
+    - morning-briefing-2026-07-01-085000.md
+    - shutdown-cleanup-2026-07-01-170500.md
 ---
 
 <!-- system:start -->

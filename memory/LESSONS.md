@@ -323,3 +323,10 @@ Category: unknown
 Pattern: Recurring unknown errors with failure_mode=unknown.
 Fix: Review recent error-tracking entries with this signature; codify guardrail in the relevant agent/skill.
 Status: active
+
+## 2026-07-02 — Data Interpretation pattern
+Detected: 4 occurrences over 30 days
+Category: data-interpretation
+Pattern: Recurring `data-interpretation` errors observed in the 30-day window ending 2026-07-02.
+Fix: Investigate root cause; add guardrail or checklist entry to the responsible agent/skill.
+Status: active

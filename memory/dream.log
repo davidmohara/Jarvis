@@ -1437,3 +1437,21 @@ errors: 0
 summary: "Heavier cycle. Step-01 archived 1 newly-expired working file (system-eval-2026-06-27) via heuristic enrichment; 72 already-archived stragglers, 13 unparseable, 5 not-expired, 1 not-active. Step-02 scored 147 episodic entries; window 2026-05-31 -> 2026-06-30 with 63 in-window; distribution 0:13, 2:2, 3:4, 4:1, 5:4, 6:3, 7:3, 8:3, 10:114 — sharp recovery from yesterday's 0:147 false zero (root cause: regex parser couldn't read block-style YAML tag lists; fixed by line-walking the lists field). Step-03 promotion: 132 candidates -> 17 tag-clusters -> 6 new entries (dream-summary, dream-cycle, revenue, daily-review, omnifocus + 1) + 11 evidence appends. Error scan 30d: 84 entries (process-skip:10, routing-error:7, format-violation:6 lead); 8 threshold-breaching combos all already in LESSONS.md; 0 new lessons appended. Step-04 compression skipped (oldest episodic 73 days, 90-day threshold not met)."
 git_pull: success
 git_pull_note: "stashed unstaged daily-review state.yaml + 3 untracked files; pulled (5118cad..3f16ad3); popped stash cleanly; cleared stale HEAD.lock from interrupted prior session"
+
+---
+## 2026-07-02T03:08:57 UTC
+session_id: dream-cycle-2026-07-02-030857
+working_archived: 5
+working_deleted: 0
+episodic_scanned: 159
+score_updates: 159
+clusters_found: 22
+semantic_created: 1
+semantic_updated: 21
+promoted_entries: 5
+entries_compressed: 0
+digests_updated: 0
+errors: 0
+summary: "Light-medium cycle. Step-01 archived 5 newly-expired working files (co-sell-pipeline, daily-review-06-29, dream-summary-06-29, dream-summary-06-30, revenue-tracker-06-29) via heuristic enrichment; 7 non-expired skipped, 1 unstructured skip. Step-02 scored 159 episodic entries; window 2026-06-02 -> 2026-07-02 with 65 in-window; distribution 0:21, 1:2, 2:1, 3:2, 4:1, 5:1, 6:5, 7:3, 8:4, 9:2, 10:117 (11 no-tag, 9 no-date). Step-03 promotion: 5 candidates -> 22 tag-clusters -> 1 new entry (semantic-promotion in domain/pattern) + 21 evidence appends across operational (omnifocus 5-way, briefing, chase, chief, dream-cycle, dream-summary, jarvis, revenue), pattern (error-patterns), and domain-knowledge (one-texas). Error scan 30d: 98 entries (process-skip:13, routing-error:12, tool-misuse:11 lead); 1 threshold-breaching combo newly appended to LESSONS.md (data-interpretation, 4 occurrences). Step-04 compression skipped (oldest episodic 75 days, 90-day threshold not met)."
+git_pull: success
+git_pull_note: "already up to date; stashed unstaged daily-review state.yaml + 3 untracked files pre-pull; popped stash cleanly"

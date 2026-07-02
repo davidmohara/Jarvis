@@ -79,7 +79,10 @@ synthesized-from:
   - memory/episodic/daily-review-2026-05-28-000000.md
   - memory/episodic/daily-review-2026-06-18-020000.md
   - memory/episodic/daily-review-2026-05-31-000000.md
-last-updated: 2026-06-30
+  - memory/episodic/dream-summary-2026-06-30.md
+  - memory/episodic/dream-summary-2026-06-29.md
+  - memory/episodic/daily-review-2026-06-29-211155.md
+last-updated: 2026-07-02
 tags:
   - omnifocus
   - boot
@@ -99,6 +102,11 @@ The `omnifocus` tag appeared in 17 episodic entries within the rolling 30-day sa
 
 ## Evidence
 
+
+
+- 2026-07-02 | dream-summary-2026-06-29.md | tags: dream-summary, jarvis, briefing, omnifocus, semantic-promotion, dream-cycle | score: 10
+- 2026-07-02 | daily-review-2026-06-29-211155.md | tags: daily-review, chief, calendar, omnifocus, email, overdue-tasks | score: 10
+- 2026-07-02 | dream-summary-2026-06-30.md | tags: dream-summary, jarvis, briefing, morning-briefing, omnifocus, revenue | score: 10
 ### 2026-06-23 cycle
 - `memory/episodic/dream-summary-2026-05-30.md` (score 10, run 2026-06-23)
 - `memory/episodic/dream-summary-2026-06-20.md` (score 10, run 2026-06-23)
@@ -341,6 +349,10 @@ The `omnifocus` tag appeared in 17 episodic entries within the rolling 30-day sa
 
 ## Implications
 
+
+
+- 2026-07-02: 2 entries reinforce relevance of `chief` cluster. Watch for further co-occurrence.
+- 2026-07-02: 1 entries reinforce relevance of `boot` cluster. Watch for further co-occurrence.
 - 2026-06-24: New episodic cluster (omnifocus, 2 entries) reinforces pattern.
 - The `omnifocus` activity surface is recurring and worth tracking in subsequent dream cycles.
 - Future episodic writes touching this surface should reuse the `omnifocus` tag to keep co-occurrence scoring stable.

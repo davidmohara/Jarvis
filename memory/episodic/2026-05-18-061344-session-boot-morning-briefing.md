@@ -25,9 +25,9 @@ related_people:
 - steve-hall
   promoted: true
 salience:
-  score: 10
-  last-promoted-check: 2026-06-30
   promoted: true
+  score: 10
+  last-promoted-check: 2026-07-02
 ---
 # Session Working Memory — May 18, 2026
 

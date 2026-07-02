@@ -6,9 +6,9 @@ created: 2026-06-27
 agent-source: jarvis
 context: "Dream cycle summary 2026-06-27 — for Chief to read at boot"
 salience:
-  score: 10
-  last-promoted-check: 2026-06-30
   promoted: true
+  score: 10
+  last-promoted-check: 2026-07-02
 date: 2026-06-27
 source_file: memory/working/dream-summary-2026-06-27.md
 tags:

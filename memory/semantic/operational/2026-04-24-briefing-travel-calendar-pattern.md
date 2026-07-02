@@ -4,7 +4,7 @@ domain: operational
 tags: [briefing, calendar, omnifocus, google-next, travel, overdue-tasks, leads]
 confidence: high
 created: 2026-04-24
-last-updated: 2026-06-25
+last-updated: 2026-07-02
 synthesized-from: 16
   - memory/episodic/2026-04-20-morning-briefing.md
   - memory/episodic/2026-04-21-morning-briefing.md
@@ -61,6 +61,19 @@ synthesized-from: 16
 Morning briefings across the entire Google Next week (Apr 20-23) repeatedly surface the same pattern: travel events (Google Next Las Vegas, AA flights) create cascading calendar conflicts with recurring internal meetings, and the system detects these but the response gap persists. OmniFocus timeouts compound the problem — when task data is unavailable during travel weeks, the briefing loses half its value. Additionally, overdue tasks and unassigned leads accumulate during travel with no mechanism to delegate or triage them in David's absence.
 
 ## Evidence
+
+
+
+
+- 2026-07-02 | daily-review-2026-06-29-211155.md | tags: daily-review, chief, calendar, omnifocus, email, overdue-tasks | score: 10
+- 2026-07-02 | daily-review-2026-06-29-211155.md | tags: daily-review, chief, calendar, omnifocus, email, overdue-tasks | score: 10
+- 2026-07-02 | dream-summary-2026-06-30.md | tags: dream-summary, jarvis, briefing, morning-briefing, omnifocus, revenue | score: 10
+- 2026-07-02 | dream-summary-2026-06-29.md | tags: dream-summary, jarvis, briefing, omnifocus, semantic-promotion, dream-cycle | score: 10
+- 2026-07-02 | revenue-tracker-2026-06-29-000800.md | tags: chase, omnifocus, one-texas, revenue | score: 8
+- 2026-07-02 | dream-summary-2026-06-30.md | tags: dream-summary, jarvis, briefing, morning-briefing, omnifocus, revenue | score: 10
+- 2026-07-02 | dream-summary-2026-06-29.md | tags: dream-summary, jarvis, briefing, omnifocus, semantic-promotion, dream-cycle | score: 10
+- 2026-07-02 | co-sell-pipeline-20260629-001245.md | tags: pipeline-review, chase, omnifocus, one-texas, pipeline, co-sell | score: 10
+- 2026-07-02 | daily-review-2026-06-29-211155.md | tags: daily-review, chief, calendar, omnifocus, email, overdue-tasks | score: 10
 ### 2026-06-16 — dream-cycle promotion (16 entries)
 - 2026-05-01-morning-briefing.md
 - dream-cycle-alert-2026-06-13.md
@@ -232,6 +245,14 @@ Morning briefings across the entire Google Next week (Apr 20-23) repeatedly surf
 
 ## Implications
 
+
+
+
+
+- 2026-07-02: 1 entries reinforce relevance of `overdue-tasks` cluster. Watch for further co-occurrence.
+- 2026-07-02: 1 entries reinforce relevance of `calendar` cluster. Watch for further co-occurrence.
+- 2026-07-02: 2 entries reinforce relevance of `briefing` cluster. Watch for further co-occurrence.
+- 2026-07-02: 5 entries reinforce relevance of `omnifocus` cluster. Watch for further co-occurrence.
 1. **Travel prep needs a dedicated workflow, not just a briefing flag.** The briefing surfaced Google Next as a gap on Apr 20, and again on Apr 21, but no prep brief was created. Flagging is not fixing.
 2. **OmniFocus reliability during scheduled runs is poor.** Timeouts on Apr 21, 22, 23 suggest the MCP server or Mac availability is inconsistent in VM/automated mode. Fallback to osascript should be automatic, not manual.
 3. **Recurring meetings during travel weeks should be auto-declined or tentative-marked.** The system detects conflicts but doesn't act on them — David has to manually handle each one.

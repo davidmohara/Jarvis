@@ -3,7 +3,7 @@ type: semantic
 domain: operational
 primary-tag: dream-summary
 created: 2026-06-12
-last-updated: 2026-06-30
+last-updated: 2026-07-02
 confidence: high
 synthesized-from: 23
   - dream-summary-2026-05-25.md
@@ -99,6 +99,8 @@ synthesized-from:
   - memory/episodic/dream-summary-2026-05-22.md
   - memory/episodic/dream-summary-2026-05-16.md
   - memory/episodic/dream-summary-2026-06-28.md
+  - memory/episodic/dream-summary-2026-06-30.md
+  - memory/episodic/dream-summary-2026-06-29.md
 ---
 # Pattern: Dream Summary
 
@@ -109,6 +111,9 @@ The `dream-summary` tag cluster shows persistent co-occurrence in episodic memor
 ## Evidence
 
 
+
+- 2026-07-02 | dream-summary-2026-06-30.md | tags: dream-summary, jarvis, briefing, morning-briefing, omnifocus, revenue | score: 10
+- 2026-07-02 | dream-summary-2026-06-29.md | tags: dream-summary, jarvis, briefing, omnifocus, semantic-promotion, dream-cycle | score: 10
 - 2026-06-29: `memory/episodic/dream-summary-2026-06-27.md` — dream-summary-2026-06-27 (score 10)
 ### Added 2026-06-20
 - 2026-06-17: `dream-summary-2026-06-17.md` (score 10, tags: dream-summary, session-wrap, calendar, plaud, dream-cycle)
@@ -254,6 +259,8 @@ _2026-06-17 run:_
 ## Implications
 
 
+
+- 2026-07-02: 2 entries reinforce relevance of `dream-summary` cluster. Watch for further co-occurrence.
 - 2026-06-29: 1 new entries reinforce this pattern; salience trending steady.
 ### 2026-06-20
 - 2 additional entries observed clustering on `dream-summary` — pattern continues.

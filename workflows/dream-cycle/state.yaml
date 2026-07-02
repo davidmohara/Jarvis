@@ -1,47 +1,46 @@
 workflow: dream-cycle
 agent: jarvis
 status: complete
-session-started: 2026-06-30T08:09:12Z
-session-id: dream-cycle-2026-06-30-030912
+session-started: 2026-07-02T03:08:57Z
+session-id: dream-cycle-2026-07-02-030857
 current-step: null
 original-request: Scheduled dream cycle run (automated)
 accumulated-context:
   git_pull_at_boot: success
-  git_pull_note: "stashed unstaged daily-review state.yaml + 3 untracked files, pulled (5118cad..3f16ad3), popped stash cleanly; cleared stale HEAD.lock"
-  working_archived: 1
+  git_pull_note: "stashed unstaged daily-review state.yaml + 3 untracked (daily-review-2026-07-01, auto-2026-07-01 review, eval-20260702T021204); pull already-up-to-date; popped stash cleanly"
+  working_archived: 5
   working_deleted: 0
-  working_skipped: 91
+  working_skipped: 7
   working_stranded: 0
   enrichment_method: "heuristic (LLM unavailable in sandbox)"
   archived_files:
-    - system-eval-2026-06-27-040621.md
-  skipped_already_archived_count: 72
-  skipped_unparseable_count: 13
-  skipped_not_expired_count: 5
-  skipped_not_active_count: 1
-  episodic_scanned: 147
-  score_updates: 147
-  no_tags: 5
-  no_date: 1
-  files_with_tags: 142
-  in_window_count: 63
-  score_distribution: "0:13, 2:2, 3:4, 4:1, 5:4, 6:3, 7:3, 8:3, 10:114"
-  window_start: 2026-05-31
-  window_end: 2026-06-30
-  candidates_count: 132
-  clusters_found: 17
-  semantic_created: 6
-  semantic_updated: 11
-  promoted_entries: 132
-  promotion_note: "Heavier cycle. 132 candidates across 17 tag-clusters; created 6 new semantic entries (dream-cycle, revenue, omnifocus, etc.) and updated 11 existing operational entries. Distribution shift driven by 2 prior cycles of tag enrichment producing well-formed co-occurrence."
-  error_total_30d: 84
-  error_categories_30d: "process-skip:10, routing-error:7, data-accuracy:5, missed-context:3, assumption-error:3, format-violation:6, unknown:3"
-  lessons_appended: 0
-  lessons_note: "All 8 threshold-breaching combos already present in LESSONS.md from prior cycles."
+    - co-sell-pipeline-20260629-001245.md
+    - daily-review-2026-06-29-211155.md
+    - dream-summary-2026-06-29.md
+    - dream-summary-2026-06-30.md
+    - revenue-tracker-2026-06-29-000800.md
+  episodic_scanned: 159
+  score_updates: 159
+  no_tags: 11
+  no_date: 9
+  files_with_tags: 148
+  in_window_count: 65
+  score_distribution: "0:21, 1:2, 2:1, 3:2, 4:1, 5:1, 6:5, 7:3, 8:4, 9:2, 10:117"
+  window_start: 2026-06-02
+  window_end: 2026-07-02
+  candidates_count: 5
+  clusters_found: 22
+  semantic_created: 1
+  semantic_updated: 21
+  promoted_entries: 5
+  error_total_30d: 98
+  error_categories_30d: "process-skip:13, routing-error:12, tool-misuse:11, format-violation:10, data-accuracy:10, missed-context:6, assumption-error:5, hallucination:5, data-interpretation:4"
+  lessons_appended: 1
+  lessons_note: "1 new lesson (data-interpretation, 4/30d)."
   entries_compressed: 0
   digests_updated: 0
   compression_skipped: true
-  compression_skip_reason: "Oldest episodic entry is 2026-04-18 (73 days old). 90-day cutoff = 2026-04-01. 0 entries eligible."
+  compression_skip_reason: "Oldest episodic 2026-04-18 (75 days). 90-day cutoff not met."
   dream_log_appended: true
   working_summary_written: true
   errors: 0
