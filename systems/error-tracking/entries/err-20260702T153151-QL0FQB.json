@@ -1,0 +1,15 @@
+{
+  "id": "err-20260702T153151-QL0FQB",
+  "timestamp": "2026-07-02T15:31:51Z",
+  "session": "2026-07-02",
+  "source": "self-detected",
+  "agent": "master",
+  "category": "routing-error",
+  "description": "When asked to build a meeting prep sheet for Scott Sexton, displayed an elicitation form asking David for context (who Scott is, meeting type, goal) instead of autonomously pulling context from Outlook email, M365 calendar, and web search. The skill instructions explicitly state to pull context from available tools, never ask the user for information that can be looked up.",
+  "correction": "David pointed out the error. Pulled calendar (confirmed lunch at Del Frisco's Grille), searched Outlook for email history, and ran web research to identify Scott Sexton as CEO of Ever.Ag.",
+  "systemic_fix": "Before rendering any elicitation form for meeting prep, always attempt tool lookups first (calendar search, email search, web search). Only surface a form if lookups return nothing actionable. The skill-invocation pattern of immediately showing a form before attempting autonomous research is incorrect.",
+  "failure_mode": "protocol-skip",
+  "severity": "moderate",
+  "fix_status": "proposed",
+  "related_entries": []
+}

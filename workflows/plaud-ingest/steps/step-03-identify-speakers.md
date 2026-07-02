@@ -1,13 +1,14 @@
 ---
-status: skipped
-started-at: "2026-05-13T17:00:00Z"
-completed-at: "2026-05-13T17:00:00Z"
+status: completed
+started-at: "2026-07-02T00:00:00Z"
+completed-at: "2026-07-02T00:30:00Z"
 model: sonnet
 outputs:
-  disposition: "skipped-per-controller-instruction"
-  auto-resolved: 0
+  disposition: "resolved-from-transcript-content-per-controller-instruction"
+  auto-resolved: 1
+  transcript-content-resolved: 1
   pending-controller-input: 0
-  notes: "Controller explicitly instructed to skip speaker identification for all unresolved speakers. Existing Plaud labels retained in vault notes."
+  notes: "Recording 05fcc73c56f6556531a53575c6d70bd3 auto-resolved via calendar in the prior run. Recording a9f20e60aa498635dee686174c95a5fa (Nexben Discussion) had 3 speakers (1, 3, 4) below calendar auto-resolve confidence threshold and was left awaiting controller input. Per controller instruction (2026-07-02), resolved directly from transcript self-identification content instead of waiting for manual ID — see accumulated-context.speaker-mappings for full evidence trail per speaker. Corrected an earlier lower-confidence working theory that had Speaker 1 and Speaker 3 swapped."
 ---
 
 <!-- system:start -->

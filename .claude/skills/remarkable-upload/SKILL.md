@@ -205,6 +205,18 @@ A clarifying question that doesn't pre-narrow the choices wastes a turn. Three-t
 do shell script "/opt/homebrew/bin/rmapi ls '/target/folder' 2>&1"
 ```
 
+### Handling a Corrupted rmapi Config
+
+If any `rmapi` call (step 4, 7, or 8) fails with an error containing `failed to parse /Users/davidohara/.rmapi`, the config file is corrupted (observed cause: the file gets overwritten with a raw token instead of the expected JSON config structure). Recover automatically:
+
+1. Remove the corrupted file:
+```applescript
+do shell script "rm -f /Users/davidohara/.rmapi"
+```
+2. Retry the `rmapi` command that originally failed.
+3. If the retry fails with anything indicating rmapi is not authenticated (e.g., "not logged in", asks for a one-time code, or errors that a new `.rmapi` was never created), **stop here** — re-registration requires David to interactively complete the browser-based one-time-code flow, which cannot be done headlessly. Report to David that `.rmapi` was corrupted and has been removed, and that he needs to run `rmapi` once from a terminal on his Mac to re-register before uploads can resume.
+4. Do not attempt to fabricate, guess, or restore a `.rmapi` file yourself. Only ever delete-and-retry; never write to that file directly.
+
 5. **Create the folder if and only if the verification in step 4 reported it missing.** Do not run mkdir unconditionally — `rmapi mkdir` errors on existing folders, which would abort the upload. Parse the step 4 output: if it lists entries or returns the folder contents, skip step 5. If it returns "entry doesn't exist," "no such directory," or similar, run:
 ```applescript
 do shell script "/opt/homebrew/bin/rmapi mkdir '/Improving/Accounts/NewClient' 2>&1"

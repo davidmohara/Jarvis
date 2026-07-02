@@ -2,62 +2,56 @@
 workflow: plaud-ingest
 agent: knox
 status: complete
-session-started: "2026-07-01T00:00:00Z"
-session-id: "pi-20260701-002"
+session-started: "2026-07-02T00:00:00Z"
+session-id: "pi-20260702-001"
 current-step: step-05
-original-request: "Knox: Run Plaud ingest workflow — background task 2026-07-01 (fresh full pipeline run, superseding stale pi-20260701-001)"
+original-request: "Knox: Run plaud-ingest workflow — background task 2026-07-02 (Task E, spawned by Chief/boot per workflow.md enforcement note)"
 accumulated-context:
-  target-date: "2026-06-30"
+  target-date: "2026-07-01"
   last-run-date: "2026-06-30"
-  api-total-recordings: 67
-  recordings-scanned: 67
+  api-total-recordings: 69
+  recordings-scanned: 69
   new-recordings:
-    - file_id: ae88bdbb37c2f7b0d29933fdbc036686
-      name: "06-30 Proposal Review: Large-Scale AI Training Workshop for Xero's Leadership"
-      date: "2026-06-30"
-      duration_seconds: 1961
+    - file_id: a9f20e60aa498635dee686174c95a5fa
+      name: "07-01 Customer Consultation: Platform Modernization and AI Integration"
+      date: "2026-07-01"
+      duration_seconds: 1752
       has_transcript: true
       transcript_status: ready
-    - file_id: af25aad40b86546fad1a74ff3608235d
-      name: "06-30 Strategic AI Advisory for Systemic Compliance"
-      date: "2026-06-30"
-      duration_seconds: 3472
-      has_transcript: true
-      transcript_status: ready
-    - file_id: 74637ca13f2bb04cd8a23e6459cae199
-      name: "06-30 Product Demo and Strategic Partnership Proposal for an AI Model Management Platform"
-      date: "2026-06-30"
-      duration_seconds: 1876
+    - file_id: 05fcc73c56f6556531a53575c6d70bd3
+      name: "07-01 Meeting: Microsoft Responsible AI and Improving Partnership"
+      date: "2026-07-01"
+      duration_seconds: 1698
       has_transcript: true
       transcript_status: ready
   transcription-triggered: []
   pending-recordings: []
+  ready-for-fetch:
+    - a9f20e60aa498635dee686174c95a5fa
+    - 05fcc73c56f6556531a53575c6d70bd3
   speaker-mappings:
-    74637ca13f2bb04cd8a23e6459cae199:
-      Speaker 2: "Ari Jacoby"
-    af25aad40b86546fad1a74ff3608235d:
-      Speaker 3: "Stephen Johnson"
-      Speaker 4: "Kevin Graham"
-      Speaker 6: "Mehmet Yasar"
-      note: "Also present: Robyn Fuentes, Robin Graham, David O'Hara"
-    ae88bdbb37c2f7b0d29933fdbc036686:
-      note: "David corrected all speaker tags directly in Plaud prior to this run; repull confirmed real names throughout (Tristan Blom, Stephen Johnson, David O'Hara, Blake McMillan, Devlin, Brad Knight) — no generic labels."
-  speaker-mapping-sync-status: "resolved — David tagged Speaker 3/4/6 directly in Plaud (source of record) between sessions. This run repulled all 3 transcripts fresh; grep confirmed zero remaining generic 'Speaker N' labels across all 3 files. No further rename/sync action needed."
-  pending-speaker-mappings: []
-  watch-items-resolved:
-    - file_id: af25aad40b86546fad1a74ff3608235d
-      issue: "transcript_status regressed to 'missing' at 2026-07-01T14:24 (err-20260701T142449-HKCA7U) after a prior failed --rename attempt"
-      resolution: "Confirmed via --check at start of this run: status had already rebuilt to 'ready' server-side. Fetched successfully; speaker names (Robyn Fuentes, Robin Graham, Kevin Graham, Stephen Johnson, Mehmet Yasar, David O'Hara) all present and intact. No regeneration or controller escalation was needed."
-  known-issues:
-    - "skills/plaud-transcripts/SKILL.md step 7 documents a `fetch_plaud.py --list-all --out <path>` reconciliation flag that does not exist in the current script (only --all [full reprocess], --check <id>, --rename, --login are implemented). Reconciliation for this run was done by scoped --check calls against the 3 target file_ids instead of the documented --list-all. SKILL.md needs updating or the script needs the flag added."
-  ready-for-fetch: []
+    05fcc73c56f6556531a53575c6d70bd3:
+      Speaker 3: "Maha Abbey"
+      Speaker 4: "Nick Koury"
+      resolution: "auto-resolved via calendar — event 'Follow up after Houston AI tour - Improving/Microsoft' 2026-07-01 20:30-21:00 UTC, attendees mahaabbey@microsoft.com, david.o'hara@improving.com, nickkoury@microsoft.com. Speaker 3 greets both David and Nick by name (third-party) = Maha. Speaker 4 refers to 'Maha said' in third person and addresses David = Nick."
+    a9f20e60aa498635dee686174c95a5fa:
+      Speaker 1: "Lauren Sweda"
+      Speaker 3: "Alexander Powell"
+      Speaker 4: "Mark Smith"
+      resolution: "resolved from transcript self-identification content, per controller instruction to not wait for manual ID (2026-07-02). Calendar match: 'Nexben Discussion with Improving' 21:00-21:30 UTC, attendees lsweda@nexben.com, msmith@nexben.com, alexander.powell@improving.com, david.o'hara@improving.com. Evidence: Speaker 1 organizes the call and introduces 'Mark our CEO' ('I wanted you guys to meet Mark our CEO'), says 'I know David, we've had a couple conversations', describes Nexben's outsourced IT as 'our IT'/'our system', and later says 'Mark's in Chicago, I am in Dallas' while answering a question about her own company's outsourced dev team ('our headquarters' = Nexben, Grand Rapids MI) — identifies her as the Nexben-side organizer, i.e. Lauren Sweda. Speaker 4 is introduced as 'Mark our CEO', joins a few minutes late ('sorry I'm a few minutes late'), speaks in exhaustive first-person detail about Nexben's ICHRA health-payments business ('we administer health care payments through a vehicle called ICHRA'), and at the end says 'let me circle with Lauren and our team' (referring to Lauren in third person, ruling out Speaker 4=Lauren) — David closes with 'good to see you again, Mark' immediately after Speaker 4's last line = Mark Smith. Speaker 3 has only 2 short lines; the second is diagnostic — 'if I may suggest something, Mark... on our website... blogs that our improvers have put together' — 'our improvers' is Improving-internal language (improving staff call themselves 'improvers'), confirming an Improving employee, and the only other Improving invitee besides David is Alexander Powell = Alexander Powell. Corrects an earlier lower-confidence working theory that had swapped Speaker 1 and Speaker 3."
+      unresolved_note: "Transcript also references 'Gabriella' and 'Alexandra' being greeted as new joiners in an early crosstalk/overlap line attributed to Speaker 1 ('Nice to meet you, Gabriella. Nice to meet you, Alexandra. Nice to meet you, Lauren.'). These are not separate Speaker-N tags requiring resolution — likely diarization overlap during simultaneous greetings, and/or mishearings ('Alexandra' = Alexander Powell). 'Gabby' is referenced later by O'Hara as an Improving co-founder colleague on the call ('Gabby was actually one of the founding team...', 'AP is and Gabby are laughing') but was not assigned her own speaker label in this transcript — no action needed, not a blocking gap."
+  ready-for-fetch-confirmed:
+    - a9f20e60aa498635dee686174c95a5fa
+    - 05fcc73c56f6556531a53575c6d70bd3
   staged-files: []
   ingested-notes:
-    - "zzPlaud/Client/2026-06-30 Concentrate AI Demo and Reconnect with Ari Jacoby.md"
-    - "zzPlaud/Client/2026-06-30 Systemic Compliance — Fractional AI Advisory Kickoff with Kevin Graham and Mehmet Yasar.md"
-    - "zzPlaud/Client/2026-06-30 Improving x Xero — AI Training Workshop Proposal Discussion.md"
-  daily-note-updated: "Calendar/2026/06-June/2026-06-30.md"
-  omnifocus-tasks-created: 7
-  staging-files-removed: 12
-  completion-reason: "Full pipeline run complete for target-date 2026-06-30. All 3 recordings ingested to vault, daily note linked, 7 OmniFocus tasks created, staging cleaned, reconciliation performed via scoped --check (see known-issues re: stale --list-all flag)."
+    - "zzPlaud/Client/2026-07-01 Nexben Discussion — Platform Modernization and AI Integration.md"
+    - "zzPlaud/Client/2026-07-01 Microsoft Responsible AI and Improving Partnership — Follow-up After Houston AI Tour.md"
+  daily-note-updated: "Calendar/2026/07-July/2026-07-01.md"
+  omnifocus-tasks-created: 5
+  staging-files-removed: 6
+  known-issues:
+    - "skills/plaud-transcripts/SKILL.md step 7 documents a `fetch_plaud.py --list-all --out <path>` reconciliation flag that does not exist in the current script (only --all [full reprocess], --check <id>, --rename, --login are implemented). Carried forward from pi-20260701-002 — unresolved. Worked around in this run by cross-referencing ready-for-fetch/speaker-mappings directly against staging file listing instead of the missing --list-all flag."
+    - "workflows/plaud-ingest/speaker-identification-pending.md and SPEAKER_ID_REQUEST.md contain a stale, unrelated 20-recording/49-file backlog (Jan-Dec 2026 dates spanning many months) not connected to this session. Left untouched — flagged for separate triage, not in scope for pi-20260702-001."
+  completion-reason: "workflow completed through step-05; all recordings ingested to vault, daily note linked, OmniFocus tasks created, staging cleaned"
 ---

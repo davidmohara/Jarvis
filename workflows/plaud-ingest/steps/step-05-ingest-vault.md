@@ -1,16 +1,16 @@
 ---
 status: completed
-started-at: "2026-05-13T17:05:00Z"
-completed-at: "2026-05-13T17:30:00Z"
+started-at: "2026-07-02T00:30:00Z"
+completed-at: "2026-07-02T01:15:00Z"
 model: sonnet
 outputs:
   ingested-notes:
-    - "zzPlaud/Improving/2026-05-12 AI Workshop Prep — Economic Impact Talking Points and Event Logistics.md"
-    - "zzPlaud/Client/2026-05-12 TopGolf Executive AI Workshop Scoping.md"
-    - "zzPlaud/Client/2026-05-12 Lunch — DSO Cosm MVP, Wedbush Transition, UTB Data, and Goke Intro.md"
-  daily-note-updated: "Calendar/2026/05-May/2026-05-12.md"
-  omnifocus-tasks-created: 8
-  staging-files-removed: 11
+    - "zzPlaud/Client/2026-07-01 Nexben Discussion — Platform Modernization and AI Integration.md"
+    - "zzPlaud/Client/2026-07-01 Microsoft Responsible AI and Improving Partnership — Follow-up After Houston AI Tour.md"
+  daily-note-updated: "Calendar/2026/07-July/2026-07-01.md"
+  omnifocus-tasks-created: 5
+  staging-files-removed: 6
+  notes: "Created Calendar/2026/07-July folder (did not exist prior). Reconciliation workaround: the documented fetch_plaud.py --list-all flag does not exist in the current script (known-issue, carried forward); verified staging completeness by listing plaud_07-01* files directly and cross-referencing against ready-for-fetch instead. Cleanup scoped explicitly to the 6 files (2 .md + 2 _raw.json + 2 _speakers.json) belonging to this session's 2 recordings — did not touch the unrelated ~49-file legacy backlog also present in transcript-staging/."
 ---
 
 <!-- system:start -->

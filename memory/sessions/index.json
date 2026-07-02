@@ -713,8 +713,8 @@
   {
     "id": "session-2026-07-01-083000",
     "started": "2026-07-01T08:30:00-05:00",
-    "closed": null,
-    "current_topic": "morning-boot",
+    "closed": "2026-07-02T09:00:00-05:00",
+    "current_topic": null,
     "topics": [
       {
         "name": "morning-boot",
@@ -731,6 +731,23 @@
           {
             "task": "Knox ran plaud-ingest — 3 new Jun 30 recordings found, 1 pending transcription, 2 staged. Awaiting David on 2 ambiguous speaker IDs (Systemic Compliance AI Strategy call).",
             "resolved": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "session-2026-07-02-000000",
+    "started": "2026-07-02T00:00:00-05:00",
+    "closed": "2026-07-02T17:00:00-05:00",
+    "current_topic": null,
+    "topics": [
+      {
+        "name": "daily-review",
+        "loops": [
+          {
+            "task": "Daily review written to reviews/daily/2026-07-02.md. 3 tasks created in OmniFocus (Scott Sexton follow-up, VP Scorecard for Kevin, Josh Stevenson/Microsoft).",
+            "resolved": true
           }
         ]
       }

@@ -1,0 +1,15 @@
+{
+  "id": "err-20260702T151733-D60TNF",
+  "timestamp": "2026-07-02T15:17:00Z",
+  "session": "session-2026-07-02-boot",
+  "source": "explicit",
+  "agent": "master",
+  "category": "tool-usage",
+  "description": "When asked why the action items/todos from yesterday's Plaud-ingested calls (Nexben Discussion, Microsoft Responsible AI) hadn't been pulled forward, root cause was that Master looked for Knox's ingested vault notes using the Read and Glob file tools against the OneDrive IES folder path, got 'not found,' and let it drop instead of switching to the Obsidian MCP tools. The notes and their Action Items sections actually live in the Obsidian vault, which is a separate access path from the OneDrive-mounted IES folder, per SYSTEM.md convention.",
+  "correction": "When a workflow's own state.yaml or a sub-agent's report cites a vault-relative path (e.g. 'zzPlaud/Client/...'), and Read/Glob against the OneDrive IES folder return no results, treat that as a signal to check the Obsidian MCP tools (search_vault_simple, get_vault_file) rather than concluding the file doesn't exist or silently moving on without it.",
+  "failure_mode": "wrong-tool-for-storage-location, gave up after first negative result instead of trying the documented alternate access path",
+  "systemic_fix": "Add a note to SYSTEM.md or the relevant workflow docs: any file path prefixed with a known vault folder name (zzPlaud/, Calendar/, etc.) should be looked up via the Obsidian MCP tools first, not the OneDrive file tools.",
+  "fix_status": "proposed",
+  "severity": "moderate",
+  "related_entries": []
+}
