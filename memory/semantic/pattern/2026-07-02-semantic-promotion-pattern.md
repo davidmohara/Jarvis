@@ -5,7 +5,7 @@ subject: "Pattern around semantic-promotion"
 synthesized-from:
   - memory/episodic/dream-summary-2026-06-30.md
   - memory/episodic/dream-summary-2026-06-29.md
-last-updated: 2026-07-02
+last-updated: 2026-07-03
 tags:
   - boot
   - briefing
@@ -27,6 +27,13 @@ Recurring cluster anchored on tag `semantic-promotion` (2 episodic entries with 
 ## Evidence
 
 
+- Cluster semantic-promotion — dream-summary-2026-06-21.md (score 10) — 2026-07-03
+- Cluster semantic-promotion — dream-summary-2026-06-30.md (score 10) — 2026-07-03
+- Cluster semantic-promotion — dream-summary-2026-06-20.md (score 9) — 2026-07-03
+- Cluster semantic-promotion — dream-summary-2026-06-26.md (score 10) — 2026-07-03
+- Cluster semantic-promotion — dream-summary-2026-06-29.md (score 10) — 2026-07-03
+- Cluster semantic-promotion — dream-summary-2026-06-19.md (score 10) — 2026-07-03
+- Cluster semantic-promotion — dream-summary-2026-07-02.md (score 10) — 2026-07-03
 - 2026-07-02 | dream-summary-2026-06-30.md | tags: dream-summary, jarvis, briefing, morning-briefing, omnifocus, revenue | score: 10
 - 2026-07-02 | dream-summary-2026-06-29.md | tags: dream-summary, jarvis, briefing, omnifocus, semantic-promotion, dream-cycle | score: 10
 - 2026-07-02 | dream-summary-2026-06-30.md | tags: dream-summary, jarvis, briefing, morning-briefing, omnifocus, revenue | score: 10

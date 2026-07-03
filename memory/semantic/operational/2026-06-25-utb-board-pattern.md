@@ -3,7 +3,7 @@ type: semantic
 domain: operational
 confidence: low
 created: 2026-06-25
-last-updated: 2026-06-25
+last-updated: 2026-07-03
 tags:
   - utb-board
 synthesized-from:
@@ -30,6 +30,9 @@ Recurring utb-board activity observed across 13 episodic entries within the 30-d
 
 ## Evidence
 
+- Cluster utb-board — morning-briefing-2026-06-18-060923.md (score 10) — 2026-07-03
+- Cluster utb-board — morning-briefing-2026-06-24-061500.md (score 10) — 2026-07-03
+- Cluster utb-board — daily-review-2026-06-18-020000.md (score 10) — 2026-07-03
 - 2026-06-25: memory/episodic/daily-review-2026-05-26-auto.md (tags: daily-review, chief, calendar, omnifocus, utb-board)
 - 2026-06-25: memory/episodic/2026-05-14-092600-session-boot-morning-briefing.md (tags: briefing, chief, calendar, omnifocus, travel)
 - 2026-06-25: memory/episodic/daily-review-2026-05-26-000000.md (tags: daily-review, chief, calendar, omnifocus, utb-board)

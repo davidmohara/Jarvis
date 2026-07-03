@@ -3,7 +3,7 @@ type: semantic
 domain: operational
 confidence: low
 created: 2026-06-25
-last-updated: 2026-06-25
+last-updated: 2026-07-03
 tags:
   - obsidian
 synthesized-from:
@@ -19,6 +19,11 @@ Recurring obsidian activity observed across 2 episodic entries within the 30-day
 
 ## Evidence
 
+- Cluster obsidian — daily-review-2026-06-30-211200.md (score 10) — 2026-07-03
+- Cluster obsidian — shutdown-cleanup-2026-06-16-071444.md (score 10) — 2026-07-03
+- Cluster obsidian — daily-review-2026-06-22-020000.md (score 10) — 2026-07-03
+- Cluster obsidian — daily-review-2026-06-17-020000.md (score 10) — 2026-07-03
+- Cluster obsidian — daily-review-2026-07-01-000000.md (score 10) — 2026-07-03
 - 2026-06-25: memory/episodic/daily-review-2026-06-22-020000.md (tags: daily-review, chief, calendar, omnifocus, xai)
 - 2026-06-25: memory/episodic/daily-review-2026-06-17-020000.md (tags: daily-review, chief, calendar, omnifocus, obsidian)
 

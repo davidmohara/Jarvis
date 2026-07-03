@@ -6,7 +6,7 @@ archived-from: memory/working/2026-06-12-ai-innovation-lab-pdf.md
 tags: [pdf, brand, improving, deliverable]
 salience:
   score: 0
-  last-promoted-check: 2026-07-02
+  last-promoted-check: 2026-07-03
 ---
 
 # Session: AI Innovation Lab PDF

@@ -9,7 +9,7 @@ synthesized-from:
   - memory/episodic/revenue-tracker-2026-06-09-133407.md
   - memory/episodic/revenue-tracker-2026-06-29-000800.md
   - memory/episodic/dream-summary-2026-06-30.md
-last-updated: 2026-07-02
+last-updated: 2026-07-03
 tags:
   - revenue
 agent-source: dream-cycle
@@ -23,6 +23,12 @@ Episodic memory shows 2 entries clustered under the `revenue` tag during the 30-
 
 ## Evidence
 
+- Cluster revenue — revenue-tracker-2026-06-29-000800.md (score 9) — 2026-07-03
+- Cluster revenue — dream-summary-2026-06-30.md (score 10) — 2026-07-03
+- Cluster revenue — morning-briefing-2026-06-26-061000.md (score 10) — 2026-07-03
+- Cluster revenue — dream-summary-2026-06-24.md (score 10) — 2026-07-03
+- Cluster revenue — revenue-tracker-2026-06-25-000130.md (score 10) — 2026-07-03
+- Cluster revenue — dream-summary-2026-07-02.md (score 10) — 2026-07-03
 - 2026-07-02 | revenue-tracker-2026-06-29-000800.md | tags: chase, omnifocus, one-texas, revenue | score: 8
 - 2026-07-02 | dream-summary-2026-06-30.md | tags: dream-summary, jarvis, briefing, morning-briefing, omnifocus, revenue | score: 10
 - memory/episodic/2026-04-20-scorecard-session.md (score 9)

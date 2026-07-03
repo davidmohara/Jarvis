@@ -3,7 +3,7 @@ type: semantic
 domain: operational
 confidence: low
 created: 2026-06-25
-last-updated: 2026-06-25
+last-updated: 2026-07-03
 tags:
   - lifebook
 synthesized-from:
@@ -19,6 +19,8 @@ Recurring lifebook activity observed across 2 episodic entries within the 30-day
 
 ## Evidence
 
+- Cluster lifebook — daily-review-2026-06-30-211200.md (score 10) — 2026-07-03
+- Cluster lifebook — daily-review-2026-07-01-000000.md (score 10) — 2026-07-03
 - 2026-06-25: memory/episodic/daily-review-2026-06-11-082100.md (tags: daily-review, chief, calendar, omnifocus, travel)
 - 2026-06-25: memory/episodic/daily-review-2026-06-12-070000.md (tags: daily-review, chief, calendar, omnifocus, pipeline)
 

@@ -3,7 +3,7 @@ type: semantic
 domain: pattern
 confidence: low
 created: 2026-06-25
-last-updated: 2026-06-25
+last-updated: 2026-07-03
 tags:
   - rock1
 synthesized-from:
@@ -21,6 +21,9 @@ Recurring rock1 activity observed across 4 episodic entries within the 30-day sa
 
 ## Evidence
 
+- Cluster rock1 — daily-review-2026-06-30-211200.md (score 10) — 2026-07-03
+- Cluster rock1 — daily-review-2026-06-17-020000.md (score 10) — 2026-07-03
+- Cluster rock1 — morning-briefing-2026-06-16-061004.md (score 10) — 2026-07-03
 - 2026-06-25: memory/episodic/morning-briefing-2026-06-09-092323.md (tags: briefing, morning-briefing, chief, omnifocus, calendar)
 - 2026-06-25: memory/episodic/morning-briefing-2026-06-08-095429.md (tags: briefing, morning-briefing, chief, omnifocus, calendar)
 - 2026-06-25: memory/episodic/daily-review-2026-06-17-020000.md (tags: daily-review, chief, calendar, omnifocus, obsidian)

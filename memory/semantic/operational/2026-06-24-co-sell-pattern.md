@@ -8,7 +8,7 @@ synthesized-from:
   - memory/episodic/2026-04-20-rock4-pipeline-weekly.md
   - memory/episodic/dream-summary-2026-06-18.md
   - memory/episodic/co-sell-pipeline-20260629-001245.md
-last-updated: 2026-07-02
+last-updated: 2026-07-03
 tags:
   - co-sell
 agent-source: dream-cycle
@@ -22,6 +22,11 @@ Episodic memory shows 4 entries clustered under the `co-sell` tag during the 30-
 
 ## Evidence
 
+- Cluster co-sell — shutdown-cleanup-2026-06-16-071444.md (score 10) — 2026-07-03
+- Cluster co-sell — morning-briefing-2026-06-16-061004.md (score 10) — 2026-07-03
+- Cluster co-sell — co-sell-pipeline-20260629-001245.md (score 10) — 2026-07-03
+- Cluster co-sell — dream-summary-2026-06-18.md (score 10) — 2026-07-03
+- Cluster co-sell — dream-summary-2026-07-02.md (score 10) — 2026-07-03
 - 2026-07-02 | co-sell-pipeline-20260629-001245.md | tags: pipeline-review, chase, omnifocus, one-texas, pipeline, co-sell | score: 10
 - memory/episodic/2026-04-20-scorecard-session.md (score 9)
 - memory/episodic/shutdown-cleanup-2026-06-16-071444.md (score 10)

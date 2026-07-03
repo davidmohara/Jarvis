@@ -2,7 +2,7 @@
 type: semantic
 domain: operational
 created: 2026-06-16
-last-updated: 2026-06-25
+last-updated: 2026-07-03
 confidence: medium
 synthesized-from: 2
 tags:
@@ -18,6 +18,12 @@ Recurring pattern detected via dream-cycle promotion. 2 entries clustered on `er
 
 ## Evidence
 
+- Cluster error-patterns — dream-summary-2026-06-21.md (score 10) — 2026-07-03
+- Cluster error-patterns — dream-summary-2026-06-30.md (score 10) — 2026-07-03
+- Cluster error-patterns — dream-summary-2026-06-20.md (score 9) — 2026-07-03
+- Cluster error-patterns — dream-summary-2026-06-29.md (score 10) — 2026-07-03
+- Cluster error-patterns — dream-summary-2026-06-19.md (score 10) — 2026-07-03
+- Cluster error-patterns — dream-summary-2026-07-02.md (score 10) — 2026-07-03
 ### 2026-06-16 — dream-cycle promotion
 - 2026-04-18-dream-cycle-summary.md
 - 2026-04-26-dream-cycle-summary.md

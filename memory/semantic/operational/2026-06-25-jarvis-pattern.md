@@ -3,7 +3,7 @@ type: semantic
 domain: operational
 confidence: high
 created: 2026-06-25
-last-updated: 2026-07-02
+last-updated: 2026-07-03
 tags:
   - jarvis
 synthesized-from:
@@ -34,6 +34,19 @@ Recurring jarvis activity observed across 15 episodic entries within the 30-day 
 ## Evidence
 
 
+- Cluster jarvis — dream-summary-2026-06-25.md (score 10) — 2026-07-03
+- Cluster jarvis — dream-summary-2026-06-21.md (score 10) — 2026-07-03
+- Cluster jarvis — dream-summary-2026-06-30.md (score 10) — 2026-07-03
+- Cluster jarvis — dream-summary-2026-06-24.md (score 10) — 2026-07-03
+- Cluster jarvis — dream-summary-2026-06-17.md (score 10) — 2026-07-03
+- Cluster jarvis — dream-summary-2026-06-23.md (score 10) — 2026-07-03
+- Cluster jarvis — dream-summary-2026-06-27.md (score 10) — 2026-07-03
+- Cluster jarvis — dream-summary-2026-06-26.md (score 10) — 2026-07-03
+- Cluster jarvis — dream-summary-2026-06-29.md (score 10) — 2026-07-03
+- Cluster jarvis — dream-summary-2026-06-19.md (score 10) — 2026-07-03
+- Cluster jarvis — dream-summary-2026-06-18.md (score 10) — 2026-07-03
+- Cluster jarvis — dream-summary-2026-07-02.md (score 10) — 2026-07-03
+- Cluster jarvis — dream-summary-2026-06-28.md (score 10) — 2026-07-03
 - 2026-07-02 | dream-summary-2026-06-30.md | tags: dream-summary, jarvis, briefing, morning-briefing, omnifocus, revenue | score: 10
 - 2026-07-02 | dream-summary-2026-06-29.md | tags: dream-summary, jarvis, briefing, omnifocus, semantic-promotion, dream-cycle | score: 10
 - 2026-06-25: memory/episodic/dream-summary-2026-05-31.md (tags: dream-summary, jarvis, omnifocus, boot, semantic-promotion)

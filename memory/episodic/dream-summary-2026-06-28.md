@@ -7,10 +7,6 @@ created: 2026-06-28T08:16:30Z
 expires: 2026-06-29
 status: archived
 context: "Dream cycle nightly run — 2026-06-28"
-salience:
-  promoted: true
-  score: 10
-  last-promoted-check: 2026-07-02
 date: 2026-06-28
 source_file: memory/working/dream-summary-2026-06-28.md
 tags:
@@ -21,6 +17,10 @@ tags:
   - email
 related_people:
   - dream-cycle
+salience:
+  score: 10
+  last-promoted-check: 2026-07-03
+  promoted: true
 ---
 # Dream Cycle — 2026-06-28
 

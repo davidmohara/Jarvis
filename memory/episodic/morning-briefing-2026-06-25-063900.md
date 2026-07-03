@@ -22,9 +22,9 @@ tags:
   - plaud
 related_people: []
 salience:
-  promoted: true
   score: 10
-  last-promoted-check: 2026-07-02
+  last-promoted-check: 2026-07-03
+  promoted: true
 ---
 # Morning Briefing — Thursday, June 25, 2026
 

@@ -1,0 +1,15 @@
+{
+  "id": "err-20260703T004749-R4EDQ0",
+  "timestamp": "2026-07-03T00:47:49Z",
+  "session": "content-discovery-scheduled-2026-07-02",
+  "source": "explicit",
+  "agent": "harper",
+  "category": "process-skip",
+  "description": "Content pipeline step-01-discover.md requires creating a Ghost draft post (status: draft) for every drafted post, per workflow.md and the MANDATORY EXECUTION RULES ('You MUST set status: draft on Ghost'). Harper wrote all 4 blog post drafts but did not create any of the corresponding Ghost draft posts, instead pausing to ask David how to proceed because the documented publish path (Step 7, Admin API + hand-signed JWT) requires reading the raw GHOST_ADMIN_API_KEY, which conflicts with Improving's org-level instruction against processing API keys/credentials. David flagged this as a failure: the workflow's defined output (Ghost draft posts) was not produced.",
+  "correction": "The content pipeline is not complete until the Ghost draft posts actually exist. Pausing to ask for direction on the credential question was reasonable given the org policy conflict, but the run should have been logged/reported as an incomplete/failed pipeline execution against workflow.md's required output, not just surfaced as an open question in Slack. Failure should be logged immediately when a MANDATORY EXECUTION RULE cannot be satisfied, per the workflow's own FAILURE MODES table ('Ghost API fails on post creation -> Log error. Notify David').",
+  "failure_mode": "A hard conflict between a documented workflow requirement (build Ghost drafts via raw Admin API key) and an org-level policy (do not process API keys/credentials) was surfaced as a question rather than logged as a pipeline failure with a clear resolution path.",
+  "systemic_fix": "Update workflows/content-pipeline/steps/step-01-discover.md Step 7 to define a credential-safe path for Ghost draft creation (e.g., route the JWT signing through a helper script/service that never surfaces the raw key to the agent's context, or scope a narrower non-admin API token), so this conflict does not recur on every run. Until fixed, any run that cannot complete Step 7 must write an error-tracking entry immediately, not just a Slack note.",
+  "fix_status": "proposed",
+  "severity": "major",
+  "related_entries": ["err-20260703T003945-VEVWM2"]
+}

@@ -3,7 +3,7 @@ type: semantic
 domain: operational
 confidence: high
 created: 2026-06-25
-last-updated: 2026-07-02
+last-updated: 2026-07-03
 tags:
   - chase
 synthesized-from:
@@ -27,6 +27,9 @@ Recurring chase activity observed across 7 episodic entries within the 30-day sa
 ## Evidence
 
 
+- Cluster chase — revenue-tracker-2026-06-29-000800.md (score 9) — 2026-07-03
+- Cluster chase — revenue-tracker-2026-06-25-000130.md (score 10) — 2026-07-03
+- Cluster chase — co-sell-pipeline-20260629-001245.md (score 10) — 2026-07-03
 - 2026-07-02 | revenue-tracker-2026-06-29-000800.md | tags: chase, omnifocus, one-texas, revenue | score: 8
 - 2026-07-02 | co-sell-pipeline-20260629-001245.md | tags: pipeline-review, chase, omnifocus, one-texas, pipeline, co-sell | score: 10
 - 2026-06-25: memory/episodic/co-sell-pipeline-2026-06-09-142000.md (tags: pipeline, co-sell, chase, rock4)

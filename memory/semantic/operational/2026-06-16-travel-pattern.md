@@ -2,7 +2,7 @@
 type: semantic
 domain: operational
 created: 2026-06-16
-last-updated: 2026-06-27
+last-updated: 2026-07-03
 confidence: high
 synthesized-from: 3
 tags:
@@ -17,6 +17,11 @@ Recurring pattern detected via dream-cycle promotion. 3 entries clustered on `tr
 
 ## Evidence
 
+- Cluster travel — morning-briefing-2026-06-25-063900.md (score 10) — 2026-07-03
+- Cluster travel — dream-summary-2026-06-25.md (score 10) — 2026-07-03
+- Cluster travel — morning-briefing-2026-06-18-060923.md (score 10) — 2026-07-03
+- Cluster travel — morning-briefing-2026-06-24-061500.md (score 10) — 2026-07-03
+- Cluster travel — dream-summary-2026-06-27.md (score 10) — 2026-07-03
 ### 2026-06-16 — dream-cycle promotion
 - 2026-05-04-dream-cycle-summary.md
 - 2026-05-01-dream-cycle-summary.md

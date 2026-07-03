@@ -7,10 +7,6 @@ created: 2026-06-29T03:13:30
 expires: 2026-06-30
 status: archived
 context: "Dream cycle results — 2026-06-29"
-salience:
-  score: 10
-  last-promoted-check: 2026-07-02
-  promoted: true
 date: 2026-06-29
 source_file: memory/working/dream-summary-2026-06-29.md
 tags:
@@ -24,6 +20,10 @@ tags:
   - lessons
   - chief
 related_people:
+salience:
+  score: 10
+  last-promoted-check: 2026-07-03
+  promoted: true
 ---
 
 # Dream Cycle Summary — 2026-06-29

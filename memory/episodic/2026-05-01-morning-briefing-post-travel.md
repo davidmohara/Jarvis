@@ -21,9 +21,8 @@ related_people:
 - stuart
   promoted: true
 salience:
-  promoted: true
   score: 10
-  last-promoted-check: 2026-07-02
+  last-promoted-check: 2026-07-03
 ---
 # Morning Briefing — May 1, 2026 (Post-Travel Friday)
 

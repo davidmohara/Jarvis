@@ -2,18 +2,18 @@
 workflow: daily-review
 agent: chief
 status: complete
-session-started: "2026-07-01T00:00:00"
-session-id: "chief-2026-07-01-000000"
+session-started: "2026-07-02T00:00:00"
+session-id: "chief-2026-07-02-000000"
 current-step: step-auto
 original-request: "auto"
 accumulated-context:
-  narrative-title: "2026-06-30 A Full Calendar, a Quiet Task List"
-  narrative-path: "reviews/daily/auto-2026-07-01.md"
+  narrative-title: "2026-07-01 Microsoft, Lunch, and a World Cup Nightcap"
+  narrative-path: "reviews/daily/auto-2026-07-02.md"
   omnifocus-status: "available — 1 completion confirmed, 6 overdue, 0 flagged, 9 inbox"
-  calendar-status: "available — 13 events pulled for 2026-06-30"
+  calendar-status: "available — 12 events pulled for 2026-07-01"
   delegation-status: "no active delegations"
   output-guard: "passed"
-  working-memory-path: "memory/working/daily-review-2026-07-01-000000.md"
+  working-memory-path: "memory/working/daily-review-2026-07-02-000000.md"
   working-memory-status: "written"
   routing-note: "Obsidian MCP disabled in connector settings — written to local fallback"
   model: sonnet

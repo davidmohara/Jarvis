@@ -2,7 +2,7 @@
 type: semantic
 domain: operational
 created: 2026-06-15
-last-updated: 2026-06-27
+last-updated: 2026-07-03
 confidence: high
 tags:
   - leads
@@ -17,6 +17,14 @@ synthesized-from:
 Recurring pattern observed in leads entries: cluster of 1 episodic memories share core attributes.
 
 ## Evidence
+- Cluster leads — morning-briefing-2026-06-25-063900.md (score 10) — 2026-07-03
+- Cluster leads — morning-briefing-2026-06-18-060923.md (score 10) — 2026-07-03
+- Cluster leads — morning-briefing-2026-06-24-061500.md (score 10) — 2026-07-03
+- Cluster leads — morning-briefing-2026-06-26-061000.md (score 10) — 2026-07-03
+- Cluster leads — dream-summary-2026-06-24.md (score 10) — 2026-07-03
+- Cluster leads — morning-briefing-2026-06-16-061004.md (score 10) — 2026-07-03
+- Cluster leads — dream-summary-2026-06-27.md (score 10) — 2026-07-03
+- Cluster leads — plaud-ingest-2026-06-24-170000.md (score 10) — 2026-07-03
 ### 2026-06-16 — dream-cycle promotion (3 entries)
 - 2026-05-04-morning-briefing-automated.md
 - 2026-05-04-morning-briefing.md

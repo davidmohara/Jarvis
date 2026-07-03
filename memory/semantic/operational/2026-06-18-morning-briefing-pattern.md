@@ -5,7 +5,7 @@ tags:
 - morning-briefing
 confidence: high
 created: '2026-06-18'
-last-updated: 2026-07-02
+last-updated: 2026-07-03
 synthesized-from:
   - memory/episodic/2026-05-04-morning-briefing-automated.md
   - memory/episodic/2026-05-04-morning-briefing.md
@@ -29,6 +29,13 @@ Recurring `morning-briefing` activity observed in episodic memory.
 ## Evidence
 
 
+- Cluster morning-briefing — morning-briefing-2026-06-25-063900.md (score 10) — 2026-07-03
+- Cluster morning-briefing — morning-briefing-2026-06-18-060923.md (score 10) — 2026-07-03
+- Cluster morning-briefing — morning-briefing-2026-06-24-061500.md (score 10) — 2026-07-03
+- Cluster morning-briefing — dream-summary-2026-06-21.md (score 10) — 2026-07-03
+- Cluster morning-briefing — dream-summary-2026-06-30.md (score 10) — 2026-07-03
+- Cluster morning-briefing — morning-briefing-2026-06-26-061000.md (score 10) — 2026-07-03
+- Cluster morning-briefing — morning-briefing-2026-06-16-061004.md (score 10) — 2026-07-03
 - 2026-07-02 | dream-summary-2026-06-30.md | tags: dream-summary, jarvis, briefing, morning-briefing, omnifocus, revenue | score: 10
 ### 2026-06-18 run
 - [2026-05-04] `2026-05-04-morning-briefing-automated.md` (score:10)

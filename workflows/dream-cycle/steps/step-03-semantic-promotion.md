@@ -1,30 +1,51 @@
 ---
 status: complete
-started-at: 2026-07-02T03:13:30Z
-completed-at: 2026-07-02T03:15:00Z
+started-at: 2026-07-03T03:12:30Z
+completed-at: 2026-07-03T03:14:30Z
 outputs:
-  candidates_count: 5
-  clusters_found: 22
-  semantic_created: 1
-  semantic_updated: 21
-  promoted_entries: 5
-  promotion_note: "Light-medium cycle. 5 freshly-archived episodic files (co-sell-pipeline, daily-review, 2x dream-summary, revenue-tracker) grouped into 22 tag-clusters. 1 new semantic entry (semantic-promotion pattern in domain/pattern) + 21 evidence appends across operational, pattern, and domain-knowledge entries."
+  candidates_count: 139
+  clusters_found: 32
+  semantic_created: 2
+  semantic_updated: 30
+  promoted_entries: 35
+  promotion_note: "Heavier cycle than baseline. Step-02 script rewrote the salience block without preserving prior `promoted: true` flags — all entries reverted to unpromoted, so this run reevaluated the full corpus rather than just newly-archived files. Operation was append-only per rules; no data lost. 2 new semantic entries created (overdue-tasks and boot patterns in operational domain), 30 evidence appends across 32 tag clusters. Self-detected error logged."
   cluster_actions:
-    - {tag: omnifocus, domain: operational, size: 5, action: update}
-    - {tag: briefing, domain: operational, size: 2, action: update}
-    - {tag: chase, domain: operational, size: 2, action: update}
-    - {tag: chief, domain: operational, size: 2, action: update}
-    - {tag: dream-cycle, domain: operational, size: 2, action: update}
-    - {tag: dream-summary, domain: operational, size: 2, action: update}
-    - {tag: error-patterns, domain: pattern, size: 2, action: update}
-    - {tag: jarvis, domain: operational, size: 2, action: update}
-    - {tag: one-texas, domain: domain-knowledge, size: 2, action: update}
-    - {tag: revenue, domain: operational, size: 2, action: update}
-    - {tag: semantic-promotion, domain: pattern, size: 2, action: create}
-  error_categories_30d: "process-skip:13, routing-error:12, tool-misuse:11, format-violation:10, data-accuracy:10, missed-context:6, assumption-error:5, hallucination:5, data-interpretation:4"
-  error_total_30d: 98
-  lessons_appended: 1
-  lessons_note: "1 new lesson appended (data-interpretation, 4 occurrences over 30 days — newly crossed threshold, not previously in LESSONS.md). All other threshold-breaching combos already present."
+    - {tag: omnifocus, domain: operational, size: 32, action: update}
+    - {tag: calendar, domain: operational, size: 23, action: update}
+    - {tag: chief, domain: operational, size: 16, action: update}
+    - {tag: dream-summary, domain: operational, size: 14, action: update}
+    - {tag: jarvis, domain: operational, size: 13, action: update}
+    - {tag: daily-review, domain: operational, size: 11, action: update}
+    - {tag: briefing, domain: operational, size: 10, action: update}
+    - {tag: pipeline, domain: operational, size: 9, action: update}
+    - {tag: dream-cycle, domain: pattern, size: 9, action: update}
+    - {tag: leads, domain: operational, size: 8, action: update}
+    - {tag: email, domain: operational, size: 8, action: update}
+    - {tag: rock4, domain: operational, size: 8, action: update}
+    - {tag: morning-briefing, domain: operational, size: 7, action: update}
+    - {tag: semantic-promotion, domain: pattern, size: 7, action: update}
+    - {tag: one-texas, domain: domain-knowledge, size: 6, action: update}
+    - {tag: plaud, domain: operational, size: 6, action: update}
+    - {tag: overdue-tasks, domain: operational, size: 6, action: create}
+    - {tag: revenue, domain: operational, size: 6, action: update}
+    - {tag: error-patterns, domain: pattern, size: 6, action: update}
+    - {tag: travel, domain: operational, size: 5, action: update}
+    - {tag: obsidian, domain: operational, size: 5, action: update}
+    - {tag: co-sell, domain: operational, size: 5, action: update}
+    - {tag: lessons, domain: pattern, size: 5, action: update}
+    - {tag: boot, domain: operational, size: 4, action: create}
+    - {tag: rock1, domain: operational, size: 3, action: update}
+    - {tag: quarterly-rocks, domain: operational, size: 3, action: update}
+    - {tag: chase, domain: operational, size: 3, action: update}
+    - {tag: utb-board, domain: operational, size: 3, action: update}
+    - {tag: lifebook, domain: operational, size: 2, action: update}
+    - {tag: session-wrap, domain: operational, size: 2, action: update}
+    - {tag: health, domain: operational, size: 2, action: update}
+    - {tag: memory-pipeline, domain: operational, size: 2, action: update}
+  error_categories_30d: "process-skip:14, routing-error:13, tool-misuse:13, format-violation:10, data-accuracy:10, missed-context:6, hallucination:5, assumption-error:5, data-interpretation:4"
+  error_total_30d: 100
+  lessons_appended: 0
+  lessons_note: "All threshold-breaching categories already present in LESSONS.md; no new appends."
 ---
 
 <!-- system:start -->

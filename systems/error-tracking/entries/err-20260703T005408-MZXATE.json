@@ -1,0 +1,15 @@
+{
+  "id": "err-20260703T005408-MZXATE",
+  "timestamp": "2026-07-03T00:54:08Z",
+  "session": "content-discovery-scheduled-2026-07-02",
+  "source": "self-detected",
+  "agent": "harper",
+  "category": "tool-misuse",
+  "description": "David approved the MCP-only Ghost publish path (mcp__ghost-blog__create_post) as a workaround for the credential-processing restriction on the Admin API/JWT path. Attempted to create the first of 4 drafted posts via create_post with html content and real tag IDs from workflow.md's locked tag list. Result was worse than workflow.md's documented limitations: (1) lexical/body content was completely empty, not just missing formatting, (2) the 3 real tag IDs passed as bare strings created 3 brand-new junk tags named after the literal ID strings (e.g. a tag literally named '637ea17e92f3300211b1b23a'), exactly as workflow.md warned, and (3) a follow-up update_post call with corrected tag IDs and html did not change anything (updated_at timestamp identical to created_at, confirming update_post is a no-op against this Ghost instance/MCP version). Deleted the broken empty post via delete_post to avoid leaving junk in the drafts list, but the 3 junk tags cannot be removed (no delete_tag/update_tag tool exposed by this ghost-blog MCP server) and remain in the Ghost tag list.",
+  "correction": "Do not use mcp__ghost-blog__create_post or update_post for real content creation on this Ghost instance until the MCP server is fixed or replaced. It is not merely 'missing image/formatting' as workflow.md states, it fails to write body content and correctly link tags at all, and update_post cannot patch either after the fact. The only path that reliably works is the Admin API + JWT approach in step-01-discover.md Step 7, which requires processing the raw GHOST_ADMIN_API_KEY, an action blocked by Improving's org policy on credential handling. This is a genuine dead end for automated Ghost publishing under current constraints and needs a human decision, not a workaround.",
+  "failure_mode": "Tool capability gap: the ghost-blog MCP server's create_post/update_post do not reliably write lexical content or correct tags, worse than the previously documented (and already serious) limitations. No delete_tag/update_tag tool exists to clean up junk tags created by the tool's own bad tag-ID handling.",
+  "systemic_fix": "Either (a) get a scoped, non-admin Ghost API integration token that a human or a locked-down helper script can use without exposing full admin credentials to the agent's context, or (b) fix/replace the ghost-blog MCP server so create_post/update_post reliably handle lexical/html and tag-by-ID linking. Until one of those exists, mark automated Ghost draft creation as blocked in workflow.md rather than routing agents through a broken MCP path. Also: 3 junk tags (named '637ea17e92f3300211b1b23a', '68fbc4d89e3561027e745c91', '637ea17e92f3300211b1b233') now exist in the live Ghost tag list and need manual deletion via the Ghost admin UI.",
+  "fix_status": "proposed",
+  "severity": "major",
+  "related_entries": ["err-20260703T004749-R4EDQ0", "err-20260703T003945-VEVWM2"]
+}

@@ -2,7 +2,7 @@
 type: semantic
 domain: operational
 created: 2026-06-16
-last-updated: 2026-06-25
+last-updated: 2026-07-03
 confidence: medium
 synthesized-from: 2
 tags:
@@ -18,6 +18,17 @@ Recurring pattern detected via dream-cycle promotion. 2 entries clustered on `me
 
 ## Evidence
 
+- Cluster memory-pipeline — dream-summary-2026-06-19.md (score 10) — 2026-07-03
+- Cluster memory-pipeline — dream-summary-2026-06-18.md (score 10) — 2026-07-03
+- Cluster pipeline — morning-briefing-2026-06-25-063900.md (score 10) — 2026-07-03
+- Cluster pipeline — shutdown-cleanup-2026-06-16-071444.md (score 10) — 2026-07-03
+- Cluster pipeline — dream-summary-2026-06-24.md (score 10) — 2026-07-03
+- Cluster pipeline — dream-summary-2026-06-23.md (score 10) — 2026-07-03
+- Cluster pipeline — dream-summary-2026-06-27.md (score 10) — 2026-07-03
+- Cluster pipeline — dream-summary-2026-06-19.md (score 10) — 2026-07-03
+- Cluster pipeline — co-sell-pipeline-20260629-001245.md (score 10) — 2026-07-03
+- Cluster pipeline — dream-summary-2026-06-18.md (score 10) — 2026-07-03
+- Cluster pipeline — dream-summary-2026-07-02.md (score 10) — 2026-07-03
 _2026-06-17 run:_
 - 2026-06-09 — Co-sell pipeline snapshot — 2026-06-09 (final corrected, One Texas cities) (score 5, source: `memory/episodic/co-sell-pipeline-2026-06-09-142000.md`)
 - 2026-06-09 — Co-sell pipeline snapshot — 2026-06-09 (score 5, source: `memory/episodic/co-sell-pipeline-2026-06-09-133410.md`)

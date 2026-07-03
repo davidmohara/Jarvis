@@ -24,9 +24,8 @@ related_people:
 - devlin
   promoted: true
 salience:
-  promoted: true
   score: 10
-  last-promoted-check: 2026-07-02
+  last-promoted-check: 2026-07-03
 ---
 # Morning Boot — Tuesday, May 12, 2026
 

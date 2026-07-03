@@ -1,16 +1,27 @@
 ---
-type: working
 expires: 2026-07-03
-status: active
 created: 2026-07-02T03:08:57
 agent-source: jarvis
+type: working-archive
+status: archived
+date: 2026-07-02
+source_file: memory/working/dream-summary-2026-07-02.md
 tags:
   - dream-summary
   - jarvis
+  - omnifocus
+  - rock4
+  - co-sell
+  - pipeline
+  - revenue
   - dream-cycle
   - semantic-promotion
-  - lessons
   - error-patterns
+related_people:
+salience:
+  score: 10
+  last-promoted-check: 2026-07-03
+  promoted: true
 ---
 
 # Dream cycle 2026-07-02 — quick read for Chief

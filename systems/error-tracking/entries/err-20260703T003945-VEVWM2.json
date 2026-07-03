@@ -1,0 +1,15 @@
+{
+  "id": "err-20260703T003945-VEVWM2",
+  "timestamp": "2026-07-03T00:39:45Z",
+  "session": "content-discovery-scheduled-2026-07-02",
+  "source": "explicit",
+  "agent": "harper",
+  "category": "tool-misuse",
+  "description": "Ran systems/slack-bot/read.py and post.py directly via bash and got 'Tunnel connection failed: 403 Forbidden', then concluded Slack was unreachable and reported the content-discovery run as blocked. David corrected: the scripts run fine, and access to #content should go through the master-slack skill, not raw script invocation in this sandbox.",
+  "correction": "Use the master-slack skill (as workflow.md specifies: 'Use master-slack skill — systems/slack-bot/post.py via Desktop Commander') instead of running read.py/post.py directly via the bash tool. The bash sandbox has different network access than Desktop Commander/master-slack, so the same script fails differently depending on invocation path.",
+  "failure_mode": "Used the wrong invocation path for a tool that requires a specific execution context (Desktop Commander via master-slack skill) rather than the general-purpose sandbox shell.",
+  "systemic_fix": "Before running systems/slack-bot/*.py, read skills/master-slack/SKILL.md and invoke via the specified path (Desktop Commander) rather than mcp__workspace__bash. Do not assume a 403/network error from one execution path means the underlying service is down.",
+  "fix_status": "proposed",
+  "severity": "moderate",
+  "related_entries": []
+}

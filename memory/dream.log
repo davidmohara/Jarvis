@@ -1455,3 +1455,25 @@ errors: 0
 summary: "Light-medium cycle. Step-01 archived 5 newly-expired working files (co-sell-pipeline, daily-review-06-29, dream-summary-06-29, dream-summary-06-30, revenue-tracker-06-29) via heuristic enrichment; 7 non-expired skipped, 1 unstructured skip. Step-02 scored 159 episodic entries; window 2026-06-02 -> 2026-07-02 with 65 in-window; distribution 0:21, 1:2, 2:1, 3:2, 4:1, 5:1, 6:5, 7:3, 8:4, 9:2, 10:117 (11 no-tag, 9 no-date). Step-03 promotion: 5 candidates -> 22 tag-clusters -> 1 new entry (semantic-promotion in domain/pattern) + 21 evidence appends across operational (omnifocus 5-way, briefing, chase, chief, dream-cycle, dream-summary, jarvis, revenue), pattern (error-patterns), and domain-knowledge (one-texas). Error scan 30d: 98 entries (process-skip:13, routing-error:12, tool-misuse:11 lead); 1 threshold-breaching combo newly appended to LESSONS.md (data-interpretation, 4 occurrences). Step-04 compression skipped (oldest episodic 75 days, 90-day threshold not met)."
 git_pull: success
 git_pull_note: "already up to date; stashed unstaged daily-review state.yaml + 3 untracked files pre-pull; popped stash cleanly"
+
+---
+## 2026-07-03T08:14:30 UTC
+session_id: dream-cycle-2026-07-03-030901
+working_archived: 3
+working_deleted: 0
+episodic_scanned: 162
+score_updates: 162
+clusters_found: 32
+semantic_created: 2
+semantic_updated: 30
+promoted_entries: 35
+entries_compressed: 0
+digests_updated: 0
+errors: 1
+summary: "Heavier-than-baseline cycle. Step-01 archived 3 newly-expired working files (daily-review-06-30, daily-review-07-01-000000, dream-summary-07-02) via heuristic enrichment; 5 not-expired, 1 no-status skipped. Step-02 scored 162 episodic entries; window 2026-06-03 -> 2026-07-03 with 69 in-window; distribution 0:20, 1:2, 2:1, 3:2, 4:1, 6:2, 7:5, 8:2, 9:4, 10:123. Step-03 promotion inflated by self-detected step-02 bug: scoring rewrote the salience block without preserving prior promoted:true flags, so 139 candidates were considered (full corpus) instead of ~3 newly-archived. Operation was append-only per rules — no data lost. 32 tag-clusters processed: 2 new semantic entries (overdue-tasks and boot patterns in operational domain) + 30 evidence appends across operational, pattern, and domain-knowledge. Error scan 30d: 100 entries (process-skip:14, routing-error:13, tool-misuse:13 lead); 0 new lessons appended — all threshold-breaching categories already present in LESSONS.md. Step-04 compression skipped (oldest episodic 76 days, 90-day threshold not met)."
+git_pull: success
+git_pull_note: "stashed unstaged content-pipeline state.yaml + 4 untracked files pre-pull; fast-forward pull 1236c43..21dd6fe; popped stash cleanly"
+errors_detail:
+  - phase: step-02
+    file: outputs/dream_cycle_step02.py
+    error: "Salience block rewrite did not preserve prior `promoted: true` flags. Logged as err-20260703T081410-XDIYNH (category: process-skip / failure_mode: protocol-skip). Systemic fix: promote scoring script to systems/dream-cycle/ so it isn't rebuilt inline each cycle."

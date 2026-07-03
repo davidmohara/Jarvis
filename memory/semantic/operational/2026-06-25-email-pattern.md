@@ -3,7 +3,7 @@ type: semantic
 domain: operational
 confidence: high
 created: 2026-06-25
-last-updated: 2026-07-02
+last-updated: 2026-07-03
 tags:
   - email
 synthesized-from:
@@ -43,6 +43,14 @@ Recurring email activity observed across 24 episodic entries within the 30-day s
 ## Evidence
 
 
+- Cluster email — morning-briefing-2026-06-25-063900.md (score 10) — 2026-07-03
+- Cluster email — daily-review-2026-06-25-143000.md (score 10) — 2026-07-03
+- Cluster email — morning-briefing-2026-06-18-060923.md (score 10) — 2026-07-03
+- Cluster email — daily-review-2026-06-26-211000.md (score 10) — 2026-07-03
+- Cluster email — daily-review-2026-06-24-170000.md (score 10) — 2026-07-03
+- Cluster email — daily-review-2026-06-19-020000.md (score 10) — 2026-07-03
+- Cluster email — daily-review-2026-06-29-211155.md (score 10) — 2026-07-03
+- Cluster email — dream-summary-2026-06-28.md (score 10) — 2026-07-03
 - 2026-07-02 | daily-review-2026-06-29-211155.md | tags: daily-review, chief, calendar, omnifocus, email, overdue-tasks | score: 10
 - 2026-06-25: memory/episodic/2026-05-12-061241-session-boot-morning-briefing.md (tags: briefing, chief, calendar, omnifocus, leads)
 - 2026-06-25: memory/episodic/2026-05-13-095338-session-boot-morning-briefing.md (tags: briefing, chief, calendar, omnifocus, travel)

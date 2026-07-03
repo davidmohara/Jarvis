@@ -3,7 +3,7 @@ type: semantic
 domain: operational
 primary-tag: plaud
 created: 2026-06-12
-last-updated: 2026-06-24
+last-updated: 2026-07-03
 confidence: low
 synthesized-from: 1
 tags:
@@ -22,6 +22,12 @@ The `plaud` tag cluster shows persistent co-occurrence in episodic memory over a
 
 ## Evidence
 
+- Cluster plaud — morning-briefing-2026-06-25-063900.md (score 10) — 2026-07-03
+- Cluster plaud — morning-briefing-2026-06-18-060923.md (score 10) — 2026-07-03
+- Cluster plaud — dream-summary-2026-06-17.md (score 10) — 2026-07-03
+- Cluster plaud — morning-briefing-2026-06-16-061004.md (score 10) — 2026-07-03
+- Cluster plaud — dream-summary-2026-06-27.md (score 10) — 2026-07-03
+- Cluster plaud — plaud-ingest-2026-06-24-170000.md (score 10) — 2026-07-03
 _2026-06-17 run:_
 - 2026-06-04 — Plaud ingest summary — 2026-06-04 (score 10, source: `memory/episodic/plaud-ingest-2026-06-04-013000.md`)
 

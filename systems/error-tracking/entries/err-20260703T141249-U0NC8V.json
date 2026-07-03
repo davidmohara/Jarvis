@@ -1,0 +1,15 @@
+{
+  "id": "err-20260703T141249-U0NC8V",
+  "timestamp": "2026-07-03T14:12:49Z",
+  "session": "golf-tee-time-booking scheduled task",
+  "source": "explicit",
+  "agent": "jarvis",
+  "category": "data-accuracy",
+  "description": "Claimed golf booking workflow complete without verifying 8-day booking window requirement. Workflow ran June 27, 2026 (7 days before July 4) but specification requires execution exactly 8 days before target date. Booking succeeded but workflow validation logic failed to catch timing discrepancy.",
+  "correction": "Must verify booking window (exactly 8 days before target) before claiming success. Abort if today is not 8 days before target_date_primary. Check: (target_date - today) == 8 days.",
+  "failure_mode": "protocol-skip",
+  "systemic_fix": "Add pre-execution guard to golf-booking SKILL.md: before Step 1, calculate days_until_target = (target_date_primary - today).days. If != 8, abort with log: 'Workflow scheduled for wrong timeframe. Target: [target]. Days until target: [N]. Expected: 8 days. Aborting.' Set status: outside-booking-window.",
+  "fix_status": "proposed",
+  "severity": "moderate",
+  "related_entries": []
+}

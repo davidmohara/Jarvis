@@ -5,7 +5,7 @@ tags:
 - rock4
 confidence: high
 created: '2026-06-18'
-last-updated: 2026-06-27
+last-updated: 2026-07-03
 synthesized-from:
 - 2026-04-20-rock4-pipeline-weekly.md
 synthesized-from:
@@ -18,6 +18,14 @@ Recurring `rock4` activity observed in episodic memory.
 
 ## Evidence
 
+- Cluster rock4 — daily-review-2026-06-30-211200.md (score 10) — 2026-07-03
+- Cluster rock4 — shutdown-cleanup-2026-06-16-071444.md (score 10) — 2026-07-03
+- Cluster rock4 — morning-briefing-2026-06-24-061500.md (score 10) — 2026-07-03
+- Cluster rock4 — morning-briefing-2026-06-26-061000.md (score 10) — 2026-07-03
+- Cluster rock4 — dream-summary-2026-06-24.md (score 10) — 2026-07-03
+- Cluster rock4 — morning-briefing-2026-06-16-061004.md (score 10) — 2026-07-03
+- Cluster rock4 — dream-summary-2026-06-27.md (score 10) — 2026-07-03
+- Cluster rock4 — dream-summary-2026-07-02.md (score 10) — 2026-07-03
 ### 2026-06-18 run
 - [2026-04-20] `2026-04-20-rock4-pipeline-weekly.md` (score:6)
 - memory/episodic/shutdown-cleanup-2026-06-16-071444.md (score 10)

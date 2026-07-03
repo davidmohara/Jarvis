@@ -2,7 +2,7 @@
 type: semantic
 domain: operational
 created: 2026-06-16
-last-updated: 2026-06-30
+last-updated: 2026-07-03
 confidence: high
 synthesized-from: 3
   - memory/episodic/2026-04-24-dream-cycle-summary.md
@@ -45,6 +45,29 @@ Recurring pattern detected via dream-cycle promotion. 3 entries clustered on `ca
 
 ## Evidence
 
+- Cluster calendar — morning-briefing-2026-06-25-063900.md (score 10) — 2026-07-03
+- Cluster calendar — daily-review-2026-06-30-211200.md (score 10) — 2026-07-03
+- Cluster calendar — daily-review-2026-06-25-143000.md (score 10) — 2026-07-03
+- Cluster calendar — shutdown-cleanup-2026-06-16-071444.md (score 10) — 2026-07-03
+- Cluster calendar — morning-briefing-2026-06-18-060923.md (score 10) — 2026-07-03
+- Cluster calendar — morning-briefing-2026-06-24-061500.md (score 10) — 2026-07-03
+- Cluster calendar — daily-review-2026-06-26-211000.md (score 10) — 2026-07-03
+- Cluster calendar — daily-review-2026-06-22-020000.md (score 10) — 2026-07-03
+- Cluster calendar — daily-review-2026-06-17-020000.md (score 10) — 2026-07-03
+- Cluster calendar — morning-briefing-2026-06-26-061000.md (score 10) — 2026-07-03
+- Cluster calendar — dream-summary-2026-06-24.md (score 10) — 2026-07-03
+- Cluster calendar — dream-summary-2026-06-17.md (score 10) — 2026-07-03
+- Cluster calendar — dream-summary-2026-06-23.md (score 10) — 2026-07-03
+- Cluster calendar — daily-review-2026-06-24-170000.md (score 10) — 2026-07-03
+- Cluster calendar — morning-briefing-2026-06-16-061004.md (score 10) — 2026-07-03
+- Cluster calendar — dream-summary-2026-06-27.md (score 10) — 2026-07-03
+- Cluster calendar — daily-review-2026-06-16-021126.md (score 10) — 2026-07-03
+- Cluster calendar — daily-review-2026-06-19-020000.md (score 10) — 2026-07-03
+- Cluster calendar — plaud-ingest-2026-06-24-170000.md (score 10) — 2026-07-03
+- Cluster calendar — daily-review-2026-06-29-211155.md (score 10) — 2026-07-03
+- Cluster calendar — daily-review-2026-06-18-020000.md (score 10) — 2026-07-03
+- Cluster calendar — daily-review-2026-07-01-000000.md (score 10) — 2026-07-03
+- Cluster calendar — dream-summary-2026-06-28.md (score 10) — 2026-07-03
 ### 2026-06-23 cycle
 - `memory/episodic/2026-04-24-dream-cycle-summary.md` (score 9, run 2026-06-23)
 - `memory/episodic/2026-04-23-dream-cycle-summary.md` (score 9, run 2026-06-23)

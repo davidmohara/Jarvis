@@ -1,0 +1,15 @@
+{
+  "id": "err-20260703T081410-XDIYNH",
+  "timestamp": "2026-07-03T08:14:10Z",
+  "session": "dream-cycle-2026-07-03-030901",
+  "source": "self-detected",
+  "agent": "jarvis",
+  "category": "process-skip",
+  "description": "Step-02 salience scoring script rewrote the `salience:` block on every episodic entry without preserving the existing `promoted: true` flag. Previous runs preserved that flag; my script stripped the entire block and reconstructed it with only `score` and `last-promoted-check`. Effect: step-03 saw 139 promotion candidates instead of the typical 3-5 (just the newly archived files), reprocessing the full corpus. All operations were append-only (evidence appends and 2 new semantic files), so no data was lost — but the run appears artificially heavy in dream.log and reintroduces evidence lines that were already promoted in earlier cycles.",
+  "correction": "Step-02 must preserve `salience.promoted` when it exists. The rewrite should update only `score` and `last-promoted-check`, leaving other salience sub-keys intact.",
+  "failure_mode": "protocol-skip",
+  "systemic_fix": "The step-02 script in outputs/dream_cycle_step02.py needs a fix — read the existing salience block, update only `score` and `last-promoted-check`, and preserve `promoted` (and any other sub-key). Alternatively, systems/dream-cycle/ should own a canonical scoring script rather than the workflow rebuilding it inline each run.",
+  "fix_status": "proposed",
+  "severity": "moderate",
+  "related_entries": []
+}

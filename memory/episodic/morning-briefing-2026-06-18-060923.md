@@ -26,9 +26,9 @@ related_people:
   - curtis
   - derek-nwamadi
 salience:
-  promoted: true
   score: 10
-  last-promoted-check: 2026-07-02
+  last-promoted-check: 2026-07-03
+  promoted: true
 ---
 # Morning Briefing — Thursday, June 18, 2026
 

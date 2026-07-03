@@ -1,29 +1,27 @@
 ---
 status: complete
-started-at: 2026-07-02T03:09:00Z
-completed-at: 2026-07-02T03:12:00Z
+started-at: 2026-07-03T03:09:15Z
+completed-at: 2026-07-03T03:11:00Z
 outputs:
-  working_archived: 5
+  working_archived: 3
   working_deleted: 0
-  working_skipped: 7
+  working_skipped: 6
   working_stranded: 0
   enrichment_method: "heuristic (LLM unavailable in sandbox)"
   archived_files:
-    - co-sell-pipeline-20260629-001245.md
-    - daily-review-2026-06-29-211155.md
-    - dream-summary-2026-06-29.md
-    - dream-summary-2026-06-30.md
-    - revenue-tracker-2026-06-29-000800.md
-  skipped_not_expired_count: 6
-  skipped_no_status_count: 1
-  skipped_not_expired:
-    - 2026-06-19-session.md (no status; expires 2026-07-03)
-    - 2026-07-01-153433-harper-watchtower-content-digest-post.md
     - daily-review-2026-06-30-211200.md
     - daily-review-2026-07-01-000000.md
-    - daily-review-2026-07-01-tomorrow.md
-    - morning-briefing-2026-07-01-085000.md
-    - shutdown-cleanup-2026-07-01-170500.md
+    - dream-summary-2026-07-02.md
+  skipped_not_expired_count: 5
+  skipped_no_status_count: 1
+  skipped_not_expired:
+    - 2026-07-01-153433-harper-watchtower-content-digest-post.md (expires 2026-07-03T15:34:33)
+    - daily-review-2026-07-01-tomorrow.md (expires 2026-07-03T17:25:00)
+    - morning-briefing-2026-07-01-085000.md (expires 2026-07-03T08:50:00)
+    - plaud-ingest-2026-07-02-011500.md (expires 2026-07-04T01:15:00)
+    - shutdown-cleanup-2026-07-01-170500.md (expires 2026-07-03T17:05:00)
+  skipped_no_status:
+    - 2026-06-19-session.md
 ---
 
 <!-- system:start -->

@@ -4,7 +4,7 @@ domain: operational
 pattern-tag: briefing
 confidence: high
 created: 2026-06-17
-last-updated: '2026-06-18'
+last-updated: 2026-07-03
 synthesized-from:
 - memory/episodic/2026-05-12-061241-session-boot-morning-briefing.md
 - memory/episodic/morning-briefing-2026-06-02-061028.md
@@ -55,6 +55,16 @@ Recurring co-occurrence detected across 26 episodic entries within the past 30 d
 
 ## Evidence
 
+- Cluster briefing — morning-briefing-2026-06-25-063900.md (score 10) — 2026-07-03
+- Cluster briefing — morning-briefing-2026-06-18-060923.md (score 10) — 2026-07-03
+- Cluster briefing — morning-briefing-2026-06-24-061500.md (score 10) — 2026-07-03
+- Cluster briefing — dream-summary-2026-06-21.md (score 10) — 2026-07-03
+- Cluster briefing — dream-summary-2026-06-30.md (score 10) — 2026-07-03
+- Cluster briefing — morning-briefing-2026-06-26-061000.md (score 10) — 2026-07-03
+- Cluster briefing — morning-briefing-2026-06-16-061004.md (score 10) — 2026-07-03
+- Cluster briefing — dream-summary-2026-06-27.md (score 10) — 2026-07-03
+- Cluster briefing — dream-summary-2026-06-29.md (score 10) — 2026-07-03
+- Cluster briefing — dream-summary-2026-06-19.md (score 10) — 2026-07-03
 _2026-06-17 run:_
 - 2026-05-12 — Morning boot + briefing \u2014 2026-05-12 (automated scheduled run) (score 10, source: `memory/episodic/2026-05-12-061241-session-boot-morning-briefing.md`)
 - 2026-06-02 — Morning briefing — 2026-06-02 (score 10, source: `memory/episodic/morning-briefing-2026-06-02-061028.md`)

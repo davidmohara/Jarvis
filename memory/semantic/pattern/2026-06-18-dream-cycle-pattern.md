@@ -5,7 +5,7 @@ tags:
 - dream-cycle
 confidence: low
 created: '2026-06-18'
-last-updated: '2026-06-18'
+last-updated: 2026-07-03
 synthesized-from:
 - 2026-04-24-dream-cycle-summary.md
 - 2026-04-23-dream-cycle-summary.md
@@ -27,6 +27,15 @@ Recurring `dream-cycle` activity observed in episodic memory.
 
 ## Evidence
 
+- Cluster dream-cycle — dream-summary-2026-06-21.md (score 10) — 2026-07-03
+- Cluster dream-cycle — dream-summary-2026-06-30.md (score 10) — 2026-07-03
+- Cluster dream-cycle — dream-summary-2026-06-20.md (score 9) — 2026-07-03
+- Cluster dream-cycle — dream-summary-2026-06-17.md (score 10) — 2026-07-03
+- Cluster dream-cycle — dream-summary-2026-06-23.md (score 10) — 2026-07-03
+- Cluster dream-cycle — dream-summary-2026-06-26.md (score 10) — 2026-07-03
+- Cluster dream-cycle — dream-summary-2026-06-29.md (score 10) — 2026-07-03
+- Cluster dream-cycle — dream-summary-2026-06-19.md (score 10) — 2026-07-03
+- Cluster dream-cycle — dream-summary-2026-07-02.md (score 10) — 2026-07-03
 ### 2026-06-18 run
 - [2026-04-24] `2026-04-24-dream-cycle-summary.md` (score:8)
 - [2026-04-23] `2026-04-23-dream-cycle-summary.md` (score:10)

@@ -3,7 +3,7 @@ type: semantic
 domain: pattern
 confidence: low
 created: 2026-06-25
-last-updated: 2026-06-25
+last-updated: 2026-07-03
 tags:
   - lessons
 synthesized-from:
@@ -30,6 +30,11 @@ Recurring lessons activity observed across 13 episodic entries within the 30-day
 
 ## Evidence
 
+- Cluster lessons — dream-summary-2026-06-21.md (score 10) — 2026-07-03
+- Cluster lessons — dream-summary-2026-06-20.md (score 9) — 2026-07-03
+- Cluster lessons — dream-summary-2026-06-23.md (score 10) — 2026-07-03
+- Cluster lessons — dream-summary-2026-06-26.md (score 10) — 2026-07-03
+- Cluster lessons — dream-summary-2026-06-29.md (score 10) — 2026-07-03
 - 2026-06-25: memory/episodic/dream-summary-2026-05-25.md (tags: dream-summary, briefing, omnifocus, boot, semantic-promotion)
 - 2026-06-25: memory/episodic/dream-summary-2026-05-31.md (tags: dream-summary, jarvis, omnifocus, boot, semantic-promotion)
 - 2026-06-25: memory/episodic/dream-summary-2026-05-20.md (tags: dream-summary, briefing, omnifocus, boot, dream-cycle)

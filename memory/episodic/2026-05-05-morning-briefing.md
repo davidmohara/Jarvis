@@ -14,9 +14,8 @@ related_people:
 - derek-nwamadi
   promoted: true
 salience:
-  promoted: true
   score: 10
-  last-promoted-check: 2026-07-02
+  last-promoted-check: 2026-07-03
 ---
 # Morning Boot — May 5, 2026
 
