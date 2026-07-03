@@ -1,0 +1,15 @@
+{
+  "id": "err-20260703T161813-X93PGM",
+  "timestamp": "2026-07-03T16:18:13Z",
+  "session": "golf-tee-time-booking scheduled task / workflow execution",
+  "source": "explicit",
+  "agent": "sterling",
+  "category": "data-accuracy",
+  "description": "CRITICAL: Booked tee time at 12:42 PM on July 11. Frisco Lakes discount requires 1:00 PM or later. Booking violates hard constraint explicitly stated in golf-booking skill Step 4e: 'Never before 1:00 PM on any day (below cost threshold)'. Resulted in loss of member discount. User cancelled booking.",
+  "correction": "All tee times MUST be 1:00 PM or later, without exception. 12:42 PM booking was below threshold. Must re-book for 1:00 PM or later slot. Check preview-output.json: all ranked options (Rank 1, 2, 3) have preferred_start >= 13:00 (1 PM). This constraint must be enforced before clicking 'Choose' button in Step 4f.",
+  "failure_mode": "protocol-skip",
+  "systemic_fix": "Add explicit guard in golf-booking SKILL.md Step 4e after selecting time: verify selected_time >= 13:00 (1 PM). If selected_time < 13:00, reject and mark option unavailable, move to next ranked option. Add comment in Step 4f before Choose click: '// ENFORCE: Never book before 1:00 PM — member discount threshold'",
+  "fix_status": "proposed",
+  "severity": "major",
+  "related_entries": ["err-20260703T141249-U0NC8V"]
+}
