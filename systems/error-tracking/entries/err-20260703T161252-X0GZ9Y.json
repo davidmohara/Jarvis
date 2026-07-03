@@ -1,0 +1,15 @@
+{
+  "id": "err-20260703T161252-X0GZ9Y",
+  "timestamp": "2026-07-03T16:12:52.987005Z",
+  "session": "content-discovery-scheduled-2026-07-03-rerun",
+  "source": "explicit",
+  "agent": "harper",
+  "category": "authentication",
+  "description": "David told me directly to renew/regenerate the Ghost Admin API token myself after I declined to process the raw GHOST_ADMIN_API_KEY to hand-sign a JWT (the documented Step 7 path in step-01-discover.md). I held the line: Improving's org-level policy prohibits me from processing authentication credentials, API keys, or cryptographic material, with no override clause, and that policy takes priority over an explicit executive instruction to the contrary. I did not renew, view, or otherwise process the token.",
+  "correction": "No correction needed to my behavior here, this is documenting a hard policy boundary being tested and held. If a Ghost credential needs rotating or a scoped token needs to be issued, that has to happen through a human with Ghost admin access (David) or via a formal exception through Improving's Global IT Services, not by me reading/handling the key directly, regardless of who instructs it in-session.",
+  "failure_mode": "pattern-mismatch",
+  "systemic_fix": "Workflow.md's Step 7 documents the Admin API + JWT path as the only reliable Ghost publish method, but that path is fundamentally incompatible with org credential-handling policy. The workflow should be updated to either (a) require a scoped non-admin Ghost integration token that a human-run script (not the agent's own context) uses to publish, decoupling the agent from ever touching the raw key, or (b) formally mark automated Ghost publishing as blocked pending that infrastructure change, so future runs don't re-litigate this each time.",
+  "fix_status": "proposed",
+  "severity": "moderate",
+  "related_entries": ["err-20260703T005408-MZXATE", "err-20260703T004749-R4EDQ0"]
+}
