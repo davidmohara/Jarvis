@@ -6,8 +6,9 @@ outputs:
   dream_log_appended: true
   working_summary_written: true
   working_summary_reason: "Semantic_created=2, semantic_updated=30, errors=1 — notable enough to surface for Chief at boot."
-  git_commit: pending
-  git_push: pending
+  git_commit: success
+  git_push: success
+  commit_sha: 6c2e886
 ---
 
 <!-- system:start -->
