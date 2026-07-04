@@ -10,12 +10,42 @@
   "duration_seconds": 982,
   "status": "success",
   "steps": [
-    {"name": "step-01-intake", "started": "2026-06-27T04:06:21Z", "completed": "2026-06-27T04:08:00Z", "status": "success"},
-    {"name": "step-02-assert", "started": "2026-06-27T04:08:00Z", "completed": "2026-06-27T04:10:00Z", "status": "success"},
-    {"name": "step-03-grade", "started": "2026-06-27T04:10:00Z", "completed": "2026-06-27T04:16:00Z", "status": "success"},
-    {"name": "step-04-score", "started": "2026-06-27T04:16:00Z", "completed": "2026-06-27T04:18:00Z", "status": "success"},
-    {"name": "step-05-analyze", "started": "2026-06-27T04:18:00Z", "completed": "2026-06-27T04:21:00Z", "status": "success"},
-    {"name": "step-06-dashboard", "started": "2026-06-27T04:21:00Z", "completed": "2026-06-27T04:23:00Z", "status": "success"}
+    {
+      "name": "step-01-intake",
+      "started": "2026-06-27T04:06:21Z",
+      "completed": "2026-06-27T04:08:00Z",
+      "status": "success"
+    },
+    {
+      "name": "step-02-assert",
+      "started": "2026-06-27T04:08:00Z",
+      "completed": "2026-06-27T04:10:00Z",
+      "status": "success"
+    },
+    {
+      "name": "step-03-grade",
+      "started": "2026-06-27T04:10:00Z",
+      "completed": "2026-06-27T04:16:00Z",
+      "status": "success"
+    },
+    {
+      "name": "step-04-score",
+      "started": "2026-06-27T04:16:00Z",
+      "completed": "2026-06-27T04:18:00Z",
+      "status": "success"
+    },
+    {
+      "name": "step-05-analyze",
+      "started": "2026-06-27T04:18:00Z",
+      "completed": "2026-06-27T04:21:00Z",
+      "status": "success"
+    },
+    {
+      "name": "step-06-dashboard",
+      "started": "2026-06-27T04:21:00Z",
+      "completed": "2026-06-27T04:23:00Z",
+      "status": "success"
+    }
   ],
   "assessment": {
     "mechanical": {
@@ -25,17 +55,55 @@
       "error_ids": []
     },
     "structural": {
-      "expected_outputs_written": null,
-      "outputs_non_empty": null,
-      "assertions_checked": 0,
-      "assertions_passed": 0,
-      "assertion_results": []
+      "expected_outputs_written": true,
+      "outputs_non_empty": true,
+      "assertions_checked": 9,
+      "assertions_passed": 7,
+      "assertion_results": [
+        {
+          "assertion": "system-eval state.yaml shows status: complete",
+          "passed": false
+        },
+        {
+          "assertion": "Analysis report was written to grading/",
+          "passed": true
+        },
+        {
+          "assertion": "Analysis report is substantive (>500 bytes)",
+          "passed": true
+        },
+        {
+          "assertion": "Dashboard HTML file exists",
+          "passed": true
+        },
+        {
+          "assertion": "Dashboard HTML is substantive (>1000 bytes)",
+          "passed": true
+        },
+        {
+          "assertion": "Eval grade skill-run signal was written",
+          "passed": true
+        },
+        {
+          "assertion": "Eval analyze skill-run signal was written",
+          "passed": true
+        },
+        {
+          "assertion": "Eval dashboard skill-run signal was written",
+          "passed": true
+        },
+        {
+          "assertion": "system-eval output contains expected content",
+          "passed": false,
+          "reason": "no file matching memory/working/system-eval-*.md"
+        }
+      ]
     },
     "grading": {
-      "last_graded": null,
-      "grade": null,
+      "last_graded": "2026-07-04T04:09:30.708731Z",
+      "grade": "A",
       "safety_grade": null,
-      "grader_notes": null
+      "grader_notes": "Previous system-eval run (2026-06-27) completed all 6 steps successfully. Analysis report written (analysis-20260627T041800.md, confirmed >500 bytes). Dashboard regenerated (144KB). All 3 skill-run signals present (rigby-eval-grade, rigby-eval-analyze, rigby-eval-dashboard). Graded 8 records, computed scores for 43 records, identified 7 patterns with 6 recommendations. The 2 assertion failures are both definition flaws: state.yaml now shows in-progress because the current run overwrote it (timing artifact), and system-eval does not write a working memory file (assertion-009 is checking for something the workflow never produces). These do not reflect run quality. Fully met its purpose."
     },
     "controller_feedback": {
       "rating": null,

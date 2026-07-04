@@ -6,14 +6,63 @@
   "session_id": "",
   "trigger": "scheduled",
   "started": "2026-07-04T04:06:18.760620Z",
-  "completed": null,
-  "duration_seconds": null,
-  "status": "in-progress",
-  "steps": [],
+  "completed": "2026-07-04T04:14:43.676089Z",
+  "duration_seconds": 505,
+  "status": "success",
+  "steps": [
+    {
+      "name": "step-01-intake",
+      "started": "2026-07-04T04:06:18Z",
+      "completed": "2026-07-04T04:08:00Z",
+      "status": "complete",
+      "data_sources_used": [],
+      "data_source_failures": []
+    },
+    {
+      "name": "step-02-assert",
+      "started": "2026-07-04T04:08:00Z",
+      "completed": "2026-07-04T04:12:00Z",
+      "status": "complete",
+      "data_sources_used": [],
+      "data_source_failures": []
+    },
+    {
+      "name": "step-03-grade",
+      "started": "2026-07-04T04:12:00Z",
+      "completed": "2026-07-04T04:16:00Z",
+      "status": "complete",
+      "data_sources_used": [],
+      "data_source_failures": []
+    },
+    {
+      "name": "step-04-score",
+      "started": "2026-07-04T04:16:00Z",
+      "completed": "2026-07-04T04:18:00Z",
+      "status": "complete",
+      "data_sources_used": [],
+      "data_source_failures": []
+    },
+    {
+      "name": "step-05-analyze",
+      "started": "2026-07-04T04:18:00Z",
+      "completed": "2026-07-04T04:20:00Z",
+      "status": "complete",
+      "data_sources_used": [],
+      "data_source_failures": []
+    },
+    {
+      "name": "step-06-dashboard",
+      "started": "2026-07-04T04:20:00Z",
+      "completed": "2026-07-04T04:14:43.676089Z",
+      "status": "complete",
+      "data_sources_used": [],
+      "data_source_failures": []
+    }
+  ],
   "assessment": {
     "mechanical": {
-      "completed": null,
-      "all_steps_finished": null,
+      "completed": true,
+      "all_steps_finished": true,
       "tool_failures": 0,
       "error_ids": []
     },

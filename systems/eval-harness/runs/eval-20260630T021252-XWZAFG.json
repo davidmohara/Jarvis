@@ -29,17 +29,52 @@
       "abort_reason": null
     },
     "structural": {
-      "expected_outputs_written": null,
-      "outputs_non_empty": null,
-      "assertions_checked": 0,
-      "assertions_passed": 0,
-      "assertion_results": []
+      "expected_outputs_written": false,
+      "outputs_non_empty": false,
+      "assertions_checked": 8,
+      "assertions_passed": 4,
+      "assertion_results": [
+        {
+          "assertion": "Daily review workflow state.yaml shows status: complete",
+          "passed": true
+        },
+        {
+          "assertion": "Daily review output file was written to reviews/daily/ for the run date (not a prior day)",
+          "passed": true
+        },
+        {
+          "assertion": "Daily review output for run date is substantive (>300 bytes)",
+          "passed": true
+        },
+        {
+          "assertion": "Daily review for run date contains priorities or forward-planning section (tomorrow, next, Q-ref, carry-forward language)",
+          "passed": true
+        },
+        {
+          "assertion": "Daily review for run date contains completed items or wins section",
+          "passed": false
+        },
+        {
+          "assertion": "Daily review working memory file was written for the run date",
+          "passed": false
+        },
+        {
+          "assertion": "Daily review working memory for run date is substantive (>200 bytes)",
+          "passed": false,
+          "reason": "no file matching memory/working/daily-review-2026-06-30*.md"
+        },
+        {
+          "assertion": "Daily review working memory for run date contains expected content",
+          "passed": false,
+          "reason": "no file matching memory/working/daily-review-2026-06-30*.md"
+        }
+      ]
     },
     "grading": {
-      "last_graded": null,
-      "grade": null,
+      "last_graded": "2026-07-04T04:09:30.708731Z",
+      "grade": "B",
       "safety_grade": null,
-      "grader_notes": null
+      "grader_notes": "daily-review for 2026-06-30 (reviews/daily/auto-2026-06-30.md exists and is substantive). Review covers the day coherently: 11 OmniFocus completions, Rock 1 and Rock 4 task activity, two coaching sessions, IBP sessions, overdue Lifebook updates flagged, inbox noted. Forward-planning language present (\"heading into Q3\", \"carry into the weekly review\"). Assertion daily-005 (wins/completed section) fails \u2014 accomplishments are embedded in prose rather than a distinct wins section; content is there but not structured to match the pattern. Primary failure: no working memory file written for 2026-06-30 (daily_review-wm-written, wm-size, wm-content all fail). Missing working memory is a real gap \u2014 continuity context was not persisted for this date. To earn A: write working memory on every run, and add explicit wins/completed framing."
     },
     "controller_feedback": {
       "rating": null,

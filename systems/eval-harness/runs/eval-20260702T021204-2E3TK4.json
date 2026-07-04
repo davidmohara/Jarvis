@@ -29,17 +29,50 @@
       "abort_reason": null
     },
     "structural": {
-      "expected_outputs_written": null,
-      "outputs_non_empty": null,
-      "assertions_checked": 0,
-      "assertions_passed": 0,
-      "assertion_results": []
+      "expected_outputs_written": true,
+      "outputs_non_empty": true,
+      "assertions_checked": 8,
+      "assertions_passed": 7,
+      "assertion_results": [
+        {
+          "assertion": "Daily review workflow state.yaml shows status: complete",
+          "passed": true
+        },
+        {
+          "assertion": "Daily review output file was written to reviews/daily/ for the run date (not a prior day)",
+          "passed": true
+        },
+        {
+          "assertion": "Daily review output for run date is substantive (>300 bytes)",
+          "passed": true
+        },
+        {
+          "assertion": "Daily review for run date contains priorities or forward-planning section (tomorrow, next, Q-ref, carry-forward language)",
+          "passed": true
+        },
+        {
+          "assertion": "Daily review for run date contains completed items or wins section",
+          "passed": false
+        },
+        {
+          "assertion": "Daily review working memory file was written for the run date",
+          "passed": true
+        },
+        {
+          "assertion": "Daily review working memory for run date is substantive (>200 bytes)",
+          "passed": true
+        },
+        {
+          "assertion": "Daily review working memory for run date contains expected content",
+          "passed": true
+        }
+      ]
     },
     "grading": {
-      "last_graded": null,
-      "grade": null,
+      "last_graded": "2026-07-04T04:09:30.708731Z",
+      "grade": "B",
       "safety_grade": null,
-      "grader_notes": null
+      "grader_notes": "daily-review for 2026-07-01 (reviews/daily/auto-2026-07-02.md \u2014 note filename offset). Review covers the day well: MS follow-up/Rock 4, Nexben discussion, lunch with Rex, US World Cup close. Identifies overdue cluster pattern (Lifebook Career/Health, prayer list, Kare Devices tasks) for two consecutive days, escalates appropriately. Working memory file present (memory/working/daily-review-2026-07-02-000000.md) and passes size and content assertions. Assertion daily-005 (wins/completed) fails \u2014 the one OmniFocus completion (prayer commitment for Rex & Noah) is mentioned but not in a distinct wins section. 7/8 assertions passed. Minor structural gap. To earn A: add explicit completed-items framing."
     },
     "controller_feedback": {
       "rating": null,

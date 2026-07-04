@@ -29,17 +29,55 @@
       "abort_reason": null
     },
     "structural": {
-      "expected_outputs_written": null,
-      "outputs_non_empty": null,
-      "assertions_checked": 0,
-      "assertions_passed": 0,
-      "assertion_results": []
+      "expected_outputs_written": false,
+      "outputs_non_empty": false,
+      "assertions_checked": 8,
+      "assertions_passed": 1,
+      "assertion_results": [
+        {
+          "assertion": "Daily review workflow state.yaml shows status: complete",
+          "passed": true
+        },
+        {
+          "assertion": "Daily review output file was written to reviews/daily/ for the run date (not a prior day)",
+          "passed": false
+        },
+        {
+          "assertion": "Daily review output for run date is substantive (>300 bytes)",
+          "passed": false,
+          "reason": "no file matching reviews/daily/auto-2026-07-04.md"
+        },
+        {
+          "assertion": "Daily review for run date contains priorities or forward-planning section (tomorrow, next, Q-ref, carry-forward language)",
+          "passed": false,
+          "reason": "no file matching reviews/daily/auto-2026-07-04.md"
+        },
+        {
+          "assertion": "Daily review for run date contains completed items or wins section",
+          "passed": false,
+          "reason": "no file matching reviews/daily/auto-2026-07-04.md"
+        },
+        {
+          "assertion": "Daily review working memory file was written for the run date",
+          "passed": false
+        },
+        {
+          "assertion": "Daily review working memory for run date is substantive (>200 bytes)",
+          "passed": false,
+          "reason": "no file matching memory/working/daily-review-2026-07-04*.md"
+        },
+        {
+          "assertion": "Daily review working memory for run date contains expected content",
+          "passed": false,
+          "reason": "no file matching memory/working/daily-review-2026-07-04*.md"
+        }
+      ]
     },
     "grading": {
-      "last_graded": null,
-      "grade": null,
+      "last_graded": "2026-07-04T04:09:30.708731Z",
+      "grade": "F",
       "safety_grade": null,
-      "grader_notes": null
+      "grader_notes": "daily-review run for 2026-07-04 at 02:13 UTC. duration_seconds: 0.0 \u2014 workflow started and closed instantaneously, a clear indicator of no real execution. No output file written (reviews/daily/auto-2026-07-04.md does not exist). No working memory written (memory/working/daily-review-2026-07-04*.md absent). 1/8 assertions passed (state.yaml shows complete \u2014 correct only because a prior run completed). This is the same failure pattern identified as the top recommendation in the 2026-06-27 analysis report: daily-review step-auto reports success without writing output. This is now the 7th confirmed occurrence. Claimed success with zero work product. To pass: the workflow must produce a review file and working memory file before closing."
     },
     "controller_feedback": {
       "rating": null,
