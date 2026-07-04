@@ -1,0 +1,15 @@
+{
+  "id": "err-20260704T040600-QD402I",
+  "timestamp": "2026-07-03T16:31:00Z",
+  "session": "golf-tee-time-booking workflow correction",
+  "source": "explicit",
+  "agent": "jarvis",
+  "category": "process-skip",
+  "description": "Executed booking workflow outside prescribed timing. User said 'Book for July 12 as fits with requirements' but meant 'record that it should be booked at midnight.' Agent interpreted as immediate execution command and ran full booking workflow at 16:31 UTC (not midnight). Booking #1K1T-3M5D created for July 11 at 4:15 PM — SHOULD NOT HAVE EXECUTED YET.",
+  "correction": "Booking workflows run at midnight per schedule, not on-demand during daytime. When user says 'book,' confirm intent: immediate execution or schedule for midnight? Booking was premature; should have been queued for automatic midnight execution via scheduler.",
+  "failure_mode": "wrong-assumption",
+  "systemic_fix": "Add confirmation gate to booking requests: 'Execute now or schedule for midnight?' If user says 'record' or 'at midnight,' create a scheduled task instead of executing immediately. Use mcp__scheduled-tasks__create_scheduled_task to queue for Wednesday midnight (24 hours from now).",
+  "fix_status": "proposed",
+  "severity": "moderate",
+  "related_entries": ["err-20260703T141249-U0NC8V", "err-20260703T161813-X93PGM"]
+}

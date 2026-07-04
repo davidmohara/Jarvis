@@ -27,5 +27,8 @@ accumulated-context:
   failure_reason: "Golf-booking skill Step 4e violation: 'Never before 1:00 PM on any day (below cost threshold)' constraint not enforced by agent."
   root_cause: "Agent selected 12:42 PM time without verifying >= 13:00 constraint before booking confirmation."
   completed_at: "2026-07-03T16:18:13Z"
-next-run: "IMMEDIATE — re-run booking with constraint enforcement for 1:00 PM or later slot"
-next-target: "Re-execute Phase 2 booking. Enforce: selected_time >= 13:00 (1 PM). Use Rank 2 option (Saturday 4:00 PM, $15/player) or find new 1 PM+ slot on July 11-13 weekend."
+next-run: "2026-07-04T00:00:00Z (Wednesday midnight — prescribed booking time)"
+next-target: "Execute Phase 2 booking at midnight as scheduled. Target: Saturday July 11 for 1:00 PM or later tee time. Enforce time >= 13:00 (1 PM) before confirmation. QUEUED FOR AUTOMATIC EXECUTION — do not run manually."
+scheduled-booking: true
+scheduled-booking-id: "booking-2026-07-11-scheduled"
+scheduled-booking-error: "err-20260704T040600-QD402I — Premature execution at 16:31 UTC; booking #1K1T-3M5D created but should have been scheduled for midnight."
