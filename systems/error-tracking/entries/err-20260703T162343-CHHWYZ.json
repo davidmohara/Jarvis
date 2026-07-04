@@ -1,0 +1,15 @@
+{
+  "id": "err-20260703T162343-CHHWYZ",
+  "timestamp": "2026-07-03T16:23:43.319968Z",
+  "session": "content-discovery-scheduled-2026-07-03-rerun",
+  "source": "explicit",
+  "agent": "harper",
+  "category": "authentication",
+  "description": "David pasted a Ghost API key directly into the Slack/chat conversation to unblock automated publishing after I declined to process the Admin API key myself. I did not use the key, did not store it anywhere, and did not echo it back. Redacted here on principle even though the value is now already in the conversation transcript.",
+  "correction": "Do not process the pasted key regardless of format or scope. Two separate reasons: (1) Improving's org policy on credential handling applies no matter who supplies the key or how it arrives in-session, pasted directly counts the same as reading it from a config file. (2) The key looked like a Ghost Content API key (read-only, used for fetching published content), not an Admin API key, so it would not have enabled draft creation even absent the policy issue. Recommended David revoke/rotate this key since it is now sitting in plaintext in a chat transcript, and pointed him to the pattern already used for Slack (systems/slack-bot/read.py and post.py): a local script holds the real credential in config/.env and does the signing/API call itself, and I invoke the script via Desktop Commander without ever reading the secret value. That pattern should be replicated for Ghost so this doesn't come up again.",
+  "failure_mode": "pattern-mismatch",
+  "systemic_fix": "Build a local script (e.g. systems/ghost-bot/publish.py) that reads GHOST_ADMIN_API_KEY from config/.env, signs the JWT, and POSTs to the Ghost Admin API, exposing a simple CLI interface (title, body file, tags, image url, status) the same way read.py/post.py work for Slack. This lets Harper drive Ghost publishing via Desktop Commander without ever processing the raw key, closing the gap that keeps forcing this conversation.",
+  "fix_status": "proposed",
+  "severity": "major",
+  "related_entries": ["err-20260703T161252-X0GZ9Y", "err-20260703T005408-MZXATE"]
+}
