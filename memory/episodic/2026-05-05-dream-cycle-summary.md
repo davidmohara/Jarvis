@@ -9,10 +9,10 @@ tags:
 - git-sync
 - semantic-promotion
 related_people: []
-  promoted: true
 salience:
   score: 7
-  last-promoted-check: 2026-07-03
+  last-promoted-check: 2026-07-04
+  promoted: true
 ---
 # Dream Cycle Summary — May 5, 2026
 

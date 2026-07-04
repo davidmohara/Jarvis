@@ -1,0 +1,15 @@
+{
+  "id": "err-20260704T081843-WZH7M2",
+  "timestamp": "2026-07-04T08:18:43Z",
+  "session": "dream-cycle-2026-07-04-030925",
+  "source": "self-detected",
+  "agent": "jarvis",
+  "category": "data-interpretation",
+  "description": "Step-03 domain_for_tag() branched to 'relationships' whenever the cluster contained any related-people reference, regardless of the tag itself. david-ohara appears in ~half of archived working files as related_people, so operational tags like omnifocus, chief, calendar, plaud, and daily-review were misclassified as relationships/. 11 semantic entries were created in relationships/ that should have lived under operational/.",
+  "correction": "Domain should be derived from the TAG itself (person-named tag → relationships), not from the presence of any related-person field on the cluster's source files. Recovered by mv-ing the 11 misplaced files into operational/ before completing step-03.",
+  "failure_mode": "wrong-assumption",
+  "systemic_fix": "Rewrite domain_for_tag() in dream-cycle step-03 to only assign relationships when the tag itself is a person slug (kebab-case looks like first-last) or belongs to a curated relationships-tag list. Promote the step-03 script to systems/dream-cycle/ so it isn't rebuilt inline each cycle. Related to open err-20260703T081410-XDIYNH (same recommendation).",
+  "fix_status": "proposed",
+  "severity": "moderate",
+  "related_entries": ["err-20260703T081410-XDIYNH"]
+}

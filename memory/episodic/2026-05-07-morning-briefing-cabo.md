@@ -12,10 +12,10 @@ tags:
 - omnifocus
 related_people:
 - david-ohara
-  promoted: true
 salience:
   score: 10
-  last-promoted-check: 2026-07-03
+  last-promoted-check: 2026-07-04
+  promoted: true
 ---
 # Morning Briefing — May 7, 2026 (Cabo)
 

@@ -1,26 +1,26 @@
 ---
 expires: 2026-07-03
-created: 2026-07-02T03:08:57
+created: 2026-07-02 03:08:57
 agent-source: jarvis
 type: working-archive
 status: archived
 date: 2026-07-02
 source_file: memory/working/dream-summary-2026-07-02.md
 tags:
-  - dream-summary
-  - jarvis
-  - omnifocus
-  - rock4
-  - co-sell
-  - pipeline
-  - revenue
-  - dream-cycle
-  - semantic-promotion
-  - error-patterns
-related_people:
+- dream-summary
+- jarvis
+- omnifocus
+- rock4
+- co-sell
+- pipeline
+- revenue
+- dream-cycle
+- semantic-promotion
+- error-patterns
+related_people: null
 salience:
   score: 10
-  last-promoted-check: 2026-07-03
+  last-promoted-check: 2026-07-04
   promoted: true
 ---
 

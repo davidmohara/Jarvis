@@ -1,12 +1,31 @@
 ---
-type: working
-task_id: "session"
-session_id: "chief-2026-07-01-085000"
+type: working-archive
+task_id: session
+session_id: chief-2026-07-01-085000
 agent-source: chief
-created: 2026-07-01T08:50:00
-expires: 2026-07-03T08:50:00
-status: active
-context: "Morning briefing — 2026-07-01"
+created: 2026-07-01 08:50:00
+expires: 2026-07-03 08:50:00
+status: archived
+context: Morning briefing — 2026-07-01
+date: 2026-07-01
+source_file: memory/working/morning-briefing-2026-07-01-085000.md
+tags:
+- morning-briefing
+- chief
+- briefing
+- calendar
+- omnifocus
+- leads
+- scorecard
+- email
+- plaud
+- overdue-tasks
+related_people:
+- david-ohara
+salience:
+  score: 10
+  last-promoted-check: 2026-07-04
+  promoted: true
 ---
 
 # Morning Briefing — Wednesday, July 1, 2026

@@ -1,12 +1,30 @@
 ---
-type: working
-task_id: "session"
-session_id: "harper-2026-07-01-153433"
+type: working-archive
+task_id: session
+session_id: harper-2026-07-01-153433
 agent-source: harper
-created: 2026-07-01T15:34:33
-expires: 2026-07-03T15:34:33
-status: active
-context: "Posted this week's 4 Watchtower content ideas to #content Slack for content-pipeline discovery — 2026-07-01"
+created: 2026-07-01 15:34:33
+expires: 2026-07-03 15:34:33
+status: archived
+context: 'Posted this week''s 4 Watchtower content ideas to #content Slack for content-pipeline
+  discovery — 2026-07-01'
+date: 2026-07-01
+source_file: memory/working/2026-07-01-153433-harper-watchtower-content-digest-post.md
+tags:
+- watchtower
+- harper
+- omnifocus
+- pipeline
+- slack
+- jarvis
+- action-items
+- follow-up
+related_people:
+- david-ohara
+salience:
+  score: 10
+  last-promoted-check: 2026-07-04
+  promoted: true
 ---
 
 ## What was requested

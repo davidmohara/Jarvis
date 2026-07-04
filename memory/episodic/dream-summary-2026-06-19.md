@@ -2,26 +2,26 @@
 type: working-archive
 expires: 2026-06-20
 status: archived
-created: 2026-06-19T08:09:16Z
+created: 2026-06-19 08:09:16+00:00
 agent-source: jarvis
 context: Dream cycle summary — 2026-06-19
 date: 2026-06-19
 source_file: memory/working/dream-summary-2026-06-19.md
 tags:
-  - dream-summary
-  - jarvis
-  - briefing
-  - omnifocus
-  - pipeline
-  - boot
-  - memory-pipeline
-  - semantic-promotion
-  - dream-cycle
-  - error-patterns
-related_people:
+- dream-summary
+- jarvis
+- briefing
+- omnifocus
+- pipeline
+- boot
+- memory-pipeline
+- semantic-promotion
+- dream-cycle
+- error-patterns
+related_people: null
 salience:
   score: 10
-  last-promoted-check: 2026-07-03
+  last-promoted-check: 2026-07-04
   promoted: true
 ---
 # Dream Cycle Summary — 2026-06-19

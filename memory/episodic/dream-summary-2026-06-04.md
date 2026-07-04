@@ -20,10 +20,10 @@ tags:
 - boot
 related_people:
 - alice-mburu
-  promoted: true
 salience:
   score: 10
-  last-promoted-check: 2026-07-03
+  last-promoted-check: 2026-07-04
+  promoted: true
 ---
 # Dream Cycle Summary — 2026-06-04
 

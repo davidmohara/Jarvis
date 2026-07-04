@@ -1,26 +1,27 @@
 ---
 type: working-archive
-task_id: "dream-cycle-2026-06-26"
-session_id: "dream-cycle-2026-06-26-030941"
+task_id: dream-cycle-2026-06-26
+session_id: dream-cycle-2026-06-26-030941
 agent-source: jarvis
-created: 2026-06-26T08:16:30Z
-expires: 2026-06-27T08:00:00Z
+created: 2026-06-26 08:16:30+00:00
+expires: 2026-06-27 08:00:00+00:00
 status: archived
-context: "Dream cycle 2026-06-26 — tapered run; surface YAML corruption discovery from prior promotion writes."
+context: Dream cycle 2026-06-26 — tapered run; surface YAML corruption discovery from
+  prior promotion writes.
 date: 2026-06-26
 source_file: memory/working/dream-summary-2026-06-26.md
 tags:
-  - dream-summary
-  - omnifocus
-  - semantic-promotion
-  - dream-cycle
-  - lessons
-  - rigby
-  - jarvis
+- dream-summary
+- omnifocus
+- semantic-promotion
+- dream-cycle
+- lessons
+- rigby
+- jarvis
 related_people: []
 salience:
   score: 10
-  last-promoted-check: 2026-07-03
+  last-promoted-check: 2026-07-04
   promoted: true
 ---
 # Dream Cycle Summary — 2026-06-26

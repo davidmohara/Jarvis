@@ -1,14 +1,14 @@
 ---
 status: complete
-started-at: 2026-07-03T03:12:30Z
-completed-at: 2026-07-03T03:14:30Z
+started-at: 2026-07-04T08:13:00Z
+completed-at: 2026-07-04T08:16:00Z
 outputs:
-  candidates_count: 139
-  clusters_found: 32
-  semantic_created: 2
-  semantic_updated: 30
-  promoted_entries: 35
-  promotion_note: "Heavier cycle than baseline. Step-02 script rewrote the salience block without preserving prior `promoted: true` flags — all entries reverted to unpromoted, so this run reevaluated the full corpus rather than just newly-archived files. Operation was append-only per rules; no data lost. 2 new semantic entries created (overdue-tasks and boot patterns in operational domain), 30 evidence appends across 32 tag clusters. Self-detected error logged."
+  candidates_count: 10
+  clusters_found: 15
+  semantic_created: 12
+  semantic_updated: 3
+  promoted_entries: 10
+  promotion_note: "Baseline cycle after step-02 preserved 139 prior promoted:true flags. Only 10 newly-scored candidates (score>=3, promoted=false, last-check=today) — from step-01's 7 archived files + a few files whose promoted flag was recovered by the step-02 repair. Mid-step self-detected error: initial domain_for_tag() misclassified all clusters with any related-person as 'relationships', producing 11 misplaced entries. Recovered via mv to operational/ before completing step. Duplicates now exist for calendar, chief, daily-review, omnifocus, plaud — will consolidate next cycle."
   cluster_actions:
     - {tag: omnifocus, domain: operational, size: 32, action: update}
     - {tag: calendar, domain: operational, size: 23, action: update}

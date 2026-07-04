@@ -1,30 +1,30 @@
 ---
 type: working-archive
-task_id: "dream-cycle"
-session_id: "dream-cycle-2026-06-25-030900"
+task_id: dream-cycle
+session_id: dream-cycle-2026-06-25-030900
 agent-source: jarvis
-created: 2026-06-25T08:13:45Z
+created: 2026-06-25 08:13:45+00:00
 expires: 2026-06-26
 status: archived
-context: "Dream cycle 2026-06-25 — heavy promotion run, 38 new semantic entries"
+context: Dream cycle 2026-06-25 — heavy promotion run, 38 new semantic entries
 date: 2026-06-25
 source_file: memory/working/dream-summary-2026-06-25.md
 tags:
-  - dream-summary
-  - jarvis
-  - omnifocus
-  - omnifocus-timeout
-  - travel
-  - flight
-  - glc-chicago
-  - cabo
-  - ypo
-  - drc-workshop
+- dream-summary
+- jarvis
+- omnifocus
+- omnifocus-timeout
+- travel
+- flight
+- glc-chicago
+- cabo
+- ypo
+- drc-workshop
 related_people:
-  - alice-mburu
+- alice-mburu
 salience:
   score: 10
-  last-promoted-check: 2026-07-03
+  last-promoted-check: 2026-07-04
   promoted: true
 ---
 # Dream Cycle Summary — 2026-06-25

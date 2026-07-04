@@ -1,12 +1,28 @@
 ---
-type: working
-task_id: "daily-review-2026-07-01"
-session_id: "chief-2026-07-01-170500"
+type: working-archive
+task_id: daily-review-2026-07-01
+session_id: chief-2026-07-01-170500
 agent-source: chief
-created: 2026-07-01T17:25:00
-expires: 2026-07-03T17:25:00
-status: active
-context: "Daily review — tomorrow's priorities (2026-07-02)"
+created: 2026-07-01 17:25:00
+expires: 2026-07-03 17:25:00
+status: archived
+context: Daily review — tomorrow's priorities (2026-07-02)
+date: 2026-07-01
+source_file: memory/working/daily-review-2026-07-01-tomorrow.md
+tags:
+- daily-review
+- chief
+- omnifocus
+- rock3
+- rock4
+- revenue
+- pipeline
+- co-sell
+related_people: null
+salience:
+  score: 10
+  last-promoted-check: 2026-07-04
+  promoted: true
 ---
 
 tomorrow_data:

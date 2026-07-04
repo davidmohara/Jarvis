@@ -6,10 +6,10 @@ tags:
 - system-maintenance
 - git-issues
 related_people: []
-  promoted: true
 salience:
   score: 1
-  last-promoted-check: 2026-07-03
+  last-promoted-check: 2026-07-04
+  promoted: true
 ---
 # Dream Cycle Summary — 2026-04-22
 

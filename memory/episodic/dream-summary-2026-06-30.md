@@ -1,29 +1,29 @@
 ---
 type: working-archive
-task_id: "session"
-session_id: "dream-cycle-2026-06-30-030912"
+task_id: session
+session_id: dream-cycle-2026-06-30-030912
 agent-source: jarvis
-created: 2026-06-30T08:09:12
-expires: 2026-07-01T08:09:12
+created: 2026-06-30 08:09:12
+expires: 2026-07-01 08:09:12
 status: archived
-context: "Dream cycle summary — 2026-06-30"
+context: Dream cycle summary — 2026-06-30
 date: 2026-06-30
 source_file: memory/working/dream-summary-2026-06-30.md
 tags:
-  - dream-summary
-  - jarvis
-  - briefing
-  - morning-briefing
-  - omnifocus
-  - revenue
-  - boot
-  - semantic-promotion
-  - dream-cycle
-  - error-patterns
-related_people:
+- dream-summary
+- jarvis
+- briefing
+- morning-briefing
+- omnifocus
+- revenue
+- boot
+- semantic-promotion
+- dream-cycle
+- error-patterns
+related_people: null
 salience:
   score: 10
-  last-promoted-check: 2026-07-03
+  last-promoted-check: 2026-07-04
   promoted: true
 ---
 

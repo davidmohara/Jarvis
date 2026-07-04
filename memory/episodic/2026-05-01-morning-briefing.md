@@ -16,10 +16,10 @@ related_people:
 - stuart-sides
 - randy-mccabe
 - alice-mburu
-  promoted: true
 salience:
   score: 10
-  last-promoted-check: 2026-07-03
+  last-promoted-check: 2026-07-04
+  promoted: true
 ---
 # Morning Briefing — May 1, 2026 (Friday)
 

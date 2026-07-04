@@ -330,3 +330,11 @@ Category: data-interpretation
 Pattern: Recurring `data-interpretation` errors observed in the 30-day window ending 2026-07-02.
 Fix: Investigate root cause; add guardrail or checklist entry to the responsible agent/skill.
 Status: active
+
+## 2026-07-04 — Data Accuracy (sloppy-read)
+Detected: 3 occurrences over 30 days
+Category: data-accuracy
+Pattern: sloppy-read
+Fix: Address per systems/error-tracking/entries — see Rigby error analysis.
+Status: active
+

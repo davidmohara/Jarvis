@@ -20,10 +20,10 @@ tags:
 - overdue-tasks
 - system-maintenance
 related_people: null
-  promoted: true
 salience:
   score: 10
-  last-promoted-check: 2026-07-03
+  last-promoted-check: 2026-07-04
+  promoted: true
 ---
 - Sunday May 24 was a family day: Declan's graduation party (4-5 PM CT) was the only calendar event; no work meetings.
 - OmniFocus: 3 completions (coherence breathing, prayer list review, humidor check — all Deliberate Practices / Maintenance). 3 overdue networking tasks since May 22 (movie night invite to Amy/William/Rebecca, Amy-Derek Alley DSO intro, Goke-Scott UTB intro).

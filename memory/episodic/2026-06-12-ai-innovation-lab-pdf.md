@@ -3,10 +3,14 @@ date: 2026-06-12
 type: working-archive
 session: cowork
 archived-from: memory/working/2026-06-12-ai-innovation-lab-pdf.md
-tags: [pdf, brand, improving, deliverable]
+tags:
+- pdf
+- brand
+- improving
+- deliverable
 salience:
   score: 0
-  last-promoted-check: 2026-07-03
+  last-promoted-check: 2026-07-04
 ---
 
 # Session: AI Innovation Lab PDF

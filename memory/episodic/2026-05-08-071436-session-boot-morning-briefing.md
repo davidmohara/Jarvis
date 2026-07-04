@@ -22,10 +22,10 @@ tags:
 - gold-forum
 related_people:
 - curtis
-  promoted: true
 salience:
   score: 10
-  last-promoted-check: 2026-07-03
+  last-promoted-check: 2026-07-04
+  promoted: true
 ---
 ## Data Sources
 

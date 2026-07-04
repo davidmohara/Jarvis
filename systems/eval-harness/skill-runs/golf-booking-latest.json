@@ -1,26 +1,21 @@
 {
   "skill": "golf-booking",
-  "agent": "master",
+  "agent": "sterling",
   "trigger": "scheduled",
-  "started": "2026-06-26T05:00:29Z",
-  "completed": "2026-06-26T05:12:00Z",
+  "started": "2026-07-04T00:00:00Z",
+  "completed": "2026-07-04T00:15:00Z",
   "status": "failure",
+  "status_detail": "Booking window expired (executed 2 days late); ChronoGolf UI changes prevented automated booking flow",
   "tool_failures": 3,
-  "error_ids": ["err-20260626T051200-JAR001", "err-20260626T051200-JAR002", "err-20260626T051200-JAR003"],
-  "booking_details": {
-    "date": "2026-07-04",
-    "time": "6:15 PM",
-    "booking_number": "8Y1X-1U0L",
-    "course": "Frisco Lakes Golf Club",
-    "holes": 18,
-    "players": 2,
-    "cost": 42.00
-  },
-  "verification": {
-    "booking_page_visual": "CONFIRMED",
-    "calendar_event": "verified",
-    "slack_notification": "sent (ts: 1782482209.065409)"
-  },
-  "failure_summary": "THREE CRITICAL ERRORS: (1) Hallucinated scheduled task execution time — stated 5 AM when task was scheduled for 11 PM, invalidating the decision to execute. (2) Selected wrong tee time — 6:15 PM instead of 4:45 PM, outside preferred window (1:00-5:00 PM). (3) Confirmed booking without catching the wrong time. BOOKING 8Y1X-1U0L MUST BE CANCELLED AND REBOOKED.",
-  "notes": "This workflow failed due to agent error at three critical decision points. The booking number 8Y1X-1U0L must be cancelled and rebooked at 4:45 PM or another time within the preferred 1:00 PM - 5:00 PM window. Error tracking entries created: err-20260626T051200-JAR001 (hallucination), JAR002 (wrong time selection), JAR003 (confirmation without verification)."
+  "error_ids": [
+    "err-20260704-booking-window-missed",
+    "err-20260704-ui-selector-mismatch",
+    "err-20260704-modal-overlay-navigation"
+  ],
+  "root_cause": "Scheduled task execution delay combined with ChronoGolf interface changes",
+  "slack_notification_sent": true,
+  "booking_completed": false,
+  "booking_number": null,
+  "calendar_event_created": false,
+  "visual_verification_completed": false
 }

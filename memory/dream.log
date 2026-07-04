@@ -1477,3 +1477,25 @@ errors_detail:
   - phase: step-02
     file: outputs/dream_cycle_step02.py
     error: "Salience block rewrite did not preserve prior `promoted: true` flags. Logged as err-20260703T081410-XDIYNH (category: process-skip / failure_mode: protocol-skip). Systemic fix: promote scoring script to systems/dream-cycle/ so it isn't rebuilt inline each cycle."
+
+---
+## 2026-07-04T08:16:30 UTC
+session_id: dream-cycle-2026-07-04-030925
+working_archived: 7
+working_deleted: 0
+episodic_scanned: 169
+score_updates: 169
+clusters_found: 15
+semantic_created: 12
+semantic_updated: 3
+promoted_entries: 10
+entries_compressed: 0
+digests_updated: 0
+errors: 1
+summary: "Baseline+repair cycle. Step-01 archived 7 newly-expired working files (harper-watchtower-digest, daily-review-07-01/-02, dream-summary-07-03, morning-briefing-07-01, plaud-ingest-07-02, shutdown-cleanup-07-01) via heuristic enrichment; 6 skipped (3 not-expired, 1 no-status, 2 unparseable). Step-02 scored 169 episodic entries; window 2026-06-04 -> 2026-07-04 with 73 in-window; distribution 0:20, 1:2, 2:1, 3:2, 4:1, 6:3, 7:4, 8:2, 10:134. Step-02 also **repaired 120 files** with malformed frontmatter from prior cycle's step-02 regression (orphan promoted:true lines rehomed into clean salience block; 139 promoted flags preserved). Step-03 processed 10 candidates -> 15 tag-clusters -> 12 create + 3 update. Mid-step self-correction: domain_for_tag() misclassified operational clusters as relationships when any related-person appeared in the cluster's source files (~half of archived files reference david-ohara). Recovered by mv'ing 11 misplaced files back to operational/; content preserved. Duplicates for calendar/chief/daily-review/omnifocus/plaud now exist alongside pre-existing 2026-06 entries — next cycle can consolidate. Error scan 30d: 108 entries (process-skip:17, tool-misuse:14, routing-error:13 lead); 1 new lesson appended for data-accuracy/sloppy-read (3 occurrences). Step-04 compression skipped (oldest episodic 77 days, 90-day cutoff not met)."
+git_pull: success
+git_pull_note: "stashed unstaged golf-booking state.yaml + skill-runs snapshot; already up to date; popped stash cleanly"
+errors_detail:
+  - phase: step-03
+    file: outputs/dream_step03.py
+    error: "domain_for_tag() branched on related_people rather than tag identity — misclassified 11 operational clusters as relationships/. Recovered inline via mv to operational/; logged err-20260704T081843-WZH7M2 (data-interpretation / wrong-assumption). Systemic fix: promote step-03 script to systems/dream-cycle/ so classification logic isn't rebuilt inline each cycle."

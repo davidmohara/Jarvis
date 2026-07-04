@@ -1,12 +1,26 @@
 ---
-type: working
-task_id: "session"
-session_id: "chief-2026-07-01-170500"
+type: working-archive
+task_id: session
+session_id: chief-2026-07-01-170500
 agent-source: chief
-created: 2026-07-01T17:05:00
-expires: 2026-07-03T17:05:00
-status: active
-context: "Shutdown cleanup — 2026-07-01"
+created: 2026-07-01 17:05:00
+expires: 2026-07-03 17:05:00
+status: archived
+context: Shutdown cleanup — 2026-07-01
+date: 2026-07-01
+source_file: memory/working/shutdown-cleanup-2026-07-01-170500.md
+tags:
+- shutdown-cleanup
+- chief
+- git-issues
+- cleanup
+- daily-review
+related_people:
+- david-ohara
+salience:
+  score: 10
+  last-promoted-check: 2026-07-04
+  promoted: true
 ---
 
 - Committed 103 files (768ef77): working-memory TTL archival (7 archived to episodic, 78 trivial moved to `archive/working-cleanup-2026-07-01-pending-delete/`), Systemic Compliance and GeniusSpark refiling, daily-review capture, reMarkable push-artifact purge (Rex Miller lunch prep PDF, GeniusSpark PDF, Systemic Compliance PDF). Not pushed to remote (not requested).

@@ -21,10 +21,10 @@ tags:
 - graduation
 - rock2
 related_people: null
-  promoted: true
 salience:
   score: 10
-  last-promoted-check: 2026-07-03
+  last-promoted-check: 2026-07-04
+  promoted: true
 ---
 # Morning Briefing Boot — Friday May 22, 2026
 

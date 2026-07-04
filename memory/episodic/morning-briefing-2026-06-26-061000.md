@@ -1,34 +1,34 @@
 ---
 type: working
-task_id: "session"
-session_id: "chief-2026-06-26-061000"
+task_id: session
+session_id: chief-2026-06-26-061000
 agent-source: chief
-created: 2026-06-26T06:10:00
-expires: 2026-06-28T06:10:00
+created: 2026-06-26 06:10:00
+expires: 2026-06-28 06:10:00
 status: archived
-context: "Morning briefing — 2026-06-26"
+context: Morning briefing — 2026-06-26
 date: 2026-06-26
 source_file: memory/working/morning-briefing-2026-06-26-061000.md
 tags:
-  - briefing
-  - chief
-  - morning-briefing
-  - calendar
-  - omnifocus
-  - leads
-  - rock3
-  - rock4
-  - quarterly-rocks
-  - revenue
+- briefing
+- chief
+- morning-briefing
+- calendar
+- omnifocus
+- leads
+- rock3
+- rock4
+- quarterly-rocks
+- revenue
 related_people:
-  - alice-mburu
-  - scott-mcmichael
-  - devlin
-  - tim-rayburn
-  - curtis
+- alice-mburu
+- scott-mcmichael
+- devlin
+- tim-rayburn
+- curtis
 salience:
   score: 10
-  last-promoted-check: 2026-07-03
+  last-promoted-check: 2026-07-04
   promoted: true
 ---
 # Morning Briefing — Friday, June 26, 2026

@@ -1,17 +1,19 @@
 ---
 status: complete
-started-at: 2026-07-03T03:11:00Z
-completed-at: 2026-07-03T03:12:30Z
+started-at: 2026-07-04T08:11:00Z
+completed-at: 2026-07-04T08:13:00Z
 outputs:
-  episodic_scanned: 162
-  score_updates: 162
+  episodic_scanned: 169
+  score_updates: 169
   no_tags: 11
-  no_date: 6
-  files_with_tags: 151
-  in_window_count: 69
-  score_distribution: "0:20, 1:2, 2:1, 3:2, 4:1, 6:2, 7:5, 8:2, 9:4, 10:123"
-  window_start: 2026-06-03
-  window_end: 2026-07-03
+  no_date: 9
+  files_with_tags: 158
+  in_window_count: 73
+  score_distribution: "0:20, 1:2, 2:1, 3:2, 4:1, 6:3, 7:4, 8:2, 10:134"
+  window_start: 2026-06-04
+  window_end: 2026-07-04
+  promoted_preserved: 139
+  frontmatter_repair: "Regex-based extraction repaired 120 files with malformed frontmatter (orphan promoted:true lines from prior cycle's step-02 regression). Clean salience block reconstructed on every file."
 ---
 
 <!-- system:start -->

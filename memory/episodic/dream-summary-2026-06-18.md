@@ -14,10 +14,9 @@ tags:
   - one-texas
 related_people:
 date: 2026-06-18
-  promoted: true
 salience:
   score: 10
-  last-promoted-check: 2026-07-03
+  last-promoted-check: 2026-07-04
   promoted: true
 ---
 # Dream Cycle Summary — 2026-06-18
