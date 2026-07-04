@@ -2,7 +2,7 @@
 name: golf-booking
 description: Phase 2 of the golf booking workflow. Runs at midnight, 8 days before the target date. Reads preview-output.json for preference order, opens ChronoGolf via Chrome as the Susie O'Hara Total Member account, evaluates real-time availability, and books the best available slot. Creates a calendar block and sends Slack confirmation.
 agent: sterling
-model: sonnet
+model: haiku
 trigger_keywords: ["golf booking", "book tee time", "book golf"]
 status: not-started
 started-at: ~
@@ -14,16 +14,16 @@ outputs: {}
 
 ## MANDATORY EXECUTION RULES
 
-1. **LOGIN RECOVERY IS AUTOMATIC (Step 2).** If the ChronoGolf session has expired, use 1Password to retrieve Susie O'Hara's credentials (susie@everydayentries.com) and re-authenticate. Do NOT abort on expired session — recovery is built into the workflow.
+1. **LOGIN RECOVERY IS AUTOMATIC (Step 2).** If the ChronoGolf session has expired, use 1Password to retrieve David O'Hara's credentials (david@davidohara.net) and re-authenticate. Do NOT abort on expired session — recovery is built into the workflow.
 2. **Speed matters.** Slots fill fast at midnight. Navigate directly — no browsing, no detours.
 3. **Read preview-output.json first.** Never book blind — use the pre-scored preference order.
 4. **Check for override instructions** in `preview-output.json` before selecting a slot.
-5. **Always book as Susie O'Hara** (the logged-in Total Member account on ChronoGolf).
+5. **Always book as David O'Hara** (the logged-in Total Member account on ChronoGolf).
 6. **Always book 2 players**, both as "41 - Frisco Lakes Total Member".
 7. **Always book 18 holes** on Frisco Lakes Golf Club unless falling back due to drought/late time.
 8. **Confirm immediately** — you have a 5-minute window once you reach the confirmation screen.
 9. **Never book on a hard-blocked day** from the calendar check.
-10. **Create the calendar block and send Slack notification** regardless of which slot was booked.
+10. **Create the calendar block and send Slack notification**.
 11. **If no slots are available**, notify David immediately and do not retry silently.
 12. **VISUAL VERIFICATION IS MANDATORY (Step 4h).** Do NOT claim success until you navigate to the Bookings page and visually confirm the booking is listed. Confirmation page appearance is not enough — the booking must be visible in the Bookings list. If verification fails, abort and send a critical alert to David.
 13. **CALENDAR EVENT CREATION MUST BE VERIFIED (Step 6).** After executing the AppleScript to create a calendar event on the Family calendar, ALWAYS verify the event actually exists before proceeding. If verification fails, invoke the fallback protocol immediately — send Slack notification to David with manual add instructions. Do NOT proceed to Step 7 assuming the calendar event was created if verification fails.
@@ -44,11 +44,11 @@ outputs: {}
 ## CONTEXT BOUNDARIES
 
 - Booking URL: `https://www.chronogolf.com/dashboard/#/memberships`
-- Logged in as: Susie O'Hara — 41 Frisco Lakes Total Member
-- Susie's email: `susie@everydayentries.com` (from 1Password)
-- 1Password ChronoGolf item ID: `pofdkvq3qybnmkovmxiinynzti` (retrieve credentials from this)
-- Player 1: Susie O'Hara (pre-populated)
-- Player 2: David O'Hara — select "41 - Frisco Lakes Total Member"
+- Logged in as: David O'Hara — 41 Frisco Lakes Total Member
+- David's email: `david@davidohara.net` (from 1Password)
+- 1Password ChronoGolf item ID: `5xjnwumckxbpiuokidflufwtpi` (retrieve credentials from this)
+- Player 1: David O'Hara (pre-populated)
+- Player 2: Susie O'Hara — select "41 - Frisco Lakes Total Member"
 - Course: Frisco Lakes Golf Club (18-hole course)
 - Fallback course: PLP / Total - 9 Hole (only for drought/late rounds)
 - Confirmation timer: 5 minutes — move fast
@@ -94,55 +94,52 @@ osascript -e 'tell application "Google Chrome" to tell active tab of front windo
 
 **If not logged in (session expired):** Execute login recovery.
 
-#### 2a — Retrieve Susie O'Hara's ChronoGolf Credentials from 1Password
+#### 2a — Retrieve David O'Hara's ChronoGolf Credentials from 1Password
 
 Use the 1Password CLI to fetch the stored CHRONOGOLF entry:
 
 ```bash
-op item get pofdkvq3qybnmkovmxiinynzti --format json | python3 -c "
-import json, sys
-data = json.load(sys.stdin)
-for field in data.get('fields', []):
-    if field.get('label') == 'email':
-        print('EMAIL=' + field.get('value'))
-    elif field.get('label') == 'password':
-        print('PASSWORD=' + field.get('value'))
-"
+op item get 5xjnwumckxbpiuokidflufwtpi --format json | jq -r '.fields[] | select(.label == "email" or .label == "passwordConfirm") | "\(.label | if . == "email" then "EMAIL" elif . == "passwordConfirm" then "PASSWORD" else . end)=\(.value)"'
 ```
 
 Store the output as `EMAIL` and `PASSWORD` variables for the next steps.
 
-**Important:** The 1Password item ID `pofdkvq3qybnmkovmxiinynzti` is Susie's ChronoGolf login. Do NOT invent credentials. Always retrieve from 1Password.
+**Important:** The 1Password item ID `5xjnwumckxbpiuokidflufwtpi` is the ChronoGolf login. The password field is labeled `passwordConfirm` in the vault, not `password`. Do NOT invent credentials. Always retrieve from 1Password.
 
 #### 2b — Fill Login Form with Retrieved Credentials
 
-Fill the email and password fields on the ChronoGolf login form:
+Retrieve credentials and write to a temp JavaScript file (AppleScript string escaping is unreliable with complex passwords):
 
-```javascript
-osascript -e 'tell application "Google Chrome" to tell active tab of front window to execute javascript "
-var inputs = Array.from(document.querySelectorAll(\"input\"));
-var emailInput = inputs.find(i => i.type === \"email\");
-var passInput = inputs.find(i => i.type === \"password\");
+```bash
+EMAIL=$(op item get 5xjnwumckxbpiuokidflufwtpi --format json | jq -r '.fields[] | select(.label == "email") | .value')
+PASSWORD=$(op item get 5xjnwumckxbpiuokidflufwtpi --format json | jq -r '.fields[] | select(.label == "passwordConfirm") | .value')
+
+cat > /tmp/golf_login_creds.js << EOF
+var inputs = Array.from(document.querySelectorAll("input"));
+var emailInput = inputs.find(i => i.type === "email");
+var passInput = inputs.find(i => i.type === "password");
 
 if (emailInput && passInput) {
   emailInput.focus();
-  emailInput.value = \"[EMAIL]\";
-  emailInput.dispatchEvent(new Event(\"input\", {bubbles:true}));
-  emailInput.dispatchEvent(new Event(\"change\", {bubbles:true}));
+  emailInput.value = "$EMAIL";
+  emailInput.dispatchEvent(new Event("input", {bubbles:true}));
+  emailInput.dispatchEvent(new Event("change", {bubbles:true}));
   
   passInput.focus();
-  passInput.value = \"[PASSWORD]\";
-  passInput.dispatchEvent(new Event(\"input\", {bubbles:true}));
-  passInput.dispatchEvent(new Event(\"change\", {bubbles:true}));
+  passInput.value = "$PASSWORD";
+  passInput.dispatchEvent(new Event("input", {bubbles:true}));
+  passInput.dispatchEvent(new Event("change", {bubbles:true}));
   
-  \"credentials-filled\"
+  "credentials-filled"
 } else {
-  \"input-fields-not-found\"
+  "input-fields-not-found"
 }
-"'
+EOF
+
+osascript -e 'tell application "Google Chrome" to tell active tab of front window to execute javascript (read "/tmp/golf_login_creds.js")'
 ```
 
-Where `[EMAIL]` and `[PASSWORD]` are replaced with values retrieved from 1Password in Step 2a.
+This approach avoids AppleScript string escaping issues with special characters in the password.
 
 #### 2c — Bypass reCAPTCHA Protection
 
@@ -206,17 +203,33 @@ If login verification returns `login-failed`:
 
 ### Step 3 — Open Booking Widget
 
-Click "Book on Calendar" button:
+After login succeeds, navigate back to the memberships dashboard to find the Frisco Lakes membership card:
+
+```bash
+osascript -e 'tell application "Google Chrome" to tell active tab of front window to execute javascript "window.location.href = \"https://www.chronogolf.com/dashboard/#/memberships\"; \"navigating\""'
+```
+
+Wait 2 seconds for dashboard to load.
+
+Click the "Book on Calendar" button for the "41 - Frisco Lakes Total Member" membership (the second Book on Calendar button on the page):
 
 ```javascript
 osascript -e 'tell application "Google Chrome" to tell active tab of front window to execute javascript "
 var btns = Array.from(document.querySelectorAll(\"button\"));
-var book = btns.find(function(b){ return b.innerText.trim().toLowerCase().includes(\"book on calendar\") });
-book.click(); \"clicked\"
+var bookBtns = btns.filter(b => b.innerText.includes(\"Book on Calendar\"));
+if (bookBtns.length > 1) {
+  bookBtns[1].click();
+  \"clicked-frisco-booking-button\"
+} else if (bookBtns.length === 1) {
+  bookBtns[0].click();
+  \"clicked-only-booking-button\"
+} else {
+  \"no-booking-buttons-found\"
+}
 "'
 ```
 
-Wait 1 second for widget to open.
+Wait 2 seconds for widget to open.
 
 ---
 
@@ -226,96 +239,160 @@ For each option in `top_options` (in rank order), attempt booking:
 
 #### 4a — Select Date
 
-```javascript
-osascript -e 'tell application "Google Chrome" to tell active tab of front window to execute javascript "
-var cells = Array.from(document.querySelectorAll(\"td.uib-day button\"));
-var target = cells.find(function(el){ return el.innerText.trim() === \"[DD]\" });
-target.click(); \"clicked: \" + target.innerText.trim()
-"'
+```bash
+# Extract the day of the month from the preferred date
+# E.g., from "2026-07-11" extract "11"
+DD=$(date -jf '%Y-%m-%d' '[DATE]' '+%d' 2>/dev/null | sed 's/^0*//')
+
+osascript << 'EOF'
+tell application "Google Chrome"
+  tell active tab of front window
+    execute javascript "
+    var allTds = Array.from(document.querySelectorAll('td'));
+    var dateCell = allTds.find(td => td.innerText.trim() === '" & DD & "');
+    if (dateCell) {
+      var btn = dateCell.querySelector('button');
+      if (btn) {
+        btn.click();
+      } else {
+        dateCell.click();
+      }
+      'clicked-date-' + '" & DD & "'
+    } else {
+      'date-not-found'
+    }
+    "
+  end tell
+end tell
+EOF
 ```
 
-Where `[DD]` is the two-digit day of the target date (e.g., "09" for May 9).
+Where `[DATE]` is the target date in YYYY-MM-DD format.
 
-Wait 1 second.
+Wait 1 second for course/holes selection to appear.
 
 #### 4b — Select Course and Holes
 
-```javascript
-// Select "Frisco Lakes Golf Club" (18-hole)
+After date selection, the course and hole options should be pre-selected or visible. Verify the current state:
+
+```bash
 osascript -e 'tell application "Google Chrome" to tell active tab of front window to execute javascript "
-var labels = Array.from(document.querySelectorAll(\"label, input, button, li, [ng-click]\"));
-var course = labels.find(function(el){ return el.innerText && el.innerText.trim() === \"Frisco Lakes Golf Club\" });
-course.click(); \"clicked course\"
+var text = document.body.innerText;
+(text.includes(\"18 holes\") && text.includes(\"Frisco Lakes\")) ? \"course-visible\" : \"checking\"
+"'
+```
+
+**If both course and holes are already selected:** Click "Continue" to proceed to player selection.
+
+**If options are not yet visible:** Wait 1 more second for options to render, then:
+
+```javascript
+// Select "Frisco Lakes Golf Club" if a selection is needed
+osascript -e 'tell application "Google Chrome" to tell active tab of front window to execute javascript "
+var all = Array.from(document.querySelectorAll(\"button, label, li, div[ng-click]\"));
+var course = all.find(el => el.innerText && el.innerText.includes(\"Frisco Lakes Golf Club\"));
+if (course) { course.click(); \"clicked-course\" } else { \"course-not-found\" }
 "'
 ```
 
 ```javascript
 // Select "18 holes"
 osascript -e 'tell application "Google Chrome" to tell active tab of front window to execute javascript "
-var labels = Array.from(document.querySelectorAll(\"label, input, button, li, [ng-click]\"));
-var eighteen = labels.find(function(el){ return el.innerText && el.innerText.trim() === \"18 holes\" });
-eighteen.click(); \"clicked 18 holes\"
+var all = Array.from(document.querySelectorAll(\"button, label, li, div[ng-click]\"));
+var eighteen = all.find(el => el.innerText && el.innerText.trim() === \"18 holes\");
+if (eighteen) { eighteen.click(); \"clicked-18-holes\" } else { \"18-holes-not-found\" }
 "'
 ```
 
 **Fallback — 9 holes:** If `drought: true` and time is after 6:00 PM, select "PLP / Total - 9 Hole" and "9 holes" instead.
 
-Click Continue.
+Wait 1 second, then click "Continue" button:
+
+```bash
+osascript -e 'tell application "Google Chrome" to tell active tab of front window to execute javascript "
+var btns = Array.from(document.querySelectorAll(\"button\"));
+var cont = btns.find(b => b.innerText.trim().toLowerCase() === \"continue\");
+if (cont) { cont.click(); \"clicked-continue\" } else { \"continue-not-found\" }
+"'
+```
 
 #### 4c — Select 2 Players + Member Rate
 
-```javascript
-// Select 2 players
+First, select "2" players:
+
+```bash
 osascript -e 'tell application "Google Chrome" to tell active tab of front window to execute javascript "
 var labels = Array.from(document.querySelectorAll(\"label\"));
-var two = labels.find(function(el){ return el.innerText.trim() === \"2\" });
-two.click(); \"clicked 2\"
+var two = labels.find(el => el.innerText && el.innerText.trim() === \"2\");
+if (two) { two.click(); \"clicked-2-players\" } else { \"2-not-found\" }
 "'
 ```
 
 Wait 1 second for player type dropdowns to appear.
 
-Set both selects to "41 - Frisco Lakes Total Member":
+Then set both player dropdowns to "41 - Frisco Lakes Total Member":
 
-```javascript
-// Set both player type dropdowns via Angular
-osascript -e 'tell application "Google Chrome" to tell active tab of front window to execute javascript "
-var selects = Array.from(document.querySelectorAll(\"select\"));
-var memberOpt = null;
-// Find the 41 - Frisco Lakes Total Member option value
-for (var i = 0; i < selects.length; i++) {
-  var opt = Array.from(selects[i].options).find(function(o){ return o.text.includes(\"41 - Frisco Lakes Total Member\") });
-  if (opt) {
-    selects[i].value = opt.value;
-    selects[i].dispatchEvent(new Event(\"change\", {bubbles:true}));
-  }
-}
-\"player types set\"
-"'
+```bash
+osascript << 'EOF'
+tell application "Google Chrome"
+  tell active tab of front window
+    execute javascript "
+    var selects = Array.from(document.querySelectorAll('select'));
+    var updated = 0;
+    for (var i = 0; i < selects.length; i++) {
+      var opts = Array.from(selects[i].options);
+      var memberOpt = opts.find(o => o.text.includes('41 - Frisco Lakes Total Member'));
+      if (memberOpt) {
+        selects[i].value = memberOpt.value;
+        selects[i].dispatchEvent(new Event('change', {bubbles:true}));
+        updated++;
+      }
+    }
+    'set-' + updated + '-selects'
+    "
+  end tell
+end tell
+EOF
 ```
 
-Wait 1 second, then click Continue.
+Wait 1 second, then click the "Continue" button:
+
+```bash
+osascript -e 'tell application "Google Chrome" to tell active tab of front window to execute javascript "
+var btns = Array.from(document.querySelectorAll(\"button\"));
+var cont = btns.find(b => b.innerText.trim().toLowerCase() === \"continue\");
+cont ? cont.click() : \"not-found\"; \"clicked-continue\"
+"'
+```
 
 #### 4d — Read Available Tee Times
 
 Wait 2 seconds for tee times to load.
 
-```javascript
-// Map all available times to their Choose button indices
-osascript -e 'tell application "Google Chrome" to tell active tab of front window to execute javascript "
-var body = document.body.innerText;
-var lines = body.split(\"\\n\").map(function(l){ return l.trim() }).filter(function(l){ return l.length > 0 });
-var result = [];
-for (var i = 0; i < lines.length; i++) {
-  if (lines[i] === \"Choose\") {
-    result.push(lines[i-1]);
-  }
-}
-result.join(\",\")
-"'
+```bash
+osascript << 'EOF'
+tell application "Google Chrome"
+  tell active tab of front window
+    execute javascript "
+    var body = document.body.innerText;
+    var lines = body.split('\n').map(l => l.trim()).filter(l => l.length > 0);
+    var times = [];
+    for (var i = 0; i < lines.length; i++) {
+      if (lines[i] === 'Choose' || lines[i].includes('Choose')) {
+        var timeStr = lines[i-1];
+        if (timeStr && /^\d{1,2}:\d{2}/.test(timeStr)) {
+          times.push(timeStr);
+        }
+      }
+    }
+    times.length > 0 ? times.join(',') : 'no-times-found'
+    "
+  end tell
+end tell
+EOF
 ```
 
-Parse the list of available times. Convert each to minutes-since-midnight for comparison.
+Parse the comma-separated list of available times. Convert each to minutes-since-midnight for comparison with preferred windows.
 
 #### 4e — Select Best Available Time
 
@@ -333,19 +410,31 @@ From the option's `preferred_start` and `preferred_end` (e.g., "13:00" to "14:30
 
 Record the selected time for confirmation message.
 
-#### 4f — Click Choose
+#### 4f — Click Choose for Selected Time
 
-```javascript
-osascript -e 'tell application "Google Chrome" to tell active tab of front window to execute javascript "
-var btns = Array.from(document.querySelectorAll(\"button\"));
-var choose = btns.filter(function(b){ return b.innerText.trim() === \"Choose\" });
-choose[[INDEX]].click(); \"clicked Choose for [TIME]\"
-"'
+```bash
+# Assuming you've identified the time index from Step 4d and 4e
+# [INDEX] is the position in the list of "Choose" buttons (0-indexed)
+
+osascript << 'EOF'
+tell application "Google Chrome"
+  tell active tab of front window
+    execute javascript "
+    var btns = Array.from(document.querySelectorAll('button'));
+    var choose = btns.filter(b => b.innerText.trim() === 'Choose');
+    if (choose[[INDEX]]) {
+      choose[[INDEX]].click();
+      'clicked-choose-[INDEX]'
+    } else {
+      'button-not-found-at-[INDEX]: ' + choose.length + ' buttons total'
+    }
+    "
+  end tell
+end tell
+EOF
 ```
 
-Where `[INDEX]` is the position of the target time in the Choose button list.
-
-Wait 1 second, then click Continue.
+Wait 1 second for booking summary screen to load, then click "Continue".
 
 #### 4g — Confirm Booking
 

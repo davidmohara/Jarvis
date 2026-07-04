@@ -15,7 +15,7 @@ rocks: Personal — Golf & Leisure
 
 **Goal:** Automatically secure a weekly tee time at Frisco Lakes Golf Club for David and Susie
 O'Hara, optimizing for cost, weather, and calendar fit. Minimize David's involvement to a
-single Slack message review — unless he redirects.
+single Slack message review — unless he redirects. You must figure out how to book the tee time - no falling back to manual booking.
 
 **Agent:** Sterling — Social Life & Leisure
 
@@ -33,7 +33,7 @@ single Slack message review — unless he redirects.
 |--------|-------------|---------------|
 | Outlook Calendar | David + Susie conflicts for target weekend | MS365 MCP |
 | Weather API | Hourly forecast for Frisco TX on target days | WebFetch (wttr.in or open-meteo) |
-| Obsidian / Calendar | Last golf round played (for 3-week drought check) | Search calendar for prior golf blocks |
+| Calendar | Last golf round played (for 3-week drought check) | Search calendar for prior golf blocks |
 | ChronoGolf | Live tee time availability | Control Chrome MCP |
 | Slack | Notification delivery | master-slack skill |
 
@@ -46,7 +46,7 @@ single Slack message review — unless he redirects.
 
 ### Target Weekend Calculation
 
-The workflow targets the **Friday, Saturday, and Sunday** that are 8 days from the Wednesday
+The workflow targets the **Friday, Saturday, and Sunday** that are 8 days from the
 midnight booking run. At preview time (Tuesday 11pm), this is 9 days out.
 
 Example: Preview runs Tuesday May 5 at 11pm → targets Fri May 9, Sat May 10, Sun May 11.
@@ -58,10 +58,10 @@ Booking runs Wednesday May 6 at midnight → books into that same weekend.
 
 1. Read `state.yaml` in this workflow directory.
 2. If `status: in-progress`: resume from `current-step`. Load `accumulated-context`.
-3. If `status: not-started` or `status: complete`: fresh run. Initialize `state.yaml`.
+3. If `status: not-started` or `status: complete`: fresh run. Initialize `state.yaml` by clearing `accumulated-context`.
 4. If `status: aborted`: surface to controller and wait for instruction.
 5. **Check for already-booked round this weekend**: search calendar for a golf block on the
-   target Friday/Saturday/Sunday. If found, skip booking and output:
+   target Saturday/Sunday. Unless otherwise directed by David, if found, skip booking and output:
    `[Sterling]: Golf already booked for this weekend ([date] [time]). No action needed.`
 
 ---

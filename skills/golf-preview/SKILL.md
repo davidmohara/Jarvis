@@ -2,7 +2,7 @@
 name: golf-preview
 description: Phase 1 of the golf booking workflow. Evaluates the upcoming weekend (Friday–Sunday) for viable tee time windows by checking David's Outlook calendar, Frisco TX weather, and last round played. Scores each window, selects top 2-3 options, and sends a Slack notification to #golf at least 24 hours before the midnight booking run.
 agent: sterling
-model: sonnet
+model: haiku
 trigger_keywords: ["golf preview", "golf options", "tee time preview"]
 status: not-started
 started-at: ~

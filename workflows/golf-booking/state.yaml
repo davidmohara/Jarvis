@@ -1,31 +1,30 @@
 workflow: golf-booking
 agent: sterling
-status: aborted
-session-started: "2026-07-04T00:00:00Z"
-session-id: "scheduled-run-2026-07-04-booking-window-missed"
-current-step: "phase-2-booking-ABORTED-timing-and-UI-issues"
-original-request: "Book tee time for July 10-12, 2026 weekend (Saturday July 11 is rank 1) — executed 2 days late"
+status: in-progress
+session-started: 2026-07-04T16:45:00Z
+session-id: rigby-step-by-step-2026-07-04
+current-step: skill-verification
+original-request: Execute golf booking skill step by step for web change verification; update skill as needed for reliable unattended execution
 accumulated-context:
-  target_weekend: "2026-07-10 to 2026-07-12 (Fri-Sun) — correct 8-day booking window"
-  target_date_primary: "2026-07-11 Saturday"
-  preview_generated: "2026-07-03T09:15:36Z"
-  intended_booking_window: "2026-07-02T00:00:00Z (8 days before Friday July 10)"
-  actual_execution_time: "2026-07-04T00:00:00Z (2 days late)"
-  booking_window_status: "EXPIRED — Preferred tee times likely already booked"
-  preferred_option_1: "Saturday July 11 @ 1:00 PM (18 holes, $42 total)"
-  preferred_option_2: "Saturday July 11 @ 4:00 PM (18 holes, $30 total)"
-  backup_option_3: "Sunday July 12 @ 2:30 PM (18 holes, $42 total)"
-  chronogolf_interface_status: "CHANGED — Booking automation failed due to updated UI"
-  dom_selector_issues: "Calendar date picker not found at expected selectors (td.uib-day button)"
-  modal_overlay_structure: "Nested Advance Golf (Texas) overlays preventing navigation to booking calendar"
-  attempted_fixes: "Multiple close button clicks, page reloads, selector variations"
-  booking_result: "NOT COMPLETED"
-  players: "2 (David O'Hara + Susie O'Hara)"
-  calendar_event: "NOT CREATED"
-  slack_notification: "SENT (notification of delayed booking window and UI issues)"
-  slack_response: "ok: true, ts: 1783141333.050559, channel: C0AN2PQNXBR"
-  failure_reason: "Combination of delayed execution (2 days late) and ChronoGolf UI changes breaking automated booking flow"
-  root_cause: "Scheduled task did not execute at intended July 2 midnight window; when run on July 4, booking interface DOM structure no longer matched skill expectations"
-  completed_at: "2026-07-04T00:15:00Z"
-next-action: "Manual booking required. Verify availability at https://www.chronogolf.com/dashboard/#/bookings. Preferred times likely unavailable; fallback options may exist."
-workflow_notes: "Skill assumes July 2 midnight execution. Actual execution on July 4 missed preferred booking window. UI changes require skill update to match current ChronoGolf interface."
+  verified_steps:
+    - step-1-preview-output: success
+    - step-2a-credentials: success (password field is "passwordConfirm" not "password")
+    - step-2b-login-form: success
+    - step-2c-recaptcha: success
+    - step-2d-login-submit: success
+    - step-2e-login-verification: success
+    - step-3-open-widget: success (navigate back to memberships first, click second Book on Calendar button for Frisco Lakes)
+  issues_found:
+    - password-field-label: 1Password vault uses "passwordConfirm" not "password"
+    - widget-button: Must click second "Book on Calendar" button (Frisco Lakes is second membership listed)
+    - date-picker-selector: Need to query all td elements, not just td.uib-day buttons
+    - continue-buttons: Multiple continue buttons on page; must find by exact text match
+    - appleScript-complex-objects: Cannot return JSON objects directly; use string results only
+  fixes_applied:
+    - updated-step-2a: Changed credential lookup to jq query for "passwordConfirm" field
+    - updated-step-2b: Write credentials to temp JS file to avoid AppleScript escaping issues
+    - updated-step-3: Added explicit navigation back to memberships and second-button selection
+    - updated-step-4a: Improved date cell selector and click handling
+    - updated-step-4b: More flexible course/holes selector with proper Continue button click
+    - updated-step-4c: Improved player dropdown selection with proper event dispatching
+    - updated-step-4d: Better tee time parsing that handles various date formats
