@@ -14,7 +14,9 @@ tags:
 related_people: []
 salience:
   score: 0
-  last-promoted-check: 2026-07-04
+  last_scored: 2026-07-05
+  last-promoted-check: 2026-07-05
+  promoted: false
 ---
 # Card Offers Portfolio Review — April 21, 2026
 

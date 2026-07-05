@@ -1,60 +1,53 @@
 workflow: dream-cycle
 agent: jarvis
 status: complete
-session-started: 2026-07-04T08:09:25Z
-session-id: dream-cycle-2026-07-04-030925
+session-started: 2026-07-05T08:09:39Z
+session-id: dream-cycle-2026-07-05-030939
 current-step: null
-original-request: Scheduled dream cycle run (automated)
+original-request: Scheduled dream cycle run (automated) - 2026-07-05
 accumulated-context:
   git_pull_at_boot: success
-  git_pull_note: "stashed unstaged golf-booking state.yaml + skill-runs snapshot; already up to date; popped stash cleanly"
-  working_archived: 7
+  git_pull_note: "stashed unstaged pre-existing changes; pull already up to date; popped stash cleanly"
+  working_archived: 1
   working_deleted: 0
   working_skipped: 6
   working_stranded: 0
-  enrichment_method: "heuristic (LLM unavailable in sandbox)"
+  enrichment_method: "heuristic (sandbox; LLM path not invoked)"
   archived_files:
-    - 2026-07-01-153433-harper-watchtower-content-digest-post.md
-    - daily-review-2026-07-01-tomorrow.md
-    - daily-review-2026-07-02-000000.md
-    - dream-summary-2026-07-03.md
-    - morning-briefing-2026-07-01-085000.md
-    - plaud-ingest-2026-07-02-011500.md
-    - shutdown-cleanup-2026-07-01-170500.md
+    - daily-review-2026-07-03-000000.md
   skipped_not_expired:
     - 2026-07-03-060938-master-morning-briefing.md
-    - daily-review-2026-07-03-000000.md
+    - dream-summary-2026-07-04.md
     - system-eval-2026-07-04-040618.md
   skipped_no_status:
     - 2026-06-19-session.md
   skipped_unparseable:
     - golf-booking-2026-07-11-followup.md
     - golf-preview-2026-07-03.md
-  episodic_scanned: 169
-  score_updates: 169
+  episodic_scanned: 170
+  score_updates: 170
   no_tags: 11
   no_date: 9
-  files_with_tags: 158
-  in_window_count: 73
-  score_distribution: "0:20, 1:2, 2:1, 3:2, 4:1, 6:3, 7:4, 8:2, 10:134"
-  window_start: 2026-06-04
-  window_end: 2026-07-04
-  promoted_preserved: 139
-  step02_note: "Repaired 120 files with malformed frontmatter from prior cycle's step-02 regression. Regex-based extraction; orphan promoted:true lines relocated back into clean salience block. Zero write errors."
-  candidates_count: 10
-  clusters_found: 15
-  semantic_created: 12
-  semantic_updated: 3
-  promoted_entries: 10
-  step03_divergence: "Initial domain_for_tag() flagged clusters with any related-person as 'relationships', misclassifying 11 operational patterns. Detected mid-step. Recovery: mv'd misplaced files from relationships/ → operational/ (single inode ops; content preserved; no overwrite). Duplicates exist for calendar, chief, daily-review, omnifocus, plaud alongside pre-existing 2026-06 entries. Logged err-20260704T081843-WZH7M2."
-  error_total_30d: 108
-  error_categories_30d: "process-skip:17, tool-misuse:14, routing-error:13, data-accuracy:12, format-violation:10, missed-context:6, hallucination:5, assumption-error:5, data-interpretation:4"
-  lessons_appended: 1
-  lessons_note: "Appended 1 new lesson (data-accuracy / sloppy-read pattern — 3 occurrences over 30 days)."
+  files_with_tags: 159
+  in_window_count: 72
+  score_distribution: "0:20, 1:2, 2:1, 3:2, 4:1, 5:1, 6:2, 7:4, 8:2, 9:1, 10:134"
+  window_start: 2026-06-05
+  window_end: 2026-07-05
+  promoted_preserved: 149
+  candidates_count: 1
+  clusters_found: 8
+  semantic_created: 2
+  semantic_updated: 6
+  promoted_entries: 1
+  step03_divergence: "Lessons-dedup regex checked for 'Marker: {cat}/{fm_mode}' substring, but 2026-07-04 wrote entries without a Marker line. Appended a duplicate data-accuracy/sloppy-read lesson, removed inline via edit_block before proceeding. Logged err-20260705T132715-AQ387E."
+  error_total_30d: 110
+  error_categories_30d: "process-skip:17, routing-error:14, tool-misuse:14, data-accuracy:12, format-violation:10, missed-context:6, hallucination:5, assumption-error:5, data-interpretation:5, unknown:2"
+  lessons_appended: 0
+  lessons_note: "1 append attempted then removed (duplicate). Net-new lessons: 0."
   entries_compressed: 0
   digests_updated: 0
   compression_skipped: true
-  compression_skip_reason: "Oldest episodic 2026-04-18 (77 days). 90-day cutoff 2026-04-05 not met."
+  compression_skip_reason: "Oldest episodic 2026-04-18 (78 days). 90-day cutoff 2026-04-06 not met. 0 eligible candidates."
   dream_log_appended: true
   working_summary_written: true
   errors: 1

@@ -13,7 +13,8 @@ related_people:
 - david-ohara
 salience:
   score: 10
-  last-promoted-check: 2026-07-04
+  last_scored: 2026-07-05
+  last-promoted-check: 2026-07-05
   promoted: true
 ---
 # Morning Briefing — May 4, 2026 (Automated)

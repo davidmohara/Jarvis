@@ -16,7 +16,8 @@ related_people:
 - steve-hall
 salience:
   score: 10
-  last-promoted-check: 2026-07-04
+  last_scored: 2026-07-05
+  last-promoted-check: 2026-07-05
   promoted: true
 ---
 # Morning Briefing — April 21, 2026

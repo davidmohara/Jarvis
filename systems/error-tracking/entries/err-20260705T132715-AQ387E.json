@@ -1,0 +1,15 @@
+{
+  "id": "err-20260705T132715-AQ387E",
+  "timestamp": "2026-07-05T08:15:00Z",
+  "session": "dream-cycle-2026-07-05-030939",
+  "source": "self-detected",
+  "agent": "jarvis",
+  "category": "data-accuracy",
+  "description": "Step-03 duplicate-lesson detection failed. My inline dedup logic checked for 'Marker: {cat}/{fm_mode}' substring, but the 2026-07-04 cycle wrote lesson entries in a different format (Pattern: sloppy-read, no Marker line). Result: appended a duplicate data-accuracy/sloppy-read lesson today. Detected on re-read of LESSONS.md and removed the duplicate before proceeding to step-04.",
+  "correction": "Removed the newly-appended duplicate entry via edit_block. Did not touch the 2026-07-04 entry which retains historical fidelity.",
+  "failure_mode": "sloppy-read",
+  "systemic_fix": "Promote step-03 lesson-dedup to systems/dream-cycle/ with a canonical marker that both writers and readers agree on. Match on category+failure_mode word pair rather than exact-substring on a self-added marker. Same root cause as err-20260703T081410-XDIYNH and err-20260704T081843-WZH7M2 — dream-cycle scripts rebuilt inline each cycle.",
+  "fix_status": "proposed",
+  "severity": "minor",
+  "related_entries": ["err-20260703T081410-XDIYNH", "err-20260704T081843-WZH7M2"]
+}
