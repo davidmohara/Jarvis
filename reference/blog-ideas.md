@@ -29,14 +29,15 @@ Running list of potential blog topics. Jarvis captures these proactively from co
 | "Fulfillment Is Not a Benefit. It's a Business Model." | Content pipeline (2026-06-24) | leadership, growth, purpose | Ghost draft — pending approval |
 | "Why Governance Doesn't Scale the Way You Think" | Content pipeline (2026-06-24) | AI, business, leadership | Ghost draft — pending approval |
 | "The Invoice Tells You Nothing" | Content pipeline (2026-06-25) | AI, business | Ghost draft — pending approval |
-<<<<<<< HEAD
 | "The Pocket Barrier Is Gone" | Content pipeline (2026-06-29) | AI, technology, thinking | Ghost draft — pending approval |
-=======
 | "The $200B Gap Is Yours If You Want It" | Watchtower W27 (2026-06-29) [watchtower] | consulting, AI, business | Draft at `Mind/Posts/_the-200b-gap-is-yours-if-you-want-it.md` |
 | "We Need to Talk About How Consulting Gets Paid" | Watchtower W27 (2026-06-29) [watchtower] | consulting, AI, business, leadership | Draft at `Mind/Posts/_we-need-to-talk-about-how-consulting-gets-paid.md` |
 | "Fort Worth Just Became a Tier-One AI City" | Watchtower W27 (2026-06-29) [watchtower] | texas, AI, business | Draft at `Mind/Posts/_fort-worth-just-became-a-tier-one-ai-city.md` |
 | "The Forward Deployed Model Changes Everything" | Watchtower W27 (2026-06-29) [watchtower] | consulting, AI, business, leadership | Draft at `Mind/Posts/_the-forward-deployed-model-changes-everything.md` |
->>>>>>> 2e93fb9 (Early commit on some work)
+| "McKinsey Moved First. We're Next." | Watchtower W28 (2026-07-06) [watchtower] | consulting, AI, business, leadership | Draft at `Mind/Posts/_mckinsey-moved-first-we-re-next.md` |
+| "The Texas AI Boom Has a Catch — And It's Not What You Think" | Watchtower W28 (2026-07-06) [watchtower] | texas, AI, business, infrastructure | Draft at `Mind/Posts/_the-texas-ai-boom-has-a-catch.md` |
+| "The Enterprise AI Platform War Is Over. Now What?" | Watchtower W28 (2026-07-06) [watchtower] | AI, business, technology, consulting | Draft at `Mind/Posts/_the-enterprise-ai-platform-war-is-over.md` |
+| "When 700 People Show Up for an AI Awards Night, the Hype Is Over" | Watchtower W28 (2026-07-06) [watchtower] | texas, AI, business, leadership, DFW | Draft at `Mind/Posts/_when-700-people-show-up-for-an-ai-awards-night.md` |
 
 ## Published (for reference / avoid repeats)
 

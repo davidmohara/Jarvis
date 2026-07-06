@@ -2,16 +2,9 @@
   "skill": "co-sell-pipeline",
   "agent": "chase",
   "trigger": "scheduled",
-  "started": "2026-06-29T00:00:00Z",
-  "completed": "2026-06-29T00:18:30Z",
-  "status": "partial",
-  "tool_failures": 1,
-  "error_ids": ["err-20260629T223906-G1FUBB"],
-  "notes": "Cache check completed (2026-06-22 snapshot at 7-day threshold). Chrome automation failed to load PowerBI live. CORRECTION: 2026-06-22 shows $332K won (Dallas only filter) vs. 2026-06-09 final-corrected showing $3.1M won (full One Texas). Cache data indicates 2026-06-22 PowerBI is filtered to subset — real One Texas gap is $9.4M not $14.6M. Requires Sales Ops clarification on report scope. Additional error: Systemic Compliance kick-off stated as June 29 — actual date is June 30.",
-  "controller_feedback": {
-    "rating": "negative",
-    "grade": "D",
-    "comment": "Errors required correction — wrong date assertion (kick-off June 29 vs June 30) and data discrepancies in co-sell snapshot.",
-    "timestamp": "2026-06-29T22:39:06Z"
-  }
+  "started": "2026-07-06T14:32:00Z",
+  "completed": "2026-07-06T14:38:00Z",
+  "status": "success",
+  "tool_failures": 0,
+  "error_ids": []
 }

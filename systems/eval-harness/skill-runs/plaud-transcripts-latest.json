@@ -1,11 +1,11 @@
 {
   "skill": "plaud-transcripts",
   "agent": "knox",
-  "trigger": "manual",
-  "started": "2026-07-01T09:45:00-05:00",
-  "completed": "2026-07-01T11:30:00-05:00",
+  "trigger": "boot",
+  "started": "2026-07-06T00:00:00Z",
+  "completed": "2026-07-06T01:00:00Z",
   "status": "success",
-  "tool_failures": 0,
+  "tool_failures": 2,
   "error_ids": [],
-  "notes": "3 recordings for 2026-06-30 ingested to zzPlaud/Client/: Systemic Compliance advisory kickoff, Concentrate AI demo/reconnect, Improving x Xero proposal discussion. Daily note Calendar/2026/06-June/2026-06-30.md created and linked. 7 OmniFocus tasks routed via omnifocus-tasks skill gate. Reconciliation step used scoped --check calls against the 3 target file_ids instead of the documented --list-all flag, which does not exist in the current fetch_plaud.py (script only implements --all, --check, --rename, --login) — flagged in state.yaml known-issues for SKILL.md/script reconciliation. Staging cleaned: 12 files removed (6 canonical + 6 reconciliation-check duplicates)."
+  "notes": "Rename API returned trans_result: null for 2 of 3 recordings (known transient state). Speaker for 3b9cf232 renamed successfully in transaction_polish layer. Speaker names for c75b84b5 and f1d25c2c applied in vault notes only."
 }

@@ -2,56 +2,70 @@
 workflow: plaud-ingest
 agent: knox
 status: complete
-session-started: "2026-07-02T00:00:00Z"
-session-id: "pi-20260702-001"
+session-started: "2026-07-06T00:00:00Z"
+session-id: "pi-20260706-001"
 current-step: step-05
-original-request: "Knox: Run plaud-ingest workflow — background task 2026-07-02 (Task E, spawned by Chief/boot per workflow.md enforcement note)"
+original-request: "Knox: Run plaud-ingest workflow — background task 2026-07-06 (spawned by master/boot)"
 accumulated-context:
-  target-date: "2026-07-01"
-  last-run-date: "2026-06-30"
-  api-total-recordings: 69
-  recordings-scanned: 69
+  target-date: "2026-07-05"
+  last-run-date: "2026-07-02"
+  api-total-recordings: 72
+  recordings-scanned: 72
   new-recordings:
-    - file_id: a9f20e60aa498635dee686174c95a5fa
-      name: "07-01 Customer Consultation: Platform Modernization and AI Integration"
-      date: "2026-07-01"
-      duration_seconds: 1752
+    - file_id: c75b84b5cb133be2f48ff24a461b1d1e
+      name: "07-02 SOAP Note: O'Hara - Symptomatic Tarlov Cysts"
+      date: "2026-07-02"
+      duration_seconds: 1871
       has_transcript: true
       transcript_status: ready
-    - file_id: 05fcc73c56f6556531a53575c6d70bd3
-      name: "07-01 Meeting: Microsoft Responsible AI and Improving Partnership"
-      date: "2026-07-01"
-      duration_seconds: 1698
+    - file_id: f1d25c2cec03b9e3351643f8b9fa7c57
+      name: "07-02 Professional and Personal Catch-up on Tech, Business, and Family"
+      date: "2026-07-02"
+      duration_seconds: 5013
+      has_transcript: true
+      transcript_status: ready
+    - file_id: 3b9cf232426f19fdbd42ef1ef5f35d4b
+      name: "07-02 Consultation: Improving & Microsoft Partnership on AI Engagement"
+      date: "2026-07-02"
+      duration_seconds: 1732
       has_transcript: true
       transcript_status: ready
   transcription-triggered: []
   pending-recordings: []
   ready-for-fetch:
-    - a9f20e60aa498635dee686174c95a5fa
-    - 05fcc73c56f6556531a53575c6d70bd3
+    - c75b84b5cb133be2f48ff24a461b1d1e
+    - f1d25c2cec03b9e3351643f8b9fa7c57
+    - 3b9cf232426f19fdbd42ef1ef5f35d4b
   speaker-mappings:
-    05fcc73c56f6556531a53575c6d70bd3:
-      Speaker 3: "Maha Abbey"
-      Speaker 4: "Nick Koury"
-      resolution: "auto-resolved via calendar — event 'Follow up after Houston AI tour - Improving/Microsoft' 2026-07-01 20:30-21:00 UTC, attendees mahaabbey@microsoft.com, david.o'hara@improving.com, nickkoury@microsoft.com. Speaker 3 greets both David and Nick by name (third-party) = Maha. Speaker 4 refers to 'Maha said' in third person and addresses David = Nick."
-    a9f20e60aa498635dee686174c95a5fa:
-      Speaker 1: "Lauren Sweda"
-      Speaker 3: "Alexander Powell"
-      Speaker 4: "Mark Smith"
-      resolution: "resolved from transcript self-identification content, per controller instruction to not wait for manual ID (2026-07-02). Calendar match: 'Nexben Discussion with Improving' 21:00-21:30 UTC, attendees lsweda@nexben.com, msmith@nexben.com, alexander.powell@improving.com, david.o'hara@improving.com. Evidence: Speaker 1 organizes the call and introduces 'Mark our CEO' ('I wanted you guys to meet Mark our CEO'), says 'I know David, we've had a couple conversations', describes Nexben's outsourced IT as 'our IT'/'our system', and later says 'Mark's in Chicago, I am in Dallas' while answering a question about her own company's outsourced dev team ('our headquarters' = Nexben, Grand Rapids MI) — identifies her as the Nexben-side organizer, i.e. Lauren Sweda. Speaker 4 is introduced as 'Mark our CEO', joins a few minutes late ('sorry I'm a few minutes late'), speaks in exhaustive first-person detail about Nexben's ICHRA health-payments business ('we administer health care payments through a vehicle called ICHRA'), and at the end says 'let me circle with Lauren and our team' (referring to Lauren in third person, ruling out Speaker 4=Lauren) — David closes with 'good to see you again, Mark' immediately after Speaker 4's last line = Mark Smith. Speaker 3 has only 2 short lines; the second is diagnostic — 'if I may suggest something, Mark... on our website... blogs that our improvers have put together' — 'our improvers' is Improving-internal language (improving staff call themselves 'improvers'), confirming an Improving employee, and the only other Improving invitee besides David is Alexander Powell = Alexander Powell. Corrects an earlier lower-confidence working theory that had swapped Speaker 1 and Speaker 3."
-      unresolved_note: "Transcript also references 'Gabriella' and 'Alexandra' being greeted as new joiners in an early crosstalk/overlap line attributed to Speaker 1 ('Nice to meet you, Gabriella. Nice to meet you, Alexandra. Nice to meet you, Lauren.'). These are not separate Speaker-N tags requiring resolution — likely diarization overlap during simultaneous greetings, and/or mishearings ('Alexandra' = Alexander Powell). 'Gabby' is referenced later by O'Hara as an Improving co-founder colleague on the call ('Gabby was actually one of the founding team...', 'AP is and Gabby are laughing') but was not assigned her own speaker label in this transcript — no action needed, not a blocking gap."
+    3b9cf232426f19fdbd42ef1ef5f35d4b:
+      Speaker 3: "Josh Stevenson"
+      resolution: "auto-resolved via calendar — event 'Josh Stevenson, Microsoft - Houston AI Tour & Innovation Center Intro' 2026-07-02 15:30-16:00 UTC, attendee jostevenson@microsoft.com. Robyn Fuentes greeted him by name at [00:28]. Josh self-identified as Hub Director at [08:09]. High confidence."
+    f1d25c2cec03b9e3351643f8b9fa7c57:
+      Speaker 1: "Scott Sexton"
+      Speaker 3: "Marcie Smith"
+      resolution: "auto-resolved via calendar — event 'Lunch with David/Scott @ Del Frisco's Grille' 2026-07-02 17:00-18:00 UTC, attendees scott.sexton@ever.ag, marcie.smith@ever.ag. Speaker 1 (112 segments, equal to David) = Scott Sexton — primary lunch companion, long professional/personal conversation about Castle Hills, ever.ag business (~$90M fintech), division sale August 15. Speaker 3 (15 segments, minimal) = Marcie Smith. Note: rename failed — trans_result returned null for this recording (API transient state); speaker names applied manually in vault note only."
+    c75b84b5cb133be2f48ff24a461b1d1e:
+      Speaker 4: "Dr. Frank Feigenbaum"
+      Speaker 1: "Medical intake staff (unnamed)"
+      resolution: "auto-resolved via calendar — event 'Dr. Frank Feigenbaum' 2026-07-02 19:00-20:30 UTC. Speaker 4 self-identifies at [12:44]: 'Frank Feigenbaum, nice to meet you.' Speaker 1 is intake staff (reviews history, says 'we'll get Doctor Feigenbaum in'). Alex Wilcox (1 segment) = voice mis-tag (Edge Case B — client, not a neurosurgeon's office person). Note: rename to Plaud API failed (trans_result null); Speaker 4 renamed in vault note; Speaker 1 relabeled as 'Medical Staff' in vault note."
   ready-for-fetch-confirmed:
-    - a9f20e60aa498635dee686174c95a5fa
-    - 05fcc73c56f6556531a53575c6d70bd3
-  staged-files: []
+    - c75b84b5cb133be2f48ff24a461b1d1e
+    - f1d25c2cec03b9e3351643f8b9fa7c57
+    - 3b9cf232426f19fdbd42ef1ef5f35d4b
+  staged-files:
+    - "plaud_07-02 SOAP Note_ O_Hara - Symptomatic Tarlov Cysts.md"
+    - "plaud_07-02 Professional and Personal Catch-up on Tech_ Business_ and Family.md"
+    - "plaud_07-02 Consultation_ Improving _ Microsoft Partnership on AI Engagement.md"
   ingested-notes:
-    - "zzPlaud/Client/2026-07-01 Nexben Discussion — Platform Modernization and AI Integration.md"
-    - "zzPlaud/Client/2026-07-01 Microsoft Responsible AI and Improving Partnership — Follow-up After Houston AI Tour.md"
-  daily-note-updated: "Calendar/2026/07-July/2026-07-01.md"
+    - "zzPlaud/Improving/2026-07-02 Josh Stevenson Microsoft Houston Hub — Improving Partnership Exploration.md"
+    - "zzPlaud/Other/2026-07-02 SOAP Note — Dr. Frank Feigenbaum Consultation on Symptomatic Tarlov Cysts.md"
+    - "zzPlaud/Other/2026-07-02 Lunch with Scott Sexton — Professional and Personal Catch-up.md"
+  daily-note-updated: "Calendar/2026/07-July/2026-07-02.md"
   omnifocus-tasks-created: 5
-  staging-files-removed: 6
+  staging-files-removed: 11
   known-issues:
-    - "skills/plaud-transcripts/SKILL.md step 7 documents a `fetch_plaud.py --list-all --out <path>` reconciliation flag that does not exist in the current script (only --all [full reprocess], --check <id>, --rename, --login are implemented). Carried forward from pi-20260701-002 — unresolved. Worked around in this run by cross-referencing ready-for-fetch/speaker-mappings directly against staging file listing instead of the missing --list-all flag."
-    - "workflows/plaud-ingest/speaker-identification-pending.md and SPEAKER_ID_REQUEST.md contain a stale, unrelated 20-recording/49-file backlog (Jan-Dec 2026 dates spanning many months) not connected to this session. Left untouched — flagged for separate triage, not in scope for pi-20260702-001."
-  completion-reason: "workflow completed through step-05; all recordings ingested to vault, daily note linked, OmniFocus tasks created, staging cleaned"
+    - "fetch_plaud.py --rename fails with 'Could not load transcript' (trans_result: null) for all 3 recordings in this session. Speaker 3 rename for 3b9cf232 did succeed in the transaction_polish layer (verified in re-fetched .md). The other two renames (f1d25c2c, c75b84b5) could not be applied to Plaud backend — speaker names applied in vault notes only. This is a recurring transient API state issue; workaround is manual correction in vault."
+    - "fetch_plaud.py --check reports f1d25c2cec03b9e3351643f8b9fa7c57 as 'missing' despite the transcript being fully present in staging. The original fetch (for 2026-07-02 date) successfully downloaded and staged this file. The --check endpoint appears to use a different status field than the date-based fetch. No data loss — file was intact and ingested."
+    - "workflows/plaud-ingest/speaker-identification-pending.md and SPEAKER_ID_REQUEST.md contain a stale 20-recording/49-file backlog (Jan-Dec 2026 dates spanning many months). Left untouched — flagged for separate triage."
+  completion-reason: "workflow completed through step-05; all 3 recordings from 2026-07-02 ingested to vault, daily note created, 5 OmniFocus tasks created, staging cleaned (11 files removed)"
 ---

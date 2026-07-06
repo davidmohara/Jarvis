@@ -1,0 +1,1147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Systemic Compliance — July 8 Whiteboard Session</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --blue: #1d4ed8;
+    --blue-light: #dbeafe;
+    --orange: #c2410c;
+    --orange-light: #fff7ed;
+    --teal: #0f766e;
+    --teal-light: #f0fdfa;
+    --purple: #6d28d9;
+    --purple-light: #f5f3ff;
+    --green: #15803d;
+    --green-light: #f0fdf4;
+    --green-check: #16a34a;
+    --gray-50: #f9fafb;
+    --gray-100: #f3f4f6;
+    --gray-200: #e5e7eb;
+    --gray-300: #d1d5db;
+    --gray-400: #9ca3af;
+    --gray-500: #6b7280;
+    --gray-700: #374151;
+    --gray-900: #111827;
+    --red: #dc2626;
+    --red-light: #fef2f2;
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    background: var(--gray-100);
+    color: var(--gray-900);
+    font-size: 13px;
+    line-height: 1.5;
+    min-height: 100vh;
+  }
+
+  /* ── PAGE HEADER ── */
+  .page-header {
+    background: white;
+    border-bottom: 1px solid var(--gray-200);
+    padding: 14px 24px 0;
+  }
+  .page-header-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .page-title { font-size: 16px; font-weight: 700; color: var(--gray-900); }
+  .page-meta { font-size: 11px; color: var(--gray-500); margin-top: 2px; }
+  .page-meta span { margin-right: 16px; }
+
+  /* ── TABS ── */
+  .tab-nav {
+    display: flex;
+    gap: 2px;
+    margin-top: 12px;
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .tab-btn {
+    padding: 8px 16px;
+    font-size: 12px;
+    font-weight: 600;
+    border: none;
+    background: transparent;
+    color: var(--gray-500);
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+    margin-bottom: -1px;
+    transition: color 0.15s, border-color 0.15s;
+    white-space: nowrap;
+  }
+  .tab-btn:hover { color: var(--gray-700); }
+  .tab-btn.active { color: var(--blue); border-bottom-color: var(--blue); }
+
+  .tab-pane { display: none; }
+  .tab-pane.active { display: block; }
+
+  /* ── LAYOUT ── */
+  .content {
+    max-width: 1100px;
+    margin: 20px auto;
+    padding: 0 16px;
+  }
+
+  /* ── CARDS ── */
+  .card {
+    background: white;
+    border: 1px solid var(--gray-200);
+    border-radius: 10px;
+    padding: 18px 20px;
+    margin-bottom: 14px;
+  }
+  .card.green-border { border-color: #86efac; background: var(--green-light); }
+  .card.teal-border  { border-color: #5eead4; background: var(--teal-light); }
+  .card.orange-border { border-color: #fcd34d; background: var(--orange-light); }
+
+  /* ── SECTION LABELS ── */
+  .section-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+  }
+  .dot {
+    width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0;
+  }
+  .dot-blue   { background: var(--blue); }
+  .dot-orange { background: #ea580c; }
+  .dot-teal   { background: var(--teal); }
+  .dot-purple { background: var(--purple); }
+  .dot-green  { background: var(--green); }
+  .dot-gray   { background: var(--gray-400); }
+
+  /* ── AGENDA TAB ── */
+  .agenda-grid { display: grid; grid-template-columns: 80px 1fr; gap: 0; }
+
+  .time-col {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--gray-400);
+    padding: 12px 12px 12px 0;
+    border-right: 2px solid var(--gray-200);
+    text-align: right;
+    line-height: 1.2;
+  }
+  .time-col .mins { font-size: 10px; font-weight: 400; display: block; margin-top: 2px; }
+
+  .agenda-block {
+    padding: 12px 0 12px 16px;
+    border-bottom: 1px solid var(--gray-100);
+  }
+  .agenda-block:last-child { border-bottom: none; }
+
+  .block-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--gray-900);
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .block-tag {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 2px 6px;
+    border-radius: 3px;
+  }
+  .tag-blue   { background: var(--blue-light);   color: var(--blue); }
+  .tag-orange { background: #fff7ed; color: var(--orange); }
+  .tag-teal   { background: var(--teal-light);   color: var(--teal); }
+  .tag-purple { background: var(--purple-light); color: var(--purple); }
+
+  .agenda-items { list-style: none; }
+  .agenda-items li {
+    padding: 4px 0;
+    padding-left: 14px;
+    position: relative;
+    color: var(--gray-700);
+    font-size: 12px;
+    line-height: 1.4;
+  }
+  .agenda-items li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--gray-400);
+    font-size: 10px;
+    top: 5px;
+  }
+  .agenda-items li strong { color: var(--gray-900); }
+  .agenda-items li .note {
+    display: block;
+    font-size: 11px;
+    color: var(--gray-500);
+    margin-top: 1px;
+  }
+
+  .open-flag {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--red);
+    background: var(--red-light);
+    padding: 2px 6px;
+    border-radius: 3px;
+    margin-left: 6px;
+  }
+
+  /* ── COVERAGE MAP TAB ── */
+  .map-progress {
+    background: white;
+    border: 1px solid var(--gray-200);
+    border-radius: 10px;
+    padding: 14px 18px;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .map-progress .progress-track {
+    flex: 1;
+    background: var(--gray-200);
+    border-radius: 99px;
+    height: 8px;
+  }
+  .progress-fill {
+    height: 8px;
+    border-radius: 99px;
+    background: var(--blue);
+    transition: width 0.25s ease;
+    width: 0%;
+  }
+  .progress-text { font-size: 12px; color: var(--gray-500); white-space: nowrap; min-width: 90px; text-align: right; }
+  .done-pill {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.05em;
+    padding: 3px 8px; border-radius: 99px;
+    background: var(--green-check); color: white;
+    opacity: 0; transition: opacity 0.3s; white-space: nowrap;
+  }
+  .done-pill.show { opacity: 1; }
+
+  .map-columns { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; align-items: start; }
+
+  .map-card {
+    background: white;
+    border: 1px solid var(--gray-200);
+    border-radius: 10px;
+    padding: 14px;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .map-card.complete { border-color: #86efac; background: var(--green-light); }
+  .map-card.optional { border-style: dashed; border-color: #5eead4; }
+
+  .check-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 9px;
+    padding: 5px 0;
+    cursor: pointer;
+    user-select: none;
+    border-bottom: 1px solid var(--gray-100);
+  }
+  .check-item:last-child { border-bottom: none; }
+  .check-item:hover .checkbox { border-color: var(--blue); }
+
+  .checkbox {
+    width: 15px; height: 15px;
+    border-radius: 3px;
+    border: 2px solid var(--gray-300);
+    flex-shrink: 0; margin-top: 1px;
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.12s;
+    font-size: 9px; font-weight: 700; color: white;
+  }
+  .checkbox.checked { background: var(--green-check); border-color: var(--green-check); }
+
+  .ci-label { font-size: 12px; font-weight: 500; color: var(--gray-900); line-height: 1.3; }
+  .ci-sub   { font-size: 11px; color: var(--gray-500); margin-top: 1px; line-height: 1.3; }
+
+  .map-section { font-size: 10px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--gray-400); margin: 10px 0 5px; border-top: 1px solid var(--gray-100); padding-top: 9px; }
+  .map-section:first-child { margin-top: 0; border-top: none; padding-top: 0; }
+
+  /* IMS Tool Inventory */
+  .inventory-section {
+    margin-top: 14px;
+    border-top: 2px dashed var(--gray-200);
+    padding-top: 12px;
+  }
+  .inventory-title {
+    font-size: 11px; font-weight: 700;
+    color: var(--orange);
+    margin-bottom: 8px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .add-tool-btn {
+    font-size: 10px; font-weight: 600;
+    background: var(--orange);
+    color: white;
+    border: none; border-radius: 4px;
+    padding: 3px 8px; cursor: pointer;
+  }
+  .add-tool-btn:hover { background: #9a3412; }
+
+  .tool-card {
+    background: var(--gray-50);
+    border: 1px solid var(--gray-200);
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 8px;
+  }
+  .tool-name-row {
+    display: flex; align-items: center; gap: 8px; margin-bottom: 8px;
+  }
+  .tool-number {
+    font-size: 10px; font-weight: 700;
+    background: var(--orange); color: white;
+    width: 18px; height: 18px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .tool-name-input {
+    flex: 1; font-size: 12px; font-weight: 600;
+    border: 1px solid var(--gray-200); border-radius: 4px;
+    padding: 3px 7px; background: white; color: var(--gray-900);
+    outline: none;
+  }
+  .tool-name-input:focus { border-color: var(--orange); }
+
+  .tool-fields { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+  .tool-field label {
+    display: block; font-size: 9px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.06em;
+    color: var(--gray-500); margin-bottom: 3px;
+  }
+  .tool-field textarea {
+    width: 100%; font-size: 11px;
+    border: 1px solid var(--gray-200); border-radius: 4px;
+    padding: 5px 7px; background: white;
+    resize: vertical; min-height: 52px;
+    font-family: inherit; color: var(--gray-900);
+    outline: none; line-height: 1.4;
+  }
+  .tool-field textarea:focus { border-color: var(--orange); }
+  .tool-field textarea::placeholder { color: var(--gray-400); font-style: italic; }
+
+  .remove-tool {
+    background: none; border: none;
+    color: var(--gray-400); cursor: pointer; font-size: 12px;
+    padding: 2px 4px; border-radius: 3px;
+  }
+  .remove-tool:hover { color: var(--red); background: var(--red-light); }
+
+  /* Close row */
+  .close-row {
+    background: white; border: 1px solid var(--gray-200);
+    border-radius: 10px; padding: 14px 16px; margin-top: 12px;
+  }
+  .close-items { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-top: 10px; }
+  .close-item {
+    display: flex; align-items: center; gap: 8px;
+    cursor: pointer; user-select: none; padding: 6px;
+    border-radius: 6px; border: 1px solid var(--gray-200);
+  }
+  .close-item:hover { background: var(--gray-50); }
+
+  /* ── 16-HOUR PLAN TAB ── */
+  .hours-header { display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px; }
+  .hours-total {
+    font-size: 32px; font-weight: 800; color: var(--blue); line-height: 1;
+  }
+  .hours-label { font-size: 13px; color: var(--gray-500); }
+
+  .hours-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 16px; }
+
+  .month-card {
+    background: white; border: 1px solid var(--gray-200);
+    border-radius: 10px; overflow: hidden;
+  }
+  .month-header {
+    padding: 10px 14px;
+    font-size: 11px; font-weight: 700;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .month-header.m1 { background: #eff6ff; color: var(--blue); border-bottom: 1px solid #bfdbfe; }
+  .month-header.m2 { background: #fff7ed; color: var(--orange); border-bottom: 1px solid #fed7aa; }
+  .month-header.m3 { background: #f5f3ff; color: var(--purple); border-bottom: 1px solid #ddd6fe; }
+  .month-hrs { font-size: 18px; font-weight: 800; }
+
+  .month-body { padding: 10px 14px; }
+
+  .hour-row {
+    display: flex; align-items: flex-start; gap: 10px;
+    padding: 7px 0; border-bottom: 1px solid var(--gray-100);
+  }
+  .hour-row:last-child { border-bottom: none; }
+
+  .hr-bar-wrap { flex-shrink: 0; width: 28px; padding-top: 3px; }
+  .hr-bar {
+    height: 6px; border-radius: 99px; background: var(--gray-200);
+    position: relative; overflow: hidden;
+  }
+  .hr-bar-fill { height: 100%; border-radius: 99px; }
+  .fill-blue   { background: var(--blue); }
+  .fill-orange { background: #ea580c; }
+  .fill-purple { background: var(--purple); }
+  .hr-count {
+    font-size: 11px; font-weight: 700; color: var(--gray-400);
+    text-align: center; margin-top: 2px;
+  }
+
+  .hr-content { flex: 1; }
+  .hr-title { font-size: 12px; font-weight: 600; color: var(--gray-900); line-height: 1.3; }
+  .hr-desc  { font-size: 11px; color: var(--gray-500); margin-top: 2px; line-height: 1.35; }
+
+  .hours-summary {
+    background: white; border: 1px solid var(--gray-200);
+    border-radius: 10px; padding: 16px 18px;
+  }
+  .summary-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+  .summary-table th {
+    text-align: left; padding: 6px 10px;
+    font-size: 10px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.06em;
+    color: var(--gray-500);
+    border-bottom: 2px solid var(--gray-200);
+  }
+  .summary-table td {
+    padding: 7px 10px;
+    border-bottom: 1px solid var(--gray-100);
+    vertical-align: top;
+  }
+  .summary-table tr:last-child td { border-bottom: none; font-weight: 700; background: var(--gray-50); }
+  .hrs-pill {
+    display: inline-block; font-size: 11px; font-weight: 700;
+    padding: 2px 8px; border-radius: 99px; background: var(--blue-light); color: var(--blue);
+  }
+  .note-field { font-size: 11px; color: var(--gray-500); font-style: italic; }
+
+  /* Utility */
+  .flex-between { display: flex; align-items: center; justify-content: space-between; }
+  .badge-teal {
+    font-size: 9px; font-weight: 700; letter-spacing: 0.05em;
+    padding: 2px 6px; border-radius: 3px;
+    background: var(--teal-light); color: var(--teal); border: 1px solid #5eead4;
+  }
+  .if-matt { display: flex; align-items: center; gap: 6px; }
+</style>
+</head>
+<body>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="page-header-inner">
+    <div class="flex-between">
+      <div>
+        <div class="page-title">Systemic Compliance — Whiteboard Session</div>
+        <div class="page-meta">
+          <span>📅 Wednesday, July 8, 2026 &nbsp;·&nbsp; 10:00–11:30 AM CDT</span>
+          <span>📍 Improving Plano — Dallas Classroom Involvement</span>
+          <span>👥 Kevin Graham, Robin Graham (+ Matt Yasar if Teams)</span>
+        </div>
+      </div>
+    </div>
+    <div class="tab-nav">
+      <button class="tab-btn active" onclick="switchTab('agenda', this)">Agenda</button>
+      <button class="tab-btn" onclick="switchTab('map', this)">Coverage Map</button>
+      <button class="tab-btn" onclick="switchTab('hours', this)">16-Hour Plan</button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     TAB 1 — AGENDA
+══════════════════════════════════════════════════════ -->
+<div id="tab-agenda" class="tab-pane active">
+  <div class="content">
+
+    <!-- Opening frame -->
+    <div class="card">
+      <div class="section-label"><span class="dot dot-gray"></span> Opening frame (2 min)</div>
+      <div class="agenda-grid">
+        <div class="time-col">10:00<span class="mins">2 min</span></div>
+        <div class="agenda-block">
+          <div class="block-title">Set the session</div>
+          <ul class="agenda-items">
+            <li>"Before I go deep on the toolbox, I want to make sure I understand what we're building toward — so my advice points at the right destination."</li>
+            <li>Confirm session format: you'll ask, Kevin walks, you capture on the whiteboard as you go.</li>
+            <li>Flag to Kevin and Robin: you'll want to leave with the 16-hour plan allocated.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Block 1 -->
+    <div class="card">
+      <div class="section-label"><span class="dot dot-blue"></span> Block 1 — Business clarity &nbsp;<span style="color:var(--gray-400);font-weight:400;font-size:11px;">go first</span></div>
+      <div class="agenda-grid">
+
+        <div class="time-col">10:02<span class="mins">~30 min</span></div>
+        <div class="agenda-block">
+          <div class="block-title">Strategic direction <span class="block-tag tag-blue">Open from June 30</span></div>
+          <ul class="agenda-items">
+            <li><strong>Path A vs. Path B</strong> — build a 10-year annuity or sell in ~4 years? Still genuinely undecided. This changes every downstream recommendation.
+              <span class="open-flag">⚠ Open</span>
+            </li>
+            <li><strong>Exit timeline / forcing event</strong> — M&A attorney and IP attorney are both active. What's moving the clock right now? Any investor conversation, acquisition inquiry, or partnership requiring clean IP?</li>
+            <li><strong>Regulatory wave timing</strong> — API RP 1173 management-system framework expected mandatory in 3–4 years. Does Kevin think that's the product's primary forcing event, or is there something shorter-term?</li>
+          </ul>
+        </div>
+
+        <div class="time-col" style="border-top:1px solid var(--gray-100);padding-top:12px;"></div>
+        <div class="agenda-block" style="border-top:1px solid var(--gray-100);">
+          <div class="block-title">Product positioning</div>
+          <ul class="agenda-items">
+            <li><strong>IMS: internal tool vs. scalable product</strong> — Kevin-only consultant tool forever, or the goal is to make it replicable across other consultants? This is the "how do I let someone else run it without breaking it" question he raised June 30.
+              <span class="open-flag">⚠ Open</span>
+            </li>
+            <li><strong>IMS + SC.ORB relationship</strong> — two independent products, two modules of one platform, or does IMS's requirement graph power ORB's backend? This is the most important architectural question to answer before advising on either.
+              <span class="open-flag">⚠ Open</span>
+            </li>
+            <li><strong>Commercial status</strong> — are there paying clients on IMS today? Any pilot agreements live? Or is this still pre-commercial internally?</li>
+          </ul>
+        </div>
+
+        <div class="time-col" style="border-top:1px solid var(--gray-100);padding-top:12px;"></div>
+        <div class="agenda-block" style="border-top:1px solid var(--gray-100);">
+          <div class="block-title">16-hour advisory plan <span class="block-tag tag-blue">⚠ Overdue — lock today</span></div>
+          <ul class="agenda-items">
+            <li>Stephen flagged this before dropping June 30. Agree on the broad allocation before you leave — see the 16-Hour Plan tab for the proposed split.</li>
+            <li>Frame it simply: "Here's how I'd propose we use the time — does this match where you need the most leverage?"</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Block 2 -->
+    <div class="card">
+      <div class="section-label"><span class="dot dot-orange"></span> Block 2 — IMS technical map &nbsp;<span style="color:var(--gray-400);font-weight:400;font-size:11px;">go second</span></div>
+      <div class="agenda-grid">
+
+        <div class="time-col">10:32<span class="mins">~45 min</span></div>
+        <div class="agenda-block">
+          <div class="block-title">Walk the asset — six dimensions</div>
+          <ul class="agenda-items">
+            <li>Ask Kevin to walk you through IMS end-to-end. Your goal: build a whiteboard map both of you can look at. Photograph it before you leave.</li>
+            <li>For each thing Kevin has built, capture four things — see the Coverage Map tab for the live capture form:
+              <span class="note"><strong>Intent</strong> (what was it built to do?) · <strong>Business value</strong> (what problem does it solve?) · <strong>Data/systems accessed</strong> (what does it touch?) · <strong>Workflow/skill produced</strong> (what's the actual output?)</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="time-col" style="border-top:1px solid var(--gray-100);padding-top:12px;"></div>
+        <div class="agenda-block" style="border-top:1px solid var(--gray-100);">
+          <div class="block-title">Six dimensions to map</div>
+          <ul class="agenda-items">
+            <li><strong>Data layer</strong> — 20K requirements in what format exactly? Spreadsheet structure, how cross-linkages work, update cadence. Devlin's semantic saturation risk lives here.</li>
+            <li><strong>Ingestion / query flow</strong> — How does a client document get loaded in? Prompt structure, context window approach, chunked or full-document?</li>
+            <li><strong>Output format</strong> — Report, structured data, raw narrative? What does the gap analysis actually look like? Who reads it and what do they do next?</li>
+            <li><strong>SME review process</strong> — How are outputs reviewed today? Any kickback tracking or near-miss log? (91% self-check failure rate is the silent risk — don't say this number cold, surface it through the near-miss question.)</li>
+            <li><strong>Access &amp; portability</strong> — Who else can run IMS today beyond Kevin? What breaks when it's not him? This maps directly to the portability problem.</li>
+            <li><strong>Security / data handling</strong> — The Python anonymizer: what gets stripped before hitting Claude? What stays local? What's the client data liability picture?</li>
+          </ul>
+        </div>
+
+        <div class="time-col" style="border-top:1px solid var(--gray-100);padding-top:12px;"></div>
+        <div class="agenda-block" style="border-top:1px solid var(--gray-100);">
+          <div class="block-title">Kevin's fragility read</div>
+          <ul class="agenda-items">
+            <li>"Of everything you've built — where do you feel the most exposed right now?"</li>
+            <li>This surfaces the real priority for hours 1–4 better than any framework you bring in.</li>
+            <li>Your recommendation to have ready: <strong>eval harness first</strong> — it's the fastest visible ROI and de-risks everything else. Don't lead with it; let Kevin's fragility answer validate it.</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Block 3 – SC.ORB -->
+    <div class="card" style="border-style:dashed; border-color:#5eead4; background: var(--teal-light);">
+      <div class="section-label"><span class="dot dot-teal"></span> Block 3 — SC.ORB <span class="badge-teal">only if Matt joins via Teams</span></div>
+      <div class="agenda-grid">
+
+        <div class="time-col">10:32*<span class="mins">~15 min</span></div>
+        <div class="agenda-block">
+          <div class="block-title">Product state</div>
+          <ul class="agenda-items">
+            <li><strong>Launch readiness</strong> — July 15 still the target? What is the four-module scope at launch?</li>
+            <li><strong>MOC engine mechanics</strong> — How does ripple-effect detection work? What data model drives it?</li>
+          </ul>
+        </div>
+
+        <div class="time-col" style="border-top:1px solid #99f6e4;padding-top:12px;"></div>
+        <div class="agenda-block" style="border-top:1px solid #99f6e4;">
+          <div class="block-title">Architecture</div>
+          <ul class="agenda-items">
+            <li><strong>Stack and hosting</strong> — Where does ORB live? Cloud, on-prem, client-tenanted?</li>
+            <li><strong>AI layer in ORB</strong> — Does ORB use AI today, or is that planned? Where in the product flow?</li>
+            <li><strong>IMS ↔ ORB data feed</strong> — Does IMS's requirement graph power ORB, or are they separate data stores? <em>This is the hinge question.</em> Kevin can't fully answer it — you need Matt for this one.</li>
+          </ul>
+        </div>
+
+        <div class="time-col" style="border-top:1px solid #99f6e4;padding-top:12px;"></div>
+        <div class="agenda-block" style="border-top:1px solid #99f6e4;">
+          <div class="block-title" style="color:var(--teal);">Pivot signal</div>
+          <ul class="agenda-items">
+            <li>If Kevin goes deep on ORB without Matt on: "That's exactly the session I want to have with Matt — can we make sure that's locked before we leave today?" Redirects cleanly and closes a close item.</li>
+            <li>Don't let ORB eat IMS time if Matt isn't there to add value.</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Close -->
+    <div class="card">
+      <div class="section-label"><span class="dot dot-purple"></span> Close</div>
+      <div class="agenda-grid">
+        <div class="time-col">11:17<span class="mins">~13 min</span></div>
+        <div class="agenda-block">
+          <div class="block-title">Before you leave</div>
+          <ul class="agenda-items">
+            <li>Photograph the whiteboard.</li>
+            <li>Confirm Matt Yasar deep-dive is scheduled (30 min, SC.ORB architecture).</li>
+            <li>State hour 1–4 priority out loud and get a verbal yes.</li>
+            <li>Lock the 16-hour advisory allocation.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     TAB 2 — COVERAGE MAP
+══════════════════════════════════════════════════════ -->
+<div id="tab-map" class="tab-pane">
+  <div class="content">
+
+    <!-- Progress -->
+    <div class="map-progress">
+      <div class="progress-track"><div class="progress-fill" id="prog-fill"></div></div>
+      <div class="progress-text" id="prog-text">0 of 18 covered</div>
+      <div class="done-pill" id="done-pill">Session complete</div>
+    </div>
+
+    <!-- Three columns -->
+    <div class="map-columns">
+
+      <!-- Business -->
+      <div>
+        <div class="section-label"><span class="dot dot-blue"></span> Business — go first</div>
+        <div class="map-card" id="card-biz">
+
+          <div class="map-section">Strategic Direction</div>
+
+          <div class="check-item" onclick="check(this)" data-id="b1">
+            <div class="checkbox"></div>
+            <div>
+              <div class="ci-label">Path A vs. Path B</div>
+              <div class="ci-sub">Build annuity or sell in ~4 yrs? Still open from June 30.</div>
+            </div>
+          </div>
+          <div class="check-item" onclick="check(this)" data-id="b2">
+            <div class="checkbox"></div>
+            <div>
+              <div class="ci-label">Exit forcing event</div>
+              <div class="ci-sub">M&amp;A + IP attorneys active — what's moving the clock?</div>
+            </div>
+          </div>
+          <div class="check-item" onclick="check(this)" data-id="b3">
+            <div class="checkbox"></div>
+            <div>
+              <div class="ci-label">Regulatory wave timing</div>
+              <div class="ci-sub">API RP 1173 mandatory in 3–4 yrs — is this the forcing event?</div>
+            </div>
+          </div>
+
+          <div class="map-section">Product Positioning</div>
+
+          <div class="check-item" onclick="check(this)" data-id="b4">
+            <div class="checkbox"></div>
+            <div>
+              <div class="ci-label">IMS: internal vs. scalable</div>
+              <div class="ci-sub">Kevin-only forever or replicable across consultants?</div>
+            </div>
+          </div>
+          <div class="check-item" onclick="check(this)" data-id="b5">
+            <div class="checkbox"></div>
+            <div>
+              <div class="ci-label">IMS + SC.ORB relationship</div>
+              <div class="ci-sub">Two products, one platform, or does IMS feed ORB?</div>
+            </div>
+          </div>
+          <div class="check-item" onclick="check(this)" data-id="b6">
+            <div class="checkbox"></div>
+            <div>
+              <div class="ci-label">Commercial status</div>
+              <div class="ci-sub">Paying clients? Pilots live? Pre-commercial?</div>
+            </div>
+          </div>
+
+          <div class="map-section">Engagement</div>
+
+          <div class="check-item" onclick="check(this)" data-id="b7">
+            <div class="checkbox"></div>
+            <div>
+              <div class="ci-label">16-hr advisory plan locked</div>
+              <div class="ci-sub">Overdue — leave with hours allocated by bucket.</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- IMS Technical -->
+      <div>
+        <div class="section-label"><span class="dot dot-orange"></span> IMS Technical — go second</div>
+        <div class="map-card" id="card-tech">
+
+          <div class="map-section">Six Dimensions</div>
+
+          <div class="check-item" onclick="check(this)" data-id="t1">
+            <div class="checkbox"></div>
+            <div>
+              <div class="ci-label">Data layer structure</div>
+              <div class="ci-sub">20K reqs — format, cross-linkage mechanism, update cadence</div>
+            </div>
+          </div>
+          <div class="check-item" onclick="check(this)" data-id="t2">
+            <div class="checkbox"></div>
+            <div>
+              <div class="ci-label">Ingestion / query flow</div>
+              <div class="ci-sub">How does a client doc get in? Prompt structure, context approach</div>
+            </div>
+          </div>
+          <div class="check-item" onclick="check(this)" data-id="t3">
+            <div class="checkbox"></div>
+            <div>
+              <div class="ci-label">Output format</div>
+              <div class="ci-sub">Report, structured data, raw narrative? Who reads it and acts?</div>
+            </div>
+          </div>
+          <div class="check-item" onclick="check(this)" data-id="t4">
+            <div class="checkbox"></div>
+            <div>
+              <div class="ci-label">SME review process</div>
+              <div class="ci-sub">Any kickback tracking or near-miss log? How are outputs validated?</div>
+            </div>
+          </div>
+          <div class="check-item" onclick="check(this)" data-id="t5">
+            <div class="checkbox"></div>
+            <div>
+              <div class="ci-label">Access &amp; portability</div>
+              <div class="ci-sub">Who else can run IMS? What breaks when it's not Kevin?</div>
+            </div>
+          </div>
+          <div class="check-item" onclick="check(this)" data-id="t6">
+            <div class="checkbox"></div>
+            <div>
+              <div class="ci-label">Security / data handling</div>
+              <div class="ci-sub">Python anonymizer — what goes to Claude? What stays local?</div>
+            </div>
+          </div>
+          <div class="check-item" onclick="check(this)" data-id="t7">
+            <div class="checkbox"></div>
+            <div>
+              <div class="ci-label">Kevin's fragility read</div>
+              <div class="ci-sub">"Where do you feel most exposed right now?"</div>
+            </div>
+          </div>
+
+          <!-- PORTING INVENTORY -->
+          <div class="inventory-section">
+            <div class="inventory-title">
+              IMS Tool Inventory — capture as Kevin walks through
+              <button class="add-tool-btn" onclick="addTool()">+ Add Tool</button>
+            </div>
+            <div id="tool-list"></div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- SC.ORB -->
+      <div>
+        <div class="section-label if-matt"><span class="dot dot-teal"></span> SC.ORB <span class="badge-teal">if Matt joins</span></div>
+        <div class="map-card optional" id="card-orb">
+
+          <div class="map-section">Product State</div>
+
+          <div class="check-item" onclick="check(this)" data-id="o1">
+            <div class="checkbox"></div>
+            <div>
+              <div class="ci-label">Launch readiness</div>
+              <div class="ci-sub">July 15 target still on? Four-module launch scope?</div>
+            </div>
+          </div>
+          <div class="check-item" onclick="check(this)" data-id="o2">
+            <div class="checkbox"></div>
+            <div>
+              <div class="ci-label">MOC engine mechanics</div>
+              <div class="ci-sub">How does ripple-effect detection work? Data model?</div>
+            </div>
+          </div>
+
+          <div class="map-section">Architecture</div>
+
+          <div class="check-item" onclick="check(this)" data-id="o3">
+            <div class="checkbox"></div>
+            <div>
+              <div class="ci-label">Stack and hosting</div>
+              <div class="ci-sub">Where does ORB live? Cloud, on-prem, client-tenanted?</div>
+            </div>
+          </div>
+          <div class="check-item" onclick="check(this)" data-id="o4">
+            <div class="checkbox"></div>
+            <div>
+              <div class="ci-label">AI layer in ORB</div>
+              <div class="ci-sub">Does ORB use AI now? Where in the product flow is it planned?</div>
+            </div>
+          </div>
+          <div class="check-item" onclick="check(this)" data-id="o5">
+            <div class="checkbox"></div>
+            <div>
+              <div class="ci-label">IMS ↔ ORB data feed</div>
+              <div class="ci-sub">Does IMS's requirement graph power ORB, or separate stores? <em>The hinge question.</em></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Close row -->
+    <div class="close-row">
+      <div class="section-label"><span class="dot dot-purple"></span> Close — do before you leave</div>
+      <div class="close-items">
+        <div class="check-item" onclick="check(this)" data-id="c1" style="border:1px solid var(--gray-200); border-radius:6px; padding:8px;">
+          <div class="checkbox"></div>
+          <div class="ci-label">Whiteboard photographed</div>
+        </div>
+        <div class="check-item" onclick="check(this)" data-id="c2" style="border:1px solid var(--gray-200); border-radius:6px; padding:8px;">
+          <div class="checkbox"></div>
+          <div class="ci-label">Matt deep-dive scheduled</div>
+        </div>
+        <div class="check-item" onclick="check(this)" data-id="c3" style="border:1px solid var(--gray-200); border-radius:6px; padding:8px;">
+          <div class="checkbox"></div>
+          <div class="ci-label">Hour 1–4 priority agreed</div>
+        </div>
+        <div class="check-item" onclick="check(this)" data-id="c4" style="border:1px solid var(--gray-200); border-radius:6px; padding:8px;">
+          <div class="checkbox"></div>
+          <div class="ci-label">Advisory hours plan signed</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     TAB 3 — 16-HOUR PLAN
+══════════════════════════════════════════════════════ -->
+<div id="tab-hours" class="tab-pane">
+  <div class="content">
+
+    <div class="card">
+      <div class="hours-header">
+        <div class="hours-total">16</div>
+        <div class="hours-label">advisory hours &nbsp;·&nbsp; Q3 2026 (July–September) &nbsp;·&nbsp; Flat quarterly retainer</div>
+      </div>
+      <p style="font-size:12px; color:var(--gray-500); margin-bottom:16px;">
+        Proposed allocation across three months. Front-loads the highest-risk, highest-leverage work. Leaves Month 3 lighter to absorb overruns and prep for Q4 renewal conversation.
+        Discuss with Kevin July 8 and adjust based on his fragility read.
+      </p>
+
+      <div class="hours-grid">
+
+        <!-- Month 1 -->
+        <div class="month-card">
+          <div class="month-header m1">
+            <span>Month 1 — July</span>
+            <span class="month-hrs">7 hrs</span>
+          </div>
+          <div class="month-body">
+
+            <div class="hour-row">
+              <div class="hr-bar-wrap">
+                <div class="hr-bar"><div class="hr-bar-fill fill-blue" style="width:100%"></div></div>
+                <div class="hr-count">4</div>
+              </div>
+              <div class="hr-content">
+                <div class="hr-title">IMS architecture review + eval harness design</div>
+                <div class="hr-desc">Map the full toolbox from the whiteboard session. Identify the semantic saturation and portability gaps. Design the eval harness spec — what gets graded, by what, and how.</div>
+              </div>
+            </div>
+
+            <div class="hour-row">
+              <div class="hr-bar-wrap">
+                <div class="hr-bar"><div class="hr-bar-fill fill-blue" style="width:75%"></div></div>
+                <div class="hr-count">3</div>
+              </div>
+              <div class="hr-content">
+                <div class="hr-title">IP portability + governance baseline (start)</div>
+                <div class="hr-desc">Map what's trapped in Cowork vs. what's owned. Draft the minimum governance spine: data handling, audit logging, acceptable-use policy. Prerequisite before anything scales.</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Month 2 -->
+        <div class="month-card">
+          <div class="month-header m2">
+            <span>Month 2 — August</span>
+            <span class="month-hrs">6 hrs</span>
+          </div>
+          <div class="month-body">
+
+            <div class="hour-row">
+              <div class="hr-bar-wrap">
+                <div class="hr-bar"><div class="hr-bar-fill fill-orange" style="width:50%"></div></div>
+                <div class="hr-count">2</div>
+              </div>
+              <div class="hr-content">
+                <div class="hr-title">SC.ORB technical deep-dive (with Matt)</div>
+                <div class="hr-desc">Separate session with Matt Yasar. Map ORB's architecture, AI layer plans, and the IMS↔ORB data relationship. This is the hinge for Path A vs. B advice.</div>
+              </div>
+            </div>
+
+            <div class="hour-row">
+              <div class="hr-bar-wrap">
+                <div class="hr-bar"><div class="hr-bar-fill fill-orange" style="width:50%"></div></div>
+                <div class="hr-count">2</div>
+              </div>
+              <div class="hr-content">
+                <div class="hr-title">IP portability + governance baseline (complete)</div>
+                <div class="hr-desc">Finish the portability map. Governance baseline signed off. Deliverable: a clear picture of what they own, what's rented, and what needs to move.</div>
+              </div>
+            </div>
+
+            <div class="hour-row">
+              <div class="hr-bar-wrap">
+                <div class="hr-bar"><div class="hr-bar-fill fill-orange" style="width:50%"></div></div>
+                <div class="hr-count">2</div>
+              </div>
+              <div class="hr-content">
+                <div class="hr-title">Path A vs. B strategic session</div>
+                <div class="hr-desc">By this point you have the full picture. Force the decision or at least narrow it. Present the build-vs-sell tradeoff with the real data from months 1–2.</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Month 3 -->
+        <div class="month-card">
+          <div class="month-header m3">
+            <span>Month 3 — September</span>
+            <span class="month-hrs">3 hrs</span>
+          </div>
+          <div class="month-body">
+
+            <div class="hour-row">
+              <div class="hr-bar-wrap">
+                <div class="hr-bar"><div class="hr-bar-fill fill-purple" style="width:100%"></div></div>
+                <div class="hr-count">2</div>
+              </div>
+              <div class="hr-content">
+                <div class="hr-title">Board / investor narrative draft</div>
+                <div class="hr-desc">Draft the Realized / In-flight / Optioned snapshot. Kevin and Robin are maintaining a living data room — this feeds it. Framed for the M&amp;A attorney's diligence readiness.</div>
+              </div>
+            </div>
+
+            <div class="hour-row">
+              <div class="hr-bar-wrap">
+                <div class="hr-bar"><div class="hr-bar-fill fill-purple" style="width:50%"></div></div>
+                <div class="hr-count">1</div>
+              </div>
+              <div class="hr-content">
+                <div class="hr-title">Q3 gate + Q4 renewal framing</div>
+                <div class="hr-desc">Review what the first 16 hours produced. Set the Q4 priority. Frame the renewal case — what evidence was built, what's next.</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Summary table -->
+      <div class="hours-summary">
+        <div class="section-label" style="margin-bottom:12px;"><span class="dot dot-gray"></span> Full allocation at a glance</div>
+        <table class="summary-table">
+          <thead>
+            <tr>
+              <th>Bucket</th>
+              <th>Hours</th>
+              <th>Month</th>
+              <th>Deliverable / outcome</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>IMS architecture review + eval harness design</td>
+              <td><span class="hrs-pill">4</span></td>
+              <td>July</td>
+              <td class="note-field">Toolbox map + eval harness spec; de-risks everything downstream</td>
+            </tr>
+            <tr>
+              <td>IP portability + governance baseline</td>
+              <td><span class="hrs-pill">5</span></td>
+              <td>July–Aug</td>
+              <td class="note-field">Portability map + governance spine signed off; prerequisite for scale</td>
+            </tr>
+            <tr>
+              <td>SC.ORB technical deep-dive (with Matt)</td>
+              <td><span class="hrs-pill">2</span></td>
+              <td>Aug</td>
+              <td class="note-field">ORB architecture map + IMS↔ORB hinge question answered</td>
+            </tr>
+            <tr>
+              <td>Path A vs. B strategic session</td>
+              <td><span class="hrs-pill">2</span></td>
+              <td>Aug</td>
+              <td class="note-field">Decision or narrowed framing; changes every downstream recommendation</td>
+            </tr>
+            <tr>
+              <td>Board / investor narrative draft</td>
+              <td><span class="hrs-pill">2</span></td>
+              <td>Sep</td>
+              <td class="note-field">Realized / In-flight / Optioned snapshot; feeds living data room</td>
+            </tr>
+            <tr>
+              <td>Q3 gate + Q4 renewal framing</td>
+              <td><span class="hrs-pill">1</span></td>
+              <td>Sep</td>
+              <td class="note-field">Evidence review + Q4 priority + renewal case</td>
+            </tr>
+            <tr>
+              <td><strong>Total</strong></td>
+              <td><span class="hrs-pill" style="background:#dbeafe; font-size:12px; padding: 3px 10px;"><strong>16</strong></span></td>
+              <td>Jul–Sep</td>
+              <td class="note-field"><strong>Q3 engagement complete</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     JAVASCRIPT
+══════════════════════════════════════════════════════ -->
+<script>
+  // ── TAB SWITCHING ──
+  function switchTab(id, btn) {
+    document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('tab-' + id).classList.add('active');
+    btn.classList.add('active');
+  }
+
+  // ── COVERAGE MAP CHECKBOXES ──
+  const TOTAL = 18;
+  const checked = new Set();
+
+  function check(el) {
+    const id = el.dataset.id;
+    const box = el.querySelector('.checkbox');
+    if (checked.has(id)) {
+      checked.delete(id);
+      box.classList.remove('checked');
+      box.textContent = '';
+    } else {
+      checked.add(id);
+      box.classList.add('checked');
+      box.textContent = '✓';
+    }
+    updateProgress();
+    updateCards();
+  }
+
+  function updateProgress() {
+    const n = checked.size;
+    document.getElementById('prog-fill').style.width = (n / TOTAL * 100) + '%';
+    document.getElementById('prog-text').textContent = n + ' of ' + TOTAL + ' covered';
+    document.getElementById('done-pill').classList.toggle('show', n === TOTAL);
+  }
+
+  function updateCards() {
+    const bizIds  = ['b1','b2','b3','b4','b5','b6','b7'];
+    const techIds = ['t1','t2','t3','t4','t5','t6','t7'];
+    document.getElementById('card-biz').classList.toggle('complete', bizIds.every(i => checked.has(i)));
+    document.getElementById('card-tech').classList.toggle('complete', techIds.every(i => checked.has(i)));
+  }
+
+  // ── IMS TOOL INVENTORY ──
+  let toolCount = 0;
+
+  function addTool() {
+    toolCount++;
+    const n = toolCount;
+    const list = document.getElementById('tool-list');
+    const div = document.createElement('div');
+    div.className = 'tool-card';
+    div.id = 'tool-' + n;
+    div.innerHTML = `
+      <div class="tool-name-row">
+        <div class="tool-number">${n}</div>
+        <input class="tool-name-input" type="text" placeholder="Tool / capability name…">
+        <button class="remove-tool" onclick="removeTool(${n})" title="Remove">✕</button>
+      </div>
+      <div class="tool-fields">
+        <div class="tool-field">
+          <label>Intent</label>
+          <textarea placeholder="What was this built to do?"></textarea>
+        </div>
+        <div class="tool-field">
+          <label>Business Value</label>
+          <textarea placeholder="What problem does it solve? What's the measurable value?"></textarea>
+        </div>
+        <div class="tool-field">
+          <label>Data / Systems Accessed</label>
+          <textarea placeholder="What data sources, systems, or external connections does it touch?"></textarea>
+        </div>
+        <div class="tool-field">
+          <label>Workflow / Skill Produced</label>
+          <textarea placeholder="What's the actual output — report, workflow, prompt chain, structured data?"></textarea>
+        </div>
+      </div>
+    `;
+    list.appendChild(div);
+  }
+
+  function removeTool(n) {
+    const el = document.getElementById('tool-' + n);
+    if (el) el.remove();
+  }
+
+  // Seed one blank tool card on load
+  addTool();
+</script>
+
+</body>
+</html>

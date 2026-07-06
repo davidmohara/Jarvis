@@ -20,6 +20,16 @@ This file is the only path to `sources.yaml`. Watchtower's weekly run appends ne
 |------|-----|-----|-------|-------|--------------|--------|
 -->
 
+### Batch 3 — Weekly Run (2026-07-06)
+
+| Name | URL | RSS | Topic | Trust | Why Relevant | Status |
+|------|-----|-----|-------|-------|--------------|--------|
+| Matterfact | https://www.matterfact.com | https://www.matterfact.com/feed | it-consulting | high | Podcast newsletter focused specifically on IT services vs AI — covers consulting business model disruption, billable-hour breakdowns, and delivery model transformation. Surfaced the "Accenture model on trial" framing this week. High signal, consulting-specific. | rejected |
+| Data Center Knowledge | https://www.datacenterknowledge.com | https://www.datacenterknowledge.com/rss.xml | texas-regional | med | Industry publication covering data center infrastructure, power, and policy. Published a Texas AI data centers coverage hub (power, policy, progress) that directly covers the Abbott/ERCOT regulatory developments David's clients need to understand. | rejected |
+| Future of Consulting | https://futureofconsulting.ai | https://futureofconsulting.ai/feed | it-consulting | high | Dedicated to consulting industry AI transformation — specifically covers the delivery model bifurcation, billable-hours disruption, and outcome-based pricing. Surfaced the "Billions Spent, But the Old Pyramid Persists" analysis this week. No comparable source currently in registry. | rejected |
+| AI Weekly | https://aiweekly.co | https://aiweekly.co/feed | ai-agentic | med | Alert-style newsletter covering AI business news with a strong consulting and enterprise lens. Surfaced McKinsey's 25% outcome-tied fee story and the billable-hours breakdown analysis this week. Fills a business-layer AI news gap between Import AI (technical) and Ben's Bites (product). | rejected |
+| IBM Think | https://www.ibm.com/think | https://www.ibm.com/blogs/think/feed/ | it-consulting | high | IBM Consulting's editorial publication on business and technology transformation. Published the "forward deployed units" delivery model analysis this week — the IBM field model for scaling AI. High editorial bar, practitioner-focused, and directly competitive/complementary to Improving's delivery positioning. | rejected |
+
 ### Batch 2 — Weekly Run (2026-06-29)
 
 | Name | URL | RSS | Topic | Trust | Why Relevant | Status |
@@ -94,6 +104,16 @@ Also added by David as named sources (approved same session, 2026-06-19):
 ---
 
 ## Rejected
+
+### Batch 3 — 2026-07-06
+
+| Name | URL | Topic | Reason |
+|------|-----|-------|--------|
+| Matterfact | https://www.matterfact.com | it-consulting | Rejected by David 2026-07-06 |
+| Data Center Knowledge | https://www.datacenterknowledge.com | texas-regional | Rejected by David 2026-07-06 |
+| Future of Consulting | https://futureofconsulting.ai | it-consulting | Rejected by David 2026-07-06 |
+| AI Weekly | https://aiweekly.co | ai-agentic | Rejected by David 2026-07-06 |
+| IBM Think | https://www.ibm.com/think | it-consulting | Rejected by David 2026-07-06 |
 
 ### Batch 2 — 2026-06-29
 

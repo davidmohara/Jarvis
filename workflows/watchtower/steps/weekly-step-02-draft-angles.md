@@ -1,15 +1,15 @@
 ---
 status: complete
-started-at: "2026-06-29T07:10:00Z"
-completed-at: "2026-06-29T07:20:00Z"
+started-at: "2026-07-06T07:10:00Z"
+completed-at: "2026-07-06T07:20:00Z"
 outputs:
   themes_processed: 4
   drafts_created: 4
   draft_paths:
-    - "Mind/Posts/_the-200b-gap-is-yours-if-you-want-it.md"
-    - "Mind/Posts/_we-need-to-talk-about-how-consulting-gets-paid.md"
-    - "Mind/Posts/_fort-worth-just-became-a-tier-one-ai-city.md"
-    - "Mind/Posts/_the-forward-deployed-model-changes-everything.md"
+    - "Mind/Posts/_mckinsey-moved-first-we-re-next.md"
+    - "Mind/Posts/_the-texas-ai-boom-has-a-catch.md"
+    - "Mind/Posts/_the-enterprise-ai-platform-war-is-over.md"
+    - "Mind/Posts/_when-700-people-show-up-for-an-ai-awards-night.md"
   blog_ideas_appended: 4
 ---
 

@@ -1,11 +1,11 @@
 ---
 status: complete
-started-at: "2026-06-29T07:05:00Z"
-completed-at: "2026-06-29T07:10:00Z"
+started-at: "2026-07-06T07:05:00Z"
+completed-at: "2026-07-06T07:10:00Z"
 outputs:
   items_in_queue: 0
   themes_identified: 4
-  used_fallback: false
+  used_fallback: true
 ---
 
 <!-- system:start -->
