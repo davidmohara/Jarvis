@@ -1,0 +1,61 @@
+{
+  "candidates_count": 1,
+  "clusters_found": 8,
+  "semantic_created": 2,
+  "semantic_updated": 6,
+  "promoted_entries": 1,
+  "cluster_actions": [
+    {
+      "tag": "daily-review",
+      "domain": "operational",
+      "size": 1,
+      "action": "update"
+    },
+    {
+      "tag": "chief",
+      "domain": "operational",
+      "size": 1,
+      "action": "update"
+    },
+    {
+      "tag": "calendar",
+      "domain": "operational",
+      "size": 1,
+      "action": "update"
+    },
+    {
+      "tag": "omnifocus",
+      "domain": "operational",
+      "size": 1,
+      "action": "update"
+    },
+    {
+      "tag": "rock4",
+      "domain": "operational",
+      "size": 1,
+      "action": "create"
+    },
+    {
+      "tag": "email",
+      "domain": "operational",
+      "size": 1,
+      "action": "update"
+    },
+    {
+      "tag": "overdue-tasks",
+      "domain": "operational",
+      "size": 1,
+      "action": "update"
+    },
+    {
+      "tag": "quinn",
+      "domain": "operational",
+      "size": 1,
+      "action": "create"
+    }
+  ],
+  "error_total_30d": 110,
+  "error_categories_30d": "process-skip:17, routing-error:14, tool-misuse:14, data-accuracy:12, format-violation:10, missed-context:6, hallucination:5, assumption-error:5, data-interpretation:5, unknown:2",
+  "lessons_appended": 1,
+  "lessons_note": "Appended: data-accuracy/sloppy-read(3)"
+}

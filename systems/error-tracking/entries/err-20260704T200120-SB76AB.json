@@ -1,0 +1,15 @@
+{
+  "id": "err-20260704T200120-SB76AB",
+  "timestamp": "2026-07-04T20:01:20Z",
+  "session": "2026-07-04",
+  "source": "explicit",
+  "agent": "master",
+  "category": "routing-error",
+  "description": "Master built the Invintory skill files (skills/invintory/SKILL.md and skills/invintory/invintory-token.py) and updated the manifest directly, without routing the work to Rigby. Skill construction is Rigby's jurisdiction per agents/routing.md.",
+  "correction": "Skill file builds must be routed to Rigby. Master should have delegated immediately after scoping the work with David, not executed the build itself.",
+  "failure_mode": "protocol-skip",
+  "systemic_fix": "Before any skill file creation or edit, Master must check agents/routing.md and spawn Rigby. Add routing gate check to skill-build trigger pattern.",
+  "fix_status": "proposed",
+  "severity": "moderate",
+  "related_entries": []
+}

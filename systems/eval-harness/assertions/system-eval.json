@@ -3,12 +3,11 @@
   "type": "workflow",
   "assertions": [
     {
-      "id": "system-eval-001-state-complete",
-      "check": "yaml_field_equals",
-      "path": "workflows/system-eval/state.yaml",
-      "field": "status",
-      "value": "complete",
-      "description": "system-eval state.yaml shows status: complete"
+      "id": "system-eval-001-run-record-success",
+      "check": "file_contains",
+      "path": "systems/eval-harness/runs/eval-*.json",
+      "pattern": "\"status\": \"success\"",
+      "description": "Most recent eval run record reports status: success (replaces broken state.yaml check — state.yaml is overwritten to in-progress before assertions run)"
     },
     {
       "id": "system-eval-002-analysis-written",
@@ -55,11 +54,11 @@
       "description": "Eval dashboard skill-run signal was written"
     },
     {
-      "id": "system-e-003-content",
+      "id": "system-eval-009-analysis-contains-recommendations",
       "check": "file_contains",
-      "path": "memory/working/system-eval-*.md",
-      "pattern": "(?i)(complete|done|finished|output|result)",
-      "description": "system-eval output contains expected content"
+      "path": "systems/eval-harness/grading/analysis-*.md",
+      "pattern": "(?i)(recommend|finding|pattern|issue|fix)",
+      "description": "Analysis report contains substantive recommendations (replaces broken working-memory check — system-eval does not produce a working memory file)"
     }
   ]
 }

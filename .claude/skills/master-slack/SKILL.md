@@ -63,6 +63,26 @@ Where `$IES_ROOT` is found via:
 IES_ROOT="$(find ~ -name 'SYSTEM.md' -path '*/jarvis/SYSTEM.md' 2>/dev/null | head -1 | sed 's|/SYSTEM.md||')"
 ```
 
+### ⚠️ No-Duplicate Rule — MANDATORY (err-20260706T230401-PJN64F)
+
+**Never retry a send without first confirming the original failed.**
+
+Desktop Commander network calls frequently return no initial output even when they succeed. Empty `read_process_output` does NOT mean the send failed — the process may still be running or have already completed.
+
+**Mandatory sequence for every send:**
+
+1. Send via `post.py` using `start_process`
+2. Wait at least 10 seconds before checking output
+3. Read the channel via `read.py` to confirm delivery:
+   ```bash
+   IES_ROOT="$(find ~ -name 'SYSTEM.md' -path '*/jarvis/SYSTEM.md' 2>/dev/null | head -1 | sed 's|/SYSTEM.md||')"
+   python3 "$IES_ROOT/systems/slack-bot/read.py" channel <channel_id> 0.1
+   ```
+4. If the message appears in the response — **done. Do not send again.**
+5. Only retry if `read.py` confirms the message is absent AND the original process returned an explicit error.
+
+**One retry maximum.** If the retry also fails, log the error and surface the report content in the session output instead.
+
 ### Example Calls
 
 **Pattern — always use the find-based path lookup:**
@@ -146,6 +166,7 @@ Each message includes: `ts`, `user`, `text`, `thread_ts`.
 - **ALWAYS use read.py for reading.** No Slack MCP connector is used or available.
 - **#jarvis is the default.** Only DM for urgent/private items.
 - **Every scheduled task that produces output should invoke this skill** to notify David the task is complete and deliver the summary.
+- **NEVER retry without reading the channel first.** See No-Duplicate Rule above.
 
 ## Error Handling
 

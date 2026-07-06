@@ -1,0 +1,15 @@
+{
+  "id": "err-20260704T162635-5RJTNZ",
+  "timestamp": "2026-07-04T16:26:35Z",
+  "session": "2026-07-04",
+  "source": "explicit",
+  "agent": "master",
+  "category": "missed-context",
+  "description": "Flagged daily-review zero-execution failures (#1) as an unresolved open issue when David had already identified the root cause as an infrastructure outage and flagged it.",
+  "correction": "The outage was known and already flagged. Should not have presented it as an unresolved mystery or recommended investigation.",
+  "failure_mode": "context-blindness",
+  "systemic_fix": "Before surfacing eval findings as open issues, check error-tracking entries and any flagged status on the relevant workflow to avoid re-raising already-resolved or already-triaged items.",
+  "fix_status": "proposed",
+  "severity": "minor",
+  "related_entries": []
+}

@@ -1,0 +1,13 @@
+{
+  "id": "err-20260706T230401-PJN64F",
+  "timestamp": "2026-07-06T23:04:01Z",
+  "agent": "chief",
+  "workflow": "morning-briefing",
+  "category": "duplicate-action",
+  "failure_mode": "premature-retry",
+  "severity": "low",
+  "description": "Slack briefing sent twice. First Desktop Commander process (PID 19206) delivered successfully but returned no output when checked immediately. Jarvis assumed failure and fired a second send (PID 22193). Both delivered.",
+  "root_cause": "read_process_output called too soon after start_process — process had not yet flushed output. No verification step before retry.",
+  "proposed_fix": "Before retrying any Slack send, read the channel via read.py to confirm the message was not already delivered. Alternatively, wait at least 10 seconds before checking process output on Desktop Commander network calls.",
+  "status": "logged"
+}

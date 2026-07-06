@@ -1,16 +1,15 @@
 ---
 status: complete
-started-at: 2026-07-03T15:03:40Z
-completed-at: 2026-07-03T15:03:46Z
+started-at: 2026-07-06T15:04:07Z
+completed-at: 2026-07-06T15:04:10Z
 outputs:
   drafts_checked: 2
   actions_taken: 0
   published: 0
   rejected: 0
   regenerated: 0
-  outcome: "SUCCESS: All 2 pending drafts checked (1 scheduled entry skipped). No approval signals found. All remain pending."
+  outcome: "SUCCESS: All 2 pending drafts checked. No approval signals found in thread 1782299706.381359. All remain pending."
   pending_drafts: 2
-  scheduled_posts: 1
 model: haiku
 ---
 

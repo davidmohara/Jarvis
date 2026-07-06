@@ -1765,6 +1765,26 @@
           "description": "Added harper-blog-linkedin-post manifest entry."
         }
       ]
+    },
+    {
+      "id": "work-20260704-invintory-skill",
+      "description": "New Sterling skill: invintory. Provides read/write access to David's Invintory wine cellar via the Invintory MCP server. Handles OAuth token management autonomously via config/.env. Covers drink window checks, shipment logging, collection search, value queries, deal scoring against existing inventory, and food pairing. Token refresh script at skills/invintory/invintory-token.py. Hardcoded cwd path replaced with portable IES_ROOT resolution. Block wrappers, SKILL COMPLETE section, and working memory write added per compliance review.",
+      "started": "2026-07-04T00:00:00Z",
+      "classification": "personal",
+      "files": [
+        {
+          "path": "skills/invintory/SKILL.md",
+          "action": "add",
+          "type": "personal",
+          "description": "New skill: Invintory Wine Cellar. OAuth token management, Invintory MCP tool reference, Sterling usage patterns (wine monitor, shipment logging, drink window queries, ad hoc searches), error handling, and SKILL COMPLETE eval harness block."
+        },
+        {
+          "path": "skills/invintory/invintory-token.py",
+          "action": "add",
+          "type": "personal",
+          "description": "OAuth token refresh script for Invintory MCP. Reads config/.env, refreshes access token if within 5 min of expiry, writes updated values back. Prints valid token to stdout. Used by any agent calling Invintory outside a live MCP connector session."
+        }
+      ]
     }
   ]
 }
