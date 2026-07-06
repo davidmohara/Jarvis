@@ -6,10 +6,11 @@ synthesized-from:
   - memory/episodic/daily-review-2026-07-02-000000.md
   - memory/episodic/morning-briefing-2026-07-01-085000.md
   - memory/episodic/dream-summary-2026-07-03.md
-last-updated: 2026-07-05
+last-updated: 2026-07-06
 tags: [overdue-tasks]
 agent-source: dream-cycle
 confidence: low
+
 ---
 # Overdue Tasks Pattern
 
@@ -26,6 +27,11 @@ A recurring `overdue-tasks` cluster surfaced in dream-cycle salience scoring. 3 
 
 ### 2026-07-05 dream-cycle promotion
 - 2026-07-03: [daily-review-2026-07-03-000000.md](memory/episodic/daily-review-2026-07-03-000000.md) (score 10)
+
+
+### 2026-07-06 — Nightly promotion
+Sources this cycle:
+- `memory/episodic/2026-07-03-060938-master-morning-briefing.md`
 
 ## Implications
 

@@ -5,7 +5,7 @@ subject: "Pattern around semantic-promotion"
 synthesized-from:
   - memory/episodic/dream-summary-2026-06-30.md
   - memory/episodic/dream-summary-2026-06-29.md
-last-updated: 2026-07-03
+last-updated: 2026-07-06
 tags:
   - boot
   - briefing
@@ -19,6 +19,7 @@ tags:
   - omnifocus
 agent-source: dream-cycle
 confidence: medium
+
 ---
 ## Pattern Summary
 
@@ -38,6 +39,11 @@ Recurring cluster anchored on tag `semantic-promotion` (2 episodic entries with 
 - 2026-07-02 | dream-summary-2026-06-29.md | tags: dream-summary, jarvis, briefing, omnifocus, semantic-promotion, dream-cycle | score: 10
 - 2026-07-02 | dream-summary-2026-06-30.md | tags: dream-summary, jarvis, briefing, morning-briefing, omnifocus, revenue | score: 10
 - 2026-07-02 | dream-summary-2026-06-29.md | tags: dream-summary, jarvis, briefing, omnifocus, semantic-promotion, dream-cycle | score: 10
+
+
+### 2026-07-06 — Nightly promotion
+Sources this cycle:
+- `memory/episodic/dream-summary-2026-07-04.md`
 
 ## Implications
 

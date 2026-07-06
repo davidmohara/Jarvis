@@ -6,10 +6,11 @@ synthesized-from:
   - memory/episodic/plaud-ingest-2026-07-02-011500.md
   - memory/episodic/daily-review-2026-07-02-000000.md
   - memory/episodic/morning-briefing-2026-07-01-085000.md
-last-updated: 2026-07-05
+last-updated: 2026-07-06
 tags: [calendar]
 agent-source: dream-cycle
 confidence: low
+
 ---
 # Calendar Pattern
 
@@ -26,6 +27,12 @@ A recurring `calendar` cluster surfaced in dream-cycle salience scoring. 3 episo
 
 ### 2026-07-05 dream-cycle promotion
 - 2026-07-03: [daily-review-2026-07-03-000000.md](memory/episodic/daily-review-2026-07-03-000000.md) (score 10)
+
+
+### 2026-07-06 — Nightly promotion
+Sources this cycle:
+- `memory/episodic/dream-summary-2026-07-04.md`
+- `memory/episodic/2026-07-03-060938-master-morning-briefing.md`
 
 ## Implications
 

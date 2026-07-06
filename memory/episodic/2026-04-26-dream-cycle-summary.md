@@ -10,9 +10,9 @@ tags:
 - git-issues
 related_people: []
 salience:
-  score: 7
-  last_scored: 2026-07-05
-  last-promoted-check: 2026-07-05
+  score: 8
+  last_scored: 2026-07-06
+  last-promoted-check: 2026-07-06
   promoted: true
 ---
 # Dream Cycle Summary — 2026-04-26

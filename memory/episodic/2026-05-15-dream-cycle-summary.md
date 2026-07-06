@@ -8,9 +8,8 @@ tags:
 - meta
 salience:
   score: 0
-  last_scored: 2026-07-05
-  last-promoted-check: 2026-07-05
-  promoted: false
+  last_scored: 2026-07-06
+  last-promoted-check: 2026-07-06
 ---
 # Dream Cycle Summary — 2026-05-15
 

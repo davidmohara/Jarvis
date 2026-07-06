@@ -1,0 +1,15 @@
+{
+  "id": "err-20260706T081607-3S8I6H",
+  "timestamp": "2026-07-06T08:16:07Z",
+  "session": "dream-cycle-2026-07-06-030935",
+  "source": "self-detected",
+  "agent": "jarvis",
+  "category": "data-accuracy",
+  "description": "Dream cycle step-02 salience scoring parser missed block-form tags where '-' has no leading whitespace (e.g., 'tags:\\n- daily-review\\n- chief'). Initial run marked 163 of 172 files as no_tags, collapsing score distribution to 0:163. Detected via distribution regression vs prior cycle (11 no_tags baseline).",
+  "correction": "Updated block-form tag regex from '^tags:\\s*\\n((?:\\s+-\\s+.+\\n?)+)' to '^tags:\\s*\\n((?:[ \\t]*-[ \\t]+.+\\n?)+)' to accept both indented and unindented dash lines. Re-ran step-02 cleanly: 161 files_with_tags, 11 no_tags. Score distribution restored to expected 0:20, 1:2, 2:1, 3:2, 4:1, 5:1, 6:2, 8:4, 9:2, 10:137.",
+  "failure_mode": "regex-too-strict",
+  "systemic_fix": "Promote step-02 parser to systems/dream-cycle/ so tag-parsing regex isn't rebuilt inline each cycle. Same class as err-20260703T081410-XDIYNH and err-20260705T132715-AQ387E — inline scripts recreate parsing logic each run and drift from the corpus's actual frontmatter conventions.",
+  "fix_status": "proposed",
+  "severity": "major",
+  "related_entries": ["err-20260703T081410-XDIYNH", "err-20260704T081843-WZH7M2", "err-20260705T132715-AQ387E"]
+}

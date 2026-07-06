@@ -338,3 +338,39 @@ Pattern: sloppy-read
 Fix: Address per systems/error-tracking/entries — see Rigby error analysis.
 Status: active
 
+
+
+## 2026-07-06 — Hallucination — unverified-inference
+Detected: 5 occurrences over 30 days
+Category: hallucination
+Pattern: unverified-inference
+Marker: hallucination/unverified-inference
+Fix: Review recurring hallucination/unverified-inference errors; systemic fix required.
+Status: active
+
+
+## 2026-07-06 — Tool Misuse — tool-ignorance
+Detected: 14 occurrences over 30 days
+Category: tool-misuse
+Pattern: tool-ignorance
+Marker: tool-misuse/tool-ignorance
+Fix: Review recurring tool-misuse/tool-ignorance errors; systemic fix required.
+Status: active
+
+
+## 2026-07-06 — Authentication — pattern-mismatch
+Detected: 4 occurrences over 30 days
+Category: authentication
+Pattern: pattern-mismatch
+Marker: authentication/pattern-mismatch
+Fix: Review recurring authentication/pattern-mismatch errors; systemic fix required.
+Status: active
+
+
+## 2026-07-06 — Data Interpretation — date-miscalculation
+Detected: 5 occurrences over 30 days
+Category: data-interpretation
+Pattern: date-miscalculation
+Marker: data-interpretation/date-miscalculation
+Fix: Review recurring data-interpretation/date-miscalculation errors; systemic fix required.
+Status: active

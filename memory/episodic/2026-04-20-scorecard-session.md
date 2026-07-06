@@ -17,8 +17,8 @@ related_people:
 - tonya-guadiz
 salience:
   score: 10
-  last_scored: 2026-07-05
-  last-promoted-check: 2026-07-05
+  last_scored: 2026-07-06
+  last-promoted-check: 2026-07-06
   promoted: true
 ---
 # Session Summary — April 20, 2026 (Afternoon/Evening)

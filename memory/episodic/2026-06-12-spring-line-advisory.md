@@ -6,9 +6,8 @@ archived-from: memory/working/2026-06-12-spring-line-advisory.md
 agent: chase
 salience:
   score: 0
-  last_scored: 2026-07-05
-  last-promoted-check: 2026-07-05
-  promoted: false
+  last_scored: 2026-07-06
+  last-promoted-check: 2026-07-06
 ---
 
 # Working Memory — Spring Line Advisory

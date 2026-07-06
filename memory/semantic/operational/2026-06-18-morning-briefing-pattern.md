@@ -5,7 +5,7 @@ tags:
 - morning-briefing
 confidence: high
 created: '2026-06-18'
-last-updated: 2026-07-03
+last-updated: 2026-07-06
 synthesized-from:
   - memory/episodic/2026-05-04-morning-briefing-automated.md
   - memory/episodic/2026-05-04-morning-briefing.md
@@ -21,6 +21,7 @@ synthesized-from:
 - 2026-05-07-morning-briefing-cabo.md
 - 2026-04-20-morning-briefing.md
   - memory/episodic/dream-summary-2026-06-30.md
+
 ---
 ## Pattern Summary
 
@@ -74,6 +75,12 @@ Recurring `morning-briefing` activity observed in episodic memory.
 - 2026-06-30 | 2026-05-07-morning-briefing-cabo.md | tags: morning-briefing, calendar, travel, cabo, ypo | score: 10
 - 2026-06-30 | morning-briefing-2026-06-16-061004.md | tags: morning-briefing, briefing, calendar, omnifocus, rock4 | score: 10
 - 2026-06-30 | 2026-04-20-morning-briefing.md | tags: morning-briefing, calendar, omnifocus, google-next, travel | score: 10
+
+
+### 2026-07-06 — Nightly promotion
+Sources this cycle:
+- `memory/episodic/dream-summary-2026-07-04.md`
+- `memory/episodic/2026-07-03-060938-master-morning-briefing.md`
 
 ## Implications
 

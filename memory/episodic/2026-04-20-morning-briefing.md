@@ -14,8 +14,8 @@ related_people:
 - alice-mburu
 salience:
   score: 10
-  last_scored: 2026-07-05
-  last-promoted-check: 2026-07-05
+  last_scored: 2026-07-06
+  last-promoted-check: 2026-07-06
   promoted: true
 ---
 # Morning Briefing — April 20, 2026

@@ -5,10 +5,11 @@ subject: jarvis pattern
 synthesized-from:
   - memory/episodic/2026-07-01-153433-harper-watchtower-content-digest-post.md
   - memory/episodic/dream-summary-2026-07-03.md
-last-updated: 2026-07-04
+last-updated: 2026-07-06
 tags: [jarvis]
 agent-source: dream-cycle
 confidence: low
+
 ---
 # Jarvis Pattern
 
@@ -21,6 +22,11 @@ A recurring `jarvis` cluster surfaced in dream-cycle salience scoring. 2 episodi
 - 2026-07-04: initial promotion from 2 episodic entries.
   - `memory/episodic/2026-07-01-153433-harper-watchtower-content-digest-post.md`
   - `memory/episodic/dream-summary-2026-07-03.md`
+
+
+### 2026-07-06 — Nightly promotion
+Sources this cycle:
+- `memory/episodic/dream-summary-2026-07-04.md`
 
 ## Implications
 

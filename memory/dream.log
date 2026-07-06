@@ -1521,3 +1521,28 @@ errors_detail:
   - phase: step-03
     file: outputs/dream_cycle_step03.py
     error: "Lessons-dedup logic checked for 'Marker: {cat}/{fm_mode}' substring, but 2026-07-04 wrote entries without a Marker line ('Pattern: sloppy-read' format). Duplicate data-accuracy/sloppy-read entry appended, then removed via edit_block. Logged err-20260705T132715-AQ387E (data-accuracy / sloppy-read). Systemic fix: promote step-03 lesson-dedup script to systems/dream-cycle/ with canonical marker convention. Same root as err-20260703T081410-XDIYNH and err-20260704T081843-WZH7M2."
+
+---
+## 2026-07-06T08:16:07 UTC
+session_id: dream-cycle-2026-07-06-030935
+working_archived: 2
+working_deleted: 0
+episodic_scanned: 172
+score_updates: 172
+clusters_found: 16
+semantic_created: 7
+semantic_updated: 9
+promoted_entries: 2
+entries_compressed: 0
+digests_updated: 0
+errors: 1
+summary: "Nightly cycle with one self-corrected regex bug in step-02. Step-01 archived 2 newly-expired files (2026-07-03 master morning briefing, 2026-07-04 dream summary) via heuristic enrichment; 5 skipped (2 not-yet-expired incl. 07-05 dream summary and 07-06 system-eval, 1 no-status stranded 06-19-session, 2 unparseable golf files). Step-02 scored 172 episodic entries. Initial block-form tag regex required leading whitespace before '-'; ~150 files with unindented '- tag' lines mis-parsed as no-tags (163 no_tags vs prior 11 baseline). Detected via score distribution regression; regex widened to accept both indented and unindented dashes; re-ran cleanly. Final: 161 files_with_tags, in-window 75 (window 2026-06-06 -> 2026-07-06), distribution 0:20, 1:2, 2:1, 3:2, 4:1, 5:1, 6:2, 8:4, 9:2, 10:137. 150 promoted:true flags preserved. Step-03 processed 2 candidates -> 16 tag-clusters -> 7 create + 9 update. Two duplicate creates (leads in domain-knowledge alongside pre-existing operational/2026-06-15; dream-summary in pattern alongside pre-existing operational/2026-06-12) due to classification drift — preservation-first, left in place; systemic fix noted. Error scan 30d: 114 entries (process-skip:17, routing-error:14, tool-misuse:14, data-accuracy:13 lead). Initial LESSONS.md append flooded with 8 entries; dedup regex didn't match prior 'Category: X / Y' or 'X/y' variant markers. Removed 4 clear duplicates (data-accuracy, missed-context, unknown, assumption-error). Net-new lessons: 4 (hallucination/unverified-inference, tool-misuse/tool-ignorance, authentication/pattern-mismatch, data-interpretation/date-miscalculation). Step-04 compression skipped (oldest episodic 2026-04-18, 79 days; 90-day cutoff 2026-04-07 not met; 0 eligible candidates)."
+git_pull: success
+git_pull_note: "stashed unstaged pre-existing changes (agents/sterling.md, evolutions/.pending-changes.json, deleted invintory-mcp/watchtower/plaud-ingest artifacts, and skills/_manifest.jsonl); pull already up to date; popped stash cleanly"
+errors_detail:
+  - phase: step-02
+    file: outputs/dream_step02.py
+    error: "Block-form tag regex '^tags:\\s*\\n((?:\\s+-\\s+.+\\n?)+)' required leading whitespace before '-' but ~150 corpus files use unindented '- tag' lines. Detected via distribution regression (163 no_tags first pass vs 11 prior baseline). Widened regex to '^tags:\\s*\\n((?:[ \\t]*-[ \\t]+.+\\n?)+)' and re-ran. Logged err-20260706T081607-3S8I6H (data-accuracy / regex-too-strict). Systemic fix: promote tag-parser to systems/dream-cycle/ so it isn't rebuilt inline each cycle. Same root as err-20260703T081410-XDIYNH, err-20260704T081843-WZH7M2, err-20260705T132715-AQ387E."
+  - phase: step-03
+    file: outputs/dream_step03.py
+    error: "LESSONS.md dedup marker check failed on prior varied formats ('Category: X / Y', '2026-06-27 — missed-context/context-blindness', etc.). Wrote 8 lessons; 4 confirmed duplicates removed via edit_block. Net-new: 4."
