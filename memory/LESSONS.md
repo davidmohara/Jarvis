@@ -374,3 +374,12 @@ Pattern: date-miscalculation
 Marker: data-interpretation/date-miscalculation
 Fix: Review recurring data-interpretation/date-miscalculation errors; systemic fix required.
 Status: active
+
+## 2026-07-07 — Data Accuracy / sloppy-read
+Detected: 4 occurrences in the last 30 days
+Category: data-accuracy
+Failure mode: sloppy-read
+Marker: data-accuracy/sloppy-read
+Fix: Investigate root cause; codify a check that prevents this failure mode.
+Status: active
+

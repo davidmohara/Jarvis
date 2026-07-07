@@ -1,51 +1,26 @@
 ---
 status: complete
-started-at: 2026-07-04T08:13:00Z
-completed-at: 2026-07-04T08:16:00Z
+started-at: 2026-07-07T08:12:30Z
+completed-at: 2026-07-07T08:14:30Z
 outputs:
-  candidates_count: 10
-  clusters_found: 15
-  semantic_created: 12
-  semantic_updated: 3
-  promoted_entries: 10
-  promotion_note: "Baseline cycle after step-02 preserved 139 prior promoted:true flags. Only 10 newly-scored candidates (score>=3, promoted=false, last-check=today) — from step-01's 7 archived files + a few files whose promoted flag was recovered by the step-02 repair. Mid-step self-detected error: initial domain_for_tag() misclassified all clusters with any related-person as 'relationships', producing 11 misplaced entries. Recovered via mv to operational/ before completing step. Duplicates now exist for calendar, chief, daily-review, omnifocus, plaud — will consolidate next cycle."
+  candidates_count: 1
+  clusters_found: 7
+  semantic_created: 0
+  semantic_updated: 7
+  promoted_entries: 1
+  promotion_note: "Very clean promotion pass. Only 1 candidate (dream-summary-2026-07-05.md archived today). All 7 tag clusters matched existing semantic entries and appended evidence — zero new files, zero duplicates. error-patterns cluster hit a cross-domain existing entry (operational/) and appended there rather than creating a pattern/ duplicate — first cycle where the cross-domain check fired correctly."
   cluster_actions:
-    - {tag: omnifocus, domain: operational, size: 32, action: update}
-    - {tag: calendar, domain: operational, size: 23, action: update}
-    - {tag: chief, domain: operational, size: 16, action: update}
-    - {tag: dream-summary, domain: operational, size: 14, action: update}
-    - {tag: jarvis, domain: operational, size: 13, action: update}
-    - {tag: daily-review, domain: operational, size: 11, action: update}
-    - {tag: briefing, domain: operational, size: 10, action: update}
-    - {tag: pipeline, domain: operational, size: 9, action: update}
-    - {tag: dream-cycle, domain: pattern, size: 9, action: update}
-    - {tag: leads, domain: operational, size: 8, action: update}
-    - {tag: email, domain: operational, size: 8, action: update}
-    - {tag: rock4, domain: operational, size: 8, action: update}
-    - {tag: morning-briefing, domain: operational, size: 7, action: update}
-    - {tag: semantic-promotion, domain: pattern, size: 7, action: update}
-    - {tag: one-texas, domain: domain-knowledge, size: 6, action: update}
-    - {tag: plaud, domain: operational, size: 6, action: update}
-    - {tag: overdue-tasks, domain: operational, size: 6, action: create}
-    - {tag: revenue, domain: operational, size: 6, action: update}
-    - {tag: error-patterns, domain: pattern, size: 6, action: update}
-    - {tag: travel, domain: operational, size: 5, action: update}
-    - {tag: obsidian, domain: operational, size: 5, action: update}
-    - {tag: co-sell, domain: operational, size: 5, action: update}
-    - {tag: lessons, domain: pattern, size: 5, action: update}
-    - {tag: boot, domain: operational, size: 4, action: create}
-    - {tag: rock1, domain: operational, size: 3, action: update}
-    - {tag: quarterly-rocks, domain: operational, size: 3, action: update}
-    - {tag: chase, domain: operational, size: 3, action: update}
-    - {tag: utb-board, domain: operational, size: 3, action: update}
-    - {tag: lifebook, domain: operational, size: 2, action: update}
-    - {tag: session-wrap, domain: operational, size: 2, action: update}
-    - {tag: health, domain: operational, size: 2, action: update}
-    - {tag: memory-pipeline, domain: operational, size: 2, action: update}
-  error_categories_30d: "process-skip:14, routing-error:13, tool-misuse:13, format-violation:10, data-accuracy:10, missed-context:6, hallucination:5, assumption-error:5, data-interpretation:4"
-  error_total_30d: 100
-  lessons_appended: 0
-  lessons_note: "All threshold-breaching categories already present in LESSONS.md; no new appends."
+    - {tag: dream-summary, domain: pattern, size: 1, action: update, target: memory/semantic/pattern/2026-07-06-dream-summary-pattern.md}
+    - {tag: jarvis, domain: operational, size: 1, action: update, target: memory/semantic/operational/2026-06-25-jarvis-pattern.md}
+    - {tag: dream-cycle, domain: pattern, size: 1, action: update, target: memory/semantic/pattern/2026-06-18-dream-cycle-pattern.md}
+    - {tag: semantic-promotion, domain: pattern, size: 1, action: update, target: memory/semantic/pattern/2026-07-02-semantic-promotion-pattern.md}
+    - {tag: self-correction, domain: pattern, size: 1, action: update, target: memory/semantic/pattern/2026-07-06-self-correction-pattern.md}
+    - {tag: lessons, domain: pattern, size: 1, action: update, target: memory/semantic/pattern/2026-06-25-lessons-pattern.md}
+    - {tag: error-patterns, domain: pattern, size: 1, action: update-cross, target: memory/semantic/operational/2026-06-16-error-patterns-pattern.md}
+  error_categories_30d: "process-skip:18, data-accuracy:14, routing-error:14, tool-misuse:14, format-violation:10, missed-context:6, hallucination:5, assumption-error:5, data-interpretation:5, unknown:3, authentication:3"
+  error_total_30d: 116
+  lessons_appended: 1
+  lessons_note: "One net-new lesson appended (data-accuracy category now at 14 in 30d, up from 12 last cycle — no prior lesson with matching Marker: line found)."
 ---
 
 <!-- system:start -->

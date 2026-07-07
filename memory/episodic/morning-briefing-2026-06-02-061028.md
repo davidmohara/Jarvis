@@ -24,8 +24,7 @@ related_people:
 - scott-mcmichael
 salience:
   score: 10
-  last_scored: 2026-07-06
-  last-promoted-check: 2026-07-06
+  last-promoted-check: 2026-07-07
   promoted: true
 ---
 # Morning Briefing — Tuesday, June 2, 2026

@@ -2,7 +2,7 @@
 type: semantic
 domain: operational
 created: 2026-06-16
-last-updated: 2026-07-03
+last-updated: 2026-07-07
 confidence: medium
 synthesized-from: 2
 tags:
@@ -41,6 +41,7 @@ Recurring pattern detected via dream-cycle promotion. 2 entries clustered on `er
 - 2026-06-25: memory/episodic/dream-summary-2026-06-19.md (tags: dream-summary, jarvis, briefing, omnifocus, pipeline)
 - 2026-06-25: memory/episodic/dream-summary-2026-05-26.md (tags: dream-summary, briefing, calendar, omnifocus, travel)
 - 2026-06-25: memory/episodic/dream-summary-2026-05-22.md (tags: dream-summary, briefing, omnifocus, boot, semantic-promotion)
+- `memory/episodic/dream-summary-2026-07-05.md` (dream-cycle 2026-07-07)
 
 ## Implications
 

@@ -1,14 +1,13 @@
 ---
 status: complete
-started-at: 2026-07-04T08:16:30Z
-completed-at: 2026-07-04T08:19:00Z
+started-at: 2026-07-07T08:14:45Z
+completed-at: 2026-07-07T08:16:00Z
 outputs:
   dream_log_appended: true
   working_summary_written: true
-  working_summary_reason: "semantic_created=12, semantic_updated=3, errors=1 — notable enough to surface for Chief at boot."
-  git_commit: success
-  git_push: success
-  commit_sha: cbcd7f0
+  working_summary_reason: "semantic_updated=7 — notable enough to surface for Chief at boot."
+  git_commit: pending
+  git_push: pending
 ---
 
 <!-- system:start -->

@@ -3,7 +3,7 @@ type: semantic
 domain: pattern
 confidence: low
 created: 2026-06-25
-last-updated: 2026-07-03
+last-updated: 2026-07-07
 tags:
   - lessons
 synthesized-from:
@@ -48,6 +48,7 @@ Recurring lessons activity observed across 13 episodic entries within the 30-day
 - 2026-06-25: memory/episodic/dream-summary-2026-05-28.md (tags: dream-summary, semantic-promotion, dream-cycle, git-issues, error-patterns)
 - 2026-06-25: memory/episodic/dream-summary-2026-05-27.md (tags: dream-summary, briefing, omnifocus, boot, semantic-promotion)
 - 2026-06-25: memory/episodic/dream-summary-2026-05-22.md (tags: dream-summary, briefing, omnifocus, boot, semantic-promotion)
+- `memory/episodic/dream-summary-2026-07-05.md` (dream-cycle 2026-07-07)
 
 ## Implications
 

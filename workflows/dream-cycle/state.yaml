@@ -1,11 +1,57 @@
 workflow: dream-cycle
 agent: jarvis
 status: complete
-session-started: 2026-07-06T08:09:35Z
-session-id: dream-cycle-2026-07-06-030935
+session-started: 2026-07-07T08:09:07Z
+session-id: dream-cycle-2026-07-07-030907
 current-step: null
-original-request: Scheduled dream cycle run (automated) - 2026-07-06
+original-request: Scheduled dream cycle run (automated) - 2026-07-07
 accumulated-context:
+  git_pull_at_boot: success
+  git_pull_note: "stashed unstaged workflows/daily-review/state.yaml; pull already up to date; popped stash cleanly"
+  working_archived: 1
+  working_deleted: 0
+  working_skipped: 8
+  working_stranded: 0
+  enrichment_method: "heuristic (sandbox; LLM path not invoked)"
+  archived_files:
+    - dream-summary-2026-07-05.md
+  skipped_not_expired:
+    - 2026-07-06-session-sc-meeting-prep.md
+    - co-sell-pipeline-2026-07-06-143800.md
+    - daily-review-2026-07-05-000000.md
+    - dream-summary-2026-07-06.md
+    - morning-briefing-2026-07-06-070000.md
+    - plaud-ingest-2026-07-06-000000.md
+    - revenue-tracker-2026-07-06-000000.md
+  skipped_unparseable:
+    - golf-booking-2026-07-11-followup.md
+    - golf-preview-2026-07-03.md
+  episodic_scanned: 175
+  score_updates: 175
+  no_tags: 13
+  no_date: 2
+  files_with_tags: 162
+  in_window_count: 77
+  score_distribution: "0:23, 1:2, 2:1, 3:2, 4:1, 5:1, 6:1, 7:1, 9:4, 10:139"
+  window_start: 2026-06-07
+  window_end: 2026-07-07
+  promoted_preserved: 151
+  candidates_count: 1
+  clusters_found: 7
+  semantic_created: 0
+  semantic_updated: 7
+  promoted_entries: 1
+  error_total_30d: 116
+  error_categories_30d: "process-skip:18, data-accuracy:14, routing-error:14, tool-misuse:14, format-violation:10, missed-context:6, hallucination:5, assumption-error:5, data-interpretation:5, unknown:3, authentication:3"
+  lessons_appended: 1
+  entries_compressed: 0
+  digests_updated: 0
+  compression_skipped: true
+  compression_skip_reason: "Oldest episodic 2026-04-18 (80 days). 90-day cutoff 2026-04-08 not met. 0 eligible candidates."
+  dream_log_appended: true
+  working_summary_written: true
+  errors: 0
+prior-run-context:
   git_pull_at_boot: success
   git_pull_note: "stashed unstaged pre-existing changes; pull already up to date; popped stash cleanly"
   working_archived: 2

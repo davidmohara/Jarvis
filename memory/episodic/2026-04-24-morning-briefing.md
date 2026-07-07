@@ -17,8 +17,7 @@ related_people:
 - kovacevich
 salience:
   score: 10
-  last_scored: 2026-07-06
-  last-promoted-check: 2026-07-06
+  last-promoted-check: 2026-07-07
   promoted: true
 ---
 # Session Working Memory — 2026-04-24 Morning Briefing

@@ -3,7 +3,7 @@ type: semantic
 domain: operational
 confidence: high
 created: 2026-06-25
-last-updated: 2026-07-03
+last-updated: 2026-07-07
 tags:
   - jarvis
 synthesized-from:
@@ -73,6 +73,7 @@ Recurring jarvis activity observed across 15 episodic entries within the 30-day 
 
 ### 2026-06-28 — promoted from cluster 'jarvis'
 - 2026-06-26 — Dream cycle 2026-06-26 — tapered run; surface YAML corruption discovery from prior promotion writes. (score 10) [source: memory/episodic/dream-summary-2026-06-26.md]
+- `memory/episodic/dream-summary-2026-07-05.md` (dream-cycle 2026-07-07)
 
 ## Implications
 

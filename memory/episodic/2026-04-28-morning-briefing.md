@@ -21,8 +21,7 @@ related_people:
 - mick
 salience:
   score: 10
-  last_scored: 2026-07-06
-  last-promoted-check: 2026-07-06
+  last-promoted-check: 2026-07-07
   promoted: true
 ---
 # Morning Briefing — April 28, 2026

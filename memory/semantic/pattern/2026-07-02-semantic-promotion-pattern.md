@@ -5,7 +5,7 @@ subject: "Pattern around semantic-promotion"
 synthesized-from:
   - memory/episodic/dream-summary-2026-06-30.md
   - memory/episodic/dream-summary-2026-06-29.md
-last-updated: 2026-07-06
+last-updated: 2026-07-07
 tags:
   - boot
   - briefing
@@ -44,6 +44,7 @@ Recurring cluster anchored on tag `semantic-promotion` (2 episodic entries with 
 ### 2026-07-06 — Nightly promotion
 Sources this cycle:
 - `memory/episodic/dream-summary-2026-07-04.md`
+- `memory/episodic/dream-summary-2026-07-05.md` (dream-cycle 2026-07-07)
 
 ## Implications
 

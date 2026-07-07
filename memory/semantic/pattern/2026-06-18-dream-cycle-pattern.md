@@ -5,7 +5,7 @@ tags:
 - dream-cycle
 confidence: low
 created: '2026-06-18'
-last-updated: 2026-07-06
+last-updated: 2026-07-07
 synthesized-from:
 - 2026-04-24-dream-cycle-summary.md
 - 2026-04-23-dream-cycle-summary.md
@@ -56,6 +56,7 @@ Recurring `dream-cycle` activity observed in episodic memory.
 ### 2026-07-06 — Nightly promotion
 Sources this cycle:
 - `memory/episodic/dream-summary-2026-07-04.md`
+- `memory/episodic/dream-summary-2026-07-05.md` (dream-cycle 2026-07-07)
 
 ## Implications
 
