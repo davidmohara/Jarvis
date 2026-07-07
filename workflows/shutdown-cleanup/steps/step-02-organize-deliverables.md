@@ -48,16 +48,16 @@ Deliverables follow two tracks:
    - Filter for: `.pdf`, `.docx`, `.pptx`, `.epub`
    - These are the deliverables to check
 
-2. **For each PDF in `meetings/`, apply the reMarkable push rule first:**
+2. **For every PDF anywhere in the repo, apply the build artifact rule first:**
 
-   > **RULE:** A PDF in `meetings/` that was generated as a reMarkable push artifact is a **temp file, not a deliverable.** The markdown is canonical. Delete the PDF before staging. Do not commit it.
+   > **RULE:** If a PDF has a corresponding markdown source file covering the same content — regardless of directory — it is a **build artifact, not a deliverable.** The markdown is canonical. Delete the PDF before staging. Do not commit it.
 
-   PDF and markdown filenames will often differ — the PDF uses a short human-readable name (e.g., `Tim Brackney.pdf`) while the markdown uses a date-slug (e.g., `2026-06-16-tim-brackney-springline.md`). Do not rely on filename matching. Instead, for each `meetings/*.pdf`:
+   This applies repo-wide: `meetings/`, `projects/`, `identity/`, or any other directory. PDF and markdown filenames will often differ — the PDF uses a short human-readable name (e.g., `Tim Brackney.pdf`) while the markdown uses a date-slug (e.g., `2026-06-16-tim-brackney-springline.md`). Do not rely on filename matching. Instead, for each `**/*.pdf` found in git diff output:
 
-   - Read the first few lines of the PDF filename and any `.md` files created or modified this session in `meetings/`
-   - Ask: does any markdown file cover the same person or meeting as this PDF? Match on person name, company, or meeting topic — not filename
-   - If a corresponding markdown exists: **delete the PDF**
-   - If no markdown source exists for this PDF anywhere in `meetings/`: treat as standalone deliverable and proceed to the checks below
+   - Read the PDF filename and any `.md` files created or modified this session in the same directory or elsewhere in the repo
+   - Ask: does any markdown file cover the same content, person, project, or topic as this PDF? Match on subject matter — not filename
+   - If a corresponding markdown exists anywhere in the repo: **delete the PDF**
+   - If no corresponding markdown exists anywhere in the repo for this PDF: treat as standalone deliverable and proceed to the checks below
 
 3. **For each remaining deliverable (no corresponding markdown source), verify:**
 
