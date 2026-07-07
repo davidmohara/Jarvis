@@ -47,6 +47,7 @@ outputs:
 1. Collect from accumulated-context:
    - `weekly_themes` → theme titles
    - Step-02 `drafts_created`, `draft_paths`
+   - Step-02b `weekly_tweets` → array of `{text, intent_url}` objects
    - Step-03 `proposed_count`, `batch_number`
    - Step-04 `weekly_note_path`
    - Read `dormant-sources.yaml` — collect any sources with `retired` date in the past 7 days.
@@ -66,7 +67,17 @@ outputs:
    - Batch [N] in workflows/watchtower/proposed-sources.md
 
    Weekly note: Watchtower/Weekly/[YYYY-Www].md
+
+   Tweets This Week:
+   1. <tweet text>
+      [Post to X →](intent_url)
+   2. ...
+   (continue for all 10 tweets)
    ```
+
+   Render each tweet as its plain text on one line, followed by the `[Post to X →](intent_url)` markdown link on the next line, followed by a blank line before the next tweet. This is what David sees in the dashboard — each tweet is a single click to post.
+
+   If `weekly_tweets` is empty or absent, write: *No tweets generated this week.*
 
    If any sources were retired this week (dormant 21d), append:
 
@@ -90,6 +101,7 @@ outputs:
      themes_surfaced: <int>
      candidates_surfaced: <int>
      sources_proposed: <int>
+     tweets_surfaced: <int>   # count of tweets rendered in report (0-10)
      weekly_note_path: "Watchtower/Weekly/YYYY-Www.md"
      artifact_updated: <true | false>
    ```
@@ -98,10 +110,11 @@ outputs:
 
 ## SUCCESS METRICS
 
-- Report surfaced to David under 200 words.
+- Report surfaced to David under 200 words (tweets section does not count toward word limit).
 - Content candidate post titles named explicitly.
 - Source proposals named/batched explicitly with the file path.
-- **`watchtower-weekly` artifact updated** with this week's themes, drafts, and proposals.
+- **Tweets This Week section rendered** with all 10 tweets and clickable `[Post to X →]` intent links.
+- **`watchtower-weekly` artifact updated** with this week's themes, drafts, proposals, and tweets.
 - `content_queue` cleared in `state.yaml`.
 - `state.yaml status: complete`.
 

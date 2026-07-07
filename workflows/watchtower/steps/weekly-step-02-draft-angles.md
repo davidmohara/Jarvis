@@ -132,7 +132,7 @@ outputs:
 
 ## NEXT STEP
 
-`workflows/watchtower/steps/weekly-step-03-suggest-sources.md`
+`workflows/watchtower/steps/weekly-step-02b-draft-tweets.md`
 <!-- system:end -->
 
 <!-- personal:start -->

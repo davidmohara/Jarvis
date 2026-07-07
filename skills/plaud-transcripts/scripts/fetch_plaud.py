@@ -478,6 +478,67 @@ def extract_transcript(detail):
     return ""
 
 
+def share_recording(token, file_id, detail=None):
+    """Share a recording publicly with transcript and summary enabled.
+
+    Creates a public share link via POST /share/public/create.
+    Returns the share URL string, or None on failure.
+    """
+    headers = make_headers(token)
+    api_base = get_api_base()
+
+    # Extract auto_sum note ID from file detail if available
+    notes = []
+    if detail:
+        for item in detail.get("pre_download_content_list", []):
+            data_id = item.get("data_id", "")
+            if data_id.startswith("auto_sum:"):
+                notes.append(data_id)
+                break  # one summary note is enough
+
+    payload = {
+        "object_id": file_id,
+        "object_type": "file",
+        "content_config": {
+            "audio": False,
+            "transcript": True,
+            "highlights": 0,
+            "overview": False,
+            "notes": notes,
+        }
+    }
+
+    resp = requests.post(
+        f"{api_base}/share/public/create",
+        headers=headers,
+        json=payload,
+        timeout=30,
+    )
+
+    if resp.status_code != 200:
+        print(f"  /share/public/create failed: {resp.status_code}")
+        print(f"  Response: {resp.text[:300]}")
+        return None
+
+    data = resp.json()
+    # Try common response shapes for the share URL
+    share_data = data.get("data", {})
+    url = (
+        share_data.get("share_url") or
+        share_data.get("url") or
+        share_data.get("link") or
+        (f"https://web.plaud.ai/share/{share_data.get('token')}" if share_data.get("token") else None) or
+        (f"https://web.plaud.ai/share/{share_data.get('share_token')}" if share_data.get("share_token") else None)
+    )
+
+    if url:
+        print(f"  Share link created: {url}")
+    else:
+        print(f"  Share created but URL not found in response: {json.dumps(share_data)[:200]}")
+
+    return url
+
+
 # ---------------------------------------------------------------------------
 # Speaker management — reverse-engineered from arbuzmell/plaud-api
 # ---------------------------------------------------------------------------
@@ -1408,5 +1469,24 @@ if __name__ == "__main__":
             print("Usage: python3 fetch_plaud.py --check <file_id>")
             sys.exit(1)
         check_single(sys.argv[idx + 1])
+    elif "--share" in sys.argv:
+        idx = sys.argv.index("--share")
+        if len(sys.argv) < idx + 2:
+            print("Usage: python3 fetch_plaud.py --share <file_id>")
+            sys.exit(1)
+        _file_id = sys.argv[idx + 1]
+        _token = load_token()
+        if not _token:
+            print("NO_TOKEN")
+            sys.exit(2)
+        print(f"Sharing recording: {_file_id}")
+        _detail = get_recording_detail(_token, _file_id)
+        _url = share_recording(_token, _file_id, detail=_detail)
+        if _url:
+            print(f"SHARE_URL={_url}")
+            sys.exit(0)
+        else:
+            print("SHARE_FAILED")
+            sys.exit(4)
     else:
         main()

@@ -12,7 +12,7 @@ model: sonnet
 
 Standing intelligence system. Monitors AI/agentic systems, IT consulting, and Texas/regional business. Two entry modes with distinct outputs.
 
-**Harper is consulted during the weekly content-flagging step (step-02 of weekly run) for voice alignment.**
+**Harper is consulted during the weekly content-flagging step (step-02 of weekly run) for voice alignment. Tweet generation (step-02b) reads `identity/VOICE.md` directly and is executed by Knox.**
 
 ---
 
@@ -97,9 +97,10 @@ Run STATE CHECK above, then begin at step-01 for the appropriate mode.
 |------|------|-------|-------------|
 | 01 | `steps/weekly-step-01-synthesize.md` | sonnet | Pull week's content-worthy items; synthesize themes |
 | 02 | `steps/weekly-step-02-draft-angles.md` | sonnet | Draft HOOK + OUTLINE per content item; write to Obsidian + blog-ideas.md |
+| 02b | `steps/weekly-step-02b-draft-tweets.md` | sonnet | Generate 10 ready-to-post tweets from week's signals; avoid overlap with blog angles; store in accumulated-context |
 | 03 | `steps/weekly-step-03-suggest-sources.md` | sonnet | Propose up to max_per_week new sources; write to proposed-sources.md |
-| 04 | `steps/weekly-step-04-weekly-note.md` | haiku | Write Obsidian weekly note summarizing themes, candidates, proposals |
-| 05 | `steps/weekly-step-05-report.md` | haiku | Surface content candidates ready + sources awaiting yes/no |
+| 04 | `steps/weekly-step-04-weekly-note.md` | haiku | Write Obsidian weekly note summarizing themes, candidates, proposals, and tweets |
+| 05 | `steps/weekly-step-05-report.md` | haiku | Surface content candidates ready + sources awaiting yes/no + tweets with Post to X links |
 
 ---
 

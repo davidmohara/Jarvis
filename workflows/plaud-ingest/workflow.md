@@ -8,11 +8,11 @@ model: haiku
 <!-- system:start -->
 # Plaud Ingest Workflow
 
-**Goal:** Discover all new Plaud recordings, get them transcribed, identify who was in them, and land them as properly tagged Obsidian notes with action items routed to OmniFocus.
+**Goal:** Discover all new Plaud recordings, get them transcribed, identify who was in them, land them as properly tagged Obsidian notes with action items routed to Monday, and share each recording (transcript + summary) with Alice Mburu via email.
 
 **Agent:** Knox — Knowledge Manager
 
-**Architecture:** Sequential 5-step pipeline with one interactive pause point at step-03 (speaker identification). Steps 01-02 and 04-05 are fully autonomous. Step-03 may surface questions to the controller before proceeding.
+**Architecture:** Sequential 6-step pipeline with one interactive pause point at step-03 (speaker identification). Steps 01-02, 04-05, and 05b are fully autonomous. Step-03 may surface questions to the controller before proceeding.
 
 **Parallelism:** This workflow is designed to run as a background Agent launched during boot. It completes autonomously except for the speaker identification step, where it will surface questions to the controller and then continue after receiving answers. Boot does not wait for this workflow to finish.
 <!-- system:end -->
@@ -65,7 +65,8 @@ Run STATE CHECK above, then begin at step-01.
 | 02 | `steps/step-02-trigger-transcription.md` | `skills/plaud-trigger/SKILL.md` | Trigger transcription for recordings missing it; check pending queue |
 | 03 | `steps/step-03-identify-speakers.md` | `skills/plaud-speaker-id/SKILL.md` | Cross-reference speakers against calendar; prompt controller if unresolvable |
 | 04 | `steps/step-04-fetch-staging.md` | `skills/plaud-transcripts/scripts/fetch_plaud.py` | Run fetch script to pull all ready transcripts to staging |
-| 05 | `steps/step-05-ingest-vault.md` | `skills/plaud-transcripts/SKILL.md` | Transform staged files into Obsidian notes, route OmniFocus, clean up |
+| 05 | `steps/step-05-ingest-vault.md` | `skills/plaud-transcripts/SKILL.md` | Transform staged files into Obsidian notes, route Monday, clean up |
+| 05b | `steps/step-05b-share-with-alice.md` | `skills/plaud-transcripts/scripts/fetch_plaud.py --share` | Share each ingested recording publicly (transcript + summary) and email link to Alice Mburu |
 
 ---
 
@@ -107,7 +108,7 @@ When step-03 needs speaker identification input from the controller:
 
 ## Rollback
 
-This workflow only adds files to the vault and OmniFocus — it never modifies or deletes existing content. If an ingest produces bad output, delete the specific vault note. The staging folder is cleaned up at the end of step-05, but the Plaud API data is never modified except for speaker renames explicitly requested during step-03.
+This workflow only adds files to the vault and Monday — it never modifies or deletes existing content. If an ingest produces bad output, delete the specific vault note. The staging folder is cleaned up at the end of step-05, but the Plaud API data is never modified except for speaker renames explicitly requested during step-03.
 <!-- system:end -->
 
 <!-- personal:start -->

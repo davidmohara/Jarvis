@@ -36,6 +36,12 @@
       "desc": "Stand on one leg. Hinge forward with flat back, free leg extends behind. Touch DB to floor or shin. Addresses left/right DEXA asymmetry. Start bodyweight — balance is the challenge.",
       "tip": "Left leg is the weaker side per DEXA. Extra focus on balance here." },
 
+    { "id": "hip-hinge-4", "pattern": "hip-hinge", "name": "Romanian Deadlift — Dumbbell",
+      "sets": 4, "reps": "5–6", "load": "Moderate DBs (sub for trap bar or barbell when unavailable)", "emoji": "🏋️",
+      "muscles": "Hamstrings, Glutes / Erectors",
+      "desc": "Two DBs held in front of thighs. Hinge to just below the knee — feel the hamstring stretch. Keep DBs close to the legs throughout, shins nearly vertical. Same movement as barbell RDL but DB grip requires more control. Use when gym has no trap bar or barbell access.",
+      "tip": "Sub used 2026-07-07 — gym has no trap bar. Expect lower absolute load than barbell; hamstring stretch quality is the target." },
+
     { "id": "squat-1", "pattern": "squat", "name": "Goblet Squat",
       "sets": 3, "reps": "6–8", "load": "Moderate KB", "emoji": "🔔",
       "muscles": "Quads, Glutes / Core, Upper back",

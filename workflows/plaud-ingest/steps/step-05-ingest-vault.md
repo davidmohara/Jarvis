@@ -19,7 +19,7 @@ outputs:
 ## MANDATORY EXECUTION RULES
 
 1. You MUST follow `skills/plaud-transcripts/SKILL.md` exactly for every staged file — no shortcuts.
-2. You MUST cross-reference each note against today's calendar for action items before routing to OmniFocus.
+2. You MUST cross-reference each note against today's calendar for action items before routing to Monday.
 3. You MUST link every meeting note to the daily calendar note in the vault.
 4. You MUST clean up staging after all notes are successfully written.
 5. Do NOT mark this step complete until staging is clean and all notes are confirmed written to vault.
@@ -55,10 +55,16 @@ outputs:
    - Find or create the daily note at `Calendar/YYYY/MM-MonthName/YYYY-MM-DD.md`
    - Append wikilink for each meeting note written today
 
-4. **Route action items to OmniFocus** per `skills/omnifocus-tasks/SKILL.md`.
+4. **Route action items to Monday** via `mcp__ae67c963-c9a1-4a47-9243-3f91556e1532__create_item`.
    - Extract action items from each note's transcript and summary
    - Cross-reference with today's calendar — items that hit today go to the top
-   - Create tasks with proper project and tag assignment
+   - For each action item, call `mcp__ae67c963-c9a1-4a47-9243-3f91556e1532__create_item` with:
+     - `boardId`: `18420619069`
+     - `groupId`: `new_group29179`
+     - `name`: the action item text (concise, imperative phrasing)
+     - `columnValues`: set `project_status` to "Not Started", `priority` to "Medium" by default (use "High" if the transcript flags the item as urgent), `date` to the due date if one was mentioned in the transcript (otherwise omit it), `text_mm50v09n` to the source recording title and date (e.g., "From: 2026-07-01 Nexben Discussion")
+   - No project/tag gate required — Monday does not enforce that prerequisite
+   - Log count of tasks created in the final report
 
 5. **Cross-reference recent transcripts with today's calendar** (this is the intelligence payoff):
    - Scan all notes ingested today AND the last 7 days of `zzPlaud/` notes
@@ -84,7 +90,7 @@ outputs:
    ✓ Recording Title → zzPlaud/Improving/2026-04-15 Recording Title.md
    ✓ Another Recording → zzPlaud/Client/2026-04-15 Another Recording.md
 
-   Action items routed to OmniFocus: N
+   Action items routed to Monday: N
    Staging cleanup: X transcript files removed
 
    Follow-up intelligence:
@@ -97,7 +103,7 @@ outputs:
 
 - Every file in `accumulated-context.staged-files` has a corresponding vault note
 - Daily calendar notes updated with wikilinks
-- Action items in OmniFocus with project and tag assignment
+- Action items created in Monday (board: Work, group: To-Do) with status, priority, and source traceability
 - Staging folder clean
 - Calendar cross-reference surfaced any date-relevant commitments
 
@@ -106,15 +112,21 @@ outputs:
 | Failure | Action |
 |---------|--------|
 | Obsidian MCP write fails | Retry once. If still fails, report the file and skip — do NOT leave staging dirty. Move the staged file to `~/Downloads/transcript-staging/failed/` for manual recovery. |
-| OmniFocus task creation fails | Log the action items in the report. User can manually create. Do not block vault write. |
+| Monday task creation fails | Log the action item text in the report. User can manually create. Do not block vault write. |
 | Daily note path doesn't exist | Create the year/month folder structure and note from template. |
 | Staging cleanup fails | Report the files that couldn't be deleted. Do not re-process them on next run (check vault for duplicates first). |
 
 ---
 
-## WORKFLOW COMPLETE
+## NEXT STEP
 
-When this step finishes, the plaud-ingest workflow is done. Set `state.yaml status: complete`.
+When this step finishes, do NOT mark the workflow complete yet. Update `state.yaml`:
+- `current-step: step-05b`
+- Leave `status: in-progress`
+
+Then read and follow: `step-05b-share-with-alice.md`
+
+Step-05b handles sharing each ingested recording with Alice Mburu and sends the share links via email. It sets `status: complete` when done.
 <!-- system:end -->
 
 
