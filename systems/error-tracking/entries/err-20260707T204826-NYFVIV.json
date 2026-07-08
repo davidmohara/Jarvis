@@ -1,0 +1,15 @@
+{
+  "id": "err-20260707T204826-NYFVIV",
+  "timestamp": "2026-07-07T20:48:26Z",
+  "session": "2026-07-07",
+  "source": "explicit",
+  "agent": "master",
+  "category": "assumption-error",
+  "description": "David asked 'What tasks are outstanding on Monday?' meaning tasks on the Monday.com board (queried via the Monday MCP connector). Jarvis misread 'Monday' as the day of the week and pulled OmniFocus due/overdue tasks via osascript instead.",
+  "correction": "Recognize 'Monday' as a proper noun referring to the Monday.com connector when the phrasing and available MCP tooling support it, not just the day of the week. Query the Monday MCP server for outstanding items instead of defaulting to OmniFocus.",
+  "failure_mode": "wrong-assumption",
+  "systemic_fix": "Before resolving an ambiguous term like 'Monday' to a calendar day, check whether it matches a named connector/tool in the active toolset first, especially when the executive explicitly names a system.",
+  "fix_status": "proposed",
+  "severity": "moderate",
+  "related_entries": []
+}

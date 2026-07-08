@@ -1,0 +1,15 @@
+{
+  "id": "err-20260707T162536-L7E3YN",
+  "timestamp": "2026-07-07T16:25:36Z",
+  "session": "session-2026-07-07-091038",
+  "source": "explicit",
+  "agent": "master",
+  "category": "over-engineering",
+  "description": "David asked to commit the workflow and app edits from this session. Master deleted temp artifacts and staged all untracked files (including unrelated root-level account files) instead of staging only the specific files requested.",
+  "correction": "When asked to commit specific work, stage only the files relevant to that work. Cleanup (purging temp files, organizing root-level files) is Rigby's domain and requires an explicit request. Do not conflate a commit request with a cleanup operation.",
+  "failure_mode": "scope-creep",
+  "systemic_fix": "Before git add, confirm staged set matches exactly what was asked. If untracked files outside the request scope exist, surface them rather than silently including them.",
+  "fix_status": "applied",
+  "severity": "minor",
+  "related_entries": []
+}

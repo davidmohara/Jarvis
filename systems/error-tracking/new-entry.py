@@ -17,13 +17,14 @@ import secrets
 import string
 import sys
 from datetime import datetime, timezone
+from typing import Optional
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
 ALPHABET = string.ascii_uppercase + string.digits  # 36 chars, ~2.1B combos
 
 
-def new_id(now: datetime | None = None) -> str:
+def new_id(now: Optional[datetime] = None) -> str:
     now = now or datetime.now(timezone.utc)
     ts = now.strftime("%Y%m%dT%H%M%S")
     suffix = "".join(secrets.choice(ALPHABET) for _ in range(6))
