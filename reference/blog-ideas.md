@@ -23,16 +23,13 @@ Running list of potential blog topics. Jarvis captures these proactively from co
 | "The Middle Is Getting Squeezed Out of Consulting" | Watchtower (2026-06-20) [watchtower] | consulting, business, leadership, AI | Draft at `Mind/Posts/_the-middle-is-getting-squeezed-out-of-consulting.md` |
 | "Why I'm Bullish on Dallas as an AI Market" | Watchtower (2026-06-20) [watchtower] | texas, AI, business, leadership | Draft at `Mind/Posts/_why-im-bullish-on-dallas-as-an-ai-market.md` |
 | "Fulfillment Is Not a Benefit. It's a Business Model." | Watchtower (2026-06-20) [watchtower] | leadership, growth, business, purpose | Draft at `Mind/Posts/_fulfillment-is-not-a-benefit-its-a-business-model.md` |
-| "The Consulting Middle Is Disappearing. Which Side Are You On?" | Content pipeline (2026-06-24) | business, leadership, AI | Ghost draft — pending approval |
 | "Dallas Just Topped D.C. Here's What That Actually Means" | Content pipeline (2026-06-24) | business, AI, thoughts | Ghost draft — pending approval |
 | "The Audit Your Clients Haven't Done (And Are About to Need)" | Content pipeline (2026-06-24) | AI, business, thoughts | Ghost draft — pending approval |
 | "Fulfillment Is Not a Benefit. It's a Business Model." | Content pipeline (2026-06-24) | leadership, growth, purpose | Ghost draft — pending approval |
 | "Why Governance Doesn't Scale the Way You Think" | Content pipeline (2026-06-24) | AI, business, leadership | Ghost draft — pending approval |
 | "The Invoice Tells You Nothing" | Content pipeline (2026-06-25) | AI, business | Ghost draft — pending approval |
-| "The Pocket Barrier Is Gone" | Content pipeline (2026-06-29) | AI, technology, thinking | Ghost draft — pending approval |
 | "The $200B Gap Is Yours If You Want It" | Watchtower W27 (2026-06-29) [watchtower] | consulting, AI, business | Draft at `Mind/Posts/_the-200b-gap-is-yours-if-you-want-it.md` |
 | "We Need to Talk About How Consulting Gets Paid" | Watchtower W27 (2026-06-29) [watchtower] | consulting, AI, business, leadership | Draft at `Mind/Posts/_we-need-to-talk-about-how-consulting-gets-paid.md` |
-| "Fort Worth Just Became a Tier-One AI City" | Watchtower W27 (2026-06-29) [watchtower] | texas, AI, business | Draft at `Mind/Posts/_fort-worth-just-became-a-tier-one-ai-city.md` |
 | "The Forward Deployed Model Changes Everything" | Watchtower W27 (2026-06-29) [watchtower] | consulting, AI, business, leadership | Draft at `Mind/Posts/_the-forward-deployed-model-changes-everything.md` |
 | "McKinsey Moved First. We're Next." | Watchtower W28 (2026-07-06) [watchtower] | consulting, AI, business, leadership | Draft at `Mind/Posts/_mckinsey-moved-first-we-re-next.md` |
 | "The Texas AI Boom Has a Catch — And It's Not What You Think" | Watchtower W28 (2026-07-06) [watchtower] | texas, AI, business, infrastructure | Draft at `Mind/Posts/_the-texas-ai-boom-has-a-catch.md` |
@@ -41,6 +38,9 @@ Running list of potential blog topics. Jarvis captures these proactively from co
 
 ## Published (for reference / avoid repeats)
 
+- The Consulting Middle Is Disappearing (Jul 2026)
+- Fort Worth Just Became a Tier-One AI City (Jul 2026)
+- The Pocket Barrier Is Disappearing (Jul 2026)
 - Two Kinds of Public Servant (Jun 2026)
 - Skin in the Game: The Cost of Free (Jan 2026)
 - Ship Faster with AI Series (Jan 2026)

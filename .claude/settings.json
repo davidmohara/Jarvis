@@ -61,6 +61,10 @@
       "Bash(rm -fr /*)"
     ]
   },
+  "statusLine": {
+    "type": "command",
+    "command": "bash '.claude/status-line.sh'"
+  },
   "hooks": {
     "SessionStart": [
       {
