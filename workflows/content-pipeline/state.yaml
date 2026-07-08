@@ -1,11 +1,11 @@
 status: complete
 current-step: step-01-discover
-session-id: harper-2026-07-07-discovery-daily
-session-started: 2026-07-07T06:07:00Z
-completed-at: 2026-07-07T06:07:52Z
+session-id: harper-2026-07-08-discovery-daily
+session-started: 2026-07-08T06:07:00Z
+completed-at: 2026-07-08T06:08:00Z
 original-request: scheduled-content-discovery
 outputs:
-  messages_checked: 0
-  urls_processed: 0
-  drafts_created: 0
-  outcome: "SUCCESS: No new URLs or digests in the last 24 hours. Notified #content."
+  messages_scanned: 2
+  new_drafts_created: 0
+  outcome: "SUCCESS: No new URLs or digests in #content in the last 24 hours. Notified David."
+  pending_drafts: 2

@@ -10,7 +10,16 @@ tags:
   - dream-cycle
   - semantic-promotion
   - self-correction
+status: archived
+type: working-archive
+salience:
+  score: 0
+date: 2026-07-07
+source_file: /Users/davidohara/develop/jarvis/memory/working/dream-summary-2026-07-06.md
+tags: []
+related_people: []
 ---
+
 # Dream Cycle Summary — 2026-07-06
 
 ## What happened

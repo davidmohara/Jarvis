@@ -1,81 +1,28 @@
 {
-  "generated_at": "2026-07-03T09:15:36.163198",
+  "generated_at": "2026-07-07T00:00:00",
   "target_weekend": {
-    "friday": "2026-07-10",
-    "saturday": "2026-07-11",
-    "sunday": "2026-07-12"
+    "friday": "2026-07-17",
+    "saturday": "2026-07-18",
+    "sunday": "2026-07-19"
   },
   "day_status": {
     "friday": {
       "status": "unavailable",
-      "reason": "No 3-hour continuous free window 1 PM - 6 PM CT. Busy with: Virtual Coffee (8:00-8:25), 2nd Fri Exec Meeting (9:30-10:00), Industry Insights (10:00-11:00), Drive blocks (11:10-11:30, 12:40-13:00), Mike Rosa Coffee (11:30-12:30), Weekly Wrap-Up (14:00-14:45)."
+      "reason": "All-day event: Horner visit (Jul 17-20) \u2014 hard block"
     },
     "saturday": {
-      "status": "available",
-      "reason": "Clear calendar. No hard conflicts identified."
+      "status": "unavailable",
+      "reason": "All-day event: Horner visit (Jul 17-20) \u2014 hard block"
     },
     "sunday": {
-      "status": "available",
-      "reason": "Clear calendar. Church block 8:30 AM - 1:30 PM CT (hard-coded, not on calendar)."
+      "status": "unavailable",
+      "reason": "All-day event: Horner visit (Jul 17-20) \u2014 hard block"
     }
   },
   "drought": false,
-  "top_options": [
-    {
-      "rank": 1,
-      "day": "saturday",
-      "date": "2026-07-11",
-      "preferred_start": "13:00",
-      "preferred_end": "17:30",
-      "holes": 18,
-      "cost_per_player": 21,
-      "total_cost": 42,
-      "weather": {
-        "rain_pct": null,
-        "temp_f": null,
-        "wind_mph": null,
-        "condition": "unavailable - weather API blocked"
-      },
-      "score": 0,
-      "rationale": "Saturday 1 PM - ideal day with no standing constraints. Calendar clear. Cost $21/player preferred window."
-    },
-    {
-      "rank": 2,
-      "day": "saturday",
-      "date": "2026-07-11",
-      "preferred_start": "16:00",
-      "preferred_end": "20:30",
-      "holes": 18,
-      "cost_per_player": 15,
-      "total_cost": 30,
-      "weather": {
-        "rain_pct": null,
-        "temp_f": null,
-        "wind_mph": null,
-        "condition": "unavailable - weather API blocked"
-      },
-      "score": 5,
-      "rationale": "Saturday 4 PM - later window costs $15/player but pushes toward cooler part of day."
-    },
-    {
-      "rank": 3,
-      "day": "sunday",
-      "date": "2026-07-12",
-      "preferred_start": "14:30",
-      "preferred_end": "19:00",
-      "holes": 18,
-      "cost_per_player": 21,
-      "total_cost": 42,
-      "weather": {
-        "rain_pct": null,
-        "temp_f": null,
-        "wind_mph": null,
-        "condition": "unavailable - weather API blocked"
-      },
-      "score": 5,
-      "rationale": "Sunday 2:30 PM - after church (ends 1:30 PM, 1-hour buffer). Calendar clear. Tighter window than Saturday."
-    }
-  ],
-  "override_instructions": null,
-  "notes": "⚠️ Weather API blocked by network policy. Scores based on calendar availability only. Heat streak determination and temperature-based penalties not available."
+  "last_round": "2026-07-04",
+  "heat_streak": null,
+  "top_options": [],
+  "weather_note": "Weather data unavailable \u2014 Open-Meteo not on network allowlist",
+  "override_instructions": null
 }

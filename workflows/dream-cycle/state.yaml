@@ -1,100 +1,123 @@
 workflow: dream-cycle
 agent: jarvis
 status: complete
-session-started: 2026-07-07T08:09:07Z
-session-id: dream-cycle-2026-07-07-030907
+session-started: 2026-07-08 04:30:00+00:00
+session-id: dream-cycle-2026-07-08-043000
 current-step: null
-original-request: Scheduled dream cycle run (automated) - 2026-07-07
+original-request: Scheduled dream cycle run (automated) - 2026-07-08
 accumulated-context:
-  git_pull_at_boot: success
-  git_pull_note: "stashed unstaged workflows/daily-review/state.yaml; pull already up to date; popped stash cleanly"
+  git_pull_at_boot: failed
+  git_pull_note: 'Git pull failed. Code 128. stderr: error: cannot pull with rebase:
+    You have unstaged changes.
+
+    error: Please commit or stash them.
+
+    '
   working_archived: 1
   working_deleted: 0
-  working_skipped: 8
+  working_skipped: 12
   working_stranded: 0
-  enrichment_method: "heuristic (sandbox; LLM path not invoked)"
+  enrichment_method: heuristic (sandbox; LLM path not invoked)
   archived_files:
-    - dream-summary-2026-07-05.md
+  - dream-summary-2026-07-06.md
   skipped_not_expired:
-    - 2026-07-06-session-sc-meeting-prep.md
-    - co-sell-pipeline-2026-07-06-143800.md
-    - daily-review-2026-07-05-000000.md
-    - dream-summary-2026-07-06.md
-    - morning-briefing-2026-07-06-070000.md
-    - plaud-ingest-2026-07-06-000000.md
-    - revenue-tracker-2026-07-06-000000.md
+  - 2026-07-06-session-sc-meeting-prep.md
+  - co-sell-pipeline-2026-07-06-143800.md
+  - revenue-tracker-2026-07-06-000000.md
+  - daily-review-2026-07-05-000000.md
+  - morning-briefing-2026-07-08-061500.md
+  - morning-briefing-2026-07-07-061200.md
+  - plaud-ingest-2026-07-06-000000.md
+  - daily-review-2026-07-06-140000.md
+  - dream-summary-2026-07-07.md
+  - morning-briefing-2026-07-06-070000.md
   skipped_unparseable:
-    - golf-booking-2026-07-11-followup.md
-    - golf-preview-2026-07-03.md
+  - golf-booking-2026-07-11-followup.md
+  - golf-preview-2026-07-03.md
   episodic_scanned: 175
   score_updates: 175
-  no_tags: 13
-  no_date: 2
-  files_with_tags: 162
-  in_window_count: 77
-  score_distribution: "0:23, 1:2, 2:1, 3:2, 4:1, 5:1, 6:1, 7:1, 9:4, 10:139"
-  window_start: 2026-06-07
-  window_end: 2026-07-07
-  promoted_preserved: 151
-  candidates_count: 1
-  clusters_found: 7
+  no_tags: 0
+  no_date: 0
+  files_with_tags: 173
+  in_window_count: 87
+  score_distribution: 0:20, 1:2, 2:1, 3:2, 4:1, 5:1, 6:1, 7:1, 9:4, 10:100
+  window_start: '2026-06-08'
+  window_end: '2026-07-08'
+  promoted_preserved: 173
+  candidates_count: 0
+  clusters_found: 0
   semantic_created: 0
-  semantic_updated: 7
-  promoted_entries: 1
+  semantic_updated: 0
+  promoted_entries: 0
   error_total_30d: 116
-  error_categories_30d: "process-skip:18, data-accuracy:14, routing-error:14, tool-misuse:14, format-violation:10, missed-context:6, hallucination:5, assumption-error:5, data-interpretation:5, unknown:3, authentication:3"
+  error_categories_30d: process-skip:18, data-accuracy:14, routing-error:14, tool-misuse:14,
+    format-violation:10, missed-context:6, hallucination:5, assumption-error:5, data-interpretation:5,
+    unknown:3, authentication:3
   lessons_appended: 1
   entries_compressed: 0
   digests_updated: 0
   compression_skipped: true
-  compression_skip_reason: "Oldest episodic 2026-04-18 (80 days). 90-day cutoff 2026-04-08 not met. 0 eligible candidates."
+  compression_skip_reason: Oldest episodic entry not yet 90 days old.
   dream_log_appended: true
   working_summary_written: true
   errors: 0
+  total_errors: 0
+  session_id: dream-cycle-2026-07-08-043000
 prior-run-context:
   git_pull_at_boot: success
-  git_pull_note: "stashed unstaged pre-existing changes; pull already up to date; popped stash cleanly"
+  git_pull_note: stashed unstaged pre-existing changes; pull already up to date; popped
+    stash cleanly
   working_archived: 2
   working_deleted: 0
   working_skipped: 5
   working_stranded: 0
-  enrichment_method: "heuristic (sandbox; LLM path not invoked)"
+  enrichment_method: heuristic (sandbox; LLM path not invoked)
   archived_files:
-    - 2026-07-03-060938-master-morning-briefing.md
-    - dream-summary-2026-07-04.md
+  - 2026-07-03-060938-master-morning-briefing.md
+  - dream-summary-2026-07-04.md
   skipped_not_expired:
-    - dream-summary-2026-07-05.md
-    - system-eval-2026-07-04-040618.md
+  - dream-summary-2026-07-05.md
+  - system-eval-2026-07-04-040618.md
   skipped_no_status:
-    - 2026-06-19-session.md
+  - 2026-06-19-session.md
   skipped_unparseable:
-    - golf-booking-2026-07-11-followup.md
-    - golf-preview-2026-07-03.md
+  - golf-booking-2026-07-11-followup.md
+  - golf-preview-2026-07-03.md
   episodic_scanned: 172
   score_updates: 172
   no_tags: 11
   no_date: 1
   files_with_tags: 161
   in_window_count: 75
-  score_distribution: "0:20, 1:2, 2:1, 3:2, 4:1, 5:1, 6:2, 8:4, 9:2, 10:137"
+  score_distribution: 0:20, 1:2, 2:1, 3:2, 4:1, 5:1, 6:2, 8:4, 9:2, 10:137
   window_start: 2026-06-06
   window_end: 2026-07-06
   promoted_preserved: 150
-  step02_divergence: "Initial block-form tag regex required leading whitespace before '-'; ~150 files with unindented '- tag' lines mis-parsed as no-tags. Detected via score distribution regression (163 no_tags vs prior 11). Fixed regex; re-ran cleanly. Logged err-20260706T081607-3S8I6H."
+  step02_divergence: Initial block-form tag regex required leading whitespace before
+    '-'; ~150 files with unindented '- tag' lines mis-parsed as no-tags. Detected
+    via score distribution regression (163 no_tags vs prior 11). Fixed regex; re-ran
+    cleanly. Logged err-20260706T081607-3S8I6H.
   candidates_count: 2
   clusters_found: 16
   semantic_created: 7
   semantic_updated: 9
   promoted_entries: 2
-  step03_divergence: "Two semantic entries created as duplicates due to domain classification drift: leads (domain-knowledge dup of operational/2026-06-15); dream-summary (pattern dup of operational/2026-06-12). Preservation-first: left in place; systemic fix noted."
+  step03_divergence: 'Two semantic entries created as duplicates due to domain classification
+    drift: leads (domain-knowledge dup of operational/2026-06-15); dream-summary (pattern
+    dup of operational/2026-06-12). Preservation-first: left in place; systemic fix
+    noted.'
   error_total_30d: 114
-  error_categories_30d: "process-skip:17, routing-error:14, tool-misuse:14, data-accuracy:13, format-violation:10, missed-context:6, hallucination:5, assumption-error:5, data-interpretation:5, authentication:4, unknown:3"
+  error_categories_30d: process-skip:17, routing-error:14, tool-misuse:14, data-accuracy:13,
+    format-violation:10, missed-context:6, hallucination:5, assumption-error:5, data-interpretation:5,
+    authentication:4, unknown:3
   lessons_appended: 4
-  lessons_note: "8 initial appends; 4 duplicates removed. Net-new: hallucination/unverified-inference, tool-misuse/tool-ignorance, authentication/pattern-mismatch, data-interpretation/date-miscalculation."
+  lessons_note: '8 initial appends; 4 duplicates removed. Net-new: hallucination/unverified-inference,
+    tool-misuse/tool-ignorance, authentication/pattern-mismatch, data-interpretation/date-miscalculation.'
   entries_compressed: 0
   digests_updated: 0
   compression_skipped: true
-  compression_skip_reason: "Oldest episodic 2026-04-18 (79 days). 90-day cutoff 2026-04-07 not met. 0 eligible candidates."
+  compression_skip_reason: Oldest episodic 2026-04-18 (79 days). 90-day cutoff 2026-04-07
+    not met. 0 eligible candidates.
   dream_log_appended: true
   working_summary_written: true
   errors: 1

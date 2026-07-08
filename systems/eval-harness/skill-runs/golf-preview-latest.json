@@ -2,10 +2,10 @@
   "skill": "golf-preview",
   "agent": "chief",
   "trigger": "scheduled",
-  "started": "2026-06-23T17:25:00",
-  "completed": "2026-06-23T17:32:00",
-  "status": "partial",
+  "started": "2026-07-07T00:00:00",
+  "completed": "2026-07-08T00:00:00",
+  "status": "success",
   "tool_failures": 1,
   "error_ids": [],
-  "notes": "Weather API (open-meteo.com) blocked by network allowlist — proceeded with calendar-only scoring. All other steps completed. Slack sent to #golf."
+  "notes": "All three target days (Jul 17-19) hard-blocked by Horner visit all-day event. No viable windows. Slack sent to #golf. Weather API unavailable (network allowlist). tool_failures=1 for weather API block."
 }
