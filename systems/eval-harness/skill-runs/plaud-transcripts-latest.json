@@ -2,10 +2,9 @@
   "skill": "plaud-transcripts",
   "agent": "knox",
   "trigger": "boot",
-  "started": "2026-07-06T00:00:00Z",
-  "completed": "2026-07-06T01:00:00Z",
-  "status": "success",
+  "started": "2026-07-09T00:00:00Z",
+  "status": "partial",
   "tool_failures": 2,
   "error_ids": [],
-  "notes": "Rename API returned trans_result: null for 2 of 3 recordings (known transient state). Speaker for 3b9cf232 renamed successfully in transaction_polish layer. Speaker names for c75b84b5 and f1d25c2c applied in vault notes only."
+  "notes": "6 recordings processed and ingested to vault (2026-07-07 and 2026-07-08). Speaker rename --rename succeeded for Basic Memory but Speaker 2 label not found in transcript_polish. Tim Rayburn rename failed (Could not load transcript). Nahid/Ben renames failed (AppleScript escaping). Share step failed for all 6 recordings: fetch_plaud.py --share has NameError on load_token at line 1478 (new code path, untested). Monday MCP requires OAuth not configured. Speaker mappings for all 6 recordings fully resolved via calendar cross-reference and transcript confirmation."
 }

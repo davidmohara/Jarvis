@@ -1,71 +1,87 @@
----
 workflow: plaud-ingest
 agent: knox
 status: complete
-session-started: "2026-07-06T00:00:00Z"
-session-id: "pi-20260706-001"
-current-step: step-05
-original-request: "Knox: Run plaud-ingest workflow — background task 2026-07-06 (spawned by master/boot)"
+session-started: "2026-07-09T00:00:00Z"
+session-id: "pi-20260709-001"
+current-step: step-05b
+original-request: "Knox: Run plaud-ingest workflow — background task 2026-07-09 (spawned by master/boot)"
 accumulated-context:
-  target-date: "2026-07-05"
-  last-run-date: "2026-07-02"
-  api-total-recordings: 72
-  recordings-scanned: 72
+  target-date: "2026-07-08"
+  last-run-date: "2026-07-09"
   new-recordings:
-    - file_id: c75b84b5cb133be2f48ff24a461b1d1e
-      name: "07-02 SOAP Note: O'Hara - Symptomatic Tarlov Cysts"
-      date: "2026-07-02"
-      duration_seconds: 1871
-      has_transcript: true
-      transcript_status: ready
-    - file_id: f1d25c2cec03b9e3351643f8b9fa7c57
-      name: "07-02 Professional and Personal Catch-up on Tech, Business, and Family"
-      date: "2026-07-02"
-      duration_seconds: 5013
-      has_transcript: true
-      transcript_status: ready
-    - file_id: 3b9cf232426f19fdbd42ef1ef5f35d4b
-      name: "07-02 Consultation: Improving & Microsoft Partnership on AI Engagement"
-      date: "2026-07-02"
-      duration_seconds: 1732
-      has_transcript: true
-      transcript_status: ready
+    - id: a28f5f0fb1b870336efdeb69e41e5496
+      name: "07-07 Strategic Discussion on \"Basic Memory\" AI Startup and Potential Partnership"
+      date: "2026-07-07"
+    - id: 27be4febbc851f77807558ae1281c728
+      name: "07-07 Meeting: AI Client Opportunities, Fractional AI Playbook, Speaking Engagements, and Karpathy Wiki Demo Fix"
+      date: "2026-07-07"
+    - id: e39770b133f2e1b902bc59c138e5c35b
+      name: "07-07 Strategic Meeting: Upskilling Sales and Targeting Large Deals"
+      date: "2026-07-07"
+    - id: 8426683e366cd3dafc90de22e28557ab
+      name: "07-07 Professional and Personal Catch-Up on Business, Family, and Life Philosophies"
+      date: "2026-07-07"
+    - id: c5b8e23e96c2cd065eb4adb1bbb5726e
+      name: "07-08 Customer Consultation: SC AI-Native Compliance Platform Architecture, Governance, and GTM Strategy"
+      date: "2026-07-08"
+    - id: 62c94442ce95e081df059f560d323a23
+      name: "2026-07-08 14:30:07"
+      date: "2026-07-08"
   transcription-triggered: []
   pending-recordings: []
-  ready-for-fetch:
-    - c75b84b5cb133be2f48ff24a461b1d1e
-    - f1d25c2cec03b9e3351643f8b9fa7c57
-    - 3b9cf232426f19fdbd42ef1ef5f35d4b
   speaker-mappings:
-    3b9cf232426f19fdbd42ef1ef5f35d4b:
-      Speaker 3: "Josh Stevenson"
-      resolution: "auto-resolved via calendar — event 'Josh Stevenson, Microsoft - Houston AI Tour & Innovation Center Intro' 2026-07-02 15:30-16:00 UTC, attendee jostevenson@microsoft.com. Robyn Fuentes greeted him by name at [00:28]. Josh self-identified as Hub Director at [08:09]. High confidence."
-    f1d25c2cec03b9e3351643f8b9fa7c57:
-      Speaker 1: "Scott Sexton"
-      Speaker 3: "Marcie Smith"
-      resolution: "auto-resolved via calendar — event 'Lunch with David/Scott @ Del Frisco's Grille' 2026-07-02 17:00-18:00 UTC, attendees scott.sexton@ever.ag, marcie.smith@ever.ag. Speaker 1 (112 segments, equal to David) = Scott Sexton — primary lunch companion, long professional/personal conversation about Castle Hills, ever.ag business (~$90M fintech), division sale August 15. Speaker 3 (15 segments, minimal) = Marcie Smith. Note: rename failed — trans_result returned null for this recording (API transient state); speaker names applied manually in vault note only."
-    c75b84b5cb133be2f48ff24a461b1d1e:
-      Speaker 4: "Dr. Frank Feigenbaum"
-      Speaker 1: "Medical intake staff (unnamed)"
-      resolution: "auto-resolved via calendar — event 'Dr. Frank Feigenbaum' 2026-07-02 19:00-20:30 UTC. Speaker 4 self-identifies at [12:44]: 'Frank Feigenbaum, nice to meet you.' Speaker 1 is intake staff (reviews history, says 'we'll get Doctor Feigenbaum in'). Alex Wilcox (1 segment) = voice mis-tag (Edge Case B — client, not a neurosurgeon's office person). Note: rename to Plaud API failed (trans_result null); Speaker 4 renamed in vault note; Speaker 1 relabeled as 'Medical Staff' in vault note."
-  ready-for-fetch-confirmed:
-    - c75b84b5cb133be2f48ff24a461b1d1e
-    - f1d25c2cec03b9e3351643f8b9fa7c57
-    - 3b9cf232426f19fdbd42ef1ef5f35d4b
+    a28f5f0fb1b870336efdeb69e41e5496:
+      "Speaker 2": "Drew Cain"
+      method: "calendar-match (Catch Up: David O'Hara & Drew Cain, 21:00-21:30 UTC 07-07)"
+    27be4febbc851f77807558ae1281c728:
+      "Speaker 1": "Tim Rayburn"
+      method: "calendar-match (1 on 1: Tim & David, 19:30-20:00 UTC 07-07)"
+    e39770b133f2e1b902bc59c138e5c35b:
+      "Devlin": "Devlin Liles"
+      "Speaker 2": "waiter/ambient (3 segments, not a meeting participant)"
+      method: "calendar-match (Catch up Devlin & David, 19:00-19:30 UTC 07-07)"
+    8426683e366cd3dafc90de22e28557ab:
+      "Speaker 3": "Nahid Giga"
+      "Speaker 2": "Michael (Capital Grille waiter)"
+      method: "transcript-confirmed (Mister Giga reference) + calendar-match (Lunch with Nahid Giga, 17:00-18:30 UTC 07-07)"
+    c5b8e23e96c2cd065eb4adb1bbb5726e:
+      "Kevin Graham": "Kevin Graham (kgraham@systemic-compliance.com)"
+      "Robin Graham": "Robin Graham (rgraham@systemic-compliance.com)"
+      "Mehmet Yasar": "Mehmet Yasar (myasar@systemic-compliance.com)"
+      "Speaker 7": "Ben Kennedy (ben.kennedy@improving.com)"
+      "Robyn Fuentes": "possible mis-tag — flagged in vault note"
+      method: "calendar-match (Systemic Compliance/Improving Whiteboard Session, 15:00-16:30 UTC 07-08)"
+    62c94442ce95e081df059f560d323a23:
+      "Alex Wilcox": "Alex Wilcox (auto-tagged, brief background audio)"
+      method: "calendar-match (Sales Scrum, 14:30-15:00 UTC 07-08)"
+  pending-speaker-mappings: []
+  ready-for-fetch:
+    - a28f5f0fb1b870336efdeb69e41e5496
+    - 27be4febbc851f77807558ae1281c728
+    - e39770b133f2e1b902bc59c138e5c35b
+    - 8426683e366cd3dafc90de22e28557ab
+    - c5b8e23e96c2cd065eb4adb1bbb5726e
+    - 62c94442ce95e081df059f560d323a23
   staged-files:
-    - "plaud_07-02 SOAP Note_ O_Hara - Symptomatic Tarlov Cysts.md"
-    - "plaud_07-02 Professional and Personal Catch-up on Tech_ Business_ and Family.md"
-    - "plaud_07-02 Consultation_ Improving _ Microsoft Partnership on AI Engagement.md"
+    - "plaud_07-07 Strategic Discussion on _Basic Memory_ AI Startup and Potential Partnership.md"
+    - "plaud_07-07 Meeting_ AI Client Opportunities_ Fractional AI Playbook_ Speaking Engagements_ and Karpathy Wiki Demo Fix.md"
+    - "plaud_07-07 Strategic Meeting_ Upskilling Sales and Targeting Large Deals.md"
+    - "plaud_07-07 Professional and Personal Catch-Up on Business_ Family_ and Life Philosophies.md"
+    - "plaud_07-08 Customer Consultation_ SC AI-Native Compliance Platform Architecture_ Governance_ and GTM Strategy.md"
+    - "plaud_2026-07-08 14_30_07.md"
   ingested-notes:
-    - "zzPlaud/Improving/2026-07-02 Josh Stevenson Microsoft Houston Hub — Improving Partnership Exploration.md"
-    - "zzPlaud/Other/2026-07-02 SOAP Note — Dr. Frank Feigenbaum Consultation on Symptomatic Tarlov Cysts.md"
-    - "zzPlaud/Other/2026-07-02 Lunch with Scott Sexton — Professional and Personal Catch-up.md"
-  daily-note-updated: "Calendar/2026/07-July/2026-07-02.md"
-  omnifocus-tasks-created: 5
-  staging-files-removed: 11
-  known-issues:
-    - "fetch_plaud.py --rename fails with 'Could not load transcript' (trans_result: null) for all 3 recordings in this session. Speaker 3 rename for 3b9cf232 did succeed in the transaction_polish layer (verified in re-fetched .md). The other two renames (f1d25c2c, c75b84b5) could not be applied to Plaud backend — speaker names applied in vault notes only. This is a recurring transient API state issue; workaround is manual correction in vault."
-    - "fetch_plaud.py --check reports f1d25c2cec03b9e3351643f8b9fa7c57 as 'missing' despite the transcript being fully present in staging. The original fetch (for 2026-07-02 date) successfully downloaded and staged this file. The --check endpoint appears to use a different status field than the date-based fetch. No data loss — file was intact and ingested."
-    - "workflows/plaud-ingest/speaker-identification-pending.md and SPEAKER_ID_REQUEST.md contain a stale 20-recording/49-file backlog (Jan-Dec 2026 dates spanning many months). Left untouched — flagged for separate triage."
-  completion-reason: "workflow completed through step-05; all 3 recordings from 2026-07-02 ingested to vault, daily note created, 5 OmniFocus tasks created, staging cleaned (11 files removed)"
----
+    - "zzPlaud/Client/2026-07-07 Strategic Discussion — Basic Memory AI Startup and Potential Partnership.md"
+    - "zzPlaud/Improving/2026-07-07 1-on-1 Tim Rayburn — AI Client Opportunities, Speaking Engagements, and Fractional AI Playbook.md"
+    - "zzPlaud/Improving/2026-07-07 Catch-up Devlin Liles — Upskilling Sales and Large Deal Strategy.md"
+    - "zzPlaud/Other/2026-07-07 Lunch with Nahid Giga — Business, Family, and Life Philosophies.md"
+    - "zzPlaud/Client/2026-07-08 Systemic Compliance Whiteboard — AI-Native Platform Architecture, Governance, and GTM Strategy.md"
+    - "zzPlaud/Improving/2026-07-08 Sales Scrum — Brief Recording.md"
+  step-05b-outputs:
+    shares-attempted: 6
+    shares-succeeded: 0
+    shares-failed: 6
+    failure-reason: "fetch_plaud.py --share has a bug: NameError load_token not defined at line 1478 — new code path not yet tested"
+    tasks-created: 0
+    tasks-failed: 6
+    task-failure-reason: "Monday MCP (mcp__ae67c963) requires OAuth authentication not configured in this session"
+    fallback: "David can share recordings manually from Plaud web app and create Monday tasks for Alice Mburu (107886956) manually"
