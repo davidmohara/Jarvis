@@ -162,8 +162,8 @@ function saveExPool(){lsSet(SK.ex,exercisePool);}
 function saveWoDefs(){lsSet(SK.wo,workoutDefs);}
 
 // ─── DATE UTILS ──────────────────────────────────────────────────
-function today(){return new Date().toISOString().split('T')[0];}
-function getWeekKey(){var d=new Date(),day=d.getDay(),m=new Date(d);m.setDate(d.getDate()-(day===0?6:day-1));return m.toISOString().split('T')[0];}
+function today(){var d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');}
+function getWeekKey(){var d=new Date(),day=d.getDay(),m=new Date(d);m.setDate(d.getDate()-(day===0?6:day-1));return m.getFullYear()+'-'+String(m.getMonth()+1).padStart(2,'0')+'-'+String(m.getDate()).padStart(2,'0');}
 function addDays(iso,n){var d=new Date(iso+'T12:00:00');d.setDate(d.getDate()+n);return d.toISOString().split('T')[0];}
 function fmtDate(iso){var d=new Date(iso+'T12:00:00');return d.toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric'});}
 function isNewWeek(){return !weekPlan||weekPlan.weekKey!==getWeekKey();}
