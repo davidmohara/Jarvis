@@ -13,7 +13,9 @@ tags:
 status: archived
 type: working-archive
 salience:
-  score: 0
+  score: 10
+  last-promoted-check: 2026-07-09
+  promoted: true
 date: 2026-07-07
 source_file: /Users/davidohara/develop/jarvis/memory/working/dream-summary-2026-07-06.md
 tags: []

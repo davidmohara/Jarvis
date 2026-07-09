@@ -17,7 +17,7 @@ related_people:
 - david-faircloth
 salience:
   score: 10
-  last-promoted-check: 2026-07-07
+  last-promoted-check: 2026-07-09
   promoted: true
 ---
 # Afternoon Boot Session — April 20, 2026

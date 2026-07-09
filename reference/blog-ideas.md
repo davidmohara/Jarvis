@@ -35,6 +35,7 @@ Running list of potential blog topics. Jarvis captures these proactively from co
 | "The Texas AI Boom Has a Catch — And It's Not What You Think" | Watchtower W28 (2026-07-06) [watchtower] | texas, AI, business, infrastructure | Draft at `Mind/Posts/_the-texas-ai-boom-has-a-catch.md` |
 | "The Enterprise AI Platform War Is Over. Now What?" | Watchtower W28 (2026-07-06) [watchtower] | AI, business, technology, consulting | Draft at `Mind/Posts/_the-enterprise-ai-platform-war-is-over.md` |
 | "When 700 People Show Up for an AI Awards Night, the Hype Is Over" | Watchtower W28 (2026-07-06) [watchtower] | texas, AI, business, leadership, DFW | Draft at `Mind/Posts/_when-700-people-show-up-for-an-ai-awards-night.md` |
+| "The Urgency Trap Is Why Your AI Pilot Didn't Work" | Content pipeline (2026-07-09) | AI, business, leadership | Ghost draft — pending approval |
 
 ## Published (for reference / avoid repeats)
 

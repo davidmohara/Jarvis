@@ -1,26 +1,23 @@
 ---
 status: complete
-started-at: 2026-07-07T08:12:30Z
-completed-at: 2026-07-07T08:14:30Z
+started-at: 2026-07-09T04:39:00Z
+completed-at: 2026-07-09T04:44:00Z
 outputs:
-  candidates_count: 1
-  clusters_found: 7
+  candidates_count: 8
+  clusters_found: 4
   semantic_created: 0
-  semantic_updated: 7
-  promoted_entries: 1
-  promotion_note: "Very clean promotion pass. Only 1 candidate (dream-summary-2026-07-05.md archived today). All 7 tag clusters matched existing semantic entries and appended evidence — zero new files, zero duplicates. error-patterns cluster hit a cross-domain existing entry (operational/) and appended there rather than creating a pattern/ duplicate — first cycle where the cross-domain check fired correctly."
+  semantic_updated: 4
+  promoted_entries: 8
+  promotion_note: "8 candidates from this cycle's 7 new archives. Clustered into 4 groups: dream-summaries (→ pattern/2026-07-06-dream-summary-pattern.md), morning-briefings+daily-review (→ operational/2026-06-18-morning-briefing-pattern.md), pipeline/co-sell (→ operational/2026-06-24-co-sell-pattern.md), plaud-ingest (→ operational/2026-07-04-plaud-pattern.md). Zero new semantic files — all clusters matched existing entries. Cross-domain check clean. No classification drift."
   cluster_actions:
-    - {tag: dream-summary, domain: pattern, size: 1, action: update, target: memory/semantic/pattern/2026-07-06-dream-summary-pattern.md}
-    - {tag: jarvis, domain: operational, size: 1, action: update, target: memory/semantic/operational/2026-06-25-jarvis-pattern.md}
-    - {tag: dream-cycle, domain: pattern, size: 1, action: update, target: memory/semantic/pattern/2026-06-18-dream-cycle-pattern.md}
-    - {tag: semantic-promotion, domain: pattern, size: 1, action: update, target: memory/semantic/pattern/2026-07-02-semantic-promotion-pattern.md}
-    - {tag: self-correction, domain: pattern, size: 1, action: update, target: memory/semantic/pattern/2026-07-06-self-correction-pattern.md}
-    - {tag: lessons, domain: pattern, size: 1, action: update, target: memory/semantic/pattern/2026-06-25-lessons-pattern.md}
-    - {tag: error-patterns, domain: pattern, size: 1, action: update-cross, target: memory/semantic/operational/2026-06-16-error-patterns-pattern.md}
-  error_categories_30d: "process-skip:18, data-accuracy:14, routing-error:14, tool-misuse:14, format-violation:10, missed-context:6, hallucination:5, assumption-error:5, data-interpretation:5, unknown:3, authentication:3"
-  error_total_30d: 116
-  lessons_appended: 1
-  lessons_note: "One net-new lesson appended (data-accuracy category now at 14 in 30d, up from 12 last cycle — no prior lesson with matching Marker: line found)."
+    - {tag: dream-summary, domain: pattern, size: 2, action: update, target: memory/semantic/pattern/2026-07-06-dream-summary-pattern.md}
+    - {tag: briefing, domain: operational, size: 3, action: update, target: memory/semantic/operational/2026-06-18-morning-briefing-pattern.md}
+    - {tag: co-sell, domain: operational, size: 2, action: update, target: memory/semantic/operational/2026-06-24-co-sell-pattern.md}
+    - {tag: plaud-ingest, domain: operational, size: 1, action: update, target: memory/semantic/operational/2026-07-04-plaud-pattern.md}
+  error_categories_30d: "process-skip/protocol-skip:11, routing-error/protocol-skip:10, data-accuracy/wrong-assumption:4, data-accuracy/sloppy-read:4, unknown:3, missed-context/context-blindness:3, assumption-error/wrong-assumption:3"
+  error_total_30d: 108
+  lessons_appended: 0
+  lessons_note: "All qualifying patterns (3+ occurrences) already documented in LESSONS.md. No new lesson appended."
 ---
 
 <!-- system:start -->

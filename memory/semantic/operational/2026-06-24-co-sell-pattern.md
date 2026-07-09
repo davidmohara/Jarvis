@@ -37,3 +37,10 @@ Episodic memory shows 4 entries clustered under the `co-sell` tag during the 30-
 
 - 2026-07-02: 1 entries reinforce relevance of `co-sell` cluster. Watch for further co-occurrence.
 - 2026-06-24: Initial pattern detection. Confidence will rise with additional evidence.
+
+### 2026-07-09 — Nightly promotion
+Sources this cycle:
+- `memory/episodic/co-sell-pipeline-2026-07-06-143800.md` (score 8) — Pipeline $2.98M (10 opps) vs $15M target; 77.8% gap; Microsoft strongest channel ($1.64M); Confluent $785K; Scrum.org +$439K new pipeline; Q2 target missed, Q3 new deal creation needed at scale
+- `memory/episodic/revenue-tracker-2026-07-06-000000.md` (score 7) — South Texas -24% vs target, -25% YoY; Dallas holding +2%; One Texas -11%; 90d forecast avg 86%; South Texas at 71% (critical)
+
+Pattern: co-sell gap is structural not just quarterly. Requires deal creation at scale, not acceleration of existing pipeline.

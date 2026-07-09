@@ -1,12 +1,37 @@
 ---
-type: working
+type: working-archive
 task_id: "session"
 session_id: "chief-2026-07-06-070000"
 agent-source: chief
 created: 2026-07-06T07:00:00
 expires: 2026-07-08T07:00:00
-status: active
+status: archived
 context: "Morning briefing — 2026-07-06"
+salience:
+  score: 10
+  last-promoted-check: 2026-07-09
+  promoted: true
+date: 2026-07-06
+source_file: memory/working/morning-briefing-2026-07-06-070000.md
+tags:
+  - briefing
+  - chief
+  - calendar
+  - omnifocus
+  - sales
+  - systemic-compliance
+  - microsoft
+  - wendy-s
+  - q3-planning
+related_people:
+  - tonya-guadiz
+  - don-mcgreal
+  - alice-mburu
+  - kevin-graham
+  - matt-yasar
+  - nick-koury
+  - mark-smith
+  - lauren-sweda
 ---
 
 # Morning Briefing — Monday, July 6, 2026

@@ -2,4 +2,6 @@ workflow: morning-briefing
 agent: chief
 status: complete
 current-step: step-04
-last-run: 2026-07-08T11:15:00Z
+last-run: 2026-07-09T12:00:00Z
+last-run-status: partial
+last-run-notes: "Autonomous/degraded run. OmniFocus unavailable, Watchtower/Knox spawn skipped, Plaud staging skipped, quarterly-objectives.md not found. Calendar (M365) and Clay reminders pulled successfully."

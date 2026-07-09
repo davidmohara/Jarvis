@@ -1,25 +1,31 @@
 ---
 status: complete
-started-at: 2026-07-07T08:10:00Z
-completed-at: 2026-07-07T08:11:00Z
+started-at: 2026-07-09T04:31:00Z
+completed-at: 2026-07-09T04:35:00Z
 outputs:
-  working_archived: 1
+  working_archived: 7
   working_deleted: 0
-  working_skipped: 8
+  working_skipped: 10
   working_stranded: 0
   enrichment_method: "heuristic (sandbox; LLM path not invoked)"
   archived_files:
-    - dream-summary-2026-07-05.md
-  skipped_not_expired:
-    - 2026-07-06-session-sc-meeting-prep.md
     - co-sell-pipeline-2026-07-06-143800.md
     - daily-review-2026-07-05-000000.md
-    - dream-summary-2026-07-06.md
+    - dream-summary-2026-07-07.md
     - morning-briefing-2026-07-06-070000.md
+    - morning-briefing-2026-07-07-061200.md
     - plaud-ingest-2026-07-06-000000.md
     - revenue-tracker-2026-07-06-000000.md
-  skipped_no_status: []
+  skipped_not_expired:
+    - 2026-07-06-session-sc-meeting-prep.md
+    - daily-review-2026-07-06-140000.md
+    - daily-review-2026-07-07-080000.md
+    - morning-briefing-2026-07-08-061500.md
+    - morning-briefing-2026-07-09-070000.md
+    - plaud-ingest-2026-07-09-000000.md
+    - system-eval-2026-07-08-203623.md
   skipped_unparseable:
+    - 2026-07-08.md
     - golf-booking-2026-07-11-followup.md
     - golf-preview-2026-07-03.md
 ---

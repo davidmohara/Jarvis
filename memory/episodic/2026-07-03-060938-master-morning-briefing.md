@@ -32,7 +32,7 @@ related_people:
   - susie-ohara
 salience:
   score: 10
-  last-promoted-check: 2026-07-07
+  last-promoted-check: 2026-07-09
   promoted: true
 
 ---

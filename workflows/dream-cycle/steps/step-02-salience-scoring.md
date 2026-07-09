@@ -1,19 +1,18 @@
 ---
 status: complete
-started-at: 2026-07-07T08:11:00Z
-completed-at: 2026-07-07T08:12:30Z
+started-at: 2026-07-09T04:36:00Z
+completed-at: 2026-07-09T04:38:00Z
 outputs:
-  episodic_scanned: 175
-  score_updates: 175
+  episodic_scanned: 183
+  score_updates: 183
   no_tags: 13
-  no_date: 2
-  files_with_tags: 162
-  in_window_count: 77
-  score_distribution: "0:23, 1:2, 2:1, 3:2, 4:1, 5:1, 6:1, 7:1, 9:4, 10:139"
-  window_start: 2026-06-07
-  window_end: 2026-07-07
-  promoted_preserved: 151
-  note: "Clean run using the widened tag regex from 2026-07-06 fix. No repair needed; no distribution regression."
+  no_date: 11
+  files_with_tags: 170
+  in_window_count: 78
+  score_distribution: "0:23, 1:2, 2:1, 3:2, 4:1, 5:1, 6:1, 7:2, 8:2, 10:148"
+  window_start: 2026-06-09
+  window_end: 2026-07-09
+  note: "Initial run used indented-only tag regex (  - ); re-ran with widened regex matching both indented and unindented. files_with_tags recovered from 18 to 170. Same fix pattern as 2026-07-06."
 ---
 
 <!-- system:start -->

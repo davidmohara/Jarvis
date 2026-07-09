@@ -1584,3 +1584,21 @@ git_pull: False
 git_pull_note: "Git pull failed. Code 128. stderr: error: cannot pull with rebase: You have unstaged changes.
 error: Please commit or stash them.
 "
+
+---
+## 2026-07-09T04:46:00 UTC
+session_id: dream-cycle-2026-07-09-043000
+working_archived: 7
+working_deleted: 0
+episodic_scanned: 183
+score_updates: 183
+clusters_found: 4
+semantic_created: 0
+semantic_updated: 4
+promoted_entries: 8
+entries_compressed: 0
+digests_updated: 0
+errors: 0
+summary: "Step-01 archived 7 newly-expired files (co-sell-pipeline, daily-review-07-05, dream-summary-07-07, morning-briefing-06/07, plaud-ingest-06, revenue-tracker-06); 10 skipped (7 not-yet-expired, 3 unparseable including the two persistent golf files). Step-02 scored 183 episodic entries — step-02 tag regex regression redetected (same indented-only pattern as 2026-07-06); fixed immediately; files_with_tags recovered 18→170. Distribution clean: 0:23 baseline, 10:148. Step-03 processed 8 candidates → 4 clusters → 0 creates + 4 updates (dream-summary-pattern, morning-briefing-pattern, co-sell-pattern, plaud-pattern). Error scan 30d: 108 entries, all top patterns already documented in LESSONS.md, 0 new lessons. Step-04 compression skipped (oldest 2026-04-18 = 82d, cutoff at 90d). Git pull succeeded after stash/lock-clear cycle."
+git_pull: success
+git_pull_note: "stashed unstaged files; removed stale HEAD.lock; pulled rebase (e616666..c81a26a); popped stash cleanly"

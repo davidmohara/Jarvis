@@ -33,3 +33,7 @@ Sources this cycle:
 
 - Agents should treat `plaud`-tagged content as a coherent operational thread — prefer synthesis over re-derivation when this cluster appears.
 - Watch for continued co-occurrence; escalate confidence when evidence surpasses 15 entries.
+
+### 2026-07-09 — Nightly promotion
+Sources this cycle:
+- `memory/episodic/plaud-ingest-2026-07-06-000000.md` (score 6) — 3 recordings from Jul 2: Josh Stevenson/MS Houston Hub intro, Dr. Feigenbaum SOAP note, Scott Sexton lunch at Del Frisco's; 5 OmniFocus tasks created; staging cleaned (11 files); Plaud rename API returned null for 2/3 (known transient).

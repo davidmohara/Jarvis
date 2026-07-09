@@ -10,7 +10,7 @@ tags:
 - deliverable
 salience:
   score: 0
-  last-promoted-check: 2026-07-07
+  last-promoted-check: 2026-07-09
 ---
 
 # Session: AI Innovation Lab PDF

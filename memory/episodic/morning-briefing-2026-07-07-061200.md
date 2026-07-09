@@ -1,12 +1,37 @@
 ---
-type: working
+type: working-archive
 task_id: "session"
 session_id: "chief-2026-07-07-061200"
 agent-source: chief
 created: 2026-07-07T06:12:00
 expires: 2026-07-09T06:12:00
-status: active
+status: archived
 context: "Morning briefing — 2026-07-07 (autonomous/scheduled run, Master not present)"
+salience:
+  score: 10
+  last-promoted-check: 2026-07-09
+  promoted: true
+date: 2026-07-07
+source_file: memory/working/morning-briefing-2026-07-07-061200.md
+tags:
+  - briefing
+  - chief
+  - calendar
+  - omnifocus
+  - sales
+  - systemic-compliance
+  - jpmc
+  - drc
+  - nexben
+related_people:
+  - bethany-hilton
+  - devlin-lyles
+  - nahid-giga
+  - drew-cain
+  - tim-rayburn
+  - alice-mburu
+  - matt-yasar
+  - nick-koury
 ---
 
 # Morning Briefing — Tuesday, July 07, 2026

@@ -25,7 +25,7 @@ related_people:
 - steve-hall
 salience:
   score: 10
-  last-promoted-check: 2026-07-07
+  last-promoted-check: 2026-07-09
   promoted: true
 ---
 ## Boot Summary — Friday, May 29, 2026

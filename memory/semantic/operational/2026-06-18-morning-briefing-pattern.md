@@ -82,6 +82,12 @@ Sources this cycle:
 - `memory/episodic/dream-summary-2026-07-04.md`
 - `memory/episodic/2026-07-03-060938-master-morning-briefing.md`
 
+### 2026-07-09 — Nightly promotion
+Sources this cycle:
+- `memory/episodic/morning-briefing-2026-07-06-070000.md` (score 10) — First post-holiday briefing; Q3 rocks not yet set; SC whiteboard/MS GTM conflict on Wed Jul 8; JPMC AI discovery prep outstanding
+- `memory/episodic/morning-briefing-2026-07-07-061200.md` (score 10) — Autonomous scheduled run; 11 overdue OmniFocus items; Lifebook health/career 39 days late; DRC Session 4 prep due Jul 15
+- `memory/episodic/daily-review-2026-07-05-000000.md` (score 10) — 19 completions over holiday weekend; overdue dropped 19→11; nerve block appointment flagged (Dr. Easton, right S2)
+
 ## Implications
 
 
