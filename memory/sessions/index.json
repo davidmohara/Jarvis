@@ -790,6 +790,23 @@
   {
     "id": "session-2026-07-08-095319",
     "started": "2026-07-08T09:53:19-05:00",
+    "closed": "2026-07-09T09:09:44-05:00",
+    "current_topic": null,
+    "topics": [
+      {
+        "name": "morning-boot",
+        "loops": [
+          {
+            "task": "boot-sequence — stale, closed by next-day session init",
+            "resolved": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "session-2026-07-09-090944",
+    "started": "2026-07-09T09:09:44-05:00",
     "closed": null,
     "current_topic": "system-eval",
     "topics": [

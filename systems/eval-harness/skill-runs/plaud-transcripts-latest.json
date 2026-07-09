@@ -2,9 +2,9 @@
   "skill": "plaud-transcripts",
   "agent": "knox",
   "trigger": "boot",
-  "started": "2026-07-09T00:00:00Z",
-  "status": "partial",
-  "tool_failures": 2,
+  "started": "2026-07-09T20:00:00Z",
+  "status": "success",
+  "tool_failures": 0,
   "error_ids": [],
-  "notes": "6 recordings processed and ingested to vault (2026-07-07 and 2026-07-08). Speaker rename --rename succeeded for Basic Memory but Speaker 2 label not found in transcript_polish. Tim Rayburn rename failed (Could not load transcript). Nahid/Ben renames failed (AppleScript escaping). Share step failed for all 6 recordings: fetch_plaud.py --share has NameError on load_token at line 1478 (new code path, untested). Monday MCP requires OAuth not configured. Speaker mappings for all 6 recordings fully resolved via calendar cross-reference and transcript confirmation."
+  "notes": "2 recordings processed for 2026-07-09. Medical appointment (Tarlov cysts) ingested to zzPlaud/Other/; SC Orb Platform Demo ingested to zzPlaud/Client/. Share links generated for both. Monday tasks created for Alice Mburu (IDs 12494398774, 12494418876). Staging cleaned. Calendar note created. Speaker 1 in medical recording unresolved — doctor name pending controller confirmation."
 }

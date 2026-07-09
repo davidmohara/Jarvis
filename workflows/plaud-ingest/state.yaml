@@ -2,86 +2,55 @@ workflow: plaud-ingest
 agent: knox
 status: complete
 session-started: "2026-07-09T00:00:00Z"
-session-id: "pi-20260709-001"
+session-id: "pi-20260709-002"
 current-step: step-05b
-original-request: "Knox: Run plaud-ingest workflow — background task 2026-07-09 (spawned by master/boot)"
+original-request: "Knox: Run plaud-ingest workflow — 2026-07-09 recordings (two staged files, fresh run)"
 accumulated-context:
-  target-date: "2026-07-08"
+  target-date: "2026-07-09"
   last-run-date: "2026-07-09"
   new-recordings:
-    - id: a28f5f0fb1b870336efdeb69e41e5496
-      name: "07-07 Strategic Discussion on \"Basic Memory\" AI Startup and Potential Partnership"
-      date: "2026-07-07"
-    - id: 27be4febbc851f77807558ae1281c728
-      name: "07-07 Meeting: AI Client Opportunities, Fractional AI Playbook, Speaking Engagements, and Karpathy Wiki Demo Fix"
-      date: "2026-07-07"
-    - id: e39770b133f2e1b902bc59c138e5c35b
-      name: "07-07 Strategic Meeting: Upskilling Sales and Targeting Large Deals"
-      date: "2026-07-07"
-    - id: 8426683e366cd3dafc90de22e28557ab
-      name: "07-07 Professional and Personal Catch-Up on Business, Family, and Life Philosophies"
-      date: "2026-07-07"
-    - id: c5b8e23e96c2cd065eb4adb1bbb5726e
-      name: "07-08 Customer Consultation: SC AI-Native Compliance Platform Architecture, Governance, and GTM Strategy"
-      date: "2026-07-08"
-    - id: 62c94442ce95e081df059f560d323a23
-      name: "2026-07-08 14:30:07"
-      date: "2026-07-08"
+    - id: d375ec4381759ec97cb596a94b9c8387
+      name: "07-09 Medical SOAP Note: O'Hara - Tarlov Cysts"
+      date: "2026-07-09"
+    - id: b1dc9a09e8fbc5b99c521d693462c345
+      name: "07-09 Meeting: Orb Platform Demo, Multi-Tenant Architecture, OQ Module, SCIMS Integration, and MVP Compliance Features"
+      date: "2026-07-09"
   transcription-triggered: []
   pending-recordings: []
   speaker-mappings:
-    a28f5f0fb1b870336efdeb69e41e5496:
-      "Speaker 2": "Drew Cain"
-      method: "calendar-match (Catch Up: David O'Hara & Drew Cain, 21:00-21:30 UTC 07-07)"
-    27be4febbc851f77807558ae1281c728:
-      "Speaker 1": "Tim Rayburn"
-      method: "calendar-match (1 on 1: Tim & David, 19:30-20:00 UTC 07-07)"
-    e39770b133f2e1b902bc59c138e5c35b:
-      "Devlin": "Devlin Liles"
-      "Speaker 2": "waiter/ambient (3 segments, not a meeting participant)"
-      method: "calendar-match (Catch up Devlin & David, 19:00-19:30 UTC 07-07)"
-    8426683e366cd3dafc90de22e28557ab:
-      "Speaker 3": "Nahid Giga"
-      "Speaker 2": "Michael (Capital Grille waiter)"
-      method: "transcript-confirmed (Mister Giga reference) + calendar-match (Lunch with Nahid Giga, 17:00-18:30 UTC 07-07)"
-    c5b8e23e96c2cd065eb4adb1bbb5726e:
-      "Kevin Graham": "Kevin Graham (kgraham@systemic-compliance.com)"
-      "Robin Graham": "Robin Graham (rgraham@systemic-compliance.com)"
+    d375ec4381759ec97cb596a94b9c8387:
+      "Speaker 1": "Doctor (name unconfirmed — pain management physician, formerly across the lobby from Improving ~2017)"
+      "O'Hara": "David O'Hara"
+      method: "partial — O'Hara auto-tagged; Speaker 1 unresolved, pending controller confirmation"
+    b1dc9a09e8fbc5b99c521d693462c345:
       "Mehmet Yasar": "Mehmet Yasar (myasar@systemic-compliance.com)"
-      "Speaker 7": "Ben Kennedy (ben.kennedy@improving.com)"
-      "Robyn Fuentes": "possible mis-tag — flagged in vault note"
-      method: "calendar-match (Systemic Compliance/Improving Whiteboard Session, 15:00-16:30 UTC 07-08)"
-    62c94442ce95e081df059f560d323a23:
-      "Alex Wilcox": "Alex Wilcox (auto-tagged, brief background audio)"
-      method: "calendar-match (Sales Scrum, 14:30-15:00 UTC 07-08)"
-  pending-speaker-mappings: []
+      "Kevin Graham": "Kevin Graham (kgraham@systemic-compliance.com)"
+      "Ben Kennedy": "Ben Kennedy (ben.kennedy@improving.com)"
+      "O'Hara": "David O'Hara"
+      method: "fully auto-tagged by Plaud"
+  pending-speaker-mappings:
+    - file_id: d375ec4381759ec97cb596a94b9c8387
+      unresolved: ["Speaker 1"]
+      note: "Speaker 1 is the treating physician. Please confirm doctor name to register voice for future recordings."
   ready-for-fetch:
-    - a28f5f0fb1b870336efdeb69e41e5496
-    - 27be4febbc851f77807558ae1281c728
-    - e39770b133f2e1b902bc59c138e5c35b
-    - 8426683e366cd3dafc90de22e28557ab
-    - c5b8e23e96c2cd065eb4adb1bbb5726e
-    - 62c94442ce95e081df059f560d323a23
+    - d375ec4381759ec97cb596a94b9c8387
+    - b1dc9a09e8fbc5b99c521d693462c345
   staged-files:
-    - "plaud_07-07 Strategic Discussion on _Basic Memory_ AI Startup and Potential Partnership.md"
-    - "plaud_07-07 Meeting_ AI Client Opportunities_ Fractional AI Playbook_ Speaking Engagements_ and Karpathy Wiki Demo Fix.md"
-    - "plaud_07-07 Strategic Meeting_ Upskilling Sales and Targeting Large Deals.md"
-    - "plaud_07-07 Professional and Personal Catch-Up on Business_ Family_ and Life Philosophies.md"
-    - "plaud_07-08 Customer Consultation_ SC AI-Native Compliance Platform Architecture_ Governance_ and GTM Strategy.md"
-    - "plaud_2026-07-08 14_30_07.md"
+    - "plaud_07-09 Medical SOAP Note_ O_Hara - Tarlov Cysts.md"
+    - "plaud_07-09 Meeting_ Orb Platform Demo_ Multi-Tenant Architecture_ OQ Module_ SCIMS Integration_ and MVP Compliance Features.md"
   ingested-notes:
-    - "zzPlaud/Client/2026-07-07 Strategic Discussion — Basic Memory AI Startup and Potential Partnership.md"
-    - "zzPlaud/Improving/2026-07-07 1-on-1 Tim Rayburn — AI Client Opportunities, Speaking Engagements, and Fractional AI Playbook.md"
-    - "zzPlaud/Improving/2026-07-07 Catch-up Devlin Liles — Upskilling Sales and Large Deal Strategy.md"
-    - "zzPlaud/Other/2026-07-07 Lunch with Nahid Giga — Business, Family, and Life Philosophies.md"
-    - "zzPlaud/Client/2026-07-08 Systemic Compliance Whiteboard — AI-Native Platform Architecture, Governance, and GTM Strategy.md"
-    - "zzPlaud/Improving/2026-07-08 Sales Scrum — Brief Recording.md"
+    - "zzPlaud/Other/2026-07-09 Medical Appointment — Tarlov Cyst Nerve Block Consult.md"
+    - "zzPlaud/Client/2026-07-09 Systemic Compliance — Orb Platform Demo and Technical Architecture Review.md"
   step-05b-outputs:
-    shares-attempted: 6
-    shares-succeeded: 0
-    shares-failed: 6
-    failure-reason: "fetch_plaud.py --share has a bug: NameError load_token not defined at line 1478 — new code path not yet tested"
-    tasks-created: 0
-    tasks-failed: 6
-    task-failure-reason: "Monday MCP (mcp__ae67c963) requires OAuth authentication not configured in this session"
-    fallback: "David can share recordings manually from Plaud web app and create Monday tasks for Alice Mburu (107886956) manually"
+    shares-attempted: 2
+    shares-succeeded: 2
+    shares-failed: 0
+    share-urls:
+      - file_id: d375ec4381759ec97cb596a94b9c8387
+        url: "https://web.plaud.ai/s/pub_191f34dc-edda-4556-a69f-3f80c9eacba8::We8UV5zU0x7_3LTdz6pbkfELl33PTR4ymbyYXaZjUWj-KvedxmLoYYd47KvXuKxCKntDAOOtX8Ce0n0C"
+        monday-task-id: "12494398774"
+      - file_id: b1dc9a09e8fbc5b99c521d693462c345
+        url: "https://web.plaud.ai/s/pub_a3129b75-68b9-434c-b3db-0bac1a172d71::voBmHi16LAZQWW1zJyv7hvtcK4mprBfKD2PpddLbHNq41xA170UvaH0-6uURrEJezlKdXJ82TU6J35cC"
+        monday-task-id: "12494418876"
+    tasks-created: 2
+    tasks-failed: 0

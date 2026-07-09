@@ -1,0 +1,13 @@
+{
+  "id": "err-20260709T144414-CFJKUE",
+  "timestamp": "2026-07-09T14:44:14Z",
+  "session_id": "session-2026-07-09-090944",
+  "category": "agent-trust",
+  "failure_mode": "trusted-subagent-report-without-verification",
+  "severity": "medium",
+  "agent": "master",
+  "description": "Knox reported Monday MCP as requiring OAuth (not authenticated). Master surfaced this to David without verifying. Monday MCP was in fact authenticated and functional. Told David to create tasks manually instead of doing it.",
+  "correction": "David: 'Monday MCP is authenticated and functional. I will not create them because you should.'",
+  "proposed_fix": "Before surfacing any subagent-reported connector failure to the controller, attempt the connector call directly. Never delegate tool-availability determination to a subagent without verification.",
+  "status": "resolved"
+}

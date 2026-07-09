@@ -54,9 +54,11 @@ MANDATORY — complete all steps before any output or action:
 ---
 
 <!-- system:start -->
-## Shared Conventions
+## Shared Conventions and Data
 
 Read `agents/conventions.md` — shared protocols that apply to all agents, including the error reporting protocol.
+Improving's Buyer Persona Repository lives at https://improving.sharepoint.com/sites/OfficeoftheChiefConsultingOfficer/Shared%20Documents/Forms/AllItems.aspx?id=%2Fsites%2FOfficeoftheChiefConsultingOfficer%2FShared%20Documents%2FGeneral%2FMarketing%2FBuyer%20Persona%20Working%20Docs and should be used when assessing or building an offering.
+
 <!-- system:end -->
 
 ---

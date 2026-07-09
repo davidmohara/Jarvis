@@ -1475,7 +1475,7 @@ if __name__ == "__main__":
             print("Usage: python3 fetch_plaud.py --share <file_id>")
             sys.exit(1)
         _file_id = sys.argv[idx + 1]
-        _token = load_token()
+        _token = get_token()
         if not _token:
             print("NO_TOKEN")
             sys.exit(2)
