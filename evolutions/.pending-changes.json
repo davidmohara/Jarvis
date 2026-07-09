@@ -1785,6 +1785,26 @@
           "description": "OAuth token refresh script for Invintory MCP. Reads config/.env, refreshes access token if within 5 min of expiry, writes updated values back. Prints valid token to stdout. Used by any agent calling Invintory outside a live MCP connector session."
         }
       ]
+    },
+    {
+      "id": "work-20260708-eval-dashboard-artifact-sync",
+      "description": "Wired the system-eval workflow to automatically sync the regenerated dashboard HTML to the Cowork artifact (rigby-eval-dashboard) on every run. Step 06 now patches the Chart.js script tag via sed (safety net) and calls mcp__cowork__update_artifact immediately after dashboard regeneration. Added a failure mode row: artifact sync failures are non-blocking — dashboard on disk remains the source of truth. Also patched generate-dashboard.py to emit the approved Chart.js 4.5.0 tag with integrity hash directly, eliminating the need for sed on future runs.",
+      "started": "2026-07-08T00:00:00Z",
+      "classification": "system",
+      "files": [
+        {
+          "path": "workflows/system-eval/steps/step-06-dashboard.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Renamed task 2 to '2. Patch and sync the dashboard to the pinned Cowork artifact'. Added sub-task 2a (sed patch for Chart.js 4.5.0 approved tag with integrity hash, with note that it is a no-op after py script fix). Added sub-task 2b (mcp__cowork__update_artifact call with id rigby-eval-dashboard, html_path, and update_summary format). Added failure mode row: 'Artifact update fails' — log to state.yaml under dashboard_artifact_error, continue non-blocking."
+        },
+        {
+          "path": "systems/eval-harness/generate-dashboard.py",
+          "action": "merge",
+          "type": "system",
+          "description": "Patched hardcoded Chart.js script tag from chart.js@4.4.0/dist/chart.umd.min.js to chart.js@4.5.0/dist/chart.umd.js with integrity sha384-iU8HYtnGQ8Cy4zl7gbNMOhsDTTKX02BTXptVP/vqAWIaTfM7isw76iyZCsjL2eVi and crossorigin=anonymous. Future dashboard regenerations emit the approved tag directly."
+        }
+      ]
     }
   ]
 }

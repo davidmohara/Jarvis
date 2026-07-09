@@ -29,17 +29,26 @@
       "abort_reason": null
     },
     "structural": {
-      "expected_outputs_written": null,
-      "outputs_non_empty": null,
-      "assertions_checked": 0,
+      "expected_outputs_written": false,
+      "outputs_non_empty": false,
+      "assertions_checked": 8,
       "assertions_passed": 0,
-      "assertion_results": []
+      "assertion_results": [
+        { "assertion": "daily-001-state-complete: Daily review workflow state.yaml shows status: complete", "passed": false },
+        { "assertion": "daily-002-review-written: Daily review output file was written to reviews/daily/ for run date 2026-07-07", "passed": false },
+        { "assertion": "daily-003-review-substantive: Daily review output for run date 2026-07-07 is substantive (>300 bytes)", "passed": false },
+        { "assertion": "daily-004-priorities-section: Daily review for run date 2026-07-07 contains priorities or forward-planning section", "passed": false },
+        { "assertion": "daily-005-shutdown-section: Daily review for run date 2026-07-07 contains completed items or wins section", "passed": false },
+        { "assertion": "daily_review-wm-written: Daily review working memory file was written for run date 2026-07-07", "passed": false },
+        { "assertion": "daily_review-wm-size: Daily review working memory for run date 2026-07-07 is substantive (>200 bytes)", "passed": false },
+        { "assertion": "daily_review-wm-content: Daily review working memory for run date 2026-07-07 contains expected content", "passed": false }
+      ]
     },
     "grading": {
-      "last_graded": null,
-      "grade": null,
+      "last_graded": "2026-07-08T20:39:00Z",
+      "grade": "F",
       "safety_grade": null,
-      "grader_notes": null
+      "grader_notes": "No output file found. Duration 0.0 seconds — workflow did not execute. All 8 structural assertions failed: no review file at reviews/daily/auto-2026-07-07.md, no working memory at memory/working/daily-review-2026-07-07*.md, no state.yaml for daily-review workflow. Record claims status: success but this is a phantom success — the instrumentation fires but the workflow body never runs. Consistent with the pattern identified in analysis-20260704T042000.md (daily-review step-auto produces 0-duration runs on 7 of 23 recorded runs). To earn a D: the review file or working memory must be written for the run date."
     },
     "controller_feedback": {
       "rating": null,

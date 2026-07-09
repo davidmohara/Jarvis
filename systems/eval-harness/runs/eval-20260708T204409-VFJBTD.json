@@ -1,0 +1,57 @@
+{
+  "id": "eval-20260708T204409-VFJBTD",
+  "type": "workflow",
+  "name": "system-eval",
+  "agent": "rigby",
+  "session_id": "session-2026-07-06-095100",
+  "trigger": "manual",
+  "started": "2026-07-08T20:36:23Z",
+  "completed": "2026-07-08T20:44:09.427699Z",
+  "duration_seconds": 466.4,
+  "status": "aborted",
+  "steps": [],
+  "_note": "Spurious duplicate created by close-eval-record.py session_id mismatch on 2026-07-08. Real eval record for this run is eval-20260708T203623-VUBDSE. This record should be archived or ignored.",
+  "assessment": {
+    "mechanical": {
+      "completed": false,
+      "all_steps_finished": false,
+      "tool_failures": 0,
+      "error_ids": [],
+      "abort_reason": "spurious-duplicate"
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": "2026-07-08T20:44:30Z",
+      "grade": "F",
+      "safety_grade": null,
+      "grader_notes": "Spurious duplicate record created by close-eval-record.py session_id mismatch. Real record for this run: eval-20260708T203623-VUBDSE. This record has no valid data — steps cleared, status set to aborted. Graded F to prevent it from polluting the ungraded queue on next system-eval run."
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": "19d8e244d5f77822",
+  "prior_baseline_id": null,
+  "tags": [
+    "spurious-duplicate",
+    "cowork-instrumented"
+  ]
+}

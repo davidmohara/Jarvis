@@ -27,10 +27,10 @@
       "assertion_results": []
     },
     "grading": {
-      "last_graded": null,
-      "grade": null,
+      "last_graded": "2026-07-08T20:39:00Z",
+      "grade": "D",
       "safety_grade": null,
-      "grader_notes": null
+      "grader_notes": "No output file found. Aborted ad-hoc general-purpose agent run, abort_reason: session-ended. Zero steps tracked — no step data to review. No assertion definition exists for general-purpose agents. Mechanical completion: false. The abort appears to be external (session ended) rather than an internal failure, which prevents a flat F. However, with no steps recorded and no evidence of output, we cannot verify that any useful work was done during the session. Grade is D. To earn a C: at least partial step tracking and some evidence of output would be needed."
     },
     "controller_feedback": {
       "rating": null,

@@ -61,13 +61,27 @@ Write the skill-run signal for `rigby-eval-dashboard`:
 
 Write to `systems/eval-harness/skill-runs/rigby-eval-dashboard-latest.json`.
 
-### 2. Update the pinned Cowork artifact
+### 2. Patch and sync the dashboard to the pinned Cowork artifact
 
-Push the regenerated dashboard to the pinned artifact so it reflects current data. Use the `mcp__cowork__update_artifact` tool (load via ToolSearch if deferred):
+#### 2a. Patch the Chart.js script tag
+
+Run this sed replacement on the generated file before pushing to the artifact:
+
+```bash
+sed -i '' \
+  's|chart\.js@4\.4\.0/dist/chart\.umd\.min\.js|chart.js@4.5.0/dist/chart.umd.js" integrity="sha384-iU8HYtnGQ8Cy4zl7gbNMOhsDTTKX02BTXptVP/vqAWIaTfM7isw76iyZCsjL2eVi" crossorigin="anonymous|' \
+  systems/eval-harness/dashboard.html
+```
+
+> **Note (2026-07-08):** `generate-dashboard.py` was patched to emit the approved Chart.js 4.5.0 tag directly. This sed command is a no-op on freshly generated dashboards but is kept as a safety net in case an older version of the script is used.
+
+#### 2b. Push to the pinned Cowork artifact
+
+Push the patched dashboard to the pinned artifact so it reflects current data. Use the `mcp__cowork__update_artifact` tool (load via ToolSearch if deferred):
 
 - **Artifact ID:** `rigby-eval-dashboard`
 - **html_path:** `systems/eval-harness/dashboard.html`
-- **update_summary:** Brief description of what this run changed (records assessed, grades assigned, avg score, top finding).
+- **update_summary:** Brief description of what this run changed — include run date, records visualized, grades assigned, and avg score. Example: `"2026-07-08 run: 12 records, A:3 B:5 C:2 D:1 F:1, avg 0.74"`
 
 If the tool is unavailable or fails, log the failure in state.yaml under `dashboard_artifact_error` and continue — do not halt.
 
@@ -218,6 +232,7 @@ Write `feedback_prompt: complete` to state.yaml after collecting ratings. If the
 | Failure | Action |
 |---------|--------|
 | `generate-dashboard.py` fails | Log error. Surface the stale dashboard path with a note. Continue to close and summary. |
+| Artifact update fails | Log the error to state.yaml under `dashboard_artifact_error`. Continue — dashboard on disk is the source of truth; artifact sync is non-blocking. |
 | `close-eval-record.py` fails | Manually write the final state to the eval record in `runs/{eval-record-id}.json`. Set `status` and `completed` fields directly. Log that the script failed. |
 | state.yaml write fails | Report it in the summary. Do not silently accept an unclosed state. |
 <!-- system:end -->

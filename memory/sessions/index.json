@@ -791,13 +791,31 @@
     "id": "session-2026-07-08-095319",
     "started": "2026-07-08T09:53:19-05:00",
     "closed": null,
-    "current_topic": "morning-boot",
+    "current_topic": "system-eval",
     "topics": [
       {
         "name": "morning-boot",
         "loops": [
           {
             "task": "boot-sequence",
+            "resolved": false
+          }
+        ]
+      },
+      {
+        "name": "system-eval",
+        "files": [],
+        "loops": [
+          {
+            "text": "run Rigby system-eval workflow — full eval maintenance cycle",
+            "resolved": true
+          },
+          {
+            "text": "daily-review phantom success at 36% (9/25 runs) — stale session_id root cause, Chief's scheduled runner not generating fresh context; needs fix before daily-review can be trusted",
+            "resolved": false
+          },
+          {
+            "text": "close-eval-record.py needs --eval-id flag to prevent spurious duplicate on session_id mismatch",
             "resolved": false
           }
         ]

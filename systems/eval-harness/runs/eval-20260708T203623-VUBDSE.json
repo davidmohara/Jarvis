@@ -1,0 +1,101 @@
+{
+  "id": "eval-20260708T203623-VUBDSE",
+  "type": "workflow",
+  "name": "system-eval",
+  "agent": "rigby",
+  "session_id": "rigby-2026-07-08-203623",
+  "trigger": "manual",
+  "started": "2026-07-08T20:36:23.038544Z",
+  "completed": "2026-07-08T20:44:00Z",
+  "duration_seconds": 457,
+  "status": "success",
+  "steps": [
+    {
+      "name": "step-01-intake",
+      "started": "2026-07-08T20:36:23Z",
+      "completed": "2026-07-08T20:37:00Z",
+      "status": "complete",
+      "data_sources_used": [],
+      "data_source_failures": []
+    },
+    {
+      "name": "step-02-assert",
+      "started": "2026-07-08T20:37:00Z",
+      "completed": "2026-07-08T20:38:00Z",
+      "status": "complete",
+      "data_sources_used": [],
+      "data_source_failures": []
+    },
+    {
+      "name": "step-03-grade",
+      "started": "2026-07-08T20:38:00Z",
+      "completed": "2026-07-08T20:39:30Z",
+      "status": "complete",
+      "data_sources_used": [],
+      "data_source_failures": []
+    },
+    {
+      "name": "step-04-score",
+      "started": "2026-07-08T20:39:30Z",
+      "completed": "2026-07-08T20:40:00Z",
+      "status": "complete",
+      "data_sources_used": [],
+      "data_source_failures": []
+    },
+    {
+      "name": "step-05-analyze",
+      "started": "2026-07-08T20:40:00Z",
+      "completed": "2026-07-08T20:42:00Z",
+      "status": "complete",
+      "data_sources_used": [],
+      "data_source_failures": []
+    },
+    {
+      "name": "step-06-dashboard",
+      "started": "2026-07-08T20:42:00Z",
+      "completed": "2026-07-08T20:44:00Z",
+      "status": "complete",
+      "data_sources_used": [],
+      "data_source_failures": []
+    }
+  ],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": []
+}
