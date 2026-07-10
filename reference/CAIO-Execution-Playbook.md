@@ -5,9 +5,9 @@
 | | |
 |---|---|
 | **Owner** | David O'Hara - Improving |
-| **Status** | Living document - `v0.3 SKELETON` |
-| **Last updated** | 2026-06-18 |
-| **Origin** | Templated from the Springline Advisory engagement (PE-backed CPA/advisory roll-up). Generalized for reuse. |
+| **Status** | Living document - `v0.5 SKELETON` |
+| **Last updated** | 2026-07-10 |
+| **Origin** | Templated from the Springline Advisory engagement (PE-backed CPA/advisory roll-up). Generalized for reuse. Second live engagement (Systemic Compliance, a regulated/compliance-vertical client) added 2026-07-10 - see §13A for the vertical-specific pattern it surfaced. |
 | **Audience** | Improving advisory + delivery leads running or scoping a Fractional CAIO engagement. |
 
 > **How to use this file.** This is the operating manual, not the strategy deck. Sections marked `[TEMPLATE]` contain reusable scaffolding (questions, criteria, structures). Sections marked `[PATTERN]` describe judgment that recurs across engagements. Replace every `<placeholder>` with client specifics when standing up a new engagement. Update this file as engagements teach us what works - see the Changelog at the bottom.
@@ -30,6 +30,7 @@
 11. Governance Baseline `[TEMPLATE]`
 12. Measurement & KPIs
 13. Risk Register `[PATTERN]`
+13A. Vertical Pattern - Regulated / Compliance-Heavy Clients `[PATTERN]`
 14. Commercials
 15. Reusable Artifacts & Templates Index
 16. Lessons Learned Log
@@ -374,6 +375,32 @@ Every initiative carries metrics **before** it starts.
 | Shadow AI / data exposure | Staff using personal AI accounts with company data, no policy | Lead with a use-and-data-handling policy in week one; it is often the most urgent felt need, ahead of strategy |
 | "Big license number" sticker shock | Client prices broad licensing (e.g., $X00K/yr) and stalls on unproven ROI | Reframe: wrong starting point. Run capped experiments with ROI gates, measure productivity vs. license cost, scale only what proves its thesis. Audit hidden add-on costs (e.g., Snowpark/warehouse AI) |
 | Off-the-rack proposal mismatch | A generic program deck was sent before discovery | Name it openly; position the real engagement as custom-scoped from current-state assessment. Do not defend the deck |
+| Trapped IP in a single vendor seat | Client has already built real capability inside one AI account/seat (e.g., an Anthropic Cowork seat, a personal ChatGPT account) before we arrive - it works, but isn't owned, audited, or portable | Name the extraction as the first move regardless of which strategic path they pick; every downstream option (sell, scale, or license) requires it, so it is never optional and never sequenced last |
+| Builder/founder misalignment | A technical builder (often pre-existing, sometimes a contractor) has been building ahead of or apart from the principal's vision and resists direction | Do not manage the builder directly by default - work through the principal/operating partner, hold a separate technical deep-dive to assess the build, and let the principal set the reporting line explicitly |
+| GTM over-diversification ("Cheesecake Factory") | Client's real capability spans many adjacent product/service lines with no chosen entry point | Force a choice of 1-2 entry points before or alongside any strategic (build vs. sell) decision - a diffuse pitch undermines every exit path equally |
+
+---
+
+## 13A. Vertical Pattern - Regulated / Compliance-Heavy Clients
+
+`[PATTERN]` - Surfaced from the Systemic Compliance engagement (pipeline safety / OQ / PSMS). Generalizes to any client whose core asset is a large, regulation-linked requirements corpus (rail, power, chemical, healthcare, financial compliance).
+
+**What is different about this vertical:**
+
+- **The forcing event is regulatory, not competitive.** A voluntary standard moving toward mandatory status (e.g., API RP 1173 / PSMS) or a rulemaking docket is often the real clock, not a capital event or a competitor. Ask directly what's in the Federal Register or state-agency pipeline before assuming the forcing event is commercial.
+- **The requirements corpus is the crown-jewel asset, and it is usually a spreadsheet.** Regulated clients tend to have built a real crosswalk (regulation-to-obligation-to-procedure) as a giant spreadsheet before any of this reaches an AI system. That spreadsheet becoming a tagged, queryable database is almost always the highest-leverage early move - it precedes and enables everything else (eval harness, gap analysis, MOC/change-impact tooling).
+- **Semantic-only search fails at scale.** Once the corpus grows past what one model session holds reliably, keyword + semantic search alone causes "semantic saturation" - the model merges similar-but-distinct requirements (e.g., two adjacent CFR subclauses). A durable architecture needs four retrieval methods working together: **K**eyword (exact citation match), **S**emantic (meaning/intent), **T**emporal (what applied when - handles grandfathering and effective dates), and **G**raph (linkages, equivalencies, peer relationships). Missing T+G is the most common gap we'll find already built.
+- **The evaluation harness is the sales weapon, not just quality control.** An AI checking its own work fails at a high rate in this domain; independent graders, held-out datasets, and edge-case/false-premise tests double as the proof a buyer, auditor, or regulator will ask for. Sequence this earlier than a generic engagement would.
+- **Watch for cognitive surrender.** As subject-matter reviewers watch the AI get it right repeatedly, they stop catching the times it doesn't. Track and ask for the reviewer kickback rate directly - a rate near zero after many runs is a warning sign, not reassurance.
+- **Governance has to be active, not just a report.** Regulated management systems tend to run Plan-Do-Check-Act; the value of the AI layer is intervention *before* the compliance miss, with trended KPIs, not a static output document after the fact.
+- **Data-use consent on the training corpus is a near-certain gap.** If the client has anonymized one customer's/operator's procedures to train or benchmark against others, ask directly whether explicit data-use agreements exist. In our experience they usually do not yet, and it is worth flagging in the first working session rather than waiting to find it - see the shadow-AI/data-exposure risk row above, of which this is a vertical-specific instance.
+- **Auditability and model independence are the technical spine to own.** Every AI-assisted determination in this space needs an immutable audit trail (who decided what, on what basis) and a model-agnostic abstraction layer, since regulators and counsel will ask what happens if the underlying model changes or is challenged.
+
+**How this changes the standard playbook:**
+
+- In the Deliverable Catalog (§4), D5 (Governance Baseline) and D6 (Reference Architecture) effectively move earlier and merge with D2/D3 - governance-and-architecture-together is closer to a single week-one conversation than two sequential deliverables.
+- In Discovery (§9), add: "What does your requirements corpus look like today - spreadsheet, database, or something else?" and "What's the actual regulatory clock here - is something moving from voluntary to mandatory?"
+- In the Risk Register (§13), expect Trapped IP, Builder/founder misalignment, and GTM over-diversification (all added above) to show up together, not independently - they compound.
 
 ---
 
@@ -416,6 +443,11 @@ Every initiative carries metrics **before** it starts.
 | 2026-06-18 | Springline (June 16 call) | Scope was genuinely open: strategy deliverable vs. augmented leadership role vs. path to delivered implementation. Discovery sells the engagement; do not pre-commit a shape | Reinforces discovery-first sequencing; current-state assessment as the lead offer |
 | 2026-06-18 | Springline (June 16 call) | A generic / off-the-rack proposal had been sent ahead of discovery and both sides agreed the real work would be custom. Name it, do not defend it | Added off-the-rack-mismatch risk row (§13) |
 | 2026-06-18 | Springline (June 16 call) | Use-case portfolio framed by client as three buckets (back office, front office/sales enablement, practitioner tools). Compressibility x demand matrix: value concentrates in back-office tasks with unlimited demand | Consider a standard 3-bucket use-case lens + demand/compressibility scoring in discovery toolkit |
+| 2026-07-10 | Systemic Compliance (Jul 8 whiteboard) | Client had already built a real AI capability (SC.IMS) inside a single Cowork seat before we arrived - working, but unowned and unauditable. Both of their strategic paths (keep-and-scale or sell) required the same first move: get it out of the seat | Added "Trapped IP in a single vendor seat" risk row (§13); this is now treated as a default first-move check on any engagement, not vertical-specific |
+| 2026-07-10 | Systemic Compliance (Jul 8 whiteboard) | A technical builder (contractor, pre-existing) had been building ahead of the founder's vision and resisting direction. The founders explicitly asked to be in every conversation going forward rather than have us work with the builder directly | Added "Builder/founder misalignment" risk row (§13): default to working through the principal, not the builder, until told otherwise |
+| 2026-07-10 | Systemic Compliance (Jul 8 whiteboard) | Client's real capability spanned five adjacent product/service lines with no chosen go-to-market entry point ("Cheesecake Factory" - client's own words). This surfaced as a live blocker to the build-vs-sell decision, not a separate marketing question | Added "GTM over-diversification" risk row (§13): force 1-2 entry points before or alongside the strategic decision |
+| 2026-07-10 | Systemic Compliance (Jul 8-9 sessions) | Engagement is in a regulated/compliance-heavy vertical (pipeline safety). Surfaced vertical-specific patterns not present in the Springline case: regulatory (not competitive) forcing events, spreadsheet-as-crown-jewel requirements corpora, need for combined keyword/semantic/temporal/graph search at scale, evaluation harness as a sales weapon, cognitive-surrender risk, and data-use consent gaps on training corpora | Added §13A Vertical Pattern - Regulated / Compliance-Heavy Clients |
+| 2026-07-10 | Systemic Compliance (Jul 9 Orb demo) | A client-built AI feature was running on a different model vendor (Gemini) than the client's own stated platform preference (Claude/Cowork) and our standard stack guidance, discovered only during a technical walkthrough, not during scoping | Vendor/model audit belongs in the governance-baseline discovery pass (§9, §11), not deferred to a later technical deep-dive |
 
 ---
 
@@ -427,3 +459,4 @@ Every initiative carries metrics **before** it starts.
 | v0.2 SKELETON | 2026-06-18 | David O'Hara | Added §8A The Engagement Compact - recommended time commitments, required interactions, access expectations, independence statement, and slippage handling for any similar engagement. Designed to lift into a client-facing one-pager. |
 | v0.3 SKELETON | 2026-06-18 | David O'Hara | Added on-demand (JIT) CEO access as a planned interaction: standing update Q&A against ongoing written comms, and pre-meeting positioning ahead of board/external meetings. Reflected in §6 cadence, §8A interactions + time table, and a capacity note. |
 | v0.4 SKELETON | 2026-06-18 | David O'Hara | Removed all em-dashes. Folded in implied needs from the June 16 Springline call: shadow-AI/data-exposure, license sticker-shock, open scope, off-the-rack mismatch, and the 3-bucket use-case lens. Added 3 risk rows (§13) and 5 lessons (§16). |
+| v0.5 SKELETON | 2026-07-10 | David O'Hara (Jarvis) | Added Systemic Compliance as a second live reference engagement. New §13A Vertical Pattern - Regulated / Compliance-Heavy Clients, generalized from the Jul 8 whiteboard and Jul 9 Orb demo sessions. Added 3 risk rows (§13: Trapped IP, Builder/founder misalignment, GTM over-diversification) and 5 lessons (§16). Updated Origin line to reflect the second engagement. |

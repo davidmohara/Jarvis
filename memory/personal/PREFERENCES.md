@@ -30,6 +30,10 @@ David's preferences for how IES agents behave. Updated by David or Rigby on requ
 
 - **Systemic Compliance** — all client materials go to `/Improving/Accounts/Systemic Compliance`
 
+## Document Sharing
+
+- **Systemic Compliance** — all documentation shared with Ben Kennedy via SharePoint: https://improving.sharepoint.com/sites/DallasProjects/Shared%20Documents/Forms/AllItems.aspx?ct=1783698546440&ga=1&id=%2Fsites%2FDallasProjects%2FShared%20Documents%2FGeneral%2FAI%20Advisory%2FSystemic%20Compliance&or=Teams%2DHL&p=true (set 2026-07-10)
+
 ## Dream Cycle
 - Run at 3:00 AM — do not notify unless semantic promotions or errors
 - Preservation over aggression — when in doubt, do not compress

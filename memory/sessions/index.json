@@ -19,7 +19,7 @@
   {
     "id": "session-2026-05-15-094050",
     "started": "2026-05-15T09:40:50-05:00",
-    "closed": "2026-05-15T17:00:00-05:00",
+    "closed": "2026-05-22T09:44:04-05:00",
     "current_topic": null,
     "topics": [
       {
@@ -30,66 +30,13 @@
             "resolved": true
           }
         ]
-      },
-      {
-        "name": "plaud-ingest",
-        "loops": [
-          {
-            "task": "All 5 transcripts fully processed and completed",
-            "resolved": true
-          }
-        ]
-      },
-      {
-        "name": "synexus-proposal",
-        "loops": [
-          {
-            "task": "Proposal sent \u2014 confirmed by David on 2026-05-15, visible in sent items",
-            "resolved": true
-          }
-        ]
-      },
-      {
-        "name": "ypo-speaker-application",
-        "loops": [
-          {
-            "task": "video script written and saved",
-            "resolved": true
-          }
-        ]
-      },
-      {
-        "topic": "unattributed",
-        "files": [
-          "systems/error-tracking/rebuild-log.py",
-          "systems/error-tracking/new-entry.py",
-          "systems/error-tracking/schema.md",
-          "SYSTEM.md",
-          "CLAUDE.md",
-          "identity/AUTOMATION.md",
-          "workflows/dream-cycle/workflow.md",
-          "workflows/dream-cycle/steps/step-03-semantic-promotion.md",
-          "workflows/daily-review/steps/step-03-update-system.md",
-          ".claude/skills/rigby-error-analysis/SKILL.md",
-          ".claude/skills/quinn-weekly-review/SKILL.md",
-          "skills/rigby-error-analysis/SKILL.md",
-          "skills/dream-cycle/SKILL.md",
-          "agents/master.md",
-          "agents/conventions.md",
-          "agents/rigby.md",
-          "evolution.manifest.json",
-          "memory/LESSONS.md",
-          "systems/pending-fixes/morning-briefing-prompt-fix.md"
-        ],
-        "loops": [],
-        "flag": true
       }
     ]
   },
   {
-    "id": "session-2026-05-18-073333",
-    "started": "2026-05-18T07:33:33-05:00",
-    "closed": "2026-05-18T18:35:00-05:00",
+    "id": "session-2026-05-22-094404",
+    "started": "2026-05-22T09:44:04-05:00",
+    "closed": "2026-05-28T10:09:41-05:00",
     "current_topic": null,
     "topics": [
       {
@@ -100,30 +47,20 @@
             "resolved": true
           }
         ]
-      },
+      }
+    ]
+  },
+  {
+    "id": "session-2026-05-28-100941",
+    "started": "2026-05-28T10:09:41-05:00",
+    "closed": "2026-06-04T08:10:15-05:00",
+    "current_topic": null,
+    "topics": [
       {
-        "name": "skimmer-lunch-prep",
+        "name": "morning-boot",
         "loops": [
           {
-            "task": "Prep sheet built, PDF pushed to reMarkable",
-            "resolved": true
-          }
-        ]
-      },
-      {
-        "name": "sst-innovation-lab-call-prep",
-        "loops": [
-          {
-            "task": "Call prep sheet built, PDF built \u2014 reMarkable push failed (400), needs manual push via desktop app",
-            "resolved": false
-          }
-        ]
-      },
-      {
-        "name": "driven-to-develop-ga4-review",
-        "loops": [
-          {
-            "task": "14-day GA4 review completed, recommendations surfaced",
+            "task": "boot-sequence",
             "resolved": true
           }
         ]
@@ -131,216 +68,17 @@
     ]
   },
   {
-    "id": "session-2026-05-19-095416",
-    "started": "2026-05-19T09:54:16-05:00",
-    "closed": "2026-05-19T23:59:00-05:00",
-    "current_topic": null,
-    "topics": [
-      {
-        "name": "morning-boot",
-        "loops": [
-          {
-            "task": "boot-sequence",
-            "resolved": false
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "id": "session-2026-05-20-082026",
-    "started": "2026-05-20T08:20:26-05:00",
-    "closed": "2026-05-21T06:07:16-05:00",
-    "current_topic": null,
-    "topics": [
-      {
-        "name": "morning-boot",
-        "loops": [
-          {
-            "task": "boot-sequence",
-            "resolved": false
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "id": "session-2026-05-21-060716",
-    "started": "2026-05-21T06:07:16-05:00",
-    "closed": "2026-05-22T06:15:01-05:00",
-    "current_topic": null,
-    "topics": [
-      {
-        "name": "morning-boot",
-        "loops": [
-          {
-            "task": "boot-sequence",
-            "resolved": false
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "id": "session-2026-05-22-061501",
-    "started": "2026-05-22T06:15:01-05:00",
-    "closed": "2026-05-24T14:35:00-05:00",
-    "current_topic": null,
-    "topics": [
-      {
-        "name": "morning-boot",
-        "loops": [
-          {
-            "task": "boot-sequence",
-            "resolved": false
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "id": "session-2026-05-24-143554",
-    "started": "2026-05-24T14:35:54-05:00",
-    "closed": "2026-05-26T02:47:00-05:00",
-    "current_topic": null,
-    "topics": [
-      {
-        "name": "morning-boot",
-        "loops": [
-          {
-            "task": "boot-sequence",
-            "resolved": false
-          }
-        ],
-        "files": [
-          "workflows/morning-briefing/state.yaml"
-        ]
-      }
-    ]
-  },
-  {
-    "id": "session-2026-05-26-024700",
-    "started": "2026-05-26T02:47:00-05:00",
-    "closed": "2026-05-27T11:24:21-05:00",
-    "current_topic": null,
-    "topics": [
-      {
-        "name": "morning-boot",
-        "loops": [
-          {
-            "task": "boot-sequence",
-            "resolved": false
-          }
-        ]
-      },
-      {
-        "name": "ai-tour-houston-intel",
-        "loops": [
-          {
-            "task": "Reviewed registered company list from SharePoint; flagged SynergenX, AT&T, Tenet, TI, CBRE, Builders FirstSource, Marriott, Expedia, and Masimo as priority targets for AI Tour floor",
-            "resolved": true
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "id": "session-2026-05-27-112421",
-    "started": "2026-05-27T11:24:21-05:00",
-    "closed": "2026-05-29T07:09:48-05:00",
-    "current_topic": null,
-    "topics": [
-      {
-        "name": "morning-boot",
-        "loops": [
-          {
-            "task": "boot-sequence",
-            "resolved": false
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "id": "session-2026-05-29-070948",
-    "started": "2026-05-29T07:09:48-05:00",
-    "closed": "2026-06-08T09:54:29-05:00",
-    "current_topic": null,
-    "topics": [
-      {
-        "name": "morning-boot",
-        "loops": [
-          {
-            "task": "boot-sequence",
-            "resolved": false
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "id": "session-2026-06-08-095429",
-    "started": "2026-06-08T09:54:29-05:00",
-    "closed": "2026-06-09T09:23:23-05:00",
-    "current_topic": null,
-    "topics": [
-      {
-        "name": "morning-boot",
-        "loops": [
-          {
-            "task": "boot-sequence",
-            "resolved": false
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "id": "session-2026-06-09-092323",
-    "started": "2026-06-09T09:23:23-05:00",
-    "closed": "2026-06-10T06:35:15-05:00",
-    "current_topic": null,
-    "topics": [
-      {
-        "name": "morning-boot",
-        "loops": [
-          {
-            "task": "boot-sequence",
-            "resolved": false
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "id": "session-2026-06-10-063515",
-    "started": "2026-06-10T06:35:15-05:00",
-    "closed": null,
-    "current_topic": "morning-boot",
-    "topics": [
-      {
-        "name": "morning-boot",
-        "loops": [
-          {
-            "task": "boot-sequence",
-            "resolved": false
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "id": "session-2026-06-11-062152",
-    "started": "2026-06-11T06:21:52",
+    "id": "session-2026-06-04-081015",
+    "started": "2026-06-04T08:10:15-05:00",
     "closed": "2026-06-12T08:27:00-05:00",
     "current_topic": null,
     "topics": [
       {
-        "name": "boot",
+        "name": "morning-boot",
         "loops": [
           {
-            "description": "Morning boot and briefing",
-            "resolved": false
+            "task": "boot-sequence",
+            "resolved": true
           }
         ]
       }
@@ -349,8 +87,8 @@
   {
     "id": "session-2026-06-12-082700",
     "started": "2026-06-12T08:27:00-05:00",
-    "closed": null,
-    "current_topic": "plaud-ingest",
+    "closed": "2026-06-15T09:35:44-05:00",
+    "current_topic": null,
     "topics": [
       {
         "name": "morning-boot",
@@ -432,8 +170,8 @@
   {
     "id": "session-2026-06-19-092735",
     "started": "2026-06-19T09:27:35-05:00",
-    "closed": null,
-    "current_topic": "morning-boot",
+    "closed": "2026-06-23T09:44:57-05:00",
+    "current_topic": null,
     "topics": [
       {
         "name": "morning-boot",
@@ -456,7 +194,7 @@
         "name": "morning-boot",
         "loops": [
           {
-            "task": "boot-sequence \u2014 full workflow completed",
+            "task": "boot-sequence — full workflow completed",
             "resolved": true
           }
         ]
@@ -465,7 +203,7 @@
         "name": "content-pipeline-rework",
         "loops": [
           {
-            "task": "Digest input path, Ghost Admin API consolidation, fast-exit gate \u2014 Rigby built and committed",
+            "task": "Digest input path, Ghost Admin API consolidation, fast-exit gate — Rigby built and committed",
             "resolved": true
           }
         ]
@@ -474,7 +212,60 @@
         "name": "kazakhstan-deck",
         "loops": [
           {
-            "task": "13-slide Improving-branded deck built \u2014 Enterprise Shift slides, Agent Receipts, MIT NANDA, real client stories on What We've Built slide",
+            "task": "13-slide Improving-branded deck built — Enterprise Shift slides, Agent Receipts, MIT NANDA, real client stories on What We've Built slide",
+            "resolved": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "session-2026-06-24-000000",
+    "started": "2026-06-24T00:00:00-05:00",
+    "closed": "2026-06-25T03:05:33-05:00",
+    "current_topic": null,
+    "topics": [
+      {
+        "name": "morning-boot",
+        "loops": [
+          {
+            "task": "boot-sequence",
+            "resolved": true
+          }
+        ]
+      },
+      {
+        "name": "plaud-ingest",
+        "loops": [
+          {
+            "task": "3 recordings ingested: xAI/Cole Estrate (Jun 22), Sales Performance Review/McGreal (Jun 23), Strategic Dialogue/Devlin (Jun 23)",
+            "resolved": true
+          }
+        ]
+      },
+      {
+        "name": "content-pipeline-obsidian",
+        "loops": [
+          {
+            "task": "step-02 Obsidian publish integration built — rename, status:Published, published_url, article vs post routing, obsidian_slug field; step-01 content_type detection added; 5 pending Ghost drafts backfilled",
+            "resolved": true
+          }
+        ]
+      },
+      {
+        "name": "remarkable-fixes",
+        "loops": [
+          {
+            "task": "Cole Estrate — xAI.pdf renamed and moved to /Meetings; skill updated to prevent new folder creation and enforce conventions",
+            "resolved": true
+          }
+        ]
+      },
+      {
+        "name": "daily-review",
+        "loops": [
+          {
+            "task": "Daily review written to reviews/daily/2026-06-24.md",
             "resolved": true
           }
         ]
@@ -491,7 +282,7 @@
         "name": "morning-boot",
         "loops": [
           {
-            "task": "boot-sequence \u2014 full workflow completed",
+            "task": "boot-sequence — full workflow completed",
             "resolved": true
           }
         ]
@@ -500,7 +291,7 @@
         "name": "dexa-review",
         "loops": [
           {
-            "task": "DEXA Jun 25 reviewed by Galen \u2014 16.5% BF, -7.4 lbs lean mass, VAT -44%. tracking.json created, supplement-stack corrected.",
+            "task": "DEXA Jun 25 reviewed by Galen — 16.5% BF, -7.4 lbs lean mass, VAT -44%. tracking.json created, supplement-stack corrected.",
             "resolved": true
           }
         ]
@@ -527,7 +318,7 @@
         "name": "rmapi-fix",
         "loops": [
           {
-            "task": "rmapi config repaired (corrupt JWT \u2192 re-authenticated). Working.",
+            "task": "rmapi config repaired (corrupt JWT → re-authenticated). Working.",
             "resolved": true
           }
         ]
@@ -553,7 +344,7 @@
         "name": "morning-boot",
         "loops": [
           {
-            "task": "boot-sequence \u2014 full workflow completed",
+            "task": "boot-sequence — full workflow completed",
             "resolved": true
           }
         ]
@@ -562,7 +353,7 @@
         "name": "protein-shake-protocol",
         "loops": [
           {
-            "task": "Shake logged to protocol.md \u2014 42g protein, AM post-workout, daily",
+            "task": "Shake logged to protocol.md — 42g protein, AM post-workout, daily",
             "resolved": true
           }
         ]
@@ -571,7 +362,7 @@
         "name": "peptide-stack-start",
         "loops": [
           {
-            "task": "Stack starts Jun 29 \u2014 MOTS-C/Tesamorelin/Ipamorelin logged, boot reminder cleared",
+            "task": "Stack starts Jun 29 — MOTS-C/Tesamorelin/Ipamorelin logged, boot reminder cleared",
             "resolved": true
           }
         ]
@@ -615,7 +406,7 @@
         "name": "revenue-tracker",
         "loops": [
           {
-            "task": "Revenue tracker pulled \u2014 South Texas 74% 90-day, One Texas -11% vs target, Q2 high-risk close",
+            "task": "Revenue tracker pulled — South Texas 74% 90-day, One Texas -11% vs target, Q2 high-risk close",
             "resolved": true
           }
         ]
@@ -624,7 +415,7 @@
         "name": "co-sell-pipeline",
         "loops": [
           {
-            "task": "Co-sell snapshot \u2014 Q2 closed with $9.4M gap, PowerBI filter issue identified, June 9 data is accurate One Texas view",
+            "task": "Co-sell snapshot — Q2 closed with $9.4M gap, PowerBI filter issue identified, June 9 data is accurate One Texas view",
             "resolved": true
           }
         ]
@@ -643,24 +434,7 @@
   {
     "id": "session-2026-06-30-091420",
     "started": "2026-06-30T09:14:20-05:00",
-    "closed": null,
-    "current_topic": "morning-boot",
-    "topics": [
-      {
-        "name": "morning-boot",
-        "loops": [
-          {
-            "task": "boot-sequence",
-            "resolved": false
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "id": "session-2026-06-24-000000",
-    "started": "2026-06-24T00:00:00-05:00",
-    "closed": "2026-06-25T03:05:33-05:00",
+    "closed": "2026-07-01T08:30:00-05:00",
     "current_topic": null,
     "topics": [
       {
@@ -668,43 +442,7 @@
         "loops": [
           {
             "task": "boot-sequence",
-            "resolved": true
-          }
-        ]
-      },
-      {
-        "name": "plaud-ingest",
-        "loops": [
-          {
-            "task": "3 recordings ingested: xAI/Cole Estrate (Jun 22), Sales Performance Review/McGreal (Jun 23), Strategic Dialogue/Devlin (Jun 23)",
-            "resolved": true
-          }
-        ]
-      },
-      {
-        "name": "content-pipeline-obsidian",
-        "loops": [
-          {
-            "task": "step-02 Obsidian publish integration built \u2014 rename, status:Published, published_url, article vs post routing, obsidian_slug field; step-01 content_type detection added; 5 pending Ghost drafts backfilled",
-            "resolved": true
-          }
-        ]
-      },
-      {
-        "name": "remarkable-fixes",
-        "loops": [
-          {
-            "task": "Cole Estrate \u2014 xAI.pdf renamed and moved to /Meetings; skill updated to prevent new folder creation and enforce conventions",
-            "resolved": true
-          }
-        ]
-      },
-      {
-        "name": "daily-review",
-        "loops": [
-          {
-            "task": "Daily review written to reviews/daily/2026-06-24.md",
-            "resolved": true
+            "resolved": false
           }
         ]
       }
@@ -834,6 +572,72 @@
           {
             "text": "close-eval-record.py needs --eval-id flag to prevent spurious duplicate on session_id mismatch",
             "resolved": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "session-2026-07-10-090906",
+    "started": "2026-07-10T09:09:06-05:00",
+    "closed": "2026-07-10T17:30:46-05:00",
+    "current_topic": null,
+    "topics": [
+      {
+        "name": "morning-boot",
+        "loops": [
+          {
+            "task": "boot-sequence",
+            "resolved": false
+          }
+        ]
+      },
+      {
+        "name": "mike-rosa-drc-prep",
+        "loops": [
+          {
+            "task": "Meeting prep built for Mike Rosa/DRC — meetings/2026-07-10-mike-rosa-drc.md + Mike Rosa.pdf",
+            "resolved": true
+          }
+        ],
+        "files": [
+          "meetings/2026-07-10-mike-rosa-drc.md",
+          "meetings/Mike Rosa.pdf"
+        ]
+      },
+      {
+        "name": "systemic-compliance-synthesis",
+        "loops": [
+          {
+            "task": "Whiteboard notes (Jul 8) and synthesis of committed outcomes (Jul 10) captured for Systemic Compliance account",
+            "resolved": true
+          }
+        ],
+        "files": [
+          "accounts/Systemic Compliance/2026-07-08-whiteboard-notes.md",
+          "accounts/Systemic Compliance/2026-07-10-synthesis-committed-outcomes.md",
+          "accounts/Systemic Compliance/IMG_6315.JPG",
+          "accounts/Systemic Compliance/IMG_6316.JPG"
+        ]
+      },
+      {
+        "name": "weekly-review-w28",
+        "loops": [
+          {
+            "task": "Weekly review written to reviews/weekly/2026-W28.md",
+            "resolved": true
+          }
+        ],
+        "files": [
+          "reviews/weekly/2026-W28.md"
+        ]
+      },
+      {
+        "name": "shutdown-cleanup",
+        "loops": [
+          {
+            "task": "Purged .DS_Store x4 and intermediate meetings/mike-rosa-prep.html, verified naming/gitignore, closed session, committed",
+            "resolved": true
           }
         ]
       }
