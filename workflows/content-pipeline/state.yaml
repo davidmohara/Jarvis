@@ -1,14 +1,16 @@
-status: complete
-current-step: step-01-discover
-session-id: harper-2026-07-09-discovery-daily
-session-started: 2026-07-09T20:30:00Z
-completed-at: 2026-07-09T20:35:30Z
-original-request: scheduled-content-discovery
+status: aborted
+current-step: step-02-approve
+session-id: harper-2026-07-10-approval-hourly
+session-started: 2026-07-10T09:10:00Z
+aborted-at: 2026-07-10T09:10:15Z
+original-request: scheduled-content-approval
+failure-reason: "Slack API connectivity error — read.py failed with 'Tunnel connection failed: 403 Forbidden'. Unable to read thread replies for approval signals."
 outputs:
-  messages_checked: 1
-  urls_processed: 1
-  digests_processed: 0
-  drafts_created: 1
-  skipped: 0
-  outcome: "SUCCESS: 1 new Spotify URL found in #content. Drafted 'The Urgency Trap Is Why Your AI Pilot Didn't Work' (Ghost ID 6a5005fc3ed563028ae740b1). Notified David in #content thread 1783629330.863559."
+  drafts_checked: 0
+  actions_taken: 0
+  published: 0
+  rejected: 0
+  regenerated: 0
+  cleanup_removed: 1
+  outcome: "ABORT: Slack connectivity failure. Removed 1 published entry during cleanup. 2 pending drafts remain but cannot check for approval signals."
   pending_drafts: 2

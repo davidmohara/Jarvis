@@ -2,20 +2,19 @@
   "skill": "golf-booking",
   "agent": "sterling",
   "trigger": "scheduled",
-  "started": "2026-07-04T00:00:00Z",
-  "completed": "2026-07-04T00:15:00Z",
-  "status": "failure",
-  "status_detail": "Booking window expired (executed 2 days late); ChronoGolf UI changes prevented automated booking flow",
-  "tool_failures": 3,
-  "error_ids": [
-    "err-20260704-booking-window-missed",
-    "err-20260704-ui-selector-mismatch",
-    "err-20260704-modal-overlay-navigation"
-  ],
-  "root_cause": "Scheduled task execution delay combined with ChronoGolf interface changes",
-  "slack_notification_sent": true,
+  "started": "2026-07-10T00:00:00Z",
+  "completed": "2026-07-10T00:00:45Z",
+  "status": "aborted",
+  "status_detail": "No booking options available — entire target weekend (Jul 17-19) blocked by Horner visit commitment",
+  "abort_reason": "no-available-slots-entire-weekend-blocked",
+  "tool_failures": 0,
+  "error_ids": [],
+  "root_cause": "Hard calendar block for Horner visit (Jul 17-20) prevents any tee time booking",
+  "slack_notification_sent": false,
   "booking_completed": false,
   "booking_number": null,
   "calendar_event_created": false,
-  "visual_verification_completed": false
+  "visual_verification_completed": false,
+  "steps_executed": ["read-preview-output"],
+  "steps_skipped": ["navigate-chronogolf", "login-recovery", "open-booking-widget", "iterate-options", "visual-verification", "calendar-event", "slack-notification"]
 }
