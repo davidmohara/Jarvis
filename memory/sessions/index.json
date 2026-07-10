@@ -807,8 +807,8 @@
   {
     "id": "session-2026-07-09-090944",
     "started": "2026-07-09T09:09:44-05:00",
-    "closed": null,
-    "current_topic": "system-eval",
+    "closed": "2026-07-10T22:21:15-05:00",
+    "current_topic": null,
     "topics": [
       {
         "name": "morning-boot",
@@ -834,6 +834,23 @@
           {
             "text": "close-eval-record.py needs --eval-id flag to prevent spurious duplicate on session_id mismatch",
             "resolved": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "session-2026-07-10-221215",
+    "started": "2026-07-10T22:21:15-05:00",
+    "closed": "2026-07-10T22:21:15-05:00",
+    "current_topic": null,
+    "topics": [
+      {
+        "name": "shutdown-cleanup",
+        "loops": [
+          {
+            "task": "Folder scan + session exit — ypo_members.xlsx/v2 moved to YPO/, business_os_body_slide.pptx staged in presentations/, content-pipeline state.yaml committed, session index closed.",
+            "resolved": true
           }
         ]
       }
