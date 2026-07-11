@@ -77,13 +77,23 @@ sed -i '' \
 
 #### 2b. Push to the pinned Cowork artifact
 
-Push the patched dashboard to the pinned artifact so it reflects current data. Use the `mcp__cowork__update_artifact` tool (load via ToolSearch if deferred):
+**This step is MANDATORY. Do not skip it.**
 
-- **Artifact ID:** `rigby-eval-dashboard`
+First, load the tool schema (required before every call — it is always deferred):
+
+```
+ToolSearch with query "select:mcp__cowork__update_artifact"
+```
+
+Then call `mcp__cowork__update_artifact` with:
+
+- **id:** `rigby-eval-dashboard`
 - **html_path:** `systems/eval-harness/dashboard.html`
 - **update_summary:** Brief description of what this run changed — include run date, records visualized, grades assigned, and avg score. Example: `"2026-07-08 run: 12 records, A:3 B:5 C:2 D:1 F:1, avg 0.74"`
 
-If the tool is unavailable or fails, log the failure in state.yaml under `dashboard_artifact_error` and continue — do not halt.
+**Verification:** After calling update_artifact, confirm the call succeeded. If the tool returns an error, retry once. If it fails again, log the failure in state.yaml under `dashboard_artifact_error` and continue — do not halt.
+
+If the artifact update succeeded, write `dashboard_artifact_updated: true` to state.yaml. If it failed, write `dashboard_artifact_updated: false` with the error message.
 
 ### 3. Write working memory
 
