@@ -8,10 +8,10 @@ tags:
 - score-inflation
 - semantic-promotion
 - error-naming
+  promoted: true
 salience:
   score: 10
-  last-promoted-check: 2026-07-09
-  promoted: true
+  last-promoted-check: 2026-07-11
 ---
 # Dream Cycle Summary — 2026-05-02
 

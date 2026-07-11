@@ -24,10 +24,10 @@ related_people:
 - scott-mcmichael
 - curtis
 - richard
+  promoted: true
 salience:
   score: 10
-  last-promoted-check: 2026-07-09
-  promoted: true
+  last-promoted-check: 2026-07-11
 ---
 # Morning Briefing Session — June 1, 2026
 

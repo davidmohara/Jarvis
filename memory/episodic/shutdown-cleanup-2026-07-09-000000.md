@@ -1,12 +1,26 @@
 ---
-type: working
 task_id: "session"
 session_id: "chief-2026-07-09-000000"
 agent-source: chief
 created: 2026-07-09T00:00:00
 expires: 2026-07-11T00:00:00
-status: active
 context: "Shutdown cleanup — 2026-07-09"
+status: archived
+type: working-archive
+date: 2026-07-09
+source_file: memory/working/shutdown-cleanup-2026-07-09-000000.md
+tags:
+  - session-wrap
+  - chief
+  - briefing
+  - plaud
+  - dream-cycle
+  - knox
+related_people:
+salience:
+  score: 10
+  last-promoted-check: 2026-07-11
+  promoted: true
 ---
 
 - Plaud ingest ran for 2 recordings: medical appointment + SC Orb Demo; Knox processed both and created Monday tasks with share links
@@ -15,3 +29,4 @@ context: "Shutdown cleanup — 2026-07-09"
 - LinkedIn post drafted and speaker rename completed for Dr. John East in vault note
 - ROOT ALERT: `outputs/` directory at IES root is non-canonical and contains previously-committed dream cycle scripts — flagged for David to disposition (delete or move)
 - .DS_Store deletion blocked by sandbox permissions; files are gitignored and will not be committed
+  promoted: true

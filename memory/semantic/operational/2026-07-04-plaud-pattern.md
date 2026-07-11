@@ -5,7 +5,7 @@ subject: plaud pattern
 synthesized-from:
   - memory/episodic/plaud-ingest-2026-07-02-011500.md
   - memory/episodic/morning-briefing-2026-07-01-085000.md
-last-updated: 2026-07-06
+last-updated: 2026-07-11
 tags: [plaud]
 agent-source: dream-cycle
 confidence: low
@@ -37,3 +37,8 @@ Sources this cycle:
 ### 2026-07-09 — Nightly promotion
 Sources this cycle:
 - `memory/episodic/plaud-ingest-2026-07-06-000000.md` (score 6) — 3 recordings from Jul 2: Josh Stevenson/MS Houston Hub intro, Dr. Feigenbaum SOAP note, Scott Sexton lunch at Del Frisco's; 5 OmniFocus tasks created; staging cleaned (11 files); Plaud rename API returned null for 2/3 (known transient).
+
+### 2026-07-11 — Nightly promotion
+Sources this cycle:
+- `memory/episodic/plaud-ingest-2026-07-09-000000.md` (score 10) — tags: knox, calendar, plaud, chief; related people alice-mburu, devlin, tim-rayburn
+- `memory/episodic/shutdown-cleanup-2026-07-09-000000.md` (score 10) — tags: session-wrap, chief, briefing, plaud, dream-cycle, knox — session-wrap and plaud co-occurring in same shutdown-cleanup entry

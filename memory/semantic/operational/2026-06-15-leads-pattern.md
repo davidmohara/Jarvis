@@ -2,7 +2,7 @@
 type: semantic
 domain: operational
 created: 2026-06-15
-last-updated: 2026-07-03
+last-updated: 2026-07-11
 confidence: high
 tags:
   - leads
@@ -74,3 +74,7 @@ Recurring pattern observed in leads entries: cluster of 1 episodic memories shar
 
 - 2026-06-24: New episodic cluster (leads, 2 entries) reinforces pattern.
 - Pattern frequency suggests consistent operational rhythm; worth monitoring for drift.
+
+### 2026-07-11 — Nightly promotion
+Sources this cycle:
+- `memory/episodic/system-eval-2026-07-08-203623.md` (score 10) — tags: rigby, omnifocus, leads — rigby-sourced system eval co-occurring with leads/omnifocus, consistent with prior cross-agent pattern where eval runs surface alongside leads-tagged operational entries.

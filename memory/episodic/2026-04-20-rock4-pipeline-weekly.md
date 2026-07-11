@@ -11,10 +11,10 @@ tags:
 - confluent
 - revenue
 related_people: []
+  promoted: true
 salience:
   score: 10
-  last-promoted-check: 2026-07-09
-  promoted: true
+  last-promoted-check: 2026-07-11
 ---
 # Rock 4 Weekly Pipeline Pull — 2026-04-20
 

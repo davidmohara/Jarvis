@@ -1,11 +1,11 @@
 workflow: golf-booking
 agent: sterling
 status: aborted
-session-started: 2026-07-04T16:45:00Z
-session-id: rigby-step-by-step-2026-07-04
-current-step: booking-execution
-execution-run: 2026-07-10T00:00:00Z
-abort-reason: no-available-slots-entire-weekend-blocked
+session-started: 2026-07-11T00:00:00Z
+session-id: scheduled-execution-2026-07-11
+current-step: notification-sent
+execution-run: 2026-07-11T00:00:00Z
+abort-reason: entire-weekend-blocked-horner-visit
 original-request: Execute golf booking skill step by step for web change verification; update skill as needed for reliable unattended execution
 accumulated-context:
   verified_steps:

@@ -16,10 +16,10 @@ related_people:
 - alice-mburu
 - gabriela-garza-ramos
 - christopher-mcmillan
+  promoted: true
 salience:
   score: 10
-  last-promoted-check: 2026-07-09
-  promoted: true
+  last-promoted-check: 2026-07-11
 ---
 # Morning Briefing — April 22, 2026 (Google Next Travel Day)
 

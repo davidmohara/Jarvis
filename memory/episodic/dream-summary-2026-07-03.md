@@ -18,10 +18,10 @@ tags:
 - daily-review
 - error-log
 related_people: null
+  promoted: true
 salience:
   score: 10
-  last-promoted-check: 2026-07-09
-  promoted: true
+  last-promoted-check: 2026-07-11
 ---
 
 # Dream cycle 2026-07-03 — quick read for Chief

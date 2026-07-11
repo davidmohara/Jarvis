@@ -5,7 +5,7 @@ tag: dream-summary
 domain: pattern
 confidence: low
 created: 2026-07-06
-last-updated: 2026-07-09
+last-updated: 2026-07-11
 synthesized-from: 3 episodic entries
 tags:
   - dream-summary
@@ -34,3 +34,9 @@ Sources this cycle:
 - `memory/episodic/dream-summary-2026-07-07.md` (score 10) — zero errors, step-02 tag regression redetected and fixed in same cycle; compression cutoff 80d (not yet eligible)
 
 Pattern solidifying: dream cycle outputs consistently show improvement via self-correction and tightening error counts. Cross-domain check now firing correctly. Tag deduplication is a recurring clean-up need.
+
+### 2026-07-11 — Nightly promotion
+Sources this cycle:
+- `memory/episodic/dream-summary-2026-07-09.md` (score 10) — 7 files archived, 4 clusters promoted, 8 semantic updates, 0 new lessons; git boot pull clean (already up to date)
+
+Continued reinforcement: every promoted dream-summary cycle to date has resolved cleanly with zero unresolved errors, supporting confidence escalation once evidence count crosses the next threshold.

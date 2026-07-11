@@ -7,7 +7,7 @@ synthesized-from:
   - memory/episodic/daily-review-2026-07-02-000000.md
   - memory/episodic/dream-summary-2026-07-03.md
   - memory/episodic/shutdown-cleanup-2026-07-01-170500.md
-last-updated: 2026-07-05
+last-updated: 2026-07-11
 tags: [daily-review]
 agent-source: dream-cycle
 confidence: low
@@ -29,7 +29,13 @@ A recurring `daily-review` cluster surfaced in dream-cycle salience scoring. 4 e
 ### 2026-07-05 dream-cycle promotion
 - 2026-07-03: [daily-review-2026-07-03-000000.md](memory/episodic/daily-review-2026-07-03-000000.md) (score 10)
 
+### 2026-07-11 — Nightly promotion
+Sources this cycle:
+- `memory/episodic/daily-review-2026-07-06-140000.md` (score 10) — tags: daily-review, chief, calendar, omnifocus, scorecard, email, overdue-tasks, health; related person steve-hall
+- `memory/episodic/daily-review-2026-07-07-080000.md` (score 10) — tags: daily-review, chief, calendar, omnifocus, email, overdue-tasks
+
 ## Implications
 
 - Agents should treat `daily-review`-tagged content as a coherent operational thread — prefer synthesis over re-derivation when this cluster appears.
 - Watch for continued co-occurrence; escalate confidence when evidence surpasses 15 entries.
+- 2026-07-11: overdue-tasks and omnifocus/calendar co-occur with daily-review in nearly every promoted entry — this cross-tag pairing looks stable enough to treat as a durable signature of the daily-review deliverable type, not incidental overlap.

@@ -7,9 +7,6 @@ created: 2026-07-06T07:00:00
 expires: 2026-07-08T07:00:00
 status: archived
 context: "Morning briefing — 2026-07-06"
-salience:
-  score: 10
-  last-promoted-check: 2026-07-09
   promoted: true
 date: 2026-07-06
 source_file: memory/working/morning-briefing-2026-07-06-070000.md
@@ -32,6 +29,9 @@ related_people:
   - nick-koury
   - mark-smith
   - lauren-sweda
+salience:
+  score: 10
+  last-promoted-check: 2026-07-11
 ---
 
 # Morning Briefing — Monday, July 6, 2026

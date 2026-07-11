@@ -1602,3 +1602,21 @@ errors: 0
 summary: "Step-01 archived 7 newly-expired files (co-sell-pipeline, daily-review-07-05, dream-summary-07-07, morning-briefing-06/07, plaud-ingest-06, revenue-tracker-06); 10 skipped (7 not-yet-expired, 3 unparseable including the two persistent golf files). Step-02 scored 183 episodic entries — step-02 tag regex regression redetected (same indented-only pattern as 2026-07-06); fixed immediately; files_with_tags recovered 18→170. Distribution clean: 0:23 baseline, 10:148. Step-03 processed 8 candidates → 4 clusters → 0 creates + 4 updates (dream-summary-pattern, morning-briefing-pattern, co-sell-pattern, plaud-pattern). Error scan 30d: 108 entries, all top patterns already documented in LESSONS.md, 0 new lessons. Step-04 compression skipped (oldest 2026-04-18 = 82d, cutoff at 90d). Git pull succeeded after stash/lock-clear cycle."
 git_pull: success
 git_pull_note: "stashed unstaged files; removed stale HEAD.lock; pulled rebase (e616666..c81a26a); popped stash cleanly"
+
+---
+## 2026-07-11T03:14:10 CDT
+session_id: dream-cycle-2026-07-11-030956
+working_archived: 8
+working_deleted: 0
+episodic_scanned: 190
+score_updates: 190
+clusters_found: 6
+semantic_created: 0
+semantic_updated: 6
+promoted_entries: 8
+entries_compressed: 0
+digests_updated: 0
+errors: 0
+summary: "Boot pull hit stale REBASE_HEAD.lock/packed-refs.lock (host-owned, zero-byte, from prior session) after stashing unrelated golf-booking changes; cleared manually via Desktop Commander, pull succeeded (already up to date), stash popped cleanly. Step-01 archived 8 newly-expired working files (sc-meeting-prep, 2x daily-review, dream-summary-07-09, morning-briefing-07-08, plaud-ingest-07-09, shutdown-cleanup-07-09, system-eval-07-08) via heuristic enrichment (LLM path unavailable, claude -p not logged in — consistent with prior runs); 5 skipped not-yet-expired, 4 unparseable (2026-07-08.md has no frontmatter, 2 golf files unparseable/no-frontmatter as before, golf-booking-2026-07-10-failed.md new addition to that list). Step-02 scored all 190 episodic entries; distribution 0:22, 10:155 — consistent with prior cycles. Step-03 found 8 candidates (all fresh archives) clustering into 6 groups against 5 existing semantic files (dream-summary, morning-briefing, daily-review, plaud, overdue-tasks, leads pattern) — 0 new semantic files created, all appended per append-only rule; all 8 source files marked salience.promoted true. Error scan 30d: 99 entries; top 5 categories (process-skip/protocol-skip:10, routing-error/protocol-skip:9, data-accuracy/wrong-assumption:4, data-accuracy/sloppy-read:4, unknown/unknown:3) all already documented and active in LESSONS.md — 0 new lessons appended. Step-04 compression skipped — oldest episodic entry 2026-04-18 (84 days), 90-day cutoff 2026-04-12 not met, 0 candidates."
+git_pull: success
+git_pull_note: "unstaged golf-booking files stashed to allow rebase; hit stale REBASE_HEAD.lock + packed-refs.lock (host-owned, zero-byte, dated Jul 10 23:05) blocking stash; removed both manually via Desktop Commander; pull succeeded (already up to date); stash popped cleanly restoring golf-booking files"

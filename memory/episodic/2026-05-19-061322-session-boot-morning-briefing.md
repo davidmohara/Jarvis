@@ -25,10 +25,10 @@ related_people:
 - don-mcgreal
 - tim-rayburn
 - curtis
+  promoted: true
 salience:
   score: 10
-  last-promoted-check: 2026-07-09
-  promoted: true
+  last-promoted-check: 2026-07-11
 ---
 # Morning Briefing Session — May 19, 2026
 

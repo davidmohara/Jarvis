@@ -13,10 +13,10 @@ tags:
 related_people:
 - devlin
 - tim-rayburn
+  promoted: true
 salience:
   score: 10
-  last-promoted-check: 2026-07-09
-  promoted: true
+  last-promoted-check: 2026-07-11
 ---
 # Morning Briefing — April 28, 2026 (GLC Chicago Day 2)
 

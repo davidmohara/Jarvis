@@ -15,10 +15,10 @@ related_people:
 - alice-mburu
 - scott-mcmichael
 - kovacevich
+  promoted: true
 salience:
   score: 10
-  last-promoted-check: 2026-07-09
-  promoted: true
+  last-promoted-check: 2026-07-11
 ---
 # Session Working Memory — 2026-04-24 Morning Briefing
 

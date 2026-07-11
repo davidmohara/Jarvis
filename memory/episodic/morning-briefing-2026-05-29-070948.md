@@ -23,10 +23,10 @@ tags:
 related_people:
 - alice-mburu
 - steve-hall
+  promoted: true
 salience:
   score: 10
-  last-promoted-check: 2026-07-09
-  promoted: true
+  last-promoted-check: 2026-07-11
 ---
 ## Boot Summary — Friday, May 29, 2026
 

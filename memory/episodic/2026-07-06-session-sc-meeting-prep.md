@@ -1,23 +1,29 @@
 ---
-type: working
 task_id: session
 session_id: master-2026-07-06-sc-meeting-prep
 agent-source: master
 created: 2026-07-06
 expires: 2026-07-09
 context: Systemic Compliance — July 8 whiteboard session prep
-tags:
-  - systemic-compliance
   - caio
   - meeting-prep
   - sc-ims
   - sc-orb
-related_people:
-  - kevin-graham
   - robin-graham
   - matt-yasar
+status: archived
+type: working-archive
+date: 2026-07-06
+source_file: memory/working/2026-07-06-session-sc-meeting-prep.md
+tags:
+  - master
+  - omnifocus
+  - overdue-tasks
+related_people:
 salience:
-  score: 9
+  score: 10
+  last-promoted-check: 2026-07-11
+  promoted: true
 ---
 
 ## Session Summary
@@ -60,3 +66,4 @@ For each Claude-built tool Kevin walks through: Intent · Business Value · Data
 - [ ] Matt Yasar deep-dive still unscheduled (OmniFocus task overdue Jul 3)
 - [ ] 16-hour usage plan — lock Wednesday
 - [ ] Path A vs. B still undecided — surface Wednesday
+  promoted: true

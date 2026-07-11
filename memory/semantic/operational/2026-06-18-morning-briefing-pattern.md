@@ -5,7 +5,7 @@ tags:
 - morning-briefing
 confidence: high
 created: '2026-06-18'
-last-updated: 2026-07-06
+last-updated: 2026-07-11
 synthesized-from:
   - memory/episodic/2026-05-04-morning-briefing-automated.md
   - memory/episodic/2026-05-04-morning-briefing.md
@@ -94,3 +94,9 @@ Sources this cycle:
 - 2026-07-02: 1 entries reinforce relevance of `morning-briefing` cluster. Watch for further co-occurrence.
 _TBD — pattern just emerged. Watch for stability over the next 2-3 dream cycles before drawing conclusions._
 - 2026-06-30: 7 new episodic entries reinforce this pattern (cluster anchor: morning-briefing).
+
+### 2026-07-11 — Nightly promotion
+Sources this cycle:
+- `memory/episodic/morning-briefing-2026-07-08-061500.md` (score 10) — tags: briefing, chief, morning-briefing, calendar, omnifocus, leads, travel, flight, rock4, quarterly-rocks; scheduled-task run, Q3 rock cadence and travel/flight context present
+
+- 2026-07-11: 1 new episodic entry reinforces this pattern (cluster anchor: morning-briefing). Rock4/quarterly-rocks co-occurrence with travel/flight tags continues to be the dominant cross-tag signature for this cluster.

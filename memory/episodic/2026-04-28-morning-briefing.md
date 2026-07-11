@@ -19,10 +19,10 @@ related_people:
 - howard-dierking
 - david-belcher
 - mick
+  promoted: true
 salience:
   score: 10
-  last-promoted-check: 2026-07-09
-  promoted: true
+  last-promoted-check: 2026-07-11
 ---
 # Morning Briefing — April 28, 2026
 

@@ -1,12 +1,32 @@
 ---
-type: working
 task_id: "session"
 session_id: "chief-2026-07-08-061500"
 agent-source: chief
 created: 2026-07-08T06:15:00
 expires: 2026-07-10T06:15:00
-status: active
 context: "Morning briefing — 2026-07-08 (scheduled task run)"
+status: archived
+type: working-archive
+date: 2026-07-08
+source_file: memory/working/morning-briefing-2026-07-08-061500.md
+tags:
+  - briefing
+  - chief
+  - morning-briefing
+  - calendar
+  - omnifocus
+  - leads
+  - travel
+  - flight
+  - rock4
+  - quarterly-rocks
+related_people:
+  - alice-mburu
+  - devlin
+salience:
+  score: 10
+  last-promoted-check: 2026-07-11
+  promoted: true
 ---
 
 # Morning Briefing — Wednesday, July 08, 2026
@@ -40,6 +60,7 @@ context: "Morning briefing — 2026-07-08 (scheduled task run)"
 - memory/personal/quarterly-objectives.md is stale — still Q2 2026 (Apr-Jun), no Q3 transition; EA Hire flagged "Urgent" despite Alice Mburu active as EA since April 2026
 - Jarvis Outlook folder: empty, no items to process
 - No M365 "flagged" filter available on outlook_email_search; scanned inbox since yesterday for time-sensitive items tied to today's calendar — nothing found requiring same-day action beyond routine threads (FUB compliance notes thread, Alice Mburu scheduling confirmations)
+  promoted: true
 
 ---
 

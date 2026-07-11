@@ -1,3 +1,9 @@
+---
+
+salience:
+  score: 0
+  last-promoted-check: 2026-07-11
+---
 ---salience:
   score: 0
   last_scored: 2026-07-06

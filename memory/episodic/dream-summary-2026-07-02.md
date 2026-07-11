@@ -18,10 +18,10 @@ tags:
 - semantic-promotion
 - error-patterns
 related_people: null
+  promoted: true
 salience:
   score: 10
-  last-promoted-check: 2026-07-09
-  promoted: true
+  last-promoted-check: 2026-07-11
 ---
 
 # Dream cycle 2026-07-02 — quick read for Chief

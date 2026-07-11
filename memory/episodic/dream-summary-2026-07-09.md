@@ -1,15 +1,31 @@
 ---
-type: working
 expires: 2026-07-10
-status: active
 created: 2026-07-09T04:46:00
 agent-source: jarvis
-tags:
-  - dream-summary
   - jarvis
   - dream-cycle
   - semantic-promotion
   - error-patterns
+status: archived
+type: working-archive
+date: 2026-07-09
+source_file: memory/working/dream-summary-2026-07-09.md
+tags:
+  - dream-summary
+  - jarvis
+  - briefing
+  - omnifocus
+  - revenue
+  - pipeline
+  - co-sell
+  - plaud
+  - overdue-tasks
+  - semantic-promotion
+related_people:
+salience:
+  score: 10
+  last-promoted-check: 2026-07-11
+  promoted: true
 ---
 # Dream Cycle Summary — 2026-07-09
 
@@ -45,3 +61,4 @@ Git pull had a HEAD.lock collision (stale from a prior interrupted process), res
 | Error entries (30d) | 108 |
 | Errors this cycle | 0 |
 | Compression | Skipped (82d < 90d) |
+  promoted: true

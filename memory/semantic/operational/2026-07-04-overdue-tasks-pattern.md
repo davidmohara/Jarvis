@@ -6,7 +6,7 @@ synthesized-from:
   - memory/episodic/daily-review-2026-07-02-000000.md
   - memory/episodic/morning-briefing-2026-07-01-085000.md
   - memory/episodic/dream-summary-2026-07-03.md
-last-updated: 2026-07-06
+last-updated: 2026-07-11
 tags: [overdue-tasks]
 agent-source: dream-cycle
 confidence: low
@@ -32,6 +32,10 @@ A recurring `overdue-tasks` cluster surfaced in dream-cycle salience scoring. 3 
 ### 2026-07-06 — Nightly promotion
 Sources this cycle:
 - `memory/episodic/2026-07-03-060938-master-morning-briefing.md`
+
+### 2026-07-11 — Nightly promotion
+Sources this cycle:
+- `memory/episodic/2026-07-06-session-sc-meeting-prep.md` (score 10) — tags: master, omnifocus, overdue-tasks — Systemic Compliance whiteboard session prep; 16-hour advisory usage plan and Matt Yasar deep-dive both carried forward as overdue open items
 
 ## Implications
 
