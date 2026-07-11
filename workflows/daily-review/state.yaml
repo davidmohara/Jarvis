@@ -2,19 +2,19 @@
 workflow: daily-review
 agent: chief
 status: complete
-session-started: "2026-07-09T08:00:00"
-session-id: "chief-2026-07-09-080000"
+session-started: "2026-07-10T21:10:00"
+session-id: "chief-2026-07-10-211000"
 current-step: step-auto
 original-request: "auto"
 accumulated-context:
-  narrative-title: "2026-07-08 Microsoft Moves and a Medical Flag That Won't File Itself"
-  narrative-path: "reviews/daily/auto-2026-07-08.md"
-  omnifocus-status: "available — 6 completions (July 8), 7 overdue, 1 flagged, 13 inbox"
+  narrative-title: "2026-07-10 Friday Routines, Doctor Responses, and a Health Cluster Still Unresolved"
+  narrative-path: "reviews/daily/auto-2026-07-10.md"
+  omnifocus-status: "available — 5 completions (July 10), 7 overdue, 1 flagged, 15 inbox"
   calendar-status: "unavailable — headless scheduled run (expected)"
   delegation-status: "no active delegations"
-  output-guard: "passed (2672 bytes)"
-  working-memory-path: "memory/working/daily-review-2026-07-08-080000.md"
-  working-memory-status: "written (883 bytes)"
+  output-guard: "passed (2878 bytes)"
+  working-memory-path: "memory/working/daily-review-2026-07-10-211100.md"
+  working-memory-status: "written (880 bytes)"
   routing-note: "Obsidian MCP disabled in connector settings — written to local fallback"
   model: sonnet
 ---
