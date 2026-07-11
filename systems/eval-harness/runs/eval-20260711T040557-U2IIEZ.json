@@ -1,0 +1,77 @@
+{
+  "id": "eval-20260711T040557-U2IIEZ",
+  "type": "workflow",
+  "name": "system-eval",
+  "agent": "rigby",
+  "session_id": "rigby-2026-07-11-040557",
+  "trigger": "manual",
+  "started": "2026-07-11T04:05:57.242979Z",
+  "completed": "2026-07-11T04:14:24Z",
+  "duration_seconds": 507,
+  "status": "success",
+  "steps": [
+    {
+      "name": "step-01-intake",
+      "status": "complete"
+    },
+    {
+      "name": "step-02-assert",
+      "status": "complete"
+    },
+    {
+      "name": "step-03-grade",
+      "status": "complete"
+    },
+    {
+      "name": "step-04-score",
+      "status": "complete"
+    },
+    {
+      "name": "step-05-analyze",
+      "status": "complete"
+    },
+    {
+      "name": "step-06-dashboard",
+      "status": "complete"
+    }
+  ],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": []
+}

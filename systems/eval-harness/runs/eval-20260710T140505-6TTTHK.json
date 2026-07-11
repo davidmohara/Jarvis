@@ -29,17 +29,50 @@
       "abort_reason": null
     },
     "structural": {
-      "expected_outputs_written": null,
-      "outputs_non_empty": null,
-      "assertions_checked": 0,
-      "assertions_passed": 0,
-      "assertion_results": []
+      "expected_outputs_written": true,
+      "outputs_non_empty": true,
+      "assertions_checked": 8,
+      "assertions_passed": 8,
+      "assertion_results": [
+        {
+          "assertion": "Daily review workflow state.yaml shows status: complete",
+          "passed": true
+        },
+        {
+          "assertion": "Daily review output file was written to reviews/daily/ for the run date (not a prior day)",
+          "passed": true
+        },
+        {
+          "assertion": "Daily review output for run date is substantive (>300 bytes)",
+          "passed": true
+        },
+        {
+          "assertion": "Daily review for run date contains priorities or forward-planning section (tomorrow, next, Q-ref, carry-forward language)",
+          "passed": true
+        },
+        {
+          "assertion": "Daily review for run date contains completed items or wins section",
+          "passed": true
+        },
+        {
+          "assertion": "Daily review working memory file was written for the run date",
+          "passed": true
+        },
+        {
+          "assertion": "Daily review working memory for run date is substantive (>200 bytes)",
+          "passed": true
+        },
+        {
+          "assertion": "Daily review working memory for run date contains expected content",
+          "passed": true
+        }
+      ]
     },
     "grading": {
-      "last_graded": null,
-      "grade": null,
+      "last_graded": "2026-07-11T04:08:23Z",
+      "grade": "A",
       "safety_grade": null,
-      "grader_notes": null
+      "grader_notes": "Daily-review Jul 10: all 8/8 assertions pass. Output file auto-2026-07-10.md is 2,878 bytes with a substantive narrative covering 5 OmniFocus completions, 7 overdue items, nerve block cluster, Q3 rock status, and inbox growth. Working memory at 880 bytes contains expected content (daily-review-2026-07-10-211100.md). Forward-planning language present ('Q3 is now 10 days in with no formal rocks set'). Completed items section present. This is a clean, complete run that broke the phantom-success streak on Jul 10."
     },
     "controller_feedback": {
       "rating": null,

@@ -29,17 +29,50 @@
       "abort_reason": null
     },
     "structural": {
-      "expected_outputs_written": null,
-      "outputs_non_empty": null,
-      "assertions_checked": 0,
-      "assertions_passed": 0,
-      "assertion_results": []
+      "expected_outputs_written": false,
+      "outputs_non_empty": false,
+      "assertions_checked": 8,
+      "assertions_passed": 1,
+      "assertion_results": [
+        {
+          "assertion": "Daily review workflow state.yaml shows status: complete",
+          "passed": true
+        },
+        {
+          "assertion": "Daily review output file was written to reviews/daily/ for the run date (not a prior day)",
+          "passed": false
+        },
+        {
+          "assertion": "Daily review output for run date is substantive (>300 bytes)",
+          "passed": false
+        },
+        {
+          "assertion": "Daily review for run date contains priorities or forward-planning section (tomorrow, next, Q-ref, carry-forward language)",
+          "passed": false
+        },
+        {
+          "assertion": "Daily review for run date contains completed items or wins section",
+          "passed": false
+        },
+        {
+          "assertion": "Daily review working memory file was written for the run date",
+          "passed": false
+        },
+        {
+          "assertion": "Daily review working memory for run date is substantive (>200 bytes)",
+          "passed": false
+        },
+        {
+          "assertion": "Daily review working memory for run date contains expected content",
+          "passed": false
+        }
+      ]
     },
     "grading": {
-      "last_graded": null,
-      "grade": null,
+      "last_graded": "2026-07-11T04:08:23Z",
+      "grade": "F",
       "safety_grade": null,
-      "grader_notes": null
+      "grader_notes": "No output file found: reviews/daily/auto-2026-07-09.md does not exist. No working memory file for 2026-07-09 in memory/working/. Only daily-001-state-complete passes (1/8). This is the recurring zero-duration phantom success pattern documented in the Jul 8 analysis \u2014 the workflow reports status: success but produces nothing. The stale session_id root cause (identified in analysis-20260708T204000.md) is likely responsible. To earn a passing grade, the daily-review scheduled runner must produce the output file and working memory for the run date."
     },
     "controller_feedback": {
       "rating": null,

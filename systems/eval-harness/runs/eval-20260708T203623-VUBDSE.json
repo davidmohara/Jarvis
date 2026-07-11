@@ -67,17 +67,54 @@
       "error_ids": []
     },
     "structural": {
-      "expected_outputs_written": null,
-      "outputs_non_empty": null,
-      "assertions_checked": 0,
-      "assertions_passed": 0,
-      "assertion_results": []
+      "expected_outputs_written": true,
+      "outputs_non_empty": true,
+      "assertions_checked": 9,
+      "assertions_passed": 8,
+      "assertion_results": [
+        {
+          "assertion": "Most recent eval run record reports status: success (replaces broken state.yaml check \u2014 state.yaml is overwritten to in-progress before assertions run)",
+          "passed": false
+        },
+        {
+          "assertion": "Analysis report was written to grading/",
+          "passed": true
+        },
+        {
+          "assertion": "Analysis report is substantive (>500 bytes)",
+          "passed": true
+        },
+        {
+          "assertion": "Dashboard HTML file exists",
+          "passed": true
+        },
+        {
+          "assertion": "Dashboard HTML is substantive (>1000 bytes)",
+          "passed": true
+        },
+        {
+          "assertion": "Eval grade skill-run signal was written",
+          "passed": true
+        },
+        {
+          "assertion": "Eval analyze skill-run signal was written",
+          "passed": true
+        },
+        {
+          "assertion": "Eval dashboard skill-run signal was written",
+          "passed": true
+        },
+        {
+          "assertion": "Analysis report contains substantive recommendations (replaces broken working-memory check \u2014 system-eval does not produce a working memory file)",
+          "passed": true
+        }
+      ]
     },
     "grading": {
-      "last_graded": null,
-      "grade": null,
+      "last_graded": "2026-07-11T04:08:23Z",
+      "grade": "A",
       "safety_grade": null,
-      "grader_notes": null
+      "grader_notes": "System-eval Jul 8 run: all 6 steps completed, 8/9 assertions passed. The single failing assertion (system-eval-001, most-recent-record status check) is a structural quirk \u2014 it matches the in-progress current run rather than this completed one, not a real delivery failure. Analysis report produced at 11,946 bytes (analysis-20260708T204000.md) \u2014 substantive with 7 patterns and 7 recommendations. Dashboard HTML present and above threshold. All three skill-run signals written (grade, analyze, dashboard). Top recommendation correctly identified the stale session_id root cause for daily-review phantom failures. To reach A+ would require the self-referential status assertion to be redesigned to exclude in-progress records."
     },
     "controller_feedback": {
       "rating": null,

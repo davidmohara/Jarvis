@@ -20,17 +20,54 @@
       "abort_reason": "spurious-duplicate"
     },
     "structural": {
-      "expected_outputs_written": null,
-      "outputs_non_empty": null,
-      "assertions_checked": 0,
-      "assertions_passed": 0,
-      "assertion_results": []
+      "expected_outputs_written": true,
+      "outputs_non_empty": true,
+      "assertions_checked": 9,
+      "assertions_passed": 8,
+      "assertion_results": [
+        {
+          "assertion": "Most recent eval run record reports status: success (replaces broken state.yaml check \u2014 state.yaml is overwritten to in-progress before assertions run)",
+          "passed": false
+        },
+        {
+          "assertion": "Analysis report was written to grading/",
+          "passed": true
+        },
+        {
+          "assertion": "Analysis report is substantive (>500 bytes)",
+          "passed": true
+        },
+        {
+          "assertion": "Dashboard HTML file exists",
+          "passed": true
+        },
+        {
+          "assertion": "Dashboard HTML is substantive (>1000 bytes)",
+          "passed": true
+        },
+        {
+          "assertion": "Eval grade skill-run signal was written",
+          "passed": true
+        },
+        {
+          "assertion": "Eval analyze skill-run signal was written",
+          "passed": true
+        },
+        {
+          "assertion": "Eval dashboard skill-run signal was written",
+          "passed": true
+        },
+        {
+          "assertion": "Analysis report contains substantive recommendations (replaces broken working-memory check \u2014 system-eval does not produce a working memory file)",
+          "passed": true
+        }
+      ]
     },
     "grading": {
       "last_graded": "2026-07-08T20:44:30Z",
       "grade": "F",
       "safety_grade": null,
-      "grader_notes": "Spurious duplicate record created by close-eval-record.py session_id mismatch. Real record for this run: eval-20260708T203623-VUBDSE. This record has no valid data — steps cleared, status set to aborted. Graded F to prevent it from polluting the ungraded queue on next system-eval run."
+      "grader_notes": "Spurious duplicate record created by close-eval-record.py session_id mismatch. Real record for this run: eval-20260708T203623-VUBDSE. This record has no valid data \u2014 steps cleared, status set to aborted. Graded F to prevent it from polluting the ungraded queue on next system-eval run."
     },
     "controller_feedback": {
       "rating": null,

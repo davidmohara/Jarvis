@@ -1,23 +1,25 @@
 workflow: system-eval
 agent: rigby
 status: complete
-session-started: "2026-07-08T20:36:23Z"
-session-id: rigby-2026-07-08-203623
-eval-record-id: eval-20260708T203623-VUBDSE
+session-started: "2026-07-11T04:05:57Z"
+session-id: rigby-2026-07-11-040557
+eval-record-id: eval-20260711T040557-U2IIEZ
 current-step: null
-original-request: "manual system-eval run 2026-07-08"
+original-request: "manual system-eval run 2026-07-11"
 accumulated-context:
-  records_total: 50
-  records_skipped_in_progress: 1
+  records_total: 54
+  records_skipped_in_progress: 0
   needs_assertions:
-    - eval-20260704T040618-1D1QL1
-    - eval-20260707T021251-KHEVMG
-    - eval-20260708T021227-5P65RK
+    - eval-20260708T203623-VUBDSE
+    - eval-20260708T204409-VFJBTD
+    - eval-20260709T021252-HHX7I9
+    - eval-20260710T140505-6TTTHK
+    - eval-20260711T021151-T7AGFP
   needs_grade:
-    - eval-20260629T152135-WVFASP
-    - eval-20260704T040618-1D1QL1
-    - eval-20260707T021251-KHEVMG
-    - eval-20260708T021227-5P65RK
+    - eval-20260708T203623-VUBDSE
+    - eval-20260709T021252-HHX7I9
+    - eval-20260710T140505-6TTTHK
+    - eval-20260711T021151-T7AGFP
   records_complete: 45
   assertion_files_available:
     - system-eval
@@ -31,26 +33,46 @@ accumulated-context:
     - plaud-discover
     - plaud-speaker-id
     - plaud-trigger
-  assertions_run:
-    total_records_asserted: 3
-    total_assertions_evaluated: 25
-    total_assertions_passed: 9
-    records_fully_passing: 1
-    records_with_failures: 2
-    no_assertion_definition: []
   grading:
     total_graded: 4
     grade_distribution:
-      A: 1
+      A: 2
       B: 0
       C: 0
-      D: 1
+      D: 0
       F: 2
     no_output_found:
-      - eval-20260629T152135-WVFASP
+      - eval-20260709T021252-HHX7I9
+      - eval-20260711T021151-T7AGFP
+  assertions_run:
+    total_records_asserted: 5
+    total_assertions_evaluated: 42
+    total_assertions_passed: 26
+    records_fully_passing: 2
+    records_with_failures: 3
+    no_assertion_definition: []
+  step_timings:
+    - step: step-01-intake
+      started: "2026-07-11T04:05:57Z"
+      completed: "2026-07-11T04:07:00Z"
+    - step: step-02-assert
+      started: "2026-07-11T04:07:00Z"
+      completed: "2026-07-11T04:09:00Z"
+    - step: step-03-grade
+      started: "2026-07-11T04:09:00Z"
+      completed: "2026-07-11T04:12:00Z"
+    - step: step-04-score
+      started: "2026-07-11T04:12:00Z"
+      completed: "2026-07-11T04:14:00Z"
+    - step: step-05-analyze
+      started: "2026-07-11T04:14:00Z"
+      completed: "2026-07-11T04:17:00Z"
+    - step: step-06-dashboard
+      started: "2026-07-11T04:17:00Z"
+      completed: "2026-07-11T04:18:30Z"
   scoring:
-    records_scored: 49
-    batch_average: 0.7293
+    records_scored: 54
+    batch_average: 0.7249
     score_script_error: null
     score_by_id:
       eval-20260524T194258-HBF752: 0.5765
@@ -81,7 +103,6 @@ accumulated-context:
       eval-20260618T021249-SMAWWC: 0.8667
       eval-20260618T111047-8BE1NF: 0.7
       eval-20260619T021216-OI0WLY: 0.9183
-      eval-20260619T151710-0M80W7: null
       eval-20260620T021321-T6V6WJ: 0.5083
       eval-20260620T040734-4OUQLT: 0.8859
       eval-20260623T021234-DH9VSD: 0.9583
@@ -103,30 +124,16 @@ accumulated-context:
       eval-20260704T040618-1D1QL1: 1.0
       eval-20260707T021251-KHEVMG: 0.4667
       eval-20260708T021227-5P65RK: 0.4667
+      eval-20260708T203623-VUBDSE: 0.963
+      eval-20260708T204409-VFJBTD: 0.4296
+      eval-20260709T021252-HHX7I9: 0.5083
+      eval-20260710T140505-6TTTHK: 1.0
+      eval-20260711T021151-T7AGFP: 0.5083
   analysis:
-    report_path: systems/eval-harness/grading/analysis-20260708T204000.md
-    top_recommendation: "Fix the daily-review scheduled runner — stale session_id session-2026-07-06-095100 shared across July 7 and July 8 runs is the root cause of back-to-back zero-duration phantom success failures (9 of 25 runs now failing this way)"
+    report_path: systems/eval-harness/grading/analysis-20260711T041500.md
+    top_recommendation: "Fix the daily-review scheduled runner session context — phantom success pattern tied to 02:xx UTC scheduled runs resumed on Jul 11 after Jul 10 clean interactive run, confirming session_id not refreshing between scheduled invocations"
     patterns_count: 7
     recommendations_count: 7
   feedback_prompt: skipped (headless)
-  spurious_record: eval-20260708T204409-VFJBTD
-  spurious_record_reason: close-eval-record.py session_id mismatch — real record is eval-20260708T203623-VUBDSE
-  step_timings:
-    - step: step-01-intake
-      started: "2026-07-08T20:36:23Z"
-      completed: "2026-07-08T20:37:00Z"
-    - step: step-02-assert
-      started: "2026-07-08T20:37:00Z"
-      completed: "2026-07-08T20:38:00Z"
-    - step: step-03-grade
-      started: "2026-07-08T20:38:00Z"
-      completed: "2026-07-08T20:39:30Z"
-    - step: step-04-score
-      started: "2026-07-08T20:39:30Z"
-      completed: "2026-07-08T20:40:00Z"
-    - step: step-05-analyze
-      started: "2026-07-08T20:40:00Z"
-      completed: "2026-07-08T20:42:00Z"
-    - step: step-06-dashboard
-      started: "2026-07-08T20:42:00Z"
-      completed: "2026-07-08T20:44:30Z"
+  spurious_record: eval-20260711T041415-8DNQT4
+  spurious_record_reason: close-eval-record.py session_id mismatch — real record is eval-20260711T040557-U2IIEZ; sandbox permissions prevented deletion of spurious record (rm failed with PermissionError in workspace)
