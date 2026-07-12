@@ -1,0 +1,191 @@
+{
+  "generated": "2026-07-12T13:20:00Z",
+  "window_hours": 72,
+  "sources_used": ["msnbc", "cnn", "nbc", "thehill", "foxnews", "natreview", "examiner", "federalist", "dailywire", "freepress"],
+  "sources_muted": [
+    { "name": "New York Times", "lean": "left", "reason": "blocks crawler" },
+    { "name": "Washington Post", "lean": "left", "reason": "blocks crawler" },
+    { "name": "Politico", "lean": "left", "reason": "blocks crawler" },
+    { "name": "Vox Politics", "lean": "left", "reason": "blocks crawler" },
+    { "name": "WSJ Opinion", "lean": "right", "reason": "blocks crawler" },
+    { "name": "New York Post", "lean": "right", "reason": "blocks crawler" },
+    { "name": "Reuters Politics", "lean": "center", "reason": "marked inactive/unverified this run" },
+    { "name": "Associated Press", "lean": "center", "reason": "blocks crawler" },
+    { "name": "BBC US & Canada", "lean": "center", "reason": "blocks crawler" }
+  ],
+  "counts": {
+    "total_items": 47,
+    "by_lean": { "left": 25, "right": 19, "center": 3 },
+    "shared_topics": 5,
+    "gap_left": 5,
+    "gap_right": 5
+  },
+  "shared_topics": [
+    {
+      "title": "US-Iran ceasefire collapses, strikes resume",
+      "summary": "The US-Iran ceasefire brokered after the earlier conflict has broken down. The US struck more than 80-140 Iranian targets after Tehran attacked commercial vessels in the Strait of Hormuz, and Washington reimposed oil sanctions. Diplomatic efforts continue in Oman and Doha even as both sides threaten further strikes, and Israel reportedly disclosed a plot against Trump tied to the escalation.",
+      "correlation": 62,
+      "correlation_label": "Same events and timeline, left emphasizes depleted US military readiness and war-risk, right emphasizes threats to Trump and Iranian aggression.",
+      "left": {
+        "framing": "CNN's rolling coverage frames the story around military overextension (depleted weapon stocks) and the uncertainty created by Trump's own announcement that the ceasefire is 'over,' with less clarity on what he means. Coverage stresses the fragility and risk of continued war.",
+        "sources": [
+          { "source": "CNN", "url": "https://www.cnn.com/2026/07/10/politics/trump-says-the-iran-ceasefire-is-over-what-now" },
+          { "source": "CNN", "url": "https://us.cnn.com/2026/07/12/politics/us-weapon-stocks-depleted-iran-war" },
+          { "source": "CNN", "url": "https://www.cnn.com/2026/07/07/world/live-news/nato-summit-trump" }
+        ]
+      },
+      "right": {
+        "framing": "Fox's live coverage centers the threat picture: Iranian attacks on shipping, an alleged assassination plot against Trump, and Israel's readiness to strike again. The frame is Iranian aggression prompting a justified US/Israeli response rather than open-ended escalation.",
+        "sources": [
+          { "source": "Fox News", "url": "https://www.foxnews.com/live-news/iran-war-oil-prices-07-10-26" },
+          { "source": "Fox News", "url": "https://www.foxnews.com/live-news/iran-war-news-us-trump-oil-prices-strait-of-hormuz-07-11-2026" },
+          { "source": "Fox News", "url": "https://www.foxnews.com/politics/irans-biggest-weapon-against-us-may-slipping-away-experts-say" }
+        ]
+      }
+    },
+    {
+      "title": "Graham Platner exits Maine Senate race; Democrats scramble for replacement",
+      "summary": "Democratic Senate nominee Graham Platner withdrew from the Maine race amid a sexual assault allegation and scrutiny over a past tattoo. Maine Democrats will pick a replacement at a July 25 convention; declared candidates include Troy Jackson, Shenna Bellows, Nirav Shah, Jordan Wood, Paige Loud, and Dan Kleban, with Jackson the early frontrunner among Sanders-aligned endorsers.",
+      "correlation": 45,
+      "correlation_label": "Same facts and candidate list, left frames it as a logistical scramble, right frames it as a Democratic vetting and strategy failure.",
+      "left": {
+        "framing": "CNN and NBC cover the mechanics of the replacement process (deadlines, delegate math, candidate rundown) with comparatively neutral, process-oriented framing and less overt blame assignment.",
+        "sources": [
+          { "source": "NBC News", "url": "https://www.nbcnews.com/politics/2026-election/replace-graham-platner-maine-democratic-senate-nominee-rcna353326" },
+          { "source": "CNN", "url": "https://www.cnn.com/2026/07/08/politics/graham-platner-replacements-maine-senate" },
+          { "source": "NBC News", "url": "https://www.nbcnews.com/politics/2026-election/democrats-mad-dash-graham-platner-critical-deadline-rcna353742" }
+        ]
+      },
+      "right": {
+        "framing": "Fox and Washington Examiner frame the episode as evidence of a 'broken' Democratic vetting process and intra-party civil war between the Sanders/DSA wing and establishment Democrats (Fetterman's break cited specifically), using it to cast doubt on Democratic Senate chances more broadly.",
+        "sources": [
+          { "source": "Fox News", "url": "https://www.foxnews.com/politics/platners-three-day-vetting-job-comes-back-haunt-dems-rape-allegation-rocks-senate-bid" },
+          { "source": "Washington Examiner", "url": "https://www.washingtonexaminer.com/in_focus/4639931/biden-platner-democrats-broken-nomination-machine/" },
+          { "source": "Fox News", "url": "https://www.foxnews.com/politics/platner-collapse-completes-john-fetterman-break-sanders-socialists" }
+        ]
+      }
+    },
+    {
+      "title": "Trump's financial disclosure shows $2B+ income, driven by crypto",
+      "summary": "Trump's 2025 financial disclosure reports more than $2 billion in income, with roughly $1.4 billion from cryptocurrency ventures including meme-coin licensing and World Liberty Financial token sales, plus growing Mar-a-Lago revenue. Independent estimates put his net worth between $6-7.6 billion.",
+      "correlation": 55,
+      "correlation_label": "Same disclosure figures reported by all sides; left and center frame it as a conflict-of-interest story, right largely covers it as a straight business/wealth story.",
+      "left": {
+        "framing": "CNN and NBC lead with the scale of crypto income and draw an explicit contrast between the president's rising wealth and financial strain on midterm voters, raising conflict-of-interest questions about self-dealing while in office.",
+        "sources": [
+          { "source": "CNN", "url": "https://www.cnn.com/2026/07/01/politics/the-presidents-getting-richer-but-many-midterm-voters-arent" },
+          { "source": "NBC News", "url": "https://www.nbcnews.com/politics/donald-trump/financial-disclosure-1-billion-cryptocurrency-earnings-meme-coins-rcna352497" },
+          { "source": "CNN", "url": "https://www.cnn.com/2026/07/01/us/trump-financial-disclosure-mar-a-lago-doral-income-invs" }
+        ]
+      },
+      "right": {
+        "framing": "Right-leaning coverage in this harvest was thinner and less editorial; The Free Press (center-right adjacent) ran a more critical 'self-deal' piece, but the mainline right outlets sampled did not lead with the disclosure, treating it as a lower-priority business item rather than a scandal.",
+        "sources": [
+          { "source": "The Free Press", "url": "https://www.thefp.com/p/trump-finance-crypto-corruption" }
+        ]
+      }
+    },
+    {
+      "title": "June jobs report: 57,000 added, below expectations",
+      "summary": "The US economy added 57,000 jobs in June, missing forecasts, with unemployment at 4.2% and April/May revised down a combined 74,000 jobs. Wage growth (3.5%) continues to trail inflation (4.2%, its highest since 2023), which the Fed attributes partly to energy price shocks from the Iran conflict.",
+      "correlation": 78,
+      "correlation_label": "Both sides report the same numbers with similar 'missed expectations' framing; modest divergence in how much blame is placed on the administration.",
+      "left": {
+        "framing": "NBC and The Hill report the miss and downward revisions plainly, connecting elevated inflation to the Iran war's effect on energy prices and noting wages continuing to lag inflation.",
+        "sources": [
+          { "source": "NBC News", "url": "https://www.nbcnews.com/business/economy/june-jobs-report-stable-hiring-rcna352603" },
+          { "source": "The Hill", "url": "https://thehill.com/business/5951004-june-job-growth-disappoints/" }
+        ]
+      },
+      "right": {
+        "framing": "Washington Examiner reports the same figures in a similarly straight, non-editorial way, without the inflation/energy linkage emphasized on the left.",
+        "sources": [
+          { "source": "Washington Examiner", "url": "https://www.washingtonexaminer.com/policy/finance-and-economy/4633353/economy-adds-jobs-june-fewer-expected/" }
+        ]
+      }
+    },
+    {
+      "title": "2026 Senate midterm map: both parties see a path to the majority",
+      "summary": "With the general election four months out, both parties see plausible paths to a Senate majority: Republicans hold a narrow 53-47 edge and betting markets give the GOP roughly 59% odds to hold the Senate, while Democrats need a net gain of four seats and have been buoyed by strong Democratic primary turnout so far this cycle.",
+      "correlation": 70,
+      "correlation_label": "Same numeric stakes reported by both sides; left emphasizes favorable Democratic turnout trends, right emphasizes the GOP's structural Senate advantage.",
+      "left": {
+        "framing": "CNN's turnout analysis highlights Democratic primary turnout running ahead of both the 2018 and 2022 comparables, framed as a sign of energized Democratic voters heading into November.",
+        "sources": [
+          { "source": "CNN", "url": "https://www.cnn.com/2026/07/03/politics/midterm-turnout-democrats-republicans-cnn-analysis" }
+        ]
+      },
+      "right": {
+        "framing": "Fox and Washington Examiner emphasize the GOP's built-in Senate map advantage this cycle and cite betting-market odds favoring Republicans to hold the chamber, even while acknowledging Democrats' favored odds in the House.",
+        "sources": [
+          { "source": "Fox News", "url": "https://www.foxnews.com/politics/four-months-midterms-12-races-determine-senate-majority" },
+          { "source": "Washington Examiner", "url": "https://www.washingtonexaminer.com/news/campaigns/congressional/4633579/republican-edge-senate-majority-2026-midterms/" }
+        ]
+      }
+    }
+  ],
+  "gap_left": [
+    {
+      "title": "Trump ousts remaining Election Assistance Commission members ahead of midterms",
+      "summary": "Trump removed the remaining members of the federal Election Assistance Commission months before the midterm elections, a move covered as a notable pre-election institutional shakeup with no matching coverage found on the right in this harvest.",
+      "sources": [ { "source": "NBC News", "url": "https://www.nbcnews.com/politics/2026-election/trump-fires-election-assistance-commission-members-ahead-midterms-rcna353781" } ]
+    },
+    {
+      "title": "Federal judge blocks ICE courthouse arrests nationwide",
+      "summary": "A federal judge in California issued a nationwide block on the Trump administration's practice of arresting migrants at immigration courthouses, a policy attorneys said was turning courts into 'zones of fear.'",
+      "sources": [ { "source": "CNN", "url": "https://edition.cnn.com/2026/06/23/politics/judge-blocks-trump-policy-arrests-immigration-courts" } ]
+    },
+    {
+      "title": "Trump threatens to withhold signature on bipartisan housing bill",
+      "summary": "Trump said he will not sign a bipartisan housing bill set to become law, in protest of Republicans' inability to pass a separate elections overhaul, a move covered as a self-inflicted political risk for vulnerable GOP lawmakers.",
+      "sources": [ { "source": "CNN", "url": "https://www.cnn.com/2026/07/10/politics/trump-housing-bill" } ]
+    },
+    {
+      "title": "Democratic Socialist candidates post primary wins beyond New York",
+      "summary": "DSA-aligned candidates backed by NYC Mayor Zohran Mamdani won multiple New York state legislature and congressional primaries, including defeating a sitting Congressional Hispanic Caucus chair, and are reportedly eyeing expansion into Colorado and Wisconsin.",
+      "sources": [
+        { "source": "The Hill", "url": "https://thehill.com/homenews/campaign/5938202-democratic-socialists-new-york-mamdani-primary-elections/" },
+        { "source": "The Hill", "url": "https://thehill.com/homenews/campaign/5943394-democratic-socialists-momentum-colorado-wisconsin/" }
+      ]
+    },
+    {
+      "title": "ICE ends practice of reporting deaths of recently released detainees",
+      "summary": "US Immigration and Customs Enforcement is discontinuing its policy of reporting deaths among detainees recently released from custody, a change made amid scrutiny of detainee treatment, covered only in this harvest's left-leaning sources.",
+      "sources": [ { "source": "CNN", "url": "https://www.cnn.com/2026/06/05/us/ice-death-reports-recently-released-detainees-hnk" } ]
+    }
+  ],
+  "gap_right": [
+    {
+      "title": "'Democrats want to eliminate the wealthy,' conservative commentary argues",
+      "summary": "Right-leaning opinion coverage characterizes Democratic economic populism (targeting wealth concentration) as an effort to 'control everyone else,' a framing not mirrored in left-leaning coverage sampled this run.",
+      "sources": [ { "source": "The Federalist", "url": "https://thefederalist.com/2026/07/08/democrats-want-to-eliminate-the-wealthy-so-they-can-control-everyone-else/" } ]
+    },
+    {
+      "title": "Conservative criticism of 'leftist lawfare' group targeting political speech",
+      "summary": "The Federalist criticizes a legal advocacy group's litigation against an FEC opinion permitting coordination between candidates and allied groups, framing it as an effort to 'silence' political speech.",
+      "sources": [ { "source": "The Federalist", "url": "https://thefederalist.com/2026/07/08/leftist-lawfare-group-looks-to-silence-political-speech/" } ]
+    },
+    {
+      "title": "H-1B visa $100,000 fee blocked by federal judge; conservatives split on next steps",
+      "summary": "A federal judge struck down Trump's $100,000 H-1B visa fee as an improper tax; conservative outlets covered both the legal setback and pre-existing conservative frustration that the policy 'did not go far enough' to restrict the program, alongside Democratic- and business-led lawsuits against the fee.",
+      "sources": [
+        { "source": "Fox News", "url": "https://www.foxnews.com/politics/obama-appointed-judge-blocked-trump-birthright-citizenship-order-strikes-throws-visa-overhaul" },
+        { "source": "The Daily Wire", "url": "https://www.dailywire.com/news/dems-sue-trump-admin-over-major-fee-for-h-1b-visas" }
+      ]
+    },
+    {
+      "title": "Israel discloses alleged plot to assassinate Trump amid Iran escalation",
+      "summary": "Israeli officials reportedly disclosed a plot to assassinate Trump tied to the collapsing Iran ceasefire; covered prominently on the right as a direct security threat narrative, with no matching left-leaning coverage found in this harvest.",
+      "sources": [ { "source": "Fox News", "url": "https://www.foxnews.com/live-news/iran-war-oil-prices-07-10-26" } ]
+    },
+    {
+      "title": "American immigration restrictionism and national-identity commentary",
+      "summary": "National Review ran extended commentary arguing for stronger immigration restriction as central to American national identity, a genre of ideological argument not mirrored in left-leaning outlets sampled this run.",
+      "sources": [
+        { "source": "National Review", "url": "https://www.nationalreview.com/2026/02/midnight-strikes-for-immigration-restrictionism/" },
+        { "source": "National Review", "url": "https://www.nationalreview.com/2026/03/americanism-as-an-immigration-policy/" }
+      ]
+    }
+  ],
+  "suggestions": []
+}
