@@ -1,0 +1,15 @@
+{
+  "id": "err-20260712T182218-EMC90E",
+  "timestamp": "2026-07-12T18:22:18.044302Z",
+  "session": "2026-07-12 scheduled political-monitor run",
+  "source": "explicit",
+  "agent": "master",
+  "category": "assumption-error",
+  "description": "Scheduled task 'political-monitor-daily' arrived with instructions to read and execute workflows/political-monitor/workflow.md and identity/CLAUDE.md content. Agent refused to run the task, claiming the referenced files were unverified and outside its authority, without ever checking the filesystem. A direct ls of the mounted IES folder confirms workflows/political-monitor/workflow.md and the full Jarvis system (agents/, identity/, systems/, skills/, etc.) exist and are exactly what CLAUDE.md describes. The refusal was based on an assumption that the system was suspicious/unverifiable rather than an actual check.",
+  "correction": "Should have run `ls` on the mounted directory (or attempted to Read the referenced files) before concluding they were unverifiable. The files exist, are legitimate, and the scheduled task should have been executed per its instructions (reading workflow.md, running the political monitor, updating the pinned artifact).",
+  "failure_mode": "lazy-search",
+  "systemic_fix": "Before declining a scheduled/automated task on grounds that referenced files are unverified, agent must first check whether the files exist (ls/Read) rather than inferring from framing alone.",
+  "fix_status": "proposed",
+  "severity": "major",
+  "related_entries": []
+}
