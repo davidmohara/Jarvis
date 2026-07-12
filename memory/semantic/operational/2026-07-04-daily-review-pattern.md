@@ -7,7 +7,7 @@ synthesized-from:
   - memory/episodic/daily-review-2026-07-02-000000.md
   - memory/episodic/dream-summary-2026-07-03.md
   - memory/episodic/shutdown-cleanup-2026-07-01-170500.md
-last-updated: 2026-07-11
+last-updated: 2026-07-12
 tags: [daily-review]
 agent-source: dream-cycle
 confidence: low
@@ -34,8 +34,13 @@ Sources this cycle:
 - `memory/episodic/daily-review-2026-07-06-140000.md` (score 10) — tags: daily-review, chief, calendar, omnifocus, scorecard, email, overdue-tasks, health; related person steve-hall
 - `memory/episodic/daily-review-2026-07-07-080000.md` (score 10) — tags: daily-review, chief, calendar, omnifocus, email, overdue-tasks
 
+### 2026-07-12 — Nightly promotion
+Sources this cycle:
+- `memory/episodic/daily-review-2026-07-08-080000.md` (score 10) — tags: daily-review, chief, omnifocus, overdue-tasks, medical, rocks — nerve block cluster flagged; Q2 rocks unreviewed, Q3 not yet set
+
 ## Implications
 
 - Agents should treat `daily-review`-tagged content as a coherent operational thread — prefer synthesis over re-derivation when this cluster appears.
 - Watch for continued co-occurrence; escalate confidence when evidence surpasses 15 entries.
 - 2026-07-11: overdue-tasks and omnifocus/calendar co-occur with daily-review in nearly every promoted entry — this cross-tag pairing looks stable enough to treat as a durable signature of the daily-review deliverable type, not incidental overlap.
+- 2026-07-12: medical/rocks co-occurrence continues (nerve block flag recurring across multiple daily-review entries) — this looks like a persistent unresolved item rather than a one-off, worth surfacing distinctly from routine overdue-tasks noise.

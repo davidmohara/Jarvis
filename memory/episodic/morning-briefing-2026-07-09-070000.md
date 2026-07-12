@@ -1,12 +1,31 @@
 ---
-type: working
+type: working-archive
 task_id: "session"
 session_id: "chief-2026-07-09-070000"
 agent-source: chief
 created: 2026-07-09T07:00:00
 expires: 2026-07-11T07:00:00
-status: active
+status: archived
 context: "Morning briefing — 2026-07-09"
+date: 2026-07-09
+source_file: memory/working/morning-briefing-2026-07-09-070000.md
+tags:
+  - briefing
+  - chief
+  - calendar
+  - omnifocus
+  - systemic-compliance
+  - leads
+related_people:
+  - robyn-fuentes
+  - matt-yasar
+  - ken-graham
+  - ben-kennedy
+salience:
+  score: 10
+  last-promoted-check: 2026-07-12
+  promoted: true
+
 ---
 
 # Morning Briefing — Thursday, July 09, 2026

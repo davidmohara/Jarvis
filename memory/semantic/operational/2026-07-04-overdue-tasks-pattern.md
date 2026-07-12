@@ -6,7 +6,7 @@ synthesized-from:
   - memory/episodic/daily-review-2026-07-02-000000.md
   - memory/episodic/morning-briefing-2026-07-01-085000.md
   - memory/episodic/dream-summary-2026-07-03.md
-last-updated: 2026-07-11
+last-updated: 2026-07-12
 tags: [overdue-tasks]
 agent-source: dream-cycle
 confidence: low
@@ -37,7 +37,12 @@ Sources this cycle:
 Sources this cycle:
 - `memory/episodic/2026-07-06-session-sc-meeting-prep.md` (score 10) — tags: master, omnifocus, overdue-tasks — Systemic Compliance whiteboard session prep; 16-hour advisory usage plan and Matt Yasar deep-dive both carried forward as overdue open items
 
+### 2026-07-12 — Nightly promotion
+Sources this cycle:
+- `memory/episodic/system-eval-2026-07-08-203623.md` (score 10) — tags: rigby, omnifocus, leads — Jul 8 system-eval scored 0.963 (A-grade); phantom-failure rate on scheduled runners flagged as top recommendation
+
 ## Implications
 
 - Agents should treat `overdue-tasks`-tagged content as a coherent operational thread — prefer synthesis over re-derivation when this cluster appears.
 - Watch for continued co-occurrence; escalate confidence when evidence surpasses 15 entries.
+- 2026-07-12: rigby/omnifocus system-eval entries continue to cluster with overdue-tasks — the eval harness itself is becoming a secondary signal source for overdue-item tracking, not just the daily-review/briefing pipeline.

@@ -5,7 +5,7 @@ subject: plaud pattern
 synthesized-from:
   - memory/episodic/plaud-ingest-2026-07-02-011500.md
   - memory/episodic/morning-briefing-2026-07-01-085000.md
-last-updated: 2026-07-11
+last-updated: 2026-07-12
 tags: [plaud]
 agent-source: dream-cycle
 confidence: low
@@ -42,3 +42,9 @@ Sources this cycle:
 Sources this cycle:
 - `memory/episodic/plaud-ingest-2026-07-09-000000.md` (score 10) — tags: knox, calendar, plaud, chief; related people alice-mburu, devlin, tim-rayburn
 - `memory/episodic/shutdown-cleanup-2026-07-09-000000.md` (score 10) — tags: session-wrap, chief, briefing, plaud, dream-cycle, knox — session-wrap and plaud co-occurring in same shutdown-cleanup entry
+
+### 2026-07-12 — Nightly promotion
+Sources this cycle:
+- `memory/episodic/plaud-ingest-2026-07-09-204305.md` (score 3) — tags: plaud, knox, systemic-compliance, medical, orb-platform — 2 recordings ingested: Tarlov cyst nerve block consult and Systemic Compliance Orb Platform demo; unresolved speaker name flagged in vault note
+
+- 2026-07-12: systemic-compliance and medical tags both surfacing through plaud ingests this cycle — plaud is increasingly the first-touch capture point for both the SC account thread and the ongoing medical situation, ahead of formal account/health tracking.

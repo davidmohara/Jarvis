@@ -22,8 +22,8 @@ tags:
 related_people:
 salience:
   score: 10
-  last-promoted-check: 2026-07-11
-  promoted: true
+  last-promoted-check: 2026-07-12
+
 ---
 
 ## Session Summary

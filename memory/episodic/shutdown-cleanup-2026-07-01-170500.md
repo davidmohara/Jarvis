@@ -20,7 +20,8 @@ related_people:
   promoted: true
 salience:
   score: 10
-  last-promoted-check: 2026-07-11
+  last-promoted-check: 2026-07-12
+
 ---
 
 - Committed 103 files (768ef77): working-memory TTL archival (7 archived to episodic, 78 trivial moved to `archive/working-cleanup-2026-07-01-pending-delete/`), Systemic Compliance and GeniusSpark refiling, daily-review capture, reMarkable push-artifact purge (Rex Miller lunch prep PDF, GeniusSpark PDF, Systemic Compliance PDF). Not pushed to remote (not requested).

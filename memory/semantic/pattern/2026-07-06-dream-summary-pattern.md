@@ -5,7 +5,7 @@ tag: dream-summary
 domain: pattern
 confidence: low
 created: 2026-07-06
-last-updated: 2026-07-11
+last-updated: 2026-07-12
 synthesized-from: 3 episodic entries
 tags:
   - dream-summary
@@ -40,3 +40,9 @@ Sources this cycle:
 - `memory/episodic/dream-summary-2026-07-09.md` (score 10) — 7 files archived, 4 clusters promoted, 8 semantic updates, 0 new lessons; git boot pull clean (already up to date)
 
 Continued reinforcement: every promoted dream-summary cycle to date has resolved cleanly with zero unresolved errors, supporting confidence escalation once evidence count crosses the next threshold.
+
+### 2026-07-12 — Nightly promotion
+Sources this cycle:
+- `memory/episodic/dream-summary-2026-07-09.md` (score 10) — clean boot pull, 8 archives, 6 clusters promoted, 6 semantic updates, 0 new lessons
+
+Pattern continues to hold: dream-summary evidence base has now shown 5+ consecutive clean cycles across two months. Worth revisiting confidence escalation criteria at the next cycle since evidence count is approaching the stated 15-entry threshold used by sibling patterns.

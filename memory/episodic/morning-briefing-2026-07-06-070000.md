@@ -31,7 +31,8 @@ related_people:
   - lauren-sweda
 salience:
   score: 10
-  last-promoted-check: 2026-07-11
+  last-promoted-check: 2026-07-12
+
 ---
 
 # Morning Briefing — Monday, July 6, 2026
