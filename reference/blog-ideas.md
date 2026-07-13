@@ -36,6 +36,10 @@ Running list of potential blog topics. Jarvis captures these proactively from co
 | "The Enterprise AI Platform War Is Over. Now What?" | Watchtower W28 (2026-07-06) [watchtower] | AI, business, technology, consulting | Draft at `Mind/Posts/_the-enterprise-ai-platform-war-is-over.md` |
 | "When 700 People Show Up for an AI Awards Night, the Hype Is Over" | Watchtower W28 (2026-07-06) [watchtower] | texas, AI, business, leadership, DFW | Draft at `Mind/Posts/_when-700-people-show-up-for-an-ai-awards-night.md` |
 | "The Urgency Trap Is Why Your AI Pilot Didn't Work" | Content pipeline (2026-07-09) | AI, business, leadership | Ghost draft — pending approval |
+| "The Pyramid Is Coming Down. Now What?" | Watchtower W29 (2026-07-13) [watchtower] | consulting, AI, business, leadership | Draft at `Mind/Posts/_the-pyramid-is-coming-down-now-what.md` |
+| "You're Paying for the Pilot. You're Not Getting the Production." | Watchtower W29 (2026-07-13) [watchtower] | AI, business, consulting, systems thinking | Draft at `Mind/Posts/_youre-paying-for-the-pilot.md` |
+| "Texas Said Yes to AI. Now It's Writing the Rules." | Watchtower W29 (2026-07-13) [watchtower] | texas, AI, business, infrastructure | Draft at `Mind/Posts/_texas-said-yes-to-ai-now-its-writing-the-rules.md` |
+| "The Stack You Chose Last Year Just Became the Right Answer" | Watchtower W29 (2026-07-13) [watchtower] | AI, business, technology, consulting | Draft at `Mind/Posts/_the-stack-you-chose-last-year.md` |
 
 ## Published (for reference / avoid repeats)
 

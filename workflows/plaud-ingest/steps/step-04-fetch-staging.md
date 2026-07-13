@@ -1,7 +1,7 @@
 ---
-status: not-started
-started-at: null
-completed-at: null
+status: completed
+started-at: "2026-07-13T15:00:00Z"
+completed-at: "2026-07-13T15:10:00Z"
 model: haiku
 outputs: {}
 notes: "REGENERATION FIX (2026-06-10): Added automatic transcript regeneration trigger when speaker renames don't sync to S3. Script now verifies names appear in downloaded transcript and calls POST /ai/transsumm with is_reload: 1 if needed."

@@ -1,0 +1,13 @@
+{
+  "id": "err-20260713T145535-1D101M",
+  "timestamp": "2026-07-13T09:55:35-05:00",
+  "agent": "knox",
+  "category": "lazy-search",
+  "failure_mode": "surfaced-question-to-controller-without-exhausting-available-sources",
+  "severity": "minor",
+  "description": "Knox asked David to identify Speaker 2 ('Slater') on the Jul 10 agent landing zone recording without first checking the calendar invite for that meeting. The attendee list on the calendar event would have resolved the speaker ID without controller involvement.",
+  "correction": "David pointed out that the calendar invite had all the information needed.",
+  "proposed_fix": "Knox speaker-ID protocol must include a mandatory step: before surfacing an unresolved speaker to the controller, check the corresponding calendar event (search by date + keywords from recording title) and cross-reference attendees. Only escalate if the calendar lookup also fails.",
+  "systemic_rule": "For any Plaud recording, Knox must attempt calendar lookup (M365 outlook_calendar_search by date + subject keywords) before asking David to identify a speaker.",
+  "session_id": "session-2026-07-13-094046"
+}

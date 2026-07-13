@@ -19,10 +19,12 @@ outputs:
 1. Write `status: in-progress` and `started-at` to this file's frontmatter before doing anything else.
 2. Read `identity/VOICE.md` and `reference/blog-ideas.md` BEFORE writing any draft. Voice alignment is non-negotiable.
 3. One draft file per content candidate, not per theme. Themes may yield multiple angles; that is expected.
-4. All draft files go to Obsidian `Mind/Posts/` with underscore-prefix. Use Obsidian MCP — do NOT write to filesystem paths inside the vault.
-5. Append candidate rows to `reference/blog-ideas.md` with `[watchtower]` source marker. Do NOT rewrite existing rows.
-6. Drafts are starters — hook + outline only, not full posts. Keep them under 300 words total.
-7. Write `status: complete`, `completed-at`, and `outputs` when done.
+4. All draft files go to Obsidian `Mind/Posts/` with underscore-prefix. Use Obsidian MCP (`mcp__obsidian-local__create_vault_file`) — do NOT write to filesystem paths inside the vault. Do NOT claim a file was written without calling this tool.
+5. After writing each file, call `mcp__obsidian-local__get_vault_file` to verify it exists. Only log the path in outputs AFTER verification succeeds. If verification fails, retry once, then log failure.
+6. Append candidate rows to `reference/blog-ideas.md` with `[watchtower]` source marker. Do NOT rewrite existing rows.
+7. Drafts are starters — hook + outline only, not full posts. Keep them under 300 words total.
+8. VERIFICATION GATE: Before writing `status: complete`, confirm that `outputs.draft_paths` contains only paths that were verified via `mcp__obsidian-local__get_vault_file`. A path that was written but not verified must be marked `unverified` in outputs.
+9. Write `status: complete`, `completed-at`, and `outputs` when done.
 
 ---
 

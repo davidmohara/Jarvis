@@ -1,0 +1,15 @@
+{
+  "id": "err-20260713T162322-LPE48M",
+  "timestamp": "2026-07-13T16:23:22Z",
+  "session": "2026-07-13",
+  "source": "self-detected",
+  "agent": "master",
+  "category": "routing-error",
+  "description": "Master executed a reMarkable upload directly via rmapi/osascript instead of routing to Knox. Knox is the designated owner of 'upload to remarkable' per the routing table and knox.md task portfolio. The remarkable-upload skill does not yet exist in skills/, which contributed to Master improvising rather than routing.",
+  "correction": "reMarkable uploads route to Knox. Master should have spawned Knox with the file path and destination, letting Knox read its own skill (or handle inline if the skill is absent) rather than executing the upload directly.",
+  "failure_mode": "protocol-skip",
+  "systemic_fix": "Build skills/remarkable-upload/SKILL.md so Knox has a defined execution path. Until then, Master should still route to Knox — Knox can execute inline without a formal skill file.",
+  "fix_status": "proposed",
+  "severity": "minor",
+  "related_entries": ["err-20260713T162133-3EMOHW"]
+}

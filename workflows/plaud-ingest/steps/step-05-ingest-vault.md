@@ -1,16 +1,15 @@
 ---
 status: completed
-started-at: "2026-07-02T00:30:00Z"
-completed-at: "2026-07-02T01:15:00Z"
+started-at: "2026-07-13T15:10:00Z"
+completed-at: "2026-07-13T15:30:00Z"
 model: sonnet
 outputs:
   ingested-notes:
-    - "zzPlaud/Client/2026-07-01 Nexben Discussion — Platform Modernization and AI Integration.md"
-    - "zzPlaud/Client/2026-07-01 Microsoft Responsible AI and Improving Partnership — Follow-up After Houston AI Tour.md"
-  daily-note-updated: "Calendar/2026/07-July/2026-07-01.md"
-  omnifocus-tasks-created: 5
-  staging-files-removed: 6
-  notes: "Created Calendar/2026/07-July folder (did not exist prior). Reconciliation workaround: the documented fetch_plaud.py --list-all flag does not exist in the current script (known-issue, carried forward); verified staging completeness by listing plaud_07-01* files directly and cross-referencing against ready-for-fetch instead. Cleanup scoped explicitly to the 6 files (2 .md + 2 _raw.json + 2 _speakers.json) belonging to this session's 2 recordings — did not touch the unrelated ~49-file legacy backlog also present in transcript-staging/."
+    - "zzPlaud/Improving/2026-07-10 Aligning on a Centralized AI Agent Landing Zone.md"
+  daily-note-updated: "Calendar/2026/07-July/2026-07-10.md"
+  monday-tasks-created: 5
+  staging-files-removed: 4
+  notes: "Speaker 2 resolved as Michael Slater (michael.slater@improving.com) via M365 calendar lookup — calendar event 'Review Improving Landing Zone' Jul 10 20:00-20:30 UTC. Rename succeeded on first attempt (PATCH applied) but script exited code 1 due to transient /file/list API response; re-ran rename which skipped the already-applied PATCH and completed the re-fetch. Created daily note Calendar/2026/07-July/2026-07-10.md (did not exist). Cleanup scoped to 4 files (1 named .md + 1 ID-named .md + 1 _raw.json + 1 _speakers.json) for this session's recording; legacy backlog untouched per prior convention."
 ---
 
 <!-- system:start -->

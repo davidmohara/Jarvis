@@ -406,7 +406,7 @@
         "name": "revenue-tracker",
         "loops": [
           {
-            "task": "Revenue tracker pulled — South Texas 74% 90-day, One Texas -11% vs target, Q2 high-risk close",
+            "task": "Revenue pulled — South Texas 74% 90-day, One Texas -11% vs target, Q2 high-risk close",
             "resolved": true
           }
         ]
@@ -655,6 +655,23 @@
           {
             "task": "Folder scan + session exit — ypo_members.xlsx/v2 moved to YPO/, business_os_body_slide.pptx staged in presentations/, content-pipeline state.yaml committed, session index closed.",
             "resolved": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "session-2026-07-13-094046",
+    "started": "2026-07-13T09:40:46-05:00",
+    "closed": null,
+    "current_topic": "morning-boot",
+    "topics": [
+      {
+        "name": "morning-boot",
+        "loops": [
+          {
+            "task": "boot-sequence",
+            "resolved": false
           }
         ]
       }

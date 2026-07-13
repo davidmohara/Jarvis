@@ -1,56 +1,38 @@
 workflow: plaud-ingest
 agent: knox
 status: complete
-session-started: "2026-07-09T00:00:00Z"
-session-id: "pi-20260709-002"
+session-started: "2026-07-13T00:00:00Z"
+session-id: "pi-20260713-001"
 current-step: step-05b
-original-request: "Knox: Run plaud-ingest workflow — 2026-07-09 recordings (two staged files, fresh run)"
+original-request: "Knox: Run plaud-ingest workflow — background task, full pipeline"
 accumulated-context:
-  target-date: "2026-07-09"
-  last-run-date: "2026-07-09"
+  target-date: "2026-07-13"
+  last-run-date: "2026-07-13"
   new-recordings:
-    - id: d375ec4381759ec97cb596a94b9c8387
-      name: "07-09 Medical SOAP Note: O'Hara - Tarlov Cysts"
-      date: "2026-07-09"
-    - id: b1dc9a09e8fbc5b99c521d693462c345
-      name: "07-09 Meeting: Orb Platform Demo, Multi-Tenant Architecture, OQ Module, SCIMS Integration, and MVP Compliance Features"
-      date: "2026-07-09"
+    - file_id: e5a04131ee46970ac1c70a15cb4ae7ef
+      name: "07-10 Aligning on a Centralized AI Agent Landing Zone"
+      date: "2026-07-10"
+      duration_seconds: 2173
+      has_transcript: true
+      transcript_status: ready
   transcription-triggered: []
   pending-recordings: []
   speaker-mappings:
-    d375ec4381759ec97cb596a94b9c8387:
-      "Speaker 1": "Doctor (name unconfirmed — pain management physician, formerly across the lobby from Improving ~2017)"
-      "O'Hara": "David O'Hara"
-      method: "partial — O'Hara auto-tagged; Speaker 1 unresolved, pending controller confirmation"
-    b1dc9a09e8fbc5b99c521d693462c345:
-      "Mehmet Yasar": "Mehmet Yasar (myasar@systemic-compliance.com)"
-      "Kevin Graham": "Kevin Graham (kgraham@systemic-compliance.com)"
-      "Ben Kennedy": "Ben Kennedy (ben.kennedy@improving.com)"
-      "O'Hara": "David O'Hara"
-      method: "fully auto-tagged by Plaud"
-  pending-speaker-mappings:
-    - file_id: d375ec4381759ec97cb596a94b9c8387
-      unresolved: ["Speaker 1"]
-      note: "Speaker 1 is the treating physician. Please confirm doctor name to register voice for future recordings."
+    e5a04131ee46970ac1c70a15cb4ae7ef:
+      "Speaker 2": "Michael Slater"
+      resolution-method: "calendar-auto"
+      calendar-event: "Review Improving Landing Zone"
+      calendar-date: "2026-07-10"
+      calendar-attendee: "michael.slater@improving.com"
+      note: >
+        Resolved via M365 calendar lookup. The July 10 event "Review Improving Landing
+        Zone" (Teams, 20:00-20:30 UTC) was organized by David O'Hara with one attendee:
+        michael.slater@improving.com. Prior state had domain wrong (slater.codes) —
+        Michael Slater is an internal Improving colleague.
+  pending-speaker-mappings: []
   ready-for-fetch:
-    - d375ec4381759ec97cb596a94b9c8387
-    - b1dc9a09e8fbc5b99c521d693462c345
+    - e5a04131ee46970ac1c70a15cb4ae7ef
   staged-files:
-    - "plaud_07-09 Medical SOAP Note_ O_Hara - Tarlov Cysts.md"
-    - "plaud_07-09 Meeting_ Orb Platform Demo_ Multi-Tenant Architecture_ OQ Module_ SCIMS Integration_ and MVP Compliance Features.md"
+    - "plaud_07-10 Aligning on a Centralized AI Agent Landing Zone.md"
   ingested-notes:
-    - "zzPlaud/Other/2026-07-09 Medical Appointment — Tarlov Cyst Nerve Block Consult.md"
-    - "zzPlaud/Client/2026-07-09 Systemic Compliance — Orb Platform Demo and Technical Architecture Review.md"
-  step-05b-outputs:
-    shares-attempted: 2
-    shares-succeeded: 2
-    shares-failed: 0
-    share-urls:
-      - file_id: d375ec4381759ec97cb596a94b9c8387
-        url: "https://web.plaud.ai/s/pub_191f34dc-edda-4556-a69f-3f80c9eacba8::We8UV5zU0x7_3LTdz6pbkfELl33PTR4ymbyYXaZjUWj-KvedxmLoYYd47KvXuKxCKntDAOOtX8Ce0n0C"
-        monday-task-id: "12494398774"
-      - file_id: b1dc9a09e8fbc5b99c521d693462c345
-        url: "https://web.plaud.ai/s/pub_a3129b75-68b9-434c-b3db-0bac1a172d71::voBmHi16LAZQWW1zJyv7hvtcK4mprBfKD2PpddLbHNq41xA170UvaH0-6uURrEJezlKdXJ82TU6J35cC"
-        monday-task-id: "12494418876"
-    tasks-created: 2
-    tasks-failed: 0
+    - "zzPlaud/Improving/2026-07-10 Aligning on a Centralized AI Agent Landing Zone.md"

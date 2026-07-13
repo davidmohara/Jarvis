@@ -1,0 +1,15 @@
+{
+  "id": "err-20260713T185055-WS5FGS",
+  "timestamp": "2026-07-13T18:50:55Z",
+  "session": "2026-07-13",
+  "source": "explicit",
+  "agent": "master",
+  "category": "data-accuracy",
+  "description": "Reported Toyota Connected 2026 H1 revenue as $0 (no revenue) in the McMichael prep account tracker. Toyota Connected had $580,319 in H1 2026 — it was simply not in the visible DOM window when I made the assessment.",
+  "correction": "Toyota Connected 2026 H1 YTD = $580,319. Pace = 32% of 2025 FY ($1,807,512), behind but not zero.",
+  "failure_mode": "sloppy-read",
+  "systemic_fix": "When an account is not found in the current DOM render window, scroll to find it before reporting $0. Never report zero revenue without explicitly confirming the account name appears in the data with a $0 value.",
+  "fix_status": "applied",
+  "severity": "moderate",
+  "related_entries": ["err-20260713T185102-GW93H9"]
+}

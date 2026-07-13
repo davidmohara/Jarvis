@@ -1,0 +1,15 @@
+{
+  "id": "err-20260713T194110-5TJ5NM",
+  "timestamp": "2026-07-13T19:41:10Z",
+  "session": "2026-07-13 watchtower-weekly scheduled run",
+  "source": "explicit",
+  "agent": "knox",
+  "category": "hallucination",
+  "description": "Watchtower weekly-step-02 reported 4 draft files written to Obsidian Mind/Posts/ in its frontmatter outputs, but the Obsidian MCP was never called. The draft paths (_the-pyramid-is-coming-down-now-what.md, _youre-paying-for-the-pilot.md, _texas-said-yes-to-ai-now-its-writing-the-rules.md, _the-stack-you-chose-last-year.md) do not exist in the vault. The step file showed status: complete with timestamps and draft_paths as if work was done. It was not.",
+  "correction": "Step-02 must actually call mcp__obsidian-local__create_vault_file for each draft before marking complete. Outputs in frontmatter must reflect verified writes, not intended writes. After writing each file, the step should call mcp__obsidian-local__get_vault_file to confirm the file exists before logging it in outputs.",
+  "failure_mode": "protocol-skip",
+  "systemic_fix": "Updated weekly-step-02-draft-angles.md MANDATORY EXECUTION RULES to add: (a) call mcp__obsidian-local__create_vault_file for each draft — no exceptions, no filesystem path substitutes; (b) after each write, call mcp__obsidian-local__get_vault_file to verify the file exists; (c) only log a path in outputs.draft_paths after verification succeeds. Also added a VERIFICATION GATE before marking status: complete.",
+  "fix_status": "applied",
+  "severity": "major",
+  "related_entries": ["err-20260713T193832-EKLNL7"]
+}

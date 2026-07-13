@@ -20,6 +20,16 @@ This file is the only path to `sources.yaml`. Watchtower's weekly run appends ne
 |------|-----|-----|-------|-------|--------------|--------|
 -->
 
+### Batch 4 — Weekly Run (2026-07-13)
+
+| Name | URL | RSS | Topic | Trust | Why Relevant | Status |
+|------|-----|-----|-------|-------|--------------|--------|
+| Fast Company — Work Life | https://www.fastcompany.com/work-life | https://www.fastcompany.com/section/work-life/rss | it-consulting | high | Published the McKinsey layoffs warning analysis this week. Covers consulting talent model disruption, leadership and org design, and AI in the workplace at a practitioner-friendly level. Fills the business-culture layer between analyst reports and technical coverage. | pending |
+| Kai Waehner | https://www.kai-waehner.de/blog | https://www.kai-waehner.de/blog/feed | ai-agentic | high | Independent practitioner and Principal Technologist at Confluent. Published the 2026 Enterprise Agentic AI Landscape analysis on trust, flexibility, and vendor lock-in this week. Highly technical, architecture-level signal on agentic AI deployment decisions. No comparable practitioner-perspective source currently in registry. | pending |
+| Latitude Media | https://www.latitude.media | https://www.latitude.media/feed | texas-regional | high | Broke the ERCOT large-load queue quadrupling story surfaced in this week's themes. Covers energy infrastructure at the intersection of technology and grid policy. Directly relevant to Texas AI data center and power grid developments that matter for David's clients. | pending |
+| E&E News (POLITICO) | https://www.eenews.net | https://www.eenews.net/rss | texas-regional | high | Surfaced in the Abbott/ERCOT Texas data center grid analysis. Credible energy and environment policy coverage with a strong Texas angle. Published the "Texas governor talks tough on data centers" piece this week. Relevant for regulatory intelligence on the grid policy story. | pending |
+| Outsource Accelerator | https://www.outsourceaccelerator.com | https://www.outsourceaccelerator.com/feed | it-consulting | med | Covers IT services market dynamics, global delivery models, and the impact of AI on consulting and outsourcing. Published McKinsey layoffs AI consulting analysis this week with practitioner framing on talent repricing. Useful signal layer for competitive delivery model intelligence. | pending |
+
 ### Batch 3 — Weekly Run (2026-07-06)
 
 | Name | URL | RSS | Topic | Trust | Why Relevant | Status |

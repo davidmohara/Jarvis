@@ -1,0 +1,15 @@
+{
+  "id": "err-20260713T185102-6CDXIB",
+  "timestamp": "2026-07-13T18:51:02Z",
+  "session": "2026-07-13",
+  "source": "explicit",
+  "agent": "master",
+  "category": "data-accuracy",
+  "description": "Earlier in this session reported the wrong monitor for Chrome (was looking at wrong display for osascript coordinate calculation), leading to repeated failed click attempts on the PowerBI Date slicer and wasting significant session time.",
+  "correction": "Chrome was on the left monitor (screenX=-1884), not the right. Always verify window.screenX via JS before calculating osascript click coordinates.",
+  "failure_mode": "wrong-assumption",
+  "systemic_fix": "At the start of any PowerBI screen interaction session, immediately run JS to confirm screenX/screenY before attempting any osascript clicks. Add this as a pre-flight step in the PowerBI interaction pattern.",
+  "fix_status": "applied",
+  "severity": "moderate",
+  "related_entries": []
+}

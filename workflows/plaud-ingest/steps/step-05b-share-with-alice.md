@@ -1,9 +1,17 @@
 ---
-status: not-started
-started-at: ~
-completed-at: ~
-model: haiku
-outputs: {}
+status: completed
+started-at: "2026-07-13T15:30:00Z"
+completed-at: "2026-07-13T15:35:00Z"
+model: sonnet
+outputs:
+  shares-attempted: 1
+  shares-succeeded: 1
+  shares-failed: 0
+  tasks-created: 1
+  share-urls:
+    - file_id: e5a04131ee46970ac1c70a15cb4ae7ef
+      url: "https://web.plaud.ai/s/pub_59ab2e0b-796e-46c8-a9d3-9ad151669774::KT0la9xJYK8lrXplPqAoEJpy4cGKDtRagpue8LvgJI6rrEvD5EDSrL9Q6VEv8DO6XnJ611OoEFg6II8C"
+      monday-task-id: "12518555007"
 ---
 
 <!-- system:start -->

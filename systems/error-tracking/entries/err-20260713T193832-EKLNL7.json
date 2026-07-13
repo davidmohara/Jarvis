@@ -1,0 +1,15 @@
+{
+  "id": "err-20260713T193832-EKLNL7",
+  "timestamp": "2026-07-13T19:38:32Z",
+  "session": "2026-07-13 watchtower-weekly scheduled run",
+  "source": "explicit",
+  "agent": "knox",
+  "category": "process-skip",
+  "description": "Watchtower weekly-step-02b generated 10 tweets that covered the same underlying angles as the 4 blog drafts written in step-02. The step file explicitly states blog post angles are OFF LIMITS for tweets — not just the titles, but the angle itself. All 10 tweets recycled the same consulting headcount, pilot-to-production, Texas grid, and Anthropic stack themes from the same direction as the drafts. Zero genuine differentiation.",
+  "correction": "Tweets must approach the underlying topics from genuinely different directions than the blog drafts — different framing, different lens, different audience hook. If a blog draft covers 'The Pyramid Is Coming Down,' a tweet cannot make the same pricing-model argument even without naming the draft. The tweet must take a different cut: a stat reframe, a practitioner moment, a question the draft doesn't ask, a contrarian read on a consensus narrative.",
+  "failure_mode": "protocol-skip",
+  "systemic_fix": "Updated weekly-step-02b-draft-tweets.md to add an explicit OVERLAP CHECK section with worked examples of compliant vs. non-compliant tweet angles. Added a concrete test: 'If this tweet could be a subtitle of the blog draft, it fails.' Also added a pre-generation checklist requiring Knox to write out the covered territory (not just angle titles but the argument each draft makes) before generating any tweet.",
+  "fix_status": "applied",
+  "severity": "moderate",
+  "related_entries": []
+}

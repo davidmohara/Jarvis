@@ -1,8 +1,15 @@
 ---
-status: not-started
-started-at: ~
-completed-at: ~
-outputs: {}
+status: complete
+started-at: "2026-07-13T07:30:00Z"
+completed-at: "2026-07-13T07:35:00Z"
+outputs:
+  tweets_generated: 10
+  angle_types:
+    provocative: 3
+    practitioner: 2
+    question: 2
+    data: 3
+  blog_angles_avoided: 4
 ---
 
 <!-- system:start -->
@@ -45,10 +52,33 @@ outputs: {}
 
 1. Read `identity/VOICE.md`. Internalize David's voice: direct, personal, punchy, occasionally sarcastic, never corporate.
 
-2. Collect covered territory from step-02:
-   - Read `accumulated-context.weekly_themes` — specifically the `content_angles` added by step-02 to each theme entry. These are the blog post angles already claimed.
-   - Note the titles and angles of all draft files created in step-02 (from `accumulated-context.weekly_themes[*].content_angles` and the step-02 outputs `draft_paths`).
-   - Treat all blog post angles as OFF LIMITS for tweets. A tweet must NOT summarize, preview, or recycle any of these angles. It must approach the same underlying topic (if used at all) from a genuinely different direction.
+2. **OVERLAP CHECK — do this before writing a single tweet.**
+
+   a. Read `accumulated-context.weekly_themes` and list out, for each draft created in step-02:
+      - The draft title
+      - The **argument** the draft makes (not just the title — the actual claim or frame)
+
+   Example format:
+   ```
+   Draft: "The Pyramid Is Coming Down. Now What?"
+   Argument: AI compresses analyst work, destroying the pricing rationale of the consulting pyramid; implementation-led firms must act now.
+
+   Draft: "You're Paying for the Pilot. You're Not Getting the Production."
+   Argument: The 78%/14% gap is organizational, not technical; ownership and monitoring are the missing pieces.
+   ```
+
+   b. A tweet FAILS the overlap check if:
+      - It makes the same argument as a draft (even with different words)
+      - It could serve as a subtitle, teaser, or summary of a draft
+      - It covers the same topic from the same angle (e.g., if the draft is about talent model disruption, a tweet about job cuts in consulting is the same angle)
+
+   c. A tweet PASSES if it:
+      - Takes a different slice of the same topic (e.g., the draft covers macro job cuts; the tweet covers a specific practitioner moment from a client conversation)
+      - Approaches a theme the drafts didn't touch at all
+      - Reframes a signal from a contrarian or unexpected direction that the drafts don't use
+      - Asks a question the drafts don't answer
+
+   Write out the covered-territory list before generating tweets. Do not skip this.
 
 3. Generate 10 tweets. For each:
 
@@ -119,6 +149,7 @@ outputs: {}
 |---------|--------|
 | `weekly_themes` empty | Generate 0 tweets; write `tweets_generated: 0` to outputs; continue to step-03 |
 | Step-02 `content_angles` not available | Proceed without overlap check; note in outputs: `overlap_check: skipped` |
+| Tweet makes the same argument as a draft | Discard it. Generate a replacement from a genuinely different direction. Do not soften the wording and call it different — the argument must be different. |
 | Tweet exceeds 280 chars after generation | Trim — cut filler words, tighten; do not truncate mid-thought |
 | Fewer than 10 viable angles found | Extract additional angles from raw signal items in `weekly_themes`; do not pad with weak takes |
 | URL encoding error | Use plain spaces as `%20` and skip encoding edge cases rather than generating a broken URL |

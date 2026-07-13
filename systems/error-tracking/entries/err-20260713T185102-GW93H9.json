@@ -1,0 +1,15 @@
+{
+  "id": "err-20260713T185102-GW93H9",
+  "timestamp": "2026-07-13T18:51:02Z",
+  "session": "2026-07-13",
+  "source": "explicit",
+  "agent": "master",
+  "category": "data-accuracy",
+  "description": "Reported 7-Eleven 2026 H1 revenue as $0 (no revenue) in the McMichael prep account tracker. 7-Eleven had $122,160 in H1 2026 — visible in the DOM once the table scrolled to the correct position.",
+  "correction": "7-Eleven 2026 H1 YTD = $122,160. Pace = 26% of 2025 FY ($476,120), behind pace.",
+  "failure_mode": "sloppy-read",
+  "systemic_fix": "Same as err-20260713T185055-WS5FGS: scroll to confirm before reporting $0.",
+  "fix_status": "applied",
+  "severity": "moderate",
+  "related_entries": ["err-20260713T185055-WS5FGS"]
+}
