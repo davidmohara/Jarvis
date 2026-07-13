@@ -1,6 +1,6 @@
 # Alice Mburu — 1:1 Prep Sheet
 **Date:** July 13, 2026
-**Format:** Mixed — recognition + coaching
+**Format:** Recognition + coaching
 **Scorecard:** 12/18 (flat vs. prior period)
 **Benchmark Level:** Mid
 
@@ -22,7 +22,7 @@ Don't rush past these. Name them precisely so she knows what "good" looks like.
 You set up monday.com and gave her access — she's using it well. Dr. Feigenbaum appointment tracked and marked done, Nahida lunch follow-up assigned to you, Conscious Capitalism event tasks assigned. She's working the tool actively. Recognize the behavior, not the setup.
 
 **External thread handling**
-The Solace onsite scheduling (7/7) was clean — David asked in-thread, she confirmed venue and sent the invite same day. The UTB ATOMIC Platform outreach, SIM DFW event management, Talent Labs coordination, and JPM AI Training rescheduling were all handled independently without incident.
+The Solace onsite scheduling (7/7) was clean — David asked in-thread, she confirmed venue and sent the invite same day. The UTB outreach, SIM DFW event management, Talent Labs coordination, and JPM AI Training rescheduling were all handled independently without incident.
 
 **Peer trust signal**
 Bethany Hilton is now routing work directly to Alice without looping David. That's not nothing — it means Alice has earned standing with internal stakeholders. Same dynamic showed up with the Houston Texans suite thread.
@@ -34,7 +34,7 @@ Two consecutive periods at the top score on this dimension. The podcast board su
 
 ## Coaching Items — Work Through These (20 min)
 
-These come directly from David's OmniFocus review task ("Build perf review for Alice") and the prior scorecard. Be direct and specific on each.
+These come directly from David'sreview task and the prior scorecard. Be direct and specific on each.
 
 ### 1. Verification Before Acting — The Core Pattern
 
@@ -83,36 +83,6 @@ These come directly from David's OmniFocus review task ("Build perf review for A
 
 ---
 
-## monday.com as the Shared Task System — Align on This (5 min)
-
-Alice self-onboarded and is already using it. This is the moment to formalize it.
-
-**What to say:**
-> "You started using monday.com on your own, which is exactly right. I want to make this the official shared space for tasks between us — the place where I can see what's in your queue, where I hand off items, and where follow-ups live. Let's make sure we're aligned on how that works."
-
-**Decisions to make in this conversation:**
-- Is monday.com the confirmed shared delegation tool? (Almost certainly yes — she's already in it)
-- How do tasks get added from David to Alice? (Does David assign in monday.com, or does she pull from OmniFocus? Align on one workflow)
-- What's the cadence for Alice to clear/update the board? (Daily? EOD?)
-
----
-
-## 30-Day Targets — Make These Explicit Before Closing (5 min)
-
-Read these out loud or hand her the list. These are her measurable commitments for the next cycle (July 13 – August 10):
-
-| # | Item | Measure | Due |
-|---|------|---------|-----|
-| 1 | Zero logistics errors (address, time, venue, AI output) requiring David correction | David tracks any instance | Ongoing |
-| 2 | EOD recap includes "Open Threads" section daily | Present every day by EOD | Starting today |
-| 3 | Josh Stevenson CRM dupe resolved | Confirmed closed | July 18 |
-| 4 | CRM dupe audit completed and reported | Summary with count to David | July 25 |
-| 5 | One outbound email draft per week routed to David pre-send | Frequency count over cycle | Weekly |
-| 6 | monday.com workflow conventions aligned | Both parties clear on how tasks flow | July 20 |
-| 7 | Sustain CRM meeting tagging (already doing it) | No gaps | Ongoing |
-
----
-
 ## Scorecard Summary to Share
 
 | Dimension | Prior (7/1) | This Period (7/13) | Trend |
@@ -139,8 +109,7 @@ This isn't performance feedback — it's the horizon. Share what Senior looks li
 **From the EA handbook, Senior means:**
 
 - **Strategic calendar management** — not just scheduling meetings, but understanding which meetings matter strategically and helping protect your time accordingly. Gatekeeping based on priority, not just availability.
-- **Drafting high-quality memos, executive summaries, and pre-reads** — going beyond scheduling confirmations into communications that carry weight. Think: a pre-read before a client meeting, a summary of a thread that gives David context without him having to read the whole chain.
-- **Political and organizational awareness** — knowing who the key stakeholders are, how they relate to each other, and using that to navigate on David's behalf without always being told.
+- **Organizational awareness** — knowing who the key stakeholders are, how they relate to each other, and using that to navigate on David's behalf without always being told.
 - **Acting as a liaison** — not just routing requests, but owning the relationship with key internal and external contacts and driving outcomes independently.
 - **Running the delegation loop without friction** — tasks go in, tasks get done, David doesn't have to track them. The system runs itself.
 
@@ -151,11 +120,3 @@ This isn't performance feedback — it's the horizon. Share what Senior looks li
 Frame this as investment, not evaluation. She doesn't need to do anything differently today — she just needs to know this is where you're taking the role.
 
 ---
-
-
-
-> "The trajectory is good. You're operating at a Mid level and there are things you're already doing at a Senior level — the proactivity, the peer relationships, the monday.com move. The gap between where you are and where I want you to be is specific and fixable. Let's close it this cycle."
-
----
-
-*Scorecard filed in Obsidian: [[Alice Mburu Scorecard - 2026-07-13]]*

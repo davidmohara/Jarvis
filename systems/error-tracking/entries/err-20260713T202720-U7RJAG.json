@@ -1,0 +1,15 @@
+{
+  "id": "err-20260713T202720-U7RJAG",
+  "timestamp": "2026-07-13T20:27:20Z",
+  "session": "2026-07-13",
+  "source": "explicit",
+  "agent": "master",
+  "category": "assumption-error",
+  "description": "Asked David where the Alice prep file belonged instead of checking the IES file conventions and determining the correct location independently. Meeting prep files belong in meetings/. This was determinable without asking.",
+  "correction": "Meeting prep files go in meetings/. Check conventions and file structure before asking the controller for information that's available in the system.",
+  "failure_mode": "wrong-assumption",
+  "systemic_fix": "Before asking the controller a filing question, check agents/conventions.md and the existing directory structure. Only ask if genuinely ambiguous after checking.",
+  "fix_status": "applied",
+  "severity": "minor",
+  "related_entries": []
+}

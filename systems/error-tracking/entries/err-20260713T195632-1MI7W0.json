@@ -1,0 +1,15 @@
+{
+  "id": "err-20260713T195632-1MI7W0",
+  "timestamp": "2026-07-13T19:56:32Z",
+  "session": "2026-07-13 watchtower weekly / Slack draft send",
+  "source": "explicit",
+  "agent": "master",
+  "category": "missed-context",
+  "description": "When sending the 4 Watchtower W29 drafts to #content, posted self-generated message content instead of reading the actual vault files from Obsidian first. David had made edits to the drafts in Obsidian that were not captured. The instruction was to drop the drafts from Obsidian into the channel — source of truth is the vault, not the in-session generation.",
+  "correction": "Always read the source file immediately before using its content in any downstream action. When the task says 'drop X from Obsidian,' the first action is mcp__obsidian-local__get_vault_file for each file, then use that content verbatim.",
+  "failure_mode": "context-blindness",
+  "systemic_fix": "Added rule to SYSTEM.md: when sending, posting, or sharing content sourced from Obsidian, always call mcp__obsidian-local__get_vault_file immediately before composing the message. Never use in-session generated or remembered content as a substitute for the live vault file.",
+  "fix_status": "applied",
+  "severity": "moderate",
+  "related_entries": ["err-20260713T194110-5TJ5NM"]
+}
