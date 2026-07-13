@@ -1,49 +1,52 @@
 workflow: watchtower
 agent: knox
-status: complete
-session-started: "2026-07-06T07:05:00Z"
-session-id: "wt-weekly-2026-W28"
-current-step: complete
+status: in-progress
+session-started: "2026-07-13T07:05:00Z"
+session-id: "wt-weekly-2026-W29"
+current-step: weekly-step-02-draft-angles
 original-request: "watchtower-weekly scheduled run (Knox)"
 accumulated-context:
   content_queue: []
   used_fallback: true
   weekly_themes:
     - theme_id: 1
-      theme_title: "The Billing Model Is Breaking — McKinsey Already Moved"
-      synthesis: "McKinsey now ties 25% of global fees to outcomes — not hours. Simultaneously, 67% of consulting buyers prefer fixed-fee arrangements (up from 41% three years ago), and implementation-led firms are growing at 11-12% vs 5.7% for advisory-only peers. AI compresses weeks of analyst work into hours, which destroys the billable-hours revenue base unless firms redesign the commercial model. For David, this is both a risk and an opening: clients are ready to buy on outcomes, and mid-market firms that move first own the premium."
+      theme_title: "The Consulting Headcount Reckoning Is Here"
+      synthesis: "McKinsey is cutting 3,000-4,000 positions — roughly 10% of its global workforce — due to AI-driven productivity gains that compress what once took analyst teams to hours. Bain, BCG, and Deloitte are following the same playbook. The signal is clear: AI isn't just changing how consulting work is done, it's eliminating the pyramid structure that priced the work. For David, this is the moment where mid-market and implementation-led firms like Improving have the most to say — the conversation is shifting from 'should we use AI' to 'what does our talent model look like in 18 months.'"
       source_items:
-        - "McKinsey Ties 25% of Fees to Outcomes as AI Erodes Billable Hours (AI Weekly)"
-        - "AI Breaks Consulting's Billable-Hours Model (AI Weekly)"
-        - "2026 Consulting's AI Revolution Update: Billions Spent, But the Old Pyramid Persists"
-        - "67% of consulting buyers now prefer fixed-fee arrangements"
+        - "McKinsey Layoffs 2026: 10% Job Cuts Affecting Thousands Because of AI (Final Round AI)"
+        - "2026 Consulting's AI Revolution Update: Billions Spent, But the Old Pyramid Persists (Future of Consulting)"
+        - "Consulting Firms Selling AI Transformation Can't Deliver It (Innovaiden)"
+        - "Outcome Pricing Rises in Consulting AI Transformation Era (AI Certs)"
       content_angles:
-        - "McKinsey Moved First. We're Next."
+        - "The Pyramid Is Coming Down. Now What?"
     - theme_id: 2
-      theme_title: "Texas AI Hits a Wall of Its Own Making"
-      synthesis: "Texas now leads the nation with 32 proposed natural gas power plants dedicated to AI data centers — more than any other state — projecting 287 million tons of greenhouse gases annually. Governor Abbott responded by directing data centers to self-fund infrastructure costs rather than passing them to existing ratepayers, and flagged AI regulation as a 2027 legislative priority. Meanwhile a $700M Aligned/Lambda data center broke ground in Plano. The Texas AI infrastructure story is still ascendant but now has political friction David's clients need to understand."
+      theme_title: "78% of AI Pilots Die Before Production — And Consultants Are Getting Paid to Watch It Happen"
+      synthesis: "A March 2026 survey of 650 enterprise technology leaders found 78% have at least one AI agent pilot running, but only 14% have successfully scaled to org-wide production — a 64-point gap. The five root causes are organizational, not technical: integration complexity, inconsistent output quality at volume, no monitoring tooling, unclear ownership, and insufficient domain training data. Gartner warns 40%+ of agentic AI projects will be cancelled by end of 2027. This is the delivery problem Improving is built to solve, and the framing of 'pilot-to-production' is the dominant client anxiety right now."
       source_items:
-        - "Report shows Texas to lead nation in data center power plants (Texas Tribune, July 1)"
-        - "Proposed Texas AI power plants could emit 287 million tons of greenhouse gases annually (KERA News, July 2)"
-        - "AI Is Moving Into DFW with $700M Data Center (The Beat DFW)"
-        - "Abbott directs utilities to charge infrastructure costs to data center developers"
+        - "Why 78% of AI Agent Pilots Never Reach Production (Zen Van Riel)"
+        - "Agentic AI Enterprise Adoption 2026: 72% Production Proven (Agentic AI Institute)"
+        - "AI Agent Pilots Never Reach Production: 2026 Guide (Naveera Tech)"
+        - "Agentic AI's Enterprise Tipping Point: April 2026 Redefined Systematic Innovation (FifthRow)"
       content_angles:
-        - "The Texas AI Boom Has a Catch — And It's Not What You Think"
+        - "You're Paying for the Pilot. You're Not Getting the Production."
     - theme_id: 3
-      theme_title: "Anthropic Won Enterprise. OpenAI Is Betting on Government."
-      synthesis: "Anthropic reached $47B ARR in May 2026, surpassing OpenAI's ~$25B and claiming 41% of business AI subscription spending (vs OpenAI's 39.5% per Ramp data across 70,000 businesses). The split is clean: Anthropic is winning enterprise through Claude's API/work tooling; OpenAI is racing toward a September IPO while simultaneously offering the U.S. government a 5% equity stake worth ~$42B. For consulting firms on the Microsoft/Azure/Claude stack, this is validation — the enterprise AI platform selection is effectively settled for now."
+      theme_title: "Texas Built the AI Infrastructure. Now It Has to Govern It."
+      synthesis: "ERCOT's large-load queue has nearly quadrupled in a year — 439 gigawatts requested, 89% data centers. Governor Abbott directed the PUC and ERCOT to require data centers to self-fund their infrastructure costs, with a joint memo due July 17 and action on residential transmission rates by July 31. Meanwhile DFW is positioning 5,700 acres for data center development and surpassing Silicon Valley as the #2 colocation market nationally. The story has shifted from 'Texas is open for business' to 'Texas is managing growth' — a nuance that matters for every client conversation about AI infrastructure in the region."
       source_items:
-        - "Anthropic Overtakes OpenAI in Business AI Spending (AI Weekly)"
-        - "Anthropic Hits $30B Revenue, Overtakes OpenAI in 2026"
-        - "OpenAI proposes U.S. government own 5% stake (CNBC, July 2)"
-        - "Sam Altman seeks new world order for AI as OpenAI slowly loses ground (Fortune, July 2)"
+        - "Governor Abbott Directs PUC And ERCOT To Shield Texans From Data Center Infrastructure Costs (Texas Governor)"
+        - "Texas looks to tighten rules for data centers as they line up to connect to ERCOT grid (KBTX)"
+        - "Dallas-Fort Worth poised to become global AI hub with 5,700-acre data center development (Digital Infra Network)"
+        - "ERCOT's large load queue has nearly quadrupled in a single year (Latitude Media)"
       content_angles:
-        - "The Enterprise AI Platform War Is Over. Now What?"
+        - "Texas Said Yes to AI. Now It's Writing the Rules."
     - theme_id: 4
-      theme_title: "DFW's AI Economy Grew Up This Year"
-      synthesis: "Dallas Innovates' 2026 AI75 ceremony drew 700+ leaders at the Dallas Regional Chamber — a list spanning C-suite to lab bench, including EY's innovation lead advising Fort Worth and Dallas on AI governance, and DFW Airport's CTIO shaping AI transformation at a 90M-passenger facility. The AI75 format itself signals maturation: DFW now has a named regional AI leadership class, not just individual companies. For David, this is the regional context for every client conversation — the ecosystem is institutionalizing and clients are comparing notes."
+      theme_title: "Anthropic Is Now Worth More Than OpenAI — and That Changes the Stack Conversation"
+      synthesis: "Anthropic raised $65B at a $965B valuation in June 2026, surpassing OpenAI ($852B) and filing confidentially for an IPO potentially listing in October. Ramp's May 2026 AI Index shows Claude edging past GPT in business AI spend (34.4% vs. 32.3%) for the first time. Claude also holds 42-54% of global code generation market share. For Improving's Microsoft/Azure stack — where Claude runs natively — this is a strong validation signal. The enterprise AI platform selection that seemed fluid 12 months ago is crystallizing, and being on the winning stack matters for every future proposal."
       source_items:
-        - "Meet the 2026 AI 75 Innovators: From the C-Suite to the Lab Bench in Dallas-Fort Worth (Dallas Innovates)"
-        - "D-FW Leads U.S. in Job Growth with AI and Tech Expansion (Akkodis)"
+        - "Anthropic tops OpenAI as most valuable AI startup, nears $1 trillion valuation (CNBC)"
+        - "Anthropic confidentially files for IPO after raising $65 billion (Fortune)"
+        - "How Claude Is Helping Anthropic Beat OpenAI in $1 Trillion IPO Race (MarketWise)"
+        - "Anthropic builds out Claude as OpenAI and Google stay ahead (TechWire Asia)"
       content_angles:
-        - "When 700 People Show Up for an AI Awards Night, the Hype Is Over"
+        - "The Stack You Chose Last Year Just Became the Right Answer"
+  weekly_tweets: []

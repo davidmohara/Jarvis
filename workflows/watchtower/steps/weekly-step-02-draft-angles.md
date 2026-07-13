@@ -1,15 +1,15 @@
 ---
 status: complete
-started-at: "2026-07-06T07:10:00Z"
-completed-at: "2026-07-06T07:20:00Z"
+started-at: "2026-07-13T07:10:00Z"
+completed-at: "2026-07-13T07:20:00Z"
 outputs:
   themes_processed: 4
   drafts_created: 4
   draft_paths:
-    - "Mind/Posts/_mckinsey-moved-first-we-re-next.md"
-    - "Mind/Posts/_the-texas-ai-boom-has-a-catch.md"
-    - "Mind/Posts/_the-enterprise-ai-platform-war-is-over.md"
-    - "Mind/Posts/_when-700-people-show-up-for-an-ai-awards-night.md"
+    - "Mind/Posts/_the-pyramid-is-coming-down-now-what.md"
+    - "Mind/Posts/_youre-paying-for-the-pilot.md"
+    - "Mind/Posts/_texas-said-yes-to-ai-now-its-writing-the-rules.md"
+    - "Mind/Posts/_the-stack-you-chose-last-year.md"
   blog_ideas_appended: 4
 ---
 
