@@ -38,6 +38,10 @@ Sources this cycle:
 Sources this cycle:
 - `memory/episodic/daily-review-2026-07-08-080000.md` (score 10) — tags: daily-review, chief, omnifocus, overdue-tasks, medical, rocks — nerve block cluster flagged; Q2 rocks unreviewed, Q3 not yet set
 
+### 2026-07-13 — Nightly promotion
+Sources this cycle:
+- `memory/episodic/daily-review-2026-07-10-211100.md` (score 10) — tags: daily-review, chief, omnifocus, rocks, medical-admin — 5 OmniFocus completions, 7 overdue unchanged; nerve block cluster still unresolved despite other medical admin closing out; no rock movement, Q3 rocks still not formally set 10 days in
+
 ## Implications
 
 - Agents should treat `daily-review`-tagged content as a coherent operational thread — prefer synthesis over re-derivation when this cluster appears.

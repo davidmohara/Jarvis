@@ -23,7 +23,7 @@ date: 2026-06-16
   promoted: true
 salience:
   score: 10
-  last-promoted-check: 2026-07-12
+  last-promoted-check: 2026-07-13
 
 ---
 - Built `skills/shep-1on1-prep/SKILL.md` — canonical 1:1 prep skill with full research sequence (M365 email, calendar, Obsidian, OmniFocus, Teams), pre-write gate, post-write validation checklist, and person-specific data rules for Robyn (South Texas PowerBI) and Don (Dallas PowerBI). Rigby audited and added eval harness SKILL COMPLETE block.

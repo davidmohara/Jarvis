@@ -23,7 +23,7 @@ related_people:
   - ben-kennedy
 salience:
   score: 10
-  last-promoted-check: 2026-07-12
+  last-promoted-check: 2026-07-13
   promoted: true
 
 ---

@@ -46,3 +46,9 @@ Sources this cycle:
 - `memory/episodic/dream-summary-2026-07-09.md` (score 10) — clean boot pull, 8 archives, 6 clusters promoted, 6 semantic updates, 0 new lessons
 
 Pattern continues to hold: dream-summary evidence base has now shown 5+ consecutive clean cycles across two months. Worth revisiting confidence escalation criteria at the next cycle since evidence count is approaching the stated 15-entry threshold used by sibling patterns.
+
+### 2026-07-13 — Nightly promotion
+Sources this cycle:
+- `memory/episodic/dream-summary-2026-07-11.md` (score 10) — clean run, minor git lock hiccup resolved without drama; 8 archives, 6 clusters, 6 semantic updates, 0 new lessons
+
+Evidence count now exceeds 15 total entries across cycles referenced in this file. Confidence escalation to `medium` is warranted at the next cycle per the stated threshold — flagging for review since this file's frontmatter still reads `confidence: low`.

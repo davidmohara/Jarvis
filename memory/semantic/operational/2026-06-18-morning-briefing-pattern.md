@@ -106,3 +106,7 @@ Sources this cycle:
 - `memory/episodic/morning-briefing-2026-07-09-070000.md` (score 10) — tags: briefing, chief, calendar, omnifocus, systemic-compliance, leads; Systemic Compliance technical deep dive flagged as cold external meeting with no account file; Friday triple-book collision noted
 
 - 2026-07-12: systemic-compliance tag appearing alongside briefing/leads for the first time in this cluster — new external account surfacing through the briefing pipeline rather than a dedicated account file, worth watching as a gap in account-intelligence coverage.
+
+### 2026-07-13 — Nightly promotion
+Sources this cycle (backfilled — carried over from prior cycle's evidence text but never marked promoted on source files):
+- `memory/episodic/morning-briefing-2026-07-08-061500.md` and `memory/episodic/morning-briefing-2026-07-09-070000.md` — both already documented above; `promoted: true` gap closed this cycle where applicable.

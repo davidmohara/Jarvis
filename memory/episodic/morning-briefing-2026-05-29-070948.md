@@ -26,7 +26,7 @@ related_people:
   promoted: true
 salience:
   score: 10
-  last-promoted-check: 2026-07-12
+  last-promoted-check: 2026-07-13
 
 ---
 ## Boot Summary — Friday, May 29, 2026

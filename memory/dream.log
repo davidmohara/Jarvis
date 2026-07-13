@@ -1637,3 +1637,21 @@ errors: 0
 summary: "Clean run: boot pull already up to date with no locks. Step-01 archived 3 newly-expired working files (daily-review-07-08, morning-briefing-07-09, plaud-ingest-07-09-204305); 3 skipped not-yet-expired (daily-review-07-10, dream-summary-07-11, system-eval-07-11); 4 unparseable (2026-07-08.md, 3 golf files, persistent no-frontmatter pattern). Step-02 scored all 194 episodic entries; distribution 0:23, 10:157, consistent with prior cycles. Step-03 found 11 promotion candidates (3 fresh archives plus 8 leftover from prior cycles that were never marked promoted:true — backfilled this cycle) clustering into 6 existing semantic patterns (daily-review, morning-briefing, plaud, overdue-tasks, session-wrap, dream-summary) — 0 new semantic files, all appended per append-only rule. Error scan 30d: 99 entries; all 6 qualifying categories (3+ occurrences) already documented and active in LESSONS.md, 0 new lessons. Step-04 compression skipped — oldest episodic entry 2026-04-18 (85 days), 90-day cutoff not met (0 candidates)."
 git_pull: success
 git_pull_note: "already up to date, no locks encountered"
+
+---
+## 2026-07-13T03:13:38 CDT
+session_id: dream-cycle-2026-07-13-031400
+working_archived: 3
+working_deleted: 0
+episodic_scanned: 196
+score_updates: 196
+clusters_found: 6
+semantic_created: 0
+semantic_updated: 4
+promoted_entries: 13
+entries_compressed: 0
+digests_updated: 0
+errors: 0
+summary: "Clean run: boot pull already up to date, no locks. Step-01 archived 3 newly-expired working files (daily-review-07-10, system-eval-07-11, dream-summary-07-11) via heuristic enrichment (LLM path unavailable, claude -p not logged in — consistent with prior runs); 1 skipped not-yet-expired (dream-summary-07-12), 4 unparseable (2026-07-08.md, 3 golf files, persistent no-frontmatter pattern). Step-02 scored all 196 episodic entries; distribution 0:22, 10:159, consistent with prior cycles. Step-03 found 13 promotion candidates (2 fresh archives plus 11 leftover from prior cycles never marked promoted:true — daily-review 07-06/07-07/07-08, morning-briefing 07-08/07-09, dream-summary-07-09, plaud-ingest x2, shutdown-cleanup-07-09, sc-meeting-prep-07-06, system-eval-07-08 — backfilled this cycle to close the recurring gap) clustering into 6 existing semantic patterns (daily-review, morning-briefing, dream-summary, plaud, overdue-tasks, session-wrap) — 0 new semantic files, all appended per append-only rule. 2 of the 6 clusters (daily-review, dream-summary) received genuinely new evidence text; the other 4 were pure promoted:true backfills since their evidence was already documented in prior cycles' unflagged writes. Error scan 30d: 94 entries; top 6 categories (routing-error/protocol-skip:9, process-skip/protocol-skip:7, data-accuracy/wrong-assumption:4, data-accuracy/sloppy-read:4, unknown/unknown:3, assumption-error/wrong-assumption:3) all already documented and active in LESSONS.md, 0 new lessons. Step-04 compression skipped — oldest episodic entry 2026-04-18, 90-day cutoff 2026-04-14, 0 candidates eligible. Noted for future cycles: dream-summary-pattern.md evidence count now exceeds the stated 15-entry confidence-escalation threshold but frontmatter still reads confidence: low — flagged in-file for next cycle's review."
+git_pull: success
+git_pull_note: "already up to date, no locks encountered"
