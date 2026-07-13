@@ -1,0 +1,233 @@
+{
+  "generated": "2026-07-13T13:30:00Z",
+  "window_hours": 72,
+  "sources_used": ["msnbc", "cnn", "nbc", "thehill", "foxnews", "natreview", "examiner", "federalist", "dailywire", "freepress"],
+  "sources_muted": [
+    { "name": "New York Times", "lean": "left", "reason": "blocks crawler" },
+    { "name": "Washington Post", "lean": "left", "reason": "blocks crawler" },
+    { "name": "Politico", "lean": "left", "reason": "blocks crawler" },
+    { "name": "Vox Politics", "lean": "left", "reason": "blocks crawler" },
+    { "name": "WSJ Opinion", "lean": "right", "reason": "blocks crawler" },
+    { "name": "New York Post", "lean": "right", "reason": "blocks crawler" },
+    { "name": "Reuters Politics", "lean": "center", "reason": "blocks crawler" },
+    { "name": "Associated Press", "lean": "center", "reason": "blocks crawler" },
+    { "name": "BBC US & Canada", "lean": "center", "reason": "blocks crawler" }
+  ],
+  "counts": { "total_items": 54, "by_lean": {"left": 26, "right": 25, "center": 3}, "shared_topics": 6, "gap_left": 6, "gap_right": 6 },
+  "shared_topics": [
+    {
+      "title": "Sen. Lindsey Graham dies at 71; Senate GOP leadership in flux",
+      "summary": "Sen. Lindsey Graham, R-S.C., a longtime Trump ally and Senate Budget Committee chair, died early Sunday at 71. His office confirmed the cause as an aortic dissection tied to arteriosclerotic cardiovascular disease. His death comes as fellow Republican Mitch McConnell remains hospitalized, leaving the GOP conference short-handed at 51 votes; South Carolina's governor is expected to move quickly to appoint a replacement to restore the party's 53-47 margin.",
+      "correlation": 88,
+      "correlation_label": "Same facts, same tone. Both sides ran near-identical obituary coverage and tributes.",
+      "left": {
+        "framing": "CNN, NBC, and The Hill led with the factual circumstances of Graham's death and turned quickly to the power-shift angle: a Senate GOP already thinned by McConnell's hospitalization, and what a fast South Carolina appointment means for committee leadership and the midterm map.",
+        "sources": [
+          {"source": "NBC News", "url": "https://www.nbcnews.com/politics/politics-news/sen-lindsey-graham-dies-71-brief-sudden-illness-rcna552722"},
+          {"source": "The Hill", "url": "https://thehill.com/homenews/senate/5964972-sen-lindsey-graham-death-cause/"},
+          {"source": "The Hill", "url": "https://thehill.com/homenews/5965101-tributes-pour-graham-death/"},
+          {"source": "CNN Politics", "url": "https://www.cnn.com/2026/07/13/politics/lindsey-graham-death-mitch-mcconnell-hospital-what-next"},
+          {"source": "CNN Politics", "url": "https://www.cnn.com/2026/07/12/politics/lindsey-graham-replacement-senate"}
+        ]
+      },
+      "right": {
+        "framing": "Fox News covered the same death-cause confirmation and tribute wave, with added emphasis on Graham's decades-long alliance with Trump and Fox's own reporting on the likely appointment of a replacement to shore up the GOP's Senate margin.",
+        "sources": [
+          {"source": "Fox News", "url": "https://www.foxnews.com/politics/sen-lindsey-graham-dies-after-brief-sudden-illness-office-says"},
+          {"source": "Fox News", "url": "https://www.foxnews.com/live-news/lindsey-graham-death-heart-disease-senate-july-13"}
+        ]
+      }
+    },
+    {
+      "title": "Graham Platner withdraws from Maine Senate race",
+      "summary": "Democratic Senate nominee Graham Platner ended his campaign against Sen. Susan Collins after a woman he had dated accused him of sexual assault, adding to earlier scrutiny of a tattoo with Nazi associations. Platner denied the assault allegation but said the pressure had become too much. Maine Democrats will hold a nominating convention on July 25 with a July 27 filing deadline to pick a replacement.",
+      "correlation": 42,
+      "correlation_label": "Same event, but the sides lead with very different culprits: personal scandal vs. a broader Democratic vetting failure.",
+      "left": {
+        "framing": "CNN, NBC, and The Hill covered the withdrawal largely as a personnel and process story: the allegation, Platner's denial, and the mechanics of Maine Democrats' scramble to name a replacement nominee before the deadline.",
+        "sources": [
+          {"source": "CNN Politics", "url": "https://www.cnn.com/2026/07/08/politics/democrats-platner-problems-analysis"},
+          {"source": "CNN Politics", "url": "https://www.cnn.com/2026/07/08/politics/graham-platner-drops-out-maine-senate"},
+          {"source": "NBC News", "url": "https://www.nbcnews.com/politics/2026-election/graham-platner-drops-senate-bid-maine-rcna353199"},
+          {"source": "The Hill", "url": "https://thehill.com/homenews/campaign/5959902-maine-democrats-senate-race-graham-platner/"}
+        ]
+      },
+      "right": {
+        "framing": "Fox News, Washington Examiner, and The Daily Wire framed the episode as proof of a broken Democratic candidate-vetting process and a win for establishment Democrats like Fetterman over the Sanders-aligned progressive wing that had backed Platner.",
+        "sources": [
+          {"source": "Fox News", "url": "https://www.foxnews.com/politics/platners-three-day-vetting-job-comes-back-haunt-dems-rape-allegation-rocks-senate-bid"},
+          {"source": "Washington Examiner", "url": "https://www.washingtonexaminer.com/news/campaigns/congressional/4640330/democrats-graham-platner-gamble-guy-benson/"},
+          {"source": "Washington Examiner", "url": "https://www.washingtonexaminer.com/in_focus/4639931/biden-platner-democrats-broken-nomination-machine/"},
+          {"source": "The Daily Wire", "url": "https://www.dailywire.com/news/graham-platner-ends-senate-bid-with-profane-political-message"}
+        ]
+      }
+    },
+    {
+      "title": "June jobs report: 57,000 jobs added, unemployment at 4.2%",
+      "summary": "The US economy added 57,000 jobs in June, below expectations, while the unemployment rate dipped slightly to 4.2%. Wage growth of 3.5% continues to lag the 4.2% inflation rate for a third straight month.",
+      "correlation": 90,
+      "correlation_label": "Same numbers, same framing as a miss versus expectations, from both sides.",
+      "left": {
+        "framing": "CNN, NBC, and The Hill reported the headline figures neutrally and described the report as a jobs miss, tying it to a broader slowdown since March and to the ongoing wage-inflation gap.",
+        "sources": [
+          {"source": "CNN Business", "url": "https://www.cnn.com/2026/07/02/economy/us-jobs-report-june-final"},
+          {"source": "NBC News", "url": "https://www.nbcnews.com/business/economy/june-jobs-report-stable-hiring-rcna352603"},
+          {"source": "The Hill", "url": "https://thehill.com/business/5951004-june-job-growth-disappoints/"}
+        ]
+      },
+      "right": {
+        "framing": "Washington Examiner ran an almost identical factual writeup describing the report as falling short of forecasts, with no notably different spin from the left's coverage.",
+        "sources": [
+          {"source": "Washington Examiner", "url": "https://www.washingtonexaminer.com/policy/finance-and-economy/4633353/economy-adds-jobs-june-fewer-expected/"}
+        ]
+      }
+    },
+    {
+      "title": "Supreme Court rulings on immigration and citizenship",
+      "summary": "The Supreme Court issued rulings this term upholding the administration's border 'metering' policy (6-3) and addressing the citizenship executive order, among other immigration-related cases.",
+      "correlation": 35,
+      "correlation_label": "Same rulings, sharply different emphasis on which side 'won' and why it matters.",
+      "left": {
+        "framing": "The Hill's rundown treated the rulings as a mixed bag with substantial impact on migrants' ability to claim asylum, emphasizing the practical effect of upheld border enforcement tools.",
+        "sources": [
+          {"source": "The Hill", "url": "https://thehill.com/regulation/court-battles/5941656-supreme-court-immigration-decisions/"}
+        ]
+      },
+      "right": {
+        "framing": "National Review and The Daily Wire framed the rulings as vindication of restrictionist immigration policy and mocked liberal objections to the citizenship ruling.",
+        "sources": [
+          {"source": "National Review", "url": "https://www.nationalreview.com/2026/02/midnight-strikes-for-immigration-restrictionism/"},
+          {"source": "The Daily Wire", "url": "https://www.dailywire.com/news/citizenship-follies"}
+        ]
+      }
+    },
+    {
+      "title": "Michigan Senate primary: progressive-establishment Democratic split",
+      "summary": "With Mallory McMorrow out of the race, the Michigan Democratic Senate primary has become a proxy fight over the party's direction, with Rep. Alexandria Ocasio-Cortez endorsing progressive candidate Abdul El-Sayed.",
+      "correlation": 48,
+      "correlation_label": "Same primary, left treats it as an endorsement story, right treats it as a party-in-crisis story.",
+      "left": {
+        "framing": "NBC News reported AOC's endorsement of El-Sayed as a straightforward campaign development in a competitive primary.",
+        "sources": [
+          {"source": "NBC News", "url": "https://www.nbcnews.com/politics/2026-election/alexandria-ocasio-cortez-endorses-abdul-el-sayed-michigan-primary-rcna352705"}
+        ]
+      },
+      "right": {
+        "framing": "Fox News framed the same primary as the Democratic Party's 'civil war' reaching its biggest test yet, with progressives threatening to overwhelm the party establishment.",
+        "sources": [
+          {"source": "Fox News", "url": "https://www.foxnews.com/politics/democrats-civil-war-heads-michigan-progressives-face-biggest-test-high-stakes-senate-showdown"}
+        ]
+      }
+    },
+    {
+      "title": "DSA-aligned candidates winning Democratic primaries nationally",
+      "summary": "Democratic Socialists of America-aligned candidates have posted a string of primary wins this cycle, part of a broader leftward shift energizing parts of the Democratic base while worrying parts of the party's establishment.",
+      "correlation": 50,
+      "correlation_label": "Same trend, left frames it as establishment unease, right frames it as an internal takeover.",
+      "left": {
+        "framing": "The Hill described the trend as leaving the Democratic Party establishment 'rattled,' a more measured characterization of internal friction.",
+        "sources": [
+          {"source": "The Hill", "url": "https://thehill.com/homenews/campaign/5952255-democratic-party-dsa-midterm-primaries/"}
+        ]
+      },
+      "right": {
+        "framing": "The Daily Wire cast the same trend as a 'hostile socialist takeover' of the Democratic Party already underway, a sharper and more alarmed framing.",
+        "sources": [
+          {"source": "The Daily Wire", "url": "https://www.dailywire.com/news/panic-sets-in-dems-tailspin-as-they-realize-the-hostile-socialist-takeover-already-started"}
+        ]
+      }
+    }
+  ],
+  "gap_left": [
+    {
+      "title": "Trump won't sign bipartisan housing bill over elections overhaul dispute",
+      "summary": "President Trump said he will not sign a bipartisan housing bill set to become law, in protest of Republicans' failure to pass a separate elections overhaul package, a move covered by left outlets as a political blow to vulnerable GOP lawmakers ahead of the midterms.",
+      "sources": [{"source": "CNN Politics", "url": "https://www.cnn.com/2026/07/10/politics/trump-housing-bill"}]
+    },
+    {
+      "title": "Trump-GOP infighting seen as a Democratic opening",
+      "summary": "An opinion analysis argues that internal Republican disputes, including the housing bill standoff, are creating a political opportunity for Democrats heading into the midterms.",
+      "sources": [{"source": "The Hill", "url": "https://thehill.com/opinion/congress-blog/politics/5954016-democrats-capitalize-trump-gop-rift/"}]
+    },
+    {
+      "title": "US-Iran diplomatic efforts to revive talks",
+      "summary": "Live coverage details Qatari-mediated efforts to restart US-Iran negotiations after the ceasefire broke down, emphasizing the diplomatic track alongside military tensions.",
+      "sources": [{"source": "CNN", "url": "https://www.cnn.com/2026/07/10/world/live-news/iran-war-trump"}]
+    },
+    {
+      "title": "Reported Iranian assassination threat against Trump",
+      "summary": "Intelligence sharing between Israel and the US flagged a reported Iranian plot targeting Trump, raising security concerns covered in detail by left-leaning outlets.",
+      "sources": [{"source": "The Hill", "url": "https://thehill.com/homenews/administration/5963476-iran-trump-assassination-risk-israel-air-force-one/"}]
+    },
+    {
+      "title": "Federal courts push back on ICE enforcement tactics",
+      "summary": "A federal judge blocked ICE's policy of making arrests at immigration courts nationwide, and CNN separately scrutinized a fatal ICE-involved shooting in Houston and ICE's decision to stop publicly reporting deaths of recently released detainees.",
+      "sources": [
+        {"source": "CNN Politics", "url": "https://edition.cnn.com/2026/06/23/politics/judge-blocks-trump-policy-arrests-immigration-courts"},
+        {"source": "CNN", "url": "https://edition.cnn.com/2026/07/10/us/video/fatal-ice-shooting-houston-timeline-vrtc"},
+        {"source": "CNN", "url": "https://edition.cnn.com/2026/06/05/us/ice-death-reports-recently-released-detainees-hnk"}
+      ]
+    },
+    {
+      "title": "Rising political polarization and party dealignment",
+      "summary": "CNN coverage highlighted a poll showing nearly half of Americans no longer identify as Democrats or Republicans, alongside an analysis of why today's political divisions differ from past eras of American discord; MSNBC commentary separately argued Trump-era GOP politics run on cruelty toward opponents.",
+      "sources": [
+        {"source": "CNN Politics", "url": "https://www.cnn.com/2026/06/16/politics/cnn-poll-political-parties-independent-democrats-republicans"},
+        {"source": "CNN Politics", "url": "https://www.cnn.com/2026/07/05/politics/trump-july-4-america-250-civil-war-analysis"},
+        {"source": "MSNBC", "url": "https://www.msnbc.com/weekends-with-alex-witt/watch/-cruelty-meanness-is-the-point-why-conservatives-are-sticking-by-trump-235123269790"}
+      ]
+    }
+  ],
+  "gap_right": [
+    {
+      "title": "GOP holds a narrow edge to keep the Senate",
+      "summary": "Analysts and betting markets currently give Republicans a slim edge to retain Senate control in the 2026 midterms, even amid the disruption from Graham's death.",
+      "sources": [{"source": "Washington Examiner", "url": "https://www.washingtonexaminer.com/news/campaigns/congressional/4633579/republican-edge-senate-majority-2026-midterms/"}]
+    },
+    {
+      "title": "A Democratic House win could help 2028 GOP contenders",
+      "summary": "Commentary argues that if Democrats retake the House in the midterms, it could paradoxically benefit potential 2028 Republican presidential contenders like Vance and Rubio by giving them a foil to campaign against.",
+      "sources": [{"source": "Washington Examiner", "url": "https://www.washingtonexaminer.com/in_focus/4644858/democratic-house-great-news-for-vance-rubio/"}]
+    },
+    {
+      "title": "Inflation easing despite Iran-related energy disruptions",
+      "summary": "Right-leaning coverage argues the US is on track to avoid Biden-era inflation levels despite energy market disruptions tied to the Iran conflict, framing current price trends favorably relative to the prior administration.",
+      "sources": [
+        {"source": "Washington Examiner", "url": "https://www.washingtonexaminer.com/news/4644278/us-dodge-biden-level-inflation-despite-iran/"},
+        {"source": "Fox News", "url": "https://www.foxnews.com/category/us/economy/inflation"}
+      ]
+    },
+    {
+      "title": "Israel signals readiness for renewed strikes on Iran",
+      "summary": "Fox News reported that Israeli leadership signaled readiness to strike Iran again even as US negotiators pursued talks in Oman, and separately covered the ceasefire's collapse after Iranian attacks in the Strait of Hormuz and Trump's projection of confidence that Iran is 'dying to settle.'",
+      "sources": [
+        {"source": "Fox News", "url": "https://www.foxnews.com/live-news/iran-war-news-us-trump-oil-prices-strait-of-hormuz-07-11-2026"},
+        {"source": "Fox News", "url": "https://www.foxnews.com/live-news/trump-iran-war-peace-ended-israel-hormuz-july-8"},
+        {"source": "Fox News", "url": "https://www.foxnews.com/live-news/iran-us-trump-khamenei-funeral-july-4"}
+      ]
+    },
+    {
+      "title": "New immigration rule changes framed as enforcement wins",
+      "summary": "Fox News rounded up several recent immigration rule changes, including the new $100,000 H-1B visa fee, framed as enforcement successes for the administration; The Federalist separately criticized Mamdani's stated immigration views as incompatible with US law.",
+      "sources": [
+        {"source": "Fox News", "url": "https://www.foxnews.com/us/5-big-immigration-changes-taking-effect-across-us"},
+        {"source": "The Federalist", "url": "https://thefederalist.com/2026/02/13/mamdami-demands-u-s-immigration-policy-start-obeying-islam/"}
+      ]
+    },
+    {
+      "title": "GOP messaging offensive against Democratic leadership and candidates",
+      "summary": "Washington Examiner ran pieces framing Pelosi-era Democratic leadership as anti-democratic and outlining a GOP strategy to use Mamdani's NYC mayoralty against Democrats in Long Island suburban races; The Federalist separately accused liberal Supreme Court justices of political delay tactics, and Fox News highlighted Fetterman's break from the Sanders wing over the Platner episode.",
+      "sources": [
+        {"source": "Washington Examiner", "url": "https://www.washingtonexaminer.com/in_focus/4644272/pelosi-democrats-against-democracy/"},
+        {"source": "Washington Examiner", "url": "https://www.washingtonexaminer.com/news/campaigns/congressional/4644299/gop-plan-win-long-island-kathy-hochul-zohran-mamdani/"},
+        {"source": "The Federalist", "url": "https://thefederalist.com/2026/05/11/scotus-liberals-caught-slow-walking-another-ruling-to-help-dems/"},
+        {"source": "Fox News", "url": "https://www.foxnews.com/politics/platner-collapse-completes-john-fetterman-break-sanders-socialists"}
+      ]
+    }
+  ],
+  "suggestions": [
+    { "name": "Axios", "lean": "center", "search_domain": "axios.com", "rationale": "Fills a center/data-journalism gap with quick, sourced political briefs distinct from opinion-driven Free Press.", "accessible": true },
+    { "name": "RealClearPolitics", "lean": "center", "search_domain": "realclearpolitics.com", "rationale": "Aggregates polling and cross-spectrum commentary in one place, useful as a correlation cross-check.", "accessible": true },
+    { "name": "The Bulwark", "lean": "right", "search_domain": "thebulwark.com", "rationale": "Adds an anti-Trump conservative voice distinct from the existing right-leaning roster, broadening the right's internal range.", "accessible": true }
+  ]
+}
