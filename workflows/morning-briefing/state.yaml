@@ -2,6 +2,6 @@ workflow: morning-briefing
 agent: chief
 status: complete
 current-step: step-04
-last-run: 2026-07-10T12:00:00Z
+last-run: 2026-07-14T13:35:05Z
 last-run-status: partial
-last-run-notes: "Scheduled autonomous run. Calendar (M365), OmniFocus (via osascript), delegation tracker, email (Jarvis folder + Inbox triage), Plaud staging check, and in-flight workflow scan completed successfully. Watchtower/Knox spawn skipped (non-interactive scheduled context, kept run lean). Lead review (My Leads.xlsx) skipped. Clay upcoming-events times conflicted with M365 for 2 events (Mike Rosa catch-up, Friday Wrap-Up) — M365 treated as source of truth, flagged for David to verify."
+last-run-notes: "Scheduled autonomous run in Cowork sandbox (no Mac bridge available). Calendar (M365, live pull), Clay reminders/events, delegation tracker, and in-flight workflow scan (all 51 workflows checked, none in-progress) completed successfully. OmniFocus MCP failed with parameter deserialization errors on get_inbox/list_tasks; osascript fallback unavailable in this sandboxed session — task/inbox/overdue/flagged data missing from briefing, logged as err-20260714T133534-NFW8YG. Plaud transcript staging, My Leads.xlsx lead review, and Jarvis inbox folder scan could not run (Mac-local paths / file not found from this session). Quarterly objectives file confirmed stale (still Q2, review-by date is tomorrow 2026-07-15) — surfaced in briefing narrative."

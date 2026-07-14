@@ -260,7 +260,30 @@ status: complete
 current-step: step-04
 ```
 
-The morning briefing has been delivered. The controller drives from here.
+---
+
+## GIT COMMIT (MANDATORY)
+
+After the workflow completes, commit all changes using the git skill:
+
+1. Stage the changes:
+```bash
+git add -A
+```
+
+2. Commit with this message:
+```bash
+git commit -m "chore(chief): morning briefing run — working memory capture and state update"
+```
+
+3. Push to remote:
+```bash
+git push origin main
+```
+
+**Important:** Execute each git command as a separate, atomic call. Never chain commands with `&&` or `;`. Wait for each call to return before issuing the next. See `skills/git/SKILL.md` for the atomic command rule and rationale.
+
+The morning briefing has been delivered and committed. The controller drives from here.
 <!-- system:end -->
 
 <!-- personal:start -->

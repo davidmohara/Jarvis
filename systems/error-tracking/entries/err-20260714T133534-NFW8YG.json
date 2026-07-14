@@ -1,0 +1,15 @@
+{
+  "id": "err-20260714T133534-NFW8YG",
+  "timestamp": "2026-07-14T13:35:34Z",
+  "session": "2026-07-14-morning-briefing",
+  "source": "self-detected",
+  "agent": "chief",
+  "category": "tool-misuse",
+  "description": "Self-caught: mcp__omnifocus__get_inbox and mcp__omnifocus__list_tasks calls failed with parameter deserialization errors (numeric/boolean args arriving as strings) during morning briefing step-02 data gather. This is distinct from the documented completion-status unreliability in SYSTEM.md — it's a hard schema failure, not stale data. Additionally, this session runs in an isolated cloud sandbox with no bridge to David's Mac, so the documented fallback (Desktop Commander/osascript) was also unavailable. Briefing was delivered without OmniFocus data (inbox count, due-today, overdue, flagged tasks all missing) rather than guessing.",
+  "correction": "When OmniFocus MCP calls fail with a parameter type error, do not retry the same malformed call repeatedly — note the failure once and fall back per the documented protocol. In sandboxed/cloud sessions with no Mac bridge, flag upfront that the osascript fallback path is unavailable rather than discovering it mid-workflow.",
+  "failure_mode": "tool-ignorance",
+  "systemic_fix": "Consider having the omnifocus-tasks skill or morning-briefing workflow detect environment (sandboxed vs. Mac-local) at boot and pre-declare which OmniFocus access path is available, so briefings don't silently lose task data without a clear upfront flag.",
+  "fix_status": "proposed",
+  "severity": "moderate",
+  "related_entries": []
+}
