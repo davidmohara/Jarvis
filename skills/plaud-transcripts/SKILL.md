@@ -125,6 +125,25 @@ skill), append ` (Plaud)` to distinguish them — or ask the user if they want t
 Same as the Teams skill — Meeting Details, Attendees, Summary, Key Discussion Points,
 Action Items, and Transcript in a `<details>` block. Platform field should say "Plaud.ai".
 
+**CRITICAL — Transcript HTML structure.** The `<summary>` tag contains ONLY the label
+text. The full transcript content goes in the `<details>` body, AFTER the closing
+`</summary>` tag. Never put transcript content inside `<summary>`. Correct structure:
+
+```markdown
+## Transcript
+
+<details>
+<summary>Full Transcript</summary>
+
+**Speaker Name** (HH:MM:SS):
+Transcript text here...
+
+**Another Speaker** (HH:MM:SS):
+More text...
+
+</details>
+```
+
 Plaud recordings sometimes lack clear speaker identification. When speakers are labeled
 as "Speaker 1", "Speaker 2", etc., keep those labels — the user can rename them later.
 When no speaker labels exist at all, format as continuous text with paragraph breaks.

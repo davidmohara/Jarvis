@@ -131,10 +131,11 @@ Step-05b handles sharing each ingested recording with Alice Mburu and sends the 
 
 ## WRITE WORKING MEMORY
 
-After the workflow output has been delivered, write a working memory file to `memory/working/` using this filename pattern:
+After the workflow output has been delivered, write a working memory file to the **IES local filesystem** — NOT the Obsidian vault. Use `mcp__Desktop_Commander__write_file` (Desktop Commander), never the Obsidian MCP server, for this write.
 
+**Absolute path:**
 ```
-plaud-ingest-YYYY-MM-DD-HHmmss.md
+/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/memory/working/plaud-ingest-YYYY-MM-DD-HHmmss.md
 ```
 
 where `YYYY-MM-DD-HHmmss` is the local date and time at the moment of writing. Use the session start time from `state.yaml` if available; otherwise use current time.
