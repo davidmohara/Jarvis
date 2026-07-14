@@ -1,0 +1,202 @@
+{
+  "generated": "2026-07-14T12:01:53Z",
+  "window_hours": 72,
+  "sources_used": ["msnbc","cnn","nbc","thehill","foxnews","natreview","examiner","federalist","dailywire","freepress"],
+  "sources_muted": [
+    { "name": "New York Times", "lean": "left", "reason": "blocks crawler" },
+    { "name": "Washington Post", "lean": "left", "reason": "blocks crawler" },
+    { "name": "Politico", "lean": "left", "reason": "blocks crawler" },
+    { "name": "Vox Politics", "lean": "left", "reason": "blocks crawler" },
+    { "name": "WSJ Opinion", "lean": "right", "reason": "blocks crawler" },
+    { "name": "New York Post", "lean": "right", "reason": "blocks crawler" },
+    { "name": "Reuters Politics", "lean": "center", "reason": "blocks crawler" },
+    { "name": "Associated Press", "lean": "center", "reason": "blocks crawler" },
+    { "name": "BBC US & Canada", "lean": "center", "reason": "blocks crawler" }
+  ],
+  "counts": { "total_items": 51, "by_lean": {"left": 29, "right": 19, "center": 3}, "shared_topics": 5, "gap_left": 5, "gap_right": 5 },
+  "shared_topics": [
+    {
+      "title": "Graham Platner withdraws from Maine Senate race amid assault allegation",
+      "summary": "Democratic Senate nominee Graham Platner formally withdrew from Maine's US Senate race on July 10 after a woman he previously dated accused him of a 2021 sexual assault, an allegation he denies. His departure follows earlier controversy over a Nazi-linked tattoo and scrutiny of his populist branding. The Maine Democratic Party will select a replacement nominee at a July 25 convention, with a July 27 deadline; Democrats need the seat to unseat Republican Sen. Susan Collins in November.",
+      "correlation": 52,
+      "correlation_label": "Same facts, but left treats it as a vetting failure to move past, right treats it as proof of a broader pattern.",
+      "left": {
+        "framing": "Left coverage (CNN, NBC) is largely procedural: reporting the withdrawal, the replacement timeline, and Democratic officials' relief that it happened before the filing deadline, with CNN analysis calling it embarrassing for the party's vetting process.",
+        "sources": [
+          { "source": "CNN Politics", "url": "https://www.cnn.com/2026/07/08/politics/democrats-platner-problems-analysis" },
+          { "source": "CNN Politics", "url": "https://www.cnn.com/2026/07/09/politics/maine-democrats-replace-graham-platner" },
+          { "source": "NBC News Politics", "url": "https://www.nbcnews.com/politics/2026-election/graham-platner-officially-drops-maine-senate-race-rcna385842" }
+        ]
+      },
+      "right": {
+        "framing": "Right coverage (Fox, National Review, Daily Wire) leans harder into the allegation and character narrative, framing the collapse as validation that Democratic vetting was reckless and linking it to a broader story about the party's populist-left flank (invoking Fetterman's break from the Sanders wing).",
+        "sources": [
+          { "source": "Fox News Politics", "url": "https://www.foxnews.com/politics/platners-three-day-vetting-job-comes-back-haunt-dems-rape-allegation-rocks-senate-bid" },
+          { "source": "Fox News Politics", "url": "https://www.foxnews.com/politics/platner-collapse-completes-john-fetterman-break-sanders-socialists" },
+          { "source": "National Review", "url": "https://www.nationalreview.com/news/graham-platner-drops-out-of-maine-senate-race-following-sexual-assault-allegation/" }
+        ]
+      }
+    },
+    {
+      "title": "Sen. Lindsey Graham dies at 71; sister named temporary successor",
+      "summary": "Sen. Lindsey Graham (R-SC) died suddenly on July 11-12 at age 71, with an aortic dissection preliminarily ruled the cause. South Carolina Gov. Henry McMaster appointed Graham's sister, Darline Graham Nordone, to serve as temporary successor, making her the state's first female senator. A Republican special election is scheduled for August 11, with candidate filing open July 21-28; the winner serves through the November general and takes office in January 2027.",
+      "correlation": 78,
+      "correlation_label": "Same event and succession facts, right coverage more focused on tributes, left more focused on Senate/midterm math.",
+      "left": {
+        "framing": "Left coverage (CNN, NBC, The Hill) centers on how the death reshapes Senate business and the midterm map, with framing around the 'frenzy' over who succeeds him.",
+        "sources": [
+          { "source": "CNN Politics", "url": "https://www.cnn.com/2026/07/13/politics/darline-graham-nordone-south-carolina-trump" },
+          { "source": "CNN Politics", "url": "https://www.cnn.com/2026/07/12/politics/lindsey-graham-replacement-senate" },
+          { "source": "NBC News Politics", "url": "https://www.nbcnews.com/politics/politics-news/sen-lindsey-graham-dies-71-brief-sudden-illness-rcna552722" }
+        ]
+      },
+      "right": {
+        "framing": "Right coverage (Fox) leads with tributes to Graham's career and quickly moves to reporting that Trump already favors a specific successor, framing it as a GOP opportunity to consolidate.",
+        "sources": [
+          { "source": "Fox News Politics", "url": "https://www.foxnews.com/live-news/lindsey-graham-death-heart-disease-senate-july-13" },
+          { "source": "Fox News Politics", "url": "https://www.foxnews.com/politics/grahams-death-ignites-gop-scramble-senate-seat-trump-hints-he-already-has-favorite" }
+        ]
+      }
+    },
+    {
+      "title": "June jobs report: 57,000 jobs added, below expectations",
+      "summary": "The US economy added 57,000 jobs in June, short of economist expectations, while the unemployment rate ticked down to 4.2%. Wage growth (3.5%) continued to trail inflation for a third straight month. Coverage across the spectrum agreed on the topline numbers, with energy-price volatility tied to the US-Iran conflict cited as a complicating factor for the broader economic picture.",
+      "correlation": 88,
+      "correlation_label": "Nearly identical reporting of the same topline figures with minimal editorializing on either side.",
+      "left": {
+        "framing": "Left outlets (CNN, NBC, The Hill) report the miss straightforwardly, emphasizing wage growth lagging inflation and softening labor market momentum.",
+        "sources": [
+          { "source": "CNN Business", "url": "https://www.cnn.com/2026/07/02/economy/us-jobs-report-june-final" },
+          { "source": "NBC News", "url": "https://www.nbcnews.com/business/economy/june-jobs-report-stable-hiring-rcna352603" },
+          { "source": "The Hill", "url": "https://thehill.com/business/5951004-june-job-growth-disappoints/" }
+        ]
+      },
+      "right": {
+        "framing": "Washington Examiner reports the same shortfall against expectations with similarly neutral framing, without attaching blame to the administration.",
+        "sources": [
+          { "source": "Washington Examiner", "url": "https://www.washingtonexaminer.com/policy/finance-and-economy/4633353/economy-adds-jobs-june-fewer-expected/" }
+        ]
+      }
+    },
+    {
+      "title": "Federal judge blocks ICE arrests at immigration courts nationwide",
+      "summary": "A federal judge issued a nationwide injunction in late June blocking the Trump administration's policy of arresting migrants at immigration courthouses, a practice attorneys said had turned court hallways into 'zones of fear.' The ruling intersects with a broader debate over immigration enforcement tactics and legal-immigration restrictions being pursued by the administration.",
+      "correlation": 34,
+      "correlation_label": "Same underlying immigration-enforcement debate, but left covers the specific court ruling while right frames the issue as one of restrictionist policy legitimacy, with little direct engagement with each other's specific story.",
+      "left": {
+        "framing": "CNN reports the injunction directly, quoting advocates who said the courthouse-arrest practice created fear and chaos in the legal process.",
+        "sources": [
+          { "source": "CNN Politics", "url": "https://edition.cnn.com/2026/06/23/politics/judge-blocks-trump-policy-arrests-immigration-courts" }
+        ]
+      },
+      "right": {
+        "framing": "National Review does not cover the specific ruling but runs parallel commentary defending restrictionist immigration policy on national-identity grounds, arguing for tighter enforcement broadly.",
+        "sources": [
+          { "source": "National Review", "url": "https://www.nationalreview.com/2026/03/americanism-as-an-immigration-policy/" },
+          { "source": "National Review", "url": "https://www.nationalreview.com/2026/02/midnight-strikes-for-immigration-restrictionism/" }
+        ]
+      }
+    },
+    {
+      "title": "US-Iran conflict: renewed strikes and Strait of Hormuz standoff",
+      "summary": "The US resumed strikes on Iran in early July, hitting more than 80 targets and reimposing oil sanctions after attacks on commercial shipping near the Strait of Hormuz, with Trump notifying Congress under the War Powers Act. Indirect talks continue in Qatar and Oman over compliance with a mid-June memorandum of understanding, while Israel has signaled readiness for renewed strikes of its own. Oil prices have risen back toward $80/barrel amid the uncertainty.",
+      "correlation": 61,
+      "correlation_label": "Same core facts on strikes and diplomacy, left emphasizes economic fallout and Trump's shifting posture, right emphasizes regional resolve and Israeli readiness.",
+      "left": {
+        "framing": "Left coverage (CNN, NBC, The Hill) tracks the strikes, sanctions, and stalled MoU talks, with analysis suggesting Trump faces a self-created 'war dilemma' and noting the toll on energy prices and the broader economy.",
+        "sources": [
+          { "source": "CNN Politics", "url": "https://www.cnn.com/2026/07/07/world/live-news/nato-summit-trump" },
+          { "source": "CNN Politics", "url": "https://www.cnn.com/2026/07/14/politics/trump-iran-war-strait-of-hormuz-analysis" },
+          { "source": "NBC News", "url": "https://www.nbcnews.com/business/economy/june-cpi-inflation-oil-prices-ai-rcna587311" },
+          { "source": "The Hill", "url": "https://thehill.com/policy/defense/5966415-trump-congress-resumes-strikes-iran/" }
+        ]
+      },
+      "right": {
+        "framing": "Fox News coverage emphasizes Israeli readiness to strike again and frames US actions as a resolute response to Iranian aggression toward shipping lanes.",
+        "sources": [
+          { "source": "Fox News Politics", "url": "https://www.foxnews.com/live-news/iran-war-news-us-trump-oil-prices-strait-of-hormuz-07-11-2026" }
+        ]
+      }
+    }
+  ],
+  "gap_left": [
+    {
+      "title": "South Carolina's first female senator sworn in",
+      "summary": "Beyond the succession mechanics, left outlets ran a standalone angle on the historic nature of Darline Graham Nordone becoming South Carolina's first female senator, with The Hill and NBC covering how the sudden vacancy reshapes a busy Senate calendar.",
+      "sources": [
+        { "source": "The Hill", "url": "https://thehill.com/homenews/campaign/5966221-lindsey-graham-senate-successor-frenzy/" },
+        { "source": "NBC News Politics", "url": "https://www.nbcnews.com/politics/politics-news/lindsey-grahams-death-quickly-changes-busy-senate-politics-desk-rcna587387" }
+      ]
+    },
+    {
+      "title": "Democrats allege 'election takeover' after EAC dismissals",
+      "summary": "CNN and NBC covered Democratic accusations that the Trump administration's dismissal of remaining Election Assistance Commission members ahead of the midterms amounts to a political takeover of election administration, a story that hasn't drawn parallel coverage on the right in this window.",
+      "sources": [
+        { "source": "CNN Politics", "url": "https://www.cnn.com/2026/07/11/politics/democrats-trump-firing-election-officials" },
+        { "source": "NBC News Politics", "url": "https://www.nbcnews.com/politics/2026-election/trump-fires-election-assistance-commission-members-ahead-midterms-rcna353781" }
+      ]
+    },
+    {
+      "title": "Rubio vows to 'dismantle' the International Criminal Court",
+      "summary": "CNN reported Secretary of State Rubio's escalated campaign against the ICC, urging other countries to join in opposing the institution, as part of a broader foreign-policy story that hasn't surfaced on the right's front pages in this window.",
+      "sources": [
+        { "source": "CNN Politics", "url": "https://www.cnn.com/2026/07/13/politics/rubio-dismantle-international-criminal-court" }
+      ]
+    },
+    {
+      "title": "Speaker Johnson's ambitious summer legislative agenda",
+      "summary": "CNN covered House Speaker Johnson pushing a summer agenda on Pentagon funding, anti-fraud measures, and an elections overhaul grant program, framed around rising GOP anxiety ahead of the midterms, without an equivalent standalone story yet from the right-leaning roster.",
+      "sources": [
+        { "source": "CNN Politics", "url": "https://us.cnn.com/2026/07/13/politics/congress-johnson-summer-agenda" }
+      ]
+    },
+    {
+      "title": "ICE stops reporting deaths of released detainees",
+      "summary": "CNN reported that ICE will no longer report deaths of recently released detainees amid growing scrutiny of detention conditions, a story not picked up by the right-leaning outlets tracked this window.",
+      "sources": [
+        { "source": "CNN Politics", "url": "https://www.cnn.com/2026/06/05/us/ice-death-reports-recently-released-detainees-hnk" }
+      ]
+    }
+  ],
+  "gap_right": [
+    {
+      "title": "Handicapping the 2026 Senate majority fight",
+      "summary": "Fox News and Washington Examiner both ran horse-race analyses of the roughly dozen competitive Senate races that will decide majority control in November, a level of race-by-race detail not matched in this window's left-leaning harvest.",
+      "sources": [
+        { "source": "Fox News Politics", "url": "https://www.foxnews.com/politics/four-months-midterms-12-races-determine-senate-majority" },
+        { "source": "Washington Examiner", "url": "https://www.washingtonexaminer.com/news/campaigns/congressional/4633579/republican-edge-senate-majority-2026-midterms/" }
+      ]
+    },
+    {
+      "title": "Opinion: media accused of bias in Platner allegation coverage",
+      "summary": "Washington Examiner opinion pieces argued the media was slow-walking or downplaying aspects of the Platner allegations and questioned the 'class fraud' of his populist branding, a media-criticism angle not present in the left-leaning harvest.",
+      "sources": [
+        { "source": "Washington Examiner", "url": "https://www.washingtonexaminer.com/opinion/beltway-confidential/4638803/graham-platner-allegations-media-bias-hunter-biden-laptop/" },
+        { "source": "Washington Examiner", "url": "https://www.washingtonexaminer.com/op-eds/4644407/p-hustle-unmasked-class-fraud-graham-platner/" }
+      ]
+    },
+    {
+      "title": "Democratic Socialists of America's primary gains scrutinized",
+      "summary": "Washington Examiner and Daily Wire covered the rise of DSA-aligned candidates and caucuses ahead of primaries in New York, Colorado, and elsewhere, framing it as a hostile takeover of the Democratic Party; this specific angle wasn't covered by the left-leaning roster this window.",
+      "sources": [
+        { "source": "Washington Examiner", "url": "https://www.washingtonexaminer.com/news/campaigns/congressional/4646135/six-democratic-socialists-america-most-prominent-caucuses/" },
+        { "source": "The Daily Wire", "url": "https://www.dailywire.com/news/panic-sets-in-dems-tailspin-as-they-realize-the-hostile-socialist-takeover-already-started" }
+      ]
+    },
+    {
+      "title": "Opinion: critique of Democratic wealth-redistribution rhetoric",
+      "summary": "The Federalist ran opinion commentary arguing Democratic economic proposals amount to an attempt to 'eliminate the wealthy,' an editorial framing not mirrored by a left-side counterpart in this window.",
+      "sources": [
+        { "source": "The Federalist", "url": "https://thefederalist.com/2026/07/08/democrats-want-to-eliminate-the-wealthy-so-they-can-control-everyone-else/" }
+      ]
+    },
+    {
+      "title": "NYC politics tied to socialist gains nationally",
+      "summary": "The Federalist ran commentary linking New York City politics under Mayor Mamdani to a broader narrative about socialist gains, a culture-war framing distinct from the straight news coverage on the left side this window.",
+      "sources": [
+        { "source": "The Federalist", "url": "https://thefederalist.com/2026/06/30/mccarthyism-didnt-go-far-enough-to-root-out-filthy-commies-so-now-we-have-modern-nyc/" }
+      ]
+    }
+  ],
+  "suggestions": []
+}
