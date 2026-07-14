@@ -248,6 +248,11 @@ Format:
 
 ## EXECUTION
 
-For Agent 1 (discovery): Read and follow `steps/step-01-discover.md`
-For Agent 2 (approval): Read and follow `steps/step-02-approve.md`
+For Agent 1 (discovery): 
+1. Read and follow `steps/step-01-discover.md`
+2. After completion, run `steps/step-03-git-finalize.md` to commit all changes
+
+For Agent 2 (approval):
+1. Read and follow `steps/step-02-approve.md`
+2. After completion, run `steps/step-03-git-finalize.md` to commit all changes
 <!-- personal:end -->

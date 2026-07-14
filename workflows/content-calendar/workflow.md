@@ -68,7 +68,12 @@ Every content item tracked by Harper has these fields:
 <!-- system:start -->
 ## EXECUTION
 
-Read fully and follow: `steps/step-01-load-content-data.md` to begin the workflow.
+Read fully and follow these steps in order:
+1. `steps/step-01-load-content-data.md`
+2. `steps/step-02-deadline-management.md`
+3. `steps/step-03-content-recommendations.md`
+4. `steps/step-04-deliver-calendar.md`
+5. `steps/step-05-git-finalize.md` (final: commits all state to git)
 <!-- system:end -->
 
 <!-- personal:start -->

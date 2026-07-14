@@ -374,5 +374,9 @@ Add the new post to the Candidates table in `reference/blog-ideas.md`:
 
 ## NEXT STEP
 
-This step is self-contained. Agent 2 (step-02-approve.md) runs independently on its own schedule.
+After discovery completes:
+1. Draft notification is posted to #content
+2. Run `steps/step-03-git-finalize.md` to commit pending-drafts.json and state.yaml
+
+Agent 2 (step-02-approve.md) runs independently on its own schedule, also followed by step-03.
 <!-- personal:end -->

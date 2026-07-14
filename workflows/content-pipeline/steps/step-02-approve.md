@@ -266,4 +266,14 @@ If this workflow run is being executed as part of an observed/instrumented sessi
 - Ghost post IDs of published posts
 
 Harper does NOT write to `systems/eval-harness/runs/` or `systems/eval-harness/skill-runs/`. Any eval record write from Harper is a routing error — log it as such.
+
+---
+
+## NEXT STEP
+
+After approval completes:
+1. All Slack notifications and Ghost updates are complete
+2. Run `steps/step-03-git-finalize.md` to commit pending-drafts.json and state.yaml
+
+This ensures all pipeline state changes are persisted to version control.
 <!-- personal:end -->

@@ -114,9 +114,11 @@ outputs: {}
 
 ---
 
-## WORKFLOW COMPLETE
+## NEXT STEP
 
-Content calendar delivered and tasks synced. Harper stands by for content creation, deadline escalation, or the next communication task.
+Load and execute `steps/step-05-git-finalize.md` to commit all calendar state and changes to git.
+
+This is the final step of the content-calendar workflow.
 <!-- system:end -->
 
 
