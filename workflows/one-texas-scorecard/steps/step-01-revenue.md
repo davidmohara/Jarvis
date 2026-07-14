@@ -1,11 +1,11 @@
 ---
 status: complete
-started-at: "2026-04-21T15:30:00"
-completed-at: "2026-04-21T15:30:30"
+started-at: "2026-07-14T00:00:00"
+completed-at: "2026-07-14T00:01:00"
 outputs:
   revenue_captured: true
   cache_used: true
-  most_recent_month: March
+  most_recent_month: June
 model: sonnet
 ---
 

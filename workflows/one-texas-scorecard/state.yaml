@@ -2,72 +2,42 @@
 workflow: one-texas-scorecard
 agent: chase
 status: complete
-session-started: "2026-04-21T15:30:00"
-session-id: "chase-2026-04-21-153000-validation"
+session-started: "2026-07-14T00:00:00"
+session-id: "chase-2026-07-14-000000"
 current-step: complete
-original-request: "run whole workflow for One Texas Scorecard (validation re-run)"
+original-request: "run whole workflow for One Texas Scorecard — H1 review prep for Scott McMichael call"
 abort-reason: null
-completed-at: "2026-04-21T15:31:30"
+completed-at: "2026-07-14T00:10:00"
 accumulated-context:
+  goals: |
+    ## Annual Target Reference (One Texas)
+    revenue_growth:
+      large_accounts_one_texas: 2
+      medium_accounts_one_texas: 4
+    account_pursuit:
+      new_anchors_one_texas: 3
+    partner_engagement:
+      cosell_pipeline_target: 15000000  # Q2 2026 DEADLINE PASSED
+    thought_leadership:
+      speaking_engagements: 10
+
   revenue: |
-    ## Revenue Tracker — One Texas — 2026-04-17
-
-    ### Revenue vs. Target
-    | Metric          | Dallas | South Texas | One Texas (simple avg) |
-    |---|---|---|---|
-    | Current Quarter | +3%    | -16%        | -7%                    |
-    | Last Quarter    | -44%   | -26%        | -35%                   |
-    | YTD             | +3%    | -16%        | -7%                    |
-
-    ### Monthly Revenue (March 2026)
-    | Metric          | Dallas | South Texas | One Texas |
-    |---|---|---|---|
-    | Monthly Revenue | $3.1M  | $2.8M       | $5.9M     |
-
-    [Full data from Rock 1 Revenue Snapshots.md, Apr 17 pull]
+    ## Revenue Tracker — One Texas — 2026-07-13 (cache)
+    Dallas: CQ +4% vs target, +14% vs PY, 90-Day 101%, June ~$2.8M
+    South Texas: CQ -23% vs target, -22% vs PY, 90-Day 71%, June ~$2.9M
+    One Texas YTD: -9% vs target, -6% vs PY
 
   co_sell: |
-    ### Co-Sell Pipeline (Rock 4)
-    | Partner       | Pipeline Revenue | Won Revenue |
-    |---|---|---|
-    | Microsoft     | $587K           | $125K       |
-    | Confluent     | $315K           | $0K         |
-    | SAP           | $187K           | $0K         |
-    | Scrum.org     | $65K            | $622K       |
-    | **Total**     | **$1,154K**     | **$747K**   |
-
-    Remaining Gap: $13,099,000 (87.4%)
-
-    [Full data from Rock 4 Pipeline Snapshots.md, Apr 20 pull]
+    ## Co-Sell — Rock 4 — 2026-07-13 (cache)
+    Pipeline: $2,598,350 (8 opps). Won 2026 YTD: $332,000 (1 opp)
+    Gap: $12,069,650 (80.5%). Q2 deadline MISSED.
 
   pipeline: |
-    ### 90-Day Weighted Pipeline (Rock 1)
-    | Metric | Dallas | South Texas | One Texas |
-    |---|---|---|---|
-    | 90-Day Weighted | $12.0M | $9.6M | $21.6M |
-
-    Total Pipeline: $50.0M combined
-
-    [Full data from Rock 4 Pipeline Snapshots.md, Apr 20 pull]
+    ## Pipeline — Rock 1 — 2026-07-14 (LIVE)
+    90-Day Weighted: Dallas $7,960,180 / STX $6,922,340 / One Texas $14,882,520
+    Total Pipeline: Dallas $37.86M / STX $25.55M / One Texas $63.41M / 205 opps
 
   new_clients: |
-    ## New Clients — One Texas — 2026-04-21
-
-    ### New Logos & Anchors YTD (through March 2026)
-
-    | Metric              | Dallas | South Texas | One Texas | Q1 Target (each) |
-    |---|---|---|---|---|
-    | New Logos YTD       | 4      | 4           | 8         | 4 + 4 = 8        |
-    | New Anchors YTD     | 0      | 1           | 1         | 2 + 2 = 4        |
-
-    ### Gap to Target
-
-    | Metric              | Dallas | South Texas | One Texas |
-    |---|---|---|---|
-    | Logo Gap            | 0      | 0           | 0         |
-    | Anchor Gap          | -2     | -1          | -3        |
-
-    **Dallas logos (Q1):** 4 new logos, 0 new anchors
-    **South Texas logos (Q1):** 4 new logos, 1 new anchor
-
-    Q1 closed with One Texas at 8 new logos (on target) and 1 new anchor (75% of 4-anchor Q1 target). Both enterprises hit logo target but anchors are 1 behind pace. This is recoverable in Q2-Q3 with focused pursuit.
+    ## New Clients — 2026-06-22 (cache, through May)
+    Logos: Dallas 6, STX 1, One Texas 7
+    Anchors: Dallas 1, STX 1, One Texas 2 (target 3, gap 1)

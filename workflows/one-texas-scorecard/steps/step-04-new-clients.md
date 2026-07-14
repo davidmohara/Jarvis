@@ -1,14 +1,17 @@
 ---
 status: complete
-started-at: "2026-04-21T15:31:00"
-completed-at: "2026-04-21T15:31:15"
+started-at: "2026-07-14T00:08:00"
+completed-at: "2026-07-14T00:09:00"
 outputs:
   new_clients_captured: true
-  most_recent_month: March
-  dallas_logos: 4
-  dallas_anchors: 0
-  south_texas_logos: 4
+  cache_used: true
+  data_through: May 2026
+  dallas_logos: 6
+  dallas_anchors: 1
+  south_texas_logos: 1
   south_texas_anchors: 1
+  one_texas_logos: 7
+  one_texas_anchors: 2
 model: sonnet
 ---
 
@@ -51,61 +54,14 @@ model: sonnet
 ### Sequence
 
 1. **Execute new-clients skill** — read and follow `skills/new-clients/SKILL.md` in full.
-   The skill covers:
-   - Navigate to Sales Momentum page
-   - Confirm 71% zoom from screenshot
-   - Filter to Dallas via Promise-based dropdown evaluate, close with Escape
-   - Hover most recent month, read tooltip DOM for "Select Row" entries and targets
-   - Filter to South Texas (Austin + Houston), repeat tooltip read
-   - Compile formatted report with gap to target
 
-2. **Store output** — write the complete formatted new-clients report to `state.yaml`:
-   ```yaml
-   accumulated-context:
-     new_clients: |
-       [full formatted output from skill]
-   ```
+2. **Store output** in `state.yaml`.
 
-3. **Update step frontmatter**:
-   ```yaml
-   status: complete
-   completed-at: [timestamp]
-   outputs:
-     new_clients_captured: true
-     most_recent_month: [month name]
-   ```
-
-4. **Update workflow state**:
-   ```yaml
-   current-step: step-05-save-to-obsidian
-   ```
+3. **Update step frontmatter** and **Update workflow state** to `step-05-save-to-obsidian`.
 
 ---
-
-## SUCCESS METRICS
-
-- New Logos YTD count captured for Dallas and South Texas
-- New Anchors YTD count captured for Dallas and South Texas
-- Q1 targets recorded for both enterprises
-- Gap to target calculated for logos and anchors
-- Company names from tooltip listed for Dallas logos
-- Full formatted output stored in accumulated-context
-
-## FAILURE MODES
-
-| Failure | Action |
-|---------|--------|
-| Scorecard page fails to load | Retry once. If unavailable, note "New Clients data unavailable" in accumulated-context and proceed to step 05. |
-| Dropdown evaluate returns 'popup never ready' | Retry the evaluate once. If still failing, surface to controller: "[Chase]: New Clients dropdown unresponsive. Manual intervention needed." |
-| Tooltip returns null at March coordinates | Try February (380, 515) and January (340, 525). Check `Month Name` in tooltip to confirm month. |
-| Zoom level differs from 71% | Note zoom level. Use `Month Name [Month]` to verify correct data point at adjusted coordinates. |
-
----
-
 
 ## STEP COMPLETION TRACKING
-
-Record step completion for eval harness:
 
 ```bash
 python3 systems/eval-harness/record-step.py one-texas-scorecard step-04-new-clients complete "${{frontmatter.started-at}}" "${{frontmatter.completed-at}}"

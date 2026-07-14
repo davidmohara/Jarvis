@@ -1,0 +1,15 @@
+{
+  "id": "err-20260714T205957-WFFG92",
+  "timestamp": "2026-07-14T20:59:57Z",
+  "session": "2026-07-14",
+  "source": "explicit",
+  "agent": "claude",
+  "category": "under-delivery",
+  "description": "On the Steve Hall automotive pricing proposal, David asked to remove the byline because it contained personal information. I anonymized the byline to 'Prepared by Improving' instead of removing the byline block entirely, and left the 'prepared by' framing/discussion in place. David had to correct a second time to get the byline actually removed.",
+  "correction": "When asked to remove a byline/attribution line entirely, remove the block outright — do not substitute a de-personalized version and treat that as satisfying the request. 'Remove X' means delete X, not rename X.",
+  "failure_mode": "wrong-assumption",
+  "systemic_fix": "When a correction says 'remove' a document element, default to full removal rather than a softened substitute; only keep a modified version if the instruction explicitly asks to change/replace rather than remove.",
+  "fix_status": "proposed",
+  "severity": "minor",
+  "related_entries": []
+}

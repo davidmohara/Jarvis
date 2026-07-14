@@ -1,0 +1,15 @@
+{
+  "id": "err-20260714T210410-VMUQ2A",
+  "timestamp": "2026-07-14T21:04:10Z",
+  "session": "2026-07-14",
+  "source": "explicit",
+  "agent": "claude",
+  "category": "format-violation",
+  "description": "Drafted the Steve Hall automotive pricing proposal full of em-dashes (headings, body copy, table cells) and referenced the source coffee meeting/conversation directly ('as discussed', 'the conversation', 'following coffee discussion') plus an unrelated past engagement (a prior personal/business AI implementation project) and a pharmaceutical-client precedent. identity/writing-rules.md bans em-dashes outright in all content written on David's behalf, format-agnostic, and David separately asked that the document stay scoped to this project only with no meeting references. Neither rule was checked before the draft was produced.",
+  "correction": "Before finalizing any generated document, scan for em-dash characters (regex —|–) and remove them per writing-rules.md. For client-facing scoping documents, keep content scoped strictly to the project at hand; do not reference the internal discovery conversation as a source or pull in unrelated past engagements/precedents unless explicitly asked.",
+  "failure_mode": "protocol-skip",
+  "systemic_fix": "Run an em-dash scan as a standing pre-finalize check on all generated client documents (not just emails), and default to project-scoped content in proposal drafts, holding meeting attribution and unrelated precedents out unless the user asks for them.",
+  "fix_status": "proposed",
+  "severity": "moderate",
+  "related_entries": ["err-20260714T205957-WFFG92"]
+}

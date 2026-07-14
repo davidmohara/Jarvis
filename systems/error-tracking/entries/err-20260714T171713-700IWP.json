@@ -1,0 +1,15 @@
+{
+  "id": "err-20260714T171713-700IWP",
+  "timestamp": "2026-07-14T17:17:13Z",
+  "session": "2026-07-14-kapil-podcast-prep",
+  "source": "explicit",
+  "agent": "Harper",
+  "category": "pattern-mismatch",
+  "description": "Built the Kapil Dabi podcast prep Word doc with a 'Suggestion for Flow' / guest-angle section, treating Episode 11's Topics and Questions doc as the representative template for Janine's format.",
+  "correction": "David corrected that Janine's docs do not typically include a suggested-flow section. Re-reviewed Episodes 1-4 (and spot-checked others) in SharePoint — none contain a flow/angle section; only Episode 11 has one, making it an outlier rather than the pattern. Rebuilt the doc as a plain numbered questions list matching the typical format.",
+  "failure_mode": "pattern-mismatch",
+  "systemic_fix": "When matching a recurring document format, sample multiple past instances (not just the most recent one) before generalizing the template.",
+  "fix_status": "applied",
+  "severity": "minor",
+  "related_entries": []
+}

@@ -1,11 +1,15 @@
 ---
 status: complete
-started-at: "2026-04-21T15:30:45"
-completed-at: "2026-04-21T15:31:00"
+started-at: "2026-07-14T00:02:00"
+completed-at: "2026-07-14T00:08:00"
 outputs:
   pipeline_captured: true
   weighted_pipeline_captured: true
-  cache_used: true
+  cache_used: false
+  live_pull: true
+  dallas_90day_weighted: 7960180
+  south_texas_90day_weighted: 6922340
+  one_texas_90day_weighted: 14882520
 model: sonnet
 ---
 

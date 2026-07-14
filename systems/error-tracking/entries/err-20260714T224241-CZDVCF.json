@@ -1,0 +1,15 @@
+{
+  "id": "err-20260714T224241-CZDVCF",
+  "timestamp": "2026-07-14T22:42:41Z",
+  "session": "2026-07-14",
+  "source": "explicit",
+  "agent": "harper",
+  "category": "missed-context",
+  "description": "David told me the full Steve Hall transcript was already in Obsidian and to stop asking him to search. He pointed me directly at zzPlaud/Client/2026-07-14 Coffee with Steve Hall — Automotive AI Use Cases and Just Capital Partnership.md via an obsidian:// URI. Marked as a major fail per his instruction. On re-verification, I read that exact file four separate times across this session via mcp__obsidian-local__get_vault_file (plain and attempted json format) and every read returned the same content: transcript block ends at 15:24, explicitly labeled 'Full transcript (~46 min — key excerpts)', with no indication of truncation (well-formed closing tags, closing note, consistent structure). I could not independently confirm the full 46-minute transcript exists inside that file as served by the obsidian-local MCP connector. This is logged as instructed, but the underlying discrepancy between what David expects to be in the vault and what the MCP tool returns for that exact path is unresolved and should be treated as open, not as a confirmed root cause of 'I should have looked harder.'",
+  "correction": "Per David: the full transcript was already in Obsidian at the path given; I should have located and used it instead of reconstructing the transcript via Claude-in-Chrome browser automation. Open question flagged for follow-up: whether the obsidian-local MCP server is serving a stale/cached or size-limited version of this file versus what's actually on disk / visible in the Obsidian app, since four direct reads of the exact path provided returned only the excerpted content.",
+  "failure_mode": "wrong-assumption",
+  "systemic_fix": "Before declaring a source file incomplete, check whether the read tool being used (mcp__obsidian-local__get_vault_file in this case) is known to truncate, cache, or size-limit responses for large notes, rather than treating the tool's returned content as ground truth for what the file contains. If a discrepancy this large ever surfaces again, cross-check the same file via a second path (e.g. direct filesystem read if the vault is reachable another way, or Obsidian's own search/word count) before concluding a full-vs-excerpt state one way or the other.",
+  "fix_status": "proposed",
+  "severity": "major",
+  "related_entries": ["err-20260714T221307-15HGV2", "err-20260714T223625-A84VC5"]
+}

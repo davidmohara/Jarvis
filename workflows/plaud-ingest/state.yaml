@@ -1,38 +1,53 @@
 workflow: plaud-ingest
 agent: knox
 status: complete
-session-started: "2026-07-13T00:00:00Z"
-session-id: "pi-20260713-001"
+session-started: "2026-07-14T00:00:00Z"
+session-id: "pi-20260714-001"
 current-step: step-05b
 original-request: "Knox: Run plaud-ingest workflow — background task, full pipeline"
 accumulated-context:
-  target-date: "2026-07-13"
-  last-run-date: "2026-07-13"
+  target-date: "2026-07-14"
+  last-run-date: "2026-07-14"
   new-recordings:
-    - file_id: e5a04131ee46970ac1c70a15cb4ae7ef
-      name: "07-10 Aligning on a Centralized AI Agent Landing Zone"
-      date: "2026-07-10"
-      duration_seconds: 2173
+    - file_id: b9d915bfc311c86b2284df97ba5b7060
+      name: "07-13 Strategic Business and Personal Catch-Up"
+      date: "2026-07-13"
+      duration_seconds: 4038
+      has_transcript: true
+      transcript_status: ready
+    - file_id: 6ee376513b6f393111f8195a8b8e7ca4
+      name: "07-14 Strategic Discussion on AI Implementation in Automotive and Personal Health"
+      date: "2026-07-14"
+      duration_seconds: 2752
       has_transcript: true
       transcript_status: ready
   transcription-triggered: []
   pending-recordings: []
   speaker-mappings:
-    e5a04131ee46970ac1c70a15cb4ae7ef:
-      "Speaker 2": "Michael Slater"
+    b9d915bfc311c86b2284df97ba5b7060:
+      "Speaker 1": "Kapil Dabi"
       resolution-method: "calendar-auto"
-      calendar-event: "Review Improving Landing Zone"
-      calendar-date: "2026-07-10"
-      calendar-attendee: "michael.slater@improving.com"
+      calendar-event: "Lunch with Kapil/David @ Seasons 52, Plano"
+      calendar-date: "2026-07-13"
+      calendar-attendee: "kapildabi@google.com"
       note: >
-        Resolved via M365 calendar lookup. The July 10 event "Review Improving Landing
-        Zone" (Teams, 20:00-20:30 UTC) was organized by David O'Hara with one attendee:
-        michael.slater@improving.com. Prior state had domain wrong (slater.codes) —
-        Michael Slater is an internal Improving colleague.
+        Resolved via M365 calendar lookup. Rename API failed (transcript in regeneration
+        after --rename call). Speaker name applied directly to staged .md via sed (108
+        replacements). Plaud-side regeneration triggered separately.
   pending-speaker-mappings: []
   ready-for-fetch:
-    - e5a04131ee46970ac1c70a15cb4ae7ef
+    - b9d915bfc311c86b2284df97ba5b7060
+    - 6ee376513b6f393111f8195a8b8e7ca4
   staged-files:
-    - "plaud_07-10 Aligning on a Centralized AI Agent Landing Zone.md"
+    - "plaud_07-13 Strategic Business and Personal Catch-Up.md"
+    - "plaud_07-14 Strategic Discussion on AI Implementation in Automotive and Personal Health.md"
   ingested-notes:
-    - "zzPlaud/Improving/2026-07-10 Aligning on a Centralized AI Agent Landing Zone.md"
+    - "zzPlaud/Other/2026-07-13 Lunch with Kapil Dabi — Agentic Commerce, Google UCP, and AI in Retail.md"
+    - "zzPlaud/Client/2026-07-14 Coffee with Steve Hall — Automotive AI Use Cases and Just Capital Partnership.md"
+  share-urls:
+    - file_id: b9d915bfc311c86b2284df97ba5b7060
+      url: "https://web.plaud.ai/s/pub_88eacbd1-c8e4-4504-ba14-90b22fb20c11::nTSH9JCtCjObT8-xtDtoJanGmHsC_OPeHUA6OZccjSqG_ocCtMAJbwR-jgCHIX0k1xQ_iKuHdO1vq6kC"
+      monday-task-id: "12530204871"
+    - file_id: 6ee376513b6f393111f8195a8b8e7ca4
+      url: "https://web.plaud.ai/s/pub_8659b3bd-207b-49e4-aa81-79ab1abf4aec::FMlng3uaaAVoYQoMjmWivymNpaAqLbFE7x-EvEY9JZSgkVlyr8n9yZHDEpKt0JyU8cTB-O_FUx8aRfoC"
+      monday-task-id: "12530238922"

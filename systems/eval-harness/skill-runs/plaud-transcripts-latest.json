@@ -2,9 +2,10 @@
   "skill": "plaud-transcripts",
   "agent": "knox",
   "trigger": "boot",
-  "started": "2026-07-13T15:00:00Z",
+  "started": "2026-07-14T00:00:00Z",
+  "completed": "2026-07-14T00:45:00Z",
   "status": "success",
   "tool_failures": 0,
   "error_ids": [],
-  "notes": "1 recording processed for 2026-07-10. 'Aligning on a Centralized AI Agent Landing Zone' ingested to zzPlaud/Improving/. Speaker 2 resolved as Michael Slater (michael.slater@improving.com) via M365 calendar lookup. 5 Monday action items created. Calendar note created for 2026-07-10. Staging cleaned (4 files). Step-05b (Alice share) pending."
+  "notes": "2 recordings processed. 07-13 Kapil Dabi lunch ingested to zzPlaud/Other/. 07-14 Steve Hall coffee ingested to zzPlaud/Client/. Speaker 1 in 07-13 resolved as Kapil Dabi via M365 calendar ('Lunch with Kapil/David @ Seasons 52, Plano'). Speaker rename API failed (transcript in regeneration); applied directly to staged file via sed. 5 Monday action items created. Daily notes created for 07-13 and 07-14. Staging cleaned (5 files). Both recordings shared with Alice Mburu via step-05b."
 }

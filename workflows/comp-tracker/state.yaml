@@ -1,10 +1,80 @@
 ---
 workflow: comp-tracker
 agent: chase
-status: not-started
-session-started: null
-session-id: null
-current-step: null
-original-request: null
-accumulated-context: {}
+status: complete
+session-started: "2026-07-14T00:00:00Z"
+session-id: local_b6833ea8-b4e7-4e85-8e68-2012975213f3
+current-step: 8
+last_run: "2026-07-14"
+last_month_processed: "2026-07"
+next_run: "first week of August 2026"
+original-request: "Run comp-tracker workflow in full — fresh PowerBI data"
+accumulated-context:
+  month: "2026-07"
+  comp_tracker_file_path: "/sessions/nice-amazing-thompson/mnt/IES/systems/compensation/2026 Comp Tracker.xlsx"
+  powerbi_tab_id: 1863736195
+  show_visuals_as_tables_enabled: true
+  cliclick_offset_y: 154
+  chrome_ui_height: 121
+  slicer_year: "2026"
+  customer_distribution_slicer_set: true
+  step1_data_source: "customer_distribution"
+
+  # Comp 1 results
+  comp1_updated: true
+  comp1_timestamp: "2026-07-14T00:00:00Z"
+  comp1_ytd_total: 6684729
+  comp1_accounts_with_revenue: 10
+  comp1_accounts_zero_revenue: 10
+  comp1_gm_written: true
+  bob_monthly_data_available: false
+
+  # Comp 2 results
+  comp2_updated: true
+  comp2_timestamp: "2026-07-14T00:00:00Z"
+  ytd_revenue: 34120747
+  ytd_growth_pct: -0.0548
+  growth_vs_6pct_target: "below_target"
+  annualized_run_rate: 68241494
+  full_year_target: 76532000
+  gap_to_target: 8290506
+  h2_revenue_needed: 42411253
+  monthly_data:
+    "2026-01": { revenue: 5440616, gp: 2085814, cost: 3354802 }
+    "2026-02": { revenue: 5444848, gp: 2066302, cost: 3378546 }
+    "2026-03": { revenue: 5865309, gp: 2095416, cost: 3769893 }
+    "2026-04": { revenue: 5850646, gp: 2154743, cost: 3695903 }
+    "2026-05": { revenue: 5273394, gp: 1995579, cost: 3277815 }
+    "2026-06": { revenue: 6245934, gp: null,    cost: null    }
+  cells_written:
+    revenue: ["C9", "D9", "E9", "F9", "G9", "H9"]
+    cost: ["C10", "D10", "E10(updated)", "F10", "G10"]
+
+  # Comp 3 results (pre-confirmed)
+  comp3_updated: true
+  comp3_item1_amount: 0
+  comp3_item2_amount: 0
+  comp3_total: 0
+  comp3_notes: "Item 1 Strategic Partnerships/GMS = $0 (pre-confirmed). Item 2 Exec Programs/Account Plans = $0 (pushed to H2, pre-confirmed)."
+
+  # Leads results
+  leads_synced: true
+  new_leads_count: 0
+  total_leads: 34
+  commission_eligible_count: 26
+  leads_timestamp: "2026-07-14T00:00:00Z"
+
+  # Commissions results
+  commissions_ytd: 0
+  commissions_new_this_month: 0
+  commissions_note: "No passed leads confirmed in PowerBI revenue yet. All commission-eligible leads pending first revenue."
+
+pending_items:
+  june_gp_missing: "June 2026 GP not yet in PowerBI — H10 (Regional Cost for June) left blank. Update when available."
+  zero_revenue_named_accounts: ["AT&T Services Inc", "Constellation Energy", "Marriott", "Kirby Corp",
+                                 "Expedia", "Massimo", "CBRE", "Tenet", "Texas Instruments", "Builders First Source"]
+  leads_pending_am_assignment: ["THL (2026-05-13)", "Spring Line Advisory (2026-06-12)"]
+  commissions_to_monitor: ["VestMed", "Veritas Financial Services", "Steve Hall", "CBRE", "Kubota",
+                           "Nexben", "Specialty Capital", "JSX"]
+  notes: "Workflow complete. All components updated with fresh PowerBI data. March cost corrected from old $3,965,412 to $3,769,893 (PowerBI fix). April-June revenue added. Commissions at $0 — no passed lead revenue yet confirmed in PowerBI."
 ---

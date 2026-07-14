@@ -680,15 +680,60 @@
   {
     "id": "session-2026-07-14-090000",
     "started": "2026-07-14T09:00:00-05:00",
-    "closed": null,
-    "current_topic": "morning-boot",
+    "closed": "2026-07-14T18:07:00-05:00",
+    "current_topic": null,
     "topics": [
       {
         "name": "morning-boot",
         "loops": [
           {
-            "task": "boot-sequence",
-            "resolved": false
+            "task": "boot-sequence — completed with 3 errors logged",
+            "resolved": true
+          }
+        ]
+      },
+      {
+        "name": "plaud-ingest",
+        "loops": [
+          {
+            "task": "2 recordings ingested: Jul 13 Kapil Dabi lunch, Jul 14 Steve Hall coffee. 7 OmniFocus tasks created.",
+            "resolved": true
+          }
+        ]
+      },
+      {
+        "name": "one-texas-scorecard",
+        "loops": [
+          {
+            "task": "Scorecard updated through June 2026 — Dallas +4% CQ, South Texas -23%, H2 needs $42.4M",
+            "resolved": true
+          }
+        ]
+      },
+      {
+        "name": "comp-tracker",
+        "loops": [
+          {
+            "task": "Full rerun with corrected PowerBI data — BoB $6.68M, regional -5.5% YoY, Comp 3 $0",
+            "resolved": true
+          }
+        ]
+      },
+      {
+        "name": "plaud-ingest-bugfix",
+        "loops": [
+          {
+            "task": "Rigby fixed 2 bugs: transcript in <details> body, working memory writes to IES filesystem. Commit 6de35196.",
+            "resolved": true
+          }
+        ]
+      },
+      {
+        "name": "shutdown-cleanup",
+        "loops": [
+          {
+            "task": "DS_Store purged, working memory written, session closed, committed",
+            "resolved": true
           }
         ]
       }

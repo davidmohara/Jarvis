@@ -1,0 +1,15 @@
+{
+  "id": "err-20260714T223625-A84VC5",
+  "timestamp": "2026-07-14T22:36:25Z",
+  "session": "2026-07-14",
+  "source": "explicit",
+  "agent": "harper",
+  "category": "missed-context",
+  "description": "When David asked 'What transcript are you using, it should be full not excerpts?', I concluded the full transcript was unrecoverable from Obsidian (checked only the one curated vault note, which is explicitly labeled as excerpts) and the plaud-transcripts staging directory (confirmed empty via Glob), then went to considerable effort to reconstruct the transcript via Claude-in-Chrome browser automation against the live Plaud web app, including repeated scroll/capture/dedupe cycles against a virtualized UI. David then corrected me: the full transcript was already sitting in Obsidian. I never ran a vault-wide search for other notes or an attached/linked full-transcript file before deciding a browser-scrape was necessary.",
+  "correction": "Before concluding a source doesn't exist, search exhaustively across the actual store, not just the one file already open in context. For Obsidian specifically, that means running search_vault / search_vault_smart across the whole vault (not just re-reading the one known note) before ruling out that the full transcript is there, e.g. as a linked attachment, a sibling note, or in a different folder than the curated summary note.",
+  "failure_mode": "lazy-search",
+  "systemic_fix": "Before invoking any recovery workflow (browser automation, re-fetching from an external API, etc.) to reconstruct data that might already exist locally, run a full-vault/full-filesystem search first and treat that as a blocking prerequisite step, not an optional check. Update the plaud-transcripts skill and/or harper meeting-coaching workflow to include 'search_vault_smart across entire vault for full transcript before assuming excerpt-only' as an explicit pre-flight step.",
+  "fix_status": "proposed",
+  "severity": "moderate",
+  "related_entries": ["err-20260714T221307-15HGV2"]
+}

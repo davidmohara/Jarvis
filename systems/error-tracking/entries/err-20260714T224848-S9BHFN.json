@@ -1,0 +1,15 @@
+{
+  "id": "err-20260714T224848-S9BHFN",
+  "timestamp": "2026-07-14T22:48:48Z",
+  "session": "2026-07-14",
+  "source": "explicit",
+  "agent": "harper",
+  "category": "data-accuracy",
+  "description": "In the Harper coaching review, I framed the 09:11 Just Capital line ('So Chris is like, I want to get Devlin, David and me involved') as Steve Hall himself making a live three-person commitment ask directly to David in the room, and criticized David for not setting a boundary against it. David corrected: that line is Steve relaying what Curtis (transcribed as 'Chris') had said, not Steve's own ask, and not David's own commitment either. It's a secondhand report of a third party's wish, made by someone who wasn't in the room to receive a live boundary-setting response.",
+  "correction": "Steve was quoting Curtis Hite's stated intent to involve Devlin, David, and Curtis as three founding members. This is not a live, in-room commitment ask that required David to set a boundary with Steve on the spot, it's Steve passing along a third party's framing. The coaching point about 'unaddressed commitment ask' in the meeting-coaching review is invalid as written and needs correcting: either drop it, or reframe it as 'a secondhand ask surfaced, worth confirming directly with Curtis later,' not as a missed real-time boundary-setting opportunity with the person across the table.",
+  "failure_mode": "sloppy-read",
+  "systemic_fix": "When coding a 'commitment ask' or similar high-stakes moment from a transcript, check whether the speaker is stating their own position or relaying someone else's before scoring it as a live interpersonal dynamic between the two people actually in the room. Attribution matters as much as content for this kind of coaching analysis.",
+  "fix_status": "proposed",
+  "severity": "moderate",
+  "related_entries": ["err-20260714T224241-CZDVCF"]
+}

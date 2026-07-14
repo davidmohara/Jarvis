@@ -1,0 +1,15 @@
+{
+  "id": "err-20260714T212600-0GU3EH",
+  "timestamp": "2026-07-14T21:26:00Z",
+  "session": "2026-07-14",
+  "source": "explicit",
+  "agent": "claude",
+  "category": "missed-context",
+  "description": "David asked which agent analyzes his meetings for personal coaching/feedback. I checked Shep (team coaching) and Knox (transcript routing) but concluded no agent does this, missing Harper's existing 'Podcast Hosting Review' capability (agents/harper.md line 119: 'Analyze a podcast episode and deliver structured host coaching: what landed, what drifted, openings given vs. missed, and overall presence'). This is exactly the personal-performance-in-a-room coaching pattern David asked about, just scoped to podcast hosting rather than general meetings. A prior episodic record (memory/episodic/2026-04-26-podcast-hosting-review-ep01.md) shows the exact template. I told David the capability didn't exist when it did, in adjacent form.",
+  "correction": "Harper provides personal presence/performance coaching (what worked, patterns to address, openings missed, overall assessment) via the Podcast Hosting Review pattern. When asked 'which agent does X', search each agent's full skill table (not just the domain I assume is closest) before concluding a capability doesn't exist, and check memory/episodic/ for precedent before ruling something out.",
+  "failure_mode": "lazy-search",
+  "systemic_fix": "Before answering a 'which agent handles X' question in the negative, grep all agent skill tables plus memory/episodic/ for related terms, not just the domain that seems most obvious. Treat existing-but-narrowly-scoped capabilities as a starting point to generalize, not evidence that nothing exists.",
+  "fix_status": "proposed",
+  "severity": "moderate",
+  "related_entries": []
+}

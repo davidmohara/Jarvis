@@ -1,0 +1,15 @@
+{
+  "id": "err-20260714T221307-15HGV2",
+  "timestamp": "2026-07-14T22:13:07Z",
+  "session": "2026-07-14",
+  "source": "explicit",
+  "agent": "harper",
+  "category": "missed-context",
+  "description": "Ran the Steve Hall meeting coaching review against the Obsidian vault note 'zzPlaud/Client/2026-07-14 Coffee with Steve Hall...md', whose Transcript section is explicitly labeled 'Full transcript (~46 min, key excerpts)': roughly 15 minutes of curated highlights, not the full recording. I flagged this as a caveat in the delivered review, but did not check whether the actual full transcript was still retrievable before proceeding. Checked afterward: the plaud-transcripts skill pipeline (skills/plaud-transcripts/scripts/fetch_plaud.py) fetches the full transcript to ~/Downloads/transcript-staging/ and deletes staging files after converting them into the curated vault note. Confirmed via Glob that no staging files remain on the host. The Plaud API bearer token lives at ~/.config/plaud/token.json on the host, which is outside this session's connected folders and not reachable by Read or by the sandbox, so the full transcript could not be re-fetched from within this session.",
+  "correction": "Before running any coaching/analysis task against a Plaud-derived vault note, check whether the note's transcript section is complete or excerpted (the vault note itself states this explicitly) before starting, and surface that limitation to David up front as a blocking question, not just a caveat buried in the output. If the full transcript is needed and isn't in the vault, say so immediately and offer concrete recovery paths (re-run the fetch script with host access, pull via Chrome from web.plaud.ai) rather than proceeding on partial data by default.",
+  "failure_mode": "wrong-assumption",
+  "systemic_fix": "Flag excerpted vs. full transcript status as a pre-check in any Harper/coaching-review workflow, and consider whether the plaud-transcripts skill should retain full raw transcripts (e.g. a fuller version in the vault note or a separate archived file) rather than discarding staging files after curation, since downstream coaching/analysis work needs the complete source.",
+  "fix_status": "proposed",
+  "severity": "moderate",
+  "related_entries": []
+}
