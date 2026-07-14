@@ -5,10 +5,10 @@ agent: chase
 created: 2026-06-24
 archived-from: memory/working/partner-meeting-prep-2026-06-24-xai.md
 context: Partner meeting prep — xAI/SpaceXAI, Cole Estrate sync
+
 salience:
   score: 0
-  last-promoted-check: 2026-07-13
-
+  last-promoted-check: '2026-07-14'
 ---
 
 # Partner Meeting Prep — xAI / SpaceXAI

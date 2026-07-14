@@ -110,3 +110,6 @@ Sources this cycle:
 ### 2026-07-13 — Nightly promotion
 Sources this cycle (backfilled — carried over from prior cycle's evidence text but never marked promoted on source files):
 - `memory/episodic/morning-briefing-2026-07-08-061500.md` and `memory/episodic/morning-briefing-2026-07-09-070000.md` — both already documented above; `promoted: true` gap closed this cycle where applicable.
+
+### 2026-07-14 — Nightly promotion (backfill closure)
+- `memory/episodic/morning-briefing-2026-07-08-061500.md` and `memory/episodic/morning-briefing-2026-07-09-070000.md` — still showed `promoted: false` on the source files despite being documented since 07-12/07-13. Flag backfilled this cycle. No new synthesis.

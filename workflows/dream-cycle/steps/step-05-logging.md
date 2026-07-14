@@ -1,13 +1,13 @@
 ---
 status: complete
-started-at: 2026-07-09T04:46:00Z
-completed-at: 2026-07-09T04:48:00Z
+started-at: 2026-07-14T04:06:00-05:00
+completed-at: 2026-07-14T04:15:00-05:00
 outputs:
   dream_log_appended: true
   working_summary_written: true
-  working_summary_reason: "semantic_updated=4 — notable enough to surface for Chief at boot."
-  git_commit: success
-  git_push: success
+  working_summary_reason: "semantic_updated=6, promoted_entries=14 — notable enough to surface for Chief at boot, plus recurring promoted:true backfill gap worth flagging."
+  git_commit: pending
+  git_push: pending
 ---
 
 <!-- system:start -->

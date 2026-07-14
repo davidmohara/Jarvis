@@ -27,10 +27,10 @@ related_people:
 - tim-rayburn
 - curtis
   promoted: true
+
 salience:
   score: 10
-  last-promoted-check: 2026-07-13
-
+  last-promoted-check: '2026-07-14'
 ---
 # Morning Briefing — Friday, June 26, 2026
 

@@ -1,18 +1,18 @@
 ---
 status: complete
-started-at: 2026-07-09T04:36:00Z
-completed-at: 2026-07-09T04:38:00Z
+started-at: 2026-07-14T03:20:00-05:00
+completed-at: 2026-07-14T03:35:00-05:00
 outputs:
-  episodic_scanned: 183
-  score_updates: 183
-  no_tags: 13
-  no_date: 11
-  files_with_tags: 170
-  in_window_count: 78
-  score_distribution: "0:23, 1:2, 2:1, 3:2, 4:1, 5:1, 6:1, 7:2, 8:2, 10:148"
-  window_start: 2026-06-09
-  window_end: 2026-07-09
-  note: "Initial run used indented-only tag regex (  - ); re-ran with widened regex matching both indented and unindented. files_with_tags recovered from 18 to 170. Same fix pattern as 2026-07-06."
+  episodic_scanned: 198
+  score_updates: 198
+  no_tags: 14
+  no_date: 6
+  files_with_tags: 184
+  in_window_count: 81
+  score_distribution: "0:24, 1:2, 2:2, 3:4, 4:1, 5:2, 8:3, 10:160"
+  window_start: 2026-06-14
+  window_end: 2026-07-14
+  note: "Found and repaired 4 pre-existing corrupted episodic files with stacked/duplicated frontmatter blocks left over from an earlier cycle's buggy write. All had score 0, no tags, no other real data — consolidated to a single clean frontmatter block, nothing lost."
 ---
 
 <!-- system:start -->

@@ -29,10 +29,10 @@ related_people:
   - alice-mburu
   - matt-yasar
   - nick-koury
+
 salience:
   score: 10
-  last-promoted-check: 2026-07-13
-
+  last-promoted-check: '2026-07-14'
 ---
 
 # Morning Briefing — Tuesday, July 07, 2026

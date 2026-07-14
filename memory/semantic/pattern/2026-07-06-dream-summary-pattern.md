@@ -3,10 +3,10 @@ type: semantic-pattern
 subject: "dream-summary pattern"
 tag: dream-summary
 domain: pattern
-confidence: low
+confidence: medium
 created: 2026-07-06
-last-updated: 2026-07-12
-synthesized-from: 3 episodic entries
+last-updated: 2026-07-14
+synthesized-from: 4 episodic entries
 tags:
   - dream-summary
 ---
@@ -52,3 +52,9 @@ Sources this cycle:
 - `memory/episodic/dream-summary-2026-07-11.md` (score 10) — clean run, minor git lock hiccup resolved without drama; 8 archives, 6 clusters, 6 semantic updates, 0 new lessons
 
 Evidence count now exceeds 15 total entries across cycles referenced in this file. Confidence escalation to `medium` is warranted at the next cycle per the stated threshold — flagging for review since this file's frontmatter still reads `confidence: low`.
+
+### 2026-07-14 — Nightly promotion
+Sources this cycle:
+- `memory/episodic/dream-summary-2026-07-12.md` (score 10) — clean boot pull, 1 archive, 14 promotion candidates (13 of which were backlog from prior cycles never marked promoted:true), 0 new lessons
+
+Confidence escalated to `medium` this cycle per the threshold flagged 2026-07-13 — evidence base has held steady through 6+ consecutive clean cycles. Also notable: this cycle surfaced a persistent backlog of 13 episodic entries from prior runs (2026-07-06 through 2026-07-11) that scored high enough to promote but never got `salience.promoted: true` written — likely a step-03 completion gap in earlier cycles rather than a genuine new pattern. Backfilling those flags this cycle to close the gap; worth a closer look at why the flag write has been intermittently skipped.

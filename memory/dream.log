@@ -1655,3 +1655,21 @@ errors: 0
 summary: "Clean run: boot pull already up to date, no locks. Step-01 archived 3 newly-expired working files (daily-review-07-10, system-eval-07-11, dream-summary-07-11) via heuristic enrichment (LLM path unavailable, claude -p not logged in — consistent with prior runs); 1 skipped not-yet-expired (dream-summary-07-12), 4 unparseable (2026-07-08.md, 3 golf files, persistent no-frontmatter pattern). Step-02 scored all 196 episodic entries; distribution 0:22, 10:159, consistent with prior cycles. Step-03 found 13 promotion candidates (2 fresh archives plus 11 leftover from prior cycles never marked promoted:true — daily-review 07-06/07-07/07-08, morning-briefing 07-08/07-09, dream-summary-07-09, plaud-ingest x2, shutdown-cleanup-07-09, sc-meeting-prep-07-06, system-eval-07-08 — backfilled this cycle to close the recurring gap) clustering into 6 existing semantic patterns (daily-review, morning-briefing, dream-summary, plaud, overdue-tasks, session-wrap) — 0 new semantic files, all appended per append-only rule. 2 of the 6 clusters (daily-review, dream-summary) received genuinely new evidence text; the other 4 were pure promoted:true backfills since their evidence was already documented in prior cycles' unflagged writes. Error scan 30d: 94 entries; top 6 categories (routing-error/protocol-skip:9, process-skip/protocol-skip:7, data-accuracy/wrong-assumption:4, data-accuracy/sloppy-read:4, unknown/unknown:3, assumption-error/wrong-assumption:3) all already documented and active in LESSONS.md, 0 new lessons. Step-04 compression skipped — oldest episodic entry 2026-04-18, 90-day cutoff 2026-04-14, 0 candidates eligible. Noted for future cycles: dream-summary-pattern.md evidence count now exceeds the stated 15-entry confidence-escalation threshold but frontmatter still reads confidence: low — flagged in-file for next cycle's review."
 git_pull: success
 git_pull_note: "already up to date, no locks encountered"
+
+---
+## 2026-07-14T03:09:18 CDT
+session_id: dream-cycle-2026-07-14-030918
+working_archived: 1
+working_deleted: 0
+episodic_scanned: 198
+score_updates: 198
+clusters_found: 6
+semantic_created: 0
+semantic_updated: 6
+promoted_entries: 14
+entries_compressed: 0
+digests_updated: 0
+errors: 0
+summary: "Clean run: boot pull hit unstaged changes in workflows/content-pipeline and workflows/daily-review (unrelated in-flight work), stashed, pulled 39 files cleanly, restored stash without conflict. Step-01 archived 1 expired working file (dream-summary-07-12); 5 skipped not-yet-expired, 5 unparseable (persistent no-frontmatter cluster: 2026-07-08.md, 3 golf files, sc-executive-brief). Step-02 scored all 198 episodic entries; distribution 0:24, 10:160, consistent with prior cycles; found and repaired 4 pre-existing corrupted files with stacked/duplicated frontmatter blocks left over from an old buggy write (all score-0, no real data lost). Step-03 found 14 promotion candidates (1 fresh archive plus 13 backlog from 07-06 through 07-11 that scored high enough but never got promoted:true written) clustering into 6 existing semantic patterns — dream-summary (genuinely new evidence, confidence escalated low->medium per threshold flagged last cycle), daily-review/morning-briefing/plaud/overdue-tasks (pure backfill, already documented), session-wrap (new evidence — shutdown-cleanup-07-09 not previously appended despite being cross-referenced in plaud-pattern). Zero new semantic files. Error scan 30d: 101 entries; top 6 qualifying categories (routing-error/protocol-skip:10, process-skip/protocol-skip:8, data-accuracy/sloppy-read:6, data-accuracy/wrong-assumption:5, assumption-error/wrong-assumption:5, missed-context/context-blindness:3) all already active in LESSONS.md, 0 new lessons. Step-04 compression skipped — oldest episodic entry 2026-04-18 (87 days), 90-day cutoff 2026-04-15 not yet met, next likely eligible ~2026-07-17."
+git_pull: success
+git_pull_note: "unstaged changes in unrelated workflow files required stash/pull/pop; resolved cleanly, no conflicts"

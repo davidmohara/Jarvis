@@ -15,10 +15,10 @@ related_people:
 - randy-mccabe
 - stuart
   promoted: true
+
 salience:
   score: 10
-  last-promoted-check: 2026-07-13
-
+  last-promoted-check: '2026-07-14'
 ---
 # Session Boot — April 26, 2026 (GLC Travel Day)
 

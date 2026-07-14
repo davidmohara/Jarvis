@@ -21,11 +21,11 @@ related_people:
   - matt-yasar
   - ken-graham
   - ben-kennedy
+
 salience:
   score: 10
-  last-promoted-check: 2026-07-13
   promoted: true
-
+  last-promoted-check: '2026-07-14'
 ---
 
 # Morning Briefing — Thursday, July 09, 2026

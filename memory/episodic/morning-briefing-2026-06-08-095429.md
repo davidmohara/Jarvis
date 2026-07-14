@@ -23,10 +23,10 @@ related_people: null
 date: 2026-06-08
 source_file: memory/working/morning-briefing-2026-06-08-095429.md
   promoted: true
+
 salience:
   score: 10
-  last-promoted-check: 2026-07-13
-
+  last-promoted-check: '2026-07-14'
 ---
 ## Boot Summary — Monday June 8, 2026 — 9:54 AM CDT
 

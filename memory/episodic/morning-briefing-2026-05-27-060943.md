@@ -24,10 +24,10 @@ related_people:
 - devlin
 - curtis
   promoted: true
+
 salience:
   score: 10
-  last-promoted-check: 2026-07-13
-
+  last-promoted-check: '2026-07-14'
 ---
 # Morning Briefing — Wednesday, May 27, 2026
 

@@ -17,11 +17,11 @@ tags:
   - dream-cycle
   - knox
 related_people:
+
 salience:
   score: 10
-  last-promoted-check: 2026-07-13
   promoted: true
-
+  last-promoted-check: '2026-07-14'
 ---
 
 - Plaud ingest ran for 2 recordings: medical appointment + SC Orb Demo; Knox processed both and created Monday tasks with share links

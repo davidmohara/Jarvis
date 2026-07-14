@@ -19,10 +19,10 @@ tags:
   - plaud
 related_people:
   promoted: true
+
 salience:
   score: 10
-  last-promoted-check: 2026-07-13
-
+  last-promoted-check: '2026-07-14'
 ---
 # Dream Cycle Summary — 2026-07-04
 

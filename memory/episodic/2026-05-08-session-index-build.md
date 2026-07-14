@@ -10,10 +10,10 @@ tags:
 - infrastructure
 related_people:
 - david-ohara
+
 salience:
   score: 0
-  last-promoted-check: 2026-07-13
-
+  last-promoted-check: '2026-07-14'
 ---
 # Session Index Build — May 7-8, 2026
 

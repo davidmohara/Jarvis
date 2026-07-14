@@ -1,23 +1,26 @@
 ---
 status: complete
-started-at: 2026-07-09T04:39:00Z
-completed-at: 2026-07-09T04:44:00Z
+started-at: 2026-07-14T03:35:00-05:00
+completed-at: 2026-07-14T04:05:00-05:00
 outputs:
-  candidates_count: 8
-  clusters_found: 4
+  candidates_count: 14
+  clusters_found: 6
   semantic_created: 0
-  semantic_updated: 4
-  promoted_entries: 8
-  promotion_note: "8 candidates from this cycle's 7 new archives. Clustered into 4 groups: dream-summaries (→ pattern/2026-07-06-dream-summary-pattern.md), morning-briefings+daily-review (→ operational/2026-06-18-morning-briefing-pattern.md), pipeline/co-sell (→ operational/2026-06-24-co-sell-pattern.md), plaud-ingest (→ operational/2026-07-04-plaud-pattern.md). Zero new semantic files — all clusters matched existing entries. Cross-domain check clean. No classification drift."
+  semantic_updated: 6
+  promoted_entries: 14
+  promotion_note: "14 candidates: 1 fresh archive (dream-summary-2026-07-12) plus 13 leftover from prior cycles never marked promoted:true. Clustered into 6 existing semantic files: dream-summary-pattern (new evidence + confidence escalated low->medium), daily-review-pattern (backfill), morning-briefing-pattern (backfill), plaud-pattern (backfill), overdue-tasks-pattern (backfill), session-wrap-pattern (new evidence). Zero new semantic files. All 14 source files now carry salience.promoted: true."
   cluster_actions:
-    - {tag: dream-summary, domain: pattern, size: 2, action: update, target: memory/semantic/pattern/2026-07-06-dream-summary-pattern.md}
-    - {tag: briefing, domain: operational, size: 3, action: update, target: memory/semantic/operational/2026-06-18-morning-briefing-pattern.md}
-    - {tag: co-sell, domain: operational, size: 2, action: update, target: memory/semantic/operational/2026-06-24-co-sell-pattern.md}
-    - {tag: plaud-ingest, domain: operational, size: 1, action: update, target: memory/semantic/operational/2026-07-04-plaud-pattern.md}
-  error_categories_30d: "process-skip/protocol-skip:11, routing-error/protocol-skip:10, data-accuracy/wrong-assumption:4, data-accuracy/sloppy-read:4, unknown:3, missed-context/context-blindness:3, assumption-error/wrong-assumption:3"
-  error_total_30d: 108
+    - {tag: dream-summary, domain: pattern, size: 1, action: update, target: memory/semantic/pattern/2026-07-06-dream-summary-pattern.md}
+    - {tag: daily-review, domain: relationships, size: 4, action: update, target: memory/semantic/operational/2026-07-04-daily-review-pattern.md}
+    - {tag: briefing, domain: operational, size: 2, action: update, target: memory/semantic/operational/2026-06-18-morning-briefing-pattern.md}
+    - {tag: plaud, domain: relationships, size: 3, action: update, target: memory/semantic/operational/2026-07-04-plaud-pattern.md}
+    - {tag: overdue-tasks, domain: relationships, size: 2, action: update, target: memory/semantic/operational/2026-07-04-overdue-tasks-pattern.md}
+    - {tag: session-wrap, domain: operational, size: 1, action: update, target: memory/semantic/operational/2026-06-30-session-wrap-pattern.md}
+  error_categories_30d: "routing-error/protocol-skip:10, process-skip/protocol-skip:8, data-accuracy/sloppy-read:6, data-accuracy/wrong-assumption:5, assumption-error/wrong-assumption:5, missed-context/context-blindness:3, unknown/unknown:3"
+  error_total_30d: 101
   lessons_appended: 0
-  lessons_note: "All qualifying patterns (3+ occurrences) already documented in LESSONS.md. No new lesson appended."
+  lessons_note: "All 6 qualifying patterns (3+ occurrences) already documented and active in LESSONS.md. unknown/unknown has no actionable pattern. No new lesson appended."
+  data_repair_note: "step-02 found and repaired 4 pre-existing corrupted episodic files with stacked frontmatter; documented in step-02 output."
 ---
 
 <!-- system:start -->

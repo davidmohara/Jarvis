@@ -20,11 +20,11 @@ tags:
   - omnifocus
   - overdue-tasks
 related_people:
+
 salience:
   score: 10
-  last-promoted-check: 2026-07-13
   promoted: true
-
+  last-promoted-check: '2026-07-14'
 ---
 
 ## Session Summary

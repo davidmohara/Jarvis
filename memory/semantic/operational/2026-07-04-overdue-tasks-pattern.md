@@ -46,3 +46,6 @@ Sources this cycle:
 - Agents should treat `overdue-tasks`-tagged content as a coherent operational thread — prefer synthesis over re-derivation when this cluster appears.
 - Watch for continued co-occurrence; escalate confidence when evidence surpasses 15 entries.
 - 2026-07-12: rigby/omnifocus system-eval entries continue to cluster with overdue-tasks — the eval harness itself is becoming a secondary signal source for overdue-item tracking, not just the daily-review/briefing pipeline.
+
+### 2026-07-14 — Nightly promotion (backfill closure)
+- `memory/episodic/2026-07-06-session-sc-meeting-prep.md` and `memory/episodic/system-eval-2026-07-08-203623.md` — already documented above in the 07-11/07-12 entries; `promoted: true` flag backfilled this cycle. No new synthesis.

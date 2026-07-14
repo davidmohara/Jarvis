@@ -33,3 +33,7 @@ Recurring cluster anchored on tag `session-wrap` (1 episodic entries with salien
 ## Implications
 
 - 2026-06-30: 1 entries reinforce relevance of `session-wrap` cluster. Watch for further co-occurrence.
+
+### 2026-07-14 — Nightly promotion
+Sources this cycle (backfilled from 07-09, never previously appended to this file):
+- `memory/episodic/shutdown-cleanup-2026-07-09-000000.md` (score 10) — tags: session-wrap, chief, briefing, plaud, dream-cycle, knox — session-wrap co-occurring with plaud and dream-cycle tags in the same shutdown-cleanup entry, consistent with the cross-domain overlap already noted in the plaud-pattern file for this same source.

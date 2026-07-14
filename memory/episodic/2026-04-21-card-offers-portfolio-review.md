@@ -12,10 +12,10 @@ tags:
 - atlas
 - portfolio-review
 related_people: []
+
 salience:
   score: 0
-  last-promoted-check: 2026-07-13
-
+  last-promoted-check: '2026-07-14'
 ---
 # Card Offers Portfolio Review — April 21, 2026
 

@@ -48,3 +48,6 @@ Sources this cycle:
 - Watch for continued co-occurrence; escalate confidence when evidence surpasses 15 entries.
 - 2026-07-11: overdue-tasks and omnifocus/calendar co-occur with daily-review in nearly every promoted entry — this cross-tag pairing looks stable enough to treat as a durable signature of the daily-review deliverable type, not incidental overlap.
 - 2026-07-12: medical/rocks co-occurrence continues (nerve block flag recurring across multiple daily-review entries) — this looks like a persistent unresolved item rather than a one-off, worth surfacing distinctly from routine overdue-tasks noise.
+
+### 2026-07-14 — Nightly promotion (backfill closure)
+- `memory/episodic/daily-review-2026-07-06-140000.md`, `daily-review-2026-07-07-080000.md`, `daily-review-2026-07-08-080000.md`, `daily-review-2026-07-10-211100.md` — already documented above in the 07-11/07-12/07-13 entries; `salience.promoted: true` was never written to these source files despite the evidence being captured. Flag backfilled this cycle to close the gap. No new synthesis — evidence unchanged.

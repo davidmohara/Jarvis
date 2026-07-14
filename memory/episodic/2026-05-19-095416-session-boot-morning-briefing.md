@@ -23,10 +23,10 @@ tags:
 related_people:
 - tim-rayburn
   promoted: true
+
 salience:
   score: 10
-  last-promoted-check: 2026-07-13
-
+  last-promoted-check: '2026-07-14'
 ---
 # Boot Briefing — Tuesday, May 19, 2026
 

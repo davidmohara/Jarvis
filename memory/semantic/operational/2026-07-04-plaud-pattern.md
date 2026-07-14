@@ -48,3 +48,6 @@ Sources this cycle:
 - `memory/episodic/plaud-ingest-2026-07-09-204305.md` (score 3) — tags: plaud, knox, systemic-compliance, medical, orb-platform — 2 recordings ingested: Tarlov cyst nerve block consult and Systemic Compliance Orb Platform demo; unresolved speaker name flagged in vault note
 
 - 2026-07-12: systemic-compliance and medical tags both surfacing through plaud ingests this cycle — plaud is increasingly the first-touch capture point for both the SC account thread and the ongoing medical situation, ahead of formal account/health tracking.
+
+### 2026-07-14 — Nightly promotion (backfill closure)
+- `memory/episodic/plaud-ingest-2026-07-09-000000.md`, `shutdown-cleanup-2026-07-09-000000.md`, `plaud-ingest-2026-07-09-204305.md` — already documented above in the 07-11/07-12 entries; `promoted: true` flag backfilled this cycle. No new synthesis.

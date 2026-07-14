@@ -1,71 +1,69 @@
 workflow: dream-cycle
 agent: jarvis
 status: complete
-session-started: 2026-07-13T03:14:00+00:00
-session-id: dream-cycle-2026-07-13-031400
+session-started: 2026-07-14T03:09:18-05:00
+session-id: dream-cycle-2026-07-14-030918
 current-step: null
-  entries_compressed: 0
-  digests_updated: 0
-  compression_skipped: true
-  compression_skip_reason: "Oldest episodic entry 2026-04-18 (90 days exactly). 90-day cutoff is 2026-04-14. 0 candidates eligible (2026-04-18 > cutoff)."
-  dream_log_appended: true
-  working_summary_written: true
-  working_summary_reason: "semantic_updated=4, promoted_entries=13 — notable enough to surface for Chief at boot, plus the promoted:true backfill gap closure is worth flagging."
-  errors: 0
-  total_errors: 0
-  session_id: dream-cycle-2026-07-13-031400
-  candidates_count: 13
+entries_compressed: 0
+digests_updated: 0
+compression_skipped: true
+compression_skip_reason: "Oldest episodic entry 2026-04-18 (87 days). 90-day cutoff is 2026-04-15. 0 candidates eligible."
+original-request: Scheduled dream cycle run (automated) - 2026-07-14
+accumulated-context:
+  git_pull_at_boot: success
+  git_pull_note: "unstaged changes in workflows/content-pipeline and workflows/daily-review blocked initial rebase; stashed, pulled 39 files (6a7cb76..36af844), restored stash cleanly, no conflicts"
+  enrichment_method: "n/a this cycle — only expired file already had full frontmatter/tags"
+  episodic_scanned: 198
+  score_updates: 198
+  no_tags: 14
+  no_date: 6
+  files_with_tags: 184
+  in_window_count: 81
+  score_distribution: "0:24, 1:2, 2:2, 3:4, 4:1, 5:2, 8:3, 10:160"
+  window_start: '2026-06-14'
+  window_end: '2026-07-14'
+  data_repair_note: "Found and repaired 4 pre-existing corrupted files with stacked/duplicated frontmatter blocks (2026-05-20-061400-session-boot-morning-briefing.md, 2026-05-15-094050-session-wrap.md, 2026-05-22-061501-session-boot-morning-briefing.md, 2026-05-15-094050-session-boot-morning-briefing.md) — all had score 0/no tags/no other real fields, consolidated to single clean frontmatter block, no data lost."
+  candidates_count: 14
   clusters_found: 6
   semantic_created: 0
   semantic_updated: 6
-  promoted_entries: 13
-  promotion_note: "13 candidates: 2 fresh archives (daily-review-07-10, dream-summary-07-11) plus 11 leftover from prior cycles never marked promoted:true (daily-review 07-06/07-07/07-08, morning-briefing 07-08/07-09, dream-summary-07-09, plaud-ingest 07-09x2, shutdown-cleanup-07-09, sc-meeting-prep-07-06, system-eval-07-08) — backfilled promoted:true this cycle to close the recurring gap. Clustered into 6 existing semantic files: daily-review-pattern (+1 new evidence), morning-briefing-pattern (backfill note only, already documented), dream-summary-pattern (+1 new evidence), plaud-pattern (already documented, backfilled), overdue-tasks-pattern (already documented, backfilled), session-wrap-pattern (already documented, backfilled). Zero new semantic files created. system-eval-2026-07-11 scored 0 — correctly excluded as non-candidate."
-  error_total_30d: 94
-  error_categories_30d: "routing-error/protocol-skip:9, process-skip/protocol-skip:7, data-accuracy/wrong-assumption:4, data-accuracy/sloppy-read:4, unknown/unknown:3, assumption-error/wrong-assumption:3"
+  promoted_entries: 14
+  promotion_note: "14 candidates: 1 fresh archive (dream-summary-2026-07-12) plus 13 leftover from prior cycles (07-06 through 07-11) never marked promoted:true — sc-meeting-prep-07-06, daily-review 07-06/07-07/07-08/07-10, morning-briefing 07-08/07-09, plaud-ingest 07-09 x2, system-eval-07-08, shutdown-cleanup-07-09, dream-summary-07-11. All 14 clustered into 6 existing semantic files: dream-summary-pattern (genuinely new evidence + confidence escalated low->medium per threshold flagged 2026-07-13), daily-review-pattern (backfill only), morning-briefing-pattern (backfill only), plaud-pattern (backfill only), overdue-tasks-pattern (backfill only), session-wrap-pattern (new evidence — shutdown-cleanup-07-09 not previously appended here despite being documented in plaud-pattern). Zero new semantic files created. All 14 source episodic files now carry salience.promoted: true."
+  error_total_30d: 101
+  error_categories_30d: "routing-error/protocol-skip:10, process-skip/protocol-skip:8, data-accuracy/sloppy-read:6, data-accuracy/wrong-assumption:5, assumption-error/wrong-assumption:5, missed-context/context-blindness:3, unknown/unknown:3"
   lessons_appended: 0
-  lessons_note: "All 6 qualifying categories already documented and active in LESSONS.md. No new lesson appended."
-original-request: Scheduled dream cycle run (automated) - 2026-07-13
-accumulated-context:
-  git_pull_at_boot: success
-  git_pull_note: "already up to date, no locks"
-  enrichment_method: "heuristic (sandbox; LLM path not invoked — claude -p not logged in)"
-  working_archived: 3
+  lessons_note: "All 6 qualifying categories (3+ occurrences) already documented and active in LESSONS.md. unknown/unknown has no actionable pattern to codify. No new lesson appended."
+  working_archived: 1
   working_deleted: 0
-  working_skipped: 4
+  working_skipped: 9
   working_stranded: 0
   archived_files:
-    - daily-review-2026-07-10-211100.md
-    - system-eval-2026-07-11-040557.md
-    - dream-summary-2026-07-11.md
-  skipped_not_expired:
     - dream-summary-2026-07-12.md
+  skipped_not_expired:
+    - dream-summary-2026-07-14.md
+    - co-sell-pipeline-2026-07-13-140800.md
+    - daily-review-2026-07-13-060000.md
+    - plaud-ingest-2026-07-13-153500.md
+    - revenue-tracker-2026-07-13-000000.md
   skipped_unparseable:
     - 2026-07-08.md
     - golf-booking-2026-07-10-failed.md
     - golf-booking-2026-07-11-followup.md
     - golf-preview-2026-07-03.md
-  episodic_scanned: 196
-  score_updates: 196
-  no_tags: 13
-  no_date: 1
-  files_with_tags: 183
-  in_window_count: 82
-  score_distribution: "0:22, 1:3, 2:2, 3:4, 4:1, 5:2, 8:3, 10:159"
-  window_start: '2026-06-13'
-  window_end: '2026-07-13'
+    - sc-executive-brief-2026-07-13.md
 prior-run-context:
   git_pull_at_boot: success
   working_archived: 3
   working_deleted: 0
-  working_skipped: 8
+  working_skipped: 4
   working_stranded: 0
-  episodic_scanned: 194
-  score_updates: 194
+  episodic_scanned: 196
+  score_updates: 196
   clusters_found: 6
   semantic_created: 0
-  semantic_updated: 6
-  promoted_entries: 11
+  semantic_updated: 4
+  promoted_entries: 13
   entries_compressed: 0
   digests_updated: 0
   errors: 0
-  session_id: dream-cycle-2026-07-12-030940
+  session_id: dream-cycle-2026-07-13-031400
