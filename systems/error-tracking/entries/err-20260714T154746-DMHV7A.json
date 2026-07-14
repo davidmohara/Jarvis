@@ -1,0 +1,13 @@
+{
+  "id": "err-20260714T154746-DMHV7A",
+  "timestamp": "2026-07-14T15:47:46Z",
+  "session_id": "session-2026-07-14-090000",
+  "source": "explicit",
+  "agent": "master",
+  "category": "timezone-conversion",
+  "failure_mode": "stale-time-reference",
+  "severity": "high",
+  "description": "Told David he had '90 minutes' before the McMichael call. Did not check actual current time via osascript before making time-sensitive statements. Current time was 10:47 AM CT — 13 minutes before the call, not 90. This directly misled David about available prep time.",
+  "correction": "Current time is 10:47 AM CT. McMichael call is at 11:00 AM CT — 13 minutes away.",
+  "proposed_fix": "Always pull current time via osascript before making any time-gap calculation in a briefing. Never compute 'time until' from calendar data alone without anchoring to actual current time."
+}

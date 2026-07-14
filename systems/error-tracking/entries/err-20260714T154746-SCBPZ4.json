@@ -1,0 +1,13 @@
+{
+  "id": "err-20260714T154746-SCBPZ4",
+  "timestamp": "2026-07-14T15:47:46Z",
+  "session_id": "session-2026-07-14-090000",
+  "source": "explicit",
+  "agent": "master",
+  "category": "protocol-skip",
+  "failure_mode": "mandatory-step-skipped",
+  "severity": "high",
+  "description": "Knox Plaud ingest was not spawned during boot. Step-01 explicitly marks this NON-SKIPPABLE with no valid excuse other than Agent tool unavailability. Agent tool was available. This is a protocol violation.",
+  "correction": "Spawn Knox for Plaud ingest immediately after boot identity load. No exceptions.",
+  "proposed_fix": "Add pre-delivery gate check: before presenting boot briefing, verify knox_spawn is in outputs. If missing, spawn Knox before proceeding."
+}

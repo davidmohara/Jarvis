@@ -1,0 +1,13 @@
+{
+  "id": "err-20260714T154746-N6GFEU",
+  "timestamp": "2026-07-14T15:47:46Z",
+  "session_id": "session-2026-07-14-090000",
+  "source": "explicit",
+  "agent": "master",
+  "category": "hallucination",
+  "failure_mode": "fabricated-context",
+  "severity": "critical",
+  "description": "Stated David was OOO for 10 days returning from PTO. This was fabricated — inferred incorrectly from a stale calendar entry (Belcher OOO + 'Ben & Csilla Here' block) and the gap in session history. No data source confirmed David was OOO. Presented as fact in briefing.",
+  "correction": "David was not OOO. The OOO block was Belcher's, not David's.",
+  "proposed_fix": "Never assert controller state (OOO, traveling, etc.) without a direct calendar entry on David's calendar explicitly marking him OOO. Session gaps do not imply OOO."
+}

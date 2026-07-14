@@ -107,37 +107,15 @@ Once the controller confirms (in whole or with modifications):
 
 ---
 
-## EVAL RECORD
+## NOTE: EVAL RECORD
 
-**Before closing the daily review**, write an eval record for this run. This feeds the dashboard and weekly review health check.
+The eval record for the complete daily review workflow will be written in step-05 after all work is committed. Do not write the eval record in this step.
 
-Determine status:
-- `success` — review file written, narrative journal entry written, priorities locked
-- `partial` — review file written but knowledge system unavailable, or delegation tracker missing
-- `failure` — review file could not be written at all
+## NEXT STEP
 
-Run:
-```bash
-python3 systems/eval-harness/close-eval-record.py \
-  --name daily-review \
-  --type workflow \
-  --agent chief \
-  --status {success|partial|failure} \
-  --trigger manual \
-  --started "{session_started from state.yaml}" \
-  --steps "step-01-capture,step-02-set-tomorrow,step-03-update-system,step-04-root-audit"
-```
+Load and execute `steps/step-05-session-close.md` to close the session index and commit all changes to git.
 
-## WORKFLOW COMPLETE
-
-**After writing the eval record**, write `state.yaml` in the workflow directory with `status: complete` and `current-step: step-04`.
-
-```yaml
-workflow: daily-review
-agent: chief
-status: complete
-current-step: step-04
-```
+This is the final step of the daily review workflow.
 <!-- system:end -->
 
 <!-- personal:start -->
