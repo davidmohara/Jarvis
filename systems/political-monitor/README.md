@@ -1,6 +1,6 @@
 # Political News Monitor
 
-Tracks how the Democratic-leaning and Republican-leaning press cover the news. Each run digests recent items into one-paragraph neutral summaries, presents topics both sides cover **side by side** with a **0-100 correlation score** (how closely the two sides report it as the same story), and surfaces **gap topics** that only one side is covering. Output is a self-contained `dashboard.html`.
+Tracks how the Democratic-leaning and Republican-leaning press cover the news. Each run digests recent items into one-paragraph neutral summaries, presents topics both sides cover **side by side** with a **0-100 correlation score** (how closely the two sides report it as the same story), and surfaces **gap topics** that only one side is covering. Every topic also carries a **0-100 relevance score**: new stories score high, stories still running on their 2nd+ consecutive day score progressively lower, so recycled coverage sinks in the ranking without disappearing. Output is a self-contained `dashboard.html`.
 
 Analysis is descriptive and even-handed: the correlation label explains *why* framing diverges, never which side is correct.
 
@@ -11,13 +11,19 @@ A daily scheduled task (07:00 local) rebuilds the dashboard with no manual steps
 ## Pipeline
 
 ```
-sources.json  --(WebSearch per accessible domain)-->  harvest.json
+sources.json  --(WebSearch per accessible domain, TWICE consecutively, merged/deduped)-->  harvest.json
 harvest.json  --(cluster.py: keyword pre-clustering)-->  clusters.json
-clusters.json + harvest.json  --(Claude: summaries, L/R framing, correlation, gaps)-->  runs/YYYY-MM-DD.json
+clusters.json + harvest.json + topic_history.json  --(Claude: summaries, L/R framing,
+    correlation, gaps, relevance vs. topic history)-->  runs/YYYY-MM-DD.json
+                                                          (+ rewrites topic_history.json)
 runs/YYYY-MM-DD.json  --(render.py)-->  dashboard.html
 ```
 
-The Python does mechanical work (loose keyword clustering, HTML rendering). Claude does the reasoning (semantic clustering, summaries, side-by-side framing, correlation scoring, gap detection) at run time.
+The Python does mechanical work (loose keyword clustering, HTML rendering). Claude does the reasoning (semantic clustering, summaries, side-by-side framing, correlation scoring, gap detection, and cross-day relevance matching) at run time.
+
+**Double scan:** every source and every beat search is scanned twice, back to back, before anything is clustered or scored. This is fixed per run, not a fallback for a thin first pass - it catches items that appeared between calls and confirms the ones already found.
+
+**Relevance decay:** every topic (shared or gap) is matched against `topic_history.json`. A topic new to the history scores 100 relevance. A topic still running gets `days_seen` incremented and its relevance drops: day 2 = 70, day 3 = 40, day 4+ floors at 20. Topics are sorted by relevance descending in each dashboard section, and each card shows a NEW / Day-N badge. The floor means a long-running story never disappears purely from relevance - it just sinks in the ranking.
 
 ## Files
 
@@ -25,10 +31,11 @@ The Python does mechanical work (loose keyword clustering, HTML rendering). Clau
 |------|------|
 | `sources.json` | Source registry. `lean`, `active`, `accessible`, `search_domain`. Committed. |
 | `cluster.py` | Loose keyword pre-clustering. Reads `harvest.json`, writes `clusters.json`. |
-| `render.py` | Run JSON -> `dashboard.html`. |
-| `harvest.json` | Transient - this run's raw WebSearch items. Gitignored. |
+| `render.py` | Run JSON -> `dashboard.html`, incl. relevance badges. |
+| `harvest.json` | Transient - this run's raw WebSearch items, merged from 2 scan passes. Gitignored. |
 | `clusters.json` | Transient - pre-clustered output. Gitignored. |
-| `runs/YYYY-MM-DD.json` | Analyzed digest per run. Kept for history/trends. |
+| `topic_history.json` | **Persisted, committed.** Cross-day topic tracker (`key`, `days_seen`, `last_seen`) that drives relevance decay. Updated every run; pruned of entries stale >5 days. |
+| `runs/YYYY-MM-DD.json` | Analyzed digest per run, incl. `days_seen`/`relevance` per topic. Kept for history/trends. |
 | `suggestions/YYYY-MM-DD.json` | Weekly source suggestions + accept/reject status. |
 | `dashboard.html` | The deliverable David opens. |
 

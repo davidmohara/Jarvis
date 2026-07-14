@@ -48,6 +48,24 @@ def corr_band(c):
     return "c-vlo", "#d73027"
 
 
+def relevance_badge(t):
+    """Return HTML for a NEW / Day-N relevance badge, or '' if no relevance data."""
+    days = t.get("days_seen")
+    if days is None:
+        return ""
+    days = int(days)
+    if days <= 1:
+        klass, label = "r-new", "NEW"
+    elif days == 2:
+        klass, label = "r-d2", "DAY 2"
+    else:
+        klass, label = "r-d3", f"DAY {days}+" if days > 3 else "DAY 3"
+    rel = t.get("relevance")
+    title = esc(t.get("relevance_label", ""))
+    rel_txt = f" {int(rel)}" if rel is not None else ""
+    return f'<span class="relbadge {klass}" title="{title}">{label}{rel_txt}</span>'
+
+
 def source_links(srcs):
     if not srcs:
         return ""
@@ -68,7 +86,7 @@ def render_shared(t):
     return f"""
     <div class="card shared">
       <div class="card-head">
-        <h3>{esc(t.get('title'))}</h3>
+        <h3>{esc(t.get('title'))} {relevance_badge(t)}</h3>
         <div class="gauge {klass}">
           <div class="gauge-num">{c}</div>
           <div class="gauge-cap">correlation</div>
@@ -94,7 +112,7 @@ def render_shared(t):
 def render_gap_item(it, side):
     return f"""
       <div class="card gap {side}">
-        <h4>{esc(it.get('title'))}</h4>
+        <h4>{esc(it.get('title'))} {relevance_badge(it)}</h4>
         <p class="summary">{esc(it.get('summary'))}</p>
         {source_links(it.get('sources'))}
       </div>"""
@@ -120,11 +138,14 @@ def main():
     except Exception:
         gen_disp = gen
 
-    shared_html = "\n".join(render_shared(t) for t in d.get("shared_topics", [])) or \
+    def by_relevance(items):
+        return sorted(items, key=lambda t: t.get("relevance", 100), reverse=True)
+
+    shared_html = "\n".join(render_shared(t) for t in by_relevance(d.get("shared_topics", []))) or \
         '<p class="empty">No topics covered by both left and right in this window.</p>'
-    gap_l = "\n".join(render_gap_item(i, "left") for i in d.get("gap_left", [])) or \
+    gap_l = "\n".join(render_gap_item(i, "left") for i in by_relevance(d.get("gap_left", []))) or \
         '<p class="empty">No left-only topics in this window.</p>'
-    gap_r = "\n".join(render_gap_item(i, "right") for i in d.get("gap_right", [])) or \
+    gap_r = "\n".join(render_gap_item(i, "right") for i in by_relevance(d.get("gap_right", []))) or \
         '<p class="empty">No right-only topics in this window.</p>'
 
     suggestions = d.get("suggestions", [])
@@ -194,6 +215,11 @@ def main():
   .gauge-cap {{ font-size:10px; text-transform:uppercase; letter-spacing:.7px; opacity:.85; }}
   .c-vhi {{ background:#1a9850; }} .c-hi {{ background:#66bd63; }} .c-mid {{ background:#fdae61; }}
   .c-lo {{ background:#f46d43; color:#fff; }} .c-vlo {{ background:#d73027; color:#fff; }}
+  .relbadge {{ display:inline-block; font-size:10px; font-weight:700; letter-spacing:.5px;
+    border-radius:5px; padding:2px 7px; vertical-align:middle; margin-left:6px; color:#0b0e12; }}
+  .relbadge.r-new {{ background:#1a9850; color:#fff; }}
+  .relbadge.r-d2 {{ background:#fdae61; }}
+  .relbadge.r-d3 {{ background:#d73027; color:#fff; }}
   .corr-label {{ background:var(--panel2); border-left:4px solid #888; padding:8px 12px;
     border-radius:0 6px 6px 0; font-size:14px; margin:6px 0 16px; color:#dbe4ec; }}
   .cols {{ display:grid; grid-template-columns:1fr 1fr; gap:14px; }}

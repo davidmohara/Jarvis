@@ -9,14 +9,15 @@
 ## 1. What this system does (plain language)
 
 1. Keeps a list of news sources tagged **left**, **right**, or **center**.
-2. On a schedule, gathers each source's recent coverage (last 48–72 hours).
+2. On a schedule, scans each source's recent coverage (last 48–72 hours) **twice, consecutively**, before anything is scored — this is a fixed part of every run, not an occasional retry.
 3. Groups the coverage into topics.
 4. For topics **both sides cover**: writes a neutral one-paragraph summary, shows left framing and right framing side by side, and assigns a **0–100 correlation score** (how closely the two sides report it as the same story) with a one-line reason.
 5. For topics **only one side covers**: lists them as **gap topics** in two panels (left-only, right-only).
-6. Renders it all as a Watchtower-style HTML dashboard.
-7. Once a week, proposes a few new candidate sources to add (you approve or reject).
+6. Tracks every topic across days. A topic new to the system scores high on a separate **0–100 relevance score**; a topic still running on its 2nd, 3rd, or later consecutive day scores progressively lower, so recycled stories sink in the ranking without disappearing outright.
+7. Renders it all as a Watchtower-style HTML dashboard, with topics ordered by relevance so the freshest stories surface first.
+8. Once a week, proposes a few new candidate sources to add (you approve or reject).
 
-**Design choices baked in (change them if you like):** 48–72h window; neutral/descriptive analysis (never judges who is "right"); correlation measured left-vs-right directly; weekly source suggestions; output is a static HTML file rebuilt on a schedule.
+**Design choices baked in (change them if you like):** 48–72h window; double-scan harvest every run; neutral/descriptive analysis (never judges who is "right"); correlation measured left-vs-right directly; relevance decays for topics repeated across consecutive days (floor at 20, never zeroed out); weekly source suggestions; output is a static HTML file rebuilt on a schedule.
 
 ---
 
@@ -36,16 +37,17 @@ The obvious approach (poll each outlet's RSS feed from a script) **does not work
 
 ```
 political-monitor/
-  sources.json        # the source registry (provided below — edit to taste)
-  cluster.py          # pre-clusters harvested items by keyword overlap (provided below)
-  render.py           # turns an analyzed run into dashboard.html (build per section 8)
-  harvest.json        # transient: this run's raw search results (the assistant writes it)
-  clusters.json       # transient: cluster.py output
-  dashboard.html      # the deliverable
+  sources.json         # the source registry (provided below — edit to taste)
+  cluster.py           # pre-clusters harvested items by keyword overlap (provided below)
+  render.py            # turns an analyzed run into dashboard.html (build per section 9)
+  harvest.json         # transient: this run's raw search results, merged from two scan passes (the assistant writes it)
+  clusters.json        # transient: cluster.py output
+  topic_history.json   # PERSISTED: cross-day topic tracker that drives relevance decay (provided below — keep, do not gitignore)
+  dashboard.html       # the deliverable
   runs/
-    YYYY-MM-DD.json   # one analyzed digest per run (keep for history/trends)
+    YYYY-MM-DD.json    # one analyzed digest per run (keep for history/trends)
   suggestions/
-    YYYY-MM-DD.json   # weekly source suggestions
+    YYYY-MM-DD.json    # weekly source suggestions
 ```
 
 ---
@@ -84,19 +86,42 @@ political-monitor/
 
 ---
 
-## 5. The run procedure (what the assistant does each time)
+## 5. `topic_history.json` (starting file — copy this, then let the assistant maintain it)
 
-The split is deliberate: **Python does mechanical work** (clustering, HTML). **The assistant does the reasoning** (summaries, framing, correlation, gaps) — a regex can't judge tone or framing.
+This is the cross-day memory that makes relevance decay possible. It is **not transient** — commit it, back it up, keep it running across every scheduled run. Start it empty:
+
+```json
+{ "updated": "2026-06-20", "topics": [] }
+```
+
+Each entry the assistant adds/updates looks like:
+
+```json
+{ "key": "us-iran-agreement", "title_latest": "US-Iran agreement", "keywords": ["iran","strait","hormuz","strikes"], "first_seen": "2026-07-12", "last_seen": "2026-07-14", "days_seen": 3 }
+```
+
+`key` is a short slug from the topic's most distinctive keywords. The assistant matches semantically (not exact string match) — headline wording drifts day to day for the same story.
+
+---
+
+## 6. The run procedure (what the assistant does each time)
+
+The split is deliberate: **Python does mechanical work** (clustering, HTML). **The assistant does the reasoning** (summaries, framing, correlation, gaps, relevance) — a regex can't judge tone, framing, or whether two headlines are the same evolving story.
 
 1. **Load roster.** Read `sources.json`; fetch list = rows where `active && accessible`. Remember the blocked-but-desired rows for the dashboard's "muted" note.
-2. **Harvest.** For each fetch-list source: web search `"politics"` with the domain filter set to that source's `search_domain`. Collect title, URL, one-line snippet for items in the last 48–72h. If a source now returns "not accessible," flag it, set `accessible:false`, move on.
-   Then run **four required beat searches** across the full accessible domain set to deepen coverage and surface one-sided stories: **immigration · economy/inflation/jobs · foreign policy · elections.** Add seeds for the day's biggest stories.
-3. **Write `harvest.json`** (schema in section 6).
+2. **Harvest — TWO consecutive passes, every run.** This is the standing rule: every source (and every beat search) gets scanned twice in a row before anything is clustered or scored. It is not a retry triggered by a thin first pass — always do both.
+   - **Pass 1:** For each fetch-list source, web search `"politics"` with the domain filter set to that source's `search_domain`. Collect title, URL, one-line snippet for items in the last 48–72h. If a source now returns "not accessible," flag it, set `accessible:false`, move on. Then run **four required beat searches** across the full accessible domain set: **immigration · economy/inflation/jobs · foreign policy · elections.** Add seeds for the day's biggest stories.
+   - **Pass 2:** Immediately repeat the identical sweep — same sources, same beat searches, same extra seeds. Pages update between calls; pass 2 both catches items pass 1 missed and confirms the ones it already found.
+   - **Merge:** Combine both passes, dedupe by URL. Tag each surviving item `seen_passes: 2` (found both times, higher confidence) or `seen_passes: 1` (found once, keep it, just lower confidence — never drop it for being single-pass).
+3. **Write `harvest.json`** (schema in section 7).
 4. **Cluster.** Run `python3 cluster.py --hours 72` → `clusters.json`. This is a loose keyword grouping; treat it as a hint.
-5. **Analyze (the real work).** Read `clusters.json` + `harvest.json`. Re-group by actual topic (the script under-merges short headlines). Write `runs/YYYY-MM-DD.json` (schema in section 7):
-   - **Shared topics** (left AND right cover it): neutral one-paragraph summary; `left.framing` + `right.framing` with source links; `correlation` 0–100 + one-line neutral `correlation_label`.
+5. **Analyze (the real work).** Read `clusters.json` + `harvest.json` + `topic_history.json`. Re-group by actual topic (the script under-merges short headlines). For each topic:
+   - **Shared topics** (left AND right cover it): neutral one-paragraph summary; `left.framing` + `right.framing` with source links; `correlation` 0–100 + one-line neutral `correlation_label` (rubric below).
    - **gap_left / gap_right:** topics covered by exactly one side (center coverage doesn't disqualify a gap).
    - **Gap parity:** each side should surface **at least as many gap topics as there are shared topics.** Mine the beat searches harder before settling for fewer. Dashboard size may grow.
+   - **Relevance — score every topic (shared and gap) before deciding what to present:** compute a `topic_key` slug, match it semantically against `topic_history.json` entries whose `last_seen` is the previous run date. Match → `days_seen = history.days_seen + 1`. No match → `days_seen = 1`. Then `relevance = max(20, 100 - (days_seen - 1) * 30)` (rubric below). Sort `shared_topics`, `gap_left`, `gap_right` each by `relevance` descending.
+   - Write `runs/YYYY-MM-DD.json` (schema in section 8), including `topic_key`, `days_seen`, `relevance`, `relevance_label` on every topic.
+   - **Update `topic_history.json`:** upsert every topic's entry (`last_seen = today`, `days_seen`, `title_latest`, `keywords`; set `first_seen` on new entries), then prune any entry whose `last_seen` is more than 5 days old so the file stays bounded. Write it back.
 6. **Render.** Run `python3 render.py runs/YYYY-MM-DD.json` → `dashboard.html`.
 7. **(Weekly) Suggest sources.** Propose 2–3 candidates not in the roster that fill an underrepresented lean/beat. **Accessibility-probe each first** (search with its domain filter; a "not accessible" error means skip it). Write to `suggestions/YYYY-MM-DD.json` and add to the run JSON so they render. You approve/reject.
 
@@ -112,9 +137,22 @@ The split is deliberate: **Python does mechanical work** (clustering, HTML). **T
 
 The label states *why*, neutrally — e.g. "58 — Same vote; left leads with the cuts, right leads with the tax relief." Never adjudicate who is correct.
 
+### Relevance rubric (so novelty scores are reproducible)
+
+Correlation measures L-vs-R agreement on a story. Relevance measures something different: how novel the story itself still is. A topic that's been running for days should visibly sink even if both sides keep covering it well.
+
+| days_seen | relevance | Label |
+|-----------|-----------|-------|
+| 1 (new) | 100 | "New — first appearance" |
+| 2 | 70 | "Recurring — day 2" |
+| 3 | 40 | "Recurring — day 3, losing novelty" |
+| 4+ | 20 (floor) | "Long-running — persistent story, low novelty" |
+
+The floor at 20 is deliberate — relevance alone never zeroes a topic out of the dashboard; it only pushes it down the ranking. (A topic can still drop off the normal way: aging out of the 48–72h window, or losing coverage entirely.)
+
 ---
 
-## 6. `harvest.json` schema (the assistant writes this)
+## 7. `harvest.json` schema (the assistant writes this)
 
 ```json
 {
@@ -122,14 +160,16 @@ The label states *why*, neutrally — e.g. "58 — Same vote; left leads with th
   "window_hours": 72,
   "items": [
     { "source": "CNN Politics", "source_id": "cnn", "lean": "left",
-      "title": "...", "url": "https://...", "summary_raw": "one-line snippet" }
+      "title": "...", "url": "https://...", "summary_raw": "one-line snippet", "seen_passes": 2 }
   ]
 }
 ```
 
+`seen_passes` records whether the item survived both harvest passes (2) or only one (1); it is a confidence signal, not a filter.
+
 ---
 
-## 7. `runs/YYYY-MM-DD.json` schema (the analyzed digest)
+## 8. `runs/YYYY-MM-DD.json` schema (the analyzed digest)
 
 ```json
 {
@@ -141,22 +181,28 @@ The label states *why*, neutrally — e.g. "58 — Same vote; left leads with th
   "shared_topics": [
     {
       "title": "US–Iran agreement",
+      "topic_key": "us-iran-agreement",
       "summary": "One-paragraph neutral synopsis of the event itself.",
       "correlation": 58,
       "correlation_label": "58 - Same deal, left frames as risky, right frames as a win.",
+      "days_seen": 3,
+      "relevance": 40,
+      "relevance_label": "Recurring - day 3, losing novelty",
       "left":  { "framing": "How the left covered it.", "sources": [ {"source":"CNN","url":"https://..."} ] },
       "right": { "framing": "How the right covered it.", "sources": [ {"source":"Fox News","url":"https://..."} ] }
     }
   ],
-  "gap_left":  [ { "title": "...", "summary": "...", "sources": [ {"source":"MSNBC","url":"https://..."} ] } ],
-  "gap_right": [ { "title": "...", "summary": "...", "sources": [ {"source":"The Federalist","url":"https://..."} ] } ],
+  "gap_left":  [ { "title": "...", "topic_key": "...", "summary": "...", "days_seen": 1, "relevance": 100, "relevance_label": "New - first appearance", "sources": [ {"source":"MSNBC","url":"https://..."} ] } ],
+  "gap_right": [ { "title": "...", "topic_key": "...", "summary": "...", "days_seen": 2, "relevance": 70, "relevance_label": "Recurring - day 2", "sources": [ {"source":"The Federalist","url":"https://..."} ] } ],
   "suggestions": [ { "name": "...", "lean": "...", "search_domain": "...", "rationale": "one line", "accessible": true } ]
 }
 ```
 
+`shared_topics`, `gap_left`, and `gap_right` are each sorted by `relevance` descending before being written.
+
 ---
 
-## 8. `cluster.py` (copy verbatim — stdlib only)
+## 9. `cluster.py` (copy verbatim — stdlib only)
 
 ```python
 #!/usr/bin/env python3
@@ -232,32 +278,35 @@ if __name__ == "__main__":
 
 ---
 
-## 9. `render.py` (build to this contract)
+## 10. `render.py` (build to this contract)
 
 Stdlib only. Reads an analyzed run JSON (arg or latest in `runs/`), writes one self-contained `dashboard.html` (inline CSS/JS, no external dependencies). Required sections, top to bottom:
 
 1. **Header** — title, run timestamp, window, counts (items, shared topics, gaps each side), and the muted-source note ("N outlets not machine-readable: …").
-2. **Shared Topics** — one card per topic. Two columns: **Left** (blue accent) | **Right** (red accent), each with framing text and clickable source links. A prominent **correlation number 0–100**, color-banded green→red, with the one-line label beneath. This is the centerpiece.
-3. **Gap Topics** — two panels: "Only the Left is covering" and "Only the Right is covering," each a list of summarized items with source links.
+2. **Shared Topics** — one card per topic, ordered by `relevance` descending. Two columns: **Left** (blue accent) | **Right** (red accent), each with framing text and clickable source links. A prominent **correlation number 0–100**, color-banded green→red, with the one-line label beneath. A small **relevance badge** in the card header (green "NEW" at day 1, amber "Day 2", red "Day 3+" beyond) shows how fresh the story is. This is the centerpiece.
+3. **Gap Topics** — two panels: "Only the Left is covering" and "Only the Right is covering," each a list of summarized items with source links, ordered by `relevance` descending, each carrying the same NEW / Day-N badge.
 4. **Suggested Sources** (when present) — candidate name, lean, one-line rationale. Since the dashboard is static, "approve" = tell your assistant "add X / skip X"; it edits `sources.json`.
 5. **Source roster footer** — active sources by lean + muted/blocked ones flagged.
 
-Color language: left = blue, right = red, center = gray, correlation = green (high) → amber → red (low). Clean, dense, readable at a glance.
+Color language: left = blue, right = red, center = gray, correlation = green (high) → amber → red (low), relevance badge = green (new) → amber (day 2) → red (day 3+). Clean, dense, readable at a glance.
 
 ---
 
-## 10. Scheduling
+## 11. Scheduling
 
-Register a daily job (e.g. 7:00 AM local) that runs the full procedure in section 5, with the weekly source-suggestion branch firing on Mondays. The scheduled prompt must be **fully self-contained** — scheduled runs start fresh with no memory of how the system was built — so restate: which sources, fetch via domain-scoped web search only (never RSS, never curl a blocked site), the window, the correlation rubric, gap parity, neutral tone, and the output paths.
+Register a daily job (e.g. 7:00 AM local) that runs the full procedure in section 6, with the weekly source-suggestion branch firing on Mondays. The scheduled prompt must be **fully self-contained** — scheduled runs start fresh with no memory of how the system was built — so restate: which sources, fetch via domain-scoped web search only (never RSS, never curl a blocked site), the double-scan requirement, the window, the correlation rubric, the relevance rubric and `topic_history.json` update, gap parity, neutral tone, and the output paths.
 
 ---
 
-## 11. Acceptance criteria
+## 12. Acceptance criteria
 
 - [ ] Only accessible sources are fetched; blocked ones are shown with a "not machine-readable" note, not silently dropped.
+- [ ] Every run scans all accessible sources plus beat searches **twice, consecutively**, merging/deduping into one `harvest.json` before any clustering or scoring happens.
 - [ ] A scheduled run produces a fresh `dashboard.html` with no manual steps.
 - [ ] Shared topics render side-by-side L/R with a 0–100 correlation score + one-line neutral label.
 - [ ] Each side has at least as many gap topics as shared topics (parity), coverage permitting.
+- [ ] Every topic (shared and gap) carries a `days_seen` / `relevance` pair computed against `topic_history.json`: new topics score 100, topics on their 2nd+ consecutive day score progressively lower (100 → 70 → 40 → floor 20), and `topic_history.json` persists and is pruned (>5 days stale) every run.
+- [ ] Shared and gap topic lists are ordered by relevance descending, with a visible NEW / Day-N badge per card.
 - [ ] Every item has a one-paragraph neutral summary and a working source link.
 - [ ] Monday runs propose 2–3 accessibility-checked source suggestions to approve/reject.
 - [ ] Analysis is descriptive throughout — it explains divergence, never adjudicates who is correct.
@@ -265,4 +314,4 @@ Register a daily job (e.g. 7:00 AM local) that runs the full procedure in sectio
 
 ---
 
-*Provenance: built and verified end-to-end on 2026-06-20. Accessibility findings in section 2 were probed live that day and will drift over time — re-probe.*
+*Provenance: built and verified end-to-end on 2026-06-20. Accessibility findings in section 2 were probed live that day and will drift over time — re-probe. Double-scan harvesting and cross-day relevance decay added 2026-07-14.*
