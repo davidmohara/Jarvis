@@ -39,6 +39,18 @@ model: haiku
 
 ---
 
+## CRITICAL: DESKTOP COMMANDER INITIALIZATION
+
+**BEFORE running any step, load Desktop Commander tools via ToolSearch.** This is required for all Slack read/write operations in Cowork mode.
+
+```
+ToolSearch("select:mcp__Desktop_Commander__start_process,mcp__Desktop_Commander__read_file,mcp__Desktop_Commander__write_file")
+```
+
+**DO NOT use bash for Slack operations.** The sandbox lacks network access and macOS tools. Only Desktop Commander has full host network access.
+
+---
+
 ## YOUR TASK
 
 ### 0. Fast-exit gate (runs before anything else)

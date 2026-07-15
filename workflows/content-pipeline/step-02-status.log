@@ -1,0 +1,19 @@
+2026-07-15T14:00:00Z - Content Approval Run (Scheduled)
+
+Status: BLOCKED — Slack integration unavailable
+
+Reason: This scheduled task runs non-interactively without Desktop Commander (required for read.py execution) or Slack MCP connector tools. Cannot read #content thread replies to check for approval/rejection signals.
+
+Pending drafts checked: 0 of 7
+Actions taken: 0
+
+Next steps: Requires David to manually review Slack threads in #content channel, or a session with full tool access to resume automated approval workflow.
+
+Pending drafts still in queue:
+1. Fulfillment Is Not a Benefit (created 2026-06-24)
+2. The Urgency Trap Is Why Your AI Pilot Didn't Work (created 2026-07-09)
+3. The Pyramid Is Coming Down (created 2026-07-14)
+4. You're Paying for the Pilot (created 2026-07-14)
+5. Texas Said Yes to AI (created 2026-07-14)
+6. The Stack You Chose Last Year (created 2026-07-14)
+7. It Wasn't the Mistake That Impressed Me (created 2026-07-15)

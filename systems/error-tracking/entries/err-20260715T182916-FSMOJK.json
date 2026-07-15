@@ -1,0 +1,15 @@
+{
+  "id": "err-20260715T182916-FSMOJK",
+  "timestamp": "2026-07-15T18:29:16Z",
+  "session": "scheduled-task-content-approval-20260715",
+  "source": "self-detected",
+  "agent": "harper",
+  "category": "tool-misuse",
+  "description": "Scheduled content-approval task attempted to read Slack threads using bash sandbox. bash environment lacks network access and macOS tools (mdfind), making read.py execution impossible. Workflow explicitly requires Desktop Commander for Cowork mode but it was not loaded.",
+  "correction": "Use ToolSearch to load Desktop_Commander tools before attempting Slack operations. Desktop Commander is always available and provides full host network access.",
+  "failure_mode": "tool-ignorance",
+  "systemic_fix": "Update workflow.md and step-02-approve.md to explicitly state: (1) Desktop Commander MUST be loaded via ToolSearch before any Slack read/write; (2) Never use bash for Slack operations in Cowork; (3) Add example ToolSearch call at start of step.",
+  "fix_status": "proposed",
+  "severity": "moderate",
+  "related_entries": []
+}

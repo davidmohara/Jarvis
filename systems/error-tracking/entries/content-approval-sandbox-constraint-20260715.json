@@ -1,0 +1,30 @@
+{
+  "id": "content-approval-sandbox-constraint-20260715",
+  "timestamp": "2026-07-15T00:00:00Z",
+  "severity": "blocker",
+  "agent": "Harper",
+  "workflow": "content-pipeline/step-02-approve",
+  "issue": "Content approval workflow cannot execute in Cowork sandbox environment",
+  "details": {
+    "root_cause": "Slack API calls require network access via Desktop Commander (mcp__Desktop_Commander__start_process), which is not available in deferred tools list",
+    "attempted_tool": "mcp__workspace__bash with systems/slack-bot/read.py",
+    "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+    "workflow_requirement": "Step 02: Content Approval requires reading Slack thread replies via read.py script",
+    "affected_drafts": 6,
+    "draft_titles": [
+      "Fulfillment Is Not a Benefit. It's a Business Model.",
+      "The Urgency Trap Is Why Your AI Pilot Didn't Work",
+      "The Pyramid Is Coming Down. Now What?",
+      "You're Paying for the Pilot. You're Not Getting the Production.",
+      "Texas Said Yes to AI. Now It's Writing the Rules.",
+      "The Stack You Chose Last Year Just Became the Right Answer",
+      "It Wasn't the Mistake That Impressed Me"
+    ]
+  },
+  "status": "pending_resolution",
+  "next_steps": [
+    "Content approval workflow must run in native Claude Code/Jarvis environment with Desktop Commander access",
+    "Scheduled task should be moved to run via Claude Code if possible, or executed manually from native Jarvis session",
+    "All 7 pending drafts remain in pending-drafts.json awaiting approval"
+  ]
+}

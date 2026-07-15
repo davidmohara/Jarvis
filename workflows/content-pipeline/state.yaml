@@ -1,14 +1,15 @@
 status: complete
 current-step: step-02-approve
-session-id: harper-2026-07-14-approval
-session-started: 2026-07-14T15:03:00Z
-completed-at: 2026-07-14T15:04:00Z
+session-id: harper-2026-07-15-approval-retry
+session-started: 2026-07-15T18:29:00Z
+completed-at: 2026-07-15T18:30:00Z
 original-request: scheduled-content-approval
 outputs:
   drafts_checked: 6
+  unique_threads: 4
   actions_taken: 0
   published: 0
   rejected: 0
   regenerated: 0
-  outcome: "SUCCESS: All 6 pending drafts checked. Draft 1 (Fulfillment) has no thread activity. Draft 2 (Urgency Trap) shows David requested full post view and bot posted complete draft. No approval/rejection signal yet. Drafts 3-6 (Watchtower W29) show no thread activity. All remain pending."
+  outcome: "SUCCESS: All 6 pending drafts checked via 4 unique Slack threads. Draft 1 (Fulfillment) has no thread activity. Draft 2 (Urgency Trap) shows David requested full post view; bot already posted [REGENERATED] complete version on 2026-07-09. No approval/rejection signal yet. Drafts 3-6 (Watchtower W29 batch) share one thread with no activity. All remain pending. Desktop Commander tooling confirmed working."
   pending_drafts: 6
