@@ -1,0 +1,219 @@
+{
+  "generated": "2026-07-15T11:10:00Z",
+  "window_hours": 72,
+  "sources_used": ["msnbc","cnn","nbc","thehill","axios","dailybeast","slate","newrepublic","foxnews","natreview","examiner","federalist","dailywire","breitbart","townhall","rcp","amconserv","spectator","freepress"],
+  "sources_muted": [
+    {"name": "New York Times", "lean": "left", "reason": "blocks crawler"},
+    {"name": "Washington Post", "lean": "left", "reason": "blocks crawler"},
+    {"name": "Politico", "lean": "left", "reason": "blocks crawler"},
+    {"name": "Vox Politics", "lean": "left", "reason": "blocks crawler"},
+    {"name": "Mother Jones", "lean": "left", "reason": "blocks crawler"},
+    {"name": "WSJ Opinion", "lean": "right", "reason": "blocks crawler"},
+    {"name": "New York Post", "lean": "right", "reason": "blocks crawler"},
+    {"name": "Reuters Politics", "lean": "center", "reason": "blocks crawler"},
+    {"name": "Associated Press", "lean": "center", "reason": "blocks crawler"},
+    {"name": "BBC US & Canada", "lean": "center", "reason": "blocks crawler"}
+  ],
+  "counts": {"total_items": 51, "by_lean": {"left": 22, "right": 27, "center": 2}, "shared_topics": 4, "gap_left": 4, "gap_right": 4},
+  "shared_topics": [
+    {
+      "title": "US-Iran conflict: strikes resume, naval blockade of the Strait of Hormuz",
+      "topic_key": "us-iran-conflict-hormuz",
+      "summary": "The US-Iran ceasefire collapsed this week, with the US military striking roughly 140 Iranian targets and reinstating a naval blockade of Iranian ports after Iran targeted vessels in the Strait of Hormuz. Diplomatic efforts continue via Oman and other mediators even as strikes resumed for a third consecutive night.",
+      "correlation": 55,
+      "correlation_label": "55 — Same strikes and blockade, left frames it through economic/political fallout and war fatigue, right frames it as decisive follow-through on enforcement.",
+      "days_seen": 2,
+      "relevance": 70,
+      "relevance_label": "Recurring — day 2",
+      "left": {
+        "framing": "Left coverage treats the resumed strikes and blockade as part of a broader story about economic uncertainty and shifting policy assumptions, with The Hill noting polling shows the public pushed Trump toward de-escalation rather than Senate Republicans.",
+        "sources": [
+          {"source": "NBC News Politics", "url": "https://www.nbcnews.com/politics/trump-administration/live-blog/trump-lindsey-graham-congress-2026-election-doj-iran-live-updates-rcna587234"},
+          {"source": "Axios Politics", "url": "https://www.axios.com/2026/07/01/economy-inflation-iran-ai"},
+          {"source": "The Hill", "url": "https://thehill.com/newsletters/whole-hog-politics/5941566-americans-dislike-iran-war/"}
+        ]
+      },
+      "right": {
+        "framing": "Right coverage frames the blockade and strikes as a firm, justified response to Iranian provocation in the Strait of Hormuz, with commentary on how the conflict is also destabilizing allied politics abroad.",
+        "sources": [
+          {"source": "Fox News Politics", "url": "https://www.foxnews.com/live-news/iran-war-trump-israel-hormuz-july-14-2026"},
+          {"source": "The American Conservative", "url": "https://www.theamericanconservative.com/the-iran-war-roils-uk-politics/"},
+          {"source": "The American Conservative", "url": "https://www.theamericanconservative.com/the-real-lesson-of-americas-decades-long-conflict-with-iran/"}
+        ]
+      }
+    },
+    {
+      "title": "Fatal ICE enforcement incidents in Texas and Maine",
+      "topic_key": "ice-arrests-immigration-courts",
+      "summary": "Federal agents were involved in fatal incidents in Texas and Maine this week connected to immigration enforcement, prompting reactions from lawmakers and 2026 Senate candidates and renewing scrutiny of ICE tactics as courts simultaneously expand enforcement authority.",
+      "correlation": 25,
+      "correlation_label": "25 — Same underlying incidents, but left frames them as fatal ICE shootings of civilians needing scrutiny while right frames them as vehicle assaults against ICE officers that justify the agency's response.",
+      "days_seen": 2,
+      "relevance": 70,
+      "relevance_label": "Recurring — day 2",
+      "left": {
+        "framing": "Left outlets describe a growing 'ICE problem' spiraling out of control, with Maine Senate candidates speaking out against a fatal shooting and Congress reacting to the pattern of incidents.",
+        "sources": [
+          {"source": "CNN Politics", "url": "https://www.cnn.com/2026/07/14/politics/ice-killings-maine-texas-trump"},
+          {"source": "NBC News Politics", "url": "https://www.nbcnews.com/politics/politics-news/ice-senate-react-latest-shootings-politics-desk-rcna587586"},
+          {"source": "NBC News Politics", "url": "https://www.nbcnews.com/politics/trump-administration/live-blog/trump-iran-congress-kagan-barrett-darline-graham-ice-doj-live-updates-rcna587383"}
+        ]
+      },
+      "right": {
+        "framing": "Right outlets frame the same week's incidents as alleged vehicle assaults on ICE officers, and situate them alongside court rulings this month that expand nationwide immigration enforcement authority.",
+        "sources": [
+          {"source": "Breitbart", "url": "https://www.breitbart.com/border/2026/07/13/two-people-killed-in-separate-alleged-vehicle-assault-on-ice-officer-incidents-in-one-week/"},
+          {"source": "The American Spectator", "url": "https://spectator.org/the-courts-finally-let-america-enforce-its-own-immigration-laws/"}
+        ]
+      }
+    },
+    {
+      "title": "Graham Platner withdraws from Maine Senate race amid assault allegation",
+      "topic_key": "graham-platner-maine-senate",
+      "summary": "Democratic Senate nominee Graham Platner ended his Maine campaign following allegations of sexual assault and dating violence, which he denies. The collapse has become a flashpoint for arguments about vetting, party strategy, and the durability of populist-progressive candidates.",
+      "correlation": 40,
+      "correlation_label": "40 — Both sides agree Platner is out and why, but left treats it as a consultant/vetting failure to learn from while right treats it as vindication of the allegations and a broader indictment of the progressive movement.",
+      "days_seen": 3,
+      "relevance": 40,
+      "relevance_label": "Recurring — day 3, losing novelty",
+      "left": {
+        "framing": "Left coverage frames the collapse as an embarrassment born of a rushed, under-vetted recruitment process, with some pieces examining how consultants shaped and ultimately undermined the campaign.",
+        "sources": [
+          {"source": "CNN Politics", "url": "https://www.cnn.com/2026/07/08/politics/democrats-platner-problems-analysis"},
+          {"source": "Slate", "url": "https://slate.com/news-and-politics/2026/07/graham-platner-maine-working-class-consultants-backfired.html"},
+          {"source": "The Hill", "url": "https://thehill.com/newsletters/whole-hog-politics/5961630-platler-senate-candidacy-mainemaine/"}
+        ]
+      },
+      "right": {
+        "framing": "Right coverage treats the withdrawal as confirmation of the accuser's credibility and as a broader story about the establishment left backing a flawed populist candidate.",
+        "sources": [
+          {"source": "Fox News Politics", "url": "https://www.foxnews.com/politics/platner-officially-terminates-senate-bid-bombshell-rape-allegation-ends-campaign"},
+          {"source": "The Daily Wire", "url": "https://www.dailywire.com/news/graham-platner-ends-senate-bid-with-profane-political-message"},
+          {"source": "Breitbart", "url": "https://www.breitbart.com/politics/2026/07/09/trump-slams-democrats-for-not-believing-conservative-platner-accuser/"}
+        ]
+      }
+    },
+    {
+      "title": "June jobs report shows weaker-than-expected hiring",
+      "topic_key": "june-jobs-report",
+      "summary": "The economy added just 57,000 jobs in June, roughly half of what economists expected, with April and May revised down. Unemployment ticked down to 4.2% as labor-force participation fell.",
+      "correlation": 75,
+      "correlation_label": "75 — Both sides report the same topline numbers; left emphasizes the miss as a warning sign for the broader economy, right coverage is more measured on the same data.",
+      "days_seen": 3,
+      "relevance": 40,
+      "relevance_label": "Recurring — day 3, losing novelty",
+      "left": {
+        "framing": "Left coverage frames the weak print alongside broader structural concerns — AI's effect on inflation, Fed uncertainty, and a labor market losing momentum.",
+        "sources": [
+          {"source": "Axios Politics", "url": "https://www.axios.com/2026/07/02/jobs-june-trump-federal-reserve"}
+        ]
+      },
+      "right": {
+        "framing": "Right coverage reports the same figures in a more straightforward, less alarmed register.",
+        "sources": [
+          {"source": "Townhall", "url": "https://townhall.com/tipsheet/dmitri-bolt/2026/07/02/the-june-jobs-report-is-here-n2678742"}
+        ]
+      }
+    }
+  ],
+  "gap_left": [
+    {
+      "title": "Trump previews election-integrity address amid Democratic alarm over election officials",
+      "topic_key": "trump-election-integrity-address",
+      "summary": "Democrats have raised concerns about the Trump administration's handling of election officials, while Trump says his Thursday address will focus on 'free and fair elections' and include major news.",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "sources": [
+        {"source": "CNN Politics", "url": "https://www.cnn.com/2026/07/11/politics/democrats-trump-firing-election-officials"},
+        {"source": "CNN Politics", "url": "https://www.cnn.com/2026/07/14/politics/trump-thursday-speech-elections"}
+      ]
+    },
+    {
+      "title": "2026 midterm outlook shifts toward Democrats in new ratings and polling",
+      "topic_key": "midterm-outlook-democrats-favored",
+      "summary": "The Cook Political Report moved several 2026 races toward Democrats, and new polling shows Trump facing a brutal midterm reality check, with Republican-held seats in New York and Pennsylvania trailing.",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "sources": [
+        {"source": "The Daily Beast", "url": "https://www.thedailybeast.com/cook-political-report-swings-4-races-in-favor-of-democrats-in-fresh-maga-red-flag/"},
+        {"source": "The Daily Beast", "url": "https://www.thedailybeast.com/new-polling-gives-trump-brutal-midterm-reality-check/"}
+      ]
+    },
+    {
+      "title": "Lindsey Graham's Senate legacy assessed amid succession fight",
+      "topic_key": "lindsey-graham-dies-successor",
+      "summary": "Following Sen. Lindsey Graham's death, retrospectives examine his political legacy while attention turns to who will fill his seat and what the loss means for generational change in the Senate GOP.",
+      "days_seen": 3,
+      "relevance": 40,
+      "relevance_label": "Recurring — day 3, losing novelty",
+      "sources": [
+        {"source": "CNN Politics", "url": "https://www.cnn.com/2026/07/13/politics/lindsey-graham-death-mitch-mcconnell-hospital-what-next"},
+        {"source": "The Hill", "url": "https://thehill.com/homenews/senate/5966333-lindsey-graham-politics-legacy/"}
+      ]
+    },
+    {
+      "title": "Susan Collins' reelection prospects complicated by Maine Senate turmoil",
+      "topic_key": "susan-collins-maine-reelection-risk",
+      "summary": "Analysis suggests Sen. Susan Collins faces greater difficulty in her reelection bid given the turmoil surrounding the Democratic side of Maine's Senate race.",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "sources": [
+        {"source": "The New Republic", "url": "https://newrepublic.com/post/212944/susan-collins-platner-democratic-convention"}
+      ]
+    }
+  ],
+  "gap_right": [
+    {
+      "title": "Democratic Socialists of America's growing influence inside the Democratic Party",
+      "topic_key": "dsa-democratic-socialists-rise",
+      "summary": "Coverage examines the Democratic Socialists of America's record membership and growing influence, including a new platform and prominent caucuses, as a source of tension inside the Democratic Party.",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "sources": [
+        {"source": "Washington Examiner", "url": "https://www.washingtonexaminer.com/news/campaigns/congressional/4646135/six-democratic-socialists-america-most-prominent-caucuses/"},
+        {"source": "Washington Examiner", "url": "https://www.washingtonexaminer.com/news/campaigns/4648833/dsa-new-platform-replace-president-supreme-court/"},
+        {"source": "The Daily Wire", "url": "https://www.dailywire.com/news/panic-sets-in-dems-tailspin-as-they-realize-the-hostile-socialist-takeover-already-started"},
+        {"source": "Townhall", "url": "https://townhall.com/columnists/jay-rogers/2026/07/13/the-democratic-socialists-arent-fringe-anymore-n2679278"}
+      ]
+    },
+    {
+      "title": "Courts and Congress expand federal immigration enforcement powers",
+      "topic_key": "immigration-enforcement-courts-congress",
+      "summary": "Recent court rulings and new legislation are expanding federal immigration enforcement authority, including nationwide expedited removal and a bill to codify restrictions on birthright citizenship.",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "sources": [
+        {"source": "The American Spectator", "url": "https://spectator.org/how-the-supreme-courts-latest-rulings-are-changing-immigration/"},
+        {"source": "Townhall", "url": "https://townhall.com/tipsheet/jeff-charles/2026/07/14/this-republican-just-introduced-a-bill-to-enshrine-trumps-immigration-policy-into-law-n2679400"}
+      ]
+    },
+    {
+      "title": "Cornyn warns Paxton's legal baggage puts Texas Senate seat at risk",
+      "topic_key": "texas-senate-cornyn-paxton-primary",
+      "summary": "Sen. John Cornyn cautioned that Ken Paxton's legal troubles could cost Republicans a longtime red-state Senate seat in Texas if Paxton wins the GOP primary runoff.",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "sources": [
+        {"source": "Fox News Politics", "url": "https://www.foxnews.com/politics/watch-embattled-gop-senator-warns-dems-could-win-big-longtime-red-state-voters-head-polls"}
+      ]
+    },
+    {
+      "title": "Republicans hold a narrow edge in the fight for Senate control",
+      "topic_key": "senate-majority-edge-republicans",
+      "summary": "Republicans are described as having an edge in holding the Senate majority in November, though the race remains close across several competitive states.",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "sources": [
+        {"source": "Washington Examiner", "url": "https://www.washingtonexaminer.com/news/campaigns/congressional/4633579/republican-edge-senate-majority-2026-midterms/"}
+      ]
+    }
+  ],
+  "suggestions": []
+}
