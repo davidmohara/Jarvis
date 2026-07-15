@@ -27,15 +27,17 @@ model: sonnet
 
 | Source | What to Pull | Access Method |
 |--------|-------------|---------------|
-| My Leads.xlsx | Full lead log — scan for blank "Passed To" entries | M365 MCP: `read_resource` with file URI |
+| My Leads.xlsx | Full lead log — scan for blank "Passed To" entries | Desktop Commander: `mcp__Desktop_Commander__read_file` on the local Mac path (primary). M365 MCP `read_resource` as fallback only if the local file is missing/moved. |
 | Calendar | Any upcoming meetings with unassigned lead companies | M365 MCP: `outlook_calendar_search` |
 | Email | Recent threads with unassigned lead companies | M365 MCP: `outlook_email_search` |
 
 ### File Reference
 
 - **File:** `My Leads.xlsx`
-- **Location:** OneDrive → `Sales/My Leads.xlsx`
-- **M365 File URI:** `file:///b!ilmQNHdRSEuxhG1Y66o6s2pUiIQPYJdBpYjAjbtZ8aRPj2M3V6pnT7CvN3AYbbdR/01ZA7BKHDIRSDTOJSU5JF2L2KUC4DMNJMF`
+- **Location (primary, actual):** Local file on the host Mac — `/Users/davidohara/Downloads/My Leads.xlsx`. This is NOT on OneDrive despite the folder name below; confirmed via Desktop Commander `start_search`/`list_directory` on 2026-07-15 (see `err-20260715T134820-X2GOL2`).
+- **Access method (primary):** `mcp__Desktop_Commander__read_file` with path `/Users/davidohara/Downloads/My Leads.xlsx` — it parses `.xlsx` directly. If Desktop Commander tools aren't in the active tool list, run `ToolSearch` for them before concluding the file is unreachable — do not assume a sandboxed bash mount's blind spot means "no Mac filesystem access."
+- **Fallback (if local file is genuinely missing):** M365 MCP `read_resource` against the OneDrive URI below, in case the file has since been moved/synced to OneDrive.
+- **M365 File URI (fallback only):** `file:///b!ilmQNHdRSEuxhG1Y66o6s2pUiIQPYJdBpYjAjbtZ8aRPj2M3V6pnT7CvN3AYbbdR/01ZA7BKHDIRSDTOJSU5JF2L2KUC4DMNJMF`
 
 ### Known Account Managers
 

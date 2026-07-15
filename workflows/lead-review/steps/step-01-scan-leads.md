@@ -21,7 +21,8 @@ Read `My Leads.xlsx` and identify all entries where "Passed To" is blank, empty,
 ## Actions
 
 1. **Read the file:**
-   - Use M365 MCP: `read_resource` with file URI.
+   - **Primary:** Use `mcp__Desktop_Commander__read_file` on the local Mac path `/Users/davidohara/Downloads/My Leads.xlsx` — Desktop Commander parses `.xlsx` directly. If Desktop Commander isn't in the active tool list, run `ToolSearch` for it first (query for `mcp__Desktop_Commander__read_file` or `mcp__Control_your_Mac__osascript`) before concluding the file is unreachable. A sandboxed bash mount not covering `~/Downloads` is not evidence the file is inaccessible.
+   - **Fallback:** If the local file is genuinely missing at that path, try M365 MCP `read_resource` with the OneDrive file URI (see workflow.md File Reference) in case the file has since moved to OneDrive.
    - Parse all rows from the Leads sheet.
 
 2. **Identify unassigned leads:**

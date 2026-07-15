@@ -99,6 +99,8 @@ If all 3 strategies return nothing, THEN report it as not found — and say what
 
 **Desktop Commander (`mcp__Desktop_Commander__*`) is the only authorized tool for Mac filesystem operations** — reading, writing, moving, or deleting files on the host Mac. VM Bash (`Bash` tool) runs in an isolated sandbox and cannot see or touch Mac filesystem paths. Any file operation targeting `/Users/davidohara/`, `~/`, or an iCloud path must use Desktop Commander or osascript, not Bash.
 
+**Before declaring any file, folder, or path "not accessible" or "not on this mount"**: run `ToolSearch` for Desktop Commander / `mcp__Control_your_Mac__osascript` first. These tools may be deferred and not yet listed in the active tool set — their absence from the visible tool list is not evidence they're unavailable. A sandboxed bash mount only covers the folders explicitly mounted into that session; it is never the full picture of "no Mac filesystem access." Conflating "not in my current bash mount" with "not reachable at all" is the specific failure logged in `err-20260715T134820-X2GOL2` — don't repeat it. This applies to every data source that lives on the host Mac but outside the session's bash mount: `My Leads.xlsx` (`~/Downloads`), Plaud staging (`~/Downloads/transcript-staging`), and any other path referenced by a workflow that isn't already inside the mounted project folder.
+
 ### Chrome Tab State
 
 **Never ask David about tab state, current page, or what's open in Chrome.** Use `mcp__Control_Chrome__get_current_tab()` or `mcp__Claude_in_Chrome__get_page_text` to check directly. Asking the controller what's on screen when a tool can answer is a protocol violation.

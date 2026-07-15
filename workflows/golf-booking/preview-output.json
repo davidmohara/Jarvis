@@ -8,22 +8,76 @@
   "day_status": {
     "friday": {
       "status": "unavailable",
-      "reason": "Out of town — Improving AI GMS Summit (July 22-27, Ranch event). Additional conflicts: Virtual Coffee Chat, Sales Meeting, Executive Meeting, Presidents Pipeline, Weekly Wrap-Up."
+      "reason": "Out of town — Improving AI GMS Summit (July 22-27)."
     },
     "saturday": {
       "status": "unavailable",
       "reason": "Out of town — Improving AI GMS Summit (July 22-27)."
     },
     "sunday": {
-      "status": "unavailable",
-      "reason": "Out of town — Improving AI GMS Summit (July 22-27). Church volunteering 8:30 AM-1:30 PM CT also applies."
+      "status": "available",
+      "reason": "OVERRIDE: David confirmed home Sunday afternoon. Church constraint waived this week (traveling back from GMS Summit). Earliest tee time 1:00 PM per David's instruction."
     }
   },
   "drought": false,
   "last_round": "2026-07-12",
   "days_since_last_round": 2,
-  "top_options": [],
-  "override_instructions": null,
-  "weather_status": "unavailable — Open-Meteo did not return data for target dates",
-  "notes": "No viable golf windows this weekend. David is out of town July 22-27 for the Improving AI GMS Summit at the Ranch. No booking will be made."
+  "top_options": [
+    {
+      "rank": 1,
+      "day": "sunday",
+      "date": "2026-07-26",
+      "preferred_start": "13:00",
+      "preferred_end": "14:30",
+      "holes": 18,
+      "cost_per_player": 21,
+      "total_cost": 42,
+      "weather": {
+        "rain_pct": null,
+        "temp_f": null,
+        "wind_mph": null,
+        "condition": "unknown — weather data unavailable for this date range"
+      },
+      "score": 0,
+      "rationale": "Sunday 1:00 PM — David's explicit preference for this week. Church constraint waived (returning from GMS Summit). $21/player, 18 holes."
+    },
+    {
+      "rank": 2,
+      "day": "sunday",
+      "date": "2026-07-26",
+      "preferred_start": "14:00",
+      "preferred_end": "15:30",
+      "holes": 18,
+      "cost_per_player": 21,
+      "total_cost": 42,
+      "weather": {
+        "rain_pct": null,
+        "temp_f": null,
+        "wind_mph": null,
+        "condition": "unknown"
+      },
+      "score": 3,
+      "rationale": "Sunday 2:00 PM — fallback if 1:00 PM unavailable."
+    },
+    {
+      "rank": 3,
+      "day": "sunday",
+      "date": "2026-07-26",
+      "preferred_start": "16:00",
+      "preferred_end": "17:30",
+      "holes": 18,
+      "cost_per_player": 15,
+      "total_cost": 30,
+      "weather": {
+        "rain_pct": null,
+        "temp_f": null,
+        "wind_mph": null,
+        "condition": "unknown"
+      },
+      "score": 5,
+      "rationale": "Sunday 4:00 PM — $15/player fallback if earlier slots gone."
+    }
+  ],
+  "override_instructions": "THIS WEEK ONLY: Book earliest available at or after 1:00 PM Sunday July 26. Church constraint waived — David returning from GMS Summit. Players: David + Susie O'Hara (41 - Frisco Lakes Total Member). 18 holes. Booking window opens midnight July 18.",
+  "notes": "Friday/Saturday unavailable (GMS Summit). Sunday override per David — 1 PM preferred, work down the ranked list if unavailable."
 }

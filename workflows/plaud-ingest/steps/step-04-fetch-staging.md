@@ -102,6 +102,7 @@ If `fetch_plaud.py` exits with `NO_TOKEN`:
 | Speaker names still missing after regeneration | This is rare. Check Plaud app directly to confirm names are saved. If saved in app, try one more rename pass. |
 | Staging file missing after fetch | Log the gap. Proceed with what is available — do not block step-05 for one missing file. |
 | Fetch script crashes entirely | Check osascript permissions. Report full error output. Abort and surface to controller. |
+| `~/Downloads/transcript-staging/` appears empty or not visible | Before reporting it unreachable, run `ToolSearch` for `mcp__Desktop_Commander__list_directory` / `mcp__Control_your_Mac__osascript` if they aren't in the active tool list — an empty result via those tools is a valid "nothing staged" outcome, not an access failure. A sandboxed bash mount not covering `~/Downloads` is a different problem and is not evidence the path is unreachable. |
 
 ---
 

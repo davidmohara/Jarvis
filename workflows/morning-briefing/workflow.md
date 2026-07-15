@@ -84,6 +84,14 @@ Before step-01, delegate the Watchtower daily awareness pipeline to Knox so its 
 
 If Knox fails to spawn or the Watchtower run produces no items above the awareness floor, note it and proceed. Do NOT let a Watchtower failure block the morning briefing.
 
+## DATA SOURCE UNREACHABLE — MANDATORY CHECK
+
+This workflow and any sub-workflow/agent it invokes (Chase's lead-review, Knox's Watchtower/plaud-ingest, etc.) touch data sources that live on the host Mac outside this session's bash mount — e.g. `My Leads.xlsx` and the Plaud transcript staging folder. Before any step reports one of these as "not accessible," "unreachable," or "no Mac filesystem access":
+
+1. Run `ToolSearch` for `mcp__Desktop_Commander__*` and `mcp__Control_your_Mac__osascript` — these are frequently deferred and absent from the initial tool list, which is not evidence they're unavailable.
+2. Only after confirming those tools are genuinely unavailable (or the path doesn't exist even via them) is it valid to report the source as unreachable.
+3. See `err-20260715T134820-X2GOL2` for the specific failure this guards against — Master previously declared these sources unreachable without checking for Desktop Commander first.
+
 ## EXECUTION
 
 Read fully and follow: `steps/step-01-gather-calendar.md` to begin the workflow.

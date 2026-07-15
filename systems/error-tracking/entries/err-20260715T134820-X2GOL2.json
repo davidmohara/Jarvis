@@ -1,0 +1,15 @@
+{
+  "id": "err-20260715T134820-X2GOL2",
+  "timestamp": "2026-07-15T13:48:20Z",
+  "session": "scheduled-morning-briefing-2026-07-15",
+  "source": "explicit",
+  "agent": "chief",
+  "category": "tool-misuse",
+  "description": "During the scheduled morning briefing, reported 'My Leads.xlsx isn't on this session's mount' and 'no Mac filesystem access' for Plaud transcript staging, then skipped the lead review and Plaud staging steps entirely. In reality, Desktop Commander and Control_your_Mac osascript (the tools SYSTEM.md designates as authorized for Mac filesystem operations) were available via ToolSearch but were never checked for. Only the sandboxed bash mount (/sessions/.../mnt/jarvis, outputs, uploads) was searched, and a single Glob against the wrong directory was treated as exhaustive.",
+  "correction": "David corrected: 'the existing folder is the filesystem' -- the mounted project folder plus Desktop Commander/osascript together constitute real Mac filesystem access. Re-searched via Desktop Commander after the correction and found My Leads.xlsx directly in /Users/davidohara/Downloads/My Leads.xlsx, reachable the whole time.",
+  "failure_mode": "tool-ignorance",
+  "systemic_fix": "1) SYSTEM.md Search Discipline updated to require checking for Desktop Commander/osascript via ToolSearch before declaring any Mac-filesystem-dependent data source unreachable. 2) Routed workflows/lead-review/workflow.md and morning-briefing workflow to Rigby to hardcode the Desktop Commander lookup path for My Leads.xlsx and transcript-staging so this data source resolves automatically on scheduled runs instead of being silently skipped.",
+  "fix_status": "applied",
+  "severity": "moderate",
+  "related_entries": []
+}
