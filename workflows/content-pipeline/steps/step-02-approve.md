@@ -47,7 +47,12 @@ model: haiku
 ToolSearch("select:mcp__Desktop_Commander__start_process,mcp__Desktop_Commander__read_file,mcp__Desktop_Commander__write_file")
 ```
 
-**DO NOT use bash for Slack operations.** The sandbox lacks network access and macOS tools. Only Desktop Commander has full host network access.
+**RETRY PROTOCOL:** If ToolSearch returns "No matching deferred tools found":
+1. Wait 2 seconds
+2. Retry ToolSearch once more
+3. If still unavailable: log error (err-YYYYMMDDTHHMMSS-XXXXXX) and abort with status message to #jarvis: "Content approval halted — Desktop Commander unavailable. Check tool initialization."
+
+**DO NOT use bash for Slack operations.** The sandbox lacks network access and macOS tools. Only Desktop Commander has full host network access. See err-20260715T200539-J9SK5Z for previous initialization failure.
 
 ---
 

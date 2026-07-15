@@ -1,0 +1,15 @@
+{
+  "id": "err-20260715T200539-J9SK5Z",
+  "timestamp": "2026-07-15T20:05:39Z",
+  "session": "2026-07-15-scheduled-content-approval",
+  "source": "self-detected",
+  "agent": "Harper (content-approval scheduler)",
+  "category": "process-skip",
+  "description": "Desktop Commander ToolSearch returned 'No matching deferred tools found' on first attempt in scheduled task, causing step-02-approve.md to fail early. Tool became available on second ToolSearch attempt. Workflow designed to require Desktop Commander for all Slack operations, but tool initialization was not guaranteed upfront.",
+  "correction": "Desktop Commander should be loaded explicitly at task start, or ToolSearch should retry automatically if critical tools are missing. Alternatively, step-02-approve should check tool availability before proceeding to Slack operations.",
+  "failure_mode": "protocol-skip",
+  "systemic_fix": "Add explicit ToolSearch with retry logic to content-pipeline workflows before any Slack operations. Document Desktop Commander availability assumption in step-02-approve.md.",
+  "fix_status": "proposed",
+  "severity": "minor",
+  "related_entries": []
+}
