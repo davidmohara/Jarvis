@@ -1,0 +1,15 @@
+{
+  "id": "err-20260715T134717-TSV3VM",
+  "timestamp": "2026-07-15T13:47:17Z",
+  "session": "dream-cycle-2026-07-15-031016",
+  "source": "explicit",
+  "agent": "jarvis",
+  "category": "assumption-error",
+  "description": "During the 2026-07-15 dream cycle, a ToolSearch for Desktop Commander tools returned no matches, and this was treated as 'Desktop Commander is unavailable in this session' rather than 'not yet connected/loaded.' Instructed the delegated agent to skip git pull at boot and git commit/push at close for the entire dream cycle, leaving all memory consolidation changes (working memory archival, salience scores, semantic promotions) uncommitted on disk. David corrected: Desktop Commander is always available.",
+  "correction": "Should have treated an empty ToolSearch result for a host tool as ambiguous rather than conclusive, especially since other MCP servers were shown explicitly as 'still connecting' in the same turn. Should have retried ToolSearch shortly after or proceeded to attempt the call rather than pre-emptively designing the whole workflow run around its absence. Correct action: use mcp__Desktop_Commander__start_process for all git operations per skills/git/SKILL.md, never skip the mandated git sync step.",
+  "failure_mode": "wrong-assumption",
+  "systemic_fix": "When a required host-side tool (Desktop Commander) doesn't appear in an initial ToolSearch, re-check via ToolSearch again before concluding it's unavailable, since MCP servers can still be connecting. Do not silently redesign a workflow to skip a mandated step (like git sync) based on a single unavailability check without flagging it to the controller first.",
+  "fix_status": "applied",
+  "severity": "moderate",
+  "related_entries": []
+}

@@ -6,7 +6,7 @@ synthesized-from:
   - memory/episodic/daily-review-2026-07-02-000000.md
   - memory/episodic/morning-briefing-2026-07-01-085000.md
   - memory/episodic/dream-summary-2026-07-03.md
-last-updated: 2026-07-12
+last-updated: 2026-07-15
 tags: [overdue-tasks]
 agent-source: dream-cycle
 confidence: low
@@ -49,3 +49,6 @@ Sources this cycle:
 
 ### 2026-07-14 — Nightly promotion (backfill closure)
 - `memory/episodic/2026-07-06-session-sc-meeting-prep.md` and `memory/episodic/system-eval-2026-07-08-203623.md` — already documented above in the 07-11/07-12 entries; `promoted: true` flag backfilled this cycle. No new synthesis.
+
+### 2026-07-15 — Nightly promotion (backfill closure, repeat)
+- Same two source files reappeared as candidates again this cycle with identical evidence already captured above. Re-set `promoted: true`. Root cause identified this cycle: step-02's salience-block rewrite drops the `promoted` field every run, so any `promoted: true` written by step-03 gets erased the next day before step-03 checks it. See `memory/semantic/pattern/2026-07-06-dream-summary-pattern.md` 2026-07-15 entry for the full explanation. No new synthesis needed.

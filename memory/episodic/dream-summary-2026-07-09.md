@@ -22,11 +22,10 @@ tags:
   - overdue-tasks
   - semantic-promotion
 related_people:
-
 salience:
   score: 10
+  last-promoted-check: 2026-07-15
   promoted: true
-  last-promoted-check: '2026-07-14'
 ---
 # Dream Cycle Summary — 2026-07-09
 
@@ -62,4 +61,3 @@ Git pull had a HEAD.lock collision (stale from a prior interrupted process), res
 | Error entries (30d) | 108 |
 | Errors this cycle | 0 |
 | Compression | Skipped (82d < 90d) |
-  promoted: true

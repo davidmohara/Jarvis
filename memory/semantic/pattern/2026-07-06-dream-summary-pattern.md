@@ -5,8 +5,8 @@ tag: dream-summary
 domain: pattern
 confidence: medium
 created: 2026-07-06
-last-updated: 2026-07-14
-synthesized-from: 4 episodic entries
+last-updated: 2026-07-15
+synthesized-from: 5 episodic entries
 tags:
   - dream-summary
 ---
@@ -58,3 +58,9 @@ Sources this cycle:
 - `memory/episodic/dream-summary-2026-07-12.md` (score 10) — clean boot pull, 1 archive, 14 promotion candidates (13 of which were backlog from prior cycles never marked promoted:true), 0 new lessons
 
 Confidence escalated to `medium` this cycle per the threshold flagged 2026-07-13 — evidence base has held steady through 6+ consecutive clean cycles. Also notable: this cycle surfaced a persistent backlog of 13 episodic entries from prior runs (2026-07-06 through 2026-07-11) that scored high enough to promote but never got `salience.promoted: true` written — likely a step-03 completion gap in earlier cycles rather than a genuine new pattern. Backfilling those flags this cycle to close the gap; worth a closer look at why the flag write has been intermittently skipped.
+
+### 2026-07-15 — Nightly promotion
+Sources this cycle:
+- `memory/episodic/dream-summary-2026-07-13.md` (score 10) — clean run, closed the same recurring `promoted:true` backlog gap (13 leftover from 07-06 through 07-11), 6 semantic updates, 0 new lessons; flagged the dream-summary-pattern confidence-escalation threshold for next-cycle review.
+
+**Root-cause note on the recurring backlog:** this cycle traced the actual mechanism behind the "promoted:true never sticks" pattern documented in every prior entry above. Step-02 (salience scoring) rewrites each episodic file's entire `salience:` YAML block from scratch, emitting only `score` and `last-promoted-check` — it does not read or preserve any existing `promoted` field. So even when step-03 correctly writes `salience.promoted: true` at the end of a cycle, the *next* day's step-02 run silently drops it before step-03 ever checks it, making every previously-promoted entry look unpromoted again the following cycle. This is not a one-off miss — it is a structural bug in step-02's write logic that will keep regenerating this exact backlog every cycle until step-02 is changed to merge (not replace) the salience block. Confirmed today: `overdue-tasks-pattern.md`, `daily-review-pattern.md`, `morning-briefing-pattern.md`, `plaud-pattern.md`, and `session-wrap-pattern.md` all show entries already documented as "backfilled" in the 2026-07-14 cycle, yet their source files came back as fresh promotion candidates again today with identical evidence — no new synthesis was needed, only another round of flag-setting. Recommend a fix to `workflows/dream-cycle/steps/step-02-salience-scoring.md` (and its executor) to merge `promoted` and `references` into the rewritten salience block rather than dropping them.

@@ -17,11 +17,10 @@ tags:
   - dream-cycle
   - knox
 related_people:
-
 salience:
   score: 10
+  last-promoted-check: 2026-07-15
   promoted: true
-  last-promoted-check: '2026-07-14'
 ---
 
 - Plaud ingest ran for 2 recordings: medical appointment + SC Orb Demo; Knox processed both and created Monday tasks with share links
@@ -30,4 +29,3 @@ salience:
 - LinkedIn post drafted and speaker rename completed for Dr. John East in vault note
 - ROOT ALERT: `outputs/` directory at IES root is non-canonical and contains previously-committed dream cycle scripts — flagged for David to disposition (delete or move)
 - .DS_Store deletion blocked by sandbox permissions; files are gitignored and will not be committed
-  promoted: true

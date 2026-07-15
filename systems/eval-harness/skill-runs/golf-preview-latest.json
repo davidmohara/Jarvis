@@ -2,10 +2,10 @@
   "skill": "golf-preview",
   "agent": "chief",
   "trigger": "scheduled",
-  "started": "2026-07-07T00:00:00",
-  "completed": "2026-07-08T00:00:00",
-  "status": "success",
+  "started": "2026-07-14T00:00:00",
+  "completed": "2026-07-14T00:05:00",
+  "status": "partial",
   "tool_failures": 1,
   "error_ids": [],
-  "notes": "All three target days (Jul 17-19) hard-blocked by Horner visit all-day event. No viable windows. Slack sent to #golf. Weather API unavailable (network allowlist). tool_failures=1 for weather API block."
+  "notes": "preview-output.json written. Slack send failed — network restriction in sandbox. Fallback written to memory/working/golf-preview-2026-07-14.md."
 }

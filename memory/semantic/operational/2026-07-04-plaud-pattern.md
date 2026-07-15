@@ -5,7 +5,7 @@ subject: plaud pattern
 synthesized-from:
   - memory/episodic/plaud-ingest-2026-07-02-011500.md
   - memory/episodic/morning-briefing-2026-07-01-085000.md
-last-updated: 2026-07-12
+last-updated: 2026-07-15
 tags: [plaud]
 agent-source: dream-cycle
 confidence: low
@@ -51,3 +51,6 @@ Sources this cycle:
 
 ### 2026-07-14 — Nightly promotion (backfill closure)
 - `memory/episodic/plaud-ingest-2026-07-09-000000.md`, `shutdown-cleanup-2026-07-09-000000.md`, `plaud-ingest-2026-07-09-204305.md` — already documented above in the 07-11/07-12 entries; `promoted: true` flag backfilled this cycle. No new synthesis.
+
+### 2026-07-15 — Nightly promotion (backfill closure, repeat)
+- Same three source files reappeared as candidates again this cycle. Re-set `promoted: true`. Root cause identified this cycle: step-02's salience rewrite drops `promoted` every run. See dream-summary-pattern.md 2026-07-15 entry. No new synthesis needed.

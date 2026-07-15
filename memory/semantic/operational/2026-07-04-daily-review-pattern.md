@@ -7,7 +7,7 @@ synthesized-from:
   - memory/episodic/daily-review-2026-07-02-000000.md
   - memory/episodic/dream-summary-2026-07-03.md
   - memory/episodic/shutdown-cleanup-2026-07-01-170500.md
-last-updated: 2026-07-12
+last-updated: 2026-07-15
 tags: [daily-review]
 agent-source: dream-cycle
 confidence: low
@@ -51,3 +51,6 @@ Sources this cycle:
 
 ### 2026-07-14 — Nightly promotion (backfill closure)
 - `memory/episodic/daily-review-2026-07-06-140000.md`, `daily-review-2026-07-07-080000.md`, `daily-review-2026-07-08-080000.md`, `daily-review-2026-07-10-211100.md` — already documented above in the 07-11/07-12/07-13 entries; `salience.promoted: true` was never written to these source files despite the evidence being captured. Flag backfilled this cycle to close the gap. No new synthesis — evidence unchanged.
+
+### 2026-07-15 — Nightly promotion (backfill closure, repeat)
+- Same four source files reappeared as candidates again this cycle. Re-set `promoted: true`. Root cause identified this cycle: step-02 overwrites the salience block on every run without preserving the `promoted` field, silently undoing the prior cycle's backfill. See dream-summary-pattern.md 2026-07-15 entry. No new synthesis needed.

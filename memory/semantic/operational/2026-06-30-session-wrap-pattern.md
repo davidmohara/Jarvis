@@ -4,7 +4,7 @@ domain: operational
 subject: "Pattern around session-wrap"
 synthesized-from:
   - memory/episodic/shutdown-cleanup-2026-06-16-071444.md
-last-updated: 2026-07-04
+last-updated: 2026-07-15
 tags:
   - calendar
   - co-sell
@@ -37,3 +37,6 @@ Recurring cluster anchored on tag `session-wrap` (1 episodic entries with salien
 ### 2026-07-14 — Nightly promotion
 Sources this cycle (backfilled from 07-09, never previously appended to this file):
 - `memory/episodic/shutdown-cleanup-2026-07-09-000000.md` (score 10) — tags: session-wrap, chief, briefing, plaud, dream-cycle, knox — session-wrap co-occurring with plaud and dream-cycle tags in the same shutdown-cleanup entry, consistent with the cross-domain overlap already noted in the plaud-pattern file for this same source.
+
+### 2026-07-15 — Nightly promotion (backfill closure, repeat)
+- Same source file reappeared as a candidate again this cycle. Re-set `promoted: true`. Root cause identified this cycle: step-02 drops the `promoted` field on every salience rewrite. See dream-summary-pattern.md 2026-07-15 entry for the full explanation. No new synthesis needed.

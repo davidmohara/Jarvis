@@ -16,10 +16,9 @@ tags:
   - error-patterns
 related_people: []
   promoted: true
-
 salience:
   score: 10
-  last-promoted-check: '2026-07-14'
+  last-promoted-check: 2026-07-15
 ---
 # Dream Cycle Summary — 2026-07-05
 

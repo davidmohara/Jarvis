@@ -20,11 +20,10 @@ tags:
   - omnifocus
   - overdue-tasks
 related_people:
-
 salience:
   score: 10
+  last-promoted-check: 2026-07-15
   promoted: true
-  last-promoted-check: '2026-07-14'
 ---
 
 ## Session Summary
@@ -67,4 +66,3 @@ For each Claude-built tool Kevin walks through: Intent · Business Value · Data
 - [ ] Matt Yasar deep-dive still unscheduled (OmniFocus task overdue Jul 3)
 - [ ] 16-hour usage plan — lock Wednesday
 - [ ] Path A vs. B still undecided — surface Wednesday
-  promoted: true

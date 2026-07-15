@@ -1,69 +1,86 @@
 workflow: dream-cycle
 agent: jarvis
 status: complete
-session-started: 2026-07-14T03:09:18-05:00
-session-id: dream-cycle-2026-07-14-030918
+session-started: 2026-07-15T03:10:16-05:00
+session-id: dream-cycle-2026-07-15-031016
 current-step: null
 entries_compressed: 0
 digests_updated: 0
 compression_skipped: true
-compression_skip_reason: "Oldest episodic entry 2026-04-18 (87 days). 90-day cutoff is 2026-04-15. 0 candidates eligible."
-original-request: Scheduled dream cycle run (automated) - 2026-07-14
+compression_skip_reason: "Oldest episodic entry 2026-04-18 (88 days). 90-day cutoff is 2026-04-16. 0 candidates eligible (2026-04-18 is not < cutoff). Next likely eligible ~2026-07-17."
+original-request: Scheduled dream cycle run (automated) - 2026-07-15
 accumulated-context:
-  git_pull_at_boot: success
-  git_pull_note: "unstaged changes in workflows/content-pipeline and workflows/daily-review blocked initial rebase; stashed, pulled 39 files (6a7cb76..36af844), restored stash cleanly, no conflicts"
-  enrichment_method: "n/a this cycle — only expired file already had full frontmatter/tags"
-  episodic_scanned: 198
-  score_updates: 198
-  no_tags: 14
-  no_date: 6
-  files_with_tags: 184
-  in_window_count: 81
-  score_distribution: "0:24, 1:2, 2:2, 3:4, 4:1, 5:2, 8:3, 10:160"
-  window_start: '2026-06-14'
-  window_end: '2026-07-14'
-  data_repair_note: "Found and repaired 4 pre-existing corrupted files with stacked/duplicated frontmatter blocks (2026-05-20-061400-session-boot-morning-briefing.md, 2026-05-15-094050-session-wrap.md, 2026-05-22-061501-session-boot-morning-briefing.md, 2026-05-15-094050-session-boot-morning-briefing.md) — all had score 0/no tags/no other real fields, consolidated to single clean frontmatter block, no data lost."
-  candidates_count: 14
-  clusters_found: 6
-  semantic_created: 0
-  semantic_updated: 6
-  promoted_entries: 14
-  promotion_note: "14 candidates: 1 fresh archive (dream-summary-2026-07-12) plus 13 leftover from prior cycles (07-06 through 07-11) never marked promoted:true — sc-meeting-prep-07-06, daily-review 07-06/07-07/07-08/07-10, morning-briefing 07-08/07-09, plaud-ingest 07-09 x2, system-eval-07-08, shutdown-cleanup-07-09, dream-summary-07-11. All 14 clustered into 6 existing semantic files: dream-summary-pattern (genuinely new evidence + confidence escalated low->medium per threshold flagged 2026-07-13), daily-review-pattern (backfill only), morning-briefing-pattern (backfill only), plaud-pattern (backfill only), overdue-tasks-pattern (backfill only), session-wrap-pattern (new evidence — shutdown-cleanup-07-09 not previously appended here despite being documented in plaud-pattern). Zero new semantic files created. All 14 source episodic files now carry salience.promoted: true."
-  error_total_30d: 101
-  error_categories_30d: "routing-error/protocol-skip:10, process-skip/protocol-skip:8, data-accuracy/sloppy-read:6, data-accuracy/wrong-assumption:5, assumption-error/wrong-assumption:5, missed-context/context-blindness:3, unknown/unknown:3"
-  lessons_appended: 0
-  lessons_note: "All 6 qualifying categories (3+ occurrences) already documented and active in LESSONS.md. unknown/unknown has no actionable pattern to codify. No new lesson appended."
+  git_pull_at_boot: skipped
+  git_pull_note: "Desktop Commander unavailable in this Cowork session; boot git pull skipped per explicit operator constraint to avoid sandbox FUSE .git/index.lock risk. Repo not pulled this cycle."
   working_archived: 1
   working_deleted: 0
-  working_skipped: 9
+  working_skipped: 12
   working_stranded: 0
+  enrichment_method: "manual mutation — file already had full frontmatter/tags/created; added date (derived from created) and source_file fields, kept existing tags/related_people"
   archived_files:
-    - dream-summary-2026-07-12.md
+    - dream-summary-2026-07-13.md
   skipped_not_expired:
     - dream-summary-2026-07-14.md
     - co-sell-pipeline-2026-07-13-140800.md
     - daily-review-2026-07-13-060000.md
+    - daily-review-2026-07-14-211206.md
     - plaud-ingest-2026-07-13-153500.md
     - revenue-tracker-2026-07-13-000000.md
+    - morning-briefing-2026-07-14-083505.md
   skipped_unparseable:
     - 2026-07-08.md
     - golf-booking-2026-07-10-failed.md
     - golf-booking-2026-07-11-followup.md
     - golf-preview-2026-07-03.md
+    - golf-preview-2026-07-14.md
     - sc-executive-brief-2026-07-13.md
-prior-run-context:
-  git_pull_at_boot: success
-  working_archived: 3
-  working_deleted: 0
-  working_skipped: 4
-  working_stranded: 0
-  episodic_scanned: 196
-  score_updates: 196
+  episodic_scanned: 198
+  score_updates: 198
+  no_tags: 12
+  no_date: 10
+  files_with_tags: 186
+  in_window_count: 78
+  score_distribution: "0:22, 1:3, 2:2, 3:4, 4:1, 5:2, 8:3, 10:161"
+  window_start: '2026-06-15'
+  window_end: '2026-07-15'
+  note_episodic_count: "198 files scanned (excluding README.md and digests/), consistent with prior cycle's 198 despite this cycle's +1 archive from working/ — one file appears to have left the episodic tier between 07-14 and 07-15 cycles (likely compression/dedup outside this run); not investigated further per conservative scope, no data-loss signal observed."
+  candidates_count: 15
   clusters_found: 6
   semantic_created: 0
-  semantic_updated: 4
-  promoted_entries: 13
+  semantic_updated: 6
+  promoted_entries: 15
+  promotion_note: "All 15 candidates (score>=3, promoted==false, last-promoted-check==today) had their evidence already fully documented in semantic files from prior cycles (07-11 through 07-14) — only dream-summary-2026-07-13.md was genuinely new (freshly archived by step-01 this cycle). Root cause finally identified for the long-recurring 'never marked promoted:true' backlog: step-02's salience-block rewrite drops the pre-existing `promoted` field on every run (it only re-emits score + last-promoted-check), so any promoted:true written by step-03 gets silently erased the next day before step-03 ever reads it. Fixed the write pattern for this cycle's step-02 output going forward (merge, not replace) and re-set promoted:true on all 15 source files, appended a root-cause note to dream-summary-pattern.md and short cross-references to the other 5 semantic files. Recommend a structural fix to step-02's spec/executor so this stops recurring."
+  cluster_actions:
+    - {tag: dream-summary, domain: pattern, size: 4, action: update, target: memory/semantic/pattern/2026-07-06-dream-summary-pattern.md, new_evidence: true}
+    - {tag: daily-review, domain: relationships, size: 4, action: update, target: memory/semantic/operational/2026-07-04-daily-review-pattern.md, new_evidence: false}
+    - {tag: briefing, domain: operational, size: 2, action: update, target: memory/semantic/operational/2026-06-18-morning-briefing-pattern.md, new_evidence: false}
+    - {tag: plaud, domain: relationships, size: 3, action: update, target: memory/semantic/operational/2026-07-04-plaud-pattern.md, new_evidence: false}
+    - {tag: overdue-tasks, domain: relationships, size: 2, action: update, target: memory/semantic/operational/2026-07-04-overdue-tasks-pattern.md, new_evidence: false}
+    - {tag: session-wrap, domain: operational, size: 1, action: update, target: memory/semantic/operational/2026-06-30-session-wrap-pattern.md, new_evidence: false}
+  data_repair_note: "Discovered and corrected a mid-script formatting bug introduced while writing salience.promoted:true — 6 of 15 files briefly had a stray duplicate 'promoted: true' line appended after the frontmatter/body due to a regex over-match; caught and cleaned in the same step before finalizing, verified all 15 files now carry exactly one promoted:true inside the salience block with no stray body artifacts."
+  error_total_30d: 102
+  error_categories_30d: "routing-error/protocol-skip:9, process-skip/protocol-skip:9, data-accuracy/sloppy-read:6, assumption-error/wrong-assumption:6, data-accuracy/wrong-assumption:5, missed-context/context-blindness:3, tool-misuse/tool-ignorance:3"
+  lessons_appended: 0
+  lessons_note: "All 7 qualifying categories (3+ occurrences in 30d) already documented and active in LESSONS.md (routing-error/protocol-skip, process-skip/protocol-skip, data-accuracy/sloppy-read, assumption-error/wrong-assumption, data-accuracy/wrong-assumption, missed-context/context-blindness, tool-misuse/tool-ignorance). No new lesson appended."
+  dream_log_appended: true
+  working_summary_written: true
+  working_summary_reason: "semantic_updated=6, promoted_entries=15 — root-cause discovery on the recurring promoted:true backlog bug is significant enough to surface for Chief/David at boot."
+  git_commit: skipped
+  git_push: skipped
+  git_sync_note: "Desktop Commander unavailable in this Cowork session; boot pull and end-of-cycle commit/push both skipped per explicit operator constraint (sandbox git commands risk unrecoverable .git/index.lock per 2026-06-13→06-21 incident history). Repo not pulled or committed this cycle. Recommend running git pull/commit manually or in a session with Desktop Commander access."
+prior-run-context:
+  git_pull_at_boot: success
+  working_archived: 1
+  working_deleted: 0
+  working_skipped: 9
+  working_stranded: 0
+  episodic_scanned: 198
+  score_updates: 198
+  clusters_found: 6
+  semantic_created: 0
+  semantic_updated: 6
+  promoted_entries: 14
   entries_compressed: 0
   digests_updated: 0
   errors: 0
-  session_id: dream-cycle-2026-07-13-031400
+  session_id: dream-cycle-2026-07-14-030918

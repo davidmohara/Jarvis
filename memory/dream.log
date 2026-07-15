@@ -1673,3 +1673,24 @@ errors: 0
 summary: "Clean run: boot pull hit unstaged changes in workflows/content-pipeline and workflows/daily-review (unrelated in-flight work), stashed, pulled 39 files cleanly, restored stash without conflict. Step-01 archived 1 expired working file (dream-summary-07-12); 5 skipped not-yet-expired, 5 unparseable (persistent no-frontmatter cluster: 2026-07-08.md, 3 golf files, sc-executive-brief). Step-02 scored all 198 episodic entries; distribution 0:24, 10:160, consistent with prior cycles; found and repaired 4 pre-existing corrupted files with stacked/duplicated frontmatter blocks left over from an old buggy write (all score-0, no real data lost). Step-03 found 14 promotion candidates (1 fresh archive plus 13 backlog from 07-06 through 07-11 that scored high enough but never got promoted:true written) clustering into 6 existing semantic patterns — dream-summary (genuinely new evidence, confidence escalated low->medium per threshold flagged last cycle), daily-review/morning-briefing/plaud/overdue-tasks (pure backfill, already documented), session-wrap (new evidence — shutdown-cleanup-07-09 not previously appended despite being cross-referenced in plaud-pattern). Zero new semantic files. Error scan 30d: 101 entries; top 6 qualifying categories (routing-error/protocol-skip:10, process-skip/protocol-skip:8, data-accuracy/sloppy-read:6, data-accuracy/wrong-assumption:5, assumption-error/wrong-assumption:5, missed-context/context-blindness:3) all already active in LESSONS.md, 0 new lessons. Step-04 compression skipped — oldest episodic entry 2026-04-18 (87 days), 90-day cutoff 2026-04-15 not yet met, next likely eligible ~2026-07-17."
 git_pull: success
 git_pull_note: "unstaged changes in unrelated workflow files required stash/pull/pop; resolved cleanly, no conflicts"
+---
+## 2026-07-15T03:10:16 CDT
+session_id: dream-cycle-2026-07-15-031016
+working_archived: 1
+working_deleted: 0
+episodic_scanned: 198
+score_updates: 198
+clusters_found: 6
+semantic_created: 0
+semantic_updated: 6
+promoted_entries: 15
+entries_compressed: 0
+digests_updated: 0
+errors: 0
+summary: "Clean run with one significant discovery: git pull/push skipped this cycle — Desktop Commander unavailable in this Cowork session; repo was not pulled or committed. Step-01 archived 1 expired working file (dream-summary-07-13); 7 skipped not-yet-expired, 6 unparseable (persistent no-frontmatter cluster: 2026-07-08.md, four golf files including a new golf-preview-07-14, sc-executive-brief-07-13). Step-02 scored all 198 episodic entries; distribution 0:22, 10:161, consistent with prior cycles. Step-03 found 15 promotion candidates (1 fresh archive plus 14 recurring backlog from 07-06 through 07-13 that scored high enough but showed promoted:false again) clustering into the same 6 existing semantic patterns as prior cycles (dream-summary, daily-review, morning-briefing, plaud, overdue-tasks, session-wrap) — zero new semantic files. Only dream-summary-2026-07-13.md carried genuinely new evidence; the other 14 were pure re-backfills. IMPORTANT: this cycle traced the actual root cause of the long-standing 'promoted:true never sticks' backlog documented in every prior cycle's log back to 07-09 — step-02's salience-block rewrite drops the pre-existing `promoted` field on every run (it only re-emits score + last-promoted-check), so step-03's promoted:true write gets silently erased by the next day's step-02 before ever being read. Corrected the write pattern for this run (merge instead of replace) and documented the finding in dream-summary-pattern.md; recommend the step-02 spec itself be patched so this stops recurring nightly. Also caught and cleaned a self-introduced formatting bug: 6 of the 15 promoted-flag writes briefly produced a stray duplicate line from an over-greedy regex — found and corrected before finalizing, verified all 15 files clean. Error scan 30d: 102 entries; 7 qualifying categories (routing-error/protocol-skip:9, process-skip/protocol-skip:9, data-accuracy/sloppy-read:6, assumption-error/wrong-assumption:6, data-accuracy/wrong-assumption:5, missed-context/context-blindness:3, tool-misuse/tool-ignorance:3) all already documented and active in LESSONS.md, 0 new lessons. Step-04 compression skipped — oldest episodic entry 2026-04-18 (88 days), 90-day cutoff 2026-04-16, 0 candidates eligible, next likely eligible ~2026-07-17."
+git_pull: skipped
+git_pull_note: "Desktop Commander unavailable in this Cowork session; boot git pull was skipped per explicit operator instruction to avoid sandbox FUSE .git/index.lock risk (per the 2026-06-13 to 2026-06-21 lock-blocker incident history). Repo was not pulled at boot."
+git_commit: skipped
+git_push: skipped
+git_sync_note: "git commit/push skipped this cycle — Desktop Commander unavailable in this session; repo not pulled or committed. Recommend running git pull/commit manually or in a session with Desktop Commander access."
+---

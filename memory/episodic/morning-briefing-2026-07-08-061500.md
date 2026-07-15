@@ -23,11 +23,10 @@ tags:
 related_people:
   - alice-mburu
   - devlin
-
 salience:
   score: 10
+  last-promoted-check: 2026-07-15
   promoted: true
-  last-promoted-check: '2026-07-14'
 ---
 
 # Morning Briefing — Wednesday, July 08, 2026
@@ -61,7 +60,6 @@ salience:
 - memory/personal/quarterly-objectives.md is stale — still Q2 2026 (Apr-Jun), no Q3 transition; EA Hire flagged "Urgent" despite Alice Mburu active as EA since April 2026
 - Jarvis Outlook folder: empty, no items to process
 - No M365 "flagged" filter available on outlook_email_search; scanned inbox since yesterday for time-sensitive items tied to today's calendar — nothing found requiring same-day action beyond routine threads (FUB compliance notes thread, Alice Mburu scheduling confirmations)
-  promoted: true
 
 ---
 

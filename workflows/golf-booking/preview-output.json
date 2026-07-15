@@ -1,28 +1,29 @@
 {
-  "generated_at": "2026-07-07T00:00:00",
+  "generated_at": "2026-07-14T00:00:00",
   "target_weekend": {
-    "friday": "2026-07-17",
-    "saturday": "2026-07-18",
-    "sunday": "2026-07-19"
+    "friday": "2026-07-24",
+    "saturday": "2026-07-25",
+    "sunday": "2026-07-26"
   },
   "day_status": {
     "friday": {
       "status": "unavailable",
-      "reason": "All-day event: Horner visit (Jul 17-20) \u2014 hard block"
+      "reason": "Out of town — Improving AI GMS Summit (July 22-27, Ranch event). Additional conflicts: Virtual Coffee Chat, Sales Meeting, Executive Meeting, Presidents Pipeline, Weekly Wrap-Up."
     },
     "saturday": {
       "status": "unavailable",
-      "reason": "All-day event: Horner visit (Jul 17-20) \u2014 hard block"
+      "reason": "Out of town — Improving AI GMS Summit (July 22-27)."
     },
     "sunday": {
       "status": "unavailable",
-      "reason": "All-day event: Horner visit (Jul 17-20) \u2014 hard block"
+      "reason": "Out of town — Improving AI GMS Summit (July 22-27). Church volunteering 8:30 AM-1:30 PM CT also applies."
     }
   },
   "drought": false,
-  "last_round": "2026-07-04",
-  "heat_streak": null,
+  "last_round": "2026-07-12",
+  "days_since_last_round": 2,
   "top_options": [],
-  "weather_note": "Weather data unavailable \u2014 Open-Meteo not on network allowlist",
-  "override_instructions": null
+  "override_instructions": null,
+  "weather_status": "unavailable — Open-Meteo did not return data for target dates",
+  "notes": "No viable golf windows this weekend. David is out of town July 22-27 for the Improving AI GMS Summit at the Ranch. No booking will be made."
 }

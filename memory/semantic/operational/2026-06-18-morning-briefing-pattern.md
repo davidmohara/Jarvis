@@ -5,7 +5,7 @@ tags:
 - morning-briefing
 confidence: high
 created: '2026-06-18'
-last-updated: 2026-07-12
+last-updated: 2026-07-15
 synthesized-from:
   - memory/episodic/2026-05-04-morning-briefing-automated.md
   - memory/episodic/2026-05-04-morning-briefing.md
@@ -113,3 +113,6 @@ Sources this cycle (backfilled — carried over from prior cycle's evidence text
 
 ### 2026-07-14 — Nightly promotion (backfill closure)
 - `memory/episodic/morning-briefing-2026-07-08-061500.md` and `memory/episodic/morning-briefing-2026-07-09-070000.md` — still showed `promoted: false` on the source files despite being documented since 07-12/07-13. Flag backfilled this cycle. No new synthesis.
+
+### 2026-07-15 — Nightly promotion (backfill closure, repeat)
+- Same two source files reappeared as candidates again this cycle. Re-set `promoted: true`. Root cause identified this cycle: step-02 drops the `promoted` field on every rewrite of the salience block, undoing each prior backfill the next day. See dream-summary-pattern.md 2026-07-15 entry. No new synthesis needed.

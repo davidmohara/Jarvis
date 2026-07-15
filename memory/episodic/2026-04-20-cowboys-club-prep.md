@@ -10,10 +10,9 @@ tags:
 - speaking-opportunity
 related_people:
 - dennis-howard
-
 salience:
   score: 0
-  last-promoted-check: '2026-07-14'
+  last-promoted-check: 2026-07-15
 ---
 # Meeting Prep — Cowboys Club CEO Event
 

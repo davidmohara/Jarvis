@@ -29,10 +29,9 @@ related_people:
   - nick-koury
   - mark-smith
   - lauren-sweda
-
 salience:
   score: 10
-  last-promoted-check: '2026-07-14'
+  last-promoted-check: 2026-07-15
 ---
 
 # Morning Briefing — Monday, July 6, 2026

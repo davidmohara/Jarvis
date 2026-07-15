@@ -19,10 +19,9 @@ tags:
 - error-patterns
 related_people: null
   promoted: true
-
 salience:
   score: 10
-  last-promoted-check: '2026-07-14'
+  last-promoted-check: 2026-07-15
 ---
 
 # Dream cycle 2026-07-02 — quick read for Chief
