@@ -1,25 +1,24 @@
 workflow: boot
 agent: master
 status: complete
-session-started: "2026-07-09T09:09:44-05:00"
-session-completed: "2026-07-09T09:15:00-05:00"
-session-id: "session-2026-07-09-090944"
+session-started: "2026-07-15T09:54:09-05:00"
+session-completed: "2026-07-15T10:10:00-05:00"
+session-id: "session-2026-07-15-095409"
 current-step: complete
 original-request: boot
 accumulated-context:
   phase1:
     system_md: loaded
-    identity_memory: loaded
-    identity_voice: loaded
-    identity_goals: loaded
-    identity_responsibilities: loaded
-    identity_automation: loaded
-    identity_mission_control: loaded
-    identity_integrations: not-loaded
+    identity_all: loaded
+    knox_plaud_ingest: "spawned fire-and-forget (model: haiku) — aborted at step-01-discover, Plaud API token missing"
   phase2:
-    knox_plaud_ingest: "spawned fire-and-forget"
-    calendar_pull: "complete — 42 events Jul 9-13, next 5 days"
-    email_pull: "complete — 13 items since Jul 7"
+    calendar_pull: "complete — 39 events Jul 15-20 window (7 today, next few days heavy)"
+    email_pull: "complete — 13 items since Jul 13"
     jarvis_inbox: "not checked this session"
-    omnifocus: "187 inbox items, 6 overdue"
-    reminders: "empty"
+    omnifocus: "18 inbox items, 1 flagged, 12 overdue"
+    clay_reminders: "0 due"
+    clay_birthdays: "none surfaced in 7-day window"
+  phase5:
+    in_flight_workflows: "none — only boot itself in-progress (this run); plaud-ingest aborted (auth), golf-booking aborted (pre-existing)"
+  phase6:
+    verification: passed

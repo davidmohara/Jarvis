@@ -1,0 +1,15 @@
+{
+  "id": "err-20260715T151628-4WWSJJ",
+  "timestamp": "2026-07-15T15:16:28Z",
+  "session": "session-2026-07-15-095409",
+  "source": "explicit",
+  "agent": "master",
+  "category": "under-delivery",
+  "description": "After re-authenticating Plaud, only checked for recordings dated today (2026-07-15) and declared 'nothing pending to ingest.' Missed a recording from later in the day yesterday (2026-07-14) that had not yet been transcribed/ingested. Did not check for recordings with no-transcript/pending status across the recent window, and did not follow the fetch script's own reconciliation logic (--check / pending queue) before declaring the pipeline caught up.",
+  "correction": "After a re-auth or any 'is anything pending' check, scan recent recordings (not just the exact current date) for missing/pending transcript status, not just an exact date-string match. Then run the actual ingest — transcript retrieval, calendar cross-reference for speaker/meeting identification, vault write, daily note linking — rather than stopping at 'no recordings found.'",
+  "failure_mode": "lazy-search",
+  "systemic_fix": "Update the Plaud check step to always run a recent-window scan (e.g. last 48h) checking transcript status per recording, not a single exact-date match, before reporting nothing pending.",
+  "fix_status": "proposed",
+  "severity": "moderate",
+  "related_entries": ["err-20260715T150136-5PYDHP"]
+}

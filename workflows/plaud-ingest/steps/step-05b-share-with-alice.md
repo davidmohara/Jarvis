@@ -31,8 +31,9 @@ outputs:
 
 **Agent:** Knox
 **Tool:** `skills/plaud-transcripts/scripts/fetch_plaud.py --share` via Desktop Commander bash, then Monday MCP
-**Input:** `accumulated-context.staged-files`, `accumulated-context.ingested-notes`, `accumulated-context.speaker-mappings`
+**Input:** `accumulated-context.staged-files`, `accumulated-context.ingested-notes`, `accumulated-context.speaker-mappings`, `accumulated-context.recording-classification`
 **Output:** Share URLs and Monday task creation status logged in step outputs
+**PERSONAL RECORDING HANDLING:** Skip sharing AND skip Monday task creation for any recording marked as `personal: true` in `recording-classification`
 
 ---
 
@@ -40,11 +41,13 @@ outputs:
 
 ### Sequence
 
-1. **Resolve file_ids to share.** Build the list of file_ids to process:
-   - Primary source: keys from `accumulated-context.speaker-mappings` (keyed by file_id)
-   - Cross-reference with `accumulated-context.staged-files` to confirm each file was fetched
+1. **Filter for work recordings only.** Build the list of file_ids to process:
+   - Start with keys from `accumulated-context.speaker-mappings` (keyed by file_id)
+   - **SKIP any file_id marked as `personal: true` in `accumulated-context.recording-classification`** — do not share, do not create Monday task
+   - Cross-reference remaining file_ids with `accumulated-context.staged-files` to confirm each file was fetched
    - If speaker-mappings is empty, derive file_ids from staged filenames if the raw JSON files contain them
    - Skip any file_id that cannot be resolved — log it
+   - Log count of personal recordings skipped (not shared with Alice)
 
 2. **For each file_id, run the share script:**
    ```bash
@@ -61,7 +64,8 @@ outputs:
    - The title is the human-readable portion of the filename (e.g. `"Nexben Discussion — Platform Modernization and AI Integration"`)
    - If title cannot be resolved, use `file_id` as the fallback label
 
-4. **Create a Monday task for each recording** using `mcp__ae67c963-c9a1-4a47-9243-3f91556e1532__create_item`:
+4. **Create a Monday task for each WORK recording** using `mcp__ae67c963-c9a1-4a47-9243-3f91556e1532__create_item`:
+   - **Only process file_ids that passed the filter in step 1** (not marked as personal)
    - **Board ID:** `18420619069`
    - **Group:** `new_group29179` (To-Do)
    - **Item name:** `Review Plaud recording: <recording_title>`
@@ -77,6 +81,7 @@ outputs:
      ```
    - Alice Mburu's user ID is `107886956` — hardcode it, do not look it up
    - Log success or failure for each task creation
+   - **Note:** Personal recordings do NOT get Monday tasks in this step (they were handled in step-05 if they had actionable items)
 
 
 5. **Update state.yaml:**
@@ -100,22 +105,29 @@ outputs:
    ```
    [Knox/Share]: Recording share complete.
 
+   Work recordings shared with Alice: N
+   Personal recordings (skipped sharing): N
+
    Shares: N succeeded, N failed
    Monday tasks created for alice.mburu: N
 
    ✓ <Recording Title> → <share_url> (task ID: <id>)
    ✗ <Recording Title> → SHARE_FAILED — task created with fallback note
+   ⊘ <Personal Recording Title> — skipped (personal, not shared)
    ```
 
 ---
 
 ## SUCCESS METRICS
 
-- Share script ran for every file_id derived from this session's recordings
-- One Monday task created per recording (regardless of share success/failure)
-- Alice Mburu (`107886956`) assigned as `project_owner` on every task
+- Share script ran for every WORK file_id derived from this session's recordings
+- Personal recordings correctly identified and skipped (no share, no Alice task)
+- One Monday task created per WORK recording (regardless of share success/failure)
+- Alice Mburu (`107886956`) assigned as `project_owner` only on WORK recordings
+- Personal recordings were already handled in step-05 (vault ingestion + personal task routing if needed)
 - state.yaml updated to `status: complete`
 - All failures logged in step outputs
+- Reports separately: work recordings shared vs. personal recordings skipped
 
 ## FAILURE MODES
 

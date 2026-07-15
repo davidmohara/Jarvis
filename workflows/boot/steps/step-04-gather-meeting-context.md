@@ -1,11 +1,11 @@
 ---
 status: complete
-started-at: "2026-07-01T08:41:00-05:00"
-completed-at: "2026-07-01T08:43:00-05:00"
+started-at: "2026-07-15T10:05:00-05:00"
+completed-at: "2026-07-15T10:06:00-05:00"
 outputs:
   morning-briefing-step-03: "skipped — no dedicated attendee-research agent run this boot; thin-context meetings flagged directly in briefing narrative instead"
-  clay-reminders: "unavailable — no Clay MCP connector present in this session's tool list"
-  clay-birthdays: "unavailable — same reason"
+  clay-reminders: "completed — 0 due reminders returned"
+  clay-birthdays: "nothing-to-surface — Clay getUpcomingEvents returned meeting attendees, not a distinct birthday feed; no birthdays surfaced in the 7-day window"
 ---
 
 <!-- system:start -->

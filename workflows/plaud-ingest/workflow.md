@@ -82,6 +82,7 @@ accumulated-context:
   pending-recordings: []            # file_ids still generating transcript
   speaker-mappings: {}              # {file_id: {Speaker 1: "Real Name", ...}}
   pending-speaker-mappings: []      # recordings needing controller input
+  recording-classification: {}      # {file_id: "personal" | "work"} — set in step-03
   ready-for-fetch: []               # file_ids confirmed ready after all above
   staged-files: []                  # filenames written to ~/Downloads/transcript-staging/
   ingested-notes: []                # vault paths of notes successfully written

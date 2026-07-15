@@ -1,8 +1,12 @@
 ---
-status: not-started
-started-at: ~
-completed-at: ~
-outputs: {}
+status: complete
+started-at: "2026-07-15T09:56:00-05:00"
+completed-at: "2026-07-15T09:58:00-05:00"
+outputs:
+  email_pull: "completed — 13 messages since Jul 13 (via outlook_email_search, not written to data/ file this run)"
+  omnifocus_pull: "completed — 18 inbox, 1 flagged, 12 overdue"
+  clay_pull: "completed — 0 reminders, birthdays not distinguishable from Clay events API this session"
+  jarvis_inbox_pull: "nothing-to-surface — not checked as separate folder this run"
 ---
 
 <!-- system:start -->

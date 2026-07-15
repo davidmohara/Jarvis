@@ -1,10 +1,10 @@
 ---
 status: complete
-started-at: "2026-07-01T08:45:00-05:00"
-completed-at: "2026-07-01T08:50:00-05:00"
+started-at: "2026-07-15T10:06:00-05:00"
+completed-at: "2026-07-15T10:08:00-05:00"
 outputs:
   briefing_delivered: true
-  degraded_sources: [clay, morning-briefing-step-03, lead-review, jarvis-jobs-plaud-speaker-id]
+  degraded_sources: [morning-briefing-step-03, lead-review, jarvis-inbox, plaud-ingest-auth, boot-instrumentation-measurement]
 ---
 
 <!-- system:start -->

@@ -1,0 +1,15 @@
+{
+  "id": "err-20260715T150136-5PYDHP",
+  "timestamp": "2026-07-15T15:01:36Z",
+  "session": "session-2026-07-15-095409",
+  "source": "explicit",
+  "agent": "master",
+  "category": "process-skip",
+  "description": "During boot, Knox's Plaud ingest was reported to David as 'dead' / 'aborted' due to a missing cached auth token, with the fix framed as something David had to do manually. In reality the plaud-transcripts skill (skills/plaud-transcripts/SKILL.md, 'Chrome login flow' section) handles a missing/expired token automatically by opening Chrome, capturing the JWT from localStorage, and writing the token cache itself. No agent was actually spawned to run that recovery flow — the boot sub-agent just reported the failure state without invoking Knox to fix it.",
+  "correction": "When Plaud reports NO_TOKEN, spawn Knox (or run the Chrome login flow directly) to re-authenticate automatically per skills/plaud-transcripts/SKILL.md — do not report the capability as broken/dead or push manual remediation onto David when the skill defines a self-service recovery path.",
+  "failure_mode": "protocol-skip",
+  "systemic_fix": "When boot's Knox/Plaud spawn returns NO_TOKEN, the boot step should immediately spawn a follow-up Knox agent instructed to run the Chrome login flow from skills/plaud-transcripts/SKILL.md before surfacing anything to David. Only report a genuine blocker (e.g., Chrome unavailable, login itself failing) as something requiring David's attention.",
+  "fix_status": "proposed",
+  "severity": "moderate",
+  "related_entries": []
+}

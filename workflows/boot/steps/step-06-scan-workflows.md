@@ -1,10 +1,10 @@
 ---
 status: complete
-started-at: "2026-07-01T08:44:00-05:00"
-completed-at: "2026-07-01T08:45:00-05:00"
+started-at: "2026-07-15T10:08:00-05:00"
+completed-at: "2026-07-15T10:09:00-05:00"
 outputs:
   in_flight_workflows: []
-  result: "No in-flight workflows — confirmed via recursive scan of workflows/**/state.yaml (49 files), zero in-progress or aborted."
+  result: "No in-flight workflows — confirmed via scan of workflows/**/state.yaml (49 files). Only boot itself shows in-progress (expected, current run). Two aborted: plaud-ingest (this session, auth issue) and golf-booking (pre-existing, not new)."
 ---
 
 <!-- system:start -->

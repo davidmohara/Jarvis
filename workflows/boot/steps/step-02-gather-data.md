@@ -1,13 +1,13 @@
 ---
 status: complete
-started-at: "2026-07-01T08:32:00-05:00"
-completed-at: "2026-07-01T08:40:00-05:00"
+started-at: "2026-07-15T10:00:00-05:00"
+completed-at: "2026-07-15T10:03:00-05:00"
 outputs:
-  morning-briefing-steps-01-02: "completed — full calendar (34 events, Jul 1-4) and OmniFocus inbox (9 items) pulled"
-  task-g-72hr-lookahead: "completed — Jul 2-4 events captured"
-  task-h-email-triage: "completed — nothing flagged, no time-sensitive items"
-  task-i-jarvis-inbox: "completed — Jarvis folder empty, nothing to surface"
-  task-j-reminders: "nothing-to-surface — data/reminders.json empty"
+  morning-briefing-steps-01-02: "completed — today's calendar (7 events Jul 15) and OmniFocus inbox (18 items) pulled"
+  task-g-72hr-lookahead: "completed — Jul 16-18 events captured (32 additional events)"
+  task-h-email-triage: "completed — 13 messages since Jul 13, none explicitly flagged in Outlook, several time-sensitive (Curtis CRM/Hexagon ask, YPO satisfaction survey)"
+  task-i-jarvis-inbox: "skipped — no dedicated Jarvis email folder check run this boot"
+  task-j-reminders: "nothing-to-surface — data/reminders.json not present/checked; Clay reminders returned 0"
   task-f-lead-review: "skipped — scope decision, not run this boot; offered to David as follow-up"
 ---
 

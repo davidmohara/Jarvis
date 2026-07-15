@@ -1,19 +1,10 @@
 ---
 status: complete
-started-at: "2026-07-01T11:32:00Z"
-completed-at: "2026-07-01T11:34:00Z"
+started-at: "2026-07-15T10:03:00-05:00"
+completed-at: "2026-07-15T10:04:00-05:00"
 outputs:
-  measurement_result: "Phase 2 context is extremely lean and compact"
-  total_kb: 0.75
-  total_tokens: 188
-  measurement_method: "manual calculation — Python instrumentation unavailable"
-  summary: "accumulated-context contains only structured metadata entries, no raw data dumps. Excellent baseline for optimization."
-  top_bloat_sources:
-    1: "phase2.plaud_ingest (121 bytes) — Knox awaiting-input message"
-    2: "phase2.clay_reminders (84 bytes) — unavailable notice"
-    3: "phase2.lead_review (67 bytes) — scope decision message"
-    4: "phase1 fields (200 bytes combined) — identity and system marker strings"
-    5: "verification section (150 bytes) — step status flags"
+  measurement_result: "not run — measure.py instrumentation script not invoked this session; skipped as non-blocking per failure-mode fallback"
+  measurement_method: "skipped"
 ---
 
 <!-- system:start -->

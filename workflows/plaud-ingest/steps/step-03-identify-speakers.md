@@ -64,23 +64,41 @@ both speakers without any controller input. Asking the controller first is never
    - Compile a single consolidated message (see User Interaction Protocol in workflow.md)
    - Surface it to the controller and stop. Do not proceed until the controller responds.
 
-4. **When controller responds (or if all were auto-resolved):**
+4. **Classify recordings as personal or work:**
+   - For each recording in `accumulated-context.speaker-mappings`, check:
+     - **Calendar event title and description** for personal keywords: "doctor", "appointment", "personal", "medical", "wellness", "checkup", "lunch", "private", "family"
+     - **Calendar event category** (if available in M365) for "Personal" or equivalent marking
+     - **Plaud title** (from staged `.md` file) for personal indicators
+   - If ANY personal keyword match: mark recording as `personal: true` in `accumulated-context`
+   - If none match: mark as `personal: false`
+   - Populate new field in accumulated-context: `recording-classification` (keyed by file_id):
+     ```yaml
+     recording-classification:
+       <file_id>: "personal" | "work"
+     ```
+   - Log classification results in step output
+
+5. **When controller responds (or if all were auto-resolved):**
    - Parse the controller's speaker assignments
    - Merge with auto-resolved mappings into `accumulated-context.speaker-mappings`
    - Update `state.yaml status: in-progress`
    - Update `accumulated-context.pending-speaker-mappings: []`
 
-5. **Update state.yaml:**
+6. **Update state.yaml:**
    - `accumulated-context.speaker-mappings` = complete mapping
+   - `accumulated-context.recording-classification` = personal/work labels for all recordings
    - `current-step: step-04`
    - Update this step's frontmatter: `status: completed`, `completed-at: <ISO timestamp>`
 
-6. **Report:**
+7. **Report:**
    ```
    [Knox/Speakers]: Speaker identification complete.
      Auto-resolved: N recording(s)
      Controller-resolved: N recording(s)
      No speaker file (clean): N recording(s)
+   
+     Personal recordings: N
+     Work recordings: N
    ```
 
 ---

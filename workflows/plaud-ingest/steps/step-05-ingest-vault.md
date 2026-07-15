@@ -43,7 +43,9 @@ outputs:
    - Match to calendar event for attendees and "real" meeting title
    - Transform into vault note format with correct frontmatter tags
    - Rewrite AI summary in vault's analytical style
-   - Route to correct `zzPlaud/` subfolder (Client / Improving / YPO / Other)
+   - **Route to correct `zzPlaud/` subfolder based on classification:**
+     - **Personal recordings** → `zzPlaud/Personal/` (doctor appointments, personal lunch, wellness, etc.)
+     - **Work recordings** → `zzPlaud/Client/`, `zzPlaud/Improving/`, `zzPlaud/YPO/`, or `zzPlaud/Other/` based on meeting context
    - Check for filename collisions
 
 2. **Write notes to vault** via Obsidian MCP.
@@ -56,14 +58,22 @@ outputs:
 
 4. **Route action items to Monday** via `mcp__ae67c963-c9a1-4a47-9243-3f91556e1532__create_item`.
    - Extract action items from each note's transcript and summary
+   - **Handle based on recording classification:**
+     - **For WORK recordings:** Create Monday task, assign to Alice Mburu (`107886956`)
+     - **For PERSONAL recordings:** Only create Monday task if the action item is actionable (not just notes). Assign to David O'Hara instead (`<user_id>` — do not assign to Alice)
    - Cross-reference with today's calendar — items that hit today go to the top
    - For each action item, call `mcp__ae67c963-c9a1-4a47-9243-3f91556e1532__create_item` with:
      - `boardId`: `18420619069`
      - `groupId`: `new_group29179`
      - `name`: the action item text (concise, imperative phrasing)
-     - `columnValues`: set `project_status` to "Not Started", `priority` to "Medium" by default (use "High" if the transcript flags the item as urgent), `date` to the due date if one was mentioned in the transcript (otherwise omit it), `text_mm50v09n` to the source recording title and date (e.g., "From: 2026-07-01 Nexben Discussion")
+     - `columnValues`: 
+       - `project_status`: "Not Started"
+       - `priority`: "Medium" by default (use "High" if the transcript flags the item as urgent)
+       - `date`: due date if mentioned in transcript (otherwise omit)
+       - `text_mm50v09n`: source recording title and date (e.g., "From: 2026-07-01 Nexben Discussion — PERSONAL" for personal recordings)
+       - `project_owner`: for WORK items, assign to Alice (`107886956`); for PERSONAL items, assign to David
    - No project/tag gate required — Monday does not enforce that prerequisite
-   - Log count of tasks created in the final report
+   - Log count of WORK and PERSONAL tasks created separately in the final report
 
 5. **Cross-reference recent transcripts with today's calendar** (this is the intelligence payoff):
    - Scan all notes ingested today AND the last 7 days of `zzPlaud/` notes
@@ -86,10 +96,14 @@ outputs:
    [Knox/Ingest]: Plaud ingest complete.
 
    Processed X recording(s):
-   ✓ Recording Title → zzPlaud/Improving/2026-04-15 Recording Title.md
+   ✓ (WORK) Recording Title → zzPlaud/Improving/2026-04-15 Recording Title.md
+   ✓ (PERSONAL) Doctor Appointment → zzPlaud/Personal/2026-04-15 Doctor Appointment.md
    ✓ Another Recording → zzPlaud/Client/2026-04-15 Another Recording.md
 
-   Action items routed to Monday: N
+   Action items routed to Monday:
+     - Work items (assigned to Alice): N
+     - Personal items (assigned to you): N
+
    Staging cleanup: X transcript files removed
 
    Follow-up intelligence:
