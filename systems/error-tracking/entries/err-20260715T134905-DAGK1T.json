@@ -1,0 +1,15 @@
+{
+  "id": "err-20260715T134905-DAGK1T",
+  "timestamp": "2026-07-15T13:49:05Z",
+  "session": "cowork-2026-07-15-content-discovery",
+  "source": "explicit",
+  "agent": "harper",
+  "category": "tool-misuse",
+  "description": "Scheduled content-discovery run (Agent 1) executed inside a Cowork session. The run used the Cowork sandbox bash tool (mcp__workspace__bash) to invoke systems/slack-bot/read.py. The Cowork sandbox has no outbound network access outside a small allowlist, so the call failed with a tunnel/connection error. This was misreported as 'the system has no network access' and the run was aborted, when in fact only that specific sandboxed shell lacks network access.",
+  "correction": "David confirmed the system always has network access. The correct tool for running local scripts that need real network access (Slack API, etc.) in a Cowork session is mcp__Desktop_Commander__start_process, which executes on the actual Mac and successfully reached Slack on retry. mcp__workspace__bash should not be used for any step in this workflow that requires external network calls (read.py, post.py, or any script hitting an external API).",
+  "failure_mode": "tool-ignorance",
+  "systemic_fix": "Updated workflows/content-pipeline/workflow.md SLACK INTEGRATION section to explicitly mandate mcp__Desktop_Commander__start_process for read.py/post.py and to explicitly prohibit mcp__workspace__bash (Cowork sandbox) for any network-dependent step, with a one-line explanation of why. Applied same run using Desktop Commander successfully after the fix.",
+  "fix_status": "applied",
+  "severity": "moderate",
+  "related_entries": []
+}

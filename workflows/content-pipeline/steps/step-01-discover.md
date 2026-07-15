@@ -8,6 +8,7 @@ model: sonnet
 
 ## MANDATORY EXECUTION RULES
 
+0. You MUST use `mcp__Desktop_Commander__start_process` for read.py/post.py, never a sandboxed bash/shell tool (e.g. Cowork's `mcp__workspace__bash`). The sandbox has no general outbound network access and will fail Slack calls with a connection/tunnel error. If that happens, do not conclude Slack or the network is down, retry via Desktop Commander first. See err-20260715T134905-DAGK1T.
 1. You MUST read the full workflow.md before executing — it contains Ghost conventions, tag IDs, voice rules, and channel IDs.
 2. You MUST check pending-drafts.json and dedup against existing posts before drafting anything.
 3. You MUST NOT create new Ghost tags. Only use tags from the locked list in workflow.md.

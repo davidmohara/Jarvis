@@ -40,6 +40,7 @@ Running list of potential blog topics. Jarvis captures these proactively from co
 | "You're Paying for the Pilot. You're Not Getting the Production." | Content pipeline (2026-07-14) | AI, business, consulting, systems thinking | Ghost draft — pending approval |
 | "Texas Said Yes to AI. Now It's Writing the Rules." | Content pipeline (2026-07-14) | AI, business, technology, infrastructure | Ghost draft — pending approval |
 | "The Stack You Chose Last Year Just Became the Right Answer" | Content pipeline (2026-07-14) | AI, business, technology, consulting | Ghost draft — pending approval |
+| "It Wasn't the Mistake That Impressed Me" | Content pipeline (2026-07-15) | trust, AI, leadership | Ghost draft — pending approval |
 
 ## Published (for reference / avoid repeats)
 

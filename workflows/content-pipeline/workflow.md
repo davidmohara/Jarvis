@@ -94,6 +94,11 @@ Previously: skip all bot messages. **Updated rule:** Skip bot messages UNLESS th
 
 ## SLACK INTEGRATION
 
+> **CRITICAL — tool choice depends on runtime:** These scripts hit the live Slack API and require real outbound network access.
+> - **In a Cowork session:** the sandboxed `mcp__workspace__bash` tool does NOT have general outbound network access (small allowlist only) and WILL fail read.py/post.py with a tunnel/connection error. Do not use it for this step. Use `mcp__Desktop_Commander__start_process` instead — it executes on the actual Mac and has full network access.
+> - **In native Jarvis (Claude Code) runtime:** `mcp__Desktop_Commander__start_process` is the only authorized path regardless — this was already the rule, restated here for emphasis.
+> - If read.py/post.py fails with a network/connection error, do NOT conclude "no network access" and abort. First confirm which execution tool was used. If it was the Cowork sandbox bash tool, retry the identical command via `mcp__Desktop_Commander__start_process` before reporting any failure. (See err-20260715T134905-DAGK1T.)
+
 **Reading:** Use `systems/slack-bot/read.py` via Desktop Commander (mcp__Desktop_Commander__start_process)
 
 ```bash
