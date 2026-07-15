@@ -1,0 +1,15 @@
+{
+  "id": "err-20260715T195437-E6MUV6",
+  "timestamp": "2026-07-15T19:54:37Z",
+  "session": "cowork-2026-07-15-content-discovery",
+  "source": "explicit",
+  "agent": "harper",
+  "category": "process-skip",
+  "description": "Feature image selected for Ghost draft 'Mississippi Didn't Get Lucky' (photo-1726335526765-95e0cc329cb5) was portrait-oriented (actual rendered size 2000x3000), violating the workflow's landscape-only image rule. The image was chosen based on its Unsplash title ('A long road with a mountain in the background') and search-result category, without ever checking its real pixel dimensions. Titles and categories on Unsplash do not reliably indicate orientation.",
+  "correction": "Orientation must be verified against the actual image, not inferred from the title/alt text. Fetch the candidate image (or its metadata) and compare width vs height directly before accepting it. If width <= height, discard and try the next candidate.",
+  "failure_mode": "wrong-assumption",
+  "systemic_fix": "Updated workflows/content-pipeline/steps/step-01-discover.md Step 6 (image selection) to require an explicit dimension check: fetch the image (or use Content-Length/og:image dimensions where available) and confirm width > height before use. A title suggesting landscape content is not sufficient verification. Also swapped the Mississippi post's image for a verified-landscape, schooling-themed photo.",
+  "fix_status": "applied",
+  "severity": "minor",
+  "related_entries": []
+}

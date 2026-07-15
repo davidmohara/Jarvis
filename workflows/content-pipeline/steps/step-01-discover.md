@@ -234,6 +234,19 @@ Use the ixid from the meta tag URL if available; omit the ixid parameter if not 
 - Must be free (no Unsplash+ license required)
 - If the first candidate is premium (Unsplash+) or portrait, discard it and try the next search result — do not settle
 
+> **MANDATORY — verify orientation from the actual pixels, never from the title, alt text, or search category.** Unsplash titles like "a long road with a mountain in the background" or category tags do not reliably indicate orientation — the same photo can be a portrait crop. (See err-20260715T195437-E6MUV6: a "long road / mountain" photo was used and turned out to be 2000x3000, portrait, because the title was trusted instead of the image.)
+>
+> Before accepting any candidate, fetch it and check real width vs. height via Desktop Commander:
+> ```python
+> import requests
+> from io import BytesIO
+> from PIL import Image
+> r = requests.get(candidate_url, timeout=20)
+> w, h = Image.open(BytesIO(r.content)).size
+> assert w > h, f"portrait ({w}x{h}) — discard and try next candidate"
+> ```
+> If `w <= h`, discard the candidate and move to the next search result. Do not construct the final CDN URL or use the image in Ghost until this check passes.
+
 Upload to Ghost CDN:
 ```
 mcp__ghost-blog__upload_image_from_url(
