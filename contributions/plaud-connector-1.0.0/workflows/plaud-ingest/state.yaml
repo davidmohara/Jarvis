@@ -1,8 +1,66 @@
 workflow: plaud-ingest
 agent: knox
-status: not-started
-session-started: null
-session-id: null
-current-step: null
-original-request: null
-accumulated-context: {}
+status: complete
+session-started: 2026-07-16T00:00:00Z
+session-id: pi-20260716-001
+current-step: step-05
+original-request: plaud-ingest workflow resume - full pipeline from discovery through vault ingestion
+completed-steps:
+  - step-04-fetch-staging
+  - step-05-ingest-to-vault
+completed-at: 2026-07-16T18:35:00Z
+accumulated-context:
+  target-date: 2026-07-14
+  new-recordings:
+    - file_id: e71526d7131bd7471384b151f6cf09c6
+      name: "SOAP Note: O'Hara - L5 Radiculopathy"
+      date: 2026-07-14
+      duration_seconds: 1087000
+      has_transcript: true
+      transcript_status: ready
+    - file_id: 6ee376513b6f393111f8195a8b8e7ca4
+      name: "Strategic Discussion on AI Implementation in Automotive and Personal Health"
+      date: 2026-07-14
+      duration_seconds: 2752000
+      has_transcript: true
+      transcript_status: ready
+    - file_id: 824a4e5c19079e84df52dc8585a10836
+      name: "2026-07-16 09:31:37"
+      date: 2026-07-16
+      duration_seconds: 488000
+      has_transcript: true
+      transcript_status: ready
+  transcription-triggered:
+    - 824a4e5c19079e84df52dc8585a10836
+  pending-recordings: []
+  speaker-mappings:
+    e71526d7131bd7471384b151f6cf09c6:
+      "Speaker 1": "David O'Hara"
+      "Speaker 2": "Medical Professional"
+  pending-speaker-mappings: []
+  ready-for-fetch:
+    - e71526d7131bd7471384b151f6cf09c6
+    - 6ee376513b6f393111f8195a8b8e7ca4
+    - 824a4e5c19079e84df52dc8585a10836
+  staged-files: []
+  ingested-notes:
+    - vault_path: "zzPlaud/2026-07-14 SOAP Note O'Hara - L5 Radiculopathy.md"
+      source_file: "plaud_07-14 SOAP Note_ O_Hara - L5 Radiculopathy.md"
+      title: "SOAP Note: O'Hara - L5 Radiculopathy"
+      date: 2026-07-14
+      type: medical-appointment
+      action_items: 4
+    - vault_path: "zzPlaud/2026-07-14 Strategic Discussion on AI Implementation in Automotive and Personal Health.md"
+      source_file: "plaud_07-14 Strategic Discussion on AI Implementation in Automotive and Personal Health.md"
+      title: "Strategic Discussion: AI Implementation in Automotive and Personal Health"
+      date: 2026-07-14
+      type: strategic-discussion
+      action_items: 2
+    - vault_path: "zzPlaud/2026-07-16 FEI Speaking Opportunity - UMB Bank Partnership.md"
+      source_file: "plaud_2026-07-16 09_31_37.md"
+      title: "FEI Speaking Opportunity: UMB Bank Partnership Event"
+      date: 2026-07-16
+      type: opportunity-discussion
+      action_items: 4
+  total-action-items: 10
+  staging-cleanup: true
