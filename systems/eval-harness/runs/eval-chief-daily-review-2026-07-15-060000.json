@@ -1,0 +1,46 @@
+{
+  "id": "eval-chief-daily-review-2026-07-15-060000",
+  "workflow": "daily-review",
+  "agent": "chief",
+  "type": "workflow",
+  "trigger": "scheduled",
+  "status": "success",
+  "started": "2026-07-15T06:00:00Z",
+  "completed": "2026-07-15T06:05:00Z",
+  "steps": [
+    "step-auto"
+  ],
+  "outputs": {
+    "narrative_title": "2026-07-15 Scheduled Review — Data Gap",
+    "narrative_path": "reviews/daily/auto-2026-07-15.md",
+    "narrative_bytes": 1405,
+    "working_memory_path": "memory/working/daily-review-2026-07-15-060000.md",
+    "working_memory_bytes": 943
+  },
+  "data_sources": {
+    "omnifocus": {
+      "status": "unavailable",
+      "reason": "headless_scheduled_run"
+    },
+    "m365_calendar": {
+      "status": "unavailable",
+      "reason": "headless_scheduled_run"
+    },
+    "delegation_tracker": {
+      "status": "read",
+      "result": "no active delegations"
+    },
+    "quarterly_objectives": {
+      "status": "read",
+      "result": "Q2 file, Q3 rocks not written"
+    }
+  },
+  "notes": "Headless scheduled run with no real-time data access. Narrative based on system state and quarterly objectives gap. Honest about data limitations per step-auto protocol.",
+  "assessment": {
+    "coverage": "minimal",
+    "data_completeness": "partial",
+    "narrative_quality": "honest",
+    "controller_feedback": null,
+    "timestamp": null
+  }
+}

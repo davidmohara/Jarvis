@@ -2,19 +2,19 @@
 workflow: daily-review
 agent: chief
 status: complete
-session-started: "2026-07-14T21:12:06"
-session-id: "chief-2026-07-14-211206"
+session-started: "2026-07-15T06:00:00"
+session-id: "chief-2026-07-15-060000"
 current-step: step-auto
 original-request: "auto"
 accumulated-context:
-  narrative-title: "2026-07-14 The Nerve Block Cluster Got Dropped, and Q3 Still Has No Rocks"
-  narrative-path: "reviews/daily/auto-2026-07-14.md"
-  omnifocus-status: "available — 4 completions today, 12 overdue, 7 flagged, 21 inbox"
+  narrative-title: "2026-07-15 Scheduled Review — Data Gap"
+  narrative-path: "reviews/daily/auto-2026-07-15.md"
+  omnifocus-status: "unavailable — headless scheduled run (expected)"
   calendar-status: "unavailable — headless scheduled run (expected)"
   delegation-status: "no active delegations"
-  output-guard: "passed (2721 bytes)"
-  working-memory-path: "memory/working/daily-review-2026-07-14-211206.md"
-  working-memory-status: "written (1276 bytes)"
-  routing-note: "Obsidian MCP disabled in connector settings — written to local fallback"
-  model: sonnet
+  output-guard: "passed (1405 bytes)"
+  working-memory-path: "memory/working/daily-review-2026-07-15-060000.md"
+  working-memory-status: "written (943 bytes)"
+  routing-note: "Headless scheduled run — no M365 or OmniFocus access. Minimal narrative based on system state."
+  model: haiku
 ---
