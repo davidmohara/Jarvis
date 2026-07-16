@@ -1,0 +1,302 @@
+{
+  "generated": "2026-07-16T13:00:00Z",
+  "window_hours": 72,
+  "sources_used": ["msnbc","cnn","nbc","thehill","axios","dailybeast","slate","newrepublic","foxnews","natreview","examiner","federalist","dailywire","breitbart","townhall","rcp","amconserv","spectator","freepress"],
+  "sources_muted": [
+    {"name": "New York Times", "lean": "left", "reason": "blocks crawler"},
+    {"name": "Washington Post", "lean": "left", "reason": "blocks crawler"},
+    {"name": "Politico", "lean": "left", "reason": "blocks crawler"},
+    {"name": "Vox Politics", "lean": "left", "reason": "blocks crawler"},
+    {"name": "Mother Jones", "lean": "left", "reason": "blocks crawler"},
+    {"name": "WSJ Opinion", "lean": "right", "reason": "blocks crawler"},
+    {"name": "New York Post", "lean": "right", "reason": "blocks crawler"},
+    {"name": "Reuters Politics", "lean": "center", "reason": "blocks crawler"},
+    {"name": "Associated Press", "lean": "center", "reason": "blocks crawler"},
+    {"name": "BBC US & Canada", "lean": "center", "reason": "blocks crawler"}
+  ],
+  "counts": {"total_items": 56, "by_lean": {"left": 28, "right": 27, "center": 1}, "shared_topics": 6, "gap_left": 6, "gap_right": 6},
+  "shared_topics": [
+    {
+      "title": "Immigration enforcement authority keeps expanding through courts and Congress",
+      "topic_key": "immigration-enforcement-courts-congress",
+      "summary": "Recent Supreme Court and appeals-court rulings have widened federal immigration enforcement authority nationwide, including expedited removal and the end of Temporary Protected Status for some migrant groups, while a new House bill would codify Trump-era enforcement policy into law. This is the first day both sides' coverage of the underlying court/legislative action overlaps enough to read as one story rather than two separate beats.",
+      "correlation": 45,
+      "correlation_label": "45 — Same rulings and bill, left covers them as informational takeaways on what changed, right covers them as vindication of overdue enforcement.",
+      "days_seen": 2,
+      "relevance": 70,
+      "relevance_label": "Recurring — day 2",
+      "left": {
+        "framing": "The Hill runs a neutral explainer on the Supreme Court's immigration and guns rulings, laying out the practical effects without editorializing on whether the outcome is good or bad.",
+        "sources": [
+          {"source": "The Hill", "url": "https://thehill.com/regulation/court-battles/5941656-supreme-court-immigration-decisions/"}
+        ]
+      },
+      "right": {
+        "framing": "The American Spectator frames the same court rulings as America finally being allowed to enforce its own immigration laws, and Townhall highlights a new House bill to enshrine the administration's enforcement approach permanently.",
+        "sources": [
+          {"source": "The American Spectator", "url": "https://spectator.org/the-courts-finally-let-america-enforce-its-own-immigration-laws/"},
+          {"source": "The American Spectator", "url": "https://spectator.org/how-the-supreme-courts-latest-rulings-are-changing-immigration/"},
+          {"source": "Townhall", "url": "https://townhall.com/tipsheet/jeff-charles/2026/07/14/this-republican-just-introduced-a-bill-to-enshrine-trumps-immigration-policy-into-law-n2679400"}
+        ]
+      }
+    },
+    {
+      "title": "US-Iran conflict grinds on: third night of strikes, blockade holds",
+      "topic_key": "us-iran-conflict-hormuz",
+      "summary": "The US carried out a third consecutive night of strikes on Iran and maintained a naval blockade after Iran targeted vessels in the Strait of Hormuz, even as mediators in Doha and Oman keep working to revive the collapsed ceasefire. Trump has since backed off a plan to charge ships tolls for protection in the strait.",
+      "correlation": 55,
+      "correlation_label": "55 — Same strikes and blockade, left frames it through economic fallout and public war-fatigue polling, right frames it as firm, justified enforcement against Iranian provocation.",
+      "days_seen": 3,
+      "relevance": 40,
+      "relevance_label": "Recurring — day 3, losing novelty",
+      "left": {
+        "framing": "NBC and The Hill track the strikes as a live-blog story alongside polling showing the public, not Senate Republicans, pushed Trump toward de-escalation; Axios ties the conflict to broader economic uncertainty.",
+        "sources": [
+          {"source": "NBC News Politics", "url": "https://www.nbcnews.com/politics/trump-administration/live-blog/trump-lindsey-graham-congress-2026-election-doj-iran-live-updates-rcna587234"},
+          {"source": "The Hill", "url": "https://thehill.com/newsletters/whole-hog-politics/5941566-americans-dislike-iran-war/"},
+          {"source": "CNN Politics", "url": "https://www.cnn.com/2026/07/15/world/live-news/iran-war-trump"}
+        ]
+      },
+      "right": {
+        "framing": "Fox News covers the resumed blockade and strikes as CENTCOM protecting shipping from Iranian aggression, while The American Conservative notes the conflict is destabilizing allied politics abroad too.",
+        "sources": [
+          {"source": "Fox News Politics", "url": "https://www.foxnews.com/live-news/iran-war-trump-israel-hormuz-oil-july-15-2026"},
+          {"source": "The Hill", "url": "https://thehill.com/homenews/ap/ap-international/ap-jordan-says-it-shot-down-iranian-missiles/mlite/"}
+        ]
+      }
+    },
+    {
+      "title": "Senate majority outlook: Democrats gain in the ratings, Republicans claim a narrow edge",
+      "topic_key": "senate-majority-outlook-2026",
+      "summary": "New polling and the Cook Political Report have shifted several 2026 races toward Democrats, giving Trump what one outlet calls a brutal midterm reality check, even as Republicans point to their own analysis showing they still hold a narrow edge in the fight to keep the Senate.",
+      "correlation": 50,
+      "correlation_label": "50 — Same competitive Senate map, left emphasizes the shift toward Democrats, right emphasizes that Republicans remain narrowly ahead.",
+      "days_seen": 2,
+      "relevance": 70,
+      "relevance_label": "Recurring — day 2",
+      "left": {
+        "framing": "The Daily Beast covers the Cook Political Report moving four races toward Democrats and new polling giving Trump a rough midterm outlook.",
+        "sources": [
+          {"source": "The Daily Beast", "url": "https://www.thedailybeast.com/cook-political-report-swings-4-races-in-favor-of-democrats-in-fresh-maga-red-flag/"},
+          {"source": "The Daily Beast", "url": "https://www.thedailybeast.com/new-polling-gives-trump-brutal-midterm-reality-check/"}
+        ]
+      },
+      "right": {
+        "framing": "Washington Examiner argues Republicans still have the edge in holding the Senate majority, characterizing the race as close but favorable to the GOP.",
+        "sources": [
+          {"source": "Washington Examiner", "url": "https://www.washingtonexaminer.com/news/campaigns/congressional/4633579/republican-edge-senate-majority-2026-midterms/"}
+        ]
+      }
+    },
+    {
+      "title": "Fatal ICE enforcement incidents in Texas and Maine",
+      "topic_key": "ice-arrests-immigration-courts",
+      "summary": "Federal immigration agents were involved in fatal incidents in Texas and Maine this month, prompting the agency to temporarily halt vehicle stops as investigations proceed, while lawmakers and 2026 Senate candidates continue reacting to the pattern of enforcement violence.",
+      "correlation": 25,
+      "correlation_label": "25 — Same underlying incidents, left frames them as an ICE problem risking spiraling out of control, right frames them as vehicle assaults on officers that justify the agency's posture.",
+      "days_seen": 3,
+      "relevance": 40,
+      "relevance_label": "Recurring — day 3, losing novelty",
+      "left": {
+        "framing": "CNN describes a growing 'ICE problem' risking spiraling out of control, and NBC's live blog tracks Maine Senate candidates speaking out against the fatal shooting.",
+        "sources": [
+          {"source": "CNN Politics", "url": "https://edition.cnn.com/2026/07/14/politics/ice-killings-maine-texas-trump"},
+          {"source": "NBC News Politics", "url": "https://www.nbcnews.com/politics/trump-administration/live-blog/trump-iran-congress-kagan-barrett-darline-graham-ice-doj-live-updates-rcna587383"}
+        ]
+      },
+      "right": {
+        "framing": "The American Spectator situates the incidents alongside court rulings expanding enforcement authority, treating the underlying enforcement push as justified even as individual incidents draw scrutiny.",
+        "sources": [
+          {"source": "The American Spectator", "url": "https://spectator.org/the-courts-finally-let-america-enforce-its-own-immigration-laws/"}
+        ]
+      }
+    },
+    {
+      "title": "Lindsey Graham remembered by both sides as Senate succession plays out",
+      "topic_key": "lindsey-graham-dies-successor",
+      "summary": "Following Sen. Lindsey Graham's death, coverage from both the left and right has turned to retrospectives on his legacy and the question of who fills his seat, with the story shifting from mourning toward the practical politics of succession and generational change in the Senate GOP.",
+      "correlation": 65,
+      "correlation_label": "65 — Both sides treat Graham's death respectfully; left frames it through the lens of succession politics and generational change, right frames it as a personal tribute to a singular political figure.",
+      "days_seen": 4,
+      "relevance": 20,
+      "relevance_label": "Long-running — persistent story, low novelty",
+      "left": {
+        "framing": "The Hill runs a legacy retrospective examining Graham's career and what his absence means for the Senate GOP's future direction.",
+        "sources": [
+          {"source": "The Hill", "url": "https://thehill.com/homenews/senate/5966333-lindsey-graham-politics-legacy/"}
+        ]
+      },
+      "right": {
+        "framing": "Breitbart covers Vice President Vance's tribute calling Graham a 'one of a kind figure' in American politics.",
+        "sources": [
+          {"source": "Breitbart", "url": "https://www.breitbart.com/politics/2026/07/12/3325726/"}
+        ]
+      }
+    },
+    {
+      "title": "Graham Platner withdrawal fallout continues to shape the Maine Senate race",
+      "topic_key": "graham-platner-maine-senate",
+      "summary": "Democratic Senate nominee Graham Platner's withdrawal amid a sexual assault allegation he denies remains a flashpoint days later, as Democrats search for a replacement nominee and both sides continue drawing broader lessons about vetting, party strategy, and the durability of populist-progressive candidates.",
+      "correlation": 40,
+      "correlation_label": "40 — Both sides agree Platner is out and why, left treats it as a vetting/consultant failure to learn from, right treats it as vindication of the allegations and a broader indictment of the progressive movement.",
+      "days_seen": 4,
+      "relevance": 20,
+      "relevance_label": "Long-running — persistent story, low novelty",
+      "left": {
+        "framing": "Slate examines how a rushed, consultant-driven recruitment process produced and then failed to protect against a flawed candidate; NBC tracks Maine Democrats' search for a replacement.",
+        "sources": [
+          {"source": "Slate", "url": "https://slate.com/news-and-politics/2026/07/graham-platner-maine-working-class-consultants-backfired.html"},
+          {"source": "NBC News Politics", "url": "https://www.nbcnews.com/politics/trump-administration/live-blog/trump-iran-graham-platner-2026-election-congress-live-updates-rcna353598"}
+        ]
+      },
+      "right": {
+        "framing": "Fox News ties the collapse to John Fetterman's continued break from the Sanders-backed progressive wing, while Townhall and The Daily Wire frame it as a symptom of broader progressive-movement failure.",
+        "sources": [
+          {"source": "Fox News Politics", "url": "https://www.foxnews.com/politics/platner-collapse-completes-john-fetterman-break-sanders-socialists"},
+          {"source": "Townhall", "url": "https://townhall.com/columnists/kurtschlichter/2026/07/09/platner-is-a-hilarious-symptom-of-progressive-failure-n2679066"}
+        ]
+      }
+    }
+  ],
+  "gap_left": [
+    {
+      "title": "Todd Blanche grilled on Epstein files at DOJ confirmation hearing",
+      "topic_key": "todd-blanche-confirmation-epstein",
+      "summary": "Todd Blanche faced pointed questioning over Epstein-related files during his Senate confirmation hearing, alongside other DOJ business, as part of a broader slate of administration confirmation fights this week.",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "sources": [
+        {"source": "CNN Politics", "url": "https://www.cnn.com/2026/07/15/politics/live-news/todd-blanche-confirmation-hearing"},
+        {"source": "NBC News Politics", "url": "https://www.nbcnews.com/politics/trump-administration/live-blog/trump-blanche-doj-clayton-congress-iran-ice-2026-midterm-live-updates-rcna587566"}
+      ]
+    },
+    {
+      "title": "Over 100 House Democrats vote to block military aid to Israel, exposing party schism",
+      "topic_key": "house-democrats-israel-aid-vote-split",
+      "summary": "More than 100 House Democrats voted to block billions in military aid to Israel, a vote that split the caucus's top two leaders and underscored a growing rift inside the party over its position on Israel.",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "sources": [
+        {"source": "CNN Politics", "url": "https://www.cnn.com/2026/07/15/politics/military-aid-israel-democrats-split-vote"},
+        {"source": "NBC News Politics", "url": "https://www.nbcnews.com/politics/politics-news/democrats-deepening-israel-divisions-politics-desk-rcna587725"}
+      ]
+    },
+    {
+      "title": "Trump's election-integrity address lands amid Democratic alarm over election officials",
+      "topic_key": "trump-election-integrity-address",
+      "summary": "Democrats continue raising concerns about the administration's handling of election officials, while Trump's promised address on 'free and fair elections' has now landed, keeping the story running into a second day.",
+      "days_seen": 2,
+      "relevance": 70,
+      "relevance_label": "Recurring — day 2",
+      "sources": [
+        {"source": "CNN Politics", "url": "https://www.cnn.com/2026/07/14/politics/trump-thursday-speech-elections"},
+        {"source": "CNN Politics", "url": "https://www.cnn.com/2026/07/11/politics/democrats-trump-firing-election-officials"}
+      ]
+    },
+    {
+      "title": "Susan Collins' reelection prospects remain complicated by Maine Senate turmoil",
+      "topic_key": "susan-collins-maine-reelection-risk",
+      "summary": "Analysis continues to suggest Sen. Susan Collins faces a harder path to reelection given the turmoil surrounding the Democratic side of Maine's Senate race following Platner's withdrawal.",
+      "days_seen": 2,
+      "relevance": 70,
+      "relevance_label": "Recurring — day 2",
+      "sources": [
+        {"source": "The New Republic", "url": "https://newrepublic.com/post/212944/susan-collins-platner-democratic-convention"}
+      ]
+    },
+    {
+      "title": "New polling shows which politicians Americans actually like",
+      "topic_key": "politicians-americans-like-poll",
+      "summary": "New polling finds Barack Obama, Bernie Sanders, Zohran Mamdani, Pete Buttigieg, Jon Ossoff, and Alexandria Ocasio-Cortez as the most popular politicians in America, with Trump tied for last place.",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "sources": [
+        {"source": "The New Republic", "url": "https://newrepublic.com/post/212486/politicians-americans-like-obama-sanders-mamdani-democrats"}
+      ]
+    },
+    {
+      "title": "NY Fed survey shows inflation expectations climbing to highest since 2023",
+      "topic_key": "ny-fed-inflation-expectations-survey",
+      "summary": "A New York Federal Reserve survey found consumers' one-year inflation expectations rose to 3.7% in June, the highest reading since 2023, adding to pressure on the Fed's policy outlook.",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "sources": [
+        {"source": "Axios Politics", "url": "https://www.axios.com/2026/07/07/rates-inflation-consumers-fed"}
+      ]
+    }
+  ],
+  "gap_right": [
+    {
+      "title": "Democratic Socialists of America's growing influence inside the Democratic Party",
+      "topic_key": "dsa-democratic-socialists-rise",
+      "summary": "Coverage continues to track DSA's record membership growth and unveiling of a sweeping new platform, alongside profiles of its most prominent congressional caucuses, as a persistent source of tension inside the Democratic Party.",
+      "days_seen": 2,
+      "relevance": 70,
+      "relevance_label": "Recurring — day 2",
+      "sources": [
+        {"source": "Washington Examiner", "url": "https://www.washingtonexaminer.com/news/campaigns/4648833/dsa-new-platform-replace-president-supreme-court/"},
+        {"source": "Townhall", "url": "https://townhall.com/columnists/jay-rogers/2026/07/13/the-democratic-socialists-arent-fringe-anymore-n2679278"}
+      ]
+    },
+    {
+      "title": "Cornyn continues to warn Paxton's baggage puts Texas Senate seat at risk",
+      "topic_key": "texas-senate-cornyn-paxton-primary",
+      "summary": "Sen. John Cornyn continues cautioning that Ken Paxton's legal troubles could cost Republicans a longtime red-state Senate seat in Texas if Paxton wins the GOP primary runoff.",
+      "days_seen": 2,
+      "relevance": 70,
+      "relevance_label": "Recurring — day 2",
+      "sources": [
+        {"source": "Fox News Politics", "url": "https://www.foxnews.com/politics/watch-embattled-gop-senator-warns-dems-could-win-big-longtime-red-state-voters-head-polls"}
+      ]
+    },
+    {
+      "title": "Analysis claims Justice Ketanji Brown Jackson is the Court's most partisan member",
+      "topic_key": "kbj-most-partisan-justice",
+      "summary": "A new analysis argues Justice Ketanji Brown Jackson has voted against the Trump administration's position in the vast majority of major cases, making her the most partisan justice on the current Court by that measure.",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "sources": [
+        {"source": "The Federalist", "url": "https://thefederalist.com/2026/07/14/amid-democrat-attacks-on-scotus-analysis-shows-jackson-is-most-partisan-justice-by-far/"}
+      ]
+    },
+    {
+      "title": "Fetterman downplays GOP fundraising ties and dodges 2028 reelection questions",
+      "summary": "Sen. John Fetterman declined to address questions about a bipartisan fundraising partnership or whether it signals his 2028 reelection plans, continuing his pattern of distancing himself from the party's progressive wing.",
+      "topic_key": "fetterman-gop-fundraising-reelection",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "sources": [
+        {"source": "Washington Examiner", "url": "https://www.washingtonexaminer.com/news/campaigns/congressional/4649752/john-fetterman-downplays-gop-fundraising-partnership-dodges-reelection-plans/"}
+      ]
+    },
+    {
+      "title": "The Iran war spills into UK politics as allies feel the strain",
+      "topic_key": "iran-war-roils-uk-politics",
+      "summary": "Coverage notes the US-Iran conflict is causing political fallout well beyond Washington, with the UK government facing its own difficult decisions and criticism over intervention in the Middle East conflict.",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "sources": [
+        {"source": "The American Conservative", "url": "https://www.theamericanconservative.com/the-iran-war-roils-uk-politics/"}
+      ]
+    },
+    {
+      "title": "Rubio warns the ICC threatens American sovereignty",
+      "topic_key": "rubio-icc-american-sovereignty",
+      "summary": "Secretary of State Marco Rubio argued the International Criminal Court poses a direct threat to American sovereignty by claiming authority over people and institutions never placed under its jurisdiction by the American public.",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "sources": [
+        {"source": "RealClearPolitics", "url": "https://www.realclearpolitics.com/video/2026/07/14/rcp_podcast_more_ice_shootings_mayor_pete_2028_could_iowa_be_purple_again_rubio_vs_icc.html"}
+      ]
+    }
+  ],
+  "suggestions": []
+}
