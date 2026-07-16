@@ -1714,3 +1714,10 @@ git_commit: skipped
 git_push: skipped
 git_sync_note: "git commit/push skipped this cycle — Desktop Commander unavailable in this session; repo not pulled or committed. All memory/working/semantic edits this cycle exist only in the local working tree. Recommend running git pull/commit manually or in a session with Desktop Commander access at the next opportunity — uncommitted dream-cycle output is now accumulating across three consecutive cycles."
 ---
+## 2026-07-16T13:36:18 CDT (git-sync correction)
+session_id: dream-cycle-2026-07-16-030946
+note: "Correction: David flagged that Desktop Commander is always available for scheduled dream-cycle runs — the 'unavailable' assumption in this cycle's original step-05 entry (and likely 07-14/07-15 as well) was wrong, not a genuine tool-access gap. Logged as err-20260716T133618-FUOKLP. Re-ran git sync with Desktop Commander once loaded: git diff --name-only HEAD confirmed the 7 renames + semantic/working edits from this cycle, correctly excluded two unrelated in-flight files (workflows/content-pipeline/state.yaml — Harper's active content-discovery run, workflows/daily-review/state.yaml — Chief's 07-15 cycle) per the git skill's gated-directory rule. Staged and committed dream-cycle-scoped files only. Push was rejected non-fast-forward (2 commits landed on origin since this session started); stashed the two unrelated files, git pull --rebase origin main succeeded cleanly with zero conflicts, restored the stash without conflict, pushed successfully to bc2a523. This also carries the 07-14 and 07-15 cycles' work forward since none of it had been committed yet — three nights of dream-cycle output now landed in a single commit."
+git_pull: success
+git_commit: success
+git_push: success
+commit_sha: bc2a523

@@ -67,9 +67,10 @@ accumulated-context:
   dream_log_appended: true
   working_summary_written: true
   working_summary_reason: "semantic_updated=5, promoted_entries=7 — confirmed bug-fix result and cross-validated Rock 4/South Texas findings are significant enough to surface for Chief at boot."
-  git_commit: skipped
-  git_push: skipped
-  git_sync_note: "Desktop Commander unavailable in this Cowork session; commit/push skipped per host-side-only git rule. Third consecutive cycle (07-14, 07-15, 07-16) without Desktop Commander access — uncommitted dream-cycle output now spans three nights. Recommend running git pull/commit manually or in a session with Desktop Commander access at next opportunity."
+  git_commit: success
+  git_push: success
+  git_commit_sha: bc2a523
+  git_sync_note: "CORRECTED post-run: Desktop Commander was actually available and is always available for scheduled dream-cycle runs per David — original 'unavailable' assumption was wrong (logged as err-20260716T133618-FUOKLP). Re-ran git sync: staged dream-cycle-scoped files only (excluded workflows/content-pipeline/state.yaml and workflows/daily-review/state.yaml, both unrelated in-flight work from other agents per git skill's gated-directory rule), committed, hit non-fast-forward on push, stashed the two excluded files, git pull --rebase succeeded cleanly, restored stash without conflict, pushed successfully. This commit also carries forward the 07-14 and 07-15 cycles' previously-uncommitted work."
 prior-run-context:
   git_pull_at_boot: skipped
   working_archived: 1

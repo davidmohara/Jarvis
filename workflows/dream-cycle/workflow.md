@@ -58,6 +58,8 @@ model: sonnet
   **CRITICAL — host-side only:** ALL git commands in this workflow MUST be issued via `mcp__Desktop_Commander__start_process` (host process). NEVER run `git` via the sandboxed `mcp__workspace__bash` tool. The sandbox runs as a different user against a FUSE mount; any `git` invocation there (including read-only ones like `git pull` or `git diff`) creates `.git/index.lock` files that neither the sandbox nor the host can unlink, blocking every subsequent git operation until manually cleared. This is the root cause of the recurring 2026-06-13 → 2026-06-21 lock blocker pattern. The fix is mechanical: choose the right tool, not the right command.
 
   Boot pull: one atomic Desktop Commander call to `cd /Users/davidohara/develop/jarvis && git pull --rebase`. Handle conflicts per the skill's Error Handling table. Do NOT proceed until clean.
+
+  **Desktop Commander is always available for scheduled dream-cycle runs.** Do not assume it is unavailable because it does not appear in the initially visible tool list — deferred tools load lazily. If `mcp__Desktop_Commander__start_process` is not yet listed, call `ToolSearch` for it before concluding git operations must be skipped. Skipping the boot pull or the end-of-cycle commit/push on an unconfirmed "unavailable" assumption is itself a loggable error (see `err-20260716T133618-FUOKLP`) — not a safe default.
 <!-- system:end -->
 
 <!-- personal:start -->
