@@ -1,12 +1,28 @@
 ---
-type: working
+type: working-archive
 task_id: "session"
 session_id: "chase-2026-07-14-000000"
 agent-source: chase
 created: 2026-07-14T00:00:00
 expires: 2026-07-16T00:00:00
-status: active
+status: archived
 context: "One Texas scorecard — 2026-07-14"
+date: 2026-07-14
+source_file: memory/working/one-texas-scorecard-2026-07-14-000000.md
+tags:
+  - scorecard
+  - one-texas
+  - revenue
+  - co-sell
+  - pipeline
+  - rock4
+  - chase
+related_people:
+  - scott-mcmichael
+salience:
+  score: 10
+  last-promoted-check: 2026-07-16
+  promoted: true
 ---
 
 - Revenue (cache, July 13): Dallas +4% CQ vs. target, +14% vs. prior year, 101% 90-Day (solid). South Texas -23% CQ vs. target, -22% vs. prior year, 71% 90-Day — double miss for fourth consecutive quarter. One Texas -10% vs. target YTD, -9% vs. prior year. Most recent closed month: June 2026 (~$2.8M Dallas, ~$2.9M STX, ~$5.7M One Texas).

@@ -9,7 +9,7 @@ synthesized-from:
   - memory/episodic/revenue-tracker-2026-06-09-133407.md
   - memory/episodic/revenue-tracker-2026-06-29-000800.md
   - memory/episodic/dream-summary-2026-06-30.md
-last-updated: 2026-07-04
+last-updated: 2026-07-16
 tags:
   - revenue
 agent-source: dream-cycle
@@ -47,3 +47,10 @@ Episodic memory shows 2 entries clustered under the `revenue` tag during the 30-
 - 2026-07-02: 2 entries reinforce relevance of `revenue` cluster. Watch for further co-occurrence.
 - 2026-06-24: Initial pattern detection. Confidence will rise with additional evidence.
 - 2026-06-30: 2 new episodic entries reinforce this pattern (cluster anchor: revenue).
+
+### 2026-07-16 — Nightly promotion
+Sources this cycle:
+- `memory/episodic/revenue-tracker-2026-07-13-000000.md` (score 7) — Dallas +4% vs target CQ, +14% YoY, 101% 90-day forecast (essentially at target); South Texas -23% vs target AND -22% YoY, 71% 90-day forecast (below 90% critical threshold, gap not closing this quarter); One Texas aggregate -10% vs target; Dallas cannot offset South Texas deterioration
+- `memory/episodic/one-texas-scorecard-2026-07-14-000000.md` (score 10) — cross-validated same Dallas/South Texas split from live PowerBI pull; South Texas double-miss now flagged as fourth consecutive quarter of underperformance; new-logo intake also lagging in South Texas (1 YTD vs 4 in Q1)
+
+South Texas underperformance is no longer a single-quarter anomaly — this cycle's cross-validated data marks it as a fourth consecutive quarter miss, now compounding with a logo-intake problem (not just existing-account softness). Dallas strength continues to mask, not resolve, the regional gap at the One Texas aggregate level.

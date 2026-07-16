@@ -21,10 +21,10 @@ tags:
   - leads
   - 1-on-1
 related_people: []
-  promoted: true
 salience:
   score: 10
-  last-promoted-check: 2026-07-15
+  last-promoted-check: 2026-07-16
+  promoted: true
 ---
 # Morning Briefing — Tuesday, June 16, 2026
 

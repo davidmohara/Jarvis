@@ -15,10 +15,10 @@ related_people:
 - scott-mcmichael
 - don-mcgreal
 - tonya-guadiz
-  promoted: true
 salience:
   score: 10
-  last-promoted-check: 2026-07-15
+  last-promoted-check: 2026-07-16
+  promoted: true
 ---
 # Session Summary — April 20, 2026 (Afternoon/Evening)
 

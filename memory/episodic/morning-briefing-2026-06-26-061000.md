@@ -26,10 +26,10 @@ related_people:
 - devlin
 - tim-rayburn
 - curtis
-  promoted: true
 salience:
   score: 10
-  last-promoted-check: 2026-07-15
+  last-promoted-check: 2026-07-16
+  promoted: true
 ---
 # Morning Briefing — Friday, June 26, 2026
 

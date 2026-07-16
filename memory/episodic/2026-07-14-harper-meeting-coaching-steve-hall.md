@@ -14,7 +14,8 @@ tags:
   - steve-hall
 related_people: ["Steve Hall"]
 salience:
-  score: 7
+  score: 0
+  last-promoted-check: 2026-07-16
 ---
 # Meeting Coaching Review — Coffee with Steve Hall (2026-07-14)
 

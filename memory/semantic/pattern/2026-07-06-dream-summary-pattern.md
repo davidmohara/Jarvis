@@ -5,8 +5,8 @@ tag: dream-summary
 domain: pattern
 confidence: medium
 created: 2026-07-06
-last-updated: 2026-07-15
-synthesized-from: 5 episodic entries
+last-updated: 2026-07-16
+synthesized-from: 7 episodic entries
 tags:
   - dream-summary
 ---
@@ -64,3 +64,10 @@ Sources this cycle:
 - `memory/episodic/dream-summary-2026-07-13.md` (score 10) — clean run, closed the same recurring `promoted:true` backlog gap (13 leftover from 07-06 through 07-11), 6 semantic updates, 0 new lessons; flagged the dream-summary-pattern confidence-escalation threshold for next-cycle review.
 
 **Root-cause note on the recurring backlog:** this cycle traced the actual mechanism behind the "promoted:true never sticks" pattern documented in every prior entry above. Step-02 (salience scoring) rewrites each episodic file's entire `salience:` YAML block from scratch, emitting only `score` and `last-promoted-check` — it does not read or preserve any existing `promoted` field. So even when step-03 correctly writes `salience.promoted: true` at the end of a cycle, the *next* day's step-02 run silently drops it before step-03 ever checks it, making every previously-promoted entry look unpromoted again the following cycle. This is not a one-off miss — it is a structural bug in step-02's write logic that will keep regenerating this exact backlog every cycle until step-02 is changed to merge (not replace) the salience block. Confirmed today: `overdue-tasks-pattern.md`, `daily-review-pattern.md`, `morning-briefing-pattern.md`, `plaud-pattern.md`, and `session-wrap-pattern.md` all show entries already documented as "backfilled" in the 2026-07-14 cycle, yet their source files came back as fresh promotion candidates again today with identical evidence — no new synthesis was needed, only another round of flag-setting. Recommend a fix to `workflows/dream-cycle/steps/step-02-salience-scoring.md` (and its executor) to merge `promoted` and `references` into the rewritten salience block rather than dropping them.
+
+### 2026-07-16 — Nightly promotion, fix confirmed
+Sources this cycle:
+- `memory/episodic/dream-summary-2026-07-14.md` (score 10)
+- `memory/episodic/dream-summary-2026-07-15.md` (score 10) — tags: dream-summary, jarvis, dream-cycle, semantic-promotion, git-issues
+
+**Fix verified working.** Step-02 was rerun this cycle with a merge-based write (updates `score` and `last-promoted-check`, preserves any existing `promoted` value, and rebuilds any malformed stray `promoted:` lines into a clean nested `salience:` block). Result: only 7 promotion candidates surfaced this cycle — all freshly-expired working-memory archives from step-01, zero leftover backlog from 07-06 through 07-15. This is the first cycle since the bug was introduced where the candidate pool wasn't dominated by re-flagged backlog. Also confirmed the previously-corrupted `2026-04-20-afternoon-boot.md` (which had `promoted: true` stranded on a malformed stray line) now carries it correctly nested inside `salience:` and preserved across the rewrite. Recommend closing out the root-cause fix as applied — the actual step-02 spec file should still be updated to codify the merge behavior so ad hoc scripts aren't required on future cycles.

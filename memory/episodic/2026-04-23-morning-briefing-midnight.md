@@ -17,10 +17,10 @@ related_people:
 - mladen-raickovic
 - ethel-mangum
 - sam-dobbins
-  promoted: true
 salience:
   score: 10
-  last-promoted-check: 2026-07-15
+  last-promoted-check: 2026-07-16
+  promoted: true
 ---
 # Morning Briefing — April 23, 2026 (Midnight Run)
 

@@ -15,10 +15,10 @@ related_people:
 - kapil-dai
 - salah
 - david-faircloth
-  promoted: true
 salience:
   score: 10
-  last-promoted-check: 2026-07-15
+  last-promoted-check: 2026-07-16
+  promoted: true
 ---
 # Afternoon Boot Session — April 20, 2026
 

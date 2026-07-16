@@ -22,10 +22,10 @@ tags:
 - utb-board
 related_people:
 - tim-rayburn
-  promoted: true
 salience:
   score: 10
-  last-promoted-check: 2026-07-15
+  last-promoted-check: 2026-07-16
+  promoted: true
 ---
 ## Boot Data Sources
 

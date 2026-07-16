@@ -1,0 +1,18 @@
+{
+  "id": "err-20260716T110845-0G0Q7W",
+  "timestamp": "2026-07-16T11:08:45Z",
+  "session": "harper-2026-07-16-discovery-scheduled-task",
+  "source": "self-detected",
+  "agent": "Harper",
+  "category": "tool-misuse",
+  "description": "Content discovery scheduled task (step-01-discover.md) could not execute in Cowork session. Desktop Commander MCP is not loaded, and sandboxed bash environment lacks outbound network access for read.py Slack integration. Workflow explicitly requires Desktop Commander for all Slack operations per line 99: 'In a Cowork session: the sandboxed mcp__workspace__bash tool does NOT have general outbound network access ... Do not use it for this step. Use mcp__Desktop_Commander__start_process instead.'",
+  "correction": "Task should run in native Jarvis (Claude Code) runtime where Desktop Commander is always available, OR Slack MCP connector must be pre-authorized and connected in this Cowork session.",
+  "failure_mode": "tool-ignorance + context-blindness",
+  "systemic_fix": "Scheduled tasks that depend on Desktop Commander or network-requiring MCPs should have execution guards that detect missing tools and abort cleanly rather than attempting sandboxed bash. Alternatively, document that content-pipeline tasks require native Jarvis runtime.",
+  "fix_status": "proposed",
+  "severity": "major",
+  "related_entries": [
+    "err-20260715T134905-DAGK1T",
+    "err-20260715T182916-FSMOJK"
+  ]
+}

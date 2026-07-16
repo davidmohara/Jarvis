@@ -12,14 +12,14 @@ tags:
   - self-correction
 status: archived
 type: working-archive
-  promoted: true
 date: 2026-07-07
 source_file: /Users/davidohara/develop/jarvis/memory/working/dream-summary-2026-07-06.md
 tags: []
 related_people: []
 salience:
   score: 10
-  last-promoted-check: 2026-07-15
+  last-promoted-check: 2026-07-16
+  promoted: true
 ---
 
 # Dream Cycle Summary — 2026-07-06

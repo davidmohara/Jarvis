@@ -17,10 +17,10 @@ tags:
 - plaud-ingest
 - revenue-tracker
 related_people: null
-  promoted: true
 salience:
   score: 10
-  last-promoted-check: 2026-07-15
+  last-promoted-check: 2026-07-16
+  promoted: true
 ---
 ## Dream Cycle — June 12, 2026
 

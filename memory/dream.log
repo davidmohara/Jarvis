@@ -1694,3 +1694,23 @@ git_commit: skipped
 git_push: skipped
 git_sync_note: "git commit/push skipped this cycle — Desktop Commander unavailable in this session; repo not pulled or committed. Recommend running git pull/commit manually or in a session with Desktop Commander access."
 ---
+## 2026-07-16T03:09:46 CDT
+session_id: dream-cycle-2026-07-16-030946
+working_archived: 7
+working_deleted: 0
+episodic_scanned: 205
+score_updates: 205
+clusters_found: 6
+semantic_created: 0
+semantic_updated: 5
+promoted_entries: 7
+entries_compressed: 0
+digests_updated: 0
+errors: 0
+summary: "Clean run with a confirmed fix: the promoted:true drop bug (traced 07-15) is resolved — step-02 was rerun with a merge-based salience write that preserves any existing promoted field and repairs stray malformed lines, verified across all 205 episodic files with zero corruption and 100% YAML-parseable frontmatter. Step-01 archived 7 expired working files (co-sell-pipeline, daily-review, both dream-summaries 07-14/07-15, one-texas-scorecard, plaud-ingest, revenue-tracker) — largest single-cycle archive count to date; 5 skipped not-yet-expired, 7 unparseable (persistent no-frontmatter cluster: 2026-07-08.md, four golf files, golf-override-07-14, sc-executive-brief-07-13). Step-02 scored all 205 episodic entries; distribution 0:23, 1:1, 2:2, 3:2, 5:5, 7:2, 8:2, 9:1, 10:167. Step-03 found only 7 promotion candidates — for the first time since the bug was introduced, zero were backlog re-flags; all 7 were this cycle's fresh archives. Clustered into 6 tag-groups across 5 semantic files (dream-summary, daily-review, plaud, co-sell, revenue, scorecard) — one-texas-scorecard touched three clusters at once. Zero new semantic files; co-sell and revenue patterns both cross-validated by two independent sources this week (chase weekly snapshot + one-texas scorecard workflow), confirming Rock 4's ~$12M gap and South Texas's fourth consecutive quarter miss as settled findings rather than emerging signals. Error scan 30d: 116 entries; 6 qualifying categories (process-skip/protocol-skip:9, routing-error/protocol-skip:8, data-accuracy/sloppy-read:7, assumption-error/wrong-assumption:7, tool-misuse/tool-ignorance:6, data-accuracy/wrong-assumption:5) all already documented and active in LESSONS.md, 0 new lessons. Step-04 compression skipped — oldest episodic entry 2026-04-18 (89 days), 90-day cutoff 2026-04-17, 0 candidates eligible, next likely eligible tomorrow (2026-07-17)."
+git_pull: skipped
+git_pull_note: "Desktop Commander unavailable in this Cowork session; boot git pull skipped per explicit workflow constraint (host-side-only git rule, sandbox FUSE .git/index.lock risk per 2026-06-13 to 2026-06-21 incident history). Repo not pulled at boot — third consecutive cycle (07-14, 07-15, 07-16) without Desktop Commander access."
+git_commit: skipped
+git_push: skipped
+git_sync_note: "git commit/push skipped this cycle — Desktop Commander unavailable in this session; repo not pulled or committed. All memory/working/semantic edits this cycle exist only in the local working tree. Recommend running git pull/commit manually or in a session with Desktop Commander access at the next opportunity — uncommitted dream-cycle output is now accumulating across three consecutive cycles."
+---

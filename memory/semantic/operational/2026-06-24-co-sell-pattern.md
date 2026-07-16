@@ -8,7 +8,7 @@ synthesized-from:
   - memory/episodic/2026-04-20-rock4-pipeline-weekly.md
   - memory/episodic/dream-summary-2026-06-18.md
   - memory/episodic/co-sell-pipeline-20260629-001245.md
-last-updated: 2026-07-03
+last-updated: 2026-07-16
 tags:
   - co-sell
 agent-source: dream-cycle
@@ -44,3 +44,10 @@ Sources this cycle:
 - `memory/episodic/revenue-tracker-2026-07-06-000000.md` (score 7) — South Texas -24% vs target, -25% YoY; Dallas holding +2%; One Texas -11%; 90d forecast avg 86%; South Texas at 71% (critical)
 
 Pattern: co-sell gap is structural not just quarterly. Requires deal creation at scale, not acceleration of existing pipeline.
+
+### 2026-07-16 — Nightly promotion
+Sources this cycle:
+- `memory/episodic/co-sell-pipeline-2026-07-13-140800.md` (score 10) — Rock 4 gap $12.1M (80.5% uncovered); pipeline $2.6M (up $93K from 07-06); won YTD flat at $332K; Microsoft 63% of pipeline (3 opps), Confluent 30% ($785K, zero 2026 wins); Q2 closed with rock missed, Q3 first week shows no new wins
+- `memory/episodic/one-texas-scorecard-2026-07-14-000000.md` (score 10) — Rock 4 confirmed missed Q2 deadline; same $12.07M gap figure cross-validated from separate scorecard workflow; flagged as the hardest conversation for Scott McMichael's H1 review
+
+Pattern reinforced and cross-validated across two independent sources (chase weekly snapshot + one-texas scorecard workflow) in the same week: Rock 4 gap is stable at ~$12M, Microsoft/Confluent concentration unchanged, zero momentum into Q3. This is no longer an emerging signal — it's a settled, structural finding heading into the Scott McMichael H1 review conversation.

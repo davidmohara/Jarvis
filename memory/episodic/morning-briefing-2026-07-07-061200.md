@@ -7,7 +7,6 @@ created: 2026-07-07T06:12:00
 expires: 2026-07-09T06:12:00
 status: archived
 context: "Morning briefing — 2026-07-07 (autonomous/scheduled run, Master not present)"
-  promoted: true
 date: 2026-07-07
 source_file: memory/working/morning-briefing-2026-07-07-061200.md
 tags:
@@ -31,7 +30,8 @@ related_people:
   - nick-koury
 salience:
   score: 10
-  last-promoted-check: 2026-07-15
+  last-promoted-check: 2026-07-16
+  promoted: true
 ---
 
 # Morning Briefing — Tuesday, July 07, 2026

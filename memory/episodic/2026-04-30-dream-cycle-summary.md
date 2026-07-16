@@ -10,10 +10,10 @@ tags:
 - glc-chicago
 - git-sync
 related_people: []
-  promoted: true
 salience:
-  score: 5
-  last-promoted-check: 2026-07-15
+  score: 3
+  last-promoted-check: 2026-07-16
+  promoted: true
 ---
 # Dream Cycle Summary — 2026-04-28 (executed 2026-04-30)
 

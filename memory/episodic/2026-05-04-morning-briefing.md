@@ -14,10 +14,10 @@ related_people:
 - curtis
 - richard
 - ric
-  promoted: true
 salience:
   score: 10
-  last-promoted-check: 2026-07-15
+  last-promoted-check: 2026-07-16
+  promoted: true
 ---
 # Session Boot — May 4, 2026
 

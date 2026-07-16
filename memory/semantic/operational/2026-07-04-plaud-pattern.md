@@ -5,7 +5,7 @@ subject: plaud pattern
 synthesized-from:
   - memory/episodic/plaud-ingest-2026-07-02-011500.md
   - memory/episodic/morning-briefing-2026-07-01-085000.md
-last-updated: 2026-07-15
+last-updated: 2026-07-16
 tags: [plaud]
 agent-source: dream-cycle
 confidence: low
@@ -54,3 +54,9 @@ Sources this cycle:
 
 ### 2026-07-15 — Nightly promotion (backfill closure, repeat)
 - Same three source files reappeared as candidates again this cycle. Re-set `promoted: true`. Root cause identified this cycle: step-02's salience rewrite drops `promoted` every run. See dream-summary-pattern.md 2026-07-15 entry. No new synthesis needed.
+
+### 2026-07-16 — Nightly promotion
+Sources this cycle:
+- `memory/episodic/plaud-ingest-2026-07-13-153500.md` (score 10) — tags: plaud, chief, calendar, system-maintenance — 1 recording ingested ("Aligning on a Centralized AI Agent Landing Zone"); speaker resolved as Michael Slater via mandatory M365 calendar lookup (protocol now enforced before controller escalation); 5 Monday action items created; Alice Mburu assigned review task
+
+Genuinely new entry, not a backlog re-flag — step-02 merge fix holding. Calendar-lookup-before-escalation protocol (introduced 07-13) appears to be sticking as standard practice.

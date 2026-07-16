@@ -22,10 +22,10 @@ tags:
 - rock2
 related_people:
 - scott-mcmichael
-  promoted: true
 salience:
   score: 10
-  last-promoted-check: 2026-07-15
+  last-promoted-check: 2026-07-16
+  promoted: true
 ---
 # Morning Briefing — Tuesday, June 2, 2026
 

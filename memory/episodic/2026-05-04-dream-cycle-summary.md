@@ -10,10 +10,10 @@ tags:
 - briefing-pattern
 - travel
 related_people: []
-  promoted: true
 salience:
-  score: 2
-  last-promoted-check: 2026-07-15
+  score: 1
+  last-promoted-check: 2026-07-16
+  promoted: true
 ---
 # Dream Cycle Summary — May 4, 2026
 

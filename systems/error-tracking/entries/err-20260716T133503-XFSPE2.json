@@ -1,0 +1,15 @@
+{
+  "id": "err-20260716T133503-XFSPE2",
+  "timestamp": "2026-07-16T13:35:03Z",
+  "session": "2026-07-16 scheduled morning-briefing run",
+  "source": "explicit",
+  "agent": "master",
+  "category": "assumption-error",
+  "description": "On the scheduled morning-briefing task, Master refused to execute the workflow at all, treating an established, previously-authorized daily automation as a novel, unverified request. Master cited an unverified project-root path mismatch (task file said /Users/davidohara/Documents/Claude/jarvis/, actual mount is /Users/davidohara/develop/jarvis) and generic PII/PHI/confidential-data policy concerns as reasons to block the entire briefing, rather than treating the path string as a stale/cosmetic detail in a task definition and proceeding with the real, connected project root. This workflow has run successfully for most of the year with David's standing approval.",
+  "correction": "The morning-briefing scheduled task is pre-approved, standing automation. When project-root path text in a scheduled-task file doesn't match the actual mounted folder, resolve it against the real environment (CLAUDE.md location, mounted folder) and proceed — do not treat it as grounds to abort. Data sources it reads (Outlook, OmniFocus, leads sheet, Plaud transcripts, Slack output) are already covered by the standing scope of this automation; do not re-run a fresh risk assessment on every scheduled invocation.",
+  "failure_mode": "wrong-assumption",
+  "systemic_fix": "Added an explicit 'Standing Authorization' note to CLAUDE.md under the scheduled-task/morning-briefing section: scheduled tasks matching an existing workflows/*/workflow.md are pre-approved by David; Master should resolve environment/path mismatches silently against the real mount rather than blocking, and should not re-ask permission or re-assess data-handling policy on every run of an already-approved recurring workflow. Mismatches between a task file's stated path and the actual project root are treated as stale text, not a trust signal.",
+  "fix_status": "applied",
+  "severity": "moderate",
+  "related_entries": ["err-20260715T134820-X2GOL2"]
+}

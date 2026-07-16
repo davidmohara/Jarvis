@@ -1,26 +1,34 @@
 ---
 status: complete
-started-at: 2026-07-14T03:15:00-05:00
-completed-at: 2026-07-14T03:20:00-05:00
+started-at: 2026-07-16T03:09:46-05:00
+completed-at: 2026-07-16T03:20:00-05:00
 outputs:
-  working_archived: 1
+  working_archived: 7
   working_deleted: 0
-  working_skipped: 9
+  working_skipped: 12
   working_stranded: 0
-  enrichment_method: "n/a — file already had full frontmatter/tags"
+  enrichment_method: "manual derivation from established corpus vocabulary — no LLM subprocess call"
   archived_files:
-    - dream-summary-2026-07-12.md
-  skipped_not_expired:
-    - dream-summary-2026-07-14.md
     - co-sell-pipeline-2026-07-13-140800.md
     - daily-review-2026-07-13-060000.md
+    - dream-summary-2026-07-14.md
+    - dream-summary-2026-07-15.md
+    - one-texas-scorecard-2026-07-14-000000.md
     - plaud-ingest-2026-07-13-153500.md
     - revenue-tracker-2026-07-13-000000.md
+  skipped_not_expired:
+    - 2026-07-14-180707-master-boot-daily.md
+    - 2026-07-15-morning-briefing-scheduled.md
+    - daily-review-2026-07-14-211206.md
+    - daily-review-2026-07-15-060000.md
+    - morning-briefing-2026-07-14-083505.md
   skipped_unparseable:
     - 2026-07-08.md
     - golf-booking-2026-07-10-failed.md
     - golf-booking-2026-07-11-followup.md
     - golf-preview-2026-07-03.md
+    - golf-preview-2026-07-14.md
+    - golf-override-2026-07-14.md
     - sc-executive-brief-2026-07-13.md
 ---
 

@@ -1,18 +1,16 @@
 ---
 status: complete
-started-at: 2026-07-14T03:20:00-05:00
-completed-at: 2026-07-14T03:35:00-05:00
+started-at: 2026-07-16T03:20:00-05:00
+completed-at: 2026-07-16T03:40:00-05:00
 outputs:
-  episodic_scanned: 198
-  score_updates: 198
-  no_tags: 14
-  no_date: 6
-  files_with_tags: 184
-  in_window_count: 81
-  score_distribution: "0:24, 1:2, 2:2, 3:4, 4:1, 5:2, 8:3, 10:160"
-  window_start: 2026-06-14
-  window_end: 2026-07-14
-  note: "Found and repaired 4 pre-existing corrupted episodic files with stacked/duplicated frontmatter blocks left over from an earlier cycle's buggy write. All had score 0, no tags, no other real data — consolidated to a single clean frontmatter block, nothing lost."
+  episodic_scanned: 205
+  score_updates: 205
+  no_tags: 13
+  no_date: 1
+  score_distribution: "0:23, 1:1, 2:2, 3:2, 5:5, 7:2, 8:2, 9:1, 10:167"
+  window_start: 2026-06-16
+  window_end: 2026-07-16
+  note: "Ran via script (systems/dream-cycle ad hoc, not committed) that merges into any existing salience: block rather than replacing it wholesale — this is the structural fix for the 'promoted:true silently dropped every night' bug traced in the 07-15 cycle log. Verified zero stray promoted lines and 100% YAML-parseable frontmatter across all 205 files post-write, including the previously corrupted 2026-04-20-afternoon-boot.md (promoted:true now correctly nested and preserved). memory/episodic/README.md was correctly excluded from scoring (docs file, not a data entry) but itself carries a stray malformed frontmatter block from old corruption — left untouched per scope (out of bounds for this step), flagged for cleanup."
 ---
 
 <!-- system:start -->

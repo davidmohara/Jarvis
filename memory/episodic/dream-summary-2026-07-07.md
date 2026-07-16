@@ -4,7 +4,6 @@ expires: 2026-07-08
 status: archived
 created: 2026-07-07T03:15:25
 agent-source: jarvis
-  promoted: true
 date: 2026-07-07
 source_file: memory/working/dream-summary-2026-07-07.md
 tags:
@@ -17,7 +16,8 @@ tags:
 related_people: []
 salience:
   score: 10
-  last-promoted-check: 2026-07-15
+  last-promoted-check: 2026-07-16
+  promoted: true
 ---
 # Dream Cycle Summary — 2026-07-07
 

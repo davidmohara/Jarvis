@@ -12,10 +12,10 @@ tags:
 - podcast
 - harper
 related_people: null
-  promoted: true
 salience:
   score: 10
-  last-promoted-check: 2026-07-15
+  last-promoted-check: 2026-07-16
+  promoted: true
 ---
 # Podcast Hosting Review — The Improving Edge, Episode 1
 

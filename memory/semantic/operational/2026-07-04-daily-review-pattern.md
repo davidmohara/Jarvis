@@ -7,7 +7,7 @@ synthesized-from:
   - memory/episodic/daily-review-2026-07-02-000000.md
   - memory/episodic/dream-summary-2026-07-03.md
   - memory/episodic/shutdown-cleanup-2026-07-01-170500.md
-last-updated: 2026-07-15
+last-updated: 2026-07-16
 tags: [daily-review]
 agent-source: dream-cycle
 confidence: low
@@ -54,3 +54,9 @@ Sources this cycle:
 
 ### 2026-07-15 — Nightly promotion (backfill closure, repeat)
 - Same four source files reappeared as candidates again this cycle. Re-set `promoted: true`. Root cause identified this cycle: step-02 overwrites the salience block on every run without preserving the `promoted` field, silently undoing the prior cycle's backfill. See dream-summary-pattern.md 2026-07-15 entry. No new synthesis needed.
+
+### 2026-07-16 — Nightly promotion
+Sources this cycle:
+- `memory/episodic/daily-review-2026-07-13-060000.md` (score 10) — tags: daily-review, chief, omnifocus, overdue-tasks, quarterly-rocks — headless scheduled run; 11 completions, 12 overdue, 1 flagged (nerve block cluster), 16 inbox; critical open loops: nerve block overdue since Jul 9, Q3 rocks not yet set 13 days into Q3, Lifebook pillars 6+ weeks overdue
+
+Backlog closure holds — this is a genuinely new entry, not a re-flagged backfill, confirming the step-02 merge fix is preventing the previous drop-and-reappear cycle. The nerve block / Q3 rocks / Lifebook overdue triad continues to recur across daily-review entries; now spanning at least four cycles unresolved.

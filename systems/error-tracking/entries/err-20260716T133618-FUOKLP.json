@@ -1,0 +1,15 @@
+{
+  "id": "err-20260716T133618-FUOKLP",
+  "timestamp": "2026-07-16T13:36:18Z",
+  "session": "dream-cycle-2026-07-16-030946",
+  "source": "explicit",
+  "agent": "jarvis",
+  "category": "assumption-error",
+  "description": "During the 2026-07-16 dream-cycle run, Desktop Commander tools were not yet visible in the active tool list at boot, and rather than checking with ToolSearch or asking, I assumed Desktop Commander was unavailable for the session and skipped git pull/commit/push, reporting 'Desktop Commander unavailable in this Cowork session' in the log and to the controller. David corrected this: Desktop Commander is always available for these scheduled runs. Two prior cycles (07-14, 07-15) apparently made the same assumption, compounding the gap to three consecutive uncommitted nights before the correction surfaced it.",
+  "correction": "Before declaring any tool 'unavailable' — especially one governed by a mandatory rule like the host-side-only git requirement — run ToolSearch for it first. Absence from the initially visible tool list is not evidence of unavailability; deferred tools load lazily and Desktop Commander in particular is a standing, always-available capability for scheduled dream-cycle runs. This mirrors the general SYSTEM.md rule ('Before declaring any file, folder, or path not accessible... run ToolSearch first') but the dream-cycle workflow's git section did not make the always-available guarantee explicit, which let the same wrong assumption repeat three cycles running.",
+  "failure_mode": "wrong-assumption",
+  "systemic_fix": "Update workflows/dream-cycle/workflow.md and steps/step-05-logging.md to state explicitly: Desktop Commander is always available for dream-cycle runs — call ToolSearch for mcp__Desktop_Commander__start_process at the start of the run (or at minimum before step-05) rather than assuming unavailability from the initial tool list. Do not skip git pull/commit/push based on an unconfirmed absence.",
+  "fix_status": "proposed",
+  "severity": "moderate",
+  "related_entries": []
+}
