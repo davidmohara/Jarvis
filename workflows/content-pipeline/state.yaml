@@ -1,13 +1,13 @@
 ---
 status: complete
-started-at: 2026-07-16T09:03:00Z
-completed-at: 2026-07-16T09:04:00Z
+started-at: 2026-07-16T11:03:47Z
+completed-at: 2026-07-16T11:03:50Z
 outputs:
   drafts_checked: 7
   actions_taken: 0
   published: 0
   rejected: 0
   regenerated: 0
-  outcome: "SUCCESS: All 7 pending drafts checked. Draft 1 (Fulfillment) has no thread activity. Draft 2 (Urgency Trap) shows David requested full post view on 2026-07-13; bot delivered complete draft. No approval/rejection signal yet. Drafts 3-6 (Pyramid, Paying, Texas, Stack) share thread 1784027607.263689 with no activity. Draft 7 (Mississippi) has no thread activity. All remain pending."
+  outcome: "SUCCESS: All 7 pending drafts checked. Thread 1782299706 (Fulfillment): no activity. Thread 1783629330 (Urgency Trap): no new approval signal since regeneration on 2026-07-13. Thread 1784027607 (Pyramid, Paying, Texas, Stack): no activity. Thread 1784144709 (Mississippi): no activity. All 7 remain pending."
   pending_drafts: 7
 model: haiku
