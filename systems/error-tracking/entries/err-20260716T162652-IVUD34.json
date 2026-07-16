@@ -1,0 +1,17 @@
+{
+  "id": "err-20260716T162652-IVUD34",
+  "timestamp": "2026-07-16T16:26:52Z",
+  "category": "routing-violation",
+  "failure_mode": "master-executed-content-creation-task",
+  "severity": "medium",
+  "correction": "System flagged: Master built Justin Withrow prep sheet directly instead of routing to Harper (Storyteller). This is a hard-stop routing violation per agents/routing.md.",
+  "root_cause": "Master saw 'build a prep sheet' and executed immediately instead of checking routing table. The task required content creation, interview prep structure, and meeting framing — all Harper's domain.",
+  "system_impact": "Master spent context and time on a task that should have been delegated. Minor impact here (prep sheet is serviceable), but establishes a pattern violation for future task routing.",
+  "proposed_fix": "Apply routing discipline: 'Build prep sheet' = 'meeting prep' = 'content creation' = route to Harper (or Shep for 1:1 context). Master should have spawned Harper immediately with context: candidate name, role, meeting time, what to assess, tone (direct/professional), output format (markdown sheet for quick reference).",
+  "context": {
+    "user_request": "Build a prep sheet for meeting with Justin Withrow",
+    "correct_routing": "Harper (storyteller, content creation, meeting prep)",
+    "what_master_did": "Executed directly — searched web, gathered intel, built markdown doc",
+    "routing_table_reference": "agents/routing.md — 'Email, draft, message / Deck, presentation, slides / Content, thought leadership, post' all route to Harper"
+  }
+}

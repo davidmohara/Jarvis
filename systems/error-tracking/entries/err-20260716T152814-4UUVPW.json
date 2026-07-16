@@ -1,0 +1,18 @@
+{
+  "id": "err-20260716T152814-4UUVPW",
+  "timestamp": "2026-07-16T15:28:14Z",
+  "category": "workflow-failure",
+  "failure_mode": "incomplete-speaker-tagging",
+  "severity": "high",
+  "correction": "David corrected: Plaud ingest workflow failed on speaker tagging. Multiple recordings were not properly tagged with speaker identity, causing vault ingestion to be incomplete. Knox needs to re-run speaker identification and tagging on affected recordings.",
+  "root_cause": "Step 03 (Identify Speakers) in plaud-ingest workflow did not complete speaker tagging for all recordings. Likely caused by: (1) missing speaker metadata in Plaud API response, (2) unable to resolve speaker identities from context, or (3) incomplete speaker labeling logic.",
+  "system_impact": "Vault ingestion proceeded with incomplete speaker data. Recordings lack proper speaker attribution, reducing discoverability and context quality in vault. Action items may be orphaned or misattributed.",
+  "proposed_fix": "Re-run plaud-ingest workflow from step-03 (Identify Speakers) on affected recordings. Knox should: (1) Audit which recordings lack speaker tags, (2) Manually resolve speaker identities where API data is incomplete, (3) Re-tag and re-ingest to vault with complete speaker metadata.",
+  "context": {
+    "boot_session": "session-2026-07-16-051500",
+    "workflow": "plaud-ingest",
+    "step": "step-03-identify-speakers",
+    "affected_recordings": "multiple (specific count TBD by Knox audit)",
+    "action_items_impacted": "potentially all 10 extracted items from session"
+  }
+}

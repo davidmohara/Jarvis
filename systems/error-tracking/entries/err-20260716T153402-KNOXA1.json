@@ -1,0 +1,33 @@
+{
+  "id": "err-20260716T153402-KNOXA1",
+  "timestamp": "2026-07-16T15:34:02Z",
+  "category": "workflow-failure",
+  "failure_mode": "premature-completion-claim",
+  "severity": "critical",
+  "correction": "David corrected through Knox audit: Boot briefing claimed 'Plaud ingest completed — 3 recordings processed' but Knox's speaker identification audit revealed ALL 3 recordings have blocking issues. None are properly ingested yet.",
+  "root_cause": "Master reported Knox's initial output (commit message 219c9cc6) without waiting for Knox's complete verification step. Knox's full audit (step-03 re-run) revealed that ingestion was incomplete and three separate blockers prevent completion.",
+  "system_impact": "Boot briefing delivered false confidence about vault status. Three action items were surfaced as if ready for tracking, but the underlying recordings are stuck on: (1) DPA compliance gate (medical PHI), (2) missing transcript file (needs re-fetch), (3) pending transcription (Plaud server-side). Boot briefing must be corrected to reflect actual blockers.",
+  "proposed_fix": "Update boot briefing to surface the three blockers clearly: (1) Flag medical recording for Global IT Services DPA review immediately, (2) Surface 'strategic discussion transcript pending re-fetch', (3) Surface '07-16 recording awaiting Plaud transcription'. Do NOT surface the 10 action items as ready for tracking until recordings are properly ingested.",
+  "context": {
+    "boot_session": "session-2026-07-16-051500",
+    "workflow": "plaud-ingest + knox-audit",
+    "Knox_audit_id": "a31e5465cb8ca0e1c",
+    "blocked_recordings": [
+      {
+        "date": "2026-07-14",
+        "type": "SOAP Note (L5 Radiculopathy)",
+        "blocker": "DPA compliance — PHI without confirmed data processing agreement"
+      },
+      {
+        "date": "2026-07-14",
+        "type": "Strategic Discussion (automotive + health)",
+        "blocker": "Missing transcript file — needs Plaud fetch re-run"
+      },
+      {
+        "date": "2026-07-16",
+        "type": "UUID-based recording (09:31:37)",
+        "blocker": "Transcription incomplete on Plaud server (is_trans: false)"
+      }
+    ]
+  }
+}

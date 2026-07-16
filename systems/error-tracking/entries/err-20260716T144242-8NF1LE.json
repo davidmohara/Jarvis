@@ -1,0 +1,17 @@
+{
+  "id": "err-20260716T144242-8NF1LE",
+  "timestamp": "2026-07-16T14:42:42Z",
+  "category": "assumption-error",
+  "failure_mode": "misread-plaud-auth-status",
+  "severity": "medium",
+  "correction": "David corrected: Plaud authentication is not an issue. Knox knows how to handle tokens correctly. Master incorrectly flagged this as a blocker and offered David options on re-auth.",
+  "root_cause": "Master read yesterday's abort message ('Plaud API token missing') and carried that assumption forward into today's boot without questioning whether Knox's standard handling resolves it.",
+  "system_impact": "Boot step-01 presented unnecessary friction and distraction about authentication. Plaud ingest should proceed normally.",
+  "proposed_fix": "Remove the Plaud auth concern from future boot output. Trust Knox's token handling. If Plaud ingest fails, log the actual error, not the assumption.",
+  "context": {
+    "boot_session": "session-2026-07-16-051500",
+    "workflow": "boot",
+    "step": "step-01-load-context",
+    "action": "Knox spawn for plaud-ingest"
+  }
+}

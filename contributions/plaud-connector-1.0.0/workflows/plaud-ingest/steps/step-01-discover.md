@@ -1,10 +1,17 @@
 ---
-status: not-started
-started-at: ~
-completed-at: ~
-outputs: {}
+status: completed
+started-at: 2026-07-16T00:00:00Z
+completed-at: 2026-07-16T09:47:00Z
+outputs:
+  new-recordings-count: 3
+  recordings:
+    - id: e71526d7131bd7471384b151f6cf09c6
+      name: "SOAP Note: O'Hara - L5 Radiculopathy"
+    - id: 6ee376513b6f393111f8195a8b8e7ca4
+      name: "Strategic Discussion on AI Implementation in Automotive and Personal Health"
+    - id: 824a4e5c19079e84df52dc8585a10836
+      name: "2026-07-16 09:31:37"
 ---
-
 <!-- system:start -->
 # Step 01: Discover New Recordings
 

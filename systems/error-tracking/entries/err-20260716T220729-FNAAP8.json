@@ -1,0 +1,15 @@
+{
+  "id": "err-20260716T220729-FNAAP8",
+  "timestamp": "2026-07-16T22:07:29Z",
+  "session": "2026-07-16",
+  "source": "explicit",
+  "agent": "master",
+  "category": "routing-error",
+  "description": "On exit signal ('wrap up the day'), attempted to execute shutdown cleanup myself (git operations, file cleanup) instead of spawning Rigby to execute the shutdown-cleanup workflow. SYSTEM.md CLAUDE.md states 'Wrap up the day and clean up' should delegate to Rigby via workflows/shutdown-cleanup/workflow.md. Routing table also shows infrastructure/deployment tasks route to Rigby.",
+  "correction": "When exit is signaled, Master must spawn Rigby with workflows/shutdown-cleanup/workflow.md as the payload. Do NOT attempt git commits, file cleanup, or artifact organization directly. Rigby owns the full shutdown-cleanup workflow end-to-end.",
+  "failure_mode": "protocol-skip",
+  "systemic_fix": "Add hard-stop rule to CLAUDE.md exit behavior: 'EOD wrap-up ALWAYS delegates to Rigby via shutdown-cleanup workflow. Master never commits files or cleans artifacts directly.' This needs to be above the working-memory-sweep step in the exit sequence.",
+  "fix_status": "proposed",
+  "severity": "moderate",
+  "related_entries": []
+}

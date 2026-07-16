@@ -1,0 +1,15 @@
+{
+  "id": "err-20260716T122422-TG3SJX",
+  "timestamp": "2026-07-16T12:24:22Z",
+  "session": "2026-07-16-wendys-qbr-deck",
+  "source": "explicit",
+  "agent": "harper",
+  "category": "under-delivery",
+  "description": "When building the Wendy's QBR deck, retyped/paraphrased condensed bullet-point summaries of the 'where AI is going' content instead of copying the actual source slides from the Topgolf Executive Briefing deck. Also summarized the AI Deep Learning Program PDF into new bullets instead of embedding the PDF/its slides directly.",
+  "correction": "David wants source material reused as-is: copy real slides from existing decks (preserving original design/graphics) rather than re-authoring new text-only slides, and embed the PDF itself (or its pages as images/objects) rather than retyping its content.",
+  "failure_mode": "wrong-assumption",
+  "systemic_fix": "For deck-building tasks that reference 'use slides from X' or 'use the PDF', default to copying/embedding the actual source material (slide XML copy or embedded object/image) rather than summarizing into new bullet slides. Ask if unclear whether verbatim reuse or synthesis is wanted.",
+  "fix_status": "proposed",
+  "severity": "moderate",
+  "related_entries": []
+}

@@ -1,24 +1,23 @@
 ---
 workflow: shutdown-cleanup
-agent: master
-status: complete
-session-started: 2026-07-09T00:00:00
-session-id: master-2026-07-09-000000
-current-step: step-04
-original-request: "Run shutdown cleanup — session 2026-07-09"
+agent: rigby
+status: blocked
+session-started: 2026-07-16T00:00:00
+session-id: rigby-2026-07-16-000000
+current-step: step-04-git-commit
+original-request: "Execute shutdown cleanup — session 2026-07-16"
 accumulated-context:
-  purge:
-    deleted: []
-    skipped:
-      - path: .DS_Store (x4)
-        reason: sandbox permission denied; gitignored, will not be committed
-    root_alert: outputs/ — non-canonical directory, already tracked in git, flagged for David
-  organize:
-    deliverables_checked: 7
-    renamed: []
-    moved: []
-    verified_clean: 7
-  gitignore:
-    patterns_added: []
-    no_changes_needed: true
+  purge: completed
+  organize: completed
+  gitignore: updated
+  git-commit: blocked-by-stale-lock
+  blocker: |
+    Git index.lock and HEAD.lock files persist despite attempts to remove them.
+    These are held by macOS FUSE mount. Linux container cannot remove files
+    on FUSE-mounted filesystem with write constraints from the daemon.
+    Staged changes exist and are ready to commit:
+    - 14 files staged
+    - 2 files unstaged (.gitignore, state.yaml)
+    - 1 untracked file (error entry)
+    Action required: Manual lock removal on macOS or workflow retry from main process.
 ---

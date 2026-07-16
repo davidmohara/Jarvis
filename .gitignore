@@ -43,6 +43,9 @@ dist/
 __pycache__/
 *.pyc
 
+# Generic temp files
+*.tmp
+
 # Debug screenshots
 debug-app.png
 debug-settings.png

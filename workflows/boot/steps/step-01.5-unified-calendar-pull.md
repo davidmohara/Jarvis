@@ -1,12 +1,13 @@
 ---
 status: complete
-started-at: "2026-07-15T09:58:00-05:00"
-completed-at: "2026-07-15T10:00:00-05:00"
+started-at: "2026-07-16T14:42:00Z"
+completed-at: "2026-07-16T14:43:30Z"
 outputs:
-  calendar_file: "not written to disk this run — pulled directly via outlook_calendar_search"
-  event_count: 39
-  date_range: "2026-07-15 to 2026-07-20"
-  status: "pulled"
+  calendar_file: "data/calendar-unified.json"
+  event_count: 31
+  date_range: "2026-07-16 to 2026-07-19"
+  status: "written"
+  file_size_kb: 12
 ---
 
 <!-- system:start -->
