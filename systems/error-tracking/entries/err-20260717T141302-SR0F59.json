@@ -1,0 +1,15 @@
+{
+  "id": "err-20260717T141302-SR0F59",
+  "timestamp": "2026-07-17T14:13:02Z",
+  "session": "2026-07-17-content-approval-sync",
+  "source": "explicit",
+  "agent": "Harper",
+  "category": "missed-context",
+  "description": "Fulfillment Is Not a Benefit note was expected in Obsidian vault but search found it missing. David confirmed the note is definitely in the vault. Harper's search methodology failed to locate it.",
+  "correction": "Fulfillment note exists in vault. Harper's Spotlight search and path-based lookup failed to find it due to incorrect vault root path assumption or search query.",
+  "failure_mode": "context-blindness",
+  "systemic_fix": "Query Knox for vault location instead of hardcoding ~/Obsidian path. Step-02-approve.md requires Obsidian note updates but Harper lacks dynamic vault path resolution.",
+  "fix_status": "proposed",
+  "severity": "moderate",
+  "related_entries": []
+}
