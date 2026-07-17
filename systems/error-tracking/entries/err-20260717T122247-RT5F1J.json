@@ -1,0 +1,15 @@
+{
+  "id": "err-20260717T122247-RT5F1J",
+  "timestamp": "2026-07-17T12:22:47Z",
+  "session": "2026-07-17",
+  "source": "explicit",
+  "agent": "rigby",
+  "category": "format-violation",
+  "description": "political-monitor daily run JSON used wrong field names in the 'counts' object: 'items_harvested' instead of 'total_items', 'shared' instead of 'shared_topics', and a flat structure instead of the nested 'by_lean' object the render script expects. This caused Items, Left, Right, Center, and Shared header stats to all render as 0.",
+  "correction": "counts object must use: total_items (int), by_lean.left/right/center (ints), shared_topics (int), gap_left (int), gap_right (int). Match render.py line 132-133 exactly.",
+  "failure_mode": "pattern-mismatch",
+  "systemic_fix": "Add a counts-schema validation step in render.py that raises a clear error if required keys are missing, and document the required counts schema in the run JSON spec (specs/political-monitor.md).",
+  "fix_status": "proposed",
+  "severity": "minor",
+  "related_entries": []
+}
