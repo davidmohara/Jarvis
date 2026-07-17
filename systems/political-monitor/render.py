@@ -126,9 +126,72 @@ def render_suggestion(s):
       </div>"""
 
 
+def validate_run(d, run_path):
+    """Hard schema check — aborts render with a clear error if any required field is missing or wrong type.
+    This runs on every invocation. It is not optional and cannot be skipped.
+    Required shape documented here is the single source of truth for what the run JSON must contain."""
+    errors = []
+
+    # Top-level required fields
+    for field in ("date", "generated", "window_hours", "counts", "sources_used",
+                  "sources_muted", "shared_topics", "gap_left", "gap_right"):
+        if field not in d:
+            errors.append(f"Missing top-level field: '{field}'")
+
+    # counts sub-schema
+    counts = d.get("counts", {})
+    for key in ("total_items", "shared_topics", "gap_left", "gap_right"):
+        if key not in counts:
+            errors.append(f"counts missing required key: '{key}' (got keys: {list(counts.keys())})")
+        elif not isinstance(counts[key], int):
+            errors.append(f"counts.{key} must be int, got {type(counts[key]).__name__}")
+    by_lean = counts.get("by_lean", None)
+    if by_lean is None:
+        errors.append("counts missing required key: 'by_lean' (must be object with left/right/center int values)")
+    else:
+        for lean in ("left", "right", "center"):
+            if lean not in by_lean:
+                errors.append(f"counts.by_lean missing key: '{lean}'")
+            elif not isinstance(by_lean[lean], int):
+                errors.append(f"counts.by_lean.{lean} must be int, got {type(by_lean[lean]).__name__}")
+
+    # shared_topics items
+    for i, t in enumerate(d.get("shared_topics", [])):
+        for key in ("topic_key", "title", "summary", "left", "right", "correlation", "correlation_label",
+                    "relevance", "relevance_label", "days_seen"):
+            if key not in t:
+                errors.append(f"shared_topics[{i}] ('{t.get('title', '?')}') missing field: '{key}'")
+        for side in ("left", "right"):
+            side_obj = t.get(side, {})
+            for key in ("framing", "sources"):
+                if key not in side_obj:
+                    errors.append(f"shared_topics[{i}].{side} missing field: '{key}'")
+
+    # gap items
+    for section in ("gap_left", "gap_right"):
+        for i, t in enumerate(d.get(section, [])):
+            for key in ("topic_key", "title", "summary", "sources", "relevance", "relevance_label", "days_seen"):
+                if key not in t:
+                    errors.append(f"{section}[{i}] ('{t.get('title', '?')}') missing field: '{key}'")
+
+    if errors:
+        print(f"\n❌ SCHEMA VALIDATION FAILED for {run_path.name} — render aborted.\n")
+        for e in errors:
+            print(f"  • {e}")
+        print(f"\nFix the run JSON before re-running render.py.\n")
+        sys.exit(1)
+
+    print(f"✓ Schema validation passed ({len(d.get('shared_topics',[]))} shared, "
+          f"{len(d.get('gap_left',[]))} gap_left, {len(d.get('gap_right',[]))} gap_right, "
+          f"items={counts.get('total_items')}, "
+          f"left={counts.get('by_lean',{}).get('left')}, right={counts.get('by_lean',{}).get('right')}, "
+          f"center={counts.get('by_lean',{}).get('center')})")
+
+
 def main():
     run_path = pick_run()
     d = json.loads(run_path.read_text())
+    validate_run(d, run_path)
     counts = d.get("counts", {})
     by_lean = counts.get("by_lean", {})
 

@@ -72,10 +72,21 @@ Read `clusters.json` AND `harvest.json`. Do the authoritative SEMANTIC clusterin
 - **gap_left / gap_right:** topics covered by exactly one side (center coverage does not disqualify a gap). One-paragraph summary + sources each. **Parity rule:** each side must have AT LEAST as many gap topics as there are shared topics (`gap_left >= shared`, `gap_right >= shared`). If you're short, mine the beat searches harder before settling. Total size may grow.
 - **Relevance (score before deciding what to present):** read `systems/political-monitor/topic_history.json`. For every topic (shared, gap_left, gap_right) compute a `topic_key` (slug of its 3-5 most distinctive keywords) and semantically match it against history entries whose `last_seen` is the previous run date. Match → `days_seen = history.days_seen + 1`; no match → `days_seen = 1`. Then `relevance = max(20, 100 - (days_seen - 1) * 30)`, with `relevance_label`: day1 "New — first appearance", day2 "Recurring — day 2", day3 "Recurring — day 3, losing novelty", day4+ "Long-running — persistent story, low novelty". Sort `shared_topics`, `gap_left`, `gap_right` each by `relevance` descending. Rewrite `topic_history.json`: update matched entries (`last_seen`, `days_seen`, `title_latest`), add new entries for `days_seen==1` topics, and prune any entry whose `last_seen` is more than 5 days old.
 - Write `systems/political-monitor/runs/YYYY-MM-DD.json` matching the schema in the spec, including `topic_key`, `days_seen`, `relevance`, `relevance_label` on every topic.
-- Fill `counts`, `sources_used`, `sources_muted`, `generated`, `window_hours`.
+- `counts` **must use these exact keys** (the render script hard-validates them and will abort if any are missing or wrong type):
+  ```json
+  "counts": {
+    "total_items": <int>,
+    "by_lean": { "left": <int>, "right": <int>, "center": <int> },
+    "shared_topics": <int>,
+    "gap_left": <int>,
+    "gap_right": <int>
+  }
+  ```
+  Do not use `items_harvested`, `shared`, or any other key names. These are the only accepted field names.
+- Fill `sources_used`, `sources_muted`, `generated`, `window_hours`.
 
-### 6. Render
-Run `python3 systems/political-monitor/render.py systems/political-monitor/runs/YYYY-MM-DD.json`. It writes `dashboard.html`. Confirm it has shared cards with gauges and relevance badges, both gap panels ordered by relevance, the muted-source note, and working links.
+### 6. Render + validate
+Run `python3 systems/political-monitor/render.py systems/political-monitor/runs/YYYY-MM-DD.json`. The script runs a **hard schema validation before rendering** — if it exits with code 1, read the error output, fix the run JSON, and re-run. Do not proceed to step 7 until render exits cleanly with `✓ Schema validation passed`. Confirm the written `dashboard.html` has shared cards with gauges and relevance badges, both gap panels ordered by relevance, the muted-source note, and working links.
 
 ### 7. (Mondays only) Weekly source suggestions
 If today is Monday: propose 2-3 candidate sources NOT already in the roster that fill an underrepresented lean or beat. For EACH candidate, run the accessibility probe first:
