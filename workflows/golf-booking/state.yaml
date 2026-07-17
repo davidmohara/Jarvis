@@ -1,11 +1,11 @@
 workflow: golf-booking
 agent: sterling
 status: aborted
-session-started: 2026-07-11T00:00:00Z
-session-id: scheduled-execution-2026-07-11
-current-step: notification-sent
-execution-run: 2026-07-11T00:00:00Z
-abort-reason: entire-weekend-blocked-horner-visit
+session-started: 2026-07-17T00:00:00Z
+session-id: scheduled-execution-2026-07-17
+current-step: credential-retrieval-failed
+execution-run: 2026-07-17T00:00:00Z
+abort-reason: 1password-cli-unavailable-on-automation-host
 original-request: Execute golf booking skill step by step for web change verification; update skill as needed for reliable unattended execution
 accumulated-context:
   verified_steps:

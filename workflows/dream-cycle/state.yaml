@@ -67,6 +67,10 @@ accumulated-context:
   dream_log_appended: true
   working_summary_written: true
   working_summary_reason: "semantic_updated=3, promoted_entries=3 — modest but real activity, plus a flagged status-change worth surfacing (nerve block cluster overdue-to-dropped transition)."
+  git_commit: success
+  git_push: success
+  git_commit_sha: c57752a
+  git_note: "Staged all dream-cycle scope (218 files: memory/ + workflows/dream-cycle/state.yaml). Excluded workflows/daily-review/state.yaml (Chief's in-flight work), reviews/daily/auto-2026-07-16.md, and systems/eval-harness/runs/eval-20260717T021226-JC2Y4F.json (unowned, unrelated orphaned files found staged by git add -A, unstaged before commit). Pushed cleanly 133be3f..c57752a, no conflicts."
 prior-run-context:
   git_pull_at_boot: success
   git_commit_sha: bc2a523
