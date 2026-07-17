@@ -3,28 +3,85 @@
   "generated": "2026-07-17T06:30:00Z",
   "window_hours": 72,
   "counts": {
-    "shared": 5,
+    "total_items": 58,
+    "by_lean": {
+      "left": 28,
+      "right": 27,
+      "center": 3
+    },
+    "shared_topics": 5,
     "gap_left": 6,
     "gap_right": 6,
     "sources_active": 18,
-    "sources_muted": 9,
-    "items_harvested": 58
+    "sources_muted": 9
   },
   "sources_used": [
-    "msnbc", "cnn", "nbc", "thehill", "axios", "dailybeast", "slate", "newrepublic",
-    "foxnews", "natreview", "examiner", "federalist", "dailywire", "breitbart",
-    "townhall", "rcp", "amconserv", "spectator", "freepress"
+    "msnbc",
+    "cnn",
+    "nbc",
+    "thehill",
+    "axios",
+    "dailybeast",
+    "slate",
+    "newrepublic",
+    "foxnews",
+    "natreview",
+    "examiner",
+    "federalist",
+    "dailywire",
+    "breitbart",
+    "townhall",
+    "rcp",
+    "amconserv",
+    "spectator",
+    "freepress"
   ],
   "sources_muted": [
-    { "id": "nyt", "name": "New York Times", "reason": "accessible: false" },
-    { "id": "wapo", "name": "Washington Post", "reason": "accessible: false" },
-    { "id": "politico", "name": "Politico", "reason": "accessible: false" },
-    { "id": "vox", "name": "Vox Politics", "reason": "accessible: false" },
-    { "id": "motherjones", "name": "Mother Jones", "reason": "accessible: false" },
-    { "id": "wsj_opinion", "name": "WSJ Opinion", "reason": "accessible: false" },
-    { "id": "nypost", "name": "New York Post", "reason": "accessible: false" },
-    { "id": "reuters", "name": "Reuters Politics", "reason": "accessible: false" },
-    { "id": "ap", "name": "Associated Press", "reason": "accessible: false" }
+    {
+      "id": "nyt",
+      "name": "New York Times",
+      "reason": "accessible: false"
+    },
+    {
+      "id": "wapo",
+      "name": "Washington Post",
+      "reason": "accessible: false"
+    },
+    {
+      "id": "politico",
+      "name": "Politico",
+      "reason": "accessible: false"
+    },
+    {
+      "id": "vox",
+      "name": "Vox Politics",
+      "reason": "accessible: false"
+    },
+    {
+      "id": "motherjones",
+      "name": "Mother Jones",
+      "reason": "accessible: false"
+    },
+    {
+      "id": "wsj_opinion",
+      "name": "WSJ Opinion",
+      "reason": "accessible: false"
+    },
+    {
+      "id": "nypost",
+      "name": "New York Post",
+      "reason": "accessible: false"
+    },
+    {
+      "id": "reuters",
+      "name": "Reuters Politics",
+      "reason": "accessible: false"
+    },
+    {
+      "id": "ap",
+      "name": "Associated Press",
+      "reason": "accessible: false"
+    }
   ],
   "shared_topics": [
     {
@@ -32,26 +89,56 @@
       "title": "Trump's Primetime Election Integrity Address and Declassified Documents",
       "days_seen": 3,
       "relevance": 40,
-      "relevance_label": "Recurring — day 3, losing novelty",
+      "relevance_label": "Recurring \u2014 day 3, losing novelty",
       "summary": "President Trump delivered a primetime White House address on July 16 focused on election integrity, announcing the declassification of intelligence documents he says reveal 'shocking vulnerabilities' in US election infrastructure due to hacking, exploitation, and foreign interference. Trump alleged China attempted to meddle in the 2020 election and urged Congress to pass the SAVE America Act ahead of November's midterms. He also fired the remaining members of the bipartisan Election Assistance Commission. The White House framed the speech as a long-overdue transparency moment; critics called it groundwork for contesting the 2026 results.",
       "left": {
         "framing": "Left outlets treat the declassified documents skeptically. CNN fact-checked that the revealed vulnerabilities are 'long-known' among election officials and that US intelligence agencies concluded China ultimately chose not to interfere in 2020. NBC and CNN emphasize that Trump's EAC firings are 'purely political' and could 'throw the country into chaos.' Democratic strategists say Trump is setting up the architecture to dispute November results.",
         "sources": [
-          { "name": "CNN Politics", "url": "https://www.cnn.com/2026/07/16/politics/live-news/trump-speech-election" },
-          { "name": "CNN — 5 Takeaways", "url": "https://us.cnn.com/2026/07/16/politics/takeaways-trump-election-speech" },
-          { "name": "CNN — What docs do and don't show", "url": "https://www.cnn.com/2026/07/16/politics/what-trumps-newly-declassified-documents-do-and-dont-tell-us-about-threats-to-us-elections" },
-          { "name": "NBC News live updates", "url": "https://www.nbcnews.com/politics/trump-administration/live-blog/trump-congress-iran-blanche-doj-ice-2026-maine-senate-live-updates-rcna587765" },
-          { "name": "NBC — Trump fires EAC", "url": "https://www.nbcnews.com/politics/2026-election/trump-fires-election-assistance-commission-members-ahead-midterms-rcna353781" }
+          {
+            "name": "CNN Politics",
+            "url": "https://www.cnn.com/2026/07/16/politics/live-news/trump-speech-election"
+          },
+          {
+            "name": "CNN \u2014 5 Takeaways",
+            "url": "https://us.cnn.com/2026/07/16/politics/takeaways-trump-election-speech"
+          },
+          {
+            "name": "CNN \u2014 What docs do and don't show",
+            "url": "https://www.cnn.com/2026/07/16/politics/what-trumps-newly-declassified-documents-do-and-dont-tell-us-about-threats-to-us-elections"
+          },
+          {
+            "name": "NBC News live updates",
+            "url": "https://www.nbcnews.com/politics/trump-administration/live-blog/trump-congress-iran-blanche-doj-ice-2026-maine-senate-live-updates-rcna587765"
+          },
+          {
+            "name": "NBC \u2014 Trump fires EAC",
+            "url": "https://www.nbcnews.com/politics/2026-election/trump-fires-election-assistance-commission-members-ahead-midterms-rcna353781"
+          }
         ]
       },
       "right": {
         "framing": "Right outlets present the address as a historic act of transparency that validates longstanding concerns about election security. Fox News highlights Trump's claim that the documents show 'shocking vulnerabilities' and covers the SAVE America Act as essential election security legislation. Townhall points to DHS data showing 250K+ non-citizens on voter rolls in four states. Breitbart frames the declassification as 'historic.'",
         "sources": [
-          { "name": "Fox News — declassified intel", "url": "https://www.foxnews.com/politics/trump-releases-declassified-election-intelligence-says-reveals-shocking-vulnerabilities" },
-          { "name": "Fox News live address", "url": "https://www.foxnews.com/live-news/president-donald-trump-addresses-the-nation-on-election-integrity-in-primetime-white-house-speech" },
-          { "name": "Townhall — SAVE America Act", "url": "https://townhall.com/columnists/johnrlottjr/2026/07/16/why-we-need-the-save-america-act-n2679615" },
-          { "name": "Townhall — Declassified docs", "url": "https://townhall.com/tipsheet/cameron-arcand/2026/07/16/trump-declassifies-election-documents-heres-what-we-know-so-far-n2679617" },
-          { "name": "Breitbart live", "url": "https://www.breitbart.com/politics/2026/07/16/watch-live-donald-trump-delivers-prime-time-address-to-the-nation-2/" }
+          {
+            "name": "Fox News \u2014 declassified intel",
+            "url": "https://www.foxnews.com/politics/trump-releases-declassified-election-intelligence-says-reveals-shocking-vulnerabilities"
+          },
+          {
+            "name": "Fox News live address",
+            "url": "https://www.foxnews.com/live-news/president-donald-trump-addresses-the-nation-on-election-integrity-in-primetime-white-house-speech"
+          },
+          {
+            "name": "Townhall \u2014 SAVE America Act",
+            "url": "https://townhall.com/columnists/johnrlottjr/2026/07/16/why-we-need-the-save-america-act-n2679615"
+          },
+          {
+            "name": "Townhall \u2014 Declassified docs",
+            "url": "https://townhall.com/tipsheet/cameron-arcand/2026/07/16/trump-declassifies-election-documents-heres-what-we-know-so-far-n2679617"
+          },
+          {
+            "name": "Breitbart live",
+            "url": "https://www.breitbart.com/politics/2026/07/16/watch-live-donald-trump-delivers-prime-time-address-to-the-nation-2/"
+          }
         ]
       },
       "correlation": 18,
@@ -62,24 +149,48 @@
       "title": "DSA Primary Surge Reshapes the Democratic Party",
       "days_seen": 3,
       "relevance": 40,
-      "relevance_label": "Recurring — day 3, losing novelty",
+      "relevance_label": "Recurring \u2014 day 3, losing novelty",
       "summary": "The Democratic Socialists of America have now won 35 primary races in the 2026 cycle, defeating multiple long-serving incumbents including 15-term Rep. Diana DeGette in Denver and Adriano Espaillat (chair of the Congressional Hispanic Caucus) in New York. The DSA has grown from 6,000 members a decade ago to over 100,000, with 200 chapters nationally. NYC Mayor Zohran Mamdani is actively backing additional insurgent candidates. The wave is reshaping primary outcomes in New York, Colorado, Missouri, Michigan, and Wisconsin.",
       "left": {
         "framing": "Left outlets report the DSA surge descriptively, noting it has rattled mainstream Democrats but highlighting that progressive-leaning politicians (Obama, Sanders, Mamdani, AOC) top favorability polls. The Hill covers DSA wins as a structural force within the party rather than a hostile takeover. The New Republic frames it as evidence that progressive candidates are more popular than establishment figures.",
         "sources": [
-          { "name": "The Hill — democratic socialists rise", "url": "https://thehill.com/homenews/campaign/5941564-democratic-socialists-primaries-mamdani-sanders/" },
-          { "name": "The Hill — party rattled", "url": "https://thehill.com/homenews/campaign/5952255-democratic-party-dsa-midterm-primaries/" },
-          { "name": "New Republic — politicians Americans like", "url": "https://newrepublic.com/post/212486/politicians-americans-like-obama-sanders-mamdani-democrats" }
+          {
+            "name": "The Hill \u2014 democratic socialists rise",
+            "url": "https://thehill.com/homenews/campaign/5941564-democratic-socialists-primaries-mamdani-sanders/"
+          },
+          {
+            "name": "The Hill \u2014 party rattled",
+            "url": "https://thehill.com/homenews/campaign/5952255-democratic-party-dsa-midterm-primaries/"
+          },
+          {
+            "name": "New Republic \u2014 politicians Americans like",
+            "url": "https://newrepublic.com/post/212486/politicians-americans-like-obama-sanders-mamdani-democrats"
+          }
         ]
       },
       "right": {
         "framing": "Right outlets frame the DSA surge as a socialist/communist takeover that will destroy Democratic electability in swing districts. Fox profiles DSA insurgents as 'far-left' agitators at war with the establishment. Daily Wire warns of a 'hostile socialist takeover.' Examiner catalogues what DSA actually wants (Medicare for All, police abolition) and argues swing voters will reject it. GOP Rep. Gill predicts the DSA will 'absolutely rip apart' the Democratic Party.",
         "sources": [
-          { "name": "Fox News — far-left insurgents", "url": "https://www.foxnews.com/politics/meet-far-left-insurgents-waging-war-democratic-establishment-2026-midterms" },
-          { "name": "Washington Examiner — What DSA wants", "url": "https://www.washingtonexaminer.com/daily-memo/4652623/what-dsa-wants/" },
-          { "name": "Washington Examiner — 30+ socialists win", "url": "https://www.washingtonexaminer.com/news/campaigns/congressional/4624938/over-30-socialists-won-primaries-2026-elections/" },
-          { "name": "Daily Wire — socialist takeover", "url": "https://www.dailywire.com/news/panic-sets-in-dems-tailspin-as-they-realize-the-hostile-socialist-takeover-already-started" },
-          { "name": "Breitbart — socialists rip apart Dems", "url": "https://www.breitbart.com/politics/2026/07/14/gop-rep-gill-socialists-will-absolutely-rip-apart-the-democrat-party/" }
+          {
+            "name": "Fox News \u2014 far-left insurgents",
+            "url": "https://www.foxnews.com/politics/meet-far-left-insurgents-waging-war-democratic-establishment-2026-midterms"
+          },
+          {
+            "name": "Washington Examiner \u2014 What DSA wants",
+            "url": "https://www.washingtonexaminer.com/daily-memo/4652623/what-dsa-wants/"
+          },
+          {
+            "name": "Washington Examiner \u2014 30+ socialists win",
+            "url": "https://www.washingtonexaminer.com/news/campaigns/congressional/4624938/over-30-socialists-won-primaries-2026-elections/"
+          },
+          {
+            "name": "Daily Wire \u2014 socialist takeover",
+            "url": "https://www.dailywire.com/news/panic-sets-in-dems-tailspin-as-they-realize-the-hostile-socialist-takeover-already-started"
+          },
+          {
+            "name": "Breitbart \u2014 socialists rip apart Dems",
+            "url": "https://www.breitbart.com/politics/2026/07/14/gop-rep-gill-socialists-will-absolutely-rip-apart-the-democrat-party/"
+          }
         ]
       },
       "correlation": 30,
@@ -90,24 +201,48 @@
       "title": "US-Iran War: Strikes, Naval Blockade, Gulf State Attacks",
       "days_seen": 4,
       "relevance": 20,
-      "relevance_label": "Long-running — persistent story, low novelty",
+      "relevance_label": "Long-running \u2014 persistent story, low novelty",
       "summary": "The ceasefire between the US and Iran collapsed after Iran resumed attacking commercial vessels in the Strait of Hormuz. The US reimposed its naval blockade of Iranian ports and launched fresh airstrikes on Iranian military infrastructure for the fifth straight day as of July 16. Qatar and Kuwait came under Iranian missile attacks and activated air defenses. Iran struck seven commercial ships in the past week, killing or injuring a dozen crew members. Iran has declared it will not negotiate and will respond 'firmly' to all US strikes. Treasury froze $130M in crypto linked to Iran.",
       "left": {
         "framing": "Left outlets provide comprehensive factual reporting on military operations, emphasizing the humanitarian toll on commercial shipping crews and the regional spillover into Gulf states. CNN's live blogs document each strike and counter-strike chronologically. The Hill notes that Americans oppose the Iran war by a 2:1 margin. Axios frames the conflict as rewriting the economic playbook through energy price shocks.",
         "sources": [
-          { "name": "CNN — July 16 live updates", "url": "https://www.cnn.com/2026/07/16/world/live-news/iran-war-trump" },
-          { "name": "CNN — July 15 strikes", "url": "https://www.cnn.com/2026/07/15/world/live-news/iran-war-trump" },
-          { "name": "The Hill — voters forced Trump's hand on Iran", "url": "https://thehill.com/newsletters/whole-hog-politics/5941566-americans-dislike-iran-war/" },
-          { "name": "Axios — economic playbook rewritten", "url": "https://www.axios.com/2026/07/01/economy-inflation-iran-ai" }
+          {
+            "name": "CNN \u2014 July 16 live updates",
+            "url": "https://www.cnn.com/2026/07/16/world/live-news/iran-war-trump"
+          },
+          {
+            "name": "CNN \u2014 July 15 strikes",
+            "url": "https://www.cnn.com/2026/07/15/world/live-news/iran-war-trump"
+          },
+          {
+            "name": "The Hill \u2014 voters forced Trump's hand on Iran",
+            "url": "https://thehill.com/newsletters/whole-hog-politics/5941566-americans-dislike-iran-war/"
+          },
+          {
+            "name": "Axios \u2014 economic playbook rewritten",
+            "url": "https://www.axios.com/2026/07/01/economy-inflation-iran-ai"
+          }
         ]
       },
       "right": {
         "framing": "Right outlets frame US military action as a necessary and justified defense of freedom of navigation and allied interests. Fox News covers CENTCOM operations approvingly, emphasizing Iran's targeting of civilian vessels as the provocation. American Conservative takes a notably skeptical view, questioning whether the conflict serves US interests and exploring off-ramps. The Free Press similarly explores diplomatic exits.",
         "sources": [
-          { "name": "Fox News — Iran strikes resume", "url": "https://www.foxnews.com/live-news/iran-war-trump-israel-hormuz-july-14-2026" },
-          { "name": "Fox News — blockade resumes", "url": "https://www.foxnews.com/live-news/iran-war-trump-israel-hormuz-oil-july-15-2026" },
-          { "name": "American Conservative — Iran war roils UK politics", "url": "https://www.theamericanconservative.com/the-iran-war-roils-uk-politics/" },
-          { "name": "The Free Press — way out of Iran mess", "url": "https://www.thefp.com/p/platners-defiant-departure-a-way" }
+          {
+            "name": "Fox News \u2014 Iran strikes resume",
+            "url": "https://www.foxnews.com/live-news/iran-war-trump-israel-hormuz-july-14-2026"
+          },
+          {
+            "name": "Fox News \u2014 blockade resumes",
+            "url": "https://www.foxnews.com/live-news/iran-war-trump-israel-hormuz-oil-july-15-2026"
+          },
+          {
+            "name": "American Conservative \u2014 Iran war roils UK politics",
+            "url": "https://www.theamericanconservative.com/the-iran-war-roils-uk-politics/"
+          },
+          {
+            "name": "The Free Press \u2014 way out of Iran mess",
+            "url": "https://www.thefp.com/p/platners-defiant-departure-a-way"
+          }
         ]
       },
       "correlation": 52,
@@ -118,23 +253,44 @@
       "title": "Immigration Enforcement: ICE, SCOTUS, and Green Card Bonds",
       "days_seen": 4,
       "relevance": 20,
-      "relevance_label": "Long-running — persistent story, low novelty",
+      "relevance_label": "Long-running \u2014 persistent story, low novelty",
       "summary": "Immigration enforcement dominated this week on multiple fronts: SCOTUS upheld the administration's termination of Temporary Protected Status for 350,000 Haitians and 6,000 Syrians and upheld 'metering' at the border; the State Department is weighing $100,000 bonds for green card applicants; DHS expanded expedited removal nationwide; a fatal ICE enforcement incident in Maine drew condemnation from Senate candidates. VP Vance attacked Democrats on migration. A Republican senator introduced a bill to enshrine Trump's immigration policy in law.",
       "left": {
         "framing": "Left outlets focus on the human impact: Maine Senate candidates condemned a fatal ICE shooting; NBC covers the EAC firing alongside immigration news as part of a broader pattern of election and enforcement overreach. The Hill reports the green card bond proposal as a significant shift in legal immigration policy. CNN's immigration section tracks the SCOTUS rulings and their effect on hundreds of thousands of people.",
         "sources": [
-          { "name": "NBC — Maine ICE shooting and Hormuz", "url": "https://www.nbcnews.com/politics/trump-administration/live-blog/trump-iran-congress-kagan-barrett-darline-graham-ice-doj-live-updates-rcna587383" },
-          { "name": "The Hill — $100K green card bond", "url": "https://thehill.com/homenews/administration/5972769-trump-green-card-bond/" },
-          { "name": "CNN — immigration news hub", "url": "https://www.cnn.com/politics/immigration" }
+          {
+            "name": "NBC \u2014 Maine ICE shooting and Hormuz",
+            "url": "https://www.nbcnews.com/politics/trump-administration/live-blog/trump-iran-congress-kagan-barrett-darline-graham-ice-doj-live-updates-rcna587383"
+          },
+          {
+            "name": "The Hill \u2014 $100K green card bond",
+            "url": "https://thehill.com/homenews/administration/5972769-trump-green-card-bond/"
+          },
+          {
+            "name": "CNN \u2014 immigration news hub",
+            "url": "https://www.cnn.com/politics/immigration"
+          }
         ]
       },
       "right": {
         "framing": "Right outlets celebrate SCOTUS immigration victories and the expansion of enforcement tools. American Spectator frames the rulings as the courts 'finally letting America enforce its own laws.' Townhall supports the green card bond as a financial self-sufficiency check. Breitbart amplifies Vance's attack on Democratic hypocrisy on migration. Townhall covers the bill to codify Trump's immigration policy as a necessary legislative step.",
         "sources": [
-          { "name": "American Spectator — SCOTUS immigration rulings", "url": "https://spectator.org/how-the-supreme-courts-latest-rulings-are-changing-immigration/" },
-          { "name": "Townhall — legal immigration move", "url": "https://townhall.com/tipsheet/dmitri-bolt/2026/07/16/the-trump-administration-just-made-a-major-move-regarding-legal-immigration-n2679586" },
-          { "name": "Breitbart — Vance on migration", "url": "https://www.breitbart.com/economy/2026/07/16/jd-vance-democratic-left-is-full-of-sht-on-migration/" },
-          { "name": "RCP — ICE shootings podcast", "url": "https://www.realclearpolitics.com/video/2026/07/14/rcp_podcast_more_ice_shootings_mayor_pete_2028_could_iowa_be_purple_again_rubio_vs_icc.html" }
+          {
+            "name": "American Spectator \u2014 SCOTUS immigration rulings",
+            "url": "https://spectator.org/how-the-supreme-courts-latest-rulings-are-changing-immigration/"
+          },
+          {
+            "name": "Townhall \u2014 legal immigration move",
+            "url": "https://townhall.com/tipsheet/dmitri-bolt/2026/07/16/the-trump-administration-just-made-a-major-move-regarding-legal-immigration-n2679586"
+          },
+          {
+            "name": "Breitbart \u2014 Vance on migration",
+            "url": "https://www.breitbart.com/economy/2026/07/16/jd-vance-democratic-left-is-full-of-sht-on-migration/"
+          },
+          {
+            "name": "RCP \u2014 ICE shootings podcast",
+            "url": "https://www.realclearpolitics.com/video/2026/07/14/rcp_podcast_more_ice_shootings_mayor_pete_2028_could_iowa_be_purple_again_rubio_vs_icc.html"
+          }
         ]
       },
       "correlation": 22,
@@ -145,20 +301,32 @@
       "title": "Todd Blanche AG Confirmation Hearing: Epstein Files and DOJ Independence",
       "days_seen": 2,
       "relevance": 70,
-      "relevance_label": "Recurring — day 2",
+      "relevance_label": "Recurring \u2014 day 2",
       "summary": "AG nominee Todd Blanche faced a contentious Senate confirmation hearing, with Democrats pressing him on the Epstein files, DOJ independence from political influence, and whether he would pledge not to weaponize the department. Former AG John Ashcroft weighed in, arguing DOJ has a legal duty to prosecute lawbreakers regardless of political affiliation. The hearing ran concurrently with Trump's election integrity address, keeping DOJ in the news on two fronts.",
       "left": {
         "framing": "CNN and NBC covered the hearing as a stress test for DOJ independence, with Democratic senators extracting few meaningful commitments. NBC's live blog framed it alongside the election speech as two fronts of the same institutional-integrity concern. Democrats demanded Blanche pledge not to target political opponents.",
         "sources": [
-          { "name": "CNN — Blanche confirmation hearing", "url": "https://www.cnn.com/2026/07/15/politics/live-news/todd-blanche-confirmation-hearing" },
-          { "name": "NBC — Blanche Epstein questions", "url": "https://www.nbcnews.com/politics/trump-administration/live-blog/trump-blanche-doj-clayton-congress-iran-ice-2026-midterm-live-updates-rcna587566" }
+          {
+            "name": "CNN \u2014 Blanche confirmation hearing",
+            "url": "https://www.cnn.com/2026/07/15/politics/live-news/todd-blanche-confirmation-hearing"
+          },
+          {
+            "name": "NBC \u2014 Blanche Epstein questions",
+            "url": "https://www.nbcnews.com/politics/trump-administration/live-blog/trump-blanche-doj-clayton-congress-iran-ice-2026-midterm-live-updates-rcna587566"
+          }
         ]
       },
       "right": {
         "framing": "The Federalist and right outlets use Ashcroft's argument to rebut Democratic framing: DOJ's job is to prosecute lawbreakers, not protect political allies. The Federalist frames Democrat concerns as partisan projection by a party that weaponized DOJ against Trump. RCP covered Blanche as part of normal cabinet confirmation process.",
         "sources": [
-          { "name": "The Federalist — Ashcroft on DOJ duty", "url": "https://thefederalist.com/2026/07/16/former-ag-the-doj-has-a-duty-to-prosecute-the-presidents-political-enemies-if-they-broke-the-law/" },
-          { "name": "RCP — Blanche confirmation roundup", "url": "https://www.realclearpolitics.com/video/2026/07/14/rcp_podcast_more_ice_shootings_mayor_pete_2028_could_iowa_be_purple_again_rubio_vs_icc.html" }
+          {
+            "name": "The Federalist \u2014 Ashcroft on DOJ duty",
+            "url": "https://thefederalist.com/2026/07/16/former-ag-the-doj-has-a-duty-to-prosecute-the-presidents-political-enemies-if-they-broke-the-law/"
+          },
+          {
+            "name": "RCP \u2014 Blanche confirmation roundup",
+            "url": "https://www.realclearpolitics.com/video/2026/07/14/rcp_podcast_more_ice_shootings_mayor_pete_2028_could_iowa_be_purple_again_rubio_vs_icc.html"
+          }
         ]
       },
       "correlation": 20,
@@ -171,14 +339,29 @@
       "title": "June Jobs Report: 57K Added, Well Below Expectations",
       "days_seen": 4,
       "relevance": 20,
-      "relevance_label": "Long-running — persistent story, low novelty",
+      "relevance_label": "Long-running \u2014 persistent story, low novelty",
       "summary": "The US added just 57,000 jobs in June, roughly half the 115,000 economists expected. Prior months were revised down by 74,000 combined. The unemployment rate dipped to 4.2% but reflects workers leaving the labor force. Inflation sits at 4.2%, well above wage growth of 3.4%, driven partly by energy price shocks from the Iran war. The Fed faces conflicting pressures. Left outlets prominently covered the report as evidence the economy is 'steady but not strong' and that Trump's inflation promises remain unfulfilled.",
       "sources": [
-        { "name": "CNN — job growth slowed", "url": "https://www.cnn.com/2026/07/02/economy/us-jobs-report-june-final" },
-        { "name": "The Hill — 57K jobs disappoints", "url": "https://thehill.com/business/5951004-june-job-growth-disappoints/" },
-        { "name": "Axios — weaker hiring", "url": "https://www.axios.com/2026/07/02/jobs-june-trump-federal-reserve" },
-        { "name": "Axios — economic playbook rewritten", "url": "https://www.axios.com/2026/07/01/economy-inflation-iran-ai" },
-        { "name": "Daily Beast — grocery prices still high", "url": "https://www.thedailybeast.com/the-problem-trump-said-got-him-elected-is-getting-worse-on-his-watch/" }
+        {
+          "name": "CNN \u2014 job growth slowed",
+          "url": "https://www.cnn.com/2026/07/02/economy/us-jobs-report-june-final"
+        },
+        {
+          "name": "The Hill \u2014 57K jobs disappoints",
+          "url": "https://thehill.com/business/5951004-june-job-growth-disappoints/"
+        },
+        {
+          "name": "Axios \u2014 weaker hiring",
+          "url": "https://www.axios.com/2026/07/02/jobs-june-trump-federal-reserve"
+        },
+        {
+          "name": "Axios \u2014 economic playbook rewritten",
+          "url": "https://www.axios.com/2026/07/01/economy-inflation-iran-ai"
+        },
+        {
+          "name": "Daily Beast \u2014 grocery prices still high",
+          "url": "https://www.thedailybeast.com/the-problem-trump-said-got-him-elected-is-getting-worse-on-his-watch/"
+        }
       ]
     },
     {
@@ -186,11 +369,17 @@
       "title": "100+ House Democrats Vote to Block Military Aid to Israel",
       "days_seen": 2,
       "relevance": 70,
-      "relevance_label": "Recurring — day 2",
+      "relevance_label": "Recurring \u2014 day 2",
       "summary": "Over 100 House Democrats voted to block military aid to Israel, a rare and public intra-party split that NBC described as 'deepening Israel divisions.' The vote exposes growing fractures within the Democratic coalition between the progressive wing (allied with DSA and influenced by Gaza) and the party's pro-Israel establishment. The American Conservative noted that the anti-Israel position now bridges the hard left and non-interventionist right.",
       "sources": [
-        { "name": "NBC — Democrats' deepening Israel divisions", "url": "https://www.nbcnews.com/politics/politics-news/democrats-deepening-israel-divisions-politics-desk-rcna587725" },
-        { "name": "American Conservative — hard left and right have had it with Israel", "url": "https://www.theamericanconservative.com/americas-hard-left-and-right-have-had-it-with-israel/" }
+        {
+          "name": "NBC \u2014 Democrats' deepening Israel divisions",
+          "url": "https://www.nbcnews.com/politics/politics-news/democrats-deepening-israel-divisions-politics-desk-rcna587725"
+        },
+        {
+          "name": "American Conservative \u2014 hard left and right have had it with Israel",
+          "url": "https://www.theamericanconservative.com/americas-hard-left-and-right-have-had-it-with-israel/"
+        }
       ]
     },
     {
@@ -198,11 +387,17 @@
       "title": "Democrats Lead Republican Senate Candidates 3-to-1 in Fundraising",
       "days_seen": 1,
       "relevance": 100,
-      "relevance_label": "New — first appearance",
-      "summary": "Democratic candidates in the 11 most competitive Senate races raised $104 million against Republicans' $35 million in the most recent fundraising quarter — a nearly 3-to-1 cash advantage. NBC's Politics Desk reported the gap as a significant warning sign for Republicans defending a narrow Senate majority, even as structural factors and the political map favor the GOP.",
+      "relevance_label": "New \u2014 first appearance",
+      "summary": "Democratic candidates in the 11 most competitive Senate races raised $104 million against Republicans' $35 million in the most recent fundraising quarter \u2014 a nearly 3-to-1 cash advantage. NBC's Politics Desk reported the gap as a significant warning sign for Republicans defending a narrow Senate majority, even as structural factors and the political map favor the GOP.",
       "sources": [
-        { "name": "NBC — Senate fundraising takeaways", "url": "https://www.nbcnews.com/politics/politics-news/3-big-senate-fundraising-takeaways-politics-desk-rcna587905" },
-        { "name": "Daily Beast — Cook Report swings 4 races Dem", "url": "https://www.thedailybeast.com/cook-political-report-swings-4-races-in-favor-of-democrats-in-fresh-maga-red-flag/" }
+        {
+          "name": "NBC \u2014 Senate fundraising takeaways",
+          "url": "https://www.nbcnews.com/politics/politics-news/3-big-senate-fundraising-takeaways-politics-desk-rcna587905"
+        },
+        {
+          "name": "Daily Beast \u2014 Cook Report swings 4 races Dem",
+          "url": "https://www.thedailybeast.com/cook-political-report-swings-4-races-in-favor-of-democrats-in-fresh-maga-red-flag/"
+        }
       ]
     },
     {
@@ -210,12 +405,21 @@
       "title": "Graham Platner's Defiant Exit Leaves Maine Senate Race in Chaos",
       "days_seen": 5,
       "relevance": 20,
-      "relevance_label": "Long-running — persistent story, low novelty",
+      "relevance_label": "Long-running \u2014 persistent story, low novelty",
       "summary": "Graham Platner formally ended his Maine Senate campaign following sexual assault allegations he has denied, capping his exit with a profane statement. Democrats face a tight July 27 deadline to name a replacement candidate to challenge five-term Sen. Susan Collins. Slate traced how consultants selected Platner to appeal to working-class voters and how the strategy backfired. The Free Press covered his 'defiant departure.'",
       "sources": [
-        { "name": "Slate — how did we get Platner", "url": "https://slate.com/news-and-politics/2026/07/graham-platner-maine-working-class-consultants-backfired.html" },
-        { "name": "The Free Press — Platner's defiant departure", "url": "https://www.thefp.com/p/platners-defiant-departure-a-way" },
-        { "name": "The Hill — As goes Maine", "url": "https://thehill.com/newsletters/whole-hog-politics/5961630-platler-senate-candidacy-mainemaine/" }
+        {
+          "name": "Slate \u2014 how did we get Platner",
+          "url": "https://slate.com/news-and-politics/2026/07/graham-platner-maine-working-class-consultants-backfired.html"
+        },
+        {
+          "name": "The Free Press \u2014 Platner's defiant departure",
+          "url": "https://www.thefp.com/p/platners-defiant-departure-a-way"
+        },
+        {
+          "name": "The Hill \u2014 As goes Maine",
+          "url": "https://thehill.com/newsletters/whole-hog-politics/5961630-platler-senate-candidacy-mainemaine/"
+        }
       ]
     },
     {
@@ -223,10 +427,13 @@
       "title": "Sen. Ossoff: Most GOP Senators Privately Think Trump 'Has Lost It'",
       "days_seen": 1,
       "relevance": 100,
-      "relevance_label": "New — first appearance",
-      "summary": "Democratic Sen. Jon Ossoff told The Daily Beast that most Republican senators privately believe Trump 'has lost it' and fear he will drag the party down in the midterms — but none will say so publicly. The claim is unverified but provides a notable window into intra-GOP dynamics from a Democratic senator with cross-aisle relationships.",
+      "relevance_label": "New \u2014 first appearance",
+      "summary": "Democratic Sen. Jon Ossoff told The Daily Beast that most Republican senators privately believe Trump 'has lost it' and fear he will drag the party down in the midterms \u2014 but none will say so publicly. The claim is unverified but provides a notable window into intra-GOP dynamics from a Democratic senator with cross-aisle relationships.",
       "sources": [
-        { "name": "Daily Beast — Ossoff on MAGA senators", "url": "https://www.thedailybeast.com/dem-jon-ossoff-spills-what-maga-senators-really-say-about-donald-trump/" }
+        {
+          "name": "Daily Beast \u2014 Ossoff on MAGA senators",
+          "url": "https://www.thedailybeast.com/dem-jon-ossoff-spills-what-maga-senators-really-say-about-donald-trump/"
+        }
       ]
     },
     {
@@ -234,10 +441,13 @@
       "title": "Poll: Progressive Politicians Lead Favorability Rankings",
       "days_seen": 2,
       "relevance": 70,
-      "relevance_label": "Recurring — day 2",
+      "relevance_label": "Recurring \u2014 day 2",
       "summary": "A new poll reported by The New Republic shows Obama, Sanders, Mamdani, Buttigieg, Ossoff, and AOC leading national favorability among named politicians. The finding challenges the Democratic establishment's theory that moving to the center maximizes electability, suggesting instead that the progressive wing may be more popular with the broader public than party strategists assume.",
       "sources": [
-        { "name": "New Republic — politicians Americans like", "url": "https://newrepublic.com/post/212486/politicians-americans-like-obama-sanders-mamdani-democrats" }
+        {
+          "name": "New Republic \u2014 politicians Americans like",
+          "url": "https://newrepublic.com/post/212486/politicians-americans-like-obama-sanders-mamdani-democrats"
+        }
       ]
     }
   ],
@@ -247,10 +457,13 @@
       "title": "Analysis Claims Justice Jackson Is the Court's Most Partisan Member",
       "days_seen": 2,
       "relevance": 70,
-      "relevance_label": "Recurring — day 2",
+      "relevance_label": "Recurring \u2014 day 2",
       "summary": "The Federalist reported an analysis claiming Justice Ketanji Brown Jackson has the most partisan voting record of any current Supreme Court justice, framed against the backdrop of Democratic attacks on SCOTUS's conservative majority. The Federalist uses this to argue that Democratic criticism of SCOTUS partisanship is hypocritical.",
       "sources": [
-        { "name": "The Federalist — KBJ most partisan justice", "url": "https://thefederalist.com/2026/07/14/amid-democrat-attacks-on-scotus-analysis-shows-jackson-is-most-partisan-justice-by-far/" }
+        {
+          "name": "The Federalist \u2014 KBJ most partisan justice",
+          "url": "https://thefederalist.com/2026/07/14/amid-democrat-attacks-on-scotus-analysis-shows-jackson-is-most-partisan-justice-by-far/"
+        }
       ]
     },
     {
@@ -258,11 +471,17 @@
       "title": "Cornyn Warns Paxton's Baggage Could Flip Texas Senate Seat",
       "days_seen": 3,
       "relevance": 40,
-      "relevance_label": "Recurring — day 3, losing novelty",
-      "summary": "Sen. John Cornyn publicly warned that Ken Paxton's legal scandals and political baggage put the Texas Senate seat — reliably Republican for decades — at risk of flipping to Democrats. Paxton faces an August primary runoff. The warning reflects unusual intra-party candor about candidate quality risk in what should be safe Republican territory.",
+      "relevance_label": "Recurring \u2014 day 3, losing novelty",
+      "summary": "Sen. John Cornyn publicly warned that Ken Paxton's legal scandals and political baggage put the Texas Senate seat \u2014 reliably Republican for decades \u2014 at risk of flipping to Democrats. Paxton faces an August primary runoff. The warning reflects unusual intra-party candor about candidate quality risk in what should be safe Republican territory.",
       "sources": [
-        { "name": "Fox News — Cornyn warns on Paxton", "url": "https://www.foxnews.com/politics/watch-embattled-gop-senator-warns-dems-could-win-big-longtime-red-state-voters-head-polls" },
-        { "name": "Washington Examiner — SC GOP primary for Graham's seat", "url": "https://www.washingtonexaminer.com/premium/4596420/south-carolina-senate-gop-primary-replacement-nominee-lindsey-graham/" }
+        {
+          "name": "Fox News \u2014 Cornyn warns on Paxton",
+          "url": "https://www.foxnews.com/politics/watch-embattled-gop-senator-warns-dems-could-win-big-longtime-red-state-voters-head-polls"
+        },
+        {
+          "name": "Washington Examiner \u2014 SC GOP primary for Graham's seat",
+          "url": "https://www.washingtonexaminer.com/premium/4596420/south-carolina-senate-gop-primary-replacement-nominee-lindsey-graham/"
+        }
       ]
     },
     {
@@ -270,10 +489,13 @@
       "title": "House Conservatives End Floor Blockade; Johnson Wins on Voter ID",
       "days_seen": 1,
       "relevance": 100,
-      "relevance_label": "New — first appearance",
+      "relevance_label": "New \u2014 first appearance",
       "summary": "House Speaker Mike Johnson secured a key procedural victory when conservative rebels ended a weeks-long floor blockade after extracting commitments on voter ID legislation. The standoff had stalled State Department funding and veterans' benefits bills. Right outlets covered it as a Johnson win and a sign of the caucus's ability to use procedural leverage to force concessions on election-security priorities.",
       "sources": [
-        { "name": "Fox News — conservative rebels end blockade", "url": "https://www.foxnews.com/politics/johnson-scores-win-conservative-rebels-end-house-floor-blockade-over-voter-id-bill" }
+        {
+          "name": "Fox News \u2014 conservative rebels end blockade",
+          "url": "https://www.foxnews.com/politics/johnson-scores-win-conservative-rebels-end-house-floor-blockade-over-voter-id-bill"
+        }
       ]
     },
     {
@@ -281,12 +503,21 @@
       "title": "Lindsey Graham's Legacy and the South Carolina Senate Succession",
       "days_seen": 5,
       "relevance": 20,
-      "relevance_label": "Long-running — persistent story, low novelty",
+      "relevance_label": "Long-running \u2014 persistent story, low novelty",
       "summary": "Right outlets continued extensive coverage of Lindsey Graham's legacy and the political succession process in South Carolina. Gov. McMaster appointed Graham's sister Darline Graham Nordone to serve out his term. The Washington Examiner eulogized Graham as 'Churchillian.' Right media are actively covering which Republicans are positioning for the special election that will follow.",
       "sources": [
-        { "name": "Washington Examiner — Graham, Churchillian", "url": "https://www.washingtonexaminer.com/opinion/4651012/lindsey-graham-politician-churchillian/" },
-        { "name": "CNN — Darline Graham Nordone appointment", "url": "https://www.cnn.com/2026/07/13/politics/darline-graham-nordone-south-carolina-trump" },
-        { "name": "The Hill — Graham's political legacy", "url": "https://thehill.com/homenews/senate/5966333-lindsey-graham-politics-legacy/" }
+        {
+          "name": "Washington Examiner \u2014 Graham, Churchillian",
+          "url": "https://www.washingtonexaminer.com/opinion/4651012/lindsey-graham-politician-churchillian/"
+        },
+        {
+          "name": "CNN \u2014 Darline Graham Nordone appointment",
+          "url": "https://www.cnn.com/2026/07/13/politics/darline-graham-nordone-south-carolina-trump"
+        },
+        {
+          "name": "The Hill \u2014 Graham's political legacy",
+          "url": "https://thehill.com/homenews/senate/5966333-lindsey-graham-politics-legacy/"
+        }
       ]
     },
     {
@@ -294,11 +525,17 @@
       "title": "US-Iran War Strains Allied Relationships, Roils UK Politics",
       "days_seen": 2,
       "relevance": 70,
-      "relevance_label": "Recurring — day 2",
-      "summary": "The American Conservative examined how the US-Iran conflict is creating domestic political pressure in the UK, where allies face growing public opposition to supporting American strikes. American Conservative — generally skeptical of the conflict — explores whether the war serves US strategic interests and what diplomatic off-ramps might look like. This internationalist angle is prominent in right-leaning non-interventionist outlets but absent from mainstream left coverage.",
+      "relevance_label": "Recurring \u2014 day 2",
+      "summary": "The American Conservative examined how the US-Iran conflict is creating domestic political pressure in the UK, where allies face growing public opposition to supporting American strikes. American Conservative \u2014 generally skeptical of the conflict \u2014 explores whether the war serves US strategic interests and what diplomatic off-ramps might look like. This internationalist angle is prominent in right-leaning non-interventionist outlets but absent from mainstream left coverage.",
       "sources": [
-        { "name": "American Conservative — Iran war roils UK", "url": "https://www.theamericanconservative.com/the-iran-war-roils-uk-politics/" },
-        { "name": "American Conservative — hard left and right on Israel", "url": "https://www.theamericanconservative.com/americas-hard-left-and-right-have-had-it-with-israel/" }
+        {
+          "name": "American Conservative \u2014 Iran war roils UK",
+          "url": "https://www.theamericanconservative.com/the-iran-war-roils-uk-politics/"
+        },
+        {
+          "name": "American Conservative \u2014 hard left and right on Israel",
+          "url": "https://www.theamericanconservative.com/americas-hard-left-and-right-have-had-it-with-israel/"
+        }
       ]
     },
     {
@@ -306,10 +543,13 @@
       "title": "Katie Porter Announces She Is Done With Politics",
       "days_seen": 1,
       "relevance": 100,
-      "relevance_label": "New — first appearance",
-      "summary": "Former California Rep. Katie Porter, a prominent progressive voice, announced she is 'done for now with politics and campaigning' following her failed gubernatorial campaign. Right outlets covered the announcement with some schadenfreude, noting that Porter's brand of progressive populism failed to translate to a statewide general electorate — a data point in the broader debate about progressive electability.",
+      "relevance_label": "New \u2014 first appearance",
+      "summary": "Former California Rep. Katie Porter, a prominent progressive voice, announced she is 'done for now with politics and campaigning' following her failed gubernatorial campaign. Right outlets covered the announcement with some schadenfreude, noting that Porter's brand of progressive populism failed to translate to a statewide general electorate \u2014 a data point in the broader debate about progressive electability.",
       "sources": [
-        { "name": "Townhall — Katie Porter done with politics", "url": "https://townhall.com/tipsheet/amy-curtis/2026/07/16/mashed-out-katie-porter-says-shes-done-with-politics-following-failed-gubernatorial-campaign-n2679565" }
+        {
+          "name": "Townhall \u2014 Katie Porter done with politics",
+          "url": "https://townhall.com/tipsheet/amy-curtis/2026/07/16/mashed-out-katie-porter-says-shes-done-with-politics-following-failed-gubernatorial-campaign-n2679565"
+        }
       ]
     }
   ]
