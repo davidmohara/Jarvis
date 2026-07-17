@@ -1,0 +1,62 @@
+{
+  "id": "eval-20260717T142253-PQ9DPZ",
+  "agent_id": "a3212fbd6bd3d820a",
+  "type": "agent",
+  "name": "claude-code-guide",
+  "agent": "claude-code-guide",
+  "session_id": "session-2026-07-17-091548",
+  "trigger": "unknown",
+  "started": "2026-07-17T14:22:53.571465Z",
+  "completed": "2026-07-17T09:26:56.778590",
+  "duration_seconds": null,
+  "status": "aborted",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": false,
+      "all_steps_finished": null,
+      "tool_failures": 1,
+      "error_ids": [],
+      "tool_failure_log": [
+        {
+          "tool": "Read",
+          "error": "File content (25018 tokens) exceeds maximum allowed tokens (25000). Use offset and limit parameters to read specific portions of the file, or search for specific content instead of reading the whole file.",
+          "duration_ms": 381,
+          "timestamp": "2026-07-17T09:23:11.945077"
+        }
+      ],
+      "abort_reason": "session-ended"
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": []
+}

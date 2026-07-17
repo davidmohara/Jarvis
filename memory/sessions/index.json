@@ -194,7 +194,7 @@
         "name": "morning-boot",
         "loops": [
           {
-            "task": "boot-sequence — full workflow completed",
+            "task": "boot-sequence \u2014 full workflow completed",
             "resolved": true
           }
         ]
@@ -203,7 +203,7 @@
         "name": "content-pipeline-rework",
         "loops": [
           {
-            "task": "Digest input path, Ghost Admin API consolidation, fast-exit gate — Rigby built and committed",
+            "task": "Digest input path, Ghost Admin API consolidation, fast-exit gate \u2014 Rigby built and committed",
             "resolved": true
           }
         ]
@@ -212,7 +212,7 @@
         "name": "kazakhstan-deck",
         "loops": [
           {
-            "task": "13-slide Improving-branded deck built — Enterprise Shift slides, Agent Receipts, MIT NANDA, real client stories on What We've Built slide",
+            "task": "13-slide Improving-branded deck built \u2014 Enterprise Shift slides, Agent Receipts, MIT NANDA, real client stories on What We've Built slide",
             "resolved": true
           }
         ]
@@ -247,7 +247,7 @@
         "name": "content-pipeline-obsidian",
         "loops": [
           {
-            "task": "step-02 Obsidian publish integration built — rename, status:Published, published_url, article vs post routing, obsidian_slug field; step-01 content_type detection added; 5 pending Ghost drafts backfilled",
+            "task": "step-02 Obsidian publish integration built \u2014 rename, status:Published, published_url, article vs post routing, obsidian_slug field; step-01 content_type detection added; 5 pending Ghost drafts backfilled",
             "resolved": true
           }
         ]
@@ -256,7 +256,7 @@
         "name": "remarkable-fixes",
         "loops": [
           {
-            "task": "Cole Estrate — xAI.pdf renamed and moved to /Meetings; skill updated to prevent new folder creation and enforce conventions",
+            "task": "Cole Estrate \u2014 xAI.pdf renamed and moved to /Meetings; skill updated to prevent new folder creation and enforce conventions",
             "resolved": true
           }
         ]
@@ -282,7 +282,7 @@
         "name": "morning-boot",
         "loops": [
           {
-            "task": "boot-sequence — full workflow completed",
+            "task": "boot-sequence \u2014 full workflow completed",
             "resolved": true
           }
         ]
@@ -291,7 +291,7 @@
         "name": "dexa-review",
         "loops": [
           {
-            "task": "DEXA Jun 25 reviewed by Galen — 16.5% BF, -7.4 lbs lean mass, VAT -44%. tracking.json created, supplement-stack corrected.",
+            "task": "DEXA Jun 25 reviewed by Galen \u2014 16.5% BF, -7.4 lbs lean mass, VAT -44%. tracking.json created, supplement-stack corrected.",
             "resolved": true
           }
         ]
@@ -318,7 +318,7 @@
         "name": "rmapi-fix",
         "loops": [
           {
-            "task": "rmapi config repaired (corrupt JWT → re-authenticated). Working.",
+            "task": "rmapi config repaired (corrupt JWT \u2192 re-authenticated). Working.",
             "resolved": true
           }
         ]
@@ -344,7 +344,7 @@
         "name": "morning-boot",
         "loops": [
           {
-            "task": "boot-sequence — full workflow completed",
+            "task": "boot-sequence \u2014 full workflow completed",
             "resolved": true
           }
         ]
@@ -353,7 +353,7 @@
         "name": "protein-shake-protocol",
         "loops": [
           {
-            "task": "Shake logged to protocol.md — 42g protein, AM post-workout, daily",
+            "task": "Shake logged to protocol.md \u2014 42g protein, AM post-workout, daily",
             "resolved": true
           }
         ]
@@ -362,7 +362,7 @@
         "name": "peptide-stack-start",
         "loops": [
           {
-            "task": "Stack starts Jun 29 — MOTS-C/Tesamorelin/Ipamorelin logged, boot reminder cleared",
+            "task": "Stack starts Jun 29 \u2014 MOTS-C/Tesamorelin/Ipamorelin logged, boot reminder cleared",
             "resolved": true
           }
         ]
@@ -406,7 +406,7 @@
         "name": "revenue-tracker",
         "loops": [
           {
-            "task": "Revenue pulled — South Texas 74% 90-day, One Texas -11% vs target, Q2 high-risk close",
+            "task": "Revenue pulled \u2014 South Texas 74% 90-day, One Texas -11% vs target, Q2 high-risk close",
             "resolved": true
           }
         ]
@@ -415,7 +415,7 @@
         "name": "co-sell-pipeline",
         "loops": [
           {
-            "task": "Co-sell snapshot — Q2 closed with $9.4M gap, PowerBI filter issue identified, June 9 data is accurate One Texas view",
+            "task": "Co-sell snapshot \u2014 Q2 closed with $9.4M gap, PowerBI filter issue identified, June 9 data is accurate One Texas view",
             "resolved": true
           }
         ]
@@ -458,7 +458,7 @@
         "name": "morning-boot",
         "loops": [
           {
-            "task": "boot-sequence — full 7-step workflow completed, briefing delivered",
+            "task": "boot-sequence \u2014 full 7-step workflow completed, briefing delivered",
             "resolved": true
           }
         ]
@@ -467,7 +467,7 @@
         "name": "plaud-ingest",
         "loops": [
           {
-            "task": "Knox ran plaud-ingest — 3 new Jun 30 recordings found, 1 pending transcription, 2 staged. Awaiting David on 2 ambiguous speaker IDs (Systemic Compliance AI Strategy call).",
+            "task": "Knox ran plaud-ingest \u2014 3 new Jun 30 recordings found, 1 pending transcription, 2 staged. Awaiting David on 2 ambiguous speaker IDs (Systemic Compliance AI Strategy call).",
             "resolved": false
           }
         ]
@@ -501,7 +501,7 @@
         "name": "morning-briefing",
         "loops": [
           {
-            "task": "Scheduled autonomous morning briefing — David OOO (July 4th holiday, then PTO through 7/13)",
+            "task": "Scheduled autonomous morning briefing \u2014 David OOO (July 4th holiday, then PTO through 7/13)",
             "resolved": false
           }
         ]
@@ -535,7 +535,7 @@
         "name": "morning-boot",
         "loops": [
           {
-            "task": "boot-sequence — stale, closed by next-day session init",
+            "task": "boot-sequence \u2014 stale, closed by next-day session init",
             "resolved": false
           }
         ]
@@ -562,11 +562,11 @@
         "files": [],
         "loops": [
           {
-            "text": "run Rigby system-eval workflow — full eval maintenance cycle",
+            "text": "run Rigby system-eval workflow \u2014 full eval maintenance cycle",
             "resolved": true
           },
           {
-            "text": "daily-review phantom success at 36% (9/25 runs) — stale session_id root cause, Chief's scheduled runner not generating fresh context; needs fix before daily-review can be trusted",
+            "text": "daily-review phantom success at 36% (9/25 runs) \u2014 stale session_id root cause, Chief's scheduled runner not generating fresh context; needs fix before daily-review can be trusted",
             "resolved": false
           },
           {
@@ -596,7 +596,7 @@
         "name": "mike-rosa-drc-prep",
         "loops": [
           {
-            "task": "Meeting prep built for Mike Rosa/DRC — meetings/2026-07-10-mike-rosa-drc.md + Mike Rosa.pdf",
+            "task": "Meeting prep built for Mike Rosa/DRC \u2014 meetings/2026-07-10-mike-rosa-drc.md + Mike Rosa.pdf",
             "resolved": true
           }
         ],
@@ -653,7 +653,7 @@
         "name": "shutdown-cleanup",
         "loops": [
           {
-            "task": "Folder scan + session exit — ypo_members.xlsx/v2 moved to YPO/, business_os_body_slide.pptx staged in presentations/, content-pipeline state.yaml committed, session index closed.",
+            "task": "Folder scan + session exit \u2014 ypo_members.xlsx/v2 moved to YPO/, business_os_body_slide.pptx staged in presentations/, content-pipeline state.yaml committed, session index closed.",
             "resolved": true
           }
         ]
@@ -670,7 +670,7 @@
         "name": "morning-boot",
         "loops": [
           {
-            "task": "boot-sequence — stale, closed by next-day session init",
+            "task": "boot-sequence \u2014 stale, closed by next-day session init",
             "resolved": false
           }
         ]
@@ -687,7 +687,7 @@
         "name": "morning-boot",
         "loops": [
           {
-            "task": "boot-sequence — completed with 3 errors logged",
+            "task": "boot-sequence \u2014 completed with 3 errors logged",
             "resolved": true
           }
         ]
@@ -705,7 +705,7 @@
         "name": "one-texas-scorecard",
         "loops": [
           {
-            "task": "Scorecard updated through June 2026 — Dallas +4% CQ, South Texas -23%, H2 needs $42.4M",
+            "task": "Scorecard updated through June 2026 \u2014 Dallas +4% CQ, South Texas -23%, H2 needs $42.4M",
             "resolved": true
           }
         ]
@@ -714,7 +714,7 @@
         "name": "comp-tracker",
         "loops": [
           {
-            "task": "Full rerun with corrected PowerBI data — BoB $6.68M, regional -5.5% YoY, Comp 3 $0",
+            "task": "Full rerun with corrected PowerBI data \u2014 BoB $6.68M, regional -5.5% YoY, Comp 3 $0",
             "resolved": true
           }
         ]
@@ -736,6 +736,20 @@
             "resolved": true
           }
         ]
+      }
+    ]
+  },
+  {
+    "id": "session-2026-07-17-091548",
+    "date": "2026-07-17",
+    "started": "2026-07-17T09:15:48-05:00",
+    "closed": null,
+    "current_topic": "morning-boot",
+    "topics": [
+      {
+        "topic": "morning-boot",
+        "files": [],
+        "loops": []
       }
     ]
   }

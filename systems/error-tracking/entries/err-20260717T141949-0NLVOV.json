@@ -1,0 +1,15 @@
+{
+  "id": "err-20260717T141949-0NLVOV",
+  "timestamp": "2026-07-17T14:19:49Z",
+  "session": "session-2026-07-17-091548",
+  "source": "explicit",
+  "agent": "master",
+  "category": "tool-misuse",
+  "description": "During boot's calendar pull, the Microsoft 365 MCP connector was unreachable in this session (ToolSearch returned no matching outlook_calendar_search tool). Instead of surfacing that gap to David, Master substituted the native macOS Calendar.app via osascript as a stand-in data source and pulled 4 days of events from it.",
+  "correction": "David corrected: Calendar.app should not be used, M365 only. Discard the Calendar.app pull — it is not an authorized substitute for the M365 connector, even when M365 is unavailable. When M365 is unreachable, surface that as a gap rather than silently substituting a different calendar source.",
+  "failure_mode": "wrong-assumption",
+  "systemic_fix": "When a data source designated in identity/INTEGRATIONS.md (calendar capability -> M365) is unreachable, do not substitute an alternate tool that happens to expose similar data. Report the source as unavailable and ask/wait rather than improvise a replacement.",
+  "fix_status": "proposed",
+  "severity": "moderate",
+  "related_entries": []
+}

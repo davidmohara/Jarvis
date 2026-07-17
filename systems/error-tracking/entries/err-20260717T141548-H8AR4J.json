@@ -1,0 +1,15 @@
+{
+  "id": "err-20260717T141548-H8AR4J",
+  "timestamp": "2026-07-17T14:15:48Z",
+  "session": "session-2026-07-17-boot",
+  "source": "self-detected",
+  "agent": "master",
+  "category": "process-skip",
+  "description": "workflows/boot/state.yaml was left status: in-progress from a run started 2026-07-16T05:15:00-05:00, with current-step: step-07-verify-completion. But steps/step-07-verify-completion.md's own frontmatter still showed a stale completion from 2026-07-15T10:10:00 (a prior day's run) — meaning step-07 was never actually re-executed for the 07-16 run before the session ended. The state.yaml accumulated-context block was also corrupted with a duplicate nested 'accumulated-context' key containing two different phase1/phase2 snapshots (07-15 and 07-16 data mixed together).",
+  "correction": "Per literal STATE CHECK instructions, an in-progress boot should resume from current-step without re-gathering data. However this run was a full day+ stale, and other evidence (git commit history, memory/sessions/index.json showing shutdown-cleanup already completed) confirmed the prior session had already closed out normally. Treated the stale state as abandoned rather than blindly resuming with yesterday's calendar/task data — reset workflows/boot/state.yaml and started a fresh boot run for today (2026-07-17) instead.",
+  "failure_mode": "protocol-skip",
+  "systemic_fix": "Harden step-07-verify-completion so it always runs to a definitive pass/fail and finalizes state.yaml before a session can end (e.g. tie it into the shutdown-cleanup gate). Also fix whatever writes accumulated-context in state.yaml to overwrite rather than nest/duplicate the block on repeated runs — the duplicate-key corruption suggests an append-only write bug.",
+  "fix_status": "proposed",
+  "severity": "moderate",
+  "related_entries": []
+}

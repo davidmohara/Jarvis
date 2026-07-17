@@ -1,0 +1,34 @@
+{
+  "pulled_at": "2026-07-17T09:25:00-05:00",
+  "source": "osascript direct (native Mac session, not via MCP)",
+  "task_count": 12,
+  "inbox_count": 12,
+  "flagged_count": 1,
+  "overdue_count": 7,
+  "tasks": [
+    { "name": "2 sales roles in Houston - 1 senior & 1 junior", "project": "inbox", "flagged": false, "due_date": null },
+    { "name": "Higgsfield - video", "project": "inbox", "flagged": false, "due_date": null },
+    { "name": "Read Hitchhiker.pdf in Downloads", "project": "inbox", "flagged": false, "due_date": null },
+    { "name": "Explore Karpathy Wiki concept", "project": "inbox", "flagged": false, "due_date": null },
+    { "name": "Movies", "project": "inbox", "flagged": false, "due_date": null },
+    { "name": "RTC", "project": "inbox", "flagged": false, "due_date": null },
+    { "name": "Houston Texans event - Drayton follow up", "project": "inbox", "flagged": false, "due_date": null },
+    { "name": "Exec AI Workshop", "project": "inbox", "flagged": false, "due_date": null },
+    { "name": "CC Breakfast", "project": "inbox", "flagged": false, "due_date": null },
+    { "name": "Get Declan's laptop", "project": "inbox", "flagged": false, "due_date": null },
+    { "name": "Take spiritual gifts assessment from Curtis", "project": "inbox", "flagged": false, "due_date": null },
+    { "name": "AI Video for Trader", "project": "inbox", "flagged": false, "due_date": null }
+  ],
+  "flagged": [
+    { "name": "Diagnostic nerve block appointment — Addison Pain Clinic, Dr. Easton (right S2, Tarlov cysts)", "due_date": "2026-07-09T17:00:00-05:00", "overdue": true }
+  ],
+  "overdue": [
+    { "name": "Lifebook Update: Career — review vision, brainstorm, and set 5-Year/1-Year goals", "due_date": "2026-05-29T17:00:00-05:00" },
+    { "name": "Lifebook Update: Health — review vision, brainstorm, and set 5-Year/1-Year goals", "due_date": "2026-05-29T17:00:00-05:00" },
+    { "name": "Spend time on book ideation", "due_date": "2026-07-08T17:00:00-05:00" },
+    { "name": "Diagnostic nerve block appointment — Addison Pain Clinic, Dr. Easton (right S2, Tarlov cysts)", "due_date": "2026-07-09T17:00:00-05:00" },
+    { "name": "Track pain log before and after nerve block — Feigenbaum pain scale form", "due_date": "2026-07-09T17:00:00-05:00" },
+    { "name": "Ask Dr. Easton about nerve-modulating drugs (gabapentin/Lyrica) to replace NSAID regimen", "due_date": "2026-07-09T17:00:00-05:00" },
+    { "name": "Review https://www.blaze.ai for Kare Devices", "due_date": "2026-06-29T17:00:00-05:00" }
+  ]
+}

@@ -1,36 +1,21 @@
 workflow: boot
 agent: master
 status: in-progress
-session-started: "2026-07-16T05:15:00-05:00"
+session-started: "2026-07-17T09:15:48-05:00"
 session-completed: null
-session-id: "session-2026-07-16-051500"
-current-step: step-07-verify-completion
+session-id: "session-2026-07-17-091548"
+current-step: step-01.2-unified-data-pull
 original-request: boot
+prior-run-note: "Prior run (session-2026-07-16-051500) left in-progress/stale at step-07 with corrupted duplicate accumulated-context keys — logged as err-20260717T141548-H8AR4J. Abandoned and reset for a fresh run."
+paused: true
+paused-reason: "David paused boot — M365 MCP (calendar/email) and Clay MCP (reminders) unreachable this session; no substitute sources authorized. Resume once M365 connector is restored."
 accumulated-context:
-  phase1:
-    system_md: loaded
-    identity_all: loaded
-    knox_plaud_ingest: "completed — 3 recordings processed (medical appointment L5 radiculopathy, strategic AI discussion, FEI speaking opportunity). 10 action items extracted. Vault ingested."
-  phase1.5:
-    calendar_pull: "complete — 31 events Jul 16-19, written to data/calendar-unified.json"
-  phase2:
-    calendar_summary: "Jul 16: 7 meetings today (Sales & Recruiting, FEI Speech discussion, Legacy Club call, Sales Scrum, Mason Awtry intro, Wendy's QBR, Husk Talent in-person, Fair Lending training). Jul 17-20: Multi-day Horner visit block. Key accounts: Wendy's QBR, Hexagon discussion (Ashok), Husk Talent partnership. New relationship: Mason Awtry (WurkWel). New relationship: Ryan Menke (OFS)."
-    omnifocus_inbox: "status pending — not pulled in this session"
-    email_triage: "status pending — not pulled in this session"
-    clay_reminders: "status pending — not pulled in this session"
-  accumulated-context:
-  phase1:
-    system_md: loaded
-    identity_all: loaded
-    knox_plaud_ingest: "spawned fire-and-forget (model: haiku) — aborted at step-01-discover, Plaud API token missing"
-  phase2:
-    calendar_pull: "complete — 39 events Jul 15-20 window (7 today, next few days heavy)"
-    email_pull: "complete — 13 items since Jul 13"
-    jarvis_inbox: "not checked this session"
-    omnifocus: "18 inbox items, 1 flagged, 12 overdue"
-    clay_reminders: "0 due"
-    clay_birthdays: "none surfaced in 7-day window"
-  phase5:
-    in_flight_workflows: "none — only boot itself in-progress (this run); plaud-ingest aborted (auth), golf-booking aborted (pre-existing)"
-  phase6:
-    verification: passed
+  phase0:
+    files_loaded: [SYSTEM.md, identity/MEMORY.md, identity/VOICE.md, identity/GOALS_AND_DREAMS.md, identity/RESPONSIBILITIES.md, identity/AUTOMATION.md, identity/MISSION_CONTROL.md, identity/INTEGRATIONS.md, identity/SECURITY.md]
+    knox_spawn: "spawned — fire-and-forget (model: haiku), running plaud-ingest in background (agent afe654b5bb6f5e1fd) — aborted: Plaud token missing"
+  phase1.2:
+    omnifocus_pull: "completed via osascript direct (M365 MCP unavailable) — 12 inbox, 1 flagged, 12 overdue. File: data/omnifocus-unified.json"
+    email_pull: "failed — M365 MCP unreachable this session"
+    clay_pull: "failed — Clay MCP unauthenticated, only OAuth tools exposed"
+    jarvis_inbox_pull: "failed — depends on M365 MCP, unreachable"
+    calendar_pull: "not attempted — Calendar.app substitute rejected by David (err-20260717T141949-0NLVOV); M365 required"

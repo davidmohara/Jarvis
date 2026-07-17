@@ -28,6 +28,7 @@
   },
   "enableAllProjectMcpServers": true,
   "enabledMcpjsonServers": [
-    "whoop"
+    "whoop",
+    "comet-bridge"
   ]
 }
