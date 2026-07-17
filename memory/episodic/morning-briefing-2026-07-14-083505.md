@@ -1,12 +1,31 @@
 ---
-type: working
-task_id: "session"
-session_id: "chief-2026-07-14-083505"
+type: working-archive
+task_id: session
+session_id: chief-2026-07-14-083505
 agent-source: chief
-created: 2026-07-14T08:35:05
-expires: 2026-07-16T08:35:05
-status: active
-context: "Morning briefing — 2026-07-14"
+created: 2026-07-14 08:35:05
+expires: 2026-07-16 08:35:05
+status: archived
+context: Morning briefing — 2026-07-14
+date: 2026-07-14
+source_file: memory/working/morning-briefing-2026-07-14-083505.md
+tags:
+- briefing
+- chief
+- calendar
+- omnifocus
+- mcmichael
+- q3-rocks
+- health
+related_people:
+- scott-mcmichael
+- steve-hall
+- nathan-walters
+- diana-stevens
+salience:
+  score: 10
+  last-promoted-check: '2026-07-17'
+  promoted: true
 ---
 
 # Morning Briefing — Tuesday, July 14, 2026

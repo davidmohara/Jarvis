@@ -1721,3 +1721,22 @@ git_pull: success
 git_commit: success
 git_push: success
 commit_sha: bc2a523
+
+---
+## 2026-07-17T03:09:35 CDT
+session_id: dream-cycle-2026-07-17-030935
+working_archived: 3
+working_deleted: 0
+episodic_scanned: 210
+score_updates: 210
+clusters_found: 3
+semantic_created: 0
+semantic_updated: 3
+promoted_entries: 3
+entries_compressed: 0
+digests_updated: 0
+errors: 0
+summary: "Clean run, boot pull succeeded via Desktop Commander (a6e99af..133be3f, fast-forward, Chief's in-flight daily-review state.yaml stashed and restored cleanly with zero conflicts). Step-01 archived 3 expired working files (master-boot-daily 07-14, daily-review 07-14, morning-briefing 07-14) — 4 skipped not-yet-expired (including dream-summary-2026-07-16.md, whose expires date equals today rather than being strictly past), 7 unparseable (same persistent no-frontmatter cluster: 2026-07-08.md, four golf files, golf-override-07-14, sc-executive-brief-07-13). Step-02 scored all 210 episodic entries via the merge-write approach (zero parse/write errors); distribution 0:26, 1:1, 2:3, 3:1, 5:5, 7:3, 8:2, 10:169. Step-03 found exactly 3 promotion candidates — the same 3 files archived this cycle, confirming no backlog re-flags. Clustered into 3 tag-groups, each updating an existing semantic file (daily-review-pattern, morning-briefing-pattern, session-wrap-pattern) — zero new semantic files. The session-wrap entry cross-validated Rock 4's ~$12M co-sell gap from a third independent source. Error scan 30d: 123 entries across 27 categories; 10 categories crossed the 3-occurrence qualifying threshold (data-accuracy:17, tool-misuse:17, process-skip:13, assumption-error:12, missed-context:10, routing-error:9, hallucination:7, format-violation:7, data-interpretation:5, under-delivery:3) — 9 already documented and active in LESSONS.md; under-delivery crossed the threshold for the first time this cycle and was appended as a new lesson (agents taking a 'close enough' interpretation of literal instructions instead of executing them exactly). Step-04 compression skipped again — 90-day cutoff is 2026-04-18, oldest episodic entry is dated exactly 2026-04-18 (not strictly before cutoff), 0 candidates; will very likely trip tomorrow (2026-07-18) when the cutoff advances to 2026-04-19."
+git_pull: success
+git_pull_note: "git pull --rebase completed at boot via Desktop Commander, fast-forward a6e99af..133be3f (20 files). Stashed Chief's in-flight workflows/daily-review/state.yaml before pulling, restored after with zero conflicts."
+---

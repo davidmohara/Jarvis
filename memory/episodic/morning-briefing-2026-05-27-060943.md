@@ -6,7 +6,7 @@ agent-source: chief
 created: 2026-05-27 06:09:43
 expires: 2026-05-29 06:09:43
 status: archived
-context: "Morning briefing \u2014 2026-05-27"
+context: Morning briefing — 2026-05-27
 date: 2026-05-27
 source_file: memory/working/morning-briefing-2026-05-27-060943.md
 tags:
@@ -25,7 +25,7 @@ related_people:
 - curtis
 salience:
   score: 10
-  last-promoted-check: 2026-07-16
+  last-promoted-check: '2026-07-17'
   promoted: true
 ---
 # Morning Briefing — Wednesday, May 27, 2026

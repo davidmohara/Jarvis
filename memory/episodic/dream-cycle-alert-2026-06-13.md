@@ -6,8 +6,8 @@ agent-source: jarvis
 created: 2026-06-13 08:16:00+00:00
 expires: 2026-06-15
 status: archived
-context: "CRITICAL \u2014 dream cycle commit wiped origin/main. Manual recovery required\
-  \ from host Mac."
+context: CRITICAL — dream cycle commit wiped origin/main. Manual recovery required
+  from host Mac.
 date: 2026-06-13
 source_file: memory/working/dream-cycle-alert-2026-06-13.md
 tags:
@@ -25,7 +25,7 @@ related_people:
 - recovery-run
 salience:
   score: 10
-  last-promoted-check: 2026-07-16
+  last-promoted-check: '2026-07-17'
   promoted: true
 ---
 # DREAM CYCLE ALERT — 2026-06-13 — CRITICAL

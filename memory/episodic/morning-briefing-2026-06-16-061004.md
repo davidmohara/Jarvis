@@ -1,29 +1,29 @@
 ---
 type: working-archive
-task_id: "session"
-session_id: "chief-2026-06-16-061004"
+task_id: session
+session_id: chief-2026-06-16-061004
 agent-source: chief
-created: 2026-06-16T06:10:04
-expires: 2026-06-18T06:10:04
+created: 2026-06-16 06:10:04
+expires: 2026-06-18 06:10:04
 status: archived
-context: "Morning briefing — 2026-06-16"
+context: Morning briefing — 2026-06-16
 date: 2026-06-16
 source_file: memory/working/morning-briefing-2026-06-16-061004.md
 tags:
-  - morning-briefing
-  - briefing
-  - calendar
-  - omnifocus
-  - rock4
-  - rock1
-  - plaud
-  - co-sell
-  - leads
-  - 1-on-1
+- morning-briefing
+- briefing
+- calendar
+- omnifocus
+- rock4
+- rock1
+- plaud
+- co-sell
+- leads
+- 1-on-1
 related_people: []
 salience:
   score: 10
-  last-promoted-check: 2026-07-16
+  last-promoted-check: '2026-07-17'
   promoted: true
 ---
 # Morning Briefing — Tuesday, June 16, 2026

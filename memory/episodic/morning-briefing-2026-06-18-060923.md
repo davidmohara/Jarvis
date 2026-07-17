@@ -27,7 +27,7 @@ related_people:
 - derek-nwamadi
 salience:
   score: 10
-  last-promoted-check: 2026-07-16
+  last-promoted-check: '2026-07-17'
   promoted: true
 ---
 # Morning Briefing — Thursday, June 18, 2026

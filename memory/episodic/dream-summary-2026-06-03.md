@@ -5,7 +5,7 @@ agent-source: jarvis
 created: 2026-06-03 08:11:30
 expires: 2026-06-04 08:11:30
 status: archived
-context: "Dream cycle summary for Chief \u2014 2026-06-03 breakthrough run"
+context: Dream cycle summary for Chief — 2026-06-03 breakthrough run
 date: 2026-06-03
 source_file: memory/working/dream-summary-2026-06-03.md
 tags:
@@ -23,7 +23,7 @@ related_people:
 - alice-mburu
 salience:
   score: 10
-  last-promoted-check: 2026-07-16
+  last-promoted-check: '2026-07-17'
   promoted: true
 ---
 # Dream Cycle Summary — 2026-06-03

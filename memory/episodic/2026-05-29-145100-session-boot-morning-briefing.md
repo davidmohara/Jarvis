@@ -6,7 +6,7 @@ agent-source: chief
 created: 2026-05-29 14:51:00
 expires: 2026-05-31 14:51:00
 status: archived
-context: "Morning briefing (afternoon run) \u2014 2026-05-29"
+context: Morning briefing (afternoon run) — 2026-05-29
 date: 2026-05-29
 source_file: memory/working/2026-05-29-145100-session-boot-morning-briefing.md
 tags:
@@ -24,7 +24,7 @@ related_people:
 - alice-mburu
 salience:
   score: 10
-  last-promoted-check: 2026-07-16
+  last-promoted-check: '2026-07-17'
   promoted: true
 ---
 # Morning Briefing — Friday, May 29, 2026 (Afternoon Run — 2:51 PM CDT)

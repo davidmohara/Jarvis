@@ -4,25 +4,20 @@ session_id: master-2026-07-06-sc-meeting-prep
 agent-source: master
 created: 2026-07-06
 expires: 2026-07-09
-context: Systemic Compliance — July 8 whiteboard session prep
-  - caio
-  - meeting-prep
-  - sc-ims
-  - sc-orb
-  - robin-graham
-  - matt-yasar
+context: Systemic Compliance — July 8 whiteboard session prep - caio - meeting-prep
+  - sc-ims - sc-orb - robin-graham - matt-yasar
 status: archived
 type: working-archive
 date: 2026-07-06
 source_file: memory/working/2026-07-06-session-sc-meeting-prep.md
 tags:
-  - master
-  - omnifocus
-  - overdue-tasks
-related_people:
+- master
+- omnifocus
+- overdue-tasks
+related_people: null
 salience:
   score: 10
-  last-promoted-check: 2026-07-16
+  last-promoted-check: '2026-07-17'
   promoted: true
 ---
 

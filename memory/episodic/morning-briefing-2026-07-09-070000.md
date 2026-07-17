@@ -1,29 +1,29 @@
 ---
 type: working-archive
-task_id: "session"
-session_id: "chief-2026-07-09-070000"
+task_id: session
+session_id: chief-2026-07-09-070000
 agent-source: chief
-created: 2026-07-09T07:00:00
-expires: 2026-07-11T07:00:00
+created: 2026-07-09 07:00:00
+expires: 2026-07-11 07:00:00
 status: archived
-context: "Morning briefing — 2026-07-09"
+context: Morning briefing — 2026-07-09
 date: 2026-07-09
 source_file: memory/working/morning-briefing-2026-07-09-070000.md
 tags:
-  - briefing
-  - chief
-  - calendar
-  - omnifocus
-  - systemic-compliance
-  - leads
+- briefing
+- chief
+- calendar
+- omnifocus
+- systemic-compliance
+- leads
 related_people:
-  - robyn-fuentes
-  - matt-yasar
-  - ken-graham
-  - ben-kennedy
+- robyn-fuentes
+- matt-yasar
+- ken-graham
+- ben-kennedy
 salience:
   score: 10
-  last-promoted-check: 2026-07-16
+  last-promoted-check: '2026-07-17'
   promoted: true
 ---
 

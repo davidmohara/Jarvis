@@ -6,7 +6,7 @@ agent-source: chief
 created: 2026-05-26 00:00:00
 expires: 2026-05-28 00:00:00
 status: archived
-context: "Daily review \u2014 2026-05-24"
+context: Daily review — 2026-05-24
 date: 2026-05-26
 source_file: memory/working/daily-review-2026-05-26-auto.md
 tags:
@@ -22,7 +22,7 @@ tags:
 related_people: null
 salience:
   score: 10
-  last-promoted-check: 2026-07-16
+  last-promoted-check: '2026-07-17'
   promoted: true
 ---
 - Sunday May 24 was a family day: Declan's graduation party (4-5 PM CT) was the only calendar event; no work meetings.

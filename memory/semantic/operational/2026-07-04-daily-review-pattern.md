@@ -7,7 +7,7 @@ synthesized-from:
   - memory/episodic/daily-review-2026-07-02-000000.md
   - memory/episodic/dream-summary-2026-07-03.md
   - memory/episodic/shutdown-cleanup-2026-07-01-170500.md
-last-updated: 2026-07-16
+last-updated: 2026-07-17
 tags: [daily-review]
 agent-source: dream-cycle
 confidence: low
@@ -60,3 +60,9 @@ Sources this cycle:
 - `memory/episodic/daily-review-2026-07-13-060000.md` (score 10) — tags: daily-review, chief, omnifocus, overdue-tasks, quarterly-rocks — headless scheduled run; 11 completions, 12 overdue, 1 flagged (nerve block cluster), 16 inbox; critical open loops: nerve block overdue since Jul 9, Q3 rocks not yet set 13 days into Q3, Lifebook pillars 6+ weeks overdue
 
 Backlog closure holds — this is a genuinely new entry, not a re-flagged backfill, confirming the step-02 merge fix is preventing the previous drop-and-reappear cycle. The nerve block / Q3 rocks / Lifebook overdue triad continues to recur across daily-review entries; now spanning at least four cycles unresolved.
+
+### 2026-07-17 — Nightly promotion
+Sources this cycle:
+- `memory/episodic/daily-review-2026-07-14-211206.md` (score 10) — tags: daily-review, chief, omnifocus, nerve-block, q3-rocks, health — the nerve block / Tarlov cyst cluster flipped from overdue+flagged to `taskStatus: dropped` between 07-13 and 07-14, unconfirmed as intentional; two additional relationship follow-ups (Scott Sexton/Ever.ag, Josh Stevenson/Microsoft Houston AI Center) went overdue the same day from July 2 conversations with real momentum; Q3 rocks still undocumented, now carried across at least five cycles.
+
+Genuinely new entry, not a backfill — the merge-write fix continues to hold. Worth flagging as a distinct signal: this is the first cycle where an open item (nerve block) changed *state* (flagged→dropped) rather than simply persisting unresolved, and that state change itself went unconfirmed by David. Recommend surfacing this specific transition, not just the general overdue pattern, in the next review.

@@ -11,8 +11,8 @@ tags:
 - travel
 related_people: []
 salience:
-  score: 1
-  last-promoted-check: 2026-07-16
+  score: 0
+  last-promoted-check: '2026-07-17'
   promoted: true
 ---
 # Dream Cycle Summary — May 4, 2026

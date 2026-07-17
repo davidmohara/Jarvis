@@ -1,38 +1,38 @@
 ---
-task_id: "session"
-session_id: "master-2026-07-03-060938"
+task_id: session
+session_id: master-2026-07-03-060938
 agent-source: master
-created: 2026-07-03T06:09:38-05:00
-expires: 2026-07-05T06:09:38-05:00
-context: "Scheduled autonomous morning briefing — 2026-07-03"
+created: 2026-07-03 06:09:38-05:00
+expires: 2026-07-05 06:09:38-05:00
+context: Scheduled autonomous morning briefing — 2026-07-03
 type: working-archive
 status: archived
 date: 2026-07-03
 source_file: memory/working/2026-07-03-060938-master-morning-briefing.md
 tags:
-  - morning-briefing
-  - master
-  - calendar
-  - omnifocus
-  - email
-  - leads
-  - overdue-tasks
-  - plaud
-  - clay
-  - slack
+- morning-briefing
+- master
+- calendar
+- omnifocus
+- email
+- leads
+- overdue-tasks
+- plaud
+- clay
+- slack
 related_people:
-  - alice-mburu
-  - kevin-graham
-  - matt-yasar
-  - ari-jacoby
-  - kevin-baker
-  - nick-koury
-  - maha-abbey
-  - scott-belcher
-  - susie-ohara
+- alice-mburu
+- kevin-graham
+- matt-yasar
+- ari-jacoby
+- kevin-baker
+- nick-koury
+- maha-abbey
+- scott-belcher
+- susie-ohara
 salience:
   score: 10
-  last-promoted-check: 2026-07-16
+  last-promoted-check: '2026-07-17'
   promoted: true
 ---
 ## What was requested and produced

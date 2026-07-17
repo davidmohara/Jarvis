@@ -6,7 +6,7 @@ agent-source: chief
 created: 2026-05-18 06:13:44
 expires: 2026-05-20 06:13:44
 status: archived
-context: "Morning boot + briefing \u2014 2026-05-18"
+context: Morning boot + briefing — 2026-05-18
 date: 2026-05-18
 source_file: memory/working/2026-05-18-061344-session-boot-morning-briefing.md
 tags:
@@ -25,7 +25,7 @@ related_people:
 - steve-hall
 salience:
   score: 10
-  last-promoted-check: 2026-07-16
+  last-promoted-check: '2026-07-17'
   promoted: true
 ---
 # Session Working Memory — May 18, 2026

@@ -1,25 +1,25 @@
 ---
-task_id: "session"
-session_id: "chief-2026-07-09-000000"
+task_id: session
+session_id: chief-2026-07-09-000000
 agent-source: chief
-created: 2026-07-09T00:00:00
-expires: 2026-07-11T00:00:00
-context: "Shutdown cleanup — 2026-07-09"
+created: 2026-07-09 00:00:00
+expires: 2026-07-11 00:00:00
+context: Shutdown cleanup — 2026-07-09
 status: archived
 type: working-archive
 date: 2026-07-09
 source_file: memory/working/shutdown-cleanup-2026-07-09-000000.md
 tags:
-  - session-wrap
-  - chief
-  - briefing
-  - plaud
-  - dream-cycle
-  - knox
-related_people:
+- session-wrap
+- chief
+- briefing
+- plaud
+- dream-cycle
+- knox
+related_people: null
 salience:
   score: 10
-  last-promoted-check: 2026-07-16
+  last-promoted-check: '2026-07-17'
   promoted: true
 ---
 

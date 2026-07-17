@@ -1,30 +1,26 @@
 ---
 expires: 2026-07-10
-created: 2026-07-09T04:46:00
-agent-source: jarvis
-  - jarvis
-  - dream-cycle
-  - semantic-promotion
-  - error-patterns
+created: 2026-07-09 04:46:00
+agent-source: jarvis - jarvis - dream-cycle - semantic-promotion - error-patterns
 status: archived
 type: working-archive
 date: 2026-07-09
 source_file: memory/working/dream-summary-2026-07-09.md
 tags:
-  - dream-summary
-  - jarvis
-  - briefing
-  - omnifocus
-  - revenue
-  - pipeline
-  - co-sell
-  - plaud
-  - overdue-tasks
-  - semantic-promotion
-related_people:
+- dream-summary
+- jarvis
+- briefing
+- omnifocus
+- revenue
+- pipeline
+- co-sell
+- plaud
+- overdue-tasks
+- semantic-promotion
+related_people: null
 salience:
   score: 10
-  last-promoted-check: 2026-07-16
+  last-promoted-check: '2026-07-17'
   promoted: true
 ---
 # Dream Cycle Summary — 2026-07-09

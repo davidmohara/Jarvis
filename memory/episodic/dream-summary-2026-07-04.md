@@ -1,26 +1,26 @@
 ---
 expires: 2026-07-05
-created: 2026-07-04T03:16:30
+created: 2026-07-04 03:16:30
 agent-source: jarvis
 type: working-archive
 status: archived
 date: 2026-07-04
 source_file: memory/working/dream-summary-2026-07-04.md
 tags:
-  - morning-briefing
-  - jarvis
-  - dream-summary
-  - dream-cycle
-  - semantic-promotion
-  - frontmatter-repair
-  - self-correction
-  - calendar
-  - omnifocus
-  - plaud
-related_people:
+- morning-briefing
+- jarvis
+- dream-summary
+- dream-cycle
+- semantic-promotion
+- frontmatter-repair
+- self-correction
+- calendar
+- omnifocus
+- plaud
+related_people: null
 salience:
   score: 10
-  last-promoted-check: 2026-07-16
+  last-promoted-check: '2026-07-17'
   promoted: true
 ---
 # Dream Cycle Summary — 2026-07-04

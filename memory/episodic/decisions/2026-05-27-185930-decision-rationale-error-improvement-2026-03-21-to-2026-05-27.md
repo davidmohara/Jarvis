@@ -1,6 +1,6 @@
 ---
 type: decision-rationale
-subject: "Error improvement cycle \u2014 2026-03-21 to 2026-05-27"
+subject: Error improvement cycle — 2026-03-21 to 2026-05-27
 date: 2026-05-27
 tags:
 - system-improvement
@@ -15,7 +15,7 @@ related-entities:
 agent-source: rigby
 salience:
   score: 0
-  last-promoted-check: 2026-07-15
+  last-promoted-check: '2026-07-17'
 ---
 ## Error Improvement Cycle — 2026-03-21 to 2026-05-27
 

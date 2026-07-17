@@ -2,21 +2,21 @@
 type: working-archive
 expires: 2026-07-08
 status: archived
-created: 2026-07-07T03:15:25
+created: 2026-07-07 03:15:25
 agent-source: jarvis
 date: 2026-07-07
 source_file: memory/working/dream-summary-2026-07-07.md
 tags:
-  - dream-summary
-  - jarvis
-  - dream-cycle
-  - semantic-promotion
-  - lessons
-  - error-patterns
+- dream-summary
+- jarvis
+- dream-cycle
+- semantic-promotion
+- lessons
+- error-patterns
 related_people: []
 salience:
   score: 10
-  last-promoted-check: 2026-07-16
+  last-promoted-check: '2026-07-17'
   promoted: true
 ---
 # Dream Cycle Summary — 2026-07-07

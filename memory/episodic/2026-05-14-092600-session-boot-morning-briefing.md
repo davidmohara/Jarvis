@@ -6,7 +6,7 @@ agent-source: chief
 created: 2026-05-14 09:26:00
 expires: 2026-05-16 09:26:00
 status: archived
-context: "Morning boot + briefing \u2014 2026-05-14"
+context: Morning boot + briefing — 2026-05-14
 date: 2026-05-14
 source_file: memory/working/2026-05-14-092600-session-boot-morning-briefing.md
 tags:
@@ -24,7 +24,7 @@ related_people:
 - tim-rayburn
 salience:
   score: 10
-  last-promoted-check: 2026-07-16
+  last-promoted-check: '2026-07-17'
   promoted: true
 ---
 ## Boot Data Sources

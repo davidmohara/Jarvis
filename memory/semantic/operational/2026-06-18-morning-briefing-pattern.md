@@ -5,7 +5,7 @@ tags:
 - morning-briefing
 confidence: high
 created: '2026-06-18'
-last-updated: 2026-07-15
+last-updated: 2026-07-17
 synthesized-from:
   - memory/episodic/2026-05-04-morning-briefing-automated.md
   - memory/episodic/2026-05-04-morning-briefing.md
@@ -116,3 +116,9 @@ Sources this cycle (backfilled — carried over from prior cycle's evidence text
 
 ### 2026-07-15 — Nightly promotion (backfill closure, repeat)
 - Same two source files reappeared as candidates again this cycle. Re-set `promoted: true`. Root cause identified this cycle: step-02 drops the `promoted` field on every rewrite of the salience block, undoing each prior backfill the next day. See dream-summary-pattern.md 2026-07-15 entry. No new synthesis needed.
+
+### 2026-07-17 — Nightly promotion
+Sources this cycle:
+- `memory/episodic/morning-briefing-2026-07-14-083505.md` (score 10) — tags: briefing, chief, calendar, omnifocus, mcmichael, q3-rocks, health — OmniFocus MCP threw hard parameter-deserialization errors (not the known completion-status quirk) blocking inbox/overdue/flagged pulls entirely; briefing still surfaced the McMichael H1-review prep gap and flagged Q3 rocks as the single highest-leverage action available; health cluster (nerve block referral) raised as a live decision point (Dr. Walters vs. Dr. Easton) rather than a routine overdue flag.
+
+Genuinely new entry, not a backfill. This is the second distinct OmniFocus failure mode logged against the morning-briefing cluster this month (prior: known completion-status quirk; this one: schema/deserialization error) — worth tracking as its own reliability thread rather than folding into the general OmniFocus-unavailable noise.

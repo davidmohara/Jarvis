@@ -5,7 +5,7 @@ agent-source: jarvis
 created: 2026-06-12 13:25:30
 expires: 2026-06-13 13:25:30
 status: archived
-context: "Dream cycle summary \u2014 2026-06-12 (recovery run)"
+context: Dream cycle summary — 2026-06-12 (recovery run)
 type: working-archive
 date: 2026-06-12
 source_file: memory/working/dream-summary-2026-06-12.md
@@ -19,7 +19,7 @@ tags:
 related_people: null
 salience:
   score: 10
-  last-promoted-check: 2026-07-16
+  last-promoted-check: '2026-07-17'
   promoted: true
 ---
 ## Dream Cycle — June 12, 2026

@@ -1,27 +1,27 @@
 ---
 type: working-archive
-task_id: "session"
-session_id: "chase-2026-07-14-000000"
+task_id: session
+session_id: chase-2026-07-14-000000
 agent-source: chase
-created: 2026-07-14T00:00:00
-expires: 2026-07-16T00:00:00
+created: 2026-07-14 00:00:00
+expires: 2026-07-16 00:00:00
 status: archived
-context: "One Texas scorecard — 2026-07-14"
+context: One Texas scorecard — 2026-07-14
 date: 2026-07-14
 source_file: memory/working/one-texas-scorecard-2026-07-14-000000.md
 tags:
-  - scorecard
-  - one-texas
-  - revenue
-  - co-sell
-  - pipeline
-  - rock4
-  - chase
+- scorecard
+- one-texas
+- revenue
+- co-sell
+- pipeline
+- rock4
+- chase
 related_people:
-  - scott-mcmichael
+- scott-mcmichael
 salience:
   score: 10
-  last-promoted-check: 2026-07-16
+  last-promoted-check: '2026-07-17'
   promoted: true
 ---
 

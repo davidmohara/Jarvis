@@ -6,7 +6,7 @@ agent-source: jarvis
 created: 2026-06-15 08:12:00+00:00
 expires: 2026-06-16
 status: archived
-context: "Dream cycle nightly run \u2014 2026-06-15"
+context: Dream cycle nightly run — 2026-06-15
 date: 2026-06-15
 source_file: memory/working/dream-summary-2026-06-15.md
 tags:
@@ -22,7 +22,7 @@ tags:
 related_people: null
 salience:
   score: 10
-  last-promoted-check: 2026-07-16
+  last-promoted-check: '2026-07-17'
   promoted: true
 ---
 # Dream Cycle Summary — 2026-06-15

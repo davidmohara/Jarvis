@@ -383,3 +383,10 @@ Marker: data-accuracy/sloppy-read
 Fix: Investigate root cause; codify a check that prevents this failure mode.
 Status: active
 
+## 2026-07-17 — Under-Delivery Pattern
+Detected: 3 occurrences over 30 days (window 2026-06-17 to 2026-07-17)
+Category: under-delivery
+Pattern: Instructions get a "close enough" interpretation instead of literal, complete execution. Examples: asked to remove a byline containing personal information but anonymized it instead of deleting it; checked Plaud only for today's date and declared nothing pending, missing a recording from the prior day; paraphrased condensed bullet summaries instead of copying the actual source slide content verbatim for a QBR deck.
+Fix: When an instruction specifies an action (remove, copy verbatim, check a range), execute that literal action rather than a substitute that seems functionally similar. For time-bounded checks (Plaud, inbox), default to a window wide enough to catch spillover from the prior period rather than the single named date. When source content exists verbatim, reuse it directly instead of re-summarizing.
+Status: active
+

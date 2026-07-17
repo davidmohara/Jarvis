@@ -1,24 +1,16 @@
 ---
-type: working
-expires: 2026-07-07
-status: active
-created: 2026-07-06T03:16:07
-agent-source: jarvis
-tags:
-  - dream-summary
-  - jarvis
-  - dream-cycle
-  - semantic-promotion
-  - self-correction
-status: archived
 type: working-archive
+expires: 2026-07-07
+status: archived
+created: 2026-07-06 03:16:07
+agent-source: jarvis
+tags: []
 date: 2026-07-07
 source_file: /Users/davidohara/develop/jarvis/memory/working/dream-summary-2026-07-06.md
-tags: []
 related_people: []
 salience:
-  score: 10
-  last-promoted-check: 2026-07-16
+  score: 0
+  last-promoted-check: '2026-07-17'
   promoted: true
 ---
 

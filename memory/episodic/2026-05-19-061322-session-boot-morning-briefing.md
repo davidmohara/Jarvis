@@ -6,7 +6,7 @@ agent-source: chief
 created: 2026-05-19 06:13:22
 expires: 2026-05-21 06:13:22
 status: archived
-context: "Morning boot + briefing \u2014 2026-05-19 (automated scheduled run)"
+context: Morning boot + briefing — 2026-05-19 (automated scheduled run)
 date: 2026-05-19
 source_file: memory/working/2026-05-19-061322-session-boot-morning-briefing.md
 tags:
@@ -27,7 +27,7 @@ related_people:
 - curtis
 salience:
   score: 10
-  last-promoted-check: 2026-07-16
+  last-promoted-check: '2026-07-17'
   promoted: true
 ---
 # Morning Briefing Session — May 19, 2026

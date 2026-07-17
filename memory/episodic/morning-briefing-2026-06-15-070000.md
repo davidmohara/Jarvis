@@ -6,7 +6,7 @@ agent-source: chief
 created: 2026-06-15 07:00:00
 expires: 2026-06-17 07:00:00
 status: archived
-context: "Morning briefing \u2014 2026-06-15"
+context: Morning briefing — 2026-06-15
 date: 2026-06-15
 source_file: memory/working/morning-briefing-2026-06-15-070000.md
 tags:
@@ -23,7 +23,7 @@ tags:
 related_people: null
 salience:
   score: 10
-  last-promoted-check: 2026-07-16
+  last-promoted-check: '2026-07-17'
   promoted: true
 ---
 # Morning Briefing — Monday, June 15, 2026

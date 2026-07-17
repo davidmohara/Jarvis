@@ -6,7 +6,7 @@ agent-source: chief
 created: 2026-05-12 06:12:41
 expires: 2026-05-14 06:12:41
 status: archived
-context: "Morning boot + briefing \u2014 2026-05-12 (automated scheduled run)"
+context: Morning boot + briefing — 2026-05-12 (automated scheduled run)
 date: 2026-05-12
 source_file: memory/working/2026-05-12-061241-session-boot-morning-briefing.md
 tags:
@@ -24,7 +24,7 @@ related_people:
 - devlin
 salience:
   score: 10
-  last-promoted-check: 2026-07-16
+  last-promoted-check: '2026-07-17'
   promoted: true
 ---
 # Morning Boot — Tuesday, May 12, 2026

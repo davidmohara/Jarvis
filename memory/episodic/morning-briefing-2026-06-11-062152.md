@@ -5,7 +5,7 @@ agent-source: chief
 created: 2026-06-11 06:21:52
 expires: 2026-06-13 06:21:52
 status: archived
-context: "Morning boot + briefing \u2014 2026-06-11"
+context: Morning boot + briefing — 2026-06-11
 type: working-archive
 date: 2026-06-11
 source_file: memory/working/morning-briefing-2026-06-11-062152.md
@@ -23,7 +23,7 @@ tags:
 related_people: null
 salience:
   score: 10
-  last-promoted-check: 2026-07-16
+  last-promoted-check: '2026-07-17'
   promoted: true
 ---
 ## Data Sources

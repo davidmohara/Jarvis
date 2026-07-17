@@ -1,12 +1,33 @@
 ---
-type: working
+type: working-archive
 task_id: session
 session_id: master-2026-07-14-090000
 agent-source: master
-created: 2026-07-14T18:07:00-05:00
-expires: 2026-07-16T18:07:00-05:00
-status: active
-context: "Boot + full day wrap — July 14, 2026"
+created: 2026-07-14 18:07:00-05:00
+expires: 2026-07-16 18:07:00-05:00
+status: archived
+context: Boot + full day wrap — July 14, 2026
+date: 2026-07-14
+source_file: memory/working/2026-07-14-180707-master-boot-daily.md
+tags:
+- session-wrap
+- master
+- plaud
+- omnifocus
+- one-texas
+- comp-tracker
+- rock4
+- just-capital
+related_people:
+- scott-mcmichael
+- steve-hall
+- kapil-dabi
+- stephen-johnson
+- devlin
+salience:
+  score: 10
+  last-promoted-check: '2026-07-17'
+  promoted: true
 ---
 
 ## What Was Done

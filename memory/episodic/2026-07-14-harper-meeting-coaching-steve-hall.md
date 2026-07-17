@@ -1,21 +1,25 @@
 ---
 agent: harper
 type: meeting-coaching-review
-subject: "Coffee with Steve Hall, Automotive AI and Just Capital"
+subject: Coffee with Steve Hall, Automotive AI and Just Capital
 date: 2026-07-14
-source_file: "steve-hall-full-transcript-sorted.md (complete 45:52 recording, 160 segments, reconstructed via Claude-in-Chrome from web.plaud.ai after vault note was found to hold only curated excerpts)"
-supersedes: "earlier same-day version of this file, which was based on the Obsidian vault note's ~15-minute curated excerpt, not the full meeting"
+source_file: steve-hall-full-transcript-sorted.md (complete 45:52 recording, 160 segments,
+  reconstructed via Claude-in-Chrome from web.plaud.ai after vault note was found
+  to hold only curated excerpts)
+supersedes: earlier same-day version of this file, which was based on the Obsidian
+  vault note's ~15-minute curated excerpt, not the full meeting
 context:
-  intent: "personal catch-up + business development, dual purpose"
-  role: "executive sponsor / active seller / sounding board, all three"
+  intent: personal catch-up + business development, dual purpose
+  role: executive sponsor / active seller / sounding board, all three
 tags:
-  - meeting-coaching
-  - harper
-  - steve-hall
-related_people: ["Steve Hall"]
+- meeting-coaching
+- harper
+- steve-hall
+related_people:
+- Steve Hall
 salience:
   score: 0
-  last-promoted-check: 2026-07-16
+  last-promoted-check: '2026-07-17'
 ---
 # Meeting Coaching Review — Coffee with Steve Hall (2026-07-14)
 

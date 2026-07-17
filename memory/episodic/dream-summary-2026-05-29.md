@@ -5,7 +5,7 @@ agent-source: jarvis
 created: 2026-05-29 03:14:00
 expires: 2026-05-30 03:14:00
 status: archived
-context: "Dream cycle summary \u2014 2026-05-29 \u2014 for Chief's morning briefing"
+context: Dream cycle summary — 2026-05-29 — for Chief's morning briefing
 date: 2026-05-29
 source_file: memory/working/dream-summary-2026-05-29.md
 tags:
@@ -22,7 +22,7 @@ tags:
 related_people: null
 salience:
   score: 10
-  last-promoted-check: 2026-07-16
+  last-promoted-check: '2026-07-17'
   promoted: true
 ---
 # Dream Cycle Summary — 2026-05-29

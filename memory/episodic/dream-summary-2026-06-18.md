@@ -6,17 +6,17 @@ status: archived
 type: working-archive
 source_file: memory/working/dream-summary-2026-06-18.md
 tags:
-  - dream-summary
-  - jarvis
-  - memory-pipeline
-  - pipeline
-  - co-sell
-  - one-texas
-related_people:
+- dream-summary
+- jarvis
+- memory-pipeline
+- pipeline
+- co-sell
+- one-texas
+related_people: null
 date: 2026-06-18
 salience:
   score: 10
-  last-promoted-check: 2026-07-16
+  last-promoted-check: '2026-07-17'
   promoted: true
 ---
 # Dream Cycle Summary — 2026-06-18

@@ -1,31 +1,31 @@
 ---
-task_id: "session"
-session_id: "chief-2026-07-08-061500"
+task_id: session
+session_id: chief-2026-07-08-061500
 agent-source: chief
-created: 2026-07-08T06:15:00
-expires: 2026-07-10T06:15:00
-context: "Morning briefing — 2026-07-08 (scheduled task run)"
+created: 2026-07-08 06:15:00
+expires: 2026-07-10 06:15:00
+context: Morning briefing — 2026-07-08 (scheduled task run)
 status: archived
 type: working-archive
 date: 2026-07-08
 source_file: memory/working/morning-briefing-2026-07-08-061500.md
 tags:
-  - briefing
-  - chief
-  - morning-briefing
-  - calendar
-  - omnifocus
-  - leads
-  - travel
-  - flight
-  - rock4
-  - quarterly-rocks
+- briefing
+- chief
+- morning-briefing
+- calendar
+- omnifocus
+- leads
+- travel
+- flight
+- rock4
+- quarterly-rocks
 related_people:
-  - alice-mburu
-  - devlin
+- alice-mburu
+- devlin
 salience:
   score: 10
-  last-promoted-check: 2026-07-16
+  last-promoted-check: '2026-07-17'
   promoted: true
 ---
 

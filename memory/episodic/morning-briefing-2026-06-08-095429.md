@@ -6,8 +6,8 @@ agent-source: chief
 created: 2026-06-08 09:54:29
 expires: 2026-06-10 09:54:29
 status: archived
-context: "Morning boot + briefing \u2014 2026-06-08 (return from UK/Jason & Amber\
-  \ wedding trip)"
+context: Morning boot + briefing — 2026-06-08 (return from UK/Jason & Amber wedding
+  trip)
 tags:
 - briefing
 - morning-briefing
@@ -24,7 +24,7 @@ date: 2026-06-08
 source_file: memory/working/morning-briefing-2026-06-08-095429.md
 salience:
   score: 10
-  last-promoted-check: 2026-07-16
+  last-promoted-check: '2026-07-17'
   promoted: true
 ---
 ## Boot Summary — Monday June 8, 2026 — 9:54 AM CDT

@@ -1,36 +1,36 @@
 ---
 type: working-archive
-task_id: "session"
-session_id: "chief-2026-07-07-061200"
+task_id: session
+session_id: chief-2026-07-07-061200
 agent-source: chief
-created: 2026-07-07T06:12:00
-expires: 2026-07-09T06:12:00
+created: 2026-07-07 06:12:00
+expires: 2026-07-09 06:12:00
 status: archived
-context: "Morning briefing — 2026-07-07 (autonomous/scheduled run, Master not present)"
+context: Morning briefing — 2026-07-07 (autonomous/scheduled run, Master not present)
 date: 2026-07-07
 source_file: memory/working/morning-briefing-2026-07-07-061200.md
 tags:
-  - briefing
-  - chief
-  - calendar
-  - omnifocus
-  - sales
-  - systemic-compliance
-  - jpmc
-  - drc
-  - nexben
+- briefing
+- chief
+- calendar
+- omnifocus
+- sales
+- systemic-compliance
+- jpmc
+- drc
+- nexben
 related_people:
-  - bethany-hilton
-  - devlin-lyles
-  - nahid-giga
-  - drew-cain
-  - tim-rayburn
-  - alice-mburu
-  - matt-yasar
-  - nick-koury
+- bethany-hilton
+- devlin-lyles
+- nahid-giga
+- drew-cain
+- tim-rayburn
+- alice-mburu
+- matt-yasar
+- nick-koury
 salience:
   score: 10
-  last-promoted-check: 2026-07-16
+  last-promoted-check: '2026-07-17'
   promoted: true
 ---
 

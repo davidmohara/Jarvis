@@ -1,25 +1,25 @@
 ---
 type: working-archive
-task_id: "dream-cycle"
-session_id: "dream-cycle-2026-06-17-080844"
+task_id: dream-cycle
+session_id: dream-cycle-2026-06-17-080844
 agent-source: jarvis
-created: 2026-06-17T08:09:00Z
+created: 2026-06-17 08:09:00+00:00
 expires: 2026-06-18
 status: archived
-context: "Dream cycle nightly run — 2026-06-17"
+context: Dream cycle nightly run — 2026-06-17
 date: 2026-06-17
 source_file: memory/working/dream-summary-2026-06-17.md
 tags:
-  - dream-summary
-  - session-wrap
-  - calendar
-  - plaud
-  - dream-cycle
-  - jarvis
+- dream-summary
+- session-wrap
+- calendar
+- plaud
+- dream-cycle
+- jarvis
 related_people: []
 salience:
   score: 10
-  last-promoted-check: 2026-07-16
+  last-promoted-check: '2026-07-17'
   promoted: true
 ---
 # Dream Cycle Summary — 2026-06-17
