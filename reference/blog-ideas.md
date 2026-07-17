@@ -41,6 +41,7 @@ Running list of potential blog topics. Jarvis captures these proactively from co
 | "Texas Said Yes to AI. Now It's Writing the Rules." | Content pipeline (2026-07-14) | AI, business, technology, infrastructure | Ghost draft — pending approval |
 | "The Stack You Chose Last Year Just Became the Right Answer" | Content pipeline (2026-07-14) | AI, business, technology, consulting | Ghost draft — pending approval |
 | "Mississippi Didn't Get Lucky" | Content pipeline (2026-07-15) | growth, leadership, thinking | Ghost draft — pending approval |
+| "The Corrections Are the Leak" | Content pipeline (2026-07-17) | AI, business, systems thinking | Ghost draft — pending approval |
 
 ## Published (for reference / avoid repeats)
 
