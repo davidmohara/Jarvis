@@ -1,13 +1,12 @@
 ---
 status: complete
-started-at: 2026-07-17T20:03:47Z
-completed-at: 2026-07-17T20:03:47Z
+started-at: 2026-07-18T06:07:00Z
+completed-at: 2026-07-18T06:07:57Z
 outputs:
-  drafts_checked: 5
-  actions_taken: 0
-  published: 0
-  rejected: 0
-  regenerated: 0
-  outcome: "SUCCESS: All 5 pending drafts checked. Thread 1784027607 (Pyramid, Paying, Texas, Stack): no approval signal. Thread 1784286691 (Corrections): no approval signal. All 5 remain pending."
+  messages_scanned: 1
+  urls_found: 0
+  digests_found: 0
+  drafts_created: 0
+  outcome: "SUCCESS: No new URLs or digests in last 24 hours. Bot message skipped (operational noise). Slack notification posted to #content."
   pending_drafts: 5
-model: haiku
+model: sonnet
