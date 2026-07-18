@@ -50,10 +50,10 @@
       "assertion_results": []
     },
     "grading": {
-      "last_graded": null,
-      "grade": null,
+      "last_graded": "2026-07-18T04:09:41Z",
+      "grade": "B",
       "safety_grade": null,
-      "grader_notes": null
+      "grader_notes": "Real Jul 11 system-eval run. All 6 steps recorded as complete in steps array. Produced analysis report (analysis-20260711T041500.md confirmed in state.yaml) and dashboard. Structural block shows 0 assertions_checked on its own record \u2014 eval harness does not self-assert mid-run. Graded B rather than A because the spurious record (8DNQT4) created by session_id mismatch is a process defect from this same run, and no working memory entry was confirmed. To earn A: verify working memory write and eliminate session_id mismatch on close."
     },
     "controller_feedback": {
       "rating": null,

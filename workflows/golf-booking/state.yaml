@@ -1,11 +1,11 @@
 workflow: golf-booking
 agent: sterling
-status: aborted
-session-started: 2026-07-17T00:00:00Z
-session-id: scheduled-execution-2026-07-17
-current-step: credential-retrieval-failed
-execution-run: 2026-07-17T00:00:00Z
-abort-reason: 1password-cli-unavailable-on-automation-host
+status: complete
+session-started: 2026-07-18T00:00:00Z
+session-id: scheduled-execution-2026-07-18
+current-step: booking-complete-verified-and-notified
+execution-run: 2026-07-18T00:00:17Z
+completion-summary: Successfully booked Sunday July 26 at 12:51 PM (9 minutes before preferred 1:00 PM)
 original-request: Execute golf booking skill step by step for web change verification; update skill as needed for reliable unattended execution
 accumulated-context:
   verified_steps:

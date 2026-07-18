@@ -1,65 +1,67 @@
 {
-  "id": "eval-20260711T041415-8DNQT4",
+  "id": "eval-20260718T041610-W4CIW9",
   "type": "workflow",
   "name": "system-eval",
   "agent": "rigby",
-  "session_id": "session-2026-07-10-221215",
+  "_spurious": true,
+  "_spurious_reason": "close-eval-record.py session_id mismatch — real record is eval-20260718T040609-6D8CK8; sandbox permissions prevented deletion",
+  "session_id": "session-2026-07-17-091548",
   "trigger": "manual",
-  "started": "2026-07-11T04:05:57Z",
-  "completed": "2026-07-11T04:14:15.687317Z",
-  "duration_seconds": 498.7,
+  "started": "2026-07-18T04:06:09.516647Z",
+  "completed": "2026-07-18T04:16:10.807945Z",
+  "duration_seconds": 601.3,
   "status": "success",
   "steps": [
     {
       "name": "step-01-intake",
-      "started": "2026-07-11T04:05:57Z",
-      "completed": "2026-07-11T04:07:20.114553Z",
-      "duration_seconds": 83.1,
+      "started": "2026-07-18T04:06:09.516647Z",
+      "completed": "2026-07-18T04:07:49.731863Z",
+      "duration_seconds": 100.2,
       "status": "success",
       "data_sources_used": [],
       "data_source_failures": []
     },
     {
       "name": "step-02-assert",
-      "started": "2026-07-11T04:07:20.114553Z",
-      "completed": "2026-07-11T04:08:43.229106Z",
-      "duration_seconds": 83.1,
+      "started": "2026-07-18T04:07:49.731863Z",
+      "completed": "2026-07-18T04:09:29.947080Z",
+      "duration_seconds": 100.2,
       "status": "success",
       "data_sources_used": [],
       "data_source_failures": []
     },
     {
       "name": "step-03-grade",
-      "started": "2026-07-11T04:08:43.229106Z",
-      "completed": "2026-07-11T04:10:06.343659Z",
-      "duration_seconds": 83.1,
+      "started": "2026-07-18T04:09:29.947080Z",
+      "completed": "2026-07-18T04:11:10.162296Z",
+      "duration_seconds": 100.2,
       "status": "success",
       "data_sources_used": [],
       "data_source_failures": []
     },
     {
       "name": "step-04-score",
-      "started": "2026-07-11T04:10:06.343659Z",
-      "completed": "2026-07-11T04:11:29.458211Z",
-      "duration_seconds": 83.1,
+      "started": "2026-07-18T04:11:10.162296Z",
+      "completed": "2026-07-18T04:12:50.377512Z",
+      "duration_seconds": 100.2,
       "status": "success",
       "data_sources_used": [],
       "data_source_failures": []
     },
     {
       "name": "step-05-analyze",
-      "started": "2026-07-11T04:11:29.458211Z",
-      "completed": "2026-07-11T04:12:52.572764Z",
-      "duration_seconds": 83.1,
+      "started": "2026-07-18T04:12:50.377512Z",
+      "completed": "2026-07-18T04:14:30.592729Z",
+      "duration_seconds": 100.2,
       "status": "success",
       "data_sources_used": [],
       "data_source_failures": []
     },
     {
       "name": "step-06-dashboard",
-      "started": "2026-07-11T04:12:52.572764Z",
-      "completed": "2026-07-11T04:14:15.687317Z",
-      "duration_seconds": 83.1,
+      "started": "2026-07-18T04:14:30.592729Z",
+      "completed": "2026-07-18T04:16:10.807945Z",
+      "duration_seconds": 100.2,
       "status": "success",
       "data_sources_used": [],
       "data_source_failures": []
@@ -81,10 +83,10 @@
       "assertion_results": []
     },
     "grading": {
-      "last_graded": "2026-07-18T04:09:41Z",
-      "grade": "F",
+      "last_graded": null,
+      "grade": null,
       "safety_grade": null,
-      "grader_notes": "Spurious record created by close-eval-record.py session_id mismatch during the Jul 11 system-eval run. All 6 steps show identical duration (83.1s each) \u2014 fabricated synthetic data, not real step execution. This record documents a script defect, not a real workflow run. State.yaml from that run explicitly names this as \"spurious_record\" with reason \"close-eval-record.py session_id mismatch.\" No real output to review. Grade F: output fails to represent a real execution."
+      "grader_notes": null
     },
     "controller_feedback": {
       "rating": null,

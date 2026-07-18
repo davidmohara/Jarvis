@@ -1,26 +1,31 @@
 workflow: system-eval
 agent: rigby
 status: complete
-session-started: "2026-07-11T04:05:57Z"
-session-id: rigby-2026-07-11-040557
-eval-record-id: eval-20260711T040557-U2IIEZ
+session-started: "2026-07-18T04:06:09Z"
+session-id: rigby-2026-07-18-040609
+eval-record-id: eval-20260718T040609-6D8CK8
 current-step: null
-original-request: "manual system-eval run 2026-07-11"
+original-request: "manual system-eval run 2026-07-18"
 accumulated-context:
-  records_total: 54
-  records_skipped_in_progress: 0
+  records_total: 63
+  records_skipped_in_progress: 1
   needs_assertions:
-    - eval-20260708T203623-VUBDSE
-    - eval-20260708T204409-VFJBTD
-    - eval-20260709T021252-HHX7I9
-    - eval-20260710T140505-6TTTHK
-    - eval-20260711T021151-T7AGFP
+    - eval-20260714T021310-LJKKIQ
+    - eval-20260715T021228-FA34YW
+    - eval-20260717T021226-JC2Y4F
+    - eval-20260718T021141-QZAG77
+    - eval-chief-daily-review-2026-07-15-060000
   needs_grade:
-    - eval-20260708T203623-VUBDSE
-    - eval-20260709T021252-HHX7I9
-    - eval-20260710T140505-6TTTHK
-    - eval-20260711T021151-T7AGFP
-  records_complete: 45
+    - eval-20260711T040557-U2IIEZ
+    - eval-20260711T041415-8DNQT4
+    - eval-20260714T021310-LJKKIQ
+    - eval-20260715T021228-FA34YW
+    - eval-20260717T021226-JC2Y4F
+    - eval-20260717T141642-SSSC8G
+    - eval-20260717T142253-PQ9DPZ
+    - eval-20260718T021141-QZAG77
+    - eval-chief-daily-review-2026-07-15-060000
+  records_complete: 54
   assertion_files_available:
     - system-eval
     - daily-review
@@ -33,46 +38,43 @@ accumulated-context:
     - plaud-discover
     - plaud-speaker-id
     - plaud-trigger
+    - remarkable-upload
+    - partner-meeting-prep
   grading:
-    total_graded: 4
+    total_graded: 9
     grade_distribution:
-      A: 2
-      B: 0
-      C: 0
+      A: 0
+      B: 3
+      C: 2
       D: 0
-      F: 2
+      F: 4
     no_output_found:
-      - eval-20260709T021252-HHX7I9
-      - eval-20260711T021151-T7AGFP
+      - eval-20260717T141642-SSSC8G
+      - eval-20260717T142253-PQ9DPZ
+      - eval-20260718T021141-QZAG77
   assertions_run:
     total_records_asserted: 5
-    total_assertions_evaluated: 42
-    total_assertions_passed: 26
-    records_fully_passing: 2
-    records_with_failures: 3
+    total_assertions_evaluated: 40
+    total_assertions_passed: 28
+    records_fully_passing: 1
+    records_with_failures: 4
     no_assertion_definition: []
   step_timings:
     - step: step-01-intake
-      started: "2026-07-11T04:05:57Z"
-      completed: "2026-07-11T04:07:00Z"
+      started: "2026-07-18T04:06:09Z"
+      completed: "2026-07-18T04:08:00Z"
     - step: step-02-assert
-      started: "2026-07-11T04:07:00Z"
-      completed: "2026-07-11T04:09:00Z"
+      started: "2026-07-18T04:08:00Z"
+      completed: "2026-07-18T04:12:00Z"
     - step: step-03-grade
-      started: "2026-07-11T04:09:00Z"
-      completed: "2026-07-11T04:12:00Z"
+      started: "2026-07-18T04:12:00Z"
+      completed: "2026-07-18T04:18:00Z"
     - step: step-04-score
-      started: "2026-07-11T04:12:00Z"
-      completed: "2026-07-11T04:14:00Z"
-    - step: step-05-analyze
-      started: "2026-07-11T04:14:00Z"
-      completed: "2026-07-11T04:17:00Z"
-    - step: step-06-dashboard
-      started: "2026-07-11T04:17:00Z"
-      completed: "2026-07-11T04:18:30Z"
+      started: "2026-07-18T04:18:00Z"
+      completed: "2026-07-18T04:22:00Z"
   scoring:
-    records_scored: 54
-    batch_average: 0.7249
+    records_scored: 63
+    batch_average: 0.7111
     score_script_error: null
     score_by_id:
       eval-20260524T194258-HBF752: 0.5765
@@ -129,11 +131,27 @@ accumulated-context:
       eval-20260709T021252-HHX7I9: 0.5083
       eval-20260710T140505-6TTTHK: 1.0
       eval-20260711T021151-T7AGFP: 0.5083
+      eval-20260711T040557-U2IIEZ: 0.7933
+      eval-20260711T041415-8DNQT4: 0.6333
+      eval-20260714T021310-LJKKIQ: 0.7017
+      eval-20260715T021228-FA34YW: 0.8783
+      eval-20260717T021226-JC2Y4F: 0.7933
+      eval-20260717T141642-SSSC8G: 0.3
+      eval-20260717T142253-PQ9DPZ: 0.1667
+      eval-20260718T021141-QZAG77: 0.5083
+      eval-chief-daily-review-2026-07-15-060000: 0.8783
   analysis:
-    report_path: systems/eval-harness/grading/analysis-20260711T041500.md
-    top_recommendation: "Fix the daily-review scheduled runner session context — phantom success pattern tied to 02:xx UTC scheduled runs resumed on Jul 11 after Jul 10 clean interactive run, confirming session_id not refreshing between scheduled invocations"
+    report_path: systems/eval-harness/grading/analysis-20260718T042200.md
+    top_recommendation: "Fix daily-review scheduled runner phantom output — 11 runs claim success with no review file written for the run date; add output-file-existence check before closing status as success"
     patterns_count: 7
     recommendations_count: 7
+    - step: step-05-analyze
+      started: "2026-07-18T04:22:00Z"
+      completed: "2026-07-18T04:28:00Z"
+    - step: step-06-dashboard
+      started: "2026-07-18T04:28:00Z"
+      completed: "2026-07-18T04:31:00Z"
+  dashboard_artifact_updated: true
+  spurious_record: eval-20260718T041610-W4CIW9
+  spurious_record_reason: "close-eval-record.py session_id mismatch — real record is eval-20260718T040609-6D8CK8; sandbox permissions prevented deletion (rm failed with PermissionError)"
   feedback_prompt: skipped (headless)
-  spurious_record: eval-20260711T041415-8DNQT4
-  spurious_record_reason: close-eval-record.py session_id mismatch — real record is eval-20260711T040557-U2IIEZ; sandbox permissions prevented deletion of spurious record (rm failed with PermissionError in workspace)

@@ -1,11 +1,26 @@
 {
   "skill": "golf-booking",
-  "agent": "sterling",
+  "agent": "chief",
   "trigger": "scheduled",
-  "started": "2026-07-11T00:00:00Z",
-  "completed": "2026-07-11T00:00:15Z",
+  "started": "2026-07-18T00:00:17Z",
+  "completed": "2026-07-18T00:06:00Z",
   "status": "success",
   "tool_failures": 0,
   "error_ids": [],
-  "notes": "Scheduled booking execution at midnight. All weekend dates (Jul 17-19) blocked by Horner visit. No available slots. Slack notification sent to #jarvis. Workflow aborted per protocol."
+  "booking_details": {
+    "booking_number": "5D5K-8O1O",
+    "date": "2026-07-26",
+    "time": "12:51 PM",
+    "course": "Frisco Lakes Golf Club",
+    "holes": 18,
+    "cost": 214.34,
+    "players": ["David O'Hara", "Susie O'Hara (41 - Frisco Lakes Total Member)"]
+  },
+  "verifications": [
+    "booking-confirmed-on-chronogolf",
+    "booking-visible-on-bookings-page",
+    "calendar-event-created-on-family-calendar",
+    "slack-notification-delivered-to-jarvis"
+  ],
+  "notes": "Saturday midnight scheduled execution. Friday/Saturday blocked (GMS Summit). Booked Sunday July 26 at 12:51 PM (9 minutes before preferred 1:00 PM). All mandatory verifications completed successfully."
 }

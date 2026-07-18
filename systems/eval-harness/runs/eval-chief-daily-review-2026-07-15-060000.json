@@ -11,7 +11,7 @@
     "step-auto"
   ],
   "outputs": {
-    "narrative_title": "2026-07-15 Scheduled Review — Data Gap",
+    "narrative_title": "2026-07-15 Scheduled Review \u2014 Data Gap",
     "narrative_path": "reviews/daily/auto-2026-07-15.md",
     "narrative_bytes": 1405,
     "working_memory_path": "memory/working/daily-review-2026-07-15-060000.md",
@@ -37,10 +37,72 @@
   },
   "notes": "Headless scheduled run with no real-time data access. Narrative based on system state and quarterly objectives gap. Honest about data limitations per step-auto protocol.",
   "assessment": {
-    "coverage": "minimal",
-    "data_completeness": "partial",
-    "narrative_quality": "honest",
-    "controller_feedback": null,
-    "timestamp": null
-  }
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": true,
+      "outputs_non_empty": true,
+      "assertions_checked": 8,
+      "assertions_passed": 7,
+      "assertion_results": [
+        {
+          "assertion": "Daily review workflow state.yaml shows status: complete",
+          "passed": true
+        },
+        {
+          "assertion": "Daily review output file was written to reviews/daily/ for the run date (not a prior day)",
+          "passed": true
+        },
+        {
+          "assertion": "Daily review output for run date is substantive (>300 bytes)",
+          "passed": true
+        },
+        {
+          "assertion": "Daily review for run date contains priorities or forward-planning section (tomorrow, next, Q-ref, carry-forward language)",
+          "passed": true
+        },
+        {
+          "assertion": "Daily review for run date contains completed items or wins section",
+          "passed": false
+        },
+        {
+          "assertion": "Daily review working memory file was written for the run date",
+          "passed": true
+        },
+        {
+          "assertion": "Daily review working memory for run date is substantive (>200 bytes)",
+          "passed": true
+        },
+        {
+          "assertion": "Daily review working memory for run date contains expected content",
+          "passed": true
+        }
+      ]
+    },
+    "grading": {
+      "last_graded": "2026-07-18T04:09:41Z",
+      "grade": "C",
+      "grader_notes": "Chief agent daily-review for Jul 15 (same run date as FA34YW). Output at reviews/daily/auto-2026-07-15.md (1405 bytes, same file). Review is a data-gap narrative with honest acknowledgment of missing connectors. 7/8 assertions passed \u2014 only daily-005 (shutdown/completions section) failed, which is expected for a data-gap run. Different schema from standard eval records (no standard structural/grading blocks pre-existing). Content is honest and appropriately scoped for a headless run. To earn B: include at least one concrete completion signal even under data-gap conditions."
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "name": "daily-review"
 }
