@@ -22,9 +22,8 @@ related_people:
 - ken-graham
 - ben-kennedy
 salience:
-  score: 10
-  last-promoted-check: '2026-07-17'
-  promoted: true
+  score: 0
+  last-promoted-check: 2026-07-18
 ---
 
 # Morning Briefing — Thursday, July 09, 2026

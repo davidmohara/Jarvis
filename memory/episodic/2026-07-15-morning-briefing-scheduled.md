@@ -1,12 +1,30 @@
 ---
-type: working
+type: working-archive
 task_id: "session"
 session_id: "chief-2026-07-15-scheduled"
 agent-source: chief
 created: 2026-07-15T06:00:00-05:00
 expires: 2026-07-17T06:00:00-05:00
-status: active
+status: archived
 context: "Scheduled morning briefing — 2026-07-15"
+date: 2026-07-15
+source_file: memory/working/2026-07-15-morning-briefing-scheduled.md
+tags:
+  - briefing
+  - morning-briefing
+  - chief
+  - calendar
+  - omnifocus
+  - email
+  - clay
+  - leads
+  - delegation
+related_people:
+  - josh-stevenson
+  - robyn
+salience:
+  score: 0
+  last-promoted-check: 2026-07-18
 ---
 
 Ran scheduled morning briefing. No in-progress workflows found to resume. Delegation tracker empty.

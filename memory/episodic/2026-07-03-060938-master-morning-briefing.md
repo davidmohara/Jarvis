@@ -31,9 +31,8 @@ related_people:
 - scott-belcher
 - susie-ohara
 salience:
-  score: 10
-  last-promoted-check: '2026-07-17'
-  promoted: true
+  score: 0
+  last-promoted-check: 2026-07-18
 ---
 ## What was requested and produced
 

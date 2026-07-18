@@ -24,9 +24,8 @@ related_people:
 - scott-mcmichael
 - devlin
 salience:
-  score: 10
-  last-promoted-check: '2026-07-17'
-  promoted: true
+  score: 0
+  last-promoted-check: 2026-07-18
 ---
 # Boot Data Summary — Tuesday May 12, 2026
 

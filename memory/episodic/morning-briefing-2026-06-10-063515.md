@@ -17,9 +17,8 @@ tags:
 - golf
 related_people: []
 salience:
-  score: 10
-  last-promoted-check: '2026-07-17'
-  promoted: true
+  score: 0
+  last-promoted-check: 2026-07-18
 ---
 # Morning Briefing — 2026-06-10
 

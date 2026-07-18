@@ -18,9 +18,8 @@ tags:
 - knox
 related_people: null
 salience:
-  score: 10
-  last-promoted-check: '2026-07-17'
-  promoted: true
+  score: 0
+  last-promoted-check: 2026-07-18
 ---
 
 - Plaud ingest ran for 2 recordings: medical appointment + SC Orb Demo; Knox processed both and created Monday tasks with share links

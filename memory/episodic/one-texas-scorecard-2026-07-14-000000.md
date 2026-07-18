@@ -20,9 +20,8 @@ tags:
 related_people:
 - scott-mcmichael
 salience:
-  score: 10
-  last-promoted-check: '2026-07-17'
-  promoted: true
+  score: 0
+  last-promoted-check: 2026-07-18
 ---
 
 - Revenue (cache, July 13): Dallas +4% CQ vs. target, +14% vs. prior year, 101% 90-Day (solid). South Texas -23% CQ vs. target, -22% vs. prior year, 71% 90-Day — double miss for fourth consecutive quarter. One Texas -10% vs. target YTD, -9% vs. prior year. Most recent closed month: June 2026 (~$2.8M Dallas, ~$2.9M STX, ~$5.7M One Texas).
