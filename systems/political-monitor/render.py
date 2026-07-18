@@ -201,10 +201,15 @@ def main():
     except Exception:
         gen_disp = gen
 
+    def by_correlation(items):
+        """Shared topics: highest correlation (most aligned) at top."""
+        return sorted(items, key=lambda t: t.get("correlation", 0), reverse=True)
+
     def by_relevance(items):
+        """Gap topics: newest / freshest at top."""
         return sorted(items, key=lambda t: t.get("relevance", 100), reverse=True)
 
-    shared_html = "\n".join(render_shared(t) for t in by_relevance(d.get("shared_topics", []))) or \
+    shared_html = "\n".join(render_shared(t) for t in by_correlation(d.get("shared_topics", []))) or \
         '<p class="empty">No topics covered by both left and right in this window.</p>'
     gap_l = "\n".join(render_gap_item(i, "left") for i in by_relevance(d.get("gap_left", []))) or \
         '<p class="empty">No left-only topics in this window.</p>'
