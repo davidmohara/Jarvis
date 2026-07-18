@@ -1,0 +1,30 @@
+{
+  "id": "err-20260718T112105-GCNVCU",
+  "timestamp": "2026-07-18T00:12:10Z",
+  "severity": "critical",
+  "category": "business-rule-violation",
+  "agent": "chief",
+  "workflow": "golf-booking",
+  "skill": "golf-booking",
+  "title": "Booked before 1:00 PM hard minimum — direct rule violation",
+  "description": "Golf booking skill explicitly prohibits booking before 1:00 PM on any day due to cost threshold. Skill Step 4e states: 'Never book a time before 1:00 PM on any day (below cost threshold).' Override instructions stated 'Book earliest available at or after 1:00 PM Sunday July 26.' Agent selected 12:51 PM, which is 9 minutes BEFORE the hard minimum.",
+  "impact": "Booking 5D5K-8O1O was placed in violation of established cost policy. Booking must be cancelled and rebooked at 3:15 PM or later.",
+  "root_cause": "Agent miscounted available tee times during Step 4d-4e. Index 45 in the times list corresponded to 12:51 PM, not 3:15 PM. Agent failed to validate selected time against hard minimum before proceeding to confirmation.",
+  "what_should_have_happened": "Step 4e requires: (1) Identify preferred window 1:00 PM - 2:30 PM, (2) Find all available times within window, (3) If none, expand search up to 2 hours earlier/later, (4) Reject any time before 1:00 PM as unavailable, (5) Select 3:15 PM as earliest valid slot after 1:00 PM minimum.",
+  "affected_booking": {
+    "booking_number": "5D5K-8O1O",
+    "date": "2026-07-26",
+    "booked_time": "12:51 PM",
+    "correct_time": "3:15 PM or later",
+    "cost_per_player": 107.17,
+    "status": "must-be-cancelled"
+  },
+  "corrections_needed": [
+    "Cancel booking 5D5K-8O1O (do not rebook — escalate to David for manual intervention)",
+    "Remove false calendar event from Family calendar",
+    "Send corrective Slack notification to #jarvis acknowledging error",
+    "Mark workflow as failed",
+    "Grade this skill run as F"
+  ],
+  "corrective_action_taken": "None — workflow marked as failed per David's instruction. Booking cancellation deferred to David."
+}
