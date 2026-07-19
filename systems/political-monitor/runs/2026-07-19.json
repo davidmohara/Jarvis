@@ -1,0 +1,179 @@
+{
+  "date": "2026-07-19",
+  "generated": "2026-07-19T00:00:00Z",
+  "window_hours": 72,
+  "sources_used": [
+    "msnbc", "cnn", "nbc", "thehill", "axios", "dailybeast", "slate", "newrepublic",
+    "foxnews", "natreview", "examiner", "federalist", "dailywire", "breitbart",
+    "townhall", "rcp", "amconserv", "spectator", "freepress"
+  ],
+  "sources_muted": [
+    { "name": "New York Times", "lean": "left", "reason": "blocks crawler" },
+    { "name": "Washington Post", "lean": "left", "reason": "blocks crawler" },
+    { "name": "Politico", "lean": "left", "reason": "blocks crawler" },
+    { "name": "Vox Politics", "lean": "left", "reason": "blocks crawler" },
+    { "name": "Mother Jones", "lean": "left", "reason": "blocks crawler" },
+    { "name": "WSJ Opinion", "lean": "right", "reason": "blocks crawler" },
+    { "name": "New York Post", "lean": "right", "reason": "blocks crawler" },
+    { "name": "Reuters Politics", "lean": "center", "reason": "blocks crawler" },
+    { "name": "Associated Press", "lean": "center", "reason": "blocks crawler" },
+    { "name": "BBC US & Canada", "lean": "center", "reason": "blocks crawler" }
+  ],
+  "counts": {
+    "total_items": 57,
+    "by_lean": { "left": 30, "right": 22, "center": 5 },
+    "shared_topics": 3,
+    "gap_left": 3,
+    "gap_right": 3
+  },
+  "shared_topics": [
+    {
+      "topic_key": "sc-senate-norman-succession",
+      "title": "SC Senate Succession: Ralph Norman Enters Race After Graham Death",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "summary": "Rep. Ralph Norman of South Carolina formally announced his entry into the special election to fill the late Sen. Lindsey Graham's seat, joining a field that Trump has been actively trying to shape. The South Carolina Republican primary is scheduled for August 11. Graham's sister, Darline Graham Nordone, serves as an interim appointment. Trump has publicly floated Rep. Russell Fry as his preferred candidate, creating a direct test of presidential influence over the succession.",
+      "left": {
+        "framing": "CNN and The Daily Beast focus on the seat as part of a broader Senate power struggle, highlighting how Trump is attempting to personally control who succeeds Graham rather than leaving the process to South Carolina voters. Coverage emphasizes what they frame as Trump's 'major Senate power grab.'",
+        "sources": [
+          { "source": "CNN Politics", "url": "https://www.cnn.com/2026/07/18/politics/ralph-norman-lindsey-graham-race-senate" },
+          { "source": "The Daily Beast", "url": "https://www.thedailybeast.com/trump-makes-major-senate-power-grab-after-graham-death/" }
+        ]
+      },
+      "right": {
+        "framing": "Fox News and Washington Examiner cover the race straightforwardly as a competitive primary, noting Trump's preferences while framing it as normal presidential engagement with succession. Byron York contrasts SC's open primary favorably with Maine's convention process.",
+        "sources": [
+          { "source": "Fox News", "url": "https://www.foxnews.com/politics/trump-reveals-who-hes-eyeing-replace-lindsey-graham" },
+          { "source": "Washington Examiner", "url": "https://www.washingtonexaminer.com/news/senate/4654492/south-carolina-gets-election-maine-gets-party-pick-byron-york/" }
+        ]
+      },
+      "correlation": 60,
+      "correlation_label": "60 — Both cover the race's developments; left frames Trump's role as a 'power grab,' right treats it as standard presidential engagement."
+    },
+    {
+      "topic_key": "senate-fundraising-dems-surge",
+      "title": "Senate Fundraising: Democrats Raise $104M vs. GOP's $35M in Competitive Races",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "summary": "New campaign finance reports show Democratic Senate candidates in the 11 most competitive races have raised $104 million compared to Republicans' $35 million — a nearly 3:1 ratio. Democrats need to net four seats to take Senate control. The fundraising gap is among the largest in recent midterm cycles, though both sides dispute its predictive value given the GOP's structural Senate map advantages.",
+      "left": {
+        "framing": "NBC and The Hill treat the fundraising numbers as a significant Democratic momentum signal, emphasizing that the money advantage reflects enthusiasm and could translate directly to Senate seats. Coverage highlights the gap as a leading indicator of Democratic strength in must-win races.",
+        "sources": [
+          { "source": "NBC News", "url": "https://www.nbcnews.com/politics/politics-news/3-big-senate-fundraising-takeaways-politics-desk-rcna587905" },
+          { "source": "The Hill", "url": "https://thehill.com/newsletters/whole-hog-politics/5961630-platler-senate-candidacy-mainemaine/" }
+        ]
+      },
+      "right": {
+        "framing": "Washington Examiner and RealClearPolitics note that Republicans still hold a structural edge in Senate map geography — most competitive seats are in red-leaning terrain — and that fundraising gaps have not historically guaranteed electoral wins in Senate races.",
+        "sources": [
+          { "source": "Washington Examiner", "url": "https://www.washingtonexaminer.com/news/campaigns/congressional/4633579/republican-edge-senate-majority-2026-midterms/" },
+          { "source": "RealClearPolitics", "url": "https://www.realclearpolitics.com/" }
+        ]
+      },
+      "correlation": 50,
+      "correlation_label": "50 — Both acknowledge the same fundraising numbers; they sharply disagree on whether the money gap predicts a Democratic Senate takeover."
+    },
+    {
+      "topic_key": "maine-senate-troy-jackson-replacement",
+      "title": "Maine Senate: Troy Jackson Emerges as Democrats' New Nominee After Platner Exit",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "summary": "Following Graham Platner's withdrawal amid sexual assault allegations and controversy over a Nazi tattoo, former Maine Senate President Troy Jackson has emerged as the frontrunner for the Democratic nomination via a party convention process. Jackson faces Republican incumbent Sen. Susan Collins in a race Democrats view as critical for Senate control. The path to the general election is compressed, with Democrats needing to coalesce quickly around a credible nominee.",
+      "left": {
+        "framing": "CNN and The New Republic focus on Jackson's organizational strength and how the Platner episode exposed systemic problems in candidate vetting. Slate runs a post-mortem on how consultants failed. The New Republic argues Collins is more vulnerable now than before Platner's exit.",
+        "sources": [
+          { "source": "CNN Politics", "url": "https://www.cnn.com/2026/07/18/politics/troy-jackson-graham-platner-maine" },
+          { "source": "The New Republic", "url": "https://newrepublic.com/post/212944/susan-collins-platner-democratic-convention" },
+          { "source": "Slate", "url": "https://slate.com/news-and-politics/2026/07/graham-platner-maine-working-class-consultants-backfired.html" }
+        ]
+      },
+      "right": {
+        "framing": "The Daily Wire and Washington Examiner cover Platner's exit as evidence of Democratic chaos. Byron York frames Maine Democrats' convention replacement mechanism as less democratic than SC's open primary, questioning the legitimacy of whoever emerges.",
+        "sources": [
+          { "source": "The Daily Wire", "url": "https://www.dailywire.com/news/graham-platner-ends-senate-bid-with-profane-political-message" },
+          { "source": "Washington Examiner", "url": "https://www.washingtonexaminer.com/news/senate/4654492/south-carolina-gets-election-maine-gets-party-pick-byron-york/" }
+        ]
+      },
+      "correlation": 55,
+      "correlation_label": "55 — Same factual event; left focuses on the path forward and Collins' vulnerability, right emphasizes Democratic chaos and process legitimacy."
+    }
+  ],
+  "gap_left": [
+    {
+      "topic_key": "trump-golf-dc-oversight-bypass",
+      "title": "Trump's DC Golf Course Takeover Bypasses Congressional Oversight Panels",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "summary": "CNN reports that the Trump administration is proceeding with a significant makeover of East Potomac Park's golf course in Washington DC without seeking input from the relevant congressional oversight committees. Left-leaning media frame this as part of a broader pattern of Trump using federal assets for personal benefit while circumventing accountability structures. Right-leaning outlets have not prominently covered this story.",
+      "sources": [
+        { "source": "CNN Politics", "url": "https://www.cnn.com/2026/07/18/politics/trump-dc-golf-course-east-potomac-links-takeover" }
+      ]
+    },
+    {
+      "topic_key": "trump-docs-undercut-election-narrative",
+      "title": "Trump's Own Declassified Documents Appear to Undercut His Election Conspiracy Claims",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "summary": "The Daily Beast reports that documents Trump himself declassified and released as evidence of 'shocking election vulnerabilities' contain findings that contradict several of his signature election conspiracy claims. The analysis argues the administration's own evidence-dump reveals the 'election plot' narrative is weaker than claimed. This framing — Trump's disclosures as self-refuting — appears exclusively in left and center outlets; right-leaning outlets treat the same release as validation.",
+      "sources": [
+        { "source": "The Daily Beast", "url": "https://www.thedailybeast.com/truth-about-trumps-election-plot-conspiracy-theories-busted-open-by-presidents-own-document-dump/" }
+      ]
+    },
+    {
+      "topic_key": "dsa-rich-voters-not-poor",
+      "title": "Study: The Socialist Surge Is Driven by Wealthy, Educated Voters — Not the Working Class",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "summary": "The Free Press examines primary data showing that DSA and progressive insurgent candidates in New York City won not through working-class support but through affluent, credentialed, college-educated precincts. The analysis complicates the narrative that democratic socialism is driven by economic distress, suggesting it is more a professional-class cultural movement. Right-leaning outlets have largely not engaged with this specific data point, instead focusing on straight alarm about socialist electoral expansion.",
+      "sources": [
+        { "source": "The Free Press", "url": "https://www.thefp.com/p/darializa-avila-chevalier-congress-third-worldism" },
+        { "source": "The Free Press", "url": "https://www.thefp.com/p/big-tent-politics-wont-save-the-democrats" }
+      ]
+    }
+  ],
+  "gap_right": [
+    {
+      "topic_key": "dsa-platform-abolish-senate-scotus",
+      "title": "DSA Platform Calls to Abolish the Senate, Presidency, and Supreme Court",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "summary": "Breitbart and Townhall highlight reporting that the Democratic Socialists of America's official platform includes abolishing the U.S. Senate, the presidency, and the Supreme Court — effectively dismantling the constitutional order. The report focuses on Democratic elected officials sidestepping questions about whether they support these positions. Left-leaning outlets have largely not covered this specific platform plank, focusing instead on DSA's electoral gains rather than their stated long-term institutional goals.",
+      "sources": [
+        { "source": "Breitbart", "url": "https://www.breitbart.com/politics/2026/07/18/report-democrat-lawmakers-sidestep-questions-about-constitution-killing-socialist-platform/" },
+        { "source": "Townhall", "url": "https://townhall.com/columnists/jay-rogers/2026/07/13/the-democratic-socialists-arent-fringe-anymore-n2679278" }
+      ]
+    },
+    {
+      "topic_key": "trump-china-220m-voter-records",
+      "title": "Trump Claims China Stole 220 Million Voter Records — 'Largest Election Data Compromise in History'",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "summary": "A prominent element of Trump's election speech and his declassified document release is the specific claim that China illicitly obtained voter data on roughly 220 million Americans during the 2020 election cycle. The Daily Wire reports this claim is sending 'China-watchers into a frenzy' internationally. Right-leaning outlets treat the claim as substantiated by the intelligence release; left-leaning coverage has either not featured this specific charge or contextualized it within broader skepticism of the overall election narrative.",
+      "sources": [
+        { "source": "The Daily Wire", "url": "https://www.dailywire.com/news/trumps-speech-sends-beijing-and-china-watchers-into-a-frenzy" },
+        { "source": "Fox News", "url": "https://www.foxnews.com/politics/trump-releases-declassified-election-intelligence-says-reveals-shocking-vulnerabilities" }
+      ]
+    },
+    {
+      "topic_key": "banks-birthright-citizenship-bill",
+      "title": "Sen. Banks Introduces Bill to End Birthright Citizenship by Defining Illegal Entrants as 'Invaders'",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "summary": "After the Supreme Court struck down Trump's executive order on birthright citizenship, Sen. Jim Banks has introduced legislation attempting to achieve the same result through statute — defining children of illegal immigrants as children of 'invaders' to deny them citizenship under the 14th Amendment. Right-leaning outlets cover this as the next legislative front in the immigration enforcement campaign. Left and center outlets have largely not featured this specific bill, though NBC covered the underlying SCOTUS ruling on the executive order.",
+      "sources": [
+        { "source": "Townhall", "url": "https://townhall.com/tipsheet/jeff-charles/2026/07/14/this-republican-just-introduced-a-bill-to-enshrine-trumps-immigration-policy-into-law-n2679400" },
+        { "source": "The American Spectator", "url": "https://spectator.org/how-the-supreme-courts-latest-rulings-are-changing-immigration/" }
+      ]
+    }
+  ],
+  "suggestions": []
+}
