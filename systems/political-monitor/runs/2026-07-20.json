@@ -1,0 +1,230 @@
+{
+  "date": "2026-07-20",
+  "generated": "2026-07-20T00:00:00Z",
+  "window_hours": 72,
+  "sources_used": [
+    "msnbc", "cnn", "nbc", "thehill", "axios", "dailybeast", "slate", "newrepublic",
+    "foxnews", "natreview", "examiner", "federalist", "dailywire", "breitbart",
+    "townhall", "rcp", "amconserv", "spectator", "freepress"
+  ],
+  "sources_muted": [
+    {"name": "New York Times", "lean": "left", "reason": "blocks crawler"},
+    {"name": "Washington Post", "lean": "left", "reason": "blocks crawler"},
+    {"name": "Politico", "lean": "left", "reason": "blocks crawler"},
+    {"name": "Vox Politics", "lean": "left", "reason": "blocks crawler"},
+    {"name": "Mother Jones", "lean": "left", "reason": "blocks crawler"},
+    {"name": "WSJ Opinion", "lean": "right", "reason": "blocks crawler"},
+    {"name": "New York Post", "lean": "right", "reason": "blocks crawler"},
+    {"name": "Reuters Politics", "lean": "center", "reason": "blocks crawler"},
+    {"name": "Associated Press", "lean": "center", "reason": "blocks crawler"},
+    {"name": "BBC US & Canada", "lean": "center", "reason": "blocks crawler"}
+  ],
+  "counts": {
+    "total_items": 44,
+    "by_lean": { "left": 20, "right": 21, "center": 3 },
+    "shared_topics": 4,
+    "gap_left": 4,
+    "gap_right": 4
+  },
+  "shared_topics": [
+    {
+      "topic_key": "maine-senate-troy-jackson-replacement",
+      "title": "Maine Senate: Troy Jackson Consolidates After Platner's Exit",
+      "days_seen": 2,
+      "relevance": 70,
+      "relevance_label": "Recurring — day 2",
+      "summary": "Former Maine Senate President Troy Jackson emerged as the leading Democratic candidate to replace Graham Platner, who withdrew amid rape and sexual misconduct allegations. Maine Secretary of State Shenna Bellows and former public health official Nirav Shah suspended their campaigns over the weekend, leaving Jackson as the frontrunner ahead of a 601-delegate party convention on July 25. A nominee must be certified by July 27 to appear on the general election ballot against GOP Sen. Susan Collins.",
+      "left": {
+        "framing": "Left-leaning outlets focus on the convention process as an orderly, if controversial, path to selecting a strong nominee. NBC and Slate note the procedural legitimacy while acknowledging the narrow timeline. The narrative centers on Democratic resilience after a damaging Platner saga.",
+        "sources": [
+          {"name": "NBC News", "url": "https://www.nbcnews.com/politics/2026-election/shenna-bellows-drops-maines-senate-race-troy-jackson-builds-democratic-rcna588242"},
+          {"name": "Slate", "url": "https://slate.com/news-and-politics/2026/07/graham-platner-replacement-susan-collins.html"}
+        ]
+      },
+      "right": {
+        "framing": "Right-leaning outlets highlight Troy Jackson's own assault allegation (accused of hitting a female colleague) as evidence the Democratic vetting process has failed again. Daily Wire and Townhall frame the Maine race as a symbol of Democratic dysfunction, while Breitbart tracks competing candidates including a transgender candidate who allegedly used an AI photo.",
+        "sources": [
+          {"name": "The Daily Wire", "url": "https://www.dailywire.com/news/leading-dsa-candidate-to-replace-platner-accused-of-hitting-female-colleague-during-argument"},
+          {"name": "Washington Examiner", "url": "https://www.washingtonexaminer.com/news/campaigns/congressional/4652887/nirav-shah-troy-jackson-solidify-status-top-contenders-maine-senate-race/"}
+        ]
+      },
+      "correlation": 52,
+      "correlation_label": "Both sides cover the same race but frame it as either resilient party mechanics (left) or continuing Democratic chaos (right)."
+    },
+    {
+      "topic_key": "sc-senate-norman-succession",
+      "title": "SC Senate Succession: Norman Enters Race, Nordone as Interim",
+      "days_seen": 2,
+      "relevance": 70,
+      "relevance_label": "Recurring — day 2",
+      "summary": "Rep. Ralph Norman (R-SC) officially launched his campaign for the Senate seat vacated by Lindsey Graham's death on July 11. South Carolina Gov. Henry McMaster had previously appointed Graham's sister, Darline Graham Nordone, to serve the remainder of Graham's term. President Trump endorsed Nordone for the permanent seat. Multiple other House Republicans (Fry, Mace, Wilson) are also weighing entry into the November special election.",
+      "left": {
+        "framing": "Left-leaning outlets cover the succession as a scramble exposing Trump's grip on Republican candidate selection and the fragility of the GOP's Senate majority. Axios and NBC emphasize multiple potential entrants and the risk of a divisive primary.",
+        "sources": [
+          {"name": "Axios", "url": "https://www.axios.com/2026/07/17/house-senate-pipeline-midterms-wave-congress"},
+          {"name": "NBC News", "url": "https://www.nbcnews.com/politics/trump-administration/live-blog/trump-lindsey-graham-congress-2026-election-doj-iran-live-updates-rcna587234"}
+        ]
+      },
+      "right": {
+        "framing": "Right-leaning outlets frame Norman's entry as a strong MAGA-aligned candidate stepping up. Breitbart treats Trump's endorsement of Nordone as the authoritative signal; the seat is assumed to stay Republican. Less coverage of intraparty tension.",
+        "sources": [
+          {"name": "Breitbart", "url": "https://www.breitbart.com/politics/2026/07/19/rep-ralph-norman-launches-run-for-lindsey-grahams-senate-seat/"},
+          {"name": "Fox News", "url": "https://www.foxnews.com/politics/four-months-midterms-12-races-determine-senate-majority"}
+        ]
+      },
+      "correlation": 68,
+      "correlation_label": "Both sides report the same personnel facts but diverge on whether the succession creates GOP vulnerability or confirms Republican strength."
+    },
+    {
+      "topic_key": "dsa-platform-abolish-senate-scotus",
+      "title": "DSA Unveils Platform Calling to Abolish Senate, Presidency, and Supreme Court",
+      "days_seen": 2,
+      "relevance": 70,
+      "relevance_label": "Recurring — day 2",
+      "summary": "The Democratic Socialists of America rolled out a new national platform ahead of the midterms that includes calls to abolish the U.S. Senate, the presidency, and the Supreme Court, and replace them with direct democratic governance. The platform emerged as DSA-backed candidates have now won 35 primaries in 2026. DSA has 113,000 members and controls the mayor's office of New York City. NYC Mayor Mamdani's administration separately discussed whether the city could arrest Israeli PM Netanyahu during a September UN visit.",
+      "left": {
+        "framing": "Left-leaning outlets cover the DSA platform primarily as an internal Democratic debate about whether progressive or moderate candidates are better positioned for November. CNN's SOTU framing treats it as a legitimate intraparty strategic question. The Daily Beast and New Republic tend to defend DSA's momentum while acknowledging platform radicalism.",
+        "sources": [
+          {"name": "CNN Politics", "url": "https://www.cnn.com/2026/07/19/politics/video/progressive-dsa-democratic-establishment-sotu"},
+          {"name": "The Hill", "url": "https://thehill.com/homenews/campaign/5952255-democratic-party-dsa-midterm-primaries/"}
+        ]
+      },
+      "right": {
+        "framing": "Right-leaning outlets treat the DSA platform as confirmation of a communist/radical takeover of the Democratic Party. Fox News, The Federalist, Breitbart, and the Spectator run prominent coverage of the 'abolish the Senate' proposals and connect them to Mamdani's governance in NYC. American Conservative is more nuanced, warning GOP not to dismiss the threat.",
+        "sources": [
+          {"name": "Fox News", "url": "https://www.foxnews.com/video/6401230764112"},
+          {"name": "The Federalist", "url": "https://thefederalist.com/2026/07/15/democrats-turn-to-economic-democracy-and-you-already-know-what-they-mean/"},
+          {"name": "The American Conservative", "url": "https://www.theamericanconservative.com/the-gops-freak-streak-could-boost-democratic-socialists/"}
+        ]
+      },
+      "correlation": 31,
+      "correlation_label": "Sharply divergent narratives: left frames DSA as strategic intraparty debate; right frames it as constitutional threat requiring urgent national response."
+    },
+    {
+      "topic_key": "nebraska-senate-dem-drops-independent",
+      "title": "Nebraska Senate: Democrat Drops Out, Clearing Path for Independent Dan Osborn",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "summary": "Nebraska Democratic Senate nominee Cindy Burbank submitted a letter requesting her name be removed from the November ballot, a move that would set up a one-on-one matchup between incumbent Republican Sen. Pete Ricketts and independent challenger Dan Osborn — a labor organizer and former union strike leader who nearly defeated Ricketts in 2024. The move is seen as a strategic decision by Nebraska Democrats to maximize the chance of flipping the seat.",
+      "left": {
+        "framing": "Left-leaning outlets cover the Burbank withdrawal as a savvy strategic move giving Democrats their best shot at defeating Ricketts through a viable independent. NBC frames Osborn as a legitimate general-election threat in a red state.",
+        "sources": [
+          {"name": "NBC News", "url": "https://www.nbcnews.com/politics/2026-election/democrat-moves-drop-nebraskas-senate-race-clearing-path-independent-rcna588079"}
+        ]
+      },
+      "right": {
+        "framing": "Right-leaning outlets note the development as a tactical maneuver that consolidates opposition to Ricketts, but express confidence the Republican incumbent holds structural advantages in a deep-red state. Examiner covers the broader competitive Senate map context.",
+        "sources": [
+          {"name": "Washington Examiner", "url": "https://www.washingtonexaminer.com/news/campaigns/congressional/4633579/republican-edge-senate-majority-2026-midterms/"}
+        ]
+      },
+      "correlation": 62,
+      "correlation_label": "Same event covered across sides; diverge on whether the independent path is a real threat to Ricketts or a longshot gambit."
+    }
+  ],
+  "gap_left": [
+    {
+      "topic_key": "dhs-threatens-prison-state-election-officials",
+      "title": "DHS Threatens State Election Officials with Prison for Non-Compliance",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "summary": "Department of Homeland Security Secretary Markwayne Mullin threatened state election officials with possible prison time if they fail to comply with the Trump administration's directive to audit voter rolls for potential noncitizen registrations. The warning followed Trump's primetime address and drew sharp criticism from civil liberties advocates, election administrators, and Democratic officials who called it an unprecedented attempt to coerce election officials four months before the midterms.",
+      "sources": [
+        {"name": "NBC News", "url": "https://www.nbcnews.com/politics/trump-administration/live-blog/trump-congress-2026-election-china-iran-ice-doj-live-updates-rcna587892"},
+        {"name": "The Hill", "url": "https://thehill.com/homenews/administration/5973514-save-america-act-push/"}
+      ]
+    },
+    {
+      "topic_key": "trump-docs-undercut-election-narrative",
+      "title": "Trump's Own Declassified Documents Appear to Undercut His Election Claims",
+      "days_seen": 2,
+      "relevance": 70,
+      "relevance_label": "Recurring — day 2",
+      "summary": "A review of the intelligence documents Trump declassified during his July 16 address found that they largely discussed previously identified vulnerabilities in the election system and issues included in a 2021 assessment from the U.S. intelligence community — not the explosive new evidence Trump implied. CNN's review found no new proof of the sweeping election fraud Trump claimed. Left-leaning outlets are highlighting the gap between Trump's rhetoric and what the documents actually show.",
+      "sources": [
+        {"name": "CNN Politics", "url": "https://www.cnn.com/2026/07/16/politics/takeaways-trump-election-speech"},
+        {"name": "NBC News", "url": "https://www.nbcnews.com/politics/elections/voter-files-explained-demystifying-widely-available-data-trump-cited-s-rcna587990"},
+        {"name": "The Free Press", "url": "https://www.thefp.com/p/the-president-who-cried-election-fraud-front-page"}
+      ]
+    },
+    {
+      "topic_key": "trump-housing-bill-veto-save-act",
+      "title": "Trump Refuses to Sign Bipartisan Housing Bill Over Senate's Failure to Pass SAVE Act",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "summary": "President Trump announced he would not sign a congressionally approved bipartisan housing bill 'in protest' over the Senate's failure to advance the SAVE America Act. The housing bill had bipartisan support and would have addressed a significant domestic policy priority. Democrats and some Republicans criticized the move as using an unrelated popular bill as a political hostage for election-year legislation that lacks sufficient votes.",
+      "sources": [
+        {"name": "NBC News", "url": "https://www.nbcnews.com/politics/trump-administration/live-blog/trump-2026-election-congress-housing-iran-ice-doj-live-updates-rcna358291"},
+        {"name": "Breitbart", "url": "https://www.breitbart.com/politics/2026/07/10/trump-says-he-will-not-sign-housing-bill-protest-over-senate-failure-pass-save-america-act/"}
+      ]
+    },
+    {
+      "topic_key": "reconciliation-3-gop-house-split",
+      "title": "Reconciliation 3.0: House GOP Splits as Johnson Scrambles to Assemble Final Package",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "summary": "Speaker Mike Johnson is under intensifying pressure to advance a final reconciliation package before the midterms, with the framework including ~$67 billion for defense, $20 billion for agriculture, and elements of the SAVE America Act. A standoff among House conservatives over spending levels and SAVE Act provisions briefly blocked floor proceedings before Johnson secured commitments. JD Vance's outreach to the House caucus did little to resolve divisions, with lawmakers noting Vance's limited Capitol presence.",
+      "sources": [
+        {"name": "Axios", "url": "https://www.axios.com/2026/07/15/house-republicans-budget-save-act-iran-war-jd-vance"},
+        {"name": "CNN Politics", "url": "https://www.cnn.com/2026/07/13/politics/congress-johnson-summer-agenda"},
+        {"name": "The Hill", "url": "https://thehill.com/homenews/house/5975618-house-funding-reconciliation-ndaa-nominees/"}
+      ]
+    }
+  ],
+  "gap_right": [
+    {
+      "topic_key": "gop-nrcc-expands-target-map",
+      "title": "NRCC Expands 2026 Target Map, Adding 7 Democrat-Held Districts",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "summary": "The National Republican Congressional Committee announced it is expanding its midterm election map by adding seven Democrat-held congressional districts across Alabama, Florida, Louisiana, Missouri, Ohio, and Tennessee to its official target list. The move signals Republican optimism about offensive opportunities even amid a defensive midterm environment, with the NRCC arguing the map reflects Democratic overexposure in Biden-era districts.",
+      "sources": [
+        {"name": "Washington Examiner", "url": "https://www.washingtonexaminer.com/news/campaigns/congressional/4654211/house-gop-campaign-arm-2026-map-seven-democrat-held-districts/"},
+        {"name": "Breitbart", "url": "https://www.breitbart.com/politics/2026/07/18/exclusive-michael-whatley-nc-voters-are-moving-away-from-democrats-towards-unaffiliated/"}
+      ]
+    },
+    {
+      "topic_key": "rubio-far-left-terrorism-summit",
+      "title": "Rubio Hosts 60-Nation Summit on 'Far-Left Political Terrorism'",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "summary": "Secretary of State Marco Rubio convened officials from more than 60 countries at the State Department for a summit on what the administration is calling a resurgence of 'far-left political violence' globally. Rubio framed the gathering as an expansion of counterterrorism efforts to include left-wing political violence as a priority threat comparable to jihadist terrorism. The summit received prominent coverage on the right as a necessary policy realignment; left-leaning outlets largely ignored the event or treated it as political theater.",
+      "sources": [
+        {"name": "The Hill", "url": "https://thehill.com/homenews/administration/5972315-state-department-transnational-political-threat/"},
+        {"name": "The American Spectator", "url": "https://spectator.org/rubios-stand-against-a-rogue-court/"},
+        {"name": "New Republic", "url": "https://newrepublic.com/post/213151/marco-rubio-antifa-summit-left-wing-terrorism"}
+      ]
+    },
+    {
+      "topic_key": "dsa-rich-voters-not-poor",
+      "title": "Study: The Socialist Surge Is Driven by Wealthy, Educated Voters — Not the Working Class",
+      "days_seen": 2,
+      "relevance": 70,
+      "relevance_label": "Recurring — day 2",
+      "summary": "A new analysis highlighted on right-leaning outlets finds that DSA-backed candidates are winning primaries primarily on the strength of wealthy, college-educated urban voters rather than the working-class base socialist rhetoric typically appeals to. Right media uses this to argue DSA is a wealthy elite movement in populist clothing, disconnected from the actual economic concerns of most Americans.",
+      "sources": [
+        {"name": "The Federalist", "url": "https://thefederalist.com/2026/07/16/democrats-havent-figured-out-that-masculinity-isnt-a-costume/"},
+        {"name": "RealClearPolitics", "url": "https://www.realclearpolitics.com/video/2026/07/04/david_brooks_on_socialists_are_democrats_going_to_take_a_position_that_were_going_to_become_left-wing_authoritarians.html"}
+      ]
+    },
+    {
+      "topic_key": "banks-birthright-citizenship-bill",
+      "title": "Sen. Banks Introduces Bill to End Birthright Citizenship by Defining Illegal Entrants as 'Invaders'",
+      "days_seen": 2,
+      "relevance": 70,
+      "relevance_label": "Recurring — day 2",
+      "summary": "Sen. Jim Banks (R-IN) introduced legislation that would end birthright citizenship for children of undocumented immigrants and birth tourists by defining unauthorized border crossers as 'invaders' under the 14th Amendment — a legislative workaround following the Supreme Court's ruling against Trump's executive order on birthright citizenship. Right-leaning outlets treated it as a necessary constitutional fix; the bill received minimal coverage on left-leaning sites.",
+      "sources": [
+        {"name": "Townhall", "url": "https://townhall.com/tipsheet/jeff-charles/2026/07/14/this-republican-just-introduced-a-bill-to-enshrine-trumps-immigration-policy-into-law-n2679400"},
+        {"name": "The Federalist", "url": "https://thefederalist.com/2026/07/07/congress-went-on-vacation-rather-than-pass-the-save-act-extend-planned-parenthood-defunding/"},
+        {"name": "The American Spectator", "url": "https://spectator.org/how-the-supreme-courts-latest-rulings-are-changing-immigration/"}
+      ]
+    }
+  ]
+}
