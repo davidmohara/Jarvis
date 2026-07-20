@@ -2,25 +2,24 @@
 type: working-archive
 expires: 2026-07-17
 status: archived
-created: 2026-07-16T03:09:46-05:00
+created: 2026-07-16 03:09:46-05:00
 agent-source: jarvis
-context: "Dream cycle summary — 2026-07-16"
+context: Dream cycle summary — 2026-07-16
 date: 2026-07-16
 source_file: memory/working/dream-summary-2026-07-16.md
 tags:
-  - dream-summary
-  - jarvis
-  - dream-cycle
-  - semantic-promotion
-  - salience-scoring
-  - episodic-compression
-  - git-sync
+- dream-summary
+- jarvis
+- dream-cycle
+- semantic-promotion
+- salience-scoring
+- episodic-compression
+- git-sync
 related_people: []
 salience:
-  score: 0
-  last-promoted-check: 2026-07-18
+  score: 10
+  last-promoted-check: '2026-07-20'
 ---
-
 ## Dream Cycle Summary — 2026-07-16
 
 **The fix from last night held.** The recurring bug where step-02's salience scoring silently dropped the `promoted: true` flag every night — traced 07-15 — was rerun tonight with a merge-based write instead of a full replace. Result: only 7 promotion candidates surfaced, and for the first time since the bug was introduced, zero of them were re-flagged backlog. All 7 were genuinely new — this cycle's own fresh archives. Verified all 205 episodic files still parse cleanly with no stray or duplicated frontmatter, including the previously corrupted `2026-04-20-afternoon-boot.md`, which now correctly preserves its `promoted: true` flag.

@@ -6,9 +6,8 @@ archived-from: memory/working/2026-05-25-200000-galen-health-review.md
 context: Galen health status review — WHOOP 30-day summary, DEXA scan, bloodwork plan
 salience:
   score: 0
-  last-promoted-check: 2026-07-18
+  last-promoted-check: '2026-07-20'
 ---
-
 # Galen Health Review — 2026-05-25
 
 **Session type:** Health status review (Galen)

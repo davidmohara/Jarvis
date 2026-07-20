@@ -15,10 +15,9 @@ tags:
 - git-issues
 related_people: []
 salience:
-  score: 0
-  last-promoted-check: 2026-07-18
+  score: 10
+  last-promoted-check: '2026-07-20'
 ---
-
 ## Dream Cycle Summary — 2026-07-15
 
 **Boot:** Git pull skipped this cycle — Desktop Commander (the host-side git tool) wasn't available in this session, and the workflow explicitly forbids running git through the sandboxed shell (that's what caused the index.lock incident back in June). Repo was not pulled or committed. Flagging this so it gets a manual `git pull` / commit next time you're in a session with Desktop Commander access.

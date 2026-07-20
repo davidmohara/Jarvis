@@ -23,10 +23,9 @@ tags:
 related_people:
 - david-ohara
 salience:
-  score: 0
-  last-promoted-check: 2026-07-18
+  score: 10
+  last-promoted-check: '2026-07-20'
 ---
-
 # Morning Briefing — Wednesday, July 1, 2026
 
 ## Data Sources

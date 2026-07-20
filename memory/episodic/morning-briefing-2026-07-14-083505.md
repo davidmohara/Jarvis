@@ -23,10 +23,10 @@ related_people:
 - nathan-walters
 - diana-stevens
 salience:
-  score: 0
-  last-promoted-check: 2026-07-18
+  score: 10
+  last-promoted-check: '2026-07-20'
+  promoted: true
 ---
-
 # Morning Briefing — Tuesday, July 14, 2026
 
 ## Data Sources

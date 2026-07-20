@@ -1,32 +1,31 @@
 ---
 type: working-archive
-task_id: "session"
-session_id: "chief-2026-07-15-scheduled"
+task_id: session
+session_id: chief-2026-07-15-scheduled
 agent-source: chief
-created: 2026-07-15T06:00:00-05:00
-expires: 2026-07-17T06:00:00-05:00
+created: 2026-07-15 06:00:00-05:00
+expires: 2026-07-17 06:00:00-05:00
 status: archived
-context: "Scheduled morning briefing — 2026-07-15"
+context: Scheduled morning briefing — 2026-07-15
 date: 2026-07-15
 source_file: memory/working/2026-07-15-morning-briefing-scheduled.md
 tags:
-  - briefing
-  - morning-briefing
-  - chief
-  - calendar
-  - omnifocus
-  - email
-  - clay
-  - leads
-  - delegation
+- briefing
+- morning-briefing
+- chief
+- calendar
+- omnifocus
+- email
+- clay
+- leads
+- delegation
 related_people:
-  - josh-stevenson
-  - robyn
+- josh-stevenson
+- robyn
 salience:
-  score: 0
-  last-promoted-check: 2026-07-18
+  score: 10
+  last-promoted-check: '2026-07-20'
 ---
-
 Ran scheduled morning briefing. No in-progress workflows found to resume. Delegation tracker empty.
 
 Gathered: today's calendar (M365, 3-day window through 7/17), OmniFocus inbox (21 items)/overdue (9 real items, 3 nerve-block tasks correctly dropped)/due-soon, Clay upcoming events (cross-check), inbox email scan (no urgent same-day items beyond Athena invoice 7 days past due), Jarvis email folder (empty).

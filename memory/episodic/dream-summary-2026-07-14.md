@@ -14,10 +14,9 @@ tags:
 - semantic-promotion
 related_people: []
 salience:
-  score: 0
-  last-promoted-check: 2026-07-18
+  score: 10
+  last-promoted-check: '2026-07-20'
 ---
-
 ## Dream Cycle Summary — 2026-07-14
 
 **Boot:** Hit unstaged changes in two unrelated in-progress workflow files (content-pipeline, daily-review) that blocked the initial rebase. Stashed them, pulled 39 files cleanly from origin, restored the stash without conflict. No data lost, no manual cleanup needed.

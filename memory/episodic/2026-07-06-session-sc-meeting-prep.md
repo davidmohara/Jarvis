@@ -16,10 +16,9 @@ tags:
 - overdue-tasks
 related_people: null
 salience:
-  score: 0
-  last-promoted-check: 2026-07-18
+  score: 10
+  last-promoted-check: '2026-07-20'
 ---
-
 ## Session Summary
 
 Full prep built for the July 8 Systemic Compliance whiteboard session at Improving Plano (10:00–11:30 AM CDT, Kevin + Robin Graham, Matt Yasar possibly via Teams).

@@ -21,8 +21,8 @@ tags:
 - chief
 related_people: null
 salience:
-  score: 0
-  last-promoted-check: 2026-07-18
+  score: 10
+  last-promoted-check: '2026-07-20'
 ---
 # Dream Cycle Summary — 2026-06-15
 

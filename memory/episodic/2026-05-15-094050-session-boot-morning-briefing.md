@@ -1,8 +1,7 @@
 ---
-
 salience:
   score: 0
-  last-promoted-check: 2026-07-18
+  last-promoted-check: '2026-07-20'
 ---
 # Boot Briefing — Friday May 15, 2026
 

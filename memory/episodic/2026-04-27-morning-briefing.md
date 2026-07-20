@@ -19,8 +19,8 @@ related_people:
 - robyn
 - tim-rayburn
 salience:
-  score: 0
-  last-promoted-check: 2026-07-18
+  score: 10
+  last-promoted-check: '2026-07-20'
 ---
 # Morning Briefing — April 27, 2026
 

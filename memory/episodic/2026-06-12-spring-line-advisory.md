@@ -6,9 +6,8 @@ archived-from: memory/working/2026-06-12-spring-line-advisory.md
 agent: chase
 salience:
   score: 0
-  last-promoted-check: 2026-07-18
+  last-promoted-check: '2026-07-20'
 ---
-
 # Working Memory — Spring Line Advisory
 
 ## Account Status: Active Prospect

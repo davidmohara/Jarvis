@@ -1,27 +1,21 @@
 workflow: dream-cycle
 agent: jarvis
 status: complete
-session-started: 2026-07-18T03:08:59-05:00
-session-id: dream-cycle-2026-07-18-031000
+session-started: 2026-07-20T03:09:18-05:00
+session-id: dream-cycle-2026-07-20-030918
 current-step: null
-original-request: Scheduled dream cycle run (automated) - 2026-07-18
+original-request: Scheduled dream cycle run (automated) - 2026-07-20
 accumulated-context:
   git_pull_at_boot: success
-  git_pull_note: "Already up to date. Cleared stale packed-refs.lock before pull."
-  working_archived: 3
+  git_pull_note: "Fast-forward e2d4240..60b8ab2 (political-monitor run 2026-07-19 + dashboard/topic_history updates). Stashed 2 unstaged working-memory moves from 07-18 run, restored cleanly."
+  working_archived: 1
   working_deleted: 0
-  working_skipped: 8
+  working_skipped: 9
   working_stranded: 0
   archived_files:
-    - 2026-07-15-morning-briefing-scheduled.md
-    - daily-review-2026-07-15-060000.md
-    - dream-summary-2026-07-16.md
-  skipped_not_expired:
-    - daily-review-2026-07-16-000000.md
     - daily-review-2026-07-17-000000.md
-    - dream-summary-2026-07-17.md
+  skipped_not_expired:
     - system-eval-2026-07-18-040609.md
-    - 2026-07-15-morning-briefing-scheduled.md
   skipped_unparseable:
     - 2026-07-08.md
     - golf-booking-2026-07-10-failed.md
@@ -30,40 +24,42 @@ accumulated-context:
     - golf-preview-2026-07-14.md
     - golf-override-2026-07-14.md
     - sc-executive-brief-2026-07-13.md
-  episodic_scanned: 212
-  score_updates: 212
-  no_tags: 13
-  no_date: 12
+  episodic_scanned: 216
+  score_updates: 216
+  no_date: 11
+  no_tags: 14
   parse_errors: 0
   write_errors: 0
-  score_distribution: "0:212"
-  window_start: 2026-06-18
-  window_end: 2026-07-18
-  step02_note: "Only 3 episodic entries fall within the 30-day window (the 3 archived this cycle). None share 2+ tags with each other, so all 212 files score 0. This is correct — sparse recent corpus. Prior cycles showed 10:169 distribution because the merge-write script was preserving old scores rather than recalculating."
-  candidates_count: 0
-  clusters_found: 0
-  semantic_created: 0
-  semantic_updated: 0
-  promoted_entries: 0
-  error_total_30d: 130
-  error_categories_30d_qualifying: "tool-misuse:18, data-accuracy:17, process-skip:14, assumption-error:12, missed-context:12, routing-error:9, format-violation:8, hallucination:7, data-interpretation:5, unknown:4, under-delivery:3"
+  score_distribution: "0:25, 1:2, 2:3, 3:1, 5:5, 6:1, 7:4, 9:4, 10:171"
+  window_start: "2026-06-20"
+  window_end: "2026-07-20"
+  recent_entries: 78
+  candidates_count: 186
+  clusters_found: 3
+  semantic_created: 2
+  semantic_updated: 1
+  promoted_entries: 12
+  cluster_actions:
+    - {tags: "health, medical", domain: operational, action: update, target: "memory/semantic/operational/2026-06-25-health-pattern.md"}
+    - {tags: "q3-rocks, rocks, quarterly-planning", domain: operational, action: create, target: "memory/semantic/operational/2026-07-20-q3-rocks-pattern.md"}
+    - {tags: "systemic-compliance, account", domain: relationships, action: create, target: "memory/semantic/relationships/2026-07-20-systemic-compliance-pattern.md"}
+  error_total_30d: 115
+  error_categories_30d_qualifying: "tool-misuse:17, data-accuracy:15, process-skip:14, missed-context:12, assumption-error:11, format-violation:8, routing-error:8, hallucination:5, data-interpretation:5, under-delivery:3"
   lessons_appended: 0
-  lessons_note: "All 11 qualifying categories already documented in LESSONS.md. No new entries appended."
+  lessons_note: "All 10 qualifying categories already documented in LESSONS.md. No new entries appended."
   entries_compressed: 0
   digests_updated: 0
   compression_skipped: true
-  compression_skip_reason: "Only 1 candidate found (2026-04-18-dream-cycle-summary.md, dated 2026-04-18, just past the 90-day cutoff of 2026-04-19). Below the 5-entry safety threshold. Compression backlog will grow — next cycle should yield more candidates as more April entries cross the cutoff."
-  dream_log_appended: true
-  working_summary_written: false
-  working_summary_reason: "semantic_updated=0, errors=0 — clean quiet run, no summary needed."
+  compression_skip_reason: "Only 1 candidate (2026-04-20-cowboys-club-prep.md, score=0, promoted=false). Below 5-entry safety threshold. Cutoff was 2026-04-21; only entries strictly before that date qualify. Backlog will grow as more April entries age past 90 days."
+  already_moved_by_prior_run:
+    - daily-review-2026-07-16-000000.md
+    - dream-summary-2026-07-17.md
 prior-run-context:
-  git_pull_at_boot: success
-  git_commit_sha: c57752a
+  session_id: dream-cycle-2026-07-18-031000
   working_archived: 3
-  episodic_scanned: 210
-  score_updates: 210
-  clusters_found: 3
-  semantic_updated: 3
-  promoted_entries: 3
+  episodic_scanned: 212
+  score_updates: 212
+  clusters_found: 0
+  semantic_updated: 0
+  promoted_entries: 0
   entries_compressed: 0
-  session_id: dream-cycle-2026-07-17-030935

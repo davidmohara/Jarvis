@@ -1,18 +1,24 @@
 ---
-type: working
+type: working-archive
 expires: 2026-07-18
-status: active
-created: 2026-07-17T03:09:35-05:00
+status: archived
+created: 2026-07-17 03:09:35-05:00
 agent-source: jarvis
-context: "Dream cycle summary — 2026-07-17"
+context: Dream cycle summary — 2026-07-17
+date: 2026-07-17
+source_file: memory/working/dream-summary-2026-07-17.md
 tags:
-  - dream-summary
-  - jarvis
-  - dream-cycle
-  - semantic-promotion
+- dream-summary
+- jarvis
+- dream-cycle
+- semantic-promotion
+- chief
 related_people: []
+salience:
+  score: 10
+  last-promoted-check: '2026-07-20'
+  promoted: false
 ---
-
 ## Dream Cycle Summary — 2026-07-17
 
 **Clean, quiet run.** Boot pulled cleanly via Desktop Commander (fast-forward, 20 files), stashing and restoring Chief's in-flight daily-review state with zero conflicts.

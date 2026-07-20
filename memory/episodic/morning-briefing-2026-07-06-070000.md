@@ -29,10 +29,10 @@ related_people:
 - mark-smith
 - lauren-sweda
 salience:
-  score: 0
-  last-promoted-check: 2026-07-18
+  score: 10
+  last-promoted-check: '2026-07-20'
+  promoted: true
 ---
-
 # Morning Briefing — Monday, July 6, 2026
 
 ## Data Sources

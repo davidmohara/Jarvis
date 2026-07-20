@@ -18,10 +18,9 @@ tags:
 - knox
 related_people: null
 salience:
-  score: 0
-  last-promoted-check: 2026-07-18
+  score: 10
+  last-promoted-check: '2026-07-20'
 ---
-
 - Plaud ingest ran for 2 recordings: medical appointment + SC Orb Demo; Knox processed both and created Monday tasks with share links
 - Bug fixed in `skills/plaud-transcripts/scripts/fetch_plaud.py`: `load_token` renamed to `get_token` at line 1478
 - Systemic Compliance client docs added to `accounts/Systemic Compliance/client docs/` (5 PDFs, 1 PPTX, 1 DOCX from the SC Orb Demo briefing)

@@ -22,8 +22,8 @@ tags:
 - system-maintenance
 related_people: null
 salience:
-  score: 0
-  last-promoted-check: 2026-07-18
+  score: 10
+  last-promoted-check: '2026-07-20'
 ---
 # Morning Briefing — Monday, June 15, 2026
 
