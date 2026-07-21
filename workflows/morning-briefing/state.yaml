@@ -2,6 +2,6 @@ workflow: morning-briefing
 agent: chief
 status: complete
 current-step: step-04
-last-run: 2026-07-20T06:09:00-05:00
-last-run-status: partial
-last-run-notes: "Scheduled autonomous run. Calendar (M365, live pull), OmniFocus (osascript, full pull — 12 inbox, 26 overdue, 1 flagged), Clay (0 reminders), delegation tracker (no active), 72-hr look-ahead, workflow in-flight scan all completed. Jarvis inbox returned no results. Plaud staging not found (transcript-staging dir missing). Watchtower not run (no sub-agent spawn in this session). Quarterly objectives still stale (Q2, Q3 not set). Boot workflow paused/stale from 2026-07-17. No daily review yesterday. Slack delivered to #jarvis (ts: 1784546021.676409)."
+last-run: 2026-07-21T08:31:00-05:00
+last-run-status: complete
+last-run-notes: "Scheduled autonomous run. Calendar (M365, live pull — 14 events today), OmniFocus (osascript — 219 inbox, 7 overdue, 1 flagged), leads (Desktop Commander — 3 unassigned: IFS/Cardinal IT/Paragon), email inbox (13 items scanned, 5 actionable surfaced), Jarvis folder (empty), Clay (0 reminders, upcoming events confirmed), delegation tracker (no active), 72-hr look-ahead complete. AI GMS Summit starts tonight — flagged as top priority. UTB board vote + nerve block appt flagged. Boot workflow still in-progress from 2026-07-17. Slack sent to #jarvis."
