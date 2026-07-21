@@ -1,12 +1,12 @@
 ---
 status: complete
-started-at: 2026-07-20T06:07:55Z
-completed-at: 2026-07-20T06:08:05Z
+started-at: 2026-07-21T08:34:58Z
+completed-at: 2026-07-21T08:35:06Z
 outputs:
-  messages_scanned: 0
+  messages_scanned: 1
   urls_found: 0
   digests_found: 0
   drafts_created: 0
-  outcome: "SUCCESS: No new URLs or digests in last 24 hours. Zero messages returned. Slack notification posted to #content."
+  outcome: "SUCCESS: No new URLs or digests in last 24 hours. One bot message found (pipeline notification, skipped per router). Slack notification posted to #content."
   pending_drafts: 5
 model: sonnet
