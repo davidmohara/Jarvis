@@ -1,0 +1,290 @@
+{
+  "date": "2026-07-21",
+  "generated": "2026-07-21T12:30:00Z",
+  "window_hours": 72,
+  "counts": {
+    "total_items": 68,
+    "by_lean": { "left": 29, "right": 36, "center": 3 },
+    "shared_topics": 5,
+    "gap_left": 5,
+    "gap_right": 5
+  },
+  "sources_used": [
+    { "id": "msnbc",      "name": "MSNBC",               "lean": "left"   },
+    { "id": "cnn",        "name": "CNN Politics",        "lean": "left"   },
+    { "id": "nbc",        "name": "NBC News Politics",   "lean": "left"   },
+    { "id": "thehill",    "name": "The Hill",            "lean": "left"   },
+    { "id": "axios",      "name": "Axios Politics",      "lean": "left"   },
+    { "id": "dailybeast", "name": "The Daily Beast",     "lean": "left"   },
+    { "id": "slate",      "name": "Slate",               "lean": "left"   },
+    { "id": "newrepublic","name": "The New Republic",    "lean": "left"   },
+    { "id": "foxnews",    "name": "Fox News Politics",   "lean": "right"  },
+    { "id": "natreview",  "name": "National Review",     "lean": "right"  },
+    { "id": "examiner",   "name": "Washington Examiner", "lean": "right"  },
+    { "id": "federalist", "name": "The Federalist",      "lean": "right"  },
+    { "id": "dailywire",  "name": "The Daily Wire",      "lean": "right"  },
+    { "id": "breitbart",  "name": "Breitbart",           "lean": "right"  },
+    { "id": "townhall",   "name": "Townhall",            "lean": "right"  },
+    { "id": "rcp",        "name": "RealClearPolitics",   "lean": "right"  },
+    { "id": "amconserv",  "name": "The American Conservative", "lean": "right" },
+    { "id": "spectator",  "name": "The American Spectator", "lean": "right" },
+    { "id": "freepress",  "name": "The Free Press",      "lean": "center" }
+  ],
+  "sources_muted": [
+    { "id": "nyt",        "name": "New York Times",      "lean": "left",   "reason": "paywalled" },
+    { "id": "wapo",       "name": "Washington Post",     "lean": "left",   "reason": "paywalled" },
+    { "id": "politico",   "name": "Politico",            "lean": "left",   "reason": "crawler-blocked" },
+    { "id": "vox",        "name": "Vox",                 "lean": "left",   "reason": "crawler-blocked" },
+    { "id": "motherjones","name": "Mother Jones",        "lean": "left",   "reason": "crawler-blocked" },
+    { "id": "wsj_opinion","name": "WSJ Opinion",         "lean": "right",  "reason": "paywalled" },
+    { "id": "nypost",     "name": "New York Post",       "lean": "right",  "reason": "crawler-blocked" },
+    { "id": "reuters",    "name": "Reuters Politics",    "lean": "center", "reason": "crawler-blocked" },
+    { "id": "ap",         "name": "Associated Press",    "lean": "center", "reason": "crawler-blocked" },
+    { "id": "bbc",        "name": "BBC US & Canada",     "lean": "center", "reason": "crawler-blocked" }
+  ],
+  "shared_topics": [
+    {
+      "topic_key": "michigan-senate-dem-primary",
+      "title": "Michigan Senate: Stevens vs El-Sayed Shapes Democratic Party's Direction",
+      "summary": "Michigan's Democratic Senate primary between establishment Rep. Haley Stevens and democratic socialist Abdul El-Sayed — backed by Bernie Sanders and AOC — is being called one of the most ideologically consequential races of the 2026 cycle. Stevens holds a commanding 48-41% lead in polling and a 12-to-1 spending advantage. She is winning Black Democratic voters by a 67-21% margin, undercutting El-Sayed's working-class coalition pitch.",
+      "correlation": 65,
+      "correlation_label": "65 — Both cover the same polling reality; narratives diverge sharply on what the numbers mean for the party",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "left": {
+        "framing": "Left coverage frames the race as a genuine ideological debate about whether electability or principles should guide the party. Axios notes Stevens' massive spending advantage but treats El-Sayed as a legitimate contender whose grassroots energy could outlast financial disadvantage. The primary is presented as the party working through its direction in real time.",
+        "sources": [
+          { "source": "Axios Politics", "url": "https://www.axios.com/2026/07/16/michigan-senate-haley-stevens-abdul-el-sayed" },
+          { "source": "NBC News Politics", "url": "https://www.nbcnews.com/politics/politics-news/split-driving-2026s-closely-watched-senate-race-politics-desk-rcna352816" }
+        ]
+      },
+      "right": {
+        "framing": "Right coverage frames Stevens' dominance — especially among Black and working-class voters — as evidence that DSA-style socialism is a political loser even within the Democratic base. Townhall and the Examiner emphasize that El-Sayed's coalition is wealthy educated voters, not the workers he claims to represent, and that the result will be a referendum on whether Democrats can resist their radical wing.",
+        "sources": [
+          { "source": "Townhall", "url": "https://townhall.com/tipsheet/amy-curtis/2026/07/16/turns-out-haley-stevens-is-absolutely-trouncing-abdul-el-sayed-among-black-voters-n2679555" },
+          { "source": "Washington Examiner", "url": "https://www.washingtonexaminer.com/in_focus/4655261/michigan-senate-race-most-important/" }
+        ]
+      }
+    },
+    {
+      "topic_key": "reconciliation-senate-iran-war",
+      "title": "Senate Eyes Third Reconciliation Bill to Fund Iran War Munitions Replenishment",
+      "summary": "Senate Republicans are warming to using a third budget reconciliation package to replenish the Pentagon's munitions stockpiles depleted by the ongoing Iran war — on top of the existing Reconciliation 3.0 already under House negotiation. Axios reported July 21 that the proposal is gaining traction as the war's economic costs mount and gas prices push back above $4 per gallon.",
+      "correlation": 60,
+      "correlation_label": "60 — Same legislative fact; left emphasizes deficit and domestic trade-offs, right frames it as national security necessity",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "left": {
+        "framing": "Left outlets note the irony of a party that blocked domestic spending now racing to pass a third reconciliation package for war costs. Axios raises the tension between the Iran war's drain on the Pentagon — partly blamed on Hegseth's pre-war restructuring — and Republican resistance to social spending. The New Republic highlights that weapons stockpile depletion means a full-scale Iran campaign may be militarily constrained regardless of political will.",
+        "sources": [
+          { "source": "Axios Politics", "url": "https://www.axios.com/2026/07/21/congress-reconciliation-omb-iran-republicans" },
+          { "source": "The New Republic", "url": "https://newrepublic.com/post/213240/donald-trump-war-iran-weapons-stockpile" }
+        ]
+      },
+      "right": {
+        "framing": "Right coverage supports the reconciliation move as straightforward national security investment. Fox News frames the Iran war as a necessary response to Iranian aggression in the Strait of Hormuz, and Pentagon replenishment as non-negotiable. RealClearPolitics notes that GOP leaders are juggling four competing priorities — Iran war funding, SAVE Act, broader reconciliation, and avoiding a shutdown — and that internal divisions are the only obstacle to getting it done.",
+        "sources": [
+          { "source": "Fox News Politics", "url": "https://www.foxnews.com/live-news/us-iran-war-strikes-07-20-26" },
+          { "source": "RealClearPolitics", "url": "https://www.realclearpolitics.com/2026/07/20/4_competing_priorities_bog_down_gop_ahead_of_midterms_705660.html" }
+        ]
+      }
+    },
+    {
+      "topic_key": "trump-housing-bill-veto-save-act",
+      "title": "Housing Affordability Bill Becomes Law Without Trump's Signature",
+      "summary": "A sweeping bipartisan housing affordability bill became law on July 21 without President Trump's signature, after months of Trump threatening to veto it unless the Senate passed the SAVE America Act — which would require photo ID and proof of citizenship to vote. Sen. Thom Tillis publicly declared the SAVE Act will not pass this election cycle, effectively ending Trump's leverage. The housing bill passed with overwhelming bipartisan support.",
+      "correlation": 55,
+      "correlation_label": "55 — Both acknowledge the same legislative outcome; diverge materially on whether Trump's leverage strategy was appropriate",
+      "days_seen": 2,
+      "relevance": 70,
+      "relevance_label": "Recurring — day 2",
+      "left": {
+        "framing": "Left outlets frame the housing bill's passage as a relief for Americans caught in Trump's political hostage-taking. NBC and Axios emphasize that Trump's SAVE Act gambit failed — Tillis publicly blocked it — and that Trump's decision to let the housing bill become law was a concession, not a victory. CNN notes that Trump's election obsession is alienating even Republican senators who need to campaign on affordability.",
+        "sources": [
+          { "source": "NBC News Politics", "url": "https://www.nbcnews.com/politics/trump-administration/live-blog/trump-2026-election-congress-housing-iran-ice-doj-live-updates-rcna358291" },
+          { "source": "Axios Politics", "url": "https://www.axios.com/2026/07/10/trump-housing-bill-senate-save-act" },
+          { "source": "The Hill", "url": "https://thehill.com/homenews/administration/5962396-trump-not-signing-housing-act/" }
+        ]
+      },
+      "right": {
+        "framing": "Right outlets frame Trump's refusal to sign as a principled protest on behalf of election integrity. Breitbart supports Trump's position that the SAVE Act — requiring proof of citizenship and photo ID — is non-negotiable before he'll celebrate a bipartisan win that Democrats also benefit from. Townhall reports that Tillis' declaration that SAVE Act won't pass is a Republican Senate failure, not a Trump defeat.",
+        "sources": [
+          { "source": "Breitbart", "url": "https://www.breitbart.com/politics/2026/07/10/trump-says-he-will-not-sign-housing-bill-protest-over-senate-failure-pass-save-america-act/" },
+          { "source": "Townhall", "url": "https://townhall.com/tipsheet/jeff-charles/2026/07/18/this-republican-senator-just-declared-that-he-will-tank-save-america-act-n2679662" }
+        ]
+      }
+    },
+    {
+      "topic_key": "burnham-uk-pm-socialism",
+      "title": "Andy Burnham Becomes UK's 7th PM in a Decade as Global Socialism Story Widens",
+      "summary": "Labour's Andy Burnham was sworn in as Britain's seventh prime minister in a decade on July 20, pledging to end political instability and implement a 'new economic model.' His ascension coincides with DSA primary victories in the US and comes as world leaders watch a broader leftward shift in Western politics. Burnham takes office with a depleted treasury and no clear governing mandate.",
+      "correlation": 48,
+      "correlation_label": "48 — Same event, opposite interpretations: center-left reform vs. harbinger of socialist surge",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "left": {
+        "framing": "CNN and center-left outlets cover Burnham's premiership straightforwardly as a pragmatic center-left government pledging stability after years of Conservative chaos. His promise to make politics 'work better' is treated as credible institutional repair. His socialist credentials are framed as representing broader public appetite for economic fairness after austerity.",
+        "sources": [
+          { "source": "CNN Politics", "url": "https://edition.cnn.com/2026/07/20/world/live-news/andy-burnham-uk-prime-minister-intl" }
+        ]
+      },
+      "right": {
+        "framing": "Right outlets frame Burnham as the latest data point in an alarming global socialist surge — contextualizing his victory alongside DSA wins in the US and Bernie-backed candidates gaining ground. The Daily Wire calls it 'the world eyes rise of socialism.' The American Conservative is skeptical from a realist right perspective: Burnham has no cash, no ideas, and a broken mandate. The Examiner notes he's the seventh PM in a decade — a symbol of UK instability, not renewal.",
+        "sources": [
+          { "source": "The Daily Wire", "url": "https://www.dailywire.com/news/world-eyes-rise-of-socialism-as-new-u-k-prime-minister-takes-power" },
+          { "source": "Washington Examiner", "url": "https://www.washingtonexaminer.com/news/world/4655046/andy-burnham-appointed-britain-new-prime-minister/" },
+          { "source": "The American Conservative", "url": "https://www.theamericanconservative.com/burnham-starts-premiership-short-on-cash-ideas/" }
+        ]
+      }
+    },
+    {
+      "topic_key": "mamdani-netanyahu-arrest-nyc",
+      "title": "NYC Mayor Mamdani Threatens to Arrest Netanyahu at September UNGA",
+      "summary": "New York City Mayor Zohran Mamdani's administration is exploring whether NYC can arrest Israeli Prime Minister Benjamin Netanyahu if he attends the UN General Assembly in Manhattan in September, citing ICC arrest warrants. The move has ignited a firestorm, with some Democrats backing the threat as consistent with international law enforcement while Republicans frame it as a dangerous breach of diplomatic norms and anti-Israel extremism.",
+      "correlation": 28,
+      "correlation_label": "28 — Sharply divergent: left frames as human rights enforcement, right frames as radical anti-Israel provocation",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "left": {
+        "framing": "The Hill covers the story as a genuine indicator of the deepening Democratic rift on Israel — noting that Mamdani's threat, while fringe, reveals how far the party's progressive wing has moved. More than half of House Democrats already voted to block US military assistance to Israel. Left outlets treat the story as politically complex: Mamdani's position resonates with his base but may alienate moderate Democrats critical to November.",
+        "sources": [
+          { "source": "The Hill", "url": "https://thehill.com/policy/international/5979466-mamdani-threatens-netanyahu-arrest/" }
+        ]
+      },
+      "right": {
+        "framing": "Fox News frames the threat as outrageous and legally dubious — framing Mamdani as a radical socialist willing to undermine US foreign policy and a key Middle East ally for ideological purposes. Right outlets connect this to the broader DSA-inspired anti-Israel turn in Democratic politics, using it as evidence that the party has lurched out of the American mainstream. National Review calls it a direct consequence of DSA gains in the 2026 primaries.",
+        "sources": [
+          { "source": "Fox News Politics", "url": "https://www.foxnews.com/live-news/us-iran-war-strikes-07-20-26" },
+          { "source": "National Review", "url": "https://www.nationalreview.com/2026/07/the-week-the-iran-war-resumes/" }
+        ]
+      }
+    }
+  ],
+  "gap_left": [
+    {
+      "topic_key": "hegseth-pentagon-ai-civilian-harm",
+      "title": "Hegseth Gutted Pentagon's Civilian Harm Office, Replaced It with AI — Before Iran War Began",
+      "summary": "Defense Secretary Pete Hegseth cut the Pentagon's Civilian Protection Center of Excellence from 40 staffers down to 9, replacing the function with artificial intelligence, before the Iran war began. The New Republic reports this as a critical pre-war decision that eliminated human oversight of civilian harm — a decision now under scrutiny as the US conducts nightly strikes on Iranian infrastructure with international observers raising civilian casualty concerns.",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "sources": [
+        { "source": "The New Republic", "url": "https://newrepublic.com/post/213257/hegseth-swapped-defense-department-office-ai-iran-war" },
+        { "source": "The Daily Beast", "url": "https://www.thedailybeast.com/pentagon-goon-sean-parnell-melts-down-over-shocking-trump-war-cover-up-claim/" }
+      ]
+    },
+    {
+      "topic_key": "state-dept-targets-dsa-activists",
+      "title": "State Dept Labels DSA, Hasan Piker, and Ilhan Omar's Daughter as Cuban Government Front Groups",
+      "summary": "Marco Rubio's State Department has circulated materials labeling the Democratic Socialists of America, popular political streamer Hasan Piker, Amazon labor organizer Christian Smalls, and environmental activist Isra Hirsi (Rep. Ilhan Omar's daughter) as 'front groups and fellow travelers' for the Cuban government. The New Republic characterizes this as an attempt to use foreign-influence designation to discredit domestic left-wing organizing ahead of the midterms.",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "sources": [
+        { "source": "The New Republic", "url": "https://newrepublic.com/post/213255/state-department-hasan-piker-ilhan-omar-daughter-democratic-socialists-cuba" }
+      ]
+    },
+    {
+      "topic_key": "trump-election-speech-wh-scramble",
+      "title": "White House Scrambled to Contain Fallout from Trump's Primetime Election 'Plot Flop'",
+      "summary": "Following Trump's primetime address on election integrity — in which he claimed China stole 220 million voter records and threatened state election officials — White House aides privately scrambled to manage the backlash after the speech failed to galvanize voters or congressional Republicans. Most GOP candidates are distancing from the election conspiracy framing heading into midterm season, and even senior Republicans called it a distraction from affordability messaging.",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "sources": [
+        { "source": "The Daily Beast", "url": "https://www.thedailybeast.com/white-house-scramble-to-kill-president-trumps-primetime-election-plot-flop-revealed/" },
+        { "source": "The New Republic", "url": "https://newrepublic.com/post/213248/republicans-donald-trump-election-fraud-obsession-midterms" }
+      ]
+    },
+    {
+      "topic_key": "trump-canada-tariffs-wildfire",
+      "title": "Trump Slaps 50% Tariffs on Canadian Goods; Blames Canada for Wildfire Smoke Invasion",
+      "summary": "President Trump announced 50% tariffs on most Canadian goods — citing discrimination against US automakers, alcohol, and dairy — while simultaneously blaming Canada for wildfire smoke blanketing large portions of the United States. Trump posted on Truth Social that the US is being 'unnecessarily invaded by filthy, polluted, and unhealthy air' from Canada. Left and center outlets are covering this as a dual escalation with a key trading partner while conservative media has largely focused on Iran and the SAVE Act.",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "sources": [
+        { "source": "NBC News Politics", "url": "https://www.nbcnews.com/politics/trump-administration/live-blog/trump-congress-2026-election-iran-doj-ice-live-updates-rcna588302" },
+        { "source": "The Free Press", "url": "https://www.thefp.com/p/are-the-wildfires-really-canadas-fault" }
+      ]
+    },
+    {
+      "topic_key": "dhs-threatens-prison-state-election-officials",
+      "title": "DHS Secretary Mullin Threatens State Election Officials with Prison for Non-Compliance",
+      "summary": "DHS Secretary Markwayne Mullin threatened state election officials with possible prison time if they refuse to cooperate with the Trump administration's review of voter rolls for potential noncitizen registrations. The warning followed Trump's primetime address. Left outlets are covering this as an unprecedented use of federal law enforcement threats against state election administrators — with critics calling it coercion ahead of November.",
+      "days_seen": 2,
+      "relevance": 70,
+      "relevance_label": "Recurring — day 2",
+      "sources": [
+        { "source": "NBC News Politics", "url": "https://www.nbcnews.com/politics/trump-administration/live-blog/trump-congress-2026-election-china-iran-ice-doj-live-updates-rcna587892" },
+        { "source": "Slate", "url": "https://slate.com/news-and-politics/2026/07/graham-platner-replacement-susan-collins.html" }
+      ]
+    }
+  ],
+  "gap_right": [
+    {
+      "topic_key": "dhs-250k-noncitizen-voters",
+      "title": "DHS Data Shows 250K+ Noncitizens Registered to Vote in Four States",
+      "summary": "Newly released DHS data shows more than 250,000 noncitizens are illegally registered to vote across California, Pennsylvania, New Jersey, and Nevada. The Federalist and Fox News are leading coverage of this data as the central justification for the SAVE America Act's proof-of-citizenship requirement. Right outlets frame this as validation of Trump's election integrity push; the data has not received comparable coverage on left-leaning outlets, which have focused on the SAVE Act's potential to restrict legal voters.",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "sources": [
+        { "source": "The Federalist", "url": "https://thefederalist.com/2026/07/16/dhs-more-than-250000-noncitizens-are-registered-to-vote-in-four-states/" },
+        { "source": "Fox News Politics", "url": "https://www.foxnews.com/politics/trump-releases-declassified-election-intelligence-says-reveals-shocking-vulnerabilities" }
+      ]
+    },
+    {
+      "topic_key": "wisconsin-dem-gov-crowley-hong",
+      "title": "Wisconsin Democrat Crowley Re-Enters Governor's Race a Week After Dropping Out to Block Socialist Hong",
+      "summary": "Milwaukee County Executive David Crowley suspended his Wisconsin gubernatorial campaign and then resumed it within the same week — an extraordinary move described as unprecedented — in a desperate attempt to stop DSA-aligned progressive Francesca Hong from running away with the Democratic nomination. Townhall frames this as Democratic panic: the party establishment is openly trying to block the will of its own voters who are moving left. NBC has covered it as a competitive primary; conservative outlets are treating it as proof of Dem dysfunction.",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "sources": [
+        { "source": "Townhall", "url": "https://townhall.com/tipsheet/amy-curtis/2026/07/18/are-wisconsin-democrats-trying-to-thwart-the-will-of-their-voters-n2679690" },
+        { "source": "Townhall", "url": "https://townhall.com/tipsheet/amy-curtis/2026/07/20/wisdems-david-crowley-francesca-hong-n2679772" }
+      ]
+    },
+    {
+      "topic_key": "black-leaders-dems-dsa-abandon",
+      "title": "Black Leaders Accuse Democrats of Leaving Them Behind as DSA Takes Over the Party",
+      "summary": "Black community leaders are publicly accusing the Democratic Party of abandoning Black voters and their priorities as the DSA's radical policy agenda — abolishing the Senate, defunding the military, restructuring the Supreme Court — takes center stage in the party's primary battles. The Daily Wire reports that Black leaders see the socialist surge as driven by wealthy, educated white voters pursuing an ideological agenda disconnected from economic concerns in Black communities.",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "sources": [
+        { "source": "The Daily Wire", "url": "https://www.dailywire.com/news/black-leaders-accuse-democrats-of-leaving-them-behind" }
+      ]
+    },
+    {
+      "topic_key": "scotus-justices-security-threats",
+      "title": "SCOTUS Justices Barrett and Kagan Jointly Seek $14M Security Increase Amid Rising Threats",
+      "summary": "In a rare joint appearance, Justices Amy Coney Barrett and Elena Kagan testified before House and Senate appropriators to request a $14 million increase in SCOTUS security funding, bringing the total proposed budget to $230 million. The request follows an escalation of threats against justices and their families. The American Spectator and Federalist are framing this as a consequence of Democratic and DSA rhetoric targeting the Court — coverage largely absent from left outlets.",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "sources": [
+        { "source": "The American Spectator", "url": "https://spectator.org/u-s-supreme-court-justices-seek-protection-amid-increasing-threats/" },
+        { "source": "The Federalist", "url": "https://thefederalist.com/2026/07/15/durbin-says-left-wing-assassination-attempts-against-scotus-are-actually-todd-blanches-fault/" }
+      ]
+    },
+    {
+      "topic_key": "gop-nrcc-expands-target-map",
+      "title": "NRCC Expands 2026 Target Map, Adding 7 Democrat-Held House Districts",
+      "summary": "The National Republican Congressional Committee has expanded its 2026 midterm target map, adding seven Democrat-held House districts to its priority list. RealClearPolitics and Townhall are covering this as evidence that Republican optimism about November is growing despite Trump's approval headwinds — with the NRCC betting that local economic concerns and DSA baggage on Democratic candidates will allow pickups even in a wave environment. Left outlets have focused on DDHQ's favorable House forecast for Democrats.",
+      "days_seen": 2,
+      "relevance": 70,
+      "relevance_label": "Recurring — day 2",
+      "sources": [
+        { "source": "Townhall", "url": "https://townhall.com/tipsheet/mattvespa/2026/07/21/az-dems-facing-total-disaster-in-this-must-win-house-race-n2679743" },
+        { "source": "RealClearPolitics", "url": "https://www.realclearpolitics.com/2026/07/20/4_competing_priorities_bog_down_gop_ahead_of_midterms_705660.html" }
+      ]
+    }
+  ],
+  "suggestions": []
+}
