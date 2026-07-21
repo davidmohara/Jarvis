@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spiritual Gifts Assessment - David O'Hara</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+            border-bottom: 2px solid rgba(255,255,255,0.2);
+        }
+
+        .tab-button {
+            padding: 12px 24px;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1em;
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .tab-button:hover {
+            opacity: 0.8;
+        }
+
+        .tab-button.active {
+            border-bottom-color: white;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            margin-bottom: 30px;
+        }
+
+        .gifts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .gift-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .gift-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: -50px;
+            width: 100px;
+            height: 100px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+        }
+
+        .gift-card.tier-1 {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            grid-column: span 2;
+        }
+
+        .gift-card.tier-2 {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        .gift-card.tier-3 {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+
+        .gift-card.tier-4 {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+        }
+
+        .gift-rank {
+            font-size: 0.85em;
+            opacity: 0.9;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .gift-name {
+            font-size: 1.5em;
+            font-weight: 700;
+            margin-bottom: 12px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .gift-score {
+            font-size: 2em;
+            font-weight: 700;
+            margin-bottom: 12px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .gift-description {
+            font-size: 0.95em;
+            line-height: 1.5;
+            opacity: 0.95;
+            position: relative;
+            z-index: 1;
+        }
+
+        .score-bar {
+            width: 100%;
+            height: 8px;
+            background: rgba(255,255,255,0.3);
+            border-radius: 4px;
+            margin-top: 15px;
+            overflow: hidden;
+            position: relative;
+            z-index: 1;
+        }
+
+        .score-fill {
+            height: 100%;
+            background: rgba(255,255,255,0.8);
+            border-radius: 4px;
+            transition: width 0.5s ease;
+        }
+
+        .interpretation {
+            background: #f5f5f5;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border-left: 4px solid #667eea;
+        }
+
+        .interpretation strong {
+            color: #667eea;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .profile-summary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+
+        .profile-summary h2 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+
+        .profile-summary p {
+            line-height: 1.7;
+            margin-bottom: 12px;
+        }
+
+        .answers-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .answers-table thead {
+            background: #667eea;
+            color: white;
+        }
+
+        .answers-table th {
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .answers-table td {
+            padding: 12px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .answers-table tbody tr:hover {
+            background: #f9f9f9;
+        }
+
+        .score-1 { color: #e74c3c; }
+        .score-2 { color: #e67e22; }
+        .score-3 { color: #f39c12; }
+        .score-4 { color: #27ae60; }
+        .score-5 { color: #2ecc71; font-weight: 600; }
+
+        .tier-header {
+            font-size: 1.2em;
+            font-weight: 700;
+            color: #333;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #667eea;
+        }
+
+        .tier-header.tier-1 { color: #667eea; }
+        .tier-header.tier-2 { color: #f5576c; }
+        .tier-header.tier-3 { color: #4facfe; }
+        .tier-header.tier-4 { color: #43e97b; }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.8em;
+            }
+
+            .gift-card.tier-1 {
+                grid-column: span 1;
+            }
+
+            .gifts-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .answers-table {
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Spiritual Gifts Assessment</h1>
+            <p>David O'Hara</p>
+        </div>
+
+        <div class="tabs">
+            <button class="tab-button active" onclick="showTab('results')">Results</button>
+            <button class="tab-button" onclick="showTab('answers')">Answers</button>
+        </div>
+
+        <!-- Results Tab -->
+        <div id="results" class="tab-content active">
+            <div class="card">
+                <div class="profile-summary">
+                    <h2>Your Profile: Strategic Leader + Strategist + Learner</h2>
+                    <p>You excel at seeing what needs to happen and making it happen. Your gifts center on vision, execution, wisdom, and an unshakeable trust in God. You organize complexity into systems, make wise decisions grounded in Scripture and facts, and create welcoming environments.</p>
+                    <p><strong>Your strengths:</strong> Macro-level leadership and strategy, decision-making under uncertainty, building organizational systems, learning and integration.</p>
+                    <p><strong>Your growth areas:</strong> Relational intimacy, direct service, and evangelistic drive aren't natural strengths—focus on what you do best.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2 style="margin-bottom: 20px; color: #333;">Your Spiritual Gifts</h2>
+
+                <div class="tier-header tier-1">🌟 TOP TIER — Exceptional Strengths</div>
+                <div class="gifts-grid">
+                    <div class="gift-card tier-1">
+                        <div class="gift-rank">Rank #1</div>
+                        <div class="gift-name">Faith</div>
+                        <div class="gift-score">25/25</div>
+                        <div class="gift-description">You have an extraordinary capacity to trust God in difficult situations and maintain assurance even when circumstances look impossible. You're the person others look to when things seem dark.</div>
+                        <div class="score-bar"><div class="score-fill" style="width: 100%;"></div></div>
+                    </div>
+
+                    <div class="gift-card tier-1">
+                        <div class="gift-rank">Rank #2</div>
+                        <div class="gift-name">Leadership</div>
+                        <div class="gift-score">24/25</div>
+                        <div class="gift-description">You determine direction, make critical decisions, influence others to their potential, and adapt guidance to those you lead. You see the vision and can get people to commit to it.</div>
+                        <div class="score-bar"><div class="score-fill" style="width: 96%;"></div></div>
+                    </div>
+
+                    <div class="gift-card tier-2">
+                        <div class="gift-rank">Rank #3</div>
+                        <div class="gift-name">Administration</div>
+                        <div class="gift-score">22/25</div>
+                        <div class="gift-description">You organize ideas, resources, time, and people effectively. You delegate, set positive steps of action, and make efficient plans. You're the operator who turns vision into execution.</div>
+                        <div class="score-bar"><div class="score-fill" style="width: 88%;"></div></div>
+                    </div>
+                </div>
+
+                <div class="tier-header tier-2">💎 SECOND TIER — Strong Foundations</div>
+                <div class="gifts-grid">
+                    <div class="gift-card tier-2">
+                        <div class="gift-rank">Rank #4</div>
+                        <div class="gift-name">Wisdom</div>
+                        <div class="gift-score">21/25</div>
+                        <div class="gift-description">You relate God's truths to specific situations, analyze situations correctly, see spiritual solutions to problems, and apply biblical truth to specific needs. You're the counselor people consult.</div>
+                        <div class="score-bar"><div class="score-fill" style="width: 84%;"></div></div>
+                    </div>
+
+                    <div class="gift-card tier-2">
+                        <div class="gift-rank">Rank #5</div>
+                        <div class="gift-name">Knowledge</div>
+                        <div class="gift-score">20/25</div>
+                        <div class="gift-description">You enjoy studying, dig into facts, discover new truths in Scripture, and organize information into meaningful relationships. You have intellectual depth and love learning.</div>
+                        <div class="score-bar"><div class="score-fill" style="width: 80%;"></div></div>
+                    </div>
+
+                    <div class="gift-card tier-2">
+                        <div class="gift-rank">Rank #6</div>
+                        <div class="gift-name">Hospitality</div>
+                        <div class="gift-score">20/25</div>
+                        <div class="gift-description">You make strangers feel at ease and comfortable, entertain guests, and enjoy meeting new people. You create welcoming environments naturally.</div>
+                        <div class="score-bar"><div class="score-fill" style="width: 80%;"></div></div>
+                    </div>
+                </div>
+
+                <div class="tier-header tier-3">🔷 THIRD TIER — Moderate to Developing</div>
+                <div class="gifts-grid">
+                    <div class="gift-card tier-3">
+                        <div class="gift-rank">Rank #7</div>
+                        <div class="gift-name">Discernment</div>
+                        <div class="gift-score">19/25</div>
+                        <div class="gift-description">You sense true motivations, recognize genuine people, and sense when someone's acting under God's leadership. You read people well.</div>
+                        <div class="score-bar"><div class="score-fill" style="width: 76%;"></div></div>
+                    </div>
+
+                    <div class="gift-card tier-3">
+                        <div class="gift-rank">Rank #8</div>
+                        <div class="gift-name">Teaching</div>
+                        <div class="gift-score">17/25</div>
+                        <div class="gift-description">You have ability and desire to teach and can explain Scripture so others understand it. This is solid but not a primary strength.</div>
+                        <div class="score-bar"><div class="score-fill" style="width: 68%;"></div></div>
+                    </div>
+
+                    <div class="gift-card tier-3">
+                        <div class="gift-rank">Rank #9</div>
+                        <div class="gift-name">Exhortation</div>
+                        <div class="gift-score">15/25</div>
+                        <div class="gift-description">You encourage others and help them live Christlike lives, though this isn't as natural as your top gifts.</div>
+                        <div class="score-bar"><div class="score-fill" style="width: 60%;"></div></div>
+                    </div>
+                </div>
+
+                <div class="tier-header tier-4">▪️ LOWER TIER — Minimal Strength</div>
+                <div class="gifts-grid">
+                    <div class="gift-card tier-4">
+                        <div class="gift-rank">Rank #10</div>
+                        <div class="gift-name">Prophecy</div>
+                        <div class="gift-score">12/25</div>
+                        <div class="gift-description">Prophetic declaration isn't a primary calling. This is a developing area.</div>
+                        <div class="score-bar"><div class="score-fill" style="width: 48%;"></div></div>
+                    </div>
+
+                    <div class="gift-card tier-4">
+                        <div class="gift-rank">Rank #11</div>
+                        <div class="gift-name">Shepherding</div>
+                        <div class="gift-score">12/25</div>
+                        <div class="gift-description">One-on-one discipleship and pastoral care aren't natural fits. Focus elsewhere.</div>
+                        <div class="score-bar"><div class="score-fill" style="width: 48%;"></div></div>
+                    </div>
+
+                    <div class="gift-card tier-4">
+                        <div class="gift-rank">Rank #12</div>
+                        <div class="gift-name">Service/Helps</div>
+                        <div class="gift-score">12/25</div>
+                        <div class="gift-description">Hands-on service work isn't a primary calling. You're wired for strategy, not service.</div>
+                        <div class="score-bar"><div class="score-fill" style="width: 48%;"></div></div>
+                    </div>
+
+                    <div class="gift-card tier-4">
+                        <div class="gift-rank">Rank #13</div>
+                        <div class="gift-name">Evangelism</div>
+                        <div class="gift-score">11/25</div>
+                        <div class="gift-description">Direct evangelistic outreach and street-level witnessing aren't natural strengths.</div>
+                        <div class="score-bar"><div class="score-fill" style="width: 44%;"></div></div>
+                    </div>
+
+                    <div class="gift-card tier-4">
+                        <div class="gift-rank">Rank #14</div>
+                        <div class="gift-name">Apostleship</div>
+                        <div class="gift-score">11/25</div>
+                        <div class="gift-description">Church planting and missionary work aren't primary callings for you.</div>
+                        <div class="score-bar"><div class="score-fill" style="width: 44%;"></div></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2 style="margin-bottom: 20px; color: #333;">Score Interpretation</h2>
+                <div class="interpretation">
+                    <strong>23-25: Very Strong Gift</strong>
+                    This is a core strength. Build your life and role around it.
+                </div>
+                <div class="interpretation">
+                    <strong>20-22: Strong Gift</strong>
+                    Significant strength. Lean into this in your work and service.
+                </div>
+                <div class="interpretation">
+                    <strong>17-19: Moderate Gift</strong>
+                    Solid capability. Can contribute meaningfully here.
+                </div>
+                <div class="interpretation">
+                    <strong>14-16: Developing Gift</strong>
+                    Early capability. Growth possible but not a natural strength.
+                </div>
+                <div class="interpretation">
+                    <strong>Below 14: Minimal Strength</strong>
+                    Not a core gift. Partner with others who excel here instead.
+                </div>
+            </div>
+        </div>
+
+        <!-- Answers Tab -->
+        <div id="answers" class="tab-content">
+            <div class="card">
+                <h2 style="margin-bottom: 20px; color: #333;">All Assessment Questions & Responses</h2>
+                <table class="answers-table">
+                    <thead>
+                        <tr>
+                            <th>Item #</th>
+                            <th>Question</th>
+                            <th>Your Score</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>I have the ability to organize ideas, resources, time, and people effectively.</td>
+                            <td><span class="score-5">5</span></td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>I am willing to study and prepare for the task of teaching.</td>
+                            <td><span class="score-4">4</span></td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>I am able to relate the truths of God to specific situations.</td>
+                            <td><span class="score-4">4</span></td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>I have a God-given ability to help others grow in their faith.</td>
+                            <td><span class="score-2">2</span></td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>I possess a special ability to communicate the truth of salvation.</td>
+                            <td><span class="score-3">3</span></td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>I have the ability to make critical decisions when necessary.</td>
+                            <td><span class="score-5">5</span></td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>I am sensitive to the hurts of people.</td>
+                            <td><span class="score-2">2</span></td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td>I experience joy in meeting needs through sharing possessions.</td>
+                            <td><span class="score-4">4</span></td>
+                        </tr>
+                        <tr>
+                            <td>9</td>
+                            <td>I enjoy studying.</td>
+                            <td><span class="score-3">3</span></td>
+                        </tr>
+                        <tr>
+                            <td>10</td>
+                            <td>I have delivered God's message of warning and judgment.</td>
+                            <td><span class="score-1">1</span></td>
+                        </tr>
+                        <tr>
+                            <td>11</td>
+                            <td>I am able to sense the true motivation of persons and movements.</td>
+                            <td><span class="score-4">4</span></td>
+                        </tr>
+                        <tr>
+                            <td>12</td>
+                            <td>I have a special ability to trust God in difficult situations.</td>
+                            <td><span class="score-5">5</span></td>
+                        </tr>
+                        <tr>
+                            <td>13</td>
+                            <td>I have a strong desire to contribute to the establishment of new churches.</td>
+                            <td><span class="score-2">2</span></td>
+                        </tr>
+                        <tr>
+                            <td>14</td>
+                            <td>I take action to meet physical and practical needs rather than merely talking about or planning how to help.</td>
+                            <td><span class="score-3">3</span></td>
+                        </tr>
+                        <tr>
+                            <td>15</td>
+                            <td>I enjoy entertaining guests in my home.</td>
+                            <td><span class="score-5">5</span></td>
+                        </tr>
+                        <tr>
+                            <td>16</td>
+                            <td>I can adapt my guidance to fit the maturity of those working with me.</td>
+                            <td><span class="score-5">5</span></td>
+                        </tr>
+                        <tr>
+                            <td>17</td>
+                            <td>I can delegate and assign meaningful work.</td>
+                            <td><span class="score-5">5</span></td>
+                        </tr>
+                        <tr>
+                            <td>18</td>
+                            <td>I have an ability and desire to teach.</td>
+                            <td><span class="score-4">4</span></td>
+                        </tr>
+                        <tr>
+                            <td>19</td>
+                            <td>I am usually able to analyze a situation correctly.</td>
+                            <td><span class="score-5">5</span></td>
+                        </tr>
+                        <tr>
+                            <td>20</td>
+                            <td>I have a natural tendency to encourage others.</td>
+                            <td><span class="score-3">3</span></td>
+                        </tr>
+                        <tr>
+                            <td>21</td>
+                            <td>I am willing to take the initiative in helping other Christians grow in their faith.</td>
+                            <td><span class="score-2">2</span></td>
+                        </tr>
+                        <tr>
+                            <td>22</td>
+                            <td>I have an acute awareness of other people's emotions, such as loneliness, pain, fear, and anger.</td>
+                            <td><span class="score-3">3</span></td>
+                        </tr>
+                        <tr>
+                            <td>23</td>
+                            <td>I am a cheerful giver.</td>
+                            <td><span class="score-5">5</span></td>
+                        </tr>
+                        <tr>
+                            <td>24</td>
+                            <td>I spend time digging into facts.</td>
+                            <td><span class="score-5">5</span></td>
+                        </tr>
+                        <tr>
+                            <td>25</td>
+                            <td>I feel that I have a message from God to deliver to others.</td>
+                            <td><span class="score-3">3</span></td>
+                        </tr>
+                        <tr>
+                            <td>26</td>
+                            <td>I can recognize when a person is genuine/honest.</td>
+                            <td><span class="score-4">4</span></td>
+                        </tr>
+                        <tr>
+                            <td>27</td>
+                            <td>I am a person of vision (a clear mental portrait of a preferable future given by God). I am able to communicate vision in such a way that others commit to making the vision a reality.</td>
+                            <td><span class="score-5">5</span></td>
+                        </tr>
+                        <tr>
+                            <td>28</td>
+                            <td>I am willing to yield to God's will rather than question and waver.</td>
+                            <td><span class="score-5">5</span></td>
+                        </tr>
+                        <tr>
+                            <td>29</td>
+                            <td>I would like to be more active in getting the gospel to people in other countries.</td>
+                            <td><span class="score-3">3</span></td>
+                        </tr>
+                        <tr>
+                            <td>30</td>
+                            <td>It makes me happy to do things for people in need.</td>
+                            <td><span class="score-3">3</span></td>
+                        </tr>
+                        <tr>
+                            <td>31</td>
+                            <td>I am successful in getting a group to do its work joyfully.</td>
+                            <td><span class="score-4">4</span></td>
+                        </tr>
+                        <tr>
+                            <td>32</td>
+                            <td>I am able to make strangers feel at ease.</td>
+                            <td><span class="score-3">3</span></td>
+                        </tr>
+                        <tr>
+                            <td>33</td>
+                            <td>I have the ability to teach to a variety of different learning styles.</td>
+                            <td><span class="score-4">4</span></td>
+                        </tr>
+                        <tr>
+                            <td>34</td>
+                            <td>I can identify those who need encouragement.</td>
+                            <td><span class="score-3">3</span></td>
+                        </tr>
+                        <tr>
+                            <td>35</td>
+                            <td>I have trained Christians to be more obedient disciples of Christ.</td>
+                            <td><span class="score-2">2</span></td>
+                        </tr>
+                        <tr>
+                            <td>36</td>
+                            <td>I am willing to do whatever it takes to see others come to Christ.</td>
+                            <td><span class="score-2">2</span></td>
+                        </tr>
+                        <tr>
+                            <td>37</td>
+                            <td>I am drawn to people who are hurting.</td>
+                            <td><span class="score-1">1</span></td>
+                        </tr>
+                        <tr>
+                            <td>38</td>
+                            <td>I am a generous giver.</td>
+                            <td><span class="score-5">5</span></td>
+                        </tr>
+                        <tr>
+                            <td>39</td>
+                            <td>I am able to discover new truths in Scripture.</td>
+                            <td><span class="score-3">3</span></td>
+                        </tr>
+                        <tr>
+                            <td>40</td>
+                            <td>I have spiritual insights from Scripture concerning issues and people that compel me to speak out.</td>
+                            <td><span class="score-3">3</span></td>
+                        </tr>
+                        <tr>
+                            <td>41</td>
+                            <td>I can sense when a person is acting in accordance with God's will.</td>
+                            <td><span class="score-4">4</span></td>
+                        </tr>
+                        <tr>
+                            <td>42</td>
+                            <td>I can trust in God even when things look dark.</td>
+                            <td><span class="score-5">5</span></td>
+                        </tr>
+                        <tr>
+                            <td>43</td>
+                            <td>I can determine where God wants a group to go and help it get there.</td>
+                            <td><span class="score-5">5</span></td>
+                        </tr>
+                        <tr>
+                            <td>44</td>
+                            <td>I have a strong desire to take the gospel to places where it has never been heard.</td>
+                            <td><span class="score-2">2</span></td>
+                        </tr>
+                        <tr>
+                            <td>45</td>
+                            <td>I enjoy reaching out to new people in my church and community.</td>
+                            <td><span class="score-3">3</span></td>
+                        </tr>
+                        <tr>
+                            <td>46</td>
+                            <td>I am sensitive to the needs of people.</td>
+                            <td><span class="score-2">2</span></td>
+                        </tr>
+                        <tr>
+                            <td>47</td>
+                            <td>I have been able to make effective and efficient plans for accomplishing the goals of a group.</td>
+                            <td><span class="score-4">4</span></td>
+                        </tr>
+                        <tr>
+                            <td>48</td>
+                            <td>I often am consulted when fellow Christians are struggling to make difficult decisions.</td>
+                            <td><span class="score-5">5</span></td>
+                        </tr>
+                        <tr>
+                            <td>49</td>
+                            <td>I think about how I can comfort and encourage others in my congregation.</td>
+                            <td><span class="score-3">3</span></td>
+                        </tr>
+                        <tr>
+                            <td>50</td>
+                            <td>I am able to give spiritual direction to others.</td>
+                            <td><span class="score-3">3</span></td>
+                        </tr>
+                        <tr>
+                            <td>51</td>
+                            <td>I am able to present the gospel to lost persons in such a way that they accept the Lord and His salvation.</td>
+                            <td><span class="score-2">2</span></td>
+                        </tr>
+                        <tr>
+                            <td>52</td>
+                            <td>I possess an unusual capacity to understand the feelings of those in distress.</td>
+                            <td><span class="score-2">2</span></td>
+                        </tr>
+                        <tr>
+                            <td>53</td>
+                            <td>I have a strong sense of stewardship based on the recognition that God owns all things.</td>
+                            <td><span class="score-5">5</span></td>
+                        </tr>
+                        <tr>
+                            <td>54</td>
+                            <td>I have delivered to other persons messages that have come directly from God.</td>
+                            <td><span class="score-3">3</span></td>
+                        </tr>
+                        <tr>
+                            <td>55</td>
+                            <td>I can sense when a person is acting under God's leadership.</td>
+                            <td><span class="score-4">4</span></td>
+                        </tr>
+                        <tr>
+                            <td>56</td>
+                            <td>I try to be in God's will continually and be available for His use.</td>
+                            <td><span class="score-5">5</span></td>
+                        </tr>
+                        <tr>
+                            <td>57</td>
+                            <td>I feel that I should take the gospel to people who have different beliefs from me.</td>
+                            <td><span class="score-2">2</span></td>
+                        </tr>
+                        <tr>
+                            <td>58</td>
+                            <td>I have an acute awareness of the physical needs of others.</td>
+                            <td><span class="score-2">2</span></td>
+                        </tr>
+                        <tr>
+                            <td>59</td>
+                            <td>I am skilled in setting forth positive and precise steps of action.</td>
+                            <td><span class="score-4">4</span></td>
+                        </tr>
+                        <tr>
+                            <td>60</td>
+                            <td>I like to meet visitors at church and make them feel welcome.</td>
+                            <td><span class="score-5">5</span></td>
+                        </tr>
+                        <tr>
+                            <td>61</td>
+                            <td>I explain Scripture in such a way that others understand it.</td>
+                            <td><span class="score-2">2</span></td>
+                        </tr>
+                        <tr>
+                            <td>62</td>
+                            <td>I can usually see spiritual solutions to problems.</td>
+                            <td><span class="score-3">3</span></td>
+                        </tr>
+                        <tr>
+                            <td>63</td>
+                            <td>I welcome opportunities to help people who need comfort, consolation, encouragement, and counseling.</td>
+                            <td><span class="score-3">3</span></td>
+                        </tr>
+                        <tr>
+                            <td>64</td>
+                            <td>I feel at ease in sharing Christ with nonbelievers.</td>
+                            <td><span class="score-2">2</span></td>
+                        </tr>
+                        <tr>
+                            <td>65</td>
+                            <td>I can influence others to perform to their highest God-given potential.</td>
+                            <td><span class="score-4">4</span></td>
+                        </tr>
+                        <tr>
+                            <td>66</td>
+                            <td>I recognize the signs of stress and distress in others.</td>
+                            <td><span class="score-3">3</span></td>
+                        </tr>
+                        <tr>
+                            <td>67</td>
+                            <td>I desire to give generously and unpretentiously to worthwhile projects and ministries.</td>
+                            <td><span class="score-5">5</span></td>
+                        </tr>
+                        <tr>
+                            <td>68</td>
+                            <td>I can organize facts into meaningful relationships.</td>
+                            <td><span class="score-5">5</span></td>
+                        </tr>
+                        <tr>
+                            <td>69</td>
+                            <td>God gives me messages to deliver to His people.</td>
+                            <td><span class="score-2">2</span></td>
+                        </tr>
+                        <tr>
+                            <td>70</td>
+                            <td>I am able to sense whether people are being honest when they tell of their religious experiences.</td>
+                            <td><span class="score-3">3</span></td>
+                        </tr>
+                        <tr>
+                            <td>71</td>
+                            <td>I enjoy presenting the gospel to persons of other cultures and backgrounds.</td>
+                            <td><span class="score-2">2</span></td>
+                        </tr>
+                        <tr>
+                            <td>72</td>
+                            <td>I enjoy doing little things that help people.</td>
+                            <td><span class="score-2">2</span></td>
+                        </tr>
+                        <tr>
+                            <td>73</td>
+                            <td>I can give a clear, uncomplicated presentation of the gospel.</td>
+                            <td><span class="score-3">3</span></td>
+                        </tr>
+                        <tr>
+                            <td>74</td>
+                            <td>I have been able to apply biblical truth to the specific needs of my church.</td>
+                            <td><span class="score-4">4</span></td>
+                        </tr>
+                        <tr>
+                            <td>75</td>
+                            <td>God has used me to encourage others to live Christlike lives.</td>
+                            <td><span class="score-3">3</span></td>
+                        </tr>
+                        <tr>
+                            <td>76</td>
+                            <td>I have sensed the need to help other people become more effective in their ministries.</td>
+                            <td><span class="score-3">3</span></td>
+                        </tr>
+                        <tr>
+                            <td>77</td>
+                            <td>I like to talk about Jesus to those who do not know Him.</td>
+                            <td><span class="score-2">2</span></td>
+                        </tr>
+                        <tr>
+                            <td>78</td>
+                            <td>I have the ability to make strangers feel comfortable in my home.</td>
+                            <td><span class="score-4">4</span></td>
+                        </tr>
+                        <tr>
+                            <td>79</td>
+                            <td>I have a wide range of study resources and know how to secure information.</td>
+                            <td><span class="score-4">4</span></td>
+                        </tr>
+                        <tr>
+                            <td>80</td>
+                            <td>I feel assured that a situation will change for the glory of God even when the situation seems impossible.</td>
+                            <td><span class="score-5">5</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showTab(tabName) {
+            // Hide all tabs
+            const tabs = document.querySelectorAll('.tab-content');
+            tabs.forEach(tab => tab.classList.remove('active'));
+
+            // Remove active class from all buttons
+            const buttons = document.querySelectorAll('.tab-button');
+            buttons.forEach(btn => btn.classList.remove('active'));
+
+            // Show selected tab
+            document.getElementById(tabName).classList.add('active');
+
+            // Add active class to clicked button
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+</html>
