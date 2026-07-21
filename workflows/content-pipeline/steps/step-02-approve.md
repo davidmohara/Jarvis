@@ -1,15 +1,15 @@
 ---
 status: complete
-started-at: 2026-07-13T15:03:00Z
-completed-at: 2026-07-13T15:04:00Z
+started-at: 2026-07-21T13:03:00Z
+completed-at: 2026-07-21T13:04:00Z
 outputs:
-  drafts_checked: 2
+  drafts_checked: 5
   actions_taken: 0
   published: 0
   rejected: 0
   regenerated: 0
-  outcome: "SUCCESS: All 2 pending drafts checked. Draft 1 (Fulfillment) has no thread activity. Draft 2 (Urgency Trap) shows David requested full post view, bot posted complete draft. No approval/rejection signal yet. All remain pending."
-  pending_drafts: 2
+  outcome: "SUCCESS: All 5 pending drafts checked. Thread 1 (4 posts from W29): No replies yet. Thread 2 (Corrections): David provided feedback; draft was regenerated. No approval signal yet on any post. All remain pending."
+  pending_drafts: 5
 model: haiku
 ---
 
