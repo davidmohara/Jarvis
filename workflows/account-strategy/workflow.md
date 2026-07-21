@@ -13,6 +13,8 @@ model: sonnet
 **Agent:** Chase — Revenue & Pipeline
 
 **Architecture:** Sequential 3-step workflow. Aggregate all CRM and knowledge layer account data, research competitive intelligence via web search, then generate the strategy brief and recommended playbook. No user interaction required until the brief is delivered.
+
+**Not for new-business pursuit strategy.** This workflow assumes the account already has CRM history (contacts, opportunities, engagement). If the request is about landing or expanding work at a target company — with or without existing traction — route to `workflows/account-pursuit-map/workflow.md` instead (trigger phrases: "strategic account map", "pursuit plan for [company]", "how do we land [company]").
 <!-- system:end -->
 
 <!-- personal:start -->

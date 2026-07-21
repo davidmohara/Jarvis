@@ -271,3 +271,15 @@ sources:
     added: 2026-06-20
     status: active
     notes: "Dedicated DFW innovation/tech coverage. Feed URL unverified — confirm on first run."
+
+  # ── Batch 5 — Approved 2026-07-20 ──────────────────────────────────────────
+
+  - name: CIO Dive
+    url: https://www.ciodive.com
+    rss: https://www.ciodive.com/feeds/news/
+    gather_method: rss
+    topic: it-consulting
+    trust: high
+    added: 2026-07-20
+    status: active
+    notes: "Industry publication covering CIO-level technology decisions, enterprise software, and AI governance. Broke the Gartner $234B SaaS agentic arbitrage story (W30). High editorial bar, practitioner-focused."

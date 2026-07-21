@@ -1,0 +1,74 @@
+{
+  "id": "eval-20260720T182100-8052TA",
+  "agent_id": "aa2bf8056347df191",
+  "type": "agent",
+  "name": "general-purpose",
+  "agent": "general-purpose",
+  "session_id": "session-2026-07-17-091548",
+  "trigger": "unknown",
+  "started": "2026-07-20T18:21:00.898043Z",
+  "completed": "2026-07-21T09:15:38.197114",
+  "duration_seconds": null,
+  "status": "aborted",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": false,
+      "all_steps_finished": null,
+      "tool_failures": 3,
+      "error_ids": [],
+      "tool_failure_log": [
+        {
+          "tool": "Bash",
+          "error": "Exit code 127\n(eval):1: command not found: peekaboo\n---\n(eval):1: command not found: peekaboo",
+          "duration_ms": 35,
+          "timestamp": "2026-07-20T13:21:43.880328"
+        },
+        {
+          "tool": "Bash",
+          "error": "Exit code 1\n218:225: execution error: The variable thePres is not defined. (-2753)\nexit: 1\nls: /private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/2b445b11-1e62-4b45-98d5-d95ae0c30786/scratchpad/verify.pdf: No such file or directory",
+          "duration_ms": 2511,
+          "timestamp": "2026-07-20T13:24:43.405521"
+        },
+        {
+          "tool": "Read",
+          "error": "pdftoppm is not installed. Install poppler-utils (e.g. `brew install poppler` or `apt-get install poppler-utils`) to enable PDF page rendering.",
+          "duration_ms": 9,
+          "timestamp": "2026-07-20T13:25:27.226290"
+        }
+      ],
+      "abort_reason": "session-ended"
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": []
+}

@@ -1,0 +1,15 @@
+{
+  "id": "err-20260720T201744-WLPTRY",
+  "timestamp": "2026-07-20T20:17:44Z",
+  "session": "2026-07-20",
+  "source": "self-detected",
+  "agent": "master",
+  "category": "tool-misuse",
+  "description": "While iteratively verifying pptx edits by repeatedly opening the deck in Microsoft PowerPoint via osascript (open -> save as PDF -> close saving no) to render slides for visual inspection, the file silently lost an entire slide (the closing 'Questions' slide, #25) between one verification pass and the next, with no corresponding edit in any of the python-pptx scripts run in that window. The file lives under a OneDrive-synced folder, where PowerPoint's AutoSave-to-cloud feature can write back to the file independent of an explicit 'saving no' on close -- so opening a cloud-synced Office file in the actual app for read-only verification is not safe against concurrent python-pptx edits; the app's own autosave can clobber or interleave with them.",
+  "correction": "When verifying pptx/docx/xlsx edits by rendering through the native Office app on a file that lives in a OneDrive/SharePoint-synced path, never open the real file directly. Copy it to a local, non-synced scratch path first, do all verification opens against that copy, and only write the final result back to the real path via a plain file copy (not via the Office app) once editing is fully done. This avoids AutoSave in the cloud-synced app silently overwriting concurrent programmatic edits.",
+  "failure_mode": "tool-ignorance",
+  "systemic_fix": null,
+  "fix_status": "proposed",
+  "severity": "major",
+  "related_entries": ["err-20260720T170538-E4R7D4", "err-20260720T184438-Q87C71", "err-20260720T185044-BRLV2M"]
+}

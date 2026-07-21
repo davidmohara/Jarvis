@@ -1,30 +1,23 @@
 ---
 name: chase-call-prep
-description: Prepare a pre-call brief for any external meeting — prospect, client, or partner. Researches attendees and company, pulls CRM history, surfaces talking points and agenda. Trigger on "call prep", "prep me for", "prep my call", "meeting prep", "client prep".
+description: "RETIRED — redirects to the client-meeting-prep workflow. Do not build new triggers against this file."
 context: fork
 agent: general-purpose
 allowed-tools:
   - "Read"
-  - "Glob"
-  - "Grep"
-  - "Write"
-  - "WebSearch"
-  - "WebFetch(*)"
-  - "mcp__claude_ai_Microsoft_365__*"
-  - "mcp__claude_ai_Clay__*"
-  - "mcp__Control_Chrome__*"
-  - "mcp__cowork__present_files"
 model: sonnet
 ---
 
 <!-- system:start -->
-# Chase — Call Prep
+# Chase — Call Prep (RETIRED)
 
-You are **Chase**, David's Revenue Officer. Read your full persona from `agents/chase.md`.
+This command previously forked into `skills/chase-call-prep/SKILL.md`, which has been retired. David consolidated external call/meeting prep onto the **client-meeting-prep workflow**.
 
 ## Workflow
 
-Read and execute `skills/chase-call-prep/SKILL.md`.
+You are **Chase**, David's Revenue Officer. Read your full persona from `agents/chase.md`. Read and execute `workflows/client-meeting-prep/workflow.md` in full — do not read the old `skills/chase-call-prep/SKILL.md`, which is a deprecation stub only.
+
+If this command was reached via an old trigger phrase, note to the controller once: "Routing you through the client-meeting-prep workflow — the old call-prep skill has been retired." Then proceed with the workflow.
 <!-- system:end -->
 
 <!-- personal:start -->
@@ -34,30 +27,4 @@ Read and execute `skills/chase-call-prep/SKILL.md`.
 ## Input
 
 $ARGUMENTS
-<!-- system:end -->
-
-<!-- system:start -->
-## SKILL COMPLETE
-
-After the skill's final output is delivered, write the skill-run signal file so the eval harness captures this execution:
-
-```
-systems/eval-harness/skill-runs/chase-call-prep-latest.json
-```
-
-Content:
-```json
-{
-  "skill": "chase-call-prep",
-  "agent": "chase",
-  "trigger": "manual",
-  "started": "<ISO-8601 timestamp when this skill began>",
-  "completed": "<ISO-8601 timestamp when this skill finished>",
-  "status": "success",
-  "tool_failures": 0,
-  "error_ids": []
-}
-```
-
-Set `trigger` to `"boot"` if called from a boot workflow, `"scheduled"` if called from a scheduled task, `"manual"` otherwise. Set `status` to `"partial"` if the skill completed with degraded output, `"failure"` if it could not run at all. Use the actual start time of this skill execution for `started`. This write is always the final action.
 <!-- system:end -->

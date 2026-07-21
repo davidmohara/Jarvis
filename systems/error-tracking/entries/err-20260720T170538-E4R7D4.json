@@ -1,0 +1,15 @@
+{
+  "id": "err-20260720T170538-E4R7D4",
+  "timestamp": "2026-07-20T17:05:38Z",
+  "session": "2026-07-20",
+  "source": "explicit",
+  "agent": "master",
+  "category": "assumption-error",
+  "description": "Building the 'Practical AI: Finance & Treasury Workshop' deck, the Introductions slide was planned to copy the PDF's own bio (Robyn Fuentes, President @ Improving) verbatim onto a donor slide, since that's who the source PDF credits as presenter. David corrected: the deck is his to present, so the Introductions slide should carry his own bio and photo, sourced from one of his other AI talk decks (several already have a 'Who am I? Technologist | President | Entrepreneur | Early Adopter' slide with his real photo), not Robyn Fuentes' bio from the reference PDF.",
+  "correction": "When building a deck 'from a guide' PDF that names a different presenter, default to swapping presenter-identity content (name/title/bio/photo) to the controller's own unless told otherwise — don't carry over the source document's presenter identity as if the controller were reproducing someone else's talk verbatim.",
+  "failure_mode": "wrong-assumption",
+  "systemic_fix": null,
+  "fix_status": "proposed",
+  "severity": "moderate",
+  "related_entries": []
+}

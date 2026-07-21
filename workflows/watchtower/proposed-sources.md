@@ -1,7 +1,7 @@
 ---
 purpose: Staging area for source proposals awaiting David's yes/no approval
 gate: David must explicitly approve before any source moves to sources.yaml
-updated: 2026-06-19
+updated: 2026-07-20
 ---
 
 <!-- system:start -->
@@ -19,6 +19,16 @@ This file is the only path to `sources.yaml`. Watchtower's weekly run appends ne
 | Name | URL | RSS | Topic | Trust | Why Relevant | Status |
 |------|-----|-----|-------|-------|--------------|--------|
 -->
+
+### Batch 5 — Weekly Run (2026-07-20)
+
+| Name | URL | RSS | Topic | Trust | Why Relevant | Status |
+|------|-----|-----|-------|-------|--------------|--------|
+| Oliver Patel — Enterprise AI Governance | https://oliverpatel.substack.com | https://oliverpatel.substack.com/feed | ai-agentic | high | Biweekly Substack compiling 80+ authoritative resources on agentic AI governance. Published the definitive resource guide on proportional governance this week — directly tied to W30 governance theme. No comparable governance-practitioner source in current registry. | rejected |
+| The Texas Energy and Power Newsletter | https://www.texasenergyandpower.com | https://www.texasenergyandpower.com/feed | texas-regional | high | Weekly Substack covering Texas grid policy, ERCOT developments, clean energy, and utility regulation. Directly tracks the Abbott/PUC/ERCOT data center policy story and the large-load interconnection queue. Fills a dedicated grid-policy gap that Texas Tribune covers only occasionally. | rejected |
+| Utility Dive | https://www.utilitydive.com | https://www.utilitydive.com/feeds/news/ | texas-regional | high | Leading trade publication for electric utility sector — broke the Texas 438 GW queue approval story this week. Covers grid interconnection policy, ERCOT regulatory actions, and data center power policy at a depth no other active source matches. | rejected |
+| Gravitee — State of AI Agent Security | https://www.gravitee.io/blog | https://www.gravitee.io/blog/rss.xml | ai-agentic | med | Published the State of AI Agent Security 2026 Report (900+ exec/practitioner survey). Covers API security, agent identity, and governance gaps at a technical-practitioner level. Complements Gartner's governance analysis with field data. RSS feed unverified — confirm on first run. | rejected |
+| CIO Dive | https://www.ciodive.com | https://www.ciodive.com/feeds/news/ | it-consulting | high | Industry publication covering CIO-level technology decisions, enterprise software, and AI governance. Broke the Gartner $234B SaaS agentic arbitrage story this week. High editorial bar, practitioner-focused, consistent publication cadence. Fills a gap between Gartner Newsroom (announcements only) and Stratechery (strategic analysis). | approved |
 
 ### Batch 4 — Weekly Run (2026-07-13)
 
@@ -63,6 +73,12 @@ This file is the only path to `sources.yaml`. Watchtower's weekly run appends ne
 ---
 
 ## Approved — Moved to sources.yaml
+
+### Batch 5 — Approved 2026-07-20
+
+| Name | URL | Topic | Trust | Approved |
+|------|-----|-------|-------|---------|
+| CIO Dive | https://www.ciodive.com | it-consulting | high | 2026-07-20 |
 
 ### Batch 2 — Approved 2026-06-29
 
@@ -114,6 +130,15 @@ Also added by David as named sources (approved same session, 2026-06-19):
 ---
 
 ## Rejected
+
+### Batch 5 — 2026-07-20
+
+| Name | URL | Topic | Reason |
+|------|-----|-------|--------|
+| Oliver Patel — Enterprise AI Governance | https://oliverpatel.substack.com | ai-agentic | Rejected by David 2026-07-20 |
+| The Texas Energy and Power Newsletter | https://www.texasenergyandpower.com | texas-regional | Rejected by David 2026-07-20 |
+| Utility Dive | https://www.utilitydive.com | texas-regional | Rejected by David 2026-07-20 |
+| Gravitee — State of AI Agent Security | https://www.gravitee.io/blog | ai-agentic | Rejected by David 2026-07-20 |
 
 ### Batch 3 — 2026-07-06
 

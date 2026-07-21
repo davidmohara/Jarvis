@@ -1,0 +1,15 @@
+{
+  "id": "err-20260720T144623-LSBA9A",
+  "timestamp": "2026-07-20T14:46:23Z",
+  "session": "2026-07-20",
+  "source": "explicit",
+  "agent": "Chase",
+  "category": "missed-context",
+  "description": "Built the Ryan Menke call prep sheet from web research and calendar data only, without checking the M365 email connector for the actual introduction thread. Concluded the call was a sales/prospect intro sourced from an ambiguous 'OFS' company match, and stated Ryan Menke's title as CRO & President at OFS Brands (furniture manufacturer).",
+  "correction": "The email thread (Rex Miller, 'Re: Connecting you with David O'Hara', 2026-07-03/07-06) shows Rex Miller introduced David to Ryan Menke through the AI Mastermind group. Ryan Menke is Chief Strategy Officer at OFS (contract-furniture manufacturer, Huntingburg, IN) — not CRO & President. The call is a peer/thought-leadership conversation about AI and workforce/business impact, both being YPO members, not a sales prospect intro.",
+  "failure_mode": "lazy-search",
+  "systemic_fix": "When building call/meeting prep sheets, always query the connected email account (query_email_and_calendar) for the introduction or most recent thread with the attendee before falling back to web research for identity and context. Web research should supplement, not substitute for, available first-party email context.",
+  "fix_status": "applied",
+  "severity": "moderate",
+  "related_entries": []
+}

@@ -1,0 +1,68 @@
+{
+  "id": "eval-20260720T204633-C09ZED",
+  "agent_id": "agenerate-an-overview-a52980204b71c8e0",
+  "type": "agent",
+  "name": "fork",
+  "agent": "fork",
+  "session_id": "session-2026-07-17-091548",
+  "trigger": "unknown",
+  "started": "2026-07-20T20:46:33.320982Z",
+  "completed": "2026-07-21T09:15:38.016404",
+  "duration_seconds": null,
+  "status": "aborted",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": false,
+      "all_steps_finished": null,
+      "tool_failures": 2,
+      "error_ids": [],
+      "tool_failure_log": [
+        {
+          "tool": "Bash",
+          "error": "Exit code 1\nTraceback (most recent call last):\n  File \"<stdin>\", line 27, in <module>\n  File \"<stdin>\", line 19, in set_layout\nAttributeError: 'CT_Slide' object has no attribute 'get_or_add_nvGrpSpPr'. Did you mean: 'get_or_add_clrMapOvr'?",
+          "duration_ms": 119,
+          "timestamp": "2026-07-20T15:49:29.651104"
+        },
+        {
+          "tool": "Bash",
+          "error": "Exit code 1\nTraceback (most recent call last):\n  File \"<stdin>\", line 24, in <module>\n  File \"<stdin>\", line 18, in set_layout\nAttributeError: property 'slide_layout' of 'Slide' object has no setter",
+          "duration_ms": 186,
+          "timestamp": "2026-07-20T15:49:42.115304"
+        }
+      ],
+      "abort_reason": "session-ended"
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": []
+}

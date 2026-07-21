@@ -1,0 +1,86 @@
+{
+  "id": "eval-20260720T183455-EJLWVQ",
+  "agent_id": "aa112f56a8fbd53a5",
+  "type": "agent",
+  "name": "fork",
+  "agent": "fork",
+  "session_id": "session-2026-07-17-091548",
+  "trigger": "unknown",
+  "started": "2026-07-20T18:34:55.479540Z",
+  "completed": "2026-07-21T09:15:38.064330",
+  "duration_seconds": null,
+  "status": "aborted",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": false,
+      "all_steps_finished": null,
+      "tool_failures": 5,
+      "error_ids": [],
+      "tool_failure_log": [
+        {
+          "tool": "Bash",
+          "error": "Exit code 1\nTraceback (most recent call last):\n  File \"/private/tmp/fix_deck.py\", line 48, in <module>\n    from pptx.shapes import Shape as _Shape\nImportError: cannot import name 'Shape' from 'pptx.shapes' (/opt/homebrew/lib/python3.14/site-packages/pptx/shapes/__init__.py). Did you mean: 'shapes'?",
+          "duration_ms": 194,
+          "timestamp": "2026-07-20T13:37:25.887895"
+        },
+        {
+          "tool": "Bash",
+          "error": "Exit code 1\nTraceback (most recent call last):\n  File \"/private/tmp/fix_deck.py\", line 48, in <module>\n    from pptx.shapes import Shape as _Shape\nImportError: cannot import name 'Shape' from 'pptx.shapes' (/opt/homebrew/lib/python3.14/site-packages/pptx/shapes/__init__.py). Did you mean: 'shapes'?",
+          "duration_ms": 1083,
+          "timestamp": "2026-07-20T13:37:45.264920"
+        },
+        {
+          "tool": "Bash",
+          "error": "Exit code 1\nTraceback (most recent call last):\n  File \"/private/tmp/fix_deck.py\", line 61, in <module>\n    left = img_src.left\n           ^^^^^^^^^^^^\nAttributeError: 'NoneType' object has no attribute 'left'",
+          "duration_ms": 200,
+          "timestamp": "2026-07-20T13:37:58.686405"
+        },
+        {
+          "tool": "Bash",
+          "error": "Exit code 1\nfound picture-ish shape: Picture 2 PICTURE (13)\ntarget pic: Picture 2 6321813 1600200 3948035 3355830\nTraceback (most recent call last):\n  File \"<stdin>\", line 21, in <module>\nTypeError: 'CT_BlipFillProperties' object is not callable",
+          "duration_ms": 221,
+          "timestamp": "2026-07-20T13:39:24.080991"
+        },
+        {
+          "tool": "Bash",
+          "error": "Exit code 1\nTraceback (most recent call last):\n  File \"<stdin>\", line 8, in <module>\nAttributeError: 'MasterShapes' object has no attribute 'add_picture'",
+          "duration_ms": 126,
+          "timestamp": "2026-07-20T15:10:59.781645"
+        }
+      ],
+      "abort_reason": "session-ended"
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": []
+}

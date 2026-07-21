@@ -363,7 +363,8 @@ This table maps workflow name → assigned agent → trigger context. Master use
 
 | Workflow | Agent | Trigger Context |
 |----------|-------|-----------------|
-| account-strategy | Chase | Account deep-dive, strategic planning for a specific client |
+| account-pursuit-map | Chase | Strategic new-business pursuit map for landing/expanding work at a target company (active-but-underleveraged or cold/lost re-entry). Use for "strategic account map", "pursuit plan for [company]", "how do we land [company]". Distinct from account-strategy — see that row. |
+| account-strategy | Chase | Deep-dive on an account already in an active relationship/CRM: history, open opportunities, competitive landscape. Use for "deep-dive on [company]", "account history for [company]". Not for new-business pursuit strategy — see account-pursuit-map. |
 | calendar-prep | Chief | Meeting prep, attendee research, brief building |
 | card-review | Chase | Monthly credit card benefits audit, optimization |
 | card-walkthrough | Chase | Guided monthly portal walkthrough, benefit discovery |

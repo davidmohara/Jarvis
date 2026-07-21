@@ -1,0 +1,74 @@
+{
+  "id": "eval-20260720T165639-RBI4VN",
+  "agent_id": "a5f6fe0e44c3d27bb",
+  "type": "agent",
+  "name": "fork",
+  "agent": "fork",
+  "session_id": "session-2026-07-17-091548",
+  "trigger": "unknown",
+  "started": "2026-07-20T16:56:39.201098Z",
+  "completed": "2026-07-21T09:15:38.109065",
+  "duration_seconds": null,
+  "status": "aborted",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": false,
+      "all_steps_finished": null,
+      "tool_failures": 3,
+      "error_ids": [],
+      "tool_failure_log": [
+        {
+          "tool": "Bash",
+          "error": "Exit code 1\nPyMuPDF 1.27.1: Python bindings for the MuPDF 1.27.1 library.\nPython 3.14 running on darwin (64-bit).\n\npdfimages not found\npdftoppm not found",
+          "duration_ms": 621,
+          "timestamp": "2026-07-20T11:56:47.217152"
+        },
+        {
+          "tool": "Bash",
+          "error": "Exit code 1\n    def relate_to(self, target: Part | str, reltype: str, is_external: bool = False) -> str:\n        \"\"\"Return rId key of relationship of `reltype` to `target`.\n\n        If such a relationship already exists, its rId is returned. Otherwise the relationship is\n        added and its new rId returned.\n        \"\"\"\n        if isinstance(target, str):\n            assert is_external\n            return self._rels.get_or_add_ext_rel(reltype, target)\n\n        return self._rels.get_or_add(reltype, target)\n\nTraceback (most recent call last):\n  File \"<stdin>\", line 5, in <module>\nAttributeError: type object 'OpcPackage' has no attribute 'get_or_add_image_part'",
+          "duration_ms": 139,
+          "timestamp": "2026-07-20T11:57:38.400021"
+        },
+        {
+          "tool": "Bash",
+          "error": "Exit code 1\n[ 1] BUILD Title\n[ 1] BUILD Title slide\n  [Introductions] WARNING unhandled rel http://schemas.openxmlformats.org/officeDocument/2006/relationships/notesSlide\n[ 2] COPY  Introductions  <- 'Introductions'\n     -> edited bio text to Robyn Fuentes (photo placeholder left as-is; needs manual headshot swap)\n[ 3] COPY  What is AI??  <- 'What is AI?'\n  [Common perceptions of AI] WARNING unhandled rel http://schemas.openxmlformats.org/officeDocument/2006/relationships/notesSlide\n[ 4] COPY  Common perceptions of AI  <- 'Common perceptions of AI'\n  [Fill in the blank] WARNING unhandled rel http://schemas.openxmlformats.org/officeDocument/2006/relationships/notesSlide\n[ 5] COPY  Fill in the blank  <- 'Fill in the blank'\n[ 6] COPY  Maturity Model divider  <- ''\n  [Trust Evolution 8 Stages] WARNING unhandled rel http://schemas.openxmlformats.org/officeDocument/2006/relationships/notesSlide\n[ 7] COPY  Trust Evolution 8 Stages  <- ''\n[ 8] COPY  Financial Services divider  <- 'Financial Services'\n[ 9] COPY  Financial Services Today  <- 'Financial Services: The Clear Leader'\n  [Financial Services: Deployed vs Emerging] WARNING unhandled rel http://schemas.openxmlformats.org/officeDocument/2006/relationships/notesSlide\n[10] COPY  Financial Services: Deployed vs Emerging  <- \"Financial Services: What's Deployed vs. Emerging\"\n[11] COPY  Financial Services: Stage-by-Stage Reality  <- 'Financial Services: Stage-by-Stage Reality'\n  [Why the Gap] WARNING unhandled rel http://schemas.openxmlformats.org/officeDocument/2006/relationships/notesSlide\n[12] COPY  Why the Gap  <- 'Why the Gap? Accelerators vs. Constraints'\n[13] COPY  Practical Use Cases divider (reused template)  <- 'Financial Services'\n[14] BUILD AP Invoice Processing (intro)\n[15] BUILD AP Invoice Processing (what AI can do)\n[16] BUILD AP Invoice Processing (key takeaways)\n[17] BUILD Cash Flow Forecasting (intro)\n[18] BUILD Cash Flow Forecasting (what AI can do)\n[19] BUILD Cash Flow Forecasting (key takeaways)\n[20] BUILD Month-End Close (intro)\n[21] BUILD Month-End Close (what AI can do)\n[22] BUILD Month-End Close (key takeaways)\n[23] BUILD AI Tooling Landscape for Finance\n[24] BUILD Where Do You Start?\nTraceback (most recent call last):\n  File \"/private/tmp/deckbuild/main.py\", line 333, in <module>\n    clone_slide(topgolf, 64, target, tag=\"Questions\")\n    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/private/tmp/deckbuild/build2.py\", line 76, in clone_slide\n    new_image_part = target_prs.part.package.get_or_add_image_part(BytesIO(rel.target_part.blob))\n  File \"/opt/homebrew/lib/python3.14/site-packages/pptx/package.py\", line 38, in get_or_add_image_part\n    return self._image_parts.get_or_add_image_part(image_file)\n           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^\n  File \"/opt/homebrew/lib/python3.14/site-packages/pptx/package.py\", line 155, in get_or_add_image_part\n    return image_part if image_part else ImagePart.new(self._package, image)\n                                         ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/homebrew/lib/python3.14/site-packages/pptx/parts/image.py\", line 47, in new\n    package.next_image_partname(image.ext),\n                                ^^^^^^^^^\n  File \"/opt/homebrew/lib/python3.14/site-packages/pptx/util.py\", line 191, in __get__\n    value = self._fget(obj)\n  File \"/opt/homebrew/lib/python3.14/site-packages/pptx/parts/image.py\", line 234, in ext\n    format = self._format\n             ^^^^^^^^^^^^\n  File \"/opt/homebrew/lib/python3.14/site-packages/pptx/parts/image.py\", line 261, in _format\n    return self._pil_props[0]\n           ^^^^^^^^^^^^^^^\n  File \"/opt/homebrew/lib/python3.14/site-packages/pptx/util.py\", line 191, in __get__\n    value = self._fget(obj)\n  File \"/opt/homebrew/lib/python3.14/site-packages/pptx/parts/image.py\", line 267, in _pil_props\n    pil_image = PIL_Image.open(stream)  # pyright: ignore[reportUnknownMemberType]\n  File \"/opt/homebrew/lib/python3.14/site-packages/PIL/Image.py\", line 3579, in open\n    raise UnidentifiedImageError(msg)\nPIL.UnidentifiedImageError: cannot identify image file <_io.BytesIO object at 0x107c97dd0>",
+          "duration_ms": 777,
+          "timestamp": "2026-07-20T12:04:14.532993"
+        }
+      ],
+      "abort_reason": "session-ended"
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": []
+}

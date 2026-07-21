@@ -10,7 +10,7 @@
 
 Build a substantive, research-backed prep sheet for an upcoming 1:1 with a direct report or internal stakeholder. The output must reflect real open threads, real recent interactions, and real action items — not generic placeholders. Every section must be earned by reading actual data sources.
 
-This skill is for **internal 1:1 meetings only.** For external client or prospect meetings, route to Chase (`chase-call-prep` skill).
+This skill is for **internal 1:1 meetings only.** For external client or prospect meetings, route to Chase (`workflows/client-meeting-prep/workflow.md`).
 
 ---
 

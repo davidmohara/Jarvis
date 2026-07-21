@@ -1,15 +1,15 @@
 ---
 status: complete
-started-at: "2026-07-13T07:10:00Z"
-completed-at: "2026-07-13T07:20:00Z"
+started-at: "2026-07-20T07:10:00Z"
+completed-at: "2026-07-20T07:20:00Z"
 outputs:
   themes_processed: 4
   drafts_created: 4
   draft_paths:
-    - "Mind/Posts/_the-pyramid-is-coming-down-now-what.md"
-    - "Mind/Posts/_youre-paying-for-the-pilot.md"
-    - "Mind/Posts/_texas-said-yes-to-ai-now-its-writing-the-rules.md"
-    - "Mind/Posts/_the-stack-you-chose-last-year.md"
+    - "Mind/Posts/_your-saas-stack-was-priced-for-humans.md"
+    - "Mind/Posts/_the-safe-bet-isnt-safe-anymore.md"
+    - "Mind/Posts/_governance-isnt-your-problem-uniform-governance-is.md"
+    - "Mind/Posts/_abbott-just-changed-the-rules-texas-ai-clients.md"
   blog_ideas_appended: 4
 ---
 

@@ -1,0 +1,15 @@
+{
+  "id": "err-20260720T185044-BRLV2M",
+  "timestamp": "2026-07-20T18:50:44Z",
+  "session": "2026-07-20",
+  "source": "explicit",
+  "agent": "master",
+  "category": "data-accuracy",
+  "description": "David asked to compare slides 1-5 of the built deck against the actual original slides in their claimed source decks. Direct comparison revealed several real, previously unverified mismatches: (1) slide 2 'Introduction' is missing the 'President' bullet and a decorative circle shape present in the true CEO AI Workshop v4.pptx slide 2, and includes 'Athlete' instead — it was not actually copied faithfully from the claimed donor. (2) Slide 3 'What is AI??' was 'fixed' in an earlier turn by fabricating a brain/circuit image and plain background to match the reference PDF's visual — but the TRUE original (AI in Accounting deck, slide 3) is actually a plain vivid gradient-divider slide with no image at all. The 'fix' was based on an assumption (that the donor slide must look like the reference PDF) that was never verified against the real donor slide, and it replaced a faithful copy with a fabricated slide that matches nothing real. (3) Slide 5 'Fill in the blank' has its title positioned top-right with an 'improving' logo top-left, which matches neither the true CEO AI Workshop v6.pptx slide 10 (title top-left, no logo) nor any other verified donor — the text content is right but the layout placement is scrambled. (4) Every true source deck uses a thick gradient-color footer bar (page number + logo in white, spanning the slide width) on every slide, but the built deck's shared master/layouts only produce a thin gray line + small gray text footer — a systematically wrong footer style across most of the file, not just a missing-element bug.",
+  "correction": "Before declaring a cross-file slide copy correct, or before 'fixing' a slide that looks different from a reference document, render and directly compare it against the ACTUAL original slide in its claimed source file — do not assume a mismatch with a reference PDF means the copy is broken; the reference PDF is not the source of truth, the donor deck is. A slide that looks different from the reference material may simply be a faithful copy of source material that itself differs from the reference, which is correct and should be left alone. Also: verify per-slide design elements (footer style, decorative shapes, logo placement) against the true source's rendered appearance, not just presence/absence of a generically-named footer element.",
+  "failure_mode": "wrong-assumption",
+  "systemic_fix": null,
+  "fix_status": "proposed",
+  "severity": "major",
+  "related_entries": ["err-20260720T170538-E4R7D4", "err-20260720T184438-Q87C71"]
+}

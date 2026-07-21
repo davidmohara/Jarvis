@@ -1,0 +1,15 @@
+{
+  "id": "err-20260720T184438-Q87C71",
+  "timestamp": "2026-07-20T18:44:38Z",
+  "session": "2026-07-20",
+  "source": "explicit",
+  "agent": "master",
+  "category": "tool-misuse",
+  "description": "Fixing a background-wash bleed-through bug in the 'Practical AI: Finance & Treasury Workshop' deck, the applied fix set showMasterSp=\"0\" on 21 slides to hide the offending master-level picture shape. That attribute hides ALL master-level shapes on a slide, not just the targeted one — it also removed the master's footer divider line, copyright text box, and page-number text box from every one of those 21 slides. David caught the missing footers on slides 1-5; the same loss actually extended through slide 24.",
+  "correction": "When a single master/layout-level shape is causing a visual defect, remove or hide that specific shape (e.g. delete it from the master, or set its own visibility/fill), not showMasterSp=\"0\" on affected slides — that attribute is all-or-nothing for every master shape on the slide, so it silently deletes wanted elements (footers, logos, page numbers) along with the unwanted one. Verify a fix like this by rendering a wide sample of slides, not just the ones with the original bug, since a blanket attribute can have collateral effects on unrelated content the narrow bug report didn't mention.",
+  "failure_mode": "pattern-mismatch",
+  "systemic_fix": null,
+  "fix_status": "proposed",
+  "severity": "moderate",
+  "related_entries": ["err-20260720T170538-E4R7D4"]
+}

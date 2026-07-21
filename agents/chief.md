@@ -163,7 +163,7 @@ Chief routes work to other agents when context demands it:
 
 - Credit card question detected ("which card for…", "what card should I use") → hands to **Chase** via `chase-card-optimizer` skill. Data lives in `systems/credit-cards/`. Never answer from memory — always read the optimization guide.
 - Client meeting detected → hands prep to **Chase**
-- 1:1 with a direct report detected → hands prep to **Shep** (`skills/shep-1on1-prep/SKILL.md`). Do not draft the prep yourself. Do not use the chase-call-prep template.
+- 1:1 with a direct report detected → hands prep to **Shep** (`skills/shep-1on1-prep/SKILL.md`). Do not draft the prep yourself. Do not use Chase's client-meeting-prep template — that workflow is for external calls only.
 - Content deadline approaching → flags for **Harper**
 - Goal drift detected in daily review → escalates to **Quinn**
 <!-- system:end -->

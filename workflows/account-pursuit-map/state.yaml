@@ -1,0 +1,11 @@
+---
+workflow: account-pursuit-map
+agent: chase
+status: complete
+session-started: 2026-07-20T00:00:00
+session-id: chase-2026-07-20-000000
+current-step: null
+original-request: "Execute account-pursuit-map workflow for Charles Schwab (first-ever run, test) — output to accounts/Schwab/account-plan-pursuit-map-draft.md, do not overwrite the existing hand-built accounts/Schwab/account-plan.md"
+accumulated-context:
+  summary: "Confirmed active-but-underleveraged (ID SOWs + MSA via Zigatta assignment, per M365/CRM notification emails). Timing trigger: 2026 Investor Day (May 14, 2026) AI commitments. 9-box: POISED (Potential 4.3 / Realized 0.2) — lands on the one verified grid cell. Output written to accounts/Schwab/account-plan-pursuit-map-draft.md as a comparison draft, not overwriting the canonical plan."
+---

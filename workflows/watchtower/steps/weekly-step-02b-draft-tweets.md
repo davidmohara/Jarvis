@@ -1,7 +1,7 @@
 ---
 status: complete
-started-at: "2026-07-13T07:30:00Z"
-completed-at: "2026-07-13T07:35:00Z"
+started-at: "2026-07-20T07:25:00Z"
+completed-at: "2026-07-20T07:32:00Z"
 outputs:
   tweets_generated: 10
   angle_types:

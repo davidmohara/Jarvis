@@ -1,0 +1,15 @@
+{
+  "id": "err-20260720T161500-1LT14V",
+  "timestamp": "2026-07-20T16:15:00Z",
+  "session": "2026-07-20",
+  "source": "explicit",
+  "agent": "Master",
+  "category": "under-delivery",
+  "description": "Claude in Chrome returned a transient 'not connected' error on the first attempt to view Ryan Menke's LinkedIn profile. Instead of retrying, reported it to David as unavailable and offered alternatives (install/sign into extension, or have him supply the names manually).",
+  "correction": "David confirmed Chrome is already logged in and the LinkedIn connector is expected to work. A single failed attempt is not sufficient grounds to declare a tool unavailable — retry before reporting a capability as unreachable, per SYSTEM.md's Verification Before Assertion rule ('try harder, minimum 3 search approaches' applies to tool access, not just search).",
+  "failure_mode": "lazy-search",
+  "systemic_fix": "Before reporting any browser/connector tool as unavailable, retry at least 2-3 times with a short pause, since Chrome extension handshakes are known to be transient/slow to start. Only report unavailability after repeated failures, and state what was retried.",
+  "fix_status": "applied",
+  "severity": "minor",
+  "related_entries": []
+}
