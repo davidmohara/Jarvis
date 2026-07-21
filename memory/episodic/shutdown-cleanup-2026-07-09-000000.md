@@ -19,7 +19,7 @@ tags:
 related_people: null
 salience:
   score: 10
-  last-promoted-check: '2026-07-20'
+  last-promoted-check: 2026-07-21
 ---
 - Plaud ingest ran for 2 recordings: medical appointment + SC Orb Demo; Knox processed both and created Monday tasks with share links
 - Bug fixed in `skills/plaud-transcripts/scripts/fetch_plaud.py`: `load_token` renamed to `get_token` at line 1478

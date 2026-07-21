@@ -21,7 +21,7 @@ related_people:
 - scott-mcmichael
 salience:
   score: 10
-  last-promoted-check: '2026-07-20'
+  last-promoted-check: 2026-07-21
 ---
 - Revenue (cache, July 13): Dallas +4% CQ vs. target, +14% vs. prior year, 101% 90-Day (solid). South Texas -23% CQ vs. target, -22% vs. prior year, 71% 90-Day — double miss for fourth consecutive quarter. One Texas -10% vs. target YTD, -9% vs. prior year. Most recent closed month: June 2026 (~$2.8M Dallas, ~$2.9M STX, ~$5.7M One Texas).
 - Co-sell (cache, July 13): Rock 4 MISSED Q2 deadline. $2.93M combined pipeline + won vs. $15M target (19.5%). Gap: $12.07M (80.5%). Microsoft leads ($1.64M pipeline, 3 opps, $332K won). Confluent $785K pipeline, 0 wins. Rock 4 needs a hard conversation about H2 target reset.

@@ -390,3 +390,11 @@ Pattern: Instructions get a "close enough" interpretation instead of literal, co
 Fix: When an instruction specifies an action (remove, copy verbatim, check a range), execute that literal action rather than a substitute that seems functionally similar. For time-bounded checks (Plaud, inbox), default to a window wide enough to catch spillover from the prior period rather than the single named date. When source content exists verbatim, reuse it directly instead of re-summarizing.
 Status: active
 
+## 2026-07-21 — Missed Context / Wrong Assumption
+Detected: 3 occurrences over 30 days
+Category: missed-context
+Failure mode: wrong-assumption
+Pattern: Agent proceeds on a wrong assumption about available context rather than failing to pull context at all. Distinct from context-blindness (which is not pulling sources) — here the agent pulls but misreads or misapplies what it finds. Examples: assuming a file path is current when it reflects a prior state, assuming a connector is unavailable without checking deferred tools, assuming a task is complete because a prior step succeeded without verifying the output.
+Fix: When a step's result is load-bearing (gate for next action), verify the actual output rather than inferring it from the step's success flag. For paths and states, re-read rather than assuming continuity from a prior read. For tool availability, run ToolSearch before declaring a capability absent.
+Status: active
+

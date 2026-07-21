@@ -23,9 +23,8 @@ related_people:
 - ben-kennedy
 salience:
   score: 10
-  last-promoted-check: '2026-07-20'
-  promoted: true
----
+  last-promoted-check: 2026-07-21
+  promoted: true---
 # Morning Briefing — Thursday, July 09, 2026
 
 ## Data Sources

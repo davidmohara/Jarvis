@@ -30,9 +30,8 @@ related_people:
 - nick-koury
 salience:
   score: 10
-  last-promoted-check: '2026-07-20'
-  promoted: true
----
+  last-promoted-check: 2026-07-21
+  promoted: true---
 # Morning Briefing — Tuesday, July 07, 2026
 
 ## Data Sources

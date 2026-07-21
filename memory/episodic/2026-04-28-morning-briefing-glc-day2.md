@@ -15,7 +15,7 @@ related_people:
 - tim-rayburn
 salience:
   score: 10
-  last-promoted-check: '2026-07-20'
+  last-promoted-check: 2026-07-21
 ---
 # Morning Briefing — April 28, 2026 (GLC Chicago Day 2)
 

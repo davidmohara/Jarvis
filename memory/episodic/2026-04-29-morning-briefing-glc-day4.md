@@ -19,7 +19,7 @@ related_people:
 - alice-mburu
 salience:
   score: 10
-  last-promoted-check: '2026-07-20'
+  last-promoted-check: 2026-07-21
 ---
 # Morning Briefing — April 29, 2026 (GLC Day 4, Final Day)
 

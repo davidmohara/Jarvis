@@ -14,8 +14,7 @@ tags:
 related_people: null
 salience:
   score: 10
-  last-promoted-check: '2026-07-20'
----
+  last-promoted-check: 2026-07-21
 # Podcast Hosting Review — The Improving Edge, Episode 1
 
 **Episode:** "Agentic AI: From Demo to Durable Advantage"

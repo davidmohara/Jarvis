@@ -24,7 +24,7 @@ related_people:
 - robyn
 salience:
   score: 10
-  last-promoted-check: '2026-07-20'
+  last-promoted-check: 2026-07-21
 ---
 Ran scheduled morning briefing. No in-progress workflows found to resume. Delegation tracker empty.
 
