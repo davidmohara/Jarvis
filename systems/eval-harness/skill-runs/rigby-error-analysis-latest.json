@@ -2,9 +2,10 @@
   "skill": "rigby-error-analysis",
   "agent": "rigby",
   "trigger": "manual",
-  "started": "2026-05-27T15:30:00Z",
-  "completed": "2026-05-27T18:27:03Z",
+  "started": "2026-07-21T15:20:00Z",
+  "completed": "2026-07-21T15:35:00Z",
   "status": "success",
   "tool_failures": 0,
-  "error_ids": []
+  "error_ids": [],
+  "notes": "First full pattern pass (no prior last_analyzed recorded). 261 entries analyzed, 19 recurring category+failure_mode patterns identified (>=3 occurrences), written to systems/error-tracking/patterns.json. Noted legacy systems/error-tracking/error-log.json is corrupted/stale (duplicate concatenated content) and no longer the source of truth — entries/*.json + rebuild-log.py is canonical per schema.md; left as-is since it's not read by current tooling, flagged for Rigby's own backlog."
 }

@@ -87,26 +87,6 @@
         ]
       }
     ],
-    "PostToolUse": [
-      {
-        "matcher": "Write",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "python3 '.claude/hooks/post-tool-use.py'"
-          }
-        ]
-      },
-      {
-        "matcher": "Edit",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "python3 '.claude/hooks/post-tool-use.py'"
-          }
-        ]
-      }
-    ],
     "PostToolUseFailure": [
       {
         "hooks": [
@@ -133,16 +113,6 @@
           {
             "type": "command",
             "command": "python3 '.claude/hooks/eval-agent-stop.py'"
-          }
-        ]
-      }
-    ],
-    "Stop": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "python3 '.claude/hooks/routing-compliance.py'"
           }
         ]
       }

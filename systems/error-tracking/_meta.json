@@ -16,5 +16,9 @@
       "digest_path": "systems/error-tracking/digests/compact-2026-04.json"
     }
   ],
-  "last_compacted": "2026-05-27T19:04:25.230168+00:00"
+  "last_compacted": "2026-05-27T19:04:25.230168+00:00",
+  "patterns": {
+    "path": "systems/error-tracking/patterns.json",
+    "last_analyzed": "2026-07-21T00:00:00Z"
+  }
 }

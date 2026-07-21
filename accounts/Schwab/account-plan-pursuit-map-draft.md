@@ -5,6 +5,8 @@
 
 > **This is a draft output from the first-ever run of the new `account-pursuit-map` workflow, built to compare against the existing hand-built plan at `accounts/Schwab/account-plan.md`. It does not replace that document. See the delivery report for a list of deltas, upgrades, and workflow issues found during this run.**
 
+> **Validation pass completed 2026-07-21** via authenticated LinkedIn and Improving Dynamics CRM (direct account record, not the email-notification proxy used in the original run). Corrections and newly-confirmed facts are marked inline as **[VALIDATED 7/21]**. This closed most of the open items that required live LinkedIn/CRM access; a few (SpaceX/xAI "Cole" referral chain, incumbent-SI signal) still need direct verification with David since they aren't discoverable from these two systems.
+
 ---
 
 ## Situation Summary
@@ -81,13 +83,15 @@ Source: existing account-plan.md citation trail (job postings, internal comms re
 
 **Dennis Howard — Managing Director, Chief Technology, Operations, and Data Officer**
 Reports to Rick Wurster (CEO). Role expanded from CIO (title held 2016–2025) to include Operations and Data, effective January 29, 2026. Joined Schwab 2014 from Visa (CIO-level roles). **CRM status: no-crm-history — with an important caveat.** A "Dennis Howard" does exist in David's LinkedIn/calendar history (a CEO-event connection, follow-up emails about a private CEO gathering in Frisco), **but that is a different person** — a Vistage Chair/Executive Coach and Founder/CEO of LeaderThrive, LLC, not Schwab's CTOO. This is a live name-collision risk (see Open Items) — do not treat that existing relationship as a warm path to the real Dennis Howard.
+**[VALIDATED 7/21 — LinkedIn]** The name-collision risk is confirmed and worse than a single stray contact: David has **two separate 2nd-degree "Dennis Howard" connections on LinkedIn.** The real CTOO is `linkedin.com/in/denniswhoward/` — title reads "Chief Technology, Operations & Data Officer at Charles Schwab," 2nd-degree, mutual connections include Samuel Henry and Meghan Kelley-Wehner. The performance-coach one is a *different* profile, `linkedin.com/in/dennischoward/` — "Professional Certified Performance Coach for CEOs," Dallas-Fort Worth, 2nd-degree with **72** mutual connections (a much denser overlap than the CTOO profile, which is exactly the kind of thing that tricks a quick LinkedIn glance into messaging the wrong one). Verify the vanity URL (`denniswhoward`, not `dennischoward`) before any outreach.
 *Role inference (labeled):* economic buyer for any cross-functional AI/data engagement, given his newly unified mandate.
 *Pitch angle:* "Do not cold-reach directly — build credibility through the practitioner contacts below first, then frame around platform modernization and engineering capacity, not a tool or methodology."
 *What to avoid:* Approaching before warm credibility is built; conflating him with the unrelated "Dennis Howard" in David's own network.
 Source: [Dennis Howard — About Schwab](https://www.aboutschwab.com/dennis-howard); [CIO Dive — CIO role expanded](https://www.ciodive.com/news/charles-schwab-expands-cio-role/811019/)
 
-**Tim Heier — Managing Director, Chief Technology Officer**
+**Tim Heier — Executive Vice President, Chief Technology Officer**
 Reports to CEO (peer to Howard on the Executive Council — distinct mandate: technology strategy, architecture, and client-facing application development, vs. Howard's infrastructure/ops/data scope). Joined Schwab 1999; background in engineering consulting and Lawrence Livermore National Laboratory. **CRM status: no-crm-history.**
+**[VALIDATED 7/21 — LinkedIn]** Current title is **EVP, Chief Technology Officer (CTO)** (an upgrade from the MD title in the prior sourcing — ZoomInfo/MarketScreener were stale), based San Francisco. 2nd-degree connection; mutual connection is Luke Jensen.
 *Role inference:* directly owns the client-facing application layer where Portfolio Insights and the AI "front door" get built — a second, distinct technical decision-maker from Howard, easily missed if the org chart only tracks "the CTO."
 *Pitch angle:* "You're building the client-facing surface for Schwab's AI bets — Portfolio Insights, the front-door assistant. We help engineering orgs close the gap between a working prototype and a production system that scales to your client base."
 *What to avoid:* Treating Heier and Howard as the same role/contact — they are not; confirm which of the two owns any specific initiative before pitching.
@@ -96,6 +100,7 @@ Source: [Tim Heier — ZoomInfo](https://www.zoominfo.com/p/Tim-Heier/1161209388
 **Nikhil Sudan — Chief Strategy and Innovation Officer**
 **Confirmed — direct CRM/email evidence, not inference.** LinkedIn connection request accepted June 30, 2026 (email confirmed: "Nikhil accepted your invitation... Chief Strategy and Innovation Officer at Charles Schwab | YPO"). Joined Schwab June 2025; owns corporate strategy, corporate development, innovation, AI strategy, and **vendor management**. Ex-President Victory Capital InVest, ex-McKinsey Partner (Wealth & Asset Management), ex-Bridgewater. Active YPO member — David's direct tie.
 *Flag:* Sudan's title/bio is independently confirmed via his own aboutschwab.com bio page and The Org, but he did **not** appear on the aggregated Executive Council listing fetched this session (which lists 21 named MDs but omits him) — likely a page-maintenance lag, not evidence his role has changed, but worth a quick confirmation before treating him as sitting on the formal Executive Council roster.
+**[VALIDATED 7/21 — LinkedIn]** Confirmed 1st-degree connection. Current headline: "Chief Strategy and Innovation Officer at Charles Schwab | YPO," Dallas-Fort Worth Metroplex. 24+ mutual connections, including Gurmeet Singh, PhD and Mark Hamill. (Executive Council roster absence is a Schwab-website question, not resolvable via LinkedIn/CRM — still an open item.)
 *Pitch angle:* "You own AI strategy at a moment when Schwab has committed to shipping multiple client-facing AI products this year. I'd value comparing notes on where the strategy-to-production gap shows up, and where an execution partner who's done it elsewhere could de-risk the roadmap." (Peer-to-peer via YPO, not a sales motion.)
 *What to avoid:* Turning the YPO relationship into a pitch on first contact.
 Source: [Nikhil Sudan — About Schwab](https://www.aboutschwab.com/nikhil-sudan); LinkedIn connection confirmed via email record, June 30, 2026
@@ -106,6 +111,7 @@ Source: [Nikhil Sudan — About Schwab](https://www.aboutschwab.com/nikhil-sudan
 *Pitch angle:* Peer-to-peer, referencing STUMPY/time-series work if genuine: "We work with a lot of data science orgs where the bottleneck isn't the model — it's the engineering infrastructure around it. Given what Schwab is shipping this year, I'd love to understand where that friction shows up for your team."
 *What to avoid:* Treating this as a cold outreach — he already opened the channel. Don't let the existing plan's "intro via Caleb Jenkins, follow-up pending" framing override the fact that a direct line is already open.
 Source: [Sean Law — LinkedIn](https://www.linkedin.com/in/seanmylaw/); LinkedIn message confirmed via email record, June 24, 2026
+**[VALIDATED 7/21 — LinkedIn + Dynamics CRM]** Sean shows as a **2nd-degree** LinkedIn connection (not 1st) — the June 24 direct message stands regardless (LinkedIn allows messaging 2nd-degree contacts), but don't describe him as a 1st-degree connection in any outward-facing material. Mutual connection: **Caleb**. This directly corroborates the original plan's "Caleb Jenkins" intro path — and the Improving Dynamics CRM account record for Charles Schwab & Co lists **Caleb Jenkins (tagged MSFT — Microsoft) as a registered Hand-Raiser on this account since 5/4/2025**, alongside Bipin Karmacharya and Biswajit Debdas (both tagged CFLT — Confluent, 12/1/2025). This resolves two things at once: (1) Caleb Jenkins is a real, CRM-registered contact tied to this account, not just a name in an old plan, and (2) he's a **Microsoft** partner contact — which fills the "not-identified" partner-contact gap in the Partner Network section below.
 
 **Don Yuan — AI Transformation & Governance Leader**
 **No CRM/email history found — no-crm-history.** LinkedIn headline: AI Transformation & Governance, Agentic AI/Analytics/Automation delivery. Certifications: Microsoft Fabric Analytics Engineer, AWS ML/Data Analytics Specialty, PMP, PSM. Active in the DFW AI builder community — co-promoted AgentCon Dallas for two consecutive years.
@@ -114,6 +120,7 @@ Source: [Sean Law — LinkedIn](https://www.linkedin.com/in/seanmylaw/); LinkedI
 *What to avoid:* A generic AI pitch — he is plugged into the practitioner community and will see through surface-level engagement immediately.
 *To confirm before meeting:* whether he sits in the data science org (under Howard/Heier) or a broader enterprise AI/automation function.
 Source: [Don Yuan — LinkedIn](https://www.linkedin.com/in/donyuan/)
+**[VALIDATED 7/21 — LinkedIn]** 2nd-degree connection. Current title on profile: **"Senior Manager, Workplace AI & Intelligent Automation at Charles Schwab"** — more specific than the generic "AI Transformation & Governance Leader" framing above, and it answers the "confirm before meeting" question partially: "Workplace AI" suggests he sits closer to internal workforce-productivity AI than the client-facing product org. 25+ mutual connections, including Tim and George. Confirm the reporting line directly before the meeting regardless.
 
 ### Remaining C-Suite (Executive Council, per aboutschwab.com/leadership) — Compact
 
@@ -187,15 +194,18 @@ Source: [Don Yuan — LinkedIn](https://www.linkedin.com/in/donyuan/)
 
 ### Realized Score
 
-CRM (via the M365/email-notification proxy) confirms existing engagement history — not a cold pursuit, so this is **not** defaulted to $0.
-- **TTM actual revenue:** ~$900K–$1M, approximated by summing the identifiable active/recent SOW budgets and won-opportunity estimates surfaced via CRM notification emails (Julie Navar $137K, Julie King $200K + $102K extension, Raisa Babilonia $106.4K, Straughan/Jackson $383K, plus a $70K backfill opportunity). This is a **summed-budget approximation, not a precise Dynamics CRM TTM pull** — flagged as an estimate.
-- **TTM actual gross margin:** Not available from the CRM notification emails (they show bill rates and budgets, not cost basis/margin). Estimated at **30%**, toward the lower end of Improving's typical range, reflecting the staff-augmentation-heavy nature of T&M Instructional Design work — flagged as an assumption, not a finance-confirmed figure.
+**[VALIDATED 7/21 — direct Dynamics CRM account record, not the M365/email-notification proxy]** The account record's own AI-generated summary states: *"We closed opportunities worth $2,554,624 with Charles Schwab & Co since 8/4/2023. We have successfully closed 16 opportunities with them so far from a total of 22"* (73% win rate). This is a **materially higher and more authoritative figure** than the original draft's $900K–$1M summed-email estimate — but it is **cumulative since account creation (4/3/2023), not TTM.** Averaged over ~3.3 years that's roughly $770K/year, which is actually *close to* the prior estimate on an annualized basis — the correction is in precision and source authority, not direction. A true TTM figure would require filtering the CRM's opportunity-close dates to the trailing 12 months specifically, which this pass didn't isolate — flagged as a residual open item below.
+
+Two currently **open** opportunities were also found that neither prior plan listed: **"Instructional Designer – for Brian Matheny"** ($70,000 est., 25% Qualified, close 9/30/2026) and **"Backfill Instructional Designer for Joe Jackson"** ($0 est., 50% Proposing, close 7/30/2026) — both owned by Derek Nwamadi (confirmed as the account owner of record in CRM). Account WorkDay Customer ID: C-0782.
+
+- **TTM actual revenue:** Still using the ~$900K–$1M banding pending a true TTM CRM filter (see above) — this keeps the 0-point Revenue score unchanged, but confidence in the input is now higher.
+- **TTM actual gross margin:** Not available from CRM opportunity records (bill rates/budgets, not cost basis). Estimated at **30%**, unchanged — flagged as an assumption, not a finance-confirmed figure.
 - **Geography:** same as Potential (structural, doesn't change) — raw = 4.
 
 | Factor | Raw Score | Weight | Weighted |
 |---|---|---|---|
 | Geography | 4 | 0.10 | 0.4 |
-| Revenue | 0 (interpolated — ~$900K–$1M sits at/near the $1M boundary, rounded to the 0 point) | 0.70 | 0.0 |
+| Revenue | 0 (interpolated — annualized CRM figure (~$770K/yr) still sits at/near the $1M boundary, rounded to the 0 point) | 0.70 | 0.0 |
 | Gross Margin | -1 (30% band) | 0.20 | -0.2 |
 | **Total Realized** | | | **0.2** |
 
@@ -238,19 +248,23 @@ CRM (via the M365/email-notification proxy) confirms existing engagement history
 |---|---|---|---|---|
 | Nikhil Sudan | YPO | Direct YPO tie; LinkedIn connection accepted June 30, 2026 | **confirmed** | Most senior contact in this network; owns AI strategy and vendor management |
 | Sean Law | Prior-inbound-contact | Sean messaged David directly via LinkedIn, June 24, 2026 | **confirmed** | Existing open channel — not a cold or intro-gated contact; upgrade from the prior plan's "intro pending via Caleb Jenkins" framing |
-| Andy Furbush, Nate Knowlton, Sarah Wolf | Via named intermediary ("Cole" at SpaceX/xAI, per prior account knowledge) | One hop via Cole | **needs-verification** | Carried forward from the existing hand-built plan; this session found no independent email/CRM/LinkedIn confirmation of "Cole" or these three ties — flagged for direct verification with David before treating as confirmed |
+| Andy Furbush, Nate Knowlton | Via named intermediary ("Cole" at SpaceX/xAI, per prior account knowledge) | One hop via Cole | **needs-verification** | Carried forward from the existing hand-built plan; this session found no independent email/CRM/LinkedIn confirmation of "Cole" or these ties — flagged for direct verification with David before treating as confirmed |
+| Sarah Wolf | Via named intermediary ("Cole" at SpaceX/xAI) — **but now independently reachable regardless** | Confirmed current LinkedIn profile | **confirmed in-seat** | **[VALIDATED 7/21]** No longer dependent on confirming "Cole" — see below |
 
 ### Mutual Connections (LinkedIn)
 
-**Could not be run this session** — the Claude in Chrome browser extension was not connected/reachable when attempted. Status for every profile below is `unavailable`, per the workflow's own failure-mode handling (not `zero`, which would incorrectly imply a check was completed and returned nothing).
+**[VALIDATED 7/21]** Ran directly via authenticated LinkedIn this session — the earlier "unavailable" status is now resolved for all five profiles below.
 
-| Profile | Status |
-|---|---|
-| Dennis Howard (CTOO) | unavailable |
-| Tim Heier | unavailable |
-| Nikhil Sudan | unavailable |
-| Sean Law | unavailable |
-| Don Yuan | unavailable |
+| Profile | Degree | Current Title (per LinkedIn) | Mutual Connections |
+|---|---|---|---|
+| Dennis Howard (real CTOO — `denniswhoward`) | 2nd | Chief Technology, Operations & Data Officer at Charles Schwab | Samuel Henry, Meghan Kelley-Wehner + others |
+| Dennis Howard (unrelated coach — `dennischoward`) | 2nd | Professional Certified Performance Coach for CEOs | Debbie Mrazek, Kristin Robertson-Brio Leadership + 72 others |
+| Tim Heier | 2nd | EVP, Chief Technology Officer (CTO) at Charles Schwab | Luke Jensen |
+| Nikhil Sudan | **1st** | Chief Strategy and Innovation Officer at Charles Schwab \| YPO | Gurmeet Singh PhD, Mark Hamill + 24 others |
+| Sean Law | 2nd | Principal Data Scientist, R&D at Charles Schwab | Caleb (matches Caleb Jenkins, CRM-confirmed Hand-Raiser/MSFT on this account) |
+| Don Yuan | 2nd | Senior Manager, Workplace AI & Intelligent Automation at Charles Schwab | Tim, George + 25 others |
+
+**New finding — Sarah Wolf confirmed in-seat.** `linkedin.com/in/sarah-k-wolf/`: **"Director, Business Strategy, Trading Services, Charles Schwab,"** Greater Chicago Area, 2nd-degree. This resolves the open item both plans flagged — she is the current, correct, in-seat contact, independent of confirming the "Cole" referral chain.
 
 ### Referral Network Summary
 
@@ -264,16 +278,16 @@ CRM (via the M365/email-notification proxy) confirms existing engagement history
 
 | Partner | Likely In Use | Evidence | Partner Contact |
 |---|---|---|---|
-| **Microsoft (Azure)** | **confirmed** | Schwab selected Microsoft Azure Cloud Services for application hosting/computing (2017, AppsRunTheWorld); consistent with the existing account plan's assessment that Azure is Schwab's primary cloud | not-identified — route through Improving's Microsoft alliance owner |
+| **Microsoft (Azure)** | **confirmed** | Schwab selected Microsoft Azure Cloud Services for application hosting/computing (2017, AppsRunTheWorld); consistent with the existing account plan's assessment that Azure is Schwab's primary cloud | **[VALIDATED 7/21] Caleb Jenkins** — registered Hand-Raiser (MSFT) on the Schwab account in Improving's Dynamics CRM since 5/4/2025; also the mutual LinkedIn connection and intro path to Sean Law |
 | **GCP** | **confirmed** | Schwab job postings (Cloud Data Platform Engineer, Cloud Data Engineer — Southlake/Austin, TX) explicitly cite Google Cloud Platform for the SAM Data team's pipeline work | not-identified |
 | **Snowflake** | **confirmed** | Same job postings explicitly reference "Snowflake resources" and cloud-native pipelines built on GCP + Snowflake | not-identified |
 | **AWS** | **likely** | Schwab selected Amazon EC2 for application hosting (2021, AppsRunTheWorld) — an older, secondary-cloud signal alongside the confirmed Azure/GCP usage | not-identified |
-| **Confluent** | **likely** | A Confluent "Current" conference session references Schwab's Kafka-based event-streaming architecture handling 2M messages/second — but the source describes "Kafka," not explicitly Confluent's commercial platform, so this could be open-source Apache Kafka rather than Confluent Cloud/Platform | not-identified |
+| **Confluent** | **confirmed — upgraded from likely** | A Confluent "Current" conference session references Schwab's Kafka-based event-streaming architecture handling 2M messages/second. **[VALIDATED 7/21]** Improving's Dynamics CRM lists two Confluent-tagged (CFLT) Hand-Raisers on this account — Bipin Karmacharya and Biswajit Debdas, both since 12/1/2025 — which is a stronger signal than the conference reference alone that this is the commercial Confluent platform, not bare open-source Kafka | **Bipin Karmacharya, Biswajit Debdas** — registered Hand-Raisers (CFLT) on the Schwab account since 12/1/2025 |
 | **Databricks** | no-signal-found | No Schwab-specific public signal found this session | not-identified |
 | **SAP** | no-signal-found | No Schwab-specific public signal found this session (searched ERP/SuccessFactors/Ariba specifically) | not-identified |
 | **SpaceX/xAI** | no-signal-found | No relevant public signal — different industry; only relevant via Cole as a personal referral node, not a tech-stack relationship | not-identified |
 
-**Partner network summary:** 8 of 8 partners checked. Likely-in-use: Microsoft, GCP, Snowflake (confirmed), AWS, Confluent (likely). No signal: Databricks, SAP, SpaceX/xAI. **Strongest partner path:** none confirmed with a named contact this session — Microsoft is the strongest candidate given confirmed primary-cloud status and Improving's existing Azure alliance, but no specific Schwab-account-team contact was identified. This would need to go through Improving's own Microsoft partner relationship owner.
+**Partner network summary:** 8 of 8 partners checked. Confirmed: Microsoft, GCP, Snowflake, Confluent. Likely: AWS. No signal: Databricks, SAP, SpaceX/xAI. **[VALIDATED 7/21] Strongest partner path now has named contacts** — Caleb Jenkins (Microsoft) and Bipin Karmacharya/Biswajit Debdas (Confluent) are all registered Hand-Raisers on this exact Schwab account in Improving's own Dynamics CRM, not generic alliance-owner routing. Caleb Jenkins is also David's mutual LinkedIn connection with Sean Law — start there.
 
 ---
 
@@ -286,7 +300,8 @@ CRM (via the M365/email-notification proxy) confirms existing engagement history
 | 3 | Existing ID sponsor (Timothy Hartwell / Sandy Gomes) | Existing relationship | Warm intro to Don Yuan and/or Tim Heier's org |
 | 4 | **Don Yuan** (AI Transformation & Governance Leader) | Via ID sponsor, LinkedIn, or AgentCon community | Understand agentic-AI delivery pain points |
 | 5 | **Tim Heier** (CTO — client-facing app development) | Cold/LinkedIn — no warm path identified | Understand ownership split with Howard's org on AI-powered client experiences |
-| 6 | Andy Furbush, Nate Knowlton, Sarah Wolf | Via "Cole" (needs-verification this session) | Confirm the referral path is live before treating as an entry point |
+| 6 | Andy Furbush, Nate Knowlton | Via "Cole" (needs-verification this session) | Confirm the referral path is live before treating as an entry point |
+| 6b | **Sarah Wolf** (Director, Business Strategy, Trading Services) | **[VALIDATED 7/21] Confirmed in-seat via LinkedIn — no longer contingent on "Cole"** | Business-outcome framing of platform modernization |
 | 7 | **Dennis Howard** (CTOO) | Via credibility built through paths above | Economic buyer — engage only after proof points are established; do **not** confuse with the unrelated "Dennis Howard" (Vistage/LeaderThrive) already in David's network |
 
 ---
@@ -341,17 +356,23 @@ Bridges the current ID engagement into technical delivery — embedded engineeri
 
 ## Open Items to Confirm
 
+**Resolved 2026-07-21 (via authenticated LinkedIn + direct Dynamics CRM query):**
+- ~~Sarah Wolf's current in-seat status~~ — **Confirmed current**: Director, Business Strategy, Trading Services, Charles Schwab (Chicago).
+- ~~Confluent tech-stack signal ambiguity~~ — **Upgraded to confirmed**: two Confluent-tagged (CFLT) Hand-Raisers registered on the account in Improving's CRM.
+- ~~LinkedIn mutual-connections lookups~~ — **Run for all five profiles**; see updated table above.
+- ~~Realized revenue estimate imprecision~~ — **Replaced with direct CRM figure**: $2,554,624 total closed-won since 8/4/2023 (16/22 opportunities, 73% win rate), though a true TTM cut still wasn't isolated (see new item below).
+- ~~Partner Network "not-identified" contacts for Microsoft/Confluent~~ — **Named contacts found**: Caleb Jenkins (MSFT), Bipin Karmacharya + Biswajit Debdas (CFLT), all registered Hand-Raisers on this account.
+- ~~No native CRM connector~~ — **Resolved**: queried Dynamics CRM directly this session (account record, opportunities, Hand-Raisers) rather than via the M365 email-notification proxy.
+
+**Still open (not resolvable via LinkedIn/CRM — needs David directly):**
 - Nikhil Sudan's absence from the live-fetched Executive Council roster (despite his own bio page confirming the title) — quick reconfirmation recommended.
-- The "Cole at SpaceX/xAI" referral path to Andy Furbush, Nate Knowlton, and Sarah Wolf — carried forward from the existing hand-built plan but not independently re-verified this session (no email/CRM trace found).
-- Sarah Wolf's current in-seat status at Schwab specifically — the existing plan already flagged this; still unresolved.
+- The "Cole at SpaceX/xAI" referral path to Andy Furbush and Nate Knowlton specifically (Sarah Wolf no longer depends on this) — no email/CRM/LinkedIn trace found this session either.
 - Likely incumbent SIs at Schwab for AI/data work — no public signal found; assumed present based on account scale, not confirmed.
 - Geography scoring logic and 9-box grid arrangement (both flagged inferences per the workflow's own methodology, beyond the single AT&T data point).
 - The IT-services-spend estimate (~$260M) and the workflow's revenue-band ceiling issue for mega-cap accounts (see the 9-Box section) — needs a methodology decision, not just a data point.
-- Realized revenue (~$900K–$1M) and gross margin (30%) inputs are estimates, not exact CRM/finance pulls — worth a direct Dynamics CRM query and a finance check if precision matters for this account's actual 9-box placement.
-- Confluent tech-stack signal is ambiguous — could be open-source Kafka rather than the commercial Confluent platform; worth clarifying before treating Confluent as a confirmed partner-path.
-- LinkedIn mutual-connections lookups could not be run this session (Claude in Chrome not connected) — worth re-running once the extension is available.
+- **New:** isolate a true trailing-12-month revenue figure from Dynamics CRM (filter opportunity close dates) rather than the cumulative-since-2023 figure now in hand — would sharpen the Revenue factor in the 9-box.
+- **New:** two open CRM opportunities found this session that neither plan tracked — "Instructional Designer – for Brian Matheny" ($70K, Qualified) and "Backfill Instructional Designer for Joe Jackson" ($0 est., Proposing) — worth confirming these are staffed/progressing.
 - Whether Dennis Howard (real, Schwab CTOO) or Tim Heier owns the specific client-facing AI initiatives referenced in Option A — needs direct confirmation before targeting either with a specific pitch.
-- No native CRM connector was available this session; all "CRM" evidence above was sourced via M365 email/calendar search surfacing Dynamics CRM-generated notification emails (opportunity-won/created alerts) — a reasonably strong proxy, but not a live Dynamics query. If precision matters, a direct CRM pull is recommended.
 
 ---
 
@@ -375,4 +396,6 @@ Bridges the current ID engagement into technical delivery — embedded engineeri
 - [Confluent Current 2024 archive — Kafka event-streaming session referencing Schwab](https://current.confluent.io/archive/2024/austin)
 - Existing hand-built plan: `accounts/Schwab/account-plan.md` (read in full for context; independently re-verified, not copied)
 - Internal: M365 email/calendar query surfacing Dynamics CRM opportunity-notification emails (Zigatta/Improving Enterprises assignment, SOW records, opportunity-won/created alerts)
+- **[2026-07-21 validation pass]** Improving Dynamics CRM — direct account record query for "Charles Schwab & Co" (account, opportunities, Hand-Raisers, AI-generated revenue summary)
+- **[2026-07-21 validation pass]** LinkedIn (authenticated) — direct profile and mutual-connections checks for Dennis Howard (both profiles), Tim Heier, Nikhil Sudan, Sean Law, Don Yuan, Sarah Wolf
 

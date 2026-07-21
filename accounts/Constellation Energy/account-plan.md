@@ -2,7 +2,7 @@
 
 **Owner:** David O'Hara, Regional Director, Improving
 **Objective:** Land-and-expand services. Win an initial AI/data engineering or app modernization/cloud engagement and grow it into a multi-workstream relationship.
-**Status:** Working draft, June 2026. Re-entry after a lost AI training bid.
+**Status:** Working draft, June 2026; validated against Improving Dynamics CRM 2026-07-21. Re-entry after a lost AI training bid (CRM confirms no formal opportunity record exists — the loss is undocumented, not just unretrieved).
 **Lead capabilities:** AI / data engineering, application modernization / cloud (Azure).
 
 ---
@@ -74,6 +74,41 @@ Constellation concentrates technology authority under the CAO and commercial aut
 
 ---
 
+## 3a. ICP & Account 9-Box
+
+**[Added 2026-07-21 — direct Improving Dynamics CRM query]** Improving's fixed weighted methodology: Geography (10%), Revenue (70%), Gross Margin (20%), each factor banded -5 to +5.
+
+**Potential score**
+- **Revenue factor:** Path 1 (10-K/investor materials) checked — Constellation does not disclose a usable IT/technology-spend figure. Path 2 fallback: FY2025 revenue **$22.7B** (pre-Calpine; Calpine closed Jan 2026 and lands in FY2026 results) × an energy/utility IT-spend benchmark of ~1-3% of revenue (Gartner-style, asset-heavy industries — lower than the 4-7% financial-services band used for Schwab), midpoint ~2% → ~$454M total IT budget, discounted ~20% for the external-services subset → **~$363M estimated best-case annual IT services spend**. This is, again, more than 10x the lookup table's $20M top band — raw score capped at **+5** (the same workflow-issue flagged on the Schwab run: the Path 2 fallback can't discriminate between large-cap accounts once revenue clears roughly $1-2B).
+- **Gross margin factor:** Default **38%** (Improving's typical blended-delivery range) → raw **2** (interpolated, 37%→2 / 40%→3, closer to 37%).
+- **Geography factor:** Improving's Houston/South Texas team and the client buyer (C&I retail office, 1001 Louisiana St, Houston) are both Houston-based; Improving has an office in Houston → both flags Y → raw **4** (per the same single-data-point-inferred scoring curve flagged on every run — unverified beyond the one AT&T reference case).
+
+| Factor | Raw | Weight | Weighted |
+|---|---|---|---|
+| Geography | 4 | 0.10 | 0.4 |
+| Revenue | 5 (capped) | 0.70 | 3.5 |
+| Gross Margin | 2 | 0.20 | 0.4 |
+| **Total Potential** | | | **4.3** |
+
+**Realized score**
+**[CRM-confirmed, not just defaulted]** Queried the Constellation Energy Group account directly in Dynamics CRM: **0 open opportunities, 0 hand-raisers, no opportunity history of any kind** — the account owner is David O'Hara, but there is no won/lost opportunity record at all. This means the prior training-bid loss (Section 7, Open Items) is **not logged as a CRM opportunity** — it's genuinely undocumented, not just unpulled. Realized revenue and gross margin default to $0/0% by the workflow's own cold-pursuit rule, and that default is now independently confirmed rather than assumed.
+- Revenue: $0 → below the lowest named band ($200K = -5) → capped at **-5**.
+- Gross margin: 0% → below the lowest named band (20% = -5) → capped at **-5**.
+- Geography: same structural fact as Potential → raw **4**.
+
+| Factor | Raw | Weight | Weighted |
+|---|---|---|---|
+| Geography | 4 | 0.10 | 0.4 |
+| Revenue | -5 (capped, below range) | 0.70 | -3.5 |
+| Gross Margin | -5 (capped, below range) | 0.20 | -1.0 |
+| **Total Realized** | | | **-4.1** |
+
+**9-Box classification:** Potential 4.3 → High band (>+1.7). Realized -4.1 → Low band (<-1.7). **High Potential / Low Realized → SIGNIFICANT.** This is a different, more differentiated placement than Schwab's POISED (High/Mid) — the methodology correctly separates a true cold pursuit (real $0 Realized) from an underleveraged-but-active account, which is a useful sanity check on the scoring approach itself.
+
+**Inferences flagged for David to verify (same standing flags as every run of this methodology):** geography scoring logic (single AT&T data point), 9-box grid arrangement beyond the one verified AT&T/POISED cell, the IT-spend estimate's revenue-band ceiling problem for large-cap accounts, and the 38% gross-margin default.
+
+---
+
 ## 4. What to discuss — talk tracks by stakeholder
 
 Lead with their stated goals, not Improving's service catalog. Each track ties to something Constellation has said publicly.
@@ -122,7 +157,8 @@ Map each to a stated Constellation need. Confirm the specific win-wire reference
 
 Do these now, in roughly this order. Unlike Schwab, there is no active engagement or warm executive tie here, so the first job is intelligence and a credible reason to re-engage, not outreach.
 
-1. **Pull the CRM loss record first — this gates everything.** Confirm which business unit ran the training opportunity, who the buyer was, the stated reason we lost, and who from Improving was involved. Do not reach out to anyone until you know why we lost. This single fact reshapes the debrief and the re-entry pitch.
+1. **[Resolved 2026-07-21] CRM has no opportunity record for this account at all** — 0 opportunities, 0 hand-raisers. The gating question is no longer "pull the record," it's "ask around" — check with whoever might remember the training bid informally (it may predate this CRM instance, or never got logged). Don't let the absence of a record stall outreach indefinitely; if no one can produce a reason within a week, proceed to the candid debrief ask anyway, framed as "I don't even have the details on our side — can you fill me in?"
+1a. **New, high-leverage action: check in with Stephen Adams, Mark Tucker, Brian Carroll, or Erin Bonner first.** All four are existing CRM contacts who engaged with Improving's own AI webinars in June-July 2026 — unprompted, recent, and warmer than a cold LinkedIn approach to Green. Worth a quick "saw you at our AI webinar, would love to hear what's on your mind" outreach before or alongside the Green path.
 2. **Run the "is Houston actually Calpine?" check.** Given the January 2026 close, confirm whether the original opportunity sat in the C&I retail office or in legacy Calpine. If it was Calpine, the integration angle is even stronger and the contact map shifts.
 3. **Map warm paths to Shaina Green.** She's the primary target — research her on LinkedIn, identify mutual connections (Improving alumni, shared vendors, energy-sector contacts), and find the shortest credible intro. Confirm her current title and reporting line, since the post-Calpine org is still settling.
 4. **Check for any Improving footprint inside Constellation or legacy Calpine.** Alumni, prior SOWs, subcontractor relationships — any existing thread is a faster path than cold outreach.
@@ -156,15 +192,23 @@ Do these now, in roughly this order. Unlike Schwab, there is no active engagemen
 
 ## 9. Open items for you to confirm
 
-- The original training opportunity: which business unit, who the buyer was, and the stated reason we lost (CRM).
+**Resolved 2026-07-21 (direct Dynamics CRM query):**
+- ~~The original training opportunity: which business unit, who the buyer was, and the stated reason we lost~~ — **there is no CRM opportunity record at all** for this account (0 opportunities, 0 hand-raisers). This isn't a matter of pulling the record; it was apparently never logged as a formal opportunity. If it happened, it lives in someone's memory or email, not CRM — worth asking around rather than searching further in Dynamics.
+- **New finding, not previously known:** Stephen Adams, Mark Tucker, Brian Carroll, and Erin Bonner — all existing CRM contacts on this account — engaged with Improving's own AI webinars in June-July 2026 ("Improving webinar tomorrow - AI software factories," 6/16/2026; "Improving Webinar - July 22 - AI Token Spend," 7/14/2026). This is unprompted, recent, and worth checking before any cold outreach — one of these four may be a faster warm path than the Green/Horvath chain, since they already opted into Improving content.
+
+**Still open:**
 - Whether Improving has any existing footprint or alumni inside Constellation or legacy Calpine.
 - Which specific win-wire stories we're cleared to name externally.
 - Whether the original "Houston" reference was the C&I retail office or, given timing, Calpine itself.
 - Current titles/reporting lines for Green and Horvath — confirm before outreach, as the post-Calpine org is still consolidating.
+- None of Green, Horvath, Koehler, McHugh, or Novotny appear as CRM contacts on this account — the named decision-makers in this plan come entirely from public-source research, not CRM. Worth adding them as contacts once confirmed.
 
 ---
 
 ### Sources
+- **[2026-07-21]** Improving Dynamics CRM — direct account record query for "Constellation Energy Group" (0 opportunities, 0 hand-raisers, contact list, recent webinar-engagement timeline)
+- Constellation Energy Corp FY2025 Form 10-K (SEC, filed 2026-02-24): https://www.sec.gov/Archives/edgar/data/1868275/000186827526000032/ceg-20251231.htm
+- Constellation Reports Fourth Quarter and Full Year 2025 Results: https://www.constellationenergy.com/news/2026/02/constellation-reports-fourth-quarter-and-full-year-2025-results.html
 - Constellation FY2024 Form 10-K (SEC): https://www.sec.gov/Archives/edgar/data/0001868275/000186827525000023/ceg-20241231.htm
 - Constellation Q1 2026 10-Q / Calpine close coverage (StockTitan): https://www.stocktitan.net/sec-filings/CEG/10-q-constellation-energy-corp-quarterly-earnings-report-013e301beb0e.html
 - Calpine acquisition finalization: https://www.financialcontent.com/article/marketminute-2026-3-10-constellation-energy-finalizes-164-billion-calpine-acquisition-solidifying-lead-in-ai-data-center-power-race

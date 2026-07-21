@@ -101,6 +101,9 @@ Run STATE CHECK above, then begin at step-01 for the appropriate mode.
 | 03 | `steps/weekly-step-03-suggest-sources.md` | sonnet | Propose up to max_per_week new sources; write to proposed-sources.md |
 | 04 | `steps/weekly-step-04-weekly-note.md` | haiku | Write Obsidian weekly note summarizing themes, candidates, proposals, and tweets |
 | 05 | `steps/weekly-step-05-report.md` | haiku | Surface content candidates ready + sources awaiting yes/no + tweets with Post to X links |
+| 06 *(optional)* | `steps/weekly-step-06-publish-drafts.md` | sonnet | Present approved drafts; send selected posts to Slack `#content` (`C0B160MA3EK`) via master-slack skill; David selects or skips |
+
+**Step-06 is optional.** Knox presents a numbered draft list after step-05 completes and waits for David to select, send all, or skip. If skipped, the step is marked `status: skipped` and the weekly run closes normally.
 
 ---
 
@@ -126,8 +129,11 @@ Dormancy rule: a source that surfaces no item clearing `awareness_floor` for 21 
 | `Watchtower/Daily/` (Obsidian) | Daily step-05 writes `YYYY-MM-DD.md` with `#watchtower` tag |
 | `Watchtower/Weekly/` (Obsidian) | Weekly step-04 writes `YYYY-Www.md` |
 | Morning briefing | Daily run is invoked by morning-briefing before its step-01; top 5 items by score rendered inline as a Watchtower section with link to full dashboard; content candidate count noted |
+| Slack `#content` (`C0B160MA3EK`) | Weekly step-06 (optional) sends selected draft posts via master-slack skill after David approves them |
 
 Watchtower does NOT publish. It does NOT file vault notes outside its own folders. It feeds Harper's content pipeline and Knox's vault — it does not rebuild either.
+
+Step-06 sends drafts to Slack `#content` as formatted messages for sharing — it does not post to LinkedIn, Twitter/X, or any other platform.
 <!-- system:end -->
 
 <!-- personal:start -->

@@ -1,0 +1,753 @@
+<!--
+  ACCOUNT PURSUIT MAP — DASHBOARD TEMPLATE
+  =========================================
+  Generic template for step-07-generate-dashboard.md. This is the FIXED design
+  system for the account-pursuit-map workflow's HTML output — do not redesign
+  the palette, type, or layout per account. Only the content between
+  {{DOUBLE_BRACE}} placeholders (and the repeatable blocks marked with
+  "REPEAT" comments) changes from run to run.
+
+  Extracted from the first production run of this workflow (Charles Schwab,
+  2026-07-21). See accounts/Schwab/pursuit-dashboard.html for a filled-in
+  reference example.
+
+  Placeholder legend:
+    {{COMPANY}}                 — target company name
+    {{NINEBOX_ZONE}}             — one of: IDEAL, SIGNIFICANT, POISED, SOLID,
+                                    CORE, STEADY, LIMITED, CONSTRAINED, CAPPED
+    {{POTENTIAL_SCORE}} / {{REALIZED_SCORE}} — numeric 9-box scores (step 04)
+    {{RECOMMENDED_OPTION_LETTER}} — A / B / C
+    {{RECOMMENDED_PLAY_NAME}}
+    All other tokens are named for the field they hold — read them in context.
+
+  9-box SVG coordinate formula (grid spans -5 to +5 on both axes, plotted
+  across a 240x240px area starting at x=30,y=250 as the origin/bottom-left):
+    cx = 30 + ((potential_score + 5) / 10) * 240
+    cy = 250 - ((realized_score  + 5) / 10) * 240
+  The nine 80x80 cells: Low/Mid/High bands break at raw score -1.7 and +1.7
+  per the workflow's fixed banding — shade the ONE cell matching
+  {{NINEBOX_ZONE}} with the var(--accent-soft) rect fill (see the POISED
+  example rect below — move its x/y to the matching cell, cell origins are
+  x ∈ {30, 110, 190}, y ∈ {10, 90, 170}).
+
+  Cold/lost-re-entry accounts: replace the "Multi-Year Strategic Path"
+  timeline with a 30/60/90 day plan using the SAME .timeline/.tl-row markup —
+  just three rows labeled "Next 30 days" / "Days 31–60" / "Days 61–90" with
+  no month-range subtitle needed. No CSS changes required either way.
+-->
+<title>{{COMPANY}} — Pursuit Dashboard</title>
+<style>
+  :root{
+    --bg:#eef0e6;
+    --surface:#ffffff;
+    --surface-2:#e4e7da;
+    --text:#1b2530;
+    --text-mute:#5c6b74;
+    --border:#d3d6c8;
+    --accent:#a8752f;
+    --accent-strong:#8c5f22;
+    --accent-soft:#f0e2c8;
+    --success:#3f5b4c;
+    --success-soft:#dfe8e0;
+    --alert:#8b4030;
+    --alert-soft:#f1ddd6;
+    --shadow:rgba(27,37,48,0.08);
+    --font-display: ui-serif, "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+    --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --font-mono: ui-monospace, "SF Mono", "Cascadia Mono", Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#11161c;
+      --surface:#171f27;
+      --surface-2:#1d2630;
+      --text:#e9e6dc;
+      --text-mute:#93a0a8;
+      --border:#2b3540;
+      --accent:#d1a256;
+      --accent-strong:#e6bd75;
+      --accent-soft:#3a2f1c;
+      --success:#7fae95;
+      --success-soft:#1c2b23;
+      --alert:#d98b76;
+      --alert-soft:#33201b;
+      --shadow:rgba(0,0,0,0.35);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#11161c; --surface:#171f27; --surface-2:#1d2630; --text:#e9e6dc; --text-mute:#93a0a8;
+    --border:#2b3540; --accent:#d1a256; --accent-strong:#e6bd75; --accent-soft:#3a2f1c;
+    --success:#7fae95; --success-soft:#1c2b23; --alert:#d98b76; --alert-soft:#33201b; --shadow:rgba(0,0,0,0.35);
+  }
+  :root[data-theme="light"]{
+    --bg:#eef0e6; --surface:#ffffff; --surface-2:#e4e7da; --text:#1b2530; --text-mute:#5c6b74;
+    --border:#d3d6c8; --accent:#a8752f; --accent-strong:#8c5f22; --accent-soft:#f0e2c8;
+    --success:#3f5b4c; --success-soft:#dfe8e0; --alert:#8b4030; --alert-soft:#f1ddd6; --shadow:rgba(27,37,48,0.08);
+  }
+
+  *{box-sizing:border-box;}
+  body{margin:0;}
+  .page{
+    background:var(--bg);
+    color:var(--text);
+    font-family:var(--font-body);
+    font-size:15px;
+    line-height:1.5;
+    min-height:100vh;
+  }
+  ::selection{ background:var(--accent-soft); }
+  a{ color:var(--accent-strong); }
+  .tabular{ font-family:var(--font-mono); font-variant-numeric:tabular-nums; }
+
+  /* ---------- Header ---------- */
+  header.masthead{
+    padding:1.6rem 2rem 1.2rem;
+    display:flex;
+    flex-wrap:wrap;
+    align-items:flex-end;
+    justify-content:space-between;
+    gap:0.75rem;
+    border-bottom:1px solid var(--border);
+  }
+  .masthead-title{
+    font-family:var(--font-display);
+    font-size:1.9rem;
+    font-weight:600;
+    letter-spacing:-0.01em;
+    text-wrap:balance;
+    margin:0;
+  }
+  .masthead-sub{
+    color:var(--text-mute);
+    font-size:0.85rem;
+    margin-top:0.25rem;
+  }
+  /* ---------- Status strip ---------- */
+  .status-strip{
+    position:sticky; top:0; z-index:10;
+    display:grid;
+    grid-template-columns:repeat(5, 1fr);
+    gap:1px;
+    background:var(--border);
+    border-bottom:1px solid var(--border);
+    box-shadow:0 2px 10px var(--shadow);
+  }
+  .stat{
+    background:var(--surface);
+    padding:0.85rem 1.1rem;
+  }
+  .stat-label{
+    font-size:0.66rem;
+    text-transform:uppercase;
+    letter-spacing:0.07em;
+    color:var(--text-mute);
+    margin-bottom:0.3rem;
+  }
+  .stat-value{
+    font-family:var(--font-mono);
+    font-variant-numeric:tabular-nums;
+    font-size:1.15rem;
+    font-weight:600;
+    color:var(--text);
+  }
+  .stat-value.accent{ color:var(--accent-strong); }
+  .stat-value.good{ color:var(--success); }
+  .stat-sub{
+    font-size:0.72rem;
+    color:var(--text-mute);
+    margin-top:0.15rem;
+  }
+
+  main{ max-width:1240px; margin:0 auto; padding:1.75rem 2rem 3rem; }
+
+  section.block{ margin-bottom:2rem; }
+  .block-heading{
+    font-family:var(--font-display);
+    font-size:1.05rem;
+    font-weight:600;
+    margin:0 0 0.75rem;
+    display:flex;
+    align-items:center;
+    gap:0.5rem;
+  }
+  .eyebrow{
+    font-size:0.68rem;
+    text-transform:uppercase;
+    letter-spacing:0.09em;
+    color:var(--text-mute);
+    margin-bottom:0.3rem;
+    display:block;
+  }
+
+  /* ---------- Front page: pitch + action queue ---------- */
+  .front-grid{
+    display:grid;
+    grid-template-columns:1.5fr 1fr;
+    gap:1.5rem;
+    align-items:start;
+  }
+  @media (max-width:920px){ .front-grid{ grid-template-columns:1fr; } }
+
+  .card{
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:8px;
+    padding:1.25rem 1.4rem;
+  }
+
+  .pitch-hero{
+    border:1px solid var(--accent);
+    background:linear-gradient(180deg, var(--accent-soft) 0%, var(--surface) 130px);
+  }
+  .pitch-hero .eyebrow{ color:var(--accent-strong); }
+  .pitch-hero h3{
+    font-family:var(--font-display);
+    font-size:1.35rem;
+    margin:0.1rem 0 0.5rem;
+  }
+  .pitch-why{ color:var(--text-mute); font-size:0.9rem; margin-bottom:0.9rem; }
+  blockquote.script{
+    margin:0 0 0.9rem;
+    padding:0.8rem 1rem;
+    background:var(--surface);
+    border-left:3px solid var(--accent);
+    border-radius:0 4px 4px 0;
+    font-style:italic;
+    font-size:0.92rem;
+    color:var(--text);
+  }
+  .pitch-rationale{
+    font-size:0.82rem;
+    color:var(--text-mute);
+    border-top:1px solid var(--border);
+    padding-top:0.7rem;
+  }
+  .pitch-rationale strong{ color:var(--text); }
+
+  .secondary-plays{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:0.9rem;
+    margin-top:0.9rem;
+  }
+  @media (max-width:600px){ .secondary-plays{ grid-template-columns:1fr; } }
+  .play-card{
+    background:var(--surface-2);
+    border:1px solid var(--border);
+    border-radius:6px;
+    padding:0;
+  }
+  .play-card summary{
+    cursor:pointer;
+    padding:0.85rem 0.95rem;
+    list-style:none;
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    gap:0.5rem;
+  }
+  .play-card summary::-webkit-details-marker{ display:none; }
+  .play-card summary::after{ content:"Details +"; font-size:0.68rem; color:var(--text-mute); white-space:nowrap; }
+  .play-card[open] summary::after{ content:"Hide –"; }
+  .play-card summary:focus-visible{ outline:2px solid var(--accent); outline-offset:-2px; }
+  .play-card .eyebrow{ margin-bottom:0.15rem; }
+  .play-card h4{ font-family:var(--font-display); font-size:0.98rem; margin:0 0 0.4rem; }
+  .play-card-body{ padding:0 0.95rem 0.9rem; }
+  .play-card-body p{ font-size:0.8rem; color:var(--text-mute); margin:0 0 0.6rem; }
+  .play-card blockquote.script{ font-size:0.8rem; padding:0.55rem 0.7rem; margin-bottom:0; }
+
+  /* ---------- Action queue ---------- */
+  .queue{ display:flex; flex-direction:column; gap:0.55rem; }
+  .queue-row{
+    display:grid;
+    grid-template-columns:1.6rem 1fr;
+    gap:0.7rem;
+    padding:0.65rem 0.75rem;
+    border:1px solid var(--border);
+    border-radius:6px;
+    background:var(--surface);
+  }
+  .queue-row.priority-1{ border-color:var(--success); background:var(--success-soft); }
+  .queue-num{
+    font-family:var(--font-mono);
+    font-weight:700;
+    color:var(--text-mute);
+    padding-top:0.1rem;
+  }
+  .priority-1 .queue-num{ color:var(--success); }
+  .queue-name{ font-weight:600; font-size:0.9rem; }
+  .queue-role{ font-size:0.76rem; color:var(--text-mute); margin-bottom:0.35rem; }
+  .queue-goal{ font-size:0.78rem; color:var(--text); }
+  .pill{
+    display:inline-block;
+    font-size:0.62rem;
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:0.04em;
+    padding:0.1rem 0.45rem;
+    border-radius:99px;
+    margin-left:0.4rem;
+    vertical-align:middle;
+  }
+  .pill-open{ background:var(--success-soft); color:var(--success); }
+  .pill-warm{ background:var(--accent-soft); color:var(--accent-strong); }
+  .pill-cold{ background:var(--alert-soft); color:var(--alert); }
+  .pill-existing{ background:var(--surface-2); color:var(--text-mute); }
+
+  /* ---------- 9-box + timeline row ---------- */
+  .analysis-grid{
+    display:grid;
+    grid-template-columns:1fr 1.3fr;
+    gap:1.5rem;
+    margin-top:1.75rem;
+  }
+  @media (max-width:920px){ .analysis-grid{ grid-template-columns:1fr; } }
+
+  .ninebox-wrap{ display:flex; flex-direction:column; align-items:center; }
+  .ninebox-note{ font-size:0.76rem; color:var(--text-mute); margin-top:0.6rem; text-align:center; }
+
+  .timeline{ display:flex; flex-direction:column; gap:0; }
+  .tl-row{ display:grid; grid-template-columns:5.5rem 1fr; gap:0.9rem; padding:0.7rem 0; position:relative; }
+  .tl-row:not(:last-child){ border-bottom:1px dashed var(--border); }
+  .tl-phase{ font-family:var(--font-display); font-weight:600; font-size:0.95rem; }
+  .tl-time{ font-size:0.72rem; color:var(--text-mute); font-family:var(--font-mono); }
+  .tl-milestone{ font-size:0.84rem; }
+
+  /* ---------- Next actions ---------- */
+  .actions-list{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:0.5rem 1.4rem;
+  }
+  @media (max-width:760px){ .actions-list{ grid-template-columns:1fr; } }
+  .action-item{
+    display:flex; gap:0.6rem;
+    font-size:0.85rem;
+    padding:0.4rem 0;
+    border-bottom:1px solid var(--border);
+  }
+  .action-check{
+    flex:none;
+    width:1.1rem; height:1.1rem;
+    border:1.5px solid var(--accent);
+    border-radius:3px;
+    margin-top:0.15rem;
+  }
+
+  /* ---------- Tabs ---------- */
+  .tabbar{
+    display:flex;
+    gap:0.4rem;
+    border-bottom:1px solid var(--border);
+    margin:2.2rem 0 1.4rem;
+  }
+  .tab-btn{
+    font-family:var(--font-body);
+    font-size:0.85rem;
+    font-weight:600;
+    color:var(--text-mute);
+    background:none;
+    border:none;
+    padding:0.6rem 0.3rem;
+    margin-right:1.4rem;
+    cursor:pointer;
+    position:relative;
+    top:1px;
+  }
+  .tab-btn:focus-visible{ outline:2px solid var(--accent); outline-offset:2px; }
+  .tab-btn.active{ color:var(--text); border-bottom:2px solid var(--accent); }
+  .tab-panel{ display:none; }
+  .tab-panel.active{ display:block; }
+
+  /* ---------- Profile cards ---------- */
+  .profile-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(300px, 1fr));
+    gap:1.1rem;
+  }
+  .profile-card{
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:8px;
+    padding:1.1rem 1.2rem;
+  }
+  .profile-card.flag{ border-color:var(--alert); }
+  .profile-name{ font-family:var(--font-display); font-size:1.05rem; font-weight:600; margin:0 0 0.15rem; }
+  .profile-title{ font-size:0.78rem; color:var(--text-mute); margin-bottom:0.6rem; }
+  .profile-badges{ margin-bottom:0.6rem; }
+  .profile-section{ font-size:0.82rem; margin-bottom:0.5rem; }
+  .profile-section .label{ font-size:0.66rem; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-mute); display:block; margin-bottom:0.15rem; }
+  .profile-quote{ font-style:italic; color:var(--text); }
+  .profile-source{ font-size:0.7rem; color:var(--text-mute); margin-top:0.6rem; padding-top:0.5rem; border-top:1px solid var(--border); }
+  .profile-source a{ color:var(--text-mute); }
+
+  table.ref-table{ width:100%; border-collapse:collapse; font-size:0.82rem; }
+  table.ref-table th, table.ref-table td{ text-align:left; padding:0.45rem 0.6rem; border-bottom:1px solid var(--border); }
+  table.ref-table th{ font-size:0.68rem; text-transform:uppercase; letter-spacing:0.05em; color:var(--text-mute); font-weight:600; }
+  .table-scroll{ overflow-x:auto; }
+  .subhead{ font-family:var(--font-display); font-size:0.95rem; font-weight:600; margin:1.6rem 0 0.6rem; }
+
+  /* ---------- Notes accordion ---------- */
+  details.note{
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:6px;
+    margin-bottom:0.6rem;
+    padding:0;
+  }
+  details.note summary{
+    cursor:pointer;
+    padding:0.75rem 1rem;
+    font-weight:600;
+    font-size:0.9rem;
+    list-style:none;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+  }
+  details.note summary::-webkit-details-marker{ display:none; }
+  details.note summary::after{ content:"+"; color:var(--text-mute); font-weight:400; font-size:1.1rem; }
+  details.note[open] summary::after{ content:"–"; }
+  details.note summary:focus-visible{ outline:2px solid var(--accent); outline-offset:-2px; }
+  .note-body{ padding:0 1rem 1rem; font-size:0.86rem; }
+  .note-body p{ margin:0 0 0.7rem; }
+  .note-body ul{ margin:0 0 0.7rem; padding-left:1.1rem; }
+  .note-body li{ margin-bottom:0.35rem; }
+  .resolved{ text-decoration:line-through; color:var(--text-mute); }
+  .sources-list{ font-size:0.78rem; columns:2; column-gap:2rem; }
+  @media (max-width:700px){ .sources-list{ columns:1; } }
+  .sources-list li{ break-inside:avoid; margin-bottom:0.5rem; }
+
+  footer.foot{
+    max-width:1240px; margin:0 auto; padding:1rem 2rem 2.5rem;
+    color:var(--text-mute); font-size:0.75rem;
+  }
+</style>
+
+<div class="page">
+
+  <header class="masthead">
+    <div>
+      <h1 class="masthead-title">{{COMPANY}} — Pursuit Dashboard</h1>
+      <div class="masthead-sub">Improving &middot; Business Development &middot; Internal</div>
+    </div>
+  </header>
+
+  <!--
+    STATUS STRIP — exactly 5 tiles. Tailor tile 2/3/4 to what the account
+    actually has:
+      - Active-but-underleveraged: Closed Revenue (CRM total + win rate),
+        Open Pipeline ($ + stage), Warmest Path (name + why).
+      - Cold/lost re-entry: swap tile 2 for "Prior Engagement" (e.g. "None on
+        record" or the lost-deal name/date), tile 3 for "Loss Reason"
+        (or "Undocumented — pull CRM first" if step 01 flagged a gap).
+    Never fabricate a number — if data doesn't exist, say so in the sub-line
+    ("no CRM history" / "cold pursuit") rather than inventing a figure.
+  -->
+  <div class="status-strip">
+    <div class="stat">
+      <div class="stat-label">9-Box Position</div>
+      <div class="stat-value accent">{{NINEBOX_ZONE}}</div>
+      <div class="stat-sub">{{POTENTIAL_BAND}} Potential ({{POTENTIAL_SCORE}}) &middot; {{REALIZED_BAND}} Realized ({{REALIZED_SCORE}})</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">{{STAT2_LABEL}}</div>
+      <div class="stat-value tabular good">{{STAT2_VALUE}}</div>
+      <div class="stat-sub">{{STAT2_SUB}}</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">{{STAT3_LABEL}}</div>
+      <div class="stat-value tabular">{{STAT3_VALUE}}</div>
+      <div class="stat-sub">{{STAT3_SUB}}</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">Warmest Path</div>
+      <div class="stat-value">{{WARMEST_CONTACT_NAME}}</div>
+      <div class="stat-sub">{{WARMEST_CONTACT_WHY}}</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">Recommended Play</div>
+      <div class="stat-value accent">Option {{RECOMMENDED_OPTION_LETTER}}</div>
+      <div class="stat-sub">{{RECOMMENDED_PLAY_NAME}}</div>
+    </div>
+  </div>
+
+  <main>
+
+    <nav class="tabbar" role="tablist" aria-label="Dashboard sections">
+      <button class="tab-btn active" role="tab" aria-selected="true" data-tab="overview">Overview</button>
+      <button class="tab-btn" role="tab" aria-selected="false" data-tab="profiles">Profiles</button>
+      <button class="tab-btn" role="tab" aria-selected="false" data-tab="notes">Notes</button>
+    </nav>
+
+    <div class="tab-panel active" id="tab-overview">
+    <!-- ============ FRONT PAGE: PITCH + ACTION QUEUE ============ -->
+    <section class="block front-grid">
+      <div>
+        <div class="card pitch-hero">
+          <span class="eyebrow">Recommended entry play &middot; Option {{RECOMMENDED_OPTION_LETTER}}</span>
+          <h3>{{RECOMMENDED_PLAY_NAME}}</h3>
+          <div class="pitch-why">{{RECOMMENDED_PLAY_WHY_NOW — 1-2 sentences grounding the play in a specific stated priority}}</div>
+          <blockquote class="script">&ldquo;{{RECOMMENDED_PLAY_ENTRY_PITCH — actual quotable pitch}}&rdquo;</blockquote>
+          <div class="pitch-rationale"><strong>Why lead here:</strong> {{RECOMMENDED_PLAY_RATIONALE — why this beats the other two options right now}}</div>
+        </div>
+
+        <!-- REPEAT: one <details class="play-card"> per remaining entry play (typically 2, i.e. Option B and C) -->
+        <div class="secondary-plays">
+          <details class="play-card">
+            <summary>
+              <span><span class="eyebrow">Option {{OPTION_LETTER}}</span><h4>{{PLAY_NAME}}</h4></span>
+            </summary>
+            <div class="play-card-body">
+              <p>{{PLAY_WHY — 1-2 sentence description of the opportunity and why it fits}}</p>
+              <blockquote class="script">&ldquo;{{PLAY_ENTRY_PITCH}}&rdquo;</blockquote>
+            </div>
+          </details>
+          <!-- /REPEAT -->
+        </div>
+      </div>
+
+      <div>
+        <div class="block-heading" style="margin-bottom:0.6rem;">Contact Priority Queue</div>
+        <!--
+          REPEAT: one .queue-row per row of the Contact Prioritization &
+          Sequencing table (step 06 task 1), in priority order. Add class
+          "priority-1" to the top row only (gives it the green highlight).
+          Pill classes — pick the one matching entry-point status:
+            pill-open      = already-open/inbound channel, in-seat confirmed
+            pill-warm      = named warm path (YPO, community, mutual, referral)
+            pill-existing  = existing relationship/sponsor, not yet leveraged
+            pill-cold      = cold outreach, no warm path, or unverified
+        -->
+        <div class="queue">
+          <div class="queue-row priority-1">
+            <div class="queue-num">1</div>
+            <div>
+              <div class="queue-name">{{CONTACT_NAME}} <span class="pill pill-open">{{STATUS_LABEL}}</span></div>
+              <div class="queue-role">{{CONTACT_ROLE}}</div>
+              <div class="queue-goal">{{ENTRY_POINT_AND_GOAL — the actual mechanism to reach them, and what this touch should accomplish}}</div>
+            </div>
+          </div>
+          <!-- /REPEAT -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 9-BOX + TIMELINE ============ -->
+    <section class="block analysis-grid">
+      <div class="card ninebox-wrap">
+        <div class="block-heading">Account 9-Box</div>
+        <svg viewBox="0 0 300 300" width="100%" style="max-width:280px;" role="img" aria-label="9-box grid showing {{COMPANY}} plotted in the {{NINEBOX_ZONE}} cell">
+          <defs>
+            <style>
+              .grid-line{ stroke: var(--border); stroke-width:1; }
+              .axis-label{ font-family: var(--font-body); font-size:9px; fill: var(--text-mute); }
+              .cell-label{ font-family: var(--font-body); font-size:8px; fill: var(--text-mute); }
+            </style>
+          </defs>
+          <rect x="30" y="10" width="240" height="240" fill="none" class="grid-line"></rect>
+          <line x1="110" y1="10" x2="110" y2="250" class="grid-line"></line>
+          <line x1="190" y1="10" x2="190" y2="250" class="grid-line"></line>
+          <line x1="30" y1="90" x2="270" y2="90" class="grid-line"></line>
+          <line x1="30" y1="170" x2="270" y2="170" class="grid-line"></line>
+
+          <!-- Shade ONE cell to match {{NINEBOX_ZONE}}. Cell x origins: Low=30, Mid=110, High=190 (Potential, left→right). Cell y origins: High=10, Mid=90, Low=170 (Realized, top→bottom). Width/height always 80x80. -->
+          <rect x="{{ZONE_CELL_X}}" y="{{ZONE_CELL_Y}}" width="80" height="80" fill="var(--accent-soft)"></rect>
+          <text x="{{ZONE_LABEL_X}}" y="{{ZONE_LABEL_Y}}" class="cell-label">{{NINEBOX_ZONE}}</text>
+
+          <text x="8" y="16" class="axis-label">High</text>
+          <text x="8" y="134" class="axis-label">Mid</text>
+          <text x="8" y="246" class="axis-label">Low</text>
+          <text x="34" y="264" class="axis-label">Low</text>
+          <text x="105" y="264" class="axis-label">Mid</text>
+          <text x="245" y="264" class="axis-label">High</text>
+          <text x="120" y="278" class="axis-label" font-weight="700">POTENTIAL &rarr;</text>
+          <text x="-180" y="12" class="axis-label" font-weight="700" transform="rotate(-90)">&larr; REALIZED</text>
+
+          <!-- Plot point: cx = 30 + ((potential_score+5)/10)*240 ; cy = 250 - ((realized_score+5)/10)*240 -->
+          <circle cx="{{PLOT_CX}}" cy="{{PLOT_CY}}" r="7" fill="var(--accent-strong)" stroke="var(--surface)" stroke-width="2"></circle>
+          <text x="{{PLOT_LABEL_X}}" y="{{PLOT_LABEL_Y}}" class="cell-label" font-weight="700" fill="var(--accent-strong)">{{COMPANY_SHORT_LABEL — e.g. company name in caps}}</text>
+        </svg>
+        <div class="ninebox-note">Potential {{POTENTIAL_SCORE}} ({{POTENTIAL_BAND}}) &middot; Realized {{REALIZED_SCORE}} ({{REALIZED_BAND}}). {{NINEBOX_REFERENCE_NOTE — e.g. relation to the one verified reference-account cell, per step 04}}</div>
+      </div>
+
+      <div class="card">
+        <!--
+          Header + rows below assume active-but-underleveraged (Multi-Year
+          Strategic Path). For cold/lost-re-entry, change the heading to
+          "30 / 60 / 90 Day Plan" and use exactly 3 .tl-row entries labeled
+          "Next 30 days" / "Days 31–60" / "Days 61–90" (omit .tl-time or use
+          it for the same date range) — same markup, no CSS changes.
+        -->
+        <div class="block-heading">Multi-Year Strategic Path</div>
+        <div class="timeline">
+          <div class="tl-row">
+            <div><div class="tl-phase">Access</div><div class="tl-time">Month 1&ndash;3</div></div>
+            <div class="tl-milestone">{{ACCESS_MILESTONE}}</div>
+          </div>
+          <div class="tl-row">
+            <div><div class="tl-phase">Prove</div><div class="tl-time">Month 3&ndash;6</div></div>
+            <div class="tl-milestone">{{PROVE_MILESTONE}}</div>
+          </div>
+          <div class="tl-row">
+            <div><div class="tl-phase">Expand</div><div class="tl-time">Month 6&ndash;12</div></div>
+            <div class="tl-milestone">{{EXPAND_MILESTONE}}</div>
+          </div>
+          <div class="tl-row">
+            <div><div class="tl-phase">Partner</div><div class="tl-time">Year 2+</div></div>
+            <div class="tl-milestone">{{PARTNER_MILESTONE}}</div>
+          </div>
+        </div>
+
+        <div class="block-heading" style="margin-top:1.5rem;">Immediate Next Actions</div>
+        <!-- REPEAT: one .action-item per item in the Immediate Next Actions list (step 06 task 4). Any gating action (e.g. "pull the CRM loss record first") must be item 1. -->
+        <div class="actions-list">
+          <div class="action-item"><span class="action-check"></span>{{NEXT_ACTION}}</div>
+          <!-- /REPEAT -->
+        </div>
+      </div>
+    </section>
+    </div>
+
+    <div class="tab-panel" id="tab-profiles">
+
+      <!-- REPEAT: one .profile-card per full narrative profile (step 03 — the 3-5 most strategically relevant contacts). Add class "flag" if there's a name-collision or other risk worth a visible border. -->
+      <div class="profile-grid">
+        <div class="profile-card">
+          <div class="profile-name">{{CONTACT_NAME}}</div>
+          <div class="profile-title">{{CONTACT_TITLE}}</div>
+          <div class="profile-badges"><span class="pill pill-open">{{CONNECTION_DEGREE_OR_STATUS}}</span></div>
+          <div class="profile-section"><span class="label">Why they matter</span>{{ROLE_INFERENCE_AND_BACKGROUND}}</div>
+          <div class="profile-section"><span class="label">Pitch angle</span><span class="profile-quote">&ldquo;{{PITCH_ANGLE_QUOTE}}&rdquo;</span></div>
+          <div class="profile-section"><span class="label">Avoid</span>{{WHAT_TO_AVOID}}</div>
+          <div class="profile-source">{{SOURCE_NOTE — mutual connections, CRM tie, etc.}}</div>
+        </div>
+        <!-- /REPEAT -->
+      </div>
+
+      <!-- Compact reference tables for the rest of the org chart — name/title/CRM-status only, no narrative. One row per remaining contact. -->
+      <div class="subhead">Remaining Executive Council</div>
+      <div class="table-scroll">
+        <table class="ref-table">
+          <thead><tr><th>Name</th><th>Title</th><th>CRM Status</th></tr></thead>
+          <tbody>
+            <tr><td>{{NAME}}</td><td>{{TITLE}}</td><td>{{CRM_STATUS}}</td></tr>
+            <!-- REPEAT one <tr> per remaining C-suite name -->
+          </tbody>
+        </table>
+      </div>
+
+      <div class="subhead">One Level Down (partial)</div>
+      <div class="table-scroll">
+        <table class="ref-table">
+          <thead><tr><th>Name</th><th>Title</th><th>Reports Toward</th></tr></thead>
+          <tbody>
+            <tr><td>{{NAME}}</td><td>{{TITLE}}</td><td>{{REPORTS_TOWARD}}</td></tr>
+            <!-- REPEAT one <tr> per one-level-down name -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="tab-panel" id="tab-notes">
+
+      <details class="note" open>
+        <summary>Open Items to Confirm</summary>
+        <div class="note-body">
+          <p>{{OPEN_ITEMS_INTRO — resolved-this-session items, if any, listed with class="resolved" strikethrough}}</p>
+          <ul>
+            <li>{{OPEN_ITEM}}</li>
+            <!-- REPEAT one <li> per unresolved item from step 06 task 5 -->
+          </ul>
+        </div>
+      </details>
+
+      <details class="note">
+        <summary>9-Box Methodology</summary>
+        <div class="note-body">
+          <p><strong>Potential ({{POTENTIAL_SCORE}}, {{POTENTIAL_BAND}}):</strong> {{POTENTIAL_FACTOR_BREAKDOWN — Geography/Revenue/Gross Margin raw scores, weights, and any capping/interpolation notes from step 04}}</p>
+          <p><strong>Realized ({{REALIZED_SCORE}}, {{REALIZED_BAND}}):</strong> {{REALIZED_FACTOR_BREAKDOWN}}</p>
+          <p>{{ANY_WORKFLOW_ISSUE_FLAGGED — surface methodology gaps honestly, do not smooth over (per step 04's own instructions)}}</p>
+        </div>
+      </details>
+
+      <details class="note">
+        <summary>Strategic Priorities ({{COMPANY}})</summary>
+        <div class="note-body">
+          <ul>
+            <li><strong>{{PRIORITY_THEME}}:</strong> {{PRIORITY_DETAIL}}</li>
+            <!-- REPEAT one <li> per stated strategic priority from step 02 -->
+          </ul>
+        </div>
+      </details>
+
+      <details class="note">
+        <summary>Competitive Positioning</summary>
+        <div class="note-body">
+          <div class="table-scroll">
+            <table class="ref-table">
+              <thead><tr><th>Priority Theme</th><th>Improving Capability</th><th>Why It Fits</th></tr></thead>
+              <tbody>
+                <tr><td>{{THEME}}</td><td>{{CAPABILITY}}</td><td>{{FIT_REASON}}</td></tr>
+                <!-- REPEAT one row per capability-mapping row from step 03 -->
+              </tbody>
+            </table>
+          </div>
+          <p style="margin-top:0.8rem;"><strong>Win-wire story:</strong> {{WIN_WIRE_STORY}}</p>
+          <p><strong>Honest competitive note:</strong> {{COMPETITIVE_NOTE — where Improving wins/loses, incumbent-SI signal if any}}</p>
+        </div>
+      </details>
+
+      <details class="note">
+        <summary>Referral &amp; Partner Network Detail</summary>
+        <div class="note-body">
+          <div class="table-scroll">
+            <table class="ref-table">
+              <thead><tr><th>Contact</th><th>Path</th><th>Status</th></tr></thead>
+              <tbody>
+                <tr><td>{{CONTACT}}</td><td>{{PATH}}</td><td>{{STATUS}}</td></tr>
+                <!-- REPEAT one row per personal-network tie from step 05 -->
+              </tbody>
+            </table>
+          </div>
+          <div class="table-scroll" style="margin-top:1rem;">
+            <table class="ref-table">
+              <thead><tr><th>Partner</th><th>Status</th><th>Contact</th></tr></thead>
+              <tbody>
+                <tr><td>{{PARTNER_NAME}}</td><td>{{LIKELY_IN_USE_STATUS}}</td><td>{{PARTNER_CONTACT}}</td></tr>
+                <!-- REPEAT one row per one of Improving's 8 fixed partners (AWS, Microsoft, GCP, Confluent, Databricks, SpaceX/xAI, Snowflake, SAP) -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </details>
+
+      <details class="note">
+        <summary>Sources</summary>
+        <div class="note-body">
+          <ul class="sources-list">
+            <li><a href="{{URL}}">{{SOURCE_TITLE}}</a></li>
+            <!-- REPEAT one <li> per deduplicated source from step 06 task 6 -->
+          </ul>
+        </div>
+      </details>
+    </div>
+
+  </main>
+
+  <footer class="foot">
+    Pursuit map dashboard for the <code>account-pursuit-map</code> workflow. Companion document: <code>accounts/{{COMPANY}}/account-plan.md</code>.
+  </footer>
+</div>
+
+<script>
+  document.querySelectorAll('.tab-btn').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      document.querySelectorAll('.tab-btn').forEach(function(b){ b.classList.remove('active'); b.setAttribute('aria-selected','false'); });
+      document.querySelectorAll('.tab-panel').forEach(function(p){ p.classList.remove('active'); });
+      btn.classList.add('active');
+      btn.setAttribute('aria-selected','true');
+      document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+    });
+  });
+</script>

@@ -1,0 +1,876 @@
+<title>Charles Schwab — Pursuit Dashboard</title>
+<style>
+  :root{
+    --bg:#eef0e6;
+    --surface:#ffffff;
+    --surface-2:#e4e7da;
+    --text:#1b2530;
+    --text-mute:#5c6b74;
+    --border:#d3d6c8;
+    --accent:#a8752f;
+    --accent-strong:#8c5f22;
+    --accent-soft:#f0e2c8;
+    --success:#3f5b4c;
+    --success-soft:#dfe8e0;
+    --alert:#8b4030;
+    --alert-soft:#f1ddd6;
+    --shadow:rgba(27,37,48,0.08);
+    --font-display: ui-serif, "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+    --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --font-mono: ui-monospace, "SF Mono", "Cascadia Mono", Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#11161c;
+      --surface:#171f27;
+      --surface-2:#1d2630;
+      --text:#e9e6dc;
+      --text-mute:#93a0a8;
+      --border:#2b3540;
+      --accent:#d1a256;
+      --accent-strong:#e6bd75;
+      --accent-soft:#3a2f1c;
+      --success:#7fae95;
+      --success-soft:#1c2b23;
+      --alert:#d98b76;
+      --alert-soft:#33201b;
+      --shadow:rgba(0,0,0,0.35);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#11161c; --surface:#171f27; --surface-2:#1d2630; --text:#e9e6dc; --text-mute:#93a0a8;
+    --border:#2b3540; --accent:#d1a256; --accent-strong:#e6bd75; --accent-soft:#3a2f1c;
+    --success:#7fae95; --success-soft:#1c2b23; --alert:#d98b76; --alert-soft:#33201b; --shadow:rgba(0,0,0,0.35);
+  }
+  :root[data-theme="light"]{
+    --bg:#eef0e6; --surface:#ffffff; --surface-2:#e4e7da; --text:#1b2530; --text-mute:#5c6b74;
+    --border:#d3d6c8; --accent:#a8752f; --accent-strong:#8c5f22; --accent-soft:#f0e2c8;
+    --success:#3f5b4c; --success-soft:#dfe8e0; --alert:#8b4030; --alert-soft:#f1ddd6; --shadow:rgba(27,37,48,0.08);
+  }
+
+  *{box-sizing:border-box;}
+  body{margin:0;}
+  .page{
+    background:var(--bg);
+    color:var(--text);
+    font-family:var(--font-body);
+    font-size:15px;
+    line-height:1.5;
+    min-height:100vh;
+  }
+  ::selection{ background:var(--accent-soft); }
+  a{ color:var(--accent-strong); }
+  .tabular{ font-family:var(--font-mono); font-variant-numeric:tabular-nums; }
+
+  /* ---------- Header ---------- */
+  header.masthead{
+    padding:1.6rem 2rem 1.2rem;
+    display:flex;
+    flex-wrap:wrap;
+    align-items:flex-end;
+    justify-content:space-between;
+    gap:0.75rem;
+    border-bottom:1px solid var(--border);
+  }
+  .masthead-title{
+    font-family:var(--font-display);
+    font-size:1.9rem;
+    font-weight:600;
+    letter-spacing:-0.01em;
+    text-wrap:balance;
+    margin:0;
+  }
+  .masthead-sub{
+    color:var(--text-mute);
+    font-size:0.85rem;
+    margin-top:0.25rem;
+  }
+  .masthead-meta{
+    text-align:right;
+    font-size:0.78rem;
+    color:var(--text-mute);
+    line-height:1.6;
+  }
+  /* ---------- Status strip ---------- */
+  .status-strip{
+    position:sticky; top:0; z-index:10;
+    display:grid;
+    grid-template-columns:repeat(5, 1fr);
+    gap:1px;
+    background:var(--border);
+    border-bottom:1px solid var(--border);
+    box-shadow:0 2px 10px var(--shadow);
+  }
+  .stat{
+    background:var(--surface);
+    padding:0.85rem 1.1rem;
+  }
+  .stat-label{
+    font-size:0.66rem;
+    text-transform:uppercase;
+    letter-spacing:0.07em;
+    color:var(--text-mute);
+    margin-bottom:0.3rem;
+  }
+  .stat-value{
+    font-family:var(--font-mono);
+    font-variant-numeric:tabular-nums;
+    font-size:1.15rem;
+    font-weight:600;
+    color:var(--text);
+  }
+  .stat-value.accent{ color:var(--accent-strong); }
+  .stat-value.good{ color:var(--success); }
+  .stat-sub{
+    font-size:0.72rem;
+    color:var(--text-mute);
+    margin-top:0.15rem;
+  }
+
+  main{ max-width:1240px; margin:0 auto; padding:1.75rem 2rem 3rem; }
+
+  section.block{ margin-bottom:2rem; }
+  .block-heading{
+    font-family:var(--font-display);
+    font-size:1.05rem;
+    font-weight:600;
+    margin:0 0 0.75rem;
+    display:flex;
+    align-items:center;
+    gap:0.5rem;
+  }
+  .eyebrow{
+    font-size:0.68rem;
+    text-transform:uppercase;
+    letter-spacing:0.09em;
+    color:var(--text-mute);
+    margin-bottom:0.3rem;
+    display:block;
+  }
+
+  /* ---------- Front page: pitch + action queue ---------- */
+  .front-grid{
+    display:grid;
+    grid-template-columns:1.5fr 1fr;
+    gap:1.5rem;
+    align-items:start;
+  }
+  @media (max-width:920px){ .front-grid{ grid-template-columns:1fr; } }
+
+  .card{
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:8px;
+    padding:1.25rem 1.4rem;
+  }
+
+  .pitch-hero{
+    border:1px solid var(--accent);
+    background:linear-gradient(180deg, var(--accent-soft) 0%, var(--surface) 130px);
+  }
+  .pitch-hero .eyebrow{ color:var(--accent-strong); }
+  .pitch-hero h3{
+    font-family:var(--font-display);
+    font-size:1.35rem;
+    margin:0.1rem 0 0.5rem;
+  }
+  .pitch-why{ color:var(--text-mute); font-size:0.9rem; margin-bottom:0.9rem; }
+  blockquote.script{
+    margin:0 0 0.9rem;
+    padding:0.8rem 1rem;
+    background:var(--surface);
+    border-left:3px solid var(--accent);
+    border-radius:0 4px 4px 0;
+    font-style:italic;
+    font-size:0.92rem;
+    color:var(--text);
+  }
+  .pitch-rationale{
+    font-size:0.82rem;
+    color:var(--text-mute);
+    border-top:1px solid var(--border);
+    padding-top:0.7rem;
+  }
+  .pitch-rationale strong{ color:var(--text); }
+
+  .secondary-plays{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:0.9rem;
+    margin-top:0.9rem;
+  }
+  @media (max-width:600px){ .secondary-plays{ grid-template-columns:1fr; } }
+  .play-card{
+    background:var(--surface-2);
+    border:1px solid var(--border);
+    border-radius:6px;
+    padding:0;
+  }
+  .play-card summary{
+    cursor:pointer;
+    padding:0.85rem 0.95rem;
+    list-style:none;
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    gap:0.5rem;
+  }
+  .play-card summary::-webkit-details-marker{ display:none; }
+  .play-card summary::after{ content:"Details +"; font-size:0.68rem; color:var(--text-mute); white-space:nowrap; }
+  .play-card[open] summary::after{ content:"Hide –"; }
+  .play-card summary:focus-visible{ outline:2px solid var(--accent); outline-offset:-2px; }
+  .play-card .eyebrow{ margin-bottom:0.15rem; }
+  .play-card h4{ font-family:var(--font-display); font-size:0.98rem; margin:0 0 0.4rem; }
+  .play-card-body{ padding:0 0.95rem 0.9rem; }
+  .play-card-body p{ font-size:0.8rem; color:var(--text-mute); margin:0 0 0.6rem; }
+  .play-card blockquote.script{ font-size:0.8rem; padding:0.55rem 0.7rem; margin-bottom:0; }
+
+  /* ---------- Action queue ---------- */
+  .queue{ display:flex; flex-direction:column; gap:0.55rem; }
+  .queue-row{
+    display:grid;
+    grid-template-columns:1.6rem 1fr;
+    gap:0.7rem;
+    padding:0.65rem 0.75rem;
+    border:1px solid var(--border);
+    border-radius:6px;
+    background:var(--surface);
+  }
+  .queue-row.priority-1{ border-color:var(--success); background:var(--success-soft); }
+  .queue-num{
+    font-family:var(--font-mono);
+    font-weight:700;
+    color:var(--text-mute);
+    padding-top:0.1rem;
+  }
+  .priority-1 .queue-num{ color:var(--success); }
+  .queue-name{ font-weight:600; font-size:0.9rem; }
+  .queue-role{ font-size:0.76rem; color:var(--text-mute); margin-bottom:0.35rem; }
+  .queue-goal{ font-size:0.78rem; color:var(--text); }
+  .pill{
+    display:inline-block;
+    font-size:0.62rem;
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:0.04em;
+    padding:0.1rem 0.45rem;
+    border-radius:99px;
+    margin-left:0.4rem;
+    vertical-align:middle;
+  }
+  .pill-open{ background:var(--success-soft); color:var(--success); }
+  .pill-warm{ background:var(--accent-soft); color:var(--accent-strong); }
+  .pill-cold{ background:var(--alert-soft); color:var(--alert); }
+  .pill-existing{ background:var(--surface-2); color:var(--text-mute); }
+
+  /* ---------- 9-box + timeline row ---------- */
+  .analysis-grid{
+    display:grid;
+    grid-template-columns:1fr 1.3fr;
+    gap:1.5rem;
+    margin-top:1.75rem;
+  }
+  @media (max-width:920px){ .analysis-grid{ grid-template-columns:1fr; } }
+
+  .ninebox-wrap{ display:flex; flex-direction:column; align-items:center; }
+  .ninebox-note{ font-size:0.76rem; color:var(--text-mute); margin-top:0.6rem; text-align:center; }
+
+  .timeline{ display:flex; flex-direction:column; gap:0; }
+  .tl-row{ display:grid; grid-template-columns:5.5rem 1fr; gap:0.9rem; padding:0.7rem 0; position:relative; }
+  .tl-row:not(:last-child){ border-bottom:1px dashed var(--border); }
+  .tl-phase{ font-family:var(--font-display); font-weight:600; font-size:0.95rem; }
+  .tl-time{ font-size:0.72rem; color:var(--text-mute); font-family:var(--font-mono); }
+  .tl-milestone{ font-size:0.84rem; }
+
+  /* ---------- Next actions ---------- */
+  .actions-list{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:0.5rem 1.4rem;
+  }
+  @media (max-width:760px){ .actions-list{ grid-template-columns:1fr; } }
+  .action-item{
+    display:flex; gap:0.6rem;
+    font-size:0.85rem;
+    padding:0.4rem 0;
+    border-bottom:1px solid var(--border);
+  }
+  .action-check{
+    flex:none;
+    width:1.1rem; height:1.1rem;
+    border:1.5px solid var(--accent);
+    border-radius:3px;
+    margin-top:0.15rem;
+  }
+
+  /* ---------- Tabs ---------- */
+  .tabbar{
+    display:flex;
+    gap:0.4rem;
+    border-bottom:1px solid var(--border);
+    margin:2.2rem 0 1.4rem;
+  }
+  .tab-btn{
+    font-family:var(--font-body);
+    font-size:0.85rem;
+    font-weight:600;
+    color:var(--text-mute);
+    background:none;
+    border:none;
+    padding:0.6rem 0.3rem;
+    margin-right:1.4rem;
+    cursor:pointer;
+    position:relative;
+    top:1px;
+  }
+  .tab-btn:focus-visible{ outline:2px solid var(--accent); outline-offset:2px; }
+  .tab-btn.active{ color:var(--text); border-bottom:2px solid var(--accent); }
+  .tab-panel{ display:none; }
+  .tab-panel.active{ display:block; }
+
+  /* ---------- Profile cards ---------- */
+  .profile-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(300px, 1fr));
+    gap:1.1rem;
+  }
+  .profile-card{
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:8px;
+    padding:1.1rem 1.2rem;
+  }
+  .profile-card.flag{ border-color:var(--alert); }
+  .profile-name{ font-family:var(--font-display); font-size:1.05rem; font-weight:600; margin:0 0 0.15rem; }
+  .profile-title{ font-size:0.78rem; color:var(--text-mute); margin-bottom:0.6rem; }
+  .profile-badges{ margin-bottom:0.6rem; }
+  .profile-section{ font-size:0.82rem; margin-bottom:0.5rem; }
+  .profile-section .label{ font-size:0.66rem; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-mute); display:block; margin-bottom:0.15rem; }
+  .profile-quote{ font-style:italic; color:var(--text); }
+  .profile-source{ font-size:0.7rem; color:var(--text-mute); margin-top:0.6rem; padding-top:0.5rem; border-top:1px solid var(--border); }
+  .profile-source a{ color:var(--text-mute); }
+
+  table.ref-table{ width:100%; border-collapse:collapse; font-size:0.82rem; }
+  table.ref-table th, table.ref-table td{ text-align:left; padding:0.45rem 0.6rem; border-bottom:1px solid var(--border); }
+  table.ref-table th{ font-size:0.68rem; text-transform:uppercase; letter-spacing:0.05em; color:var(--text-mute); font-weight:600; }
+  .table-scroll{ overflow-x:auto; }
+  .subhead{ font-family:var(--font-display); font-size:0.95rem; font-weight:600; margin:1.6rem 0 0.6rem; }
+
+  /* ---------- Notes accordion ---------- */
+  details.note{
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:6px;
+    margin-bottom:0.6rem;
+    padding:0;
+  }
+  details.note summary{
+    cursor:pointer;
+    padding:0.75rem 1rem;
+    font-weight:600;
+    font-size:0.9rem;
+    list-style:none;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+  }
+  details.note summary::-webkit-details-marker{ display:none; }
+  details.note summary::after{ content:"+"; color:var(--text-mute); font-weight:400; font-size:1.1rem; }
+  details.note[open] summary::after{ content:"–"; }
+  details.note summary:focus-visible{ outline:2px solid var(--accent); outline-offset:-2px; }
+  .note-body{ padding:0 1rem 1rem; font-size:0.86rem; }
+  .note-body p{ margin:0 0 0.7rem; }
+  .note-body ul{ margin:0 0 0.7rem; padding-left:1.1rem; }
+  .note-body li{ margin-bottom:0.35rem; }
+  .resolved{ text-decoration:line-through; color:var(--text-mute); }
+  .sources-list{ font-size:0.78rem; columns:2; column-gap:2rem; }
+  @media (max-width:700px){ .sources-list{ columns:1; } }
+  .sources-list li{ break-inside:avoid; margin-bottom:0.5rem; }
+
+  footer.foot{
+    max-width:1240px; margin:0 auto; padding:1rem 2rem 2.5rem;
+    color:var(--text-mute); font-size:0.75rem;
+  }
+</style>
+
+<div class="page">
+
+  <header class="masthead">
+    <div>
+      <h1 class="masthead-title">Charles Schwab — Pursuit Dashboard</h1>
+      <div class="masthead-sub">Improving &middot; Business Development &middot; Internal</div>
+    </div>
+  </header>
+
+  <div class="status-strip">
+    <div class="stat">
+      <div class="stat-label">9-Box Position</div>
+      <div class="stat-value accent">POISED</div>
+      <div class="stat-sub">High Potential (4.3) &middot; Mid Realized (0.2)</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">Closed Revenue</div>
+      <div class="stat-value tabular good">$2,554,624</div>
+      <div class="stat-sub">since 8/4/2023 &middot; 16/22 won (73%)</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">Open Pipeline</div>
+      <div class="stat-value tabular">$70,000</div>
+      <div class="stat-sub">Qualified &middot; + 1 at Proposing ($0 est.)</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">Warmest Path</div>
+      <div class="stat-value">Sean Law</div>
+      <div class="stat-sub">Inbound LinkedIn msg 6/24 &middot; no intro needed</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">Recommended Play</div>
+      <div class="stat-value accent">Option A</div>
+      <div class="stat-sub">GenAI Application Delivery Pod</div>
+    </div>
+  </div>
+
+  <main>
+
+    <nav class="tabbar" role="tablist" aria-label="Dashboard sections">
+      <button class="tab-btn active" role="tab" aria-selected="true" data-tab="overview">Overview</button>
+      <button class="tab-btn" role="tab" aria-selected="false" data-tab="profiles">Profiles</button>
+      <button class="tab-btn" role="tab" aria-selected="false" data-tab="notes">Notes</button>
+    </nav>
+
+    <div class="tab-panel active" id="tab-overview">
+    <!-- ============ FRONT PAGE: PITCH + ACTION QUEUE ============ -->
+    <section class="block front-grid">
+      <div>
+        <div class="card pitch-hero">
+          <span class="eyebrow">Recommended entry play &middot; Option A</span>
+          <h3>GenAI Application Delivery Pod</h3>
+          <div class="pitch-why">Schwab is actively shipping client-facing AI products (Portfolio Insights, the AI "front door," under-$1M segment tooling) and hiring AI engineers to do it. Offer a dedicated engineering pod to accelerate a specific product feature or backlog item.</div>
+          <blockquote class="script">&ldquo;We can put experienced Azure/GCP AI engineers on your team within 30 days. What's the highest-priority AI feature that's waiting on engineering capacity right now?&rdquo;</blockquote>
+          <div class="pitch-rationale"><strong>Why lead here:</strong> maps directly to Schwab's most visibly funded, most time-pressured initiative (the Investor Day AI commitments) &mdash; and Sean Law's already-open channel gives a low-friction way to surface the conversation immediately, without waiting on an intro.</div>
+        </div>
+
+        <div class="secondary-plays">
+          <details class="play-card">
+            <summary>
+              <span><span class="eyebrow">Option B</span><h4>Data Platform Modernization Sprint</h4></span>
+            </summary>
+            <div class="play-card-body">
+              <p>Post-TDA data architecture rationalization is still an open, cited priority. Pitch a scoped 8&ndash;12 week discovery-plus-build engagement, leading with the Thrivent TEID story.</p>
+              <blockquote class="script">&ldquo;We've done this exact consolidation pattern before with another large financial services firm. An 8-week scoped engagement could take one integration problem off your backlog and hand you a replicable pattern for the rest.&rdquo;</blockquote>
+            </div>
+          </details>
+          <details class="play-card">
+            <summary>
+              <span><span class="eyebrow">Option C</span><h4>AI Developer Productivity Enablement</h4></span>
+            </summary>
+            <div class="play-card-body">
+              <p>Bridges the current ID engagement into technical delivery &mdash; embedded engineering coaching around GitHub Copilot/GenAI tooling adoption, without a hard pivot away from the existing relationship.</p>
+              <blockquote class="script">&ldquo;There's a real difference between having Copilot licenses and actually shipping faster. We embed engineers who turn the tool into an actual delivery accelerator.&rdquo;</blockquote>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <div>
+        <div class="block-heading" style="margin-bottom:0.6rem;">Contact Priority Queue</div>
+        <div class="queue">
+
+          <div class="queue-row priority-1">
+            <div class="queue-num">1</div>
+            <div>
+              <div class="queue-name">Sean Law <span class="pill pill-open">Open channel</span></div>
+              <div class="queue-role">Principal Data Scientist, Office of the CTO</div>
+              <div class="queue-goal">He messaged David directly, 6/24/2026 &mdash; respond and convert to a real conversation on R&amp;D-to-production friction. No intro needed.</div>
+            </div>
+          </div>
+
+          <div class="queue-row">
+            <div class="queue-num">2</div>
+            <div>
+              <div class="queue-name">Nikhil Sudan <span class="pill pill-warm">YPO tie</span></div>
+              <div class="queue-role">Chief Strategy &amp; Innovation Officer</div>
+              <div class="queue-goal">Direct YPO tie, LinkedIn connection accepted (1st-degree). Peer-level AI-strategy conversation; executive air cover.</div>
+            </div>
+          </div>
+
+          <div class="queue-row">
+            <div class="queue-num">3</div>
+            <div>
+              <div class="queue-name">ID Sponsor <span class="pill pill-existing">Existing</span></div>
+              <div class="queue-role">Timothy Hartwell / Sandy Gomes</div>
+              <div class="queue-goal">Existing relationship &mdash; ask for a casual, low-key intro to Don Yuan and/or Tim Heier's org.</div>
+            </div>
+          </div>
+
+          <div class="queue-row">
+            <div class="queue-num">4</div>
+            <div>
+              <div class="queue-name">Don Yuan <span class="pill pill-warm">Community</span></div>
+              <div class="queue-role">Sr. Manager, Workplace AI &amp; Intelligent Automation</div>
+              <div class="queue-goal">Via ID sponsor, LinkedIn, or the AgentCon Dallas community. Understand agentic-AI delivery pain points.</div>
+            </div>
+          </div>
+
+          <div class="queue-row">
+            <div class="queue-num">5</div>
+            <div>
+              <div class="queue-name">Tim Heier <span class="pill pill-cold">Cold</span></div>
+              <div class="queue-role">EVP, Chief Technology Officer</div>
+              <div class="queue-goal">No warm path identified. Understand ownership split with Howard's org on AI-powered client experiences.</div>
+            </div>
+          </div>
+
+          <div class="queue-row">
+            <div class="queue-num">6</div>
+            <div>
+              <div class="queue-name">Sarah Wolf <span class="pill pill-open">In-seat confirmed</span></div>
+              <div class="queue-role">Director, Business Strategy, Trading Services</div>
+              <div class="queue-goal">Confirmed current via LinkedIn &mdash; no longer contingent on the unverified "Cole" referral. Business-outcome framing of platform modernization.</div>
+            </div>
+          </div>
+
+          <div class="queue-row">
+            <div class="queue-num">7</div>
+            <div>
+              <div class="queue-name">Furbush / Knowlton <span class="pill pill-cold">Unverified</span></div>
+              <div class="queue-role">Corporate Strategy org</div>
+              <div class="queue-goal">Referral path via "Cole" at SpaceX/xAI &mdash; confirm this is live before treating either as a warm entry point.</div>
+            </div>
+          </div>
+
+          <div class="queue-row">
+            <div class="queue-num">8</div>
+            <div>
+              <div class="queue-name">Dennis Howard <span class="pill pill-cold">Economic buyer</span></div>
+              <div class="queue-role">Chief Technology, Operations &amp; Data Officer</div>
+              <div class="queue-goal">Engage only after credibility is built through the paths above. Do not confuse with the unrelated Vistage/LeaderThrive contact already in David's network.</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 9-BOX + TIMELINE ============ -->
+    <section class="block analysis-grid">
+      <div class="card ninebox-wrap">
+        <div class="block-heading">Account 9-Box</div>
+        <svg viewBox="0 0 300 300" width="100%" style="max-width:280px;" role="img" aria-label="9-box grid showing Schwab plotted in the High Potential, Mid Realized (Poised) cell">
+          <defs>
+            <style>
+              .grid-line{ stroke: var(--border); stroke-width:1; }
+              .axis-label{ font-family: var(--font-body); font-size:9px; fill: var(--text-mute); }
+              .cell-label{ font-family: var(--font-body); font-size:8px; fill: var(--text-mute); }
+            </style>
+          </defs>
+          <rect x="30" y="10" width="240" height="240" fill="none" class="grid-line"></rect>
+          <line x1="110" y1="10" x2="110" y2="250" class="grid-line"></line>
+          <line x1="190" y1="10" x2="190" y2="250" class="grid-line"></line>
+          <line x1="30" y1="90" x2="270" y2="90" class="grid-line"></line>
+          <line x1="30" y1="170" x2="270" y2="170" class="grid-line"></line>
+
+          <rect x="190" y="90" width="80" height="80" fill="var(--accent-soft)"></rect>
+          <text x="196" y="102" class="cell-label">POISED</text>
+
+          <text x="8" y="16" class="axis-label">High</text>
+          <text x="8" y="134" class="axis-label">Mid</text>
+          <text x="8" y="246" class="axis-label">Low</text>
+          <text x="34" y="264" class="axis-label">Low</text>
+          <text x="105" y="264" class="axis-label">Mid</text>
+          <text x="245" y="264" class="axis-label">High</text>
+          <text x="120" y="278" class="axis-label" font-weight="700">POTENTIAL &rarr;</text>
+          <text x="-180" y="12" class="axis-label" font-weight="700" transform="rotate(-90)">&larr; REALIZED</text>
+
+          <circle cx="234" cy="128" r="7" fill="var(--accent-strong)" stroke="var(--surface)" stroke-width="2"></circle>
+          <text x="216" y="150" class="cell-label" font-weight="700" fill="var(--accent-strong)">SCHWAB</text>
+        </svg>
+        <div class="ninebox-note">Potential 4.3 (High) &middot; Realized 0.2 (Mid). Same verified cell as the account plan's one confirmed reference point (AT&amp;T, Potential 3.1 / Realized &asymp;0).</div>
+      </div>
+
+      <div class="card">
+        <div class="block-heading">Multi-Year Strategic Path</div>
+        <div class="timeline">
+          <div class="tl-row">
+            <div><div class="tl-phase">Access</div><div class="tl-time">Month 1&ndash;3</div></div>
+            <div class="tl-milestone">Convert Sean Law's open channel into a real conversation; parallel YPO touch with Nikhil Sudan.</div>
+          </div>
+          <div class="tl-row">
+            <div><div class="tl-phase">Prove</div><div class="tl-time">Month 3&ndash;6</div></div>
+            <div class="tl-milestone">Land one scoped SOW (Option A or B); execute flawlessly; embed a senior Improving engineer.</div>
+          </div>
+          <div class="tl-row">
+            <div><div class="tl-phase">Expand</div><div class="tl-time">Month 6&ndash;12</div></div>
+            <div class="tl-milestone">2&ndash;3 parallel workstreams; known entity across the AI/Engineering and Data orgs.</div>
+          </div>
+          <div class="tl-row">
+            <div><div class="tl-phase">Partner</div><div class="tl-time">Year 2+</div></div>
+            <div class="tl-milestone">Named preferred implementation partner for AI/data work; positioned for larger enterprise engagements.</div>
+          </div>
+        </div>
+
+        <div class="block-heading" style="margin-top:1.5rem;">Immediate Next Actions</div>
+        <div class="actions-list">
+          <div class="action-item"><span class="action-check"></span>Respond to Sean Law's LinkedIn message &mdash; highest-leverage, lowest-effort action available.</div>
+          <div class="action-item"><span class="action-check"></span>Reach out to Nikhil Sudan via the accepted connection, framed as a peer YPO exchange, not a sales call.</div>
+          <div class="action-item"><span class="action-check"></span>Ask the ID sponsor for a casual intro to Don Yuan.</div>
+          <div class="action-item"><span class="action-check"></span>Prepare the Thrivent TEID win-wire one-pager before any technical conversation.</div>
+          <div class="action-item"><span class="action-check"></span>Confirm whether Tim Heier or Dennis Howard owns the client-facing AI application layer before pitching Option A.</div>
+          <div class="action-item"><span class="action-check"></span>Verify the "Cole at SpaceX/xAI" referral path before treating Furbush/Knowlton as warm.</div>
+          <div class="action-item"><span class="action-check"></span>Confirm Nikhil Sudan's Executive Council roster status &mdash; his bio confirms the title but he's absent from the aggregated list.</div>
+          <div class="action-item"><span class="action-check"></span>Do not leverage the unrelated "Dennis Howard" already in David's network &mdash; different person (Vistage/LeaderThrive).</div>
+        </div>
+      </div>
+    </section>
+    </div>
+
+    <div class="tab-panel" id="tab-profiles">
+
+      <div class="profile-grid">
+
+        <div class="profile-card">
+          <div class="profile-name">Sean Law</div>
+          <div class="profile-title">Principal Data Scientist, R&amp;D, Office of the CTO &amp; AI Council</div>
+          <div class="profile-badges"><span class="pill pill-open">2nd-degree</span> <span class="pill pill-warm">Inbound msg 6/24</span></div>
+          <div class="profile-section"><span class="label">Why he matters</span>Creator/maintainer of STUMPY; 20+ yrs data science/ML; came via the TDA acquisition. Sits in R&amp;D &mdash; evaluates AI approaches pre-production, holds institutional knowledge of TDA data debt.</div>
+          <div class="profile-section"><span class="label">Pitch angle</span><span class="profile-quote">&ldquo;The bottleneck isn't the model &mdash; it's the engineering infrastructure around it. I'd love to understand where that friction shows up for your team.&rdquo;</span></div>
+          <div class="profile-section"><span class="label">Avoid</span>Treating this as cold outreach &mdash; he already opened the channel.</div>
+          <div class="profile-source">Mutual: Caleb (Jenkins) &mdash; also a registered Microsoft Hand-Raiser on this account in Dynamics CRM. <a href="https://www.linkedin.com/in/seanmylaw/">LinkedIn</a></div>
+        </div>
+
+        <div class="profile-card">
+          <div class="profile-name">Nikhil Sudan</div>
+          <div class="profile-title">Chief Strategy and Innovation Officer</div>
+          <div class="profile-badges"><span class="pill pill-open">1st-degree</span> <span class="pill pill-warm">YPO</span></div>
+          <div class="profile-section"><span class="label">Why he matters</span>Owns corporate strategy, innovation, AI strategy, and vendor management. Ex-McKinsey Partner (Wealth &amp; Asset Mgmt), ex-Bridgewater. Active YPO member &mdash; David's direct tie.</div>
+          <div class="profile-section"><span class="label">Pitch angle</span><span class="profile-quote">&ldquo;I'd value comparing notes on where the strategy-to-production gap shows up, and where an execution partner could de-risk the roadmap.&rdquo; (Peer-to-peer via YPO, not a sales motion.)</span></div>
+          <div class="profile-section"><span class="label">Avoid</span>Turning the YPO relationship into a pitch on first contact.</div>
+          <div class="profile-source">24+ mutual connections (Gurmeet Singh PhD, Mark Hamill + others). <a href="https://www.aboutschwab.com/nikhil-sudan">About Schwab</a></div>
+        </div>
+
+        <div class="profile-card">
+          <div class="profile-name">Don Yuan</div>
+          <div class="profile-title">Sr. Manager, Workplace AI &amp; Intelligent Automation</div>
+          <div class="profile-badges"><span class="pill pill-warm">2nd-degree</span></div>
+          <div class="profile-section"><span class="label">Why he matters</span>Certifications span Microsoft Fabric, AWS ML/Data. Co-promotes AgentCon Dallas. "Workplace AI" in his current title suggests internal workforce-productivity AI rather than the client-facing product org.</div>
+          <div class="profile-section"><span class="label">Pitch angle</span><span class="profile-quote">&ldquo;Agentic AI is where the real delivery complexity lives. How do you move from a sandbox demo to something that runs reliably in production, with proper guardrails?&rdquo;</span></div>
+          <div class="profile-section"><span class="label">Avoid</span>A generic AI pitch &mdash; he's plugged into the practitioner community.</div>
+          <div class="profile-source">25+ mutual connections (Tim, George + others). <a href="https://www.linkedin.com/in/donyuan/">LinkedIn</a></div>
+        </div>
+
+        <div class="profile-card">
+          <div class="profile-name">Tim Heier</div>
+          <div class="profile-title">EVP, Chief Technology Officer</div>
+          <div class="profile-badges"><span class="pill pill-cold">2nd-degree</span> <span class="pill pill-cold">No warm path</span></div>
+          <div class="profile-section"><span class="label">Why he matters</span>Owns the client-facing application layer where Portfolio Insights and the AI "front door" get built &mdash; distinct from Howard's infrastructure/ops/data mandate.</div>
+          <div class="profile-section"><span class="label">Pitch angle</span><span class="profile-quote">&ldquo;We help engineering orgs close the gap between a working prototype and a production system that scales to your client base.&rdquo;</span></div>
+          <div class="profile-section"><span class="label">Avoid</span>Treating Heier and Howard as the same role &mdash; confirm which one owns any given initiative first.</div>
+          <div class="profile-source">Mutual: Luke Jensen. Title upgraded from MD to EVP this session (prior sourcing was stale).</div>
+        </div>
+
+        <div class="profile-card">
+          <div class="profile-name">Sarah Wolf</div>
+          <div class="profile-title">Director, Business Strategy, Trading Services</div>
+          <div class="profile-badges"><span class="pill pill-open">Confirmed in-seat</span></div>
+          <div class="profile-section"><span class="label">Why she matters</span>Prior TDA/Schwab strategy tenure &mdash; carries institutional memory of the integration still driving platform-rationalization work.</div>
+          <div class="profile-section"><span class="label">Pitch angle</span><span class="profile-quote">&ldquo;The post-integration platform work isn't an IT project, it's a business-capability unlock.&rdquo;</span></div>
+          <div class="profile-source">Confirmed via LinkedIn 7/21 &mdash; Greater Chicago Area, 2nd-degree. No longer dependent on the unverified "Cole" referral.</div>
+        </div>
+
+        <div class="profile-card flag">
+          <div class="profile-name">Dennis Howard <span style="font-weight:400; color:var(--text-mute); font-size:0.8rem;">(real)</span></div>
+          <div class="profile-title">Chief Technology, Operations &amp; Data Officer</div>
+          <div class="profile-badges"><span class="pill pill-cold">2nd-degree</span> <span class="pill pill-cold">Economic buyer</span></div>
+          <div class="profile-section"><span class="label">Why he matters</span>Expanded mandate (CIO&rarr;CTOO, Jan 2026) makes him the economic buyer for any cross-functional AI/data engagement.</div>
+          <div class="profile-section"><span class="label">Pitch angle</span>Do not cold-reach. Build credibility through the practitioner contacts above first; frame around platform modernization and engineering capacity.</div>
+          <div class="profile-section" style="color:var(--alert);"><span class="label" style="color:var(--alert);">Name-collision risk</span>David has a <em>second</em>, unrelated 2nd-degree "Dennis Howard" on LinkedIn &mdash; a Vistage Chair / performance coach (`dennischoward`) with 72 mutual connections, vs. the real CTOO (`denniswhoward`) with far fewer. Verify the vanity URL before any outreach.</div>
+        </div>
+
+      </div>
+
+      <div class="subhead">Remaining Executive Council</div>
+      <div class="table-scroll">
+        <table class="ref-table">
+          <thead><tr><th>Name</th><th>Title</th><th>CRM Status</th></tr></thead>
+          <tbody>
+            <tr><td>Rick Wurster</td><td>President &amp; CEO</td><td>no-crm-history</td></tr>
+            <tr><td>Mike Verdeschi</td><td>MD, Chief Financial Officer</td><td>no-crm-history</td></tr>
+            <tr><td>Stacy Hammond</td><td>MD, Chief Marketing Officer</td><td>no-crm-history</td></tr>
+            <tr><td>Shannon Jurecka</td><td>MD, Chief Administrative Officer</td><td>no-crm-history</td></tr>
+            <tr><td>Peter J. Morgan III</td><td>MD, General Counsel &amp; Corporate Secretary</td><td>no-crm-history</td></tr>
+            <tr><td>Nigel J. Murtagh</td><td>MD, Chief Risk Officer</td><td>no-crm-history</td></tr>
+            <tr><td>Neesha Hathi</td><td>MD, Head of Wealth Advisory, Banking &amp; Trust</td><td>no-crm-history</td></tr>
+            <tr><td>Omar Aguilar</td><td>CEO &amp; CIO, Schwab Asset Management</td><td>no-crm-history</td></tr>
+            <tr><td>Jonathan S. Beatty</td><td>MD, Head of Schwab Advisor Services</td><td>no-crm-history</td></tr>
+            <tr><td>Jess Bramhall</td><td>MD, General Auditor</td><td>no-crm-history</td></tr>
+            <tr><td>Jonathan M. Craig</td><td>MD, Head of Retail Investing</td><td>no-crm-history</td></tr>
+            <tr><td>Andrew D'Anna</td><td>MD, Investment Platforms, Solutions &amp; Strategy</td><td>no-crm-history</td></tr>
+            <tr><td>Lisa Kidd Hunt</td><td>MD, Head of International Services</td><td>no-crm-history</td></tr>
+            <tr><td>James Kostulias</td><td>MD, Head of Trading Services</td><td>no-crm-history</td></tr>
+            <tr><td>Jeff Starr</td><td>MD, Head of Operations</td><td>no-crm-history</td></tr>
+            <tr><td>Adele Taylor</td><td>MD, Head of Workplace Services</td><td>no-crm-history</td></tr>
+            <tr><td>Tyler Woulfe</td><td>MD, Chief Banking Officer</td><td>no-crm-history</td></tr>
+            <tr><td>Christopher Wyse</td><td>MD, Chief Corporate Affairs Officer</td><td>no-crm-history</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="subhead">One Level Down &mdash; AI / Data / Strategy Org (partial)</div>
+      <div class="table-scroll">
+        <table class="ref-table">
+          <thead><tr><th>Name</th><th>Title</th><th>Reports Toward</th></tr></thead>
+          <tbody>
+            <tr><td>Hardeep Walia</td><td>MD, Head of Firmwide AI</td><td>Likely CTOO/CEO org</td></tr>
+            <tr><td>Brandon Hill</td><td>Director, Data Science Engineering, MLOps &amp; GenAI</td><td>Likely Firmwide AI/CTOO org</td></tr>
+            <tr><td>Andy Furbush</td><td>MD, Head of Corporate Strategy</td><td>Strategy/Innovation (Sudan)</td></tr>
+            <tr><td>Nate Knowlton</td><td>Director, AI Strategy</td><td>Strategy/Innovation (Sudan/Furbush)</td></tr>
+            <tr><td>Sarah Wolf</td><td>Director of Business Strategy</td><td>Strategy/Innovation (unconfirmed)</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="tab-panel" id="tab-notes">
+
+      <details class="note" open>
+        <summary>Open Items to Confirm</summary>
+        <div class="note-body">
+          <p><strong>Resolved 2026-07-21</strong> (authenticated LinkedIn + direct Dynamics CRM query):</p>
+          <ul>
+            <li class="resolved">Sarah Wolf's in-seat status</li>
+            <li class="resolved">Confluent tech-stack ambiguity (Kafka vs. commercial platform)</li>
+            <li class="resolved">LinkedIn mutual-connections lookups</li>
+            <li class="resolved">Realized revenue estimate imprecision</li>
+            <li class="resolved">Partner Network "not-identified" contacts (Microsoft, Confluent)</li>
+            <li class="resolved">No native CRM connector</li>
+          </ul>
+          <p><strong>Still open</strong> &mdash; not resolvable via LinkedIn/CRM, needs David directly:</p>
+          <ul>
+            <li>Nikhil Sudan's absence from the live-fetched Executive Council roster.</li>
+            <li>The "Cole at SpaceX/xAI" referral path to Andy Furbush and Nate Knowlton.</li>
+            <li>Likely incumbent SIs at Schwab for AI/data work &mdash; assumed present based on scale, not confirmed.</li>
+            <li>Geography scoring logic and 9-box grid arrangement beyond the single AT&amp;T reference point.</li>
+            <li>The IT-services-spend estimate (~$260M) and the revenue-band ceiling issue for mega-cap accounts.</li>
+            <li>Isolating a true trailing-12-month CRM revenue figure (vs. the cumulative-since-2023 figure now in hand).</li>
+            <li>Two open CRM opportunities found this session (Brian Matheny ID role; Joe Jackson backfill) &mdash; confirm staffing progress.</li>
+            <li>Whether Dennis Howard or Tim Heier owns the client-facing AI initiatives referenced in Option A.</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="note">
+        <summary>9-Box Methodology &amp; Workflow Issue</summary>
+        <div class="note-body">
+          <p><strong>Potential (4.3, High):</strong> Geography 4 (wt. 0.10) + Revenue 5/capped (wt. 0.70) + Gross Margin 2 (wt. 0.20). Revenue factor is capped because Schwab's estimated IT-services spend (~$260M, via a 4&ndash;7% of $23.9B revenue benchmark) is 10x+ the lookup table's top band.</p>
+          <p><strong>Realized (0.2, Mid):</strong> Geography 4 (wt. 0.10) + Revenue 0/interpolated (wt. 0.70) + Gross Margin -1/30% band (wt. 0.20). Revenue input is now CRM-sourced ($2,554,624 since 8/4/2023, 16/22 won) rather than summed from email notifications &mdash; annualized (~$770K/yr) it still sits at the $1M banding boundary.</p>
+          <p><strong>Workflow issue flagged, not smoothed over:</strong> the Revenue-factor lookup table tops out at $20M &rarr; score +5. For a company Schwab's size, the benchmark-based estimate is functionally a constant +5 for any large-enterprise target &mdash; it can't discriminate between a $2B company and a $200B one. The one confirmed reference point (AT&amp;T, revenue_raw = 3) suggests that plan scoped a realistic addressable-spend estimate rather than applying revenue &times; benchmark directly. Recommend the workflow owner cap Path 2 by realistic single-engagement/department spend before the next mega-cap run.</p>
+        </div>
+      </details>
+
+      <details class="note">
+        <summary>Strategic Priorities (Schwab, 2026)</summary>
+        <div class="note-body">
+          <ul>
+            <li><strong>AI at Scale:</strong> Portfolio Insights (GenAI retail product), voice/chat "front door" assistant, AI research platform in beta. Extends to the under-$1M client segment.</li>
+            <li><strong>Data Platform Modernization:</strong> post-TDA integration (17M+ accounts, $1.3T assets) still being rationalized; "books and records modernization."</li>
+            <li><strong>Application Modernization:</strong> RIA/fintech APIs expanding; job postings cite migration to "GenAI- and agentic-AI-driven development."</li>
+            <li><strong>Under-$1M Segment with AI:</strong> restated directly by CEO Wurster at the May 2026 Investor Day &mdash; an execution challenge, not a strategy question.</li>
+            <li><strong>Workforce AI Enablement:</strong> GitHub Copilot adoption visible in postings; internal "Schwab Knowledge Assistant" GenAI tool.</li>
+          </ul>
+          <p>Sourced from the FY2025 10-K, the May 14, 2026 Investor Day materials, and press releases. Themes 2&ndash;5 rely partly on citations vetted in the prior hand-built plan; this run's independent verification focused on themes 1 and 4.</p>
+        </div>
+      </details>
+
+      <details class="note">
+        <summary>Competitive Positioning</summary>
+        <div class="note-body">
+          <div class="table-scroll">
+            <table class="ref-table">
+              <thead><tr><th>Priority Theme</th><th>Improving Capability</th><th>Why It Fits</th></tr></thead>
+              <tbody>
+                <tr><td>AI at Scale</td><td>Data/AI Engineering, Azure OpenAI delivery</td><td>Azure-native stack aligns with Schwab's confirmed cloud infrastructure</td></tr>
+                <tr><td>Data Platform Modernization</td><td>Application Modernization / Data Engineering</td><td>Direct analog to the Thrivent TEID engagement</td></tr>
+                <tr><td>Application Modernization</td><td>Software Engineering, Agentic AI delivery</td><td>Matches Improving's practitioner-led delivery model</td></tr>
+                <tr><td>Under-$1M AI Segment</td><td>Product engineering / AI productization</td><td>Execution-gap problem &mdash; core positioning</td></tr>
+                <tr><td>Workforce AI Enablement</td><td>Embedded engineering coaching</td><td>Extends the existing Instructional Design engagement</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p style="margin-top:0.8rem;"><strong>Win-wire story:</strong> Thrivent Enterprise Integration Datastore (TEID) &mdash; direct analog to Schwab's post-TDA data rationalization. Prepare a one-pager before any technical conversation.</p>
+          <p><strong>Honest competitive note:</strong> no confirmed incumbent-SI signal, but large financial-services accounts at this scale typically carry Accenture/Deloitte/Cognizant relationships &mdash; assumed, not confirmed. Improving wins on practitioner density, delivery speed, and an existing contractual foothold; loses on scale and global delivery footprint. Lead with proof (Thrivent, the ID track record), not scale.</p>
+        </div>
+      </details>
+
+      <details class="note">
+        <summary>Referral &amp; Partner Network Detail</summary>
+        <div class="note-body">
+          <div class="table-scroll">
+            <table class="ref-table">
+              <thead><tr><th>Contact</th><th>Path</th><th>Status</th></tr></thead>
+              <tbody>
+                <tr><td>Nikhil Sudan</td><td>Direct YPO tie</td><td>Confirmed</td></tr>
+                <tr><td>Sean Law</td><td>Messaged David directly, 6/24/2026</td><td>Confirmed</td></tr>
+                <tr><td>Andy Furbush, Nate Knowlton</td><td>Via "Cole" at SpaceX/xAI</td><td>Needs verification</td></tr>
+                <tr><td>Sarah Wolf</td><td>Confirmed current LinkedIn profile</td><td>Confirmed in-seat</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="table-scroll" style="margin-top:1rem;">
+            <table class="ref-table">
+              <thead><tr><th>Partner</th><th>Status</th><th>Contact</th></tr></thead>
+              <tbody>
+                <tr><td>Microsoft (Azure)</td><td>Confirmed</td><td>Caleb Jenkins &mdash; Hand-Raiser since 5/4/2025</td></tr>
+                <tr><td>GCP</td><td>Confirmed</td><td>Not identified</td></tr>
+                <tr><td>Snowflake</td><td>Confirmed</td><td>Not identified</td></tr>
+                <tr><td>Confluent</td><td>Confirmed</td><td>Bipin Karmacharya, Biswajit Debdas &mdash; Hand-Raisers since 12/1/2025</td></tr>
+                <tr><td>AWS</td><td>Likely</td><td>Not identified</td></tr>
+                <tr><td>Databricks / SAP / SpaceX-xAI</td><td>No signal</td><td>Not identified</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </details>
+
+      <details class="note">
+        <summary>Sources</summary>
+        <div class="note-body">
+          <ul class="sources-list">
+            <li><a href="https://content.schwab.com/web/retail/public/about-schwab/SEC_Form10k_2025.pdf">Charles Schwab 2025 10-K</a></li>
+            <li><a href="https://content.schwab.com/web/retail/public/about-schwab/2026_Institutional_Investor_Day.pdf">2026 Institutional Investor Day Presentation</a></li>
+            <li><a href="https://www.investmentnews.com/fintech/schwab-touts-ai-as-its-biggest-growth-lever-at-investor-day/266613">Schwab touts AI as its biggest growth lever &mdash; InvestmentNews</a></li>
+            <li><a href="https://finance.yahoo.com/sectors/technology/articles/schwab-ceo-says-ai-serve-140000658.html">Schwab CEO Says AI Will Serve Below-$1M Clients &mdash; Yahoo Finance</a></li>
+            <li><a href="https://pressroom.aboutschwab.com/press-releases/press-release/2026/Schwab-Reports-Record-4Q-and-Full-Year-2025-Results/default.aspx">Schwab Reports Record 4Q and Full Year 2025 Results</a></li>
+            <li><a href="https://www.ciodive.com/news/charles-schwab-expands-cio-role/811019/">Charles Schwab CIO role expanded &mdash; CIO Dive</a></li>
+            <li><a href="https://www.aboutschwab.com/leadership">Leadership | Charles Schwab (Executive Council)</a></li>
+            <li><a href="https://www.aboutschwab.com/dennis-howard">Dennis Howard &mdash; About Schwab</a></li>
+            <li><a href="https://www.aboutschwab.com/nikhil-sudan">Nikhil Sudan &mdash; About Schwab</a></li>
+            <li><a href="https://www.linkedin.com/in/seanmylaw/">Sean Law &mdash; LinkedIn</a></li>
+            <li><a href="https://www.linkedin.com/in/donyuan/">Don Yuan &mdash; LinkedIn</a></li>
+            <li><a href="https://www.appsruntheworld.com/customers-database/purchases/view/the-charles-schwab-corporation-united-states-selects-microsoft-azure-cloud-services-for-application-hosting-and-computing-services">Charles Schwab selects Microsoft Azure &mdash; AppsRunTheWorld</a></li>
+            <li><a href="https://current.confluent.io/archive/2024/austin">Confluent Current 2024 archive &mdash; Kafka session referencing Schwab</a></li>
+            <li>Existing hand-built plan: <code>accounts/Schwab/account-plan.md</code></li>
+            <li>Improving Dynamics CRM &mdash; direct account record query, 2026-07-21</li>
+            <li>LinkedIn (authenticated) &mdash; direct profile/mutual-connection checks, 2026-07-21</li>
+          </ul>
+        </div>
+      </details>
+    </div>
+
+    </main>
+
+  <footer class="foot">
+    Draft output of the <code>account-pursuit-map</code> workflow, validated against live LinkedIn and Dynamics CRM on 2026-07-21. Does not replace <code>accounts/Schwab/account-plan.md</code>.
+  </footer>
+</div>
+
+<script>
+  document.querySelectorAll('.tab-btn').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      document.querySelectorAll('.tab-btn').forEach(function(b){ b.classList.remove('active'); b.setAttribute('aria-selected','false'); });
+      document.querySelectorAll('.tab-panel').forEach(function(p){ p.classList.remove('active'); });
+      btn.classList.add('active');
+      btn.setAttribute('aria-selected','true');
+      document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+    });
+  });
+</script>

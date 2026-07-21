@@ -12,14 +12,15 @@ model: sonnet
 
 **Agent:** Chase — Revenue & Pipeline
 
-**Architecture:** Sequential 6-step workflow.
+**Architecture:** Sequential 7-step workflow.
 
 1. **step-01-entity-anchor-and-trigger.md** — Disambiguate the target entity, determine active-but-underleveraged vs. cold/lost-re-entry shape, identify the public timing trigger.
 2. **step-02-strategic-priorities.md** — Primary-source research into the target's stated strategic priorities (10-K, investor day, press releases, earnings calls). Factual grounding only — no inference.
 3. **step-03-competitive-positioning-and-leadership.md** — Map Improving's capabilities to the stated priorities, name a win-wire proof story, note honest competitive positioning, and build a complete C-suite + one-level-down org chart (cross-referenced against CRM for existing engagement history) with full narrative profiles reserved for the 3-5 most strategically relevant contacts.
 4. **step-04-icp-account-9box.md** ("ICP & Account 9-Box") — Improving's standard account-planning scoring methodology (sourced from the 2026 AT&T Account Plan): a Potential score and a Realized score, each a weighted formula across Geography (10%), Revenue (70%), and Gross Margin (20%), each factor banded -5 to +5 via fixed lookup tables. Best-case IT services spend is estimated from company size against a cited industry benchmark rather than left blank; gross margin defaults to Improving's typical realized range; TTM actuals for the Realized score are pulled from CRM if engagement history exists, or defaulted to $0/0% if this is a cold pursuit. Classifies the account into one of nine named 9-box zones (IDEAL, SIGNIFICANT, POISED, SOLID, CORE, STEADY, LIMITED, CONSTRAINED, CAPPED). Placed immediately after the Leadership/Org Chart section in the final document — not an early triage gate, not bundled with step 03's competitive positioning. Several elements (geography scoring logic, the 9-box grid arrangement beyond one confirmed data point) are explicitly flagged as inferences for David to verify.
 5. **step-05-referral-network.md** ("Referral & Partner Network") — Two separate research tracks in one step: (a) warm paths via YPO, personal ties, sponsors, alumni, mutual connections — reuses the LinkedIn mutual-connections lookup pattern from `workflows/client-meeting-prep/steps/step-03-research-company-and-attendee.md`; and (b) Improving's partner network (AWS, Microsoft, GCP, Confluent, Databricks, SpaceX/xAI, Snowflake, SAP) — which partners the target account likely already uses based on public tech-stack signals, and partner-side contacts who could help.
-6. **step-06-synthesize-and-deliver.md** — Synthesize contact sequencing, entry plays, the phased strategic path (branches on step 01's determination), immediate next actions, open items, and sources. Writes the final document to `accounts/{Company}/account-plan.md`, with the ICP & Account 9-Box section placed immediately after the Leadership/Org Chart and before the Referral/Partner Network section.
+6. **step-06-synthesize-and-deliver.md** — Synthesize contact sequencing, entry plays, the phased strategic path (branches on step 01's determination), immediate next actions, open items, and sources. Writes the document to `accounts/{Company}/account-plan.md`, with the ICP & Account 9-Box section placed immediately after the Leadership/Org Chart and before the Referral/Partner Network section. Hands off to step 07 rather than delivering to the controller directly.
+7. **step-07-generate-dashboard.md** — Renders the finalized document as a graphical HTML dashboard using the fixed template at `examples/pursuit-dashboard-template.html`: a sticky status strip (9-box zone, revenue/pipeline or cold-pursuit status, warmest path, recommended play), an Overview tab (recommended entry play as a hero pitch with expandable secondary options, the contact priority queue, a plotted 9-box, the phased timeline, and next actions), a Profiles tab (full narrative cards for the 3-5 key contacts plus compact org-chart tables), and a Notes tab (open items, 9-box methodology, strategic priorities, competitive positioning, referral/partner detail, sources — collapsed by default). Publishes as a Claude Code Artifact and saves a copy to `accounts/{Company}/pursuit-dashboard.html`. This is the step that actually delivers both outputs to the controller.
 
 **Why this is a separate workflow from `account-strategy`:** `account-strategy` is a deep-dive on an account already in an active relationship or CRM record — history, open opportunities, competitive landscape, relationship map for what's already there. `account-pursuit-map` is about strategic *new-business pursuit* — mapping how to land or expand work at a target, whether or not there's existing traction, built around public-source research and a leadership/referral network map rather than CRM pipeline data. These are intentionally distinct capabilities. See the routing disambiguation in `agents/chase.md` and `agents/master.md`.
 <!-- system:end -->
@@ -54,7 +55,9 @@ This workflow requires a target company name to begin. One of:
 ### Paths
 
 - Output document: `accounts/{Company}/account-plan.md` (create the folder if it doesn't exist; if `accounts/{Company}/` already exists, this workflow updates the living document in place rather than creating a duplicate)
+- Output dashboard: `accounts/{Company}/pursuit-dashboard.html`, also published as a Claude Code Artifact (step 07)
 - Reference pattern files: `accounts/Schwab/account-plan.md` (active-but-underleveraged pattern), `accounts/Constellation Energy/account-plan.md` (cold/lost re-entry pattern) — read whichever matches step 01's determination before drafting step 05's output, to match tone, depth, and section shape.
+- Dashboard template: `examples/pursuit-dashboard-template.html` — the fixed design system for step 07; `accounts/Schwab/pursuit-dashboard.html` is the filled-in reference example from the first production run.
 
 ### Key Metrics
 
@@ -68,6 +71,7 @@ This workflow requires a target company name to begin. One of:
 - All 8 of Improving's partners (AWS, Microsoft, GCP, Confluent, Databricks, SpaceX/xAI, Snowflake, SAP) checked against the target's public tech-stack signals
 - Every contact/path/tech-stack claim tagged confirmed vs. needs-verification (or no-signal-found for tech-stack)
 - Final document lands in `accounts/{Company}/account-plan.md`
+- HTML dashboard generated from the fixed template, published as an Artifact, and saved to `accounts/{Company}/pursuit-dashboard.html` — same design system every run, only content changes
 <!-- system:end -->
 
 <!-- personal:start -->
@@ -105,6 +109,7 @@ Read fully and follow, in order:
 4. `steps/step-04-icp-account-9box.md`
 5. `steps/step-05-referral-network.md`
 6. `steps/step-06-synthesize-and-deliver.md`
+7. `steps/step-07-generate-dashboard.md`
 
 Each step file's frontmatter and `NEXT STEP`/`WORKFLOW COMPLETE` section govern progression. Do not skip ahead.
 <!-- system:end -->

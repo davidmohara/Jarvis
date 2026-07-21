@@ -1,0 +1,14 @@
+{
+  "id": "err-20260721T142930-DAIOAC",
+  "timestamp": "2026-07-21T14:29:30Z",
+  "session": "2026-07-21-boot",
+  "source": "self-detected",
+  "agent": "Master",
+  "category": "process-skip",
+  "description": "Knox was spawned correctly (fire-and-forget), but the plaud-ingest workflow's STATE CHECK protocol surfaces an interactive auth question. In a non-interactive boot context, Knox blocks waiting for controller input. Boot should continue in the background without waiting for auth resolution — plaud-ingest is designed as a fire-and-forget background task that continues even if auth fails or is pending.",
+  "correction": "Boot protocol: spawn Knox and immediately continue without waiting for Knox to surface questions. Knox should handle auth internally and surface any blocking issues asynchronously (not blocking boot). Update step-01 spawn instruction: do not wait for Agent result. Fire Knox and immediately proceed to step-01.2.",
+  "failure_mode": "protocol-mismatch",
+  "systemic_fix": "Change Agent spawn in step-01 to use fire-and-forget pattern: spawn Knox with Agent tool but do NOT wait for result. Boot should continue synchronously. Knox surfaces auth questions to controller asynchronously after boot completes.",
+  "fix_status": "proposed",
+  "severity": "moderate"
+}

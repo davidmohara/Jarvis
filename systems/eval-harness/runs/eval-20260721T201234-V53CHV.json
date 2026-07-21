@@ -1,0 +1,79 @@
+{
+  "id": "eval-20260721T201234-V53CHV",
+  "agent_id": "aa5754f3e9116d107",
+  "type": "agent",
+  "name": "general-purpose",
+  "agent": "general-purpose",
+  "session_id": "session-2026-07-17-091548",
+  "trigger": "unknown",
+  "started": "2026-07-21T20:12:34.444596Z",
+  "completed": null,
+  "duration_seconds": null,
+  "status": "in-progress",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": null,
+      "all_steps_finished": null,
+      "tool_failures": 4,
+      "error_ids": [],
+      "tool_failure_log": [
+        {
+          "tool": "Bash",
+          "error": "Exit code 127\n(eval):1: command not found: peekaboo\n---perm---\n(eval):1: command not found: peekaboo",
+          "duration_ms": 37,
+          "timestamp": "2026-07-21T15:12:50.832469"
+        },
+        {
+          "tool": "mcp__playwright__browser_click",
+          "error": "### Error\nInvalid arguments for tool \"browser_click\":\n\u2716 Invalid input: expected string, received undefined\n  \u2192 at target",
+          "duration_ms": 4,
+          "timestamp": "2026-07-21T15:15:59.586888"
+        },
+        {
+          "tool": "mcp__playwright__browser_click",
+          "error": "### Error\nError: Ref f102e2176 not found in the current page snapshot. Try capturing new snapshot.",
+          "duration_ms": 11,
+          "timestamp": "2026-07-21T15:17:03.753426"
+        },
+        {
+          "tool": "mcp__playwright__browser_click",
+          "error": "### Error\nError: Ref f125e48 not found in the current page snapshot. Try capturing new snapshot.",
+          "duration_ms": 12,
+          "timestamp": "2026-07-21T15:17:11.809559"
+        }
+      ]
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": []
+}

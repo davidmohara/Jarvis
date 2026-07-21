@@ -1,0 +1,14 @@
+{
+  "id": "err-20260721T151033-F8KF96",
+  "timestamp": "2026-07-21T15:10:33Z",
+  "session": "2026-07-21-boot",
+  "source": "explicit",
+  "agent": "Master",
+  "category": "routing-error",
+  "description": "User requested call prep sheet for Russell Frees meeting. Master executed the task directly instead of routing to sales:call-prep skill or delegating to appropriate agent. Should have checked routing.md first, then invoked the skill or spawned a sales agent.",
+  "correction": "Consult agents/routing.md. Build call prep is a sales function — route to sales agent or invoke sales:call-prep skill. Master should orchestrate, not execute specialized sales prep work.",
+  "failure_mode": "context-blindness",
+  "systemic_fix": "Add pre-execution gate: Before taking action on any request, check routing.md. If task matches a skill or agent specialty, delegate first. Master handles orchestration and decision-making, not content generation.",
+  "fix_status": "proposed",
+  "severity": "moderate"
+}

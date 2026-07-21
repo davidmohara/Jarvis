@@ -1,0 +1,14 @@
+{
+  "id": "err-20260721T154933-OV0OAW",
+  "timestamp": "2026-07-21T15:49:33Z",
+  "session": "2026-07-21-boot",
+  "source": "explicit",
+  "agent": "Chase",
+  "category": "format-violation",
+  "description": "Chase generated PDF in step-05 with incorrect font and layout. Did not reference examples/ folder (Maha Abbey Call Prep.pdf, Nexben Call Prep.pdf) to match the established PDF styling and format. PDF rendering should follow the example outputs in /workflows/client-meeting-prep/examples/ for font consistency, layout, margins, and overall presentation.",
+  "correction": "In step-05, examine the example PDFs in workflows/client-meeting-prep/examples/ to determine the correct font stack, margins, heading styles, table styling, and overall layout. Match that styling exactly when rendering Russell Frees PDF via weasyprint. Do not use arbitrary font choices — reverse-engineer the correct styling from the examples.",
+  "failure_mode": "format-violation",
+  "systemic_fix": "Step-05 must reference examples/ folder before rendering PDF. Establish the canonical styling from examples, then apply it consistently to all PDF outputs.",
+  "fix_status": "proposed",
+  "severity": "moderate"
+}

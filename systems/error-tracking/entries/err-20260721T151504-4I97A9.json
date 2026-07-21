@@ -1,0 +1,14 @@
+{
+  "id": "err-20260721T151504-4I97A9",
+  "timestamp": "2026-07-21T15:15:04Z",
+  "session": "2026-07-21-boot",
+  "source": "explicit",
+  "agent": "Chase",
+  "category": "process-skip",
+  "description": "Chase executed call prep for Russell Frees but returned summary output instead of following the client-meeting-prep workflow. Should have used the sales:call-prep skill to generate structured briefing document (markdown or artifact format), not summarized the output in plain text.",
+  "correction": "Re-run using sales:call-prep skill explicitly. Follow the workflow: research → synthesize account snapshot → build agenda → generate discovery questions → prep objection responses → output formatted call prep brief (not summary). Use artifact or markdown deliverable format matching established workflow output.",
+  "failure_mode": "process-skip",
+  "systemic_fix": "Sales agents must enforce sales:call-prep skill execution and output format. Workflow format is non-negotiable for client-meeting-prep tasks.",
+  "fix_status": "proposed",
+  "severity": "moderate"
+}

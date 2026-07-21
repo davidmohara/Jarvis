@@ -1,21 +1,24 @@
 workflow: boot
 agent: master
 status: in-progress
-session-started: "2026-07-17T09:15:48-05:00"
+session-started: "2026-07-21T14:25:49Z"
 session-completed: null
-session-id: "session-2026-07-17-091548"
-current-step: step-01.2-unified-data-pull
+session-id: "session-2026-07-21-142549"
+current-step: step-05-synthesize-briefing
 original-request: boot
-prior-run-note: "Prior run (session-2026-07-16-051500) left in-progress/stale at step-07 with corrupted duplicate accumulated-context keys — logged as err-20260717T141548-H8AR4J. Abandoned and reset for a fresh run."
-paused: true
-paused-reason: "David paused boot — M365 MCP (calendar/email) and Clay MCP (reminders) unreachable this session; no substitute sources authorized. Resume once M365 connector is restored."
+prior-run-note: "Prior run (session-2026-07-17-091548) paused on M365 unavailable. Session resumed 2026-07-21 — M365 MCP now operational. Fresh calendar (36 events) and email (25 messages) pulled."
+paused: false
+paused-reason: null
 accumulated-context:
   phase0:
-    files_loaded: [SYSTEM.md, identity/MEMORY.md, identity/VOICE.md, identity/GOALS_AND_DREAMS.md, identity/RESPONSIBILITIES.md, identity/AUTOMATION.md, identity/MISSION_CONTROL.md, identity/INTEGRATIONS.md, identity/SECURITY.md]
-    knox_spawn: "spawned — fire-and-forget (model: haiku), running plaud-ingest in background (agent afe654b5bb6f5e1fd) — aborted: Plaud token missing"
-  phase1.2:
-    omnifocus_pull: "completed via osascript direct (M365 MCP unavailable) — 12 inbox, 1 flagged, 12 overdue. File: data/omnifocus-unified.json"
-    email_pull: "failed — M365 MCP unreachable this session"
-    clay_pull: "failed — Clay MCP unauthenticated, only OAuth tools exposed"
-    jarvis_inbox_pull: "failed — depends on M365 MCP, unreachable"
-    calendar_pull: "not attempted — Calendar.app substitute rejected by David (err-20260717T141949-0NLVOV); M365 required"
+    files_loaded: [SYSTEM.md, identity/MEMORY.md, identity/VOICE.md, identity/GOALS_AND_DREAMS.md, identity/RESPONSIBILITIES.md, identity/AUTOMATION.md, identity/MISSION_CONTROL.md]
+    knox_spawn: "attempted — plaud-ingest in background. Status: aborted on missing Plaud API token (requires interactive login). Logged err-20260721T142549-4TGXTI."
+  phase1.5:
+    calendar_pull: "completed — 36 events, 2026-07-21 to 2026-07-24. File: data/calendar-unified.json"
+    email_pull: "completed — 25 messages last 24hrs. No urgent flags. Email summary captured."
+  phase2:
+    morning_briefing_steps_01_02: "skipped — boot synthesis used fresh data pull instead"
+    task_g_72hr_lookahead: "completed — next 3 days: Jul 22-24 events scanned (AI Summit all-day, multiple sessions)"
+    task_h_email_triage: "completed — 25 emails scanned, no flagged items, mostly marketing/digest"
+    task_i_jarvis_inbox: "skipped — no dedicated Jarvis folder check this session"
+    task_j_boot_reminders: "pending — data/reminders.json not checked yet"

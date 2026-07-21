@@ -53,6 +53,7 @@ Detected: 5 occurrences over 28 days
 Category: format-violation
 Pattern: Em-dashes used despite explicit ban. Heavy formatting (bold headers, bullet-heavy structure) in emails that should be conversational prose. Files saved to wrong directories. reMarkable uploads with ugly filenames instead of clean labels. Cron syntax shown to executive instead of plain English.
 Fix: All output to David must be executive-grade conversational prose. No em-dashes ever. reMarkable filenames are clean labels. Files go in correct subdirectories. When a tool can be invoked directly, invoke it rather than showing config format.
+Status: active
 
 ## 2026-04-26 — Missed Context in Prep and Briefings
 Detected: 5 occurrences over 31 days

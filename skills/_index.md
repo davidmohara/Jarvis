@@ -16,6 +16,7 @@ Last updated: 2026-06-14 | Total skills: 30
 | revenue-tracker | Revenue Tracker | chase | sonnet | revenue, bookings, target vs actual |
 | new-clients | New Client Onboarding | chase | sonnet | new client, onboard, kickoff |
 | co-sell-pipeline | Co-Sell Pipeline | chase | sonnet | co-sell, partner pipeline, microsoft |
+| weather | Weather | none | haiku | weather, forecast, temperature, rain |
 | bookings-review | Bookings Review | chase | sonnet | bookings, weekly bookings |
 | quinn-strategy | Quinn Strategy Analysis | quinn | opus | strategy, rocks, quarterly, planning |
 | rigby-error-analysis | Rigby Error Pattern Analysis | rigby | sonnet | error analysis, error patterns |

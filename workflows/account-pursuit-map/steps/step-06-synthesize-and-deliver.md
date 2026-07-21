@@ -7,7 +7,7 @@ model: sonnet
 ---
 
 <!-- system:start -->
-# Step 06: Synthesize, Sequence, and Deliver the Pursuit Map
+# Step 06: Synthesize, Sequence, and Write the Pursuit Map
 
 ## MANDATORY EXECUTION RULES
 
@@ -27,7 +27,7 @@ model: sonnet
 
 **Agent:** Chase
 **Input:** entity_anchor + engagement_shape + timing_trigger (step 01), strategic_priorities (step 02), capability_mapping + win_wire_story + competitive_note + leadership_profiles (step 03), icp_9box (step 04), referral_network + partner_network (step 05)
-**Output:** Complete account pursuit map written to `accounts/{Company}/account-plan.md` and delivered to the controller
+**Output:** Complete account pursuit map written to `accounts/{Company}/account-plan.md`, handed off to step 07 for HTML dashboard generation before final delivery to the controller
 
 ---
 
@@ -158,10 +158,10 @@ Full document structure, in order:
 - Create `accounts/{Company}/` if it doesn't exist.
 - If updating an existing plan (per step 01), preserve anything still accurate and clearly update anything that changed — do not silently discard prior content that's still true.
 
-### 8. Deliver
+### 8. Hand off to Step 07
 
-- Present the complete document to the controller.
-- Update `workflows/account-pursuit-map/state.yaml`: `status: complete`, `current-step: null`, clear `accumulated-context` (or leave a brief summary — follow the shared state.yaml convention in `reference/workflow-conventions.md`).
+- Do not present this as final delivery or mark the workflow complete yet — the markdown document is an input to step 07, which generates the companion HTML dashboard.
+- Update `workflows/account-pursuit-map/state.yaml`: `current-step: step-07-generate-dashboard`, keep `status: in-progress`. Carry the full `accumulated-context` forward (step 07 needs steps 01-06's outputs, not just the finished markdown file).
 
 ---
 
@@ -188,48 +188,9 @@ Full document structure, in order:
 
 ---
 
-## WRITE WORKING MEMORY
+## NEXT STEP
 
-After the workflow output has been delivered, write a working memory file to `memory/working/` using this filename pattern:
-
-```
-account-pursuit-map-YYYY-MM-DD-HHmmss.md
-```
-
-where `YYYY-MM-DD-HHmmss` is the local date and time at the moment of writing. Use the session start time from `state.yaml` if available; otherwise use current time.
-
-The file must begin with this YAML frontmatter (all fields required):
-
-```yaml
----
-type: working
-task_id: "session"
-session_id: "chase-{YYYY-MM-DD}-{HHmmss}"
-agent-source: chase
-created: {YYYY-MM-DD}T{HH:MM:SS}
-expires: {YYYY-MM-DD+2}T{HH:MM:SS}
-status: active
-context: "Account pursuit map — {Company} — {YYYY-MM-DD}"
----
-```
-
-Body: 3-5 bullet points summarizing the engagement shape determination, the recommended lead play, and any major open items. Keep it under 200 words.
-
----
-
-## WORKFLOW COMPLETE
-
-Account pursuit map delivered and written to `accounts/{Company}/account-plan.md`.
-
-### Handoff Rules
-
-| Condition | Route To | Action |
-|-----------|----------|--------|
-| Controller wants a deep-dive on an existing CRM account instead of a new pursuit | `account-strategy` workflow | Redirect — this workflow is for new-business pursuit, not existing-account deep-dives |
-| Upcoming meeting scheduled with a contact from this plan | `client-meeting-prep` workflow | Chase runs client meeting prep using this pursuit map as account context |
-| Entry play requires a proposal, deck, or one-pager | Harper (Communications) | Route content request with the recommended entry play and win-wire story |
-| Relationship risk or recovery play needed | Shep (People & Leadership) | Flag for relationship strategy input |
-| Pursuit requires executive sponsor engagement at Improving | Escalate to David directly | Present the plan and ask for sponsor commitment |
+Read fully and follow: `step-07-generate-dashboard.md`
 <!-- system:end -->
 
 <!-- personal:start -->

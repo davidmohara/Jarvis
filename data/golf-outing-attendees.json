@@ -1,0 +1,158 @@
+{
+  "event": "DFW Tech Golf Group Outing",
+  "date": "2026-07-31",
+  "location": "Brookhaven Country Club, 3333 Golfing Green Dr, Farmers Branch, TX",
+  "tee_times": ["10:00", "10:10", "10:20"],
+  "organizer": "Will McCully (wmccully@commvault.com)",
+  "attendees": [
+    {
+      "id": 1,
+      "name": "Will McCully",
+      "email": "wmccully@commvault.com",
+      "company": "CommVault",
+      "title": "TBD",
+      "linkedin_profile": "https://www.linkedin.com/in/will-mccully-388b934/ (to verify)",
+      "status": "needs_crm_check_and_add",
+      "awareness_level": "1",
+      "notes": "Organizer of golf outing"
+    },
+    {
+      "id": 2,
+      "name": "Travis Franklin",
+      "email": "tfranklin@commvault.com",
+      "company": "CommVault",
+      "title": "Commercial Account Executive – North Texas",
+      "linkedin_profile": "TBD",
+      "status": "needs_crm_check_and_add",
+      "awareness_level": "1",
+      "notes": "Booking tee times"
+    },
+    {
+      "id": 3,
+      "name": "Mike Cook",
+      "email": "mike.cook@ahead.com",
+      "company": "Ahead",
+      "title": "TBD",
+      "linkedin_profile": "TBD",
+      "status": "needs_crm_check_and_add",
+      "awareness_level": "1"
+    },
+    {
+      "id": 4,
+      "name": "Weston Pitts",
+      "email": "wpitts@purestorage.com",
+      "company": "Pure Storage",
+      "title": "TBD",
+      "linkedin_profile": "TBD",
+      "status": "needs_crm_check_and_add",
+      "awareness_level": "1"
+    },
+    {
+      "id": 5,
+      "name": "Jeremy Cowlishaw",
+      "email": "jcowlishaw@purestorage.com",
+      "company": "Pure Storage",
+      "title": "TBD",
+      "linkedin_profile": "TBD",
+      "status": "needs_crm_check_and_add",
+      "awareness_level": "1"
+    },
+    {
+      "id": 6,
+      "name": "Greg Zavala",
+      "email": "gzavala@purestorage.com",
+      "company": "Pure Storage",
+      "title": "TBD",
+      "linkedin_profile": "TBD",
+      "status": "needs_crm_check_and_add",
+      "awareness_level": "1"
+    },
+    {
+      "id": 7,
+      "name": "Rob Wilson",
+      "email": "rob.wilson@gartner.com",
+      "company": "Gartner",
+      "title": "TBD",
+      "linkedin_profile": "TBD",
+      "status": "needs_crm_check_and_add",
+      "awareness_level": "1"
+    },
+    {
+      "id": 8,
+      "name": "J Cervenka",
+      "email": "jcervenka@purestorage.com",
+      "company": "Pure Storage",
+      "title": "TBD",
+      "linkedin_profile": "TBD",
+      "status": "needs_crm_check_and_add",
+      "awareness_level": "1"
+    },
+    {
+      "id": 9,
+      "name": "Travis Doyle",
+      "email": "tdoyle@commvault.com",
+      "company": "CommVault",
+      "title": "TBD",
+      "linkedin_profile": "TBD",
+      "status": "needs_crm_check_and_add",
+      "awareness_level": "1"
+    },
+    {
+      "id": 10,
+      "name": "B Cueva",
+      "email": "bcueva@fortinet.com",
+      "company": "Fortinet",
+      "title": "TBD",
+      "linkedin_profile": "TBD",
+      "status": "needs_crm_check_and_add",
+      "awareness_level": "1"
+    },
+    {
+      "id": 11,
+      "name": "A Valliere",
+      "email": "avalliere@purestorage.com",
+      "company": "Pure Storage",
+      "title": "TBD",
+      "linkedin_profile": "TBD",
+      "status": "needs_crm_check_and_add",
+      "awareness_level": "1"
+    },
+    {
+      "id": 12,
+      "name": "Blake",
+      "email": "blake@alkira.net",
+      "company": "Alkira",
+      "title": "TBD",
+      "linkedin_profile": "TBD",
+      "status": "needs_crm_check_and_add",
+      "awareness_level": "1"
+    },
+    {
+      "id": 13,
+      "name": "Allen Wilson",
+      "email": "awilson@everpuredata.com",
+      "company": "Everpure Data",
+      "title": "TBD",
+      "linkedin_profile": "TBD",
+      "status": "needs_crm_check_and_add",
+      "awareness_level": "1"
+    },
+    {
+      "id": 14,
+      "name": "Blake Hays",
+      "email": "blake.hays@alkira.net",
+      "company": "Alkira",
+      "title": "TBD",
+      "linkedin_profile": "TBD",
+      "status": "needs_crm_check_and_add",
+      "awareness_level": "1",
+      "notes": "Cc'd on email"
+    }
+  ],
+  "summary": {
+    "total_attendees": 14,
+    "companies_represented": ["CommVault", "Pure Storage", "Ahead", "Gartner", "Fortinet", "Alkira", "Everpure Data"],
+    "duplicate_check": "No duplicates found in attendee list",
+    "next_steps": "Search CRM for each email address to check for existing contacts before adding"
+  }
+}

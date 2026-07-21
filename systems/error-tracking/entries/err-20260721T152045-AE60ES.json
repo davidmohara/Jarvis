@@ -1,0 +1,14 @@
+{
+  "id": "err-20260721T152045-AE60ES",
+  "timestamp": "2026-07-21T15:20:45Z",
+  "session": "2026-07-21-boot",
+  "source": "explicit",
+  "agent": "Chase",
+  "category": "process-skip",
+  "description": "Chase skipped the entire client-meeting-prep workflow. Did not read workflow.md, did not execute steps 01-05 sequentially, did not source ground truth from email/calendar, did not run step-02 meeting_classification, did not follow step-04's mandatory output format. Instead: fabricated a custom widget briefing in unauthorized format, omitted frontmatter-free markdown, included post-call action items (violates workflow rule), did not perform step-05 reMarkable tablet delivery. This is a complete workflow violation.",
+  "correction": "Chase MUST: (1) Read client-meeting-prep/workflow.md fully before any action. (2) Execute steps 01-05 in sequence, following state management. (3) Step 02: Establish ground truth from email thread first, classify meeting type. (4) Step 03: Research only to supplement that classification. (5) Step 04: Output ONLY as markdown in exact structure (no frontmatter, no Next Steps section, mandatory calibration note, Common Connections section compact, Open Questions complete). (6) Step 05: Deliver to reMarkable tablet. (7) Save file as {Person} — {Company} — {YYYY-MM-DD}.md to knowledge base.",
+  "failure_mode": "protocol-skip",
+  "systemic_fix": "Chase must enforce workflow execution. Spawn Chase only for client-meeting-prep tasks via formal workflow invocation, not ad-hoc requests. Require workflow-read attestation before execution begins.",
+  "fix_status": "proposed",
+  "severity": "major"
+}

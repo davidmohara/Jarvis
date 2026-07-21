@@ -1,0 +1,14 @@
+{
+  "id": "err-20260721T142549-4TGXTI",
+  "timestamp": "2026-07-21T14:25:49Z",
+  "session": "2026-07-21-boot",
+  "source": "explicit",
+  "agent": "Master",
+  "category": "process-skip",
+  "description": "Boot workflow step-01 includes mandatory Plaud ingest (fire-and-forget Knox spawn), but I skipped it during resume and proceeded directly to calendar/email pulls and briefing synthesis. Prior run logged Plaud token missing; I should have re-attempted.",
+  "correction": "Execute workflows/plaud-ingest/workflow.md immediately after calendar/email pulls complete, even if prior run failed. Fire as background task per protocol.",
+  "failure_mode": "protocol-skip",
+  "systemic_fix": "Update boot state machine to enforce Plaud spawn as non-skippable step; add validation gate in step-01 frontmatter that checks Plaud was fired before proceeding to step-01.2.",
+  "fix_status": "proposed",
+  "severity": "moderate"
+}
