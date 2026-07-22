@@ -1,0 +1,195 @@
+{
+  "date": "2026-07-22",
+  "generated": "2026-07-22T00:00:00Z",
+  "window_hours": 72,
+  "counts": {
+    "total_items": 43,
+    "by_lean": { "left": 20, "right": 21, "center": 2 },
+    "shared_topics": 3,
+    "gap_left": 3,
+    "gap_right": 3
+  },
+  "sources_used": [
+    "msnbc", "cnn", "nbc", "thehill", "axios", "thedailybeast", "slate", "newrepublic",
+    "foxnews", "natreview", "examiner", "federalist", "dailywire", "breitbart", "townhall",
+    "rcp", "amconserv", "spectator", "freepress"
+  ],
+  "sources_muted": [
+    { "id": "nyt", "name": "New York Times", "reason": "accessible=false" },
+    { "id": "wapo", "name": "Washington Post", "reason": "accessible=false" },
+    { "id": "politico", "name": "Politico", "reason": "accessible=false" },
+    { "id": "vox", "name": "Vox Politics", "reason": "accessible=false" },
+    { "id": "motherjones", "name": "Mother Jones", "reason": "accessible=false" },
+    { "id": "wsj_opinion", "name": "WSJ Opinion", "reason": "accessible=false" },
+    { "id": "nypost", "name": "New York Post", "reason": "accessible=false" },
+    { "id": "reuters", "name": "Reuters Politics", "reason": "accessible=false" },
+    { "id": "ap", "name": "Associated Press", "reason": "accessible=false" },
+    { "id": "bbc", "name": "BBC US & Canada", "reason": "accessible=false" }
+  ],
+  "shared_topics": [
+    {
+      "topic_key": "arizona-primary-biggs-hobbs-2026",
+      "title": "Arizona Governor Primary: Trump-Backed Biggs Wins GOP Nomination, Sets Up Hobbs Rematch",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "summary": "Rep. Andy Biggs (R-AZ) won the Arizona Republican gubernatorial primary on July 21 with more than 70% of the vote, defeating fellow House member David Schweikert. Biggs, a close Trump ally who secured the president's endorsement, will face Democratic incumbent Gov. Katie Hobbs in November in what is expected to be one of the most competitive governor's races of the cycle. Hobbs ran unopposed in the Democratic primary.",
+      "left": {
+        "framing": "Left-leaning outlets frame the result as a test of Trump's endorsement record and a potential opportunity for Democrats, noting that Biggs's hardline positions could mobilize Democratic voters in a competitive state. Analysts point to Arizona's swing-state trajectory.",
+        "sources": [
+          { "name": "CNN Politics", "url": "https://www.cnn.com/2026/07/21/politics/arizona-primaries-takeaways" },
+          { "name": "NBC News", "url": "https://www.nbcnews.com/politics/2026-election/trump-backed-rep-andy-biggs-wins-gop-primary-arizona-governor-rcna587980" },
+          { "name": "The Hill", "url": "https://thehill.com/homenews/campaign/5982345-arizona-primary-hobbs-biggs-takeaways/" },
+          { "name": "Axios", "url": "https://www.axios.com/local/phoenix/2026/07/22/andy-biggs-republican-primary-win-schweikert-katie-hobbs" }
+        ]
+      },
+      "right": {
+        "framing": "Right-leaning outlets celebrate Biggs's win as an affirmation of Trump's grip on Republican politics, emphasizing the dominant margin and the president's consistent endorsement record. The race is framed as a Republican pickup opportunity against an unpopular governor.",
+        "sources": [
+          { "name": "Fox News", "url": "https://www.foxnews.com/politics/trump-backed-firebrand-wins-arizona-gop-governor-primary-setting-up-high-stakes-showdown" },
+          { "name": "Washington Examiner", "url": "https://www.washingtonexaminer.com/news/campaigns/state/4656807/biggs-hobbs-republican-primary-arizona-governor-race/" },
+          { "name": "Townhall", "url": "https://townhall.com/tipsheet/mattvespa/2026/07/21/az-dems-facing-total-disaster-in-this-must-win-house-race-n2679743" }
+        ]
+      },
+      "correlation": 72,
+      "correlation_label": "Both sides agree on the outcome; diverge on what it means — left sees a Democratic opportunity, right sees a Trump mandate."
+    },
+    {
+      "topic_key": "mamdani-netanyahu-icc-arrest-july2026",
+      "title": "Mamdani Walks Back Netanyahu Arrest Threat, Calls on Trump to Enforce ICC Warrant",
+      "days_seen": 2,
+      "relevance": 70,
+      "relevance_label": "Recurring — day 2",
+      "summary": "New York City Mayor Zohran Mamdani acknowledged on July 21 that he lacks authority to arrest Israeli Prime Minister Benjamin Netanyahu, reversing course after earlier statements that he was exploring enforcement of the ICC warrant. Mamdani now calls on the federal government to execute the warrant when Netanyahu visits for the UN General Assembly in September. Trump has categorically ruled it out. Legal experts note head-of-state diplomatic immunity makes any such arrest impossible regardless of authority.",
+      "left": {
+        "framing": "Left-leaning outlets treat Mamdani's statements as a genuine legal and diplomatic question, noting he is correct that the US has not ratified the Rome Statute and explaining the limits of ICC enforcement. Coverage is largely analytical and sympathetic to the underlying human rights argument.",
+        "sources": [
+          { "name": "CNN Politics", "url": "https://us.cnn.com/2026/07/21/politics/zohran-mamdani-benjamin-netanyahu-israel-arrest-icc" },
+          { "name": "NBC News", "url": "https://www.nbcnews.com/news/us-news/mamdani-says-nyc-cant-arrest-netanyahu-federal-government-rcna588664" },
+          { "name": "The Hill", "url": "https://thehill.com/policy/international/5980042-danon-rejects-mamdani-netanyahu-arrest-jurisdiction/" }
+        ]
+      },
+      "right": {
+        "framing": "Right-leaning outlets treat Mamdani's original statements as reckless political theater and his walk-back as a humiliation. Coverage frames the episode as evidence that the left's foreign policy positions are dangerous and unserious, with Netanyahu firing back that the warrant is 'bogus.'",
+        "sources": [
+          { "name": "Fox News", "url": "https://www.foxnews.com/politics/mamdani-says-nyc-cant-arrest-netanyahu-urges-feds-enforce-icc-warrant" },
+          { "name": "Washington Examiner", "url": "https://www.washingtonexaminer.com/news/justice/4658214/mamdani-arrest-netanyahu-authority-icc-warrant/" },
+          { "name": "Townhall", "url": "https://townhall.com/tipsheet/cameron-arcand/2026/07/20/netanyahu-wont-face-arrest-in-america-despite-mamdani-push-trump-says-n2679787" }
+        ]
+      },
+      "correlation": 58,
+      "correlation_label": "Same factual event, materially different framing — left focuses on legal complexity and human rights stakes; right focuses on political overreach and embarrassment."
+    },
+    {
+      "topic_key": "michigan-senate-elsayed-stevens-primary",
+      "title": "Michigan Senate Dem Primary: Establishment vs. Socialist — El-Sayed vs. Stevens",
+      "days_seen": 2,
+      "relevance": 70,
+      "relevance_label": "Recurring — day 2",
+      "summary": "The Michigan Democratic Senate primary between Rep. Haley Stevens and physician/activist Abdul El-Sayed has become the cycle's defining internal Democratic battle. El-Sayed, backed by Sanders and AOC, is running a socialist platform and has called America's political system a 'disease.' Stevens holds a 48-41 lead in recent polling, with a 12-to-1 spending advantage and a 67-21 lead among Black voters. The race mirrors the broader national fight between the Democratic establishment and the DSA-aligned left.",
+      "left": {
+        "framing": "Left outlets frame the race as a healthy internal debate about the party's future direction, with some sympathetic coverage of El-Sayed's policy arguments and the energy of progressive organizing. Coverage emphasizes that Sanders's track record of winning primaries is real.",
+        "sources": [
+          { "name": "CNN Politics", "url": "https://www.cnn.com/2026/07/19/politics/bernie-sanders-hakeem-jeffries-midterms-michigan" },
+          { "name": "Slate", "url": "https://slate.com/news-and-politics/2026/04/michigan-senate-congress-trump-democrats-abdul-el-sayed.html" }
+        ]
+      },
+      "right": {
+        "framing": "Right outlets frame El-Sayed as a dangerous socialist whose self-described view that politics is a 'disease' disqualifies him; AOC's endorsement is treated as evidence the party is moving toward radicalism. Coverage emphasizes his Muslim identity and foreign-policy positions.",
+        "sources": [
+          { "name": "Fox News", "url": "https://www.foxnews.com/politics/socialist-backed-michigan-senate-hopeful-calls-american-politics-disease-after-professing-love-us" },
+          { "name": "Breitbart", "url": "https://www.breitbart.com/politics/2026/07/20/watch-aoc-far-left-muslim-michigan-u-s-senate-candidate-abdul-el-sayed-represents-the-politics-of-the-future/" },
+          { "name": "Townhall", "url": "https://townhall.com/tipsheet/amy-curtis/2026/07/20/aoc-dem-majority-will-only-mean-something-if-we-elect-abdul-el-sayed-n2679766" }
+        ]
+      },
+      "correlation": 45,
+      "correlation_label": "Same primary race, sharply divergent narratives — left covers it as legitimate policy debate; right covers it as a socialist takeover threat."
+    }
+  ],
+  "gap_left": [
+    {
+      "topic_key": "iran-war-cost-transparency-hegseth-testimony",
+      "title": "Iran War Hits $37.5B — Hegseth Testifies, Military Suppressing Injury Data",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "summary": "Defense Secretary Pete Hegseth testified before Congress on July 21 that the Iran war has cost $37.5 billion, though experts told CNN the real figure is likely higher. Separately, CNN reported that the US military has been slow to disclose injury numbers from the conflict, with officials citing 'security needs.' This is the 11th consecutive night of US strikes. Trump is approaching a decisive fork: a 10-day ceasefire to reopen the Strait of Hormuz, or a joint military campaign with Israel targeting Iran's nuclear facilities. Left-leaning outlets are focusing on the human and fiscal cost and the transparency deficit. Right-leaning coverage focuses on Iran's intransigence and the necessity of force.",
+      "sources": [
+        { "name": "CNN Politics — Hegseth testimony", "url": "https://www.cnn.com/2026/07/21/world/live-news/iran-war-trump" },
+        { "name": "CNN Politics — Injury disclosure", "url": "https://www.cnn.com/2026/07/20/politics/us-casualties-iran-war" },
+        { "name": "CNN Politics — Trump politicizes troop deaths", "url": "https://www.cnn.com/2026/07/21/politics/trump-comments-troop-deaths" },
+        { "name": "Axios — Ceasefire vs. all-out war", "url": "https://www.axios.com/2026/07/21/iran-war-ceasefire-proposal-trump-troops" }
+      ]
+    },
+    {
+      "topic_key": "sanders-jeffries-dem-civil-war-midterms",
+      "title": "Sanders vs. Jeffries: A Democratic Civil War Over the Midterm Soul",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "summary": "Bernie Sanders has endorsed over 90 candidates this cycle, with 42 of 60 having won their races — including 10 of 16 federal candidates. This has put him in direct conflict with House Minority Leader Hakeem Jeffries, who is backing establishment Democrats in the same primaries. CNN frames this as a 'Democratic midterm war' with real consequences for party cohesion and November's House control contest. Left-leaning outlets are covering this as a legitimate debate about party direction; right-leaning outlets largely frame it as confirmation that Democrats are moving toward socialism.",
+      "sources": [
+        { "name": "CNN Politics", "url": "https://www.cnn.com/2026/07/19/politics/bernie-sanders-hakeem-jeffries-midterms-michigan" },
+        { "name": "NBC News", "url": "https://www.nbcnews.com/politics/politics-news/democrats-avoid-messy-fight-maine-uncertainty-lingers-politics-desk-rcna588434" },
+        { "name": "The New Republic", "url": "https://newrepublic.com/post/213301/troy-jackson-win-maine-strategy" },
+        { "name": "Axios", "url": "https://www.axios.com/2026/07/19/republicans-midterms-hate-election" }
+      ]
+    },
+    {
+      "topic_key": "dem-israel-fracture-jeffries-house",
+      "title": "House Democrats' Israel Split Deepens — Open Defiance at Leadership Level",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "summary": "Democrats on the Hill are experiencing a deepening fracture over Israel policy that is spilling into public view at the leadership level. The vote on Israel aid has exposed a stark divide: dozens of Dems voted to cut aid while leadership urged restraint. The Mamdani-Netanyahu episode is amplifying the tension. NBC and CNN both ran dedicated pieces on 'Democrats' deepening Israel divisions,' noting that the conflict is now a defining issue that could affect coalition cohesion heading into November. This story is distinct from the El-Sayed/primary angle — it focuses on sitting House members.",
+      "sources": [
+        { "name": "CNN Politics", "url": "https://www.cnn.com/2026/07/18/politics/democrats-israel-hakeem-jeffries" },
+        { "name": "NBC News", "url": "https://www.nbcnews.com/politics/politics-news/democrats-deepening-israel-divisions-politics-desk-rcna587725" },
+        { "name": "The Daily Wire", "url": "https://www.dailywire.com/news/the-most-influential-issue-shaking-up-elections" }
+      ]
+    }
+  ],
+  "gap_right": [
+    {
+      "topic_key": "dhs-250k-noncitizen-voter-registration",
+      "title": "DHS Reports 250K+ Noncitizens on Voter Rolls; Trump Cites 'Shocking' Declassified Docs",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "summary": "DHS released data claiming more than 250,000 noncitizens are registered to vote across California, Pennsylvania, New Jersey, and Nevada. Trump also released declassified documents he says reveal 'shocking vulnerabilities' in the election system, including claims that China stole 220 million voter records and that voting machines are vulnerable to foreign hacking. Right-leaning outlets are covering this heavily as validation of the SAVE Act and broader election integrity concerns. Left-leaning coverage has largely focused on the earlier election speech framing (already stale), not the specific new DHS data — making this a gap topic for today.",
+      "sources": [
+        { "name": "Fox News — Declassified docs", "url": "https://www.foxnews.com/politics/trump-releases-declassified-election-intelligence-says-reveals-shocking-vulnerabilities" },
+        { "name": "Breitbart", "url": "https://www.breitbart.com/politics/2026/07/16/karoline-leavitt-returns-to-podium-trump-speech-will-address-election-integrity-teases-declassification/" },
+        { "name": "RealClearPolitics", "url": "https://www.realclearpolitics.com/video/2026/07/14/rcp_podcast_more_ice_shootings_mayor_pete_2028_could_iowa_be_purple_again_rubio_vs_icc.html" }
+      ]
+    },
+    {
+      "topic_key": "gop-communist-alarm-dsa-piker-red-scare",
+      "title": "GOP Sounds Communism Alarm: Piker-as-Mao, 'New Red Scare' Op-Eds, House Republicans Warn",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "summary": "Republican figures and right-leaning media are amplifying alarm about what they frame as a resurgent communist threat from the Democratic left. Rep. Lisa McClain warned this week that 'communism is returning to American politics.' The Washington Examiner ran an op-ed titled 'America Needs a New Red Scare,' and Breitbart covered streamer Hasan Piker appearing dressed as Mao Zedong at a DSA-aligned event. Colorado Gov. Jared Polis (D) broke from the left, calling socialism 'a tool to further exploit people.' This framing — casting DSA not just as socialist but as communist — is gaining traction on the right and has no significant left-side coverage.",
+      "sources": [
+        { "name": "Townhall", "url": "https://townhall.com/tipsheet/dmitri-bolt/2026/07/21/rep-lisa-mcclain-communism-n2679864" },
+        { "name": "Washington Examiner — Red Scare op-ed", "url": "https://www.washingtonexaminer.com/in_focus/4656950/america-needs-new-red-scare-hasan-piker-mao/" },
+        { "name": "Breitbart — Piker/Mao", "url": "https://www.breitbart.com/politics/2026/07/20/communist-streamer-hasan-piker-berates-moderates-while-dressed-as-mao-zedong/" },
+        { "name": "Breitbart — DSA platform", "url": "https://www.breitbart.com/politics/2026/07/18/report-democrat-lawmakers-sidestep-questions-about-constitution-killing-socialist-platform/" }
+      ]
+    },
+    {
+      "topic_key": "sc-senate-aug11-primary-field-nordone",
+      "title": "South Carolina Senate Aug. 11 Special Primary: Nordone, Fry, Norman, Mace All In",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "summary": "The field is now set for South Carolina's August 11 special primary to fill the Senate seat of the late Sen. Lindsey Graham. Trump has backed Darline Graham Nordone (Graham's sister, recently appointed to serve out the term), while Rep. Ralph Norman, Rep. Nancy Mace, and Russell Fry have all also entered. The winner will face Democrat Annie Andrews in November. Right-leaning outlets are covering this closely; left-side media has largely moved on since Darline Graham's appointment story broke last week. The primary itself is new today.",
+      "sources": [
+        { "name": "Washington Examiner", "url": "https://www.washingtonexaminer.com/news/campaigns/congressional/4656578/who-is-running-replace-lindsey-graham-senate/" },
+        { "name": "Townhall — GOP Senate turmoil", "url": "https://townhall.com/columnists/byronyork/2026/07/14/columnistsbyronyork20260714illness-death-and-turmoil-change-face-of-gop-senate-n2679442" },
+        { "name": "The American Spectator", "url": "https://spectator.org/zero-sympathy-for-the-democrats-political-death-march/" }
+      ]
+    }
+  ],
+  "suggestions": []
+}
