@@ -1,0 +1,790 @@
+<title>Builders FirstSource — Pursuit Dashboard</title>
+<style>
+  :root{
+    --bg:#eef0e6;
+    --surface:#ffffff;
+    --surface-2:#e4e7da;
+    --text:#1b2530;
+    --text-mute:#5c6b74;
+    --border:#d3d6c8;
+    --accent:#a8752f;
+    --accent-strong:#8c5f22;
+    --accent-soft:#f0e2c8;
+    --success:#3f5b4c;
+    --success-soft:#dfe8e0;
+    --alert:#8b4030;
+    --alert-soft:#f1ddd6;
+    --shadow:rgba(27,37,48,0.08);
+    --font-display: ui-serif, "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+    --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --font-mono: ui-monospace, "SF Mono", "Cascadia Mono", Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#11161c;
+      --surface:#171f27;
+      --surface-2:#1d2630;
+      --text:#e9e6dc;
+      --text-mute:#93a0a8;
+      --border:#2b3540;
+      --accent:#d1a256;
+      --accent-strong:#e6bd75;
+      --accent-soft:#3a2f1c;
+      --success:#7fae95;
+      --success-soft:#1c2b23;
+      --alert:#d98b76;
+      --alert-soft:#33201b;
+      --shadow:rgba(0,0,0,0.35);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#11161c; --surface:#171f27; --surface-2:#1d2630; --text:#e9e6dc; --text-mute:#93a0a8;
+    --border:#2b3540; --accent:#d1a256; --accent-strong:#e6bd75; --accent-soft:#3a2f1c;
+    --success:#7fae95; --success-soft:#1c2b23; --alert:#d98b76; --alert-soft:#33201b; --shadow:rgba(0,0,0,0.35);
+  }
+  :root[data-theme="light"]{
+    --bg:#eef0e6; --surface:#ffffff; --surface-2:#e4e7da; --text:#1b2530; --text-mute:#5c6b74;
+    --border:#d3d6c8; --accent:#a8752f; --accent-strong:#8c5f22; --accent-soft:#f0e2c8;
+    --success:#3f5b4c; --success-soft:#dfe8e0; --alert:#8b4030; --alert-soft:#f1ddd6; --shadow:rgba(27,37,48,0.08);
+  }
+
+  *{box-sizing:border-box;}
+  body{margin:0;}
+  .page{
+    background:var(--bg);
+    color:var(--text);
+    font-family:var(--font-body);
+    font-size:15px;
+    line-height:1.5;
+    min-height:100vh;
+  }
+  ::selection{ background:var(--accent-soft); }
+  a{ color:var(--accent-strong); }
+  .tabular{ font-family:var(--font-mono); font-variant-numeric:tabular-nums; }
+
+  header.masthead{
+    padding:1.6rem 2rem 1.2rem;
+    display:flex;
+    flex-wrap:wrap;
+    align-items:flex-end;
+    justify-content:space-between;
+    gap:0.75rem;
+    border-bottom:1px solid var(--border);
+  }
+  .masthead-title{
+    font-family:var(--font-display);
+    font-size:1.9rem;
+    font-weight:600;
+    letter-spacing:-0.01em;
+    text-wrap:balance;
+    margin:0;
+  }
+  .masthead-sub{
+    color:var(--text-mute);
+    font-size:0.85rem;
+    margin-top:0.25rem;
+  }
+  .status-strip{
+    position:sticky; top:0; z-index:10;
+    display:grid;
+    grid-template-columns:repeat(5, 1fr);
+    gap:1px;
+    background:var(--border);
+    border-bottom:1px solid var(--border);
+    box-shadow:0 2px 10px var(--shadow);
+  }
+  .stat{
+    background:var(--surface);
+    padding:0.85rem 1.1rem;
+  }
+  .stat-label{
+    font-size:0.66rem;
+    text-transform:uppercase;
+    letter-spacing:0.07em;
+    color:var(--text-mute);
+    margin-bottom:0.3rem;
+  }
+  .stat-value{
+    font-family:var(--font-mono);
+    font-variant-numeric:tabular-nums;
+    font-size:1.15rem;
+    font-weight:600;
+    color:var(--text);
+  }
+  .stat-value.accent{ color:var(--accent-strong); }
+  .stat-value.good{ color:var(--success); }
+  .stat-sub{
+    font-size:0.72rem;
+    color:var(--text-mute);
+    margin-top:0.15rem;
+  }
+
+  main{ max-width:1240px; margin:0 auto; padding:1.75rem 2rem 3rem; }
+
+  section.block{ margin-bottom:2rem; }
+  .block-heading{
+    font-family:var(--font-display);
+    font-size:1.05rem;
+    font-weight:600;
+    margin:0 0 0.75rem;
+    display:flex;
+    align-items:center;
+    gap:0.5rem;
+  }
+  .eyebrow{
+    font-size:0.68rem;
+    text-transform:uppercase;
+    letter-spacing:0.09em;
+    color:var(--text-mute);
+    margin-bottom:0.3rem;
+    display:block;
+  }
+
+  .front-grid{
+    display:grid;
+    grid-template-columns:1.5fr 1fr;
+    gap:1.5rem;
+    align-items:start;
+  }
+  @media (max-width:920px){ .front-grid{ grid-template-columns:1fr; } }
+
+  .card{
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:8px;
+    padding:1.25rem 1.4rem;
+  }
+
+  .pitch-hero{
+    border:1px solid var(--accent);
+    background:linear-gradient(180deg, var(--accent-soft) 0%, var(--surface) 130px);
+  }
+  .pitch-hero .eyebrow{ color:var(--accent-strong); }
+  .pitch-hero h3{
+    font-family:var(--font-display);
+    font-size:1.35rem;
+    margin:0.1rem 0 0.5rem;
+  }
+  .pitch-why{ color:var(--text-mute); font-size:0.9rem; margin-bottom:0.9rem; }
+  blockquote.script{
+    margin:0 0 0.9rem;
+    padding:0.8rem 1rem;
+    background:var(--surface);
+    border-left:3px solid var(--accent);
+    border-radius:0 4px 4px 0;
+    font-style:italic;
+    font-size:0.92rem;
+    color:var(--text);
+  }
+  .pitch-rationale{
+    font-size:0.82rem;
+    color:var(--text-mute);
+    border-top:1px solid var(--border);
+    padding-top:0.7rem;
+  }
+  .pitch-rationale strong{ color:var(--text); }
+
+  .secondary-plays{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:0.9rem;
+    margin-top:0.9rem;
+  }
+  @media (max-width:600px){ .secondary-plays{ grid-template-columns:1fr; } }
+  .play-card{
+    background:var(--surface-2);
+    border:1px solid var(--border);
+    border-radius:6px;
+    padding:0;
+  }
+  .play-card summary{
+    cursor:pointer;
+    padding:0.85rem 0.95rem;
+    list-style:none;
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    gap:0.5rem;
+  }
+  .play-card summary::-webkit-details-marker{ display:none; }
+  .play-card summary::after{ content:"Details +"; font-size:0.68rem; color:var(--text-mute); white-space:nowrap; }
+  .play-card[open] summary::after{ content:"Hide –"; }
+  .play-card summary:focus-visible{ outline:2px solid var(--accent); outline-offset:-2px; }
+  .play-card .eyebrow{ margin-bottom:0.15rem; }
+  .play-card h4{ font-family:var(--font-display); font-size:0.98rem; margin:0 0 0.4rem; }
+  .play-card-body{ padding:0 0.95rem 0.9rem; }
+  .play-card-body p{ font-size:0.8rem; color:var(--text-mute); margin:0 0 0.6rem; }
+  .play-card blockquote.script{ font-size:0.8rem; padding:0.55rem 0.7rem; margin-bottom:0; }
+
+  .queue{ display:flex; flex-direction:column; gap:0.55rem; }
+  .queue-row{
+    display:grid;
+    grid-template-columns:1.6rem 1fr;
+    gap:0.7rem;
+    padding:0.65rem 0.75rem;
+    border:1px solid var(--border);
+    border-radius:6px;
+    background:var(--surface);
+  }
+  .queue-row.priority-1{ border-color:var(--success); background:var(--success-soft); }
+  .queue-num{
+    font-family:var(--font-mono);
+    font-weight:700;
+    color:var(--text-mute);
+    padding-top:0.1rem;
+  }
+  .priority-1 .queue-num{ color:var(--success); }
+  .queue-name{ font-weight:600; font-size:0.9rem; }
+  .queue-role{ font-size:0.76rem; color:var(--text-mute); margin-bottom:0.35rem; }
+  .queue-goal{ font-size:0.78rem; color:var(--text); }
+  .pill{
+    display:inline-block;
+    font-size:0.62rem;
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:0.04em;
+    padding:0.1rem 0.45rem;
+    border-radius:99px;
+    margin-left:0.4rem;
+    vertical-align:middle;
+  }
+  .pill-open{ background:var(--success-soft); color:var(--success); }
+  .pill-warm{ background:var(--accent-soft); color:var(--accent-strong); }
+  .pill-cold{ background:var(--alert-soft); color:var(--alert); }
+  .pill-existing{ background:var(--surface-2); color:var(--text-mute); }
+
+  .analysis-grid{
+    display:grid;
+    grid-template-columns:1fr 1.3fr;
+    gap:1.5rem;
+    margin-top:1.75rem;
+  }
+  @media (max-width:920px){ .analysis-grid{ grid-template-columns:1fr; } }
+
+  .ninebox-wrap{ display:flex; flex-direction:column; align-items:center; }
+  .ninebox-note{ font-size:0.76rem; color:var(--text-mute); margin-top:0.6rem; text-align:center; }
+
+  .timeline{ display:flex; flex-direction:column; gap:0; }
+  .tl-row{ display:grid; grid-template-columns:5.5rem 1fr; gap:0.9rem; padding:0.7rem 0; position:relative; }
+  .tl-row:not(:last-child){ border-bottom:1px dashed var(--border); }
+  .tl-phase{ font-family:var(--font-display); font-weight:600; font-size:0.95rem; }
+  .tl-time{ font-size:0.72rem; color:var(--text-mute); font-family:var(--font-mono); }
+  .tl-milestone{ font-size:0.84rem; }
+
+  .actions-list{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:0.5rem 1.4rem;
+  }
+  @media (max-width:760px){ .actions-list{ grid-template-columns:1fr; } }
+  .action-item{
+    display:flex; gap:0.6rem;
+    font-size:0.85rem;
+    padding:0.4rem 0;
+    border-bottom:1px solid var(--border);
+  }
+  .action-check{
+    flex:none;
+    width:1.1rem; height:1.1rem;
+    border:1.5px solid var(--accent);
+    border-radius:3px;
+    margin-top:0.15rem;
+  }
+
+  .tabbar{
+    display:flex;
+    gap:0.4rem;
+    border-bottom:1px solid var(--border);
+    margin:2.2rem 0 1.4rem;
+  }
+  .tab-btn{
+    font-family:var(--font-body);
+    font-size:0.85rem;
+    font-weight:600;
+    color:var(--text-mute);
+    background:none;
+    border:none;
+    padding:0.6rem 0.3rem;
+    margin-right:1.4rem;
+    cursor:pointer;
+    position:relative;
+    top:1px;
+  }
+  .tab-btn:focus-visible{ outline:2px solid var(--accent); outline-offset:2px; }
+  .tab-btn.active{ color:var(--text); border-bottom:2px solid var(--accent); }
+  .tab-panel{ display:none; }
+  .tab-panel.active{ display:block; }
+
+  .profile-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(300px, 1fr));
+    gap:1.1rem;
+  }
+  .profile-card{
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:8px;
+    padding:1.1rem 1.2rem;
+  }
+  .profile-card.flag{ border-color:var(--alert); }
+  .profile-name{ font-family:var(--font-display); font-size:1.05rem; font-weight:600; margin:0 0 0.15rem; }
+  .profile-title{ font-size:0.78rem; color:var(--text-mute); margin-bottom:0.6rem; }
+  .profile-badges{ margin-bottom:0.6rem; }
+  .profile-section{ font-size:0.82rem; margin-bottom:0.5rem; }
+  .profile-section .label{ font-size:0.66rem; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-mute); display:block; margin-bottom:0.15rem; }
+  .profile-quote{ font-style:italic; color:var(--text); }
+  .profile-source{ font-size:0.7rem; color:var(--text-mute); margin-top:0.6rem; padding-top:0.5rem; border-top:1px solid var(--border); }
+  .profile-source a{ color:var(--text-mute); }
+
+  table.ref-table{ width:100%; border-collapse:collapse; font-size:0.82rem; }
+  table.ref-table th, table.ref-table td{ text-align:left; padding:0.45rem 0.6rem; border-bottom:1px solid var(--border); }
+  table.ref-table th{ font-size:0.68rem; text-transform:uppercase; letter-spacing:0.05em; color:var(--text-mute); font-weight:600; }
+  .table-scroll{ overflow-x:auto; }
+  .subhead{ font-family:var(--font-display); font-size:0.95rem; font-weight:600; margin:1.6rem 0 0.6rem; }
+
+  details.note{
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:6px;
+    margin-bottom:0.6rem;
+    padding:0;
+  }
+  details.note summary{
+    cursor:pointer;
+    padding:0.75rem 1rem;
+    font-weight:600;
+    font-size:0.9rem;
+    list-style:none;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+  }
+  details.note summary::-webkit-details-marker{ display:none; }
+  details.note summary::after{ content:"+"; color:var(--text-mute); font-weight:400; font-size:1.1rem; }
+  details.note[open] summary::after{ content:"–"; }
+  details.note summary:focus-visible{ outline:2px solid var(--accent); outline-offset:-2px; }
+  .note-body{ padding:0 1rem 1rem; font-size:0.86rem; }
+  .note-body p{ margin:0 0 0.7rem; }
+  .note-body ul{ margin:0 0 0.7rem; padding-left:1.1rem; }
+  .note-body li{ margin-bottom:0.35rem; }
+  .resolved{ text-decoration:line-through; color:var(--text-mute); }
+  .sources-list{ font-size:0.78rem; columns:2; column-gap:2rem; }
+  @media (max-width:700px){ .sources-list{ columns:1; } }
+  .sources-list li{ break-inside:avoid; margin-bottom:0.5rem; }
+
+  footer.foot{
+    max-width:1240px; margin:0 auto; padding:1rem 2rem 2.5rem;
+    color:var(--text-mute); font-size:0.75rem;
+  }
+</style>
+
+<div class="page">
+
+  <header class="masthead">
+    <div>
+      <h1 class="masthead-title">Builders FirstSource — Pursuit Dashboard</h1>
+      <div class="masthead-sub">Improving &middot; Business Development &middot; Internal</div>
+    </div>
+  </header>
+
+  <div class="status-strip">
+    <div class="stat">
+      <div class="stat-label">9-Box Position</div>
+      <div class="stat-value accent">SIGNIFICANT</div>
+      <div class="stat-sub">High Potential (4.3) &middot; Low Realized (-4.1)</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">Prior Engagement</div>
+      <div class="stat-value tabular">$0 won</div>
+      <div class="stat-sub">1 lost opp. (Agile Coaching, 2019) — no reason documented</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">Timing Trigger</div>
+      <div class="stat-value tabular">Feb 2026</div>
+      <div class="stat-sub">Blitzy AI-native dev partnership, 3-5x velocity</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">Warmest Path</div>
+      <div class="stat-value">Mike McCranie</div>
+      <div class="stat-sub">CIO — existing personal relationship, 58 mutual connections</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">Recommended Play</div>
+      <div class="stat-value accent">Option A</div>
+      <div class="stat-sub">AI-Native Engineering Velocity Partner</div>
+    </div>
+  </div>
+
+  <main>
+
+    <nav class="tabbar" role="tablist" aria-label="Dashboard sections">
+      <button class="tab-btn active" role="tab" aria-selected="true" data-tab="overview">Overview</button>
+      <button class="tab-btn" role="tab" aria-selected="false" data-tab="profiles">Profiles</button>
+      <button class="tab-btn" role="tab" aria-selected="false" data-tab="notes">Notes</button>
+    </nav>
+
+    <div class="tab-panel active" id="tab-overview">
+    <section class="block front-grid">
+      <div>
+        <div class="card pitch-hero">
+          <span class="eyebrow">Recommended entry play &middot; Option A</span>
+          <h3>AI-Native Engineering Velocity Partner</h3>
+          <div class="pitch-why">BFS has publicly committed to an AI-native software development transformation (Blitzy partnership, 3-5x velocity gains, 120 engineers trained) with a hard H2 2026 deadline for the next-gen Digital Solutions platform — while simultaneously cutting costs elsewhere in a housing downturn.</div>
+          <blockquote class="script">&ldquo;You've told the market you're seeing 3-4x velocity gains from AI-native development — that's a real result, not a pilot. The question most engineering leaders hit next is how to actually ship that velocity into production safely with the same team size. That's the exact problem we help solve.&rdquo;</blockquote>
+          <div class="pitch-rationale"><strong>Why lead here:</strong> It's grounded in BFS's own most recent, most quotable, most dated public claim — the story Gayatri Narayan is personally out talking about on podcasts — and it naturally opens the door to both Option B and Option C without requiring a second pitch.</div>
+        </div>
+
+        <div class="secondary-plays">
+          <details class="play-card">
+            <summary>
+              <span><span class="eyebrow">Option B</span><h4>Digital Solutions Platform Delivery Capacity</h4></span>
+            </summary>
+            <div class="play-card-body">
+              <p>Narrower and more tactical: position specifically against the H2 2026 next-gen myBLDR.com launch (four integrated hubs, embedded AI) as a scoped, deadline-driven engagement.</p>
+              <blockquote class="script">&ldquo;You've got a hard H2 launch window for the next generation of myBLDR — community, plan, selections, construction, all AI-enabled. That's a lot to ship on a fixed timeline. We do exactly this kind of scoped, deadline-driven engineering augmentation.&rdquo;</blockquote>
+            </div>
+          </details>
+          <details class="play-card">
+            <summary>
+              <span><span class="eyebrow">Option C</span><h4>Cost-Pressure-Era Fractional Capacity</h4></span>
+            </summary>
+            <div class="play-card-body">
+              <p>The most defensive/conservative option: lead with the cost-discipline reality directly, positioning Improving as flexible capacity that scales down as easily as it scales up.</p>
+              <blockquote class="script">&ldquo;I know the current environment has you tightening spend everywhere. We built our model specifically for moments like this: senior engineering capacity you can flex up for a specific initiative and flex back down, without a permanent headcount commitment.&rdquo;</blockquote>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <div>
+        <div class="block-heading" style="margin-bottom:0.6rem;">Contact Priority Queue</div>
+        <div class="queue">
+          <div class="queue-row priority-1">
+            <div class="queue-num">1</div>
+            <div>
+              <div class="queue-name">Mike McCranie <span class="pill pill-open">Warm</span></div>
+              <div class="queue-role">Chief Information Officer</div>
+              <div class="queue-goal">Direct personal re-engagement (existing email relationship, 58 mutual LinkedIn connections) — reconnect genuinely, learn where capacity gaps exist</div>
+            </div>
+          </div>
+          <div class="queue-row">
+            <div class="queue-num">2</div>
+            <div>
+              <div class="queue-name">Ashish Mokashi <span class="pill pill-existing">Existing</span></div>
+              <div class="queue-role">Manager, IT Software Engineering &amp; Development</div>
+              <div class="queue-goal">Follow up on the 2/11/2026 &ldquo;Reconnect with Improving&rdquo; thread — get a working-level read on delivery bottlenecks</div>
+            </div>
+          </div>
+          <div class="queue-row">
+            <div class="queue-num">3</div>
+            <div>
+              <div class="queue-name">Gayatri Narayan <span class="pill pill-warm">1 Mutual</span></div>
+              <div class="queue-role">President, Technology and Digital Solutions</div>
+              <div class="queue-goal">LinkedIn outreach via Lauren Woods (once verified) or a warm intro through McCranie — open a conversation with the actual economic/technical owner</div>
+            </div>
+          </div>
+          <div class="queue-row">
+            <div class="queue-num">4</div>
+            <div>
+              <div class="queue-name">James Flair <span class="pill pill-cold">Cold — deprioritize</span></div>
+              <div class="queue-role">Contact, Builders FirstSource</div>
+              <div class="queue-goal">2+ years of largely unanswered SDR sequences — reassess or retire once priorities 1-3 produce traction</div>
+            </div>
+          </div>
+          <div class="queue-row">
+            <div class="queue-num">5</div>
+            <div>
+              <div class="queue-name">Rajesh Chauhan <span class="pill pill-existing">Existing — confirmed active</span></div>
+              <div class="queue-role">Director, Data &amp; Analytics <span style="font-weight:400;color:var(--text-mute);">(added 2026-07-22)</span></div>
+              <div class="queue-goal">Technical validation contact on the data layer beneath the AI-native engineering initiative — cold outreach or warm intro once McCranie/Narayan conversation is open</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="block analysis-grid">
+      <div class="card ninebox-wrap">
+        <div class="block-heading">Account 9-Box</div>
+        <svg viewBox="0 0 300 300" width="100%" style="max-width:280px;" role="img" aria-label="9-box grid showing Builders FirstSource plotted in the SIGNIFICANT cell">
+          <defs>
+            <style>
+              .grid-line{ stroke: var(--border); stroke-width:1; }
+              .axis-label{ font-family: var(--font-body); font-size:9px; fill: var(--text-mute); }
+              .cell-label{ font-family: var(--font-body); font-size:8px; fill: var(--text-mute); }
+            </style>
+          </defs>
+          <rect x="30" y="10" width="240" height="240" fill="none" class="grid-line"></rect>
+          <line x1="110" y1="10" x2="110" y2="250" class="grid-line"></line>
+          <line x1="190" y1="10" x2="190" y2="250" class="grid-line"></line>
+          <line x1="30" y1="90" x2="270" y2="90" class="grid-line"></line>
+          <line x1="30" y1="170" x2="270" y2="170" class="grid-line"></line>
+
+          <rect x="190" y="170" width="80" height="80" fill="var(--accent-soft)"></rect>
+          <text x="198" y="245" class="cell-label">SIGNIFICANT</text>
+
+          <text x="8" y="16" class="axis-label">High</text>
+          <text x="8" y="134" class="axis-label">Mid</text>
+          <text x="8" y="246" class="axis-label">Low</text>
+          <text x="34" y="264" class="axis-label">Low</text>
+          <text x="105" y="264" class="axis-label">Mid</text>
+          <text x="245" y="264" class="axis-label">High</text>
+          <text x="120" y="278" class="axis-label" font-weight="700">POTENTIAL &rarr;</text>
+          <text x="-180" y="12" class="axis-label" font-weight="700" transform="rotate(-90)">&larr; REALIZED</text>
+
+          <circle cx="253.2" cy="228.4" r="7" fill="var(--accent-strong)" stroke="var(--surface)" stroke-width="2"></circle>
+          <text x="220" y="222" class="cell-label" font-weight="700" fill="var(--accent-strong)">BLDR</text>
+        </svg>
+        <div class="ninebox-note">Potential 4.3 (High) &middot; Realized -4.1 (Low). Same shape as the one confirmed AT&amp;T/POISED reference point (High Potential), differing on Realized (Mid for AT&amp;T vs. Low here — a cold pursuit with zero won revenue).</div>
+      </div>
+
+      <div class="card">
+        <div class="block-heading">30 / 60 / 90 Day Plan</div>
+        <div class="timeline">
+          <div class="tl-row">
+            <div><div class="tl-phase">Next 30 days</div></div>
+            <div class="tl-milestone">David personally re-engages Mike McCranie; follow up the open Ashish Mokashi thread; verify who Lauren Woods is; confirm the April Databricks-session context with Diana Stevens.</div>
+          </div>
+          <div class="tl-row">
+            <div><div class="tl-phase">Days 31&ndash;60</div></div>
+            <div class="tl-milestone">Convert McCranie reconnection into a substantive capacity conversation; pursue a warm intro to Gayatri Narayan; identify a clearable win-wire story.</div>
+          </div>
+          <div class="tl-row">
+            <div><div class="tl-phase">Days 61&ndash;90</div></div>
+            <div class="tl-milestone">Scope a specific, bounded first engagement (Option B shape); reassess or retire the James Flair thread.</div>
+          </div>
+        </div>
+
+        <div class="block-heading" style="margin-top:1.5rem;">Immediate Next Actions</div>
+        <div class="actions-list">
+          <div class="action-item"><span class="action-check"></span>David personally re-engages Mike McCranie — highest-leverage, lowest-effort action available</div>
+          <div class="action-item"><span class="action-check"></span>Confirm with Diana Stevens the context/outcome of the April 2026 Databricks session invite</div>
+          <div class="action-item"><span class="action-check"></span>Verify the identity of Lauren Woods (mutual connection to Gayatri Narayan)</div>
+          <div class="action-item"><span class="action-check"></span>Identify and clear a nameable win-wire story analogous to BFS's situation</div>
+          <div class="action-item"><span class="action-check"></span>Route a request to Improving's Microsoft partner owner for a named Azure contact</div>
+          <div class="action-item"><span class="action-check"></span>Decide whether to continue or retire the multi-year James Flair SDR sequence</div>
+        </div>
+      </div>
+    </section>
+    </div>
+
+    <div class="tab-panel" id="tab-profiles">
+
+      <div class="profile-grid">
+        <div class="profile-card">
+          <div class="profile-name">Mike McCranie</div>
+          <div class="profile-title">Chief Information Officer</div>
+          <div class="profile-badges"><span class="pill pill-open">Existing CRM contact — warm</span></div>
+          <div class="profile-section"><span class="label">Why they matter</span>Current CIO per BFS's official leadership page. Already a known CRM contact with an active personal relationship — David has personally emailed him twice in 2026, and LinkedIn shows 58 mutual connections. <em>Inference:</em> likely owns core IT/infrastructure/security, distinct from Narayan's customer-facing digital org — confirm the boundary before assuming he owns Blitzy directly.</div>
+          <div class="profile-section"><span class="label">Pitch angle</span><span class="profile-quote">&ldquo;It's been a while since we last connected — I've been following what your team is doing with AI-native development and the next wave of myBLDR. Given the environment you're operating in right now, I'd love to hear where the engineering-capacity constraints are actually showing up.&rdquo;</span></div>
+          <div class="profile-section"><span class="label">Avoid</span>Treating this as cold outreach — he isn't cold. Don't reference the lost 2019 &ldquo;Agile Coaching&rdquo; opportunity as a credential.</div>
+          <div class="profile-source">CRM: 2 personal emails in 2026 (&ldquo;Getting together,&rdquo; &ldquo;Hopefully something helpful for you&rdquo;). LinkedIn confirmed this session.</div>
+        </div>
+
+        <div class="profile-card">
+          <div class="profile-name">Gayatri Narayan</div>
+          <div class="profile-title">President, Technology and Digital Solutions</div>
+          <div class="profile-badges"><span class="pill pill-warm">2nd-degree — 1 mutual connection</span></div>
+          <div class="profile-section"><span class="label">Why they matter</span>Reports directly to CEO Peter Jackson; owns the AI-native engineering transformation, the Blitzy partnership, and the Paradigm subsidiary. Ex-Microsoft (GM, Enterprise Digital Solutions), ex-Amazon, ex-PepsiCo. The clear economic/technical decision-maker for this pursuit, but not yet a warm contact.</div>
+          <div class="profile-section"><span class="label">Pitch angle</span><span class="profile-quote">&ldquo;You've talked publicly about a 3-4x velocity gain from embracing AI-native development on decades-old legacy systems. I'd be curious how your team is handling the gap between what the AI tooling can generate and what still needs senior engineering judgment to ship safely, especially with the H2 launch on the clock.&rdquo;</span></div>
+          <div class="profile-section"><span class="label">Avoid</span>A generic AI-services pitch — deep technology background, will see through surface-level engagement. Don't position as competing with Blitzy.</div>
+          <div class="profile-source">LinkedIn (linkedin.com/in/gayatri-narayan/) — 1 mutual connection, Lauren Woods, identity not yet verified. Note: the no-hyphen vanity URL resolves to an unrelated person.</div>
+        </div>
+
+        <div class="profile-card">
+          <div class="profile-name">Ashish Mokashi</div>
+          <div class="profile-title">Manager, IT Software Engineering &amp; Development</div>
+          <div class="profile-badges"><span class="pill pill-open">Existing CRM contact</span></div>
+          <div class="profile-section"><span class="label">Why they matter</span>Working-level engineering-delivery contact, likely reporting through McCranie's or Narayan's org. Received a &ldquo;Reconnect with Improving&rdquo; email in Feb 2026 (closed/sent) — an open, unresolved thread.</div>
+          <div class="profile-section"><span class="label">Pitch angle</span><span class="profile-quote">&ldquo;Following up on our reconnect note from earlier this year — with the AI-native development push your team has been talking about publicly, I wanted to check in on where the engineering team could use outside delivery capacity.&rdquo;</span></div>
+          <div class="profile-section"><span class="label">Avoid</span>Leading with him as the primary entry point — good second-touch/technical-validation contact, not the economic buyer.</div>
+          <div class="profile-source">CRM contact record and timeline; LinkedIn (linkedin.com/in/ashishmokashi75) confirmed this session.</div>
+        </div>
+
+        <div class="profile-card">
+          <div class="profile-name">Rajesh Chauhan <span style="font-weight:400;font-size:0.7rem;color:var(--text-mute);">(added 2026-07-22)</span></div>
+          <div class="profile-title">Director, Data &amp; Analytics</div>
+          <div class="profile-badges"><span class="pill pill-existing">Existing CRM contact — confirmed active</span></div>
+          <div class="profile-section"><span class="label">Why they matter</span>Prior CRM record listed him as a phone-only Houston contact, title unconfirmed. LinkedIn verification this session confirms &ldquo;Current: Director - Data &amp; Analytics at Builders FirstSource,&rdquo; based in Dallas-Fort Worth. <em>Inference:</em> likely sits inside Narayan's Technology &amp; Digital Solutions org or an adjacent data/BI function — a plausible technical stakeholder on the data layer under the AI-native engineering initiative, not the entry point.</div>
+          <div class="profile-section"><span class="label">Pitch angle</span><span class="profile-quote">&ldquo;You're sitting at the intersection of BFS's data strategy and the AI-native engineering push getting attention right now — I'd be curious how the data &amp; analytics side is keeping pace with the velocity gains the engineering team is reporting.&rdquo;</span></div>
+          <div class="profile-section"><span class="label">Avoid</span>Treating him as the entry point or assuming he owns the Blitzy/AI-native initiative directly — that's Narayan's mandate. Confirm Houston vs. Dallas-Fort Worth base before outreach.</div>
+          <div class="profile-source">LinkedIn (linkedin.com/in/rajesh-chauhan-raj/) confirmed 2026-07-22; CRM contact record (phone-only, Houston).</div>
+        </div>
+      </div>
+
+      <div class="subhead">Remaining Executive Council</div>
+      <div class="table-scroll">
+        <table class="ref-table">
+          <thead><tr><th>Name</th><th>Title</th><th>CRM Status</th></tr></thead>
+          <tbody>
+            <tr><td>Peter Jackson</td><td>President &amp; Chief Executive Officer</td><td>no-crm-history</td></tr>
+            <tr><td>Pete Beckmann</td><td>Chief Financial Officer</td><td>no-crm-history</td></tr>
+            <tr><td>Steve Herron</td><td>Chief Operating Officer (retiring 12/31/2026)</td><td>no-crm-history</td></tr>
+            <tr><td>Mike Hiller</td><td>Chief Operating Officer-Designate</td><td>no-crm-history</td></tr>
+            <tr><td>Alena Brenner</td><td>EVP, Chief Legal Officer &amp; Corporate Secretary</td><td>no-crm-history</td></tr>
+            <tr><td>Coley O'Brien</td><td>EVP, Chief Human Resources Officer (ex-Wendy's CPO)</td><td>no-crm-history</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="subhead">One Level Down / Adjacent (partial)</div>
+      <div class="table-scroll">
+        <table class="ref-table">
+          <thead><tr><th>Name</th><th>Title</th><th>Reports Toward</th></tr></thead>
+          <tbody>
+            <tr><td>Paul Vaughn</td><td>President, West Division</td><td>CEO</td></tr>
+            <tr><td>Todd Vance</td><td>President, East Division</td><td>CEO</td></tr>
+            <tr><td>Johnny Cope</td><td>President, Commercial</td><td>CEO</td></tr>
+            <tr><td>Joe Barnes</td><td>EVP, Sourcing &amp; Supply Chain</td><td>CEO</td></tr>
+            <tr><td>Jami Beckmann</td><td>SVP, Strategic Management Office</td><td>CEO</td></tr>
+            <tr><td>Chad Taylor</td><td>Manager, Enterprise Systems, Denver Int'l Airport <span class="pill pill-cold" style="margin-left:0.3rem;">Departed BFS</span></td><td>existing-crm-contact</td></tr>
+            <tr><td>Chris Seifert</td><td>Self Employed / Software &amp; Database Developer <span class="pill pill-cold" style="margin-left:0.3rem;">Departed BFS</span></td><td>existing-crm-contact</td></tr>
+            <tr><td>James Flair</td><td>Title not confirmed</td><td>existing-crm-contact</td></tr>
+            <tr><td>Kelly Terhaar</td><td>SAP Data &amp; Project Mgmt Consultant (Independent) <span class="pill pill-cold" style="margin-left:0.3rem;">Departed BFS</span></td><td>existing-crm-contact</td></tr>
+            <tr><td>Maria Lujan</td><td>Not found on LinkedIn — needs-verification</td><td>existing-crm-contact</td></tr>
+            <tr><td>Nirmala Kunavarapu</td><td>IT Applications Executive Leader / Data Strategist <span class="pill pill-open" style="margin-left:0.3rem;">Confirmed active</span></td><td>existing-crm-contact</td></tr>
+            <tr><td>Rajesh Chauhan</td><td>Director, Data &amp; Analytics <span class="pill pill-open" style="margin-left:0.3rem;">Confirmed active — see profile</span></td><td>existing-crm-contact</td></tr>
+            <tr><td>Travis Cogdill</td><td>Title not confirmed</td><td>existing-crm-contact</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:0.78rem;color:var(--text-mute);margin-top:0.5rem;">Titles verified via LinkedIn 2026-07-22. Three of six previously title-unconfirmed contacts have left Builders FirstSource — a higher churn rate than expected, flagged as a new open item.</p>
+    </div>
+
+    <div class="tab-panel" id="tab-notes">
+
+      <details class="note" open>
+        <summary>Open Items to Confirm</summary>
+        <div class="note-body">
+          <p><strong>Update, 2026-07-22:</strong> the six-contact title verification item is resolved — see below. A new open item surfaced as a result.</p>
+          <ul>
+            <li>No loss reason documented for the 2019 &ldquo;Agile Coaching&rdquo; opportunity, and no sponsor/buyer name survives in CRM — no lost-deal re-entry path exists to leverage.</li>
+            <li>Org boundary between Mike McCranie (CIO) and Gayatri Narayan (President, Technology &amp; Digital Solutions) is inferred, not confirmed.</li>
+            <li>No specific past Improving engagement has been pulled and vetted as a clearable win-wire story for this account.</li>
+            <li class="resolved">Titles unconfirmed for six existing CRM contacts (Chad Taylor, Chris Seifert, Kelly Terhaar, Maria Lujan, Nirmala Kunavarapu, Rajesh Chauhan). <strong style="text-decoration:none;">RESOLVED 2026-07-22</strong> — verified via LinkedIn. Chad Taylor and Kelly Terhaar confirmed departed BFS (now at Denver Int'l Airport and independent SAP consulting, respectively); Chris Seifert shows no current BFS affiliation (&ldquo;Self Employed&rdquo;); Nirmala Kunavarapu and Rajesh Chauhan confirmed still active at BFS (Rajesh upgraded to a full profile — Director, Data &amp; Analytics); Maria Lujan could not be matched to any LinkedIn profile (common name, unresolved).</li>
+            <li><strong>New:</strong> CRM contact-list churn is higher than expected — 3 of 6 spot-checked contacts had already left the company. Recommend a broader CRM contact-list health check before relying on it for outreach sequencing.</li>
+            <li>Lauren Woods (single LinkedIn mutual connection to Gayatri Narayan) — identity and relationship to David not yet verified.</li>
+            <li>April 2026 Databricks session invite (Diana Stevens &rarr; Mike McCranie) — unclear whether it reflects genuine BFS Databricks usage or was an Improving-initiated prospecting event.</li>
+            <li>Microsoft/Azure tech-stack match confirmed, but no named account-team or co-sell contact identified.</li>
+            <li>Geography scoring inference (both-flags-Y = +4) is untested beyond a single AT&amp;T data point where both flags were &ldquo;N&rdquo; — this account is a live test case.</li>
+            <li>9-box grid arrangement beyond the single confirmed AT&amp;T/POISED cell remains an inference.</li>
+            <li>Coley O'Brien (new CHRO) came from The Wendy's Company, where David has an existing CRM relationship — no personal tie confirmed, worth a quick check.</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="note">
+        <summary>9-Box Methodology</summary>
+        <div class="note-body">
+          <p><strong>Potential (4.3, High):</strong> Geography raw 4 (both flags Y — Dallas HQ matches Improving's Dallas region and office; inferred scoring, unverified beyond a single AT&amp;T N/N=0 data point) &times; 10% = 0.4. Revenue raw 5 (estimated $30-45M best-case IT services spend via Path 2 benchmark fallback — no disclosed 10-K figure found; capped at +5, above the named $20M top band) &times; 70% = 3.5. Gross Margin raw 2 (38% default, interpolated to the nearer 37%&rarr;2 band) &times; 20% = 0.4. Total = 4.3.</p>
+          <p><strong>Realized (-4.1, Low):</strong> Geography raw 4 (same structural fact) &times; 10% = 0.4. Revenue raw -5 ($0 TTM — no engagement history, capped at the bottom band) &times; 70% = -3.5. Gross Margin raw -5 (0% TTM, capped at the bottom band) &times; 20% = -1.0. Total = -4.1.</p>
+          <p>Flagged inferences: geography scoring logic, the 9-box grid arrangement beyond AT&amp;T/POISED, the IT-spend benchmark estimate, and the gross-margin default are all carried to Open Items above — none are fully confirmed.</p>
+        </div>
+      </details>
+
+      <details class="note">
+        <summary>Strategic Priorities (Builders FirstSource)</summary>
+        <div class="note-body">
+          <ul>
+            <li><strong>AI-Native Engineering Velocity:</strong> Blitzy partnership (2/26/2026) delivering 3-5x dev velocity gains, 120 engineers trained on AI-native workflows in 3 months.</li>
+            <li><strong>Next-Gen Digital Solutions Platform:</strong> myBLDR.com next generation (4 integrated hubs, embedded AI) previewed at NAHB IBS, targeted H2 2026 launch.</li>
+            <li><strong>Operational Excellence / Cost Discipline:</strong> Q1 2026 net loss of $47.4M, 21 facility consolidations, tighter discretionary spend — the &ldquo;downturn playbook.&rdquo;</li>
+            <li><strong>M&amp;A-Led Consolidation:</strong> 41 acquisitions since the 2021 BMC merger; some explicitly &ldquo;enhanced digital capabilities.&rdquo;</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="note">
+        <summary>Competitive Positioning</summary>
+        <div class="note-body">
+          <div class="table-scroll">
+            <table class="ref-table">
+              <thead><tr><th>Priority Theme</th><th>Improving Capability</th><th>Why It Fits</th></tr></thead>
+              <tbody>
+                <tr><td>AI-Native Engineering Velocity</td><td>Data/AI Engineering, App Modernization, embedded augmentation</td><td>Direct match to BFS's active AI-native SDLC transformation</td></tr>
+                <tr><td>Next-Gen Digital Solutions</td><td>Software Engineering, Azure-native delivery</td><td>Confirmed Azure alignment; hard H2 2026 deadline needs engineering capacity</td></tr>
+                <tr><td>Operational Excellence</td><td>Embedded/flexible delivery model</td><td>Capacity without headcount fits a company cutting costs elsewhere</td></tr>
+                <tr><td>M&amp;A-Led Consolidation</td><td>Data engineering / systems integration</td><td>Weaker fit — no named integration program at scale</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p style="margin-top:0.8rem;"><strong>Win-wire story:</strong> No specific past engagement was pulled and vetted as clearable to name this session — flagged as an open item. The right shape is any engagement pairing embedded engineering capacity with legacy-modernization/AI-adoption under cost pressure.</p>
+          <p><strong>Honest competitive note:</strong> Perficient has a confirmed, named 2023 Azure cloud-modernization case study at this account — assume it retains relationship equity. Blitzy is an active incumbent on the exact AI-native-SDLC workstream this plan targets — position as complementary delivery capacity, not a competing platform. Improving wins on senior practitioner density, embedded delivery speed, an existing CIO relationship, and home-region geography; loses on brand recognition in building-products/construction-tech and Blitzy's head start as the AI-tooling vendor of record.</p>
+        </div>
+      </details>
+
+      <details class="note">
+        <summary>Referral &amp; Partner Network Detail</summary>
+        <div class="note-body">
+          <div class="table-scroll">
+            <table class="ref-table">
+              <thead><tr><th>Contact</th><th>Path</th><th>Status</th></tr></thead>
+              <tbody>
+                <tr><td>Mike McCranie</td><td>Existing personal email relationship; 58 LinkedIn mutual connections (Tim, Don + 56 others)</td><td>confirmed</td></tr>
+                <tr><td>Gayatri Narayan</td><td>1 LinkedIn mutual connection (Lauren Woods)</td><td>needs-verification</td></tr>
+                <tr><td>Ashish Mokashi</td><td>Existing CRM contact, open Feb 2026 email thread</td><td>confirmed</td></tr>
+                <tr><td>2019 lost-deal sponsor</td><td>No sponsor/buyer name survives in the CRM opportunity record</td><td>needs-verification — none identified</td></tr>
+                <tr><td>YPO / alumni / personal ties</td><td>None found this session</td><td>none found</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="table-scroll" style="margin-top:1rem;">
+            <table class="ref-table">
+              <thead><tr><th>Partner</th><th>Status</th><th>Contact</th></tr></thead>
+              <tbody>
+                <tr><td>Microsoft (Azure)</td><td>confirmed</td><td>not-identified — route through Improving's Microsoft partner owner</td></tr>
+                <tr><td>AWS</td><td>no-signal-found</td><td>not-identified</td></tr>
+                <tr><td>GCP</td><td>no-signal-found</td><td>not-identified</td></tr>
+                <tr><td>Confluent</td><td>no-signal-found</td><td>not-identified</td></tr>
+                <tr><td>Databricks</td><td>no-signal-found (contextual only — Improving hosted a Databricks session invite for this account, not independent proof of usage)</td><td>not-identified</td></tr>
+                <tr><td>SpaceX/xAI</td><td>no-signal-found</td><td>not-identified</td></tr>
+                <tr><td>Snowflake</td><td>no-signal-found</td><td>not-identified</td></tr>
+                <tr><td>SAP</td><td>no-signal-found</td><td>not-identified</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </details>
+
+      <details class="note">
+        <summary>Sources</summary>
+        <div class="note-body">
+          <ul class="sources-list">
+            <li><a href="https://www.bldr.com/who-we-are/leadership">Leadership — Builders FirstSource</a></li>
+            <li><a href="https://www.businesswire.com/news/home/20250602253707/en/Gayatri-Narayan-Joins-Builders-FirstSource-as-President-Technology-and-Digital-Solutions">Gayatri Narayan Joins Builders FirstSource — BusinessWire</a></li>
+            <li><a href="https://ciopod.com/podcasts/from-technical-debt-to-4x-engineering-velocity-with-gayatri-narayan-of-builders-firstsource/">From Technical Debt to 4x Engineering Velocity — CIO Pod</a></li>
+            <li><a href="https://www.prnewswire.com/news-releases/blitzy-accelerates-software-development-3x-with-leading-building-materials-supplier-302698225.html">Blitzy Accelerates Software Development 3x — PR Newswire</a></li>
+            <li><a href="https://distributionstrategy.com/2026/03/builders-firstsource-deploys-ai-development-platform-to-speed-digital-projects/">BFS Deploys AI Development Platform — Distribution Strategy Group</a></li>
+            <li><a href="https://www.bldr.com/digital-tools/mybldr">myBLDR — Your Digital Homebuilding Platform</a></li>
+            <li><a href="https://www.digitalcommerce360.com/2025/05/02/builders-firstsource-digital-sales-q1-fy25/">BFS grows Q1 digital sales to $153M — Digital Commerce 360</a></li>
+            <li><a href="https://www.investing.com/news/company-news/builders-firstsource-q1-2026-slides-earnings-miss-amid-housing-slump-93CH-4650421">BFS Q1 2026 slides: earnings miss amid housing slump</a></li>
+            <li><a href="https://www.stocktitan.net/news/BLDR/builders-first-source-reports-first-quarter-2026-m1fv10ctw6sp.html">BFS Q1 sales fall 10%, posts loss — StockTitan</a></li>
+            <li><a href="https://simplywall.st/stocks/us/capital-goods/nyse-bldr/builders-firstsource/news/why-builders-firstsource-bldr-is-down-154-after-posting-a-q1">Why BLDR Is Down 15.4% — Simply Wall St</a></li>
+            <li><a href="https://finance.yahoo.com/news/builders-firstsources-bldr-m-focus-151613249.html">Is BLDR's M&amp;A Focus a Signal of Shifting Priorities? — Yahoo Finance</a></li>
+            <li><a href="https://www.businesswire.com/news/home/20230724129008/en/Perficient-Architects-Microsoft-Azure-Cloud-Modernization-Solutions-for-Builders-FirstSource">Perficient Architects Microsoft Azure Cloud Modernization — BusinessWire</a></li>
+            <li>Improving Dynamics CRM — account record, contacts, timeline, &ldquo;Agile Coaching&rdquo; opportunity (queried 2026-07-22)</li>
+            <li>LinkedIn — mikemccranie, gayatri-narayan, ashishmokashi75, chris-seifert-5a06081 (confirmed 2026-07-22)</li>
+            <li>LinkedIn (title-verification pass, 2026-07-22) — chad-taylor-03052825, kellyterhaar, nirmala-kunavarapu, rajesh-chauhan-raj</li>
+          </ul>
+        </div>
+      </details>
+    </div>
+
+  </main>
+
+  <footer class="foot">
+    Pursuit map dashboard for the <code>account-pursuit-map</code> workflow. Companion document: <code>accounts/Builders FirstSource/account-plan.md</code>.
+  </footer>
+</div>
+
+<script>
+  document.querySelectorAll('.tab-btn').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      document.querySelectorAll('.tab-btn').forEach(function(b){ b.classList.remove('active'); b.setAttribute('aria-selected','false'); });
+      document.querySelectorAll('.tab-panel').forEach(function(p){ p.classList.remove('active'); });
+      btn.classList.add('active');
+      btn.setAttribute('aria-selected','true');
+      document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+    });
+  });
+</script>

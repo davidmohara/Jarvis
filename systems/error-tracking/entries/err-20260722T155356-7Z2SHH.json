@@ -1,0 +1,15 @@
+{
+  "id": "err-20260722T155356-7Z2SHH",
+  "timestamp": "2026-07-22T15:53:56Z",
+  "session": "2026-07-22",
+  "source": "explicit",
+  "agent": "master",
+  "category": "routing-error",
+  "description": "User asked to 'build an account pursuit plan for CBRE.' Master invoked the chase-account skill directly (a forked skill execution) instead of using the account-pursuit-map workflow and delegating the work to the Chase agent as required.",
+  "correction": "Account pursuit requests should route through the account-pursuit-map workflow and be delegated to Chase, not handled by Master calling a skill in its own execution context.",
+  "failure_mode": "Master skipped the routing check in agents/routing.md before acting, defaulting to the first matching skill name instead of confirming the correct workflow/agent delegation path for account-strategy requests.",
+  "systemic_fix": null,
+  "fix_status": "proposed",
+  "severity": "moderate",
+  "related_entries": []
+}

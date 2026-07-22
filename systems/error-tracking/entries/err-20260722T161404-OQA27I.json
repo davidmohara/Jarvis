@@ -1,0 +1,15 @@
+{
+  "id": "err-20260722T161404-OQA27I",
+  "timestamp": "2026-07-22T16:14:04Z",
+  "session": "2026-07-22",
+  "source": "explicit",
+  "agent": "chase",
+  "category": "tool-misuse",
+  "description": "During the CBRE account-pursuit-map run, Chase reported 'No live Dynamics CRM connector was available this session' and relied entirely on prior docs instead of live CRM data for engagement history and Realized-score inputs. The workflow file (workflows/account-pursuit-map/workflow.md, INITIALIZATION data sources table) explicitly specifies 'CRM via Chrome/M365 auth' as the access method — CRM access via Chrome was never attempted.",
+  "correction": "Chase should have attempted CRM access via Chrome/M365 auth as the workflow directs before declaring the connector unavailable and falling back to prior documents.",
+  "failure_mode": "Agent treated 'no CRM connector configured' as a hard stop instead of attempting the Chrome-based access method the workflow explicitly names, defaulting to a fallback path prematurely.",
+  "systemic_fix": null,
+  "fix_status": "proposed",
+  "severity": "moderate",
+  "related_entries": []
+}

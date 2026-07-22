@@ -1,0 +1,15 @@
+{
+  "id": "err-20260722T163003-WBK2NL",
+  "timestamp": "2026-07-22T16:30:03Z",
+  "session": "2026-07-22",
+  "source": "explicit",
+  "agent": "chase",
+  "category": "assumption-error",
+  "description": "The CBRE account plan (both the original chase-account skill output and the account-pursuit-map workflow output) treated Alice Mburu as a sales-side contact/rep actively carrying a ServiceNow pursuit thread at CBRE. David corrected this: Alice is his EA, not a salesperson, and the 'Kafka POC - ServiceNow' opportunity that closed Lost on 6/10/2026 was lost to an internal CBRE team, not a competitive external loss. David also confirmed he (not Roderic Patane) is the correct account owner, resolving the CRM-vs-WorkDay ownership conflict in favor of CRM.",
+  "correction": "Alice Mburu is David's EA, not a sales rep working CBRE. The Kafka POC/ServiceNow loss was to an internal CBRE team, not a competitor. David O'Hara is the confirmed account owner.",
+  "failure_mode": "Chase inferred a role (sales rep carrying a deal) from an internal Teams/CRM reference to a name without verifying the person's actual title or relationship to the deal, and treated an unexplained CRM loss as an open item requiring investigation rather than flagging the ambiguity more prominently before it propagated across two document versions.",
+  "systemic_fix": null,
+  "fix_status": "proposed",
+  "severity": "moderate",
+  "related_entries": ["err-20260722T161404-OQA27I"]
+}

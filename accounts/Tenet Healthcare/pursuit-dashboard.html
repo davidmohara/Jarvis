@@ -1,0 +1,785 @@
+<title>Tenet Healthcare — Pursuit Dashboard</title>
+<style>
+  :root{
+    --bg:#eef0e6;
+    --surface:#ffffff;
+    --surface-2:#e4e7da;
+    --text:#1b2530;
+    --text-mute:#5c6b74;
+    --border:#d3d6c8;
+    --accent:#a8752f;
+    --accent-strong:#8c5f22;
+    --accent-soft:#f0e2c8;
+    --success:#3f5b4c;
+    --success-soft:#dfe8e0;
+    --alert:#8b4030;
+    --alert-soft:#f1ddd6;
+    --shadow:rgba(27,37,48,0.08);
+    --font-display: ui-serif, "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+    --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --font-mono: ui-monospace, "SF Mono", "Cascadia Mono", Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#11161c;
+      --surface:#171f27;
+      --surface-2:#1d2630;
+      --text:#e9e6dc;
+      --text-mute:#93a0a8;
+      --border:#2b3540;
+      --accent:#d1a256;
+      --accent-strong:#e6bd75;
+      --accent-soft:#3a2f1c;
+      --success:#7fae95;
+      --success-soft:#1c2b23;
+      --alert:#d98b76;
+      --alert-soft:#33201b;
+      --shadow:rgba(0,0,0,0.35);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#11161c; --surface:#171f27; --surface-2:#1d2630; --text:#e9e6dc; --text-mute:#93a0a8;
+    --border:#2b3540; --accent:#d1a256; --accent-strong:#e6bd75; --accent-soft:#3a2f1c;
+    --success:#7fae95; --success-soft:#1c2b23; --alert:#d98b76; --alert-soft:#33201b; --shadow:rgba(0,0,0,0.35);
+  }
+  :root[data-theme="light"]{
+    --bg:#eef0e6; --surface:#ffffff; --surface-2:#e4e7da; --text:#1b2530; --text-mute:#5c6b74;
+    --border:#d3d6c8; --accent:#a8752f; --accent-strong:#8c5f22; --accent-soft:#f0e2c8;
+    --success:#3f5b4c; --success-soft:#dfe8e0; --alert:#8b4030; --alert-soft:#f1ddd6; --shadow:rgba(27,37,48,0.08);
+  }
+
+  *{box-sizing:border-box;}
+  body{margin:0;}
+  .page{
+    background:var(--bg);
+    color:var(--text);
+    font-family:var(--font-body);
+    font-size:15px;
+    line-height:1.5;
+    min-height:100vh;
+  }
+  ::selection{ background:var(--accent-soft); }
+  a{ color:var(--accent-strong); }
+  .tabular{ font-family:var(--font-mono); font-variant-numeric:tabular-nums; }
+
+  header.masthead{
+    padding:1.6rem 2rem 1.2rem;
+    display:flex;
+    flex-wrap:wrap;
+    align-items:flex-end;
+    justify-content:space-between;
+    gap:0.75rem;
+    border-bottom:1px solid var(--border);
+  }
+  .masthead-title{
+    font-family:var(--font-display);
+    font-size:1.9rem;
+    font-weight:600;
+    letter-spacing:-0.01em;
+    text-wrap:balance;
+    margin:0;
+  }
+  .masthead-sub{
+    color:var(--text-mute);
+    font-size:0.85rem;
+    margin-top:0.25rem;
+  }
+  .status-strip{
+    position:sticky; top:0; z-index:10;
+    display:grid;
+    grid-template-columns:repeat(5, 1fr);
+    gap:1px;
+    background:var(--border);
+    border-bottom:1px solid var(--border);
+    box-shadow:0 2px 10px var(--shadow);
+  }
+  .stat{
+    background:var(--surface);
+    padding:0.85rem 1.1rem;
+  }
+  .stat-label{
+    font-size:0.66rem;
+    text-transform:uppercase;
+    letter-spacing:0.07em;
+    color:var(--text-mute);
+    margin-bottom:0.3rem;
+  }
+  .stat-value{
+    font-family:var(--font-mono);
+    font-variant-numeric:tabular-nums;
+    font-size:1.15rem;
+    font-weight:600;
+    color:var(--text);
+  }
+  .stat-value.accent{ color:var(--accent-strong); }
+  .stat-value.good{ color:var(--success); }
+  .stat-sub{
+    font-size:0.72rem;
+    color:var(--text-mute);
+    margin-top:0.15rem;
+  }
+
+  main{ max-width:1240px; margin:0 auto; padding:1.75rem 2rem 3rem; }
+
+  section.block{ margin-bottom:2rem; }
+  .block-heading{
+    font-family:var(--font-display);
+    font-size:1.05rem;
+    font-weight:600;
+    margin:0 0 0.75rem;
+    display:flex;
+    align-items:center;
+    gap:0.5rem;
+  }
+  .eyebrow{
+    font-size:0.68rem;
+    text-transform:uppercase;
+    letter-spacing:0.09em;
+    color:var(--text-mute);
+    margin-bottom:0.3rem;
+    display:block;
+  }
+
+  .front-grid{
+    display:grid;
+    grid-template-columns:1.5fr 1fr;
+    gap:1.5rem;
+    align-items:start;
+  }
+  @media (max-width:920px){ .front-grid{ grid-template-columns:1fr; } }
+
+  .card{
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:8px;
+    padding:1.25rem 1.4rem;
+  }
+
+  .pitch-hero{
+    border:1px solid var(--accent);
+    background:linear-gradient(180deg, var(--accent-soft) 0%, var(--surface) 130px);
+  }
+  .pitch-hero .eyebrow{ color:var(--accent-strong); }
+  .pitch-hero h3{
+    font-family:var(--font-display);
+    font-size:1.35rem;
+    margin:0.1rem 0 0.5rem;
+  }
+  .pitch-why{ color:var(--text-mute); font-size:0.9rem; margin-bottom:0.9rem; }
+  blockquote.script{
+    margin:0 0 0.9rem;
+    padding:0.8rem 1rem;
+    background:var(--surface);
+    border-left:3px solid var(--accent);
+    border-radius:0 4px 4px 0;
+    font-style:italic;
+    font-size:0.92rem;
+    color:var(--text);
+  }
+  .pitch-rationale{
+    font-size:0.82rem;
+    color:var(--text-mute);
+    border-top:1px solid var(--border);
+    padding-top:0.7rem;
+  }
+  .pitch-rationale strong{ color:var(--text); }
+
+  .secondary-plays{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:0.9rem;
+    margin-top:0.9rem;
+  }
+  @media (max-width:600px){ .secondary-plays{ grid-template-columns:1fr; } }
+  .play-card{
+    background:var(--surface-2);
+    border:1px solid var(--border);
+    border-radius:6px;
+    padding:0;
+  }
+  .play-card summary{
+    cursor:pointer;
+    padding:0.85rem 0.95rem;
+    list-style:none;
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    gap:0.5rem;
+  }
+  .play-card summary::-webkit-details-marker{ display:none; }
+  .play-card summary::after{ content:"Details +"; font-size:0.68rem; color:var(--text-mute); white-space:nowrap; }
+  .play-card[open] summary::after{ content:"Hide –"; }
+  .play-card summary:focus-visible{ outline:2px solid var(--accent); outline-offset:-2px; }
+  .play-card .eyebrow{ margin-bottom:0.15rem; }
+  .play-card h4{ font-family:var(--font-display); font-size:0.98rem; margin:0 0 0.4rem; }
+  .play-card-body{ padding:0 0.95rem 0.9rem; }
+  .play-card-body p{ font-size:0.8rem; color:var(--text-mute); margin:0 0 0.6rem; }
+  .play-card blockquote.script{ font-size:0.8rem; padding:0.55rem 0.7rem; margin-bottom:0; }
+
+  .queue{ display:flex; flex-direction:column; gap:0.55rem; }
+  .queue-row{
+    display:grid;
+    grid-template-columns:1.6rem 1fr;
+    gap:0.7rem;
+    padding:0.65rem 0.75rem;
+    border:1px solid var(--border);
+    border-radius:6px;
+    background:var(--surface);
+  }
+  .queue-row.priority-1{ border-color:var(--success); background:var(--success-soft); }
+  .queue-num{
+    font-family:var(--font-mono);
+    font-weight:700;
+    color:var(--text-mute);
+    padding-top:0.1rem;
+  }
+  .priority-1 .queue-num{ color:var(--success); }
+  .queue-name{ font-weight:600; font-size:0.9rem; }
+  .queue-role{ font-size:0.76rem; color:var(--text-mute); margin-bottom:0.35rem; }
+  .queue-goal{ font-size:0.78rem; color:var(--text); }
+  .pill{
+    display:inline-block;
+    font-size:0.62rem;
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:0.04em;
+    padding:0.1rem 0.45rem;
+    border-radius:99px;
+    margin-left:0.4rem;
+    vertical-align:middle;
+  }
+  .pill-open{ background:var(--success-soft); color:var(--success); }
+  .pill-warm{ background:var(--accent-soft); color:var(--accent-strong); }
+  .pill-cold{ background:var(--alert-soft); color:var(--alert); }
+  .pill-existing{ background:var(--surface-2); color:var(--text-mute); }
+
+  .analysis-grid{
+    display:grid;
+    grid-template-columns:1fr 1.3fr;
+    gap:1.5rem;
+    margin-top:1.75rem;
+  }
+  @media (max-width:920px){ .analysis-grid{ grid-template-columns:1fr; } }
+
+  .ninebox-wrap{ display:flex; flex-direction:column; align-items:center; }
+  .ninebox-note{ font-size:0.76rem; color:var(--text-mute); margin-top:0.6rem; text-align:center; }
+
+  .timeline{ display:flex; flex-direction:column; gap:0; }
+  .tl-row{ display:grid; grid-template-columns:5.5rem 1fr; gap:0.9rem; padding:0.7rem 0; position:relative; }
+  .tl-row:not(:last-child){ border-bottom:1px dashed var(--border); }
+  .tl-phase{ font-family:var(--font-display); font-weight:600; font-size:0.95rem; }
+  .tl-time{ font-size:0.72rem; color:var(--text-mute); font-family:var(--font-mono); }
+  .tl-milestone{ font-size:0.84rem; }
+
+  .actions-list{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:0.5rem 1.4rem;
+  }
+  @media (max-width:760px){ .actions-list{ grid-template-columns:1fr; } }
+  .action-item{
+    display:flex; gap:0.6rem;
+    font-size:0.85rem;
+    padding:0.4rem 0;
+    border-bottom:1px solid var(--border);
+  }
+  .action-check{
+    flex:none;
+    width:1.1rem; height:1.1rem;
+    border:1.5px solid var(--accent);
+    border-radius:3px;
+    margin-top:0.15rem;
+  }
+
+  .tabbar{
+    display:flex;
+    gap:0.4rem;
+    border-bottom:1px solid var(--border);
+    margin:2.2rem 0 1.4rem;
+  }
+  .tab-btn{
+    font-family:var(--font-body);
+    font-size:0.85rem;
+    font-weight:600;
+    color:var(--text-mute);
+    background:none;
+    border:none;
+    padding:0.6rem 0.3rem;
+    margin-right:1.4rem;
+    cursor:pointer;
+    position:relative;
+    top:1px;
+  }
+  .tab-btn:focus-visible{ outline:2px solid var(--accent); outline-offset:2px; }
+  .tab-btn.active{ color:var(--text); border-bottom:2px solid var(--accent); }
+  .tab-panel{ display:none; }
+  .tab-panel.active{ display:block; }
+
+  .profile-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(300px, 1fr));
+    gap:1.1rem;
+  }
+  .profile-card{
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:8px;
+    padding:1.1rem 1.2rem;
+  }
+  .profile-card.flag{ border-color:var(--alert); }
+  .profile-name{ font-family:var(--font-display); font-size:1.05rem; font-weight:600; margin:0 0 0.15rem; }
+  .profile-title{ font-size:0.78rem; color:var(--text-mute); margin-bottom:0.6rem; }
+  .profile-badges{ margin-bottom:0.6rem; }
+  .profile-section{ font-size:0.82rem; margin-bottom:0.5rem; }
+  .profile-section .label{ font-size:0.66rem; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-mute); display:block; margin-bottom:0.15rem; }
+  .profile-quote{ font-style:italic; color:var(--text); }
+  .profile-source{ font-size:0.7rem; color:var(--text-mute); margin-top:0.6rem; padding-top:0.5rem; border-top:1px solid var(--border); }
+  .profile-source a{ color:var(--text-mute); }
+
+  table.ref-table{ width:100%; border-collapse:collapse; font-size:0.82rem; }
+  table.ref-table th, table.ref-table td{ text-align:left; padding:0.45rem 0.6rem; border-bottom:1px solid var(--border); }
+  table.ref-table th{ font-size:0.68rem; text-transform:uppercase; letter-spacing:0.05em; color:var(--text-mute); font-weight:600; }
+  .table-scroll{ overflow-x:auto; }
+  .subhead{ font-family:var(--font-display); font-size:0.95rem; font-weight:600; margin:1.6rem 0 0.6rem; }
+
+  details.note{
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:6px;
+    margin-bottom:0.6rem;
+    padding:0;
+  }
+  details.note summary{
+    cursor:pointer;
+    padding:0.75rem 1rem;
+    font-weight:600;
+    font-size:0.9rem;
+    list-style:none;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+  }
+  details.note summary::-webkit-details-marker{ display:none; }
+  details.note summary::after{ content:"+"; color:var(--text-mute); font-weight:400; font-size:1.1rem; }
+  details.note[open] summary::after{ content:"–"; }
+  details.note summary:focus-visible{ outline:2px solid var(--accent); outline-offset:-2px; }
+  .note-body{ padding:0 1rem 1rem; font-size:0.86rem; }
+  .note-body p{ margin:0 0 0.7rem; }
+  .note-body ul{ margin:0 0 0.7rem; padding-left:1.1rem; }
+  .note-body li{ margin-bottom:0.35rem; }
+  .resolved{ text-decoration:line-through; color:var(--text-mute); }
+  .sources-list{ font-size:0.78rem; columns:2; column-gap:2rem; }
+  @media (max-width:700px){ .sources-list{ columns:1; } }
+  .sources-list li{ break-inside:avoid; margin-bottom:0.5rem; }
+
+  footer.foot{
+    max-width:1240px; margin:0 auto; padding:1rem 2rem 2.5rem;
+    color:var(--text-mute); font-size:0.75rem;
+  }
+</style>
+
+<div class="page">
+
+  <header class="masthead">
+    <div>
+      <h1 class="masthead-title">Tenet Healthcare — Pursuit Dashboard</h1>
+      <div class="masthead-sub">Improving &middot; Business Development &middot; Internal</div>
+    </div>
+  </header>
+
+  <div class="status-strip">
+    <div class="stat">
+      <div class="stat-label">9-Box Position</div>
+      <div class="stat-value accent">SIGNIFICANT</div>
+      <div class="stat-sub">High Potential (4.3) &middot; Low Realized (-4.1)</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">Open Pipeline</div>
+      <div class="stat-value tabular good">$6.11M</div>
+      <div class="stat-sub">3 open opps &middot; 10&ndash;25% probability</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">TTM Closed Revenue</div>
+      <div class="stat-value tabular">$0</div>
+      <div class="stat-sub">Last win 4/16/2019 &middot; $21.5K lifetime across 4 SOWs</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">Warmest Path</div>
+      <div class="stat-value">Loan Nguyen</div>
+      <div class="stat-sub">Active email thread; primary contact on both open opps</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">Recommended Play</div>
+      <div class="stat-value accent">Option A</div>
+      <div class="stat-sub">Close What's Already Open</div>
+    </div>
+  </div>
+
+  <main>
+
+    <nav class="tabbar" role="tablist" aria-label="Dashboard sections">
+      <button class="tab-btn active" role="tab" aria-selected="true" data-tab="overview">Overview</button>
+      <button class="tab-btn" role="tab" aria-selected="false" data-tab="profiles">Profiles</button>
+      <button class="tab-btn" role="tab" aria-selected="false" data-tab="notes">Notes</button>
+    </nav>
+
+    <div class="tab-panel active" id="tab-overview">
+    <section class="block front-grid">
+      <div>
+        <div class="card pitch-hero">
+          <span class="eyebrow">Recommended entry play &middot; Option A</span>
+          <h3>Close What's Already Open</h3>
+          <div class="pitch-why">Two qualified opportunities are already in motion — AI Program Manager ($314,500, 25% Qualified) and PMaaS Pilot Program ($247,000, 10% Identified) — both tied to Tenet's live AI/automation scale-up at Conifer.</div>
+          <blockquote class="script">&ldquo;Let's not add a new executive-relationship thread on top of an active candidate search &mdash; the fastest path to the $5.55M enterprise conversation is closing these two well.&rdquo;</blockquote>
+          <div class="pitch-rationale"><strong>Why lead here:</strong> There is no strategic value in adding relationship-building noise on top of a live candidate search (Shilpa Parthasarathy, AI Program Manager). Options B and C are the natural next moves once this lands, not alternatives to it.</div>
+        </div>
+
+        <div class="secondary-plays">
+          <details class="play-card">
+            <summary>
+              <span><span class="eyebrow">Option B</span><h4>The Enterprise PMaaS Business Case</h4></span>
+            </summary>
+            <div class="play-card-body">
+              <p>Once the pilot lands, build the formal business case to move the $5.55M PMaaS Enterprise Program from 10% Identified to a real evaluation, anchored to Conifer's AI scale-up and the CIO transition urgency.</p>
+              <blockquote class="script">&ldquo;You're scaling AI governance across Conifer and TPR right now, and your CIO's clock is running to December 31st. Let's talk about what it takes enterprise-wide before that transition happens, not after.&rdquo;</blockquote>
+            </div>
+          </details>
+          <details class="play-card">
+            <summary>
+              <span><span class="eyebrow">Option C</span><h4>The Executive Relationship Play</h4></span>
+            </summary>
+            <div class="play-card-body">
+              <p>Convert the pending Arbour LinkedIn connection and open a parallel thread with COO Lisa Foo, framed around the enterprise data/AI/analytics function she now owns.</p>
+              <blockquote class="script">&ldquo;We're already delivering inside your IT organization on a PMaaS pilot tied to the Conifer AI build-out. I wanted to make sure the governance and delivery discipline conversation includes the office that now owns data, AI, and analytics enterprise-wide.&rdquo;</blockquote>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <div>
+        <div class="block-heading" style="margin-bottom:0.6rem;">Contact Priority Queue</div>
+        <div class="queue">
+          <div class="queue-row priority-1">
+            <div class="queue-num">1</div>
+            <div>
+              <div class="queue-name">Loan Nguyen <span class="pill pill-open">Active Thread</span></div>
+              <div class="queue-role">Director, Strategic OCM and Custom Solutions</div>
+              <div class="queue-goal">Already-active email/CRM relationship &mdash; close the AI Program Manager candidate placement and the PMaaS Pilot Program; use both as proof points to advance the Enterprise Program</div>
+            </div>
+          </div>
+          <div class="queue-row">
+            <div class="queue-num">2</div>
+            <div>
+              <div class="queue-name">Paola Arbour <span class="pill pill-warm">Pending Connection</span></div>
+              <div class="queue-role">EVP &amp; Chief Information Officer</div>
+              <div class="queue-goal">Follow up on the already-pending LinkedIn connection before her Dec 31, 2026 retirement; understand who inherits budget authority</div>
+            </div>
+          </div>
+          <div class="queue-row">
+            <div class="queue-num">3</div>
+            <div>
+              <div class="queue-name">Mark Miesner <span class="pill pill-existing">Internal</span></div>
+              <div class="queue-role">Improving &mdash; account owner</div>
+              <div class="queue-goal">Align internally before any external outreach so it doesn't cross wires with the active candidate-placement work</div>
+            </div>
+          </div>
+          <div class="queue-row">
+            <div class="queue-num">4</div>
+            <div>
+              <div class="queue-name">Lisa Y. Foo <span class="pill pill-cold">Cold</span></div>
+              <div class="queue-role">EVP &amp; Chief Operating Officer</div>
+              <div class="queue-goal">Approach only after the PMaaS pilot shows a visible win; frame around her ownership of data/AI/analytics</div>
+            </div>
+          </div>
+          <div class="queue-row">
+            <div class="queue-num">5</div>
+            <div>
+              <div class="queue-name">Remaining 11 CRM contacts <span class="pill pill-existing">Existing CRM</span></div>
+              <div class="queue-role">Titles not yet confirmed</div>
+              <div class="queue-goal">Pull full titles from CRM or LinkedIn before deciding if any belong higher in this sequence</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="block analysis-grid">
+      <div class="card ninebox-wrap">
+        <div class="block-heading">Account 9-Box</div>
+        <svg viewBox="0 0 300 300" width="100%" style="max-width:280px;" role="img" aria-label="9-box grid showing Tenet Healthcare plotted in the SIGNIFICANT cell">
+          <defs>
+            <style>
+              .grid-line{ stroke: var(--border); stroke-width:1; }
+              .axis-label{ font-family: var(--font-body); font-size:9px; fill: var(--text-mute); }
+              .cell-label{ font-family: var(--font-body); font-size:8px; fill: var(--text-mute); }
+            </style>
+          </defs>
+          <rect x="30" y="10" width="240" height="240" fill="none" class="grid-line"></rect>
+          <line x1="110" y1="10" x2="110" y2="250" class="grid-line"></line>
+          <line x1="190" y1="10" x2="190" y2="250" class="grid-line"></line>
+          <line x1="30" y1="90" x2="270" y2="90" class="grid-line"></line>
+          <line x1="30" y1="170" x2="270" y2="170" class="grid-line"></line>
+
+          <rect x="190" y="170" width="80" height="80" fill="var(--accent-soft)"></rect>
+          <text x="195" y="184" class="cell-label">SIGNIFICANT</text>
+
+          <text x="8" y="16" class="axis-label">High</text>
+          <text x="8" y="134" class="axis-label">Mid</text>
+          <text x="8" y="246" class="axis-label">Low</text>
+          <text x="34" y="264" class="axis-label">Low</text>
+          <text x="105" y="264" class="axis-label">Mid</text>
+          <text x="245" y="264" class="axis-label">High</text>
+          <text x="120" y="278" class="axis-label" font-weight="700">POTENTIAL &rarr;</text>
+          <text x="-180" y="12" class="axis-label" font-weight="700" transform="rotate(-90)">&larr; REALIZED</text>
+
+          <circle cx="253" cy="228" r="7" fill="var(--accent-strong)" stroke="var(--surface)" stroke-width="2"></circle>
+          <text x="196" y="216" class="cell-label" font-weight="700" fill="var(--accent-strong)">TENET</text>
+        </svg>
+        <div class="ninebox-note">Potential 4.3 (High) &middot; Realized -4.1 (Low). Same grid cell as the one verified reference account (AT&amp;T lands in the adjacent Mid-Realized/High-Potential POISED cell) &mdash; Tenet's TTM-only Realized measure undersells $6.1M of live open pipeline.</div>
+      </div>
+
+      <div class="card">
+        <div class="block-heading">Multi-Year Strategic Path</div>
+        <div class="timeline">
+          <div class="tl-row">
+            <div><div class="tl-phase">Access</div><div class="tl-time">Month 1&ndash;3</div></div>
+            <div class="tl-milestone">Close the AI Program Manager placement and the PMaaS Pilot Program; follow up on the pending Arbour LinkedIn connection</div>
+          </div>
+          <div class="tl-row">
+            <div><div class="tl-phase">Prove</div><div class="tl-time">Month 3&ndash;6</div></div>
+            <div class="tl-milestone">Deliver visibly well on the pilot; build the PMaaS Enterprise Program business case with Loan Nguyen; identify who inherits budget authority as Arbour transitions out</div>
+          </div>
+          <div class="tl-row">
+            <div><div class="tl-phase">Expand</div><div class="tl-time">Month 6&ndash;12</div></div>
+            <div class="tl-milestone">Advance PMaaS Enterprise Program past 10% Identified; open a parallel thread with Lisa Foo's data/AI/analytics organization; explore a GCP co-sell angle tied to Conifer</div>
+          </div>
+          <div class="tl-row">
+            <div><div class="tl-phase">Partner</div><div class="tl-time">Year 2+</div></div>
+            <div class="tl-milestone">PMaaS Enterprise Program closed and running; Improving positioned as the standing program-delivery partner across Tenet's AI/automation initiatives</div>
+          </div>
+        </div>
+
+        <div class="block-heading" style="margin-top:1.5rem;">Immediate Next Actions</div>
+        <div class="actions-list">
+          <div class="action-item"><span class="action-check"></span>Confirm with Mark Miesner what David's involvement should be before any new outreach</div>
+          <div class="action-item"><span class="action-check"></span>Ask what actually happened on the 2022 "Agile Coach" $350K cancellation &mdash; no reason documented in CRM</div>
+          <div class="action-item"><span class="action-check"></span>Follow up on the pending LinkedIn connection to Paola Arbour rather than re-sending</div>
+          <div class="action-item"><span class="action-check"></span>Pull full job titles for the remaining 11 CRM contacts on this account</div>
+          <div class="action-item"><span class="action-check"></span>Support closing the AI Program Manager candidate search and the PMaaS Pilot Program</div>
+          <div class="action-item"><span class="action-check"></span>Identify the GCP partner-relationship owner at Improving for a possible co-sell angle</div>
+          <div class="action-item"><span class="action-check"></span>Once the pilot shows a win, open a parallel thread with COO Lisa Foo</div>
+        </div>
+      </div>
+    </section>
+    </div>
+
+    <div class="tab-panel" id="tab-profiles">
+
+      <div class="profile-grid">
+        <div class="profile-card">
+          <div class="profile-name">Loan Nguyen</div>
+          <div class="profile-title">Director, Strategic OCM and Custom Solutions</div>
+          <div class="profile-badges"><span class="pill pill-open">Existing CRM Contact &middot; Active Thread</span></div>
+          <div class="profile-section"><span class="label">Why she matters</span>Primary Contact on both open opportunities (AI Program Manager, PMaaS Enterprise Program). Active email thread with Mark Miesner as recent as 6/30/2026 re: a specific AI Program Manager candidate, with a scheduled Teams interview. The working-level champion and de facto gatekeeper for the enterprise PMaaS conversation.</div>
+          <div class="profile-section"><span class="label">Pitch angle</span><span class="profile-quote">&ldquo;As we get the pilot PM and AI Program Manager roles placed, who else needs to see the enterprise PMaaS business case before it can move past 10% Identified?&rdquo;</span></div>
+          <div class="profile-section"><span class="label">Avoid</span>Introducing new relationship-building noise while a live candidate search is in flight &mdash; close what's open first.</div>
+          <div class="profile-section"><span class="label">Title note</span>LinkedIn shows &ldquo;Director, Strategic OCM and Custom Solutions&rdquo;; CRM shows the stale &ldquo;Director, IS Innovation Project Management.&rdquo; Per standing policy, LinkedIn is authoritative when it disagrees with CRM &mdash; resolved, no further action needed.</div>
+          <div class="profile-source">CRM (opportunity records, email history) &middot; LinkedIn 2nd-degree, 6 mutual connections (Ginger McCallum, Jason Wilkinson +4)</div>
+        </div>
+
+        <div class="profile-card">
+          <div class="profile-name">Paola M. Arbour</div>
+          <div class="profile-title">EVP &amp; Chief Information Officer</div>
+          <div class="profile-badges"><span class="pill pill-warm">Pending LinkedIn Connection</span></div>
+          <div class="profile-section"><span class="label">Why she matters</span>CIO since 2019, existing CRM contact on this account. Announced retirement effective Dec 31, 2026 (8-K, April 9, 2026) &mdash; no successor named publicly. Economic buyer/approver for enterprise technology spend, though her departure means the durable relationship value may transfer to a successor or to COO Lisa Foo's org.</div>
+          <div class="profile-section"><span class="label">Pitch angle</span><span class="profile-quote">&ldquo;We already have a small footprint inside your IT organization from a few years back &mdash; I'd like to make sure the program-management muscle behind your AI push is solid heading into your transition.&rdquo;</span></div>
+          <div class="profile-section"><span class="label">Avoid</span>Treating this as a fresh cold pitch; over-anchoring the relationship on her given the five-month clock to retirement.</div>
+          <div class="profile-source">LinkedIn (2nd-degree, Pending connection, 5 mutual connections: Will, Ryan +3) &middot; SEC 8-K, April 9, 2026 &middot; Improving CRM contact record</div>
+        </div>
+
+        <div class="profile-card">
+          <div class="profile-name">Lisa Y. Foo</div>
+          <div class="profile-title">EVP &amp; Chief Operating Officer</div>
+          <div class="profile-badges"><span class="pill pill-cold">No CRM History</span></div>
+          <div class="profile-section"><span class="label">Why she matters</span>Promoted to Tenet's first-ever COO effective May 30, 2025; owns hospital operations plus strategy, business development, marketing, procurement, and data/AI/analytics as an enterprise function. Likely the most durable long-run relationship as Arbour departs.</div>
+          <div class="profile-section"><span class="label">Pitch angle</span><span class="profile-quote">&ldquo;As your data/AI/analytics program scales past pilots, the standard failure mode is governance and delivery discipline lagging the ambition. We're already inside your IT organization on a related PMaaS build.&rdquo;</span></div>
+          <div class="profile-section"><span class="label">Avoid</span>Approaching cold before the PMaaS pilot has landed a visible win &mdash; lead with proof, not aspiration.</div>
+          <div class="profile-source">SEC 8-K summary (TipRanks) &middot; Becker's Hospital Review</div>
+        </div>
+      </div>
+
+      <div class="subhead">Remaining Executive Council</div>
+      <div class="table-scroll">
+        <table class="ref-table">
+          <thead><tr><th>Name</th><th>Title</th><th>CRM Status</th></tr></thead>
+          <tbody>
+            <tr><td>Saum Sutaria, M.D.</td><td>Chairman &amp; Chief Executive Officer</td><td>no-crm-history</td></tr>
+            <tr><td>Sun Park</td><td>EVP &amp; Chief Financial Officer</td><td>no-crm-history</td></tr>
+            <tr><td>Ernest Franklin, M.D.</td><td>EVP, Chief Clinical Operations Officer</td><td>no-crm-history</td></tr>
+            <tr><td>Tom Arnst</td><td>EVP, Chief Administrative Officer &amp; General Counsel</td><td>no-crm-history</td></tr>
+            <tr><td>Brett Brodnax</td><td>President &amp; CEO, USPI</td><td>no-crm-history</td></tr>
+            <tr><td>Michael T. Maloney</td><td>EVP, Corporate Development</td><td>no-crm-history</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="subhead">Additional CRM Contacts on This Account (titles not confirmed this session)</div>
+      <div class="table-scroll">
+        <table class="ref-table">
+          <thead><tr><th>Name</th><th>Title</th><th>CRM Status</th></tr></thead>
+          <tbody>
+            <tr><td>Peter (Pete) Hassinger</td><td>Not confirmed</td><td>existing-crm-contact</td></tr>
+            <tr><td>Pam May</td><td>Not confirmed</td><td>existing-crm-contact</td></tr>
+            <tr><td>David Sains</td><td>Not confirmed</td><td>existing-crm-contact</td></tr>
+            <tr><td>Michael Beisenherz</td><td>Not confirmed</td><td>existing-crm-contact</td></tr>
+            <tr><td>Anthony Hojnacki</td><td>Not confirmed</td><td>existing-crm-contact</td></tr>
+            <tr><td>Travis Reel</td><td>Not confirmed</td><td>existing-crm-contact</td></tr>
+            <tr><td>Laura Rice</td><td>Not confirmed</td><td>existing-crm-contact</td></tr>
+            <tr><td>Shelby Young</td><td>Not confirmed</td><td>existing-crm-contact</td></tr>
+            <tr><td>Brian Huber</td><td>Not confirmed</td><td>existing-crm-contact</td></tr>
+            <tr><td>Nate Mickish</td><td>Not confirmed</td><td>existing-crm-contact</td></tr>
+            <tr><td>Jason Garrett</td><td>Not confirmed</td><td>existing-crm-contact</td></tr>
+            <tr><td>Melissa Shields</td><td>Not confirmed</td><td>existing-crm-contact</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="tab-panel" id="tab-notes">
+
+      <details class="note" open>
+        <summary>Open Items to Confirm</summary>
+        <div class="note-body">
+          <p><strong>Resolved this session:</strong> Loan Nguyen's title discrepancy. LinkedIn is authoritative when CRM and LinkedIn disagree on a contact's title (David-confirmed standing rule) &mdash; her current title is <strong>Director, Strategic OCM and Custom Solutions</strong> (LinkedIn); CRM's "Director, IS Innovation Project Management" is stale. Updated throughout this plan and dashboard. The items below remain genuine, open gaps.</p>
+          <ul>
+            <li>What actually happened on the 2022 "Agile Coach" ($350,000) cancellation &mdash; no loss reason documented in CRM beyond "Project Canceled." Confirm or correct the persona-referenced pricing/sponsorship post-mortem detail directly.</li>
+            <li>Full job titles for the 11 remaining CRM contacts on this account, not captured this session.</li>
+            <li>Whether any of the 11 remaining CRM contacts was the original buyer/sponsor on the 2022 Agile Coach opportunity.</li>
+            <li>One-level-down IT/technology leadership under Paola Arbour (139 people report up through her org per public data; no individual SVP/VP names discoverable this session).</li>
+            <li>Whether Tenet has named a successor CIO ahead of Arbour's December 31, 2026 retirement.</li>
+            <li>Send date on the pending LinkedIn connection request to Paola Arbour, to judge timing of a polite follow-up.</li>
+            <li>Named GCP partner-relationship contact at Improving for a possible co-sell conversation tied to the Conifer/Google Cloud AI partnership.</li>
+            <li>Whether Barry Forrest (Improving alumnus with prior PerotSystems/Tenet legacy IT experience) would be useful as an informal institutional-memory resource.</li>
+            <li>Geography scoring logic and 9-box grid arrangement (both flagged inferences per the workflow's own methodology, beyond the single AT&amp;T data point).</li>
+            <li>The IT-services-spend estimate (~$511M) and the workflow's revenue-band ceiling issue for mega-cap accounts (recurring issue on every large-cap run of this workflow).</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="note">
+        <summary>9-Box Methodology</summary>
+        <div class="note-body">
+          <p><strong>Potential (4.3, High):</strong> Geography raw 4 (both flags Y &mdash; Improving Dallas practice + Dallas HQ), weighted 0.4. Revenue raw 5 (capped &mdash; ~$511M estimated IT services spend via Path 2 benchmark on CRM's $21.31B annual revenue figure, healthcare-provider ~3% IT-spend midpoint, blows past the $20M lookup ceiling), weighted 3.5. Gross Margin raw 2 (38% default, interpolated), weighted 0.4.</p>
+          <p><strong>Realized (-4.1, Low):</strong> Geography raw 4, weighted 0.4. Revenue raw -5 (capped &mdash; genuine TTM pull, not a cold-pursuit default: $0 closed-won in the trailing 12 months, last win was 4/16/2019), weighted -3.5. Gross Margin raw -5 (0% TTM, no won revenue to compute against), weighted -1.0.</p>
+          <p><strong>Workflow issue flagged (not smoothed over):</strong> the Realized score's TTM-only framing makes this account look identical to a true cold pursuit, when in fact $6,111,500 of qualified pipeline is currently open. The 9-box's SIGNIFICANT placement is directionally correct (high ceiling, nothing banked recently) but should be read alongside the live pipeline figure, not instead of it. The IT-spend Path 2 fallback also hits the same large-cap ceiling problem flagged on every mega-cap account this workflow has scored (Schwab, Constellation, Builders FirstSource) &mdash; recommend the methodology owner revisit capping logic for accounts once revenue clears $1&ndash;2B.</p>
+        </div>
+      </details>
+
+      <details class="note">
+        <summary>Strategic Priorities (Tenet Healthcare)</summary>
+        <div class="note-body">
+          <ul>
+            <li><strong>AI and Automation at Scale, Anchored at Conifer:</strong> Full reclamation of Conifer from CommonSpirit (Feb 2, 2026) explicitly to expand AI/automation investment; "green light/red light" governance model; Commure ambient-AI physician partnership; Google Cloud AI revenue-cycle partnership (Nov 2025).</li>
+            <li><strong>Ambulatory-First Growth (USPI):</strong> 533 ambulatory surgery centers (401 consolidated) + 26 surgical hospitals across 37 states as of 12/31/2025; $250M annual baseline for ambulatory M&amp;A/de novo investment.</li>
+            <li><strong>Cost Discipline, Payer Mix, and Tech-Enabled Revenue Cycle:</strong> Q1 2026 EPS beat driven by expense discipline plus AI-driven productivity tools in clinical and administrative functions.</li>
+            <li><strong>Centralizing Data, AI, and Analytics Under the COO:</strong> Lisa Foo promoted to Tenet's first-ever COO (May 2025), now owns strategy, business development, marketing, procurement, and data/AI/analytics as an enterprise function.</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="note">
+        <summary>Competitive Positioning</summary>
+        <div class="note-body">
+          <div class="table-scroll">
+            <table class="ref-table">
+              <thead><tr><th>Priority Theme</th><th>Improving Capability</th><th>Why It Fits</th></tr></thead>
+              <tbody>
+                <tr><td>AI and Automation at Scale (Conifer)</td><td>PMaaS (Project/Program Management as a Service)</td><td>Directly matches the two open PMaaS opportunities &mdash; program capacity to govern the AI/automation rollout</td></tr>
+                <tr><td>Ambulatory-First Growth (USPI)</td><td>Application delivery, integration PM</td><td>M&amp;A-heavy growth model creates recurring system-integration work as new facilities are absorbed</td></tr>
+                <tr><td>Cost Discipline / Tech-Enabled Revenue Cycle</td><td>AI Program Manager placement, data/AI engineering</td><td>Directly maps to the open AI Program Manager opportunity</td></tr>
+                <tr><td>Data/AI Centralization Under COO</td><td>Embedded AI delivery + program governance</td><td>Foo's newly centralized function needs outside delivery discipline to scale past pilots</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p style="margin-top:0.8rem;"><strong>Win-wire story:</strong> The 2018&ndash;2019 Agile Adoption / Agile Leadership Workshop engagements are legitimate, if small, delivery history inside this exact account. A PMaaS-specific reference from another large enterprise still needs to be sourced from delivery/marketing before the next technical conversation.</p>
+          <p><strong>Honest competitive note:</strong> No public signal names a specific incumbent SI on the PMaaS/AI-program-management work itself; a company Tenet's size very likely has Big-4/SI relationships elsewhere in the org (assumed, not confirmed). Improving wins on an existing delivery track record inside this exact account, Dallas proximity, and a PMaaS offering mapped to a funded, stated need. Improving loses on scale/brand against enterprise SI incumbents and has no confirmed C-suite relationship yet.</p>
+        </div>
+      </details>
+
+      <details class="note">
+        <summary>Referral &amp; Partner Network Detail</summary>
+        <div class="note-body">
+          <div class="table-scroll">
+            <table class="ref-table">
+              <thead><tr><th>Contact</th><th>Path</th><th>Status</th></tr></thead>
+              <tbody>
+                <tr><td>Paola Arbour</td><td>Pending LinkedIn connection request already sent</td><td>confirmed (in progress)</td></tr>
+                <tr><td>Barry Forrest</td><td>Improving alumnus, prior PerotSystems (Tenet) 2000&ndash;2007</td><td>needs-verification (historical color only, not current)</td></tr>
+                <tr><td>Liz Johnson, Russ McClelland, Nathan Magnuson, Kiersten Smith</td><td>Former Tenet employees, now elsewhere (Clay alumni search)</td><td>needs-verification (not current warm paths)</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="table-scroll" style="margin-top:1rem;">
+            <table class="ref-table">
+              <thead><tr><th>Partner</th><th>Status</th><th>Contact</th></tr></thead>
+              <tbody>
+                <tr><td>GCP (Google Cloud)</td><td>confirmed &mdash; Conifer/Google Cloud AI revenue-cycle partnership, Nov 2025</td><td>not-identified</td></tr>
+                <tr><td>Microsoft (Azure)</td><td>likely &mdash; Tenet is a Truveta co-owner (Azure-exclusive platform)</td><td>not-identified</td></tr>
+                <tr><td>AWS</td><td>no-signal-found</td><td>not-identified</td></tr>
+                <tr><td>Confluent</td><td>no-signal-found</td><td>not-identified</td></tr>
+                <tr><td>Databricks</td><td>no-signal-found</td><td>not-identified</td></tr>
+                <tr><td>Snowflake</td><td>no-signal-found</td><td>not-identified</td></tr>
+                <tr><td>SAP</td><td>no-signal-found</td><td>not-identified</td></tr>
+                <tr><td>SpaceX/xAI</td><td>no-signal-found</td><td>not-identified</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </details>
+
+      <details class="note">
+        <summary>Sources</summary>
+        <div class="note-body">
+          <ul class="sources-list">
+            <li>Improving Dynamics CRM &mdash; direct account record query for "Tenet Healthcare"</li>
+            <li><a href="https://www.sec.gov/Archives/edgar/data/70318/000007031825000009/thc-20241231.htm">Tenet Healthcare FY2024 Form 10-K (SEC)</a></li>
+            <li><a href="https://investor.tenethealth.com/press-releases/press-release-details/2026/Tenet-Reports-Strong-Fourth-Quarter-and-FY-2025-Results-Provides-2026-Financial-Outlook/default.aspx">Tenet Reports Strong Fourth Quarter and FY 2025 Results</a></li>
+            <li><a href="https://www.investing.com/news/transcripts/earnings-call-transcript-tenet-healthcare-posts-strong-q1-2026-eps-beat-93CH-4674635">Q1 2026 Earnings Call Transcript</a></li>
+            <li><a href="https://www.investing.com/news/company-news/tenet-healthcare-q1-2026-slides-eps-beats-amid-deleveraging-push-93CH-4674638">Tenet Healthcare Q1 2026 Slides</a></li>
+            <li><a href="https://www.sec.gov/Archives/edgar/data/70318/000007031826000003/thc-20260202exh991.htm">Conifer Full Ownership Press Release (SEC 8-K, Feb 2, 2026)</a></li>
+            <li><a href="https://www.beckershospitalreview.com/finance/conifer-investment-push-will-go-beyond-ai-tenet-ceo-says/">Conifer investment push will go beyond AI &mdash; Becker's</a></li>
+            <li><a href="https://www.commure.com/press-releases/commure-to-partner-with-tenet-healthcare-on-enterprise-wide-ai-deployment">Commure Ambient AI Platform for Tenet Physician Resources</a></li>
+            <li><a href="https://coniferhealth.com/press-release/conifer-redefines-the-future-of-ai-driven-revenue-cycle-management-using-google-cloud/">Conifer / Google Cloud AI Revenue Cycle Partnership</a></li>
+            <li><a href="https://www.sec.gov/Archives/edgar/data/70318/000007031826000019/thc-20260409.htm">8-K, April 9, 2026 &mdash; Arbour CIO Retirement (SEC)</a></li>
+            <li><a href="https://www.beckershospitalreview.com/hospital-executive-moves/tenet-cio-to-retire/">Tenet CIO to retire at year end &mdash; Becker's</a></li>
+            <li><a href="https://www.tipranks.com/news/company-announcements/tenet-healthcare-appoints-lisa-y-foo-as-coo">Tenet Healthcare Appoints Lisa Y. Foo as COO</a></li>
+            <li><a href="https://www.beckershospitalreview.com/hospital-executive-moves/tenet-names-first-coo/">Tenet names first COO &mdash; Becker's</a></li>
+            <li><a href="https://theorg.com/org/tenet-healthcare/teams/leadership-team">Tenet Healthcare Leadership Team (theorg.com)</a></li>
+            <li><a href="https://theorg.com/org/tenet-healthcare/org-chart/paola-arbour">Paola Arbour Org Chart (theorg.com)</a></li>
+            <li><a href="https://www.linkedin.com/in/paolaarbour/">Paola Arbour &mdash; LinkedIn</a></li>
+            <li><a href="https://www.linkedin.com/in/loan-nguyen-b5a0802/">Loan Nguyen &mdash; LinkedIn</a></li>
+            <li><a href="https://www.healthcarefinancenews.com/news/17-health-systems-invest-truveta-genome-project">17 health systems invest in Truveta &mdash; Healthcare Finance News</a></li>
+            <li>Clay (David's personal network intelligence) &mdash; contact search for Tenet Healthcare alumni ties</li>
+          </ul>
+        </div>
+      </details>
+    </div>
+
+  </main>
+
+  <footer class="foot">
+    Pursuit map dashboard for the <code>account-pursuit-map</code> workflow. Companion document: <code>accounts/Tenet Healthcare/account-plan.md</code>.
+  </footer>
+</div>
+
+<script>
+  document.querySelectorAll('.tab-btn').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      document.querySelectorAll('.tab-btn').forEach(function(b){ b.classList.remove('active'); b.setAttribute('aria-selected','false'); });
+      document.querySelectorAll('.tab-panel').forEach(function(p){ p.classList.remove('active'); });
+      btn.classList.add('active');
+      btn.setAttribute('aria-selected','true');
+      document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+    });
+  });
+</script>
