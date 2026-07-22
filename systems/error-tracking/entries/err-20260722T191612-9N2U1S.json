@@ -1,0 +1,15 @@
+{
+  "id": "err-20260722T191612-9N2U1S",
+  "timestamp": "2026-07-22T19:16:12Z",
+  "session": "2026-07-22",
+  "source": "explicit",
+  "agent": "harper",
+  "category": "process-skip",
+  "description": "The reddit-monitor skill (.claude/skills/reddit-monitor/SKILL.md) instructs building a self-contained HTML page that fetches directly from reddit.com's JSON API and publishing it via the Artifact tool. Published Claude Code Artifacts run under a strict CSP that blocks all requests to external hosts, so every subreddit fetch fails at runtime ('Load failed' for all 10 configured subreddits) regardless of which subreddits/keywords are set. The repo already contains a working fix for this exact constraint -- systems/reddit-monitor/proxy.js, a local Node proxy+server that serves the UI and proxies Reddit data via Arctic Shift -- but SKILL.md never references it and Harper (via this skill) rebuilt a doomed-to-fail Artifact-based version instead.",
+  "correction": "SKILL.md should be updated to either (a) always build/update the local proxy.js-served app instead of a published Artifact, or (b) clearly branch on this CSP constraint and use the existing proxy.js pattern as the canonical delivery mechanism for live Reddit data, with the Artifact tool reserved for a CSP-compatible use (e.g., a static mockup, not a live-fetching page).",
+  "failure_mode": "Skill was authored/updated without accounting for the Artifact sandbox's CSP restriction on external network requests, despite that constraint being documented in the Artifact tool's own description and despite a working local-proxy alternative already existing in the same output directory the skill writes to.",
+  "systemic_fix": null,
+  "fix_status": "proposed",
+  "severity": "major",
+  "related_entries": []
+}
