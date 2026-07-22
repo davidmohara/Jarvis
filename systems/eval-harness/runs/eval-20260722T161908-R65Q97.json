@@ -1,13 +1,13 @@
 {
-  "id": "eval-20260721T201219-VQ8PDA",
-  "agent_id": "a99494fabf85c56d1",
+  "id": "eval-20260722T161908-R65Q97",
+  "agent_id": "ad7f048c7f69ab085",
   "type": "agent",
   "name": "general-purpose",
   "agent": "general-purpose",
   "session_id": "session-2026-07-17-091548",
   "trigger": "unknown",
-  "started": "2026-07-21T20:12:19.386949Z",
-  "completed": "2026-07-22T14:39:07.003551",
+  "started": "2026-07-22T16:19:08.807674Z",
+  "completed": "2026-07-22T14:39:07.004296",
   "duration_seconds": null,
   "status": "aborted",
   "steps": [],
@@ -15,8 +15,16 @@
     "mechanical": {
       "completed": false,
       "all_steps_finished": null,
-      "tool_failures": 0,
+      "tool_failures": 1,
       "error_ids": [],
+      "tool_failure_log": [
+        {
+          "tool": "mcp__playwright__browser_click",
+          "error": "### Error\nError: browserBackend.callTool: Unexpected token \"\" while parsing css selector \"\". Did you mean to CSS.escape it?",
+          "duration_ms": 14,
+          "timestamp": "2026-07-22T11:19:34.844882"
+        }
+      ],
       "abort_reason": "session-ended"
     },
     "structural": {

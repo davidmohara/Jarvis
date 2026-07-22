@@ -1,0 +1,62 @@
+{
+  "id": "eval-20260722T155500-W7DWTD",
+  "agent_id": "a7f7733705bb5f29e",
+  "type": "agent",
+  "name": "general-purpose",
+  "agent": "general-purpose",
+  "session_id": "session-2026-07-17-091548",
+  "trigger": "unknown",
+  "started": "2026-07-22T15:55:00.576009Z",
+  "completed": "2026-07-22T14:39:06.997236",
+  "duration_seconds": null,
+  "status": "aborted",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": false,
+      "all_steps_finished": null,
+      "tool_failures": 1,
+      "error_ids": [],
+      "tool_failure_log": [
+        {
+          "tool": "Bash",
+          "error": "Exit code 1\ntotal 1504\ndrwxr-xr-x@ 24 davidohara  staff     768 Jul 21 18:09 .\ndrwxr-xr-x  49 davidohara  staff    1568 Jul 21 18:09 ..\ndrwxr-xr-x@  3 davidohara  staff      96 Jun 25 16:38 Birgo\ndrwxr-xr-x@  4 davidohara  staff     128 Jun 25 16:38 Cardinal Health\ndrwxr-xr-x@  3 davidohara  staff      96 Jun 25 16:38 CBRE\ndrwxr-xr-x@  4 davidohara  staff     128 Jul 21 18:09 Constellation Energy\ndrwxr-xr-x@  3 davidohara  staff      96 Jun 25 16:38 Cresta\n-rw-r--r--@  1 davidohara  staff  766505 Jun 21 06:41 Dallas Accounts - May 15, 2026.xlsx\ndrwxr-xr-x@  3 davidohara  staff      96 Jun 25 16:38 First United Bank\ndrwxr-xr-x@  3 davidohara  staff      96 Jun 21 06:41 kubota\ndrwxr-xr-x@  4 davidohara  staff     128 Jun 25 16:38 LiftNet\ndrwxr-xr-x@  5 davidohara  staff     160 Jul  1 17:23 Nexben\ndrwxr-xr-x@  4 davidohara  staff     128 Jun 25 16:38 Rogers O'Brien\ndrwxr-xr-x   4 davidohara  staff     128 Jul 21 13:05 Santa's Wonderland\ndrwxr-xr-x@  4 davidohara  staff     128 Jul 21 18:09 Schwab\ndrwxr-xr-x@  4 davidohara  staff     128 Jul 21 18:09 Simpson Strong Tie\ndrwxr-xr-x@  3 davidohara  staff      96 Jun 25 16:38 Skimmer\ndrwxr-xr-x@  3 davidohara  staff      96 Jun 25 16:38 Specialty Capital\ndrwxr-xr-x@  9 davidohara  staff     288 Jun 25 16:38 Springline Advisory\ndrwxr-xr-x@ 12 davidohara  staff     384 Jul 21 18:09 Systemic Compliance\ndrwxr-xr-x@  3 davidohara  staff      96 Jun 25 16:38 Topgolf\ndrwxr-xr-x@  4 davidohara  staff     128 Jul 17 03:09 Wendy's\ndrwxr-xr-x@  3 davidohara  staff      96 Jun 25 16:38 xAI\ndrwxr-xr-x   4 davidohara  staff     128 Jul  1 10:22 Xero\n---CBRE---\ntotal 16\ndrwxr-xr-x@  3 davidohara  staff    96 Jun 25 16:38 .\ndrwxr-xr-x@ 24 davidohara  staff   768 Jul 21 18:09 ..\n-rw-r--r--@  1 davidohara  staff  4734 Jun 25 16:38 CBRE-Confluent-Prep.md\n---template exists---\ntotal 64\ndrwxr-xr-x@ 3 davidohara  staff     96 Jul 21 18:09 .\ndrwxr-xr-x  6 davidohara  staff    192 Jul 21 18:09 ..\n-rw-r--r--@ 1 davidohara  staff  30911 Jul 21 18:09 pursuit-dashboard-template.html\n---schwab head---\n     876 accounts/Schwab/pursuit-dashboard.html\n     220 accounts/Constellation Energy/account-plan.md\n    1096 total",
+          "duration_ms": 52,
+          "timestamp": "2026-07-22T10:55:22.343330"
+        }
+      ],
+      "abort_reason": "session-ended"
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": []
+}

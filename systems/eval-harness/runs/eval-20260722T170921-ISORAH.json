@@ -1,13 +1,13 @@
 {
-  "id": "eval-20260721T201234-V53CHV",
-  "agent_id": "aa5754f3e9116d107",
+  "id": "eval-20260722T170921-ISORAH",
+  "agent_id": "a7087916c6245d25b",
   "type": "agent",
   "name": "general-purpose",
   "agent": "general-purpose",
   "session_id": "session-2026-07-17-091548",
   "trigger": "unknown",
-  "started": "2026-07-21T20:12:34.444596Z",
-  "completed": "2026-07-22T14:39:07.003178",
+  "started": "2026-07-22T17:09:21.286425Z",
+  "completed": "2026-07-22T14:39:06.995746",
   "duration_seconds": null,
   "status": "aborted",
   "steps": [],
@@ -15,32 +15,38 @@
     "mechanical": {
       "completed": false,
       "all_steps_finished": null,
-      "tool_failures": 4,
+      "tool_failures": 5,
       "error_ids": [],
       "tool_failure_log": [
         {
-          "tool": "Bash",
-          "error": "Exit code 127\n(eval):1: command not found: peekaboo\n---perm---\n(eval):1: command not found: peekaboo",
-          "duration_ms": 37,
-          "timestamp": "2026-07-21T15:12:50.832469"
+          "tool": "mcp__playwright__browser_click",
+          "error": "### Error\nError: browserBackend.callTool: Unexpected token \"\" while parsing css selector \"\". Did you mean to CSS.escape it?",
+          "duration_ms": 5,
+          "timestamp": "2026-07-22T12:10:29.894211"
         },
         {
-          "tool": "mcp__playwright__browser_click",
-          "error": "### Error\nInvalid arguments for tool \"browser_click\":\n\u2716 Invalid input: expected string, received undefined\n  \u2192 at target",
-          "duration_ms": 4,
-          "timestamp": "2026-07-21T15:15:59.586888"
-        },
-        {
-          "tool": "mcp__playwright__browser_click",
-          "error": "### Error\nError: Ref f102e2176 not found in the current page snapshot. Try capturing new snapshot.",
+          "tool": "mcp__playwright__browser_type",
+          "error": "### Error\nError: browserBackend.callTool: Unexpected token \"\" while parsing css selector \"\". Did you mean to CSS.escape it?",
           "duration_ms": 11,
-          "timestamp": "2026-07-21T15:17:03.753426"
+          "timestamp": "2026-07-22T12:10:33.998264"
         },
         {
           "tool": "mcp__playwright__browser_click",
-          "error": "### Error\nError: Ref f125e48 not found in the current page snapshot. Try capturing new snapshot.",
+          "error": "### Error\nError: Ref f286e211 not found in the current page snapshot. Try capturing new snapshot.",
+          "duration_ms": 76,
+          "timestamp": "2026-07-22T12:12:25.855482"
+        },
+        {
+          "tool": "mcp__playwright__browser_click",
+          "error": "### Error\nError: Ref f358e252 not found in the current page snapshot. Try capturing new snapshot.",
+          "duration_ms": 51,
+          "timestamp": "2026-07-22T12:14:13.575662"
+        },
+        {
+          "tool": "mcp__playwright__browser_snapshot",
+          "error": "### Error\nError: Ref f358e244 not found in the current page snapshot. Try capturing new snapshot.",
           "duration_ms": 12,
-          "timestamp": "2026-07-21T15:17:11.809559"
+          "timestamp": "2026-07-22T12:14:16.635201"
         }
       ],
       "abort_reason": "session-ended"

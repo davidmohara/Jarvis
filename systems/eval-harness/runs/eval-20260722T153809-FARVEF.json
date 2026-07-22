@@ -1,13 +1,13 @@
 {
-  "id": "eval-20260721T201219-VQ8PDA",
-  "agent_id": "a99494fabf85c56d1",
+  "id": "eval-20260722T153809-FARVEF",
+  "agent_id": "a9eb42e339025f573",
   "type": "agent",
   "name": "general-purpose",
   "agent": "general-purpose",
   "session_id": "session-2026-07-17-091548",
   "trigger": "unknown",
-  "started": "2026-07-21T20:12:19.386949Z",
-  "completed": "2026-07-22T14:39:07.003551",
+  "started": "2026-07-22T15:38:09.349603Z",
+  "completed": "2026-07-22T14:39:06.993172",
   "duration_seconds": null,
   "status": "aborted",
   "steps": [],
@@ -15,8 +15,16 @@
     "mechanical": {
       "completed": false,
       "all_steps_finished": null,
-      "tool_failures": 0,
+      "tool_failures": 1,
       "error_ids": [],
+      "tool_failure_log": [
+        {
+          "tool": "mcp__claude_ai_Microsoft_365__outlook_email_search",
+          "error": "{\n  \"code\": \"VALIDATION_ERROR\",\n  \"message\": \"VALIDATION_ERROR: `order` is not supported with a free-text `query` on email search. Use sender/date/folder filters instead of `query` to get sorted results.\",\n  \"details\": {\n    \"validationCode\": \"incompatible_params\",\n    \"paramKeys\": [\n      \"query\",\n      \"order\",\n      \"limit\"\n    ]\n  }\n}",
+          "duration_ms": 855,
+          "timestamp": "2026-07-22T10:38:37.184072"
+        }
+      ],
       "abort_reason": "session-ended"
     },
     "structural": {
