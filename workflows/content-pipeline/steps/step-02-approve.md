@@ -1,15 +1,15 @@
 ---
 status: complete
-started-at: 2026-07-21T13:03:00Z
-completed-at: 2026-07-21T13:04:00Z
+started-at: 2026-07-22T09:03:00Z
+completed-at: 2026-07-22T09:03:30Z
 outputs:
-  drafts_checked: 5
+  drafts_checked: 8
   actions_taken: 0
   published: 0
   rejected: 0
   regenerated: 0
-  outcome: "SUCCESS: All 5 pending drafts checked. Thread 1 (4 posts from W29): No replies yet. Thread 2 (Corrections): David provided feedback; draft was regenerated. No approval signal yet on any post. All remain pending."
-  pending_drafts: 5
+  outcome: "SUCCESS: All 8 pending drafts checked. Thread 1 (4 W29 posts): No replies. Thread 2 (Corrections article): Regenerated; awaiting re-approval. Threads 3-5 (3 new posts): No replies yet. All remain pending."
+  pending_drafts: 8
 model: haiku
 ---
 
