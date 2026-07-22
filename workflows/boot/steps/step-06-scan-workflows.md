@@ -1,10 +1,10 @@
 ---
 status: complete
-started-at: "2026-07-15T10:08:00-05:00"
-completed-at: "2026-07-15T10:09:00-05:00"
+started-at: "2026-07-22T11:20:00-05:00"
+completed-at: "2026-07-22T11:22:00-05:00"
 outputs:
   in_flight_workflows: []
-  result: "No in-flight workflows — confirmed via scan of workflows/**/state.yaml (49 files). Only boot itself shows in-progress (expected, current run). Two aborted: plaud-ingest (this session, auth issue) and golf-booking (pre-existing, not new)."
+  result: "No in-flight workflows besides boot itself (expected, current run). Flagged for controller attention: shutdown-cleanup blocked at step-04-git-commit since 2026-07-16 (stale FUSE lock, 14 files staged and ready); golf-booking failure on 2026-07-18 (booked before 1:00 PM hard minimum, rule violation, grade F); plaud-ingest aborted 2026-07-15 (missing API token)."
 ---
 
 <!-- system:start -->

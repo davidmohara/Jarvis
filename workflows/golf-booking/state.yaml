@@ -1,14 +1,23 @@
 workflow: golf-booking
 agent: chief
-status: failure
+status: resolved
 session-started: 2026-07-18T00:00:00Z
 session-id: scheduled-execution-2026-07-18
-current-step: rule-violation-detected
+current-step: null
 execution-run: 2026-07-18T00:00:17Z
 failure-detected: 2026-07-18T00:12:10Z
 failure-reason: Booked 12:51 PM — before hard minimum of 1:00 PM. Skill Step 4e: "Never book a time before 1:00 PM on any day (below cost threshold)." Booking 5D5K-8O1O is INVALID.
 error-id: err-20260718T112105-GCNVCU
 grade: F
+resolution-note: >
+  David confirmed 2026-07-22 this is corrected. Verified: skills/golf-booking/SKILL.md
+  still enforces "never before 1:00 PM" (line ~409), and the most recent
+  golf-preview cycle (2026-07-21, memory/working/golf-preview-2026-07-21.md)
+  correctly locked Saturday Aug 1 at exactly 1:00 PM per David's own override
+  ("as early as 1pm but not earlier") — no sub-1:00 PM time was produced. That
+  booking executes at the 8-day window open (2026-07-24T05:00:00Z); this will
+  be the first live confirmation the fix holds end-to-end. Related commit:
+  19d08a4c "Fixing golf booking" (2026-07-22).
 original-request: Execute golf booking skill step by step for web change verification; update skill as needed for reliable unattended execution
 accumulated-context:
   verified_steps:

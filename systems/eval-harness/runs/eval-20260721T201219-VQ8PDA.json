@@ -7,16 +7,17 @@
   "session_id": "session-2026-07-17-091548",
   "trigger": "unknown",
   "started": "2026-07-21T20:12:19.386949Z",
-  "completed": null,
+  "completed": "2026-07-22T10:55:46.823989",
   "duration_seconds": null,
-  "status": "in-progress",
+  "status": "aborted",
   "steps": [],
   "assessment": {
     "mechanical": {
-      "completed": null,
+      "completed": false,
       "all_steps_finished": null,
       "tool_failures": 0,
-      "error_ids": []
+      "error_ids": [],
+      "abort_reason": "session-ended"
     },
     "structural": {
       "expected_outputs_written": null,

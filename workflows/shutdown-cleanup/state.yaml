@@ -3,21 +3,24 @@ workflow: shutdown-cleanup
 agent: rigby
 status: blocked
 session-started: 2026-07-16T00:00:00
+session-completed: null
 session-id: rigby-2026-07-16-000000
 current-step: step-04-git-commit
 original-request: "Execute shutdown cleanup — session 2026-07-16"
+resolution-note: >
+  2026-07-22 11:45 CT: Verified the original 2026-07-16 blocker was clear — no
+  lock files present, git log showed 8+ commits since, git status ran clean.
+  Marked complete. Then at 2026-07-22 13:12 CT, during this session's actual
+  shutdown commit, the identical failure recurred: .git/index.lock reappeared
+  and could not be removed from this Linux sandbox ("Operation not permitted"),
+  same FUSE-mount write-constraint signature as the original 7/16 block. This is
+  intermittent, not resolved — it clears on its own between sessions but can
+  reassert mid-session. Reverting status to blocked until a commit actually
+  succeeds. Files are safely written to disk via the file-write layer regardless
+  of git state; only the commit itself is affected.
 accumulated-context:
   purge: completed
   organize: completed
-  gitignore: updated
-  git-commit: blocked-by-stale-lock
-  blocker: |
-    Git index.lock and HEAD.lock files persist despite attempts to remove them.
-    These are held by macOS FUSE mount. Linux container cannot remove files
-    on FUSE-mounted filesystem with write constraints from the daemon.
-    Staged changes exist and are ready to commit:
-    - 14 files staged
-    - 2 files unstaged (.gitignore, state.yaml)
-    - 1 untracked file (error entry)
-    Action required: Manual lock removal on macOS or workflow retry from main process.
+  gitignore: verified — DS_Store/fuse_hidden/meetings html already covered, new .DS_Store files present on disk but untracked (git status --ignored confirms)
+  git-commit: blocked-by-recurring-stale-lock
 ---
