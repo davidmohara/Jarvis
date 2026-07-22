@@ -1,98 +1,66 @@
 {
-  "generated_at": "2026-07-14T00:00:00",
+  "generated_at": "2026-07-22T07:45:26.870180",
   "target_weekend": {
-    "friday": "2026-07-24",
-    "saturday": "2026-07-25",
-    "sunday": "2026-07-26"
+    "friday": "2026-07-31",
+    "saturday": "2026-08-01",
+    "sunday": "2026-08-02"
   },
   "day_status": {
     "friday": {
       "status": "unavailable",
-      "reason": "Out of town — Improving AI GMS Summit (July 22-27)."
+      "reason": "DFW Tech Golf Group Outing (10:00 AM - 2:30 PM CT) blocks entire available window. Already golfing Friday afternoon."
     },
     "saturday": {
-      "status": "unavailable",
-      "reason": "Out of town — Improving AI GMS Summit (July 22-27)."
+      "status": "available",
+      "reason": "Clear calendar. Multiple windows available."
     },
     "sunday": {
       "status": "available",
-      "reason": "OVERRIDE: David confirmed home Sunday afternoon. Church constraint waived this week (traveling back from GMS Summit). Earliest tee time 1:00 PM per David's instruction."
+      "reason": "Available 2:30 PM - 5:00 PM CT (after church, before Declan dinner at 5 PM CT)"
     }
   },
   "drought": false,
-  "last_round": "2026-07-12",
-  "days_since_last_round": 2,
+  "heat_streak": true,
+  "heat_streak_note": "5 of 5 preceding days \u226595\u00b0F: Yes",
   "top_options": [
     {
       "rank": 1,
-      "day": "sunday",
-      "date": "2026-07-26",
+      "day": "saturday",
+      "date": "2026-08-01",
       "preferred_start": "13:00",
-      "preferred_end": "14:30",
-      "holes": 18,
-      "cost_per_player": 21,
-      "total_cost": 42,
-      "weather": {
-        "rain_pct": null,
-        "temp_f": null,
-        "wind_mph": null,
-        "condition": "unknown — weather data unavailable for this date range"
-      },
-      "score": 0,
-      "rationale": "Sunday 1:00 PM — David's explicit preference for this week. Church constraint waived (returning from GMS Summit). $21/player, 18 holes."
-    },
-    {
-      "rank": 2,
-      "day": "sunday",
-      "date": "2026-07-26",
-      "preferred_start": "14:00",
+      "preferred_start_label": "1:00 PM",
       "preferred_end": "15:30",
       "holes": 18,
       "cost_per_player": 21,
       "total_cost": 42,
       "weather": {
-        "rain_pct": null,
-        "temp_f": null,
-        "wind_mph": null,
-        "condition": "unknown"
+        "rain_pct": 20,
+        "temp_f": 100,
+        "wind_mph": 11,
+        "condition": "partly cloudy"
       },
-      "score": 3,
-      "rationale": "Sunday 2:00 PM — fallback if 1:00 PM unavailable."
+      "score": 8,
+      "rationale": "Override: Exclude Sunday (Declan dinner). Book Saturday 1:00 PM \u2014 earliest available, $21/player."
     },
     {
-      "rank": 3,
-      "day": "sunday",
-      "date": "2026-07-26",
+      "rank": 2,
+      "day": "saturday",
+      "date": "2026-08-01",
       "preferred_start": "16:00",
-      "preferred_end": "17:30",
+      "preferred_start_label": "4:00 PM",
+      "preferred_end": "18:30",
       "holes": 18,
       "cost_per_player": 15,
       "total_cost": 30,
       "weather": {
-        "rain_pct": null,
-        "temp_f": null,
-        "wind_mph": null,
-        "condition": "unknown"
+        "rain_pct": 12,
+        "temp_f": 99,
+        "wind_mph": 12,
+        "condition": "partly cloudy"
       },
-      "score": 5,
-      "rationale": "Sunday 4:00 PM — $15/player fallback if earlier slots gone."
+      "score": 0,
+      "rationale": "Heat streak preferred (4 PM, $15/player), but overridden for earlier window."
     }
   ],
-  "override_instructions": "THIS WEEK ONLY: Book earliest available at or after 1:00 PM Sunday July 26. Church constraint waived — David returning from GMS Summit. Players: David + Susie O'Hara (41 - Frisco Lakes Total Member). 18 holes. Booking window opens midnight July 18.",
-  "notes": "Friday/Saturday unavailable (GMS Summit). Sunday override per David — 1 PM preferred, work down the ranked list if unavailable.",
-  "booking_result": {
-    "status": "success",
-    "booked_date": "2026-07-26",
-    "booked_day": "Sunday",
-    "booked_time": "12:51 PM",
-    "booked_holes": 18,
-    "booked_cost": 214.34,
-    "booking_number": "5D5K-8O1O",
-    "course": "Frisco Lakes Golf Club",
-    "players": ["David O'Hara", "Susie O'Hara (41 - Frisco Lakes Total Member)"],
-    "calendar_event_created": true,
-    "slack_notification_sent": true,
-    "slack_ts": "1784350969.265909",
-    "notes": "Booked at 12:51 PM — 9 minutes before preferred 1:00 PM start. Excellent availability."
-  }
+  "override_instructions": "Sunday excluded \u2014 Declan's birthday dinner. Book Saturday 1:00 PM (earliest preferred window)."
 }

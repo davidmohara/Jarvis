@@ -2,10 +2,10 @@
   "skill": "golf-preview",
   "agent": "sterling",
   "trigger": "scheduled",
-  "started": "2026-07-21T00:00:00Z",
-  "completed": "2026-07-21T00:05:00Z",
-  "status": "failure",
+  "started": "2026-07-21T07:30:00Z",
+  "completed": "2026-07-22T07:46:00Z",
+  "status": "partial",
   "tool_failures": 1,
-  "error_ids": ["ms365-auth-required"],
-  "notes": "MS365 connector requires authentication. Target weekend calculated (Jul 31 - Aug 2), but cannot proceed with calendar/weather analysis without MS365 access."
+  "error_ids": ["err-20260722T124443-TB8DUO"],
+  "notes": "Calendar analysis, weather evaluation, and heat streak scoring completed successfully. preview-output.json written. Slack notification blocked due to plugin:productivity:slack authentication requirement in non-interactive session. Fallback written to memory/working/golf-preview-2026-07-21.md. Error logged. Skill instructions updated to handle this scenario in future runs."
 }

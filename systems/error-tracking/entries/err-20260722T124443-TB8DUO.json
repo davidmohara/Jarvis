@@ -1,0 +1,15 @@
+{
+  "id": "err-20260722T124443-TB8DUO",
+  "timestamp": "2026-07-22T07:45:00Z",
+  "session": "golf-preview-scheduled-task",
+  "source": "self-detected",
+  "agent": "sterling",
+  "category": "process-skip",
+  "description": "Slack notification blocked due to plugin:productivity:slack requiring authentication. Skill instructions state 'read master-slack skill and send to #golf', but Slack connector unavailable in non-interactive session. Fallback written to working memory but primary deliverable (Slack notification) not sent.",
+  "correction": "The skill should not assume Slack is available during non-interactive scheduled runs. Either (a) pre-authorize all required connectors before scheduling, or (b) build fallback into skill itself that writes to memory and signals a retry.",
+  "failure_mode": "context-blindness",
+  "systemic_fix": "Update golf-preview SKILL.md to explicitly address non-interactive execution: add a note that plugin:productivity:slack must be pre-authenticated, and provide a fallback routine that writes to memory/working/ and logs error to eval harness. Also update the scheduled-task instruction block to verify connector availability before invocation.",
+  "fix_status": "proposed",
+  "severity": "moderate",
+  "related_entries": []
+}

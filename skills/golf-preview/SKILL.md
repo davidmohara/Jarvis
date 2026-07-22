@@ -20,6 +20,7 @@ outputs: {}
 4. If no viable windows exist, still send Slack explaining why — do not silently skip.
 5. Always write output to `workflows/golf-booking/preview-output.json` before sending Slack.
 6. Treat calendar conflicts as hard blocks. Treat weather as a soft block (note it, don't auto-skip unless rain probability > 60%).
+7. **Non-interactive execution (scheduled tasks):** If plugin:productivity:slack is unavailable, write fallback summary to `memory/working/golf-preview-YYYY-MM-DD.md` and log error to `systems/error-tracking/entries/`. Do NOT fail silently.
 
 ---
 
