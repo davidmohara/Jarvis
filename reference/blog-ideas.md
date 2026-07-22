@@ -42,9 +42,9 @@ Running list of potential blog topics. Jarvis captures these proactively from co
 | "The Stack You Chose Last Year Just Became the Right Answer" | Content pipeline (2026-07-14) | AI, business, technology, consulting | Ghost draft — pending approval |
 | "Mississippi Didn't Get Lucky" | Content pipeline (2026-07-15) | growth, leadership, thinking | Ghost draft — pending approval |
 | "The Corrections Are the Leak" | Content pipeline (2026-07-17) | AI, business, systems thinking | Ghost draft — pending approval |
-| "Your SaaS Stack Was Priced for Humans. Now What?" | Watchtower W30 (2026-07-20) [watchtower] | AI, business, systems-thinking, consulting | Draft at `Mind/Posts/_your-saas-stack-was-priced-for-humans.md` |
-| "The Safe Bet Isn't Safe Anymore" | Watchtower W30 (2026-07-20) [watchtower] | AI, business, technology, consulting | Draft at `Mind/Posts/_the-safe-bet-isnt-safe-anymore.md` |
-| "Governance Isn't Your Problem. Uniform Governance Is." | Watchtower W30 (2026-07-20) [watchtower] | AI, business, leadership, consulting, security | Draft at `Mind/Posts/_governance-isnt-your-problem-uniform-governance-is.md` |
+| "Your SaaS Stack Was Priced for Humans. Now What?" | Content pipeline (2026-07-22) | AI, technology, business | Ghost draft — pending approval |
+| "The Safe Bet Isn't Safe Anymore" | Content pipeline (2026-07-22) | AI, technology, business | Ghost draft — pending approval |
+| "Governance Isn't Your Problem. Uniform Governance Is." | Content pipeline (2026-07-22) | AI, technology, leadership | Ghost draft — pending approval |
 | "Abbott Just Changed the Rules. Here's What Texas AI Clients Need to Know." | Watchtower W30 (2026-07-20) [watchtower] | texas, AI, business, infrastructure, policy | Draft at `Mind/Posts/_abbott-just-changed-the-rules-texas-ai-clients.md` |
 
 ## Published (for reference / avoid repeats)
