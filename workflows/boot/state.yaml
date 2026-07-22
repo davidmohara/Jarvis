@@ -1,12 +1,12 @@
 workflow: boot
 agent: master
-status: in-progress
+status: complete
 session-started: "2026-07-21T14:25:49Z"
-session-completed: null
+session-completed: "2026-07-22T11:23:00-05:00"
 session-id: "session-2026-07-21-142549"
-current-step: step-05-synthesize-briefing
+current-step: null
 original-request: boot
-prior-run-note: "Prior run (session-2026-07-17-091548) paused on M365 unavailable. Session resumed 2026-07-21 — M365 MCP now operational. Fresh calendar (36 events) and email (25 messages) pulled."
+prior-run-note: "Resumed 2026-07-22 from step-05 (session had paused mid-briefing on 2026-07-21). Refreshed calendar (23 events, 3-day window) and email (10 msgs, last 24hrs) live via M365 rather than reusing the 2026-07-21 data-pull file, since a full day had elapsed. Boot completed through step-07 verification."
 paused: false
 paused-reason: null
 accumulated-context:

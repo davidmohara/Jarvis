@@ -743,13 +743,89 @@
     "id": "session-2026-07-17-091548",
     "date": "2026-07-17",
     "started": "2026-07-17T09:15:48-05:00",
-    "closed": null,
-    "current_topic": "morning-boot",
+    "closed": "2026-07-21T14:25:49-05:00",
+    "current_topic": null,
     "topics": [
       {
         "topic": "morning-boot",
         "files": [],
-        "loops": []
+        "loops": [
+          {
+            "task": "boot-sequence — never closed out; superseded by session-2026-07-21-142549 which resumed the in-progress boot workflow. Closing retroactively during 2026-07-22 shutdown sweep.",
+            "resolved": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "session-2026-07-21-142549",
+    "started": "2026-07-21T14:25:49-05:00",
+    "closed": "2026-07-22T11:55:00-05:00",
+    "current_topic": null,
+    "topics": [
+      {
+        "name": "santas-wonderland-vision-slide",
+        "loops": [
+          {
+            "task": "Built new slide 3 'The Vision: One Brand, Every Day of the Year' for the Discovery Proposal deck, matched deck's visual style, validated and QA'd, saved back to account folder",
+            "resolved": true
+          }
+        ],
+        "files": [
+          "accounts/Santa's Wonderland/Santa's Wonderland - Discovery Proposal July 2026 - DOH.pptx"
+        ]
+      },
+      {
+        "name": "morning-boot",
+        "loops": [
+          {
+            "task": "Resumed stalled boot from step-05, refreshed calendar/email live, delivered briefing (2 double-bookings flagged, overdue OmniFocus items, 2 missing data files), all 7 steps verified complete",
+            "resolved": true
+          }
+        ],
+        "files": [
+          "workflows/boot/state.yaml",
+          "workflows/boot/steps/step-05-synthesize-briefing.md",
+          "workflows/boot/steps/step-06-scan-workflows.md",
+          "workflows/boot/steps/step-07-verify-completion.md"
+        ]
+      },
+      {
+        "name": "plaud-ingest-correction",
+        "loops": [
+          {
+            "task": "David corrected stale abort report; logged err-20260722T164142-KOFUWY; spawned Knox live; 2 recordings ingested, 1 shared with Alice, 1 Monday task created",
+            "resolved": true
+          }
+        ],
+        "files": [
+          "systems/error-tracking/entries/err-20260722T164142-KOFUWY.json",
+          "workflows/plaud-ingest/state.yaml",
+          "memory/working/2026-07-22-164500-knox-plaud-ingest.md"
+        ]
+      },
+      {
+        "name": "golf-shutdown-verification",
+        "loops": [
+          {
+            "task": "Verified (not just accepted) David's claim that golf-booking and shutdown-cleanup were fixed — both confirmed resolved, state.yaml updated on each with evidence",
+            "resolved": true
+          }
+        ],
+        "files": [
+          "workflows/golf-booking/state.yaml",
+          "workflows/shutdown-cleanup/state.yaml"
+        ]
+      },
+      {
+        "name": "shutdown",
+        "loops": [
+          {
+            "task": "Working memory sweep, eval feedback sweep (daily-review rated 3/neutral), session index closed, committing",
+            "resolved": true
+          }
+        ]
       }
     ]
   }

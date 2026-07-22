@@ -1,0 +1,15 @@
+{
+  "id": "err-20260722T164142-KOFUWY",
+  "timestamp": "2026-07-22T16:41:42Z",
+  "session": "session-2026-07-21-142549",
+  "source": "explicit",
+  "agent": "master",
+  "category": "under-delivery",
+  "description": "Boot briefing reported plaud-ingest as aborted (missing Plaud API token, requires interactive login) based solely on the stale state.yaml note from the 2026-07-21 boot attempt. Never re-attempted the workflow this session before reporting it as blocked.",
+  "correction": "David confirmed plaud-ingest should be run by Knox and works fine. Should have spawned Knox to actually run/retry the workflow live during this boot rather than repeating a prior session's stale failure note as current status.",
+  "failure_mode": "stale-cache",
+  "systemic_fix": "During boot step-01 (Knox fire-and-forget spawn), treat a prior 'aborted' state as a reason to retry, not a reason to skip and report. Only report a data source as unavailable after a fresh attempt fails in the current session.",
+  "fix_status": "proposed",
+  "severity": "moderate",
+  "related_entries": []
+}

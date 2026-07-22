@@ -1,23 +1,28 @@
 ---
 workflow: shutdown-cleanup
 agent: rigby
-status: blocked
+status: complete
 session-started: 2026-07-16T00:00:00
+session-completed: "2026-07-22T13:45:00-05:00"
 session-id: rigby-2026-07-16-000000
-current-step: step-04-git-commit
+current-step: null
 original-request: "Execute shutdown cleanup — session 2026-07-16"
+resolution-note: >
+  Root cause found and fixed 2026-07-22: Master was running git directly via
+  mcp__workspace__bash (the Cowork sandbox) and chaining commands with `&&`,
+  including `git status` — all three are explicitly forbidden in
+  skills/git/SKILL.md precisely because they write orphaned .git/index.lock
+  files the sandbox user cannot unlink. That skill was not being followed. Once
+  Master switched to Desktop Commander (host-side process) with atomic
+  single-command calls per the skill's Session-End Commit Protocol, the commit
+  went through clean on the first try: staged 17 files (commit 34b0f367), push
+  was rejected non-fast-forward, `git pull --rebase origin main` resolved with
+  no conflicts, push succeeded (d493ba5b). The lock issue was never an
+  environmental flake — it was a self-inflicted protocol violation. Logged as
+  err-20260722T182653-2LCKRB.
 accumulated-context:
   purge: completed
   organize: completed
-  gitignore: updated
-  git-commit: blocked-by-stale-lock
-  blocker: |
-    Git index.lock and HEAD.lock files persist despite attempts to remove them.
-    These are held by macOS FUSE mount. Linux container cannot remove files
-    on FUSE-mounted filesystem with write constraints from the daemon.
-    Staged changes exist and are ready to commit:
-    - 14 files staged
-    - 2 files unstaged (.gitignore, state.yaml)
-    - 1 untracked file (error entry)
-    Action required: Manual lock removal on macOS or workflow retry from main process.
+  gitignore: verified
+  git-commit: complete — commit 34b0f367, rebased onto 23fdeb8e, pushed as d493ba5b
 ---

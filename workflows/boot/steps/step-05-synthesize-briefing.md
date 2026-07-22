@@ -1,10 +1,10 @@
 ---
 status: complete
-started-at: "2026-07-15T10:06:00-05:00"
-completed-at: "2026-07-15T10:08:00-05:00"
+started-at: "2026-07-22T11:16:00-05:00"
+completed-at: "2026-07-22T11:20:00-05:00"
 outputs:
   briefing_delivered: true
-  degraded_sources: [morning-briefing-step-03, lead-review, jarvis-inbox, plaud-ingest-auth, boot-instrumentation-measurement]
+  degraded_sources: [delegation-tracker-file-missing, quarterly-objectives-file-missing, clay-reminders-empty, lead-review, jarvis-inbox, plaud-ingest-auth]
 ---
 
 <!-- system:start -->

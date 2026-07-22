@@ -1,11 +1,11 @@
 workflow: plaud-ingest
 agent: knox
-status: aborted
-session-started: "2026-07-15T00:00:00Z"
-session-id: "pi-20260715-001"
-current-step: step-01
+status: complete
+session-started: "2026-07-22T00:00:00Z"
+session-id: "pi-20260722-001"
+current-step: step-05b
 original-request: "Knox: Run plaud-ingest workflow — background task, full pipeline"
-abort-reason: "Plaud API authentication required — no cached token available"
+abort-reason: null
 abort-details: >
   Step-01 (discovery) requires querying the Plaud API. The fetch_plaud.py script
   requires a valid bearer token cached at ~/.config/plaud/token.json. In this
@@ -20,13 +20,43 @@ abort-details: >
     python3 fetch_plaud.py --login
   This will prompt for Plaud credentials and cache the token for future background runs.
 accumulated-context:
-  target-date: "2026-07-15"
-  new-recordings: []
+  target-date: "2026-07-21"
+  new-recordings:
+    - file_id: "2ce34789fc1141fae02008bfd4e070ec"
+      name: "07-21 Casual Conversation: AI Strategy and Be The Bison"
+      date: "2026-07-21"
+      duration_seconds: 1571000
+      has_transcript: true
+      transcript_status: ready
+    - file_id: "824a4e5c19079e84df52dc8585a10836"
+      name: "2026-07-16 09:31:37"
+      date: "2026-07-16"
+      duration_seconds: 488000
+      has_transcript: true
+      transcript_status: ready
   transcription-triggered: []
   pending-recordings: []
-  speaker-mappings: {}
+  speaker-mappings:
+    "2ce34789fc1141fae02008bfd4e070ec":
+      "O'Hara": "David O'Hara"
+      "Speaker 2": "Andrew Rauch"
+    "824a4e5c19079e84df52dc8585a10836": {}
   pending-speaker-mappings: []
-  ready-for-fetch: []
-  staged-files: []
-  ingested-notes: []
-  share-urls: []
+  recording-classification:
+    "2ce34789fc1141fae02008bfd4e070ec": "work"
+    "824a4e5c19079e84df52dc8585a10836": "personal"
+  ready-for-fetch:
+    - "2ce34789fc1141fae02008bfd4e070ec"
+    - "824a4e5c19079e84df52dc8585a10836"
+  staged-files:
+    - "plaud_07-21 Casual Conversation_ AI Strategy and Be The Bison.md"
+    - "plaud_2026-07-16 09_31_37.md"
+  ingested-notes:
+    - "zzPlaud/Improving/2026-07-21 Casual Conversation - AI Strategy and Be The Bison.md"
+    - "zzPlaud/Improving/2026-07-16 FEI Financial Executives - AI Speaking Opportunity.md"
+  share-urls:
+    - file_id: "2ce34789fc1141fae02008bfd4e070ec"
+      title: "Casual Conversation - AI Strategy and Be The Bison"
+      url: "https://web.plaud.ai/s/pub_08c64757-ca34-4d81-8079-c068c628eb97::DGQFnIuwhXgMOILBu34FMSQ26QJeFxzjeai868SuEx0bChqGfQODMla2_PjV9FCBr01CF2relDXgY4QC"
+      monday_task_id: "12601401650"
+      classification: "work"
