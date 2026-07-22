@@ -16,8 +16,11 @@ related_people:
 - stuart
 salience:
   score: 10
-  last-promoted-check: 2026-07-21
+  last-promoted-check: '2026-07-22'
+  promoted: true
 ---
+
+
 # Session Boot — April 26, 2026 (GLC Travel Day)
 
 Sunday boot session. David flew DFW to ORD on AA 2896 (departed 8:49 AM CDT). By briefing time (4:38 PM CDT) he was in Chicago. Dinner at Frontera Grill 6:30 PM.

@@ -19,8 +19,9 @@ related_people:
 - Steve Hall
 salience:
   score: 0
-  last-promoted-check: 2026-07-21
+  last-promoted-check: '2026-07-22'
 ---
+
 # Meeting Coaching Review — Coffee with Steve Hall (2026-07-14)
 
 **This version supersedes the earlier one from today.** That review was built on a vault note explicitly labeled as curated excerpts, about 15 of the meeting's 46 minutes. This one is built on the complete transcript, and it overturns several of the earlier conclusions. Where it does, I say so directly rather than quietly dropping the old point.

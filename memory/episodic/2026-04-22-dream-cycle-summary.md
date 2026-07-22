@@ -7,9 +7,10 @@ tags:
 - git-issues
 related_people: []
 salience:
-  score: 2
-  last-promoted-check: 2026-07-21
+  score: 1
+  last-promoted-check: '2026-07-22'
 ---
+
 # Dream Cycle Summary — 2026-04-22
 
 7 working memory files present, 0 archived, 0 deleted. Single episodic entry scored at 0. No promotions, no compressions. Git index.lock irremovable — pull/commit blocked.

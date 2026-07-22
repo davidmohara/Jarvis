@@ -23,8 +23,11 @@ tags:
 related_people: null
 salience:
   score: 10
-  last-promoted-check: 2026-07-21
+  last-promoted-check: '2026-07-22'
+  promoted: true
 ---
+
+
 # Dream Cycle Summary — 2026-06-30
 
 **Heavier cycle than the past two nights.** Score distribution recovered after fixing a parser bug that had been silently producing 0 scores yesterday.

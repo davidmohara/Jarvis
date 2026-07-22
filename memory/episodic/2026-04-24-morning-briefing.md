@@ -16,9 +16,12 @@ related_people:
 - scott-mcmichael
 - kovacevich
 salience:
-  score: 10
-  last-promoted-check: 2026-07-21
+  score: 5
+  last-promoted-check: '2026-07-22'
+  promoted: true
 ---
+
+
 # Session Working Memory — 2026-04-24 Morning Briefing
 
 ## Data Sources Run

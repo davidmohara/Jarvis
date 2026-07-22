@@ -1,13 +1,37 @@
 ---
-type: working
-task_id: "session"
-session_id: "chase-2026-07-20-000000"
+type: working-archive
+task_id: session
+session_id: chase-2026-07-20-000000
 agent-source: chase
-created: 2026-07-20T00:00:00
-expires: 2026-07-22T00:00:00
-status: active
-context: "Account pursuit map — Charles Schwab — 2026-07-20"
+created: 2026-07-20 00:00:00
+expires: 2026-07-22 00:00:00
+status: archived
+context: Account pursuit map — Charles Schwab — 2026-07-20
+date: 2026-07-20
+source_file: memory/working/account-pursuit-map-2026-07-20-000000.md
+tags:
+- account-pursuit-map
+- chase
+- charles-schwab
+- crm
+- pipeline
+- rock-1
+- microsoft
+- confluent
+related_people:
+- sean-law
+- caleb-jenkins
+- dennis-howard
+- nikhil-sudan
+- bipin-karmacharya
+- biswajit-debdas
+salience:
+  score: 6
+  promoted: true
+  last-promoted-check: '2026-07-22'
 ---
+
+
 
 - First-ever run of `account-pursuit-map` workflow, executed as a comparison draft at `accounts/Schwab/account-plan-pursuit-map-draft.md` — canonical `account-plan.md` untouched, per David's instruction.
 - Engagement shape confirmed **active-but-underleveraged** from CRM evidence (M365/email-surfaced Dynamics notifications: MSA via Zigatta assignment, multiple won ID SOWs, ~$900K–$1M active revenue) — not assumed.

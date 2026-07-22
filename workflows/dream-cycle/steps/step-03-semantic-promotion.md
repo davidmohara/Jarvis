@@ -1,7 +1,7 @@
 ---
 status: complete
-started-at: 2026-07-16T03:40:00-05:00
-completed-at: 2026-07-16T04:10:00-05:00
+started-at: 2026-07-22T03:20:00-05:00
+completed-at: 2026-07-22T03:30:00-05:00
 outputs:
   candidates_count: 7
   clusters_found: 6

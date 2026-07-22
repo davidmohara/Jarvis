@@ -19,8 +19,11 @@ tags:
 related_people: []
 salience:
   score: 10
-  last-promoted-check: 2026-07-21
+  last-promoted-check: '2026-07-22'
+  promoted: true
 ---
+
+
 # Dream Cycle Summary — 2026-06-23
 
 Steady-state run. One new operational semantic pattern emerged (omnifocus); the recurring calendar and pipeline patterns received new evidence.

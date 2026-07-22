@@ -18,8 +18,11 @@ tags:
 related_people: null
 salience:
   score: 10
-  last-promoted-check: 2026-07-21
+  last-promoted-check: '2026-07-22'
+  promoted: true
 ---
+
+
 # Dream Cycle Summary — 2026-05-19
 
 Another quiet run with the same chronic blockers compounding. Archived one expired working entry (dream-summary-2026-05-17) to episodic. 56 episodic entries scored — distribution 0:20, 1:3, 7:1, 10:32. Twenty-third consecutive run with score inflation; the score-10 ceiling absorbed one more briefing overnight and now holds 32 entries.

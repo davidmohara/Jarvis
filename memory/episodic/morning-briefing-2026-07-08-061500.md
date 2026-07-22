@@ -1,64 +1,9 @@
 ---
-task_id: session
-session_id: chief-2026-07-08-061500
-agent-source: chief
-created: 2026-07-08 06:15:00
-expires: 2026-07-10 06:15:00
-context: Morning briefing — 2026-07-08 (scheduled task run)
-status: archived
-type: working-archive
-date: 2026-07-08
-source_file: memory/working/morning-briefing-2026-07-08-061500.md
-tags:
-- briefing
-- chief
-- morning-briefing
-- calendar
-- omnifocus
-- leads
-- travel
-- flight
-- rock4
-- quarterly-rocks
-related_people:
-- alice-mburu
-- devlin
 salience:
-  score: 10
-  last-promoted-check: 2026-07-21
-# Morning Briefing — Wednesday, July 08, 2026
-
-## Data Sources
-- Calendar (M365): pulled successfully (July 8-11, 36 events)
-- OmniFocus: pulled successfully via osascript (inbox, flagged, overdue)
-- Clay: pulled — 0 upcoming reminders, upcoming events checked
-- Delegations tracker: checked — no active delegations logged
-- My Leads.xlsx: pulled successfully via M365 read_resource
-- Jarvis inbox (Outlook folder): checked — empty
-- Plaud staging (~/Downloads/transcript-staging/): checked via osascript — folder does not exist, no staged transcripts
-
-## Calendar Conflicts Surfaced
-- 30-minute overlap: Systemic Compliance/Improving Whiteboard Session (10:00-11:30 AM CT, client, in-person, organizer) vs. Sales Prospecting - Weekly (11:00 AM-12:00 PM CT, tentative)
-
-## Overdue Items Flagged
-- OmniFocus overdue (6): Nick Koury/Maha Abbey (Microsoft) intro to Nada/Lowell (due 7/3), Nick Koury white paper follow-up (due 7/3), Lifebook Career update (due 5/29), Lifebook Health update (due 5/29), Try for KD photos (due 6/28), Review blaze.ai for Kare Devices (due 6/29)
-- Lead-review (Chase workflow): THL — call was 2026-05-13, 56 days post-call, still unassigned in My Leads.xlsx (Overdue tier). Spring Line Advisory — call 2026-06-16, 22 days post-call, still unassigned (Overdue tier, though Devlin Liles informally running point per tracker note)
-- Delegations tracker: empty, no active delegations
-
-## 72-Hour Look-Ahead Flags
-- No conferences, offsites, or travel in the July 8-11 window
-- July 10: 2nd Friday Executive Meeting (leadership, all-hands) and Presidents Pipeline Roundtable both at 9:30/10:00 AM CT — check for overlap
-- No talk/deck prep gaps identified — briefs/ and presentations/ directories have no items tied to this window
-
-## Interruptions / Missing Data
-- workflows/boot/state.yaml: status in-progress since 2026-07-06T14:51:00Z, stalled at step-05-synthesize-briefing — flagged to controller
-- workflows/golf-booking/state.yaml: status in-progress since 2026-07-04T16:45:00Z, stalled at skill-verification (Rigby/Sterling skill build, not blocking) — flagged to controller
-- reviews/daily/auto-2026-07-07.md missing — no daily review logged for yesterday
-- memory/personal/quarterly-objectives.md is stale — still Q2 2026 (Apr-Jun), no Q3 transition; EA Hire flagged "Urgent" despite Alice Mburu active as EA since April 2026
-- Jarvis Outlook folder: empty, no items to process
-- No M365 "flagged" filter available on outlook_email_search; scanned inbox since yesterday for time-sensitive items tied to today's calendar — nothing found requiring same-day action beyond routine threads (FUB compliance notes thread, Alice Mburu scheduling confirmations)
-
+  score: 0
+  last-promoted-check: '2026-07-22'
 ---
+
 
 # Morning Briefing — Wednesday, July 08, 2026
 

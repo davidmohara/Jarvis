@@ -19,8 +19,11 @@ tags:
 related_people: null
 salience:
   score: 10
-  last-promoted-check: 2026-07-21
+  last-promoted-check: '2026-07-22'
+  promoted: true
 ---
+
+
 # Dream Cycle Summary — 2026-06-16
 
 Healthy run with meaningful semantic growth. The system archived two newly-expired working files (the 2026-06-13 dream-cycle-alert and the 2026-06-14 dream summary), scored 112 episodic entries, and promoted 37 of them across eleven clusters. Eight new semantic patterns were created in operational memory (system-maintenance, error-patterns, memory-pipeline, travel, memory-system, semantic-promotion, calendar, and travel-pattern) and three existing patterns were appended (briefing-travel-calendar, pipeline, leads).

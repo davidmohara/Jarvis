@@ -1,75 +1,9 @@
 ---
-type: working-archive
-task_id: session
-session_id: chief-2026-06-18-060923
-agent-source: chief
-created: 2026-06-18 06:09:23
-expires: 2026-06-20 06:09:23
-status: archived
-context: Morning briefing — 2026-06-18
-date: 2026-06-18
-source_file: memory/working/morning-briefing-2026-06-18-060923.md
-tags:
-- briefing
-- chief
-- morning-briefing
-- calendar
-- omnifocus
-- leads
-- travel
-- utb-board
-- email
-- plaud
-related_people:
-- scott-mcmichael
-- robyn-fuentes
-- curtis
-- derek-nwamadi
 salience:
-  score: 10
-  last-promoted-check: 2026-07-21
-# Morning Briefing — Thursday, June 18, 2026
-
-## Data Sources
-- Calendar (M365): pulled successfully
-- OmniFocus: pulled successfully
-- Clay: no upcoming reminders to surface
-- Delegations tracker: no active delegations
-- 72-hour look-ahead: pulled successfully (Sat = Father's Day Outing + Golf with Dad; Sun = Weiser Dinner)
-- Jarvis inbox: empty
-- Plaud staging: directory not found (no staged transcripts)
-- Lead review: My Leads.xlsx not found in jarvis repo — skipped
-
-## Calendar Conflicts Surfaced
-- Sales Scrum (Houston, 10:00 CT) and 1:1 Derek IBP (10:30 CT) are back-to-back — no buffer
-- Leadership Blog Interview and Convergence Retro are at the exact same time (1:30 PM CT) — conflict requiring a decision
-- 4 video calls in the afternoon window
-
-## Overdue Items Flagged
-- CHL renewal — due June 1 (17 days overdue)
-- Lifebook Update: Career — due May 29 (20 days overdue)
-- Lifebook Update: Health — due May 29 (20 days overdue)
-- Kare: Week 2 Instagram, Week 3, Write articles, GA4 review — all due June 6/13 (overdue by 5–12 days)
-- Build Economy deck — due June 13 (5 days overdue)
-- Find label size for KD device — due June 13 (5 days overdue)
-- Multiple Deliberate Practices tasks (account plans, strategic items) overdue June 16–17
-- Identify dates for exec events (Dallas + Houston) — due June 17 (1 day overdue)
-- Build strategic items for AT&T, Kirby Corp — due today June 18
-
-## 72-Hour Look-Ahead Flags
-- Tomorrow (Sat June 19): Father's Day Outing (all day) + Golf with Dad (11 AM–4 PM CT) — personal, no prep needed
-- Sunday (June 20): Hot yoga 8:30 AM CT, Core Session 9:30 AM CT, Weiser Dinner 5 PM CT
-- Monday (June 21): Nothing visible on calendar yet
-- No conference/travel/offsite flags in 72-hour window
-- NOTE: Declan orientation at Texas State ends today (checkout checkout per hotel block end Jun 18) — Drive Block at 8:20 AM CT confirms travel home
-
-## Interruptions / Missing Data
-- Plaud staging directory not found at ~/Downloads/transcript-staging/ — either empty or doesn't exist
-- My Leads.xlsx not in jarvis repo — lead review skipped
-- OmniFocus flagged tasks query returned no results (may be none flagged)
-- Jarvis inbox folder returned no emails
-
+  score: 0
+  last-promoted-check: '2026-07-22'
 ---
+
 
 ## Morning Briefing — Thursday, June 18, 2026
 

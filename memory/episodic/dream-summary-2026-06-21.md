@@ -21,8 +21,11 @@ tags:
 related_people: null
 salience:
   score: 10
-  last-promoted-check: 2026-07-21
+  last-promoted-check: '2026-07-22'
+  promoted: true
 ---
+
+
 # Dream Cycle Summary — 2026-06-21
 
 Steady-state run. No new semantic patterns this cycle, and the recurring git blocker cleared.

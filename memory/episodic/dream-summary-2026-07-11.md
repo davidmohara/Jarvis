@@ -15,8 +15,11 @@ tags:
 related_people: []
 salience:
   score: 10
-  last-promoted-check: 2026-07-21
+  last-promoted-check: '2026-07-22'
+  promoted: true
 ---
+
+
 ## Dream Cycle Summary — 2026-07-11
 
 **Boot:** Git pull hit a small snag — unrelated golf-booking working files (state.yaml, skill-runs json) were unstaged and blocked the rebase, and after stashing them a stale lock pair (`REBASE_HEAD.lock`, `packed-refs.lock`) left over from a prior session blocked the pull entirely. Both were zero-byte and host-owned, so I cleared them manually and the pull went through clean (already up to date). Stash popped without conflict — the golf-booking files are back in place untouched.

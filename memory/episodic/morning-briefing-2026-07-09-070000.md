@@ -1,63 +1,9 @@
 ---
-type: working-archive
-task_id: session
-session_id: chief-2026-07-09-070000
-agent-source: chief
-created: 2026-07-09 07:00:00
-expires: 2026-07-11 07:00:00
-status: archived
-context: Morning briefing — 2026-07-09
-date: 2026-07-09
-source_file: memory/working/morning-briefing-2026-07-09-070000.md
-tags:
-- briefing
-- chief
-- calendar
-- omnifocus
-- systemic-compliance
-- leads
-related_people:
-- robyn-fuentes
-- matt-yasar
-- ken-graham
-- ben-kennedy
 salience:
-  score: 10
-  last-promoted-check: 2026-07-21
-  promoted: true---
-# Morning Briefing — Thursday, July 09, 2026
-
-## Data Sources
-- Calendar (M365): pulled successfully (30 events, today + 3-day look-ahead)
-- OmniFocus: unavailable (Desktop Commander/osascript not available in this environment)
-- Clay: pulled — 0 upcoming reminders, nothing to surface
-- Delegations tracker: read successfully — no active delegations (table empty)
-- Quarterly objectives (memory/personal/quarterly-objectives.md): file not found
-- Watchtower/Knox: not run — sub-agent spawn protocol unavailable in this session
-- Email (M365): pulled successfully — 8 recent inbox items reviewed for flags
-
-## Calendar Conflicts Surfaced
-- Today: back-to-back zero-buffer stretch 10:30 AM–12:30 PM CDT (Robyn 1:1 → Overflow → Technical Deep Dive with Systemic Compliance)
-- Today: 4 video calls before lunch (Sales & Recruiting, Sales Scrum, Robyn 1:1, Technical Deep Dive) — exceeds under-3 video-call preference
-- Friday, July 10, 10:00–11:00 AM CDT: triple-booked — "Ben & David Catch up," YPO "Industry Insights" webinar, and "Presidents Pipeline Roundtable" all overlap. Needs resolution before Friday.
-
-## Overdue Items Flagged
-None from delegation tracker (empty). No OmniFocus data available to check overdue tasks.
-Email-derived action items (not formally tracked): Regulation O board training due 7/23/2026; Legacy Club Plano follow-up sitting since 7/8 (Curtis Hite handed off after his tour); inbound YPO network lead (angel@lightchainventures.com) awaiting response on SMB/server-build scope.
-
-## 72-Hour Look-Ahead Flags
-- Fri 7/10: triple-booked 10:00 AM slot (see above)
-- Sat 7/11: Hot Yoga + Core Session AM, Dinner w/Weisers PM — light day
-- Sun 7/12: Golf at Frisco Lakes 2:30–6:00 PM
-
-## Interruptions / Missing Data
-- OmniFocus unavailable (no Mac osascript access in this environment)
-- Watchtower/Knox daily awareness run not executed (sub-agent spawn protocol unavailable in this session; environment constraint)
-- Plaud transcript staging skipped (no filesystem access to ~/Downloads/transcript-staging)
-- Quarterly objectives file not found at memory/personal/quarterly-objectives.md
-- No reviews/daily/*.md files exist — daily review habit not yet established (per MISSION_CONTROL.md, this is a known gap, not new)
-
+  score: 0
+  last-promoted-check: '2026-07-22'
 ---
+
 
 ## Morning Briefing — Thursday, July 09, 2026
 

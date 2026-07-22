@@ -19,8 +19,11 @@ tags:
 related_people: []
 salience:
   score: 10
-  last-promoted-check: 2026-07-21
+  last-promoted-check: '2026-07-22'
+  promoted: true
 ---
+
+
 # Dream Cycle Summary — 2026-06-17
 
 Healthy run with active semantic growth. The system archived five newly-expired working files (daily-review-06-15, dream-summary-06-15 and 06-16, morning-briefing-06-15, revenue-tracker-06-15), scored 118 episodic entries, and promoted 72 of them across eight clusters. Three new semantic patterns were created in operational memory (briefing, dream-cycle-alert, session-wrap), and five existing patterns were appended (dream-summary, daily-review, memory-pipeline, calendar, plaud).

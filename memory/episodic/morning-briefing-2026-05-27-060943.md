@@ -1,63 +1,9 @@
 ---
-type: working-archive
-task_id: session
-session_id: chief-2026-05-27-060943
-agent-source: chief
-created: 2026-05-27 06:09:43
-expires: 2026-05-29 06:09:43
-status: archived
-context: Morning briefing — 2026-05-27
-date: 2026-05-27
-source_file: memory/working/morning-briefing-2026-05-27-060943.md
-tags:
-- briefing
-- chief
-- morning-briefing
-- calendar
-- omnifocus
-- leads
-- utb-board
-- rock4
-- email
-- plaud
-related_people:
-- devlin
-- curtis
 salience:
-  score: 10
-  last-promoted-check: 2026-07-21
-# Morning Briefing — Wednesday, May 27, 2026
-
-## Data Sources
-- Calendar (M365): unavailable — M365 connector not authenticated (OAuth required)
-- OmniFocus: pulled successfully — 16 inbox items, 3 overdue tasks, ~40+ due this week
-- Clay: pulled — 5 meetings surfaced for today (Sales & Recruiting 9:15, Sales Scrum 9:30, Microsoft Partner GTM 10:00, Sales Prospecting 10:30, Dallas Town Hall 11:30)
-- Delegations tracker: no active delegations
-
-## Calendar Conflicts Surfaced
-Back-to-back block: 9:15–11:30 AM (4 consecutive meetings, no buffer between any of them)
-M365 calendar unavailable — times from Clay only; full attendee context and video links not confirmed
-
-## Overdue Items Flagged
-- Send movie night invite to Amy Carenza, William Floyd, Rebecca Hern — due 2026-05-22, 5 days overdue
-- Connect Amy Carenza with Derek Alley (DSO board) — due 2026-05-22, 5 days overdue
-- Intro Goke to Scott at UTB (financial transaction data) — due 2026-05-22, 5 days overdue
-
-## 72-Hour Look-Ahead Flags
-- Italy trip prep: rental car (Hertz June 2-5) not confirmed — task due May 30
-- Gutteridge blazer shopping list built and ready for Milan store visit
-- Multiple tasks due May 27-30 across account strategic items (Marriott, Tenet, Schwab, etc.)
-- DEXA scan not yet scheduled (BodySpec — due May 29)
-- git push origin main still needed from David's machine (dream cycle committed locally, push blocked)
-
-## Interruptions / Missing Data
-- M365 calendar: unavailable — connector requires authentication. Calendar data pulled from Clay upcoming events instead.
-- Plaud staging directory (~/Downloads/transcript-staging/): not found — no new recordings to process
-- Lead review: M365 not authenticated, could not access My Leads.xlsx or check email threads for post-call status
-- Jarvis inbox (Outlook "Jarvis" folder): M365 not authenticated — skipped
-- Flagged tasks query: OmniFocus MCP returned parameter error (boolean type issue) — flagged tasks not retrieved
-
+  score: 0
+  last-promoted-check: '2026-07-22'
 ---
+
 
 ## Morning Briefing — Wednesday, May 27, 2026
 

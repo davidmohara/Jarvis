@@ -22,8 +22,11 @@ related_people: null
 date: 2026-06-16
 salience:
   score: 10
-  last-promoted-check: 2026-07-21
+  last-promoted-check: '2026-07-22'
+  promoted: true
 ---
+
+
 - Built `skills/shep-1on1-prep/SKILL.md` — canonical 1:1 prep skill with full research sequence (M365 email, calendar, Obsidian, OmniFocus, Teams), pre-write gate, post-write validation checklist, and person-specific data rules for Robyn (South Texas PowerBI) and Don (Dallas PowerBI). Rigby audited and added eval harness SKILL COMPLETE block.
 - Updated `agents/shep.md` and `agents/chief.md` to route 1:1 requests to the new skill. Pending changes logged under `work-20260615-shep-1on1-prep`.
 - Prep sheets produced: Dustin Schaffer (coffee, Ascension Addison), Tim Brackney / Springline Advisory (deal-advancement, SOW in flight), Robyn Fuentes 1:1 (updated with JD Power resolved, South Texas revenue data from cache: -23% vs. target, $2.5M co-sell pipeline, $9.4M Rock 4 gap).

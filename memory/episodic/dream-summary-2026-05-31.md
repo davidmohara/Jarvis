@@ -22,8 +22,11 @@ tags:
 related_people: null
 salience:
   score: 10
-  last-promoted-check: 2026-07-21
+  last-promoted-check: '2026-07-22'
+  promoted: true
 ---
+
+
 # Dream Cycle — 2026-05-31
 
 **Quiet night. Memory consolidation ran clean on the phases that work in this sandbox; git sync remains blocked.**

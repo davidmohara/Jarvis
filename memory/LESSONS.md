@@ -399,3 +399,11 @@ Pattern: Agent proceeds on a wrong assumption about available context rather tha
 Fix: When a step's result is load-bearing (gate for next action), verify the actual output rather than inferring it from the step's success flag. For paths and states, re-read rather than assuming continuity from a prior read. For tool availability, run ToolSearch before declaring a capability absent.
 Status: active
 
+## 2026-07-22 — Missed Context / Lazy Search
+Detected: 3 occurrences over 30 days
+Category: missed-context
+Failure mode: lazy-search
+Pattern: Agent declares something not found after a single search attempt instead of exhausting the 3-strategy minimum. Distinct from context-blindness (not knowing to look) and wrong-assumption (misreading what was found) — here the agent looked once, got no result, and stopped. SYSTEM.md explicitly requires 3 different search strategies before declaring not found.
+Fix: Follow the Search Discipline rule in SYSTEM.md: minimum 3 search strategies before declaring not found. For files: filename, content keyword, directory browse. For calendar: subject, attendee, date range. For contacts: name, email, organization. State all strategies tried when reporting not found.
+Status: active
+

@@ -7,9 +7,10 @@ tags:
 - git-issues
 related_people: []
 salience:
-  score: 2
-  last-promoted-check: 2026-07-21
+  score: 1
+  last-promoted-check: '2026-07-22'
 ---
+
 # Dream Cycle Summary — 2026-04-23
 
 5 working memory files archived (all Apr 20 sessions). 6 episodic entries scored (4 at score 1). No promotions, no compressions. Git index.lock still blocking sync.

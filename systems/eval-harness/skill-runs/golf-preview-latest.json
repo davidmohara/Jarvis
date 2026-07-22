@@ -1,11 +1,11 @@
 {
   "skill": "golf-preview",
-  "agent": "chief",
+  "agent": "sterling",
   "trigger": "scheduled",
-  "started": "2026-07-14T00:00:00",
-  "completed": "2026-07-14T00:10:00",
-  "status": "success",
+  "started": "2026-07-21T00:00:00Z",
+  "completed": "2026-07-21T00:05:00Z",
+  "status": "failure",
   "tool_failures": 1,
-  "error_ids": [],
-  "notes": "Initially no viable windows (GMS Summit). David override: Sunday July 26 afternoon confirmed available. preview-output.json updated with Sunday 4:00 PM as rank 1. Slack failed (sandbox). Working memory override written. Booking window opens midnight July 18."
+  "error_ids": ["ms365-auth-required"],
+  "notes": "MS365 connector requires authentication. Target weekend calculated (Jul 31 - Aug 2), but cannot proceed with calendar/weather analysis without MS365 access."
 }

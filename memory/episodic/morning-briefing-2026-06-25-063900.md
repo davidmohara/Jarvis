@@ -1,59 +1,9 @@
 ---
-type: working-archive
-task_id: session
-session_id: chief-2026-06-25-063900
-agent-source: chief
-created: 2026-06-25 06:39:00
-expires: 2026-06-27 06:39:00
-status: archived
-context: Morning briefing — 2026-06-25
-date: 2026-06-25
-source_file: memory/working/morning-briefing-2026-06-25-063900.md
-tags:
-- briefing
-- morning-briefing
-- calendar
-- omnifocus
-- leads
-- travel
-- one-texas
-- pipeline
-- email
-- plaud
-related_people: []
 salience:
-  score: 10
-  last-promoted-check: 2026-07-21
-# Morning Briefing — Thursday, June 25, 2026
-
-## Data Sources
-- Calendar (M365): pulled successfully — 14 events today
-- OmniFocus: pulled successfully — 3 overdue, 9 due today, 2 inbox items
-- Clay: no upcoming reminders
-- Delegations tracker: no active delegations
-- Yesterday's review: EXISTS (2026-06-24)
-
-## Calendar Conflicts Surfaced
-- 2:00 PM double-booking: One Texas Sales Update AND coaching session run concurrently
-- 8:15 AM Sales & Recruiting overlaps with 8:00 AM Drive Block end
-
-## Overdue Items Flagged
-- Lifebook Update: Career — 27 days overdue (due May 29)
-- Lifebook Update: Health — 27 days overdue (due May 29)
-- Multiple due-today items: account plan reviews (7-11, Schwab, Wendy's), strategic builds (Kirby Corp, AT&T)
-
-## 72-Hour Look-Ahead Flags
-- Friday: Podcast Filming 10:30 AM–12:30 PM (Kristin Johnson, Claudio Lassala, Janine Jeanson) — is this prepped?
-- Friday: Hosting Kazakhstan International Visitors 1:30–3:00 PM — Bethany Hilton coordinating, prep email from June 22
-- Saturday: Jen Heckart's 50th birthday party 7:00–9:00 PM
-
-## Interruptions / Missing Data
-- Jarvis inbox: M365 cannot filter by folder name — skipped
-- Plaud staging: folder does not exist on this machine
-- Content pipeline workflow: in-progress at step-01-discover (Harper)
-- Lead review: not run (no urgent unassigned leads flagged based on available data)
-
+  score: 0
+  last-promoted-check: '2026-07-22'
 ---
+
 
 ## Morning Briefing — Thursday, June 25, 2026
 

@@ -6,8 +6,9 @@ agent-source: jarvis
 type: working-archive
 salience:
   score: 0
-  last-promoted-check: 2026-07-21
+  last-promoted-check: '2026-07-22'
 ---
+
 # Dream Cycle Summary — 2026-06-22
 
 **Session:** `dream-cycle-2026-06-22-080933`

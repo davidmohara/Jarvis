@@ -23,8 +23,11 @@ related_people:
 - david-ohara
 salience:
   score: 10
-  last-promoted-check: 2026-07-21
+  last-promoted-check: '2026-07-22'
+  promoted: true
 ---
+
+
 ## What was requested
 David asked Jarvis to take the 4 content ideas Watchtower surfaced this week (from Obsidian) and feed them into the #content Slack channel so the content-discovery pipeline can turn them into blog drafts.
 

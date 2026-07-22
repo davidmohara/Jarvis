@@ -32,8 +32,11 @@ related_people:
 - susie-ohara
 salience:
   score: 10
-  last-promoted-check: 2026-07-21
+  last-promoted-check: '2026-07-22'
+  promoted: true
 ---
+
+
 ## What was requested and produced
 
 Automated scheduled morning briefing (David not present). Ran full boot sequence (identity files, master.md, routing.md), confirmed no in-flight workflows (no state.yaml files found under any workflows/*/ directory), then executed the extended morning-briefing scope: calendar (today + 72hr look-ahead), OmniFocus tasks, Plaud transcript staging check, lead review, email triage, Jarvis inbox scan, and Clay reminders/events. Synthesized findings and sent via master-slack skill to #jarvis (C0AN2PQNXBR). Confirmed post: ts 1783077132.663359.

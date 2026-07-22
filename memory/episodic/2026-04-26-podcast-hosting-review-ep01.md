@@ -1,29 +1,9 @@
 ---
-agent: harper
-type: content-review
-subject: The Improving Edge — Hosting Self-Review
-episode: 1
-status: reviewed
-date: 2026-04-26
-source_file: memory/working/2026-04-26-podcast-hosting-review-ep01.md
-tags:
-- calendar
-- omnifocus
-- podcast
-- harper
-related_people: null
 salience:
-  score: 10
-  last-promoted-check: 2026-07-21
-# Podcast Hosting Review — The Improving Edge, Episode 1
-
-**Episode:** "Agentic AI: From Demo to Durable Advantage"
-**Guest:** Kevin Jordane (Technical Director, Improving AI Practice)
-**Published:** April 9, 2026
-**URL:** https://www.youtube.com/watch?v=2WVIlE84RCg
-**Reviewed:** April 26, 2026
-
+  score: 0
+  last-promoted-check: '2026-07-22'
 ---
+
 
 ## What Worked
 

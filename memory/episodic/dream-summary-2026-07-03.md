@@ -20,8 +20,11 @@ tags:
 related_people: null
 salience:
   score: 10
-  last-promoted-check: 2026-07-21
+  last-promoted-check: '2026-07-22'
+  promoted: true
 ---
+
+
 # Dream cycle 2026-07-03 — quick read for Chief
 
 **Session:** dream-cycle-2026-07-03-030901

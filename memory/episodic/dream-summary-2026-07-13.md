@@ -15,8 +15,11 @@ tags:
 related_people: []
 salience:
   score: 10
-  last-promoted-check: 2026-07-21
+  last-promoted-check: '2026-07-22'
+  promoted: true
 ---
+
+
 ## Dream Cycle Summary — 2026-07-13
 
 **Boot:** Clean pull, already up to date, no locks.

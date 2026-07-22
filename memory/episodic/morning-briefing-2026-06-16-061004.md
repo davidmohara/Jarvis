@@ -1,74 +1,9 @@
 ---
-type: working-archive
-task_id: session
-session_id: chief-2026-06-16-061004
-agent-source: chief
-created: 2026-06-16 06:10:04
-expires: 2026-06-18 06:10:04
-status: archived
-context: Morning briefing — 2026-06-16
-date: 2026-06-16
-source_file: memory/working/morning-briefing-2026-06-16-061004.md
-tags:
-- morning-briefing
-- briefing
-- calendar
-- omnifocus
-- rock4
-- rock1
-- plaud
-- co-sell
-- leads
-- 1-on-1
-related_people: []
 salience:
-  score: 10
-  last-promoted-check: 2026-07-21
-# Morning Briefing — Tuesday, June 16, 2026
-
-## Data Sources
-- Calendar (M365): pulled successfully
-- OmniFocus: pulled successfully (overdue tasks available; inbox AppleScript syntax error — count unavailable)
-- Clay: not queried (not relevant to surface)
-- Delegations tracker: no active delegations
-- Lead tracker (OneDrive): pulled successfully — 5 unassigned leads identified
-
-## Calendar Conflicts Surfaced
-- Sales & Recruiting (9:15 AM) runs directly into Presidents Sales All Hands (9:30 AM) — back-to-back, no buffer
-- Presidents Sales All Hands (9:30) runs into Houston Sales Scrum (10:00) — 3 consecutive video calls
-- Spring Line Advisory (3:00 PM) → Overflow (3:30) — tight but buffered
-- ⚠️ 3+ video calls in the afternoon cluster (9:15 AM–11:00 AM CDT) — exceeds preference
-
-## Overdue Items Flagged
-- CHL renewal — overdue since Jun 1 (15 days)
-- Build Economy deck — overdue since Jun 13 (3 days)
-- Lifebook Update (Career & Health) — overdue since May 29 (18 days)
-- Clear OmniFocus inbox — overdue since Apr 16 (61 days)
-- Kare Devices cluster — 9 tasks overdue since Jun 6–13
-- Find label size for KD device — overdue since Jun 13
-- Review Blaze.ai for Kare Devices — overdue since Jun 13
-
-## Unassigned Leads (no "Passed To")
-- Alcon — Apr 2025 (unassigned 14+ months — likely stale/dead)
-- AECom — Nov 4, 2025 (7+ months unassigned)
-- Integrated Financial Settlements — Feb 4, 2026 (4+ months)
-- Cardinal IT Solutions (Kashif) — Feb 13, 2026 (4+ months)
-- Birgo — Apr 6, 2026 (10 weeks)
-- THL — May 13, 2026 (5 weeks — post-call, Plaud transcript exists)
-- Paragon Brokerage — Feb 17, 2026 (4 months, no AM listed)
-
-## 72-Hour Look-Ahead Flags
-- **Tomorrow (Wed Jun 17):** UTB Board of Directors Meeting 1:30–4:30 PM CDT — prep status unknown. Sales Prospecting Weekly (10:30 AM) + yWhales Deep Dive (10:30 AM) conflict.
-- **Thursday Jun 18:** Leadership Blog Interview with Shelby Stephens (1:30 PM) + Convergence Conference Retro (1:30 PM) — direct conflict. 1:1 with Scott McMichael (2:00 PM). Friday Weekly Wrap w/ Alice (3:00 PM). David & Cole Call (4:00 PM, cestrate@x.ai — xAI?).
-- Declan Orientation at Texas State ends Thu Jun 18.
-
-## Interruptions / Missing Data
-- OmniFocus inbox count unavailable (AppleScript syntax error on flattened inbox tasks)
-- No flagged tasks returned (may indicate none flagged, or timeout)
-- No Plaud transcripts in staging — nothing to process
-- Jarvis folder email search returned no results (folder may be empty or misnamed)
-
+  score: 0
+  last-promoted-check: '2026-07-22'
 ---
+
 
 ## Morning Briefing — Tuesday, June 16, 2026
 

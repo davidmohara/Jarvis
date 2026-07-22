@@ -21,8 +21,11 @@ related_people:
 - stuart
 salience:
   score: 10
-  last-promoted-check: 2026-07-21
+  last-promoted-check: '2026-07-22'
+  promoted: true
 ---
+
+
 # Morning Briefing — May 1, 2026 (Post-Travel Friday)
 
 First post-GLC live session. OmniFocus working (35 tasks). Full day packed: chiro, coffee chat, S&R, 1st Friday Exec, Scott Q1 close-out, Stuart lunch at Ida Claire, weekly wrap-up, Randy McCabe call.

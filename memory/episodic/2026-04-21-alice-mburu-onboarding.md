@@ -17,8 +17,9 @@ related_people:
 - brad-mcknight
 salience:
   score: 0
-  last-promoted-check: 2026-07-21
+  last-promoted-check: '2026-07-22'
 ---
+
 # April 21, 2026 — Alice Mburu Onboarding Session
 
 ## Key Accomplishments

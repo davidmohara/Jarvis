@@ -11,8 +11,11 @@ tags:
 related_people: []
 salience:
   score: 10
-  last-promoted-check: 2026-07-21
+  last-promoted-check: '2026-07-22'
+  promoted: true
 ---
+
+
 # Dream Cycle Summary — 2026-05-03
 
 Archived 1 expired working memory entry (May 2 dream summary). 27 episodic entries scored with 7 updates. Score inflation worsening: 15 of 27 entries at score 9-10. Scoring algorithm is functionally undiscriminating for briefing/travel-tagged entries.

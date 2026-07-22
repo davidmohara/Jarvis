@@ -5,8 +5,9 @@ archived-from: memory/working/2026-06-12-session-wrap.md
 type: working-archive
 salience:
   score: 0
-  last-promoted-check: 2026-07-21
+  last-promoted-check: '2026-07-22'
 ---
+
 # Session Wrap — June 12, 2026
 
 ## What Got Done

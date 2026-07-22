@@ -24,8 +24,11 @@ related_people:
 - robyn
 salience:
   score: 10
-  last-promoted-check: 2026-07-21
+  last-promoted-check: '2026-07-22'
+  promoted: true
 ---
+
+
 Ran scheduled morning briefing. No in-progress workflows found to resume. Delegation tracker empty.
 
 Gathered: today's calendar (M365, 3-day window through 7/17), OmniFocus inbox (21 items)/overdue (9 real items, 3 nerve-block tasks correctly dropped)/due-soon, Clay upcoming events (cross-check), inbox email scan (no urgent same-day items beyond Athena invoice 7 days past due), Jarvis email folder (empty).

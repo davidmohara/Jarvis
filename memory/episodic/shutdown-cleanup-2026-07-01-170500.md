@@ -19,8 +19,11 @@ related_people:
 - david-ohara
 salience:
   score: 10
-  last-promoted-check: 2026-07-21
+  last-promoted-check: '2026-07-22'
+  promoted: true
 ---
+
+
 - Committed 103 files (768ef77): working-memory TTL archival (7 archived to episodic, 78 trivial moved to `archive/working-cleanup-2026-07-01-pending-delete/`), Systemic Compliance and GeniusSpark refiling, daily-review capture, reMarkable push-artifact purge (Rex Miller lunch prep PDF, GeniusSpark PDF, Systemic Compliance PDF). Not pushed to remote (not requested).
 - Purged two stray test files pre-commit: `memory/episodic/testfile.md` and `archive/.../_sync_test.md`.
 - Cleared a stale `.git/index.lock` before the commit sequence (recurring known issue — sandbox bash must never touch git, host process only).

@@ -25,8 +25,11 @@ related_people:
 - devlin
 salience:
   score: 10
-  last-promoted-check: 2026-07-21
+  last-promoted-check: '2026-07-22'
+  promoted: true
 ---
+
+
 # Boot Data Summary — Tuesday May 12, 2026
 
 ## Data Sources

@@ -3,7 +3,7 @@ type: semantic
 domain: operational
 confidence: low
 created: 2026-07-20
-last-updated: 2026-07-20
+last-updated: 2026-07-22
 tags:
   - q3-rocks
   - rocks
@@ -14,6 +14,7 @@ synthesized-from:
   - memory/episodic/daily-review-2026-07-16-000000.md
   - memory/episodic/daily-review-2026-07-17-000000.md
   - memory/episodic/morning-briefing-2026-07-14-083505.md
+  - memory/working/daily-review-2026-07-21-000000.md
 agent-source: dream-cycle
 ---
 
@@ -30,6 +31,8 @@ Q3 quarterly rocks (EOS-style 90-day objectives) have not been written as of mid
 - 2026-07-15: daily-review-2026-07-15-060000.md — "Q3 rocks still unwritten (three weeks into quarter); quarterly-objectives file last updated April 23"
 - 2026-07-16: daily-review-2026-07-16-000000.md — tags include rocks, rock-4, quarterly-planning; Rock 4 activity continuing without written Q3 objectives
 - 2026-07-17: daily-review-2026-07-17-000000.md — "Q3 rocks still not written — quarterly objectives file last updated April 23, still reflects Q2"
+
+- 2026-07-21: daily-review-2026-07-21-000000.md — Chief daily review notes "Q3 rocks not yet captured in quarterly-objectives.md — meaningful gap at July 21"; dream-cycle log from 07-20 also flagged same. Now 5 weeks into Q3 with no written objectives. AI Summit (2026-07-24) presentation content also unresolved — David's prep block didn't land on a topic.
 
 ## Implications
 

@@ -15,8 +15,9 @@ related-entities:
 agent-source: rigby
 salience:
   score: 0
-  last-promoted-check: '2026-07-20'
+  last-promoted-check: '2026-07-22'
 ---
+
 ## Error Improvement Cycle — 2026-03-21 to 2026-05-27
 
 Rigby ran the full error-improvement workflow on 2026-05-27. This was the inaugural run of the newly built workflow. The active log contained 127 entries spanning 2026-03-21 to 2026-05-27, with 8 distinct patterns identified across 6 categories.

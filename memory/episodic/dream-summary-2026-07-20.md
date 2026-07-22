@@ -1,22 +1,28 @@
 ---
-type: working
+type: working-archive
 agent-source: jarvis
-created: 2026-07-20T03:45:00
+created: 2026-07-20 03:45:00
 expires: 2026-07-21
-status: active
-context: "Dream cycle summary — 2026-07-20"
+status: archived
+context: Dream cycle summary — 2026-07-20
+date: 2026-07-20
+source_file: memory/working/dream-summary-2026-07-20.md
 tags:
-  - dream-summary
-  - jarvis
-  - dream-cycle
-  - semantic-promotion
-  - q3-rocks
-  - health
-  - systemic-compliance
+- dream-summary
+- jarvis
+- dream-cycle
+- semantic-promotion
+- q3-rocks
+- health
+- systemic-compliance
+related_people: []
 salience:
-  score: 0
-  promoted: false
+  score: 10
+  promoted: true
+  last-promoted-check: '2026-07-22'
 ---
+
+
 
 Dream cycle ran cleanly tonight (07-20). Three new semantic patterns emerged:
 

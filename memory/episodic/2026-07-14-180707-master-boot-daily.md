@@ -26,8 +26,11 @@ related_people:
 - devlin
 salience:
   score: 10
-  last-promoted-check: 2026-07-21
+  last-promoted-check: '2026-07-22'
+  promoted: true
 ---
+
+
 ## What Was Done
 
 - Full boot sequence run. Three errors logged: Plaud ingest skipped, OOO status fabricated from stale Belcher calendar block, time-gap calculated without anchoring to real clock.

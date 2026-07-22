@@ -19,8 +19,11 @@ related_people:
 - dream-cycle
 salience:
   score: 10
-  last-promoted-check: 2026-07-21
+  last-promoted-check: '2026-07-22'
+  promoted: true
 ---
+
+
 # Dream Cycle — 2026-06-28
 
 Standard nightly run, completed cleanly with one self-correction.

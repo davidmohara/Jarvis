@@ -16,9 +16,11 @@ tags:
 related_people: []
 salience:
   score: 10
-  last-promoted-check: 2026-07-21
-  promoted: false
+  last-promoted-check: '2026-07-22'
+  promoted: true
 ---
+
+
 ## Dream Cycle Summary — 2026-07-17
 
 **Clean, quiet run.** Boot pulled cleanly via Desktop Commander (fast-forward, 20 files), stashing and restoring Chief's in-flight daily-review state with zero conflicts.

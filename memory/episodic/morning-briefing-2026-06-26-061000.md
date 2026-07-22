@@ -1,75 +1,9 @@
 ---
-type: working
-task_id: session
-session_id: chief-2026-06-26-061000
-agent-source: chief
-created: 2026-06-26 06:10:00
-expires: 2026-06-28 06:10:00
-status: archived
-context: Morning briefing — 2026-06-26
-date: 2026-06-26
-source_file: memory/working/morning-briefing-2026-06-26-061000.md
-tags:
-- briefing
-- chief
-- morning-briefing
-- calendar
-- omnifocus
-- leads
-- rock3
-- rock4
-- quarterly-rocks
-- revenue
-related_people:
-- alice-mburu
-- scott-mcmichael
-- devlin
-- tim-rayburn
-- curtis
 salience:
-  score: 10
-  last-promoted-check: 2026-07-21
-# Morning Briefing — Friday, June 26, 2026
-
-## Data Sources
-- Calendar (M365): pulled successfully
-- OmniFocus: pulled successfully (via osascript)
-- Clay: unavailable — not checked
-- Delegations tracker: no active delegations
-- Jarvis inbox: no items found in Jarvis folder
-- Plaud staging: empty
-
-## Calendar Conflicts Surfaced
-- Xero Workshop (4:00 PM CT) and Friday Weekly Wrap-Up (4:20 PM CT) overlap — 20-minute gap but back-to-back with no buffer from Podcast Filming
-- 5 video calls today (State of AI, Dallas Coffee Chat, Sales & Recruiting, 4th Friday Exec, Presidents Pipeline) — exceeds 3-call threshold
-
-## Overdue Items Flagged
-- Lifebook Update: Career — overdue since May 29, 2026
-- Lifebook Update: Health — overdue since May 29, 2026
-- Forgiveness Letter — Q2 personal retreat item, end-of-June deadline approaching
-
-## Leads — Unassigned Post-Call
-- Integrated Financial Settlements (logged 4-Feb 2026) — notes say "awaiting AM assignment" as of 2026-06-22 — overdue
-- Cardinal IT Solutions / Kashif (logged 13-Feb 2026) — blank, no note
-- Paragon Brokerage (logged 17-Feb 2026) — blank, no note
-- Birgo (logged 6-Apr 2026) — blank, no note
-- THL (logged 13-May 2026) — blank, partial entry
-- Spring Line Advisory (logged 12-Jun 2026) — Devlin running point, waiting on response
-
-## 72-Hour Look-Ahead Flags
-- Sat Jun 27: Strength Flow (yoga) @ 8 AM CT — personal
-- Sat Jun 28: Jen Heckart's 50th birthday (8 PM CT @ Pete's Dueling Piano Bar, Frisco) + Alyssa baptism (9 AM CT)
-- Mon Jun 29: Ryan Suchala lunch @ Mexican Sugar (11:30 AM CT) — external relationship meeting; Schwab & Constellation work block (2:30–4 PM CT); IBP Coaching back-to-back (1:30 PM & 2 PM CT)
-
-## Interruptions / Missing Data
-- OmniFocus flagged tasks returned empty (zero flagged) — only 2 overdue tasks found
-- Inbox: 169 items (high)
-- Jarvis folder empty — no routed items
-
-## AI Proposal Active Thread
-- Blake McMillan ran 4-hour workshop yesterday with Tim Rayburn — flagged timing concerns (task build barely completed). Scott Poulin echoed concerns. Devlin says overshooting on cost ($40k prep + $75k session). Thread unresolved — needs David's direction before it stalls.
-
+  score: 0
+  last-promoted-check: '2026-07-22'
 ---
+
 
 ## Morning Briefing — Friday, June 26, 2026
 

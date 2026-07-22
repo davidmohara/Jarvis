@@ -19,8 +19,11 @@ related_people:
 - sam-dobbins
 salience:
   score: 10
-  last-promoted-check: 2026-07-21
+  last-promoted-check: '2026-07-22'
+  promoted: true
 ---
+
+
 # Morning Briefing — April 23, 2026 (Midnight Run)
 
 ## Calendar Highlights

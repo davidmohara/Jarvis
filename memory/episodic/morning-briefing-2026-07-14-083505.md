@@ -1,60 +1,9 @@
 ---
-type: working-archive
-task_id: session
-session_id: chief-2026-07-14-083505
-agent-source: chief
-created: 2026-07-14 08:35:05
-expires: 2026-07-16 08:35:05
-status: archived
-context: Morning briefing — 2026-07-14
-date: 2026-07-14
-source_file: memory/working/morning-briefing-2026-07-14-083505.md
-tags:
-- briefing
-- chief
-- calendar
-- omnifocus
-- mcmichael
-- q3-rocks
-- health
-related_people:
-- scott-mcmichael
-- steve-hall
-- nathan-walters
-- diana-stevens
 salience:
-  score: 10
-  last-promoted-check: 2026-07-21
-  promoted: true---
-# Morning Briefing — Tuesday, July 14, 2026
-
-## Data Sources
-- Calendar (M365): pulled successfully (live query, not cached calendar-unified.json which was stale from Jul 1)
-- OmniFocus: unavailable — MCP tool threw parameter deserialization errors (`invalid type: string "50", expected i32` / `invalid type: string "true", expected a boolean`) on get_inbox, list_tasks (overdue, due_soon, flagged). Not the known completion-status quirk — a harder failure. Desktop Commander/osascript path also unavailable since this session runs in an isolated cloud sandbox with no route to David's Mac.
-- Clay: pulled — 0 upcoming reminders, 0 birthdays in next 7 days, upcoming events cross-referenced into calendar context
-- Delegations tracker: read — Active Delegations table is empty ("none"). No overdue delegations.
-- Quarterly objectives: read — file still shows Q2 2026 (Apr-Jun), last-updated 2026-04-23, review-by 2026-07-15 (tomorrow). Confirms yesterday's daily-review flag that Q3 rocks are not yet documented.
-
-## Calendar Conflicts Surfaced
-None severe. Drive block at 15:40-16:00 UTC (10:40-11:00 local) sits right before the McMichael call — noted as not real buffer. No 3+ video call cluster.
-
-## Overdue Items Flagged
-Could not pull from OmniFocus this run (tool failure — see Data Sources). Per yesterday's daily review (auto-2026-07-13.md): 12-item overdue cluster including nerve block decision (Dr. Easton, pain log, gabapentin — overdue since July 9), Lifebook pillars for Career and Health (6 weeks overdue), book ideation slipped, Q3 rocks undocumented.
-
-## 72-Hour Look-Ahead Flags
-- Jul 15: heavy day — AI Visionaries meeting, 2x Sales Scrum, Microsoft Partner GTM Check In, Executive AI Training Session 5/6 (2hrs), UTB Board Meeting (1.5hrs), dinner with Spinks
-- Jul 16: Sales & Recruiting Meeting
-- Jul 17-19: "Horner visit" (all-day, no other detail)
-- No major conferences/offsites in this window requiring separate talk-prep check
-
-## Interruptions / Missing Data
-- OmniFocus: unavailable (tool error, not timeout)
-- Plaud transcript staging (~/Downloads/transcript-staging/): not reachable — Mac-local path, no osascript/Desktop Commander bridge from this sandbox
-- Lead review (My Leads.xlsx): file not found via search; workflow requires M365 file URI read_resource call not attempted since file existence unconfirmed
-- Jarvis inbox folder: scanned via M365 email search, folder appears empty or inaccessible by that exact name (no results returned, no error) — treating as no actionable items rather than asserting folder state confidently
-- master-slack skill: not invoked — this is a manual/interactive-adjacent run in Cowork, not a true headless scheduled-task delivery channel; briefing delivered directly in this response instead
-
+  score: 0
+  last-promoted-check: '2026-07-22'
 ---
+
 
 ## Morning Briefing — Tuesday, July 14, 2026
 
