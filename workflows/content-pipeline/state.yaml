@@ -1,12 +1,12 @@
 ---
 status: complete
-started-at: 2026-07-22T06:07:00Z
-completed-at: 2026-07-22T06:13:10Z
+started-at: 2026-07-23T06:07:35Z
+completed-at: 2026-07-23T06:07:43Z
 outputs:
-  messages_scanned: 5
+  messages_scanned: 4
   urls_found: 0
-  digests_found: 3
-  drafts_created: 3
-  outcome: "SUCCESS: Three Watchtower W30 digests processed via DIGEST PATH. Posts created in Ghost as drafts with CDN-hosted images and real tags. Slack notifications posted to #content for all three."
+  digests_found: 0
+  drafts_created: 0
+  outcome: "SUCCESS: No new URLs or digests in the last 24 hours. All messages were bot operational updates. Posted 'no new content' notification to #content."
   pending_drafts: 8
 model: sonnet
