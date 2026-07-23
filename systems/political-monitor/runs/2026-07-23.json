@@ -1,0 +1,557 @@
+{
+  "generated": "2026-07-23T07:15:00Z",
+  "window_hours": 72,
+  "counts": {
+    "total_items": 65,
+    "by_lean": {
+      "left": 31,
+      "right": 31,
+      "center": 3
+    },
+    "shared_topics": 5,
+    "gap_left": 5,
+    "gap_right": 5
+  },
+  "sources_used": [
+    {
+      "id": "msnbc",
+      "name": "MSNBC",
+      "lean": "left"
+    },
+    {
+      "id": "cnn",
+      "name": "CNN Politics",
+      "lean": "left"
+    },
+    {
+      "id": "nbc",
+      "name": "NBC News Politics",
+      "lean": "left"
+    },
+    {
+      "id": "thehill",
+      "name": "The Hill",
+      "lean": "left"
+    },
+    {
+      "id": "axios",
+      "name": "Axios Politics",
+      "lean": "left"
+    },
+    {
+      "id": "dailybeast",
+      "name": "The Daily Beast",
+      "lean": "left"
+    },
+    {
+      "id": "slate",
+      "name": "Slate",
+      "lean": "left"
+    },
+    {
+      "id": "newrepublic",
+      "name": "The New Republic",
+      "lean": "left"
+    },
+    {
+      "id": "foxnews",
+      "name": "Fox News Politics",
+      "lean": "right"
+    },
+    {
+      "id": "natreview",
+      "name": "National Review",
+      "lean": "right"
+    },
+    {
+      "id": "examiner",
+      "name": "Washington Examiner",
+      "lean": "right"
+    },
+    {
+      "id": "federalist",
+      "name": "The Federalist",
+      "lean": "right"
+    },
+    {
+      "id": "dailywire",
+      "name": "The Daily Wire",
+      "lean": "right"
+    },
+    {
+      "id": "breitbart",
+      "name": "Breitbart",
+      "lean": "right"
+    },
+    {
+      "id": "townhall",
+      "name": "Townhall",
+      "lean": "right"
+    },
+    {
+      "id": "rcp",
+      "name": "RealClearPolitics",
+      "lean": "right"
+    },
+    {
+      "id": "amconserv",
+      "name": "The American Conservative",
+      "lean": "right"
+    },
+    {
+      "id": "spectator",
+      "name": "The American Spectator",
+      "lean": "right"
+    },
+    {
+      "id": "freepress",
+      "name": "The Free Press",
+      "lean": "center"
+    }
+  ],
+  "sources_muted": [
+    {
+      "id": "nyt",
+      "name": "New York Times",
+      "lean": "left",
+      "reason": "accessible: false"
+    },
+    {
+      "id": "wapo",
+      "name": "Washington Post",
+      "lean": "left",
+      "reason": "accessible: false"
+    },
+    {
+      "id": "politico",
+      "name": "Politico",
+      "lean": "left",
+      "reason": "accessible: false"
+    },
+    {
+      "id": "vox",
+      "name": "Vox Politics",
+      "lean": "left",
+      "reason": "accessible: false"
+    },
+    {
+      "id": "motherjones",
+      "name": "Mother Jones",
+      "lean": "left",
+      "reason": "accessible: false"
+    },
+    {
+      "id": "wsj_opinion",
+      "name": "WSJ Opinion",
+      "lean": "right",
+      "reason": "accessible: false"
+    },
+    {
+      "id": "nypost",
+      "name": "New York Post",
+      "lean": "right",
+      "reason": "accessible: false"
+    },
+    {
+      "id": "reuters",
+      "name": "Reuters Politics",
+      "lean": "center",
+      "reason": "accessible: false"
+    },
+    {
+      "id": "ap",
+      "name": "Associated Press",
+      "lean": "center",
+      "reason": "accessible: false"
+    },
+    {
+      "id": "bbc",
+      "name": "BBC US & Canada",
+      "lean": "center",
+      "reason": "accessible: false"
+    }
+  ],
+  "shared_topics": [
+    {
+      "topic_key": "trump-dignified-transfer-iran-war-2026-07-23",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New \u2014 first appearance",
+      "title": "Trump Attends Dignified Transfer Amid Iran War Escalation",
+      "summary": "President Trump attended the dignified transfer ceremony at Dover Air Force Base for four US service members killed in the Iran war \u2014 three in Jordan and one in Iraq \u2014 as the conflict entered its 12th night of consecutive strikes and the death toll reached 18. The Pentagon simultaneously disclosed that nearly 100 service members have been injured this month, though 96% have returned to duty. The ceremony came as Trump faces increasing Congressional and public scrutiny over the war's trajectory.",
+      "left": {
+        "framing": "Left-leaning outlets emphasize the human cost and transparency failures alongside the ceremonial moment. CNN published a concurrent analysis piece \u2014 'When US troops die, Trump often reaches quickly for politics' \u2014 documenting Trump's pattern of inserting casualties into political messaging. NBC and CNN both highlighted the Pentagon's slow disclosure of injury numbers, with CNN reporting the military cited 'security needs' to withhold data. The dignified transfer is covered with gravity but is editorially framed as part of a troubled war the public was never fully informed about.",
+        "sources": [
+          {
+            "name": "CNN Politics",
+            "url": "https://www.cnn.com/2026/07/22/politics/video/trum-transfer-digvid"
+          },
+          {
+            "name": "CNN \u2014 Analysis: Trump Often Reaches for Politics",
+            "url": "https://www.cnn.com/2026/07/21/politics/trump-comments-troop-deaths"
+          },
+          {
+            "name": "NBC News",
+            "url": "https://www.nbcnews.com/politics/trump-administration/live-blog/trump-dignified-transfer-service-members-iran-congress-election-rcna588638"
+          }
+        ]
+      },
+      "right": {
+        "framing": "Right-leaning outlets cover the ceremony as a solemn display of presidential leadership and honor for fallen soldiers. Fox News leads with Trump's personal presence at Dover, framing it as a commander-in-chief fulfilling his duty. Coverage of concurrent strikes emphasizes CENTCOM's operational success in the Strait of Hormuz and Trump's resolve in the face of Iranian aggression, presenting the war as necessary and progress as being made.",
+        "sources": [
+          {
+            "name": "Fox News \u2014 Iran War Live Updates",
+            "url": "https://www.foxnews.com/live-news/iran-war-trump-israel-hormuz-july-14-2026"
+          }
+        ]
+      },
+      "correlation": 62,
+      "correlation_label": "Agree on the facts of the ceremony; diverge on framing Trump's political conduct around troop casualties"
+    },
+    {
+      "topic_key": "iran-war-cost-transparency-hegseth-testimony",
+      "days_seen": 2,
+      "relevance": 70,
+      "relevance_label": "Recurring \u2014 day 2",
+      "title": "Iran War Hits $37.5B: Hegseth Testifies, Casualty Transparency Questions Mount",
+      "summary": "Defense Secretary Pete Hegseth testified before a Congressional hearing that the US-Iran war has cost $37.5 billion \u2014 a figure experts believe understates the true cost. Hegseth got into a shouting match with Sen. Gary Peters. The hearing also surfaced CNN's investigation showing the Pentagon has been slow to disclose injuries, citing 'security needs.' Separately, ceasefire talks led by mediators advanced a proposal to halt fighting and reopen the Strait of Hormuz, as Trump faces a fork between a 10-day ceasefire and a massive joint US-Israel escalation campaign.",
+      "left": {
+        "framing": "Left outlets focus on the transparency failures and human cost. CNN's investigation into suppressed injury data is the anchor story. The cost figure ($37.5B) is treated as likely an undercount. Axios and CNN emphasize the ceasefire-vs.-escalation fork, framing it as a consequential decision the public deserves to understand. The Hegseth-Peters shouting match is reported as a sign of Congressional frustration with the war's opaque management.",
+        "sources": [
+          {
+            "name": "CNN \u2014 Hegseth Testifies July 21",
+            "url": "https://www.cnn.com/2026/07/21/world/live-news/iran-war-trump"
+          },
+          {
+            "name": "CNN \u2014 Military Slow to Disclose Injuries",
+            "url": "https://www.cnn.com/2026/07/20/politics/us-casualties-iran-war"
+          },
+          {
+            "name": "Axios \u2014 Ceasefire vs. All-Out War",
+            "url": "https://www.axios.com/2026/07/21/iran-war-ceasefire-proposal-trump-troops"
+          }
+        ]
+      },
+      "right": {
+        "framing": "Right outlets lead with military operational success \u2014 CENTCOM completing its 11th and 12th consecutive nights of strikes. Fox frames the Hormuz blockade as protecting commerce and projecting strength. The $37.5B cost figure is noted but contextualized as the price of protecting US interests. The ceasefire question is framed as Trump holding leverage, not as a sign of a bogged-down war.",
+        "sources": [
+          {
+            "name": "Fox News \u2014 Iran War Live Updates",
+            "url": "https://www.foxnews.com/live-news/iran-war-trump-israel-hormuz-july-14-2026"
+          },
+          {
+            "name": "Fox News \u2014 Trump Weighs Iran War Expansion",
+            "url": "https://www.foxnews.com/live-news/us-iran-war-strikes-07-20-26"
+          }
+        ]
+      },
+      "correlation": 52,
+      "correlation_label": "Both report the costs and military activity; left stresses transparency failures, right stresses military effectiveness"
+    },
+    {
+      "topic_key": "arizona-primary-biggs-hobbs-2026",
+      "days_seen": 2,
+      "relevance": 70,
+      "relevance_label": "Recurring \u2014 day 2",
+      "title": "Arizona Primary: Trump-Backed Biggs Wins GOP Governor Nomination with 72%",
+      "summary": "Rep. Andy Biggs, a member of the House Freedom Caucus and Jan. 6 election certification objector, won the Arizona Republican gubernatorial primary with over 72% of the vote, crushing David Schweikert (17%) in a primary backed by President Trump. Biggs will face Democratic incumbent Gov. Katie Hobbs \u2014 who won her 2022 election by less than 1 point \u2014 in November. Arizona has become one of the most closely watched governor's races of the 2026 cycle.",
+      "left": {
+        "framing": "Left outlets emphasize the pattern of extremism costing Arizona Republicans winnable general election races. Slate's headline: 'Extreme Candidates Have Cost Arizona Republicans a Bunch of Elections \u2014 Guess What the Plan Is for 2026?' CNN and NBC note Biggs voted against certifying the 2020 election, arguing his hardline record makes him vulnerable in a purple state. The focus is on electoral risk for Republicans in a state Democrats believe they can hold.",
+        "sources": [
+          {
+            "name": "Slate \u2014 Extreme Candidate Pattern",
+            "url": "https://slate.com/news-and-politics/2026/07/arizona-primary-results-republicans-governor-andy-biggs.html"
+          },
+          {
+            "name": "CNN \u2014 Arizona Primary Takeaways",
+            "url": "https://www.cnn.com/2026/07/21/politics/arizona-primaries-takeaways"
+          },
+          {
+            "name": "NBC News \u2014 Biggs Wins",
+            "url": "https://www.nbcnews.com/politics/2026-election/trump-backed-rep-andy-biggs-wins-gop-primary-arizona-governor-rcna587980"
+          }
+        ]
+      },
+      "right": {
+        "framing": "Right outlets frame Biggs' win as a commanding validation of Trump's endorsement power and conservative enthusiasm. Fox, Breitbart, and Townhall lead with the 72%+ margin, citing it as evidence MAGA energy remains strong heading into November. The race against Hobbs is framed as winnable; coverage emphasizes Arizona as a competitive battleground where the right has a real shot. Axios Phoenix gives a more neutral read on the primary outcome.",
+        "sources": [
+          {
+            "name": "Fox News \u2014 Biggs Wins Arizona Primary",
+            "url": "https://www.foxnews.com/politics/trump-backed-firebrand-wins-arizona-gop-governor-primary-setting-up-high-stakes-showdown"
+          },
+          {
+            "name": "Axios Phoenix \u2014 Biggs Wins Big",
+            "url": "https://www.axios.com/local/phoenix/2026/07/22/andy-biggs-republican-primary-win-schweikert-katie-hobbs"
+          }
+        ]
+      },
+      "correlation": 50,
+      "correlation_label": "Same primary result; left reads it as a Republican self-inflicted wound, right reads it as a Trump mandate"
+    },
+    {
+      "topic_key": "us-saudi-nuclear-deal-2026-07-23",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New \u2014 first appearance",
+      "title": "Trump Signs US-Saudi 123 Nuclear Deal, Waiving 'Gold Standard' IAEA Safeguards",
+      "summary": "The Department of Energy signed a landmark 123 nuclear cooperation agreement with Saudi Arabia, allowing the kingdom to explore uranium enrichment with US technology and expertise. The deal will last 30 years and now goes to Congress for a mandatory review period. Crucially, the agreement does not require Saudi Arabia to sign the IAEA's Additional Protocol \u2014 the 'gold standard' of international oversight that bipartisan US policy has traditionally demanded. Saudi Arabia could begin enrichment only after a joint US-Saudi feasibility study, but the deal gives Riyadh a path to domestic enrichment capability.",
+      "left": {
+        "framing": "Left outlets treat this as a significant and risky departure from US non-proliferation doctrine. CNN ran two pieces \u2014 one straight news, one framing the deal as 'a perfect metaphor for Trump's presidency' in its willingness to break precedent for short-term diplomatic wins. NBC emphasizes the reversal of 'longtime U.S. policy.' The New Republic calls it a 'favor' to an oil-rich ally, not sound nuclear policy. Slate connects it to declining US-Israel alignment, noting 60% of Americans now view Israel unfavorably \u2014 and Trump is cozying up to Saudi Arabia regardless.",
+        "sources": [
+          {
+            "name": "CNN \u2014 US-Saudi Nuclear Deal",
+            "url": "https://www.cnn.com/2026/07/22/politics/us-saudi-nuclear-deal"
+          },
+          {
+            "name": "CNN \u2014 Saudi Deal as Metaphor for Trump Presidency",
+            "url": "https://www.cnn.com/2026/07/23/politics/saudi-nuclear-deal-trump-presidency"
+          },
+          {
+            "name": "NBC \u2014 Deal Reverses Longtime US Policy",
+            "url": "https://www.nbcnews.com/politics/national-security/trumps-deal-saudi-arabia-reverses-longtime-us-policy-rcna588824"
+          },
+          {
+            "name": "The New Republic \u2014 More Like a Favor",
+            "url": "https://newrepublic.com/article/213381/trump-nuclear-deal-saudi-arabia-details-favor"
+          }
+        ]
+      },
+      "right": {
+        "framing": "Right outlets report the deal as a strategic and diplomatic achievement, framing US-Saudi nuclear partnership as a natural move to strengthen the relationship amid the Iran war. Breitbart and Townhall cover it factually without the proliferation-risk framing. No right-leaning outlet prominently raises concerns about IAEA oversight gaps or draws comparison to past non-proliferation standards.",
+        "sources": [
+          {
+            "name": "Breitbart \u2014 Trump OKs Saudi Nuclear Deal",
+            "url": "https://www.breitbart.com/politics/2026/07/22/reports-trump-oks-saudi-arabia-nuclear-deal/"
+          },
+          {
+            "name": "Townhall \u2014 Trump Greenlights Landmark Nuclear Deal",
+            "url": "https://townhall.com/tipsheet/dmitri-bolt/2026/07/22/saudi-arabia-nuclear-deal-n2679928"
+          }
+        ]
+      },
+      "correlation": 42,
+      "correlation_label": "Both sides report the deal exists; left raises proliferation and policy-reversal alarms that right coverage largely omits"
+    },
+    {
+      "topic_key": "save-act-iran-war-funding-johnson-2026-07-23",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New \u2014 first appearance",
+      "title": "Johnson Pushes SAVE Act + Iran War Funding Package Through House",
+      "summary": "Speaker Mike Johnson muscled a legislative package through the House combining additional Iran war funding and Pentagon appropriations with Trump's 'SAVE America Act,' which would require proof of citizenship to register to vote. The combined bill passed despite Democratic objections and will now face the Senate. Sen. Ed Markey called for Trump's impeachment over the election security speech that preceded the vote. MAGA activists were simultaneously furious that Congress was preparing to recess without additional action on their priority agenda items.",
+      "left": {
+        "framing": "CNN frames this as Johnson 'muscling through' a package that bundles legitimate war funding with a controversial voter ID measure. The Daily Beast reports on MAGA meltdown that Congress is leaving without doing more. Left outlets treat the SAVE Act attachment as an election security power grab using war funding as cover. Sen. Markey's impeachment call is covered as a legitimate expression of Democratic outrage.",
+        "sources": [
+          {
+            "name": "CNN \u2014 Johnson Muscles Through SAVE Act + Iran War Package",
+            "url": "https://www.cnn.com/2026/07/22/politics/save-america-act-iran-war"
+          },
+          {
+            "name": "The Daily Beast \u2014 MAGA Melts Down Over Congress Recess",
+            "url": "https://www.thedailybeast.com/maga-melts-down-over-congress-taking-off-without-trump-vote/"
+          },
+          {
+            "name": "Breitbart \u2014 Markey Calls for Impeachment",
+            "url": "https://www.breitbart.com/politics/2026/07/17/ed-markey-calls-trump-impeachment-election-security-speech/"
+          }
+        ]
+      },
+      "right": {
+        "framing": "Right outlets focus on the Iran war funding secured and frame the SAVE Act as a common-sense election integrity measure. Fox and Breitbart treat the combined bill as a Johnson win, noting Democratic opposition as obstructionism. Markey's impeachment call is covered dismissively, as an example of partisan overreach. The legislative action is presented as Congress finally delivering on two important Republican priorities.",
+        "sources": [
+          {
+            "name": "Fox News Politics",
+            "url": "https://www.foxnews.com/politics"
+          },
+          {
+            "name": "Breitbart \u2014 Markey Calls for Impeachment",
+            "url": "https://www.breitbart.com/politics/2026/07/17/ed-markey-calls-trump-impeachment-election-security-speech/"
+          }
+        ]
+      },
+      "correlation": 32,
+      "correlation_label": "Both sides report the bill passed; left frames SAVE Act as voter suppression bundled with war funding, right frames it as two legitimate Republican wins"
+    }
+  ],
+  "gap_left": [
+    {
+      "topic_key": "trump-politicizes-troop-deaths-analysis",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New \u2014 first appearance",
+      "title": "Analysis: Trump's Pattern of Politicizing Troop Deaths",
+      "summary": "CNN published a major analysis examining Trump's documented pattern of inserting US troop deaths into political messaging \u2014 using battlefield casualties to advance arguments about the Iran war's necessity, attack critics, or shift news cycles. The piece, timed to the dignified transfer of four service members, documents examples from throughout Trump's second term of reaching quickly for politics when American soldiers die. No right-leaning outlet ran equivalent scrutiny of this pattern.",
+      "sources": [
+        {
+          "name": "CNN \u2014 Analysis: When US Troops Die, Trump Reaches for Politics",
+          "url": "https://www.cnn.com/2026/07/21/politics/trump-comments-troop-deaths"
+        }
+      ]
+    },
+    {
+      "topic_key": "mcconnell-health-coverup-2026-07-23",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New \u2014 first appearance",
+      "title": "McConnell Health Cover-Up: 37 Days, No Answers, Security Detail at Hospital",
+      "summary": "The Daily Beast reports that Mitch McConnell's team has refused to answer any substantive questions about the Senate Republican leader's condition for more than 37 days since he was placed in an ambulance and taken to the hospital. A security detail now guards his location. McConnell, 84, has not made any public appearances or statements. Right-leaning outlets have not given the story comparable prominence, though RealClearPolitics did run a piece on Congress' advancing age.",
+      "sources": [
+        {
+          "name": "The Daily Beast \u2014 McConnell Health Cover-Up",
+          "url": "https://www.thedailybeast.com/mitch-mcconnells-team-falls-silent-as-security-detail-guards-hospital/"
+        },
+        {
+          "name": "RealClearPolitics \u2014 Congress Is Getting Older",
+          "url": "https://www.realclearpolitics.com/articles/2026/07/22/congress_is_getting_older_154355.html"
+        }
+      ]
+    },
+    {
+      "topic_key": "scotus-perceived-political-poll-2026-07-23",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New \u2014 first appearance",
+      "title": "Poll: Nearly Half of Americans Say SCOTUS Is Ruling Based on Politics, Not Law",
+      "summary": "A new poll reported by The Hill found that 48% of Americans believe the Supreme Court is ruling on President Trump's agenda based on political ideology rather than legal principle. A separate Gallup poll found that 10% of Americans \u2014 up from 6% in 2021 \u2014 now identify politics itself as the 'greatest source of risk' to their personal safety. These findings are prominent in left-leaning coverage as evidence of democratic erosion, but receive little treatment in right-leaning outlets.",
+      "sources": [
+        {
+          "name": "The Hill \u2014 Poll: Half of Americans Say SCOTUS Rulings Based on Politics",
+          "url": "https://thehill.com/regulation/court-battles/5978559-poll-scotus-rulings-trump-politics/"
+        },
+        {
+          "name": "The Hill \u2014 Americans Fear Political Violence Risk: Gallup",
+          "url": "https://thehill.com/blogs/blog-briefing-room/news/5982825-americans-fear-political-violence/"
+        }
+      ]
+    },
+    {
+      "topic_key": "daylight-saving-time-senate-2026-07-23",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New \u2014 first appearance",
+      "title": "House Passes Permanent Daylight Saving Time, But Senate Skeptics May Kill It",
+      "summary": "The House passed legislation to enact permanent Daylight Saving Time across the country in a strong bipartisan vote. However, the bill faces significant Senate headwinds, with at least one key Republican senator warning it 'won't see the light of day.' CNN covered it as one of the signature bipartisan legislative wins of the session that may nonetheless die in the Senate. Right-leaning outlets gave the story minimal coverage.",
+      "sources": [
+        {
+          "name": "CNN \u2014 Permanent Daylight Saving Time May Not Actually Happen",
+          "url": "https://www.cnn.com/2026/07/22/politics/daylight-saving-time-senate"
+        }
+      ]
+    },
+    {
+      "topic_key": "dem-israel-fracture-jeffries-house",
+      "days_seen": 2,
+      "relevance": 70,
+      "relevance_label": "Recurring \u2014 day 2",
+      "title": "House Democrats Israel Split Deepens \u2014 Open Defiance at Leadership Level",
+      "summary": "Left-leaning outlets continue tracking a deepening schism within the House Democratic caucus over Israel policy, with defiance of leadership now occurring openly rather than behind closed doors. Daily Wire covers it from the angle of Israel becoming a defining issue driving Democratic realignment; left outlets treat it as a genuine policy and values debate within the party. Slate connects the Saudi nuclear deal to a broader trend of declining US-Israel alignment. Right outlets cover the same general Israel topic but primarily as evidence of Democratic radicalism rather than a genuine policy split.",
+      "sources": [
+        {
+          "name": "Slate \u2014 Saudi Pact a Sign of Israel's Tanking US Support",
+          "url": "https://slate.com/news-and-politics/2026/07/trump-saudi-nuclear-pact-israels-popularity-tanking.html"
+        },
+        {
+          "name": "Daily Wire \u2014 The Seismic Democratic Shift On Israel",
+          "url": "https://www.dailywire.com/news/the-most-influential-issue-shaking-up-elections"
+        }
+      ]
+    }
+  ],
+  "gap_right": [
+    {
+      "topic_key": "house-subpoena-singham-leftgroups-2026-07-23",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New \u2014 first appearance",
+      "title": "House Panel Subpoenas 3 Left-Wing Groups in $39M Probe Tied to 'Marxist Tycoon' Neville Singham",
+      "summary": "A House panel issued subpoenas to three left-wing organizations connected to a $39 million funding stream reportedly tied to Neville Singham, whom Fox describes as a 'Marxist tycoon.' The investigation seeks to trace how foreign-linked capital may be funding domestic progressive and socialist political activity. This story received prominent placement across Fox News and is absent from left-leaning coverage, which has not reported on the probe.",
+      "sources": [
+        {
+          "name": "Fox News \u2014 House Panel Subpoenas Left-Wing Groups",
+          "url": "https://www.foxnews.com/politics/house-panel-subpoenas-3-left-wing-groups-probe-39m-tied-marxist-tycoon-neville-singham"
+        }
+      ]
+    },
+    {
+      "topic_key": "gop-fundraising-advantage-maga-400m-2026-07-23",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New \u2014 first appearance",
+      "title": "MAGA Inc. Reports $400M War Chest; GOP Holds Massive Fundraising Advantage",
+      "summary": "The Trump super PAC MAGA Inc. reported $400.5 million in its latest FEC filing \u2014 adding $18 million in June alone \u2014 giving Republicans a commanding fundraising advantage heading into the November midterms. The NRCC raised $35.4 million in Q2 and holds $92.7 million cash on hand. Breitbart and Townhall lead with this as evidence the left's enthusiasm advantage is not translating into dollars. Left outlets, which have highlighted Democratic Senate candidates' $104M haul in competitive races, do not give equal coverage to the Republican super PAC edge.",
+      "sources": [
+        {
+          "name": "Breitbart \u2014 Republicans Have Massive Money Advantage",
+          "url": "https://www.breitbart.com/politics/2026/07/21/republicans-have-massive-money-advantage-over-democrats-ahead-of-midterms/"
+        },
+        {
+          "name": "Townhall \u2014 Democrats Getting Destroyed in Fundraising",
+          "url": "https://townhall.com/tipsheet/mattvespa/2026/07/20/the-dems-are-getting-destroyedin-fundraising-n2679815"
+        }
+      ]
+    },
+    {
+      "topic_key": "democrats-1972-redo-socialist-surge-2026-07-23",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New \u2014 first appearance",
+      "title": "RCP Analysis: Democrats' Socialist Surge Echoes the 1972 McGovern Disaster",
+      "summary": "RealClearPolitics published an analysis framing the DSA's 2026 primary victories \u2014 including defeats of three incumbent House Democrats \u2014 as a repeat of the 1972 McGovern moment, when Democrats nominated a far-left candidate who lost 49 states. The piece argues the party is repeating its historical mistake of nominating unelectable ideologues while the median voter remains center-left. Similar historical framing appears in the American Spectator and Townhall commentary.",
+      "sources": [
+        {
+          "name": "RealClearPolitics \u2014 Democrats' 1972 Re-Do",
+          "url": "https://www.realclearpolitics.com/articles/2026/07/22/democrats_1972_re-do_154354.html"
+        },
+        {
+          "name": "American Spectator \u2014 Democrats at the Crossroads",
+          "url": "https://spectator.org/democrats-at-the-crossroads/"
+        }
+      ]
+    },
+    {
+      "topic_key": "gop-communist-alarm-dsa-piker-red-scare",
+      "days_seen": 2,
+      "relevance": 70,
+      "relevance_label": "Recurring \u2014 day 2",
+      "title": "GOP Sounds Communism Alarm: 'New Red Scare' as DSA Candidates Win Primaries",
+      "summary": "Right-leaning outlets are prominently covering what they frame as a 'New Red Scare' \u2014 Rep. Lisa McClain warned on Townhall about 'communism's return to American politics,' while Breitbart reports on Democrats sidestepping questions about the DSA platform (which calls to abolish the Senate, presidency, and Supreme Court). Fox News profiled DSA-backed candidates winning primaries as 'far-left insurgents.' The Federalist ran a critical piece arguing Republicans themselves are not actually deporting enough illegal immigrants despite the rhetoric. Left outlets cover the DSA surge but without the communist framing.",
+      "sources": [
+        {
+          "name": "Townhall \u2014 Rep. McClain Sounds Alarm on Communism",
+          "url": "https://townhall.com/tipsheet/dmitri-bolt/2026/07/21/rep-lisa-mcclain-communism-n2679864"
+        },
+        {
+          "name": "Breitbart \u2014 Dems Sidestep Questions on Socialist Platform",
+          "url": "https://www.breitbart.com/politics/2026/07/18/report-democrat-lawmakers-sidestep-questions-about-constitution-killing-socialist-platform/"
+        },
+        {
+          "name": "Fox News \u2014 Far-Left Insurgents in 2026 Midterms",
+          "url": "https://www.foxnews.com/politics/meet-far-left-insurgents-waging-war-democratic-establishment-2026-midterms"
+        }
+      ]
+    },
+    {
+      "topic_key": "sanders-jeffries-dem-civil-war-midterms",
+      "days_seen": 2,
+      "relevance": 70,
+      "relevance_label": "Recurring \u2014 day 2",
+      "title": "Right Frames Democratic Internal War as Socialist Takeover in Progress",
+      "summary": "Right-leaning outlets are framing the Sanders/AOC vs. Jeffries/establishment split not as a healthy intraparty debate but as an ongoing socialist takeover that will doom Democrats in November and potentially deliver the party to AOC in 2028. Townhall's headline: 'The Dems' Only Option in 2028 Is Full Socialist Takeover.' The American Spectator's 'Zero Sympathy for the Democrats' Political Death March' argues the party made its own bed. Washington Examiner's Byron York analyzes DSA's 'sweet spot' as economically bitter voters \u2014 suggesting the movement is driven by resentment, not ideology. Left outlets cover the same split as a legitimate primary contest with competing visions.",
+      "sources": [
+        {
+          "name": "Townhall \u2014 The Dems' Only Option in 2028",
+          "url": "https://townhall.com/columnists/mattvespa/2026/07/21/the-socialist-takeover-of-the-dems-will-be-complete-bu-its-all-up-to-aoc-n2679821"
+        },
+        {
+          "name": "Washington Examiner \u2014 DSA's Sweet Spot Is Bitter Voters",
+          "url": "https://www.washingtonexaminer.com/news/campaigns/congressional/4659420/democratic-socialists-america-sweet-spot-byron-york/"
+        },
+        {
+          "name": "American Spectator \u2014 Zero Sympathy for Democrats' Death March",
+          "url": "https://spectator.org/zero-sympathy-for-the-democrats-political-death-march/"
+        }
+      ]
+    }
+  ],
+  "date": "2026-07-23"
+}
