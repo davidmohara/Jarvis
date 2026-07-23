@@ -7,9 +7,11 @@ tags:
 - error-patterns
 - system-health
 related_people: []
+  last-promoted-check: 2026-07-23
+  promoted: true
 salience:
   score: 5
-  last-promoted-check: '2026-07-22'
+  last-promoted-check: 2026-07-23
   promoted: true
 ---
 

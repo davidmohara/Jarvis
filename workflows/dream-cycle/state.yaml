@@ -1,26 +1,33 @@
 workflow: dream-cycle
 agent: jarvis
 status: complete
-session-started: 2026-07-22T03:09:15-05:00
-session-id: dream-cycle-2026-07-22-030915
+session-started: 2026-07-23T03:09:00-05:00
+session-id: dream-cycle-2026-07-23-030900
 current-step: null
-original-request: Scheduled dream cycle run (automated) - 2026-07-22
+original-request: Scheduled dream cycle run (automated) - 2026-07-23
 accumulated-context:
   git_pull_at_boot: success
-  git_pull_note: "Fast-forward a1a6f5b..08ce7db (daily-review-2026-07-21 working memory, spiritual-gifts report, eval run). Stashed unstaged files, merge conflict in daily-review-2026-07-21-000000.md resolved by combining upstream EOD addendum with stash calendar signals."
-  working_archived: 3
+  git_pull_note: "Already up to date. Stash/restore for unstaged files (daily-review state.yaml, daily-review-2026-07-22-000000.md, auto-2026-07-22.md, eval-20260723T021136-XGYF36.json)."
+  working_archived: 2
   working_deleted: 0
-  working_skipped: 11
+  working_skipped: 20
   working_stranded: 0
   archived_files:
-    - account-pursuit-map-2026-07-20-000000.md
-    - co-sell-pipeline-2026-07-20-001500.md
-    - dream-summary-2026-07-20.md
+    - morning-briefing-2026-07-20-060900.md
+    - revenue-tracker-2026-07-20-120109.md
   skipped_not_expired:
     - chase-session-2026-07-21-211500.md
     - daily-review-2026-07-21-000000.md
-    - morning-briefing-2026-07-20-060900.md
-    - revenue-tracker-2026-07-20-120109.md
+    - daily-review-2026-07-22-000000.md
+    - dream-summary-2026-07-22.md
+    - 2026-07-22-114500-master-session-wrap.md
+    - 2026-07-22-164500-knox-plaud-ingest.md
+    - 2026-07-22-180000-session-account-pursuit-map-tenet-healthcare.md
+    - 2026-07-22-193000-session-cbre-crm-corrections.md
+    - 2026-07-22-193100-session-bfs-contacts-and-reddit-monitor-fix.md
+    - account-pursuit-map-2026-07-22-000000.md
+    - account-pursuit-map-2026-07-22-164500.md
+    - account-strategy-2026-07-22-153954.md
   skipped_unparseable:
     - 2026-07-08.md
     - golf-booking-2026-07-10-failed.md
@@ -28,38 +35,39 @@ accumulated-context:
     - golf-override-2026-07-14.md
     - golf-preview-2026-07-03.md
     - golf-preview-2026-07-14.md
+    - golf-preview-2026-07-21.md
     - sc-executive-brief-2026-07-13.md
-  episodic_scanned: 220
-  score_updates: 220
-  no_date: 26
+  episodic_scanned: 222
+  score_updates: 222
+  no_date: 27
   no_tags: 29
   parse_errors: 0
   write_errors: 0
-  score_distribution: "0:39, 1:5, 2:2, 3:3, 5:5, 6:7, 7:3, 9:2, 10:154"
-  window_start: "2026-06-22"
-  window_end: "2026-07-22"
-  recent_entries: 71
-  candidates_count: 166
+  score_distribution: "0:41, 1:5, 2:2, 3:1, 4:2, 5:5, 6:1, 7:5, 8:3, 9:1, 10:156"
+  window_start: "2026-06-23"
+  window_end: "2026-07-23"
+  candidates_count: 171
+  clusters_found: 2
+  semantic_created: 1
+  semantic_updated: 1
+  promoted_entries: 171
+  cluster_note: "171 candidates. 1 new semantic entry created: git-issues-pattern (20 occurrences, distinct from existing git-sync-pattern). 1 updated: q3-rocks-pattern appended with July 23 confirmation (6 weeks unwritten, escalation note added). Error scan 30d: 137 entries, 10 qualifying categories — all already in LESSONS.md. No new lessons appended."
+  error_total_30d: 137
+  error_categories_30d_qualifying: "process-skip:22, tool-misuse:20, data-accuracy:16, assumption-error:13, missed-context:13, routing-error:10, format-violation:9, under-delivery:5, data-interpretation:5, hallucination:5"
+  lessons_appended: 0
+  lessons_note: "All 10 qualifying categories already documented in LESSONS.md."
+  entries_compressed: 5
+  digests_updated: 1
+  compression_skipped: false
+  digest_created: memory/episodic/digests/2026-Q2-digest.md
+  compression_note: "5 candidates (exactly at threshold). Q2 digest created. Files: cowboys-club-prep-04-20, card-offers-04-21, alice-mburu-onboarding-04-21, dream-cycle-summary-04-22, dream-cycle-summary-04-23."
+prior-run-context:
+  session_id: dream-cycle-2026-07-22-030915
+  working_archived: 3
+  episodic_scanned: 220
+  score_updates: 220
   clusters_found: 1
   semantic_created: 0
   semantic_updated: 1
   promoted_entries: 166
-  cluster_note: "166 candidates found — all scored today. All match existing semantic patterns. 1 semantic entry updated: q3-rocks-pattern appended with July 21 confirmation (now 5 weeks unwritten). Error scan 30d: 130 entries, 10 qualifying categories. appended missed-context/lazy-search (3 occurrences, new pattern) to LESSONS.md."
-  error_total_30d: 130
-  error_categories_30d_qualifying: "process-skip/protocol-skip:12, assumption-error/wrong-assumption:10, data-accuracy/sloppy-read:7, routing-error/protocol-skip:7, missed-context/context-blindness:6, tool-misuse/tool-ignorance:6, data-accuracy/wrong-assumption:5, missed-context/lazy-search:3, format-violation/protocol-skip:3, missed-context/wrong-assumption:3"
-  lessons_appended: 1
-  lessons_note: "Appended missed-context/lazy-search (3 occurrences, first appearance). All other 9 qualifying categories already in LESSONS.md."
-  entries_compressed: 0
-  digests_updated: 0
-  compression_skipped: true
-  compression_skip_reason: "4 candidates — below 5-entry safety threshold. Backlog growing slowly."
-prior-run-context:
-  session_id: dream-cycle-2026-07-21-083104
-  working_archived: 1
-  episodic_scanned: 216
-  score_updates: 216
-  clusters_found: 0
-  semantic_created: 0
-  semantic_updated: 0
-  promoted_entries: 0
   entries_compressed: 0

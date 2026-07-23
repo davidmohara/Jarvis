@@ -16,10 +16,11 @@ tags:
 - health
 - systemic-compliance
 related_people: []
+  last-promoted-check: '2026-07-22'
+  last-promoted-check: 2026-07-23
 salience:
   score: 10
-  promoted: true
-  last-promoted-check: '2026-07-22'
+  last-promoted-check: 2026-07-23
 ---
 
 

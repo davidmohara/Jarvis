@@ -1,13 +1,13 @@
 ---
 status: complete
-started-at: 2026-07-22T03:30:00-05:00
-completed-at: 2026-07-22T03:31:00-05:00
+started-at: 2026-07-23T03:35:00-05:00
+completed-at: 2026-07-23T03:40:00-05:00
 outputs:
-  candidates_count: 0
-  entries_compressed: 0
-  digests_updated: 0
-  compression_skipped: true
-  compression_skip_reason: "Oldest episodic entry with a parseable date is still 2026-04-18 (89 days old). 90-day cutoff = 2026-04-17. 0 entries eligible. Next likely eligibility ~2026-07-17 (tomorrow)."
+  candidates_count: 5
+  entries_compressed: 5
+  digests_updated: 1
+  compression_skipped: false
+  digest_created: memory/episodic/digests/2026-Q2-digest.md
 ---
 
 <!-- system:start -->

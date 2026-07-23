@@ -2,17 +2,17 @@
 workflow: daily-review
 agent: chief
 status: complete
-session-started: "2026-07-21T00:00:00"
-session-id: "chief-2026-07-21-000000"
+session-started: "2026-07-22T00:00:00"
+session-id: "chief-2026-07-22-000000"
 current-step: step-auto
 original-request: "auto"
 accumulated-context:
-  omnifocus-status: "unavailable — headless scheduled run (sandbox, osascript not accessible)"
-  calendar-status: "available — 13 events pulled for 2026-07-21 via M365 MCP"
+  omnifocus-status: "available — 2 completed, 7 overdue, 1 flagged, inbox 10"
+  calendar-status: "unavailable — headless scheduled run (connector invalidated, expected)"
   knowledge-system-status: "Obsidian MCP disabled — written to local fallback"
-  narrative-path: "reviews/daily/auto-2026-07-21.md"
-  narrative-title: "2026-07-21 Revenue Calls, Board Duty, and an Evening Worth Showing Up For"
+  narrative-path: "reviews/daily/auto-2026-07-22.md"
+  narrative-title: "2026-07-22 Morning Anchors, Seven Overdue Tasks, and a Pain Signal That Needs a Date"
   output-guard: passed
-  working-memory-path: "memory/working/daily-review-2026-07-21-000000.md"
+  working-memory-path: "memory/working/daily-review-2026-07-22-000000.md"
   working-memory-status: written
   model: sonnet

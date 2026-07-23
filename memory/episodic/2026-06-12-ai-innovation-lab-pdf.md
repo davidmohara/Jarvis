@@ -8,9 +8,11 @@ tags:
 - brand
 - improving
 - deliverable
+  last-promoted-check: '2026-07-22'
+  last-promoted-check: 2026-07-23
 salience:
   score: 0
-  last-promoted-check: '2026-07-22'
+  last-promoted-check: 2026-07-23
 ---
 
 # Session: AI Innovation Lab PDF

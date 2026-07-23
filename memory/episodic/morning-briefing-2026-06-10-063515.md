@@ -16,10 +16,10 @@ tags:
 - plaud
 - golf
 related_people: []
+  last-promoted-check: 2026-07-23
 salience:
-  score: 10
-  last-promoted-check: '2026-07-22'
-  promoted: true
+  score: 0
+  last-promoted-check: 2026-07-23
 ---
 
 

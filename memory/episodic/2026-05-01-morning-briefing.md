@@ -16,9 +16,11 @@ related_people:
 - stuart-sides
 - randy-mccabe
 - alice-mburu
+  last-promoted-check: 2026-07-23
+  promoted: true
 salience:
-  score: 6
-  last-promoted-check: '2026-07-22'
+  score: 7
+  last-promoted-check: 2026-07-23
   promoted: true
 ---
 

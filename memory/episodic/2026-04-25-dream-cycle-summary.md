@@ -7,9 +7,11 @@ tags:
 - semantic-promotion
 - travel-pattern
 related_people: []
+  last-promoted-check: 2026-07-23
+  promoted: true
 salience:
   score: 10
-  last-promoted-check: '2026-07-22'
+  last-promoted-check: 2026-07-23
   promoted: true
 ---
 

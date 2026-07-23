@@ -20,9 +20,11 @@ related_people:
 - ralph-nicosia
 - dustin-shaffer
 - devlin
+  last-promoted-check: 2026-07-23
+  promoted: true
 salience:
-  score: 6
-  last-promoted-check: '2026-07-22'
+  score: 7
+  last-promoted-check: 2026-07-23
   promoted: true
 ---
 

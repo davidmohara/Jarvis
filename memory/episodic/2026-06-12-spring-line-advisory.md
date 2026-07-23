@@ -4,9 +4,11 @@ type: working-archive
 account: Spring Line Advisory
 archived-from: memory/working/2026-06-12-spring-line-advisory.md
 agent: chase
+  last-promoted-check: '2026-07-22'
+  last-promoted-check: 2026-07-23
 salience:
   score: 0
-  last-promoted-check: '2026-07-22'
+  last-promoted-check: 2026-07-23
 ---
 
 # Working Memory — Spring Line Advisory

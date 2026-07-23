@@ -1,12 +1,38 @@
 ---
-type: working
+type: working-archive
 task_id: "session"
 session_id: "chief-2026-07-20-060900"
 agent-source: chief
 created: 2026-07-20T06:09:00
 expires: 2026-07-22T06:09:00
-status: active
+status: archived
 context: "Morning briefing — 2026-07-20"
+date: 2026-07-20
+source_file: memory/working/morning-briefing-2026-07-20-060900.md
+tags:
+  - briefing
+  - chief
+  - calendar
+  - omnifocus
+  - gms-summit
+  - co-sell
+  - rock-4
+  - overdue-tasks
+  - health
+related_people:
+  - lowell-ricketts
+  - nada
+  - curtis-hite
+  - dawn-dearstone
+  - ashok-iyengar
+  - ryan-menke
+  - scott-mai
+  last-promoted-check: 2026-07-23
+  promoted: true
+salience:
+  score: 10
+  last-promoted-check: 2026-07-23
+  promoted: true
 ---
 
 # Morning Briefing — Monday, July 20, 2026

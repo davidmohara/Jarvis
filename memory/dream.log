@@ -1816,3 +1816,22 @@ summary: "Boot pull clean (fast-forward a1a6f5b..08ce7db, daily-review-2026-07-2
 git_pull: success
 git_pull_note: "Fast-forward a1a6f5b..08ce7db. Stash/restore with merge conflict in daily-review-2026-07-21-000000.md resolved."
 ---
+
+---
+## 2026-07-23T03:42:00 CDT
+session_id: dream-cycle-2026-07-23-030900
+working_archived: 2
+working_deleted: 0
+episodic_scanned: 222
+score_updates: 222
+clusters_found: 2
+semantic_created: 1
+semantic_updated: 1
+promoted_entries: 171
+entries_compressed: 5
+digests_updated: 1
+errors: 0
+summary: "Boot pull clean (already up to date; stash/restore for 4 unstaged files). Step-01 archived 2 expired files (morning-briefing-07-20, revenue-tracker-07-20), skipped 20 (12 not expired, 8 persistent unparseable). Step-02 scored 222 episodic files with fixed tag parser (no-indent list items); dist 0:41,1:5,2:2,3:1,4:2,5:5,6:1,7:5,8:3,9:1,10:156; 0 errors. Step-03: 171 promotion candidates; created git-issues-pattern (20 occurrences, distinct from git-sync); updated q3-rocks-pattern (6 weeks unwritten, escalation note); marked 171 promoted:true. Error scan 30d: 137 entries, 10 qualifying categories, all in LESSONS.md, 0 new lessons. Step-04: 5 compression candidates (exactly at threshold); created 2026-Q2-digest.md and deleted 5 source files (cowboys-club-04-20, card-offers-04-21, alice-onboarding-04-21, dream-cycle-04-22, dream-cycle-04-23)."
+git_pull: success
+git_pull_note: "Already up to date. Stash/restore for 4 unstaged files."
+---

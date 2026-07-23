@@ -22,9 +22,11 @@ tags:
 related_people: null
 date: 2026-06-08
 source_file: memory/working/morning-briefing-2026-06-08-095429.md
+  last-promoted-check: 2026-07-23
+  promoted: true
 salience:
   score: 10
-  last-promoted-check: '2026-07-22'
+  last-promoted-check: 2026-07-23
   promoted: true
 ---
 

@@ -3,7 +3,7 @@ type: semantic
 domain: operational
 confidence: low
 created: 2026-07-20
-last-updated: 2026-07-22
+last-updated: 2026-07-23
 tags:
   - q3-rocks
   - rocks
@@ -15,6 +15,7 @@ synthesized-from:
   - memory/episodic/daily-review-2026-07-17-000000.md
   - memory/episodic/morning-briefing-2026-07-14-083505.md
   - memory/working/daily-review-2026-07-21-000000.md
+  - memory/episodic/morning-briefing-2026-07-20-060900.md
 agent-source: dream-cycle
 ---
 
@@ -33,6 +34,7 @@ Q3 quarterly rocks (EOS-style 90-day objectives) have not been written as of mid
 - 2026-07-17: daily-review-2026-07-17-000000.md — "Q3 rocks still not written — quarterly objectives file last updated April 23, still reflects Q2"
 
 - 2026-07-21: daily-review-2026-07-21-000000.md — Chief daily review notes "Q3 rocks not yet captured in quarterly-objectives.md — meaningful gap at July 21"; dream-cycle log from 07-20 also flagged same. Now 5 weeks into Q3 with no written objectives. AI Summit (2026-07-24) presentation content also unresolved — David's prep block didn't land on a topic.
+- 2026-07-23: morning-briefing-2026-07-20-060900.md (archived tonight) — morning briefing from July 20 explicitly notes "Quarterly objectives file still shows Q2 2026 (Q2 ended June 30) — needs Q3 update" as an interruption/missing-data flag. Now 6 weeks into Q3 with no written rocks.
 
 ## Implications
 
@@ -40,3 +42,4 @@ Q3 quarterly rocks (EOS-style 90-day objectives) have not been written as of mid
 - **Drift risk**: Without written Q3 rocks, the quarterly-objectives file is stale and diverges from David's actual priorities. Any agent reading it will get Q2 context.
 - **Action needed**: David needs to write Q3 rocks. Suggest a dedicated session with Quinn to capture and commit the 4-5 Q3 objectives. Until written, agents should flag when referencing quarterly-objectives.md that it is Q2-era and may not reflect current priorities.
 - **Pattern to watch**: This is the first Q3 cycle captured in this system. If the same "rocks not written 3+ weeks in" pattern recurs in Q4, it may indicate a structural planning habit to address.
+- **Escalation (2026-07-23)**: At 6 weeks into Q3 with no written rocks, this has moved from a planning gap to an operational risk. Agents should proactively prompt David to schedule a Quinn session for Q3 rock capture. The AI GMS Summit week (July 22-27) may have consumed the likely writing window — post-summit is now the earliest realistic opportunity.

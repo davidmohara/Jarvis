@@ -1,7 +1,7 @@
 ---
 status: complete
-started-at: 2026-07-22T03:15:00-05:00
-completed-at: 2026-07-22T03:20:00-05:00
+started-at: 2026-07-23T03:18:00-05:00
+completed-at: 2026-07-23T03:25:00-05:00
 outputs:
   episodic_scanned: 205
   score_updates: 205
