@@ -1,11 +1,11 @@
 ---
 workflow: shutdown-cleanup
 agent: rigby
-status: in-progress
+status: complete
 session-started: "2026-07-23T00:00:00-05:00"
-session-completed: null
+session-completed: "2026-07-23T18:45:00-05:00"
 session-id: rigby-7VM23QW0
-current-step: step-04
+current-step: null
 original-request: "run the clean up workflow on the current directory"
 prior-resolution-note: >
   Root cause found and fixed 2026-07-22: Master was running git directly via
@@ -54,5 +54,30 @@ accumulated-context:
     systems/evals/work-20260723-remarkable-upload-improve/ dir; only its
     top-level evals.json is trackable, confirmed via git add --dry-run).
     No existing entries modified or removed.
-  git-commit: pending
+  git-commit: >
+    step-04 complete. Staged and committed 11 files (commit a9abf5d3, message:
+    "chore(rigby): shutdown cleanup — remarkable-upload skill improvement,
+    gitignore hardening"): .claude/skills/remarkable-upload/SKILL.md,
+    .gitignore, evolutions/.pending-changes.json, missfont.log (deletion),
+    systems/eval-harness/skill-runs/remarkable-upload-latest.json,
+    workflows/shutdown-cleanup/state.yaml, memory/working/remarkable-upload-
+    2026-07-23-improve-eval.md, systems/error-tracking/entries/
+    err-20260723T183108-07NGV1.json, systems/eval-harness/runs/
+    eval-20260723T155130-2N7J2L.json, systems/eval-harness/runs/
+    eval-20260723T183614-QXHKUO.json, systems/evals/work-20260723-remarkable-
+    upload-improve/evals.json. CEO-First-Mover-Buyer-Persona.docx deliberately
+    excluded (flagged, see purge notes). Push rejected non-fast-forward
+    (harper content-pipeline commits landed upstream); the eval-harness
+    self-instrumented eval-20260723T183614-QXHKUO.json was live-mutating
+    during this exact push/pull sequence (appending this session's own tool-
+    failure log), so it was committed separately first (cc8b5032) to clear
+    the working tree; git pull --rebase origin main then resolved cleanly
+    with no conflicts; git push origin main succeeded — final pushed hash
+    cd53e6c5 (rebase renumbered the cleanup commit from 49626ff1 to a9abf5d3).
+    All git operations run as atomic single Bash calls per skills/git/
+    SKILL.md — git status was avoided in favor of git diff --name-only /
+    --staged --name-only; Desktop Commander MCP was not available in this
+    session's toolset, so the host Bash tool was used directly (same host
+    user as the repo, not the Cowork sandbox FUSE-mount path the skill's
+    lock-file warning targets).
 ---
