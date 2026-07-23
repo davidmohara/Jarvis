@@ -1,12 +1,43 @@
 ---
 status: complete
-started-at: 2026-07-23T06:07:35Z
-completed-at: 2026-07-23T06:07:43Z
+started-at: 2026-07-23T11:03:00Z
+completed-at: 2026-07-23T11:04:30Z
 outputs:
-  messages_scanned: 4
-  urls_found: 0
-  digests_found: 0
-  drafts_created: 0
-  outcome: "SUCCESS: No new URLs or digests in the last 24 hours. All messages were bot operational updates. Posted 'no new content' notification to #content."
+  threads_checked: 8
+  new_approvals: 0
+  new_rejections: 0
+  actions_taken: 0
+  published: 0
+  regeneration_awaiting_completion: 2
+  outcome: "SUCCESS: Hourly approval check complete. All 8 pending drafts checked. No new approval/rejection commands from David. 2 posts (Governance, SaaS Stack) remain in regeneration from yesterday's feedback—no new responses. 1 post (Corrections) regenerated but awaiting approval. 4 W29 posts and Safe Bet post await approval. All threads monitored."
   pending_drafts: 8
-model: sonnet
+  pending_approvals: 5
+  regenerating: 2
+  regenerating_details: ["Governance Isn't Your Problem. Uniform Governance Is. (Gartner link feedback)", "Your SaaS Stack Was Priced for Humans. Now What? (agentic arbitrage link feedback)"]
+  next_check: "2026-07-23T12:00:00Z"
+model: haiku
+---
+
+<!-- personal:start -->
+# Step 02: Content Approval (Hourly)
+
+## Execution Summary
+
+Ran hourly approval check at 2026-07-23T11:03:00Z.
+
+**Findings:**
+- Checked all 8 pending draft threads in #content
+- No new approval commands from David
+- No rejection signals
+- 2 drafts remain in regeneration state from yesterday's feedback
+- 1 draft (Corrections) regenerated and ready for approval
+- 4 W29 posts await approval (no feedback)
+- 1 Safe Bet post awaits approval (no feedback)
+
+**Current Queue:**
+- Pending (awaiting approval): 5 drafts
+- Regenerating (awaiting completion): 2 drafts
+
+**Next scheduled check:** 2026-07-23T12:00:00Z
+
+<!-- personal:end -->
