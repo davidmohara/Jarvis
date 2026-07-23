@@ -15,8 +15,22 @@
     "mechanical": {
       "completed": null,
       "all_steps_finished": null,
-      "tool_failures": 0,
-      "error_ids": []
+      "tool_failures": 2,
+      "error_ids": [],
+      "tool_failure_log": [
+        {
+          "tool": "Bash",
+          "error": "Exit code 1\nTo https://github.com/davidmohara/Jarvis.git\n ! [rejected]          main -> main (fetch first)\nerror: failed to push some refs to 'https://github.com/davidmohara/Jarvis.git'\nhint: Updates were rejected because the remote contains work that you do not\nhint: have locally. This is usually caused by another repository pushing to\nhint: the same ref. If you want to integrate the remote changes, use\nhint: 'git pull' before pushing again.\nhint: See the 'Note about fast-forwards' in 'git push --help' for details.",
+          "duration_ms": 649,
+          "timestamp": "2026-07-23T13:40:02.070548"
+        },
+        {
+          "tool": "Bash",
+          "error": "Exit code 128\nerror: cannot pull with rebase: You have unstaged changes.\nerror: Please commit or stash them.",
+          "duration_ms": 37,
+          "timestamp": "2026-07-23T13:40:04.502528"
+        }
+      ]
     },
     "structural": {
       "expected_outputs_written": null,
