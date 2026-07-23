@@ -2,9 +2,11 @@
   "skill": "remarkable-upload",
   "agent": "knox",
   "trigger": "manual",
-  "started": "2026-07-21T10:57:31Z",
-  "completed": "2026-07-21T10:58:15Z",
+  "started": "2026-07-23T15:51:30Z",
+  "completed": "2026-07-23T15:58:00Z",
   "status": "success",
   "tool_failures": 0,
-  "error_ids": []
+  "error_ids": [],
+  "eval_id": "eval-20260723T155130-2N7J2L",
+  "notes": "Plan-only paired eval after Persistent Staging + Pre-Push Checklist skill edit"
 }

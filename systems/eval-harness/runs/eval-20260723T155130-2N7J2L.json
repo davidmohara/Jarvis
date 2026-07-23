@@ -1,0 +1,110 @@
+{
+  "id": "eval-20260723T155130-2N7J2L",
+  "type": "skill",
+  "name": "remarkable-upload",
+  "agent": "knox",
+  "session_id": "session-2026-07-23-remarkable-improve",
+  "trigger": "manual",
+  "started": "2026-07-23T15:51:30Z",
+  "completed": "2026-07-23T15:58:00Z",
+  "duration_seconds": 390,
+  "status": "success",
+  "steps": [
+    {
+      "name": "step-01-snapshot-baseline-skill",
+      "started": "2026-07-23T15:51:30Z",
+      "completed": "2026-07-23T15:52:00Z",
+      "duration_seconds": 30,
+      "status": "complete",
+      "data_sources_used": [".claude/skills/remarkable-upload/SKILL.md", "eval-20260630T203949-E747AF"],
+      "data_source_failures": [],
+      "notes": "Snapshotted pre-edit skill. Baseline E747AF graded D: 8+ iterations, /tmp persistence failures, missing visual gate."
+    },
+    {
+      "name": "step-02-intentional-skill-improvement",
+      "started": "2026-07-23T15:52:00Z",
+      "completed": "2026-07-23T15:54:00Z",
+      "duration_seconds": 120,
+      "status": "complete",
+      "data_sources_used": [".claude/skills/remarkable-upload/SKILL.md"],
+      "data_source_failures": [],
+      "notes": "Added Persistent Staging Rule (ban /tmp across osascript calls), Pre-Push Checklist (filename, pdftoppm visual gate, overwrite intent), rewrote workflow put path to persistent IES absolute path."
+    },
+    {
+      "name": "step-03-plan-only-eval-paired",
+      "started": "2026-07-23T15:54:00Z",
+      "completed": "2026-07-23T15:57:00Z",
+      "duration_seconds": 180,
+      "status": "complete",
+      "data_sources_used": ["systems/evals/work-20260723-remarkable-upload-improve/"],
+      "data_source_failures": [],
+      "notes": "Paired plan-only eval GeniusSpark Meeting Prep: with_skill 8/8, old_skill 5/8. old_skill still plans Finder→/tmp→put (E747AF failure mode)."
+    },
+    {
+      "name": "step-04-grade-and-package",
+      "started": "2026-07-23T15:57:00Z",
+      "completed": "2026-07-23T15:58:00Z",
+      "duration_seconds": 60,
+      "status": "complete",
+      "data_sources_used": ["var/level-3-skill/"],
+      "data_source_failures": [],
+      "notes": "Wrote harness record, skill-run signal, working memory, shareable comparison HTML under var/level-3-skill/."
+    }
+  ],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": [],
+      "abort_reason": null
+    },
+    "structural": {
+      "expected_outputs_written": true,
+      "outputs_non_empty": true,
+      "assertions_checked": 8,
+      "assertions_passed": 8,
+      "assertion_results": [
+        {"assertion": "Plan explicitly acknowledges plan-only mode by name", "passed": true},
+        {"assertion": "Target folder is /Meetings (external prospect routing)", "passed": true},
+        {"assertion": "Plan stages from a persistent IES path — does not rely on /tmp across separate osascript calls", "passed": true},
+        {"assertion": "Plan includes Pre-Push Checklist items", "passed": true},
+        {"assertion": "Plan verifies source exists before put", "passed": true},
+        {"assertion": "Plan verifies target folder via rmapi ls before put", "passed": true},
+        {"assertion": "Plan uses human-readable filename with spaces", "passed": true},
+        {"assertion": "No actual rmapi/osascript execution occurred", "passed": true}
+      ]
+    },
+    "grading": {
+      "last_graded": "2026-07-23T15:58:00Z",
+      "grade": "A",
+      "safety_grade": null,
+      "grader_notes": "Intentional improvement closed the E747AF failure modes inside the skill text itself. Paired plan-only eval: with_skill 8/8 vs old_skill 5/8 on the same GeniusSpark scenario. Plan encodes Persistent Staging Rule and Pre-Push Checklist without controller intervention. Zero tool failures. Grade A for skill-adherent plan quality (plan-only; no live tablet put this run). Prior baseline E747AF remains D for execution-quality comparison."
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": "remarkable-upload-persistent-staging-20260723",
+  "prior_baseline_id": "eval-20260630T203949-E747AF",
+  "tags": [
+    "cowork-instrumented",
+    "skill-improvement",
+    "plan-only",
+    "paired-old-vs-with",
+    "level-3-skill",
+    "remarkable"
+  ]
+}

@@ -1,13 +1,13 @@
 ---
 workflow: shutdown-cleanup
 agent: rigby
-status: complete
-session-started: 2026-07-16T00:00:00
-session-completed: "2026-07-22T13:45:00-05:00"
-session-id: rigby-2026-07-16-000000
-current-step: null
-original-request: "Execute shutdown cleanup — session 2026-07-16"
-resolution-note: >
+status: in-progress
+session-started: "2026-07-23T00:00:00-05:00"
+session-completed: null
+session-id: rigby-7VM23QW0
+current-step: step-04
+original-request: "run the clean up workflow on the current directory"
+prior-resolution-note: >
   Root cause found and fixed 2026-07-22: Master was running git directly via
   mcp__workspace__bash (the Cowork sandbox) and chaining commands with `&&`,
   including `git status` — all three are explicitly forbidden in
@@ -21,8 +21,38 @@ resolution-note: >
   environmental flake — it was a self-inflicted protocol violation. Logged as
   err-20260722T182653-2LCKRB.
 accumulated-context:
-  purge: completed
-  organize: completed
-  gitignore: verified
-  git-commit: complete — commit 34b0f367, rebased onto 23fdeb8e, pushed as d493ba5b
+  purge: >
+    step-01 complete. missfont.log (LaTeX aux artifact) already removed from
+    disk pre-run — staged as deletion. No .DS_Store/__pycache__/*.tmp/
+    meetings html/root scripts found as new session artifacts (pre-existing
+    .DS_Store files already gitignored, untouched). ROOT ALERT (new,
+    in-scope): CEO-First-Mover-Buyer-Persona.docx — untracked root-level
+    docx, no canonical allowlist match, no corresponding markdown source
+    found anywhere in repo. Left in place, NOT staged — flagged for David's
+    disposition. ROOT ALERT (pre-existing, out of session scope, already
+    committed in prior sessions): One-Texas-H1-Performance-20260721.pptx,
+    "Russell Frees — Henricksen — 2026-07-21.md", Talks/ dir — none are
+    non-canonical per this session's git diff, not touched, flagged for a
+    dedicated follow-up cleanup task rather than moved unilaterally here.
+  organize: >
+    step-02 complete. No PDFs in this session's diff, so build-artifact rule
+    N/A. Only deliverable-type file touched: CEO-First-Mover-Buyer-Persona.docx
+    (already handled/flagged in step-01 — no markdown source anywhere in repo,
+    standalone, correct destination unclear (no account association;
+    candidates would be reference/ or a new personas/ folder), left at root
+    and unstaged pending David's call). memory/working/remarkable-upload-
+    2026-07-23-improve-eval.md follows YYYY-MM-DD-slug.md convention, correct
+    location. systems/eval-harness/runs/*.json and systems/error-tracking/
+    entries/*.json follow existing system conventions, correct location.
+    No renames or moves performed.
+  gitignore: >
+    step-03 complete. Added missfont.log, *.aux, *.fls, *.fdb_latexmk
+    (LaTeX/pdflatex build byproducts — missfont.log surfaced this session
+    and wasn't covered). All other existing patterns already cover this
+    session's temp-artifact surface (systems/evals/work-*/{evals,iteration-*,
+    skill-snapshot,description-tuning}/ already excludes the bulk of the new
+    systems/evals/work-20260723-remarkable-upload-improve/ dir; only its
+    top-level evals.json is trackable, confirmed via git add --dry-run).
+    No existing entries modified or removed.
+  git-commit: pending
 ---

@@ -1,0 +1,15 @@
+{
+  "id": "err-20260723T183108-07NGV1",
+  "timestamp": "2026-07-23T18:31:08Z",
+  "session": "2026-07-23-buyer-persona-ceo",
+  "source": "explicit",
+  "agent": "master",
+  "category": "format-violation",
+  "description": "While asking clarifying questions to build a new CEO buyer persona, phrased a question as 'Which service line(s) is this CEO persona primarily selling into?' which reversed the buyer/seller relationship — the CEO is the target being sold TO, not an entity selling a service line.",
+  "correction": "David corrected: 'Stop. We are selling TO the CEO persona. Do not reverse this.' Buyer personas represent the target/buyer; Improving's service lines are what gets pitched to the persona, not something the persona sells.",
+  "failure_mode": "pattern-mismatch",
+  "systemic_fix": "When drafting buyer/ICP persona questions, frame service line as 'which service line(s) will we pitch to this persona' rather than language implying the persona sells or delivers that service.",
+  "fix_status": "proposed",
+  "severity": "minor",
+  "related_entries": []
+}

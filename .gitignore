@@ -51,6 +51,12 @@ debug-app.png
 debug-settings.png
 screenshot.png
 
+# LaTeX/pdflatex auxiliary artifacts (build byproducts, never committed)
+missfont.log
+*.aux
+*.fls
+*.fdb_latexmk
+
 # Skill eval evidence — personal/local-only, never published
 # Contains user-specific eval prompts, executor transcripts, and feedback
 systems/evals/work-*/evals/

@@ -47,30 +47,37 @@ This skill runs inside a Linux VM, but `rmapi` is installed on the **host Mac** 
 
 The workspace folder in the VM (`/sessions/*/mnt/IES/...`) maps to a OneDrive-synced folder on the Mac. Due to macOS TCC (privacy) restrictions, shell commands run via `osascript` cannot directly read files from OneDrive CloudStorage paths. However, **Finder has full filesystem access** and can copy files without permission issues.
 
-### The File Bridge Pattern
+### Persistent Staging Rule (mandatory)
 
-To get files from the workspace to rmapi:
+**Never rely on `/tmp` surviving across separate `osascript` calls.** Each `do shell script` / Finder invocation is a fresh process boundary. A file written to `/tmp` in call N is not guaranteed to exist for call N+1 — this caused recurring `file not found` push failures (see eval `E747AF`, 2026-06-30).
 
-1. **Use Finder to copy files to /tmp** (Finder bypasses TCC restrictions):
+**Canonical push pattern:**
+
+1. Stage the PDF/EPUB at a **persistent path under the IES tree** (Mac absolute path under `/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/...`). Session-generated files should be written there directly — not to `/tmp`.
+2. Invoke `rmapi put` against that persistent absolute path in a single `osascript` call:
+```applescript
+do shell script "/opt/homebrew/bin/rmapi put '/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/path/to/Document.pdf' '/target/folder' 2>&1"
+```
+3. If `do shell script` cannot read the CloudStorage path (TCC), use Finder only as a **same-call** bridge into a path `rmapi` can read — prefer staging under IES first; treat `/tmp` as a last resort and put in the **same** osascript block that created/copied the temp file, never across separate tool calls.
+
+### The File Bridge Pattern (TCC only)
+
+Use Finder when `do shell script` cannot read a CloudStorage source. Prefer copying **within** the IES tree (or reading via Finder then putting from the persistent IES path). Do **not** establish a pattern of "copy everything to `/tmp`, then put later."
+
 ```applescript
 tell application "Finder"
     set srcFolder to POSIX file "/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/path/to/folder/" as alias
-    set destFolder to POSIX file "/tmp/" as alias
+    set destFolder to POSIX file "/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/path/to/staging/" as alias
     duplicate file "filename.pdf" of folder srcFolder to folder destFolder with replacing
 end tell
-```
-
-2. **Run rmapi from /tmp**:
-```applescript
-do shell script "/opt/homebrew/bin/rmapi put '/tmp/filename.pdf' '/target/folder' 2>&1"
 ```
 
 If files were generated in the current session and exist in the VM workspace, the Mac-side path is:
 `/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/` + the relative path from the workspace mount.
 
-### When the Source Is Already at /tmp
+### When `/tmp` Is Acceptable
 
-If the source file is already under `/tmp` (or any path `do shell script` can read directly without TCC restrictions), **skip the Finder bridge step entirely** and invoke `rmapi put` against the source path directly. The Finder copy is only required when crossing the TCC boundary from `CloudStorage/`. Document this skip in your action log so the user can confirm the path was already shell-readable.
+Only if **all** of these are true: (1) the source already lives under `/tmp` (or another shell-readable non-CloudStorage path), (2) you will `rmapi put` that path in the **same** osascript invocation that verified it exists, and (3) you document the skip of persistent staging in your action log. Otherwise stage under IES.
 
 ### Batch Uploads
 
@@ -180,9 +187,18 @@ When the routing rules above don't produce a clear single match, do not ask a ba
 
 A clarifying question that doesn't pre-narrow the choices wastes a turn. Three-to-five ranked candidates is the right shape.
 
+## Pre-Push Checklist (before every `rmapi put`)
+
+Run this gate for every file. Skipping it is how the 2026-06-30 GeniusSpark upload burned 8+ iterations.
+
+1. **Persistent path.** Source is under the IES tree (or a same-call `/tmp` exception documented above) — not a path that only existed in a prior osascript call.
+2. **Filename.** Human-readable words with spaces; no underscores; no date stamps in the basename (e.g. `GeniusSpark Meeting Prep.pdf`, not `genius_spark_2026-06-30.pdf`). Matches `agents/conventions.md` deliverable naming.
+3. **Visual check (session-generated PDFs).** If this session created or regenerated the PDF, render pages with `pdftoppm` and visually inspect via Read before upload. Reject and regenerate if: body font under 9pt, multi-column tables that orphan rows / overflow, or branded Improving PDF tooling used for a personal/non-client doc (use reportlab or plain layout instead).
+4. **Overwrite intent.** If `rmapi ls` shows the same basename already at the target, ask replace-vs-keep-both before putting.
+
 ## Workflow
 
-1. **Identify the file(s)** to upload. Accept file path(s) from the user or from conversation context (e.g., files just generated). Each path must end in `.pdf` or `.epub` — reject any other extension up front.
+1. **Identify the file(s)** to upload. Accept file path(s) from the user or from conversation context (e.g., files just generated). Each path must end in `.pdf` or `.epub` — reject any other extension up front. Rename to the human-readable convention above before staging if needed.
 
 2. **Verify each source file exists before doing anything else.** Pick the check based on path:
    - **Path under `/tmp` or another shell-readable location:**
@@ -207,7 +223,7 @@ do shell script "/opt/homebrew/bin/rmapi ls '/target/folder' 2>&1"
 
 ### Handling a Corrupted rmapi Config
 
-If any `rmapi` call (step 4, 7, or 8) fails with an error containing `failed to parse /Users/davidohara/.rmapi`, the config file is corrupted (observed cause: the file gets overwritten with a raw token instead of the expected JSON config structure). Recover automatically:
+If any `rmapi` call (step 4, 8, or 9) fails with an error containing `failed to parse /Users/davidohara/.rmapi`, the config file is corrupted (observed cause: the file gets overwritten with a raw token instead of the expected JSON config structure). Recover automatically:
 
 1. Remove the corrupted file:
 ```applescript
@@ -222,37 +238,34 @@ do shell script "rm -f /Users/davidohara/.rmapi"
 do shell script "/opt/homebrew/bin/rmapi mkdir '/Improving/Accounts/NewClient' 2>&1"
 ```
 
-6. **Copy files from OneDrive to /tmp via Finder** (required to bypass TCC, unless the source is already under /tmp — see "When the Source Is Already at /tmp" above):
-```applescript
-tell application "Finder"
-    set srcFolder to POSIX file "/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/relative/path/" as alias
-    set destFolder to POSIX file "/tmp/" as alias
-    duplicate file "Document.pdf" of folder srcFolder to folder destFolder with replacing
-end tell
-```
+6. **Run the Pre-Push Checklist** (persistent path, filename, visual check if session-generated, overwrite intent). Do not proceed to put until every applicable item passes.
 
-7. **Upload each file with rmapi**:
+7. **Stage to a persistent IES path if needed** (see Persistent Staging Rule). Only use a Finder→`/tmp` bridge as a same-call last resort.
+
+8. **Upload each file with rmapi** from the persistent path:
 ```applescript
-do shell script "/opt/homebrew/bin/rmapi put '/tmp/Document.pdf' '/target/folder' 2>&1"
+do shell script "/opt/homebrew/bin/rmapi put '/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/relative/path/Document.pdf' '/target/folder' 2>&1"
 ```
 
 **Overwrite vs. duplicate behavior:** `rmapi put` does NOT overwrite existing files. If a file with the same name already exists at the target folder, the new upload creates a second entry with a numeric suffix on the tablet. For recurring artifacts (quarterly board decks, weekly devotionals), the user typically wants the new version to replace the old one. **Before uploading a file whose name matches an existing entry**, ask the user whether to replace (run `rmapi rm '/target/folder/Document'` first, then put) or keep both. If unsure, ask.
 
-8. **Verify the upload landed**:
+9. **Verify the upload landed**:
 ```applescript
 do shell script "/opt/homebrew/bin/rmapi ls '/target/folder' 2>&1"
 ```
 
-9. **Report the result** back to the user. On success, confirm the document name, the folder it was placed in, and that it will sync to the tablet.
+10. **Report the result** back to the user. On success, confirm the document name, the folder it was placed in, and that it will sync to the tablet.
 
 ## Notes
 
 - Only PDF and EPUB files are supported.
 - `rmapi` is installed on the **host Mac** at `/opt/homebrew/bin/rmapi` — never try to run it from Bash in the VM.
 - All rmapi and Finder commands must go through the `osascript` MCP tool (Control your Mac).
-- The Finder copy step is mandatory when the source is under `CloudStorage/` — `do shell script` cannot read those paths due to macOS privacy restrictions, but Finder can. When the source is already under `/tmp` or another shell-readable path, the Finder bridge is unnecessary.
+- **Persistent IES staging is the default.** `/tmp` across separate osascript calls is a known failure mode — do not reintroduce it.
+- Finder is for TCC bypass when needed; it is not a license to stage everything in `/tmp`.
 - `rmapi mkdir` errors if the folder already exists; always gate it on the result of an `rmapi ls` verification.
 - `rmapi put` creates a new entry; it does not overwrite. To replace an existing file with the same name, run `rmapi rm` first.
 - The document name on the tablet will be the filename without extension.
 - When routing is ambiguous, surface 3-5 ranked candidate folders rather than asking a bare "where?" question.
+- Session-generated PDFs: minimum 9pt body font, no multi-column question tables, visual `pdftoppm` check before put.
 <!-- personal:end -->

@@ -1,0 +1,30 @@
+{
+  "skill_name": "remarkable-upload",
+  "skill_path": ".claude/skills/remarkable-upload/SKILL.md",
+  "work_id": "work-20260723-remarkable-upload-improve",
+  "baseline_eval_id": "eval-20260630T203949-E747AF",
+  "improvement": {
+    "summary": "Encode E747AF failure modes into the skill: persistent IES staging (ban /tmp across osascript calls), Pre-Push Checklist (filename, visual pdftoppm gate, overwrite intent).",
+    "skill_diff_focus": [
+      "Persistent Staging Rule",
+      "Pre-Push Checklist",
+      "Workflow steps 6-10 renumbered around checklist + persistent put"
+    ]
+  },
+  "evals": [
+    {
+      "id": "eval-geniusspark-meeting-prep",
+      "prompt": "eval-mode: plan-only\ndo not execute\n\nUpload the session-generated PDF at meetings/genius-spark/GeniusSpark Meeting Prep.pdf to my reMarkable. Context: external GeniusSpark prospect meeting prep (not a paying Improving client account). The PDF was just generated this session with reportlab. Save the upload plan to outputs/upload-plan.md.",
+      "expectations": [
+        "Plan explicitly acknowledges plan-only mode by name",
+        "Target folder is /Meetings (external prospect routing)",
+        "Plan stages from a persistent IES path — does not rely on /tmp across separate osascript calls",
+        "Plan includes Pre-Push Checklist items: filename convention, visual pdftoppm check for session-generated PDF, overwrite intent",
+        "Plan verifies source exists before put",
+        "Plan verifies target folder via rmapi ls before put",
+        "Plan uses human-readable filename with spaces (GeniusSpark Meeting Prep.pdf)",
+        "No actual rmapi/osascript execution occurred"
+      ]
+    }
+  ]
+}
