@@ -8,11 +8,11 @@ tags:
 - semantic-promotion
 - memory-system
 related_people: []
-  last-promoted-check: 2026-07-23
+  last-promoted-check: 2026-07-24
   promoted: true
 salience:
   score: 10
-  last-promoted-check: 2026-07-23
+  last-promoted-check: 2026-07-24
   promoted: true
 ---
 

@@ -15,11 +15,11 @@ related_people:
 - alice-mburu
 - scott-mcmichael
 - kovacevich
-  last-promoted-check: 2026-07-23
+  last-promoted-check: 2026-07-24
   promoted: true
 salience:
   score: 6
-  last-promoted-check: 2026-07-23
+  last-promoted-check: 2026-07-24
   promoted: true
 ---
 

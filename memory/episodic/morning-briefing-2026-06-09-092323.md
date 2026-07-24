@@ -21,11 +21,11 @@ tags:
 - travel
 date: 2026-06-09
 source_file: memory/working/morning-briefing-2026-06-09-092323.md
-  last-promoted-check: 2026-07-23
+  last-promoted-check: 2026-07-24
   promoted: true
 salience:
   score: 10
-  last-promoted-check: 2026-07-23
+  last-promoted-check: 2026-07-24
   promoted: true
 ---
 

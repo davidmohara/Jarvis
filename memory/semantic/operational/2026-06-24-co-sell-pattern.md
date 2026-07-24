@@ -51,3 +51,10 @@ Sources this cycle:
 - `memory/episodic/one-texas-scorecard-2026-07-14-000000.md` (score 10) — Rock 4 confirmed missed Q2 deadline; same $12.07M gap figure cross-validated from separate scorecard workflow; flagged as the hardest conversation for Scott McMichael's H1 review
 
 Pattern reinforced and cross-validated across two independent sources (chase weekly snapshot + one-texas scorecard workflow) in the same week: Rock 4 gap is stable at ~$12M, Microsoft/Confluent concentration unchanged, zero momentum into Q3. This is no longer an emerging signal — it's a settled, structural finding heading into the Scott McMichael H1 review conversation.
+
+### 2026-07-24 — Nightly promotion
+Sources this cycle:
+- `memory/episodic/co-sell-pipeline-2026-07-20-001500.md` (score 9) — tags: pipeline-review, chase, co-sell, rock-4. Most recent co-sell snapshot entering week 3 of Q3.
+- `memory/episodic/co-sell-pipeline-2026-06-15-143245.md` (score 9) — tags: pipeline-review, chase, pipeline, rock. Pre-Q3 baseline reference.
+
+Pattern status: structurally stable. Two consecutive co-sell snapshots scoring high (9+) confirm no material change in pipeline composition. Rock 4 gap likely persists into Q3; next meaningful signal would be a co-sell-pipeline entry showing new deal creation or partner-sourced wins.

@@ -18,11 +18,11 @@ related_people:
 - don-mcgreal
 - robyn
 - tim-rayburn
-  last-promoted-check: 2026-07-23
+  last-promoted-check: 2026-07-24
   promoted: true
 salience:
   score: 7
-  last-promoted-check: 2026-07-23
+  last-promoted-check: 2026-07-24
   promoted: true
 ---
 

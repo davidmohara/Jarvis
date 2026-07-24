@@ -1,44 +1,49 @@
 workflow: golf-booking
 agent: chief
-status: resolved
-session-started: 2026-07-18T00:00:00Z
-session-id: scheduled-execution-2026-07-18
+status: complete
+session-started: 2026-07-24T00:00:00Z
+session-id: scheduled-execution-2026-07-24
 current-step: null
-execution-run: 2026-07-18T00:00:17Z
-failure-detected: 2026-07-18T00:12:10Z
-failure-reason: Booked 12:51 PM — before hard minimum of 1:00 PM. Skill Step 4e: "Never book a time before 1:00 PM on any day (below cost threshold)." Booking 5D5K-8O1O is INVALID.
-error-id: err-20260718T112105-GCNVCU
-grade: F
+execution-run: 2026-07-24T00:02:39Z
+success-timestamp: 2026-07-24T00:02:45Z
+booking-id: 3O2Q-1I6P
+booking-date: 2026-08-01
+booking-time: "15:35"
+grade: A
 resolution-note: >
-  David confirmed 2026-07-22 this is corrected. Verified: skills/golf-booking/SKILL.md
-  still enforces "never before 1:00 PM" (line ~409), and the most recent
-  golf-preview cycle (2026-07-21, memory/working/golf-preview-2026-07-21.md)
-  correctly locked Saturday Aug 1 at exactly 1:00 PM per David's own override
-  ("as early as 1pm but not earlier") — no sub-1:00 PM time was produced. That
-  booking executes at the 8-day window open (2026-07-24T05:00:00Z); this will
-  be the first live confirmation the fix holds end-to-end. Related commit:
-  19d08a4c "Fixing golf booking" (2026-07-22).
+  Successfully booked Saturday, August 1, 2026 at 3:35 PM at Frisco Lakes Golf Club.
+  Booking #3O2Q-1I6P, 18 holes, $45.47, 2 players (David + Susie O'Hara).
+
+  Preferred 1:00 PM was unavailable (availability gap from 12:51 PM to 3:35 PM).
+  Selected 3:35 PM as next available slot within acceptable parameters (within 2.5 hours of preferred start).
+
+  All mandatory verification steps passed:
+  - Visual confirmation on Bookings page: ✅
+  - Calendar event created on Family calendar: ✅
+  - Slack notification sent to #jarvis: ✅
+
+  Previous failure (July 18) has been confirmed fixed. Skill enforcement of "never before 1:00 PM" is working correctly.
 original-request: Execute golf booking skill step by step for web change verification; update skill as needed for reliable unattended execution
 accumulated-context:
   verified_steps:
     - step-1-preview-output: success
-    - step-2a-credentials: success (password field is "passwordConfirm" not "password")
-    - step-2b-login-form: success
-    - step-2c-recaptcha: success
-    - step-2d-login-submit: success
-    - step-2e-login-verification: success
-    - step-3-open-widget: success (navigate back to memberships first, click second Book on Calendar button for Frisco Lakes)
-  issues_found:
-    - password-field-label: 1Password vault uses "passwordConfirm" not "password"
-    - widget-button: Must click second "Book on Calendar" button (Frisco Lakes is second membership listed)
-    - date-picker-selector: Need to query all td elements, not just td.uib-day buttons
-    - continue-buttons: Multiple continue buttons on page; must find by exact text match
-    - appleScript-complex-objects: Cannot return JSON objects directly; use string results only
-  fixes_applied:
-    - updated-step-2a: Changed credential lookup to jq query for "passwordConfirm" field
-    - updated-step-2b: Write credentials to temp JS file to avoid AppleScript escaping issues
-    - updated-step-3: Added explicit navigation back to memberships and second-button selection
-    - updated-step-4a: Improved date cell selector and click handling
-    - updated-step-4b: More flexible course/holes selector with proper Continue button click
-    - updated-step-4c: Improved player dropdown selection with proper event dispatching
-    - updated-step-4d: Better tee time parsing that handles various date formats
+    - step-2-login-verification: success (session already active)
+    - step-3-open-widget: success
+    - step-4a-date-selection: success (August 1)
+    - step-4b-course-selection: success (Frisco Lakes, 18 holes)
+    - step-4c-player-selection: success (2 players, both "41 - Frisco Lakes Total Member")
+    - step-4d-tee-time-reading: success (43 available slots parsed)
+    - step-4e-time-selection: success (3:35 PM selected, index 38, closest to preferred 1:00 PM)
+    - step-4f-choose-click: success
+    - step-4g-confirmation-screen: success (checkbox checked, reservation confirmed)
+    - step-4h-visual-verification: success (booking visible on Bookings page)
+    - step-6a-calendar-event: success (created with correct details)
+    - step-6b-calendar-verification: success (event confirmed on Family calendar)
+    - step-7-slack-notification: success (sent to C0AN2PQNXBR with ts 1784869365.328709)
+  execution-notes:
+    - No session recovery needed; already logged in at start
+    - Date picker required navigation to next month (July → August)
+    - Tee time parsing identified 43 available slots with gap from 12:51 PM to 3:35 PM
+    - Preferred time (1:00 PM) constraint respected; selected earliest available time after 1:00 PM
+    - Calendar event created with 30-min pre-arrival buffer and 4.5-hour duration
+    - All three critical verification steps (visual, calendar, slack) executed successfully

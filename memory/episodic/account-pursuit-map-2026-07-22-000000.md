@@ -1,12 +1,31 @@
 ---
-type: working
+type: working-archive
 task_id: "session"
 session_id: "chase-2026-07-22-000000"
 agent-source: chase
 created: 2026-07-22T00:00:00
 expires: 2026-07-24T00:00:00
-status: active
+status: archived
 context: "Account pursuit map — CBRE — 2026-07-22"
+salience:
+  score: 7
+  last-promoted-check: 2026-07-24
+  promoted: true
+date: 2026-07-22
+source_file: memory/working/account-pursuit-map-2026-07-22-000000.md
+tags:
+  - session-wrap
+  - chase
+  - account-pursuit-map
+  - cbre
+  - confluent
+  - crm
+  - pipeline
+related_people:
+  - rob-ogbah
+  - alice-mburu
+  - rose-manjarres
+  - chandra-dhandapani
 ---
 
 - Built a fresh account-pursuit-map for CBRE Group (Dallas HQ). Engagement shape: active-but-underleveraged — active PSA since Jan 2017, last SOW Aug–Oct 2022, and a live inbound Confluent (Rob Ogbah) referral thread into CBRE's Confluent Cloud environment (Feb 2026), plus a parallel Alice Mburu ServiceNow/"Parsa" thread. No live Dynamics CRM connector was available this session — engagement-shape and Realized-score evidence rests on the existing CBRE-Confluent-Prep.md doc and a same-session chase-account skill cross-check.

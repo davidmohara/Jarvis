@@ -25,11 +25,11 @@ related_people:
 - don-mcgreal
 - tim-rayburn
 - curtis
-  last-promoted-check: 2026-07-23
+  last-promoted-check: 2026-07-24
   promoted: true
 salience:
   score: 10
-  last-promoted-check: 2026-07-23
+  last-promoted-check: 2026-07-24
   promoted: true
 ---
 

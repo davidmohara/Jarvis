@@ -2,23 +2,17 @@
   "skill": "golf-booking",
   "agent": "chief",
   "trigger": "scheduled",
-  "started": "2026-07-18T00:00:17Z",
-  "completed": "2026-07-18T00:12:10Z",
-  "status": "failure",
-  "grade": "F",
+  "started": "2026-07-24T00:02:39Z",
+  "completed": "2026-07-24T00:02:50Z",
+  "status": "success",
   "tool_failures": 0,
-  "error_ids": ["err-20260718T112105-GCNVCU"],
-  "failure_reason": "Critical business rule violation: booked 12:51 PM before hard minimum of 1:00 PM. Skill Step 4e explicitly prohibits booking before 1:00 PM due to cost threshold. Agent miscounted available tee times during selection and failed to validate against hard minimum.",
-  "booking_details": {
-    "booking_number": "5D5K-8O1O",
-    "date": "2026-07-26",
-    "booked_time": "12:51 PM",
-    "required_time": "at or after 1:00 PM",
-    "course": "Frisco Lakes Golf Club",
-    "holes": 18,
-    "cost": 214.34,
-    "players": ["David O'Hara", "Susie O'Hara"],
-    "status": "INVALID — MUST BE CANCELLED"
-  },
-  "notes": "Booking successfully placed and verified on ChronoGolf, but placement violates established cost policy. Booking 5D5K-8O1O must be cancelled and rebooked at 3:15 PM or later. Calendar event and Slack notification were sent but are now invalid. Escalated to David for manual intervention."
+  "error_ids": [],
+  "booking_id": "3O2Q-1I6P",
+  "booking_date": "2026-08-01",
+  "booking_time": "15:35",
+  "verification_steps_passed": [
+    "step-4h-visual-confirmation",
+    "step-6b-calendar-verification",
+    "step-7-slack-notification"
+  ]
 }

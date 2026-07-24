@@ -8,11 +8,11 @@ tags: []
 date: 2026-07-07
 source_file: /Users/davidohara/develop/jarvis/memory/working/dream-summary-2026-07-06.md
 related_people: []
-  last-promoted-check: '2026-07-22'
-  last-promoted-check: 2026-07-23
+  last-promoted-check: 2026-07-24
+  last-promoted-check: 2026-07-24
 salience:
   score: 0
-  last-promoted-check: 2026-07-23
+  last-promoted-check: 2026-07-24
 ---
 
 # Dream Cycle Summary — 2026-07-06

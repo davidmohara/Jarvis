@@ -3,11 +3,11 @@ date: 2026-06-12
 session: session-2026-06-12-082700
 archived-from: memory/working/2026-06-12-session-wrap.md
 type: working-archive
-  last-promoted-check: '2026-07-22'
-  last-promoted-check: 2026-07-23
+  last-promoted-check: 2026-07-24
+  last-promoted-check: 2026-07-24
 salience:
   score: 0
-  last-promoted-check: 2026-07-23
+  last-promoted-check: 2026-07-24
 ---
 
 # Session Wrap — June 12, 2026

@@ -1,11 +1,11 @@
 {
   "skill": "master-slack",
-  "agent": "sterling",
-  "trigger": "manual",
-  "started": "2026-07-22T07:50:00Z",
-  "completed": "2026-07-22T07:52:00Z",
-  "status": "success",
-  "tool_failures": 0,
+  "agent": "master",
+  "trigger": "scheduled",
+  "started": "2026-07-23T06:09:00-05:00",
+  "completed": "2026-07-23T06:12:00-05:00",
+  "status": "partial",
+  "tool_failures": 1,
   "error_ids": [],
-  "message": "Golf preview override notification sent to #golf (C0B15SW9FB5): Saturday 1:00 PM locked per David's instruction (Declan dinner excludes Sunday)"
+  "notes": "M365 connector invalidated — calendar and email sections degraded. Calendar sourced from Clay MCP. Email/Jarvis inbox skipped."
 }

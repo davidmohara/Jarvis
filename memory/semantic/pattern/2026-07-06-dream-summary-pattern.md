@@ -71,3 +71,11 @@ Sources this cycle:
 - `memory/episodic/dream-summary-2026-07-15.md` (score 10) — tags: dream-summary, jarvis, dream-cycle, semantic-promotion, git-issues
 
 **Fix verified working.** Step-02 was rerun this cycle with a merge-based write (updates `score` and `last-promoted-check`, preserves any existing `promoted` value, and rebuilds any malformed stray `promoted:` lines into a clean nested `salience:` block). Result: only 7 promotion candidates surfaced this cycle — all freshly-expired working-memory archives from step-01, zero leftover backlog from 07-06 through 07-15. This is the first cycle since the bug was introduced where the candidate pool wasn't dominated by re-flagged backlog. Also confirmed the previously-corrupted `2026-04-20-afternoon-boot.md` (which had `promoted: true` stranded on a malformed stray line) now carries it correctly nested inside `salience:` and preserved across the rewrite. Recommend closing out the root-cause fix as applied — the actual step-02 spec file should still be updated to codify the merge behavior so ad hoc scripts aren't required on future cycles.
+
+### 2026-07-24 — Nightly promotion
+Sources this cycle:
+- `memory/episodic/dream-summary-2026-07-20.md` (score 10) — tags: dream-summary, jarvis, dream-cycle, semantic-promotion, q3-rocks, health, systemic-compliance. Key outputs: Q3 Rocks missing pattern created; health/nerve-block pattern updated; Systemic Compliance new prospect surfaced from 3 morning briefings.
+- `memory/episodic/dream-summary-2026-07-22.md` (score 10) — tags: dream-summary, jarvis, dream-cycle, semantic-promotion, q3-rocks, missed-context. Key outputs: q3-rocks-pattern updated (5 weeks unwritten); new lesson appended (lazy-search/missed-context, 3 occurrences).
+- `memory/episodic/dream-summary-2026-07-23.md` (score 10) — tags: dream-summary, jarvis, dream-cycle, semantic-promotion, git-issues, compression, q3-rocks. Key outputs: git-issues-pattern created (20 occurrences, distinct from git-sync); q3-rocks-pattern escalated (6 weeks unwritten); first compression run — 5 Q2 entries digested.
+
+Three consecutive cycles with substantive pattern activity. Dream cycle is now reliably producing new semantic entries and escalating existing ones, not just rescoring. Compression pipeline is active for first time.

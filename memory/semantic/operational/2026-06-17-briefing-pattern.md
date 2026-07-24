@@ -113,3 +113,9 @@ _2026-06-17 run:_
 
 - Pattern is active in the current operational window.
 - Watch for repetition over the next 1-2 dream cycles before promoting to medium confidence.
+
+### 2026-07-24 — Nightly promotion
+Sources this cycle:
+- `memory/episodic/morning-briefing-2026-06-10-063515.md` (score 10) — tags: briefing, chief, calendar, omnifocus. Routine briefing entry, confirming briefing cluster continues to score high in the 30-day window.
+
+Entry count now exceeds 40 across all cycles — confidence escalation to `high` is warranted and already reflected in frontmatter. Pattern stable.

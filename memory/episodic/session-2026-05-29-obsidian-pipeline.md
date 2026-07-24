@@ -5,11 +5,11 @@ created: 2026-05-29
 archived-from: memory/working/session-2026-05-29-obsidian-pipeline.md
 context: obsidian-source-note skill build, Spotify transcript extraction, content-pipeline
   routing, eval harness assertions
-  last-promoted-check: '2026-07-22'
-  last-promoted-check: 2026-07-23
+  last-promoted-check: 2026-07-24
+  last-promoted-check: 2026-07-24
 salience:
   score: 0
-  last-promoted-check: 2026-07-23
+  last-promoted-check: 2026-07-24
 ---
 
 # Session Working Memory — 2026-05-29 (Evening)

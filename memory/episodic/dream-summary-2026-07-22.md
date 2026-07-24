@@ -1,9 +1,9 @@
 ---
-type: working
+type: working-archive
 agent-source: jarvis
 created: 2026-07-22T03:31:00
 expires: 2026-07-23
-status: active
+status: archived
 context: "Dream cycle summary — 2026-07-22"
 tags:
   - dream-summary
@@ -13,8 +13,12 @@ tags:
   - q3-rocks
   - missed-context
 salience:
-  score: 0
-  promoted: false
+  score: 10
+  last-promoted-check: 2026-07-24
+  promoted: true
+date: 2026-07-22
+source_file: memory/working/dream-summary-2026-07-22.md
+related_people: []
 ---
 
 Dream cycle ran cleanly tonight (07-22). One semantic update and one new lesson.

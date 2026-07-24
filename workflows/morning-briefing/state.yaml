@@ -2,6 +2,6 @@ workflow: morning-briefing
 agent: chief
 status: complete
 current-step: step-04
-last-run: 2026-07-21T08:31:00-05:00
+last-run: 2026-07-23T06:09:00-05:00
 last-run-status: complete
-last-run-notes: "Scheduled autonomous run. Calendar (M365, live pull — 14 events today), OmniFocus (osascript — 219 inbox, 7 overdue, 1 flagged), leads (Desktop Commander — 3 unassigned: IFS/Cardinal IT/Paragon), email inbox (13 items scanned, 5 actionable surfaced), Jarvis folder (empty), Clay (0 reminders, upcoming events confirmed), delegation tracker (no active), 72-hr look-ahead complete. AI GMS Summit starts tonight — flagged as top priority. UTB board vote + nerve block appt flagged. Boot workflow still in-progress from 2026-07-17. Slack sent to #jarvis."
+last-run-notes: "Scheduled autonomous run. Calendar (Clay MCP — 5 events today; M365 connector invalidated), OmniFocus (osascript — 219 inbox, 7 overdue, 1 flagged), leads (Desktop Commander — 3 unassigned: IFS/Cardinal IT/Paragon), email/Jarvis inbox (M365 down — skipped), Clay (0 reminders, 0 upcoming events beyond today), delegation tracker (no active), 72-hr look-ahead (heavy Friday: 4 meetings), Plaud staging (dir not found — no recordings), in-flight workflows (none). Key flags: nerve block still overdue+flagged, Lifebook 2 months overdue, 3 stale unassigned leads 150+ days. M365 connector needs reconnection. Slack sent to #jarvis."
