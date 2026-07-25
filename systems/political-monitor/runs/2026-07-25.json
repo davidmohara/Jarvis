@@ -1,0 +1,532 @@
+{
+  "date": "2026-07-25",
+  "generated": "2026-07-25T10:45:00Z",
+  "window_hours": 72,
+  "counts": {
+    "total_items": 60,
+    "by_lean": {
+      "left": 30,
+      "right": 26,
+      "center": 4
+    },
+    "shared_topics": 4,
+    "gap_left": 5,
+    "gap_right": 4
+  },
+  "sources_used": [
+    {
+      "id": "msnbc",
+      "name": "MSNBC",
+      "lean": "left"
+    },
+    {
+      "id": "cnn",
+      "name": "CNN Politics",
+      "lean": "left"
+    },
+    {
+      "id": "nbc",
+      "name": "NBC News Politics",
+      "lean": "left"
+    },
+    {
+      "id": "thehill",
+      "name": "The Hill",
+      "lean": "left"
+    },
+    {
+      "id": "axios",
+      "name": "Axios Politics",
+      "lean": "left"
+    },
+    {
+      "id": "dailybeast",
+      "name": "The Daily Beast",
+      "lean": "left"
+    },
+    {
+      "id": "slate",
+      "name": "Slate",
+      "lean": "left"
+    },
+    {
+      "id": "newrepublic",
+      "name": "The New Republic",
+      "lean": "left"
+    },
+    {
+      "id": "foxnews",
+      "name": "Fox News Politics",
+      "lean": "right"
+    },
+    {
+      "id": "natreview",
+      "name": "National Review",
+      "lean": "right"
+    },
+    {
+      "id": "examiner",
+      "name": "Washington Examiner",
+      "lean": "right"
+    },
+    {
+      "id": "federalist",
+      "name": "The Federalist",
+      "lean": "right"
+    },
+    {
+      "id": "dailywire",
+      "name": "The Daily Wire",
+      "lean": "right"
+    },
+    {
+      "id": "breitbart",
+      "name": "Breitbart",
+      "lean": "right"
+    },
+    {
+      "id": "townhall",
+      "name": "Townhall",
+      "lean": "right"
+    },
+    {
+      "id": "rcp",
+      "name": "RealClearPolitics",
+      "lean": "right"
+    },
+    {
+      "id": "amconserv",
+      "name": "The American Conservative",
+      "lean": "right"
+    },
+    {
+      "id": "spectator",
+      "name": "The American Spectator",
+      "lean": "right"
+    },
+    {
+      "id": "freepress",
+      "name": "The Free Press",
+      "lean": "center"
+    }
+  ],
+  "sources_muted": [
+    {
+      "id": "nyt",
+      "name": "New York Times",
+      "lean": "left",
+      "reason": "accessible: false"
+    },
+    {
+      "id": "wapo",
+      "name": "Washington Post",
+      "lean": "left",
+      "reason": "accessible: false"
+    },
+    {
+      "id": "politico",
+      "name": "Politico",
+      "lean": "left",
+      "reason": "accessible: false"
+    },
+    {
+      "id": "vox",
+      "name": "Vox Politics",
+      "lean": "left",
+      "reason": "accessible: false"
+    },
+    {
+      "id": "motherjones",
+      "name": "Mother Jones",
+      "lean": "left",
+      "reason": "accessible: false"
+    },
+    {
+      "id": "wsj_opinion",
+      "name": "WSJ Opinion",
+      "lean": "right",
+      "reason": "accessible: false"
+    },
+    {
+      "id": "nypost",
+      "name": "New York Post",
+      "lean": "right",
+      "reason": "accessible: false"
+    },
+    {
+      "id": "reuters",
+      "name": "Reuters Politics",
+      "lean": "center",
+      "reason": "accessible: false"
+    },
+    {
+      "id": "ap",
+      "name": "Associated Press",
+      "lean": "center",
+      "reason": "accessible: false"
+    },
+    {
+      "id": "bbc",
+      "name": "BBC US & Canada",
+      "lean": "center",
+      "reason": "accessible: false"
+    }
+  ],
+  "shared_topics": [
+    {
+      "topic_key": "maine-senate-jackson-convention-2026-07-25",
+      "title": "Maine Senate: Troy Jackson Formally Nominated at Party Convention to Face Susan Collins",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New \u2014 first appearance",
+      "correlation": 65,
+      "correlation_label": "Both sides confirm Jackson's nomination; left frames it as an energized path to defeat Collins, right spotlights assault allegations and the chaotic convention process.",
+      "summary": "Maine Democrats met at an unusual party convention on July 25 and formally nominated former state Senate President Troy Jackson to challenge Republican Sen. Susan Collins. Jackson had effectively locked up the race after top rivals Shenna Bellows and Nirav Shah dropped out; he held more than 460 of 601 delegate slots. Jackson now begins a 100-day sprint to unseat Collins, who has held the seat for 28 years.",
+      "left": {
+        "framing": "Left outlets frame Jackson's nomination as an energized and credible challenge to Collins. CNN, NBC, and The Hill emphasize his labor-backed coalition, his 100-day path to victory, and his deep Maine roots as a former Senate president from northern Maine \u2014 Collins's own backyard. New Republic outlined three strategic keys that could make him the first Democrat to defeat Collins.",
+        "sources": [
+          {
+            "name": "CNN Politics",
+            "url": "https://www.cnn.com/2026/07/25/politics/maine-democrats-troy-jackson-party-convention"
+          },
+          {
+            "name": "NBC News",
+            "url": "https://www.nbcnews.com/politics/2026-election/maine-senate-race-democrats-poised-nominate-troy-jackson-challenge-sus-rcna588711"
+          },
+          {
+            "name": "The Hill",
+            "url": "https://thehill.com/homenews/campaign/5989977-live-updates-trump-iran-warm-maine-democrats-senate-race-whcd/"
+          }
+        ]
+      },
+      "right": {
+        "framing": "Right outlets lean into negative contrasts: Daily Wire reports that Jackson himself faces an allegation of striking a female colleague during an argument, calling it a continuation of the Democrats' chaotic Maine Senate saga. Breitbart notes that Maine Dems removed other candidates from the website in embarrassing fashion before settling on Jackson. The Free Press (center) captured the irony of a near-coronation replacing a candidate accused of rape.",
+        "sources": [
+          {
+            "name": "The Daily Wire",
+            "url": "https://www.dailywire.com/news/leading-dsa-candidate-to-replace-platner-accused-of-hitting-female-colleague-during-argument"
+          },
+          {
+            "name": "Breitbart",
+            "url": "https://www.breitbart.com/politics/2026/07/22/only-2-left-maine-democrats-remove-transgender-candidate-ashley-webb-others-as-options-for-senate/"
+          },
+          {
+            "name": "The Free Press",
+            "url": "https://www.thefp.com/p/tgif-a-mainers-woes"
+          }
+        ]
+      }
+    },
+    {
+      "topic_key": "congress-iran-war-powers-house-senate-2026-07-25",
+      "title": "Congress Splits on Iran War Powers: House Passes Rebuke 214-208; Senate GOP Blocks It",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New \u2014 first appearance",
+      "correlation": 52,
+      "correlation_label": "Both sides report the same votes accurately; left frames the House vote as a historic bipartisan rebuke, right frames the Senate block as appropriate defense of executive war powers.",
+      "summary": "The House voted 214 to 208 on July 23 to restrict President Trump's authority to wage war against Iran without congressional approval, with four Republicans \u2014 Thomas Massie (KY), Brian Fitzpatrick (PA), Tom Barrett (MI), and Warren Davidson (OH) \u2014 crossing party lines. Within 24 hours, Senate Republicans defeated a similar resolution. Democrats forced both votes to create a political contrast heading into November; oil briefly topped $100 per barrel amid the uncertainty.",
+      "left": {
+        "framing": "CNN, NBC, and The Hill describe the House vote as a remarkable bipartisan rebuke \u2014 the second time the House has successfully passed such a measure. Left coverage emphasizes growing Republican discomfort with the war's $37.5B cost and rising death toll (18 service members killed), and notes that several Senate Republicans privately oppose the war's continuation but still voted to let Trump proceed. NBC highlights Democrats' explicit political strategy of tying Senate Republicans to an unpopular war.",
+        "sources": [
+          {
+            "name": "CNN Politics",
+            "url": "https://www.cnn.com/2026/07/23/politics/trump-iran-war-powers"
+          },
+          {
+            "name": "NBC News",
+            "url": "https://www.nbcnews.com/politics/congress/house-votes-end-iran-war-senate-republicans-let-trump-continue-war-rcna588874"
+          },
+          {
+            "name": "The Hill",
+            "url": "https://thehill.com/homenews/house/5985147-iran-war-powers-resolution-house-vote/"
+          },
+          {
+            "name": "Axios",
+            "url": "https://www.axios.com/2026/07/23/iran-war-powers-vote-house-republicans-trump"
+          }
+        ]
+      },
+      "right": {
+        "framing": "Fox News frames the Senate block as the proper constitutional outcome, arguing that congressional Democrats are using a symbolic procedural vote to hamper the commander-in-chief during an active military operation. The American Conservative offers a dissenting right voice, arguing TAC-style realists agree Congress should assert itself and urging Trump to negotiate an exit rather than escalate. RCP's pro-war commentary argues Iran is losing and Trump should hold the line.",
+        "sources": [
+          {
+            "name": "Fox News",
+            "url": "https://www.foxnews.com/video/6401962354112"
+          },
+          {
+            "name": "The American Conservative",
+            "url": "https://www.theamericanconservative.com/bring-the-troops-home-mr-president/"
+          },
+          {
+            "name": "RealClearPolitics",
+            "url": "https://www.realclearpolitics.com/2026/07/21/america_winning_war_with_iran_its_only_a_matter_of_time_705699.html"
+          }
+        ]
+      }
+    },
+    {
+      "topic_key": "trump-thune-save-act-patience-2026-07-25",
+      "title": "SAVE Act Standoff: Trump's 'Patience Running Out' with Thune; Senate Lacks 50 Votes",
+      "days_seen": 2,
+      "relevance": 70,
+      "relevance_label": "Recurring \u2014 day 2",
+      "correlation": 45,
+      "correlation_label": "Both sides confirm the Senate stalemate; left frames the SAVE Act as voter suppression legislation Trump is using to bully a co-equal branch, right frames Thune's delay as Senate obstruction of a critical election-integrity measure.",
+      "summary": "White House Press Secretary Karoline Leavitt said Thursday that Trump's 'patience is running out' with Senate Majority Leader John Thune over the stalled SAVE America Act. The House passed a $95 billion reconciliation package combining Iran war funding with SAVE Act incentives, but Thune told reporters 'I can't count to 50 right now' on the budget resolution needed to unlock it. Thune is also prioritizing a continuing resolution to avoid a government shutdown before August recess.",
+      "left": {
+        "framing": "Left coverage emphasizes Trump bullying a co-equal branch leader over a bill that would restrict voting access and impose documentary proof-of-citizenship requirements. CNN and The Hill note that the Senate parliamentarian may rule SAVE Act provisions out of order under Byrd rule reconciliation requirements. Axios characterizes this as a growing intra-Republican rift with real midterm consequences if the bill fails.",
+        "sources": [
+          {
+            "name": "CNN Politics",
+            "url": "https://www.cnn.com/2026/07/23/politics/trump-thune-jabs-save-act-hnk"
+          },
+          {
+            "name": "The Hill",
+            "url": "https://thehill.com/homenews/senate/5987407-trump-thune-senate-tensions/"
+          },
+          {
+            "name": "Axios",
+            "url": "https://www.axios.com/2026/07/23/house-senate-republicans-reconciliation-save-act"
+          }
+        ]
+      },
+      "right": {
+        "framing": "Fox News frames Thune's delay as a betrayal of Trump's core election-integrity agenda, with Breitbart and Townhall demanding the Senate act before recess. RCP's clip of Leavitt's 'patience running out' statement is presented approvingly. New Republic (left-leaning) provides additional color by characterizing Trump's rage at his own Senate leadership as a sign of his deteriorating political position.",
+        "sources": [
+          {
+            "name": "Fox News",
+            "url": "https://www.foxnews.com/politics/gop-rift-grows-thune-hits-brakes-trumps-election-bill-avert-shutdown"
+          },
+          {
+            "name": "Townhall",
+            "url": "https://townhall.com/tipsheet/cameron-arcand/2026/07/24/trump-demands-key-reconciliation-30-step-passed-before-august-recess-n2680100"
+          },
+          {
+            "name": "RealClearPolitics",
+            "url": "https://www.realclearpolitics.com/video/2026/07/23/leavitt_on_save_act_trumps_patience_with_leader_thune_is_running_out.html"
+          }
+        ]
+      }
+    },
+    {
+      "topic_key": "us-saudi-nuclear-deal-2026-07-23",
+      "title": "Saudi Nuclear Deal: Trump Adds Abraham Accords Condition 24 Hours After Signing",
+      "days_seen": 2,
+      "relevance": 70,
+      "relevance_label": "Recurring \u2014 day 2",
+      "correlation": 40,
+      "correlation_label": "Both sides acknowledge Trump reversed course on the deal; left frames it as chaotic negotiating that alarmed US officials, right is divided between strategic-genius framing and skepticism about whether Saudi Arabia will comply.",
+      "summary": "Less than 24 hours after signing a US-Saudi 123 nuclear agreement, President Trump announced a new condition: Saudi Arabia must normalize relations with Israel via the Abraham Accords. The requirement surprised Trump's own nuclear negotiators. Saudi Arabia has historically conditioned normalization on Palestinian statehood progress. Conservative critics at Fox and the Wall Street Journal had questioned why the deal lacked an Israel normalization requirement, and Trump added it after that coverage aired.",
+      "left": {
+        "framing": "CNN and NBC report the reversal as a sign of foreign-policy chaos \u2014 Trump contradicted his own deal within 24 hours, undermining the credibility of US diplomatic commitments. Coverage notes the deal already faced criticism for lacking IAEA 'gold standard' oversight requirements, and the last-minute condition injection adds to allies' uncertainty about whether Trump agreements are durable.",
+        "sources": [
+          {
+            "name": "CNN Politics",
+            "url": "https://www.cnn.com/2026/07/23/politics/saudi-nuclear-deal-trump-conservatives"
+          },
+          {
+            "name": "NBC News",
+            "url": "https://www.nbcnews.com/politics/2026-election/live-blog/arizona-primary-election-results-congress-trump-live-updates-rcna588432"
+          }
+        ]
+      },
+      "right": {
+        "framing": "The American Conservative raises concerns that the US-Saudi nuclear deal gives away too much without securing an Israel normalization agreement or IAEA oversight; the added condition addresses part of that criticism. RCP and Spectator coverage is cautiously positive, noting Trump responded to conservative pushback. However, several right-of-center commentators acknowledge the optics of reversing a just-signed deal are troubling.",
+        "sources": [
+          {
+            "name": "The American Conservative",
+            "url": "https://www.theamericanconservative.com/does-rand-paul-want-to-merge-the-american-and-israeli-defense-establishments/"
+          },
+          {
+            "name": "The American Spectator",
+            "url": "https://spectator.org/why-are-we-still-negotiating-with-iran/"
+          }
+        ]
+      }
+    }
+  ],
+  "gap_left": [
+    {
+      "topic_key": "buttigieg-2028-dem-frontrunner-poll",
+      "title": "Pete Buttigieg Emerges as 2028 Democratic Frontrunner in New Poll",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New \u2014 first appearance",
+      "summary": "A new poll shows Pete Buttigieg leading potential 2028 Democratic presidential candidates at 19 percent, ahead of California Governor Gavin Newsom (17%), Georgia Sen. Jon Ossoff (13%), and Rep. Alexandria Ocasio-Cortez (13%). Left outlets frame this as evidence the Democratic Party is coalescing around experienced, nationally known candidates for the next presidential cycle.",
+      "sources": [
+        {
+          "name": "The Daily Beast",
+          "url": "https://www.thedailybeast.com/dem-star-pete-buttigieg-emerges-as-2028-frontrunner-in-new-poll/"
+        },
+        {
+          "name": "The Hill",
+          "url": "https://thehill.com/newsletters/whole-hog-politics/whole-hog-politics-live-briefing/5987880-jd-vance-marco-rubio-gop-2028-poll-live-discussion/"
+        }
+      ]
+    },
+    {
+      "topic_key": "manchin-independent-leadership-council",
+      "title": "Manchin Launches Independent Leadership Council to Elect Independent Candidates",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New \u2014 first appearance",
+      "summary": "Former Sen. Joe Manchin announced the Independent Leadership Council, a new organization aimed at recruiting and supporting independent candidates for congressional races. A record 45% of American adults now identify as political independents. CNN and The Hill report the launch as a potentially significant structural move that could peel moderate votes from both parties in competitive districts ahead of the November midterms.",
+      "sources": [
+        {
+          "name": "CNN Politics",
+          "url": "https://www.cnn.com/2026/07/24/politics/joe-manchin-recruit-independent-candidates"
+        },
+        {
+          "name": "The Hill",
+          "url": "https://thehill.com/homenews/campaign/5988528-joe-manchin-launches-independent-council/"
+        },
+        {
+          "name": "Axios",
+          "url": "https://www.axios.com/2026/07/21/trump-maga-advisers-midterms"
+        }
+      ]
+    },
+    {
+      "topic_key": "capitalism-faith-lost-poll-2026-07-25",
+      "title": "Americans \u2014 Including Republicans \u2014 Losing Faith in Capitalism; Views at Near-Parity",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New \u2014 first appearance",
+      "summary": "A new CNN poll finds capitalism's net favorability has collapsed from +30 in 2019 to just +4 today (50%-46%), with 65% of voters saying 'the system is rigged to favor the wealthy.' Notably, the percentage of Republicans agreeing the system is rigged rose from 30% in 2018 to 42% in 2026. Left outlets cover this as a systemic legitimacy crisis connected to inflation, the Iran war, and rising income inequality. Right outlets largely do not feature the poll, instead framing similar economic anxiety as evidence of socialism's danger.",
+      "sources": [
+        {
+          "name": "CNN Politics",
+          "url": "https://www.cnn.com/2026/07/23/politics/republicans-capitalism-socialism-poll"
+        },
+        {
+          "name": "The Free Press",
+          "url": "https://www.thefp.com/p/why-2026-could-prove-as-important"
+        }
+      ]
+    },
+    {
+      "topic_key": "navy-official-suspended-narcissist-trump",
+      "title": "Navy Director of Business Operations Suspended After Calling Trump 'Narcissist' on Camera",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New \u2014 first appearance",
+      "summary": "Acting Navy Secretary Hung Cao announced that Brandon Newsom, the Navy's director of business operations, was placed on administrative leave after right-wing activist James O'Keefe released a video of Newsom describing Trump as a 'narcissist' and criticizing Pentagon leadership changes. New Republic frames it as an escalating pattern of ideological purges of career military officials; The Hill notes the incident raises concerns about chilling effects on candid internal military assessments.",
+      "sources": [
+        {
+          "name": "The New Republic",
+          "url": "https://newrepublic.com/post/213493/navy-official-suspended-calling-donald-trump-narcissist"
+        },
+        {
+          "name": "The Hill",
+          "url": "https://thehill.com/homenews/administration/5986971-live-updates-trump-iran-tariffs-white-house-correspondents-dinner/"
+        }
+      ]
+    },
+    {
+      "topic_key": "mcconnell-health-coverup-2026-07-23",
+      "title": "McConnell: 37 Days Silent, Security Guards Hospital Room \u2014 Cover-Up Allegations Mount",
+      "days_seen": 2,
+      "relevance": 70,
+      "relevance_label": "Recurring \u2014 day 2",
+      "summary": "Senate Minority Leader Mitch McConnell has been hospitalized and incommunicado for 37 consecutive days, with security personnel reportedly guarding access to his hospital room. Left-leaning outlets first reported this yesterday; coverage is intensifying given that McConnell's seat and his Senate vote count may affect outcomes on reconciliation and war powers votes. Daily Beast and New Republic cite anonymous Senate aides saying colleagues are in the dark about his condition and prognosis.",
+      "sources": [
+        {
+          "name": "The Daily Beast",
+          "url": "https://www.thedailybeast.com/category/politics/"
+        },
+        {
+          "name": "The New Republic",
+          "url": "https://newrepublic.com/article/213282/trump-hits-record-breaking-low-polls-shocking-analyst-horrible"
+        }
+      ]
+    }
+  ],
+  "gap_right": [
+    {
+      "topic_key": "nj-noncitizen-voter-roll-error-doj-2026-07-25",
+      "title": "NJ Voter Roll Error: 6,600 Noncitizens Registered, ~400 Voted \u2014 DOJ Demands Records",
+      "days_seen": 2,
+      "relevance": 70,
+      "relevance_label": "Recurring \u2014 day 2",
+      "summary": "New Jersey Governor Mikie Sherrill disclosed that a DMV software glitch registered approximately 6,600 noncitizens to vote, of whom fewer than 400 actually cast ballots. The DOJ, led by Asst. AG Harmeet Dhillon, gave New Jersey five days to produce names, registration details, and voting records. Right outlets from Fox to Breitbart frame this as proof that noncitizen voting \u2014 previously denied by left commentators \u2014 does in fact occur, and as validation for the SAVE Act. A CNN host on-air acknowledged he had been wrong to say illegal immigrant voting 'never happens.'",
+      "sources": [
+        {
+          "name": "Fox News",
+          "url": "https://www.foxnews.com/media/cnn-host-admits-he-wrong-say-illegal-immigrant-voting-never-happens-after-new-jersey-error"
+        },
+        {
+          "name": "The Federalist",
+          "url": "https://thefederalist.com/2026/07/22/doj-demands-answers-on-new-jersey-voter-roll-scandal/"
+        },
+        {
+          "name": "The Free Press",
+          "url": "https://www.thefp.com/p/tgif-a-mainers-woes"
+        }
+      ]
+    },
+    {
+      "topic_key": "democrats-1972-redo-socialist-surge-2026-07-23",
+      "title": "Right Warns: Democrats' Socialist Surge Mirrors 1972 McGovern Disaster \u2014 49-State Loss Ahead?",
+      "days_seen": 2,
+      "relevance": 70,
+      "relevance_label": "Recurring \u2014 day 2",
+      "summary": "Multiple right-of-center outlets are running commentary arguing that the Democratic Party's embrace of DSA-backed socialist candidates mirrors the 1972 McGovern realignment that led to a 49-state loss. RealClearPolitics ran the most prominent piece; National Review's editors call the socialist resurgence an existential threat to the party's electoral viability. Washington Examiner's tracker documents DSA-endorsed candidates running in dozens of races at every level of government. Left outlets have not engaged with the McGovern comparison.",
+      "sources": [
+        {
+          "name": "RealClearPolitics",
+          "url": "https://www.realclearpolitics.com/articles/"
+        },
+        {
+          "name": "National Review",
+          "url": "https://www.nationalreview.com/2026/07/the-week-socialism-spreads-west/"
+        },
+        {
+          "name": "Washington Examiner",
+          "url": "https://www.washingtonexaminer.com/news/4657182/dsa-endorsement-tracker-socialists-running-for-office-across-america/"
+        }
+      ]
+    },
+    {
+      "topic_key": "gop-fundraising-advantage-maga-400m-2026-07-23",
+      "title": "GOP's $677M War Chest vs. Democrats' $136M: MAGA Inc. Alone Has $400M",
+      "days_seen": 2,
+      "relevance": 70,
+      "relevance_label": "Recurring \u2014 day 2",
+      "summary": "The latest FEC filings show Republicans holding a nearly 5-to-1 cash advantage over Democrats entering the stretch run of the 2026 midterms. MAGA Inc., the primary Trump super PAC, alone reported $400 million in its latest filing. Breitbart, Townhall, and the Washington Examiner frame this as a structural advantage that could offset the Democrats' voter-enthusiasm lead. Left outlets have not prominently covered the FEC filings, instead focusing on the Democratic enthusiasm gap and generic ballot lead.",
+      "sources": [
+        {
+          "name": "Breitbart",
+          "url": "https://www.breitbart.com/politics/2026/07/21/republicans-have-massive-money-advantage-over-democrats-ahead-of-midterms/"
+        },
+        {
+          "name": "Townhall",
+          "url": "https://townhall.com/tipsheet/mattvespa/2026/07/20/the-dems-are-getting-destroyedin-fundraising-n2679815"
+        },
+        {
+          "name": "Washington Examiner",
+          "url": "https://www.washingtonexaminer.com/news/campaigns/congressional/4650715/house-campaign-cash-tracker/"
+        }
+      ]
+    },
+    {
+      "topic_key": "house-subpoena-singham-leftgroups-2026-07-23",
+      "title": "House Panel Subpoenas 3 Left-Wing Groups in $39M Probe Tied to Marxist Millionaire Singham",
+      "days_seen": 2,
+      "relevance": 70,
+      "relevance_label": "Recurring \u2014 day 2",
+      "summary": "A House committee issued subpoenas to three left-wing organizations connected to Neville Roy Singham, a tech millionaire whose estimated $39 million in donations to progressive advocacy groups has drawn scrutiny for alleged ties to Chinese Communist Party media operations. The American Spectator and Fox News are among outlets covering the investigation; The Free Press published an in-depth profile of Singham. Left outlets have not covered the subpoenas. The story has potential to intersect with ongoing right-side narratives about foreign election interference.",
+      "sources": [
+        {
+          "name": "The American Spectator",
+          "url": "https://spectator.org/the-new-terror-network/"
+        },
+        {
+          "name": "The Free Press",
+          "url": "https://www.thefp.com/p/the-rise-and-fall-of-a-communist"
+        }
+      ]
+    }
+  ],
+  "suggestions": []
+}
