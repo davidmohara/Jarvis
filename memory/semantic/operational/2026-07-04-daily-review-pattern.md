@@ -7,7 +7,7 @@ synthesized-from:
   - memory/episodic/daily-review-2026-07-02-000000.md
   - memory/episodic/dream-summary-2026-07-03.md
   - memory/episodic/shutdown-cleanup-2026-07-01-170500.md
-last-updated: 2026-07-17
+last-updated: 2026-07-25
 tags: [daily-review]
 agent-source: dream-cycle
 confidence: low
@@ -73,3 +73,9 @@ Sources this cycle:
 - `memory/episodic/daily-review-2026-07-22-000000.md` (score 10) — tags: daily-review, chief, omnifocus, health, q3-rocks, lifebook, overdue. OmniFocus: 2 completions (morning routine only); 7 overdue — medical cluster (nerve block, pain log, Dr. Easton) 2 weeks overdue, Lifebook 54 days overdue, book ideation 14 days, Blaze.ai/Kare ~1 month. Headless run — no calendar pull.
 
 Persistent pattern reinforcement: Q3 rocks remain undocumented entering week 4 of Q3; medical/nerve-block cluster continues across all daily-review entries; completion pattern is locked to personal rhythms with zero rock-adjacent progress. Lifebook overdue duration (54 days) now rivals the nerve block in severity. AI Summit presentation unresolved as of Jul 21 — check whether Jul 24 event surfaced a topic.
+
+### 2026-07-25 — Nightly promotion
+Sources this cycle:
+- `memory/episodic/daily-review-2026-07-23-000000.md` (score 10) — tags: daily-review, chief, omnifocus, nerve-block, lifebook, q3-rocks, delegation. 2 completions (prayer list, coherence breathing), 8 overdue, 1 flagged. Nerve block still unscheduled at 15+ days. Q3 objectives file absent — 3 weeks into Q3 with no rocks, no scorecard. Delegation tracker empty; Alice's queue unloaded.
+
+Pattern continues: Q3 rocks undocumented now confirmed across daily-reviews on Jul 21, 22, 23. Delegation tracker empty is a new recurring signal — Alice's queue may have drifted since the EA onboarding in June. Nerve block cluster now 15+ days flagged with no calendar date in sight.

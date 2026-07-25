@@ -10,12 +10,30 @@
   "duration_seconds": 1491,
   "status": "success",
   "steps": [
-    {"name": "step-01-intake", "status": "complete"},
-    {"name": "step-02-assert", "status": "complete"},
-    {"name": "step-03-grade", "status": "complete"},
-    {"name": "step-04-score", "status": "complete"},
-    {"name": "step-05-analyze", "status": "complete"},
-    {"name": "step-06-dashboard", "status": "complete"}
+    {
+      "name": "step-01-intake",
+      "status": "complete"
+    },
+    {
+      "name": "step-02-assert",
+      "status": "complete"
+    },
+    {
+      "name": "step-03-grade",
+      "status": "complete"
+    },
+    {
+      "name": "step-04-score",
+      "status": "complete"
+    },
+    {
+      "name": "step-05-analyze",
+      "status": "complete"
+    },
+    {
+      "name": "step-06-dashboard",
+      "status": "complete"
+    }
   ],
   "assessment": {
     "mechanical": {
@@ -25,17 +43,54 @@
       "error_ids": []
     },
     "structural": {
-      "expected_outputs_written": null,
-      "outputs_non_empty": null,
-      "assertions_checked": 0,
-      "assertions_passed": 0,
-      "assertion_results": []
+      "expected_outputs_written": true,
+      "outputs_non_empty": true,
+      "assertions_checked": 9,
+      "assertions_passed": 9,
+      "assertion_results": [
+        {
+          "assertion": "Most recent eval run record reports status: success (replaces broken state.yaml check \u2014 state.yaml is overwritten to in-progress before assertions run)",
+          "passed": true
+        },
+        {
+          "assertion": "Analysis report was written to grading/",
+          "passed": true
+        },
+        {
+          "assertion": "Analysis report is substantive (>500 bytes)",
+          "passed": true
+        },
+        {
+          "assertion": "Dashboard HTML file exists",
+          "passed": true
+        },
+        {
+          "assertion": "Dashboard HTML is substantive (>1000 bytes)",
+          "passed": true
+        },
+        {
+          "assertion": "Eval grade skill-run signal was written",
+          "passed": true
+        },
+        {
+          "assertion": "Eval analyze skill-run signal was written",
+          "passed": true
+        },
+        {
+          "assertion": "Eval dashboard skill-run signal was written",
+          "passed": true
+        },
+        {
+          "assertion": "Analysis report contains substantive recommendations (replaces broken working-memory check \u2014 system-eval does not produce a working memory file)",
+          "passed": true
+        }
+      ]
     },
     "grading": {
-      "last_graded": null,
-      "grade": null,
+      "last_graded": "2026-07-25T04:20:00Z",
+      "grade": "B",
       "safety_grade": null,
-      "grader_notes": null
+      "grader_notes": "All 6 steps completed, 9/9 assertions passed, dashboard regenerated. Deductions: (1) close-eval-record.py produced a spurious duplicate record (eval-20260718T041610-W4CIW9) due to session_id mismatch \u2014 a bug in the record-closing mechanism; (2) 4 out of 9 previously-graded records received F grades indicating systemic output failures. Workflow ran correctly mechanically but its own analysis surfaced significant system health concerns. To earn A: resolve the spurious-record bug in close-eval-record.py."
     },
     "controller_feedback": {
       "rating": null,

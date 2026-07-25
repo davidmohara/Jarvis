@@ -14,7 +14,7 @@ tags:
   - missed-context
 salience:
   score: 10
-  last-promoted-check: 2026-07-24
+  last-promoted-check: 2026-07-25
   promoted: true
 date: 2026-07-22
 source_file: memory/working/dream-summary-2026-07-22.md

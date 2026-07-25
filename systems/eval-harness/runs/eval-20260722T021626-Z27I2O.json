@@ -29,21 +29,54 @@
       "abort_reason": null
     },
     "structural": {
-      "expected_outputs_written": null,
-      "outputs_non_empty": null,
-      "assertions_checked": 0,
-      "assertions_passed": 0,
-      "assertion_results": []
+      "expected_outputs_written": true,
+      "outputs_non_empty": true,
+      "assertions_checked": 8,
+      "assertions_passed": 8,
+      "assertion_results": [
+        {
+          "assertion": "Daily review workflow state.yaml shows status: complete",
+          "passed": true
+        },
+        {
+          "assertion": "Daily review output file was written to reviews/daily/ for the run date (not a prior day)",
+          "passed": true
+        },
+        {
+          "assertion": "Daily review output for run date is substantive (>300 bytes)",
+          "passed": true
+        },
+        {
+          "assertion": "Daily review for run date contains priorities or forward-planning section (tomorrow, next, Q-ref, carry-forward language)",
+          "passed": true
+        },
+        {
+          "assertion": "Daily review for run date contains completed items or wins section",
+          "passed": true
+        },
+        {
+          "assertion": "Daily review working memory file was written for the run date",
+          "passed": true
+        },
+        {
+          "assertion": "Daily review working memory for run date is substantive (>200 bytes)",
+          "passed": true
+        },
+        {
+          "assertion": "Daily review working memory for run date contains expected content",
+          "passed": true
+        }
+      ]
     },
     "grading": {
-      "last_graded": null,
-      "grade": null,
+      "last_graded": "2026-07-25T04:20:00Z",
+      "grade": "B",
       "safety_grade": null,
-      "grader_notes": null
+      "grader_notes": "Output file auto-2026-07-22.md written, substantive at 3,391 bytes, 8/8 assertions passed. Review leads with the morning practice anchor (prayer list + coherence breathing), surfaces the nerve block medical cluster explicitly (3 tasks, flagged, 2 weeks overdue at run time), and calls out 7 overdue items with specificity including Lifebook updates at 54+ days. Data source limitation: calendar data unavailable \u2014 built from OmniFocus only. Loses one letter grade for missing calendar context (makes afternoon/evening invisible). To earn A: restore M365 calendar access for daily headless runs."
     },
     "controller_feedback": {
       "rating": 3,
-      "comment": "Neutral — David flagged no specific issue but didn't call it a clean success either.",
+      "comment": "Neutral \u2014 David flagged no specific issue but didn't call it a clean success either.",
       "timestamp": "2026-07-22T11:50:00-05:00"
     },
     "bias_assessment": {

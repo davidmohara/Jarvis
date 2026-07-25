@@ -2,13 +2,13 @@
   "skill": "rigby-eval-analyze",
   "agent": "rigby",
   "trigger": "workflow:system-eval",
-  "started": "2026-07-18T04:22:00Z",
-  "completed": "2026-07-18T04:28:00Z",
+  "started": "2026-07-25T04:26:00Z",
+  "completed": "2026-07-25T04:32:00Z",
   "status": "success",
   "tool_failures": 0,
   "error_ids": [],
-  "records_analyzed": 63,
+  "records_analyzed": 96,
   "patterns_identified": 7,
   "recommendations_generated": 7,
-  "report_path": "systems/eval-harness/grading/analysis-20260718T042200.md"
+  "report_path": "systems/eval-harness/grading/analysis-20260725T042800.md"
 }

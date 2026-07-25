@@ -1,12 +1,27 @@
 ---
-type: working
+type: working-archive
 task_id: "session"
 session_id: "knox-2026-07-22-164500"
 agent-source: knox
 created: 2026-07-22T16:45:00-05:00
 expires: 2026-07-24T16:45:00-05:00
-status: active
+status: archived
 context: "Plaud ingest re-run at David's explicit instruction, after boot had reported it aborted — 2026-07-22"
+date: 2026-07-22
+source_file: memory/working/2026-07-22-164500-knox-plaud-ingest.md
+tags:
+  - plaud-ingest
+  - knox
+  - recording
+  - ai-strategy
+  - monday
+  - error-correction
+salience:
+  score: 2
+  last-promoted-check: 2026-07-25
+related_people:
+  - alice-mburu
+  - andrew-rauch
 ---
 
 ## What happened

@@ -1,12 +1,30 @@
 ---
-type: working
+type: working-archive
 task_id: "session"
 session_id: "chase-2026-07-22-153954"
 agent-source: chase
 created: 2026-07-22T15:39:54
 expires: 2026-07-24T15:39:54
-status: active
+status: archived
 context: "Account strategy brief — 2026-07-22"
+date: 2026-07-22
+source_file: memory/working/account-strategy-2026-07-22-153954.md
+tags:
+  - account-pursuit-map
+  - chase
+  - cbre
+  - sales
+  - confluent
+  - pipeline-review
+salience:
+  score: 10
+  last-promoted-check: 2026-07-25
+  promoted: true
+related_people:
+  - alice-mburu
+  - roderic-patane
+  - josh-white
+  - parsa-sreenivasulu
 ---
 
 - Built full account strategy brief for CBRE (Rock 1 active pursuit account). Account owner of record: Roderic Patane. 9-year relationship, active PSA since Jan 2017 (amended Sep 2021), last SOW Aug–Oct 2022 (agile assessment, Ed Utley). GTM rank #176 Dallas.

@@ -1,12 +1,29 @@
 ---
-type: working
+type: working-archive
 task_id: "session"
 session_id: "chase-2026-07-22-180000"
 agent-source: chase
 created: 2026-07-22T18:00:00
 expires: 2026-07-24T18:00:00
-status: active
+status: archived
 context: "Account pursuit map — Tenet Healthcare — 2026-07-22"
+date: 2026-07-22
+source_file: memory/working/2026-07-22-180000-session-account-pursuit-map-tenet-healthcare.md
+tags:
+  - account-pursuit-map
+  - chase
+  - tenet-healthcare
+  - pipeline
+  - healthcare
+  - crm
+  - executive-change
+salience:
+  score: 9
+  last-promoted-check: 2026-07-25
+  promoted: true
+related_people:
+  - loan-nguyen
+  - paola-arbour
 ---
 
 - Corrected the initial assumption: this account is **active-but-underleveraged**, not a cold/lost re-entry — CRM shows $6,111,500 in live open pipeline (AI Program Manager, PMaaS Pilot Program, PMaaS Enterprise Program) alongside the 2022 "Agile Coach" $350K cancellation that's almost certainly the deal behind Chase's persona voice line.

@@ -8,8 +8,8 @@ expires: 2026-07-24T00:00:00
 status: archived
 context: "Account pursuit map — CBRE — 2026-07-22"
 salience:
-  score: 7
-  last-promoted-check: 2026-07-24
+  score: 10
+  last-promoted-check: 2026-07-25
   promoted: true
 date: 2026-07-22
 source_file: memory/working/account-pursuit-map-2026-07-22-000000.md

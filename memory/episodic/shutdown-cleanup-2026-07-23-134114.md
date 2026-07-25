@@ -1,12 +1,25 @@
 ---
-type: working
+type: working-archive
 task_id: "session"
 session_id: "chief-2026-07-23-134114"
 agent-source: chief
 created: 2026-07-23T13:41:14
 expires: 2026-07-25T13:41:14
-status: active
+status: archived
 context: "Shutdown cleanup — 2026-07-23"
+date: 2026-07-23
+source_file: memory/working/shutdown-cleanup-2026-07-23-134114.md
+tags:
+  - session-wrap
+  - chief
+  - git
+  - shutdown-cleanup
+  - remarkable-upload
+  - eval
+salience:
+  score: 2
+  last-promoted-check: 2026-07-25
+related_people: []
 ---
 
 - Purged: `missfont.log` (LaTeX aux artifact, already gone from disk, deletion staged). No other new temp-artifact patterns found this session.

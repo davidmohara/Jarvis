@@ -1,12 +1,31 @@
 ---
-type: working
+type: working-archive
 task_id: "session"
 session_id: "chase-2026-07-22-193000"
 agent-source: chase
 created: 2026-07-22T19:30:00
 expires: 2026-07-24T19:30:00
-status: active
+status: archived
 context: "CBRE account plan — CRM cross-reference retry and factual corrections — 2026-07-22"
+date: 2026-07-22
+source_file: memory/working/2026-07-22-193000-session-cbre-crm-corrections.md
+tags:
+  - account-pursuit-map
+  - chase
+  - cbre
+  - crm
+  - contact-verification
+  - error-correction
+  - sales
+salience:
+  score: 6
+  last-promoted-check: 2026-07-25
+  promoted: true
+related_people:
+  - alice-mburu
+  - parsa-sreenivasulu
+  - josh-harrison
+  - josh-white
 ---
 
 - CRM access via Chrome initially failed (login wall at improving.crm.dynamics.com, no cached SSO). After David confirmed the session was logged in, retry succeeded — first real CRM query of the session for CBRE.

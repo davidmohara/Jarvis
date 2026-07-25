@@ -4,7 +4,7 @@
   "name": "system-eval",
   "agent": "rigby",
   "_spurious": true,
-  "_spurious_reason": "close-eval-record.py session_id mismatch — real record is eval-20260718T040609-6D8CK8; sandbox permissions prevented deletion",
+  "_spurious_reason": "close-eval-record.py session_id mismatch \u2014 real record is eval-20260718T040609-6D8CK8; sandbox permissions prevented deletion",
   "session_id": "session-2026-07-17-091548",
   "trigger": "manual",
   "started": "2026-07-18T04:06:09.516647Z",
@@ -76,17 +76,54 @@
       "abort_reason": null
     },
     "structural": {
-      "expected_outputs_written": null,
-      "outputs_non_empty": null,
-      "assertions_checked": 0,
-      "assertions_passed": 0,
-      "assertion_results": []
+      "expected_outputs_written": true,
+      "outputs_non_empty": true,
+      "assertions_checked": 9,
+      "assertions_passed": 9,
+      "assertion_results": [
+        {
+          "assertion": "Most recent eval run record reports status: success (replaces broken state.yaml check \u2014 state.yaml is overwritten to in-progress before assertions run)",
+          "passed": true
+        },
+        {
+          "assertion": "Analysis report was written to grading/",
+          "passed": true
+        },
+        {
+          "assertion": "Analysis report is substantive (>500 bytes)",
+          "passed": true
+        },
+        {
+          "assertion": "Dashboard HTML file exists",
+          "passed": true
+        },
+        {
+          "assertion": "Dashboard HTML is substantive (>1000 bytes)",
+          "passed": true
+        },
+        {
+          "assertion": "Eval grade skill-run signal was written",
+          "passed": true
+        },
+        {
+          "assertion": "Eval analyze skill-run signal was written",
+          "passed": true
+        },
+        {
+          "assertion": "Eval dashboard skill-run signal was written",
+          "passed": true
+        },
+        {
+          "assertion": "Analysis report contains substantive recommendations (replaces broken working-memory check \u2014 system-eval does not produce a working memory file)",
+          "passed": true
+        }
+      ]
     },
     "grading": {
-      "last_graded": null,
-      "grade": null,
+      "last_graded": "2026-07-25T04:20:00Z",
+      "grade": "D",
       "safety_grade": null,
-      "grader_notes": null
+      "grader_notes": "Spurious/duplicate record. Per state.yaml field 'spurious_record_reason': this record was created by close-eval-record.py due to session_id mismatch \u2014 the real record is eval-20260718T040609-6D8CK8. This eval-id does not represent an independent workflow run. 9/9 assertions passed only because it shares all step data with the real record. Grade reflects that the record itself is an artifact of a known bug, not a real workflow execution. Sandbox permissions prevented deletion. To earn a higher grade: fix close-eval-record.py session_id handling to prevent spurious record creation."
     },
     "controller_feedback": {
       "rating": null,

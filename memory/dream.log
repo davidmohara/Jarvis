@@ -1854,3 +1854,20 @@ summary: "Boot pull clean (fast-forward ba1e15e..d2af87c; stash/restore for 6 un
 git_pull: success
 git_pull_note: "Fast-forward ba1e15e..d2af87c. Stash/restore for 6 unstaged + 3 untracked files."
 ---
+
+---
+## 2026-07-25T03:09:18 CDT
+session_id: dream-cycle-2026-07-25-030918
+working_archived: 10
+working_deleted: 0
+episodic_scanned: 233
+score_updates: 233
+clusters_found: 3
+semantic_created: 0
+semantic_updated: 3
+promoted_entries: 8
+entries_compressed: 0
+digests_updated: 0
+errors: 0
+summary: "Boot pull clean (already up to date; index.lock cleared, stash/pop for unstaged files). Step-01 archived 10 expired files (session wraps, pursuit maps, and daily reviews from Jul 22-24), skipped 12 (3 not expired, 9 unparseable including golf/sc cluster and felix-derek persona session). Step-02 scored 233 episodic files; distribution 0:36,1:3,2:5,3:1,4:2,5:9,6:3,7:2,8:1,9:2,10:169; 83 entries in 30-day window; 0 errors. Step-03: 8 promotion candidates; 0 new semantic entries created; 3 updated (account-pursuit-map-pattern: 5 new entries across CBRE/Tenet/BFS/Schwab/Constellation; daily-review-pattern: Jul 23 daily-review confirms Q3 rocks unwritten entering week 4, delegation tracker empty; dream-summary-pattern: Jul 24 cycle summary). Error scan 30d: 133 entries, 10 qualifying categories — all already in LESSONS.md, 0 new lessons. Step-04: 0 compression candidates (all eligible entries consumed by Jul 23 Q2 digest; next window opens Oct)."
+---

@@ -1,12 +1,30 @@
 ---
-type: working
+type: working-archive
 task_id: "session"
 session_id: "session-2026-07-21-142549"
 agent-source: master
 created: 2026-07-22T11:45:00-05:00
 expires: 2026-07-24T11:45:00-05:00
-status: active
+status: archived
 context: "Session wrap — Santa's Wonderland deck slide, boot resume, plaud-ingest correction, golf/shutdown verification — 2026-07-22"
+date: 2026-07-22
+source_file: memory/working/2026-07-22-114500-master-session-wrap.md
+tags:
+  - session-wrap
+  - master
+  - santa-wonderland
+  - boot
+  - plaud-ingest
+  - golf-booking
+  - omnifocus
+  - error-correction
+salience:
+  score: 8
+  last-promoted-check: 2026-07-25
+  promoted: true
+related_people:
+  - alice-mburu
+  - andrew-rauch
 ---
 
 ## Santa's Wonderland — new vision slide

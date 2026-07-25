@@ -1,0 +1,98 @@
+{
+  "id": "eval-20260725T021309-IREQ63",
+  "type": "workflow",
+  "name": "daily-review",
+  "agent": "chief",
+  "session_id": "session-2026-07-21-142549",
+  "trigger": "scheduled",
+  "started": "2026-07-25T02:13:09.127712Z",
+  "completed": "2026-07-25T02:13:09.127712Z",
+  "duration_seconds": 0.0,
+  "status": "success",
+  "steps": [
+    {
+      "name": "step-auto",
+      "started": "2026-07-25T02:13:09.127712Z",
+      "completed": "2026-07-25T02:13:09.127712Z",
+      "duration_seconds": 0.0,
+      "status": "success",
+      "data_sources_used": [],
+      "data_source_failures": []
+    }
+  ],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": [],
+      "abort_reason": null
+    },
+    "structural": {
+      "expected_outputs_written": true,
+      "outputs_non_empty": true,
+      "assertions_checked": 8,
+      "assertions_passed": 8,
+      "assertion_results": [
+        {
+          "assertion": "Daily review workflow state.yaml shows status: complete",
+          "passed": true
+        },
+        {
+          "assertion": "Daily review output file was written to reviews/daily/ for the run date (not a prior day)",
+          "passed": true
+        },
+        {
+          "assertion": "Daily review output for run date is substantive (>300 bytes)",
+          "passed": true
+        },
+        {
+          "assertion": "Daily review for run date contains priorities or forward-planning section (tomorrow, next, Q-ref, carry-forward language)",
+          "passed": true
+        },
+        {
+          "assertion": "Daily review for run date contains completed items or wins section",
+          "passed": true
+        },
+        {
+          "assertion": "Daily review working memory file was written for the run date",
+          "passed": true
+        },
+        {
+          "assertion": "Daily review working memory for run date is substantive (>200 bytes)",
+          "passed": true
+        },
+        {
+          "assertion": "Daily review working memory for run date contains expected content",
+          "passed": true
+        }
+      ]
+    },
+    "grading": {
+      "last_graded": "2026-07-25T04:20:00Z",
+      "grade": "F",
+      "safety_grade": null,
+      "grader_notes": "No output file found for 2026-07-25. Assertions passed 8/8 only because the eval harness glob patterns (reviews/daily/????-??-??.md, memory/working/daily-review-*.md) resolved to prior-day files (auto-2026-07-24.md and daily-review-2026-07-24-000000.md) \u2014 a false pass from non-date-specific assertion evaluation. Auto-2026-07-25.md does not exist in reviews/daily/. Working memory file daily-review-2026-07-25-*.md does not exist. This is a phantom success \u2014 the workflow marked complete with no actual output for the run date. Assertion harness bug: date_specific templates in the assertion definition are not being used by the step-02-assert evaluator, allowing prior-day files to satisfy date-specific checks. To earn D: write the actual review file for 07-25. To fix permanently: update step-02-assert to inject run_date and use date_path_template instead of bare globs."
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": "616f292de67920cd",
+  "prior_baseline_id": null,
+  "tags": [
+    "cowork-instrumented"
+  ]
+}

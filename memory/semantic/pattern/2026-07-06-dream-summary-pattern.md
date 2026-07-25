@@ -5,7 +5,7 @@ tag: dream-summary
 domain: pattern
 confidence: medium
 created: 2026-07-06
-last-updated: 2026-07-16
+last-updated: 2026-07-25
 synthesized-from: 7 episodic entries
 tags:
   - dream-summary
@@ -79,3 +79,9 @@ Sources this cycle:
 - `memory/episodic/dream-summary-2026-07-23.md` (score 10) — tags: dream-summary, jarvis, dream-cycle, semantic-promotion, git-issues, compression, q3-rocks. Key outputs: git-issues-pattern created (20 occurrences, distinct from git-sync); q3-rocks-pattern escalated (6 weeks unwritten); first compression run — 5 Q2 entries digested.
 
 Three consecutive cycles with substantive pattern activity. Dream cycle is now reliably producing new semantic entries and escalating existing ones, not just rescoring. Compression pipeline is active for first time.
+
+### 2026-07-25 — Nightly promotion
+Sources this cycle:
+- `memory/episodic/dream-summary-2026-07-24.md` (score 10) — tags: dream-summary, jarvis, memory-consolidation, semantic-promotion, account-pursuit-map, salience-scoring. Jul 24 cycle: 6 archived, 233 scored, 10 promoted (5 clusters), 0 compressed. New semantic: account-pursuit-map-pattern (Schwab/CBRE/Constellation). Carry-forward: AI Summit topic unresolved, nerve block unscheduled, CBRE ownership ambiguity.
+
+Cycle health stable. account-pursuit-map is now established as a recurring high-frequency Chase pattern — 7 entries across 2 cycles in semantic. No compression this run (Q2 digest fully consumed eligible entries; next window opens Oct).

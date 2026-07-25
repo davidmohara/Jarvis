@@ -1,12 +1,30 @@
 ---
-type: working
+type: working-archive
 task_id: "session"
 session_id: "chase-2026-07-22-164500"
 agent-source: chase
 created: 2026-07-22T17:00:00
 expires: 2026-07-24T17:00:00
-status: active
+status: archived
 context: "Account pursuit map — Builders FirstSource — 2026-07-22"
+date: 2026-07-22
+source_file: memory/working/account-pursuit-map-2026-07-22-164500.md
+tags:
+  - account-pursuit-map
+  - chase
+  - builders-firstsource
+  - crm
+  - sales
+  - cold-pursuit
+  - ai-pitch
+salience:
+  score: 6
+  last-promoted-check: 2026-07-25
+  promoted: true
+related_people:
+  - mike-mccranie
+  - gayatri-narayan
+  - coley-obrien
 ---
 
 - Entity confirmed as Builders FirstSource, Inc. (NYSE: BLDR), Dallas, TX — same entity David tracks informally as "BuildersFirst Source"; verified via live CRM query (website field, all 10 contacts on @bldr.com).

@@ -1,31 +1,35 @@
 workflow: system-eval
 agent: rigby
 status: complete
-session-started: "2026-07-18T04:06:09Z"
-session-id: rigby-2026-07-18-040609
-eval-record-id: eval-20260718T040609-6D8CK8
+session-started: "2026-07-25T04:05:50Z"
+session-id: rigby-2026-07-25-040550
+eval-record-id: eval-20260725T040550-G096DL
 current-step: null
-original-request: "manual system-eval run 2026-07-18"
+original-request: "scheduled weekly-system-eval run 2026-07-25"
 accumulated-context:
-  records_total: 63
+  records_total: 96
   records_skipped_in_progress: 1
   needs_assertions:
-    - eval-20260714T021310-LJKKIQ
-    - eval-20260715T021228-FA34YW
-    - eval-20260717T021226-JC2Y4F
-    - eval-20260718T021141-QZAG77
-    - eval-chief-daily-review-2026-07-15-060000
-  needs_grade:
     - eval-20260711T040557-U2IIEZ
     - eval-20260711T041415-8DNQT4
-    - eval-20260714T021310-LJKKIQ
-    - eval-20260715T021228-FA34YW
-    - eval-20260717T021226-JC2Y4F
-    - eval-20260717T141642-SSSC8G
-    - eval-20260717T142253-PQ9DPZ
-    - eval-20260718T021141-QZAG77
-    - eval-chief-daily-review-2026-07-15-060000
-  records_complete: 54
+    - eval-20260718T040609-6D8CK8
+    - eval-20260718T041610-W4CIW9
+    - eval-20260720T111401-INZWWD
+    - eval-20260721T133339-HZRLN2
+    - eval-20260722T021626-Z27I2O
+    - eval-20260723T021136-XGYF36
+    - eval-20260724T021252-QZBRKO
+    - eval-20260725T021309-IREQ63
+  needs_grade:
+    - eval-20260718T040609-6D8CK8
+    - eval-20260718T041610-W4CIW9
+    - eval-20260720T111401-INZWWD
+    - eval-20260721T133339-HZRLN2
+    - eval-20260722T021626-Z27I2O
+    - eval-20260723T021136-XGYF36
+    - eval-20260724T021252-QZBRKO
+    - eval-20260725T021309-IREQ63
+  records_complete: 86
   assertion_files_available:
     - system-eval
     - daily-review
@@ -40,118 +44,53 @@ accumulated-context:
     - plaud-trigger
     - remarkable-upload
     - partner-meeting-prep
+  assertions_run:
+    total_records_asserted: 10
+    total_assertions_evaluated: 81
+    total_assertions_passed: 76
+    records_fully_passing: 8
+    records_with_failures: 2
+    no_assertion_definition: []
   grading:
-    total_graded: 9
+    total_graded: 8
     grade_distribution:
       A: 0
-      B: 3
-      C: 2
-      D: 0
-      F: 4
+      B: 5
+      C: 0
+      D: 1
+      F: 2
     no_output_found:
-      - eval-20260717T141642-SSSC8G
-      - eval-20260717T142253-PQ9DPZ
-      - eval-20260718T021141-QZAG77
-  assertions_run:
-    total_records_asserted: 5
-    total_assertions_evaluated: 40
-    total_assertions_passed: 28
-    records_fully_passing: 1
-    records_with_failures: 4
-    no_assertion_definition: []
-  step_timings:
-    - step: step-01-intake
-      started: "2026-07-18T04:06:09Z"
-      completed: "2026-07-18T04:08:00Z"
-    - step: step-02-assert
-      started: "2026-07-18T04:08:00Z"
-      completed: "2026-07-18T04:12:00Z"
-    - step: step-03-grade
-      started: "2026-07-18T04:12:00Z"
-      completed: "2026-07-18T04:18:00Z"
-    - step: step-04-score
-      started: "2026-07-18T04:18:00Z"
-      completed: "2026-07-18T04:22:00Z"
+      - eval-20260720T111401-INZWWD
+      - eval-20260725T021309-IREQ63
   scoring:
-    records_scored: 63
-    batch_average: 0.7111
+    records_scored: 96
+    batch_average: 0.6213
     score_script_error: null
-    score_by_id:
-      eval-20260524T194258-HBF752: 0.5765
-      eval-20260526T125258-Q3KWG7: 1.0
-      eval-20260526T215647-T3Q5PX: 0.7933
-      eval-20260527T021153-F0GRE1: 0.7533
-      eval-20260527T185503-NDAYK6: 0.4514
-      eval-20260527T190021-B7HEKX: 0.8471
-      eval-20260527T205926-PCHVJ1: 0.3926
-      eval-20260527T210611-GVFJWB: 1.0
-      eval-20260528T021206-IMUITJ: 0.7517
-      eval-20260529T021226-T3TGHW: 0.5867
-      eval-20260529T222024-2Y8GSF: 0.3
-      eval-20260529T222602-BQEM4B: 0.3
-      eval-20260529T224500-ypo001: 0.8667
-      eval-20260530T021202-MKO2P3: 0.4667
-      eval-20260602T021149-SL6FJ9: 0.4667
-      eval-20260603T021219-4T8MSY: 0.7533
-      eval-20260605T021223-ARZ3WN: 0.4667
-      eval-20260609T151829-OUXB1P: 0.8859
-      eval-20260609T152224-SDY4MV: 0.8859
-      eval-20260612T132309-PSAUO8: 0.8767
-      eval-20260613T021205-CFZ2ZA: 0.3333
-      eval-20260613T040549-SOOE69: 0.923
-      eval-20260616T021202-5AMBIW: 0.7533
-      eval-20260616T111108-KB2K15: 0.7933
-      eval-20260617T021222-ZQTYH1: 1.0
-      eval-20260618T021249-SMAWWC: 0.8667
-      eval-20260618T111047-8BE1NF: 0.7
-      eval-20260619T021216-OI0WLY: 0.9183
-      eval-20260620T021321-T6V6WJ: 0.5083
-      eval-20260620T040734-4OUQLT: 0.8859
-      eval-20260623T021234-DH9VSD: 0.9583
-      eval-20260624T155626-B8WRE2: 0.9167
-      eval-20260625T021317-18HGDJ: 0.9583
-      eval-20260625T113915-ZBW3B3: 0.8333
-      eval-20260626T021138-W3TDFA: 0.9183
-      eval-20260626T111111-SDWZM9: 0.8333
-      eval-20260627T021053-VB6Z9C: 0.7583
-      eval-20260627T040618-54LOEH: 0.9259
-      eval-20260629T152135-WVFASP: 0.38
-      eval-20260630T000000-PLAUD1: 1.0
-      eval-20260630T021252-XWZAFG: 0.7933
-      eval-20260630T194444-4NSY9M: 0.4412
-      eval-20260630T203949-E747AF: 0.7467
-      eval-20260701T021245-IKR49U: 0.8103
-      eval-20260702T021204-2E3TK4: 0.9183
-      eval-20260704T021304-XNRG5T: 0.5083
-      eval-20260704T040618-1D1QL1: 1.0
-      eval-20260707T021251-KHEVMG: 0.4667
-      eval-20260708T021227-5P65RK: 0.4667
-      eval-20260708T203623-VUBDSE: 0.963
-      eval-20260708T204409-VFJBTD: 0.4296
-      eval-20260709T021252-HHX7I9: 0.5083
-      eval-20260710T140505-6TTTHK: 1.0
-      eval-20260711T021151-T7AGFP: 0.5083
-      eval-20260711T040557-U2IIEZ: 0.7933
-      eval-20260711T041415-8DNQT4: 0.6333
-      eval-20260714T021310-LJKKIQ: 0.7017
-      eval-20260715T021228-FA34YW: 0.8783
-      eval-20260717T021226-JC2Y4F: 0.7933
-      eval-20260717T141642-SSSC8G: 0.3
-      eval-20260717T142253-PQ9DPZ: 0.1667
-      eval-20260718T021141-QZAG77: 0.5083
-      eval-chief-daily-review-2026-07-15-060000: 0.8783
   analysis:
-    report_path: systems/eval-harness/grading/analysis-20260718T042200.md
-    top_recommendation: "Fix daily-review scheduled runner phantom output — 11 runs claim success with no review file written for the run date; add output-file-existence check before closing status as success"
+    report_path: systems/eval-harness/grading/analysis-20260725T042800.md
+    top_recommendation: "Fix step-02-assert to inject run_date and use date_path_template for date_specific assertions — confirmed false-positive on IREQ63 (daily-review 07-25 passed 8/8 with no output file for that date)"
     patterns_count: 7
     recommendations_count: 7
-    - step: step-05-analyze
-      started: "2026-07-18T04:22:00Z"
-      completed: "2026-07-18T04:28:00Z"
-    - step: step-06-dashboard
-      started: "2026-07-18T04:28:00Z"
-      completed: "2026-07-18T04:31:00Z"
   dashboard_artifact_updated: true
-  spurious_record: eval-20260718T041610-W4CIW9
-  spurious_record_reason: "close-eval-record.py session_id mismatch — real record is eval-20260718T040609-6D8CK8; sandbox permissions prevented deletion (rm failed with PermissionError)"
+  spurious_record: eval-20260725T041406-RL9YH6
+  spurious_record_reason: "close-eval-record.py session_id mismatch — real record is eval-20260725T040550-G096DL; sandbox permissions prevented deletion (PermissionError)"
   feedback_prompt: skipped (headless)
+  step_timings:
+    - step: step-01-intake
+      started: "2026-07-25T04:05:50Z"
+      completed: "2026-07-25T04:08:00Z"
+    - step: step-02-assert
+      started: "2026-07-25T04:08:00Z"
+      completed: "2026-07-25T04:14:00Z"
+    - step: step-03-grade
+      started: "2026-07-25T04:14:00Z"
+      completed: "2026-07-25T04:22:00Z"
+    - step: step-04-score
+      started: "2026-07-25T04:22:00Z"
+      completed: "2026-07-25T04:26:00Z"
+    - step: step-05-analyze
+      started: "2026-07-25T04:26:00Z"
+      completed: "2026-07-25T04:32:00Z"
+    - step: step-06-dashboard
+      started: "2026-07-25T04:32:00Z"
+      completed: "2026-07-25T04:36:00Z"

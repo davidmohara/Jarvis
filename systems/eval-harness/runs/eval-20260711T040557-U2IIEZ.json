@@ -43,11 +43,48 @@
       "error_ids": []
     },
     "structural": {
-      "expected_outputs_written": null,
-      "outputs_non_empty": null,
-      "assertions_checked": 0,
-      "assertions_passed": 0,
-      "assertion_results": []
+      "expected_outputs_written": true,
+      "outputs_non_empty": true,
+      "assertions_checked": 9,
+      "assertions_passed": 8,
+      "assertion_results": [
+        {
+          "assertion": "Most recent eval run record reports status: success (replaces broken state.yaml check \u2014 state.yaml is overwritten to in-progress before assertions run)",
+          "passed": false
+        },
+        {
+          "assertion": "Analysis report was written to grading/",
+          "passed": true
+        },
+        {
+          "assertion": "Analysis report is substantive (>500 bytes)",
+          "passed": true
+        },
+        {
+          "assertion": "Dashboard HTML file exists",
+          "passed": true
+        },
+        {
+          "assertion": "Dashboard HTML is substantive (>1000 bytes)",
+          "passed": true
+        },
+        {
+          "assertion": "Eval grade skill-run signal was written",
+          "passed": true
+        },
+        {
+          "assertion": "Eval analyze skill-run signal was written",
+          "passed": true
+        },
+        {
+          "assertion": "Eval dashboard skill-run signal was written",
+          "passed": true
+        },
+        {
+          "assertion": "Analysis report contains substantive recommendations (replaces broken working-memory check \u2014 system-eval does not produce a working memory file)",
+          "passed": true
+        }
+      ]
     },
     "grading": {
       "last_graded": "2026-07-18T04:09:41Z",
