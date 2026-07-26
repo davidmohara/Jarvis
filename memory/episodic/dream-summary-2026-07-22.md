@@ -13,8 +13,8 @@ tags:
   - q3-rocks
   - missed-context
 salience:
-  score: 10
-  last-promoted-check: 2026-07-25
+  score: 3
+  last-promoted-check: 2026-07-26
   promoted: true
 date: 2026-07-22
 source_file: memory/working/dream-summary-2026-07-22.md

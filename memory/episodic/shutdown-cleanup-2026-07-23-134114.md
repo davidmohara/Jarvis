@@ -17,8 +17,8 @@ tags:
   - remarkable-upload
   - eval
 salience:
-  score: 2
-  last-promoted-check: 2026-07-25
+  score: 0
+  last-promoted-check: 2026-07-26
 related_people: []
 ---
 

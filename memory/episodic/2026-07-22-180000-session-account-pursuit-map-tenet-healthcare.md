@@ -18,8 +18,8 @@ tags:
   - crm
   - executive-change
 salience:
-  score: 9
-  last-promoted-check: 2026-07-25
+  score: 5
+  last-promoted-check: 2026-07-26
   promoted: true
 related_people:
   - loan-nguyen

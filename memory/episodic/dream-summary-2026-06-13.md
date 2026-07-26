@@ -17,11 +17,11 @@ tags:
 - evolution
 related_people: null
 date: 2026-06-13
-  last-promoted-check: 2026-07-24
+  last-promoted-check: 2026-07-26
   promoted: true
 salience:
-  score: 10
-  last-promoted-check: 2026-07-25
+  score: 0
+  last-promoted-check: 2026-07-26
   promoted: true
 ---
 

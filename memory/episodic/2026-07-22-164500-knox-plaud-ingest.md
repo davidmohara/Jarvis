@@ -17,8 +17,8 @@ tags:
   - monday
   - error-correction
 salience:
-  score: 2
-  last-promoted-check: 2026-07-25
+  score: 1
+  last-promoted-check: 2026-07-26
 related_people:
   - alice-mburu
   - andrew-rauch

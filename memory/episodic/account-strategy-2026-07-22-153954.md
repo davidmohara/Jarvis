@@ -17,8 +17,8 @@ tags:
   - confluent
   - pipeline-review
 salience:
-  score: 10
-  last-promoted-check: 2026-07-25
+  score: 6
+  last-promoted-check: 2026-07-26
   promoted: true
 related_people:
   - alice-mburu

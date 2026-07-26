@@ -7,7 +7,7 @@ synthesized-from:
   - memory/episodic/daily-review-2026-07-02-000000.md
   - memory/episodic/dream-summary-2026-07-03.md
   - memory/episodic/shutdown-cleanup-2026-07-01-170500.md
-last-updated: 2026-07-25
+last-updated: 2026-07-26
 tags: [daily-review]
 agent-source: dream-cycle
 confidence: low
@@ -79,3 +79,9 @@ Sources this cycle:
 - `memory/episodic/daily-review-2026-07-23-000000.md` (score 10) — tags: daily-review, chief, omnifocus, nerve-block, lifebook, q3-rocks, delegation. 2 completions (prayer list, coherence breathing), 8 overdue, 1 flagged. Nerve block still unscheduled at 15+ days. Q3 objectives file absent — 3 weeks into Q3 with no rocks, no scorecard. Delegation tracker empty; Alice's queue unloaded.
 
 Pattern continues: Q3 rocks undocumented now confirmed across daily-reviews on Jul 21, 22, 23. Delegation tracker empty is a new recurring signal — Alice's queue may have drifted since the EA onboarding in June. Nerve block cluster now 15+ days flagged with no calendar date in sight.
+
+### 2026-07-26 — Nightly promotion
+Sources this cycle:
+- `memory/episodic/daily-review-2026-07-24-000000.md` (score 5) — tags: daily-review, chief, omnifocus, q3-rocks, nerve-block, delegation-tracker, alice-mburu. OmniFocus complex iteration errored; inbox confirmed at 11; 8 overdue, 1 flagged (nerve block). Calendar unavailable (headless run). Q3 objectives file still missing — flagged for 5th consecutive auto review. Delegation tracker empty; no active Alice delegations visible. Key flag: nerve block (Addison Pain Clinic) still unscheduled after 2+ weeks.
+
+Jul 24 daily-review is the 6th consecutive entry to flag Q3 rocks absent. Delegation tracker empty is now a confirmed durable pattern, not a one-off. Nerve block has now appeared in every daily-review entry since at least Jul 8 — this cluster should be escalated to Chief for explicit calendar action rather than continued passive flagging.

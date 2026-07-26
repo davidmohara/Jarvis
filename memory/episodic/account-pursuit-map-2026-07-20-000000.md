@@ -25,12 +25,12 @@ related_people:
 - nikhil-sudan
 - bipin-karmacharya
 - biswajit-debdas
-  last-promoted-check: 2026-07-24
-  last-promoted-check: 2026-07-24
+  last-promoted-check: 2026-07-26
+  last-promoted-check: 2026-07-26
 salience:
-  score: 10
+  score: 0
   promoted: true
-  last-promoted-check: 2026-07-25
+  last-promoted-check: 2026-07-26
 ---
 
 

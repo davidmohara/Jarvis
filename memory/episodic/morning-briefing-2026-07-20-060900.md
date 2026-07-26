@@ -27,11 +27,11 @@ related_people:
   - ashok-iyengar
   - ryan-menke
   - scott-mai
-  last-promoted-check: 2026-07-24
+  last-promoted-check: 2026-07-26
   promoted: true
 salience:
-  score: 10
-  last-promoted-check: 2026-07-25
+  score: 4
+  last-promoted-check: 2026-07-26
   promoted: true
 ---
 

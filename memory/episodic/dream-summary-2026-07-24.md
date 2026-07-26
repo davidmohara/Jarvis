@@ -15,8 +15,8 @@ tags:
   - account-pursuit-map
   - salience-scoring
 salience:
-  score: 10
-  last-promoted-check: 2026-07-25
+  score: 3
+  last-promoted-check: 2026-07-26
   promoted: true
 related_people: []
 ---

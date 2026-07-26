@@ -1,10 +1,28 @@
 ---
-type: working
+type: working-archive
 agent-source: jarvis
 session_id: dream-cycle-2026-07-25-030918
 created: 2026-07-25T03:09:18-05:00
 expires: 2026-07-26
-status: active
+status: archived
+salience:
+  score: 7
+  last-promoted-check: 2026-07-26
+  promoted: true
+date: 2026-07-25
+source_file: memory/working/dream-summary-2026-07-25.md
+tags:
+  - dream-summary
+  - jarvis
+  - memory-consolidation
+  - episodic
+  - semantic
+  - account-pursuit-map
+  - daily-review
+  - q3-rocks
+  - nerve-block
+  - compression
+related_people: []
 ---
 
 # Dream Cycle Summary — July 25, 2026

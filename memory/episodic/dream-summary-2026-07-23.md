@@ -6,8 +6,8 @@ created: 2026-07-23T03:42:00-05:00
 expires: 2026-07-24
 status: archived
 salience:
-  score: 10
-  last-promoted-check: 2026-07-25
+  score: 3
+  last-promoted-check: 2026-07-26
   promoted: true
 date: 2026-07-23
 source_file: memory/working/dream-summary-2026-07-23.md

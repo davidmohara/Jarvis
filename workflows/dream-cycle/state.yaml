@@ -1,33 +1,25 @@
 workflow: dream-cycle
 agent: jarvis
 status: complete
-session-started: 2026-07-25T03:09:18-05:00
-session-id: dream-cycle-2026-07-25-030918
+session-started: 2026-07-26T03:08:59-05:00
+session-id: dream-cycle-2026-07-26-030859
 current-step: null
-original-request: Scheduled dream cycle run (automated) - 2026-07-25
+original-request: Scheduled dream cycle run (automated) - 2026-07-26
 accumulated-context:
   git_pull_at_boot: success
-  git_pull_note: "Already up to date. Stash/pop for 16 unstaged + 7 untracked files."
-  working_archived: 10
+  git_pull_note: "Fast-forward 7e36dac..fa8eac7. Stash/pop for unstaged files. 4 files changed: reviews/weekly/2026-W30.md, systems/political-monitor/dashboard.html, systems/political-monitor/runs/2026-07-25.json, systems/political-monitor/topic_history.json"
+  working_archived: 2
   working_deleted: 0
-  working_skipped: 12
+  working_skipped: 11
   working_stranded: 0
   archived_files:
-    - 2026-07-22-114500-master-session-wrap.md
-    - 2026-07-22-164500-knox-plaud-ingest.md
-    - 2026-07-22-180000-session-account-pursuit-map-tenet-healthcare.md
-    - 2026-07-22-193000-session-cbre-crm-corrections.md
-    - 2026-07-22-193100-session-bfs-contacts-and-reddit-monitor-fix.md
-    - account-pursuit-map-2026-07-22-164500.md
-    - account-strategy-2026-07-22-153954.md
-    - daily-review-2026-07-23-000000.md
-    - dream-summary-2026-07-24.md
-    - shutdown-cleanup-2026-07-23-134114.md
-  skipped_not_expired:
+    - dream-summary-2026-07-25.md
     - daily-review-2026-07-24-000000.md
+  skipped_not_expired:
     - system-eval-2026-07-25-040550.md
-    - remarkable-upload-2026-07-23-improve-eval.md
   skipped_unparseable:
+    - remarkable-upload-2026-07-23-improve-eval.md
+    - 2026-07-23-215200-session-felix-derek-persona-rebuild.md
     - 2026-07-08.md
     - golf-booking-2026-07-10-failed.md
     - golf-booking-2026-07-11-followup.md
@@ -36,28 +28,31 @@ accumulated-context:
     - golf-preview-2026-07-14.md
     - golf-preview-2026-07-21.md
     - sc-executive-brief-2026-07-13.md
-    - 2026-07-23-215200-session-felix-derek-persona-rebuild.md
+  episodic_scanned: 234
+  score_updates: 234
+  no_tags: 214
+  no_date: 27
+  window_entries: 82
+  score_distribution: "0:215,1:3,2:1,3:3,4:1,5:9,6:1,7:1"
+  clusters_found: 2
+  semantic_created: 0
+  semantic_updated: 2
+  promoted_entries: 2
+  errors: 0
+  lessons_appended: 0
+  lessons_note: "126 errors in 30d window, 9 qualifying categories — all already documented in LESSONS.md."
+  entries_compressed: 0
+  digests_updated: 0
+  compression_skipped: true
+  compression_note: "0 candidates. Q2 digest consumed all eligible entries on Jul 23. Next window opens Oct."
+prior-run-context:
+  session_id: dream-cycle-2026-07-25-030918
+  working_archived: 10
+  working_deleted: 0
   episodic_scanned: 233
   score_updates: 233
   clusters_found: 3
   semantic_created: 0
   semantic_updated: 3
   promoted_entries: 8
-  entries_compressed: 0
-  digests_updated: 0
-  compression_skipped: true
-  compression_note: "0 candidates. Q2 digest consumed all eligible entries on Jul 23. Next window opens Oct."
-  errors: 0
-  lessons_appended: 0
-  lessons_note: "All 10 qualifying categories already in LESSONS.md."
-prior-run-context:
-  session_id: dream-cycle-2026-07-24-030854
-  working_archived: 6
-  working_deleted: 0
-  episodic_scanned: 223
-  score_updates: 223
-  clusters_found: 5
-  semantic_created: 1
-  semantic_updated: 4
-  promoted_entries: 10
   entries_compressed: 0
