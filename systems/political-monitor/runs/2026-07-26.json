@@ -1,0 +1,430 @@
+{
+  "date": "2026-07-26",
+  "generated": "2026-07-26T22:45:00Z",
+  "window_hours": 72,
+  "sources_used": [
+    {
+      "id": "cnn",
+      "name": "CNN Politics",
+      "lean": "left"
+    },
+    {
+      "id": "nbc",
+      "name": "NBC News Politics",
+      "lean": "left"
+    },
+    {
+      "id": "thehill",
+      "name": "The Hill",
+      "lean": "left"
+    },
+    {
+      "id": "axios",
+      "name": "Axios Politics",
+      "lean": "left"
+    },
+    {
+      "id": "dailybeast",
+      "name": "The Daily Beast",
+      "lean": "left"
+    },
+    {
+      "id": "slate",
+      "name": "Slate",
+      "lean": "left"
+    },
+    {
+      "id": "newrepublic",
+      "name": "The New Republic",
+      "lean": "left"
+    },
+    {
+      "id": "foxnews",
+      "name": "Fox News Politics",
+      "lean": "right"
+    },
+    {
+      "id": "natreview",
+      "name": "National Review",
+      "lean": "right"
+    },
+    {
+      "id": "examiner",
+      "name": "Washington Examiner",
+      "lean": "right"
+    },
+    {
+      "id": "federalist",
+      "name": "The Federalist",
+      "lean": "right"
+    },
+    {
+      "id": "dailywire",
+      "name": "The Daily Wire",
+      "lean": "right"
+    },
+    {
+      "id": "breitbart",
+      "name": "Breitbart",
+      "lean": "right"
+    },
+    {
+      "id": "townhall",
+      "name": "Townhall",
+      "lean": "right"
+    },
+    {
+      "id": "rcp",
+      "name": "RealClearPolitics",
+      "lean": "right"
+    },
+    {
+      "id": "amconserv",
+      "name": "The American Conservative",
+      "lean": "right"
+    },
+    {
+      "id": "spectator",
+      "name": "The American Spectator",
+      "lean": "right"
+    },
+    {
+      "id": "freepress",
+      "name": "The Free Press",
+      "lean": "center"
+    }
+  ],
+  "sources_muted": [
+    {
+      "id": "nyt",
+      "name": "New York Times",
+      "lean": "left"
+    },
+    {
+      "id": "wapo",
+      "name": "Washington Post",
+      "lean": "left"
+    },
+    {
+      "id": "politico",
+      "name": "Politico",
+      "lean": "left"
+    },
+    {
+      "id": "vox",
+      "name": "Vox Politics",
+      "lean": "left"
+    },
+    {
+      "id": "motherjones",
+      "name": "Mother Jones",
+      "lean": "left"
+    },
+    {
+      "id": "wsj_opinion",
+      "name": "WSJ Opinion",
+      "lean": "right"
+    },
+    {
+      "id": "nypost",
+      "name": "New York Post",
+      "lean": "right"
+    },
+    {
+      "id": "reuters",
+      "name": "Reuters Politics",
+      "lean": "center"
+    },
+    {
+      "id": "ap",
+      "name": "Associated Press",
+      "lean": "center"
+    },
+    {
+      "id": "bbc",
+      "name": "BBC US & Canada",
+      "lean": "center"
+    }
+  ],
+  "counts": {
+    "total_items": 41,
+    "by_lean": {
+      "left": 20,
+      "right": 19,
+      "center": 2
+    },
+    "shared_topics": 3,
+    "gap_left": 4,
+    "gap_right": 4
+  },
+  "shared_topics": [
+    {
+      "title": "Iran War Enters Ceasefire Window \u2014 Strikes Paused for Second Night",
+      "topic_key": "iran-ceasefire-pause-day149-talks",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New \u2014 first appearance",
+      "correlation": 52,
+      "correlation_label": "Same event acknowledged; diverge sharply on what the pause means and who deserves credit",
+      "summary": "After 13 consecutive nights of US airstrikes on Iran, the Pentagon did not announce new strikes Saturday night for the second consecutive night. The White House signaled Trump is 'giving talks some space' as technical and political negotiations resume around a potential ceasefire and reopening of the Strait of Hormuz. The conflict is on day 149, has cost $37.5 billion, and has killed 18 US service members.",
+      "left": {
+        "framing": "Left outlets frame the pause cautiously \u2014 CNN notes the strikes were the 'most partisan war in modern US history' and that just 29% of Americans support the conflict. The Daily Beast and TNR emphasize that House Democrats passed a War Powers resolution 214-208 (with only 4 GOP votes) demanding Trump end hostilities \u2014 framing the ceasefire pause as political pressure succeeding rather than military victory.",
+        "sources": [
+          {
+            "name": "CNN Politics",
+            "url": "https://www.cnn.com/2026/07/26/world/live-news/iran-war-trump"
+          },
+          {
+            "name": "The New Republic",
+            "url": "https://newrepublic.com/post/213353/democrats-end-iran-war-smith-aguilar-lieu"
+          },
+          {
+            "name": "Axios",
+            "url": "https://www.axios.com/2026/07/23/iran-war-powers-vote-house-republicans-trump"
+          }
+        ]
+      },
+      "right": {
+        "framing": "Right outlets frame the pause as Trump's strategic diplomacy working on American terms. Fox News emphasizes that 'talks are ongoing' and the ceasefire involves Iranian negotiators. RCP argues 'America is winning' and it's only a matter of time. The American Conservative takes a more skeptical view, tracking costs ($37.5B, 18 dead) and questioning the NDAA's expanded US-Israel defense cooperation provision.",
+        "sources": [
+          {
+            "name": "Fox News",
+            "url": "https://www.foxnews.com/live-news/us-iran-peace-strait-hormuz-talks-strikes-hold-july-26"
+          },
+          {
+            "name": "RealClearPolitics",
+            "url": "https://www.realclearpolitics.com/2026/07/21/america_winning_war_with_iran_its_only_a_matter_of_time_705699.html"
+          },
+          {
+            "name": "The American Conservative",
+            "url": "https://www.theamericanconservative.com/iran-war-day-149-u-s-and-iran-pause-strikes-for-second-night/"
+          }
+        ]
+      }
+    },
+    {
+      "title": "Maine Senate: Troy Jackson Formally Nominated, 101-Day Sprint Begins",
+      "topic_key": "maine-jackson-nomination-sprint-collins",
+      "days_seen": 2,
+      "relevance": 70,
+      "relevance_label": "Recurring \u2014 day 2",
+      "correlation": 38,
+      "correlation_label": "Sharply divergent narratives \u2014 left frames as Democratic energy, right frames as DSA chaos and controversy",
+      "summary": "Troy Jackson, the former Maine state Senate president, was formally nominated at the Maine Democratic Party convention on July 25 to challenge five-term Sen. Susan Collins. Jackson secured the nomination following the withdrawal of Graham Platner amid rape allegations. He now faces a 101-day general election campaign in a nationally watched race that Democrats need to flip the Senate.",
+      "left": {
+        "framing": "NBC, CNN, and The Hill frame Jackson's nomination as Democrats rallying around a credible challenger after the Platner chaos. The Hill notes Maine is a 'must-win' for Democratic Senate hopes and that Jackson has a 49-46 polling lead over Collins (UNH, July 15-20). TNR describes three keys to a Democratic victory and frames Maine Democrats as energized.",
+        "sources": [
+          {
+            "name": "NBC News",
+            "url": "https://www.nbcnews.com/politics/2026-election/maine-senate-race-democrats-poised-nominate-troy-jackson-challenge-sus-rcna588711"
+          },
+          {
+            "name": "CNN Politics",
+            "url": "https://www.cnn.com/2026/07/02/politics/senate-race-rankings-july-2026"
+          },
+          {
+            "name": "The New Republic",
+            "url": "https://newrepublic.com/post/213301/troy-jackson-win-maine-strategy"
+          }
+        ]
+      },
+      "right": {
+        "framing": "Daily Wire and Breitbart emphasize that Jackson himself faces an accusation of striking a female colleague with a bottle. Breitbart reports a GOP state rep questioning whether Jackson legally qualifies for the nomination. Right outlets frame the entire Maine race as a parade of DSA-affiliated dysfunction \u2014 from Platner's rape allegations to Jackson's assault accusation.",
+        "sources": [
+          {
+            "name": "The Daily Wire",
+            "url": "https://www.dailywire.com/news/leading-dsa-candidate-to-replace-platner-accused-of-hitting-female-colleague-during-argument"
+          },
+          {
+            "name": "Breitbart",
+            "url": "https://www.breitbart.com/politics/2026/07/24/gop-rep-says-troy-jackson-may-not-qualify-for-maine-senate-nomination/"
+          }
+        ]
+      }
+    },
+    {
+      "title": "DSA Co-Chair Publicly Confirms Platform to Abolish Senate, ICE, Open Borders",
+      "topic_key": "dsa-cochair-confirms-abolish-platform-july26",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New \u2014 first appearance",
+      "correlation": 31,
+      "correlation_label": "Sharply divergent narratives \u2014 left reports factually with context; right frames as proof of radical Democrat agenda",
+      "summary": "DSA national co-chair Megan Romer appeared publicly on July 26 and confirmed that the organization's platform calls for abolishing the Senate, ICE, national borders, and prisons. House Minority Leader Hakeem Jeffries, appearing on CNN's State of the Union, declined to either endorse or repudiate the DSA platform. A new poll shows 52% of Democrats now hold a favorable view of socialism.",
+      "left": {
+        "framing": "CNN and The Hill report Jeffries' position neutrally \u2014 noting he 'did not commit to holding votes on progressive issues.' The Hill and Axios focus on the internal Democratic tension between establishment leaders and the DSA wing, framing it as a strategic challenge rather than ideological capitulation. Slate and TNR note that Jeffries is trying to thread a needle without alienating either wing.",
+        "sources": [
+          {
+            "name": "CNN Politics",
+            "url": "https://www.cnn.com/2026/07/26/politics/video/jeffries-dsa-platform-sotu"
+          },
+          {
+            "name": "The Hill",
+            "url": "https://thehill.com/homenews/campaign/5984107-democratic-poll-leads-gop/"
+          }
+        ]
+      },
+      "right": {
+        "framing": "Fox News leads with the DSA co-chair's admissions prominently, framing Jeffries' non-answer as tacit endorsement. National Review publishes a detailed analysis of what the DSA platform would actually mean ('Socialists vs. the Senate'). Townhall links the platform to the new poll showing 52% of Democrats support socialism. The Washington Examiner and Breitbart frame GOP anti-communist messaging as the appropriate response.",
+        "sources": [
+          {
+            "name": "Fox News",
+            "url": "https://www.foxnews.com/media/dsa-co-chair-embraces-abolishing-senate-ice-borders-democratic-infighting-escalates"
+          },
+          {
+            "name": "National Review",
+            "url": "https://www.nationalreview.com/2026/07/socialists-vs-the-senate/"
+          },
+          {
+            "name": "Townhall",
+            "url": "https://townhall.com/tipsheet/josephchalfant/2026/07/26/new-poll-shows-that-more-than-half-of-democrats-support-socialism-n2680137"
+          }
+        ]
+      }
+    }
+  ],
+  "gap_left": [
+    {
+      "title": "House War Powers Resolution Passes 214-208 \u2014 Democrats Frame as Historic Rebuke of Trump",
+      "topic_key": "house-war-powers-resolution-214-208-dem-rebuke",
+      "days_seen": 2,
+      "relevance": 70,
+      "relevance_label": "Recurring \u2014 day 2",
+      "summary": "The House passed a War Powers resolution Thursday 214-208 demanding Trump end his military campaign in Iran, with only four Republicans joining all Democrats. CNN and The Daily Beast frame this as 'the most partisan war in modern US history' and a historic humiliation for Trump. TNR and MSNBC emphasize that Democrats are unified against the war from the start \u2014 something that hasn't happened in at least a century. The New Republic outlines Democrats' full legislative plan to end the conflict. Right outlets covered the vote but largely downplayed its significance or framed the dissenting Republicans as acting in error.",
+      "sources": [
+        {
+          "name": "CNN Politics",
+          "url": "https://www.cnn.com/2026/07/26/politics/democrats-against-iran-war"
+        },
+        {
+          "name": "The Daily Beast",
+          "url": "https://www.thedailybeast.com/trump-humiliated-as-republicans-join-bombshell-war-rebuke/"
+        },
+        {
+          "name": "The New Republic",
+          "url": "https://newrepublic.com/post/213353/democrats-end-iran-war-smith-aguilar-lieu"
+        },
+        {
+          "name": "Axios",
+          "url": "https://www.axios.com/2026/07/23/iran-war-powers-vote-house-republicans-trump"
+        }
+      ]
+    },
+    {
+      "title": "McConnell Hospitalized 37+ Days \u2014 Aides Silent, Security Guards His Room",
+      "topic_key": "mcconnell-hospitalized-37days-coverup-july26",
+      "days_seen": 2,
+      "relevance": 70,
+      "relevance_label": "Recurring \u2014 day 2",
+      "summary": "Senate Republican leader Mitch McConnell has been hospitalized for more than 37 days with no public update from his staff. The Daily Beast reports that security personnel are guarding access to his hospital room and his team has gone completely silent, intensifying accusations of a deliberate cover-up. The story is receiving significant coverage on left-leaning outlets concerned about Senate leadership transparency, but has been mostly absent from right-leaning media.",
+      "sources": [
+        {
+          "name": "The Daily Beast",
+          "url": "https://www.thedailybeast.com/mitch-mcconnells-team-falls-silent-as-security-detail-guards-hospital/"
+        }
+      ]
+    },
+    {
+      "title": "Manchin Launches Independent Leadership Council to Back Third-Party Congressional Candidates",
+      "topic_key": "manchin-independent-leadership-council-ilc-launch",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New \u2014 first appearance",
+      "summary": "Former Sen. Joe Manchin launched the Independent Leadership Council (ILC) this weekend, a new organization aimed at electing independent candidates to Congress in 2026. The ILC is targeting competitive races in Alaska, California, Iowa, Montana, and Washington. The Hill and CNN cover this as a potential third-force disruption in key Senate battlegrounds. Right-leaning outlets have largely ignored the launch.",
+      "sources": [
+        {
+          "name": "The Hill",
+          "url": "https://thehill.com/homenews/campaign/5988528-joe-manchin-launches-independent-council/"
+        }
+      ]
+    },
+    {
+      "title": "Buttigieg Leads 2028 Dem Primary Poll at 19%; Newsom 17%",
+      "topic_key": "buttigieg-2028-dem-frontrunner-poll-july26",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New \u2014 first appearance",
+      "summary": "A new poll shows Pete Buttigieg leading the 2028 Democratic primary field at 19%, with Gavin Newsom at 17% and both Ossoff and AOC at 13%. Buttigieg said this week he is 'totally focused on 2026' and campaigning for Democratic candidates. CNN and left-leaning outlets are beginning to map the 2028 landscape as the party grapples with its ideological direction. The story is absent from right outlets, which are focused on the socialist surge rather than establishment Dem 2028 positioning.",
+      "sources": [
+        {
+          "name": "CNN Politics",
+          "url": "https://www.cnn.com/2026/07/24/politics/video/cnn-sitroom-blitzer-pete-buttigieg-midterms-democratic-party"
+        }
+      ]
+    }
+  ],
+  "gap_right": [
+    {
+      "title": "NJ DMV Error Puts 6,600 Noncitizens on Voter Rolls \u2014 DOJ Demands Records in 5 Days",
+      "topic_key": "nj-noncitizen-voter-roll-doj-demand-july26",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New \u2014 first appearance",
+      "summary": "New Jersey Governor Mikie Sherrill acknowledged a software error in the state's DMV system registered approximately 6,600 noncitizens to vote, with an estimated 400 having voted. The DOJ has issued a 5-day demand for NJ voter records. The Federalist and Townhall connect this to DHS data showing 250,000+ noncitizens on rolls across California, Pennsylvania, New Jersey, and Nevada, framing it as validation for the SAVE Act. Left outlets covered the NJ error but with emphasis on the software glitch rather than broader election integrity implications.",
+      "sources": [
+        {
+          "name": "The Federalist",
+          "url": "https://thefederalist.com/2026/07/22/doj-demands-answers-on-new-jersey-voter-roll-scandal/"
+        },
+        {
+          "name": "Townhall",
+          "url": "https://townhall.com/tipsheet/scott-mcclallen/2026/07/26/democratic-socialists-co-chair-admits-platform-includes-open-borders-amnesty-n2680142"
+        },
+        {
+          "name": "The Federalist",
+          "url": "https://thefederalist.com/2026/07/16/dhs-more-than-250000-noncitizens-are-registered-to-vote-in-four-states/"
+        }
+      ]
+    },
+    {
+      "title": "Republicans Hold 5-to-1 Cash Advantage Over Democrats Heading Into Midterms",
+      "topic_key": "gop-fundraising-677m-dems-136m-advantage",
+      "days_seen": 2,
+      "relevance": 70,
+      "relevance_label": "Recurring \u2014 day 2",
+      "summary": "Latest FEC filings show Republicans holding $677 million in combined cash on hand versus Democrats' $136 million \u2014 a nearly 5-to-1 advantage. Trump's super PAC MAGA Inc. alone holds $400 million. Breitbart, Townhall, and the Washington Examiner cite this as the key counterweight to polling deficits, arguing money advantage could offset Democratic enthusiasm. Left outlets acknowledge the gap but note that 25 individual GOP incumbents were outraised by Democratic challengers in Q2.",
+      "sources": [
+        {
+          "name": "Breitbart",
+          "url": "https://www.breitbart.com/politics/2026/07/21/republicans-have-massive-money-advantage-over-democrats-ahead-of-midterms/"
+        },
+        {
+          "name": "Townhall",
+          "url": "https://townhall.com/tipsheet/mattvespa/2026/07/20/the-dems-are-getting-destroyedin-fundraising-n2679815"
+        }
+      ]
+    },
+    {
+      "title": "Trump to Meet Zelensky in Washington This Week as Ukraine Diplomacy Accelerates",
+      "topic_key": "trump-zelensky-dc-meeting-ukraine-diplomacy-july26",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New \u2014 first appearance",
+      "summary": "President Trump is scheduled to meet Ukrainian President Zelensky in Washington this Tuesday, the same day he meets Israeli PM Netanyahu. Breitbart reports the meeting signals renewed momentum in Russia-Ukraine peace efforts alongside the Iran ceasefire push. Right outlets frame this as Trump managing multiple diplomatic fronts simultaneously. The story is largely absent from left outlets, which are focused on the Iran War Powers resolution and Democratic anti-war messaging.",
+      "sources": [
+        {
+          "name": "Breitbart",
+          "url": "https://www.breitbart.com/europe/2026/07/26/trump-and-zelensky-to-meet-in-washington-this-week/"
+        }
+      ]
+    },
+    {
+      "title": "New Poll: 52% of Democrats Now View Socialism Favorably",
+      "topic_key": "democrats-52pct-socialism-poll-july26",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New \u2014 first appearance",
+      "summary": "A newly released poll shows 52% of Democrats hold a favorable view of socialism, with only 43% unfavorable \u2014 a significant shift from recent years. Townhall and the Washington Examiner cite this as validation for GOP anti-communist messaging and as evidence of how deeply the DSA surge has reshaped Democratic voter attitudes. The spectator frames it as a 'death march' for the party. The poll is not appearing prominently on left-leaning outlets, which focus on polling showing Democratic leads on the generic ballot.",
+      "sources": [
+        {
+          "name": "Townhall",
+          "url": "https://townhall.com/tipsheet/josephchalfant/2026/07/26/new-poll-shows-that-more-than-half-of-democrats-support-socialism-n2680137"
+        },
+        {
+          "name": "The American Spectator",
+          "url": "https://spectator.org/zero-sympathy-for-the-democrats-political-death-march/"
+        }
+      ]
+    }
+  ]
+}
