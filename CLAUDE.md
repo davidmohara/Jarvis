@@ -70,11 +70,12 @@ When David corrects you — any correction, any agent — **log it immediately i
 
 When the user says they want to exit, log off, or end the session:
 
-1. **Working memory sweep.** Check `memory/working/` for entries written this session (match today's date in filename). If none exist and significant work was done this session, write one now. This is the safety net — Master's Agent Output Handling should have already written entries during the session, but if anything was missed, catch it here.
-2. **Eval feedback sweep (Option A).** Scan `systems/eval-harness/runs/` for eval records where `started` matches today's date AND `assessment.controller_feedback.rating == null` AND `steps` array is non-empty (not orphaned stubs). If any exist (cap at 3), surface them for a quick rating before exit:
+1. **Close open eval records.** Run `python3 systems/eval-harness/close-open-evals.py systems/eval-harness/runs/` to mark any in-progress evals with status `incomplete` and abort_reason `session-exit-normal`. This prevents incomplete interactive work from being counted as system failures in the success-rate metric.
+2. **Working memory sweep.** Check `memory/working/` for entries written this session (match today's date in filename). If none exist and significant work was done this session, write one now. This is the safety net — Master's Agent Output Handling should have already written entries during the session, but if anything was missed, catch it here.
+3. **Eval feedback sweep.** Scan `systems/eval-harness/runs/` for eval records where `started` matches today's date AND `assessment.controller_feedback.rating == null` AND `steps` array is non-empty (not orphaned stubs). If any exist (cap at 3), surface them for a quick rating before exit:
    ```
    Before we close — {N} workflow(s) ran today. Quick ratings ("positive", "negative", or "skip"):
    1. {name} ({eval_id}) — score {score}, grade {grade}
    ```
    Write any ratings received back to the eval record's `controller_feedback.rating` and `timestamp` fields immediately. If the controller skips or there are no records to rate, proceed without delay.
-3. **Commit all files.** Stage and commit all untracked and modified files before ending the session.
+4. **Commit all files.** Stage and commit all untracked and modified files before ending the session.

@@ -77,6 +77,10 @@ def calculate_metrics(records):
     failure = sum(1 for r in records if r.get("status") == "failure")
     aborted = sum(1 for r in records if r.get("status") == "aborted")
 
+    # Exclude session-ended aborts and incomplete evals from success rate calculation (these are incomplete work, not failures)
+    session_ended_aborts = sum(1 for r in records if (r.get("status") == "aborted" and r.get("assessment", {}).get("mechanical", {}).get("abort_reason") in [None, "session-ended"]) or r.get("status") == "incomplete")
+    partial = sum(1 for r in records if r.get("status") == "partial")
+
     # Tier 1 metrics
     completed = sum(1 for r in records if r.get("assessment", {}).get("mechanical", {}).get("completed") is True)
     tool_failures = sum(r.get("assessment", {}).get("mechanical", {}).get("tool_failures", 0) for r in records)
@@ -98,12 +102,18 @@ def calculate_metrics(records):
     durations = [r.get("duration_seconds") for r in records if r.get("duration_seconds")]
     avg_duration = sum(durations) / len(durations) if durations else 0
 
+    # Calculate success rate excluding session-ended aborts (incomplete interactive work)
+    meaningful_total = total - session_ended_aborts
+    success_rate = (success / meaningful_total * 100) if meaningful_total > 0 else 0
+
     return {
         "total": total,
         "success": success,
         "failure": failure,
         "aborted": aborted,
-        "success_rate": (success / total * 100) if total > 0 else 0,
+        "session_ended_aborts": session_ended_aborts,
+        "meaningful_total": meaningful_total,
+        "success_rate": success_rate,
         "tier1": {
             "completed": completed,
             "completion_rate": (completed / total * 100) if total > 0 else 0,
@@ -232,7 +242,8 @@ def generate_html(records, metrics, output_path):
             <div class="metric-card">
                 <h3>Success Rate</h3>
                 <div class="value">{metrics.get('success_rate', 0):.1f}%</div>
-                <div class="sub">{metrics.get('success', 0)} / {metrics.get('total', 0)} successful</div>
+                <div class="sub">{metrics.get('success', 0)} / {metrics.get('meaningful_total', 0)} successful</div>
+                <div class="sub" style="font-size: 11px; color: #999;">({metrics.get('session_ended_aborts', 0)} incomplete sessions excluded)</div>
             </div>
             <div class="metric-card">
                 <h3>Failure Rate</h3>
