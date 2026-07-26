@@ -1,12 +1,12 @@
 ---
 status: complete
-started-at: 2026-07-25T06:07:00Z
-completed-at: 2026-07-25T06:07:56Z
+started-at: 2026-07-26T06:00:00Z
+completed-at: 2026-07-26T06:08:05Z
 outputs:
-  messages_checked: 7
+  messages_checked: 1
   new_urls: 0
   new_digests: 0
   drafts_created: 0
-  outcome: "SUCCESS: Daily discovery complete. 7 messages in last 48h window — all bot messages without digest signal, plus 1 user operational comment (no URL/digest). No new URLs or digests to process."
+  outcome: "SUCCESS: Daily discovery complete. 1 message in last 24h window — bot operational message without digest signal. No new URLs or digests to process."
 model: sonnet
 ---
