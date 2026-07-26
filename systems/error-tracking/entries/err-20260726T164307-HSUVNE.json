@@ -1,0 +1,15 @@
+{
+  "id": "err-20260726T164307-HSUVNE",
+  "timestamp": "2026-07-26T16:43:07Z",
+  "session": "2026-07-26",
+  "source": "explicit",
+  "agent": "harper",
+  "category": "process-skip",
+  "description": "step-02-approve.md has no editorial edit path. When David replied to draft threads with direct editorial instructions (link insertions — 'Put the link to the Gartner study in the post' on Governance thread 1784718773, 'See if there's a link for agentic arbitrage' on SaaS Stack thread 1784718785), step-02 treated them as generic feedback and triggered the regeneration workflow instead of executing the edits directly via Ghost Admin API. Regeneration failed for both posts (no completion message). Links were never added. The Corrections post ('Put the actual link to Satya's post in the article') also went through regeneration rather than direct edit, though that one was reported as successful.",
+  "correction": "Thread replies containing editorial instructions (link insertion, image swap, etc.) should be detected by step-02 and executed directly via Ghost Admin API — identical to the EDITORIAL EDIT PATH in step-01 for top-level messages. The keywords are the same: 'add the link', 'add a link', 'change the image', 'update the image', 'swap image', 'replace image', etc. Regeneration should only be triggered for substantive content changes (tone, angle, rewrite), not surgical edits.",
+  "failure_mode": "pattern-mismatch",
+  "systemic_fix": "Add an EDITORIAL EDIT PATH block to step-02-approve.md. Before routing a thread reply to regeneration, check it against the editorial keywords list. If matched, execute the edit directly (Ghost Admin API PATCH) and confirm in the thread. Only fall through to regeneration if no editorial keywords match.",
+  "fix_status": "proposed",
+  "severity": "major",
+  "related_entries": []
+}
