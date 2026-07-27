@@ -16,15 +16,16 @@ tags:
   - sales
   - confluent
   - pipeline-review
-salience:
-  score: 6
-  last-promoted-check: 2026-07-26
-  promoted: true
 related_people:
   - alice-mburu
   - roderic-patane
   - josh-white
   - parsa-sreenivasulu
+  last-promoted-check: 2026-07-27
+salience:
+  promoted: true
+  score: 5
+  last-promoted-check: 2026-07-27
 ---
 
 - Built full account strategy brief for CBRE (Rock 1 active pursuit account). Account owner of record: Roderic Patane. 9-year relationship, active PSA since Jan 2017 (amended Sep 2021), last SOW Aug–Oct 2022 (agile assessment, Ed Utley). GTM rank #176 Dallas.

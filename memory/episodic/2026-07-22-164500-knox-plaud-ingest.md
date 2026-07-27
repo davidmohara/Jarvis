@@ -16,12 +16,13 @@ tags:
   - ai-strategy
   - monday
   - error-correction
-salience:
-  score: 1
-  last-promoted-check: 2026-07-26
 related_people:
   - alice-mburu
   - andrew-rauch
+  last-promoted-check: 2026-07-27
+salience:
+  score: 0
+  last-promoted-check: 2026-07-27
 ---
 
 ## What happened

@@ -16,10 +16,11 @@ tags:
   - shutdown-cleanup
   - remarkable-upload
   - eval
+related_people: []
+  last-promoted-check: 2026-07-27
 salience:
   score: 0
-  last-promoted-check: 2026-07-26
-related_people: []
+  last-promoted-check: 2026-07-27
 ---
 
 - Purged: `missfont.log` (LaTeX aux artifact, already gone from disk, deletion staged). No other new temp-artifact patterns found this session.

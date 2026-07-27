@@ -17,15 +17,16 @@ tags:
   - contact-verification
   - error-correction
   - sales
-salience:
-  score: 5
-  last-promoted-check: 2026-07-26
-  promoted: true
 related_people:
   - alice-mburu
   - parsa-sreenivasulu
   - josh-harrison
   - josh-white
+  last-promoted-check: 2026-07-27
+salience:
+  promoted: true
+  score: 5
+  last-promoted-check: 2026-07-27
 ---
 
 - CRM access via Chrome initially failed (login wall at improving.crm.dynamics.com, no cached SSO). After David confirmed the session was logged in, retry succeeded — first real CRM query of the session for CBRE.

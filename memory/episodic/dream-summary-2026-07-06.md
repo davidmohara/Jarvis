@@ -10,9 +10,11 @@ source_file: /Users/davidohara/develop/jarvis/memory/working/dream-summary-2026-
 related_people: []
   last-promoted-check: 2026-07-26
   last-promoted-check: 2026-07-26
+  last-promoted-check: 2026-07-26
+  last-promoted-check: 2026-07-27
 salience:
   score: 0
-  last-promoted-check: 2026-07-26
+  last-promoted-check: 2026-07-27
 ---
 
 # Dream Cycle Summary — 2026-07-06

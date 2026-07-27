@@ -5,7 +5,7 @@ tag: dream-summary
 domain: pattern
 confidence: medium
 created: 2026-07-06
-last-updated: 2026-07-26
+last-updated: 2026-07-27
 synthesized-from: 8 episodic entries
 tags:
   - dream-summary
@@ -91,3 +91,8 @@ Sources this cycle:
 - `memory/episodic/dream-summary-2026-07-25.md` (score 7) — tags: dream-summary, jarvis, memory-consolidation, episodic, semantic, account-pursuit-map, daily-review, q3-rocks, nerve-block, compression. Jul 25 cycle: 10 archived, 233 scored, 8 promoted (3 clusters), 0 compressed. Carry-forwards still unresolved: Q3 rocks unwritten entering week 4, nerve block/Tarlov cyst unscheduled 15+ days, delegation tracker (Alice queue) empty, AI Summit Jul 24 presentation topic unknown, CBRE account ownership (David vs. April handoff) ambiguous.
 
 Three consistent signals now confirmed across multiple consecutive daily-reviews AND dream summaries: Q3 rocks undocumented, nerve block unscheduled, Alice delegation tracker empty. These are no longer incidental overdue items — they are chronic open loops spanning at least 4 weeks with no resolution trend visible in any data source.
+
+### 2026-07-27 — Re-flag (no new synthesis)
+Sources: dream-summary-2026-07-22.md, dream-summary-2026-07-23.md, dream-summary-2026-07-24.md, dream-summary-2026-07-25.md (all score 3-5, promoted:true re-set).
+
+Step-02 this cycle dropped the `promoted` field from all salience blocks (merge-write bug recreated in this cycle's ad-hoc script). All four entries are already documented in the 2026-07-24 through 2026-07-26 entries above — no new synthesis. The dream-summary-2026-07-26.md is still in working/ (expires today, not yet archived); it will enter the episodic pool tomorrow night.

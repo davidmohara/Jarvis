@@ -5,10 +5,6 @@ session_id: dream-cycle-2026-07-23-030900
 created: 2026-07-23T03:42:00-05:00
 expires: 2026-07-24
 status: archived
-salience:
-  score: 3
-  last-promoted-check: 2026-07-26
-  promoted: true
 date: 2026-07-23
 source_file: memory/working/dream-summary-2026-07-23.md
 tags:
@@ -20,6 +16,11 @@ tags:
   - compression
   - q3-rocks
 related_people: []
+  last-promoted-check: 2026-07-27
+salience:
+  promoted: true
+  score: 3
+  last-promoted-check: 2026-07-27
 ---
 
 # Dream Cycle Summary — July 23, 2026

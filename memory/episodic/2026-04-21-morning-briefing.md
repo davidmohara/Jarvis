@@ -16,10 +16,11 @@ related_people:
 - steve-hall
   last-promoted-check: 2026-07-26
   promoted: true
+  promoted: true
+  last-promoted-check: 2026-07-27
 salience:
   score: 0
-  last-promoted-check: 2026-07-26
-  promoted: true
+  last-promoted-check: 2026-07-27
 ---
 
 

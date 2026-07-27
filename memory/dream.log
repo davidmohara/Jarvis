@@ -1888,3 +1888,20 @@ digests_updated: 0
 errors: 0
 summary: "Boot pull clean (fast-forward 7e36dac..fa8eac7; stash/pop for unstaged state.yaml). Step-01 archived 2 expired files (dream-summary-2026-07-25, daily-review-2026-07-24), skipped 11 (1 not expired, 10 unparseable). Step-02 scored 234 episodic files (82 in window); dist 0:215,1:3,2:1,3:3,4:1,5:9,6:1,7:1; 0 errors. Step-03: 2 promotion candidates; 0 new semantic entries; 2 updated (dream-summary-pattern: Jul 25 cycle — chronic open loops Q3 rocks/nerve-block/Alice delegation confirmed spanning 4+ weeks; daily-review-pattern: Jul 24 entry — 6th consecutive flagging of Q3 rocks absent, delegation tracker empty confirmed durable, nerve block every entry since Jul 8 — escalate to Chief for calendar action). Error scan 30d: 126 errors, 9 qualifying categories — all in LESSONS.md, 0 new lessons. Step-04: 0 compression candidates (Q2 digest consumed all; next window Oct)."
 ---
+
+---
+## 2026-07-27T03:13:00 CDT
+session_id: dream-cycle-2026-07-27-030933
+working_archived: 0
+working_deleted: 0
+episodic_scanned: 234
+score_updates: 234
+clusters_found: 3
+semantic_created: 0
+semantic_updated: 3
+promoted_entries: 14
+entries_compressed: 0
+digests_updated: 0
+errors: 0
+summary: "Boot pull clean (fast-forward e417543..e9db591; stash/pop for unstaged files — eval dashboard, state.yaml). Step-01: 0 files expired (dream-summary-2026-07-26 expires exactly today, not < today; system-eval-2026-07-25 expires at 04:34 CT, current time 03:09; 10 unparseable/no-expires golf+sc+felix-derek cluster unchanged). Step-02: 234 episodic files scored, 80 in window; dist 0:216,1:3,3:3,4:4,5:8; step-02 script dropped promoted field (merge-write bug recreated). Step-03: 14 candidates surfaced — all re-flags of already-documented entries; 3 semantic entries updated with re-flag notes (dream-summary-pattern, daily-review-pattern, account-pursuit-map-pattern); promoted:true re-set on all 14. Error scan: 119 errors, 9 qualifying categories — all in LESSONS.md, 0 new lessons. Step-04: 0 compression candidates (Q2 digest consumed all; next window Oct). Carry-forward: Q3 rocks still unwritten week 5; nerve block unscheduled; Alice delegation tracker empty; step-02 merge-write fix needed in salience_score.py script."
+---

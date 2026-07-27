@@ -17,13 +17,14 @@ tags:
   - healthcare
   - crm
   - executive-change
-salience:
-  score: 5
-  last-promoted-check: 2026-07-26
-  promoted: true
 related_people:
   - loan-nguyen
   - paola-arbour
+  last-promoted-check: 2026-07-27
+salience:
+  promoted: true
+  score: 5
+  last-promoted-check: 2026-07-27
 ---
 
 - Corrected the initial assumption: this account is **active-but-underleveraged**, not a cold/lost re-entry — CRM shows $6,111,500 in live open pipeline (AI Program Manager, PMaaS Pilot Program, PMaaS Enterprise Program) alongside the 2022 "Agile Coach" $350K cancellation that's almost certainly the deal behind Chase's persona voice line.

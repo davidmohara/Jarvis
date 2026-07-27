@@ -14,11 +14,12 @@ tags:
   - semantic-promotion
   - account-pursuit-map
   - salience-scoring
-salience:
-  score: 3
-  last-promoted-check: 2026-07-26
-  promoted: true
 related_people: []
+  last-promoted-check: 2026-07-27
+salience:
+  promoted: true
+  score: 3
+  last-promoted-check: 2026-07-27
 ---
 
 # Dream Cycle Summary — July 24, 2026

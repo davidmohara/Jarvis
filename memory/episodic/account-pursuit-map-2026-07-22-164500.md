@@ -17,14 +17,15 @@ tags:
   - sales
   - cold-pursuit
   - ai-pitch
-salience:
-  score: 5
-  last-promoted-check: 2026-07-26
-  promoted: true
 related_people:
   - mike-mccranie
   - gayatri-narayan
   - coley-obrien
+  last-promoted-check: 2026-07-27
+salience:
+  promoted: true
+  score: 5
+  last-promoted-check: 2026-07-27
 ---
 
 - Entity confirmed as Builders FirstSource, Inc. (NYSE: BLDR), Dallas, TX — same entity David tracks informally as "BuildersFirst Source"; verified via live CRM query (website field, all 10 contacts on @bldr.com).

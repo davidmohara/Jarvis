@@ -5,7 +5,7 @@ subject: "Recurring account-pursuit-map workflow pattern"
 synthesized-from:
   - memory/episodic/account-pursuit-map-2026-07-20-000000.md
   - memory/episodic/account-pursuit-map-2026-07-22-000000.md
-last-updated: 2026-07-25
+last-updated: 2026-07-27
 tags:
   - account-pursuit-map
   - chase
@@ -41,3 +41,8 @@ Sources this cycle:
 - `memory/episodic/chase-session-2026-07-21-211500.md` (score 6) — tags: session-wrap, chase, account-pursuit-map, schwab, constellation-energy, dashboard, crm, template-build. Schwab ($2.55M CRM-confirmed) + Constellation Energy (SIGNIFICANT 9-box, $0 CRM) pursuit maps; dashboard template extracted as step-07.
 
 Pattern deepening: 5 additional entries across 4 accounts (CBRE, Tenet, BFS, Schwab/Constellation) confirm account-pursuit-map is a high-frequency Chase deliverable, not an occasional output. Now spans 7 entries across 2 cycles. Accounts covered: Schwab, Constellation Energy, CBRE, Tenet Healthcare, Builders FirstSource.
+
+### 2026-07-27 — Re-flag (no new synthesis)
+Sources: account-pursuit-map-2026-07-22-000000, account-pursuit-map-2026-07-22-164500, account-strategy-2026-07-22-153954, 2026-07-22-180000-tenet-healthcare, 2026-07-22-193000-cbre-crm-corrections, chase-session-2026-07-21-211500 (all score 4-5, promoted:true re-set).
+
+Step-02 dropped the `promoted` field this cycle. All 6 entries already documented in 2026-07-24/2026-07-25 entries above. No new synthesis needed. Pattern holding: account-pursuit-map remains the dominant Chase deliverable with no new accounts entered the episodic pool since Jul 22.
