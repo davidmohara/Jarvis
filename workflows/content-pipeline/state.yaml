@@ -1,12 +1,15 @@
 ---
 status: complete
-started-at: 2026-07-27T06:08:12Z
-completed-at: 2026-07-27T06:08:22Z
+started-at: 2026-07-27T09:00:00Z
+completed-at: 2026-07-27T09:05:30Z
 outputs:
-  messages_checked: 1
-  new_urls: 0
-  new_digests: 0
-  drafts_created: 0
-  outcome: "SUCCESS: Daily discovery complete. 1 message in last 24h window — bot operational message without digest signal. No new URLs or digests to process."
-model: sonnet
----
+  threads_checked: 5
+  new_approvals: 0
+  new_rejections: 0
+  new_slack_messages: 0
+  actions_taken: 0
+  published: 0
+  pending_approvals: 8
+  pending_edits: 3
+  outcome: "No new signals. All 8 posts remain pending. Corrections, Governance, and SaaS Stack have completed their requested edits (links added) and await David's approval."
+model: haiku
