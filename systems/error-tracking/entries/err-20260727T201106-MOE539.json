@@ -1,0 +1,15 @@
+{
+  "id": "err-20260727T201106-MOE539",
+  "timestamp": "2026-07-27T20:11:06Z",
+  "session": "2026-07-27",
+  "source": "explicit",
+  "agent": "harper",
+  "category": "routing-error",
+  "description": "Harper skipped two Watchtower W31 draft messages in #content because they used *bold* section headers (e.g. '*Hook*', '*Story Angle*') instead of markdown '## ' headers. The digest detection rule requires '# ' AND '## ' — these messages had neither, only bold text. Harper routed them as 'bot operational noise' and skipped them without drafting Ghost posts. David corrected: Watchtower drafts are never noise and must always be drafted.",
+  "correction": "Watchtower drafts posted by the Jarvis bot to #content must always be processed regardless of header format. The digest detection rule should recognize both '## ' markdown headers AND '*Bold*' section markers as valid digest signals when the message contains the four standard sections (Hook, Story Angle, Core Insight, Challenge/CTA).",
+  "failure_mode": "pattern-mismatch",
+  "systemic_fix": "Update step-01-discover.md digest detection rule to include bot messages that contain all four Watchtower section keywords (Hook, Story Angle/Core Insight, Challenge/CTA) in bold format as an additional digest signal path. Also add an explicit rule: Watchtower bot messages are NEVER skipped — if in doubt, draft.",
+  "fix_status": "applied",
+  "severity": "major",
+  "related_entries": []
+}

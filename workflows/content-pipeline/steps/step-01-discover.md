@@ -54,8 +54,9 @@ For all remaining messages, apply the router below to each one before doing anyt
 Evaluate each message against the following rules in sequence. Stop at the first match.
 
 ```
-1. Bot message WITHOUT (# + ##) headers  →  SKIP (operational noise)
-2. Bot message WITH (# + ##) headers     →  DIGEST PATH
+1. Bot message WITHOUT digest signal AND WITHOUT Watchtower section keywords  →  SKIP (operational noise)
+2. Bot message WITH digest signal (# + ##) OR Watchtower section keywords (*Hook*, *Story Angle*/*Core Insight*, *Challenge*/*CTA*)  →  DIGEST PATH
+   NOTE: Watchtower drafts ALWAYS route to DIGEST PATH. They use *bold* headers, not ## markdown. Never skip them. (err-20260727T201106-MOE539)
 3. User message WITH routing keywords    →  OBSIDIAN ROUTE
    (keywords: "save to obsidian", "save as a note", "for a talk", "reference",
     "do not draft a post", "don't draft a post")
@@ -68,7 +69,11 @@ Evaluate each message against the following rules in sequence. Stop at the first
     "swap image", "replace image", "fix the image", "update the post", "edit the post")
 ```
 
-**Detection rule for digest signal:** A message has `# ` AND `## ` — an H1 title line and at least one H2 section header.
+**Detection rule for digest signal:** A message matches ANY of these patterns:
+- Has `# ` AND `## ` — an H1 title line and at least one H2 section header (standard markdown digest)
+- Is a bot message containing all four Watchtower section keywords in bold: `*Hook*` (or `*Hook*\n`), `*Story Angle*` or `*Core Insight*`, and `*Challenge*` or `*CTA*` — these are Watchtower drafts and are ALWAYS processed, never skipped
+
+> **CRITICAL — err-20260727T201106-MOE539:** Watchtower bot messages use `*Bold*` section headers, not `## ` markdown. The old detection rule missed them entirely and skipped them as "operational noise." This is wrong. Watchtower drafts are NEVER noise. If a bot message contains Hook + Story/Insight + Challenge in any header format, it is a digest and must be drafted.
 
 **For SKIP:** Do nothing. Move to next message.
 
