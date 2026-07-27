@@ -9,7 +9,7 @@
   "correction": "When a Watchtower digest references a prior week's post or a number/concept covered in a recent post, Harper should identify and link to that post inline. The $234B figure was introduced in the SaaS Stack post and cross-referencing it with a link is standard pipeline practice.",
   "failure_mode": "context-blindness",
   "systemic_fix": "Add a step to the DIGEST PATH in step-01-discover.md: after drafting, scan the post body for references to prior posts or recurring themes/numbers. Check pending-drafts.json and Ghost published posts for thematic matches. Insert inline links where a clear callback exists.",
-  "fix_status": "proposed",
+  "fix_status": "applied",
   "severity": "minor",
   "related_entries": ["err-20260727T201106-MOE539"]
 }
