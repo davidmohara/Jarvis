@@ -57,26 +57,78 @@ and page load. Confirm title contains "Power BI".
 
 ---
 
-## Phase 2 — Read Pipeline Data
+## Phase 2 — Disaggregate Pipeline Data by One Texas Enterprise
 
-Read KPI tiles and partner table from the DOM:
+**CRITICAL: Do NOT read the aggregate "Improving, Enterprise" KPI. Disaggregate by clicking each location filter.**
+
+One Texas consists of three enterprises: **Dallas, Houston, and Austin**. The report's default view shows an aggregate that masks critical execution differences across enterprises. You MUST gather individual numbers for each enterprise and sum them.
+
+### Phase 2a — Check Filter State
+
+First, determine which location is currently selected:
 
 ```js
 mcp__Control_Chrome__execute_javascript
 code: (() => {
-  const text = document.body.innerText;
-  return text.substring(0, 4000);
+  const locations = ['Dallas, TX', 'Houston, TX', 'Austin, TX'];
+  const result = [];
+  
+  for (const location of locations) {
+    for (const el of document.querySelectorAll('[class*="slicerText"]')) {
+      if (el.textContent?.trim() === location) {
+        const container = el.closest('[class*="slicerItemContainer"]');
+        const checkbox = container?.querySelector('[class*="slicerCheckbox"]');
+        const isSelected = checkbox?.className.includes('selected');
+        result.push({location, isSelected});
+        break;
+      }
+    }
+  }
+  
+  return result;
 })()
 ```
 
-Read the following from the page text:
-- **Pipeline Revenue w/ Coselling Partner** (total $ amount KPI tile)
-- **Pipeline Opps w/ Coselling Partner** (total count KPI tile)
-- **Partner breakdown table**: partner name, revenue amount, opp count for each row
-  (Microsoft, Confluent, SAP, Scrum.org, and any others present)
-- **Quarter/Year table** (bottom right) — confirms the report period
+This returns array showing which location is currently selected. Note which one is selected (will have `isSelected: true`).
 
-If KPI tiles are not visible in the text, wait 3 seconds and re-read.
+### Phase 2b — Click Each Location and Record Pipeline KPIs
+
+For each location (Dallas, Houston, Austin), click its checkbox and read the KPI values:
+
+**For Dallas, TX:**
+```js
+mcp__Control_Chrome__execute_javascript
+code: (() => {
+  for (const el of document.querySelectorAll('[class*="slicerText"]')) {
+    if (el.textContent?.trim() === 'Dallas, TX') {
+      const container = el.closest('[class*="slicerItemContainer"]');
+      const checkbox = container?.querySelector('[class*="slicerCheckbox"]');
+      if (checkbox) checkbox.click();
+      break;
+    }
+  }
+  
+  // Wait for update, then read KPIs
+  return new Promise(resolve => {
+    setTimeout(() => {
+      const text = document.body.innerText;
+      const revMatch = text.match(/Pipeline Revenue w\/.*?Partner\s*\$([\d,]+)/);
+      const opsMatch = text.match(/Pipeline Opps w\/.*?Partner\s*(\d+)/);
+      resolve({
+        location: 'Dallas, TX',
+        pipelineRevenue: revMatch ? revMatch[1] : 'not found',
+        pipelineOpps: opsMatch ? opsMatch[1] : 'not found'
+      });
+    }, 2000);
+  });
+})()
+```
+
+**For Houston, TX:** (click Houston checkbox, wait 2s, read KPIs same way)
+
+**For Austin, TX:** (click Austin checkbox, wait 2s, read KPIs same way)
+
+Record all three readings. You will sum these at the end.
 
 ---
 
@@ -87,118 +139,118 @@ mcp__Control_Chrome__open_url
 url: https://app.powerbi.com/groups/me/apps/bda222e8-2ca5-4f79-8713-c15ea283f95d/reports/9cba3eb6-e267-45a2-8c8b-747c20f5db21/57bac82f202223c91446?ctid=f2267c2e-5a54-49f4-84fa-e4f2f4038a2e&experience=power-bi
 ```
 
-Wait 5 seconds.
+Wait 5 seconds for page load.
 
 ---
 
-## Phase 4 — Set Date Filter and Read Won Data
+## Phase 4 — Disaggregate Won Data by One Texas Enterprise
 
-The Won page has an "Actual Close Date" slider. Set it to full-year 2026.
-**Critical: change end date BEFORE start date** — changing start date first breaks the filter.
+Same as Phase 2: the Won page shows an aggregate KPI by default. You MUST disaggregate by clicking each location filter and recording individual won revenue numbers.
 
+### Phase 4a — Click Each Location and Record Won KPIs
+
+**For Dallas, TX:**
 ```js
 mcp__Control_Chrome__execute_javascript
 code: (() => {
-  const inputs = document.querySelectorAll('input.date-slicer-date');
-  if (inputs.length >= 2) {
-    // End date first
-    inputs[1].focus();
-    inputs[1].select();
-    inputs[1].value = '12/31/2026';
-    inputs[1].dispatchEvent(new Event('change', {bubbles: true}));
-    inputs[1].dispatchEvent(new KeyboardEvent('keydown', {key: 'Enter', bubbles: true}));
-    // Start date second
-    setTimeout(() => {
-      inputs[0].focus();
-      inputs[0].select();
-      inputs[0].value = '1/1/2026';
-      inputs[0].dispatchEvent(new Event('change', {bubbles: true}));
-      inputs[0].dispatchEvent(new KeyboardEvent('keydown', {key: 'Enter', bubbles: true}));
-    }, 500);
-    return 'date filter set';
+  for (const el of document.querySelectorAll('[class*="slicerText"]')) {
+    if (el.textContent?.trim() === 'Dallas, TX') {
+      const container = el.closest('[class*="slicerItemContainer"]');
+      const checkbox = container?.querySelector('[class*="slicerCheckbox"]');
+      if (checkbox) checkbox.click();
+      break;
+    }
   }
-  return 'inputs not found: ' + inputs.length;
+  
+  return new Promise(resolve => {
+    setTimeout(() => {
+      const text = document.body.innerText;
+      const revMatch = text.match(/Won Revenue w\/.*?Partner\s*\$([\d,]+)/);
+      const opsMatch = text.match(/Won Opps w\/.*?Partner\s*(\d+)/);
+      resolve({
+        location: 'Dallas, TX',
+        wonRevenue: revMatch ? revMatch[1] : '$0',
+        wonOpps: opsMatch ? opsMatch[1] : '0'
+      });
+    }, 2000);
+  });
 })()
 ```
 
-Wait 2 seconds, then read Won data from DOM:
+**For Houston, TX:** (click Houston checkbox, wait 2s, read KPIs same way)
 
-```js
-mcp__Control_Chrome__execute_javascript
-code: (() => {
-  return document.body.innerText.substring(0, 4000);
-})()
+**For Austin, TX:** (click Austin checkbox, wait 2s, read KPIs same way)
+
+Record all three readings. You will sum these with the pipeline data to calculate the true Rock 4 gap.
+
+---
+
+## Phase 5 — Calculate and Output
+
+### Sum Enterprise Data
+
+Add the three enterprise readings:
+- **Total Pipeline Revenue** = Dallas + Houston + Austin pipeline
+- **Total Pipeline Opps** = Dallas + Houston + Austin opps  
+- **Total Won Revenue** = Dallas + Houston + Austin won
+- **Total Won Opps** = Dallas + Houston + Austin opps
+
+### Calculate Rock 4 Gap
+
+```
+Remaining Gap = $15,000,000 - (Pipeline Revenue + Won Revenue)
+Gap % = (Remaining Gap / $15,000,000) * 100
 ```
 
-Read:
-- **Won Revenue w/ Coselling Partner** (total $ KPI tile)
-- **Won Opps w/ Coselling Partner** (total count KPI tile)
-- **Partner breakdown table**: partner name, won revenue, won opp count
-
----
-
-## Phase 5 — Save to Obsidian and Output
-
-Append the co-sell section to `Mind/One Texas/Rock 4 - Pipeline Snapshots.md` under
-a new `## Week of [today] — Pipeline Snapshot` heading using
-`mcp__obsidian-local__append_to_vault_file`.
-
-Calculate gap: `$15,000,000 - Pipeline Revenue - Won Revenue = Remaining Gap`
-
-Output using the standard format below.
-
----
-
-## Output Format
+### Output Format
 
 ```
 ## Co-Sell Pipeline — Rock 4 Progress — [Today's Date]
-**Report period: [Quarter/Year from page filter]**
+**Report period: 2026 YTD (One Texas: Dallas + Houston + Austin disaggregated)**
 
-### Pipeline vs Won by Partner
+### Pipeline vs Won by Enterprise
 
-| Partner       | Pipeline Revenue | Pipeline Opps | Won Revenue | Won Opps |
-|---------------|-----------------|---------------|-------------|----------|
-| Microsoft     | $XXX,XXX        | X             | $XXX,XXX    | X        |
-| Confluent     | $XXX,XXX        | X             | $XXX,XXX    | X        |
-| SAP           | $XXX,XXX        | X             | $XXX,XXX    | X        |
-| Scrum.org     | $XXX,XXX        | X             | $XXX,XXX    | X        |
-| **Total**     | **$X,XXX,XXX**  | **XX**        | **$XXX,XXX**| **XX**   |
+| Enterprise   | Pipeline Revenue | Pipeline Opps | Won Revenue | Won Opps |
+|--------------|-----------------|---------------|------------|----------|
+| Dallas       | $XXX,XXX        | X             | $XXX,XXX   | X        |
+| Houston      | $XXX,XXX        | X             | $XXX,XXX   | X        |
+| Austin       | $XXX,XXX        | X             | $XXX,XXX   | X        |
+| **Total**    | **$X,XXX,XXX**  | **XX**        | **$XXX,XXX** | **XX**  |
 
-### Rock 4 Gap
+### Rock 4 Gap (One Texas)
 
 | Metric                        | Amount          |
 |-------------------------------|-----------------|
 | Target                        | $15,000,000     |
 | Pipeline Revenue              | $X,XXX,XXX      |
-| Won Revenue                   | $XXX,XXX        |
+| Won Revenue (2026 YTD)        | $X,XXX,XXX      |
+| **Combined Progress**         | **$X,XXX,XXX**  |
 | **Remaining Gap**             | **$XX,XXX,XXX** |
-| Gap % remaining               | XX%             |
+| Gap % remaining               | **XX%**         |
 ```
 
-Follow with 2-3 sentences of Chase-voice commentary. David owns the co-sell pipeline —
-address gaps to him directly. If gap > $10M: call it critical and name which partner
-channels need more activity. Do not soften numbers. Do not suggest partner contacts
-(Nick Larson, John Yurewicz) are responsible — David is.
+Follow with 2-3 sentences of Chase-voice commentary analyzing enterprise split (which is carrying pipeline, which is converting wins, which is dormant), and direct assessment of gap closure likelihood. David owns the co-sell pipeline — address gaps to him directly. Do not soften numbers. Do not suggest partner contacts are responsible — David is.
 
 ---
 
-## Notes
+## Notes — Filter Selection (CRITICAL)
+
+The location slicer on both PowerBI pages uses checkboxes styled with class `slicerCheckbox`. Selected items have the class `selected` appended (e.g., `class="slicerCheckbox selected"`).
+
+**How to click a location:**
+1. Find the `<span class="slicerText">` containing the location name (e.g., "Dallas, TX")
+2. Get its parent container via `.closest('[class*="slicerItemContainer"]')`
+3. Find the checkbox: `container?.querySelector('[class*="slicerCheckbox"]')`
+4. Click it: `checkbox.click()`
+5. Wait 2 seconds for the PowerBI dashboard to update with the filtered data
+6. Read the KPI values from the page text
+
+**Important:** Each location is exclusive (clicking one deselects the others). You MUST click each of the three One Texas locations separately, record the values, and sum them manually. Do NOT rely on the aggregate shown when "Improving, Enterprise" is selected.
 
 - Both pages use direct URL navigation — no in-report nav clicks needed.
-- If the page lands on the wrong tab, use DOM text-click fallback:
-  ```js
-  mcp__Control_Chrome__execute_javascript
-  code: (() => {
-    const els = document.querySelectorAll('*');
-    for (const el of els) {
-      if (el.textContent.trim() === 'Coselling Partner Pipeline') { el.click(); return 'clicked'; }
-    }
-    return 'not found';
-  })()
-  ```
-- Quarter/Year table in bottom right confirms the report period. Always include in output header.
+- Quarter/Year table confirms the report period (should always show 2026).
 - Gap = pipeline + won combined against $15M. Both count toward Rock 4.
+- One Texas = Dallas, TX + Houston, TX + Austin, TX. These are the ONLY locations David manages for Rock 4 — do not include other cities.
 
 ---
 
