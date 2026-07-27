@@ -20,10 +20,11 @@ tags:
   - compression
 related_people: []
   last-promoted-check: 2026-07-27
+  last-promoted-check: 2026-07-27
 salience:
-  promoted: true
   score: 5
   last-promoted-check: 2026-07-27
+  promoted: true
 ---
 
 # Dream Cycle Summary — July 25, 2026

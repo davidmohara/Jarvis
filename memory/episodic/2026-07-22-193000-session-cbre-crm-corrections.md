@@ -23,10 +23,11 @@ related_people:
   - josh-harrison
   - josh-white
   last-promoted-check: 2026-07-27
+  last-promoted-check: 2026-07-27
 salience:
-  promoted: true
   score: 5
   last-promoted-check: 2026-07-27
+  promoted: true
 ---
 
 - CRM access via Chrome initially failed (login wall at improving.crm.dynamics.com, no cached SSO). After David confirmed the session was logged in, retry succeeded — first real CRM query of the session for CBRE.

@@ -16,10 +16,11 @@ date: 2026-07-22
 source_file: memory/working/dream-summary-2026-07-22.md
 related_people: []
   last-promoted-check: 2026-07-27
+  last-promoted-check: 2026-07-27
 salience:
-  promoted: true
   score: 3
   last-promoted-check: 2026-07-27
+  promoted: true
 ---
 
 Dream cycle ran cleanly tonight (07-22). One semantic update and one new lesson.

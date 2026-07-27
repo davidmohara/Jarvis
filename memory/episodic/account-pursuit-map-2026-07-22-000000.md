@@ -23,10 +23,11 @@ related_people:
   - rose-manjarres
   - chandra-dhandapani
   last-promoted-check: 2026-07-27
+  last-promoted-check: 2026-07-27
 salience:
-  promoted: true
   score: 5
   last-promoted-check: 2026-07-27
+  promoted: true
 ---
 
 - Built a fresh account-pursuit-map for CBRE Group (Dallas HQ). Engagement shape: active-but-underleveraged — active PSA since Jan 2017, last SOW Aug–Oct 2022, and a live inbound Confluent (Rob Ogbah) referral thread into CBRE's Confluent Cloud environment (Feb 2026), plus a parallel Alice Mburu ServiceNow/"Parsa" thread. No live Dynamics CRM connector was available this session — engagement-shape and Realized-score evidence rests on the existing CBRE-Confluent-Prep.md doc and a same-session chase-account skill cross-check.

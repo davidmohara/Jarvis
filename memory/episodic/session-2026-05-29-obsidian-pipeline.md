@@ -9,6 +9,7 @@ context: obsidian-source-note skill build, Spotify transcript extraction, conten
   last-promoted-check: 2026-07-26
   last-promoted-check: 2026-07-26
   last-promoted-check: 2026-07-27
+  last-promoted-check: 2026-07-27
 salience:
   score: 0
   last-promoted-check: 2026-07-27
