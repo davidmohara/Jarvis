@@ -1,0 +1,477 @@
+{
+  "date": "2026-07-27",
+  "generated": "2026-07-27T00:00:00Z",
+  "window_hours": 72,
+  "counts": {
+    "total_items": 47,
+    "by_lean": {
+      "left": 25,
+      "right": 20,
+      "center": 2
+    },
+    "shared_topics": 3,
+    "gap_left": 5,
+    "gap_right": 5
+  },
+  "sources_used": [
+    {
+      "id": "msnbc",
+      "name": "MSNBC",
+      "lean": "left"
+    },
+    {
+      "id": "cnn",
+      "name": "CNN Politics",
+      "lean": "left"
+    },
+    {
+      "id": "nbc",
+      "name": "NBC News Politics",
+      "lean": "left"
+    },
+    {
+      "id": "thehill",
+      "name": "The Hill",
+      "lean": "left"
+    },
+    {
+      "id": "axios",
+      "name": "Axios Politics",
+      "lean": "left"
+    },
+    {
+      "id": "dailybeast",
+      "name": "The Daily Beast",
+      "lean": "left"
+    },
+    {
+      "id": "slate",
+      "name": "Slate",
+      "lean": "left"
+    },
+    {
+      "id": "newrepublic",
+      "name": "The New Republic",
+      "lean": "left"
+    },
+    {
+      "id": "foxnews",
+      "name": "Fox News Politics",
+      "lean": "right"
+    },
+    {
+      "id": "natreview",
+      "name": "National Review",
+      "lean": "right"
+    },
+    {
+      "id": "examiner",
+      "name": "Washington Examiner",
+      "lean": "right"
+    },
+    {
+      "id": "federalist",
+      "name": "The Federalist",
+      "lean": "right"
+    },
+    {
+      "id": "dailywire",
+      "name": "The Daily Wire",
+      "lean": "right"
+    },
+    {
+      "id": "breitbart",
+      "name": "Breitbart",
+      "lean": "right"
+    },
+    {
+      "id": "townhall",
+      "name": "Townhall",
+      "lean": "right"
+    },
+    {
+      "id": "rcp",
+      "name": "RealClearPolitics",
+      "lean": "right"
+    },
+    {
+      "id": "amconserv",
+      "name": "The American Conservative",
+      "lean": "right"
+    },
+    {
+      "id": "spectator",
+      "name": "The American Spectator",
+      "lean": "right"
+    },
+    {
+      "id": "freepress",
+      "name": "The Free Press",
+      "lean": "center"
+    }
+  ],
+  "sources_muted": [
+    {
+      "id": "nyt",
+      "name": "New York Times",
+      "lean": "left"
+    },
+    {
+      "id": "wapo",
+      "name": "Washington Post",
+      "lean": "left"
+    },
+    {
+      "id": "politico",
+      "name": "Politico",
+      "lean": "left"
+    },
+    {
+      "id": "vox",
+      "name": "Vox Politics",
+      "lean": "left"
+    },
+    {
+      "id": "motherjones",
+      "name": "Mother Jones",
+      "lean": "left"
+    },
+    {
+      "id": "wsj_opinion",
+      "name": "WSJ Opinion",
+      "lean": "right"
+    },
+    {
+      "id": "nypost",
+      "name": "New York Post",
+      "lean": "right"
+    },
+    {
+      "id": "reuters",
+      "name": "Reuters Politics",
+      "lean": "center"
+    },
+    {
+      "id": "ap",
+      "name": "Associated Press",
+      "lean": "center"
+    },
+    {
+      "id": "bbc",
+      "name": "BBC US & Canada",
+      "lean": "center"
+    }
+  ],
+  "shared_topics": [
+    {
+      "topic_key": "iran-war-ceasefire-diplomacy-july27",
+      "title": "Iran War: US Strikes Paused, Hormuz Diplomacy Underway",
+      "days_seen": 2,
+      "relevance": 70,
+      "relevance_label": "Recurring \u2014 day 2",
+      "summary": "The US paused air strikes against Iran for a third consecutive night on July 27, signaling diplomatic space for Qatar- and Pakistan-mediated talks over the Strait of Hormuz dispute. Total war cost has exceeded $37.5 billion and more than 600 US casualties have been recorded. Brent crude fell to $90 as markets responded to the pause, after topping $100 during peak escalation.",
+      "left": {
+        "framing": "Left outlets emphasize the human cost and political dysfunction \u2014 CNN reported the Pentagon 'quietly changed its accounting' to conceal the casualty count, while NBC noted the House passed a war powers resolution 214-208 that the Senate blocked. The Daily Beast reported 57% of Americans are 'frustrated' with Trump's handling. CNN analysis says Trump faces no good options at every fork in the road.",
+        "sources": [
+          {
+            "name": "CNN Politics",
+            "url": "https://www.cnn.com/2026/07/27/politics/trump-iran-war-strikes-strait-of-hormuz-analysis"
+          },
+          {
+            "name": "CNN Politics",
+            "url": "https://www.cnn.com/2026/07/26/politics/iran-war-casualties"
+          },
+          {
+            "name": "NBC News",
+            "url": "https://www.nbcnews.com/politics/politics-news/oil-prices-surge-congress-splits-iran-war-votes-politics-desk-rcna588959"
+          },
+          {
+            "name": "The Daily Beast",
+            "url": "https://www.thedailybeast.com/trump-humiliated-by-frustrated-americans-in-new-poll/"
+          }
+        ]
+      },
+      "right": {
+        "framing": "Right outlets frame the pause as strategic, not retreat. Fox live coverage centers on the Hormuz standoff and Iran's warning to Ukraine after a Caspian Sea ship strike, maintaining that US strength forced Iran to negotiate. National Review notes the ceasefire technically ended with mutual strikes but diplomats are progressing.",
+        "sources": [
+          {
+            "name": "Fox News",
+            "url": "https://www.foxnews.com/live-news/us-war-strikes-talks-iran-strait-hormuz-warning-russia-ukraine-july-27"
+          },
+          {
+            "name": "National Review",
+            "url": "https://www.nationalreview.com/2026/07/the-iran-cease-fire-ceases/"
+          }
+        ]
+      },
+      "correlation": 45,
+      "correlation_label": "Both sides cover the ceasefire pause; diverge sharply on whether the pause reflects strength or failure."
+    },
+    {
+      "topic_key": "iran-war-casualties-pentagon-accounting",
+      "title": "Iran War Casualties: 600+ as Pentagon Revises Accounting",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New \u2014 first appearance",
+      "summary": "The Pentagon updated its casualty database for the Iran war, recording 140+ new wounded and restoring four soldiers killed in Iranian drone and missile attacks. The total count now exceeds 600. This came as Defense Secretary Hegseth previously testified the war has cost $37.5 billion and as critics questioned why the accounting was revised so quietly.",
+      "left": {
+        "framing": "CNN led with the framing that the Pentagon 'quietly changed accounting' \u2014 implying a deliberate effort to suppress the true scale of losses. The story fit into broader left-media coverage questioning war transparency and government candor on the conflict's costs.",
+        "sources": [
+          {
+            "name": "CNN Politics",
+            "url": "https://www.cnn.com/2026/07/26/politics/iran-war-casualties"
+          }
+        ]
+      },
+      "right": {
+        "framing": "Right outlets covered the casualty count in the context of war progress reporting, with Fox noting the strike pause and National Review treating it as part of a difficult but necessary military campaign. The framing was less focused on the 'quiet' revision.",
+        "sources": [
+          {
+            "name": "Fox News",
+            "url": "https://www.foxnews.com/live-news/us-war-strikes-talks-iran-strait-hormuz-warning-russia-ukraine-july-27"
+          },
+          {
+            "name": "National Review",
+            "url": "https://www.nationalreview.com/2026/07/the-iran-cease-fire-ceases/"
+          }
+        ]
+      },
+      "correlation": 35,
+      "correlation_label": "Both acknowledge rising casualties; left frames the accounting revision as a cover-up, right frames it as routine war reporting."
+    },
+    {
+      "topic_key": "iran-war-powers-congress-split",
+      "title": "Congress Splits on Iran War Powers: House Passes 214-208, Senate Blocks",
+      "days_seen": 2,
+      "relevance": 70,
+      "relevance_label": "Recurring \u2014 day 2",
+      "summary": "The House passed a war powers resolution 214-208 that would require congressional authorization for continued US military operations against Iran. The Senate blocked the measure. Oil hit $100.69 per barrel before the strike pause brought it back to $90. The vote exposed deep partisan fault lines over the Iran war's legality and duration.",
+      "left": {
+        "framing": "NBC and CNN framed the House war powers vote as a significant Democratic rebuke of the Iran war and a sign of growing anti-war momentum in Congress. The vote's failure in the Senate was presented as Republican obstruction of constitutional checks on executive war power.",
+        "sources": [
+          {
+            "name": "NBC News",
+            "url": "https://www.nbcnews.com/politics/politics-news/oil-prices-surge-congress-splits-iran-war-votes-politics-desk-rcna588959"
+          },
+          {
+            "name": "CNN Politics",
+            "url": "https://www.cnn.com/2026/07/26/politics/democrats-against-iran-war"
+          }
+        ]
+      },
+      "right": {
+        "framing": "Fox and Breitbart covered the vote primarily as a Democratic political maneuver rather than a constitutional concern, noting Dems were linking the war powers issue to midterm positioning. Right outlets emphasized that Senate Republicans stood firm.",
+        "sources": [
+          {
+            "name": "Fox News",
+            "url": "https://www.foxnews.com/politics/100-day-sprint-midterms-kicks-off-republicans-democrats-clash-control-across-country"
+          },
+          {
+            "name": "Breitbart",
+            "url": "https://www.breitbart.com/politics/2026/07/21/republicans-have-massive-money-advantage-over-democrats-ahead-of-midterms/"
+          }
+        ]
+      },
+      "correlation": 30,
+      "correlation_label": "Both report the vote outcome; left frames it as constitutional accountability, right frames it as Democratic political theater."
+    }
+  ],
+  "gap_left": [
+    {
+      "topic_key": "vance-caine-iran-escalation-concerns",
+      "title": "Vance and Caine Raised Iran Escalation Concerns Internally",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New \u2014 first appearance",
+      "summary": "CNN reported that VP JD Vance and Chairman of the Joint Chiefs Gen. Dan Caine both raised concerns about escalating the US-Iran war during a White House meeting on Friday. The report suggests internal disagreement at the highest levels of the administration about the war's trajectory, even as strikes continued.",
+      "sources": [
+        {
+          "name": "CNN Politics",
+          "url": "https://www.cnn.com/2026/07/25/politics/us-iran-strikes-operation"
+        }
+      ]
+    },
+    {
+      "topic_key": "ma-senate-markey-moulton-generational",
+      "title": "Massachusetts Senate Primary: Generational and Ideological Battle Ahead",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New \u2014 first appearance",
+      "summary": "CNN coverage identified the Massachusetts Democratic Senate primary on September 1 as the next major litmus test for the party. Incumbent Sen. Ed Markey faces Rep. Seth Moulton in a race that mirrors the broader establishment vs. progressive tension playing out nationally, in a state that will likely stay blue regardless.",
+      "sources": [
+        {
+          "name": "CNN Politics",
+          "url": "https://www.cnn.com/2026/07/26/politics/massachusetts-democratic-senate-primary-moulton-markey"
+        }
+      ]
+    },
+    {
+      "topic_key": "democrats-iran-war-opposition-united-front",
+      "title": "Democrats Build United Front Against Iran War Ahead of Midterms",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New \u2014 first appearance",
+      "summary": "With only 29% of Americans supporting the Iran war per a Washington Post-Ipsos poll, Democrats are coalescing around opposition as their central midterm message. CNN reported on the party's deliberate effort to present a unified front against the war, framing it as both a constitutional and political issue tied directly to rising gas prices and economic anxiety.",
+      "sources": [
+        {
+          "name": "CNN Politics",
+          "url": "https://www.cnn.com/2026/07/26/politics/democrats-against-iran-war"
+        },
+        {
+          "name": "The Daily Beast",
+          "url": "https://www.thedailybeast.com/trump-allies-secretly-urge-republicans-to-break-with-him-as-midterms-loom/"
+        }
+      ]
+    },
+    {
+      "topic_key": "scotus-perceived-as-political-poll-july27",
+      "title": "Poll: 48% of Americans Say SCOTUS Rulings Are Politically Motivated",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New \u2014 first appearance",
+      "summary": "A new poll reported by The Hill found that nearly half of Americans believe Supreme Court rulings on Trump's agenda are politically motivated rather than based on law. The finding reflects broader erosion of public trust in institutions and appears primarily in left-leaning coverage, with no substantive right-wing engagement.",
+      "sources": [
+        {
+          "name": "The Hill",
+          "url": "https://thehill.com/regulation/court-battles/5978559-poll-scotus-rulings-trump-politics/"
+        }
+      ]
+    },
+    {
+      "topic_key": "capitalism-faith-collapsed-socialism-poll-july27",
+      "title": "Americans Losing Faith in Capitalism, Views Collapse to +4",
+      "days_seen": 2,
+      "relevance": 70,
+      "relevance_label": "Recurring \u2014 day 2",
+      "summary": "CNN polling found that Americans' views of capitalism dropped from +30 in 2019 to just +4 today, with 65% saying the system is rigged. The shift is most dramatic among voters under 30, including many young Republicans. Left outlets frame this as a structural crisis driven by inequality and Iran war economic pain; right outlets have not engaged substantively with these specific poll numbers.",
+      "sources": [
+        {
+          "name": "CNN Politics",
+          "url": "https://www.cnn.com/2026/07/23/politics/republicans-capitalism-socialism-poll"
+        },
+        {
+          "name": "The New Republic",
+          "url": "https://newrepublic.com/post/212486/politicians-americans-like-obama-sanders-mamdani-democrats"
+        }
+      ]
+    }
+  ],
+  "gap_right": [
+    {
+      "topic_key": "rcp-communism-its-back-dsa-platform",
+      "title": "Right Sounds Communism Alarm: 'It's Back' After DSA Platform Confirmation",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New \u2014 first appearance",
+      "summary": "RealClearPolitics published a featured op-ed titled 'Communism \u2014 It's Back,' arguing that DSA's confirmed platform (abolish Senate, open borders, abolish ICE, abolish Supreme Court) and their electoral victories constitute a genuine communist resurgence in American politics. Rep. Lisa McClain echoed the alarm in Townhall coverage. Left outlets have not engaged this framing.",
+      "sources": [
+        {
+          "name": "RealClearPolitics",
+          "url": "https://www.realclearpolitics.com/articles/2026/07/27/communism__its_back_154369.html"
+        },
+        {
+          "name": "Townhall",
+          "url": "https://townhall.com/tipsheet/dmitri-bolt/2026/07/21/rep-lisa-mcclain-communism-n2679864"
+        }
+      ]
+    },
+    {
+      "topic_key": "dsa-cochair-open-borders-international-plan-july27",
+      "title": "DSA Co-Chair Confirms Open Borders Is Part of Longer-Term International Plan",
+      "days_seen": 2,
+      "relevance": 70,
+      "relevance_label": "Recurring \u2014 day 2",
+      "summary": "RealClearPolitics highlighted video of DSA co-chair Megan Romer saying the open-borders position is 'part of a longer-term international plan that involves the US stopping destabilizing countries.' Right outlets amplified this as confirmation that DSA's immigration position is ideological and globally coordinated, not merely humanitarian. Left outlets did not cover this statement.",
+      "sources": [
+        {
+          "name": "RealClearPolitics",
+          "url": "https://www.realclearpolitics.com/video/2026/07/26/dsa_co-chair_the_open_borders_is_part_of_a_longer_term_international_plan_that_involves_us_stopping_destabilizing_countries.html"
+        },
+        {
+          "name": "Washington Examiner",
+          "url": "https://www.washingtonexaminer.com/daily-memo/4661780/year-of-the-dsa-democratic-politics/"
+        }
+      ]
+    },
+    {
+      "topic_key": "sc-senate-aug11-primary-trump-defied",
+      "title": "SC Senate Aug. 11 Primary: Norman, Fry, Mace Defy Trump Backing of Darline Graham",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New \u2014 first appearance",
+      "summary": "Fox and Breitbart reported that Rep. Ralph Norman, Rep. Nancy Mace, and state Sen. Fry all entered the South Carolina Senate special primary for Lindsey Graham's seat, despite Trump endorsing his preferred successor Darline Graham. The Aug. 11 primary sets up a test of whether Trump's endorsement power remains decisive within his own party.",
+      "sources": [
+        {
+          "name": "Fox News",
+          "url": "https://www.foxnews.com/politics/republicans-defy-trump-jump-south-carolina-senate-race-despite-his-handpicked-successor"
+        },
+        {
+          "name": "Breitbart",
+          "url": "https://www.breitbart.com/politics/2026/07/19/rep-ralph-norman-launches-run-for-lindsey-grahams-senate-seat/"
+        }
+      ]
+    },
+    {
+      "topic_key": "mamdani-walks-back-netanyahu-arrest-july27",
+      "title": "Mamdani Walks Back Netanyahu Arrest Pledge, Admitting He Lacks Power",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New \u2014 first appearance",
+      "summary": "Breitbart and Fox covered NYC Mayor Zohran Mamdani walking back his campaign pledge to arrest Israeli PM Netanyahu if he entered New York, admitting he does not have the legal authority to do so. Right outlets frame this as socialist hypocrisy \u2014 radical promises made to win elections that cannot be kept. Left outlets have not engaged this specific development.",
+      "sources": [
+        {
+          "name": "Breitbart",
+          "url": "https://www.breitbart.com/politics/2026/07/22/mamdani-breaks-promise-to-far-left-admits-he-cannot-arrest-netanyahu/"
+        },
+        {
+          "name": "Fox News",
+          "url": "https://www.foxnews.com/opinion/mamdanis-politics-linked-muslim-brotherhood-ideology-new-york-violence-escalates-report"
+        }
+      ]
+    },
+    {
+      "topic_key": "iran-war-uk-politics-burnham-pm-july27",
+      "title": "Iran War Destabilizing UK: Burnham Is Britain's New PM",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New \u2014 first appearance",
+      "summary": "The American Conservative and The Free Press covered the Iran war's ripple effects on British politics, with Andy Burnham becoming the UK's new Prime Minister after Keir Starmer stepped down. AmCon frames it as evidence the Iran war is producing global political instability. Left US outlets have not covered the UK angle in this context.",
+      "sources": [
+        {
+          "name": "The American Conservative",
+          "url": "https://www.theamericanconservative.com/the-iran-war-roils-uk-politics/"
+        },
+        {
+          "name": "The Free Press",
+          "url": "https://www.thefp.com/p/i-was-in-the-dsa-heres-what-they-e03"
+        }
+      ]
+    }
+  ],
+  "suggestions": [
+    {
+      "id": "intercept",
+      "name": "The Intercept",
+      "lean": "left",
+      "search_domain": "theintercept.com",
+      "accessible": true,
+      "rationale": "Fills the hard-left investigative gap. No current roster outlet covers DSA primaries, Palestine policy, and anti-establishment Democrats from the inside."
+    },
+    {
+      "id": "reason",
+      "name": "Reason",
+      "lean": "center",
+      "search_domain": "reason.com",
+      "accessible": true,
+      "rationale": "Fills the libertarian/center gap. Offers a non-partisan third frame on both DSA and MAGA phenomena \u2014 complements The Free Press."
+    },
+    {
+      "id": "justthenews",
+      "name": "Just the News",
+      "lean": "right",
+      "search_domain": "justthenews.com",
+      "accessible": true,
+      "rationale": "Fills the right-side investigative/primary-tracking gap \u2014 adds reported news to complement Breitbart/Townhall opinion."
+    }
+  ]
+}

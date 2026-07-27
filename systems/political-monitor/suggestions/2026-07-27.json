@@ -1,0 +1,30 @@
+{
+  "date": "2026-07-27",
+  "generated": "2026-07-27T00:00:00Z",
+  "candidates": [
+    {
+      "id": "intercept",
+      "name": "The Intercept",
+      "lean": "left",
+      "search_domain": "theintercept.com",
+      "accessible": true,
+      "rationale": "Fills the hard-left/progressive-investigative gap. Currently no outlet in the roster covers DSA primary politics, Palestine policy, and anti-establishment Democratic races from the inside. The Intercept's Ryan Grim leads that beat and would surface left gap stories that MSNBC/CNN don't cover."
+    },
+    {
+      "id": "reason",
+      "name": "Reason",
+      "lean": "center",
+      "search_domain": "reason.com",
+      "accessible": true,
+      "rationale": "Fills the libertarian/center-right gap. Currently the center lane has only The Free Press. Reason's DSA/MAGA analysis (e.g., 'The DSA, MAGA, and the new policy nihilism') offers a non-partisan third frame that neither left nor right outlets provide. Good for correlation score triangulation."
+    },
+    {
+      "id": "justthenews",
+      "name": "Just the News",
+      "lean": "right",
+      "search_domain": "justthenews.com",
+      "accessible": true,
+      "rationale": "Fills the right-side investigative/primary-tracking gap. Covers conservative primaries, Senate nominations, and down-ballot races in depth. Complements Breitbart/Townhall opinion by adding reported news. Good for SC Senate, TX Senate, and AZ governor coverage."
+    }
+  ]
+}
