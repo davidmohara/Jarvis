@@ -1,17 +1,17 @@
 ---
 status: complete
-started-at: 2026-07-24T16:00:00Z
-completed-at: 2026-07-24T16:02:30Z
+started-at: 2026-07-27T11:04:00Z
+completed-at: 2026-07-27T11:05:30Z
 outputs:
-  threads_checked: 8
+  threads_checked: 5
   new_approvals: 0
   new_rejections: 0
-  new_slack_messages: 0
+  new_edits: 0
   actions_taken: 0
   published: 0
-  pending_approvals: 6
-  regenerating_stalled: 2
-  outcome: "BLOCKAGE PERSISTS: No new Slack messages in past hour. All 8 threads unchanged. 6 posts pending approval (4 W29, 1 Corrections, 1 Safe Bet). 2 posts stalled (Governance, SaaS Stack). No new commands from David. System awaiting override or Harper regeneration fix."
+  pending_approvals: 8
+  awaiting_approval_after_edit: 3
+  outcome: "NO NEW SIGNALS. All 8 drafts remain pending. 3 drafts have pending editorial updates (links added on 2026-07-26). 4 drafts awaiting initial approval. No new messages from David. System awaiting approval."
 model: haiku
 ---
 
