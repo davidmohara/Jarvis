@@ -42,6 +42,7 @@ outputs:
 
 source_suggestions:
   # Weekly run proposes new sources for yes/no approval. Approved -> sources.yaml.
+  enabled: false                 # set to false to skip proposals for a given week (or permanently)
   max_per_week: 5
   staging_file: "workflows/watchtower/proposed-sources.md"
   require_approval: true         # never auto-add a source

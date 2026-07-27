@@ -20,6 +20,16 @@ This file is the only path to `sources.yaml`. Watchtower's weekly run appends ne
 |------|-----|-----|-------|-------|--------------|--------|
 -->
 
+### Batch 6 — Weekly Run (2026-07-27)
+
+| Name | URL | RSS | Topic | Trust | Why Relevant | Status |
+|------|-----|-----|-------|-------|--------------|--------|
+| The New Stack | https://thenewstack.io | https://thenewstack.io/feed/ | it-consulting | high | Broke the AWS $1B forward-deployed engineering story this week and published the enterprise AI model routing analysis on Microsoft's MAI strategy. Consistent practitioner-level coverage of the delivery model shift. Fills a gap between Gartner (analyst) and Stratechery (strategic) with technical implementation depth. | pending |
+| Forward Deployed (Noah Brier) | https://www.forwarddeployed.com | https://www.forwarddeployed.com/feed | it-consulting | high | Substack dedicated to the intersection of AI, software development, and enterprise deployment. Directly tracks the FDE trend that drove W31's biggest theme. FDE job postings grew 729% YoY (643 to 5,330 Apr 2025 to Apr 2026). No comparable source in current registry focused specifically on embedded delivery models. | pending |
+| FinOps Foundation Blog | https://www.finops.org/updates/all-updates/ | https://www.finops.org/feed/ | it-consulting | high | The authoritative source for FinOps practice evolution. Published the 2026 State of FinOps report showing 98% of FinOps teams now manage AI spend and AI cost management is the #1 desired skillset. Directly relevant to the OpenAI token pricing shift and agent spend governance gap surfaced in W31. | pending |
+| The New Stack — AI | https://thenewstack.io/category/ai-ml/ | https://thenewstack.io/category/ai-ml/feed/ | ai-agentic | high | (Scoped feed for AI/ML coverage only from The New Stack. If the top-level feed is approved, this is redundant — note for David's review.) Technical depth on agentic AI architecture, agent security, and enterprise deployment patterns. Published the enterprise AI model routing analysis that frames the Microsoft MAI vs. OpenAI story. | pending |
+| Okta Newsroom / Security Blog | https://www.okta.com/blog/security/ | https://www.okta.com/blog/security/feed/ | ai-agentic | high | Published "AI Agents at Work 2026" — the most cited enterprise agent security dataset this week (53% out-of-scope, 47% security incident, 24.4% visibility). Okta is now a primary data source for agent identity and governance. RSS feed unverified — confirm on first run. | pending |
+
 ### Batch 5 — Weekly Run (2026-07-20)
 
 | Name | URL | RSS | Topic | Trust | Why Relevant | Status |

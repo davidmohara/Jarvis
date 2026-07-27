@@ -138,6 +138,21 @@ mcp__Control_Chrome__execute_javascript
 code: document.dispatchEvent(new KeyboardEvent('keydown', {key: 'Escape', bubbles: true}))
 ```
 
+**VALIDATION STEP — Verify Dallas filter is applied before proceeding:**
+
+```js
+mcp__Control_Chrome__execute_javascript
+code: (() => {
+  // Read the Business Unit label to confirm filter state
+  const allText = document.body.innerText;
+  const lines = allText.split('\n');
+  const buLine = lines.find(l => l.includes('Business Unit') || l.includes('Dallas'));
+  return buLine || allText.substring(0, 1000);
+})()
+```
+
+Verify the returned text contains "Dallas" explicitly (should show "Dallas (Enterprise)" or similar). If it shows "Multiple selections" or any city other than Dallas, **abort and retry Phase 2**. Do not proceed to KPI extraction if the filter is not Dallas-only.
+
 Wait 2 seconds, then read KPI tile values from the DOM:
 
 ```js
@@ -273,6 +288,21 @@ code: new Promise((resolve) => {
 })
 ```
 
+**VALIDATION STEP — Verify South Texas filter is applied before proceeding:**
+
+```js
+mcp__Control_Chrome__execute_javascript
+code: (() => {
+  // Read the Business Unit label to confirm filter state
+  const allText = document.body.innerText;
+  const lines = allText.split('\n');
+  const buLine = lines.find(l => l.includes('Business Unit') || l.includes('Austin') || l.includes('Houston'));
+  return buLine || allText.substring(0, 1000);
+})()
+```
+
+Verify the returned text contains both "Austin" and "Houston" or shows a state like "Texas" or similar (should indicate both cities are selected, not Dallas or "Multiple selections"). If it shows Dallas, "All", or "Multiple selections", **abort and retry Phase 3**. Do not proceed to KPI extraction if the filter is not Austin + Houston only.
+
 Close, wait 2 seconds, read KPI tiles and identify the most recent black bar for monthly revenue
 the same way as Phase 2. Apply the same color rule: black = actual, blue/gold = forecast, skip forecast.
 
@@ -360,6 +390,7 @@ Do not soften misses.
 - Always use `.slicerCheckbox` for clicks — clicking the treeitem directly hits the expand toggle.
 - South Texas = Austin + Houston selected simultaneously in a single evaluate pass.
 - **Escape key**: use `document.dispatchEvent(new KeyboardEvent('keydown', {key: 'Escape', bubbles: true}))` instead of `mcp__playwright__browser_press_key`.
+- **CRITICAL — Filter Validation (from err-20260727T143315-NTKXRY):** Never assume filter application succeeded. After each filter selection (Phase 2 and Phase 3), validate the filter state by reading the Business Unit label from the DOM. If the filter does not match the intended enterprise or cities, abort and retry. Proceeding with KPI extraction from an incorrectly filtered view produces incorrect data. Always confirm "Dallas" (Phase 2) or "Austin + Houston" (Phase 3) before reading any KPI values.
 
 ---
 

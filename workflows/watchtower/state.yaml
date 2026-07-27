@@ -1,79 +1,79 @@
 workflow: watchtower
 agent: knox
 status: complete
-session-started: "2026-07-20T07:05:00Z"
-session-completed: "2026-07-20T07:50:00Z"
-session-id: "wt-weekly-2026-W30"
+session-started: "2026-07-27T07:05:00Z"
+session-completed: "2026-07-27T07:50:00Z"
+session-id: "wt-weekly-2026-W31"
 current-step: complete
 original-request: "watchtower-weekly scheduled run (Knox)"
 accumulated-context:
   content_queue: []
   used_fallback: true
+  obsidian_unavailable: false
+  delta_check_applied: true
+  dropped_as_continuing: 2  # governance (W30 Gartner same argument), Texas (W29+W30 same argument 3rd week)
   weekly_themes:
     - theme_id: 1
-      theme_title: "Gartner's $234B SaaS Disruption Warning — The Stack Problem Just Got Bigger"
-      synthesis: "Gartner released a July 1, 2026 report warning that $234 billion in enterprise SaaS spending is at risk from agentic AI by 2030 — roughly 20% of all enterprise software spend. The mechanism is 'agentic arbitrage': agents complete tasks across multiple systems via APIs, bypassing the UX-heavy apps that drove per-seat SaaS growth. This isn't just a consulting talent story anymore; it's a client portfolio story. Every enterprise David works with has a SaaS stack that was priced for human users. That assumption is now structurally challenged."
+      theme_title: "Microsoft Frontier Co. — Platform Vendors Enter the Implementation Business"
+      synthesis: "Microsoft launched Frontier Co. on July 2 with $2.5B and 6,000 embedded engineers going inside enterprise clients to deploy AI. AWS followed two days later with $1B. Anthropic and OpenAI both stood up FDE units in May. Every major platform vendor entered the implementation consulting business in a 60-day window. New vs. W30: W30 covered Microsoft's internal vendor betrayal (MAI vs. OpenAI). This week's argument is different — direct competition for consulting engagements, not platform risk. The recommended action changes: it's no longer 'diversify your stack,' it's 'have an answer for the free-engineers pitch.'"
       source_items:
-        - "Gartner Says $234 Billion in Enterprise Application Software Spend Is at Risk from Agentic AI (Gartner, July 1 2026)"
-        - "Agentic AI puts $234B in enterprise SaaS spending at risk (CIO Dive)"
-        - "Agents Don't Buy Seats: The $234 Billion Question Hanging Over Enterprise Software (AI News Briefs)"
+        - "Microsoft Frontier Company launches with 6,000 engineers, $2.5B (CNBC, July 2 2026)"
+        - "AWS just put $1 billion into forward deployed engineers (The New Stack)"
       content_angles:
-        - "Your SaaS Stack Was Priced for Humans. Now What?"
+        - "Microsoft Just Entered Your Lane"
     - theme_id: 2
-      theme_title: "Microsoft Turns on Its Own Partners — The Enterprise AI Stack Is Getting Complicated"
-      synthesis: "Microsoft is reportedly training salespeople to undercut OpenAI and Anthropic — its own portfolio partners — while simultaneously replacing their models in flagship products like Word and Excel with in-house alternatives. Meanwhile, Google, Salesforce, Snowflake, and ServiceNow announced a shared AI backend protocol to counter Anthropic and OpenAI in enterprise agent infrastructure. The CIO community that spent 18 months picking 'the safe stack' is now watching that stack redraw its own lines. The platform bet isn't settled — it's just entering its second, messier chapter."
+      theme_title: "OpenAI Shifts Agents to Token Pricing — The Enterprise FinOps Blind Spot"
+      synthesis: "On July 6, OpenAI moved workspace agents to token-based credit pricing. New vs. W30's $234B SaaS-at-risk angle: W30 was about vendor-side revenue disruption. This week's argument is buyer-side — enterprises have traded predictable seat costs for unpredictable token consumption that is invisible to the budget owners who approved the AI initiative. Different actor, different recommended action: build financial governance for agent spend, not just behavioral governance."
       source_items:
-        - "Microsoft is reportedly training salespeople to talk down OpenAI and Anthropic (TechCrunch, July 15 2026)"
-        - "Google and Microsoft Team Up to Beat Back Anthropic and OpenAI (The Information)"
-        - "OpenAI and Anthropic face new AI reality as users shift from tokenmaxxing to efficiency (CNBC)"
+        - "OpenAI's Agent Pricing Shift — 6 Moves CIOs and FinOps Must Make (1000.software)"
+        - "FinOps teams gain clout as AI costs climb (CIO Dive)"
       content_angles:
-        - "The Safe Bet Isn't Safe Anymore"
+        - "Agents Don't Need Seats. But They Still Cost Money."
     - theme_id: 3
-      theme_title: "The Governance Trap — 65% of Enterprises With Deployed Agents Had a Security Incident"
-      synthesis: "Gartner's May 2026 analysis found that applying uniform governance across AI agents is itself a failure mode — enterprises treating governance as binary (fully locked or fully trusted) are the ones failing. By April 2026, 65% of enterprises with deployed agents had experienced a confirmed security incident. Only 21% have a mature governance model. The prescribed fix is proportional governance by autonomy level, not blanket policy. This is a direct opportunity for Improving: the delivery gap between 'we deployed an agent' and 'we govern it safely at scale' is exactly where implementation partners add durable value."
+      theme_title: "Accenture Exits 11,000 Who Can't Reskill — Reskilling Failure Is Now a Firing Criterion"
+      synthesis: "Accenture is exiting 11,000 staff who cannot be reskilled on AI, with CEO explicitly framing it as a 'compressed timeline.' New vs. W29's McKinsey angle: W29 was about the pyramid pricing model collapsing. This is a different argument — reskilling failure is now an explicit, public termination criterion at a major firm, which sets a new talent accountability standard the industry hasn't seen before. Recommended action: get an honest internal picture of who is and isn't making the transition, before it becomes a crisis."
       source_items:
-        - "Gartner Says Applying Uniform Governance Across AI Agents Will Lead to Enterprise AI Agent Failure (Gartner, May 2026)"
-        - "The 2026 Agentic AI Governance Crisis: Preventing the Predicted 40% Enterprise Failures (Accelirate)"
-        - "Many autonomous agents doomed by governance failures (CIO)"
+        - "Accenture to cut 11,000 jobs as part of AI workforce transition (Reuters)"
       content_angles:
-        - "Governance Isn't Your Problem. Uniform Governance Is."
-    - theme_id: 4
-      theme_title: "Texas Data Center Reckoning — Abbott's July 17 Memo Has Landed"
-      synthesis: "Abbott's July 17 deadline for the PUC/ERCOT joint memo on data center cost accountability has passed. The directive: data centers must self-fund their grid infrastructure; no socializing costs to residential ratepayers. With 248 planned projects queued and 439 GW requested against a current peak of ~85 GW, the policy pivot matters enormously for the clients David advises in Texas. The story has shifted from 'Texas is open for AI business' to 'Texas is now writing the terms of that business' — and understanding those terms is table stakes for any regional client conversation about AI infrastructure investment."
-      source_items:
-        - "Governor Abbott Directs PUC And ERCOT To Shield Texans From Data Center Infrastructure Costs (Office of the Texas Governor, June 10 2026)"
-        - "Texas governor talks tough on data centers, calls for clampdown (E&E News/POLITICO)"
-        - "What you need to know about data centers in Texas (Texas Tribune, June 26 2026)"
-      content_angles:
-        - "Abbott Just Changed the Rules. Here's What Texas AI Clients Need to Know."
+        - "Accenture Just Set the Reskilling Bar"
   weekly_tweets:
-    - text: "Gartner: $234B in enterprise SaaS spend is at risk from agentic AI by 2030. Not because the software is bad. Because it was built assuming humans would click through it. Agents use the API. The seat license becomes irrelevant."
-      intent_url: "https://twitter.com/intent/tweet?text=Gartner%3A%20%24234B%20in%20enterprise%20SaaS%20spend%20is%20at%20risk%20from%20agentic%20AI%20by%202030.%20Not%20because%20the%20software%20is%20bad.%20Because%20it%20was%20built%20assuming%20humans%20would%20click%20through%20it.%20Agents%20use%20the%20API.%20The%20seat%20license%20becomes%20irrelevant."
+    - text: "In 60 days: Microsoft launched a $2.5B embedded consulting unit. AWS launched a $1B one. Anthropic and OpenAI both stood up FDE teams. Every major platform vendor entered the implementation business in the same window. Not accidental."
+      supporting_url: "https://www.cnbc.com/2026/07/02/microsoft-commits-2point5-billion-6000-employees-ai-implementation-unit.html"
+      intent_url: "https://twitter.com/intent/tweet?text=In%2060%20days%3A%20Microsoft%20launched%20a%20%242.5B%20embedded%20consulting%20unit.%20AWS%20launched%20a%20%241B%20one.%20Anthropic%20and%20OpenAI%20both%20stood%20up%20FDE%20teams.%20Every%20major%20platform%20vendor%20entered%20the%20implementation%20business%20in%20the%20same%20window.%20Not%20accidental.&url=https%3A%2F%2Fwww.cnbc.com%2F2026%2F07%2F02%2Fmicrosoft-commits-2point5-billion-6000-employees-ai-implementation-unit.html"
       angle_type: "data"
-    - text: "Microsoft is training salespeople to pitch against OpenAI. The same OpenAI it put $13B into. I don't say this to be dramatic -- but if your AI strategy is a vendor strategy, you are building on ground that the vendor is actively redrawing."
-      intent_url: "https://twitter.com/intent/tweet?text=Microsoft%20is%20training%20salespeople%20to%20pitch%20against%20OpenAI.%20The%20same%20OpenAI%20it%20put%20%2413B%20into.%20I%20don%27t%20say%20this%20to%20be%20dramatic%20--%20but%20if%20your%20AI%20strategy%20is%20a%20vendor%20strategy%2C%20you%20are%20building%20on%20ground%20that%20the%20vendor%20is%20actively%20redrawing."
+    - text: "When Microsoft offers to embed engineers inside your client at no added cost, the word 'free' is doing a lot of work. Free means anchored to their stack, their roadmap, their retention. Read the contract before you say yes."
+      supporting_url: "https://www.cnbc.com/2026/07/02/microsoft-commits-2point5-billion-6000-employees-ai-implementation-unit.html"
+      intent_url: "https://twitter.com/intent/tweet?text=When%20Microsoft%20offers%20to%20embed%20engineers%20inside%20your%20client%20at%20no%20added%20cost%2C%20the%20word%20%27free%27%20is%20doing%20a%20lot%20of%20work.%20Free%20means%20anchored%20to%20their%20stack%2C%20their%20roadmap%2C%20their%20retention.%20Read%20the%20contract%20before%20you%20say%20yes.&url=https%3A%2F%2Fwww.cnbc.com%2F2026%2F07%2F02%2Fmicrosoft-commits-2point5-billion-6000-employees-ai-implementation-unit.html"
       angle_type: "provocative"
-    - text: "48% of AI agents in production right now are running unsecured -- no monitoring coverage at all. Not 48% of pilots. 48% of production deployments. That's not a governance gap. That's a governance void."
-      intent_url: "https://twitter.com/intent/tweet?text=48%25%20of%20AI%20agents%20in%20production%20right%20now%20are%20running%20unsecured%20--%20no%20monitoring%20coverage%20at%20all.%20Not%2048%25%20of%20pilots.%2048%25%20of%20production%20deployments.%20That%27s%20not%20a%20governance%20gap.%20That%27s%20a%20governance%20void."
-      angle_type: "data"
-    - text: "Texas just approved a $50,000 per megawatt interconnection fee for large loads including data centers. Six months ago the conversation was 'Texas says yes to everything.' The terms have changed."
-      intent_url: "https://twitter.com/intent/tweet?text=Texas%20just%20approved%20a%20%2450%2C000%20per%20megawatt%20interconnection%20fee%20for%20large%20loads%20including%20data%20centers.%20Six%20months%20ago%20the%20conversation%20was%20%27Texas%20says%20yes%20to%20everything.%27%20The%20terms%20have%20changed."
-      angle_type: "data"
-    - text: "The CIO who locked down every AI agent 'until governance is ready' and the CIO who deployed everything 'we'll govern it later' both have a problem right now. One is moving too slow. One had a security incident. Proportional governance is the actual answer."
-      intent_url: "https://twitter.com/intent/tweet?text=The%20CIO%20who%20locked%20down%20every%20AI%20agent%20%22until%20governance%20is%20ready%22%20and%20the%20CIO%20who%20deployed%20everything%20%22we%27ll%20govern%20it%20later%22%20both%20have%20a%20problem%20right%20now.%20One%20is%20moving%20too%20slow.%20One%20had%20a%20security%20incident.%20Proportional%20governance%20is%20the%20actual%20answer."
+    - text: "Had a finance leader realize last quarter that an AI agent had been running unmonitored batch jobs for two months. Token bill was triple the monthly seat cost it replaced. No one had thought to set a ceiling. That is now a common story."
+      supporting_url: null
+      intent_url: "https://twitter.com/intent/tweet?text=Had%20a%20finance%20leader%20realize%20last%20quarter%20that%20an%20AI%20agent%20had%20been%20running%20unmonitored%20batch%20jobs%20for%20two%20months.%20Token%20bill%20was%20triple%20the%20monthly%20seat%20cost%20it%20replaced.%20No%20one%20had%20thought%20to%20set%20a%20ceiling.%20That%20is%20now%20a%20common%20story."
       angle_type: "practitioner"
-    - text: "I've watched the 'safe' enterprise AI stack get relitigated three times in 18 months. OpenAI was the safe bet. Then Azure OpenAI. Then Copilot. Now Microsoft is cutting its own partners out. The stack isn't the strategy. The architecture is."
-      intent_url: "https://twitter.com/intent/tweet?text=I%27ve%20watched%20the%20%22safe%22%20enterprise%20AI%20stack%20get%20relitigated%20three%20times%20in%2018%20months.%20OpenAI%20was%20the%20safe%20bet.%20Then%20Azure%20OpenAI.%20Then%20Copilot.%20Now%20Microsoft%20is%20cutting%20its%20own%20partners%20out.%20The%20stack%20isn%27t%20the%20strategy.%20The%20architecture%20is."
-      angle_type: "practitioner"
-    - text: "Genuine question for anyone running enterprise AI: what's the most autonomous agent in production at your org right now, and who's specifically accountable for its behavior? Not a project owner. Accountable for the agent's ongoing actions."
-      intent_url: "https://twitter.com/intent/tweet?text=Genuine%20question%20for%20anyone%20running%20enterprise%20AI%3A%20what%27s%20the%20most%20autonomous%20agent%20in%20production%20at%20your%20org%20right%20now%2C%20and%20who%27s%20specifically%20accountable%20for%20its%20behavior%3F%20Not%20a%20project%20owner.%20Accountable%20for%20the%20agent%27s%20ongoing%20actions."
+    - text: "Who at your organization gets paged when an AI agent's token spend spikes at 2am on a Sunday? If the answer is 'no one' or 'I'm not sure,' you have an open tab, not a governance model."
+      supporting_url: null
+      intent_url: "https://twitter.com/intent/tweet?text=Who%20at%20your%20organization%20gets%20paged%20when%20an%20AI%20agent%27s%20token%20spend%20spikes%20at%202am%20on%20a%20Sunday%3F%20If%20the%20answer%20is%20%27no%20one%27%20or%20%27I%27m%20not%20sure%2C%27%20you%20have%20an%20open%20tab%2C%20not%20a%20governance%20model."
       angle_type: "question"
-    - text: "If SaaS vendors priced for seat count and agents don't need seats -- what does your vendor contract renewal look like in 18 months? I'm genuinely asking. The procurement and legal teams at most enterprises have not thought about this yet."
-      intent_url: "https://twitter.com/intent/tweet?text=If%20SaaS%20vendors%20priced%20for%20seat%20count%20and%20agents%20don%27t%20need%20seats%20--%20what%20does%20your%20vendor%20contract%20renewal%20look%20like%20in%2018%20months%3F%20I%27m%20genuinely%20asking.%20The%20procurement%20and%20legal%20teams%20at%20most%20enterprises%20have%20not%20thought%20about%20this%20yet."
-      angle_type: "question"
-    - text: "439 gigawatts of data center power requested in Texas. Current peak demand is 85 gigawatts. Someone was going to blink. Abbott blinked first -- in the right direction. Data centers pay for their own grid. Ratepayers don't."
-      intent_url: "https://twitter.com/intent/tweet?text=439%20gigawatts%20of%20data%20center%20power%20requested%20in%20Texas.%20Current%20peak%20demand%20is%2085%20gigawatts.%20Someone%20was%20going%20to%20blink.%20Abbott%20blinked%20first%20--%20in%20the%20right%20direction.%20Data%20centers%20pay%20for%20their%20own%20grid.%20Ratepayers%20don%27t."
-      angle_type: "data"
-    - text: "The AI agent security stat that should make every enterprise leader uncomfortable: 88% of organizations had a confirmed or suspected AI security incident in 2026. Most governance conversations are still happening in conference rooms. The incidents are not waiting."
-      intent_url: "https://twitter.com/intent/tweet?text=The%20AI%20agent%20security%20stat%20that%20should%20make%20every%20enterprise%20leader%20uncomfortable%3A%2088%25%20of%20organizations%20had%20a%20confirmed%20or%20suspected%20AI%20security%20incident%20in%202026.%20Most%20governance%20conversations%20are%20still%20happening%20in%20conference%20rooms.%20The%20incidents%20are%20not%20waiting."
+    - text: "Accenture exiting 11,000 people who can't reskill on AI is notable. What's more notable: they said it out loud. 'Can't adapt to AI' is now a public firing criterion at a major firm. That changes the internal conversation everywhere."
+      supporting_url: "https://www.reuters.com/business/accenture-cut-11000-jobs-ai-workforce-transition-2026-07/"
+      intent_url: "https://twitter.com/intent/tweet?text=Accenture%20exiting%2011%2C000%20people%20who%20can%27t%20reskill%20on%20AI%20is%20notable.%20What%27s%20more%20notable%3A%20they%20said%20it%20out%20loud.%20%27Can%27t%20adapt%20to%20AI%27%20is%20now%20a%20public%20firing%20criterion%20at%20a%20major%20firm.%20That%20changes%20the%20internal%20conversation%20everywhere.&url=https%3A%2F%2Fwww.reuters.com%2Fbusiness%2Faccenture-cut-11000-jobs-ai-workforce-transition-2026-07%2F"
       angle_type: "provocative"
+    - text: "Accenture's CEO used 'compressed timeline' when describing why 11,000 people are being exited. That phrase is the tell. It means the window already closed for some people on their team. Most firms haven't said that out loud yet."
+      supporting_url: "https://www.reuters.com/business/accenture-cut-11000-jobs-ai-workforce-transition-2026-07/"
+      intent_url: "https://twitter.com/intent/tweet?text=Accenture%27s%20CEO%20used%20%27compressed%20timeline%27%20when%20describing%20why%2011%2C000%20people%20are%20being%20exited.%20That%20phrase%20is%20the%20tell.%20It%20means%20the%20window%20already%20closed%20for%20some%20people%20on%20their%20team.%20Most%20firms%20haven%27t%20said%20that%20out%20loud%20yet.&url=https%3A%2F%2Fwww.reuters.com%2Fbusiness%2Faccenture-cut-11000-jobs-ai-workforce-transition-2026-07%2F"
+      angle_type: "data"
+    - text: "The practical problem with vendor-embedded engineers isn't their skill. It's their incentive. Their review doesn't include whether you got the best architecture. It includes whether you renewed and expanded."
+      supporting_url: null
+      intent_url: "https://twitter.com/intent/tweet?text=The%20practical%20problem%20with%20vendor-embedded%20engineers%20isn%27t%20their%20skill.%20It%27s%20their%20incentive.%20Their%20review%20doesn%27t%20include%20whether%20you%20got%20the%20best%20architecture.%20It%20includes%20whether%20you%20renewed%20and%20expanded."
+      angle_type: "provocative"
+    - text: "Honest question for anyone leading a consulting team: do you actually know who is making the AI transition and who is stalling? Not training completion rate. The honest read. Because the Accenture clock is coming for everyone."
+      supporting_url: null
+      intent_url: "https://twitter.com/intent/tweet?text=Honest%20question%20for%20anyone%20leading%20a%20consulting%20team%3A%20do%20you%20actually%20know%20who%20is%20making%20the%20AI%20transition%20and%20who%20is%20stalling%3F%20Not%20training%20completion%20rate.%20The%20honest%20read.%20Because%20the%20Accenture%20clock%20is%20coming%20for%20everyone."
+      angle_type: "question"
+    - text: "Seat-based SaaS pricing assumed a human in the loop. Token-based agent pricing assumes autonomous consumption. Those are different cost models and different risk profiles. Most enterprise contracts were written for the first one."
+      supporting_url: "https://www.1000.software/post/openai-s-agent-pricing-shift-6-moves-cios-and-finops-must-make-to-control-ai-teammate-costs"
+      intent_url: "https://twitter.com/intent/tweet?text=Seat-based%20SaaS%20pricing%20assumed%20a%20human%20in%20the%20loop.%20Token-based%20agent%20pricing%20assumes%20autonomous%20consumption.%20Those%20are%20different%20cost%20models%20and%20different%20risk%20profiles.%20Most%20enterprise%20contracts%20were%20written%20for%20the%20first%20one.&url=https%3A%2F%2Fwww.1000.software%2Fpost%2Fopenai-s-agent-pricing-shift-6-moves-cios-and-finops-must-make-to-control-ai-teammate-costs"
+      angle_type: "data"
+    - text: "Forward-deployed engineers have existed in enterprise tech for decades. What's new: $2.5B and 6,000 people from one vendor in one announcement. At that scale it stops being a service and starts being a market structure decision."
+      supporting_url: "https://thenewstack.io/aws-just-put-1-billion-into-forward-deployed-engineers/"
+      intent_url: "https://twitter.com/intent/tweet?text=Forward-deployed%20engineers%20have%20existed%20in%20enterprise%20tech%20for%20decades.%20What%27s%20new%3A%20%242.5B%20and%206%2C000%20people%20from%20one%20vendor%20in%20one%20announcement.%20At%20that%20scale%20it%20stops%20being%20a%20service%20and%20starts%20being%20a%20market%20structure%20decision.&url=https%3A%2F%2Fthenewstack.io%2Faws-just-put-1-billion-into-forward-deployed-engineers%2F"
+      angle_type: "data"

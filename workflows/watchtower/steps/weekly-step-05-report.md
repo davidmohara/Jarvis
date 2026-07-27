@@ -18,7 +18,14 @@ outputs:
 2. Keep the report under 200 words. This is a surface, not a brief.
 3. Explicitly name each content candidate and each source proposal by name — David needs to act on these.
 4. The report surfaces two action items: (a) review content candidates in Obsidian, (b) approve/reject source proposals in proposed-sources.md.
-5. **UPDATE THE DASHBOARD ARTIFACT.** Read the existing `watchtower-weekly` artifact HTML, prepend a new `<div class="week-view active" id="view-wNN">` block for this week using this run's themes/drafts/proposals, update the `<select>` to include the new week option, archive the previous latest week's block (remove `active` class), update `runMeta` in the JS, then call `mcp__cowork__update_artifact` with `id: "watchtower-weekly"`. **This is non-negotiable. The dashboard is the primary way David reviews the week's output.** If the artifact update fails, log the failure in `outputs` but do not abort — surface the report anyway.
+5. **UPDATE THE DASHBOARD ARTIFACT — PRE-FLIGHT REQUIRED.** Before writing a single line of report content:
+   a. Call `ToolSearch` with query `"select:mcp__cowork__list_artifacts,mcp__cowork__update_artifact"` to load the artifact tools. Do this FIRST. Not after the report. Not as an afterthought. FIRST.
+   b. Call `mcp__cowork__list_artifacts` to find the `watchtower-weekly` artifact id and HTML path.
+   c. Read the artifact HTML at the returned path.
+   d. Prepend a new `<div class="week-view active" id="view-wNN">` block for this week using this run's themes/drafts/proposals/tweets, update the `<select>` to include the new week option, remove `active` from the previous latest week's block, update `runMeta` in the JS.
+   e. Write the updated HTML to a temp file, then call `mcp__cowork__update_artifact` with `id: "watchtower-weekly"`.
+   **This is non-negotiable. The dashboard is the primary way David reviews the week's output.**
+   If the artifact update fails after a genuine attempt, log `artifact_updated: false` in outputs and surface: "Dashboard update failed — open watchtower-weekly artifact manually." Do not silently skip. Do not omit the ToolSearch pre-flight and then claim the tool was unavailable.
 6. Set `state.yaml status: complete` and clear `content_queue` after report is surfaced.
 7. Write `status: complete`, `completed-at`, and `outputs` when done.
 
@@ -48,7 +55,7 @@ outputs:
 1. Collect from accumulated-context:
    - `weekly_themes` → theme titles
    - Step-02 `drafts_created`, `draft_paths`
-   - Step-02b `weekly_tweets` → array of `{text, intent_url}` objects
+   - Step-02b `weekly_tweets` → array of `{text, supporting_url, intent_url}` objects
    - Step-03 `proposed_count`, `batch_number`
    - Step-04 `weekly_note_path`
    - Read `dormant-sources.yaml` — collect any sources with `retired` date in the past 7 days.
@@ -76,7 +83,7 @@ outputs:
    (continue for all 10 tweets)
    ```
 
-   Render each tweet as its plain text on one line, followed by the `[Post to X →](intent_url)` markdown link on the next line, followed by a blank line before the next tweet. This is what David sees in the dashboard — each tweet is a single click to post.
+   Render each tweet as its plain text on one line, followed by the `[Post to X →](intent_url)` markdown link on the next line. If `supporting_url` is present and non-null, also render `[Source →](supporting_url)` on the same line as the Post link. Follow with a blank line before the next tweet. This is what David sees in the dashboard — each tweet is a single click to post.
 
    If `weekly_tweets` is empty or absent, write: *No tweets generated this week.*
 

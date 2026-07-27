@@ -1,0 +1,15 @@
+{
+  "id": "err-20260727T142153-7F5CKY",
+  "timestamp": "2026-07-27T14:21:53Z",
+  "session": "2026-07-27",
+  "source": "explicit",
+  "agent": "chase",
+  "category": "process-skip",
+  "description": "Reported co-sell pipeline numbers as $2.6M pipeline + $2.7M won without disaggregating by enterprise. Did not follow workflow to gather individual Dallas + Houston + Austin numbers. Made assumption that aggregate 'Improving, Enterprise' KPI was correct for Rock 4 target calculation. Numbers reported were 100% wrong.",
+  "correction": "Workflow requires: (1) Check current filter state before clicking, (2) Click each location (Dallas, Houston, Austin) individually, (3) Record KPI values for each, (4) Sum to get true One Texas total. However, discovered that PowerBI location slicer does NOT respond to JavaScript click, dblclick, or event dispatch. Requires manual mouse interaction in browser.",
+  "failure_mode": "protocol-skip + tool-limitation",
+  "systemic_fix": "SKILL.md update: (1) Add pre-flight state check to verify which location is currently selected, (2) Add note that this report requires MANUAL location selection via browser — automation cannot click the slicer, (3) Recommend either: (a) user manually provides per-location numbers, or (b) use different data source/export method that supports API access to disaggregated data.",
+  "fix_status": "proposed",
+  "severity": "major",
+  "related_entries": []
+}

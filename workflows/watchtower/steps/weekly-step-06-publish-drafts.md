@@ -13,9 +13,19 @@ outputs: {}
 3. **Never read vault files from filesystem paths.** Always use `mcp__obsidian-local__get_vault_file` to fetch draft content. This is mandatory — it catches any edits David has made since Knox created the files.
 4. The Abbott/Texas draft is excluded from the default selection list. Identify it by checking whether its slug contains "abbott" or "texas". Present it in the exclusion note but do not pre-select it.
 5. **No-Duplicate Rule is absolute.** After each send, wait at least 10 seconds, then read the channel via `read.py` to confirm delivery before proceeding. Only retry if `read.py` confirms the message is absent AND the original process returned an explicit error. One retry maximum per draft.
-6. Multi-line messages must use actual newlines — never literal `\n`. Use `$'...'` ANSI-C quoting in the shell command if needed to preserve line breaks through Desktop Commander.
-7. This step is **optional**. If David types "skip" at the selection prompt, set `status: skipped` and `outputs.step_skipped: true`. Do not send anything.
-8. Write `status: complete` (or `skipped`), `completed-at`, and `outputs` when done.
+6. Multi-line messages must use actual newlines — never literal `\n`. Use single-quote wrapping (outer `'...'`) for the message string passed to `post.py`.
+7. **Smart quote sanitization — mandatory before composing any message.** Draft content from Obsidian frequently contains curly/smart quotes that break shell quoting. Before building the message string, replace: `"` → `"`, `"` → `"`, `'` → `'`, `'` → `'`. Also replace em-dashes (`—`) with ` - ` and en-dashes (`–`) with `-`. The safest approach: pipe the message through a Python one-liner to do the substitution before passing to `post.py`:
+   ```bash
+   python3 -c "
+   import sys
+   msg = open('/tmp/draft_msg.txt').read()
+   msg = msg.replace('“','\"').replace('”','\"').replace('‘',\"'\").replace('’',\"'\").replace('—',' - ').replace('–','-')
+   sys.stdout.write(msg)
+   " | python3 "$IES_ROOT/systems/slack-bot/post.py" C0B160MA3EK "$(cat)"
+   ```
+   Or write the sanitized message to a temp file and pass it as a shell variable. Either way — **sanitize before send, no exceptions.**
+8. This step is **optional**. If David types "skip" at the selection prompt, set `status: skipped` and `outputs.step_skipped: true`. Do not send anything.
+9. Write `status: complete` (or `skipped`), `completed-at`, and `outputs` when done.
 
 ---
 
@@ -93,11 +103,17 @@ If David types "include-texas": add the excluded draft(s) back to the selection 
 
 ### 5. Send each selected draft to #content
 
-For each selected draft, compose the Slack message using this exact format:
+For each selected draft, compose the Slack message using this exact format.
+
+**Obsidian link construction:** The vault path line uses Slack's `<url|label>` link syntax. Build the URL as:
+`obsidian://open?vault=Obsidian&file=<url-encoded path>`
+where the path is the Obsidian-relative path (e.g. `Mind/Posts/_my-draft.md`) with spaces encoded as `%20` and no leading slash. Example:
+`obsidian://open?vault=Obsidian&file=Mind%2FPosts%2F_my-draft.md`
+Slack renders `<url|label>` as a clickable hyperlink. Use the raw path string as the label.
 
 ```
 *Draft: [Post Title]*
-_Vault: [obsidian_path] — [channels joined by comma]_
+_<obsidian://open?vault=Obsidian&file=[url-encoded obsidian_path]|[obsidian_path]> — [channels joined by comma]_
 
 *Hook*
 [hook text]

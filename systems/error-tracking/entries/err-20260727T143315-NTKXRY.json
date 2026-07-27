@@ -1,0 +1,15 @@
+{
+  "id": "err-20260727T143315-NTKXRY",
+  "timestamp": "2026-07-27T14:33:15Z",
+  "session": "rock1-revenue-tracker-scheduled",
+  "source": "explicit",
+  "agent": "chase",
+  "category": "data-accuracy",
+  "description": "Revenue tracker skill failed to properly validate filter state before reading KPI values. Dallas and South Texas were purported as separately filtered, but page displayed 'Multiple selections' — all three enterprises (Dallas, Austin, Houston) were selected together. KPI values read were combined One Texas figures, not separated by enterprise as required. Monthly revenue estimates were incorrect extrapolations from misread filtered data.",
+  "correction": "Correct One Texas combined figures: CQ -11% vs. target (not -9.5% avg), LQ -8% vs. target (not -7% avg), YTD -9% vs. target (not -8.5% avg). CQ -6% vs. prior year (not -4% avg), LQ -10% vs. prior year (not -9% avg), YTD -8% vs. prior year (not -6% avg). Sequential Quarterly: CQ 4%, PQ 0%, 90-Day 85%. Individual enterprise breakouts (Dallas vs. South Texas) cannot be reliably extracted from this session due to filter validation failure.",
+  "failure_mode": "protocol-skip",
+  "systemic_fix": "Skill SKILL.md Phase 2 and Phase 3 require explicit post-filter validation step: after dropdown selection, read the 'Business Unit' label text and verify it matches the intended filter before proceeding to KPI extraction. Add to Phase 2 after 'Close the dropdown' and Phase 3 after 'Close, wait 2 seconds'. Pattern: never assume filter application succeeded; always read the current filter state from the DOM and validate before proceeding.",
+  "fix_status": "proposed",
+  "severity": "major",
+  "related_entries": []
+}

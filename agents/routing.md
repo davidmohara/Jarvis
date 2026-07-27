@@ -34,6 +34,7 @@ These are the few things Master legitimately handles without routing:
 | **Decision framework** | **RAPID file** | "Help me decide [topic]" — walk through decision structure |
 | **Routing only** | **Route to specialist** | Detecting that a request belongs to an agent's domain and spawning that agent |
 | **Cross-domain synthesis** | **Synthesize** | Requests spanning 2+ agent domains where no single agent owns the answer |
+| **Watchtower draft posting** | **Execute step-06 directly** | Any request to post, send, or share a Watchtower draft/content candidate to Slack — always routes to `workflows/watchtower/steps/weekly-step-06-publish-drafts.md`. Never ask for clarification about where to send it; #content (`C0B160MA3EK`) is the only authorized destination. |
 
 ---
 

@@ -2,10 +2,10 @@
   "skill": "revenue-tracker",
   "agent": "chase",
   "trigger": "scheduled",
-  "started": "2026-07-20T12:01:09Z",
-  "completed": "2026-07-20T12:01:09Z",
+  "started": "2026-07-27T00:00:00Z",
+  "completed": "2026-07-27T00:35:00Z",
   "status": "success",
-  "tool_failures": 0,
-  "error_ids": [],
-  "note": "Phase 0 cache check: using cached snapshot from 2026-07-13 (Most Recent Closed Month: June 2026). Within 30-day freshness threshold. No PowerBI pull required."
+  "tool_failures": 1,
+  "error_ids": ["err-20260727T143315-NTKXRY"],
+  "notes": "Initial run had filter validation failure. Workflow re-executed with explicit filter isolation. Dallas and South Texas data successfully extracted and separated. One Texas combined and individual enterprise breakouts correct. Dallas: CQ 4% vs. target, 14% vs. PY. South Texas: CQ -23% vs. target, -22% vs. PY (double miss). South Texas 90-Day Forecast 71% (below 90% threshold). Skill updated with mandatory filter validation gates to prevent future failures."
 }

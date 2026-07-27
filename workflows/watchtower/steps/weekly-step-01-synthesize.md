@@ -45,11 +45,15 @@ outputs:
 
 2. If `content_queue` is empty or has fewer than 2 items: pull `workflows/watchtower/seen.jsonl`, filter to entries from the past 7 days, and re-score the top 5 by consulting David's lenses in `config.yaml`. Use these as the working set and note in outputs that you used the fallback.
 
-3. Group items by theme. A theme is a pattern, trend, or through-line that:
-   - Cuts across multiple items, OR
-   - Represents a single item of unusually high relevance (score ≥ 85).
+3. **DELTA CHECK — run this before finalizing any theme.** Read the prior two weeks' notes from `Watchtower/Weekly/` in Obsidian (or `workflows/watchtower/fallback/weekly/` if Obsidian was unavailable). For each candidate theme, explicitly ask: "Is this a new argument, or is this new data supporting an argument I already surfaced in the past two weeks?"
 
-4. For each theme, write a brief synthesis note (2–4 sentences): what the theme is, what items it draws from, and why it matters to David specifically.
+   - **New argument** = promote it as a theme.
+   - **New data, same argument** = only promote if the new data materially changes the recommended action for David's audience (i.e., something they should now do differently). If it doesn't, flag it as a "continuing story" and drop it from themes. Note the drop in `outputs.dropped_as_continuing`.
+   - **Same data reframed** = drop it entirely.
+
+   The goal is that every theme this week teaches David's audience something they could not have learned from last week's content. Redundancy is a failure mode, not a safety net.
+
+4. For each theme that passes the delta check, write a brief synthesis note (2–4 sentences): what the theme is, what items it draws from, why it matters to David specifically, and — critically — **what is new this week that wasn't true last week**.
 
 5. Write themes to `accumulated-context.weekly_themes` in `state.yaml`. Schema:
    ```yaml
@@ -65,6 +69,7 @@ outputs:
    outputs:
      items_in_queue: <int>
      themes_identified: <int>
+     dropped_as_continuing: <int>   # themes dropped because they were continuing stories, not new arguments
      used_fallback: <bool>
    ```
 
@@ -85,6 +90,8 @@ outputs:
 | `content_queue` absent from state | Use fallback (seen.jsonl re-score); log it |
 | `seen.jsonl` also empty (first-ever run) | Write "No items to synthesize this week — first run." and continue to step-02 with empty themes |
 | More than 8 items in queue | Prioritize by score descending; synthesize the top 8 |
+| Delta check drops all themes | Surface: "All candidate themes this week are continuations of prior weeks. Consider approving Batch [N] source proposals to broaden coverage." Then check whether any continuing-story theme has *new recommended action* strong enough to justify one slot. If yes, promote the strongest one only. |
+| Delta check drops to fewer than 2 themes | Same as above — broaden by re-scoring seen.jsonl with stricter novelty filter, or surface fewer themes rather than padding with repeats. 1 strong new theme beats 4 redundant ones. |
 
 ---
 

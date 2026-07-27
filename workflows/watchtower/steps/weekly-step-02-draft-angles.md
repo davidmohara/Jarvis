@@ -61,6 +61,12 @@ outputs:
    For each angle:
 
    **a. Construct the draft file content:**
+
+   **PRIOR STORY RULE — read before writing anything:**
+   - If the delta check in step-01 flagged this theme as building on a prior published post (i.e., a prior week's content angle that was drafted and potentially published), add a `related_posts` field to frontmatter with a Ghost link placeholder for each related post.
+   - The placeholder format is: `"[LINK: <prior post title>]"` — this is a signal to David to insert the actual Ghost URL when the post goes live. It is NOT visible prose in the body. Do NOT write sentences like "Last week I covered..." or "In W29 I wrote about..." or any reference to week numbers or prior Watchtower runs in the draft body. Ever.
+   - If there is a natural place in the Story Angle or Core Insight where a link to a prior post would add value for the reader, use inline link syntax with the placeholder: `[prior post title]([LINK: <prior post title>])`. This reads naturally in the final post once the real URL is swapped in.
+
    ```markdown
    ---
    source: watchtower
@@ -69,25 +75,42 @@ outputs:
    channels: [blog|linkedin|forbes]
    status: draft
    tags: [watchtower, <relevant topic tags>]
+   related_posts:
+     - "[LINK: <prior post title if applicable>]"   # remove this line if no related posts
    ---
 
-   # <Post Title (working)>
+   # <Post Title in Title Case>
 
    ## Hook
+
    <1-2 sentence hook. Lead with tension or surprise. Sound like David, not a press release.>
 
    ## Story Angle
-   <2-3 sentences. What experience or observation does David bring to this? First person.>
+
+   <2-3 sentences. What experience or observation does David bring to this? First person.
+   If referencing a prior post, use inline link placeholder: [post title]([LINK: post title])
+   Use a colon to connect clauses mid-sentence, not an em-dash.>
 
    ## Core Insight
-   <The "so what" — the one thing the reader should take away.>
+
+   <Structure the argument explicitly and sequentially when making a multi-part point.
+   Use "Step one... Step two..." or similar scaffolding — do not compress a two-step argument into a summary paragraph.
+   Always look for a "what is Improving actually doing about this" angle where it's genuinely true and relevant. David writes from inside the work, not as an outside observer. If Improving has real activity (certifications, client engagements, internal initiatives) that connects to the theme, include it. Do not manufacture it — only use what is real and specific.>
 
    ## Challenge / CTA
+
    <Optional. A question or provocation to close with.>
 
    ## Sources
    - <item title> — <url>
    ```
+
+   **Formatting rules:**
+   - Post titles are always in Title Case — every significant word capitalized.
+   - Add a blank line between each `##` section header and the paragraph that follows.
+   - Use colons, not em-dashes, to connect or extend a thought mid-sentence.
+
+   **What NEVER appears in a draft body:** week numbers (W29, W30, etc.), phrases like "last week," "in a prior Watchtower run," "building on what I wrote," or any reference to the Watchtower system itself. Time references like "prior week" or "earlier this year" are fine when they read naturally. That context lives in the frontmatter and in Knox's notes only.
 
    **b. Write the file to Obsidian `Mind/Posts/_<slug>.md`** via Obsidian MCP.
    - Slug: lowercase, hyphens, derived from the post title. Keep it short.

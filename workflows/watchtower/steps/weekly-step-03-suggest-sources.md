@@ -12,11 +12,12 @@ outputs:
 ## MANDATORY EXECUTION RULES
 
 1. Write `status: in-progress` and `started-at` to this file's frontmatter before doing anything else.
-2. Read `sources.yaml` and `proposed-sources.md` before proposing anything — do not suggest sources already active or already pending.
-3. Never write a source to `sources.yaml`. That is a human-gated action.
-4. Only APPEND to `proposed-sources.md` under the current week's batch header. Do not rewrite previous batches.
-5. Respect `config.yaml source_suggestions.max_per_week` — propose no more than that number.
-6. Write `status: complete`, `completed-at`, and `outputs` when done.
+2. **CHECK THE KILL SWITCH FIRST.** Read `config.yaml`. If `source_suggestions.enabled` is `false`, skip this entire step: write `status: complete`, set `outputs.proposed_count: 0`, note `skipped: true` in outputs, and proceed to step-04. Do not propose anything, do not search, do not modify `proposed-sources.md`.
+3. Read `sources.yaml` and `proposed-sources.md` before proposing anything — do not suggest sources already active or already pending.
+4. Never write a source to `sources.yaml`. That is a human-gated action.
+5. Only APPEND to `proposed-sources.md` under the current week's batch header. Do not rewrite previous batches.
+6. Respect `config.yaml source_suggestions.max_per_week` — propose no more than that number.
+7. Write `status: complete`, `completed-at`, and `outputs` when done.
 
 ---
 

@@ -1,0 +1,15 @@
+{
+  "id": "err-20260727T170154-FB3D60",
+  "timestamp": "2026-07-27T17:01:54Z",
+  "session": "2026-07-27",
+  "source": "explicit",
+  "agent": "Master",
+  "category": "missed-context",
+  "description": "When asked to post Obsidian drafts to #content, asked the user to clarify what #content meant and whether to post to Teams or Slack. The workflow (weekly-step-06-publish-drafts.md) explicitly defines #content as Slack channel C0B160MA3EK with full instructions for posting via slack-bot post.py.",
+  "correction": "Read weekly-step-06-publish-drafts.md before questioning a request that references the Watchtower posting workflow. The channel, destination, and mechanism are all documented there.",
+  "failure_mode": "context-blindness",
+  "systemic_fix": "Before asking any clarifying question about where/how to send Watchtower drafts, check workflows/watchtower/steps/weekly-step-06-publish-drafts.md. The workflow is the source of truth.",
+  "fix_status": "proposed",
+  "severity": "moderate",
+  "related_entries": []
+}

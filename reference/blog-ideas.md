@@ -46,6 +46,9 @@ Running list of potential blog topics. Jarvis captures these proactively from co
 | "The Safe Bet Isn't Safe Anymore" | Content pipeline (2026-07-22) | AI, technology, business | Ghost draft — pending approval |
 | "Governance Isn't Your Problem. Uniform Governance Is." | Content pipeline (2026-07-22) | AI, technology, leadership | Ghost draft — pending approval |
 | "Abbott Just Changed the Rules. Here's What Texas AI Clients Need to Know." | Watchtower W30 (2026-07-20) [watchtower] | texas, AI, business, infrastructure, policy | Draft at `Mind/Posts/_abbott-just-changed-the-rules-texas-ai-clients.md` |
+| "Microsoft Just Entered Your Lane" | Watchtower W31 (2026-07-27) [watchtower] | consulting, AI, business, leadership | Draft at `Mind/Posts/_microsoft-just-entered-your-lane.md` |
+| "Agents Don't Need Seats. But They Still Cost Money." | Watchtower W31 (2026-07-27) [watchtower] | AI, technology, business, saas, finops | Draft at `Mind/Posts/_agents-dont-need-seats-but-they-still-cost-money.md` |
+| "Accenture Just Set the Reskilling Bar" | Watchtower W31 (2026-07-27) [watchtower] | consulting, AI, leadership, talent | Draft at `Mind/Posts/_accenture-just-set-the-reskilling-bar.md` |
 
 ## Published (for reference / avoid repeats)
 

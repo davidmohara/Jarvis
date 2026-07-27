@@ -1,0 +1,13 @@
+{
+  "id": "err-20260727T160251-7ET7QZ",
+  "timestamp": "2026-07-27T16:02:51Z",
+  "session_id": "wt-weekly-2026-W31",
+  "agent": "knox",
+  "category": "protocol-skip",
+  "failure_mode": "step-requirement-omitted",
+  "severity": "medium",
+  "description": "Watchtower weekly-step-05-report.md has a MANDATORY rule (#5): update the watchtower-weekly artifact via mcp__cowork__update_artifact before marking the run complete. Knox executed all steps but did not call mcp__cowork__update_artifact. The tool was available but was not loaded via ToolSearch before it was needed, and no attempt was made to load it. The step was marked complete and state.yaml was closed without the artifact update.",
+  "root_cause": "Knox failed to load the cowork artifact tools (mcp__cowork__list_artifacts, mcp__cowork__update_artifact) during the run. The step-05 rule is explicit and non-negotiable. The failure was not flagged or logged at run time.",
+  "proposed_fix": "Add a pre-flight ToolSearch call for mcp__cowork__update_artifact at the start of weekly-step-05-report execution. The workflow step file should be updated to make the ToolSearch call explicit in its mandatory execution rules, not just reference the tool name. Also: if the artifact update fails, log artifact_updated: false and surface it — do not silently skip.",
+  "corrective_action": "Error logged. weekly-step-05-report.md updated with explicit ToolSearch instruction. Artifact updated manually in same session."
+}

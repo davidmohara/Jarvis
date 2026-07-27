@@ -97,23 +97,26 @@ outputs:
      - 2-3 **Data/signal-driven** — anchor to a specific signal, stat, or development; add the "so what"
 
    - Constraints per tweet:
-     - 280 characters max (count carefully — include spaces and punctuation)
+     - **Tweet text is 240 characters max when a supporting link is attached** (Twitter counts t.co-wrapped URLs as ~23 chars; leave that headroom). 280 characters max when no link.
      - No hashtags unless they add genuine value (limit to 1 max if used)
-     - No "Read more:" or link placeholders
+     - No "Read more:" or link placeholders in the tweet text itself — the link is separate
      - No "Thread:" or numbered continuations
      - Must stand alone — assume no other context
      - Sound like David texted it, not like a content team scheduled it
 
+   - **Supporting link (optional but preferred):** For each tweet, check whether a source URL from `weekly_themes[].source_items` directly substantiates the claim in the tweet. If yes, attach it. If the tweet is experiential/practitioner (first-person observation, no direct source) or a pure question, no link is needed. Do not manufacture a link — only use URLs already present in `source_items`.
+
 4. For each tweet, build the intent URL:
-   - Base: `https://twitter.com/intent/tweet?text=`
-   - Append URL-encoded tweet text
+   - Base: `https://twitter.com/intent/tweet?text=<url-encoded-text>`
+   - If a supporting link exists, append `&url=<url-encoded-source-url>` to the intent URL. Twitter will append the link to the tweet at post time.
    - Key encoding rules: space → `%20`, `#` → `%23`, `&` → `%26`, `?` → `%3F`, `"` → `%22`, `'` → `%27`, newline → `%0A`
 
 5. Store in `accumulated-context.weekly_tweets` as an array of objects:
    ```yaml
    weekly_tweets:
-     - text: "<tweet text, plain>"
-       intent_url: "https://twitter.com/intent/tweet?text=<url-encoded-text>"
+     - text: "<tweet text, plain — no URL here>"
+       supporting_url: "<source URL if applicable, else null>"
+       intent_url: "https://twitter.com/intent/tweet?text=<url-encoded-text>&url=<url-encoded-source-url>"
        angle_type: "provocative|practitioner|question|data"
      - ...
    ```
@@ -122,6 +125,7 @@ outputs:
    ```yaml
    outputs:
      tweets_generated: 10
+     tweets_with_links: <int>   # how many tweets have a supporting_url
      angle_types:
        provocative: <int>
        practitioner: <int>
@@ -135,10 +139,11 @@ outputs:
 ## SUCCESS METRICS
 
 - Exactly 10 tweets stored in `accumulated-context.weekly_tweets`.
-- No tweet exceeds 280 characters.
+- No tweet text exceeds 240 characters when a supporting link is attached; no tweet exceeds 280 characters otherwise.
 - No tweet overlaps in angle with any blog draft from step-02.
 - All 4 angle types represented across the set.
 - Each tweet has a valid, properly encoded intent URL.
+- Supporting links only sourced from `weekly_themes[].source_items` — no fabricated URLs.
 - Voice matches David's register — direct, personal, not corporate.
 
 ---
@@ -150,7 +155,9 @@ outputs:
 | `weekly_themes` empty | Generate 0 tweets; write `tweets_generated: 0` to outputs; continue to step-03 |
 | Step-02 `content_angles` not available | Proceed without overlap check; note in outputs: `overlap_check: skipped` |
 | Tweet makes the same argument as a draft | Discard it. Generate a replacement from a genuinely different direction. Do not soften the wording and call it different — the argument must be different. |
-| Tweet exceeds 280 chars after generation | Trim — cut filler words, tighten; do not truncate mid-thought |
+| Tweet with link exceeds 240 chars | Trim the tweet text — the link headroom is non-negotiable. Cut filler, tighten; do not truncate mid-thought |
+| Tweet without link exceeds 280 chars | Trim — cut filler words, tighten; do not truncate mid-thought |
+| Source URL not available for a data/signal tweet | Leave `supporting_url: null` — do not invent a URL or use a generic homepage |
 | Fewer than 10 viable angles found | Extract additional angles from raw signal items in `weekly_themes`; do not pad with weak takes |
 | URL encoding error | Use plain spaces as `%20` and skip encoding edge cases rather than generating a broken URL |
 
