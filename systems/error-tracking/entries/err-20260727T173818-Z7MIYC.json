@@ -1,0 +1,14 @@
+{
+  "id": "err-20260727T173818-Z7MIYC",
+  "timestamp": "2026-07-27T17:38:18Z",
+  "severity": "info",
+  "category": "agent-limitation",
+  "message": "Jarvis attempted to eval political-monitor workflow but does not have Rigby's eval tool available",
+  "context": {
+    "workflow": "political-monitor",
+    "action": "eval",
+    "expected_tool": "rigby-eval-workflow",
+    "what_happened": "User correctly noted that Rigby has an eval tool; Jarvis incorrectly claimed it doesn't exist"
+  },
+  "resolution": "Delegate to Rigby agent with eval instruction"
+}
