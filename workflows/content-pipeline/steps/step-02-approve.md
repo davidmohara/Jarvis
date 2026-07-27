@@ -72,7 +72,27 @@ Only proceed to Step 1 if there is at least one entry with a non-null `slack_thr
 
 ---
 
-### 1. Load and clean pending-drafts.json
+### 1. Ghost Status Verification (Sync pending-drafts.json with live Ghost state)
+
+**Critical:** Before processing any drafts, verify the actual status of all pending posts in Ghost. This prevents working off stale data.
+
+For each entry in pending-drafts.json with `status: "pending"`:
+
+1. Call `mcp__ghost-blog__get_post(post_id="{ghost_post_id}", formats="lexical")`
+
+2. Inspect the returned post object:
+   - If `post.status == "published"`: The draft was published externally. Update pending-drafts.json entry: set `status: "published"`, add `published_at: {post.published_at}`. This entry will be cleaned up in Step 2.
+   - If `post.status == "scheduled"`: The draft is scheduled. Update pending-drafts.json entry: set `status: "scheduled"`, add `scheduled_at: {post.scheduled_at}`. This entry will be cleaned up in Step 2 if past the scheduled date.
+   - If `post.status == "draft"`: The draft is still in draft state (expected). Leave as `status: "pending"`. Continue processing.
+   - If post not found (404): The post was deleted externally. Update pending-drafts.json entry: set `status: "deleted_externally"`. This entry will be cleaned up in Step 2.
+
+3. If any entry's status changed during this verification, write the updated pending-drafts.json immediately before proceeding.
+
+**Why this matters:** Stale data can lead to attempting to re-publish already-published posts, re-deleting already-deleted posts, or losing sync with Ghost's source of truth. Always verify first.
+
+---
+
+### 2. Load and clean pending-drafts.json
 
 Read `workflows/content-pipeline/pending-drafts.json`.
 
@@ -81,6 +101,7 @@ Read `workflows/content-pipeline/pending-drafts.json`.
 - Remove all entries where `status: "published"` — they are done.
 - Remove all entries where `status: "scheduled"` AND `scheduled_at` is in the past (before current UTC time) — Ghost has already published them.
 - Remove all entries where `status: "rejected"` AND `created_at` is older than 30 days.
+- Remove all entries where `status: "deleted_externally"` AND `created_at` is older than 30 days.
 
 If any entries were removed, write the updated array back to pending-drafts.json immediately.
 
@@ -88,7 +109,17 @@ Now filter the remaining entries for `status: "pending"`.
 
 If none: exit cleanly — nothing to process.
 
-### 2. Check each pending draft for a reply
+### 3. Exit early if no pending drafts remain
+
+After cleanup, if the remaining pending-drafts.json array contains **zero** entries with `status: "pending"`:
+- Exit cleanly
+- Do not read Slack
+- No Slack notifications needed
+- No further processing
+
+Only proceed to Step 4 if there is at least one entry with `status: "pending"`.
+
+### 4. Check each pending draft for a reply
 
 For each pending draft:
 - If `slack_thread_ts` is null, skip that draft entry — do not attempt thread reads.
@@ -108,25 +139,25 @@ Ignore: bot replies, replies from other users, reactions (emoji only — those a
 
 If no reply from David: leave as pending, move to next draft.
 
-### 3. Classify the reply
+### 5. Classify the reply
 
 Apply these checks **in order**. Stop at the first match.
 
-**3a. Approval signals** — publish immediately:
+**5a. Approval signals** — publish immediately:
 
 | Signal | Examples |
 |--------|---------|
 | Approve | `approve`, `approved`, `yes`, `publish`, `go`, `ship it`, `looks good`, `post it` |
-| → Action | **Publish** (Step 4a) |
+| → Action | **Publish** (Step 6a) |
 
-**3b. Rejection signals** — delete immediately:
+**5b. Rejection signals** — delete immediately:
 
 | Signal | Examples |
 |--------|---------|
 | Reject | `reject`, `rejected`, `no`, `delete`, `discard`, `trash`, `kill it`, `nope` |
-| → Action | **Delete** (Step 4b) |
+| → Action | **Delete** (Step 6b) |
 
-**3c. Editorial edit signals** — execute directly, do NOT regenerate:
+**5c. Editorial edit signals** — execute directly, do NOT regenerate:
 
 Detect by keyword presence (case-insensitive) in David's reply text:
 
@@ -136,15 +167,15 @@ Detect by keyword presence (case-insensitive) in David's reply text:
 | `change the image`, `update the image`, `swap image`, `replace image`, `fix the image`, `new image`, `different image` | Image swap |
 | `update the post`, `edit the post`, `fix the post`, `change the title`, `update the title` | General post edit |
 
-If ANY of these keywords appear in the reply → **Editorial Edit Path** (Step 4d). Never send these to regeneration.
+If ANY of these keywords appear in the reply → **Editorial Edit Path** (Step 6d). Never send these to regeneration.
 
-**3d. Feedback / content rewrite** — everything else:
+**5d. Feedback / content rewrite** — everything else:
 
-If none of 3a/3b/3c matched → **Regenerate** (Step 4c). This is for substantive content changes: tone, angle, structure, length, missing context.
+If none of 5a/5b/5c matched → **Regenerate** (Step 6c). This is for substantive content changes: tone, angle, structure, length, missing context.
 
 ---
 
-### 4a. If Approved — Publish
+### 6a. If Approved — Publish
 
 ```
 mcp__ghost-blog__update_post(
@@ -198,7 +229,7 @@ Notify David via post.py to #content:
 
 Update `reference/blog-ideas.md` — move the entry from Candidates to Published section.
 
-### 4b. If Rejected — Delete
+### 6b. If Rejected — Delete
 
 ```
 mcp__ghost-blog__delete_post(post_id="{ghost_post_id}")
@@ -211,7 +242,7 @@ Notify via post.py to #content (reply in same thread):
 [REJECTED] Draft discarded — "{Post Title}"
 ```
 
-### 4c. If Feedback — Regenerate
+### 6c. If Feedback — Regenerate
 
 **Only use this path for substantive content rewrites** — tone, angle, structure, length, missing context. If the reply contains any editorial keywords from Step 3c, go to Step 4d instead.
 
@@ -243,7 +274,7 @@ Post the new draft notification to #content as a reply in the original thread:
 Same commands: reply `approve` to publish, `reject` to discard, or give more feedback.
 ```
 
-### 4d. Editorial Edit Path — Execute Directly
+### 6d. Editorial Edit Path — Execute Directly
 
 **Use this path when Step 3c matched.** Execute the edit directly against Ghost Admin API. Do NOT delete the draft. Do NOT regenerate.
 
