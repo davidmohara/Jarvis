@@ -1,7 +1,7 @@
 ---
 status: complete
-started-at: 2026-07-27T11:04:00Z
-completed-at: 2026-07-27T11:05:30Z
+started-at: 2026-07-27T15:03:56Z
+completed-at: 2026-07-27T15:04:03Z
 outputs:
   threads_checked: 5
   new_approvals: 0
@@ -11,7 +11,7 @@ outputs:
   published: 0
   pending_approvals: 8
   awaiting_approval_after_edit: 3
-  outcome: "NO NEW SIGNALS. All 8 drafts remain pending. 3 drafts have pending editorial updates (links added on 2026-07-26). 4 drafts awaiting initial approval. No new messages from David. System awaiting approval."
+  outcome: "NO NEW SIGNALS. All 8 drafts remain pending. 3 drafts awaiting approval after recent link edits (Satya post, Gartner study, agentic arbitrage). 4 drafts awaiting initial approval. No new messages from David. System awaiting approval."
 model: haiku
 ---
 
