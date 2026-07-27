@@ -21,6 +21,7 @@ outputs:
 3. Write the updated frontmatter back to each file — do not skip the write even if score is 0.
 4. Update `state.yaml` current-step before moving to the next step — every time, no exceptions.
 5. "Last 30 days" is calculated from today's date, inclusive.
+6. **MERGE the salience block — never replace it.** The write must preserve any existing `salience.promoted: true` field. Replacing the block wholesale silently drops `promoted: true` and causes every promoted entry to re-appear as a fresh candidate in step-03 the next cycle. Use `systems/dream-cycle/salience-score.py` — it implements the correct merge-write. Do NOT write an ad-hoc scoring loop inline.
 
 ## EXECUTION PROTOCOL
 
@@ -38,6 +39,16 @@ outputs:
 - `related_people` is read for context building but is not used in the co-occurrence scoring calculation.
 
 ## YOUR TASK
+
+**Run the scoring script:**
+
+```bash
+python3 systems/dream-cycle/salience-score.py
+```
+
+This handles all file I/O with the correct merge-write behavior. Parse its stdout for `episodic_scanned`, `score_updates`, `window_entries`, `no_date`, `no_tags`, and `score_distribution` to populate `accumulated-context`. If the script errors, fall back to the manual protocol below — but fix the script before the next cycle.
+
+**Manual fallback (script unavailable only):**
 
 1. Read ALL files in `memory/episodic/` (all subdirectories). Exclude `memory/episodic/digests/`.
 

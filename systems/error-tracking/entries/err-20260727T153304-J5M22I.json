@@ -1,0 +1,15 @@
+{
+  "id": "err-20260727T153304-J5M22I",
+  "timestamp": "2026-07-27T15:33:04-05:00",
+  "session": "2026-07-27",
+  "source": "explicit",
+  "agent": "jarvis",
+  "category": "stale-data",
+  "failure_mode": "wrong-assumption",
+  "severity": "low",
+  "description": "Dream cycle carry-forward notes have been flagging nerve block as a chronic unresolved open loop across multiple weeks. David directed it should be deleted — the task is dropped/intentionally removed, not overdue. System treated absence of resolution as a problem rather than checking whether the item was intentionally dropped.",
+  "correction": "David: 'Nerve block should be deleted.' Delete the task from OmniFocus; stop surfacing it as a carry-forward item in dream cycle summaries.",
+  "systemic_fix": "When an item appears across multiple review cycles with no forward movement, verify with David whether it is overdue vs. intentionally dropped before escalating in carry-forward notes.",
+  "fix_status": "applied",
+  "related_entries": []
+}
