@@ -139,12 +139,13 @@ outputs:
 ## SUCCESS METRICS
 
 - Exactly 10 tweets stored in `accumulated-context.weekly_tweets`.
-- No tweet text exceeds 240 characters when a supporting link is attached; no tweet exceeds 280 characters otherwise.
+- No tweet text exceeds 240 characters when a supporting link is attached; no tweet exceeds 280 characters otherwise — verify character count for every tweet before writing, not just spot-checking.
 - No tweet overlaps in angle with any blog draft from step-02.
 - All 4 angle types represented across the set.
 - Each tweet has a valid, properly encoded intent URL.
 - Supporting links only sourced from `weekly_themes[].source_items` — no fabricated URLs.
 - Voice matches David's register — direct, personal, not corporate.
+- For every tweet where `supporting_url` is non-null: confirm `len(tweet_text) <= 240` explicitly before storing — a tweet that passes 240 chars with a link attached is a hard failure.
 
 ---
 

@@ -141,6 +141,9 @@ outputs:
 - Candidate rows appended to `reference/blog-ideas.md` — existing rows untouched.
 - No full posts written — hook + outline only.
 - Voice matches David's direct, first-person register.
+- Every post title is in Title Case — verify each word is capitalized appropriately before writing the file.
+- Draft bodies contain zero week-number references — scan each draft for the pattern `W\d{2}` (e.g. W29, W30) before writing; if found, remove and replace with natural prose or a Ghost link placeholder.
+- Each `##` section header is followed by a blank line before the first paragraph — no exceptions.
 
 ---
 

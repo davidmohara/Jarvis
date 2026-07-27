@@ -173,10 +173,12 @@ outputs:
 
 - David was presented with a numbered draft list before anything was sent.
 - Abbott/Texas draft excluded from default selection.
-- Each selected draft delivered to `#content` and confirmed via `read.py`.
+- Each selected draft delivered to `#content` and confirmed via `read.py` — confirmation is required; a send with no `read.py` verification does not count as delivered.
 - No duplicate sends — No-Duplicate Rule honored for every draft.
 - `drafts_sent` and `drafts_skipped` accurately reflect what happened.
 - Step marked `skipped` cleanly if David opted out.
+- Every message sent contains zero curly/smart quote characters (`"`, `"`, `'`, `'`) — verify by scanning the composed message string before calling `post.py`; if any are found, sanitize first.
+- Vault path line in each message contains a valid `obsidian://open?vault=Obsidian&file=` URI — plain text paths are a failure.
 
 ---
 

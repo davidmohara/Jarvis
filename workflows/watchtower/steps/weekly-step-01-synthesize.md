@@ -80,6 +80,8 @@ outputs:
 - At least one theme identified (or explicit "no themes" with reason if queue was genuinely empty after fallback).
 - Each theme has a synthesis note tied to David's specific lenses — not generic observations.
 - `weekly_themes` written to `state.yaml`.
+- `accumulated-context` contains `delta_check_applied: true` — a run that skips the delta check fails this metric regardless of theme count.
+- `dropped_as_continuing` is present in outputs and is an integer (zero is acceptable; absent is not).
 
 ---
 

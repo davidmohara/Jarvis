@@ -1,0 +1,147 @@
+{
+  "workflow": "watchtower-weekly",
+  "version": "2026-07-27",
+  "description": "Assertions for the Watchtower weekly content pipeline (steps 01-06). Derived from step SUCCESS METRICS and failures observed in W31 session.",
+  "assertions": [
+    {
+      "id": "ww-01-delta-check-applied",
+      "step": "weekly-step-01",
+      "description": "accumulated-context contains delta_check_applied: true",
+      "type": "field-present",
+      "field": "accumulated-context.delta_check_applied",
+      "expected": true,
+      "severity": "hard"
+    },
+    {
+      "id": "ww-02-dropped-as-continuing-present",
+      "step": "weekly-step-01",
+      "description": "outputs.dropped_as_continuing is present and is an integer",
+      "type": "field-present",
+      "field": "outputs.dropped_as_continuing",
+      "expected_type": "integer",
+      "severity": "hard"
+    },
+    {
+      "id": "ww-03-at-least-one-theme",
+      "step": "weekly-step-01",
+      "description": "At least one theme promoted (weekly_themes array non-empty)",
+      "type": "array-min-length",
+      "field": "accumulated-context.weekly_themes",
+      "min": 1,
+      "severity": "soft",
+      "note": "Zero is acceptable only when explicit no-themes reason is written to outputs"
+    },
+    {
+      "id": "ww-04-draft-per-theme",
+      "step": "weekly-step-02",
+      "description": "outputs.drafts_created >= count of weekly_themes",
+      "type": "count-match",
+      "severity": "hard"
+    },
+    {
+      "id": "ww-05-draft-paths-underscore-prefix",
+      "step": "weekly-step-02",
+      "description": "All paths in outputs.draft_paths have underscore-prefixed filename",
+      "type": "regex-all",
+      "field": "outputs.draft_paths",
+      "pattern": "/_[^/]+\\.md$",
+      "severity": "hard"
+    },
+    {
+      "id": "ww-06-title-case",
+      "step": "weekly-step-02",
+      "description": "Post title (# heading) in each draft uses Title Case — no all-lowercase or sentence-case titles",
+      "type": "manual",
+      "check": "Each draft's H1 heading must capitalize all significant words. Articles (a, an, the), prepositions, and conjunctions under 4 chars may be lowercase unless first/last word.",
+      "severity": "hard"
+    },
+    {
+      "id": "ww-07-no-week-numbers-in-body",
+      "step": "weekly-step-02",
+      "description": "Draft bodies contain no week-number references matching pattern W\\d{2}",
+      "type": "regex-absent",
+      "pattern": "\\bW\\d{2}\\b",
+      "scope": "draft-body",
+      "severity": "hard"
+    },
+    {
+      "id": "ww-08-blank-line-after-headers",
+      "step": "weekly-step-02",
+      "description": "Each ## section header is immediately followed by a blank line before paragraph text",
+      "type": "manual",
+      "check": "Scan each draft for ## headers. The line immediately after the header must be blank (empty line), not the start of a paragraph.",
+      "severity": "soft"
+    },
+    {
+      "id": "ww-09-ten-tweets",
+      "step": "weekly-step-02b",
+      "description": "Exactly 10 tweets in accumulated-context.weekly_tweets",
+      "type": "array-exact-length",
+      "field": "accumulated-context.weekly_tweets",
+      "expected": 10,
+      "severity": "hard"
+    },
+    {
+      "id": "ww-10-tweet-char-limit-linked",
+      "step": "weekly-step-02b",
+      "description": "Tweet text <= 240 chars for every tweet where supporting_url is non-null",
+      "type": "conditional-max-length",
+      "condition": "supporting_url != null",
+      "field": "text",
+      "max": 240,
+      "severity": "hard"
+    },
+    {
+      "id": "ww-11-tweet-char-limit-unlinked",
+      "step": "weekly-step-02b",
+      "description": "Tweet text <= 280 chars for every tweet where supporting_url is null",
+      "type": "conditional-max-length",
+      "condition": "supporting_url == null",
+      "field": "text",
+      "max": 280,
+      "severity": "hard"
+    },
+    {
+      "id": "ww-12-no-fabricated-source-urls",
+      "step": "weekly-step-02b",
+      "description": "All non-null supporting_url values trace back to a URL in weekly_themes[].source_items",
+      "type": "manual",
+      "check": "For each tweet with supporting_url != null, verify the URL appears in at least one source_items entry in accumulated-context.weekly_themes.",
+      "severity": "hard"
+    },
+    {
+      "id": "ww-13-slack-no-smart-quotes",
+      "step": "weekly-step-06",
+      "description": "No curly/smart quote characters in any message sent to #content",
+      "type": "regex-absent",
+      "pattern": "[“”‘’]",
+      "scope": "slack-message-text",
+      "severity": "hard"
+    },
+    {
+      "id": "ww-14-slack-obsidian-uri",
+      "step": "weekly-step-06",
+      "description": "Vault path line in each Slack message contains obsidian://open?vault=Obsidian&file= URI",
+      "type": "regex-present",
+      "pattern": "obsidian://open\\?vault=Obsidian&file=",
+      "scope": "slack-message-text",
+      "severity": "hard"
+    },
+    {
+      "id": "ww-15-delivery-confirmed",
+      "step": "weekly-step-06",
+      "description": "Every draft in drafts_sent was confirmed via read.py before proceeding to next draft",
+      "type": "manual",
+      "check": "Verify that read.py was called after each send and that the message ts appears in the response before the next send was initiated.",
+      "severity": "hard"
+    },
+    {
+      "id": "ww-16-no-duplicate-sends",
+      "step": "weekly-step-06",
+      "description": "No draft appears in both drafts_sent and was sent more than once (no duplicate ts values in channel)",
+      "type": "manual",
+      "check": "Review channel read.py output for duplicate message content within the session window.",
+      "severity": "hard"
+    }
+  ]
+}
