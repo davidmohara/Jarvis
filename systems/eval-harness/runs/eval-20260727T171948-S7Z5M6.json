@@ -1,0 +1,177 @@
+{
+  "id": "eval-20260727T171948-S7Z5M6",
+  "type": "workflow",
+  "name": "watchtower-weekly",
+  "agent": "knox",
+  "session_id": "2026-07-27",
+  "trigger": "scheduled",
+  "started": "2026-07-27T07:05:00Z",
+  "completed": "2026-07-27T17:30:00Z",
+  "duration_seconds": 37500,
+  "status": "partial",
+  "steps": [
+    {
+      "name": "weekly-step-01-synthesize",
+      "started": "2026-07-27T07:05:00Z",
+      "completed": "2026-07-27T07:20:00Z",
+      "duration_seconds": 900,
+      "status": "success",
+      "data_sources_used": ["watchtower-sources", "obsidian-vault", "web-search"],
+      "data_source_failures": []
+    },
+    {
+      "name": "weekly-step-02-draft-angles",
+      "started": "2026-07-27T07:20:00Z",
+      "completed": "2026-07-27T07:35:00Z",
+      "duration_seconds": 900,
+      "status": "success",
+      "data_sources_used": ["obsidian-vault", "identity-voice"],
+      "data_source_failures": []
+    },
+    {
+      "name": "weekly-step-02b-draft-tweets",
+      "started": "2026-07-27T07:35:00Z",
+      "completed": "2026-07-27T07:45:00Z",
+      "duration_seconds": 600,
+      "status": "success",
+      "data_sources_used": ["accumulated-context"],
+      "data_source_failures": []
+    },
+    {
+      "name": "weekly-step-03-suggest-sources",
+      "started": "2026-07-27T07:45:00Z",
+      "completed": "2026-07-27T07:46:00Z",
+      "duration_seconds": 60,
+      "status": "skipped",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "notes": "kill switch active: source_suggestions.enabled=false in config.yaml"
+    },
+    {
+      "name": "weekly-step-04-weekly-note",
+      "started": "2026-07-27T07:46:00Z",
+      "completed": "2026-07-27T07:55:00Z",
+      "duration_seconds": 540,
+      "status": "success",
+      "data_sources_used": ["obsidian-vault"],
+      "data_source_failures": []
+    },
+    {
+      "name": "weekly-step-05-report",
+      "started": "2026-07-27T07:55:00Z",
+      "completed": "2026-07-27T08:10:00Z",
+      "duration_seconds": 900,
+      "status": "success",
+      "data_sources_used": ["accumulated-context", "cowork-artifact"],
+      "data_source_failures": []
+    },
+    {
+      "name": "weekly-step-06-publish-drafts",
+      "started": "2026-07-27T17:00:00Z",
+      "completed": "2026-07-27T17:20:00Z",
+      "duration_seconds": 1200,
+      "status": "partial",
+      "data_sources_used": ["obsidian-vault", "slack-bot"],
+      "data_source_failures": ["shell-quoting-smart-quotes"],
+      "notes": "Two drafts sent to #content (Agents, Accenture). Microsoft draft excluded per David. First send attempt on Accenture failed due to smart quote shell quoting error — fixed and retried successfully."
+    }
+  ],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 2,
+      "error_ids": [
+        "err-20260727T142153-7F5CKY",
+        "err-20260727T143315-NTKXRY",
+        "err-20260727T160251-7ET7QZ",
+        "err-20260727T170154-FB3D60"
+      ]
+    },
+    "structural": {
+      "expected_outputs_written": true,
+      "outputs_non_empty": true,
+      "assertions_checked": 16,
+      "assertions_passed": 12,
+      "assertion_results": [
+        { "assertion": "step-01: delta check applied against prior 2 weeks", "passed": true },
+        { "assertion": "step-01: dropped_as_continuing count recorded in outputs", "passed": true },
+        { "assertion": "step-01: at least 1 theme promoted (new argument)", "passed": true },
+        { "assertion": "step-02: one draft per theme written to Obsidian Mind/Posts/", "passed": true },
+        { "assertion": "step-02: all draft slugs underscore-prefixed", "passed": true },
+        { "assertion": "step-02: related_posts frontmatter populated with Ghost link placeholders", "passed": true },
+        { "assertion": "step-02: no week numbers (W29/W30/etc.) in draft bodies", "passed": true },
+        { "assertion": "step-02: post titles in Title Case", "passed": false, "note": "Initial Knox run used mixed case on some titles; corrected by David" },
+        { "assertion": "step-02b: 10 tweets generated", "passed": true },
+        { "assertion": "step-02b: tweets with source links capped at 240 chars", "passed": true },
+        { "assertion": "step-02b: supporting_url present for relevant tweets", "passed": true },
+        { "assertion": "step-03: kill switch honored — no proposals generated", "passed": true },
+        { "assertion": "step-05: dashboard artifact updated with W31 view", "passed": true },
+        { "assertion": "step-06: selected drafts delivered to #content and verified via read.py", "passed": true },
+        { "assertion": "step-06: no duplicate sends", "passed": true },
+        { "assertion": "step-06: vault paths rendered as obsidian:// deep links in artifact", "passed": false, "note": "Obsidian links were not part of original run — added post-run by David request; step-06 workflow updated for future runs" }
+      ]
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "reliability": {
+    "trials": 1,
+    "mcp_mode": "live",
+    "per_trial": ["partial"],
+    "pass_at_k": 0.0,
+    "pass_hat_k": 0.0,
+    "gated": false,
+    "tier": "attended",
+    "threshold": null,
+    "gate_result": "n/a"
+  },
+  "workflow_improvements_applied_this_run": [
+    "step-01: delta check added and applied retroactively to W31",
+    "step-02: PRIOR STORY RULE with Ghost link placeholders",
+    "step-02: voice/structure notes (blank lines, colon over em-dash, sequential argument, Improving specificity, Title Case)",
+    "step-02b: supporting source links via Twitter intent url= param",
+    "step-02b: 240-char limit when link present",
+    "step-03: source_suggestions.enabled kill switch",
+    "step-05: Source link rendered alongside Post to X",
+    "step-06: smart quote sanitization rule",
+    "step-06: Obsidian deep link format for vault paths",
+    "agents/routing.md: Watchtower draft posting direct-execution rule"
+  ],
+  "failure_summary": [
+    {
+      "step": "weekly-step-06",
+      "failure": "smart quotes in Accenture draft body broke shell quoting on first send attempt",
+      "error_id": "err-20260727T170154-FB3D60",
+      "fix_applied": "switched to single-quote outer wrapping; sanitized contractions; workflow updated with rule 7"
+    },
+    {
+      "step": "master-routing",
+      "failure": "asked David to clarify what #content was instead of reading step-06 workflow",
+      "error_id": "err-20260727T170154-FB3D60",
+      "fix_applied": "routing.md updated with explicit Watchtower draft posting direct-execution rule"
+    }
+  ],
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": ["watchtower", "weekly", "w31", "delta-check", "content-pipeline"]
+}
