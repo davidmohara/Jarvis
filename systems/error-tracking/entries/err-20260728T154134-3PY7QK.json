@@ -1,0 +1,14 @@
+{
+  "id": "err-20260728T154134-3PY7QK",
+  "timestamp": "2026-07-28T15:41:34Z",
+  "session_id": "session-2026-07-28-103601",
+  "source": "explicit",
+  "agent": "master",
+  "category": "process-skip",
+  "failure_mode": "skill-not-read",
+  "severity": "medium",
+  "description": "Knox was spawned for plaud-ingest with a prompt that described the token problem as requiring interactive Chrome login. The plaud skill (skills/plaud-transcripts/SKILL.md or equivalent) handles token acquisition automatically. Master failed to instruct Knox to read the skill first, causing Knox to abort unnecessarily and report a false blocker to David.",
+  "correction": "The plaud skill handles all token pieces — no user intervention needed if the skill is used properly. Knox should always read the skill before attempting any plaud operation.",
+  "fix": "When spawning Knox for plaud-ingest, always include explicit instruction to read skills/plaud-transcripts/SKILL.md (and any plaud-related skill) before executing. Do not describe the token problem as a blocker in the spawn prompt — the skill resolves it.",
+  "recurrence_check": "Search for prior entries with category=process-skip, failure_mode=skill-not-read"
+}

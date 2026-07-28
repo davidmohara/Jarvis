@@ -2,10 +2,10 @@
   "skill": "plaud-transcripts",
   "agent": "knox",
   "trigger": "boot",
-  "started": "2026-07-14T00:00:00Z",
-  "completed": "2026-07-14T00:45:00Z",
+  "started": "2026-07-28T00:05:00Z",
+  "completed": "2026-07-28T13:45:00Z",
   "status": "success",
   "tool_failures": 0,
   "error_ids": [],
-  "notes": "2 recordings processed. 07-13 Kapil Dabi lunch ingested to zzPlaud/Other/. 07-14 Steve Hall coffee ingested to zzPlaud/Client/. Speaker 1 in 07-13 resolved as Kapil Dabi via M365 calendar ('Lunch with Kapil/David @ Seasons 52, Plano'). Speaker rename API failed (transcript in regeneration); applied directly to staged file via sed. 5 Monday action items created. Daily notes created for 07-13 and 07-14. Staging cleaned (5 files). Both recordings shared with Alice Mburu via step-05b."
+  "notes": "Processed 1 recording: 3ed7f0655a766531189d692f2c76b72c (2026-07-22 Santa's Wonderland proposal call, ~35 min). Polled for transcript completion (was pending at start). Speakers renamed: Speaker 5 -> Scott Medlin, Speaker 4 -> Chelsea Castillo (self-identified in transcript). Vault note written to zzPlaud/Client/2026-07-22 Sales Proposal - Santa's Wonderland Technology Discovery.md. Daily note created at Calendar/2026/07-July/2026-07-22.md. 2 OmniFocus tasks created in Sales project. Staging cleanup: 7 files removed."
 }
