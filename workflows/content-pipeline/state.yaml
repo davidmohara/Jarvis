@@ -1,15 +1,12 @@
 ---
 status: complete
-started-at: 2026-07-27T13:04:00Z
-completed-at: 2026-07-27T13:04:15Z
+started-at: 2026-07-28T06:08:00Z
+completed-at: 2026-07-28T06:09:00Z
 outputs:
-  threads_checked: 5
-  new_approvals: 0
-  new_rejections: 0
-  new_edits: 0
-  actions_taken: 0
-  published: 0
-  pending_approvals: 8
-  pending_edits: 3
-  outcome: "NO NEW SIGNALS. All 8 posts remain pending. Corrections, Governance, and SaaS Stack completed their editorial updates (links added 2026-07-26) and await approval. 4 Watchtower W29 posts await initial approval. No new messages from David."
-model: haiku
+  messages_checked: 7
+  new_digests: 0
+  new_urls: 0
+  drafts_created: 0
+  pending_drafts: 11
+  outcome: "NO NEW CONTENT. All 3 messages from the last 24h already in pipeline (Tarlov Cysts, Agents Don't Need Seats, Accenture Reskilling Bar — all W31/direct drops processed yesterday). 11 posts pending approval."
+model: sonnet
