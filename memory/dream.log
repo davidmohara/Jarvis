@@ -1905,3 +1905,20 @@ digests_updated: 0
 errors: 0
 summary: "Boot pull clean (fast-forward e417543..e9db591; stash/pop for unstaged files — eval dashboard, state.yaml). Step-01: 0 files expired (dream-summary-2026-07-26 expires exactly today, not < today; system-eval-2026-07-25 expires at 04:34 CT, current time 03:09; 10 unparseable/no-expires golf+sc+felix-derek cluster unchanged). Step-02: 234 episodic files scored, 80 in window; dist 0:216,1:3,3:3,4:4,5:8; step-02 script dropped promoted field (merge-write bug recreated). Step-03: 14 candidates surfaced — all re-flags of already-documented entries; 3 semantic entries updated with re-flag notes (dream-summary-pattern, daily-review-pattern, account-pursuit-map-pattern); promoted:true re-set on all 14. Error scan: 119 errors, 9 qualifying categories — all in LESSONS.md, 0 new lessons. Step-04: 0 compression candidates (Q2 digest consumed all; next window Oct). Carry-forward: Q3 rocks still unwritten week 5; nerve block unscheduled; Alice delegation tracker empty; step-02 merge-write fix needed in salience_score.py script."
 ---
+
+---
+## 2026-07-28T03:13:52 CDT
+session_id: dream-cycle-2026-07-28-030927
+working_archived: 2
+working_deleted: 0
+episodic_scanned: 236
+score_updates: 236
+clusters_found: 0
+semantic_created: 0
+semantic_updated: 0
+promoted_entries: 0
+entries_compressed: 0
+digests_updated: 0
+errors: 0
+summary: "Boot pull clean (already up to date; stash/pop for daily-review + state.yaml). Step-01 archived 2 expired files (dream-summary-2026-07-26, system-eval-2026-07-25), skipped 15 (4 not expired, 11 unparseable including persistent golf/sc/felix-derek cluster). Step-02 scored 236 episodic files (80 in window); dist 0:216,1:2,2:2,4:4,5:10,6:1,8:1; 0 errors. Step-03: 0 promotion candidates (all 15 high-score entries already promoted=true from prior cycles); error scan 125 errors/30d — 2 new sub-patterns appended to LESSONS.md: process-skip/context-blindness and data-accuracy/protocol-skip. Step-04: 0 compression candidates (Q2 digest consumed all; next window Oct). Carry-forward: Q3 rocks unwritten week 5; nerve block unscheduled; Alice delegation tracker empty; morning-briefing output regression unresolved (F grade Jul 20)."
+---

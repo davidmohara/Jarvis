@@ -21,9 +21,10 @@ related_people:
   - andrew-rauch
   last-promoted-check: 2026-07-27
   last-promoted-check: 2026-07-27
+  last-promoted-check: 2026-07-27
 salience:
   score: 0
-  last-promoted-check: 2026-07-27
+  last-promoted-check: 2026-07-28
 ---
 
 ## What happened

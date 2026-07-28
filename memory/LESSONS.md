@@ -407,3 +407,19 @@ Pattern: Agent declares something not found after a single search attempt instea
 Fix: Follow the Search Discipline rule in SYSTEM.md: minimum 3 search strategies before declaring not found. For files: filename, content keyword, directory browse. For calendar: subject, attendee, date range. For contacts: name, email, organization. State all strategies tried when reporting not found.
 Status: active
 
+## 2026-07-28 — Process Skip / Context Blindness
+Detected: 3 occurrences over 30 days
+Category: process-skip
+Failure mode: context-blindness
+Pattern: Agent skips a required process step not because of a deliberate shortcut (protocol-skip) but because it failed to recognize that the context called for the step at all. The agent is not ignoring a rule — it is not seeing the trigger. Distinct from protocol-skip (knows the rule, skips it) and lazy-search (looks but not hard enough).
+Fix: Before completing any multi-step task, explicitly enumerate required steps from the owning workflow or skill and confirm each was executed. Do not rely on recognition — use checklist verification. When a step is gated on a condition, verify the condition is checked rather than assumed.
+Status: active
+
+## 2026-07-28 — Data Accuracy / Protocol Skip
+Detected: 3 occurrences over 30 days
+Category: data-accuracy
+Failure mode: protocol-skip
+Pattern: Data inaccuracies arise specifically from skipping a validation or cross-reference step that the protocol requires. Agent presents or acts on data without running the prescribed verification — not because verification failed, but because it was omitted. Examples: presenting briefing data without cross-referencing against sent items, reporting pipeline figures without re-running the filter isolation gate.
+Fix: Any data presented in a deliverable must pass the cross-reference step mandated by the owning workflow. Flag unverified data explicitly rather than presenting it as fact. If the verification step cannot be completed, say so rather than omitting it silently.
+Status: active
+
