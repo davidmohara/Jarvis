@@ -1,19 +1,15 @@
 ---
 status: complete
-started-at: 2026-07-28T13:04:00Z
-completed-at: 2026-07-28T13:04:30Z
+started-at: 2026-07-28T21:08:11Z
+completed-at: 2026-07-28T21:08:25Z
 outputs:
-  threads_checked: 3
-  new_approvals: 0
-  new_rejections: 0
-  new_edits: 0
-  actions_taken: 0
-  published: 0
-  cleaned_entries: 1
+  messages_scanned: 4
+  new_urls: 0
+  new_digests: 0
+  drafts_created: 0
   pending_approvals: 3
-  awaiting_approval_after_edit: 1
-  outcome: "CLEANUP COMPLETE. Removed 1 published post (Tarlov Cysts). 3 drafts remain pending: You're Paying for the Pilot, Governance (link verified, awaiting approval), Agents Don't Need Seats. No new approval signals in Slack. System awaiting David's input."
-model: haiku
+  outcome: "No new URLs or digests in last 24 hours. 4 messages scanned — all bot messages (Jarvis operational noise), none with digest signal. Notification posted to #content. 3 drafts remain pending approval."
+model: sonnet
 ---
 
 <!-- personal:start -->
