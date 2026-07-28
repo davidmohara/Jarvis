@@ -1,12 +1,16 @@
 ---
 status: complete
-started-at: 2026-07-28T06:08:00Z
-completed-at: 2026-07-28T06:09:00Z
+started-at: 2026-07-28T09:04:00Z
+completed-at: 2026-07-28T09:05:00Z
 outputs:
-  messages_checked: 7
-  new_digests: 0
-  new_urls: 0
-  drafts_created: 0
-  pending_drafts: 11
-  outcome: "NO NEW CONTENT. All 3 messages from the last 24h already in pipeline (Tarlov Cysts, Agents Don't Need Seats, Accenture Reskilling Bar — all W31/direct drops processed yesterday). 11 posts pending approval."
-model: sonnet
+  threads_checked: 4
+  new_approvals: 0
+  new_rejections: 0
+  new_edits: 0
+  actions_taken: 0
+  published: 0
+  pending_approvals: 4
+  awaiting_approval_after_edit: 1
+  cleaned_published: 7
+  outcome: "NO NEW SIGNALS. Cleanup removed 7 previously-published posts. 4 drafts remain pending approval: You're Paying for the Pilot, Governance (awaiting approval after Gartner link edit), Tarlov Cysts, Agents Don't Need Seats. System awaiting approval."
+model: haiku
