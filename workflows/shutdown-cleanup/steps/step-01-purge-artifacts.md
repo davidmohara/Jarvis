@@ -101,6 +101,7 @@ model: sonnet
    | `specs/` | dir |
    | `systems/` | dir |
    | `tasks/` | dir |
+   | `Talks/` | dir |
    | `training/` | dir |
    | `workflows/` | dir |
    | `Remarkable/` | dir |
