@@ -1,15 +1,12 @@
 ---
 status: complete
-started-at: 2026-07-28T15:04:00Z
-completed-at: 2026-07-28T15:04:30Z
+started-at: 2026-07-29T06:08:00Z
+completed-at: 2026-07-29T06:08:45Z
 outputs:
-  threads_checked: 3
-  new_approvals: 0
-  new_rejections: 0
-  new_edits: 0
-  actions_taken: 0
-  published: 0
-  pending_approvals: 3
-  outcome: "All pending drafts remain awaiting approval. No new signals detected. Governance post link edit previously completed and verified. System ready for next approval window."
-model: haiku
+  messages_scanned: 2
+  new_urls: 0
+  new_digests: 0
+  posts_drafted: 0
+  outcome: "No new URLs or digests in the last 24 hours. Both messages were Jarvis bot operational noise. Notification posted to #content."
+model: sonnet
 ---
