@@ -1,0 +1,471 @@
+{
+  "date": "2026-07-29",
+  "generated": "2026-07-29T08:30:00Z",
+  "window_hours": 72,
+  "sources_used": [
+    "CNN Politics",
+    "MSNBC",
+    "NBC News Politics",
+    "The Hill",
+    "Axios",
+    "The Daily Beast",
+    "Slate",
+    "The New Republic",
+    "Fox News Politics",
+    "National Review",
+    "Washington Examiner",
+    "The Federalist",
+    "The Daily Wire",
+    "Breitbart",
+    "Townhall",
+    "RealClearPolitics",
+    "The American Conservative",
+    "The American Spectator",
+    "The Free Press"
+  ],
+  "sources_muted": [
+    {
+      "name": "New York Times",
+      "lean": "left",
+      "reason": "paywall blocks crawler"
+    },
+    {
+      "name": "Washington Post",
+      "lean": "left",
+      "reason": "paywall blocks crawler"
+    },
+    {
+      "name": "Politico",
+      "lean": "left",
+      "reason": "paywall blocks crawler"
+    },
+    {
+      "name": "Vox Politics",
+      "lean": "left",
+      "reason": "blocks crawler"
+    },
+    {
+      "name": "Mother Jones",
+      "lean": "left",
+      "reason": "blocks crawler"
+    },
+    {
+      "name": "WSJ Opinion",
+      "lean": "right",
+      "reason": "paywall blocks crawler"
+    },
+    {
+      "name": "New York Post",
+      "lean": "right",
+      "reason": "blocks crawler"
+    },
+    {
+      "name": "Reuters Politics",
+      "lean": "center",
+      "reason": "blocks crawler"
+    },
+    {
+      "name": "Associated Press",
+      "lean": "center",
+      "reason": "blocks crawler"
+    },
+    {
+      "name": "BBC US & Canada",
+      "lean": "center",
+      "reason": "blocks crawler"
+    }
+  ],
+  "counts": {
+    "total_items": 49,
+    "by_lean": {
+      "left": 26,
+      "right": 21,
+      "center": 2
+    },
+    "shared_topics": 4,
+    "gap_left": 5,
+    "gap_right": 7
+  },
+  "shared_topics": [
+    {
+      "topic_key": "iran-ballistic-missile-ceasefire-over-july29",
+      "title": "Iran Fires Ballistic Missiles at US Forces; Ceasefire Effectively Over",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New \u2014 first appearance",
+      "summary": "Iran launched ballistic missiles in what CENTCOM called an 'attempted surprise attack' on US military targets in Jordan. Jordanian air defenses intercepted five missiles. The strike came after a brief pause in strikes that had been framed as space for negotiations, but Iran denied any current negotiations with the US. The ceasefire is now effectively over. Netanyahu met with Trump at the White House the same day to discuss the conflict and Abraham Accords expansion.",
+      "left": {
+        "framing": "Left media frames the renewed strikes as evidence that Trump's Iran policy has failed \u2014 peace never materialized, and the US now faces an escalation it cannot easily exit. CNN's live coverage emphasizes the humanitarian and diplomatic cost, with Axios framing the renewed fighting as a sign that 'at every fork on Iran, Trump's choices get worse.' The Hill covers mediator progress cautiously, noting Iran's FM denies any negotiations.",
+        "sources": [
+          {
+            "name": "CNN Politics",
+            "url": "https://www.cnn.com/2026/07/29/world/live-news/iran-trump-news"
+          },
+          {
+            "name": "Axios",
+            "url": "https://www.axios.com/2026/07/21/iran-war-ceasefire-proposal-trump-troops"
+          },
+          {
+            "name": "The Hill",
+            "url": "https://thehill.com/homenews/5994769-us-iran-ceasefire-negotiations-progress/"
+          }
+        ]
+      },
+      "right": {
+        "framing": "Right media frames the Iranian missile strike as an act of aggression requiring a strong US military response. Fox News leads with CENTCOM's successful intercept as proof of US defensive capability. Breitbart cites a poll claiming majority of Americans want the US to 'finish the job.' The American Conservative \u2014 an outlier on the right \u2014 calls for bringing troops home, arguing peace has failed to materialize after three months.",
+        "sources": [
+          {
+            "name": "Fox News Politics",
+            "url": "https://www.foxnews.com/live-news/trump-netanyahu-meeting-iran-war-white-house-july-28-2026"
+          },
+          {
+            "name": "Breitbart",
+            "url": "https://www.breitbart.com/politics/2026/07/27/exclusive-poll-shows-majority-believe-u-s-must-finish-job-iran/"
+          },
+          {
+            "name": "The American Conservative",
+            "url": "https://www.theamericanconservative.com/bring-the-troops-home-mr-president/"
+          }
+        ]
+      },
+      "correlation": 35,
+      "correlation_label": "Same military event, sharply divergent narratives: left sees a failing war, right sees justified defense requiring completion."
+    },
+    {
+      "topic_key": "sc-graham-succession-darline-primary-july29",
+      "title": "SC Senate: Darline Graham Appointed, Aug. 11 Primary Underway",
+      "days_seen": 2,
+      "relevance": 70,
+      "relevance_label": "Recurring \u2014 day 2",
+      "summary": "Gov. McMaster appointed Darline Graham Nordone, sister of the late Sen. Lindsey Graham, to serve out the remainder of his term. A special GOP primary is set for Aug. 11, with a runoff Aug. 25 if needed. Trump has endorsed Darline Graham. Other Republicans \u2014 including Norman, Mace, and Fry \u2014 are defying Trump's pick and running in the primary. Democrat Annie Andrews will face the winner in November.",
+      "left": {
+        "framing": "Left media covers this as a competitive race that could break into play, depending on whether the primary produces a weaker GOP nominee. NBC News focuses on the scramble to replace Graham and the compressed timeline. Coverage notes Democrats' opportunity in a state they typically cannot compete in.",
+        "sources": [
+          {
+            "name": "NBC News Politics",
+            "url": "https://www.nbcnews.com/politics/2026-election/trump-lindsey-graham-sister-darline-mcmaster-appoint-senate-term-rcna587302"
+          },
+          {
+            "name": "CNN Politics",
+            "url": "https://www.cnn.com/2026/07/12/politics/lindsey-graham-replacement-senate"
+          }
+        ]
+      },
+      "right": {
+        "framing": "Right media frames this as a loyalty test: who follows Trump and who defies him. National Review and Daily Wire cover the intra-GOP contest closely, with some noting that internal splits could weaken the eventual nominee. Breitbart emphasizes the compressed timeline and the risk that an anti-Trump pick could cost Republicans the seat.",
+        "sources": [
+          {
+            "name": "National Review",
+            "url": "https://www.nationalreview.com/2026/07/the-week-the-iran-war-resumes/"
+          },
+          {
+            "name": "The Daily Wire",
+            "url": "https://www.dailywire.com/news/lefty-ghouls-are-already-celebrating-lindsey-grahams-death"
+          }
+        ]
+      },
+      "correlation": 55,
+      "correlation_label": "Both sides cover the same vacancy and race structure; left eyes Democratic opportunity, right focuses on GOP intra-party loyalty dynamics."
+    },
+    {
+      "topic_key": "midterms-100-days-polling-generic-ballot-july29",
+      "title": "100 Days to Midterms: Generic Ballot, Fundraising, and Terrain",
+      "days_seen": 2,
+      "relevance": 70,
+      "relevance_label": "Recurring \u2014 day 2",
+      "summary": "With exactly 100 days until November 3 midterms, Democrats lead the generic congressional ballot by 4\u201311 points depending on the poll. Democrats are favored to win the House but are underdogs in the Senate. Republicans hold a 5-to-1 cash advantage: $677M vs. $136M. Redistricting in nine states creates additional GOP terrain advantages even as the national political environment favors Democrats. Key primaries on Aug. 4 in Michigan, Arizona, Kansas, Missouri, and Washington.",
+      "left": {
+        "framing": "Left media highlights generic ballot leads and Trump's record-low approval as signs Democrats are well-positioned. Axios and The Hill frame the favorable environment while acknowledging the terrain disadvantage. NBC emphasizes that Democrats need to flip four Senate seats \u2014 a difficult but achievable task.",
+        "sources": [
+          {
+            "name": "The Hill",
+            "url": "https://thehill.com/homenews/campaign/5984107-democratic-poll-leads-gop/"
+          },
+          {
+            "name": "Axios",
+            "url": "https://www.axios.com/2026/07/26/midterm-election-outlook-100-days"
+          },
+          {
+            "name": "NBC News Politics",
+            "url": "https://www.nbcnews.com/politics/2026-election"
+          }
+        ]
+      },
+      "right": {
+        "framing": "Right media emphasizes the 5-to-1 fundraising advantage, redistricting gains, and the argument that generic ballot numbers historically overstate Democratic performance. Townhall and RCP frame DSA's leftward pull as the Democrats' 1972 McGovern moment that could squander their polling lead. Breitbart highlights House polling where GOP holds a defensible map.",
+        "sources": [
+          {
+            "name": "Townhall",
+            "url": "https://townhall.com/tipsheet/mattvespa/2026/07/28/these-latest-polls-are-disastrous-for-dems-n2680267"
+          },
+          {
+            "name": "RealClearPolitics",
+            "url": "https://www.realclearpolitics.com/2026/07/24/itrsquos_the_year_of_the_dsa_in_democratic_politics_706104.html"
+          },
+          {
+            "name": "Breitbart",
+            "url": "https://www.breitbart.com/politics/2026/07/28/nolte-latest-polling-gives-gop-hope-to-hold-u-s-house/"
+          }
+        ]
+      },
+      "correlation": 62,
+      "correlation_label": "Both sides report the same polling data; they diverge on whether ballot leads or structural terrain will determine the outcome."
+    },
+    {
+      "topic_key": "noncitizen-voter-rolls-doj-save-act-july29",
+      "title": "Noncitizen Voter Registration: DHS Report, NJ DMV Error, DOJ Demand",
+      "days_seen": 2,
+      "relevance": 70,
+      "relevance_label": "Recurring \u2014 day 2",
+      "summary": "DHS reported over 250,000 noncitizens are registered to vote across California, Pennsylvania, New Jersey, and Nevada. A separate NJ DMV software error registered 6,600 noncitizens, of whom 400 voted. The DOJ demanded NJ produce records within 5 days. The right is using these developments to argue urgency for the SAVE Act; the left has largely not covered this story this cycle.",
+      "left": {
+        "framing": "The Hill covered the NJ DMV error factually, noting the governor acknowledged the software glitch. Left media framing, where present, emphasizes the accidental nature of the error rather than treating it as evidence of widespread fraud. CNN has largely not covered the DHS 250K figure.",
+        "sources": [
+          {
+            "name": "The Hill",
+            "url": "https://thehill.com/homenews/administration/5973514-save-america-act-push/"
+          }
+        ]
+      },
+      "right": {
+        "framing": "The Federalist, Daily Wire, and Breitbart frame the DHS report and NJ DMV error as proof that noncitizen voting is a systemic threat, directly linking both to the urgency of passing the SAVE Act. The Federalist led with '250K noncitizens registered in 4 states' as a top story. Washington Examiner ties DOJ's 5-day deadline to the Senate SAVE Act fight.",
+        "sources": [
+          {
+            "name": "The Federalist",
+            "url": "https://thefederalist.com/2026/07/16/dhs-more-than-250000-noncitizens-are-registered-to-vote-in-four-states/"
+          },
+          {
+            "name": "Breitbart",
+            "url": "https://www.breitbart.com/politics/2026/07/28/nolte-latest-polling-gives-gop-hope-to-hold-u-s-house/"
+          },
+          {
+            "name": "Washington Examiner",
+            "url": "https://www.washingtonexaminer.com/news/senate/4664980/thune-pours-cold-water-trump-call-axe-august-recess-save-america-act/"
+          }
+        ]
+      },
+      "correlation": 22,
+      "correlation_label": "Left covers the NJ error as a software glitch; right frames the same events as evidence of systemic noncitizen voting \u2014 effectively two different stories."
+    }
+  ],
+  "gap_left": [
+    {
+      "topic_key": "trump-medicare-part-d-subsidy-cut-july29",
+      "title": "Trump Admin Ending Medicare Part D Subsidies \u2014 25M Seniors Affected",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New \u2014 first appearance",
+      "summary": "The Trump administration announced it will stop providing billions in subsidies to insurance companies that keep premiums low for Medicare prescription drug plans (Part D) after 2026. Roughly 25 million people have Part D plans. New premium rates will arrive in the fall \u2014 right around the midterm elections \u2014 giving Democrats a potent campaign issue. The New Republic reports the move could cause significant cost spikes for seniors.",
+      "sources": [
+        {
+          "name": "The New Republic",
+          "url": "https://newrepublic.com/post/213660/donald-trump-medicare-subsidies-seniors-drug-prices"
+        },
+        {
+          "name": "CNN Politics",
+          "url": "https://www.cnn.com/2026/07/28/politics/republican-midterms-poll-trump-inflation"
+        }
+      ]
+    },
+    {
+      "topic_key": "trump-michigan-rally-tariff-push-july29",
+      "title": "Trump Michigan Rally: Tariff Pitch Ahead of Aug. 4 Primaries",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New \u2014 first appearance",
+      "summary": "Trump held a major rally in Milford, Michigan on July 27, boosting GOP Senate and House candidates ahead of the August 4 primary. He used the rally to push his tariff agenda, framing tariffs as protecting Michigan manufacturing jobs. Left media coverage noted the rally was part of an economic pitch voters are 'not buying,' with only 35% approving of his economic handling. The visit came as Michigan Democrats hold a contested Senate primary between Haley Stevens and Abdul el-Sayed.",
+      "sources": [
+        {
+          "name": "NBC News Politics",
+          "url": "https://www.nbcnews.com/politics/trump-administration/live-blog/trump-congress-iran-2026-midterm-tariffs-live-updates-rcna589394"
+        },
+        {
+          "name": "Axios",
+          "url": "https://www.axios.com/2026/07/27/trump-economy-polling-democrats-midterms"
+        }
+      ]
+    },
+    {
+      "topic_key": "trump-economy-approval-record-low-july29",
+      "title": "Trump Approval Hits Record Low; Economy Voters Aren't Buying",
+      "days_seen": 2,
+      "relevance": 70,
+      "relevance_label": "Recurring \u2014 day 2",
+      "summary": "Trump's approval rating fell to 34% in the Economist/YouGov poll, tied with historical lows. Only 35% approve of his economic handling; 65% disapprove. Only 29% approve of his handling of inflation. Nearly 8 in 10 Americans say the administration has neglected the economy as its top issue \u2014 including 85% of independents and 58% of Republicans. Left media frames this as a structural midterm liability for the GOP.",
+      "sources": [
+        {
+          "name": "CNN Politics",
+          "url": "https://www.cnn.com/2026/07/28/politics/republican-midterms-poll-trump-inflation"
+        },
+        {
+          "name": "The Hill",
+          "url": "https://thehill.com/homenews/administration/5995551-economist-yougov-poll-results/"
+        },
+        {
+          "name": "Axios",
+          "url": "https://www.axios.com/2026/07/27/trump-economy-polling-democrats-midterms"
+        }
+      ]
+    },
+    {
+      "topic_key": "ma-senate-markey-moulton-primary-july29",
+      "title": "Massachusetts Senate Primary: Markey vs. Moulton Generational Battle",
+      "days_seen": 2,
+      "relevance": 70,
+      "relevance_label": "Recurring \u2014 day 2",
+      "summary": "Incumbent progressive Sen. Ed Markey faces moderate Rep. Seth Moulton in an August 4 Democratic primary \u2014 a generational battle pitting an older progressive against a younger centrist veteran. The race reflects broader tensions within the Democratic Party between establishment moderates and the progressive wing. CNN frames it as a bellwether for which direction the party is heading.",
+      "sources": [
+        {
+          "name": "CNN Politics",
+          "url": "https://www.cnn.com/2026/07/26/politics/massachusetts-democratic-senate-primary-moulton-markey"
+        }
+      ]
+    },
+    {
+      "topic_key": "scotus-approval-record-low-gallup-july29",
+      "title": "SCOTUS Approval at Record Low: 33% \u2014 Republicans Defect After Court Blocked Trump",
+      "days_seen": 2,
+      "relevance": 70,
+      "relevance_label": "Recurring \u2014 day 2",
+      "summary": "A new Gallup poll found only 33% of Americans approve of the Supreme Court's job performance, a record low, while 61% disapprove. The drop was driven by a 20-point collapse in Republican approval after the court struck down two of Trump's signature policies. Left media covers this as evidence of eroding legitimacy; right media has largely not engaged with the Gallup findings this cycle.",
+      "sources": [
+        {
+          "name": "The Daily Beast",
+          "url": "https://www.thedailybeast.com/supreme-courts-tanking-approval-rating-hits-record-low/"
+        },
+        {
+          "name": "The Hill",
+          "url": "https://thehill.com/homenews/administration/5995551-economist-yougov-poll-results/"
+        }
+      ]
+    }
+  ],
+  "gap_right": [
+    {
+      "topic_key": "texas-senate-talarico-paxton-poll-july29",
+      "title": "Texas Senate: Democrat Talarico Leads GOP's Paxton by 5 Points",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New \u2014 first appearance",
+      "summary": "A new poll shows Democrat James Talarico leading Republican Ken Paxton 45%-40% in the Texas Senate race. Paxton \u2014 the MAGA firebrand who ousted longtime incumbent Sen. John Cornyn in the primary \u2014 continues to carry significant political baggage from past scandal. Right media covers this as a warning sign that Paxton's nomination may have overextended the GOP in what should be a safely Republican state.",
+      "sources": [
+        {
+          "name": "Breitbart",
+          "url": "https://www.breitbart.com/politics/2026/07/28/poll-talarico-opens-five-point-lead-over-paxton-in-texas-senate-race/"
+        },
+        {
+          "name": "Fox News Politics",
+          "url": "https://www.foxnews.com/politics/four-months-midterms-12-races-determine-senate-majority"
+        }
+      ]
+    },
+    {
+      "topic_key": "dnc-ken-martin-chaos-financial-july29",
+      "title": "DNC in Disarray: Chair Ken Martin Isolated, Threw Phone at Staffer",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New \u2014 first appearance",
+      "summary": "Reporting reveals DNC chair Ken Martin threw his phone at a junior aide's desk and filed a formal HR complaint. Martin is increasingly isolated within the party. The DNC faces a severe financial disadvantage heading into the midterms \u2014 $136M vs. Republicans' $677M \u2014 and internal turmoil is deepening. Right media covers this as evidence that the Democratic Party infrastructure is collapsing.",
+      "sources": [
+        {
+          "name": "Townhall",
+          "url": "https://townhall.com/tipsheet/mattvespa/2026/07/27/the-nyt-reported-on-the-state-of-the-democratic-party-its-a-total-disaster-n2680153"
+        },
+        {
+          "name": "RealClearPolitics",
+          "url": "https://www.realclearpolitics.com/2026/07/27/democrats_need_to_postpone_their_civil_war_706310.html"
+        }
+      ]
+    },
+    {
+      "topic_key": "gen-z-socialism-desperation-july29",
+      "title": "Gen Z Turns to Socialism \u2014 Right Media Responds to DSA's Youth Surge",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New \u2014 first appearance",
+      "summary": "With DSA hitting 120,000 members and young voters polling favorably on socialism, right media is responding with counter-messaging framing the trend as economically illiterate desperation rather than a durable realignment. Townhall's Schlafly column argues Gen Z's embrace of socialism reflects economic anxiety, not ideological conviction. The American Spectator frames it as a 'Castroist playbook' coming to America.",
+      "sources": [
+        {
+          "name": "Townhall",
+          "url": "https://townhall.com/columnists/johnandandyschlafly/2026/07/29/gen-z-turns-to-socialism-in-desperation-n2680300"
+        },
+        {
+          "name": "The American Spectator",
+          "url": "https://spectator.org/the-castroist-playbook-comes-to-america/"
+        }
+      ]
+    },
+    {
+      "topic_key": "vance-retail-politics-gop-strategy-july29",
+      "title": "Vance's Old School Retail Politics Strategy to Save GOP",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New \u2014 first appearance",
+      "summary": "RealClearPolitics reports that VP JD Vance is quietly running a traditional retail politics operation \u2014 town halls, constituent service, state-level relationships \u2014 in a deliberate effort to help Republicans hold Congress against a difficult environment. Right media frames this as the GOP's smart counter-strategy to the Democrats' structural generic ballot advantage.",
+      "sources": [
+        {
+          "name": "RealClearPolitics",
+          "url": "https://www.realclearpolitics.com/2026/07/26/vances_old_school_politics_might_just_save_the_gop_706240.html"
+        }
+      ]
+    },
+    {
+      "topic_key": "jay-clayton-dni-confirmed-july29",
+      "title": "Jay Clayton Confirmed as DNI 51-47; Democrats Opposed",
+      "days_seen": 2,
+      "relevance": 70,
+      "relevance_label": "Recurring \u2014 day 2",
+      "summary": "The Senate confirmed Manhattan federal prosecutor Jay Clayton as the new Director of National Intelligence on a party-line 51-47 vote. Clayton succeeds acting director Bill Pulte, who had fired approximately 30% of the remaining intelligence community before departing. Right media covers the confirmation as a necessary step to stabilize the intelligence community; the confirmation received minimal left media coverage.",
+      "sources": [
+        {
+          "name": "The Daily Wire",
+          "url": "https://www.dailywire.com/news/jay-clayton-confirmed-as-trumps-new-spy-chief-after-uproar-from-dems"
+        },
+        {
+          "name": "Breitbart",
+          "url": "https://www.breitbart.com/politics/2026/07/28/senate-confirms-jay-clayton-director-national-intelligence/"
+        }
+      ]
+    },
+    {
+      "topic_key": "platner-exit-maine-dsa-chaos-july29",
+      "title": "Platner Exits Maine Senate Race; DSA Replacement Already Facing Allegations",
+      "days_seen": 2,
+      "relevance": 70,
+      "relevance_label": "Recurring \u2014 day 2",
+      "summary": "Graham Platner officially withdrew from the Maine Senate race with a profane exit statement after rape allegations, sexual misconduct claims, and scrutiny over a Nazi tattoo. Democrats are now scrambling to find a replacement. The leading DSA candidate to replace Platner was immediately accused of hitting a female colleague during an argument. Right media is closely tracking the collapse as evidence of Democratic Party vetting failures.",
+      "sources": [
+        {
+          "name": "The Daily Wire",
+          "url": "https://www.dailywire.com/news/graham-platner-ends-senate-bid-with-profane-political-message/"
+        },
+        {
+          "name": "National Review",
+          "url": "https://www.nationalreview.com/2026/07/people-who-should-never-work-in-democratic-politics-again/"
+        },
+        {
+          "name": "The American Conservative",
+          "url": "https://www.theamericanconservative.com/platner-exits-maine-senate-race/"
+        }
+      ]
+    },
+    {
+      "topic_key": "mamdani-netanyahu-walkback-dsa-preview-july29",
+      "title": "Mamdani Walks Back Netanyahu Arrest Pledge \u2014 Right Calls It DSA Governance Preview",
+      "days_seen": 2,
+      "relevance": 70,
+      "relevance_label": "Recurring \u2014 day 2",
+      "summary": "NYC Mayor Zohran Mamdani admitted he cannot actually arrest Israeli PM Netanyahu and walked back his prominent campaign pledge. Right media frames this as proof that DSA candidates make radical promises they cannot keep when they reach office \u2014 the Spectator's 'Mamdani Warning' piece argues this is a preview of what DSA governance looks like nationally if the party continues winning primaries.",
+      "sources": [
+        {
+          "name": "The American Spectator",
+          "url": "https://spectator.org/the-mamdani-warning/"
+        },
+        {
+          "name": "The Free Press",
+          "url": "https://www.thefp.com/p/douglas-murray-mamdani-netanyahu"
+        }
+      ]
+    }
+  ]
+}

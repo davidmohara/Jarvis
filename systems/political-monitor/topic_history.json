@@ -1,501 +1,133 @@
 {
-  "updated": "2026-07-28",
+  "updated": "2026-07-29",
   "topics": [
     {
-      "key": "us-iran-conflict-hormuz",
-      "title_latest": "US-Iran War: Strikes Paused Day 14+, Hormuz Diplomacy Ongoing",
-      "keywords": ["iran", "strikes", "hormuz", "blockade", "centcom"],
-      "first_seen": "2026-07-14",
-      "last_seen": "2026-07-23",
-      "days_seen": 10
-    },
-    {
-      "key": "june-jobs-economy-inflation",
-      "title_latest": "June Jobs 57K; Inflation 4.2% Outpaces Wages; Iran War Driving Gas Above $4",
-      "keywords": ["jobs", "report", "unemployment", "inflation", "economy"],
-      "first_seen": "2026-07-13",
-      "last_seen": "2026-07-23",
-      "days_seen": 10
-    },
-    {
-      "key": "immigration-enforcement-green-card-bond",
-      "title_latest": "Trump Immigration: $100K Green Card Bond Piloting, 2K Arrests/Day, SCOTUS TPS Ruling",
-      "keywords": ["immigration", "ice", "green-card", "bond", "scotus"],
-      "first_seen": "2026-07-14",
-      "last_seen": "2026-07-23",
-      "days_seen": 10
-    },
-    {
-      "key": "iran-war-roils-uk-politics",
-      "title_latest": "Andy Burnham Becomes UK's 7th PM in a Decade; Global Socialism Rise Narrative",
-      "keywords": ["iran", "uk", "politics", "allies", "burnham"],
-      "first_seen": "2026-07-16",
-      "last_seen": "2026-07-23",
-      "days_seen": 8
-    },
-    {
-      "key": "maine-senate-troy-jackson-replacement",
-      "title_latest": "Maine Senate: Troy Jackson Formally Nominated; 101-Day Sprint vs. Collins",
-      "keywords": ["maine", "jackson", "platner", "collins", "convention"],
-      "first_seen": "2026-07-19",
-      "last_seen": "2026-07-23",
-      "days_seen": 5
-    },
-    {
-      "key": "dsa-platform-abolish-senate-scotus",
-      "title_latest": "DSA Platform Calls to Abolish Senate, Presidency, and Supreme Court",
-      "keywords": ["dsa", "platform", "abolish", "senate", "scotus"],
-      "first_seen": "2026-07-19",
-      "last_seen": "2026-07-23",
-      "days_seen": 5
-    },
-    {
-      "key": "banks-birthright-citizenship-bill",
-      "title_latest": "Banks Bill to End Birthright Citizenship; SCOTUS Rules Against Trump EO",
-      "keywords": ["banks", "birthright", "citizenship", "invaders", "legislation"],
-      "first_seen": "2026-07-19",
-      "last_seen": "2026-07-23",
-      "days_seen": 5
-    },
-    {
-      "key": "michigan-senate-dem-primary",
-      "title_latest": "Michigan Senate: Stevens 48-41 Over El-Sayed; Sanders/AOC vs. Jeffries/Establishment",
-      "keywords": ["michigan", "stevens", "el-sayed", "senate", "socialist"],
-      "first_seen": "2026-07-21",
-      "last_seen": "2026-07-23",
-      "days_seen": 3
-    },
-    {
-      "key": "trump-canada-tariffs-wildfire",
-      "title_latest": "Trump 50% Tariffs on Canada; Blames Canada for Wildfire Smoke Invasion",
-      "keywords": ["canada", "tariffs", "wildfire", "smoke", "trade"],
-      "first_seen": "2026-07-21",
-      "last_seen": "2026-07-22",
-      "days_seen": 2
-    },
-    {
-      "key": "arizona-primary-biggs-hobbs-2026",
-      "title_latest": "Arizona Primary: Trump-Backed Biggs Wins GOP Gov Nomination 72%+; Faces Hobbs in November",
-      "keywords": ["arizona", "biggs", "hobbs", "primary", "governor"],
-      "first_seen": "2026-07-22",
-      "last_seen": "2026-07-23",
-      "days_seen": 2
-    },
-    {
-      "key": "sanders-jeffries-dem-civil-war-midterms",
-      "title_latest": "Sanders vs. Jeffries: Democratic Civil War Over Midterm Soul; Right Frames as Socialist Takeover",
-      "keywords": ["sanders", "jeffries", "democrats", "civil-war", "endorsements"],
-      "first_seen": "2026-07-22",
-      "last_seen": "2026-07-23",
-      "days_seen": 2
-    },
-    {
-      "key": "dem-israel-fracture-jeffries-house",
-      "title_latest": "House Democrats Israel Split Deepens — Open Defiance at Leadership Level; Saudi Deal Adds Complexity",
-      "keywords": ["democrats", "israel", "fracture", "house", "jeffries"],
-      "first_seen": "2026-07-22",
-      "last_seen": "2026-07-23",
-      "days_seen": 2
-    },
-    {
-      "key": "gop-communist-alarm-dsa-piker-red-scare",
-      "title_latest": "GOP Sounds Communism Alarm: McClain, Breitbart, Townhall Frame DSA Wins as New Red Scare",
-      "keywords": ["communism", "dsa", "piker", "mao", "red-scare"],
-      "first_seen": "2026-07-22",
-      "last_seen": "2026-07-23",
-      "days_seen": 2
-    },
-    {
-      "key": "trump-dignified-transfer-iran-war-2026-07-23",
-      "title_latest": "Trump Attends Dignified Transfer for 4 Fallen Soldiers; Iran War Hits Day 12 of Strikes",
-      "keywords": ["trump", "dignified-transfer", "iran", "fallen-soldiers", "dover"],
-      "first_seen": "2026-07-23",
-      "last_seen": "2026-07-23",
+      "key": "iran-ballistic-missile-ceasefire-over-july29",
+      "title_latest": "Iran Fires Ballistic Missiles at US Forces; Ceasefire Effectively Over",
+      "keywords": ["iran", "ballistic-missile", "ceasefire", "centcom", "jordan"],
+      "first_seen": "2026-07-29",
+      "last_seen": "2026-07-29",
       "days_seen": 1
     },
     {
-      "key": "us-saudi-nuclear-deal-2026-07-23",
-      "title_latest": "Trump Adds Abraham Accords Condition to Saudi Nuclear Deal 24 Hours After Signing",
-      "keywords": ["saudi", "nuclear-deal", "123-agreement", "abraham-accords", "enrichment"],
-      "first_seen": "2026-07-23",
-      "last_seen": "2026-07-25",
+      "key": "sc-graham-succession-darline-primary-july29",
+      "title_latest": "SC Senate: Darline Graham Appointed, Aug. 11 Primary Underway",
+      "keywords": ["south-carolina", "darline-graham", "lindsey-graham", "primary", "succession"],
+      "first_seen": "2026-07-28",
+      "last_seen": "2026-07-29",
       "days_seen": 2
     },
     {
-      "key": "save-act-iran-war-funding-johnson-2026-07-23",
-      "title_latest": "Trump Patience Running Out with Thune on SAVE Act; Senate Lacks 50 Votes for Reconciliation",
-      "keywords": ["save-act", "johnson", "thune", "reconciliation", "voter-id"],
-      "first_seen": "2026-07-23",
-      "last_seen": "2026-07-25",
+      "key": "midterms-100-days-polling-generic-ballot-july29",
+      "title_latest": "100 Days to Midterms: Generic Ballot, Fundraising, and Terrain",
+      "keywords": ["midterms", "100-days", "generic-ballot", "polling", "fundraising"],
+      "first_seen": "2026-07-28",
+      "last_seen": "2026-07-29",
       "days_seen": 2
     },
     {
-      "key": "trump-politicizes-troop-deaths-analysis",
-      "title_latest": "CNN Analysis: Trump's Pattern of Reaching for Politics When US Troops Die",
-      "keywords": ["trump", "troop-deaths", "politicize", "iran", "analysis"],
-      "first_seen": "2026-07-23",
-      "last_seen": "2026-07-23",
+      "key": "noncitizen-voter-rolls-doj-save-act-july29",
+      "title_latest": "Noncitizen Voter Registration: DHS 250K, NJ DMV Error, DOJ Demand",
+      "keywords": ["noncitizen", "voter-rolls", "dhs", "nj-dmv", "doj"],
+      "first_seen": "2026-07-28",
+      "last_seen": "2026-07-29",
+      "days_seen": 2
+    },
+    {
+      "key": "trump-medicare-part-d-subsidy-cut-july29",
+      "title_latest": "Trump Admin Ending Medicare Part D Subsidies — 25M Seniors Affected",
+      "keywords": ["medicare", "part-d", "subsidies", "seniors", "trump"],
+      "first_seen": "2026-07-29",
+      "last_seen": "2026-07-29",
       "days_seen": 1
     },
     {
-      "key": "mcconnell-health-coverup-2026-07-23",
-      "title_latest": "McConnell: 37 Days Silent, Hospital Security Guards Access, Cover-Up Allegations Intensify",
-      "keywords": ["mcconnell", "health", "hospital", "cover-up", "senate"],
-      "first_seen": "2026-07-23",
-      "last_seen": "2026-07-25",
-      "days_seen": 2
-    },
-    {
-      "key": "scotus-perceived-political-poll-2026-07-23",
-      "title_latest": "Poll: 48% of Americans Say SCOTUS Rulings on Trump Agenda Are Politically Motivated",
-      "keywords": ["scotus", "poll", "political", "rulings", "trump"],
-      "first_seen": "2026-07-23",
-      "last_seen": "2026-07-23",
+      "key": "trump-michigan-rally-tariff-push-july29",
+      "title_latest": "Trump Michigan Rally: Tariff Pitch Ahead of Aug. 4 Primaries",
+      "keywords": ["trump", "michigan", "rally", "tariffs", "primaries"],
+      "first_seen": "2026-07-29",
+      "last_seen": "2026-07-29",
       "days_seen": 1
     },
     {
-      "key": "daylight-saving-time-senate-2026-07-23",
-      "title_latest": "House Passes Permanent DST 308-117; Senate Skeptics May Kill It",
-      "keywords": ["daylight-saving", "senate", "house", "bipartisan", "legislation"],
-      "first_seen": "2026-07-23",
-      "last_seen": "2026-07-28",
+      "key": "trump-economy-approval-record-low-july29",
+      "title_latest": "Trump Approval 34%; 65% Disapprove of Economic Handling",
+      "keywords": ["trump", "approval", "economy", "record-low", "yougov"],
+      "first_seen": "2026-07-28",
+      "last_seen": "2026-07-29",
       "days_seen": 2
     },
     {
-      "key": "house-subpoena-singham-leftgroups-2026-07-23",
-      "title_latest": "House Panel Subpoenas 3 Left-Wing Groups in $39M Probe Tied to Marxist Millionaire Singham",
-      "keywords": ["singham", "subpoena", "marxist", "left-wing", "house-probe"],
-      "first_seen": "2026-07-23",
-      "last_seen": "2026-07-25",
-      "days_seen": 2
-    },
-    {
-      "key": "gop-fundraising-advantage-maga-400m-2026-07-23",
-      "title_latest": "MAGA Inc. $400M War Chest; GOP Holds $677M vs. Dems $136M — 5-to-1 Advantage",
-      "keywords": ["maga-inc", "fundraising", "fec", "republicans", "advantage"],
-      "first_seen": "2026-07-23",
-      "last_seen": "2026-07-25",
-      "days_seen": 2
-    },
-    {
-      "key": "democrats-1972-redo-socialist-surge-2026-07-23",
-      "title_latest": "RCP: Democrats' Socialist Surge Echoes 1972 McGovern Moment — 49-State Loss Ahead?",
-      "keywords": ["1972", "mcgovern", "democrats", "socialist", "rcp"],
-      "first_seen": "2026-07-23",
-      "last_seen": "2026-07-25",
-      "days_seen": 2
-    },
-    {
-      "key": "dhs-250k-noncitizen-voter-registration",
-      "title_latest": "NJ DMV Error Registers 6,600 Noncitizens; 400 Vote; DOJ Demands Records in 5 Days",
-      "keywords": ["nj-dmv-error", "noncitizen", "voter-registration", "doj", "election"],
-      "first_seen": "2026-07-22",
-      "last_seen": "2026-07-25",
-      "days_seen": 2
-    },
-    {
-      "key": "maine-senate-jackson-convention-2026-07-25",
-      "title_latest": "Troy Jackson Formally Nominated at Maine Dem Convention; 100-Day Sprint Against Collins Begins",
-      "keywords": ["maine", "jackson", "convention", "collins", "nomination"],
-      "first_seen": "2026-07-25",
-      "last_seen": "2026-07-25",
-      "days_seen": 1
-    },
-    {
-      "key": "congress-iran-war-powers-house-senate-2026-07-25",
-      "title_latest": "House Passes Iran War Powers Resolution 214-208; Senate GOP Blocks; Oil Tops $100",
-      "keywords": ["iran", "war-powers", "house", "senate", "massie"],
-      "first_seen": "2026-07-25",
-      "last_seen": "2026-07-25",
-      "days_seen": 1
-    },
-    {
-      "key": "trump-thune-save-act-patience-2026-07-25",
-      "title_latest": "SAVE Act / Trump-Thune Standoff: Trump Demands August Recess Cancellation",
-      "keywords": ["trump", "thune", "save-act", "reconciliation", "patience"],
-      "first_seen": "2026-07-25",
-      "last_seen": "2026-07-28",
-      "days_seen": 2
-    },
-    {
-      "key": "buttigieg-2028-dem-frontrunner-poll",
-      "title_latest": "Buttigieg Leads 2028 Dem Primary Poll at 19%; Newsom 17%, Ossoff/AOC 13%",
-      "keywords": ["buttigieg", "2028", "poll", "democrat", "frontrunner"],
-      "first_seen": "2026-07-25",
-      "last_seen": "2026-07-25",
-      "days_seen": 1
-    },
-    {
-      "key": "capitalism-faith-lost-poll-2026-07-25",
-      "title_latest": "CNN Poll: Capitalism Views Collapse to +4, 65% Say System Rigged",
-      "keywords": ["capitalism", "poll", "rigged", "system", "faith"],
-      "first_seen": "2026-07-25",
-      "last_seen": "2026-07-27",
-      "days_seen": 2
-    },
-    {
-      "key": "navy-official-suspended-narcissist-trump",
-      "title_latest": "Navy Business Operations Director Suspended After Calling Trump 'Narcissist' on O'Keefe Camera",
-      "keywords": ["navy", "suspended", "narcissist", "trump", "okeefe"],
-      "first_seen": "2026-07-25",
-      "last_seen": "2026-07-25",
-      "days_seen": 1
-    },
-    {
-      "key": "darline-graham-gop-skepticism-sc-senate",
-      "title_latest": "Republicans Internally Skeptical Darline Graham Can Win Full SC Senate Term Despite Trump Backing",
-      "keywords": ["darline-graham", "south-carolina", "senate", "skeptics", "trump-endorsement"],
-      "first_seen": "2026-07-25",
-      "last_seen": "2026-07-25",
-      "days_seen": 1
-    },
-    {
-      "key": "nj-noncitizen-voter-roll-error-doj-2026-07-25",
-      "title_latest": "NJ DMV Error Registers 6,600 Noncitizens; DOJ Demands Records — SAVE Act Urgency Grows",
-      "keywords": ["nj", "noncitizen", "voter-roll", "doj", "dhillon"],
-      "first_seen": "2026-07-25",
-      "last_seen": "2026-07-28",
-      "days_seen": 2
-    },
-    {
-      "key": "iran-ceasefire-pause-day149-talks",
-      "title_latest": "Iran War: US Pauses Strikes, Hormuz Diplomacy Opens — Iran Denies Negotiations",
-      "keywords": ["iran", "ceasefire", "pause", "hormuz", "talks"],
-      "first_seen": "2026-07-26",
-      "last_seen": "2026-07-28",
-      "days_seen": 3
-    },
-    {
-      "key": "maine-jackson-nomination-sprint-collins",
-      "title_latest": "Maine Senate: Jackson Nomination Official, 101-Day Sprint Underway",
-      "keywords": ["maine", "jackson", "nomination", "collins", "senate"],
-      "first_seen": "2026-07-26",
-      "last_seen": "2026-07-27",
-      "days_seen": 2
-    },
-    {
-      "key": "dsa-cochair-confirms-abolish-platform-july26",
-      "title_latest": "DSA Co-Chair Confirms Open Borders Is Part of International Plan",
-      "keywords": ["dsa", "cochair", "abolish", "platform", "jeffries"],
-      "first_seen": "2026-07-26",
-      "last_seen": "2026-07-27",
-      "days_seen": 2
-    },
-    {
-      "key": "house-war-powers-resolution-214-208-dem-rebuke",
-      "title_latest": "Iran War Powers Vote: House 214-208; Senate Blocks",
-      "keywords": ["war-powers", "house", "214-208", "iran", "democrats"],
-      "first_seen": "2026-07-26",
-      "last_seen": "2026-07-27",
-      "days_seen": 2
-    },
-    {
-      "key": "mcconnell-hospitalized-37days-coverup-july26",
-      "title_latest": "McConnell Hospitalized 37+ Days — Aides Silent, Security Guards His Room",
-      "keywords": ["mcconnell", "hospitalized", "cover-up", "senate", "health"],
-      "first_seen": "2026-07-26",
-      "last_seen": "2026-07-26",
-      "days_seen": 3
-    },
-    {
-      "key": "manchin-independent-leadership-council-ilc-launch",
-      "title_latest": "Manchin Independent Leadership Council Now Active — Recruiting Independent Congressional Candidates",
-      "keywords": ["manchin", "independent", "ilc", "congress", "third-party"],
-      "first_seen": "2026-07-26",
-      "last_seen": "2026-07-28",
-      "days_seen": 4
-    },
-    {
-      "key": "buttigieg-2028-dem-frontrunner-poll-july26",
-      "title_latest": "Buttigieg Leads 2028 Dem Primary Poll at 19%",
-      "keywords": ["buttigieg", "2028", "poll", "democrat", "frontrunner"],
-      "first_seen": "2026-07-26",
-      "last_seen": "2026-07-27",
-      "days_seen": 3
-    },
-    {
-      "key": "nj-noncitizen-voter-roll-doj-demand-july26",
-      "title_latest": "NJ DMV Error Puts 6,600 Noncitizens on Voter Rolls",
-      "keywords": ["nj", "noncitizen", "voter-roll", "doj", "save-act"],
-      "first_seen": "2026-07-26",
-      "last_seen": "2026-07-26",
-      "days_seen": 3
-    },
-    {
-      "key": "gop-fundraising-677m-dems-136m-advantage",
-      "title_latest": "Republicans Hold 5-to-1 Cash Advantage Over Democrats",
-      "keywords": ["gop", "fundraising", "677m", "maga-inc", "advantage"],
-      "first_seen": "2026-07-26",
-      "last_seen": "2026-07-26",
-      "days_seen": 3
-    },
-    {
-      "key": "trump-zelensky-dc-meeting-ukraine-diplomacy-july26",
-      "title_latest": "Trump-Zelensky DC Meeting — Ukraine Diplomacy Converges with Iran War Context",
-      "keywords": ["trump", "zelensky", "ukraine", "washington", "diplomacy"],
-      "first_seen": "2026-07-26",
-      "last_seen": "2026-07-27",
-      "days_seen": 2
-    },
-    {
-      "key": "democrats-52pct-socialism-poll-july26",
-      "title_latest": "52% of Democrats View Socialism Favorably — Poll",
-      "keywords": ["democrats", "socialism", "poll", "52pct", "dsa"],
-      "first_seen": "2026-07-26",
-      "last_seen": "2026-07-27",
-      "days_seen": 2
-    },
-    {
-      "key": "iran-war-analysis-trump-choices-worse-july27",
-      "title_latest": "CNN Analysis: At Every Fork on Iran, Trump's Choices Get Worse",
-      "keywords": ["trump", "iran", "analysis", "hormuz", "choices"],
-      "first_seen": "2026-07-27",
-      "last_seen": "2026-07-28",
-      "days_seen": 2
-    },
-    {
-      "key": "vance-caine-iran-escalation-concerns-july27",
-      "title_latest": "Vance and Caine Raised Iran Escalation Concerns in White House Meeting",
-      "keywords": ["vance", "caine", "iran", "escalation", "concerns"],
-      "first_seen": "2026-07-27",
-      "last_seen": "2026-07-28",
-      "days_seen": 2
-    },
-    {
-      "key": "ma-senate-markey-moulton-primary-july27",
-      "title_latest": "Massachusetts Senate Primary: Markey vs. Moulton — Generational Battle",
+      "key": "ma-senate-markey-moulton-primary-july29",
+      "title_latest": "Massachusetts Senate Primary: Markey vs. Moulton Generational Battle",
       "keywords": ["massachusetts", "markey", "moulton", "senate", "primary"],
       "first_seen": "2026-07-27",
-      "last_seen": "2026-07-27",
-      "days_seen": 1
-    },
-    {
-      "key": "democrats-iran-war-united-front-midterms-july27",
-      "title_latest": "Democrats Build Anti-Iran War Legislative Coalition for Midterms",
-      "keywords": ["democrats", "iran", "war", "opposition", "midterms"],
-      "first_seen": "2026-07-27",
-      "last_seen": "2026-07-28",
+      "last_seen": "2026-07-29",
       "days_seen": 2
     },
     {
-      "key": "scotus-political-perception-poll-july27",
-      "title_latest": "Poll: 48% Say SCOTUS Rulings on Trump Agenda Are Politically Motivated",
-      "keywords": ["scotus", "poll", "political", "trump", "rulings"],
-      "first_seen": "2026-07-27",
-      "last_seen": "2026-07-27",
-      "days_seen": 1
-    },
-    {
-      "key": "rcp-communism-its-back-dsa-july27",
-      "title_latest": "RCP: 'Communism — It's Back' After DSA Platform Confirmation",
-      "keywords": ["communism", "rcp", "dsa", "platform", "back"],
-      "first_seen": "2026-07-27",
-      "last_seen": "2026-07-27",
-      "days_seen": 1
-    },
-    {
-      "key": "sc-senate-aug11-primary-trump-defied-july27",
-      "title_latest": "SC Senate Aug. 11 Primary: Norman, Fry, Mace Defy Trump's Pick",
-      "keywords": ["south-carolina", "norman", "mace", "trump", "primary"],
-      "first_seen": "2026-07-27",
-      "last_seen": "2026-07-27",
-      "days_seen": 1
-    },
-    {
-      "key": "mamdani-netanyahu-arrest-walkback-july27",
-      "title_latest": "Mamdani Admits He Cannot Arrest Netanyahu, Walks Back Campaign Pledge",
-      "keywords": ["mamdani", "netanyahu", "arrest", "walkback", "mayor"],
-      "first_seen": "2026-07-27",
-      "last_seen": "2026-07-27",
-      "days_seen": 1
-    },
-    {
-      "key": "iran-war-uk-burnham-pm-july27",
-      "title_latest": "Iran War Roils UK: Andy Burnham Becomes New PM After Starmer Falls",
-      "keywords": ["burnham", "uk", "prime-minister", "iran-war", "starmer"],
-      "first_seen": "2026-07-27",
-      "last_seen": "2026-07-27",
-      "days_seen": 1
-    },
-    {
-      "key": "iran-casualties-600-pentagon-accounting-july27",
-      "title_latest": "Iran War: 600+ Casualties as Pentagon Quietly Revises Accounting — Strikes Paused",
-      "keywords": ["iran", "casualties", "pentagon", "accounting", "600"],
-      "first_seen": "2026-07-27",
-      "last_seen": "2026-07-28",
+      "key": "scotus-approval-record-low-gallup-july29",
+      "title_latest": "SCOTUS Approval at Record Low: 33% (Gallup)",
+      "keywords": ["scotus", "approval", "gallup", "record-low", "republicans"],
+      "first_seen": "2026-07-28",
+      "last_seen": "2026-07-29",
       "days_seen": 2
     },
     {
-      "key": "midterms-100-day-mark-july28-outlook",
-      "title_latest": "100 Days to Midterms: Dems +11 Generic Ballot, GOP Holds 5-to-1 Cash Edge",
-      "keywords": ["midterms", "100-days", "generic-ballot", "democrats", "republicans"],
-      "first_seen": "2026-07-28",
-      "last_seen": "2026-07-28",
+      "key": "texas-senate-talarico-paxton-poll-july29",
+      "title_latest": "Texas Senate: Talarico Leads Paxton by 5 Points",
+      "keywords": ["texas", "talarico", "paxton", "senate", "poll"],
+      "first_seen": "2026-07-29",
+      "last_seen": "2026-07-29",
       "days_seen": 1
     },
     {
-      "key": "save-act-trump-thune-recess-july28",
-      "title_latest": "SAVE Act Standoff: Trump vs. Thune on Voter ID Before August Recess",
-      "keywords": ["save-act", "trump", "thune", "recess", "voter-id"],
-      "first_seen": "2026-07-28",
-      "last_seen": "2026-07-28",
+      "key": "dnc-ken-martin-chaos-financial-july29",
+      "title_latest": "DNC Chair Ken Martin Isolated; Threw Phone at Staffer",
+      "keywords": ["dnc", "ken-martin", "chaos", "financial", "midterms"],
+      "first_seen": "2026-07-29",
+      "last_seen": "2026-07-29",
       "days_seen": 1
     },
     {
-      "key": "trump-approval-decline-gop-2026-liability-july28",
-      "title_latest": "CNN: GOP's 2026 Trump Problem — 85% Independents, 58% GOP Say Admin Neglected Economy",
-      "keywords": ["trump", "approval", "gop", "economy", "midterms"],
-      "first_seen": "2026-07-28",
-      "last_seen": "2026-07-28",
+      "key": "gen-z-socialism-desperation-july29",
+      "title_latest": "Gen Z Turns to Socialism in Desperation — Right Media Responds",
+      "keywords": ["gen-z", "socialism", "dsa", "youth", "right-media"],
+      "first_seen": "2026-07-29",
+      "last_seen": "2026-07-29",
       "days_seen": 1
     },
     {
-      "key": "dccc-red-to-blue-five-seats-july28",
-      "title_latest": "DCCC Expands Red to Blue Slate — Five New House Target Seats Added",
-      "keywords": ["dccc", "red-to-blue", "house", "flip", "democrats"],
-      "first_seen": "2026-07-28",
-      "last_seen": "2026-07-28",
+      "key": "vance-retail-politics-gop-strategy-july29",
+      "title_latest": "Vance's Old School Retail Politics Strategy to Save GOP",
+      "keywords": ["vance", "retail-politics", "gop", "strategy", "midterms"],
+      "first_seen": "2026-07-29",
+      "last_seen": "2026-07-29",
       "days_seen": 1
     },
     {
-      "key": "iran-trump-choices-worsening-analysis-july28",
-      "title_latest": "Iran Analysis: At Every Decision Point Trump's Options Are Getting Worse",
-      "keywords": ["trump", "iran", "analysis", "decisions", "options"],
+      "key": "jay-clayton-dni-confirmed-july29",
+      "title_latest": "Jay Clayton Confirmed as DNI 51-47",
+      "keywords": ["jay-clayton", "dni", "confirmed", "intelligence", "senate"],
       "first_seen": "2026-07-28",
-      "last_seen": "2026-07-28",
-      "days_seen": 1
+      "last_seen": "2026-07-29",
+      "days_seen": 2
     },
     {
-      "key": "nj-noncitizen-voter-roll-doj-july28",
-      "title_latest": "NJ DMV Error Voter Roll Scandal: DOJ Demands Records, Right Media Frames as SAVE Act Proof",
-      "keywords": ["nj", "noncitizen", "voter-roll", "doj", "federalist"],
+      "key": "platner-exit-maine-dsa-chaos-july29",
+      "title_latest": "Platner Exits Maine Race; DSA Replacement Already Facing Allegations",
+      "keywords": ["platner", "maine", "dsa", "withdrawal", "replacement"],
       "first_seen": "2026-07-28",
-      "last_seen": "2026-07-28",
-      "days_seen": 1
+      "last_seen": "2026-07-29",
+      "days_seen": 2
     },
     {
-      "key": "hawaii-lt-gov-luke-bribery-indictment-july28",
-      "title_latest": "Hawaii Democratic Lt. Gov. Sylvia Luke Indicted on COVID Bribery Charges",
-      "keywords": ["hawaii", "luke", "indicted", "bribery", "covid"],
-      "first_seen": "2026-07-28",
-      "last_seen": "2026-07-28",
-      "days_seen": 1
-    },
-    {
-      "key": "jay-clayton-dni-confirmed-fisa-702-july28",
-      "title_latest": "Jay Clayton Advances to DNI Confirmation — Section 702 FISA Tool Back Online",
-      "keywords": ["jay-clayton", "dni", "fisa-702", "intelligence", "senate"],
-      "first_seen": "2026-07-28",
-      "last_seen": "2026-07-28",
-      "days_seen": 1
-    },
-    {
-      "key": "conservative-bipartisan-antiwar-iran-july28",
-      "title_latest": "Conservative and Bipartisan Anti-Iran War Movement Gains Ground — TAC, Vance, Caine",
-      "keywords": ["conservative", "bipartisan", "antiwar", "iran", "tac"],
-      "first_seen": "2026-07-28",
-      "last_seen": "2026-07-28",
-      "days_seen": 1
+      "key": "mamdani-netanyahu-walkback-dsa-preview-july29",
+      "title_latest": "Mamdani Walks Back Netanyahu Arrest Pledge",
+      "keywords": ["mamdani", "netanyahu", "walkback", "dsa", "preview"],
+      "first_seen": "2026-07-27",
+      "last_seen": "2026-07-29",
+      "days_seen": 2
     }
   ]
 }
