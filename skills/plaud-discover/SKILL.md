@@ -60,8 +60,9 @@ Headers: Authorization: Bearer <token>
 Params: skip=0, limit=50, is_trash=0, sort_by=create_time, is_desc=1
 ```
 
-Paginate until you have all recordings for the target date range (or all recordings
-if doing a catch-up run). For each recording, capture:
+**Default behavior is full enumeration (catch-up mode).** Paginate through ALL pages until no more results are returned. Do not apply a date filter unless a specific `target-date` was explicitly set in `state.yaml accumulated-context.target-date` for a targeted reprocess run.
+
+For each recording, capture:
 
 ```json
 {
@@ -79,9 +80,9 @@ Where:
 - `is_trans: 1` + `trans_status: 0` = transcription in progress (status: `pending`)
 - `is_trans: 1` + `trans_status: 1` = transcription ready (status: `ready`)
 
-**Date filtering:**
-- For a single date: filter by `create_time` matching target date (UTC)
-- For catch-up (`--all` equivalent): no date filter, get all, then dedup against vault
+**Date filtering (targeted reprocess only):**
+- Only filter by `create_time` matching `target-date` if that field is explicitly set in state.
+- For all normal runs: no date filter — get all recordings and dedup against vault.
 
 ### 3. Enumerate already-ingested vault notes
 
@@ -94,9 +95,15 @@ mcp__obsidian-mcp-tools__list_vault_files(path="zzPlaud")
 Extract the date and title from each filename (`YYYY-MM-DD Title.md`). Build a set of
 ingested recording names for fast lookup.
 
-Also check staging: list `~/Downloads/transcript-staging/plaud_*.md`. Files already in
-staging from a prior run should be treated as "in progress" rather than "new" — they
-will be picked up by step-04 without re-fetching.
+Also check staging: list `~/Downloads/transcript-staging/plaud_*.md`. Apply the following
+staleness rule before treating any staged file as "in progress":
+
+- If the file's modification time is **within the last 24 hours**: treat as in progress — it will be picked up by step-04 without re-fetching.
+- If the file's modification time is **older than 24 hours**: treat as **stale**. Re-queue the associated recording as new so it gets reprocessed. Do not skip it.
+
+Check mtime using `stat -f "%m" <file>` (macOS) or `stat -c "%Y" <file>` (Linux) and compare against current epoch time minus 86400 seconds.
+
+If stale files are found, add their file IDs to `state.yaml accumulated-context.stale-staged-files` so the next run has an explicit list of files that need reprocessing.
 
 ### 4. Compute the diff
 

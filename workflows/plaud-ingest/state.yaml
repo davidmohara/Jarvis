@@ -1,16 +1,18 @@
 workflow: plaud-ingest
 agent: knox
-status: complete
-session-started: "2026-07-28T00:00:00Z"
-session-id: "pi-20260728-001"
+status: not-started
+session-started: ""
+session-id: ""
 current-step: step-01
-original-request: "Knox: Run plaud-ingest workflow — background task, full pipeline"
-completed-at: "2026-07-28T00:10:00Z"
-completion-reason: "No new recordings found for 2026-07-28 — workflow terminated at step-01"
+original-request: ""
+completed-at: ""
+completion-reason: ""
 accumulated-context:
-  target-date: "2026-07-28"
+  # target-date is OPTIONAL — only set this for a targeted reprocess of a specific date.
+  # When absent, the workflow runs in full enumeration (catch-up) mode.
+  # target-date: "YYYY-MM-DD"
   new-recordings: []
-  api-total-recordings: 91
+  api-total-recordings: 0
   transcription-triggered: []
   pending-recordings: []
   speaker-mappings: {}
@@ -18,5 +20,6 @@ accumulated-context:
   recording-classification: {}
   ready-for-fetch: []
   staged-files: []
+  stale-staged-files: []
   ingested-notes: []
   share-urls: []
