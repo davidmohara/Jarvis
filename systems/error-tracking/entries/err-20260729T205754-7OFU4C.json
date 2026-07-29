@@ -1,0 +1,15 @@
+{
+  "id": "err-20260729T205754-7OFU4C",
+  "timestamp": "2026-07-29T20:57:54Z",
+  "session": "session-2026-07-29-094900",
+  "source": "explicit",
+  "agent": "master",
+  "category": "data-accuracy",
+  "description": "Three action item errors in Plaud ingest report: (1) Listed 'follow up with Thomas Jackson' as David's action item — David did not commit to this on the call; (2) Listed 'connect Mike Hilmen with Curtis' as pending — David had already done this; (3) Listed 'map TOLA sellers to Solace territory' as David's action — it is Austin Ledesma's responsibility to provide the seller map to David.",
+  "correction": "Action items must be extracted only from explicit commitments made by David in the transcript. Cross-reference against known context before listing items as pending. Items owned by other parties should be noted as 'awaiting X' not as David's to-dos.",
+  "failure_mode": "sloppy-read",
+  "systemic_fix": "When extracting action items from transcripts, attribute ownership precisely. Only assign to David if David explicitly commits ('I will', 'I'll send', 'you'll hear from me'). Items where another party committed go in a separate 'Theirs to drive' section, not David's action list.",
+  "fix_status": "proposed",
+  "severity": "moderate",
+  "related_entries": []
+}

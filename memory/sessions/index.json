@@ -761,6 +761,23 @@
   {
     "id": "session-2026-07-28-103601",
     "started": "2026-07-28T10:36:01-05:00",
+    "closed": "2026-07-29T09:49:00-05:00",
+    "current_topic": null,
+    "topics": [
+      {
+        "name": "morning-boot",
+        "loops": [
+          {
+            "task": "boot-sequence — stale, closed by next-day session init",
+            "resolved": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "session-2026-07-29-094900",
+    "started": "2026-07-29T09:49:00-05:00",
     "closed": null,
     "current_topic": "morning-boot",
     "topics": [

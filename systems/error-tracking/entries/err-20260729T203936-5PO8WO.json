@@ -1,0 +1,15 @@
+{
+  "id": "err-20260729T203936-5PO8WO",
+  "timestamp": "2026-07-29T20:39:36Z",
+  "session": "session-2026-07-29-094900",
+  "source": "explicit",
+  "agent": "master",
+  "category": "assumption-error",
+  "description": "Assigned Speaker 5 (Solace platform deep-dive presenter) to Charlie Glick. David confirmed it was Michael Hilmen.",
+  "correction": "Speaker 5 = Michael Hilmen. He shared his screen and walked through the Solace platform (event mesh, topic strings, Kafka comparison, WAN bridging).",
+  "failure_mode": "wrong-assumption",
+  "systemic_fix": "When multiple Solace attendees are plausible for a technical presenter role, surface the ambiguity to the controller rather than guessing. Calendar alone is not sufficient to distinguish SE from AE roles.",
+  "fix_status": "proposed",
+  "severity": "minor",
+  "related_entries": []
+}

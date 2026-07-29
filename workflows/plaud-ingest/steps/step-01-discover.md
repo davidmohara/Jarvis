@@ -1,13 +1,13 @@
 ---
-status: not-started
-started-at: ""
-completed-at: ""
+status: aborted
+started-at: "2026-07-29T00:00:00Z"
+completed-at: "2026-07-29T00:05:00Z"
 model: sonnet
 outputs:
   new-recordings-count: 0
   api-total: 0
   confirmed-in-vault: 0
-  completion-reason: ""
+  completion-reason: "Plaud API unreachable from isolated environment"
 ---
 
 <!-- system:start -->

@@ -1,12 +1,12 @@
 workflow: plaud-ingest
 agent: knox
-status: not-started
-session-started: ""
-session-id: ""
-current-step: step-01
-original-request: ""
-completed-at: ""
-completion-reason: ""
+status: complete
+session-started: "2026-07-29T00:00:00Z"
+session-id: "pi-20260729-001"
+current-step: step-05b
+original-request: "plaud-ingest background run"
+completed-at: "2026-07-29T20:58:00Z"
+completion-reason: "Completed — Jul 28 recordings ingested and shared"
 accumulated-context:
   # target-date is OPTIONAL — only set this for a targeted reprocess of a specific date.
   # When absent, the workflow runs in full enumeration (catch-up) mode.

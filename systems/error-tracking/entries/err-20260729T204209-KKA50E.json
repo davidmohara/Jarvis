@@ -1,0 +1,15 @@
+{
+  "id": "err-20260729T204209-KKA50E",
+  "timestamp": "2026-07-29T20:42:09Z",
+  "session": "session-2026-07-29-094900",
+  "source": "explicit",
+  "agent": "master",
+  "category": "missed-context",
+  "description": "Assigned Speaker 5 to Charlie Glick despite Charlie having declined the meeting invite. Attendee RSVP status was available in the calendar data but was not checked before making the assignment.",
+  "correction": "Should have filtered to accepted attendees only before reasoning about who could have been present. Declined attendees cannot be speakers.",
+  "failure_mode": "sloppy-read",
+  "systemic_fix": "During speaker ID, always filter calendar attendees to accepted/tentative only. Declined attendees must be excluded from candidate pool before any reasoning begins.",
+  "fix_status": "proposed",
+  "severity": "moderate",
+  "related_entries": ["err-20260729T203936-5PO8WO"]
+}

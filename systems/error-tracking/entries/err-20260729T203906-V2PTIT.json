@@ -1,0 +1,15 @@
+{
+  "id": "err-20260729T203906-V2PTIT",
+  "timestamp": "2026-07-29T20:39:06Z",
+  "session": "session-2026-07-29-094900",
+  "source": "explicit",
+  "agent": "master",
+  "category": "hallucination",
+  "description": "Attributed 'Robyn Fuentes' as a named speaker in the Solace Partnership Strategy Plaud recording and included her in the speakers.json as a real attendee. David confirmed Robyn was not present at the meeting.",
+  "correction": "Robyn Fuentes was not in the meeting. The Plaud auto-ID label should have been flagged as a potential mis-identification rather than accepted and passed through to speakers.json.",
+  "failure_mode": "wrong-assumption",
+  "systemic_fix": "When Plaud auto-IDs a speaker by full name who does not appear on the calendar invite, treat it as suspect — flag it for controller confirmation rather than accepting it as ground truth.",
+  "fix_status": "proposed",
+  "severity": "moderate",
+  "related_entries": []
+}
