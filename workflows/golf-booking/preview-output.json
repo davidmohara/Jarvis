@@ -1,14 +1,14 @@
 {
-  "generated_at": "2026-07-22T07:45:26.870180",
+  "generated_at": "2026-07-28T22:55:00",
   "target_weekend": {
-    "friday": "2026-07-31",
-    "saturday": "2026-08-01",
-    "sunday": "2026-08-02"
+    "friday": "2026-08-08",
+    "saturday": "2026-08-09",
+    "sunday": "2026-08-10"
   },
   "day_status": {
     "friday": {
-      "status": "unavailable",
-      "reason": "DFW Tech Golf Group Outing (10:00 AM - 2:30 PM CT) blocks entire available window. Already golfing Friday afternoon."
+      "status": "available",
+      "reason": "No calendar conflicts, 3+ hour window 1:00-6:00 PM CT available"
     },
     "saturday": {
       "status": "available",
@@ -16,51 +16,104 @@
     },
     "sunday": {
       "status": "available",
-      "reason": "Available 2:30 PM - 5:00 PM CT (after church, before Declan dinner at 5 PM CT)"
+      "reason": "Available 2:30 PM - 5:00 PM CT (after church)"
     }
   },
   "drought": false,
+  "last_round": "2026-07-12",
+  "days_since_last_round": 16,
   "heat_streak": true,
-  "heat_streak_note": "5 of 5 preceding days \u226595\u00b0F: Yes",
+  "heat_streak_data": {
+    "period": "2026-07-31 to 2026-08-04",
+    "daily_highs_f": [104, 100, 97, 99, 102],
+    "days_above_95f": 4,
+    "threshold_met": true
+  },
+  "preferred_start_time": "4:00 PM",
+  "preferred_cost": "$15/player",
+  "weather_data": {
+    "friday_aug_8": {
+      "high_f": 102,
+      "condition": "Mostly sunny / Hot",
+      "rain_probability": 0,
+      "wind_mph": 8,
+      "notes": "Heat stress \u2014 temp exceeds 100\u00b0F"
+    },
+    "saturday_aug_9": {
+      "high_f": 100,
+      "condition": "Sunny",
+      "rain_probability": 0,
+      "wind_mph": 12,
+      "wind_gusts_mph": 20,
+      "notes": "Ideal \u2014 heat streak active, clear skies, moderate wind"
+    },
+    "sunday_aug_10": {
+      "high_f": 97,
+      "condition": "Sunny",
+      "rain_probability": 0,
+      "wind_mph": 5,
+      "notes": "Cooler than Saturday, clear, post-church"
+    }
+  },
   "top_options": [
     {
       "rank": 1,
       "day": "saturday",
-      "date": "2026-08-01",
-      "preferred_start": "13:00",
-      "preferred_start_label": "1:00 PM",
-      "preferred_end": "15:30",
-      "holes": 18,
-      "cost_per_player": 21,
-      "total_cost": 42,
-      "weather": {
-        "rain_pct": 20,
-        "temp_f": 100,
-        "wind_mph": 11,
-        "condition": "partly cloudy"
-      },
-      "score": 8,
-      "rationale": "Override: Exclude Sunday (Declan dinner). Book Saturday 1:00 PM \u2014 earliest available, $21/player."
-    },
-    {
-      "rank": 2,
-      "day": "saturday",
-      "date": "2026-08-01",
+      "date": "2026-08-09",
       "preferred_start": "16:00",
       "preferred_start_label": "4:00 PM",
-      "preferred_end": "18:30",
+      "preferred_end": "19:30",
       "holes": 18,
       "cost_per_player": 15,
       "total_cost": 30,
       "weather": {
-        "rain_pct": 12,
-        "temp_f": 99,
+        "high_f": 100,
+        "rain_pct": 0,
         "wind_mph": 12,
-        "condition": "partly cloudy"
+        "condition": "sunny"
       },
       "score": 0,
-      "rationale": "Heat streak preferred (4 PM, $15/player), but overridden for earlier window."
+      "rationale": "Saturday 4:00 PM \u2014 heat streak active, clear weather, no conflicts, best conditions overall"
+    },
+    {
+      "rank": 2,
+      "day": "friday",
+      "date": "2026-08-08",
+      "preferred_start": "16:00",
+      "preferred_start_label": "4:00 PM",
+      "preferred_end": "19:30",
+      "holes": 18,
+      "cost_per_player": 15,
+      "total_cost": 30,
+      "weather": {
+        "high_f": 102,
+        "rain_pct": 0,
+        "wind_mph": 8,
+        "condition": "sunny"
+      },
+      "score": 3,
+      "rationale": "Friday 4:00 PM \u2014 heat streak active, clear weather, but workday constraint (+3)"
+    },
+    {
+      "rank": 3,
+      "day": "sunday",
+      "date": "2026-08-10",
+      "preferred_start": "16:00",
+      "preferred_start_label": "4:00 PM",
+      "preferred_end": "19:30",
+      "holes": 18,
+      "cost_per_player": 15,
+      "total_cost": 30,
+      "weather": {
+        "high_f": 97,
+        "rain_pct": 0,
+        "wind_mph": 5,
+        "condition": "sunny"
+      },
+      "score": 5,
+      "rationale": "Sunday 4:00 PM \u2014 cooler temps, post-church (2:30 PM buffer), Sunday penalty (+5)"
     }
   ],
-  "override_instructions": "Sunday excluded \u2014 Declan's birthday dinner. Book Saturday 1:00 PM (earliest preferred window)."
+  "override_instructions": null,
+  "booking_instructions": "Top option (Saturday 4:00 PM) will be booked at midnight 8 days before target date. Booking window opens: 2026-08-01T00:00:00 CT."
 }

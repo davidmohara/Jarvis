@@ -5,8 +5,8 @@ tag: dream-summary
 domain: pattern
 confidence: medium
 created: 2026-07-06
-last-updated: 2026-07-27
-synthesized-from: 8 episodic entries
+last-updated: 2026-07-29
+synthesized-from: 9 episodic entries
 tags:
   - dream-summary
 ---
@@ -96,3 +96,11 @@ Three consistent signals now confirmed across multiple consecutive daily-reviews
 Sources: dream-summary-2026-07-22.md, dream-summary-2026-07-23.md, dream-summary-2026-07-24.md, dream-summary-2026-07-25.md (all score 3-5, promoted:true re-set).
 
 Step-02 this cycle dropped the `promoted` field from all salience blocks (merge-write bug recreated in this cycle's ad-hoc script). All four entries are already documented in the 2026-07-24 through 2026-07-26 entries above — no new synthesis. The dream-summary-2026-07-26.md is still in working/ (expires today, not yet archived); it will enter the episodic pool tomorrow night.
+
+### 2026-07-29 — Nightly promotion
+Sources this cycle:
+- `memory/episodic/dream-summary-2026-07-27.md` (score 10) — tags: dream-summary, jarvis, omnifocus, semantic-promotion, dream-cycle, error-patterns, chase, lessons, chief
+
+Jul 27 cycle: 0 files expired from working/. Step-02 merge-write bug recurred again (the ad-hoc script used this run was not the fixed version — same `promoted` field drop). 14 semantic re-flags processed (no new synthesis). 119 errors/30d, 9 qualifying categories — all documented. 0 compression candidates.
+
+Carry-forward signals now confirmed in 4+ consecutive dream summaries: Q3 rocks unwritten (week 5), nerve block/Tarlov cyst unscheduled, Alice delegation tracker empty. These three are chronic open loops — not incidental misses. The merge-write bug has now recurred in back-to-back cycles (Jul 27 + Jul 28 confirmed dropped), indicating the salience-score.py script fix is not persisting or not being called consistently. Until the script is locked down as the only executor for step-02, this pattern will regenerate every cycle.

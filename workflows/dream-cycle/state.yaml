@@ -1,22 +1,22 @@
 workflow: dream-cycle
 agent: jarvis
 status: complete
-session-started: 2026-07-28T03:09:27-05:00
-session-id: dream-cycle-2026-07-28-030927
+session-started: 2026-07-29T03:09:34-05:00
+session-id: dream-cycle-2026-07-29-030934
 current-step: null
-original-request: Scheduled dream cycle run (automated) - 2026-07-28
+original-request: Scheduled dream cycle run (automated) - 2026-07-29
 accumulated-context:
   git_pull_at_boot: success
-  git_pull_note: "Already up to date. Stash/pop for unstaged state.yaml + daily-review files."
-  working_archived: 2
+  git_pull_note: "Fast-forward eeb3ae8..b5c3caa; stash/pop for unstaged state.yaml + daily-review + golf files."
+  working_archived: 3
   working_deleted: 0
   working_skipped: 15
   working_stranded: 0
   skipped_not_expired:
-    - co-sell-pipeline-2026-07-27-000000.md
     - daily-review-2026-07-27-211110.md
-    - dream-summary-2026-07-27.md
-    - revenue-tracker-2026-07-27-001532.md
+    - daily-review-2026-07-28-050000.md
+    - dream-summary-2026-07-28.md
+    - morning-briefing-2026-07-28-060929.md
   skipped_unparseable:
     - 2026-07-08.md
     - 2026-07-23-215200-session-felix-derek-persona-rebuild.md
@@ -30,35 +30,36 @@ accumulated-context:
     - sc-executive-brief-2026-07-13.md
     - solace-meeting-prep-2026-07-27.md
   archived_files:
-    - dream-summary-2026-07-26.md
-    - system-eval-2026-07-25-040550.md
-  episodic_scanned: 236
-  score_updates: 236
-  window_entries: 80
+    - co-sell-pipeline-2026-07-27-000000.md
+    - revenue-tracker-2026-07-27-001532.md
+    - dream-summary-2026-07-27.md
+  episodic_scanned: 239
+  score_updates: 239
+  window_entries: 82
   no_date: 27
   no_tags: 214
-  score_distribution: "0:216,1:2,2:2,4:4,5:10,6:1,8:1"
+  score_distribution: "0:216,1:2,2:3,4:1,5:6,6:5,7:4,9:1,10:1"
+  clusters_found: 2
+  semantic_created: 0
+  semantic_updated: 2
+  promoted_entries: 2
+  errors_30d: 128
+  lessons_appended: 0
+  lessons_note: "All 10 qualifying categories already documented in LESSONS.md. No new lessons."
+  entries_compressed: 0
+  digests_updated: 0
+  compression_skipped: true
+  compression_note: "0 candidates. Q2 digest consumed all eligible entries Jul 23. Next window opens Oct as Jul entries age past 90 days."
+prior-run-context:
+  session_id: dream-cycle-2026-07-28-030927
+  working_archived: 2
+  working_deleted: 0
+  episodic_scanned: 236
+  score_updates: 236
   clusters_found: 0
   semantic_created: 0
   semantic_updated: 0
   promoted_entries: 0
-  errors_30d: 125
-  lessons_appended: 2
-  lessons_note: "125 errors in 30d window, 10 qualifying categories. 2 new sub-patterns appended: process-skip/context-blindness, data-accuracy/protocol-skip. All others already documented."
-  entries_compressed: 0
-  digests_updated: 0
-  compression_skipped: true
-  compression_note: "0 candidates. Q2 digest consumed all eligible entries on Jul 23. Next window opens Oct as Jul entries age past 90 days."
-prior-run-context:
-  session_id: dream-cycle-2026-07-27-030933
-  working_archived: 0
-  working_deleted: 0
-  episodic_scanned: 234
-  score_updates: 234
-  clusters_found: 3
-  semantic_created: 0
-  semantic_updated: 3
-  promoted_entries: 14
   entries_compressed: 0
   digests_updated: 0
   errors: 0

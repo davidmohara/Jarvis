@@ -2,17 +2,17 @@
 workflow: daily-review
 agent: chief
 status: complete
-session-started: "2026-07-27T21:11:10"
-session-id: "chief-2026-07-27-211110"
+session-started: "2026-07-28T05:00:00"
+session-id: "chief-2026-07-28-050000"
 current-step: step-auto
 original-request: "auto"
 accumulated-context:
-  omnifocus-status: "success — 6 completed, 5 overdue, 0 flagged, inbox 11"
+  omnifocus-status: "success — 7 completed, 5 overdue, 0 flagged, inbox 14"
   calendar-status: "unavailable — headless scheduled run (expected)"
   knowledge-system-status: "Obsidian MCP disabled — written to local fallback"
-  narrative-path: "reviews/daily/auto-2026-07-27.md"
-  narrative-title: "2026-07-27 Monday Morning Practices, Overdue Rockwork"
+  narrative-path: "reviews/daily/auto-2026-07-28.md"
+  narrative-title: "2026-07-28 Reachout Tuesday, Practices Hold, Pipeline Contacts Move"
   output-guard: passed
-  working-memory-path: "memory/working/daily-review-2026-07-27-211110.md"
+  working-memory-path: "memory/working/daily-review-2026-07-28-050000.md"
   working-memory-status: written
   model: sonnet

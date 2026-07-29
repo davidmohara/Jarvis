@@ -1922,3 +1922,20 @@ digests_updated: 0
 errors: 0
 summary: "Boot pull clean (already up to date; stash/pop for daily-review + state.yaml). Step-01 archived 2 expired files (dream-summary-2026-07-26, system-eval-2026-07-25), skipped 15 (4 not expired, 11 unparseable including persistent golf/sc/felix-derek cluster). Step-02 scored 236 episodic files (80 in window); dist 0:216,1:2,2:2,4:4,5:10,6:1,8:1; 0 errors. Step-03: 0 promotion candidates (all 15 high-score entries already promoted=true from prior cycles); error scan 125 errors/30d — 2 new sub-patterns appended to LESSONS.md: process-skip/context-blindness and data-accuracy/protocol-skip. Step-04: 0 compression candidates (Q2 digest consumed all; next window Oct). Carry-forward: Q3 rocks unwritten week 5; nerve block unscheduled; Alice delegation tracker empty; morning-briefing output regression unresolved (F grade Jul 20)."
 ---
+
+---
+## 2026-07-29T03:14:39 CDT
+session_id: dream-cycle-2026-07-29-030934
+working_archived: 3
+working_deleted: 0
+episodic_scanned: 239
+score_updates: 239
+clusters_found: 2
+semantic_created: 0
+semantic_updated: 2
+promoted_entries: 2
+entries_compressed: 0
+digests_updated: 0
+errors: 0
+summary: "Boot pull clean (fast-forward eeb3ae8..b5c3caa; stash/pop for unstaged state.yaml + daily-review + golf files). Step-01 archived 3 expired files (co-sell-pipeline-2026-07-27, revenue-tracker-2026-07-27, dream-summary-2026-07-27), skipped 15 (4 not expired, 11 unparseable — persistent golf/sc/felix-derek cluster unchanged). Step-02 scored 239 episodic files (82 in window); dist 0:216,1:2,2:3,4:1,5:6,6:5,7:4,9:1,10:1; 0 errors. Step-03: 2 promotion candidates — dream-summary-2026-07-27 (score 10) promoted to dream-summary-pattern (carry-forward signals + merge-write bug recurrence noted); co-sell-pipeline-2026-07-27 (score 7) promoted to co-sell-pattern (Q3 gap $8.7M, bifurcated execution model). Error scan: 128 errors/30d, 10 qualifying categories — all documented in LESSONS.md, 0 new lessons. Step-04: 0 compression candidates (Q2 digest consumed all; next window Oct). Carry-forward: Q3 rocks unwritten week 5; nerve block unscheduled; Alice delegation tracker empty; merge-write bug recurring in back-to-back cycles."
+---
