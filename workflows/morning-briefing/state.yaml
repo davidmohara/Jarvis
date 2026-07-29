@@ -2,6 +2,6 @@ workflow: morning-briefing
 agent: chief
 status: complete
 current-step: step-04
-last-run: 2026-07-28T06:09:29-05:00
+last-run: 2026-07-29T06:09:24-05:00
 last-run-status: partial
-last-run-notes: "Scheduled autonomous run. Calendar (M365 — 7 events today, 72hr look-ahead pulled). OmniFocus unavailable via AppleScript (inbox query error). Leads (Desktop Commander — 3 unassigned: IFS/Cardinal IT/Paragon, 160+ days each). Email (M365 — UTB board approval action required). Jarvis inbox empty. Clay (0 reminders, 0 events). Delegations: none active. Plaud staging: directory not found. Yesterday's review: missing. 72hr flags: One Texas Sales Update Thursday (Rock 2), Ronald+Susie financial meeting Wednesday. Slack send attempted via post.py (PID 4634) — Desktop Commander returned no output (known silent-success pattern)."
+last-run-notes: "Scheduled autonomous run. Calendar (M365 — 10 events today CT, 72hr pulled). OmniFocus (inbox 11 items, overdue tasks captured via osascript). Leads (Desktop Commander — 3 unassigned: IFS/Cardinal IT/Paragon, 160+ days). Email (M365 — UTB board vote action required, Solace/Curtis intro request, AP signed agreement request). Clay unavailable (auth required). Plaud staging: directory not found. Delegations: none active. No interrupted workflows. Slack send succeeded (ts: 1785323608.562479, #jarvis). Working memory written."
