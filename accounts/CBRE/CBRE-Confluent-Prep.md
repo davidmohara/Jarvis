@@ -1,3 +1,5 @@
+> **SUPERSEDED — July 30, 2026.** At David's direction, `accounts/CBRE/account-plan.md` no longer leads its CBRE pursuit strategy with the referral relationship documented in this file, and no longer references Rob Ogbah by name anywhere in that plan. A fresh research session found no independent public evidence of a CBRE–Confluent relationship — the "key Confluent Cloud customer" claim below came only from this internal conversation. This file is kept as-is for historical record of the February 23, 2026 meeting; treat everything below as unverified, non-current context, not as an active basis for outreach. Do not use this document to plan or justify new CBRE contact.
+
 # Meeting Prep: Rob Ogbah (Confluent) → CBRE Collaboration
 **Date:** Monday, February 23, 2026 | **Time:** 2:00 PM | **Duration:** ~60 min (Rob has 3pm Zoom)
 **Location:** Improving Plano — 5445 Legacy Dr, Suite 100, Plano TX 75024
