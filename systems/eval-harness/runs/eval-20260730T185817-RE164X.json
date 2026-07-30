@@ -1,0 +1,68 @@
+{
+  "id": "eval-20260730T185817-RE164X",
+  "agent_id": "ae8f8da7b12d5cb30",
+  "type": "agent",
+  "name": "general-purpose",
+  "agent": "general-purpose",
+  "session_id": "session-2026-07-21-142549",
+  "trigger": "unknown",
+  "started": "2026-07-30T18:58:17.484488Z",
+  "completed": "2026-07-30T15:39:34.153371",
+  "duration_seconds": null,
+  "status": "aborted",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": false,
+      "all_steps_finished": null,
+      "tool_failures": 2,
+      "error_ids": [],
+      "tool_failure_log": [
+        {
+          "tool": "WebSearch",
+          "error": "API Error: Connection closed mid-response. The response above may be incomplete.",
+          "duration_ms": 70871,
+          "timestamp": "2026-07-30T13:59:37.962989"
+        },
+        {
+          "tool": "WebSearch",
+          "error": "API Error: Connection closed mid-response. The response above may be incomplete.",
+          "duration_ms": 71094,
+          "timestamp": "2026-07-30T13:59:38.332386"
+        }
+      ],
+      "abort_reason": "session-ended"
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": []
+}

@@ -1,0 +1,15 @@
+{
+  "id": "err-20260730T143442-4OOWTU",
+  "timestamp": "2026-07-30T14:34:42Z",
+  "session": "pi-20260730-001",
+  "source": "self-detected",
+  "agent": "Knox",
+  "category": "process-skip",
+  "description": "Plaud ingest workflow aborted at step-01: Plaud API requires authentication token obtained via interactive Chrome login flow. Non-interactive sandbox environment cannot complete browser-based auth or access host filesystem (~/.config/plaud/).",
+  "correction": "Plaud API token must be cached by running Chrome login flow (https://web.plaud.ai) on the user's Mac to extract JWT from localStorage and write to ~/.config/plaud/token.json. This requires interactive authentication — it cannot be completed in a sandbox.",
+  "failure_mode": "protocol-skip",
+  "systemic_fix": "Plaud discovery should either: (1) be run only in interactive/host contexts, or (2) detect missing token and gracefully prompt for user action rather than silently failing. Current architecture assumes fetch_plaud.py will be executed on the Mac, but workflow routing does not enforce this.",
+  "fix_status": "deferred",
+  "severity": "moderate",
+  "related_entries": ["err-20260729T000500-aborted"]
+}

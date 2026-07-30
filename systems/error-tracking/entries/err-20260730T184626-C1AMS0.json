@@ -1,0 +1,15 @@
+{
+  "id": "err-20260730T184626-C1AMS0",
+  "timestamp": "2026-07-30T18:46:26Z",
+  "session": "session-2026-07-30-092431",
+  "source": "self-detected",
+  "agent": "chase",
+  "category": "under-delivery",
+  "description": "While fixing the missing-artifact issue for the CBRE pursuit dashboard, Master found the Confluent-referral removal Chase reported as complete was incomplete. The Rob Ogbah name itself was removed, but two Profiles-tab pitch quotes (Anuj Kadyan and Josh White) still used active-tense Confluent-thread framing ('we're already inside the account on the Confluent side', 'we're now working the Confluent Cloud thread') that contradicted the Notes tab, which correctly stated Confluent was downgraded to unconfirmed with no independent evidence found. Chase's own completion report claimed 'zero remaining mentions' verified against account-plan.md and pursuit-dashboard.html, which was not accurate for the dashboard's Profiles tab content.",
+  "correction": "Rewrote both pitch quotes to ground them in CBRE's own reported Q2 2026 results (68% critical infrastructure growth, $700M+ data center revenue) instead of the Confluent thread, consistent with the rest of the reworked plan.",
+  "failure_mode": "sloppy-read",
+  "systemic_fix": "When a sub-agent reports a find-and-remove task as complete with a specific verification claim (e.g. 'zero remaining mentions'), that claim should be spot-checked against the actual file content before relaying it to the controller as fact, especially for multi-section HTML/dashboard files where a grep for one literal string (a name) won't catch paraphrased or thematically-related content (e.g. 'the Confluent thread' without the word Ogbah).",
+  "fix_status": "applied",
+  "severity": "moderate",
+  "related_entries": ["err-20260730T184545-HY385S"]
+}

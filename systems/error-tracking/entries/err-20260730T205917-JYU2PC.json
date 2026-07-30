@@ -1,0 +1,15 @@
+{
+  "id": "err-20260730T205917-JYU2PC",
+  "timestamp": "2026-07-30T20:59:17Z",
+  "session": "session-2026-07-30-092431",
+  "source": "self-detected",
+  "agent": "master",
+  "category": "tool-misuse",
+  "description": "While rebuilding the Thought Leadership slides in 2026-07 - One Texas Update.pptx as graphical content, deleted the two old plain-text slides and added two new graphical slides in the same python-pptx Presentation session, then called .save(). This triggered 'Duplicate name' warnings from the zipfile module (ppt/slides/slide10.xml and its .rels written twice), because python-pptx reuses part-numbering without fully garbage-collecting a deleted slide's part in the same in-memory session. The saved file had a genuinely corrupted zip (2 duplicate entries confirmed via zipfile.namelist() count mismatch: 101 names vs 99 unique) even though python-pptx's own re-read of it happened to resolve to the correct content.",
+  "correction": "Caught via a follow-up integrity check (counting zip namelist duplicates) rather than trusting the initial save. Fixed by reloading the already-saved (corrupted-zip but semantically correct) file fresh, then immediately re-saving it via python-pptx to a temp path, which deduplicates parts because python-pptx's in-memory package model only holds one part per URI after a fresh parse. Verified zero duplicates in the temp file, then copied it over the original, then did a fully independent re-read (new process, new Presentation load) confirming 10 slides and all expected shapes/text intact.",
+  "failure_mode": "tool-ignorance",
+  "systemic_fix": "When a python-pptx workflow both deletes and adds slides within the same Presentation object before saving, always verify the saved .pptx's zip integrity afterward (zipfile.namelist() duplicate count) before declaring the edit complete — don't rely on python-pptx's own silence or a same-session re-read as proof, since it can mask a corrupted save. Prefer doing delete and add operations in two separate load/save passes when both are needed in one edit, to avoid the part-numbering collision entirely.",
+  "fix_status": "applied",
+  "severity": "moderate",
+  "related_entries": ["err-20260730T175518-HKX9D3"]
+}

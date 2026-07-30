@@ -1,0 +1,15 @@
+{
+  "id": "err-20260730T184545-HY385S",
+  "timestamp": "2026-07-30T18:45:45Z",
+  "session": "session-2026-07-30-092431",
+  "source": "explicit",
+  "agent": "chase",
+  "category": "process-skip",
+  "description": "Chase updated accounts/CBRE/pursuit-dashboard.html as a plain file on disk via Desktop Commander when rerunning the CBRE pursuit plan, but never created/updated it as a proper Cowork artifact (mcp__cowork__create_artifact / update_artifact). A check of mcp__cowork__list_artifacts confirms no CBRE pursuit dashboard artifact exists in the manifest at all. David expected the dashboard to be a live, viewable artifact, not just a static file.",
+  "correction": "Any HTML dashboard/companion file built for David to actually view and interact with should be created or updated through the Cowork artifact tools, not just written as a plain file, even when the underlying content also needs to live in the accounts/ directory as a saved record. Master should check whether a deliverable is meant to be a live artifact before treating a file write as the complete deliverable.",
+  "failure_mode": "protocol-skip",
+  "systemic_fix": "When a workflow or sub-agent produces an HTML dashboard/report intended for viewing (pursuit dashboards, scorecards, etc.), default to also registering/updating it as a Cowork artifact unless told otherwise, not just saving the raw file to the account folder.",
+  "fix_status": "proposed",
+  "severity": "moderate",
+  "related_entries": []
+}

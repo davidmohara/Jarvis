@@ -1,0 +1,15 @@
+{
+  "id": "err-20260730T160535-OEZGNJ",
+  "timestamp": "2026-07-30T16:05:35Z",
+  "session": "session-2026-07-30-092431",
+  "source": "explicit",
+  "agent": "chase",
+  "category": "under-delivery",
+  "description": "Second consecutive failed attempt to fix the One Texas H1 2026 Scorecard slide layout. First pass deleted clutter without reflowing (err-20260730T160121-5S1CFZ). Second pass (sub-agent) claimed it resized/repositioned shapes to fill the slide and verified this programmatically via python-pptx bounding-box math, but David reports it is still not legible and still does not fill the slide. The sub-agent's 'verification' checked shape coordinates against slide bounds but evidently did not catch the actual visual/legibility problem (likely font/text-box proportions, real rendering vs. raw XML math, or an incorrect assumption about what 'filling the slide' should look like).",
+  "correction": "Coordinate-math verification against python-pptx bounding boxes is not sufficient proof that a slide is visually correct. Before reporting a layout fix as complete, the actual rendered slide must be visually inspected (export to PDF/image and look at it) rather than trusting shape-position arithmetic alone.",
+  "failure_mode": "wrong-assumption",
+  "systemic_fix": "For any visual/layout task (slides, documents, images), require a render-and-look step as the final verification gate, not a data-level check. Master should do this inspection itself before relaying a sub-agent's 'verified' claim to David, rather than passing through unverified confidence a second time.",
+  "fix_status": "proposed",
+  "severity": "major",
+  "related_entries": ["err-20260730T160121-5S1CFZ"]
+}

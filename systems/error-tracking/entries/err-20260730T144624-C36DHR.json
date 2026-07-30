@@ -1,0 +1,15 @@
+{
+  "id": "err-20260730T144624-C36DHR",
+  "timestamp": "2026-07-30T14:46:24Z",
+  "session": "session-2026-07-30-092431",
+  "source": "explicit",
+  "agent": "master",
+  "category": "hallucination",
+  "description": "Master relayed Knox's claim that plaud-ingest was blocked by a missing/uncacheable Plaud API token requiring interactive Chrome login. David corrected this directly: there is no token issue. Knox's plaud-ingest skills and scripts are self-healing and work fine. This same false narrative had already been logged twice before (err-20260721T142549-4TGXTI, err-20260730T143442-4OOWTU) and repeated without being questioned.",
+  "correction": "There is no Plaud API token blocker. Do not report or relay this claim again. Whatever caused fetch_plaud.py to exit NO_TOKEN in the sandbox this session was not a real, unresolvable blocker — Knox's tooling self-heals. Treat a NO_TOKEN-style exit as a transient/environmental issue to retry or investigate, not as grounds to abort and report a hard dependency on interactive Mac login.",
+  "failure_mode": "wrong-assumption",
+  "systemic_fix": "Stop accepting a sub-agent's first-failure explanation as fact when it hasn't been independently verified, especially when the same claim has already recurred across multiple sessions. A repeated identical excuse across sessions (this is the third occurrence) should have triggered skepticism and a deeper check before being relayed to David as an established fact, not just execution of the threshold-alerting rule after the fact.",
+  "fix_status": "proposed",
+  "severity": "major",
+  "related_entries": ["err-20260721T142549-4TGXTI", "err-20260730T143442-4OOWTU", "err-20260730T143152-S0TRMO"]
+}

@@ -1,0 +1,15 @@
+{
+  "id": "err-20260730T160121-5S1CFZ",
+  "timestamp": "2026-07-30T16:01:21Z",
+  "session": "session-2026-07-30-092431",
+  "source": "explicit",
+  "agent": "chase",
+  "category": "under-delivery",
+  "description": "David asked to clean up the One Texas H1 2026 Scorecard slide by removing artifacts/extraneous data. Chase (sub-agent) deleted 41 redundant shapes but did not resize or reposition the remaining shapes to fill the slide. David's feedback: it just shrank the content and made it less readable, leaving dead whitespace where the deleted column used to be.",
+  "correction": "Removing clutter from a slide is not just deletion, it requires reflowing what remains so the layout still fills the canvas and reads as an intentional design, not a slide with a hole in it. Any slide-cleanup task must include a resize/reposition pass on the kept elements as a mandatory final step, not an optional nice-to-have.",
+  "failure_mode": "under-delivery",
+  "systemic_fix": "When instructing an agent to clean up a slide/deck, explicitly require a layout re-flow step after content removal: kept shapes must be resized and repositioned to use the full slide area, not left at their original size and position with empty space where deleted content used to be.",
+  "fix_status": "proposed",
+  "severity": "moderate",
+  "related_entries": []
+}

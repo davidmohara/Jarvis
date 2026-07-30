@@ -1,0 +1,15 @@
+{
+  "id": "err-20260730T143152-S0TRMO",
+  "timestamp": "2026-07-30T14:31:52Z",
+  "session": "session-2026-07-30-092431",
+  "source": "explicit",
+  "agent": "master",
+  "category": "process-skip",
+  "description": "During the 2026-07-30 boot sequence, Master again did not spawn Knox for plaud-ingest. Justification given at the time was 'no explicit request' plus prior sessions showing token friction on unattended Plaud pulls. David corrected this: plaud-ingest is a standing Phase 0 requirement in the boot workflow, not a judgment call Master gets to make session to session, and this is at least the second boot in a row it was skipped.",
+  "correction": "Knox should be spawned live for plaud-ingest on every boot per the Data Sources Required table in workflows/boot/workflow.md, regardless of Master's own risk assessment about prior token friction. If Knox hits a real blocker (missing token, no new recordings), that's Knox's finding to report, not Master's assumption to make in advance.",
+  "failure_mode": "protocol-skip",
+  "systemic_fix": "Treat the plaud-ingest spawn in boot Phase 0 as unconditional. Master's role is to fire the spawn and let Knox report status, not to pre-judge whether the spawn is worth attempting based on past outcomes.",
+  "fix_status": "proposed",
+  "severity": "moderate",
+  "related_entries": ["err-20260721T142549-4TGXTI", "err-20260722T164142-KOFUWY"]
+}

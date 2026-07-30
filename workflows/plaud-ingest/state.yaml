@@ -1,25 +1,69 @@
 workflow: plaud-ingest
 agent: knox
 status: complete
-session-started: "2026-07-29T00:00:00Z"
-session-id: "pi-20260729-001"
+session-started: "2026-07-30T16:00:00Z"
+session-id: "pi-20260730-001"
 current-step: step-05b
-original-request: "plaud-ingest background run"
-completed-at: "2026-07-29T20:58:00Z"
-completion-reason: "Completed — Jul 28 recordings ingested and shared"
+original-request: "Knox: Execute full plaud-ingest pipeline live end-to-end per workflow.md"
+prior-run-note: "2026-07-30 run incorrectly reported a Plaud API token blocker (logged as err-20260730T143442-4OOWTU). David confirmed there is no token issue — plaud-ingest tooling is self-healing. That reason was corrected via err-20260730T144624-C36DHR and should not be repeated. Reset to not-started for a clean retry."
 accumulated-context:
   # target-date is OPTIONAL — only set this for a targeted reprocess of a specific date.
   # When absent, the workflow runs in full enumeration (catch-up) mode.
   # target-date: "YYYY-MM-DD"
-  new-recordings: []
+  new-recordings:
+    - file_id: "f824cc96ed478cbb55a5e7c43f0945c7"
+      name: "2026-07-29 09:31:16"
+      date: "2026-07-29"
+      duration_seconds: 1742
+      has_transcript: false
+      transcript_status: "pending"
+    - file_id: "235c1f402e3bdd98d8e0fb322ca7f4f8"
+      name: "2026-07-29 11:40:19"
+      date: "2026-07-29"
+      duration_seconds: 4694
+      has_transcript: false
+      transcript_status: "pending"
+    - file_id: "ed2a74d60ee7baba6b94a153d5b7415d"
+      name: "2026-07-29 13:58:35"
+      date: "2026-07-29"
+      duration_seconds: 5641
+      has_transcript: false
+      transcript_status: "pending"
+    - file_id: "46862b5ef46e5867280603f9d5a843a2"
+      name: "2026-07-30 09:31:18"
+      date: "2026-07-30"
+      duration_seconds: 736
+      has_transcript: false
+      transcript_status: "pending"
   api-total-recordings: 0
-  transcription-triggered: []
-  pending-recordings: []
+  transcription-triggered:
+    - "f824cc96ed478cbb55a5e7c43f0945c7"
+    - "235c1f402e3bdd98d8e0fb322ca7f4f8"
+    - "ed2a74d60ee7baba6b94a153d5b7415d"
+    - "46862b5ef46e5867280603f9d5a843a2"
+  pending-recordings:
+    - "f824cc96ed478cbb55a5e7c43f0945c7"
+    - "235c1f402e3bdd98d8e0fb322ca7f4f8"
+    - "ed2a74d60ee7baba6b94a153d5b7415d"
+    - "46862b5ef46e5867280603f9d5a843a2"
   speaker-mappings: {}
   pending-speaker-mappings: []
   recording-classification: {}
-  ready-for-fetch: []
-  staged-files: []
+  ready-for-fetch:
+    - "f824cc96ed478cbb55a5e7c43f0945c7"
+    - "235c1f402e3bdd98d8e0fb322ca7f4f8"
+    - "ed2a74d60ee7baba6b94a153d5b7415d"
+    - "46862b5ef46e5867280603f9d5a843a2"
+  staged-files:
+    - "plaud_2026-07-30 09_31_18.md"
+    - "plaud_2026-07-29 13_58_35.md"
+    - "plaud_2026-07-29 11_40_19.md"
+    - "plaud_2026-07-29 09_31_16.md"
   stale-staged-files: []
   ingested-notes: []
   share-urls: []
+  speaker-id-notes:
+    - "2026-07-30 09:31:18: Speaker 2 is likely Anne Welo (Athena operations manager) based on transcript content"
+    - "2026-07-29 13:58:35: Has 2 untagged speakers - Speaker 1 (159 segments, wife/Bible ministry), Speaker 2 (29 segments)"
+    - "2026-07-29 11:40:19: Has 1 untagged speaker - Speaker 2 (85 segments, startup journey topic)"
+    - "2026-07-29 09:31:16: Has 2 untagged speakers - Speaker 7 (9 segments, product context), Speaker 1 (4 segments, product ownership)"

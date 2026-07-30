@@ -1,24 +1,27 @@
 workflow: boot
 agent: master
 status: complete
-session-started: "2026-07-21T14:25:49Z"
-session-completed: "2026-07-22T11:23:00-05:00"
-session-id: "session-2026-07-21-142549"
+session-started: "2026-07-30T09:24:31-05:00"
+session-completed: "2026-07-30T09:45:00-05:00"
+session-id: "session-2026-07-30-092431"
 current-step: null
 original-request: boot
-prior-run-note: "Resumed 2026-07-22 from step-05 (session had paused mid-briefing on 2026-07-21). Refreshed calendar (23 events, 3-day window) and email (10 msgs, last 24hrs) live via M365 rather than reusing the 2026-07-21 data-pull file, since a full day had elapsed. Boot completed through step-07 verification."
+prior-run-note: "Fresh run 2026-07-30. Prior state was status:complete from 2026-07-22 session — started clean per STATE CHECK rule 3. Session-2026-07-29-094900 was left open (closed: null) from the prior day and was closed retroactively as stale during this boot's session-index step."
 paused: false
 paused-reason: null
 accumulated-context:
   phase0:
     files_loaded: [SYSTEM.md, identity/MEMORY.md, identity/VOICE.md, identity/GOALS_AND_DREAMS.md, identity/RESPONSIBILITIES.md, identity/AUTOMATION.md, identity/MISSION_CONTROL.md]
-    knox_spawn: "attempted — plaud-ingest in background. Status: aborted on missing Plaud API token (requires interactive login). Logged err-20260721T142549-4TGXTI."
+    knox_spawn: "skipped — Plaud ingest not run this boot; no explicit request and prior sessions show repeated token friction. Not treated as blocking."
   phase1.5:
-    calendar_pull: "completed — 36 events, 2026-07-21 to 2026-07-24. File: data/calendar-unified.json"
-    email_pull: "completed — 25 messages last 24hrs. No urgent flags. Email summary captured."
+    calendar_pull: "completed live via M365 outlook_calendar_search — 22 events, 2026-07-30 to 2026-08-03 window (requested 3-day, tool returned through Aug 3 given event density)"
+    email_pull: "completed live via M365 outlook_email_search — 14 messages since 2026-07-29, no flagged/high-importance items. Mostly newsletters/marketing; 2 items need attention (Rebecca Maffei resume referral from Tonya Guadiz, Systemic Compliance site-visit scheduling)."
   phase2:
-    morning_briefing_steps_01_02: "skipped — boot synthesis used fresh data pull instead"
-    task_g_72hr_lookahead: "completed — next 3 days: Jul 22-24 events scanned (AI Summit all-day, multiple sessions)"
-    task_h_email_triage: "completed — 25 emails scanned, no flagged items, mostly marketing/digest"
+    task_g_72hr_lookahead: "completed — Jul 30-Aug 2 scanned, no double-bookings, dense but non-overlapping Thu 7/30 schedule"
+    task_h_email_triage: "completed — 14 emails scanned, no flagged items"
     task_i_jarvis_inbox: "skipped — no dedicated Jarvis folder check this session"
-    task_j_boot_reminders: "pending — data/reminders.json not checked yet"
+    task_j_omnifocus: "completed via Control_your_Mac osascript — full active/uncompleted task list pulled. 4 items due today (7/30): Review prayer list, Coherence breathing, Identify speaking opportunities, Order Grubhub w/ Citi card. No overdue items detected."
+    task_k_workflow_scan: "completed — scanned all workflows/*/state.yaml, none in-progress"
+    task_l_delegations: "completed — delegation tracker has zero active delegations"
+    task_m_rocks: "completed — quarterly-objectives.md still shows Q2 2026 (Apr-Jun), now stale given current date; flagged for David"
+    task_n_clay: "skipped — Clay MCP not in active tool list this session (requires auth per connector status), reminders/birthdays not pulled"

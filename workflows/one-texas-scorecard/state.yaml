@@ -2,12 +2,12 @@
 workflow: one-texas-scorecard
 agent: chase
 status: complete
-session-started: "2026-07-14T00:00:00"
-session-id: "chase-2026-07-14-000000"
+session-started: "2026-07-30T00:00:00"
+session-id: "chase-2026-07-30-000000"
 current-step: complete
-original-request: "run whole workflow for One Texas Scorecard — H1 review prep for Scott McMichael call"
+original-request: "Update the One Texas Scorecard PPTX in OneDrive (One Texas | Monthly Meetings) with data through H1 2026 close"
 abort-reason: null
-completed-at: "2026-07-14T00:10:00"
+completed-at: "2026-07-30T00:00:00"
 accumulated-context:
   goals: |
     ## Annual Target Reference (One Texas)
@@ -22,22 +22,25 @@ accumulated-context:
       speaking_engagements: 10
 
   revenue: |
-    ## Revenue Tracker — One Texas — 2026-07-13 (cache)
-    Dallas: CQ +4% vs target, +14% vs PY, 90-Day 101%, June ~$2.8M
-    South Texas: CQ -23% vs target, -22% vs PY, 90-Day 71%, June ~$2.9M
-    One Texas YTD: -9% vs target, -6% vs PY
+    ## Revenue Tracker — One Texas — 2026-07-27 CORRECTED (cache, 3 days old, most recent closed month = June 2026 = H1 close)
+    Revenue vs Target: Dallas CQ +4% / LQ +3% / YTD +3%. South Texas CQ -23% / LQ -17% / YTD -20%. One Texas avg CQ -9.5% / YTD -8.5%.
+    Revenue vs Prior Year: Dallas CQ +14% / YTD +9%. South Texas CQ -22% / YTD -21%. One Texas avg CQ -4% / YTD -6%.
+    Sequential Quarterly: Dallas CQ +8%, 90-Day 101%. South Texas CQ -1%, 90-Day 71%.
+    Monthly Revenue (June 2026, actual/black bars): Dallas $2.8M, South Texas $2.7M, One Texas $5.5M.
+    South Texas double miss (below target AND below PY) for 4th straight quarter; Dallas green across the board.
 
   co_sell: |
-    ## Co-Sell — Rock 4 — 2026-07-13 (cache)
-    Pipeline: $2,598,350 (8 opps). Won 2026 YTD: $332,000 (1 opp)
-    Gap: $12,069,650 (80.5%). Q2 deadline MISSED.
+    ## Co-Sell — Rock 4 — 2026-07-30 (LIVE, One Texas disaggregated: Dallas+Houston+Austin)
+    Pipeline by enterprise: Dallas $2,598,350 (8 opps), Houston $562,000 (4 opps), Austin $50,000 (1 opp). One Texas total $3,210,350 (13 opps).
+    Won 2026 YTD by enterprise: Dallas $332,000 (1, Microsoft/Diana Stevens), Houston $2,774,080 (4, incl. unresolved partner ID 176360014 = $2,604,880), Austin $0. One Texas total $3,106,080 (5 opps).
+    Combined progress: $6,316,430. Gap: $8,683,570 remaining (57.9%). Q2 deadline already missed; gap narrowed from $12.1M (7/20) to $8.68M (7/30) — Houston pipeline growth is the driver.
 
   pipeline: |
-    ## Pipeline — Rock 1 — 2026-07-14 (LIVE)
-    90-Day Weighted: Dallas $7,960,180 / STX $6,922,340 / One Texas $14,882,520
-    Total Pipeline: Dallas $37.86M / STX $25.55M / One Texas $63.41M / 205 opps
+    ## Pipeline — Rock 1 — 2026-07-30 (LIVE)
+    90-Day Weighted: Dallas $9,009,677 / STX $2,651,959 / One Texas $11,661,636 (down from $14.88M on 7/14 — 21.5% compression)
+    Total Pipeline: Dallas $41.68M / STX $15.49M / One Texas $57.17M / 160 opps
 
   new_clients: |
-    ## New Clients — 2026-06-22 (cache, through May)
-    Logos: Dallas 6, STX 1, One Texas 7
-    Anchors: Dallas 1, STX 1, One Texas 2 (target 3, gap 1)
+    ## New Clients — 2026-07-30 (LIVE, through June/H1 close)
+    Logos: Dallas 7 (confirmed), STX ~3 (estimated, tooltip unavailable), One Texas ~10
+    Anchors: Dallas 3 (confirmed: CPAL, First United Bank, Simpson Strong-Tie), STX ~1 (estimated), One Texas ~4 (target 3 — target met/exceeded at H1)

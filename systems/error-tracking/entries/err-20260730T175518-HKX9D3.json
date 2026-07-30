@@ -1,0 +1,15 @@
+{
+  "id": "err-20260730T175518-HKX9D3",
+  "timestamp": "2026-07-30T17:55:18Z",
+  "session": "session-2026-07-30-092431",
+  "source": "explicit",
+  "agent": "master",
+  "category": "under-delivery",
+  "description": "Third consecutive failed attempt to fix the One Texas H1 2026 Scorecard slide. David reports none of the requested corrections landed, despite Master directly verifying (via python-pptx read-back) that the deletions, layout resize, rock-reference removal, and header fix had been written and saved. A post-hoc check after this correction, done by closing the PowerPoint MCP session with save:false and re-reading the file, showed a partial/inconsistent on-disk state: shape count reverted to the pre-cleanup 69 (deletions gone), header shape width reverted to original, but the rock-text removal was still present. This is not a clean revert to any single prior save point, which points to a race between direct file writes (via Desktop Commander/python-pptx) and either OneDrive sync reconciliation or the PowerPoint MCP's own open-presentation session silently re-writing/caching an inconsistent version on close, rather than a straightforward mistake in the edit logic itself.",
+  "correction": "Do not report a file edit as complete based on a read-back performed while the same file may still be open in another process (PowerPoint MCP) or in a OneDrive-synced, Files-On-Demand location. Read-after-write verification is not reliable in this environment for this specific file/tool combination. Before claiming a fix landed, the file should be confirmed stable (no open PowerPoint MCP session, sync fully settled) across multiple reads over time, not a single immediate read-back.",
+  "failure_mode": "tool-ignorance",
+  "systemic_fix": "This needs investigation, not another blind retry: (1) determine whether the PowerPoint MCP server holds its own in-memory copy that can overwrite direct file edits on any subsequent open/close/autosave, (2) determine whether OneDrive Files-On-Demand sync is reconciling this specific file inconsistently against direct Desktop Commander writes, (3) consider requiring all pptx edits on OneDrive-synced paths to go through a single tool (either PowerPoint MCP exclusively, or direct file edits exclusively, never both in the same session) until root cause is confirmed. Recommend routing to Rigby for diagnosis rather than Master continuing to retry the same file blindly.",
+  "fix_status": "proposed",
+  "severity": "major",
+  "related_entries": ["err-20260730T160121-5S1CFZ", "err-20260730T160535-OEZGNJ"]
+}
