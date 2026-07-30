@@ -60,6 +60,44 @@
       "rank": 1,
       "day": "saturday",
       "date": "2026-08-09",
+      "preferred_start": "13:00",
+      "preferred_start_label": "1:00 PM",
+      "preferred_end": "15:30",
+      "holes": 18,
+      "cost_per_player": 21,
+      "total_cost": 42,
+      "weather": {
+        "high_f": 100,
+        "rain_pct": 0,
+        "wind_mph": 12,
+        "condition": "sunny"
+      },
+      "score": 0,
+      "rationale": "OVERRIDE: Saturday 1:00 PM \u2014 user preference, clear weather, no conflicts"
+    },
+    {
+      "rank": 2,
+      "day": "sunday",
+      "date": "2026-08-10",
+      "preferred_start": "14:00",
+      "preferred_start_label": "2:00 PM",
+      "preferred_end": "16:30",
+      "holes": 18,
+      "cost_per_player": 21,
+      "total_cost": 42,
+      "weather": {
+        "high_f": 97,
+        "rain_pct": 0,
+        "wind_mph": 5,
+        "condition": "sunny"
+      },
+      "score": 1,
+      "rationale": "OVERRIDE: Sunday 2:00 PM \u2014 user preference, post-church window (before 2:30 PM buffer), cooler temps"
+    },
+    {
+      "rank": 3,
+      "day": "saturday",
+      "date": "2026-08-09",
       "preferred_start": "16:00",
       "preferred_start_label": "4:00 PM",
       "preferred_end": "19:30",
@@ -72,48 +110,10 @@
         "wind_mph": 12,
         "condition": "sunny"
       },
-      "score": 0,
-      "rationale": "Saturday 4:00 PM \u2014 heat streak active, clear weather, no conflicts, best conditions overall"
-    },
-    {
-      "rank": 2,
-      "day": "friday",
-      "date": "2026-08-08",
-      "preferred_start": "16:00",
-      "preferred_start_label": "4:00 PM",
-      "preferred_end": "19:30",
-      "holes": 18,
-      "cost_per_player": 15,
-      "total_cost": 30,
-      "weather": {
-        "high_f": 102,
-        "rain_pct": 0,
-        "wind_mph": 8,
-        "condition": "sunny"
-      },
-      "score": 3,
-      "rationale": "Friday 4:00 PM \u2014 heat streak active, clear weather, but workday constraint (+3)"
-    },
-    {
-      "rank": 3,
-      "day": "sunday",
-      "date": "2026-08-10",
-      "preferred_start": "16:00",
-      "preferred_start_label": "4:00 PM",
-      "preferred_end": "19:30",
-      "holes": 18,
-      "cost_per_player": 15,
-      "total_cost": 30,
-      "weather": {
-        "high_f": 97,
-        "rain_pct": 0,
-        "wind_mph": 5,
-        "condition": "sunny"
-      },
       "score": 5,
-      "rationale": "Sunday 4:00 PM \u2014 cooler temps, post-church (2:30 PM buffer), Sunday penalty (+5)"
+      "rationale": "Fallback: Saturday 4:00 PM \u2014 heat streak active, clear weather"
     }
   ],
-  "override_instructions": null,
+  "override_instructions": "User override: Book Saturday 1:00 PM first. If unavailable, book Sunday 2:00 PM. Fallback: Saturday 4:00 PM.",
   "booking_instructions": "Top option (Saturday 4:00 PM) will be booked at midnight 8 days before target date. Booking window opens: 2026-08-01T00:00:00 CT."
 }

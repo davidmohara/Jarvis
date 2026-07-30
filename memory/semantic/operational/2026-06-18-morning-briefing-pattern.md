@@ -5,7 +5,7 @@ tags:
 - morning-briefing
 confidence: high
 created: '2026-06-18'
-last-updated: 2026-07-17
+last-updated: 2026-07-30
 synthesized-from:
   - memory/episodic/2026-05-04-morning-briefing-automated.md
   - memory/episodic/2026-05-04-morning-briefing.md
@@ -122,3 +122,9 @@ Sources this cycle:
 - `memory/episodic/morning-briefing-2026-07-14-083505.md` (score 10) — tags: briefing, chief, calendar, omnifocus, mcmichael, q3-rocks, health — OmniFocus MCP threw hard parameter-deserialization errors (not the known completion-status quirk) blocking inbox/overdue/flagged pulls entirely; briefing still surfaced the McMichael H1-review prep gap and flagged Q3 rocks as the single highest-leverage action available; health cluster (nerve block referral) raised as a live decision point (Dr. Walters vs. Dr. Easton) rather than a routine overdue flag.
 
 Genuinely new entry, not a backfill. This is the second distinct OmniFocus failure mode logged against the morning-briefing cluster this month (prior: known completion-status quirk; this one: schema/deserialization error) — worth tracking as its own reliability thread rather than folding into the general OmniFocus-unavailable noise.
+
+### 2026-07-30 — Nightly promotion
+Sources this cycle:
+- `memory/episodic/morning-briefing-2026-07-20-060900.md` (score 8) — tags: briefing, chief, calendar, omnifocus, gms-summit, co-sell, rock-4, overdue-tasks, health. GMS Summit day (Curtis Hite, Lowell Ricketts, NADA); co-sell/rock-4 co-occurrence with health/overdue continuing; people: lowell-ricketts, nada, curtis-hite, dawn-dearstone, ashok-iyengar, ryan-menke, scott-mai.
+
+Co-sell/rock-4 + health/overdue-tasks is now a durable cross-tag signature appearing in briefings spanning Jul 7 through Jul 20 with no resolution visible. GMS Summit is a new event type appearing in the briefing cluster; executives present (Curtis Hite) indicate strategic context surfacing through the daily briefing rather than a dedicated session.

@@ -23,9 +23,10 @@ related_people:
   - april
   score: 0
   last-promoted-check: 2026-07-28
-salience:
-  score: 9
   last-promoted-check: 2026-07-29
+salience:
+  score: 10
+  last-promoted-check: 2026-07-30
 ---
 
 # Dream Cycle Summary — July 26, 2026

@@ -1,22 +1,23 @@
 workflow: dream-cycle
 agent: jarvis
 status: complete
-session-started: 2026-07-29T03:09:34-05:00
-session-id: dream-cycle-2026-07-29-030934
+session-started: 2026-07-30T03:09:35-05:00
+session-id: dream-cycle-2026-07-30-030935
 current-step: null
-original-request: Scheduled dream cycle run (automated) - 2026-07-29
+original-request: Scheduled dream cycle run (automated) - 2026-07-30
 accumulated-context:
   git_pull_at_boot: success
-  git_pull_note: "Fast-forward eeb3ae8..b5c3caa; stash/pop for unstaged state.yaml + daily-review + golf files."
+  git_pull_note: "Fast-forward 189d48e..8f69086; stash/pop for unstaged daily-review + golf + eval files. New: plaud-ingest working entry, 4 error entries, political-monitor run."
   working_archived: 3
   working_deleted: 0
-  working_skipped: 15
+  working_skipped: 18
   working_stranded: 0
   skipped_not_expired:
-    - daily-review-2026-07-27-211110.md
     - daily-review-2026-07-28-050000.md
-    - dream-summary-2026-07-28.md
+    - daily-review-2026-07-29-050000.md
     - morning-briefing-2026-07-28-060929.md
+    - morning-briefing-2026-07-29-060924.md
+    - plaud-ingest-2026-07-29-210000.md
   skipped_unparseable:
     - 2026-07-08.md
     - 2026-07-23-215200-session-felix-derek-persona-rebuild.md
@@ -30,36 +31,37 @@ accumulated-context:
     - sc-executive-brief-2026-07-13.md
     - solace-meeting-prep-2026-07-27.md
   archived_files:
-    - co-sell-pipeline-2026-07-27-000000.md
-    - revenue-tracker-2026-07-27-001532.md
-    - dream-summary-2026-07-27.md
-  episodic_scanned: 239
-  score_updates: 239
-  window_entries: 82
+    - daily-review-2026-07-27-211110.md
+    - dream-summary-2026-07-28.md
+    - dream-summary-2026-07-29.md
+  episodic_scanned: 242
+  score_updates: 242
+  window_entries: 81
   no_date: 27
   no_tags: 214
-  score_distribution: "0:216,1:2,2:3,4:1,5:6,6:5,7:4,9:1,10:1"
+  score_distribution: "0:216,1:2,2:3,4:1,5:3,6:3,7:9,8:2,9:1,10:2"
+  clusters_found: 1
+  semantic_created: 0
+  semantic_updated: 1
+  promoted_entries: 11
+  errors_30d: 123
+  lessons_appended: 0
+  lessons_note: "All 8 qualifying categories already documented in LESSONS.md. No new lessons."
+  promotion_note: "11 source files confirmed promoted=true (already set by salience-score.py). morning-briefing-pattern updated with Jul 20 briefing (GMS Summit day). All other candidates re-flagged from merge-write backlog, already synthesized in prior cycles."
+  entries_compressed: 20
+  digests_updated: 1
+  compression_skipped: false
+  compression_note: "20 candidates (Apr 2026, score 0, not promoted). All digested to 2026-Q2-digest.md and deleted via Desktop Commander."
+prior-run-context:
+  session_id: dream-cycle-2026-07-29-030934
+  working_archived: 3
+  working_deleted: 0
+  episodic_scanned: 239
+  score_updates: 239
   clusters_found: 2
   semantic_created: 0
   semantic_updated: 2
   promoted_entries: 2
-  errors_30d: 128
-  lessons_appended: 0
-  lessons_note: "All 10 qualifying categories already documented in LESSONS.md. No new lessons."
-  entries_compressed: 0
-  digests_updated: 0
-  compression_skipped: true
-  compression_note: "0 candidates. Q2 digest consumed all eligible entries Jul 23. Next window opens Oct as Jul entries age past 90 days."
-prior-run-context:
-  session_id: dream-cycle-2026-07-28-030927
-  working_archived: 2
-  working_deleted: 0
-  episodic_scanned: 236
-  score_updates: 236
-  clusters_found: 0
-  semantic_created: 0
-  semantic_updated: 0
-  promoted_entries: 0
   entries_compressed: 0
   digests_updated: 0
   errors: 0
