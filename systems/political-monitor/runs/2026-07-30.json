@@ -1,0 +1,351 @@
+{
+  "date": "2026-07-30",
+  "generated": "2026-07-30T06:00:00Z",
+  "window_hours": 72,
+  "sources_used": [
+    {
+      "id": "msnbc",
+      "name": "MSNBC"
+    },
+    {
+      "id": "cnn",
+      "name": "CNN Politics"
+    },
+    {
+      "id": "nbc",
+      "name": "NBC News Politics"
+    },
+    {
+      "id": "axios",
+      "name": "Axios Politics"
+    },
+    {
+      "id": "dailybeast",
+      "name": "The Daily Beast"
+    },
+    {
+      "id": "slate",
+      "name": "Slate"
+    },
+    {
+      "id": "newrepublic",
+      "name": "The New Republic"
+    },
+    {
+      "id": "foxnews",
+      "name": "Fox News Politics"
+    },
+    {
+      "id": "natreview",
+      "name": "National Review"
+    },
+    {
+      "id": "examiner",
+      "name": "Washington Examiner"
+    },
+    {
+      "id": "federalist",
+      "name": "The Federalist"
+    },
+    {
+      "id": "dailywire",
+      "name": "The Daily Wire"
+    },
+    {
+      "id": "townhall",
+      "name": "Townhall"
+    },
+    {
+      "id": "rcp",
+      "name": "RealClearPolitics"
+    },
+    {
+      "id": "amconserv",
+      "name": "The American Conservative"
+    },
+    {
+      "id": "freepress",
+      "name": "The Free Press"
+    }
+  ],
+  "sources_muted": [
+    {
+      "id": "nyt",
+      "name": "New York Times"
+    },
+    {
+      "id": "wapo",
+      "name": "Washington Post"
+    },
+    {
+      "id": "politico",
+      "name": "Politico"
+    },
+    {
+      "id": "vox",
+      "name": "Vox Politics"
+    },
+    {
+      "id": "motherjones",
+      "name": "Mother Jones"
+    },
+    {
+      "id": "wsj_opinion",
+      "name": "WSJ Opinion"
+    },
+    {
+      "id": "nypost",
+      "name": "New York Post"
+    },
+    {
+      "id": "reuters",
+      "name": "Reuters Politics"
+    },
+    {
+      "id": "ap",
+      "name": "Associated Press"
+    },
+    {
+      "id": "bbc",
+      "name": "BBC US & Canada"
+    },
+    {
+      "id": "thehill",
+      "name": "The Hill"
+    },
+    {
+      "id": "breitbart",
+      "name": "Breitbart"
+    },
+    {
+      "id": "spectator",
+      "name": "The American Spectator"
+    }
+  ],
+  "counts": {
+    "total_items": 57,
+    "by_lean": {
+      "left": 29,
+      "right": 22,
+      "center": 6
+    },
+    "shared_topics": 2,
+    "gap_left": 4,
+    "gap_right": 2
+  },
+  "shared_topics": [
+    {
+      "title": "US-Iran War: Ballistic Missile Attack Intercepted, CENTCOM Strikes Dozens of IRGC Targets",
+      "topic_key": "iran-us-strikes-escalation-july30",
+      "summary": "On July 29-30, Iran launched a ballistic missile 'surprise attack' targeting US forces in the Middle East; all missiles were successfully intercepted. CENTCOM responded with a 'heavy wave of strikes' against dozens of IRGC targets. The conflict \u2014 now in its third month \u2014 has cost an estimated $37.5 billion and killed at least 17 US troops. Oman-led mediators are pushing for a new ceasefire, but both sides remain far apart diplomatically.",
+      "correlation": 38,
+      "correlation_label": "Same conflict, sharply divergent narratives \u2014 left frames as costly failure, right as justified defense; notable dissent from The American Conservative",
+      "days_seen": 2,
+      "relevance": 70,
+      "relevance_label": "Recurring \u2014 day 2",
+      "left": {
+        "framing": "Left outlets emphasize the war's political and human costs \u2014 17 US troop deaths, $37.5B spent, 64% of Americans opposing the conflict \u2014 and frame Democrats' unanimous opposition as legitimate policy disagreement. CNN and NBC call this the most partisan war in modern US history. Slate and The Daily Beast note Fox's Laura Ingraham and Alex Jones (both typically pro-Trump) now urging an exit, framing MAGA itself as fracturing over the war.",
+        "sources": [
+          {
+            "source": "CNN",
+            "url": "https://www.cnn.com/2026/07/29/world/live-news/iran-trump-news"
+          },
+          {
+            "source": "The Daily Beast",
+            "url": "https://www.thedailybeast.com/ex-maga-wackjob-alex-jones-begs-congress-to-impeach-trump-over-iran-war/"
+          },
+          {
+            "source": "Slate",
+            "url": "https://slate.com/podcasts/political-gabfest/2026/07/politics-iran-war-costs-trump-downplays-political-risk"
+          }
+        ]
+      },
+      "right": {
+        "framing": "Right outlets frame the US military response as strong and appropriate \u2014 Fox leads with 'American forces hit dozens of Iranian targets' emphasizing CENTCOM's successful missile intercept. The Federalist argues Never-Trump Republicans are opportunistically exploiting the war to destroy MAGA. The American Conservative takes a rare critical posture, calling the conflict Trump's 'three-month excursion' with no peace in sight, and highlighting an emerging bipartisan anti-war coalition.",
+        "sources": [
+          {
+            "source": "Fox News",
+            "url": "https://www.foxnews.com/live-news/us-iran-war-donald-trump-strikes-july-30-2026"
+          },
+          {
+            "source": "The Federalist",
+            "url": "https://thefederalist.com/2026/07/29/nevertrumpers-are-banking-on-iran-war-to-drive-maga-into-extinction/"
+          },
+          {
+            "source": "The American Conservative",
+            "url": "https://www.theamericanconservative.com/the-three-month-excursion/"
+          }
+        ]
+      }
+    },
+    {
+      "title": "Fauci Invokes Fifth Amendment 100+ Times at Senate COVID Origins Hearing",
+      "topic_key": "fauci-senate-hearing-fifth-amendment-july30",
+      "summary": "On July 29, Dr. Anthony Fauci appeared before the Senate Homeland Security Committee for a hearing on COVID-19 origins and his personal diary, released by Sen. Rand Paul. Fauci invoked his Fifth Amendment right more than 100 times, refusing all substantive questions. His attorney was ejected after a chaotic exchange. Paul announced he would seek a contempt of Congress vote the following week. The hearing followed Paul's release of 1,000+ pages of Fauci's diary.",
+      "correlation": 28,
+      "correlation_label": "Effectively two different stories \u2014 left sees partisan theater targeting a public servant, right sees long-overdue accountability for COVID corruption",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New \u2014 first appearance",
+      "left": {
+        "framing": "Left outlets acknowledge the hearing but emphasize Republican 'grandstanding.' CNN frames Fauci as exercising a constitutional right and notes he called Paul 'unhinged.' NBC leads with the factual record while noting the partisan nature of GOP questioning. Slate argues the hearing is an example of Republicans using congressional power as a political weapon rather than seeking genuine accountability for pandemic policy.",
+        "sources": [
+          {
+            "source": "CNN",
+            "url": "https://www.cnn.com/2026/07/29/politics/anthony-fauci-fifth-amendment-plea"
+          },
+          {
+            "source": "NBC News",
+            "url": "https://www.nbcnews.com/politics/congress/anthony-fauci-5th-amendment-testify-covid-hearing-rand-paul-rcna589793"
+          },
+          {
+            "source": "Slate",
+            "url": "https://slate.com/news-and-politics/2026/07/anthony-fauci-covid-rand-paul-diary.html"
+          }
+        ]
+      },
+      "right": {
+        "framing": "Right outlets celebrate the hearing as long-overdue accountability. The Federalist declares Fauci's Fifth Amendment invocation proves his 'COVID corruption,' citing diary entries where he took credit for pushing school and restaurant closures. Townhall runs a prior Fauci interview in which he said he had 'nothing to hide.' Axios provides neutral play-by-play of the clashes including Sen. Hawley asking Fauci to identify his tie color.",
+        "sources": [
+          {
+            "source": "The Federalist",
+            "url": "https://thefederalist.com/2026/07/29/fauci-invokes-fifth-amendment-refuses-to-answer-for-his-covid-corruption/"
+          },
+          {
+            "source": "Townhall",
+            "url": "https://townhall.com/tipsheet/amy-curtis/2026/07/29/fauci-hearing-n2680293"
+          },
+          {
+            "source": "Axios",
+            "url": "https://www.axios.com/2026/07/29/fauci-senate-hearing-diary-covid"
+          }
+        ]
+      }
+    }
+  ],
+  "gap_left": [
+    {
+      "title": "Trump Fires Election Assistance Commission; SCOTUS Reviews Mail-In Ballot Order",
+      "topic_key": "trump-election-agency-firing-scotus-mail-ballot-july30",
+      "summary": "Trump fired the three remaining members of the Election Assistance Commission \u2014 the only federal agency dedicated to helping states run elections \u2014 in the middle of an election year. The FEC is also operating with only two members since May 2025. Separately, the DC Circuit Court unanimously rejected a Democratic challenge to Trump's mail-in ballot executive order, a ruling left outlets frame as enabling election manipulation. The Supreme Court is also taking a narrower look at the order.",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New \u2014 first appearance",
+      "sources": [
+        {
+          "source": "Slate",
+          "url": "https://slate.com/news-and-politics/2026/07/supreme-court-slaughter-trump-congress-fix.html"
+        },
+        {
+          "source": "CNN",
+          "url": "https://www.cnn.com/2026/07/28/politics/republican-midterms-poll-trump-inflation"
+        },
+        {
+          "source": "NBC News",
+          "url": "https://www.nbcnews.com/politics/2026-election/booming-backlash-ai-data-centers-shaping-midterm-election-rcna589624"
+        }
+      ]
+    },
+    {
+      "title": "Bipartisan Backlash to AI Data Centers Becomes Midterm Campaign Issue",
+      "topic_key": "ai-data-center-backlash-midterms-july30",
+      "summary": "Candidates across the country are cutting ads touting anti-data center credentials as opposition to new AI infrastructure buildouts drives bipartisan voter anger. NBC reports protesters are showing up at candidate events and industry players are taking note. NBC analysis connects the backlash to broader economic anxieties, as AI investment is estimated to have added up to 0.25 percentage points to inflation through higher electricity demand and chip prices. This emerging issue cuts across traditional partisan lines.",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New \u2014 first appearance",
+      "sources": [
+        {
+          "source": "NBC News",
+          "url": "https://www.nbcnews.com/politics/2026-election/booming-backlash-ai-data-centers-shaping-midterm-election-rcna589624"
+        },
+        {
+          "source": "Axios",
+          "url": "https://www.axios.com/2026/07/01/economy-inflation-iran-ai"
+        }
+      ]
+    },
+    {
+      "title": "Trump Admin Ends Medicare Part D Subsidies \u2014 25 Million Seniors Face Higher Drug Costs",
+      "topic_key": "trump-medicare-part-d-cuts-seniors-july30",
+      "summary": "The Trump administration is ending billions in Medicare Part D subsidies that keep prescription drug premiums affordable. An estimated 25 million senior beneficiaries will learn of their new \u2014 higher \u2014 rates in the fall, precisely during peak midterm campaign season. Democratic governors in California and Minnesota are also fighting Trump's withholding of over $1 billion in Medicare funding, calling it politically motivated. Left outlets frame this as a direct economic attack on seniors.",
+      "days_seen": 2,
+      "relevance": 70,
+      "relevance_label": "Recurring \u2014 day 2",
+      "sources": [
+        {
+          "source": "The New Republic",
+          "url": "https://newrepublic.com/post/213660/donald-trump-medicare-subsidies-seniors-drug-prices"
+        },
+        {
+          "source": "Axios",
+          "url": "https://www.axios.com/2026/07/29/gdp-policy-rates-fed"
+        }
+      ]
+    },
+    {
+      "title": "Todd Blanche AG Nomination in Jeopardy as GOP Senators Cornyn and Tillis Hold Out",
+      "topic_key": "todd-blanche-ag-nomination-stall-july30",
+      "summary": "The Senate Judiciary Committee postponed its vote on Trump's AG nominee Todd Blanche after GOP Senators Cornyn (TX) and Tillis (NC) demanded written assurances over a $1.776 billion 'Anti-Weaponization Fund' and a Trump-IRS settlement carveout. With the Senate entering August recess, the nomination could stall until fall. Left outlets frame this as Trump's DOJ agenda being blocked by his own party; Slate reports Blanche 'already flunked' his confirmation hearing.",
+      "days_seen": 2,
+      "relevance": 70,
+      "relevance_label": "Recurring \u2014 day 2",
+      "sources": [
+        {
+          "source": "CNN",
+          "url": "https://www.cnn.com/2026/07/29/politics/todd-blanche-nomination-cornyn"
+        },
+        {
+          "source": "NBC News",
+          "url": "https://www.nbcnews.com/politics/justice-department/trumps-irs-carveout-threatens-hold-todd-blanche-attorney-general-nomin-rcna589617"
+        },
+        {
+          "source": "Slate",
+          "url": "https://slate.com/news-and-politics/2026/07/trump-who-is-todd-blanche-confirmation-hearing-attorney-general-trump-crony.html"
+        }
+      ]
+    }
+  ],
+  "gap_right": [
+    {
+      "title": "Trump vs. Thune: Senate GOP Megabill 3.0 Stalls as Trump Questions Majority Leader",
+      "topic_key": "thune-trump-reconciliation-megabill-stall-july30",
+      "summary": "President Trump publicly questioned whether Senate Majority Leader John Thune should keep his job after Thune told the White House he lacked votes to pass a third reconciliation bill aimed at funding troops, farms, and election security. Trump aides met directly with senators to bypass Thune. Right outlets frame this as a test of Senate GOP loyalty to the Trump agenda; Axios reports the megabill is effectively stalled heading into August recess.",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New \u2014 first appearance",
+      "sources": [
+        {
+          "source": "Townhall",
+          "url": "https://townhall.com/news/cameron-arcand/2026/07/29/were-going-to-find-out-whether-thune-should-stay-majority-leader-trump-says-n2680356"
+        },
+        {
+          "source": "Axios",
+          "url": "https://www.axios.com/2026/07/29/senate-republicans-trump-john-thune-reconciliation"
+        }
+      ]
+    },
+    {
+      "title": "DNC Chair Ken Martin Isolated, Threw Phone at Staffer; Party Faces Financial Crisis",
+      "topic_key": "dnc-chaos-martin-financial-july30",
+      "summary": "DNC Chairman Ken Martin threw his phone at a junior staffer's desk in early July, resulting in a formal HR complaint. Martin is increasingly isolated as the party faces $18.5M in debt against $16.3M cash on hand, while Republicans hold $677M across their committees. James Carville is publicly pushing David Hogg to replace Martin. Right outlets frame this as the Democratic Party in structural collapse at the worst possible time \u2014 100 days before midterms.",
+      "days_seen": 2,
+      "relevance": 70,
+      "relevance_label": "Recurring \u2014 day 2",
+      "sources": [
+        {
+          "source": "Townhall",
+          "url": "https://townhall.com/tipsheet/mattvespa/2026/07/27/the-nyt-reported-on-the-state-of-the-democratic-party-its-a-total-disaster-n2680153"
+        },
+        {
+          "source": "Daily Beast",
+          "url": "https://www.thedailybeast.com/james-carville-pushes-new-pick-to-lead-democrats/"
+        },
+        {
+          "source": "Townhall",
+          "url": "https://townhall.com/tipsheet/mattvespa/2026/07/20/the-dems-are-getting-destroyedin-fundraising-n2679815"
+        }
+      ]
+    }
+  ],
+  "suggestions": []
+}
