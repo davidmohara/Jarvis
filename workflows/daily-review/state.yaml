@@ -8,7 +8,7 @@ current-step: step-auto
 original-request: "auto"
 accumulated-context:
   omnifocus-status: "success — 4 completed, 4 overdue, 0 flagged, inbox 13"
-  calendar-status: "unavailable — headless scheduled run (expected)"
+  calendar-status: "unavailable — both M365 MCP and osascript routes not attempted (see err-20260730T133200-V5IGNY)"
   knowledge-system-status: "written to local fallback (reviews/daily/auto-2026-07-29.md)"
   narrative-path: "reviews/daily/auto-2026-07-29.md"
   narrative-title: "2026-07-29 Practices Hold, a Relationship Gets Moved, and the Deferred List Waits"

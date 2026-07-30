@@ -1,0 +1,15 @@
+{
+  "id": "err-20260730T133316-NQA06L",
+  "timestamp": "2026-07-30T13:33:16Z",
+  "session": "2026-07-30-morning-briefing",
+  "source": "explicit",
+  "agent": "chief",
+  "category": "process-skip",
+  "description": "OmniFocus overdue task query used a custom AppleScript iterating flattened tasks of each project instead of the vetted pattern in skills/omnifocus-tasks/SKILL.md (`every flattened task where due date < current date and completed is false`). This returned already-completed tasks. Additionally, Desktop Commander was declared unavailable for Plaud staging check when it is always available — ToolSearch was not run to confirm before reporting it as unavailable.",
+  "correction": "Use `every flattened task where (due date is not missing value) and (due date < current date) and (completed is false)` at the document level, exactly as written in the skill. For any data source on the host Mac, run ToolSearch for Desktop Commander first — never declare it unavailable without checking.",
+  "failure_mode": "protocol-skip",
+  "systemic_fix": "The correct AppleScript pattern is already in skills/omnifocus-tasks/SKILL.md and SYSTEM.md. The Desktop Commander availability rule is already in SYSTEM.md. Both rules were skipped under execution pressure. No new rules needed — enforce the existing ones.",
+  "fix_status": "applied",
+  "severity": "moderate",
+  "related_entries": ["err-20260715T134820-X2GOL2"]
+}

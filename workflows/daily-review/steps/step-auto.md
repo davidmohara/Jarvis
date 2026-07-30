@@ -57,9 +57,35 @@ model: sonnet
 
    Capture: task names and projects for completions, overdue count and names, flagged count, inbox count.
 
-2. **Pull yesterday's calendar** via M365 MCP (`outlook_calendar_search`):
-   - Query for yesterday's date
-   - Capture: meeting subjects, attendees, times, any cancellations
+2. **Pull yesterday's calendar** — attempt in sequence, stop at first success:
+
+   **Route A — M365 MCP:**
+   ```
+   mcp__b8c41a14-7a9b-4ea5-ab12-933ee04bc52f__outlook_calendar_search
+   query: yesterday's date range (start of day to end of day, local time)
+   ```
+   If this returns events → use them. If it returns an auth error, empty result on a day that had meetings, or times out → proceed to Route B.
+
+   **Route B — Desktop Commander osascript:**
+   ```applescript
+   tell application "Calendar"
+     set theDate to (current date) - 1 * days
+     set startOfDay to theDate - (time of theDate)
+     set endOfDay to startOfDay + (23 * hours) + (59 * minutes)
+     set output to ""
+     repeat with cal in calendars
+       repeat with ev in (every event of cal whose start date >= startOfDay and start date <= endOfDay)
+         set output to output & (summary of ev) & " | " & (start date of ev as string) & linefeed
+       end repeat
+     end repeat
+     return output
+   end tell
+   ```
+   Use `mcp__Control_your_Mac__osascript` to run this.
+
+   Only after **both routes fail** should calendar be declared unavailable. If both fail, note: "Calendar data was unavailable — both M365 MCP and osascript routes failed." and proceed with OmniFocus data only.
+
+   Capture: meeting subjects, attendees (M365 route), times, any cancellations.
 
 3. **Read supporting context** (read-only):
    - `{project-root}/delegations/tracker.md` — note any delegations that appear newly overdue
@@ -114,7 +140,7 @@ model: sonnet
 | Failure | Action |
 |---------|--------|
 | OmniFocus unavailable | Proceed with calendar and delegation data only. Note in narrative: "OmniFocus was unavailable — this account is based on the calendar alone." |
-| Calendar unavailable | Proceed with OmniFocus data only. Note in narrative: "Calendar data was unavailable — this account is based on the task record alone." |
+| Calendar unavailable | Only declare unavailable after both M365 MCP and osascript routes fail. If both fail, proceed with OmniFocus data only. Note in narrative: "Calendar data was unavailable — both M365 MCP and osascript routes failed." |
 | Both OmniFocus and calendar unavailable | Write minimal narrative noting both sources failed. Pull rocks and delegation tracker directly. Note the data gap. Still write to knowledge system. |
 | Knowledge system unavailable | Write the narrative to `{project-root}/reviews/daily/auto-YYYY-MM-DD.md` as fallback. Note routing failure in confirmation. Run minimum-output guard on the fallback path. |
 | No completions and no meetings | Write the narrative honestly: it appears to have been a light or untracked day. Do not invent activity. Still write the file — a short honest entry is not a failure. |
@@ -129,14 +155,8 @@ model: sonnet
 
 Determine status:
 - `success` — narrative written to knowledge system (or fallback file) with descriptive title
-- `partial` — narrative written but one major source failed in a way that indicates a real problem (NOT headless calendar — see below)
+- `partial` — narrative written but one major source failed
 - `failure` — both primary sources failed and no substantive narrative could be written
-
-**Headless calendar rule:** When this step runs as a scheduled (headless) task — i.e., `trigger = scheduled` and there is no active interactive session — the M365 calendar connector will return unauthenticated. This is expected behavior, not a failure. Do NOT set `status: partial` solely because calendar was unavailable in a scheduled run. Instead:
-- Set `calendar-status` in `accumulated-context` to `"unavailable — headless scheduled run (expected)"`
-- Proceed with OmniFocus and delegation data only
-- Set eval status to `success` if a substantive narrative was produced
-- Only set `partial` if OmniFocus is also unavailable, or if calendar is unavailable in an *interactive* session where auth should be present
 
 Run:
 ```bash

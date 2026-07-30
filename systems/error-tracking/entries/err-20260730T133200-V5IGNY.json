@@ -1,0 +1,15 @@
+{
+  "id": "err-20260730T133200-V5IGNY",
+  "timestamp": "2026-07-30T13:32:00Z",
+  "session": "chief-2026-07-29-050000",
+  "source": "explicit",
+  "agent": "chief",
+  "category": "tool-misuse",
+  "description": "Auto daily-review workflow declared calendar unavailable (headless run) without attempting M365 MCP or Desktop Commander routes. Calendar data was accessible via both mcp__b8c41a14__outlook_calendar_search and mcp__Control_your_Mac__osascript. The workflow's 'headless calendar' exception was applied as a blanket rule rather than a genuine availability check.",
+  "correction": "Before declaring calendar unavailable in a scheduled/headless run, attempt the pull via all active calendar connectors (M365 MCP first, Desktop Commander osascript as fallback). Only invoke the headless exception if both routes fail or return auth errors.",
+  "failure_mode": "wrong-assumption",
+  "systemic_fix": "Update step-auto.md to replace the blanket headless-calendar rule with an explicit attempt sequence: (1) try M365 MCP outlook_calendar_search, (2) on auth error or timeout try Desktop Commander osascript calendar pull, (3) only if both fail set calendar-status to unavailable and apply the headless exception. Also update the FAILURE MODES table and HEADLESS CALENDAR RULE block accordingly.",
+  "fix_status": "proposed",
+  "severity": "moderate",
+  "related_entries": []
+}
