@@ -1,12 +1,12 @@
 ---
 status: complete
-started-at: 2026-07-29T06:08:00Z
-completed-at: 2026-07-29T06:08:45Z
+started-at: 2026-07-30T06:08:00Z
+completed-at: 2026-07-30T06:08:28Z
 outputs:
-  messages_scanned: 2
+  messages_scanned: 1
   new_urls: 0
   new_digests: 0
   posts_drafted: 0
-  outcome: "No new URLs or digests in the last 24 hours. Both messages were Jarvis bot operational noise. Notification posted to #content."
+  outcome: "No new URLs or digests in the last 24 hours. Single message was Jarvis bot operational noise. Notification posted to #content."
 model: sonnet
 ---
