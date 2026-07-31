@@ -10,6 +10,7 @@ Running list of potential blog topics. Jarvis captures these proactively from co
 
 | Idea | Source | Tags | Notes |
 |------|--------|------|-------|
+| "The Thinking You're Outsourcing Is the Thinking That Defines You" | Content pipeline (2026-07-31) | AI, leadership, productivity | Ghost draft — pending approval |
 | "Having Standards is Hard" | OmniFocus inbox (Feb 9) | thoughts, growth | Draft created in Obsidian `Mind/Posts/_Having Standards is Hard.md`. Rich brainstorm notes included. |
 | "Jevons Paradox" | OmniFocus inbox (Feb 9) | thoughts, business | Draft created in Obsidian `Mind/Posts/_Jevons Paradox.md`. Wikipedia link as seed. |
 | The account affinity algorithm — when data meets relationships | OmniFocus inbox (Feb 9) | business, AI | How AI can surface relationship patterns in account pursuit. Bridges your tech and leadership worlds. |

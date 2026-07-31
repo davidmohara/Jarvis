@@ -1,12 +1,12 @@
 ---
 status: complete
-started-at: 2026-07-30T14:08:00Z
-completed-at: 2026-07-30T14:08:30Z
+started-at: 2026-07-31T11:07:00Z
+completed-at: 2026-07-31T11:09:30Z
 outputs:
-  messages_scanned: 0
-  new_urls: 0
+  messages_scanned: 2
+  new_urls: 1
   new_digests: 0
-  posts_drafted: 0
-  outcome: "No messages returned from #content in the last 24 hours (re-run after 6am run). Bot membership/scope warning noted."
+  posts_drafted: 1
+  outcome: "Drafted 'The Thinking You're Outsourcing Is the Thinking That Defines You' from Business Insider URL (Sam Altman / cognitive atrophy). Ghost post ID: 6a6c824c22fd1e028a2b1309. Notified David in #content (thread ts: 1785496155.398399). Image: Unsplash external URL (CDN upload failed). Tags: AI, leadership, productivity."
 model: sonnet
 ---
