@@ -1956,3 +1956,20 @@ digests_updated: 1
 errors: 0
 summary: "Boot pull clean (fast-forward 189d48e..8f69086; stash/pop for unstaged daily-review + golf + eval files). Step-01 archived 3 expired files (daily-review-2026-07-27, dream-summary-2026-07-28, dream-summary-2026-07-29), skipped 18 (5 not expired, 11 unparseable — persistent golf/sc/felix-derek cluster unchanged; plaud-ingest-07-29 new and not expired). Step-02 scored 242 episodic files (81 in window); dist 0:216,1:2,2:3,4:1,5:3,6:3,7:9,8:2,9:1,10:2; 0 errors. Step-03: 11 promoted entries (all already promoted=true per salience-score.py); morning-briefing-pattern updated with Jul 20 GMS Summit briefing (1 semantic update); all other candidates re-flagged backlog already synthesized in prior cycles. Error scan: 123 errors/30d, 8 qualifying categories — all documented in LESSONS.md, 0 new lessons. Step-04: 20 compression candidates (Apr 2026 entries, score 0, not promoted) — all digested to 2026-Q2-digest.md and deleted via Desktop Commander. First compression run since Jul 23 Q2 digest. Carry-forward: Q3 rocks unwritten week 6; nerve block unscheduled; Alice delegation tracker empty; salience-score.py merge-write fix holding (0 re-flags this cycle that weren't already promoted=true)."
 ---
+
+---
+## 2026-07-31T03:28:00 CDT
+session_id: dream-cycle-2026-07-31-030901
+working_archived: 2
+working_deleted: 0
+episodic_scanned: 224
+score_updates: 224
+clusters_found: 3
+semantic_created: 0
+semantic_updated: 3
+promoted_entries: 6
+entries_compressed: 0
+digests_updated: 0
+errors: 0
+summary: "Boot pull clean (already up to date; stash/pop for unstaged eval/daily-review/golf files). Step-01 archived 2 expired files (daily-review-2026-07-28, morning-briefing-2026-07-28 — both expires 2026-07-30), skipped 22 (9 not expired, 13 unparseable — golf/sc/felix-derek/golf-booking cluster unchanged + new 07-30-morning-briefing without expires field). Step-02 scored 224 episodic files (81 in window); dist 0:196,1:2,2:3,4:1,5:3,6:2,7:5,8:3,9:5,10:4; 0 errors. Step-03: 6 candidates across 3 clusters — dream-summary (07-26/07-28/07-29, 3 files), daily-review (07-27/07-28, 2 files), briefing (morning-briefing-07-28, 1 file); updated dream-summary-pattern (Jul 31 note: merge-write fix holding, Q3 rocks week 6 carry-forward), daily-review-pattern (Jul 31 note: Rock 4 completions now visible despite scorecard absent; 60+ day persistent overdue cluster), morning-briefing-pattern (Jul 31 note: Solace + concentrate-ai entering briefing cluster for first time). Error scan: 127 errors/30d, 9 qualifying categories — all documented in LESSONS.md, 0 new lessons. Step-04: 1 compression candidate (below 5-entry threshold) — skipped. Carry-forward: Q3 rocks unwritten week 6+; nerve block unscheduled; Alice delegation tracker empty; 3 unassigned leads 160+ days (IFS, Cardinal IT, Paragon Brokerage)."
+---

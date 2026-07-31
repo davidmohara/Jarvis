@@ -1,12 +1,38 @@
 ---
-type: working
+type: working-archive
 task_id: "session"
 session_id: "chief-2026-07-28-060929"
 agent-source: chief
 created: 2026-07-28T06:09:29
 expires: 2026-07-30T06:09:29
-status: active
+status: archived
 context: "Morning briefing — 2026-07-28"
+date: 2026-07-28
+source_file: memory/working/morning-briefing-2026-07-28-060929.md
+tags:
+  - briefing
+  - chief
+  - calendar
+  - omnifocus
+  - leads
+  - clay
+  - plaud
+  - delegations
+  - solace
+  - concentrate-ai
+related_people:
+  - ehren-seim
+  - laurent-guillot
+  - austin-ledesma
+  - michael-hilmen
+  - kyle-scott
+  - charlie-glick
+  - ben-kennedy
+  - alice-mburu
+salience:
+  score: 8
+  last-promoted-check: 2026-07-31
+  promoted: true
 ---
 
 # Morning Briefing — Tuesday, July 28, 2026

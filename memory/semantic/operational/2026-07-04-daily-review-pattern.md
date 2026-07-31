@@ -7,7 +7,7 @@ synthesized-from:
   - memory/episodic/daily-review-2026-07-02-000000.md
   - memory/episodic/dream-summary-2026-07-03.md
   - memory/episodic/shutdown-cleanup-2026-07-01-170500.md
-last-updated: 2026-07-27
+last-updated: 2026-07-31
 tags: [daily-review]
 agent-source: dream-cycle
 confidence: low
@@ -90,3 +90,10 @@ Jul 24 daily-review is the 6th consecutive entry to flag Q3 rocks absent. Delega
 Sources: daily-review-2026-07-21, 2026-07-22, 2026-07-23, 2026-07-24 (all score 4-5, promoted:true re-set).
 
 Step-02 this cycle dropped the `promoted` field from all salience blocks. All four entries already documented in 2026-07-24 through 2026-07-26 entries above. No new synthesis. Pattern unchanged: Q3 rocks, nerve block, delegation tracker remain unresolved chronic open loops.
+
+### 2026-07-31 — Nightly promotion
+Sources this cycle:
+- `memory/episodic/daily-review-2026-07-27-211110.md` (score 8) — tags: daily-review, chief, omnifocus, q3-rocks, lifebook, delegation, practices. 6 completions (deliberate practices + minor admin), 5 overdue (Lifebook Career+Health 60+ days, Blaze.ai/Kare 6+ weeks, Dr. Easton, Shoes). Q3 objectives undocumented (27 days into Q3); delegation tracker empty; inbox 11 — unchanged 4+ weeks.
+- `memory/episodic/daily-review-2026-07-28-050000.md` (score 9) — tags: daily-review, chief, omnifocus, pipeline, co-sell, rock-4, leads, overdue. 7 completions (2 Reachout/Rock-4, 2 Deliberate Practices, 1 Family, 2 other). Notable: Microsoft contacts (5 identified) and Confluent RSM — both Rock 4 co-sell progress. Persistent overdue: Don Microsoft accounts (Rock 1+4), Lifebook Career/Health, Dr. Easton, Blaze.ai/Kare. Q3 objectives still absent — 28 days in.
+
+Pattern escalation: July 27 entry is the 7th consecutive daily-review to flag Q3 rocks absent. The Jul 28 entry is notable for being the first in several cycles to show *Rock 4 completions* (Microsoft contacts, Confluent RSM) — co-sell pipeline is moving even as the formal Q3 scorecard remains unwritten. The persistent-overdue cluster (Lifebook Career/Health, Blaze.ai/Kare, Dr. Easton) continues unchanged across all daily-review entries since at least Jul 8; these are now 60+ day deferred items, not weekly overdue fluctuations.

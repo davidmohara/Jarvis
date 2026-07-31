@@ -5,7 +5,7 @@ tags:
 - morning-briefing
 confidence: high
 created: '2026-06-18'
-last-updated: 2026-07-30
+last-updated: 2026-07-31
 synthesized-from:
   - memory/episodic/2026-05-04-morning-briefing-automated.md
   - memory/episodic/2026-05-04-morning-briefing.md
@@ -128,3 +128,9 @@ Sources this cycle:
 - `memory/episodic/morning-briefing-2026-07-20-060900.md` (score 8) — tags: briefing, chief, calendar, omnifocus, gms-summit, co-sell, rock-4, overdue-tasks, health. GMS Summit day (Curtis Hite, Lowell Ricketts, NADA); co-sell/rock-4 co-occurrence with health/overdue continuing; people: lowell-ricketts, nada, curtis-hite, dawn-dearstone, ashok-iyengar, ryan-menke, scott-mai.
 
 Co-sell/rock-4 + health/overdue-tasks is now a durable cross-tag signature appearing in briefings spanning Jul 7 through Jul 20 with no resolution visible. GMS Summit is a new event type appearing in the briefing cluster; executives present (Curtis Hite) indicate strategic context surfacing through the daily briefing rather than a dedicated session.
+
+### 2026-07-31 — Nightly promotion
+Sources this cycle:
+- `memory/episodic/morning-briefing-2026-07-28-060929.md` (score 8) — tags: briefing, chief, calendar, omnifocus, leads, clay, plaud, delegations, solace, concentrate-ai. Heavy partnership day: Solace TOLA onsite (Laurent Guillot, Austin Ledesma, Michael Hilmen, Ehren Seim) + Concentrate.ai demo + Solace Happy Hour, back-to-back with zero buffers. OmniFocus unavailable (AppleScript timeout — recurring). 3 unassigned leads flagged (IFS 175 days, Cardinal IT 164 days, Paragon Brokerage 162 days). United Texas Bank board approval time-sensitive. People: ehren-seim, laurent-guillot, austin-ledesma, michael-hilmen, kyle-scott, charlie-glick, ben-kennedy, alice-mburu.
+
+New signals: Solace and concentrate-ai appear in the briefing cluster for the first time — both are Rock 4 co-sell plays entering the operational briefing layer. The OmniFocus-unavailable recurrence (AppleScript timeout) continues as a morning-briefing reliability failure mode; the briefing compensated with last-known-state fallback, which is the established pattern. Three unassigned leads aged 160+ days is structurally the same gap flagged in every prior leads entry — no AM has picked these up despite repeated surfacing.

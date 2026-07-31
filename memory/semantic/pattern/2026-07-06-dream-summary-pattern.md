@@ -5,8 +5,8 @@ tag: dream-summary
 domain: pattern
 confidence: medium
 created: 2026-07-06
-last-updated: 2026-07-29
-synthesized-from: 9 episodic entries
+last-updated: 2026-07-31
+synthesized-from: 12 episodic entries
 tags:
   - dream-summary
 ---
@@ -104,3 +104,11 @@ Sources this cycle:
 Jul 27 cycle: 0 files expired from working/. Step-02 merge-write bug recurred again (the ad-hoc script used this run was not the fixed version — same `promoted` field drop). 14 semantic re-flags processed (no new synthesis). 119 errors/30d, 9 qualifying categories — all documented. 0 compression candidates.
 
 Carry-forward signals now confirmed in 4+ consecutive dream summaries: Q3 rocks unwritten (week 5), nerve block/Tarlov cyst unscheduled, Alice delegation tracker empty. These three are chronic open loops — not incidental misses. The merge-write bug has now recurred in back-to-back cycles (Jul 27 + Jul 28 confirmed dropped), indicating the salience-score.py script fix is not persisting or not being called consistently. Until the script is locked down as the only executor for step-02, this pattern will regenerate every cycle.
+
+### 2026-07-31 — Nightly promotion
+Sources this cycle:
+- `memory/episodic/dream-summary-2026-07-26.md` (score 10) — tags: dream-summary, jarvis, dream-cycle, memory-pipeline, semantic-promotion, error-patterns, quarterly-rocks, health, daily-review, chief
+- `memory/episodic/dream-summary-2026-07-28.md` (score 7) — tags: dream-summary, jarvis, memory, episodic, semantic, lessons, carry-forward, q3-rocks
+- `memory/episodic/dream-summary-2026-07-29.md` (score 7) — tags: dream-summary, jarvis, memory, co-sell-pipeline, semantic, lessons, carry-forward, q3-rocks
+
+Three consecutive dream summaries promoted. Jul 30 cycle (largest in recent history): 11 promoted entries, 20 entries compressed (first Q2-digest compression run), 1 semantic updated. The salience-score.py merge-write fix holding through the Jul 30 cycle — 0 re-flags from backlog that weren't already promoted=true, confirming the structural fix is stable. Carry-forward triad (Q3 rocks week 6, nerve block, delegation tracker) persists unchanged across all three sources — now 6+ consecutive cycles with no resolution trend in any data source.

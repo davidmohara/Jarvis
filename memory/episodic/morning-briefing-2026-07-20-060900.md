@@ -35,9 +35,10 @@ related_people:
   promoted: true
   promoted: true
   promoted: true
+  promoted: true
 salience:
-  score: 8
-  last-promoted-check: 2026-07-30
+  score: 10
+  last-promoted-check: 2026-07-31
   promoted: true
 ---
 

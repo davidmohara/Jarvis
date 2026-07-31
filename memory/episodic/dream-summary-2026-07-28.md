@@ -18,9 +18,11 @@ tags:
   - q3-rocks
 related_people: []
   score: 0
+  last-promoted-check: 2026-07-30
 salience:
   score: 7
-  last-promoted-check: 2026-07-30
+  last-promoted-check: 2026-07-31
+  promoted: true
 ---
 
 # Dream Cycle Summary — July 28, 2026

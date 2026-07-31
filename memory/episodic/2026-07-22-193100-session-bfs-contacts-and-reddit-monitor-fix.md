@@ -24,9 +24,10 @@ related_people: []
   last-promoted-check: 2026-07-27
   last-promoted-check: 2026-07-28
   last-promoted-check: 2026-07-29
+  last-promoted-check: 2026-07-30
 salience:
   score: 2
-  last-promoted-check: 2026-07-30
+  last-promoted-check: 2026-07-31
 ---
 
 - Builders FirstSource account plan: verified the 6 CRM contacts with unconfirmed titles via LinkedIn. 3 of 6 had left BFS (Chad Taylor → Denver Intl Airport; Chris Seifert → no BFS affiliation, self-employed; Kelly Terhaar → independent SAP consultant). Nirmala Kunavarapu confirmed still active (IT Applications Executive Leader). Rajesh Chauhan confirmed active and upgraded to a full narrative profile — Director, Data & Analytics, directly relevant to the AI/data pitch, added as contact-sequencing priority #5. Maria Lujan left as needs-verification (common name, no confident match). 50% departure rate in this sample flagged as a signal the BFS CRM contact list is stale — recommended a broader contact-list health check before further outreach sequencing.
