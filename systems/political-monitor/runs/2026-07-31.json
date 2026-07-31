@@ -1,0 +1,234 @@
+{
+  "date": "2026-07-31",
+  "generated": "2026-07-31T12:05:00Z",
+  "window_hours": 72,
+  "counts": {
+    "total_items": 67,
+    "by_lean": {"left": 34, "right": 32, "center": 1},
+    "shared_topics": 4,
+    "gap_left": 4,
+    "gap_right": 4
+  },
+  "sources_used": [
+    "msnbc.com", "cnn.com", "nbcnews.com", "thehill.com", "axios.com",
+    "thedailybeast.com", "slate.com", "newrepublic.com", "foxnews.com",
+    "nationalreview.com", "washingtonexaminer.com", "thefederalist.com",
+    "dailywire.com", "breitbart.com", "townhall.com", "realclearpolitics.com",
+    "theamericanconservative.com", "spectator.org", "thefp.com"
+  ],
+  "sources_muted": [
+    {"name": "New York Times", "lean": "left", "reason": "paywall/inaccessible to crawler"},
+    {"name": "Washington Post", "lean": "left", "reason": "paywall/inaccessible to crawler"},
+    {"name": "Politico", "lean": "left", "reason": "paywall/inaccessible to crawler"},
+    {"name": "Vox Politics", "lean": "left", "reason": "paywall/inaccessible to crawler"},
+    {"name": "Mother Jones", "lean": "left", "reason": "blocked crawler access"},
+    {"name": "WSJ Opinion", "lean": "right", "reason": "paywall/inaccessible to crawler"},
+    {"name": "New York Post", "lean": "right", "reason": "paywall/inaccessible to crawler"},
+    {"name": "Reuters Politics", "lean": "center", "reason": "blocked crawler access"},
+    {"name": "Associated Press", "lean": "center", "reason": "blocked crawler access"},
+    {"name": "BBC US & Canada", "lean": "center", "reason": "blocked crawler access"}
+  ],
+  "shared_topics": [
+    {
+      "topic_key": "economy-q2-gdp-pce-inflation-july31",
+      "title": "US Economy Posts Sluggish 1.5% Q2 Growth as Inflation Stays Above Fed Target",
+      "summary": "The US economy expanded at a 1.5% annualized rate in the second quarter of 2026, weaker than expected, as rising imports weighed on growth even as consumers continued spending. The Fed's preferred inflation gauge — the PCE index — cooled from 4.1% to 3.7% in June but remained well above the central bank's 2% target. June's jobs report added just 57,000 positions, far short of the 115,000 forecast, though unemployment dipped to 4.2%.",
+      "left": {
+        "framing": "Left-leaning outlets frame the data as confirmation that Trump's tariffs and economic management have produced a 'sluggish' and 'weaker-than-expected' economy. CNN's business coverage emphasized the disappointment relative to forecasts; The Hill noted inflation 'remains above Fed target' despite the June easing. The narrative links poor economic performance directly to administration policy and voter frustration heading into midterms.",
+        "sources": [
+          {"source": "CNN Business", "url": "https://www.cnn.com/2026/07/30/business/us-economy-growth-weaker-gdp"},
+          {"source": "CNN Business (PCE)", "url": "https://www.cnn.com/2026/07/30/economy/us-pce-inflation-consumer-spending-june"},
+          {"source": "The Hill", "url": "https://thehill.com/business/economy-growth-gdp-inflation/"},
+          {"source": "NBC News", "url": "https://www.nbcnews.com/now/video/u-s-economy-adds-57-000-jobs-in-june-as-the-unemployment-rate-dips-to-4-2-266069061779"}
+        ]
+      },
+      "right": {
+        "framing": "Right-leaning outlets report the same figures more neutrally or with a positive spin on what growth exists. The Washington Examiner headlined 'Economy expanded at 1.5% rate' without the 'sluggish' framing, while Townhall noted the jobs report numbers without attributing blame. Conservative analysts acknowledge affordability as a problem but focus on structural headwinds and Federal Reserve policy rather than executive policy failure.",
+        "sources": [
+          {"source": "Washington Examiner", "url": "https://www.washingtonexaminer.com/policy/economy/4668430/economy-expanded-second-quarter-2026/"},
+          {"source": "Townhall", "url": "https://townhall.com/tipsheet/dmitri-bolt/2026/07/02/the-june-jobs-report-is-here-n2678742"}
+        ]
+      },
+      "correlation": 60,
+      "correlation_label": "Both sides agree on the same economic facts; left frames weak growth as a policy failure, right presents the same numbers more neutrally.",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance"
+    },
+    {
+      "topic_key": "fauci-fifth-amendment-senate-hearing-july31",
+      "title": "Fauci Invokes Fifth Amendment Over 100 Times at Senate COVID Origins Hearing",
+      "summary": "Former NIAID director Dr. Anthony Fauci appeared before a Senate committee chaired by Sen. Rand Paul and invoked the Fifth Amendment more than 100 times when questioned about the COVID-19 pandemic's origins, gain-of-function research funding, and related decisions. Paul ejected Fauci's personal attorney during the hearing. Senators debated issuing a contempt citation. Fauci's legal team had prepared an extensive strategy for the appearance.",
+      "left": {
+        "framing": "Left-leaning outlets cover the hearing primarily as political spectacle and constitutional process. CNN reported on 'Fauci's intensely planned hearing strategy,' framing the Fifth Amendment invocations as a legally prudent decision given the politically motivated nature of the inquiry. Coverage emphasizes the hearing as a Republican attempt to prosecute Fauci retroactively rather than genuine accountability.",
+        "sources": [
+          {"source": "CNN Politics", "url": "https://www.cnn.com/2026/07/30/politics/fauci-senate-fifth-amendment"},
+          {"source": "CNN Politics", "url": "https://www.cnn.com/2026/07/29/politics/anthony-fauci-fifth-amendment-plea"}
+        ]
+      },
+      "right": {
+        "framing": "Right-leaning outlets treat the Fifth Amendment invocations as strong evidence of guilt and systemic bureaucratic accountability failures. Fox News highlighted the five 'top moments' including Paul booting Fauci's lawyer and a contempt vote looming. The Federalist argued 'there were thousands of Faucis' — unaccountable bureaucrats who made pandemic decisions — and that his refusal to answer vindicates long-held concerns about federal health authority.",
+        "sources": [
+          {"source": "Fox News Politics", "url": "https://www.foxnews.com/politics/top-5-moments-from-faucis-hearing-paul-boots-lawyer-moreno-erupts-contempt-vote-looms"},
+          {"source": "The Federalist", "url": "https://thefederalist.com/2026/07/29/there-were-thousands-of-faucis/"},
+          {"source": "RealClearPolitics", "url": "https://www.realclearpolitics.com/video/2026/07/29/rcp_podcast_fauci_pleads_the_fifth.html"}
+        ]
+      },
+      "correlation": 45,
+      "correlation_label": "Both sides report the same hearing facts but diverge sharply: left frames it as political theater, right as evidence of pandemic-era unaccountability.",
+      "days_seen": 2,
+      "relevance": 70,
+      "relevance_label": "Recurring — day 2"
+    },
+    {
+      "topic_key": "midterm-generic-ballot-100day-forecast-july31",
+      "title": "100 Days to Midterms: Democrats Up in Generic Ballot, but GOP Sees Narrowing Gap",
+      "summary": "With November's midterms 100 days away, competing narratives have emerged around the generic congressional ballot. CNN's latest poll shows Democrats favored by 8 points nationally; Decision Desk HQ forecasts Democrats winning a 15-seat House majority. Republicans counter that multiple other polls — Reuters/Ipsos (Dems +2), Economist/YouGov (Dems +4) — show the race tightening, and that the GOP holds a substantial fundraising advantage.",
+      "left": {
+        "framing": "Left-leaning outlets emphasize Democratic strength and the structural headwinds Republicans face from Trump's low approval ratings. CNN's +8 poll is prominently featured; The Hill reports Democrats 'favored to win House.' Axios and NBC frame the environment as broadly favorable to Democrats, with Trump's approval and affordability concerns dragging down GOP prospects. Daily Beast highlights voters shifting toward Democrats since Trump's second term began.",
+        "sources": [
+          {"source": "CNN Politics", "url": "https://www.cnn.com/2026/07/30/politics/cnn-poll-midterm-generic-ballot-democrats-republicans-change"},
+          {"source": "The Hill", "url": "https://thehill.com/homenews/campaign/5987178-midterm-forecast-house-senate/"},
+          {"source": "Axios", "url": "https://www.axios.com/2026/07/26/midterm-election-outlook-100-days"}
+        ]
+      },
+      "right": {
+        "framing": "Right-leaning outlets highlight narrower polls and structural Republican advantages. Breitbart and Townhall emphasize that Reuters/Ipsos shows only a 2-point gap and that the RNC has $129M vs. DNC's $16M. The Washington Examiner notes Democrats face a difficult map requiring 57 of 77 competitive seats. Fox News focuses on individual race dynamics (Texas, Iowa) that break toward Republicans.",
+        "sources": [
+          {"source": "Townhall", "url": "https://townhall.com/news/amy-curtis/2026/07/30/congressional-generic-ballot-n2680400"},
+          {"source": "Breitbart", "url": "https://www.breitbart.com/politics/2026/07/28/nolte-latest-polling-gives-gop-hope-to-hold-u-s-house/"},
+          {"source": "Washington Examiner", "url": "https://www.washingtonexaminer.com/news/campaigns/congressional/4667675/redistricting-democrats-uphill-battle-2026-map-report/"}
+        ]
+      },
+      "correlation": 35,
+      "correlation_label": "Same elections, sharply divergent narratives — left cites +8 CNN poll and structural GOP weakness; right cites tighter polls and GOP fundraising dominance.",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance"
+    },
+    {
+      "topic_key": "immigration-tps-asylum-speedup-scotus-july31",
+      "title": "TPS Ended for 350K Haitians; New Rule Speeds Asylum Cases Into Deportation",
+      "summary": "The Trump administration moved this week on two major immigration fronts: the Supreme Court upheld the administration's authority to end Temporary Protected Status for approximately 350,000 Haitians and 6,000 Syrians, who will now lose work authorization and deportation protection. Separately, a new rule reroutes one-third of pending asylum cases directly into deportation proceedings without the traditional notice-and-comment period. A bill to codify the end of birthright citizenship was introduced following the Supreme Court's ruling in Trump v. Barbara.",
+      "left": {
+        "framing": "Left-leaning outlets focus on the human and humanitarian dimension of these changes. Slate describes 'hundreds of thousands' potentially rerouted to deportation, emphasizing the absence of a notice-and-comment period as a procedural violation. Axios frames the self-deportation program as a 'machine' that has 'ramped up.' The Hill covers the birthright citizenship bill as a further restriction push following the SCOTUS ruling.",
+        "sources": [
+          {"source": "Slate", "url": "https://slate.com/news-and-politics/2026/07/immigration-asylum-deportation-trump-haiti-tps.html"},
+          {"source": "Axios", "url": "https://www.axios.com/2026/07/28/trump-self-deportation-ice"},
+          {"source": "The Hill", "url": "https://thehill.com/opinion/immigration/5995813-trump-v-barbara-ruling/"},
+          {"source": "The Hill (asylum rule)", "url": "https://thehill.com/policy/national-security/5994742-trump-administration-cuts-asylum-interviews/"}
+        ]
+      },
+      "right": {
+        "framing": "Right-leaning outlets frame the same immigration actions as enforcement success and judicial vindication. The American Spectator describes SCOTUS rulings as 'changing immigration' in a positive direction. Townhall covers the potential $100K green-card bond and legislation to enshrine Trump's immigration policies as reasonable legal reform. The general framing is that the administration is finally restoring the rule of law on the border.",
+        "sources": [
+          {"source": "The American Spectator", "url": "https://spectator.org/how-the-supreme-courts-latest-rulings-are-changing-immigration/"},
+          {"source": "Townhall", "url": "https://townhall.com/tipsheet/dmitri-bolt/2026/07/16/the-trump-administration-just-made-a-major-move-regarding-legal-immigration-n2679586"},
+          {"source": "Townhall (bill)", "url": "https://townhall.com/tipsheet/jeff-charles/2026/07/14/this-republican-just-introduced-a-bill-to-enshrine-trumps-immigration-policy-into-law-n2679400"}
+        ]
+      },
+      "correlation": 30,
+      "correlation_label": "Same policy actions, sharply divergent narratives — left frames as humanitarian harm and procedural shortcut; right frames as judicial vindication and enforcement restoration.",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance"
+    }
+  ],
+  "gap_left": [
+    {
+      "topic_key": "ossoff-georgia-senate-likely-dem-july31",
+      "title": "Jon Ossoff's Georgia Senate Race Upgraded to 'Likely Democrat' — Major Blow to Trump",
+      "summary": "A leading election forecaster shifted Georgia Senator Jon Ossoff's re-election race from 'Leans Democrat' to 'Likely Democrat,' reflecting significant GOP difficulty in the state. The Daily Beast reported this as a direct 'blow' to Trump's midterm strategy in a state he carried in 2024. Combined with the Sabato Crystal Ball pushing five Republican-held House seats toward Democrats, the cumulative forecast picture has shifted meaningfully in Democrats' favor at the 100-day mark.",
+      "sources": [
+        {"source": "The Daily Beast", "url": "https://www.thedailybeast.com/trump-blow-as-dem-star-ossoff-gets-massive-boost-in-key-race/"}
+      ],
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance"
+    },
+    {
+      "topic_key": "scotus-perceived-political-half-americans-poll-july31",
+      "title": "Poll: Nearly Half of Americans Say SCOTUS Rulings on Trump Agenda Are Politically Motivated",
+      "summary": "A new poll found that 47% of Americans believe the Supreme Court is ruling on President Trump's policies based on political ideology rather than the law, a finding that suggests growing public skepticism of the court's independence. Left-leaning outlets tied the finding to the court's recent decisions on immigration and other administration priorities. The polling adds to data showing SCOTUS approval at historic lows.",
+      "sources": [
+        {"source": "The Hill", "url": "https://thehill.com/regulation/court-battles/5978559-poll-scotus-rulings-trump-politics/"}
+      ],
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance"
+    },
+    {
+      "topic_key": "democrats-red-state-independent-strategy-july31",
+      "title": "Democrats Trying Novel Red-State Strategy: Push Doomed Nominees Out to Empower Independents",
+      "summary": "NBC News reported that Democratic strategists are encouraging doomed party nominees in hopeless races to drop out of contests and cede the field to independent candidates, who can then run competitive head-to-head races against Republicans without a three-way split. The strategy — also reflected in Joe Manchin's launch of his Independent Leadership Council — reflects a broader admission that the Democratic Party brand is toxic in large portions of the country and that non-partisan alternatives may outperform.",
+      "sources": [
+        {"source": "NBC News Politics", "url": "https://www.nbcnews.com/politics/politics-news/democrats-novel-red-state-strategy-politics-desk-rcna590135"},
+        {"source": "CNN Politics", "url": "https://www.cnn.com/2026/07/24/politics/joe-manchin-recruit-independent-candidates"}
+      ],
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance"
+    },
+    {
+      "topic_key": "manchin-independent-leadership-council-launch-july31",
+      "title": "Joe Manchin Launches Independent Leadership Council to Back Third-Party Candidates",
+      "summary": "Former West Virginia Senator Joe Manchin formally launched the Independent Leadership Council, an organization designed to recruit, fund, and support independent candidates running for federal and state offices across the country. Manchin, 78, framed the effort as a response to political polarization and both parties' failure to represent moderate voters. Left-leaning outlets viewed this as validation of the growing political center, while Manchin's effort dovetails with Democratic electoral strategy in red states.",
+      "sources": [
+        {"source": "CNN Politics", "url": "https://www.cnn.com/2026/07/24/politics/joe-manchin-recruit-independent-candidates"}
+      ],
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance"
+    }
+  ],
+  "gap_right": [
+    {
+      "topic_key": "texas-senate-talarico-paxton-gop-danger-july31",
+      "title": "Democrat Talarico Leads Ken Paxton 3–5 Points in Texas Senate Race — Previously Safe GOP Seat in Play",
+      "summary": "Multiple polls — including from Fox News and Breitbart/TIPP — show Democrat James Talarico leading Trump-endorsed Republican Ken Paxton by 3–5 points in the Texas Senate race. Paxton faces character concerns stemming from a prior impeachment trial and a GOP unity gap, with some Republican voters indicating they cannot support him. Right-leaning outlets are covering this as a sign of GOP vulnerability in a state Republicans have held safely for decades.",
+      "sources": [
+        {"source": "Fox News Politics", "url": "https://www.foxnews.com/politics/fox-news-poll-gop-divisions-shape-texas-senate-race"},
+        {"source": "Breitbart", "url": "https://www.breitbart.com/politics/2026/07/28/poll-talarico-opens-five-point-lead-over-paxton-in-texas-senate-race/"}
+      ],
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance"
+    },
+    {
+      "topic_key": "hochul-blakeman-ny-gov-4pt-lead-july31",
+      "title": "Hochul Clinging to 4-Point Lead Over Blakeman in New York Governor's Race",
+      "summary": "A new poll showed New York Governor Kathy Hochul leading Republican Bruce Blakeman by just four points — a striking result for a Democrat in a state Biden won by 23 points in 2020. Breitbart reported that voters are souring on Hochul's handling of New York City issues including crime and Mamdani's mayoralty, with the race now potentially competitive. Right-leaning coverage treats this as evidence that Democrats face unexpected vulnerability even in deep-blue states.",
+      "sources": [
+        {"source": "Breitbart", "url": "https://www.breitbart.com/politics/2026/07/30/report-poll-shows-gov-hochul-clinging-to-4-point-lead-as-voters-sour/"}
+      ],
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance"
+    },
+    {
+      "topic_key": "communism-dsa-ideology-warning-right-july31",
+      "title": "Right Sounds Alarm: DSA Victories Represent Genuine Socialist/Communist Resurgence",
+      "summary": "Multiple right-leaning outlets ran commentary this week arguing that the Democratic Socialists of America's primary victories represent not just a political realignment but a genuine ideological threat. RealClearPolitics published 'Communism — It's Back,' treating DSA victories as evidence of communist ideology re-entering the American mainstream. Victor Davis Hanson in Townhall described 'The Socialist Monster Awakens.' The American Spectator ran 'The Mamdani Warning.' This ideological alarm framing is largely absent from left-leaning coverage, which treats DSA as a normal progressive movement.",
+      "sources": [
+        {"source": "RealClearPolitics", "url": "https://www.realclearpolitics.com/articles/2026/07/27/communism__its_back_154369.html"},
+        {"source": "Townhall", "url": "https://townhall.com/columnists/victordavishanson/2026/07/30/the-socialist-monster-awakens-n2680404"},
+        {"source": "The American Spectator", "url": "https://spectator.org/the-mamdani-warning/"}
+      ],
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance"
+    },
+    {
+      "topic_key": "ai-data-centers-midterm-backlash-july31",
+      "title": "Bipartisan Data Center Backlash Emerges as Midterm Campaign Issue",
+      "summary": "Townhall ran commentary this week about bipartisan backlash against AI data center construction becoming a political issue heading into the midterms, framing the opposition as 'scarcity politics' rather than principled policy. The issue has emerged in multiple states where both Republican and Democratic voters are opposing large data center projects due to energy demand and infrastructure concerns. Right-leaning coverage views this as an opportunity to contrast Democratic anti-growth instincts with pragmatic energy policy.",
+      "sources": [
+        {"source": "Townhall", "url": "https://townhall.com/columnists/jen-springman/2026/07/27/data-centers-arent-the-problem-scarcity-politics-is-n2680140"}
+      ],
+      "days_seen": 2,
+      "relevance": 70,
+      "relevance_label": "Recurring — day 2"
+    }
+  ],
+  "suggestions": []
+}
