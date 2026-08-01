@@ -158,13 +158,14 @@
       "id": "golf-tee-time-booking",
       "name": "Golf Tee Time Booking",
       "workflow": "golf-booking",
-      "cron": "0 23 * * 1-5",
-      "schedule_display": "Weekdays at 11:00 PM (8 days before target)",
+      "cron": "0 23 * * 3-5",
+      "schedule_display": "Wednesday\u2013Friday at 11:00 PM CST (midnight EST)",
       "keep_awake": false,
       "configured": true,
       "agent": "Chief",
-      "description": "Automated golf tee time booking \u2014 runs at 11:00 PM on weeknights. Books the highest-ranked tee time from preview-output.json for 8 days ahead (window opens exactly at midnight). Creates calendar event and posts Slack confirmation. Exits silently if no preview output or all options unavailable.",
-      "target_window": "11:00 PM (1 hour before booking window opens at midnight)",
+      "description": "Automated golf tee time booking \u2014 runs Wed/Thu/Fri at 11:00 PM CST (midnight EST, when the 8-day booking window opens). Books the highest-ranked tee time from preview-output.json. Creates calendar event and posts Slack confirmation. Exits silently if no preview output or all options unavailable.",
+      "timezone": "America/Chicago (CST)",
+      "booking_window": "Midnight EST (11:00 PM CST)",
       "cowork_prompt": "Run the golf-booking skill: read workflows/golf-booking/preview-output.json, navigate to ChronoGolf, select the top-ranked tee time option, confirm booking, create calendar event on Family calendar, send Slack notification to #jarvis. Follow all steps in skills/golf-booking/SKILL.md exactly."
     }
   ]

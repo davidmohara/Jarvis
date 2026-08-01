@@ -7,8 +7,10 @@ The golf tee time booking workflow has been added to Cowork's scheduled tasks wi
 | Field | Value |
 |-------|-------|
 | **Task ID** | golf-tee-time-booking |
-| **Schedule** | Weekdays (Mon-Fri) at 11:00 PM CT |
-| **Cron** | `0 23 * * 1-5` |
+| **Schedule** | Wednesday–Friday at 11:00 PM CST |
+| **Cron** | `0 23 * * 3-5` |
+| **Timezone** | America/Chicago (CST) |
+| **Booking Window** | Midnight EST (11:00 PM CST) |
 | **Agent** | Chief |
 | **Workflow** | `workflows/golf-booking/workflow.md` |
 | **Configured** | ✅ True (ready to execute) |
@@ -16,38 +18,43 @@ The golf tee time booking workflow has been added to Cowork's scheduled tasks wi
 
 ---
 
-## Rationale for 11:00 PM
+## Rationale for 11:00 PM CST (Midnight EST)
 
-The booking window opens at **midnight (00:00)** on the target date (8 days ahead). Running the workflow at **11:00 PM** provides:
+The booking window opens at **midnight EST** on the target date (8 days ahead). Running the workflow at **11:00 PM CST** (which equals midnight EST) provides:
 
-1. **Timing buffer**: 1 hour before the window opens
-   - Allows system clock synchronization
-   - Prevents race conditions near midnight boundary
-   - Gives ChronoGolf server time to update booking eligibility
+1. **Timezone alignment**: 11:00 PM CST = Midnight EST
+   - Matches ChronoGolf's EST-based booking window opening
+   - No race conditions or early/late timing issues
+   - System runs exactly when the window opens
 
-2. **Booking window certainty**: By 11:00 PM, we know:
-   - The booking window will definitely open within the hour
-   - System time is synchronized globally
-   - No additional delays from timezone edge cases
+2. **Wed/Thu/Fri schedule**: 
+   - Books for target weekends (Fri/Sat/Sun after 8 days)
+   - Aligns with golf scheduling preferences
+   - No runs on Mon/Tue (unnecessary for next-week bookings)
 
-3. **Confirmation window safety**: After booking, the 5-minute confirmation timer has full resolution:
-   - Booked at 11:01 PM, confirm by 11:06 PM (well before next day)
+3. **Confirmation window safety**: After booking:
+   - Confirmed on the same night (before next day)
    - Calendar event created immediately
-   - Slack notification sent same night
+   - Slack notification sent before sleep
 
 ---
 
-## Previous Execution (Midnight)
+## Previous Execution (Manual)
 
-The first execution ran at **midnight exactly** (2026-08-01 00:00:27 CDT), which was borderline:
-- System was accepting bookings by the time we reached the tee time selection
-- But timing was tight and could be unreliable for future runs
+The first execution ran manually at **midnight EST** (2026-08-01 00:00:27 EDT / 23:00:27 CDT):
+- Successfully booked when window opened
+- Confirmed for Sunday, August 9 @ 3:25 PM
+- Calendar event created, booking verified
 
 ---
 
-## Next Execution
+## Next Scheduled Execution
 
-The workflow will next run automatically on a weeknight at **11:00 PM CT**, approximately **8 days before the target golf date**.
+The workflow will next run automatically on **Wednesday, Thursday, or Friday at 11:00 PM CST** (midnight EST), approximately **8 days before the target golf date**.
+
+Example: 
+- Run at 11:00 PM on Friday = Books for the following Friday (8 days out)
+- Run at 11:00 PM on Wednesday = Books for the following Wednesday (8 days out)
 
 **Manual override**: If you want to book outside the scheduled window, run:
 ```
