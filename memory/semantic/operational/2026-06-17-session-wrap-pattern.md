@@ -4,7 +4,7 @@ domain: operational
 pattern-tag: session-wrap
 confidence: low
 created: 2026-06-17
-last-updated: 2026-07-12
+last-updated: 2026-08-01
 synthesized-from:
   - memory/episodic/2026-05-15-094050-session-wrap.md
 ---
@@ -30,3 +30,9 @@ Sources this cycle:
 - Pattern is active in the current operational window.
 - Watch for repetition over the next 1-2 dream cycles before promoting to medium confidence.
 - 2026-07-12: session-wrap consistently co-occurs with briefing/plaud/dream-cycle tags — this looks like a genuine end-of-day synthesis role rather than a standalone deliverable type. Confidence still held at low pending 1 more cycle of repetition.
+
+### 2026-08-01 — Nightly promotion
+Sources this cycle:
+- `memory/episodic/shutdown-cleanup-2026-07-29-212000.md` (score 3) — tags: session-wrap, chief, git, cleanup, rigby. Minimal session wrap: 6 .DS_Store purged, root check passed (Talks/ added to allowlist), committed 8f690866.
+
+Routine shutdown cleanup. The Talks/ allowlist addition is a new pattern — the canonical allowlist in step-01-purge-artifacts.md is being actively maintained as new legitimate directories surface. Pattern still held at low confidence; the co-occurrence signature (session-wrap + git + cleanup) is consistent but not distinctive enough for escalation yet.

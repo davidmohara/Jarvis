@@ -7,7 +7,7 @@ synthesized-from:
   - memory/episodic/daily-review-2026-07-02-000000.md
   - memory/episodic/dream-summary-2026-07-03.md
   - memory/episodic/shutdown-cleanup-2026-07-01-170500.md
-last-updated: 2026-07-31
+last-updated: 2026-08-01
 tags: [daily-review]
 agent-source: dream-cycle
 confidence: low
@@ -97,3 +97,9 @@ Sources this cycle:
 - `memory/episodic/daily-review-2026-07-28-050000.md` (score 9) — tags: daily-review, chief, omnifocus, pipeline, co-sell, rock-4, leads, overdue. 7 completions (2 Reachout/Rock-4, 2 Deliberate Practices, 1 Family, 2 other). Notable: Microsoft contacts (5 identified) and Confluent RSM — both Rock 4 co-sell progress. Persistent overdue: Don Microsoft accounts (Rock 1+4), Lifebook Career/Health, Dr. Easton, Blaze.ai/Kare. Q3 objectives still absent — 28 days in.
 
 Pattern escalation: July 27 entry is the 7th consecutive daily-review to flag Q3 rocks absent. The Jul 28 entry is notable for being the first in several cycles to show *Rock 4 completions* (Microsoft contacts, Confluent RSM) — co-sell pipeline is moving even as the formal Q3 scorecard remains unwritten. The persistent-overdue cluster (Lifebook Career/Health, Blaze.ai/Kare, Dr. Easton) continues unchanged across all daily-review entries since at least Jul 8; these are now 60+ day deferred items, not weekly overdue fluctuations.
+
+### 2026-08-01 — Nightly promotion
+Sources this cycle:
+- `memory/episodic/daily-review-2026-07-29-050000.md` (score 10) — tags: daily-review, chief, omnifocus, calendar, overdue, lifebook, leads, q3-rocks. Headless run — calendar unavailable. 4 completions (morning practices, Church seeking, Drayton follow-up). 4 overdue: Lifebook Career/Health (same persistent set), Dr. Easton nerve med inquiry, Blaze.ai Kare Devices. Q3 objectives undocumented again.
+
+Jul 29 daily-review is the 8th consecutive entry to flag Q3 rocks absent. The persistent-overdue cluster (Lifebook Career/Health, Dr. Easton, Blaze.ai/Kare) is now confirmed across at least 8 daily-review entries spanning 3+ weeks — these items have crossed from "overdue" to "chronically deferred." Cole Estrate (xAI) follow-up email is a new overdue item surfacing from the Jul 30 session wrap — active partner track declared Jul 29, still no outreach sent as of the Jul 31 daily review. The Forgiveness Letter (third deferral past deadline per quarterly-objectives) is newly flagged as of the Jul 31 daily review.

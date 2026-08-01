@@ -1,12 +1,35 @@
 ---
-type: working
+type: working-archive
 task_id: "session"
 session_id: "chief-2026-07-29-060924"
 agent-source: chief
 created: 2026-07-29T06:09:24
 expires: 2026-07-31T06:09:24
-status: active
+status: archived
 context: "Morning briefing — 2026-07-29"
+date: 2026-07-29
+source_file: memory/working/morning-briefing-2026-07-29-060924.md
+tags:
+  - briefing
+  - chief
+  - calendar
+  - omnifocus
+  - leads
+  - solace
+  - concentrate-ai
+  - financial-meeting
+  - utb
+related_people:
+  - alice-mburu
+  - ronald-seim
+  - kyle-scott
+  - mike-hilmen
+  - derek-nwamadi
+  - teresa-saffold
+salience:
+  score: 10
+  promoted: true
+  last-promoted-check: 2026-08-01
 ---
 
 # Morning Briefing — Wednesday, July 29, 2026

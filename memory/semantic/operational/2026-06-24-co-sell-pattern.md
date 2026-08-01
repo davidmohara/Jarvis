@@ -8,7 +8,7 @@ synthesized-from:
   - memory/episodic/2026-04-20-rock4-pipeline-weekly.md
   - memory/episodic/dream-summary-2026-06-18.md
   - memory/episodic/co-sell-pipeline-20260629-001245.md
-last-updated: 2026-07-16
+last-updated: 2026-08-01
 tags:
   - co-sell
 agent-source: dream-cycle
@@ -58,3 +58,9 @@ Sources this cycle:
 - `memory/episodic/co-sell-pipeline-2026-06-15-143245.md` (score 9) — tags: pipeline-review, chase, pipeline, rock. Pre-Q3 baseline reference.
 
 Pattern status: structurally stable. Two consecutive co-sell snapshots scoring high (9+) confirm no material change in pipeline composition. Rock 4 gap likely persists into Q3; next meaningful signal would be a co-sell-pipeline entry showing new deal creation or partner-sourced wins.
+
+### 2026-08-01 — Nightly promotion
+Sources this cycle:
+- `memory/episodic/one-texas-scorecard-2026-07-30-000000.md` (score 7) — tags: scorecard, chase, one-texas, co-sell, pipeline, q3-rocks, revenue, powerbi. Rock 4 gap narrowed from $12.1M to $8.68M (57.9% remaining) — first meaningful compression in the Rock 4 number visible in this pattern. New Houston pipeline is the driver. Rock 1 90-day weighted pipeline compressed 21.5% in two weeks ($14.88M → $11.66M), South Texas driving the decline.
+
+First cycle to show genuine Rock 4 gap compression — $12.1M → $8.68M is a ~28% reduction, primarily from new Houston pipeline entries. This is the positive inflection this pattern has been waiting for since the Q2 miss. However, Rock 1 pipeline compression (-21.5% in 2 weeks, South Texas) is a simultaneous negative signal — both threads need monitoring. The Jul 28 daily-review also confirmed Rock 4 completions (Microsoft contacts, Confluent RSM) at the individual task level, consistent with the scorecard-level gap reduction.

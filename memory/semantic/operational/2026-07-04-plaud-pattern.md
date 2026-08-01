@@ -5,7 +5,7 @@ subject: plaud pattern
 synthesized-from:
   - memory/episodic/plaud-ingest-2026-07-02-011500.md
   - memory/episodic/morning-briefing-2026-07-01-085000.md
-last-updated: 2026-07-16
+last-updated: 2026-08-01
 tags: [plaud]
 agent-source: dream-cycle
 confidence: low
@@ -60,3 +60,9 @@ Sources this cycle:
 - `memory/episodic/plaud-ingest-2026-07-13-153500.md` (score 10) — tags: plaud, chief, calendar, system-maintenance — 1 recording ingested ("Aligning on a Centralized AI Agent Landing Zone"); speaker resolved as Michael Slater via mandatory M365 calendar lookup (protocol now enforced before controller escalation); 5 Monday action items created; Alice Mburu assigned review task
 
 Genuinely new entry, not a backlog re-flag — step-02 merge fix holding. Calendar-lookup-before-escalation protocol (introduced 07-13) appears to be sticking as standard practice.
+
+### 2026-08-01 — Nightly promotion
+Sources this cycle:
+- `memory/episodic/plaud-ingest-2026-07-29-210000.md` (score 4) — tags: plaud-ingest, chief, solace, concentrate-ai, monday, alice-delegation, error-log. Ingested 2 Jul 28 recordings: Concentrate AI Platform Demo (Kevin Jourdain, Bill Curry, Thomas Jackson, Ari Jacoby, Michael Slater) and Improving + Solace TOLA Partnership Onsite (Laurent Guillot, Austin Ledesma, Kyle Scott, Michael Hilmen, Ehren Seim). Plaud mis-tagged Laurent Guillot as "Robyn Fuentes" — voice profile hallucination, error logged. Monday tasks created and assigned to Alice (IDs 12665996692, 12666075645). 4 error logs written this session.
+
+New signals: Solace and Concentrate.ai are the two most significant recent partnership recordings — both now captured and in the episodic pool. The Robyn Fuentes voice hallucination is the first speaker mis-ID logged since the Michael Slater calendar-lookup fix in Jul 13 — the fix helps with ambiguous names but doesn't prevent hallucinations on known names with confused voice profiles. Alice Mburu delegation assignment through Monday continues as the standard handoff path for Plaud action items.

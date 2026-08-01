@@ -1973,3 +1973,20 @@ digests_updated: 0
 errors: 0
 summary: "Boot pull clean (already up to date; stash/pop for unstaged eval/daily-review/golf files). Step-01 archived 2 expired files (daily-review-2026-07-28, morning-briefing-2026-07-28 — both expires 2026-07-30), skipped 22 (9 not expired, 13 unparseable — golf/sc/felix-derek/golf-booking cluster unchanged + new 07-30-morning-briefing without expires field). Step-02 scored 224 episodic files (81 in window); dist 0:196,1:2,2:3,4:1,5:3,6:2,7:5,8:3,9:5,10:4; 0 errors. Step-03: 6 candidates across 3 clusters — dream-summary (07-26/07-28/07-29, 3 files), daily-review (07-27/07-28, 2 files), briefing (morning-briefing-07-28, 1 file); updated dream-summary-pattern (Jul 31 note: merge-write fix holding, Q3 rocks week 6 carry-forward), daily-review-pattern (Jul 31 note: Rock 4 completions now visible despite scorecard absent; 60+ day persistent overdue cluster), morning-briefing-pattern (Jul 31 note: Solace + concentrate-ai entering briefing cluster for first time). Error scan: 127 errors/30d, 9 qualifying categories — all documented in LESSONS.md, 0 new lessons. Step-04: 1 compression candidate (below 5-entry threshold) — skipped. Carry-forward: Q3 rocks unwritten week 6+; nerve block unscheduled; Alice delegation tracker empty; 3 unassigned leads 160+ days (IFS, Cardinal IT, Paragon Brokerage)."
 ---
+
+---
+## 2026-08-01T03:28:00 CDT
+session_id: dream-cycle-2026-08-01-030839
+working_archived: 7
+working_deleted: 0
+episodic_scanned: 231
+score_updates: 231
+clusters_found: 6
+semantic_created: 0
+semantic_updated: 6
+promoted_entries: 7
+entries_compressed: 0
+digests_updated: 0
+errors: 0
+summary: "Boot pull fast-forward to ef31023 (political-monitor + 07-31 run files); stash/pop clean for eval/daily-review/golf/workflow states. Step-01 archived 7 expired files: daily-review-07-29, morning-briefing-07-29, plaud-ingest-07-29, shutdown-cleanup-07-29, dream-summary-07-31, one-texas-scorecard-07-30, dream-summary-07-30 (this last one was a missed-expiry from last night). Step-02 scored 231 episodic files (84 in window); dist 0:194,1:3,2:1,3:4,4:2,5:3,7:3,9:6,10:15; 0 errors; merge-write fix holding. Step-03: 7 candidates across 6 clusters — dream-summary (2 files: 07-30/07-31), briefing (morning-briefing-07-29), daily-review (07-29), scorecard+co-sell (one-texas-scorecard-07-30), plaud (plaud-ingest-07-29), session-wrap (shutdown-cleanup-07-29); 6 semantic entries updated, 0 created; 7 source files marked promoted=true. Rock 4 gap first compression visible ($12.1M→$8.68M); Cole Estrate follow-up and Forgiveness Letter newly flagged as escalating overdue. Error scan: 120 errors/30d, 9 qualifying categories — 1 new lesson appended (under-delivery/wrong-assumption, 3 occurrences). Step-04: 1 compression candidate — below 5-entry safety threshold, skipped. Carry-forward: Q3 rocks entering week 8 unwritten; nerve block unscheduled; Alice delegation tracker empty; Cole Estrate (xAI) outreach still unsent (active partner track declared Jul 29); 3 unassigned leads 160+ days; Rock 1 South Texas pipeline -21.5% in 2 weeks (new watch item)."
+---

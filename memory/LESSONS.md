@@ -423,3 +423,10 @@ Pattern: Data inaccuracies arise specifically from skipping a validation or cros
 Fix: Any data presented in a deliverable must pass the cross-reference step mandated by the owning workflow. Flag unverified data explicitly rather than presenting it as fact. If the verification step cannot be completed, say so rather than omitting it silently.
 Status: active
 
+## 2026-08-01 — Under-Delivery / Wrong Assumption
+Detected: 3 occurrences over 30 days
+Category: under-delivery
+Failure mode: wrong-assumption
+Pattern: Agent delivers a result based on an incorrect assumption about scope, data, or completion state — and the assumption is never surfaced or checked. Examples: declaring a find-and-remove task complete after checking only one literal string while paraphrased variants remain; treating a sub-agent's completion report as verified fact without spot-checking the output; reporting pipeline figures using stale cached data while assuming it's current. The wrong assumption isn't caught because it's never made explicit — the agent acts as though it knows something it has only inferred.
+Fix: Before declaring any multi-part or verification-dependent task complete, explicitly name the assumption being made and confirm it against the actual artifact. For find/remove tasks, grep for synonyms and paraphrases, not just the literal target string. For sub-agent reports, spot-check one claim against the actual file before relaying the report upward. For data freshness, check the cache date and surface it if it exceeds 24 hours.
+Status: active

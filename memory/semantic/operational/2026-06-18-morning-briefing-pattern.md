@@ -5,7 +5,7 @@ tags:
 - morning-briefing
 confidence: high
 created: '2026-06-18'
-last-updated: 2026-07-31
+last-updated: 2026-08-01
 synthesized-from:
   - memory/episodic/2026-05-04-morning-briefing-automated.md
   - memory/episodic/2026-05-04-morning-briefing.md
@@ -134,3 +134,9 @@ Sources this cycle:
 - `memory/episodic/morning-briefing-2026-07-28-060929.md` (score 8) — tags: briefing, chief, calendar, omnifocus, leads, clay, plaud, delegations, solace, concentrate-ai. Heavy partnership day: Solace TOLA onsite (Laurent Guillot, Austin Ledesma, Michael Hilmen, Ehren Seim) + Concentrate.ai demo + Solace Happy Hour, back-to-back with zero buffers. OmniFocus unavailable (AppleScript timeout — recurring). 3 unassigned leads flagged (IFS 175 days, Cardinal IT 164 days, Paragon Brokerage 162 days). United Texas Bank board approval time-sensitive. People: ehren-seim, laurent-guillot, austin-ledesma, michael-hilmen, kyle-scott, charlie-glick, ben-kennedy, alice-mburu.
 
 New signals: Solace and concentrate-ai appear in the briefing cluster for the first time — both are Rock 4 co-sell plays entering the operational briefing layer. The OmniFocus-unavailable recurrence (AppleScript timeout) continues as a morning-briefing reliability failure mode; the briefing compensated with last-known-state fallback, which is the established pattern. Three unassigned leads aged 160+ days is structurally the same gap flagged in every prior leads entry — no AM has picked these up despite repeated surfacing.
+
+### 2026-08-01 — Nightly promotion
+Sources this cycle:
+- `memory/episodic/morning-briefing-2026-07-29-060924.md` (score 10) — tags: briefing, chief, calendar, omnifocus, leads, solace, concentrate-ai, financial-meeting, utb. Wed Jul 29: 10 calendar events including 2:00–4:00 PM financial meeting (Ronald + Susie, Plano), Whiskey Cake lunch (Tapp Holdings), BCA Ferrari Gallery (tentative). 9:30 AM concurrent conflict (AI Leaders Weekly vs. Houston Sales Scrum). 3 unassigned leads (160+ days). UTB board vote time-sensitive. Solace/Curtis intro request from Kyle Scott. People: alice-mburu, ronald-seim, kyle-scott, mike-hilmen, derek-nwamadi, teresa-saffold.
+
+Solace and Concentrate.ai now confirmed in back-to-back briefings (Jul 28 + Jul 29) — both are active Rock 4 co-sell plays now surfacing at the daily operational briefing level, not just account research. The financial meeting with Ronald/Susie on Jul 29 is the first personal-financial item to appear in the briefing cluster; this is distinct from the usual sales/operational content. UTB board approval continues as a time-sensitive recurring item (appeared in multiple recent briefings). Three unassigned leads (IFS, Cardinal IT, Paragon Brokerage) at 160+ days remain structurally unresolved — the pattern has now appeared in at least 5 consecutive briefing entries without AM assignment occurring.

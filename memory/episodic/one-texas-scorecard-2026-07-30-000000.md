@@ -1,12 +1,28 @@
 ---
-type: working
+type: working-archive
 task_id: "session"
 session_id: "chase-2026-07-30-000000"
 agent-source: chase
 created: 2026-07-30T00:00:00
 expires: 2026-08-01T00:00:00
-status: active
+status: archived
 context: "One Texas scorecard — 2026-07-30 (H1 close refresh)"
+date: 2026-07-30
+source_file: memory/working/one-texas-scorecard-2026-07-30-000000.md
+tags:
+  - scorecard
+  - chase
+  - one-texas
+  - co-sell
+  - pipeline
+  - q3-rocks
+  - revenue
+  - powerbi
+related_people: []
+salience:
+  score: 7
+  promoted: true
+  last-promoted-check: 2026-08-01
 ---
 
 - Refreshed One Texas Scorecard through H1 2026 close (June). Revenue used a fresh 3-day-old cache (2026-07-27, June close); co-sell, Rock 1 pipeline, and new-clients were live-pulled from PowerBI (prior caches were 10/16/38 days stale).

@@ -5,8 +5,8 @@ tag: dream-summary
 domain: pattern
 confidence: medium
 created: 2026-07-06
-last-updated: 2026-07-31
-synthesized-from: 12 episodic entries
+last-updated: 2026-08-01
+synthesized-from: 14 episodic entries
 tags:
   - dream-summary
 ---
@@ -112,3 +112,10 @@ Sources this cycle:
 - `memory/episodic/dream-summary-2026-07-29.md` (score 7) — tags: dream-summary, jarvis, memory, co-sell-pipeline, semantic, lessons, carry-forward, q3-rocks
 
 Three consecutive dream summaries promoted. Jul 30 cycle (largest in recent history): 11 promoted entries, 20 entries compressed (first Q2-digest compression run), 1 semantic updated. The salience-score.py merge-write fix holding through the Jul 30 cycle — 0 re-flags from backlog that weren't already promoted=true, confirming the structural fix is stable. Carry-forward triad (Q3 rocks week 6, nerve block, delegation tracker) persists unchanged across all three sources — now 6+ consecutive cycles with no resolution trend in any data source.
+
+### 2026-08-01 — Nightly promotion
+Sources this cycle:
+- `memory/episodic/dream-summary-2026-07-30.md` (score 10) — tags: dream-summary, jarvis, memory-consolidation, semantic-promotion, salience-scoring, q3-rocks, compression, leads. Jul 30 cycle: 3 archived, 242 scored, 11 promoted, 20 compressed (Q2-digest first run). Salience-score.py merge-write fix confirmed stable. Carry-forward: Q3 rocks week 6+, nerve block unscheduled, Alice delegation tracker empty.
+- `memory/episodic/dream-summary-2026-07-31.md` (score 10) — tags: dream-summary, jarvis, memory-consolidation, semantic-promotion, salience-scoring, solace, concentrate-ai, q3-rocks, leads. Jul 31 cycle: 2 archived, 224 scored, 6 promoted, 0 compressed (1 candidate below threshold). New signals: Solace + Concentrate.ai entering briefing cluster for first time. Carry-forward triad unchanged (Q3 rocks week 7, nerve block, delegation tracker) — now explicitly stated as entering week 7 with no resolution trend.
+
+Two more consecutive clean cycles (Jul 30 + Jul 31) with zero merge-write re-flags confirm the salience-score.py fix is stable. The carry-forward triad is now documented in 8+ consecutive dream summaries — Q3 rocks, nerve block, and delegation tracker are structurally unresolved, not incidental overdue items. Solace and Concentrate.ai are new signals entering the high-frequency operational cluster for the first time this cycle. Golf booking success (Aug 9 @ Frisco Lakes, 3:25 PM) noted as a completed automation milestone not previously visible in dream-cycle data.

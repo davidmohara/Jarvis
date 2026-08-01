@@ -29,9 +29,10 @@ related_people:
   - charlie-glick
   - ben-kennedy
   - alice-mburu
+  promoted: true
 salience:
-  score: 8
-  last-promoted-check: 2026-07-31
+  score: 10
+  last-promoted-check: 2026-08-01
   promoted: true
 ---
 
