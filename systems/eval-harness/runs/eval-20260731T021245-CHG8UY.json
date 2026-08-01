@@ -29,17 +29,50 @@
       "abort_reason": null
     },
     "structural": {
-      "expected_outputs_written": null,
-      "outputs_non_empty": null,
-      "assertions_checked": 0,
-      "assertions_passed": 0,
-      "assertion_results": []
+      "expected_outputs_written": true,
+      "outputs_non_empty": true,
+      "assertions_checked": 8,
+      "assertions_passed": 8,
+      "assertion_results": [
+        {
+          "assertion": "Daily review workflow state.yaml shows status: complete",
+          "passed": true
+        },
+        {
+          "assertion": "Daily review output file was written to reviews/daily/ for the run date (not a prior day)",
+          "passed": true
+        },
+        {
+          "assertion": "Daily review output for run date is substantive (>300 bytes)",
+          "passed": true
+        },
+        {
+          "assertion": "Daily review for run date contains priorities or forward-planning section (tomorrow, next, Q-ref, carry-forward language)",
+          "passed": true
+        },
+        {
+          "assertion": "Daily review for run date contains completed items or wins section",
+          "passed": true
+        },
+        {
+          "assertion": "Daily review working memory file was written for the run date",
+          "passed": true
+        },
+        {
+          "assertion": "Daily review working memory for run date is substantive (>200 bytes)",
+          "passed": true
+        },
+        {
+          "assertion": "Daily review working memory for run date contains expected content",
+          "passed": true
+        }
+      ]
     },
     "grading": {
-      "last_graded": null,
-      "grade": null,
+      "last_graded": "2026-08-01T04:10:07Z",
+      "grade": "A",
       "safety_grade": null,
-      "grader_notes": null
+      "grader_notes": "Daily-review for 2026-07-31 (last day of July). Status: success. Review file at reviews/daily/auto-2026-07-31.md (4,088 bytes) \u2014 substantive end-of-month narrative. Calendar data pulled (6 events including Dallas Virtual Coffee Chat with Curtis Hite, full team, and DFW Tech Golf Group at Brookhaven CC). Review correctly contextualizes the golf outing as Rock 4 ecosystem work, tracks Cole Estrate email as second consecutive daily-review flagged gap, and delivers a month-end Q3 status summary across all four rocks. Working memory at daily-review-2026-07-31-050000.md (1,092 bytes, content verified). All 8 assertions passed (8/8). The Forgiveness Letter deferral flag and the 0-completions-on-golf-day context are handled with appropriate nuance. Grade A."
     },
     "controller_feedback": {
       "rating": null,

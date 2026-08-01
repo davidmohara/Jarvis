@@ -29,17 +29,50 @@
       "abort_reason": null
     },
     "structural": {
-      "expected_outputs_written": null,
-      "outputs_non_empty": null,
-      "assertions_checked": 0,
-      "assertions_passed": 0,
-      "assertion_results": []
+      "expected_outputs_written": true,
+      "outputs_non_empty": true,
+      "assertions_checked": 8,
+      "assertions_passed": 8,
+      "assertion_results": [
+        {
+          "assertion": "Daily review workflow state.yaml shows status: complete",
+          "passed": true
+        },
+        {
+          "assertion": "Daily review output file was written to reviews/daily/ for the run date (not a prior day)",
+          "passed": true
+        },
+        {
+          "assertion": "Daily review output for run date is substantive (>300 bytes)",
+          "passed": true
+        },
+        {
+          "assertion": "Daily review for run date contains priorities or forward-planning section (tomorrow, next, Q-ref, carry-forward language)",
+          "passed": true
+        },
+        {
+          "assertion": "Daily review for run date contains completed items or wins section",
+          "passed": true
+        },
+        {
+          "assertion": "Daily review working memory file was written for the run date",
+          "passed": true
+        },
+        {
+          "assertion": "Daily review working memory for run date is substantive (>200 bytes)",
+          "passed": true
+        },
+        {
+          "assertion": "Daily review working memory for run date contains expected content",
+          "passed": true
+        }
+      ]
     },
     "grading": {
-      "last_graded": null,
-      "grade": null,
+      "last_graded": "2026-08-01T04:10:07Z",
+      "grade": "A",
       "safety_grade": null,
-      "grader_notes": null
+      "grader_notes": "Daily-review for 2026-07-30. Status: success, step-auto completed. Review file at reviews/daily/auto-2026-07-30.md (4,100 bytes) \u2014 the strongest daily review in this batch. Calendar was pulled successfully (13 events via M365 MCP), providing richer context than headless-only runs. Narrative covers Friday cadence structure (Sales & Recruiting, Athena, Houston Sales Scrum), Jim Johnson pastoral lunch, Solace coordination completion, Cole Estrate gap flagged explicitly, BCA Ferrari Gallery evening event. Working memory at daily-review-2026-07-30-050000.md (861 bytes, content verified). All 8 assertions passed (8/8). The review demonstrates the workflow at its best: calendar data enriches the narrative, completions are placed in strategic context (Rock 4, Solace activation), and forward-looking gap identification (Cole Estrate) is specific and actionable."
     },
     "controller_feedback": {
       "rating": null,

@@ -16,7 +16,11 @@
       "completed": "2026-07-27T07:20:00Z",
       "duration_seconds": 900,
       "status": "success",
-      "data_sources_used": ["watchtower-sources", "obsidian-vault", "web-search"],
+      "data_sources_used": [
+        "watchtower-sources",
+        "obsidian-vault",
+        "web-search"
+      ],
       "data_source_failures": []
     },
     {
@@ -25,7 +29,10 @@
       "completed": "2026-07-27T07:35:00Z",
       "duration_seconds": 900,
       "status": "success",
-      "data_sources_used": ["obsidian-vault", "identity-voice"],
+      "data_sources_used": [
+        "obsidian-vault",
+        "identity-voice"
+      ],
       "data_source_failures": []
     },
     {
@@ -34,7 +41,9 @@
       "completed": "2026-07-27T07:45:00Z",
       "duration_seconds": 600,
       "status": "success",
-      "data_sources_used": ["accumulated-context"],
+      "data_sources_used": [
+        "accumulated-context"
+      ],
       "data_source_failures": []
     },
     {
@@ -53,7 +62,9 @@
       "completed": "2026-07-27T07:55:00Z",
       "duration_seconds": 540,
       "status": "success",
-      "data_sources_used": ["obsidian-vault"],
+      "data_sources_used": [
+        "obsidian-vault"
+      ],
       "data_source_failures": []
     },
     {
@@ -62,7 +73,10 @@
       "completed": "2026-07-27T08:10:00Z",
       "duration_seconds": 900,
       "status": "success",
-      "data_sources_used": ["accumulated-context", "cowork-artifact"],
+      "data_sources_used": [
+        "accumulated-context",
+        "cowork-artifact"
+      ],
       "data_source_failures": []
     },
     {
@@ -71,9 +85,14 @@
       "completed": "2026-07-27T17:20:00Z",
       "duration_seconds": 1200,
       "status": "partial",
-      "data_sources_used": ["obsidian-vault", "slack-bot"],
-      "data_source_failures": ["shell-quoting-smart-quotes"],
-      "notes": "Two drafts sent to #content (Agents, Accenture). Microsoft draft excluded per David. First send attempt on Accenture failed due to smart quote shell quoting error — fixed and retried successfully."
+      "data_sources_used": [
+        "obsidian-vault",
+        "slack-bot"
+      ],
+      "data_source_failures": [
+        "shell-quoting-smart-quotes"
+      ],
+      "notes": "Two drafts sent to #content (Agents, Accenture). Microsoft draft excluded per David. First send attempt on Accenture failed due to smart quote shell quoting error \u2014 fixed and retried successfully."
     }
   ],
   "assessment": {
@@ -94,29 +113,79 @@
       "assertions_checked": 16,
       "assertions_passed": 12,
       "assertion_results": [
-        { "assertion": "step-01: delta check applied against prior 2 weeks", "passed": true },
-        { "assertion": "step-01: dropped_as_continuing count recorded in outputs", "passed": true },
-        { "assertion": "step-01: at least 1 theme promoted (new argument)", "passed": true },
-        { "assertion": "step-02: one draft per theme written to Obsidian Mind/Posts/", "passed": true },
-        { "assertion": "step-02: all draft slugs underscore-prefixed", "passed": true },
-        { "assertion": "step-02: related_posts frontmatter populated with Ghost link placeholders", "passed": true },
-        { "assertion": "step-02: no week numbers (W29/W30/etc.) in draft bodies", "passed": true },
-        { "assertion": "step-02: post titles in Title Case", "passed": false, "note": "Initial Knox run used mixed case on some titles; corrected by David" },
-        { "assertion": "step-02b: 10 tweets generated", "passed": true },
-        { "assertion": "step-02b: tweets with source links capped at 240 chars", "passed": true },
-        { "assertion": "step-02b: supporting_url present for relevant tweets", "passed": true },
-        { "assertion": "step-03: kill switch honored — no proposals generated", "passed": true },
-        { "assertion": "step-05: dashboard artifact updated with W31 view", "passed": true },
-        { "assertion": "step-06: selected drafts delivered to #content and verified via read.py", "passed": true },
-        { "assertion": "step-06: no duplicate sends", "passed": true },
-        { "assertion": "step-06: vault paths rendered as obsidian:// deep links in artifact", "passed": false, "note": "Obsidian links were not part of original run — added post-run by David request; step-06 workflow updated for future runs" }
+        {
+          "assertion": "step-01: delta check applied against prior 2 weeks",
+          "passed": true
+        },
+        {
+          "assertion": "step-01: dropped_as_continuing count recorded in outputs",
+          "passed": true
+        },
+        {
+          "assertion": "step-01: at least 1 theme promoted (new argument)",
+          "passed": true
+        },
+        {
+          "assertion": "step-02: one draft per theme written to Obsidian Mind/Posts/",
+          "passed": true
+        },
+        {
+          "assertion": "step-02: all draft slugs underscore-prefixed",
+          "passed": true
+        },
+        {
+          "assertion": "step-02: related_posts frontmatter populated with Ghost link placeholders",
+          "passed": true
+        },
+        {
+          "assertion": "step-02: no week numbers (W29/W30/etc.) in draft bodies",
+          "passed": true
+        },
+        {
+          "assertion": "step-02: post titles in Title Case",
+          "passed": false,
+          "note": "Initial Knox run used mixed case on some titles; corrected by David"
+        },
+        {
+          "assertion": "step-02b: 10 tweets generated",
+          "passed": true
+        },
+        {
+          "assertion": "step-02b: tweets with source links capped at 240 chars",
+          "passed": true
+        },
+        {
+          "assertion": "step-02b: supporting_url present for relevant tweets",
+          "passed": true
+        },
+        {
+          "assertion": "step-03: kill switch honored \u2014 no proposals generated",
+          "passed": true
+        },
+        {
+          "assertion": "step-05: dashboard artifact updated with W31 view",
+          "passed": true
+        },
+        {
+          "assertion": "step-06: selected drafts delivered to #content and verified via read.py",
+          "passed": true
+        },
+        {
+          "assertion": "step-06: no duplicate sends",
+          "passed": true
+        },
+        {
+          "assertion": "step-06: vault paths rendered as obsidian:// deep links in artifact",
+          "passed": false,
+          "note": "Obsidian links were not part of original run \u2014 added post-run by David request; step-06 workflow updated for future runs"
+        }
       ]
     },
     "grading": {
-      "last_graded": null,
-      "grade": null,
+      "last_graded": "2026-08-01T04:10:07Z",
+      "grade": "B",
       "safety_grade": null,
-      "grader_notes": null
+      "grader_notes": "Watchtower-weekly partial run from 2026-07-27. 6 of 7 steps completed (step-03-suggest-sources skipped per kill switch \u2014 intentional, not a failure). Step-06 published partial: drafts delivered to #content and verified via read.py, confirmation noted in assertion_results. Assertions 12/16 passed. Two failures: ww-06 (post titles not in Title Case \u2014 the draft H1 headings used sentence case) and ww-14 (vault paths in Slack messages did not render as obsidian:// deep links in the artifact). The output (drafts, tweets, weekly note, report) is substantive \u2014 1 theme promoted with a draft, 10 tweets generated under character limits, step-05 dashboard updated. Grade B rather than A because step-06 partial delivery and two hard-severity assertion failures (title case and Obsidian URI in Slack). To earn A: fix H1 title casing in draft-angles step and ensure step-06 injects obsidian:// URIs into Slack artifact output."
     },
     "controller_feedback": {
       "rating": null,
@@ -137,7 +206,9 @@
   "reliability": {
     "trials": 1,
     "mcp_mode": "live",
-    "per_trial": ["partial"],
+    "per_trial": [
+      "partial"
+    ],
     "pass_at_k": 0.0,
     "pass_hat_k": 0.0,
     "gated": false,
@@ -173,5 +244,11 @@
   ],
   "version_hash": null,
   "prior_baseline_id": null,
-  "tags": ["watchtower", "weekly", "w31", "delta-check", "content-pipeline"]
+  "tags": [
+    "watchtower",
+    "weekly",
+    "w31",
+    "delta-check",
+    "content-pipeline"
+  ]
 }

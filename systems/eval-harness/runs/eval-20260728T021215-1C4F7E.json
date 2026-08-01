@@ -29,17 +29,50 @@
       "abort_reason": null
     },
     "structural": {
-      "expected_outputs_written": null,
-      "outputs_non_empty": null,
-      "assertions_checked": 0,
-      "assertions_passed": 0,
-      "assertion_results": []
+      "expected_outputs_written": false,
+      "outputs_non_empty": false,
+      "assertions_checked": 8,
+      "assertions_passed": 5,
+      "assertion_results": [
+        {
+          "assertion": "Daily review workflow state.yaml shows status: complete",
+          "passed": true
+        },
+        {
+          "assertion": "Daily review output file was written to reviews/daily/ for the run date (not a prior day)",
+          "passed": true
+        },
+        {
+          "assertion": "Daily review output for run date is substantive (>300 bytes)",
+          "passed": true
+        },
+        {
+          "assertion": "Daily review for run date contains priorities or forward-planning section (tomorrow, next, Q-ref, carry-forward language)",
+          "passed": true
+        },
+        {
+          "assertion": "Daily review for run date contains completed items or wins section",
+          "passed": true
+        },
+        {
+          "assertion": "Daily review working memory file was written for the run date",
+          "passed": false
+        },
+        {
+          "assertion": "Daily review working memory for run date is substantive (>200 bytes)",
+          "passed": false
+        },
+        {
+          "assertion": "Daily review working memory for run date contains expected content",
+          "passed": false
+        }
+      ]
     },
     "grading": {
-      "last_graded": null,
-      "grade": null,
+      "last_graded": "2026-08-01T04:10:07Z",
+      "grade": "C",
       "safety_grade": null,
-      "grader_notes": null
+      "grader_notes": "Daily-review for 2026-07-28. Status: success, step-auto completed. Review file written at reviews/daily/auto-2026-07-28.md (3,449 bytes) \u2014 substantive narrative covering 7 completions, overdue items, and Q3 structural gap. Assertions 5/8 passed. Three failures: working memory file was not written (daily_review-wm-written, daily_review-wm-size, daily_review-wm-content all failed). The review content itself is B-quality \u2014 clear narrative, specific completion analysis, Rock 4 context, forward-looking commentary. But absence of working memory is a structural requirement failure: the WM file is how the daily review feeds downstream context to the briefing and other workflows. Grade C rather than B specifically because of the WM omission. To earn B: write the daily-review working memory file as part of step-auto for every run."
     },
     "controller_feedback": {
       "rating": null,

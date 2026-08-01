@@ -56,17 +56,38 @@
       "abort_reason": null
     },
     "structural": {
-      "expected_outputs_written": null,
-      "outputs_non_empty": null,
-      "assertions_checked": 0,
-      "assertions_passed": 0,
-      "assertion_results": []
+      "expected_outputs_written": true,
+      "outputs_non_empty": true,
+      "assertions_checked": 5,
+      "assertions_passed": 5,
+      "assertion_results": [
+        {
+          "assertion": "Morning briefing workflow state.yaml shows status: complete",
+          "passed": true
+        },
+        {
+          "assertion": "Morning briefing output file was written to memory/working/",
+          "passed": true
+        },
+        {
+          "assertion": "Morning briefing output is substantive (>500 bytes)",
+          "passed": true
+        },
+        {
+          "assertion": "Morning briefing contains calendar/schedule section",
+          "passed": true
+        },
+        {
+          "assertion": "Morning briefing contains priorities/tasks section",
+          "passed": true
+        }
+      ]
     },
     "grading": {
-      "last_graded": null,
-      "grade": null,
+      "last_graded": "2026-08-01T04:10:07Z",
+      "grade": "B",
       "safety_grade": null,
-      "grader_notes": null
+      "grader_notes": "Morning-briefing for 2026-07-29 (eval started 07-29 CDT). Status: partial. All 5 assertions passed (5/5) against morning-briefing-2026-07-29-060924.md (5,639 bytes). Output is well-structured with a full calendar table, conflict flagged (9:30 AM overlap), overdue items, 72-hour look-ahead through Aug 2, Rock pulse section, action items, and inbox items. Data sources documented including Clay auth failure. Slack delivered (ts: 1785323608 after retry on invalid_thread_ts). Grade B rather than A because status is partial (Slack first-attempt failure required retry, same pattern as JBQ8IO from the prior morning). This is a recurring Slack delivery issue \u2014 two consecutive morning-briefing runs with the same first-attempt failure. To earn A: investigate and fix the Slack thread_ts initialization that causes the first send to fail in every run."
     },
     "controller_feedback": {
       "rating": null,

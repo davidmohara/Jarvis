@@ -2,14 +2,20 @@
   "skill": "golf-booking",
   "agent": "chief",
   "trigger": "scheduled",
-  "started": "2026-07-30T23:56:39Z",
-  "completed": "2026-07-30T23:58:00Z",
-  "status": "partial",
+  "started": "2026-08-01T00:00:27Z",
+  "completed": "2026-08-01T00:08:15Z",
+  "status": "success",
   "tool_failures": 0,
   "error_ids": [],
-  "execution_notes": "Workflow executed 4 minutes early (before booking window opened). ChronoGolf correctly rejected booking date selection with 'out of booking range' error. This is expected behavior for membership bookings that require exactly 8 days advance notice. No failure — workflow will auto-retry at scheduled time (August 1, 2026 at 00:00 CDT).",
-  "stopped_at_step": "4d-booking-window-validation",
-  "reason": "booking_window_not_yet_open",
-  "target_date": "2026-08-09",
-  "preferred_time": "1:00 PM"
+  "booking_details": {
+    "booking_id": "4Y9G-5A1G",
+    "date": "2026-08-09",
+    "time": "15:25",
+    "course": "Frisco Lakes Golf Club",
+    "holes": 18,
+    "players": 2,
+    "cost": 45.47,
+    "calendar_event_id": "475DCA83-FF10-450A-81A4-9D6CADF923C4",
+    "notes": "Selected 3:25 PM fallback time (1:00 PM preferred was unavailable). Calendar event created and verified. Slack notification delivery deferred (post.py not found)."
+  }
 }

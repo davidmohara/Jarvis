@@ -43,17 +43,54 @@
       "error_ids": []
     },
     "structural": {
-      "expected_outputs_written": null,
-      "outputs_non_empty": null,
-      "assertions_checked": 0,
-      "assertions_passed": 0,
-      "assertion_results": []
+      "expected_outputs_written": false,
+      "outputs_non_empty": true,
+      "assertions_checked": 9,
+      "assertions_passed": 8,
+      "assertion_results": [
+        {
+          "assertion": "Most recent eval run record reports status: success (replaces broken state.yaml check \u2014 state.yaml is overwritten to in-progress before assertions run)",
+          "passed": false
+        },
+        {
+          "assertion": "Analysis report was written to grading/",
+          "passed": true
+        },
+        {
+          "assertion": "Analysis report is substantive (>500 bytes)",
+          "passed": true
+        },
+        {
+          "assertion": "Dashboard HTML file exists",
+          "passed": true
+        },
+        {
+          "assertion": "Dashboard HTML is substantive (>1000 bytes)",
+          "passed": true
+        },
+        {
+          "assertion": "Eval grade skill-run signal was written",
+          "passed": true
+        },
+        {
+          "assertion": "Eval analyze skill-run signal was written",
+          "passed": true
+        },
+        {
+          "assertion": "Eval dashboard skill-run signal was written",
+          "passed": true
+        },
+        {
+          "assertion": "Analysis report contains substantive recommendations (replaces broken working-memory check \u2014 system-eval does not produce a working memory file)",
+          "passed": true
+        }
+      ]
     },
     "grading": {
-      "last_graded": null,
-      "grade": null,
+      "last_graded": "2026-08-01T04:10:07Z",
+      "grade": "B",
       "safety_grade": null,
-      "grader_notes": null
+      "grader_notes": "Real system-eval record from 2026-07-25 run. All 6 steps completed (intake through dashboard). Analysis report exists at systems/eval-harness/grading/analysis-20260725T042800.md (13,029 bytes), dashboard.html present and substantive (246,565 bytes), all three skill-run signals written. Assertion 001 (run-record-success) failed because it resolves to the most recent eval record (the current in-progress run) rather than this specific run \u2014 a structural limitation of the glob check, not a workflow failure. The run completed successfully with a 0.621 batch average and 7 patterns identified. The spurious record note in state.yaml confirms the close-eval-record.py session_id mismatch was handled. Grade is B rather than A because the session_id mismatch caused a spurious record (RL9YH6) and the grading step missed 2 of the 8 needs_grade records from that run (INZWWD and IREQ63 had no output found). To earn A: fix close-eval-record.py session_id handling."
     },
     "controller_feedback": {
       "rating": null,

@@ -56,17 +56,38 @@
       "abort_reason": null
     },
     "structural": {
-      "expected_outputs_written": null,
-      "outputs_non_empty": null,
-      "assertions_checked": 0,
-      "assertions_passed": 0,
-      "assertion_results": []
+      "expected_outputs_written": true,
+      "outputs_non_empty": true,
+      "assertions_checked": 5,
+      "assertions_passed": 5,
+      "assertion_results": [
+        {
+          "assertion": "Morning briefing workflow state.yaml shows status: complete",
+          "passed": true
+        },
+        {
+          "assertion": "Morning briefing output file was written to memory/working/",
+          "passed": true
+        },
+        {
+          "assertion": "Morning briefing output is substantive (>500 bytes)",
+          "passed": true
+        },
+        {
+          "assertion": "Morning briefing contains calendar/schedule section",
+          "passed": true
+        },
+        {
+          "assertion": "Morning briefing contains priorities/tasks section",
+          "passed": true
+        }
+      ]
     },
     "grading": {
-      "last_graded": null,
-      "grade": null,
+      "last_graded": "2026-08-01T04:10:07Z",
+      "grade": "B",
       "safety_grade": null,
-      "grader_notes": null
+      "grader_notes": "Morning-briefing for 2026-07-28 (record started 07-28 CDT, output file dated 07-29 \u2014 timezone offset causes the filename mismatch). Status: partial \u2014 step-01 through step-04 completed, Slack delivery had one failure (invalid_thread_ts on first attempt, retry succeeded). All 5 assertions passed against the most recent morning-briefing file (2026-07-29-060924.md, 5,639 bytes). Output is comprehensive: calendar table with 9 events, conflicts flagged (9:30 AM overlap), overdue items listed, 72-hour look-ahead populated, action items specific and concrete (UTB board vote, Solace/Curtis intro, AP signed agreement, 3 unassigned leads). Data sources clearly documented including Clay auth failure and Plaud staging miss. Grade B rather than A because status is partial (Slack retry required) and the output file timestamp mismatch with the eval record's started date is a minor instrumentation issue. To earn A: resolve Slack thread_ts failure at first attempt."
     },
     "controller_feedback": {
       "rating": null,

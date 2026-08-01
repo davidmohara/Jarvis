@@ -1,19 +1,19 @@
 {
-  "id": "eval-20260729T021225-M8SAJ1",
+  "id": "eval-20260801T021336-KBSSMN",
   "type": "workflow",
   "name": "daily-review",
   "agent": "chief",
   "session_id": "session-2026-07-21-142549",
   "trigger": "scheduled",
-  "started": "2026-07-29T02:12:25.547048Z",
-  "completed": "2026-07-29T02:12:25.547048Z",
+  "started": "2026-08-01T02:13:36.401606Z",
+  "completed": "2026-08-01T02:13:36.401606Z",
   "duration_seconds": 0.0,
   "status": "success",
   "steps": [
     {
       "name": "step-auto",
-      "started": "2026-07-29T02:12:25.547048Z",
-      "completed": "2026-07-29T02:12:25.547048Z",
+      "started": "2026-08-01T02:13:36.401606Z",
+      "completed": "2026-08-01T02:13:36.401606Z",
       "duration_seconds": 0.0,
       "status": "success",
       "data_sources_used": [],
@@ -29,10 +29,10 @@
       "abort_reason": null
     },
     "structural": {
-      "expected_outputs_written": true,
-      "outputs_non_empty": true,
+      "expected_outputs_written": false,
+      "outputs_non_empty": false,
       "assertions_checked": 8,
-      "assertions_passed": 7,
+      "assertions_passed": 1,
       "assertion_results": [
         {
           "assertion": "Daily review workflow state.yaml shows status: complete",
@@ -40,15 +40,15 @@
         },
         {
           "assertion": "Daily review output file was written to reviews/daily/ for the run date (not a prior day)",
-          "passed": true
+          "passed": false
         },
         {
           "assertion": "Daily review output for run date is substantive (>300 bytes)",
-          "passed": true
+          "passed": false
         },
         {
           "assertion": "Daily review for run date contains priorities or forward-planning section (tomorrow, next, Q-ref, carry-forward language)",
-          "passed": true
+          "passed": false
         },
         {
           "assertion": "Daily review for run date contains completed items or wins section",
@@ -56,23 +56,23 @@
         },
         {
           "assertion": "Daily review working memory file was written for the run date",
-          "passed": true
+          "passed": false
         },
         {
           "assertion": "Daily review working memory for run date is substantive (>200 bytes)",
-          "passed": true
+          "passed": false
         },
         {
           "assertion": "Daily review working memory for run date contains expected content",
-          "passed": true
+          "passed": false
         }
       ]
     },
     "grading": {
       "last_graded": "2026-08-01T04:10:07Z",
-      "grade": "B",
+      "grade": "F",
       "safety_grade": null,
-      "grader_notes": "Daily-review for 2026-07-29. Status: success, step-auto completed. Review file at reviews/daily/auto-2026-07-29.md (3,385 bytes) \u2014 substantive narrative covering 4 completions, Houston Texans/Drayton relationship move, Q3 structural gap. Working memory written at memory/working/daily-review-2026-07-29-050000.md (765 bytes, content verified). Assertions 7/8 passed. One failure: daily-005-shutdown-section (file_contains pattern for 'completed|done|accomplished|finished|wins' did not match). Reading the actual file, the completions are described narratively ('closed again', 'also closed') rather than using a 'completed' or 'wins' label \u2014 the content exists but the regex didn't catch it. This is a borderline assertion failure \u2014 the substance is there. Grade B rather than A because the shutdown/wins section pattern is genuinely absent as a labeled section (completions embedded in narrative prose, not a dedicated wins block). To earn A: add an explicit 'Completions' or 'Wins' labeled section to the daily review output."
+      "grader_notes": "No output file found for daily-review on 2026-08-01. Assertions 1/8 passed (only daily-001-state-complete passed, meaning state.yaml was written to complete). No reviews/daily/auto-2026-08-01.md exists. No memory/working/daily-review-2026-08-01*.md exists. Seven assertion failures span review file existence, size, content sections, and working memory. This is a phantom success: state.yaml reports complete but no output was written. This is the pattern identified in the July 25 analysis as the critical failure mode \u2014 the workflow marks itself complete without producing the review file. Could be an output-write failure or a date mismatch causing the file to land under a wrong name. No evidence of an Aug 1 review anywhere in the filesystem. To earn a passing grade: ensure the review file write step completes and verify output path before closing state.yaml."
     },
     "controller_feedback": {
       "rating": null,

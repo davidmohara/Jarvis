@@ -2,17 +2,17 @@
 workflow: daily-review
 agent: chief
 status: complete
-session-started: "2026-07-30T05:00:00"
-session-id: "chief-2026-07-30-050000"
+session-started: "2026-07-31T05:00:00"
+session-id: "chief-2026-07-31-050000"
 current-step: step-auto
 original-request: "auto"
 accumulated-context:
-  omnifocus-status: "success — 2 completed, 8 overdue, inbox 15"
-  calendar-status: "success — 13 events via M365 MCP"
-  knowledge-system-status: "written to local fallback (reviews/daily/auto-2026-07-30.md)"
-  narrative-path: "reviews/daily/auto-2026-07-30.md"
-  narrative-title: "2026-07-30 The Week Closes on Cadence — Sales Rhythm, a Pastoral Lunch, and the Cole Estrate Thread Left Open"
+  omnifocus-status: "success — 0 completed today, 9 overdue, 0 flagged, inbox 15"
+  calendar-status: "success — 6 events via M365 MCP"
+  knowledge-system-status: "written to local fallback (reviews/daily/auto-2026-07-31.md)"
+  narrative-path: "reviews/daily/auto-2026-07-31.md"
+  narrative-title: "2026-07-31 Last Day of July — Golf, the Whole Dallas Team, and Nine Things Still Waiting"
   output-guard: passed
-  working-memory-path: "memory/working/daily-review-2026-07-30-050000.md"
+  working-memory-path: "memory/working/daily-review-2026-07-31-050000.md"
   working-memory-status: written
   model: sonnet

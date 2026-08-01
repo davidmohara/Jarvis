@@ -74,17 +74,54 @@
       "abort_reason": null
     },
     "structural": {
-      "expected_outputs_written": null,
-      "outputs_non_empty": null,
-      "assertions_checked": 0,
-      "assertions_passed": 0,
-      "assertion_results": []
+      "expected_outputs_written": true,
+      "outputs_non_empty": true,
+      "assertions_checked": 9,
+      "assertions_passed": 9,
+      "assertion_results": [
+        {
+          "assertion": "Most recent eval run record reports status: success (replaces broken state.yaml check \u2014 state.yaml is overwritten to in-progress before assertions run)",
+          "passed": true
+        },
+        {
+          "assertion": "Analysis report was written to grading/",
+          "passed": true
+        },
+        {
+          "assertion": "Analysis report is substantive (>500 bytes)",
+          "passed": true
+        },
+        {
+          "assertion": "Dashboard HTML file exists",
+          "passed": true
+        },
+        {
+          "assertion": "Dashboard HTML is substantive (>1000 bytes)",
+          "passed": true
+        },
+        {
+          "assertion": "Eval grade skill-run signal was written",
+          "passed": true
+        },
+        {
+          "assertion": "Eval analyze skill-run signal was written",
+          "passed": true
+        },
+        {
+          "assertion": "Eval dashboard skill-run signal was written",
+          "passed": true
+        },
+        {
+          "assertion": "Analysis report contains substantive recommendations (replaces broken working-memory check \u2014 system-eval does not produce a working memory file)",
+          "passed": true
+        }
+      ]
     },
     "grading": {
-      "last_graded": null,
-      "grade": null,
+      "last_graded": "2026-08-01T04:10:07Z",
+      "grade": "D",
       "safety_grade": null,
-      "grader_notes": null
+      "grader_notes": "Spurious record created by close-eval-record.py session_id mismatch during the 2026-07-25 system-eval run \u2014 documented in that run's state.yaml under spurious_record. Has all 6 steps listed and status: success, but this is metadata duplicated from the real record (G096DL) by the close script, not a real independent run. Assertions passed 9/9 because it inherits the same glob-matched outputs as G096DL. There is no independent output this record produced \u2014 it is an artifact of a script bug, not a workflow execution. Graded D rather than F because the underlying system-eval run itself succeeded; this record's existence is a bookkeeping failure, not a delivery failure. To earn a higher grade: the spurious record should be deleted or marked as voided once the session_id bug is resolved."
     },
     "controller_feedback": {
       "rating": null,
