@@ -1,12 +1,12 @@
 ---
 status: complete
-started-at: 2026-07-31T11:07:00Z
-completed-at: 2026-07-31T11:09:30Z
+started-at: 2026-08-01T06:00:00Z
+completed-at: 2026-08-01T06:07:45Z
 outputs:
-  messages_scanned: 2
-  new_urls: 1
+  messages_scanned: 1
+  new_urls: 0
   new_digests: 0
-  posts_drafted: 1
-  outcome: "Drafted 'The Thinking You're Outsourcing Is the Thinking That Defines You' from Business Insider URL (Sam Altman / cognitive atrophy). Ghost post ID: 6a6c824c22fd1e028a2b1309. Notified David in #content (thread ts: 1785496155.398399). Image: Unsplash external URL (CDN upload failed). Tags: AI, leadership, productivity."
+  posts_drafted: 0
+  outcome: "No new URLs or digests in the last 24 hours. Only message was yesterday's Jarvis bot draft notification (operational noise, skipped). Posted no-content notice to #content."
 model: sonnet
 ---
