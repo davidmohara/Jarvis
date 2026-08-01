@@ -1,0 +1,364 @@
+{
+  "generated": "2026-08-01T00:00:00Z",
+  "run_date": "2026-08-01",
+  "window_hours": 72,
+  "counts": {
+    "total_items": 58,
+    "by_lean": {
+      "left": 28,
+      "right": 28,
+      "center": 2
+    },
+    "shared_topics": 3,
+    "gap_left": 5,
+    "gap_right": 5
+  },
+  "sources_used": [
+    "msnbc.com",
+    "cnn.com",
+    "nbcnews.com",
+    "thehill.com",
+    "axios.com",
+    "thedailybeast.com",
+    "slate.com",
+    "newrepublic.com",
+    "foxnews.com",
+    "nationalreview.com",
+    "washingtonexaminer.com",
+    "thefederalist.com",
+    "dailywire.com",
+    "breitbart.com",
+    "townhall.com",
+    "realclearpolitics.com",
+    "theamericanconservative.com",
+    "spectator.org",
+    "thefp.com"
+  ],
+  "sources_muted": [
+    {
+      "name": "New York Times",
+      "lean": "left",
+      "reason": "paywall/inaccessible to crawler"
+    },
+    {
+      "name": "Washington Post",
+      "lean": "left",
+      "reason": "paywall/inaccessible to crawler"
+    },
+    {
+      "name": "Politico",
+      "lean": "left",
+      "reason": "paywall/inaccessible to crawler"
+    },
+    {
+      "name": "Vox",
+      "lean": "left",
+      "reason": "inaccessible to crawler"
+    },
+    {
+      "name": "Mother Jones",
+      "lean": "left",
+      "reason": "blocked (verified 2026-07-14)"
+    },
+    {
+      "name": "WSJ Opinion",
+      "lean": "right",
+      "reason": "paywall/inaccessible to crawler"
+    },
+    {
+      "name": "New York Post",
+      "lean": "right",
+      "reason": "inaccessible to crawler"
+    },
+    {
+      "name": "Reuters Politics",
+      "lean": "center",
+      "reason": "blocked (verified 2026-06-20)"
+    },
+    {
+      "name": "Associated Press",
+      "lean": "center",
+      "reason": "inaccessible to crawler"
+    },
+    {
+      "name": "BBC US & Canada",
+      "lean": "center",
+      "reason": "inaccessible to crawler"
+    }
+  ],
+  "shared_topics": [
+    {
+      "title": "Texas Senate Race: Talarico Leads Paxton in Pivotal Red-State Contest",
+      "topic_key": "texas-senate-talarico-paxton-aug1",
+      "days_seen": 2,
+      "relevance": 70,
+      "relevance_label": "Recurring \u2014 day 2",
+      "summary": "Democrat James Talarico leads Republican Ken Paxton by 3\u20135 points in Texas, according to polls from Fox News, Breitbart/Rasmussen, and others. Paxton's personal controversies and GOP divisions within the state are cited as key factors. The race is seen as a potential pickup for Democrats in a state they haven't won statewide in decades.",
+      "left": {
+        "framing": "The Daily Beast frames the poll as a 'bombshell' reflecting Talarico's strong grassroots campaign and Paxton's deep unpopularity even among some Texas Republicans. Left outlets emphasize this as evidence of a broader Democratic wave and the viability of blue inroads in red states.",
+        "sources": [
+          {
+            "name": "The Daily Beast",
+            "url": "https://www.thedailybeast.com/bombshell-poll-raises-eyebrows-in-crucial-senate-race/"
+          }
+        ]
+      },
+      "right": {
+        "framing": "Fox News, which conducted one of the polls, attributes Talarico's lead primarily to Paxton's character baggage and intraparty GOP conflict rather than a fundamental shift in Texas. Breitbart covers the 5-point lead while noting the GOP structural advantage remains and a Paxton recovery is possible if the party unites.",
+        "sources": [
+          {
+            "name": "Fox News",
+            "url": "https://www.foxnews.com/politics/fox-news-poll-gop-divisions-shape-texas-senate-race"
+          },
+          {
+            "name": "Breitbart",
+            "url": "https://www.breitbart.com/politics/2026/07/28/poll-talarico-opens-five-point-lead-over-paxton-in-texas-senate-race/"
+          }
+        ]
+      },
+      "correlation": 72,
+      "correlation_label": "Both sides report the same polling data; they diverge on whether it reflects a structural Democratic shift or Paxton-specific weakness."
+    },
+    {
+      "title": "2026 Midterms: 100 Days Out \u2014 Democrats Lead in House, GOP Has Senate Structural Edge",
+      "topic_key": "midterm-generic-ballot-100day-forecast-aug1",
+      "days_seen": 2,
+      "relevance": 70,
+      "relevance_label": "Recurring \u2014 day 2",
+      "summary": "With 100 days until Election Day, forecasters and analysts are drawing sharply different conclusions from the same generic ballot and race data. Decision Desk HQ has Democrats favored to flip the House, where Republicans hold a narrow majority and Democrats need a net gain of only three seats. The Senate remains more favorable terrain for Republicans, who defend far fewer competitive seats.",
+      "left": {
+        "framing": "The Hill and Axios frame the landscape as a Democratic-leaning environment driven by Trump's near-record-low approval, Iran war unpopularity, and a energized progressive base. They emphasize Democrats' House advantage while acknowledging the Senate map's difficulty.",
+        "sources": [
+          {
+            "name": "The Hill",
+            "url": "https://thehill.com/homenews/campaign/5987178-midterm-forecast-house-senate/"
+          },
+          {
+            "name": "Axios",
+            "url": "https://www.axios.com/2026/07/26/midterm-election-outlook-100-days"
+          }
+        ]
+      },
+      "right": {
+        "framing": "Townhall and Breitbart highlight recent generic ballot tightening as evidence the Democratic wave is overstated. Washington Examiner notes that new redistricting maps cut competitive seats from 87 to 77, meaning Democrats must win 57 of 77 swing seats \u2014 a very high bar even in a favorable environment.",
+        "sources": [
+          {
+            "name": "Townhall",
+            "url": "https://townhall.com/news/amy-curtis/2026/07/30/congressional-generic-ballot-n2680400"
+          },
+          {
+            "name": "Breitbart",
+            "url": "https://www.breitbart.com/politics/2026/07/28/nolte-latest-polling-gives-gop-hope-to-hold-u-s-house/"
+          },
+          {
+            "name": "Washington Examiner",
+            "url": "https://www.washingtonexaminer.com/news/campaigns/congressional/4667675/redistricting-democrats-uphill-battle-2026-map-report/"
+          }
+        ]
+      },
+      "correlation": 55,
+      "correlation_label": "Sides agree on the facts of the electoral map but draw opposite conclusions from the same polling trend \u2014 wave vs. tightening race."
+    },
+    {
+      "title": "Michigan Senate Primary (August 5): El-Sayed vs. Stevens \u2014 A Defining Moment for Democrats",
+      "topic_key": "michigan-aug5-senate-primary-showdown",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New \u2014 first appearance",
+      "summary": "The August 5 Michigan Democratic Senate primary pits progressive DSA-aligned Dr. Abdul El-Sayed against centrist Rep. Haley Stevens. El-Sayed leads in polls by 11\u201315 points heading into primary day. The race is widely described as a referendum on the Democratic Party's ideological direction and the sustainability of the progressive insurgency that has toppled establishment incumbents this cycle.",
+      "left": {
+        "framing": "Slate, Axios, CNN, and The Hill frame the primary as a 'moment of truth' for Democrats \u2014 an inflection point that will reveal whether the party's voters want a bold leftward turn or a pragmatic center-left approach to win back general election voters. Coverage is largely analytical and non-alarmist about El-Sayed's frontrunner status.",
+        "sources": [
+          {
+            "name": "Slate",
+            "url": "https://slate.com/news-and-politics/2026/08/michigan-primary-democrats-republicans-senate-future.html"
+          },
+          {
+            "name": "Axios",
+            "url": "https://www.axios.com/2026/07/31/democrats-michigan-el-sayed-stevens-senate-primary"
+          },
+          {
+            "name": "CNN",
+            "url": "https://www.cnn.com/2026/07/27/politics/abdul-el-sayed-haley-stevens-michigan-debate-takeaways"
+          }
+        ]
+      },
+      "right": {
+        "framing": "Fox News, Breitbart, and Washington Examiner focus on El-Sayed's 'ogre on a pike' violent rhetoric and his DSA ideology, framing him as a radical who trails Republican Mike Rogers by 10 points in a general election matchup. Right outlets argue a Dem primary win for El-Sayed is a Republican gift \u2014 proof that the party is nominating unelectable extremists.",
+        "sources": [
+          {
+            "name": "Fox News",
+            "url": "https://www.foxnews.com/politics/dem-senate-contender-explains-ogre-pike-remark-torched-own-party"
+          },
+          {
+            "name": "Breitbart",
+            "url": "https://www.breitbart.com/politics/2026/07/30/nolte-democrat-socialist-abdul-el-sayed-leads-mi-primary-opponent-by-15-points-trails-republican-by-10/"
+          },
+          {
+            "name": "Washington Examiner",
+            "url": "https://www.washingtonexaminer.com/news/campaigns/congressional/4665081/michigan-abdul-el-sayed-ogre-on-a-pike-leak/"
+          }
+        ]
+      },
+      "correlation": 40,
+      "correlation_label": "Both sides cover the same primary race and poll numbers, but one treats it as a party reckoning and the other as evidence of Democratic radicalization that will cost them in November."
+    }
+  ],
+  "gap_left": [
+    {
+      "title": "Abortion Rights Back on the Ballot: North Dakota and South Dakota to Vote on Initiative Thresholds",
+      "topic_key": "abortion-ballot-nd-sd-aug1",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New \u2014 first appearance",
+      "summary": "Voters in North Dakota and South Dakota will decide ballot measures that would raise the threshold required to pass future citizen initiatives from a simple majority to 60%. Abortion rights groups frame the measures as deliberate barriers designed to prevent voters from passing abortion protections after Dobbs, noting both states have active abortion-related initiatives in the pipeline. The measures are part of a broader GOP-state strategy to limit direct democracy on abortion.",
+      "sources": [
+        {
+          "name": "NBC News",
+          "url": "https://www.nbcnews.com/politics/politics-news/abortion-ballot-two-states-politics-desk-rcna590278"
+        }
+      ]
+    },
+    {
+      "title": "Trump Takes Cabinet to Camp David as Iran War Pressure Mounts at Home",
+      "topic_key": "trump-camp-david-iran-pressure-aug1",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New \u2014 first appearance",
+      "summary": "President Trump convened a Camp David Cabinet retreat as domestic political pressure over the U.S.-Iran conflict intensified. Only 29% of Americans support the war according to a Washington Post\u2013Ipsos poll, and Democrats have united against the intervention. The retreat signals the administration is reassessing its posture amid mounting opposition at home and a stalled ceasefire internationally.",
+      "sources": [
+        {
+          "name": "CNN",
+          "url": "https://www.cnn.com/2026/07/31/politics/camp-david-trump-cabinet-iran"
+        },
+        {
+          "name": "CNN",
+          "url": "https://www.cnn.com/2026/07/26/politics/democrats-against-iran-war"
+        }
+      ]
+    },
+    {
+      "title": "Democrats' Novel Red-State Play: Nudge Nominees Out, Back Independents One-on-One",
+      "topic_key": "democrats-red-state-independent-strategy-aug1",
+      "days_seen": 2,
+      "relevance": 70,
+      "relevance_label": "Recurring \u2014 day 2",
+      "summary": "National Democrats are experimenting with a new strategy to expand their Senate map: encouraging doomed nominees in deep-red states to withdraw in favor of independent candidates better positioned for general election matchups. The model is Nebraska's Dan Osborn, who gave incumbent Sen. Pete Ricketts a genuine scare after the Democratic nominee dropped out. Democrats are testing this approach in additional states as 100 days remain before the election.",
+      "sources": [
+        {
+          "name": "NBC News",
+          "url": "https://www.nbcnews.com/politics/politics-news/democrats-novel-red-state-strategy-politics-desk-rcna590135"
+        }
+      ]
+    },
+    {
+      "title": "Poll: Nearly Half of Americans Say SCOTUS Rulings on Trump Agenda Are Politically Motivated",
+      "topic_key": "scotus-perceived-political-aug1",
+      "days_seen": 2,
+      "relevance": 70,
+      "relevance_label": "Recurring \u2014 day 2",
+      "summary": "A new poll finds that nearly half of Americans believe the Supreme Court is ruling on President Trump's policy agenda based on political ideology rather than legal principle. The finding reflects eroding public trust in the Court's independence following a series of high-profile decisions aligned with Trump administration priorities. Left-leaning outlets and legal commentators cite the poll as evidence of lasting institutional damage from the Court's recent composition and rulings.",
+      "sources": [
+        {
+          "name": "The Hill",
+          "url": "https://thehill.com/regulation/court-battles/5978559-poll-scotus-rulings-trump-politics/"
+        }
+      ]
+    },
+    {
+      "title": "Jon Ossoff's Georgia Senate Race Upgraded to 'Likely Democrat' by Key Forecaster",
+      "topic_key": "ossoff-georgia-likely-dem-aug1",
+      "days_seen": 2,
+      "relevance": 70,
+      "relevance_label": "Recurring \u2014 day 2",
+      "summary": "A major election forecaster shifted Jon Ossoff's Georgia Senate race from 'Leans Democrat' to 'Likely Democrat,' a significant upgrade that signals growing Democratic confidence in holding the seat. Ossoff had been considered one of the most vulnerable Democratic senators heading into the cycle. The upgrade is seen as a blow to Republican hopes of flipping the seat and a sign that the national environment is making even potential GOP pickups difficult to execute.",
+      "sources": [
+        {
+          "name": "The Daily Beast",
+          "url": "https://www.thedailybeast.com/trump-blow-as-dem-star-ossoff-gets-massive-boost-in-key-race/"
+        }
+      ]
+    }
+  ],
+  "gap_right": [
+    {
+      "title": "Massie Joins Democrats in Unprecedented War Powers Lawsuit Against White House Over Iran",
+      "topic_key": "massie-war-powers-iran-suit-aug1",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New \u2014 first appearance",
+      "summary": "Rep. Thomas Massie (R-KY), a libertarian-leaning Republican and frequent Trump critic, joined House Democrats in introducing a resolution that would compel Speaker Mike Johnson to sue the Trump administration over alleged War Powers Resolution violations in the Iran conflict. Right outlets cover the action as an unusual \u2014 and troubling \u2014 bipartisan alliance challenging presidential authority, while framing Massie's role as a political liability for the coalition.",
+      "sources": [
+        {
+          "name": "Fox News",
+          "url": "https://www.foxnews.com/politics/trump-critic-massie-joins-democrats-unprecedented-bid-sue-white-house-over-iran-war"
+        }
+      ]
+    },
+    {
+      "title": "Wisconsin Dem Gubernatorial Candidate Flips on Conversion Therapy Ban After Left-Wing Backlash",
+      "topic_key": "wisconsin-cooke-conversion-therapy-flip-aug1",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New \u2014 first appearance",
+      "summary": "Wisconsin Democratic gubernatorial candidate Rebecca Cooke reversed her position on a federal conversion therapy ban after facing intense backlash from progressive voters and LGBTQ+ advocacy groups. Right outlets cover the reversal as evidence of progressive litmus tests driving Democratic candidates in battleground states toward positions that may be electorally costly in a general election. The story is framed as a window into the left's stranglehold on Democratic primaries.",
+      "sources": [
+        {
+          "name": "Fox News",
+          "url": "https://www.foxnews.com/politics/battleground-democrat-flip-flops-conversion-therapy-after-left-wing-backlash"
+        }
+      ]
+    },
+    {
+      "title": "Indiana GOP Leader Steps Down After Blocking Trump's Redistricting Push",
+      "topic_key": "indiana-gop-redistricting-leader-aug1",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New \u2014 first appearance",
+      "summary": "Indiana Senate President Pro Tem Rodric Bray announced he is stepping down from his leadership role following his pivotal role in blocking President Trump's national redistricting initiative. Right outlets frame the episode as another instance of Republican establishment resistance to the Trump agenda undermining the party's ability to translate its majority into structural political advantage heading into the midterms.",
+      "sources": [
+        {
+          "name": "The Daily Wire",
+          "url": "https://www.dailywire.com/news/republican-who-tanked-trumps-redistricting-push-steps-down-from-leadership"
+        }
+      ]
+    },
+    {
+      "title": "'Communism Is Back': Right Sounds Alarm on DSA's Marxist Ideology and Mamdani's Rise",
+      "topic_key": "communism-dsa-ideology-warning-aug1",
+      "days_seen": 2,
+      "relevance": 70,
+      "relevance_label": "Recurring \u2014 day 2",
+      "summary": "Conservative and center-right commentators are ringing alarm bells about what they characterize as a genuine Marxist resurgence in American politics, pointing to DSA primary victories and the rise of NYC Mayor Zohran Mamdani as evidence. RealClearPolitics published an op-ed titled 'Communism \u2014 It's Back,' while The American Spectator's 'Mamdani Warning' piece argues his DSA/Islamist background represents a template for future Democratic leadership. The Free Press ran an insider account of DSA's actual ideological commitments.",
+      "sources": [
+        {
+          "name": "RealClearPolitics",
+          "url": "https://www.realclearpolitics.com/articles/2026/07/27/communism__its_back_154369.html"
+        },
+        {
+          "name": "The American Spectator",
+          "url": "https://spectator.org/the-mamdani-warning/"
+        },
+        {
+          "name": "The Free Press",
+          "url": "https://www.thefp.com/p/i-was-in-the-dsa-heres-what-they-e03"
+        }
+      ]
+    },
+    {
+      "title": "NY Governor: Hochul Clings to Just 4-Point Lead Over Blakeman as Voters Sour",
+      "topic_key": "hochul-blakeman-ny-gov-aug1",
+      "days_seen": 2,
+      "relevance": 70,
+      "relevance_label": "Recurring \u2014 day 2",
+      "summary": "A new poll shows Democratic Gov. Kathy Hochul leading Republican challenger Bruce Blakeman by just four points (47%\u201343%) in New York's governor's race. Right outlets frame the narrow margin as a significant opportunity for Republicans to put a reliably blue state in play, arguing Hochul's handling of crime, the economy, and governance has left her vulnerable even in New York. The race is seen as a potential bellwether for Democratic strength in deep-blue territory.",
+      "sources": [
+        {
+          "name": "Breitbart",
+          "url": "https://www.breitbart.com/politics/2026/07/30/report-poll-shows-gov-hochul-clinging-to-4-point-lead-as-voters-sour/"
+        }
+      ]
+    }
+  ],
+  "date": "2026-08-01"
+}
