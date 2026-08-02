@@ -76,9 +76,17 @@ If a reply has already been acted on, skip it. Track handled replies by adding a
 
 Execute this section when a pending draft thread contains editorial feedback.
 
-**A. Fetch the current post from Ghost**
+**A. Fetch the current post from Ghost and verify draft status**
 
-Use `mcp__ghost-blog__get_post(post_id="{ghost_post_id}")` to retrieve the current draft. Extract the `lexical` content and `updated_at` timestamp — both are required for the PATCH.
+Use `mcp__ghost-blog__get_post(post_id="{ghost_post_id}")` to retrieve the post. Extract the `status`, `lexical` content, and `updated_at` timestamp.
+
+If `status` is not `"draft"` (i.e., the post is published or scheduled), do NOT apply any edits. Reply in the thread:
+
+```
+"_Skipped — '{Post Title}' is already published. Edit it directly in Ghost._"
+```
+
+Then move on to the next pending draft. Only proceed with the edit if `status == "draft"`.
 
 **B. Read the editorial instruction**
 
