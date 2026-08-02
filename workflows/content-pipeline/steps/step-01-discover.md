@@ -17,6 +17,7 @@ model: sonnet
 6. You MUST write the pending draft entry to pending-drafts.json after successful Ghost creation.
 7. You MUST notify David via post.py (Jarvis bot) — not the Slack MCP connector.
 8. You MUST set content_type on every pending-drafts.json entry — "post" or "article". Never omit it.
+9. You MUST scan pending draft threads for editorial feedback before processing new content (Step 1b).
 
 ---
 
@@ -46,6 +47,102 @@ Parse the JSON response — `{"ok": true, "messages": [...]}`. Each message has 
 Skip messages where `thread_ts != ts` — those are thread replies handled by Agent 2.
 
 For all remaining messages, apply the router below to each one before doing anything else.
+
+---
+
+### 1b. Scan pending draft threads for editorial feedback
+
+After reading the channel, read `workflows/content-pipeline/pending-drafts.json`. For every entry with `status: pending` and a non-null `slack_thread_ts`, fetch the thread replies:
+
+```
+Tool: mcp__Desktop_Commander__start_process
+Command: python3 "$(mdfind -name 'read.py' | grep 'systems/slack-bot/read.py' | head -1)" thread C0B160MA3EK {slack_thread_ts} 2>&1
+Timeout: 15000
+```
+
+For each thread, examine the replies from human users (skip bot messages). Apply this router to each human reply:
+
+**APPROVE/REJECT → skip** (keywords: "approve", "approved", "reject", "rejected", "looks good", "publish"). These are handled by Agent 2. Do not process here.
+
+**EDITORIAL FEEDBACK → execute the DRAFT EDIT PATH** (any reply that describes a change to make: "change X", "update X", "rewrite X", "fix X", "make it X", "add X", "remove X", "too long", "too short", "wrong tone", etc.)
+
+Only process replies that arrived in the last 24 hours (compare reply `ts` to now). Skip older replies — they were either already handled or are stale.
+
+If a reply has already been acted on, skip it. Track handled replies by adding an `editorial_edits` array to the pending-drafts.json entry (see DRAFT EDIT PATH below).
+
+---
+
+### DRAFT EDIT PATH
+
+Execute this section when a pending draft thread contains editorial feedback.
+
+**A. Fetch the current post from Ghost**
+
+Use `mcp__ghost-blog__get_post(post_id="{ghost_post_id}")` to retrieve the current draft. Extract the `lexical` content and `updated_at` timestamp — both are required for the PATCH.
+
+**B. Read the editorial instruction**
+
+Parse what the reply is asking for. Categories:
+
+| Instruction type | Action |
+|-----------------|--------|
+| Rewrite a specific section | Rewrite that section in David's voice (CONTENT-VOICE.md) |
+| Change tone, length, or focus | Apply the change across the affected paragraphs |
+| Add or remove specific content | Insert or delete the relevant text |
+| Image swap | Follow the Step 6 image protocol, then update `feature_image` and `twitter_image` |
+| Other structural change | Apply using best judgment; note what changed in the thread reply |
+
+**C. Apply the edit**
+
+Before writing: read `identity/CONTENT-VOICE.md` if the edit touches post body content.
+
+Rebuild the affected lexical nodes. For full rewrites, rebuild the entire lexical body. For targeted edits, locate and replace only the affected paragraph nodes.
+
+Use the Ghost Admin API PATCH (same JWT pattern as Step 7) to update the post:
+
+```
+PATCH https://driventodevelop.com/ghost/api/admin/posts/{ghost_post_id}/
+Authorization: Ghost {jwt}
+Content-Type: application/json
+
+{
+  "posts": [{
+    "lexical": "{updated_lexical_json_string}",
+    "updated_at": "{current_updated_at}"
+  }]
+}
+```
+
+For image-only updates, PATCH `feature_image` and `twitter_image` (and `updated_at`) without touching `lexical`.
+
+**D. Verify**
+
+Call `mcp__ghost-blog__get_post` to confirm the edit landed. Check that `lexical` reflects the change and `updated_at` advanced.
+
+**E. Reply in the thread**
+
+Post a confirmation reply to the same Slack thread via post.py:
+
+```
+python3 "$(mdfind -name 'post.py' | grep 'systems/slack-bot/post.py' | head -1)" C0B160MA3EK "_Done — {brief description of what changed}. Draft updated._" {slack_thread_ts} 2>&1
+```
+
+**F. Update pending-drafts.json**
+
+Add or append to the `editorial_edits` array on the entry:
+
+```json
+"editorial_edits": [
+  {
+    "reply_ts": "{ts of the feedback reply}",
+    "instruction": "{brief summary of what was requested}",
+    "applied_at": "{ISO timestamp}",
+    "summary": "{brief description of what changed}"
+  }
+]
+```
+
+This prevents the same reply from being re-processed on the next run.
 
 ---
 
