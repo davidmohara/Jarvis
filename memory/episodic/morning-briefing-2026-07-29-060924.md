@@ -26,10 +26,11 @@ related_people:
   - mike-hilmen
   - derek-nwamadi
   - teresa-saffold
+  last-promoted-check: 2026-08-01
 salience:
   score: 10
+  last-promoted-check: 2026-08-02
   promoted: true
-  last-promoted-check: 2026-08-01
 ---
 
 # Morning Briefing — Wednesday, July 29, 2026

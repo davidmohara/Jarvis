@@ -16,10 +16,11 @@ tags:
   - cleanup
   - rigby
 related_people: []
+  last-promoted-check: 2026-08-01
 salience:
   score: 3
+  last-promoted-check: 2026-08-02
   promoted: true
-  last-promoted-check: 2026-08-01
 ---
 
 - Purged 6 .DS_Store files across repo; no other temp artifacts found

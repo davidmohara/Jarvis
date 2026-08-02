@@ -1,12 +1,33 @@
 ---
-type: working
+type: working-archive
 task_id: "session"
 session_id: "master-2026-07-30-092431"
 agent-source: master
 created: 2026-07-30T09:45:00-05:00
 expires: 2026-08-01T09:45:00-05:00
-status: active
+status: archived
 context: "Boot sequence — 2026-07-30"
+date: 2026-07-30
+source_file: memory/working/2026-07-30-092431-master-boot-sequence.md
+tags:
+  - briefing
+  - master
+  - calendar
+  - email
+  - omnifocus
+  - boot-sequence
+  - quarterly-objectives
+related_people:
+  - jim-johnson
+  - scott-mcmichael
+  - alice-mburu
+  - tonya-guadiz
+  - rebecca-maffei
+  score: 0
+salience:
+  score: 8
+  promoted: true
+  last-promoted-check: 2026-08-02
 ---
 
 ## What happened

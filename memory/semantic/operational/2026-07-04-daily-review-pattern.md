@@ -7,7 +7,7 @@ synthesized-from:
   - memory/episodic/daily-review-2026-07-02-000000.md
   - memory/episodic/dream-summary-2026-07-03.md
   - memory/episodic/shutdown-cleanup-2026-07-01-170500.md
-last-updated: 2026-08-01
+last-updated: 2026-08-02
 tags: [daily-review]
 agent-source: dream-cycle
 confidence: low
@@ -103,3 +103,9 @@ Sources this cycle:
 - `memory/episodic/daily-review-2026-07-29-050000.md` (score 10) — tags: daily-review, chief, omnifocus, calendar, overdue, lifebook, leads, q3-rocks. Headless run — calendar unavailable. 4 completions (morning practices, Church seeking, Drayton follow-up). 4 overdue: Lifebook Career/Health (same persistent set), Dr. Easton nerve med inquiry, Blaze.ai Kare Devices. Q3 objectives undocumented again.
 
 Jul 29 daily-review is the 8th consecutive entry to flag Q3 rocks absent. The persistent-overdue cluster (Lifebook Career/Health, Dr. Easton, Blaze.ai/Kare) is now confirmed across at least 8 daily-review entries spanning 3+ weeks — these items have crossed from "overdue" to "chronically deferred." Cole Estrate (xAI) follow-up email is a new overdue item surfacing from the Jul 30 session wrap — active partner track declared Jul 29, still no outreach sent as of the Jul 31 daily review. The Forgiveness Letter (third deferral past deadline per quarterly-objectives) is newly flagged as of the Jul 31 daily review.
+
+### 2026-08-02 — Nightly promotion
+Sources this cycle:
+- `memory/episodic/daily-review-2026-07-30-050000.md` (score 10) — tags: daily-review, chief, calendar, omnifocus, one-texas, sales, cole-estrate. 13 events pulled via M365. 2 completions (Coherence breathing; Diana/Solace/xAI AA coordination), 8 overdue, inbox 15. Cole Estrate (xAI) follow-up email flagged as the gap to close before next week. Delegation tracker: no active delegations outstanding. People: jim-johnson, scott-mcmichael, alice-mburu, cole-estrate.
+
+Jul 30 daily-review continues the pattern: Cole Estrate overdue confirmed (now spans Jul 30–31 daily-reviews in addition to the Jul 29 session-wrap origin). The one-texas/sales co-occurrence in this entry marks it as a Rock 1+4 relevant day (One Texas Sales Update meeting). Heavy calendar day (13 events) with the Friday wrap structure is consistent with prior Thu/Fri daily-review entries in this cluster. Delegation tracker empty remains a persistent signal across all recent entries — unchanged since at least Jul 23.

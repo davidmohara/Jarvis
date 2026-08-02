@@ -19,10 +19,11 @@ tags:
   - revenue
   - powerbi
 related_people: []
+  last-promoted-check: 2026-08-01
 salience:
   score: 7
+  last-promoted-check: 2026-08-02
   promoted: true
-  last-promoted-check: 2026-08-01
 ---
 
 - Refreshed One Texas Scorecard through H1 2026 close (June). Revenue used a fresh 3-day-old cache (2026-07-27, June close); co-sell, Rock 1 pipeline, and new-clients were live-pulled from PowerBI (prior caches were 10/16/38 days stale).

@@ -4,7 +4,7 @@ domain: operational
 pattern-tag: briefing
 confidence: high
 created: 2026-06-17
-last-updated: 2026-07-03
+last-updated: 2026-08-02
 synthesized-from:
 - memory/episodic/2026-05-12-061241-session-boot-morning-briefing.md
 - memory/episodic/morning-briefing-2026-06-02-061028.md
@@ -119,3 +119,9 @@ Sources this cycle:
 - `memory/episodic/morning-briefing-2026-06-10-063515.md` (score 10) — tags: briefing, chief, calendar, omnifocus. Routine briefing entry, confirming briefing cluster continues to score high in the 30-day window.
 
 Entry count now exceeds 40 across all cycles — confidence escalation to `high` is warranted and already reflected in frontmatter. Pattern stable.
+
+### 2026-08-02 — Nightly promotion
+Sources this cycle:
+- `memory/episodic/2026-07-30-092431-master-boot-sequence.md` (score 8) — tags: briefing, master, calendar, email, omnifocus, boot-sequence, quarterly-objectives. Full 7-step master boot for Jul 30. 22 events pulled (M365, Jul 30–Aug 3). Email: 14 messages; Tonya Guadiz forwarded Rebecca Maffei resume (needs disposition); Systemic Compliance site visit confirmed on David's turf. OmniFocus: no overdue at boot. Quarterly-objectives file stale (Q2 vintage, Q3 now underway). Delegations: tracker empty. People: jim-johnson, scott-mcmichael, alice-mburu, tonya-guadiz, rebecca-maffei.
+
+Master boot-sequence entries continue to co-occur with the briefing cluster. The quarterly-objectives flag reappears here for the first time as a tag alongside briefing — consistent with the daily-review-pattern finding that Q3 rocks are structurally undocumented. The Rebecca Maffei resume disposition and Systemic Compliance site-visit date are open items surfacing via the briefing pipeline rather than dedicated account/relationship files — same gap noted in the morning-briefing-pattern for the Jul 9 Systemic Compliance entry.

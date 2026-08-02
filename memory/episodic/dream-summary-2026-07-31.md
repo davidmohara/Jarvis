@@ -18,9 +18,10 @@ tags:
   - q3-rocks
   - leads
 related_people: []
+  promoted: true
 salience:
   score: 10
-  last-promoted-check: 2026-08-01
+  last-promoted-check: 2026-08-02
   promoted: true
 ---
 
