@@ -106,10 +106,10 @@ Before writing: read `identity/CONTENT-VOICE.md` if the edit touches post body c
 
 Rebuild the affected lexical nodes. For full rewrites, rebuild the entire lexical body. For targeted edits, locate and replace only the affected paragraph nodes.
 
-Use the Ghost Admin API PATCH (same JWT pattern as Step 7) to update the post:
+Use the Ghost Admin API PUT (same JWT pattern as Step 7) to update the post. Use PUT with no trailing slash — PATCH returns 404:
 
 ```
-PATCH https://driventodevelop.com/ghost/api/admin/posts/{ghost_post_id}/
+PUT https://driventodevelop.com/ghost/api/admin/posts/{ghost_post_id}
 Authorization: Ghost {jwt}
 Content-Type: application/json
 

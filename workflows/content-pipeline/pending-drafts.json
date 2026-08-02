@@ -45,6 +45,14 @@
     "status": "pending",
     "source_type": "url",
     "content_type": "post",
-    "notes": "Image: Unsplash photo-1469474968028-56623f02e42e (external URL, CDN upload failed — Ghost MCP FormData error)."
+    "notes": "Image: Unsplash photo-1469474968028-56623f02e42e (external URL, CDN upload failed — Ghost MCP FormData error).",
+    "editorial_edits": [
+      {
+        "reply_ts": "1785586433.616059",
+        "instruction": "Find a different image — something that reflects thinking time or writing time, more focused on mental work.",
+        "applied_at": "2026-08-02T12:38:06Z",
+        "summary": "Swapped feature_image and twitter_image to Unsplash photo-1587440871875-191322ee64b0 (person writing at desk, UX Indonesia)."
+      }
+    ]
   }
 ]
