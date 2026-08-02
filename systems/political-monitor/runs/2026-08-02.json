@@ -1,0 +1,191 @@
+{
+  "date": "2026-08-02",
+  "generated": "2026-08-02T10:30:00Z",
+  "window_hours": 72,
+  "sources_used": [
+    {"id": "msnbc",      "name": "MSNBC",                    "lean": "left"},
+    {"id": "cnn",        "name": "CNN Politics",             "lean": "left"},
+    {"id": "nbc",        "name": "NBC News Politics",        "lean": "left"},
+    {"id": "thehill",    "name": "The Hill",                 "lean": "left"},
+    {"id": "axios",      "name": "Axios Politics",           "lean": "left"},
+    {"id": "dailybeast", "name": "The Daily Beast",          "lean": "left"},
+    {"id": "slate",      "name": "Slate",                    "lean": "left"},
+    {"id": "newrepublic","name": "The New Republic",         "lean": "left"},
+    {"id": "foxnews",    "name": "Fox News Politics",        "lean": "right"},
+    {"id": "natreview",  "name": "National Review",          "lean": "right"},
+    {"id": "examiner",   "name": "Washington Examiner",      "lean": "right"},
+    {"id": "federalist", "name": "The Federalist",           "lean": "right"},
+    {"id": "dailywire",  "name": "The Daily Wire",           "lean": "right"},
+    {"id": "breitbart",  "name": "Breitbart",                "lean": "right"},
+    {"id": "townhall",   "name": "Townhall",                 "lean": "right"},
+    {"id": "rcp",        "name": "RealClearPolitics",        "lean": "right"},
+    {"id": "amconserv",  "name": "The American Conservative","lean": "right"},
+    {"id": "spectator",  "name": "The American Spectator",   "lean": "right"},
+    {"id": "freepress",  "name": "The Free Press",           "lean": "center"}
+  ],
+  "sources_muted": [
+    {"id": "nyt",        "name": "New York Times",           "lean": "left",   "reason": "accessible=false"},
+    {"id": "wapo",       "name": "Washington Post",          "lean": "left",   "reason": "accessible=false"},
+    {"id": "politico",   "name": "Politico",                 "lean": "left",   "reason": "accessible=false"},
+    {"id": "vox",        "name": "Vox Politics",             "lean": "left",   "reason": "accessible=false"},
+    {"id": "motherjones","name": "Mother Jones",             "lean": "left",   "reason": "accessible=false"},
+    {"id": "wsj_opinion","name": "WSJ Opinion",              "lean": "right",  "reason": "accessible=false"},
+    {"id": "nypost",     "name": "New York Post",            "lean": "right",  "reason": "accessible=false"},
+    {"id": "reuters",    "name": "Reuters Politics",         "lean": "center", "reason": "accessible=false"},
+    {"id": "ap",         "name": "Associated Press",         "lean": "center", "reason": "accessible=false"},
+    {"id": "bbc",        "name": "BBC US & Canada",          "lean": "center", "reason": "accessible=false"}
+  ],
+  "counts": {
+    "total_items": 60,
+    "by_lean": {"left": 27, "right": 30, "center": 3},
+    "shared_topics": 2,
+    "gap_left": 3,
+    "gap_right": 3
+  },
+  "shared_topics": [
+    {
+      "topic_key": "michigan-aug5-senate-primary",
+      "title": "Michigan Democratic Senate Primary: El-Sayed vs. Stevens — Aug. 5 Defining Moment",
+      "days_seen": 2,
+      "relevance": 70,
+      "relevance_label": "Recurring — day 2",
+      "correlation": 45,
+      "correlation_label": "Same facts, sharply divergent stakes: left sees democratic energy, right sees electoral self-destruction",
+      "summary": "Michigan Democrats head into their August 5 Senate primary with progressive insurgent Abdul El-Sayed polling roughly 15 points ahead of establishment candidate Haley Stevens. The outcome is broadly understood as a referendum on whether the Democratic Socialists of America wing or the party's moderate wing will define the party's identity heading into November. El-Sayed has energized younger and college-educated voters but trails the eventual Republican opponent by double digits in general-election polling.",
+      "left": {
+        "framing": "Left-leaning outlets frame the primary as a genuine and consequential democratic choice. Slate calls it the moment Democrats 'learn something critical about the party.' CNN covers it as a hard-fought contest with real policy stakes. The left generally avoids the electability question, emphasizing El-Sayed's coalition-building and his momentum.",
+        "sources": [
+          {"name": "Slate", "url": "https://slate.com/news-and-politics/2026/08/michigan-primary-democrats-republicans-senate-future.html"},
+          {"name": "CNN Politics", "url": "https://www.cnn.com/2026/07/27/politics/abdul-el-sayed-haley-stevens-michigan-debate-takeaways"}
+        ]
+      },
+      "right": {
+        "framing": "Right-leaning outlets frame El-Sayed's primary dominance as a trap Democrats are walking into. Breitbart headline-leads with the general-election number (El-Sayed trails the Republican by 10) rather than the primary lead. Townhall frames the DSA's 'politics of envy' as a liability in a general electorate. Fox spotlights the 'ogre on a pike' remark as evidence of radical rhetoric that will alienate swing voters.",
+        "sources": [
+          {"name": "Breitbart", "url": "https://www.breitbart.com/politics/2026/07/30/nolte-democrat-socialist-abdul-el-sayed-leads-mi-primary-opponent-by-15-points-trails-republican-by-10/"},
+          {"name": "Townhall", "url": "https://townhall.com/columnists/derekhunter/2026/08/02/will-the-dsas-politics-of-envy-work-on-michigan-democrats-n2680523"},
+          {"name": "Fox News", "url": "https://www.foxnews.com/politics/dem-senate-contender-explains-ogre-pike-remark-torched-own-party"}
+        ]
+      }
+    },
+    {
+      "topic_key": "trump-camp-david-iran-pressure",
+      "title": "Trump Takes Cabinet to Camp David as Iran War Pressure Mounts",
+      "days_seen": 2,
+      "relevance": 70,
+      "relevance_label": "Recurring — day 2",
+      "correlation": 52,
+      "correlation_label": "Same events, divergent framing: left ties Iran to Trump's political fragility; right covers the military situation more independently",
+      "summary": "President Trump convened a Cabinet retreat at Camp David on July 31 as the Iran war enters a precarious phase. The June ceasefire MOU has effectively collapsed, with both US and Iranian forces resuming strikes. Qatar and Pakistan are pushing a 10-day pause proposal, and the State Department issued fresh warnings to US citizens across the Middle East. The meeting also addressed the stalled Todd Blanche AG nomination.",
+      "left": {
+        "framing": "CNN and NBC frame Camp David as a retreat driven by domestic political pressure — Trump's approval at record lows, MAGA base frustrated, and a war without clear objectives. Coverage connects the Iran stall directly to broader Republican vulnerability ahead of midterms. The State Dept warning is treated as a sign of escalating danger, not resolved diplomacy.",
+        "sources": [
+          {"name": "CNN Politics", "url": "https://www.cnn.com/2026/07/31/politics/camp-david-trump-cabinet-iran"},
+          {"name": "NBC News", "url": "https://www.nbcnews.com/politics/trump-administration/live-blog/trump-congress-2026-midterm-doj-ice-hamas-iran-live-updates-rcna590137"},
+          {"name": "CNN Live", "url": "https://edition.cnn.com/2026/08/01/world/live-news/iran-war-trump"},
+          {"name": "Axios", "url": "https://www.axios.com/2026/07/21/iran-war-ceasefire-proposal-trump-troops"}
+        ]
+      },
+      "right": {
+        "framing": "National Review covers the ceasefire collapse factually, noting that both US and Iranian forces resumed strikes after the MOU failed to hold. The American Conservative focuses on the conflict's spillover into UK politics — noting that Labour's refusal to join US-Israeli strikes has become politically agonizing in Britain. The right's framing is largely event-based rather than tied to Trump's domestic political standing.",
+        "sources": [
+          {"name": "National Review", "url": "https://www.nationalreview.com/2026/07/the-iran-cease-fire-ceases/"},
+          {"name": "The American Conservative", "url": "https://www.theamericanconservative.com/the-iran-war-roils-uk-politics/"},
+          {"name": "The Hill", "url": "https://thehill.com/homenews/5994769-us-iran-ceasefire-negotiations-progress/"}
+        ]
+      }
+    }
+  ],
+  "gap_left": [
+    {
+      "topic_key": "sc-senate-trump-darline-graham",
+      "title": "Trump Endorses Darline Graham for Lindsey Graham's South Carolina Senate Seat",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "summary": "President Trump has endorsed Darline Graham — a little-known candidate with no established political profile — for the special election to fill Lindsey Graham's former South Carolina Senate seat. South Carolina Republicans are described as baffled, with party insiders saying Trump 'threw us all a curveball.' The move is consistent with Trump's pattern of elevating loyalists over electability, but risks a competitive race in a state that had already rejected his first pick for governor.",
+      "sources": [
+        {"name": "CNN Politics", "url": "https://www.cnn.com/2026/08/01/politics/trump-south-carolina-lindsey-graham-darline-graham"}
+      ]
+    },
+    {
+      "topic_key": "abortion-ballot-nd-sd",
+      "title": "Abortion Rights Back on the Ballot in North Dakota and South Dakota",
+      "days_seen": 2,
+      "relevance": 70,
+      "relevance_label": "Recurring — day 2",
+      "summary": "Abortion rights measures are heading to the ballot in North Dakota and South Dakota, where voters will weigh in on changes to the initiative threshold requirements that govern how abortion rights can be amended into state constitutions. Left-leaning outlets are covering the developments as part of the continuing post-Dobbs battleground, with NBC framing it as another front where Democrats see electoral opportunity in a state-by-state fight.",
+      "sources": [
+        {"name": "NBC News", "url": "https://www.nbcnews.com/politics/politics-news/abortion-ballot-two-states-politics-desk-rcna590278"}
+      ]
+    },
+    {
+      "topic_key": "massie-war-powers-iran-suit",
+      "title": "Massie Joins House Democrats in War Powers Lawsuit Against White House Over Iran",
+      "days_seen": 2,
+      "relevance": 70,
+      "relevance_label": "Recurring — day 2",
+      "summary": "Rep. Thomas Massie (R-KY) has joined House Democrats in an unprecedented lawsuit invoking the War Powers Act against the White House, challenging the legal basis for the ongoing Iran military campaign without a formal congressional authorization. Left-leaning outlets frame this as rare bipartisan constitutional pushback and a sign that the Iran war's legal footing is genuinely contested — even within the president's own party.",
+      "sources": [
+        {"name": "NBC News", "url": "https://www.nbcnews.com/politics/trump-administration/live-blog/trump-congress-iran-blanche-doj-ice-2026-maine-senate-live-updates-rcna587765"}
+      ]
+    }
+  ],
+  "gap_right": [
+    {
+      "topic_key": "mamdani-nyc-mayor-ideology-warning",
+      "title": "Right Sounds Alarm on Mamdani's NYC Mayoralty: Muslim Brotherhood Links, Rising Violence",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "summary": "Conservative outlets are flagging what they describe as alarming ideological signals from newly-installed New York City Mayor Zohran Mamdani. Fox News cites a report linking Mamdani's political network to Muslim Brotherhood-associated organizations, while The American Spectator frames his mayoralty as a preview of what socialist governance looks like when translated into actual policy. Right-leaning coverage treats Mamdani as a national warning sign, not merely a local political story.",
+      "sources": [
+        {"name": "Fox News", "url": "https://www.foxnews.com/opinion/mamdanis-politics-linked-muslim-brotherhood-ideology-new-york-violence-escalates-report"},
+        {"name": "The American Spectator", "url": "https://spectator.org/the-mamdani-warning/"},
+        {"name": "The American Spectator", "url": "https://spectator.org/when-the-world-city-votes-socialist/"}
+      ]
+    },
+    {
+      "topic_key": "wisconsin-cooke-conversion-therapy-flip",
+      "title": "Wisconsin Democrat Cooke Reverses on Conversion Therapy Ban After Left-Wing Backlash",
+      "days_seen": 2,
+      "relevance": 70,
+      "relevance_label": "Recurring — day 2",
+      "summary": "Wisconsin Democratic gubernatorial candidate Rebecca Cooke reversed her position on a federal conversion therapy ban following pressure from the party's progressive wing. Fox News frames this as a case study in left-wing litmus tests forcing swing-district candidates into positions that alienate general-election voters, and as further evidence that Democratic candidates in competitive states face impossible choices between their base and the median voter.",
+      "sources": [
+        {"name": "Fox News", "url": "https://www.foxnews.com/politics/battleground-democrat-flip-flops-conversion-therapy-after-left-wing-backlash"}
+      ]
+    },
+    {
+      "topic_key": "indiana-gop-redistricting-leader",
+      "title": "Indiana GOP House Speaker Steps Down After Blocking Trump's Redistricting Push",
+      "days_seen": 2,
+      "relevance": 70,
+      "relevance_label": "Recurring — day 2",
+      "summary": "Indiana House Speaker Todd Bray resigned from his leadership position after leading the Republican state caucus in blocking President Trump's push to redraw congressional district lines before the midterms. The Daily Wire covers it as yet another instance of Republican elected officials resisting Trump's agenda — joining Cornyn and Tillis on the Blanche nomination as examples of intraparty friction that conservative media is cataloguing as a pattern of establishment betrayal.",
+      "sources": [
+        {"name": "The Daily Wire", "url": "https://www.dailywire.com/news/republican-who-tanked-trumps-redistricting-push-steps-down-from-leadership"}
+      ]
+    }
+  ],
+  "suppressed_topics": [
+    {"topic_key": "todd-blanche-ag-nomination", "days_seen": 5, "reason": "days_seen >= 3"},
+    {"topic_key": "iran-us-strikes-escalation", "days_seen": 5, "reason": "days_seen >= 3"},
+    {"topic_key": "dsa-democratic-primary-wave", "days_seen": 6, "reason": "days_seen >= 3"},
+    {"topic_key": "trump-approval-economy-record-low", "days_seen": 6, "reason": "days_seen >= 3"},
+    {"topic_key": "noncitizen-voter-registration-save-act", "days_seen": 6, "reason": "days_seen >= 3"},
+    {"topic_key": "platner-maine-dsa-replacement", "days_seen": 6, "reason": "days_seen >= 3"},
+    {"topic_key": "dnc-chaos-martin-financial", "days_seen": 4, "reason": "days_seen >= 3"},
+    {"topic_key": "ai-data-centers-midterm", "days_seen": 4, "reason": "days_seen >= 3"},
+    {"topic_key": "fauci-fifth-amendment-senate-hearing", "days_seen": 4, "reason": "days_seen >= 3"},
+    {"topic_key": "economy-q2-gdp-pce-inflation", "days_seen": 3, "reason": "days_seen >= 3"},
+    {"topic_key": "midterm-generic-ballot-100day-forecast", "days_seen": 3, "reason": "days_seen >= 3"},
+    {"topic_key": "immigration-tps-asylum", "days_seen": 3, "reason": "days_seen >= 3"},
+    {"topic_key": "ossoff-georgia-senate", "days_seen": 3, "reason": "days_seen >= 3"},
+    {"topic_key": "democrats-red-state-independent", "days_seen": 3, "reason": "days_seen >= 3"},
+    {"topic_key": "scotus-perceived-political", "days_seen": 3, "reason": "days_seen >= 3"},
+    {"topic_key": "texas-senate-talarico-paxton", "days_seen": 3, "reason": "days_seen >= 3"},
+    {"topic_key": "hochul-blakeman-ny-gov", "days_seen": 3, "reason": "days_seen >= 3"},
+    {"topic_key": "communism-dsa-ideology-warning", "days_seen": 3, "reason": "days_seen >= 3"}
+  ]
+}
