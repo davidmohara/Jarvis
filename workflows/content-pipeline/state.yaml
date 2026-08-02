@@ -1,12 +1,12 @@
 ---
 status: complete
-started-at: 2026-08-01T06:00:00Z
-completed-at: 2026-08-01T06:07:45Z
+started-at: 2026-08-02T06:07:27Z
+completed-at: 2026-08-02T06:07:32Z
 outputs:
   messages_scanned: 1
   new_urls: 0
   new_digests: 0
   posts_drafted: 0
-  outcome: "No new URLs or digests in the last 24 hours. Only message was yesterday's Jarvis bot draft notification (operational noise, skipped). Posted no-content notice to #content."
+  outcome: "No new URLs or digests in the last 24 hours. Only message was yesterday's Jarvis bot no-content notice (bot message, no digest signal, skipped). Posted no-content notice to #content."
 model: sonnet
 ---
