@@ -1,0 +1,15 @@
+{
+  "id": "err-20260803T173458-UMS90S",
+  "timestamp": "2026-08-03T17:34:58Z",
+  "session": "2026-08-03",
+  "source": "explicit",
+  "agent": "master",
+  "category": "tool-misuse",
+  "description": "When asked to post drafts to a Slack channel, refused and offered alternatives instead of reading the master-slack skill as required.",
+  "correction": "Should have read skills/master-slack/SKILL.md and used the skill to post to Slack. The skill is the authorized path for Slack operations.",
+  "failure_mode": "protocol-skip",
+  "systemic_fix": "Before any Slack operation, read skills/master-slack/SKILL.md. Do not default to 'Slack is not authenticated' when a skill exists that handles it.",
+  "fix_status": "applied",
+  "severity": "moderate",
+  "related_entries": []
+}

@@ -1,7 +1,7 @@
 ---
 purpose: Staging area for source proposals awaiting David's yes/no approval
 gate: David must explicitly approve before any source moves to sources.yaml
-updated: 2026-07-20
+updated: 2026-08-03
 ---
 
 <!-- system:start -->
@@ -24,11 +24,11 @@ This file is the only path to `sources.yaml`. Watchtower's weekly run appends ne
 
 | Name | URL | RSS | Topic | Trust | Why Relevant | Status |
 |------|-----|-----|-------|-------|--------------|--------|
-| The New Stack | https://thenewstack.io | https://thenewstack.io/feed/ | it-consulting | high | Broke the AWS $1B forward-deployed engineering story this week and published the enterprise AI model routing analysis on Microsoft's MAI strategy. Consistent practitioner-level coverage of the delivery model shift. Fills a gap between Gartner (analyst) and Stratechery (strategic) with technical implementation depth. | pending |
-| Forward Deployed (Noah Brier) | https://www.forwarddeployed.com | https://www.forwarddeployed.com/feed | it-consulting | high | Substack dedicated to the intersection of AI, software development, and enterprise deployment. Directly tracks the FDE trend that drove W31's biggest theme. FDE job postings grew 729% YoY (643 to 5,330 Apr 2025 to Apr 2026). No comparable source in current registry focused specifically on embedded delivery models. | pending |
-| FinOps Foundation Blog | https://www.finops.org/updates/all-updates/ | https://www.finops.org/feed/ | it-consulting | high | The authoritative source for FinOps practice evolution. Published the 2026 State of FinOps report showing 98% of FinOps teams now manage AI spend and AI cost management is the #1 desired skillset. Directly relevant to the OpenAI token pricing shift and agent spend governance gap surfaced in W31. | pending |
-| The New Stack — AI | https://thenewstack.io/category/ai-ml/ | https://thenewstack.io/category/ai-ml/feed/ | ai-agentic | high | (Scoped feed for AI/ML coverage only from The New Stack. If the top-level feed is approved, this is redundant — note for David's review.) Technical depth on agentic AI architecture, agent security, and enterprise deployment patterns. Published the enterprise AI model routing analysis that frames the Microsoft MAI vs. OpenAI story. | pending |
-| Okta Newsroom / Security Blog | https://www.okta.com/blog/security/ | https://www.okta.com/blog/security/feed/ | ai-agentic | high | Published "AI Agents at Work 2026" — the most cited enterprise agent security dataset this week (53% out-of-scope, 47% security incident, 24.4% visibility). Okta is now a primary data source for agent identity and governance. RSS feed unverified — confirm on first run. | pending |
+| The New Stack | https://thenewstack.io | https://thenewstack.io/feed/ | it-consulting | high | Broke the AWS $1B forward-deployed engineering story this week and published the enterprise AI model routing analysis on Microsoft's MAI strategy. Consistent practitioner-level coverage of the delivery model shift. Fills a gap between Gartner (analyst) and Stratechery (strategic) with technical implementation depth. | rejected |
+| Forward Deployed (Noah Brier) | https://www.forwarddeployed.com | https://www.forwarddeployed.com/feed | it-consulting | high | Substack dedicated to the intersection of AI, software development, and enterprise deployment. Directly tracks the FDE trend that drove W31's biggest theme. FDE job postings grew 729% YoY (643 to 5,330 Apr 2025 to Apr 2026). No comparable source in current registry focused specifically on embedded delivery models. | rejected |
+| FinOps Foundation Blog | https://www.finops.org/updates/all-updates/ | https://www.finops.org/feed/ | it-consulting | high | The authoritative source for FinOps practice evolution. Published the 2026 State of FinOps report showing 98% of FinOps teams now manage AI spend and AI cost management is the #1 desired skillset. Directly relevant to the OpenAI token pricing shift and agent spend governance gap surfaced in W31. | rejected |
+| The New Stack — AI | https://thenewstack.io/category/ai-ml/ | https://thenewstack.io/category/ai-ml/feed/ | ai-agentic | high | (Scoped feed for AI/ML coverage only from The New Stack. If the top-level feed is approved, this is redundant — note for David's review.) Technical depth on agentic AI architecture, agent security, and enterprise deployment patterns. Published the enterprise AI model routing analysis that frames the Microsoft MAI vs. OpenAI story. | rejected |
+| Okta Newsroom / Security Blog | https://www.okta.com/blog/security/ | https://www.okta.com/blog/security/feed/ | ai-agentic | high | Published "AI Agents at Work 2026" — the most cited enterprise agent security dataset this week (53% out-of-scope, 47% security incident, 24.4% visibility). Okta is now a primary data source for agent identity and governance. RSS feed unverified — confirm on first run. | rejected |
 
 ### Batch 5 — Weekly Run (2026-07-20)
 
@@ -44,11 +44,11 @@ This file is the only path to `sources.yaml`. Watchtower's weekly run appends ne
 
 | Name | URL | RSS | Topic | Trust | Why Relevant | Status |
 |------|-----|-----|-------|-------|--------------|--------|
-| Fast Company — Work Life | https://www.fastcompany.com/work-life | https://www.fastcompany.com/section/work-life/rss | it-consulting | high | Published the McKinsey layoffs warning analysis this week. Covers consulting talent model disruption, leadership and org design, and AI in the workplace at a practitioner-friendly level. Fills the business-culture layer between analyst reports and technical coverage. | pending |
-| Kai Waehner | https://www.kai-waehner.de/blog | https://www.kai-waehner.de/blog/feed | ai-agentic | high | Independent practitioner and Principal Technologist at Confluent. Published the 2026 Enterprise Agentic AI Landscape analysis on trust, flexibility, and vendor lock-in this week. Highly technical, architecture-level signal on agentic AI deployment decisions. No comparable practitioner-perspective source currently in registry. | pending |
-| Latitude Media | https://www.latitude.media | https://www.latitude.media/feed | texas-regional | high | Broke the ERCOT large-load queue quadrupling story surfaced in this week's themes. Covers energy infrastructure at the intersection of technology and grid policy. Directly relevant to Texas AI data center and power grid developments that matter for David's clients. | pending |
-| E&E News (POLITICO) | https://www.eenews.net | https://www.eenews.net/rss | texas-regional | high | Surfaced in the Abbott/ERCOT Texas data center grid analysis. Credible energy and environment policy coverage with a strong Texas angle. Published the "Texas governor talks tough on data centers" piece this week. Relevant for regulatory intelligence on the grid policy story. | pending |
-| Outsource Accelerator | https://www.outsourceaccelerator.com | https://www.outsourceaccelerator.com/feed | it-consulting | med | Covers IT services market dynamics, global delivery models, and the impact of AI on consulting and outsourcing. Published McKinsey layoffs AI consulting analysis this week with practitioner framing on talent repricing. Useful signal layer for competitive delivery model intelligence. | pending |
+| Fast Company — Work Life | https://www.fastcompany.com/work-life | https://www.fastcompany.com/section/work-life/rss | it-consulting | high | Published the McKinsey layoffs warning analysis this week. Covers consulting talent model disruption, leadership and org design, and AI in the workplace at a practitioner-friendly level. Fills the business-culture layer between analyst reports and technical coverage. | rejected |
+| Kai Waehner | https://www.kai-waehner.de/blog | https://www.kai-waehner.de/blog/feed | ai-agentic | high | Independent practitioner and Principal Technologist at Confluent. Published the 2026 Enterprise Agentic AI Landscape analysis on trust, flexibility, and vendor lock-in this week. Highly technical, architecture-level signal on agentic AI deployment decisions. No comparable practitioner-perspective source currently in registry. | rejected |
+| Latitude Media | https://www.latitude.media | https://www.latitude.media/feed | texas-regional | high | Broke the ERCOT large-load queue quadrupling story surfaced in this week's themes. Covers energy infrastructure at the intersection of technology and grid policy. Directly relevant to Texas AI data center and power grid developments that matter for David's clients. | rejected |
+| E&E News (POLITICO) | https://www.eenews.net | https://www.eenews.net/rss | texas-regional | high | Surfaced in the Abbott/ERCOT Texas data center grid analysis. Credible energy and environment policy coverage with a strong Texas angle. Published the "Texas governor talks tough on data centers" piece this week. Relevant for regulatory intelligence on the grid policy story. | rejected |
+| Outsource Accelerator | https://www.outsourceaccelerator.com | https://www.outsourceaccelerator.com/feed | it-consulting | med | Covers IT services market dynamics, global delivery models, and the impact of AI on consulting and outsourcing. Published McKinsey layoffs AI consulting analysis this week with practitioner framing on talent repricing. Useful signal layer for competitive delivery model intelligence. | rejected |
 
 ### Batch 3 — Weekly Run (2026-07-06)
 
@@ -140,6 +140,26 @@ Also added by David as named sources (approved same session, 2026-06-19):
 ---
 
 ## Rejected
+
+### Batch 6 — 2026-08-03
+
+| Name | URL | Topic | Reason |
+|------|-----|-------|--------|
+| The New Stack | https://thenewstack.io | it-consulting | Rejected by David 2026-08-03 |
+| Forward Deployed (Noah Brier) | https://www.forwarddeployed.com | it-consulting | Rejected by David 2026-08-03 |
+| FinOps Foundation Blog | https://www.finops.org/updates/all-updates/ | it-consulting | Rejected by David 2026-08-03 |
+| The New Stack — AI | https://thenewstack.io/category/ai-ml/ | ai-agentic | Rejected by David 2026-08-03 |
+| Okta Newsroom / Security Blog | https://www.okta.com/blog/security/ | ai-agentic | Rejected by David 2026-08-03 |
+
+### Batch 4 — 2026-08-03
+
+| Name | URL | Topic | Reason |
+|------|-----|-------|--------|
+| Fast Company — Work Life | https://www.fastcompany.com/work-life | it-consulting | Rejected by David 2026-08-03 |
+| Kai Waehner | https://www.kai-waehner.de/blog | ai-agentic | Rejected by David 2026-08-03 |
+| Latitude Media | https://www.latitude.media | texas-regional | Rejected by David 2026-08-03 |
+| E&E News (POLITICO) | https://www.eenews.net | texas-regional | Rejected by David 2026-08-03 |
+| Outsource Accelerator | https://www.outsourceaccelerator.com | it-consulting | Rejected by David 2026-08-03 |
 
 ### Batch 5 — 2026-07-20
 

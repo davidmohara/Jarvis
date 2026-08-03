@@ -1,15 +1,15 @@
 ---
 status: complete
-started-at: "2026-07-20T07:10:00Z"
-completed-at: "2026-07-20T07:20:00Z"
+started-at: "2026-08-03T07:12:00Z"
+completed-at: "2026-08-03T07:22:00Z"
 outputs:
   themes_processed: 4
   drafts_created: 4
   draft_paths:
-    - "Mind/Posts/_your-saas-stack-was-priced-for-humans.md"
-    - "Mind/Posts/_the-safe-bet-isnt-safe-anymore.md"
-    - "Mind/Posts/_governance-isnt-your-problem-uniform-governance-is.md"
-    - "Mind/Posts/_abbott-just-changed-the-rules-texas-ai-clients.md"
+    - "Mind/Posts/_your-vendor-checked-the-box-you-still-havent.md"
+    - "Mind/Posts/_nobody-owns-the-agent.md"
+    - "Mind/Posts/_the-premium-you-charged-was-for-knowing-things.md"
+    - "Mind/Posts/_texas-is-building-the-chips-now.md"
   blog_ideas_appended: 4
 ---
 

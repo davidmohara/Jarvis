@@ -1,79 +1,91 @@
 workflow: watchtower
 agent: knox
 status: complete
-session-started: "2026-07-27T07:05:00Z"
-session-completed: "2026-07-27T07:50:00Z"
-session-id: "wt-weekly-2026-W31"
+session-started: "2026-08-03T07:05:00Z"
+session-completed: "2026-08-03T07:55:00Z"
+session-id: "wt-weekly-2026-W32"
 current-step: complete
 original-request: "watchtower-weekly scheduled run (Knox)"
 accumulated-context:
   content_queue: []
-  used_fallback: true
+  used_fallback: true  # content_queue empty; seen.jsonl absent; used fresh web search fallback
   obsidian_unavailable: false
   delta_check_applied: true
-  dropped_as_continuing: 2  # governance (W30 Gartner same argument), Texas (W29+W30 same argument 3rd week)
+  dropped_as_continuing: 0
   weekly_themes:
     - theme_id: 1
-      theme_title: "Microsoft Frontier Co. — Platform Vendors Enter the Implementation Business"
-      synthesis: "Microsoft launched Frontier Co. on July 2 with $2.5B and 6,000 embedded engineers going inside enterprise clients to deploy AI. AWS followed two days later with $1B. Anthropic and OpenAI both stood up FDE units in May. Every major platform vendor entered the implementation consulting business in a 60-day window. New vs. W30: W30 covered Microsoft's internal vendor betrayal (MAI vs. OpenAI). This week's argument is different — direct competition for consulting engagements, not platform risk. The recommended action changes: it's no longer 'diversify your stack,' it's 'have an answer for the free-engineers pitch.'"
+      theme_title: "EU AI Act Goes Live — Deployers Are the Exposed Class"
+      synthesis: "The EU AI Act's Article 50 transparency obligations became enforceable on August 2, 2026. The critical new argument: vendor compliance documentation does not cover deployer obligations. Every organization that embedded an AI API into a product serving EU users bears distinct legal liability, regardless of their vendor's certifications. US companies with EU customers, employees, or operations are in scope. New vs. W31: W31's FinOps angle was about unpredictable cost exposure. This is legal liability exposure — a different risk category with a different recommended action: audit every AI deployment for EU-facing scope and document Article 50 disclosure implementations now, or face fines up to €35M or 7% of global revenue."
       source_items:
-        - "Microsoft Frontier Company launches with 6,000 engineers, $2.5B (CNBC, July 2 2026)"
-        - "AWS just put $1 billion into forward deployed engineers (The New Stack)"
+        - "EU AI Act Chatbot Disclosure Reaches API Builders Sunday: Vendors Cannot Comply for You (TechTimes, July 31 2026)"
+        - "EU AI Act Enforcement: What Aug 2, 2026 Means (Olakai)"
+        - "The EU Just Put AI Disclosure Into Law. Here Is What a US Business Owner Actually Has to Do (LaunchReady.ai)"
       content_angles:
-        - "Microsoft Just Entered Your Lane"
+        - "Your Vendor Checked the Box. You Still Haven't."
     - theme_id: 2
-      theme_title: "OpenAI Shifts Agents to Token Pricing — The Enterprise FinOps Blind Spot"
-      synthesis: "On July 6, OpenAI moved workspace agents to token-based credit pricing. New vs. W30's $234B SaaS-at-risk angle: W30 was about vendor-side revenue disruption. This week's argument is buyer-side — enterprises have traded predictable seat costs for unpredictable token consumption that is invisible to the budget owners who approved the AI initiative. Different actor, different recommended action: build financial governance for agent spend, not just behavioral governance."
+      theme_title: "The Agent Accountability Void"
+      synthesis: "The State of AI Agent Security 2026 (Gravitee, 900+ respondents) documents that 88% of organizations experienced an AI agent-related security breach in the past 12 months, and only 7.2% have a named individual with formal accountability for agent behavior. Enterprise AI agents nearly doubled in Q1 2026 alone. New vs. W31: W31's token pricing theme was about cost governance (FinOps, who owns the bill). This is a security and accountability void: agents are deployed with no identity, no accountability structure, and no one to call when one causes a breach. Different actor, different recommended action: build per-agent identity management and assign formal accountability roles before your incident count joins the 88%."
       source_items:
-        - "OpenAI's Agent Pricing Shift — 6 Moves CIOs and FinOps Must Make (1000.software)"
-        - "FinOps teams gain clout as AI costs climb (CIO Dive)"
+        - "State of AI Agent Security 2026 Report: When Adoption Outpaces Control (Gravitee)"
+        - "AI Agent Security in 2026: Enterprise Risks & Best Practices (Beam.ai)"
+        - "2026 Data Breach Investigations Report — Identity Is the Control Plane for Agentic AI (Token Security)"
       content_angles:
-        - "Agents Don't Need Seats. But They Still Cost Money."
+        - "Nobody Owns the Agent"
     - theme_id: 3
-      theme_title: "Accenture Exits 11,000 Who Can't Reskill — Reskilling Failure Is Now a Firing Criterion"
-      synthesis: "Accenture is exiting 11,000 staff who cannot be reskilled on AI, with CEO explicitly framing it as a 'compressed timeline.' New vs. W29's McKinsey angle: W29 was about the pyramid pricing model collapsing. This is a different argument — reskilling failure is now an explicit, public termination criterion at a major firm, which sets a new talent accountability standard the industry hasn't seen before. Recommended action: get an honest internal picture of who is and isn't making the transition, before it becomes a crisis."
+      theme_title: "The Knowledge Premium Is the Thing That's Dying"
+      synthesis: "McKinsey is cutting 3,000-4,000 positions (10% of workforce), concentrated in junior research and knowledge-intensive functions. Bain, BCG, Capgemini, and Deloitte are making parallel cuts. The new argument: an IE Business School professor framed it precisely: 'AI is replacing the technical expertise and insight that for decades justified the existence of these firms as privileged intermediaries of knowledge.' New vs. W31/W29: W31 was about reskilling failure as a firing criterion (Accenture). W29 was about pyramid pricing collapsing (structure). W32 is about what the premium was actually for: selling access to knowledge that AI now provides freely. If you charge for knowing things, you're in trouble. If you charge for judgment, relationships, and delivery accountability, you still have a business."
       source_items:
-        - "Accenture to cut 11,000 jobs as part of AI workforce transition (Reuters)"
+        - "Why the McKinsey layoffs are a warning signal for consulting in the AI age (Fast Company)"
+        - "McKinsey Layoffs 2026: 10% Job Cuts Affecting Thousands Because of AI (Final Round AI)"
       content_angles:
-        - "Accenture Just Set the Reskilling Bar"
+        - "The Premium You Charged Was for Knowing Things"
+    - theme_id: 4
+      theme_title: "North Texas Shifts from AI Consumer to AI Maker"
+      synthesis: "Wistron opened its $700M, 324,000 sq ft Fort Worth facility on July 21, producing Nvidia GB300 Grace Blackwell Ultra Superchips. LITEON announced a $919M McKinney facility for AI power systems, backed by a state grant. North Texas just became a site for AI hardware manufacturing, not just consumption. New vs. prior Texas themes: W28 covered data center expansion and grid stress; W30 covered Abbott's regulatory moves on energy policy. This is different: Texas is producing the chips and power infrastructure at scale, creating a new supply chain ecosystem and a new talent story — from software engineers to semiconductor manufacturing. The implication for David's clients: Texas enterprises have a proximity-to-supply advantage that is not replicable in most other states."
+      source_items:
+        - "Wistron Opens $700 Million Fort Worth Plant for Nvidia AI Systems (CNBC, July 22 2026)"
+        - "Built in Fort Worth: Wistron Opens Advanced Manufacturing Plant to Produce NVIDIA AI Systems (NVIDIA Blog)"
+        - "Governor Abbott Announces LITEON AI Facility, McKinney TX (FOX4 DFW)"
+      content_angles:
+        - "Texas Is Building the Chips Now, Not Just Running Them"
   weekly_tweets:
-    - text: "In 60 days: Microsoft launched a $2.5B embedded consulting unit. AWS launched a $1B one. Anthropic and OpenAI both stood up FDE teams. Every major platform vendor entered the implementation business in the same window. Not accidental."
-      supporting_url: "https://www.cnbc.com/2026/07/02/microsoft-commits-2point5-billion-6000-employees-ai-implementation-unit.html"
-      intent_url: "https://twitter.com/intent/tweet?text=In%2060%20days%3A%20Microsoft%20launched%20a%20%242.5B%20embedded%20consulting%20unit.%20AWS%20launched%20a%20%241B%20one.%20Anthropic%20and%20OpenAI%20both%20stood%20up%20FDE%20teams.%20Every%20major%20platform%20vendor%20entered%20the%20implementation%20business%20in%20the%20same%20window.%20Not%20accidental.&url=https%3A%2F%2Fwww.cnbc.com%2F2026%2F07%2F02%2Fmicrosoft-commits-2point5-billion-6000-employees-ai-implementation-unit.html"
-      angle_type: "data"
-    - text: "When Microsoft offers to embed engineers inside your client at no added cost, the word 'free' is doing a lot of work. Free means anchored to their stack, their roadmap, their retention. Read the contract before you say yes."
-      supporting_url: "https://www.cnbc.com/2026/07/02/microsoft-commits-2point5-billion-6000-employees-ai-implementation-unit.html"
-      intent_url: "https://twitter.com/intent/tweet?text=When%20Microsoft%20offers%20to%20embed%20engineers%20inside%20your%20client%20at%20no%20added%20cost%2C%20the%20word%20%27free%27%20is%20doing%20a%20lot%20of%20work.%20Free%20means%20anchored%20to%20their%20stack%2C%20their%20roadmap%2C%20their%20retention.%20Read%20the%20contract%20before%20you%20say%20yes.&url=https%3A%2F%2Fwww.cnbc.com%2F2026%2F07%2F02%2Fmicrosoft-commits-2point5-billion-6000-employees-ai-implementation-unit.html"
-      angle_type: "provocative"
-    - text: "Had a finance leader realize last quarter that an AI agent had been running unmonitored batch jobs for two months. Token bill was triple the monthly seat cost it replaced. No one had thought to set a ceiling. That is now a common story."
+    - text: "The EU AI Act became enforceable on August 2. Most US enterprises missed it. The ones who didn't are now realizing their vendor's compliance page doesn't cover them. The deployer obligations are yours. That was always true. It just became legally enforceable."
       supporting_url: null
-      intent_url: "https://twitter.com/intent/tweet?text=Had%20a%20finance%20leader%20realize%20last%20quarter%20that%20an%20AI%20agent%20had%20been%20running%20unmonitored%20batch%20jobs%20for%20two%20months.%20Token%20bill%20was%20triple%20the%20monthly%20seat%20cost%20it%20replaced.%20No%20one%20had%20thought%20to%20set%20a%20ceiling.%20That%20is%20now%20a%20common%20story."
+      intent_url: "https://twitter.com/intent/tweet?text=The%20EU%20AI%20Act%20became%20enforceable%20on%20August%202.%20Most%20US%20enterprises%20missed%20it.%20The%20ones%20who%20didn%27t%20are%20now%20realizing%20their%20vendor%27s%20compliance%20page%20doesn%27t%20cover%20them.%20The%20deployer%20obligations%20are%20yours.%20That%20was%20always%20true.%20It%20just%20became%20legally%20enforceable."
+      angle_type: "data"
+    - text: '"Our vendor is compliant" is the new "we have it backed up." Technically true. Completely misses the point. The EU AI Act''s deployer obligations are separate from provider certifications. Your vendor checked the box. That is a different box than yours.'
+      supporting_url: "https://www.techtimes.com/articles/322563/20260731/eu-ai-act-chatbot-disclosure-reaches-api-builders-sunday-vendors-cannot-comply-you.htm"
+      intent_url: "https://twitter.com/intent/tweet?text=%22Our%20vendor%20is%20compliant%22%20is%20the%20new%20%22we%20have%20it%20backed%20up.%22%20Technically%20true.%20Completely%20misses%20the%20point.%20The%20EU%20AI%20Act%27s%20deployer%20obligations%20are%20separate%20from%20provider%20certifications.%20Your%20vendor%20checked%20the%20box.%20That%20is%20a%20different%20box%20than%20yours.&url=https%3A%2F%2Fwww.techtimes.com%2Farticles%2F322563%2F20260731%2Feu-ai-act-chatbot-disclosure-reaches-api-builders-sunday-vendors-cannot-comply-you.htm"
+      angle_type: "provocative"
+    - text: "Had a client show me their agent inventory last month. 47 agents. Three had no owner. Two, the team couldn't remember deploying. This is not an edge case. 88% of orgs that deployed agents had a security incident this year."
+      supporting_url: "https://www.gravitee.io/blog/state-of-ai-agent-security-2026-report-when-adoption-outpaces-control"
+      intent_url: "https://twitter.com/intent/tweet?text=Had%20a%20client%20show%20me%20their%20agent%20inventory%20last%20month.%2047%20agents.%20Three%20had%20no%20owner.%20Two%2C%20the%20team%20couldn%27t%20remember%20deploying.%20This%20is%20not%20an%20edge%20case.%2088%25%20of%20orgs%20that%20deployed%20agents%20had%20a%20security%20incident%20this%20year.&url=https%3A%2F%2Fwww.gravitee.io%2Fblog%2Fstate-of-ai-agent-security-2026-report-when-adoption-outpaces-control"
       angle_type: "practitioner"
-    - text: "Who at your organization gets paged when an AI agent's token spend spikes at 2am on a Sunday? If the answer is 'no one' or 'I'm not sure,' you have an open tab, not a governance model."
+    - text: "The accountability question nobody is asking: if one of your AI agents causes a breach tonight, who gets the call? Not 'who is on the security team.' Who specifically owns that agent's behavior? For 92.8% of organizations, the honest answer is nobody."
       supporting_url: null
-      intent_url: "https://twitter.com/intent/tweet?text=Who%20at%20your%20organization%20gets%20paged%20when%20an%20AI%20agent%27s%20token%20spend%20spikes%20at%202am%20on%20a%20Sunday%3F%20If%20the%20answer%20is%20%27no%20one%27%20or%20%27I%27m%20not%20sure%2C%27%20you%20have%20an%20open%20tab%2C%20not%20a%20governance%20model."
+      intent_url: "https://twitter.com/intent/tweet?text=The%20accountability%20question%20nobody%20is%20asking%3A%20if%20one%20of%20your%20AI%20agents%20causes%20a%20breach%20tonight%2C%20who%20gets%20the%20call%3F%20Not%20%27who%20is%20on%20the%20security%20team.%27%20Who%20specifically%20owns%20that%20agent%27s%20behavior%3F%20For%2092.8%25%20of%20organizations%2C%20the%20honest%20answer%20is%20nobody."
       angle_type: "question"
-    - text: "Accenture exiting 11,000 people who can't reskill on AI is notable. What's more notable: they said it out loud. 'Can't adapt to AI' is now a public firing criterion at a major firm. That changes the internal conversation everywhere."
-      supporting_url: "https://www.reuters.com/business/accenture-cut-11000-jobs-ai-workforce-transition-2026-07/"
-      intent_url: "https://twitter.com/intent/tweet?text=Accenture%20exiting%2011%2C000%20people%20who%20can%27t%20reskill%20on%20AI%20is%20notable.%20What%27s%20more%20notable%3A%20they%20said%20it%20out%20loud.%20%27Can%27t%20adapt%20to%20AI%27%20is%20now%20a%20public%20firing%20criterion%20at%20a%20major%20firm.%20That%20changes%20the%20internal%20conversation%20everywhere.&url=https%3A%2F%2Fwww.reuters.com%2Fbusiness%2Faccenture-cut-11000-jobs-ai-workforce-transition-2026-07%2F"
-      angle_type: "provocative"
-    - text: "Accenture's CEO used 'compressed timeline' when describing why 11,000 people are being exited. That phrase is the tell. It means the window already closed for some people on their team. Most firms haven't said that out loud yet."
-      supporting_url: "https://www.reuters.com/business/accenture-cut-11000-jobs-ai-workforce-transition-2026-07/"
-      intent_url: "https://twitter.com/intent/tweet?text=Accenture%27s%20CEO%20used%20%27compressed%20timeline%27%20when%20describing%20why%2011%2C000%20people%20are%20being%20exited.%20That%20phrase%20is%20the%20tell.%20It%20means%20the%20window%20already%20closed%20for%20some%20people%20on%20their%20team.%20Most%20firms%20haven%27t%20said%20that%20out%20loud%20yet.&url=https%3A%2F%2Fwww.reuters.com%2Fbusiness%2Faccenture-cut-11000-jobs-ai-workforce-transition-2026-07%2F"
+    - text: "McKinsey, Bain, BCG, Capgemini, Deloitte. All cutting in the same quarter. When every major firm moves in the same direction simultaneously, it stops being a business decision and starts being a market signal. The question is whether the signal is pointing at them or at you."
+      supporting_url: null
+      intent_url: "https://twitter.com/intent/tweet?text=McKinsey%2C%20Bain%2C%20BCG%2C%20Capgemini%2C%20Deloitte.%20All%20cutting%20in%20the%20same%20quarter.%20When%20every%20major%20firm%20moves%20in%20the%20same%20direction%20simultaneously%2C%20it%20stops%20being%20a%20business%20decision%20and%20starts%20being%20a%20market%20signal.%20The%20question%20is%20whether%20the%20signal%20is%20pointing%20at%20them%20or%20at%20you."
       angle_type: "data"
-    - text: "The practical problem with vendor-embedded engineers isn't their skill. It's their incentive. Their review doesn't include whether you got the best architecture. It includes whether you renewed and expanded."
+    - text: "The McKinsey cuts are concentrated in junior research roles. That is the layer where AI has compressed 40% of the workflow. Most firms are telling themselves the cuts will stop there. They won't. The repricing started at the bottom because that was the easiest place to start."
       supporting_url: null
-      intent_url: "https://twitter.com/intent/tweet?text=The%20practical%20problem%20with%20vendor-embedded%20engineers%20isn%27t%20their%20skill.%20It%27s%20their%20incentive.%20Their%20review%20doesn%27t%20include%20whether%20you%20got%20the%20best%20architecture.%20It%20includes%20whether%20you%20renewed%20and%20expanded."
+      intent_url: "https://twitter.com/intent/tweet?text=The%20McKinsey%20cuts%20are%20concentrated%20in%20junior%20research%20roles.%20That%20is%20the%20layer%20where%20AI%20has%20compressed%2040%25%20of%20the%20workflow.%20Most%20firms%20are%20telling%20themselves%20the%20cuts%20will%20stop%20there.%20They%20won%27t.%20The%20repricing%20started%20at%20the%20bottom%20because%20that%20was%20the%20easiest%20place%20to%20start."
       angle_type: "provocative"
-    - text: "Honest question for anyone leading a consulting team: do you actually know who is making the AI transition and who is stalling? Not training completion rate. The honest read. Because the Accenture clock is coming for everyone."
+    - text: "I've talked to North Texas clients about AI infrastructure for two years. Every conversation was about consumption. This week Wistron opened a $700M plant in Fort Worth building Nvidia superchips. That is a different story."
+      supporting_url: "https://www.cnbc.com/2026/07/22/wistron-shares-surge-after-opening-texas-plant-for-nvidia-ai-servers-.html"
+      intent_url: "https://twitter.com/intent/tweet?text=I%27ve%20talked%20to%20North%20Texas%20clients%20about%20AI%20infrastructure%20for%20two%20years.%20Every%20conversation%20was%20about%20consumption.%20This%20week%20Wistron%20opened%20a%20%24700M%20plant%20in%20Fort%20Worth%20building%20Nvidia%20superchips.%20That%20is%20a%20different%20story.&url=https%3A%2F%2Fwww.cnbc.com%2F2026%2F07%2F22%2Fwistron-shares-surge-after-opening-texas-plant-for-nvidia-ai-servers-.html"
+      angle_type: "practitioner"
+    - text: "Quick question for any US company that serves EU customers: who is the named deployer for each of your AI-facing products? What are your Article 50 disclosure implementations? When did you last audit your EU-facing AI scope? If those answers aren't quick, you have work to do."
       supporting_url: null
-      intent_url: "https://twitter.com/intent/tweet?text=Honest%20question%20for%20anyone%20leading%20a%20consulting%20team%3A%20do%20you%20actually%20know%20who%20is%20making%20the%20AI%20transition%20and%20who%20is%20stalling%3F%20Not%20training%20completion%20rate.%20The%20honest%20read.%20Because%20the%20Accenture%20clock%20is%20coming%20for%20everyone."
+      intent_url: "https://twitter.com/intent/tweet?text=Quick%20question%20for%20any%20US%20company%20that%20serves%20EU%20customers%3A%20who%20is%20the%20named%20deployer%20for%20each%20of%20your%20AI-facing%20products%3F%20What%20are%20your%20Article%2050%20disclosure%20implementations%3F%20When%20did%20you%20last%20audit%20your%20EU-facing%20AI%20scope%3F%20If%20those%20answers%20aren%27t%20quick%2C%20you%20have%20work%20to%20do."
       angle_type: "question"
-    - text: "Seat-based SaaS pricing assumed a human in the loop. Token-based agent pricing assumes autonomous consumption. Those are different cost models and different risk profiles. Most enterprise contracts were written for the first one."
-      supporting_url: "https://www.1000.software/post/openai-s-agent-pricing-shift-6-moves-cios-and-finops-must-make-to-control-ai-teammate-costs"
-      intent_url: "https://twitter.com/intent/tweet?text=Seat-based%20SaaS%20pricing%20assumed%20a%20human%20in%20the%20loop.%20Token-based%20agent%20pricing%20assumes%20autonomous%20consumption.%20Those%20are%20different%20cost%20models%20and%20different%20risk%20profiles.%20Most%20enterprise%20contracts%20were%20written%20for%20the%20first%20one.&url=https%3A%2F%2Fwww.1000.software%2Fpost%2Fopenai-s-agent-pricing-shift-6-moves-cios-and-finops-must-make-to-control-ai-teammate-costs"
+    - text: "Enterprise AI agents nearly doubled in Q1 2026. Only 47% of organizations actively monitor their deployed agents. The math on that does not work out in anyone's favor."
+      supporting_url: "https://www.gravitee.io/blog/state-of-ai-agent-security-2026-report-when-adoption-outpaces-control"
+      intent_url: "https://twitter.com/intent/tweet?text=Enterprise%20AI%20agents%20nearly%20doubled%20in%20Q1%202026.%20Only%2047%25%20of%20organizations%20actively%20monitor%20their%20deployed%20agents.%20The%20math%20on%20that%20does%20not%20work%20out%20in%20anyone%27s%20favor.&url=https%3A%2F%2Fwww.gravitee.io%2Fblog%2Fstate-of-ai-agent-security-2026-report-when-adoption-outpaces-control"
       angle_type: "data"
-    - text: "Forward-deployed engineers have existed in enterprise tech for decades. What's new: $2.5B and 6,000 people from one vendor in one announcement. At that scale it stops being a service and starts being a market structure decision."
-      supporting_url: "https://thenewstack.io/aws-just-put-1-billion-into-forward-deployed-engineers/"
-      intent_url: "https://twitter.com/intent/tweet?text=Forward-deployed%20engineers%20have%20existed%20in%20enterprise%20tech%20for%20decades.%20What%27s%20new%3A%20%242.5B%20and%206%2C000%20people%20from%20one%20vendor%20in%20one%20announcement.%20At%20that%20scale%20it%20stops%20being%20a%20service%20and%20starts%20being%20a%20market%20structure%20decision.&url=https%3A%2F%2Fthenewstack.io%2Faws-just-put-1-billion-into-forward-deployed-engineers%2F"
-      angle_type: "data"
+    - text: "North Texas is now producing the hardware the rest of the country will run AI on. Wistron. LITEON. $1.6 billion in the corridor in one week. The question of whether Texas is serious about AI has been answered in concrete and steel."
+      supporting_url: "https://www.cnbc.com/2026/07/22/wistron-shares-surge-after-opening-texas-plant-for-nvidia-ai-servers-.html"
+      intent_url: "https://twitter.com/intent/tweet?text=North%20Texas%20is%20now%20producing%20the%20hardware%20the%20rest%20of%20the%20country%20will%20run%20AI%20on.%20Wistron.%20LITEON.%20%241.6%20billion%20in%20the%20corridor%20in%20one%20week.%20The%20question%20of%20whether%20Texas%20is%20serious%20about%20AI%20has%20been%20answered%20in%20concrete%20and%20steel.&url=https%3A%2F%2Fwww.cnbc.com%2F2026%2F07%2F22%2Fwistron-shares-surge-after-opening-texas-plant-for-nvidia-ai-servers-.html"
+      angle_type: "provocative"

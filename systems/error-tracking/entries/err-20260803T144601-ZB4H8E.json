@@ -1,0 +1,15 @@
+{
+  "id": "err-20260803T144601-ZB4H8E",
+  "timestamp": "2026-08-03T14:46:01Z",
+  "session": "session-2026-08-03-091450",
+  "source": "explicit",
+  "agent": "knox",
+  "category": "tool-misuse",
+  "description": "Spawned Knox to run plaud-ingest; Knox declared a hard blocker ('Plaud API token unavailable — cached at ~/.config/plaud/token.json on the Mac, session sandbox cannot reach it') and stopped at step-01 instead of actually running the workflow. David corrected: token handling is already built into the workflow/skill (skills/plaud-discover/SKILL.md and skills/plaud-transcripts/SKILL.md document token load, auto-refresh, and a Chrome login fallback). Knox never attempted Desktop Commander / osascript to reach the Mac-side token and config files — it assumed sandbox isolation meant total inaccessibility, the same failure mode already documented in err-20260715T134820-X2GOL2 ('conflating not in my current bash mount with not reachable at all').",
+  "correction": "Mac-side paths (~/.config/plaud/token.json, ~/.config/plaud/credentials.json, ~/Downloads/transcript-staging/) are reachable via mcp__Control_your_Mac__osascript or mcp__Desktop_Commander__* per SYSTEM.md's Mac Filesystem Operations rule. Knox must use those tools for any Mac file access instead of concluding the path is unreachable from a sandboxed Bash tool. Re-run plaud-ingest with explicit instruction to use osascript/Desktop Commander for all Mac-side file and token operations, and to run fetch_plaud.py via the documented `do shell script` osascript pattern rather than treating token access as a Linux-sandbox-only problem.",
+  "failure_mode": "Declared a data source unreachable based on the sandboxed Bash tool's own limits, without first trying the Mac-native tool (osascript/Desktop Commander) that SYSTEM.md explicitly requires be tried first. Same root cause as err-20260715T134820-X2GOL2, recurring in a new context (Plaud token file instead of a mounted data folder).",
+  "systemic_fix": "Add an explicit reminder inside skills/plaud-discover/SKILL.md and skills/plaud-transcripts/SKILL.md Prerequisites sections: 'Token/credential files live on the Mac filesystem — access via osascript/Desktop Commander, never assume unreachable from a sandboxed agent.' Escalate to Rigby to add this line structurally so future Knox spawns don't rediscover the same blocker.",
+  "fix_status": "proposed",
+  "severity": "moderate",
+  "related_entries": ["err-20260715T134820-X2GOL2"]
+}

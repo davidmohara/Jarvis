@@ -751,7 +751,7 @@
         "files": [],
         "loops": [
           {
-            "task": "boot-sequence — never closed out; superseded by session-2026-07-21-142549 which resumed the in-progress boot workflow. Closing retroactively during 2026-07-22 shutdown sweep.",
+            "task": "boot-sequence \u2014 never closed out; superseded by session-2026-07-21-142549 which resumed the in-progress boot workflow. Closing retroactively during 2026-07-22 shutdown sweep.",
             "resolved": false
           }
         ]
@@ -768,7 +768,7 @@
         "name": "morning-boot",
         "loops": [
           {
-            "task": "boot-sequence — stale, closed by next-day session init",
+            "task": "boot-sequence \u2014 stale, closed by next-day session init",
             "resolved": false
           }
         ]
@@ -785,7 +785,7 @@
         "name": "morning-boot",
         "loops": [
           {
-            "task": "boot-sequence — stale, closed by next-day session init",
+            "task": "boot-sequence \u2014 stale, closed by next-day session init",
             "resolved": false
           }
         ]
@@ -860,7 +860,7 @@
         "name": "golf-shutdown-verification",
         "loops": [
           {
-            "task": "Verified (not just accepted) David's claim that golf-booking and shutdown-cleanup were fixed — both confirmed resolved, state.yaml updated on each with evidence",
+            "task": "Verified (not just accepted) David's claim that golf-booking and shutdown-cleanup were fixed \u2014 both confirmed resolved, state.yaml updated on each with evidence",
             "resolved": true
           }
         ],
@@ -879,5 +879,22 @@
         ]
       }
     ]
+  },
+  {
+    "session_id": "session-2026-08-03-091450",
+    "started": "2026-08-03T09:14:50.299140-05:00",
+    "closed": "2026-08-03T23:59:59-05:00",
+    "current_topic": null,
+    "topics": {
+      "morning-boot": {
+        "loops": [
+          {
+            "task": "Full boot sequence: identity load, calendar/email/OmniFocus pull, delegation & workflow scan, briefing synthesis",
+            "resolved": false
+          }
+        ],
+        "files": []
+      }
+    }
   }
 ]

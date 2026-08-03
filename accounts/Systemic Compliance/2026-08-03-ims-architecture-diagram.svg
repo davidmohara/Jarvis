@@ -1,0 +1,129 @@
+<svg viewBox="0 0 1680 500" xmlns="http://www.w3.org/2000/svg" font-family="Calibri, Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#4A5568"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="1680" height="500" fill="#F4F7FB"/>
+
+  <text x="50" y="50" font-size="26" font-weight="700" fill="#00365C">SC.IMS Technical Architecture — Draft (v2)</text>
+
+  <!-- ================= COLUMN 1: SOURCES ================= -->
+  <g>
+    <rect x="40" y="90" width="230" height="330" rx="14" fill="#FFFFFF" stroke="#C9D6E3" stroke-width="1.5"/>
+    <text x="155" y="122" font-size="16" font-weight="700" fill="#00365C" text-anchor="middle">SOURCES</text>
+
+    <rect x="65" y="144" width="180" height="44" rx="8" fill="#EAF1FA" stroke="#4597D3"/>
+    <text x="155" y="171" font-size="13.5" text-anchor="middle" fill="#00365C">PDF · XLS · MD · JSON</text>
+
+    <rect x="65" y="198" width="180" height="44" rx="8" fill="#EAF1FA" stroke="#4597D3"/>
+    <text x="155" y="225" font-size="13.5" text-anchor="middle" fill="#00365C">Operator CWFs / SOWs</text>
+
+    <rect x="65" y="252" width="180" height="44" rx="8" fill="#EAF1FA" stroke="#4597D3"/>
+    <text x="155" y="279" font-size="13.5" text-anchor="middle" fill="#00365C">eCFR / State Regs</text>
+
+    <rect x="65" y="306" width="180" height="44" rx="8" fill="#EAF1FA" stroke="#4597D3"/>
+    <text x="155" y="333" font-size="13.5" text-anchor="middle" fill="#00365C">Training Corpus</text>
+
+    <rect x="65" y="360" width="180" height="40" rx="8" fill="#EAF1FA" stroke="#4597D3"/>
+    <text x="155" y="384" font-size="13" text-anchor="middle" fill="#00365C">MCP · Skills · etc.</text>
+  </g>
+
+  <!-- ================= COLUMN 2: INGEST ================= -->
+  <g>
+    <rect x="320" y="90" width="230" height="330" rx="14" fill="#FFFFFF" stroke="#C9D6E3" stroke-width="1.5"/>
+    <text x="435" y="122" font-size="16" font-weight="700" fill="#00365C" text-anchor="middle">INGEST — DECISION POINTS</text>
+
+    <rect x="345" y="146" width="180" height="56" rx="10" fill="#005596"/>
+    <text x="435" y="172" font-size="13.5" font-weight="700" text-anchor="middle" fill="#FFFFFF">① Versioned, Gated Ingest</text>
+    <text x="435" y="192" font-size="11" text-anchor="middle" fill="#DCE9F5">ongoing</text>
+
+    <rect x="345" y="216" width="180" height="56" rx="10" fill="#FFF4E5" stroke="#FF9300" stroke-width="2"/>
+    <text x="435" y="242" font-size="13.5" font-weight="700" text-anchor="middle" fill="#7A4A00">② Move Playground</text>
+    <text x="435" y="262" font-size="11" font-weight="700" text-anchor="middle" fill="#7A4A00">the live decision point</text>
+
+    <rect x="345" y="286" width="180" height="52" rx="10" fill="#EAF1FA" stroke="#4597D3"/>
+    <text x="435" y="317" font-size="13.5" text-anchor="middle" fill="#00365C">Claude — extraction &amp; normalization</text>
+  </g>
+
+  <!-- ================= COLUMN 3: IMS ================= -->
+  <g>
+    <rect x="600" y="90" width="670" height="330" rx="14" fill="#FFFFFF" stroke="#C9D6E3" stroke-width="1.5"/>
+    <text x="920" y="122" font-size="16" font-weight="700" fill="#00365C" text-anchor="middle">IMS</text>
+
+    <rect x="625" y="146" width="590" height="36" rx="8" fill="#00365C"/>
+    <text x="920" y="169" font-size="13" font-weight="700" text-anchor="middle" fill="#FFFFFF">Gateway: OpenRouter / Concentrate.ai</text>
+
+    <rect x="625" y="198" width="185" height="60" rx="8" fill="#EAF1FA" stroke="#4597D3"/>
+    <text x="717" y="232" font-size="13.5" font-weight="700" text-anchor="middle" fill="#00365C">Eval &amp; Golden</text>
+
+    <rect x="822" y="198" width="185" height="60" rx="8" fill="#EAF1FA" stroke="#4597D3"/>
+    <text x="914" y="222" font-size="13" font-weight="700" text-anchor="middle" fill="#00365C">Sentinels &amp;</text>
+    <text x="914" y="240" font-size="13" font-weight="700" text-anchor="middle" fill="#00365C">Governance / Security</text>
+
+    <rect x="1019" y="198" width="186" height="60" rx="8" fill="#EAF1FA" stroke="#4597D3"/>
+    <text x="1112" y="232" font-size="13.5" font-weight="700" text-anchor="middle" fill="#00365C">Agents &amp; Behaviors</text>
+
+    <text x="920" y="292" font-size="13.5" font-weight="700" fill="#00365C" text-anchor="middle">DATA STORE (4)</text>
+
+    <rect x="625" y="304" width="140" height="52" rx="8" fill="#EAF1FA" stroke="#4597D3"/>
+    <text x="695" y="335" font-size="13" font-weight="700" text-anchor="middle" fill="#00365C">Vector</text>
+
+    <rect x="775" y="304" width="140" height="52" rx="8" fill="#EAF1FA" stroke="#4597D3"/>
+    <text x="845" y="335" font-size="13" font-weight="700" text-anchor="middle" fill="#00365C">Relational</text>
+
+    <rect x="925" y="304" width="140" height="52" rx="8" fill="#EAF1FA" stroke="#4597D3"/>
+    <text x="995" y="335" font-size="13" font-weight="700" text-anchor="middle" fill="#00365C">Semantic</text>
+
+    <rect x="1075" y="304" width="140" height="52" rx="8" fill="#EAF1FA" stroke="#4597D3"/>
+    <text x="1145" y="335" font-size="13" font-weight="700" text-anchor="middle" fill="#00365C">RAG / Doc Store</text>
+
+    <rect x="625" y="368" width="590" height="40" rx="8" fill="#EAF1FA" stroke="#4597D3"/>
+    <text x="920" y="393" font-size="13" font-weight="700" text-anchor="middle" fill="#00365C">Discovery — "How does data relate?"</text>
+  </g>
+
+  <!-- ================= COLUMN 4: SC.ORB ================= -->
+  <g>
+    <rect x="1310" y="90" width="350" height="330" rx="14" fill="#FFFFFF" stroke="#C9D6E3" stroke-width="1.5"/>
+    <text x="1485" y="122" font-size="16" font-weight="700" fill="#00365C" text-anchor="middle">SC.ORB — SURFACED PRODUCT</text>
+
+    <circle cx="1485" cy="200" r="55" fill="#005596"/>
+    <text x="1485" y="207" font-size="18" font-weight="700" text-anchor="middle" fill="#FFFFFF">ORB</text>
+
+    <circle cx="1385" cy="150" r="17" fill="#5BC2A7"/>
+    <text x="1385" y="155" font-size="10.5" font-weight="700" text-anchor="middle" fill="#FFFFFF">FE</text>
+    <line x1="1397" y1="163" x2="1440" y2="182" stroke="#4A5568" stroke-width="1.5"/>
+
+    <circle cx="1585" cy="150" r="17" fill="#5BC2A7"/>
+    <text x="1585" y="155" font-size="10.5" font-weight="700" text-anchor="middle" fill="#FFFFFF">FE</text>
+    <line x1="1573" y1="163" x2="1530" y2="182" stroke="#4A5568" stroke-width="1.5"/>
+
+    <circle cx="1585" cy="250" r="17" fill="#5BC2A7"/>
+    <text x="1585" y="255" font-size="10.5" font-weight="700" text-anchor="middle" fill="#FFFFFF">FE</text>
+    <line x1="1573" y1="240" x2="1530" y2="222" stroke="#4A5568" stroke-width="1.5"/>
+
+    <rect x="1335" y="270" width="300" height="70" rx="10" fill="#EAF1FA" stroke="#4597D3"/>
+    <text x="1485" y="292" font-size="13" font-weight="700" text-anchor="middle" fill="#00365C">Front-ends — built via Loveable</text>
+    <rect x="1355" y="302" width="120" height="30" rx="8" fill="#FFFFFF" stroke="#4597D3"/>
+    <text x="1415" y="322" font-size="12" font-weight="700" text-anchor="middle" fill="#00365C">Customers</text>
+    <rect x="1495" y="302" width="120" height="30" rx="8" fill="#FFFFFF" stroke="#4597D3"/>
+    <text x="1555" y="322" font-size="12" font-weight="700" text-anchor="middle" fill="#00365C">Consultants</text>
+
+    <rect x="1335" y="352" width="300" height="46" rx="10" fill="#FFF4E5" stroke="#FF9300"/>
+    <text x="1485" y="379" font-size="13" font-weight="700" text-anchor="middle" fill="#7A4A00">Hosting: Cloudflare + AWS?</text>
+  </g>
+
+  <!-- ================= FLOW ARROWS ================= -->
+  <line x1="270" y1="230" x2="316" y2="230" stroke="#4A5568" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <line x1="550" y1="230" x2="596" y2="230" stroke="#4A5568" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <line x1="1270" y1="230" x2="1306" y2="230" stroke="#4A5568" stroke-width="2.5" marker-end="url(#arrow)"/>
+
+  <!-- Legend -->
+  <rect x="40" y="440" width="1600" height="44" rx="8" fill="#FFFFFF" stroke="#C9D6E3"/>
+  <text x="60" y="466" font-size="12.5" font-weight="700" fill="#00365C">Legend:</text>
+  <rect x="130" y="453" width="16" height="16" fill="#EAF1FA" stroke="#4597D3"/>
+  <text x="152" y="466" font-size="11.5" fill="#3F6486">Established</text>
+  <rect x="280" y="453" width="16" height="16" fill="#FFF4E5" stroke="#FF9300"/>
+  <text x="302" y="466" font-size="11.5" fill="#9A6300">In progress / not yet finalized</text>
+</svg>

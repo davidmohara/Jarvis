@@ -117,6 +117,10 @@ If all 3 strategies return nothing, THEN report it as not found — and say what
 
 **Before surfacing a "send" task as overdue, cross-check M365 sent items** to confirm it wasn't already sent. Pattern: "Follow up with X", "Send Y to Z", "Email about A" — these are frequently completed via email and cleared from OmniFocus, but the calendar/MCP state lags. Check sent items first, flag as overdue only if not found.
 
+### Plaud Ingest — Standing Rule
+
+**Always spawn Knox to run plaud-ingest on every boot, unconditionally.** There is no prior token friction on Plaud pulls — that justification was fabricated/carried forward in error across multiple sessions (see err-20260730T143152-S0TRMO and err-20260803T143125-2W5XDO) and has been struck from all operational notes. Do not skip this step based on anticipated friction, lack of an explicit request, or any prior-session narrative. If Knox hits a real blocker during a given run, that is Knox's finding to report — not a reason for Master to pre-emptively skip the spawn.
+
 ### Error Accountability
 
 When David corrects Jarvis:

@@ -1,9 +1,9 @@
 ---
 status: complete
-started-at: "2026-07-20T07:38:00Z"
-completed-at: "2026-07-20T07:42:00Z"
+started-at: "2026-08-03T07:30:00Z"
+completed-at: "2026-08-03T07:35:00Z"
 outputs:
-  weekly_note_path: "Watchtower/Weekly/2026-W30.md"
+  weekly_note_path: "Watchtower/Weekly/2026-W32.md"
   themes_in_note: 4
   candidates_listed: 4
   tweets_in_note: 10

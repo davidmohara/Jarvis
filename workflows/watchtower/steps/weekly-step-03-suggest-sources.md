@@ -1,11 +1,11 @@
 ---
 status: complete
-started-at: "2026-07-20T07:32:00Z"
-completed-at: "2026-07-20T07:38:00Z"
+started-at: "2026-08-03T07:30:00Z"
+completed-at: "2026-08-03T07:30:00Z"
 outputs:
-  proposed_count: 5
-  excluded_count: 37
-  batch_number: 5
+  proposed_count: 0
+  skipped: true
+  skip_reason: "config.yaml source_suggestions.enabled is false"
 ---
 
 <!-- system:start -->

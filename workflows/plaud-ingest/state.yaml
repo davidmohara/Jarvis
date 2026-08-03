@@ -1,11 +1,11 @@
 workflow: plaud-ingest
 agent: knox
-status: complete
-session-started: "2026-07-30T16:00:00Z"
-session-id: "pi-20260730-001"
-current-step: step-05b
-original-request: "Knox: Execute full plaud-ingest pipeline live end-to-end per workflow.md"
-prior-run-note: "2026-07-30 run incorrectly reported a Plaud API token blocker (logged as err-20260730T143442-4OOWTU). David confirmed there is no token issue — plaud-ingest tooling is self-healing. That reason was corrected via err-20260730T144624-C36DHR and should not be repeated. Reset to not-started for a clean retry."
+status: awaiting-input
+session-started: "2026-08-03T17:30:00Z"
+session-id: "pi-20260803-001"
+current-step: step-03
+original-request: "Knox: Resume plaud-ingest from prior state with 4 staged recordings — resolve speaker IDs and complete ingest"
+prior-run-note: "2026-07-30 run reached step-04 with 4 files staged but paused at step-03 pending speaker identification. Staged files verified present. Resuming with speaker mapping questions to controller."
 accumulated-context:
   # target-date is OPTIONAL — only set this for a targeted reprocess of a specific date.
   # When absent, the workflow runs in full enumeration (catch-up) mode.

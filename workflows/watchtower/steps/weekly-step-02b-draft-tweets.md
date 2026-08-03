@@ -1,9 +1,10 @@
 ---
 status: complete
-started-at: "2026-07-20T07:25:00Z"
-completed-at: "2026-07-20T07:32:00Z"
+started-at: "2026-08-03T07:22:00Z"
+completed-at: "2026-08-03T07:30:00Z"
 outputs:
   tweets_generated: 10
+  tweets_with_links: 5
   angle_types:
     provocative: 3
     practitioner: 2
