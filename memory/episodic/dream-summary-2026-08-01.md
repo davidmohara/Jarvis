@@ -1,10 +1,28 @@
 ---
-type: working
+type: working-archive
 agent-source: jarvis
 session_id: dream-cycle-2026-08-01-030839
 created: 2026-08-01T03:28:00-05:00
 expires: 2026-08-02
-status: active
+status: archived
+date: 2026-08-01
+source_file: memory/working/dream-summary-2026-08-01.md
+tags:
+  - dream-summary
+  - jarvis
+  - memory-consolidation
+  - semantic-promotion
+  - salience-scoring
+  - rock-4
+  - cole-estrate
+  - south-texas
+related_people:
+  - cole-estrate
+  - alice-mburu
+  score: 0
+salience:
+  score: 10
+  last-promoted-check: 2026-08-03
 ---
 
 # Dream Cycle Summary — August 1, 2026

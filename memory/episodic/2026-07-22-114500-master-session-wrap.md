@@ -29,9 +29,10 @@ related_people:
   last-promoted-check: 2026-07-30
   last-promoted-check: 2026-07-31
   last-promoted-check: 2026-08-01
+  last-promoted-check: 2026-08-02
 salience:
   score: 3
-  last-promoted-check: 2026-08-02
+  last-promoted-check: 2026-08-03
 ---
 
 ## Santa's Wonderland — new vision slide

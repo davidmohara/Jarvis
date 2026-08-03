@@ -18,9 +18,10 @@ tags:
   - leads
 related_people: []
   last-promoted-check: 2026-08-01
+  promoted: true
 salience:
   score: 10
-  last-promoted-check: 2026-08-02
+  last-promoted-check: 2026-08-03
   promoted: true
 ---
 
