@@ -1,0 +1,672 @@
+{
+  "date": "2026-08-03",
+  "generated": "2026-08-03T08:00:00Z",
+  "window_hours": 72,
+  "sources_used": [
+    {
+      "id": "msnbc",
+      "name": "MSNBC",
+      "lean": "left"
+    },
+    {
+      "id": "cnn",
+      "name": "CNN Politics",
+      "lean": "left"
+    },
+    {
+      "id": "nbc",
+      "name": "NBC News Politics",
+      "lean": "left"
+    },
+    {
+      "id": "thehill",
+      "name": "The Hill",
+      "lean": "left"
+    },
+    {
+      "id": "axios",
+      "name": "Axios Politics",
+      "lean": "left"
+    },
+    {
+      "id": "thedailybeast",
+      "name": "The Daily Beast",
+      "lean": "left"
+    },
+    {
+      "id": "slate",
+      "name": "Slate",
+      "lean": "left"
+    },
+    {
+      "id": "newrepublic",
+      "name": "The New Republic",
+      "lean": "left"
+    },
+    {
+      "id": "foxnews",
+      "name": "Fox News Politics",
+      "lean": "right"
+    },
+    {
+      "id": "natreview",
+      "name": "National Review",
+      "lean": "right"
+    },
+    {
+      "id": "examiner",
+      "name": "Washington Examiner",
+      "lean": "right"
+    },
+    {
+      "id": "federalist",
+      "name": "The Federalist",
+      "lean": "right"
+    },
+    {
+      "id": "dailywire",
+      "name": "The Daily Wire",
+      "lean": "right"
+    },
+    {
+      "id": "breitbart",
+      "name": "Breitbart",
+      "lean": "right"
+    },
+    {
+      "id": "townhall",
+      "name": "Townhall",
+      "lean": "right"
+    },
+    {
+      "id": "rcp",
+      "name": "RealClearPolitics",
+      "lean": "right"
+    },
+    {
+      "id": "amconserv",
+      "name": "The American Conservative",
+      "lean": "right"
+    },
+    {
+      "id": "spectator",
+      "name": "The American Spectator",
+      "lean": "right"
+    },
+    {
+      "id": "freepress",
+      "name": "The Free Press",
+      "lean": "center"
+    }
+  ],
+  "sources_muted": [
+    {
+      "id": "nyt",
+      "name": "New York Times",
+      "lean": "left",
+      "reason": "accessible=false"
+    },
+    {
+      "id": "wapo",
+      "name": "Washington Post",
+      "lean": "left",
+      "reason": "accessible=false"
+    },
+    {
+      "id": "politico",
+      "name": "Politico",
+      "lean": "left",
+      "reason": "accessible=false"
+    },
+    {
+      "id": "vox",
+      "name": "Vox Politics",
+      "lean": "left",
+      "reason": "accessible=false"
+    },
+    {
+      "id": "motherjones",
+      "name": "Mother Jones",
+      "lean": "left",
+      "reason": "accessible=false"
+    },
+    {
+      "id": "wsj_opinion",
+      "name": "WSJ Opinion",
+      "lean": "right",
+      "reason": "accessible=false"
+    },
+    {
+      "id": "nypost",
+      "name": "New York Post",
+      "lean": "right",
+      "reason": "accessible=false"
+    },
+    {
+      "id": "reuters",
+      "name": "Reuters Politics",
+      "lean": "center",
+      "reason": "accessible=false"
+    },
+    {
+      "id": "ap",
+      "name": "Associated Press",
+      "lean": "center",
+      "reason": "accessible=false"
+    },
+    {
+      "id": "bbc",
+      "name": "BBC US & Canada",
+      "lean": "center",
+      "reason": "accessible=false"
+    }
+  ],
+  "counts": {
+    "total_items": 57,
+    "by_lean": {
+      "left": 25,
+      "right": 25,
+      "center": 7
+    },
+    "shared_topics": 7,
+    "gap_left": 7,
+    "gap_right": 7
+  },
+  "shared_topics": [
+    {
+      "title": "South Carolina Senate: Darline Graham Runs for Full Term",
+      "topic_key": "sc-senate-darline-graham-full-term-aug3",
+      "days_seen": 2,
+      "relevance": 70,
+      "relevance_label": "Recurring \u2014 day 2",
+      "summary": "Darline Graham Nordone, sister of the late Sen. Lindsey Graham, confirmed she is running for the full six-year South Carolina Senate seat and not merely the special election. Trump, who had already backed her for the special election, faces frustration from SC Republicans who feel he blindsided them. Darline has explicitly broken from Lindsey's hawkish foreign policy, stating she will focus on domestic issues.",
+      "correlation": 68,
+      "correlation_label": "Both sides cover the race; left emphasizes GOP frustration and Trump's political miscalculation, right highlights Darline's domestic-first pivot and Trump's continued pull in SC.",
+      "left": {
+        "framing": "Left frames this as Trump 'throwing a curveball' \u2014 SC Republicans are frustrated by the compressed special election timeline and political uncertainty around an untested candidate. CNN notes the state's GOP had already rejected Trump's first pick for governor. The Daily Beast highlights Darline's break from Lindsey's legacy as a signal of Republican foreign policy drift.",
+        "sources": [
+          {
+            "name": "CNN Politics",
+            "url": "https://www.cnn.com/2026/08/01/politics/trump-south-carolina-lindsey-graham-darline-graham"
+          },
+          {
+            "name": "The Daily Beast",
+            "url": "https://www.thedailybeast.com/lindsey-grahams-sister-darline-graham-nordone-breaks-from-his-agenda/"
+          }
+        ]
+      },
+      "right": {
+        "framing": "Right covers the announcement as a straightforward campaign entry, noting Darline's pivot to domestic issues over Iran-war hawkishness and framing her break from Lindsey's foreign policy as a mainstream conservative position. Fox and WashEx treat Trump's involvement as normal endorsement activity rather than a surprise.",
+        "sources": [
+          {
+            "name": "Fox News Politics",
+            "url": "https://www.foxnews.com/elections/2026/primary-results"
+          },
+          {
+            "name": "Washington Examiner",
+            "url": "https://www.washingtonexaminer.com/news/campaigns/congressional/4460164/trump-endorsement-tracker-gop-2026-election-primaries/"
+          }
+        ]
+      }
+    },
+    {
+      "title": "Vance vs. Rubio: Old-Guard GOP Quietly Positions for 2028",
+      "topic_key": "vance-rubio-2028-positioning-aug3",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New \u2014 first appearance",
+      "summary": "Major GOP donors and media figures are signaling alignment with Secretary of State Marco Rubio over VP JD Vance for 2028. Ken Griffin and Rupert Murdoch have both told Trump that Rubio is the stronger candidate, while an Axios/WSJ report reveals the pre-Trump GOP establishment is organizing against Vance. Vance's Iran war skepticism and nationalist positioning are fueling the friction.",
+      "correlation": 65,
+      "correlation_label": "Both sides acknowledge the donor-media signals; left frames it as Vance isolation and establishment pushback, right treats it as a celebration of Rubio's rising stature.",
+      "left": {
+        "framing": "Left and center coverage emphasizes that the old Republican establishment \u2014 the same donors who backed pre-Trump candidates \u2014 is quietly mobilizing against Vance, viewing his nationalist-populist positioning as an electoral liability. Axios frames this as the GOP's internal civil war extending into 2028 planning.",
+        "sources": [
+          {
+            "name": "Axios Politics",
+            "url": "https://www.axios.com/2026/08/02/vance-wsj-trump-rubio-2028"
+          }
+        ]
+      },
+      "right": {
+        "framing": "Right-center coverage focuses on Rubio's strong performance as Secretary of State and his growing credibility, framing donor backing as earned rather than as a move against Vance. WashEx profiles Rubio's rising presidential prospects as a natural result of his diplomacy record.",
+        "sources": [
+          {
+            "name": "Washington Examiner",
+            "url": "https://www.washingtonexaminer.com/in_focus/4671382/why-marco-rubio-is-rising/"
+          }
+        ]
+      }
+    },
+    {
+      "title": "Cornyn-DOJ Deal Clears Path for Blanche AG Nomination",
+      "topic_key": "cornyn-deal-blanche-ag-path-clear-aug3",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New \u2014 first appearance",
+      "summary": "After weeks of standoff, Sen. John Cornyn reached an agreement with the Justice Department that clears Todd Blanche's path to Senate Judiciary Committee confirmation as Attorney General. The deal involved the administration agreeing to rescind the $1.8 billion anti-weaponization fund \u2014 a pool of money Trump had established for people he considers victims of political persecution \u2014 that Republican holdouts Cornyn and Tillis had demanded be dismantled before they'd vote yes.",
+      "correlation": 55,
+      "correlation_label": "Both sides confirm the deal was reached; left frames it as Trump being humiliated and forced to capitulate, right frames it as a straightforward nomination resolution moving forward.",
+      "left": {
+        "framing": "Left coverage emphasizes Trump's public rage at the senators, calling the capitulation an 'epic humiliation' and highlighting the $1.8B fund as a symptom of Trump using DOJ as a personal protection racket. New Republic and Axios note the deal represents a GOP senate asserting rare institutional independence against the White House.",
+        "sources": [
+          {
+            "name": "Axios Politics",
+            "url": "https://www.axios.com/2026/08/01/blanche-tillis-trump-anti-weaponization-fund"
+          },
+          {
+            "name": "The New Republic",
+            "url": "https://newrepublic.com/article/213851/transcript-trump-rages-gop-sen-nukes-irs-fund-epic-humiliation"
+          }
+        ]
+      },
+      "right": {
+        "framing": "Right coverage focuses on the practical result: the deal is done, the nomination is back on track, and the committee vote is proceeding as planned before recess. Townhall declares the nomination 'won't be sunk' and WashEx treats Cornyn's deal as successful oversight \u2014 senators doing their job without dramatizing it.",
+        "sources": [
+          {
+            "name": "Washington Examiner",
+            "url": "https://www.washingtonexaminer.com/news/senate/4670112/cornyn-reaches-deal-doj-todd-blanche-nomination-vote/"
+          },
+          {
+            "name": "Townhall",
+            "url": "https://townhall.com/news/mattvespa/2026/08/03/it-looks-like-todd-blanches-ag-nomination-wont-be-sunk-in-committee-n2680555"
+          }
+        ]
+      }
+    },
+    {
+      "title": "Michigan Democratic Senate Primary Eve: El-Sayed Leads by Double Digits",
+      "topic_key": "michigan-primary-eve-el-sayed-aug3",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New \u2014 first appearance",
+      "summary": "On the eve of the August 4 Michigan Democratic Senate primary, progressive insurgent Abdul El-Sayed holds double-digit polling leads over establishment candidate Rep. Haley Stevens. El-Sayed, backed by Bernie Sanders, AOC, Elizabeth Warren, and the UAW, leads by 11-15 points in the most recent surveys. The race is the highest-profile test of whether a DSA-aligned candidate can win a purple-state Senate primary.",
+      "correlation": 52,
+      "correlation_label": "Both sides report the polling and the progressive-vs-establishment framing; left focuses on democratic momentum and party renewal, right focuses on socialist threat to Dem electability in November.",
+      "left": {
+        "framing": "Left coverage treats El-Sayed's lead as an expression of Democratic voters' genuine leftward movement, noting that establishment credibility collapsed after 2024 losses. CNN, Slate, and the Free Press explore whether Michigan black voters \u2014 traditionally key for Stevens \u2014 are shifting. NBC frames the race as Dems working out what vision can lead the party back to power.",
+        "sources": [
+          {
+            "name": "CNN Politics",
+            "url": "https://www.cnn.com/2026/08/02/politics/democratic-socialists-wisconsin-francesca-hong"
+          },
+          {
+            "name": "Slate",
+            "url": "https://slate.com/news-and-politics/2026/08/michigan-primary-democrats-republicans-senate-future.html"
+          },
+          {
+            "name": "The Free Press",
+            "url": "https://www.thefp.com/p/michigan-senate-race-black-voters"
+          }
+        ]
+      },
+      "right": {
+        "framing": "Right coverage frames El-Sayed's surge as Dems choosing a radical who will be unelectable in a swing state. Breitbart and Fox describe the primary as 'Democrats' civil war' and the 'socialist takeover of Michigan,' warning that an El-Sayed win would be a Republican gift in the general.",
+        "sources": [
+          {
+            "name": "Breitbart",
+            "url": "https://www.breitbart.com/politics/2026/07/29/establishment-democrats-make-last-stand-socialist-takeover-michigan/"
+          },
+          {
+            "name": "Fox News Politics",
+            "url": "https://www.foxnews.com/politics/democrats-civil-war-heads-michigan-progressives-face-biggest-test-high-stakes-senate-showdown"
+          }
+        ]
+      }
+    },
+    {
+      "title": "Francesca Hong: Wisconsin's Democratic Socialist Governor Primary Frontrunner",
+      "topic_key": "hong-wisconsin-dem-governor-aug3",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New \u2014 first appearance",
+      "summary": "Wisconsin state Assemblywoman Francesca Hong, a democratic socialist, has emerged as the frontrunner in the August 11 Democratic gubernatorial primary after her top two rivals imploded. Hong's 2026 questionnaire affirming her commitment to 'police and prison abolition' has become a flashpoint. If she wins the primary, she will face an uphill battle in the general election in a perennial presidential battleground \u2014 making Wisconsin a defining test of whether democratic socialism can win statewide.",
+      "correlation": 48,
+      "correlation_label": "Both cover the same candidate in the same primary; left frames her as a credible progressive test case, right warns she is a dangerous radical whom the GOP must defeat.",
+      "left": {
+        "framing": "CNN and NBC frame Hong's rise as a logical extension of the progressive primary wave, noting her rivals' implosions were self-inflicted. Coverage asks whether the progressive insurgency that won primaries in deep-blue districts can expand to a swing-state general election.",
+        "sources": [
+          {
+            "name": "CNN Politics",
+            "url": "https://us.cnn.com/2026/08/02/politics/democratic-socialists-wisconsin-francesca-hong"
+          },
+          {
+            "name": "NBC News Politics",
+            "url": "https://www.nbcnews.com/politics/2026-election"
+          }
+        ]
+      },
+      "right": {
+        "framing": "Townhall leads with Hong's police and prison abolition positions, urging Wisconsin Republicans not to underestimate her. WashEx covers the DSA barnstorming campaign to maximize collective influence, framing Hong as part of a coordinated socialist push for power.",
+        "sources": [
+          {
+            "name": "Townhall",
+            "url": "https://townhall.com/news/amy-curtis/2026/08/01/sat-vip-please-take-hong-seriously-n2680476"
+          },
+          {
+            "name": "Washington Examiner",
+            "url": "https://www.washingtonexaminer.com/news/campaigns/congressional/4671147/left-wing-candidates-flock-allies-campaign-trail-maximize-collective-influence/"
+          }
+        ]
+      }
+    },
+    {
+      "title": "Trump-Thune Rift Deepens: SAVE Act Standoff Threatens Senate Recess",
+      "topic_key": "trump-thune-save-act-senate-recess-aug3",
+      "days_seen": 2,
+      "relevance": 70,
+      "relevance_label": "Recurring \u2014 day 2",
+      "summary": "The standoff between Trump and Senate Majority Leader John Thune has intensified over the SAVE America Act \u2014 voter ID legislation that Trump demands the Senate pass before August recess. Sen. Mike Lee is threatening to block unanimous consent to adjourn, potentially forcing senators to stay in Washington. The rift, described by multiple outlets as a 'civil war,' reflects broader Republican tension as senators seek distance from the president with 100 days to midterms.",
+      "correlation": 42,
+      "correlation_label": "Both sides see genuine tension; left attributes it to Trump's unreasonable demands and liability to the party, right attributes it to Senate leaders failing the MAGA base on a popular policy.",
+      "left": {
+        "framing": "CNN, Daily Beast, and Axios frame the rift as a full-blown civil war \u2014 dangerous for GOP midterm prospects, with senators growing anxious about Trump as a liability. The Hill notes Trump's approval among GOP base is falling precisely as senators need unity.",
+        "sources": [
+          {
+            "name": "CNN Politics",
+            "url": "https://www.cnn.com/2026/08/02/politics/video/trump-and-thune-are-on-the-outs-vrtc"
+          },
+          {
+            "name": "The Daily Beast",
+            "url": "https://www.thedailybeast.com/trump-and-john-thune-throw-gop-into-full-blown-civil-war/"
+          },
+          {
+            "name": "Axios Politics",
+            "url": "https://www.axios.com/2026/07/31/senate-gop-august-recess-trump-maga-save-act"
+          }
+        ]
+      },
+      "right": {
+        "framing": "RCP and WashEx frame Cornyn and Thune as epitomizing GOP leadership's contempt for the base \u2014 failing to deliver on SAVE Act while the Senate takes its fifth consecutive August recess. Right-leaning commentary is more frustrated at the senators than at Trump.",
+        "sources": [
+          {
+            "name": "RealClearPolitics",
+            "url": "https://www.realclearpolitics.com/2026/08/02/cornyn_tillis_epitomize_the_gops_hatred_for_its_voters_706788.html"
+          },
+          {
+            "name": "Washington Examiner",
+            "url": "https://www.washingtonexaminer.com/news/campaigns/congressional/4670776/save-america-act-midterm-elections/"
+          }
+        ]
+      }
+    },
+    {
+      "title": "Trump Calls Off WWII-Scale Iran Strike; Talks Resume for 8th Time",
+      "topic_key": "trump-iran-wwii-strike-calloff-aug3",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New \u2014 first appearance",
+      "summary": "President Trump called off what the Pentagon had described as the largest planned US military strike since World War II, saying Gulf allies Saudi Arabia and the UAE \u2014 alongside Iranian mediators \u2014 urged restraint. Iran agreed in principle to resume negotiations over the Strait of Hormuz and its nuclear program. This is at minimum the eighth time Trump has paused strikes to allow diplomatic talks, which have repeatedly broken down over Hormuz access disputes.",
+      "correlation": 35,
+      "correlation_label": "Left and right report the same facts but reach nearly opposite conclusions: left emphasizes a recurring pattern of bluster and retreat, right frames each pause as diplomacy working.",
+      "left": {
+        "framing": "Left coverage emphasizes this is the eighth cycle of the same pattern \u2014 Trump threatens a strike, gets credit for restraint, talks collapse when Iran resumes Hormuz restrictions, and the cycle restarts. The Daily Beast calls it an 'awkward bait and switch.' The Hill and NBC focus on the mediator-driven nature of the pause, not Trump's strategic achievement.",
+        "sources": [
+          {
+            "name": "NBC News Politics",
+            "url": "https://www.nbcnews.com/politics/trump-administration/live-blog/trump-congress-iran-blanche-2026-midterm-doj-israel-live-updates-rcna590515"
+          },
+          {
+            "name": "The Daily Beast",
+            "url": "https://www.thedailybeast.com/trump-awkwardly-explains-his-latest-iran-bait-and-switch/"
+          },
+          {
+            "name": "The Hill",
+            "url": "https://thehill.com/homenews/5994769-us-iran-ceasefire-negotiations-progress/"
+          }
+        ]
+      },
+      "right": {
+        "framing": "Fox and WashEx lead with Trump's assertion that a deal is 'imminent' and that Iran has agreed to full Hormuz opening \u2014 a significant concession. The narrative emphasizes Trump's willingness to use maximum pressure while avoiding a catastrophic escalation. AmCon offers a more skeptical right-flank view, noting the munitions shortage driving hesitancy.",
+        "sources": [
+          {
+            "name": "Fox News Politics",
+            "url": "https://www.foxnews.com/live-news/trump-iran-war-israel-hormuz-august-2"
+          },
+          {
+            "name": "Washington Examiner",
+            "url": "https://www.washingtonexaminer.com/daily-on-defense/4672412/trump-called-off-wwii-level-strike-request-gulf-allies-iran/"
+          },
+          {
+            "name": "The American Conservative",
+            "url": "https://www.theamericanconservative.com/the-real-munitions-shortage-transcends-the-iran-war/"
+          }
+        ]
+      }
+    }
+  ],
+  "gap_left": [
+    {
+      "title": "Max Miller's Ohio House Race in Jeopardy Over Domestic Abuse Allegations",
+      "topic_key": "max-miller-ohio-abuse-aug3",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New \u2014 first appearance",
+      "summary": "Rep. Max Miller (R-OH) is facing intensifying scrutiny in his Ohio House race after renewed domestic abuse allegations entered the public record. The New Republic reports that Democratic challenger Brian Poindexter is now competitive in what had been considered a safely red seat, with Miller's legal and personal baggage turning a GOP hold into a potential flip. The race has received no coverage in right-leaning outlets reviewed this cycle.",
+      "sources": [
+        {
+          "name": "The Hill",
+          "url": "https://thehill.com/homenews/house/6003049-miller-abuse-allegations-ohio-house-race/"
+        },
+        {
+          "name": "The New Republic",
+          "url": "https://newrepublic.com/article/213850/max-miller-brian-poindexter-ohio"
+        }
+      ]
+    },
+    {
+      "title": "Mitch McConnell Missing From Fancy Farm for First Time in 40+ Years",
+      "topic_key": "mcconnell-health-fancy-farm-aug3",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New \u2014 first appearance",
+      "summary": "Sen. Mitch McConnell, 84, did not appear at Kentucky's Fancy Farm political picnic \u2014 a major annual event he has attended for over 40 consecutive years. His absence prompted 'Where's Mitch?' chants from the crowd. McConnell has not been seen in public for 50 days. His office has provided no explanation, and his health status remains entirely undisclosed. Right-leaning outlets covered neither the absence nor his health.",
+      "sources": [
+        {
+          "name": "The Daily Beast",
+          "url": "https://www.thedailybeast.com/wheres-mitch-chants-erupt-at-major-kentucky-political-event/"
+        }
+      ]
+    },
+    {
+      "title": "Poll: 2 in 3 Americans Fear Political Leaders Will Pressure Election Officials",
+      "topic_key": "election-security-gallup-67pct-aug3",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New \u2014 first appearance",
+      "summary": "A new Gallup/Kettering Foundation survey finds 67% of American adults are concerned 'a great deal' or 'a fair amount' that political leaders will pressure election officials to change election outcomes. The finding lands 100 days before midterms and tracks with earlier Gallup data showing record-low trust in elections. Right-leaning outlets reviewed did not cover this poll result.",
+      "sources": [
+        {
+          "name": "The Hill",
+          "url": "https://thehill.com/homenews/campaign/6000800-midterm-elections-security-concerns-poll/"
+        }
+      ]
+    },
+    {
+      "title": "ICE Raids Traumatizing Chicago Communities, Gov. Pritzker Warns of Military Election Interference",
+      "topic_key": "ice-raids-chicago-pritzker-aug3",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New \u2014 first appearance",
+      "summary": "Illinois Gov. JB Pritzker appeared on MSNBC to describe Chicago residents as 'traumatized' by ongoing ICE enforcement operations in the city. Pritzker also warned that Trump may attempt to use the US military to interfere in the 2026 election \u2014 a concern he says is not hypothetical. Right-leaning outlets reviewed did not cover Pritzker's military election warning.",
+      "sources": [
+        {
+          "name": "MSNBC",
+          "url": "https://www.msnbc.com/msnbc-podcast/the-best-people-with-nicolle-wallace/jb-pritzker-ice-raids-chicago-people-are-traumatized-rcna240022"
+        }
+      ]
+    },
+    {
+      "title": "SCOTUS Redistricting Case Could Gut Voting Rights Act Before 2026 Midterms",
+      "topic_key": "scotus-redistricting-vra-threat-aug3",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New \u2014 first appearance",
+      "summary": "MSNBC opinion analysis argues the Supreme Court has transformed a Louisiana redistricting case into a vehicle to eliminate the remaining key section of the Voting Rights Act. The court has scheduled oral argument for October \u2014 potentially yielding a ruling in time for states to redraw congressional maps before the November 2026 elections. The story has not surfaced in right-leaning outlets reviewed this cycle.",
+      "sources": [
+        {
+          "name": "MSNBC",
+          "url": "https://www.msnbc.com/opinion/msnbc-opinion/supreme-court-voting-rights-redistricting-roberts-rcna235949"
+        }
+      ]
+    },
+    {
+      "title": "Top US General in Europe Warns Pentagon of Missile Defense Resource Gap",
+      "topic_key": "top-general-missile-shortage-warning-aug3",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New \u2014 first appearance",
+      "summary": "The top US general in Europe, Gen. Alexus Grynkewich, has sent a private warning to the Pentagon that he may soon lack the resources to defend both the United States and Israel from Iranian ballistic missiles simultaneously. The warning underscores the munitions strain from the ongoing conflict. Right-leaning outlets focused on the Iran diplomatic progress rather than the military strain angle.",
+      "sources": [
+        {
+          "name": "The Daily Beast",
+          "url": "https://www.thedailybeast.com/top-general-warns-white-house-of-major-red-flag/"
+        }
+      ]
+    },
+    {
+      "title": "Dem Red-State Senate Strategy Hits New Hurdles Despite Competitive Polling",
+      "topic_key": "democrats-senate-red-state-hurdles-aug3",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New \u2014 first appearance",
+      "summary": "CNN reports that while Democrats have successfully put red states like Texas, Nebraska, and Ohio in play, fresh obstacles have emerged that polling alone cannot solve: candidate quality concerns, progressive-establishment friction, and the Dem 'red-state strategy' of clearing the way for independents in states like Nebraska. The story emphasizes that Senate map expansion may be insufficient to overcome structural disadvantages. Right outlets did not cover this framing.",
+      "sources": [
+        {
+          "name": "CNN Politics",
+          "url": "https://www.cnn.com/2026/08/03/politics/democrats-midterms-senate"
+        },
+        {
+          "name": "NBC News Politics",
+          "url": "https://www.nbcnews.com/politics/2026-election"
+        }
+      ]
+    }
+  ],
+  "gap_right": [
+    {
+      "title": "Smithsonian America 250 Exhibit Alleged to Feature Heavy Left-Wing Bias",
+      "topic_key": "smithsonian-america250-leftist-bias-aug3",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New \u2014 first appearance",
+      "summary": "An internal report reviewed by Breitbart claims that the Smithsonian's America 250 anniversary exhibit \u2014 commemorating the nation's 250th year \u2014 features leftist artifacts and themes that significantly outweigh conservative or traditional perspectives. The story has been covered exclusively by right-leaning media and has received no response from the Smithsonian in coverage reviewed.",
+      "sources": [
+        {
+          "name": "Breitbart",
+          "url": "https://www.breitbart.com/politics/2026/08/01/report-smithsonians-america-250-exhibit-leftist-items-far-outweigh-conservative-objects/"
+        }
+      ]
+    },
+    {
+      "title": "Joe Manchin Launches Independent Leadership Council to Back Non-Party Candidates",
+      "topic_key": "manchin-independent-leadership-council-aug3",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New \u2014 first appearance",
+      "summary": "Former Sen. Joe Manchin, now an independent, has launched the Independent Leadership Council \u2014 a new organization merging his Americans Together group with the Independent Center \u2014 aimed at recruiting and backing independent candidates in 2026 and beyond. Manchin says the two-party system has 'choked out' independent voices and that the midterms represent an opportunity to grow an independent bloc in Congress. Left-leaning outlets did not cover this launch.",
+      "sources": [
+        {
+          "name": "Washington Examiner",
+          "url": "https://www.washingtonexaminer.com/news/campaigns/congressional/4672295/joe-manchin-two-party-system-independents-elect-more/"
+        }
+      ]
+    },
+    {
+      "title": "Trump Endorses Mike Lindell for Minnesota Governor; State GOP Chair Breaks Ranks",
+      "topic_key": "lindell-minnesota-governor-aug3",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New \u2014 first appearance",
+      "summary": "RealClearPolitics reports that President Trump has endorsed MyPillow CEO Mike Lindell for the Minnesota Republican gubernatorial nomination, but the state GOP chair has publicly disagreed with the endorsement, asserting Lindell cannot win a general election. Better-positioned candidates include businessman Kendall Qualls and Minnesota House Speaker Lisa Demuth. The race highlights the tension between Trump loyalty tests and electability concerns.",
+      "sources": [
+        {
+          "name": "RealClearPolitics",
+          "url": "https://www.realclearpolitics.com/articles/2026/08/03/republicans_wont_flip_minnesota_with_mike_lindell_154388.html"
+        }
+      ]
+    },
+    {
+      "title": "Sophie Cunningham Defends Women's Sports Against Trans Inclusion; WNBA Responds",
+      "topic_key": "cunningham-trans-sports-wnba-aug3",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New \u2014 first appearance",
+      "summary": "WNBA star Sophie Cunningham made national headlines after supporting state bans on transgender athletes in women's sports in an ESPN interview, prompting the Minnesota Lynx to respond. The American Spectator frames her stand as courageous against a 'trans sports mob,' noting a 2025 Gallup poll finding 69% of Americans believe transgender athletes should compete only on teams matching their birth gender. Left outlets did not cover this story in the window reviewed.",
+      "sources": [
+        {
+          "name": "The American Spectator",
+          "url": "https://spectator.org/sophie-cunningham-vs-the-trans-sports-mob/"
+        }
+      ]
+    },
+    {
+      "title": "Republicans Launch Ad Campaign Targeting NH Dem Rep. Pappas for Senate",
+      "topic_key": "nh-senate-pappas-gop-targeting-aug3",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New \u2014 first appearance",
+      "summary": "With New Hampshire's open Senate seat now in play, Republicans have launched a new ad campaign targeting Democratic Rep. Chris Pappas as part of a broader effort to expand the GOP Senate map. Daily Wire reports that with Republicans holding a 53-47 Senate majority, New Hampshire could be a decisive seat. The race has received no fresh coverage in left-leaning outlets in the window reviewed.",
+      "sources": [
+        {
+          "name": "The Daily Wire",
+          "url": "https://www.dailywire.com/news/exclusive-republicans-make-their-move-in-one-of-2026s-most-competitive-senate-races"
+        }
+      ]
+    },
+    {
+      "title": "Newsom Sets California Special Election to Fill Swalwell's Congressional Seat",
+      "topic_key": "swalwell-ca-special-election-aug18-aug3",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New \u2014 first appearance",
+      "summary": "California Gov. Gavin Newsom has set an August 18 special election to fill the 14th Congressional District seat left vacant by Rep. Eric Swalwell's resignation. Fox News covers this as a Democratic Party logistics story, noting the compressed timeline. Left-leaning outlets have not covered this development in the harvest window reviewed.",
+      "sources": [
+        {
+          "name": "Fox News Politics",
+          "url": "https://www.foxnews.com/politics/gavin-newsom-sets-august-2026-special-election-fill-eric-swalwells-vacant-congressional-seat"
+        }
+      ]
+    },
+    {
+      "title": "Federalist: James Talarico Running Contradictory Texas Senate Campaign",
+      "topic_key": "talarico-texas-senate-contradictory-aug3",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New \u2014 first appearance",
+      "summary": "The Federalist reports that Democratic Texas Senate candidate James Talarico is running what it characterizes as a deliberately contradictory campaign \u2014 presenting himself as a moderate 'good ol' boy' on the trail while hiding his documented progressive record. The piece also notes that a Democratic ally, TX-35 nominee Johnny Garcia, has removed a Talarico endorsement from his campaign website. This critical coverage of Talarico's positioning is exclusive to right-leaning outlets in the window reviewed.",
+      "sources": [
+        {
+          "name": "The Federalist",
+          "url": "https://thefederalist.com/2026/08/03/suddenly-james-talarico-is-a-good-ol-boy-who-hates-taxes/"
+        },
+        {
+          "name": "Townhall",
+          "url": "https://townhall.com/news/josephchalfant/2026/08/01/texas-dem-johnny-garcia-hides-james-talaricos-endorsement-from-his-campaign-website-n2680519"
+        }
+      ]
+    }
+  ],
+  "suggestions": [
+    {
+      "name": "The Intercept",
+      "lean": "left",
+      "search_domain": "theintercept.com",
+      "accessible": true,
+      "rationale": "Hard-left investigative reporting on AIPAC money, DSA primaries, Palestine policy \u2014 fills a depth gap in the current left roster."
+    },
+    {
+      "name": "Just The News",
+      "lean": "right",
+      "search_domain": "justthenews.com",
+      "accessible": true,
+      "rationale": "Right-center straight news reporting; complements opinion-heavy right roster with factual-style coverage."
+    },
+    {
+      "name": "Reason",
+      "lean": "center",
+      "search_domain": "reason.com",
+      "accessible": true,
+      "rationale": "Libertarian center voice covering tariffs, SCOTUS/executive power, election reform \u2014 perspective not currently in the roster."
+    }
+  ]
+}

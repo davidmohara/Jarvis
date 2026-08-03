@@ -1,0 +1,15 @@
+{
+  "id": "err-20260803T142910-W5GDOX",
+  "timestamp": "2026-08-03T14:29:10Z",
+  "session": "session-2026-08-03-091450",
+  "source": "explicit",
+  "agent": "master",
+  "category": "data-accuracy",
+  "description": "Surfaced 'Ask Dr. Easton about nerve-modulating drugs (gabapentin/Lyrica) to replace NSAID regimen' as an overdue OmniFocus item in the boot briefing. David confirmed this task is already completed in OmniFocus and should not have been listed as an open, stale, overdue item.",
+  "correction": "The task is completed, not overdue. Do not resurface it in future briefings.",
+  "failure_mode": "Trusted OmniFocus MCP completion status without adequately treating it as unreliable per standing rule — listed a stale-dated item as overdue without verifying current completion state, and generic caveat language wasn't sufficient to prevent the wrong item type from being surfaced.",
+  "systemic_fix": "When an OmniFocus item has a due date more than ~2-3 weeks in the past with no other activity signal, treat it as higher-risk for stale/incorrect completion status and either re-verify directly before surfacing, or exclude items past a staleness threshold from the 'overdue' briefing section entirely, routing them to a lower-confidence 'possibly stale' note instead.",
+  "fix_status": "proposed",
+  "severity": "minor",
+  "related_entries": []
+}

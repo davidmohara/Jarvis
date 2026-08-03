@@ -1,0 +1,28 @@
+{
+  "date": "2026-08-03",
+  "generated": "2026-08-03T08:30:00Z",
+  "note": "Monday weekly source suggestions — 3 vetted candidates, all confirmed accessible via WebSearch probe.",
+  "candidates": [
+    {
+      "name": "The Intercept",
+      "lean": "left",
+      "search_domain": "theintercept.com",
+      "accessible": true,
+      "rationale": "Fills an underrepresented hard-left beat with original reporting on AIPAC campaign finance, DSA primary mechanics, and Palestine-Israel policy intersections. Returns rich, dateable political content (Aug 1 articles confirmed). The current left roster lacks investigative depth on money-in-politics; Intercept would add it."
+    },
+    {
+      "name": "Just The News",
+      "lean": "right",
+      "search_domain": "justthenews.com",
+      "accessible": true,
+      "rationale": "Fills a right-center news hole with straight-news reporting (as opposed to opinion). Confirmed accessible with Aug 3 content on Blanche, Max Miller, Michigan primaries, government funding. Complements the existing right opinion-heavy roster with more factual-style coverage."
+    },
+    {
+      "name": "Reason",
+      "lean": "center",
+      "search_domain": "reason.com",
+      "accessible": true,
+      "rationale": "Adds a libertarian-leaning center voice not currently in the roster. Covers tariff economics, SCOTUS/executive power, and election reform from a civil-liberties-first lens that neither the existing left nor right sources provide. Confirmed accessible with Aug 2026 content."
+    }
+  ]
+}

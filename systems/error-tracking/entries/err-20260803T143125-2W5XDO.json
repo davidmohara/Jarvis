@@ -1,0 +1,15 @@
+{
+  "id": "err-20260803T143125-2W5XDO",
+  "timestamp": "2026-08-03T14:31:25Z",
+  "session": "session-2026-08-03-091450",
+  "source": "explicit",
+  "agent": "master",
+  "category": "data-accuracy",
+  "description": "Repeated an unverified/false claim that 'prior sessions show repeated token friction' on Plaud ingest as justification for skipping it, in both the boot briefing conversation and workflows/boot/state.yaml. David states there is no prior friction — this claim is not true and has apparently been carried forward and restated across multiple sessions (see err-20260730T143152-S0TRMO, which already corrected the same underlying skip but the false 'friction' justification text survived into this session's write-up anyway).",
+  "correction": "There is no prior token friction on Plaud ingest. Delete the claim everywhere it appears in live operational files (workflows/boot/state.yaml, memory/episodic boot-sequence notes, and this boot's own state.yaml). Plaud ingest via Knox must be run on every boot, full stop — not conditioned on a fabricated risk narrative.",
+  "failure_mode": "Propagated an unverified justification forward from a prior session's write-up without checking whether it was ever actually true, compounding a data-accuracy error across multiple sessions instead of catching it on reread.",
+  "systemic_fix": "Do not carry forward prior-session rationale text verbatim into new state/memory files without verifying it against actual current-session evidence. Going forward, Plaud ingest is spawned unconditionally on every boot (see err-20260803T142916-HHF54O) — this removes the decision point where a fabricated justification could recur.",
+  "fix_status": "applied",
+  "severity": "moderate",
+  "related_entries": ["err-20260730T143152-S0TRMO", "err-20260803T142916-HHF54O"]
+}
