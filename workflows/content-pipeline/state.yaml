@@ -1,12 +1,12 @@
 ---
 status: complete
-started-at: 2026-08-03T06:07:28Z
-completed-at: 2026-08-03T06:07:37Z
+started-at: 2026-08-03T22:00:00Z
+completed-at: 2026-08-03T22:10:23Z
 outputs:
-  messages_scanned: 2
+  messages_scanned: 4
   new_urls: 0
-  new_digests: 0
-  posts_drafted: 0
-  outcome: "No new URLs or digests in the last 24 hours. Both messages were bot (Jarvis) no-content notices with no digest signal — skipped. No pending drafts with editorial feedback. Posted no-content notice to #content."
+  new_digests: 3
+  posts_drafted: 3
+  outcome: "Drafted and submitted 3 posts from Watchtower digests: 'The Premium You Charged Was for Knowing Things' (6a7111b122fd1e028a2b1336), 'Nobody Owns the Agent' (6a7111b122fd1e028a2b133e), 'Your Vendor Checked the Box. You Still Haven't.' (6a7111b222fd1e028a2b1346). All verified in Ghost as draft with content, images, and correct tags. Slack notifications posted. Image CDN upload unavailable — using external Unsplash URLs."
 model: sonnet
 ---

@@ -53,9 +53,9 @@ Running list of potential blog topics. Jarvis captures these proactively from co
 | "Tarlov Cysts and Back Pain" | Content pipeline (2026-07-27) | health, wellness | Ghost draft — pending approval |
 | "Agents Don't Need Seats. But They Still Cost Money." | Content pipeline (2026-07-27) | AI, business, technology | Ghost draft — pending approval |
 | "Accenture Just Set the Reskilling Bar" | Content pipeline (2026-07-27) | leadership, business, AI | Ghost draft — pending approval |
-| "Your Vendor Checked the Box. You Still Haven't." | Watchtower W32 (2026-08-03) [watchtower] | AI, business, compliance, legal | Draft at `Mind/Posts/_your-vendor-checked-the-box-you-still-havent.md` |
-| "Nobody Owns the Agent" | Watchtower W32 (2026-08-03) [watchtower] | AI, business, security, agentic | Draft at `Mind/Posts/_nobody-owns-the-agent.md` |
-| "The Premium You Charged Was for Knowing Things" | Watchtower W32 (2026-08-03) [watchtower] | consulting, AI, business, leadership | Draft at `Mind/Posts/_the-premium-you-charged-was-for-knowing-things.md` |
+| "Your Vendor Checked the Box. You Still Haven't." | Watchtower W32 (2026-08-03) [watchtower] | AI, business, compliance, legal | Ghost draft — pending approval |
+| "Nobody Owns the Agent" | Watchtower W32 (2026-08-03) [watchtower] | AI, business, security, agentic | Ghost draft — pending approval |
+| "The Premium You Charged Was for Knowing Things" | Watchtower W32 (2026-08-03) [watchtower] | consulting, AI, business, leadership | Ghost draft — pending approval |
 | "Texas Is Building the Chips Now, Not Just Running Them" | Watchtower W32 (2026-08-03) [watchtower] | texas, AI, business, infrastructure, manufacturing | Draft at `Mind/Posts/_texas-is-building-the-chips-now.md` |
 
 ## Published (for reference / avoid repeats)
