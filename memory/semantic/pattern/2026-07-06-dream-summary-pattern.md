@@ -5,8 +5,8 @@ tag: dream-summary
 domain: pattern
 confidence: medium
 created: 2026-07-06
-last-updated: 2026-08-01
-synthesized-from: 14 episodic entries
+last-updated: 2026-08-04
+synthesized-from: 15 episodic entries
 tags:
   - dream-summary
 ---
@@ -112,6 +112,12 @@ Sources this cycle:
 - `memory/episodic/dream-summary-2026-07-29.md` (score 7) — tags: dream-summary, jarvis, memory, co-sell-pipeline, semantic, lessons, carry-forward, q3-rocks
 
 Three consecutive dream summaries promoted. Jul 30 cycle (largest in recent history): 11 promoted entries, 20 entries compressed (first Q2-digest compression run), 1 semantic updated. The salience-score.py merge-write fix holding through the Jul 30 cycle — 0 re-flags from backlog that weren't already promoted=true, confirming the structural fix is stable. Carry-forward triad (Q3 rocks week 6, nerve block, delegation tracker) persists unchanged across all three sources — now 6+ consecutive cycles with no resolution trend in any data source.
+
+### 2026-08-04 — Nightly promotion
+Sources this cycle:
+- `memory/episodic/dream-summary-2026-08-02.md` (score 10) — tags: dream-summary, jarvis, memory-consolidation, salience-scoring, semantic-promotion, one-texas, cole-estrate, delegation, carry-forward. Aug 2 cycle: 3 archived (daily-review-07-30, master-boot-sequence-07-30, session-wrapup-07-30), 234 scored, 3 semantic updated, 0 compressed. salience-score.py merge-write fix holding. Carry-forward triad persists: Q3 rocks unwritten (week 9), nerve block unscheduled, delegation tracker empty. Additional signals: Cole Estrate follow-up now 5+ days overdue on active xAI partner track; Forgiveness Letter third deferral; South Texas -21.5% QTD watch item; 3 unassigned leads at 160+ days.
+
+Carry-forward triad (Q3 rocks, nerve block, delegation tracker) is now confirmed across 10+ consecutive dream summaries with zero resolution trend — this is the longest unbroken streak in semantic memory for any operational item. Cole Estrate / xAI active partner track is now also a chronic signal (drafted-but-unsent follow-up declared in week 5 of a live pursuit). One Texas South Texas pipeline is newly degraded and enters the carry-forward cluster for the first time.
 
 ### 2026-08-01 — Nightly promotion
 Sources this cycle:

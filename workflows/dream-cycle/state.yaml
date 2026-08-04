@@ -1,49 +1,76 @@
 workflow: dream-cycle
 agent: jarvis
 status: complete
-session-started: 2026-08-03T03:08:43-05:00
-session-id: dream-cycle-2026-08-03-030843
+session-started: 2026-08-04T03:09:50-05:00
+session-id: dream-cycle-2026-08-04-030950
 current-step: null
-original-request: Scheduled dream cycle run (automated) - 2026-08-03
+original-request: Scheduled dream cycle run (automated) - 2026-08-04
 accumulated-context:
   git_pull_at_boot: success
-  git_pull_note: "Fast-forward ca58708..74ac963 — reviews/weekly/2026-W31.md added"
-  working_archived: 3
+  git_pull_note: "Pre-committed 4 unstaged files first, then pull already up to date"
+  working_archived: 1
   working_deleted: 0
-  working_skipped: 17
+  working_skipped: 22
   working_stranded: 0
   archived_files:
-    - daily-review-2026-07-31-050000.md
-    - system-eval-2026-07-31-040608.md
-    - dream-summary-2026-08-01.md
-  episodic_scanned: 237
-  score_updates: 237
+    - dream-summary-2026-08-02.md
+  skipped_not_expired:
+    - daily-review-2026-08-03-050000.md
+    - morning-briefing-2026-08-03-060837.md
+    - revenue-tracker-2026-08-03-143245.md
+  skipped_unparseable:
+    - 2026-07-08.md
+    - 2026-07-23-215200-session-felix-derek-persona-rebuild.md
+    - 2026-07-30-morning-briefing.md
+    - golf-booking-2026-07-10-failed.md
+    - golf-booking-2026-07-11-followup.md
+    - golf-booking-COMPLETE-20260801.md
+    - golf-booking-early-run-20260730.md
+    - golf-booking-failure-20260731.md
+    - golf-booking-midnight-retry-20260801.md
+    - golf-booking-scheduling-update-20260801.md
+    - golf-booking-success-20260801.md
+    - golf-override-2026-07-14.md
+    - golf-preview-2026-07-03.md
+    - golf-preview-2026-07-14.md
+    - golf-preview-2026-07-21.md
+    - remarkable-upload-2026-07-23-improve-eval.md
+    - sc-executive-brief-2026-07-13.md
+    - slack-notification-golf-booking-20260801.txt
+    - solace-meeting-prep-2026-07-27.md
+  episodic_scanned: 238
+  score_updates: 238
   window_entries: 85
   no_date: 27
   no_tags: 194
-  score_distribution: "0:194,1:3,2:1,3:3,4:4,5:3,7:2,8:1,9:1,10:25"
+  score_distribution: "0:194,1:3,2:1,3:3,4:4,5:3,7:2,8:1,9:1,10:26"
+  clusters_found: 1
+  semantic_created: 0
+  semantic_updated: 1
+  promoted_entries: 1
+  cluster_actions:
+    - tag: dream-summary
+      domain: pattern
+      size: 1
+      action: update
+      target: memory/semantic/pattern/2026-07-06-dream-summary-pattern.md
+  errors_30d: 110
+  lessons_appended: 0
+  lessons_note: "All 7 qualifying categories already documented in LESSONS.md. No new lesson appended."
+  entries_compressed: 0
+  digests_updated: 0
+  compression_skipped: true
+  compression_note: "2 candidates only (2026-04-30 and 2026-05-04 dream-cycle-summary files) — below 5-entry safety threshold. Skipped."
+prior-run-context:
+  session_id: dream-cycle-2026-08-03-030843
+  working_archived: 3
+  working_deleted: 0
+  episodic_scanned: 237
+  score_updates: 237
   clusters_found: 0
   semantic_created: 0
   semantic_updated: 0
   promoted_entries: 0
-  errors_30d: 108
-  lessons_appended: 0
-  lessons_note: "All 8 qualifying categories already documented in LESSONS.md. No new lesson appended."
-  promotion_note: "0 candidates — 3 newly archived files scored 0 (arrived in episodic after scoring run). 3 files with score>=3 and lpc=today already promoted from prior cycles."
-  entries_compressed: 0
-  digests_updated: 0
-  compression_skipped: true
-  compression_note: "2 candidates only (2026-04-30-dream-cycle-summary.md, 2026-05-04-dream-cycle-summary.md) — below 5-entry safety threshold. Skipped."
-prior-run-context:
-  session_id: dream-cycle-2026-08-02-030839
-  working_archived: 3
-  working_deleted: 0
-  episodic_scanned: 234
-  score_updates: 234
-  clusters_found: 3
-  semantic_created: 0
-  semantic_updated: 3
-  promoted_entries: 3
   entries_compressed: 0
   digests_updated: 0
   errors: 0

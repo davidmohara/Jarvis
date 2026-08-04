@@ -25,9 +25,10 @@ related_people:
   - rebecca-maffei
   score: 0
   last-promoted-check: 2026-08-02
+  promoted: true
 salience:
   score: 9
-  last-promoted-check: 2026-08-03
+  last-promoted-check: 2026-08-04
   promoted: true
 ---
 
