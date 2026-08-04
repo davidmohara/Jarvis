@@ -1,0 +1,534 @@
+{
+  "generated": "2026-08-04T00:00:00Z",
+  "window_hours": 72,
+  "counts": {
+    "total_items": 63,
+    "by_lean": {
+      "left": 33,
+      "right": 27,
+      "center": 3
+    },
+    "shared_topics": 5,
+    "gap_left": 5,
+    "gap_right": 5
+  },
+  "sources_used": [
+    {
+      "id": "msnbc",
+      "name": "MSNBC",
+      "lean": "left"
+    },
+    {
+      "id": "cnn",
+      "name": "CNN Politics",
+      "lean": "left"
+    },
+    {
+      "id": "nbc",
+      "name": "NBC News Politics",
+      "lean": "left"
+    },
+    {
+      "id": "thehill",
+      "name": "The Hill",
+      "lean": "left"
+    },
+    {
+      "id": "axios",
+      "name": "Axios Politics",
+      "lean": "left"
+    },
+    {
+      "id": "dailybeast",
+      "name": "The Daily Beast",
+      "lean": "left"
+    },
+    {
+      "id": "slate",
+      "name": "Slate",
+      "lean": "left"
+    },
+    {
+      "id": "newrepublic",
+      "name": "The New Republic",
+      "lean": "left"
+    },
+    {
+      "id": "foxnews",
+      "name": "Fox News Politics",
+      "lean": "right"
+    },
+    {
+      "id": "natreview",
+      "name": "National Review",
+      "lean": "right"
+    },
+    {
+      "id": "examiner",
+      "name": "Washington Examiner",
+      "lean": "right"
+    },
+    {
+      "id": "federalist",
+      "name": "The Federalist",
+      "lean": "right"
+    },
+    {
+      "id": "dailywire",
+      "name": "The Daily Wire",
+      "lean": "right"
+    },
+    {
+      "id": "breitbart",
+      "name": "Breitbart",
+      "lean": "right"
+    },
+    {
+      "id": "townhall",
+      "name": "Townhall",
+      "lean": "right"
+    },
+    {
+      "id": "rcp",
+      "name": "RealClearPolitics",
+      "lean": "right"
+    },
+    {
+      "id": "amconserv",
+      "name": "The American Conservative",
+      "lean": "right"
+    },
+    {
+      "id": "spectator",
+      "name": "The American Spectator",
+      "lean": "right"
+    },
+    {
+      "id": "freepress",
+      "name": "The Free Press",
+      "lean": "center"
+    }
+  ],
+  "sources_muted": [
+    {
+      "id": "nyt",
+      "name": "New York Times",
+      "lean": "left",
+      "reason": "accessible=false"
+    },
+    {
+      "id": "wapo",
+      "name": "Washington Post",
+      "lean": "left",
+      "reason": "accessible=false"
+    },
+    {
+      "id": "politico",
+      "name": "Politico",
+      "lean": "left",
+      "reason": "accessible=false"
+    },
+    {
+      "id": "vox",
+      "name": "Vox Politics",
+      "lean": "left",
+      "reason": "accessible=false"
+    },
+    {
+      "id": "motherjones",
+      "name": "Mother Jones",
+      "lean": "left",
+      "reason": "accessible=false"
+    },
+    {
+      "id": "wsj_opinion",
+      "name": "WSJ Opinion",
+      "lean": "right",
+      "reason": "accessible=false"
+    },
+    {
+      "id": "nypost",
+      "name": "New York Post",
+      "lean": "right",
+      "reason": "accessible=false"
+    },
+    {
+      "id": "reuters",
+      "name": "Reuters Politics",
+      "lean": "center",
+      "reason": "accessible=false"
+    },
+    {
+      "id": "ap",
+      "name": "Associated Press",
+      "lean": "center",
+      "reason": "accessible=false"
+    },
+    {
+      "id": "bbc",
+      "name": "BBC US & Canada",
+      "lean": "center",
+      "reason": "accessible=false"
+    }
+  ],
+  "shared_topics": [
+    {
+      "topic_key": "trump-truth-social-api-market-access-aug4",
+      "title": "Trump Media Sells $100K/Month Real-Time API Access to Presidential Posts",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New \u2014 first appearance",
+      "summary": "Trump Media & Technology Group launched a Truth Social API on August 1, giving Wall Street firms near-instant access to the president's posts for $100,000 per month. At least five firms have signed up. The service provides real-time feeds before ordinary investors can react, allowing algorithmic trading off presidential statements. Sen. Alex Padilla introduced legislation to ban the practice; Sen. Lisa Murkowski called it ethically troubling. One Wall Street executive told NPR the arrangement 'would be considered criminal in another administration.'",
+      "correlation": 38,
+      "correlation_label": "Same underlying facts, sharply divergent narratives \u2014 left frames as corruption enabling insider trading, right treats as a market innovation story",
+      "left": {
+        "framing": "Left outlets treat the Truth Social API as straightforward corruption: a president monetizing his official communications to benefit his own company while giving wealthy traders an informational edge. Slate calls it 'every bit as corrupt as it sounds.' NBC and The Hill focus on the legislative response and ethics experts' outrage. The New Republic frames it as Trump 'blatantly manipulating markets.'",
+        "sources": [
+          {
+            "name": "Slate",
+            "url": "https://slate.com/news-and-politics/2026/08/trump-truth-social-early-access-corruption.html"
+          },
+          {
+            "name": "NBC News",
+            "url": "https://www.nbcnews.com/tech/tech-news/trump-truth-social-api-new-bill-ban-selling-fast-access-presidents-pos-rcna590640"
+          },
+          {
+            "name": "The Hill",
+            "url": "https://thehill.com/homenews/senate/5983678-traders-pay-trump-posts/"
+          }
+        ]
+      },
+      "right": {
+        "framing": "Right-leaning outlets acknowledge the service launched and note some Republican senators raised questions, but treat it primarily as a business story. The Washington Examiner covers the $100K pricing matter-of-factly. Breitbart notes the ethical questions but frames opposition as partisan. No major right outlet calls it outright corruption.",
+        "sources": [
+          {
+            "name": "Washington Examiner",
+            "url": "https://www.washingtonexaminer.com/news/white-house/4671944/truth-social-instant-access-service-launch/"
+          },
+          {
+            "name": "Breitbart",
+            "url": "https://www.breitbart.com/news/paying-for-early-access-to-trumps-truth-social-could-raise-big-money-and-major-ethical-issues/"
+          }
+        ]
+      }
+    },
+    {
+      "topic_key": "government-shutdown-cr-collins-murray-aug4",
+      "title": "Bipartisan CR Averts October Shutdown; Government Funded Through December 11",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New \u2014 first appearance",
+      "summary": "Senate leaders Susan Collins (R) and Patty Murray (D), chairs of the Appropriations Committee, struck a bipartisan continuing resolution that passed 89-4, keeping the government funded through December 11 and averting an October shutdown ahead of the midterms. The CR rejects Trump's war spending requests, blocks a White House OMB rule that would let officials cancel grants arbitrarily, and includes WIC and national security adjustments. Democrats called it a win; some MAGA conservatives complained it passed without the SAVE Act.",
+      "correlation": 62,
+      "correlation_label": "Same event, different emphasis \u2014 left credits Democratic leverage and Collins-Murray cooperation, right frames as Democrats 'blinking' to avert political damage",
+      "left": {
+        "framing": "NBC, The Hill, and CNN emphasize the bipartisan nature of the deal, Democratic demands that blocked the OMB rule, and the relief of avoiding a pre-election shutdown that would have hurt vulnerable incumbents. The shutdown avoidance is framed as a policy win.",
+        "sources": [
+          {
+            "name": "NBC News",
+            "url": "https://www.nbcnews.com/politics/congress/senate-leaders-reach-deal-avert-shutdown-2026-elections-rcna590564"
+          },
+          {
+            "name": "The Hill",
+            "url": "https://thehill.com/homenews/senate/6004900-senate-agrees-funding-bill/"
+          }
+        ]
+      },
+      "right": {
+        "framing": "Fox News headlines 'Democrats blink' as Schumer helps clear the shutdown hurdle. Townhall notes the SAVE Act is still missing from the agenda. Washington Examiner reports the deal is broadly acceptable to Republicans. The framing is that Democrats capitulated to get the deal done.",
+        "sources": [
+          {
+            "name": "Fox News",
+            "url": "https://www.foxnews.com/politics/democrats-blink-schumer-helps-gop-clear-shutdown-hurdle"
+          },
+          {
+            "name": "Townhall",
+            "url": "https://townhall.com/news/cameron-arcand/2026/08/03/government-shutdown-avoided-heres-what-to-know-n2680606"
+          }
+        ]
+      }
+    },
+    {
+      "topic_key": "mcconnell-health-fancy-farm-absence-aug4",
+      "title": "McConnell Remains in Rehab; Misses Fancy Farm for First Time in 40 Years",
+      "days_seen": 2,
+      "relevance": 70,
+      "relevance_label": "Recurring \u2014 day 2",
+      "summary": "Sen. Mitch McConnell has not appeared in public since a medical emergency on June 14. He missed the Fancy Farm picnic \u2014 Kentucky's premier political gathering \u2014 for the first time in over 40 years. His doctor said he is not yet cleared to return to the Senate. Attendees chanted 'Where's Mitch?' during the event. His absence has paralyzed the Senate Appropriations Committee, where Republicans hold only a 15-14 majority and cannot pass bills without at least one Democratic vote. Gov. Andy Beshear said an August 3 vacancy deadline had 'no legal impact.'",
+      "correlation": 72,
+      "correlation_label": "Broadly agree on facts; diverge on implications \u2014 left raises accountability and vacancy concerns, right focuses on personal sympathy and legacy",
+      "left": {
+        "framing": "The Daily Beast, The Hill, CNN, and The New Republic focus on the governance vacuum McConnell's absence creates, the lack of transparency about his condition, and the political implications of a potential Kentucky Senate vacancy. Gov. Beshear's warnings about Trump interference get prominent coverage.",
+        "sources": [
+          {
+            "name": "The Daily Beast",
+            "url": "https://www.thedailybeast.com/wheres-mitch-chants-erupt-at-major-kentucky-political-event/"
+          },
+          {
+            "name": "The Hill",
+            "url": "https://thehill.com/homenews/senate/5992202-mitch-mcconnell-rehab-update-fancy-farm/"
+          },
+          {
+            "name": "The New Republic",
+            "url": "https://newrepublic.com/post/213563/mitch-mcconnell-second-photo-skipping-picnic"
+          }
+        ]
+      },
+      "right": {
+        "framing": "Breitbart and Fox News cover McConnell's absence factually, noting the doctor's update and rehabilitation timeline. The Fancy Farm chants are reported but treated as organic voter concern rather than a political crisis. Coverage is sympathetic to McConnell's health journey.",
+        "sources": [
+          {
+            "name": "Breitbart",
+            "url": "https://www.breitbart.com/politics/2026/08/03/watch-kentucky-voters-chant-wheres-mitch-questioning-senators-absence-at-fancy-farm-picnic/"
+          },
+          {
+            "name": "Fox News",
+            "url": "https://www.foxnews.com/politics/mcconnell-out-hospital-still-not-medically-cleared-return-senate"
+          }
+        ]
+      }
+    },
+    {
+      "topic_key": "max-miller-ohio-abuse-scandal-aug4",
+      "title": "Rep. Max Miller Faces Domestic Abuse Fallout; Trump Privately Signals Race Is Over",
+      "days_seen": 2,
+      "relevance": 70,
+      "relevance_label": "Recurring \u2014 day 2",
+      "summary": "Ohio Republican Rep. Max Miller faces mounting calls to drop his reelection bid after audio surfaced of him admitting to spraying his wife with hot water. His ex-wife filed the domestic abuse allegations. Axios reported Trump privately told Miller his candidacy is in trouble. Senate Republicans including Bernie Moreno called the allegations disqualifying. House Democrats are privately weighing an expulsion vote. Miller has until Wednesday to withdraw and allow a different candidate on the ballot.",
+      "correlation": 68,
+      "correlation_label": "Agreement on the facts and seriousness; diverge on how quickly Republicans should force him out",
+      "left": {
+        "framing": "CNN, Axios, The Hill, and MSNBC lead with the audio evidence and the procedural deadline for ballot replacement. Coverage emphasizes the party's slow response and what it says about GOP standards for elected officials. Democrats mulling expulsion is reported prominently.",
+        "sources": [
+          {
+            "name": "CNN",
+            "url": "https://www.cnn.com/2026/08/03/politics/max-miller-abuse-trump-drop-out"
+          },
+          {
+            "name": "Axios",
+            "url": "https://www.axios.com/2026/08/04/trump-max-miller-moreno-election-house"
+          },
+          {
+            "name": "The Hill",
+            "url": "https://thehill.com/homenews/house/6003049-miller-abuse-allegations-ohio-house-race/"
+          }
+        ]
+      },
+      "right": {
+        "framing": "Townhall and Daily Wire cover the scandal with the same underlying facts but center the response of Republican senators who called the allegations disqualifying. Townhall highlights Sen. Moreno's 'scathing response.' Coverage is critical of Miller but frames GOP condemnation as swift and appropriate.",
+        "sources": [
+          {
+            "name": "Townhall",
+            "url": "https://townhall.com/news/josephchalfant/2026/08/02/sen-bernie-moreno-delivers-scathing-response-to-the-max-miller-scandal-n2680541"
+          },
+          {
+            "name": "The Daily Wire",
+            "url": "https://www.dailywire.com/news/bernie-sanders-cant-say-whether-dems-vetted-troy-jackson-after-platner-implosion"
+          }
+        ]
+      }
+    },
+    {
+      "topic_key": "vance-rubio-2028-gop-positioning-aug4",
+      "title": "Pre-Trump GOP Quietly Backs Rubio Over Vance for 2028; Donor Faction Organizing",
+      "days_seen": 2,
+      "relevance": 70,
+      "relevance_label": "Recurring \u2014 day 2",
+      "summary": "Axios reported that a significant GOP donor faction, including figures like Griffin and Murdoch-aligned money, is quietly positioning Marco Rubio as the preferred 2028 successor over VP JD Vance. Rubio has risen in stature during his tenure as Secretary of State. The Washington Examiner separately profiled Rubio's growing presidential prospects. The pre-Trump GOP establishment is organizing well ahead of 2028, betting Trump will not run again.",
+      "correlation": 55,
+      "correlation_label": "Same story, different tone \u2014 left treats this as GOP fracturing, right frames Rubio's rise as organic and earned",
+      "left": {
+        "framing": "Axios frames the Vance vs. Rubio dynamic as revealing fractures within the GOP coalition, with establishment money hedging against the MAGA successor. The anti-Vance faction is depicted as significant and potentially decisive.",
+        "sources": [
+          {
+            "name": "Axios",
+            "url": "https://www.axios.com/2026/08/02/vance-wsj-trump-rubio-2028"
+          }
+        ]
+      },
+      "right": {
+        "framing": "The Washington Examiner's 'Why Marco Rubio is Rising' profiles his stature gains as Secretary of State favorably \u2014 framing his 2028 prospects as a product of performance and competence, not establishment maneuvering.",
+        "sources": [
+          {
+            "name": "Washington Examiner",
+            "url": "https://www.washingtonexaminer.com/in_focus/4671382/why-marco-rubio-is-rising/"
+          }
+        ]
+      }
+    }
+  ],
+  "gap_left": [
+    {
+      "topic_key": "maga-exiles-anti-trump-movement-aug4",
+      "title": "MAGA Exiles \u2014 MTG, Tucker Carlson, Massie \u2014 Launch Formal Anti-Trump Opposition Movement",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New \u2014 first appearance",
+      "summary": "Former MAGA stalwarts Marjorie Taylor Greene, Tucker Carlson, Brian Glenn, Thomas Massie, and former National Counterterrorism Center director Joe Kent announced they are launching a formal political movement to oppose Trump and his current supporters. Greene and Carlson declared 'he betrayed us all.' The Daily Beast and The New Republic cover this as a significant fracturing of the MAGA coalition heading into the midterms, with implications for GOP unity and base turnout.",
+      "sources": [
+        {
+          "name": "The Daily Beast",
+          "url": "https://www.thedailybeast.com/maga-exiles-marjorie-taylor-greene-and-tucker-carlson-declare-war-on-trump-he-betrayed-us-all/"
+        },
+        {
+          "name": "The New Republic",
+          "url": "https://newrepublic.com/post/213867/maga-dhs-secretary-markwayne-mullin"
+        }
+      ]
+    },
+    {
+      "topic_key": "ice-raids-chicago-pritzker-trauma-aug4",
+      "title": "Gov. Pritzker: ICE Raids Are Traumatizing Chicago Communities; Warns of Military Election Interference",
+      "days_seen": 2,
+      "relevance": 70,
+      "relevance_label": "Recurring \u2014 day 2",
+      "summary": "Illinois Gov. JB Pritzker appeared on MSNBC to say ICE raids are traumatizing Chicago communities. He also warned that the Trump administration may attempt to use military forces to interfere in the upcoming midterm elections. ICE detentions hit a record high in July 2026. The self-deportation program (Project Homecoming) is expected to exhaust funding by end of August. Left outlets frame ICE enforcement as a humanitarian and democracy crisis.",
+      "sources": [
+        {
+          "name": "MSNBC",
+          "url": "https://www.msnbc.com/msnbc-podcast/the-best-people-with-nicolle-wallace/jb-pritzker-ice-raids-chicago-people-are-traumatized-rcna240022"
+        },
+        {
+          "name": "The New Republic",
+          "url": "https://newrepublic.com/post/213867/maga-dhs-secretary-markwayne-mullin"
+        }
+      ]
+    },
+    {
+      "topic_key": "scotus-redistricting-vra-section2-aug4",
+      "title": "SCOTUS Redistricting Case Could Gut Voting Rights Act Section 2 Before Midterms",
+      "days_seen": 2,
+      "relevance": 70,
+      "relevance_label": "Recurring \u2014 day 2",
+      "summary": "The Supreme Court transformed a Louisiana congressional redistricting dispute into a potential vehicle to strike down Section 2 of the Voting Rights Act \u2014 the last major federal protection against racially discriminatory district maps. If the Court rules quickly enough, it could allow a new round of partisan gerrymandering before the 2026 midterm elections. MSNBC and The New Republic frame this as an existential threat to minority voting power and democratic representation.",
+      "sources": [
+        {
+          "name": "MSNBC",
+          "url": "https://www.msnbc.com/opinion/msnbc-opinion/supreme-court-voting-rights-redistricting-roberts-rcna235949"
+        },
+        {
+          "name": "The New Republic",
+          "url": "https://newrepublic.com/post/213889/missouri-republicans-amendment-4-ballot-trick-voters-limit-power"
+        }
+      ]
+    },
+    {
+      "topic_key": "missouri-ballot-measure-limit-voter-power-aug4",
+      "title": "Missouri Republicans Put Amendment 4 on Ballot to Raise Initiative Threshold, Blocking Future Reform",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New \u2014 first appearance",
+      "summary": "Missouri Republicans placed Amendment 4 on the ballot, which would raise the threshold required to pass future citizen ballot initiatives from a simple majority to 60%. Critics say it is designed to block future abortion rights, minimum wage, and other progressive ballot measures that Missouri voters have passed in recent years. The New Republic characterizes it as Republicans 'trying to trick voters into limiting their own power.' Left outlets cover this as part of a broader GOP strategy to limit direct democracy.",
+      "sources": [
+        {
+          "name": "The New Republic",
+          "url": "https://newrepublic.com/post/213889/missouri-republicans-amendment-4-ballot-trick-voters-limit-power"
+        }
+      ]
+    },
+    {
+      "topic_key": "election-security-gallup-67pct-pressure-aug4",
+      "title": "Poll: 67% of Americans Fear Political Leaders Will Pressure Election Officials to Change Outcomes",
+      "days_seen": 2,
+      "relevance": 70,
+      "relevance_label": "Recurring \u2014 day 2",
+      "summary": "A new Kettering Foundation-Gallup poll found that 67% of American adults are concerned 'a great deal' or 'a fair amount' about political leaders pressuring election officials to change election outcomes. The poll was released ahead of the 2026 midterms. The Hill and Axios cover the poll as evidence of broad public anxiety about democratic norms; right-leaning outlets largely did not pick up this story.",
+      "sources": [
+        {
+          "name": "The Hill",
+          "url": "https://thehill.com/homenews/campaign/6000800-midterm-elections-security-concerns-poll/"
+        },
+        {
+          "name": "Axios",
+          "url": "https://www.axios.com/2026/08/03/senate-republicans-save-act-august-recess-trump"
+        }
+      ]
+    }
+  ],
+  "gap_right": [
+    {
+      "topic_key": "fauci-pardon-jeopardy-fifth-amendment-aug4",
+      "title": "Fauci Invokes Fifth Amendment 100+ Times at Senate Hearing; Pardon May Be in Jeopardy",
+      "days_seen": 2,
+      "relevance": 70,
+      "relevance_label": "Recurring \u2014 day 2",
+      "summary": "Dr. Anthony Fauci appeared before a Senate committee and invoked his Fifth Amendment right against self-incrimination more than 100 times, refusing to answer questions about COVID-19 origins and pandemic policy. The Federalist argues that invoking the Fifth may void the presidential pardon Biden granted Fauci, potentially opening him to criminal prosecution. Aaron Rodgers and Bill Maher both publicly criticized Fauci on the right. This story received almost no left-side coverage.",
+      "sources": [
+        {
+          "name": "The Federalist",
+          "url": "https://thefederalist.com/2026/08/04/why-faucis-refusal-to-answer-congress-puts-his-pardon-in-jeopardy/"
+        },
+        {
+          "name": "The Daily Wire",
+          "url": "https://www.dailywire.com/news/the-data-that-shows-how-fauci-broke-bad"
+        }
+      ]
+    },
+    {
+      "topic_key": "noncitizen-voter-rolls-nj-save-act-aug4",
+      "title": "NJ Admits 6,600 Noncitizens on Voter Rolls; SAVE Act Stall Fuels Right-Side Outrage",
+      "days_seen": 2,
+      "relevance": 70,
+      "relevance_label": "Recurring \u2014 day 2",
+      "summary": "New Jersey Gov. Mikie Sherrill admitted that more than 6,600 noncitizens were added to the state's voter rolls due to a DMV software error, and approximately 400 voted illegally in elections since 2023. The Federalist uses this to argue voter integrity failures are systemic and that Senate Majority Leader Thune is a 'coward' for refusing to force a SAVE Act floor vote before recess. Sen. John Kennedy publicly torched Thune over the issue. Right outlets frame this as validation of longstanding election fraud concerns.",
+      "sources": [
+        {
+          "name": "The Federalist",
+          "url": "https://thefederalist.com/2026/08/03/politico-said-noncitizen-voting-was-overblown-now-it-admits-the-entire-system-runs-on-honor/"
+        },
+        {
+          "name": "Townhall",
+          "url": "https://townhall.com/news/mattvespa/2026/08/03/john-kennedy-torched-john-thune-for-being-a-coward-on-the-save-america-act-n2680608"
+        }
+      ]
+    },
+    {
+      "topic_key": "virginia-spanberger-felon-voting-rights-aug4",
+      "title": "Virginia Gov. Spanberger Restores Voting Rights to 66,000 Former Felons Ahead of Midterms",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New \u2014 first appearance",
+      "summary": "Virginia Democratic Governor Abigail Spanberger signed an executive order restoring voting rights to more than 66,000 Virginians with past felony convictions. Breitbart covers the move as a partisan voter-roll expansion timed before the midterms. Right outlets frame this as Democrats engineering electoral advantages by expanding the franchise to a sympathetic constituency. Left outlets did not prominently cover this story.",
+      "sources": [
+        {
+          "name": "Breitbart",
+          "url": "https://www.breitbart.com/politics/2026/08/02/abigail-spanberger-restores-voting-rights-to-66000-virginians-with-past-felony-convictions/"
+        }
+      ]
+    },
+    {
+      "topic_key": "lindell-minnesota-governor-gop-wasted-seat-aug4",
+      "title": "Trump Endorses Mike Lindell for MN Governor; GOP Analysts Say It Wastes a Flippable Seat",
+      "days_seen": 2,
+      "relevance": 70,
+      "relevance_label": "Recurring \u2014 day 2",
+      "summary": "Trump endorsed MyPillow CEO Mike Lindell for the Minnesota governor's race, overriding other GOP candidates. RealClearPolitics and National Review argue Lindell cannot win statewide and that Trump's endorsement is wasting a seat the GOP could plausibly flip with a stronger candidate. The state GOP chair broke ranks with Trump over the endorsement. Right-center outlets are openly critical of Trump's strategic judgment here.",
+      "sources": [
+        {
+          "name": "RealClearPolitics",
+          "url": "https://www.realclearpolitics.com/articles/2026/08/03/republicans_wont_flip_minnesota_with_mike_lindell_154388.html"
+        }
+      ]
+    },
+    {
+      "topic_key": "sophie-cunningham-trans-sports-wnba-aug4",
+      "title": "WNBA Star Sophie Cunningham Publicly Defends Women's Sports Against Transgender Athlete Participation",
+      "days_seen": 2,
+      "relevance": 70,
+      "relevance_label": "Recurring \u2014 day 2",
+      "summary": "WNBA player Sophie Cunningham made public statements defending women's sports and opposing transgender women competing in women's leagues. The American Spectator praises her as standing against 'the trans sports mob.' A Gallup poll showed significant public opposition to transgender athletes in women's sports. Right outlets treat Cunningham's stance as courageous; left outlets largely did not cover it, framing the trans sports debate as settled or marginal.",
+      "sources": [
+        {
+          "name": "The American Spectator",
+          "url": "https://spectator.org/sophie-cunningham-vs-the-trans-sports-mob/"
+        },
+        {
+          "name": "The Daily Wire",
+          "url": "https://www.dailywire.com/news/tom-cotton-marxist-democrats-are-a-warning-sign-for-the-country"
+        }
+      ]
+    }
+  ],
+  "suggestions": [],
+  "date": "2026-08-04"
+}
