@@ -1,12 +1,13 @@
 ---
 status: complete
-started-at: 2026-08-03T22:00:00Z
-completed-at: 2026-08-03T22:10:23Z
+started-at: 2026-08-04T06:00:00Z
+completed-at: 2026-08-04T06:08:45Z
 outputs:
-  messages_scanned: 4
+  messages_scanned: 9
   new_urls: 0
-  new_digests: 3
-  posts_drafted: 3
-  outcome: "Drafted and submitted 3 posts from Watchtower digests: 'The Premium You Charged Was for Knowing Things' (6a7111b122fd1e028a2b1336), 'Nobody Owns the Agent' (6a7111b122fd1e028a2b133e), 'Your Vendor Checked the Box. You Still Haven't.' (6a7111b222fd1e028a2b1346). All verified in Ghost as draft with content, images, and correct tags. Slack notifications posted. Image CDN upload unavailable — using external Unsplash URLs."
+  new_digests: 0
+  posts_drafted: 0
+  editorial_feedback: 0
+  outcome: "No new content. All 9 messages were bot posts (4 draft notifications, 3 previously-processed Watchtower digests, 2 thread-less). All 4 pending draft threads checked — no human replies. Posted no-new-content notice to #content."
 model: sonnet
 ---
