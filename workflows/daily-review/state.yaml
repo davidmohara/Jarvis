@@ -2,17 +2,17 @@
 workflow: daily-review
 agent: chief
 status: complete
-session-started: "2026-07-31T05:00:00"
-session-id: "chief-2026-07-31-050000"
+session-started: "2026-08-03T05:00:00"
+session-id: "chief-2026-08-03-050000"
 current-step: step-auto
 original-request: "auto"
 accumulated-context:
-  omnifocus-status: "success — 0 completed today, 9 overdue, 0 flagged, inbox 15"
-  calendar-status: "success — 6 events via M365 MCP"
-  knowledge-system-status: "written to local fallback (reviews/daily/auto-2026-07-31.md)"
-  narrative-path: "reviews/daily/auto-2026-07-31.md"
-  narrative-title: "2026-07-31 Last Day of July — Golf, the Whole Dallas Team, and Nine Things Still Waiting"
+  omnifocus-status: "success — 4 completed today, 8 overdue, 0 flagged, inbox 13"
+  calendar-status: "success — 2 events via M365 MCP (Golf, Declan dinner — Sunday Aug 2 CDT)"
+  knowledge-system-status: "written to local fallback (Obsidian MCP disabled)"
+  narrative-path: "reviews/daily/auto-2026-08-02.md"
+  narrative-title: "2026-08-02 Golf, Declan, and a Monday That Started Right"
   output-guard: passed
-  working-memory-path: "memory/working/daily-review-2026-07-31-050000.md"
+  working-memory-path: "memory/working/daily-review-2026-08-03-050000.md"
   working-memory-status: written
   model: sonnet
