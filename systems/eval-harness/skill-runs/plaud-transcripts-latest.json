@@ -2,10 +2,10 @@
   "skill": "plaud-transcripts",
   "agent": "knox",
   "trigger": "boot",
-  "started": "2026-07-28T00:05:00Z",
-  "completed": "2026-07-28T13:45:00Z",
+  "started": "2026-08-04T15:00:00Z",
+  "completed": "2026-08-04T15:20:00Z",
   "status": "success",
   "tool_failures": 0,
   "error_ids": [],
-  "notes": "Processed 1 recording: 3ed7f0655a766531189d692f2c76b72c (2026-07-22 Santa's Wonderland proposal call, ~35 min). Polled for transcript completion (was pending at start). Speakers renamed: Speaker 5 -> Scott Medlin, Speaker 4 -> Chelsea Castillo (self-identified in transcript). Vault note written to zzPlaud/Client/2026-07-22 Sales Proposal - Santa's Wonderland Technology Discovery.md. Daily note created at Calendar/2026/07-July/2026-07-22.md. 2 OmniFocus tasks created in Sales project. Staging cleanup: 7 files removed."
+  "notes": "Resumed plaud-ingest (session pi-20260803-001) from step-05 with 4 fully speaker-resolved staged recordings (2 work, 2 personal). Wrote 4 vault notes, linked 2 daily notes (2026-07-29, 2026-07-30), created 8 Monday tasks (2 work to Alice, 6 personal to David), cleaned up 12 staging files, shared 2 work recordings and emailed Alice Mburu the links with 2 corresponding review tasks. Personal recordings correctly excluded from sharing. Workflow state.yaml set to status: complete."
 }

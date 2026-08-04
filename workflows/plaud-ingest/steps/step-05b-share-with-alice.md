@@ -1,17 +1,22 @@
 ---
 status: completed
-started-at: "2026-07-13T15:30:00Z"
-completed-at: "2026-07-13T15:35:00Z"
+started-at: "2026-08-04T15:15:00Z"
+completed-at: "2026-08-04T15:20:00Z"
 model: sonnet
 outputs:
-  shares-attempted: 1
-  shares-succeeded: 1
+  shares-attempted: 2
+  shares-succeeded: 2
   shares-failed: 0
-  tasks-created: 1
+  personal-recordings-skipped: 2
+  tasks-created: 2
   share-urls:
-    - file_id: e5a04131ee46970ac1c70a15cb4ae7ef
-      url: "https://web.plaud.ai/s/pub_59ab2e0b-796e-46c8-a9d3-9ad151669774::KT0la9xJYK8lrXplPqAoEJpy4cGKDtRagpue8LvgJI6rrEvD5EDSrL9Q6VEv8DO6XnJ611OoEFg6II8C"
-      monday-task-id: "12518555007"
+    - file_id: f824cc96ed478cbb55a5e7c43f0945c7
+      url: "https://web.plaud.ai/s/pub_174958be-df52-4680-93dc-83beeb9a16a6::xJW5E7Qukg4omi78dsaOF67lOqChnnnNDTV3ATSFkjnzQDdJOWBC3pMlvn84jOTwaUoVYV7vDQ_7sPAC"
+      monday-task-id: "12714716473"
+    - file_id: 46862b5ef46e5867280603f9d5a843a2
+      url: "https://web.plaud.ai/s/pub_4d048026-30fd-4725-9d3d-5aff9f5a3acb::1x7osteqQ9UDJj7W78Kj3bDrvSqTftEsxaaomYAMxksOuCGJgLxKBY96ff9v3SqR5_WawwnLXeuzW9IC"
+      monday-task-id: "12714601210"
+  notes: "2 work recordings shared and emailed to alice.mburu@improving.com. 2 personal recordings (Ronald Besonen financial review, Michael Tapp lunch) correctly skipped per PERSONAL RECORDING HANDLING — no share, no Monday task in this step (they had their own action-item tasks assigned to David in step-05)."
 ---
 
 <!-- system:start -->

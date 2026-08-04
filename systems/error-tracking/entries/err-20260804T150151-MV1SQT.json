@@ -1,0 +1,15 @@
+{
+  "id": "err-20260804T150151-MV1SQT",
+  "timestamp": "2026-08-04T15:01:51Z",
+  "session": "2026-08-04",
+  "source": "explicit",
+  "agent": "knox",
+  "category": "missed-context",
+  "description": "While resolving a speaker-ID mis-tag in the Ronald/Susie financial call transcript, asked David for Susie's last name instead of recognizing she is his wife and looking it up. identity/MEMORY.md and contacts both readily identify her.",
+  "correction": "Susie is David's wife (identity/MEMORY.md, Family section). Contacts lookup confirms her name as Susie O'Hara (highest-scoring, most recently active contact, tied to her personal email at everydayentries.com). This matches the name already recorded in the transcript and workflows/plaud-ingest/state.yaml speaker-mappings, so no textual correction to the transcript was required after verification -- the failure was in the process (asking) not in the underlying data.",
+  "failure_mode": "context-blindness",
+  "systemic_fix": "Before asking David for identifying information about a named person appearing in transcripts, email, or calendar entries, always check identity/MEMORY.md and contacts first. Family members especially must never require lookup-by-question -- their identity should be resolvable from existing context every time.",
+  "fix_status": "applied",
+  "severity": "moderate",
+  "related_entries": []
+}
