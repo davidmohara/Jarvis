@@ -1,0 +1,15 @@
+{
+  "id": "err-20260805T040956-WYAT0X",
+  "timestamp": "2026-08-05T04:09:56Z",
+  "session": "golf-preview-2026-08-04-scheduled",
+  "source": "self-detected",
+  "agent": "jarvis",
+  "category": "tool-misuse",
+  "description": "Slack bot (post.py) unavailable in scheduled task environment — network access blocked. Golf preview completion blocked from notifying #golf channel.",
+  "correction": "Wrote fallback summary to memory/working/golf-preview-2026-08-04.md and output JSON file with no-booking status. Manual review of preview-output.json needed before Phase 2 booking at midnight.",
+  "failure_mode": "tool-ignorance",
+  "systemic_fix": "Update golf-preview skill to support fallback notification via Slack MCP connector (plugin:productivity:slack) when Desktop Commander unavailable. Or add check for network availability before attempting post.py invocation.",
+  "fix_status": "proposed",
+  "severity": "moderate",
+  "related_entries": []
+}

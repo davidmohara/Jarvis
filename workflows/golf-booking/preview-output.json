@@ -1,119 +1,60 @@
 {
-  "generated_at": "2026-07-28T22:55:00",
+  "generated_at": "2026-08-04T22:55:00-05:00",
   "target_weekend": {
-    "friday": "2026-08-08",
-    "saturday": "2026-08-09",
-    "sunday": "2026-08-10"
+    "friday": "2026-08-15",
+    "saturday": "2026-08-16",
+    "sunday": "2026-08-17"
   },
   "day_status": {
     "friday": {
-      "status": "available",
-      "reason": "No calendar conflicts, 3+ hour window 1:00-6:00 PM CT available"
+      "status": "unavailable",
+      "reason": "Vacation with kids (all-day Aug 15-19) + Flight DFW\u2192MCO 8:35 AM CT + Declan move-in still in progress"
     },
     "saturday": {
-      "status": "available",
-      "reason": "Clear calendar. Multiple windows available."
+      "status": "unavailable",
+      "reason": "Vacation with kids (all-day Aug 15-19) \u2014 family time in Orlando"
     },
     "sunday": {
-      "status": "available",
-      "reason": "Available 2:30 PM - 5:00 PM CT (after church)"
+      "status": "unavailable",
+      "reason": "Vacation with kids (all-day Aug 15-19) \u2014 family time in Orlando"
     }
   },
   "drought": false,
-  "last_round": "2026-07-12",
-  "days_since_last_round": 16,
+  "last_round": {
+    "date": "2026-08-01",
+    "type": "9-hole evening",
+    "time": "3:00 PM - 7:30 PM CT",
+    "days_ago": 4
+  },
   "heat_streak": true,
   "heat_streak_data": {
-    "period": "2026-07-31 to 2026-08-04",
-    "daily_highs_f": [104, 100, 97, 99, 102],
-    "days_above_95f": 4,
-    "threshold_met": true
+    "period": "2026-08-10 to 2026-08-14 (forecast)",
+    "days_above_95f": 5,
+    "threshold_met": true,
+    "note": "Consistent 99-100\u00b0F highs through target weekend"
   },
-  "preferred_start_time": "4:00 PM",
-  "preferred_cost": "$15/player",
-  "weather_data": {
-    "friday_aug_8": {
-      "high_f": 102,
-      "condition": "Mostly sunny / Hot",
-      "rain_probability": 0,
-      "wind_mph": 8,
-      "notes": "Heat stress \u2014 temp exceeds 100\u00b0F"
+  "weather_summary": {
+    "friday": {
+      "high_f": 99,
+      "condition": "Sunny/Hot",
+      "rain_pct": 0,
+      "wind_mph": 10
     },
-    "saturday_aug_9": {
-      "high_f": 100,
-      "condition": "Sunny",
-      "rain_probability": 0,
-      "wind_mph": 12,
-      "wind_gusts_mph": 20,
-      "notes": "Ideal \u2014 heat streak active, clear skies, moderate wind"
+    "saturday": {
+      "high_f": 99,
+      "condition": "Sunny/Hot",
+      "rain_pct": 0,
+      "wind_mph": 10
     },
-    "sunday_aug_10": {
-      "high_f": 97,
-      "condition": "Sunny",
-      "rain_probability": 0,
-      "wind_mph": 5,
-      "notes": "Cooler than Saturday, clear, post-church"
+    "sunday": {
+      "high_f": 99,
+      "condition": "Sunny/Hot",
+      "rain_pct": 0,
+      "wind_mph": 8
     }
   },
-  "top_options": [
-    {
-      "rank": 1,
-      "day": "saturday",
-      "date": "2026-08-09",
-      "preferred_start": "13:00",
-      "preferred_start_label": "1:00 PM",
-      "preferred_end": "15:30",
-      "holes": 18,
-      "cost_per_player": 21,
-      "total_cost": 42,
-      "weather": {
-        "high_f": 100,
-        "rain_pct": 0,
-        "wind_mph": 12,
-        "condition": "sunny"
-      },
-      "score": 0,
-      "rationale": "OVERRIDE: Saturday 1:00 PM \u2014 user preference, clear weather, no conflicts"
-    },
-    {
-      "rank": 2,
-      "day": "sunday",
-      "date": "2026-08-10",
-      "preferred_start": "14:00",
-      "preferred_start_label": "2:00 PM",
-      "preferred_end": "16:30",
-      "holes": 18,
-      "cost_per_player": 21,
-      "total_cost": 42,
-      "weather": {
-        "high_f": 97,
-        "rain_pct": 0,
-        "wind_mph": 5,
-        "condition": "sunny"
-      },
-      "score": 1,
-      "rationale": "OVERRIDE: Sunday 2:00 PM \u2014 user preference, post-church window (before 2:30 PM buffer), cooler temps"
-    },
-    {
-      "rank": 3,
-      "day": "saturday",
-      "date": "2026-08-09",
-      "preferred_start": "16:00",
-      "preferred_start_label": "4:00 PM",
-      "preferred_end": "19:30",
-      "holes": 18,
-      "cost_per_player": 15,
-      "total_cost": 30,
-      "weather": {
-        "high_f": 100,
-        "rain_pct": 0,
-        "wind_mph": 12,
-        "condition": "sunny"
-      },
-      "score": 5,
-      "rationale": "Fallback: Saturday 4:00 PM \u2014 heat streak active, clear weather"
-    }
-  ],
-  "override_instructions": "User override: Book Saturday 1:00 PM first. If unavailable, book Sunday 2:00 PM. Fallback: Saturday 4:00 PM.",
-  "booking_instructions": "Top option (Saturday 4:00 PM) will be booked at midnight 8 days before target date. Booking window opens: 2026-08-01T00:00:00 CT."
+  "top_options": [],
+  "override_instructions": null,
+  "status": "NO BOOKING",
+  "summary": "\u26f3 No viable golf windows this weekend (Aug 15-17) \u2014 entire target weekend is blocked by family vacation in Orlando. All calendar slots hard-booked: vacation, travel, and family time. Earliest available golf window: Aug 22-24. No booking will be made for Aug 15-17."
 }
