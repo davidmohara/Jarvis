@@ -1,0 +1,15 @@
+{
+  "id": "err-20260805T021418-317Q4W",
+  "timestamp": "2026-08-05T02:14:18Z",
+  "session": "chief-2026-08-04-050000",
+  "source": "self-detected",
+  "agent": "chief",
+  "category": "tool-misuse",
+  "description": "OmniFocus AppleScript queries using date arithmetic (e.g., 'today - (time of today)' to compute start-of-day, and 'due date < (current date) - 86400') failed with execution errors. The pattern of using integer arithmetic on AppleScript date objects is fragile and produces 'Can't make seconds into type number' or 'The variable result is not defined' errors. Only simpler targeted queries (inbox count, per-task loops with basic date string comparison) succeeded.",
+  "correction": "Use 'date string of (current date)' for day-boundary comparisons rather than integer arithmetic on date objects. Avoid variable names that shadow AppleScript reserved words (e.g., 'result'). Break complex multi-block scripts into smaller targeted queries rather than one monolithic script.",
+  "failure_mode": "wrong-assumption",
+  "systemic_fix": "Update OmniFocus AppleScript patterns in SYSTEM.md and skills/omnifocus-tasks/SKILL.md to document safe date comparison patterns. Add 'never use integer arithmetic on date objects for day-boundary tests' as an explicit rule.",
+  "fix_status": "proposed",
+  "severity": "minor",
+  "related_entries": []
+}

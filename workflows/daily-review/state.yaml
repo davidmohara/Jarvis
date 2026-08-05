@@ -2,17 +2,17 @@
 workflow: daily-review
 agent: chief
 status: complete
-session-started: "2026-08-03T05:00:00"
-session-id: "chief-2026-08-03-050000"
+session-started: "2026-08-04T05:00:00"
+session-id: "chief-2026-08-04-050000"
 current-step: step-auto
 original-request: "auto"
 accumulated-context:
-  omnifocus-status: "success — 4 completed today, 8 overdue, 0 flagged, inbox 13"
-  calendar-status: "success — 2 events via M365 MCP (Golf, Declan dinner — Sunday Aug 2 CDT)"
+  omnifocus-status: "partial — inbox: 8, completed today: 0, overdue: 4 (Lifebook Health, Lifebook Career, Dr. Easton nerve drugs, Kare/blaze.ai), flagged: 0; full flat-task queries errored, targeted queries succeeded"
+  calendar-status: "success — 13 events via M365 MCP (Aug 3 CDT)"
   knowledge-system-status: "written to local fallback (Obsidian MCP disabled)"
-  narrative-path: "reviews/daily/auto-2026-08-02.md"
-  narrative-title: "2026-08-02 Golf, Declan, and a Monday That Started Right"
+  narrative-path: "reviews/daily/auto-2026-08-03.md"
+  narrative-title: "2026-08-03 The One Texas Strategy Day That Ran Back-to-Back"
   output-guard: passed
-  working-memory-path: "memory/working/daily-review-2026-08-03-050000.md"
+  working-memory-path: "memory/working/daily-review-2026-08-04-050000.md"
   working-memory-status: written
   model: sonnet
