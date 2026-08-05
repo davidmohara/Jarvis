@@ -5,11 +5,11 @@
   "source": "self-detected",
   "agent": "jarvis",
   "category": "tool-misuse",
-  "description": "Slack bot (post.py) unavailable in scheduled task environment — network access blocked. Golf preview completion blocked from notifying #golf channel.",
-  "correction": "Wrote fallback summary to memory/working/golf-preview-2026-08-04.md and output JSON file with no-booking status. Manual review of preview-output.json needed before Phase 2 booking at midnight.",
+  "description": "Initial Slack send attempt failed due to wrong tool choice (tried mcp__workspace__bash instead of Desktop Commander). Golf preview completion blocked from notifying #golf channel.",
+  "correction": "Used master-slack skill with Desktop Commander + post.py. Messages sent successfully to #golf channel (C0B15SW9FB5). Summary: No viable golf windows Aug 15-17 (family vacation blocks all three days).",
   "failure_mode": "tool-ignorance",
-  "systemic_fix": "Update golf-preview skill to support fallback notification via Slack MCP connector (plugin:productivity:slack) when Desktop Commander unavailable. Or add check for network availability before attempting post.py invocation.",
-  "fix_status": "proposed",
-  "severity": "moderate",
+  "systemic_fix": "Always use master-slack skill for Slack notifications in scheduled tasks. Never use raw mcp__workspace__bash for post.py — use Desktop Commander via master-slack skill.",
+  "fix_status": "applied",
+  "severity": "minor",
   "related_entries": []
 }
