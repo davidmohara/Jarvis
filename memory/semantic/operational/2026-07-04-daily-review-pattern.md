@@ -7,7 +7,7 @@ synthesized-from:
   - memory/episodic/daily-review-2026-07-02-000000.md
   - memory/episodic/dream-summary-2026-07-03.md
   - memory/episodic/shutdown-cleanup-2026-07-01-170500.md
-last-updated: 2026-08-02
+last-updated: 2026-08-05
 tags: [daily-review]
 agent-source: dream-cycle
 confidence: low
@@ -109,3 +109,9 @@ Sources this cycle:
 - `memory/episodic/daily-review-2026-07-30-050000.md` (score 10) — tags: daily-review, chief, calendar, omnifocus, one-texas, sales, cole-estrate. 13 events pulled via M365. 2 completions (Coherence breathing; Diana/Solace/xAI AA coordination), 8 overdue, inbox 15. Cole Estrate (xAI) follow-up email flagged as the gap to close before next week. Delegation tracker: no active delegations outstanding. People: jim-johnson, scott-mcmichael, alice-mburu, cole-estrate.
 
 Jul 30 daily-review continues the pattern: Cole Estrate overdue confirmed (now spans Jul 30–31 daily-reviews in addition to the Jul 29 session-wrap origin). The one-texas/sales co-occurrence in this entry marks it as a Rock 1+4 relevant day (One Texas Sales Update meeting). Heavy calendar day (13 events) with the Friday wrap structure is consistent with prior Thu/Fri daily-review entries in this cluster. Delegation tracker empty remains a persistent signal across all recent entries — unchanged since at least Jul 23.
+
+### 2026-08-05 — Nightly promotion
+Sources this cycle:
+- `memory/episodic/daily-review-2026-08-03-050000.md` (score 10) — tags: daily-review, chief, omnifocus, calendar, delegation, cole-estrate, one-texas, lifebook. Aug 3 review: Cole Estrate follow-up structurally overdue (Rock 4 / xAI active track); Lifebook Career/Health updates 6+ weeks overdue; DEXA scan booking and Principled Business Summit talk prep on critical path; Alice delegation tracker empty (check-in warranted); 8 overdue tasks entering week; inbox 13.
+
+New co-occurrence: cole-estrate now appearing in daily-review tags — first time this person-tag has surfaced in the daily-review cluster, reinforcing that the xAI pursuit is bleeding into core daily operational visibility rather than staying in a pipeline-specific context.

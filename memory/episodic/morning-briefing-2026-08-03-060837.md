@@ -1,12 +1,27 @@
 ---
-type: working
 task_id: "session"
 session_id: "chief-2026-08-03-060837"
 agent-source: chief
 created: 2026-08-03T06:08:37
 expires: 2026-08-05T06:08:37
-status: active
+status: archived
 context: "Morning briefing — 2026-08-03"
+type: working-archive
+date: 2026-08-03
+source_file: memory/working/morning-briefing-2026-08-03-060837.md
+tags:
+  - briefing
+  - chief
+  - calendar
+  - omnifocus
+  - leads
+  - delegation
+related_people:
+  []
+salience:
+  score: 10
+  promoted: true
+  last-promoted-check: 2026-08-05
 ---
 
 # Morning Briefing — Monday, August 3, 2026

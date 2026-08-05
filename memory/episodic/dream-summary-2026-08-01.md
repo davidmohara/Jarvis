@@ -21,9 +21,10 @@ related_people:
   - alice-mburu
   score: 0
   last-promoted-check: 2026-08-03
+  last-promoted-check: 2026-08-04
 salience:
   score: 10
-  last-promoted-check: 2026-08-04
+  last-promoted-check: 2026-08-05
 ---
 
 # Dream Cycle Summary — August 1, 2026

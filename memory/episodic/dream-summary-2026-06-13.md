@@ -30,9 +30,10 @@ date: 2026-06-13
   promoted: true
   promoted: true
   promoted: true
+  promoted: true
 salience:
   score: 0
-  last-promoted-check: 2026-08-04
+  last-promoted-check: 2026-08-05
   promoted: true
 ---
 

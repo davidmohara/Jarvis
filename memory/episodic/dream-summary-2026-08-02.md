@@ -19,9 +19,10 @@ tags:
   - carry-forward
 related_people:
   - cole-estrate
+  last-promoted-check: 2026-08-04
 salience:
   score: 10
-  last-promoted-check: 2026-08-04
+  last-promoted-check: 2026-08-05
 ---
 
 # Dream Cycle Summary — August 2, 2026
