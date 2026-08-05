@@ -1,0 +1,184 @@
+{
+  "date": "2026-08-05",
+  "generated": "2026-08-05T11:15:00Z",
+  "window_hours": 72,
+  "sources_used": [
+    "msnbc", "cnn", "nbc", "thehill", "axios", "dailybeast", "slate", "newrepublic",
+    "foxnews", "natreview", "examiner", "federalist", "dailywire", "breitbart", "townhall",
+    "rcp", "amconserv", "spectator", "freepress"
+  ],
+  "sources_muted": [
+    {"id": "nyt", "name": "New York Times", "reason": "accessible: false"},
+    {"id": "wapo", "name": "Washington Post", "reason": "accessible: false"},
+    {"id": "politico", "name": "Politico", "reason": "accessible: false"},
+    {"id": "vox", "name": "Vox Politics", "reason": "accessible: false"},
+    {"id": "motherjones", "name": "Mother Jones", "reason": "accessible: false"},
+    {"id": "reuters", "name": "Reuters Politics", "reason": "accessible: false"},
+    {"id": "ap", "name": "Associated Press", "reason": "accessible: false"},
+    {"id": "bbc", "name": "BBC US & Canada", "reason": "accessible: false"},
+    {"id": "wsj_opinion", "name": "WSJ Opinion", "reason": "accessible: false"},
+    {"id": "nypost", "name": "New York Post", "reason": "accessible: false"}
+  ],
+  "counts": {
+    "total_items": 51,
+    "by_lean": {"left": 29, "right": 21, "center": 1},
+    "shared_topics": 3,
+    "gap_left": 3,
+    "gap_right": 3
+  },
+  "shared_topics": [
+    {
+      "title": "El-Sayed Wins Michigan Democratic Senate Primary",
+      "topic_key": "el-sayed-michigan-senate-primary-win-aug5",
+      "summary": "Progressive Abdul El-Sayed defeated establishment-backed Rep. Haley Stevens in Michigan's Democratic Senate primary on August 4–5, winning by roughly 19,400 votes. El-Sayed, a former public health official backed by Bernie Sanders and Alexandria Ocasio-Cortez, overcame a nearly $65 million outside-money onslaught. He will face Republican former Rep. Mike Rogers in November in one of the most watched Senate races in the country.",
+      "left": {
+        "framing": "Left-leaning outlets celebrate El-Sayed's win as a grassroots victory for the progressive movement but acknowledge concerns: the primary result could jeopardize a Senate seat Democrats need. CNN notes 'mixed news' for Democratic Senate prospects; NBC frames it as 'the progressive left's biggest Senate primary win of the cycle.' The Hill observes the race exposed a 'Democratic Party civil war' between leftist insurgents and the establishment.",
+        "sources": [
+          {"name": "NBC News", "url": "https://www.nbcnews.com/politics/2026-election/abdul-el-sayed-wins-michigans-democratic-senate-primary-notching-midwe-rcna589750"},
+          {"name": "CNN Politics", "url": "https://edition.cnn.com/2026/08/04/politics/live-news/primary-election-michigan-virginia"},
+          {"name": "Slate", "url": "https://slate.com/news-and-politics/2026/08/michigan-primary-democrats-republicans-senate-future.html"}
+        ]
+      },
+      "right": {
+        "framing": "Right-leaning outlets frame El-Sayed's win as a 'far-left takeover' and gift to Republicans. Fox News calls it a 'dem civil war' threatening a 'must-hold' Senate seat. Townhall says Republicans 'should be very pleased.' National Review warns the DSA is driving Democrats to sign their own 'death warrant' in the general election. Washington Examiner sees DSA gains as 'a glimmer of hope' for the GOP.",
+        "sources": [
+          {"name": "Fox News", "url": "https://www.foxnews.com/politics/socialist-insurgents-eye-midwest-gains-dem-civil-war-threatens-must-hold-senate-seat"},
+          {"name": "Townhall", "url": "https://townhall.com/news/mattvespa/2026/08/05/abdul-el-sayed-wins-michigans-dem-primary-n2680694"},
+          {"name": "National Review", "url": "https://www.nationalreview.com/2026/08/the-socialists-want-the-dnc-to-sign-its-own-death-warrant/"}
+        ]
+      },
+      "correlation": 52,
+      "correlation_label": "Both sides confirm the same outcome but interpret it in opposite directions — the left weighs risk alongside opportunity, the right sees it purely as a Republican advantage.",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance"
+    },
+    {
+      "title": "Todd Blanche AG Nomination Advances, Senate Floor Vote Pending",
+      "topic_key": "blanche-ag-nomination-senate-floor-vote-aug5",
+      "summary": "The Senate Judiciary Committee advanced Todd Blanche's attorney general nomination 12-10 on August 4 after Sens. Cornyn and Tillis dropped their opposition following a deal to terminate Trump's proposed $1.8 billion 'anti-weaponization' fund. The nomination now goes to the full Senate, where Blanche can afford only one more Republican defection. Sen. Susan Collins announced she would vote against confirmation, calling the DOJ increasingly politicized. Sens. Murkowski and Cassidy remain undecided.",
+      "left": {
+        "framing": "Left-leaning outlets frame the nomination as a threat to DOJ independence and underscore how narrowly it survived. Axios leads with Collins' opposition. CNN highlights how the nomination is 'hanging by a thread.' The New Republic frames Cornyn's deal as political capitulation — he 'bends the knee' to Trump after insisting Republicans couldn't rein him in.",
+        "sources": [
+          {"name": "CNN Politics", "url": "https://www.cnn.com/2026/08/04/politics/todd-blanches-confirmation-expected-revitalize-doj-investigations"},
+          {"name": "Axios", "url": "https://www.axios.com/2026/08/04/todd-blanche-attorney-general-senate-republicans-susan-collins"},
+          {"name": "New Republic", "url": "https://newrepublic.com/post/213964/cornyn-republicans-cant-rein-trump-blanche"}
+        ]
+      },
+      "right": {
+        "framing": "Right-leaning outlets focus on the deal's success and Blanche's path to confirmation. The Federalist and Breitbart report the Senate Judiciary vote as a win for the administration. Washington Examiner covers the Cornyn-DOJ deal as the pragmatic vehicle that got the nomination moving. Townhall notes Collins' opposition as the remaining obstacle.",
+        "sources": [
+          {"name": "The Federalist", "url": "https://thefederalist.com/2026/08/04/senate-advances-todd-blanche-nomination-for-attorney-general/"},
+          {"name": "Breitbart", "url": "https://www.breitbart.com/politics/2026/08/04/todd-blanche-nomination-for-attorney-general-advances-to-senate-floor/"},
+          {"name": "Washington Examiner", "url": "https://www.washingtonexaminer.com/news/senate/4670112/cornyn-reaches-deal-doj-todd-blanche-nomination-vote/"}
+        ]
+      },
+      "correlation": 68,
+      "correlation_label": "Both sides agree on the facts of what happened; divergence is in the normative framing — the left emphasizes DOJ independence concerns, the right emphasizes procedural progress.",
+      "days_seen": 2,
+      "relevance": 70,
+      "relevance_label": "Recurring — day 2"
+    },
+    {
+      "title": "Iran War: Hormuz Talks Progress as US Munitions Run Dangerously Low",
+      "topic_key": "iran-hormuz-oman-talks-munitions-low-aug5",
+      "summary": "The US-Iran conflict, now in its 158th day, continues with mixed diplomatic signals. Iran is in talks with Oman over temporary Hormuz safe shipping routes, while the US signals optimism. However, Iran denied it is in direct negotiations with Washington. As of Tuesday, 18 US troops had been killed and 687 wounded. A senior US military official warned that the Pentagon has burned through nearly 80% of interceptors for a key missile defense system and that munitions stockpiles are 'dangerously low.' Saudi Crown Prince MBS has privately raised concerns over Trump's planned mass strikes.",
+      "left": {
+        "framing": "Left-leaning outlets and center-right TAC emphasize strategic risk and diplomatic contradiction. CNN leads with the munitions shortage warning and Trump calling Iranian leaders 'unbelievably duplicitous.' The Daily Beast calls Trump's Iran policy a repeated 'bait and switch.' Axios reports MBS privately warning Trump against mass strikes. The American Conservative (right-leaning anti-war) calls it 'lose-lose.'",
+        "sources": [
+          {"name": "CNN", "url": "https://www.cnn.com/2026/08/04/world/live-news/iran-war-trump"},
+          {"name": "The Daily Beast", "url": "https://www.thedailybeast.com/trump-awkwardly-explains-his-latest-iran-bait-and-switch/"},
+          {"name": "Axios", "url": "https://www.axios.com/2026/08/01/saudi-crown-prince-trump-iran-attacks"}
+        ]
+      },
+      "right": {
+        "framing": "Fox News frames Trump as maintaining pressure and winning tactical battles. Rubio is quoted saying Iran is 'confronting a different kind of president.' RealClearPolitics publishes analysis arguing the US just needs better targeting strategy. The American Conservative is notably dissenting from the right, questioning why the war continues given military cost and public opposition.",
+        "sources": [
+          {"name": "Fox News", "url": "https://www.foxnews.com/live-news/us-iran-war-trump-rubio-august-1-2026"},
+          {"name": "The American Conservative", "url": "https://www.theamericanconservative.com/iran-war-day-158-iran-and-oman-nearing-hormuz-agreement-reports-say/"},
+          {"name": "RealClearPolitics", "url": "https://www.realclearpolitics.com/articles/2026/08/04/winning_in_iran_better_targets_fewer_weapons_154391.html"}
+        ]
+      },
+      "correlation": 45,
+      "correlation_label": "Both sides report the same facts about Hormuz talks and the munitions warning, but frame Trump's strategy as either 'dangerous incoherence' or 'persistent pressure' — materially different narratives.",
+      "days_seen": 2,
+      "relevance": 70,
+      "relevance_label": "Recurring — day 2"
+    }
+  ],
+  "gap_left": [
+    {
+      "title": "SCOTUS Redistricting Case Could Gut Voting Rights Act Before Midterms",
+      "topic_key": "scotus-vra-section2-redistricting-oct-argument-aug5",
+      "summary": "The Supreme Court — on its own initiative and via a late Friday order — reset a Louisiana redistricting case for oral argument in October, transforming it into a potential vehicle to gut Section 2 of the Voting Rights Act. If the court rules quickly, it could allow states to re-redistrict and eliminate minority-opportunity congressional districts before November 2026 midterm voting. MSNBC and left-leaning outlets frame this as a direct threat to Congressional representation for Black, Latino, Asian, and Native American voters.",
+      "sources": [
+        {"name": "MSNBC", "url": "https://www.msnbc.com/opinion/msnbc-opinion/supreme-court-voting-rights-redistricting-roberts-rcna235949"},
+        {"name": "Slate", "url": "https://slate.com/news-and-politics/2026/08/congress-worst-supreme-court-decisions-dreamers-tps.html"}
+      ],
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance"
+    },
+    {
+      "title": "Trump Truth Social API Sale Raises Insider Trading Concerns",
+      "topic_key": "trump-truth-social-api-insider-trading-aug4",
+      "summary": "Trump Media is selling $100,000/month API access to Trump's Truth Social posts — allowing subscribers to see presidential statements before they are published publicly. Left-leaning outlets call this 'wildly corrupt,' noting it gives Wall Street subscribers an effective heads-up on market-moving presidential statements. Slate called it 'every bit as corrupt as it sounds,' citing insider trading parallels.",
+      "sources": [
+        {"name": "Slate", "url": "https://slate.com/news-and-politics/2026/08/trump-truth-social-early-access-corruption.html"}
+      ],
+      "days_seen": 2,
+      "relevance": 70,
+      "relevance_label": "Recurring — day 2"
+    },
+    {
+      "title": "ICE Raids and Immigration Enforcement Draw Left Condemnation",
+      "topic_key": "ice-raids-chicago-pritzker-tps-deportation-aug5",
+      "summary": "Gov. J.B. Pritzker condemned ongoing ICE raids in Chicago communities as 'traumatizing,' warning they could amount to military election interference. Separately, approximately 350,000 TPS holders from Haiti, Burma, Ethiopia, South Sudan, and Yemen recently lost their work permits following the Supreme Court's effective greenlight of TPS dissolution. Left-leaning outlets are calling on Congress to pass the American Dream and Promise Act to restore these protections.",
+      "sources": [
+        {"name": "MSNBC", "url": "https://www.msnbc.com/msnbc-podcast/the-best-people-with-nicolle-wallace/jb-pritzker-ice-raids-chicago-people-are-traumatized-rcna240022"},
+        {"name": "Slate", "url": "https://slate.com/news-and-politics/2026/08/congress-worst-supreme-court-decisions-dreamers-tps.html"}
+      ],
+      "days_seen": 2,
+      "relevance": 70,
+      "relevance_label": "Recurring — day 2"
+    }
+  ],
+  "gap_right": [
+    {
+      "title": "Fauci Contempt Referral: Rand Paul Escalates After Fifth Amendment Invocations",
+      "topic_key": "fauci-contempt-referral-rand-paul-aug5",
+      "summary": "Sen. Rand Paul is moving to hold Dr. Anthony Fauci in contempt of Congress after Fauci invoked his Fifth Amendment right over 100 times during a July 29 Senate hearing, refusing to answer questions about COVID-era policy decisions. Right-leaning outlets call this a landmark accountability moment. Paul said the contempt referral is the next step if Fauci continues to refuse testimony. Conservative sources note Fauci's Biden-era pardon creates unresolved legal tension around whether he must testify.",
+      "sources": [
+        {"name": "Townhall", "url": "https://townhall.com/news/jeff-charles/2026/08/04/rand-paul-just-made-a-major-move-against-fauci-after-senate-hearing-n2680642"},
+        {"name": "The American Spectator", "url": "https://spectator.org/was-anthony-fauci-too-powerful/"}
+      ],
+      "days_seen": 2,
+      "relevance": 70,
+      "relevance_label": "Recurring — day 2"
+    },
+    {
+      "title": "Noncitizen Voter Rolls: NJ Admits 6,600 Registrations; SAVE Act Still Stalled",
+      "topic_key": "nj-noncitizen-voter-rolls-save-act-stall-aug5",
+      "summary": "New Jersey Governor Mikie Sherrill admitted that a software error in the DMV system added roughly 6,600 noncitizens to the state's voter rolls, with approximately 400 actually voting. Right-leaning outlets — particularly The Federalist — cite this as vindication for the SAVE Act voter ID requirement, which remains stalled in the Senate. Townhall reports Sen. Kennedy publicly torching Majority Leader Thune for being 'a coward' for refusing to bring the SAVE Act to a vote before recess.",
+      "sources": [
+        {"name": "The Federalist", "url": "https://thefederalist.com/2026/08/03/politico-said-noncitizen-voting-was-overblown-now-it-admits-the-entire-system-runs-on-honor/"},
+        {"name": "Townhall", "url": "https://townhall.com/news/mattvespa/2026/08/03/john-kennedy-torched-john-thune-for-being-a-coward-on-the-save-america-act-n2680608"}
+      ],
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance"
+    },
+    {
+      "title": "Sophie Cunningham Trans Sports, Mamdani NYC Disruption: Culture-War Gap Stories",
+      "topic_key": "cunningham-trans-sports-mamdani-nyc-culture-war-aug5",
+      "summary": "Two right-only stories: (1) WNBA star Sophie Cunningham's ESPN interview defending women's sports against transgender inclusion drew heavy coverage on the right, with Spectator calling her 'courageous.' Gallup data cited shows majority American support for her position. (2) NYC Mayor Zohran Mamdani's decision to dissolve the Mayor's Fund advisory board entirely alarmed the NYC business community; Daily Wire reports business leaders are leaving the city. Cotton called DSA victories 'a Marxist warning sign for the country.'",
+      "sources": [
+        {"name": "The American Spectator", "url": "https://spectator.org/sophie-cunningham-vs-the-trans-sports-mob/"},
+        {"name": "The Daily Wire", "url": "https://www.dailywire.com/news/mamdanis-latest-shake-up-sends-business-leaders-packing"}
+      ],
+      "days_seen": 2,
+      "relevance": 70,
+      "relevance_label": "Recurring — day 2"
+    }
+  ]
+}
