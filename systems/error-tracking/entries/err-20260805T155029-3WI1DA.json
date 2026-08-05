@@ -1,0 +1,15 @@
+{
+  "id": "err-20260805T155029-3WI1DA",
+  "timestamp": "2026-08-05T15:50:29Z",
+  "session": "session-2026-08-05-104041",
+  "source": "explicit",
+  "agent": "Master",
+  "category": "process-skip",
+  "description": "OmniFocus inbox count reported as 231 (all tasks, including completed) because Master wrote raw AppleScript directly instead of reading skills/omnifocus-tasks/SKILL.md first. The skill contains the correct query pattern that filters for uncompleted tasks only.",
+  "correction": "Always read skills/omnifocus-tasks/SKILL.md before writing any OmniFocus AppleScript. The skill's read patterns are the only authorized path for OmniFocus queries.",
+  "failure_mode": "protocol-skip",
+  "systemic_fix": "Read omnifocus-tasks SKILL.md before any OmniFocus operation — no exceptions. The CLAUDE.md rule is explicit: 'Do not write raw OmniFocus AppleScript for task creation outside that skill.' Same applies to reads.",
+  "fix_status": "proposed",
+  "severity": "moderate",
+  "related_entries": []
+}
