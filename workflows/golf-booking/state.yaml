@@ -1,31 +1,29 @@
 workflow: golf-booking
 agent: chief
-status: complete
-session-started: 2026-07-31T23:57:00Z
-session-id: scheduled-execution-2026-08-01-00:00
-current-step: 7-slack-notification-deferred
-execution-run: 2026-08-01T00:00:27Z
-success-timestamp: 2026-08-01T00:08:00Z
-booking-id: 4Y9G-5A1G
-booking-date: 2026-08-09
-booking-time: 15:25
-grade: success
+status: no-booking-available
+session-started: 2026-08-05T00:00:00Z
+session-id: scheduled-execution-2026-08-05-00:00
+current-step: 1-preview-output-check
+execution-run: 2026-08-05T00:00:15Z
+success-timestamp: ~
+booking-id: ~
+booking-date: ~
+booking-time: ~
+grade: no-action-required
 resolution-note: >
-  Workflow executed successfully at midnight on August 1, 2026, when the booking window opened.
+  Target weekend (August 15-17, 2026) entirely blocked by family vacation in Orlando.
 
-  BOOKING CONFIRMED:
-  - Booking #: 4Y9G-5A1G
-  - Date: Sunday, August 9, 2026
-  - Time: 3:25 PM (fallback from preferred 1:00 PM, which was unavailable)
-  - Course: Frisco Lakes Golf Club, 18 holes
-  - Players: 2 (David + Susie O'Hara, both "41 - Frisco Lakes Total Member")
-  - Cost: $45.47 due at course
-  - Calendar Event: Created on Family calendar (ID: 475DCA83-FF10-450A-81A4-9D6CADF923C4)
-  - Visual Verification: PASSED — Booking visible on ChronoGolf Bookings page
-  - Slack Notification: DEFERRED — post.py script not found; fallback document created at /Users/davidohara/develop/jarvis/memory/working/golf-booking-success-20260801.md
+  Day Status:
+  - Friday, Aug 15: Flight DFW→MCO 8:35 AM CT; family vacation begins
+  - Saturday, Aug 16: Vacation (family time in Orlando)
+  - Sunday, Aug 17: Vacation (family time in Orlando)
 
-  All critical steps completed. Calendar event verified. Booking ready to play.
-original-request: Execute golf booking skill on scheduled basis (August 1 at 00:00 CDT for August 9 target date)
+  Preview generation found NO VIABLE WINDOWS. Top_options array is empty.
+  Next available golf window: August 22-24, 2026.
+
+  Per SKILL.md Step 1: "Exit silently if no preview output found (no email, no error)."
+  No booking attempted. No notification sent.
+original-request: Execute golf booking skill on scheduled basis (August 5 at 00:00 CDT for August 13 target date)
 accumulated-context:
   verified_steps:
     - step-1-preview-output: success

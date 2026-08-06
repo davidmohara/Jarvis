@@ -5,8 +5,8 @@ tag: dream-summary
 domain: pattern
 confidence: medium
 created: 2026-07-06
-last-updated: 2026-08-05
-synthesized-from: 16 episodic entries
+last-updated: 2026-08-06
+synthesized-from: 17 episodic entries
 tags:
   - dream-summary
 ---
@@ -131,3 +131,9 @@ Sources this cycle:
 - `memory/episodic/dream-summary-2026-08-04.md` (score 10) — tags: dream-summary, jarvis, dream-cycle, one-texas, cole-estrate, delegation, carry-forward, south-texas. Aug 4 cycle: 1 archived (dream-summary-2026-08-02), 238 scored, 1 promoted (dream-summary-pattern updated), 0 compressed. Carry-forward triad (Q3 rocks, nerve block, delegation tracker) confirmed across 10+ consecutive cycles. Cole Estrate / xAI follow-up newly chronic. South Texas pipeline -21.5% QTD entering carry-forward cluster.
 
 Pattern now spans 16 episodic entries in evidence base. Carry-forward triad has zero resolution trend across 11 consecutive cycles — highest persistence count in semantic memory. South Texas pipeline degradation newly appearing alongside the chronic Cole Estrate / xAI signal suggests operational pressure on Rock 1 is compounding with Rock 4 relationship risk simultaneously.
+
+### 2026-08-06 — Nightly promotion
+Sources this cycle:
+- `memory/episodic/dream-summary-2026-08-05.md` (score 10) — tags: dream-summary, jarvis, memory, salience-scoring, semantic-promotion, episodic, compression, carry-forward, dream-cycle. Aug 5 cycle: 4 archived (daily-review-08-03, dream-summary-08-04, morning-briefing-08-03, revenue-tracker-08-03), 242 scored (88 in window), 3 semantic updated, 0 compressed. Carry-forward triad (Q3 rocks, nerve block, delegation tracker) confirmed across 11 consecutive cycles. Cole Estrate / xAI follow-up unsent 6+ days. South Texas -21.5% QTD confirmed chronic.
+
+Pattern now at 17 episodic entries. Carry-forward triad enters week 12 with no resolution trend — Q3 rocks remain unwritten, nerve block unscheduled, Alice delegation tracker empty. Cole Estrate / xAI and South Texas pipeline degradation are now both established members of the chronic carry-forward cluster alongside the original triad. Five signals now confirmed across 12+ consecutive dream summaries with zero resolution. At this persistence level, these items are not execution gaps — they are structural deferrals requiring explicit decision-point or escalation, not another daily prompt.

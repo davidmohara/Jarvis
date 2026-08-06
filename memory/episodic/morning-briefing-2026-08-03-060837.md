@@ -18,10 +18,11 @@ tags:
   - delegation
 related_people:
   []
+  last-promoted-check: 2026-08-05
 salience:
   score: 10
+  last-promoted-check: 2026-08-06
   promoted: true
-  last-promoted-check: 2026-08-05
 ---
 
 # Morning Briefing — Monday, August 3, 2026

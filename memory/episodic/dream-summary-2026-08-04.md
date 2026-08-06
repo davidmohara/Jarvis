@@ -19,10 +19,11 @@ tags:
 related_people:
   - cole-estrate
   - alice-mburu
+  last-promoted-check: 2026-08-05
 salience:
   score: 10
+  last-promoted-check: 2026-08-06
   promoted: true
-  last-promoted-check: 2026-08-05
 ---
 
 # Dream Cycle Summary — August 4, 2026

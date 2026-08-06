@@ -2,17 +2,17 @@
 workflow: daily-review
 agent: chief
 status: complete
-session-started: "2026-08-04T05:00:00"
-session-id: "chief-2026-08-04-050000"
+session-started: "2026-08-05T02:11:00"
+session-id: "chief-2026-08-05-021100"
 current-step: step-auto
 original-request: "auto"
 accumulated-context:
-  omnifocus-status: "partial — inbox: 8, completed today: 0, overdue: 4 (Lifebook Health, Lifebook Career, Dr. Easton nerve drugs, Kare/blaze.ai), flagged: 0; full flat-task queries errored, targeted queries succeeded"
-  calendar-status: "success — 13 events via M365 MCP (Aug 3 CDT)"
+  omnifocus-status: "success — inbox: 8, completed today: 4 (Santa's Wonderland follow-up, prayer list review, coherence breathing, Dr. Easton nerve drugs), overdue: 3 (Lifebook Health, Lifebook Career, Kare blaze.ai), flagged: 0"
+  calendar-status: "success — 11 events via M365 MCP (Aug 4 CDT)"
   knowledge-system-status: "written to local fallback (Obsidian MCP disabled)"
-  narrative-path: "reviews/daily/auto-2026-08-03.md"
-  narrative-title: "2026-08-03 The One Texas Strategy Day That Ran Back-to-Back"
+  narrative-path: "reviews/daily/auto-2026-08-04.md"
+  narrative-title: "2026-08-04 The Partnership-and-Pipeline Tuesday That Covered the Whole Board"
   output-guard: passed
-  working-memory-path: "memory/working/daily-review-2026-08-04-050000.md"
+  working-memory-path: "memory/working/daily-review-2026-08-05-021100.md"
   working-memory-status: written
   model: sonnet
