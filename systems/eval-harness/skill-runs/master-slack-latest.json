@@ -1,10 +1,10 @@
 {
   "skill": "master-slack",
   "agent": "master",
-  "trigger": "manual",
-  "started": "2026-08-03T17:42:00Z",
-  "completed": "2026-08-03T17:45:00Z",
+  "trigger": "scheduled",
+  "started": "2026-08-06T06:09:00-05:00",
+  "completed": "2026-08-06T06:15:00-05:00",
   "status": "success",
   "tool_failures": 0,
-  "error_ids": ["err-20260803T173458-UMS90S"]
+  "error_ids": []
 }
