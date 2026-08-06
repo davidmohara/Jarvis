@@ -1,14 +1,14 @@
 ---
 status: complete
-started-at: 2026-08-06T06:08:00Z
-completed-at: 2026-08-06T06:08:30Z
+started-at: 2026-08-06T14:08:00Z
+completed-at: 2026-08-06T14:08:30Z
 outputs:
-  messages_scanned: 3
+  messages_scanned: 2
   new_urls: 0
   new_digests: 0
   posts_drafted: 0
   editorial_feedback: 0
   pending_threads_checked: 4
-  outcome: "No new content. All 3 messages in channel (48h window) were Jarvis bot posts (no digest signal). All 4 pending draft threads checked — no human replies. No action taken."
+  outcome: "No new content. Both messages in channel were Jarvis bot posts (no digest signal). All 4 pending draft threads checked — no human replies. No action taken."
 model: sonnet
 ---
