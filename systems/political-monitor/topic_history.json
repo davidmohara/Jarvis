@@ -1,285 +1,85 @@
 {
-  "updated": "2026-08-05",
+  "updated": "2026-08-06",
   "topics": [
     {
-      "key": "fauci-fifth-amendment-senate-hearing-aug1",
-      "title_latest": "Fauci Contempt Referral: Rand Paul Escalates After Fifth Amendment Invocations",
-      "keywords": ["fauci", "fifth-amendment", "senate-hearing", "rand-paul", "contempt"],
-      "first_seen": "2026-07-30",
-      "last_seen": "2026-08-05",
-      "days_seen": 6
-    },
-    {
-      "key": "iran-us-strikes-escalation-aug1",
-      "title_latest": "Iran War Day 158: Hormuz Talks with Oman, US Munitions Dangerously Low",
-      "keywords": ["iran", "hormuz", "oman", "munitions", "trump"],
-      "first_seen": "2026-07-29",
-      "last_seen": "2026-08-05",
-      "days_seen": 8
-    },
-    {
-      "key": "dsa-democratic-primary-wave-socialism-aug1",
-      "title_latest": "El-Sayed Wins Michigan Senate Primary; DSA Wave Continues",
-      "keywords": ["dsa", "el-sayed", "michigan", "progressive", "primary"],
-      "first_seen": "2026-07-28",
-      "last_seen": "2026-08-05",
-      "days_seen": 9
-    },
-    {
-      "key": "trump-approval-economy-record-low-aug1",
-      "title_latest": "Trump Approval Stays Low as Economic Strain Continues",
-      "keywords": ["trump", "approval", "economy", "record-low", "maga-base"],
-      "first_seen": "2026-07-28",
-      "last_seen": "2026-08-04",
-      "days_seen": 7
-    },
-    {
-      "key": "todd-blanche-ag-nomination-aug1",
-      "title_latest": "Blanche AG Nomination Advances to Senate Floor; Collins Opposes",
-      "keywords": ["blanche", "attorney-general", "cornyn", "collins", "senate-floor"],
-      "first_seen": "2026-07-29",
-      "last_seen": "2026-08-05",
-      "days_seen": 8
-    },
-    {
-      "key": "ai-data-centers-midterm-backlash-aug1",
-      "title_latest": "Bipartisan Anti-Tech Populism Continues",
-      "keywords": ["ai", "data-centers", "midterms", "backlash", "bipartisan"],
-      "first_seen": "2026-07-30",
-      "last_seen": "2026-08-04",
-      "days_seen": 5
-    },
-    {
-      "key": "noncitizen-voter-registration-save-act-aug1",
-      "title_latest": "NJ Admits 6,600 Noncitizens on Voter Rolls; SAVE Act Still Stalled",
-      "keywords": ["noncitizen", "voter-id", "save-act", "nj-voter-rolls", "senate-stall"],
-      "first_seen": "2026-07-28",
-      "last_seen": "2026-08-05",
-      "days_seen": 9
-    },
-    {
-      "key": "thune-trump-reconciliation-megabill-stall-july30",
-      "title_latest": "SAVE Act Stall Continues; Kennedy Torches Thune",
-      "keywords": ["thune", "trump", "save-act", "senate-recess", "kennedy"],
-      "first_seen": "2026-07-30",
-      "last_seen": "2026-08-05",
-      "days_seen": 4
-    },
-    {
-      "key": "platner-maine-dsa-replacement-aug1",
-      "title_latest": "Troy Jackson Named Maine Senate Nominee; Sanders Tepid on Endorsement",
-      "keywords": ["platner", "maine", "troy-jackson", "senate", "collins"],
-      "first_seen": "2026-07-28",
-      "last_seen": "2026-08-04",
-      "days_seen": 7
-    },
-    {
-      "key": "dnc-chaos-martin-financial-july30",
-      "title_latest": "DNC Financial Crisis Continues",
-      "keywords": ["dnc", "ken-martin", "financial", "chaos", "fundraising"],
-      "first_seen": "2026-07-29",
-      "last_seen": "2026-08-04",
-      "days_seen": 5
-    },
-    {
-      "key": "midterms-100-days-polling-generic-ballot-july29",
-      "title_latest": "100 Days to Midterms: Democrats Favored in House",
-      "keywords": ["midterms", "100-days", "generic-ballot", "polling", "fundraising"],
-      "first_seen": "2026-07-28",
-      "last_seen": "2026-08-04",
-      "days_seen": 5
-    },
-    {
-      "key": "scotus-approval-record-low-gallup-july29",
-      "title_latest": "SCOTUS Approval Remains at Record Low",
-      "keywords": ["scotus", "approval", "gallup", "record-low", "republicans"],
-      "first_seen": "2026-07-28",
-      "last_seen": "2026-08-04",
-      "days_seen": 4
-    },
-    {
-      "key": "economy-q2-gdp-pce-inflation-aug1",
-      "title_latest": "Q2 GDP 1.5%; Inflation Stays at 3.5%",
-      "keywords": ["gdp", "q2", "pce", "inflation", "fed"],
-      "first_seen": "2026-07-31",
-      "last_seen": "2026-08-04",
-      "days_seen": 5
-    },
-    {
-      "key": "immigration-tps-asylum-aug1",
-      "title_latest": "ICE Raids and TPS Losses: Left Condemnation Continues",
-      "keywords": ["tps", "asylum", "deportation", "ice-raids", "immigration"],
-      "first_seen": "2026-07-31",
-      "last_seen": "2026-08-05",
-      "days_seen": 6
-    },
-    {
-      "key": "communism-dsa-ideology-warning-aug1",
-      "title_latest": "Right Alarm: DSA Victories and Marxist Warning Signs",
-      "keywords": ["communism", "dsa", "socialism", "mamdani", "ideology"],
-      "first_seen": "2026-07-31",
-      "last_seen": "2026-08-04",
-      "days_seen": 5
-    },
-    {
-      "key": "michigan-aug5-senate-primary-showdown",
-      "title_latest": "Michigan Primary: El-Sayed Wins Democratic Senate Race",
-      "keywords": ["michigan", "el-sayed", "stevens", "august-4", "primary"],
-      "first_seen": "2026-08-01",
-      "last_seen": "2026-08-05",
-      "days_seen": 5
-    },
-    {
-      "key": "trump-camp-david-iran-pressure-aug1",
-      "title_latest": "Trump Issues Iran Last Chance Warning; Calls Off Strikes Again",
-      "keywords": ["trump", "iran", "camp-david", "strikes-calloff", "last-chance"],
-      "first_seen": "2026-08-01",
-      "last_seen": "2026-08-04",
-      "days_seen": 4
-    },
-    {
-      "key": "abortion-ballot-nd-sd-aug1",
-      "title_latest": "Abortion Rights Back on Ballot: ND and SD Initiative Thresholds",
-      "keywords": ["abortion", "ballot-measure", "north-dakota", "south-dakota", "60-percent"],
-      "first_seen": "2026-08-01",
-      "last_seen": "2026-08-04",
-      "days_seen": 3
-    },
-    {
-      "key": "mamdani-nyc-mayor-ideology-warning-aug2",
-      "title_latest": "Mamdani NYC Mayor Dissolves Mayor's Fund Advisory Board",
-      "keywords": ["mamdani", "nyc", "mayor", "advisory-board", "business-leaders"],
-      "first_seen": "2026-08-02",
-      "last_seen": "2026-08-05",
-      "days_seen": 3
-    },
-    {
-      "key": "vance-rubio-2028-positioning-aug3",
-      "title_latest": "Pre-Trump GOP Quietly Backs Rubio Over Vance for 2028",
-      "keywords": ["vance", "rubio", "2028", "gop-donors", "griffin-murdoch"],
-      "first_seen": "2026-08-03",
-      "last_seen": "2026-08-04",
-      "days_seen": 2
-    },
-    {
-      "key": "cornyn-deal-blanche-ag-path-clear-aug3",
-      "title_latest": "Cornyn-DOJ Deal Clears Blanche AG Path; Collins Opposes",
-      "keywords": ["cornyn", "blanche", "doj-deal", "attorney-general", "collins"],
-      "first_seen": "2026-08-03",
-      "last_seen": "2026-08-05",
-      "days_seen": 3
-    },
-    {
-      "key": "hong-wisconsin-dem-governor-aug3",
-      "title_latest": "Francesca Hong DSA Wisconsin Governor Race Ahead of Aug 11",
-      "keywords": ["hong", "wisconsin", "governor", "police-abolition", "progressive"],
-      "first_seen": "2026-08-03",
-      "last_seen": "2026-08-04",
-      "days_seen": 2
-    },
-    {
-      "key": "max-miller-ohio-abuse-aug3",
-      "title_latest": "Max Miller Ohio: Ethics Probe, New Photos, Pressure to Drop Out",
-      "keywords": ["max-miller", "ohio", "domestic-abuse", "ethics-probe", "house-race"],
-      "first_seen": "2026-08-03",
-      "last_seen": "2026-08-05",
-      "days_seen": 3
-    },
-    {
-      "key": "mcconnell-health-fancy-farm-aug3",
-      "title_latest": "McConnell Misses Fancy Farm for First Time in 40 Years",
-      "keywords": ["mcconnell", "fancy-farm", "health", "absence", "kentucky"],
-      "first_seen": "2026-08-03",
-      "last_seen": "2026-08-05",
-      "days_seen": 3
-    },
-    {
-      "key": "ice-raids-chicago-pritzker-aug3",
-      "title_latest": "Gov. Pritzker: ICE Raids Traumatizing Chicago Communities",
-      "keywords": ["ice-raids", "chicago", "pritzker", "trauma", "military-election"],
-      "first_seen": "2026-08-03",
-      "last_seen": "2026-08-05",
-      "days_seen": 3
-    },
-    {
-      "key": "scotus-redistricting-vra-threat-aug3",
-      "title_latest": "SCOTUS Redistricting Case Could Gut VRA Section 2 Before Midterms",
-      "keywords": ["scotus", "redistricting", "voting-rights-act", "section-2", "louisiana"],
-      "first_seen": "2026-08-03",
-      "last_seen": "2026-08-05",
-      "days_seen": 3
-    },
-    {
-      "key": "cunningham-trans-sports-wnba-aug3",
-      "title_latest": "WNBA Star Cunningham Defends Women's Sports; Trans Sports Debate Continues",
-      "keywords": ["cunningham", "wnba", "trans-sports", "womens-sports", "gallup"],
-      "first_seen": "2026-08-03",
-      "last_seen": "2026-08-05",
-      "days_seen": 3
-    },
-    {
-      "key": "swalwell-ca-special-election-aug18-aug3",
-      "title_latest": "Newsom Sets Aug 18 Special Election to Fill Swalwell's CA-14 Seat",
-      "keywords": ["swalwell", "california", "special-election", "newsom", "ca-14"],
-      "first_seen": "2026-08-03",
-      "last_seen": "2026-08-04",
-      "days_seen": 2
-    },
-    {
-      "key": "trump-truth-social-api-market-access-aug4",
-      "title_latest": "Trump Media Sells $100K/Month Real-Time API Access to Presidential Posts",
-      "keywords": ["truth-social", "api", "trump-media", "wall-street", "insider-trading"],
-      "first_seen": "2026-08-04",
-      "last_seen": "2026-08-05",
-      "days_seen": 2
-    },
-    {
-      "key": "government-shutdown-cr-collins-murray-aug4",
-      "title_latest": "Bipartisan CR Averts Shutdown; Government Funded Through December 11",
-      "keywords": ["shutdown", "continuing-resolution", "schumer", "december-11", "cr"],
-      "first_seen": "2026-08-04",
-      "last_seen": "2026-08-05",
-      "days_seen": 2
-    },
-    {
-      "key": "maga-exiles-anti-trump-movement-aug4",
-      "title_latest": "MAGA Exiles MTG, Tucker Carlson, Massie Launch Formal Anti-Trump Opposition Movement",
-      "keywords": ["mtg", "tucker-carlson", "massie", "anti-trump", "maga-exiles"],
-      "first_seen": "2026-08-04",
-      "last_seen": "2026-08-04",
-      "days_seen": 1
-    },
-    {
-      "key": "missouri-ballot-measure-limit-voter-power-aug4",
-      "title_latest": "Missouri Republicans Put Amendment 4 on Ballot to Raise Initiative Threshold",
-      "keywords": ["missouri", "amendment-4", "ballot-initiative", "60-percent", "direct-democracy"],
-      "first_seen": "2026-08-04",
-      "last_seen": "2026-08-04",
-      "days_seen": 1
-    },
-    {
       "key": "el-sayed-michigan-senate-primary-win-aug5",
-      "title_latest": "El-Sayed Wins Michigan Democratic Senate Primary Over Haley Stevens",
+      "title_latest": "El-Sayed Wins Michigan Senate Primary; DSA Wave Shapes November",
       "keywords": ["el-sayed", "michigan-senate", "haley-stevens", "primary-win", "progressive"],
       "first_seen": "2026-08-05",
-      "last_seen": "2026-08-05",
+      "last_seen": "2026-08-06",
+      "days_seen": 2
+    },
+    {
+      "key": "iran-hormuz-deal-optimism-aug6",
+      "title_latest": "US-Iran War: Hormuz Deal Optimism Meets Diplomatic Uncertainty",
+      "keywords": ["iran", "hormuz", "deal", "oman", "negotiations"],
+      "first_seen": "2026-08-06",
+      "last_seen": "2026-08-06",
+      "days_seen": 1
+    },
+    {
+      "key": "ice-raids-queens-long-island-aug6",
+      "title_latest": "ICE Raids Queens and Long Island: New Enforcement Wave in New York",
+      "keywords": ["ice-raids", "queens", "long-island", "immigration", "enforcement"],
+      "first_seen": "2026-08-06",
+      "last_seen": "2026-08-06",
+      "days_seen": 1
+    },
+    {
+      "key": "july-jobs-adp-hiring-slowdown-aug6",
+      "title_latest": "July Jobs Report: Hiring Falls to 44,000; Economy Decelerating",
+      "keywords": ["jobs", "adp", "hiring", "slowdown", "44000"],
+      "first_seen": "2026-08-06",
+      "last_seen": "2026-08-06",
       "days_seen": 1
     },
     {
       "key": "scotus-vra-section2-redistricting-oct-argument-aug5",
-      "title_latest": "SCOTUS Redistricting Case Could Gut VRA Section 2 Before Midterms",
+      "title_latest": "SCOTUS Redistricting Case Could Gut Voting Rights Act Before Midterms",
       "keywords": ["scotus", "vra-section-2", "redistricting", "october-argument", "louisiana"],
       "first_seen": "2026-08-05",
-      "last_seen": "2026-08-05",
+      "last_seen": "2026-08-06",
+      "days_seen": 2
+    },
+    {
+      "key": "democrats-red-state-independent-strategy-aug6",
+      "title_latest": "Democrats Encourage Red-State Nominees to Drop Out for Independents",
+      "keywords": ["democrats", "red-state", "independent", "nebraska", "osborn"],
+      "first_seen": "2026-08-06",
+      "last_seen": "2026-08-06",
       "days_seen": 1
     },
     {
+      "key": "dsa-alarm-pittsburgh-national-spectator-aug6",
+      "title_latest": "DSA Alarm: From Pittsburgh Bellwether to National Wave",
+      "keywords": ["dsa", "pittsburgh", "alarm", "national-wave", "spectator"],
+      "first_seen": "2026-08-06",
+      "last_seen": "2026-08-06",
+      "days_seen": 1
+    },
+    {
+      "key": "texas-senate-talarico-paxton-fox-poll-aug6",
+      "title_latest": "Texas Senate Race: Fox Poll Shows Talarico Leading Paxton by 3 Points",
+      "keywords": ["texas-senate", "talarico", "paxton", "fox-poll", "gop-baggage"],
+      "first_seen": "2026-08-06",
+      "last_seen": "2026-08-06",
+      "days_seen": 1
+    },
+    {
+      "key": "maga-exiles-anti-trump-movement-aug4",
+      "title_latest": "MAGA Exiles: MTG, Tucker Carlson, and Massie Launch Formal Anti-Trump Opposition",
+      "keywords": ["mtg", "tucker-carlson", "massie", "anti-trump", "maga-exiles"],
+      "first_seen": "2026-08-04",
+      "last_seen": "2026-08-06",
+      "days_seen": 2
+    },
+    {
       "key": "nj-noncitizen-voter-rolls-save-act-stall-aug5",
-      "title_latest": "NJ Admits 6,600 Noncitizen Voter Registrations; 400 Voted",
+      "title_latest": "New Jersey Admits 6,600 Noncitizen Voter Registrations; SAVE Act Pressure Grows",
       "keywords": ["nj", "noncitizen", "voter-rolls", "save-act", "sherrill"],
       "first_seen": "2026-08-05",
-      "last_seen": "2026-08-05",
-      "days_seen": 1
+      "last_seen": "2026-08-06",
+      "days_seen": 2
     }
   ]
 }

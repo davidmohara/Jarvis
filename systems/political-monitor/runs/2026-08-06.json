@@ -1,0 +1,187 @@
+{
+  "date": "2026-08-06",
+  "generated": "2026-08-06T00:00:00Z",
+  "window_hours": 72,
+  "counts": {
+    "total_items": 49,
+    "by_lean": { "left": 24, "right": 23, "center": 2 },
+    "shared_topics": 2,
+    "gap_left": 4,
+    "gap_right": 4
+  },
+  "sources_used": [
+    "msnbc", "cnn", "nbc", "thehill", "axios", "dailybeast", "slate", "newrepublic",
+    "foxnews", "natreview", "examiner", "federalist", "dailywire", "breitbart",
+    "townhall", "rcp", "amconserv", "spectator", "freepress"
+  ],
+  "sources_muted": [
+    { "id": "nyt", "name": "New York Times", "reason": "accessible: false" },
+    { "id": "wapo", "name": "Washington Post", "reason": "accessible: false" },
+    { "id": "politico", "name": "Politico", "reason": "accessible: false" },
+    { "id": "vox", "name": "Vox Politics", "reason": "accessible: false" },
+    { "id": "motherjones", "name": "Mother Jones", "reason": "accessible: false" },
+    { "id": "wsj_opinion", "name": "WSJ Opinion", "reason": "accessible: false" },
+    { "id": "nypost", "name": "New York Post", "reason": "accessible: false" },
+    { "id": "reuters", "name": "Reuters Politics", "reason": "accessible: false" },
+    { "id": "ap", "name": "Associated Press", "reason": "accessible: false" },
+    { "id": "bbc", "name": "BBC US & Canada", "reason": "accessible: false" }
+  ],
+  "shared_topics": [
+    {
+      "title": "El-Sayed Wins Michigan Senate Primary; DSA Wave Shapes November",
+      "topic_key": "el-sayed-michigan-senate-primary-win",
+      "days_seen": 2,
+      "relevance": 70,
+      "relevance_label": "Recurring — day 2",
+      "summary": "Progressive former public health official Abdul El-Sayed defeated moderate Rep. Haley Stevens by roughly 1 percentage point in Michigan's Democratic Senate primary, completing a sweep of DSA-aligned primary wins in New York, Colorado, and now a major battleground state. El-Sayed will face Republican former FBI director Mike Rogers in November in one of the cycle's most competitive races. The result drew national attention as both parties absorbed its implications for the general election: Democrats debate whether the progressive nominee can win a purple state, while Republicans moved immediately to cast El-Sayed as the face of a radicalizing Democratic Party.",
+      "left": {
+        "framing": "El-Sayed's win reflects a Democratic base energized by economic pain, frustration with the establishment, and opposition to what they see as rising authoritarianism. Bernie Sanders called it 'the most extraordinary victory in modern American politics.' Left outlets highlight voter anger at inflation and institutional failures as the animating force, distinguishing ideological fervor from economic desperation. Wesley Bell's defeat of Cori Bush in Missouri is noted as evidence the wave is not monolithic.",
+        "sources": [
+          { "name": "CNN Politics", "url": "https://edition.cnn.com/2026/08/04/politics/live-news/primary-election-michigan-virginia" },
+          { "name": "NBC News", "url": "https://www.nbcnews.com/politics/politics-news/progressives-another-big-primary-night-notable-exception-politics-desk-rcna591046" },
+          { "name": "The Daily Beast", "url": "https://www.thedailybeast.com/trump-melts-down-as-progressive-officially-wins-key-senate-race/" },
+          { "name": "The Free Press", "url": "https://www.thefp.com/p/why-abdul-el-sayed-won" }
+        ]
+      },
+      "right": {
+        "framing": "Right outlets frame El-Sayed's win as confirmation that Democrats have been captured by socialist extremists, using the result as a general-election weapon. Republicans rapidly released attack ads targeting El-Sayed's Medicare for All stance, DSA membership, and positions on Israel. Breitbart, Townhall, and the Examiner each characterize the outcome as a 'crack-up' for Democrats and an opportunity for Mike Rogers to run against a far-left foil in a purple state.",
+        "sources": [
+          { "name": "Fox News", "url": "https://www.foxnews.com/live-news/2026-primary-election-results-michigan-virginia-kansas-missouri-washington" },
+          { "name": "Washington Examiner", "url": "https://www.washingtonexaminer.com/news/campaigns/congressional/4675962/gop-abdul-el-sayed-senate-future-of-democrats-stark-contract-mike-rogers/" },
+          { "name": "Breitbart", "url": "https://www.breitbart.com/politics/2026/08/05/abdul-el-sayed-defeats-haley-stevens-and-democrat-establishment-will-face-republican-mike-rogers/" },
+          { "name": "Townhall", "url": "https://townhall.com/news/jeff-charles/2026/08/05/republicans-just-released-an-ad-exposing-abdul-el-sayeds-radical-views-n2680729" }
+        ]
+      },
+      "correlation": 55,
+      "correlation_label": "Both sides report the same outcome; framing diverges sharply on whether the result signals voter energy or electability risk."
+    },
+    {
+      "title": "US-Iran War: Hormuz Deal Optimism Meets Diplomatic Uncertainty",
+      "topic_key": "iran-hormuz-deal-optimism-aug6",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "summary": "As the US-Iran conflict enters day 159, diplomatic activity intensified around the Strait of Hormuz. Qatar is mediating negotiations with draft agreements circulating, and Iran and Oman have agreed on coordinates for a proposed safe commercial shipping lane. Trump canceled planned strikes while citing progress, but Iran's Foreign Ministry denied direct talks were ongoing. The Pentagon flagged that US munitions stockpiles are dangerously low, with nearly 80% of interceptors for a key missile defense system depleted. Gas prices remain elevated as the Hormuz closure continues.",
+      "left": {
+        "framing": "Left and centrist outlets focus on the humanitarian and strategic risks of prolonged conflict, highlighting Saudi Arabia's concerns about escalation and Iran's warning that 'no political border will be safe' if strikes continue. CNN analysis notes Trump has avoided one critical mistake — forcing Iran into a corner with no exit — but questions whether deal momentum is real. Axios reported Saudi Crown Prince MBS raised concerns directly with Trump about massive strikes.",
+        "sources": [
+          { "name": "CNN Politics", "url": "https://www.cnn.com/2026/08/04/politics/trump-iran-war-strait-of-hormuz" },
+          { "name": "CNN Live Updates", "url": "https://www.cnn.com/2026/08/05/world/live-news/iran-war-trump" },
+          { "name": "Axios", "url": "https://www.axios.com/2026/08/01/saudi-crown-prince-trump-iran-attacks" },
+          { "name": "The Hill", "url": "https://thehill.com/policy/international/5976071-iran-new-threats-us-strikes-infrastructure-energy/" }
+        ]
+      },
+      "right": {
+        "framing": "Right outlets frame the negotiations through a strength lens: Trump is winning militarily and Iran's leadership is 'unbelievably duplicitous' while facing its most difficult period since 1979. Rubio framed Iran as 'confronting a different kind of president.' Fox's opinion coverage argues Trump is winning every battle but must not lose the strategic war. The American Conservative uniquely notes the Iran war is roiling UK politics, with the Labour government under pressure for not joining US-Israeli strikes.",
+        "sources": [
+          { "name": "Fox News Live", "url": "https://www.foxnews.com/live-news/iran-war-trump-deal-strait-of-hormuz-reopen-08-05-2026" },
+          { "name": "Fox News", "url": "https://www.foxnews.com/live-news/us-iran-war-trump-rubio-august-1-2026" },
+          { "name": "The American Conservative", "url": "https://www.theamericanconservative.com/the-iran-war-roils-uk-politics/" }
+        ]
+      },
+      "correlation": 38,
+      "correlation_label": "Both sides acknowledge negotiations are underway; narratives diverge sharply on whether Trump's approach represents strength or dangerous brinksmanship."
+    }
+  ],
+  "gap_left": [
+    {
+      "title": "ICE Raids Queens and Long Island: New Enforcement Wave in New York",
+      "topic_key": "ice-raids-queens-long-island-aug6",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "summary": "Immigration and Customs Enforcement launched enforcement operations in Queens and Long Island, representing a geographic expansion of immigration raids into major metropolitan New York. The operations drew protests from immigrant advocacy groups and prompted alarm from local officials. The Hill reported the raids; no comparable coverage appeared in right-leaning outlets sampled, which have largely focused on the broader immigration policy framework rather than specific enforcement actions in deep-blue jurisdictions.",
+      "sources": [
+        { "name": "The Hill", "url": "https://thehill.com/policy/national-security/5992642-ice-queens-long-island-raids/" },
+        { "name": "Slate (immigration context)", "url": "https://slate.com/news-and-politics/2026/07/immigration-asylum-deportation-trump-haiti-tps.html" }
+      ]
+    },
+    {
+      "title": "July Jobs Report: Hiring Falls to 44,000; Economy Decelerating",
+      "topic_key": "july-jobs-adp-hiring-slowdown-aug6",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "summary": "ADP data released this week showed private employers added just 44,000 jobs in July, the weakest monthly gain since January and well below June's 95,000. Annual pay growth for job switchers accelerated to 7%, complicating the picture. The Hill and Axios reported on the soft hiring numbers alongside Q2 GDP of 1.5%, which remains below historical trend. Left and center outlets frame the data as evidence of economic strain under current policies, while right outlets in today's harvest did not directly cover the ADP weakness, focusing instead on general economic commentary.",
+      "sources": [
+        { "name": "Axios", "url": "https://www.axios.com/2026/08/05/employment-pay-construction-adp" },
+        { "name": "The Hill", "url": "https://thehill.com/business/economy-growth-gdp-inflation/" },
+        { "name": "NBC News", "url": "https://www.nbcnews.com/business/economy/inflation-cpi-report-august-rcna230557" }
+      ]
+    },
+    {
+      "title": "SCOTUS Redistricting Case Could Gut Voting Rights Act Before Midterms",
+      "topic_key": "scotus-vra-section2-redistricting-oct-argument-aug5",
+      "days_seen": 2,
+      "relevance": 70,
+      "relevance_label": "Recurring — day 2",
+      "summary": "A Supreme Court redistricting case that could substantially weaken or eliminate Section 2 of the Voting Rights Act is scheduled for October argument, just weeks before the November midterms. Left outlets frame the case as a potential existential blow to Black and minority voting power ahead of a cycle where redistricting maps already favor Republicans. The New Republic covered the story as 'the VRA is dead' and explored new organizing models, while NBC framed it as a direct threat to Democratic midterm prospects. Right-leaning outlets did not meaningfully cover this angle in today's harvest.",
+      "sources": [
+        { "name": "The New Republic", "url": "https://newrepublic.com/article/210669/voting-rights-act-dead-new-model-black-politics" },
+        { "name": "NBC News", "url": "https://www.nbcnews.com/politics/politics-news/michigans-primary-democratic-base-transforming-trump-politics-desk-rcna590648" }
+      ]
+    },
+    {
+      "title": "Democrats Encourage Red-State Nominees to Drop Out for Independents",
+      "topic_key": "democrats-red-state-independent-strategy-aug6",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "summary": "NBC News reported that the Democratic Party is pursuing a novel strategy in unwinnable red-state Senate races: encouraging their nominees to withdraw from the ballot to allow independent candidates to run one-on-one against Republicans. In Nebraska, Democratic nominee Cindy Burbank removed her name from the ballot to clear the path for independent Dan Osborn against GOP Sen. Pete Ricketts. The strategy reflects Democrats' acknowledgment that their brand in rural America is a liability, and that empowering independents may do more for Senate majority math than running a Democrat. This story received no notable right-side coverage in today's harvest.",
+      "sources": [
+        { "name": "NBC News", "url": "https://www.nbcnews.com/politics/politics-news/democrats-novel-red-state-strategy-politics-desk-rcna590135" }
+      ]
+    }
+  ],
+  "gap_right": [
+    {
+      "title": "DSA Alarm: From Pittsburgh Bellwether to National Wave",
+      "topic_key": "dsa-alarm-pittsburgh-national-spectator-aug6",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "summary": "Right-leaning outlets including the American Spectator and Washington Examiner published in-depth analyses tracing the Democratic Socialists of America's political rise from early warning signs in Pittsburgh local races to their current national primary wave. The Spectator argues Pittsburgh was the 'early alarm bell' that establishment Democrats ignored; the Examiner frames 2026 as definitively 'the year of the DSA.' This historical-alarm framing — distinct from merely reporting primary results — appeared only on the right in today's harvest, treating the DSA ascendancy as an ideological threat requiring deliberate counteraction rather than a normal party evolution.",
+      "sources": [
+        { "name": "The American Spectator", "url": "https://spectator.org/how-pittsburgh-became-the-early-alarm-bell-for-the-dsas-rise/" },
+        { "name": "Washington Examiner", "url": "https://www.washingtonexaminer.com/daily-memo/4661780/year-of-the-dsa-democratic-politics/" },
+        { "name": "The Federalist", "url": "https://thefederalist.com/2026/07/27/dont-let-graham-platners-replacement-fool-you-hes-still-a-crazy-leftist/" }
+      ]
+    },
+    {
+      "title": "Texas Senate Race: Fox Poll Shows Talarico Leading Paxton by 3 Points",
+      "topic_key": "texas-senate-talarico-paxton-fox-poll-aug6",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "summary": "A new Fox News poll showed Democrat James Talarico leading Republican state Attorney General Ken Paxton by three points in the Texas Senate race, a result that surprised observers given Texas's deep-red lean. Sen. John Cornyn warned that Paxton's 'baggage' could cost Republicans a seat they have long held safely. The race reflects broader GOP anxiety about candidate quality in a cycle where character concerns and intra-party divisions could cost Republicans seats they cannot afford to lose. Left outlets have not yet picked up this specific polling result in today's harvest.",
+      "sources": [
+        { "name": "Fox News", "url": "https://www.foxnews.com/politics/fox-news-poll-gop-divisions-shape-texas-senate-race" },
+        { "name": "Fox News", "url": "https://www.foxnews.com/politics/watch-embattled-gop-senator-warns-dems-could-win-big-longtime-red-state-voters-head-polls" }
+      ]
+    },
+    {
+      "title": "MAGA Exiles: MTG, Tucker Carlson, and Massie Launch Formal Anti-Trump Opposition",
+      "topic_key": "maga-exiles-anti-trump-movement-aug4",
+      "days_seen": 2,
+      "relevance": 70,
+      "relevance_label": "Recurring — day 2",
+      "summary": "A formal anti-Trump opposition movement coalesced around figures including Rep. Marjorie Taylor Greene, Tucker Carlson, and Rep. Thomas Massie, who have broken with the president on Iran, the budget, and other issues. The Daily Wire and right-leaning sources covered this as a significant fracture within MAGA, distinct from establishment Republican opposition. This development was not meaningfully covered in today's left-leaning harvest, which focused on El-Sayed and Democratic primary results.",
+      "sources": [
+        { "name": "The Daily Wire", "url": "https://www.dailywire.com/news/republican-who-tanked-trumps-redistricting-push-steps-down-from-leadership" },
+        { "name": "Washington Examiner", "url": "https://www.washingtonexaminer.com/news/campaigns/congressional/4675415/2026-primary-elections-takeaways-michigan-missouri-kansas/" }
+      ]
+    },
+    {
+      "title": "New Jersey Admits 6,600 Noncitizen Voter Registrations; SAVE Act Pressure Grows",
+      "topic_key": "nj-noncitizen-voter-rolls-save-act-stall-aug5",
+      "days_seen": 2,
+      "relevance": 70,
+      "relevance_label": "Recurring — day 2",
+      "summary": "New Jersey officials acknowledged that approximately 6,600 noncitizens were erroneously added to voter rolls, with roughly 400 having cast ballots in previous elections. Townhall reported on GOP efforts to pressure Senate Democrats to bring the SAVE Act — which would require proof of citizenship for voter registration — to a floor vote. Right outlets frame the New Jersey admission as vindicating longstanding Republican concerns about voter registration integrity. Left outlets have not covered this story in today's harvest.",
+      "sources": [
+        { "name": "Townhall", "url": "https://townhall.com/news/jeff-charles/2026/08/05/trump-hating-democrat-senate-candidate-claims-save-america-act-will-stop-women-from-voting-n2680742" },
+        { "name": "Washington Examiner", "url": "https://www.washingtonexaminer.com/news/campaigns/congressional/4675328/democrats-campaign-arm-attack-map-2026-elections/" }
+      ]
+    }
+  ]
+}
