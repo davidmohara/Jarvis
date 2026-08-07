@@ -5,8 +5,8 @@ tag: dream-summary
 domain: pattern
 confidence: medium
 created: 2026-07-06
-last-updated: 2026-08-06
-synthesized-from: 17 episodic entries
+last-updated: 2026-08-07
+synthesized-from: 18 episodic entries
 tags:
   - dream-summary
 ---
@@ -137,3 +137,9 @@ Sources this cycle:
 - `memory/episodic/dream-summary-2026-08-05.md` (score 10) — tags: dream-summary, jarvis, memory, salience-scoring, semantic-promotion, episodic, compression, carry-forward, dream-cycle. Aug 5 cycle: 4 archived (daily-review-08-03, dream-summary-08-04, morning-briefing-08-03, revenue-tracker-08-03), 242 scored (88 in window), 3 semantic updated, 0 compressed. Carry-forward triad (Q3 rocks, nerve block, delegation tracker) confirmed across 11 consecutive cycles. Cole Estrate / xAI follow-up unsent 6+ days. South Texas -21.5% QTD confirmed chronic.
 
 Pattern now at 17 episodic entries. Carry-forward triad enters week 12 with no resolution trend — Q3 rocks remain unwritten, nerve block unscheduled, Alice delegation tracker empty. Cole Estrate / xAI and South Texas pipeline degradation are now both established members of the chronic carry-forward cluster alongside the original triad. Five signals now confirmed across 12+ consecutive dream summaries with zero resolution. At this persistence level, these items are not execution gaps — they are structural deferrals requiring explicit decision-point or escalation, not another daily prompt.
+
+### 2026-08-07 — Nightly promotion
+Sources this cycle:
+- `memory/episodic/dream-summary-2026-08-06.md` (score 10) — tags: dream-summary, jarvis, memory, semantic-promotion, carry-forward, south-texas, one-texas. Aug 6 cycle: 1 archived, 243 scored, 1 promoted (dream-summary-pattern updated), 0 compressed. Carry-forward quintet (Q3 rocks, nerve block, delegation tracker, Cole Estrate xAI, South Texas -21.5% QTD) confirmed across 12+ consecutive cycles. Aug 6 summary explicitly reframes these 5 signals as structural deferrals requiring decision or escalation rather than daily prompts.
+
+Pattern now at 18 episodic entries. The structural-deferral reframe in the Aug 6 source is notable: the dream cycle itself is now characterizing these items as systemic rather than incidental, which marks a qualitative shift in how the pattern is surfaced. No new signals added this cycle — the carry-forward cluster is stable at 5 chronic items. Expense report flagged as immediately due Aug 6 in the daily-review-08-05 source; this is a short-cycle item, not a chronic pattern signal.

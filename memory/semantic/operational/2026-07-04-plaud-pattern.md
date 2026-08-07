@@ -5,7 +5,7 @@ subject: plaud pattern
 synthesized-from:
   - memory/episodic/plaud-ingest-2026-07-02-011500.md
   - memory/episodic/morning-briefing-2026-07-01-085000.md
-last-updated: 2026-08-01
+last-updated: 2026-08-07
 tags: [plaud]
 agent-source: dream-cycle
 confidence: low
@@ -66,3 +66,9 @@ Sources this cycle:
 - `memory/episodic/plaud-ingest-2026-07-29-210000.md` (score 4) — tags: plaud-ingest, chief, solace, concentrate-ai, monday, alice-delegation, error-log. Ingested 2 Jul 28 recordings: Concentrate AI Platform Demo (Kevin Jourdain, Bill Curry, Thomas Jackson, Ari Jacoby, Michael Slater) and Improving + Solace TOLA Partnership Onsite (Laurent Guillot, Austin Ledesma, Kyle Scott, Michael Hilmen, Ehren Seim). Plaud mis-tagged Laurent Guillot as "Robyn Fuentes" — voice profile hallucination, error logged. Monday tasks created and assigned to Alice (IDs 12665996692, 12666075645). 4 error logs written this session.
 
 New signals: Solace and Concentrate.ai are the two most significant recent partnership recordings — both now captured and in the episodic pool. The Robyn Fuentes voice hallucination is the first speaker mis-ID logged since the Michael Slater calendar-lookup fix in Jul 13 — the fix helps with ambiguous names but doesn't prevent hallucinations on known names with confused voice profiles. Alice Mburu delegation assignment through Monday continues as the standard handoff path for Plaud action items.
+
+### 2026-08-07 — Nightly promotion
+Sources this cycle:
+- `memory/episodic/plaud-ingest-2026-08-04-152100.md` (score 4) — tags: plaud-ingest, chief, obsidian, monday, delegations, personal. Aug 4 ingest: 4 recordings ingested (AI Leaders Weekly, Athena/Anne Mwelu check-in, Ronald Besonen financial/trust review, Michael Tapp lunch). 8 Monday tasks routed (2 to Alice, 6 personal to David). Plaud skill's staging-reconciliation `--all` flag mis-documented — accidentally launched 3 concurrent re-fetches; no damage but skill doc needs correction.
+
+New signal: SKILL.md reconciliation command documentation error — the documented command doesn't exist; the real equivalent (`--all`) runs an account-wide re-fetch. This is a workflow-documentation accuracy gap worth flagging for Rigby to correct before next ingest. Personal/family recordings (Ronald Besonen, Michael Tapp) routed correctly per skill rules — no Monday tasks for personal content, no sharing. The Athena/Anne Mwelu pattern (EA check-in) is new — first time an Athena session appears in the plaud-ingest cluster.

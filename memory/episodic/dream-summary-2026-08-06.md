@@ -1,10 +1,27 @@
 ---
-type: working
+type: working-archive
 agent-source: jarvis
 session_id: dream-cycle-2026-08-06-030928
 created: 2026-08-06T03:22:00-05:00
 expires: 2026-08-07
-status: active
+status: archived
+date: 2026-08-06
+source_file: memory/working/dream-summary-2026-08-06.md
+tags:
+  - dream-summary
+  - jarvis
+  - memory
+  - semantic-promotion
+  - carry-forward
+  - south-texas
+  - one-texas
+related_people:
+  - cole-estrate
+  - alice-mburu
+salience:
+  score: 10
+  last-promoted-check: 2026-08-07
+  promoted: true
 ---
 
 # Dream Cycle Summary — August 6, 2026
@@ -18,14 +35,3 @@ Tonight's cycle ran cleanly.
 **Semantic promotion:** 1 candidate, 1 semantic entry updated, 0 new entries created.
 
 - **dream-summary-pattern** (pattern): now 17 episodic entries. The carry-forward cluster has grown to **5 chronic signals confirmed across 12+ consecutive dream cycles with zero resolution trend**: Q3 rocks unwritten, nerve block/Tarlov cyst unscheduled, Alice delegation tracker empty, Cole Estrate (xAI) follow-up drafted-but-unsent, and South Texas pipeline -21.5% QTD. At this persistence level — 12 cycles, no movement on any of the five — these are no longer execution gaps. They are structural deferrals requiring an explicit decision or escalation, not another daily prompt.
-
-No new lessons appended — all 8 qualifying error categories already documented in LESSONS.md.
-
-**Compression:** 0 candidates eligible (2 present but below 5-entry safety threshold).
-
-**Carry-forward signals requiring decision (not just prompt):**
-- Q3 rocks still unwritten — week 12
-- Nerve block / Tarlov cyst still unscheduled
-- Delegation tracker (Alice queue) still empty
-- Cole Estrate (xAI) follow-up drafted week of July 29, still unsent
-- South Texas pipeline degradation (-21.5% QTD) — no response or plan visible

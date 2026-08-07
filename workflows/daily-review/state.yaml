@@ -2,17 +2,17 @@
 workflow: daily-review
 agent: chief
 status: complete
-session-started: "2026-08-05T02:11:00"
-session-id: "chief-2026-08-05-021100"
+session-started: "2026-08-06T00:00:00"
+session-id: "chief-2026-08-06-000000"
 current-step: step-auto
 original-request: "auto"
 accumulated-context:
-  omnifocus-status: "success — inbox: 8, completed today: 4 (Santa's Wonderland follow-up, prayer list review, coherence breathing, Dr. Easton nerve drugs), overdue: 3 (Lifebook Health, Lifebook Career, Kare blaze.ai), flagged: 0"
-  calendar-status: "success — 11 events via M365 MCP (Aug 4 CDT)"
+  omnifocus-status: "success — inbox: 8, completed yesterday: 4 (Santa's Wonderland follow-up, prayer list review, coherence breathing, Dr. Easton nerve drugs), overdue: 6 (expense report Aug 6, prayer list Aug 6, coherence breathing Aug 6, Lifebook Health May 29, Lifebook Career May 29, Kare blaze.ai Jun 29), flagged: 0"
+  calendar-status: "unavailable — M365 MCP connector invalidated, osascript Calendar route failed; both routes failed"
   knowledge-system-status: "written to local fallback (Obsidian MCP disabled)"
-  narrative-path: "reviews/daily/auto-2026-08-04.md"
-  narrative-title: "2026-08-04 The Partnership-and-Pipeline Tuesday That Covered the Whole Board"
+  narrative-path: "reviews/daily/auto-2026-08-05.md"
+  narrative-title: "2026-08-05 Recurring Practices Held, Structural Overdue Persist"
   output-guard: passed
-  working-memory-path: "memory/working/daily-review-2026-08-05-021100.md"
+  working-memory-path: "memory/working/daily-review-2026-08-06-000000.md"
   working-memory-status: written
   model: sonnet

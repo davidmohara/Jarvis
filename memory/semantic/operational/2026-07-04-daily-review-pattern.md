@@ -7,7 +7,7 @@ synthesized-from:
   - memory/episodic/daily-review-2026-07-02-000000.md
   - memory/episodic/dream-summary-2026-07-03.md
   - memory/episodic/shutdown-cleanup-2026-07-01-170500.md
-last-updated: 2026-08-05
+last-updated: 2026-08-07
 tags: [daily-review]
 agent-source: dream-cycle
 confidence: low
@@ -115,3 +115,11 @@ Sources this cycle:
 - `memory/episodic/daily-review-2026-08-03-050000.md` (score 10) — tags: daily-review, chief, omnifocus, calendar, delegation, cole-estrate, one-texas, lifebook. Aug 3 review: Cole Estrate follow-up structurally overdue (Rock 4 / xAI active track); Lifebook Career/Health updates 6+ weeks overdue; DEXA scan booking and Principled Business Summit talk prep on critical path; Alice delegation tracker empty (check-in warranted); 8 overdue tasks entering week; inbox 13.
 
 New co-occurrence: cole-estrate now appearing in daily-review tags — first time this person-tag has surfaced in the daily-review cluster, reinforcing that the xAI pursuit is bleeding into core daily operational visibility rather than staying in a pipeline-specific context.
+
+### 2026-08-07 — Nightly promotion
+Sources this cycle:
+- `memory/episodic/daily-review-2026-08-04-050000.md` (score 10) — tags: daily-review, chief, calendar, omnifocus, one-texas, sales, lifebook, partnerships. Aug 3 review: 13 events including One Texas Regional Strategy Update (Rock 2), Gearvox, Modo Redux; 0 OmniFocus completions; 4 overdue (Lifebook Health/Career, Dr. Easton, Kare Devices). Dominant theme: One Texas strategy day.
+- `memory/episodic/daily-review-2026-08-05-021100.md` (score 10) — tags: daily-review, chief, calendar, omnifocus, sales, partnerships, one-texas. Aug 4 review: 11 events — Sales Q3 All Hands + Ryan Hauser lunch (CrowdStrike) + Don McGreal sync (One Texas + MS Practice). 4 OmniFocus completions including Dr. Easton nerve drug (previously flagged overdue); 3 structural overdue remain (Lifebook Health/Career, Kare blaze.ai). Q3 objectives still pending David's sign-off.
+- `memory/episodic/morning-briefing-2026-08-04-061212.md` (score 10) — tags: briefing, chief, calendar, omnifocus, sales, delegations. Aug 4 morning briefing: 10 events CT; OmniFocus partial (13 inbox, 1 overdue, flagged tasks unavailable); Clay auth required; delegation tracker empty; Q3 draft pending.
+
+Three entries promoted this cycle, all from Aug 3–4. Key observations: Dr. Easton nerve drug task finally completed Aug 4 after recurring overdue flags since at least Jul 8 — this is the first resolution of a chronic carry-forward item in recent memory. Q3 objectives still unsigned despite being in-draft; delegation tracker remains empty. Partnerships co-occurrence (Ryan Hauser/CrowdStrike, Don McGreal) with one-texas and sales reinforces that Rock 1 and Rock 4 are becoming linked in daily operational texture, not just pipeline tracking.

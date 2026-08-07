@@ -1,24 +1,25 @@
 workflow: dream-cycle
 agent: jarvis
 status: complete
-session-started: 2026-08-06T03:09:28-05:00
-session-id: dream-cycle-2026-08-06-030928
+session-started: 2026-08-07T03:00:00-05:00
+session-id: dream-cycle-2026-08-07-030000
 current-step: null
-original-request: Scheduled dream cycle run (automated) - 2026-08-06
+original-request: Scheduled dream cycle run (automated) - 2026-08-07
 accumulated-context:
   git_pull_at_boot: success
   git_pull_note: "Stashed unstaged changes, pulled (already up to date), popped stash"
-  working_archived: 1
+  working_archived: 5
   working_deleted: 0
-  working_skipped: 26
+  working_skipped: 22
   working_stranded: 0
   archived_files:
-    - dream-summary-2026-08-05.md
-  skipped_not_expired:
     - daily-review-2026-08-04-050000.md
     - daily-review-2026-08-05-021100.md
     - morning-briefing-2026-08-04-061212.md
     - plaud-ingest-2026-08-04-152100.md
+    - dream-summary-2026-08-06.md
+  skipped_not_expired:
+    - daily-review-2026-08-06-000000.md
   skipped_unparseable:
     - 2026-07-08.md
     - 2026-07-23-215200-session-felix-derek-persona-rebuild.md
@@ -41,39 +42,49 @@ accumulated-context:
     - sc-executive-brief-2026-07-13.md
     - slack-notification-golf-booking-20260801.txt
     - solace-meeting-prep-2026-07-27.md
-  episodic_scanned: 243
-  score_updates: 243
-  window_entries: 84
+  episodic_scanned: 248
+  score_updates: 248
+  window_entries: 86
   no_date: 27
   no_tags: 194
-  score_distribution: "0:194,1:3,2:1,3:2,4:4,5:4,6:1,8:2,9:1,10:31"
-  clusters_found: 1
+  score_distribution: "0:194,1:2,2:2,3:2,4:4,5:4,6:1,7:1,8:2,9:1,10:35"
+  clusters_found: 4
   semantic_created: 0
-  semantic_updated: 1
-  promoted_entries: 1
+  semantic_updated: 3
+  promoted_entries: 5
   cluster_actions:
     - tag: dream-summary
       domain: pattern
       size: 1
       action: update
       target: memory/semantic/pattern/2026-07-06-dream-summary-pattern.md
-  errors_30d: 111
+    - tag: daily-review
+      domain: operational
+      size: 3
+      action: update
+      target: memory/semantic/operational/2026-07-04-daily-review-pattern.md
+    - tag: plaud-ingest
+      domain: operational
+      size: 1
+      action: update
+      target: memory/semantic/operational/2026-07-04-plaud-pattern.md
+  errors_30d: 108
   lessons_appended: 0
   lessons_note: "All 8 qualifying categories already documented in LESSONS.md. No new lesson appended."
   entries_compressed: 0
   digests_updated: 0
   compression_skipped: true
-  compression_note: "2 candidates — below 5-entry safety threshold, skipped."
+  compression_note: "3 candidates — below 5-entry safety threshold, skipped."
 prior-run-context:
-  session_id: dream-cycle-2026-08-05-030000
-  working_archived: 4
+  session_id: dream-cycle-2026-08-06-030928
+  working_archived: 1
   working_deleted: 0
-  episodic_scanned: 242
-  score_updates: 242
-  clusters_found: 3
+  episodic_scanned: 243
+  score_updates: 243
+  clusters_found: 1
   semantic_created: 0
-  semantic_updated: 3
-  promoted_entries: 4
+  semantic_updated: 1
+  promoted_entries: 1
   entries_compressed: 0
   digests_updated: 0
   errors: 0
