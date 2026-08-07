@@ -1,0 +1,240 @@
+{
+  "date": "2026-08-07",
+  "generated": "2026-08-07T00:00:00Z",
+  "window_hours": 72,
+  "sources_used": [
+    "msnbc", "cnn", "nbc", "thehill", "axios", "dailybeast", "slate", "newrepublic",
+    "foxnews", "natreview", "examiner", "federalist", "dailywire", "breitbart",
+    "townhall", "rcp", "amconserv", "spectator", "freepress"
+  ],
+  "sources_muted": [
+    {"id": "nyt", "name": "New York Times", "reason": "accessible: false"},
+    {"id": "wapo", "name": "Washington Post", "reason": "accessible: false"},
+    {"id": "politico", "name": "Politico", "reason": "accessible: false"},
+    {"id": "vox", "name": "Vox Politics", "reason": "accessible: false"},
+    {"id": "motherjones", "name": "Mother Jones", "reason": "accessible: false"},
+    {"id": "wsj_opinion", "name": "WSJ Opinion", "reason": "accessible: false"},
+    {"id": "nypost", "name": "New York Post", "reason": "accessible: false"},
+    {"id": "reuters", "name": "Reuters Politics", "reason": "accessible: false"},
+    {"id": "ap", "name": "Associated Press", "reason": "accessible: false"},
+    {"id": "bbc", "name": "BBC US & Canada", "reason": "accessible: false"}
+  ],
+  "counts": {
+    "total_items": 57,
+    "by_lean": {"left": 29, "right": 25, "center": 3},
+    "shared_topics": 4,
+    "gap_left": 4,
+    "gap_right": 4
+  },
+  "shared_topics": [
+    {
+      "topic_key": "todd-blanche-ag-nomination-senate",
+      "title": "Todd Blanche AG Nomination Clears Committee, Floor Vote Remains Precarious",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "summary": "The Senate Judiciary Committee advanced Todd Blanche's attorney general nomination after months of delay. Senators Cornyn and Tillis dropped their opposition after securing a written agreement from Blanche that the Trump administration's proposed $1.8 billion anti-weaponization fund would be terminated. Sen. Susan Collins announced she will vote against the nomination, leaving confirmation on a knife's edge with nearly every Republican vote needed. The floor vote is expected before the August recess.",
+      "correlation": 55,
+      "correlation_label": "Both sides cover the facts; left stresses the anti-weaponization fund deal as capitulation, right welcomes DOJ leadership restoration.",
+      "left": {
+        "framing": "Left outlets frame the Cornyn/Tillis reversal as a face-saving maneuver after the anti-weaponization fund was exposed as constitutionally and legally problematic. CNN and NBC emphasize Collins's opposition and the razor-thin margin, treating confirmation as far from assured. The New Republic warns Blanche has sent a 'chilling message' to US attorneys.",
+        "sources": [
+          {"name": "CNN Politics", "url": "https://www.cnn.com/2026/08/04/politics/todd-blanches-confirmation-expected-revitalize-doj-investigations"},
+          {"name": "NBC News", "url": "https://www.nbcnews.com/politics/justice-department/senate-republicans-advance-todd-blanche-nomination-anti-weaponization-rcna590555"},
+          {"name": "The New Republic", "url": "https://newrepublic.com/post/214032/todd-blanche-message-pirro-reflecting-pool-vandalism"},
+          {"name": "Axios", "url": "https://www.axios.com/2026/08/04/todd-blanche-attorney-general-senate-republicans-susan-collins"}
+        ]
+      },
+      "right": {
+        "framing": "Right outlets welcome the committee advancement as long-overdue progress toward restoring credibility at the Justice Department. The Federalist and Townhall emphasize the importance of having a confirmed AG to revive stalled investigations. Collins's opposition is noted but minimized.",
+        "sources": [
+          {"name": "The Federalist", "url": "https://thefederalist.com/2026/08/04/senate-advances-todd-blanche-nomination-for-attorney-general/"},
+          {"name": "Townhall", "url": "https://townhall.com/news/mattvespa/2026/08/06/want-to-guess-which-gop-senators-are-giving-us-heartburn-over-todd-blanches-ag-nomination-n2680752"}
+        ]
+      }
+    },
+    {
+      "topic_key": "iran-war-munitions-pentagon-stockpile",
+      "title": "Pentagon Munitions Stockpile 'Dangerously Low' After Five Months of Iran War",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "summary": "Reports emerged that the US military has burned through nearly 80% of its interceptors for a key missile defense system after five months of war with Iran. US casualties stand at 18 killed and 687 wounded. Trump publicly disputed the characterizations, claiming the US has 'massive amounts' of munitions. Reports of a Camp David confrontation between Trump and Defense Secretary Hegseth over the shortfall surfaced. The American Conservative used the story to argue a systemic US defense industrial base failure predating Iran.",
+      "correlation": 32,
+      "correlation_label": "Sharply divergent narratives: left covers a genuine military crisis; right largely echoes Trump's denial and avoids the stockpile story.",
+      "left": {
+        "framing": "CNN's daily Iran war coverage puts the munitions depletion front and center as a strategic crisis. The Daily Beast reports a Camp David 'meltdown' between Trump and Hegseth. Left framing treats this as evidence that Trump walked into a war without a plan, with 59% of Americans now opposing it per Reuters/Ipsos.",
+        "sources": [
+          {"name": "CNN Politics", "url": "https://www.cnn.com/2026/08/06/world/live-news/iran-war-trump"},
+          {"name": "The Daily Beast", "url": "https://www.thedailybeast.com/furious-trumps-camp-david-meltdown-at-pentagon-pete-hegseth-over-iran-war-munitions-shortages-exposed/"},
+          {"name": "The Hill", "url": "https://thehill.com/policy/international/5976071-iran-new-threats-us-strikes-infrastructure-energy/"}
+        ]
+      },
+      "right": {
+        "framing": "Fox amplifies Trump's denial that stockpiles are short, focuses on imminent deal and gas price relief. The American Conservative takes a skeptical view of the war's management but frames it as a systemic Pentagon procurement failure, not a Trump failure specifically. Fox coverage emphasizes Hormuz deal progress over the military strain.",
+        "sources": [
+          {"name": "Fox News", "url": "https://www.foxnews.com/live-news/iran-war-trump-deal-strait-of-hormuz-reopen-08-05-2026"},
+          {"name": "The American Conservative", "url": "https://www.theamericanconservative.com/the-real-munitions-shortage-transcends-the-iran-war/"}
+        ]
+      }
+    },
+    {
+      "topic_key": "fauci-contempt-congress-vote",
+      "title": "Senate Committee Votes 8-5 to Hold Fauci in Contempt of Congress",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "summary": "The Senate Homeland Security and Governmental Affairs Committee voted along party lines 8-5 to hold Dr. Anthony Fauci in contempt of Congress after he declined to answer questions about COVID-19 origins at a previous hearing. Senator Rand Paul has been the lead advocate for the contempt proceeding. Reports also emerged that the committee obtained data from Fauci's iPhone. The full Senate would need to vote to enforce the contempt citation.",
+      "correlation": 42,
+      "correlation_label": "Both sides cover the vote; left frames it as partisan revenge, right frames it as long-overdue accountability.",
+      "left": {
+        "framing": "Left coverage, particularly The New Republic, frames the vote as Rand Paul 'getting revenge' on Fauci — a politically motivated action rather than legitimate oversight. Coverage emphasizes the party-line vote as evidence it is not genuine accountability but partisan theater.",
+        "sources": [
+          {"name": "The New Republic", "url": "https://newrepublic.com/post/214051/rand-paul-gets-revenge-anthony-fauci-contempt-congress"}
+        ]
+      },
+      "right": {
+        "framing": "Breitbart, Daily Wire, and Spectator treat the contempt vote as long-overdue accountability for a public official who evaded testimony. Daily Wire publishes analysis of iPhone data as evidence of politically motivated pandemic decisions. Spectator frames Fauci's actions as a fundamental breach of public trust.",
+        "sources": [
+          {"name": "Breitbart", "url": "https://www.breitbart.com/politics/2026/08/06/watch-live-senate-debates-holding-anthony-fauci-in-contempt-of-congress/"},
+          {"name": "The Daily Wire", "url": "https://www.dailywire.com/news/the-data-that-shows-how-fauci-broke-bad"},
+          {"name": "The American Spectator", "url": "https://spectator.org/what-the-fauci-diaries-reveal-about-americas-covid-response/"}
+        ]
+      }
+    },
+    {
+      "topic_key": "iran-hormuz-oman-deal-negotiations",
+      "title": "Iran-Oman Hormuz Shipping Deal: Coordinates Set, Full Reopening Still Uncertain",
+      "days_seen": 2,
+      "relevance": 70,
+      "relevance_label": "Recurring — day 2",
+      "summary": "Iran and Oman agreed on geographic coordinates for a proposed commercial shipping safe passage through the Strait of Hormuz, but Iranian officials have made clear a shipping deal does not mean the waterway fully reopens. Currently only ~5 million barrels/day transit the strait versus the pre-war 20 million. Trump claimed a deal could come within days; gas prices remain at $4.06/gallon nationally. Saudi Arabia is bracing for multi-vector attacks by Houthi and Iranian-backed Iraqi militia forces.",
+      "correlation": 58,
+      "correlation_label": "Same facts reported; left emphasizes war's human/economic toll and diplomatic ambiguity, right emphasizes Trump's deal-making optimism and near-term relief.",
+      "left": {
+        "framing": "CNN's daily live blogs chronicle each incremental step in talks while noting Iran's repeated clarifications that Hormuz access is separate from ending the war. NBC reports Trump's deal claims skeptically given Tehran's denials of direct US-Iran talks. The focus is on civilian casualties, Saudi escalation risk, and the 59% of Americans opposing the war.",
+        "sources": [
+          {"name": "CNN Politics", "url": "https://www.cnn.com/2026/08/04/world/live-news/iran-war-trump"},
+          {"name": "NBC News", "url": "https://www.nbcnews.com/politics/trump-administration/live-blog/trump-michigan-el-sayed-2026-election-congress-iran-live-updates-rcna590889"},
+          {"name": "Axios", "url": "https://www.axios.com/2026/08/01/saudi-crown-prince-trump-iran-attacks"}
+        ]
+      },
+      "right": {
+        "framing": "Fox and Rubio's statements emphasize Iran 'confronting a different kind of president' and frame the Hormuz progress as validation of Trump's pressure campaign. Predictions of imminent gas price relief are prominent. Coverage of Saudi concerns is minimal.",
+        "sources": [
+          {"name": "Fox News", "url": "https://www.foxnews.com/live-news/us-iran-war-trump-rubio-august-1-2026"},
+          {"name": "Fox News", "url": "https://www.foxnews.com/live-news/iran-war-trump-deal-strait-of-hormuz-reopen-08-05-2026"}
+        ]
+      }
+    }
+  ],
+  "gap_left": [
+    {
+      "topic_key": "haitian-tps-ended-deportation-targets",
+      "title": "330K Haitians Lose TPS Protection; Deportation Targets Overnight",
+      "days_seen": 2,
+      "relevance": 70,
+      "relevance_label": "Recurring — day 2",
+      "summary": "A federal judge confirmed that Temporary Protected Status for approximately 330,000 Haitians has formally ended following the Supreme Court's ruling allowing the Trump administration to terminate it. TPS holders are now potential ICE enforcement targets with no legal status. The New Republic reports DHS is also adding nearly one million immigrants — including some children — to a criminal DNA database. Left outlets frame the TPS termination as a humanitarian catastrophe. Slate argues Congress still has a legislative path to restore DACA and TPS protections.",
+      "sources": [
+        {"name": "The Hill", "url": "https://thehill.com/regulation/court-battles/6013758-judge-confirms-haitian-tps-loss/"},
+        {"name": "The New Republic", "url": "https://newrepublic.com/post/214030/trump-deportations-end-tps-haitians"},
+        {"name": "Slate", "url": "https://slate.com/news-and-politics/2026/08/congress-worst-supreme-court-decisions-dreamers-tps.html"},
+        {"name": "MSNBC", "url": "https://www.msnbc.com/msnbc-podcast/the-best-people-with-nicolle-wallace/jb-pritzker-ice-raids-chicago-people-are-traumatized-rcna240022"}
+      ]
+    },
+    {
+      "topic_key": "july-jobs-adp-44k-hiring-slowdown",
+      "title": "July ADP Jobs: Only 44K Private Hires — Weakest Since January",
+      "days_seen": 2,
+      "relevance": 70,
+      "relevance_label": "Recurring — day 2",
+      "summary": "ADP's July private payroll report showed only 44,000 jobs added — down sharply from 95,000 in June and the weakest monthly gain since January. Axios and NBC attribute the slowdown to tariff uncertainty, the ongoing Iran war's energy price impact, and employers' reluctance to hire amid geopolitical volatility. Gas averages $4.06/gallon, up 36% since February. Meanwhile, wages for job changers accelerated to 7%, creating a K-shaped labor market where stayers stagnate and movers prosper.",
+      "sources": [
+        {"name": "NBC News", "url": "https://www.nbcnews.com/business/economy/july-2026-jobs-report-rcna591138"},
+        {"name": "Axios", "url": "https://www.axios.com/2026/08/05/employment-pay-construction-adp"},
+        {"name": "CNN", "url": "https://www.cnn.com/2026/08/04/economy/us-jolts-job-openings-layoffs-june"}
+      ]
+    },
+    {
+      "topic_key": "senate-cr-funding-recess-thune-schumer",
+      "title": "Senate Races Clock on CR, Blanche Confirmation Before August Recess",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "summary": "Senate Majority Leader Thune and Minority Leader Schumer are negotiating a continuing resolution to fund the federal government through December 11, avoiding a pre-election shutdown. The deal also involves clearing a batch of 74 Trump executive branch nominees. Internal GOP tensions are a complicating factor: Budget Chair Ron Johnson is pushing for a third reconciliation package vote before recess, which Appropriations Chair Susan Collins says is politically suicidal. The SAVE Act — Trump's top voter ID priority — remains absent from Thune's pre-recess list.",
+      "sources": [
+        {"name": "The Hill", "url": "https://thehill.com/homenews/senate/6015547-thune-schumer-august-recess-funding-blanche-budget/"},
+        {"name": "The Hill", "url": "https://thehill.com/homenews/senate/6012731-senate-gop-internal-squabbles/"},
+        {"name": "Axios", "url": "https://www.axios.com/2026/08/03/senate-republicans-save-act-august-recess-trump"}
+      ]
+    },
+    {
+      "topic_key": "ice-raids-chicago-community-trauma",
+      "title": "ICE Raids Intensify Across Urban Communities; Pritzker: 'People Are Traumatized'",
+      "days_seen": 2,
+      "relevance": 70,
+      "relevance_label": "Recurring — day 2",
+      "summary": "Illinois Governor JB Pritzker described widespread trauma in Chicago-area immigrant communities as ICE enforcement operations continue to escalate. This follows earlier reporting of raids in Queens and Long Island. DHS is simultaneously accelerating its effort to add hundreds of thousands of asylum seekers' cases directly into deportation proceedings — rerouting roughly one-third of pending USCIS cases to immigration courts. DHS is also building a DNA database of immigrants that includes minors with no criminal records.",
+      "sources": [
+        {"name": "MSNBC", "url": "https://www.msnbc.com/msnbc-podcast/the-best-people-with-nicolle-wallace/jb-pritzker-ice-raids-chicago-people-are-traumatized-rcna240022"},
+        {"name": "The New Republic", "url": "https://newrepublic.com/post/214030/trump-deportations-end-tps-haitians"},
+        {"name": "Slate", "url": "https://slate.com/news-and-politics/2026/07/immigration-asylum-deportation-trump-haiti-tps.html"}
+      ]
+    }
+  ],
+  "gap_right": [
+    {
+      "topic_key": "fauci-iphone-records-covid-politics",
+      "title": "Fauci iPhone Data Obtained; Right Press Frames COVID Decisions as Politically Motivated",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "summary": "Senate investigators obtained data from Dr. Fauci's iPhone during the contempt proceedings, and right-leaning outlets are publishing analysis of the records. Daily Wire and The American Spectator frame the contents as proof that Fauci's pandemic-era decisions — on masking, school closures, and origin theories — were driven by political calculations rather than science. This coverage is distinct from the party-line contempt vote itself, focusing on the substantive case that Fauci's conduct warrants criminal accountability, not merely contempt.",
+      "sources": [
+        {"name": "The Daily Wire", "url": "https://www.dailywire.com/news/the-data-that-shows-how-fauci-broke-bad"},
+        {"name": "The American Spectator", "url": "https://spectator.org/what-the-fauci-diaries-reveal-about-americas-covid-response/"},
+        {"name": "Townhall", "url": "https://townhall.com/news/mattvespa/2026/08/05/with-that-development-we-know-why-anthony-fauci-hired-that-kind-of-lawyer-n2680772"}
+      ]
+    },
+    {
+      "topic_key": "south-carolina-senate-special-primary",
+      "title": "South Carolina Special Senate Primary Underway Following Lindsey Graham's Death",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "summary": "Early voting began in South Carolina's special U.S. Senate Republican primary to fill the seat left vacant by the death of longtime Senator Lindsey Graham. Nine candidates are competing for the August 11 primary. Trump's $400 million super PAC war chest is beginning to deploy, with South Carolina among the first targets. This Senate seat is considered safe Republican but the primary field dynamics matter for November.",
+      "sources": [
+        {"name": "Breitbart", "url": "https://www.breitbart.com/politics/2026/08/06/early-voting-underway-south-carolina-us-senate-republican-primary/"},
+        {"name": "Breitbart", "url": "https://www.breitbart.com/politics/2026/07/27/report-trump-s-400-m-war-chest-set-put-democrats-defense/"}
+      ]
+    },
+    {
+      "topic_key": "dsa-radical-ideological-threat-framing",
+      "title": "Right Press Frames DSA Primary Wave as Existential Ideological Threat",
+      "days_seen": 2,
+      "relevance": 70,
+      "relevance_label": "Recurring — day 2",
+      "summary": "Beyond covering El-Sayed's primary win as an election result, right-wing outlets are running substantive ideological analysis of the DSA as a movement. The American Spectator draws explicit parallels between DSA and historical anti-American radical organizations. National Review argues historical cycles mean some DSA adherents will eventually migrate to conservatism. The American Conservative asks whether the DSA's anti-war, anti-globalist positioning is stealing core 'America First' nationalist themes from the right. Breitbart reports that Third Way is launching a $15M campaign to discredit democratic socialism.",
+      "sources": [
+        {"name": "The American Spectator", "url": "https://spectator.org/paul-kengor-meet-americas-new-un-americans-the-dsa/"},
+        {"name": "National Review", "url": "https://www.nationalreview.com/2026/08/is-socialism-really-coming/"},
+        {"name": "The American Conservative", "url": "https://www.theamericanconservative.com/is-the-left-capturing-america-first/"},
+        {"name": "Breitbart", "url": "https://www.breitbart.com/politics/2026/08/06/nyt-moderate-democrats-gear-up-war-is-coming-democratic-socialists/"}
+      ]
+    },
+    {
+      "topic_key": "gop-redistricting-midterm-map-hope",
+      "title": "Redistricting Adds 14 Trump-Won Seats; GOP Sees Map Glimmer for House Hold",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "summary": "Washington Examiner reports that recent redistricting has added 14 Trump-won seats to the midterm map, with 6 won by Trump by 15+ points, giving Republicans their best structural advantage in cycles. Prediction markets still favor Democrats to take the House (83-86%), but GOP strategists argue the fundamentals are improving. The Ohio Republican mess — domestic abuse allegations, sluggish campaigns, working-class rebellion — is countered by redistricting gains elsewhere. South Carolina and Tennessee primaries show the GOP base remains engaged.",
+      "sources": [
+        {"name": "Washington Examiner", "url": "https://www.washingtonexaminer.com/news/campaigns/congressional/4673621/midterm-countdown-august-2026/"},
+        {"name": "RealClearPolitics", "url": "https://www.realclearpolitics.com/2026/08/02/trumps_final_act_begins_706872.html"},
+        {"name": "The American Spectator", "url": "https://spectator.org/why-republicans-may-defy-midterm-history/"}
+      ]
+    }
+  ]
+}
