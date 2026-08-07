@@ -1,0 +1,591 @@
+<title>7-Eleven, Inc. — Pursuit Dashboard</title>
+<style>
+  :root{
+    --bg:#eef0e6;
+    --surface:#ffffff;
+    --surface-2:#e4e7da;
+    --text:#1b2530;
+    --text-mute:#5c6b74;
+    --border:#d3d6c8;
+    --accent:#a8752f;
+    --accent-strong:#8c5f22;
+    --accent-soft:#f0e2c8;
+    --success:#3f5b4c;
+    --success-soft:#dfe8e0;
+    --alert:#8b4030;
+    --alert-soft:#f1ddd6;
+    --shadow:rgba(27,37,48,0.08);
+    --font-display: ui-serif, "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+    --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --font-mono: ui-monospace, "SF Mono", "Cascadia Mono", Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#11161c; --surface:#171f27; --surface-2:#1d2630; --text:#e9e6dc; --text-mute:#93a0a8;
+      --border:#2b3540; --accent:#d1a256; --accent-strong:#e6bd75; --accent-soft:#3a2f1c;
+      --success:#7fae95; --success-soft:#1c2b23; --alert:#d98b76; --alert-soft:#33201b; --shadow:rgba(0,0,0,0.35);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#11161c; --surface:#171f27; --surface-2:#1d2630; --text:#e9e6dc; --text-mute:#93a0a8;
+    --border:#2b3540; --accent:#d1a256; --accent-strong:#e6bd75; --accent-soft:#3a2f1c;
+    --success:#7fae95; --success-soft:#1c2b23; --alert:#d98b76; --alert-soft:#33201b; --shadow:rgba(0,0,0,0.35);
+  }
+  :root[data-theme="light"]{
+    --bg:#eef0e6; --surface:#ffffff; --surface-2:#e4e7da; --text:#1b2530; --text-mute:#5c6b74;
+    --border:#d3d6c8; --accent:#a8752f; --accent-strong:#8c5f22; --accent-soft:#f0e2c8;
+    --success:#3f5b4c; --success-soft:#dfe8e0; --alert:#8b4030; --alert-soft:#f1ddd6; --shadow:rgba(27,37,48,0.08);
+  }
+
+  *{box-sizing:border-box;}
+  body{margin:0;}
+  .page{ background:var(--bg); color:var(--text); font-family:var(--font-body); font-size:15px; line-height:1.5; min-height:100vh; }
+  ::selection{ background:var(--accent-soft); }
+  a{ color:var(--accent-strong); }
+  .tabular{ font-family:var(--font-mono); font-variant-numeric:tabular-nums; }
+
+  header.masthead{ padding:1.6rem 2rem 1.2rem; display:flex; flex-wrap:wrap; align-items:flex-end; justify-content:space-between; gap:0.75rem; border-bottom:1px solid var(--border); }
+  .masthead-title{ font-family:var(--font-display); font-size:1.9rem; font-weight:600; letter-spacing:-0.01em; text-wrap:balance; margin:0; }
+  .masthead-sub{ color:var(--text-mute); font-size:0.85rem; margin-top:0.25rem; }
+
+  .status-strip{ position:sticky; top:0; z-index:10; display:grid; grid-template-columns:repeat(5, 1fr); gap:1px; background:var(--border); border-bottom:1px solid var(--border); box-shadow:0 2px 10px var(--shadow); }
+  .stat{ background:var(--surface); padding:0.85rem 1.1rem; }
+  .stat-label{ font-size:0.66rem; text-transform:uppercase; letter-spacing:0.07em; color:var(--text-mute); margin-bottom:0.3rem; }
+  .stat-value{ font-family:var(--font-mono); font-variant-numeric:tabular-nums; font-size:1.15rem; font-weight:600; color:var(--text); }
+  .stat-value.accent{ color:var(--accent-strong); }
+  .stat-value.good{ color:var(--success); }
+  .stat-sub{ font-size:0.72rem; color:var(--text-mute); margin-top:0.15rem; }
+
+  main{ max-width:1240px; margin:0 auto; padding:1.75rem 2rem 3rem; }
+
+  section.block{ margin-bottom:2rem; }
+  .block-heading{ font-family:var(--font-display); font-size:1.05rem; font-weight:600; margin:0 0 0.75rem; display:flex; align-items:center; gap:0.5rem; }
+  .eyebrow{ font-size:0.68rem; text-transform:uppercase; letter-spacing:0.09em; color:var(--text-mute); margin-bottom:0.3rem; display:block; }
+
+  .front-grid{ display:grid; grid-template-columns:1.5fr 1fr; gap:1.5rem; align-items:start; }
+  @media (max-width:920px){ .front-grid{ grid-template-columns:1fr; } }
+
+  .card{ background:var(--surface); border:1px solid var(--border); border-radius:8px; padding:1.25rem 1.4rem; }
+
+  .pitch-hero{ border:1px solid var(--accent); background:linear-gradient(180deg, var(--accent-soft) 0%, var(--surface) 130px); }
+  .pitch-hero .eyebrow{ color:var(--accent-strong); }
+  .pitch-hero h3{ font-family:var(--font-display); font-size:1.35rem; margin:0.1rem 0 0.5rem; }
+  .pitch-why{ color:var(--text-mute); font-size:0.9rem; margin-bottom:0.9rem; }
+  blockquote.script{ margin:0 0 0.9rem; padding:0.8rem 1rem; background:var(--surface); border-left:3px solid var(--accent); border-radius:0 4px 4px 0; font-style:italic; font-size:0.92rem; color:var(--text); }
+  .pitch-rationale{ font-size:0.82rem; color:var(--text-mute); border-top:1px solid var(--border); padding-top:0.7rem; }
+  .pitch-rationale strong{ color:var(--text); }
+
+  .secondary-plays{ display:grid; grid-template-columns:1fr 1fr; gap:0.9rem; margin-top:0.9rem; }
+  @media (max-width:600px){ .secondary-plays{ grid-template-columns:1fr; } }
+  .play-card{ background:var(--surface-2); border:1px solid var(--border); border-radius:6px; padding:0; }
+  .play-card summary{ cursor:pointer; padding:0.85rem 0.95rem; list-style:none; display:flex; align-items:baseline; justify-content:space-between; gap:0.5rem; }
+  .play-card summary::-webkit-details-marker{ display:none; }
+  .play-card summary::after{ content:"Details +"; font-size:0.68rem; color:var(--text-mute); white-space:nowrap; }
+  .play-card[open] summary::after{ content:"Hide –"; }
+  .play-card summary:focus-visible{ outline:2px solid var(--accent); outline-offset:-2px; }
+  .play-card .eyebrow{ margin-bottom:0.15rem; }
+  .play-card h4{ font-family:var(--font-display); font-size:0.98rem; margin:0 0 0.4rem; }
+  .play-card-body{ padding:0 0.95rem 0.9rem; }
+  .play-card-body p{ font-size:0.8rem; color:var(--text-mute); margin:0 0 0.6rem; }
+  .play-card blockquote.script{ font-size:0.8rem; padding:0.55rem 0.7rem; margin-bottom:0; }
+
+  .queue{ display:flex; flex-direction:column; gap:0.55rem; }
+  .queue-row{ display:grid; grid-template-columns:1.6rem 1fr; gap:0.7rem; padding:0.65rem 0.75rem; border:1px solid var(--border); border-radius:6px; background:var(--surface); }
+  .queue-row.priority-1{ border-color:var(--success); background:var(--success-soft); }
+  .queue-num{ font-family:var(--font-mono); font-weight:700; color:var(--text-mute); padding-top:0.1rem; }
+  .priority-1 .queue-num{ color:var(--success); }
+  .queue-name{ font-weight:600; font-size:0.9rem; }
+  .queue-role{ font-size:0.76rem; color:var(--text-mute); margin-bottom:0.35rem; }
+  .queue-goal{ font-size:0.78rem; color:var(--text); }
+  .pill{ display:inline-block; font-size:0.62rem; font-weight:700; text-transform:uppercase; letter-spacing:0.04em; padding:0.1rem 0.45rem; border-radius:99px; margin-left:0.4rem; vertical-align:middle; }
+  .pill-open{ background:var(--success-soft); color:var(--success); }
+  .pill-warm{ background:var(--accent-soft); color:var(--accent-strong); }
+  .pill-cold{ background:var(--alert-soft); color:var(--alert); }
+  .pill-existing{ background:var(--surface-2); color:var(--text-mute); }
+
+  .analysis-grid{ display:grid; grid-template-columns:1fr 1.3fr; gap:1.5rem; margin-top:1.75rem; }
+  @media (max-width:920px){ .analysis-grid{ grid-template-columns:1fr; } }
+
+  .ninebox-wrap{ display:flex; flex-direction:column; align-items:center; }
+  .ninebox-note{ font-size:0.76rem; color:var(--text-mute); margin-top:0.6rem; text-align:center; }
+
+  .timeline{ display:flex; flex-direction:column; gap:0; }
+  .tl-row{ display:grid; grid-template-columns:5.5rem 1fr; gap:0.9rem; padding:0.7rem 0; position:relative; }
+  .tl-row:not(:last-child){ border-bottom:1px dashed var(--border); }
+  .tl-phase{ font-family:var(--font-display); font-weight:600; font-size:0.95rem; }
+  .tl-time{ font-size:0.72rem; color:var(--text-mute); font-family:var(--font-mono); }
+  .tl-milestone{ font-size:0.84rem; }
+
+  .actions-list{ display:grid; grid-template-columns:1fr 1fr; gap:0.5rem 1.4rem; }
+  @media (max-width:760px){ .actions-list{ grid-template-columns:1fr; } }
+  .action-item{ display:flex; gap:0.6rem; font-size:0.85rem; padding:0.4rem 0; border-bottom:1px solid var(--border); }
+  .action-check{ flex:none; width:1.1rem; height:1.1rem; border:1.5px solid var(--accent); border-radius:3px; margin-top:0.15rem; }
+
+  .tabbar{ display:flex; gap:0.4rem; border-bottom:1px solid var(--border); margin:2.2rem 0 1.4rem; }
+  .tab-btn{ font-family:var(--font-body); font-size:0.85rem; font-weight:600; color:var(--text-mute); background:none; border:none; padding:0.6rem 0.3rem; margin-right:1.4rem; cursor:pointer; position:relative; top:1px; }
+  .tab-btn:focus-visible{ outline:2px solid var(--accent); outline-offset:2px; }
+  .tab-btn.active{ color:var(--text); border-bottom:2px solid var(--accent); }
+  .tab-panel{ display:none; }
+  .tab-panel.active{ display:block; }
+
+  .profile-grid{ display:grid; grid-template-columns:repeat(auto-fill, minmax(300px, 1fr)); gap:1.1rem; }
+  .profile-card{ background:var(--surface); border:1px solid var(--border); border-radius:8px; padding:1.1rem 1.2rem; }
+  .profile-card.flag{ border-color:var(--alert); }
+  .profile-name{ font-family:var(--font-display); font-size:1.05rem; font-weight:600; margin:0 0 0.15rem; }
+  .profile-title{ font-size:0.78rem; color:var(--text-mute); margin-bottom:0.6rem; }
+  .profile-badges{ margin-bottom:0.6rem; }
+  .profile-section{ font-size:0.82rem; margin-bottom:0.5rem; }
+  .profile-section .label{ font-size:0.66rem; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-mute); display:block; margin-bottom:0.15rem; }
+  .profile-quote{ font-style:italic; color:var(--text); }
+  .profile-source{ font-size:0.7rem; color:var(--text-mute); margin-top:0.6rem; padding-top:0.5rem; border-top:1px solid var(--border); }
+  .profile-source a{ color:var(--text-mute); }
+
+  table.ref-table{ width:100%; border-collapse:collapse; font-size:0.82rem; }
+  table.ref-table th, table.ref-table td{ text-align:left; padding:0.45rem 0.6rem; border-bottom:1px solid var(--border); }
+  table.ref-table th{ font-size:0.68rem; text-transform:uppercase; letter-spacing:0.05em; color:var(--text-mute); font-weight:600; }
+  .table-scroll{ overflow-x:auto; }
+  .subhead{ font-family:var(--font-display); font-size:0.95rem; font-weight:600; margin:1.6rem 0 0.6rem; }
+
+  details.note{ background:var(--surface); border:1px solid var(--border); border-radius:6px; margin-bottom:0.6rem; padding:0; }
+  details.note summary{ cursor:pointer; padding:0.75rem 1rem; font-weight:600; font-size:0.9rem; list-style:none; display:flex; justify-content:space-between; align-items:center; }
+  details.note summary::-webkit-details-marker{ display:none; }
+  details.note summary::after{ content:"+"; color:var(--text-mute); font-weight:400; font-size:1.1rem; }
+  details.note[open] summary::after{ content:"–"; }
+  details.note summary:focus-visible{ outline:2px solid var(--accent); outline-offset:-2px; }
+  .note-body{ padding:0 1rem 1rem; font-size:0.86rem; }
+  .note-body p{ margin:0 0 0.7rem; }
+  .note-body ul{ margin:0 0 0.7rem; padding-left:1.1rem; }
+  .note-body li{ margin-bottom:0.35rem; }
+  .resolved{ text-decoration:line-through; color:var(--text-mute); }
+  .sources-list{ font-size:0.78rem; columns:2; column-gap:2rem; }
+  @media (max-width:700px){ .sources-list{ columns:1; } }
+  .sources-list li{ break-inside:avoid; margin-bottom:0.5rem; }
+
+  footer.foot{ max-width:1240px; margin:0 auto; padding:1rem 2rem 2.5rem; color:var(--text-mute); font-size:0.75rem; }
+</style>
+
+<div class="page">
+
+  <header class="masthead">
+    <div>
+      <h1 class="masthead-title">7-Eleven, Inc. — Pursuit Dashboard</h1>
+      <div class="masthead-sub">Improving &middot; Business Development &middot; Internal</div>
+    </div>
+  </header>
+
+  <div class="status-strip">
+    <div class="stat">
+      <div class="stat-label">9-Box Position</div>
+      <div class="stat-value accent">SIGNIFICANT</div>
+      <div class="stat-sub">High Potential (4.3) &middot; Low Realized (-3.5, CRM-confirmed)</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">Current Engagement</div>
+      <div class="stat-value tabular good">5 yrs</div>
+      <div class="stat-sub">2-person staff aug since 2019 &middot; owner confirmed: Derek Nwamadi</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">Open Pipeline</div>
+      <div class="stat-value tabular">$0</div>
+      <div class="stat-sub">CRM-confirmed: zero open opportunities &middot; TTM won: $184,800</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">Warmest Path</div>
+      <div class="stat-value">Eric Wulfekammer</div>
+      <div class="stat-sub">IT Vendor Mgmt — 5-yr renewed relationship</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">Recommended Play</div>
+      <div class="stat-value accent">Option B</div>
+      <div class="stat-sub">Digital Product Engineering Surge</div>
+    </div>
+  </div>
+
+  <main>
+
+    <nav class="tabbar" role="tablist" aria-label="Dashboard sections">
+      <button class="tab-btn active" role="tab" aria-selected="true" data-tab="overview">Overview</button>
+      <button class="tab-btn" role="tab" aria-selected="false" data-tab="profiles">Profiles</button>
+      <button class="tab-btn" role="tab" aria-selected="false" data-tab="notes">Notes</button>
+    </nav>
+
+    <div class="tab-panel active" id="tab-overview">
+    <section class="block front-grid">
+      <div>
+        <div class="card pitch-hero">
+          <span class="eyebrow">Recommended entry play &middot; Option B</span>
+          <h3>Digital Product Engineering Surge</h3>
+          <div class="pitch-why">Grow from two embedded engineers into a small pod supporting the 7NOW/7Rewards digital roadmap — directly serving Seven & i's stated "digital convenience and last-mile" priority and leveraging Improving's Azure/Azure-AI delivery experience against 7-Eleven's confirmed Microsoft partnership.</div>
+          <blockquote class="script">&ldquo;Our two engineers have been in your org for five years without a hiccup. With a new CEO and a digital-convenience push coming, what's the next roadmap item a senior, already-onboarded team could pick up faster than a new hire or a new vendor?&rdquo;</blockquote>
+          <div class="pitch-rationale"><strong>Why lead here:</strong> It runs entirely through the existing, trusted relationship (Wulfekammer, Ditzler) instead of cold executive outreach, and tests real appetite for growth before spending any credibility on the higher-visibility Options A or C.</div>
+        </div>
+
+        <div class="secondary-plays">
+          <details class="play-card">
+            <summary>
+              <span><span class="eyebrow">Option A</span><h4>Transformation Office Expansion</h4></span>
+            </summary>
+            <div class="play-card-body">
+              <p>Position Improving inside Mahmood Sheikh's Business & IT Transformation mandate — a near-exact match to Seven & i's newly stated technology transformation Center of Excellence. Highest ceiling, most strategically aligned.</p>
+              <blockquote class="script">&ldquo;Seven & i just named a technology transformation Center of Excellence as a company-wide priority. You own that mandate inside 7-Eleven — where's the gap between what you're asked to deliver and the capacity you actually have?&rdquo;</blockquote>
+            </div>
+          </details>
+          <details class="play-card">
+            <summary>
+              <span><span class="eyebrow">Option C</span><h4>New-CEO Strategic Assessment</h4></span>
+            </summary>
+            <div class="play-card-body">
+              <p>A short, paid discovery engagement aligned to Mauricio Leyva's first 100 days: digital/data readiness against 7-Eleven's own stated 2026 priorities. Lowest near-term commitment, highest visibility — but needs executive access Improving doesn't have yet.</p>
+              <blockquote class="script">&ldquo;You're six days into the job at a company resetting its technology strategy company-wide. A short, focused assessment against your own stated 2026 priorities could give you a credible early data point — want to see what that would look like?&rdquo;</blockquote>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <div>
+        <div class="block-heading" style="margin-bottom:0.6rem;">Contact Priority Queue</div>
+        <div class="queue">
+          <div class="queue-row priority-1">
+            <div class="queue-num">1</div>
+            <div>
+              <div class="queue-name">Derek Nwamadi <span class="pill pill-open">Internal Coordination</span></div>
+              <div class="queue-role">Improving account owner, Dallas (CRM-confirmed)</div>
+              <div class="queue-goal">Confirm relationship health and outreach plan before any external contact — this account belongs to his book</div>
+            </div>
+          </div>
+          <div class="queue-row">
+            <div class="queue-num">2</div>
+            <div>
+              <div class="queue-name">Eric Wulfekammer <span class="pill pill-existing">Existing Relationship</span></div>
+              <div class="queue-role">Sr. Director, IT Vendor Management</div>
+              <div class="queue-goal">Open the "five years, time to grow" conversation</div>
+            </div>
+          </div>
+          <div class="queue-row">
+            <div class="queue-num">3</div>
+            <div>
+              <div class="queue-name">Matthew Ditzler <span class="pill pill-existing">Existing Relationship</span></div>
+              <div class="queue-role">Director of Software Engineering</div>
+              <div class="queue-goal">Identify the next roadmap item a senior embedded team could take on</div>
+            </div>
+          </div>
+          <div class="queue-row">
+            <div class="queue-num">4</div>
+            <div>
+              <div class="queue-name">Mahmood Sheikh <span class="pill pill-existing">Existing Relationship</span></div>
+              <div class="queue-role">Exec Director, Business & IT Transformation</div>
+              <div class="queue-goal">Connect delivery credibility to the 2026 transformation/CoE priority</div>
+            </div>
+          </div>
+          <div class="queue-row">
+            <div class="queue-num">5</div>
+            <div>
+              <div class="queue-name">Raghu Mahadevan <span class="pill pill-warm">Warm Referral (once proof exists)</span></div>
+              <div class="queue-role">EVP, Chief Digital and Information Officer</div>
+              <div class="queue-goal">Open the budget-authority conversation for a larger expansion</div>
+            </div>
+          </div>
+          <div class="queue-row">
+            <div class="queue-num">6</div>
+            <div>
+              <div class="queue-name">Mauricio Leyva <span class="pill pill-cold">Long-Lead / Aspirational</span></div>
+              <div class="queue-role">CEO, 7-Eleven, Inc.</div>
+              <div class="queue-goal">Executive sponsorship for a larger, multi-workstream relationship</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="block analysis-grid">
+      <div class="card ninebox-wrap">
+        <div class="block-heading">Account 9-Box</div>
+        <svg viewBox="0 0 300 300" width="100%" style="max-width:280px;" role="img" aria-label="9-box grid showing 7-Eleven plotted in the SIGNIFICANT cell">
+          <defs>
+            <style>
+              .grid-line{ stroke: var(--border); stroke-width:1; }
+              .axis-label{ font-family: var(--font-body); font-size:9px; fill: var(--text-mute); }
+              .cell-label{ font-family: var(--font-body); font-size:8px; fill: var(--text-mute); }
+            </style>
+          </defs>
+          <rect x="30" y="10" width="240" height="240" fill="none" class="grid-line"></rect>
+          <line x1="110" y1="10" x2="110" y2="250" class="grid-line"></line>
+          <line x1="190" y1="10" x2="190" y2="250" class="grid-line"></line>
+          <line x1="30" y1="90" x2="270" y2="90" class="grid-line"></line>
+          <line x1="30" y1="170" x2="270" y2="170" class="grid-line"></line>
+
+          <rect x="190" y="170" width="80" height="80" fill="var(--accent-soft)"></rect>
+          <text x="188" y="184" class="cell-label">SIGNIFICANT</text>
+
+          <text x="8" y="16" class="axis-label">High</text>
+          <text x="8" y="134" class="axis-label">Mid</text>
+          <text x="8" y="246" class="axis-label">Low</text>
+          <text x="34" y="264" class="axis-label">Low</text>
+          <text x="105" y="264" class="axis-label">Mid</text>
+          <text x="245" y="264" class="axis-label">High</text>
+          <text x="120" y="278" class="axis-label" font-weight="700">POTENTIAL &rarr;</text>
+          <text x="-180" y="12" class="axis-label" font-weight="700" transform="rotate(-90)">&larr; REALIZED</text>
+
+          <circle cx="253" cy="214" r="7" fill="var(--accent-strong)" stroke="var(--surface)" stroke-width="2"></circle>
+          <text x="196" y="207" class="cell-label" font-weight="700" fill="var(--accent-strong)">7-ELEVEN</text>
+        </svg>
+        <div class="ninebox-note">Potential 4.3 (High) &middot; Realized -3.5 (Low, CRM-confirmed revenue). Live Dynamics pull (8/7/2026) found TTM won revenue of just $184,800 against a $4M+ lifetime relationship — a materially more underleveraged account than this plan's original provisional estimate (-0.7, POISED) suggested.</div>
+      </div>
+
+      <div class="card">
+        <div class="block-heading">Multi-Year Strategic Path</div>
+        <div class="timeline">
+          <div class="tl-row">
+            <div><div class="tl-phase">Access</div><div class="tl-time">Month 1&ndash;3</div></div>
+            <div class="tl-milestone">Coordinate with Derek on outreach; confirm CRM TTM figures; gauge appetite via Wulfekammer/Ditzler post-CEO-transition; identify one scoped workstream tied to Sheikh's transformation mandate</div>
+          </div>
+          <div class="tl-row">
+            <div><div class="tl-phase">Prove</div><div class="tl-time">Month 3&ndash;6</div></div>
+            <div class="tl-milestone">Land one additional embedded role or small pod on a defined deliverable (7NOW/Azure-AI feature or transformation-office initiative); deliver visibly, capture a quantified outcome</div>
+          </div>
+          <div class="tl-row">
+            <div><div class="tl-phase">Expand</div><div class="tl-time">Month 6&ndash;12</div></div>
+            <div class="tl-milestone">Use the proof point to open a direct conversation with Raghu Mahadevan (CDIO); grow from two-person staff-aug toward a small delivery pod</div>
+          </div>
+          <div class="tl-row">
+            <div><div class="tl-phase">Partner</div><div class="tl-time">Year 2+</div></div>
+            <div class="tl-milestone">Establish a formal account team rhythm (exec sponsor, delivery lead, quarterly review); pursue a multi-workstream embedded relationship, potentially co-sold with Microsoft</div>
+          </div>
+        </div>
+
+        <div class="block-heading" style="margin-top:1.5rem;">Immediate Next Actions</div>
+        <div class="actions-list">
+          <div class="action-item"><span class="action-check"></span>[Gating] Coordinate with Derek (account owner) before any outreach</div>
+          <div class="action-item"><span class="action-check"></span>Pull live Dynamics CRM record — confirm TTM revenue/margin</div>
+          <div class="action-item"><span class="action-check"></span>Re-verify titles/reporting lines for all 6 internal contacts</div>
+          <div class="action-item"><span class="action-check"></span>Confirm staff-aug contract terms, renewal cadence, end date</div>
+          <div class="action-item"><span class="action-check"></span>Confirm Mahadevan's current scope as post-transition budget owner</div>
+          <div class="action-item"><span class="action-check"></span>Draft one-page POV tying delivery record to 2026 priorities</div>
+          <div class="action-item"><span class="action-check"></span>Track IPO/spinoff process through H2 2026 for status changes</div>
+          <div class="action-item"><span class="action-check"></span>Pull an actual retail/CPG win-wire reference before any pitch</div>
+        </div>
+      </div>
+    </section>
+    </div>
+
+    <div class="tab-panel" id="tab-profiles">
+
+      <div class="profile-grid">
+        <div class="profile-card">
+          <div class="profile-name">Mauricio Leyva</div>
+          <div class="profile-title">CEO, 7-Eleven, Inc. (effective Aug 1, 2026)</div>
+          <div class="profile-badges"><span class="pill pill-cold">Net New</span></div>
+          <div class="profile-section"><span class="label">Why he matters</span>Two-plus decades in consumer products, most recently Group President at Keurig Dr Pepper. Steps into the top US role six days before this plan was written, succeeding a 20-plus-year incumbent. Inference: a CPG growth/brand background suggests a mandate around customer experience and food leadership — matching Seven & i's named 2026 priorities.</div>
+          <div class="profile-section"><span class="label">Pitch angle</span><span class="profile-quote">&ldquo;You're six days into the job at a company that's about to reset its technology and food strategy at the same time the parent is talking about a possible spinoff. Where do you most need delivery capacity that doesn't require a whole new vendor relationship?&rdquo;</span></div>
+          <div class="profile-section"><span class="label">Avoid</span>Don't lead with the existing staff-aug arrangement — he doesn't know it exists yet. This is an aspirational, later-sequence conversation, not a first move.</div>
+          <div class="profile-source">PRNewswire, Aug 2026 — CEO appointment announcement</div>
+        </div>
+
+        <div class="profile-card">
+          <div class="profile-name">Raghu Mahadevan</div>
+          <div class="profile-title">EVP, Chief Digital and Information Officer</div>
+          <div class="profile-badges"><span class="pill pill-cold">Net New</span></div>
+          <div class="profile-section"><span class="label">Why he matters</span>Holds the consolidated Chief Digital + Information Officer role, publicly described as leading a multi-year "full stack transformation." Inference: almost certainly the actual budget authority for any technology capability expansion beyond staff-aug headcount.</div>
+          <div class="profile-section"><span class="label">Pitch angle</span><span class="profile-quote">&ldquo;You've been running a full-stack transformation for a while now, and Improving's had two engineers embedded in your organization since 2019 without you probably knowing it. What's the piece of that transformation that's hardest to staff right now?&rdquo;</span></div>
+          <div class="profile-section"><span class="label">Avoid</span>Don't pitch as new business — acknowledge the existing footprint. Don't approach cold before Wulfekammer or Ditzler have opened the door.</div>
+          <div class="profile-source">Metis Strategy interview series; LinkedIn</div>
+        </div>
+
+        <div class="profile-card">
+          <div class="profile-name">Eric Wulfekammer</div>
+          <div class="profile-title">Sr. Director, IT Vendor Management</div>
+          <div class="profile-badges"><span class="pill pill-existing">Existing Relationship</span></div>
+          <div class="profile-section"><span class="label">Why he matters</span>Owns formal IT vendor sourcing/management. Likely the person whose sign-off has kept the 2019-era staff-aug arrangement alive and renewed for five years without incident — the most direct, lowest-friction path to expansion.</div>
+          <div class="profile-section"><span class="label">Pitch angle</span><span class="profile-quote">&ldquo;It's been five years of quiet, reliable delivery on the same two-person team. With a new CEO and a transformation push coming, is now the moment to talk about growing that footprint rather than just renewing it?&rdquo;</span></div>
+          <div class="profile-section"><span class="label">Avoid</span>Don't treat this as a cold vendor-management conversation — acknowledge the tenure and ask what's changed on his side first.</div>
+          <div class="profile-source">Improving internal account record (`projects/improving-accounts-overview.md`) — not CRM-confirmed this session</div>
+        </div>
+
+        <div class="profile-card">
+          <div class="profile-name">Matthew Ditzler</div>
+          <div class="profile-title">Director of Software Engineering</div>
+          <div class="profile-badges"><span class="pill pill-existing">Existing Relationship</span></div>
+          <div class="profile-section"><span class="label">Why he matters</span>Most likely the working-level manager the two embedded Improving engineers report into functionally — closest working-level entry to the "digital convenience/last-mile" priority via the 7NOW/product roadmap.</div>
+          <div class="profile-section"><span class="label">Pitch angle</span><span class="profile-quote">&ldquo;Our two engineers have been heads-down in your org for years — what's the next thing on your roadmap that a senior, already-onboarded team could take on faster than hiring or a new vendor could?&rdquo;</span></div>
+          <div class="profile-section"><span class="label">Avoid</span>Don't skip him to go straight to Mahadevan — he's the credible internal reference for any expansion and should be looped in, not bypassed.</div>
+          <div class="profile-source">Improving internal account record (`projects/improving-accounts-overview.md`) — not CRM-confirmed this session</div>
+        </div>
+
+        <div class="profile-card">
+          <div class="profile-name">Mahmood Sheikh</div>
+          <div class="profile-title">Exec Director, Business & IT Transformation</div>
+          <div class="profile-badges"><span class="pill pill-existing">Existing Relationship</span></div>
+          <div class="profile-section"><span class="label">Why he matters</span>Formerly Sr. Manager, IT Strategy & Governance; promoted into a role titled almost identically to Seven & i's newly announced transformation/Center-of-Excellence mandate — the closest organizational match found in this research.</div>
+          <div class="profile-section"><span class="label">Pitch angle</span><span class="profile-quote">&ldquo;Seven & i just named a global technology strategy and a transformation Center of Excellence as a 2026 priority. Your title says you own exactly that inside 7-Eleven — where's the gap between that mandate and the capacity you actually have to execute it?&rdquo;</span></div>
+          <div class="profile-section"><span class="label">Avoid</span>Don't let this get treated as "just" a staff-aug renewal — he's the contact most likely to open the higher-value transformation-office conversation (Option A).</div>
+          <div class="profile-source">Improving internal account record (`projects/improving-accounts-overview.md`) — not CRM-confirmed this session</div>
+        </div>
+      </div>
+
+      <div class="subhead">Remaining Executive Council</div>
+      <div class="table-scroll">
+        <table class="ref-table">
+          <thead><tr><th>Name</th><th>Title</th><th>CRM Status</th></tr></thead>
+          <tbody>
+            <tr><td>Doug Rosencrans</td><td>EVP & COO (7-Eleven, Inc.) — title needs verification vs. parent-level role</td><td>Not-checked (not a named contact in CRM)</td></tr>
+            <tr><td>Stan Reynolds</td><td>EVP (was interim co-CEO)</td><td>Not-checked</td></tr>
+            <tr><td>David Seltzer</td><td>SVP & CFO</td><td>Not-checked</td></tr>
+            <tr><td>Rankin Gasaway</td><td>SVP, General Counsel & Secretary</td><td>Not-checked</td></tr>
+            <tr><td>Marissa Jarratt</td><td>EVP and CMO</td><td>Existing-contact (per internal record, not CRM-confirmed)</td></tr>
+            <tr><td>Jim Kastle</td><td>CISO</td><td>Not-checked</td></tr>
+            <tr><td>&mdash;</td><td>CHRO — not identified in sources this session</td><td>&mdash;</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="subhead">One Level Down (partial)</div>
+      <div class="table-scroll">
+        <table class="ref-table">
+          <thead><tr><th>Name</th><th>Title</th><th>Reports Toward</th></tr></thead>
+          <tbody>
+            <tr><td>Michelle Brigman</td><td>Cx Director</td><td>Existing contact (internal record) — CX org</td></tr>
+            <tr><td>Nikhil Wadhera</td><td>Group Product Manager</td><td>Existing contact (internal record) — product org</td></tr>
+            <tr><td>Taylor Wimberly</td><td>Group Product Manager</td><td>Existing contact (internal record) — product org</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="tab-panel" id="tab-notes">
+
+      <details class="note" open>
+        <summary>Open Items to Confirm</summary>
+        <div class="note-body">
+          <p>A live Dynamics CRM pull (8/7/2026) resolved two of the original open items — account ownership and TTM revenue. Everything else below still needs direct confirmation.</p>
+          <ul>
+            <li><s>CRM TTM revenue and gross margin for this account are not confirmed</s> — <strong>Revenue confirmed 8/7/2026: $184,800 TTM.</strong> Gross margin remains an estimate (27%) — not exposed in the CRM UI accessed this session.</li>
+            <li><s>Whether Derek (AKKHER) is still the active account owner</s> — <strong>Confirmed 8/7/2026: Derek Nwamadi is the current owner per live Dynamics record.</strong> Current relationship health beyond ownership (e.g. whether "no team growth since 2019" still holds) was not directly verifiable beyond the opportunity/timeline data pulled.</li>
+            <li>Current titles/reporting lines for all six internally-known contacts — the company underwent a CEO transition (Aug 1, 2026) and a reported April 2026 SVP-level reshuffle since this internal record was likely written.</li>
+            <li>Raghu Mahadevan's exact scope and whether he is the true post-transition economic buyer.</li>
+            <li>Doug Rosencrans's title is inconsistently reported (parent-level COO vs. 7-Eleven, Inc. COO) — confirm which entity before referencing him.</li>
+            <li>IPO/spinoff status for 7-Eleven's North American business is genuinely unresolved — could change budget authority and vendor relationships within this plan's own time horizon.</li>
+            <li>No CHRO was identified for 7-Eleven, Inc. in sources available this session.</li>
+            <li>No personal-network or LinkedIn mutual-connections mapping was run this session — Chrome/LinkedIn tools were unavailable; re-run when accessible.</li>
+            <li>No strong, confirmed same-industry (retail/convenience) win-wire story exists in materials reviewed this session.</li>
+            <li>Standing methodology flags: the geography scoring curve and 9-box grid arrangement are inferred beyond a single confirmed data point (AT&T); the Path-2 IT-spend benchmark can't discriminate between large-cap accounts once revenue clears roughly $1-2B; the 38% gross-margin default is Improving's typical range, not account-specific data.</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="note">
+        <summary>9-Box Methodology</summary>
+        <div class="note-body">
+          <p><strong>Potential (4.3, High):</strong> Geography raw 4 (weighted 0.4) — HQ Irving, TX inside Improving's Dallas home market, both flags Y. Revenue raw 5/capped (weighted 3.5) — Path 2 fallback using Seven & i's overseas CVS segment revenue (~$40.9B) × a ~1.5% retail IT-spend benchmark, discounted for external-services subset, produced an estimate ~20x the lookup table's $20M ceiling. Gross Margin raw 2 (weighted 0.4) — 38% default, interpolated.</p>
+          <p><strong>Realized (-3.5, Low — CRM-confirmed revenue):</strong> Geography raw 4 (weighted 0.4) — same structural fact. Revenue raw -5/capped (weighted -3.5) — <strong>CRM-confirmed TTM of $184,800</strong> (two won opportunities, 10/2025: "Suren Bafna Extension" $129,600 and "Josue Aguilar" $55,200), below the lookup table's lowest named band ($200K → -5). Gross Margin raw -2 (weighted -0.4) — estimated 27%, typical for staff-aug work; the CRM UI accessed this session showed opportunity revenue but not cost/margin detail.</p>
+          <p><strong>Correction from original build:</strong> this plan originally carried a provisional Realized estimate of -0.7 (Mid band, POISED classification) based on an assumed $550-650K TTM. A live Dynamics pull on 8/7/2026 found actual TTM revenue is far lower ($184,800), moving the classification to <strong>SIGNIFICANT</strong> (High Potential / Low Realized). The account is more underleveraged than originally stated — five-plus years of relationship and $4M+ lifetime closed revenue, but a thin current run-rate.</p>
+        </div>
+      </details>
+
+      <details class="note">
+        <summary>Strategic Priorities (7-Eleven / Seven & i)</summary>
+        <div class="note-body">
+          <ul>
+            <li><strong>Turning Point 2026 — Four Growth Priorities:</strong> Value that exceeds customer expectations, digital convenience & last-mile, food leadership, cost control — named by Seven & i CEO Stephen Hayes Dacus.</li>
+            <li><strong>Full-Stack Digital & AI Transformation:</strong> Consolidated CDIO role (Raghu Mahadevan) leading a multi-year transformation spanning consumer tech, back-end, infrastructure, and org stack.</li>
+            <li><strong>AI-Enabled Personalization on Microsoft/Azure:</strong> Named, ongoing Microsoft partnership embedding Azure AI into the 7NOW app for personalized recommendations.</li>
+            <li><strong>Cost Control Amid a Tough Environment:</strong> Explicit 2026 priority, corroborated by a planned 645-store closure in fiscal 2026 against ~205 new openings — matches Improving's own internal read on the account.</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="note">
+        <summary>Competitive Positioning</summary>
+        <div class="note-body">
+          <div class="table-scroll">
+            <table class="ref-table">
+              <thead><tr><th>Priority Theme</th><th>Improving Capability</th><th>Why It Fits</th></tr></thead>
+              <tbody>
+                <tr><td>Full-Stack Digital & AI Transformation</td><td>Application/data engineering, applied AI</td><td>Already embedded, Azure-native delivery experience</td></tr>
+                <tr><td>Digital Convenience & Last-Mile</td><td>Consumer-facing product engineering (7NOW/7Rewards)</td><td>Existing relationship sits inside the software engineering org</td></tr>
+                <tr><td>Cost Control</td><td>Embedded delivery vs. big-SI markup</td><td>Lower-cost lever than a large transformation engagement</td></tr>
+                <tr><td>Business & IT Transformation (new CoE)</td><td>Change delivery, modernization, transformation-office augmentation</td><td>Mahmood Sheikh's title nearly matches the stated CoE mandate</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p style="margin-top:0.8rem;"><strong>Win-wire story:</strong> No strong same-industry direct analog was confirmed this session. The closest comparable is Improving's own five-year delivery record at this exact account — a real but quiet proof point. Pull a stronger retail/CPG reference from delivery/marketing before any pitch meeting if one exists.</p>
+          <p><strong>Honest competitive note:</strong> Eric Wulfekammer's IT Vendor Management title implies a formal multi-vendor sourcing function; no specific incumbent SI confirmed via public search. Improving wins on five years of proven embedded delivery, senior talent density, and a lower-cost model matching the named cost-control priority. Improving concedes brand/scale against any large SI potentially running a bigger transformation program elsewhere in the account.</p>
+        </div>
+      </details>
+
+      <details class="note">
+        <summary>Referral &amp; Partner Network Detail</summary>
+        <div class="note-body">
+          <div class="table-scroll">
+            <table class="ref-table">
+              <thead><tr><th>Contact</th><th>Path</th><th>Status</th></tr></thead>
+              <tbody>
+                <tr><td>Derek (AKKHER)</td><td>Improving's internal account owner — the real "sponsor" of any expansion</td><td>Confirmed (internal record), needs freshness verification</td></tr>
+                <tr><td>Eric Wulfekammer / Matthew Ditzler</td><td>5-year renewed staff-aug relationship</td><td>Confirmed (internal record), not CRM-confirmed</td></tr>
+                <tr><td>Personal network (YPO/alumni/mutual connections)</td><td>Not run — Chrome/LinkedIn tools unavailable this session</td><td>Unavailable</td></tr>
+                <tr><td>Clay enrichment</td><td>Not checked this session</td><td>Unavailable</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="table-scroll" style="margin-top:1rem;">
+            <table class="ref-table">
+              <thead><tr><th>Partner</th><th>Status</th><th>Contact</th></tr></thead>
+              <tbody>
+                <tr><td>Microsoft</td><td>Confirmed — Azure AI embedded in 7NOW app</td><td>Not identified — check Improving's own MS partner owner</td></tr>
+                <tr><td>AWS</td><td>Likely — named in a 7-Eleven multi-cloud job posting</td><td>Not identified</td></tr>
+                <tr><td>GCP</td><td>Likely — same job posting</td><td>Not identified</td></tr>
+                <tr><td>Databricks</td><td>Likely — named in two separate 7-Eleven engineering job postings</td><td>Not identified</td></tr>
+                <tr><td>Confluent</td><td>No signal found</td><td>Not identified</td></tr>
+                <tr><td>Snowflake</td><td>No signal found</td><td>Not identified</td></tr>
+                <tr><td>SAP</td><td>No signal found</td><td>Not identified</td></tr>
+                <tr><td>SpaceX/xAI</td><td>No signal found</td><td>Not identified</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </details>
+
+      <details class="note">
+        <summary>Sources</summary>
+        <div class="note-body">
+          <ul class="sources-list">
+            <li>Improving internal: <code>projects/improving-accounts-overview.md</code> (7-Eleven section)</li>
+            <li>Improving internal: <code>context/org.md</code> / <code>memory/personal/org.md</code> (account ownership)</li>
+            <li><a href="https://www.7andi.com/en/ir/file/library/ks/pdf/2026_0709kse_02.pdf">Seven & i Holdings — July 9, 2026 Investor Presentation</a></li>
+            <li><a href="https://www.7andi.com/en/company/qr/166/2.html">Seven & i — Plan for Transformation of 7-Eleven (Sept 2025)</a></li>
+            <li><a href="https://www.cspdailynews.com/company-news/seven-i-ceo-sets-2026-priorities-convenience-retail">CSP Daily News — Seven & i CEO Sets 2026 Priorities</a></li>
+            <li><a href="https://www.prnewswire.com/news-releases/seven--i-holdings-appoints-mauricio-leyva-as-ceo-of-7-eleven-inc-302833665.html">PRNewswire — Mauricio Leyva named CEO</a></li>
+            <li><a href="https://www.restaurantbusinessonline.com/leadership/big-changes-ahead-7-eleven-2026">Restaurant Business Online — Big Changes Ahead for 7-Eleven in 2026</a></li>
+            <li><a href="https://www.cstoredive.com/news/7-eleven-us-ipo-doubt/753886/">C-Store Dive — Is 7-Eleven's US IPO on the Ropes?</a></li>
+            <li><a href="https://www.grocerydive.com/news/7-eleven-ipo-us-future-alimentation-couche-tard/742029/">Grocery Dive — What 7-Eleven's IPO Will Mean for Its Future</a></li>
+            <li><a href="https://www.marketbeat.com/articles/canadas-couche-tard-drops-offer-to-buy-japanese-7-eleven-convenience-stores-2025-07-16">MarketBeat — Couche-Tard Drops Offer (July 2025)</a></li>
+            <li><a href="https://www.metisstrategy.com/interview/gurmeet-singh/">Metis Strategy — 7-Eleven CDO/CIO interview series</a></li>
+            <li><a href="https://nationalcioreview.com/articles-insights/leadership/42-cios-on-the-move-2/">National CIO Review — 42 CIOs on the Move (Jim Kastle)</a></li>
+            <li><a href="https://www.cspdailynews.com/company-news/7-eleven-inc-names-new-company-president">CSP Daily News — 7-Eleven Inc. Names New Company President</a></li>
+            <li><a href="https://sites.7-eleven.com/corp/our-leadership">7-Eleven corporate leadership page</a></li>
+            <li><a href="https://www.prnewswire.com/news-releases/7-eleven-empowers-a-more-mobile-workforce-with-microsoft-cloud-solutions-and-devices-300912553.html">PRNewswire — 7-Eleven / Microsoft Cloud partnership</a></li>
+            <li><a href="https://careers.7-eleven.com/category/information-technology-jobs/7/8706064/1">7-Eleven careers — IT job postings (tech-stack signal)</a></li>
+            <li><a href="https://finance.yahoo.com/markets/stocks/articles/7-eleven-close-645-north-143008347.html">Yahoo Finance — 7-Eleven to close 645 stores, FY2026</a></li>
+            <li><a href="https://www.statista.com/statistics/1130950/7-eleven-retail-sales-us/">Statista — US retail sales of 7-Eleven, 2017-2024</a></li>
+          </ul>
+        </div>
+      </details>
+    </div>
+
+  </main>
+
+  <footer class="foot">
+    Pursuit map dashboard for the <code>account-pursuit-map</code> workflow. Companion document: <code>accounts/7-Eleven/account-plan.md</code>.
+  </footer>
+</div>
+
+<script>
+  document.querySelectorAll('.tab-btn').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      document.querySelectorAll('.tab-btn').forEach(function(b){ b.classList.remove('active'); b.setAttribute('aria-selected','false'); });
+      document.querySelectorAll('.tab-panel').forEach(function(p){ p.classList.remove('active'); });
+      btn.classList.add('active');
+      btn.setAttribute('aria-selected','true');
+      document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+    });
+  });
+</script>

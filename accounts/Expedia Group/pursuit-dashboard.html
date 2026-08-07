@@ -1,0 +1,760 @@
+<title>Expedia Group — Pursuit Dashboard</title>
+<style>
+  :root{
+    --bg:#eef0e6;
+    --surface:#ffffff;
+    --surface-2:#e4e7da;
+    --text:#1b2530;
+    --text-mute:#5c6b74;
+    --border:#d3d6c8;
+    --accent:#a8752f;
+    --accent-strong:#8c5f22;
+    --accent-soft:#f0e2c8;
+    --success:#3f5b4c;
+    --success-soft:#dfe8e0;
+    --alert:#8b4030;
+    --alert-soft:#f1ddd6;
+    --shadow:rgba(27,37,48,0.08);
+    --font-display: ui-serif, "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+    --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --font-mono: ui-monospace, "SF Mono", "Cascadia Mono", Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#11161c;
+      --surface:#171f27;
+      --surface-2:#1d2630;
+      --text:#e9e6dc;
+      --text-mute:#93a0a8;
+      --border:#2b3540;
+      --accent:#d1a256;
+      --accent-strong:#e6bd75;
+      --accent-soft:#3a2f1c;
+      --success:#7fae95;
+      --success-soft:#1c2b23;
+      --alert:#d98b76;
+      --alert-soft:#33201b;
+      --shadow:rgba(0,0,0,0.35);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#11161c; --surface:#171f27; --surface-2:#1d2630; --text:#e9e6dc; --text-mute:#93a0a8;
+    --border:#2b3540; --accent:#d1a256; --accent-strong:#e6bd75; --accent-soft:#3a2f1c;
+    --success:#7fae95; --success-soft:#1c2b23; --alert:#d98b76; --alert-soft:#33201b; --shadow:rgba(0,0,0,0.35);
+  }
+  :root[data-theme="light"]{
+    --bg:#eef0e6; --surface:#ffffff; --surface-2:#e4e7da; --text:#1b2530; --text-mute:#5c6b74;
+    --border:#d3d6c8; --accent:#a8752f; --accent-strong:#8c5f22; --accent-soft:#f0e2c8;
+    --success:#3f5b4c; --success-soft:#dfe8e0; --alert:#8b4030; --alert-soft:#f1ddd6; --shadow:rgba(27,37,48,0.08);
+  }
+
+  *{box-sizing:border-box;}
+  body{margin:0;}
+  .page{
+    background:var(--bg);
+    color:var(--text);
+    font-family:var(--font-body);
+    font-size:15px;
+    line-height:1.5;
+    min-height:100vh;
+  }
+  ::selection{ background:var(--accent-soft); }
+  a{ color:var(--accent-strong); }
+  .tabular{ font-family:var(--font-mono); font-variant-numeric:tabular-nums; }
+
+  header.masthead{
+    padding:1.6rem 2rem 1.2rem;
+    display:flex;
+    flex-wrap:wrap;
+    align-items:flex-end;
+    justify-content:space-between;
+    gap:0.75rem;
+    border-bottom:1px solid var(--border);
+  }
+  .masthead-title{
+    font-family:var(--font-display);
+    font-size:1.9rem;
+    font-weight:600;
+    letter-spacing:-0.01em;
+    text-wrap:balance;
+    margin:0;
+  }
+  .masthead-sub{
+    color:var(--text-mute);
+    font-size:0.85rem;
+    margin-top:0.25rem;
+  }
+  .status-strip{
+    position:sticky; top:0; z-index:10;
+    display:grid;
+    grid-template-columns:repeat(5, 1fr);
+    gap:1px;
+    background:var(--border);
+    border-bottom:1px solid var(--border);
+    box-shadow:0 2px 10px var(--shadow);
+  }
+  .stat{
+    background:var(--surface);
+    padding:0.85rem 1.1rem;
+  }
+  .stat-label{
+    font-size:0.66rem;
+    text-transform:uppercase;
+    letter-spacing:0.07em;
+    color:var(--text-mute);
+    margin-bottom:0.3rem;
+  }
+  .stat-value{
+    font-family:var(--font-mono);
+    font-variant-numeric:tabular-nums;
+    font-size:1.15rem;
+    font-weight:600;
+    color:var(--text);
+  }
+  .stat-value.accent{ color:var(--accent-strong); }
+  .stat-value.good{ color:var(--success); }
+  .stat-value.alert{ color:var(--alert); }
+  .stat-sub{
+    font-size:0.72rem;
+    color:var(--text-mute);
+    margin-top:0.15rem;
+  }
+
+  main{ max-width:1240px; margin:0 auto; padding:1.75rem 2rem 3rem; }
+
+  section.block{ margin-bottom:2rem; }
+  .block-heading{
+    font-family:var(--font-display);
+    font-size:1.05rem;
+    font-weight:600;
+    margin:0 0 0.75rem;
+    display:flex;
+    align-items:center;
+    gap:0.5rem;
+  }
+  .eyebrow{
+    font-size:0.68rem;
+    text-transform:uppercase;
+    letter-spacing:0.09em;
+    color:var(--text-mute);
+    margin-bottom:0.3rem;
+    display:block;
+  }
+
+  .front-grid{
+    display:grid;
+    grid-template-columns:1.5fr 1fr;
+    gap:1.5rem;
+    align-items:start;
+  }
+  @media (max-width:920px){ .front-grid{ grid-template-columns:1fr; } }
+
+  .card{
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:8px;
+    padding:1.25rem 1.4rem;
+  }
+
+  .pitch-hero{
+    border:1px solid var(--accent);
+    background:linear-gradient(180deg, var(--accent-soft) 0%, var(--surface) 130px);
+  }
+  .pitch-hero .eyebrow{ color:var(--accent-strong); }
+  .pitch-hero h3{
+    font-family:var(--font-display);
+    font-size:1.35rem;
+    margin:0.1rem 0 0.5rem;
+  }
+  .pitch-why{ color:var(--text-mute); font-size:0.9rem; margin-bottom:0.9rem; }
+  blockquote.script{
+    margin:0 0 0.9rem;
+    padding:0.8rem 1rem;
+    background:var(--surface);
+    border-left:3px solid var(--accent);
+    border-radius:0 4px 4px 0;
+    font-style:italic;
+    font-size:0.92rem;
+    color:var(--text);
+  }
+  .pitch-rationale{
+    font-size:0.82rem;
+    color:var(--text-mute);
+    border-top:1px solid var(--border);
+    padding-top:0.7rem;
+  }
+  .pitch-rationale strong{ color:var(--text); }
+
+  .secondary-plays{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:0.9rem;
+    margin-top:0.9rem;
+  }
+  @media (max-width:600px){ .secondary-plays{ grid-template-columns:1fr; } }
+  .play-card{
+    background:var(--surface-2);
+    border:1px solid var(--border);
+    border-radius:6px;
+    padding:0;
+  }
+  .play-card summary{
+    cursor:pointer;
+    padding:0.85rem 0.95rem;
+    list-style:none;
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    gap:0.5rem;
+  }
+  .play-card summary::-webkit-details-marker{ display:none; }
+  .play-card summary::after{ content:"Details +"; font-size:0.68rem; color:var(--text-mute); white-space:nowrap; }
+  .play-card[open] summary::after{ content:"Hide –"; }
+  .play-card summary:focus-visible{ outline:2px solid var(--accent); outline-offset:-2px; }
+  .play-card .eyebrow{ margin-bottom:0.15rem; }
+  .play-card h4{ font-family:var(--font-display); font-size:0.98rem; margin:0 0 0.4rem; }
+  .play-card-body{ padding:0 0.95rem 0.9rem; }
+  .play-card-body p{ font-size:0.8rem; color:var(--text-mute); margin:0 0 0.6rem; }
+  .play-card blockquote.script{ font-size:0.8rem; padding:0.55rem 0.7rem; margin-bottom:0; }
+
+  .queue{ display:flex; flex-direction:column; gap:0.55rem; }
+  .queue-row{
+    display:grid;
+    grid-template-columns:1.6rem 1fr;
+    gap:0.7rem;
+    padding:0.65rem 0.75rem;
+    border:1px solid var(--border);
+    border-radius:6px;
+    background:var(--surface);
+  }
+  .queue-row.priority-1{ border-color:var(--success); background:var(--success-soft); }
+  .queue-num{
+    font-family:var(--font-mono);
+    font-weight:700;
+    color:var(--text-mute);
+    padding-top:0.1rem;
+  }
+  .priority-1 .queue-num{ color:var(--success); }
+  .queue-name{ font-weight:600; font-size:0.9rem; }
+  .queue-role{ font-size:0.76rem; color:var(--text-mute); margin-bottom:0.35rem; }
+  .queue-goal{ font-size:0.78rem; color:var(--text); }
+  .pill{
+    display:inline-block;
+    font-size:0.62rem;
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:0.04em;
+    padding:0.1rem 0.45rem;
+    border-radius:99px;
+    margin-left:0.4rem;
+    vertical-align:middle;
+  }
+  .pill-open{ background:var(--success-soft); color:var(--success); }
+  .pill-warm{ background:var(--accent-soft); color:var(--accent-strong); }
+  .pill-cold{ background:var(--alert-soft); color:var(--alert); }
+  .pill-existing{ background:var(--surface-2); color:var(--text-mute); }
+
+  .analysis-grid{
+    display:grid;
+    grid-template-columns:1fr 1.3fr;
+    gap:1.5rem;
+    margin-top:1.75rem;
+  }
+  @media (max-width:920px){ .analysis-grid{ grid-template-columns:1fr; } }
+
+  .ninebox-wrap{ display:flex; flex-direction:column; align-items:center; }
+  .ninebox-note{ font-size:0.76rem; color:var(--text-mute); margin-top:0.6rem; text-align:center; }
+
+  .timeline{ display:flex; flex-direction:column; gap:0; }
+  .tl-row{ display:grid; grid-template-columns:5.5rem 1fr; gap:0.9rem; padding:0.7rem 0; position:relative; }
+  .tl-row:not(:last-child){ border-bottom:1px dashed var(--border); }
+  .tl-phase{ font-family:var(--font-display); font-weight:600; font-size:0.95rem; }
+  .tl-time{ font-size:0.72rem; color:var(--text-mute); font-family:var(--font-mono); }
+  .tl-milestone{ font-size:0.84rem; }
+
+  .actions-list{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:0.5rem 1.4rem;
+  }
+  @media (max-width:760px){ .actions-list{ grid-template-columns:1fr; } }
+  .action-item{
+    display:flex; gap:0.6rem;
+    font-size:0.85rem;
+    padding:0.4rem 0;
+    border-bottom:1px solid var(--border);
+  }
+  .action-check{
+    flex:none;
+    width:1.1rem; height:1.1rem;
+    border:1.5px solid var(--accent);
+    border-radius:3px;
+    margin-top:0.15rem;
+  }
+
+  .tabbar{
+    display:flex;
+    gap:0.4rem;
+    border-bottom:1px solid var(--border);
+    margin:2.2rem 0 1.4rem;
+  }
+  .tab-btn{
+    font-family:var(--font-body);
+    font-size:0.85rem;
+    font-weight:600;
+    color:var(--text-mute);
+    background:none;
+    border:none;
+    padding:0.6rem 0.3rem;
+    margin-right:1.4rem;
+    cursor:pointer;
+    position:relative;
+    top:1px;
+  }
+  .tab-btn:focus-visible{ outline:2px solid var(--accent); outline-offset:2px; }
+  .tab-btn.active{ color:var(--text); border-bottom:2px solid var(--accent); }
+  .tab-panel{ display:none; }
+  .tab-panel.active{ display:block; }
+
+  .profile-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(300px, 1fr));
+    gap:1.1rem;
+  }
+  .profile-card{
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:8px;
+    padding:1.1rem 1.2rem;
+  }
+  .profile-card.flag{ border-color:var(--alert); }
+  .profile-name{ font-family:var(--font-display); font-size:1.05rem; font-weight:600; margin:0 0 0.15rem; }
+  .profile-title{ font-size:0.78rem; color:var(--text-mute); margin-bottom:0.6rem; }
+  .profile-badges{ margin-bottom:0.6rem; }
+  .profile-section{ font-size:0.82rem; margin-bottom:0.5rem; }
+  .profile-section .label{ font-size:0.66rem; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-mute); display:block; margin-bottom:0.15rem; }
+  .profile-quote{ font-style:italic; color:var(--text); }
+  .profile-source{ font-size:0.7rem; color:var(--text-mute); margin-top:0.6rem; padding-top:0.5rem; border-top:1px solid var(--border); }
+  .profile-source a{ color:var(--text-mute); }
+
+  table.ref-table{ width:100%; border-collapse:collapse; font-size:0.82rem; }
+  table.ref-table th, table.ref-table td{ text-align:left; padding:0.45rem 0.6rem; border-bottom:1px solid var(--border); }
+  table.ref-table th{ font-size:0.68rem; text-transform:uppercase; letter-spacing:0.05em; color:var(--text-mute); font-weight:600; }
+  .table-scroll{ overflow-x:auto; }
+  .subhead{ font-family:var(--font-display); font-size:0.95rem; font-weight:600; margin:1.6rem 0 0.6rem; }
+
+  details.note{
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:6px;
+    margin-bottom:0.6rem;
+    padding:0;
+  }
+  details.note summary{
+    cursor:pointer;
+    padding:0.75rem 1rem;
+    font-weight:600;
+    font-size:0.9rem;
+    list-style:none;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+  }
+  details.note summary::-webkit-details-marker{ display:none; }
+  details.note summary::after{ content:"+"; color:var(--text-mute); font-weight:400; font-size:1.1rem; }
+  details.note[open] summary::after{ content:"–"; }
+  details.note summary:focus-visible{ outline:2px solid var(--accent); outline-offset:-2px; }
+  .note-body{ padding:0 1rem 1rem; font-size:0.86rem; }
+  .note-body p{ margin:0 0 0.7rem; }
+  .note-body ul{ margin:0 0 0.7rem; padding-left:1.1rem; }
+  .note-body li{ margin-bottom:0.35rem; }
+  .resolved{ text-decoration:line-through; color:var(--text-mute); }
+  .sources-list{ font-size:0.78rem; columns:2; column-gap:2rem; }
+  @media (max-width:700px){ .sources-list{ columns:1; } }
+  .sources-list li{ break-inside:avoid; margin-bottom:0.5rem; }
+
+  footer.foot{
+    max-width:1240px; margin:0 auto; padding:1rem 2rem 2.5rem;
+    color:var(--text-mute); font-size:0.75rem;
+  }
+</style>
+
+<div class="page">
+
+  <header class="masthead">
+    <div>
+      <h1 class="masthead-title">Expedia Group — Pursuit Dashboard</h1>
+      <div class="masthead-sub">Improving &middot; Business Development &middot; Internal</div>
+    </div>
+  </header>
+
+  <div class="status-strip">
+    <div class="stat">
+      <div class="stat-label">9-Box Position</div>
+      <div class="stat-value accent">SIGNIFICANT</div>
+      <div class="stat-sub">High Potential (3.9) &middot; Low Realized (-4.5, CRM-confirmed $0)</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">Prior Engagement</div>
+      <div class="stat-value">None on record</div>
+      <div class="stat-sub">0 of 0 opportunities — a true first attempt, not a lost deal</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">CRM Account Owner</div>
+      <div class="stat-value alert">Russell Maloney</div>
+      <div class="stat-sub">Not David — pursuing independently per direction; courtesy check recommended</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">Warmest Path</div>
+      <div class="stat-value">AWS partner channel</div>
+      <div class="stat-sub">Confirmed AWS customer — only quasi-warm angle found</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">Recommended Play</div>
+      <div class="stat-value accent">Option A</div>
+      <div class="stat-sub">Platform/AI delivery capacity</div>
+    </div>
+  </div>
+
+  <main>
+
+    <nav class="tabbar" role="tablist" aria-label="Dashboard sections">
+      <button class="tab-btn active" role="tab" aria-selected="true" data-tab="overview">Overview</button>
+      <button class="tab-btn" role="tab" aria-selected="false" data-tab="profiles">Profiles</button>
+      <button class="tab-btn" role="tab" aria-selected="false" data-tab="notes">Notes</button>
+    </nav>
+
+    <div class="tab-panel active" id="tab-overview">
+    <section class="block front-grid">
+      <div>
+        <div class="card pitch-hero">
+          <span class="eyebrow">Recommended entry play &middot; Option A</span>
+          <h3>Platform/AI delivery capacity</h3>
+          <div class="pitch-why">Expedia's FY2025 10-K describes unifying its front-end stack "to increase test-and-learn capacity and feature release velocity," and CEO Ariane Gorin's Q2 2026 earnings call described AI delivering "immediate impact" across search, personalization, and agentic support. CTO Ramana Thumu (since Dec 2024) owns both mandates directly.</div>
+          <blockquote class="script">&ldquo;You've unified the front-end stack to increase test-and-learn velocity, and AI is now embedded across search, personalization, and agentic support. Where's the gap between that roadmap and available internal engineering capacity?&rdquo;</blockquote>
+          <div class="pitch-rationale"><strong>Why lead here:</strong> It's the most specific, citable pitch — tied to two named, current stated priorities and the single most relevant technical decision-maker — rather than a generic capability pitch into a genuinely cold account.</div>
+        </div>
+
+        <div class="secondary-plays">
+          <details class="play-card">
+            <summary>
+              <span><span class="eyebrow">Option B</span><h4>B2B platform growth support</h4></span>
+            </summary>
+            <div class="play-card-body">
+              <p>Enter through the commercial side — the B2B segment just posted its 20th consecutive quarter of double-digit growth, a plausible under-resourced-relative-to-growth line of business.</p>
+              <blockquote class="script">&ldquo;Your B2B platform just hit its 20th straight quarter of double-digit growth. Is the engineering side keeping pace, or is there a capacity gap worth addressing?&rdquo;</blockquote>
+            </div>
+          </details>
+          <details class="play-card">
+            <summary>
+              <span><span class="eyebrow">Option C</span><h4>AWS partner-channel introduction</h4></span>
+            </summary>
+            <div class="play-card-body">
+              <p>Expedia is a large, publicly documented AWS customer (confirmed case study — ~80% of traffic migrated off physical data centers onto AWS). Run in parallel via Improving's own AWS partner relationship, not as the client-facing pitch itself.</p>
+              <blockquote class="script">&ldquo;Expedia is one of AWS's more visible large-scale migration case studies. Can our AWS partner team make an introduction, or point us to who covers this account?&rdquo;</blockquote>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <div>
+        <div class="block-heading" style="margin-bottom:0.6rem;">Contact Priority Queue</div>
+        <div class="queue">
+          <div class="queue-row priority-1">
+            <div class="queue-num">1</div>
+            <div>
+              <div class="queue-name">Ramana Thumu <span class="pill pill-cold">Cold — no CRM history</span></div>
+              <div class="queue-role">Chief Technology Officer</div>
+              <div class="queue-goal">Cold outreach, or via the AWS partner channel if a warm intro can be arranged — surface the platform/AI delivery-capacity gap</div>
+            </div>
+          </div>
+          <div class="queue-row">
+            <div class="queue-num">2</div>
+            <div>
+              <div class="queue-name">Shilpa Ranganathan <span class="pill pill-cold">Cold</span></div>
+              <div class="queue-role">Chief Product Officer</div>
+              <div class="queue-goal">Cold outreach, parallel to Thumu — open a product-velocity conversation</div>
+            </div>
+          </div>
+          <div class="queue-row">
+            <div class="queue-num">3</div>
+            <div>
+              <div class="queue-name">Alfonso Paredes <span class="pill pill-cold">Cold</span></div>
+              <div class="queue-role">President, B2B & Chief Commercial Officer</div>
+              <div class="queue-goal">Identify who owns B2B platform engineering specifically</div>
+            </div>
+          </div>
+          <div class="queue-row">
+            <div class="queue-num">4</div>
+            <div>
+              <div class="queue-name">AWS partner-team introduction <span class="pill pill-warm">Internal action</span></div>
+              <div class="queue-role">Improving's AWS partnership channel</div>
+              <div class="queue-goal">Check whether AWS's account team can facilitate a warmer intro than pure cold outreach</div>
+            </div>
+          </div>
+          <div class="queue-row">
+            <div class="queue-num">5</div>
+            <div>
+              <div class="queue-name">Ariane Gorin / Derek Andersen <span class="pill pill-existing">Reserved</span></div>
+              <div class="queue-role">CEO / CFO</div>
+              <div class="queue-goal">Engage only after credibility is built with Thumu or Ranganathan</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="block analysis-grid">
+      <div class="card ninebox-wrap">
+        <div class="block-heading">Account 9-Box</div>
+        <svg viewBox="0 0 300 300" width="100%" style="max-width:280px;" role="img" aria-label="9-box grid showing Expedia Group plotted in the SIGNIFICANT cell">
+          <defs>
+            <style>
+              .grid-line{ stroke: var(--border); stroke-width:1; }
+              .axis-label{ font-family: var(--font-body); font-size:9px; fill: var(--text-mute); }
+              .cell-label{ font-family: var(--font-body); font-size:8px; fill: var(--text-mute); }
+            </style>
+          </defs>
+          <rect x="30" y="10" width="240" height="240" fill="none" class="grid-line"></rect>
+          <line x1="110" y1="10" x2="110" y2="250" class="grid-line"></line>
+          <line x1="190" y1="10" x2="190" y2="250" class="grid-line"></line>
+          <line x1="30" y1="90" x2="270" y2="90" class="grid-line"></line>
+          <line x1="30" y1="170" x2="270" y2="170" class="grid-line"></line>
+
+          <rect x="190" y="170" width="80" height="80" fill="var(--accent-soft)"></rect>
+          <text x="198" y="245" class="cell-label">SIGNIFICANT</text>
+
+          <text x="8" y="16" class="axis-label">High</text>
+          <text x="8" y="134" class="axis-label">Mid</text>
+          <text x="8" y="246" class="axis-label">Low</text>
+          <text x="34" y="264" class="axis-label">Low</text>
+          <text x="105" y="264" class="axis-label">Mid</text>
+          <text x="245" y="264" class="axis-label">High</text>
+          <text x="120" y="278" class="axis-label" font-weight="700">POTENTIAL &rarr;</text>
+          <text x="-180" y="12" class="axis-label" font-weight="700" transform="rotate(-90)">&larr; REALIZED</text>
+
+          <circle cx="243.6" cy="238" r="7" fill="var(--accent-strong)" stroke="var(--surface)" stroke-width="2"></circle>
+          <text x="200" y="232" class="cell-label" font-weight="700" fill="var(--accent-strong)">EXPEDIA</text>
+        </svg>
+        <div class="ninebox-note">Potential 3.9 (High) &middot; Realized -4.5 (Low) — a genuine, CRM-confirmed $0, not a placeholder. Same pattern as the Constellation Energy cold-pursuit reference run.</div>
+      </div>
+
+      <div class="card">
+        <div class="block-heading">30 / 60 / 90 Day Plan</div>
+        <div class="timeline">
+          <div class="tl-row">
+            <div><div class="tl-phase">Next 30 days</div></div>
+            <div class="tl-milestone">Courtesy check with Russell Maloney; check Improving's AWS partner team for a possible warm intro; research Thumu and Ranganathan on LinkedIn with a real mutual-connections check; correct the CRM revenue field ($1B placeholder → real $14.7B); identify a real, clearable win-wire reference.</div>
+          </div>
+          <div class="tl-row">
+            <div><div class="tl-phase">Days 31&ndash;60</div></div>
+            <div class="tl-milestone">Send direct outreach to Thumu (Option A). Prioritize the AWS partner path over cold outreach if it surfaces a contact. Open a parallel conversation with Ranganathan if needed.</div>
+          </div>
+          <div class="tl-row">
+            <div><div class="tl-phase">Days 61&ndash;90</div></div>
+            <div class="tl-milestone">Convert any responsive conversation into a scoped, paid first engagement. Escalate to Option B (Paredes/B2B) if neither Thumu nor Ranganathan responds. Resolve the geography-flag question and re-score if warranted.</div>
+          </div>
+        </div>
+
+        <div class="block-heading" style="margin-top:1.5rem;">Immediate Next Actions</div>
+        <div class="actions-list">
+          <div class="action-item"><span class="action-check"></span>Courtesy check with Russell Maloney (CRM account owner) before any outreach</div>
+          <div class="action-item"><span class="action-check"></span>Check Improving's AWS partner team for a possible warm introduction (Option C)</div>
+          <div class="action-item"><span class="action-check"></span>Research Ramana Thumu and Shilpa Ranganathan on LinkedIn; run a real mutual-connections check</div>
+          <div class="action-item"><span class="action-check"></span>Correct the CRM Annual Revenue field ($1B placeholder → real $14.7B)</div>
+          <div class="action-item"><span class="action-check"></span>Identify a real, clearable win-wire reference before any technical conversation</div>
+          <div class="action-item"><span class="action-check"></span>Send direct outreach to Thumu referencing the platform-consolidation and AI priorities</div>
+        </div>
+      </div>
+    </section>
+    </div>
+
+    <div class="tab-panel" id="tab-profiles">
+
+      <div class="profile-grid">
+        <div class="profile-card">
+          <div class="profile-name">Ramana Thumu</div>
+          <div class="profile-title">Chief Technology Officer</div>
+          <div class="profile-badges"><span class="pill pill-cold">Cold — no CRM history</span></div>
+          <div class="profile-section"><span class="label">Why he matters</span>CTO since December 2024. IIT Bombay; ~10 years at eBay; immediately prior Chief Product & Technology Officer at Fanatics Commerce. Owns the technical mandate behind both the AI-integration and platform-consolidation priorities — the single most relevant executive for a delivery-capacity conversation.</div>
+          <div class="profile-section"><span class="label">Pitch angle</span><span class="profile-quote">&ldquo;You've unified the front-end stack to increase test-and-learn velocity, and AI is now embedded across search, personalization, and agentic support. Where's the gap between that roadmap and available internal engineering capacity?&rdquo;</span></div>
+          <div class="profile-section"><span class="label">Avoid</span>Don't lead with a generic AI pitch — Expedia's own AI work (agentic voice, an acquired AI-planning app) is already sophisticated. Be specific about platform/delivery capacity.</div>
+          <div class="profile-source">Source: expediagroup.com/en-us/about-us/leadership; web search aggregate</div>
+        </div>
+        <div class="profile-card">
+          <div class="profile-name">Shilpa Ranganathan</div>
+          <div class="profile-title">Chief Product Officer</div>
+          <div class="profile-badges"><span class="pill pill-cold">Cold — no CRM history</span></div>
+          <div class="profile-section"><span class="label">Why she matters</span>Joined December 2024 from Microsoft (Corporate VP, Windows end-user/developer/marketplace teams). Owns product strategy across the unified platform; likely partners closely with Thumu on the AI-personalization roadmap.</div>
+          <div class="profile-section"><span class="label">Pitch angle</span><span class="profile-quote">&ldquo;The One Key rollout and AI-personalization work both live at the intersection of product and platform. Where's product velocity being constrained by engineering capacity right now?&rdquo;</span></div>
+          <div class="profile-section"><span class="label">Avoid</span>Don't pitch pure infrastructure/ops work here — frame around product-development velocity, not backend plumbing.</div>
+          <div class="profile-source">Source: Businesswire, Dec 2024 announcement</div>
+        </div>
+        <div class="profile-card">
+          <div class="profile-name">Alfonso Paredes</div>
+          <div class="profile-title">President, B2B & Chief Commercial Officer</div>
+          <div class="profile-badges"><span class="pill pill-cold">Cold — no CRM history</span></div>
+          <div class="profile-section"><span class="label">Why he matters</span>Owns the B2B segment, which just posted its 20th consecutive quarter of double-digit growth (bookings +12% YoY to $33.9B). A plausible under-resourced-relative-to-growth line of business.</div>
+          <div class="profile-section"><span class="label">Avoid</span>Don't expect him to scope technical work directly — use him to identify who owns B2B platform engineering.</div>
+          <div class="profile-source">Source: expediagroup.com/en-us/about-us/leadership</div>
+        </div>
+        <div class="profile-card">
+          <div class="profile-name">Ariane Gorin</div>
+          <div class="profile-title">Chief Executive Officer</div>
+          <div class="profile-badges"><span class="pill pill-existing">Reserved</span></div>
+          <div class="profile-section"><span class="label">Why she matters</span>CEO since 2024; BA UC Berkeley, MBA Northwestern Kellogg, BCG (San Francisco/Paris), 10 years at Microsoft before joining Expedia in 2013. Publicly and repeatedly frames AI as core operational strategy (Q2 2026 earnings call).</div>
+          <div class="profile-section"><span class="label">Avoid</span>Do not lead outreach here — build credibility through Thumu or Ranganathan first.</div>
+          <div class="profile-source">Source: Q2 2026 earnings call coverage (pymnts.com)</div>
+        </div>
+      </div>
+
+      <div class="subhead">Remaining Executive Leadership</div>
+      <div class="table-scroll">
+        <table class="ref-table">
+          <thead><tr><th>Name</th><th>Title</th><th>CRM Status</th></tr></thead>
+          <tbody>
+            <tr><td>Barry Diller</td><td>Chairman and Senior Executive</td><td>Not checked</td></tr>
+            <tr><td>Robert Dzielak</td><td>Chief Legal & People Officer and Corporate Secretary</td><td>Not checked</td></tr>
+            <tr><td>Derek Andersen</td><td>Chief Financial Officer (since May 2026)</td><td>Not checked</td></tr>
+            <tr><td>Eric Hart</td><td>Chief Strategy, Business, and Corporate Development Officer</td><td>Not checked</td></tr>
+            <tr><td>Jochen Koedijk</td><td>Chief Marketing Officer</td><td>Not checked</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="subhead">Sample CRM Contacts (working-level, not decision-makers)</div>
+      <div class="table-scroll">
+        <table class="ref-table">
+          <thead><tr><th>Name</th><th>Title</th><th>CRM Awareness</th></tr></thead>
+          <tbody>
+            <tr><td>Adam Dispenza</td><td>Sr. Engineering Manager, Software Development</td><td>1 Contact</td></tr>
+            <tr><td>Ajay Mundra</td><td>Sr Manager, Software Development (since 2012)</td><td>1 Contact</td></tr>
+            <tr><td>Arun Kakarlapudi</td><td>Senior Software Development Manager, Bellevue WA</td><td>1 Contact</td></tr>
+            <tr><td>Abhishek Subramaniam</td><td>Title unconfirmed — Chicago-based; webinar attendee</td><td>1 Contact</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="tab-panel" id="tab-notes">
+
+      <details class="note" open>
+        <summary>Open Items to Confirm</summary>
+        <div class="note-body">
+          <ul>
+            <li>The geography-flag reading is unresolved — true Seattle corporate HQ (both N, used in this draft) vs. the CRM account's own Chicago address/contact concentration (where Improving has an office, potentially one flag Y). Could move the Potential score.</li>
+            <li>Whether Improving has an active AWS partner/co-sell relationship that could produce a warmer introduction than cold outreach.</li>
+            <li>No real, clearable win-wire reference has been identified for the AI/platform pitch — get marketing/delivery sign-off before naming any client externally.</li>
+            <li>Whether the CRM account's 193 contacts (largely working-level engineering managers) include anyone with real seniority not surfaced by the public-org-chart research.</li>
+            <li>Whether any personal network tie to Ariane Gorin, Ramana Thumu, or Shilpa Ranganathan exists that a live LinkedIn mutual-connections check would surface — not run this session.</li>
+            <li>Whether Russell Maloney (CRM account owner) has any undocumented knowledge of this account worth factoring in before outreach.</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="note">
+        <summary>9-Box Methodology</summary>
+        <div class="note-body">
+          <p><strong>Potential (3.9, High):</strong> Geography raw 0 (both flags N using true Seattle corporate HQ, weight 0.10 → 0.0) — flagged ambiguity, see below; Revenue raw 5/capped (weight 0.70 → 3.5) — the ~$235M IT-services estimate (FY2025 revenue $14.7B × 8% tech-native benchmark, ~20% external-services discount) exceeds the lookup table's top named band ($20M); Gross Margin raw 2, 38% default (weight 0.20 → 0.4).</p>
+          <p><strong>Realized (-4.5, Low) — genuinely confirmed, not a placeholder:</strong> Geography raw 0 (same structural fact, weight 0.10 → 0.0); Revenue raw -5 (weight 0.70 → -3.5); Gross Margin raw -5 (weight 0.20 → -1.0). Direct Dynamics CRM query confirmed zero opportunities of any kind exist on this account — this is a real $0, per the methodology's own rule for confirmed no-history accounts.</p>
+          <p><strong>Flagged geography ambiguity:</strong> the CRM account's own address field lists Chicago, IL (not Seattle) with a real concentration of Chicago-based contacts — likely Orbitz/Egencia lineage — and Improving does have a Chicago office. Scored conservatively off true corporate HQ (both N); a Chicago-basis reading would raise the Potential score. Other standing flags: geography scoring logic and the 9-box grid arrangement remain inferred beyond the single AT&amp;T data point, per every run of this methodology.</p>
+        </div>
+      </details>
+
+      <details class="note">
+        <summary>Strategic Priorities (Expedia Group)</summary>
+        <div class="note-body">
+          <ul>
+            <li><strong>AI-powered traveler experience:</strong> CEO Ariane Gorin (Q2 2026 earnings call, Aug 5, 2026) described AI deployed across search, recommendations, personalization, and agentic support, calling out "immediate impact"; expanded ChatGPT/Google partnerships and acquired AI travel-planning app Layla.</li>
+            <li><strong>Platform consolidation:</strong> FY2025 10-K confirms Hotels.com and Vrbo were migrated onto the unified Brand Expedia front-end stack (completed 2023) "to increase test-and-learn capacity and feature release velocity."</li>
+            <li><strong>One Key unified loyalty:</strong> cross-brand loyalty (Expedia, Hotels.com, Vrbo) rolled out in the UK in 2024; most legacy Expedia Rewards members migrated onto it in 2025.</li>
+            <li><strong>B2B platform growth:</strong> CFO Derek Andersen (Q2 2026 call) described building "a one-stop travel platform for partners" — 20th consecutive quarter of double-digit growth, bookings +12% YoY to $33.9B.</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="note">
+        <summary>Competitive Positioning</summary>
+        <div class="note-body">
+          <div class="table-scroll">
+            <table class="ref-table">
+              <thead><tr><th>Priority Theme</th><th>Improving Capability</th><th>Why It Fits</th></tr></thead>
+              <tbody>
+                <tr><td>AI-Powered Traveler Experience</td><td>Data/AI engineering, applied AI/ML delivery</td><td>Direct match — Expedia is scaling AI across search, personalization, and agentic voice</td></tr>
+                <tr><td>Platform Consolidation</td><td>Application modernization, platform engineering</td><td>The 2023 front-end unification is exactly the kind of large-scale modernization program Improving positions around</td></tr>
+                <tr><td>One Key Unified Loyalty</td><td>Data integration, customer data platform work</td><td>Cross-brand identity/loyalty unification is a data-engineering-heavy problem</td></tr>
+                <tr><td>B2B Platform Growth</td><td>Custom software/platform engineering for partner-facing products</td><td>A fast-growing, likely under-resourced-relative-to-growth product line — a common entry point</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p style="margin-top:0.8rem;"><strong>Win-wire story:</strong> No strong direct Improving travel-industry analog identified this session. Flagged for David to confirm a real, clearable win-wire (ideally AI/data-platform work) before any technical conversation; do not fabricate one.</p>
+          <p><strong>Honest competitive note:</strong> AWS is confirmed as Expedia's dominant cloud platform (multiple case studies — Service Catalog, EMR/Hadoop pipeline, microservices migration to Aurora PostgreSQL). No specific incumbent SI/consulting relationship confirmed — a company of this scale (~$14.7B revenue) plausibly carries Big-4/SI relationships on major programs, an industry-pattern assumption, not a confirmed finding. Improving doesn't win on scale or brand against likely incumbents or AWS's own professional-services arm; we win on senior practitioner density, delivery speed, and an embedded/low-ego partnership model — Expedia's own language ("immediate impact," "test-and-learn velocity") is a natural echo point.</p>
+        </div>
+      </details>
+
+      <details class="note">
+        <summary>Referral &amp; Partner Network Detail</summary>
+        <div class="note-body">
+          <p>Genuinely cold on the personal-network side, not just CRM — no comparable lead to a prior run's alumni-tie angle surfaced.</p>
+          <div class="table-scroll">
+            <table class="ref-table">
+              <thead><tr><th>Contact</th><th>Path</th><th>Status</th></tr></thead>
+              <tbody>
+                <tr><td>Ariane Gorin (CEO)</td><td>None identified publicly (UC Berkeley, Northwestern Kellogg MBA, BCG, Microsoft)</td><td>Needs LinkedIn mutual-connections check</td></tr>
+                <tr><td>Ramana Thumu (CTO)</td><td>None identified publicly (IIT Bombay, eBay, Fanatics Commerce)</td><td>Needs LinkedIn mutual-connections check</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="table-scroll" style="margin-top:1rem;">
+            <table class="ref-table">
+              <thead><tr><th>Partner</th><th>Status</th><th>Contact</th></tr></thead>
+              <tbody>
+                <tr><td>AWS</td><td>Confirmed — named case study, ~80% of traffic migrated off physical data centers onto AWS</td><td>Not identified — go through Improving's AWS partner relationship owner</td></tr>
+                <tr><td>Confluent</td><td>Likely — open-source "Stream Registry" project suggests heavy Kafka-style stream usage</td><td>Not identified</td></tr>
+                <tr><td>Microsoft</td><td>No signal found</td><td>Not identified</td></tr>
+                <tr><td>GCP</td><td>No signal found</td><td>Not identified</td></tr>
+                <tr><td>Databricks</td><td>No signal found</td><td>Not identified</td></tr>
+                <tr><td>Snowflake</td><td>No signal found</td><td>Not identified</td></tr>
+                <tr><td>SpaceX/xAI</td><td>No signal found; no plausible fit</td><td>Not identified</td></tr>
+                <tr><td>SAP</td><td>No signal found</td><td>Not identified</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </details>
+
+      <details class="note">
+        <summary>Sources</summary>
+        <div class="note-body">
+          <ul class="sources-list">
+            <li>Improving Dynamics CRM — direct account record query for "Expedia Group" (0 opportunities of any kind, 193 contacts, account timeline), queried 2026-08-07</li>
+            <li><a href="https://www.stocktitan.net/sec-filings/EXPE/10-k-expedia-group-inc-files-annual-report-38a15f53cacb.html">Expedia Group FY2025 Form 10-K coverage</a></li>
+            <li><a href="https://ir.expediagroup.com/news-and-events/news/news-details/2026/Expedia-Group-Reports-Fourth-Quarter-and-Full-Year-2025-Results/default.aspx">Expedia Group Reports Fourth Quarter and Full Year 2025 Results</a></li>
+            <li><a href="https://www.pymnts.com/earnings/2026/expedia-leans-on-ai-and-b2b-growth-to-lift-outlook-after-strong-q2/">Q2 2026 earnings call coverage (Aug 5-6, 2026)</a></li>
+            <li><a href="https://www.expediagroup.com/en-us/about-us/leadership">Expedia Group Leadership page</a></li>
+            <li><a href="https://www.businesswire.com/news/home/20241210081681/en/Shilpa-Ranganathan-Joins-Expedia-Group-as-Chief-Product-Officer">Shilpa Ranganathan joins Expedia Group as Chief Product Officer</a></li>
+            <li><a href="https://aws.amazon.com/solutions/case-studies/expedia-service-catalog-case-study/">AWS case study — Expedia Service Catalog</a></li>
+            <li><a href="https://github.com/ExpediaGroup/stream-registry">Expedia Group Stream Registry (open-source)</a></li>
+          </ul>
+        </div>
+      </details>
+    </div>
+
+  </main>
+
+  <footer class="foot">
+    Pursuit map dashboard for the <code>account-pursuit-map</code> workflow. Companion document: <code>accounts/Expedia Group/account-plan.md</code>.
+  </footer>
+</div>
+
+<script>
+  document.querySelectorAll('.tab-btn').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      document.querySelectorAll('.tab-btn').forEach(function(b){ b.classList.remove('active'); b.setAttribute('aria-selected','false'); });
+      document.querySelectorAll('.tab-panel').forEach(function(p){ p.classList.remove('active'); });
+      btn.classList.add('active');
+      btn.setAttribute('aria-selected','true');
+      document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+    });
+  });
+</script>

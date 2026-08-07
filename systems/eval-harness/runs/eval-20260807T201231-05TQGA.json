@@ -1,0 +1,152 @@
+{
+  "id": "eval-20260807T201231-05TQGA",
+  "agent_id": "ac7ed78a6a9bc2e14",
+  "type": "agent",
+  "name": "fork",
+  "agent": "fork",
+  "session_id": "session-2026-08-07-090000",
+  "trigger": "unknown",
+  "started": "2026-08-07T20:12:31.286079Z",
+  "completed": "2026-08-07T15:44:27.032873",
+  "duration_seconds": null,
+  "status": "aborted",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": false,
+      "all_steps_finished": null,
+      "tool_failures": 16,
+      "error_ids": [],
+      "tool_failure_log": [
+        {
+          "tool": "mcp__comet-bridge__comet_ask",
+          "error": "Error: fetch failed",
+          "duration_ms": 10737,
+          "timestamp": "2026-08-07T15:13:25.449211"
+        },
+        {
+          "tool": "mcp__playwright__browser_navigate",
+          "error": "### Error\nError: Browser is already in use for /Users/davidohara/Library/Caches/ms-playwright-mcp/mcp-chrome-b3f26e4, use --isolated to run multiple instances of the same browser",
+          "duration_ms": 5012,
+          "timestamp": "2026-08-07T15:13:36.278713"
+        },
+        {
+          "tool": "Bash",
+          "error": "Exit code 1\n/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/accounts/Cardinal Health/2026-05-14-matthew-smart-prep.md\n/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/accounts/Skimmer/2026-05-18-lunch-prep.md\n/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/accounts/Nexben/2026-07-01-nexben-discussion-prep.md\n/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/accounts/Nexben/follow-up-email-lauren-sweda.md\n/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/accounts/Nexben/2026-03-12-lauren-sweda-prep.md\nxargs: unterminated quote",
+          "duration_ms": 77,
+          "timestamp": "2026-08-07T15:13:39.456128"
+        },
+        {
+          "tool": "mcp__playwright__browser_navigate",
+          "error": "### Error\nError: Browser is already in use for /Users/davidohara/Library/Caches/ms-playwright-mcp/mcp-chrome-b3f26e4, use --isolated to run multiple instances of the same browser",
+          "duration_ms": 5012,
+          "timestamp": "2026-08-07T15:14:06.737864"
+        },
+        {
+          "tool": "mcp__playwright__browser_navigate",
+          "error": "### Error\nError: Browser is already in use for /Users/davidohara/Library/Caches/ms-playwright-mcp/mcp-chrome-b3f26e4, use --isolated to run multiple instances of the same browser",
+          "duration_ms": 5015,
+          "timestamp": "2026-08-07T15:14:33.486405"
+        },
+        {
+          "tool": "mcp__playwright__browser_navigate",
+          "error": "### Error\nError: Browser is already in use for /Users/davidohara/Library/Caches/ms-playwright-mcp/mcp-chrome-b3f26e4, use --isolated to run multiple instances of the same browser",
+          "duration_ms": 5016,
+          "timestamp": "2026-08-07T15:14:56.661900"
+        },
+        {
+          "tool": "mcp__playwright__browser_navigate",
+          "error": "### Error\nError: Browser is already in use for /Users/davidohara/Library/Caches/ms-playwright-mcp/mcp-chrome-b3f26e4, use --isolated to run multiple instances of the same browser",
+          "duration_ms": 5021,
+          "timestamp": "2026-08-07T15:16:02.577488"
+        },
+        {
+          "tool": "mcp__playwright__browser_navigate",
+          "error": "### Error\nError: Browser is already in use for /Users/davidohara/Library/Caches/ms-playwright-mcp/mcp-chrome-b3f26e4, use --isolated to run multiple instances of the same browser",
+          "duration_ms": 5010,
+          "timestamp": "2026-08-07T15:16:23.400887"
+        },
+        {
+          "tool": "mcp__playwright__browser_navigate",
+          "error": "### Error\nError: Browser is already in use for /Users/davidohara/Library/Caches/ms-playwright-mcp/mcp-chrome-b3f26e4, use --isolated to run multiple instances of the same browser",
+          "duration_ms": 5012,
+          "timestamp": "2026-08-07T15:16:39.118477"
+        },
+        {
+          "tool": "mcp__playwright__browser_navigate",
+          "error": "### Error\nError: Browser is already in use for /Users/davidohara/Library/Caches/ms-playwright-mcp/mcp-chrome-b3f26e4, use --isolated to run multiple instances of the same browser",
+          "duration_ms": 5013,
+          "timestamp": "2026-08-07T15:17:04.704671"
+        },
+        {
+          "tool": "Bash",
+          "error": "Exit code 1\naccount-plan.md\npursuit-dashboard.html\n---",
+          "duration_ms": 33,
+          "timestamp": "2026-08-07T15:17:17.774870"
+        },
+        {
+          "tool": "mcp__playwright__browser_navigate",
+          "error": "### Error\nError: Browser is already in use for /Users/davidohara/Library/Caches/ms-playwright-mcp/mcp-chrome-b3f26e4, use --isolated to run multiple instances of the same browser",
+          "duration_ms": 5012,
+          "timestamp": "2026-08-07T15:19:22.839733"
+        },
+        {
+          "tool": "mcp__playwright__browser_navigate",
+          "error": "### Error\nError: Browser is already in use for /Users/davidohara/Library/Caches/ms-playwright-mcp/mcp-chrome-b3f26e4, use --isolated to run multiple instances of the same browser",
+          "duration_ms": 5013,
+          "timestamp": "2026-08-07T15:19:37.029148"
+        },
+        {
+          "tool": "mcp__playwright__browser_navigate",
+          "error": "### Error\nError: Browser is already in use for /Users/davidohara/Library/Caches/ms-playwright-mcp/mcp-chrome-b3f26e4, use --isolated to run multiple instances of the same browser",
+          "duration_ms": 5016,
+          "timestamp": "2026-08-07T15:21:50.342381"
+        },
+        {
+          "tool": "mcp__playwright__browser_navigate",
+          "error": "### Error\nError: Browser is already in use for /Users/davidohara/Library/Caches/ms-playwright-mcp/mcp-chrome-b3f26e4, use --isolated to run multiple instances of the same browser",
+          "duration_ms": 5029,
+          "timestamp": "2026-08-07T15:25:11.510995"
+        },
+        {
+          "tool": "mcp__playwright__browser_tabs",
+          "error": "### Error\nError: Browser is already in use for /Users/davidohara/Library/Caches/ms-playwright-mcp/mcp-chrome-b3f26e4, use --isolated to run multiple instances of the same browser",
+          "duration_ms": 5017,
+          "timestamp": "2026-08-07T15:25:21.043276"
+        }
+      ],
+      "abort_reason": "session-ended"
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": []
+}

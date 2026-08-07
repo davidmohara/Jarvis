@@ -1,0 +1,824 @@
+<title>PriceSmart, Inc. — Pursuit Dashboard</title>
+<style>
+  :root{
+    --bg:#eef0e6;
+    --surface:#ffffff;
+    --surface-2:#e4e7da;
+    --text:#1b2530;
+    --text-mute:#5c6b74;
+    --border:#d3d6c8;
+    --accent:#a8752f;
+    --accent-strong:#8c5f22;
+    --accent-soft:#f0e2c8;
+    --success:#3f5b4c;
+    --success-soft:#dfe8e0;
+    --alert:#8b4030;
+    --alert-soft:#f1ddd6;
+    --shadow:rgba(27,37,48,0.08);
+    --font-display: ui-serif, "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+    --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --font-mono: ui-monospace, "SF Mono", "Cascadia Mono", Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#11161c;
+      --surface:#171f27;
+      --surface-2:#1d2630;
+      --text:#e9e6dc;
+      --text-mute:#93a0a8;
+      --border:#2b3540;
+      --accent:#d1a256;
+      --accent-strong:#e6bd75;
+      --accent-soft:#3a2f1c;
+      --success:#7fae95;
+      --success-soft:#1c2b23;
+      --alert:#d98b76;
+      --alert-soft:#33201b;
+      --shadow:rgba(0,0,0,0.35);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#11161c; --surface:#171f27; --surface-2:#1d2630; --text:#e9e6dc; --text-mute:#93a0a8;
+    --border:#2b3540; --accent:#d1a256; --accent-strong:#e6bd75; --accent-soft:#3a2f1c;
+    --success:#7fae95; --success-soft:#1c2b23; --alert:#d98b76; --alert-soft:#33201b; --shadow:rgba(0,0,0,0.35);
+  }
+  :root[data-theme="light"]{
+    --bg:#eef0e6; --surface:#ffffff; --surface-2:#e4e7da; --text:#1b2530; --text-mute:#5c6b74;
+    --border:#d3d6c8; --accent:#a8752f; --accent-strong:#8c5f22; --accent-soft:#f0e2c8;
+    --success:#3f5b4c; --success-soft:#dfe8e0; --alert:#8b4030; --alert-soft:#f1ddd6; --shadow:rgba(27,37,48,0.08);
+  }
+
+  *{box-sizing:border-box;}
+  body{margin:0;}
+  .page{
+    background:var(--bg);
+    color:var(--text);
+    font-family:var(--font-body);
+    font-size:15px;
+    line-height:1.5;
+    min-height:100vh;
+  }
+  ::selection{ background:var(--accent-soft); }
+  a{ color:var(--accent-strong); }
+  .tabular{ font-family:var(--font-mono); font-variant-numeric:tabular-nums; }
+
+  header.masthead{
+    padding:1.6rem 2rem 1.2rem;
+    display:flex;
+    flex-wrap:wrap;
+    align-items:flex-end;
+    justify-content:space-between;
+    gap:0.75rem;
+    border-bottom:1px solid var(--border);
+  }
+  .masthead-title{
+    font-family:var(--font-display);
+    font-size:1.9rem;
+    font-weight:600;
+    letter-spacing:-0.01em;
+    text-wrap:balance;
+    margin:0;
+  }
+  .masthead-sub{
+    color:var(--text-mute);
+    font-size:0.85rem;
+    margin-top:0.25rem;
+  }
+  .status-strip{
+    position:sticky; top:0; z-index:10;
+    display:grid;
+    grid-template-columns:repeat(5, 1fr);
+    gap:1px;
+    background:var(--border);
+    border-bottom:1px solid var(--border);
+    box-shadow:0 2px 10px var(--shadow);
+  }
+  .stat{
+    background:var(--surface);
+    padding:0.85rem 1.1rem;
+  }
+  .stat-label{
+    font-size:0.66rem;
+    text-transform:uppercase;
+    letter-spacing:0.07em;
+    color:var(--text-mute);
+    margin-bottom:0.3rem;
+  }
+  .stat-value{
+    font-family:var(--font-mono);
+    font-variant-numeric:tabular-nums;
+    font-size:1.15rem;
+    font-weight:600;
+    color:var(--text);
+  }
+  .stat-value.accent{ color:var(--accent-strong); }
+  .stat-value.good{ color:var(--success); }
+  .stat-value.alert{ color:var(--alert); }
+  .stat-sub{
+    font-size:0.72rem;
+    color:var(--text-mute);
+    margin-top:0.15rem;
+  }
+
+  main{ max-width:1240px; margin:0 auto; padding:1.75rem 2rem 3rem; }
+
+  section.block{ margin-bottom:2rem; }
+  .block-heading{
+    font-family:var(--font-display);
+    font-size:1.05rem;
+    font-weight:600;
+    margin:0 0 0.75rem;
+    display:flex;
+    align-items:center;
+    gap:0.5rem;
+  }
+  .eyebrow{
+    font-size:0.68rem;
+    text-transform:uppercase;
+    letter-spacing:0.09em;
+    color:var(--text-mute);
+    margin-bottom:0.3rem;
+    display:block;
+  }
+
+  .front-grid{
+    display:grid;
+    grid-template-columns:1.5fr 1fr;
+    gap:1.5rem;
+    align-items:start;
+  }
+  @media (max-width:920px){ .front-grid{ grid-template-columns:1fr; } }
+
+  .card{
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:8px;
+    padding:1.25rem 1.4rem;
+  }
+
+  .pitch-hero{
+    border:1px solid var(--accent);
+    background:linear-gradient(180deg, var(--accent-soft) 0%, var(--surface) 130px);
+  }
+  .pitch-hero .eyebrow{ color:var(--accent-strong); }
+  .pitch-hero h3{
+    font-family:var(--font-display);
+    font-size:1.35rem;
+    margin:0.1rem 0 0.5rem;
+  }
+  .pitch-why{ color:var(--text-mute); font-size:0.9rem; margin-bottom:0.9rem; }
+  blockquote.script{
+    margin:0 0 0.9rem;
+    padding:0.8rem 1rem;
+    background:var(--surface);
+    border-left:3px solid var(--accent);
+    border-radius:0 4px 4px 0;
+    font-style:italic;
+    font-size:0.92rem;
+    color:var(--text);
+  }
+  .pitch-rationale{
+    font-size:0.82rem;
+    color:var(--text-mute);
+    border-top:1px solid var(--border);
+    padding-top:0.7rem;
+  }
+  .pitch-rationale strong{ color:var(--text); }
+
+  .secondary-plays{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:0.9rem;
+    margin-top:0.9rem;
+  }
+  @media (max-width:600px){ .secondary-plays{ grid-template-columns:1fr; } }
+  .play-card{
+    background:var(--surface-2);
+    border:1px solid var(--border);
+    border-radius:6px;
+    padding:0;
+  }
+  .play-card summary{
+    cursor:pointer;
+    padding:0.85rem 0.95rem;
+    list-style:none;
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    gap:0.5rem;
+  }
+  .play-card summary::-webkit-details-marker{ display:none; }
+  .play-card summary::after{ content:"Details +"; font-size:0.68rem; color:var(--text-mute); white-space:nowrap; }
+  .play-card[open] summary::after{ content:"Hide –"; }
+  .play-card summary:focus-visible{ outline:2px solid var(--accent); outline-offset:-2px; }
+  .play-card .eyebrow{ margin-bottom:0.15rem; }
+  .play-card h4{ font-family:var(--font-display); font-size:0.98rem; margin:0 0 0.4rem; }
+  .play-card-body{ padding:0 0.95rem 0.9rem; }
+  .play-card-body p{ font-size:0.8rem; color:var(--text-mute); margin:0 0 0.6rem; }
+  .play-card blockquote.script{ font-size:0.8rem; padding:0.55rem 0.7rem; margin-bottom:0; }
+
+  .queue{ display:flex; flex-direction:column; gap:0.55rem; }
+  .queue-row{
+    display:grid;
+    grid-template-columns:1.6rem 1fr;
+    gap:0.7rem;
+    padding:0.65rem 0.75rem;
+    border:1px solid var(--border);
+    border-radius:6px;
+    background:var(--surface);
+  }
+  .queue-row.priority-1{ border-color:var(--success); background:var(--success-soft); }
+  .queue-num{
+    font-family:var(--font-mono);
+    font-weight:700;
+    color:var(--text-mute);
+    padding-top:0.1rem;
+  }
+  .priority-1 .queue-num{ color:var(--success); }
+  .queue-name{ font-weight:600; font-size:0.9rem; }
+  .queue-role{ font-size:0.76rem; color:var(--text-mute); margin-bottom:0.35rem; }
+  .queue-goal{ font-size:0.78rem; color:var(--text); }
+  .pill{
+    display:inline-block;
+    font-size:0.62rem;
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:0.04em;
+    padding:0.1rem 0.45rem;
+    border-radius:99px;
+    margin-left:0.4rem;
+    vertical-align:middle;
+  }
+  .pill-open{ background:var(--success-soft); color:var(--success); }
+  .pill-warm{ background:var(--accent-soft); color:var(--accent-strong); }
+  .pill-cold{ background:var(--alert-soft); color:var(--alert); }
+  .pill-existing{ background:var(--surface-2); color:var(--text-mute); }
+
+  .analysis-grid{
+    display:grid;
+    grid-template-columns:1fr 1.3fr;
+    gap:1.5rem;
+    margin-top:1.75rem;
+  }
+  @media (max-width:920px){ .analysis-grid{ grid-template-columns:1fr; } }
+
+  .ninebox-wrap{ display:flex; flex-direction:column; align-items:center; }
+  .ninebox-note{ font-size:0.76rem; color:var(--text-mute); margin-top:0.6rem; text-align:center; }
+
+  .timeline{ display:flex; flex-direction:column; gap:0; }
+  .tl-row{ display:grid; grid-template-columns:5.5rem 1fr; gap:0.9rem; padding:0.7rem 0; position:relative; }
+  .tl-row:not(:last-child){ border-bottom:1px dashed var(--border); }
+  .tl-phase{ font-family:var(--font-display); font-weight:600; font-size:0.95rem; }
+  .tl-time{ font-size:0.72rem; color:var(--text-mute); font-family:var(--font-mono); }
+  .tl-milestone{ font-size:0.84rem; }
+
+  .actions-list{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:0.5rem 1.4rem;
+  }
+  @media (max-width:760px){ .actions-list{ grid-template-columns:1fr; } }
+  .action-item{
+    display:flex; gap:0.6rem;
+    font-size:0.85rem;
+    padding:0.4rem 0;
+    border-bottom:1px solid var(--border);
+  }
+  .action-check{
+    flex:none;
+    width:1.1rem; height:1.1rem;
+    border:1.5px solid var(--accent);
+    border-radius:3px;
+    margin-top:0.15rem;
+  }
+
+  .tabbar{
+    display:flex;
+    gap:0.4rem;
+    border-bottom:1px solid var(--border);
+    margin:2.2rem 0 1.4rem;
+  }
+  .tab-btn{
+    font-family:var(--font-body);
+    font-size:0.85rem;
+    font-weight:600;
+    color:var(--text-mute);
+    background:none;
+    border:none;
+    padding:0.6rem 0.3rem;
+    margin-right:1.4rem;
+    cursor:pointer;
+    position:relative;
+    top:1px;
+  }
+  .tab-btn:focus-visible{ outline:2px solid var(--accent); outline-offset:2px; }
+  .tab-btn.active{ color:var(--text); border-bottom:2px solid var(--accent); }
+  .tab-panel{ display:none; }
+  .tab-panel.active{ display:block; }
+
+  .profile-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(300px, 1fr));
+    gap:1.1rem;
+  }
+  .profile-card{
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:8px;
+    padding:1.1rem 1.2rem;
+  }
+  .profile-card.flag{ border-color:var(--alert); }
+  .profile-name{ font-family:var(--font-display); font-size:1.05rem; font-weight:600; margin:0 0 0.15rem; }
+  .profile-title{ font-size:0.78rem; color:var(--text-mute); margin-bottom:0.6rem; }
+  .profile-badges{ margin-bottom:0.6rem; }
+  .profile-section{ font-size:0.82rem; margin-bottom:0.5rem; }
+  .profile-section .label{ font-size:0.66rem; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-mute); display:block; margin-bottom:0.15rem; }
+  .profile-quote{ font-style:italic; color:var(--text); }
+  .profile-source{ font-size:0.7rem; color:var(--text-mute); margin-top:0.6rem; padding-top:0.5rem; border-top:1px solid var(--border); }
+  .profile-source a{ color:var(--text-mute); }
+
+  table.ref-table{ width:100%; border-collapse:collapse; font-size:0.82rem; }
+  table.ref-table th, table.ref-table td{ text-align:left; padding:0.45rem 0.6rem; border-bottom:1px solid var(--border); }
+  table.ref-table th{ font-size:0.68rem; text-transform:uppercase; letter-spacing:0.05em; color:var(--text-mute); font-weight:600; }
+  .table-scroll{ overflow-x:auto; }
+  .subhead{ font-family:var(--font-display); font-size:0.95rem; font-weight:600; margin:1.6rem 0 0.6rem; }
+
+  details.note{
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:6px;
+    margin-bottom:0.6rem;
+    padding:0;
+  }
+  details.note summary{
+    cursor:pointer;
+    padding:0.75rem 1rem;
+    font-weight:600;
+    font-size:0.9rem;
+    list-style:none;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+  }
+  details.note summary::-webkit-details-marker{ display:none; }
+  details.note summary::after{ content:"+"; color:var(--text-mute); font-weight:400; font-size:1.1rem; }
+  details.note[open] summary::after{ content:"–"; }
+  details.note summary:focus-visible{ outline:2px solid var(--accent); outline-offset:-2px; }
+  .note-body{ padding:0 1rem 1rem; font-size:0.86rem; }
+  .note-body p{ margin:0 0 0.7rem; }
+  .note-body ul{ margin:0 0 0.7rem; padding-left:1.1rem; }
+  .note-body li{ margin-bottom:0.35rem; }
+  .resolved{ text-decoration:line-through; color:var(--text-mute); }
+  .sources-list{ font-size:0.78rem; columns:2; column-gap:2rem; }
+  @media (max-width:700px){ .sources-list{ columns:1; } }
+  .sources-list li{ break-inside:avoid; margin-bottom:0.5rem; }
+
+  .blocker-banner{
+    max-width:1240px; margin:0.9rem auto 0; padding:0.8rem 2rem;
+    font-size:0.82rem;
+  }
+  .blocker-inner{
+    background:var(--alert-soft); border:1px solid var(--alert); border-radius:6px;
+    padding:0.75rem 1rem; color:var(--text);
+  }
+  .blocker-inner strong{ color:var(--alert); }
+
+  footer.foot{
+    max-width:1240px; margin:0 auto; padding:1rem 2rem 2.5rem;
+    color:var(--text-mute); font-size:0.75rem;
+  }
+</style>
+
+<div class="page">
+
+  <header class="masthead">
+    <div>
+      <h1 class="masthead-title">PriceSmart, Inc. — Pursuit Dashboard</h1>
+      <div class="masthead-sub">Improving &middot; Business Development &middot; Internal</div>
+    </div>
+  </header>
+
+  <div class="status-strip">
+    <div class="stat">
+      <div class="stat-label">9-Box Position</div>
+      <div class="stat-value accent">POISED</div>
+      <div class="stat-sub">High Potential (3.9) &middot; Mid Realized (~1.45, CRM-confirmed)</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">Engagement Status</div>
+      <div class="stat-value good">ACTIVE — 10/10 WON</div>
+      <div class="stat-sub">$816,200 delivered since 1/13/25, zero currently open</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">Account Owner</div>
+      <div class="stat-value tabular">Stephen Johnson</div>
+      <div class="stat-sub">Talk to him first — he owns the relationship</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">Warmest Path</div>
+      <div class="stat-value good">Paola Duran</div>
+      <div class="stat-sub">Existing primary contact, actively engaged through 7/28/26</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">Recommended Play</div>
+      <div class="stat-value accent">Option A</div>
+      <div class="stat-sub">Platform Modernization Delivery Support (RELEX/Elera)</div>
+    </div>
+  </div>
+
+  <div class="blocker-banner">
+    <div class="blocker-inner">
+      <strong>Corrected 2026-08-07 via direct Dynamics CRM query.</strong> The drafting session had no working CRM connector and left the engagement shape "unresolved." A direct query confirms PriceSmart is an <strong>active, 100%-win-rate account</strong> (10 of 10 opportunities Won, $816,200 delivered), not a cold pursuit. This dashboard follows the Schwab active-but-underleveraged pattern — expand within an existing, successful relationship. See the corrected Notes tab for full detail.
+    </div>
+  </div>
+
+  <main>
+
+    <nav class="tabbar" role="tablist" aria-label="Dashboard sections">
+      <button class="tab-btn active" role="tab" aria-selected="true" data-tab="overview">Overview</button>
+      <button class="tab-btn" role="tab" aria-selected="false" data-tab="profiles">Profiles</button>
+      <button class="tab-btn" role="tab" aria-selected="false" data-tab="notes">Notes</button>
+    </nav>
+
+    <div class="tab-panel active" id="tab-overview">
+    <section class="block front-grid">
+      <div>
+        <div class="card pitch-hero">
+          <span class="eyebrow">Recommended entry play &middot; Option A</span>
+          <h3>Platform Modernization Delivery Support (RELEX/Elera)</h3>
+          <div class="pitch-why">PriceSmart's FY2025 10-K commits to completing the RELEX supply-chain platform and the Elera POS rollout in FY2026 — both time-pressured, already-funded initiatives, unlike the Chile launch which doesn't open until spring 2027.</div>
+          <blockquote class="script">&ldquo;You're finishing two platform migrations in the same fiscal year you're opening your first mall-format club in a new country. What's the highest-risk piece of that rollout that's short on delivery capacity right now?&rdquo;</blockquote>
+          <div class="pitch-rationale"><strong>Why lead here:</strong> Improving already has a 100%-win-rate, $816,200 delivery track record at this account (CRM-confirmed) — this is an expansion of proven work, not a cold pitch. It maps to the most time-pressured, already-committed initiative rather than a later-stage initiative (Chile) or a less-differentiated ask.</div>
+        </div>
+
+        <div class="secondary-plays">
+          <details class="play-card">
+            <summary>
+              <span><span class="eyebrow">Option B</span><h4>New-Market Systems Onboarding (Chile)</h4></span>
+            </summary>
+            <div class="play-card-body">
+              <p>Each new-country club opening requires rapid systems onboarding (POS, inventory, member data, reporting). Offer a scoped engagement for the Chile launch, framed as a repeatable pattern for future entries.</p>
+              <blockquote class="script">&ldquo;Chile is your first mall-format club and a brand-new market. If the systems-onboarding playbook for that launch became a repeatable pattern, what would need to be true about it?&rdquo;</blockquote>
+            </div>
+          </details>
+          <details class="play-card">
+            <summary>
+              <span><span class="eyebrow">Option C</span><h4>Digital/Omnichannel Engineering Capacity</h4></span>
+            </summary>
+            <div class="play-card-body">
+              <p>Digital sales are growing 20%+ YoY and PriceSmart is migrating to native iOS/Android mobile architectures in FY2026 — a clear application-engineering capacity need.</p>
+              <blockquote class="script">&ldquo;Digital just hit a record $99.6M quarter and you're rebuilding the mobile app natively this year. Where's engineering capacity the tightest against that roadmap?&rdquo;</blockquote>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <div>
+        <div class="block-heading" style="margin-bottom:0.6rem;">Contact Priority Queue</div>
+        <div class="queue">
+          <div class="queue-row priority-1">
+            <div class="queue-num">0</div>
+            <div>
+              <div class="queue-name">Stephen Johnson <span class="pill pill-existing">Account Owner</span></div>
+              <div class="queue-role">Improving account owner of record for PriceSmart</div>
+              <div class="queue-goal">Mandatory first stop — get his read on the account and appetite for a larger scoped engagement beyond staff-aug extensions</div>
+            </div>
+          </div>
+          <div class="queue-row priority-1">
+            <div class="queue-num">0.5</div>
+            <div>
+              <div class="queue-name">Paola Duran <span class="pill pill-warm">Warm — existing contact</span></div>
+              <div class="queue-role">PriceSmart primary contact, actively engaged through 7/28/26</div>
+              <div class="queue-goal">Natural next touchpoint once Stephen Johnson has weighed in</div>
+            </div>
+          </div>
+          <div class="queue-row">
+            <div class="queue-num">1</div>
+            <div>
+              <div class="queue-name">Shweta Bhatia <span class="pill pill-warm">Warm-by-association</span></div>
+              <div class="queue-role">EVP &amp; Chief Information Officer</div>
+              <div class="queue-goal">Approach via the existing Johnson/Duran relationship; ~90-day tenure still makes this well-timed</div>
+            </div>
+          </div>
+          <div class="queue-row">
+            <div class="queue-num">2</div>
+            <div>
+              <div class="queue-name">David N. Price <span class="pill pill-warm">Warm-by-association</span></div>
+              <div class="queue-role">Chief Executive Officer</div>
+              <div class="queue-goal">Peer-level conversation on the RELEX/Elera-plus-Chile timing convergence</div>
+            </div>
+          </div>
+          <div class="queue-row">
+            <div class="queue-num">3</div>
+            <div>
+              <div class="queue-name">Laura Santana <span class="pill pill-warm">Warm-by-association</span></div>
+              <div class="queue-role">EVP, Information Technology</div>
+              <div class="queue-goal">Working-level, practitioner-to-practitioner read on legacy IT vs. new platform rollouts</div>
+            </div>
+          </div>
+          <div class="queue-row">
+            <div class="queue-num">4</div>
+            <div>
+              <div class="queue-name">John D. Hildebrandt <span class="pill pill-warm">Warm-by-association</span></div>
+              <div class="queue-role">President &amp; Chief Operating Officer</div>
+              <div class="queue-goal">Understand operational sequencing risk between Chile opening and RELEX rollout</div>
+            </div>
+          </div>
+          <div class="queue-row">
+            <div class="queue-num">5</div>
+            <div>
+              <div class="queue-name">Gualberto Hernandez <span class="pill pill-warm">Warm-by-association</span></div>
+              <div class="queue-role">EVP &amp; Chief Financial Officer</div>
+              <div class="queue-goal">Budget-authority conversation once a specific scoped opportunity exists</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="block analysis-grid">
+      <div class="card ninebox-wrap">
+        <div class="block-heading">Account 9-Box</div>
+        <svg viewBox="0 0 300 300" width="100%" style="max-width:280px;" role="img" aria-label="9-box grid showing PriceSmart plotted at High Potential with an unconfirmed Realized position">
+          <defs>
+            <style>
+              .grid-line{ stroke: var(--border); stroke-width:1; }
+              .axis-label{ font-family: var(--font-body); font-size:9px; fill: var(--text-mute); }
+              .cell-label{ font-family: var(--font-body); font-size:8px; fill: var(--text-mute); }
+            </style>
+          </defs>
+          <rect x="30" y="10" width="240" height="240" fill="none" class="grid-line"></rect>
+          <line x1="110" y1="10" x2="110" y2="250" class="grid-line"></line>
+          <line x1="190" y1="10" x2="190" y2="250" class="grid-line"></line>
+          <line x1="30" y1="90" x2="270" y2="90" class="grid-line"></line>
+          <line x1="30" y1="170" x2="270" y2="170" class="grid-line"></line>
+
+          <rect x="190" y="90" width="80" height="80" fill="var(--accent-soft)"></rect>
+          <text x="196" y="104" class="cell-label" font-weight="700">POISED</text>
+
+          <text x="8" y="16" class="axis-label">High</text>
+          <text x="8" y="134" class="axis-label">Mid</text>
+          <text x="8" y="246" class="axis-label">Low</text>
+          <text x="34" y="264" class="axis-label">Low</text>
+          <text x="105" y="264" class="axis-label">Mid</text>
+          <text x="245" y="264" class="axis-label">High</text>
+          <text x="120" y="278" class="axis-label" font-weight="700">POTENTIAL &rarr;</text>
+          <text x="-180" y="12" class="axis-label" font-weight="700" transform="rotate(-90)">&larr; REALIZED</text>
+
+          <circle cx="243.6" cy="130" r="7" fill="var(--accent-strong)" stroke="var(--surface)" stroke-width="2"></circle>
+          <text x="200" y="150" class="cell-label" font-weight="700" fill="var(--accent-strong)">PSMT</text>
+        </svg>
+        <div class="ninebox-note">Potential 3.9 (High) &middot; Realized &asymp;1.45 (Mid, CRM-confirmed 2026-08-07: 10/10 opportunities Won, $816,200 total). Same POISED cell as Schwab's active-but-underleveraged classification — no longer a bracketed guess.</div>
+      </div>
+
+      <div class="card">
+        <div class="block-heading">30 / 60 / 90 Day Plan</div>
+        <div class="timeline">
+          <div class="tl-row">
+            <div><div class="tl-phase">Next 30 days</div><div class="tl-time">Days 1&ndash;30</div></div>
+            <div class="tl-milestone">Talk to Stephen Johnson about the account and appetite for expansion; have him or Duran surface interest in a RELEX/Elera/Chile conversation; compute the exact TTM Realized figure; run the LinkedIn mutual-connections check for the 5 executive profiles.</div>
+          </div>
+          <div class="tl-row">
+            <div><div class="tl-phase">Days 31&ndash;60</div><div class="tl-time">Days 31&ndash;60</div></div>
+            <div class="tl-milestone">Scope a specific engagement tied to Option A, pitched as a natural extension of the existing relationship; open a conversation with Santana or Bhatia if Johnson/Duran can introduce; pull delivery-model detail behind the Maarten/Randall extensions.</div>
+          </div>
+          <div class="tl-row">
+            <div><div class="tl-phase">Days 61&ndash;90</div><div class="tl-time">Days 61&ndash;90</div></div>
+            <div class="tl-milestone">Convert the conversation into a scoped proposal for RELEX/Elera or Chile-entry systems support; reassess whether to grow this from staff-aug into a program-level engagement.</div>
+          </div>
+        </div>
+
+        <div class="block-heading" style="margin-top:1.5rem;">Immediate Next Actions</div>
+        <div class="actions-list">
+          <div class="action-item"><span class="action-check" style="background:var(--success);border-color:var(--success);"></span><span class="resolved">Run a direct Dynamics CRM query for "PriceSmart"</span> — done 2026-08-07, see status strip</div>
+          <div class="action-item"><span class="action-check"></span>Talk to Stephen Johnson (account owner) before any outreach</div>
+          <div class="action-item"><span class="action-check"></span>Get the exact TTM Realized revenue figure to finalize 9-box banding</div>
+          <div class="action-item"><span class="action-check"></span>Pull delivery-model detail behind the Maarten/Randall extensions</div>
+          <div class="action-item"><span class="action-check"></span>Confirm Laura Santana's current reporting line (CIO org vs. legacy)</div>
+          <div class="action-item"><span class="action-check"></span>Run the LinkedIn mutual-connections check for the 5 executive profiles once Chrome/browser tooling is available</div>
+        </div>
+      </div>
+    </section>
+    </div>
+
+    <div class="tab-panel" id="tab-profiles">
+
+      <div class="profile-grid">
+        <div class="profile-card">
+          <div class="profile-name">David N. Price</div>
+          <div class="profile-title">Chief Executive Officer</div>
+          <div class="profile-badges"><span class="pill pill-cold">CRM: not-checked</span></div>
+          <div class="profile-section"><span class="label">Why they matter</span>CEO since Sept 2025; was EVP &amp; Chief Transformation Officer (2023–25) personally overseeing IT, digital, and payments before becoming CEO — a rare technically fluent CEO for this pitch. <em>Inference: ultimate economic buyer, and unusually able to evaluate a substantive systems conversation.</em></div>
+          <div class="profile-section"><span class="label">Pitch angle</span><span class="profile-quote">&ldquo;You spent two years as Chief Transformation Officer personally owning IT, digital, and payments before becoming CEO — and now you're opening PriceSmart's first mall-format club in a brand-new country while RELEX and Elera are both still mid-rollout. Where's the real pressure point between those two timelines?&rdquo;</span></div>
+          <div class="profile-section"><span class="label">Avoid</span>A generic new-CEO congratulations framing — he's a year into the role by the time this plan is used.</div>
+          <div class="profile-source">Source: PriceSmart CEO Transition Plan (PRNewswire); PriceSmart Governance — Executive Management</div>
+        </div>
+
+        <div class="profile-card">
+          <div class="profile-name">Shweta Bhatia</div>
+          <div class="profile-title">EVP, Chief Information Officer</div>
+          <div class="profile-badges"><span class="pill pill-cold">CRM: not-checked</span></div>
+          <div class="profile-section"><span class="label">Why they matter</span>Joined May 2026, CIO since July 2026 — weeks old in the role. Ex-CTO Advance Auto Parts, ex-SVP Technology Dollar General, ex-Corporate VP Walmart International. <em>Inference: almost certainly running a first-90-day technology assessment — the best-timed, highest-leverage contact in this plan.</em></div>
+          <div class="profile-section"><span class="label">Pitch angle</span><span class="profile-quote">&ldquo;You've stood up technology organizations at Walmart, Dollar General, and Advance Auto Parts — coming in mid-RELEX and mid-Elera rollout, with Chile about to go live. I'd value a conversation about where you're seeing gaps between the platform roadmap and delivery capacity right now.&rdquo;</span></div>
+          <div class="profile-section"><span class="label">Avoid</span>Pitching a specific named engagement before she's formed her own view this early in tenure.</div>
+          <div class="profile-source">Source: Shweta Bhatia LinkedIn; CIO Dive (Advance Auto Parts CTO); PriceSmart Governance — Executive Management</div>
+        </div>
+
+        <div class="profile-card">
+          <div class="profile-name">Gualberto Hernandez</div>
+          <div class="profile-title">EVP &amp; Chief Financial Officer</div>
+          <div class="profile-badges"><span class="pill pill-cold">CRM: not-checked</span></div>
+          <div class="profile-section"><span class="label">Why they matter</span>CFO since June 2025; prior VP Finance &amp; Strategy LatAm at Estée Lauder, incl. GM LatAm for La Mer. <em>Inference: budget authority for cross-functional technology spend; LatAm background is directly relevant to PriceSmart's Central America/Caribbean/Colombia-plus-Chile footprint.</em></div>
+          <div class="profile-section"><span class="label">Pitch angle</span><span class="profile-quote">&ldquo;Your background is built around scaling premium retail brands across Latin America — the Chile expansion and the RELEX/Elera modernization are both regional-scale-execution problems. Where do you see the budget risk in getting both right at once?&rdquo;</span></div>
+          <div class="profile-section"><span class="label">Avoid</span>Leading with a services pitch before Bhatia or Price have engaged — he's a budget approver, not the technical entry point.</div>
+          <div class="profile-source">Source: PriceSmart Governance — Executive Management</div>
+        </div>
+
+        <div class="profile-card">
+          <div class="profile-name">John D. Hildebrandt</div>
+          <div class="profile-title">President &amp; Chief Operating Officer</div>
+          <div class="profile-badges"><span class="pill pill-cold">CRM: not-checked</span></div>
+          <div class="profile-section"><span class="label">Why they matter</span>Promoted to President/COO in the same 2025 transition that elevated David Price to CEO; owns club operations, which absorbs both the RELEX rollout and Chile launch logistics. <em>Inference: most direct operational sponsor for a RELEX-adjacent engagement.</em></div>
+          <div class="profile-section"><span class="label">Pitch angle</span><span class="profile-quote">&ldquo;Opening in Chile and finishing the RELEX rollout in the same window is a lot of simultaneous operational change. Where is the sequencing risk you're most worried about?&rdquo;</span></div>
+          <div class="profile-section"><span class="label">Avoid</span>Treating him as a pure operations contact disconnected from technology — his role sits at the intersection of both.</div>
+          <div class="profile-source">Source: PriceSmart Governance — Executive Management</div>
+        </div>
+
+        <div class="profile-card">
+          <div class="profile-name">Laura Santana</div>
+          <div class="profile-title">EVP, Information Technology</div>
+          <div class="profile-badges"><span class="pill pill-cold">CRM: not-checked</span></div>
+          <div class="profile-section"><span class="label">Why they matter</span>With PriceSmart since March 2017 — the long-tenured technical counterpart to brand-new CIO Bhatia. <em>Inference: institutional-knowledge holder for the existing IT estate; a useful cross-check on anything Bhatia describes as a newcomer.</em></div>
+          <div class="profile-section"><span class="label">Pitch angle</span><span class="profile-quote">&ldquo;You've seen PriceSmart's systems evolve for almost a decade — with RELEX and Elera both mid-rollout, where's the friction between the legacy estate and what's being stood up new?&rdquo;</span></div>
+          <div class="profile-section"><span class="label">Avoid</span>Bypassing her to go straight to Bhatia — a nine-year tenure makes her a credibility check any pitch should survive. Current reporting line unconfirmed — confirm before the meeting.</div>
+          <div class="profile-source">Source: Laura Santana — The Org; PriceSmart Governance — Executive Management</div>
+        </div>
+      </div>
+
+      <div class="subhead">Remaining Executive Council</div>
+      <div class="table-scroll">
+        <table class="ref-table">
+          <thead><tr><th>Name</th><th>Title</th><th>CRM Status</th></tr></thead>
+          <tbody>
+            <tr><td>Francisco Velasco</td><td>EVP, Chief Legal Officer, Chief Risk &amp; Compliance Officer</td><td>not-checked</td></tr>
+            <tr><td>Shari G. White</td><td>EVP, Chief Merchandising Officer (since June 2026)</td><td>not-checked</td></tr>
+            <tr><td>Rodrigo Calvo</td><td>EVP, Real Estate and Construction</td><td>not-checked</td></tr>
+            <tr><td>Jesus Von Chong</td><td>EVP, Local/Regional Merchandising</td><td>not-checked</td></tr>
+            <tr><td>Paul W. Kovaleski</td><td>EVP, Other Business</td><td>not-checked</td></tr>
+            <tr><td>Diana Pacheco</td><td>EVP, Human Resources</td><td>not-checked</td></tr>
+            <tr><td>Christopher Souhrada</td><td>EVP, Club Operations</td><td>not-checked</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="subhead">One Level Down / Board (partial)</div>
+      <div class="table-scroll">
+        <table class="ref-table">
+          <thead><tr><th>Name</th><th>Title</th><th>Reports Toward</th></tr></thead>
+          <tbody>
+            <tr><td>Robert E. Price</td><td>Executive Chairman; founder; former Interim CEO</td><td>Board</td></tr>
+            <tr><td>Jonathan Darcangelo</td><td>Vice President (function unconfirmed)</td><td>Unconfirmed</td></tr>
+            <tr><td>Board (elected 2/5/26)</td><td>Bahrambeygui, Fisher, Hanson, Infante, Janks, Márquez, D. Price, R. Price, Snyder, Thelan, Zurcher</td><td>Board of Directors</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="tab-panel" id="tab-notes">
+
+      <details class="note" open>
+        <summary>Open Items to Confirm</summary>
+        <div class="note-body">
+          <p><span class="resolved">CRM access and engagement-shape confirmation</span> — resolved 2026-08-07: account is active, owned by Stephen Johnson, 10/10 opportunities Won ($816,200 total), zero currently open, plus an actively-maintained relationship with primary contact Paola Duran.</p>
+          <ul>
+            <li>Stephen Johnson's own read on the account — why zero open pipeline despite a perfect track record, and his appetite/timeline for a larger scoped engagement.</li>
+            <li>Exact TTM Realized revenue figure for precise 9-box banding (the ~$400K estimate here is close but not final).</li>
+            <li>Delivery-model detail behind the Maarten/Randall extensions (role, contract structure, hours).</li>
+            <li>No LinkedIn mutual-connections check was possible for any of the 5 full profiles — no Claude-in-Chrome or equivalent tool was available this session.</li>
+            <li>No YPO/personal/alumni tie to PriceSmart leadership was identified.</li>
+            <li>Laura Santana's current reporting line (CIO org vs. legacy) is unconfirmed.</li>
+            <li>Likely incumbent SIs (if any) for PriceSmart's broader technology work beyond Improving's existing staff-aug scope are unknown — no public signal found.</li>
+            <li>Whether Improving has any office/delivery presence near San Diego is assumed "no" based on David's known Dallas/Austin/Houston coverage — an assumption, not a confirmed fact.</li>
+            <li>Geography scoring logic and 9-box grid arrangement remain unverified inferences, as on every prior run of this methodology.</li>
+            <li>The IT-services-spend estimate (~$126M) and the revenue-band ceiling issue are the third consecutive run (after Schwab and Constellation Energy) to surface this same methodology gap — recommend the workflow owner treat it as confirmed, not a one-off.</li>
+            <li>Naming-convention gap: `agents/conventions.md` has no explicit entry for a living strategic account plan like this one; `accounts/{Company}/account-plan.md` was used to match the Schwab and Constellation Energy precedents.</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="note">
+        <summary>9-Box Methodology</summary>
+        <div class="note-body">
+          <p><strong>Potential (3.9, High):</strong> Geography raw 0 (both flags N — no known Improving delivery lead or office in San Diego) × 0.10 = 0.0. Revenue raw 5, capped (Path 2 fallback: $5.27B FY2025 revenue × ~3% retail IT-spend benchmark, ×~80% services discount ≈ $126M estimate, far above the $20M table ceiling) × 0.70 = 3.5. Gross Margin raw 2 (38% default, interpolated) × 0.20 = 0.4. Total = 3.9.</p>
+          <p><strong>Realized (&asymp;1.45, Mid, CRM-confirmed 2026-08-07):</strong> Geography raw 0 (same structural fact) &times; 0.10 = 0.0. Revenue raw &asymp;1.5, mid-band (&asymp;$400K TTM actual revenue, CRM-confirmed via 10 Won opportunities) &times; 0.70 = &asymp;1.05. Gross Margin raw 2 (38% default, same as Potential side) &times; 0.20 = 0.4. Total &asymp; 1.45 &rarr; Mid band, same POISED cell as Schwab.</p>
+          <p><strong>Workflow issue, flagged again:</strong> This is the third consecutive run of this methodology (after Schwab and Constellation Energy) where the Path 2 revenue-benchmark fallback produces an estimate far exceeding the $20M lookup-table ceiling, making the Revenue factor a functional constant (+5) for any account past roughly $1–2B in revenue. Recommend the workflow owner revisit whether Path 2 should be capped by realistic single-engagement/department addressable spend rather than whole-company revenue.</p>
+        </div>
+      </details>
+
+      <details class="note">
+        <summary>Strategic Priorities (PriceSmart)</summary>
+        <div class="note-body">
+          <ul>
+            <li><strong>Regional Expansion — New Country Entry &amp; Club Growth:</strong> First Chile club (Mallplaza Los Dominicos, Santiago — first-ever mall format), 11th Costa Rica club, 8th Guatemala club; 61 total clubs planned. 57 clubs in 12 countries + 1 territory as of 5/31/26.</li>
+            <li><strong>Digital &amp; Omnichannel Growth:</strong> Digital sales $306.7M FY25 (+21.6% YoY); record $99.6M single quarter in Q3 FY26 (+26.2% YoY); native iOS/Android mobile migration targeted for FY2026.</li>
+            <li><strong>Supply Chain &amp; POS Technology Modernization:</strong> RELEX supply-chain platform full implementation targeted for FY2026; Elera POS rollout across English- and Spanish-speaking markets through FY2026; new distribution-center capacity in China.</li>
+            <li><strong>Private Label Growth (Member's Selection):</strong> 28.1% of total merchandise sales in FY2025, up from 27.6% in FY2024.</li>
+            <li><strong>Membership Growth &amp; Retention:</strong> 2.08M members, record 90.2% renewal rate (as of 2/28/26); membership income +16.9% YoY in Q2 FY2026.</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="note">
+        <summary>Competitive Positioning</summary>
+        <div class="note-body">
+          <div class="table-scroll">
+            <table class="ref-table">
+              <thead><tr><th>Priority Theme</th><th>Improving Capability</th><th>Why It Fits</th></tr></thead>
+              <tbody>
+                <tr><td>Supply Chain &amp; POS Modernization</td><td>Application Modernization, Data Engineering</td><td>RELEX/Elera are mid-implementation — exactly the integration/migration/rollout work Improving's embedded model is built for</td></tr>
+                <tr><td>Digital &amp; Omnichannel Growth</td><td>Software/Product Engineering, Mobile</td><td>Native iOS/Android migration is a direct application-engineering capacity need</td></tr>
+                <tr><td>Regional Expansion (Chile)</td><td>Data/Systems Integration, Cloud/Azure</td><td>New-market openings need rapid systems onboarding into existing platforms</td></tr>
+                <tr><td>Membership Growth</td><td>Data/AI Engineering</td><td>Membership-analytics/renewal-optimization is a natural data-engineering extension</td></tr>
+                <tr><td>Private Label Growth</td><td>(Weakest fit)</td><td>No strong Improving capability maps directly to merchandising strategy — noted honestly</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p style="margin-top:0.8rem;"><strong>Win-wire story:</strong> PriceSmart itself is now Improving's own win-wire — a CRM-confirmed 100%-win-rate, $816,200, 10-opportunity staff-augmentation track record (Agile Coaches, Scrum Master, Data Migration Engineer). Use this delivered work as the proof point for expanding into RELEX/Elera/Chile scope rather than reaching for an external analog.</p>
+          <p><strong>Competitive note (revised):</strong> Improving already is the incumbent staff-augmentation partner here. The question isn't "how do we get in" — it's "how do we grow from individual-contributor extensions into a scoped, higher-margin program." Improving wins on an 18-month proven delivery record at this exact client and a named, actively-engaged account owner; the real risk is staying capped at renewal-only staff-aug rather than converting to a program-level engagement.</p>
+        </div>
+      </details>
+
+      <details class="note">
+        <summary>Referral &amp; Partner Network Detail</summary>
+        <div class="note-body">
+          <p><strong>CRM-confirmed sponsor path (added 2026-08-07):</strong> Improving account owner <strong>Stephen Johnson</strong> and PriceSmart primary contact <strong>Paola Duran</strong> — an actively maintained relationship (event/webinar invites through 7/28/26), not a cold or unnamed signal. The two unnamed May 2026 Databricks-event attendees noted in the original draft are very likely explained by this existing relationship.</p>
+          <div class="table-scroll">
+            <table class="ref-table">
+              <thead><tr><th>Contact</th><th>Path</th><th>Status</th></tr></thead>
+              <tbody>
+                <tr><td>Stephen Johnson</td><td>Improving account owner of record</td><td>confirmed-active</td></tr>
+                <tr><td>Paola Duran</td><td>PriceSmart primary contact</td><td>confirmed-active</td></tr>
+                <tr><td>None identified (executive level)</td><td>No YPO/personal/alumni ties found for the 5 C-suite profiles</td><td>n/a</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="table-scroll" style="margin-top:1rem;">
+            <table class="ref-table">
+              <thead><tr><th>Partner</th><th>Status</th><th>Contact</th></tr></thead>
+              <tbody>
+                <tr><td>Databricks</td><td>likely (indirect — event attendance only)</td><td>not-identified</td></tr>
+                <tr><td>Microsoft</td><td>no-signal-found</td><td>not-identified</td></tr>
+                <tr><td>AWS</td><td>no-signal-found</td><td>not-identified</td></tr>
+                <tr><td>GCP</td><td>no-signal-found</td><td>not-identified</td></tr>
+                <tr><td>Snowflake</td><td>no-signal-found</td><td>not-identified</td></tr>
+                <tr><td>Confluent</td><td>no-signal-found</td><td>not-identified</td></tr>
+                <tr><td>SAP</td><td>no-signal-found</td><td>not-identified</td></tr>
+                <tr><td>SpaceX/xAI</td><td>no-signal-found</td><td>not-identified</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </details>
+
+      <details class="note">
+        <summary>Sources</summary>
+        <div class="note-body">
+          <ul class="sources-list">
+            <li><a href="https://www.stocktitan.net/sec-filings/PSMT/10-k-pricesmart-inc-files-annual-report-b934e5e08d77.html">PriceSmart FY2025 10-K filing analysis (StockTitan)</a></li>
+            <li><a href="https://www.prnewswire.com/news-releases/pricesmart-announces-fiscal-2026-second-quarter-operating-results-and-plans-for-eighth-club-in-guatemala-302737412.html">PriceSmart Q2 FY2026 Results / 8th Guatemala Club</a></li>
+            <li><a href="https://www.stocktitan.net/news/PSMT/pricesmart-announces-fiscal-2026-third-quarter-operating-results-fggkq04n9yro.html">PriceSmart Q3 FY2026 Results / Chile &amp; Costa Rica</a></li>
+            <li><a href="https://finance.yahoo.com/markets/stocks/articles/pricesmarts-2026-outlook-scaling-regional-195353988.html">PriceSmart's 2026 Outlook (Yahoo Finance)</a></li>
+            <li><a href="https://investors.pricesmart.com/events-and-presentations/presentations/presentation-details/2026/Q2-2026-Investor-Presentation-2026-c4AO3MTbG3/default.aspx">PriceSmart Q2 FY2026 Investor Presentation</a></li>
+            <li><a href="https://investors.pricesmart.com/governance/executive-management/default.aspx">PriceSmart Governance — Executive Management</a></li>
+            <li><a href="https://www.prnewswire.com/news-releases/pricesmart-announces-ceo-transition-plan-302390531.html">PriceSmart CEO Transition Plan</a></li>
+            <li><a href="https://www.prnewswire.com/news-releases/pricesmart-announces-11-1-increase-to-annual-dividend-and-voting-results-from-the-2026-annual-meeting-of-stockholders-302680757.html">PriceSmart 2026 Annual Meeting Voting Results</a></li>
+            <li><a href="https://www.linkedin.com/in/shweta-bhatia25/">Shweta Bhatia — LinkedIn</a></li>
+            <li><a href="https://www.ciodive.com/news/advance-auto-parts-cto-shweta-bhatia/737343/">Advance Auto Parts taps former Dollar General exec as CTO — CIO Dive</a></li>
+            <li><a href="https://theorg.com/org/pricesmart/org-chart/laura-santana">Laura Santana — The Org</a></li>
+            <li>Internal: David O'Hara "One Texas" account-portfolio emails (6/25/26, 2/26/26) — supplementary, non-authoritative</li>
+            <li>Internal: SPARC event-analytics email, 5/7/26 — supplementary, non-authoritative</li>
+            <li>Improving Dynamics CRM (direct query, 2026-08-07) — Account record `9fb0e91c-7d7a-ef11-a671-00224827e01c`, owner Stephen Johnson, primary contact Paola Duran; 10 Opportunities, all Won, $816,200 total actual revenue; Timeline showing active event/webinar cadence through 7/28/26</li>
+            <li>Comparative reference: <code>accounts/Schwab/account-plan-pursuit-map-draft.md</code>; <code>accounts/Constellation Energy/account-plan.md</code></li>
+          </ul>
+        </div>
+      </details>
+    </div>
+
+  </main>
+
+  <footer class="foot">
+    Pursuit map dashboard for the <code>account-pursuit-map</code> workflow. Companion document: <code>accounts/PriceSmart/account-plan.md</code>.
+  </footer>
+</div>
+
+<script>
+  document.querySelectorAll('.tab-btn').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      document.querySelectorAll('.tab-btn').forEach(function(b){ b.classList.remove('active'); b.setAttribute('aria-selected','false'); });
+      document.querySelectorAll('.tab-panel').forEach(function(p){ p.classList.remove('active'); });
+      btn.classList.add('active');
+      btn.setAttribute('aria-selected','true');
+      document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+    });
+  });
+</script>

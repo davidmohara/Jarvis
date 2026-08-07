@@ -1,0 +1,15 @@
+{
+  "id": "err-20260807T174504-B2UWOM",
+  "timestamp": "2026-08-07T17:45:04Z",
+  "session": "pi-20260807-002",
+  "source": "self-detected",
+  "agent": "knox",
+  "category": "tool-misuse",
+  "description": "During the mandatory pre-cleanup reconciliation step in the plaud-transcripts SKILL.md, Knox called `fetch_plaud.py --list-all` to get a passive listing of all recordings for cross-checking. That flag does not exist in the script. Knox then substituted `--all` without first confirming its behavior — `--all` is actually a full account-wide re-fetch/reprocess (not a read-only listing), and it triggered new transcription jobs on two unrelated recordings (baeee0303990cfe9996df518fa71f1e3, f5416a4750e1f41e2624a9403a8b279a) and created 5 duplicate staging files for the two in-scope recordings from this session.",
+  "correction": "Knox verified each duplicate staging file's raw JSON `recording.id` against the two target file_ids before deleting anything, and deliberately left the two newly-triggered unrelated recordings alone rather than trying to cancel or clean them up mid-session — they'll surface normally in the next scheduled Plaud discovery cycle. No data was lost; the only cost was wasted transcription-minutes/API calls on two recordings that would have needed transcription eventually anyway.",
+  "failure_mode": "wrong-assumption",
+  "systemic_fix": "fetch_plaud.py has no true read-only 'list' mode. Update skills/plaud-transcripts/SKILL.md's reconciliation step (step 7) to stop referencing a `--list-all` flag that doesn't exist, and instead either (a) use `--all` deliberately with an explicit warning that it reprocesses every recording account-wide, or (b) reconcile using narrower per-file `--check <file_id>` calls scoped to just the file_ids processed this session. This is the second time a reconciliation-step flag mismatch has caused unintended side effects (see the original `--all` accidental-concurrent-launch note in memory/episodic/plaud-ingest-2026-08-04-152100.md) — the skill doc itself needs the fix, not just individual agent runs remembering to be careful.",
+  "fix_status": "proposed",
+  "severity": "minor",
+  "related_entries": ["err-20260807T160634-EIC1SB"]
+}

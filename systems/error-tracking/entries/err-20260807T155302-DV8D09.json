@@ -1,0 +1,12 @@
+{
+  "id": "err-20260807T155302-DV8D09",
+  "timestamp": "2026-08-07T10:00:00-05:00",
+  "source": "self-detected",
+  "category": "workflow-incomplete",
+  "failure_mode": "flagged speakers not surfaced to controller for manual resolution",
+  "severity": "high",
+  "description": "Knox completed speaker identification step with low-confidence mappings but did not surface them to David for manual review. The flagged speakers were documented in state.yaml but not presented to David so he could resolve them and allow the workflow to complete step-05.",
+  "what_went_wrong": "Knox flagged ambiguous speakers (5 speakers with <70% confidence, 2 speakers with insufficient context) but treated them as complete rather than escalating for human review. The workflow should not advance until low-confidence mappings are resolved by the controller.",
+  "fix": "Surface flagged speakers to David with full context: recording title, calendar attendees, sample text, segment count, and confidence score. Wait for David to provide identifications. Then resume step-05 with resolved mappings.",
+  "how_to_prevent": "Plaud-ingest workflow must gate step-05 on all speakers being identified with >70% confidence OR receiving manual resolution from controller. Do not treat low-confidence mappings as complete."
+}

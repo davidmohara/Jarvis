@@ -1,0 +1,15 @@
+{
+  "id": "err-20260807T160634-EIC1SB",
+  "timestamp": "2026-08-07T16:06:34Z",
+  "session": "pi-20260807-002",
+  "source": "self-detected",
+  "agent": "knox",
+  "category": "process-skip",
+  "description": "plaud-ingest session pi-20260807-002 advanced current-step to step-05 while step-03 (speaker identification) still had unresolved output: 2 low-confidence flags (Alice Mburu 55%, P.S. Ferrat 45%), 1 borderline (Tonya Guadiz 60%), and 2 fully unresolved speakers on a second recording. Per step-03's hard gate and the plaud-speaker-id skill's confidence rules, anything below 85% confidence or genuinely unresolved must go into pending-speaker-mappings and be surfaced to the controller in a single consolidated question before advancing. Step-03's own frontmatter was marked status: completed and the workflow moved on without pausing. The transcript-staging folder was also allowed to empty out before the flagged speakers were confirmed, destroying the segment-count and sample-quote evidence needed to verify them — corroboration had to be rebuilt from calendar cross-reference alone.",
+  "correction": "David caught the gap and had Knox re-opened for calendar cross-reference on both recordings. Confirmed disposition should have been: any speaker below the 85% auto-confirm threshold goes into pending-speaker-mappings, state.yaml status is set to awaiting-input, and current-step does not advance past step-03 until the controller responds — regardless of how confident the heuristic guess feels.",
+  "failure_mode": "protocol-skip",
+  "systemic_fix": "Add an explicit blocking check to step-03: before setting current-step: step-04 or step-05, re-scan accumulated-context.speaker-mappings for any value that is the literal string \"UNRESOLVED\" or is annotated with a confidence below 85% / a FLAG marker, and refuse to advance if any exist — route them into pending-speaker-mappings and set status: awaiting-input instead. Also: do not allow step-04/05 (staging fetch/cleanup) to run for a file_id whose speaker-mappings entry contains an unresolved or flagged speaker, even if other file_ids in the same batch are clean.",
+  "fix_status": "proposed",
+  "severity": "moderate",
+  "related_entries": ["err-20260522T191304-TO2VXV"]
+}

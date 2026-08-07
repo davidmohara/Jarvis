@@ -1,0 +1,15 @@
+{
+  "id": "err-20260807T185209-2MA410",
+  "timestamp": "2026-08-07T18:52:09Z",
+  "session": "chase-2026-08-07-180500",
+  "source": "self-detected",
+  "agent": "chase",
+  "category": "assumption-error",
+  "description": "Built and published a full ORIX Corporation USA pursuit-map dashboard as a cold/lost-re-entry pursuit (SIGNIFICANT 9-box zone, $0/0% placeholder Realized score, cold-outreach contact sequencing to public-org-chart names) because Dynamics CRM was unreachable (Playwright browser-in-use lock, Comet bridge fetch failures) at the time. When David asked to retry via Playwright, an orphaned Chrome process from the earlier disconnect was found holding the CRM session's browser profile lock; killing it (with explicit user confirmation) let CRM load. Direct CRM query then revealed ORIX USA is an active, 4-year Improving client (Alexander Powell, account owner) with $3,267,720 closed-won revenue across 17 of 28 opportunities since Dec 2023, 34 contacts, and 21 logged emails — an active-but-underleveraged account, not a cold pursuit.",
+  "correction": "Re-ran the ICP/9-box scoring with real CRM data (TTM won revenue ~$918,800, correct engagement shape), rewrote the account-plan.md and dashboard entirely to the active-but-underleveraged pattern (Multi-Year Strategic Path, real warm contacts by CRM awareness level, real win/loss history), and republished the corrected artifact.",
+  "failure_mode": "wrong-assumption",
+  "systemic_fix": "The account-pursuit-map workflow's own step-01 failure-mode table already says 'CRM unavailable — do not assert cold by default, ask if uncertain,' but that guidance is easy to skip under auto-mode's bias-to-proceed. Consider making step-01 explicitly block or heavily flag document generation (not just an inline note) when CRM access fails entirely, rather than allowing the workflow to complete a full plan+dashboard on a placeholder engagement-shape assumption.",
+  "fix_status": "proposed",
+  "severity": "moderate",
+  "related_entries": []
+}

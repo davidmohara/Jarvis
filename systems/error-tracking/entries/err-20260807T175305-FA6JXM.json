@@ -1,0 +1,15 @@
+{
+  "id": "err-20260807T175305-FA6JXM",
+  "timestamp": "2026-08-07T17:53:05Z",
+  "session": "2026-08-07",
+  "source": "explicit",
+  "agent": "chase",
+  "category": "tool-misuse",
+  "description": "During the Texas Instruments account-pursuit-map run, the Chase subagent reported 'no Dynamics connector was available' and fell back to M365 email/calendar search plus Clay lookup as a proxy for a CRM check, leaving the engagement shape (cold vs. active-but-underleveraged) unconfirmed and flagged as an open item.",
+  "correction": "CRM is accessible in this environment via M365 (Dynamics is exposed through M365-connected tooling) or via Chrome, which is already logged into CRM. A subagent should not conclude a connector is unavailable and substitute a weaker proxy signal without first attempting CRM access through M365 or Chrome browser automation.",
+  "failure_mode": "tool-ignorance",
+  "systemic_fix": null,
+  "fix_status": "proposed",
+  "severity": "moderate",
+  "related_entries": []
+}

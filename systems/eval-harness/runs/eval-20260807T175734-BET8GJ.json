@@ -1,0 +1,134 @@
+{
+  "id": "eval-20260807T175734-BET8GJ",
+  "agent_id": "a44c541f087cc7ea2",
+  "type": "agent",
+  "name": "fork",
+  "agent": "fork",
+  "session_id": "session-2026-08-07-090000",
+  "trigger": "unknown",
+  "started": "2026-08-07T17:57:34.214885Z",
+  "completed": "2026-08-07T15:44:27.069941",
+  "duration_seconds": null,
+  "status": "aborted",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": false,
+      "all_steps_finished": null,
+      "tool_failures": 13,
+      "error_ids": [],
+      "tool_failure_log": [
+        {
+          "tool": "mcp__playwright__browser_navigate",
+          "error": "### Error\nError: Browser is already in use for /Users/davidohara/Library/Caches/ms-playwright-mcp/mcp-chrome-b3f26e4, use --isolated to run multiple instances of the same browser",
+          "duration_ms": 5044,
+          "timestamp": "2026-08-07T13:26:07.442649"
+        },
+        {
+          "tool": "mcp__playwright__browser_tabs",
+          "error": "### Error\nError: Browser is already in use for /Users/davidohara/Library/Caches/ms-playwright-mcp/mcp-chrome-b3f26e4, use --isolated to run multiple instances of the same browser",
+          "duration_ms": 5014,
+          "timestamp": "2026-08-07T13:26:19.457598"
+        },
+        {
+          "tool": "mcp__playwright__browser_click",
+          "error": "### Error\nError: browserBackend.callTool: Unexpected token \"\" while parsing css selector \"\". Did you mean to CSS.escape it?",
+          "duration_ms": 9,
+          "timestamp": "2026-08-07T13:30:03.982270"
+        },
+        {
+          "tool": "mcp__playwright__browser_click",
+          "error": "### Error\nError: Ref e2026 not found in the current page snapshot. Try capturing new snapshot.",
+          "duration_ms": 11,
+          "timestamp": "2026-08-07T13:30:51.891813"
+        },
+        {
+          "tool": "mcp__playwright__browser_navigate",
+          "error": "### Error\nError: Browser is already in use for /Users/davidohara/Library/Caches/ms-playwright-mcp/mcp-chrome-b3f26e4, use --isolated to run multiple instances of the same browser",
+          "duration_ms": 5028,
+          "timestamp": "2026-08-07T13:41:28.671861"
+        },
+        {
+          "tool": "mcp__playwright__browser_snapshot",
+          "error": "### Error\nError: Browser is already in use for /Users/davidohara/Library/Caches/ms-playwright-mcp/mcp-chrome-b3f26e4, use --isolated to run multiple instances of the same browser",
+          "duration_ms": 5018,
+          "timestamp": "2026-08-07T13:41:37.448226"
+        },
+        {
+          "tool": "mcp__playwright__browser_click",
+          "error": "### Error\nError: \"Search searchbox [ref=e22]\" does not match any elements.",
+          "duration_ms": 13,
+          "timestamp": "2026-08-07T13:42:26.206894"
+        },
+        {
+          "tool": "mcp__playwright__browser_type",
+          "error": "### Error\nError: Ref f12e270 not found in the current page snapshot. Try capturing new snapshot.",
+          "duration_ms": 14,
+          "timestamp": "2026-08-07T13:43:43.992545"
+        },
+        {
+          "tool": "mcp__playwright__browser_click",
+          "error": "### Error\nError: browserBackend.callTool: Unexpected token \"\" while parsing css selector \"\". Did you mean to CSS.escape it?",
+          "duration_ms": 11,
+          "timestamp": "2026-08-07T13:44:01.957540"
+        },
+        {
+          "tool": "mcp__playwright__browser_click",
+          "error": "### Error\nError: Ref f21e910 not found in the current page snapshot. Try capturing new snapshot.",
+          "duration_ms": 11,
+          "timestamp": "2026-08-07T13:44:33.785065"
+        },
+        {
+          "tool": "mcp__playwright__browser_click",
+          "error": "### Error\nError: Ref f21e297 not found in the current page snapshot. Try capturing new snapshot.",
+          "duration_ms": 7,
+          "timestamp": "2026-08-07T13:45:31.701621"
+        },
+        {
+          "tool": "mcp__playwright__browser_click",
+          "error": "### Error\nError: browserBackend.callTool: Unexpected token \"\" while parsing css selector \"\". Did you mean to CSS.escape it?",
+          "duration_ms": 5,
+          "timestamp": "2026-08-07T13:46:33.269663"
+        },
+        {
+          "tool": "mcp__playwright__browser_click",
+          "error": "### Error\nTimeoutError: browserBackend.callTool: Timeout 5000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('aria-ref=e2164')\u001b[22m\n\u001b[2m    - locator resolved to <button aria-haspopup=\"menu\" aria-expanded=\"false\">Awareness Level</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 \u00d7 waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <div class=\"ms-StackItem headerText-567\">Awareness Level</div> from <div wj-part=\"ch\" role=\"presentation\">\u2026</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m    - element is visible, enabled and stable\u001b[22m\n\u001b[2m    - scrolling into view if needed\u001b[22m\n\u001b[2m    - done scrolling\u001b[22m\n\u001b[2m    - <div class=\"ms-Stack root-566\">\u2026</div> from <div wj-part=\"ch\" role=\"presentation\">\u2026</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m  2 \u00d7 retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m      - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <div class=\"ms-StackItem headerText-567\">Awareness Level</div> from <div wj-part=\"ch\" role=\"presentation\">\u2026</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m  2 \u00d7 retrying click action\u001b[22m\n\u001b[2m      - waiting 500ms\u001b[22m\n\u001b[2m      - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <div tabindex=\"-1\" aria-label=\"Navigate\" class=\"wj-cell wj-header\"> </div> from <div wj-part=\"ch\" role=\"presentation\">\u2026</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 500ms\u001b[22m\n\u001b[2m      - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <div class=\"ms-Stack root-566\">\u2026</div> from <div wj-part=\"ch\" role=\"presentation\">\u2026</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 500ms\u001b[22m\n\u001b[2m      - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <div class=\"ms-StackItem headerText-567\">Awareness Level</div> from <div wj-part=\"ch\" role=\"presentation\">\u2026</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 500ms\u001b[22m\n\u001b[2m      - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <div class=\"ms-StackItem headerText-567\">Awareness Level</div> from <div wj-part=\"ch\" role=\"presentation\">\u2026</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m  - retrying click action\u001b[22m\n\u001b[2m    - waiting 500ms\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m    - element is visible, enabled and stable\u001b[22m\n\u001b[2m    - scrolling into view if needed\u001b[22m\n\u001b[2m    - done scrolling\u001b[22m",
+          "duration_ms": 5012,
+          "timestamp": "2026-08-07T15:11:44.247216"
+        }
+      ],
+      "abort_reason": "session-ended"
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": []
+}

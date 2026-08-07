@@ -1,0 +1,15 @@
+{
+  "id": "err-20260807T161610-VP90EW",
+  "timestamp": "2026-08-07T16:16:10Z",
+  "session": "pi-20260807-002",
+  "source": "explicit",
+  "agent": "master",
+  "category": "assumption-error",
+  "description": "Told the controller the calendar invite had no attendee named or emailed as 'Paul', treating 'psferrat@google.com' as an already-resolved, unrelated identity ('P.S. Ferrat', a name Plaud had already voice-tagged) instead of recognizing 'psferrat' as a plausible email-derived contraction of 'Paul Sferratore.' The controller corrected me: Paul Sferratore is on the invite as psferrat@google.com. This also means 'Speaker 5' (Paul) and 'P.S. Ferrat' are very likely the SAME person split across two diarization labels — exactly the 'known speaker split across generic label' edge case the plaud-speaker-id skill explicitly warns about (Edge Case A) — and I didn't check for it even after having both labels' quotes in front of me.",
+  "correction": "psferrat@google.com = Paul Sferratore. Speaker 5, the previously-merged 'Robyn Fuentes' mis-tag, and the already-named 'P.S. Ferrat' label all resolve to Paul Sferratore and should be merged into one identity during the --rename call, not treated as 2-3 separate people.",
+  "failure_mode": "wrong-assumption",
+  "systemic_fix": "When an email-derived or auto-generated name label (e.g. 'P.S. Ferrat' from 'psferrat@') is already present for a recording, do not treat it as fully independent from other unresolved generic speakers in the same recording — explicitly test whether the generic speaker's content/segments could belong to that same already-named person before presenting it as a distinct unknown. This is a restatement of the existing Edge Case A check in step-03/plaud-speaker-id, which was not applied here even though both labels were already visible side by side.",
+  "fix_status": "proposed",
+  "severity": "minor",
+  "related_entries": ["err-20260807T161507-9AG9IK", "err-20260807T160634-EIC1SB"]
+}

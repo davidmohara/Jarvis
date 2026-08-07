@@ -1,0 +1,12 @@
+{
+  "id": "err-20260807T150157-S4E3TQ",
+  "timestamp": "2026-08-07T09:45:00-05:00",
+  "source": "explicit",
+  "category": "UX/oversharing",
+  "failure_mode": "surfacing internal implementation details as user-facing action items",
+  "severity": "medium",
+  "description": "Jarvis repeatedly surfaced Plaud token as a blocker requiring manual user action, asking David to run the Chrome login flow. David corrected: token handling is fully autonomous within the Knox/plaud-ingest script. Jarvis should not expose this as a user-facing item.",
+  "what_went_wrong": "Treated Knox's internal workflow concern (API auth) as something David needed to manually resolve. This is cognitive load on the controller for issues the system handles on its own.",
+  "fix": "Never surface Plaud token requirements in briefings. If plaud-ingest hits a token blocker, Knox handles it. Only bubble up to David if Knox truly fails to retry, which is rare. Trust the automation.",
+  "how_to_prevent": "Review boot briefing guidelines: only surface blockers that require David's direct action. Internal workflow concerns (authentication, retries, queueing) stay internal unless they genuinely break the flow."
+}

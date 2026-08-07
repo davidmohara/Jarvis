@@ -1,0 +1,847 @@
+<!--
+  McKesson Corporation — Pursuit Dashboard
+  Generated from the account-pursuit-map workflow's fixed template
+  (examples/pursuit-dashboard-template.html). Companion document:
+  accounts/McKesson/account-plan.md. Built 2026-08-07 by Chase.
+-->
+<title>McKesson — Pursuit Dashboard</title>
+<style>
+  :root{
+    --bg:#eef0e6;
+    --surface:#ffffff;
+    --surface-2:#e4e7da;
+    --text:#1b2530;
+    --text-mute:#5c6b74;
+    --border:#d3d6c8;
+    --accent:#a8752f;
+    --accent-strong:#8c5f22;
+    --accent-soft:#f0e2c8;
+    --success:#3f5b4c;
+    --success-soft:#dfe8e0;
+    --alert:#8b4030;
+    --alert-soft:#f1ddd6;
+    --shadow:rgba(27,37,48,0.08);
+    --font-display: ui-serif, "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+    --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --font-mono: ui-monospace, "SF Mono", "Cascadia Mono", Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#11161c;
+      --surface:#171f27;
+      --surface-2:#1d2630;
+      --text:#e9e6dc;
+      --text-mute:#93a0a8;
+      --border:#2b3540;
+      --accent:#d1a256;
+      --accent-strong:#e6bd75;
+      --accent-soft:#3a2f1c;
+      --success:#7fae95;
+      --success-soft:#1c2b23;
+      --alert:#d98b76;
+      --alert-soft:#33201b;
+      --shadow:rgba(0,0,0,0.35);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#11161c; --surface:#171f27; --surface-2:#1d2630; --text:#e9e6dc; --text-mute:#93a0a8;
+    --border:#2b3540; --accent:#d1a256; --accent-strong:#e6bd75; --accent-soft:#3a2f1c;
+    --success:#7fae95; --success-soft:#1c2b23; --alert:#d98b76; --alert-soft:#33201b; --shadow:rgba(0,0,0,0.35);
+  }
+  :root[data-theme="light"]{
+    --bg:#eef0e6; --surface:#ffffff; --surface-2:#e4e7da; --text:#1b2530; --text-mute:#5c6b74;
+    --border:#d3d6c8; --accent:#a8752f; --accent-strong:#8c5f22; --accent-soft:#f0e2c8;
+    --success:#3f5b4c; --success-soft:#dfe8e0; --alert:#8b4030; --alert-soft:#f1ddd6; --shadow:rgba(27,37,48,0.08);
+  }
+
+  *{box-sizing:border-box;}
+  body{margin:0;}
+  .page{
+    background:var(--bg);
+    color:var(--text);
+    font-family:var(--font-body);
+    font-size:15px;
+    line-height:1.5;
+    min-height:100vh;
+  }
+  ::selection{ background:var(--accent-soft); }
+  a{ color:var(--accent-strong); }
+  .tabular{ font-family:var(--font-mono); font-variant-numeric:tabular-nums; }
+
+  /* ---------- Header ---------- */
+  header.masthead{
+    padding:1.6rem 2rem 1.2rem;
+    display:flex;
+    flex-wrap:wrap;
+    align-items:flex-end;
+    justify-content:space-between;
+    gap:0.75rem;
+    border-bottom:1px solid var(--border);
+  }
+  .masthead-title{
+    font-family:var(--font-display);
+    font-size:1.9rem;
+    font-weight:600;
+    letter-spacing:-0.01em;
+    text-wrap:balance;
+    margin:0;
+  }
+  .masthead-sub{
+    color:var(--text-mute);
+    font-size:0.85rem;
+    margin-top:0.25rem;
+  }
+  /* ---------- Status strip ---------- */
+  .status-strip{
+    position:sticky; top:0; z-index:10;
+    display:grid;
+    grid-template-columns:repeat(5, 1fr);
+    gap:1px;
+    background:var(--border);
+    border-bottom:1px solid var(--border);
+    box-shadow:0 2px 10px var(--shadow);
+  }
+  .stat{
+    background:var(--surface);
+    padding:0.85rem 1.1rem;
+  }
+  .stat-label{
+    font-size:0.66rem;
+    text-transform:uppercase;
+    letter-spacing:0.07em;
+    color:var(--text-mute);
+    margin-bottom:0.3rem;
+  }
+  .stat-value{
+    font-family:var(--font-mono);
+    font-variant-numeric:tabular-nums;
+    font-size:1.15rem;
+    font-weight:600;
+    color:var(--text);
+  }
+  .stat-value.accent{ color:var(--accent-strong); }
+  .stat-value.good{ color:var(--success); }
+  .stat-sub{
+    font-size:0.72rem;
+    color:var(--text-mute);
+    margin-top:0.15rem;
+  }
+
+  main{ max-width:1240px; margin:0 auto; padding:1.75rem 2rem 3rem; }
+
+  section.block{ margin-bottom:2rem; }
+  .block-heading{
+    font-family:var(--font-display);
+    font-size:1.05rem;
+    font-weight:600;
+    margin:0 0 0.75rem;
+    display:flex;
+    align-items:center;
+    gap:0.5rem;
+  }
+  .eyebrow{
+    font-size:0.68rem;
+    text-transform:uppercase;
+    letter-spacing:0.09em;
+    color:var(--text-mute);
+    margin-bottom:0.3rem;
+    display:block;
+  }
+
+  /* ---------- Front page: pitch + action queue ---------- */
+  .front-grid{
+    display:grid;
+    grid-template-columns:1.5fr 1fr;
+    gap:1.5rem;
+    align-items:start;
+  }
+  @media (max-width:920px){ .front-grid{ grid-template-columns:1fr; } }
+
+  .card{
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:8px;
+    padding:1.25rem 1.4rem;
+  }
+
+  .pitch-hero{
+    border:1px solid var(--accent);
+    background:linear-gradient(180deg, var(--accent-soft) 0%, var(--surface) 130px);
+  }
+  .pitch-hero .eyebrow{ color:var(--accent-strong); }
+  .pitch-hero h3{
+    font-family:var(--font-display);
+    font-size:1.35rem;
+    margin:0.1rem 0 0.5rem;
+  }
+  .pitch-why{ color:var(--text-mute); font-size:0.9rem; margin-bottom:0.9rem; }
+  blockquote.script{
+    margin:0 0 0.9rem;
+    padding:0.8rem 1rem;
+    background:var(--surface);
+    border-left:3px solid var(--accent);
+    border-radius:0 4px 4px 0;
+    font-style:italic;
+    font-size:0.92rem;
+    color:var(--text);
+  }
+  .pitch-rationale{
+    font-size:0.82rem;
+    color:var(--text-mute);
+    border-top:1px solid var(--border);
+    padding-top:0.7rem;
+  }
+  .pitch-rationale strong{ color:var(--text); }
+
+  .secondary-plays{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:0.9rem;
+    margin-top:0.9rem;
+  }
+  @media (max-width:600px){ .secondary-plays{ grid-template-columns:1fr; } }
+  .play-card{
+    background:var(--surface-2);
+    border:1px solid var(--border);
+    border-radius:6px;
+    padding:0;
+  }
+  .play-card summary{
+    cursor:pointer;
+    padding:0.85rem 0.95rem;
+    list-style:none;
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    gap:0.5rem;
+  }
+  .play-card summary::-webkit-details-marker{ display:none; }
+  .play-card summary::after{ content:"Details +"; font-size:0.68rem; color:var(--text-mute); white-space:nowrap; }
+  .play-card[open] summary::after{ content:"Hide –"; }
+  .play-card summary:focus-visible{ outline:2px solid var(--accent); outline-offset:-2px; }
+  .play-card .eyebrow{ margin-bottom:0.15rem; }
+  .play-card h4{ font-family:var(--font-display); font-size:0.98rem; margin:0 0 0.4rem; }
+  .play-card-body{ padding:0 0.95rem 0.9rem; }
+  .play-card-body p{ font-size:0.8rem; color:var(--text-mute); margin:0 0 0.6rem; }
+  .play-card blockquote.script{ font-size:0.8rem; padding:0.55rem 0.7rem; margin-bottom:0; }
+
+  /* ---------- Action queue ---------- */
+  .queue{ display:flex; flex-direction:column; gap:0.55rem; }
+  .queue-row{
+    display:grid;
+    grid-template-columns:1.6rem 1fr;
+    gap:0.7rem;
+    padding:0.65rem 0.75rem;
+    border:1px solid var(--border);
+    border-radius:6px;
+    background:var(--surface);
+  }
+  .queue-row.priority-1{ border-color:var(--success); background:var(--success-soft); }
+  .queue-num{
+    font-family:var(--font-mono);
+    font-weight:700;
+    color:var(--text-mute);
+    padding-top:0.1rem;
+  }
+  .priority-1 .queue-num{ color:var(--success); }
+  .queue-name{ font-weight:600; font-size:0.9rem; }
+  .queue-role{ font-size:0.76rem; color:var(--text-mute); margin-bottom:0.35rem; }
+  .queue-goal{ font-size:0.78rem; color:var(--text); }
+  .pill{
+    display:inline-block;
+    font-size:0.62rem;
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:0.04em;
+    padding:0.1rem 0.45rem;
+    border-radius:99px;
+    margin-left:0.4rem;
+    vertical-align:middle;
+  }
+  .pill-open{ background:var(--success-soft); color:var(--success); }
+  .pill-warm{ background:var(--accent-soft); color:var(--accent-strong); }
+  .pill-cold{ background:var(--alert-soft); color:var(--alert); }
+  .pill-existing{ background:var(--surface-2); color:var(--text-mute); }
+
+  /* ---------- 9-box + timeline row ---------- */
+  .analysis-grid{
+    display:grid;
+    grid-template-columns:1fr 1.3fr;
+    gap:1.5rem;
+    margin-top:1.75rem;
+  }
+  @media (max-width:920px){ .analysis-grid{ grid-template-columns:1fr; } }
+
+  .ninebox-wrap{ display:flex; flex-direction:column; align-items:center; }
+  .ninebox-note{ font-size:0.76rem; color:var(--text-mute); margin-top:0.6rem; text-align:center; }
+
+  .timeline{ display:flex; flex-direction:column; gap:0; }
+  .tl-row{ display:grid; grid-template-columns:5.5rem 1fr; gap:0.9rem; padding:0.7rem 0; position:relative; }
+  .tl-row:not(:last-child){ border-bottom:1px dashed var(--border); }
+  .tl-phase{ font-family:var(--font-display); font-weight:600; font-size:0.95rem; }
+  .tl-time{ font-size:0.72rem; color:var(--text-mute); font-family:var(--font-mono); }
+  .tl-milestone{ font-size:0.84rem; }
+
+  /* ---------- Next actions ---------- */
+  .actions-list{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:0.5rem 1.4rem;
+  }
+  @media (max-width:760px){ .actions-list{ grid-template-columns:1fr; } }
+  .action-item{
+    display:flex; gap:0.6rem;
+    font-size:0.85rem;
+    padding:0.4rem 0;
+    border-bottom:1px solid var(--border);
+  }
+  .action-check{
+    flex:none;
+    width:1.1rem; height:1.1rem;
+    border:1.5px solid var(--accent);
+    border-radius:3px;
+    margin-top:0.15rem;
+  }
+
+  /* ---------- Tabs ---------- */
+  .tabbar{
+    display:flex;
+    gap:0.4rem;
+    border-bottom:1px solid var(--border);
+    margin:2.2rem 0 1.4rem;
+  }
+  .tab-btn{
+    font-family:var(--font-body);
+    font-size:0.85rem;
+    font-weight:600;
+    color:var(--text-mute);
+    background:none;
+    border:none;
+    padding:0.6rem 0.3rem;
+    margin-right:1.4rem;
+    cursor:pointer;
+    position:relative;
+    top:1px;
+  }
+  .tab-btn:focus-visible{ outline:2px solid var(--accent); outline-offset:2px; }
+  .tab-btn.active{ color:var(--text); border-bottom:2px solid var(--accent); }
+  .tab-panel{ display:none; }
+  .tab-panel.active{ display:block; }
+
+  /* ---------- Profile cards ---------- */
+  .profile-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(300px, 1fr));
+    gap:1.1rem;
+  }
+  .profile-card{
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:8px;
+    padding:1.1rem 1.2rem;
+  }
+  .profile-card.flag{ border-color:var(--alert); }
+  .profile-name{ font-family:var(--font-display); font-size:1.05rem; font-weight:600; margin:0 0 0.15rem; }
+  .profile-title{ font-size:0.78rem; color:var(--text-mute); margin-bottom:0.6rem; }
+  .profile-badges{ margin-bottom:0.6rem; }
+  .profile-section{ font-size:0.82rem; margin-bottom:0.5rem; }
+  .profile-section .label{ font-size:0.66rem; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-mute); display:block; margin-bottom:0.15rem; }
+  .profile-quote{ font-style:italic; color:var(--text); }
+  .profile-source{ font-size:0.7rem; color:var(--text-mute); margin-top:0.6rem; padding-top:0.5rem; border-top:1px solid var(--border); }
+  .profile-source a{ color:var(--text-mute); }
+
+  table.ref-table{ width:100%; border-collapse:collapse; font-size:0.82rem; }
+  table.ref-table th, table.ref-table td{ text-align:left; padding:0.45rem 0.6rem; border-bottom:1px solid var(--border); }
+  table.ref-table th{ font-size:0.68rem; text-transform:uppercase; letter-spacing:0.05em; color:var(--text-mute); font-weight:600; }
+  .table-scroll{ overflow-x:auto; }
+  .subhead{ font-family:var(--font-display); font-size:0.95rem; font-weight:600; margin:1.6rem 0 0.6rem; }
+
+  /* ---------- Notes accordion ---------- */
+  details.note{
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:6px;
+    margin-bottom:0.6rem;
+    padding:0;
+  }
+  details.note summary{
+    cursor:pointer;
+    padding:0.75rem 1rem;
+    font-weight:600;
+    font-size:0.9rem;
+    list-style:none;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+  }
+  details.note summary::-webkit-details-marker{ display:none; }
+  details.note summary::after{ content:"+"; color:var(--text-mute); font-weight:400; font-size:1.1rem; }
+  details.note[open] summary::after{ content:"–"; }
+  details.note summary:focus-visible{ outline:2px solid var(--accent); outline-offset:-2px; }
+  .note-body{ padding:0 1rem 1rem; font-size:0.86rem; }
+  .note-body p{ margin:0 0 0.7rem; }
+  .note-body ul{ margin:0 0 0.7rem; padding-left:1.1rem; }
+  .note-body li{ margin-bottom:0.35rem; }
+  .resolved{ text-decoration:line-through; color:var(--text-mute); }
+  .sources-list{ font-size:0.78rem; columns:2; column-gap:2rem; }
+  @media (max-width:700px){ .sources-list{ columns:1; } }
+  .sources-list li{ break-inside:avoid; margin-bottom:0.5rem; }
+
+  footer.foot{
+    max-width:1240px; margin:0 auto; padding:1rem 2rem 2.5rem;
+    color:var(--text-mute); font-size:0.75rem;
+  }
+</style>
+
+<div class="page">
+
+  <header class="masthead">
+    <div>
+      <h1 class="masthead-title">McKesson — Expansion Pursuit Dashboard</h1>
+      <div class="masthead-sub">Improving &middot; David O'Hara's McKesson Sub-Accounts &middot; Internal</div>
+    </div>
+  </header>
+
+  <!--
+    STATUS STRIP — exactly 5 tiles. Tailor tile 2/3/4 to what the account
+    actually has:
+      - Active-but-underleveraged: Closed Revenue (CRM total + win rate),
+        Open Pipeline ($ + stage), Warmest Path (name + why).
+      - Cold/lost re-entry: swap tile 2 for "Prior Engagement" (e.g. "None on
+        record" or the lost-deal name/date), tile 3 for "Loss Reason"
+        (or "Undocumented — pull CRM first" if step 01 flagged a gap).
+    Never fabricate a number — if data doesn't exist, say so in the sub-line
+    ("no CRM history" / "cold pursuit") rather than inventing a figure.
+  -->
+  <div class="status-strip">
+    <div class="stat">
+      <div class="stat-label">9-Box Position (MMS)</div>
+      <div class="stat-value accent">SIGNIFICANT</div>
+      <div class="stat-sub">High Potential (4.1) &middot; Low Realized (-3.3)</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">David's Sub-Accounts (Won)</div>
+      <div class="stat-value tabular good">$634.2K</div>
+      <div class="stat-sub">Med Surgical, won since 1/15/2022 &middot; 8/25 opps &middot; $0 open</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">Parent Account Live Pipeline</div>
+      <div class="stat-value tabular">$3.5M</div>
+      <div class="stat-sub">Diana Stevens &middot; 2 open opps &middot; closing ~8/27-8/31/2026</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">Warmest Path</div>
+      <div class="stat-value">Brian Thill +4</div>
+      <div class="stat-sub">2022 relationship, dormant — direct reconnect, no intro needed</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">Recommended Play</div>
+      <div class="stat-value accent">Option A</div>
+      <div class="stat-sub">Wellverse Separation Technology Enablement</div>
+    </div>
+  </div>
+
+  <main>
+
+    <nav class="tabbar" role="tablist" aria-label="Dashboard sections">
+      <button class="tab-btn active" role="tab" aria-selected="true" data-tab="overview">Overview</button>
+      <button class="tab-btn" role="tab" aria-selected="false" data-tab="profiles">Profiles</button>
+      <button class="tab-btn" role="tab" aria-selected="false" data-tab="notes">Notes</button>
+    </nav>
+
+    <div class="tab-panel active" id="tab-overview">
+    <!-- ============ FRONT PAGE: PITCH + ACTION QUEUE ============ -->
+    <section class="block front-grid">
+      <div>
+        <div class="card pitch-hero">
+          <span class="eyebrow">Recommended entry play &middot; Option A</span>
+          <h3>Wellverse Separation Technology Enablement</h3>
+          <div class="pitch-why">McKesson announced intent to separate Medical-Surgical Solutions (May 8, 2025); Apollo Funds committed $1.25B for a 13% stake (April 20, 2026); the unit rebranded as Wellverse on August 6, 2026 &mdash; one to two days before this plan was written &mdash; targeting an IPO in H2 CY2027. A standalone company needs its own technology footprint, and Improving already delivered directly on this business unit's platforms via the OneTrack Portal engagement.</div>
+          <blockquote class="script">&ldquo;You've built Wellverse's story around reducing complexity for the providers you serve &mdash; we've already helped reduce complexity on your own platforms, through the OneTrack Portal work. As Wellverse stands up its independent technology footprint, we'd like to pick that thread back up.&rdquo;</blockquote>
+          <div class="pitch-rationale"><strong>Why lead here:</strong> it's the most specific, most time-pressured, most citable trigger in the whole plan, and it's backed by Improving's own direct delivery history on this exact account &mdash; not an external analog.</div>
+        </div>
+
+        <div class="secondary-plays">
+          <details class="play-card">
+            <summary>
+              <span><span class="eyebrow">Option B</span><h4>Pharmacy Optimization Relationship Discovery</h4></span>
+            </summary>
+            <div class="play-card-body">
+              <p>McKesson Pharmacy Optimization's opportunity/contact history is an unconfirmed gap &mdash; David owns the account but this session couldn't establish current status. Run in parallel with the Medical Surgical refresh.</p>
+              <blockquote class="script">&ldquo;It's been a while since we've had an active engagement with Pharmacy Optimization specifically &mdash; let's get back in the room and understand what's on the roadmap for the next 12 months.&rdquo;</blockquote>
+            </div>
+          </details>
+          <details class="play-card">
+            <summary>
+              <span><span class="eyebrow">Option C</span><h4>Integration/EDI Bench Extension</h4></span>
+            </summary>
+            <div class="play-card-body">
+              <p>Diana Stevens' live parent-account pipeline includes an $800K opportunity for two Java/AI architects on an EDI project &mdash; real, current demand for integration talent. Position David's sub-accounts to supply similar bench strength for Medical Surgical's own separation-driven EDI/ERP needs.</p>
+              <blockquote class="script">&ldquo;You've got real, current demand for Java/AI modernization talent on the EDI side of the house at the parent level &mdash; we've delivered in exactly that lane at Medical Surgical before.&rdquo;</blockquote>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <div>
+        <div class="block-heading" style="margin-bottom:0.6rem;">Contact Priority Queue</div>
+        <div class="queue">
+          <div class="queue-row priority-1">
+            <div class="queue-num">1</div>
+            <div>
+              <div class="queue-name">Brian Thill (+ Truong, Reichert, Collins, Shaik) <span class="pill pill-existing">Existing, dormant</span></div>
+              <div class="queue-role">Named contacts, McKesson Medical Surgical (Jan 2022 CRM/email history)</div>
+              <div class="queue-goal">Direct outreach referencing the 2022 engagement; confirm current roles and reconnect &mdash; no intro needed</div>
+            </div>
+          </div>
+          <div class="queue-row">
+            <div class="queue-num">2</div>
+            <div>
+              <div class="queue-name">Ellery Fisher <span class="pill pill-cold">No warm path yet</span></div>
+              <div class="queue-role">SVP, CIO/CTO, McKesson Medical Surgical</div>
+              <div class="queue-goal">Warm intro via Thill/Truong once reconnected; understand Wellverse's standalone technology roadmap</div>
+            </div>
+          </div>
+          <div class="queue-row">
+            <div class="queue-num">3</div>
+            <div>
+              <div class="queue-name">Stanton McComb <span class="pill pill-cold">Via Fisher's org</span></div>
+              <div class="queue-role">President, Medical-Surgical Solutions / Wellverse</div>
+              <div class="queue-goal">Economic-buyer awareness of the OneTrack Portal history, framed around the separation</div>
+            </div>
+          </div>
+          <div class="queue-row">
+            <div class="queue-num">4</div>
+            <div>
+              <div class="queue-name">McKesson Pharmacy Optimization contacts <span class="pill pill-cold">Gap</span></div>
+              <div class="queue-role">Contacts TBD &mdash; David's own sub-account</div>
+              <div class="queue-goal">Confirm current opportunity/contact status before any outreach</div>
+            </div>
+          </div>
+          <div class="queue-row">
+            <div class="queue-num">5</div>
+            <div>
+              <div class="queue-name">Francisco Fraga <span class="pill pill-cold">Cold</span></div>
+              <div class="queue-role">EVP, CIO/CTO, McKesson Corporation (enterprise level)</div>
+              <div class="queue-goal">Longer-shot enterprise-level awareness once traction exists at the Medical Surgical level</div>
+            </div>
+          </div>
+          <div class="queue-row">
+            <div class="queue-num">6</div>
+            <div>
+              <div class="queue-name">Diana Stevens <span class="pill pill-existing">Internal — same company</span></div>
+              <div class="queue-role">Improving Account Owner, McKesson Corporation (parent)</div>
+              <div class="queue-goal">Align timing with her two live opportunities ($3.5M, closing ~8/27-8/31/2026); ask about a post-close bridge intro via Brian Schmidt</div>
+            </div>
+          </div>
+          <div class="queue-row">
+            <div class="queue-num">7</div>
+            <div>
+              <div class="queue-name">Brian Schmidt <span class="pill pill-warm">Warm, via Diana only</span></div>
+              <div class="queue-role">Sr. Director, Provider Engagement, Onmark MSPL &mdash; primary contact, live $2.7M "3 year MSP" opportunity</div>
+              <div class="queue-goal">Potential future bridge into Medical Surgical's separation-driven needs, once Diana's deal closes and she's willing to make the intro</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 9-BOX + TIMELINE ============ -->
+    <section class="block analysis-grid">
+      <div class="card ninebox-wrap">
+        <div class="block-heading">Account 9-Box</div>
+        <svg viewBox="0 0 300 300" width="100%" style="max-width:280px;" role="img" aria-label="9-box grid showing McKesson Medical Surgical plotted in the SIGNIFICANT cell">
+          <defs>
+            <style>
+              .grid-line{ stroke: var(--border); stroke-width:1; }
+              .axis-label{ font-family: var(--font-body); font-size:9px; fill: var(--text-mute); }
+              .cell-label{ font-family: var(--font-body); font-size:8px; fill: var(--text-mute); }
+            </style>
+          </defs>
+          <rect x="30" y="10" width="240" height="240" fill="none" class="grid-line"></rect>
+          <line x1="110" y1="10" x2="110" y2="250" class="grid-line"></line>
+          <line x1="190" y1="10" x2="190" y2="250" class="grid-line"></line>
+          <line x1="30" y1="90" x2="270" y2="90" class="grid-line"></line>
+          <line x1="30" y1="170" x2="270" y2="170" class="grid-line"></line>
+
+          <!-- SIGNIFICANT = High Potential / Low Realized -> cell x=190 (High), y=170 (Low) -->
+          <rect x="190" y="170" width="80" height="80" fill="var(--accent-soft)"></rect>
+          <text x="200" y="188" class="cell-label">SIGNIFICANT</text>
+
+          <text x="8" y="16" class="axis-label">High</text>
+          <text x="8" y="134" class="axis-label">Mid</text>
+          <text x="8" y="246" class="axis-label">Low</text>
+          <text x="34" y="264" class="axis-label">Low</text>
+          <text x="105" y="264" class="axis-label">Mid</text>
+          <text x="245" y="264" class="axis-label">High</text>
+          <text x="120" y="278" class="axis-label" font-weight="700">POTENTIAL &rarr;</text>
+          <text x="-180" y="12" class="axis-label" font-weight="700" transform="rotate(-90)">&larr; REALIZED</text>
+
+          <!-- Potential 4.1, Realized -3.3: cx=30+((4.1+5)/10)*240=248.4 ; cy=250-((-3.3+5)/10)*240=209.2 -->
+          <circle cx="248.4" cy="209.2" r="7" fill="var(--accent-strong)" stroke="var(--surface)" stroke-width="2"></circle>
+          <text x="197" y="230" class="cell-label" font-weight="700" fill="var(--accent-strong)">MMS</text>
+        </svg>
+        <div class="ninebox-note">Potential 4.1 (High) &middot; Realized -3.3 (Low), scored on McKesson Medical Surgical specifically (not the $403B parent). SIGNIFICANT is an unverified grid placement beyond the one confirmed AT&amp;T/POISED reference cell &mdash; flag to verify.</div>
+      </div>
+
+      <div class="card">
+        <div class="block-heading">Multi-Year Strategic Path</div>
+        <div class="timeline">
+          <div class="tl-row">
+            <div><div class="tl-phase">Access</div><div class="tl-time">Month 1&ndash;3</div></div>
+            <div class="tl-milestone">Reconnect with Brian Thill/Truong/Reichert/Collins/Shaik; confirm current roles; open a line to Ellery Fisher's org; separately confirm Pharmacy Optimization's real status</div>
+          </div>
+          <div class="tl-row">
+            <div><div class="tl-phase">Prove</div><div class="tl-time">Month 3&ndash;6</div></div>
+            <div class="tl-milestone">Land one scoped SOW tied to Wellverse's standalone technology build-out (Option A), leading with the OneTrack Portal proof point</div>
+          </div>
+          <div class="tl-row">
+            <div><div class="tl-phase">Expand</div><div class="tl-time">Month 6&ndash;12</div></div>
+            <div class="tl-milestone">Extend into Pharmacy Optimization (Option B) and position for EDI/integration bench work (Option C) as the separation generates more modernization demand</div>
+          </div>
+          <div class="tl-row">
+            <div><div class="tl-phase">Partner</div><div class="tl-time">Year 2+</div></div>
+            <div class="tl-milestone">Improving positioned as a go-to delivery partner through Wellverse's 2027 IPO and beyond, deepened by the confirmed Azure/GCP/SAP-aligned delivery stack</div>
+          </div>
+        </div>
+
+        <div class="block-heading" style="margin-top:1.5rem;">Immediate Next Actions</div>
+        <div class="actions-list">
+          <div class="action-item"><span class="action-check"></span>Reconnect with the dormant Medical Surgical relationship first &mdash; Brian Thill (or Truong/Reichert/Collins/Shaik), referencing the 2022 engagement</div>
+          <div class="action-item"><span class="action-check"></span>Pull McKesson Pharmacy Optimization's actual CRM record &mdash; the single biggest information gap in this plan</div>
+          <div class="action-item"><span class="action-check"></span>Pull full detail on the EDI opportunity (primary contact, practice area, affiliated partner)</div>
+          <div class="action-item"><span class="action-check"></span>Prepare a clean one-page OneTrack Portal recap ahead of any Fisher/McComb conversation</div>
+          <div class="action-item"><span class="action-check"></span>Confirm Ellery Fisher's actual mandate before pitching Option A specifically to her</div>
+          <div class="action-item"><span class="action-check"></span>Run a live CRM query to isolate a true TTM revenue figure for McKesson Medical Surgical</div>
+          <div class="action-item"><span class="action-check"></span>Run an authenticated LinkedIn mutual-connections check against McComb, Fisher, and Fraga</div>
+          <div class="action-item"><span class="action-check"></span>Talk to Diana Stevens directly &mdash; align timing on her two live opportunities (~8/27-8/31/2026) and ask about a post-close bridge intro via Brian Schmidt</div>
+        </div>
+      </div>
+    </section>
+    </div>
+
+    <div class="tab-panel" id="tab-profiles">
+
+      <div class="profile-grid">
+        <div class="profile-card">
+          <div class="profile-name">Stanton McComb</div>
+          <div class="profile-title">President, Medical-Surgical Solutions / Wellverse</div>
+          <div class="profile-badges"><span class="pill pill-cold">not-checked</span></div>
+          <div class="profile-section"><span class="label">Why they matter</span>Joined McKesson 2002; publicly led the Wellverse rebrand announcement (Aug 2026). Inference: the economic buyer for anything tied to the separation's standalone build-out.</div>
+          <div class="profile-section"><span class="label">Pitch angle</span><span class="profile-quote">&ldquo;You've built Wellverse around reducing complexity for your customers. We've already helped reduce complexity on your own systems &mdash; the OneTrack Portal work. As Wellverse stands up its independent technology footprint, we'd like to pick that thread back up.&rdquo;</span></div>
+          <div class="profile-section"><span class="label">Avoid</span>Leading with a generic capabilities pitch; approaching cold before a warm path through Fisher or Thill is established.</div>
+          <div class="profile-source">mckesson.com/about-us/leadership; Richmond BizSense, Aug 6 2026</div>
+        </div>
+        <div class="profile-card">
+          <div class="profile-name">Ellery Fisher</div>
+          <div class="profile-title">SVP, Chief Information &amp; Technology Officer, McKesson Medical-Surgical</div>
+          <div class="profile-badges"><span class="pill pill-cold">not-checked</span></div>
+          <div class="profile-section"><span class="label">Why they matter</span>Prior VP, Sales &amp; Customer Experience Technology (eCommerce) at PHOENIX Group. The single most directly relevant contact in this plan &mdash; owns the tech org that must be stood up independently as Wellverse separates.</div>
+          <div class="profile-section"><span class="label">Pitch angle</span><span class="profile-quote">&ldquo;We built and extended the OneTrack Portal for this business before &mdash; happy to walk through what that looked like and where it might still be relevant to what you're building now.&rdquo;</span></div>
+          <div class="profile-section"><span class="label">Avoid</span>Skipping the warm path via Brian Thill/Eric Sowell; assuming her mandate covers the full separation scope without confirming.</div>
+          <div class="profile-source">ZoomInfo — Ellery Fisher</div>
+        </div>
+        <div class="profile-card">
+          <div class="profile-name">Brian Thill</div>
+          <div class="profile-title">Existing contact, McKesson Medical Surgical</div>
+          <div class="profile-badges"><span class="pill pill-existing">existing-crm-contact, dormant</span></div>
+          <div class="profile-section"><span class="label">Why they matter</span>Named party on the Jan 2022 "McKesson Project Technology Questions" and "Thanks for the meeting today!" threads &mdash; real, documented history, dormant ~4+ years.</div>
+          <div class="profile-section"><span class="label">Pitch angle</span><span class="profile-quote">&ldquo;It's been a while since we connected on the McKesson Medical Surgical work &mdash; a lot has changed on your end since 2022, including the Wellverse separation. Would love to reconnect.&rdquo;</span></div>
+          <div class="profile-section"><span class="label">Avoid</span>Pitching as new business &mdash; acknowledge the prior relationship explicitly; confirm he's still in a relevant role first.</div>
+          <div class="profile-source">Improving Dynamics CRM, direct pull 2026-08-07 (email threads, Jan 2022)</div>
+        </div>
+        <div class="profile-card">
+          <div class="profile-name">Francisco Fraga</div>
+          <div class="profile-title">EVP, CIO &amp; CTO, McKesson Corporation (enterprise level)</div>
+          <div class="profile-badges"><span class="pill pill-cold">not-checked</span></div>
+          <div class="profile-section"><span class="label">Why they matter</span>Joined 2021 from Campbell Soup/P&amp;G; promoted to combined CIO/CTO Oct 2023 to align McKesson's tech-services growth. Sets the enterprise modernization agenda (SAP S/4HANA, Azure/GCP) Fisher's org operates within.</div>
+          <div class="profile-section"><span class="label">Pitch angle</span><span class="profile-quote">&ldquo;Your SAP-to-Azure and GCP modernization work is exactly the kind of platform transformation we've delivered inside McKesson Medical Surgical directly.&rdquo;</span></div>
+          <div class="profile-section"><span class="label">Avoid</span>Leading with Fraga before traction exists at the McComb/Fisher level &mdash; enterprise-level, not the near-term entry point.</div>
+          <div class="profile-source">mckesson.com/about-us/leadership; CIO Dive, Oct 3 2023</div>
+        </div>
+        <div class="profile-card">
+          <div class="profile-name">Brian Schmidt</div>
+          <div class="profile-title">Sr. Director, Provider Engagement, Onmark MSPL, McKesson Corporation</div>
+          <div class="profile-badges"><span class="pill pill-existing">existing-crm-contact, parent account</span></div>
+          <div class="profile-section"><span class="label">Why they matter</span>CRM's own AI summary flags him as a common stakeholder across multiple parent-account opportunities, and he's the named primary contact on the live $2.7M "3 year MSP" deal (Application Modernization, Azure, AI-related, closing ~8/31/2026) &mdash; the most active named contact in the whole family right now.</div>
+          <div class="profile-section"><span class="label">Pitch angle</span><span class="profile-quote">Not a direct outreach target &mdash; a coordinated bridge ask through Diana Stevens once her live deal closes.</span></div>
+          <div class="profile-section"><span class="label">Avoid</span>Approaching Schmidt directly or independently of Diana Stevens' account ownership.</div>
+          <div class="profile-source">Improving Dynamics CRM, direct pull 2026-08-07 (account summary, "3 year MSP" opportunity record)</div>
+        </div>
+        <div class="profile-card">
+          <div class="profile-name">Diana Stevens</div>
+          <div class="profile-title">Improving Account Owner, McKesson Corporation (parent)</div>
+          <div class="profile-badges"><span class="pill pill-existing">Internal — Improving colleague</span></div>
+          <div class="profile-section"><span class="label">Why they matter</span>Owner of record for the parent account: $3,030,108 won since 4/8/2024 (15/29 opps), plus two live opportunities worth $3.5M combined closing within weeks of this plan. She controls access to Brian Schmidt and the parent-account relationship.</div>
+          <div class="profile-section"><span class="label">Pitch angle</span><span class="profile-quote">&ldquo;Your 'three year MSP' deal with Brian Schmidt is closing in the next few weeks &mdash; once it lands, would you be open to a warm intro from Schmidt's org into what Medical Surgical/Wellverse needs on the separation? No overlap with your deal, just a bridge.&rdquo;</span></div>
+          <div class="profile-section"><span class="label">Avoid</span>Running any outreach to Brian Schmidt or referencing either live opportunity without coordinating with Diana first.</div>
+          <div class="profile-source">Improving Dynamics CRM, direct pull by David O'Hara, 2026-08-07 (account ownership field)</div>
+        </div>
+      </div>
+
+      <div class="subhead">Remaining C-Suite (McKesson Corporation)</div>
+      <div class="table-scroll">
+        <table class="ref-table">
+          <thead><tr><th>Name</th><th>Title</th><th>CRM Status</th></tr></thead>
+          <tbody>
+            <tr><td>Brian Tyler</td><td>Chief Executive Officer</td><td>not-checked</td></tr>
+            <tr><td>Kenny Cheung</td><td>EVP &amp; Chief Financial Officer (eff. 5/29/2026)</td><td>not-checked</td></tr>
+            <tr><td>Michele Lau</td><td>EVP &amp; Chief Legal Officer</td><td>not-checked</td></tr>
+            <tr><td>LeAnn Smith</td><td>EVP &amp; Chief Human Resources Officer</td><td>not-checked</td></tr>
+            <tr><td>Nimesh Jhaveri</td><td>EVP &amp; Chief Impact Officer</td><td>not-checked</td></tr>
+            <tr><td>Ramesh Srinivasan</td><td>EVP &amp; Chief Strategy Officer</td><td>not-checked</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="subhead">One Level Down — Business Segment Leaders</div>
+      <div class="table-scroll">
+        <table class="ref-table">
+          <thead><tr><th>Name</th><th>Title</th><th>CRM Status</th></tr></thead>
+          <tbody>
+            <tr><td>Joan Eliasek</td><td>President, North American Pharmaceutical Distribution</td><td>not-checked</td></tr>
+            <tr><td>Jason Hammonds</td><td>President, Oncology &amp; Multispecialty (also President, US Oncology Network)</td><td>not-checked</td></tr>
+            <tr><td>Kirk Kaminsky</td><td>EVP, Group President, North American Pharmaceutical Services</td><td>not-checked</td></tr>
+            <tr><td>Kevin Kettler</td><td>EVP, President, Prescription Technology Solutions</td><td>not-checked</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="tab-panel" id="tab-notes">
+
+      <details class="note" open>
+        <summary>Open Items to Confirm</summary>
+        <div class="note-body">
+          <p>Genuine unknowns from this run &mdash; nothing below is guessed.</p>
+          <ul>
+            <li>McKesson Pharmacy Optimization's opportunity and contact history &mdash; not pulled this session.</li>
+            <li>Full detail on the EDI opportunity ($800K) &mdash; primary contact, practice area, affiliated partner not pulled beyond probability/close-date.</li>
+            <li>True trailing-12-month revenue for McKesson Medical Surgical &mdash; the $634,200 figure used is cumulative since 1/15/2022, not a TTM cut.</li>
+            <li>Current roles/standing of Brian Thill, Jessica Truong, Mark Reichert, Matt Collins, and Suhaib Siraj Shaik &mdash; confirmed via 2022 records only, no 2023-2026 touchpoint on record.</li>
+            <li>Ellery Fisher's exact mandate &mdash; does it cover the full separation build-out, or a narrower eCommerce/digital scope?</li>
+            <li>LinkedIn mutual-connections/personal ties to McComb, Fisher, and Fraga &mdash; no authenticated LinkedIn/Clay connector was active this session.</li>
+            <li>Named partner-side contacts for Microsoft, GCP, Snowflake, and SAP &mdash; tech-stack usage confirmed, no alliance/account-team contact identified.</li>
+            <li>Likely incumbent SIs on McKesson's SAP S/4HANA/carve-out program &mdash; assumed present given scale, not confirmed.</li>
+            <li>Geography scoring logic and 9-box grid arrangement &mdash; both flagged inferences beyond the single AT&amp;T data point.</li>
+            <li>The ~$137M IT-spend estimate and the revenue-band ceiling issue for large accounts &mdash; Revenue factor is functionally a constant +5 for any account this size.</li>
+            <li>Whether a separate parent-level 9-box (incorporating Diana Stevens' $3.5M live pipeline) would be a useful companion exercise &mdash; not built this run.</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="note">
+        <summary>9-Box Methodology</summary>
+        <div class="note-body">
+          <p><strong>Potential (4.1, High):</strong> Geography 4 &times; 0.10 = 0.4 (both flags Y: Dallas TX enterprise + Improving Dallas office). Revenue 5 &times; 0.70 = 3.5 (capped &mdash; ~$137M estimated IT services spend via industry-benchmark fallback against MMS's disclosed $11.4B FY2025 segment revenue, far above the table's $20M ceiling). Gross Margin 1 &times; 0.20 = 0.2 (35% default, interpolated toward 34%&rarr;1).</p>
+          <p><strong>Realized (-3.3, Low):</strong> Geography 4 &times; 0.10 = 0.4 (same structural flags). Revenue -5 &times; 0.70 = -3.5 ($634,200 won since 1/15/2022, annualized to ~$141K/yr &mdash; below the $200K floor, capped). Gross Margin -1 &times; 0.20 = -0.2 (30% default).</p>
+          <p><strong>Workflow issue flagged, not smoothed over:</strong> the Revenue factor's fallback benchmark (industry % &times; company revenue) breaks down for large accounts &mdash; it's functionally a constant +5 ceiling regardless of whether the target is a $1B or $400B company, same issue previously flagged on the Schwab pursuit map run. This 9-box was deliberately scored on McKesson Medical Surgical specifically (not the $403B parent), matching this plan's expansion framing.</p>
+        </div>
+      </details>
+
+      <details class="note">
+        <summary>Strategic Priorities (McKesson Corporation)</summary>
+        <div class="note-body">
+          <ul>
+            <li><strong>Medical-Surgical Separation (Wellverse):</strong> Separation announced May 8, 2025; Apollo Funds committed $1.25B for ~13% (April 20, 2026, ~$13B valuation); rebranded Wellverse Aug 6, 2026, targeting IPO H2 CY2027.</li>
+            <li><strong>Oncology, Multispecialty &amp; Biopharma Growth:</strong> Long-term Adjusted EPS growth target raised to 13-16% at the Sept 23, 2025 Investor Day; US Oncology Network added 570+ providers in FY2026.</li>
+            <li><strong>AI Embedded in Core Operations:</strong> AI-driven planning system across demand/supply/inventory contributed to $6.2B FY2026 operating cash flow; ambient-scribe tech used by 1,900+ Oncology Network providers.</li>
+            <li><strong>Technology Services &amp; Cloud/SAP Modernization:</strong> One of the largest SAP footprints in healthcare, mid-way through S/4HANA migration; SAP-on-Azure for 30-40% performance gain; GCP designated preferred cloud provider; IT leadership restructured Oct 2023 to align behind tech-services growth.</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="note">
+        <summary>Competitive Positioning</summary>
+        <div class="note-body">
+          <div class="table-scroll">
+            <table class="ref-table">
+              <thead><tr><th>Priority Theme</th><th>Improving Capability</th><th>Why It Fits</th></tr></thead>
+              <tbody>
+                <tr><td>Medical-Surgical Separation (Wellverse)</td><td>Application Modernization, Data/Integration Engineering</td><td>Direct analog to Improving's own OneTrack Portal engagement on this exact account</td></tr>
+                <tr><td>Oncology, Multispecialty &amp; Biopharma Growth</td><td>Data/AI Engineering</td><td>Relevant mainly at the parent-account level (Diana Stevens' pipeline), not a near-term play for David's sub-accounts</td></tr>
+                <tr><td>AI Embedded in Core Operations</td><td>Data/AI Engineering, Azure/GCP-native delivery</td><td>Aligns with McKesson's confirmed dual-cloud stack</td></tr>
+                <tr><td>Technology Services &amp; Cloud/SAP Modernization</td><td>Application Modernization, Cloud Engineering, DevOps Coaching</td><td>Matches Improving's own prior line items on this account (DevOps coaching, platform rewrites)</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p style="margin-top:0.8rem;"><strong>Win-wire story:</strong> the OneTrack Portal engagement ($150K Phase 1 + $143K Extension + $50K Discovery) &mdash; delivered directly for McKesson Medical Surgical, not an external analog.</p>
+          <p><strong>Honest competitive note:</strong> likely Big-4/large-SI incumbents on the SAP S/4HANA/carve-out program itself (assumed given scale, not confirmed). Improving wins on direct delivery history on this exact account, senior talent density, and faster mobilization; loses on scale/global footprint for the enterprise-wide carve-out program and brand recognition at the group-CIO level.</p>
+        </div>
+      </details>
+
+      <details class="note">
+        <summary>Referral &amp; Partner Network Detail</summary>
+        <div class="note-body">
+          <div class="table-scroll">
+            <table class="ref-table">
+              <thead><tr><th>Contact</th><th>Path</th><th>Status</th></tr></thead>
+              <tbody>
+                <tr><td>Brian Thill, Jessica Truong, Mark Reichert, Matt Collins, Suhaib Siraj Shaik</td><td>Existing CRM/email history, Jan 2022</td><td>confirmed, dormant</td></tr>
+                <tr><td>Diana Stevens</td><td>Internal &mdash; Improving Account Owner, McKesson Corporation</td><td>confirmed</td></tr>
+                <tr><td>Brian Schmidt</td><td>Parent-account CRM stakeholder, primary contact on live $2.7M "3 year MSP" opp &mdash; via Diana Stevens only</td><td>confirmed, named, real entity</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="table-scroll" style="margin-top:1rem;">
+            <table class="ref-table">
+              <thead><tr><th>Partner</th><th>Status</th><th>Contact</th></tr></thead>
+              <tbody>
+                <tr><td>Microsoft (Azure)</td><td>confirmed</td><td>Not identified; also the Affiliated Partner on Diana Stevens' live $2.7M "3 year MSP" opportunity</td></tr>
+                <tr><td>GCP</td><td>confirmed</td><td>not-identified</td></tr>
+                <tr><td>Snowflake</td><td>confirmed</td><td>not-identified</td></tr>
+                <tr><td>SAP</td><td>confirmed</td><td>not-identified</td></tr>
+                <tr><td>AWS</td><td>no-signal-found</td><td>not-identified</td></tr>
+                <tr><td>Databricks</td><td>no-signal-found</td><td>not-identified</td></tr>
+                <tr><td>Confluent</td><td>no-signal-found</td><td>not-identified</td></tr>
+                <tr><td>SpaceX/xAI</td><td>no-signal-found</td><td>not-identified</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </details>
+
+      <details class="note">
+        <summary>Sources</summary>
+        <div class="note-body">
+          <ul class="sources-list">
+            <li><a href="https://www.sec.gov/Archives/edgar/data/0000927653/000092765326000069/mck-20260331.htm">MCKESSON CORP — Form 10-K, FY2026</a></li>
+            <li><a href="https://www.mckesson.com/about-us/newsroom/press-releases/2025/mckesson-reports-fiscal-2025-fourth-quarter-and-full-year-results/">McKesson FY2025 Results — Intent to Separate Medical-Surgical Solutions</a></li>
+            <li><a href="https://www.mckesson.com/about-us/newsroom/press-releases/2026/mckesson-signs-agreement-with-apollo-funds-for-strategic-minority-interest-in-medical-surgical-solutions/">McKesson Signs Agreement with Apollo Funds</a></li>
+            <li><a href="https://richmondbizsense.com/2026/08/06/mckesson-medical-surgical-to-keep-local-hq-after-spin-off-from-parent-company-rebranding-as-wellverse/">Richmond BizSense — Wellverse rebrand</a></li>
+            <li><a href="https://virginiabusiness.com/mckesson-medical-surgical-rebrands-spinoff/">Virginia Business — Henrico's McKesson Medical-Surgical plans 2027 IPO</a></li>
+            <li><a href="https://www.mckesson.com/about-us/newsroom/press-releases/2025/mckesson-corporation-highlights-strategic-growth-strategies-and-unveils-updated-long-term-financial-targets-at-investor-day/">McKesson Investor Day, Sept 23, 2025</a></li>
+            <li><a href="https://www.mckesson.com/about-us/newsroom/press-releases/2026/mckesson-reports-fiscal-2026-fourth-quarter-and-full-year-results/">McKesson FY2026 Q4/Full Year Results</a></li>
+            <li><a href="https://distributionstrategy.com/2026/05/mckesson-posts-record-revenues-drives-ai-deep-into-distribution-operations/">Distribution Strategy Group — AI in Distribution Operations</a></li>
+            <li><a href="https://www.microsoft.com/en/customers/story/24058-mckesson-azure">Microsoft Customer Stories — McKesson SAP on Azure</a></li>
+            <li><a href="https://cloud.google.com/blog/topics/customers/mckesson-chooses-google-cloud-to-help-it-chart-a-course-to-the-future">Google Cloud Blog — McKesson chooses Google Cloud</a></li>
+            <li><a href="https://www.snowflake.com/en/blog/mckessons-cross-cloud-data-journey/">Snowflake Blog — McKesson's Cross-Cloud Data Journey</a></li>
+            <li><a href="https://www.ciodive.com/news/mckesson-brett-vitalone-francisco-fraga/695529/">CIO Dive — McKesson revamps IT leadership</a></li>
+            <li><a href="https://www.mckesson.com/about-us/leadership/stanton-mccomb/">Stanton McComb — McKesson Leadership</a></li>
+            <li><a href="https://www.mckesson.com/about-us/leadership/francisco-fraga/">Francisco Fraga — McKesson Leadership</a></li>
+            <li><a href="https://www.zoominfo.com/p/Ellery-Fisher/1784195571">Ellery Fisher — ZoomInfo</a></li>
+            <li><a href="https://www.linkedin.com/in/brianschmidt85/">Brian A. Schmidt — LinkedIn</a></li>
+            <li><a href="https://www.mckesson.com/about-us/leadership/">McKesson Leadership page</a></li>
+          </ul>
+        </div>
+      </details>
+    </div>
+
+  </main>
+
+  <footer class="foot">
+    Pursuit map dashboard for the <code>account-pursuit-map</code> workflow. Companion document: <code>accounts/McKesson/account-plan.md</code>.
+  </footer>
+</div>
+
+<script>
+  document.querySelectorAll('.tab-btn').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      document.querySelectorAll('.tab-btn').forEach(function(b){ b.classList.remove('active'); b.setAttribute('aria-selected','false'); });
+      document.querySelectorAll('.tab-panel').forEach(function(p){ p.classList.remove('active'); });
+      btn.classList.add('active');
+      btn.setAttribute('aria-selected','true');
+      document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+    });
+  });
+</script>

@@ -1,0 +1,122 @@
+{
+  "id": "eval-20260807T175344-NO5G5L",
+  "agent_id": "a56054ad5e913a7fd",
+  "type": "agent",
+  "name": "fork",
+  "agent": "fork",
+  "session_id": "session-2026-08-07-090000",
+  "trigger": "unknown",
+  "started": "2026-08-07T17:53:44.743640Z",
+  "completed": "2026-08-07T15:44:27.023874",
+  "duration_seconds": null,
+  "status": "aborted",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": false,
+      "all_steps_finished": null,
+      "tool_failures": 11,
+      "error_ids": [],
+      "tool_failure_log": [
+        {
+          "tool": "mcp__comet-bridge__comet_ask",
+          "error": "Error: fetch failed",
+          "duration_ms": 76865,
+          "timestamp": "2026-08-07T12:55:02.121115"
+        },
+        {
+          "tool": "mcp__comet-bridge__comet_screenshot",
+          "error": "Error: Not connected to Comet. Call connect() first.",
+          "duration_ms": 6,
+          "timestamp": "2026-08-07T12:55:05.284921"
+        },
+        {
+          "tool": "Read",
+          "error": "File does not exist. Note: your current working directory is /Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES.",
+          "duration_ms": 5,
+          "timestamp": "2026-08-07T12:55:26.408479"
+        },
+        {
+          "tool": "Read",
+          "error": "File does not exist. Note: your current working directory is /Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES.",
+          "duration_ms": 7,
+          "timestamp": "2026-08-07T12:55:58.618877"
+        },
+        {
+          "tool": "mcp__playwright__browser_click",
+          "error": "### Error\nInvalid arguments for tool \"browser_click\":\n\u2716 Invalid input: expected string, received undefined\n  \u2192 at target",
+          "duration_ms": 4,
+          "timestamp": "2026-08-07T12:56:07.511916"
+        },
+        {
+          "tool": "mcp__playwright__browser_navigate",
+          "error": "### Error\nError: Browser is already in use for /Users/davidohara/Library/Caches/ms-playwright-mcp/mcp-chrome-b3f26e4, use --isolated to run multiple instances of the same browser",
+          "duration_ms": 5022,
+          "timestamp": "2026-08-07T12:56:22.338997"
+        },
+        {
+          "tool": "mcp__playwright__browser_snapshot",
+          "error": "### Error\nError: Browser is already in use for /Users/davidohara/Library/Caches/ms-playwright-mcp/mcp-chrome-b3f26e4, use --isolated to run multiple instances of the same browser",
+          "duration_ms": 5012,
+          "timestamp": "2026-08-07T12:56:32.114987"
+        },
+        {
+          "tool": "mcp__comet-bridge__comet_ask",
+          "error": "Error: fetch failed",
+          "duration_ms": 7,
+          "timestamp": "2026-08-07T12:56:47.591765"
+        },
+        {
+          "tool": "mcp__comet-bridge__comet_ask",
+          "error": "Error: fetch failed",
+          "duration_ms": 8,
+          "timestamp": "2026-08-07T12:56:52.131901"
+        },
+        {
+          "tool": "mcp__comet-bridge__comet_ask",
+          "error": "Error: fetch failed",
+          "duration_ms": 9,
+          "timestamp": "2026-08-07T12:57:00.388170"
+        },
+        {
+          "tool": "mcp__playwright__browser_click",
+          "error": "### Error\nError: Ref f34e954 not found in the current page snapshot. Try capturing new snapshot.",
+          "duration_ms": 5,
+          "timestamp": "2026-08-07T12:57:09.772252"
+        }
+      ],
+      "abort_reason": "session-ended"
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": []
+}

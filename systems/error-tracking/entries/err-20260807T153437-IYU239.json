@@ -1,0 +1,12 @@
+{
+  "id": "err-20260807T153437-IYU239",
+  "timestamp": "2026-08-07T09:52:00-05:00",
+  "source": "self-detected",
+  "category": "workflow-skip",
+  "failure_mode": "short-circuiting workflow steps; relaying agent output directly to controller instead of following workflow logic",
+  "severity": "high",
+  "description": "Knox hit speaker identification step and I immediately relayed the untagged speakers to David, asking for manual input. But the workflow (step-03-identify-speakers.md) requires calendar correlation FIRST — match meeting times to calendar invites to auto-tag speakers before asking David for help. I skipped the workflow's logic and asked David directly.",
+  "what_went_wrong": "Did not ensure Knox followed the full workflow logic. The workflow has a structured approach: pull calendar for the meeting time → cross-reference attendees → tag speakers from calendar → ONLY ask David for manual help on ambiguous/untagged speakers after that correlation.",
+  "fix": "Resume Knox with explicit instruction to follow step-03-identify-speakers.md workflow: correlate meeting times to calendar, resolve attendees, tag speakers from calendar first. Only ask David for manual IDs on speakers that remain untagged after calendar correlation.",
+  "how_to_prevent": "When an agent surfaces a sub-step output, verify it's following the parent workflow logic, not just relaying prompts. Knox should never ask David for speaker IDs before it's tried calendar correlation."
+}

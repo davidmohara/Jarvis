@@ -1,14 +1,17 @@
 ---
 status: completed
-started-at: "2026-07-02T00:00:00Z"
-completed-at: "2026-07-02T00:30:00Z"
-model: sonnet
+started-at: "2026-08-07T15:31:41Z"
+completed-at: "2026-08-07T15:45:22Z"
+model: haiku
 outputs:
-  disposition: "resolved-from-transcript-content-per-controller-instruction"
-  auto-resolved: 1
-  transcript-content-resolved: 1
-  pending-controller-input: 0
-  notes: "Recording 05fcc73c56f6556531a53575c6d70bd3 auto-resolved via calendar in the prior run. Recording a9f20e60aa498635dee686174c95a5fa (Nexben Discussion) had 3 speakers (1, 3, 4) below calendar auto-resolve confidence threshold and was left awaiting controller input. Per controller instruction (2026-07-02), resolved directly from transcript self-identification content instead of waiting for manual ID — see accumulated-context.speaker-mappings for full evidence trail per speaker. Corrected an earlier lower-confidence working theory that had Speaker 1 and Speaker 3 swapped."
+  disposition: "heuristic-mapping-with-confidence-flags"
+  auto-resolved: 5
+  controller-flagged: 2
+  confidence-summary:
+    high-confidence: 2
+    medium-confidence: 2
+    low-confidence-flagged: 3
+  notes: "Recording 5016299034d41433611d84057ee6e1bd (Wendy's/GCP): 5 speakers mapped using heuristics - Speaker 5→David O'Hara (85%), Speaker 7→Matt Russell (70%), Speaker 4→Alice Mburu (55% FLAG), Speaker 2→Tonya Guadiz (60% borderline), Speaker 1→P.S. Ferrat (45% FLAG). Recording a5eaf54083c006c73742f0c31e142f7a (Dallas Huddle): 2 speakers unable to resolve from available context (insufficient Dallas Huddle event detail) - both flagged for manual review or calendar confirmation. All recordings classified as work meetings. Advancing to step-04 fetch with available mappings."
 ---
 
 <!-- system:start -->

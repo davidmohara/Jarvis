@@ -1,93 +1,86 @@
 workflow: plaud-ingest
 agent: knox
 status: complete
-session-started: "2026-08-03T17:30:00Z"
-session-id: "pi-20260803-001"
+session-started: "2026-08-07T15:31:41Z"
+session-id: "pi-20260807-002"
 current-step: step-05b
-original-request: "Knox: Resume plaud-ingest from prior state with 4 staged recordings — resolve speaker IDs and complete ingest"
-prior-run-note: "2026-07-30 run reached step-04 with 4 files staged but paused at step-03 pending speaker identification. Staged files verified present. Controller resolved both outstanding speaker-ID questions on 2026-08-04: (1) AI Leaders Weekly — Speaker 1 = Keylor Arroyo, Speaker 7 = Bill Curry. (2) Ronald/Susie financial call — Robyn Fuentes was NOT on the call (mis-tag); those 9 segments reattributed to Ronald Besonen (Speaker 1), per mid-sentence continuation of his trust-cash-positions point. Renames applied directly to the staged markdown files (text-level speaker label replacement) because the Plaud API currently reports both recordings as untranscribed (is_trans: false, trans_result and content_list empty for file_ids f824cc96ed478cbb55a5e7c43f0945c7 and ed2a74d60ee7baba6b94a153d5b7415d) — the documented --rename script path (PATCH + voice-embedding sync) could not run against the API in this state. FLAG: voice embeddings for Keylor Arroyo, Bill Curry (label merge), and the Robyn Fuentes correction were NOT registered with Plaud's /speaker/sync — future recordings will not auto-label these voices until the API-side transcript data reappears and --rename is re-run. Corresponding _speakers.json files deleted from staging as resolved."
-step-05b-run-note: "2026-08-04: Step-05b completed — final step, workflow now complete. Shared the 2 WORK recordings via fetch_plaud.py --share (f824cc96ed478cbb55a5e7c43f0945c7 and 46862b5ef46e5867280603f9d5a843a2); both succeeded. Created 2 Monday review tasks (board 18420619069, group new_group29179) titled 'Review Plaud recording: <title>' assigned to Alice Mburu (107886956) with the share URL in text_mm50v09n — item IDs 12714716473 and 12714601210. Emailed Alice (alice.mburu@improving.com, confirmed via contacts lookup) both share links plus a note that the Monday tasks are up; sent via Superhuman from David.OHara@improving.com. Personal recordings (Ronald Besonen financial review, Michael Tapp lunch) were correctly excluded from sharing and from this step's Monday tasks per the PERSONAL RECORDING HANDLING rule in step-05b — they already had their own action-item tasks created in step-05, assigned to David, not Alice. NOTE ON TOOL RISK: while attempting the SKILL.md-documented reconciliation step in step-05, I inadvertently launched three concurrent `fetch_plaud.py --all` processes (via repeated osascript retries after apparent tool timeouts) before realizing --all performs a full account-wide re-fetch/re-transcribe of all ~105 recordings, not a lightweight listing. Killed all three processes via `kill -9` before they could run to completion; verified via grep and file mtimes that the two speaker-renamed target files were untouched. No known side effects, but flagging in case any of the ~27 other recordings it started reprocessing before being killed left partial/inconsistent state in the broader staging folder (outside the 4 files this session was scoped to)."
-step-05-run-note: "2026-08-04: Step-05 completed. All 4 staged recordings transformed into vault notes: 2 WORK (AI Leaders Weekly → zzPlaud/Improving/; Athena EA Partnership Review w/ Anne Mwelu → zzPlaud/Other/, matching existing Athena-note folder precedent) and 2 PERSONAL (Ronald Besonen financial review and Michael Tapp lunch catch-up, both → zzPlaud/Other/). Daily notes created/linked at Calendar/2026/07-July/2026-07-29.md and 2026-07-30.md (neither existed previously). 8 Monday tasks created on board 18420619069/group new_group29179: 2 WORK items assigned to Alice Mburu (107886956), 6 PERSONAL items assigned to David O'Hara (107741225, resolved live via monday get_user_context — was an unresolved placeholder in step-05-ingest-vault.md). Michael Tapp lunch had no actionable items, so no Monday task was created for it, per skill rule. Staging cleaned: deleted the 4 processed plaud_*.md + 4 matching _raw.json + 2 leftover _speakers.json (235c1f/46862b5e, already resolved but files not yet removed), plus 2 stale unrenamed _ogg-named duplicate .md files for the two recordings renamed at the text level in the prior run (f824cc96, ed2a74d6) — confirmed these duplicates were superseded copies, not separate recordings, before deleting. DEVIATION FROM SKILL: the documented reconciliation command (`fetch_plaud.py --list-all --out ...`) does not exist in the script; the closest real flag, `--all`, performs a full re-fetch/re-transcribe across all ~105 recordings in the account (confirmed by log output — it began reprocessing unrelated Aug/July recordings and writing new speaker-mapping files for them). Running it to completion was out of scope and risked clobbering the two speaker-renamed target files, so after confirming (via grep/mtime) that a partial/killed run had NOT altered the 4 target files, reconciliation was scoped manually: verified via state.yaml's pre-existing ready-for-fetch/pending-speaker-mappings (already empty) that all 4 target recordings were fully resolved before cleanup, rather than running the account-wide --all reconciliation. Flag for controller: the broader staging folder still has a large legacy backlog (~90+ older files, some already-ingested duplicates) untouched by this run — out of scope per this session's target of the 4 tracked recordings only."
+original-request: "Knox: Reset workflow and run fresh discovery cycle for recordings since 2026-08-04"
+blocker: null
 accumulated-context:
-  # target-date is OPTIONAL — only set this for a targeted reprocess of a specific date.
-  # When absent, the workflow runs in full enumeration (catch-up) mode.
-  # target-date: "YYYY-MM-DD"
   new-recordings:
-    - file_id: "f824cc96ed478cbb55a5e7c43f0945c7"
-      name: "2026-07-29 09:31:16"
-      date: "2026-07-29"
-      duration_seconds: 1742
-      has_transcript: false
-      transcript_status: "pending"
-    - file_id: "235c1f402e3bdd98d8e0fb322ca7f4f8"
-      name: "2026-07-29 11:40:19"
-      date: "2026-07-29"
-      duration_seconds: 4694
-      has_transcript: false
-      transcript_status: "pending"
-    - file_id: "ed2a74d60ee7baba6b94a153d5b7415d"
-      name: "2026-07-29 13:58:35"
-      date: "2026-07-29"
-      duration_seconds: 5641
-      has_transcript: false
-      transcript_status: "pending"
-    - file_id: "46862b5ef46e5867280603f9d5a843a2"
-      name: "2026-07-30 09:31:18"
-      date: "2026-07-30"
-      duration_seconds: 736
-      has_transcript: false
-      transcript_status: "pending"
-  api-total-recordings: 0
-  transcription-triggered:
-    - "f824cc96ed478cbb55a5e7c43f0945c7"
-    - "235c1f402e3bdd98d8e0fb322ca7f4f8"
-    - "ed2a74d60ee7baba6b94a153d5b7415d"
-    - "46862b5ef46e5867280603f9d5a843a2"
-  pending-recordings:
-    - "f824cc96ed478cbb55a5e7c43f0945c7"
-    - "235c1f402e3bdd98d8e0fb322ca7f4f8"
-    - "ed2a74d60ee7baba6b94a153d5b7415d"
-    - "46862b5ef46e5867280603f9d5a843a2"
+    - file_id: "5016299034d41433611d84057ee6e1bd"
+      name: "08-05 Strategy Meeting: Wendy's Account Growth and GCP Partnership"
+      date: "2026-08-05"
+      duration_seconds: 2917
+      has_transcript: true
+      transcript_status: "ready"
+    - file_id: "a5eaf54083c006c73742f0c31e142f7a"
+      name: "2026-08-05 13:01:36"
+      date: "2026-08-05"
+      duration_seconds: 2196
+      has_transcript: true
+      transcript_status: "ready"
+  api-total-recordings: 107
+  transcription-triggered: []
+  pending-recordings: []
   speaker-mappings:
-    "46862b5ef46e5867280603f9d5a843a2":
-      "Speaker 2": "Anne Mwelu"
-    "ed2a74d60ee7baba6b94a153d5b7415d":
-      "Speaker 1": "Ronald Besonen"
-      "Speaker 2": "Susie O'Hara"
-      "Robyn Fuentes": "Ronald Besonen"
-    "235c1f402e3bdd98d8e0fb322ca7f4f8":
-      "Speaker 2": "Michael Tapp"
-    "f824cc96ed478cbb55a5e7c43f0945c7":
-      "Speaker 1": "Keylor Arroyo"
-      "Speaker 7": "Bill Curry"
+    "5016299034d41433611d84057ee6e1bd":
+      Speaker 7 (named "Matt Russell" in refetched transcript): "Matt Russell"
+      Speaker 1 (named "P.S. Ferrat" in refetched transcript): "Paul Sferratore (psferrat@google.com — 'P.S. Ferrat' was Plaud's auto-generated contraction, not a separate person)"
+      Speaker 2 (named "Tonya Guadiz" in refetched transcript): "Tonya Guadiz"
+      O'Hara (named label, quotes confirm Dallas HQ, Improving-branded talk): "David O'Hara"
+      Speaker 5: "Paul Sferratore (psferrat@google.com) — CONFIRMED by controller 2026-08-07. Same person as the 'P.S. Ferrat' label (Edge Case A, known speaker split across a generic label — missed on first pass, see err-20260807T161610-VP90EW). Not David. Controller also confirmed Ehren Seim was NOT on this call at all despite being on the invite — the 'Aaron'/Minneapolis-office reference is NOT Ehren Seim; source still unexplained."
+      Speaker 4: "John Woodward — CONFIRMED by controller 2026-08-07. Alice Mburu did not speak on this call at all (was on invite but silent/not present); prior 55% guess was wrong."
+      "Robyn Fuentes (named label, NOT on the original calendar invite)": "MIS-TAG — CONFIRMED by controller 2026-08-07. These segments are also Paul Sferratore, voice mis-registered under an unrelated 'Robyn Fuentes' profile (Edge Case B). All three labels — 'P.S. Ferrat', 'Speaker 5', and 'Robyn Fuentes' — collapse into one person, Paul Sferratore, and must be merged into a single name via --rename."
+    "a5eaf54083c006c73742f0c31e142f7a":
+      Speaker 2: "Logan Marshall (lmarshall@magliner.com) — CONFIRMED by controller 2026-08-07. Magline's head of IT; refetched transcript confirms 'Magline'/hand-truck manufacturing content, and Speaker 1 addresses this person by name ('Logan') twice."
+      Speaker 1: "Thomas Distefano (thomas.distefano@improving.com) — CONFIRMED by controller 2026-08-07. Controller confirmed Kevin Jourdain did not make the call despite being on the invite."
   pending-speaker-mappings: []
+  rename-payloads:
+    "5016299034d41433611d84057ee6e1bd":
+      "O'Hara": "David O'Hara"
+      "Speaker 4": "John Woodward"
+      "Speaker 5": "Paul Sferratore"
+      "P.S. Ferrat": "Paul Sferratore"
+      "Robyn Fuentes": "Paul Sferratore"
+    "a5eaf54083c006c73742f0c31e142f7a":
+      "Speaker 1": "Thomas Distefano"
+      "Speaker 2": "Logan Marshall"
   recording-classification:
-    "46862b5ef46e5867280603f9d5a843a2": "work"
-    "ed2a74d60ee7baba6b94a153d5b7415d": "personal"
-    "235c1f402e3bdd98d8e0fb322ca7f4f8": "personal"
-    "f824cc96ed478cbb55a5e7c43f0945c7": "work"
+    "5016299034d41433611d84057ee6e1bd": "work"
+    "a5eaf54083c006c73742f0c31e142f7a": "work"
   ready-for-fetch:
-    - "f824cc96ed478cbb55a5e7c43f0945c7"
-    - "235c1f402e3bdd98d8e0fb322ca7f4f8"
-    - "ed2a74d60ee7baba6b94a153d5b7415d"
-    - "46862b5ef46e5867280603f9d5a843a2"
-  staged-files: []
+    - "5016299034d41433611d84057ee6e1bd"
+    - "a5eaf54083c006c73742f0c31e142f7a"
+  staged-files:
+    - "plaud_5016299034d41433611d84057ee6e1bd_ogg.md"
+    - "plaud_a5eaf54083c006c73742f0c31e142f7a_ogg.md"
+  renames-verified:
+    "5016299034d41433611d84057ee6e1bd": "David O'Hara, John Woodward, Paul Sferratore (merged), Matt Russell, Tonya Guadiz — all confirmed via DB trans_result and grep of restaged .md, zero generic/old labels remaining"
+    "a5eaf54083c006c73742f0c31e142f7a": "Thomas Distefano, Logan Marshall — confirmed via grep of restaged .md, zero Speaker 1/2 remaining"
   stale-staged-files: []
   ingested-notes:
-    - "zzPlaud/Improving/2026-07-29 AI Leaders Weekly — Model Gateway Strategy and Copilot Cowork Evaluation.md"
-    - "zzPlaud/Other/2026-07-30 Athena EA Partnership Review — Anne Mwelu.md"
-    - "zzPlaud/Other/2026-07-29 Ronald Besonen Financial Review — Trust and Portfolio Allocation.md"
-    - "zzPlaud/Other/2026-07-29 Lunch with Michael Tapp — Family, Business, and AI Adoption.md"
+    - "zzPlaud/Client/2026-08-05 Strategy Meeting - Wendy's Account Growth and GCP Partnership.md"
+    - "zzPlaud/Client/2026-08-05 Magline and Improving AI Enablement Discovery Call.md"
+  action-item-tasks-created:
+    - id: "12748077749"
+      name: "Draft outreach email to Elise Blair (Google) re: Wendy's RFP, cc John Woodward and Tonya Guadiz"
+    - id: "12748138594"
+      name: "Schedule recurring sync with Paul Sferratore (Google, Wendy's account) — at least every 4 weeks"
+    - id: "12748077750"
+      name: "Follow up with Paul Sferratore on possible joint Google/Improving stage presentation to Wendy's franchisees (Vegas, late Sept)"
+    - id: "12748150126"
+      name: "Send NDA to Logan Marshall (Magline) for signature"
+    - id: "12748129935"
+      name: "Send governance control plane PDF, DLP one-pagers, and Cognition/Devon info to Logan Marshall (Magline)"
   share-urls:
-    - file_id: "f824cc96ed478cbb55a5e7c43f0945c7"
-      url: "https://web.plaud.ai/s/pub_174958be-df52-4680-93dc-83beeb9a16a6::xJW5E7Qukg4omi78dsaOF67lOqChnnnNDTV3ATSFkjnzQDdJOWBC3pMlvn84jOTwaUoVYV7vDQ_7sPAC"
-      monday-task-id: "12714716473"
-    - file_id: "46862b5ef46e5867280603f9d5a843a2"
-      url: "https://web.plaud.ai/s/pub_4d048026-30fd-4725-9d3d-5aff9f5a3acb::1x7osteqQ9UDJj7W78Kj3bDrvSqTftEsxaaomYAMxksOuCGJgLxKBY96ff9v3SqR5_WawwnLXeuzW9IC"
-      monday-task-id: "12714601210"
+    - file_id: "5016299034d41433611d84057ee6e1bd"
+      url: "https://web.plaud.ai/s/pub_7356ec39-8803-4943-b1c5-8ffce666ef2c::CfEoOR7P-3pGU8mKgK2os0GONH5zBtoisWbD-Zk1QWf5Icg39PaYVI5Tx8vQXGWHGvA5iDZ4Yuh_ufcC"
+      monday-task-id: "12748130160"
+    - file_id: "a5eaf54083c006c73742f0c31e142f7a"
+      url: "https://web.plaud.ai/s/pub_e2ff8108-ad50-4388-bd3d-f128273461fe::rDWIUPLGvIv1ylaU7wpdRC7xB_2rwOgx91j41Zgw4sNqInOm-Z13szzAkMloL65UUTGtjzHoUwH31HYC"
+      monday-task-id: "12748154236"
   speaker-id-notes:
-    - "2026-07-30 09:31:18: Speaker 2 is likely Anne Welo (Athena operations manager) based on transcript content"
-    - "2026-07-29 13:58:35: Has 2 untagged speakers - Speaker 1 (159 segments, wife/Bible ministry), Speaker 2 (29 segments)"
-    - "2026-07-29 11:40:19: Has 1 untagged speaker - Speaker 2 (85 segments, startup journey topic)"
-    - "2026-07-29 09:31:16: Has 2 untagged speakers - Speaker 7 (9 segments, product context), Speaker 1 (4 segments, product ownership)"
-    - "2026-08-04: RESOLVED by controller — 09:31:16 Speaker 1=Keylor Arroyo, Speaker 7=Bill Curry; 13:58:35 Robyn Fuentes mis-tag corrected to Ronald Besonen. Text-level renames applied to staged .md files; Plaud API rename/voice-sync deferred (API returned is_trans:false / empty trans_result for both file_ids at time of run — re-run fetch_plaud.py --rename once API-side transcript data is available again)."
+    - "Recording 5016299034d41433611d84057ee6e1bd: Speaker 5 = David O'Hara (85%), Speaker 7 = Matt Russell (70%), Speaker 4 = Alice Mburu (55% - FLAG), Speaker 2 = Tonya Guadiz (60% - borderline), Speaker 1 = P.S. Ferrat (45% - FLAG)"
+    - "Recording a5eaf54083c006c73742f0c31e142f7a: Dallas Huddle context - both speakers unresolved due to insufficient event context (50%, 40% - both FLAG)"
+    - "2026-08-07 re-open (pi-20260807-002): step-03 had advanced to step-05 in state.yaml with these mappings still unresolved/flagged — protocol deviation, hard gate in step-03 was bypassed. current-step left as-is per controller instruction; not fixing sequencing in this pass. Calendar cross-reference now run for both recordings (see pending-speaker-mappings) and consolidated question surfaced to controller."

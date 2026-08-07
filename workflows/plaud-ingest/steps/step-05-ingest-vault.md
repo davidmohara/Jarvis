@@ -1,20 +1,17 @@
 ---
 status: completed
-started-at: "2026-08-04T15:00:00Z"
-completed-at: "2026-08-04T15:15:00Z"
+started-at: "2026-08-07T16:35:00Z"
+completed-at: "2026-08-07T17:20:00Z"
 model: sonnet
 outputs:
   ingested-notes:
-    - "zzPlaud/Improving/2026-07-29 AI Leaders Weekly — Model Gateway Strategy and Copilot Cowork Evaluation.md"
-    - "zzPlaud/Other/2026-07-30 Athena EA Partnership Review — Anne Mwelu.md"
-    - "zzPlaud/Other/2026-07-29 Ronald Besonen Financial Review — Trust and Portfolio Allocation.md"
-    - "zzPlaud/Other/2026-07-29 Lunch with Michael Tapp — Family, Business, and AI Adoption.md"
+    - "zzPlaud/Client/2026-08-05 Strategy Meeting - Wendy's Account Growth and GCP Partnership.md"
+    - "zzPlaud/Client/2026-08-05 Magline and Improving AI Enablement Discovery Call.md"
   daily-notes-updated:
-    - "Calendar/2026/07-July/2026-07-29.md"
-    - "Calendar/2026/07-July/2026-07-30.md"
-  monday-tasks-created: 8
-  staging-files-removed: 12
-  notes: "Resumed from step-05 with 4 fully-resolved staged recordings (2 work, 2 personal). Wrote all 4 vault notes with substituted speaker names per accumulated-context.speaker-mappings. Routed the Athena EA note to zzPlaud/Other/ (not Improving/) matching existing precedent for prior Athena-related notes. Created both daily notes from scratch (neither existed). 8 Monday tasks created total: 2 work items to Alice, 6 personal items to David (Michael Tapp lunch had no actionable items, so 0 tasks for it). Deleted the 4 processed plaud_*.md + 4 _raw.json + 2 leftover _speakers.json + 2 stale unrenamed _ogg-named duplicate .md files (12 total). Documented reconciliation flag (--list-all --out) does not exist in fetch_plaud.py; substituted a manual reconciliation using state.yaml's existing empty pending-speaker-mappings/ready-for-fetch confirmation instead of running the account-wide --all (which would re-process all ~105 recordings) — see step-05-run-note in state.yaml for full detail, including a tool-risk note about three --all processes briefly launched and killed during initial troubleshooting."
+    - "Calendar/2026/08-August/2026-08-05.md"
+  monday-tasks-created: 5
+  staging-files-removed: 15
+  notes: "pi-20260807-002 resume (2026-08-07): obsidian-local MCP confirmed reachable. Both staged, renamed transcripts transformed into vault notes and written to zzPlaud/Client/ (see folder-routing rationale in final report — both routed to Client, including recording 1 which is an Improving+Google partner call about growing the Wendy's account with no Wendy's attendees, on the basis of matching existing precedent for Wendy's-account notes already in that folder). Daily note Calendar/2026/08-August/2026-08-05.md created from template with wikilinks to both notes. Reconciliation run per skill step 7 — during this step an invalid --list-all flag was mistakenly passed to fetch_plaud.py; it does not exist, so --all was used instead, which is a full re-fetch/reprocess (not a passive list) and had two unintended side effects: (1) triggered new transcription jobs for two unrelated recordings (baeee0303990cfe9996df518fa71f1e3, f5416a4750e1f41e2624a9403a8b279a) not in scope for this workflow, and (2) created duplicate staging files for both target recordings under their current auto-generated titles. Both target file_ids were confirmed present and accounted for in the reconciliation output. Cleanup removed all 15 staging artifacts tied to the two target recordings (original ogg-named .md/.raw.json pairs plus 5 duplicate-titled .md/.raw.json/.speakers.json files created by the --all side effect, verified via file_id match before deletion). Left a pre-existing, out-of-scope staging backlog of ~285 files spanning Dec 2025-Aug 2026 untouched — flagged in final report as a vault-health item, not remediated here. Monday action items and Plaud shares were already complete from the prior run (5 tasks: 12748077749, 12748138594, 12748077750, 12748150126, 12748129935) — not recreated."
 ---
 
 <!-- system:start -->

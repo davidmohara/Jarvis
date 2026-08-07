@@ -1,22 +1,22 @@
 ---
 status: completed
-started-at: "2026-08-04T15:15:00Z"
-completed-at: "2026-08-04T15:20:00Z"
+started-at: "2026-08-07T16:50:00Z"
+completed-at: "2026-08-07T16:58:00Z"
 model: sonnet
 outputs:
   shares-attempted: 2
   shares-succeeded: 2
   shares-failed: 0
-  personal-recordings-skipped: 2
+  personal-recordings-skipped: 0
   tasks-created: 2
   share-urls:
-    - file_id: f824cc96ed478cbb55a5e7c43f0945c7
-      url: "https://web.plaud.ai/s/pub_174958be-df52-4680-93dc-83beeb9a16a6::xJW5E7Qukg4omi78dsaOF67lOqChnnnNDTV3ATSFkjnzQDdJOWBC3pMlvn84jOTwaUoVYV7vDQ_7sPAC"
-      monday-task-id: "12714716473"
-    - file_id: 46862b5ef46e5867280603f9d5a843a2
-      url: "https://web.plaud.ai/s/pub_4d048026-30fd-4725-9d3d-5aff9f5a3acb::1x7osteqQ9UDJj7W78Kj3bDrvSqTftEsxaaomYAMxksOuCGJgLxKBY96ff9v3SqR5_WawwnLXeuzW9IC"
-      monday-task-id: "12714601210"
-  notes: "2 work recordings shared and emailed to alice.mburu@improving.com. 2 personal recordings (Ronald Besonen financial review, Michael Tapp lunch) correctly skipped per PERSONAL RECORDING HANDLING — no share, no Monday task in this step (they had their own action-item tasks assigned to David in step-05)."
+    - file_id: "5016299034d41433611d84057ee6e1bd"
+      url: "https://web.plaud.ai/s/pub_7356ec39-8803-4943-b1c5-8ffce666ef2c::CfEoOR7P-3pGU8mKgK2os0GONH5zBtoisWbD-Zk1QWf5Icg39PaYVI5Tx8vQXGWHGvA5iDZ4Yuh_ufcC"
+      monday-task-id: "12748130160"
+    - file_id: "a5eaf54083c006c73742f0c31e142f7a"
+      url: "https://web.plaud.ai/s/pub_e2ff8108-ad50-4388-bd3d-f128273461fe::rDWIUPLGvIv1ylaU7wpdRC7xB_2rwOgx91j41Zgw4sNqInOm-Z13szzAkMloL65UUTGtjzHoUwH31HYC"
+      monday-task-id: "12748154236"
+  notes: "pi-20260807-002 run: both recordings are WORK (no personal recordings this session). Both shared successfully via fetch_plaud.py --share, both Monday review tasks created for Alice Mburu with the share URL in text_mm50v09n. NOTE: this step ran ahead of step-05's vault ingestion completing, because step-05 is blocked on an unreachable obsidian-local MCP server (see step-05 outputs/notes and state.yaml top-level blocker) and sharing/Monday-task-creation here has no dependency on the vault. state.yaml status was NOT set to complete — step-05's vault write and cleanup still need to run once Obsidian is reachable again."
 ---
 
 <!-- system:start -->

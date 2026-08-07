@@ -935,5 +935,39 @@
         ]
       }
     ]
+  },
+  {
+    "id": "session-2026-08-06-090847",
+    "started": "2026-08-06T09:08:47-05:00",
+    "closed": "2026-08-07T09:00:00-05:00",
+    "current_topic": null,
+    "topics": [
+      {
+        "name": "morning-boot",
+        "loops": [
+          {
+            "task": "boot-sequence",
+            "resolved": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "session-2026-08-07-090000",
+    "started": "2026-08-07T09:00:00-05:00",
+    "closed": null,
+    "current_topic": "morning-boot",
+    "topics": [
+      {
+        "name": "morning-boot",
+        "loops": [
+          {
+            "task": "boot-sequence",
+            "resolved": false
+          }
+        ]
+      }
+    ]
   }
 ]

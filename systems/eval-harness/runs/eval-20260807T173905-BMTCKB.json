@@ -1,0 +1,74 @@
+{
+  "id": "eval-20260807T173905-BMTCKB",
+  "agent_id": "a20c242dcee7ce303",
+  "type": "agent",
+  "name": "general-purpose",
+  "agent": "general-purpose",
+  "session_id": "session-2026-08-07-090000",
+  "trigger": "unknown",
+  "started": "2026-08-07T17:39:05.914025Z",
+  "completed": "2026-08-07T15:44:27.073439",
+  "duration_seconds": null,
+  "status": "aborted",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": false,
+      "all_steps_finished": null,
+      "tool_failures": 3,
+      "error_ids": [],
+      "tool_failure_log": [
+        {
+          "tool": "Read",
+          "error": "File does not exist. Note: your current working directory is /Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES.",
+          "duration_ms": 8,
+          "timestamp": "2026-08-07T12:39:24.055938"
+        },
+        {
+          "tool": "mcp__claude_ai_Microsoft_365__outlook_email_search",
+          "error": "{\n  \"code\": \"VALIDATION_ERROR\",\n  \"message\": \"VALIDATION_ERROR: `order` is not supported with a free-text `query` on email search. Use sender/date/folder filters instead of `query` to get sorted results.\",\n  \"details\": {\n    \"validationCode\": \"incompatible_params\",\n    \"paramKeys\": [\n      \"query\",\n      \"order\",\n      \"limit\"\n    ]\n  }\n}",
+          "duration_ms": 673,
+          "timestamp": "2026-08-07T12:40:20.083741"
+        },
+        {
+          "tool": "WebFetch",
+          "error": "timeout of 60000ms exceeded",
+          "duration_ms": 60124,
+          "timestamp": "2026-08-07T12:43:48.630707"
+        }
+      ],
+      "abort_reason": "session-ended"
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": []
+}
