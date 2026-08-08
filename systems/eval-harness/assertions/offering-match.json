@@ -39,6 +39,18 @@
       "check": "output_not_contains",
       "pattern": "(?i)(approximately \\$|typically costs|usually takes about)",
       "description": "Skill does not invent a Duration or Price when the source document doesn't state one — must say 'not specified in source' instead"
+    },
+    {
+      "id": "offering-match-persona-no-force-fit",
+      "check": "output_not_contains",
+      "pattern": "(?i)(closest available persona|best available buyer persona|nearest persona match|approximate persona fit)",
+      "description": "Persona selection never force-fits an unrelated buyer or anti-buyer persona onto a matched offering when no Service line reasonably matches — must emit persona_match_status: no_match instead, mirroring the skill's existing offering-match no-fabrication discipline"
+    },
+    {
+      "id": "offering-match-persona-no-match-status-supported",
+      "check": "output_contains",
+      "pattern": "(?i)persona_match_status",
+      "description": "Skill supports and can emit a persona_match_status: no_match when no buyer persona's Service line reasonably matches the offering's category"
     }
   ]
 }

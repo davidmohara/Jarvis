@@ -1,6 +1,6 @@
 ---
 name: offering-match
-description: Match episode pain points to Improving's real, current service offerings by searching live SharePoint sources (Sales Offerings folder + Central Sales/SPARC site) - never a cached or invented list. Fourth step of the Podcast-to-Pipeline pipeline. Trigger on "what do we sell for this pain point" or as workflows/episode-campaign-brief step 04.
+description: Match episode pain points to Improving's real, current service offerings by searching live SharePoint sources (Sales Offerings folder + Central Sales/SPARC site) - never a cached or invented list - and attach the matching buyer persona and anti-buyer persona (with their "How Improving Wins"/"How Improving Disarms" responses) to each matched offering, sourced live from the Marketing/Personas SharePoint folders. Fourth step of the Podcast-to-Pipeline pipeline. Trigger on "what do we sell for this pain point" or as workflows/episode-campaign-brief step 04.
 context: fork
 agent: general-purpose
 allowed-tools:

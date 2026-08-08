@@ -245,6 +245,36 @@
         {
           "date": "2026-08-08",
           "description": "ZoomInfo access is being discontinued for the org. Removed ZoomInfo as an enrichment source from account-targeting (skills/account-targeting/SKILL.md, .claude/skills/account-targeting/SKILL.md), workflows/audience-target-outreach/workflow.md, agents/harper.md Data Requirements, skills/_manifest.jsonl, and the not-yet-run eval spec at systems/evals/work-20260807-podcast-to-pipeline-build/evals/evals.json. account-targeting now runs CRM-first then public/LinkedIn research only, with an added instruction to flag lower-confidence account fits given the loss of ZoomInfo-grade firmographic enrichment. Also corrected an inaccuracy in this record's validation note: the two stale eval signal files (campaign-send-latest.json, campaign-response-log-latest.json) were described as 'blocked by the permission classifier' but were in fact deleted by an unauthorized subagent rm action during grading \u2014 verified both files no longer exist on disk."
+        },
+        {
+          "date": "2026-08-08",
+          "description": "Extended offering-match to identify buyer/anti-buyer persona fits for each matched offering, sourced live from the Marketing/Personas SharePoint folders (Buyer Personas/ and Anti-Buyer Personas/ under OfficeoftheChiefConsultingOfficer/Shared Documents/General/Marketing/Personas/), never cached. For each matched offering (skipped for no_match pain points), selects the buyer persona whose Service line field best matches the offering category, extracting its \"How Improving Wins\" response; selects an anti-buyer persona preferring one whose \"Buyer personas they counter\" field cross-references the selected buyer persona (falls back to a generic blocker archetype with cross_referenced: false when none does, explicitly not claiming a false cross-reference), extracting its \"How Improving Disarms\" response. Adds persona_match_status: no_match support so an unrelated persona is never force-fit onto an offering, consistent with the skill's existing no-fabrication discipline for offerings themselves. Updated skills/offering-match/SKILL.md (new Grounding Source #3 for the persona folders, new Process steps 5-6, output schema addition for buyer_persona/anti_buyer_persona, three new Failure Modes rows), .claude/skills/offering-match/SKILL.md (stub description now mentions persona matching), workflows/episode-campaign-brief/steps/step-04-offering-match.md (brief assembly template now renders a Buyer / Anti-Buyer subsection under each matched offering so persona data actually appears in the output document, not just the skill's internal return value; added SUCCESS METRICS lines for persona rendering and no-force-fit), and systems/eval-harness/assertions/offering-match.json (two new assertions: persona selection never force-fits an unrelated persona, and persona_match_status: no_match is supported and can be emitted).",
+          "files": [
+            {
+              "path": "skills/offering-match/SKILL.md",
+              "action": "modify",
+              "type": "system",
+              "description": "Added live persona-matching grounding source, Process steps 5-6 for buyer/anti-buyer persona selection and response extraction, output schema fields, and three new Failure Modes rows"
+            },
+            {
+              "path": ".claude/skills/offering-match/SKILL.md",
+              "action": "modify",
+              "type": "system",
+              "description": "Stub description updated to mention persona-fit matching against live SharePoint Marketing/Personas folders"
+            },
+            {
+              "path": "workflows/episode-campaign-brief/steps/step-04-offering-match.md",
+              "action": "modify",
+              "type": "system",
+              "description": "Brief assembly template renders a Buyer / Anti-Buyer subsection under each matched offering; YOUR TASK and SUCCESS METRICS updated so persona data is required to actually appear in the rendered brief, not just the skill return value"
+            },
+            {
+              "path": "systems/eval-harness/assertions/offering-match.json",
+              "action": "modify",
+              "type": "system",
+              "description": "Added persona no-force-fit assertion and persona_match_status: no_match support assertion, mirroring the existing offering no-fabrication assertion pattern"
+            }
+          ]
         }
       ]
     },

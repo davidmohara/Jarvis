@@ -52,6 +52,7 @@ reasoning, and cited offering documents.
 | Podcast URL / Obsidian | Episode transcript + metadata | Chrome (public) or Obsidian MCP (internal) — via `episode-transcript-intake` |
 | SharePoint — Sales Offerings folder | Primary offering grounding (Duration/Price/Summary) | `mcp__claude_ai_Microsoft_365__sharepoint_*` — via `offering-match` |
 | SharePoint — Central Sales/SPARC site | Secondary offering grounding | Same, via `offering-match` |
+| **SharePoint — Marketing/Personas** ([`Buyer Personas` / `Anti-Buyer Personas`](https://improving.sharepoint.com/sites/OfficeoftheChiefConsultingOfficer/Shared%20Documents/Forms/AllItems.aspx?id=%2Fsites%2FOfficeoftheChiefConsultingOfficer%2FShared%20Documents%2FGeneral%2FMarketing%2FPersonas&viewid=0aa516ce%2D0323%2D42ae%2D90d2%2D448e258ea263)) | For each matched offering: the buyer persona (Service line match) and anti-buyer persona, with their "How Improving Wins"/"How Improving Disarms" responses | Same, via `offering-match` |
 
 ### Output
 

@@ -38,7 +38,10 @@ document
    shortcut this call.
 
 2. Capture the returned `offering_matches` list (including any `no_match`
-   entries — these belong in the brief too, as honest gaps).
+   entries — these belong in the brief too, as honest gaps), including the
+   `buyer_persona`/`anti_buyer_persona` data attached to each matched
+   offering. This persona data must actually render in the brief document
+   below — it is not enough to have it in the skill's return value.
 
 3. Assemble the Episode Campaign Brief markdown document with this structure:
 
@@ -70,11 +73,30 @@ document
    **Source:** [{source_doc}]({link})
    {fit_rationale}
 
-   [or, for gaps:]
+   **Buyer / Anti-Buyer**
+   - **Buyer persona:** {buyer_persona.name} ({buyer_persona.role}) — {buyer_persona.service_line}
+     {buyer_persona.response}
+     *Source: [{buyer_persona.source_doc}]({link})*
+   - **Anti-buyer persona:** {anti_buyer_persona.name} ({anti_buyer_persona.role}){anti_buyer_persona.cross_referenced ? " — counters " + buyer_persona.name : " — generic blocker, not a confirmed cross-reference to " + buyer_persona.name}
+     {anti_buyer_persona.response}
+     *Source: [{anti_buyer_persona.source_doc}]({link})*
+
+   [if persona_match_status is no_match, replace the Buyer / Anti-Buyer block with:]
+
+   **Buyer / Anti-Buyer:** No buyer persona's Service line reasonably matched this offering's category. Not force-fit.
+
+   [or, for offering gaps:]
 
    ### {pain_point.id} → No current offering match
    {reason}
    ```
+
+   The Buyer / Anti-Buyer subsection only appears under offerings that actually
+   matched (`match_status` not `no_match`) — there's no offering to attach a
+   persona to for a gap. Never fabricate a persona pairing to fill this
+   subsection; if `offering-match` returned `persona_match_status: no_match`
+   for a given offering, render the plain no-match line above instead of
+   omitting the subsection silently.
 
 4. Save the brief to `content/podcast-campaigns/{episode-slug}-campaign-brief.md`
    (create the directory if it doesn't exist).
@@ -104,6 +126,10 @@ document
 
 - SharePoint sources were queried live this run (not answered from memory)
 - Every offering match cites a real source document with duration/price
+- Every matched offering's Buyer / Anti-Buyer subsection actually appears in
+  the rendered brief document, not just in the skill's internal return value
+- Persona selection never force-fits an unrelated persona — `no_match` on
+  persona fit is rendered plainly when that's what the skill returned
 - Unmatched pain points are stated plainly, not hidden or force-fit
 - Brief document saved and presented
 

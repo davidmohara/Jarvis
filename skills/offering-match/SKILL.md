@@ -42,6 +42,13 @@ The `pain_points` list from `pain-point-extraction`.
 2. **Secondary** — `https://improving.sharepoint.com/sites/Sales`
    Central Sales / SPARC site. Sales playbooks and regional service-offering decks
    (e.g. Pune capabilities). Use only to fill gaps not covered by the primary folder.
+3. **Persona sources** (used only for the buyer/anti-buyer persona step, Process
+   step 5) — `https://improving.sharepoint.com/sites/OfficeoftheChiefConsultingOfficer/Shared Documents/General/Marketing/Personas/`,
+   specifically the `Buyer Personas/` and `Anti-Buyer Personas/` subfolders. Same
+   live-query, never-cached discipline applies. Buyer persona docs carry a
+   "Persona at a Glance" table with a Service line field and a "How Improving
+   Wins" section. Anti-buyer persona docs carry a "Buyer personas they counter"
+   cross-reference field and a "How Improving Disarms" section.
 
 Use `mcp__claude_ai_Microsoft_365__sharepoint_search` and
 `mcp__claude_ai_Microsoft_365__sharepoint_folder_search` to locate candidate
@@ -68,10 +75,24 @@ offering_matches:
     source_doc: "SharePoint path or URL to the exact document"
     source_priority: "primary" | "secondary"
     fit_rationale: "1-2 sentences: why this offering addresses this specific pain point"
+    buyer_persona:
+      name: "..."
+      role: "..."
+      service_line: "..."
+      response: "How Improving Wins summary — positioning/differentiation"
+      source_doc: "SharePoint path"
+    anti_buyer_persona:
+      name: "..."
+      role: "..."
+      cross_referenced: true/false
+      response: "How Improving Disarms summary — counter-move/conversion play"
+      source_doc: "SharePoint path"
   - pain_point_id: pp-02
     match_status: "no_match"
     reason: "Searched both sources; no current offering addresses this pain point. Flagging as a gap rather than inventing a service."
 ```
+
+`buyer_persona` and `anti_buyer_persona` are only present when `match_status` is not `no_match` — there's no offering to attach a persona to for an unmatched pain point. If persona matching itself comes up empty for a matched offering, see Step 6 of the Process below (`persona_match_status: no_match`) rather than omitting the field silently.
 
 ## Process
 
@@ -94,8 +115,45 @@ offering_matches:
    an unmatched pain point as a task failure. It is more useful to sales than
    a fabricated pitch.
 
-5. Return the full list, matched and unmatched, so `prospect-message-draft` and
-   the episode brief can see the complete picture.
+5. For each pain point that DID get a real offering match (skip this step
+   entirely for `no_match` pain points — there's no offering to attach a
+   persona to), identify the buyer persona and anti-buyer persona fit:
+
+   a. Query `Personas/Buyer Personas/` under
+      `https://improving.sharepoint.com/sites/OfficeoftheChiefConsultingOfficer/Shared Documents/General/Marketing/Personas/`
+      live (via `sharepoint_search`/`read_resource`, never cached — same
+      no-cache discipline as the offerings sources above). Each doc has a
+      "Persona at a Glance" table with a **Service line** field. Select the
+      persona whose Service line most closely matches the matched offering's
+      category. If no persona's Service line is a reasonable match, set
+      `persona_match_status: no_match` on that offering match and say so
+      plainly — do not force-fit an unrelated persona onto an offering just
+      to fill the field. This is the same no-fabrication discipline that
+      governs the offering match itself.
+
+   b. Query `Personas/Anti-Buyer Personas/` in the same folder. Each doc has
+      a "Buyer personas they counter" cross-reference field. Prefer the
+      anti-buyer persona whose cross-reference field explicitly names the
+      buyer persona selected in (a). If none explicitly cross-references it,
+      select the most contextually relevant generic blocker archetype and
+      set `cross_referenced: false` — anti-buyer personas are largely
+      offering-agnostic archetypes, so a generic pick here is expected and
+      fine. Never set `cross_referenced: true` unless the source document's
+      "Buyer personas they counter" field actually names the persona from
+      (a) by name.
+
+   c. For both selected personas, extract the actual response content, not
+      just the persona name: the buyer persona's "How Improving Wins"
+      section (positioning/differentiation, including the T.I.N.B.
+      competitive rebuttal and Maslow-need framing where present); the
+      anti-buyer persona's "How Improving Disarms" section (disarming
+      factors, counter-move, conversion play). Summarize tightly rather than
+      pasting the full section — this is what feeds the brief's Buyer /
+      Anti-Buyer subsection.
+
+6. Return the full list, matched and unmatched, with persona data attached
+   to each matched offering, so `prospect-message-draft` and the episode
+   brief can see the complete picture.
 
 ## Failure Modes
 
@@ -105,6 +163,9 @@ offering_matches:
 | A document lacks a clear Duration or Price field | Use what is present; state "not specified in source" for the missing field rather than inventing a number. |
 | Multiple offerings plausibly match one pain point | List the strongest 1-2 matches, not every tangential hit. Note if it's a close call. |
 | Offering doc is clearly outdated (references a sunset product/team) | Flag it and search for a more current equivalent before citing it. |
+| No buyer persona's Service line reasonably matches the offering's category | Set `persona_match_status: no_match` on that offering entry and state the gap plainly. Do not force-fit an unrelated persona. The offering match itself still stands — this only affects the persona subsection. |
+| No anti-buyer persona's "Buyer personas they counter" field names the selected buyer persona | Select the most contextually relevant generic blocker archetype, set `cross_referenced: false`, and say so. This is expected and not a failure — do not claim a false cross-reference to make the field look more precise than it is. |
+| Personas SharePoint folders unreachable | Persona matching for this run is degraded, not the whole skill. Return offering matches without `buyer_persona`/`anti_buyer_persona` fields, flag "Persona folders unreachable — offering matches returned without persona fits," and mark the skill-run signal `status: partial`. |
 
 ## SKILL COMPLETE
 
