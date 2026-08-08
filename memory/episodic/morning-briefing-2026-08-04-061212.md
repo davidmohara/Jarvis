@@ -17,9 +17,10 @@ tags:
   - sales
   - delegations
 related_people: []
+  promoted: true
 salience:
   score: 10
-  last-promoted-check: 2026-08-07
+  last-promoted-check: 2026-08-08
   promoted: true
 ---
 
