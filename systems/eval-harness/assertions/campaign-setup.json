@@ -1,0 +1,44 @@
+{
+  "name": "campaign-setup",
+  "type": "skill",
+  "assertions": [
+    {
+      "id": "campaign-setup-signal-written",
+      "check": "file_exists",
+      "path": "systems/eval-harness/skill-runs/campaign-setup-latest.json",
+      "description": "campaign-setup skill-run signal file was written"
+    },
+    {
+      "id": "campaign-setup-signal-status",
+      "check": "json_field_not_equals",
+      "path": "systems/eval-harness/skill-runs/campaign-setup-latest.json",
+      "field": "status",
+      "value": "failure",
+      "description": "campaign-setup skill-run did not end in failure"
+    },
+    {
+      "id": "campaign-setup-plan-only-honored",
+      "check": "output_contains",
+      "pattern": "(?i)(plan|would create|would use)",
+      "description": "When invoked with 'do not execute', output is a described plan, not a claim of a completed live Segment/Journey creation"
+    },
+    {
+      "id": "campaign-setup-no-live-write-in-plan-only",
+      "check": "output_not_contains",
+      "pattern": "(?i)(segment created|journey created|contacts added to segment)",
+      "description": "No live Customer Insights - Journeys write is claimed while Plan-Only Mode is active"
+    },
+    {
+      "id": "campaign-setup-targets-journeys-not-sales-campaigns",
+      "check": "output_contains",
+      "pattern": "(?i)(journey|segment)",
+      "description": "Plan targets Customer Insights - Journeys Segment/Journey structures, not native Dynamics Sales Campaign entities"
+    },
+    {
+      "id": "campaign-setup-dedup-check-present",
+      "check": "output_contains",
+      "pattern": "(?i)(dedup|existing journey|already exists)",
+      "description": "Plan includes a dedup check against existing journeys for the episode before proposing a new one"
+    }
+  ]
+}

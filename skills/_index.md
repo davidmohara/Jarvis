@@ -1,6 +1,6 @@
 # IES Skill Index
 
-Last updated: 2026-06-14 | Total skills: 30
+Last updated: 2026-08-07 | Total skills: 57
 
 | ID | Name | Owner | Model | Trigger Keywords (sample) |
 |----|------|-------|-------|---------------------------|
@@ -35,6 +35,16 @@ Last updated: 2026-06-14 | Total skills: 30
 | rigby-eval-dashboard | Rigby Eval Dashboard | rigby | sonnet | eval dashboard, generate dashboard |
 | obsidian-source-note | Obsidian Source Note | harper | sonnet | save to obsidian, source note, talk research, save podcast notes |
 | podcast-transcript-extract | Podcast Transcript Extract | knox | haiku | podcast, transcript, episode, spotify transcript |
+| episode-transcript-intake | Episode Transcript Intake | harper | sonnet | episode intake, podcast to pipeline, turn this episode into a campaign |
+| pain-point-extraction | Pain Point Extraction | harper | sonnet | pain points, extract pain points, episode pain points |
+| audience-profile-builder | Audience Profile Builder | harper | sonnet | audience profile, ICP for this episode |
+| offering-match | Offering Match | harper | sonnet | offering match, match pain points to services |
+| account-targeting | Account Targeting | harper | sonnet | find target accounts, account targeting |
+| contact-targeting | Contact Targeting | harper | sonnet | find contacts, contact targeting |
+| prospect-message-draft | Prospect Message Draft | harper | sonnet | draft campaign message, prospect message |
+| campaign-setup | Campaign Setup | harper | sonnet | set up the campaign, create the journey |
+| campaign-send | Campaign Send | harper | sonnet | send the campaign email, trigger the journey send |
+| campaign-response-log | Campaign Response Log | harper | sonnet | log this reply, log campaign response |
 
 ## Adding a New Skill
 

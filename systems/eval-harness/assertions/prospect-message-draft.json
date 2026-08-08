@@ -1,0 +1,38 @@
+{
+  "name": "prospect-message-draft",
+  "type": "skill",
+  "assertions": [
+    {
+      "id": "prospect-message-draft-signal-written",
+      "check": "file_exists",
+      "path": "systems/eval-harness/skill-runs/prospect-message-draft-latest.json",
+      "description": "prospect-message-draft skill-run signal file was written"
+    },
+    {
+      "id": "prospect-message-draft-signal-status",
+      "check": "json_field_not_equals",
+      "path": "systems/eval-harness/skill-runs/prospect-message-draft-latest.json",
+      "field": "status",
+      "value": "failure",
+      "description": "prospect-message-draft skill-run did not end in failure"
+    },
+    {
+      "id": "prospect-message-draft-no-outlook-tool-call",
+      "check": "output_not_contains",
+      "pattern": "(?i)(outlook_create_draft|mcp__claude_ai_Microsoft_365__outlook_create_draft|superhuman.*create_or_update_draft)",
+      "description": "Skill produces content only — never calls the Outlook/Superhuman draft-delivery tool, since the output feeds campaign-send's Journey email asset instead"
+    },
+    {
+      "id": "prospect-message-draft-no-em-dash",
+      "check": "output_not_contains",
+      "pattern": "—",
+      "description": "Output does not contain em-dashes, per standing org convention"
+    },
+    {
+      "id": "prospect-message-draft-no-invented-offering",
+      "check": "output_not_contains",
+      "pattern": "(?i)(we offer a solution called|our .* program can help)",
+      "description": "Skill does not invent an offering reference when offering-match returned no_match for the pain point"
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "name": "offering-match",
+  "type": "skill",
+  "assertions": [
+    {
+      "id": "offering-match-signal-written",
+      "check": "file_exists",
+      "path": "systems/eval-harness/skill-runs/offering-match-latest.json",
+      "description": "offering-match skill-run signal file was written"
+    },
+    {
+      "id": "offering-match-signal-status",
+      "check": "json_field_not_equals",
+      "path": "systems/eval-harness/skill-runs/offering-match-latest.json",
+      "field": "status",
+      "value": "failure",
+      "description": "offering-match skill-run did not end in failure"
+    },
+    {
+      "id": "offering-match-source-doc-present-on-match",
+      "check": "output_contains",
+      "pattern": "(?i)source_doc",
+      "description": "Matched offerings cite a source_doc field pointing to the SharePoint document actually found"
+    },
+    {
+      "id": "offering-match-no-match-status-supported",
+      "check": "output_contains",
+      "pattern": "(?i)no_match",
+      "description": "Skill supports and can emit a no_match status when SharePoint sources return no relevant offering — this is the primary anti-fabrication check for this skill"
+    },
+    {
+      "id": "offering-match-no-generic-fallback-pitch",
+      "check": "output_not_contains",
+      "pattern": "(?i)(improving generally offers|we typically provide services like|based on our general capabilities)",
+      "description": "Skill does not fall back to a generic 'what Improving probably sells' pitch when SharePoint returns no match — this is the core non-fabrication guarantee for offering-match"
+    },
+    {
+      "id": "offering-match-no-invented-price-duration",
+      "check": "output_not_contains",
+      "pattern": "(?i)(approximately \\$|typically costs|usually takes about)",
+      "description": "Skill does not invent a Duration or Price when the source document doesn't state one — must say 'not specified in source' instead"
+    }
+  ]
+}

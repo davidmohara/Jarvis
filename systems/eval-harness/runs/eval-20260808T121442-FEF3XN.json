@@ -1,0 +1,62 @@
+{
+  "id": "eval-20260808T121442-FEF3XN",
+  "agent_id": "a0ae1eee8f5be9f4a",
+  "type": "agent",
+  "name": "general-purpose",
+  "agent": "general-purpose",
+  "session_id": "session-2026-08-07-090000",
+  "trigger": "unknown",
+  "started": "2026-08-08T12:14:42.814109Z",
+  "completed": "2026-08-08T10:50:56.169942",
+  "duration_seconds": null,
+  "status": "aborted",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": false,
+      "all_steps_finished": null,
+      "tool_failures": 1,
+      "error_ids": [],
+      "tool_failure_log": [
+        {
+          "tool": "Bash",
+          "error": "Exit code 1\n############ eval-account-targeting-plan-only-no-live-write - outputs/plan.md ############\n      54 systems/evals/work-20260807-podcast-to-pipeline-build/iteration-1/eval-account-targeting-plan-only-no-live-write/with_skill/run-1/outputs/plan.md\n############ eval-contact-targeting-plan-only-no-live-write - outputs/plan.md ############\n      73 systems/evals/work-20260807-podcast-to-pipeline-build/iteration-1/eval-contact-targeting-plan-only-no-live-write/with_skill/run-1/outputs/plan.md\n############ eval-campaign-setup-plan-only-no-live-write - outputs/plan.md ############\n      69 systems/evals/work-20260807-podcast-to-pipeline-build/iteration-1/eval-campaign-setup-plan-only-no-live-write/with_skill/run-1/outputs/plan.md\n############ eval-campaign-send-plan-only-no-live-send - outputs/plan.md ############\n      94 systems/evals/work-20260807-podcast-to-pipeline-build/iteration-1/eval-campaign-send-plan-only-no-live-send/with_skill/run-1/outputs/plan.md\n############ eval-campaign-send-live-confirmation-non-bypassable - outputs/plan.md ############\n     149 systems/evals/work-20260807-podcast-to-pipeline-build/iteration-1/eval-campaign-send-live-confirmation-non-bypassable/with_skill/run-1/outputs/plan.md\n############ eval-campaign-response-log-plan-only-no-live-write - outputs/plan.md ############\n      43 systems/evals/work-20260807-podcast-to-pipeline-build/iteration-1/eval-campaign-response-log-plan-only-no-live-write/with_skill/run-1/outputs/plan.md\n############ eval-offering-match-no-fabrication - outputs/plan.md ############\nwc: systems/evals/work-20260807-podcast-to-pipeline-build/iteration-1/eval-offering-match-no-fabrication/with_skill/run-1/outputs/plan.md: open: No such file or directory",
+          "duration_ms": 73,
+          "timestamp": "2026-08-08T07:15:59.613284"
+        }
+      ],
+      "abort_reason": "session-ended"
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": []
+}

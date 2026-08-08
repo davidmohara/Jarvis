@@ -1,0 +1,38 @@
+{
+  "name": "episode-transcript-intake",
+  "type": "skill",
+  "assertions": [
+    {
+      "id": "episode-transcript-intake-signal-written",
+      "check": "file_exists",
+      "path": "systems/eval-harness/skill-runs/episode-transcript-intake-latest.json",
+      "description": "episode-transcript-intake skill-run signal file was written"
+    },
+    {
+      "id": "episode-transcript-intake-signal-status",
+      "check": "json_field_not_equals",
+      "path": "systems/eval-harness/skill-runs/episode-transcript-intake-latest.json",
+      "field": "status",
+      "value": "failure",
+      "description": "episode-transcript-intake skill-run did not end in failure"
+    },
+    {
+      "id": "episode-transcript-intake-metadata-structure",
+      "check": "output_contains",
+      "pattern": "(?i)(title|guest|episode_number)",
+      "description": "Output includes structured episode metadata fields"
+    },
+    {
+      "id": "episode-transcript-intake-no-fabricated-transcript",
+      "check": "output_not_contains",
+      "pattern": "(?i)(here is a plausible transcript|assuming the content is roughly)",
+      "description": "Output does not fabricate placeholder transcript content when retrieval fails"
+    },
+    {
+      "id": "episode-transcript-intake-no-analysis-scope-creep",
+      "check": "output_not_contains",
+      "pattern": "(?i)(pain point|audience profile|matched offering)",
+      "description": "Skill stays in scope — does not perform pain-point extraction or offering matching itself"
+    }
+  ]
+}

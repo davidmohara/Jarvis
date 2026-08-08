@@ -1,0 +1,32 @@
+{
+  "name": "pain-point-extraction",
+  "type": "skill",
+  "assertions": [
+    {
+      "id": "pain-point-extraction-signal-written",
+      "check": "file_exists",
+      "path": "systems/eval-harness/skill-runs/pain-point-extraction-latest.json",
+      "description": "pain-point-extraction skill-run signal file was written"
+    },
+    {
+      "id": "pain-point-extraction-signal-status",
+      "check": "json_field_not_equals",
+      "path": "systems/eval-harness/skill-runs/pain-point-extraction-latest.json",
+      "field": "status",
+      "value": "failure",
+      "description": "pain-point-extraction skill-run did not end in failure"
+    },
+    {
+      "id": "pain-point-extraction-quote-field-present",
+      "check": "output_contains",
+      "pattern": "(?i)quote",
+      "description": "Output includes a quote field per pain point, not bare assertions"
+    },
+    {
+      "id": "pain-point-extraction-no-unsourced-generic-pain-points",
+      "check": "output_not_contains",
+      "pattern": "(?i)(common industry challenges include|typically, companies in this space struggle with)",
+      "description": "Skill does not pad output with generic unsourced industry pain points when the transcript is sparse"
+    }
+  ]
+}

@@ -81,13 +81,19 @@ Before writing a single word, confirm in working memory:
 
 **Tone calibration:**
 
-| Element | Formal | Professional-Warm | Direct | Casual |
-|---------|--------|-------------------|--------|--------|
-| Greeting | "Dear Sarah," | "Hi Sarah," | "Sarah," | "Hey Sarah," |
-| Sentence length | Longer, complete | Medium, natural | Short, punchy | Short, conversational |
-| Vocabulary | Precise, elevated | Clear, accessible | Minimal, action-focused | Relaxed, personal |
-| Sign-off | "Best regards," | "Thanks," / "Take care," | "Thanks," | "Talk soon," |
-| Personality | Restrained | Warm but professional | Efficient | Friendly, genuine |
+| Element | Formal | Professional-Warm | Direct | Casual | Cold Prospect / Campaign Outreach |
+|---------|--------|-------------------|--------|--------|-------------------|
+| Greeting | "Dear Sarah," | "Hi Sarah," | "Sarah," | "Hey Sarah," | "Hi Sarah," |
+| Sentence length | Longer, complete | Medium, natural | Short, punchy | Short, conversational | Short, scannable — no more than 2 sentences per paragraph |
+| Vocabulary | Precise, elevated | Clear, accessible | Minimal, action-focused | Relaxed, personal | Plain, specific — names the pain point and the episode, no sales jargon |
+| Sign-off | "Best regards," | "Thanks," / "Take care," | "Thanks," | "Talk soon," | "Thanks," |
+| Personality | Restrained | Warm but professional | Efficient | Friendly, genuine | Credible peer, not a pitch — leads with the specific insight/quote that prompted the outreach, not a company pitch |
+
+**Cold Prospect / Campaign Outreach — additional rules (used by `prospect-message-draft`):**
+- Open with the specific episode/pain-point connection, not a generic "I hope this finds you well" or a company-level pitch. The recipient should immediately understand *why* they're getting this and *why now*.
+- Reference the real offering matched by `offering-match` only if it's a genuinely tight fit — do not force a pitch if the match is weak.
+- One clear, low-friction call to action (e.g. "Worth a 15-minute conversation?"), never a hard sell.
+- This tone entry is for message *content* only. It does not carry any delivery-channel assumption — content produced under this tone becomes the Email asset for a Customer Insights – Journeys journey step (via `campaign-send`), not an Outlook or Superhuman draft. Do not route cold-prospect/campaign content through this workflow's own delivery step.
 
 **Content rules:**
 

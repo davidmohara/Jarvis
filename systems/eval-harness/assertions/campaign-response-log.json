@@ -1,0 +1,44 @@
+{
+  "name": "campaign-response-log",
+  "type": "skill",
+  "assertions": [
+    {
+      "id": "campaign-response-log-signal-written",
+      "check": "file_exists",
+      "path": "systems/eval-harness/skill-runs/campaign-response-log-latest.json",
+      "description": "campaign-response-log skill-run signal file was written"
+    },
+    {
+      "id": "campaign-response-log-signal-status",
+      "check": "json_field_not_equals",
+      "path": "systems/eval-harness/skill-runs/campaign-response-log-latest.json",
+      "field": "status",
+      "value": "failure",
+      "description": "campaign-response-log skill-run did not end in failure"
+    },
+    {
+      "id": "campaign-response-log-plan-only-honored",
+      "check": "output_contains",
+      "pattern": "(?i)(plan|would attach|would log)",
+      "description": "When invoked with 'do not execute', output is a described plan, not a claim of a completed live write"
+    },
+    {
+      "id": "campaign-response-log-no-live-write-in-plan-only",
+      "check": "output_not_contains",
+      "pattern": "(?i)(note created|activity logged|response logged to dynamics)",
+      "description": "No live Dynamics Note/Activity write is claimed while Plan-Only Mode is active"
+    },
+    {
+      "id": "campaign-response-log-response-type-classified",
+      "check": "output_contains",
+      "pattern": "(?i)response type",
+      "description": "Plan classifies the reply with a specific Response Type rather than a generic 'replied' tag"
+    },
+    {
+      "id": "campaign-response-log-no-guessed-contact-match",
+      "check": "output_not_contains",
+      "pattern": "(?i)(assuming this is the same person|likely the same contact without verification)",
+      "description": "Skill does not silently guess which Contact/Journey record to attach an ambiguous reply to"
+    }
+  ]
+}

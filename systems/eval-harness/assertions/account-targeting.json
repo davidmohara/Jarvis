@@ -1,0 +1,44 @@
+{
+  "name": "account-targeting",
+  "type": "skill",
+  "assertions": [
+    {
+      "id": "account-targeting-signal-written",
+      "check": "file_exists",
+      "path": "systems/eval-harness/skill-runs/account-targeting-latest.json",
+      "description": "account-targeting skill-run signal file was written"
+    },
+    {
+      "id": "account-targeting-signal-status",
+      "check": "json_field_not_equals",
+      "path": "systems/eval-harness/skill-runs/account-targeting-latest.json",
+      "field": "status",
+      "value": "failure",
+      "description": "account-targeting skill-run did not end in failure"
+    },
+    {
+      "id": "account-targeting-plan-only-honored",
+      "check": "output_contains",
+      "pattern": "(?i)(plan|would search|would query)",
+      "description": "When invoked with 'do not execute', output is a described plan, not a claim of completed live results"
+    },
+    {
+      "id": "account-targeting-no-live-write-in-plan-only",
+      "check": "output_not_contains",
+      "pattern": "(?i)(record created|record updated|added to segment|written to crm)",
+      "description": "No live CRM write is claimed while Plan-Only Mode is active"
+    },
+    {
+      "id": "account-targeting-compliance-precheck-referenced",
+      "check": "output_contains",
+      "pattern": "(?i)(compliance|mandatory pre-check|pre-check)",
+      "description": "Plan references the mandatory compliance pre-check (the skill's actual heading is 'Mandatory Pre-Check', which does not contain the literal word 'compliance') rather than skipping straight to research"
+    },
+    {
+      "id": "account-targeting-no-fabricated-crm-data",
+      "check": "output_not_contains",
+      "pattern": "(?i)(assuming crm would show|hypothetically, the crm might contain)",
+      "description": "Skill does not fabricate CRM data when CRM access is unreachable"
+    }
+  ]
+}

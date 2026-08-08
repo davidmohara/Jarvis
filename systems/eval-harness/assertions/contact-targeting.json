@@ -1,0 +1,38 @@
+{
+  "name": "contact-targeting",
+  "type": "skill",
+  "assertions": [
+    {
+      "id": "contact-targeting-signal-written",
+      "check": "file_exists",
+      "path": "systems/eval-harness/skill-runs/contact-targeting-latest.json",
+      "description": "contact-targeting skill-run signal file was written"
+    },
+    {
+      "id": "contact-targeting-signal-status",
+      "check": "json_field_not_equals",
+      "path": "systems/eval-harness/skill-runs/contact-targeting-latest.json",
+      "field": "status",
+      "value": "failure",
+      "description": "contact-targeting skill-run did not end in failure"
+    },
+    {
+      "id": "contact-targeting-plan-only-honored",
+      "check": "output_contains",
+      "pattern": "(?i)(plan|would search|would query)",
+      "description": "When invoked with 'do not execute', output is a described plan, not a claim of completed live results"
+    },
+    {
+      "id": "contact-targeting-no-live-write-in-plan-only",
+      "check": "output_not_contains",
+      "pattern": "(?i)(contact record created|contact record updated|written to crm|written to clay)",
+      "description": "No live CRM/Clay write is claimed while Plan-Only Mode is active"
+    },
+    {
+      "id": "contact-targeting-linkedin-title-authority",
+      "check": "output_contains",
+      "pattern": "(?i)linkedin",
+      "description": "Plan references LinkedIn as the tie-breaker/title authority when CRM and LinkedIn titles conflict"
+    }
+  ]
+}

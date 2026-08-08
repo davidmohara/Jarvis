@@ -1,0 +1,32 @@
+{
+  "name": "audience-profile-builder",
+  "type": "skill",
+  "assertions": [
+    {
+      "id": "audience-profile-builder-signal-written",
+      "check": "file_exists",
+      "path": "systems/eval-harness/skill-runs/audience-profile-builder-latest.json",
+      "description": "audience-profile-builder skill-run signal file was written"
+    },
+    {
+      "id": "audience-profile-builder-signal-status",
+      "check": "json_field_not_equals",
+      "path": "systems/eval-harness/skill-runs/audience-profile-builder-latest.json",
+      "field": "status",
+      "value": "failure",
+      "description": "audience-profile-builder skill-run did not end in failure"
+    },
+    {
+      "id": "audience-profile-builder-rationale-present",
+      "check": "output_contains",
+      "pattern": "(?i)rationale",
+      "description": "Output ties audience elements back to a rationale/pain-point id rather than asserting facts bare"
+    },
+    {
+      "id": "audience-profile-builder-buyer-role-specific",
+      "check": "output_contains",
+      "pattern": "(?i)(vp|director|head of|chief|manager)",
+      "description": "Buyer role output names a specific, searchable title rather than a vague role"
+    }
+  ]
+}

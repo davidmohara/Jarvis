@@ -1,0 +1,62 @@
+{
+  "id": "eval-20260807T234310-XO91OE",
+  "agent_id": "a49199926b8fa0509",
+  "type": "agent",
+  "name": "general-purpose",
+  "agent": "general-purpose",
+  "session_id": "session-2026-08-07-090000",
+  "trigger": "unknown",
+  "started": "2026-08-07T23:43:10.795816Z",
+  "completed": "2026-08-08T10:50:56.156928",
+  "duration_seconds": null,
+  "status": "aborted",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": false,
+      "all_steps_finished": null,
+      "tool_failures": 1,
+      "error_ids": [],
+      "tool_failure_log": [
+        {
+          "tool": "Bash",
+          "error": "Exit code 1\n38:## Plan-Only Mode\n39-\n40-If the prompt contains the phrase \"do not execute\" or `eval-mode: plan-only`, do not run any rmapi, Finder, or osascript commands. Instead, produce a markdown plan describing the commands you would issue, in order, with the exact target folder, rationale, and the inputs you would pass to each. Save the plan to the requested output path and stop. Do not call rmapi or osascript under any circumstances when in plan-only mode.\n41-\n42-This branch exists so the skill can be exercised by the Rigby eval loop without producing real uploads to the tablet.\n43-\n44-## Critical: Execution Environment\n45-\n46-This skill runs inside a Linux VM, but `rmapi` is installed on the **host Mac** at `/opt/homebrew/bin/rmapi`. All rmapi commands must be executed via the `osascript` MCP tool (Control your Mac), not via Bash.\n---fairness---\n.claude/skills/rigby-capability-build/SKILL.md\n---crm dynamics chrome---\nskills/quinn-strategy/references/strategy-framework.md\nskills/quinn-strategy/SKILL.md\n.claude/skills/chase-client-prep/SKILL.md\n.claude/skills/chase-pipeline/SKILL.md\n.claude/skills/chief-prep/SKILL.md\n.claude/skills/harper-deck/SKILL.md\n.claude/skills/chase-account/SKILL.md\n.claude/skills/shep-one-on-one/SKILL.md\n.claude/skills/shep-team/SKILL.md\n.claude/skills/shep-nudge/SKILL.md\n---linkedin over crm memory---",
+          "duration_ms": 3962,
+          "timestamp": "2026-08-07T18:44:04.900239"
+        }
+      ],
+      "abort_reason": "session-ended"
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": []
+}
