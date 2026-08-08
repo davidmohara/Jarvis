@@ -7,7 +7,8 @@ synthesized-from:
   - memory/episodic/daily-review-2026-07-02-000000.md
   - memory/episodic/dream-summary-2026-07-03.md
   - memory/episodic/shutdown-cleanup-2026-07-01-170500.md
-last-updated: 2026-08-07
+  - memory/episodic/daily-review-2026-08-06-000000.md
+last-updated: 2026-08-08
 tags: [daily-review]
 agent-source: dream-cycle
 confidence: low
@@ -123,3 +124,9 @@ Sources this cycle:
 - `memory/episodic/morning-briefing-2026-08-04-061212.md` (score 10) — tags: briefing, chief, calendar, omnifocus, sales, delegations. Aug 4 morning briefing: 10 events CT; OmniFocus partial (13 inbox, 1 overdue, flagged tasks unavailable); Clay auth required; delegation tracker empty; Q3 draft pending.
 
 Three entries promoted this cycle, all from Aug 3–4. Key observations: Dr. Easton nerve drug task finally completed Aug 4 after recurring overdue flags since at least Jul 8 — this is the first resolution of a chronic carry-forward item in recent memory. Q3 objectives still unsigned despite being in-draft; delegation tracker remains empty. Partnerships co-occurrence (Ryan Hauser/CrowdStrike, Don McGreal) with one-texas and sales reinforces that Rock 1 and Rock 4 are becoming linked in daily operational texture, not just pipeline tracking.
+
+### 2026-08-08 — Nightly promotion
+Sources this cycle:
+- `memory/episodic/daily-review-2026-08-06-000000.md` (score 10) — tags: daily-review, chief, calendar, omnifocus, email, overdue-tasks. Aug 5 review: calendar data unavailable (M365 MCP connector invalidated, osascript Calendar fallback also failed). 4 completions (recurring practices + Santa's Wonderland + Dr. Easton). 6 overdue tasks. Structural overdue persists: Lifebook Health & Career (since May 29), Kare blaze.ai (since June 29). Expense report due Aug 6 flagged as needing immediate action.
+
+Calendar-unavailable is a new pattern variant surfacing in this entry — both M365 MCP and the osascript fallback failed simultaneously, leaving the daily-review blind to calendar context. This has now occurred in at least two recent daily-reviews (Jul 22 headless run also had no calendar). Expense report escalation is notable: first time a time-bound financial obligation has been explicitly flagged in the daily-review cluster (previously only Lifebook/medical/rocks overdue patterns). Dr. Easton completion confirmed Aug 5 (same day range as Aug 4 completion noted in last cycle) — closing that specific chronic carry-forward definitively.
