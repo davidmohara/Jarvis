@@ -1,0 +1,303 @@
+{
+  "date": "2026-08-08",
+  "generated": "2026-08-08T07:00:00Z",
+  "window_hours": 72,
+  "sources_used": [
+    {"id": "msnbc",      "name": "MSNBC",                    "lean": "left"},
+    {"id": "cnn",        "name": "CNN Politics",             "lean": "left"},
+    {"id": "nbc",        "name": "NBC News Politics",        "lean": "left"},
+    {"id": "thehill",    "name": "The Hill",                 "lean": "left"},
+    {"id": "axios",      "name": "Axios Politics",           "lean": "left"},
+    {"id": "dailybeast", "name": "The Daily Beast",          "lean": "left"},
+    {"id": "slate",      "name": "Slate",                    "lean": "left"},
+    {"id": "newrepublic","name": "The New Republic",         "lean": "left"},
+    {"id": "foxnews",    "name": "Fox News Politics",        "lean": "right"},
+    {"id": "natreview",  "name": "National Review",          "lean": "right"},
+    {"id": "examiner",   "name": "Washington Examiner",      "lean": "right"},
+    {"id": "federalist", "name": "The Federalist",           "lean": "right"},
+    {"id": "dailywire",  "name": "The Daily Wire",           "lean": "right"},
+    {"id": "breitbart",  "name": "Breitbart",                "lean": "right"},
+    {"id": "townhall",   "name": "Townhall",                 "lean": "right"},
+    {"id": "rcp",        "name": "RealClearPolitics",        "lean": "right"},
+    {"id": "amconserv",  "name": "The American Conservative","lean": "right"},
+    {"id": "spectator",  "name": "The American Spectator",   "lean": "right"},
+    {"id": "freepress",  "name": "The Free Press",           "lean": "center"}
+  ],
+  "sources_muted": [
+    {"id": "nyt",        "name": "New York Times",           "lean": "left",   "reason": "accessible:false"},
+    {"id": "wapo",       "name": "Washington Post",          "lean": "left",   "reason": "accessible:false"},
+    {"id": "politico",   "name": "Politico",                 "lean": "left",   "reason": "accessible:false"},
+    {"id": "vox",        "name": "Vox Politics",             "lean": "left",   "reason": "accessible:false"},
+    {"id": "motherjones","name": "Mother Jones",             "lean": "left",   "reason": "accessible:false"},
+    {"id": "wsj_opinion","name": "WSJ Opinion",              "lean": "right",  "reason": "accessible:false"},
+    {"id": "nypost",     "name": "New York Post",            "lean": "right",  "reason": "accessible:false"},
+    {"id": "reuters",    "name": "Reuters Politics",         "lean": "center", "reason": "accessible:false"},
+    {"id": "ap",         "name": "Associated Press",         "lean": "center", "reason": "accessible:false"},
+    {"id": "bbc",        "name": "BBC US & Canada",          "lean": "center", "reason": "accessible:false"}
+  ],
+  "counts": {
+    "total_items": 57,
+    "by_lean": {"left": 26, "right": 26, "center": 5},
+    "shared_topics": 5,
+    "gap_left": 5,
+    "gap_right": 5
+  },
+  "shared_topics": [
+    {
+      "title": "July Jobs Report: US Economy Sheds 23,000 Jobs — Inflation Still Running Hot",
+      "topic_key": "july-bls-jobs-23k-inflation-august",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "summary": "The Bureau of Labor Statistics July jobs report, released August 7, showed the US economy unexpectedly shed 23,000 jobs — a sudden reversal against economist expectations of a 95,000 gain. Prior months were revised down a combined 103,000. Inflation ticked to 3.5% CPI while average hourly earnings grew just 3.2% annually, the slowest pace in five years, meaning workers' pay is being outrun by prices. Healthcare gained 22,000 jobs while leisure and hospitality shed 40,000. Both sides reported the headline figure; interpretation and blame diverged sharply.",
+      "left": {
+        "framing": "Left outlets frame the report as a warning sign compounded by Iran-war uncertainty. The Hill links the job losses directly to 'inflation growing amid Iran war uncertainty.' CNN asks whether the report signals a broader economic unraveling, and NBC leads with 'sudden reversal.' Axios emphasizes hiring stalls and wage erosion for workers, noting that real pay is effectively flat after inflation — a damaging verdict on the economy heading into midterms.",
+        "sources": [
+          {"outlet": "CNN", "url": "https://www.cnn.com/2026/08/07/economy/us-jobs-report-july"},
+          {"outlet": "NBC News", "url": "https://www.nbcnews.com/business/economy/july-2026-jobs-report-rcna591138"},
+          {"outlet": "The Hill", "url": "https://thehill.com/business/6015291-us-jobs-23k-losses-bls-report-july/"},
+          {"outlet": "Axios", "url": "https://www.axios.com/2026/08/07/bls-jobs-report-rates-july"}
+        ]
+      },
+      "right": {
+        "framing": "Right outlets cover the loss but temper alarm. Fox Business runs a podcast titled 'Is It Really That Bad?' that questions whether the jobs miss is as dire as presented. Townhall frames the report factually but quickly pivots to arguing Democratic economic prescriptions would be worse. Washington Examiner's Byron York focuses on affordability pain as a liability for the party in power — Republicans — but resists framing it as a crisis of Trump's making, noting underlying hiring momentum in some sectors.",
+        "sources": [
+          {"outlet": "Fox News", "url": "https://radio.foxnews.com/2026/08/07/business-rundown-inflation-jobs-and-the-real-economy-is-it-really-that-bad/"},
+          {"outlet": "Townhall", "url": "https://townhall.com/news/dmitri-bolt/2026/08/07/july-jobs-report-n2680870"},
+          {"outlet": "Washington Examiner", "url": "https://www.washingtonexaminer.com/news/entertainment/4677333/affordability-pain-not-fading-costing-republicans-byron-york/"}
+        ]
+      },
+      "correlation": 55,
+      "correlation_label": "Both sides report the job loss; diverge on cause — left ties it to Iran war, right deflects to structural factors and avoids blaming Trump directly."
+    },
+    {
+      "title": "Iran War Update: Pentagon Munitions 'Dangerously Low,' Hormuz Shipping Deal Still Fragile",
+      "topic_key": "iran-war-munitions-hormuz-diplomacy",
+      "days_seen": 2,
+      "relevance": 70,
+      "relevance_label": "Recurring — day 2",
+      "summary": "The US-Iran war, now in its fifth month, is generating two simultaneous stories: on the military side, commanders warn that nearly 80% of interceptors for a key missile defense system have been expended, leaving stockpiles 'dangerously low.' On the diplomatic side, Iran and Oman agreed on coordinates for a potential Hormuz shipping route, but Iranian officials cautioned it would not guarantee a full reopening of the strait. Iranian-backed proxies targeted Saudi Arabia on August 7, and 18 US troops have been killed since fighting began February 28. Both sides cover the war but emphasize starkly different angles.",
+      "left": {
+        "framing": "CNN's live updates center on the human cost and strategic risk: 18 troops killed, 687 wounded, munitions running out, diplomatic progress stalled. The Hill notes Americans oppose the war 2-to-1 and only 18% say the US achieved its goals. Axios reports the Saudi crown prince raised concerns over Trump's plans for massive Iran strikes, framing US strategy as fragile and potentially destabilizing.",
+        "sources": [
+          {"outlet": "CNN", "url": "https://www.cnn.com/2026/08/07/world/live-news/iran-war-trump"},
+          {"outlet": "CNN", "url": "https://www.cnn.com/2026/08/08/world/live-news/iran-war-trump"},
+          {"outlet": "The Hill", "url": "https://thehill.com/newsletters/whole-hog-politics/5941566-americans-dislike-iran-war/"},
+          {"outlet": "Axios", "url": "https://www.axios.com/2026/08/01/saudi-crown-prince-trump-iran-attacks"}
+        ]
+      },
+      "right": {
+        "framing": "Fox's live blog leads with Secretary Rubio's framing: 'Iran is confronting a different kind of president.' A former Trump cabinet official warns the Hormuz deal could be a 'very bad outcome' — right outlets frame caution around the deal as strategic wisdom rather than failure. The American Conservative focuses on how the Iran war is destabilizing UK politics and allied relationships, taking a more skeptical foreign-policy realist view of US intervention.",
+        "sources": [
+          {"outlet": "Fox News", "url": "https://www.foxnews.com/live-news/us-iran-war-trump-rubio-august-1-2026"},
+          {"outlet": "Fox News", "url": "https://www.foxnews.com/live-news/iran-war-us-trump-strait-of-hormuz-08-08-2026"},
+          {"outlet": "The American Conservative", "url": "https://www.theamericanconservative.com/the-iran-war-roils-uk-politics/"}
+        ]
+      },
+      "correlation": 50,
+      "correlation_label": "Same war, same facts on munitions and Hormuz — left frames as strategic crisis; right frames as ongoing challenge managed from a position of strength."
+    },
+    {
+      "title": "Todd Blanche AG Confirmation Inches Forward After Cornyn IRS Deal",
+      "topic_key": "todd-blanche-ag-senate-confirmation",
+      "days_seen": 2,
+      "relevance": 70,
+      "relevance_label": "Recurring — day 2",
+      "summary": "Attorney General nominee Todd Blanche edged closer to a Senate floor vote after Sen. John Cornyn secured written assurances that a proposed $1.776 billion IRS compensation fund for Trump allies was off the table. Cornyn and Thom Tillis had withheld support, blocking the nomination. With those assurances in hand, both senators appear ready to vote yes. The confirmation remains consequential — Blanche has been acting as AG even without Senate confirmation, and a floor vote appears imminent before August recess.",
+      "left": {
+        "framing": "Left outlets focus on the irregularity of Blanche acting as AG without confirmation and on the senators who briefly held him up. New Republic frames outgoing GOP senators as delivering 'what Trump wants' anyway. Slate's analysis notes the limbo state underscores Senate dysfunction. The IRS fund being dropped is framed as a concession Democrats forced — but the underlying concern about weaponizing DOJ remains.",
+        "sources": [
+          {"outlet": "New Republic", "url": "https://newrepublic.com/post/214097/donald-trump-bill-cassidy-todd-blanche-attorney-general"},
+          {"outlet": "Slate", "url": "https://slate.com/news-and-politics/2026/07/trump-clayton-blanche-lindsey-graham.html"}
+        ]
+      },
+      "right": {
+        "framing": "Fox frames the deal as a win — 'Blanche inches closer to confirmation' — and emphasizes the anti-weaponization provisions Cornyn secured. The Federalist uses the episode to indict Cornyn and Tillis as RINOs who delayed a necessary confirmation for no principled reason, costing Trump's agenda weeks of delay. The resolution is framed as a partial win but the obstruction as a preview of more RINO sabotage to come.",
+        "sources": [
+          {"outlet": "Fox News", "url": "https://www.foxnews.com/politics/todd-blanche-anti-weaponization-fund"},
+          {"outlet": "The Federalist", "url": "https://thefederalist.com/2026/07/30/cornyn-and-tillis-anti-blanche-jihad-epitomizes-the-gops-hatred-for-its-voters/"}
+        ]
+      },
+      "correlation": 45,
+      "correlation_label": "Same confirmation progress covered on both sides — left sees problematic power consolidation; right sees necessary agenda victory delayed by internal GOP betrayal."
+    },
+    {
+      "title": "El-Sayed Wins Michigan Democratic Senate Primary — Progressive Wave Reshapes Party",
+      "topic_key": "el-sayed-michigan-senate-primary-win",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "summary": "Abdul El-Sayed, a progressive Muslim-American physician, defeated establishment-backed Rep. Haley Stevens in the Michigan Democratic Senate primary and will face Republican Mike Rogers in November. The victory is the marquee result from Tuesday's primary night, which also saw DSA-aligned candidates defeat Democratic incumbents in New York, Colorado, and Washington. Rep. Wesley Bell defeated Cori Bush again for a second straight election, providing establishment Democrats one bright spot. El-Sayed closed his campaign at a Detroit pool party with progressive influencer Hasan Piker; Trump claimed election fraud on social media after the result.",
+      "left": {
+        "framing": "Left outlets frame El-Sayed's win as a historic progressive breakthrough and evidence of genuine grassroots energy. CNN calls it 'the progressive effort to remake the Democratic Party' triumphing in a battleground state. Daily Beast notes Trump 'melted down' and claimed fraud, framing his response as a sign of how threatening the progressive movement is to MAGA. Slate provides sympathetic profiles of El-Sayed and frames the race as voters choosing their future. NBC covers it as the midterm's clearest inflection point on Democratic direction.",
+        "sources": [
+          {"outlet": "CNN", "url": "https://www.cnn.com/2026/08/05/politics/takeaways-michigan-missouri-kansas-virginia-washington-primaries"},
+          {"outlet": "The Daily Beast", "url": "https://www.thedailybeast.com/trump-melts-down-as-progressive-officially-wins-key-senate-race/"},
+          {"outlet": "Slate", "url": "https://slate.com/news-and-politics/2026/08/election-results-democrats-progressives-centrists.html"},
+          {"outlet": "NBC News", "url": "https://www.nbcnews.com/politics/2026-primary-elections/national"}
+        ]
+      },
+      "right": {
+        "framing": "Right outlets treat El-Sayed's win as a gift and a warning simultaneously. The Daily Wire headlines it as Democrats becoming 'the party of Commie ISIS' and highlights El-Sayed saying 'Inshallah' in his victory speech. Breitbart frames it as the radical left defeating the establishment. Townhall argues voters now face a 'binary choice' between moderate America and socialism. The Federalist contends the win reflects elite white liberal preferences, not working-class voters. The Free Press publishes an insider account of what DSA members 'really believe.'",
+        "sources": [
+          {"outlet": "The Daily Wire", "url": "https://www.dailywire.com/news/democrats-are-officially-the-party-of-commie-isis"},
+          {"outlet": "Breitbart", "url": "https://www.breitbart.com/politics/2026/08/05/abdul-el-sayed-defeats-haley-stevens-and-democrat-establishment-will-face-republican-mike-rogers/"},
+          {"outlet": "Townhall", "url": "https://townhall.com/columnists/scotthogenson/2026/08/06/after-michigan-the-midterms-give-voters-a-binary-choice-n2680760"},
+          {"outlet": "The Federalist", "url": "https://thefederalist.com/2026/08/05/the-average-man-rejected-socialism-white-affluent-liberals-chose-it-for-him/"},
+          {"outlet": "The Free Press", "url": "https://www.thefp.com/p/i-was-in-the-dsa-heres-what-they-e03"}
+        ]
+      },
+      "correlation": 35,
+      "correlation_label": "Same result, sharply divergent narratives — left frames as democratic breakthrough, right frames as proof of Democratic radicalization and socialist capture."
+    },
+    {
+      "title": "Fauci Held in Contempt of Congress After 100+ Fifth Amendment Invocations",
+      "topic_key": "fauci-contempt-congress-vote",
+      "days_seen": 2,
+      "relevance": 70,
+      "relevance_label": "Recurring — day 2",
+      "summary": "A Republican-led Senate Homeland Security Committee voted 8-5 to hold Dr. Anthony Fauci in contempt of Congress after he invoked his Fifth Amendment right against self-incrimination more than 100 times during a hearing on COVID-19 origins. Rand Paul led the committee charge. Fauci's iPhone data was separately obtained, which right-side outlets are framing as evidence of politically motivated COVID decisions. The contempt citation now goes to the full Senate.",
+      "left": {
+        "framing": "CNN's analysis is titled 'Covid's last culture war over Fauci shows a nation unready for the next crisis' — framing the contempt vote as a destructive partisan exercise that undermines future public health preparedness. The subtext is that Fifth Amendment rights are legitimate and the committee is weaponizing the process. Axios covers it factually but notes the pattern of congressional overreach in the broader political context.",
+        "sources": [
+          {"outlet": "CNN", "url": "https://www.cnn.com/2026/08/06/politics/fauci-contempt-vote-covid-pandemic-rand-paul"},
+          {"outlet": "Axios", "url": "https://www.axios.com/politics-policy/us-politics-policy"}
+        ]
+      },
+      "right": {
+        "framing": "Washington Examiner's op-ed declares 'Fauci isn't the devil. He's worse: a typical Washington bureaucrat' — framing 100+ invocations as proof of unaccountable bureaucracy. The American Spectator frames Republicans as the party doing accountability work while Democrats 'explain.' Right outlets treat the contempt vote as overdue and necessary. The iPhone data obtained is framed as a smoking gun showing COVID policy was politically driven.",
+        "sources": [
+          {"outlet": "Washington Examiner", "url": "https://www.washingtonexaminer.com/op-eds/4679067/anthony-fauci-fifth-amendment-federal-bureaucracy/"},
+          {"outlet": "The American Spectator", "url": "https://spectator.org/one-party-investigates-the-other-explains/"},
+          {"outlet": "The Federalist", "url": "https://thefederalist.com/2026/08/07/rinos-are-tanking-the-entire-republican-party-not-just-trump/"}
+        ]
+      },
+      "correlation": 28,
+      "correlation_label": "Effectively two different stories — left frames as partisan COVID culture war undermining future preparedness; right frames as necessary accountability for bureaucratic abuse."
+    }
+  ],
+  "gap_left": [
+    {
+      "title": "US Intelligence: Putin Planning to Test NATO With a Limited Strike",
+      "topic_key": "us-intel-russia-putin-nato-attack-planning",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "summary": "A new US intelligence assessment, reported exclusively by CNN on August 7, concludes that Russian President Vladimir Putin may attempt to test NATO's cohesion by launching a limited attack on an allied country within the next few years. The assessment is framed as a wake-up call for the alliance at a moment when US attention and military resources are consumed by the Iran conflict. Left outlets are picking up the assessment as a significant national security warning; right outlets — focused on Iran, Blanche, and DSA — have not given it comparable coverage.",
+      "sources": [
+        {"outlet": "CNN", "url": "https://www.cnn.com/2026/08/07/politics/us-intelligence-russia-putin-nato-attack"},
+        {"outlet": "RealClearPolitics", "url": "https://www.realclearpolitics.com/articles/2026/08/06/americas_political_divide_is_a_strategic_vulnerability_154395.html"}
+      ]
+    },
+    {
+      "title": "Federal Appeals Court Blocks Trump's White House Ballroom Construction",
+      "topic_key": "trump-white-house-ballroom-appeals-court",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "summary": "A federal appeals court ruled on August 7 that the Trump administration is unlawfully constructing a ballroom addition to the White House, with the ruling expected to be appealed to the Supreme Court. The case involves the use of executive branch facilities and compliance with historic preservation law. CNN and RealClearPolitics noted the ruling. Right-leaning outlets have not given the story prominent coverage, possibly treating it as an anticipated legal challenge unlikely to survive Supreme Court review.",
+      "sources": [
+        {"outlet": "CNN", "url": "https://www.cnn.com/2026/08/07/politics/white-house-ballroom-appeals-court-ruling"},
+        {"outlet": "RealClearPolitics", "url": "https://www.realclearpolitics.com/"}
+      ]
+    },
+    {
+      "title": "Tucker Carlson and MTG Declare War on Trump, Plan Third Party",
+      "topic_key": "tucker-carlson-mtg-third-party-anti-trump",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "summary": "The Daily Beast reports that Tucker Carlson and Marjorie Taylor Greene — both MAGA exiles — declared they have been betrayed by Trump and are organizing a third political party. Carlson stated publicly, 'There's going to be a third party, and I'm going to do everything I can to bring that about.' MTG resigned from Congress in January. Rep. Thomas Massie and Joe Kent are also reported to be involved in the nascent movement. Right-side outlets, which view this as either irrelevant or damaging to cover, have largely ignored it; left outlets cover it as evidence of MAGA fracture.",
+      "sources": [
+        {"outlet": "The Daily Beast", "url": "https://www.thedailybeast.com/maga-exiles-marjorie-taylor-greene-and-tucker-carlson-declare-war-on-trump-he-betrayed-us-all/"},
+        {"outlet": "The Daily Beast", "url": "https://www.thedailybeast.com/maga-melts-down-at-republican-after-huge-trump-snub/"}
+      ]
+    },
+    {
+      "title": "Cook Political Report Shifts Four Races Toward Democrats",
+      "topic_key": "cook-political-four-races-shift-democrats",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "summary": "The Cook Political Report moved four races in Democrats' favor: Ohio's governor race shifted from 'Lean R' to 'Toss Up,' Arizona moved from 'Toss Up' to 'Lean D,' and two additional House races shifted. The Daily Beast frames this as a 'Fresh MAGA Red Flag.' Left outlets are covering the Cook ratings as evidence of a wave building; right outlets, which had been touting an improving generic ballot, are not prominently picking up the Cook shifts.",
+      "sources": [
+        {"outlet": "The Daily Beast", "url": "https://www.thedailybeast.com/cook-political-report-swings-4-races-in-favor-of-democrats-in-fresh-maga-red-flag/"},
+        {"outlet": "CNN", "url": "https://edition.cnn.com/2026/08/03/politics/democrats-midterms-senate"}
+      ]
+    },
+    {
+      "title": "Red-State Voters Reject Anti-Abortion Ballot Measures in Kansas and Missouri Primaries",
+      "topic_key": "abortion-ballot-redstate-voters-rejected-kansas",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "summary": "In Tuesday's primary elections, red-state voters in Kansas rejected a GOP-backed ballot measure that would have allowed voters to elect state Supreme Court justices — a mechanism designed by anti-abortion groups to install judges hostile to abortion rights. Missouri's primary results reinforced the pattern. CNN's analysis frames this as voters in reliably conservative states drawing a line against anti-abortion legislative strategies, echoing the 2022 Kansas abortion referendum. Left outlets are highlighting this as an underreported story; right outlets have not covered the rejections prominently.",
+      "sources": [
+        {"outlet": "CNN", "url": "https://www.cnn.com/2026/08/05/politics/missouri-kansas-primary-election"},
+        {"outlet": "NBC News", "url": "https://www.nbcnews.com/politics/politics-news/abortion-ballot-two-states-politics-desk-rcna590278"}
+      ]
+    }
+  ],
+  "gap_right": [
+    {
+      "title": "Lindsey Graham Russia Sanctions Bill Passes Senate With Bipartisan Support, Trump Backing",
+      "topic_key": "lindsey-graham-russia-sanctions-senate-passed",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "summary": "A Russia energy sanctions bill named after the late Sen. Lindsey Graham cleared the Senate with bipartisan support and Trump's explicit backing. The bill targets Putin's oil and gas revenue as leverage in the ongoing Ukraine-Russia standoff. Fox News frames it as a bipartisan success story and a fitting tribute to Graham's legacy. Left outlets, focused on El-Sayed, jobs, and Iran, have not given the Senate vote comparable attention.",
+      "sources": [
+        {"outlet": "Fox News", "url": "https://www.foxnews.com/politics/lindsey-grahams-final-mission-punish-putin-clears-senate-after-yearlong-fight"}
+      ]
+    },
+    {
+      "title": "New Jersey Admits 6,600 Noncitizens on Voter Rolls, ~400 Voted",
+      "topic_key": "nj-noncitizen-voter-registration-400-voted",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "summary": "New Jersey's motor vehicle system registered approximately 6,600 people who had indicated they were not US citizens between June 2023 and June 2024; roughly 400 of those individuals cast ballots. The Federalist frames this as Politico admitting the voter registration system 'runs on the honor system' after years of dismissing noncitizen voting concerns. Right outlets are citing this as validation of election integrity concerns. Left outlets have not covered the New Jersey admission.",
+      "sources": [
+        {"outlet": "The Federalist", "url": "https://thefederalist.com/2026/08/03/politico-said-noncitizen-voting-was-overblown-now-it-admits-the-entire-system-runs-on-honor/"}
+      ]
+    },
+    {
+      "title": "Federalist, Breitbart: Senate RINOs Cornyn and Tillis Betrayed Voters, Sabotaged GOP Agenda",
+      "topic_key": "rinos-cornyn-tillis-blanche-betrayal-gop",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "summary": "Multiple right-press outlets are running hard on the argument that Sen. John Cornyn and Thom Tillis — by withholding their votes on Todd Blanche until extracting concessions — epitomize what The Federalist calls 'the GOP's hatred for its voters.' A related Federalist piece declares RINOs 'deadset on tanking the entire Republican Party, not just Trump.' Breitbart and The Daily Wire cover the Republican senator who 'tanked Trump's redistricting push' stepping down from leadership as a related pattern. This right-press internal accountability story is absent from left outlets, which treat the Blanche episode differently.",
+      "sources": [
+        {"outlet": "The Federalist", "url": "https://thefederalist.com/2026/08/07/rinos-are-tanking-the-entire-republican-party-not-just-trump/"},
+        {"outlet": "The Federalist", "url": "https://thefederalist.com/2026/07/30/cornyn-and-tillis-anti-blanche-jihad-epitomizes-the-gops-hatred-for-its-voters/"},
+        {"outlet": "The Daily Wire", "url": "https://www.dailywire.com/news/republican-who-tanked-trumps-redistricting-push-steps-down-from-leadership"}
+      ]
+    },
+    {
+      "title": "Fauci iPhone Data Obtained; Right Press: COVID Decisions Were Politically Motivated",
+      "topic_key": "fauci-iphone-records-covid-politics",
+      "days_seen": 2,
+      "relevance": 70,
+      "relevance_label": "Recurring — day 2",
+      "summary": "Investigators obtained Dr. Fauci's iPhone records and right-press outlets are framing the data as evidence that COVID pandemic decisions — including school closures, mask mandates, and vaccine policy — were driven by political calculations rather than pure science. This framing runs parallel to the contempt vote story but is a distinct right-press exclusive: the documents themselves and the 'smoking gun' framing are not appearing in left-leaning outlets, which covered the contempt vote from a process-and-civil-liberties angle.",
+      "sources": [
+        {"outlet": "Washington Examiner", "url": "https://www.washingtonexaminer.com/op-eds/4679067/anthony-fauci-fifth-amendment-federal-bureaucracy/"},
+        {"outlet": "The American Spectator", "url": "https://spectator.org/one-party-investigates-the-other-explains/"}
+      ]
+    },
+    {
+      "title": "South Carolina Special Senate Primary Underway Following Lindsey Graham's Death",
+      "topic_key": "south-carolina-senate-special-primary",
+      "days_seen": 2,
+      "relevance": 70,
+      "relevance_label": "Recurring — day 2",
+      "summary": "South Carolina is holding a special primary for the Senate seat vacated by the death of Sen. Lindsey Graham. The race is drawing candidates with Trump's endorsement as a key variable, mirroring the pattern seen in other deep-red state primaries this cycle. Fox and Washington Examiner are tracking the race closely. Left outlets have not given the SC special primary prominent attention, focusing instead on competitive races in swing states.",
+      "sources": [
+        {"outlet": "Fox News", "url": "https://www.foxnews.com/politics"},
+        {"outlet": "Washington Examiner", "url": "https://www.washingtonexaminer.com/news/campaigns/congressional/4673621/midterm-countdown-august-2026/"}
+      ]
+    }
+  ],
+  "suggestions": []
+}
