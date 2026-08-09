@@ -1,0 +1,232 @@
+{
+  "date": "2026-08-09",
+  "generated": "2026-08-09T08:15:00Z",
+  "window_hours": 72,
+  "counts": {
+    "total_items": 57,
+    "by_lean": { "left": 27, "right": 28, "center": 2 },
+    "shared_topics": 4,
+    "gap_left": 4,
+    "gap_right": 4
+  },
+  "sources_used": [
+    "msnbc", "cnn", "nbc", "thehill", "axios", "dailybeast", "slate",
+    "newrepublic", "foxnews", "natreview", "examiner", "federalist",
+    "dailywire", "breitbart", "townhall", "rcp", "amconserv", "spectator", "freepress"
+  ],
+  "sources_muted": [
+    { "id": "nyt",        "name": "New York Times",      "lean": "left",   "reason": "accessible:false" },
+    { "id": "wapo",       "name": "Washington Post",     "lean": "left",   "reason": "accessible:false" },
+    { "id": "politico",   "name": "Politico",            "lean": "left",   "reason": "accessible:false" },
+    { "id": "vox",        "name": "Vox Politics",        "lean": "left",   "reason": "accessible:false" },
+    { "id": "motherjones","name": "Mother Jones",        "lean": "left",   "reason": "accessible:false" },
+    { "id": "wsj_opinion","name": "WSJ Opinion",         "lean": "right",  "reason": "accessible:false" },
+    { "id": "nypost",     "name": "New York Post",       "lean": "right",  "reason": "accessible:false" },
+    { "id": "reuters",    "name": "Reuters Politics",    "lean": "center", "reason": "accessible:false" },
+    { "id": "ap",         "name": "Associated Press",    "lean": "center", "reason": "accessible:false" },
+    { "id": "bbc",        "name": "BBC US & Canada",     "lean": "center", "reason": "accessible:false" }
+  ],
+  "shared_topics": [
+    {
+      "title": "Immigration Enforcement Crackdown: Industry Worries vs. Border Security",
+      "topic_key": "immigration-enforcement-industry-crackdown-aug9",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "summary": "The Trump administration's accelerating immigration enforcement is generating friction with U.S. industry groups. Construction, agriculture, and manufacturing sectors raised formal concerns with the White House, arguing the crackdown worsens worker shortages and undercuts the president's own economic agenda. ICE confirmed all field officers will be equipped with body cameras by end of August. The administration also moved to streamline deportation proceedings for one-third of pending asylum cases, and Haitian TPS termination has placed 330,000 people in deportation jeopardy.",
+      "left": {
+        "framing": "Left outlets (CNN, Slate, The New Republic, NBC) frame the crackdown as economically disruptive and humanitarian in impact — emphasizing industry alarm, ICE accountability through body cameras, and the human toll on Haitian TPS holders. CNN's headline 'It's been chaotic' captures the dominant framing.",
+        "sources": [
+          { "source": "CNN Politics — immigration crackdown", "url": "https://www.cnn.com/2026/08/08/politics/immigration-enforcement-worksites-industry-lobbying" },
+          { "source": "CNN — ICE body cameras", "url": "https://www.cnn.com/2026/08/08/us/ice-officers-body-cameras" },
+          { "source": "Slate — TPS/Asylum", "url": "https://slate.com/news-and-politics/2026/07/immigration-asylum-deportation-trump-haiti-tps.html" }
+        ]
+      },
+      "right": {
+        "framing": "Right outlets (Fox News, Washington Examiner, Spectator) frame enforcement as necessary and overdue — highlighting loopholes being closed, the growing legal-immigration backlog as evidence of a broken system, and body cameras as a transparency win. Industry concerns are treated as special-interest lobbying, not policy failure.",
+        "sources": [
+          { "source": "Fox News — detention loophole", "url": "https://www.foxnews.com/politics/loophole-forcing-release-detained-illegal-immigrants-targeted-senate-gop" },
+          { "source": "Washington Examiner — backlog", "url": "https://www.washingtonexaminer.com/policy/immigration/4677543/trump-administration-growing-backlog-legal-immigration-applications/" },
+          { "source": "Spectator — birthright EOs", "url": "https://spectator.org/trump-renews-fight-over-birthright-citizenship-with-new-executive-orders/" }
+        ]
+      },
+      "correlation": 45,
+      "correlation_label": "Both sides acknowledge enforcement is intensifying; they diverge materially on whether the disruption is a problem or a feature."
+    },
+    {
+      "title": "Jobs Down 23K, Inflation Up: Is the Economy Struggling or Resilient?",
+      "topic_key": "jobs-inflation-k-shaped-economy-aug9",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "summary": "The July BLS jobs report showed a net loss of 23,000 jobs — far below the +95,000 consensus forecast — while revisions erased 103,000 previously reported May-June gains. August CPI came in at 2.9% year-over-year, up from 2.7%, with wages falling after inflation adjustment. The unemployment rate technically declined to 4.1%, though largely because workers stopped looking. Treasury Secretary Bessent claimed the K-shaped economy is 'over,' a claim economists disputed.",
+      "left": {
+        "framing": "CNN, NBC, The Hill, and Axios frame the data as a worrying combination — job losses plus sticky inflation create a stagflation-adjacent environment that pressures the Fed and hurts working households. The Hill's coverage rebuts Bessent's optimism, citing Mark Zandi's analysis that the top 20% are still driving all spending.",
+        "sources": [
+          { "source": "CNN — jobs report analysis", "url": "https://www.cnn.com/2026/08/07/economy/us-jobs-report-july-analysis" },
+          { "source": "CNN — weak jobs/inflation", "url": "https://edition.cnn.com/2026/08/08/business/jobs-report-fed-warsh-inflation" },
+          { "source": "NBC — inflation ticked up", "url": "https://www.nbcnews.com/business/economy/inflation-cpi-report-august-rcna230557" },
+          { "source": "Axios — hiring stalls", "url": "https://www.axios.com/2026/08/07/bls-jobs-report-rates-july" }
+        ]
+      },
+      "right": {
+        "framing": "Fox News Radio's Business Rundown asks 'Is It Really That Bad?' and frames the headline job-loss number as misleading given low overall unemployment. Bessent's 'K-shaped economy is over' claim is treated as credible progress reporting; the overall narrative emphasizes the economy is imperfect but not collapsing.",
+        "sources": [
+          { "source": "Fox News Radio — business rundown", "url": "https://radio.foxnews.com/2026/08/07/business-rundown-inflation-jobs-and-the-real-economy-is-it-really-that-bad/" },
+          { "source": "Townhall — jobs report", "url": "https://townhall.com/news/dmitri-bolt/2026/08/07/july-jobs-report-n2680870" },
+          { "source": "The Hill — Bessent K-shaped economy", "url": "https://thehill.com/business/6018058-scott-bessent-us-economy-defense/" }
+        ]
+      },
+      "correlation": 40,
+      "correlation_label": "Both sides report the same data; left interprets it as systemic distress while right questions whether the alarm is warranted."
+    },
+    {
+      "title": "Francesca Hong Leads Wisconsin Democratic Socialist Gubernatorial Primary",
+      "topic_key": "wisconsin-francesca-hong-dsa-governor",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "summary": "Wisconsin's August 11 Democratic gubernatorial primary features Francesca Hong, a 37-year-old Democratic Socialist leading the field by more than 20 points in the latest Marquette poll. If elected, Hong would become the first woman and first democratic socialist to serve as Wisconsin's governor — following DSA primary wins in New York City, Michigan, and Colorado.",
+      "left": {
+        "framing": "Slate and other left outlets cover Wisconsin as part of a broader progressive wave, noting the pattern of DSA-affiliated candidates displacing establishment Democrats with higher-turnout, energized coalitions. The Free Press (center) offers an analytical piece noting the paradox that affluent, credentialed Democrats — not the working class — are driving these wins.",
+        "sources": [
+          { "source": "Slate — election results", "url": "https://slate.com/news-and-politics/2026/08/election-results-democrats-progressives-centrists.html" },
+          { "source": "The Free Press — rich fueling socialists", "url": "https://www.thefp.com/p/darializa-avila-chevalier-congress-third-worldism" }
+        ]
+      },
+      "right": {
+        "framing": "American Spectator profiles Hong as an existential threat to Wisconsin governance, noting 71% male disapproval of Democrats nationally. The American Conservative takes a measured tone, arguing permanent DSA dominance is not assured. The Daily Wire extends its 'hammer, sickle' framing to the Wisconsin race.",
+        "sources": [
+          { "source": "American Spectator — Hong redefining Wisconsin", "url": "https://spectator.org/democratic-socialist-francesca-hong-redefining-politics-in-wisconsin/" },
+          { "source": "American Conservative — left flank not assured", "url": "https://www.theamericanconservative.com/permanent-victory-for-the-democrats-left-flank-is-not-assured/" }
+        ]
+      },
+      "correlation": 28,
+      "correlation_label": "Both sides acknowledge Hong's primary dominance; left frames it as democratic energy while right frames it as ideological catastrophe."
+    },
+    {
+      "title": "El-Sayed Wins Michigan Senate Primary: Progressive Wave vs. Socialist Takeover",
+      "topic_key": "el-sayed-michigan-senate-primary-win",
+      "days_seen": 2,
+      "relevance": 70,
+      "relevance_label": "Recurring — day 2",
+      "summary": "Abdul El-Sayed defeated Rep. Haley Stevens in Michigan's Democratic Senate primary, backed by the entire Squad and Bernie Sanders. El-Sayed, who would be America's first Muslim senator if elected, will face Republican Mike Rogers in November. The win was the DSA's most prominent Senate primary victory of the cycle, following earlier wins in New York City, Colorado, and across House races.",
+      "left": {
+        "framing": "CNN, NBC, Slate, and the Daily Beast frame El-Sayed's win as historically significant — a progressive breakthrough in a presidential battleground. CNN analysis notes the Republican Islamophobic response is 'ugly.' Stephen Miller's 'Cold War' framing is treated as hyperbolic. The Daily Beast calls Republican reaction a 'meltdown.'",
+        "sources": [
+          { "source": "CNN — GOP response to El-Sayed", "url": "https://www.cnn.com/2026/08/06/politics/abdul-el-sayed-islamophobia-republicans" },
+          { "source": "Daily Beast — Trump meltdown", "url": "https://www.thedailybeast.com/trump-melts-down-as-progressive-officially-wins-key-senate-race/" },
+          { "source": "Slate — El-Sayed profile", "url": "https://slate.com/news-and-politics/2026/08/hasan-piker-abdul-el-sayed-michigan-senate.html" }
+        ]
+      },
+      "right": {
+        "framing": "Fox News, Daily Wire, and Breitbart frame the win as evidence of a Democratic Party captured by socialism and Islamism. The Daily Wire's 'Hammer, Sickle, and Jihad' headline and Breitbart's coverage of the Arabic-language victory speech are designed to cast the result as alarming. Townhall frames the result as nationalizing the midterms into a binary choice.",
+        "sources": [
+          { "source": "Breitbart — El-Sayed defeats Stevens", "url": "https://www.breitbart.com/politics/2026/08/05/abdul-el-sayed-defeats-haley-stevens-and-democrat-establishment-will-face-republican-mike-rogers/" },
+          { "source": "Daily Wire — inshallah", "url": "https://www.dailywire.com/news/crowd-roars-as-el-sayed-drops-an-inshallah-in-election-night-speech" },
+          { "source": "Townhall — binary choice", "url": "https://townhall.com/columnists/scotthogenson/2026/08/06/after-michigan-the-midterms-give-voters-a-binary-choice-n2680760" }
+        ]
+      },
+      "correlation": 22,
+      "correlation_label": "Left and right are narrating two different events — a historic progressive win versus a dangerous ideological infiltration — from the same primary result."
+    }
+  ],
+  "gap_left": [
+    {
+      "title": "Interior Department Officials Shredding Documents to Avoid Written Records",
+      "topic_key": "interior-dept-shredding-documents-aug9",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "summary": "The New Republic reported that Interior Department officials have been destroying documents to avoid creating written records, citing sources who describe an environment of fear around documented decision-making. The pattern raises federal records-retention and oversight concerns. Right-leaning outlets did not cover this story.",
+      "sources": [
+        { "source": "The New Republic", "url": "https://newrepublic.com/post/214094/interior-department-officials-terrified-written-record-shred-documents" }
+      ]
+    },
+    {
+      "title": "US Intelligence: Putin May Test NATO Resolve With a Limited Strike",
+      "topic_key": "us-intel-russia-putin-nato-attack-planning",
+      "days_seen": 2,
+      "relevance": 70,
+      "relevance_label": "Recurring — day 2",
+      "summary": "A US intelligence assessment concluded that Russian President Vladimir Putin could attempt to test NATO's resolve by launching a limited attack against an allied country within the next few years. CNN and NBC gave the assessment prominent coverage, framing it as a key strategic risk requiring US attention. Right-leaning outlets did not surface this assessment in the current harvest window.",
+      "sources": [
+        { "source": "CNN Politics", "url": "https://www.cnn.com/2026/08/07/politics/us-intelligence-russia-putin-nato-attack" }
+      ]
+    },
+    {
+      "title": "Appeals Court Rules Trump Is Unlawfully Constructing White House Ballroom",
+      "topic_key": "trump-white-house-ballroom-appeals-court",
+      "days_seen": 2,
+      "relevance": 70,
+      "relevance_label": "Recurring — day 2",
+      "summary": "A federal appeals court ruled that President Trump is unlawfully constructing a ballroom at the White House, rejecting the administration's legal arguments. The Hill previously reported that 68% of Americans oppose using taxpayer funds for related security upgrades. CNN and NBC gave the ruling prominent placement; right-leaning outlets did not surface it.",
+      "sources": [
+        { "source": "CNN Politics", "url": "https://www.cnn.com/2026/08/07/politics/white-house-ballroom-appeals-court-ruling" }
+      ]
+    },
+    {
+      "title": "Kansas and Missouri Red-State Voters Reject Anti-Abortion Ballot Measures",
+      "topic_key": "abortion-ballot-redstate-voters-rejected-kansas",
+      "days_seen": 2,
+      "relevance": 70,
+      "relevance_label": "Recurring — day 2",
+      "summary": "Primary voters in Kansas and Missouri — two reliably Republican states — rejected anti-abortion ballot measures in Tuesday's primaries, continuing a post-Dobbs pattern of red-state electorates separating abortion restrictions from broader partisan loyalty. NBC and Slate covered the results as a sign that abortion remains a live electoral liability for Republicans even in red states.",
+      "sources": [
+        { "source": "NBC News Politics", "url": "https://www.nbcnews.com/politics/politics-news/abortion-ballot-two-states-politics-desk-rcna590278" },
+        { "source": "Slate", "url": "https://slate.com/news-and-politics/2026/08/election-results-democrats-progressives-centrists.html" }
+      ]
+    }
+  ],
+  "gap_right": [
+    {
+      "title": "Trump Signs New Birthright Citizenship Executive Orders After SCOTUS Block",
+      "topic_key": "birthright-citizenship-trump-eos-aug9",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "summary": "President Trump signed two new executive orders on August 6 to end 'birth tourism' and limit birthright citizenship, returning to the issue after the Supreme Court blocked his earlier 2025 attempt. The American Spectator and Fox News gave the orders extensive coverage. An estimated 26,000 babies annually obtain US citizenship through birth tourism per the Migration Policy Institute. Left-leaning outlets did not prominently surface the new EOs.",
+      "sources": [
+        { "source": "American Spectator", "url": "https://spectator.org/trump-renews-fight-over-birthright-citizenship-with-new-executive-orders/" },
+        { "source": "Fox News", "url": "https://www.foxnews.com/us/5-big-immigration-changes-taking-effect-across-us" }
+      ]
+    },
+    {
+      "title": "Democrats Warned: Leftward Messaging Will Cost Swing Seats — Shades of 2006",
+      "topic_key": "democrats-leftward-messaging-2006-warning-aug9",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "summary": "Democratic strategists and right-leaning analysts warn that progressive candidates who won primaries on DSA platforms risk overplaying their hand in November. The Washington Examiner drew parallels to the 2006 midterm wave but noted 2006 Democrats ran disciplined, locally-focused candidates while 2026 Democrats are running explicitly ideological ones in swing districts. Separately, Democratic strategists are privately advising candidates to prioritize affordability over ideology.",
+      "sources": [
+        { "source": "Washington Examiner — messaging warning", "url": "https://www.washingtonexaminer.com/news/campaigns/congressional/4674936/democrats-midterm-messaging-affordability-prioritize-local-issues/" },
+        { "source": "Washington Examiner — shades of 2006", "url": "https://www.washingtonexaminer.com/news/campaigns/congressional/4677118/shades-of-2006-midterm-elections-2026/" }
+      ]
+    },
+    {
+      "title": "Fox Poll: 57% of Americans Want Dramatic or Revolutionary Change; Trump Approval 39%",
+      "topic_key": "fox-poll-voter-discontent-major-change-aug9",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "summary": "A new Fox News poll found that 19% of voters want revolutionary change, 38% substantial change, and 23% dramatic change — 80% expressing significant dissatisfaction. Trump's job approval stands at 39.3%, with 35% saying the country is on the right track vs. 60% wrong track. Separately, 65% of Americans say the system is 'rigged in favor of the wealthy,' up 9 points since 2019. RealClearPolitics also noted that partisan polarization constitutes a strategic national security vulnerability.",
+      "sources": [
+        { "source": "Fox News Poll", "url": "https://www.foxnews.com/politics/fox-news-poll-voters-want-major-change-amid-economic-political-discontent" },
+        { "source": "RealClearPolitics", "url": "https://www.realclearpolitics.com/articles/2026/08/06/americas_political_divide_is_a_strategic_vulnerability_154395.html" }
+      ]
+    },
+    {
+      "title": "Federalist: Cornyn and Tillis Epitomize GOP's Betrayal of Its Own Voters",
+      "topic_key": "rinos-cornyn-tillis-blanche-betrayal-gop",
+      "days_seen": 2,
+      "relevance": 70,
+      "relevance_label": "Recurring — day 2",
+      "summary": "The Federalist and American Spectator continued their argument that moderate Republican senators Cornyn and Tillis — who initially opposed then capitulated on Todd Blanche's AG nomination — represent a broader pattern of GOP officials treating their own base as an enemy. The Federalist's latest piece argues RINOs are not just hurting Trump but are 'tanking the entire Republican Party.' Notably, Cornyn admitted 'there was nothing we could do to rein in the president' — a statement the Federalist framed as a betrayal of principle.",
+      "sources": [
+        { "source": "The Federalist — RINOs tanking GOP", "url": "https://thefederalist.com/2026/08/07/rinos-are-tanking-the-entire-republican-party-not-just-trump/" },
+        { "source": "The Federalist — Cornyn/Tillis", "url": "https://thefederalist.com/2026/07/30/cornyn-and-tillis-anti-blanche-jihad-epitomizes-the-gops-hatred-for-its-voters/" }
+      ]
+    }
+  ],
+  "suggestions": []
+}
