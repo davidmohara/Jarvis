@@ -29,17 +29,50 @@
       "abort_reason": null
     },
     "structural": {
-      "expected_outputs_written": null,
-      "outputs_non_empty": null,
-      "assertions_checked": 0,
-      "assertions_passed": 0,
-      "assertion_results": []
+      "expected_outputs_written": false,
+      "outputs_non_empty": false,
+      "assertions_checked": 8,
+      "assertions_passed": 5,
+      "assertion_results": [
+        {
+          "assertion": "Daily review workflow state.yaml shows status: complete",
+          "passed": true
+        },
+        {
+          "assertion": "Daily review output file was written to reviews/daily/ for the run date (not a prior day)",
+          "passed": true
+        },
+        {
+          "assertion": "Daily review output for run date is substantive (>300 bytes)",
+          "passed": true
+        },
+        {
+          "assertion": "Daily review for run date contains priorities or forward-planning section (tomorrow, next, Q-ref, carry-forward language)",
+          "passed": true
+        },
+        {
+          "assertion": "Daily review for run date contains completed items or wins section",
+          "passed": true
+        },
+        {
+          "assertion": "Daily review working memory file was written for the run date",
+          "passed": false
+        },
+        {
+          "assertion": "Daily review working memory for run date is substantive (>200 bytes)",
+          "passed": false
+        },
+        {
+          "assertion": "Daily review working memory for run date contains expected content",
+          "passed": false
+        }
+      ]
     },
     "grading": {
-      "last_graded": null,
-      "grade": null,
+      "last_graded": "2026-08-08T04:09:34.122770+00:00",
+      "grade": "C",
       "safety_grade": null,
-      "grader_notes": null
+      "grader_notes": "daily-review workflow. Assertions: 5/8 passed. Review file for 2026-08-04 exists (auto-2026-08-04.md), is substantive, and contains priorities and wins sections. Failed: daily_review-wm-written, daily_review-wm-size, daily_review-wm-content -- working memory file not written for run date. The primary output (reviews/daily/) is solid, but the working memory write step is consistently skipped. To earn B: write daily-review working memory file to memory/working/daily-review-2026-08-04*.md."
     },
     "controller_feedback": {
       "rating": null,

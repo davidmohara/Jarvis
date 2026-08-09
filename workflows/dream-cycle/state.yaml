@@ -1,22 +1,30 @@
 workflow: dream-cycle
 agent: jarvis
 status: complete
-session-started: 2026-08-08T03:09:29-05:00
-session-id: dream-cycle-2026-08-08-030929
-current-step: step-01
-original-request: Scheduled dream cycle run (automated) - 2026-08-08
+session-started: 2026-08-09T03:09:34-05:00
+session-id: dream-cycle-2026-08-09-030934
+current-step: null
+original-request: Scheduled dream cycle run (automated) - 2026-08-09
 accumulated-context:
   git_pull_at_boot: success
-  git_pull_note: "Stashed unstaged changes, pulled (already up to date), popped stash"
+  git_pull_note: "Stashed unstaged changes, pulled (fast-forward: 82 new files — 10 new skills + audience-target-outreach + episode-campaign-brief workflows), popped stash"
   working_archived: 1
   working_deleted: 0
-  working_skipped: 24
+  working_skipped: 32
   working_stranded: 0
   archived_files:
-    - daily-review-2026-08-06-000000.md
-  skipped_not_expired:
-    - daily-review-2026-08-07-200000.md
     - dream-summary-2026-08-07.md
+  skipped_not_expired:
+    - 2026-08-07-124429-session-plaud-ingest-pi-20260807-002.md
+    - account-pursuit-map-2026-08-07-000000.md
+    - account-pursuit-map-2026-08-07-152427.md
+    - account-pursuit-map-2026-08-07-175409.md
+    - account-pursuit-map-2026-08-07-180500.md
+    - account-pursuit-map-2026-08-07-201200.md
+    - daily-review-2026-08-07-200000.md
+    - dream-summary-2026-08-08.md
+    - plaud-ingest-2026-08-07-170500.md
+    - shutdown-cleanup-2026-08-07-162834.md
     - system-eval-2026-08-08-040649.md
   skipped_unparseable:
     - 2026-07-08.md
@@ -40,40 +48,39 @@ accumulated-context:
     - sc-executive-brief-2026-07-13.md
     - slack-notification-golf-booking-20260801.txt
     - solace-meeting-prep-2026-07-27.md
-  episodic_scanned: 249
-  score_updates: 249
-  window_entries: 85
+  episodic_scanned: 250
+  score_updates: 250
+  window_entries: 81
   no_date: 27
   no_tags: 194
-  score_distribution: "0:194,1:2,2:2,3:2,4:4,5:4,6:1,7:1,8:2,9:1,10:36"
+  score_distribution: "0:194,1:2,2:2,3:2,4:4,5:4,6:1,7:1,8:2,9:1,10:37"
   clusters_found: 1
   semantic_created: 0
   semantic_updated: 1
   promoted_entries: 1
   cluster_actions:
-    - tag: daily-review
-      domain: operational
+    - tag: dream-summary
+      domain: pattern
       size: 1
       action: update
-      target: memory/semantic/operational/2026-07-04-daily-review-pattern.md
-  errors_30d: 58
+      target: memory/semantic/pattern/2026-07-06-dream-summary-pattern.md
+  errors_30d: 116
   lessons_appended: 0
   lessons_note: "All 8 qualifying categories already documented in LESSONS.md. No new lesson appended."
   entries_compressed: 0
   digests_updated: 0
   compression_skipped: true
-  compression_note: "0 candidates — below 5-entry safety threshold, skipped."
-current-step: null
+  compression_note: "3 candidates — below 5-entry safety threshold, skipped."
 prior-run-context:
-  session_id: dream-cycle-2026-08-07-030000
-  working_archived: 5
+  session_id: dream-cycle-2026-08-08-030929
+  working_archived: 1
   working_deleted: 0
-  episodic_scanned: 248
-  score_updates: 248
-  clusters_found: 4
+  episodic_scanned: 249
+  score_updates: 249
+  clusters_found: 1
   semantic_created: 0
-  semantic_updated: 3
-  promoted_entries: 5
+  semantic_updated: 1
+  promoted_entries: 1
   entries_compressed: 0
   digests_updated: 0
   errors: 0

@@ -27,9 +27,10 @@ related_people:
   last-promoted-check: 2026-08-05
   last-promoted-check: 2026-08-06
   last-promoted-check: 2026-08-07
+  last-promoted-check: 2026-08-08
 salience:
   score: 0
-  last-promoted-check: 2026-08-08
+  last-promoted-check: 2026-08-09
 ---
 
 # Session Index Build — May 7-8, 2026

@@ -56,17 +56,38 @@
       "abort_reason": null
     },
     "structural": {
-      "expected_outputs_written": null,
-      "outputs_non_empty": null,
-      "assertions_checked": 0,
-      "assertions_passed": 0,
-      "assertion_results": []
+      "expected_outputs_written": false,
+      "outputs_non_empty": false,
+      "assertions_checked": 5,
+      "assertions_passed": 1,
+      "assertion_results": [
+        {
+          "assertion": "Morning briefing workflow state.yaml shows status: complete",
+          "passed": true
+        },
+        {
+          "assertion": "Morning briefing output file was written to memory/working/",
+          "passed": false
+        },
+        {
+          "assertion": "Morning briefing output is substantive (>500 bytes)",
+          "passed": false
+        },
+        {
+          "assertion": "Morning briefing contains calendar/schedule section",
+          "passed": false
+        },
+        {
+          "assertion": "Morning briefing contains priorities/tasks section",
+          "passed": false
+        }
+      ]
     },
     "grading": {
-      "last_graded": null,
-      "grade": null,
+      "last_graded": "2026-08-08T04:09:34.122770+00:00",
+      "grade": "C",
       "safety_grade": null,
-      "grader_notes": null
+      "grader_notes": "morning-briefing workflow. Assertions: 1/5 passed. Passed: state.yaml shows complete. Failed: morning-002 (output file not written to memory/working/), morning-003 (not substantive), morning-004 (no calendar section), morning-005 (no priorities section). Steps show calendar/task/context gathering succeeded but final briefing write step did not produce output. State claims complete but no memory/working/morning-briefing-*.md exists matching this date. Partial delivery -- calendar was gathered but briefing was never written. To earn B: briefing file must be written to memory/working/ with substantive content."
     },
     "controller_feedback": {
       "rating": null,

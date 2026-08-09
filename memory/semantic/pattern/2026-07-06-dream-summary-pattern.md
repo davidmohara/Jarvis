@@ -5,8 +5,8 @@ tag: dream-summary
 domain: pattern
 confidence: medium
 created: 2026-07-06
-last-updated: 2026-08-07
-synthesized-from: 18 episodic entries
+last-updated: 2026-08-09
+synthesized-from: 19 episodic entries
 tags:
   - dream-summary
 ---
@@ -143,3 +143,9 @@ Sources this cycle:
 - `memory/episodic/dream-summary-2026-08-06.md` (score 10) — tags: dream-summary, jarvis, memory, semantic-promotion, carry-forward, south-texas, one-texas. Aug 6 cycle: 1 archived, 243 scored, 1 promoted (dream-summary-pattern updated), 0 compressed. Carry-forward quintet (Q3 rocks, nerve block, delegation tracker, Cole Estrate xAI, South Texas -21.5% QTD) confirmed across 12+ consecutive cycles. Aug 6 summary explicitly reframes these 5 signals as structural deferrals requiring decision or escalation rather than daily prompts.
 
 Pattern now at 18 episodic entries. The structural-deferral reframe in the Aug 6 source is notable: the dream cycle itself is now characterizing these items as systemic rather than incidental, which marks a qualitative shift in how the pattern is surfaced. No new signals added this cycle — the carry-forward cluster is stable at 5 chronic items. Expense report flagged as immediately due Aug 6 in the daily-review-08-05 source; this is a short-cycle item, not a chronic pattern signal.
+
+### 2026-08-09 — Nightly promotion
+Sources this cycle:
+- `memory/episodic/dream-summary-2026-08-07.md` (score 10) — tags: dream-summary, jarvis, memory, salience, semantic-promotion, daily-review, plaud, compression, episodic. Aug 7 cycle: 1 archived (daily-review-08-06), 249 scored (85 in window), 1 promoted (daily-review-pattern updated), 0 compressed. Carry-forward quintet (Q3 rocks, nerve block, delegation tracker, Cole Estrate xAI, South Texas -21.5% QTD) confirmed across 13+ consecutive cycles. New signals this cycle: (1) calendar-unavailable pattern confirmed as a two-failure-mode variant (both M365 MCP and osascript Calendar fallback failed simultaneously on Aug 5, matching Jul 22 headless run); (2) expense report deadline (Aug 6) flagged for first time in daily-review cluster as a time-bound financial obligation — distinct from chronic structural overdue items.
+
+Pattern now at 19 episodic entries. Structural-deferral language is now stable across 2+ consecutive cycles — the system's own characterization of the carry-forward quintet has shifted and is holding. No new carry-forward items added; the cluster of 5 chronic signals is stable. The expense report was time-sensitive (Aug 6 deadline) and is now overdue, not structural — its appearance here is likely a short-cycle exception rather than a new pattern member.

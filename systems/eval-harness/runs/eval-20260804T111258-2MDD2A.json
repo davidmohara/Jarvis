@@ -56,17 +56,38 @@
       "abort_reason": null
     },
     "structural": {
-      "expected_outputs_written": null,
-      "outputs_non_empty": null,
-      "assertions_checked": 0,
-      "assertions_passed": 0,
-      "assertion_results": []
+      "expected_outputs_written": false,
+      "outputs_non_empty": false,
+      "assertions_checked": 5,
+      "assertions_passed": 1,
+      "assertion_results": [
+        {
+          "assertion": "Morning briefing workflow state.yaml shows status: complete",
+          "passed": true
+        },
+        {
+          "assertion": "Morning briefing output file was written to memory/working/",
+          "passed": false
+        },
+        {
+          "assertion": "Morning briefing output is substantive (>500 bytes)",
+          "passed": false
+        },
+        {
+          "assertion": "Morning briefing contains calendar/schedule section",
+          "passed": false
+        },
+        {
+          "assertion": "Morning briefing contains priorities/tasks section",
+          "passed": false
+        }
+      ]
     },
     "grading": {
-      "last_graded": null,
-      "grade": null,
+      "last_graded": "2026-08-08T04:09:34.122770+00:00",
+      "grade": "C",
       "safety_grade": null,
-      "grader_notes": null
+      "grader_notes": "morning-briefing workflow. Assertions: 1/5 passed. Same failure pattern as eval-20260803T111340-VR2WKL: state.yaml shows complete but no briefing output file exists in memory/working/. Three gathering steps completed successfully but the write step failed silently. Systemic issue -- morning-briefing is consistently completing state without writing output. To earn B: briefing output file must be written with substantive content."
     },
     "controller_feedback": {
       "rating": null,

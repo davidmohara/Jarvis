@@ -1,36 +1,62 @@
 workflow: system-eval
 agent: rigby
 status: complete
-session-started: "2026-07-31T04:06:08Z"
-session-id: rigby-2026-07-31-040608
-eval-record-id: eval-20260801T040608-YZIPFU
+session-started: "2026-08-08T04:06:49Z"
+session-id: rigby-2026-08-08-040649
+eval-record-id: eval-20260808T040649-WP86N0
 current-step: null
-original-request: "scheduled weekly-system-eval run 2026-07-31"
+original-request: "manual system-eval run 2026-08-08"
 accumulated-context:
-  records_total: 109
-  records_skipped_in_progress: 0
+  records_total: 118
+  records_skipped_in_progress: 1
   needs_assertions:
-    - eval-20260725T040550-G096DL
-    - eval-20260725T041406-RL9YH6
-    - eval-20260728T021215-1C4F7E
-    - eval-20260728T111317-JBQ8IO
-    - eval-20260729T021225-M8SAJ1
-    - eval-20260729T111413-EJQ6WR
-    - eval-20260730T021325-RKAN1A
-    - eval-20260731T021245-CHG8UY
-    - eval-20260801T021336-KBSSMN
+    - eval-20260801T040608-YZIPFU
+    - eval-20260801T041641-W2KSOG
+    - eval-20260803T111340-VR2WKL
+    - eval-20260804T021410-VB8NM9
+    - eval-20260804T111258-2MDD2A
+    - eval-20260805T021415-1USR62
+    - eval-20260806T021233-NTOEO1
+    - eval-20260807T021321-O6FSIJ
+    - eval-20260808T021542-KROVW3
   needs_grade:
-    - eval-20260725T040550-G096DL
-    - eval-20260725T041406-RL9YH6
-    - eval-20260727T171948-S7Z5M6
-    - eval-20260728T021215-1C4F7E
-    - eval-20260728T111317-JBQ8IO
-    - eval-20260729T021225-M8SAJ1
-    - eval-20260729T111413-EJQ6WR
-    - eval-20260730T021325-RKAN1A
-    - eval-20260731T021245-CHG8UY
-    - eval-20260801T021336-KBSSMN
-  records_complete: 99
+    - eval-20260720T165639-RBI4VN
+    - eval-20260720T182056-XE7SY0
+    - eval-20260720T182100-8052TA
+    - eval-20260720T183455-EJLWVQ
+    - eval-20260720T204532-Q3J0WZ
+    - eval-20260720T204633-C09ZED
+    - eval-20260721T151653-L0E3JW
+    - eval-20260721T201219-VQ8PDA
+    - eval-20260721T201234-V53CHV
+    - eval-20260721T214343-TGZ6GN
+    - eval-20260722T153809-FARVEF
+    - eval-20260722T155500-W7DWTD
+    - eval-20260722T161447-F2L8M9
+    - eval-20260722T161908-R65Q97
+    - eval-20260722T163030-I5S85U
+    - eval-20260722T164534-AYA6YN
+    - eval-20260722T170000-FZZFJB
+    - eval-20260722T170921-ISORAH
+    - eval-20260722T174024-YU8GPA
+    - eval-20260722T180418-VGASZQ
+    - eval-20260722T183010-QMJABB
+    - eval-20260722T183036-M6N68K
+    - eval-20260722T191645-ZS7XJN
+    - eval-20260723T183614-QXHKUO
+    - eval-20260726T192953-F7QBK5
+    - eval-20260728T155939-KAXW57
+    - eval-20260730T185817-RE164X
+    - eval-20260801T040608-YZIPFU
+    - eval-20260801T041641-W2KSOG
+    - eval-20260803T111340-VR2WKL
+    - eval-20260804T021410-VB8NM9
+    - eval-20260804T111258-2MDD2A
+    - eval-20260805T021415-1USR62
+    - eval-20260806T021233-NTOEO1
+    - eval-20260807T021321-O6FSIJ
+    - eval-20260808T021542-KROVW3
+  records_complete: 82
   assertion_files_available:
     - system-eval
     - daily-review
@@ -41,50 +67,75 @@ accumulated-context:
   assertions_run:
     total_records_asserted: 9
     total_assertions_evaluated: 68
-    total_assertions_passed: 56
-    records_fully_passing: 5
-    records_with_failures: 4
+    total_assertions_passed: 42
+    records_fully_passing: 2
+    records_with_failures: 7
     no_assertion_definition: []
   grading:
-    total_graded: 10
+    total_graded: 36
     grade_distribution:
-      A: 2
-      B: 5
-      C: 1
-      D: 1
+      A: 0
+      B: 3
+      C: 5
+      D: 27
       F: 1
     no_output_found:
-      - eval-20260801T021336-KBSSMN
-  step_timings:
-    - step: step-01-intake
-      started: "2026-07-31T04:06:08Z"
-      completed: "2026-07-31T04:08:00Z"
-    - step: step-02-assert
-      started: "2026-07-31T04:08:00Z"
-      completed: "2026-07-31T04:12:00Z"
-    - step: step-03-grade
-      started: "2026-07-31T04:12:00Z"
-      completed: "2026-07-31T04:18:00Z"
+      - eval-20260720T165639-RBI4VN
+      - eval-20260720T182056-XE7SY0
+      - eval-20260720T182100-8052TA
+      - eval-20260720T183455-EJLWVQ
+      - eval-20260720T204532-Q3J0WZ
+      - eval-20260720T204633-C09ZED
+      - eval-20260721T151653-L0E3JW
+      - eval-20260721T201219-VQ8PDA
+      - eval-20260721T201234-V53CHV
+      - eval-20260721T214343-TGZ6GN
+      - eval-20260722T153809-FARVEF
+      - eval-20260722T155500-W7DWTD
+      - eval-20260722T161447-F2L8M9
+      - eval-20260722T161908-R65Q97
+      - eval-20260722T163030-I5S85U
+      - eval-20260722T164534-AYA6YN
+      - eval-20260722T170000-FZZFJB
+      - eval-20260722T170921-ISORAH
+      - eval-20260722T174024-YU8GPA
+      - eval-20260722T180418-VGASZQ
+      - eval-20260722T183010-QMJABB
+      - eval-20260722T183036-M6N68K
+      - eval-20260722T191645-ZS7XJN
+      - eval-20260723T183614-QXHKUO
+      - eval-20260726T192953-F7QBK5
+      - eval-20260728T155939-KAXW57
+      - eval-20260730T185817-RE164X
   scoring:
-    records_scored: 109
-    batch_average: 0.6299
+    records_scored: 118
+    batch_average: 0.6367
     score_script_error: null
   analysis:
-    report_path: systems/eval-harness/grading/analysis-20260731T041309.md
-    top_recommendation: "Add output-file existence check before closing state.yaml in daily-review step-auto — prevents phantom successes (confirmed August 1 and July 25 failures)"
+    report_path: systems/eval-harness/grading/analysis-20260808T042000.md
+    top_recommendation: "Investigate morning-briefing write step regression -- state.yaml sets complete but no briefing file written Aug 3-4; add file-existence guard before state completion"
     patterns_count: 7
     recommendations_count: 7
-  step_timings_continued:
+  step_timings:
+    - step: step-01-intake
+      started: "2026-08-08T04:06:49Z"
+      completed: "2026-08-08T04:10:00Z"
+    - step: step-02-assert
+      started: "2026-08-08T04:10:00Z"
+      completed: "2026-08-08T04:14:00Z"
+    - step: step-03-grade
+      started: "2026-08-08T04:14:00Z"
+      completed: "2026-08-08T04:20:00Z"
     - step: step-04-score
-      started: "2026-07-31T04:18:00Z"
-      completed: "2026-07-31T04:22:00Z"
+      started: "2026-08-08T04:20:00Z"
+      completed: "2026-08-08T04:24:00Z"
     - step: step-05-analyze
-      started: "2026-07-31T04:22:00Z"
-      completed: "2026-07-31T04:30:00Z"
+      started: "2026-08-08T04:24:00Z"
+      completed: "2026-08-08T04:26:00Z"
     - step: step-06-dashboard
-      started: "2026-07-31T04:30:00Z"
-      completed: "2026-07-31T04:32:00Z"
+      started: "2026-08-08T04:26:00Z"
+      completed: "2026-08-08T04:30:00Z"
   dashboard_artifact_updated: true
-  spurious_record: eval-20260801T041641-W2KSOG
-  spurious_record_reason: "close-eval-record.py session_id mismatch — real record is eval-20260801T040608-YZIPFU; sandbox permissions prevented deletion (PermissionError)"
+  spurious_record: eval-20260808T041453-EXX2PJ
+  spurious_record_reason: "close-eval-record.py session_id mismatch -- real record is eval-20260808T040649-WP86N0; sandbox permissions prevented deletion (PermissionError)"
   feedback_prompt: skipped (headless)

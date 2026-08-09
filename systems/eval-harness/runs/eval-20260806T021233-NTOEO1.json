@@ -29,17 +29,50 @@
       "abort_reason": null
     },
     "structural": {
-      "expected_outputs_written": null,
-      "outputs_non_empty": null,
-      "assertions_checked": 0,
-      "assertions_passed": 0,
-      "assertion_results": []
+      "expected_outputs_written": false,
+      "outputs_non_empty": false,
+      "assertions_checked": 8,
+      "assertions_passed": 4,
+      "assertion_results": [
+        {
+          "assertion": "Daily review workflow state.yaml shows status: complete",
+          "passed": true
+        },
+        {
+          "assertion": "Daily review output file was written to reviews/daily/ for the run date (not a prior day)",
+          "passed": false
+        },
+        {
+          "assertion": "Daily review output for run date is substantive (>300 bytes)",
+          "passed": false
+        },
+        {
+          "assertion": "Daily review for run date contains priorities or forward-planning section (tomorrow, next, Q-ref, carry-forward language)",
+          "passed": false
+        },
+        {
+          "assertion": "Daily review for run date contains completed items or wins section",
+          "passed": false
+        },
+        {
+          "assertion": "Daily review working memory file was written for the run date",
+          "passed": true
+        },
+        {
+          "assertion": "Daily review working memory for run date is substantive (>200 bytes)",
+          "passed": true
+        },
+        {
+          "assertion": "Daily review working memory for run date contains expected content",
+          "passed": true
+        }
+      ]
     },
     "grading": {
-      "last_graded": null,
-      "grade": null,
+      "last_graded": "2026-08-08T04:09:34.122770+00:00",
+      "grade": "C",
       "safety_grade": null,
-      "grader_notes": null
+      "grader_notes": "daily-review workflow. Status: success (only success-status daily-review in this batch). Assertions: 4/8 passed. Unusual inverse failure: daily-001 (state complete) passes, working memory assertions pass (wm file exists for 2026-08-06), but daily-002 through daily-005 all fail -- review file for 2026-08-06 not found in reviews/daily/. reviews/daily/auto-2026-08-06.md does not exist. Working memory was written but primary output was not. To earn B: daily review file must be written to reviews/daily/auto-{date}.md."
     },
     "controller_feedback": {
       "rating": null,
