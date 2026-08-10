@@ -8,7 +8,7 @@
   "started": "2026-08-10T07:00:00-05:00",
   "completed": "2026-08-10T11:18:14.089468Z",
   "duration_seconds": 0.0,
-  "status": "success",
+  "status": "incomplete",
   "steps": [
     {
       "name": "step-01-gather-calendar",
@@ -88,5 +88,6 @@
   "prior_baseline_id": null,
   "tags": [
     "cowork-instrumented"
-  ]
+  ],
+  "abort_reason": "session-exit-normal"
 }
