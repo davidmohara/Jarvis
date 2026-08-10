@@ -92,8 +92,18 @@ Via Obsidian MCP, list all files under `zzPlaud/` recursively:
 mcp__obsidian-mcp-tools__list_vault_files(path="zzPlaud")
 ```
 
-Extract the date and title from each filename (`YYYY-MM-DD Title.md`). Build a set of
-ingested recording names for fast lookup.
+For each `.md` file returned, read its frontmatter and extract the `file_id` field (if present).
+Build two lookup structures:
+
+1. **file_id set** — a set of all `file_id` values found in vault note frontmatter. This is the
+   primary dedup mechanism. Notes written after this fix was applied (2026-08-10) will have this field.
+2. **title set** — a set of normalized filenames (date stripped, `.md` stripped, lowercased,
+   punctuation removed, whitespace collapsed). This is the fallback for older notes that predate
+   file_id tracking.
+
+Reading frontmatter: use `mcp__obsidian-local__get_vault_file` for each note, then parse the
+YAML block between the `---` delimiters. If a note has `file_id: <value>`, add it to the
+file_id set. Always add the normalized title to the title set regardless.
 
 Also check staging: list `~/Downloads/transcript-staging/plaud_*.md`. Apply the following
 staleness rule before treating any staged file as "in progress":
@@ -107,15 +117,39 @@ If stale files are found, add their file IDs to `state.yaml accumulated-context.
 
 ### 4. Compute the diff
 
-For each recording from the API:
-1. Check if a vault note exists with a matching date and similar title (fuzzy match — Plaud
-   auto-generates titles that may not exactly match what ends up in the vault).
-2. Check if a staged file already exists for this recording.
-3. If neither: this recording is **new**.
+**Two-tier deduplication — check in this order for every API recording:**
 
-**Title fuzzy matching:** normalize both strings (lowercase, strip punctuation, collapse
-whitespace) before comparing. A match threshold of ~70% similarity is sufficient. When
-in doubt, treat as new (safe to create a duplicate note is less bad than missing a recording).
+**Tier 1 — file_id exact match (primary):**
+If the recording's `file_id` is present in the vault's file_id set, it is already ingested.
+Skip it. This is authoritative — no further check needed.
+
+**Tier 2 — title fuzzy match (fallback for pre-2026-08-10 notes):**
+Only reach this tier if the file_id was NOT found in tier 1. Normalize the API recording's
+`name` field (lowercase, strip punctuation, collapse whitespace). Compare against each
+normalized vault title using sequence similarity. A match threshold of **85%** is required.
+A match at this tier means already ingested — skip it.
+
+**Tier 3 — staged file check:**
+If neither tier 1 nor tier 2 matched, check whether a staged file already exists for this
+recording's file_id (filename pattern `plaud_<file_id>*.md`). If found and not stale, skip it.
+
+If no tier matched: this recording is **new**.
+
+```
+Decision logic (pseudocode):
+  if recording.file_id in vault_file_id_set:               → SKIP (already ingested, exact match)
+  elif fuzzy_match(recording.name, vault_titles) >= 0.85:  → SKIP (ingested, title match)
+  elif staged_file_exists(recording.file_id) and not stale: → SKIP (in progress)
+  else:                                                      → NEW (add to output list)
+```
+
+**Important:** The 85% fuzzy threshold is intentionally strict. Knox substantially rewrites
+Plaud's auto-generated titles when creating vault notes (adds speaker names, cleans punctuation,
+reorganizes). Notes written before file_id tracking began will rely on this tier. If a vault
+title scores below 85% but you have strong contextual reason to believe it's the same recording
+(same date + duration match within 5%), treat it as ingested and log your reasoning. When
+genuinely uncertain, default to NEW — a duplicate note is recoverable; a missed recording
+requires a full reprocess.
 
 ### 5. Return the new-recordings list
 

@@ -1,13 +1,13 @@
 ---
-status: aborted
-started-at: "2026-07-29T00:00:00Z"
-completed-at: "2026-07-29T00:05:00Z"
-model: sonnet
+status: completed
+started-at: "2026-08-10T00:00:00Z"
+completed-at: "2026-08-10T00:15:00Z"
+model: haiku
 outputs:
-  new-recordings-count: 0
-  api-total: 0
-  confirmed-in-vault: 0
-  completion-reason: "Plaud API unreachable from isolated environment"
+  new-recordings-count: 88
+  api-total: 111
+  confirmed-in-vault: 23
+  completion-reason: "Full enumeration via Plaud API; 88 new recordings identified after deduplication against vault"
 ---
 
 <!-- system:start -->

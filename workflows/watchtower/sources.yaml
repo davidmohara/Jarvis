@@ -283,3 +283,15 @@ sources:
     added: 2026-07-20
     status: active
     notes: "Industry publication covering CIO-level technology decisions, enterprise software, and AI governance. Broke the Gartner $234B SaaS agentic arbitrage story (W30). High editorial bar, practitioner-focused."
+
+  # ── Batch 7 — Approved 2026-08-10 ──────────────────────────────────────────
+
+  - name: CyberArk Blog
+    url: https://www.cyberark.com/resources/blog/
+    rss: https://www.cyberark.com/resources/blog/feed/
+    gather_method: rss
+    topic: ai-agentic
+    trust: high
+    added: 2026-08-10
+    status: active
+    notes: "Primary source on non-human identity lifecycle management for AI agents. Published 'AI Agents and Identity Risks: How Security Will Shift in 2026'. Market standard for PAM/NHI guidance. Feed URL unverified — confirm on first run."

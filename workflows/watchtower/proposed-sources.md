@@ -20,6 +20,13 @@ This file is the only path to `sources.yaml`. Watchtower's weekly run appends ne
 |------|-----|-----|-------|-------|--------------|--------|
 -->
 
+### Batch 7 — Weekly Run (2026-08-10)
+
+| Name | URL | RSS | Topic | Trust | Why Relevant | Status |
+|------|-----|-----|-------|-------|--------------|--------|
+| CyberArk Blog | https://www.cyberark.com/resources/blog/ | https://www.cyberark.com/resources/blog/feed/ | ai-agentic | high | Published "AI Agents and Identity Risks: How Security Will Shift in 2026" — primary source on non-human identity lifecycle management for AI agents. CyberArk (now part of Palo Alto after $25B acquisition) is the market standard for privileged access management and is publishing the most actionable agent identity guidance available. No comparable PAM/NHI source in current registry. | approved |
+| Cloud Security Alliance Research | https://cloudsecurityalliance.org/research | https://cloudsecurityalliance.org/feed | ai-agentic | high | Published the definitive NHI governance whitepaper (Non-Human Identity Governance Vacuum) and the CISO note on AI agent governance framework gaps cited in W33 themes. Primary research org for enterprise AI security standards. Distinct from vendor blogs — independent, practitioner-verified. No CSA source currently in registry. | rejected |
+
 ### Batch 6 — Weekly Run (2026-07-27)
 
 | Name | URL | RSS | Topic | Trust | Why Relevant | Status |

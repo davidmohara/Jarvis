@@ -116,6 +116,13 @@ Read `references/vault-conventions.md` for the exact format. The key points:
 If there's already a Teams-sourced note for the same meeting (from the teams-transcripts
 skill), append ` (Plaud)` to distinguish them — or ask the user if they want to merge.
 
+**Frontmatter — required fields:**
+- `file_id: <plaud_file_id>` (always — the Plaud API `file_id` for this recording. This is the
+  primary dedup key used by plaud-discover on future runs. Never omit it.)
+- `date: YYYY-MM-DD` (always)
+- `duration_minutes: <float>` (always)
+- `source: Plaud AI` (always)
+
 **Frontmatter tags (2-4 total):**
 - `content/meeting` (always)
 - `meta/timeline/YYYY/MM/DD` (always)

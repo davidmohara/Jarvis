@@ -1,0 +1,15 @@
+{
+  "id": "err-20260810T165952-C3XQCG",
+  "timestamp": "2026-08-10T16:59:52Z",
+  "session": "2026-08-10 watchtower-weekly W33",
+  "source": "explicit",
+  "agent": "knox",
+  "category": "missed-context",
+  "description": "Proposed two source candidates (Non-Human Identity Management Group, Security Boulevard) in Batch 7 that had already been designated as passes/rejected. Specifically, Security Boulevard had been rejected in prior batches. Failed to cross-reference the full rejected list in proposed-sources.md before writing new proposals. Also failed to update the watchtower-weekly dashboard artifact despite step-05 explicitly requiring it as non-negotiable.",
+  "correction": "Source proposals must be cross-checked against ALL entries in proposed-sources.md (pending, approved, AND rejected) before writing. Dashboard artifact must be updated even in non-interactive sessions — if the artifact tools are available, the update is required; log artifact_updated: false only after a genuine attempt fails.",
+  "failure_mode": "context-blindness",
+  "systemic_fix": "Before writing any source batch, read proposed-sources.md in full including the Rejected section and build the exclusion set from all three states (pending, approved, rejected). Dashboard update must be attempted before declaring it skipped — ToolSearch for artifact tools is mandatory pre-flight in step-05.",
+  "fix_status": "proposed",
+  "severity": "moderate",
+  "related_entries": []
+}

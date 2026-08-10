@@ -1,14 +1,14 @@
 ---
-status: completed
-started-at: "2026-08-07T15:45:22Z"
-completed-at: "2026-08-07T16:35:00Z"
-model: sonnet
+status: waiting
+started-at: "2026-08-10T00:22:00Z"
+completed-at: null
+model: haiku
 outputs:
-  fetch-status: "success"
-  staging-verified: true
-  files-staged: 2
-  speaker-renames-applied: 2
-  notes: "Quoting problem solved by writing Python wrapper scripts to /tmp on the host Mac (via Desktop Commander write_file) that import fetch_plaud.py and call rename_and_refetch() directly with a hardcoded dict — no shell/AppleScript quoting of JSON or apostrophes required. Executed via osascript 'do shell script' running python3 against the wrapper file (backgrounded with nohup where runtime exceeded the tool call timeout). Recording 1 (5016299034d41433611d84057ee6e1bd): both renamed to David O'Hara/John Woodward/Paul Sferratore (merging P.S. Ferrat, Speaker 5, and Robyn Fuentes). Discovered a real bug in fetch_plaud.py: after is_reload=1 regeneration, the S3 'transaction_polish' layer Plaud serves for the web UI reverts to its own raw diarization/voice-profile labels (because the old 'P.S. Ferrat'/'O'Hara'/'Robyn Fuentes' speaker profiles remain separately registered — sync_speaker only adds a NEW profile under the new name rather than renaming the existing one), even though the DB-layer trans_result is correctly renamed. The script's own verification (check_speaker_names_in_transcript) also has a false-positive bug — it does a raw substring search over the whole transcript body, so a new name appearing anywhere in spoken content (not just as a speaker label) counts as 'verified'. Workaround: fetched trans_result directly via get_recording_speakers() (confirmed correct: Paul Sferratore, Matt Russell, David O'Hara, John Woodward, Tonya Guadiz — 5 clean speakers) and rebuilt the staged markdown from that DB layer instead of the buggy S3 polish layer. Verified via grep afterward: zero remaining instances of Speaker 4/5, P.S. Ferrat, or Robyn Fuentes. Recording 2 (a5eaf54083c006c73742f0c31e142f7a): Speaker 1 -> Thomas Distefano, Speaker 2 -> Logan Marshall applied and verified directly in the transaction_polish output with no regeneration needed — no stray Speaker 1/2 labels remain. 'O'Hara' label (David's own segments) was left as-is per the confirmed rename-payload scope (not requested to rename in this recording)."
+  fetch-status: "no-ready-recordings"
+  staging-verified: false
+  files-staged: 0
+  speaker-renames-applied: 0
+  notes: "No recordings are ready for fetch — all 88 new recordings still have transcription pending (trans_status=0). Step-04 will resume once transcriptions complete and transcripts arrive in staging. Workflow is now in a waiting state monitoring for transcript completion via polling or webhook."
 ---
 
 <!-- system:start -->

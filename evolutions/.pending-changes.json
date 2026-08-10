@@ -2421,6 +2421,34 @@
           "description": "Patched hardcoded Chart.js script tag from chart.js@4.4.0/dist/chart.umd.min.js to chart.js@4.5.0/dist/chart.umd.js with integrity sha384-iU8HYtnGQ8Cy4zl7gbNMOhsDTTKX02BTXptVP/vqAWIaTfM7isw76iyZCsjL2eVi and crossorigin=anonymous. Future dashboard regenerations emit the approved tag directly."
         }
       ]
+    },
+    {
+      "id": "work-20260810-plaud-discover-dedup-fix",
+      "description": "Fixed plaud-discover dedup logic that was reporting already-ingested recordings as new (err-20260810T152938-EE595H). Root cause: 70% fuzzy title matching failed to exclude vault notes because Knox rewrites Plaud auto-generated titles significantly at ingest time. Fix adds two-tier deduplication: Tier 1 is exact file_id match against vault frontmatter (authoritative, instant), Tier 2 is title fuzzy match at raised 85% threshold (fallback for pre-fix notes only). Tier 3 retains staged-file check. Step 3 now builds a file_id set by reading frontmatter of all zzPlaud/ notes in addition to the title set.",
+      "started": "2026-08-10T00:00:00Z",
+      "classification": "system",
+      "files": [
+        {
+          "path": "skills/plaud-discover/SKILL.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Step 3: Now reads frontmatter of each zzPlaud/ vault note to build a file_id set alongside the existing title set. Step 4: Replaced single-tier 70% fuzzy match with three-tier decision logic — Tier 1 exact file_id match (primary), Tier 2 title fuzzy match at 85% threshold (fallback for pre-2026-08-10 notes), Tier 3 staged-file check. Added pseudocode decision block and guidance on edge cases where 85% threshold may not match but contextual evidence (date + duration) confirms identity."
+        }
+      ]
+    },
+    {
+      "id": "work-20260810-plaud-transcripts-file-id-frontmatter",
+      "description": "Added file_id to the required frontmatter fields written by plaud-transcripts at ingest time. This is the Side B fix for err-20260810T152938-EE595H — without file_id in frontmatter, plaud-discover's new Tier 1 dedup cannot function for newly ingested notes. The field was not present in any existing vault notes (confirmed by inspection of zzPlaud/ notes including Improving/ subdirectory). Future ingest runs will write file_id so next-run dedup is exact-match rather than fuzzy.",
+      "started": "2026-08-10T00:00:00Z",
+      "classification": "system",
+      "files": [
+        {
+          "path": "skills/plaud-transcripts/SKILL.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Step 4 (Transform into Obsidian notes): Added explicit 'Frontmatter — required fields' block listing file_id, date, duration_minutes, and source as always-required fields. file_id is called out as the primary dedup key for plaud-discover and marked never-omit. This replaces the implicit frontmatter guidance that was previously inferred from note structure examples only."
+        }
+      ]
     }
   ]
 }

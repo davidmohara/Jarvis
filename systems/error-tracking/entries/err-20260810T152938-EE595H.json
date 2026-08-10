@@ -1,0 +1,15 @@
+{
+  "id": "err-20260810T152938-EE595H",
+  "timestamp": "2026-08-10T15:29:38Z",
+  "source": "explicit",
+  "agent": "master",
+  "session_id": "session-2026-08-10-090000",
+  "category": "stale-data",
+  "failure_mode": "bad-deduplication",
+  "severity": "medium",
+  "description": "Knox reported 88 'new' Plaud recordings pending transcription during boot plaud-ingest run. David corrected: most of those recordings are already handled/processed. Knox's deduplication against the vault failed to exclude already-ingested recordings, inflating the count and producing a misleading status report in the morning briefing.",
+  "what_was_wrong": "Briefing stated '88 new recordings discovered, all pending transcription' — incorrect. Most were already processed.",
+  "correct_answer": "The vast majority of the 88 flagged recordings were already handled. Actual pending count is much smaller or zero.",
+  "proposed_fix": "Review plaud-ingest deduplication logic (step-01/step-02) to ensure vault cross-reference correctly excludes already-ingested recordings by filename/ID, not just by API enumeration. Knox should report only genuinely new, unprocessed recordings.",
+  "recurrence_check": "First logged instance of this specific failure mode."
+}

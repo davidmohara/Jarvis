@@ -1,16 +1,15 @@
 ---
 status: complete
-started-at: "2026-08-03T07:12:00Z"
-completed-at: "2026-08-03T07:22:00Z"
+started-at: "2026-08-10T07:15:00Z"
+completed-at: "2026-08-10T07:25:00Z"
 outputs:
-  themes_processed: 4
-  drafts_created: 4
+  themes_processed: 3
+  drafts_created: 3
   draft_paths:
-    - "Mind/Posts/_your-vendor-checked-the-box-you-still-havent.md"
-    - "Mind/Posts/_nobody-owns-the-agent.md"
-    - "Mind/Posts/_the-premium-you-charged-was-for-knowing-things.md"
-    - "Mind/Posts/_texas-is-building-the-chips-now.md"
-  blog_ideas_appended: 4
+    - "Mind/Posts/_your-agents-have-keys-nobody-changed-the-locks.md"
+    - "Mind/Posts/_terafab-is-not-a-manufacturing-story.md"
+    - "Mind/Posts/_the-service-line-is-not-the-delivery-model.md"
+  blog_ideas_appended: 3
 ---
 
 <!-- system:start -->

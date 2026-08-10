@@ -1,17 +1,13 @@
 ---
 status: completed
-started-at: "2026-08-07T15:31:41Z"
-completed-at: "2026-08-07T15:45:22Z"
+started-at: "2026-08-10T00:20:00Z"
+completed-at: "2026-08-10T00:22:00Z"
 model: haiku
 outputs:
-  disposition: "heuristic-mapping-with-confidence-flags"
-  auto-resolved: 5
-  controller-flagged: 2
-  confidence-summary:
-    high-confidence: 2
-    medium-confidence: 2
-    low-confidence-flagged: 3
-  notes: "Recording 5016299034d41433611d84057ee6e1bd (Wendy's/GCP): 5 speakers mapped using heuristics - Speaker 5→David O'Hara (85%), Speaker 7→Matt Russell (70%), Speaker 4→Alice Mburu (55% FLAG), Speaker 2→Tonya Guadiz (60% borderline), Speaker 1→P.S. Ferrat (45% FLAG). Recording a5eaf54083c006c73742f0c31e142f7a (Dallas Huddle): 2 speakers unable to resolve from available context (insufficient Dallas Huddle event detail) - both flagged for manual review or calendar confirmation. All recordings classified as work meetings. Advancing to step-04 fetch with available mappings."
+  disposition: "no-speakers-files-found-recordings-still-pending-transcription"
+  auto-resolved: 0
+  controller-flagged: 0
+  notes: "No ready-for-fetch recordings — all 88 new recordings still have transcription pending (trans_status=0). No speaker JSON files exist in staging. Step skipped; will reprocess when transcripts arrive. Ready-for-fetch remains empty. Proceeding to step-04 with empty ready list."
 ---
 
 <!-- system:start -->
