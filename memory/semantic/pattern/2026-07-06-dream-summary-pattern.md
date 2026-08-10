@@ -6,7 +6,8 @@ domain: pattern
 confidence: medium
 created: 2026-07-06
 last-updated: 2026-08-09
-synthesized-from: 19 episodic entries
+synthesized-from: 20 episodic entries
+last-updated: 2026-08-10
 tags:
   - dream-summary
 ---
@@ -149,3 +150,9 @@ Sources this cycle:
 - `memory/episodic/dream-summary-2026-08-07.md` (score 10) — tags: dream-summary, jarvis, memory, salience, semantic-promotion, daily-review, plaud, compression, episodic. Aug 7 cycle: 1 archived (daily-review-08-06), 249 scored (85 in window), 1 promoted (daily-review-pattern updated), 0 compressed. Carry-forward quintet (Q3 rocks, nerve block, delegation tracker, Cole Estrate xAI, South Texas -21.5% QTD) confirmed across 13+ consecutive cycles. New signals this cycle: (1) calendar-unavailable pattern confirmed as a two-failure-mode variant (both M365 MCP and osascript Calendar fallback failed simultaneously on Aug 5, matching Jul 22 headless run); (2) expense report deadline (Aug 6) flagged for first time in daily-review cluster as a time-bound financial obligation — distinct from chronic structural overdue items.
 
 Pattern now at 19 episodic entries. Structural-deferral language is now stable across 2+ consecutive cycles — the system's own characterization of the carry-forward quintet has shifted and is holding. No new carry-forward items added; the cluster of 5 chronic signals is stable. The expense report was time-sensitive (Aug 6 deadline) and is now overdue, not structural — its appearance here is likely a short-cycle exception rather than a new pattern member.
+
+### 2026-08-10 — Nightly promotion
+Sources this cycle:
+- `memory/episodic/dream-summary-2026-08-08.md` (score 10) — tags: dream-summary, jarvis, semantic-promotion, salience-scoring, memory-consolidation, expense-report, calendar. Aug 8 cycle: 1 archived (dream-summary-08-07), 250 scored (81 in window), 1 promoted (dream-summary-pattern updated: calendar-unavailable two-failure-mode variant confirmed, expense report now overdue — short-cycle item not chronic, Dr. Easton closure confirmed). 0 compressed (3 candidates below 5-entry threshold).
+
+Pattern now at 20 episodic entries. No new carry-forward signals added this cycle; the carry-forward quintet (Q3 rocks, nerve block, delegation tracker, Cole Estrate xAI, South Texas -21.5% QTD) remains stable and is still the dominant pattern. The expense report (Aug 6 deadline, now overdue) continues to appear as a short-cycle financial obligation signal — not yet elevated to chronic status but worth watching across another 1-2 cycles.

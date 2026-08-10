@@ -1,12 +1,32 @@
 ---
-type: working
+type: working-archive
 task_id: "session"
 session_id: "chase-2026-08-07-201200"
 agent-source: chase
 created: 2026-08-07T20:12:00
 expires: 2026-08-09T20:12:00
-status: active
+status: archived
 context: "Account pursuit map — McKesson Corporation — 2026-08-07"
+date: 2026-08-07
+source_file: memory/working/account-pursuit-map-2026-08-07-201200.md
+tags:
+  - account-pursuit
+  - chase
+  - mckesson
+  - active-underleveraged
+  - wellverse
+  - expansion
+  - crm
+  - one-texas
+related_people:
+  - diana-stevens
+  - brian-thill
+  - brian-schmidt
+  - ellery-fisher
+salience:
+  score: 10
+  last-promoted-check: 2026-08-10
+  promoted: true
 ---
 
 - Engagement shape: active-but-underleveraged, confirmed via CRM (six related McKesson accounts; David owns Medical Surgical and Pharmacy Optimization). Framed as an expansion plan for David's own sub-accounts, not a cold pursuit — the wider family has 15+ years of history and $3.6M+ combined won revenue.

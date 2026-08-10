@@ -5,7 +5,7 @@ subject: "Recurring account-pursuit-map workflow pattern"
 synthesized-from:
   - memory/episodic/account-pursuit-map-2026-07-20-000000.md
   - memory/episodic/account-pursuit-map-2026-07-22-000000.md
-last-updated: 2026-07-27
+last-updated: 2026-08-10
 tags:
   - account-pursuit-map
   - chase
@@ -46,3 +46,13 @@ Pattern deepening: 5 additional entries across 4 accounts (CBRE, Tenet, BFS, Sch
 Sources: account-pursuit-map-2026-07-22-000000, account-pursuit-map-2026-07-22-164500, account-strategy-2026-07-22-153954, 2026-07-22-180000-tenet-healthcare, 2026-07-22-193000-cbre-crm-corrections, chase-session-2026-07-21-211500 (all score 4-5, promoted:true re-set).
 
 Step-02 dropped the `promoted` field this cycle. All 6 entries already documented in 2026-07-24/2026-07-25 entries above. No new synthesis needed. Pattern holding: account-pursuit-map remains the dominant Chase deliverable with no new accounts entered the episodic pool since Jul 22.
+
+### 2026-08-10 — Nightly promotion
+Sources this cycle (all Aug 7, 2026 — large One Texas batch):
+- `memory/episodic/account-pursuit-map-2026-08-07-201200.md` (score 10) — McKesson Corporation, active-underleveraged/expansion. CRM-confirmed: $3.6M+ combined won revenue across parent + two David-owned sub-accounts (Medical Surgical and Pharmacy Optimization). Wellverse separation (rebranded Aug 6, Apollo-backed, H2 CY2027 IPO track) is the timing trigger. Recommended lead: Option A — Wellverse Technology Enablement via OneTrack Portal precedent. Key contacts: Ellery Fisher, Brian Thill/Diana Stevens. Mid-session correction from David: McKesson parent elevated to first-class treatment with 2 live opportunities ($3.5M combined).
+- `memory/episodic/account-pursuit-map-2026-08-07-152427.md` (score 10) — PriceSmart, engagement shape UNRESOLVED (no CRM connector this session). Timing trigger: Q3 FY2026 earnings (7/8/2026), first Chile mall-format club. Named in David's One Texas portfolio and 2 unnamed employees attended a May 2026 Databricks event. Recommended lead: Platform Modernization (RELEX + Elera POS rollouts). CRM query is the gating action before any outreach.
+- `memory/episodic/account-pursuit-map-2026-08-07-000000.md` (score 10) — Texas Instruments, COLD/LOST-RE-ENTRY (provisional — CRM unconfirmed this session). Timing trigger: $7.5B Silicon Labs acquisition (Feb 2026) + CFO transition (Aug 1). Recommended lead: Silicon Labs Integration Delivery Support, targeting CIO Krunali Patel. 9-box: SIGNIFICANT at provisional Realized -4.1 (low confidence without CRM).
+- `memory/episodic/account-pursuit-map-2026-08-07-180500.md` (score 9) — ORIX Corporation USA, active-underleveraged, CRM CONFIRMED mid-session (orphaned Playwright lock cleared). 4-year client, $3.27M closed-won, 61% win rate (17/28 opportunities). All deals are staff-aug only. Live thread: Santhosh Karunakar (CTO) in active thread with Alexander Powell. Recommended lead: expand the live extension thread. Logged as err-20260807T185209-2MA410 (CRM-outage handling correction).
+- `memory/episodic/account-pursuit-map-2026-08-07-175409.md` (score 9) — 7-Eleven, active-underleveraged (corrected from cold-start framing). 2-person staff-aug presence since 2019, owned by Derek (AKKHER, Dallas). New CEO Mauricio Leyva (Aug 1, 2026) is the timing trigger. Recommended lead: Option B — digital product engineering surge through Wulfekammer/Ditzler relationship. Gating action: coordinate with Derek before any outreach.
+
+Five-account Aug 7 batch is the largest single-cycle intake since the Jul 22 session (6 entries). Key observations across this batch: (1) CRM connectivity continues to be a recurring constraint — 2 of 5 accounts had unconfirmed or mid-session-corrected engagement shapes; (2) three accounts are active-underleveraged (ORIX, 7-Eleven, McKesson), confirming that the One Texas portfolio skews toward expansion plays, not cold outreach; (3) One Texas tag appears on 3 of 5 accounts (McKesson, PriceSmart, TI) — this batch is structurally Rock 1 execution; (4) the Wellverse separation (McKesson) and Silicon Labs acquisition (TI) are the strongest near-term timing triggers in the episodic pool since the Tenet CIO retirement signal in Jul.

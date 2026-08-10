@@ -1,12 +1,29 @@
 ---
-type: working
+type: working-archive
 task_id: "session"
 session_id: "chase-2026-08-07-175409"
 agent-source: chase
 created: 2026-08-07T18:15:00
 expires: 2026-08-09T18:15:00
-status: active
+status: archived
 context: "Account pursuit map — 7-Eleven — 2026-08-07"
+date: 2026-08-07
+source_file: memory/working/account-pursuit-map-2026-08-07-175409.md
+tags:
+  - account-pursuit
+  - chase
+  - 7-eleven
+  - active-underleveraged
+  - crm
+  - leadership-change
+  - staff-aug
+related_people:
+  - derek
+  - mauricio-leyva
+salience:
+  score: 9
+  last-promoted-check: 2026-08-10
+  promoted: true
 ---
 
 - Engagement shape corrected from the request's "cold start" framing to **active-but-underleveraged**: Improving's own internal record (`projects/improving-accounts-overview.md`) shows a 2-person staff-aug presence at 7-Eleven, Inc. renewed continuously since 2019, owned internally by Derek (AKKHER, Dallas) — not David, and not a cold pursuit.

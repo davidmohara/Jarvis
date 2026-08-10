@@ -1,12 +1,25 @@
 ---
-type: working
+type: working-archive
 task_id: "session"
 session_id: "chief-2026-08-07-162834"
 agent-source: chief
 created: 2026-08-07T16:28:34
 expires: 2026-08-09T16:28:34
-status: active
+status: archived
 context: "Shutdown cleanup — 2026-08-07"
+date: 2026-08-07
+source_file: memory/working/shutdown-cleanup-2026-08-07-162834.md
+tags:
+  - session-wrap
+  - chief
+  - git-commit
+  - cleanup
+  - account-pursuit
+  - purge
+related_people: []
+salience:
+  score: 2
+  last-promoted-check: 2026-08-10
 ---
 
 - Purged 4 stray `.DS_Store` files (root, memory/, archive/, accounts/) via host process — sandbox bash lacked delete permission on OneDrive-synced copies.

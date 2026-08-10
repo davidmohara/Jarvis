@@ -1,12 +1,27 @@
 ---
-type: working
+type: working-archive
 task_id: "session"
 session_id: "chase-2026-08-07-214000"
 agent-source: chase
 created: 2026-08-07T15:24:27
 expires: 2026-08-09T15:24:27
-status: active
+status: archived
 context: "Account pursuit map — PriceSmart — 2026-08-07"
+date: 2026-08-07
+source_file: memory/working/account-pursuit-map-2026-08-07-152427.md
+tags:
+  - account-pursuit
+  - chase
+  - pricesmart
+  - cold-pursuit
+  - crm
+  - retail
+  - one-texas
+related_people: []
+salience:
+  score: 10
+  last-promoted-check: 2026-08-10
+  promoted: true
 ---
 
 - Ran the full 7-step account-pursuit-map workflow for PriceSmart, Inc. (Nasdaq: PSMT), San Diego, CA — new pursuit, no prior `accounts/PriceSmart/` folder existed.

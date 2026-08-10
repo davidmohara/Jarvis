@@ -18,10 +18,11 @@ tags:
   - compression
   - episodic
 related_people: []
+    promoted: true
 salience:
   score: 10
-  last-promoted-check: 2026-08-09
-    promoted: true
+  last-promoted-check: 2026-08-10
+  promoted: true
 ---
 
 # Dream Cycle Summary — August 7, 2026

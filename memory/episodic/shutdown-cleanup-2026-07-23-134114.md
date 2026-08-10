@@ -32,9 +32,10 @@ related_people: []
   last-promoted-check: 2026-08-06
   last-promoted-check: 2026-08-07
   last-promoted-check: 2026-08-08
-salience:
-  score: 1
   last-promoted-check: 2026-08-09
+salience:
+  score: 2
+  last-promoted-check: 2026-08-10
 ---
 
 - Purged: `missfont.log` (LaTeX aux artifact, already gone from disk, deletion staged). No other new temp-artifact patterns found this session.

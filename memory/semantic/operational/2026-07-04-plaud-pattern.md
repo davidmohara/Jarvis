@@ -5,7 +5,7 @@ subject: plaud pattern
 synthesized-from:
   - memory/episodic/plaud-ingest-2026-07-02-011500.md
   - memory/episodic/morning-briefing-2026-07-01-085000.md
-last-updated: 2026-08-07
+last-updated: 2026-08-10
 tags: [plaud]
 agent-source: dream-cycle
 confidence: low
@@ -72,3 +72,10 @@ Sources this cycle:
 - `memory/episodic/plaud-ingest-2026-08-04-152100.md` (score 4) — tags: plaud-ingest, chief, obsidian, monday, delegations, personal. Aug 4 ingest: 4 recordings ingested (AI Leaders Weekly, Athena/Anne Mwelu check-in, Ronald Besonen financial/trust review, Michael Tapp lunch). 8 Monday tasks routed (2 to Alice, 6 personal to David). Plaud skill's staging-reconciliation `--all` flag mis-documented — accidentally launched 3 concurrent re-fetches; no damage but skill doc needs correction.
 
 New signal: SKILL.md reconciliation command documentation error — the documented command doesn't exist; the real equivalent (`--all`) runs an account-wide re-fetch. This is a workflow-documentation accuracy gap worth flagging for Rigby to correct before next ingest. Personal/family recordings (Ronald Besonen, Michael Tapp) routed correctly per skill rules — no Monday tasks for personal content, no sharing. The Athena/Anne Mwelu pattern (EA check-in) is new — first time an Athena session appears in the plaud-ingest cluster.
+
+### 2026-08-10 — Nightly promotion
+Sources this cycle (both Aug 7, 2026 — two-part pi-20260807-002 session):
+- `memory/episodic/plaud-ingest-2026-08-07-170500.md` (score 5) — tags: plaud-ingest, chief, speaker-rename, obsidian, monday, recording, alice-mburu, magline. Speaker renames applied to both 2026-08-05 recordings via Python wrapper scripts (bypassing osascript quoting complexity). Recording 1 (Wendy's/GCP): merged P.S. Ferrat + Speaker 5 + Robyn Fuentes → Paul Sferratore; also David O'Hara and John Woodward. A real fetch_plaud.py bug found: S3 transaction_polish layer reverts to raw diarization labels after is_reload=1 — worked around by rebuilding from DB-layer trans_result. Recording 2 (Magline): Thomas Distefano and Logan Marshall renamed cleanly. 5 Monday action items + 2 "Review Plaud recording" tasks assigned to Alice. Both recordings shared publicly. BLOCKED on vault write: obsidian-local MCP unreachable all session.
+- `memory/episodic/2026-08-07-124429-session-plaud-ingest-pi-20260807-002.md` (score 4) — tags: plaud-ingest, knox, vault-write, obsidian, monday, recording, session-summary, alice-mburu. Step-05 vault write completed post-MCP-recovery. Both recordings from Aug 5 now in vault at `zzPlaud/Client/`. Daily note `Calendar/2026/08-August/2026-08-05.md` created. 5 Monday action items + 2 share links already confirmed complete. Self-caused error: passed invalid `--list-all` flag to fetch_plaud.py; `--all` ran instead, triggering full reprocess — 5 duplicate staging files created and deleted (15 total removed). Staging folder has ~285-file backlog (Dec 2025 origin) flagged for vault-health pass.
+
+Two-part ingest: the speaker-rename work (chief, step 1) and vault-write completion (knox, step 5) now appear as a known split-session pattern for pi-20260807-002. The --list-all/--all documentation error recurs across multiple sessions (also flagged in Aug 4 cycle) — this is becoming a repeat pattern worth escalating to Rigby for SKILL.md correction. The ~285-file staging backlog is a new structural signal not previously surfaced in this cluster. Paul Sferratore identification in the Wendy's recording is the most complex speaker-merge seen in this cluster to date (3-way merge).

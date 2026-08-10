@@ -1,12 +1,30 @@
 ---
-type: working
+type: working-archive
 task_id: "session"
 session_id: "chase-2026-08-07-000000"
 agent-source: chase
 created: 2026-08-07T00:00:00
 expires: 2026-08-09T00:00:00
-status: active
+status: archived
 context: "Account pursuit map — Texas Instruments — 2026-08-07"
+date: 2026-08-07
+source_file: memory/working/account-pursuit-map-2026-08-07-000000.md
+tags:
+  - account-pursuit
+  - chase
+  - texas-instruments
+  - cold-pursuit
+  - silicon-labs
+  - acquisition
+  - crm
+  - one-texas
+related_people:
+  - krunali-patel
+  - mohammad-yunus
+salience:
+  score: 10
+  last-promoted-check: 2026-08-10
+  promoted: true
 ---
 
 - Engagement shape determined as COLD/LOST-RE-ENTRY, but only as a *working* determination — no Dynamics CRM connector was available this session, so this is not the direct-CRM-confirmed shape the workflow otherwise requires. Top gating open item: run a direct Dynamics CRM query for "Texas Instruments" before treating any outreach as safe to start.

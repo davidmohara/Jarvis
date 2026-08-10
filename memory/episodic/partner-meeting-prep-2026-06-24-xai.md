@@ -23,9 +23,10 @@ context: Partner meeting prep — xAI/SpaceXAI, Cole Estrate sync
   last-promoted-check: 2026-08-06
   last-promoted-check: 2026-08-07
   last-promoted-check: 2026-08-08
+  last-promoted-check: 2026-08-09
 salience:
   score: 0
-  last-promoted-check: 2026-08-09
+  last-promoted-check: 2026-08-10
 ---
 
 # Partner Meeting Prep — xAI / SpaceXAI

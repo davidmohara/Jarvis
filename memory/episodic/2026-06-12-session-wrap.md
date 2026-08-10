@@ -21,9 +21,10 @@ type: working-archive
   last-promoted-check: 2026-08-06
   last-promoted-check: 2026-08-07
   last-promoted-check: 2026-08-08
+  last-promoted-check: 2026-08-09
 salience:
   score: 0
-  last-promoted-check: 2026-08-09
+  last-promoted-check: 2026-08-10
 ---
 
 # Session Wrap — June 12, 2026

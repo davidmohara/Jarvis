@@ -1,12 +1,33 @@
 ---
-type: working
+type: working-archive
 task_id: "session"
 session_id: "chase-2026-08-07-180500"
 agent-source: chase
 created: 2026-08-07T18:05:00
 expires: 2026-08-09T18:05:00
-status: active
+status: archived
 context: "Account pursuit map — ORIX Corporation USA — 2026-08-07"
+date: 2026-08-07
+source_file: memory/working/account-pursuit-map-2026-08-07-180500.md
+tags:
+  - account-pursuit
+  - chase
+  - orix
+  - active-underleveraged
+  - crm
+  - staff-aug
+  - self-correction
+related_people:
+  - jason-heiser
+  - nick-gerne
+  - roland-schaer
+  - yvonne-zhu
+  - santhosh-karunakar
+  - alexander-powell
+salience:
+  score: 9
+  last-promoted-check: 2026-08-10
+  promoted: true
 ---
 
 - **Corrected mid-session:** CRM was initially unreachable and an earlier draft treated ORIX USA as a cold pursuit. CRM access was restored (an orphaned Chrome process holding the Playwright browser lock was killed) and direct query confirmed ORIX USA is an **active, 4-year Improving client**, not a cold pursuit — engagement shape is active-but-underleveraged.
