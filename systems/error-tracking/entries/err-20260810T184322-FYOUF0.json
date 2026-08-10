@@ -1,0 +1,14 @@
+{
+  "id": "err-20260810T184322-FYOUF0",
+  "timestamp": "2026-08-10T18:43:22Z",
+  "source": "explicit",
+  "agent": "master",
+  "session_id": "session-2026-08-10-090000",
+  "category": "wrong-destination",
+  "failure_mode": "incorrect-rmapi-path",
+  "severity": "low",
+  "description": "Call prep PDF pushed to reMarkable root (/) instead of the correct /Meetings folder. David corrected: call prep sheets belong in /Meetings on the reMarkable.",
+  "what_was_wrong": "Used `rmapi put <file> /` — placed document at root level of reMarkable file tree.",
+  "correct_answer": "Call prep sheets and meeting-related PDFs should be pushed to `/Meetings` on the reMarkable. Correct command: `rmapi put <file> /Meetings`",
+  "recurrence_check": "First logged instance. Apply to all future meeting/call prep document pushes."
+}

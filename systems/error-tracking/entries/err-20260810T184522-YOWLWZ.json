@@ -1,0 +1,14 @@
+{
+  "id": "err-20260810T184522-YOWLWZ",
+  "timestamp": "2026-08-10T18:45:22Z",
+  "source": "explicit",
+  "agent": "master",
+  "session_id": "session-2026-08-10-090000",
+  "category": "routing-violation",
+  "failure_mode": "master-bypassed-rigby",
+  "severity": "medium",
+  "description": "Master executed rmapi push directly without routing to Rigby. No skill or documented convention existed for reMarkable document delivery — Master should have recognized this as a capability gap and routed to Rigby to define and codify the pattern before executing. Instead, Master improvised: pushed to wrong path (/) with wrong filename convention. Two errors resulted that required correction.",
+  "what_was_wrong": "Master used rmapi directly without a skill, without checking for a naming convention, and without routing the capability build to Rigby. Pre-Write Gate logic applies to capability execution patterns, not just file writes.",
+  "correct_answer": "Any time Master is about to use a tool (rmapi, osascript, etc.) for a delivery action with no existing skill or documented convention, stop and route to Rigby first. Rigby defines the pattern, writes the skill or convention doc, and Master executes against it.",
+  "recurrence_check": "First logged instance of this specific routing failure for rmapi/reMarkable delivery."
+}
