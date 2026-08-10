@@ -1,14 +1,14 @@
 ---
 status: complete
-started-at: 2026-08-10T06:08:00Z
-completed-at: 2026-08-10T06:09:00Z
+started-at: 2026-08-10T14:08:00Z
+completed-at: 2026-08-10T14:12:00Z
 outputs:
-  messages_scanned: 2
+  messages_scanned: 4
   new_urls: 0
-  new_digests: 0
-  posts_drafted: 0
+  new_digests: 2
+  posts_drafted: 2
   editorial_feedback: 0
   pending_threads_checked: 4
-  outcome: "No new content. 2 messages in channel were Jarvis bot's own 'no new content' posts (no digest signal, skipped). All 4 pending draft threads checked — no human replies. No action taken."
+  outcome: "Drafted 2 posts from Watchtower digests: 'The Service Line Is Not the Delivery Model' (6a7a22f0c0a498028c7e8a7d) and 'Your Agents Have Keys. Nobody Changed the Locks.' (6a7a22f0c0a498028c7e8a85). Both submitted to Ghost as drafts with correct tags, images (external Unsplash URL — CDN upload failed via MCP). Slack notifications posted to #content. pending-drafts.json and blog-ideas.md updated. 4 pending draft threads checked — no human replies."
 model: sonnet
 ---

@@ -31,8 +31,7 @@
     "status": "pending",
     "source_type": "digest",
     "content_type": "post"
-  }
-,
+  },
   {
     "ghost_post_id": "6a7112e222fd1e028a2b134e",
     "slack_thread_ts": "1785795556.839529",
@@ -42,6 +41,28 @@
     "created_at": "2026-08-03T22:14:58Z",
     "status": "pending",
     "source_type": "manual",
+    "content_type": "post"
+  },
+  {
+    "ghost_post_id": "6a7a22f0c0a498028c7e8a7d",
+    "slack_thread_ts": "1786389279.136239",
+    "slack_channel": "C0B160MA3EK",
+    "title": "The Service Line Is Not the Delivery Model",
+    "source_url": null,
+    "created_at": "2026-08-10T14:09:00Z",
+    "status": "pending",
+    "source_type": "digest",
+    "content_type": "post"
+  },
+  {
+    "ghost_post_id": "6a7a22f0c0a498028c7e8a85",
+    "slack_thread_ts": "1786389285.062929",
+    "slack_channel": "C0B160MA3EK",
+    "title": "Your Agents Have Keys. Nobody Changed the Locks.",
+    "source_url": null,
+    "created_at": "2026-08-10T14:09:00Z",
+    "status": "pending",
+    "source_type": "digest",
     "content_type": "post"
   }
 ]
