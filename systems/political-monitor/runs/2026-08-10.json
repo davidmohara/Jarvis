@@ -1,0 +1,244 @@
+{
+  "date": "2026-08-10",
+  "generated": "2026-08-10T06:00:00Z",
+  "window_hours": 72,
+  "counts": {
+    "total_items": 66,
+    "by_lean": { "left": 34, "right": 26, "center": 6 },
+    "shared_topics": 4,
+    "gap_left": 6,
+    "gap_right": 4
+  },
+  "sources_used": [
+    "msnbc", "cnn", "nbc", "thehill", "axios", "thedailybeast", "slate", "newrepublic",
+    "foxnews", "natreview", "examiner", "federalist", "dailywire", "breitbart", "townhall",
+    "rcp", "amconserv", "spectator", "freepress"
+  ],
+  "sources_muted": [
+    { "id": "nyt", "name": "New York Times", "reason": "accessible: false" },
+    { "id": "wapo", "name": "Washington Post", "reason": "accessible: false" },
+    { "id": "politico", "name": "Politico", "reason": "accessible: false" },
+    { "id": "vox", "name": "Vox Politics", "reason": "accessible: false" },
+    { "id": "motherjones", "name": "Mother Jones", "reason": "accessible: false" },
+    { "id": "wsj_opinion", "name": "WSJ Opinion", "reason": "accessible: false" },
+    { "id": "nypost", "name": "New York Post", "reason": "accessible: false" },
+    { "id": "reuters", "name": "Reuters Politics", "reason": "accessible: false" },
+    { "id": "ap", "name": "Associated Press", "reason": "accessible: false" },
+    { "id": "bbc", "name": "BBC US & Canada", "reason": "accessible: false" }
+  ],
+  "shared_topics": [
+    {
+      "title": "Medicaid Cuts from 'Big Beautiful Bill' Become a Midterm Weapon",
+      "topic_key": "medicaid-big-beautiful-bill-midterm-weapon",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "summary": "Congress passed the largest Medicaid cuts in the program's history through the 'One Big Beautiful Bill Act,' projected to remove approximately 12 million lower-income Americans from health coverage by 2034. With work requirements set to begin December 31, 2026 — just after the midterms — the legislation has become a centerpiece of Democratic campaign messaging, while Republicans insist the changes target waste and fraud.",
+      "left": {
+        "framing": "Left outlets frame the Medicaid cuts as devastating to vulnerable Americans and a political gift for Democrats heading into November. The Hill reports hospitals are already making cuts that affect communities visibly, and CNN describes the bill as potentially Trump's biggest political liability. House Minority Leader Jeffries has pledged to reverse the cuts if Democrats take the majority.",
+        "sources": [
+          { "source": "CNN", "url": "https://www.cnn.com/2026/07/12/politics/trump-big-beautiful-bill-midterms" },
+          { "source": "The Hill", "url": "https://thehill.com/policy/healthcare/5378970-medicaid-cuts-senate-republicans/" },
+          { "source": "NBC News", "url": "https://www.nbcnews.com/politics/congress/republican-big-beautiful-bill-win-loses-rcna215910" }
+        ]
+      },
+      "right": {
+        "framing": "Fox News and the Washington Examiner argue Democrats are spreading 'blatantly false' claims about the Medicaid changes. GOP defends the reforms as targeting waste and ensuring able-bodied adults don't abuse the system. The Examiner frames Jeffries' reversal pledge as a promise to restore welfare dependency.",
+        "sources": [
+          { "source": "Fox News", "url": "https://www.foxnews.com/politics/gop-rails-against-blatantly-false-dem-claims-about-medicaid-reform-trumps-big-beautiful-bill" },
+          { "source": "Washington Examiner", "url": "https://www.washingtonexaminer.com/policy/healthcare/4666517/hakeem-jeffries-reverse-medicaid-cuts-democrats-house-majority/" }
+        ]
+      },
+      "correlation": 38,
+      "correlation_label": "Same legislation, sharply divergent narratives: left focuses on human impact and electoral consequences, right contests the impact framing entirely."
+    },
+    {
+      "title": "Graham-Named Russia Sanctions Bill Passes Senate with Bipartisan Support",
+      "topic_key": "graham-russia-sanctions-senate-bipartisan",
+      "days_seen": 2,
+      "relevance": 70,
+      "relevance_label": "Recurring — day 2",
+      "summary": "A Russia sanctions bill named after the late Sen. Lindsey Graham cleared the Senate with bipartisan support and Trump's backing, targeting Putin's oil and gas revenue. The bill passed after a yearlong fight and represents rare bipartisan cooperation in the current political climate.",
+      "left": {
+        "framing": "Left-leaning and centrist outlets acknowledge the bill as a genuine bipartisan accomplishment, framing it as a firm stand against Putin's aggression. Some progressives are skeptical of its scope and whether it goes far enough given the Iran conflict's demands on U.S. attention.",
+        "sources": [
+          { "source": "The Hill", "url": "https://thehill.com/" }
+        ]
+      },
+      "right": {
+        "framing": "Fox News frames the bill as a fulfillment of Graham's legacy and a firm stand against Putin, praising bipartisan cooperation as evidence Congress can act decisively on national security when Trump leads the way.",
+        "sources": [
+          { "source": "Fox News", "url": "https://www.foxnews.com/politics/lindsey-grahams-final-mission-punish-putin-clears-senate-after-yearlong-fight" }
+        ]
+      },
+      "correlation": 72,
+      "correlation_label": "Both sides agree on the facts and the anti-Putin purpose; minor divergence on strategic significance and whether the scope is adequate."
+    },
+    {
+      "title": "Supreme Court Blocks Trump Birthright Citizenship Executive Order",
+      "topic_key": "birthright-citizenship-scotus-blocked-trump",
+      "days_seen": 2,
+      "relevance": 70,
+      "relevance_label": "Recurring — day 2",
+      "summary": "The Supreme Court ruled against President Trump's first executive order targeting birthright citizenship, holding it unconstitutional. Trump subsequently signed new executive orders attempting a different legal approach to the same goal, keeping the issue alive in both courts and on the campaign trail.",
+      "left": {
+        "framing": "Left outlets frame the ruling as a necessary check on executive overreach, emphasizing that birthright citizenship is constitutionally guaranteed under the Fourteenth Amendment. NBC highlights the ruling as protection for children of undocumented immigrants born on U.S. soil.",
+        "sources": [
+          { "source": "NBC News", "url": "https://www.nbcnews.com/politics/white-house" }
+        ]
+      },
+      "right": {
+        "framing": "Right-leaning outlets emphasize Trump's persistence — signing new EOs immediately after the ruling — and argue 'birth tourism' represents a real abuse of the system. The Washington Examiner frames the new orders as a necessary second attempt to address a genuine loophole.",
+        "sources": [
+          { "source": "Washington Examiner", "url": "https://www.washingtonexaminer.com/restoring-america/patriotism-unity/4666009/us-policy-legal-immigration-rules-vetting/" }
+        ]
+      },
+      "correlation": 28,
+      "correlation_label": "Sharply divergent: left centers on constitutional protection, right centers on the administration's effort to persist against what it calls abuse of the system."
+    },
+    {
+      "title": "Wisconsin DSA Candidate Francesca Hong Leads Democratic Governor Primary",
+      "topic_key": "francesca-hong-wisconsin-dsa-governor-primary",
+      "days_seen": 2,
+      "relevance": 70,
+      "relevance_label": "Recurring — day 2",
+      "summary": "Democratic Socialist Francesca Hong leads Wisconsin's Democratic gubernatorial primary by double digits and could become both the state's first female governor and the first DSA candidate to hold a governorship. Her rise is part of the broader DSA surge in Democratic primaries following El-Sayed's Michigan Senate win.",
+      "left": {
+        "framing": "Left outlets cover Hong's rise as a continuation of progressive momentum, citing polling showing strong leads and noting she's built a broad coalition. Slate examines the broader dynamic of escalation in Democratic primary politics, with both parties struggling to determine when to back down.",
+        "sources": [
+          { "source": "Slate", "url": "https://slate.com/news-and-politics/2026/08/francesca-hong-wisconsin-governor-bill-cassidy-abdul-el-sayed.html" }
+        ]
+      },
+      "right": {
+        "framing": "Right outlets use Hong's rise as additional evidence the Democratic Party is lurching toward socialism in a way that will alienate mainstream voters in November. The American Spectator notes Quinnipiac data showing 71% Democratic Party disapproval among men and argues Hong's candidacy accelerates the party's general-election vulnerability.",
+        "sources": [
+          { "source": "American Spectator", "url": "https://spectator.org/democratic-socialist-francesca-hong-redefining-politics-in-wisconsin/" },
+          { "source": "Breitbart", "url": "https://www.breitbart.com/politics/2026/08/09/pinkerton-the-democrat-leftward-lurch-is-permanent/" }
+        ]
+      },
+      "correlation": 55,
+      "correlation_label": "Both sides agree on Hong's rise and socialist platform; they diverge sharply on whether this signals democratic renewal or general-election self-destruction."
+    }
+  ],
+  "gap_left": [
+    {
+      "title": "Trump Approval at 34%, Squanders GOP Advantages on Economy and Security",
+      "topic_key": "trump-approval-34-carter-iran-economy",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "summary": "A new CNN/SSRS poll finds Trump's approval rating at 34%, matching his career low. Analysts note he has squandered the Republican Party's traditional advantages on both the economy and national security due to the Iran war's drag and the July jobs report showing a loss of 23,000 jobs. CNN's analysis compares Trump's position to Jimmy Carter's 1980 predicament — an ongoing conflict plus a sputtering economy heading into an election year.",
+      "sources": [
+        { "source": "CNN", "url": "https://www.cnn.com/2026/08/09/politics/trump-poll-economy-national-security" },
+        { "source": "CNN Analysis", "url": "https://www.cnn.com/2026/08/10/politics/trump-iran-economy-strait-of-hormuz-analysis" }
+      ]
+    },
+    {
+      "title": "Abortion Returns to State Ballots in Two Upcoming Contests",
+      "topic_key": "abortion-state-ballots-two-states-2026",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "summary": "Abortion access measures are appearing on state ballots in two upcoming contests as Democrats make reproductive rights a central midterm issue. This follows Kansas and Missouri red-state voters rejecting anti-abortion ballot measures last week — signaling ongoing electoral salience of the issue. Left outlets frame this as evidence abortion remains a winning issue for Democrats even in otherwise hostile territory.",
+      "sources": [
+        { "source": "NBC News", "url": "https://www.nbcnews.com/politics/politics-news/abortion-ballot-two-states-politics-desk-rcna590278" }
+      ]
+    },
+    {
+      "title": "Arizona Native American Tribe Displaced by Trump's Border Wars",
+      "topic_key": "arizona-tribe-border-wall-displacement",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "summary": "An Arizona Native American tribe has been dragged into the crossfire of Trump's immigration enforcement as border wall construction encroaches on tribal land without adequate consultation. The New Republic reports the tribe faces displacement and cultural harm. This story receives no coverage from right-leaning sources in the current harvest.",
+      "sources": [
+        { "source": "The New Republic", "url": "https://newrepublic.com/article/214064/arizona-tribe-trump-border-wars" }
+      ]
+    },
+    {
+      "title": "Immigration Enforcement Creates Industry Alarm Over Worker Shortages",
+      "topic_key": "immigration-enforcement-industry-worker-shortage",
+      "days_seen": 2,
+      "relevance": 70,
+      "relevance_label": "Recurring — day 2",
+      "summary": "Industry groups spanning construction, agriculture, and hospitality are lobbying the Trump administration over its immigration crackdown, arguing worksite raids and deportation of 1.3 million legally working individuals are creating worker shortages and undercutting economic growth. CNN reports the lobbying intensifying as the midterms approach. Right outlets frame the immigration backlog as an ICE enforcement opportunity rather than an economic harm.",
+      "sources": [
+        { "source": "CNN", "url": "https://www.cnn.com/2026/08/08/politics/immigration-enforcement-worksites-industry-lobbying" }
+      ]
+    },
+    {
+      "title": "K-Shaped Economy: Real Wages Eroded by 3.5% Inflation Despite Administration Claims",
+      "topic_key": "k-shaped-economy-real-wages-inflation-aug10",
+      "days_seen": 2,
+      "relevance": 70,
+      "relevance_label": "Recurring — day 2",
+      "summary": "CNN's analysis of the 'K-shaped economy' finds that workers' average hourly wages are being entirely consumed by the 3.5% inflation rate, even as Treasury Secretary Bessent claims the economy has recovered from its two-tier trajectory. Stagflation concerns are growing as the weak July jobs report (-23K) coincides with elevated consumer prices, creating a dilemma for the Federal Reserve ahead of elections.",
+      "sources": [
+        { "source": "CNN", "url": "https://www.cnn.com/2026/08/10/business/k-shaped-economy" },
+        { "source": "NBC News", "url": "https://www.nbcnews.com/business/economy/inflation-cpi-report-august-rcna230557" }
+      ]
+    },
+    {
+      "title": "Democratic Party Fault Lines Deepen Post-Michigan: Progressives vs. Establishment",
+      "topic_key": "democratic-fault-lines-progressive-establishment-michigan",
+      "days_seen": 2,
+      "relevance": 70,
+      "relevance_label": "Recurring — day 2",
+      "summary": "NBC and Slate report that Michigan's primaries have deepened fault lines between the Democratic Party's progressive and establishment wings. With El-Sayed defeating a well-funded establishment candidate and DSA candidates ousting multiple incumbents across the cycle, Democratic strategists are divided over whether to embrace progressive energy or pivot back to a centrist affordability message heading into November.",
+      "sources": [
+        { "source": "NBC News", "url": "https://www.nbcnews.com/politics/politics-news/fault-lines-both-parties-emerge-michigans-primaries-politics-desk-rcna591428" },
+        { "source": "Slate", "url": "https://slate.com/news-and-politics/2026/08/election-results-democrats-progressives-centrists.html" }
+      ]
+    }
+  ],
+  "gap_right": [
+    {
+      "title": "Democratic Defectors Back Republican Rogers in Michigan; Jill Biden's Press Secretary Flips",
+      "topic_key": "democratic-defectors-rogers-michigan-la-rosa",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "summary": "Jill Biden's former press secretary Michael La Rosa announced he is crossing party lines to vote for Republican Mike Rogers in the Michigan Senate race, citing Abdul El-Sayed's far-left positions as disqualifying. Breitbart and Townhall report this as the latest in a string of Democratic staffers and officials defecting over El-Sayed's nomination. Left outlets do not cover the La Rosa story; they emphasize Obama and Schumer rallying behind El-Sayed.",
+      "sources": [
+        { "source": "Breitbart", "url": "https://www.breitbart.com/politics/2026/08/08/another-longtime-democratic-staffer-breaks-with-his-party-endorses-mike-rogers-for-michigan-senate/" },
+        { "source": "Townhall", "url": "https://townhall.com/news/mattvespa/2026/08/08/jill-bidens-former-press-secretary-is-voting-republican-in-miand-cooked-his-party-in-the-process-n2680910" }
+      ]
+    },
+    {
+      "title": "Right Press: Democrats' Leftward Lurch Is 'Political Suicide' and 'Permanent'",
+      "topic_key": "democrats-leftward-permanent-political-suicide-right",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "summary": "Multiple right-leaning commentators argue that the Democratic Party's embrace of DSA candidates represents a permanent and self-destructive shift that will cost them the general election despite the favorable environment. RealClearPolitics features David Brooks calling it 'political suicide times 10'; Breitbart's Pinkerton argues the lurch is now structural and irreversible; the American Spectator predicts Democrats will lose November regardless of polling advantages.",
+      "sources": [
+        { "source": "RealClearPolitics", "url": "https://www.realclearpolitics.com/video/2026/08/08/david_brooks_democrats_swinging_left_is_political_suicide_times_10.html" },
+        { "source": "Breitbart", "url": "https://www.breitbart.com/politics/2026/08/09/pinkerton-the-democrat-leftward-lurch-is-permanent/" },
+        { "source": "American Spectator", "url": "https://spectator.org/zero-sympathy-for-the-democrats-political-death-march/" }
+      ]
+    },
+    {
+      "title": "New Jersey Admits 6,600 Noncitizens on Voter Rolls; ~400 Cast Ballots",
+      "topic_key": "nj-noncitizen-voter-rolls-election-integrity",
+      "days_seen": 2,
+      "relevance": 70,
+      "relevance_label": "Recurring — day 2",
+      "summary": "New Jersey officials acknowledged that approximately 6,600 noncitizens were registered on the state's voter rolls through the motor voter program, with an estimated 400 casting ballots. Right-leaning outlets frame this as evidence of systemic vulnerability in election integrity. No major left outlets covered this story in the current harvest.",
+      "sources": [
+        { "source": "Fox News", "url": "https://www.foxnews.com/politics" }
+      ]
+    },
+    {
+      "title": "Lankford-Lee Bill: Federal Election Day Ballot Deadline to End 'Marathon' Counts",
+      "topic_key": "election-day-ballot-deadline-lankford-lee-bill",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "summary": "Senators James Lankford (R-OK) and Mike Lee (R-UT) introduced legislation requiring all mail-in and absentee ballots to be received by the time polls close on Election Day, targeting California and other states that count ballots arriving days after the election. Fox News frames this as a necessary reform to restore confidence in election results. The proposal is not covered by left-leaning outlets in today's harvest.",
+      "sources": [
+        { "source": "Fox News", "url": "https://www.foxnews.com/politics/senate-republicans-push-election-day-deadline-californias-marathon-ballot-counts" }
+      ]
+    }
+  ],
+  "suggestions": []
+}
