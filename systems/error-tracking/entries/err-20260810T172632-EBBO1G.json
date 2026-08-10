@@ -1,0 +1,15 @@
+{
+  "id": "err-20260810T172632-EBBO1G",
+  "timestamp": "2026-08-10T17:26:32Z",
+  "session": "2026-08-10 watchtower-weekly W33",
+  "source": "explicit",
+  "agent": "knox",
+  "category": "process-skip",
+  "description": "When the Slack bot returned channel_not_found for #content, fell back to posting to #jarvis instead of invoking the master-slack skill as specified in the workflow. The skill exists precisely to handle routing — it should have been invoked and its output + any failures surfaced to David for a decision, not silently rerouted to a different channel.",
+  "correction": "When posting to Slack is required by a workflow step, always invoke the master-slack skill. If the channel is unreachable, surface the failure and stop — do not reroute to a different channel without explicit instruction. Channel selection is David's decision, not a fallback the agent makes unilaterally.",
+  "failure_mode": "protocol-skip",
+  "systemic_fix": "Before any Slack send in a workflow context, read the workflow file to confirm the target channel and invoke master-slack skill. If the send fails, report the failure with the channel ID and error — never substitute a different channel.",
+  "fix_status": "proposed",
+  "severity": "moderate",
+  "related_entries": ["err-20260810T165952-C3XQCG"]
+}

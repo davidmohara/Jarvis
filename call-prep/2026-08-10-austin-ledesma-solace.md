@@ -39,26 +39,36 @@ The single most important thing to resolve today: **who owns what, and what happ
 ## Open Issues to Resolve
 
 ### 1. CBRE — Reconcile the "Joint Target" Framing
-**Issue:** Austin listed CBRE as a joint target. Improving has a 9-year relationship with CBRE — active PSA, live engagement, and Rob Ogbah has an active Confluent referral in flight there. CBRE is not a cold target for Improving; it's an existing account.
+**Issue:** Austin listed CBRE as a joint target. This is not a cold prospect for Improving.
+
+**Improving's actual CBRE position:**
+- 9-year relationship. Active PSA. This is one of Improving's established Dallas accounts (Rod Patane owns it, listed as an active pursuit).
+- Three key technical stakeholders already engaged: **Rama** (Chief Architect), **Parsa** (Director of Platform), **Prasanna** (VP Software Engineering). Rob Ogbah scheduled 1:1s with all three as recently as March 2026.
+- Technical deep dive track already underway: leads **Venu, Vishwak, Bavia** + others for follow-on work.
+- Rob Ogbah (Microsoft) has an **active Confluent referral** at CBRE — meaning a Microsoft-Improving-Confluent stack play is already in motion.
+- Your 1-on-1 notes (Scott McMichael, Feb 2026): "Confluent/CBRE — Next Tues" — this has been an active pursuit thread for months.
+- Tim Rayburn's notes (March 2026): "CBRE — Flink" — a data streaming/Flink conversation is also in play.
 
 **What to establish:**
-- Does Austin know Improving is already deeply embedded at CBRE?
-- What's the specific Solace use case Austin is pursuing there?
-- Is this additive (Solace layer on top of existing Improving relationship) or is there overlap risk?
-- How do you protect the existing relationship while creating a Solace entry point?
+- Austin almost certainly doesn't know the depth of Improving's existing footprint at CBRE.
+- The specific question: what Solace use case is Austin pursuing there, and does it touch Rama/Parsa/Prasanna — because if so, Improving is already in that room.
+- The right framing: Solace's event-driven architecture story is potentially *additive* to the Confluent/Flink work already in motion. Frame it as "we should coordinate" not "joint target."
+- If Austin has a separate CBRE contact set that Improving isn't in, that's worth knowing — but he leads through you, not around you.
 
-**Your position:** CBRE is an Improving account with active revenue. Any Solace play runs through you, not alongside you.
+**Your position:** CBRE is an active Improving account with ongoing technical engagement. Any Solace play coordinates through Rod and you. This is an asset, not a gap — use it to accelerate Solace's entry rather than letting Austin go in cold.
 
 ---
 
 ### 2. Schwab — Define "Joint-Owned" Operationally
 **Issue:** Austin listed Schwab as jointly owned, but it's not reflected in Improving's account plans. The word "joint-owned" needs definition.
 
+**Improving's current Schwab position:** Derek Nwamadi owns the account. It's been flagged as going cold — the June sales update showed it "turning green" (positive meetings), but as of the June SKO review Derek was still managing it with no visible progress. A CRM opportunity was created July 24 for a backfill Instructional Designer role ($0 estimated revenue). This is an active but shallow account — not a strategic partnership anchor.
+
 **What to establish:**
-- What does Solace have at Schwab currently? Active deployment? Prospect?
-- What does Improving have there?
-- Is there a shared opportunity or just shared interest in the name?
+- What does Solace have at Schwab currently? Active deployment, live relationship, or just a name on a slide?
+- If Solace has real presence there, the framing shifts — this could be a legitimate Solace-led account where Improving supports.
 - What does joint-ownership mean for outreach — who leads, who supports, how credit is shared?
+- Don't let this sit as a vague agreement. Either there's a specific play or there isn't.
 
 ---
 
@@ -77,20 +87,28 @@ The single most important thing to resolve today: **who owns what, and what happ
 
 ---
 
-### 4. Entergy — You Have the Contacts, Now What?
+### 4. Entergy — Andrew Freson Just Left, Contacts Need Updating
 **The thread:**
-- August 5: You asked Austin for his Entergy contacts so you could triangulate (you have a call with Entergy next week).
-- August 5: Austin provided two contacts he'd recently tried to re-engage:
-  - **Mark Bonfiglio** — [linkedin.com/in/mark-bonfiglio-b6744b](https://www.linkedin.com/in/mark-bonfiglio-b6744b)
-  - **Krishna Priya** — [linkedin.com/in/krishna-priya-374078b0](https://www.linkedin.com/in/krishna-priya-374078b0)
-- Austin asked for a read from your conversation.
+- August 5: You asked Austin for his Entergy contacts; he provided Mark Bonfiglio and Krishna Priya — both recent re-engagement attempts on his side.
+- Austin asked for a read from your call.
+
+**Critical new development:** **Andrew Freson, your primary Entergy contact, has left the company.** This changes the situation materially — your triangulation call was likely to/about Freson, and the contact map needs to be rebuilt.
+
+**Improving's Entergy context (from April SKO):**
+- Entergy is an energy hyperscaler: $10B/year capex for 4 years; data center deals with Meta and Google driving tech investment — this is a real account with scale.
+- **Primary target: SAP Analytics Cloud (SAC) RFP** — introduced to 11 finance department contacts. MSA in place via partner Clearly Agile (being acquired). Client is dissatisfied with incumbent Accenture.
+- **Stephen Johnson** (Houston) has deep energy sector expertise — he's the internal SME to loop in.
+- **Devlin** identified as key industry knowledge resource.
+- **Strategy agreed at SKO:** Land the SAP deal first, then pitch AI DLP solution. Build a dedicated Entergy account plan.
+- Rod Patane's action item: connect with John Pilch to schedule Entergy CTO Jason meeting.
+
+**Austin's contacts (to share back):** Mark Bonfiglio and Krishna Priya are Austin's re-engagement targets on their side. These may be useful contacts for Improving as we rebuild the map post-Freson.
 
 **What to establish today:**
-- You had the Entergy call — what did you learn? Are Mark and Krishna the right contacts?
-- Is Entergy a real joint opportunity or is Solace already too cold there?
-- If there's overlap, how do you coordinate the re-engagement so you're not running parallel outreach?
-
-**Give Austin the read he asked for.** This is a trust-building moment — he shared intel, he wants feedback.
+- Share with Austin that Andrew Freson left — he may not know, and it affects his contacts too.
+- Ask Austin: are Mark Bonfiglio and Krishna Priya on the technology side or business side? Do they connect to the SAP/finance RFP track?
+- Discuss whether Solace's event-driven architecture play can be bundled into the SAP conversation — that's Improving's current point of entry.
+- Who takes the lead on re-establishing the contact map? Coordinate rather than run parallel tracks.
 
 ---
 
@@ -108,14 +126,23 @@ The single most important thing to resolve today: **who owns what, and what happ
 ---
 
 ### 6. Texans Suite — September 20
-**Status:** You offered Austin a suite for Houston Texans vs. Cincinnati Bengals, September 20. Austin said he wants to hash out logistics and would circulate internally. He hasn't confirmed yet.
+**Status as of today:** The suite lease agreement is **fully executed** — DocuSign completed August 7, Drayton McMichael (Membership Services Advisor, Houston Texans) confirmed and sent the executed agreement this morning (August 10). AP is being set up to process payment.
 
-**What to establish:**
-- Is Austin in for the Texans game? How many people on his side?
-- Any key Solace accounts/contacts you should invite together?
-- What's the planning timeline — when do you need a headcount?
+**What's included:**
+- **22 tickets + 8 parking passes**
+- VIP entry and 300-level club lounge access
+- Catering optional: estimated **$1,500–$3,000 additional** (menu available, pricing starts page 19). Alternatively, use the 300-level lounge's elevated concessions for individuals.
+- **Sideline passes:** Not guaranteed — Drayton will check 2 weeks out (BMW club and player/family needs drive availability). He's optimistic but can't promise.
+- Hotel recommendations from Drayton: JW Marriott, Hilton on Post Oak, Westin Galleria.
 
-This is a relationship investment and a sourcing event. Worth confirming today so you can plan the guest list.
+**Cost summary for the conversation:** Suite lease ~$25,000. Catering adds $1,500–$3,000 on top. All-in budget: ~$26,500–$28,000 against the Improving One Texas marketing/entertainment budget.
+
+**Note:** Stephen Johnson (Improving Houston) is also planning to attend separately from your suite — Drayton mentioned he reached out independently (networking/personal use).
+
+**What to establish with Austin today:**
+- Is Solace in? How many people on his side?
+- Any key joint-account contacts worth inviting (Entergy, CBRE, Schwab, etc.) to turn this into a working sourcing event?
+- Headcount deadline — when do you need to know?
 
 ---
 

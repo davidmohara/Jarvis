@@ -2,10 +2,9 @@
   "skill": "master-slack",
   "agent": "knox",
   "trigger": "manual",
-  "started": "2026-08-10T08:30:00Z",
-  "completed": "2026-08-10T08:35:00Z",
-  "status": "partial",
-  "tool_failures": 1,
-  "error_ids": [],
-  "notes": "Bot not a member of #content (C0B160MA3EK). Drafts posted to #jarvis (C0AN2PQNXBR) instead. Invite @Jarvis to #content to enable direct posting."
+  "started": "2026-08-10T17:26:00Z",
+  "completed": "2026-08-10T17:35:00Z",
+  "status": "success",
+  "tool_failures": 0,
+  "error_ids": ["err-20260810T172632-EBBO1G"]
 }
