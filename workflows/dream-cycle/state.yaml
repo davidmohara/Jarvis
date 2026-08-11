@@ -1,31 +1,51 @@
 workflow: dream-cycle
 agent: jarvis
 status: complete
-session-started: 2026-08-10T03:09:43-05:00
-session-id: dream-cycle-2026-08-10-030943
+session-started: 2026-08-11T03:09:50-05:00
+session-id: dream-cycle-2026-08-11-030950
 current-step: null
-original-request: Scheduled dream cycle run (automated) - 2026-08-10
+original-request: Scheduled dream cycle run (automated) - 2026-08-11
 accumulated-context:
   git_pull_at_boot: success
-  git_pull_note: "Already up to date."
-  working_archived: 10
+  git_pull_note: "Fast-forward e70e3b6..32def0d — 11 files (remarkable-push skill, 2 error entries, shutdown-cleanup-08-10, eval record, etc.)"
+  working_archived: 3
   working_deleted: 0
-  working_skipped: 23
+  working_skipped: 26
   working_stranded: 0
+  enrichment_method: "heuristic (claude -p auth unavailable in headless context)"
   archived_files:
-    - 2026-08-07-124429-session-plaud-ingest-pi-20260807-002.md
-    - account-pursuit-map-2026-08-07-000000.md
-    - account-pursuit-map-2026-08-07-152427.md
-    - account-pursuit-map-2026-08-07-175409.md
-    - account-pursuit-map-2026-08-07-180500.md
-    - account-pursuit-map-2026-08-07-201200.md
-    - daily-review-2026-08-07-200000.md
-    - dream-summary-2026-08-08.md
-    - plaud-ingest-2026-08-07-170500.md
-    - shutdown-cleanup-2026-08-07-162834.md
-  skipped_not_expired:
     - dream-summary-2026-08-09.md
+    - dream-summary-2026-08-10.md
     - system-eval-2026-08-08-040649.md
+  clusters_found: 1
+  semantic_created: 0
+  semantic_updated: 1
+  promoted_entries: 2
+  cluster_actions:
+    - tag: dream-summary
+      domain: pattern
+      size: 2
+      action: update
+      target: memory/semantic/pattern/2026-07-06-dream-summary-pattern.md
+  errors_30d: 120
+  lessons_appended: 0
+  lessons_note: "All 8 qualifying categories already documented in LESSONS.md. No new lesson appended."
+  entries_compressed: 0
+  digests_updated: 0
+  compression_skipped: true
+  compression_note: "0 candidates — all episodic entries either score >= 2, promoted, no date, or within 90-day window."
+  skipped_not_expired:
+    - co-sell-pipeline-2026-08-10-145200.md
+    - daily-review-2026-08-10-120000.md
+    - morning-briefing-2026-08-10-070000.md
+    - revenue-tracker-2026-08-10-001500.md
+    - shutdown-cleanup-2026-08-10-184800.md
+  episodic_scanned: 263
+  score_updates: 263
+  window_entries: 91
+  no_date: 27
+  no_tags: 194
+  score_distribution: "0:194,2:5,3:1,4:4,5:3,6:1,7:1,9:4,10:50"
   skipped_unparseable:
     - 2026-07-08.md
     - 2026-07-23-215200-session-felix-derek-persona-rebuild.md
@@ -48,54 +68,16 @@ accumulated-context:
     - sc-executive-brief-2026-07-13.md
     - slack-notification-golf-booking-20260801.txt
     - solace-meeting-prep-2026-07-27.md
+prior-run-context:
+  session_id: dream-cycle-2026-08-10-030943
+  working_archived: 10
+  working_deleted: 0
   episodic_scanned: 260
   score_updates: 260
-  window_entries: 90
-  no_date: 27
-  no_tags: 194
-  score_distribution: "0:194,1:1,2:3,3:1,4:5,5:2,6:1,7:1,9:4,10:48"
   clusters_found: 4
   semantic_created: 0
   semantic_updated: 4
   promoted_entries: 9
-  cluster_actions:
-    - tag: dream-summary
-      domain: pattern
-      size: 1
-      action: update
-      target: memory/semantic/pattern/2026-07-06-dream-summary-pattern.md
-    - tag: daily-review
-      domain: operational
-      size: 1
-      action: update
-      target: memory/semantic/operational/2026-07-04-daily-review-pattern.md
-    - tag: account-pursuit
-      domain: operational
-      size: 5
-      action: update
-      target: memory/semantic/operational/2026-07-24-account-pursuit-map-pattern.md
-    - tag: plaud-ingest
-      domain: operational
-      size: 2
-      action: update
-      target: memory/semantic/operational/2026-07-04-plaud-pattern.md
-  errors_30d: 115
-  lessons_appended: 0
-  lessons_note: "All 8 qualifying categories already documented in LESSONS.md. No new lesson appended."
-  entries_compressed: 0
-  digests_updated: 0
-  compression_skipped: true
-  compression_note: "0 candidates — all episodic entries either score >= 2, promoted, no date, or within 90-day window."
-prior-run-context:
-  session_id: dream-cycle-2026-08-09-030934
-  working_archived: 1
-  working_deleted: 0
-  episodic_scanned: 250
-  score_updates: 250
-  clusters_found: 1
-  semantic_created: 0
-  semantic_updated: 1
-  promoted_entries: 1
   entries_compressed: 0
   digests_updated: 0
   errors: 0

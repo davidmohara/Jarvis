@@ -19,9 +19,10 @@ tags:
   - episodic
 related_people: []
     promoted: true
+  promoted: true
 salience:
   score: 10
-  last-promoted-check: 2026-08-10
+  last-promoted-check: 2026-08-11
   promoted: true
 ---
 

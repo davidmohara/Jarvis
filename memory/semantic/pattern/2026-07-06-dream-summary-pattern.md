@@ -5,9 +5,8 @@ tag: dream-summary
 domain: pattern
 confidence: medium
 created: 2026-07-06
-last-updated: 2026-08-09
-synthesized-from: 20 episodic entries
-last-updated: 2026-08-10
+last-updated: 2026-08-11
+synthesized-from: 22 episodic entries
 tags:
   - dream-summary
 ---
@@ -156,3 +155,10 @@ Sources this cycle:
 - `memory/episodic/dream-summary-2026-08-08.md` (score 10) — tags: dream-summary, jarvis, semantic-promotion, salience-scoring, memory-consolidation, expense-report, calendar. Aug 8 cycle: 1 archived (dream-summary-08-07), 250 scored (81 in window), 1 promoted (dream-summary-pattern updated: calendar-unavailable two-failure-mode variant confirmed, expense report now overdue — short-cycle item not chronic, Dr. Easton closure confirmed). 0 compressed (3 candidates below 5-entry threshold).
 
 Pattern now at 20 episodic entries. No new carry-forward signals added this cycle; the carry-forward quintet (Q3 rocks, nerve block, delegation tracker, Cole Estrate xAI, South Texas -21.5% QTD) remains stable and is still the dominant pattern. The expense report (Aug 6 deadline, now overdue) continues to appear as a short-cycle financial obligation signal — not yet elevated to chronic status but worth watching across another 1-2 cycles.
+
+### 2026-08-11 — Nightly promotion
+Sources this cycle:
+- `memory/episodic/dream-summary-2026-08-09.md` (score 10) — tags: dream-summary, jarvis, memory, salience, semantic, episodic. Aug 9 cycle: 1 archived (dream-summary-08-07), 250 scored (37 score-10 entries), 1 promoted (dream-summary-pattern). Notable infrastructure event: largest single-cycle git pull in recent history — 82 files fast-forwarded at boot, delivering Rigby's Harper campaign infrastructure (10 new skills + 2 new workflows: audience-target-outreach, episode-campaign-brief). Carry-forward quintet stable at 14+ consecutive cycles; expense report overdue (Aug 6 deadline passed).
+- `memory/episodic/dream-summary-2026-08-10.md` (score 10) — tags: dream-summary, jarvis, memory, salience, semantic, episodic, account-pursuit. Aug 10 cycle: large flush — 10 archived (full Aug 7 session output: 5 account-pursuit-maps for TI, PriceSmart, 7-Eleven, ORIX, McKesson + 2 plaud-ingest summaries + 1 daily-review + 1 dream-summary + 1 shutdown-cleanup). 260 scored, score-10 cluster jumped from 37 to 48 (driven by Aug 7 account-pursuit batch). 4 clusters promoted: dream-summary-pattern, daily-review-pattern, account-pursuit-map-pattern, plaud-pattern. Expense report now 4 days overdue — crossing from short-cycle to multi-cycle signal. Plaud staging backlog ~285 files (Dec 2025 origin) newly surfaced. Remarkable-push skill (Rigby) added to main. Carry-forward quintet confirmed at 14+ consecutive cycles.
+
+Pattern now at 22 episodic entries. Two cycles promoted this run. Key new signals: (1) Expense report has now appeared in 3+ consecutive dream summaries past deadline — crossing into multi-cycle territory and approaching chronic status alongside the original quintet. (2) Plaud staging backlog (~285 files from Dec 2025) surfaced for the first time — this is a vault-health gap, not a routine session item, and warrants a dedicated pass. (3) Harper campaign infrastructure (10 skills, 2 workflows) landed in one git pull — the largest infrastructure delivery in a single boot pull observed to date. The carry-forward quintet (Q3 rocks, nerve block, delegation tracker, Cole Estrate xAI, South Texas -21.5% QTD) remains structurally unresolved across 15+ consecutive cycles with no resolution trend.

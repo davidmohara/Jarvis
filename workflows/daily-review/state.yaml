@@ -2,17 +2,17 @@
 workflow: daily-review
 agent: chief
 status: complete
-session-started: "2026-08-07T20:00:00"
-session-id: "chief-2026-08-07-200000"
+session-started: "2026-08-10T12:00:00"
+session-id: "chief-2026-08-10-120000"
 current-step: step-auto
 original-request: "auto"
 accumulated-context:
-  omnifocus-status: "success — inbox: 10, completed today: 3 (LoopX, podcast pain point assessment skill, podcast outreach campaign design), overdue: 7 (expense report, Answer Q&A, prayer list, coherence breathing, Lifebook Health May 29, Lifebook Career May 29, Kare blaze.ai Jun 29), flagged: 0"
-  calendar-status: "success — M365 MCP, 9 events: Baker OOO, Executive Date Night (Capital Grille, previous evening), Dallas Virtual Coffee Chat, MESH + Improving, Sales & Recruiting, 1st Friday Executive Meeting, Touch base (Ralph Keipert), Lunch (Relationship), Connecting (Keylor Arroyo), Friday Weekly Wrap-Up (Alice)"
+  omnifocus-status: "success — inbox: 11, completed yesterday: 2 (Review prayer list, Coherence breathing), overdue: 2 (Lifebook Career, Lifebook Health), flagged: 0"
+  calendar-status: "success — M365 MCP, 1 event: Golf 3:00-7:30 PM CT (Sunday)"
   knowledge-system-status: "written to local fallback (Obsidian MCP disabled)"
-  narrative-path: "reviews/daily/auto-2026-08-07.md"
-  narrative-title: "2026-08-07 A Full Friday — Company-Wide Cadence, Partner Threads, and the Backlog That Won't Quit"
+  narrative-path: "reviews/daily/auto-2026-08-09.md"
+  narrative-title: "2026-08-09 A Sunday Well Spent — Morning Practice and Afternoon Fairways"
   output-guard: passed
-  working-memory-path: "memory/working/daily-review-2026-08-07-200000.md"
+  working-memory-path: "memory/working/daily-review-2026-08-10-120000.md"
   working-memory-status: written
   model: sonnet

@@ -36,9 +36,10 @@ related_people:
   last-promoted-check: 2026-08-07
   last-promoted-check: 2026-08-08
   last-promoted-check: 2026-08-09
+  last-promoted-check: 2026-08-10
 salience:
   score: 0
-  last-promoted-check: 2026-08-10
+  last-promoted-check: 2026-08-11
 ---
 
 # Meeting Coaching Review — Coffee with Steve Hall (2026-07-14)

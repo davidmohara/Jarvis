@@ -24,9 +24,10 @@ related_people:
   - yvonne-zhu
   - santhosh-karunakar
   - alexander-powell
+  promoted: true
 salience:
   score: 9
-  last-promoted-check: 2026-08-10
+  last-promoted-check: 2026-08-11
   promoted: true
 ---
 

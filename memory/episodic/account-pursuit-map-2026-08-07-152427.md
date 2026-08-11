@@ -18,9 +18,10 @@ tags:
   - retail
   - one-texas
 related_people: []
+  promoted: true
 salience:
   score: 10
-  last-promoted-check: 2026-08-10
+  last-promoted-check: 2026-08-11
   promoted: true
 ---
 
