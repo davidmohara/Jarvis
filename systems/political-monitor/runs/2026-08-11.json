@@ -1,0 +1,237 @@
+{
+  "date": "2026-08-11",
+  "generated": "2026-08-11T00:00:00Z",
+  "window_hours": 72,
+  "sources_used": [
+    "msnbc", "cnn", "nbc", "thehill", "axios", "dailybeast", "slate", "newrepublic",
+    "foxnews", "natreview", "examiner", "federalist", "dailywire", "breitbart",
+    "townhall", "rcp", "amconserv", "spectator", "freepress"
+  ],
+  "sources_muted": [
+    {"id": "nyt", "name": "New York Times", "lean": "left", "reason": "accessible: false"},
+    {"id": "wapo", "name": "Washington Post", "lean": "left", "reason": "accessible: false"},
+    {"id": "politico", "name": "Politico", "lean": "left", "reason": "accessible: false"},
+    {"id": "vox", "name": "Vox Politics", "lean": "left", "reason": "accessible: false"},
+    {"id": "motherjones", "name": "Mother Jones", "lean": "left", "reason": "accessible: false"},
+    {"id": "wsj_opinion", "name": "WSJ Opinion", "lean": "right", "reason": "accessible: false"},
+    {"id": "nypost", "name": "New York Post", "lean": "right", "reason": "accessible: false"},
+    {"id": "reuters", "name": "Reuters Politics", "lean": "center", "reason": "accessible: false"},
+    {"id": "ap", "name": "Associated Press", "lean": "center", "reason": "accessible: false"},
+    {"id": "bbc", "name": "BBC US & Canada", "lean": "center", "reason": "accessible: false"}
+  ],
+  "counts": {
+    "total_items": 67,
+    "by_lean": { "left": 32, "right": 30, "center": 5 },
+    "shared_topics": 4,
+    "gap_left": 4,
+    "gap_right": 4
+  },
+  "shared_topics": [
+    {
+      "title": "Trump Signs Childhood Vaccine Executive Order with RFK Jr.",
+      "topic_key": "trump-vaccine-eo-rfk-mmr-aug11",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "summary": "President Trump signed an executive order on August 10 that would reduce the list of universally recommended childhood vaccines from 18 diseases to 11, and split the MMR (measles, mumps, rubella) vaccine into three separate doses. The order was signed alongside Health Secretary Robert F. Kennedy Jr. and goes against broad scientific consensus on vaccine safety and efficacy. Medical organizations have sharply criticized the move, stating there is no evidence linking vaccines to autism. The order prompted immediate concern from pediatricians and public health experts about potential confusion among parents ahead of the fall school season.",
+      "left": {
+        "framing": "Left-leaning outlets frame the EO as dangerous and scientifically indefensible. CNN, NBC News, The Hill, and Axios all noted the medical community's near-universal opposition and that no evidence links the existing vaccine schedule to autism. Coverage emphasized the real-world risk of reduced childhood immunization rates and the potential for measles outbreaks. The Hill reported the order 'goes against broad scientific consensus.'",
+        "sources": [
+          { "name": "CNN", "url": "https://www.cnn.com/2026/08/10/politics/trump-vaccine-autism-rfk" },
+          { "name": "NBC News", "url": "https://www.nbcnews.com/health/kids-health/trump-order-fewer-childhood-vaccines-rcna591774" },
+          { "name": "The Hill", "url": "https://thehill.com/policy/healthcare/6021147-trump-executive-order-mmr-vaccine/" },
+          { "name": "Axios", "url": "https://www.axios.com/2026/08/10/trump-order-split-up-mmr-vaccine" }
+        ]
+      },
+      "right": {
+        "framing": "Right-leaning Fox News covered the order as Trump fulfilling a campaign promise and acting on longstanding parental health concerns, framing it as a policy leadership moment consistent with the administration's RFK Jr. partnership. The coverage was largely descriptive and supportive without dwelling on scientific objections.",
+        "sources": [
+          { "name": "Fox News", "url": "https://www.foxnews.com/video/6403175109112" }
+        ]
+      },
+      "correlation": 28,
+      "correlation_label": "Sharply divergent narratives: left frames as dangerous anti-science policy; right frames as promised health reform."
+    },
+    {
+      "title": "August 11 Primaries: Wisconsin Governor's Race and South Carolina Senate",
+      "topic_key": "wisconsin-primary-hong-sc-senate-aug11",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "summary": "Voters went to the polls August 11 in Wisconsin, South Carolina, Minnesota, Connecticut, and Vermont. The most-watched race is Wisconsin's Democratic gubernatorial primary, where democratic socialist state Rep. Francesca Hong has led polls by double digits over Milwaukee County Executive David Crowley (backed by outgoing Gov. Tony Evers) and a field of establishment candidates. Hong's primary victory would make her the first democratic socialist nominee for a governorship in a presidential battleground. In South Carolina, Republicans are choosing from nine candidates to fill the late Sen. Lindsey Graham's Senate seat.",
+      "left": {
+        "framing": "Left-leaning outlets frame the Wisconsin primary as a genuine test of whether progressive politics can succeed statewide. CNN and NBC treat Hong's candidacy seriously while noting the risk; the race is covered as a consequential inflection point for the Democratic Party's direction. Coverage acknowledges the tension between the progressive insurgency and establishment Democrats without declaring one side right.",
+        "sources": [
+          { "name": "CNN", "url": "https://www.cnn.com/2026/08/11/politics/primaries-wisconsin-south-carolina-minnesota-what-to-watch" },
+          { "name": "NBC News", "url": "https://www.nbcnews.com/politics/2026-election/major-tests-progressives-trump-are-tap-tuesdays-primaries-rcna591633" },
+          { "name": "The Hill", "url": "https://thehill.com/newsletters/this-week-on-the-hill/6018937-minnesota-wisconsin-south-carolina-primaries-max-miller/" }
+        ]
+      },
+      "right": {
+        "framing": "Fox News and Breitbart frame the Wisconsin primary as a referendum on democratic socialism's viability and a potential gift to Republicans. Coverage highlights Hong's 'Cancel Thanksgiving' tweet and frames her likely victory as further evidence of Democratic radicalization. The Spectator and Breitbart note Hong would be the first DSA governor, treating this as an alarm bell.",
+        "sources": [
+          { "name": "Fox News", "url": "https://radio.foxnews.com/2026/08/11/why-todays-primaries-are-a-test-for-the-dsa-and-democrats/" },
+          { "name": "Breitbart", "url": "https://www.breitbart.com/politics/2026/08/07/poll-socialist-francesca-hong-clear-leader-in-wisconsins-democrat-gubernatorial-primary/" },
+          { "name": "American Spectator", "url": "https://spectator.org/democratic-socialist-francesca-hong-redefining-politics-in-wisconsin/" }
+        ]
+      },
+      "correlation": 42,
+      "correlation_label": "Same event, materially different framing: left treats as legitimate test; right treats as self-destructive overreach."
+    },
+    {
+      "title": "Rep. Max Miller (R-OH) Seat Collapses to Toss-Up Amid Domestic Violence Allegations",
+      "topic_key": "max-miller-ohio-tossup-domestic-aug11",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "summary": "The Cook Political Report shifted Rep. Max Miller's (R-OH) House seat from 'Likely Republican' to 'Toss-Up,' a dramatic change in a district Trump won by 11 points in 2024. Miller, who is also embroiled in a public feud with his former father-in-law Sen. Bernie Moreno (R-OH) over custody and allegations of domestic violence, has refused to drop out despite growing pressure from GOP leadership. Miller is now polling down eight points in his district.",
+      "left": {
+        "framing": "Left and center-left outlets focus on the seat's political vulnerability and the political liability Miller creates for House Republicans who need every seat to maintain their majority. The Hill and CNN highlight the structural significance of a Trump+11 seat being in play.",
+        "sources": [
+          { "name": "The Hill", "url": "https://thehill.com/homenews/house/6021387-max-miller-seat-tossup/" }
+        ]
+      },
+      "right": {
+        "framing": "Breitbart reports the polling damage straightforwardly. Other right-leaning outlets acknowledge the problem without extensive commentary, focusing on the family dispute context — Moreno described it as the 'seventh level of hell.' No major right outlet defends Miller's position in the race.",
+        "sources": [
+          { "name": "Breitbart", "url": "https://www.breitbart.com/politics/2026/08/10/nolte-republican-max-miller-down-8-in-ohio-house-race/" },
+          { "name": "Daily Wire", "url": "https://www.dailywire.com/news/gop-senator-says-family-dispute-put-him-in-seventh-level-of-hell" }
+        ]
+      },
+      "correlation": 68,
+      "correlation_label": "Agree on facts, diverge on emphasis: both acknowledge the vulnerability; left stresses GOP majority risk, right frames as personal family dispute."
+    },
+    {
+      "title": "Government Shutdown Averted: Senate Passes CR Through December 11",
+      "topic_key": "senate-cr-shutdown-averted-dec-aug11",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "summary": "The Senate passed a continuing resolution on a 90-6 bipartisan vote to keep the government funded through December 11, pushing any shutdown threat past the November midterm elections. The measure passed after intense negotiation among Senate Republicans who also wanted to complete the SAVE America Act and crypto legislation before the August recess. Senate Majority Leader Thune ultimately moved the chamber to recess without passing the SAVE Act, drawing criticism from the right and frustration from Trump.",
+      "left": {
+        "framing": "Left-leaning outlets treat the CR passage as a routine legislative outcome and focus more on the SAVE Act's failure to advance, framing it as a check on Trump's voting restriction agenda. Axios notes the stopgap 'offers some checks on the Trump administration.'",
+        "sources": [
+          { "name": "Axios", "url": "https://www.axios.com/2026/08/08/senate-government-funding-shutdown-stopgap" },
+          { "name": "The Hill", "url": "https://thehill.com/video-clips/6016393-watch-live-senate-gop-budget-college-sports-nominations-russia-sanctions-votes/" }
+        ]
+      },
+      "right": {
+        "framing": "Right-leaning outlets emphasize Thune's failure to pass the SAVE Act alongside the CR as a betrayal of the GOP base and Trump. Townhall's headline called Thune's recess move 'giving the double bird to the GOP base.' Breitbart and the Federalist frame the CR as necessary but Thune's handling of the full agenda as a surrender.",
+        "sources": [
+          { "name": "Townhall", "url": "https://townhall.com/news/mattvespa/2026/08/09/john-thune-gave-the-double-bird-to-the-gop-base-saturday-morning-n2680928" },
+          { "name": "The Federalist", "url": "https://thefederalist.com/2026/08/07/rinos-are-tanking-the-entire-republican-party-not-just-trump/" }
+        ]
+      },
+      "correlation": 52,
+      "correlation_label": "Same event, materially different framing: left focuses on SAVE Act defeat; right focuses on base betrayal and missed opportunity."
+    }
+  ],
+  "gap_left": [
+    {
+      "title": "Trump Calls Democrats 'Jihadists' as New Midterm Attack Line",
+      "topic_key": "trump-jihadists-attack-democrats-midterm",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "summary": "President Trump escalated campaign-season rhetoric against Democrats by labeling progressive candidates and the Democratic Party 'jihadists' — combining attacks on El-Sayed's Muslim faith with broader accusations of extremism. Left-leaning outlets covered this as a new attack vector, noting it follows Trump calling El-Sayed a 'Communist loser who hates Jews and Israel.' CNN reported the 'jihadists' framing as a notable and deliberate messaging shift ahead of the midterms. Right-leaning outlets largely did not amplify this specific framing as a news story.",
+      "sources": [
+        { "name": "CNN", "url": "https://www.cnn.com/2026/08/10/politics/trump-jihadists-midterms-democrats" },
+        { "name": "The Daily Beast", "url": "https://www.thedailybeast.com/trump-melts-down-as-progressive-officially-wins-key-senate-race/" },
+        { "name": "The New Republic", "url": "https://newrepublic.com/article/212861/2026-midterms-poll-swing-voters-democrats" }
+      ]
+    },
+    {
+      "title": "Supreme Court Redistricting Case Could Gut Remaining Voting Rights Act",
+      "topic_key": "scotus-voting-rights-redistricting-vra-aug11",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "summary": "MSNBC opinion reporting flagged a late Friday SCOTUS move to transform a Louisiana redistricting case into a vehicle for potentially eliminating the remaining operative section of the Voting Rights Act. If successful, the ruling could enable another round of partisan gerrymandering affecting the 2026 midterm map. Left-leaning coverage frames this as a stealth attack on minority political representation, timed to minimize public scrutiny.",
+      "sources": [
+        { "name": "MSNBC", "url": "https://www.msnbc.com/opinion/msnbc-opinion/supreme-court-voting-rights-redistricting-roberts-rcna235949" },
+        { "name": "Slate", "url": "https://slate.com/news-and-politics/2026/08/congress-worst-supreme-court-decisions-dreamers-tps.html" }
+      ]
+    },
+    {
+      "title": "Medicaid Cuts From 'Big Beautiful Bill' Become Active Midterm Campaign Weapon",
+      "topic_key": "medicaid-big-beautiful-bill-midterm-weapon",
+      "days_seen": 2,
+      "relevance": 70,
+      "relevance_label": "Recurring — day 2",
+      "summary": "Democratic campaigns are running aggressively on Medicaid cuts embedded in Trump's 'Big Beautiful Bill,' using them as a central midterm attack against Republican incumbents. Left-leaning coverage frames the Medicaid reductions as politically toxic for Republicans in swing districts, particularly as the economy weakens and healthcare costs rise. Right-leaning outlets have not prominently engaged with this specific attack narrative, instead focusing on the bill's broader economic and immigration provisions.",
+      "sources": [
+        { "name": "CNN", "url": "https://www.cnn.com/2026/08/07/politics/midterms-house-senate-democrats" },
+        { "name": "The Daily Beast", "url": "https://www.thedailybeast.com/republican-senators-fear-trump-is-about-to-make-a-new-midterm-nightmare-with-election-threat-obsession/" },
+        { "name": "The New Republic", "url": "https://newrepublic.com/post/214079/promise-act-save-social-security-sanders" }
+      ]
+    },
+    {
+      "title": "Trump Approval at Historic Lows; CNN Draws Carter Parallel Before Midterms",
+      "topic_key": "trump-approval-34-carter-iran-economy",
+      "days_seen": 2,
+      "relevance": 70,
+      "relevance_label": "Recurring — day 2",
+      "summary": "CNN analysis framed Trump's political position as analogous to Jimmy Carter — simultaneously dealing with an unresolved Middle East conflict and a deteriorating economy ahead of a midterm election. Trump's approval sits at approximately 34-40% depending on the poll. CNN and NBC coverage emphasizes dual vulnerabilities: the Iran war's drag on energy prices and consumer sentiment, and the July jobs report showing a loss of 23,000 positions. Right-leaning outlets dispute the framing or attribute economic weakness to pre-existing conditions.",
+      "sources": [
+        { "name": "CNN", "url": "https://www.cnn.com/2026/08/10/politics/trump-iran-economy-strait-of-hormuz-analysis" },
+        { "name": "The Daily Beast", "url": "https://www.thedailybeast.com/trump-hit-with-a-dire-warning-from-republican-pollsters/" },
+        { "name": "The New Republic", "url": "https://newrepublic.com/post/214098/trump-midterms-struggling" }
+      ]
+    }
+  ],
+  "gap_right": [
+    {
+      "title": "Tucker Carlson Launches 10-Point Third-Party Movement Separate from MAGA",
+      "topic_key": "tucker-carlson-third-party-anti-war-aug11",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "summary": "Tucker Carlson outlined a 10-point vision in a 90-minute livestream for a new political project explicitly separate from Trump's MAGA movement. The platform is described as anti-war and centers on issues where Carlson has broken with mainstream GOP positions, including opposition to the Iran war. Washington Examiner and other right-leaning outlets reported the announcement seriously, while left-leaning outlets have not covered it as a significant news story. RealClearPolitics posed the question: 'What's Tucker's endgame?'",
+      "sources": [
+        { "name": "Washington Examiner", "url": "https://www.washingtonexaminer.com/news/white-house/4677413/tucker-carlson-pitches-10-point-vision-for-third-party-movement-united-anti-war/" },
+        { "name": "RealClearPolitics", "url": "https://www.realclearpolitics.com/video/2026/08/07/rcp_podcast_.html" }
+      ]
+    },
+    {
+      "title": "Democrats' Socialist Lurch Called 'Political Suicide' by Centrist and Right Analysts",
+      "topic_key": "democrats-leftward-permanent-political-suicide-right",
+      "days_seen": 2,
+      "relevance": 70,
+      "relevance_label": "Recurring — day 2",
+      "summary": "A chorus of commentators across the right and center-right are declaring that the Democratic Party's embrace of democratic socialism — following El-Sayed's Michigan win, Hong's Wisconsin lead, and Mamdani's New York mayoral victory — represents permanent, self-inflicted electoral damage. David Brooks called it 'political suicide times 10.' Breitbart's Pinkerton argues the leftward shift is not a momentary surge but a permanent realignment. The Federalist attributes the trend to cancel culture normalizing radical politics. Third Way has announced a $15M effort to discredit democratic socialism. Left-leaning outlets either dispute this framing or cover it as an intra-party debate without endorsing the conclusion.",
+      "sources": [
+        { "name": "Breitbart", "url": "https://www.breitbart.com/politics/2026/08/09/pinkerton-the-democrat-leftward-lurch-is-permanent/" },
+        { "name": "RealClearPolitics", "url": "https://www.realclearpolitics.com/video/2026/08/08/david_brooks_democrats_swinging_left_is_political_suicide_times_10.html" },
+        { "name": "The Federalist", "url": "https://thefederalist.com/2026/08/10/how-cancel-culture-laid-the-groundwork-for-the-lefts-socialist-lurch/" },
+        { "name": "American Spectator", "url": "https://spectator.org/the-marxist-islamist-alliance-feeds-on-dsa-naivete/" }
+      ]
+    },
+    {
+      "title": "SAVE America Act Dead for Now; Right Blames Thune, Collins, Murkowski",
+      "topic_key": "save-act-dead-thune-betrayal-aug11",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "summary": "The SAVE America Act — which would require citizenship documentation for voter registration and photo ID at polls — failed to advance before the Senate went into August recess, despite backing from 16 state attorneys general and Trump's public pressure campaign. Senate Majority Leader Thune is being blamed by right-leaning outlets for prioritizing the CR and recess over the election integrity legislation. The Federalist, Townhall, and Breitbart frame the failure as a betrayal of the GOP base. Left-leaning outlets cover it primarily as a MAGA voter-suppression bill that was correctly blocked by moderate Republicans.",
+      "sources": [
+        { "name": "Breitbart", "url": "https://www.breitbart.com/politics/2026/08/07/exclusive-16-gop-attorneys-general-back-trump-push-for-senate-budget-resolution-save-america-act-measures/" },
+        { "name": "Townhall", "url": "https://townhall.com/news/mattvespa/2026/08/09/john-thune-gave-the-double-bird-to-the-gop-base-saturday-morning-n2680928" },
+        { "name": "Axios", "url": "https://www.axios.com/2026/08/06/senate-republicans-save-act-clarity-hemp-august-recess" }
+      ]
+    },
+    {
+      "title": "GOP Midterm Convention Plans to Focus Attacks on Democratic Socialism",
+      "topic_key": "gop-midterm-convention-dsa-attacks-aug11",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "summary": "The Republican Party is planning its first-ever midterm convention in September, and reporting from right-leaning outlets reveals the focus will not be the economy or Iran but rather video attack ads targeting progressive commentators, Abdul El-Sayed, and Texas Senate nominee James Talarico — framing the midterms as a referendum on democratic socialism. The New Republic covered this strategy critically; right-leaning outlets treat it as a smart play. The RNC Chair has predicted Republicans will hold both chambers, citing the socialist framing as a winning contrast.",
+      "sources": [
+        { "name": "New Republic", "url": "https://newrepublic.com/post/214110/gop-miderm-convention-attack-democrats" },
+        { "name": "The Hill", "url": "https://thehill.com/homenews/campaign/6019233-rnc-predicts-congress-majorities/" },
+        { "name": "Washington Examiner", "url": "https://www.washingtonexaminer.com/news/campaigns/congressional/4675415/2026-primary-elections-takeaways-michigan-missouri-kansas/" }
+      ]
+    }
+  ],
+  "suggestions": []
+}
