@@ -1,153 +1,90 @@
 workflow: plaud-ingest
 agent: knox
-status: awaiting-transcription
-session-started: "2026-08-10T00:00:00Z"
-session-id: "pi-20260810-001"
-current-step: step-04
-original-request: "Background workflow: Run plaud-ingest discovery pipeline"
+status: complete
+session-started: "2026-08-11T00:00:00Z"
+session-completed: "2026-08-11T17:00:00Z"
+session-id: "pi-20260811-001"
+current-step: step-05b
+original-request: "Run plaud-ingest for 2026-08-10 and 2026-08-11 — process UTB/YPO recording not yet ingested"
 blocker: null
 accumulated-context:
-  api-total-recordings: 111
   target-date: "2026-08-10"
   new-recordings:
-    - file_id: "c2dc08f2c63c01a98785dfb4b762b533"
-      name: "08-07 Consultation: Podcast Monetization Strategy"
-      date: "2026-08-07"
-      duration_seconds: 1980
+    - file_id: "b41015b6c997f774fc349a5ee9be51fe"
+      name: "08-10 Hospitality Plan Defined for UTB/YPO Events, Pending Budget Approval"
+      date: "2026-08-10"
+      duration_seconds: 981
       has_transcript: true
-      transcript_status: pending
-    - file_id: "0b814663529a2cd65f0c6031877f44ad"
-      name: "08-07 Consultation: Mash AI Platform for Content Creation"
-      date: "2026-08-07"
-      duration_seconds: 3392
+      transcript_status: ready
+    - file_id: "2b977c5e42c831ca506e2843289e4f26"
+      name: "08-10 Strategic Partnership and Account Planning"
+      date: "2026-08-10"
+      duration_seconds: 2201
       has_transcript: true
-      transcript_status: pending
-    - file_id: "baeee0303990cfe9996df518fa71f1e3"
-      name: "08-06 Architecting \"SC IMS\" as the Intelligent Core of the \"Orb\" Platform"
-      date: "2026-08-06"
-      duration_seconds: 5061
-      has_transcript: true
-      transcript_status: pending
-    - file_id: "f5416a4750e1f41e2624a9403a8b279a"
-      name: "08-06 Area Officer Kickoff and Resource Training"
-      date: "2026-08-06"
-      duration_seconds: 3377
-      has_transcript: true
-      transcript_status: pending
-    - file_id: "5016299034d41433611d84057ee6e1bd"
-      name: "08-05 Improving and Google Partnership Alignment for the Wendy's Account"
-      date: "2026-08-05"
-      duration_seconds: 2917
-      has_transcript: true
-      transcript_status: pending
-    - file_id: "a5eaf54083c006c73742f0c31e142f7a"
-      name: "08-05 Strategic AI Implementation and Adoption at Magline"
-      date: "2026-08-05"
-      duration_seconds: 2196
-      has_transcript: true
-      transcript_status: pending
-    - file_id: "fb489c18186a3013eb4989cb6c5402be"
-      name: "08-03 Partnership to Support Moto's Chevron Deal with Operational and Engineering Services"
-      date: "2026-08-03"
-      duration_seconds: 1743
-      has_transcript: true
-      transcript_status: pending
-    - file_id: "65f997c62d7d8cd56ea2ccb2a8725296"
-      name: "08-03 Interview: David O'Hara (Improving) and Luke (GearVox) — Global Boutique Strategy, Conscious Capitalism, and AI Customer Engagement"
-      date: "2026-08-03"
-      duration_seconds: 2801
-      has_transcript: true
-      transcript_status: pending
-    - file_id: "731cd191d0b84ada286d4589675023e8"
-      name: "07-30 Meeting: Personal Retreat Planning, YPO Board Scheduling, Expenses and Tools Access, External Outreach"
-      date: "2026-07-30"
-      duration_seconds: 2139
-      has_transcript: true
-      transcript_status: pending
-    - file_id: "87e93b20349620b2ccd2dcb1d13a5dd2"
-      name: "07-30 Weekly Meeting: McKesson Project, Texas Performance, and Partner Strategy"
-      date: "2026-07-30"
-      duration_seconds: 2046
-      has_transcript: true
-      transcript_status: pending
-    - file_id: "5e13f844b2c1c916ee4538c9abd960fa"
-      name: "07-30 Mid-Year Strategic Review and Personal Updates"
-      date: "2026-07-30"
-      duration_seconds: 2226
-      has_transcript: true
-      transcript_status: pending
-    - file_id: "5286f4065f7a0ed08ae0f043a4233111"
-      name: "07-30 Discussion on Church Leadership, Personal Health, and Theological Differences"
-      date: "2026-07-30"
-      duration_seconds: 3994
-      has_transcript: true
-      transcript_status: pending
-    - file_id: "46862b5ef46e5867280603f9d5a843a2"
-      name: "07-30 EA Performance Alignment and Growth Plan: Elevating Alice from Task Execution to Strategic Partner for David O'Hara"
-      date: "2026-07-30"
-      duration_seconds: 736
-      has_transcript: true
-      transcript_status: pending
-    - file_id: "ed2a74d60ee7baba6b94a153d5b7415d"
-      name: "07-29 Investment Portfolio Review and Strategic Financial Planning"
-      date: "2026-07-29"
-      duration_seconds: 5641
-      has_transcript: true
-      transcript_status: pending
-    - file_id: "235c1f402e3bdd98d8e0fb322ca7f4f8"
-      name: "07-29 Professional and Personal Updates: Navigating Family Life and Business Challenges"
-      date: "2026-07-29"
-      duration_seconds: 4694
-      has_transcript: true
-      transcript_status: pending
-    - file_id: "ff16ada3c73bf564272bf95719f2f9bb"
-      name: "07-29 Consultation: AI-Driven Pricing and Purchase Tools for Used Car Retailer"
-      date: "2026-07-29"
-      duration_seconds: 1908
-      has_transcript: true
-      transcript_status: pending
-    - file_id: "f824cc96ed478cbb55a5e7c43f0945c7"
-      name: "07-29 Strategic Evaluation of AI Gateway Platforms for Enterprise Use"
-      date: "2026-07-29"
-      duration_seconds: 1742
-      has_transcript: true
-      transcript_status: pending
-    - file_id: "9293d2cca5e19da9dcd793598ea33415"
-      name: "07-28 Meeting: Solace Partnership Strategy, Sales Structure, and Event Mesh/Agent Mesh Enablement"
-      date: "2026-07-28"
-      duration_seconds: 7104
-      has_transcript: true
-      transcript_status: pending
-    - file_id: "05c0b9347899d1c470b2216dc364d58d"
-      name: "07-28 Chevron Payments Failover to Takeover: Moto NOC Build, Multi-Region AWS Ops, and Acquirer Certifications Plan"
-      date: "2026-07-28"
-      duration_seconds: 832
-      has_transcript: true
-      transcript_status: pending
+      transcript_status: ready
   transcription-triggered: []
-  pending-recordings:
-    - "c2dc08f2c63c01a98785dfb4b762b533"
-    - "0b814663529a2cd65f0c6031877f44ad"
-    - "baeee0303990cfe9996df518fa71f1e3"
-    - "f5416a4750e1f41e2624a9403a8b279a"
-    - "5016299034d41433611d84057ee6e1bd"
-    - "a5eaf54083c006c73742f0c31e142f7a"
-    - "fb489c18186a3013eb4989cb6c5402be"
-    - "65f997c62d7d8cd56ea2ccb2a8725296"
-    - "731cd191d0b84ada286d4589675023e8"
-    - "87e93b20349620b2ccd2dcb1d13a5dd2"
-    - "5e13f844b2c1c916ee4538c9abd960fa"
-    - "5286f4065f7a0ed08ae0f043a4233111"
-    - "46862b5ef46e5867280603f9d5a843a2"
-    - "ed2a74d60ee7baba6b94a153d5b7415d"
-    - "235c1f402e3bdd98d8e0fb322ca7f4f8"
-    - "ff16ada3c73bf564272bf95719f2f9bb"
-    - "f824cc96ed478cbb55a5e7c43f0945c7"
-    - "9293d2cca5e19da9dcd793598ea33415"
-    - "05c0b9347899d1c470b2216dc364d58d"
-  speaker-mappings: {}
+  pending-recordings: []
+  speaker-mappings:
+    "b41015b6c997f774fc349a5ee9be51fe":
+      "O'Hara": "David O'Hara"
+      "Alice Mburu": "Alice Mburu"
+      "Robyn Fuentes": "Robyn Fuentes"
+    "2b977c5e42c831ca506e2843289e4f26":
+      "Speaker 2": "Austin Ledesma"
+      "O'Hara": "David O'Hara"
+      "Robyn Fuentes": "Robyn Fuentes"
+      "Jenn Massey": "Jenn Massey"
   pending-speaker-mappings: []
-  recording-classification: {}
-  ready-for-fetch: []
-  staged-files: []
-  ingested-notes: []
+  recording-classification:
+    "b41015b6c997f774fc349a5ee9be51fe": "work"
+    "2b977c5e42c831ca506e2843289e4f26": "work"
+  ready-for-fetch:
+    - file_id: "b41015b6c997f774fc349a5ee9be51fe"
+      name: "08-10 Hospitality Plan Defined for UTB/YPO Events, Pending Budget Approval"
+      date: "2026-08-10"
+    - file_id: "2b977c5e42c831ca506e2843289e4f26"
+      name: "08-10 Strategic Partnership and Account Planning"
+      date: "2026-08-10"
+  staged-files:
+    - "plaud_08-10 Hospitality Plan Defined for UTB_YPO Events_ Pending Budget Approval.md"
+    - "plaud_08-10 Strategic Partnership and Account Planning.md"
+  ingested-notes:
+    - "zzPlaud/YPO/2026-08-10 Hospitality Plan for UTB YPO Events Pending Budget Approval.md"
+    - "zzPlaud/Client/2026-08-10 Strategic Partnership and Account Planning (Solace).md"
+  monday-tasks-created:
+    - item_id: "12776900082"
+      recording: "2026-08-10 Hospitality Plan for UTB/YPO Events"
+      description: "Reach out to Ryan — budget approval"
+    - item_id: "12776920269"
+      recording: "2026-08-10 Hospitality Plan for UTB/YPO Events"
+      description: "Calculate hospitality total"
+    - item_id: "12776903744"
+      recording: "2026-08-10 Hospitality Plan for UTB/YPO Events"
+      description: "Book Arkansas YPO flights"
+    - item_id: "12776916886"
+      recording: "2026-08-10 Hospitality Plan for UTB/YPO Events"
+      description: "Review Plaud recording (Alice)"
+    - item_id: "12777083072"
+      recording: "2026-08-10 Strategic Partnership and Account Planning (Solace)"
+      description: "Review Plaud recording (Alice)"
+  share-urls:
+    - file_id: "b41015b6c997f774fc349a5ee9be51fe"
+      url: "https://web.plaud.ai/s/pub_7a7c47b2-6590-406f-a8bb-cd8f06096626::daZ98D5qfOsnNqfm_hzKa-ms13zcwwELljLD_N0MtuPcXygqWXeWFt8aW3_yKzZCfqQpzxOi_fuCZRAC"
+      monday-task-id: "12776916886"
+    - file_id: "2b977c5e42c831ca506e2843289e4f26"
+      url: null
+      monday-task-id: "12777083072"
+      note: "Plaud share skipped — speaker rename API failed (Could not load transcript); rename applied in vault note only"
+  august-11-check: "0 recordings found for 2026-08-11 as of this run"
+  solace-recording-notes:
+    file_id: "2b977c5e42c831ca506e2843289e4f26"
+    calendar-event: "Meeting with David/Austin"
+    participants:
+      - "David O'Hara"
+      - "Austin Ledesma (austin.ledesma@solace.com)"
+      - "Ryan Piper (ryan.piper@solace.com — referenced, not on call)"
+      - "Kyle Scott (kyle.scott@solace.com — referenced, not on call)"
+      - "Robyn Fuentes (Solace)"
+      - "Jenn Massey (Austin note-taker)"
+    prior-ingest-note: "Prior run created 'Strategic Partnership and Co-selling Process.md' for this file_id with incorrect participant name 'Stephen Johnson'. Corrected note written as 'Strategic Partnership and Account Planning (Solace).md'. Prior note left in place."
+    speaker-rename-api: "failed — Could not load transcript from Plaud API; rename applied to vault note only, not pushed to Plaud backend"

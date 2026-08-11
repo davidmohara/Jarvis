@@ -1,0 +1,13 @@
+{
+  "id": "err-20260811T192032-IVS3I7",
+  "timestamp": "2026-08-11T19:20:32Z",
+  "source": "explicit",
+  "agent": "knox",
+  "session_id": "session-2026-08-11-093757",
+  "category": "hallucination",
+  "failure_mode": "fabricated-attendee",
+  "severity": "high",
+  "description": "Knox identified 'Robyn Fuentes' as a participant in the 2026-08-10 UTB/YPO hospitality call (file_id: b41015b6c997f774fc349a5ee9be51fe) and included her in the vault note. The calendar event for that time slot ('Texans Suite Menu Review', 4:00-4:30 PM CT) shows only two attendees: David O'Hara and Alice Mburu. Robyn Fuentes was not on the call. Knox either pulled her name from the transcript of a different recording or hallucinated her presence entirely without verifying against the calendar.",
+  "correction": "Attendees in vault notes must be verified against the calendar event for that time slot. Knox must not assign speakers from transcript voice samples to people who were not on the calendar invite.",
+  "proposed_fix": "In step-03-identify-speakers: after pulling candidate speakers from transcript, cross-check against calendar attendee list for that time window. Flag any name in the transcript not on the calendar as a potential error before writing to vault."
+}

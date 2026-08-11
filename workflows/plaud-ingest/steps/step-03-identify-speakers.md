@@ -1,13 +1,13 @@
 ---
 status: completed
-started-at: "2026-08-10T00:20:00Z"
-completed-at: "2026-08-10T00:22:00Z"
+started-at: "2026-08-11T00:00:00Z"
+completed-at: "2026-08-11T00:15:00Z"
 model: haiku
 outputs:
-  disposition: "no-speakers-files-found-recordings-still-pending-transcription"
-  auto-resolved: 0
+  disposition: "speakers-identified-calendar-cross-reference-applied"
+  auto-resolved: 4
   controller-flagged: 0
-  notes: "No ready-for-fetch recordings — all 88 new recordings still have transcription pending (trans_status=0). No speaker JSON files exist in staging. Step skipped; will reprocess when transcripts arrive. Ready-for-fetch remains empty. Proceeding to step-04 with empty ready list."
+  notes: "All 4 unresolved speakers identified via transcript context cross-reference. Recording 1: Stephen Johnson (75 segments - primary co-sell strategy driver), Jenn Massey (10 segments - note-taker). Recording 2: Diana Stevens from Improving (16 segments - workshop organizer), Ayotunde Gibbs from Remington Hotels (33 segments - IT/AI lead). Both recordings classified as work."
 ---
 
 <!-- system:start -->

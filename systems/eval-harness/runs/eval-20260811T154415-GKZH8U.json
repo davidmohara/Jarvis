@@ -1,0 +1,80 @@
+{
+  "id": "eval-20260811T154415-GKZH8U",
+  "agent_id": "a4f59455267fc9b11",
+  "type": "agent",
+  "name": "general-purpose",
+  "agent": "general-purpose",
+  "session_id": "session-2026-08-11-093757",
+  "trigger": "unknown",
+  "started": "2026-08-11T15:44:15.557081Z",
+  "completed": "2026-08-11T15:57:09.166194",
+  "duration_seconds": null,
+  "status": "aborted",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": false,
+      "all_steps_finished": null,
+      "tool_failures": 4,
+      "error_ids": [],
+      "tool_failure_log": [
+        {
+          "tool": "mcp__playwright__browser_type",
+          "error": "### Error\nError: \"Account Filter by keyword searchbox\" does not match any elements.",
+          "duration_ms": 10,
+          "timestamp": "2026-08-11T10:45:02.522186"
+        },
+        {
+          "tool": "mcp__playwright__browser_type",
+          "error": "### Error\nError: browserBackend.callTool: Unexpected token \"\" while parsing css selector \"\". Did you mean to CSS.escape it?",
+          "duration_ms": 6,
+          "timestamp": "2026-08-11T10:45:05.014501"
+        },
+        {
+          "tool": "mcp__playwright__browser_type",
+          "error": "### Error\nError: Ref f7e289 not found in the current page snapshot. Try capturing new snapshot.",
+          "duration_ms": 5,
+          "timestamp": "2026-08-11T10:45:12.523454"
+        },
+        {
+          "tool": "mcp__playwright__browser_click",
+          "error": "### Error\nError: Ref f7e270 not found in the current page snapshot. Try capturing new snapshot.",
+          "duration_ms": 5,
+          "timestamp": "2026-08-11T10:45:25.061811"
+        }
+      ],
+      "abort_reason": "session-ended"
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": []
+}

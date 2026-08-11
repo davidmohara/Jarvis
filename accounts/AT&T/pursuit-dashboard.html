@@ -1,0 +1,762 @@
+<title>AT&T — Pursuit Dashboard</title>
+<style>
+  :root{
+    --bg:#eef0e6;
+    --surface:#ffffff;
+    --surface-2:#e4e7da;
+    --text:#1b2530;
+    --text-mute:#5c6b74;
+    --border:#d3d6c8;
+    --accent:#a8752f;
+    --accent-strong:#8c5f22;
+    --accent-soft:#f0e2c8;
+    --success:#3f5b4c;
+    --success-soft:#dfe8e0;
+    --alert:#8b4030;
+    --alert-soft:#f1ddd6;
+    --shadow:rgba(27,37,48,0.08);
+    --font-display: ui-serif, "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+    --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --font-mono: ui-monospace, "SF Mono", "Cascadia Mono", Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#11161c;
+      --surface:#171f27;
+      --surface-2:#1d2630;
+      --text:#e9e6dc;
+      --text-mute:#93a0a8;
+      --border:#2b3540;
+      --accent:#d1a256;
+      --accent-strong:#e6bd75;
+      --accent-soft:#3a2f1c;
+      --success:#7fae95;
+      --success-soft:#1c2b23;
+      --alert:#d98b76;
+      --alert-soft:#33201b;
+      --shadow:rgba(0,0,0,0.35);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#11161c; --surface:#171f27; --surface-2:#1d2630; --text:#e9e6dc; --text-mute:#93a0a8;
+    --border:#2b3540; --accent:#d1a256; --accent-strong:#e6bd75; --accent-soft:#3a2f1c;
+    --success:#7fae95; --success-soft:#1c2b23; --alert:#d98b76; --alert-soft:#33201b; --shadow:rgba(0,0,0,0.35);
+  }
+  :root[data-theme="light"]{
+    --bg:#eef0e6; --surface:#ffffff; --surface-2:#e4e7da; --text:#1b2530; --text-mute:#5c6b74;
+    --border:#d3d6c8; --accent:#a8752f; --accent-strong:#8c5f22; --accent-soft:#f0e2c8;
+    --success:#3f5b4c; --success-soft:#dfe8e0; --alert:#8b4030; --alert-soft:#f1ddd6; --shadow:rgba(27,37,48,0.08);
+  }
+
+  *{box-sizing:border-box;}
+  body{margin:0;}
+  .page{
+    background:var(--bg);
+    color:var(--text);
+    font-family:var(--font-body);
+    font-size:15px;
+    line-height:1.5;
+    min-height:100vh;
+  }
+  ::selection{ background:var(--accent-soft); }
+  a{ color:var(--accent-strong); }
+  .tabular{ font-family:var(--font-mono); font-variant-numeric:tabular-nums; }
+
+  header.masthead{
+    padding:1.6rem 2rem 1.2rem;
+    display:flex;
+    flex-wrap:wrap;
+    align-items:flex-end;
+    justify-content:space-between;
+    gap:0.75rem;
+    border-bottom:1px solid var(--border);
+  }
+  .masthead-title{
+    font-family:var(--font-display);
+    font-size:1.9rem;
+    font-weight:600;
+    letter-spacing:-0.01em;
+    text-wrap:balance;
+    margin:0;
+  }
+  .masthead-sub{
+    color:var(--text-mute);
+    font-size:0.85rem;
+    margin-top:0.25rem;
+  }
+  .status-strip{
+    position:sticky; top:0; z-index:10;
+    display:grid;
+    grid-template-columns:repeat(5, 1fr);
+    gap:1px;
+    background:var(--border);
+    border-bottom:1px solid var(--border);
+    box-shadow:0 2px 10px var(--shadow);
+  }
+  .stat{
+    background:var(--surface);
+    padding:0.85rem 1.1rem;
+  }
+  .stat-label{
+    font-size:0.66rem;
+    text-transform:uppercase;
+    letter-spacing:0.07em;
+    color:var(--text-mute);
+    margin-bottom:0.3rem;
+  }
+  .stat-value{
+    font-family:var(--font-mono);
+    font-variant-numeric:tabular-nums;
+    font-size:1.15rem;
+    font-weight:600;
+    color:var(--text);
+  }
+  .stat-value.accent{ color:var(--accent-strong); }
+  .stat-value.good{ color:var(--success); }
+  .stat-sub{
+    font-size:0.72rem;
+    color:var(--text-mute);
+    margin-top:0.15rem;
+  }
+
+  main{ max-width:1240px; margin:0 auto; padding:1.75rem 2rem 3rem; }
+
+  section.block{ margin-bottom:2rem; }
+  .block-heading{
+    font-family:var(--font-display);
+    font-size:1.05rem;
+    font-weight:600;
+    margin:0 0 0.75rem;
+    display:flex;
+    align-items:center;
+    gap:0.5rem;
+  }
+  .eyebrow{
+    font-size:0.68rem;
+    text-transform:uppercase;
+    letter-spacing:0.09em;
+    color:var(--text-mute);
+    margin-bottom:0.3rem;
+    display:block;
+  }
+
+  .front-grid{
+    display:grid;
+    grid-template-columns:1.5fr 1fr;
+    gap:1.5rem;
+    align-items:start;
+  }
+  @media (max-width:920px){ .front-grid{ grid-template-columns:1fr; } }
+
+  .card{
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:8px;
+    padding:1.25rem 1.4rem;
+  }
+
+  .pitch-hero{
+    border:1px solid var(--accent);
+    background:linear-gradient(180deg, var(--accent-soft) 0%, var(--surface) 130px);
+  }
+  .pitch-hero .eyebrow{ color:var(--accent-strong); }
+  .pitch-hero h3{
+    font-family:var(--font-display);
+    font-size:1.35rem;
+    margin:0.1rem 0 0.5rem;
+  }
+  .pitch-why{ color:var(--text-mute); font-size:0.9rem; margin-bottom:0.9rem; }
+  blockquote.script{
+    margin:0 0 0.9rem;
+    padding:0.8rem 1rem;
+    background:var(--surface);
+    border-left:3px solid var(--accent);
+    border-radius:0 4px 4px 0;
+    font-style:italic;
+    font-size:0.92rem;
+    color:var(--text);
+  }
+  .pitch-rationale{
+    font-size:0.82rem;
+    color:var(--text-mute);
+    border-top:1px solid var(--border);
+    padding-top:0.7rem;
+  }
+  .pitch-rationale strong{ color:var(--text); }
+
+  .secondary-plays{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:0.9rem;
+    margin-top:0.9rem;
+  }
+  @media (max-width:600px){ .secondary-plays{ grid-template-columns:1fr; } }
+  .play-card{
+    background:var(--surface-2);
+    border:1px solid var(--border);
+    border-radius:6px;
+    padding:0;
+  }
+  .play-card summary{
+    cursor:pointer;
+    padding:0.85rem 0.95rem;
+    list-style:none;
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    gap:0.5rem;
+  }
+  .play-card summary::-webkit-details-marker{ display:none; }
+  .play-card summary::after{ content:"Details +"; font-size:0.68rem; color:var(--text-mute); white-space:nowrap; }
+  .play-card[open] summary::after{ content:"Hide –"; }
+  .play-card summary:focus-visible{ outline:2px solid var(--accent); outline-offset:-2px; }
+  .play-card .eyebrow{ margin-bottom:0.15rem; }
+  .play-card h4{ font-family:var(--font-display); font-size:0.98rem; margin:0 0 0.4rem; }
+  .play-card-body{ padding:0 0.95rem 0.9rem; }
+  .play-card-body p{ font-size:0.8rem; color:var(--text-mute); margin:0 0 0.6rem; }
+  .play-card blockquote.script{ font-size:0.8rem; padding:0.55rem 0.7rem; margin-bottom:0; }
+
+  .queue{ display:flex; flex-direction:column; gap:0.55rem; }
+  .queue-row{
+    display:grid;
+    grid-template-columns:1.6rem 1fr;
+    gap:0.7rem;
+    padding:0.65rem 0.75rem;
+    border:1px solid var(--border);
+    border-radius:6px;
+    background:var(--surface);
+  }
+  .queue-row.priority-1{ border-color:var(--success); background:var(--success-soft); }
+  .queue-num{
+    font-family:var(--font-mono);
+    font-weight:700;
+    color:var(--text-mute);
+    padding-top:0.1rem;
+  }
+  .priority-1 .queue-num{ color:var(--success); }
+  .queue-name{ font-weight:600; font-size:0.9rem; }
+  .queue-role{ font-size:0.76rem; color:var(--text-mute); margin-bottom:0.35rem; }
+  .queue-goal{ font-size:0.78rem; color:var(--text); }
+  .pill{
+    display:inline-block;
+    font-size:0.62rem;
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:0.04em;
+    padding:0.1rem 0.45rem;
+    border-radius:99px;
+    margin-left:0.4rem;
+    vertical-align:middle;
+  }
+  .pill-open{ background:var(--success-soft); color:var(--success); }
+  .pill-warm{ background:var(--accent-soft); color:var(--accent-strong); }
+  .pill-cold{ background:var(--alert-soft); color:var(--alert); }
+  .pill-existing{ background:var(--surface-2); color:var(--text-mute); }
+
+  .analysis-grid{
+    display:grid;
+    grid-template-columns:1fr 1.3fr;
+    gap:1.5rem;
+    margin-top:1.75rem;
+  }
+  @media (max-width:920px){ .analysis-grid{ grid-template-columns:1fr; } }
+
+  .ninebox-wrap{ display:flex; flex-direction:column; align-items:center; }
+  .ninebox-note{ font-size:0.76rem; color:var(--text-mute); margin-top:0.6rem; text-align:center; }
+
+  .timeline{ display:flex; flex-direction:column; gap:0; }
+  .tl-row{ display:grid; grid-template-columns:5.5rem 1fr; gap:0.9rem; padding:0.7rem 0; position:relative; }
+  .tl-row:not(:last-child){ border-bottom:1px dashed var(--border); }
+  .tl-phase{ font-family:var(--font-display); font-weight:600; font-size:0.95rem; }
+  .tl-time{ font-size:0.72rem; color:var(--text-mute); font-family:var(--font-mono); }
+  .tl-milestone{ font-size:0.84rem; }
+
+  .actions-list{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:0.5rem 1.4rem;
+  }
+  @media (max-width:760px){ .actions-list{ grid-template-columns:1fr; } }
+  .action-item{
+    display:flex; gap:0.6rem;
+    font-size:0.85rem;
+    padding:0.4rem 0;
+    border-bottom:1px solid var(--border);
+  }
+  .action-check{
+    flex:none;
+    width:1.1rem; height:1.1rem;
+    border:1.5px solid var(--accent);
+    border-radius:3px;
+    margin-top:0.15rem;
+  }
+
+  .tabbar{
+    display:flex;
+    gap:0.4rem;
+    border-bottom:1px solid var(--border);
+    margin:2.2rem 0 1.4rem;
+  }
+  .tab-btn{
+    font-family:var(--font-body);
+    font-size:0.85rem;
+    font-weight:600;
+    color:var(--text-mute);
+    background:none;
+    border:none;
+    padding:0.6rem 0.3rem;
+    margin-right:1.4rem;
+    cursor:pointer;
+    position:relative;
+    top:1px;
+  }
+  .tab-btn:focus-visible{ outline:2px solid var(--accent); outline-offset:2px; }
+  .tab-btn.active{ color:var(--text); border-bottom:2px solid var(--accent); }
+  .tab-panel{ display:none; }
+  .tab-panel.active{ display:block; }
+
+  .profile-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(300px, 1fr));
+    gap:1.1rem;
+  }
+  .profile-card{
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:8px;
+    padding:1.1rem 1.2rem;
+  }
+  .profile-card.flag{ border-color:var(--alert); }
+  .profile-name{ font-family:var(--font-display); font-size:1.05rem; font-weight:600; margin:0 0 0.15rem; }
+  .profile-title{ font-size:0.78rem; color:var(--text-mute); margin-bottom:0.6rem; }
+  .profile-badges{ margin-bottom:0.6rem; }
+  .profile-section{ font-size:0.82rem; margin-bottom:0.5rem; }
+  .profile-section .label{ font-size:0.66rem; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-mute); display:block; margin-bottom:0.15rem; }
+  .profile-quote{ font-style:italic; color:var(--text); }
+  .profile-source{ font-size:0.7rem; color:var(--text-mute); margin-top:0.6rem; padding-top:0.5rem; border-top:1px solid var(--border); }
+  .profile-source a{ color:var(--text-mute); }
+
+  table.ref-table{ width:100%; border-collapse:collapse; font-size:0.82rem; }
+  table.ref-table th, table.ref-table td{ text-align:left; padding:0.45rem 0.6rem; border-bottom:1px solid var(--border); }
+  table.ref-table th{ font-size:0.68rem; text-transform:uppercase; letter-spacing:0.05em; color:var(--text-mute); font-weight:600; }
+  .table-scroll{ overflow-x:auto; }
+  .subhead{ font-family:var(--font-display); font-size:0.95rem; font-weight:600; margin:1.6rem 0 0.6rem; }
+
+  details.note{
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:6px;
+    margin-bottom:0.6rem;
+    padding:0;
+  }
+  details.note summary{
+    cursor:pointer;
+    padding:0.75rem 1rem;
+    font-weight:600;
+    font-size:0.9rem;
+    list-style:none;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+  }
+  details.note summary::-webkit-details-marker{ display:none; }
+  details.note summary::after{ content:"+"; color:var(--text-mute); font-weight:400; font-size:1.1rem; }
+  details.note[open] summary::after{ content:"–"; }
+  details.note summary:focus-visible{ outline:2px solid var(--accent); outline-offset:-2px; }
+  .note-body{ padding:0 1rem 1rem; font-size:0.86rem; }
+  .note-body p{ margin:0 0 0.7rem; }
+  .note-body ul{ margin:0 0 0.7rem; padding-left:1.1rem; }
+  .note-body li{ margin-bottom:0.35rem; }
+  .resolved{ text-decoration:line-through; color:var(--text-mute); }
+  .sources-list{ font-size:0.78rem; columns:2; column-gap:2rem; }
+  @media (max-width:700px){ .sources-list{ columns:1; } }
+  .sources-list li{ break-inside:avoid; margin-bottom:0.5rem; }
+
+  footer.foot{
+    max-width:1240px; margin:0 auto; padding:1rem 2rem 2.5rem;
+    color:var(--text-mute); font-size:0.75rem;
+  }
+</style>
+
+<div class="page">
+
+  <header class="masthead">
+    <div>
+      <h1 class="masthead-title">AT&amp;T — Pursuit Dashboard</h1>
+      <div class="masthead-sub">Improving &middot; Business Development &middot; Internal &middot; Dallas HQ target (corrected)</div>
+    </div>
+  </header>
+
+  <div class="status-strip">
+    <div class="stat">
+      <div class="stat-label">9-Box Position</div>
+      <div class="stat-value accent">SIGNIFICANT</div>
+      <div class="stat-sub">High Potential (3.5) &middot; Low Realized (-4.1)</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">Closed Revenue</div>
+      <div class="stat-value tabular">$0</div>
+      <div class="stat-sub">Cold pursuit on David's own book — the $53K SharePoint win sits on a different (Atlanta-owned) CRM account, not David's</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">Open Pipeline</div>
+      <div class="stat-value tabular">$0</div>
+      <div class="stat-sub">No engagement history on David's own book</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">Warmest Path</div>
+      <div class="stat-value">None confirmed</div>
+      <div class="stat-sub">Paul Fox (cold LinkedIn, 1 unverified mutual) is the closest lead — no warm path exists</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">Recommended Play</div>
+      <div class="stat-value accent">Option B</div>
+      <div class="stat-sub">AI-Ready Network Data Foundation</div>
+    </div>
+  </div>
+
+  <main>
+
+    <nav class="tabbar" role="tablist" aria-label="Dashboard sections">
+      <button class="tab-btn active" role="tab" aria-selected="true" data-tab="overview">Overview</button>
+      <button class="tab-btn" role="tab" aria-selected="false" data-tab="profiles">Profiles</button>
+      <button class="tab-btn" role="tab" aria-selected="false" data-tab="notes">Notes</button>
+    </nav>
+
+    <div class="tab-panel active" id="tab-overview">
+    <section class="block front-grid">
+      <div>
+        <div class="card pitch-hero">
+          <span class="eyebrow">Recommended entry play &middot; Option B</span>
+          <h3>AI-Ready Network Data Foundation</h3>
+          <div class="pitch-why">The highest-strategic-value play, directly tied to CEO Stankey's stated AI-ready-network ambition. Positions Improving as a data-engineering-plus-AI partner for the network organization — a genuinely cold, David-led conversation starting with Paul Fox.</div>
+          <blockquote class="script">&ldquo;Your CEO has said the goal is the most advanced, open network in the industry by decade's end. That's a data-foundation problem before it's a model problem — where's your team's data plumbing relative to that ambition?&rdquo;</blockquote>
+          <div class="pitch-rationale"><strong>Why lead here:</strong> this is a genuinely cold pursuit for David — there is no existing relationship to lean on (the SharePoint win belongs to a different, Atlanta-owned CRM account). Open with the highest-strategic-value, most CEO-aligned conversation rather than a low-friction one that doesn't actually exist on David's side. Start with Paul Fox as the first cold touch.</div>
+        </div>
+
+        <div class="secondary-plays">
+          <details class="play-card">
+            <summary>
+              <span><span class="eyebrow">Option C</span><h4>M&amp;A Integration Surge Capacity</h4></span>
+            </summary>
+            <div class="play-card-body">
+              <p>Mirrors Improving's Constellation/Calpine playbook: a small, senior embedded pod to de-risk a specific EchoStar or Lumen integration workstream. Genuinely available to David — not territory-locked — held in reserve as a secondary hook.</p>
+              <blockquote class="script">&ldquo;You just closed two of the largest deals in the company's recent history within six months of each other. Integrations this size live or die on data and systems consolidation — where's the schedule pressure worst, and would senior surge capacity help de-risk it?&rdquo;</blockquote>
+            </div>
+          </details>
+          <details class="play-card">
+            <summary>
+              <span><span class="eyebrow">Option A</span><h4>Digital Workplace &amp; Collaboration Expansion</h4></span>
+            </summary>
+            <div class="play-card-body">
+              <p><strong>Not recommended as lead.</strong> Improving does have a live SharePoint Support win at AT&amp;T, but it sits on Matt Russell's Atlanta-owned CRM account, not David's book. Not David's credential to claim. Only relevant if David and Matt Russell agree to coordinate as one account team.</p>
+              <blockquote class="script">&ldquo;We've delivered clean, fast work on your SharePoint environment — small scope, but zero drama...&rdquo; <em>(Atlanta-side pitch, not David's to use.)</em></blockquote>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <div>
+        <div class="block-heading" style="margin-bottom:0.6rem;">Contact Priority Queue</div>
+        <div class="queue">
+          <div class="queue-row priority-1">
+            <div class="queue-num">1</div>
+            <div>
+              <div class="queue-name">Paul Fox <span class="pill pill-cold">Cold — Flagged Priority</span></div>
+              <div class="queue-role">AVP, Technology, AT&amp;T &middot; McKinney, TX (Dallas metro)</div>
+              <div class="queue-goal">Cold LinkedIn outreach — David has flagged him directly; one unconfirmed mutual connection ("Jason"). Peer-to-peer discovery conversation on where AT&amp;T's Technology org feels EchoStar/Lumen integration pressure — the first genuine David-side relationship at this account.</div>
+            </div>
+          </div>
+          <div class="queue-row">
+            <div class="queue-num">2</div>
+            <div>
+              <div class="queue-name">Yigal Elbaz <span class="pill pill-cold">Warm-Intro Only</span></div>
+              <div class="queue-role">SVP, Network CTO, AT&amp;T</div>
+              <div class="queue-goal">Warm introduction only, via Fox or a proof point from #1 — do not cold-reach at this level. Open the AI-ready-network / data-foundation conversation once a working-level proof point exists.</div>
+            </div>
+          </div>
+          <div class="queue-row">
+            <div class="queue-num">3</div>
+            <div>
+              <div class="queue-name">Robert Kafka / Geetha Sankuratri <span class="pill pill-cold">Cold</span></div>
+              <div class="queue-role">Technology org, working level, AT&amp;T</div>
+              <div class="queue-goal">LinkedIn, secondary to Fox. Additional working-level entry points into the same Technology org if Fox's scope doesn't fit.</div>
+            </div>
+          </div>
+          <div class="queue-row">
+            <div class="queue-num">4</div>
+            <div>
+              <div class="queue-name">Jeremy Legg <span class="pill pill-cold">Exec Sponsor — Later</span></div>
+              <div class="queue-role">Chief Technology Officer, AT&amp;T</div>
+              <div class="queue-goal">Executive sponsor conversation — only after a working proof point from the Technology org. Economic-buyer-level conversation on AI-ready network infrastructure and cost-transformation alignment.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="block analysis-grid">
+      <div class="card ninebox-wrap">
+        <div class="block-heading">Account 9-Box</div>
+        <svg viewBox="0 0 300 300" width="100%" style="max-width:280px;" role="img" aria-label="9-box grid showing AT&amp;T plotted in the SIGNIFICANT cell">
+          <defs>
+            <style>
+              .grid-line{ stroke: var(--border); stroke-width:1; }
+              .axis-label{ font-family: var(--font-body); font-size:9px; fill: var(--text-mute); }
+              .cell-label{ font-family: var(--font-body); font-size:8px; fill: var(--text-mute); }
+            </style>
+          </defs>
+          <rect x="30" y="10" width="240" height="240" fill="none" class="grid-line"></rect>
+          <line x1="110" y1="10" x2="110" y2="250" class="grid-line"></line>
+          <line x1="190" y1="10" x2="190" y2="250" class="grid-line"></line>
+          <line x1="30" y1="90" x2="270" y2="90" class="grid-line"></line>
+          <line x1="30" y1="170" x2="270" y2="170" class="grid-line"></line>
+
+          <!-- SIGNIFICANT = High Potential (right column, x=190) / Low Realized (bottom row, y=170) -->
+          <rect x="190" y="170" width="80" height="80" fill="var(--accent-soft)"></rect>
+          <text x="200" y="215" class="cell-label">SIGNIFICANT</text>
+
+          <text x="8" y="16" class="axis-label">High</text>
+          <text x="8" y="134" class="axis-label">Mid</text>
+          <text x="8" y="246" class="axis-label">Low</text>
+          <text x="34" y="264" class="axis-label">Low</text>
+          <text x="105" y="264" class="axis-label">Mid</text>
+          <text x="245" y="264" class="axis-label">High</text>
+          <text x="120" y="278" class="axis-label" font-weight="700">POTENTIAL &rarr;</text>
+          <text x="-180" y="12" class="axis-label" font-weight="700" transform="rotate(-90)">&larr; REALIZED</text>
+
+          <!-- cx = 30 + ((3.5+5)/10)*240 = 234 ; cy = 250 - ((-4.1+5)/10)*240 = 228.4 -->
+          <circle cx="234" cy="228" r="7" fill="var(--accent-strong)" stroke="var(--surface)" stroke-width="2"></circle>
+          <text x="205" y="248" class="cell-label" font-weight="700" fill="var(--accent-strong)">AT&amp;T</text>
+        </svg>
+        <div class="ninebox-note">Potential 3.5 (High) &middot; Realized -4.1 (Low). Realized recomputed this session as a true $0/0% cold pursuit — the prior version's -2.7 borrowed another region's $53K CRM revenue. Zone name unchanged (SIGNIFICANT) but the underlying Realized score is now honest.</div>
+      </div>
+
+      <div class="card">
+        <div class="block-heading">30 / 60 / 90 Day Plan</div>
+        <div class="timeline">
+          <div class="tl-row">
+            <div><div class="tl-phase">Next 30</div><div class="tl-time">Days 1&ndash;30</div></div>
+            <div class="tl-milestone">Contact Matt Russell to align on AT&amp;T territory. Cold-outreach to Paul Fox via LinkedIn (Option B framing). Confirm Fox's exact scope/mandate.</div>
+          </div>
+          <div class="tl-row">
+            <div><div class="tl-phase">Next 60</div><div class="tl-time">Days 31&ndash;60</div></div>
+            <div class="tl-milestone">Advance discovery with Fox or pivot to Kafka/Sankuratri if scope doesn't fit. Explore warm intro to Elbaz if a proof point emerges. Loop in Improving's Microsoft alliance owner.</div>
+          </div>
+          <div class="tl-row">
+            <div><div class="tl-phase">Next 90</div><div class="tl-time">Days 61&ndash;90</div></div>
+            <div class="tl-milestone">If traction exists, scope a small first engagement (Option B assessment or Option C surge-capacity conversation). If not, shift to a longer-horizon nurture rather than continued direct-pitch cadence.</div>
+          </div>
+        </div>
+
+        <div class="block-heading" style="margin-top:1.5rem;">Immediate Next Actions</div>
+        <div class="actions-list">
+          <div class="action-item"><span class="action-check"></span>Contact Matt Russell to align on AT&amp;T territory before any further outreach — gating action; two Improving teams should not independently pursue the same company.</div>
+          <div class="action-item"><span class="action-check"></span>Send a cold LinkedIn outreach to Paul Fox using the Option B entry pitch.</div>
+          <div class="action-item"><span class="action-check"></span>Verify Paul Fox's exact scope and mandate before advancing past a discovery conversation.</div>
+          <div class="action-item"><span class="action-check"></span>Identify Improving's Microsoft alliance/partner owner given AT&amp;T's confirmed, multi-billion-dollar Microsoft relationship.</div>
+          <div class="action-item"><span class="action-check"></span>Run a full 10-K/proxy citation pass to strengthen primary-source grounding beyond the Q2 2026 earnings call and press releases.</div>
+          <div class="action-item"><span class="action-check"></span>Confirm with David whether, after the Matt Russell conversation, any element of the Atlanta account becomes usable under an explicit coordination agreement.</div>
+        </div>
+      </div>
+    </section>
+    </div>
+
+    <div class="tab-panel" id="tab-profiles">
+
+      <div class="profile-grid">
+        <div class="profile-card flag">
+          <div class="profile-name">Paul Fox</div>
+          <div class="profile-title">AVP, Technology, AT&amp;T — McKinney, TX</div>
+          <div class="profile-badges"><span class="pill pill-cold">David-Flagged Priority</span></div>
+          <div class="profile-section"><span class="label">Why they matter</span>Based in the Dallas metro — same market as David and Improving's Dallas office. 335 LinkedIn connections, one mutual ("Jason"). Inference from title and LinkedIn adjacency to other AT&amp;T Technology-org profiles (Elbaz, Kafka, Sankuratri): likely a working-level technology leader inside AT&amp;T's broader Technology/Network organization — a plausible peer-level entry point for a technical, delivery-first conversation.</div>
+          <div class="profile-section"><span class="label">Pitch angle</span><span class="profile-quote">&ldquo;I run Improving's Dallas practice — we haven't worked together before, but given everything going on with the EchoStar and Lumen integrations, I'd guess your team's data and app-rationalization backlog just got a lot longer. Worth a conversation about where that pressure is actually showing up?&rdquo;</span></div>
+          <div class="profile-section"><span class="label">Avoid</span>Don't lead with a capabilities pitch or assume seniority/scope he doesn't have. Don't reference the SharePoint Support engagement or imply an existing AT&amp;T relationship — there isn't one on this side. Genuinely cold; verify his exact scope before outreach.</div>
+          <div class="profile-source">linkedin.com/in/paul-fox-91a59b13 (confirmed via direct Chrome navigation, 2026-08-11); CRM contact search run, no match found this session.</div>
+        </div>
+
+        <div class="profile-card">
+          <div class="profile-name">Yigal Elbaz</div>
+          <div class="profile-title">SVP, Network CTO, AT&amp;T</div>
+          <div class="profile-badges"><span class="pill pill-cold">Warm-Intro Only</span></div>
+          <div class="profile-section"><span class="label">Why they matter</span>Inference from title: likely owns network technology strategy and architecture directly under Jeremy Legg (CTO) — the most senior, most directly relevant contact identified for the AI-ready-network and Open RAN priority themes. No further public background pulled this session (time-boxed).</div>
+          <div class="profile-section"><span class="label">Pitch angle</span><span class="profile-quote">&ldquo;Stankey's framed the network itself as the AI story — lowest latency, most open platform in the industry by end of decade. That's a data-foundation problem before it's a model problem. Where's your team on the data plumbing underneath that ambition?&rdquo;</span></div>
+          <div class="profile-section"><span class="label">Avoid</span>Don't cold-reach at this level without a proof point from the working-level relationship first (Fox) — more so now that there is no existing account thread to soften the approach.</div>
+          <div class="profile-source">linkedin.com/in/yigal-elbaz-b1372b1. CRM: checked directly, no contact record found.</div>
+        </div>
+      </div>
+
+      <div class="subhead">Remaining Executive Council</div>
+      <div class="table-scroll">
+        <table class="ref-table">
+          <thead><tr><th>Name</th><th>Title</th><th>CRM Status</th></tr></thead>
+          <tbody>
+            <tr><td>John Stankey</td><td>Chairman &amp; Chief Executive Officer</td><td>no-crm-history</td></tr>
+            <tr><td>Jeff McElfresh</td><td>Chief Operating Officer</td><td>no-crm-history</td></tr>
+            <tr><td>Pascal Desroches</td><td>SEVP &amp; Chief Financial Officer</td><td>no-crm-history</td></tr>
+            <tr><td>Jeremy Legg</td><td>Chief Technology Officer</td><td>no-crm-history</td></tr>
+            <tr><td>Darcie Henry</td><td>Chief Human Resources Officer</td><td>no-crm-history</td></tr>
+            <tr><td>Kellyn Smith Kenny</td><td>Chief Marketing &amp; Growth Officer</td><td>no-crm-history</td></tr>
+            <tr><td>Lori Lee</td><td>Global Marketing Officer &amp; SEVP, International</td><td>no-crm-history</td></tr>
+            <tr><td>David R. McAtee II</td><td>SEVP &amp; General Counsel</td><td>no-crm-history</td></tr>
+            <tr><td>Ed Gillespie</td><td>SEVP, External &amp; Legislative Affairs</td><td>no-crm-history</td></tr>
+            <tr><td>Thaddeus Arroyo</td><td>Chief Strategy &amp; Development Officer</td><td>no-crm-history</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="subhead">One Level Down (partial)</div>
+      <div class="table-scroll">
+        <table class="ref-table">
+          <thead><tr><th>Name</th><th>Title</th><th>Reports Toward</th></tr></thead>
+          <tbody>
+            <tr><td>Yigal Elbaz</td><td>SVP, Network CTO</td><td>Jeremy Legg (CTO)</td></tr>
+            <tr><td>Paul Fox</td><td>AVP – Technology</td><td>Technology org (David-flagged)</td></tr>
+            <tr><td>Robert Kafka</td><td>AVP, Technology – Public Cloud, Development &amp; Operational Tools</td><td>Technology org</td></tr>
+            <tr><td>Geetha Sankuratri</td><td>Technology Leader (SRE / AIOps / GenAI)</td><td>Technology org</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="tab-panel" id="tab-notes">
+
+      <details class="note" open>
+        <summary>Open Items to Confirm</summary>
+        <div class="note-body">
+          <p><strong>Territory correction (this session):</strong> the prior version of this document mis-targeted Improving's Dynamics CRM account "AT&amp;T Services, Inc." (owner: Matt Russell, Atlanta team) as David's own pursuit, including its contacts (Jody LeBlanc, Fletcher Whiting) and its $53,000 in closed-won revenue. Corrected — David's actual target is AT&amp;T's Dallas HQ, a cold pursuit from his own book. Recommend David coordinate directly with Matt Russell rather than have two Improving teams independently pursue the same company.</p>
+          <ul>
+            <li>What is Paul Fox's exact role, scope, and reporting line? Not yet confirmed beyond title/LinkedIn adjacency.</li>
+            <li>Which specific SIs/incumbents actually hold AT&amp;T's network-ops/IT-outsourcing relationships? Not confirmed via any public or CRM source this session.</li>
+            <li>Is there a stronger, telecom-specific win-wire reference anywhere in Improving's broader portfolio, given the SharePoint win can't be used as David's own credential?</li>
+            <li>Full C-suite CRM cross-reference beyond the account-level finding was not run name-by-name this session — the material question (does David have any engagement history) is already answered.</li>
+            <li>Should the two territories' 9-box entries be reconciled into one, or remain intentionally separate given the ownership split? Raise with Matt Russell.</li>
+            <li>A full 10-K/proxy citation pass for AT&amp;T's stated priorities was not completed this session.</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="note">
+        <summary>9-Box Methodology</summary>
+        <div class="note-body">
+          <p><strong>Potential (3.5, High):</strong> Geography raw 4 (weight 0.10 → 0.4) — AT&amp;T HQ'd in Dallas, TX; David is Dallas-based and Improving has a Dallas office, both flags Y; unchanged by the territory correction, a structural fact independent of CRM ownership. Revenue raw 3 (weight 0.70 → 2.1) and Gross Margin raw 5 (weight 0.20 → 1.0) — inherited from this workflow's own AT&amp;T calibration source, not independently re-derived.</p>
+          <p><strong>Realized (-4.1, Low) — corrected:</strong> Geography raw 4 (weight 0.10 → 0.4, same structural fact). Revenue raw -5 (weight 0.70 → -3.5) and Gross Margin raw -5 (weight 0.20 → -1.0) — both now correctly defaulted to $0/0% because David has zero CRM engagement history on any AT&amp;T record. The prior version's -2.7 improperly used the $53,000 in closed-won revenue that sits on Matt Russell's Atlanta-owned account.</p>
+          <p>Zone (SIGNIFICANT) happens to match the prior, incorrectly-sourced calculation, but the Realized score itself is materially different and now honestly reflects zero connection on David's own book — real structural upside, nothing yet banked. Flagged inferences carried forward: geography scoring logic (single data point) and 9-box grid arrangement beyond the one confirmed calibration cell remain unverified.</p>
+        </div>
+      </details>
+
+      <details class="note">
+        <summary>Strategic Priorities (AT&amp;T)</summary>
+        <div class="note-body">
+          <ul>
+            <li><strong>Fiber Expansion &amp; Convergence Growth:</strong> Expanding fiber footprint toward 50 million locations (up from ~29 million end of 2025), adding 1M+ fiber locations in Q2 2026 alone. Fiber + 5G convergence is the stated core growth engine.</li>
+            <li><strong>5G / Open RAN Network Modernization:</strong> Pushing midband 5G coverage from ~270M POPs (end of 2025) to 300M+ by end of 2026; deploying commercial-scale Open RAN with Ericsson, targeting 70% of wireless traffic on open-capable platforms by late 2026.</li>
+            <li><strong>AI-Ready Network Infrastructure:</strong> CEO John Stankey has stated the ambition to operate "the most advanced and technologically open communications network in the U.S." by end of decade, framed explicitly as a monetization/service-differentiation opportunity.</li>
+            <li><strong>Cost Transformation:</strong> Targeting $4 billion in annual cost savings by end of 2028, with adjusted EPS targeted for double-digit three-year CAGR through 2028.</li>
+            <li><strong>Inorganic Capacity Expansion (Spectrum &amp; Fiber M&amp;A):</strong> The EchoStar spectrum close (7/28/2026, $23B) and Lumen mass-markets fiber close (2/2/2026, $5.75B) are direct, dated evidence AT&amp;T is buying capacity as fast as it is building it.</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="note">
+        <summary>Competitive Positioning</summary>
+        <div class="note-body">
+          <div class="table-scroll">
+            <table class="ref-table">
+              <thead><tr><th>Priority Theme</th><th>Improving Capability</th><th>Why It Fits</th></tr></thead>
+              <tbody>
+                <tr><td>Fiber Expansion &amp; Convergence</td><td>Application modernization / cloud engineering</td><td>OSS/BSS and provisioning-system work scales with every new fiber market lit up</td></tr>
+                <tr><td>5G / Open RAN Modernization</td><td>Data engineering + network telemetry/automation</td><td>Open RAN generates far more granular network data than legacy RAN — a data-engineering-heavy problem</td></tr>
+                <tr><td>AI-Ready Network Infrastructure</td><td>AI / data engineering (paired competency)</td><td>Directly matches Stankey's stated ambition; Improving pairs data foundation with applied AI rather than selling models on broken data</td></tr>
+                <tr><td>Cost Transformation ($4B target)</td><td>Embedded, outcome-based delivery pods</td><td>Cost-out programs run on lean, senior, fast teams — not more headcount</td></tr>
+                <tr><td>EchoStar / Lumen integration</td><td>Application rationalization, data migration, integration delivery</td><td>Direct analog to the Constellation/Calpine playbook Improving has already built</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p style="margin-top:0.8rem;"><strong>Win-wire story — corrected:</strong> Improving does have a live SharePoint Support win at AT&amp;T ($18,000, closed 5/14/2026, plus a second win totaling $53,000 since March 2025) — but it sits entirely on Matt Russell's Atlanta-owned CRM account, not David's. It should not be presented to a Dallas-side contact as David's own credential. The more usable analog for a cold pitch is Improving's own Constellation Energy / Calpine M&amp;A-integration playbook — structurally similar, industry-different, and genuinely available to David.</p>
+          <p><strong>Honest competitive note:</strong> AT&amp;T is a top-10 enterprise telecom account and almost certainly carries deep incumbent relationships with major global SIs (Accenture, TCS, Cognizant, Infosys, IBM, Deloitte are the most likely incumbents, none confirmed via a public source this session). Improving does not compete on scale, global delivery volume, or brand recognition. For a genuinely cold Dallas-side entry, the real edge is senior talent density, delivery speed, and a differentiated data+AI pairing — not an existing warm relationship, since there isn't one on David's side.</p>
+        </div>
+      </details>
+
+      <details class="note">
+        <summary>Referral &amp; Partner Network Detail</summary>
+        <div class="note-body">
+          <div class="table-scroll">
+            <table class="ref-table">
+              <thead><tr><th>Contact</th><th>Path</th><th>Status</th></tr></thead>
+              <tbody>
+                <tr><td>Paul Fox</td><td>LinkedIn — 1 mutual connection ("Jason")</td><td>needs-verification (partial capture, mutuals module not opened)</td></tr>
+                <tr><td>Yigal Elbaz</td><td>LinkedIn sidebar adjacency to Fox — not visited directly</td><td>unavailable</td></tr>
+                <tr><td>Robert Kafka / Geetha Sankuratri</td><td>LinkedIn sidebar adjacency — not visited directly</td><td>unavailable</td></tr>
+                <tr><td>YPO / personal / alumni ties</td><td>None identified this session</td><td>no-signal-found</td></tr>
+                <tr><td>Existing sponsor path</td><td>Not applicable — cold pursuit; Jody LeBlanc/Fletcher Whiting are Matt Russell's Atlanta contacts, removed from this plan</td><td>not-applicable</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="table-scroll" style="margin-top:1rem;">
+            <table class="ref-table">
+              <thead><tr><th>Partner</th><th>Status</th><th>Contact</th></tr></thead>
+              <tbody>
+                <tr><td>Microsoft</td><td>confirmed — $2B cloud deal (2019), Azure preferred cloud for non-network workloads, M365 for ~268,000 employees, Network Cloud asset acquisition (2021)</td><td>not-identified — route through Improving's Microsoft alliance owner</td></tr>
+                <tr><td>Snowflake</td><td>confirmed — direct named customer case study and video testimonial</td><td>not-identified</td></tr>
+                <tr><td>AWS</td><td>confirmed — 2026 joint initiative on AWS Interconnect and business-AI connectivity</td><td>not-identified</td></tr>
+                <tr><td>SAP</td><td>no-signal-found</td><td>not-identified</td></tr>
+                <tr><td>GCP</td><td>no-signal-found</td><td>not-identified</td></tr>
+                <tr><td>Confluent</td><td>no-signal-found (plausible for telecom event-streaming, not confirmed)</td><td>not-identified</td></tr>
+                <tr><td>Databricks</td><td>no-signal-found (Improving's own outbound webinar invite on the Atlanta account, not evidence of AT&amp;T usage)</td><td>not-identified</td></tr>
+                <tr><td>SpaceX/xAI</td><td>no-signal-found (AT&amp;T's direct-to-cell partner is AST SpaceMobile, a different company)</td><td>not-identified</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </details>
+
+      <details class="note">
+        <summary>Sources</summary>
+        <div class="note-body">
+          <ul class="sources-list">
+            <li>Improving Dynamics CRM — "My Active Accounts – Improving" view, keyword search for "AT&amp;T," 2026-08-11 (zero results)</li>
+            <li>Improving Dynamics CRM — "All Accounts" view, keyword search for "AT&amp;T," 2026-08-11 (merge chain: AT&amp;T Inc. → AT&amp;T → AT&amp;T Services, Inc., all owned by Matt Russell)</li>
+            <li>Improving Dynamics CRM — direct record review of AT&amp;T Inc., AT&amp;T, and AT&amp;T Services, Inc. account pages, 2026-08-11</li>
+            <li>Improving Dynamics CRM — targeted contact search for "Paul Fox" and "Yigal Elbaz," 2026-08-11 (no matching records found)</li>
+            <li><a href="https://investors.att.com/~/media/Files/A/ATT-IR-V2/financial-reports/quarterly-earnings/2026/2Q-2026/t-usq-transcript-2026-07-22.pdf">AT&amp;T Q2 2026 earnings call transcript</a></li>
+            <li><a href="https://www.investing.com/news/company-news/att-q2-2026-slides-fiber-strategy-drives-margin-expansion-93CH-4806270">AT&amp;T Q2 2026 slides: fiber strategy drives margin expansion</a></li>
+            <li><a href="https://ca.finance.yahoo.com/news/t-inc-t-q2-2026-210133100.html">AT&amp;T Inc (T) Q2 2026 Earnings Call Highlights</a></li>
+            <li><a href="https://www.marketbeat.com/instant-alerts/att-cto-details-5g-and-fiber-expansion-plans-ai-network-push-and-satellite-direct-to-cell-outlook-2026-03-28/">AT&amp;T CTO Details 5G and Fiber Expansion Plans, AI Network Push</a></li>
+            <li><a href="https://www.rcrwireless.com/20241204/carriers/atts-three-year-vision">AT&amp;T lays out three-year plan: Owners economics, Open RAN</a></li>
+            <li><a href="https://seekingalpha.com/pr/19933966-at-and-t-outlines-strategic-plan-to-drive-sustainable-growth-and-enhanced-shareholder-returns">AT&amp;T Outlines Strategic Plan to Drive Sustainable Growth</a></li>
+            <li><a href="https://about.att.com/story/2026/echostar-spectrum.html">AT&amp;T Closes Acquisition of Spectrum Licenses from EchoStar</a></li>
+            <li><a href="https://www.techtimes.com/articles/322311/20260730/t-closes-echostar-spectrum-deal-345-ghz-live-nationwide-600-mhz-not-ready.htm">AT&amp;T Closes EchoStar Spectrum Deal</a></li>
+            <li><a href="https://about.att.com/story/2026/att-lumen-deal-close.html">AT&amp;T Completes Acquisition of Lumen's Mass Markets Fiber Business</a></li>
+            <li><a href="https://ir.lumen.com/news/news-details/2026/Lumen-Completes-Sale-of-Consumer-Fiber-to-the-Home-Business-to-ATT/default.aspx">Lumen Completes Sale of Consumer Fiber-to-the-Home Business to AT&amp;T</a></li>
+            <li><a href="https://investors.att.com/corporate-governance/leadership">AT&amp;T Executive Leadership</a></li>
+            <li><a href="https://techcrunch.com/2019/07/17/att-signs-2-billion-cloud-deal-with-microsoft/">AT&amp;T signs $2 billion cloud deal with Microsoft</a></li>
+            <li><a href="https://azure.microsoft.com/en-us/blog/improving-the-cloud-for-telcos-updates-of-microsoft-s-acquisition-of-att-s-network-cloud/">Improving the cloud for telcos: Microsoft's acquisition of AT&amp;T's Network Cloud</a></li>
+            <li><a href="https://www.snowflake.com/en/customers/all-customers/case-study/att/">AT&amp;T Provides Faster Insights at Lower Costs with Snowflake</a></li>
+            <li><a href="https://www.snowflake.com/en/customers/all-customers/video/att/">AT&amp;T Connects the World in the Data Cloud</a></li>
+            <li><a href="https://about.att.com/story/2026/aws-collaboration-scalable-business-ai.html">AT&amp;T, AWS Collaborate on Scalable Connectivity for Business AI</a></li>
+            <li><a href="https://www.linkedin.com/in/paul-fox-91a59b13/">Paul Fox, AVP – Technology, AT&amp;T, LinkedIn</a></li>
+            <li><a href="https://www.linkedin.com/in/yigal-elbaz-b1372b1/">Yigal Elbaz, SVP Network CTO, AT&amp;T, LinkedIn</a></li>
+          </ul>
+        </div>
+      </details>
+    </div>
+
+  </main>
+
+  <footer class="foot">
+    Pursuit map dashboard for the <code>account-pursuit-map</code> workflow. Companion document: <code>accounts/AT&amp;T/account-plan.md</code>.
+  </footer>
+</div>
+
+<script>
+  document.querySelectorAll('.tab-btn').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      document.querySelectorAll('.tab-btn').forEach(function(b){ b.classList.remove('active'); b.setAttribute('aria-selected','false'); });
+      document.querySelectorAll('.tab-panel').forEach(function(p){ p.classList.remove('active'); });
+      btn.classList.add('active');
+      btn.setAttribute('aria-selected','true');
+      document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+    });
+  });
+</script>

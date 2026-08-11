@@ -1,0 +1,10 @@
+{
+  "id": "err-20260811T000000-CHRCMT",
+  "timestamp": "2026-08-11T00:00:00",
+  "agent": "chase",
+  "context": "account-pursuit-map workflow for AT&T",
+  "correction": "David corrected: do not use Comet (comet-bridge MCP) for browser automation/research tasks; use Chrome only (Claude in Chrome / Playwright / WebSearch/WebFetch).",
+  "why": "Comet is not the approved browser automation path for this system; Chrome is the standing tool for LinkedIn/web/CRM research steps.",
+  "how_to_apply": "In account-pursuit-map and any other workflow requiring browser-driven research (LinkedIn, CRM via browser, web lookups), always use Chrome-based tools, never mcp__comet-bridge__* tools.",
+  "status": "logged"
+}

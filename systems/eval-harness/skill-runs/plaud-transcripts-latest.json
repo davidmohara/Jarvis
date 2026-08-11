@@ -1,11 +1,11 @@
 {
   "skill": "plaud-transcripts",
   "agent": "knox",
-  "trigger": "boot",
-  "started": "2026-08-04T15:00:00Z",
-  "completed": "2026-08-04T15:20:00Z",
+  "trigger": "manual",
+  "started": "2026-08-11T17:00:00Z",
+  "completed": "2026-08-11T17:30:00Z",
   "status": "success",
-  "tool_failures": 0,
+  "tool_failures": 1,
   "error_ids": [],
-  "notes": "Resumed plaud-ingest (session pi-20260803-001) from step-05 with 4 fully speaker-resolved staged recordings (2 work, 2 personal). Wrote 4 vault notes, linked 2 daily notes (2026-07-29, 2026-07-30), created 8 Monday tasks (2 work to Alice, 6 personal to David), cleaned up 12 staging files, shared 2 work recordings and emailed Alice Mburu the links with 2 corresponding review tasks. Personal recordings correctly excluded from sharing. Workflow state.yaml set to status: complete."
+  "notes": "Solace recording (file_id: 2b977c5e42c831ca506e2843289e4f26) ingested. Speaker rename API call failed (Could not load transcript) — Speaker 2 mapped to Austin Ledesma in vault note only. Vault note written to zzPlaud/Client/. Daily note updated. Monday task 12777083072 created for Alice."
 }

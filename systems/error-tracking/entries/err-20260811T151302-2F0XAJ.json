@@ -1,0 +1,13 @@
+{
+  "id": "err-20260811T151302-2F0XAJ",
+  "timestamp": "2026-08-11T15:13:02Z",
+  "source": "explicit",
+  "agent": "master",
+  "session_id": "session-2026-08-11-093757",
+  "category": "lazy-search",
+  "failure_mode": "available-data-not-used",
+  "severity": "low",
+  "description": "Knox surfaced unknown speakers from two Plaud recordings and asked David to identify them. Calendar data for Aug 10 was already pulled during boot and contained attendee lists for both meetings. Master should have cross-referenced attendees against the speaker samples before surfacing to David. Instead, passed the question directly to the controller.",
+  "correction": "Before asking David to identify speakers, always cross-reference available calendar data (attendee lists) for meetings on the recording date.",
+  "proposed_fix": "Add step to Knox speaker-ID prompt: check same-day calendar pull for attendee list and surface candidates before asking controller."
+}

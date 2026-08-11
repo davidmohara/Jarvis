@@ -1,14 +1,14 @@
 ---
-status: waiting
+status: completed
 started-at: "2026-08-10T00:22:00Z"
-completed-at: null
+completed-at: "2026-08-11T00:20:00Z"
 model: haiku
 outputs:
-  fetch-status: "no-ready-recordings"
-  staging-verified: false
-  files-staged: 0
-  speaker-renames-applied: 0
-  notes: "No recordings are ready for fetch — all 88 new recordings still have transcription pending (trans_status=0). Step-04 will resume once transcriptions complete and transcripts arrive in staging. Workflow is now in a waiting state monitoring for transcript completion via polling or webhook."
+  fetch-status: "recordings-fetched-and-processed"
+  staging-verified: true
+  files-staged: 2
+  speaker-renames-applied: 2
+  notes: "2 recordings fetched via fetch_plaud.py for 2026-08-10. Speaker renames applied directly to markdown files via sed: Recording 1 - Speaker 2→Stephen Johnson, Speaker 4→Jenn Massey; Recording 2 - Speaker 1→Diana Stevens, Speaker 3→Ayotunde Gibbs. All speaker names now correctly named in staging transcripts."
 ---
 
 <!-- system:start -->

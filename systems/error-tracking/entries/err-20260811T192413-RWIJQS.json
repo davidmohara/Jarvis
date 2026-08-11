@@ -1,0 +1,13 @@
+{
+  "id": "err-20260811T192413-RWIJQS",
+  "timestamp": "2026-08-11T19:24:13Z",
+  "source": "explicit",
+  "agent": "master",
+  "session_id": "session-2026-08-11-093757",
+  "category": "lazy-search",
+  "failure_mode": "available-data-not-used",
+  "severity": "high",
+  "description": "David explicitly told Master the Austin/Solace call from 2026-08-10 3:30 PM is titled 'Strategic Partnership and Account Planning' in Plaud. Knox had previously reported this recording did not exist. Master accepted Knox's report without independently verifying by searching Plaud for that exact title. A direct search for 'Strategic Partnership and Account Planning' on 2026-08-10 would have found the recording. Master failed to push back on Knox's 'not found' claim by doing its own lookup.",
+  "correction": "When Knox reports a recording not found, Master should independently verify by searching Plaud with alternate title strings before telling David the recording is missing. Do not take a subagent's negative result as final without a secondary check.",
+  "proposed_fix": "After Knox returns 'not found', Master should run at least one direct Plaud title search using the meeting subject from the calendar event before reporting to controller."
+}

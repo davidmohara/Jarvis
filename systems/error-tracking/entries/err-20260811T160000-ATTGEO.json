@@ -1,0 +1,10 @@
+{
+  "id": "err-20260811T160000-ATTGEO",
+  "timestamp": "2026-08-11T16:00:00",
+  "agent": "chase",
+  "context": "account-pursuit-map workflow for AT&T — Contact Priority Queue / warmest-path targeting",
+  "correction": "David corrected: Jody LeBlanc and Fletcher Whiting are part of the Atlanta team's pursuit of the 'AT&T Services, Inc.' CRM account, not David's target. David is targeting AT&T Inc.'s Dallas HQ (the parent, not the Atlanta-owned services sub-account). The CRM record used as the primary warm-path source (owner Matt Russell, contacts Jody LeBlanc/Fletcher Whiting) was the wrong account/geography basis for this pursuit.",
+  "why": "The workflow's CRM lookup surfaced 'AT&T Services, Inc.' as the account record and treated its named contacts as the warmest path without checking whose territory/pursuit that account actually belongs to. A same-named or related CRM account owned by a different regional team does not mean it's the right entry point for a different executive's HQ-focused pursuit.",
+  "how_to_apply": "Before treating any CRM contact as a 'warmest path' in an account-pursuit-map run, confirm the account record's owner and territory align with the controller's actual target (company, HQ location, business unit) — do not assume a same-name CRM account is the relevant one. When a target company has multiple CRM account records (regional subs, service lines), ask or verify which one is in-scope before building the contact priority queue and dashboard around it.",
+  "status": "logged"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "err-20260811T154558-XD44J8",
+  "timestamp": "2026-08-11T15:45:58Z",
+  "source": "explicit",
+  "agent": "master",
+  "session_id": "session-2026-08-11-093757",
+  "category": "lazy-search",
+  "failure_mode": "available-data-not-used",
+  "severity": "medium",
+  "description": "David asked where his todo items from his call with Austin (Ledesma, Solace) landed. Master searched OmniFocus and Obsidian for 'Austin' and 'Solace' but failed to cross-reference the calendar, which clearly shows a 3:30 PM meeting on Aug 10 with Austin. Instead of identifying the correct Plaud note via calendar lookup, Master returned the wrong recording (Stephen Johnson / Strategic Partnership) and presented those action items as Austin's. The Aug 10 calendar data was available in boot state.",
+  "correction": "When a user references 'my call with [person]', always look at the calendar for that date first to identify the meeting, then find the matching Plaud note by time/title. Do not rely solely on name-matching in vault search.",
+  "proposed_fix": "Add calendar-first lookup step when resolving 'call with X' queries: pull calendar events for the relevant date, match by attendee name, then find corresponding Plaud note by date + title proximity."
+}

@@ -1,0 +1,13 @@
+{
+  "id": "err-20260811T213417-IAZ8S6",
+  "timestamp": "2026-08-11T21:34:17Z",
+  "source": "explicit",
+  "agent": "master",
+  "session_id": "session-2026-08-11-093757",
+  "category": "skill-bypass",
+  "failure_mode": "wrong-invocation-path",
+  "severity": "low",
+  "description": "Master posted to #content Slack channel via raw post.py command instead of invoking the master-slack skill at .claude/skills/master-slack/SKILL.md. The post succeeded and content was correct, but the skill wrapper was bypassed — meaning the eval signal file was not written and the skill invocation was not tracked. David corrected: 'you must use the .claude/skills/master-slack skill to post to the channel correctly'.",
+  "correction": "All Slack posts must go through the master-slack skill, not raw post.py calls. The skill uses the same post.py mechanism but also handles eval signal file writing and enforces the no-duplicate rule.",
+  "proposed_fix": "Before any Slack post, read .claude/skills/master-slack/SKILL.md. Use the skill as the invocation path. Write the eval signal file to systems/eval-harness/skill-runs/master-slack-latest.json on completion."
+}
