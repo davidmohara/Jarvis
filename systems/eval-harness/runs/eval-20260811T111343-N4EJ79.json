@@ -1,0 +1,92 @@
+{
+  "id": "eval-20260811T111343-N4EJ79",
+  "type": "workflow",
+  "name": "morning-briefing",
+  "agent": "chief",
+  "session_id": "session-2026-08-10-090000",
+  "trigger": "boot",
+  "started": "2026-08-11T06:12:44-05:00",
+  "completed": "2026-08-11T11:13:43.041474Z",
+  "duration_seconds": 59.0,
+  "status": "partial",
+  "steps": [
+    {
+      "name": "step-01-gather-calendar",
+      "started": "2026-08-11T06:12:44-05:00",
+      "completed": "2026-08-11T06:12:58.760369-05:00",
+      "duration_seconds": 14.8,
+      "status": "success",
+      "data_sources_used": [],
+      "data_source_failures": []
+    },
+    {
+      "name": "step-02-gather-tasks",
+      "started": "2026-08-11T06:12:58.760369-05:00",
+      "completed": "2026-08-11T06:13:13.520737-05:00",
+      "duration_seconds": 14.8,
+      "status": "success",
+      "data_sources_used": [],
+      "data_source_failures": []
+    },
+    {
+      "name": "step-03-meeting-context",
+      "started": "2026-08-11T06:13:13.520737-05:00",
+      "completed": "2026-08-11T06:13:28.281106-05:00",
+      "duration_seconds": 14.8,
+      "status": "success",
+      "data_sources_used": [],
+      "data_source_failures": []
+    },
+    {
+      "name": "step-04-synthesize-briefing",
+      "started": "2026-08-11T06:13:28.281106-05:00",
+      "completed": "2026-08-11T06:13:43.041474-05:00",
+      "duration_seconds": 14.8,
+      "status": "success",
+      "data_sources_used": [],
+      "data_source_failures": []
+    }
+  ],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": [],
+      "abort_reason": null
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": "2ef40d9d80fbfe63",
+  "prior_baseline_id": null,
+  "tags": [
+    "cowork-instrumented"
+  ]
+}
