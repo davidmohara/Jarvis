@@ -1,0 +1,248 @@
+{
+  "date": "2026-08-12",
+  "generated": "2026-08-12T08:30:00Z",
+  "window_hours": 72,
+  "sources_used": [
+    "msnbc", "cnn", "nbc", "thehill", "axios", "dailybeast", "slate", "newrepublic",
+    "foxnews", "natreview", "examiner", "federalist", "dailywire", "breitbart", "townhall",
+    "rcp", "amconserv", "spectator", "freepress"
+  ],
+  "sources_muted": [
+    {"id": "nyt", "name": "New York Times", "reason": "accessible:false"},
+    {"id": "wapo", "name": "Washington Post", "reason": "accessible:false"},
+    {"id": "politico", "name": "Politico", "reason": "accessible:false"},
+    {"id": "vox", "name": "Vox Politics", "reason": "accessible:false"},
+    {"id": "motherjones", "name": "Mother Jones", "reason": "accessible:false"},
+    {"id": "reuters", "name": "Reuters Politics", "reason": "accessible:false"},
+    {"id": "ap", "name": "Associated Press", "reason": "accessible:false"},
+    {"id": "bbc", "name": "BBC US & Canada", "reason": "accessible:false"},
+    {"id": "wsj_opinion", "name": "WSJ Opinion", "reason": "accessible:false"},
+    {"id": "nypost", "name": "New York Post", "reason": "accessible:false"}
+  ],
+  "counts": {
+    "total_items": 61,
+    "by_lean": {"left": 31, "right": 27, "center": 3},
+    "shared_topics": 4,
+    "gap_left": 4,
+    "gap_right": 4
+  },
+  "shared_topics": [
+    {
+      "id": "shared-1",
+      "title": "Tuesday Primaries: Crowley Beats Hong in Wisconsin; Flanagan Wins Minnesota Senate",
+      "topic_key": "wisconsin-crowley-hong-flanagan-mn-primary",
+      "days_seen": 2,
+      "relevance": 70,
+      "relevance_label": "Recurring — day 2",
+      "correlation": 52,
+      "correlation_label": "Same outcome reported factually, but left frames it as establishment resilience; right frames ongoing DSA momentum regardless of one loss.",
+      "summary": "Wisconsin held its Democratic gubernatorial primary on August 11-12, with Milwaukee County Executive David Crowley defeating democratic socialist state Rep. Francesca Hong in a razor-thin contest (roughly 40% to 39%). Crowley will now face Republican Rep. Tom Tiffany in November. Simultaneously, progressive Lt. Gov. Peggy Flanagan defeated moderate Rep. Angie Craig for the Minnesota Democratic Senate nomination. In South Carolina, Trump-endorsed appointed Sen. Darline Graham advanced to an August 25 runoff against Rep. Ralph Norman. The evening produced a split verdict: the establishment narrowly prevailed in Wisconsin, while the progressive wing won in Minnesota.",
+      "left": {
+        "framing": "Left-leaning outlets lead with establishment relief: Crowley's win is described as Democrats dodging the 'Francesca Hong problem' that could have handed the general to Republicans. The Hill and CNN emphasize Crowley's viability in a swing state. However, Flanagan's Minnesota win is reported as a natural progressive evolution — a historic Native American nominee who is also electable. The overall frame is: Democrats are navigating their internal tensions successfully, with voters making pragmatic choices.",
+        "sources": [
+          {"name": "CNN Politics", "url": "https://www.cnn.com/2026/08/12/politics/wisconsin-south-carolina-minnesota-primaries-takeaways"},
+          {"name": "The Hill", "url": "https://thehill.com/homenews/campaign/6023832-crowley-leads-hong-with-wisconsin-governor-primary-too-close-to-call-5-takeaways/"},
+          {"name": "NBC News", "url": "https://www.nbcnews.com/politics/2026-election/francesca-hong-david-crowley-democratic-primary-wisconsin-governor-rcna592056"}
+        ]
+      },
+      "right": {
+        "framing": "Right-leaning outlets focus on the cumulative DSA momentum: Breitbart frames the night as 'the DSA marching toward a party takeover' even as Hong lost, because Flanagan's Minnesota win proves the pattern continues. Fox News emphasizes Schumer's record of losing his preferred candidates. Townhall calls for Republicans to make every Democrat own the DSA agenda regardless of primary outcomes. The frame: even when establishment wins narrowly, socialist energy is reshaping the entire party.",
+        "sources": [
+          {"name": "Breitbart", "url": "https://www.breitbart.com/politics/2026/08/11/election-night-livewire-francesca-hong-and-the-dsa-march-towards-democratic-party-takeover/"},
+          {"name": "Fox News", "url": "https://www.foxnews.com/politics/primary-takeaways-dems-left-center-battle-intensifies-schumer-takes-another-hit-split-decision-trump"},
+          {"name": "RealClearPolitics", "url": "https://www.realclearpolitics.com/video/2026/08/08/david_brooks_democrats_swinging_left_is_political_suicide_times_10.html"}
+        ]
+      }
+    },
+    {
+      "id": "shared-2",
+      "title": "Trump Signs Childhood Vaccine Executive Order With RFK Jr.",
+      "topic_key": "trump-vaccine-eo-rfk-mmr-schedule",
+      "days_seen": 2,
+      "relevance": 70,
+      "relevance_label": "Recurring — day 2",
+      "correlation": 28,
+      "correlation_label": "Both sides report the same EO, but left treats it as a public health danger while right frames it as parental choice and government transparency.",
+      "summary": "President Trump signed an executive order titled 'Delivering Gold-Standard Vaccine Recommendations for Americans' alongside Health and Human Services Secretary RFK Jr., directing that the number of diseases all children should be vaccinated against drop from 18 to 11, and ordering that the MMR (measles, mumps, rubella) vaccine be split into three separate shots rather than the current combined formulation. The American Academy of Pediatrics condemned the order as dangerous, citing no scientific evidence supporting the changes. No published research supports separating the MMR vaccine or reducing the schedule in the proposed manner.",
+      "left": {
+        "framing": "Left press leads with medical authority condemnation: CNN, NBC, Axios, and The Hill all prominently feature the AAP's warning that the order is 'dangerous' and the absence of scientific evidence. Coverage notes RFK Jr.'s fingerprints throughout and contextualizes within broader concerns about the administration's anti-science posture. The frame is public health risk and departure from established medicine.",
+        "sources": [
+          {"name": "CNN Politics", "url": "https://www.cnn.com/2026/08/10/politics/trump-vaccine-autism-rfk"},
+          {"name": "NBC News", "url": "https://www.nbcnews.com/health/kids-health/trump-order-fewer-childhood-vaccines-rcna591774"},
+          {"name": "The Hill", "url": "https://thehill.com/policy/healthcare/6021511-aap-blasts-trump-vaccine-directive/"}
+        ]
+      },
+      "right": {
+        "framing": "Right press covers the EO primarily as a legitimate policy action in line with Trump's campaign promises on vaccine transparency and parental choice. The American Spectator frames it as new federal vaccine guidelines, while the Washington Examiner reports it straightforwardly as shrinking the childhood vaccination schedule. The Townhall coverage emphasizes that Trump is delivering on RFK Jr. partnership. Notably quieter on the AAP objection than left sources.",
+        "sources": [
+          {"name": "Washington Examiner", "url": "https://www.washingtonexaminer.com/policy/healthcare/4681510/trump-order-shrinking-childhood-vaccination-schedule/"},
+          {"name": "The American Spectator", "url": "https://spectator.org/new-executive-order-announces-new-federal-vaccine-guidelines/"},
+          {"name": "Townhall", "url": "https://townhall.com/news/cameron-arcand/2026/08/10/trump-issues-major-executive-order-on-childhood-vaccines-n2681007"}
+        ]
+      }
+    },
+    {
+      "id": "shared-3",
+      "title": "Iran / Hormuz: Ceasefire Expires August 17; Deal Framework Stalled on Iran's Maximum Demands",
+      "topic_key": "iran-hormuz-ceasefire-aug17-oman-deal",
+      "days_seen": 2,
+      "relevance": 70,
+      "relevance_label": "Recurring — day 2",
+      "correlation": 44,
+      "correlation_label": "Both sides agree a Hormuz deal is elusive and ceasefire deadline is real; left emphasizes diplomatic resolution; right splits between hawks demanding force and optimists backing Trump.",
+      "summary": "The existing ceasefire between the US and Iran is set to expire August 17. Iran-Oman negotiations on reopening the Strait of Hormuz produced a near-finalized draft, but Iran is conditioning the deal on the US lifting its naval blockade, paying war reparations, unfreezing Iranian assets, and ending all conflict against Iranian proxies. Trump rejected those conditions. On August 12, the US Navy fired on a Panama-flagged vessel attempting to bypass the US blockade on Iranian ports. Meanwhile, Iranian-backed Houthi forces attacked Saudi oil infrastructure, and Iran is demanding Oman serve as the deal guarantor.",
+      "left": {
+        "framing": "Left press focuses on the fragility of the situation and diplomatic urgency. CNN's daily live coverage emphasizes Iran's stated conditions as steep but potentially negotiable; The Hill and NBC frame Trump as optimistic but vague. The broader frame involves concern about what happens if the ceasefire expires without a deal. Coverage also links Iranian-backed cyberattacks on US water systems to broader conflict risk.",
+        "sources": [
+          {"name": "CNN Politics", "url": "https://www.cnn.com/2026/08/08/world/live-news/iran-war-trump"},
+          {"name": "The Hill", "url": "https://thehill.com/policy/defense/6021575-iran-oman-hormuz-strait-deal/"},
+          {"name": "NBC News", "url": "https://www.nbcnews.com/world/iran/trump-iran-war-deal-strait-hormuz-deal-oman-rcna590920"}
+        ]
+      },
+      "right": {
+        "framing": "Right press is split. Fox News covers Iran's intransigence and the Navy's enforcement action as appropriate US resolve; the American Spectator argues the Hormuz fight 'cannot be negotiated' and force is required. The American Conservative is more skeptical of the war itself, noting the three-month 'excursion' has not ended as promised and munitions stocks are dangerously low. Breitbart and Fox headline Iran's 'defiant' demands as reason the US should not concede.",
+        "sources": [
+          {"name": "Fox News", "url": "https://www.foxnews.com/live-news/iran-war-news-trump-israel-hormuz-august-12"},
+          {"name": "The American Spectator", "url": "https://spectator.org/the-iran-nuclear-fight-is-won-the-hormuz-fight-cannot-be-negotiated/"},
+          {"name": "The American Conservative", "url": "https://www.theamericanconservative.com/the-three-month-excursion/"}
+        ]
+      }
+    },
+    {
+      "id": "shared-4",
+      "title": "Senate CR Passes 90-6; Shutdown Averted Through December — But SAVE Act Dies",
+      "topic_key": "senate-cr-shutdown-save-act-thune-blanche",
+      "days_seen": 2,
+      "relevance": 70,
+      "relevance_label": "Recurring — day 2",
+      "correlation": 35,
+      "correlation_label": "Both sides confirm the CR passed and SAVE Act failed; left reports it as normal governance while right treats Thune's recess move as a betrayal of the base.",
+      "summary": "The Senate passed a continuing resolution 90-6 in an overnight session, keeping the government funded through December 11 and averting a pre-election shutdown. In the same session, Todd Blanche was confirmed as the 88th US Attorney General (with Sen. Bill Cassidy providing the decisive vote), and the Senate moved to adjourn for its August recess without voting on the Safeguard American Voter Eligibility (SAVE) Act, a voter ID bill championed by Trump and the GOP's right flank. Senate Majority Leader Thune faced immediate conservative backlash for proceeding to recess without forcing a SAVE Act vote.",
+      "left": {
+        "framing": "Left outlets frame the CR passage as routine, responsible governance — a bipartisan vote keeping the lights on before the election. Axios leads with the government funding relief and notes Blanche's confirmation. The primary emphasis is on what the Senate managed to accomplish under pressure, not on what didn't pass.",
+        "sources": [
+          {"name": "Axios Politics", "url": "https://www.axios.com/2026/08/08/senate-government-funding-shutdown-stopgap"},
+          {"name": "The Hill", "url": "https://thehill.com/homenews/senate/6009281-senate-gop-august-recess-plan-trump/"}
+        ]
+      },
+      "right": {
+        "framing": "Conservative press focuses almost entirely on the SAVE Act's failure and Thune's decision to recess. Townhall ran a piece headlined 'John Thune gave the double bird to the GOP base.' The Federalist frames it as another example of RINO obstruction costing the party. The CR passage is downplayed; what dominates is the sense that Senate Republicans squandered an opportunity and betrayed their voters.",
+        "sources": [
+          {"name": "Townhall", "url": "https://townhall.com/news/mattvespa/2026/08/09/john-thune-gave-the-double-bird-to-the-gop-base-saturday-morning-n2680928"},
+          {"name": "The Federalist", "url": "https://thefederalist.com/2026/08/07/rinos-are-tanking-the-entire-republican-party-not-just-trump/"},
+          {"name": "Breitbart", "url": "https://www.breitbart.com/politics/2026/08/08/exclusive-rick-scott-senate-republicans-will-keep-pressure-on-get-bills-passed/"}
+        ]
+      }
+    }
+  ],
+  "gap_left": [
+    {
+      "id": "gap-left-1",
+      "title": "Trump Mulls Declaring National Security Emergency to Control Midterm Elections",
+      "topic_key": "trump-national-emergency-voter-id-election-control",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "summary": "The New Republic reported that Trump has not ruled out declaring a national security emergency tied to election integrity before the November midterms, which could be used to impose voter ID requirements or other election changes without congressional action. The report follows Trump's stated desire to pass the SAVE Act and his pattern of escalatory rhetoric about the legitimacy of elections he anticipates losing.",
+      "sources": [
+        {"name": "The New Republic", "url": "https://newrepublic.com/post/214189/donald-trump-national-emergency-voter-id-midterm-elections"},
+        {"name": "The Daily Beast", "url": "https://www.thedailybeast.com/republican-senators-fear-trump-is-about-to-make-a-new-midterm-nightmare-with-election-threat-obsession/"}
+      ]
+    },
+    {
+      "id": "gap-left-2",
+      "title": "SCOTUS Redistricting Case May Gut Remaining Voting Rights Act Before 2026 Midterms",
+      "topic_key": "scotus-vra-redistricting-louisiana-minority-rep",
+      "days_seen": 2,
+      "relevance": 70,
+      "relevance_label": "Recurring — day 2",
+      "summary": "MSNBC reports that the Supreme Court, acting on its own initiative, transformed a routine Louisiana redistricting case into a potential vehicle to strike down the remaining key section of the Voting Rights Act. A ruling favorable to the Republican map could allow yet another round of partisan redistricting affecting minority representation before the 2026 midterms — tight enough timing to potentially shift House control.",
+      "sources": [
+        {"name": "MSNBC", "url": "https://www.msnbc.com/opinion/msnbc-opinion/supreme-court-voting-rights-redistricting-roberts-rcna235949"}
+      ]
+    },
+    {
+      "id": "gap-left-3",
+      "title": "Max Miller (R-OH) Domestic Violence Allegations; Trump Blocked GOP Pressure to Withdraw",
+      "topic_key": "max-miller-ohio-domestic-violence-tossup-trump-blocked",
+      "days_seen": 2,
+      "relevance": 70,
+      "relevance_label": "Recurring — day 2",
+      "summary": "Rep. Max Miller (R-OH), whose seat Cook Political downgraded to a toss-up following domestic violence and child abuse allegations, refused to withdraw after the Ohio Republican Party's deadline passed. Slate and The New Republic report that the Trump team internally blocked efforts to pressure Miller to quit, with Trump allies calculating they can hold the seat regardless. The race is now an unexpected vulnerability that could affect House majority math.",
+      "sources": [
+        {"name": "Slate", "url": "https://slate.com/news-and-politics/2026/08/max-miller-election-ohio-abuse-allegations.html"},
+        {"name": "The New Republic", "url": "https://newrepublic.com/post/214170/donald-trump-team-blocked-effort-convince-max-miller-quit-midterms"}
+      ]
+    },
+    {
+      "id": "gap-left-4",
+      "title": "Trump Blames 'Jihadist' Democrats for Coming Wave, Already Deflects Midterm Accountability",
+      "topic_key": "trump-blue-wave-admission-jihadist-blame-deflect",
+      "days_seen": 2,
+      "relevance": 70,
+      "relevance_label": "Recurring — day 2",
+      "summary": "The Daily Beast and MSNBC report that Trump has made a 'bombshell' admission that Republicans are facing a midterm wipe-out, while simultaneously blaming the result on voters' anger at 'the party' rather than his own presidency. He labeled Democratic nominees as 'jihadists' who want to abolish the Senate — a framing his allies amplified but that left-leaning coverage treats as a sign of political desperation ahead of November.",
+      "sources": [
+        {"name": "The Daily Beast", "url": "https://www.thedailybeast.com/trump-makes-bombshell-blue-wave-admission-and-starts-blame-game/"},
+        {"name": "The Daily Beast", "url": "https://www.thedailybeast.com/trump-hit-with-a-dire-warning-from-republican-pollsters/"},
+        {"name": "NBC News", "url": "https://www.nbcnews.com/politics/trump-administration/live-blog/trump-michigan-el-sayed-2026-election-congress-iran-live-updates-rcna590889"}
+      ]
+    }
+  ],
+  "gap_right": [
+    {
+      "id": "gap-right-1",
+      "title": "AOC Says 'Woke 1 Was Crazy' — Right Press: Positioning for 2028, Not Moderating",
+      "topic_key": "aoc-woke-1-crazy-2028-positioning-right-analysis",
+      "days_seen": 2,
+      "relevance": 70,
+      "relevance_label": "Recurring — day 2",
+      "summary": "Alexandria Ocasio-Cortez reportedly told supporters 'woke 1 was crazy' while simultaneously declining to endorse Francesca Hong and hinting at a possible 2028 presidential run. Right-leaning outlets — National Review, Townhall, and the Washington Examiner — unanimously frame this as transparent political positioning, not genuine moderation. They argue that Republicans must not let Democrats distance themselves from the DSA agenda they enabled, and treat AOC's comments as evidence she is already running for president rather than changing her actual positions.",
+      "sources": [
+        {"name": "National Review", "url": "https://www.nationalreview.com/2026/08/will-the-woke-own-up-to-their-lunacy/"},
+        {"name": "Townhall", "url": "https://townhall.com/news/amy-curtis/2026/08/10/aoc-woke-1-was-crazy-n2680992"},
+        {"name": "Washington Examiner", "url": "https://www.washingtonexaminer.com/news/4680428/aoc-not-ruled-out-possibility-2028-bid/"}
+      ]
+    },
+    {
+      "id": "gap-right-2",
+      "title": "Tucker Carlson Reportedly Exploring Third-Party Movement Separate from MAGA",
+      "topic_key": "tucker-carlson-third-party-anti-war-separate-maga",
+      "days_seen": 2,
+      "relevance": 70,
+      "relevance_label": "Recurring — day 2",
+      "summary": "Right-leaning outlets including RealClearPolitics and The Free Press are actively covering reports that Tucker Carlson is exploring a 10-point third-party platform distinct from MAGA, focused on anti-war and populist positions. The story is circulating primarily on the right as a question about the future of the conservative coalition and whether Carlson can build a movement separate from Trump without fracturing the base ahead of midterms.",
+      "sources": [
+        {"name": "RealClearPolitics", "url": "https://www.realclearpolitics.com/video/2026/08/07/rcp_podcast_.html"},
+        {"name": "The Free Press", "url": "https://www.thefp.com/p/school-of-war-ted-cruz"}
+      ]
+    },
+    {
+      "id": "gap-right-3",
+      "title": "North Korea Deepening Expeditionary Military Role in Russia's Ukraine War",
+      "topic_key": "north-korea-russia-ukraine-troops-missiles-nato",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "summary": "National Review reports North Korea has been sending troops and ballistic missiles to support Russia's war in Ukraine, deepening its expeditionary military role. The piece argues this raises stakes for European security, tests NATO cohesion, and represents a significant proliferation of North Korean military experience. The story is circulating primarily on the right; left-leaning sources covered Iran but not this development during the 72-hour window.",
+      "sources": [
+        {"name": "National Review", "url": "https://www.nationalreview.com/2026/08/who-is-behind-north-koreas-expeditionary-force-in-europe/"}
+      ]
+    },
+    {
+      "id": "gap-right-4",
+      "title": "DSA-Democratic 'Marxist-Islamist Alliance' — Right Press Frames El-Sayed Win as Ideological Threat",
+      "topic_key": "dsa-marxist-islamist-el-sayed-democratic-party-threat",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "summary": "Following El-Sayed's Michigan primary win, right-leaning outlets including The American Spectator, The Daily Wire, and The Federalist are running a distinct framing that goes beyond standard political criticism: the DSA's influence on the Democratic Party represents a dangerous 'Marxist-Islamist alliance' that exploits progressive naivete. The Daily Wire called Democrats 'officially the party of Commie ISIS.' Trump's 'jihadist' label for Democratic nominees amplified this framing. The Cruz Senate hearing on the Muslim Brotherhood, boycotted by five Democratic senators, provided additional material. This framing — active on the right — does not appear in left-leaning coverage in the same window.",
+      "sources": [
+        {"name": "The American Spectator", "url": "https://spectator.org/the-marxist-islamist-alliance-feeds-on-dsa-naivete/"},
+        {"name": "The Daily Wire", "url": "https://www.dailywire.com/news/democrats-are-officially-the-party-of-commie-isis"},
+        {"name": "Breitbart", "url": "https://www.breitbart.com/politics/2026/08/10/trump-democrats-nominating-jihadists-who-want-get-rid-of-senate-are-midterm-disadvantage/"}
+      ]
+    }
+  ],
+  "suggestions": []
+}
