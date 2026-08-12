@@ -2,17 +2,17 @@
 workflow: daily-review
 agent: chief
 status: complete
-session-started: "2026-08-10T12:00:00"
-session-id: "chief-2026-08-10-120000"
+session-started: "2026-08-11T21:11:00"
+session-id: "chief-2026-08-10-211149"
 current-step: step-auto
 original-request: "auto"
 accumulated-context:
-  omnifocus-status: "success — inbox: 11, completed yesterday: 2 (Review prayer list, Coherence breathing), overdue: 2 (Lifebook Career, Lifebook Health), flagged: 0"
-  calendar-status: "success — M365 MCP, 1 event: Golf 3:00-7:30 PM CT (Sunday)"
+  omnifocus-status: "success — inbox: 11, completed last 24h: 27, overdue: 2 (Lifebook Career, Lifebook Health)"
+  calendar-status: "success — M365 MCP, 10 events"
   knowledge-system-status: "written to local fallback (Obsidian MCP disabled)"
-  narrative-path: "reviews/daily/auto-2026-08-09.md"
-  narrative-title: "2026-08-09 A Sunday Well Spent — Morning Practice and Afternoon Fairways"
+  narrative-path: "reviews/daily/auto-2026-08-10.md"
+  narrative-title: "2026-08-10 Solace in Focus, Sales Cleared, and a Suite to Plan"
   output-guard: passed
-  working-memory-path: "memory/working/daily-review-2026-08-10-120000.md"
+  working-memory-path: "memory/working/daily-review-2026-08-11-211149.md"
   working-memory-status: written
   model: sonnet

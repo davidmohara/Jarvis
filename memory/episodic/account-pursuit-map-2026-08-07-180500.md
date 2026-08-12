@@ -25,9 +25,10 @@ related_people:
   - santhosh-karunakar
   - alexander-powell
   promoted: true
+  promoted: true
 salience:
   score: 9
-  last-promoted-check: 2026-08-11
+  last-promoted-check: 2026-08-12
   promoted: true
 ---
 

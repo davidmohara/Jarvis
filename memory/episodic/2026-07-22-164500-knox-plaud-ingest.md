@@ -36,9 +36,10 @@ related_people:
   last-promoted-check: 2026-08-08
   last-promoted-check: 2026-08-09
   last-promoted-check: 2026-08-10
+  last-promoted-check: 2026-08-11
 salience:
   score: 4
-  last-promoted-check: 2026-08-11
+  last-promoted-check: 2026-08-12
 ---
 
 ## What happened

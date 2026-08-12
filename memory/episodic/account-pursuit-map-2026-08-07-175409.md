@@ -21,9 +21,10 @@ related_people:
   - derek
   - mauricio-leyva
   promoted: true
+  promoted: true
 salience:
   score: 9
-  last-promoted-check: 2026-08-11
+  last-promoted-check: 2026-08-12
   promoted: true
 ---
 

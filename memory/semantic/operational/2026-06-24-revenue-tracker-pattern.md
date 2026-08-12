@@ -6,7 +6,8 @@ synthesized-from:
   - memory/episodic/morning-briefing-2026-06-11-062152.md
   - memory/episodic/dream-summary-2026-06-12.md
   - memory/episodic/revenue-tracker-2026-06-25-000130.md
-last-updated: 2026-08-05
+  - memory/episodic/revenue-tracker-2026-08-10-001500.md
+last-updated: 2026-08-12
 tags:
   - revenue-tracker
 agent-source: dream-cycle
@@ -34,3 +35,9 @@ Sources this cycle:
 - `memory/episodic/revenue-tracker-2026-08-03-143245.md` (score 6) — tags: revenue-tracker, chase, one-texas, rock-1, south-texas, dallas, pipeline. Aug 3 snapshot: YTD vs. Target -8.5% (miss), YTD vs. Prior Year -6% (miss). Sequential QTD: Dallas +8%, South Texas -1%. Data sourced from Obsidian cache (pulled 2026-07-27, June 2026 actuals); PowerBI pull skipped within freshness window.
 
 South Texas now showing negative QTD (-1% sequential, -21.5% noted separately in dream-cycle carry-forward) while Dallas remains positive (+8%). This divergence is the first sub-regional split in the revenue-tracker pattern — all prior entries tracked One Texas as a single unit. Confidence warrants escalation to `medium` given 5+ entries now spanning 2 months with consistent operational context.
+
+### 2026-08-12 — Nightly promotion
+Sources this cycle:
+- `memory/episodic/revenue-tracker-2026-08-10-001500.md` (score 10) — tags: revenue-tracker, chase, one-texas, south-texas, dallas, rock-1, powerbi, pipeline-review. Aug 10 full PowerBI pull (cache invalidated). One Texas: -10.5% vs. target CQ, -3.5% vs. prior year, July revenue $6.07M, 90-Day forecast 82%. Dallas: +3% vs. target, +15% vs. prior year, 96% 90-Day, $2.85M July. South Texas: -24% vs. target, -22% vs. prior year, 82% 90-Day, $3.22M July (derived by cross-validation against One Texas total — filter ambiguity).
+
+South Texas deterioration has steepened materially since the Aug 3 snapshot: from -1% sequential QTD to -24% vs. target in one week. At -24%/-22% vs. both benchmarks with a sub-threshold 82% 90-Day forecast, recovery to breakeven this quarter is described as requiring unrealistic acceleration. This is the sharpest single-cycle drop recorded in this pattern. Dallas continues to hold and cannot offset South Texas drag. The Dallas/South Texas divergence pattern first noted Aug 3 has now widened significantly.

@@ -16,9 +16,10 @@ tags:
   - episodic
   - account-pursuit
 related_people: []
+  promoted: true
 salience:
   score: 10
-  last-promoted-check: 2026-08-11
+  last-promoted-check: 2026-08-12
   promoted: true
 ---
 

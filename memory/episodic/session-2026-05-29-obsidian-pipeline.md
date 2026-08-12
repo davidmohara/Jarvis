@@ -25,9 +25,10 @@ context: obsidian-source-note skill build, Spotify transcript extraction, conten
   last-promoted-check: 2026-08-08
   last-promoted-check: 2026-08-09
   last-promoted-check: 2026-08-10
+  last-promoted-check: 2026-08-11
 salience:
   score: 0
-  last-promoted-check: 2026-08-11
+  last-promoted-check: 2026-08-12
 ---
 
 # Session Working Memory — 2026-05-29 (Evening)
