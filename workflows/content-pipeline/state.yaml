@@ -1,14 +1,14 @@
 ---
 status: complete
-started-at: 2026-08-11T14:07:00Z
-completed-at: 2026-08-11T14:08:00Z
+started-at: 2026-08-12T11:07:00Z
+completed-at: 2026-08-12T11:11:00Z
 outputs:
   messages_scanned: 3
   new_urls: 0
-  new_digests: 0
-  posts_drafted: 0
+  new_digests: 1
+  posts_drafted: 1
   editorial_feedback: 0
   pending_threads_checked: 6
-  outcome: "No new URLs or digests in the last 24 hours. 3 channel messages evaluated — all bot notifications (skip). 6 pending draft threads checked — no human replies, no editorial feedback."
+  outcome: "Drafted 'Work and Rest Aren't Opposites. Wiring Is.' from digest (ts: 1786484039.623069). Title updated based on David's thread feedback. Ghost draft ID: 6a7c545bc0a498028c7e8aa3. Notified David in #content. Image: Unsplash direct URL (CDN upload failed, fallback used). 6 pending threads checked — no human replies."
 model: sonnet
 ---
