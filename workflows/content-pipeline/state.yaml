@@ -1,14 +1,14 @@
 ---
 status: complete
-started-at: 2026-08-12T11:07:00Z
-completed-at: 2026-08-12T11:11:00Z
+started-at: 2026-08-12T19:07:00Z
+completed-at: 2026-08-12T19:10:00Z
 outputs:
-  messages_scanned: 3
+  messages_scanned: 0
   new_urls: 0
-  new_digests: 1
-  posts_drafted: 1
-  editorial_feedback: 0
-  pending_threads_checked: 6
-  outcome: "Drafted 'Work and Rest Aren't Opposites. Wiring Is.' from digest (ts: 1786484039.623069). Title updated based on David's thread feedback. Ghost draft ID: 6a7c545bc0a498028c7e8aa3. Notified David in #content. Image: Unsplash direct URL (CDN upload failed, fallback used). 6 pending threads checked — no human replies."
+  new_digests: 0
+  posts_drafted: 0
+  editorial_feedback: 1
+  pending_threads_checked: 7
+  outcome: "No new content in last 24h. Processed 1 editorial thread reply on 'Work and Rest Aren't Opposites. Wiring Is.' (ts: 1786532974.136509) — David flagged missing Ghost draft link in Slack notification. Logged err-20260812T190846-V690SN, updated Step 9 notification template, replied in thread."
 model: sonnet
 ---

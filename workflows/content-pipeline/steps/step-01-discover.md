@@ -464,6 +464,8 @@ _Source: {source_url}_
 
 {First 2-3 sentences of the draft as a teaser}
 
+*Review draft:* https://driventodevelop.com/ghost/#/editor/post/{ghost_post_id}/
+
 *To review:* Reply to this thread with:
 • `approve` — publishes to driventodevelop.com
 • `reject` — discards the draft

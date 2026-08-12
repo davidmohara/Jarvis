@@ -1,0 +1,15 @@
+{
+  "id": "err-20260812T190846-V690SN",
+  "timestamp": "2026-08-12T19:08:46Z",
+  "session": "2026-08-12",
+  "source": "explicit",
+  "agent": "harper",
+  "category": "under-delivery",
+  "description": "Harper posted a Slack draft notification for 'Work and Rest Aren't Opposites. Wiring Is.' but did not include a link to the Ghost draft in the notification message. David expected a clickable link to the draft so he could review it directly from Slack.",
+  "correction": "The Slack draft notification (Step 9) must include a direct link to the Ghost draft admin page or the public preview URL. Format: https://driventodevelop.com/ghost/#/editor/post/{ghost_post_id}/. Include this as a clickable line in the notification so David can open the draft in one click.",
+  "failure_mode": "protocol-skip",
+  "systemic_fix": "Updated Step 9 notification template in step-01-discover.md to include a Ghost draft link on every notification.",
+  "fix_status": "applied",
+  "severity": "moderate",
+  "related_entries": []
+}
