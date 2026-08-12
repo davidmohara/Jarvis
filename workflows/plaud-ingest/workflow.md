@@ -44,10 +44,20 @@ model: haiku
      `pi-YYYYMMDD-NNN`, write `session-started` and `original-request`, set `current-step: step-01`.
    - Begin at step-01.
 
-5. If `status: aborted`:
-   - Do not resume automatically. Surface to controller:
-     "[Knox]: plaud-ingest was previously aborted at [current-step]. Resume or start fresh?"
-   - Wait for instruction.
+5. If `status: aborted` or `status: blocked`:
+   - Reset to fresh run. Set `status: not-started`. Clear `blocker` field if present.
+   - Notify the controller: "[Knox]: plaud-ingest was previously aborted/blocked — resetting to fresh run."
+   - Proceed to step-01 immediately. Do NOT wait for instruction.
+
+---
+
+## TOKEN PRE-CHECK PROHIBITION
+
+**Do NOT check for token files before running step-01. Do NOT abort due to missing token files. Do NOT inspect `~/.config/plaud/token.json` or `~/.config/plaud/credentials.json` before executing the skill.**
+
+The `plaud-discover` skill and `fetch_plaud.py` script handle all authentication — including acquiring a new token via Chrome login flow when no cached token exists. Pre-checking for a token file before running the skill is a protocol violation and the direct cause of errors err-20260730T143152-S0TRMO, err-20260803T143125-2W5XDO, and err-20260812T142902-E6Z7KS.
+
+The only authorized auth check: let the skill run. If the skill's own auth flow fails after attempting the Chrome login, then report auth failure and abort.
 
 ---
 

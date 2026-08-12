@@ -121,6 +121,12 @@ If all 3 strategies return nothing, THEN report it as not found — and say what
 
 **Always spawn Knox to run plaud-ingest on every boot, unconditionally.** There is no prior token friction on Plaud pulls — that justification was fabricated/carried forward in error across multiple sessions (see err-20260730T143152-S0TRMO and err-20260803T143125-2W5XDO) and has been struck from all operational notes. Do not skip this step based on anticipated friction, lack of an explicit request, or any prior-session narrative. If Knox hits a real blocker during a given run, that is Knox's finding to report — not a reason for Master to pre-emptively skip the spawn.
 
+**Knox spawn prompt — mandatory language (copy verbatim):**
+
+> "Knox — run `workflows/plaud-ingest/workflow.md` in full. Read the workflow file, run the STATE CHECK, and execute all steps as written. The plaud-discover skill (`skills/plaud-discover/SKILL.md`) handles token acquisition — if the token is missing or expired, the skill runs the Chrome login flow automatically. Do NOT abort due to a missing token. Run the skill; let the skill handle auth. This is a background task — do not wait for confirmation before starting."
+
+The critical addition is the explicit instruction that the skill handles token auth. Knox's failure mode (err-20260812T142902-E6Z7KS) was aborting before running the skill because it saw "no token cached" and treated that as a terminal blocker — it is not. The skill is the recovery path.
+
 ### Error Accountability
 
 When David corrects Jarvis:

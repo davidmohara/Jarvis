@@ -1,0 +1,16 @@
+{
+  "id": "err-20260812T150450-Y21C8Y",
+  "timestamp": "2026-08-12T15:04:50Z",
+  "session": "session-2026-08-12-091944",
+  "source": "explicit",
+  "agent": "master",
+  "category": "factual-error",
+  "failure_mode": "incorrect-inference",
+  "severity": "low",
+  "description": "Jarvis described the Aug 11 Chris Gannett recording as a 'breakfast' based on the UTC timestamp (11:42 UTC = 6:42 AM CDT). David corrected: it was a lunch, not breakfast. The UTC-to-local conversion was wrong or the Plaud create_time reflects upload time rather than recording start time.",
+  "correction": "David corrected: 'Nope. You didn't look at the time correctly. It's not breakfast at all, it's lunch'",
+  "systemic_fix": "Do not infer meal type from Plaud create_time. Plaud timestamps may reflect upload or processing time, not the actual recording start. Infer meal context from transcript content or calendar only.",
+  "related_entries": [],
+  "fix_status": "applied",
+  "tags": ["plaud", "timestamp", "factual-error", "meal-inference"]
+}

@@ -1,0 +1,16 @@
+{
+  "id": "err-20260812T151023-KJ6B1E",
+  "timestamp": "2026-08-12T15:10:23Z",
+  "session": "session-2026-08-12-091944",
+  "source": "explicit",
+  "agent": "master",
+  "category": "data-corruption",
+  "failure_mode": "vault-note-written-with-wrong-data",
+  "severity": "high",
+  "description": "Jarvis overwrote the vault note for 'zzPlaud/Other/2026-08-11 Professional and Personal Catch-Up...' with Chris Gannett as the identified speaker, replacing all 'Speaker 2' labels with 'Gannett' and setting speaker_mapping_status to 'resolved'. This was done before the identification was verified. The note now contains fabricated speaker attribution that must be corrected once the real identity is confirmed.",
+  "correction": "David corrected the identification as wrong. Vault note must be reverted to unresolved state pending correct identification via calendar lookup.",
+  "systemic_fix": "Never overwrite a vault note with speaker attribution until identity is confirmed by calendar or explicit controller confirmation. Write tentative IDs as 'Speaker 2 (tentative: Name)' with speaker_mapping_status: needs_verification.",
+  "related_entries": ["err-20260812T151023-26T3VY"],
+  "fix_status": "applied",
+  "tags": ["plaud", "speaker-id", "vault-corruption", "fabrication"]
+}

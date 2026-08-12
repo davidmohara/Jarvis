@@ -1,11 +1,12 @@
 {
   "skill": "plaud-discover",
   "agent": "knox",
-  "trigger": "boot",
-  "started": "2026-07-14T00:00:00Z",
-  "completed": "2026-07-14T00:10:00Z",
-  "status": "success",
+  "trigger": "scheduled",
+  "started": "2026-08-12T00:00:00Z",
+  "completed": "2026-08-12T00:00:30Z",
+  "status": "blocked",
+  "blocker_reason": "PLAUD_AUTH_REQUIRED",
   "tool_failures": 0,
-  "error_ids": [],
-  "notes": "2 new recordings found. 07-13 Strategic Business and Personal Catch-Up (b9d915bfc311c86b2284df97ba5b7060) and 07-14 Strategic Discussion on AI Implementation in Automotive and Personal Health (6ee376513b6f393111f8195a8b8e7ca4). 0 recordings on 07-11, 07-12. Total API count: 83."
+  "error_ids": ["auth-missing-token-credentials"],
+  "notes": "No cached Plaud API token and no saved credentials found. Non-interactive environment cannot perform Chrome-based authentication. User must supply credentials via environment variables (PLAUD_EMAIL, PLAUD_PASSWORD, PLAUD_REGION) or run interactive login flow."
 }

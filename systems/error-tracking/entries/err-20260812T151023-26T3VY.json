@@ -1,0 +1,16 @@
+{
+  "id": "err-20260812T151023-26T3VY",
+  "timestamp": "2026-08-12T15:10:23Z",
+  "session": "session-2026-08-12-091944",
+  "source": "explicit",
+  "agent": "master",
+  "category": "fabrication",
+  "failure_mode": "unverified-identification",
+  "severity": "high",
+  "description": "Jarvis identified 'Speaker 2' in the Aug 11 Plaud recording as Chris Gannett without calendar confirmation. The identification was based on a weak email inference (a 2025 email mentioning Parish Episcopal) and presented as fact. David had previously corrected this speaker ID approach once, and Jarvis repeated the error. The correct protocol is: check the calendar for the actual meeting date/time first, then corroborate with email/contact data.",
+  "correction": "David corrected: 'Wrong - I already told you it wasn't him. You guessed and made that up rather than looking at my calendar at lunch on that day.'",
+  "systemic_fix": "Speaker ID must be grounded in calendar data first. Never present an email-inferred identity as confirmed. If calendar returns no match, state 'unresolved' and surface the clues — do not guess.",
+  "related_entries": ["err-20260812T150450-Y21C8Y"],
+  "fix_status": "applied",
+  "tags": ["plaud", "speaker-id", "fabrication", "calendar-check-skipped"]
+}

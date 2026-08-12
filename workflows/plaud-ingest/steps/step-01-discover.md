@@ -1,17 +1,26 @@
 ---
-status: completed
-started-at: "2026-08-10T00:00:00Z"
-completed-at: "2026-08-10T00:15:00Z"
+status: not-started
 model: haiku
 outputs:
-  new-recordings-count: 88
-  api-total: 111
-  confirmed-in-vault: 23
-  completion-reason: "Full enumeration via Plaud API; 88 new recordings identified after deduplication against vault"
+  previous-run-results:
+    - date: "2026-08-10"
+      new-recordings-count: 88
+      api-total: 111
+      confirmed-in-vault: 23
 ---
 
 <!-- system:start -->
 # Step 01: Discover New Recordings
+
+## PRE-EXECUTION: AUTH HANDLING
+
+**Run `skills/plaud-discover/SKILL.md` FIRST. Do not pre-check for token files.**
+
+Do not inspect `~/.config/plaud/token.json` or any credentials file before executing this step. Do not abort because no cached token exists. The skill and `fetch_plaud.py` handle token acquisition via Chrome login flow when needed. Knox's job is to run the skill — not to gate on token presence.
+
+Auth failure is only a valid abort reason if the skill's own Chrome login flow has been attempted and failed. A missing token file before the skill runs is not a blocker.
+
+---
 
 ## MANDATORY EXECUTION RULES
 
@@ -81,7 +90,7 @@ outputs:
 
 | Failure | Action |
 |---------|--------|
-| Plaud API unreachable (token expired) | Run Chrome login flow per `skills/plaud-transcripts/SKILL.md`. Retry once. If still fails, report "Plaud API unavailable" and abort workflow. |
+| Plaud API unreachable (token expired or missing) | Run the skill. The skill runs `fetch_plaud.py` which handles Chrome login flow and token acquisition. A missing token file is NOT a pre-execution blocker — it is handled here. Only abort if the Chrome login flow itself fails after attempting. |
 | Vault unreadable | Proceed without dedup — note in report. Risk of duplicate notes is acceptable vs. missing new recordings. |
 | No new recordings found | Set `new-recordings: []`, report "No new Plaud recordings", mark workflow complete. Do not proceed to step-02. |
 

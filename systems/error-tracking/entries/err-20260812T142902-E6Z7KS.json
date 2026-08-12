@@ -1,0 +1,16 @@
+{
+  "id": "err-20260812T142902-E6Z7KS",
+  "timestamp": "2026-08-12T14:29:02Z",
+  "session": "session-2026-08-12-091944",
+  "source": "explicit",
+  "agent": "knox",
+  "category": "protocol-skip",
+  "failure_mode": "premature-abort",
+  "severity": "medium",
+  "description": "Knox aborted plaud-ingest at step-01 with 'Plaud API token unavailable' before reading or running the plaud-discover skill. The skill explicitly handles token acquisition via Chrome login flow — Knox never got there. This is the same class of error as err-20260730T143152-S0TRMO and err-20260803T143125-2W5XDO.",
+  "correction": "David corrected: 'Plaud is not blocked — run the skill and it handles the token.' Knox should have read skills/plaud-discover/SKILL.md, which states: if token is missing or expired, run Chrome login flow. Knox aborted before reading the skill.",
+  "systemic_fix": "Added mandatory Knox spawn prompt language to SYSTEM.md Plaud Ingest standing rule — explicitly instructs Knox that the skill handles token auth and prohibits aborting due to missing token. Also routing to Rigby to add same language to workflows/plaud-ingest/workflow.md STATE CHECK section.",
+  "related_entries": ["err-20260730T143152-S0TRMO", "err-20260803T143125-2W5XDO"],
+  "fix_status": "in-progress",
+  "tags": ["plaud", "knox", "premature-abort", "token-handling"]
+}

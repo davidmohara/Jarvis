@@ -1,90 +1,35 @@
 workflow: plaud-ingest
 agent: knox
-status: complete
-session-started: "2026-08-11T00:00:00Z"
-session-completed: "2026-08-11T17:00:00Z"
-session-id: "pi-20260811-001"
-current-step: step-05b
-original-request: "Run plaud-ingest for 2026-08-10 and 2026-08-11 — process UTB/YPO recording not yet ingested"
-blocker: null
+status: in-progress
+session-id: pi-20260812-001
+session-started: "2026-08-12T00:00:00Z"
+current-step: step-02
+original-request: Knox — run workflows/plaud-ingest/workflow.md in full
 accumulated-context:
-  target-date: "2026-08-10"
-  new-recordings:
-    - file_id: "b41015b6c997f774fc349a5ee9be51fe"
-      name: "08-10 Hospitality Plan Defined for UTB/YPO Events, Pending Budget Approval"
-      date: "2026-08-10"
-      duration_seconds: 981
-      has_transcript: true
-      transcript_status: ready
-    - file_id: "2b977c5e42c831ca506e2843289e4f26"
-      name: "08-10 Strategic Partnership and Account Planning"
-      date: "2026-08-10"
-      duration_seconds: 2201
-      has_transcript: true
-      transcript_status: ready
+  target-date: ""
+  total-recordings-discovered: 117
+  staged-files-created: 138
+  fetch-script-status: "running in background on Mac (PID: see /tmp/plaud_output.txt)"
   transcription-triggered: []
   pending-recordings: []
-  speaker-mappings:
-    "b41015b6c997f774fc349a5ee9be51fe":
-      "O'Hara": "David O'Hara"
-      "Alice Mburu": "Alice Mburu"
-      "Robyn Fuentes": "Robyn Fuentes"
-    "2b977c5e42c831ca506e2843289e4f26":
-      "Speaker 2": "Austin Ledesma"
-      "O'Hara": "David O'Hara"
-      "Robyn Fuentes": "Robyn Fuentes"
-      "Jenn Massey": "Jenn Massey"
+  speaker-mappings: {}
   pending-speaker-mappings: []
-  recording-classification:
-    "b41015b6c997f774fc349a5ee9be51fe": "work"
-    "2b977c5e42c831ca506e2843289e4f26": "work"
-  ready-for-fetch:
-    - file_id: "b41015b6c997f774fc349a5ee9be51fe"
-      name: "08-10 Hospitality Plan Defined for UTB/YPO Events, Pending Budget Approval"
-      date: "2026-08-10"
-    - file_id: "2b977c5e42c831ca506e2843289e4f26"
-      name: "08-10 Strategic Partnership and Account Planning"
-      date: "2026-08-10"
-  staged-files:
-    - "plaud_08-10 Hospitality Plan Defined for UTB_YPO Events_ Pending Budget Approval.md"
-    - "plaud_08-10 Strategic Partnership and Account Planning.md"
-  ingested-notes:
-    - "zzPlaud/YPO/2026-08-10 Hospitality Plan for UTB YPO Events Pending Budget Approval.md"
-    - "zzPlaud/Client/2026-08-10 Strategic Partnership and Account Planning (Solace).md"
-  monday-tasks-created:
-    - item_id: "12776900082"
-      recording: "2026-08-10 Hospitality Plan for UTB/YPO Events"
-      description: "Reach out to Ryan — budget approval"
-    - item_id: "12776920269"
-      recording: "2026-08-10 Hospitality Plan for UTB/YPO Events"
-      description: "Calculate hospitality total"
-    - item_id: "12776903744"
-      recording: "2026-08-10 Hospitality Plan for UTB/YPO Events"
-      description: "Book Arkansas YPO flights"
-    - item_id: "12776916886"
-      recording: "2026-08-10 Hospitality Plan for UTB/YPO Events"
-      description: "Review Plaud recording (Alice)"
-    - item_id: "12777083072"
-      recording: "2026-08-10 Strategic Partnership and Account Planning (Solace)"
-      description: "Review Plaud recording (Alice)"
-  share-urls:
-    - file_id: "b41015b6c997f774fc349a5ee9be51fe"
-      url: "https://web.plaud.ai/s/pub_7a7c47b2-6590-406f-a8bb-cd8f06096626::daZ98D5qfOsnNqfm_hzKa-ms13zcwwELljLD_N0MtuPcXygqWXeWFt8aW3_yKzZCfqQpzxOi_fuCZRAC"
-      monday-task-id: "12776916886"
-    - file_id: "2b977c5e42c831ca506e2843289e4f26"
-      url: null
-      monday-task-id: "12777083072"
-      note: "Plaud share skipped — speaker rename API failed (Could not load transcript); rename applied in vault note only"
-  august-11-check: "0 recordings found for 2026-08-11 as of this run"
-  solace-recording-notes:
-    file_id: "2b977c5e42c831ca506e2843289e4f26"
-    calendar-event: "Meeting with David/Austin"
-    participants:
-      - "David O'Hara"
-      - "Austin Ledesma (austin.ledesma@solace.com)"
-      - "Ryan Piper (ryan.piper@solace.com — referenced, not on call)"
-      - "Kyle Scott (kyle.scott@solace.com — referenced, not on call)"
-      - "Robyn Fuentes (Solace)"
-      - "Jenn Massey (Austin note-taker)"
-    prior-ingest-note: "Prior run created 'Strategic Partnership and Co-selling Process.md' for this file_id with incorrect participant name 'Stephen Johnson'. Corrected note written as 'Strategic Partnership and Account Planning (Solace).md'. Prior note left in place."
-    speaker-rename-api: "failed — Could not load transcript from Plaud API; rename applied to vault note only, not pushed to Plaud backend"
+  recording-classification: {}
+  ready-for-fetch: []
+  staged-files: []
+  ingested-notes: []
+  monday-tasks-created: []
+  share-urls: []
+accumulated-context:
+  target-date: ""
+  new-recordings: []
+  transcription-triggered: []
+  pending-recordings: []
+  speaker-mappings: {}
+  pending-speaker-mappings: []
+  recording-classification: {}
+  ready-for-fetch: []
+  staged-files: []
+  ingested-notes: []
+  monday-tasks-created: []
+  share-urls: []

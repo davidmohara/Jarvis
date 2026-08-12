@@ -2,10 +2,8 @@
   "skill": "plaud-transcripts",
   "agent": "knox",
   "trigger": "manual",
-  "started": "2026-08-11T17:00:00Z",
-  "completed": "2026-08-11T17:30:00Z",
+  "started": "2026-08-12T00:00:00Z",
   "status": "success",
-  "tool_failures": 1,
-  "error_ids": [],
-  "notes": "Solace recording (file_id: 2b977c5e42c831ca506e2843289e4f26) ingested. Speaker rename API call failed (Could not load transcript) — Speaker 2 mapped to Austin Ledesma in vault note only. Vault note written to zzPlaud/Client/. Daily note updated. Monday task 12777083072 created for Alice."
+  "tool_failures": 0,
+  "error_ids": []
 }
