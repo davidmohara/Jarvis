@@ -1,0 +1,223 @@
+{
+  "date": "2026-08-13",
+  "generated": "2026-08-13T12:10:00Z",
+  "window_hours": 72,
+  "sources_used": [
+    "msnbc", "cnn", "nbc", "thehill", "axios", "dailybeast", "slate", "newrepublic",
+    "foxnews", "natreview", "examiner", "federalist", "dailywire", "breitbart",
+    "townhall", "rcp", "amconserv", "spectator", "freepress"
+  ],
+  "sources_muted": [
+    { "id": "nyt",        "name": "New York Times",         "lean": "left",   "reason": "paywalled / not crawler-accessible" },
+    { "id": "wapo",       "name": "Washington Post",        "lean": "left",   "reason": "paywalled / not crawler-accessible" },
+    { "id": "politico",   "name": "Politico",               "lean": "left",   "reason": "not crawler-accessible" },
+    { "id": "vox",        "name": "Vox Politics",           "lean": "left",   "reason": "not crawler-accessible" },
+    { "id": "motherjones","name": "Mother Jones",           "lean": "left",   "reason": "not crawler-accessible" },
+    { "id": "wsj_opinion","name": "WSJ Opinion",            "lean": "right",  "reason": "paywalled / not crawler-accessible" },
+    { "id": "nypost",     "name": "New York Post",          "lean": "right",  "reason": "not crawler-accessible" },
+    { "id": "reuters",    "name": "Reuters Politics",       "lean": "center", "reason": "not crawler-accessible" },
+    { "id": "ap",         "name": "Associated Press",       "lean": "center", "reason": "not crawler-accessible" },
+    { "id": "bbc",        "name": "BBC US & Canada",        "lean": "center", "reason": "not crawler-accessible" }
+  ],
+  "counts": {
+    "total_items": 61,
+    "by_lean": { "left": 30, "right": 29, "center": 2 },
+    "shared_topics": 4,
+    "gap_left": 4,
+    "gap_right": 4
+  },
+  "shared_topics": [
+    {
+      "topic_key": "july-cpi-3pt4-wage-squeeze-aug12",
+      "title": "July CPI Drops to 3.4%, But Jobs Lost 23K and Wages Trail Inflation",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "summary": "The Bureau of Labor Statistics reported the US economy unexpectedly shed 23,000 jobs in July — economists had forecast a gain of 83,000 — while July CPI cooled slightly to 3.4% from 3.5% in June, aided by a 2.9% drop in gas prices. The unemployment rate dipped to 4.1%, but only because workers left the labor force. Wage growth sits at 3.2% annually, below the pace of inflation, meaning workers are losing purchasing power. The combination of job losses and sticky inflation has created a difficult policy moment for the Federal Reserve ahead of its September meeting.",
+      "left": {
+        "framing": "Left-leaning outlets frame the numbers as evidence of Trump's economic mismanagement. CNN reported the \"unexpectedly\" large job loss with analysis questioning whether it signals a recession risk. NBC highlighted that women bore 100% of the employment decline. New Republic noted that real wages are negative when accounting for inflation, and that Fox News \"struggled to spin\" the bad numbers. The Daily Beast cited the data as central to a Democratic wave building ahead of midterms.",
+        "sources": [
+          { "name": "CNN Business", "url": "https://www.cnn.com/2026/08/07/economy/us-jobs-report-july" },
+          { "name": "NBC News Business", "url": "https://www.nbcnews.com/business/economy/cpi-inflation-july-2026-rcna591698" },
+          { "name": "The New Republic", "url": "https://newrepublic.com/post/214107/women-100-percent-jobs-lost-july-donald-trump" }
+        ]
+      },
+      "right": {
+        "framing": "Right-leaning outlets emphasized the inflation improvement as the headline takeaway, with Townhall declaring the CPI report \"good news\" and the Washington Examiner pointing to easing pressure on the Fed. Fox News covered the jobs miss but balanced it against the falling unemployment rate. The Washington Examiner suggested the Fed is likely to hold rates rather than hike.",
+        "sources": [
+          { "name": "Townhall", "url": "https://townhall.com/news/dmitri-bolt/2026/08/12/inflation-report-n2681104" },
+          { "name": "Washington Examiner", "url": "https://www.washingtonexaminer.com/policy/finance-and-economy/4683435/inflation-july-consumer-prices-energy/" }
+        ]
+      },
+      "correlation": 55,
+      "correlation_label": "Same data, materially different framing: left reads economic distress, right reads inflation relief."
+    },
+    {
+      "topic_key": "trump-national-emergency-voter-id-election-control",
+      "title": "Trump Declines to Rule Out National Emergency Declaration to Control 2026 Elections",
+      "days_seen": 2,
+      "relevance": 70,
+      "relevance_label": "Recurring — day 2",
+      "summary": "President Trump, when asked during a radio interview about the possibility of declaring a national security emergency to impose voter ID requirements before the November 2026 midterms, responded \"stranger things have happened.\" The SAVE America Act, which would have required citizenship documents for voter registration, died before the Senate recess. Both parties are watching whether Trump escalates his election integrity push into executive action. Congressional Republicans are reportedly worried the issue could hurt them with swing voters. The White House separately announced Karoline Leavitt's departure as press secretary.",
+      "left": {
+        "framing": "Left press treated Trump's remarks as a serious authoritarian threat. New Republic called it a \"dystopian plan for stealing the midterm elections.\" The Daily Beast headlined it a \"sinister election power grab.\" Daily Beast also reported that Republican senators are privately panicking the issue will cost them swing districts. CNN contextualized it alongside Trump's historic low approval ratings.",
+        "sources": [
+          { "name": "The New Republic", "url": "https://newrepublic.com/post/214189/donald-trump-national-emergency-voter-id-midterm-elections" },
+          { "name": "The Daily Beast", "url": "https://www.thedailybeast.com/bad-loser-trump-confesses-sinister-election-power-grab/" },
+          { "name": "CNN Politics", "url": "https://www.cnn.com/2026/08/07/politics/midterms-house-senate-democrats" }
+        ]
+      },
+      "right": {
+        "framing": "Breitbart reported Trump's comment approvingly, noting it \"stranger things have happened\" without editorial alarm. The Washington Examiner focused on the SAVE Act's collapse and Thune's role, framing it as GOP establishment failure. The Federalist had previously criticized voter registration as an \"honor system\" and framed the idea of tighter controls as obvious common sense.",
+        "sources": [
+          { "name": "Breitbart", "url": "https://www.breitbart.com/midterm-election/2026/08/11/trump-on-potential-emergency-declaration-for-midterms-stranger-things-have-happened/" },
+          { "name": "Washington Examiner", "url": "https://www.washingtonexaminer.com/news/campaigns/congressional/4673621/midterm-countdown-august-2026/" }
+        ]
+      },
+      "correlation": 22,
+      "correlation_label": "Sharply divergent narratives: left sees authoritarian threat; right sees legitimate election security push."
+    },
+    {
+      "topic_key": "aoc-woke1-2028-positioning-right-analysis",
+      "title": "AOC Says 'Woke 1.0 Was Crazy,' Sparking Debate on Democratic Direction and 2028",
+      "days_seen": 2,
+      "relevance": 70,
+      "relevance_label": "Recurring — day 2",
+      "summary": "Representative Alexandria Ocasio-Cortez commented that 'Woke 1.0 was crazy' in the context of discussing Francesca Hong's primary loss in Wisconsin, in what many observers interpreted as a strategic repositioning ahead of a potential 2028 presidential run or a Senate challenge to Chuck Schumer. Axios reported she has left the door open to both. RealClearPolitics clipped and amplified the comment. The remark touched off a broader debate about the Democratic Party's messaging in the 2026 cycle and whether the progressive wing is course-correcting or merely pivoting rhetorically.",
+      "left": {
+        "framing": "Axios covered the comment in the context of reporting on AOC's 2028 ambitions, noting she has left open both a presidential run and a Schumer primary challenge. Slate analyzed Hong's loss as a genuine inflection point for progressives. Left-leaning commentary generally treated AOC's remark as pragmatic recalibration after a cycle with some progressive primary defeats.",
+        "sources": [
+          { "name": "Axios", "url": "https://www.axios.com/2026/08/09/aoc-2028-president-schumer-senate" },
+          { "name": "Slate", "url": "https://slate.com/news-and-politics/2026/08/francesca-hong-wisconsin-primary-loss-thanksgiving-democrats-progressives.html" }
+        ]
+      },
+      "right": {
+        "framing": "Right-leaning outlets treated the comment with skepticism and some mockery. Townhall published a piece headlined 'Democrats Are Going to Try to Distance Themselves From Their Woke Policies — Don't Let Them.' RCP clipped the comment for a national audience. The American Spectator interpreted DSA wins elsewhere as proof the 'Marxist-Islamist' drift is real regardless of AOC's rhetoric.",
+        "sources": [
+          { "name": "Townhall", "url": "https://townhall.com/news/amy-curtis/2026/08/10/aoc-woke-1-was-crazy-n2680992" },
+          { "name": "RealClearPolitics", "url": "https://www.realclearpolitics.com/video/2026/08/09/aoc_on_francesca_hong_woke_one_was_crazy.html" }
+        ]
+      },
+      "correlation": 30,
+      "correlation_label": "Both note the same comment but diverge sharply: left reads recalibration, right reads as inauthenticity."
+    },
+    {
+      "topic_key": "karoline-leavitt-departure-press-secretary",
+      "title": "Karoline Leavitt Departing as White House Press Secretary, No Replacement Named",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "summary": "White House press secretary Karoline Leavitt, 28, the youngest press secretary in US history, announced she will leave her role at the end of August to spend more time with her family following the birth of her second child in May. President Trump announced the departure on Truth Social, describing Leavitt as a future \"top outside advisor\" and \"influential voice within the Republican Party.\" No replacement has been named. The departure comes at a critical juncture before the 2026 midterms.",
+      "left": {
+        "framing": "NBC and other left outlets covered the departure matter-of-factly, noting the timing ahead of midterms and the absence of a named successor. The Daily Beast noted Leavitt had recently tried to boast about the economy while the jobs report came in negative. The departure was framed alongside other White House personnel turbulence.",
+        "sources": [
+          { "name": "NBC News", "url": "https://www.nbcnews.com/politics/trump-administration/live-blog/trump-leavitt-2026-primary-results-congress-iran-epstein-live-updates-rcna592243" }
+        ]
+      },
+      "right": {
+        "framing": "Right-side outlets reported the departure positively, emphasizing Leavitt's accomplishments and Trump's warm farewell statement. The Daily Wire and Breitbart both ran straight news coverage without criticism. Breitbart noted no replacement has been named, suggesting uncertainty about the communications shop going into midterms.",
+        "sources": [
+          { "name": "The Daily Wire", "url": "https://www.dailywire.com/news/karoline-leavitt-to-depart-the-white-house-by-end-of-the-month" },
+          { "name": "Breitbart", "url": "https://www.breitbart.com/politics/2026/08/12/karoline-leavitt-leaving-white-house-no-replacement-named/" }
+        ]
+      },
+      "correlation": 72,
+      "correlation_label": "High factual agreement on the event; modest difference in tone and whether it signals White House dysfunction."
+    }
+  ],
+  "gap_left": [
+    {
+      "topic_key": "trump-truth-social-market-access",
+      "title": "Trump's Media Company Selling Early Access to Truth Social Posts for Market Advantage",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "summary": "Slate reported that Trump's media company is selling companies early access to his Truth Social posts, allowing subscribers to see market-moving statements before the general public. The arrangement raises corruption concerns, as Trump's posts have previously triggered significant market movements. The practice is described as creating a two-tier information environment where paying companies gain a financial edge from the president's communications.",
+      "sources": [
+        { "name": "Slate", "url": "https://slate.com/news-and-politics/2026/08/trump-truth-social-early-access-corruption.html" }
+      ]
+    },
+    {
+      "topic_key": "us-embassies-iran-war-skeleton-staff",
+      "title": "US Embassies Across Middle East Planning for Skeleton Staff as Iran War Drags On",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "summary": "CNN reported that the State Department has directed US embassies across the Middle East to develop contingency plans for operating with minimal staff on the ground, as the war with Iran shows no signs of resolution. The directive signals a significant drawdown in US diplomatic presence in the region. Separately, the Joint Chiefs chairman has privately told administration officials the US needs an \"off-ramp\" from the conflict, as the Strait of Hormuz remains effectively closed with only 16 vessels transiting in two days versus 130-140 per day before the war.",
+      "sources": [
+        { "name": "CNN Politics", "url": "https://www.cnn.com/2026/08/12/politics/us-diplomats-middle-east-iran-war" }
+      ]
+    },
+    {
+      "topic_key": "trump-air-force-one-iran-assassination-ruse",
+      "title": "Trump Used Air Force One as a Decoy at NATO Turkey Summit Over Iranian Assassination Threat",
+      "days_seen": 2,
+      "relevance": 70,
+      "relevance_label": "Recurring — day 2",
+      "summary": "Reports surfaced that President Trump used a decoy Air Force One maneuver at the NATO summit in Turkey due to an active Iranian assassination threat against him. The ruse — involving Trump arriving and departing differently than the publicized manifest — reflects the ongoing security dimensions of the US-Iran conflict extending beyond military theater to personal security for the president. The Daily Beast and NBC covered the confrontational diplomatic backdrop.",
+      "sources": [
+        { "name": "The Daily Beast", "url": "https://www.thedailybeast.com/trump-confronted-on-cowardly-air-force-one-bait-and-switch/" }
+      ]
+    },
+    {
+      "topic_key": "military-families-deportation-dod-dhs",
+      "title": "Trump Administration Targeting Military Spouses and Families for Deportation",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "summary": "The New Republic reported that the Trump administration is targeting military spouses, veterans' families, and even active-duty service members' relatives for deportation, with congressional Democrats investigating alleged collaboration between the Department of Defense and Department of Homeland Security to detain and remove family members of US servicemembers. The story cites specific cases of military family members detained by ICE, raising questions about morale and military readiness.",
+      "sources": [
+        { "name": "The New Republic", "url": "https://newrepublic.com/post/214098/trump-midterms-struggling" }
+      ]
+    }
+  ],
+  "gap_right": [
+    {
+      "topic_key": "ma-abortion-law-no-ban-federalist-aug11",
+      "title": "Massachusetts Signs Law Removing 24-Week Abortion Ban — Permits Up to Birth",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "summary": "Massachusetts Governor Maura Healey signed legislation on August 10 removing the state's existing 24-week abortion ban and permitting abortions up to the point of birth with a doctor's \"professional judgment.\" Right-wing outlets including The Federalist condemned the law as extremist, running it as a warning to voters in other states about the trajectory of Democratic policy on abortion. The law comes as abortion continues to be a top-tier midterm issue, with Democrats leaning into it and Republicans warning voters about its national implications.",
+      "sources": [
+        { "name": "The Federalist", "url": "https://thefederalist.com/2026/08/11/in-massachusetts-you-can-now-abort-babies-minutes-before-birth-for-any-reason/" }
+      ]
+    },
+    {
+      "topic_key": "alito-another-term-scotus-retirement-shut",
+      "title": "Justice Alito Announces He Will Serve Another Full Term, Ending Retirement Speculation",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "summary": "Justice Samuel Alito told the Wall Street Journal he intends to serve another full term on the Supreme Court, definitively shutting down months of speculation that he would retire and give President Trump another appointment. Breitbart and other right-leaning outlets reported the news positively, framing it as a stabilizing signal for the conservative legal project. The announcement means the Court's 6-3 conservative supermajority remains intact through at least the next term.",
+      "sources": [
+        { "name": "Breitbart", "url": "https://www.breitbart.com/politics/2026/08/07/alito-says-hes-here-for-another-term-shuts-down-retirement-talk/" }
+      ]
+    },
+    {
+      "topic_key": "dsa-marxist-islamist-el-sayed-democratic-threat",
+      "title": "Right Press Frames El-Sayed Win as Evidence of 'Marxist-Islamist Alliance' in Democratic Party",
+      "days_seen": 2,
+      "relevance": 70,
+      "relevance_label": "Recurring — day 2",
+      "summary": "Following Abdul El-Sayed's Michigan Senate primary win, The American Spectator published analysis arguing that DSA's success represents a \"Marxist-Islamist Alliance\" exploiting progressive naïveté. The Daily Wire ran a headline calling Democrats \"officially the Party of Commie ISIS.\" These framing choices reflect a deliberate right-media strategy to associate the Democratic Party's progressive wing with ideological threats, a strategy that GOP super PACs have already begun echoing in paid advertising targeting El-Sayed ahead of November.",
+      "sources": [
+        { "name": "The American Spectator", "url": "https://spectator.org/the-marxist-islamist-alliance-feeds-on-dsa-naivete/" },
+        { "name": "The Daily Wire", "url": "https://www.dailywire.com/news/democrats-are-officially-the-party-of-commie-isis" }
+      ]
+    },
+    {
+      "topic_key": "pentagon-munitions-crisis-iran-war-aug13",
+      "title": "US Virtually Out of Long-Range Precision Missiles After Iran War; 80% of Key Interceptors Depleted",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "summary": "National Review and The American Conservative both reported that the US has used virtually all of its long-range precision missiles during the Iran war, with approximately 80% of interceptors for a key missile defense system depleted. National Review called the crisis \"foreseeable and dire,\" arguing the US had insufficient stockpiles before the war began. The American Conservative framed it as a symptom of broader Pentagon readiness failures. Trump publicly disputed the reports, saying the US has \"massive amounts\" of munitions.",
+      "sources": [
+        { "name": "National Review", "url": "https://www.nationalreview.com/2026/08/a-foreseeable-and-dire-munitions-crisis/" },
+        { "name": "The American Conservative", "url": "https://www.theamericanconservative.com/the-pentagons-missile-crisis-distracts-from-deeper-problems/" }
+      ]
+    }
+  ],
+  "suggestions": []
+}
