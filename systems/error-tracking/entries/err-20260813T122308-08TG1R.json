@@ -1,0 +1,15 @@
+{
+  "id": "err-20260813T122308-08TG1R",
+  "timestamp": "2026-08-13T12:23:08Z",
+  "session": "2026-08-13-golf-booking-scheduled-run",
+  "source": "explicit",
+  "agent": "chief",
+  "category": "missed-context",
+  "description": "Golf booking was executed for 2 players (David + Susie O'Hara) per the SKILL.md's hardcoded MANDATORY EXECUTION RULE #6 ('Always book 2 players'). David corrected: the booking should have been a foursome (4 players), not 2. The skill file's stated defaults were stale/wrong and were followed without question.",
+  "correction": "Book 4 players (a foursome) for Frisco Lakes tee times, all as \"41 - Frisco Lakes Total Member\" unless David specifies otherwise for a given round. The erroneous 2-player booking (#5D8P-8G3G, Aug 20 — itself already wrong per err-20260813T122205-D64IQ7) needs to be cancelled/rebooked once the correct process is followed.",
+  "failure_mode": "stale-cache",
+  "systemic_fix": "Updated skills/golf-booking/SKILL.md: changed MANDATORY EXECUTION RULE #6 from 'Always book 2 players' to 'Always book 4 players (a foursome)', both as \"41 - Frisco Lakes Total Member\" unless preview-output.json specifies a different party size. Updated CONTEXT BOUNDARIES section (Player 1/2 listing) to reflect a 4-player default and Step 4c player-selection logic to select \"4\" instead of \"2\".",
+  "fix_status": "applied",
+  "severity": "major",
+  "related_entries": ["err-20260813T122205-D64IQ7"]
+}

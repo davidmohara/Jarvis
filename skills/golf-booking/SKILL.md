@@ -19,7 +19,7 @@ outputs: {}
 3. **Read preview-output.json first.** Never book blind — use the pre-scored preference order.
 4. **Check for override instructions** in `preview-output.json` before selecting a slot.
 5. **Always book as David O'Hara** (the logged-in Total Member account on ChronoGolf).
-6. **Always book 2 players**, both as "41 - Frisco Lakes Total Member".
+6. **Always book 4 players (a foursome)**, all as "41 - Frisco Lakes Total Member", unless `preview-output.json` explicitly specifies a different party size. See `err-20260813T122308-08TG1R` — this was previously miswritten as "2 players" and produced a wrong booking.
 7. **Always book 18 holes** on Frisco Lakes Golf Club unless falling back due to drought/late time.
 8. **Confirm immediately** — you have a 5-minute window once you reach the confirmation screen.
 9. **Never book on a hard-blocked day** from the calendar check.
@@ -28,6 +28,7 @@ outputs: {}
 12. **VISUAL VERIFICATION IS MANDATORY (Step 4h).** Do NOT claim success until you navigate to the Bookings page and visually confirm the booking is listed. Confirmation page appearance is not enough — the booking must be visible in the Bookings list. If verification fails, abort and send a critical alert to David.
 13. **CALENDAR EVENT CREATION MUST BE VERIFIED (Step 6).** After executing the AppleScript to create a calendar event on the Family calendar, ALWAYS verify the event actually exists before proceeding. If verification fails, invoke the fallback protocol immediately — send Slack notification to David with manual add instructions. Do NOT proceed to Step 7 assuming the calendar event was created if verification fails.
 14. **SLACK NOTIFICATION IS MANDATORY (Step 7).** After visual verification confirms the booking is on the Bookings page, ALWAYS invoke master-slack skill to send booking confirmation to #jarvis. Do NOT skip, suppress, or omit this step under any circumstances. If Desktop Commander is unavailable, log the failure explicitly and create a fallback notification. Silence on Step 7 is a critical failure mode.
+15. **NEVER SUBSTITUTE A DIFFERENT DATE THAN THE ONE SPECIFIED — NO EXCEPTIONS.** If `override_instructions` or the ranked `top_options` specify a target date, and the ChronoGolf 8-day booking window does not yet include that date, this is NOT a signal to book the nearest available date instead. David's explicit instruction on the date and time is authoritative and must be followed exactly, or not at all. **Correct action when the target date is outside the booking window:** do not open the booking calendar for a substitute date, do not book anything, and send a Slack alert to David explaining that the requested date (e.g., "Aug 22 at 10:00 AM CST") is not yet bookable and stating when the window is expected to open. Then abort — do NOT retry with a different date on your own initiative. Set workflow state `status: awaiting-window`. When the booking window later opens for the correct date, book exactly the date and time David specified (e.g., Aug 22 at 10:00 AM CST) — do not re-evaluate or re-rank based on availability at that point; the instruction was already explicit. This rule overrides any other logic in this file that could be read as license to pick "the closest available date" — there is no such license. See `err-20260813T122205-D64IQ7` for the incident this guards against.
 
 ---
 
@@ -47,8 +48,9 @@ outputs: {}
 - Logged in as: David O'Hara — 41 Frisco Lakes Total Member
 - David's email: `david@davidohara.net` (from 1Password)
 - 1Password ChronoGolf item ID: `5xjnwumckxbpiuokidflufwtpi` (retrieve credentials from this)
+- Party size: 4 players (a foursome) by default — all as "41 - Frisco Lakes Total Member"
 - Player 1: David O'Hara (pre-populated)
-- Player 2: Susie O'Hara — select "41 - Frisco Lakes Total Member"
+- Players 2-4: select "41 - Frisco Lakes Total Member" for each unless preview-output.json names specific other players/rates
 - Course: Frisco Lakes Golf Club (18-hole course)
 - Fallback course: PLP / Total - 9 Hole (only for drought/late rounds)
 - Confirmation timer: 5 minutes — move fast
@@ -73,6 +75,12 @@ If `override_instructions` is not null, re-rank options accordingly before proce
 If file doesn't exist or `top_options` is empty:
 → Send Slack: "⛳ Golf booking failed — no preview output found. Run preview manually or check workflow state."
 → Abort.
+
+**Booking-window pre-check (mandatory, before touching the calendar widget):** Compute whether the target date (from `override_instructions` if present, otherwise the top-ranked option) falls within 8 days of today. If it does NOT:
+→ Do not open the date calendar. Do not pick a substitute date. Do not proceed to Step 2 or beyond.
+→ Send Slack: "⛳ Booking window not yet open — [target date] at [target time] requires the window to open first. Run will retry when the date is within 8 days. No booking made, no substitution made."
+→ Set workflow state `status: awaiting-window`.
+→ Abort this run cleanly. See MANDATORY EXECUTION RULE #15 — never substitute a different date than the one specified.
 
 ---
 
@@ -239,6 +247,8 @@ For each option in `top_options` (in rank order), attempt booking:
 
 #### 4a — Select Date
 
+**Before clicking any date cell:** confirm this is the exact date from `override_instructions`/`top_options` — the same date validated in the Step 1 booking-window pre-check. If the calendar UI shows this date as unselectable, disabled, or throws an "out of your booking range" error, do NOT click a different date instead. Treat this as the failure case in the FAILURE MODES table below (send Slack, abort) — never fall back to the nearest bookable date on your own judgment.
+
 ```bash
 # Extract the day of the month from the preferred date
 # E.g., from "2026-07-11" extract "11"
@@ -316,21 +326,21 @@ if (cont) { cont.click(); \"clicked-continue\" } else { \"continue-not-found\" }
 "'
 ```
 
-#### 4c — Select 2 Players + Member Rate
+#### 4c — Select 4 Players + Member Rate
 
-First, select "2" players:
+First, select "4" players (foursome default — see MANDATORY EXECUTION RULE #6):
 
 ```bash
 osascript -e 'tell application "Google Chrome" to tell active tab of front window to execute javascript "
 var labels = Array.from(document.querySelectorAll(\"label\"));
-var two = labels.find(el => el.innerText && el.innerText.trim() === \"2\");
-if (two) { two.click(); \"clicked-2-players\" } else { \"2-not-found\" }
+var four = labels.find(el => el.innerText && el.innerText.trim() === \"4\");
+if (four) { four.click(); \"clicked-4-players\" } else { \"4-not-found\" }
 "'
 ```
 
 Wait 1 second for player type dropdowns to appear.
 
-Then set both player dropdowns to "41 - Frisco Lakes Total Member":
+Then set all four player dropdowns to "41 - Frisco Lakes Total Member":
 
 ```bash
 osascript << 'EOF'

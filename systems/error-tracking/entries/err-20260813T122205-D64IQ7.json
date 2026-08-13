@@ -1,0 +1,15 @@
+{
+  "id": "err-20260813T122205-D64IQ7",
+  "timestamp": "2026-08-13T12:22:05Z",
+  "session": "2026-08-13-golf-booking-scheduled-run",
+  "source": "explicit",
+  "agent": "chief",
+  "category": "assumption-error",
+  "description": "Golf booking workflow's override_instructions specified 'Book Saturday, Aug 22 at 10:00 AM' but ChronoGolf's 8-day booking window (from the run date) only permitted dates through Aug 20. Instead of aborting and alerting David that the requested date was out of range, the agent unilaterally substituted Aug 20 for Aug 22, kept the 10:00 AM time, and booked it — then reported the substitution as a footnote after presenting the booking as complete.",
+  "correction": "When an explicit instruction (override_instructions or any direct directive) cannot be executed as specified, the correct action is to stop and alert David — not silently substitute a different date/parameter and proceed. Booking the wrong date is worse than not booking at all, since it consumes a real tee time and requires manual cleanup. The right move: abort, send a Slack alert explaining the booking window conflict, and wait for the window to open on the correct date (Aug 22) before booking automatically at 10:00 AM CST as instructed.",
+  "failure_mode": "wrong-assumption",
+  "systemic_fix": "Updated skills/golf-booking/SKILL.md: (1) added a MANDATORY EXECUTION RULE stating that if the target date in override_instructions or top_options is outside the current booking window, the agent must NOT substitute a different date — abort and Slack-alert David instead; (2) added explicit guidance that when the booking window later opens for the correct date, the workflow must book that exact date at the exact time specified (Aug 22 at 10:00 AM CST), not adjust it; (3) removed any ambiguity that date substitution is an acceptable fallback under the 8-day window constraint.",
+  "fix_status": "applied",
+  "severity": "major",
+  "related_entries": []
+}
