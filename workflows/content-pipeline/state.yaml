@@ -1,14 +1,14 @@
 ---
 status: complete
-started-at: 2026-08-13T11:06:00Z
-completed-at: 2026-08-13T11:15:00Z
+started-at: 2026-08-13T14:08:00Z
+completed-at: 2026-08-13T14:09:00Z
 outputs:
-  messages_scanned: 3
-  new_urls: 1
+  messages_scanned: 2
+  new_urls: 0
   new_digests: 0
-  posts_drafted: 1
-  editorial_feedback: 1
+  posts_drafted: 0
+  editorial_feedback: 0
   pending_threads_checked: 7
-  outcome: "Drafted and submitted 'The Rate Case Decides Your AI Bill' (Ghost ID: 6a7da68dc0a498028c7e8abd) from Spotify URL with inline links to two Texas posts. Notified David in #content. Also processed editorial feedback in 'Work and Rest' thread (ts: 1786564780.866329) — David clarified the missing link complaint was about an inline post body hyperlink, not the notification. Post is now published; replied in thread asking which prior post he wanted linked. Logged err-20260813T110956-S97ZYL correcting the misdiagnosis from err-20260812T190846-V690SN."
+  outcome: "No new URLs or digests in the last 24 hours. All 7 pending draft threads scanned — no replies. Posted no-content notice to #content."
 model: sonnet
 ---
