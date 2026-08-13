@@ -1,12 +1,29 @@
 ---
-type: working
+type: working-archive
 task_id: "session"
 session_id: "chief-2026-08-10-090000"
 agent-source: chief
 created: 2026-08-10T18:48:00
 expires: 2026-08-12T18:48:00
-status: active
+status: archived
 context: "Shutdown cleanup — 2026-08-10"
+date: 2026-08-10
+source_file: memory/working/shutdown-cleanup-2026-08-10-184800.md
+tags:
+  - session-wrap
+  - chief
+  - rigby
+  - plaud
+  - remarkable
+  - solace
+  - error-tracking
+related_people:
+  - austin-ledesma
+  score: 0
+salience:
+  score: 10
+  last-promoted-check: 2026-08-13
+  promoted: true
 ---
 
 - Boot run, plaud dedup bug fixed (Rigby updated skill + Knox backfilled 92 vault notes with file_id), plaud-discover now uses three-tier dedup with exact file_id as primary key

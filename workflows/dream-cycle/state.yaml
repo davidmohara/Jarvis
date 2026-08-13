@@ -1,87 +1,72 @@
 workflow: dream-cycle
 agent: jarvis
 status: complete
-session-started: 2026-08-12T03:08:50-05:00
-session-id: dream-cycle-2026-08-12-030850
+session-started: 2026-08-13T03:09:41-05:00
+session-id: dream-cycle-2026-08-13-030941
 current-step: null
-original-request: Scheduled dream cycle run (automated) - 2026-08-12
+original-request: Scheduled dream cycle run (automated) - 2026-08-13
 accumulated-context:
   git_pull_at_boot: success
-  git_pull_note: "Stash+pull fast-forward d5861b5..e1287c9 — 25 files (AT&T account plan, plaud ingest files, eval records, error entries, etc.)"
-  working_archived: 1
+  git_pull_note: "Stash+pull fast-forward 2e9eb0c..822ff31 — 17 files (Cinemark brief, Laurel Norman prep, graph memory spec, shutdown cleanup, 4 error entries, plaud skill updates)"
+  working_archived: 5
   working_deleted: 0
-  working_skipped: 19
+  working_skipped: 32
   working_stranded: 0
   enrichment_method: "heuristic (inline — no LLM subprocess)"
   archived_files:
-    - revenue-tracker-2026-08-10-001500.md
-  skipped_not_expired:
     - co-sell-pipeline-2026-08-10-145200.md
     - daily-review-2026-08-10-120000.md
-    - daily-review-2026-08-11-211149.md
     - dream-summary-2026-08-11.md
     - morning-briefing-2026-08-10-070000.md
-    - morning-briefing-2026-08-11-061244.md
-    - plaud-ingest-2026-08-11-163500.md
-    - plaud-ingest-2026-08-11-170000.md
-    - 2026-08-11-120000-knox-plaud-speaker-id-complete.md
     - shutdown-cleanup-2026-08-10-184800.md
-  skipped_unparseable:
-    - 2026-07-08.md
-    - 2026-07-23-215200-session-felix-derek-persona-rebuild.md
-    - 2026-07-30-morning-briefing.md
-    - 2026-08-05-magline-call-prep.md
-    - 2026-08-11-plaud-ingest-correction.md
-    - golf-booking-2026-07-10-failed.md
-    - golf-booking-2026-07-11-followup.md
-    - golf-booking-COMPLETE-20260801.md
-    - golf-booking-early-run-20260730.md
-    - golf-booking-failure-20260731.md
-    - golf-booking-midnight-retry-20260801.md
-    - golf-booking-scheduling-update-20260801.md
-    - golf-booking-success-20260801.md
-    - golf-override-2026-07-14.md
-    - golf-preview-2026-07-03.md
-    - golf-preview-2026-07-14.md
-    - golf-preview-2026-07-21.md
-    - golf-preview-2026-08-04.md
-    - remarkable-upload-2026-07-23-improve-eval.md
-    - sc-executive-brief-2026-07-13.md
-    - slack-notification-golf-booking-20260801.txt
-    - solace-meeting-prep-2026-07-27.md
-  episodic_scanned: 264
-  score_updates: 264
+  episodic_scanned: 269
+  score_updates: 269
   window_entries: 91
   no_date: 27
-  no_tags: 194
-  score_distribution: "0:194,2:5,3:1,4:4,5:2,6:2,7:1,9:3,10:52"
+  no_tags: 195
+  score_distribution: "0:195,2:3,3:3,4:2,5:3,6:3,8:1,9:4,10:55"
+  clusters_found: 4
+  semantic_created: 0
+  semantic_updated: 4
+  promoted_entries: 5
+  cluster_actions:
+    - tag: dream-summary
+      domain: pattern
+      size: 1
+      action: update
+      target: memory/semantic/pattern/2026-07-06-dream-summary-pattern.md
+    - tag: daily-review
+      domain: operational
+      size: 2
+      action: update
+      target: memory/semantic/operational/2026-07-04-daily-review-pattern.md
+    - tag: co-sell
+      domain: operational
+      size: 1
+      action: update
+      target: memory/semantic/operational/2026-06-24-co-sell-pattern.md
+    - tag: session-wrap
+      domain: operational
+      size: 1
+      action: update
+      target: memory/semantic/operational/2026-06-30-session-wrap-pattern.md
+  errors_30d: 121
+  lessons_appended: 0
+  lessons_note: "All 8 qualifying categories already documented in LESSONS.md. No new lesson appended."
+  entries_compressed: 0
+  digests_updated: 0
+  compression_skipped: true
+  compression_note: "3 candidates — below 5-entry threshold."
+prior-run-context:
+  session_id: dream-cycle-2026-08-12-030850
+  working_archived: 1
+  working_deleted: 0
+  episodic_scanned: 264
+  score_updates: 264
   clusters_found: 1
   semantic_created: 0
   semantic_updated: 1
   promoted_entries: 1
-  cluster_actions:
-    - tag: revenue-tracker
-      domain: operational
-      size: 1
-      action: update
-      target: memory/semantic/operational/2026-06-24-revenue-tracker-pattern.md
-  errors_30d: 126
-  lessons_appended: 0
-  lessons_note: "All 10 qualifying categories already documented in LESSONS.md. No new lesson appended."
-  entries_compressed: 0
-  digests_updated: 0
-  compression_skipped: true
-  compression_note: "0 candidates — all episodic entries either score >= 2, promoted, no date, or within 90-day window."
-prior-run-context:
-  session_id: dream-cycle-2026-08-11-030950
-  working_archived: 3
-  working_deleted: 0
-  episodic_scanned: 263
-  score_updates: 263
-  clusters_found: 1
-  semantic_created: 0
-  semantic_updated: 1
-  promoted_entries: 2
   entries_compressed: 0
   digests_updated: 0
   errors: 0

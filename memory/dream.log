@@ -2177,3 +2177,20 @@ digests_updated: 0
 errors: 0
 summary: "Boot stash+pull (fast-forward d5861b5..e1287c9 — 25 files: AT&T account plan, plaud ingest records, eval runs, error entries). Step-01 archived 1 expired file (revenue-tracker-2026-08-10-001500 — Aug 10 full PowerBI pull: One Texas -10.5% vs target, South Texas -24% vs target/-22% vs PY). Step-02 scored 264 episodic files (91 in window); dist 0:194,2:5,3:1,4:4,5:2,6:2,7:1,9:3,10:52. Step-03: 1 cluster promoted — revenue-tracker-pattern (1 entry: South Texas deterioration sharpest single-cycle drop on record, -24% vs target with no recovery trajectory visible). Step-04: 0 compression candidates. Carry-forward quintet persists: Q3 rocks unwritten (week 15+), nerve block unscheduled, delegation tracker empty, Cole Estrate xAI follow-up unsent, South Texas now -24% vs target (sharpest single-cycle drop recorded)."
 ---
+
+---
+## 2026-08-13T03:35:00 CDT
+session_id: dream-cycle-2026-08-13-030941
+working_archived: 5
+working_deleted: 0
+episodic_scanned: 269
+score_updates: 269
+clusters_found: 4
+semantic_created: 0
+semantic_updated: 4
+promoted_entries: 5
+entries_compressed: 0
+digests_updated: 0
+errors: 0
+summary: "Boot stash+pull (fast-forward 2e9eb0c..822ff31 — 17 files: Cinemark brief, Laurel Norman prep, graph memory spec, shutdown cleanup, 4 error entries, plaud skill updates). Step-01 archived 5 expired files (co-sell-pipeline-08-10: Rock 4 gap $8.68M with stale Jul-30 data; daily-review-08-10: Sunday Aug-9 golf + Lifebook overdue; dream-summary-08-11: quintet still unresolved, plaud backlog 285 files multi-cycle; morning-briefing-08-10: Declan TXST move-in today, Lifebook 73d overdue, Laurel Norman/TopGolf first appearance; shutdown-cleanup-08-10: Plaud 3-tier dedup fix + reMarkable skill launch). Step-02 scored 269 episodic files (91 in window); dist 0:195,2:3,3:3,4:2,5:3,6:3,8:1,9:4,10:55. Score-10 cluster grew 52→55. Step-03: 4 clusters promoted — dream-summary-pattern (quintet now 16+ cycles, expense report multi-cycle, plaud backlog 285 files second cycle), daily-review-pattern (Lifebook 73d overdue, Declan TXST today, Laurel Norman + TopGolf first entries), co-sell-pattern (Rock 4 gap confirmed stable at $8.68M, no new deals Jul-30 to Aug-10, Confluent still zero 2026 wins), session-wrap-pattern (Plaud 3-tier dedup fix + reMarkable skill + routing violation). 121 errors in 30d — all qualifying categories already in LESSONS.md. Step-04: 3 compression candidates — below 5-entry threshold, skipped. Carry-forward quintet persists: Q3 rocks unwritten (week 16+), nerve block unscheduled, delegation tracker empty, Cole Estrate xAI follow-up unsent, South Texas now -24% vs target (sharpest on record). Today is Declan's TXST move-in (Aug 13-15)."
+---

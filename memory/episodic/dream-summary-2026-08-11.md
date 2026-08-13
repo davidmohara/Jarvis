@@ -1,10 +1,27 @@
 ---
-type: working
+type: working-archive
 agent-source: jarvis
 session_id: dream-cycle-2026-08-11-030950
 created: 2026-08-11T03:14:42-05:00
 expires: 2026-08-12
-status: active
+status: archived
+date: 2026-08-11
+source_file: memory/working/dream-summary-2026-08-11.md
+tags:
+  - dream-summary
+  - jarvis
+  - salience-scoring
+  - semantic-promotion
+  - dream-summary-pattern
+  - plaud
+  - expense-report
+  - south-texas
+related_people: []
+  score: 0
+salience:
+  score: 10
+  last-promoted-check: 2026-08-13
+  promoted: true
 ---
 
 # Dream Cycle Summary — August 11, 2026

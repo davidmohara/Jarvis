@@ -4,7 +4,7 @@ domain: operational
 subject: "Pattern around session-wrap"
 synthesized-from:
   - memory/episodic/shutdown-cleanup-2026-06-16-071444.md
-last-updated: 2026-08-02
+last-updated: 2026-08-13
 tags:
   - calendar
   - co-sell
@@ -52,3 +52,9 @@ Sources this cycle:
 - `memory/episodic/2026-07-30-205917-session-wrapup.md` (score 9) — tags: session-wrap, master, plaud, cole-estrate, xai, solace, cbre, omnifocus, one-texas. Long session (post-boot work Jul 30). Key work: Plaud ingest (4 recordings, Knox spawned after correcting a fabricated API-token blocker — err-20260730T144624-C36DHR); Q3 2026 objectives drafted; partner-account-review-cadence designed (bi-weekly Solace sync, monthly partner roll-up, quarterly named-account rotation); Cole Estrate/xAI wishlist accounts mapped vs. Improving relationships with AA collision risk flagged; CBRE strategic account pursuit plan rerun + dashboard registered as Cowork artifact; One Texas Update thought-leadership slides rebuilt (graphical); 7 error-tracking entries logged. Open items: Cole follow-up email drafted but unsent (due 7/31), LinkedIn analytics still unresolved (Chrome extension flaky), OT H1 Scorecard.pptx handed back to David. People: cole-estrate, diana, alice-mburu.
 
 Session-wrap entry with the highest error count (7) in recent memory — this session triggered major corrections across fabrication (plaud blocker), repeated layout failures (OT scorecard), artifact registration gaps, and a PowerPoint save-integrity issue. The Cole Estrate / xAI thread escalated significantly this session: from a flagged overdue item in daily-review to an active partner track with account mapping, AA collision risk documentation, and a drafted (unsent) follow-up. The one-texas/cbre/solace/xai co-occurrence in a single session-wrap entry is the first time all four Rock 1+4 pursuit tracks have appeared together — this session was unusually cross-domain in scope.
+
+### 2026-08-13 — Nightly promotion
+Sources this cycle:
+- `memory/episodic/shutdown-cleanup-2026-08-10-184800.md` (score 10) — tags: session-wrap, chief, rigby, plaud, remarkable, solace, error-tracking. Aug 10 session: Plaud dedup bug fixed by Rigby (three-tier dedup with exact file_id as primary key; Knox backfilled 92 vault notes); Solace/Austin Ledesma call prep pushed to reMarkable `/Meetings` as PDF (first use of new remarkable-push skill); Rigby added `skills/remarkable-push/SKILL.md` with naming convention (human-readable, no dates) and path routing by doc type; 2 error logs filed (wrong rmapi path + routing violation/Master bypassed Rigby); root cleanup (call-prep/ moved to meetings/, spending analysis report moved to reports/); 9 files committed.
+
+Aug 10 shutdown-cleanup is notable for two infrastructure additions landing together: the three-tier Plaud dedup fix (file_id as primary key, closing a persistent duplicate-detection gap) and the reMarkable push skill (Rigby, enabling one-command PDF delivery to the tablet). The routing violation error (Master bypassed Rigby for the skill addition) confirms the pattern of Master occasionally shortcutting agent routing under time pressure — this is now a documented recurring error category. The solace/plaud co-occurrence in this session-wrap matches the Jul 30 session-wrap pattern: complex sessions in the Aug-10 timeframe consistently touch multiple operational systems simultaneously.

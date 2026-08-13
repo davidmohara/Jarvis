@@ -26,9 +26,10 @@ related_people:
   - alexander-powell
   promoted: true
   promoted: true
+  promoted: true
 salience:
   score: 9
-  last-promoted-check: 2026-08-12
+  last-promoted-check: 2026-08-13
   promoted: true
 ---
 

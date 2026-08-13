@@ -5,8 +5,8 @@ tag: dream-summary
 domain: pattern
 confidence: medium
 created: 2026-07-06
-last-updated: 2026-08-11
-synthesized-from: 22 episodic entries
+last-updated: 2026-08-13
+synthesized-from: 23 episodic entries
 tags:
   - dream-summary
 ---
@@ -162,3 +162,9 @@ Sources this cycle:
 - `memory/episodic/dream-summary-2026-08-10.md` (score 10) — tags: dream-summary, jarvis, memory, salience, semantic, episodic, account-pursuit. Aug 10 cycle: large flush — 10 archived (full Aug 7 session output: 5 account-pursuit-maps for TI, PriceSmart, 7-Eleven, ORIX, McKesson + 2 plaud-ingest summaries + 1 daily-review + 1 dream-summary + 1 shutdown-cleanup). 260 scored, score-10 cluster jumped from 37 to 48 (driven by Aug 7 account-pursuit batch). 4 clusters promoted: dream-summary-pattern, daily-review-pattern, account-pursuit-map-pattern, plaud-pattern. Expense report now 4 days overdue — crossing from short-cycle to multi-cycle signal. Plaud staging backlog ~285 files (Dec 2025 origin) newly surfaced. Remarkable-push skill (Rigby) added to main. Carry-forward quintet confirmed at 14+ consecutive cycles.
 
 Pattern now at 22 episodic entries. Two cycles promoted this run. Key new signals: (1) Expense report has now appeared in 3+ consecutive dream summaries past deadline — crossing into multi-cycle territory and approaching chronic status alongside the original quintet. (2) Plaud staging backlog (~285 files from Dec 2025) surfaced for the first time — this is a vault-health gap, not a routine session item, and warrants a dedicated pass. (3) Harper campaign infrastructure (10 skills, 2 workflows) landed in one git pull — the largest infrastructure delivery in a single boot pull observed to date. The carry-forward quintet (Q3 rocks, nerve block, delegation tracker, Cole Estrate xAI, South Texas -21.5% QTD) remains structurally unresolved across 15+ consecutive cycles with no resolution trend.
+
+### 2026-08-13 — Nightly promotion
+Sources this cycle:
+- `memory/episodic/dream-summary-2026-08-11.md` (score 10) — tags: dream-summary, jarvis, salience-scoring, semantic-promotion, dream-summary-pattern, plaud, expense-report, south-texas. Aug 11 cycle: 3 archived (dream-summary-08-09, dream-summary-08-10, system-eval-08-08), 263 scored (91 in window), 1 promoted (dream-summary-pattern updated), 0 compressed. Key signals: (1) Plaud staging backlog ~285 files (Dec 2025 origin) confirmed still unaddressed — now in second consecutive cycle since surfacing; (2) expense report crossed into multi-cycle territory (5 days past Aug 6 deadline); (3) Harper campaign infrastructure (10 skills + 2 workflows) confirmed landing in single boot pull Aug 9. Carry-forward quintet confirmed at 15+ consecutive cycles with no resolution trend.
+
+Pattern now at 23 episodic entries. The Aug 11 dream-summary explicitly characterizes the quintet (Q3 rocks, nerve block, delegation tracker, Cole Estrate xAI, South Texas -24% QTD) as "structural deferrals requiring decision or escalation" — language first introduced Aug 6 and now stable across 3+ consecutive summaries. Expense report has crossed the threshold from time-bound obligation to multi-cycle pattern signal: 5 days overdue as of Aug 11, appearing in 3+ consecutive dream summaries. Plaud backlog (~285 files, Dec 2025 origin) is now confirmed as a vault-health gap, not a routine session item, entering its second cycle since initial discovery. The score-10 cluster grew from 50 → 52 entries this cycle — the cluster is not compressing, meaning high-frequency co-occurrence signals are stable and accumulating.

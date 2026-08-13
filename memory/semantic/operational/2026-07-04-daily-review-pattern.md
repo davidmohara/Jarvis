@@ -8,7 +8,7 @@ synthesized-from:
   - memory/episodic/dream-summary-2026-07-03.md
   - memory/episodic/shutdown-cleanup-2026-07-01-170500.md
   - memory/episodic/daily-review-2026-08-06-000000.md
-last-updated: 2026-08-10
+last-updated: 2026-08-13
 tags: [daily-review]
 agent-source: dream-cycle
 confidence: low
@@ -136,3 +136,10 @@ Sources this cycle:
 - `memory/episodic/daily-review-2026-08-07-200000.md` (score 10) — tags: daily-review, chief, calendar, omnifocus, expense-report, overdue, rock-3. Aug 7 review: auto review written to local fallback (Obsidian MCP disabled). Calendar pulled via M365 MCP — 9 events including 1st Friday Exec Meeting, MESH + Improving, Sales & Recruiting, touch base with Ralph Keipert, Lunch (Relationship), Connecting with Keylor Arroyo, Friday Weekly Wrap-Up with Alice. 3 OmniFocus completions (all Rock 3 work: LoopX, podcast pain point assessment skill, podcast outreach campaign design). 7 overdue tasks. Inbox 10 (up from 8). Executive Date Night at Capital Grille with Curtis + Texas leadership Thursday evening. Structural overdue persist: Lifebook Health & Career (since May 29), Kare blaze.ai (since June 29), expense report (now 2+ days past Aug 6 deadline — flagged as needing decision, not another carryover).
 
 Expense report is now confirmed overdue in back-to-back daily-reviews (Aug 5 flagged as immediately due, Aug 7 flagged as 2+ days late) — this is crossing into the multi-cycle pattern zone. Rock 3 completions (LoopX, podcast work) represent the first Rock-adjacent completions in several cycles but remain a single-day spike, not a trend reversal. Ralph Keipert touch-base and Keylor Arroyo connection are new named contacts surfacing in the daily-review cluster for the first time.
+
+### 2026-08-13 — Nightly promotion
+Sources this cycle:
+- `memory/episodic/daily-review-2026-08-10-120000.md` (score 10) — tags: daily-review, chief, omnifocus, lifebook. Aug 9 Sunday review: 2 completions (prayer list, coherence breathing), 1 calendar event (Golf 3-7:30pm), inbox 11; 2 overdue Lifebook tasks (Career + Health pillars) flagged as pattern needing scheduling this week; OmniFocus script iteration required second attempt.
+- `memory/episodic/morning-briefing-2026-08-10-070000.md` (score 10) — tags: briefing, chief, calendar, omnifocus, declan, solace, dallas, lifebook, conflict-flag, kk-nasr. Aug 10 morning briefing: 4 overdue (Scott Medlin HRIS intro 2d late, Lifebook Career/Health 73 days, Kare blaze.ai 42 days); key 72h flags: Declan move-in TXST Thu-Sat (logistics needed today), Tuesday SAP vs. KKR conflict (Nasr wins, Derek needs heads-up), Aug 25 three-way collision (AI Workshop + CC Breakfast + DSO×Cosm/William Floyd); Laurel Norman context unknown (Matt Russell organized), TopGolf AI DLP (Diana Stevens + Jay Spears).
+
+Two Aug 10 entries promoted. Notable signals: (1) Declan's TXST move-in (Aug 13–15) was flagged 72h out on Aug 10 — this is today, confirming it was a real near-term constraint. (2) Lifebook Career/Health overdue counter is now at 73 days in these entries — the longest confirmed duration in this pattern. (3) The briefing/daily-review co-occurrence cluster continues to show calendar-conflict-flag as a durable signature tag (back-to-back morning conflicts + multi-day look-ahead flags in almost every promoted entry). (4) Laurel Norman and TopGolf AI DLP (Jay Spears) appear in the daily-review cluster for the first time — neither had prior context in the system as of Aug 10.
