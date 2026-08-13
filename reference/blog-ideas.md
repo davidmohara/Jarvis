@@ -62,7 +62,8 @@ Running list of potential blog topics. Jarvis captures these proactively from co
 | "Terafab Is Not a Manufacturing Story. It's a Supply Chain Story." | Watchtower W33 (2026-08-10) [watchtower] | texas, AI, business, infrastructure, manufacturing | Draft at `Mind/Posts/_terafab-is-not-a-manufacturing-story.md` |
 | "The Service Line Is Not the Delivery Model" | Watchtower W33 (2026-08-10) [watchtower] | consulting, AI, business, leadership, delivery | Ghost draft — pending approval. Ghost ID: 6a7a22f0c0a498028c7e8a7d |
 
-| "Work and Rest Aren't Opposites. Wiring Is." | Content pipeline (2026-08-12) | life, health, thinking | Ghost draft — pending approval |
+| "Work and Rest Aren't Opposites. Wiring Is." | Content pipeline (2026-08-12) | life, health, thinking | Published 2026-08-12 |
+| "The Rate Case Decides Your AI Bill" | Content pipeline (2026-08-13) | business, technology, systems thinking | Ghost draft — pending approval. Ghost ID: 6a7da68dc0a498028c7e8abd |
 
 ## Published (for reference / avoid repeats)
 

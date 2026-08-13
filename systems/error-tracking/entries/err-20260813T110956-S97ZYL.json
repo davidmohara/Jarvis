@@ -1,0 +1,15 @@
+{
+  "id": "err-20260813T110956-S97ZYL",
+  "timestamp": "2026-08-13T11:09:56Z",
+  "session": "2026-08-13",
+  "source": "explicit",
+  "agent": "harper",
+  "category": "misdiagnosis",
+  "description": "Harper misidentified David's editorial complaint. David said 'You didn't link to the post' in the 'Work and Rest Aren't Opposites. Wiring Is.' thread. Previous run (err-20260812T190846-V690SN) logged this as a missing Ghost draft link in the Slack notification and updated Step 9. David's follow-up (ts: 1786564780.866329) clarified: the complaint was about a missing internal hyperlink INSIDE the post body to a prior post David had referenced. The fix should have been: find the prior post David was referring to, extract its URL, and embed the link in the relevant text node in the post's lexical. Instead, Harper added a draft review link to the Step 9 notification template, which was already present.",
+  "correction": "When David says 'you didn't link to the post' in a thread about a draft, first determine whether he means (a) an inline hyperlink inside the post body pointing to a prior post, or (b) a review link in the notification. Context: if the complaint follows a request to reference or tie back to a prior post, it is (a). The correct fix is to identify the prior post from context, find its Ghost URL, and PATCH the lexical to insert a link node around the relevant text. Do NOT update the Step 9 notification template without confirming that is the actual complaint.",
+  "failure_mode": "wrong-fix",
+  "systemic_fix": "No workflow change needed. Step 9 already included the draft review link. The prior-post-linking rule in workflow.md (Prior-post linking section) already mandates embedding inline hyperlinks when a clear callback exists. Harper must apply that rule more aggressively at draft time so David does not have to ask for it after the fact.",
+  "fix_status": "logged",
+  "severity": "moderate",
+  "related_entries": ["err-20260812T190846-V690SN"]
+}
