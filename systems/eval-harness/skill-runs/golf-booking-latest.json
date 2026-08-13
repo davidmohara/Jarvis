@@ -2,20 +2,23 @@
   "skill": "golf-booking",
   "agent": "chief",
   "trigger": "scheduled",
-  "started": "2026-08-01T00:00:27Z",
-  "completed": "2026-08-01T00:08:15Z",
+  "started": "2026-08-12T04:00:22Z",
+  "completed": "2026-08-12T04:08:15Z",
   "status": "success",
   "tool_failures": 0,
   "error_ids": [],
-  "booking_details": {
-    "booking_id": "4Y9G-5A1G",
-    "date": "2026-08-09",
-    "time": "15:25",
+  "booking": {
+    "id": "5D8P-8G3G",
+    "date": "2026-08-20",
+    "time": "10:00 AM",
     "course": "Frisco Lakes Golf Club",
     "holes": 18,
     "players": 2,
-    "cost": 45.47,
-    "calendar_event_id": "475DCA83-FF10-450A-81A4-9D6CADF923C4",
-    "notes": "Selected 3:25 PM fallback time (1:00 PM preferred was unavailable). Calendar event created and verified. Slack notification delivery deferred (post.py not found)."
+    "cost": "$171.04",
+    "verification": {
+      "visual_bookings_page": true,
+      "calendar_event_created": true,
+      "slack_notification_sent": true
+    }
   }
 }

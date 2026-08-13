@@ -1,25 +1,10 @@
 workflow: plaud-ingest
 agent: knox
 status: in-progress
-session-id: pi-20260812-001
-session-started: "2026-08-12T00:00:00Z"
-current-step: step-02
+session-id: pi-20260813-001
+session-started: "2026-08-13T00:00:00Z"
+current-step: step-01
 original-request: Knox — run workflows/plaud-ingest/workflow.md in full
-accumulated-context:
-  target-date: ""
-  total-recordings-discovered: 117
-  staged-files-created: 138
-  fetch-script-status: "running in background on Mac (PID: see /tmp/plaud_output.txt)"
-  transcription-triggered: []
-  pending-recordings: []
-  speaker-mappings: {}
-  pending-speaker-mappings: []
-  recording-classification: {}
-  ready-for-fetch: []
-  staged-files: []
-  ingested-notes: []
-  monday-tasks-created: []
-  share-urls: []
 accumulated-context:
   target-date: ""
   new-recordings: []
