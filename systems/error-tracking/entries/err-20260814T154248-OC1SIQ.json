@@ -1,0 +1,15 @@
+{
+  "id": "err-20260814T154248-OC1SIQ",
+  "timestamp": "2026-08-14T15:42:48Z",
+  "session": "2026-08-14",
+  "source": "explicit",
+  "agent": "Jarvis",
+  "category": "data-accuracy",
+  "description": "Misidentified call subject. User asked for prep sheet for call with 'HASC and Stephen'. Searched Microsoft 365 but found email thread about Stephen Johnson and Systemic Compliance. Incorrectly concluded the call was with Systemic Compliance (Kevin & Robin Graham) instead of finding what HASC actually is. Built entire prep sheet on wrong target company.",
+  "correction": "HASC is a separate entity from Systemic Compliance. Need to search specifically for HASC + Stephen to identify correct organization and rebuild prep sheet.",
+  "failure_mode": "pattern-mismatch",
+  "systemic_fix": "When search returns results mentioning a named person (Stephen Johnson), verify it's the correct engagement context before building deliverables. Cross-reference against user's original request to confirm subject match.",
+  "fix_status": "proposed",
+  "severity": "major",
+  "related_entries": []
+}
