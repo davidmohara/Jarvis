@@ -1,0 +1,5 @@
+# Lightweight index of in-flight workflows.
+# Maintained by workflow state transitions — added on in-progress, removed on complete/aborted.
+# Step-06 reads this first; if active is empty, per-directory scan is skipped entirely.
+
+active: []

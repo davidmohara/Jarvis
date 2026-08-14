@@ -356,19 +356,24 @@ Stage and commit all remaining files. The commit should be clean — no temp art
 ## Skill Loading Protocol
 
 ### At boot
-Read `skills/_manifest.jsonl` — one pass, all lines. Do NOT pre-load any `SKILL.md` files.
+Read `skills/_manifest-boot.jsonl` — 7 cross-agent skills available in every session. Do NOT pre-load any `SKILL.md` files.
+
+### On agent spawn
+Read `skills/_manifest-{agent}.jsonl` for the spawning agent's domain skills. Merge with boot manifest — keywords from both apply for the remainder of the session.
+
+Available agent manifests: `_manifest-master`, `_manifest-chief`, `_manifest-chase`, `_manifest-quinn`, `_manifest-shep`, `_manifest-harper`, `_manifest-rigby`, `_manifest-knox`, `_manifest-galen`, `_manifest-sterling`.
 
 ### On any user request or agent task:
 
 1. **KEYWORD MATCH (fast path):**
-   For each entry in `_manifest.jsonl`:
+   For each entry in the active manifest (boot + agent-specific):
    If any `trigger_keyword` is a case-insensitive substring of the user request:
    → Load the full `SKILL.md` from the entry's `path`
    → Follow its instructions
 
 2. **AGENT ROUTING (fallback):**
    If no keyword match, determine the owning agent for the request.
-   Find all `_manifest` entries where `owning_agent` == that agent.
+   Find all entries in the active manifest where `owning_agent` == that agent.
    Evaluate whether any of those skills are relevant to the request.
    If yes → load the matched `SKILL.md`.
 

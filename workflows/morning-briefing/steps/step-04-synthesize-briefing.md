@@ -163,127 +163,19 @@ What do you want to tackle first?
 
 ---
 
-## WRITE OUTPUT FILE
+## POST-COMPLETION
 
-**After delivering the briefing**, write a working memory file to `memory/working/` using this exact filename pattern:
+Apply the standard post-step protocol from `reference/post-step-protocol.md`:
 
-```
-morning-briefing-YYYY-MM-DD-HHmmss.md
-```
+1. **Working memory write** — filename `morning-briefing-YYYY-MM-DD-HHmmss.md`. The body must include full data source statuses, any conflicts or overdue items surfaced, and the complete briefing text as delivered. The filename timestamp pattern is mandatory — a date-only filename will fail eval assertions.
 
-where `YYYY-MM-DD-HHmmss` is the local date and time at the moment of writing (e.g., `morning-briefing-2026-05-25-071532.md`). Use the session start time from `state.yaml` if available; otherwise use current time.
+2. **Eval record close** — use `--name morning-briefing --agent chief --trigger boot` and `--steps "watchtower-daily,step-01-gather-calendar,step-02-gather-tasks,step-03-meeting-context,step-04-synthesize-briefing"`. Status: `success` if all 3 paragraphs + calendar table delivered; `partial` if any data source failed; `failure` if briefing not delivered.
 
-The file **must** begin with this YAML frontmatter block (all fields required):
+3. **State write** — `status: complete`, `current-step: step-04`.
 
-```yaml
----
-type: working
-task_id: "session"
-session_id: "chief-{YYYY-MM-DD}-{HHmmss}"
-agent-source: chief
-created: {YYYY-MM-DD}T{HH:MM:SS}
-expires: {YYYY+0 days, MM, DD+2}T{HH:MM:SS}
-status: active
-context: "Morning briefing — {YYYY-MM-DD}"
----
-```
+4. **Git commit** — `"chore(chief): morning briefing run — working memory capture and state update"`
 
-Field rules:
-- `session_id`: `chief-` followed by the same timestamp used in the filename (e.g., `chief-2026-05-25-071532`)
-- `created`: ISO 8601 local time, no Z suffix (e.g., `2026-05-25T07:15:32`)
-- `expires`: `created` + exactly 2 days, same time (e.g., `2026-05-27T07:15:32`)
-- `status`: always `active` when first written
-
-After the frontmatter, include the full briefing body:
-
-```
-# Morning Briefing — {Day of Week}, {Month DD, YYYY}
-
-## Data Sources
-- Calendar (M365): {pulled successfully | unavailable}
-- OmniFocus: {pulled successfully | unavailable}
-- Clay: {pulled | unavailable | nothing to surface}
-- Delegations tracker: {summary}
-
-## Calendar Conflicts Surfaced
-{List any back-to-back blocks, overload warnings, or "None"}
-
-## Overdue Items Flagged
-{List overdue tasks or delegations, or "None"}
-
-## 72-Hour Look-Ahead Flags
-{Any flags for the next 3 days from look-ahead scan, or "None surfaced"}
-
-## Interruptions / Missing Data
-{Any data sources that failed or returned no data, or "None"}
-
----
-
-{Full briefing text exactly as delivered to the controller — all three narrative paragraphs, the calendar table, and the closing line}
-```
-
-This file is the durable record consumed by the eval harness assertions. Do not skip this write. Do not abbreviate the content. The filename timestamp pattern is mandatory — a date-only filename will fail the assertion.
-
----
-
-## EVAL RECORD
-
-**Before returning the briefing**, write an eval record for this run. This is mandatory — it feeds the dashboard and weekly review health check.
-
-Determine status based on what actually happened:
-- `success` — briefing delivered with all 3 paragraphs + calendar table
-- `partial` — briefing delivered but one or more data sources failed (OmniFocus, calendar, Clay)
-- `failure` — briefing could not be delivered
-
-Run:
-```bash
-python3 systems/eval-harness/close-eval-record.py \
-  --name morning-briefing \
-  --type workflow \
-  --agent chief \
-  --status {success|partial|failure} \
-  --trigger boot \
-  --started "{session_started from state.yaml}" \
-  --steps "watchtower-daily,step-01-gather-calendar,step-02-gather-tasks,step-03-meeting-context,step-04-synthesize-briefing"
-```
-
-If any data source failed, use `--status partial`. If the briefing was not delivered at all, use `--status failure`.
-
-## WORKFLOW COMPLETE
-
-**After writing the eval record**, write `state.yaml` in the workflow directory with `status: complete` and `current-step: step-04`. This is mandatory — do not skip it.
-
-```yaml
-workflow: morning-briefing
-agent: chief
-status: complete
-current-step: step-04
-```
-
----
-
-## GIT COMMIT (MANDATORY)
-
-After the workflow completes, commit all changes using the git skill:
-
-1. Stage the changes:
-```bash
-git add -A
-```
-
-2. Commit with this message:
-```bash
-git commit -m "chore(chief): morning briefing run — working memory capture and state update"
-```
-
-3. Push to remote:
-```bash
-git push origin main
-```
-
-**Important:** Execute each git command as a separate, atomic call. Never chain commands with `&&` or `;`. Wait for each call to return before issuing the next. See `skills/git/SKILL.md` for the atomic command rule and rationale.
-
-The morning briefing has been delivered and committed. The controller drives from here.
+The morning briefing has been delivered. The controller drives from here.
 <!-- system:end -->
 
 <!-- personal:start -->
