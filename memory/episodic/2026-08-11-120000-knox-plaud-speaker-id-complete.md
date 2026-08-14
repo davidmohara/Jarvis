@@ -1,12 +1,33 @@
 ---
-type: working
+type: working-archive
 task_id: "plaud-ingest-pi-20260810-001"
 session_id: "knox-plaud-2026-08-11-001"
 agent_source: knox
 created: "2026-08-11T00:30:00Z"
 expires: "2026-08-13T00:30:00Z"
-status: active
+status: archived
 context: "Plaud ingest workflow speaker identification and transcript fetch — 2 recordings from Sales Scrum (Aug 10, 9:30 AM) and Remington workshop planning (Aug 10, 10:30 AM)"
+date: 2026-08-11
+source_file: memory/working/2026-08-11-120000-knox-plaud-speaker-id-complete.md
+tags:
+  - plaud-ingest
+  - knox
+  - speaker-id
+  - co-sell
+  - workshop
+  - remington
+  - sales-scrum
+related_people:
+  - stephen-johnson
+  - robyn-fuentes
+  - jenn-massey
+  - diana-stevens
+  - ayotunde-gibbs
+  - alice-mburu
+  score: 0
+salience:
+  score: 4
+  last-promoted-check: 2026-08-14
 ---
 
 # Plaud Ingest Session Complete: Speaker ID + Fetch

@@ -1,12 +1,37 @@
 ---
-type: working
+type: working-archive
 task_id: "session"
 session_id: "chief-2026-08-11-061244"
 agent-source: chief
 created: 2026-08-11T06:12:44
 expires: 2026-08-13T06:12:44
-status: active
+status: archived
 context: "Morning briefing — 2026-08-11"
+date: 2026-08-11
+source_file: memory/working/morning-briefing-2026-08-11-061244.md
+tags:
+  - briefing
+  - chief
+  - calendar
+  - omnifocus
+  - co-sell
+  - kkr
+  - lifebook
+  - solace
+  - declan
+related_people:
+  - joe-nasr
+  - scott-mcmichael
+  - austin-ledesma
+  - bethany-hilton
+  - alice-mburu
+  - diana-stevens
+  - ayotunde-gibbs
+  - stephen-johnson
+  score: 0
+salience:
+  score: 10
+  last-promoted-check: 2026-08-14
 ---
 
 # Morning Briefing — Tuesday, August 11, 2026

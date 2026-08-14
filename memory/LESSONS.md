@@ -423,6 +423,14 @@ Pattern: Data inaccuracies arise specifically from skipping a validation or cros
 Fix: Any data presented in a deliverable must pass the cross-reference step mandated by the owning workflow. Flag unverified data explicitly rather than presenting it as fact. If the verification step cannot be completed, say so rather than omitting it silently.
 Status: active
 
+## 2026-08-14 — Lazy Search / Available Data Not Used
+Detected: 3 occurrences over 30 days
+Category: lazy-search
+Failure mode: available-data-not-used
+Pattern: Agent performs a search or lookup, gets no result, and declares the data unavailable — without first checking data sources it already has in context or that are directly accessible. Distinct from missed-context/lazy-search (which is about not searching hard enough across strategies) — here the failure is that available data (already pulled, already in session, or trivially accessible via a tool that was loaded) is bypassed in favor of a fresh lookup that fails. The agent treats a search miss as a terminal finding rather than checking existing context first.
+Fix: Before declaring any data item unavailable, check: (1) was it already pulled earlier this session? (2) is it in a file already read? (3) is it accessible via a loaded tool without a network call? Exhaust in-session context before issuing external lookups. When a lookup fails, surface what sources WERE checked and what remains.
+Status: active
+
 ## 2026-08-01 — Under-Delivery / Wrong Assumption
 Detected: 3 occurrences over 30 days
 Category: under-delivery
