@@ -2,23 +2,16 @@
   "skill": "golf-booking",
   "agent": "chief",
   "trigger": "scheduled",
-  "started": "2026-08-12T04:00:22Z",
-  "completed": "2026-08-12T04:08:15Z",
+  "started": "2026-08-13T23:01:00Z",
+  "completed": "2026-08-13T23:01:50Z",
   "status": "success",
+  "outcome": "awaiting-window",
+  "details": "Pre-flight check determined Aug 22 booking date is 9 days ahead (outside 8-day ChronoGolf window). Per MANDATORY EXECUTION RULE #15, no substitute date selected. Slack alert sent. Workflow paused with status=awaiting-window for automatic retry when booking window opens at midnight EST on Aug 14.",
   "tool_failures": 0,
   "error_ids": [],
-  "booking": {
-    "id": "5D8P-8G3G",
-    "date": "2026-08-20",
-    "time": "10:00 AM",
-    "course": "Frisco Lakes Golf Club",
-    "holes": 18,
-    "players": 2,
-    "cost": "$171.04",
-    "verification": {
-      "visual_bookings_page": true,
-      "calendar_event_created": true,
-      "slack_notification_sent": true
-    }
+  "slack_notification": {
+    "ok": true,
+    "channel": "C0AN2PQNXBR",
+    "ts": "1786680105.740129"
   }
 }

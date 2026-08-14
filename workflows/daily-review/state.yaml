@@ -2,17 +2,17 @@
 workflow: daily-review
 agent: chief
 status: complete
-session-started: "2026-08-12T00:00:00"
-session-id: "chief-2026-08-11-000000"
+session-started: "2026-08-13T00:00:00"
+session-id: "chief-2026-08-13-000000"
 current-step: step-auto
 original-request: "auto"
 accumulated-context:
-  omnifocus-status: "partial — inbox: 11, completed last 24h: 2 (Review prayer list, Coherence breathing); overdue/flagged query timed out"
-  calendar-status: "success — M365 MCP, 21 events Aug 11-12"
+  omnifocus-status: "success — inbox: 11, completed today: 0, overdue: 4 (prayer list, coherence breathing, Lifebook Career, Lifebook Health), flagged: 0"
+  calendar-status: "success — M365 MCP, 12 events Aug 12"
   knowledge-system-status: "written to local fallback (Obsidian MCP disabled)"
-  narrative-path: "reviews/daily/auto-2026-08-11.md"
-  narrative-title: "2026-08-11 KKR Lunch, Scott Sync, and the CC Breakfast Takes Shape"
+  narrative-path: "reviews/daily/auto-2026-08-12.md"
+  narrative-title: "2026-08-12 AI on Every Front, YPO at Midday, and a Travel Engine Warming Up"
   output-guard: passed
-  working-memory-path: "memory/working/daily-review-2026-08-12-000000.md"
+  working-memory-path: "memory/working/daily-review-2026-08-13-000000.md"
   working-memory-status: written
   model: sonnet
