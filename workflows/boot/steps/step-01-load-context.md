@@ -39,9 +39,11 @@ outputs:
 
 ## YOUR TASK
 
-1. **Read `SYSTEM.md`** — the full operating manual, file map, and conventions for IES.
+1. **Read `agents/master.md`** — your full agent definition: routing rules, spawn protocol, task portfolio, permission model, and what you execute directly vs. delegate.
 
-2. **Read identity files in order:**
+2. **Read `SYSTEM.md`** — the full operating manual, file map, and conventions for IES.
+
+3. **Read identity files in order:**
    1. `identity/MEMORY.md` — who David is, what he's built, personal history and context
    2. `identity/VOICE.md` — Jarvis personality configuration, communication style
    3. `identity/GOALS_AND_DREAMS.md` — vision, long-term objectives, Lifebook connection
@@ -49,14 +51,16 @@ outputs:
    5. `identity/AUTOMATION.md` — standing permissions, trust tiers, automation rules
    6. `identity/MISSION_CONTROL.md` — mission framing, strategic context, north star
 
-3. **For each file read:** Confirm internally that the file was read. If a file is missing or unreadable, record the failure in outputs:
+4. **Read `agents/routing.md`** — the routing table. This is your single read for the session. Do not re-read it during active work; apply the routing rules already in context.
+
+5. **For each file read:** Confirm internally that the file was read. If a file is missing or unreadable, record the failure in outputs:
    ```yaml
    outputs:
      missing_files: [identity/VOICE.md]
-     files_loaded: [SYSTEM.md, identity/MEMORY.md, ...]
+     files_loaded: [agents/master.md, SYSTEM.md, agents/routing.md, identity/MEMORY.md, ...]
    ```
 
-4. **Spawn Knox immediately (fire-and-forget) — NON-SKIPPABLE:**
+6. **Spawn Knox immediately (fire-and-forget) — NON-SKIPPABLE:**
 
    This step is mandatory. There is no environment, mode, or tool-availability excuse that permits skipping it. If you are tempted to skip it, that is a protocol violation — log it and do it anyway.
 
@@ -73,16 +77,18 @@ outputs:
 
    **If the Agent tool is unavailable:** Record `knox_spawn: failed — Agent tool unavailable` in outputs, surface it explicitly in the boot briefing, and offer to run Plaud ingest manually as an alternative. This is the ONLY valid reason to not spawn Knox — and it still requires surfacing to David, not silent skipping.
 
-5. **Update step frontmatter:** Set `status: complete` and `completed-at` with current timestamp.
+7. **Update step frontmatter:** Set `status: complete` and `completed-at` with current timestamp.
 
-6. **Update state.yaml:** Set `current-step: step-01.2-unified-data-pull.md` (chain to consolidated data pull).
+8. **Update state.yaml:** Set `current-step: step-01.2-unified-data-pull.md` (chain to consolidated data pull).
 
 ---
 
 ## SUCCESS METRICS
 
+- agents/master.md read in full (first)
 - SYSTEM.md read in full
 - All 6 identity files read (or absences explicitly noted)
+- agents/routing.md read (routing rules now in context for the session)
 - No file silently skipped
 - Knox spawned as a background Agent immediately after identity files are read
 - Outputs recorded in step frontmatter
