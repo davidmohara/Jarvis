@@ -1,14 +1,14 @@
 ---
 status: complete
-started-at: 2026-08-13T14:08:00Z
-completed-at: 2026-08-13T14:09:00Z
+started-at: 2026-08-14T11:08:00Z
+completed-at: 2026-08-14T11:13:37Z
 outputs:
-  messages_scanned: 2
-  new_urls: 0
+  messages_scanned: 3
+  new_urls: 1
   new_digests: 0
-  posts_drafted: 0
+  posts_drafted: 1
   editorial_feedback: 0
   pending_threads_checked: 7
-  outcome: "No new URLs or digests in the last 24 hours. All 7 pending draft threads scanned — no replies. Posted no-content notice to #content."
+  outcome: "Drafted 'The Line at the Hedge' from X post by Sama Hoole (regenerative farming). Ghost ID: 6a7ef825c0a498028c7e8ace. Notified David in #content (thread ts: 1786705994.961589). Image used as external Unsplash URL (CDN upload failed). All 7 pending threads checked — no editorial feedback."
 model: sonnet
 ---

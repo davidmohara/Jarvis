@@ -64,6 +64,7 @@ Running list of potential blog topics. Jarvis captures these proactively from co
 
 | "Work and Rest Aren't Opposites. Wiring Is." | Content pipeline (2026-08-12) | life, health, thinking | Published 2026-08-12 |
 | "The Rate Case Decides Your AI Bill" | Content pipeline (2026-08-13) | business, technology, systems thinking | Ghost draft — pending approval. Ghost ID: 6a7da68dc0a498028c7e8abd |
+| "The Line at the Hedge" | Content pipeline (2026-08-14) | health, thoughts, life | Ghost draft — pending approval. Ghost ID: 6a7ef825c0a498028c7e8ace |
 
 ## Published (for reference / avoid repeats)
 
