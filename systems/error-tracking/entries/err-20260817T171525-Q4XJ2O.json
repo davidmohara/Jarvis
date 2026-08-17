@@ -1,0 +1,15 @@
+{
+  "id": "err-20260817T171525-Q4XJ2O",
+  "timestamp": "2026-08-17T17:15:25Z",
+  "session": "2026-08-17",
+  "source": "self-detected",
+  "agent": "knox",
+  "category": "format-violation",
+  "description": "When posting Obsidian draft content to #content Slack channel, recomposed the message from scratch instead of posting the file content verbatim. Stripped markdown links (Deep Learning Program link, related post link) in the process.",
+  "correction": "Post the file content as-is. Do not recompose or paraphrase. Markdown links should be converted to Slack link format (<url|text>) but all content must be preserved.",
+  "failure_mode": "sloppy-read",
+  "systemic_fix": "When posting digest content to Slack: read the file, convert markdown links to Slack format (<url|text>), post verbatim. No recomposition.",
+  "fix_status": "applied",
+  "severity": "moderate",
+  "related_entries": []
+}

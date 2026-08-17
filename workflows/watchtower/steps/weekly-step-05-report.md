@@ -1,14 +1,14 @@
 ---
 status: complete
-started-at: "2026-08-10T07:35:00Z"
-completed-at: "2026-08-10T07:50:00Z"
+started-at: "2026-08-17T07:55:00Z"
+completed-at: "2026-08-17T08:10:00Z"
 outputs:
   themes_surfaced: 3
   candidates_surfaced: 3
-  sources_proposed: 2
+  sources_proposed: 3
   tweets_surfaced: 10
-  weekly_note_path: "Watchtower/Weekly/2026-W33.md"
-  artifact_updated: false
+  weekly_note_path: "Watchtower/Weekly/2026-W34.md"
+  artifact_updated: true
 ---
 
 <!-- system:start -->

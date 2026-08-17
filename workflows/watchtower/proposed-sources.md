@@ -20,6 +20,14 @@ This file is the only path to `sources.yaml`. Watchtower's weekly run appends ne
 |------|-----|-----|-------|-------|--------------|--------|
 -->
 
+### Batch 8 — Weekly Run (2026-08-17)
+
+| Name | URL | RSS | Topic | Trust | Why Relevant | Status |
+|------|-----|-----|-------|-------|--------------|--------|
+| Data Center Frontier | https://www.datacenterfrontier.com | https://www.datacenterfrontier.com/feed/ | texas-regional | high | Primary trade publication for data center infrastructure, power policy, and AI data center development. Directly covered the Texas oversight tightening story (Aug 2026) and the Abbott grid connection moratorium. Fills a gap between Texas Tribune (general news) and Gartner (analyst) with infrastructure-specific depth for Texas AI build-out coverage. | rejected |
+| TechScoop (Substack) | https://techscoop.substack.com | https://techscoop.substack.com/feed | it-consulting | med | Published "Why Forward Deployed Engineers Are Becoming the Delivery Layer for Enterprise AI" tracking the Deloitte/IBM/Accenture/PwC FDE wave this quarter. Practitioner-level coverage of the delivery model restructuring story that W34's themes center on. Short, opinionated, consistent cadence. | rejected |
+| Infrahive Blog | https://blog.infrahive.ai | https://blog.infrahive.ai/feed | it-consulting | med | Published "The Forward-Deployed Engineer Model: Why Consulting Is Dead for Enterprise AI Delivery" -- synthesizes the FDE wave across major firms with practitioner framing. Covers the delivery infrastructure shift at a level of specificity that Stratechery and Pragmatic Engineer don't. RSS feed unverified -- confirm on first run. | rejected |
+
 ### Batch 7 — Weekly Run (2026-08-10)
 
 | Name | URL | RSS | Topic | Trust | Why Relevant | Status |
@@ -147,6 +155,14 @@ Also added by David as named sources (approved same session, 2026-06-19):
 ---
 
 ## Rejected
+
+### Batch 8 — 2026-08-17
+
+| Name | URL | Topic | Reason |
+|------|-----|-------|--------|
+| Data Center Frontier | https://www.datacenterfrontier.com | texas-regional | Rejected by David 2026-08-17 |
+| TechScoop (Substack) | https://techscoop.substack.com | it-consulting | Rejected by David 2026-08-17 |
+| Infrahive Blog | https://blog.infrahive.ai | it-consulting | Rejected by David 2026-08-17 |
 
 ### Batch 6 — 2026-08-03
 

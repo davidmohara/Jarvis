@@ -2,10 +2,9 @@
   "skill": "co-sell-pipeline",
   "agent": "chase",
   "trigger": "scheduled",
-  "started": "2026-08-10T14:35:00Z",
-  "completed": "2026-08-10T14:52:00Z",
-  "status": "partial",
-  "tool_failures": 1,
-  "error_ids": [],
-  "notes": "Chrome automation failed during Phase 1–4 (JavaScript object marshalling issue). Report generated from cached snapshot dated 2026-07-30 (11 days stale). Data integrity confirmed in vault; gap trajectory and partner breakdown remain valid for decision-making."
+  "started": "2026-08-17T12:52:19Z",
+  "completed": "2026-08-17T12:52:19Z",
+  "status": "success",
+  "tool_failures": 0,
+  "error_ids": []
 }

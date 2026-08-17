@@ -1,9 +1,9 @@
 {
   "skill": "master-slack",
-  "agent": "chief",
-  "trigger": "scheduled",
-  "started": "2026-08-14T06:00:00-05:00",
-  "completed": "2026-08-14T06:12:00-05:00",
+  "agent": "knox",
+  "trigger": "manual",
+  "started": "2026-08-17T11:42:40Z",
+  "completed": "2026-08-17T11:43:10Z",
   "status": "success",
   "tool_failures": 0,
   "error_ids": []

@@ -1,84 +1,87 @@
 workflow: watchtower
 agent: knox
 status: complete
-session-started: "2026-08-10T07:05:00Z"
-session-completed: "2026-08-10T07:50:00Z"
-session-id: "wt-weekly-2026-W33"
+session-started: "2026-08-17T07:05:00Z"
+session-completed: "2026-08-17T08:10:00Z"
+session-id: "wt-weekly-2026-W34"
 current-step: complete
 original-request: "watchtower-weekly scheduled run (Knox)"
 accumulated-context:
   content_queue: []
   used_fallback: true
-  obsidian_unavailable: false
+  obsidian_unavailable: true
   delta_check_applied: true
-  dropped_as_continuing: 2
+  dropped_as_continuing: 0
   weekly_themes:
     - theme_id: 1
-      theme_title: "Agent Identity Is the New Security Perimeter"
-      synthesis: "92% of enterprise security leaders lack full visibility into their AI agent identities; 86% don't enforce access policies on them. Non-human identities now outnumber humans 45:1. ServiceNow opened its full action fabric to any agent via MCP (Aug 2026). New vs W32: W32 asked who owns the agent. W33 asks what the agent can access and whether anyone controls that access. Different recommended action: apply full identity lifecycle to every AI agent."
+      theme_title: "IBM Just Showed What Delivery Restructuring Actually Looks Like"
+      synthesis: "IBM embedded GPT-5.6 into IBM Consulting Advantage on Aug 13 -- the platform its consultants use on every client engagement. Simultaneously, Deloitte announced FDEs (Jul 22), Accenture launched an FDE practice with ServiceNow, and PwC created a formal engineer career track. All four Tier 1 firms moved to the FDE model in the same quarter. W33 argued firms have AI service lines but stable org structures. W34 is the evidence that structural delivery rewiring is underway at scale across the industry. What's new this week: the transition from announcements to delivery platform rewiring is a multi-firm wave happening now, not a trend."
       source_items:
-        - "Agentic AI Enterprise Adoption 2026: 72% Production Proven (Agentic AI Institute)"
-        - "The AI Agent Governance Gap: What CISOs Need Now (Cloud Security Alliance)"
-        - "ServiceNow opens its full system of action to every AI Agent (ServiceNow Newsroom, Aug 2026)"
-        - "The Agent Identity Problem: NHIs outnumber humans 45:1 (Security Boulevard, Jul 2026)"
+        - "IBM Partners with OpenAI to Accelerate Secure AI Deployment (IBM Newsroom, Aug 13 2026)"
+        - "IBM Embeds OpenAI Models Into Its Consulting Delivery Platform (Unite.AI, Aug 2026)"
+        - "Deloitte Drives Agentic Industry Transformation with Forward Deployed Engineers (PR Newswire, Jul 22 2026)"
+        - "Accenture and Microsoft form forward deployed engineering strategy (Seeking Alpha)"
+        - "The Forrester Wave: AI Consulting Services, Q2 2026 (Forrester)"
       content_angles:
-        - "Your Agents Have Keys. Nobody Changed the Locks."
+        - "IBM Just Showed What Delivery Restructuring Actually Looks Like"
     - theme_id: 2
-      theme_title: "Terafab and Texas's Vertical AI Stack"
-      synthesis: "Tesla and SpaceX confirmed a $16.8B chip fab in Grimes County, TX (Aug 6) targeting 1+ terawatt of AI compute annually. Texas simultaneously beginning to slow data center permitting due to grid pressure. New vs W32: W32 was external manufacturers choosing Texas. Terafab is the two largest AI compute consumers building their own vertically integrated stack here. New recommended action: plan for grid constraints alongside AI strategy."
+      theme_title: "Texas Moved from Build-Anything to Comply-or-Pause"
+      synthesis: "Abbott directed a full audit of all pending data center grid connections (Aug 3), suspended ERCOT Batch Zero Large Load notifications, and required data centers to document grid impact, water use, and infrastructure cost allocation. OpenAI, Google, Meta, Amazon, and Anthropic committed to comply. 474 GW of requests pending -- five times Texas peak demand. W33 covered Terafab: manufacturers vertically integrating AI compute in Texas. W34 is categorically different: state government inserting itself as regulatory gatekeeper on AI infrastructure permitting. What's new: Texas moved from a permissive build environment to a managed compliance regime. AI infrastructure roadmaps for Texas need revision."
       source_items:
-        - "Tesla and SpaceX will invest $16.8B to start building 'Terafab' (TechCrunch, Aug 6 2026)"
-        - "Tesla, SpaceX confirm 'Terafab' chip fab site (Electrek, Aug 6 2026)"
-        - "Texas to slow down data centre construction amid AI boom (The National, Aug 4 2026)"
+        - "Texas halts new data centers as governor calls for audits (TechCrunch, Aug 4 2026)"
+        - "Governor Abbott Directs Comprehensive Data Center Audit (Office of the Texas Governor)"
+        - "New Texas data center projects frozen until state audits them (Texas Tribune, Aug 3 2026)"
+        - "Texas data centers: Abbott gets Amazon, Lancium, Anthropic to pay their own way (Dallas Express)"
+        - "Governor Abbott Announces Open AI Commits To Comply With His Data Center Standards (Aug 10 2026)"
       content_angles:
-        - "Terafab Is Not a Manufacturing Story. It's a Supply Chain Story."
+        - "Texas Moved from Build-Anything to Comply-or-Pause"
     - theme_id: 3
-      theme_title: "The Consulting AI Delivery Gap"
-      synthesis: "70% of consulting firms have AI service lines; graduate hiring down 30%; org structures 'remarkably stable.' New vs W32: W32 was about the knowledge premium dying. W33 is about the firms that survived and haven't restructured how they deliver. The differentiator is AI-restructured delivery vs AI-branded offerings."
+      theme_title: "Agent Sprawl Is the Operational Layer Under the Identity Problem"
+      synthesis: "OutSystems (1,900 IT leaders): 96% of enterprises run AI agents, 12% govern them centrally, 94% flag sprawl as growing security risk, 38% mix custom-built and pre-built agents in ungovernable stacks. W33 covered agent identity as a security perimeter problem (access policies, NHI lifecycle, visibility gaps). W34's sprawl story is the operational layer that precedes identity governance: before you can govern what agents access, you have to know how many exist, who built them, and who owns them. What's new: the identity governance conversation assumes agents are at least inventoried. In most enterprises, they aren't. The sprawl precedes the identity problem."
       source_items:
-        - "AI Transformation Consulting: 2026 Survey Insights (Acuity Analytics)"
-        - "Consulting's AI Workforce Paradox: When the Experts Can't Agree (Innovative Human Capital)"
-        - "How AI Is Reshaping Consulting in 2026 (Whitehat)"
+        - "Agentic AI Goes Mainstream in the Enterprise, but 94% Raise Concern About Sprawl (OutSystems, 2026)"
+        - "The AI Agent Governance Paradox: 96% of Enterprises Use Them, 12% Can Govern Them (Remio.ai)"
+        - "Agentic AI Governance Is the CIO's Most Urgent Blind Spot (TechHQ)"
       content_angles:
-        - "The Service Line Is Not the Delivery Model"
+        - "You Can't Govern an Inventory You Don't Know You Have"
   weekly_tweets:
-    - text: "Non-human identities now outnumber human identities 45:1 in enterprise environments. Most organizations have IAM programs for the 1. Almost none have them for the 45. AI agents just made that ratio worse."
-      supporting_url: "https://securityboulevard.com/2026/07/the-agent-identity-problem-non-human-identities-outnumber-humans-45-to-1-and-ai-agents-are-making-it-worse/"
-      intent_url: "https://twitter.com/intent/tweet?text=Non-human%20identities%20now%20outnumber%20human%20identities%2045%3A1%20in%20enterprise%20environments.%20Most%20organizations%20have%20IAM%20programs%20for%20the%201.%20Almost%20none%20have%20them%20for%20the%2045.%20AI%20agents%20just%20made%20that%20ratio%20worse."
-      angle_type: "data"
-    - text: "When we onboard a new employee: AD account, role-based access, approval chain, offboarding protocol. When we deploy a new AI agent: none of that. 92% of enterprise security leaders can't see what their agents can access. That's not a gap. That's an open door."
+    - text: "The Tier 1 firms all announced FDE practices in the same quarter. IBM, Deloitte, Accenture, PwC. All embedding engineers directly at client sites. That's not coincidence. It's what the delivery model war looks like when it starts."
       supporting_url: null
-      intent_url: "https://twitter.com/intent/tweet?text=When%20we%20onboard%20a%20new%20employee%3A%20AD%20account%2C%20role-based%20access%2C%20approval%20chain%2C%20offboarding%20protocol.%20When%20we%20deploy%20a%20new%20AI%20agent%3A%20none%20of%20that.%2092%25%20of%20enterprise%20security%20leaders%20can%27t%20see%20what%20their%20agents%20can%20access.%20That%27s%20not%20a%20gap.%20That%27s%20an%20open%20door."
-      angle_type: "practitioner"
-    - text: "ServiceNow just opened its full system of action to any AI agent via MCP. That's a powerful capability. It also means the blast radius of a compromised agent just got larger and your access policies need to be ready for agents you didn't build yourself."
-      supporting_url: "https://newsroom.servicenow.com/press-releases/details/2026/ServiceNow-opens-its-full-system-of-action-to-every-AI-Agent-in-the-enterprise/default.aspx"
-      intent_url: "https://twitter.com/intent/tweet?text=ServiceNow%20just%20opened%20its%20full%20system%20of%20action%20to%20any%20AI%20agent%20via%20MCP.%20That%27s%20a%20powerful%20capability.%20It%20also%20means%20the%20blast%20radius%20of%20a%20compromised%20agent%20just%20got%20larger%20and%20your%20access%20policies%20need%20to%20be%20ready%20for%20agents%20you%20didn%27t%20build%20yourself."
+      intent_url: "https://twitter.com/intent/tweet?text=The%20Tier%201%20firms%20all%20announced%20FDE%20practices%20in%20the%20same%20quarter.%20IBM%2C%20Deloitte%2C%20Accenture%2C%20PwC.%20All%20embedding%20engineers%20directly%20at%20client%20sites.%20That%27s%20not%20coincidence.%20It%27s%20what%20the%20delivery%20model%20war%20looks%20like%20when%20it%20starts."
+      angle_type: "data"
+    - text: "Most consulting firms are pitching AI to clients they haven't restructured their own delivery around. IBM just certified thousands of consultants on a specific platform and baked GPT-5.6 into every engagement. The gap between those two things is widening fast."
+      supporting_url: null
+      intent_url: "https://twitter.com/intent/tweet?text=Most%20consulting%20firms%20are%20pitching%20AI%20to%20clients%20they%20haven%27t%20restructured%20their%20own%20delivery%20around.%20IBM%20just%20certified%20thousands%20of%20consultants%20on%20a%20specific%20platform%20and%20baked%20GPT-5.6%20into%20every%20engagement.%20The%20gap%20between%20those%20two%20things%20is%20widening%20fast."
       angle_type: "provocative"
-    - text: "Tesla and SpaceX confirmed a $16.8B chip fab in Grimes County, Texas this week. Most headlines called it a manufacturing story. It isn't. It's the two largest AI compute consumers in the world deciding the supply chain was too important to leave to someone else."
-      supporting_url: "https://techcrunch.com/2026/08/06/tesla-and-spacex-will-invest-16-8b-to-start-building-terafab-chip-factory-in-texas/"
-      intent_url: "https://twitter.com/intent/tweet?text=Tesla%20and%20SpaceX%20confirmed%20a%20%2416.8B%20chip%20fab%20in%20Grimes%20County%2C%20Texas%20this%20week.%20Most%20headlines%20called%20it%20a%20manufacturing%20story.%20It%20isn%27t.%20It%27s%20the%20two%20largest%20AI%20compute%20consumers%20in%20the%20world%20deciding%20the%20supply%20chain%20was%20too%20important%20to%20leave%20to%20someone%20else."
-      angle_type: "provocative"
-    - text: "Wistron chose Texas. LITEON chose Texas. Now Tesla and SpaceX are building their own stack here. Texas enterprises have a geographic relationship to the AI supply chain that most of the country doesn't. The question is whether they're planning around it."
+    - text: "The first question every enterprise client I talk to asks about Texas AI infrastructure is \"how fast can we get power?\" The correct question is now \"can we get approved at all?\" That shift happened last week."
       supporting_url: null
-      intent_url: "https://twitter.com/intent/tweet?text=Wistron%20chose%20Texas.%20LITEON%20chose%20Texas.%20Now%20Tesla%20and%20SpaceX%20are%20building%20their%20own%20stack%20here.%20Texas%20enterprises%20have%20a%20geographic%20relationship%20to%20the%20AI%20supply%20chain%20that%20most%20of%20the%20country%20doesn%27t.%20The%20question%20is%20whether%20they%27re%20planning%20around%20it."
+      intent_url: "https://twitter.com/intent/tweet?text=The%20first%20question%20every%20enterprise%20client%20I%20talk%20to%20asks%20about%20Texas%20AI%20infrastructure%20is%20%22how%20fast%20can%20we%20get%20power%3F%22%20The%20correct%20question%20is%20now%20%22can%20we%20get%20approved%20at%20all%3F%22%20That%20shift%20happened%20last%20week."
       angle_type: "practitioner"
-    - text: "Texas is beginning to slow data center permitting because of grid pressure. The same week Terafab was confirmed. The AI supply is scaling. The infrastructure to support it is already strained. Your AI strategy needs a power conversation in it, not after it."
-      supporting_url: "https://www.thenationalnews.com/future/technology/2026/08/04/ai-data-center-opposition/"
-      intent_url: "https://twitter.com/intent/tweet?text=Texas%20is%20beginning%20to%20slow%20data%20center%20permitting%20because%20of%20grid%20pressure.%20The%20same%20week%20Terafab%20was%20confirmed.%20The%20AI%20supply%20is%20scaling.%20The%20infrastructure%20to%20support%20it%20is%20already%20strained.%20Your%20AI%20strategy%20needs%20a%20power%20conversation%20in%20it%2C%20not%20after%20it."
-      angle_type: "data"
-    - text: "70% of consulting firms have an AI service line. Graduate hiring is down 30%. Org structures are remarkably stable. The firms that are winning aren't the ones that launched an AI practice. They're the ones that restructured how work actually gets done."
+    - text: "If 474 GW of requests are in the Texas grid queue and record peak demand is ~85 GW, what's the realistic probability that your data center project gets approved on its original timeline?"
       supporting_url: null
-      intent_url: "https://twitter.com/intent/tweet?text=70%25%20of%20consulting%20firms%20have%20an%20AI%20service%20line.%20Graduate%20hiring%20is%20down%2030%25.%20Org%20structures%20are%20remarkably%20stable.%20The%20firms%20that%20are%20winning%20aren%27t%20the%20ones%20that%20launched%20an%20AI%20practice.%20They%27re%20the%20ones%20that%20restructured%20how%20work%20actually%20gets%20done."
-      angle_type: "data"
-    - text: "Ask any consulting partner you're evaluating to walk you through a delivery model change they made in the last 12 months. Not a new offering. A structural change to how work gets done. The answer will tell you whether they're an AI firm or an AI-branded firm."
-      supporting_url: null
-      intent_url: "https://twitter.com/intent/tweet?text=Ask%20any%20consulting%20partner%20you%27re%20evaluating%20to%20walk%20you%20through%20a%20delivery%20model%20change%20they%20made%20in%20the%20last%2012%20months.%20Not%20a%20new%20offering.%20A%20structural%20change%20to%20how%20work%20gets%20done.%20The%20answer%20will%20tell%20you%20whether%20they%27re%20an%20AI%20firm%20or%20an%20AI-branded%20firm."
+      intent_url: "https://twitter.com/intent/tweet?text=If%20474%20GW%20of%20requests%20are%20in%20the%20Texas%20grid%20queue%20and%20record%20peak%20demand%20is%20~85%20GW%2C%20what%27s%20the%20realistic%20probability%20that%20your%20data%20center%20project%20gets%20approved%20on%20its%20original%20timeline%3F"
       angle_type: "question"
-    - text: "The agent identity problem in one number: 68% of organizations cannot reliably distinguish AI agent activity from human activity in their logs. You can't govern what you can't see. You can't revoke access from an identity you don't know exists."
-      supporting_url: "https://labs.cloudsecurityalliance.org/research/csa-whitepaper-nonhuman-identity-agentic-ai-governance-v1-cs/"
-      intent_url: "https://twitter.com/intent/tweet?text=The%20agent%20identity%20problem%20in%20one%20number%3A%2068%25%20of%20organizations%20cannot%20reliably%20distinguish%20AI%20agent%20activity%20from%20human%20activity%20in%20their%20logs.%20You%20can%27t%20govern%20what%20you%20can%27t%20see.%20You%20can%27t%20revoke%20access%20from%20an%20identity%20you%20don%27t%20know%20exists."
+    - text: "The Texas grid queue is 5x the state's peak demand. Abbott's moratorium affects every project that hadn't already committed to comply. The ones that moved fastest got to keep moving. Everyone else is behind an audit."
+      supporting_url: "https://techcrunch.com/2026/08/04/texas-halts-new-data-centers-as-governor-calls-for-audits/"
+      intent_url: "https://twitter.com/intent/tweet?text=The%20Texas%20grid%20queue%20is%205x%20the%20state%27s%20peak%20demand.%20Abbott%27s%20moratorium%20affects%20every%20project%20that%20hadn%27t%20already%20committed%20to%20comply.%20The%20ones%20that%20moved%20fastest%20got%20to%20keep%20moving.%20Everyone%20else%20is%20behind%20an%20audit.&url=https%3A%2F%2Ftechcrunch.com%2F2026%2F08%2F04%2Ftexas-halts-new-data-centers-as-governor-calls-for-audits%2F"
       angle_type: "data"
-    - text: "There are 1,800+ active MCP servers on the public internet with no authentication. ServiceNow just connected enterprise action fabric to any agent via MCP. Build your agent identity governance before you wire agents to your enterprise systems, not after."
+    - text: "The agent identity problem assumes you know which agents are running. Most enterprises don't. 96% are using AI agents. 38% mix custom-built and pre-built in the same environment. Before you govern access, you need a list. Most orgs don't have one."
+      supporting_url: "https://www.outsystems.com/news/enterprise-ai-agent-report-2026/"
+      intent_url: "https://twitter.com/intent/tweet?text=The%20agent%20identity%20problem%20assumes%20you%20know%20which%20agents%20are%20running.%20Most%20enterprises%20don%27t.%2096%25%20are%20using%20AI%20agents.%2038%25%20mix%20custom-built%20and%20pre-built%20in%20the%20same%20environment.%20Before%20you%20govern%20access%2C%20you%20need%20a%20list.%20Most%20orgs%20don%27t%20have%20one.&url=https%3A%2F%2Fwww.outsystems.com%2Fnews%2Fenterprise-ai-agent-report-2026%2F"
+      angle_type: "data"
+    - text: "We've been asking clients to build agent identity governance for six months. The first thing we find in almost every engagement: there's no inventory. Teams built agents independently, vendors pre-loaded them, automations spun them up as features. Nobody registered any of it."
       supporting_url: null
-      intent_url: "https://twitter.com/intent/tweet?text=There%20are%201%2C800%2B%20active%20MCP%20servers%20on%20the%20public%20internet%20with%20no%20authentication.%20ServiceNow%20just%20connected%20enterprise%20action%20fabric%20to%20any%20agent%20via%20MCP.%20Build%20your%20agent%20identity%20governance%20before%20you%20wire%20agents%20to%20your%20enterprise%20systems%2C%20not%20after."
+      intent_url: "https://twitter.com/intent/tweet?text=We%27ve%20been%20asking%20clients%20to%20build%20agent%20identity%20governance%20for%20six%20months.%20The%20first%20thing%20we%20find%20in%20almost%20every%20engagement%3A%20there%27s%20no%20inventory.%20Teams%20built%20agents%20independently%2C%20vendors%20pre-loaded%20them%2C%20automations%20spun%20them%20up%20as%20features.%20Nobody%20registered%20any%20of%20it."
+      angle_type: "practitioner"
+    - text: "When something goes wrong with an AI agent in your environment, who is responsible? Not abstractly -- specifically, who gets paged? If you can't answer that by name, the governance conversation hasn't started yet."
+      supporting_url: null
+      intent_url: "https://twitter.com/intent/tweet?text=When%20something%20goes%20wrong%20with%20an%20AI%20agent%20in%20your%20environment%2C%20who%20is%20responsible%3F%20Not%20abstractly%20--%20specifically%2C%20who%20gets%20paged%3F%20If%20you%20can%27t%20answer%20that%20by%20name%2C%20the%20governance%20conversation%20hasn%27t%20started%20yet."
+      angle_type: "question"
+    - text: "The EU AI Act's high-risk enforcement started August 2. Most US companies with EU operations haven't finished compliance programs. The firms that can demonstrate delivery-layer governance have a real differentiator right now."
+      supporting_url: "https://www.hklaw.com/en/insights/publications/2026/04/us-companies-face-eu-ai-acts-possible-august-2026-compliance-deadline"
+      intent_url: "https://twitter.com/intent/tweet?text=The%20EU%20AI%20Act%27s%20high-risk%20enforcement%20started%20August%202.%20Most%20US%20companies%20with%20EU%20operations%20haven%27t%20finished%20compliance%20programs.%20The%20firms%20that%20can%20demonstrate%20delivery-layer%20governance%20have%20a%20real%20differentiator%20right%20now.&url=https%3A%2F%2Fwww.hklaw.com%2Fen%2Finsights%2Fpublications%2F2026%2F04%2Fus-companies-face-eu-ai-acts-possible-august-2026-compliance-deadline"
+      angle_type: "provocative"
+    - text: "Every consulting firm has an AI strategy. The ones building an actual competitive position are embedding engineers at client sites, not presenting slide decks about AI transformation. The slide deck era is over."
+      supporting_url: null
+      intent_url: "https://twitter.com/intent/tweet?text=Every%20consulting%20firm%20has%20an%20AI%20strategy.%20The%20ones%20building%20an%20actual%20competitive%20position%20are%20embedding%20engineers%20at%20client%20sites%2C%20not%20presenting%20slide%20decks%20about%20AI%20transformation.%20The%20slide%20deck%20era%20is%20over."
       angle_type: "provocative"

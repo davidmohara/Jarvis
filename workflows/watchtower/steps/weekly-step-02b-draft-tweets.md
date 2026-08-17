@@ -1,16 +1,16 @@
 ---
 status: complete
-started-at: "2026-08-03T07:22:00Z"
-completed-at: "2026-08-03T07:30:00Z"
+started-at: "2026-08-17T07:35:00Z"
+completed-at: "2026-08-17T07:45:00Z"
 outputs:
   tweets_generated: 10
-  tweets_with_links: 5
+  tweets_with_links: 3
   angle_types:
     provocative: 3
     practitioner: 2
     question: 2
     data: 3
-  blog_angles_avoided: 4
+  blog_angles_avoided: 3
 ---
 
 <!-- system:start -->

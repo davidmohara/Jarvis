@@ -1,15 +1,17 @@
 ---
 status: complete
-started-at: "2026-08-10T07:15:00Z"
-completed-at: "2026-08-10T07:25:00Z"
+started-at: "2026-08-17T07:20:00Z"
+completed-at: "2026-08-17T07:35:00Z"
 outputs:
   themes_processed: 3
   drafts_created: 3
   draft_paths:
-    - "Mind/Posts/_your-agents-have-keys-nobody-changed-the-locks.md"
-    - "Mind/Posts/_terafab-is-not-a-manufacturing-story.md"
-    - "Mind/Posts/_the-service-line-is-not-the-delivery-model.md"
+    - "workflows/watchtower/fallback/drafts/_ibm-just-showed-what-restructuring-looks-like.md"
+    - "workflows/watchtower/fallback/drafts/_texas-moved-from-build-anything-to-comply-or-pause.md"
+    - "workflows/watchtower/fallback/drafts/_agent-sprawl-is-the-operational-layer.md"
   blog_ideas_appended: 3
+  obsidian_unavailable: true
+  fallback_used: "workflows/watchtower/fallback/drafts/"
 ---
 
 <!-- system:start -->
