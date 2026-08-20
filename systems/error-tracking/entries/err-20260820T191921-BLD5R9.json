@@ -1,0 +1,15 @@
+{
+  "id": "err-20260820T191921-BLD5R9",
+  "timestamp": "2026-08-20T19:19:21Z",
+  "session": "2026-08-20",
+  "source": "explicit",
+  "agent": "harper",
+  "category": "process-skip",
+  "description": "Harper stripped inline hyperlinks from post body when building lexical JSON, converting them to plain text instead of resolving them to real Ghost URLs. David had inserted links (e.g. to prior published posts) that Harper should have preserved and made real — looking up the slug/URL from Ghost published posts. Only draft-status posts should be excluded from linking.",
+  "correction": "When drafting or editing post body, resolve any referenced post titles or topics to their actual published Ghost URLs. Use get_posts or the already-fetched post list to find the slug. Build proper lexical link nodes for published posts. Only skip linking if the referenced post is still in draft status.",
+  "failure_mode": "protocol-skip",
+  "systemic_fix": "Update step-01-discover.md to include a prior-post linking protocol: after drafting, scan body for references to prior posts, resolve to real Ghost URLs, and insert lexical link nodes. Skip only if target post is a draft.",
+  "fix_status": "proposed",
+  "severity": "moderate",
+  "related_entries": ["err-20260727T201700-2H2GW4"]
+}

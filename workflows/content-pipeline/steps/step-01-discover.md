@@ -194,6 +194,8 @@ Evaluate each message against the following rules in sequence. Stop at the first
 
 **Prior-post linking (DIGEST PATH and URL PATH):** After drafting, scan the post body for references to prior posts, recurring themes, or named figures/numbers that appeared in a recent post. Check `pending-drafts.json` titles and Ghost published post slugs for thematic matches. If a clear callback exists, insert an inline hyperlink on the most natural anchor text before submitting to Ghost. Do not wait for David to ask. This is mandatory when the digest itself signals a "step two" or "prior week" relationship. (err-20260727T201700-2H2GW4)
 
+> **CRITICAL — err-20260820T191921-BLD5R9:** Never strip or drop links. If a referenced post is published, resolve it to a real URL using the Ghost post list (url field, not tag URLs) and build a proper lexical link node. Only skip linking if the referenced post is still in draft status. Dropping a link and leaving plain text is always wrong. Use the `url` field from `get_posts` results — not the slug — as the canonical URL.
+
 **For EDITORIAL EDIT PATH:** Execute the edit inline. Do not defer to Jarvis Master. Do not flag to #content. Handle it directly:
 
 1. **Identify the target post.** Match the post name from the message to a Ghost draft or published post. Use `mcp__ghost-blog__get_posts` or search by slug if needed.
