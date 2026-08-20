@@ -1,11 +1,8 @@
 ---
-status: complete
-started-at: "2026-07-22T11:22:00-05:00"
-completed-at: "2026-07-22T11:23:00-05:00"
-outputs:
-  verification: passed
-  steps_verified: 6
-  failed_steps: []
+status: not-started
+started-at: ~
+completed-at: ~
+outputs: {}
 ---
 
 <!-- system:start -->
@@ -45,25 +42,30 @@ outputs:
    - `steps/step-04-gather-meeting-context.md`
    - `steps/step-05-synthesize-briefing.md`
    - `steps/step-06-scan-workflows.md`
+   - `steps/step-06.5-guardrail-checkpoint.md`
 
 2. **For each step, record:**
    - `status` field value
    - `completed-at` timestamp (if present)
-   - PASS if `status: complete` — FAIL otherwise
+   - PASS if `status: complete` — FAIL otherwise. **Exception: step-06.5 also passes on `status: complete` with a recorded `escalate` guardrail result** — an escalation is a deliberate halt-for-human-decision, not a step failure (see `guardrail-checkpoint.py`); if step-06.5 escalated, note it in the report but do not treat it as a FAIL on its own — surface it as its own line, distinct from a failed step.
 
 3. **Compute the overall result:**
-   - **PASS** — all 6 steps show `status: complete`
+   - **PASS** — all 7 steps show `status: complete`
    - **FAIL** — one or more steps are not complete
 
 4. **Surface the verification report to the controller:**
 
    If PASS:
-   > ✓ Boot verification passed. All 6 steps completed.
+   > ✓ Boot verification passed. All 7 steps completed.
    > | Step | Status | Completed At |
    > |------|--------|--------------|
    > | step-01-load-context | complete | {timestamp} |
    > | step-02-gather-data | complete | {timestamp} |
    > | ... | ... | ... |
+   > | step-06.5-guardrail-checkpoint | complete | {timestamp} |
+
+   If PASS but step-06.5 escalated:
+   > ✓ Boot verification passed (7/7 steps complete). Note: the guardrail checkpoint escalated — [reason from the checkpoint]. This needs your attention but did not block boot.
 
    If FAIL:
    > ✗ Boot verification FAILED. The following steps did not complete:
@@ -73,10 +75,10 @@ outputs:
    >
    > Boot is NOT complete. Say `resume boot` to continue from the failed step.
 
-5. **If PASS only:** Update step frontmatter and boot state:
+5. **If PASS (including the escalated-but-complete case):** Update step frontmatter and boot state:
    - Set this step's `status: complete` and `completed-at` with current timestamp
-   - Set `outputs: { verification: passed, steps_verified: 6, failed_steps: [] }`
-   - Update `workflows/boot/state.yaml`: `status: complete`, `current-step: null`, record `completed-at`
+   - Set `outputs: { verification: passed, steps_verified: 7, failed_steps: [] }`
+   - **Update `workflows/boot/state.yaml`: `status: complete`, `current-step: null`, record `completed-at`. This write is mandatory — it's the only event that closes out boot's eval-harness record. Do not defer it, do not skip it because the session is ending anyway.**
 
 6. **If FAIL:** Do NOT update boot state.yaml to complete. Leave `status: in-progress` and set `current-step` to the first failed step. Surface the failure and await controller instruction.
 
@@ -84,7 +86,7 @@ outputs:
 
 ## SUCCESS METRICS
 
-- All 6 prior step files read
+- All 7 prior step files read
 - Each step's status evaluated against the pass criteria
 - Verification report surfaced to the controller
 - Boot marked complete if and only if all steps passed

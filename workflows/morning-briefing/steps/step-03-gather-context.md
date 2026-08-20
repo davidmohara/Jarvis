@@ -107,7 +107,7 @@ python3 systems/eval-harness/record-step.py morning-briefing step-03-gather-cont
 
 ## NEXT STEP
 
-Read fully and follow: `step-04-synthesize-briefing.md`
+Read fully and follow: `step-03b-guardrail-checkpoint.md`
 <!-- system:end -->
 
 <!-- personal:start -->

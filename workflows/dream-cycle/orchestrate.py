@@ -9,14 +9,24 @@ import subprocess
 import pathlib
 from typing import Any, Dict
 
-ROOT = "/Users/davidohara/develop/jarvis"
+# ROOT was previously hardcoded to /Users/davidohara/develop/jarvis, which no
+# longer exists on this machine (the repo lives under OneDrive now) — every
+# path below silently pointed nowhere. Dream cycle runs as a Cowork scheduled
+# task, and Cowork sets the task's working directory to the IES repo root —
+# so the correct source of truth is the current working directory at launch,
+# not this file's on-disk location (which could differ if the script were
+# ever copied/symlinked). IES_ROOT remains available as an explicit override.
+ROOT = os.environ.get("IES_ROOT") or os.getcwd()
 WORKFLOW_DIR = f"{ROOT}/workflows/dream-cycle"
 STEPS_DIR = f"{WORKFLOW_DIR}/steps"
 STATE_FILE = f"{WORKFLOW_DIR}/state.yaml"
 WORKING_DIR = f"{ROOT}/memory/working"
 EPISODIC_DIR = f"{ROOT}/memory/episodic"
+DIGESTS_DIR = f"{EPISODIC_DIR}/digests"
 SEMANTIC_DIR = f"{ROOT}/memory/semantic"
 DREAM_LOG = f"{ROOT}/memory/dream.log"
+CLOSE_EVAL_SCRIPT = f"{ROOT}/systems/eval-harness/close-eval-record.py"
+GUARDRAIL_SCRIPT = f"{ROOT}/systems/eval-harness/guardrail-checkpoint.py"
 
 TODAY = datetime.date.today()
 NOW = datetime.datetime.now(datetime.timezone.utc)
@@ -212,17 +222,293 @@ def step_03_semantic_promotion() -> Dict[str, Any]:
 
     return results
 
+def find_compression_candidates() -> tuple[list[Dict[str, Any]], int]:
+    """Find episodic entries eligible for compression, per the rule in
+    workflows/dream-cycle/steps/step-04-episodic-compression.md: date older
+    than 90 days AND salience.score < 2 AND salience.promoted == false.
+    Read-only — does not delete or modify anything. Returns (candidates,
+    total_episodic_files_scanned).
+    """
+    candidates: list[Dict[str, Any]] = []
+    if not os.path.exists(EPISODIC_DIR):
+        return candidates, 0
+
+    files = [
+        f for f in os.listdir(EPISODIC_DIR)
+        if os.path.isfile(os.path.join(EPISODIC_DIR, f)) and not f.startswith(".")
+    ]
+    cutoff = TODAY - datetime.timedelta(days=90)
+
+    for fname in files:
+        fpath = os.path.join(EPISODIC_DIR, fname)
+        try:
+            with open(fpath, 'r') as f:
+                content = f.read()
+            if not content.startswith("---"):
+                continue
+            parts = content.split("---", 2)
+            if len(parts) < 3:
+                continue
+            fm = yaml.safe_load(parts[1]) or {}
+
+            date_str = fm.get("date")
+            if not date_str:
+                continue
+            try:
+                entry_date = datetime.date.fromisoformat(str(date_str)[:10])
+            except Exception:
+                continue
+
+            salience = fm.get("salience") or {}
+            score = salience.get("score", 0)
+            promoted = bool(salience.get("promoted", False))
+
+            if entry_date < cutoff and score < 2 and not promoted:
+                candidates.append({
+                    "file": fname, "fpath": fpath, "date": date_str,
+                    "score": score, "promoted": promoted,
+                })
+        except Exception:
+            continue
+
+    return candidates, len(files)
+
+
+def quarter_for_date(d: datetime.date) -> str:
+    """YYYY-QN grouping: Q1 = Jan-Mar, Q2 = Apr-Jun, Q3 = Jul-Sep, Q4 = Oct-Dec."""
+    q = (d.month - 1) // 3 + 1
+    return f"{d.year}-Q{q}"
+
+
+def summarize_entry(fm: Dict[str, Any], body: str) -> str:
+    """Heuristic 2-sentence summary — no LLM subprocess, matching this
+    script's existing enrichment approach elsewhere (step_01's
+    enrichment_method is explicitly heuristic-only). Prefers an existing
+    frontmatter `summary` field; falls back to the body's first two
+    sentences via naive punctuation splitting."""
+    if fm.get("summary"):
+        return str(fm["summary"]).strip()
+    import re
+    text = " ".join(body.split())
+    sentences = [s.strip() for s in re.split(r"(?<=[.!?])\s+", text) if s.strip()]
+    if sentences:
+        return " ".join(sentences[:2])
+    return "No summary available — source entry had no body text."
+
+
+def build_digest_entry(candidate: Dict[str, Any]) -> Dict[str, Any] | None:
+    """Read a candidate's full content to build the fields its digest
+    paragraph needs (subject, type, summary, quarter). Returns None if the
+    file can't be read — caller must skip it (not delete, not count as
+    compressed) rather than guess at its content."""
+    try:
+        with open(candidate["fpath"], 'r') as f:
+            content = f.read()
+        parts = content.split("---", 2)
+        fm = yaml.safe_load(parts[1]) if len(parts) >= 3 else {}
+        fm = fm or {}
+        body = parts[2] if len(parts) >= 3 else content
+    except Exception:
+        return None
+
+    try:
+        entry_date = datetime.date.fromisoformat(str(candidate["date"])[:10])
+    except Exception:
+        return None
+
+    subject = fm.get("subject") or os.path.splitext(candidate["file"])[0]
+    entry_type = fm.get("type") or "unknown"
+
+    return {
+        **candidate,
+        "subject": subject,
+        "type": entry_type,
+        "summary": summarize_entry(fm, body),
+        "quarter": quarter_for_date(entry_date),
+    }
+
+
+def compress_episodic_entries(digest_entries: list[Dict[str, Any]]) -> Dict[str, Any]:
+    """Group entries by quarter, append each quarter's digest file, and only
+    after a quarter's digest write is confirmed written does that quarter's
+    files get queued for deletion. Deletion itself happens last, across all
+    quarters at once — mirrors the step spec's rules #2/#3 exactly: never
+    delete before the digest entry is written and verified; batch all
+    deletions to the end.
+    """
+    try:
+        os.makedirs(DIGESTS_DIR, exist_ok=True)
+    except Exception as ex:
+        # Can't create the digests directory at all — abort entirely rather
+        # than let this propagate uncaught and crash the run. No digest, no
+        # deletion; every candidate survives and is re-evaluated next run.
+        print(f"  [ERROR] Could not create digests directory {DIGESTS_DIR}: {ex} — "
+              f"aborting compression, no files deleted.")
+        return {"entries_compressed": 0, "digests_updated": 0, "errors": 1}
+
+    by_quarter: Dict[str, list] = {}
+    for e in digest_entries:
+        by_quarter.setdefault(e["quarter"], []).append(e)
+
+    digests_touched = 0
+    deletion_queue: list[str] = []
+    errors = 0
+
+    for quarter, entries in sorted(by_quarter.items()):
+        digest_path = os.path.join(DIGESTS_DIR, f"{quarter}-digest.md")
+        try:
+            if not os.path.exists(digest_path):
+                with open(digest_path, 'w') as f:
+                    f.write(f"# {quarter} Episodic Digest\n")
+
+            paragraphs = [
+                f"\n### {e['date']} — {e['subject']} ({e['type']})\n{e['summary']}\n"
+                for e in entries
+            ]
+            with open(digest_path, 'a') as f:
+                f.writelines(paragraphs)
+
+            # Verify — never delete on the strength of an unread-back write.
+            with open(digest_path, 'r') as f:
+                written = f.read()
+            all_present = all(
+                f"### {e['date']} — {e['subject']} ({e['type']})" in written
+                for e in entries
+            )
+            if not all_present:
+                raise IOError(f"digest write to {digest_path} did not verify — entries missing on read-back")
+
+            digests_touched += 1
+            deletion_queue.extend(e["fpath"] for e in entries)
+        except Exception as ex:
+            errors += 1
+            print(f"  [ERROR] Digest write/verify failed for {quarter}: {ex} — "
+                  f"{len(entries)} source file(s) left in place, not deleted, will be re-candidates next run.")
+
+    entries_compressed = 0
+    for fpath in deletion_queue:
+        try:
+            os.remove(fpath)
+            entries_compressed += 1
+        except Exception as ex:
+            errors += 1
+            print(f"  [ERROR] Deletion failed for {fpath} (digest already written): {ex}")
+
+    return {"entries_compressed": entries_compressed, "digests_updated": digests_touched, "errors": errors}
+
+
+def run_compression_guardrail(candidates: list[Dict[str, Any]], total_episodic: int) -> Dict[str, str]:
+    """Independent mechanical review of the compression candidate set before
+    any deletion happens. This is the Python equivalent of
+    workflows/dream-cycle/steps/step-03b-guardrail-checkpoint.md — dream-cycle
+    runs here as a Cowork-scheduled script with no LLM turn to read that
+    markdown file, so the review has to be real code, not a self-report.
+    Preservation over aggression: when in doubt, escalate rather than pass.
+    """
+    reasons = []
+    result = "pass"
+
+    # Defense in depth: re-verify the exclusion rule independently rather than
+    # trusting find_compression_candidates()'s own filter — a guardrail that
+    # trusts its own upstream code isn't a guardrail.
+    violations = [c for c in candidates if c["promoted"] or c["score"] >= 2]
+    if violations:
+        result = "escalate"
+        reasons.append(
+            f"{len(violations)} candidate(s) violate the promoted/score exclusion rule: "
+            f"{[v['file'] for v in violations]}"
+        )
+
+    # Volume sanity — candidates should never be a large fraction of the whole
+    # corpus; that shape suggests an upstream scoring bug, not genuine
+    # low-salience entries accumulating normally over 90 days.
+    if total_episodic > 0:
+        fraction = len(candidates) / total_episodic
+        if fraction > 0.5:
+            result = "escalate"
+            reasons.append(
+                f"{len(candidates)}/{total_episodic} episodic entries ({fraction:.0%}) are "
+                f"compression candidates — anomalously high for a 90-day-age filter"
+            )
+
+    if not reasons:
+        reasons.append(
+            f"{len(candidates)} candidate(s) reviewed against {total_episodic} scanned entries; "
+            f"none violate the promoted/score exclusion rule; volume within normal range"
+        )
+
+    return {"result": result, "reason": "; ".join(reasons)}
+
+
+def record_guardrail_checkpoint(result: str, reason: str) -> None:
+    """Call guardrail-checkpoint.py directly — same reasoning as
+    CLOSE_EVAL_SCRIPT: this script has no PostToolUse hook to fall back on."""
+    cmd = [
+        sys.executable, GUARDRAIL_SCRIPT,
+        "dream-cycle", "pre-deletion-review", "step-04-episodic-compression",
+        result, reason,
+    ]
+    try:
+        proc = subprocess.run(cmd, capture_output=True, text=True, timeout=15)
+        if proc.returncode != 0:
+            print(f"[GUARDRAIL] guardrail-checkpoint.py failed (exit {proc.returncode}): {proc.stderr.strip()}")
+    except Exception as e:
+        print(f"[GUARDRAIL] Failed to invoke guardrail-checkpoint.py: {e}")
+
+
 def step_04_episodic_compression() -> Dict[str, Any]:
-    """Execute step 4: compress old low-salience episodic entries."""
+    """Execute step 4: compress old low-salience episodic entries.
+
+    Order matters: the guardrail runs first and overrides everything else —
+    an escalation means something is wrong with the candidate set itself
+    (a promoted entry that shouldn't be there, or an anomalous volume), and
+    proceeding to compress on top of that would be exactly the failure mode
+    the guardrail exists to catch. Only after a clean guardrail pass does the
+    original spec's 5-entry safety threshold apply.
+    """
     print("\n[STEP 04] Episodic Compression")
+
+    candidates, total_episodic = find_compression_candidates()
+    guardrail = run_compression_guardrail(candidates, total_episodic)
+    record_guardrail_checkpoint(guardrail["result"], guardrail["reason"])
+    print(f"  [GUARDRAIL] {guardrail['result']}: {guardrail['reason']}")
 
     results = {
         "entries_compressed": 0,
         "digests_updated": 0,
         "compression_skipped": True,
-        "compression_skip_reason": "Oldest episodic entry not yet 90 days old.",
+        "compression_skip_reason": "",
+        "compression_candidates_found": len(candidates),
+        "guardrail_result": guardrail["result"],
+        "guardrail_reason": guardrail["reason"],
         "errors": 0,
     }
+
+    if guardrail["result"] == "escalate":
+        results["compression_skip_reason"] = (
+            f"Guardrail escalated — {guardrail['reason']}. Compression withheld pending human review."
+        )
+        return results
+
+    if len(candidates) < 5:
+        results["compression_skip_reason"] = f"too few candidates ({len(candidates)})"
+        return results
+
+    digest_entries = []
+    unreadable = 0
+    for c in candidates:
+        entry = build_digest_entry(c)
+        if entry is None:
+            unreadable += 1
+            print(f"  [WARNING] Could not build digest entry for {c['file']} — skipped, not deleted.")
+            continue
+        digest_entries.append(entry)
+
+    compression = compress_episodic_entries(digest_entries)
+    results["entries_compressed"] = compression["entries_compressed"]
+    results["digests_updated"] = compression["digests_updated"]
+    results["errors"] = compression["errors"] + unreadable
+    results["compression_skipped"] = False
 
     return results
 
@@ -256,6 +542,8 @@ semantic_updated: {accumulated.get('semantic_updated', 0)}
 promoted_entries: {accumulated.get('promoted_entries', 0)}
 entries_compressed: {accumulated.get('entries_compressed', 0)}
 digests_updated: {accumulated.get('digests_updated', 0)}
+compression_candidates_found: {accumulated.get('compression_candidates_found', 0)}
+guardrail_result: {accumulated.get('guardrail_result', '')}
 errors: {accumulated.get('total_errors', 0)}
 summary: "Automated dream cycle run for {TODAY}. Processed working, episodic, and semantic memory tiers."
 git_pull: {git_status[0]}
@@ -368,6 +656,9 @@ def main():
         "digests_updated": step4_results.get("digests_updated", 0),
         "compression_skipped": step4_results.get("compression_skipped", True),
         "compression_skip_reason": step4_results.get("compression_skip_reason", ""),
+        "compression_candidates_found": step4_results.get("compression_candidates_found", 0),
+        "guardrail_result": step4_results.get("guardrail_result", ""),
+        "guardrail_reason": step4_results.get("guardrail_reason", ""),
     })
     print(f"  Compressed: {step4_results.get('entries_compressed', 0)}")
 
@@ -395,6 +686,36 @@ def main():
         print("\n[STATE] Updated state.yaml")
     else:
         print("\n[ERROR] Failed to update state.yaml")
+
+    # Close the eval-harness record directly. This script writes state.yaml
+    # with a raw file write, not through Claude Code's Write/Edit tool, so
+    # .claude/hooks/post-tool-use.py never sees it and no eval record gets
+    # created via the hook path — this run would otherwise be permanently
+    # invisible to the eval harness regardless of session state. Call the
+    # same script workflow final steps use in Cowork mode instead of relying
+    # on a hook that structurally cannot fire here.
+    eval_status = "success" if total_errors == 0 else "partial"
+    close_eval_cmd = [
+        sys.executable, CLOSE_EVAL_SCRIPT,
+        "--name", "dream-cycle",
+        "--type", "workflow",
+        "--agent", "jarvis",
+        "--status", eval_status,
+        "--trigger", "scheduled",
+        "--steps", "step-01-working-memory-cleanup,step-02-salience-scoring,"
+                   "step-03-semantic-promotion,step-04-episodic-compression,step-05-logging",
+    ]
+    session_started = state.get("session-started")
+    if session_started:
+        close_eval_cmd += ["--started", str(session_started)]
+    try:
+        result = subprocess.run(close_eval_cmd, capture_output=True, text=True, timeout=30)
+        if result.returncode == 0:
+            print(f"\n[EVAL] Closed eval-harness record ({eval_status})")
+        else:
+            print(f"\n[EVAL] close-eval-record.py failed (exit {result.returncode}): {result.stderr.strip()}")
+    except Exception as e:
+        print(f"\n[EVAL] Failed to invoke close-eval-record.py: {e}")
 
     # Summary
     print("\n" + "="*60)

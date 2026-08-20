@@ -101,7 +101,7 @@ Run STATE CHECK above, then begin at step-01 for the appropriate mode.
 | 03 | `steps/weekly-step-03-suggest-sources.md` | sonnet | Propose up to max_per_week new sources; write to proposed-sources.md |
 | 04 | `steps/weekly-step-04-weekly-note.md` | haiku | Write Obsidian weekly note summarizing themes, candidates, proposals, and tweets |
 | 05 | `steps/weekly-step-05-report.md` | haiku | Surface content candidates ready + sources awaiting yes/no + tweets with Post to X links |
-| 06 *(optional)* | `steps/weekly-step-06-publish-drafts.md` | sonnet | Present approved drafts; send selected posts to Slack `#content` (`C0B160MA3EK`) via master-slack skill; David selects or skips |
+| 06 *(optional)* | `steps/weekly-step-06-publish-drafts.md` | sonnet | Runs an automated guardrail checkpoint on each draft before presenting them (leakage/attribution/tone review — see step file §3b); then presents approved drafts and sends selected posts to Slack `#content` (`C0B160MA3EK`) via master-slack skill; David selects or skips |
 
 **Step-06 is optional.** Knox presents a numbered draft list after step-05 completes and waits for David to select, send all, or skip. If skipped, the step is marked `status: skipped` and the weekly run closes normally.
 

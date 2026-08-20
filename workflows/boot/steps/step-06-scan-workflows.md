@@ -94,7 +94,7 @@ This keeps the index accurate so step-06 can trust the fast path.
 
 ## NEXT STEP
 
-Read and follow: `steps/step-07-verify-completion.md`
+Read and follow: `steps/step-06.5-guardrail-checkpoint.md`
 <!-- system:end -->
 
 <!-- personal:start -->

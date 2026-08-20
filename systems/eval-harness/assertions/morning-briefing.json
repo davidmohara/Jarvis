@@ -36,6 +36,12 @@
       "path": "memory/working/morning-briefing-*.md",
       "pattern": "(?i)(priority|task|todo)",
       "description": "Morning briefing contains priorities/tasks section"
+    },
+    {
+      "id": "morning-006-guardrail-checkpoint-ran",
+      "check": "guardrail_checkpoint_ran",
+      "checkpoint_name": "pre-synthesis-review",
+      "description": "step-03b's guardrail checkpoint recorded a result (pass/flag/escalate) on this run — read from the eval record's own guardrails array, not self-reported by the workflow"
     }
   ]
 }

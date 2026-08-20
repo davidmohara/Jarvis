@@ -52,7 +52,7 @@ resolution-note: >
 original-request: Execute golf booking skill on scheduled basis (August 20, 2026 for target weekend Aug 29-31)
 accumulated-context:
   verified_steps:
-    - step-1-preview-output-check: success (rank-1 option: Aug 29, 1–5 PM)
+    - step-1-preview-output-check: "success (rank-1 option: Aug 29, 1–5 PM)"
     - step-1-booking-window-check: success (Aug 29 = 9 days ahead, within 8-day window ✅)
     - step-2-chrome-launch: FAILED (Chrome not available in Linux sandbox)
     - step-2-login-recovery: BLOCKED (no Chrome instance to authenticate)

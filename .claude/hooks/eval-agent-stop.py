@@ -11,7 +11,6 @@ import sys
 import re
 import hashlib
 import fcntl
-import yaml
 from pathlib import Path
 from datetime import datetime, timezone
 
@@ -21,6 +20,17 @@ EVAL_RUNS_DIR = IES_ROOT / "systems" / "eval-harness" / "runs"
 EVAL_ASSERTIONS_DIR = IES_ROOT / "systems" / "eval-harness" / "assertions"
 ERROR_TRACKING_DIR = IES_ROOT / "systems" / "error-tracking" / "entries"
 ERROR_LOG = Path("/tmp/ies-hook-errors.log")
+
+# Vendored PyYAML (see systems/eval-harness/vendor/yaml/LICENSE) goes first on
+# sys.path so this hook never depends on pip/pyyaml being installed on the
+# host — checked in ahead of any environment copy of the real package.
+sys.path.insert(0, str(IES_ROOT / "systems" / "eval-harness" / "vendor"))
+sys.path.insert(0, str(IES_ROOT / "systems" / "eval-harness"))
+import yaml
+try:
+    from token_usage import usage_between
+except Exception:
+    usage_between = None
 
 def log_error(msg: str):
     """Log error to /tmp/ies-hook-errors.log without blocking."""
@@ -63,6 +73,22 @@ def read_stdin() -> dict:
     except json.JSONDecodeError as e:
         log_error(f"Failed to parse stdin JSON: {e}")
         return {}
+
+
+def extract_frontmatter_block(content: str) -> str:
+    """Strip the leading/trailing `---` markers IES uses to wrap both step
+    frontmatter and state.yaml files. Passing the raw file (with a trailing
+    marker present) straight to yaml.safe_load() parses as two YAML
+    documents — a real one plus an empty one after the closing marker — and
+    raises ComposerError. If there's no second marker, returns content as-is
+    (single-document files parse fine unmodified)."""
+    lines = content.split("\n")
+    if not lines or lines[0].strip() != "---":
+        return content
+    for i, line in enumerate(lines[1:], start=1):
+        if line.strip() == "---":
+            return "\n".join(lines[1:i])
+    return "\n".join(lines[1:])
 
 def find_eval_record(agent_id: str, agent_type: str) -> Path | None:
     """Find the eval record stub for this agent by agent_id first, then fallback."""
@@ -247,7 +273,7 @@ def run_assertions(eval_record: dict, transcript_path: str = None) -> dict:
                     if path and field:
                         matches = list(IES_ROOT.glob(path))
                         if matches:
-                            data = yaml.safe_load(matches[0].read_text())
+                            data = yaml.safe_load(extract_frontmatter_block(matches[0].read_text()))
                             passed = data.get(field) == value
 
                 elif check_type == "file_not_contains":
@@ -265,9 +291,21 @@ def run_assertions(eval_record: dict, transcript_path: str = None) -> dict:
                     min_count = assertion.get("min_count", 1)
                     completed_steps = [
                         s for s in eval_record.get("steps", [])
-                        if s.get("status") == "success"
+                        if s.get("status") in ("success", "complete")
                     ]
                     passed = len(completed_steps) >= min_count
+
+                elif check_type == "guardrail_checkpoint_ran":
+                    # Mechanical check that a guardrail checkpoint actually
+                    # recorded a result on this run — not self-reported by
+                    # the workflow, read from the eval record's own
+                    # guardrails array written by guardrail-checkpoint.py.
+                    checkpoint_name = assertion.get("checkpoint_name")
+                    guardrails = eval_record.get("guardrails", [])
+                    if checkpoint_name:
+                        passed = any(g.get("name") == checkpoint_name for g in guardrails)
+                    else:
+                        passed = len(guardrails) >= 1
 
                 elif check_type == "duration_lte":
                     max_seconds = assertion.get("max_seconds", 0)
@@ -381,6 +419,24 @@ def main():
         eval_record["agent_transcript_path"] = agent_transcript_path
     if last_assistant_message:
         eval_record["last_assistant_message"] = last_assistant_message
+
+    # Real token usage for the whole subagent run, pulled from its own transcript
+    # (a subagent's transcript is entirely in-scope — no per-step slicing needed).
+    if usage_between and agent_transcript_path:
+        try:
+            usage = usage_between(
+                agent_transcript_path,
+                eval_record.get("started"),
+                eval_record["completed"],
+                exclude_sidechain=False,
+            )
+            if usage:
+                eval_record["model"] = usage["model"]
+                eval_record["total_tokens_input"] = usage["tokens_input"]
+                eval_record["total_tokens_output"] = usage["tokens_output"]
+                eval_record["total_cost_usd"] = usage["cost_usd"]
+        except Exception as e:
+            log_error(f"Failed to compute agent token usage: {e}")
 
     # Tier 1: Mechanical Assessment
     # Read existing mechanical state built up by post-tool-use.py and eval-tool-failure.py

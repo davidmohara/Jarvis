@@ -59,6 +59,12 @@
       "path": "systems/eval-harness/grading/analysis-*.md",
       "pattern": "(?i)(recommend|finding|pattern|issue|fix)",
       "description": "Analysis report contains substantive recommendations (replaces broken working-memory check — system-eval does not produce a working memory file)"
+    },
+    {
+      "id": "system-eval-010-guardrail-checkpoint-ran",
+      "check": "guardrail_checkpoint_ran",
+      "checkpoint_name": "pre-score-review",
+      "description": "step-03b's guardrail checkpoint recorded a result (pass/flag/escalate) before step-04's composite scoring — read from the eval record's own guardrails array, not self-reported by the workflow"
     }
   ]
 }

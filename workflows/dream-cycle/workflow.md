@@ -97,6 +97,7 @@ model: sonnet
 | 01 | `steps/step-01-working-memory-cleanup.md` | Archive or delete expired working memory entries |
 | 02 | `steps/step-02-salience-scoring.md` | Score all episodic entries by co-occurrence frequency |
 | 03 | `steps/step-03-semantic-promotion.md` | Promote high-salience episodic clusters into semantic memory |
+| 03b | `steps/step-03b-guardrail-checkpoint.md` | Automated guardrail checkpoint reviewing the compression candidate set before step-04's irreversible deletion |
 | 04 | `steps/step-04-episodic-compression.md` | Compress old low-salience episodic entries into quarterly digests |
 | 05 | `steps/step-05-logging.md` | Write dream.log entry, conditionally surface summary, commit and push |
 

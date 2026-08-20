@@ -18,7 +18,6 @@ import hashlib
 import re
 import secrets
 import string
-import yaml
 from pathlib import Path
 from datetime import datetime, timezone
 
@@ -29,6 +28,17 @@ EVAL_RUNS_DIR = IES_ROOT / "systems" / "eval-harness" / "runs"
 SKILL_RUNS_DIR = IES_ROOT / "systems" / "eval-harness" / "skill-runs"
 ERROR_LOG = Path("/tmp/ies-hook-errors.log")
 ALPHABET = string.ascii_uppercase + string.digits
+
+# Vendored PyYAML (see systems/eval-harness/vendor/yaml/LICENSE) goes first on
+# sys.path so this hook never depends on pip/pyyaml being installed on the
+# host — checked in ahead of any environment copy of the real package.
+sys.path.insert(0, str(IES_ROOT / "systems" / "eval-harness" / "vendor"))
+sys.path.insert(0, str(IES_ROOT / "systems" / "eval-harness"))
+import yaml
+try:
+    from token_usage import usage_between
+except Exception:
+    usage_between = None
 
 # ============================================================================
 # SHARED UTILITIES
@@ -72,6 +82,22 @@ def normalize_path(abs_path: str) -> str:
         return str(path_obj.relative_to(IES_ROOT))
     except ValueError:
         return abs_path
+
+
+def extract_frontmatter_block(content: str) -> str:
+    """Strip the leading/trailing `---` markers IES uses to wrap both step
+    frontmatter and state.yaml files. Passing the raw file (with a trailing
+    marker present) straight to yaml.safe_load() parses as two YAML
+    documents — a real one plus an empty one after the closing marker — and
+    raises ComposerError. If there's no second marker, returns content as-is
+    (single-document files parse fine unmodified)."""
+    lines = content.split("\n")
+    if not lines or lines[0].strip() != "---":
+        return content
+    for i, line in enumerate(lines[1:], start=1):
+        if line.strip() == "---":
+            return "\n".join(lines[1:i])
+    return "\n".join(lines[1:])
 
 # ============================================================================
 # SESSION INDEX FUNCTIONS
@@ -345,15 +371,30 @@ def run_assertions(name: str, eval_record: dict) -> dict:
                     passed = False
                 else:
                     try:
-                        data = yaml.safe_load(yaml_path.read_text()) or {}
+                        data = yaml.safe_load(extract_frontmatter_block(yaml_path.read_text())) or {}
                         passed = data.get(field) == value
                     except Exception:
                         passed = False
                 results.append({"assertion": a_id, "description": description, "passed": passed})
 
             elif check == "step_count_gte":
-                min_steps = a.get("min_steps", 0)
+                # Accept either key — eval-agent-stop.py's implementation uses
+                # min_count; keep both readable so an assertion file written
+                # against either hook's convention works under both.
+                min_steps = a.get("min_count", a.get("min_steps", 0))
                 passed = len(eval_record.get("steps", [])) >= min_steps
+                results.append({"assertion": a_id, "description": description, "passed": passed})
+
+            elif check == "guardrail_checkpoint_ran":
+                # Mechanical check that a guardrail checkpoint actually
+                # recorded a result on this run — read from the eval
+                # record's own guardrails array, not self-reported.
+                checkpoint_name = a.get("checkpoint_name")
+                guardrails = eval_record.get("guardrails", [])
+                if checkpoint_name:
+                    passed = any(g.get("name") == checkpoint_name for g in guardrails)
+                else:
+                    passed = len(guardrails) >= 1
                 results.append({"assertion": a_id, "description": description, "passed": passed})
 
             elif check == "duration_lte":
@@ -619,20 +660,47 @@ def create_eval_record_from_state(state_data: dict, session_id: str):
         log_error(f"Failed to create eval record from state.yaml: {e}")
 
 
-def update_eval_record_state_yaml(eval_path: Path, file_path: str, content: str):
-    """Update eval record with workflow lifecycle info from state.yaml."""
+def update_eval_record_state_yaml(eval_path: Path, file_path: str, content: str) -> bool:
+    """Update eval record with workflow lifecycle info from state.yaml.
+
+    Returns True if the record was updated, False if it declined to touch it
+    (name conflict — see below) so the caller can fall through to creating a
+    fresh record instead of silently overwriting an unrelated one.
+    """
     try:
         with open(eval_path, "r") as f:
             eval_record = json.load(f)
 
-        # Parse the state.yaml content
-        state_data = yaml.safe_load(content)
+        # Parse the state.yaml content (strip the --- wrapper first — see
+        # extract_frontmatter_block docstring for why this is required)
+        state_data = yaml.safe_load(extract_frontmatter_block(content))
         if not state_data:
-            return
+            return True  # nothing to apply, but not a conflict — don't fall through
+
+        workflow_name = state_data.get("workflow", "unknown")
+
+        # Guard: find_active_eval_record() matches on session_id alone, not
+        # workflow name. If the global session index hasn't rotated (a stale
+        # session_id shared across many unrelated real-world sessions — see
+        # err-tracking for the boot staleness issue this correlates with),
+        # this record may belong to a DIFFERENT workflow/agent that just
+        # hasn't been marked complete yet. Overwriting its name/type here
+        # would silently erase that record's identity. If the record already
+        # has an established name that disagrees with this state.yaml's
+        # workflow, decline and let the caller create a fresh record.
+        existing_name = eval_record.get("name")
+        if existing_name and existing_name not in (None, "unknown", workflow_name) and eval_record.get("type") == "workflow":
+            log_error(
+                f"[GUARD] update_eval_record_state_yaml declined to overwrite "
+                f"{eval_path.name} — existing name={existing_name!r} disagrees with "
+                f"state.yaml workflow={workflow_name!r}. Likely a stale/shared session_id. "
+                f"Falling through to a fresh record for {workflow_name!r}."
+            )
+            return False
 
         # Update eval record with workflow lifecycle info
         eval_record["type"] = "workflow"
-        eval_record["name"] = state_data.get("workflow", "unknown")
+        eval_record["name"] = workflow_name
         eval_record["trigger"] = infer_trigger(state_data)
 
         # Update mechanical assessment based on state
@@ -644,11 +712,21 @@ def update_eval_record_state_yaml(eval_path: Path, file_path: str, content: str)
 
         # Write updated eval record atomically
         atomic_write_json(eval_path, eval_record)
+        return True
     except Exception as e:
         log_error(f"Failed to update eval record from state.yaml: {e}")
+        return True  # don't trigger the fallback path on an unrelated error
 
-def update_eval_record_step_frontmatter(eval_path: Path, file_path: str, content: str):
-    """Update eval record with step timing from step frontmatter."""
+def update_eval_record_step_frontmatter(eval_path: Path, file_path: str, content: str, transcript_path: str = None):
+    """Update eval record with step timing from step frontmatter.
+
+    When a real session transcript_path is available and the step carries
+    started-at/completed-at timestamps, pulls actual token usage for that
+    window straight from the transcript (see token_usage.py) instead of
+    leaving tokens_input/tokens_output/cost_usd null. This is the automatic
+    path — no step file has to call record-step.py with manually estimated
+    token counts for this to populate.
+    """
     try:
         with open(eval_path, "r") as f:
             eval_record = json.load(f)
@@ -684,7 +762,11 @@ def update_eval_record_step_frontmatter(eval_path: Path, file_path: str, content
             "duration_seconds": None,
             "status": frontmatter.get("status"),
             "data_sources_used": [],
-            "data_source_failures": []
+            "data_source_failures": [],
+            "model": frontmatter.get("model"),
+            "tokens_input": None,
+            "tokens_output": None,
+            "cost_usd": None
         }
 
         # Calculate duration if both timestamps exist
@@ -695,6 +777,18 @@ def update_eval_record_step_frontmatter(eval_path: Path, file_path: str, content
                 step_entry["duration_seconds"] = round((end - start).total_seconds(), 2)
             except Exception:
                 pass
+
+        # Pull real token usage from the session transcript for this step's window
+        if usage_between and transcript_path and step_entry["started"] and step_entry["completed"]:
+            try:
+                usage = usage_between(transcript_path, step_entry["started"], step_entry["completed"])
+                if usage:
+                    step_entry["model"] = usage["model"] or step_entry["model"]
+                    step_entry["tokens_input"] = usage["tokens_input"]
+                    step_entry["tokens_output"] = usage["tokens_output"]
+                    step_entry["cost_usd"] = usage["cost_usd"]
+            except Exception as e:
+                log_error(f"Failed to compute token usage for step {step_name}: {e}")
 
         # Add or update step in eval record
         eval_record["steps"] = [s for s in eval_record.get("steps", []) if s["name"] != step_name]
@@ -738,7 +832,7 @@ def check_error_tracking_write(file_path: str, session_id: str):
     except Exception as e:
         log_error(f"Failed to check error tracking write: {e}")
 
-def process_eval_harness(rel_path: str, file_path: str, session_id: str):
+def process_eval_harness(rel_path: str, file_path: str, session_id: str, transcript_path: str = None):
     """Process eval harness integration for this file write."""
     # Check if this is a state.yaml write
     if rel_path.endswith("state.yaml"):
@@ -751,13 +845,17 @@ def process_eval_harness(rel_path: str, file_path: str, session_id: str):
 
         if content:
             eval_path = find_active_eval_record(session_id)
+            updated = False
             if eval_path:
-                # Claude Code path: close the existing stub
-                update_eval_record_state_yaml(eval_path, rel_path, content)
-            else:
+                # Claude Code path: close the existing stub — unless the stub
+                # belongs to a different, already-named workflow (stale/shared
+                # session_id), in which case fall through to the Cowork path
+                # below rather than overwriting an unrelated record.
+                updated = update_eval_record_state_yaml(eval_path, rel_path, content)
+            if not eval_path or not updated:
                 # Cowork path: no SubagentStart hook fired — create record on complete
                 try:
-                    state_data = yaml.safe_load(content) or {}
+                    state_data = yaml.safe_load(extract_frontmatter_block(content)) or {}
                     if state_data.get("status") == "complete":
                         create_eval_record_from_state(state_data, session_id)
                 except Exception as e:
@@ -770,7 +868,7 @@ def process_eval_harness(rel_path: str, file_path: str, session_id: str):
             try:
                 with open(file_path, "r") as f:
                     content = f.read()
-                update_eval_record_step_frontmatter(eval_path, rel_path, content)
+                update_eval_record_step_frontmatter(eval_path, rel_path, content, transcript_path)
             except Exception as e:
                 log_error(f"Failed to read step frontmatter for eval: {e}")
 
@@ -806,6 +904,7 @@ def main():
     tool_name = payload.get("tool_name")
     tool_input = payload.get("tool_input", {})
     file_path = tool_input.get("file_path")
+    transcript_path = payload.get("transcript_path")
 
     # Only process Write and Edit tools
     if tool_name not in ["Write", "Edit"] or not file_path:
@@ -819,7 +918,7 @@ def main():
 
     # Block 2: Eval Harness Integration (independent of session index)
     session_id = get_session_id()
-    process_eval_harness(rel_path, file_path, session_id)
+    process_eval_harness(rel_path, file_path, session_id, transcript_path)
 
 if __name__ == "__main__":
     main()

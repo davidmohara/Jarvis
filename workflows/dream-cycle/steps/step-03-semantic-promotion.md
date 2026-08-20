@@ -102,7 +102,7 @@ outputs:
       Status: active
       ```
 
-8. Update `state.yaml`: set `current-step: step-04`, update this step's frontmatter `status: completed` and `completed-at: {timestamp}`.
+8. Update `state.yaml`: set `current-step: step-03b`, update this step's frontmatter `status: completed` and `completed-at: {timestamp}`. (Not `step-04` — the guardrail checkpoint runs first; setting `step-04` here would let a resume-from-interruption skip the pre-deletion guardrail entirely.)
 
 ## SUCCESS METRICS
 
@@ -111,7 +111,7 @@ outputs:
 - All source episodic files in promoted clusters have `salience.promoted: true`.
 - `clusters_found`, `semantic_created`, `semantic_updated`, and `promoted_entries` are written to `accumulated-context`.
 - Error log was scanned and any qualifying patterns were added to LESSONS.md.
-- `state.yaml` shows `current-step: step-04`.
+- `state.yaml` shows `current-step: step-03b`.
 
 ## FAILURE MODES
 
@@ -135,7 +135,7 @@ python3 systems/eval-harness/record-step.py dream-cycle step-03-semantic-promoti
 
 ## NEXT STEP
 
-Read fully and follow: `steps/step-04-episodic-compression.md`
+Read fully and follow: `steps/step-03b-guardrail-checkpoint.md`
 <!-- system:end -->
 
 <!-- personal:start -->

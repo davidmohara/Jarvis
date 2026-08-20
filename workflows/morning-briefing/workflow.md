@@ -96,6 +96,8 @@ This workflow and any sub-workflow/agent it invokes (Chase's lead-review, Knox's
 
 Read fully and follow: `steps/step-01-gather-calendar.md` to begin the workflow.
 
+**Guardrail checkpoint:** After step-03 (gather context) and before step-04 (synthesize), `steps/step-03b-guardrail-checkpoint.md` runs an automated review of the gathered data. `pass`/`flag` continue normally; `escalate` requires step-04 to open the delivered briefing with an explicit data-quality warning rather than silently presenting bad data as clean.
+
 <!-- system:end -->
 
 <!-- personal:start -->

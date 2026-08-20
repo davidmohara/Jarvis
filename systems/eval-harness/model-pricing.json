@@ -1,0 +1,8 @@
+{
+  "description": "Per-million-token USD pricing for token/cost tracking in eval records. Approved models only (Sonnet, Haiku) per org policy — see CLAUDE.md.",
+  "updated": "2026-08-20",
+  "models": {
+    "sonnet": { "input_per_mtok": 3.00, "output_per_mtok": 15.00 },
+    "haiku": { "input_per_mtok": 1.00, "output_per_mtok": 5.00 }
+  }
+}

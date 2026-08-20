@@ -72,6 +72,12 @@
       "date_path_template": "memory/working/daily-review-{run_date}*.md",
       "pattern": "(?i)(today|task|priority)",
       "description": "Daily review working memory for run date contains expected content"
+    },
+    {
+      "id": "daily-006-guardrail-checkpoint-ran",
+      "check": "guardrail_checkpoint_ran",
+      "checkpoint_name": "pre-commit-review",
+      "description": "step-03b's guardrail checkpoint recorded a result (pass/flag/escalate) on this run — read from the eval record's own guardrails array, not self-reported by the workflow"
     }
   ]
 }

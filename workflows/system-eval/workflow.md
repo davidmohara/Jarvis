@@ -48,6 +48,7 @@ workflows/system-eval/
 │   ├── step-01-intake.md        ← open eval record, assess what needs work
 │   ├── step-02-assert.md        ← run structural assertions on unasserted records
 │   ├── step-03-grade.md         ← invoke rigby-eval-grade on all ungraded records
+│   ├── step-03b-guardrail-checkpoint.md  ← adversarial review of grades before scoring
 │   ├── step-04-score.md         ← compute composite scores via score_eval.py
 │   ├── step-05-analyze.md       ← invoke rigby-eval-analyze across full corpus
 │   └── step-06-dashboard.md     ← regenerate dashboard, close eval record, deliver summary
@@ -87,6 +88,7 @@ Run steps in order. Read each step file fully before executing it.
 | 1 | [step-01-intake.md](steps/step-01-intake.md) | **haiku** | Open eval record, inventory all runs, classify what needs work |
 | 2 | [step-02-assert.md](steps/step-02-assert.md) | **haiku** | Run structural assertions on records with assertions_checked == 0 |
 | 3 | [step-03-grade.md](steps/step-03-grade.md) | **sonnet** | Invoke rigby-eval-grade skill on all ungraded records |
+| 3b | [step-03b-guardrail-checkpoint.md](steps/step-03b-guardrail-checkpoint.md) | **haiku** | Automated guardrail checkpoint — adversarial review of step-03's grades before they drive the composite score gate |
 | 4 | [step-04-score.md](steps/step-04-score.md) | **haiku** | Compute composite scores via score_eval.py for all records |
 | 5 | [step-05-analyze.md](steps/step-05-analyze.md) | **sonnet** | Invoke rigby-eval-analyze across full corpus, write analysis report |
 | 6 | [step-06-dashboard.md](steps/step-06-dashboard.md) | **haiku** | Regenerate dashboard, close eval record, deliver summary |

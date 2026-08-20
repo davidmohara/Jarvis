@@ -81,6 +81,7 @@ Check `$ARGUMENTS` for the word `auto` (case-insensitive).
 
 - If `auto` is present: read fully and follow `steps/step-auto.md`. Do not load any other step files.
 - Otherwise: read fully and follow `steps/step-01-capture.md` to begin the interactive workflow.
+- After step-03, run `steps/step-03b-guardrail-checkpoint.md` — an automated review gate before anything is committed. `escalate` halts the workflow for a controller decision; `pass`/`flag` continue.
 - After step-04, proceed to `steps/step-05-session-close.md` to finalize the session and commit all changes.
 
 <!-- system:end -->

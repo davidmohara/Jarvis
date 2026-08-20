@@ -154,8 +154,10 @@ Write to `systems/eval-harness/skill-runs/rigby-eval-grade-latest.json`.
 
 Update state.yaml:
 ```yaml
-current-step: step-04-score
+current-step: step-03b
 ```
+
+Not `step-04-score` — the guardrail checkpoint runs first; setting `step-04-score` here would let a resume-from-interruption skip the pre-scoring adversarial review of the grades entirely.
 
 ---
 
@@ -177,5 +179,5 @@ current-step: step-04-score
 
 ## NEXT STEP
 
-[Step 04 — Score](step-04-score.md)
+[Step 03b — Guardrail Checkpoint](step-03b-guardrail-checkpoint.md)
 <!-- system:end -->

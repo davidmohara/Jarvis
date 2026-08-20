@@ -1,23 +1,12 @@
 workflow: boot
 agent: master
-status: in-progress
-session-started: "2026-08-12T09:19:44-05:00"
+status: not-started
+session-started: ~
 session-completed: null
-session-id: "session-2026-08-12-091944"
-current-step: step-05-synthesize-briefing.md
-original-request: boot
-prior-run-note: "Fresh run 2026-08-12 per STATE CHECK rule 3 (prior run 2026-08-11 was stale/incomplete)."
+session-id: ~
+current-step: ~
+original-request: ~
+prior-run-note: "Reset 2026-08-20 — previous run (session-2026-08-12-091944) was stuck at status: in-progress / current-step: step-05-synthesize-briefing.md for 8 days. Every session since resumed the stale run per STATE CHECK's old unconditional-resume rule instead of starting fresh, which also blocked memory/sessions/index.json from getting a new entry (Session Index Boot only runs in step-01, which never re-executed). Fixed: STATE CHECK now treats an in-progress run older than 4 hours as stale and starts fresh instead of resuming. This reset clears the stale run so the next boot starts clean."
 paused: false
 paused-reason: null
-accumulated-context:
-  phase0:
-    files_loaded: [SYSTEM.md, agents/master.md, identity/MEMORY.md, identity/VOICE.md, identity/GOALS_AND_DREAMS.md, identity/RESPONSIBILITIES.md, identity/AUTOMATION.md, identity/MISSION_CONTROL.md]
-    knox_spawn: "spawned fire-and-forget for plaud-ingest — 88 new recordings discovered, all pending transcription from Plaud (trans_status=0). No transcripts ready yet; workflow parked at step-04 awaiting-transcription."
-  phase1.5:
-    calendar_pull: "completed live via M365 outlook_calendar_search — 35 events Aug 10-13"
-    email_pull: "completed live via M365 outlook_email_search — 11 messages since Aug 7; key items: Ben Holm (Microsoft GM) in transition, Angels of Care RFP thread, Principled Business Summit follow-up from Loreta, MESH follow-up from taylor@whenwemesh.com, DSO x Cosm invite Aug 25"
-  phase2:
-    task_omnifocus: "completed via MCP — 19 active tasks; overdue: Setup Dinner Dates (Aug 10), Connect Scott Medlin with Dallas AI HRIS co (Aug 8), Review Current Projects List (Aug 10), Review prayer list (Aug 10), Coherence breathing (Aug 10), Lifebook Career update (May 29), Lifebook Health update (May 29), Review blaze.ai for Kare Devices (Jun 29)"
-    task_delegations: "zero active delegations"
-    task_rocks: "Q3 2026 still DRAFT — pending David sign-off since 2026-07-30"
-    task_workflow_scan: "no workflows in-progress or stuck; plaud-ingest at awaiting-transcription"
+accumulated-context: {}

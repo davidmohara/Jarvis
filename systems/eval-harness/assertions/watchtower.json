@@ -1,0 +1,34 @@
+{
+  "name": "watchtower",
+  "type": "workflow",
+  "_note": "Covers both entry modes (daily/weekly) with checks true regardless of mode. The pre-publish-review guardrail checkpoint only fires inside weekly-step-06, which is itself optional (David can skip it) — it is intentionally NOT a hard assertion here, since that would produce false failures on every daily run and on weekly runs where step-06 was skipped. Its result is still recorded in the eval record's guardrails array whenever it does run; verify it there directly rather than via this file when auditing a specific weekly-publish run.",
+  "assertions": [
+    {
+      "id": "watch-001-state-complete",
+      "check": "yaml_field_equals",
+      "path": "workflows/watchtower/state.yaml",
+      "field": "status",
+      "value": "complete",
+      "description": "Watchtower workflow state.yaml shows status: complete"
+    },
+    {
+      "id": "watch-002-source-activity-exists",
+      "check": "file_exists",
+      "path": "workflows/watchtower/source-activity.json",
+      "description": "Per-source activity ledger exists — updated by daily-step-03-score.md and read by daily-step-07-prune.md"
+    },
+    {
+      "id": "watch-003-source-activity-substantive",
+      "check": "file_min_bytes",
+      "path": "workflows/watchtower/source-activity.json",
+      "min_bytes": 20,
+      "description": "Source activity ledger is a real record, not an empty stub"
+    },
+    {
+      "id": "watch-004-sources-registry-exists",
+      "check": "file_exists",
+      "path": "workflows/watchtower/sources.yaml",
+      "description": "Active source registry exists"
+    }
+  ]
+}

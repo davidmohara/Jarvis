@@ -161,7 +161,7 @@ model: sonnet
 
 ## NEXT STEP
 
-Load and execute `steps/step-04-root-audit.md` to complete the daily shutdown sequence.
+Load and execute `steps/step-03b-guardrail-checkpoint.md` before anything is committed.
 
 The daily review file is now the input artifact for tomorrow's morning briefing workflow (step 01 of morning-briefing will look for it).
 <!-- system:end -->

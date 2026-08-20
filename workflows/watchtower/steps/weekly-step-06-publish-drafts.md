@@ -79,6 +79,23 @@ For each path in `draft_paths`, call `mcp__obsidian-local__get_vault_file` with 
 
 If a file cannot be read, log it to `drafts_skipped` with reason `vault_read_failed` and continue.
 
+### 3b. Guardrail checkpoint — automated review before presenting drafts
+
+This step publishes to an external, semi-public Slack channel — the highest-stakes handoff in Watchtower. Before presenting anything to David for selection, review each draft's content:
+
+1. **Leakage check** — does any draft reference client names, account details, or anything from `accounts/` that shouldn't appear in public-facing content?
+2. **Attribution/claim check** — does a draft assert something as fact that isn't traceable to the week's synthesized themes from `weekly-step-01-synthesize.md`?
+3. **Tone/brand check** — does anything read as sloppy enough to embarrass rather than represent David's voice (per `identity/VOICE.md`)?
+
+Record the result:
+
+```bash
+python3 systems/eval-harness/guardrail-checkpoint.py watchtower pre-publish-review weekly-step-06-publish-drafts <pass|flag|escalate> "<one-line reason>"
+```
+
+- `pass` or `flag` (with the issue noted) → proceed to step 4, presenting all drafts including flagged ones with the flag called out inline: `1. <Post Title> — <channels> [flagged: <reason>]`.
+- `escalate` → remove the escalated draft from the selection list entirely. Note in the presentation: "One draft was held back by the guardrail checkpoint — [one-line reason]. Not included below." This is a distinct outcome from `drafts_skipped` (which tracks mechanical failures) — do not conflate the two in `outputs`.
+
 ### 4. Present the selection prompt
 
 Build a numbered list of available drafts. Apply the exclusion rule: if a draft's slug contains "abbott" or "texas", omit it from the numbered list and note it separately.

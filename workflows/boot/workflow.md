@@ -52,7 +52,8 @@ model: sonnet
 1. Read `state.yaml` in this workflow directory.
 
 2. If `status: in-progress`:
-   - You are resuming a previous run. Do NOT start over.
+   - **Staleness check first.** Compare `session-started` to the current time. If it is more than 4 hours old, this is not a resumable interruption — it's a prior run that never reached step-07's completion gate (crashed, was aborted without updating status, or the session simply ended). Treat it the same as case 4 (aborted): do NOT auto-resume. Notify the controller: "[Master]: Boot has been stuck at `in-progress` since [session-started] ([current-step]) — treating as stale, not resuming. Starting fresh." Then proceed to case 3 (fresh run) instead of resuming. This also matters for the eval harness: a boot that never reaches `status: complete` never gets an eval record, and blocks the Session Index Boot step (below) from running on every subsequent boot in the meantime — see `err-` entries referencing this if it recurs.
+   - Otherwise (genuinely recent — within the 4-hour window): You are resuming a previous run. Do NOT start over.
    - Read `current-step` to find where to continue.
    - Load `accumulated-context` — this is the data already gathered. Do not re-gather it.
    - Check that step's frontmatter:
@@ -90,6 +91,7 @@ Steps execute in order. Each step's NEXT STEP section chains to the following st
 4. `steps/step-04-gather-meeting-context.md`
 5. `steps/step-05-synthesize-briefing.md`
 6. `steps/step-06-scan-workflows.md`
+6.5. `steps/step-06.5-guardrail-checkpoint.md` ← automated content-quality review before the completion gate
 7. `steps/step-07-verify-completion.md` ← hard gate; boot is NOT complete until this passes
 
 Read fully and follow: `steps/step-01-load-context.md` to begin the workflow.

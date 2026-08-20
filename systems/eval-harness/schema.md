@@ -123,6 +123,48 @@ Example: `eval-20260523T133045-a1b2c3.json`
 | `status` | enum | "success", "failure", or "skipped" |
 | `data_sources_used` | array | External systems accessed |
 | `data_source_failures` | array | Data source issues encountered |
+| `model` | string | "sonnet" or "haiku" — model that executed this step (org-approved models only) |
+| `tokens_input` | number\|null | **Required audit-trail field.** Input tokens consumed by this step. |
+| `tokens_output` | number\|null | **Required audit-trail field.** Output tokens produced by this step. |
+| `cost_usd` | number\|null | Informational only, not a certification requirement. See note below. |
+
+**Tokens in/out are the necessary audit-trail evidence — dollar cost is not.** Stage 4's audit-trail requirement asks "which prompt produced which output, how many input/output tokens, what did it cost" — tokens answer that on their own. `cost_usd` is derived and kept as a convenience figure, but it's an approximation (see below) and dropping it entirely would not weaken the audit trail, since tokens are the traceable unit and cost is just tokens × a rate table that can go stale. Don't treat a null `cost_usd` as a gap; treat a null `tokens_input`/`tokens_output` as one.
+
+Token fields are populated automatically, not by manual estimation. `systems/eval-harness/token_usage.py` reads the real Claude Code session transcript (JSONL — every assistant turn logs `message.usage` with exact `input_tokens`/`output_tokens`/cache token counts) and slices it to a time window:
+
+- **Steps that run inline in the main session** — `.claude/hooks/post-tool-use.py` fires on every Write/Edit to a `*/steps/*.md` file (this is what actually populates the `steps` array in the first place) and now also pulls usage for that step's `started-at`→`completed-at` window from the main session's `transcript_path` (a field Claude Code passes to every `PostToolUse` hook call).
+- **Steps that are spawned as a subagent** (e.g. Knox handling Watchtower, `rigby-eval-grade`) — `.claude/hooks/eval-agent-stop.py` pulls usage for the whole subagent run from its own `agent_transcript_path` (passed to `SubagentStop`), and writes it as top-level `model`, `total_tokens_input`, `total_tokens_output`, `total_cost_usd` fields on that eval record — a subagent's transcript is entirely in-scope, so no per-step slicing is needed there.
+
+`cost_usd`, when present, is computed with the documented cache multipliers (cache read ≈0.1× input rate, cache write 1.25×/2× for 5m/1h TTL), not a flat per-token rate — but it is not billing-exact and is not required for certification purposes.
+
+`record-step.py`'s `--tokens-in`/`--tokens-out`/`--model` flags remain as a manual fallback for paths where neither hook fires (e.g. a Cowork-only run with no transcript file) — pass them explicitly there; otherwise leave them off and let the hooks populate the fields.
+
+### Version-Over-Version Improvement Tracking
+
+The audit trail requirement is not satisfied by a single snapshot — it must show that a change to a prompt/workflow measurably improved something (echoing Stage 3's own question: "when you change a prompt, how do you know you made it better?"). `systems/eval-harness/version-trend.py` groups a workflow's eval records by `version_hash` (already recorded per run) in chronological order and reports, per version: run count, average `tokens_input`+`tokens_output` per run, average composite score, and pass rate — plus a delta line comparing the latest version to the one before it. This mechanism exists now; the trend it reports will only become meaningful once a workflow has run across two or more distinct `version_hash` values with token data attached (i.e., after this instrumentation has been live for at least one prompt revision). Run it with:
+
+```bash
+python3 systems/eval-harness/version-trend.py <workflow-name>
+```
+
+### Guardrails Array (`guardrails`)
+
+Present on eval records for workflows outfitted with automated guardrail checkpoints (see `guardrail-checkpoint.py`). A guardrail checkpoint is an adversarial-review gate placed at a handoff between two Stage-3 prompts — the Stage 4 requirement for "automated guardrails at points that used to be human-in-the-loop." It is written by the step immediately after the risky handoff, before the workflow proceeds.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `name` | string | Checkpoint identifier, e.g. `"pre-publish-review"` |
+| `after_step` | string | The step whose output this checkpoint reviewed |
+| `result` | enum | `"pass"`, `"flag"`, or `"escalate"` |
+| `reason` | string | What the checkpoint found (or "no issues found" on pass) |
+| `escalated_to_human` | boolean | True only when `result: "escalate"` |
+| `timestamp` | ISO8601 | When the checkpoint ran |
+
+**`escalate` is not a failure.** A guardrail that escalates halts the workflow and surfaces the decision to the controller — this is a deliberate design point in Stage 4: AI-detected risk that should not be resolved by the AI alone. It must never be conflated with `status: failure` in the status-derivation logic below, and must never be silently auto-approved.
+
+### What counts as a "sentinel file" here
+
+A sentinel is a file *separate from the workflow/skill/agent being evaluated* that is actually run to evaluate the work — not the agent grading its own output inline. Under that definition, this system's sentinel files are `systems/eval-harness/assertions/{workflow-name}.json`: independent structural-check definitions, invoked by `.claude/hooks/post-tool-use.py` and `.claude/hooks/eval-agent-stop.py` (never by the workflow itself), that mechanically check things like "does the output file exist and meet a minimum size," "does state.yaml actually show complete," and — since this build — "did the guardrail checkpoint actually record a result" (`guardrail_checkpoint_ran`, which reads the eval record's `guardrails` array rather than trusting the workflow's self-report). A workflow only has a real sentinel if `systems/eval-harness/assertions/{name}.json` exists and uses a `check` type the hooks actually implement — an assertion file with the wrong filename or an unimplemented schema (see `watchtower-weekly.json`, which predates this fix, uses a schema the hooks never read, and is filed under the wrong name to ever be looked up) is not a functioning sentinel, regardless of how thorough it reads.
 
 ### Assessment Block (4-Tier Success Assessment)
 
