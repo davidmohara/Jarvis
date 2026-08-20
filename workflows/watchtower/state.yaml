@@ -1,87 +1,72 @@
 workflow: watchtower
 agent: knox
 status: complete
-session-started: "2026-08-17T07:05:00Z"
-session-completed: "2026-08-17T08:10:00Z"
-session-id: "wt-weekly-2026-W34"
+session-started: "2026-08-20T07:05:00Z"
+session-completed: "2026-08-20T08:15:00Z"
+session-id: "wt-weekly-2026-W34b"
 current-step: complete
-original-request: "watchtower-weekly scheduled run (Knox)"
+original-request: "watchtower-weekly scheduled run (Knox) — supplemental W34 run, Aug 20"
 accumulated-context:
   content_queue: []
   used_fallback: true
-  obsidian_unavailable: true
+  obsidian_unavailable: false
   delta_check_applied: true
-  dropped_as_continuing: 0
+  dropped_as_continuing: 2
   weekly_themes:
     - theme_id: 1
-      theme_title: "IBM Just Showed What Delivery Restructuring Actually Looks Like"
-      synthesis: "IBM embedded GPT-5.6 into IBM Consulting Advantage on Aug 13 -- the platform its consultants use on every client engagement. Simultaneously, Deloitte announced FDEs (Jul 22), Accenture launched an FDE practice with ServiceNow, and PwC created a formal engineer career track. All four Tier 1 firms moved to the FDE model in the same quarter. W33 argued firms have AI service lines but stable org structures. W34 is the evidence that structural delivery rewiring is underway at scale across the industry. What's new this week: the transition from announcements to delivery platform rewiring is a multi-firm wave happening now, not a trend."
+      theme_title: "The FDE Model Has Become Table Stakes. Now What?"
+      synthesis: "TCS announced plans for up to 8,900 forward-deployed AI engineers. The largest cost-delivery firm in the world adopted FDE as a defensive posture. When TCS can field that many embedded engineers, the model is no longer differentiated by its presence. Differentiation shifts to who delivers it and whether the team drives outcomes. FDE has crossed from strategic move to industry standard."
       source_items:
-        - "IBM Partners with OpenAI to Accelerate Secure AI Deployment (IBM Newsroom, Aug 13 2026)"
-        - "IBM Embeds OpenAI Models Into Its Consulting Delivery Platform (Unite.AI, Aug 2026)"
-        - "Deloitte Drives Agentic Industry Transformation with Forward Deployed Engineers (PR Newswire, Jul 22 2026)"
-        - "Accenture and Microsoft form forward deployed engineering strategy (Seeking Alpha)"
-        - "The Forrester Wave: AI Consulting Services, Q2 2026 (Forrester)"
+        - "TCS Plans Up to 8,900 Forward-Deployed AI Engineers (TECHi, Aug 2026)"
+        - "TCS bets on 8,900 AI deployment engineers to defend India's IT services model (The Next Web)"
       content_angles:
-        - "IBM Just Showed What Delivery Restructuring Actually Looks Like"
+        - "The FDE Model Has Become Table Stakes. Now What?"
     - theme_id: 2
-      theme_title: "Texas Moved from Build-Anything to Comply-or-Pause"
-      synthesis: "Abbott directed a full audit of all pending data center grid connections (Aug 3), suspended ERCOT Batch Zero Large Load notifications, and required data centers to document grid impact, water use, and infrastructure cost allocation. OpenAI, Google, Meta, Amazon, and Anthropic committed to comply. 474 GW of requests pending -- five times Texas peak demand. W33 covered Terafab: manufacturers vertically integrating AI compute in Texas. W34 is categorically different: state government inserting itself as regulatory gatekeeper on AI infrastructure permitting. What's new: Texas moved from a permissive build environment to a managed compliance regime. AI infrastructure roadmaps for Texas need revision."
+      theme_title: "Texas Has a State Problem and a City Problem Now"
+      synthesis: "San Marcos became the first Texas city to ban data centers citywide. Austin-area residents organized the Data Center Action Coalition. A state senator threatened to challenge the ban. Abbott's compliance regime generated a second-order effect: local governments going further. The locus of the fight shifted from state capitol to city councils. Clients need municipal-level site risk assessment, not just state compliance review."
       source_items:
-        - "Texas halts new data centers as governor calls for audits (TechCrunch, Aug 4 2026)"
-        - "Governor Abbott Directs Comprehensive Data Center Audit (Office of the Texas Governor)"
-        - "New Texas data center projects frozen until state audits them (Texas Tribune, Aug 3 2026)"
-        - "Texas data centers: Abbott gets Amazon, Lancium, Anthropic to pay their own way (Dallas Express)"
-        - "Governor Abbott Announces Open AI Commits To Comply With His Data Center Standards (Aug 10 2026)"
+        - "Austin-area residents are pushing for data center bans. State leaders are divided (KERA News, Aug 19 2026)"
+        - "San Marcos council votes to prohibit data centers citywide (CBS Austin)"
+        - "State senator says San Marcos' data center ban will likely be challenged (KXAN)"
       content_angles:
-        - "Texas Moved from Build-Anything to Comply-or-Pause"
+        - "Texas Has a State Problem and a City Problem Now"
     - theme_id: 3
-      theme_title: "Agent Sprawl Is the Operational Layer Under the Identity Problem"
-      synthesis: "OutSystems (1,900 IT leaders): 96% of enterprises run AI agents, 12% govern them centrally, 94% flag sprawl as growing security risk, 38% mix custom-built and pre-built agents in ungovernable stacks. W33 covered agent identity as a security perimeter problem (access policies, NHI lifecycle, visibility gaps). W34's sprawl story is the operational layer that precedes identity governance: before you can govern what agents access, you have to know how many exist, who built them, and who owns them. What's new: the identity governance conversation assumes agents are at least inventoried. In most enterprises, they aren't. The sprawl precedes the identity problem."
+      theme_title: "The Market Just Valued the Agent Security Gap at $1.1 Billion"
+      synthesis: "Obsidian Security raised $85M Series D at a $1.1B valuation (Aug 4). 92% of enterprises lack visibility into AI identities. 88% confirmed or suspected a security incident. The VC market priced the agent security problem at unicorn scale. The client conversation shifts from risk management to dollar-denominated business consequence."
       source_items:
-        - "Agentic AI Goes Mainstream in the Enterprise, but 94% Raise Concern About Sprawl (OutSystems, 2026)"
-        - "The AI Agent Governance Paradox: 96% of Enterprises Use Them, 12% Can Govern Them (Remio.ai)"
-        - "Agentic AI Governance Is the CIO's Most Urgent Blind Spot (TechHQ)"
+        - "Obsidian Raises $85 Million Series D to Scale AI Agent Security Growth (Obsidian Security, Aug 4 2026)"
+        - "Obsidian Security raises $85M as AI agents create cybersecurity's next major attack surface (SiliconANGLE)"
+        - "AI Agents at Work 2026: Securing the agentic enterprise (Okta, 2026)"
       content_angles:
-        - "You Can't Govern an Inventory You Don't Know You Have"
+        - "The Market Just Valued the Agent Security Gap at $1.1 Billion"
   weekly_tweets:
-    - text: "The Tier 1 firms all announced FDE practices in the same quarter. IBM, Deloitte, Accenture, PwC. All embedding engineers directly at client sites. That's not coincidence. It's what the delivery model war looks like when it starts."
-      supporting_url: null
-      intent_url: "https://twitter.com/intent/tweet?text=The%20Tier%201%20firms%20all%20announced%20FDE%20practices%20in%20the%20same%20quarter.%20IBM%2C%20Deloitte%2C%20Accenture%2C%20PwC.%20All%20embedding%20engineers%20directly%20at%20client%20sites.%20That%27s%20not%20coincidence.%20It%27s%20what%20the%20delivery%20model%20war%20looks%20like%20when%20it%20starts."
+    - text: "TCS is converting up to 8,900 engineers into forward-deployed roles. India's largest IT firm built its model on offshore cost-delivery. When that firm bets on embedded delivery at scale, it's not a trend. It's a floor."
+      supporting_url: "https://thenextweb.com/news/tcs-forward-deployed-ai-engineers-acquisitions"
       angle_type: "data"
-    - text: "Most consulting firms are pitching AI to clients they haven't restructured their own delivery around. IBM just certified thousands of consultants on a specific platform and baked GPT-5.6 into every engagement. The gap between those two things is widening fast."
+    - text: "FDE job postings grew 729% in one year. Every major firm now has a program. The delivery model isn't differentiating anymore by existing. The only question left is whether your team can actually drive outcomes once they're on-site."
       supporting_url: null
-      intent_url: "https://twitter.com/intent/tweet?text=Most%20consulting%20firms%20are%20pitching%20AI%20to%20clients%20they%20haven%27t%20restructured%20their%20own%20delivery%20around.%20IBM%20just%20certified%20thousands%20of%20consultants%20on%20a%20specific%20platform%20and%20baked%20GPT-5.6%20into%20every%20engagement.%20The%20gap%20between%20those%20two%20things%20is%20widening%20fast."
       angle_type: "provocative"
-    - text: "The first question every enterprise client I talk to asks about Texas AI infrastructure is \"how fast can we get power?\" The correct question is now \"can we get approved at all?\" That shift happened last week."
-      supporting_url: null
-      intent_url: "https://twitter.com/intent/tweet?text=The%20first%20question%20every%20enterprise%20client%20I%20talk%20to%20asks%20about%20Texas%20AI%20infrastructure%20is%20%22how%20fast%20can%20we%20get%20power%3F%22%20The%20correct%20question%20is%20now%20%22can%20we%20get%20approved%20at%20all%3F%22%20That%20shift%20happened%20last%20week."
-      angle_type: "practitioner"
-    - text: "If 474 GW of requests are in the Texas grid queue and record peak demand is ~85 GW, what's the realistic probability that your data center project gets approved on its original timeline?"
-      supporting_url: null
-      intent_url: "https://twitter.com/intent/tweet?text=If%20474%20GW%20of%20requests%20are%20in%20the%20Texas%20grid%20queue%20and%20record%20peak%20demand%20is%20~85%20GW%2C%20what%27s%20the%20realistic%20probability%20that%20your%20data%20center%20project%20gets%20approved%20on%20its%20original%20timeline%3F"
-      angle_type: "question"
-    - text: "The Texas grid queue is 5x the state's peak demand. Abbott's moratorium affects every project that hadn't already committed to comply. The ones that moved fastest got to keep moving. Everyone else is behind an audit."
-      supporting_url: "https://techcrunch.com/2026/08/04/texas-halts-new-data-centers-as-governor-calls-for-audits/"
-      intent_url: "https://twitter.com/intent/tweet?text=The%20Texas%20grid%20queue%20is%205x%20the%20state%27s%20peak%20demand.%20Abbott%27s%20moratorium%20affects%20every%20project%20that%20hadn%27t%20already%20committed%20to%20comply.%20The%20ones%20that%20moved%20fastest%20got%20to%20keep%20moving.%20Everyone%20else%20is%20behind%20an%20audit.&url=https%3A%2F%2Ftechcrunch.com%2F2026%2F08%2F04%2Ftexas-halts-new-data-centers-as-governor-calls-for-audits%2F"
+    - text: "San Marcos is the first Texas city to ban data centers. Austin-area residents have an organized coalition pushing for more. The Abbott audit created state compliance clarity. It also gave local governments a reason to go further. That second part wasn't in the playbook."
+      supporting_url: "https://www.keranews.org/texas-news/2026-08-19/austin-tx-texas-data-centers-regulations-greg-abbott"
       angle_type: "data"
-    - text: "The agent identity problem assumes you know which agents are running. Most enterprises don't. 96% are using AI agents. 38% mix custom-built and pre-built in the same environment. Before you govern access, you need a list. Most orgs don't have one."
-      supporting_url: "https://www.outsystems.com/news/enterprise-ai-agent-report-2026/"
-      intent_url: "https://twitter.com/intent/tweet?text=The%20agent%20identity%20problem%20assumes%20you%20know%20which%20agents%20are%20running.%20Most%20enterprises%20don%27t.%2096%25%20are%20using%20AI%20agents.%2038%25%20mix%20custom-built%20and%20pre-built%20in%20the%20same%20environment.%20Before%20you%20govern%20access%2C%20you%20need%20a%20list.%20Most%20orgs%20don%27t%20have%20one.&url=https%3A%2F%2Fwww.outsystems.com%2Fnews%2Fenterprise-ai-agent-report-2026%2F"
-      angle_type: "data"
-    - text: "We've been asking clients to build agent identity governance for six months. The first thing we find in almost every engagement: there's no inventory. Teams built agents independently, vendors pre-loaded them, automations spun them up as features. Nobody registered any of it."
+    - text: "A state senator is already threatening to challenge San Marcos' data center ban on legal authority grounds. So the answer to 'can we build here?' in Texas is now: state says comply, city says no, courts TBD. That's a new kind of infrastructure risk."
       supporting_url: null
-      intent_url: "https://twitter.com/intent/tweet?text=We%27ve%20been%20asking%20clients%20to%20build%20agent%20identity%20governance%20for%20six%20months.%20The%20first%20thing%20we%20find%20in%20almost%20every%20engagement%3A%20there%27s%20no%20inventory.%20Teams%20built%20agents%20independently%2C%20vendors%20pre-loaded%20them%2C%20automations%20spun%20them%20up%20as%20features.%20Nobody%20registered%20any%20of%20it."
       angle_type: "practitioner"
-    - text: "When something goes wrong with an AI agent in your environment, who is responsible? Not abstractly -- specifically, who gets paged? If you can't answer that by name, the governance conversation hasn't started yet."
-      supporting_url: null
-      intent_url: "https://twitter.com/intent/tweet?text=When%20something%20goes%20wrong%20with%20an%20AI%20agent%20in%20your%20environment%2C%20who%20is%20responsible%3F%20Not%20abstractly%20--%20specifically%2C%20who%20gets%20paged%3F%20If%20you%20can%27t%20answer%20that%20by%20name%2C%20the%20governance%20conversation%20hasn%27t%20started%20yet."
-      angle_type: "question"
-    - text: "The EU AI Act's high-risk enforcement started August 2. Most US companies with EU operations haven't finished compliance programs. The firms that can demonstrate delivery-layer governance have a real differentiator right now."
-      supporting_url: "https://www.hklaw.com/en/insights/publications/2026/04/us-companies-face-eu-ai-acts-possible-august-2026-compliance-deadline"
-      intent_url: "https://twitter.com/intent/tweet?text=The%20EU%20AI%20Act%27s%20high-risk%20enforcement%20started%20August%202.%20Most%20US%20companies%20with%20EU%20operations%20haven%27t%20finished%20compliance%20programs.%20The%20firms%20that%20can%20demonstrate%20delivery-layer%20governance%20have%20a%20real%20differentiator%20right%20now.&url=https%3A%2F%2Fwww.hklaw.com%2Fen%2Finsights%2Fpublications%2F2026%2F04%2Fus-companies-face-eu-ai-acts-possible-august-2026-compliance-deadline"
+    - text: "88% of organizations confirmed or suspected a security incident involving AI agents this year. 86% don't enforce access policies for AI identities. A $1.1B company now exists specifically to close that gap. How is that not your board's next agenda item?"
+      supporting_url: "https://www.obsidiansecurity.com/news/unlocking-ai-potential-securely"
       angle_type: "provocative"
-    - text: "Every consulting firm has an AI strategy. The ones building an actual competitive position are embedding engineers at client sites, not presenting slide decks about AI transformation. The slide deck era is over."
+    - text: "The EU AI Act's high-risk enforcement kicked in August 2. 78% of organizations haven't taken meaningful compliance steps. First-year compliance costs run $8M to $15M for large enterprises. The clients who waited are now paying a premium for urgency."
       supporting_url: null
-      intent_url: "https://twitter.com/intent/tweet?text=Every%20consulting%20firm%20has%20an%20AI%20strategy.%20The%20ones%20building%20an%20actual%20competitive%20position%20are%20embedding%20engineers%20at%20client%20sites%2C%20not%20presenting%20slide%20decks%20about%20AI%20transformation.%20The%20slide%20deck%20era%20is%20over."
+      angle_type: "data"
+    - text: "What does it mean when the world's largest cost-delivery IT firm decides client-embedded engineers are how it defends revenue? It means the FDE model isn't a boutique differentiator anymore. It's the table stakes answer to the question 'what do you actually do?'"
+      supporting_url: null
+      angle_type: "question"
+    - text: "I'm talking to clients every week who still think AI agent governance is a future-state problem. Obsidian Security just raised $85M because it isn't. The market priced the gap. The clients who ignore it are running open positions in their risk register right now."
+      supporting_url: null
+      angle_type: "practitioner"
+    - text: "San Marcos banned data centers. Austin residents want bans. The state may preempt both. In six months, Texas went from 'epicenter of AI development' to a three-way jurisdictional fight over who controls the land. What's your site selection process accounting for?"
+      supporting_url: null
+      angle_type: "question"
+    - text: "The EU AI Act compliance gap is a near-term consulting revenue story that most firms are underselling. 78% of enterprises aren't compliant. The deadline passed. The fines go up to 7% of global revenue. This isn't a risk advisory conversation -- it's a fire drill."
+      supporting_url: null
       angle_type: "provocative"

@@ -58,3 +58,18 @@ profile:
     - "Leadership, EOS/Traction, building durable orgs"
   voice_ref: "identity/VOICE.md"
   blog_style_ref: "reference/blog-ideas.md"
+
+content_steering:
+  # David's direction on theme selection — read during weekly-step-01 delta check.
+  # Updated 2026-08-20 by David.
+  avoid_repetition:
+    - "Texas AI infrastructure, data center policy, grid regulation — covered extensively W28-W34b. Only surface if genuinely new argument, not new data."
+    - "FDE / forward deployed engineers / big consulting firm delivery model restructuring — covered W27-W34b. Skip unless a structurally different angle emerges (not another firm joining the wave)."
+  push_toward:
+    - "Leadership, org design, and how humans build durable things in an AI-accelerated world"
+    - "Unexpected or counterintuitive AI adoption stories — verticals, company sizes, or use cases not yet covered"
+    - "The human side of AI transformation: culture, trust, adoption failure, what actually changes inside a team"
+    - "EOS/Traction, execution discipline, and what separates firms that run well from firms that don't"
+    - "Regional business stories beyond Texas infrastructure — DFW economy, talent, sectors beyond data centers"
+    - "AI and professional identity: what it means to be an expert, a consultant, a leader when AI compresses information asymmetry"
+  note: "David asked on 2026-08-20 for themes to diverge significantly from the running Texas/FDE/consulting topics that have dominated the past two months. Push into fresher territory."

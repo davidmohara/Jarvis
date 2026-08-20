@@ -1,0 +1,97 @@
+{
+  "id": "eval-20260820T191759-4LTRTD",
+  "agent_id": "a02e8a97f569f9852",
+  "type": "agent",
+  "name": "claude-code-guide",
+  "agent": "claude-code-guide",
+  "session_id": "session-2026-08-12-091944",
+  "trigger": "unknown",
+  "started": "2026-08-20T19:17:59.973295Z",
+  "completed": null,
+  "duration_seconds": null,
+  "status": "in-progress",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": null,
+      "all_steps_finished": null,
+      "tool_failures": 7,
+      "error_ids": [],
+      "tool_failure_log": [
+        {
+          "tool": "Bash",
+          "error": "Exit code 1\nls: systems/eval-harness/vendor/yaml/LICENSE: No such file or directory\nhead: systems/eval-harness/vendor/yaml/LICENSE: No such file or directory",
+          "duration_ms": 45,
+          "timestamp": "2026-08-20T14:40:38.912149"
+        },
+        {
+          "tool": "Bash",
+          "error": "Exit code 1\nloaded from: /Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/systems/eval-harness/vendor/yaml/__init__.py\nwith_libyaml (expected False, no .so vendored): False\nTraceback (most recent call last):\n  File \"<stdin>\", line 12, in <module>\n  File \"/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/systems/eval-harness/vendor/yaml/__init__.py\", line 125, in safe_load\n    return load(stream, SafeLoader)\n  File \"/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/systems/eval-harness/vendor/yaml/__init__.py\", line 81, in load\n    return loader.get_single_data()\n           ~~~~~~~~~~~~~~~~~~~~~~^^\n  File \"/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/systems/eval-harness/vendor/yaml/constructor.py\", line 49, in get_single_data\n    node = self.get_single_node()\n  File \"/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/systems/eval-harness/vendor/yaml/composer.py\", line 41, in get_single_node\n    raise ComposerError(\"expected a single document in the stream\",\n            document.start_mark, \"but found another document\",\n            event.start_mark)\nyaml.composer.ComposerError: expected a single document in the stream\n  in \"<unicode string>\", line 2, column 1:\n    workflow: shutdown-cleanup\n    ^\nbut found another document\n  in \"<unicode string>\", line 38, column 1:\n    ---\n    ^",
+          "duration_ms": 106,
+          "timestamp": "2026-08-20T14:40:56.935042"
+        },
+        {
+          "tool": "Bash",
+          "error": "Exit code 1\n    references in docs). Staged and committed 134 files via Desktop\n    Commander host process (git skill atomic-command rule). Not pushed\n    (not requested). Working memory written:\n    memory/working/shutdown-cleanup-2026-08-07-162834.md.\n---\n=== does real installed pyyaml also fail on this? ===\nTraceback (most recent call last):\n  File \"<string>\", line 3, in <module>\n    data = yaml.safe_load(open('workflows/shutdown-cleanup/state.yaml').read())\n  File \"/Users/davidohara/Library/Python/3.14/lib/python/site-packages/yaml/__init__.py\", line 125, in safe_load\n    return load(stream, SafeLoader)\n  File \"/Users/davidohara/Library/Python/3.14/lib/python/site-packages/yaml/__init__.py\", line 81, in load\n    return loader.get_single_data()\n           ~~~~~~~~~~~~~~~~~~~~~~^^\n  File \"/Users/davidohara/Library/Python/3.14/lib/python/site-packages/yaml/constructor.py\", line 49, in get_single_data\n    node = self.get_single_node()\n  File \"/Users/davidohara/Library/Python/3.14/lib/python/site-packages/yaml/composer.py\", line 41, in get_single_node\n    raise ComposerError(\"expected a single document in the stream\",\n            document.start_mark, \"but found another document\",\n            event.start_mark)\nyaml.composer.ComposerError: expected a single document in the stream\n  in \"<unicode string>\", line 2, column 1:\n    workflow: shutdown-cleanup\n    ^\nbut found another document\n  in \"<unicode string>\", line 38, column 1:\n    ---\n    ^",
+          "duration_ms": 79,
+          "timestamp": "2026-08-20T14:41:20.077111"
+        },
+        {
+          "tool": "Bash",
+          "error": "Exit code 1\nCOMPILE_OK\nTraceback (most recent call last):\n  File \"/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/systems/eval-harness/version-trend.py\", line 189, in <module>\n    main()\n    ~~~~^^\n  File \"/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/systems/eval-harness/version-trend.py\", line 180, in main\n    summaries = [summarize_bucket(b) for b in buckets]\n                 ~~~~~~~~~~~~~~~~^^^\n  File \"/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/systems/eval-harness/version-trend.py\", line 101, in summarize_bucket\n    token_values = [t for t in (total_tokens(r) for r in records) if t is not None]\n                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/systems/eval-harness/version-trend.py\", line 101, in <genexpr>\n    token_values = [t for t in (total_tokens(r) for r in records) if t is not None]\n                                ~~~~~~~~~~~~^^^\n  File \"/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/systems/eval-harness/version-trend.py\", line 58, in total_tokens\n    ti = step.get(\"tokens_input\")\n         ^^^^^^^^\nAttributeError: 'str' object has no attribute 'get'",
+          "duration_ms": 5502,
+          "timestamp": "2026-08-20T16:03:20.493010"
+        },
+        {
+          "tool": "Bash",
+          "error": "Exit code 1\nls: /Users/davidohara/develop/jarvis: No such file or directory\n---\nls: /Users/davidohara/develop/jarvis/workflows/dream-cycle/orchestrate.py: No such file or directory\n---is it the same file (same repo) as the OneDrive copy?---\ndiff: /Users/davidohara/develop/jarvis/workflows/dream-cycle/orchestrate.py: No such file or directory\n---git remotes for jarvis---",
+          "duration_ms": 61,
+          "timestamp": "2026-08-20T16:40:19.121918"
+        },
+        {
+          "tool": "Bash",
+          "error": "Exit code 1\nScanned 8 files, found 5 candidates:\n  old-low-score-1.md\n  old-low-score-2.md\n  old-low-score-3.md\n  old-low-score-4.md\n  old-low-score-5.md\n\n[PASS] Candidate detection correctly excluded promoted, high-score, and recent entries\n\nGuardrail: {'result': 'escalate', 'reason': '5/8 episodic entries (62%) are compression candidates \u2014 anomalously high for a 90-day-age filter'}\nTraceback (most recent call last):\n  File \"<stdin>\", line 45, in <module>\nAssertionError: expected guardrail to pass on a clean candidate set",
+          "duration_ms": 133,
+          "timestamp": "2026-08-20T16:54:39.162794"
+        },
+        {
+          "tool": "Bash",
+          "error": "Exit code 1\nTraceback (most recent call last):\n  File \"<stdin>\", line 28, in <module>\n  File \"/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/workflows/dream-cycle/orchestrate.py\", line 339, in compress_episodic_entries\n    os.makedirs(DIGESTS_DIR, exist_ok=True)\n    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<frozen os>\", line 236, in makedirs\nFileExistsError: [Errno 17] File exists: '/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/5dcfee22-ff31-47ff-a35c-90ecbfbf17fb/scratchpad/dc-test2/episodic/digests'",
+          "duration_ms": 85,
+          "timestamp": "2026-08-20T16:55:10.802603"
+        }
+      ]
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": []
+}

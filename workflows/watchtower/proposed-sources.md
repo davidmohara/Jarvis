@@ -20,6 +20,14 @@ This file is the only path to `sources.yaml`. Watchtower's weekly run appends ne
 |------|-----|-----|-------|-------|--------------|--------|
 -->
 
+### Batch 9 — Weekly Run (2026-08-20)
+
+| Name | URL | RSS | Topic | Trust | Why Relevant | Status |
+|------|-----|-----|-------|-------|--------------|--------|
+| The EU AI Act Newsletter | https://artificialintelligenceact.substack.com | https://artificialintelligenceact.substack.com/feed | ai-agentic | high | Biweekly newsletter by the Future of Life Institute tracking EU AI Act enforcement, compliance developments, and regulatory interpretations. Published issue #108 on "Enforcement Begins" covering the Aug 2 high-risk AI deadline. The EU AI Act compliance gap is now an active near-term consulting revenue story for US enterprises with EU operations. No regulatory-tracking source currently in registry. | skipped |
+| Texas Impact | https://texasimpact.substack.com | https://texasimpact.substack.com/feed | texas-regional | med | Municipal-level Texas infrastructure and policy advocacy newsletter. Published "Data Center Deluge" covering city council opposition to data center development. Fills the city-level Texas policy gap that Texas Tribune covers only at the state level. Directly relevant to this week's San Marcos ban and Austin-area municipal resistance story. | skipped |
+| Responsible AI Labs | https://responsibleailabs.ai | https://responsibleailabs.ai/feed | ai-agentic | high | Published the EU AI Act August 2026 compliance countdown and maintains a knowledge hub on AI governance frameworks. Practitioner-focused, not vendor-affiliated. Covers the intersection of regulatory compliance and enterprise AI deployment at a level of specificity no current registry source matches for governance-adjacent consulting. RSS feed unverified -- confirm on first run. | skipped |
+
 ### Batch 8 — Weekly Run (2026-08-17)
 
 | Name | URL | RSS | Topic | Trust | Why Relevant | Status |

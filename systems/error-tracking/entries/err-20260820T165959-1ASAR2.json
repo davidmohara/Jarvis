@@ -1,0 +1,15 @@
+{
+  "id": "err-20260820T165959-1ASAR2",
+  "timestamp": "2026-08-20T16:59:59Z",
+  "session": "2026-08-20",
+  "source": "explicit",
+  "agent": "knox",
+  "category": "tool-misuse",
+  "description": "When asked to post Obsidian draft notes to Slack #content, agent reported no Slack MCP was available and fell back to pasting formatted content in chat. The master-slack skill exists for exactly this purpose and should have been read and invoked instead of searching for a Slack MCP connector.",
+  "correction": "When David says 'post to Slack', always read and invoke skills/master-slack/SKILL.md first. Do not search for a Slack MCP connector as the primary path. The master-slack skill is the authorized path for all Slack posts.",
+  "failure_mode": "tool-ignorance",
+  "systemic_fix": "Update weekly-step-06-publish-drafts.md to explicitly state: read skills/master-slack/SKILL.md before any Slack post attempt. No ToolSearch for Slack MCP — use the skill.",
+  "fix_status": "applied",
+  "severity": "moderate",
+  "related_entries": []
+}

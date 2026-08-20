@@ -2,9 +2,10 @@
   "skill": "revenue-tracker",
   "agent": "chase",
   "trigger": "scheduled",
-  "started": "2026-08-10T00:00:00Z",
-  "completed": "2026-08-10T00:15:00Z",
-  "status": "success",
-  "tool_failures": 0,
-  "error_ids": []
+  "started": "2026-08-20T00:00:00Z",
+  "completed": "2026-08-20T00:15:32Z",
+  "status": "partial",
+  "tool_failures": 1,
+  "error_ids": [],
+  "notes": "PowerBI Financial Outlook URL returned redirect to Partner Pipeline report; cache used instead. August 10 snapshot within 30-day freshness window. July 2026 actuals reported. Recommend PowerBI URL validation and manual August verification when accessible."
 }

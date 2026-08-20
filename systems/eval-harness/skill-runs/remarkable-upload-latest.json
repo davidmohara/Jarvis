@@ -1,10 +1,11 @@
 {
   "skill": "remarkable-upload",
-  "agent": "master",
+  "agent": "Jarvis",
   "trigger": "manual",
-  "started": "2026-08-05T13:00:00-05:00",
-  "completed": "2026-08-05T13:05:00-05:00",
+  "started": "2026-08-20T17:56:30Z",
+  "completed": "2026-08-20T18:03:00Z",
   "status": "success",
   "tool_failures": 0,
-  "error_ids": []
+  "error_ids": ["err-20260820T175611-MR3883"],
+  "notes": "Upload succeeded after building rmapi from ddvk/rmapi#77 (merged 2026-08-18). Root cause: reMarkable cloud began requiring root index sorted by document ID on 2026-08-17; rmapi v0.0.34 serialized in slice order. Patched binary installed at /opt/homebrew/bin/rmapi (backup at rmapi.v0.0.34.bak). File landed at /Improving/Podcast/Episode 13 - Kapil Dabi Prep Sheet."
 }

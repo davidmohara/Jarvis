@@ -1,0 +1,15 @@
+{
+  "id": "err-20260820T175611-MR3883",
+  "timestamp": "2026-08-20T17:56:11Z",
+  "session": "2026-08-20",
+  "source": "explicit",
+  "agent": "Jarvis",
+  "category": "tool-misuse",
+  "description": "When rmapi upload failed and .rmapi config was missing, told David to manually re-register rmapi from a terminal instead of reading and following the remarkable-upload skill. The skill has an explicit protocol for handling corrupted or missing .rmapi config (delete-and-retry, and if re-registration is required, report that clearly). Should have invoked the skill from the start rather than attempting raw osascript rmapi calls and then punting re-registration to the user.",
+  "correction": "Read IES/.claude/skills/remarkable-upload/SKILL.md first. Follow its pre-push checklist and Corrupted rmapi Config recovery section. The skill defines exactly how to handle a missing .rmapi file — delete and retry, and if interactive re-registration is needed, say so with that framing, not a generic 'you need to re-register.'",
+  "failure_mode": "protocol-skip",
+  "systemic_fix": "Always read the remarkable-upload skill before any rmapi operation. Do not attempt raw rmapi osascript calls outside the skill. The CLAUDE.md already says 'read the skill first' — enforce it.",
+  "fix_status": "proposed",
+  "severity": "moderate",
+  "related_entries": []
+}

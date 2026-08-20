@@ -1,0 +1,59 @@
+{
+  "id": "eval-20260820T220505-FINGK8",
+  "agent_id": "a43c40ef7d0487df4",
+  "type": "agent",
+  "name": "general-purpose",
+  "agent": "general-purpose",
+  "session_id": "session-2026-08-12-091944",
+  "trigger": "unknown",
+  "started": "2026-08-20T22:05:05.807831Z",
+  "completed": "2026-08-20T22:07:46.926359Z",
+  "duration_seconds": 161.12,
+  "status": "success",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/5dcfee22-ff31-47ff-a35c-90ecbfbf17fb/subagents/agent-a43c40ef7d0487df4.jsonl",
+  "last_assistant_message": "No code bugs there, purely doc/config. I have enough to finalize findings.\n\n## Findings\n\n```json\n[\n  {\n    \"file\": \"workflows/dream-cycle/steps/step-03-semantic-promotion.md\",\n    \"line\": 105,\n    \"summary\": \"Step instructs setting state.yaml current-step to step-04 directly, skipping the newly-inserted step-03b-guardrail-checkpoint that the workflow map and NEXT STEP link now point to.\",\n    \"failure_scenario\": \"Dream cycle runs step-03, sets current-step: step-04 in state.yaml per this instruction, then the session is interrupted before step-04 (irreversible episodic deletion) actually runs. On resume, the workflow reads current-step: step-04 and jumps straight into deletion, bypassing the pre-deletion guardrail checkpoint entirely \u2014 the exact scenario the guardrail was added to prevent.\"\n  },\n  {\n    \"file\": \"workflows/system-eval/steps/step-03-grade.md\",\n    \"line\": 157,\n    \"summary\": \"Step instructs setting state.yaml current-step to step-04-score, but this step's own NEXT STEP link (and workflow.md's table) now route to step-03b-guardrail-checkpoint first.\",\n    \"failure_scenario\": \"system-eval runs step-03, writes current-step: step-04-score to state.yaml, then the session ends. On resume, the workflow reads current-step: step-04-score and skips step-03b's adversarial review of the grades entirely, so composite scoring in step-04 proceeds on ungated grades.\"\n  }\n]\n```\n\nBoth findings are the same class of bug, introduced consistently by this diff's guardrail-checkpoint insertion (verified against `daily-review` and `morning-briefing`, which don't track `current-step` in state.yaml and so aren't affected). I checked the actual `step-03b-guardrail-checkpoint.md` files for both workflows and confirmed neither sets `current-step` itself, so nothing downstream corrects the value written by step-03. No other correctness bugs survived verification in the reviewed diff \u2014 the token-usage/pricing plumbing (`token_usage.py`, `record-step.py`, the two hooks' vendored-yaml import and `extract_frontmatter_block` helper), `guardrail-checkpoint.py`, and `dream-cycle/orchestrate.py`'s new compression/guardrail logic all checked out against their call sites and assertion files. One cleanup item worth a follow-up (not included above per the 8-bug cap and lower severity): `systems/eval-harness/record-step.py` lines 89-90 compute `positional` via a list comprehension that's immediately discarded and recomputed by the loop right after \u2014 dead code that should be deleted.",
+  "model": "sonnet",
+  "total_tokens_input": 1852877,
+  "total_tokens_output": 1133,
+  "total_cost_usd": 0.923054
+}

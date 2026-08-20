@@ -1,17 +1,17 @@
 ---
 status: complete
-started-at: "2026-08-17T07:20:00Z"
-completed-at: "2026-08-17T07:35:00Z"
+started-at: "2026-08-20T07:25:00Z"
+completed-at: "2026-08-20T07:40:00Z"
 outputs:
   themes_processed: 3
   drafts_created: 3
   draft_paths:
-    - "workflows/watchtower/fallback/drafts/_ibm-just-showed-what-restructuring-looks-like.md"
-    - "workflows/watchtower/fallback/drafts/_texas-moved-from-build-anything-to-comply-or-pause.md"
-    - "workflows/watchtower/fallback/drafts/_agent-sprawl-is-the-operational-layer.md"
+    - "Mind/Posts/_fde-table-stakes-now-what.md"
+    - "Mind/Posts/_texas-has-a-state-problem-and-a-city-problem.md"
+    - "Mind/Posts/_the-market-valued-the-agent-security-gap.md"
   blog_ideas_appended: 3
-  obsidian_unavailable: true
-  fallback_used: "workflows/watchtower/fallback/drafts/"
+  obsidian_unavailable: false
+  fallback_used: null
 ---
 
 <!-- system:start -->

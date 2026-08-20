@@ -6,9 +6,13 @@ model: sonnet
 ---
 
 <!-- system:start -->
+## ⚠️ ROUTING RULE — READ THIS FIRST
+
+**When David says anything involving "post to Slack", "send to Slack", "put [X] in the Slack [channel]", or any variation — read and use THIS SKILL. Do NOT search for a Slack MCP connector. No Slack MCP is used or needed. All Slack posts go through `systems/slack-bot/post.py` via Desktop Commander.** This applies to every agent and every workflow. No exceptions.
+
 ## Trigger Phrases
 
-- "send report", "notify David", "post to Slack", "send to #jarvis"
+- "send report", "notify David", "post to Slack", "send to #jarvis", "put [X] in Slack", "post to #[channel]", "send to #[channel]"
 - Automatically invoked at the end of any scheduled task that produces output David needs to see
 - Any agent can invoke this skill when it has a deliverable ready
 
@@ -47,6 +51,7 @@ Use Option 2 or 3 when executing from scheduled tasks, agents, or non-interactiv
 | Target | Channel ID | When to Use |
 |--------|-----------|-------------|
 | #jarvis | C0AN2PQNXBR | Default — briefings, reports, scheduled task output, alerts |
+| #content | C0B160MA3EK | Content drafts for Ghost — Watchtower blog post drafts, any draft ready for publishing pipeline |
 | #golf | C0B15SW9FB5 | Golf tee time previews, booking confirmations |
 | DM to David | U0ANHV5UXEW | Urgent or private — overdue items, time-sensitive decisions |
 
