@@ -1,14 +1,14 @@
 ---
 status: complete
 started-at: 2026-08-20T06:37:00Z
-completed-at: 2026-08-20T06:37:30Z
+completed-at: 2026-08-20T06:43:30Z
 outputs:
-  messages_scanned: 0
+  messages_scanned: 2
   new_urls: 0
-  new_digests: 0
-  posts_drafted: 0
+  new_digests: 2
+  posts_drafted: 2
   editorial_feedback: 0
   pending_threads_checked: 8
-  outcome: "No new messages in #content in the last 24 hours. All 8 pending threads checked — no editorial feedback. Notified #content: no new URLs or digests."
+  outcome: "Drafted 2 posts from Watchtower digests posted 2026-08-18 (outside 24h window, caught on 168h retry). Ghost IDs: 6a86e7fec0a498028c7e8aef ('You Can't Govern an Inventory You Don't Know You Have'), 6a86e816c0a498028c7e8af7 ('IBM Just Showed What Delivery Restructuring Actually Looks Like'). Both notified in #content. Images used as external Unsplash URLs (CDN upload failed). All 8 pending threads checked — no editorial feedback. Root cause: 24h window missed digests posted ~48h ago; fixed by 168h fallback scan."
 model: sonnet
 ---

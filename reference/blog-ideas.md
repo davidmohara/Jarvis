@@ -66,9 +66,9 @@ Running list of potential blog topics. Jarvis captures these proactively from co
 | "The Rate Case Decides Your AI Bill" | Content pipeline (2026-08-13) | business, technology, systems thinking | Ghost draft — pending approval. Ghost ID: 6a7da68dc0a498028c7e8abd |
 | "The Line at the Hedge" | Content pipeline (2026-08-14) | health, thoughts, life | Ghost draft — pending approval. Ghost ID: 6a7ef825c0a498028c7e8ace |
 
-| "IBM Just Showed What Delivery Restructuring Actually Looks Like" | Watchtower W34 (2026-08-17) [watchtower] | consulting, AI, delivery, leadership | Draft at `Mind/Posts/_ibm-just-showed-what-restructuring-looks-like.md` |
+| "IBM Just Showed What Delivery Restructuring Actually Looks Like" | Content pipeline (2026-08-20) | leadership, business, AI | Ghost draft — pending approval. Ghost ID: 6a86e816c0a498028c7e8af7 |
 | "Texas Moved from Build-Anything to Comply-or-Pause" | Watchtower W34 (2026-08-17) [watchtower] | texas, AI, infrastructure, policy, business | Draft at `Mind/Posts/_texas-moved-from-build-anything-to-comply-or-pause.md` |
-| "You Can't Govern an Inventory You Don't Know You Have" | Watchtower W34 (2026-08-17) [watchtower] | AI, security, agentic, governance, business | Draft at `Mind/Posts/_agent-sprawl-is-the-operational-layer.md` |
+| "You Can't Govern an Inventory You Don't Know You Have" | Content pipeline (2026-08-20) | systems thinking, AI, leadership | Ghost draft — pending approval. Ghost ID: 6a86e7fec0a498028c7e8aef |
 
 ## Published (for reference / avoid repeats)
 
