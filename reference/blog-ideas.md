@@ -69,6 +69,8 @@ Running list of potential blog topics. Jarvis captures these proactively from co
 | "IBM Just Showed What Delivery Restructuring Actually Looks Like" | Content pipeline (2026-08-20) | leadership, business, AI | Ghost draft — pending approval. Ghost ID: 6a86e816c0a498028c7e8af7 |
 | "Texas Moved from Build-Anything to Comply-or-Pause" | Watchtower W34 (2026-08-17) [watchtower] | texas, AI, infrastructure, policy, business | Draft at `Mind/Posts/_texas-moved-from-build-anything-to-comply-or-pause.md` |
 | "You Can't Govern an Inventory You Don't Know You Have" | Content pipeline (2026-08-20) | systems thinking, AI, leadership | Ghost draft — pending approval. Ghost ID: 6a86e7fec0a498028c7e8aef |
+| "The FDE Model Has Become Table Stakes. Now What?" | Content pipeline (2026-08-20) | business, leadership | Ghost draft — pending approval. Ghost ID: 6a875157c0a498028c7e8b0b |
+| "The Market Just Valued the Agent Security Gap at $1.1 Billion" | Content pipeline (2026-08-20) | AI, leadership, technology | Ghost draft — pending approval. Ghost ID: 6a875157c0a498028c7e8b12 |
 
 ## Published (for reference / avoid repeats)
 
