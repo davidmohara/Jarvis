@@ -1,0 +1,17 @@
+{
+  "id": "err-20260820T000000-GOLF01",
+  "timestamp": "2026-08-20T00:15:00Z",
+  "agent": "sterling",
+  "skill": "golf-preview",
+  "error_type": "calculation_error",
+  "severity": "high",
+  "description": "Day-of-week calculation error in target weekend derivation. Calculated target Friday as Aug 29 when correct target is Aug 28 (8 days from today Wed Aug 20). Error propagated to Saturday (29→29) and Sunday (30→30).",
+  "root_cause": "Incorrect day-of-week conversion. Today is Wednesday (index 3, not 2). Formula (4-2)%7=2 is wrong; should be (4-3)%7=1.",
+  "impact": "preview-output.json contains wrong dates (Aug 29–31 instead of Aug 28–30). Phase 2 booking skill will attempt to book wrong weekend if not corrected.",
+  "correction_made": true,
+  "correction_details": "Updated preview-output.json with correct dates: Friday 2026-08-28, Saturday 2026-08-29, Sunday 2026-08-30. Updated skill logic to validate day-of-week explicitly before proceeding.",
+  "related_files": [
+    "workflows/golf-booking/preview-output.json",
+    "skills/golf-preview/SKILL.md (Step 1a validation added)"
+  ]
+}

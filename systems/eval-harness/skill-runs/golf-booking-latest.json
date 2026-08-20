@@ -2,16 +2,26 @@
   "skill": "golf-booking",
   "agent": "chief",
   "trigger": "scheduled",
-  "started": "2026-08-13T23:01:00Z",
-  "completed": "2026-08-13T23:01:50Z",
-  "status": "success",
-  "outcome": "awaiting-window",
-  "details": "Pre-flight check determined Aug 22 booking date is 9 days ahead (outside 8-day ChronoGolf window). Per MANDATORY EXECUTION RULE #15, no substitute date selected. Slack alert sent. Workflow paused with status=awaiting-window for automatic retry when booking window opens at midnight EST on Aug 14.",
-  "tool_failures": 0,
+  "started": "2026-08-20T04:15:30Z",
+  "completed": "2026-08-20T04:16:45Z",
+  "status": "partial",
+  "outcome": "infrastructure-blocker",
+  "details": "Pre-flight checks passed (Aug 29 is within 8-day booking window; calendar clear; preview output valid). Booking window is OPEN and READY. However, workflow execution blocked by infrastructure limitation: Chrome browser automation unavailable in Linux sandbox environment. Scheduled tasks cannot access Chrome on user's Mac. Browser-dependent workflow (Steps 2–7: login, date selection, booking, visual verification) cannot proceed. No booking attempted. Fallback documentation created in memory/working/. Recommend: run in interactive session on Mac, or implement API-based booking.",
+  "tool_failures": 1,
+  "failure_details": "Chrome launch failed — mcp__Control_Chrome__open_url requires live Chrome instance on macOS; sandbox environment cannot access user's Mac Chrome",
   "error_ids": [],
-  "slack_notification": {
-    "ok": true,
-    "channel": "C0AN2PQNXBR",
-    "ts": "1786680105.740129"
-  }
+  "execution_summary": {
+    "pre_flight_status": "PASSED",
+    "booking_window": "OPEN",
+    "target_date": "2026-08-29",
+    "target_window": "13:00-17:00 CST",
+    "party_size": 4,
+    "course": "Frisco Lakes Golf Club, 18 holes",
+    "cost_total": "$42",
+    "steps_completed": 1,
+    "steps_blocked": 6,
+    "blocker": "browser-automation-unavailable",
+    "reason": "scheduled-task-sandbox-no-chrome-access"
+  },
+  "remediation": "Run booking in interactive Cowork session on David's Mac with Chrome open, or refactor workflow to use ChronoGolf API instead of web UI"
 }

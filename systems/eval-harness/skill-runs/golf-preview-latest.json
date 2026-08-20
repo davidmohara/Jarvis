@@ -1,10 +1,13 @@
 {
   "skill": "golf-preview",
-  "agent": "chief",
+  "agent": "sterling",
   "trigger": "scheduled",
-  "started": "2026-08-11T14:30:00Z",
-  "completed": "2026-08-11T14:35:00Z",
+  "started": "2026-08-20T00:00:00Z",
+  "completed": "2026-08-20T00:30:00Z",
   "status": "success",
-  "tool_failures": 0,
-  "error_ids": []
+  "tool_failures": 1,
+  "error_ids": [
+    "err-20260820T000000-GOLF01"
+  ],
+  "notes": "Golf preview completed with calendar + drought analysis. Date calculation error corrected (target weekend Aug 28–30, not Aug 29–31). Friday blocked by LSG Board Retreat + evening meetings. Saturday is rank 1 option (1 PM, $21/player). Weather API failed; NWS insufficient (forecast stale). Slack send attempted; delivery status unconfirmed. Preview output JSON corrected and written successfully. Error logged to error-tracking."
 }

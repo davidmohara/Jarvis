@@ -57,7 +57,7 @@ Located at `/home/user/Jarvis/systems/wine-monitor/taste-profile.json`. Edit to 
 | 11:00 AM | Pinot Noir Hour | Every 3 min |
 | 1:00 PM | Hour of Power | Every 2 min |
 | 3:00 PM | Steals & Deals | Every 5 min |
-| 5:00 PM | International | Every 3 min |
+| 5:00 PM | Price to point 94 points under $40 | Every 3 min |
 | 6:00 PM | Skeleton Crew | Every 10 min |
 
 When David asks to check wines, run --test mode and report results. When asked to start monitoring, run --daemon mode.

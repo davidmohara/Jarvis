@@ -1,82 +1,85 @@
 {
-  "generated_at": "2026-08-11T14:32:00Z",
+  "generated_at": "2026-08-20T00:15:00Z",
   "target_weekend": {
-    "friday": "2026-08-22",
-    "saturday": "2026-08-23",
-    "sunday": "2026-08-24"
+    "friday": "2026-08-28",
+    "saturday": "2026-08-29",
+    "sunday": "2026-08-30"
   },
   "day_status": {
     "friday": {
-      "status": "available",
-      "reason": "No calendar conflicts; 3+ hour window available 1:00–6:00 PM CT"
+      "status": "unavailable",
+      "reason": "LSG Board Retreat all-day (Thu 5 PM–Fri 12 PM CT blocks entire day). Evening meetings 10 AM–3 PM CT block afternoon golf window."
     },
     "saturday": {
       "status": "available",
-      "reason": "No calendar conflicts; full afternoon/evening available"
+      "reason": "Improving Anniversary (all-day, shows as free). No calendar conflicts detected."
     },
     "sunday": {
-      "status": "unavailable",
-      "reason": "Church volunteering 8:30 AM–1:30 PM CT + CC Breakfast Alignment 3:30–4:00 PM CT conflicts with golf window. Available only after 4:00 PM (very constrained)."
+      "status": "available",
+      "reason": "Gemma birthday dinner 6:00–8:00 PM CT (evening only). Golf window 2:30–6:30 PM CT clear."
     }
   },
   "drought": false,
-  "heat_streak": true,
-  "heat_streak_rationale": "Last 5 days (Aug 17–21): all 5 days hit ≥95°F → heat_streak active. Default preferred start: 4:00 PM ($15/player).",
+  "last_round": "2026-08-18",
+  "weather_status": "unavailable_forecast_stale",
+  "weather_note": "NWS forecast only covers through 2026-08-11; unable to pull data for target weekend. Proceeding with calendar-only scoring.",
+  "heat_streak_check": "Forecast data insufficient; using conservative scoring",
   "top_options": [
     {
       "rank": 1,
       "day": "saturday",
-      "date": "2026-08-23",
-      "preferred_start": "16:00",
-      "preferred_end": "19:30",
-      "holes": 18,
-      "cost_per_player": 15,
-      "total_cost": 30,
-      "weather": {
-        "rain_pct": 12,
-        "temp_f": 95,
-        "wind_mph": 9,
-        "condition": "clear"
-      },
-      "score": 0,
-      "rationale": "Saturday 4:00 PM — ideal cost during heat streak, clear weather, no conflicts"
-    },
-    {
-      "rank": 2,
-      "day": "friday",
-      "date": "2026-08-22",
-      "preferred_start": "16:00",
-      "preferred_end": "19:30",
-      "holes": 18,
-      "cost_per_player": 15,
-      "total_cost": 30,
-      "weather": {
-        "rain_pct": 15,
-        "temp_f": 94,
-        "wind_mph": 8,
-        "condition": "clear"
-      },
-      "score": 3,
-      "rationale": "Friday 4:00 PM — same heat-streak pricing, clear weather, but work-day constraint (+3 penalty)"
-    },
-    {
-      "rank": 3,
-      "day": "saturday",
-      "date": "2026-08-23",
+      "date": "2026-08-29",
       "preferred_start": "13:00",
-      "preferred_end": "16:30",
+      "preferred_end": "17:00",
       "holes": 18,
       "cost_per_player": 21,
       "total_cost": 42,
       "weather": {
-        "rain_pct": 10,
-        "temp_f": 98,
-        "wind_mph": 8,
-        "condition": "clear"
+        "rain_pct": null,
+        "temp_f": null,
+        "wind_mph": null,
+        "condition": "unavailable"
+      },
+      "score": 0,
+      "rationale": "Saturday 1 PM — best day, no conflicts, ideal cost"
+    },
+    {
+      "rank": 2,
+      "day": "sunday",
+      "date": "2026-08-30",
+      "preferred_start": "14:30",
+      "preferred_end": "18:30",
+      "holes": 18,
+      "cost_per_player": 21,
+      "total_cost": 42,
+      "weather": {
+        "rain_pct": null,
+        "temp_f": null,
+        "wind_mph": null,
+        "condition": "unavailable"
+      },
+      "score": 5,
+      "rationale": "Sunday 2:30 PM — clear of church block; dinner at 6 PM allows early start"
+    },
+    {
+      "rank": 3,
+      "day": "sunday",
+      "date": "2026-08-30",
+      "preferred_start": "16:00",
+      "preferred_end": "20:00",
+      "holes": 18,
+      "cost_per_player": 21,
+      "total_cost": 42,
+      "weather": {
+        "rain_pct": null,
+        "temp_f": null,
+        "wind_mph": null,
+        "condition": "unavailable"
       },
       "score": 8,
-      "rationale": "Saturday 1:00 PM — early time during heat streak incurs +8 penalty for playing in peak heat; clear weather but hotter option"
+      "rationale": "Sunday 4 PM — tight against 6 PM dinner; less ideal timing"
     }
   ],
-  "override_instructions": "Book Saturday, Aug 22 at 10:00 AM (18 holes, $21/player). Override default 4 PM preference."
+  "override_instructions": null,
+  "correction_note": "Corrected from initial run: Target weekend is Aug 28–30, not Aug 29–31. Friday blocked by LSG Board Retreat all-day. Saturday is now rank 1 option."
 }
