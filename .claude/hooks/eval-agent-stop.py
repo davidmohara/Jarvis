@@ -438,6 +438,47 @@ def main():
         except Exception as e:
             log_error(f"Failed to compute agent token usage: {e}")
 
+    # Fallback: Estimate cost if no real transcript data available (ensures all evals have cost)
+    if eval_record.get("total_cost_usd") is None:
+        try:
+            # Workflow-specific token estimates
+            workflow_estimates = {
+                "daily-review": {"input": 5000, "output": 2000},
+                "morning-briefing": {"input": 8000, "output": 3000},
+                "general-purpose": {"input": 10000, "output": 4000},
+                "system-eval": {"input": 3000, "output": 1000},
+                "fork": {"input": 5000, "output": 2000},
+                "boot": {"input": 6000, "output": 2500},
+                "plaud-ingest": {"input": 7000, "output": 3000},
+                "watchtower-weekly": {"input": 12000, "output": 5000},
+            }
+
+            # Load pricing
+            pricing_file = IES_ROOT / "systems" / "eval-harness" / "model-pricing.json"
+            pricing = {}
+            if pricing_file.exists():
+                with open(pricing_file) as f:
+                    pricing = json.load(f).get("models", {})
+
+            if pricing:
+                model = eval_record.get("model", "sonnet")
+                if model not in pricing:
+                    model = "sonnet"
+
+                rates = pricing.get(model, {"input_per_mtok": 3.00, "output_per_mtok": 15.00})
+                workflow = eval_record.get("name", "fork")
+                estimate = workflow_estimates.get(workflow, workflow_estimates["fork"])
+
+                input_cost = (estimate["input"] / 1_000_000) * rates.get("input_per_mtok", 3.00)
+                output_cost = (estimate["output"] / 1_000_000) * rates.get("output_per_mtok", 15.00)
+
+                eval_record["total_cost_usd"] = round(input_cost + output_cost, 6)
+                eval_record["cost_estimation_note"] = f"estimated based on {workflow} workflow type"
+                if not eval_record.get("model"):
+                    eval_record["model"] = model
+        except Exception as e:
+            log_error(f"Failed to estimate eval cost: {e}")
+
     # Tier 1: Mechanical Assessment
     # Read existing mechanical state built up by post-tool-use.py and eval-tool-failure.py
     existing_mechanical = eval_record.get("assessment", {}).get("mechanical", {})
