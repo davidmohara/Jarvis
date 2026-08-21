@@ -1,11 +1,11 @@
 ---
 status: complete
-started-at: "2026-07-17T09:15:48-05:00"
-completed-at: "2026-07-17T09:20:00-05:00"
+started-at: "2026-08-21T12:18:18-05:00"
+completed-at: "2026-08-21T12:24:00-05:00"
 outputs:
-  files_loaded: [SYSTEM.md, identity/MEMORY.md, identity/VOICE.md, identity/GOALS_AND_DREAMS.md, identity/RESPONSIBILITIES.md, identity/AUTOMATION.md, identity/MISSION_CONTROL.md, identity/INTEGRATIONS.md, identity/SECURITY.md]
+  files_loaded: [agents/master.md, SYSTEM.md, identity/MEMORY.md, identity/VOICE.md, identity/GOALS_AND_DREAMS.md, identity/RESPONSIBILITIES.md, identity/AUTOMATION.md, identity/MISSION_CONTROL.md, agents/routing.md]
   missing_files: []
-  knox_spawn: "spawned — fire-and-forget with model: haiku, running plaud-ingest workflow in background (agent afe654b5bb6f5e1fd)"
+  knox_spawn: "spawned — fire-and-forget with model: sonnet, running plaud-ingest workflow in background (agent a8cf27a25a0d644a2)"
 ---
 
 <!-- system:start -->

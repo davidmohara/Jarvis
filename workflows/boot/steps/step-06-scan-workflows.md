@@ -1,10 +1,10 @@
 ---
 status: complete
-started-at: "2026-07-22T11:20:00-05:00"
-completed-at: "2026-07-22T11:22:00-05:00"
+started-at: "2026-08-21T13:10:00-05:00"
+completed-at: "2026-08-21T13:11:00-05:00"
 outputs:
   in_flight_workflows: []
-  result: "No in-flight workflows besides boot itself (expected, current run). Flagged for controller attention: shutdown-cleanup blocked at step-04-git-commit since 2026-07-16 (stale FUSE lock, 14 files staged and ready); golf-booking failure on 2026-07-18 (booked before 1:00 PM hard minimum, rule violation, grade F); plaud-ingest aborted 2026-07-15 (missing API token)."
+  result: "workflows/_active.yaml read — active: []. No in-flight workflows besides boot itself (current run). Knox/plaud-ingest was spawned fire-and-forget this session (agent a8cf27a25a0d644a2) and had not yet reported back at this step — not an in-progress workflow entry in the index, just an outstanding background task, noted for the briefing."
 ---
 
 <!-- system:start -->

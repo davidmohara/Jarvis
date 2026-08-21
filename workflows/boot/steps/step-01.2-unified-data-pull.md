@@ -1,12 +1,12 @@
 ---
 status: complete
-started-at: "2026-07-15T09:56:00-05:00"
-completed-at: "2026-07-15T09:58:00-05:00"
+started-at: "2026-08-21T12:24:00-05:00"
+completed-at: "2026-08-21T12:31:00-05:00"
 outputs:
-  email_pull: "completed — 13 messages since Jul 13 (via outlook_email_search, not written to data/ file this run)"
-  omnifocus_pull: "completed — 18 inbox, 1 flagged, 12 overdue"
-  clay_pull: "completed — 0 reminders, birthdays not distinguishable from Clay events API this session"
-  jarvis_inbox_pull: "nothing-to-surface — not checked as separate folder this run"
+  email_pull: "completed — 22 unread/recent Inbox messages (data/email-unified.json). Note: outlook_email_search has no direct isFlagged filter; pulled and manually scanned last 3 days instead."
+  omnifocus_pull: "failed — Desktop Commander / mcp__Control_your_Mac__osascript tool not present in this session's tool set (checked via ToolSearch, genuinely unreachable, not just unmounted). Stale cached data/omnifocus-unified.json exists from 2026-07-17 but is NOT used per live-data-only rule. Flagged in briefing."
+  clay_pull: "completed — 0 reminders, 3 birthdays in next 7 days (data/clay-reminders-unified.json)"
+  jarvis_inbox_pull: "nothing-to-surface — folder search returned empty (data/jarvis-inbox-unified.json)"
 ---
 
 <!-- system:start -->

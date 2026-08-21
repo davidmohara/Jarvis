@@ -481,6 +481,8 @@ def create_eval_record_from_skill_run(skill_run_data: dict, session_id: str):
         if started_raw:
             try:
                 started_dt = datetime.fromisoformat(str(started_raw).replace("Z", "+00:00"))
+                if started_dt.tzinfo is None:
+                    started_dt = started_dt.replace(tzinfo=timezone.utc)
                 started_iso = started_dt.isoformat().replace("+00:00", "Z")
             except ValueError:
                 from datetime import timedelta
@@ -581,10 +583,17 @@ def create_eval_record_from_state(state_data: dict, session_id: str):
         session_started = state_data.get("session-started")
         if session_started:
             try:
-                started_iso = datetime.fromisoformat(
-                    str(session_started).replace("Z", "+00:00")
-                ).isoformat().replace("+00:00", "Z")
                 started_dt = datetime.fromisoformat(str(session_started).replace("Z", "+00:00"))
+                # Many workflows (e.g. boot) write session-started as a bare
+                # ISO string with no offset ("2026-08-21T12:18:18"), which
+                # fromisoformat parses as naive. Subtracting that from an
+                # aware `now` below raises TypeError, which the outer
+                # try/except swallows silently — the record never gets
+                # written and there's no visible failure. Assume local
+                # naive timestamps are UTC-equivalent for duration purposes.
+                if started_dt.tzinfo is None:
+                    started_dt = started_dt.replace(tzinfo=timezone.utc)
+                started_iso = started_dt.isoformat().replace("+00:00", "Z")
             except ValueError:
                 started_iso = completed_iso
                 started_dt = now

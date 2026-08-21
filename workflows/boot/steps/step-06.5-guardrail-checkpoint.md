@@ -1,8 +1,10 @@
 ---
-status: not-started
-started-at: ~
-completed-at: ~
-outputs: {}
+status: complete
+started-at: "2026-08-21T13:11:00-05:00"
+completed-at: "2026-08-21T13:13:00-05:00"
+outputs:
+  checkpoint_result: "flag"
+  reason: "OmniFocus data source unreachable this session (Desktop Commander/osascript tool absent); flagged explicitly in briefing rather than substituted with stale cached data. All other sources (calendar, email, Clay, Jarvis inbox, workflow scan, session index) reflect live pulls with no leakage or corruption detected."
 model: sonnet
 ---
 

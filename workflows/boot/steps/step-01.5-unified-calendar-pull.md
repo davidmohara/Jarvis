@@ -1,13 +1,14 @@
 ---
 status: complete
-started-at: "2026-07-16T14:42:00Z"
-completed-at: "2026-07-16T14:43:30Z"
+started-at: "2026-08-21T12:32:00-05:00"
+completed-at: "2026-08-21T12:36:00-05:00"
 outputs:
   calendar_file: "data/calendar-unified.json"
-  event_count: 31
-  date_range: "2026-07-16 to 2026-07-19"
+  event_count: 24
+  date_range: "2026-08-21 to 2026-08-24"
   status: "written"
-  file_size_kb: 12
+  file_size_kb: 6
+  flags: "2 possible timing overlaps noted on Aug 21 (Sales & Recruiting Meeting vs Drive To block)"
 ---
 
 <!-- system:start -->

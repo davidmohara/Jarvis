@@ -1,14 +1,14 @@
 ---
 status: complete
-started-at: "2026-07-15T10:00:00-05:00"
-completed-at: "2026-07-15T10:03:00-05:00"
+started-at: "2026-08-21T12:36:00-05:00"
+completed-at: "2026-08-21T12:39:00-05:00"
 outputs:
-  morning-briefing-steps-01-02: "completed — today's calendar (7 events Jul 15) and OmniFocus inbox (18 items) pulled"
-  task-g-72hr-lookahead: "completed — Jul 16-18 events captured (32 additional events)"
-  task-h-email-triage: "completed — 13 messages since Jul 13, none explicitly flagged in Outlook, several time-sensitive (Curtis CRM/Hexagon ask, YPO satisfaction survey)"
-  task-i-jarvis-inbox: "skipped — no dedicated Jarvis email folder check run this boot"
-  task-j-reminders: "nothing-to-surface — data/reminders.json not present/checked; Clay reminders returned 0"
-  task-f-lead-review: "skipped — scope decision, not run this boot; offered to David as follow-up"
+  morning-briefing-steps-01-02: "completed — today's calendar (10 events Aug 21, from data/calendar-unified.json) pulled. OmniFocus inbox failed — Desktop Commander/osascript tool unreachable in this session (see step-01.2)."
+  task-g-72hr-lookahead: "completed — Aug 22-24 events captured (13 additional events: 1 on Aug 22, 0 on Aug 23, 12 on Aug 24) from data/calendar-unified.json, no additional M365 call. Corrected from initial miscount of 14 after Ralph verification flagged the discrepancy."
+  task-h-email-triage: "completed — 22 messages scanned from data/email-unified.json (full array now written, corrected after Ralph verification flagged a 22-vs-11 array/count mismatch), no isFlagged field returned by API; 5 items flagged actionable by content (Whitefish retreat confirmation, YPO REX action item, Cresta follow-up, Trinity Hunt/MESH request, SMU MSAIB timing)"
+  task-i-jarvis-inbox: "completed — Jarvis folder confirmed empty, skill-run signal written"
+  task-j-reminders: "nothing-to-surface — data/reminders.json exists, reminders array empty"
+  task-f-lead-review: "skipped — not in this boot's scope per workflow.md data sources list; not required by step-02"
 ---
 
 <!-- system:start -->

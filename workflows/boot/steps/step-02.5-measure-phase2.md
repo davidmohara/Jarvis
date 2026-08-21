@@ -1,10 +1,12 @@
 ---
 status: complete
-started-at: "2026-07-15T10:03:00-05:00"
-completed-at: "2026-07-15T10:04:00-05:00"
+started-at: "2026-08-21T12:39:00-05:00"
+completed-at: "2026-08-21T12:40:00-05:00"
 outputs:
-  measurement_result: "not run — measure.py instrumentation script not invoked this session; skipped as non-blocking per failure-mode fallback"
-  measurement_method: "skipped"
+  phase2_measurement_file: "systems/boot-instrumentation/measurements/measurement-state-20260821T172223.json"
+  total_kb: 0.28
+  total_tokens: 70
+  measurement_method: "measure.py run successfully"
 ---
 
 <!-- system:start -->

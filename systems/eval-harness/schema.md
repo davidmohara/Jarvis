@@ -126,16 +126,16 @@ Example: `eval-20260523T133045-a1b2c3.json`
 | `model` | string | "sonnet" or "haiku" — model that executed this step (org-approved models only) |
 | `tokens_input` | number\|null | **Required audit-trail field.** Input tokens consumed by this step. |
 | `tokens_output` | number\|null | **Required audit-trail field.** Output tokens produced by this step. |
-| `cost_usd` | number\|null | Informational only, not a certification requirement. See note below. |
+| `cost_usd` | number\|null | **Required audit-trail field.** Dollar cost for this step, computed from real token counts × the pricing table in `model-pricing.json`. |
 
-**Tokens in/out are the necessary audit-trail evidence — dollar cost is not.** Stage 4's audit-trail requirement asks "which prompt produced which output, how many input/output tokens, what did it cost" — tokens answer that on their own. `cost_usd` is derived and kept as a convenience figure, but it's an approximation (see below) and dropping it entirely would not weaken the audit trail, since tokens are the traceable unit and cost is just tokens × a rate table that can go stale. Don't treat a null `cost_usd` as a gap; treat a null `tokens_input`/`tokens_output` as one.
+**Tokens in/out and dollar cost are both required audit-trail evidence.** Stage 4's audit-trail requirement asks "which prompt produced which output, how many input/output tokens, what did it cost" — all three parts are graded. A null `cost_usd` is a gap, exactly like a null `tokens_input`/`tokens_output`. `cost_usd` is derived (tokens × the rate table in `model-pricing.json`, with real cache-read/cache-write multipliers, not a flat rate), and the rate table needs to be kept current as pricing changes — but "derived" does not mean "optional." Every step/record with real token counts must carry a computed `cost_usd` figure.
 
 Token fields are populated automatically, not by manual estimation. `systems/eval-harness/token_usage.py` reads the real Claude Code session transcript (JSONL — every assistant turn logs `message.usage` with exact `input_tokens`/`output_tokens`/cache token counts) and slices it to a time window:
 
 - **Steps that run inline in the main session** — `.claude/hooks/post-tool-use.py` fires on every Write/Edit to a `*/steps/*.md` file (this is what actually populates the `steps` array in the first place) and now also pulls usage for that step's `started-at`→`completed-at` window from the main session's `transcript_path` (a field Claude Code passes to every `PostToolUse` hook call).
 - **Steps that are spawned as a subagent** (e.g. Knox handling Watchtower, `rigby-eval-grade`) — `.claude/hooks/eval-agent-stop.py` pulls usage for the whole subagent run from its own `agent_transcript_path` (passed to `SubagentStop`), and writes it as top-level `model`, `total_tokens_input`, `total_tokens_output`, `total_cost_usd` fields on that eval record — a subagent's transcript is entirely in-scope, so no per-step slicing is needed there.
 
-`cost_usd`, when present, is computed with the documented cache multipliers (cache read ≈0.1× input rate, cache write 1.25×/2× for 5m/1h TTL), not a flat per-token rate — but it is not billing-exact and is not required for certification purposes.
+`cost_usd` is computed with the documented cache multipliers (cache read ≈0.1× input rate, cache write 1.25×/2× for 5m/1h TTL), not a flat per-token rate. It is not billing-exact (Anthropic's actual invoice is the source of truth for real spend), but it is a required certification field — every record that has real token counts must have a computed cost alongside them.
 
 `record-step.py`'s `--tokens-in`/`--tokens-out`/`--model` flags remain as a manual fallback for paths where neither hook fires (e.g. a Cowork-only run with no transcript file) — pass them explicitly there; otherwise leave them off and let the hooks populate the fields.
 

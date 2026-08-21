@@ -1,10 +1,10 @@
 ---
 status: complete
-started-at: "2026-07-22T11:16:00-05:00"
-completed-at: "2026-07-22T11:20:00-05:00"
+started-at: "2026-08-21T13:05:00-05:00"
+completed-at: "2026-08-21T13:10:00-05:00"
 outputs:
   briefing_delivered: true
-  degraded_sources: [delegation-tracker-file-missing, quarterly-objectives-file-missing, clay-reminders-empty, lead-review, jarvis-inbox, plaud-ingest-auth]
+  degraded_sources: [omnifocus-tool-unreachable, no-daily-review-yesterday, clay-birthday-relationship-context-missing]
 ---
 
 <!-- system:start -->
