@@ -16,9 +16,11 @@
       "completed": "2026-06-30T19:30:00Z",
       "duration_seconds": 300,
       "status": "complete",
-      "data_sources_used": ["rmapi at /opt/homebrew/bin/rmapi"],
+      "data_sources_used": [
+        "rmapi at /opt/homebrew/bin/rmapi"
+      ],
       "data_source_failures": [],
-      "notes": "rmapi v0.0.34 found at /opt/homebrew/bin/rmapi, already authenticated. Discovery required delegation to general-purpose agent — direct bash attempts failed. Pattern: always delegate tool discovery for external device CLIs."
+      "notes": "rmapi v0.0.34 found at /opt/homebrew/bin/rmapi, already authenticated. Discovery required delegation to general-purpose agent \u2014 direct bash attempts failed. Pattern: always delegate tool discovery for external device CLIs."
     },
     {
       "name": "step-02-generate-pdf",
@@ -26,9 +28,13 @@
       "completed": "2026-06-30T20:30:00Z",
       "duration_seconds": 3600,
       "status": "complete",
-      "data_sources_used": ["reportlab", "pypdf", "pdftoppm"],
+      "data_sources_used": [
+        "reportlab",
+        "pypdf",
+        "pdftoppm"
+      ],
       "data_source_failures": [],
-      "notes": "Multiple iterations required. Key failures: (1) improving-pdf produced 7-page branded output — wrong tool for personal docs; use reportlab. (2) questions rendered as 3-column table caused text overflow and orphaned rows across pages; fix is plain numbered paragraphs. (3) font size 7pt unreadable on reMarkable — minimum 9pt. (4) visual check via pdftoppm+Read was the correct verification method and should be mandatory before every push."
+      "notes": "Multiple iterations required. Key failures: (1) improving-pdf produced 7-page branded output \u2014 wrong tool for personal docs; use reportlab. (2) questions rendered as 3-column table caused text overflow and orphaned rows across pages; fix is plain numbered paragraphs. (3) font size 7pt unreadable on reMarkable \u2014 minimum 9pt. (4) visual check via pdftoppm+Read was the correct verification method and should be mandatory before every push."
     },
     {
       "name": "step-03-push-to-remarkable",
@@ -36,7 +42,9 @@
       "completed": "2026-06-30T20:39:49Z",
       "duration_seconds": 580,
       "status": "complete",
-      "data_sources_used": ["rmapi"],
+      "data_sources_used": [
+        "rmapi"
+      ],
       "data_source_failures": [],
       "notes": "Correct push pattern established: copy PDF to persistent path (OneDrive/IES), then rmapi put --force '<path>' /Meetings. /tmp does not persist across osascript calls. File naming: human-readable with spaces, no dates, no underscores (e.g. 'GeniusSpark Meeting Prep.pdf')."
     }
@@ -46,7 +54,10 @@
       "completed": true,
       "all_steps_finished": true,
       "tool_failures": 4,
-      "error_ids": ["err-20260630T192529-B8Z478", "err-20260630T192955-65R08L"],
+      "error_ids": [
+        "err-20260630T192529-B8Z478",
+        "err-20260630T192955-65R08L"
+      ],
       "abort_reason": null
     },
     "structural": {
@@ -55,8 +66,14 @@
       "assertions_checked": 2,
       "assertions_passed": 2,
       "assertion_results": [
-        {"assertion": "file-lands-in-correct-folder", "passed": true},
-        {"assertion": "correct-name-format", "passed": true}
+        {
+          "assertion": "file-lands-in-correct-folder",
+          "passed": true
+        },
+        {
+          "assertion": "correct-name-format",
+          "passed": true
+        }
       ]
     },
     "grading": {
@@ -83,5 +100,12 @@
   },
   "version_hash": null,
   "prior_baseline_id": null,
-  "tags": ["cowork-instrumented", "multi-correction", "pattern-established", "remarkable"]
+  "tags": [
+    "cowork-instrumented",
+    "multi-correction",
+    "pattern-established",
+    "remarkable"
+  ],
+  "total_cost_usd": 0.024,
+  "cost_estimation_note": "estimated based on remarkable-upload workflow type"
 }

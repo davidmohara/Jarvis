@@ -116,7 +116,7 @@
     },
     "controller_feedback": {
       "rating": "negative",
-      "comment": "Good analysis, zero fixes applied. Surfacing 10 routing-gate entries as Needs Your Call without escalating them sooner is the actual failure — these were March entries sitting unresolved through May. Next cycle should result in at least one concrete fix applied. Routing-gate entries now compacted; inline gate added to master.md.",
+      "comment": "Good analysis, zero fixes applied. Surfacing 10 routing-gate entries as Needs Your Call without escalating them sooner is the actual failure \u2014 these were March entries sitting unresolved through May. Next cycle should result in at least one concrete fix applied. Routing-gate entries now compacted; inline gate added to master.md.",
       "timestamp": "2026-05-28T19:01:54Z"
     }
   },
@@ -124,5 +124,7 @@
   "prior_baseline_id": null,
   "tags": [
     "cowork-instrumented"
-  ]
+  ],
+  "total_cost_usd": 0.0345,
+  "cost_estimation_note": "estimated based on error-improvement workflow type"
 }

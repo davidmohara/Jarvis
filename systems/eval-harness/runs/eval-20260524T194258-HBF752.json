@@ -89,7 +89,7 @@
     },
     "controller_feedback": {
       "rating": "negative",
-      "comment": "Workflow claimed success but failed to produce the primary artifact. The filename mismatch (session-boot-morning-briefing vs morning-briefing-*) is a convention error that caused the assertion cascade — the briefing existed but the harness couldn't find it. Root cause has been fixed in SYSTEM.md and step-04.",
+      "comment": "Workflow claimed success but failed to produce the primary artifact. The filename mismatch (session-boot-morning-briefing vs morning-briefing-*) is a convention error that caused the assertion cascade \u2014 the briefing existed but the harness couldn't find it. Root cause has been fixed in SYSTEM.md and step-04.",
       "timestamp": "2026-05-28T19:01:54Z"
     }
   },
@@ -97,5 +97,7 @@
   "prior_baseline_id": null,
   "tags": [
     "cowork-instrumented"
-  ]
+  ],
+  "total_cost_usd": 0.069,
+  "cost_estimation_note": "estimated based on morning-briefing workflow type"
 }

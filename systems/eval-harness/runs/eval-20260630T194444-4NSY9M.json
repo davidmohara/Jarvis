@@ -16,7 +16,9 @@
       "completed": "2026-06-30T19:05:00Z",
       "duration_seconds": 300,
       "status": "complete",
-      "data_sources_used": ["vicinityventures.co"],
+      "data_sources_used": [
+        "vicinityventures.co"
+      ],
       "data_source_failures": [],
       "notes": "Fetched GeniusSpark offering via Chrome. Investor assessment delivered."
     },
@@ -36,7 +38,10 @@
       "completed": "2026-06-30T19:44:44Z",
       "duration_seconds": 1184,
       "status": "complete",
-      "data_sources_used": ["rmapi", "reportlab"],
+      "data_sources_used": [
+        "rmapi",
+        "reportlab"
+      ],
       "data_source_failures": [],
       "notes": "Multiple failures: (1) attempted rmapi discovery without delegating to agent; (2) named file with underscores instead of human-readable convention; (3) argued when corrected on naming rather than reading conventions.md immediately; (4) used improving-pdf producing 7-page branded output for a personal doc. Required 4+ correction cycles before correct 2-page PDF delivered."
     }
@@ -46,7 +51,10 @@
       "completed": true,
       "all_steps_finished": true,
       "tool_failures": 2,
-      "error_ids": ["err-20260630T192529-B8Z478", "err-20260630T192955-65R08L"],
+      "error_ids": [
+        "err-20260630T192529-B8Z478",
+        "err-20260630T192955-65R08L"
+      ],
       "abort_reason": null
     },
     "structural": {
@@ -80,5 +88,12 @@
   },
   "version_hash": null,
   "prior_baseline_id": null,
-  "tags": ["cowork-instrumented", "multi-correction", "convention-violation", "routing-error"]
+  "tags": [
+    "cowork-instrumented",
+    "multi-correction",
+    "convention-violation",
+    "routing-error"
+  ],
+  "total_cost_usd": 0.066,
+  "cost_estimation_note": "estimated based on genius-spark-meeting-prep workflow type"
 }

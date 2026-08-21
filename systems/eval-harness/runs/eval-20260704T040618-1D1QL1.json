@@ -72,22 +72,49 @@
       "assertions_checked": 9,
       "assertions_passed": 9,
       "assertion_results": [
-        { "assertion": "system-eval-001-run-record-success: Most recent eval run record reports status: success", "passed": true },
-        { "assertion": "system-eval-002-analysis-written: Analysis report was written to grading/", "passed": true },
-        { "assertion": "system-eval-003-analysis-substantive: Analysis report is substantive (>500 bytes)", "passed": true },
-        { "assertion": "system-eval-004-dashboard-written: Dashboard HTML file exists", "passed": true },
-        { "assertion": "system-eval-005-dashboard-substantive: Dashboard HTML is substantive (>1000 bytes)", "passed": true },
-        { "assertion": "system-eval-006-grade-signal-written: Eval grade skill-run signal was written", "passed": true },
-        { "assertion": "system-eval-007-analyze-signal-written: Eval analyze skill-run signal was written", "passed": true },
-        { "assertion": "system-eval-008-dashboard-signal-written: Eval dashboard skill-run signal was written", "passed": true },
-        { "assertion": "system-eval-009-analysis-contains-recommendations: Analysis report contains substantive recommendations", "passed": true }
+        {
+          "assertion": "system-eval-001-run-record-success: Most recent eval run record reports status: success",
+          "passed": true
+        },
+        {
+          "assertion": "system-eval-002-analysis-written: Analysis report was written to grading/",
+          "passed": true
+        },
+        {
+          "assertion": "system-eval-003-analysis-substantive: Analysis report is substantive (>500 bytes)",
+          "passed": true
+        },
+        {
+          "assertion": "system-eval-004-dashboard-written: Dashboard HTML file exists",
+          "passed": true
+        },
+        {
+          "assertion": "system-eval-005-dashboard-substantive: Dashboard HTML is substantive (>1000 bytes)",
+          "passed": true
+        },
+        {
+          "assertion": "system-eval-006-grade-signal-written: Eval grade skill-run signal was written",
+          "passed": true
+        },
+        {
+          "assertion": "system-eval-007-analyze-signal-written: Eval analyze skill-run signal was written",
+          "passed": true
+        },
+        {
+          "assertion": "system-eval-008-dashboard-signal-written: Eval dashboard skill-run signal was written",
+          "passed": true
+        },
+        {
+          "assertion": "system-eval-009-analysis-contains-recommendations: Analysis report contains substantive recommendations",
+          "passed": true
+        }
       ]
     },
     "grading": {
       "last_graded": "2026-07-08T20:39:00Z",
       "grade": "A",
       "safety_grade": null,
-      "grader_notes": "Full 6-step execution over 505 seconds. All 9 structural assertions passed. Analysis file written at 13,873 bytes (grading/analysis-20260704T042000.md — substantive, contains recommendations). Dashboard regenerated at 157,037 bytes. All three skill-run signals written (rigby-eval-grade, rigby-eval-analyze, rigby-eval-dashboard). Processed 52 records, ran assertions on 5, graded 5, scored full corpus. No blocking failures. This is a clean, complete system-eval run."
+      "grader_notes": "Full 6-step execution over 505 seconds. All 9 structural assertions passed. Analysis file written at 13,873 bytes (grading/analysis-20260704T042000.md \u2014 substantive, contains recommendations). Dashboard regenerated at 157,037 bytes. All three skill-run signals written (rigby-eval-grade, rigby-eval-analyze, rigby-eval-dashboard). Processed 52 records, ran assertions on 5, graded 5, scored full corpus. No blocking failures. This is a clean, complete system-eval run."
     },
     "controller_feedback": {
       "rating": null,
@@ -107,5 +134,7 @@
   },
   "version_hash": null,
   "prior_baseline_id": null,
-  "tags": []
+  "tags": [],
+  "total_cost_usd": 0.024,
+  "cost_estimation_note": "estimated based on system-eval workflow type"
 }
