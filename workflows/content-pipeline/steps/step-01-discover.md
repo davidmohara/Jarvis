@@ -286,9 +286,12 @@ Execute this section when a message matched the IMPROVING BLOG PATH route (URL +
 
 This path runs the full improving-thought-leadership plugin workflow autonomously: topic-exploration logic → narrative-definition logic → blog-draft → smell-test → improving-guidance. The interactive steps (topic-exploration, narrative-definition) are executed inline by making autonomous choices from the source material — no clarifying questions are asked. The output is a publication-ready markdown file saved locally.
 
-**Before any writing: read these two files in full:**
+**Before any writing: read these three files in full:**
 1. `/Users/davidohara/Library/Application Support/Claude/local-agent-mode-sessions/1f133084-7506-49f1-9119-507fb3342862/800e566d-bfe4-4a01-b24f-821196b81496/rpm/plugin_01LZNKsPzYFfeUaSpHEhXvAE/skills/blog-draft/references/voice.md` — Improving's credentialed authority voice (institutional "we", declarative, no personal "I")
-2. The smell-test criteria from `skills/improving-thought-leadership:smell-test` — apply these actively while writing, not just as a later pass
+2. `identity/CONTENT-VOICE.md` — David's personal blog voice (cadence, specificity, consulting vantage point, parenthetical asides, challenge-close structure)
+3. The smell-test criteria from `skills/improving-thought-leadership:smell-test` — apply these actively while writing, not just as a later pass
+
+**Voice synthesis rule:** The Improving institutional voice governs attribution ("we," "our teams," "across our engagements" — not "I"). David's CONTENT-VOICE.md governs everything else: sentence rhythm (short declarative kickers, longer builds), parenthetical asides, the consulting vantage point ("my teams build these things"), scene-setting specificity, warmth, and the challenge-close. The result should sound like David wrote it on behalf of Improving — not like a corporate press release and not like his personal diary. The clearest test: if you swapped the "we" to "I," would it read like one of his driventodevelop.com posts? If yes, the blend is right.
 
 ---
 
@@ -312,16 +315,25 @@ Derive autonomously — do not ask questions:
 
 **C. Write the draft (blog-draft)**
 
-Write the full post to the locked Narrative Spec. Apply voice.md rules throughout:
+Write the full post to the locked Narrative Spec. Apply the blended voice throughout:
 
+**From Improving's voice.md (non-negotiable):**
 - Institutional first-person plural: "we," "our teams," "across our engagements" — never personal "I"
 - Lead with the point, then support it. Short declarative kickers bracket longer builds.
 - One idea per paragraph, fully landed (2-4 sentences). Let the real example breathe.
 - H2s as real questions or decisions — not "Introduction" / "Conclusion"
 - Include an executive bridge in every major technical section (what decision does this affect, what risk does it reduce, what does it cost if ignored)
-- End with the closing action: a short paragraph (3-5 sentences), concrete question or check for the reader — not a sales pitch
-- **No em-dashes. No contrast-negation scaffolding ("X is not Y. It is Z."). No filler transitions. No hollow affirmations. No mechanical parallel structure.**
 - Numbers are precise and sourced. If a stat can't be verified, cut it or flag it as an estimate.
+
+**From David's CONTENT-VOICE.md (applied to rhythm, texture, and structure):**
+- Use David's Hook → Story/Observation → Insight → Challenge arc as the structural spine — even in a longer post, the opening earns the next sentence, the body carries the consulting vantage point, and the close asks something real of the reader.
+- The consulting vantage point is the differentiator: "our teams build this" / "we see this in client environments" / "what the invoice doesn't say" — use it wherever the topic connects to Improving's delivery work. Not as a credential drop, as the ground the observation stands on.
+- Parenthetical asides are natural and earned: "(and we've seen this kill timelines)" "(not the clean answer, but the honest one)" "(this one still stings a little)". They carry warmth and inner-voice texture. Don't force them, but don't scrub them.
+- The close is a challenge or a direct question — never a summary, never "we hope this resonates." Ask something real of the reader.
+- Warmth is present. Write to people, not at them. This is a senior colleague sharing something worth knowing, not a vendor white paper.
+
+**Universal prohibitions (both voices):**
+- No em-dashes. No contrast-negation scaffolding ("X is not Y. It is Z."). No filler transitions. No hollow affirmations. No mechanical parallel structure. No "y'all" in the Improving institutional voice (that's David's personal blog only).
 
 Also write: `meta_title` (max 70 chars) and `meta_description` (max 155 chars).
 
