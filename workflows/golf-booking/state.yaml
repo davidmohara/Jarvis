@@ -1,9 +1,9 @@
 workflow: golf-booking
 agent: chief
-status: execution-blocked
-session-started: 2026-08-20T04:15:00Z
-session-id: scheduled-execution-2026-08-20-booking-attempt
-current-step: infrastructure-blocker
+status: ui-interaction-failure
+session-started: 2026-08-21T07:00:00Z
+session-id: scheduled-execution-2026-08-20-booking-attempt-ui-fail
+current-step: widget-form-interaction-failed
 execution-run: 2026-08-20T04:15:30Z
 booking-id: null
 booking-date: 2026-08-29
