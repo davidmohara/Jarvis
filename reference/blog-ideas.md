@@ -75,6 +75,7 @@ Running list of potential blog topics. Jarvis captures these proactively from co
 | "The FDE Model Has Become Table Stakes. Now What?" | Watchtower W34b (2026-08-20) [watchtower] | consulting, AI, delivery, leadership | Draft at `Mind/Posts/_fde-table-stakes-now-what.md` |
 | "Texas Has a State Problem and a City Problem Now" | Watchtower W34b (2026-08-20) [watchtower] | texas, AI, infrastructure, policy, business | Draft at `Mind/Posts/_texas-has-a-state-problem-and-a-city-problem.md` |
 | "The Market Just Valued the Agent Security Gap at $1.1 Billion" | Watchtower W34b (2026-08-20) [watchtower] | AI, security, agentic, governance, business | Draft at `Mind/Posts/_the-market-valued-the-agent-security-gap.md` |
+| "The Bubble You Are Inside Does Not Feel Like One" | Content pipeline (2026-08-21) | AI, business, thinking | Ghost draft — pending approval. Ghost ID: 6a88a2b1c0a498028c7e8b2c |
 
 ## Published (for reference / avoid repeats)
 

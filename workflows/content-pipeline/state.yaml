@@ -1,14 +1,14 @@
 ---
 status: complete
-started-at: 2026-08-21T06:07:00Z
-completed-at: 2026-08-21T06:12:00Z
+started-at: 2026-08-21T14:07:00Z
+completed-at: 2026-08-21T19:11:00Z
 outputs:
-  messages_scanned: 8
+  messages_scanned: 10
   new_urls: 1
   new_digests: 0
-  posts_drafted: 0
+  posts_drafted: 1
   editorial_feedback: 0
-  pending_threads_checked: 11
-  outcome: "1 new user message: Spotify episode 'Watching The AI Costs Twenty Percent' flagged to #content — David requested it as an Improving Thoughts post (not personal blog). Pipeline posts to driventodevelop.com only; manual handling required. No new digests. No editorial feedback on any of 11 pending threads."
+  pending_threads_checked: 13
+  outcome: "1 new URL: Business Insider AI bubble / dot-com comparison → drafted 'The Bubble You Are Inside Does Not Feel Like One' (Ghost ID: 6a88a2b1c0a498028c7e8b2c). No editorial feedback on any pending threads. Image upload failed; using Unsplash CDN URL directly."
 model: sonnet
 ---
