@@ -1,0 +1,15 @@
+{
+  "id": "err-20260821T205744-4WG8RU",
+  "timestamp": "2026-08-21T20:57:44Z",
+  "session": "5dcfee22-ff31-47ff-a35c-90ecbfbf17fb",
+  "source": "explicit",
+  "agent": "master",
+  "category": "process-skip",
+  "description": "During end-of-day cleanup, found 'Call Prep Robert Hendricks.pdf'/'Call Prep Solace Texans.pdf' and their matching .md files at repo root. Applied the existing memory rule ('PDFs and research reports only get committed once moved to their proper folder, e.g. meetings/') by leaving all four files untouched and uncommitted, and reported that as the correct action.",
+  "correction": "The rule requires actively completing the move, not stopping at 'don't commit yet.' Correct action: move the .md files into meetings/, and delete the PDFs (they're a disposable rendered copy of the .md, not the source of record).",
+  "failure_mode": "pattern-mismatch",
+  "systemic_fix": "Update the standing memory note on working-doc handling to state the full lifecycle explicitly: PDFs are disposable render artifacts (delete), .md files are the source of record (move to meetings/ then commit) — not just 'don't commit at root.'",
+  "fix_status": "applied",
+  "severity": "minor",
+  "related_entries": []
+}
