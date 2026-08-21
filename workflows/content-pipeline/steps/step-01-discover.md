@@ -284,41 +284,86 @@ In the Slack notification teaser (Step 9), append `_(drafted from digest)_` on a
 
 Execute this section when a message matched the IMPROVING BLOG PATH route (URL + Improving blog keywords).
 
-**A. Fetch and research the source**
+This path runs the full improving-thought-leadership plugin workflow autonomously: topic-exploration logic → narrative-definition logic → blog-draft → smell-test → improving-guidance. The interactive steps (topic-exploration, narrative-definition) are executed inline by making autonomous choices from the source material — no clarifying questions are asked. The output is a publication-ready markdown file saved locally.
 
-1. Fetch the URL: `mcp__workspace__web_fetch(url="{url}")`. If it's a Spotify URL, run a WebSearch for the episode title to gather content — podcast pages don't yield transcripts via fetch.
-2. Extract: core argument, key insight, memorable quote or stat, the "so what" for Improving's audience (technology leaders, engineering leaders, enterprise decision-makers).
+**Before any writing: read these two files in full:**
+1. `/Users/davidohara/Library/Application Support/Claude/local-agent-mode-sessions/1f133084-7506-49f1-9119-507fb3342862/800e566d-bfe4-4a01-b24f-821196b81496/rpm/plugin_01LZNKsPzYFfeUaSpHEhXvAE/skills/blog-draft/references/voice.md` — Improving's credentialed authority voice (institutional "we", declarative, no personal "I")
+2. The smell-test criteria from `skills/improving-thought-leadership:smell-test` — apply these actively while writing, not just as a later pass
 
-**B. Draft the post in Improving's voice**
+---
 
-Before writing: read the blog-draft skill's voice reference. The Improving voice is institutional first-person plural ("we," "our teams," "across our engagements") — NOT David's personal "I" voice. This is the key distinction from the URL PATH.
+**A. Fetch and research the source (topic-exploration logic)**
 
-Draft following these rules:
-- **Length:** 1,000-1,500 words (longer and more substantive than David's personal blog)
-- **Structure:** Opening stakes (why this matters) → core technical claim → real-world grounding → concrete takeaway
-- **Tone:** Credentialed authority. Improving's collective delivery experience speaks, not one person's reaction.
-- **No em-dashes.** No hollow affirmations. No filler transitions. Lead with the point, then support it.
-- **No headers named "Introduction" or "Conclusion."** Use H2s that read like real questions or decisions the reader faces.
-- **End with a concrete action or direct question** — not a sales pitch.
-- **Do not summarize the source.** The source is a spark. Improving's perspective on why it matters is the post.
+1. Fetch the URL: `mcp__workspace__web_fetch(url="{url}")`. If it's a Spotify URL, run a WebSearch for the episode title to gather context — podcast pages don't yield transcripts via fetch.
+2. Extract: core argument, key insight, memorable quote or verified stat, the "so what" for Improving's audience (technology leaders, engineering leaders, enterprise decision-makers).
+3. Run a WebSearch for additional context if the source is thin — look for corroborating data, enterprise adoption patterns, or real-world consequences of the topic.
+4. **Topic Brief (autonomous):** Derive the sharpest, most specific arguable claim from the source. Not "AI costs are rising" — something like "Organizations that skip human review in production agentic systems are treating a trust problem as a cost problem." This is the technical crux. Also determine: intended reader (enterprise tech or engineering leader), structural archetype (default: Problem → Diagnosis → Framework), and whether any Improving published case studies are relevant (check improving.com if the topic maps to a service line).
 
-Also draft:
-- **meta_title:** max 70 chars
-- **meta_description:** max 155 chars
+**B. Narrative Spec (narrative-definition logic)**
 
-**C. Save locally**
+Derive autonomously — do not ask questions:
 
-Save the draft as a markdown file to:
+- **Locked thesis:** One declarative sentence that a smart, reasonable person could disagree with. Derived from the Topic Brief above.
+- **Structural archetype:** Default to Problem → Diagnosis → Framework unless the source material clearly fits a different shape (postmortem, decision framework, pattern naming, false dichotomy correction).
+- **H2 sequence:** 3-4 H2s that read as real questions or decisions the reader faces — never "Introduction" or "Conclusion." Derive from the thesis and source.
+- **Real example:** Search Improving's published case studies (improving.com/case-studies or SharePoint if accessible) for a real anchor. If nothing matches, frame the illustrative scenario explicitly as illustrative — never dress up a hypothetical as real.
+- **Closing action:** A concrete question or check the reader can bring to their own team. Derived from the thesis's implications.
+- **Length:** 1,500-2,000 words.
+
+**C. Write the draft (blog-draft)**
+
+Write the full post to the locked Narrative Spec. Apply voice.md rules throughout:
+
+- Institutional first-person plural: "we," "our teams," "across our engagements" — never personal "I"
+- Lead with the point, then support it. Short declarative kickers bracket longer builds.
+- One idea per paragraph, fully landed (2-4 sentences). Let the real example breathe.
+- H2s as real questions or decisions — not "Introduction" / "Conclusion"
+- Include an executive bridge in every major technical section (what decision does this affect, what risk does it reduce, what does it cost if ignored)
+- End with the closing action: a short paragraph (3-5 sentences), concrete question or check for the reader — not a sales pitch
+- **No em-dashes. No contrast-negation scaffolding ("X is not Y. It is Z."). No filler transitions. No hollow affirmations. No mechanical parallel structure.**
+- Numbers are precise and sourced. If a stat can't be verified, cut it or flag it as an estimate.
+
+Also write: `meta_title` (max 70 chars) and `meta_description` (max 155 chars).
+
+**D. Self-check (smell-test logic)**
+
+Before saving, scan the full draft against all ten smell-test categories:
+1. Negation-template tic ("X is not Y. It is Z." and all variants) — highest priority
+2. Mechanical parallel structure (3+ consecutive sentences/headers with identical shape)
+3. Hollow affirmations
+4. Over-qualification / throat-clearing ("It's worth noting that...")
+5. Filler transitions ("Furthermore," "Moreover," "In conclusion")
+6. Em dashes
+7. Banned SEO clichés ("game-changer," "revolutionary," "unlocking," "delving into")
+8. Fake-specific numbers (unverifiable statistics)
+9. Generic triadic structures
+10. Synonym sprawl
+
+Grade the draft (A through F). If below B, remediate directly — rewrite flagged passages in Improving's voice, preserving the actual argument. Re-scan until B or better. Never pass a sub-B draft to the save step.
+
+**E. Improving-guidance pass**
+
+Attempt to fetch Improving's SharePoint framework docs via `mcp__b8c41a14-7a9b-4ea5-ab12-933ee04bc52f__sharepoint_search` (search for "Blog Writing Framework" and "SEO Writing Standards"). If accessible, apply the full checklist:
+- Claims, Proof & Anonymization Rules
+- Closing paragraph present and concrete
+- Internal linking (one Improving service page, one sibling post if available)
+- SEO / editorial structure (H1 present, stakes in first 250 words, no banned phrases)
+- Voice attribution consistent (no stray personal "I")
+
+If SharePoint is unreachable, apply the baseline checklist from memory (same rules) and note in frontmatter that improving-guidance SharePoint pass was skipped.
+
+**F. Save locally**
+
+Save the post-smell-test, post-guidance draft as a markdown file. Try this path first:
 ```
 /Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/content/improving-blog/{YYYY-MM-DD}-{slug}.md
 ```
-
-If that path doesn't exist, save to:
+If that path doesn't exist, fall back to:
 ```
 /Users/davidohara/develop/jarvis/drafts/improving-blog/{YYYY-MM-DD}-{slug}.md
 ```
 
-Use Desktop Commander write_file. Frontmatter format:
+Use `mcp__Desktop_Commander__write_file`. Frontmatter:
 ```yaml
 ---
 title: "{Post Title}"
@@ -329,26 +374,35 @@ meta_title: "{meta_title}"
 meta_description: "{meta_description}"
 created: {YYYY-MM-DD}
 author: "Improving"
+smell_test_grade: "{A/B/C...}"
 pipeline_notes: |
   Drafted by Harper (content-pipeline) from: {source_url}
   David's note: "{David's original message text}"
-  Next steps: Run through improving-thought-leadership plugin (narrative-definition → smell-test → improving-guidance) before publishing.
+  Topic Brief: {one-sentence crux and intended reader}
+  Narrative Spec: {thesis, structural archetype, real example note, closing action}
+  Smell test: {grade} — {brief findings summary}
+  Improving-guidance: {applied / SharePoint unavailable — baseline applied}
 ---
 ```
 
-**D. Notify David in #content**
+**G. Notify David in #content**
 
-Post via post.py as a reply to the original message's thread (use the message `ts` as `thread_ts`):
+Post via post.py as a reply to the original message thread (use message `ts` as `thread_ts`):
 
 ```
-"_Improving Thoughts draft saved locally: *{Post Title}*_
+*Improving Thoughts draft ready* ✍️
 
-_{file_path}_
+*"{Post Title}"*
+_Smell test grade: {grade}_
 
-_Run it through the improving-thought-leadership plugin to refine and publish. Start with narrative-definition or smell-test._"
+{First 2-3 sentences of the draft as a teaser}
+
+*Saved to:* {file_path}
+
+_This ran through topic-exploration, narrative-definition, blog-draft, smell-test, and improving-guidance automatically. Review and publish when ready._
 ```
 
-**E. Do NOT:**
+**H. Do NOT:**
 - Create a Ghost draft
 - Add to pending-drafts.json
 - Post to driventodevelop.com
