@@ -74,7 +74,7 @@
     },
     "controller_feedback": {
       "rating": "neutral",
-      "comment": "No output produced for 2026-05-27 — ran against prior day's files. Date-specific assertion fix and headless calendar handling now in place. First run that triggers these fixes should show a clean result.",
+      "comment": "No output produced for 2026-05-27 \u2014 ran against prior day's files. Date-specific assertion fix and headless calendar handling now in place. First run that triggers these fixes should show a clean result.",
       "timestamp": "2026-05-28T19:01:54Z"
     }
   },
@@ -82,5 +82,7 @@
   "prior_baseline_id": null,
   "tags": [
     "cowork-instrumented"
-  ]
+  ],
+  "total_cost_usd": 0.045,
+  "cost_estimation_note": "estimated \u2014 no transcript available"
 }

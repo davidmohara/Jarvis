@@ -1,0 +1,133 @@
+{
+  "id": "eval-20260821T210200-H5M076",
+  "agent_id": "ad4e99c9ee3e8a4ad",
+  "type": "workflow",
+  "name": "boot",
+  "agent": "general-purpose",
+  "session_id": "session-2026-08-21-121818",
+  "trigger": "boot",
+  "started": "2026-08-21T21:02:00.241818Z",
+  "completed": "2026-08-21T21:07:42.631811Z",
+  "duration_seconds": 342.39,
+  "status": "partial",
+  "steps": [
+    {
+      "name": "step-01.2-unified-data-pull.md",
+      "started": "2026-08-21T16:04:20",
+      "completed": "2026-08-21T16:07:30",
+      "duration_seconds": 190.0,
+      "status": "complete",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": null,
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    },
+    {
+      "name": "step-01.5-unified-calendar-pull.md",
+      "started": "2026-08-21T16:07:40",
+      "completed": "2026-08-21T16:08:15",
+      "duration_seconds": 35.0,
+      "status": "complete",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": null,
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    },
+    {
+      "name": "step-02-gather-data.md",
+      "started": "2026-08-21T16:08:30",
+      "completed": "2026-08-21T16:09:30",
+      "duration_seconds": 60.0,
+      "status": "complete",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": null,
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    },
+    {
+      "name": "step-07-verify-completion.md",
+      "started": "2026-08-21T16:10:00",
+      "completed": "2026-08-21T16:10:45",
+      "duration_seconds": 45.0,
+      "status": "complete",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": null,
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    }
+  ],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 3,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": true,
+      "outputs_non_empty": false,
+      "assertions_checked": 4,
+      "assertions_passed": 3,
+      "assertion_results": [
+        {
+          "assertion": "Boot workflow state.yaml shows status: complete",
+          "passed": true,
+          "error": null
+        },
+        {
+          "assertion": "Session index file exists \u2014 boot's Session Index Boot step must have created/appended it",
+          "passed": true,
+          "error": null
+        },
+        {
+          "assertion": "Session index is a real record, not an empty stub",
+          "passed": true,
+          "error": null
+        },
+        {
+          "assertion": "step-06.5's guardrail checkpoint recorded a result (pass/flag/escalate) on this run \u2014 read from the eval record's own guardrails array, not self-reported by the workflow",
+          "passed": false,
+          "error": null
+        }
+      ]
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": "7483aa36b5a5240186e9ae9590a4811552b500bd4b696ed328a0f1fb23ae2406",
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/8c94a4ce-c06e-41b5-adcb-cbccf35ca0d2/subagents/agent-ad4e99c9ee3e8a4ad.jsonl",
+  "last_assistant_message": "Perfect. The plaud-ingest workflow is now complete. Here's the final report:\n\n## Workflow Completion Summary\n\n**Status:** COMPLETE (session pi-20260821-001)\n\n### Vault Ingestion\n- **Total recordings processed:** 17 work recordings + 1 excluded medical recording = 18 total discovered\n- **Ingested to vault:** 17 recordings across YPO, Client, Improving, and Personal folders\n  - 16 notes were already in the vault (ingested in prior session at 14:15)\n  - 1 note newly created (08-20 YPO Western Region Area Officer Board Meeting)\n- **Excluded:** 1 recording (08-05 Clinical Strategy Note - medical, per David's instruction)\n\n### Share Links Generated\nAll 17 work recordings successfully shared via Plaud public share API:\n- **08-20** YPO Western Region Board Meeting\n- **08-14** HASC consultation\n- **08-07** Podcast Monetization (x2)\n- **08-06** Area Officer Kickoff + SC IMS Architecting\n- **08-03** GearVox interview + Moto/Chevron partnership\n- **07-30** Church Leadership, McKesson, Personal Retreat (x3 total)\n- **07-29** Used Car Retailer consultation\n- **07-28** Improving/Solace partnership\n- **07-16** Founding Membership, YPO Casual, Strategic Review (x3 total)\n\nShare URLs logged in state.yaml accumulated-context.share-urls for Alice Mburu reference.\n\n### Staging Cleanup\n- Processed staging file (08-20) removed\n- plaud_all_recordings.json retained per protocol\n- Staging folder now contains only archive folders (_not_new_archive, _medical_excluded) and supporting files\n\n### Notes on Action Items & Monday Routing\nThe knox-transcripts-plaud skill's action-items extraction continues producing garbage (raw transcript fragments instead of synthesized tasks). This affects the entire batch. Manual Monday task creation is recommended using the share URLs for reviewer context, rather than automating from broken extraction.\n\n### State Updated\n- `status: complete`\n- `current-step: step-05b`\n- `ingested-notes`: 17 vault paths documented\n- `share-urls`: All 17 recorded with file_id and public Plaud links\n- `session-completed`: 2026-08-21T14:45:00Z\n\nThe workflow is ready for email delivery to Alice or manual Monday task creation as needed.",
+  "model": "haiku",
+  "total_tokens_input": 1993925,
+  "total_tokens_output": 57,
+  "total_cost_usd": 0.299388
+}

@@ -3,6 +3,8 @@ name: daily-review
 description: End-of-day shutdown - capture completions, carry-forwards, and tomorrow's priorities
 agent: chief
 model: sonnet
+cost_tracking: required
+cost_tracking_note: "Eval harness must capture total_cost_usd via eval-agent-stop.py hook (subagent transcript path required). See systems/eval-harness/schema.md for audit-trail requirements. Backfill script at systems/eval-harness/backfill-daily-review-costs.py for historical records."
 ---
 
 <!-- system:start -->
