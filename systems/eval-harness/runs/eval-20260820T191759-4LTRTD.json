@@ -7,13 +7,13 @@
   "session_id": "session-2026-08-12-091944",
   "trigger": "unknown",
   "started": "2026-08-20T19:17:59.973295Z",
-  "completed": null,
+  "completed": "2026-08-21T06:57:17.543896",
   "duration_seconds": null,
-  "status": "in-progress",
+  "status": "aborted",
   "steps": [],
   "assessment": {
     "mechanical": {
-      "completed": null,
+      "completed": false,
       "all_steps_finished": null,
       "tool_failures": 7,
       "error_ids": [],
@@ -60,7 +60,8 @@
           "duration_ms": 85,
           "timestamp": "2026-08-20T16:55:10.802603"
         }
-      ]
+      ],
+      "abort_reason": "session-ended"
     },
     "structural": {
       "expected_outputs_written": null,
