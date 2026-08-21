@@ -167,6 +167,9 @@ Evaluate each message against the following rules in sequence. Stop at the first
     "do not draft a post", "don't draft a post")
 4. User message WITH (# + ##) headers   →  DIGEST PATH
 4.5. User message WITH "article" keyword (case-insensitive) AND URL  →  URL PATH (content_type: "article")
+4.6. User message WITH Improving blog keywords AND URL  →  IMPROVING BLOG PATH
+   (keywords: "improving thoughts", "improving blog", "improving's blog", "improving thought leadership",
+    "not one for my blog", "not my blog")
 5. User message WITH URL, no routing keywords  →  URL PATH
 6. User message with deck/slides/presentation/PowerPoint  →  MANUAL FLAG
 7. User message referencing an existing post with editorial instructions (no URL, no digest signal)  →  EDITORIAL EDIT PATH
@@ -191,6 +194,8 @@ Evaluate each message against the following rules in sequence. Stop at the first
 ```
 "_@david — [{source title}] needs manual handling: {brief reason}. I can't process this automatically._"
 ```
+
+**For IMPROVING BLOG PATH:** Draft an Improving thought-leadership post from the URL and save it locally. Do NOT post to Ghost. Do NOT add to pending-drafts.json. Execute the IMPROVING BLOG PATH section below.
 
 **Prior-post linking (DIGEST PATH and URL PATH):** After drafting, scan the post body for references to prior posts, recurring themes, or named figures/numbers that appeared in a recent post. Check `pending-drafts.json` titles and Ghost published post slugs for thematic matches. If a clear callback exists, insert an inline hyperlink on the most natural anchor text before submitting to Ghost. Do not wait for David to ask. This is mandatory when the digest itself signals a "step two" or "prior week" relationship. (err-20260727T201700-2H2GW4)
 
@@ -272,6 +277,82 @@ In the pending-drafts.json entry, set:
 ```
 
 In the Slack notification teaser (Step 9), append `_(drafted from digest)_` on a new line after the teaser sentences.
+
+---
+
+### IMPROVING BLOG PATH
+
+Execute this section when a message matched the IMPROVING BLOG PATH route (URL + Improving blog keywords).
+
+**A. Fetch and research the source**
+
+1. Fetch the URL: `mcp__workspace__web_fetch(url="{url}")`. If it's a Spotify URL, run a WebSearch for the episode title to gather content — podcast pages don't yield transcripts via fetch.
+2. Extract: core argument, key insight, memorable quote or stat, the "so what" for Improving's audience (technology leaders, engineering leaders, enterprise decision-makers).
+
+**B. Draft the post in Improving's voice**
+
+Before writing: read the blog-draft skill's voice reference. The Improving voice is institutional first-person plural ("we," "our teams," "across our engagements") — NOT David's personal "I" voice. This is the key distinction from the URL PATH.
+
+Draft following these rules:
+- **Length:** 1,000-1,500 words (longer and more substantive than David's personal blog)
+- **Structure:** Opening stakes (why this matters) → core technical claim → real-world grounding → concrete takeaway
+- **Tone:** Credentialed authority. Improving's collective delivery experience speaks, not one person's reaction.
+- **No em-dashes.** No hollow affirmations. No filler transitions. Lead with the point, then support it.
+- **No headers named "Introduction" or "Conclusion."** Use H2s that read like real questions or decisions the reader faces.
+- **End with a concrete action or direct question** — not a sales pitch.
+- **Do not summarize the source.** The source is a spark. Improving's perspective on why it matters is the post.
+
+Also draft:
+- **meta_title:** max 70 chars
+- **meta_description:** max 155 chars
+
+**C. Save locally**
+
+Save the draft as a markdown file to:
+```
+/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/content/improving-blog/{YYYY-MM-DD}-{slug}.md
+```
+
+If that path doesn't exist, save to:
+```
+/Users/davidohara/develop/jarvis/drafts/improving-blog/{YYYY-MM-DD}-{slug}.md
+```
+
+Use Desktop Commander write_file. Frontmatter format:
+```yaml
+---
+title: "{Post Title}"
+status: draft
+audience: "Technology and engineering leaders in enterprise organizations"
+source: "{source_url}"
+meta_title: "{meta_title}"
+meta_description: "{meta_description}"
+created: {YYYY-MM-DD}
+author: "Improving"
+pipeline_notes: |
+  Drafted by Harper (content-pipeline) from: {source_url}
+  David's note: "{David's original message text}"
+  Next steps: Run through improving-thought-leadership plugin (narrative-definition → smell-test → improving-guidance) before publishing.
+---
+```
+
+**D. Notify David in #content**
+
+Post via post.py as a reply to the original message's thread (use the message `ts` as `thread_ts`):
+
+```
+"_Improving Thoughts draft saved locally: *{Post Title}*_
+
+_{file_path}_
+
+_Run it through the improving-thought-leadership plugin to refine and publish. Start with narrative-definition or smell-test._"
+```
+
+**E. Do NOT:**
+- Create a Ghost draft
+- Add to pending-drafts.json
+- Post to driventodevelop.com
+- Use David's personal blog voice (first-person "I")
 
 ---
 
