@@ -1,0 +1,15 @@
+{
+  "id": "err-20260821T165927-ZVCH8E",
+  "timestamp": "2026-08-21T16:59:27Z",
+  "session": "2026-08-21",
+  "source": "explicit",
+  "agent": "Jarvis",
+  "category": "process-skip",
+  "description": "When asked to push documents to the ReMarkable, responded by asking the user which method they preferred instead of searching for an available ReMarkable skill or spawning the appropriate agent to handle it autonomously.",
+  "correction": "Should have immediately searched available skills and plugins for a ReMarkable capability, then spawned the appropriate agent to execute. Never gate on a clarifying question when an agentic path exists.",
+  "failure_mode": "wrong-assumption",
+  "systemic_fix": "Before responding 'I don't have a connector for X', search skills and the MCP registry. If a skill or plugin exists, use it or spawn the agent that handles it.",
+  "fix_status": "proposed",
+  "severity": "moderate",
+  "related_entries": ["err-20260821T134901-B9L0WZ"]
+}

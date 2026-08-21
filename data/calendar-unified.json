@@ -1,134 +1,32 @@
 {
-  "pulled_at": "2026-08-07T09:00:00-05:00",
-  "date_range": {
-    "start": "2026-08-07",
-    "end": "2026-08-11"
-  },
-  "event_count": 25,
+  "pulled_at": "2026-08-21T12:35:00-05:00",
+  "date_range": {"start": "2026-08-21", "end": "2026-08-24"},
+  "event_count": 24,
   "events": [
-    {
-      "subject": "Dallas Virtual Coffee Chat",
-      "start": "2026-08-07T08:00:00 (CT)",
-      "end": "2026-08-07T09:00:00 (CT)",
-      "attendees": "60+ All Improvers meeting"
-    },
-    {
-      "subject": "MESH + Improving (Virtual)",
-      "start": "2026-08-07T09:00:00 (CT)",
-      "end": "2026-08-07T10:00:00 (CT)",
-      "attendees": "Allie Parascondola, MESH team"
-    },
-    {
-      "subject": "Sales & Recruiting Meeting",
-      "start": "2026-08-07T09:15:00 (CT)",
-      "end": "2026-08-07T09:30:00 (CT)",
-      "location": "Dallas - Longhorn Cavern"
-    },
-    {
-      "subject": "1st Friday Executive Meeting",
-      "start": "2026-08-07T09:30:00 (CT)",
-      "end": "2026-08-07T10:00:00 (CT)",
-      "location": "Microsoft Teams"
-    },
-    {
-      "subject": "Touch base",
-      "start": "2026-08-07T10:00:00 (CT)",
-      "end": "2026-08-07T10:30:00 (CT)",
-      "attendees": "Ralph Keipert"
-    },
-    {
-      "subject": "Lunch",
-      "start": "2026-08-07T01:00:00 (CT) [13:00 UTC]",
-      "end": "2026-08-07T02:00:00 (CT)",
-      "organizer": "You"
-    },
-    {
-      "subject": "Friday Weekly Wrap-Up",
-      "start": "2026-08-07T02:00:00 (CT) [14:00 UTC]",
-      "end": "2026-08-07T02:45:00 (CT)",
-      "attendees": "Alice Mburu"
-    },
-    {
-      "subject": "Strength Flow",
-      "start": "2026-08-08T08:00:00 (CT)",
-      "end": "2026-08-08T09:00:00 (CT)",
-      "location": "Horizon Hot Yoga, Frisco"
-    },
-    {
-      "subject": "Core Session",
-      "start": "2026-08-08T09:00:00 (CT)",
-      "end": "2026-08-08T09:30:00 (CT)",
-      "location": "Performance Medicine, Frisco"
-    },
-    {
-      "subject": "Golf",
-      "start": "2026-08-09T03:00:00 (CT)",
-      "end": "2026-08-09T07:30:00 (CT)"
-    },
-    {
-      "subject": "Improving Prayer Call",
-      "start": "2026-08-10T08:00:00 (CT)",
-      "end": "2026-08-10T08:15:00 (CT)",
-      "attendees": "Curtis Hite, Ric DeAnda, Devlin Liles"
-    },
-    {
-      "subject": "Timesheet",
-      "start": "2026-08-10T08:30:00 (CT)",
-      "end": "2026-08-10T08:35:00 (CT)"
-    },
-    {
-      "subject": "Sales & Recruiting Meeting",
-      "start": "2026-08-10T09:15:00 (CT)",
-      "end": "2026-08-10T09:30:00 (CT)",
-      "location": "Dallas"
-    },
-    {
-      "subject": "Sales Scrum",
-      "start": "2026-08-10T09:30:00 (CT)",
-      "end": "2026-08-10T10:00:00 (CT)",
-      "location": "Houston"
-    },
-    {
-      "subject": "Discuss Agenda for 2 Hour AI Executive Workshop on 8/25",
-      "start": "2026-08-10T10:30:00 (CT)",
-      "end": "2026-08-10T11:00:00 (CT)",
-      "attendees": "Diana Stevens, Ayotunde Gibbs (Remington Hotels)"
-    },
-    {
-      "subject": "Drive To The Capital Grille, Plano",
-      "start": "2026-08-10T11:15:00 (CT)",
-      "end": "2026-08-10T11:30:00 (CT)"
-    },
-    {
-      "subject": "Lunch With Greg and David @ The Capital Grille",
-      "start": "2026-08-10T11:30:00 (CT)",
-      "end": "2026-08-10T12:30:00 (CT)",
-      "attendees": "Greg Colandrea (Brinks)"
-    },
-    {
-      "subject": "Drive From Lunch",
-      "start": "2026-08-10T12:30:00 (CT)",
-      "end": "2026-08-10T01:00:00 (CT)"
-    },
-    {
-      "subject": "Sales & Recruiting Meeting",
-      "start": "2026-08-11T09:15:00 (CT)",
-      "end": "2026-08-11T09:30:00 (CT)",
-      "location": "Dallas"
-    },
-    {
-      "subject": "Sales Scrum",
-      "start": "2026-08-11T10:00:00 (CT)",
-      "end": "2026-08-11T10:30:00 (CT)",
-      "location": "Houston"
-    },
-    {
-      "subject": "Mysterious Architectures around the world (All Improvers)",
-      "start": "2026-08-11T10:30:00 (CT)",
-      "end": "2026-08-11T11:00:00 (CT)",
-      "attendees": "Company-wide"
-    }
+    {"subject": "Blue House Dinner | YPO LSG", "organizer": "tiffany@lonestargold.org", "start": "2026-08-21T00:00:00Z", "end": "2026-08-21T02:00:00Z", "location": "Bob's Steak & Chop House, Dallas", "showAs": "busy", "isOrganizer": false},
+    {"subject": "Dallas Virtual Coffee Chat", "organizer": "Anthony.Marrical@Improving.com", "start": "2026-08-21T13:00:00Z", "end": "2026-08-21T14:00:00Z", "location": "Microsoft Teams", "showAs": "tentative", "isOrganizer": false},
+    {"subject": "Drive To", "organizer": "David.OHara@improving.com", "start": "2026-08-21T14:00:00Z", "end": "2026-08-21T14:40:00Z", "location": null, "showAs": "busy", "isOrganizer": true, "categories": ["Travel"]},
+    {"subject": "Sales & Recruiting Meeting", "organizer": "DallasSales@improving.com", "start": "2026-08-21T14:15:00Z", "end": "2026-08-21T14:30:00Z", "location": "Teams; Dallas - Longhorn Cavern", "showAs": "tentative", "isOrganizer": false, "note": "overlaps Drive To"},
+    {"subject": "Sky McMillan Memorial", "organizer": "Blake.McMillan@Improving.com", "start": "2026-08-21T15:00:00Z", "end": "2026-08-21T16:00:00Z", "location": "Lucas Funeral Home, Hurst TX", "showAs": "busy", "isOrganizer": false, "note": "Memorial service for Blake McMillan's son Skyler"},
+    {"subject": "Drive From", "organizer": "David.OHara@improving.com", "start": "2026-08-21T16:00:00Z", "end": "2026-08-21T17:00:00Z", "location": null, "showAs": "busy", "isOrganizer": true, "categories": ["Travel"]},
+    {"subject": "Robert Hendricks Introduction", "organizer": "Robert.Hendricks@valuzzia.com", "start": "2026-08-21T17:00:00Z", "end": "2026-08-21T17:30:00Z", "location": "Teams", "showAs": "busy", "isOrganizer": false, "note": "overlaps Drive From window"},
+    {"subject": "Houston Event Planning | Sept 20th (Texans vs. Bengals) | Improving + Solace", "organizer": "David.OHara@improving.com", "start": "2026-08-21T17:30:00Z", "end": "2026-08-21T18:30:00Z", "location": "Teams", "showAs": "busy", "isOrganizer": true, "categories": ["Work", "Tracked To Dynamics 365"]},
+    {"subject": "Friday Weekly Wrap-Up", "organizer": "alice.mburu@improving.com", "start": "2026-08-21T18:40:00Z", "end": "2026-08-21T19:00:00Z", "location": "Teams", "showAs": "tentative", "isOrganizer": false},
+    {"subject": "SC work", "organizer": "David.OHara@improving.com", "start": "2026-08-21T19:00:00Z", "end": "2026-08-21T20:30:00Z", "location": null, "showAs": "busy", "isOrganizer": true, "note": "Systemic Compliance work block"},
+    {"subject": "Discuss Fractional CIO need - Improving", "organizer": "greg.pascuzzi@fortiumpartners.com", "start": "2026-08-21T20:30:00Z", "end": "2026-08-21T21:15:00Z", "location": "Zoom", "showAs": "busy", "isOrganizer": false},
+    {"subject": "Golf", "organizer": "David.OHara@improving.com", "start": "2026-08-22T15:00:00Z", "end": "2026-08-22T19:30:00Z", "location": null, "showAs": "busy", "isOrganizer": true, "note": "Saturday"},
+    {"subject": "Timesheet", "organizer": "David.Ohara@improving.com", "start": "2026-08-24T12:00:00Z", "end": "2026-08-24T12:05:00Z", "location": null, "showAs": "busy", "isOrganizer": true},
+    {"subject": "Improving Prayer Call", "organizer": "Richard.Kang@Improving.com", "start": "2026-08-24T13:00:00Z", "end": "2026-08-24T13:15:00Z", "location": "Teams", "showAs": "tentative", "isOrganizer": false},
+    {"subject": "Sales & Recruiting Meeting", "organizer": "DallasSales@improving.com", "start": "2026-08-24T14:15:00Z", "end": "2026-08-24T14:30:00Z", "location": "Teams; Dallas - Longhorn Cavern", "showAs": "tentative", "isOrganizer": false},
+    {"subject": "Sales Scrum", "organizer": "stephen.johnson@improving.com", "start": "2026-08-24T14:30:00Z", "end": "2026-08-24T15:00:00Z", "location": "Teams; Houston - Conference Room Trust", "showAs": "tentative", "isOrganizer": false},
+    {"subject": "Drive To", "organizer": "David.OHara@improving.com", "start": "2026-08-24T15:30:00Z", "end": "2026-08-24T16:00:00Z", "location": "MarketScale", "showAs": "busy", "isOrganizer": true, "categories": ["Travel"]},
+    {"subject": "The Improving Edge Podcast Filming", "organizer": "Janine.Jeanson@improving.com", "start": "2026-08-24T16:00:00Z", "end": "2026-08-24T17:30:00Z", "location": "MarketScale", "showAs": "busy", "isOrganizer": false, "note": "Guest: Kapil Dabi (Google)"},
+    {"subject": "Drive From", "organizer": "David.OHara@improving.com", "start": "2026-08-24T17:30:00Z", "end": "2026-08-24T18:00:00Z", "location": null, "showAs": "busy", "isOrganizer": true, "categories": ["Travel"]},
+    {"subject": "David/Robyn 1:1", "organizer": "Robyn.Fuentes@Improving.com", "start": "2026-08-24T18:30:00Z", "end": "2026-08-24T19:00:00Z", "location": "Teams", "showAs": "busy", "isOrganizer": false},
+    {"subject": "Introductory call | Russell Frees and David O'Hara", "organizer": "David.OHara@improving.com", "start": "2026-08-24T19:00:00Z", "end": "2026-08-24T19:30:00Z", "location": "Teams", "showAs": "busy", "isOrganizer": true, "categories": ["Relationship"]},
+    {"subject": "(internal briefing) Sallie Mae - Executive Leadership Seminar", "organizer": "stephen.johnson@improving.com", "start": "2026-08-24T19:30:00Z", "end": "2026-08-24T20:00:00Z", "location": "Teams", "showAs": "tentative", "isOrganizer": false},
+    {"subject": "CC Breakfast Alignment", "organizer": "David.OHara@improving.com", "start": "2026-08-24T20:30:00Z", "end": "2026-08-24T21:00:00Z", "location": "Teams", "showAs": "busy", "isOrganizer": true},
+    {"subject": "Tentative: Podcast Touch Base // David & Keylor", "organizer": "Keylor.Arroyo@improving.com", "start": "2026-08-24T21:00:00Z", "end": "2026-08-24T21:30:00Z", "location": "Teams", "showAs": "busy", "isOrganizer": false}
   ],
-  "summary": "TODAY (Fri Aug 7): Busy Friday with 6 meetings back-to-back 8am-11am (MESH, Sales & Rec, Exec, Ralph touch-base, lunch, wrap-up w/Alice). SAT Aug 8: Strength Flow + Core Session. MON Aug 10: Light calendar w/prayer call, timesheet, 2x Sales meetings, AI Workshop planning (Diana/Remington), lunch w/Greg Colandrea (Brinks). NOTES: Baker & David Schwartz both OOO (Baker through 8/8, Schwartz through 8/11). Tonya on vacation 8/10-8/15. Greg Colandrea @ Brinks is new lunch contact.",
-  "notes": "M365 reauth completed. All times converted from UTC to CT. Full event details in raw response; filtered summary above."
+  "note": "Aug 22 (Sat) only has Golf. Aug 23 (Sun) has no events. Two potential timing conflicts flagged on Aug 21: Sales & Recruiting Meeting (14:15-14:30 UTC) overlaps 'Drive To' block (14:00-14:40 UTC); Robert Hendricks Introduction (17:00-17:30 UTC) overlaps 'Drive From' block (16:00-17:00 UTC, ends before 17:00 so only marginal)."
 }

@@ -1,0 +1,48 @@
+{
+  "workflow": "boot",
+  "total_size_bytes": 282,
+  "accumulated_context": {
+    "name": "accumulated-context",
+    "size_bytes": 282,
+    "size_kb": 0.28,
+    "estimated_tokens": 70,
+    "type": "dict"
+  },
+  "field_breakdown": [
+    {
+      "name": "phase2.morning-briefing-steps-01-02",
+      "size_bytes": 59,
+      "size_kb": 0,
+      "estimated_tokens": 14,
+      "type": "str"
+    },
+    {
+      "name": "phase2.task-i-jarvis-inbox",
+      "size_bytes": 26,
+      "size_kb": 0,
+      "estimated_tokens": 6,
+      "type": "str"
+    },
+    {
+      "name": "phase2.task-j-reminders",
+      "size_bytes": 18,
+      "size_kb": 0,
+      "estimated_tokens": 4,
+      "type": "str"
+    },
+    {
+      "name": "phase2.task-g-72hr-lookahead",
+      "size_bytes": 9,
+      "size_kb": 0,
+      "estimated_tokens": 2,
+      "type": "str"
+    },
+    {
+      "name": "phase2.task-h-email-triage",
+      "size_bytes": 9,
+      "size_kb": 0,
+      "estimated_tokens": 2,
+      "type": "str"
+    }
+  ]
+}

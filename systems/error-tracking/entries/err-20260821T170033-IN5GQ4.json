@@ -1,0 +1,15 @@
+{
+  "id": "err-20260821T170033-IN5GQ4",
+  "timestamp": "2026-08-21T17:00:33Z",
+  "session": "2026-08-21",
+  "source": "explicit",
+  "agent": "Jarvis",
+  "category": "process-skip",
+  "description": "When asked to push documents to the ReMarkable and then to spawn the agent using the remarkable skill, failed to check .claude/skills/ for a locally installed remarkable skill before concluding no capability existed and asking the user for their email address.",
+  "correction": "Must check .claude/skills/ (and the IES skills directory) for locally installed skills before concluding a capability is unavailable. The Glob search ran against the plugin skills path only — not the user's local skill directory.",
+  "failure_mode": "lazy-search",
+  "systemic_fix": "When a user references a skill by name or capability, always search both the installed plugin skills path AND .claude/skills/ before declaring it unavailable.",
+  "fix_status": "proposed",
+  "severity": "moderate",
+  "related_entries": ["err-20260821T165927-ZVCH8E", "err-20260821T134901-B9L0WZ"]
+}

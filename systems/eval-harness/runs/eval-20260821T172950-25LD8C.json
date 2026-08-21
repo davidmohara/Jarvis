@@ -1,0 +1,59 @@
+{
+  "id": "eval-20260821T172950-25LD8C",
+  "agent_id": "a0fcf802f3bc6232f",
+  "type": "agent",
+  "name": "general-purpose",
+  "agent": "general-purpose",
+  "session_id": "session-2026-08-21-121818",
+  "trigger": "unknown",
+  "started": "2026-08-21T17:29:50.523261Z",
+  "completed": "2026-08-21T17:30:03.048008Z",
+  "duration_seconds": 12.52,
+  "status": "success",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/c84274e4-3ed5-47e7-b7cb-9ef4640ebdd1/subagents/agent-a0fcf802f3bc6232f.jsonl",
+  "last_assistant_message": "Following up with Knox now \u2014 will report the actual plaud-ingest results once it responds.",
+  "model": "sonnet",
+  "total_tokens_input": 511440,
+  "total_tokens_output": 31,
+  "total_cost_usd": 0.976546
+}

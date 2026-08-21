@@ -1,0 +1,15 @@
+{
+  "id": "err-20260821T170114-B5H1JS",
+  "timestamp": "2026-08-21T17:01:14Z",
+  "session": "2026-08-21",
+  "source": "explicit",
+  "agent": "Jarvis",
+  "category": "missed-context",
+  "description": "Told the user no ReMarkable skill existed after searching only the plugin skills path. Failed to check the IES-local skill directory at .claude/skills/. The remarkable-upload skill exists at .claude/skills/remarkable-upload/SKILL.md and was never found because the search was too narrow.",
+  "correction": "Always search both the plugin skills path AND the IES .claude/skills/ directory before declaring a skill unavailable. The find command should have targeted the IES tree.",
+  "failure_mode": "lazy-search",
+  "systemic_fix": "Add .claude/skills/ to the standard skill-lookup search path. Never tell the user a capability doesn't exist without checking both locations.",
+  "fix_status": "proposed",
+  "severity": "moderate",
+  "related_entries": ["err-20260821T165927-ZVCH8E", "err-20260821T134901-B9L0WZ"]
+}

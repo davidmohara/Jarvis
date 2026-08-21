@@ -1,12 +1,10 @@
 {
   "skill": "plaud-discover",
   "agent": "knox",
-  "trigger": "scheduled",
-  "started": "2026-08-12T00:00:00Z",
-  "completed": "2026-08-12T00:00:30Z",
-  "status": "blocked",
-  "blocker_reason": "PLAUD_AUTH_REQUIRED",
+  "trigger": "manual",
+  "started": "2026-08-21T00:00:00Z",
+  "completed": "2026-08-21T00:05:00Z",
+  "status": "success",
   "tool_failures": 0,
-  "error_ids": ["auth-missing-token-credentials"],
-  "notes": "No cached Plaud API token and no saved credentials found. Non-interactive environment cannot perform Chrome-based authentication. User must supply credentials via environment variables (PLAUD_EMAIL, PLAUD_PASSWORD, PLAUD_REGION) or run interactive login flow."
+  "error_ids": []
 }

@@ -1,0 +1,15 @@
+{
+  "id": "err-20260821T134901-B9L0WZ",
+  "timestamp": "2026-08-21T13:49:01Z",
+  "session": "2026-08-21",
+  "source": "explicit",
+  "agent": "Jarvis",
+  "category": "process-skip",
+  "description": "Presented a clarifying question form to the user asking for company name, meeting type, and context before doing any work — instead of immediately pulling calendar and email context to research Robert Hendricks autonomously.",
+  "correction": "Should have immediately searched Outlook calendar and email for Robert Hendricks, run web research, and built the prep sheet without asking. Clarifying questions are only appropriate when context is genuinely unavailable after searching.",
+  "failure_mode": "wrong-assumption",
+  "systemic_fix": "Before presenting any elicitation form for call prep, always attempt calendar search, email search, and web research first. Only ask if context is truly unresolvable from available sources.",
+  "fix_status": "proposed",
+  "severity": "moderate",
+  "related_entries": []
+}

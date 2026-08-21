@@ -980,7 +980,7 @@
         "name": "morning-boot",
         "loops": [
           {
-            "task": "boot-sequence — stale, closed by next-day session init",
+            "task": "boot-sequence \u2014 stale, closed by next-day session init",
             "resolved": false
           }
         ]
@@ -997,7 +997,7 @@
         "name": "morning-boot",
         "loops": [
           {
-            "task": "boot-sequence — stale, closed by next-day session init",
+            "task": "boot-sequence \u2014 stale, closed by next-day session init",
             "resolved": false
           }
         ]
@@ -1017,6 +1017,41 @@
             "task": "boot-sequence",
             "resolved": false
           }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "session-2026-08-21-121818",
+    "started": "2026-08-21T12:18:18-05:00",
+    "closed": null,
+    "current_topic": "morning-boot",
+    "topics": [
+      {
+        "name": "morning-boot",
+        "loops": [
+          {
+            "task": "Full 7-step boot workflow completed. Ralph verification caught and Master corrected 2 data-accuracy discrepancies (Task G event count, Task H message array). OmniFocus unreachable (tool absent) \u2014 flagged, not faked. Briefing delivered.",
+            "resolved": true
+          }
+        ],
+        "files": [
+          "workflows/boot/state.yaml",
+          "data/calendar-unified.json",
+          "data/email-unified.json",
+          "data/clay-reminders-unified.json",
+          "data/jarvis-inbox-unified.json",
+          "systems/error-tracking/entries/err-20260821T172416-V33KOT.json",
+          ".claude/hooks/post-tool-use.py",
+          "workflows/boot/steps/step-01-load-context.md",
+          "workflows/boot/steps/step-07-verify-completion.md",
+          "workflows/watchtower/steps/daily-step-01-gather.md",
+          "workflows/watchtower/steps/daily-step-06-report.md",
+          "workflows/watchtower/steps/weekly-step-01-synthesize.md",
+          "workflows/watchtower/steps/weekly-step-05-report.md",
+          "systems/eval-harness/schema.md",
+          "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/5dcfee22-ff31-47ff-a35c-90ecbfbf17fb/scratchpad/daily-review-stage4-submission/README.md",
+          "memory/working/eval-harness-hook-fix-2026-08-21.md"
         ]
       }
     ]

@@ -1,0 +1,15 @@
+{
+  "id": "err-20260821T172416-V33KOT",
+  "timestamp": "2026-08-21T17:24:16Z",
+  "session": "session-2026-08-21-121818",
+  "source": "self-detected",
+  "agent": "master",
+  "category": "data-accuracy",
+  "description": "Boot step-02 (Task G 72-hour look-ahead) reported 14 additional events for Aug 22-24; actual count in data/calendar-unified.json was 13 (1 on Aug 22, 0 on Aug 23, 12 on Aug 24). Separately, Task H (email triage) reported 22 messages scanned but data/email-unified.json only contained 11 message objects in its array, an internal count/content mismatch. Both caught by Ralph during the mandatory step-03 verification gate, not self-caught before Ralph ran.",
+  "correction": "Recounted calendar-unified.json programmatically (13 events for the 3-day look-ahead window) and rebuilt email-unified.json with all 22 message objects from the original M365 search response instead of a truncated/summarized subset.",
+  "failure_mode": "sloppy-read",
+  "systemic_fix": "When writing summary counts into a data file, count the array being written (or generate the count programmatically) rather than restating a total from an earlier tool call after the array has been trimmed or summarized for brevity.",
+  "fix_status": "proposed",
+  "severity": "minor",
+  "related_entries": []
+}

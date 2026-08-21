@@ -1,0 +1,59 @@
+{
+  "id": "eval-20260821T190620-LZTCAE",
+  "agent_id": "a8cf27a25a0d644a2",
+  "type": "agent",
+  "name": "general-purpose",
+  "agent": "general-purpose",
+  "session_id": "session-2026-08-21-121818",
+  "trigger": "unknown",
+  "started": "2026-08-21T19:06:20.384086Z",
+  "completed": "2026-08-21T19:12:32.609310Z",
+  "duration_seconds": 372.23,
+  "status": "aborted",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": false,
+      "all_steps_finished": true,
+      "tool_failures": 1,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/c84274e4-3ed5-47e7-b7cb-9ef4640ebdd1/subagents/agent-a8cf27a25a0d644a2.jsonl",
+  "last_assistant_message": "Sent the calendar cross-reference results to main. Summary: 26 of 27 flagged speakers resolved with high-to-medium confidence via calendar matching plus direct-address/self-introduction evidence in the transcripts, applied by manually substituting names into the staged transcript files. Only one speaker remains genuinely ambiguous \u2014 Speaker 1 in the \"Architecting SC IMS\" recording, where three already-named attendees on that same call are all plausible candidates with no distinguishing evidence, so it's left as-is for David to identify rather than guessed.\n\nThe knox-transcripts-plaud ingestion skill is now running in the background against the fully-resolved staging set. I'll report the final ingestion outcome (notes created, task routing, cleanup) once it completes.",
+  "model": "sonnet",
+  "total_tokens_input": 8081850,
+  "total_tokens_output": 1065,
+  "total_cost_usd": 3.626236
+}

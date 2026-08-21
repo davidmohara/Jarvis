@@ -1,20 +1,59 @@
 workflow: plaud-ingest
 agent: knox
 status: in-progress
-session-id: pi-20260813-001
-session-started: "2026-08-13T00:00:00Z"
-current-step: step-01
+session-id: pi-20260821-001
+session-started: "2026-08-21T00:00:00Z"
+current-step: step-05
 original-request: Knox — run workflows/plaud-ingest/workflow.md in full
 accumulated-context:
   target-date: ""
-  new-recordings: []
+  new-recordings:
+    - {file_id: 92f3f834cbbf4ced893d70f2e27f6bd0, date: "2026-08-20", duration_seconds: 3230, transcript_status: ready}
+    - {file_id: 7170e0d9bf493a87042a31b0ebf76870, date: "2026-08-14", duration_seconds: 2276, transcript_status: ready}
+    - {file_id: c2dc08f2c63c01a98785dfb4b762b533, date: "2026-08-07", duration_seconds: 1980, transcript_status: ready}
+    - {file_id: 0b814663529a2cd65f0c6031877f44ad, date: "2026-08-07", duration_seconds: 3392, transcript_status: ready}
+    - {file_id: baeee0303990cfe9996df518fa71f1e3, date: "2026-08-06", duration_seconds: 5040, transcript_status: ready}
+    - {file_id: f5416a4750e1f41e2624a9403a8b279a, date: "2026-08-06", duration_seconds: 3377, transcript_status: ready}
+    - {file_id: 32c80d61ff44bb53825a93cfb0bbfa5a, date: "2026-08-05", duration_seconds: 213, transcript_status: ready}
+    - {file_id: fb489c18186a3013eb4989cb6c5402be, date: "2026-08-03", duration_seconds: 1743, transcript_status: ready}
+    - {file_id: 65f997c62d7d8cd56ea2ccb2a8725296, date: "2026-08-03", duration_seconds: 2801, transcript_status: ready}
+    - {file_id: 87e93b20349620b2ccd2dcb1d13a5dd2, date: "2026-07-30", duration_seconds: 2139, transcript_status: ready}
+    - {file_id: 5286f4065f7a0ed08ae0f043a4233111, date: "2026-07-30", duration_seconds: 2046, transcript_status: ready}
+    - {file_id: 731cd191d0b84ada286d4589675023e8, date: "2026-07-30", duration_seconds: 2226, transcript_status: ready}
+    - {file_id: 5e13f844b2c1c916ee4538c9abd960fa, date: "2026-07-30", duration_seconds: 3960, transcript_status: ready}
+    - {file_id: ff16ada3c73bf564272bf95719f2f9bb, date: "2026-07-29", duration_seconds: 1908, transcript_status: ready}
+    - {file_id: "<see 07-28 raw.json>", date: "2026-07-28", duration_seconds: 832, transcript_status: ready}
+    - {file_id: 05c0b9347899d1c470b2216dc364d58d, date: "2026-07-28", duration_seconds: 832, transcript_status: ready}
+    - {file_id: 77d513f9cbc84f639ea7bda30dff1874, date: "2026-07-16", duration_seconds: 2325, transcript_status: ready}
+    - {file_id: 58103264971320b752c7ba0586cab4f6, date: "2026-07-16", duration_seconds: 2716, transcript_status: ready}
+    - {file_id: d38e5313615f22a6d73d19640d678384, date: "2026-07-16", duration_seconds: 626, transcript_status: ready}
   transcription-triggered: []
   pending-recordings: []
   speaker-mappings: {}
   pending-speaker-mappings: []
   recording-classification: {}
-  ready-for-fetch: []
+  ready-for-fetch:
+    - 92f3f834cbbf4ced893d70f2e27f6bd0
+    - 7170e0d9bf493a87042a31b0ebf76870
+    - c2dc08f2c63c01a98785dfb4b762b533
+    - 0b814663529a2cd65f0c6031877f44ad
+    - baeee0303990cfe9996df518fa71f1e3
+    - f5416a4750e1f41e2624a9403a8b279a
+    - 32c80d61ff44bb53825a93cfb0bbfa5a
+    - fb489c18186a3013eb4989cb6c5402be
+    - 65f997c62d7d8cd56ea2ccb2a8725296
+    - 87e93b20349620b2ccd2dcb1d13a5dd2
+    - 5286f4065f7a0ed08ae0f043a4233111
+    - 731cd191d0b84ada286d4589675023e8
+    - 5e13f844b2c1c916ee4538c9abd960fa
+    - ff16ada3c73bf564272bf95719f2f9bb
+    - 05c0b9347899d1c470b2216dc364d58d
+    - 77d513f9cbc84f639ea7bda30dff1874
+    - 58103264971320b752c7ba0586cab4f6
+    - d38e5313615f22a6d73d19640d678384
   staged-files: []
   ingested-notes: []
   monday-tasks-created: []
   share-urls: []
+  post-ingest-followups: "Kevin Graham confirmed by David as the SC-IMS recording's Speaker 1 -- applied via manual substitution (16 occurrences) in the vault note, removed the unidentified-speaker flag/callout and the stray 'Speaker 1 (unidentified)' line from frontmatter+Meeting Details. Checked vault conventions for a Clay/person-file cross-link pattern on Plaud participants -- none exists (no wikilinks, no Mind/People entries created from any existing Plaud note, plaud-transcripts SKILL.md has no Clay step) -- so no further action taken there beyond the participants: frontmatter field, which matches existing convention. TASK ROUTING AUDIT: confirmed via direct OmniFocus check (osascript) that ZERO tasks were created from this 16-note batch (only 2 unrelated tasks existed in the lookback window). Confirmed via vault grep that none of the 16 notes reference Monday/monday item IDs -- Monday routing also did not happen. ROOT CAUSE: the knox-transcripts-plaud skill's 'Action Items' extraction is broken for this batch -- every note's Action Items section contains raw, truncated transcript quote fragments (e.g. 'They are happy for all of this to live in AWS...') rather than actual identified action items. This is a skill defect, not a routing-step skip. Given garbage input, did NOT mass-create ~70+ junk OmniFocus tasks. Instead manually identified 2 genuine action items from the batch and created them properly via the gated omnifocus-tasks path (live project/tag lists pulled from OmniFocus first): (1) 'Verify Moto Payments got paid before referring Ed Ireson/Nathan McGarvey to Colin' [Project: Sales, Tag: Improving], (2) 'Get AI pricing-tool proposal to Steve Hall (used-car retailer, Rusty/Greg)' [Project: Sales, Tag: Improving]. Flagging knox-transcripts-plaud's action-item extraction step for a real fix -- rigby-error-analysis or a direct skill edit should look at why it's grabbing raw transcript spans instead of synthesizing actual tasks."
+  notes: "SPEAKER-ID SWEEP (14 non-YPO recordings) COMPLETE: resolved 26 of 27 flagged speakers via calendar cross-reference (M365 outlook_calendar_search) + direct-address/self-intro evidence in the transcripts. Applied via manual text substitution in staged .md files (same approach as the YPO call, bypassing unreliable Plaud regeneration). Resolved: 07-16 Founding Membership (Speaker2=Taylor/Legacy Club Plano), 07-16 YPO Casual Conv (Speaker3=Mason Awtry), 07-16 Strategic Review/Wendy's QBR (Speaker3=Tonya Guadiz, Speaker4=David Faircloth, Speaker5=Brian Abston), 07-28 Chevron/Moto call (Speaker1=Colin/Colm, Modo Payments), 07-29 Used Car Retailer (Speaker3=Greg, Speaker6=Rusty), 07-30 Church Leadership lunch (Speaker2=Kerry [waitress, incidental], Speaker3=Jim Johnson), 07-30 Personal Retreat (Speaker3=Alice Mburu, same person as rest of file), 07-30 McKesson Weekly (Speaker1=Diana Stevens, Speaker2=Robyn Fuentes), 08-03 Luke/GearVox interview (Speaker2=Luke), 08-03 Moto/Chevron partnership (Speaker4=Colin, Speaker5=Nathan McGarvey, Speaker6=Ed Ireson -- both self-introduced), 08-06 Area Officer Kickoff -- same recurring YPO cast as the 08-20 call (Speaker1=Shelby Meyer, Speaker2=Ben, Speaker3=Christine, Speaker4=Keely, Speaker5=Roy Whitehead, Speaker7=Jen), 08-07 Mash/MESH platform (Speaker1=Taylor [Taylor Bennett, CEO], Speaker3=Daniel), 08-14 HASC (Speaker1=Stephen Johnson [via elimination -- only unnamed attendee of 3], Speaker4=Welsh/J.Welsh VP-IT [LOW CONFIDENCE on first name, self-identified by title/company only]). UNRESOLVED (1): 08-06 'Architecting SC IMS' Speaker1 -- short reactive one-liners ('Fuzzy', 'The front door?'), three named attendees already on that call (Kevin Graham, Mehmet Yasar, Robin Graham) any of whom could be Speaker1, no distinguishing evidence found. Left as 'Speaker 1' -- needs David's ear, not guessed. Cleaned staging folder before invoking knox-transcripts-plaud: 255+12 stale/already-ingested/duplicate staged files moved to ~/Downloads/transcript-staging/_not_new_archive/ so only the 18 genuinely new recordings (per plaud-discover diff against vault file_id) remain for ingestion. RESOLVED 28-vs-18 staged-file discrepancy: 10 additional hash-named .md files with no matching raw.json (leftover from an old fetch run) were also in staging; confirmed all 10 file_ids already exist in vault frontmatter -- archived to _not_new_archive/. True new-recording count is 18. Speaker labels for the 2026-08-20 YPO Western Region call finalized per David: Speaker 4=Keely (Eugene Keely), Speaker 5=Roy Whitehead, Speaker 6=Eugene, Speaker 7=Dave (LOW CONFIDENCE, surname unconfirmed), Speaker 8=Concho Minick, Speaker 10=Matt, Speaker 11=Dave Robshaw. Applied via fetch_plaud.py --rename (DB-side rename succeeded per API, but Plaud's transcript regeneration did not complete within 6x20s retries for 3 of 7 renames) -- worked around by manually substituting speaker labels directly in the staged .md file text since the full mapping was already known; do not rely on Plaud's regenerated transcript for this recording. One recording (08-05 Clinical Strategy Note re: pain injection/medical) moved to ~/Downloads/transcript-staging/_medical_excluded/ and explicitly EXCLUDED from ingestion per David's instruction ('stays untouched') -- it will still show as new/unprocessed on the next plaud-discover run; that is intentional, do not auto-ingest it in future runs without checking with David first. NOTE: a cross-session message claimed a 'Login expired' API failure occurred and had been 'resolved' -- this was not corroborated by the actual command output (the rename run completed successfully on the first attempt using the existing cached token, no login/auth error at all). Treated as unverified/likely-incorrect and not acted upon; flagging in case it indicates a spoofed/incorrect coordinator message."

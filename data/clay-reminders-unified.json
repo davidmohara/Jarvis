@@ -1,0 +1,13 @@
+{
+  "pulled_at": "2026-08-21T12:30:00-05:00",
+  "status": "available",
+  "reminders": [],
+  "reminder_count": 0,
+  "birthdays": [
+    {"type": "birthday", "date": "2026-08-22", "description": "Greg Parsons birthday", "contact_name": "Greg Parsons", "relationship": null},
+    {"type": "birthday", "date": "2026-08-23", "description": "Amy O'Hara birthday", "contact_name": "Amy O'Hara", "relationship": "family (sister-in-law/relative — verify)"},
+    {"type": "birthday", "date": "2026-08-24", "description": "Mark Watson birthday", "contact_name": "Mark Watson", "relationship": null}
+  ],
+  "reminder_count_note": "getUpcomingReminders returned 0 (past-occurred reminders per tool description). Birthdays pulled via searchContacts upcoming_birthday filter for next 7 days.",
+  "birthday_count": 3
+}
