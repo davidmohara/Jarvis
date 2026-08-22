@@ -1,0 +1,59 @@
+{
+  "id": "eval-20260822T133514-GKHKMU",
+  "agent_id": "a9e19b5f53c60f640",
+  "type": "agent",
+  "name": "claude",
+  "agent": "claude",
+  "session_id": "session-2026-08-21-121818",
+  "trigger": "unknown",
+  "started": "2026-08-22T13:35:14.911500Z",
+  "completed": "2026-08-22T13:36:19.959420Z",
+  "duration_seconds": 65.05,
+  "status": "aborted",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": false,
+      "all_steps_finished": true,
+      "tool_failures": 2,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/8c94a4ce-c06e-41b5-adcb-cbccf35ca0d2/subagents/agent-a9e19b5f53c60f640.jsonl",
+  "last_assistant_message": "Master agent launched (ID: a1755d6eb52ed9f80). Boot workflow execution in progress. Waiting for completion notification with escalation test results.\n\nAgent is conducting fresh boot sequence through step-05, where guardrail checkpoint will evaluate briefing_file field criticality. Will report eval_id, punch_out_signal, and checkpoint result upon completion.",
+  "model": "haiku",
+  "total_tokens_input": 526645,
+  "total_tokens_output": 33,
+  "total_cost_usd": 0.087068
+}

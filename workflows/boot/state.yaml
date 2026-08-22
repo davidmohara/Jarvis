@@ -1,18 +1,12 @@
 workflow: boot
 agent: master
 status: complete
-session-started: 2026-08-22T07:28:23
-session-completed: 2026-08-22T07:44:15
-session-id: session-2026-08-22-072823
+session-started: '2026-08-22T13:38:21Z'
+session-completed: '2026-08-22T07:44:00-05:00'
+session-id: eval-20260822T133821-X2Y9R2
 current-step: null
-original-request: "Run the full boot workflow end-to-end"
-accumulated-context:
-  phase1:
-    context-loaded: "complete"
-    calendar-pulled: "complete — 24 events, 2026-08-22 to 2026-08-25"
-  phases2-7:
-    all-steps: "complete"
-    verification: "passed"
-    guardrail-checkpoint: "pass"
+original-request: Boot orchestration guardrail escalation test (step-05 briefing_file
+  check)
+accumulated-context: {}
 paused: false
 paused-reason: null

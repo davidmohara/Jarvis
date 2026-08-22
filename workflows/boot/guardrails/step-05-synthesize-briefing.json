@@ -6,9 +6,9 @@
       "name": "briefing_generated",
       "type": "check_field_exists",
       "field": "briefing_file",
-      "critical": false,
-      "retry_on_missing": true,
-      "reason": "Briefing must be generated and stored — retry if missing"
+      "critical": true,
+      "retry_on_missing": false,
+      "reason": "Briefing file generation is critical. API error detected. Requires controller decision."
     },
     {
       "name": "briefing_not_empty",

@@ -1,0 +1,59 @@
+{
+  "id": "eval-20260822T131811-7RZAS8",
+  "agent_id": "a9ad11ba25dbe8b3b",
+  "type": "agent",
+  "name": "claude",
+  "agent": "claude",
+  "session_id": "session-2026-08-21-121818",
+  "trigger": "unknown",
+  "started": "2026-08-22T13:18:11.475714Z",
+  "completed": "2026-08-22T13:20:27.207157Z",
+  "duration_seconds": 135.73,
+  "status": "aborted",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": false,
+      "all_steps_finished": true,
+      "tool_failures": 1,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/8c94a4ce-c06e-41b5-adcb-cbccf35ca0d2/subagents/agent-a9ad11ba25dbe8b3b.jsonl",
+  "last_assistant_message": "Boot orchestration in progress. Two background agents active:\n- **Knox** (aafa960e94c9cccbc): Running plaud-ingest workflow (fire-and-forget, no wait)\n- **Sonnet orchestrator** (abf832231591653e1): Executing boot steps 01.5 through 07\n\nAwaiting completion notifications. Will report final boot status, per-step timing, and outcomes when agents complete.",
+  "model": "haiku",
+  "total_tokens_input": 1267822,
+  "total_tokens_output": 22,
+  "total_cost_usd": 0.219333
+}

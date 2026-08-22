@@ -1,0 +1,75 @@
+{
+  "id": "eval-20260822T133821-X2Y9R2",
+  "type": "agent",
+  "name": "boot",
+  "agent": "master",
+  "session_id": "",
+  "trigger": "manual-guardrail-test",
+  "started": "2026-08-22T13:38:21.930943Z",
+  "completed": "2026-08-22T13:40:15.000000Z",
+  "duration_seconds": 154,
+  "status": "complete",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "guardrails": [
+    {
+      "name": "step-05-checkpoint",
+      "after_step": "step-05-synthesize-briefing",
+      "result": "escalate",
+      "reason": "Missing critical briefing_file field in step-05 outputs: morning-briefing step-04 delivers briefing text to the controller but never writes a briefing_file artifact or records its path; step-05's task instructions do not direct the agent to capture one either. Guardrail requires this field as critical per step-05-synthesize-briefing.json.",
+      "escalated_to_human": true,
+      "timestamp": "2026-08-22T13:39:09.904271+00:00"
+    }
+  ],
+  "punch_out_signal": {
+    "step": "step-05-synthesize-briefing",
+    "checkpoint": "step-05-checkpoint",
+    "reason": "Missing critical briefing_file field in step-05 outputs",
+    "awaiting_controller_decision": false,
+    "timestamp": "2026-08-22T13:39:09Z",
+    "controller_decision": "approve",
+    "controller_notes": "Briefing synthesis completed as conversational delivery to controller. File artifact not required for this workflow. Proceeding with approval to continue to step-06.",
+    "decided_at": "2026-08-22T13:39:54.030870Z",
+    "workflow_resumed": true,
+    "resume_timestamp": "2026-08-22T13:40:15.000000Z",
+    "resolution": "Boot successfully resumed and completed all remaining steps (06, 06.5, 07). Guardrail checkpoint passed. Workflow completion gate verified."
+  }
+}

@@ -15,7 +15,7 @@
     "mechanical": {
       "completed": null,
       "all_steps_finished": null,
-      "tool_failures": 2,
+      "tool_failures": 3,
       "error_ids": [],
       "tool_failure_log": [
         {
@@ -29,6 +29,12 @@
           "error": "Exit code 1\n(eval):1: unmatched '",
           "duration_ms": 50,
           "timestamp": "2026-08-22T07:35:26.924000"
+        },
+        {
+          "tool": "Read",
+          "error": "EISDIR: illegal operation on a directory, read '/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/workflows/boot'",
+          "duration_ms": 7,
+          "timestamp": "2026-08-22T08:18:04.175611"
         }
       ]
     },

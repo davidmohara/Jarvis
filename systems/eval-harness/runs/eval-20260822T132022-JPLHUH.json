@@ -1,0 +1,80 @@
+{
+  "id": "eval-20260822T132022-JPLHUH",
+  "agent_id": "abf832231591653e1",
+  "type": "workflow",
+  "name": "plaud-ingest",
+  "agent": "general-purpose",
+  "session_id": "session-2026-08-21-121818",
+  "trigger": "manual",
+  "started": "2026-08-22T13:20:22.015040Z",
+  "completed": "2026-08-22T13:21:34.187949Z",
+  "duration_seconds": 72.17,
+  "status": "aborted",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": false,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": true,
+      "outputs_non_empty": false,
+      "assertions_checked": 4,
+      "assertions_passed": 3,
+      "assertion_results": [
+        {
+          "assertion": "Plaud ingest workflow state.yaml shows status: complete",
+          "passed": false,
+          "error": null
+        },
+        {
+          "assertion": "Plaud ingest working memory file was written to memory/working/",
+          "passed": true,
+          "error": null
+        },
+        {
+          "assertion": "Plaud ingest working memory file is substantive (>200 bytes)",
+          "passed": true,
+          "error": null
+        },
+        {
+          "assertion": "Plaud ingest working memory contains expected content",
+          "passed": true,
+          "error": null
+        }
+      ]
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": "c833f73f72ccddf98cc2dcf3c7ac1f7bd828de64e5daa680528a36a73df9b3f3",
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/8c94a4ce-c06e-41b5-adcb-cbccf35ca0d2/subagents/agent-abf832231591653e1.jsonl",
+  "last_assistant_message": "I stopped before executing steps 01.5\u201307. Here's why.\n\n**Halting: data integrity conflict, not a routine step failure.**\n\nI read `workflows/boot/state.yaml` and all step files in `workflows/boot/steps/`. The picture doesn't match the task briefing:\n\n1. **Session timestamp is in the future.** `state.yaml` and `step-01.2` both list `started-at: 2026-08-22T09:15:30`, but the actual system clock right now is `2026-08-22 08:21 CDT` \u2014 nearly an hour before this session claims to have started.\n\n2. **step-01.2 (the current, in-progress step) is genuinely broken**, not just pending:\n   - `omnifocus_pull`: failed \u2014 Desktop Commander unavailable\n   - `clay_pull`: failed \u2014 Clay MCP not loaded\n   - `jarvis_inbox_pull`: not-attempted\n   - Only `email_pull` succeeded (4 messages).\n\n3. **Steps 01.5 through 07 already show `status: complete`**, with `completed-at` timestamps of 07:35\u201307:44 \u2014 i.e., before step-01.2 even started (09:15:30) by this session's own numbers, and before it *finished* by any accounting. A step can't legitimately complete before its prerequisite starts. That content is leftover from an earlier, separate boot run (likely one that actually executed correctly around 07:28\u201307:44 this morning), not output from the session I was handed.\n\nGiven that, \"executing steps 01.5\u201307\" as instructed would mean one of two dishonest outcomes: (a) silently re-running live M365/Clay/OmniFocus calls and overwriting real prior-run data with a duplicate pull, directly violating the \"pull once\" rules baked into step-01.5 and step-02, or (b) copying forward the stale `complete` frontmatter from the 07:35\u201307:44 run as if this 09:15 session produced it \u2014 fabricating completion of work this session never did, on top of a step-01.2 that is currently in a failed/degraded state.\n\nNeither is acceptable. I'm not marking `state.yaml` complete, not touching the step-06.5 guardrail/eval-harness closure, and not delivering a briefing built on this.\n\n**Recommendation:** treat step-01.2's three failures as the real open item \u2014 Desktop Commander and Clay MCP weren't loaded in this session's tool context, which is why OmniFocus/Clay/Jarvis-inbox pulls failed. Fix the session's tool access first, re-run step-01.2 cleanly, then proceed fresh through 01.5\u201307 rather than inheriting the earlier run's frontmatter. If the 07:35\u201307:44 run was in fact this morning's real boot and this 09:15 invocation is a stray duplicate trigger, the simpler fix is to discard this session entirely rather than reconcile it.\n\nFiles involved: `/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/workflows/boot/state.yaml`, `.../workflows/boot/steps/step-01.2-unified-data-pull.md`, `.../workflows/boot/steps/step-01.5-unified-calendar-pull.md` through `step-07-verify-completion.md`.",
+  "model": "sonnet",
+  "total_tokens_input": 250287,
+  "total_tokens_output": 15,
+  "total_cost_usd": 0.2959
+}

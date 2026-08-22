@@ -1,6 +1,6 @@
 ---
 name: boot
-description: Full session boot sequence — context load, data gather, verification, briefing, and workflow scan
+description: Full session boot sequence. Context load, data gather, verification, briefing, and workflow scan
 agent: master
 model: sonnet
 ---

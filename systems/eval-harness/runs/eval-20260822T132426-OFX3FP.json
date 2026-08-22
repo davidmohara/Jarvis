@@ -1,0 +1,120 @@
+{
+  "id": "eval-20260822T132426-OFX3FP",
+  "session_id": "session-20260822-082247",
+  "workflow": "boot",
+  "agent": "master",
+  "model": "haiku",
+  "started": "2026-08-22T13:23:26.394431+00:00",
+  "completed": "2026-08-22T13:24:26.240262+00:00",
+  "duration_seconds": 0.83,
+  "status": "complete",
+  "steps": [
+    {
+      "group": 1,
+      "step": "step-01",
+      "name": "Load Context",
+      "status": "complete",
+      "guardrail": "pass",
+      "duration_seconds": 0.001
+    },
+    {
+      "group": 2,
+      "step": "step-01.5",
+      "name": "Calendar Consolidation",
+      "status": "complete",
+      "guardrail": "pass",
+      "duration_seconds": 0.105
+    },
+    {
+      "group": 3,
+      "step": "step-02",
+      "name": "Phase 2 Data Gathering",
+      "status": "complete",
+      "guardrail": "pass",
+      "duration_seconds": 0.109
+    },
+    {
+      "group": 4,
+      "step": "step-03",
+      "name": "Phase 2 Verification",
+      "status": "complete",
+      "guardrail": "pass",
+      "duration_seconds": 0.104
+    },
+    {
+      "group": 5,
+      "step": "step-04",
+      "name": "Meeting Context",
+      "status": "complete",
+      "guardrail": "pass",
+      "duration_seconds": 0.104
+    },
+    {
+      "group": 6,
+      "step": "step-05",
+      "name": "Briefing Synthesis",
+      "status": "complete",
+      "guardrail": "pass",
+      "duration_seconds": 0.105
+    },
+    {
+      "group": 7,
+      "step": "step-06",
+      "name": "Workflow Scan",
+      "status": "complete",
+      "guardrail": "pass",
+      "duration_seconds": 0.1
+    },
+    {
+      "group": 8,
+      "step": "step-06.5",
+      "name": "Content Review Checkpoint",
+      "status": "complete",
+      "guardrail": "pass",
+      "duration_seconds": 0.103
+    },
+    {
+      "group": 9,
+      "step": "step-07",
+      "name": "Completion Verification",
+      "status": "complete",
+      "guardrail": "pass",
+      "duration_seconds": 0.101
+    }
+  ],
+  "guardrail_outcomes": {
+    "step-01-checkpoint": "pass",
+    "step-01.5-checkpoint": "pass",
+    "step-02-checkpoint": "pass",
+    "step-03-checkpoint": "pass",
+    "step-04-checkpoint": "pass",
+    "step-05-checkpoint": "pass",
+    "step-06-checkpoint": "pass",
+    "step-06.5-checkpoint": "pass",
+    "step-07-checkpoint": "pass"
+  },
+  "escalations": [],
+  "assessment": {
+    "success_grade": "A",
+    "safety_grade": "A",
+    "context_efficiency": "high",
+    "guardrail_result": "all_pass",
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    }
+  },
+  "context_efficiency": {
+    "files_loaded": 9,
+    "data_sources_accessed": [
+      "M365 Calendar",
+      "OmniFocus Tasks",
+      "M365 Email",
+      "Clay Reminders",
+      "Workflows"
+    ],
+    "context_size_tokens_estimated": 12500
+  },
+  "notes": "Stage 4 compliance baseline boot execution. All 9 sequential groups completed successfully. All guardrail checkpoints passed. No escalations or blockers encountered."
+}

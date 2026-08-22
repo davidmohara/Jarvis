@@ -256,6 +256,19 @@ def boot_orchestration():
                 agent = Agent(group.step)
                 agent.run()
             
+            # CRITICAL: Invoke step-complete hook to extract tokens and run guardrails
+            step_file = Path("workflows/boot/steps") / f"{group.step}.md"
+            if step_file.exists():
+                invoke_hook_result = subprocess.run([
+                    "python3", "workflows/boot/invoke-step-complete-hook.py",
+                    "--step-file", str(step_file),
+                    "--session-id", state.session_id,
+                    "--transcript-path", transcript_path  # From Agent result
+                ], capture_output=True, text=True)
+                
+                if invoke_hook_result.returncode != 0:
+                    log(f"[Master] Hook invocation failed for {group.step}: {invoke_hook_result.stderr}")
+            
             # Check for retry or escalation signal
             eval_record = read_eval_record()
             

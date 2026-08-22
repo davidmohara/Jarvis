@@ -1,0 +1,94 @@
+{
+  "id": "eval-20260822T131906-VSBR9U",
+  "agent_id": "aafa960e94c9cccbc",
+  "type": "workflow",
+  "name": "boot",
+  "agent": "general-purpose",
+  "session_id": "session-2026-08-21-121818",
+  "trigger": "boot",
+  "started": "2026-08-22T13:19:06.381124Z",
+  "completed": "2026-08-22T13:21:25.629253Z",
+  "duration_seconds": 139.25,
+  "status": "aborted",
+  "steps": [
+    {
+      "name": "step-01.2-unified-data-pull.md",
+      "started": "2026-08-22T09:15:30-05:00",
+      "completed": null,
+      "duration_seconds": null,
+      "status": "in-progress",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": null,
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    }
+  ],
+  "assessment": {
+    "mechanical": {
+      "completed": false,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": true,
+      "outputs_non_empty": false,
+      "assertions_checked": 4,
+      "assertions_passed": 2,
+      "assertion_results": [
+        {
+          "assertion": "Boot workflow state.yaml shows status: complete",
+          "passed": false,
+          "error": null
+        },
+        {
+          "assertion": "Session index file exists \u2014 boot's Session Index Boot step must have created/appended it",
+          "passed": true,
+          "error": null
+        },
+        {
+          "assertion": "Session index is a real record, not an empty stub",
+          "passed": true,
+          "error": null
+        },
+        {
+          "assertion": "step-06.5's guardrail checkpoint recorded a result (pass/flag/escalate) on this run \u2014 read from the eval record's own guardrails array, not self-reported by the workflow",
+          "passed": false,
+          "error": null
+        }
+      ]
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": "99365bfeb2fa647b98a6e568cfc815faa564cfba51b7517d9ff927aad4d2e264",
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/8c94a4ce-c06e-41b5-adcb-cbccf35ca0d2/subagents/agent-aafa960e94c9cccbc.jsonl",
+  "last_assistant_message": "The plaud-discover skill is now running in the background. Waiting for it to complete so I can populate the state and proceed to step-02.\n\nSince the skill is running asynchronously, I'll wait for the result notification before continuing with the workflow.\n\nThe plaud-discover skill execution is in progress. Once it completes, it will populate the discovered recordings and I'll proceed with steps 02-05. This maintains the sequential architecture of the workflow while executing discovery in the background.\n\n**Workflow Status:**\n- State initialized: pi-20260822-001\n- Step-01 (Discover): In progress via plaud-discover skill\n- Awaiting: Discovery results to populate new-recordings list, then moving to step-02",
+  "model": "haiku",
+  "total_tokens_input": 342300,
+  "total_tokens_output": 9,
+  "total_cost_usd": 0.082362
+}
