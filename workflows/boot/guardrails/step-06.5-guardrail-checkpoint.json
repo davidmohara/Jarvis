@@ -1,0 +1,34 @@
+{
+  "checkpoint_name": "pre-completion-review",
+  "description": "Pre-completion guardrail checkpoint — final safety review before boot completion",
+  "rules": [
+    {
+      "name": "all_data_sources_live",
+      "type": "check_field_exists",
+      "field": "data_freshness_report",
+      "critical": true,
+      "reason": "Must verify data sources are live (not cached from previous run)"
+    },
+    {
+      "name": "no_stale_data",
+      "type": "check_field_not_empty",
+      "field": "stale_sources",
+      "critical": true,
+      "reason": "Cannot have stale data sources — escalate if any detected"
+    },
+    {
+      "name": "briefing_integrity",
+      "type": "check_field_exists",
+      "field": "briefing_quality_check",
+      "critical": true,
+      "reason": "Briefing must pass integrity check before completion"
+    },
+    {
+      "name": "no_data_leakage",
+      "type": "check_field_exists",
+      "field": "leakage_check",
+      "critical": true,
+      "reason": "Must verify no confidential data leaked into public-facing outputs"
+    }
+  ]
+}

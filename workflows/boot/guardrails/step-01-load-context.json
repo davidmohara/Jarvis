@@ -1,0 +1,20 @@
+{
+  "checkpoint_name": "step-01-checkpoint",
+  "description": "Context loading validation — verify all identity files were read",
+  "rules": [
+    {
+      "name": "identity_files_loaded",
+      "type": "check_field_exists",
+      "field": "files_loaded",
+      "critical": true,
+      "reason": "SYSTEM.md and identity files must be loaded"
+    },
+    {
+      "name": "no_critical_missing_files",
+      "type": "check_field_exists",
+      "field": "missing_files",
+      "critical": false,
+      "reason": "Some identity files may be optional, warn if any missing"
+    }
+  ]
+}

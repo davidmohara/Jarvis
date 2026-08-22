@@ -1,0 +1,20 @@
+{
+  "checkpoint_name": "step-02-checkpoint",
+  "description": "Data gathering validation — verify Phase 2 tasks completed",
+  "rules": [
+    {
+      "name": "phase2_completed",
+      "type": "check_field_exists",
+      "field": "phase2_status",
+      "critical": true,
+      "reason": "Phase 2 data gathering must report completion status"
+    },
+    {
+      "name": "no_critical_data_failures",
+      "type": "check_field_not_empty",
+      "field": "completed_tasks",
+      "critical": false,
+      "reason": "At least some Phase 2 tasks should complete; warn if all failed"
+    }
+  ]
+}

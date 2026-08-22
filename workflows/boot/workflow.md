@@ -38,6 +38,28 @@ model: sonnet
 | Clay | Reminders and birthdays (next 7 days) | Clay MCP |
 | workflows/*/state.yaml | All workflow state files | Read all |
 
+### Execution Groups (Stage 4 Architecture)
+
+Steps execute in groups with per-step token extraction and guardrail validation at boundaries.
+
+| Group | Steps | Parallel | Guardrail | Notes |
+|-------|-------|----------|-----------|-------|
+| 1 | step-01 | No | step-01-checkpoint | Context loading |
+| 2 | step-01.5 | No | step-01.5-checkpoint | Calendar consolidation |
+| 3 | step-02 | No | step-02-checkpoint | Data gathering |
+| 4 | step-03 | No | step-03-checkpoint | Phase 2 verification |
+| 5 | step-04 | No | step-04-checkpoint | Meeting context |
+| 6 | step-05 | No | step-05-checkpoint | Briefing synthesis |
+| 7 | step-06 | No | step-06-checkpoint | Workflow scan |
+| 8 | step-06.5 | No | step-06.5-checkpoint | Content review (pre-completion) |
+| 9 | step-07 | No | step-07-checkpoint | Completion verification |
+
+**Per-step token extraction:** step-complete.py hook fires after each step, extracting real tokens for that step's time window from transcript.
+
+**Guardrail evaluation:** Each group has an optional guardrail checkpoint. If result='escalate', workflow halts and punches out to controller. Only critical issues escalate (missing timestamps, failed assertions). Warnings are flagged but continue.
+
+**Punch-out signal:** If guardrail escalates, eval record gets punch_out_signal with step name, reason, and awaiting_controller_decision flag. Workflow does not continue until controller reviews and approves in eval record.
+
 ### Paths
 
 - `identity_path` = `{project-root}/identity/`

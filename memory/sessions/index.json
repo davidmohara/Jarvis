@@ -1073,7 +1073,14 @@
           "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/8c94a4ce-c06e-41b5-adcb-cbccf35ca0d2/scratchpad/boot-stage4-submission/BYPASS_TESTING_EVIDENCE.md",
           "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/8c94a4ce-c06e-41b5-adcb-cbccf35ca0d2/scratchpad/boot-stage4-submission/MANIFEST.md",
           "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/8c94a4ce-c06e-41b5-adcb-cbccf35ca0d2/scratchpad/boot-stage4-submission/AUDIT_TRAIL_SUMMARY.md",
-          "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/8c94a4ce-c06e-41b5-adcb-cbccf35ca0d2/scratchpad/boot-stage4-submission/README.md"
+          "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/8c94a4ce-c06e-41b5-adcb-cbccf35ca0d2/scratchpad/boot-stage4-submission/README.md",
+          ".claude/hooks/step-complete.py",
+          "workflows/boot/workflow.md",
+          "workflows/boot/guardrails/step-01-load-context.json",
+          "workflows/boot/guardrails/step-02-gather-data.json",
+          "workflows/boot/guardrails/step-06.5-guardrail-checkpoint.json",
+          "workflows/boot/guardrails/README.md",
+          "workflows/boot/ARCHITECTURE.md"
         ]
       }
     ]
