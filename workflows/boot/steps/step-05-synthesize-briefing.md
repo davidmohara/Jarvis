@@ -1,13 +1,5 @@
 ---
-status: complete
-started-at: "2026-08-22T13:38:30Z"
-completed-at: "2026-08-22T13:39:10Z"
-outputs:
-  briefing_delivered: false
-  briefing_sections: []
-  today_summary: null
-  action_items: []
-  summary: "Morning-briefing step-04 synthesizes and delivers briefing text to the controller conversationally; it does not write a briefing_file artifact or record its path in outputs. Step-05's own task instructions never direct the agent to capture a briefing_file field either. Result: briefing_file is structurally absent from step-05 outputs every run, independent of data availability."
+status: not-started
 ---
 
 <!-- system:start -->

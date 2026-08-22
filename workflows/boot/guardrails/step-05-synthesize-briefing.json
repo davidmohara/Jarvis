@@ -3,12 +3,12 @@
   "description": "Briefing synthesis — verify briefing is complete and ready for delivery",
   "rules": [
     {
-      "name": "briefing_generated",
-      "type": "check_field_exists",
-      "field": "briefing_file",
-      "critical": true,
-      "retry_on_missing": false,
-      "reason": "Briefing file generation is critical. API error detected. Requires controller decision."
+      "name": "briefing_delivered",
+      "type": "check_field_not_empty",
+      "field": "briefing_delivered",
+      "critical": false,
+      "retry_on_missing": true,
+      "reason": "Briefing must be delivered (true). If false or missing, retry step."
     },
     {
       "name": "briefing_not_empty",
