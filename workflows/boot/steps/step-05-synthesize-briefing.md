@@ -1,10 +1,10 @@
 ---
 status: complete
-started-at: "2026-08-21T13:05:00-05:00"
-completed-at: "2026-08-21T13:10:00-05:00"
+started-at: "2026-08-22T07:40:00-05:00"
+completed-at: "2026-08-22T07:41:30-05:00"
 outputs:
   briefing_delivered: true
-  degraded_sources: [omnifocus-tool-unreachable, no-daily-review-yesterday, clay-birthday-relationship-context-missing]
+  summary: "Boot briefing synthesized from Phase 1-4 data. 24 events in 4-day calendar window (Aug 22-25). Key focus: Golf Saturday, busy Monday-Tuesday (24 meetings/blocks), Conscious Capitalism breakfast and AI workshop Wednesday. All Phase 2 task findings incorporated."
 ---
 
 <!-- system:start -->

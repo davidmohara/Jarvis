@@ -1,22 +1,17 @@
 ---
 status: completed
-started-at: "2026-08-07T16:50:00Z"
-completed-at: "2026-08-07T16:58:00Z"
+started-at: "2026-08-22T00:00:00Z"
+completed-at: "2026-08-22T00:30:00Z"
 model: sonnet
 outputs:
-  shares-attempted: 2
-  shares-succeeded: 2
+  shares-attempted: 17
+  shares-succeeded: 17
   shares-failed: 0
   personal-recordings-skipped: 0
-  tasks-created: 2
-  share-urls:
-    - file_id: "5016299034d41433611d84057ee6e1bd"
-      url: "https://web.plaud.ai/s/pub_7356ec39-8803-4943-b1c5-8ffce666ef2c::CfEoOR7P-3pGU8mKgK2os0GONH5zBtoisWbD-Zk1QWf5Icg39PaYVI5Tx8vQXGWHGvA5iDZ4Yuh_ufcC"
-      monday-task-id: "12748130160"
-    - file_id: "a5eaf54083c006c73742f0c31e142f7a"
-      url: "https://web.plaud.ai/s/pub_e2ff8108-ad50-4388-bd3d-f128273461fe::rDWIUPLGvIv1ylaU7wpdRC7xB_2rwOgx91j41Zgw4sNqInOm-Z13szzAkMloL65UUTGtjzHoUwH31HYC"
-      monday-task-id: "12748154236"
-  notes: "pi-20260807-002 run: both recordings are WORK (no personal recordings this session). Both shared successfully via fetch_plaud.py --share, both Monday review tasks created for Alice Mburu with the share URL in text_mm50v09n. NOTE: this step ran ahead of step-05's vault ingestion completing, because step-05 is blocked on an unreachable obsidian-local MCP server (see step-05 outputs/notes and state.yaml top-level blocker) and sharing/Monday-task-creation here has no dependency on the vault. state.yaml status was NOT set to complete — step-05's vault write and cleanup still need to run once Obsidian is reachable again."
+  medical-excluded-skipped: 1
+  tasks-created: 0
+  monday-blocker: "mcp__claude_ai_monday_com__create_item and create_items were both rejected at the tool-permission layer (not an API/data error) for every attempt. No Monday tasks were created this run. Share links for all 17 work recordings are recorded in state.yaml accumulated-context.share-urls for manual task creation or a retry once Monday write permission is granted."
+  notes: "pi-20260821-001 resume (2026-08-22): step-05 vault ingestion for all 18 discovered recordings (17 work + 1 medical excluded per David's standing instruction) was confirmed already complete in the vault from earlier work this session -- verified directly by listing zzPlaud/Client, Improving, Other, YPO and matching every file_id's title (via plaud_all_recordings.json) against an existing vault note. Staging folder confirmed clean (only _not_new_archive and _medical_excluded remain). This step then ran fetch_plaud.py --share for all 17 non-medical file_ids -- all 17 succeeded, no NO_TOKEN/SHARE_FAILED. Monday task creation for all 17 was blocked by tool permission denial (see monday-blocker above), not by any API failure. Per this step's own failure-mode table ('Monday task creation fails -> log the error and the share URL, controller can create manually, continue') the workflow was NOT held open for this -- state.yaml status set to complete with the blocker and full share-urls list logged for manual follow-up."
 ---
 
 <!-- system:start -->

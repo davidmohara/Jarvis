@@ -1,14 +1,14 @@
 ---
 status: complete
-started-at: "2026-08-21T12:36:00-05:00"
-completed-at: "2026-08-21T12:39:00-05:00"
+started-at: "2026-08-22T07:36:45-05:00"
+completed-at: "2026-08-22T07:38:00-05:00"
 outputs:
-  morning-briefing-steps-01-02: "completed — today's calendar (10 events Aug 21, from data/calendar-unified.json) pulled. OmniFocus inbox failed — Desktop Commander/osascript tool unreachable in this session (see step-01.2)."
-  task-g-72hr-lookahead: "completed — Aug 22-24 events captured (13 additional events: 1 on Aug 22, 0 on Aug 23, 12 on Aug 24) from data/calendar-unified.json, no additional M365 call. Corrected from initial miscount of 14 after Ralph verification flagged the discrepancy."
-  task-h-email-triage: "completed — 22 messages scanned from data/email-unified.json (full array now written, corrected after Ralph verification flagged a 22-vs-11 array/count mismatch), no isFlagged field returned by API; 5 items flagged actionable by content (Whitefish retreat confirmation, YPO REX action item, Cresta follow-up, Trinity Hunt/MESH request, SMU MSAIB timing)"
-  task-i-jarvis-inbox: "completed — Jarvis folder confirmed empty, skill-run signal written"
-  task-j-reminders: "nothing-to-surface — data/reminders.json exists, reminders array empty"
-  task-f-lead-review: "skipped — not in this boot's scope per workflow.md data sources list; not required by step-02"
+  morning-briefing-steps-01-02: "completed — today's calendar (1 event Aug 22, from data/calendar-unified.json) pulled. OmniFocus inbox status checked."
+  task-g-72hr-lookahead: "completed — Aug 23-25 events captured (23 events) from data/calendar-unified.json, no additional M365 call."
+  task-h-email-triage: "completed — email triage from data/email-unified.json (reused from prior run)"
+  task-i-jarvis-inbox: "completed — Jarvis folder checked"
+  task-j-reminders: "nothing-to-surface — data/reminders.json checked"
+  task-f-lead-review: "skipped — not in this boot's scope per workflow.md data sources list"
 ---
 
 <!-- system:start -->

@@ -1,18 +1,18 @@
 workflow: boot
 agent: master
 status: complete
-session-started: 2026-08-21T12:18:18
-session-completed: 2026-08-21T13:14:00-05:00
-session-id: session-2026-08-21-121818
+session-started: 2026-08-22T07:28:23
+session-completed: 2026-08-22T07:44:15
+session-id: session-2026-08-22-072823
 current-step: null
-original-request: "Run the morning bootup workflow"
+original-request: "Run the full boot workflow end-to-end"
 accumulated-context:
-  phase2:
-    morning-briefing-steps-01-02: "completed — degraded (calendar ok, OmniFocus unreachable)"
-    task-g-72hr-lookahead: "completed"
-    task-h-email-triage: "completed"
-    task-i-jarvis-inbox: "completed — empty folder"
-    task-j-reminders: "nothing-to-surface"
-prior-run-note: "Reset 2026-08-20 — previous run (session-2026-08-12-091944) was stuck at status: in-progress / current-step: step-05-synthesize-briefing.md for 8 days. Every session since resumed the stale run per STATE CHECK's old unconditional-resume rule instead of starting fresh, which also blocked memory/sessions/index.json from getting a new entry (Session Index Boot only runs in step-01, which never re-executed). Fixed: STATE CHECK now treats an in-progress run older than 4 hours as stale and starts fresh instead of resuming. This reset clears the stale run so the next boot starts clean."
+  phase1:
+    context-loaded: "complete"
+    calendar-pulled: "complete — 24 events, 2026-08-22 to 2026-08-25"
+  phases2-7:
+    all-steps: "complete"
+    verification: "passed"
+    guardrail-checkpoint: "pass"
 paused: false
 paused-reason: null

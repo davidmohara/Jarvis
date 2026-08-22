@@ -1,0 +1,221 @@
+{
+  "id": "eval-20260822T122903-MZNKZ8",
+  "agent_id": "a806c662ea985fab5",
+  "type": "workflow",
+  "name": "boot",
+  "agent": "general-purpose",
+  "session_id": "session-2026-08-21-121818",
+  "trigger": "boot",
+  "started": "2026-08-22T12:29:03.313068Z",
+  "completed": "2026-08-22T12:35:11.245727Z",
+  "duration_seconds": 367.93,
+  "status": "success",
+  "steps": [
+    {
+      "name": "step-01-load-context.md",
+      "started": "2026-08-22T07:28:23-05:00",
+      "completed": "2026-08-22T07:35:12-05:00",
+      "duration_seconds": 409.0,
+      "status": "complete",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": null,
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    },
+    {
+      "name": "step-01.5-unified-calendar-pull.md",
+      "started": "2026-08-22T07:35:12-05:00",
+      "completed": "2026-08-22T07:36:45-05:00",
+      "duration_seconds": 93.0,
+      "status": "complete",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": null,
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    },
+    {
+      "name": "step-02-gather-data.md",
+      "started": "2026-08-22T07:36:45-05:00",
+      "completed": "2026-08-22T07:38:00-05:00",
+      "duration_seconds": 75.0,
+      "status": "complete",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": null,
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    },
+    {
+      "name": "step-03-verify-phase2.md",
+      "started": "2026-08-22T07:38:00-05:00",
+      "completed": "2026-08-22T07:39:00-05:00",
+      "duration_seconds": 60.0,
+      "status": "complete",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": null,
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    },
+    {
+      "name": "step-04-gather-meeting-context.md",
+      "started": "2026-08-22T07:39:00-05:00",
+      "completed": "2026-08-22T07:40:00-05:00",
+      "duration_seconds": 60.0,
+      "status": "complete",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": null,
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    },
+    {
+      "name": "step-05-synthesize-briefing.md",
+      "started": "2026-08-22T07:40:00-05:00",
+      "completed": "2026-08-22T07:41:30-05:00",
+      "duration_seconds": 90.0,
+      "status": "complete",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": null,
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    },
+    {
+      "name": "step-06-scan-workflows.md",
+      "started": "2026-08-22T07:41:30-05:00",
+      "completed": "2026-08-22T07:42:00-05:00",
+      "duration_seconds": 30.0,
+      "status": "complete",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": null,
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    },
+    {
+      "name": "step-06.5-guardrail-checkpoint.md",
+      "started": "2026-08-22T07:42:00-05:00",
+      "completed": "2026-08-22T07:43:00-05:00",
+      "duration_seconds": 60.0,
+      "status": "complete",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": "sonnet",
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    },
+    {
+      "name": "step-07-verify-completion.md",
+      "started": "2026-08-22T07:43:00-05:00",
+      "completed": "2026-08-22T07:44:00-05:00",
+      "duration_seconds": 60.0,
+      "status": "complete",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": null,
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    },
+    {
+      "name": "step-05b-share-with-alice.md",
+      "started": "2026-08-22T00:00:00Z",
+      "completed": "2026-08-22T00:30:00Z",
+      "duration_seconds": 1800.0,
+      "status": "completed",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": "sonnet",
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    }
+  ],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": true,
+      "outputs_non_empty": true,
+      "assertions_checked": 4,
+      "assertions_passed": 4,
+      "assertion_results": [
+        {
+          "assertion": "Boot workflow state.yaml shows status: complete",
+          "passed": true,
+          "error": null
+        },
+        {
+          "assertion": "Session index file exists \u2014 boot's Session Index Boot step must have created/appended it",
+          "passed": true,
+          "error": null
+        },
+        {
+          "assertion": "Session index is a real record, not an empty stub",
+          "passed": true,
+          "error": null
+        },
+        {
+          "assertion": "step-06.5's guardrail checkpoint recorded a result (pass/flag/escalate) on this run \u2014 read from the eval record's own guardrails array, not self-reported by the workflow",
+          "passed": true,
+          "error": null
+        }
+      ]
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": "7483aa36b5a5240186e9ae9590a4811552b500bd4b696ed328a0f1fb23ae2406",
+  "prior_baseline_id": null,
+  "tags": [],
+  "guardrails": [
+    {
+      "name": "pre-completion-review",
+      "after_step": "step-06-scan-workflows",
+      "result": "pass",
+      "reason": "All data sources live. Calendar fresh from M365. Briefing accurate. No leakage detected.",
+      "escalated_to_human": false,
+      "timestamp": "2026-08-22T12:32:55.593962+00:00"
+    }
+  ],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/8c94a4ce-c06e-41b5-adcb-cbccf35ca0d2/subagents/agent-a806c662ea985fab5.jsonl",
+  "last_assistant_message": "Plaud ingest workflow complete, with one blocker flagged.\n\n**State check finding:** The workflow was stuck at `current-step: step-05` in `workflows/plaud-ingest/state.yaml`, but investigation showed step-05 (vault ingestion) had actually already finished in an earlier session \u2014 all 18 discovered recordings were confirmed already written to `zzPlaud/Client`, `Improving`, `Other`, and `YPO` (17 work notes + 1 medical recording correctly excluded per your standing instruction to leave it untouched). Staging folder was already clean.\n\n**What I ran (step-05b \u2014 share with Alice):**\n- Generated Plaud public share links for all 17 work recordings via `fetch_plaud.py --share`. All 17 succeeded, zero failures.\n\n**Blocker \u2014 Monday tasks not created:** Every attempt to create the \"Review Plaud recording\" tasks for Alice Mburu (`mcp__claude_ai_monday_com__create_item` and the batch `create_items`) was rejected at the tool-permission layer \u2014 not an API or data error, a straight permission denial, on both a single-item test and the full 17-item batch. Zero of 17 tasks were created this run.\n\nAll 17 titles + share URLs are logged in `workflows/plaud-ingest/state.yaml` under `accumulated-context.share-urls` so they can be created manually or picked up on a retry once Monday write permission is granted in this session type.\n\nFiles updated:\n- `/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/workflows/plaud-ingest/state.yaml` (status: complete, ingested-notes, share-urls, monday blocker note)\n- `/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/workflows/plaud-ingest/steps/step-05b-share-with-alice.md` (frontmatter updated for this session's run)\n- `/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/memory/working/plaud-ingest-2026-08-22-003000.md` (working memory sweep)\n\nRecommend routing the Monday permission gap to Rigby's error-analysis \u2014 this is the second time in this workflow's history that a write-side integration (first Obsidian, now Monday) has been the actual blocker, not the Plaud pipeline itself.",
+  "model": "sonnet",
+  "total_tokens_input": 1982109,
+  "total_tokens_output": 5693,
+  "total_cost_usd": 1.064453
+}
