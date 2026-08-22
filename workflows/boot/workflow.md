@@ -95,7 +95,16 @@ Steps execute in groups with per-step token extraction and guardrail validation 
 
 ## EXECUTION
 
-Steps execute in order. Each step's NEXT STEP section chains to the following step.
+**Master Orchestration:** See `MASTER-ORCHESTRATION.md` for complete controller logic.
+
+Steps execute in order via Master agent orchestration. Each step's NEXT STEP section chains to the following step. Master:
+1. Spawns each step as an agent
+2. Waits for completion
+3. Checks for punch-out signals (escalations from guardrail checkpoints)
+4. If escalation: halts workflow, notifies controller
+5. If controller approves: resumes from that step
+6. If controller denies: aborts boot
+7. Continues to next group when step completes without escalation
 
 **Phase 0: Context Load**
 1. `steps/step-01-load-context.md`

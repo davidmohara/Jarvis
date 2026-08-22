@@ -1,0 +1,41 @@
+{
+  "checkpoint_name": "step-07-checkpoint",
+  "description": "Boot completion verification — hard gate, all steps must pass",
+  "rules": [
+    {
+      "name": "all_prior_steps_complete",
+      "type": "check_field_exists",
+      "field": "steps_verified",
+      "critical": true,
+      "reason": "All 7 prior steps must report complete status"
+    },
+    {
+      "name": "no_step_failures",
+      "type": "check_field_exists",
+      "field": "failed_steps",
+      "critical": true,
+      "reason": "No steps can have failed (hard gate)"
+    },
+    {
+      "name": "state_yaml_complete",
+      "type": "check_field_exists",
+      "field": "state_status",
+      "critical": true,
+      "reason": "state.yaml must be marked status: complete"
+    },
+    {
+      "name": "session_index_written",
+      "type": "check_field_exists",
+      "field": "session_index_path",
+      "critical": true,
+      "reason": "Session index must be written for future reference"
+    },
+    {
+      "name": "no_guardrail_escalations",
+      "type": "check_field_exists",
+      "field": "escalation_count",
+      "critical": true,
+      "reason": "No escalations should have occurred in prior steps"
+    }
+  ]
+}

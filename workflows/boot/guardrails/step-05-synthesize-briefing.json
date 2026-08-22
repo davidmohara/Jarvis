@@ -1,0 +1,34 @@
+{
+  "checkpoint_name": "step-05-checkpoint",
+  "description": "Briefing synthesis — verify briefing is complete and ready for delivery",
+  "rules": [
+    {
+      "name": "briefing_generated",
+      "type": "check_field_exists",
+      "field": "briefing_file",
+      "critical": true,
+      "reason": "Briefing must be generated and stored"
+    },
+    {
+      "name": "briefing_not_empty",
+      "type": "check_field_not_empty",
+      "field": "briefing_sections",
+      "critical": true,
+      "reason": "Briefing must have content (at least some sections)"
+    },
+    {
+      "name": "briefing_covers_today",
+      "type": "check_field_exists",
+      "field": "today_summary",
+      "critical": false,
+      "reason": "Briefing should include today's summary (warn if missing)"
+    },
+    {
+      "name": "action_items_identified",
+      "type": "check_field_exists",
+      "field": "action_items",
+      "critical": false,
+      "reason": "Action items should be extracted (warn if none found)"
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "checkpoint_name": "step-04-checkpoint",
+  "description": "Meeting context gathering — verify attendee enrichment and prep data ready",
+  "rules": [
+    {
+      "name": "meeting_list_captured",
+      "type": "check_field_exists",
+      "field": "meetings_found",
+      "critical": true,
+      "reason": "Must identify meetings in next 3 days for prep context"
+    },
+    {
+      "name": "attendee_enrichment_complete",
+      "type": "check_field_exists",
+      "field": "attendees_enriched",
+      "critical": false,
+      "reason": "Should enrich attendee data (warn if unavailable)"
+    },
+    {
+      "name": "prep_context_ready",
+      "type": "check_field_exists",
+      "field": "prep_materials",
+      "critical": false,
+      "reason": "Meeting prep materials should be compiled (warn if missing)"
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "checkpoint_name": "step-06-checkpoint",
+  "description": "Workflow scan — verify all in-flight workflows identified and reported",
+  "rules": [
+    {
+      "name": "workflow_scan_complete",
+      "type": "check_field_exists",
+      "field": "workflows_scanned",
+      "critical": true,
+      "reason": "Must scan all workflow state files"
+    },
+    {
+      "name": "in_flight_workflows_found",
+      "type": "check_field_exists",
+      "field": "in_flight_list",
+      "critical": false,
+      "reason": "Should identify in-flight workflows (warn if scan incomplete)"
+    },
+    {
+      "name": "workflow_status_accurate",
+      "type": "check_field_exists",
+      "field": "status_summary",
+      "critical": false,
+      "reason": "Workflow statuses should be current (warn if stale)"
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "checkpoint_name": "step-01.5-checkpoint",
+  "description": "Calendar pull validation — verify M365 data was fetched for 4-day window",
+  "rules": [
+    {
+      "name": "calendar_file_created",
+      "type": "check_field_exists",
+      "field": "calendar_file",
+      "critical": true,
+      "reason": "Must pull calendar data for downstream steps"
+    },
+    {
+      "name": "events_captured",
+      "type": "check_field_not_empty",
+      "field": "event_count",
+      "critical": false,
+      "reason": "Expect some events in 4-day window (warn if zero)"
+    },
+    {
+      "name": "correct_date_range",
+      "type": "check_field_exists",
+      "field": "date_range",
+      "critical": true,
+      "reason": "Date range must cover 4 days (today + 3 days)"
+    }
+  ]
+}

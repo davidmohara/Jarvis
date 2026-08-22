@@ -1080,7 +1080,15 @@
           "workflows/boot/guardrails/step-02-gather-data.json",
           "workflows/boot/guardrails/step-06.5-guardrail-checkpoint.json",
           "workflows/boot/guardrails/README.md",
-          "workflows/boot/ARCHITECTURE.md"
+          "workflows/boot/ARCHITECTURE.md",
+          "workflows/boot/guardrails/step-01.5-unified-calendar-pull.json",
+          "workflows/boot/guardrails/step-03-verify-phase2.json",
+          "workflows/boot/guardrails/step-04-gather-meeting-context.json",
+          "workflows/boot/guardrails/step-05-synthesize-briefing.json",
+          "workflows/boot/guardrails/step-06-scan-workflows.json",
+          "workflows/boot/guardrails/step-07-verify-completion.json",
+          "workflows/boot/MASTER-ORCHESTRATION.md",
+          "workflows/boot/STAGE-4-SYSTEM.md"
         ]
       }
     ]

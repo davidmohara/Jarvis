@@ -1,0 +1,27 @@
+{
+  "checkpoint_name": "step-03-checkpoint",
+  "description": "Phase 2 verification — validate all data sources completed successfully",
+  "rules": [
+    {
+      "name": "phase2_verification_complete",
+      "type": "check_field_exists",
+      "field": "verification_results",
+      "critical": true,
+      "reason": "Phase 2 verification must complete before synthesis"
+    },
+    {
+      "name": "no_critical_failures",
+      "type": "check_field_exists",
+      "field": "critical_failures",
+      "critical": true,
+      "reason": "Cannot have critical data source failures (calendar, inbox)"
+    },
+    {
+      "name": "ralph_verification_passed",
+      "type": "check_field_exists",
+      "field": "ralph_status",
+      "critical": false,
+      "reason": "Ralph should verify Phase 2 integrity (warn if unavailable)"
+    }
+  ]
+}
