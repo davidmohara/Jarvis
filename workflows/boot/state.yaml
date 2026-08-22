@@ -1,12 +1,11 @@
 workflow: boot
 agent: master
 status: complete
-session-started: '2026-08-22T13:38:21Z'
-session-completed: '2026-08-22T07:44:00-05:00'
-session-id: eval-20260822T133821-X2Y9R2
+session-started: null
+session-completed: null
+session-id: null
 current-step: null
-original-request: Boot orchestration guardrail escalation test (step-05 briefing_file
-  check)
+original-request: null
 accumulated-context: {}
 paused: false
 paused-reason: null

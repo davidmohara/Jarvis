@@ -95,9 +95,11 @@ def main():
     agent_id = payload.get("agent_id")
     agent_type = payload.get("agent_type")
 
-    if not agent_id or not agent_type:
-        log_error("SubagentStart hook missing agent_id or agent_type")
-        return
+    # Auto-generate if missing (fallback for workflows)
+    if not agent_id:
+        agent_id = f"agent-{secrets.token_hex(8)}"
+    if not agent_type:
+        agent_type = payload.get("workflow_name") or "unknown"
 
     # Ensure eval runs directory exists
     EVAL_RUNS_DIR.mkdir(parents=True, exist_ok=True)

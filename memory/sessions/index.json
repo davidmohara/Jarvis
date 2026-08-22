@@ -1092,7 +1092,8 @@
           "workflows/boot/steps/step-01.2-unified-data-pull.md",
           "systems/eval-harness/runs/eval-20260822T133415-O2X9ES.json",
           "systems/eval-harness/runs/eval-20260822T133821-X2Y9R2.json",
-          "workflows/boot/invoke-step-complete-hook.py"
+          "workflows/boot/invoke-step-complete-hook.py",
+          ".claude/hooks/eval-agent-start.py"
         ]
       }
     ]
