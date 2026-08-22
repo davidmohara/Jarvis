@@ -14,8 +14,22 @@
     "mechanical": {
       "completed": null,
       "all_steps_finished": false,
-      "tool_failures": 0,
-      "error_ids": []
+      "tool_failures": 2,
+      "error_ids": [],
+      "tool_failure_log": [
+        {
+          "tool": "Bash",
+          "error": "Exit code 1\nxargs: command line cannot be assembled, too long",
+          "duration_ms": 75,
+          "timestamp": "2026-08-22T18:42:13.647637"
+        },
+        {
+          "tool": "Bash",
+          "error": "Exit code 1\n(eval):2: read-only variable: status",
+          "duration_ms": 35,
+          "timestamp": "2026-08-22T18:42:42.259488"
+        }
+      ]
     },
     "structural": {
       "expected_outputs_written": null,

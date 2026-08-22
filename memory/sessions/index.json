@@ -1093,7 +1093,15 @@
           "systems/eval-harness/runs/eval-20260822T133415-O2X9ES.json",
           "systems/eval-harness/runs/eval-20260822T133821-X2Y9R2.json",
           "workflows/boot/invoke-step-complete-hook.py",
-          ".claude/hooks/eval-agent-start.py"
+          ".claude/hooks/eval-agent-start.py",
+          "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/8c94a4ce-c06e-41b5-adcb-cbccf35ca0d2/scratchpad/plaud_discover.py",
+          "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/8c94a4ce-c06e-41b5-adcb-cbccf35ca0d2/scratchpad/plaud_discover_full.py",
+          "systems/eval-harness/skill-runs/plaud-discover-latest.json",
+          "workflows/plaud-ingest/steps/step-01-discover.md",
+          "workflows/plaud-ingest/steps/step-02-trigger-transcription.md",
+          "workflows/plaud-ingest/steps/step-03-identify-speakers.md",
+          "workflows/plaud-ingest/steps/step-04-fetch-staging.md",
+          "systems/eval-harness/skill-runs/plaud-transcripts-latest.json"
         ]
       }
     ]

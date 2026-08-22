@@ -1,0 +1,44 @@
+{
+  "id": "eval-20260822T145919-8SQ9GZ",
+  "type": "skill",
+  "name": "plaud-transcripts",
+  "agent": "knox",
+  "session_id": "session-2026-08-21-121818",
+  "trigger": "manual",
+  "started": "2026-08-22T14:00:00Z",
+  "completed": "2026-08-22T14:59:19.182945Z",
+  "duration_seconds": 3559.2,
+  "status": "success",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    }
+  },
+  "version_hash": "1eb36d6d5901913c",
+  "prior_baseline_id": null,
+  "tags": [
+    "cowork-hook",
+    "skill"
+  ]
+}

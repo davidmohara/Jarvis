@@ -1,0 +1,59 @@
+{
+  "id": "eval-20260822T234145-0G7EL9",
+  "agent_id": "a192c8b2269120c4f",
+  "type": "agent",
+  "name": "claude",
+  "agent": "claude",
+  "session_id": "session-2026-08-21-121818",
+  "trigger": "unknown",
+  "started": "2026-08-22T23:41:45.022777Z",
+  "completed": "2026-08-22T23:41:54.381442Z",
+  "duration_seconds": 9.36,
+  "status": "success",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/8c94a4ce-c06e-41b5-adcb-cbccf35ca0d2/subagents/agent-a192c8b2269120c4f.jsonl",
+  "last_assistant_message": "Knox plaud-ingest background task completed. One recording ingested (XTI CIO meeting from 2026-08-21), transcribed, speaker-identified, filed to vault at `zzPlaud/Client/2026-08-21 Meeting XTI...`, and shared with Alice. All autonomous steps successful.\n\n**Boot Workflow Execution Complete**\n\nAll 9 steps executed and verified:\n\n| Step | Status | Output |\n|------|--------|--------|\n| step-01-load-context | \u2713 | 9 identity files loaded; Knox spawned |\n| step-01.5-unified-calendar-pull | \u2713 | 24 events (Aug 22-25) written to data/calendar-unified.json |\n| step-02-gather-data | \u2713 | Phase 2 complete \u2014 calendar, email, tasks, inbox, reminders gathered |\n| step-03-verify-phase2 | \u2713 | Ralph verification: PASS \u2014 all Phase 2 tasks confirmed |\n| step-04-gather-meeting-context | \u2713 | Meeting context + Clay reminders/birthdays (none due) |\n| step-05-synthesize-briefing | \u2713 | Morning briefing delivered (3 paragraphs, calendar table, sharp edges flagged) |\n| step-06-scan-workflows | \u2713 | No in-flight workflows; Knox background task noted as expected |\n| step-06.5-guardrail-checkpoint | \u2713 | Pre-completion review: PASS \u2014 all data live, no leakage, briefing accurate |\n| step-07-verify-completion | \u2713 | Completion gate: all 7 steps verified complete |\n\n**Session ID:** `boot-2026-08-22-073000`  \n**Duration:** 14.5 minutes  \n**Knox plaud-ingest:** Completed autonomously (1 recording ingested)  \n**Status:** Ready for session operations",
+  "model": "haiku",
+  "total_tokens_input": 84082,
+  "total_tokens_output": 1,
+  "total_cost_usd": 0.090888
+}

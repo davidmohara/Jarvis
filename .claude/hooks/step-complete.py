@@ -87,7 +87,7 @@ def find_active_eval_record(session_id: str) -> Path | None:
             try:
                 with open(f, "r") as file:
                     data = json.load(file)
-                if data.get("session_id") == session_id and data.get("status") == "in-progress":
+                if data.get("session_id") == session_id:
                     records.append((f, data.get("started", "")))
             except Exception:
                 continue

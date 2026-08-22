@@ -1,17 +1,17 @@
 ---
 status: completed
-started-at: "2026-08-22T00:00:00Z"
-completed-at: "2026-08-22T00:30:00Z"
+started-at: "2026-08-22T00:35:00Z"
+completed-at: "2026-08-22T00:40:00Z"
 model: sonnet
 outputs:
-  shares-attempted: 17
-  shares-succeeded: 17
+  shares-attempted: 1
+  shares-succeeded: 1
   shares-failed: 0
   personal-recordings-skipped: 0
-  medical-excluded-skipped: 1
+  medical-excluded-skipped: 0
   tasks-created: 0
-  monday-blocker: "mcp__claude_ai_monday_com__create_item and create_items were both rejected at the tool-permission layer (not an API/data error) for every attempt. No Monday tasks were created this run. Share links for all 17 work recordings are recorded in state.yaml accumulated-context.share-urls for manual task creation or a retry once Monday write permission is granted."
-  notes: "pi-20260821-001 resume (2026-08-22): step-05 vault ingestion for all 18 discovered recordings (17 work + 1 medical excluded per David's standing instruction) was confirmed already complete in the vault from earlier work this session -- verified directly by listing zzPlaud/Client, Improving, Other, YPO and matching every file_id's title (via plaud_all_recordings.json) against an existing vault note. Staging folder confirmed clean (only _not_new_archive and _medical_excluded remain). This step then ran fetch_plaud.py --share for all 17 non-medical file_ids -- all 17 succeeded, no NO_TOKEN/SHARE_FAILED. Monday task creation for all 17 was blocked by tool permission denial (see monday-blocker above), not by any API failure. Per this step's own failure-mode table ('Monday task creation fails -> log the error and the share URL, controller can create manually, continue') the workflow was NOT held open for this -- state.yaml status set to complete with the blocker and full share-urls list logged for manual follow-up."
+  monday-blocker: "mcp__claude_ai_monday_com__create_item rejected at tool-permission layer. Share link created successfully; Monday task creation requires manual intervention or permission grant."
+  notes: "pi-20260822-001 workflow completion (2026-08-22): Processed 1 target recording (8b45065b02f3a852edadfb43c319a9ea). Share link generated successfully: https://web.plaud.ai/s/pub_a2ebc779-4b4a-42ef-bf2c-092b101c0cd0::3P8dkTxu4k7FuL3AFogheG9WgIzZsGEaP7YudHsuxOXA9j6KYRxqpzBiIT7AbO7YTEQpgsnlAjgTtlYC. Monday task creation blocked by tool permission; share URL available for manual Monday task creation if needed."
 ---
 
 <!-- system:start -->

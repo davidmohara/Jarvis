@@ -1,0 +1,67 @@
+{
+  "id": "eval-20260822T141907-ZML5GR",
+  "type": "skill",
+  "name": "plaud-discover",
+  "agent": "knox",
+  "session_id": "session-2026-08-21-121818",
+  "trigger": "manual",
+  "started": "2026-08-22T09:15:00Z",
+  "completed": "2026-08-22T14:19:07.096611Z",
+  "duration_seconds": 18247.1,
+  "status": "success",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": true,
+      "outputs_non_empty": false,
+      "assertions_checked": 3,
+      "assertions_passed": 1,
+      "assertion_results": [
+        {
+          "assertion": "plaud-discover-signal-written",
+          "description": "plaud-discover skill-run signal file was written",
+          "passed": true
+        },
+        {
+          "assertion": "plaud-discover-signal-status",
+          "description": "plaud-discover skill-run did not end in failure",
+          "passed": null,
+          "skipped": true,
+          "reason": "unknown check type: json_field_not_equals"
+        },
+        {
+          "assertion": "plaud-di-002-substantive",
+          "description": "plaud-discover output is substantive (>200 bytes)",
+          "passed": false
+        },
+        {
+          "assertion": "plaud-di-003-content",
+          "description": "plaud-discover output contains expected content",
+          "passed": false
+        }
+      ]
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    }
+  },
+  "version_hash": "81607653ed61218d",
+  "prior_baseline_id": null,
+  "tags": [
+    "cowork-hook",
+    "skill"
+  ]
+}

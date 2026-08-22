@@ -1,13 +1,13 @@
 ---
 status: completed
-started-at: "2026-08-11T00:00:00Z"
-completed-at: "2026-08-11T00:15:00Z"
+started-at: "2026-08-22T00:07:00Z"
+completed-at: "2026-08-22T00:23:00Z"
 model: haiku
 outputs:
   disposition: "speakers-identified-calendar-cross-reference-applied"
-  auto-resolved: 4
+  auto-resolved: 1
   controller-flagged: 0
-  notes: "All 4 unresolved speakers identified via transcript context cross-reference. Recording 1: Stephen Johnson (75 segments - primary co-sell strategy driver), Jenn Massey (10 segments - note-taker). Recording 2: Diana Stevens from Improving (16 segments - workshop organizer), Ayotunde Gibbs from Remington Hotels (33 segments - IT/AI lead). Both recordings classified as work."
+  notes: "1 recording processed. Speaker 1 auto-resolved via calendar to Greg Pascuzzi (Fortium Partners). Recording classified as work."
 ---
 
 <!-- system:start -->

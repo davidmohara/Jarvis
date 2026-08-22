@@ -1,5 +1,11 @@
 ---
-status: not-started
+status: complete
+started-at: "2026-08-22T07:40:00-05:00"
+completed-at: "2026-08-22T07:42:00-05:00"
+outputs:
+  briefing: "delivered"
+  paragraphs: "3"
+  calendar_conflicts: "flagged — Sunday/Monday overlaps need resolution"
 ---
 
 <!-- system:start -->

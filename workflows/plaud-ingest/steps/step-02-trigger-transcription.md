@@ -1,14 +1,14 @@
 ---
 status: completed
-started-at: "2026-08-10T00:15:00Z"
-completed-at: "2026-08-10T00:20:00Z"
+started-at: "2026-08-22T00:06:00Z"
+completed-at: "2026-08-22T00:07:00Z"
 model: haiku
 outputs:
-  already-ready: 0
+  already-ready: 1
   triggered: 0
-  pending: 88
+  pending: 0
   skipped: 0
-  note: "All 88 new recordings already have transcription pending/in-progress (is_trans=true, trans_status=0). No trigger needed. Watchers will monitor for completion."
+  note: "1 new recording already has transcript ready. No trigger needed. Proceeding to speaker identification."
 ---
 
 <!-- system:start -->

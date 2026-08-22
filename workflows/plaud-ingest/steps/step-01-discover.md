@@ -1,7 +1,12 @@
 ---
-status: not-started
+status: completed
 model: haiku
+started-at: "2026-08-22T00:00:00Z"
+completed-at: "2026-08-22T00:06:00Z"
 outputs:
+  new-recordings-count: 1
+  api-total: 120
+  confirmed-in-vault: 119
   previous-run-results:
     - date: "2026-08-10"
       new-recordings-count: 88

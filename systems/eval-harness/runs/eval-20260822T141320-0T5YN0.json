@@ -1,0 +1,94 @@
+{
+  "id": "eval-20260822T141320-0T5YN0",
+  "agent_id": "ae045b5b18900c297",
+  "type": "workflow",
+  "name": "boot",
+  "agent": "general-purpose",
+  "session_id": "session-2026-08-21-121818",
+  "trigger": "boot",
+  "started": "2026-08-22T14:13:20.598912Z",
+  "completed": "2026-08-22T14:19:11.958829Z",
+  "duration_seconds": 351.36,
+  "status": "partial",
+  "steps": [
+    {
+      "name": "step-05-synthesize-briefing.md",
+      "started": "2026-08-22T07:40:00-05:00",
+      "completed": "2026-08-22T07:42:00-05:00",
+      "duration_seconds": 120.0,
+      "status": "complete",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": "haiku",
+      "tokens_input": 388957,
+      "tokens_output": 2512,
+      "cost_usd": 0.054992
+    }
+  ],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 1,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": true,
+      "outputs_non_empty": false,
+      "assertions_checked": 4,
+      "assertions_passed": 3,
+      "assertion_results": [
+        {
+          "assertion": "Boot workflow state.yaml shows status: complete",
+          "passed": true,
+          "error": null
+        },
+        {
+          "assertion": "Session index file exists \u2014 boot's Session Index Boot step must have created/appended it",
+          "passed": true,
+          "error": null
+        },
+        {
+          "assertion": "Session index is a real record, not an empty stub",
+          "passed": true,
+          "error": null
+        },
+        {
+          "assertion": "step-06.5's guardrail checkpoint recorded a result (pass/flag/escalate) on this run \u2014 read from the eval record's own guardrails array, not self-reported by the workflow",
+          "passed": false,
+          "error": null
+        }
+      ]
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": "3892c0a20468385762f2bab79075c3adc4000c809cbbfb36bc93072d7f12afea",
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/8c94a4ce-c06e-41b5-adcb-cbccf35ca0d2/subagents/agent-ae045b5b18900c297.jsonl",
+  "last_assistant_message": "## Knox - Plaud Discovery Complete\n\n**120 recordings enumerated.** 119 already ingested in vault. 1 new recording awaiting ingest.\n\n**Most Recent Recording:**\n- Date: 2026-08-21\n- Title: \"Meeting: XTI CIO Opportunity, AI Strategy, and Collaboration\"\n- ID: `8b45065b02f3a852edadfb43c319a9ea`\n- Transcript: Ready\n- Status: New (not yet ingested)\n\n**Status Summary:**\n- Total recordings in Plaud: 120\n- Ingested to vault: 119\n- Awaiting ingest: 1\n- Transcription-ready recordings: 1\n- No transcription blockers detected\n\n**Next Steps:**\nTrigger `knox-transcripts-plaud` skill to process the new recording from staging folder into vault. Recording has transcript ready \u2014 no speaker identification or transcription delays.\n\n**Signal File:** `/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/systems/eval-harness/skill-runs/plaud-discover-latest.json`\n\nSkill execution complete. All 120 recordings cross-referenced. Vault ingestion status confirmed current as of 2026-08-22.",
+  "model": "haiku",
+  "total_tokens_input": 1718736,
+  "total_tokens_output": 70,
+  "total_cost_usd": 0.246796
+}

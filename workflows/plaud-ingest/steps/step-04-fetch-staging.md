@@ -1,14 +1,14 @@
 ---
 status: completed
-started-at: "2026-08-10T00:22:00Z"
-completed-at: "2026-08-11T00:20:00Z"
+started-at: "2026-08-22T00:23:00Z"
+completed-at: "2026-08-22T00:35:00Z"
 model: haiku
 outputs:
   fetch-status: "recordings-fetched-and-processed"
   staging-verified: true
-  files-staged: 2
-  speaker-renames-applied: 2
-  notes: "2 recordings fetched via fetch_plaud.py for 2026-08-10. Speaker renames applied directly to markdown files via sed: Recording 1 - Speaker 2→Stephen Johnson, Speaker 4→Jenn Massey; Recording 2 - Speaker 1→Diana Stevens, Speaker 3→Ayotunde Gibbs. All speaker names now correctly named in staging transcripts."
+  files-staged: 1
+  speaker-renames-applied: 1
+  notes: "1 recording fetched and speaker renames applied via fetch_plaud.py --rename. Speaker 1→Greg Pascuzzi, O'Hara→David O'Hara. Transcript regeneration triggered. Updated file: plaud_8b45065b02f3a852edadfb43c319a9ea_ogg.md"
 ---
 
 <!-- system:start -->
