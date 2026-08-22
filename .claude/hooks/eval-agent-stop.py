@@ -66,55 +66,35 @@ def atomic_write_json(path: Path, data: dict):
 
 
 def invoke_step_complete_hooks(eval_record: dict, transcript_path: str, ies_root: Path):
-    """For boot workflows: invoke step-complete hook for each completed step."""
     import subprocess
-
     steps_dir = ies_root / "workflows" / "boot" / "steps"
     if not steps_dir.exists():
         return
 
-    steps = sorted([f for f in steps_dir.glob("step-*.md") if f.is_file()])
-
-    for step_file in steps:
+    for step_file in sorted(steps_dir.glob("step-*.md")):
         try:
             with open(step_file) as f:
                 content = f.read()
-
-            # Check if step is complete
             frontmatter = extract_frontmatter_block(content)
-            try:
-                step_data = yaml.safe_load(frontmatter) or {}
-            except Exception:
-                continue
-
+            step_data = yaml.safe_load(frontmatter) or {}
             if step_data.get("status") != "complete":
                 continue
 
-            # Invoke hook with payload
             payload = {
                 "step_file_path": str(step_file),
                 "step_content": content,
                 "transcript_path": transcript_path,
                 "session_id": eval_record.get("session_id", "")
             }
-
-            hook_result = subprocess.run(
+            subprocess.run(
                 ["python3", str(ies_root / ".claude" / "hooks" / "step-complete.py")],
                 input=json.dumps(payload),
                 capture_output=True,
                 text=True,
                 timeout=10
             )
-
-            if hook_result.returncode == 0 and hook_result.stdout.strip():
-                try:
-                    output = json.loads(hook_result.stdout)
-                    log_info(f"step-complete hook for {step_file.stem}: {output.get('guardrail_result', 'pass')}")
-                except json.JSONDecodeError:
-                    pass
-
         except Exception as e:
-            log_error(f"step-complete hook failed for {step_file.name}: {e}")
+            log_error(f"step-complete failed for {step_file.name}: {e}")
 
 
 def read_stdin() -> dict:
@@ -490,13 +470,11 @@ def main():
         except Exception as e:
             log_error(f"Failed to compute agent token usage: {e}")
 
-    # For boot workflows: invoke step-complete hook for each completed step
-    # This extracts per-step tokens, runs guardrails, handles escalations
     if eval_record.get("name") == "boot" and agent_transcript_path:
         try:
             invoke_step_complete_hooks(eval_record, agent_transcript_path, IES_ROOT)
         except Exception as e:
-            log_error(f"Failed to invoke step-complete hooks: {e}")
+            log_error(f"step-complete hooks failed: {e}")
 
     # Fallback: Estimate cost if no real transcript data available (ensures all evals have cost)
     if eval_record.get("total_cost_usd") is None:

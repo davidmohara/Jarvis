@@ -256,9 +256,6 @@ def boot_orchestration():
                 agent = Agent(group.step)
                 agent.run()
             
-            # NOTE: step-complete hook will be invoked by eval-agent-stop.py
-            # for all completed steps. No model-side hook invocation.
-            
             # Check for retry or escalation signal
             eval_record = read_eval_record()
             
