@@ -134,14 +134,19 @@ def extract_step_tokens(transcript_path: str, step_started: str, step_completed:
 def run_step_guardrail_checkpoint(step_name: str, step_frontmatter: dict, eval_record: dict) -> dict:
     """Run guardrail validation for this step.
 
-    Only escalate (punch out) on CRITICAL issues. Flag for warnings. Pass by default.
+    Four possible outcomes:
+    - pass: Step succeeded, continue
+    - flag: Step has warnings but is usable, continue
+    - retry: Step incomplete, send back to model to finish (don't punch out)
+    - escalate: Critical issue model can't fix, punch out to controller
     """
     result = {
         "checkpoint_name": f"{step_name}-checkpoint",
         "result": "pass",
         "reason": "Step completed successfully",
         "escalated_to_human": False,
-        "validation_errors": []
+        "validation_errors": [],
+        "retry_feedback": None  # If result=retry, include feedback for model
     }
 
     # CRITICAL CHECK: step status must be complete
@@ -160,11 +165,12 @@ def run_step_guardrail_checkpoint(step_name: str, step_frontmatter: dict, eval_r
         result["validation_errors"].append("missing_timestamps")
         return result
 
-    # WARNING: Check for outputs (flag if missing, but don't escalate)
+    # Check for outputs (incomplete step → retry, don't escalate)
     outputs = step_frontmatter.get("outputs", {})
     if not outputs:
-        result["result"] = "flag"
-        result["reason"] = "WARNING: Step has no outputs recorded"
+        result["result"] = "retry"
+        result["reason"] = "Step incomplete: no outputs recorded"
+        result["retry_feedback"] = "Re-execute step to completion. Outputs must be recorded in frontmatter."
         result["validation_errors"].append("no_outputs")
         return result
     else:
@@ -178,32 +184,47 @@ def run_step_guardrail_checkpoint(step_name: str, step_frontmatter: dict, eval_r
             with open(guardrail_file, "r") as f:
                 guardrail_rules = json.load(f)
 
-            # Run each rule (only critical ones can escalate)
+            # Run each rule
             for rule in guardrail_rules.get("rules", []):
                 rule_type = rule.get("type")
                 rule_name = rule.get("name", "unknown")
                 is_critical = rule.get("critical", False)
+                is_retry = rule.get("retry_on_missing", False)  # Send back to model if missing
 
-                # Example rule: check_field_exists (warn only)
+                # Example rule: check_field_exists
                 if rule_type == "check_field_exists":
                     field = rule.get("field")
                     if field not in outputs:
                         result["validation_errors"].append(f"missing_field: {field}")
-                        if is_critical:
+                        if is_retry:
+                            # Incomplete field → retry (don't punch out)
+                            result["result"] = "retry"
+                            result["reason"] = f"Step incomplete: missing required field '{field}'"
+                            result["retry_feedback"] = f"Re-execute step. Missing output field: {field}"
+                            break
+                        elif is_critical:
+                            # Critical field missing and NOT retryable → escalate
                             result["result"] = "escalate"
                             result["escalated_to_human"] = True
-                            result["reason"] = f"CRITICAL: Missing required field '{field}'"
+                            result["reason"] = f"CRITICAL: Missing required field '{field}' (not retryable)"
                             break
                         else:
                             result["result"] = "flag"
 
-                # Example rule: check_field_not_empty (warn only)
+                # Example rule: check_field_not_empty
                 elif rule_type == "check_field_not_empty":
                     field = rule.get("field")
                     value = outputs.get(field)
                     if not value:
                         result["validation_errors"].append(f"empty_field: {field}")
-                        if is_critical:
+                        if is_retry:
+                            # Empty field → retry (send back to model)
+                            result["result"] = "retry"
+                            result["reason"] = f"Step incomplete: empty field '{field}'"
+                            result["retry_feedback"] = f"Re-execute step. Field '{field}' is empty, must be populated."
+                            break
+                        elif is_critical:
+                            # Critical and empty → escalate
                             result["result"] = "escalate"
                             result["escalated_to_human"] = True
                             result["reason"] = f"CRITICAL: Required field '{field}' is empty"
@@ -211,7 +232,7 @@ def run_step_guardrail_checkpoint(step_name: str, step_frontmatter: dict, eval_r
                         else:
                             result["result"] = "flag"
 
-                # Only CRITICAL rule type can escalate
+                # Only CRITICAL (non-retryable) issues can escalate
                 elif rule_type == "escalate_if" and is_critical:
                     condition = rule.get("condition")
                     if condition == "data_integrity_failure":
@@ -285,8 +306,21 @@ def update_eval_record_with_step_completion(eval_path: Path, step_name: str, fro
         }
         eval_record["guardrails"].append(guardrail_entry)
 
-        # If escalate, mark eval record as punched-out
-        if guardrail_result["result"] == "escalate":
+        # Handle different checkpoint outcomes
+        if guardrail_result["result"] == "retry":
+            # Step is incomplete, queue for retry (don't punch out to controller)
+            eval_record["retry_signal"] = {
+                "step": step_name,
+                "checkpoint": guardrail_result["checkpoint_name"],
+                "reason": guardrail_result["reason"],
+                "feedback": guardrail_result.get("retry_feedback"),
+                "attempt_number": eval_record.get("retry_signal", {}).get("attempt_number", 0) + 1,
+                "timestamp": datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
+            }
+            log_info(f"RETRY: {step_name} is incomplete. Feedback: {guardrail_result.get('retry_feedback')}")
+
+        elif guardrail_result["result"] == "escalate":
+            # Critical issue, punch out to controller
             eval_record["punch_out_signal"] = {
                 "step": step_name,
                 "checkpoint": guardrail_result["checkpoint_name"],

@@ -66,35 +66,64 @@ When each step completes:
 
 **Result:** Validation happens at each boundary, escalations are deliberate and documented.
 
-### 4. Punch-Out Mechanism
+### 4. Retry Mechanism (Self-Healing)
 
-**Signal Flow:**
+**Incomplete steps retry automatically (don't involve operator):**
+
 ```
 Step completes
   ↓
-Guardrail checkpoint escalates (critical issue)
+Guardrail checkpoint finds step incomplete (missing output)
+  ↓
+step-complete.py writes retry_signal:
+  {
+    "step": "step-05-synthesize-briefing",
+    "reason": "Step incomplete: briefing_file missing",
+    "feedback": "Re-execute step to completion. Output: briefing_file",
+    "attempt_number": 1
+  }
+  ↓
+Master detects retry_signal (not punch_out), re-executes step
+  ↓
+Step runs again with model aware it failed before
+  ↓
+If still incomplete after 3 retries: escalate to operator
+  ↓
+If completes: continue to next step
+```
+
+**Result:** Steps self-heal up to 3 times; operator only involved for critical issues.
+
+### 5. Escalation Mechanism (Operator Decision)
+
+**Only CRITICAL issues escalate (that model can't fix):**
+
+```
+Step completes
+  ↓
+Guardrail checkpoint finds CRITICAL issue (e.g., permission denied)
   ↓
 step-complete.py writes punch_out_signal:
   {
-    "step": "step-05-synthesize-briefing",
-    "reason": "CRITICAL: Briefing is empty",
+    "step": "step-04-gather-meeting-context",
+    "reason": "CRITICAL: Calendar API access denied",
     "awaiting_controller_decision": true
   }
   ↓
-Master detects signal, halts workflow
+Master detects punch_out_signal, halts workflow
   ↓
-Master notifies controller: "Escalation at step-05: Briefing is empty"
+Master notifies operator: "Escalation at step-04: Calendar API access denied"
   ↓
-Controller reviews eval record, updates punch_out_signal:
+Operator reviews eval record, updates punch_out_signal:
   {
-    "controller_decision": "approve",
-    "controller_notes": "Using prior briefing"
+    "controller_decision": "approve",  // or "deny"
+    "controller_notes": "Using fallback data"
   }
   ↓
 Master resumes (if approve) or aborts (if deny)
 ```
 
-**Result:** Clear halt-and-decide points with full audit trail of escalations and decisions.
+**Result:** Clear escalation points; operator only decides critical issues.
 
 ### 5. Audit Trail Recording
 

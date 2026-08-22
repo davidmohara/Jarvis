@@ -24,9 +24,11 @@ START
 [GROUP 1: step-01]
   ├→ Spawn Agent
   ├→ Wait for completion
-  ├→ Check punch_out_signal
-  │   ├─ No signal → Continue
-  │   └─ Signal present → ESCALATION (jump to HALT)
+  ├→ Check retry_signal OR punch_out_signal
+  │   ├─ retry_signal: Step incomplete → RE-EXECUTE step (loop)
+  │   │   └─ Max 3 retries, then escalate if still incomplete
+  │   ├─ punch_out_signal: Critical issue → ESCALATION (jump to HALT)
+  │   └─ No signal: Continue
   └→ Success: Continue to GROUP 2
 
 [GROUP 2: step-01.5]
@@ -241,24 +243,53 @@ def boot_orchestration():
     
     # Execution loop
     for group in execution_groups:
-        # Spawn step(s)
-        if group.parallel:
-            agents = [Agent(step) for step in group.steps]
-            wait_all(agents)
-        else:
-            agent = Agent(group.step)
-            agent.run()
+        # Retry loop (max 3 attempts per step)
+        retry_count = 0
+        max_retries = 3
         
-        # Check for punch-out
-        eval_record = read_eval_record()
-        if eval_record.get("punch_out_signal", {}).get("awaiting_controller_decision"):
-            notify_controller(eval_record["punch_out_signal"])
-            wait_for_controller_decision(eval_record)
+        while retry_count < max_retries:
+            # Spawn step(s)
+            if group.parallel:
+                agents = [Agent(step) for step in group.steps]
+                wait_all(agents)
+            else:
+                agent = Agent(group.step)
+                agent.run()
             
-            decision = eval_record["punch_out_signal"]["controller_decision"]
-            if decision == "deny":
-                abort_boot()
-                return
+            # Check for retry or escalation signal
+            eval_record = read_eval_record()
+            
+            # If retry: incomplete step, send feedback and re-execute
+            if eval_record.get("retry_signal"):
+                retry_count += 1
+                retry_feedback = eval_record["retry_signal"].get("feedback")
+                step_name = eval_record["retry_signal"].get("step")
+                log(f"[Master] Retry {retry_count}/{max_retries} for {step_name}: {retry_feedback}")
+                
+                if retry_count >= max_retries:
+                    # Max retries exceeded, escalate (invoke controller)
+                    eval_record["punch_out_signal"] = {
+                        "step": step_name,
+                        "reason": f"Step still incomplete after {max_retries} retries",
+                        "awaiting_controller_decision": True
+                    }
+                    break  # Exit retry loop, go to punch-out handling
+                else:
+                    # Retry: re-execute the step with feedback
+                    continue  # Loop and re-spawn agent
+            
+            # If punch-out: critical issue, escalate to controller
+            if eval_record.get("punch_out_signal", {}).get("awaiting_controller_decision"):
+                notify_controller(eval_record["punch_out_signal"])
+                wait_for_controller_decision(eval_record)
+                
+                decision = eval_record["punch_out_signal"]["controller_decision"]
+                if decision == "deny":
+                    abort_boot()
+                    return
+            
+            # If neither retry nor punch-out: step succeeded, exit retry loop
+            break
         
         # Update state
         state.current_step = group.next_step

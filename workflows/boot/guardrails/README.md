@@ -59,19 +59,50 @@ Each checkpoint is a JSON file named `{step-name}.json`:
 - Custom escalation condition
 - critical: must be true to escalate
 
-## Escalation Policy
+## Checkpoint Outcomes
 
-**Only escalate on CRITICAL issues:**
-- Missing timestamps (can't extract tokens)
-- Step status not 'complete' (didn't actually finish)
-- Critical field failures (e.g. data freshness check)
+Each checkpoint returns one of four results:
+
+**pass** — Step succeeded, continue to next group
+**flag** — Step has warnings but is usable, continue to next group
+**retry** — Step is incomplete, send back to model to finish (don't involve operator)
+**escalate** — Critical issue model can't fix, punch out to operator
+
+### Retry Policy (Incomplete Steps)
+
+If a step didn't finish, send it back to the model via **retry** signal:
+- Missing required fields → retry (not escalate)
+- Empty required fields → retry (not escalate)
+- Step incomplete but fixable → retry
+
+**retry_on_missing: true** — Field is missing or empty → retry the step
+**retry_on_missing: false** — Field is missing or empty → flag (warn, don't retry)
+
+Example:
+```json
+{
+  "name": "briefing_generated",
+  "type": "check_field_exists",
+  "field": "briefing_file",
+  "retry_on_missing": true,    // If briefing_file missing → retry step
+  "reason": "Send step back to model if briefing wasn't generated"
+}
+```
+
+### Escalation Policy (Critical Issues)
+
+**Only escalate on CRITICAL issues the model can't fix:**
+- Missing timestamps (can't extract tokens) → escalate
+- Step status not 'complete' (didn't actually finish) → escalate
+- API/Permission errors → escalate
+- Data integrity failures → escalate
 
 **Do NOT escalate on:**
-- Missing optional fields
-- Warnings or non-blocking issues
-- Empty optional outputs
+- Missing optional fields → flag
+- Incomplete step → retry (let model finish it)
+- Warnings or non-blocking issues → flag
 
-Use `critical: false` for warnings. They get flagged in the audit trail but workflow continues.
+Use `critical: true` only for issues that need operator intervention. Everything else is either retry (incomplete) or flag (warnings).
 
 ## Audit Trail Recording
 
