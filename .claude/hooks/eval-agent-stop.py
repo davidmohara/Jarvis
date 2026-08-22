@@ -473,6 +473,9 @@ def main():
     if eval_record.get("name") == "boot" and agent_transcript_path:
         try:
             invoke_step_complete_hooks(eval_record, agent_transcript_path, IES_ROOT)
+            # Re-read eval record to get step data updated by hooks
+            with open(eval_record_path, "r") as f:
+                eval_record = json.load(f)
         except Exception as e:
             log_error(f"step-complete hooks failed: {e}")
 

@@ -1,0 +1,80 @@
+{
+  "id": "eval-20260822T234415-ZLE18X",
+  "agent_id": "ae045b5b18900c297",
+  "type": "workflow",
+  "name": "plaud-ingest",
+  "agent": "general-purpose",
+  "session_id": "session-2026-08-21-121818",
+  "trigger": "manual",
+  "started": "2026-08-22T23:44:15.800703Z",
+  "completed": "2026-08-22T23:44:49.052073Z",
+  "duration_seconds": 33.25,
+  "status": "aborted",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": false,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": true,
+      "outputs_non_empty": false,
+      "assertions_checked": 4,
+      "assertions_passed": 3,
+      "assertion_results": [
+        {
+          "assertion": "Plaud ingest workflow state.yaml shows status: complete",
+          "passed": false,
+          "error": null
+        },
+        {
+          "assertion": "Plaud ingest working memory file was written to memory/working/",
+          "passed": true,
+          "error": null
+        },
+        {
+          "assertion": "Plaud ingest working memory file is substantive (>200 bytes)",
+          "passed": true,
+          "error": null
+        },
+        {
+          "assertion": "Plaud ingest working memory contains expected content",
+          "passed": true,
+          "error": null
+        }
+      ]
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": "c833f73f72ccddf98cc2dcf3c7ac1f7bd828de64e5daa680528a36a73df9b3f3",
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/8c94a4ce-c06e-41b5-adcb-cbccf35ca0d2/subagents/agent-ae045b5b18900c297.jsonl",
+  "last_assistant_message": "The workflow step-01 discovery has been successfully executed. Here's the final status:\n\n**PLAUD INGEST WORKFLOW \u2014 Step-01 Complete**\n\n**Discovery Results:**\n- Total Plaud recordings enumerated: 120\n- Already ingested in vault: 119\n- New recordings identified: 1\n- No transcription blockers\n\n**New Recording:**\n- Recording ID: `8b45065b02f3a852edadfb43c319a9ea`\n- Title: \"08-21 Meeting: XTI CIO Opportunity, AI Strategy, and Collaboration\"\n- Date: 2026-08-21\n- Status: Transcript ready\n\n**State File Updated:**\n- Location: `/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/workflows/plaud-ingest/state.yaml`\n- `current-step` \u2192 `step-02` (moved forward)\n- `accumulated-context.new-recordings` \u2192 populated with 1 recording\n- `accumulated-context.ready-for-fetch` \u2192 ready for transcript processing\n- `accumulated-context.notes` \u2192 discovery summary documented\n\n**Skill Signal File:**\n- Location: `/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/systems/eval-harness/skill-runs/plaud-discover-latest.json`\n- Status: `success`\n- Findings captured for eval harness\n\nWorkflow is now positioned for step-02 (transcription triggering). The new recording has transcript ready \u2014 no delays anticipated.",
+  "model": "haiku",
+  "total_tokens_input": 340582,
+  "total_tokens_output": 7,
+  "total_cost_usd": 0.114781
+}

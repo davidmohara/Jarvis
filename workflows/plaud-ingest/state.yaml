@@ -1,38 +1,32 @@
 workflow: plaud-ingest
 agent: knox
-status: complete
-session-id: pi-20260822-001
+status: in-progress
+session-id: pi-20260822-002
 session-started: "2026-08-22T00:00:00Z"
-current-step: step-05b
+current-step: step-02
 original-request: Knox — run workflows/plaud-ingest/workflow.md in full
 accumulated-context:
   target-date: ""
+  discovery-run: "2026-08-22T09:20:00Z"
+  api-total-recordings: 120
+  vault-ingested-count: 119
   new-recordings:
     - file_id: 8b45065b02f3a852edadfb43c319a9ea
-      name: "Meeting: XTI CIO Opportunity, AI Strategy, and Collaboration"
+      name: "08-21 Meeting: XTI CIO Opportunity, AI Strategy, and Collaboration"
       date: 2026-08-21
-      duration_seconds: null
+      duration_seconds: 1080
       has_transcript: true
       transcript_status: ready
   transcription-triggered: []
   pending-recordings: []
-  speaker-mappings:
-    8b45065b02f3a852edadfb43c319a9ea:
-      Speaker 1: "Greg Pascuzzi"
-      O'Hara: "David O'Hara"
+  speaker-mappings: {}
   pending-speaker-mappings: []
-  recording-classification:
-    8b45065b02f3a852edadfb43c319a9ea: "work"
+  recording-classification: {}
   ready-for-fetch:
     - 8b45065b02f3a852edadfb43c319a9ea
-  staged-files:
-    - "plaud_8b45065b02f3a852edadfb43c319a9ea_ogg.md"
-  ingested-notes:
-    - "zzPlaud/Client/2026-08-21 Meeting XTI CIO Opportunity AI Strategy and Collaboration.md"
+  staged-files: []
+  ingested-notes: []
   monday-tasks-created: []
-  share-urls:
-    - file_id: 8b45065b02f3a852edadfb43c319a9ea
-      url: "https://web.plaud.ai/s/pub_a2ebc779-4b4a-42ef-bf2c-092b101c0cd0::3P8dkTxu4k7FuL3AFogheG9WgIzZsGEaP7YudHsuxOXA9j6KYRxqpzBiIT7AbO7YTEQpgsnlAjgTtlYC"
-      monday_task_blocked: "tool permission denied"
-  post-ingest-followups: "Share link ready; Monday task creation blocked by tool permission (manual creation needed)"
-  notes: "[Step-01] 1 new recording found; [Step-03] Speaker auto-resolved via calendar; [Step-04] Speaker rename applied & staged; [Step-05] Ingested to vault via bulk skill run (17 total recordings processed); [Step-05b] Share link generated"
+  share-urls: []
+  post-ingest-followups: ""
+  notes: "Step-01 complete: Full enumeration (all 120 recordings). 1 new recording identified. Vault cross-reference confirmed 119 already ingested. No transcript blockers."

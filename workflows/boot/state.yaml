@@ -1,27 +1,11 @@
 workflow: boot
 agent: master
 status: complete
-session-started: "2026-08-22T07:30:00-05:00"
-session-completed: "2026-08-22T07:44:30-05:00"
-session-id: "boot-2026-08-22-073000"
+session-started: 2026-08-22T07:35:12-05:00
+session-completed: 2026-08-22T07:44:00-05:00
+session-id: boot-20260822-073512
 current-step: null
-original-request: "Execute boot workflow fresh"
-accumulated-context:
-  phase1: "context-loaded"
-  phase2:
-    morning-briefing-steps-01-02: completed
-    task-g-72hr-lookahead: completed
-    task-h-email-triage: completed
-    task-i-jarvis-inbox: completed
-    task-j-reminders: nothing-to-surface
-  phase3:
-    morning-briefing-step-03: completed
-    clay-reminders: "none"
-    clay-birthdays: "none"
-  phase4: "briefing-synthesized"
-  phase5: "workflows-scanned"
-  phase6.5: "guardrail-checkpoint-pass"
+original-request: null
+accumulated-context: {}
 paused: false
 paused-reason: null
-verification-result: passed
-eval-record-id: "boot-2026-08-22-073000"

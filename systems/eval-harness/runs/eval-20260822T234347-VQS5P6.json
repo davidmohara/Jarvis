@@ -1,0 +1,80 @@
+{
+  "id": "eval-20260822T234347-VQS5P6",
+  "agent_id": "a57b2f292b3f6a2cd",
+  "type": "workflow",
+  "name": "plaud-ingest",
+  "agent": "general-purpose",
+  "session_id": "session-2026-08-21-121818",
+  "trigger": "manual",
+  "started": "2026-08-22T23:43:47.181580Z",
+  "completed": "2026-08-22T23:44:19.838917Z",
+  "duration_seconds": 32.66,
+  "status": "aborted",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": false,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": true,
+      "outputs_non_empty": false,
+      "assertions_checked": 4,
+      "assertions_passed": 3,
+      "assertion_results": [
+        {
+          "assertion": "Plaud ingest workflow state.yaml shows status: complete",
+          "passed": false,
+          "error": null
+        },
+        {
+          "assertion": "Plaud ingest working memory file was written to memory/working/",
+          "passed": true,
+          "error": null
+        },
+        {
+          "assertion": "Plaud ingest working memory file is substantive (>200 bytes)",
+          "passed": true,
+          "error": null
+        },
+        {
+          "assertion": "Plaud ingest working memory contains expected content",
+          "passed": true,
+          "error": null
+        }
+      ]
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": "c833f73f72ccddf98cc2dcf3c7ac1f7bd828de64e5daa680528a36a73df9b3f3",
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/8c94a4ce-c06e-41b5-adcb-cbccf35ca0d2/subagents/agent-a57b2f292b3f6a2cd.jsonl",
+  "last_assistant_message": "Plaud-ingest workflow reset and started.\n\nState initialized fresh (session pi-20260822-002, status in-progress). plaud-discover agent is now running step-01 in the background \u2014 full enumeration mode, discovering all new Plaud recordings and cross-referencing the vault. It will handle auth automatically (Chrome login if needed) and populate the state file with new recordings when done.\n\nWorkflow will proceed sequentially through all 5 steps: discover \u2192 trigger transcription \u2192 identify speakers \u2192 fetch to staging \u2192 ingest to vault. This is background work; you'll be notified of results as each agent completes its step.",
+  "model": "haiku",
+  "total_tokens_input": 235625,
+  "total_tokens_output": 16,
+  "total_cost_usd": 0.045851
+}
