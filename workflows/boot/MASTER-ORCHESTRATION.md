@@ -256,28 +256,8 @@ def boot_orchestration():
                 agent = Agent(group.step)
                 agent.run()
             
-            # CRITICAL: Invoke step-complete hook to extract tokens and run guardrails
-            step_file = Path("workflows/boot/steps") / f"{group.step}.md"
-            if step_file.exists():
-                with open(step_file) as f:
-                    step_content = f.read()
-                
-                payload = {
-                    "step_file_path": str(step_file),
-                    "step_content": step_content,
-                    "transcript_path": transcript_path,
-                    "session_id": state.session_id
-                }
-                
-                hook_result = subprocess.run(
-                    ["python3", ".claude/hooks/step-complete.py"],
-                    input=json.dumps(payload),
-                    capture_output=True,
-                    text=True
-                )
-                
-                if hook_result.returncode != 0:
-                    log(f"[Master] Hook error for {group.step}: {hook_result.stderr}")
+            # NOTE: step-complete hook will be invoked by eval-agent-stop.py
+            # for all completed steps. No model-side hook invocation.
             
             # Check for retry or escalation signal
             eval_record = read_eval_record()
