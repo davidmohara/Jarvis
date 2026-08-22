@@ -1,14 +1,15 @@
 ---
 status: complete
-started-at: 2026-08-21T14:07:00Z
-completed-at: 2026-08-21T19:11:00Z
+started-at: 2026-08-22T06:07:00Z
+completed-at: 2026-08-22T06:15:00Z
 outputs:
-  messages_scanned: 10
-  new_urls: 1
+  messages_scanned: 3
+  new_urls: 0
   new_digests: 0
-  posts_drafted: 1
+  posts_drafted: 0
+  improving_blog_drafts: 1
   editorial_feedback: 0
-  pending_threads_checked: 13
-  outcome: "1 new URL: Business Insider AI bubble / dot-com comparison → drafted 'The Bubble You Are Inside Does Not Feel Like One' (Ghost ID: 6a88a2b1c0a498028c7e8b2c). No editorial feedback on any pending threads. Image upload failed; using Unsplash CDN URL directly."
+  pending_threads_checked: 5
+  outcome: "No new URLs or digests in last 24h. Processed David's 'Draft it and save it to disk' reply on flagged Spotify thread (YPO AI Brief ep: Watching The AI Costs Twenty Percent). Drafted Improving blog post 'The Twenty Percent Nobody Budgeted' (1,515 words, smell test B+) → saved to drafts/improving-blog/2026-08-22-the-twenty-percent-nobody-budgeted.md. Notified David in #content thread (ts: 1787397122.616669). No editorial feedback on 5 pending draft threads checked."
 model: sonnet
 ---
