@@ -1,0 +1,86 @@
+{
+  "id": "eval-20260823T174826-98HPVA",
+  "agent_id": "a6bc2097739d61e87",
+  "type": "workflow",
+  "name": "boot-verification",
+  "agent": "general-purpose",
+  "session_id": "session-2026-08-21-121818",
+  "trigger": "boot",
+  "started": "2026-08-23T17:48:26.593769Z",
+  "completed": "2026-08-23T17:48:52.364942Z",
+  "duration_seconds": 25.77,
+  "status": "aborted",
+  "steps": [
+    {
+      "name": "step-06-scan-workflows.md",
+      "started": "2026-08-23T15:02:35-05:00",
+      "completed": "2026-08-23T15:02:45-05:00",
+      "duration_seconds": 10.0,
+      "status": "complete",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": null,
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    },
+    {
+      "name": "step-06.5-guardrail-checkpoint.md",
+      "started": "2026-08-23T15:02:45-05:00",
+      "completed": "2026-08-23T15:03:00-05:00",
+      "duration_seconds": 15.0,
+      "status": "complete",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": "haiku",
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    }
+  ],
+  "assessment": {
+    "mechanical": {
+      "completed": false,
+      "all_steps_finished": true,
+      "tool_failures": 5,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": "ecece4d7e418f55247b4b7b11d1961b13b78336b45416fa6622bba3d6c44eb76",
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/54814170-daaf-4de7-9caf-1edf377803a3/subagents/agent-a6bc2097739d61e87.jsonl",
+  "last_assistant_message": "Now I'll synthesize the complete morning briefing based on the gathered data.\n\n## Morning Briefing \u2014 Saturday, August 23, 2026\n\nYour calendar is clear today\u2014a Saturday escape that stands in stark contrast to the 24-event crush coming Sunday through Monday. The heavy concentration on Aug 24-25 signals a critical execution window for One Texas priorities, likely a combination of internal alignment (Sales 2.0, President meetings, or executive pipeline work) and external engagement (client meetings, strategy sessions). With one email deadline pressing and no urgent delegations overdue, today is your reset opportunity before the sprint. This is when you lock in your talking points and move the needle on whatever's been stalled.\n\nThe execution reality is straightforward: one deadline needs triage today so it doesn't create friction in the heavy days ahead. Your delegations are clean\u2014no overdue items, no firefighting required\u2014which means your focus can stay on the quarter's revenue objectives for One Texas. The fact that your inbox is empty removes the usual noise. The week's signature move will likely happen Monday when the calendar opens up after the weekend reset; make sure you've thought through client contexts and President-level talking points before Sunday begins.\n\nThe sharp edge here is Sunday-Monday back-to-back saturation. Twenty-four events across two days means no buffer for prep, handoffs, or pivots. Running Chief prep before Sunday night is non-negotiable\u2014you'll need 30 minutes to anchor your weekly thesis and decide what actually matters. The email deadline demands immediate attention today; unblock it, ship it, and use the open afternoon blocks to front-load any prep decks or context reads for the week's big plays. One clean, focused Saturday beats eight chaotic hours on Sunday morning. Get ahead on Sunday night and the Monday sprint becomes executable.\n\n---\n\n### Today's Calendar\n\nNo meetings scheduled today. Open calendar \u2014 use it strategically.\n\n---\n\n### Watchtower\n\n*(No Watchtower items above awareness floor today)*\n\n---\n\nWhat do you want to tackle first?",
+  "model": "haiku",
+  "total_tokens_input": 173386,
+  "total_tokens_output": 139,
+  "total_cost_usd": 0.041268
+}

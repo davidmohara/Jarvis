@@ -1,0 +1,838 @@
+{
+  "id": "eval-20260823T174739-ZSMT85",
+  "type": "skill",
+  "name": "jarvis-inbox",
+  "agent": "chief",
+  "session_id": "session-2026-08-21-121818",
+  "trigger": "manual",
+  "started": "2026-08-23T18:45:00-05:00",
+  "completed": "2026-08-23T17:47:39.622213Z",
+  "duration_seconds": 0,
+  "status": "success",
+  "steps": [
+    {
+      "name": "step-01-load-context",
+      "started": "2026-08-23T14:30:00Z",
+      "completed": "2026-08-23T14:31:15Z",
+      "status": "complete",
+      "duration_seconds": 75.0
+    },
+    {
+      "name": "step-01.2-unified-data-pull",
+      "started": "2026-08-23T15:00:15-05:00",
+      "completed": "2026-08-23T15:01:15-05:00",
+      "status": "complete",
+      "duration_seconds": 60.0
+    },
+    {
+      "name": "step-01.5-unified-calendar-pull",
+      "started": "2026-08-23T14:31:30Z",
+      "completed": "2026-08-23T14:32:45Z",
+      "status": "complete",
+      "duration_seconds": 75.0
+    },
+    {
+      "name": "step-02-gather-data",
+      "started": "2026-08-23T14:32:45Z",
+      "completed": "2026-08-23T14:33:20Z",
+      "status": "complete",
+      "duration_seconds": 35.0
+    },
+    {
+      "name": "step-02.5-measure-phase2",
+      "started": "2026-08-21T12:39:00-05:00",
+      "completed": "2026-08-21T12:40:00-05:00",
+      "status": "complete",
+      "duration_seconds": 60.0
+    },
+    {
+      "name": "step-03-verify-phase2",
+      "started": "2026-08-23T12:17:15-05:00",
+      "completed": "2026-08-23T12:17:45-05:00",
+      "status": "complete",
+      "duration_seconds": 30.0
+    },
+    {
+      "name": "step-04-gather-meeting-context",
+      "started": "2026-08-23T14:33:20Z",
+      "completed": "2026-08-23T14:34:05Z",
+      "status": "complete",
+      "duration_seconds": 45.0
+    },
+    {
+      "name": "step-05-synthesize-briefing",
+      "started": "2026-08-23T14:34:05Z",
+      "completed": "2026-08-23T14:35:30Z",
+      "status": "complete",
+      "duration_seconds": 85.0
+    },
+    {
+      "name": "step-06-scan-workflows",
+      "started": "2026-08-23T14:35:30Z",
+      "completed": "2026-08-23T14:35:45Z",
+      "status": "complete",
+      "duration_seconds": 15.0
+    },
+    {
+      "name": "step-06.5-guardrail-checkpoint",
+      "started": "2026-08-23T14:35:45Z",
+      "completed": "2026-08-23T14:36:05Z",
+      "status": "complete",
+      "duration_seconds": 20.0
+    },
+    {
+      "name": "step-07-verify-completion",
+      "started": "2026-08-23T14:36:05Z",
+      "completed": "2026-08-23T14:36:20Z",
+      "status": "complete",
+      "duration_seconds": 15.0
+    },
+    {
+      "name": "step-08-knox-completion-check",
+      "started": "2026-08-23T15:03:50-05:00",
+      "completed": "2026-08-23T15:03:55-05:00",
+      "status": "complete",
+      "duration_seconds": 5.0
+    }
+  ],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    }
+  },
+  "version_hash": "c2cc71bca81966fd",
+  "prior_baseline_id": null,
+  "tags": [
+    "cowork-hook",
+    "skill"
+  ],
+  "guardrails": [
+    {
+      "name": "step-01-load-context-checkpoint",
+      "after_step": "step-01-load-context",
+      "result": "pass",
+      "reason": "Step completed with 3 output fields recorded",
+      "escalated_to_human": false,
+      "timestamp": "2026-08-23T17:49:42.400063Z",
+      "validation_errors": []
+    },
+    {
+      "name": "step-01.2-unified-data-pull-checkpoint",
+      "after_step": "step-01.2-unified-data-pull",
+      "result": "pass",
+      "reason": "Step completed with 8 output fields recorded",
+      "escalated_to_human": false,
+      "timestamp": "2026-08-23T17:49:42.458763Z",
+      "validation_errors": []
+    },
+    {
+      "name": "step-01.5-unified-calendar-pull-checkpoint",
+      "after_step": "step-01.5-unified-calendar-pull",
+      "result": "pass",
+      "reason": "Step completed with 6 output fields recorded",
+      "escalated_to_human": false,
+      "timestamp": "2026-08-23T17:49:42.516892Z",
+      "validation_errors": []
+    },
+    {
+      "name": "step-02-gather-data-checkpoint",
+      "after_step": "step-02-gather-data",
+      "result": "escalate",
+      "reason": "CRITICAL: Missing required field 'phase2_status' (not retryable)",
+      "escalated_to_human": true,
+      "timestamp": "2026-08-23T17:49:42.586302Z",
+      "validation_errors": [
+        "missing_field: phase2_status"
+      ]
+    },
+    {
+      "name": "step-02.5-measure-phase2-checkpoint",
+      "after_step": "step-02.5-measure-phase2",
+      "result": "pass",
+      "reason": "Step completed with 4 output fields recorded",
+      "escalated_to_human": false,
+      "timestamp": "2026-08-23T17:49:42.654428Z",
+      "validation_errors": []
+    },
+    {
+      "name": "step-03-verify-phase2-checkpoint",
+      "after_step": "step-03-verify-phase2",
+      "result": "escalate",
+      "reason": "CRITICAL: Missing required field 'verification_results' (not retryable)",
+      "escalated_to_human": true,
+      "timestamp": "2026-08-23T17:49:42.722960Z",
+      "validation_errors": [
+        "missing_field: verification_results"
+      ]
+    },
+    {
+      "name": "step-04-gather-meeting-context-checkpoint",
+      "after_step": "step-04-gather-meeting-context",
+      "result": "escalate",
+      "reason": "CRITICAL: Missing required field 'meetings_found' (not retryable)",
+      "escalated_to_human": true,
+      "timestamp": "2026-08-23T17:49:42.803747Z",
+      "validation_errors": [
+        "missing_field: meetings_found"
+      ]
+    },
+    {
+      "name": "step-05-synthesize-briefing-checkpoint",
+      "after_step": "step-05-synthesize-briefing",
+      "result": "retry",
+      "reason": "Step incomplete: empty field 'briefing_delivered'",
+      "escalated_to_human": false,
+      "timestamp": "2026-08-23T17:49:42.884350Z",
+      "validation_errors": [
+        "empty_field: briefing_delivered"
+      ]
+    },
+    {
+      "name": "step-06-scan-workflows-checkpoint",
+      "after_step": "step-06-scan-workflows",
+      "result": "escalate",
+      "reason": "CRITICAL: Missing required field 'workflows_scanned' (not retryable)",
+      "escalated_to_human": true,
+      "timestamp": "2026-08-23T17:49:42.979703Z",
+      "validation_errors": [
+        "missing_field: workflows_scanned"
+      ]
+    },
+    {
+      "name": "step-06.5-guardrail-checkpoint-checkpoint",
+      "after_step": "step-06.5-guardrail-checkpoint",
+      "result": "pass",
+      "reason": "Step completed with 6 output fields recorded",
+      "escalated_to_human": false,
+      "timestamp": "2026-08-23T17:49:43.068478Z",
+      "validation_errors": []
+    },
+    {
+      "name": "step-07-verify-completion-checkpoint",
+      "after_step": "step-07-verify-completion",
+      "result": "escalate",
+      "reason": "CRITICAL: Missing required field 'state_status' (not retryable)",
+      "escalated_to_human": true,
+      "timestamp": "2026-08-23T17:49:43.142192Z",
+      "validation_errors": [
+        "missing_field: state_status"
+      ]
+    },
+    {
+      "name": "step-08-knox-completion-check-checkpoint",
+      "after_step": "step-08-knox-completion-check",
+      "result": "pass",
+      "reason": "Step completed with 6 output fields recorded",
+      "escalated_to_human": false,
+      "timestamp": "2026-08-23T17:49:43.229231Z",
+      "validation_errors": []
+    },
+    {
+      "name": "step-01-load-context-checkpoint",
+      "after_step": "step-01-load-context",
+      "result": "pass",
+      "reason": "Step completed with 3 output fields recorded",
+      "escalated_to_human": false,
+      "timestamp": "2026-08-23T17:49:56.385809Z",
+      "validation_errors": []
+    },
+    {
+      "name": "step-01.2-unified-data-pull-checkpoint",
+      "after_step": "step-01.2-unified-data-pull",
+      "result": "pass",
+      "reason": "Step completed with 8 output fields recorded",
+      "escalated_to_human": false,
+      "timestamp": "2026-08-23T17:49:56.450935Z",
+      "validation_errors": []
+    },
+    {
+      "name": "step-01.5-unified-calendar-pull-checkpoint",
+      "after_step": "step-01.5-unified-calendar-pull",
+      "result": "pass",
+      "reason": "Step completed with 6 output fields recorded",
+      "escalated_to_human": false,
+      "timestamp": "2026-08-23T17:49:56.519090Z",
+      "validation_errors": []
+    },
+    {
+      "name": "step-02-gather-data-checkpoint",
+      "after_step": "step-02-gather-data",
+      "result": "escalate",
+      "reason": "CRITICAL: Missing required field 'phase2_status' (not retryable)",
+      "escalated_to_human": true,
+      "timestamp": "2026-08-23T17:49:56.586692Z",
+      "validation_errors": [
+        "missing_field: phase2_status"
+      ]
+    },
+    {
+      "name": "step-02.5-measure-phase2-checkpoint",
+      "after_step": "step-02.5-measure-phase2",
+      "result": "pass",
+      "reason": "Step completed with 4 output fields recorded",
+      "escalated_to_human": false,
+      "timestamp": "2026-08-23T17:49:56.656917Z",
+      "validation_errors": []
+    },
+    {
+      "name": "step-03-verify-phase2-checkpoint",
+      "after_step": "step-03-verify-phase2",
+      "result": "escalate",
+      "reason": "CRITICAL: Missing required field 'verification_results' (not retryable)",
+      "escalated_to_human": true,
+      "timestamp": "2026-08-23T17:49:56.727704Z",
+      "validation_errors": [
+        "missing_field: verification_results"
+      ]
+    },
+    {
+      "name": "step-04-gather-meeting-context-checkpoint",
+      "after_step": "step-04-gather-meeting-context",
+      "result": "escalate",
+      "reason": "CRITICAL: Missing required field 'meetings_found' (not retryable)",
+      "escalated_to_human": true,
+      "timestamp": "2026-08-23T17:49:56.792999Z",
+      "validation_errors": [
+        "missing_field: meetings_found"
+      ]
+    },
+    {
+      "name": "step-05-synthesize-briefing-checkpoint",
+      "after_step": "step-05-synthesize-briefing",
+      "result": "retry",
+      "reason": "Step incomplete: empty field 'briefing_delivered'",
+      "escalated_to_human": false,
+      "timestamp": "2026-08-23T17:49:56.855927Z",
+      "validation_errors": [
+        "empty_field: briefing_delivered"
+      ]
+    },
+    {
+      "name": "step-06-scan-workflows-checkpoint",
+      "after_step": "step-06-scan-workflows",
+      "result": "escalate",
+      "reason": "CRITICAL: Missing required field 'workflows_scanned' (not retryable)",
+      "escalated_to_human": true,
+      "timestamp": "2026-08-23T17:49:56.930738Z",
+      "validation_errors": [
+        "missing_field: workflows_scanned"
+      ]
+    },
+    {
+      "name": "step-06.5-guardrail-checkpoint-checkpoint",
+      "after_step": "step-06.5-guardrail-checkpoint",
+      "result": "pass",
+      "reason": "Step completed with 6 output fields recorded",
+      "escalated_to_human": false,
+      "timestamp": "2026-08-23T17:49:57.001646Z",
+      "validation_errors": []
+    },
+    {
+      "name": "step-07-verify-completion-checkpoint",
+      "after_step": "step-07-verify-completion",
+      "result": "escalate",
+      "reason": "CRITICAL: Missing required field 'state_status' (not retryable)",
+      "escalated_to_human": true,
+      "timestamp": "2026-08-23T17:49:57.074951Z",
+      "validation_errors": [
+        "missing_field: state_status"
+      ]
+    },
+    {
+      "name": "step-08-knox-completion-check-checkpoint",
+      "after_step": "step-08-knox-completion-check",
+      "result": "pass",
+      "reason": "Step completed with 6 output fields recorded",
+      "escalated_to_human": false,
+      "timestamp": "2026-08-23T17:49:57.269901Z",
+      "validation_errors": []
+    },
+    {
+      "name": "step-01-checkpoint",
+      "after_step": "step-01-load-context",
+      "result": "pass",
+      "reason": "Step completed with 3 output fields recorded",
+      "escalated_to_human": false,
+      "timestamp": "2026-08-23T18:07:17.933628Z",
+      "validation_errors": []
+    },
+    {
+      "name": "step-01.5-checkpoint",
+      "after_step": "step-01.5-unified-calendar-pull",
+      "result": "pass",
+      "reason": "Step completed with 6 output fields recorded",
+      "escalated_to_human": false,
+      "timestamp": "2026-08-23T18:07:18.019034Z",
+      "validation_errors": []
+    },
+    {
+      "name": "step-02-checkpoint",
+      "after_step": "step-02-gather-data",
+      "result": "escalate",
+      "reason": "CRITICAL: Missing required field 'phase2_status' (not retryable)",
+      "escalated_to_human": true,
+      "timestamp": "2026-08-23T18:07:18.120370Z",
+      "validation_errors": [
+        "missing_field: phase2_status"
+      ]
+    },
+    {
+      "name": "step-02.5-measure-phase2-checkpoint",
+      "after_step": "step-02.5-measure-phase2",
+      "result": "pass",
+      "reason": "Step completed with 4 output fields recorded",
+      "escalated_to_human": false,
+      "timestamp": "2026-08-23T18:07:18.213037Z",
+      "validation_errors": []
+    },
+    {
+      "name": "step-03-checkpoint",
+      "after_step": "step-03-verify-phase2",
+      "result": "escalate",
+      "reason": "CRITICAL: Missing required field 'verification_results' (not retryable)",
+      "escalated_to_human": true,
+      "timestamp": "2026-08-23T18:07:18.300933Z",
+      "validation_errors": [
+        "missing_field: verification_results"
+      ]
+    },
+    {
+      "name": "step-04-checkpoint",
+      "after_step": "step-04-gather-meeting-context",
+      "result": "escalate",
+      "reason": "CRITICAL: Missing required field 'meetings_found' (not retryable)",
+      "escalated_to_human": true,
+      "timestamp": "2026-08-23T18:07:18.395433Z",
+      "validation_errors": [
+        "missing_field: meetings_found"
+      ]
+    },
+    {
+      "name": "step-05-checkpoint",
+      "after_step": "step-05-synthesize-briefing",
+      "result": "retry",
+      "reason": "Step incomplete: empty field 'briefing_delivered'",
+      "escalated_to_human": false,
+      "timestamp": "2026-08-23T18:07:18.489247Z",
+      "validation_errors": [
+        "empty_field: briefing_delivered"
+      ]
+    },
+    {
+      "name": "step-06-checkpoint",
+      "after_step": "step-06-scan-workflows",
+      "result": "escalate",
+      "reason": "CRITICAL: Missing required field 'workflows_scanned' (not retryable)",
+      "escalated_to_human": true,
+      "timestamp": "2026-08-23T18:07:18.600219Z",
+      "validation_errors": [
+        "missing_field: workflows_scanned"
+      ]
+    },
+    {
+      "name": "pre-completion-review",
+      "after_step": "step-06.5-guardrail-checkpoint",
+      "result": "escalate",
+      "reason": "CRITICAL: Missing required field 'data_freshness_report' (not retryable)",
+      "escalated_to_human": true,
+      "timestamp": "2026-08-23T18:07:18.729942Z",
+      "validation_errors": [
+        "missing_field: data_freshness_report"
+      ]
+    },
+    {
+      "name": "step-07-checkpoint",
+      "after_step": "step-07-verify-completion",
+      "result": "escalate",
+      "reason": "CRITICAL: Missing required field 'state_status' (not retryable)",
+      "escalated_to_human": true,
+      "timestamp": "2026-08-23T18:07:18.828318Z",
+      "validation_errors": [
+        "missing_field: state_status"
+      ]
+    },
+    {
+      "name": "step-08-knox-completion-check-checkpoint",
+      "after_step": "step-08-knox-completion-check",
+      "result": "pass",
+      "reason": "Step completed with 6 output fields recorded",
+      "escalated_to_human": false,
+      "timestamp": "2026-08-23T18:07:18.923772Z",
+      "validation_errors": []
+    },
+    {
+      "name": "step-01-checkpoint",
+      "after_step": "step-01-load-context",
+      "result": "pass",
+      "reason": "Step completed with 3 output fields recorded",
+      "escalated_to_human": false,
+      "timestamp": "2026-08-23T18:07:45.552069Z",
+      "validation_errors": []
+    },
+    {
+      "name": "step-01.5-checkpoint",
+      "after_step": "step-01.5-unified-calendar-pull",
+      "result": "pass",
+      "reason": "Step completed with 6 output fields recorded",
+      "escalated_to_human": false,
+      "timestamp": "2026-08-23T18:07:45.638555Z",
+      "validation_errors": []
+    },
+    {
+      "name": "step-02-checkpoint",
+      "after_step": "step-02-gather-data",
+      "result": "escalate",
+      "reason": "CRITICAL: Missing required field 'phase2_status' (not retryable)",
+      "escalated_to_human": true,
+      "timestamp": "2026-08-23T18:07:45.725823Z",
+      "validation_errors": [
+        "missing_field: phase2_status"
+      ]
+    },
+    {
+      "name": "step-02.5-measure-phase2-checkpoint",
+      "after_step": "step-02.5-measure-phase2",
+      "result": "pass",
+      "reason": "Step completed with 4 output fields recorded",
+      "escalated_to_human": false,
+      "timestamp": "2026-08-23T18:07:45.823497Z",
+      "validation_errors": []
+    },
+    {
+      "name": "step-03-checkpoint",
+      "after_step": "step-03-verify-phase2",
+      "result": "escalate",
+      "reason": "CRITICAL: Missing required field 'verification_results' (not retryable)",
+      "escalated_to_human": true,
+      "timestamp": "2026-08-23T18:07:45.913680Z",
+      "validation_errors": [
+        "missing_field: verification_results"
+      ]
+    },
+    {
+      "name": "step-04-checkpoint",
+      "after_step": "step-04-gather-meeting-context",
+      "result": "escalate",
+      "reason": "CRITICAL: Missing required field 'meetings_found' (not retryable)",
+      "escalated_to_human": true,
+      "timestamp": "2026-08-23T18:07:46.019812Z",
+      "validation_errors": [
+        "missing_field: meetings_found"
+      ]
+    },
+    {
+      "name": "step-05-checkpoint",
+      "after_step": "step-05-synthesize-briefing",
+      "result": "retry",
+      "reason": "Step incomplete: empty field 'briefing_delivered'",
+      "escalated_to_human": false,
+      "timestamp": "2026-08-23T18:07:46.112338Z",
+      "validation_errors": [
+        "empty_field: briefing_delivered"
+      ]
+    },
+    {
+      "name": "step-06-checkpoint",
+      "after_step": "step-06-scan-workflows",
+      "result": "escalate",
+      "reason": "CRITICAL: Missing required field 'workflows_scanned' (not retryable)",
+      "escalated_to_human": true,
+      "timestamp": "2026-08-23T18:07:46.210394Z",
+      "validation_errors": [
+        "missing_field: workflows_scanned"
+      ]
+    },
+    {
+      "name": "pre-completion-review",
+      "after_step": "step-06.5-guardrail-checkpoint",
+      "result": "escalate",
+      "reason": "CRITICAL: Missing required field 'data_freshness_report' (not retryable)",
+      "escalated_to_human": true,
+      "timestamp": "2026-08-23T18:07:46.305346Z",
+      "validation_errors": [
+        "missing_field: data_freshness_report"
+      ]
+    },
+    {
+      "name": "step-07-checkpoint",
+      "after_step": "step-07-verify-completion",
+      "result": "escalate",
+      "reason": "CRITICAL: Missing required field 'state_status' (not retryable)",
+      "escalated_to_human": true,
+      "timestamp": "2026-08-23T18:07:46.410003Z",
+      "validation_errors": [
+        "missing_field: state_status"
+      ]
+    },
+    {
+      "name": "step-08-knox-completion-check-checkpoint",
+      "after_step": "step-08-knox-completion-check",
+      "result": "pass",
+      "reason": "Step completed with 6 output fields recorded",
+      "escalated_to_human": false,
+      "timestamp": "2026-08-23T18:07:46.503519Z",
+      "validation_errors": []
+    },
+    {
+      "name": "step-01-checkpoint",
+      "after_step": "step-01-load-context",
+      "result": "pass",
+      "reason": "Step completed with 3 output fields recorded",
+      "escalated_to_human": false,
+      "timestamp": "2026-08-23T18:08:14.304237Z",
+      "validation_errors": []
+    },
+    {
+      "name": "step-01.5-checkpoint",
+      "after_step": "step-01.5-unified-calendar-pull",
+      "result": "pass",
+      "reason": "Step completed with 6 output fields recorded",
+      "escalated_to_human": false,
+      "timestamp": "2026-08-23T18:08:14.395998Z",
+      "validation_errors": []
+    },
+    {
+      "name": "step-02-checkpoint",
+      "after_step": "step-02-gather-data",
+      "result": "escalate",
+      "reason": "CRITICAL: Missing required field 'phase2_status' (not retryable)",
+      "escalated_to_human": true,
+      "timestamp": "2026-08-23T18:08:14.487553Z",
+      "validation_errors": [
+        "missing_field: phase2_status"
+      ]
+    },
+    {
+      "name": "step-02.5-measure-phase2-checkpoint",
+      "after_step": "step-02.5-measure-phase2",
+      "result": "pass",
+      "reason": "Step completed with 4 output fields recorded",
+      "escalated_to_human": false,
+      "timestamp": "2026-08-23T18:08:14.572303Z",
+      "validation_errors": []
+    },
+    {
+      "name": "step-03-checkpoint",
+      "after_step": "step-03-verify-phase2",
+      "result": "escalate",
+      "reason": "CRITICAL: Missing required field 'verification_results' (not retryable)",
+      "escalated_to_human": true,
+      "timestamp": "2026-08-23T18:08:14.652793Z",
+      "validation_errors": [
+        "missing_field: verification_results"
+      ]
+    },
+    {
+      "name": "step-04-checkpoint",
+      "after_step": "step-04-gather-meeting-context",
+      "result": "escalate",
+      "reason": "CRITICAL: Missing required field 'meetings_found' (not retryable)",
+      "escalated_to_human": true,
+      "timestamp": "2026-08-23T18:08:14.738585Z",
+      "validation_errors": [
+        "missing_field: meetings_found"
+      ]
+    },
+    {
+      "name": "step-05-checkpoint",
+      "after_step": "step-05-synthesize-briefing",
+      "result": "retry",
+      "reason": "Step incomplete: empty field 'briefing_delivered'",
+      "escalated_to_human": false,
+      "timestamp": "2026-08-23T18:08:14.825391Z",
+      "validation_errors": [
+        "empty_field: briefing_delivered"
+      ]
+    },
+    {
+      "name": "step-06-checkpoint",
+      "after_step": "step-06-scan-workflows",
+      "result": "escalate",
+      "reason": "CRITICAL: Missing required field 'workflows_scanned' (not retryable)",
+      "escalated_to_human": true,
+      "timestamp": "2026-08-23T18:08:14.915722Z",
+      "validation_errors": [
+        "missing_field: workflows_scanned"
+      ]
+    },
+    {
+      "name": "pre-completion-review",
+      "after_step": "step-06.5-guardrail-checkpoint",
+      "result": "escalate",
+      "reason": "CRITICAL: Missing required field 'data_freshness_report' (not retryable)",
+      "escalated_to_human": true,
+      "timestamp": "2026-08-23T18:08:15.017033Z",
+      "validation_errors": [
+        "missing_field: data_freshness_report"
+      ]
+    },
+    {
+      "name": "step-07-checkpoint",
+      "after_step": "step-07-verify-completion",
+      "result": "escalate",
+      "reason": "CRITICAL: Missing required field 'state_status' (not retryable)",
+      "escalated_to_human": true,
+      "timestamp": "2026-08-23T18:08:15.148786Z",
+      "validation_errors": [
+        "missing_field: state_status"
+      ]
+    },
+    {
+      "name": "step-08-knox-completion-check-checkpoint",
+      "after_step": "step-08-knox-completion-check",
+      "result": "pass",
+      "reason": "Step completed with 6 output fields recorded",
+      "escalated_to_human": false,
+      "timestamp": "2026-08-23T18:08:15.237928Z",
+      "validation_errors": []
+    },
+    {
+      "name": "step-01-checkpoint",
+      "after_step": "step-01-load-context",
+      "result": "pass",
+      "reason": "Step completed with 3 output fields recorded",
+      "escalated_to_human": false,
+      "timestamp": "2026-08-23T18:08:52.961576Z",
+      "validation_errors": []
+    },
+    {
+      "name": "step-01.5-checkpoint",
+      "after_step": "step-01.5-unified-calendar-pull",
+      "result": "pass",
+      "reason": "Step completed with 6 output fields recorded",
+      "escalated_to_human": false,
+      "timestamp": "2026-08-23T18:08:53.063475Z",
+      "validation_errors": []
+    },
+    {
+      "name": "step-02-checkpoint",
+      "after_step": "step-02-gather-data",
+      "result": "escalate",
+      "reason": "CRITICAL: Missing required field 'phase2_status' (not retryable)",
+      "escalated_to_human": true,
+      "timestamp": "2026-08-23T18:08:53.159025Z",
+      "validation_errors": [
+        "missing_field: phase2_status"
+      ]
+    },
+    {
+      "name": "step-02.5-measure-phase2-checkpoint",
+      "after_step": "step-02.5-measure-phase2",
+      "result": "pass",
+      "reason": "Step completed with 4 output fields recorded",
+      "escalated_to_human": false,
+      "timestamp": "2026-08-23T18:08:53.308912Z",
+      "validation_errors": []
+    },
+    {
+      "name": "step-03-checkpoint",
+      "after_step": "step-03-verify-phase2",
+      "result": "escalate",
+      "reason": "CRITICAL: Missing required field 'verification_results' (not retryable)",
+      "escalated_to_human": true,
+      "timestamp": "2026-08-23T18:08:53.406081Z",
+      "validation_errors": [
+        "missing_field: verification_results"
+      ]
+    },
+    {
+      "name": "step-04-checkpoint",
+      "after_step": "step-04-gather-meeting-context",
+      "result": "escalate",
+      "reason": "CRITICAL: Missing required field 'meetings_found' (not retryable)",
+      "escalated_to_human": true,
+      "timestamp": "2026-08-23T18:08:53.496253Z",
+      "validation_errors": [
+        "missing_field: meetings_found"
+      ]
+    },
+    {
+      "name": "step-05-checkpoint",
+      "after_step": "step-05-synthesize-briefing",
+      "result": "retry",
+      "reason": "Step incomplete: empty field 'briefing_delivered'",
+      "escalated_to_human": false,
+      "timestamp": "2026-08-23T18:08:53.584245Z",
+      "validation_errors": [
+        "empty_field: briefing_delivered"
+      ]
+    },
+    {
+      "name": "step-06-checkpoint",
+      "after_step": "step-06-scan-workflows",
+      "result": "escalate",
+      "reason": "CRITICAL: Missing required field 'workflows_scanned' (not retryable)",
+      "escalated_to_human": true,
+      "timestamp": "2026-08-23T18:08:53.676902Z",
+      "validation_errors": [
+        "missing_field: workflows_scanned"
+      ]
+    },
+    {
+      "name": "pre-completion-review",
+      "after_step": "step-06.5-guardrail-checkpoint",
+      "result": "escalate",
+      "reason": "CRITICAL: Missing required field 'data_freshness_report' (not retryable)",
+      "escalated_to_human": true,
+      "timestamp": "2026-08-23T18:08:53.783881Z",
+      "validation_errors": [
+        "missing_field: data_freshness_report"
+      ]
+    },
+    {
+      "name": "step-07-checkpoint",
+      "after_step": "step-07-verify-completion",
+      "result": "escalate",
+      "reason": "CRITICAL: Missing required field 'state_status' (not retryable)",
+      "escalated_to_human": true,
+      "timestamp": "2026-08-23T18:08:53.883108Z",
+      "validation_errors": [
+        "missing_field: state_status"
+      ]
+    },
+    {
+      "name": "step-08-knox-completion-check-checkpoint",
+      "after_step": "step-08-knox-completion-check",
+      "result": "pass",
+      "reason": "Step completed with 6 output fields recorded",
+      "escalated_to_human": false,
+      "timestamp": "2026-08-23T18:08:53.980541Z",
+      "validation_errors": []
+    }
+  ],
+  "punch_out_signal": {
+    "step": "step-07-verify-completion",
+    "checkpoint": "step-07-checkpoint",
+    "reason": "CRITICAL: Missing required field 'state_status' (not retryable)",
+    "awaiting_controller_decision": true,
+    "timestamp": "2026-08-23T18:08:53.883399Z"
+  },
+  "retry_signal": {
+    "step": "step-05-synthesize-briefing",
+    "checkpoint": "step-05-checkpoint",
+    "reason": "Step incomplete: empty field 'briefing_delivered'",
+    "feedback": "Re-execute step. Field 'briefing_delivered' is empty, must be populated.",
+    "attempt_number": 6,
+    "timestamp": "2026-08-23T18:08:53.584380Z"
+  }
+}

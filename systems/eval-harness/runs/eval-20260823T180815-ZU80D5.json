@@ -1,0 +1,69 @@
+{
+  "id": "eval-20260823T180815-ZU80D5",
+  "agent_id": "a9fff9b69eede0685",
+  "type": "agent",
+  "name": "general-purpose",
+  "agent": "general-purpose",
+  "session_id": "session-2026-08-21-121818",
+  "trigger": "unknown",
+  "started": "2026-08-23T18:08:15.501893Z",
+  "completed": null,
+  "duration_seconds": null,
+  "status": "failure",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": null,
+      "all_steps_finished": null,
+      "tool_failures": 2,
+      "error_ids": [
+        "err-20260823T180831-DA0JBH"
+      ],
+      "tool_failure_log": [
+        {
+          "tool": "Bash",
+          "error": "Exit code 1\nTraceback (most recent call last):\n  File \"<stdin>\", line 2, in <module>\nModuleNotFoundError: No module named 'yaml'",
+          "duration_ms": 110,
+          "timestamp": "2026-08-23T13:08:16.848724"
+        },
+        {
+          "tool": "Bash",
+          "error": "Exit code 1\n  File \"<stdin>\", line 27\n        - file_id: {rec['file_id']}\n      name: \"{rec['name'].replace('\"', '\\\\\"')}\"\n      date: {rec['date']}\n      duration_seconds: {rec['duration_seconds']}\n      has_transcript: {str(rec['has_transcript']).lower()}\n      transcript_status: {rec['transcript_status']}\"\"\"\n                                 ^\nSyntaxError: f-string expression part cannot include a backslash",
+          "duration_ms": 131,
+          "timestamp": "2026-08-23T13:08:21.746576"
+        }
+      ]
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": []
+}

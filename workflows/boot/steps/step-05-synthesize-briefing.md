@@ -1,11 +1,12 @@
 ---
 status: complete
-started-at: "2026-08-23T12:18:15-05:00"
-completed-at: "2026-08-23T12:19:00-05:00"
+started-at: "2026-08-23T14:34:05Z"
+completed-at: "2026-08-23T14:35:30Z"
 outputs:
   briefing: "delivered"
-  paragraphs: "6"
-  calendar_conflicts: "none"
+  format: "prose + calendar table + watchtower + reminders"
+  calendar_today: "clear (0 meetings)"
+  hotspots: "7 overdue inbox items, 5 actionable emails, 2 upcoming birthdays"
 ---
 
 <!-- system:start -->

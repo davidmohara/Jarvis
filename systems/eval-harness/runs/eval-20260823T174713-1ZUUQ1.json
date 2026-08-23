@@ -1,0 +1,59 @@
+{
+  "id": "eval-20260823T174713-1ZUUQ1",
+  "agent_id": "ae339782069e9bca1",
+  "type": "agent",
+  "name": "general-purpose",
+  "agent": "general-purpose",
+  "session_id": "session-2026-08-21-121818",
+  "trigger": "unknown",
+  "started": "2026-08-23T17:47:13.612182Z",
+  "completed": "2026-08-23T17:47:31.847742Z",
+  "duration_seconds": 18.24,
+  "status": "success",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/54814170-daaf-4de7-9caf-1edf377803a3/subagents/agent-ae339782069e9bca1.jsonl",
+  "last_assistant_message": "```json\n{\n  \"status\": \"completed\",\n  \"flagged_count\": 0,\n  \"high_priority_unread\": 0,\n  \"deadline_messages\": 1,\n  \"notes\": {\n    \"flagged_messages\": \"is_flagged is null for all 22 messages. M365 API does not return this field in search results.\",\n    \"high_priority_unread\": \"No messages from last 24h (current: 2026-08-23; data pulled 2026-08-21). All messages in dataset span 2026-08-19 to 2026-08-21. No messages have importance='high' (all normal).\",\n    \"deadline_messages\": \"1 explicit deadline found: Claudio survey invitation (due Aug 26, received 2026-08-20T02:33:51Z, unread)\"\n  }\n}\n```",
+  "model": "haiku",
+  "total_tokens_input": 50337,
+  "total_tokens_output": 2,
+  "total_cost_usd": 0.02031
+}

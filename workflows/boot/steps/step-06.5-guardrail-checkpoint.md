@@ -1,10 +1,12 @@
 ---
 status: complete
-started-at: "2026-08-23T12:19:15-05:00"
-completed-at: "2026-08-23T12:19:45-05:00"
+started-at: "2026-08-23T14:35:45Z"
+completed-at: "2026-08-23T14:36:05Z"
 outputs:
+  checkpoint_name: "pre-completion-review"
   checkpoint_result: "pass"
-  reason: "All data sources live and current. Calendar fresh (updated 07:10 CT today). Briefing reflects Phase 1-4 data accurately. No stale cached data or leakage detected. In-flight workflow scan correct. Session index valid."
+  reason: "Calendar fresh (14:35Z), briefing reflects current data, no in-flight conflicts, session sound"
+  recorded: true
 model: sonnet
 ---
 

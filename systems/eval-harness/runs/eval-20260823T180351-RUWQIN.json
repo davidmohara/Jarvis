@@ -1,0 +1,79 @@
+{
+  "id": "eval-20260823T180351-RUWQIN",
+  "agent_id": "a697422d4fcb00c91",
+  "type": "workflow",
+  "name": "boot",
+  "agent": "general-purpose",
+  "session_id": "session-2026-08-21-121818",
+  "trigger": "manual",
+  "started": "2026-08-23T18:03:51.803612Z",
+  "completed": null,
+  "duration_seconds": null,
+  "status": "failure",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": false,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": [
+        "err-20260823T180831-DA0JBH"
+      ]
+    },
+    "structural": {
+      "expected_outputs_written": true,
+      "outputs_non_empty": false,
+      "assertions_checked": 4,
+      "assertions_passed": 3,
+      "assertion_results": [
+        {
+          "assertion": "Boot workflow state.yaml shows status: complete",
+          "passed": true,
+          "error": null
+        },
+        {
+          "assertion": "Session index file exists \u2014 boot's Session Index Boot step must have created/appended it",
+          "passed": true,
+          "error": null
+        },
+        {
+          "assertion": "Session index is a real record, not an empty stub",
+          "passed": true,
+          "error": null
+        },
+        {
+          "assertion": "step-06.5's guardrail checkpoint recorded a result (pass/flag/escalate) on this run \u2014 read from the eval record's own guardrails array, not self-reported by the workflow",
+          "passed": false,
+          "error": null
+        }
+      ]
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": "negative",
+      "comment": "error-log-correlated: err-20260823T180831-DA0JBH",
+      "timestamp": "2026-08-23T18:08:52.849931Z"
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": "3892c0a20468385762f2bab79075c3adc4000c809cbbfb36bc93072d7f12afea",
+  "prior_baseline_id": null,
+  "tags": [],
+  "total_cost_usd": 0.0555,
+  "cost_estimation_note": "estimated based on boot workflow type",
+  "model": "sonnet"
+}

@@ -1,0 +1,143 @@
+{
+  "id": "eval-20260823T174854-IH4FX4",
+  "agent_id": "a4488bbbc87cc0de9",
+  "type": "workflow",
+  "name": "boot",
+  "agent": "general-purpose",
+  "session_id": "session-2026-08-21-121818",
+  "trigger": "manual",
+  "started": "2026-08-23T17:48:54.006757Z",
+  "completed": null,
+  "duration_seconds": null,
+  "status": "partial",
+  "steps": [
+    {
+      "name": "step-03-verify-phase2.md",
+      "started": "2026-08-23T15:02:10-05:00",
+      "completed": "2026-08-23T15:02:35-05:00",
+      "duration_seconds": 25.0,
+      "status": "complete",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": "haiku",
+      "tokens_input": 414799,
+      "tokens_output": 175,
+      "cost_usd": 0.090022
+    },
+    {
+      "name": "step-04-gather-meeting-context.md",
+      "started": "2026-08-23T15:02:35-05:00",
+      "completed": "2026-08-23T15:03:10-05:00",
+      "duration_seconds": 35.0,
+      "status": "complete",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": "haiku",
+      "tokens_input": 414799,
+      "tokens_output": 175,
+      "cost_usd": 0.090022
+    },
+    {
+      "name": "step-05-synthesize-briefing.md",
+      "started": "2026-08-23T15:03:10-05:00",
+      "completed": "2026-08-23T15:03:35-05:00",
+      "duration_seconds": 25.0,
+      "status": "complete",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": "haiku",
+      "tokens_input": 414799,
+      "tokens_output": 175,
+      "cost_usd": 0.090022
+    },
+    {
+      "name": "step-07-verify-completion.md",
+      "started": "2026-08-23T15:03:35-05:00",
+      "completed": "2026-08-23T15:03:50-05:00",
+      "duration_seconds": 15.0,
+      "status": "complete",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": "haiku",
+      "tokens_input": 414799,
+      "tokens_output": 175,
+      "cost_usd": 0.090022
+    },
+    {
+      "name": "step-08-knox-completion-check.md",
+      "started": "2026-08-23T15:03:50-05:00",
+      "completed": "2026-08-23T15:03:55-05:00",
+      "duration_seconds": 5.0,
+      "status": "complete",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": "haiku",
+      "tokens_input": 414799,
+      "tokens_output": 175,
+      "cost_usd": 0.090022
+    }
+  ],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 1,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": true,
+      "outputs_non_empty": false,
+      "assertions_checked": 4,
+      "assertions_passed": 3,
+      "assertion_results": [
+        {
+          "assertion": "Boot workflow state.yaml shows status: complete",
+          "passed": true,
+          "error": null
+        },
+        {
+          "assertion": "Session index file exists \u2014 boot's Session Index Boot step must have created/appended it",
+          "passed": true,
+          "error": null
+        },
+        {
+          "assertion": "Session index is a real record, not an empty stub",
+          "passed": true,
+          "error": null
+        },
+        {
+          "assertion": "step-06.5's guardrail checkpoint recorded a result (pass/flag/escalate) on this run \u2014 read from the eval record's own guardrails array, not self-reported by the workflow",
+          "passed": false,
+          "error": null
+        }
+      ]
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": "eaf31a141df862e295cafb50902d1617a4efa05f33c22a5fd7a4c7cb81f61c7d",
+  "prior_baseline_id": null,
+  "tags": [],
+  "total_cost_usd": 0.0555,
+  "cost_estimation_note": "estimated based on boot workflow type",
+  "model": "sonnet"
+}

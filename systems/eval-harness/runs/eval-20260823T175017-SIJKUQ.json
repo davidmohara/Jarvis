@@ -1,0 +1,59 @@
+{
+  "id": "eval-20260823T175017-SIJKUQ",
+  "agent_id": "aac4180c9a15f5d33",
+  "type": "agent",
+  "name": "general-purpose",
+  "agent": "general-purpose",
+  "session_id": "session-2026-08-21-121818",
+  "trigger": "unknown",
+  "started": "2026-08-23T17:50:17.394765Z",
+  "completed": "2026-08-23T17:50:27.596428Z",
+  "duration_seconds": 10.2,
+  "status": "success",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/54814170-daaf-4de7-9caf-1edf377803a3/subagents/agent-aac4180c9a15f5d33.jsonl",
+  "last_assistant_message": "[Background task notification received]\n\n**Boot Verification Complete \u2014 Ralph's Verdict Table:**\n\n| Task | Verdict | Status |\n|------|---------|--------|\n| Morning Briefing 01-02 | \u2705 Verified | Completed (OmniFocus failed, briefing partial) |\n| Plaud Ingest (Knox) | \u2705 Verified | Completed (0 new recordings, 120 total) |\n| 72-Hour Look-Ahead | \u2705 Verified | Completed (24 events, Aug 24-25 heavy) |\n| Email Triage | \u2705 Verified | Completed (1 deadline: Claudio survey Aug 26) |\n| Jarvis Inbox | \u2705 Verified | Completed (empty, nothing to surface) |\n| Lead Review | \u274c Skipped | Not in scope per step-02 data sources |\n\n**Ralph's Assessment:** Five of six tasks executed and verified. Lead Review skipped (not in Phase 2 scope per step-02 documentation). Boot workflow completed as designed.\n\n---\n\n## Boot Workflow Execution: Complete \u2713\n\n**Final Status:**\n- **Workflow:** boot (state: complete)\n- **Session:** 2026-08-23T15:00:00 \u2192 2026-08-23T15:04:00 (4 min)\n- **Steps:** 8/8 complete (plus supporting substeps)\n- **Phase 2 Verification:** 5/5 core tasks verified; 1 task out of scope\n- **Guardrail Checkpoint:** pass (no stale context, no leakage)\n- **Knox (plaud-ingest):** success (0 new recordings)\n\n**Eval records written to:** `systems/eval-harness/runs/`\n\nBoot workflow execution complete. The session is ready for Chief briefing delivery and daily execution.",
+  "model": "haiku",
+  "total_tokens_input": 86351,
+  "total_tokens_output": 2,
+  "total_cost_usd": 0.010521
+}

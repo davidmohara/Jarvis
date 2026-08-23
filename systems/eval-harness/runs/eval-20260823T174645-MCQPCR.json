@@ -1,0 +1,80 @@
+{
+  "id": "eval-20260823T174645-MCQPCR",
+  "agent_id": "aceb3b2ead785fd87",
+  "type": "workflow",
+  "name": "plaud-ingest",
+  "agent": "general-purpose",
+  "session_id": "session-2026-08-21-121818",
+  "trigger": "manual",
+  "started": "2026-08-23T17:46:45.756620Z",
+  "completed": "2026-08-23T17:47:06.248400Z",
+  "duration_seconds": 20.49,
+  "status": "aborted",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": false,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": true,
+      "outputs_non_empty": false,
+      "assertions_checked": 4,
+      "assertions_passed": 3,
+      "assertion_results": [
+        {
+          "assertion": "Plaud ingest workflow state.yaml shows status: complete",
+          "passed": false,
+          "error": null
+        },
+        {
+          "assertion": "Plaud ingest working memory file was written to memory/working/",
+          "passed": true,
+          "error": null
+        },
+        {
+          "assertion": "Plaud ingest working memory file is substantive (>200 bytes)",
+          "passed": true,
+          "error": null
+        },
+        {
+          "assertion": "Plaud ingest working memory contains expected content",
+          "passed": true,
+          "error": null
+        }
+      ]
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": "c833f73f72ccddf98cc2dcf3c7ac1f7bd828de64e5daa680528a36a73df9b3f3",
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/54814170-daaf-4de7-9caf-1edf377803a3/subagents/agent-aceb3b2ead785fd87.jsonl",
+  "last_assistant_message": "Step-01.5 complete. Calendar data reused.\n\n**Status: REUSED**\n\nCalendar file `/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/data/calendar-unified.json` was fresh (5.6 hours old, within 12-hour threshold). File contains:\n- **24 events** spanning Aug 22-25\n- **Valid JSON**, 5919 bytes\n- Date range covers: Aug 22 (past), Aug 23-25 (today + next 3 days with some overlap from yesterday's pull)\n\nStatus log recorded at `/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/systems/boot/step-01.5-status.json`",
+  "model": "haiku",
+  "total_tokens_input": 131612,
+  "total_tokens_output": 9,
+  "total_cost_usd": 0.031449
+}

@@ -1,0 +1,86 @@
+{
+  "id": "eval-20260823T174714-T0EIGP",
+  "agent_id": "aec30648d680184e4",
+  "type": "agent",
+  "name": "general-purpose",
+  "agent": "general-purpose",
+  "session_id": "session-2026-08-21-121818",
+  "trigger": "unknown",
+  "started": "2026-08-23T17:47:14.592403Z",
+  "completed": "2026-08-23T17:47:43.896083Z",
+  "duration_seconds": 29.3,
+  "status": "aborted",
+  "steps": [
+    {
+      "name": "step-01-load-context.md",
+      "started": "2026-08-23T15:00:00-05:00",
+      "completed": "2026-08-23T15:00:30-05:00",
+      "duration_seconds": 30.0,
+      "status": "complete",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": null,
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    },
+    {
+      "name": "step-01.5-unified-calendar-pull.md",
+      "started": "2026-08-23T15:00:15-05:00",
+      "completed": "2026-08-23T15:00:45-05:00",
+      "duration_seconds": 30.0,
+      "status": "complete",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": null,
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    }
+  ],
+  "assessment": {
+    "mechanical": {
+      "completed": false,
+      "all_steps_finished": true,
+      "tool_failures": 1,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/54814170-daaf-4de7-9caf-1edf377803a3/subagents/agent-aec30648d680184e4.jsonl",
+  "last_assistant_message": "Jarvis inbox scan complete. The folder is empty.\n\n```json\n{\n  \"status\": \"nothing-to-surface\",\n  \"items_found\": 0,\n  \"summary\": \"Jarvis inbox is empty. No items requiring processing or David's attention.\"\n}\n```",
+  "model": "haiku",
+  "total_tokens_input": 256565,
+  "total_tokens_output": 21,
+  "total_cost_usd": 0.045785
+}

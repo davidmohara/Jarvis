@@ -1,0 +1,94 @@
+{
+  "id": "eval-20260823T174712-QT1AST",
+  "agent_id": "a25dedd973bf681da",
+  "type": "workflow",
+  "name": "plaud-ingest",
+  "agent": "general-purpose",
+  "session_id": "session-2026-08-21-121818",
+  "trigger": "manual",
+  "started": "2026-08-23T17:47:12.352669Z",
+  "completed": "2026-08-23T17:47:46.245486Z",
+  "duration_seconds": 33.89,
+  "status": "success",
+  "steps": [
+    {
+      "name": "step-01.2-unified-data-pull.md",
+      "started": "2026-08-23T15:00:15-05:00",
+      "completed": "2026-08-23T15:01:15-05:00",
+      "duration_seconds": 60.0,
+      "status": "complete",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": null,
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    }
+  ],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": true,
+      "outputs_non_empty": true,
+      "assertions_checked": 4,
+      "assertions_passed": 4,
+      "assertion_results": [
+        {
+          "assertion": "Plaud ingest workflow state.yaml shows status: complete",
+          "passed": true,
+          "error": null
+        },
+        {
+          "assertion": "Plaud ingest working memory file was written to memory/working/",
+          "passed": true,
+          "error": null
+        },
+        {
+          "assertion": "Plaud ingest working memory file is substantive (>200 bytes)",
+          "passed": true,
+          "error": null
+        },
+        {
+          "assertion": "Plaud ingest working memory contains expected content",
+          "passed": true,
+          "error": null
+        }
+      ]
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": "c833f73f72ccddf98cc2dcf3c7ac1f7bd828de64e5daa680528a36a73df9b3f3",
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/54814170-daaf-4de7-9caf-1edf377803a3/subagents/agent-a25dedd973bf681da.jsonl",
+  "last_assistant_message": "```json\n{\n  \"status\": \"completed\",\n  \"event_count\": 24,\n  \"lookhead_period\": {\n    \"start\": \"2026-08-24\",\n    \"end\": \"2026-08-26\"\n  },\n  \"heavy_days\": [\n    \"2026-08-24\",\n    \"2026-08-25\"\n  ],\n  \"client_meetings\": 6,\n  \"client_meeting_details\": [\n    {\n      \"date\": \"2026-08-24\",\n      \"meeting\": \"Introductory call | Russell Frees and David O'Hara\",\n      \"time\": \"19:00-19:30\"\n    },\n    {\n      \"date\": \"2026-08-24\",\n      \"meeting\": \"The Improving Edge Podcast Filming\",\n      \"time\": \"16:00-17:30\",\n      \"location\": \"MarketScale\"\n    },\n    {\n      \"date\": \"2026-08-24\",\n      \"meeting\": \"(internal briefing) Sallie Mae - Executive Leadership Seminar\",\n      \"time\": \"19:30-20:00\"\n    },\n    {\n      \"date\": \"2026-08-25\",\n      \"meeting\": \"Conscious Capitalism Executive Breakfast\",\n      \"time\": \"13:00-16:00\"\n    },\n    {\n      \"date\": \"2026-08-25\",\n      \"meeting\": \"SAP Group Meeting\",\n      \"time\": \"16:00-16:30\",\n      \"location\": \"Dallas - Conference Room Trust\"\n    },\n    {\n      \"date\": \"2026-08-25\",\n      \"meeting\": \"SIM - Enclave | DFW - North Dallas\",\n      \"time\": \"23:00-02:00\",\n      \"location\": \"Table 13, 4812 Belt Line Rd, Dallas, TX 75254, USA\"\n    }\n  ],\n  \"decision_points\": [\n    \"Aug 24 has 13 events with evening compressed between 18:00-21:30 (5 consecutive meetings)\",\n    \"Aug 25 has 10 events including a long-running CC breakfast (3 hours) overlapping with multiple meetings\",\n    \"Sallie Mae executive seminar briefing (Aug 24 19:30) may need post-call decision/follow-up\",\n    \"Late-night SIM Enclave event Aug 25 23:00-02:00 impacts next-day availability (Aug 26)\"\n  ],\n  \"congestion_analysis\": {\n    \"aug_24_evening_crunch\": \"18:00-21:30: 5 consecutive team/external meetings with no buffer\",\n    \"aug_25_overlap_conflict\": \"14:15-16:30: CC Breakfast (13:00-16:00) overlaps with Sales meetings and SAP group meeting\",\n    \"travel_blocks\": \"Aug 24 includes 3 drive events; Aug 25 has 2 drive events\"\n  }\n}\n```\n\nAnalysis complete. Key findings:\n\n1. **Heavy days confirmed**: Aug 24 (13 events) and Aug 25 (10 events) are both highly compressed.\n\n2. **Client/partner meetings (6 total)**:\n   - New contact intro (Russell Frees)\n   - Sallie Mae executive briefing\n   - CC Executive Breakfast\n   - Podcast filming (MarketScale)\n   - SAP Group Meeting\n   - SIM Enclave evening event\n\n3. **Critical congestion zones**:\n   - Aug 24 evening: 5 back-to-back meetings 18:00-21:30 with no buffer\n   - Aug 25: Conscious Capitalism breakfast (3-hour block) overlaps with Sales & SAP meetings\n   - Aug 25 late: SIM Enclave at 23:00-02:00 (overnight event impacts Aug 26)\n\n4. **Decision point**: The Sallie Mae briefing appears to warrant follow-up; Russell Frees intro is relationship-building priority.",
+  "model": "haiku",
+  "total_tokens_input": 50694,
+  "total_tokens_output": 3,
+  "total_cost_usd": 0.020728
+}

@@ -1,0 +1,59 @@
+{
+  "id": "eval-20260823T174957-Y47934",
+  "agent_id": "a63b7f3eb768f2551",
+  "type": "workflow",
+  "name": "boot-verification",
+  "agent": "general-purpose",
+  "session_id": "session-2026-08-21-121818",
+  "trigger": "boot",
+  "started": "2026-08-23T17:49:57.394594Z",
+  "completed": "2026-08-23T17:50:17.294090Z",
+  "duration_seconds": 19.9,
+  "status": "success",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": "ecece4d7e418f55247b4b7b11d1961b13b78336b45416fa6622bba3d6c44eb76",
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/54814170-daaf-4de7-9caf-1edf377803a3/subagents/agent-a63b7f3eb768f2551.jsonl",
+  "last_assistant_message": "## Boot Verification Complete\n\nRalph has completed the Phase 2 verification. Here is the verdict table:\n\n| Task | Claimed Status | Verdict | Evidence / Gap |\n|------|---|---|---|\n| Morning Briefing Steps 01-02 | completed (OmniFocus failure) | \u2705 Verified | Boot executed 2026-08-23T15:00:00, step-02 frontmatter records Task A: \"completed \u2014 today has 0 events. OmniFocus inbox fetch failed (AppleScript error). Briefing partial.\" State matches claim exactly. |\n| Plaud Ingest | unknown | \u2705 Verified | workflows/plaud-ingest/state.yaml shows session-started 2026-08-23T14:30:00Z, status: complete. API enumeration found 120 total, 119 already ingested, 0 new recordings. Execution confirmed. |\n| Lead Review | unknown | \u274c Skipped | workflows/lead-review/state.yaml shows status: not-started with no session data. Task was not executed. |\n| 72-Hour Look-Ahead | completed with 24 events (Aug 24-26) | \u2705 Verified | workflows/boot/steps/step-02-gather-data.md frontmatter, Task B: \"completed \u2014 24 events across Aug 24-26. Heavy days Aug 24-25. 6 client meetings identified. Evening congestion Aug 24 (18:00-21:30).\" Claims and data align. |\n| Email Triage | completed with 1 deadline | \u2705 Verified | workflows/boot/steps/step-02-gather-data.md frontmatter, Task C: \"completed \u2014 1 deadline message (Claudio survey due Aug 26). Fresh email data from 2026-08-23 with 25 flagged items.\" Claims and data align. |\n| Jarvis Inbox | empty (nothing to surface) | \u2705 Verified | systems/eval-harness/skill-runs/jarvis-inbox-latest.json shows status: success, started 2026-08-23T18:45:00-05:00. Step-02 Task D: \"nothing-to-surface \u2014 Jarvis inbox empty. No items requiring attention.\" Dual confirmation. |\n\n---\n\n## Verdict Summary\n\n**Re-run required before Phase 3: Lead Review**\n\nFive of six Phase 2 tasks executed and produced results matching claimed status. Lead Review was not executed (state shows `not-started`). The boot workflow ran today at 2026-08-23T15:00:00 and completed successfully with all five parallel Phase 2 subtasks (A-E) inside step-02. Email triage, look-ahead, and Jarvis inbox results are current. Plaud ingest completed with no new recordings discovered. Lead Review must be executed before proceeding to Phase 3.\n\n**Workflow state updated:** `/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/workflows/boot-verification/state.yaml`",
+  "model": "haiku",
+  "total_tokens_input": 136779,
+  "total_tokens_output": 4,
+  "total_cost_usd": 0.027139
+}
