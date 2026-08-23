@@ -109,13 +109,29 @@ If all 3 strategies return nothing, THEN report it as not found — and say what
 
 **Before asking any scheduling question (availability, conflicts, time suggestions), search the pulled calendar data first.** If calendar data was already fetched this session, scan it. If not, pull it. Never surface a scheduling question when the answer can be derived from calendar data.
 
-### OmniFocus Completion Status
+### OmniFocus Data Accuracy
 
 **OmniFocus MCP completion status is unreliable.** The MCP server sometimes returns tasks as incomplete that have already been completed, and vice versa. When surfacing OmniFocus tasks in briefings: caveat any completion status with "(via OmniFocus MCP — verify if disputed)". When David disputes a task's status, re-pull directly via MCP rather than trusting cached state.
+
+**When reading OmniFocus tasks**, always filter explicitly for `completed:false`. Do not rely on call-level filters alone — cross-check against the task's `completed` property. If completion status is ambiguous, check the task note. Never surface a completed task as active unless David asks for completed items.
 
 ### Send-Type Task Verification
 
 **Before surfacing a "send" task as overdue, cross-check M365 sent items** to confirm it wasn't already sent. Pattern: "Follow up with X", "Send Y to Z", "Email about A" — these are frequently completed via email and cleared from OmniFocus, but the calendar/MCP state lags. Check sent items first, flag as overdue only if not found.
+
+### Email Voice Enforcement
+
+**Before presenting any email draft for David's signature**, check it against `identity/VOICE.md` conventions. Em-dash usage is non-negotiable — use periods, commas, or colons instead. No bold headers in email bodies. Write naturally, like David wrote it, not like a system generated it.
+
+### Slack Bot Capability Gap
+
+Slack bot capability gap: Cannot currently DM as a bot from the IES Slack workspace. Interim solutions:
+- Use iMessage (default recipient: 2143179659)
+- Write to Obsidian daily note
+- Use Slack channel @mention (visible to David's workspace but not private)
+- Flag for Rigby to create a Jarvis Slack bot app in the Improving workspace
+
+Do not attempt to DM privately as a bot until the bot app is created.
 
 ### Plaud Ingest — Standing Rule
 

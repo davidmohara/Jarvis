@@ -1,12 +1,20 @@
 ---
-type: working
+type: working-archive
 agent-source: jarvis
 session_id: dream-cycle-2026-08-14-030939
-created: 2026-08-14T03:35:00-05:00
+created: 2026-08-14 03:35:00-05:00
 expires: 2026-08-15
-status: active
+status: archived
+date: '2026-08-14'
+source_file: memory/working/dream-summary-2026-08-14.md
+tags:
+- working-archive
+- dream-summary
+related_people: []
+salience:
+  score: 0
+  last-promoted-check: 2026-08-23
 ---
-
 # Dream Cycle Summary — August 14, 2026
 
 Tonight's cycle was a clean housekeeping run with no new semantic promotions.

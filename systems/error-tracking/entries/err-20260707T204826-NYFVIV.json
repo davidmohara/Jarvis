@@ -9,7 +9,9 @@
   "correction": "Recognize 'Monday' as a proper noun referring to the Monday.com connector when the phrasing and available MCP tooling support it, not just the day of the week. Query the Monday MCP server for outstanding items instead of defaulting to OmniFocus.",
   "failure_mode": "wrong-assumption",
   "systemic_fix": "Before resolving an ambiguous term like 'Monday' to a calendar day, check whether it matches a named connector/tool in the active toolset first, especially when the executive explicitly names a system.",
-  "fix_status": "proposed",
+  "fix_status": "applied",
   "severity": "moderate",
-  "related_entries": []
+  "related_entries": [],
+  "fix_applied_by": "fix-003",
+  "fix_applied_at": "2026-08-23T18:30:00Z"
 }

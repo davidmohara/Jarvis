@@ -9,7 +9,9 @@
   "correction": "Recounted calendar-unified.json programmatically (13 events for the 3-day look-ahead window) and rebuilt email-unified.json with all 22 message objects from the original M365 search response instead of a truncated/summarized subset.",
   "failure_mode": "sloppy-read",
   "systemic_fix": "When writing summary counts into a data file, count the array being written (or generate the count programmatically) rather than restating a total from an earlier tool call after the array has been trimmed or summarized for brevity.",
-  "fix_status": "proposed",
+  "fix_status": "applied",
   "severity": "minor",
-  "related_entries": []
+  "related_entries": [],
+  "fix_applied_by": "fix-004",
+  "fix_applied_at": "2026-08-23T18:30:00Z"
 }

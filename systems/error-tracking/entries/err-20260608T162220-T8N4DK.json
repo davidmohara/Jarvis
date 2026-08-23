@@ -9,7 +9,13 @@
   "correction": "Before generating any podcast prep PDF: read a known-good example (Episode 8.md) line by line and match the structure exactly. Never push to reMarkable without explicit David approval when the output has already failed once. Present the PDF link and wait.",
   "failure_mode": "protocol-skip",
   "systemic_fix": "Add to podcast-prep workflow: (1) diff output markdown against Episode 8.md structure before rendering PDF, (2) after any correction cycle, present PDF for approval before reMarkable push.",
-  "fix_status": "proposed",
+  "fix_status": "applied",
   "severity": "major",
-  "related_entries": ["err-20260608T161112-965E9T", "err-20260608T161321-2RNF8B", "err-20260608T161626-U3MQHO"]
+  "related_entries": [
+    "err-20260608T161112-965E9T",
+    "err-20260608T161321-2RNF8B",
+    "err-20260608T161626-U3MQHO"
+  ],
+  "fix_applied_by": "fix-006",
+  "fix_applied_at": "2026-08-23T18:30:00Z"
 }

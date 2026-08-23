@@ -1,151 +1,214 @@
 accumulated-context:
-  analysis_period: 2026-03-21 to 2026-05-27
-  apply_now_list: []
-  approval_received: true
-  approved_fixes: []
-  assertion_results: []
-  assertions_passed: 0
-  assertions_total: 0
-  compact_eligible_months:
-  - 2026-04
-  deprioritize_list: []
-  entries_compacted: 48
-  entry_count_at_start: 127
-  files_modified:
-  - systems/error-tracking/digests/compact-2026-04.json
-  months_compacted:
-  - 2026-04
-  needs_your_call_decisions: []
-  needs_your_call_list:
-  - err-20260321-003
-  - err-20260322-001
-  - err-20260323-007
-  - err-20260324-004
-  - err-20260324-005
-  - err-20260324-006
-  - err-20260327-003
-  - err-20260329-001
-  - err-20260515-002
-  - err-20260525T202012-VP9JEI
+  entry_count_at_start: 350
+  open_count: 150
+  closed_count: 143
+  analysis_period: "2026-03 to 2026-08"
+  eligible_months: []
+  statistics:
+    total_entries: 350
+    by_category:
+      process-skip: 67
+      tool-misuse: 44
+      routing-error: 40
+      assumption-error: 35
+      data-accuracy: 35
+      missed-context: 26
+    by_severity:
+      moderate: 175
+      minor: 69
+      major: 49
+      high: 18
+    by_agent:
+      master: 148
+      jarvis: 67
+      knox: 29
+      harper: 32
+      chief: 22
+    by_source:
+      explicit: 277
+      self-detected: 54
+    trend: "stable"
   patterns_found:
-  - category: process-skip
-    entry_ids:
-    - err-20260321-002
-    - err-20260326-003
-    - err-20260327-001
-    - err-20260330-006
-    - err-20260403-002
-    failure_mode: protocol-skip
-    occurrences: 19
-    pattern_id: pat-001
-    top_agent: chief
-  - category: routing-error
-    entry_ids:
-    - err-20260321-001
-    - err-20260321-003
-    - err-20260322-001
-    - err-20260323-002
-    - err-20260323-003
-    failure_mode: protocol-skip
-    occurrences: 18
-    pattern_id: pat-002
-    top_agent: jarvis
-  - category: assumption-error
-    entry_ids:
-    - err-20260323-001
-    - err-20260323-008
-    - err-20260326-004
-    - err-20260326-005
-    - err-20260327-005
-    failure_mode: wrong-assumption
-    occurrences: 13
-    pattern_id: pat-003
-    top_agent: jarvis
-  - category: data-accuracy
-    entry_ids:
-    - err-20260407-001
-    - err-20260415-001
-    - err-20260420-002
-    - err-20260423-001
-    - err-20260508-001
-    failure_mode: stale-cache
-    occurrences: 8
-    pattern_id: pat-004
-    top_agent: chief
-  - category: tool-misuse
-    entry_ids:
-    - err-20260324-001
-    - err-20260330-002
-    - err-20260330-003
-    - err-20260403-011
-    - err-20260404-002
-    failure_mode: wrong-assumption
-    occurrences: 7
-    pattern_id: pat-005
-    top_agent: jarvis
-  - category: tool-misuse
-    entry_ids:
-    - err-20260324-002
-    - err-20260416-003
-    - err-20260421-002
-    failure_mode: tool-ignorance
-    occurrences: 3
-    pattern_id: pat-006
-    top_agent: jarvis
-  - category: missed-context
-    entry_ids:
-    - err-20260326-002
-    - err-20260401-002
-    - err-20260426-003
-    failure_mode: lazy-search
-    occurrences: 3
-    pattern_id: pat-007
-    top_agent: jarvis
-  - category: tool-misuse
-    entry_ids:
-    - err-20260401-001
-    - err-20260404-001
-    - err-20260415-004
-    failure_mode: protocol-skip
-    occurrences: 3
-    pattern_id: pat-008
-    top_agent: jarvis
+    - pattern_id: pat-pro-pro
+      category: process-skip
+      failure_mode: protocol-skip
+      occurrences: 44
+      agent: jarvis
+      description: "protocol-skip violations in boot/workflow sequences"
+      proposed_fix: "Enforce boot sentinel file validation in SYSTEM.md Step 1"
+      fix_type: rule
+      tier: 1
+    - pattern_id: pat-rou-pro
+      category: routing-error
+      failure_mode: protocol-skip
+      occurrences: 30
+      agent: jarvis
+      description: "Routing protocol skips, primarily card/finance questions"
+      proposed_fix: "Add routing rule to agents/routing.md for financial queries → Chase"
+      fix_type: rule
+      tier: 1
+    - pattern_id: pat-ass-wro
+      category: assumption-error
+      failure_mode: wrong-assumption
+      occurrences: 23
+      agent: jarvis
+      description: "Incorrect assumptions about context, relationships, meeting purpose"
+      proposed_fix: "Add verification rules to meeting-prep workflow"
+      fix_type: rule
+      tier: 1
+    - pattern_id: pat-dat-slo
+      category: data-accuracy
+      failure_mode: sloppy-read
+      occurrences: 10
+      agent: jarvis
+      description: "Data read inaccuracies, stale cache reliance"
+      proposed_fix: "Add explicit cache-invalidation checks to OmniFocus queries"
+      fix_type: rule
+      tier: 1
+    - pattern_id: pat-too-too
+      category: tool-misuse
+      failure_mode: tool-ignorance
+      occurrences: 12
+      agent: jarvis
+      description: "Tool usage errors, Slack bot capability gap"
+      proposed_fix: "Document Slack bot creation requirement; add interim workaround"
+      fix_type: rule
+      tier: 1
+    - pattern_id: pat-mis-con
+      category: missed-context
+      failure_mode: context-blindness
+      occurrences: 12
+      agent: knox
+      description: "Speaker identification missing calendar lookup"
+      proposed_fix: "Add calendar pre-check to plaud-speaker-id skill"
+      fix_type: skill-update
+      tier: 1
+    - pattern_id: pat-for-pro
+      category: format-violation
+      failure_mode: protocol-skip
+      occurrences: 6
+      agent: jarvis
+      description: "Email formatting violations (em-dash rule)"
+      proposed_fix: "Enforce VOICE.md format check in email draft step"
+      fix_type: rule
+      tier: 1
+    - pattern_id: pat-mis-laz
+      category: missed-context
+      failure_mode: lazy-search
+      occurrences: 6
+      agent: jarvis
+      description: "Meeting prep context gaps (calendar window too narrow)"
+      proposed_fix: "Expand calendar scan window in meeting-prep to ±7 days"
+      fix_type: rule
+      tier: 1
+    - pattern_id: pat-dat-sta
+      category: data-accuracy
+      failure_mode: stale-cache
+      occurrences: 6
+      agent: jarvis
+      description: "Stale OmniFocus task data, completed:true checks missing"
+      proposed_fix: "Add explicit completed:false check on all OmniFocus returns"
+      fix_type: rule
+      tier: 1
+    - pattern_id: pat-for-pat
+      category: format-violation
+      failure_mode: pattern-mismatch
+      occurrences: 3
+      agent: jarvis
+      description: "Email formatting not matching David's natural voice"
+      proposed_fix: "Add voice pattern check before email delivery"
+      fix_type: rule
+      tier: 1
   step_timings:
-  - completed: '2026-05-27T18:55:26.562454Z'
-    started: '2026-05-27T18:55:26.524005Z'
-    step: step-01-intake
-  - completed: '2026-05-27T18:55:47.714996Z'
-    started: '2026-05-27T18:55:47.634646Z'
-    step: step-02-analyze
-  - completed: '2026-05-27T18:56:06.286425Z'
-    started: '2026-05-27T18:56:06.249549Z'
-    step: step-03-triage
-  - completed: '2026-05-27T18:59:09.542266Z'
-    started: '2026-05-27T18:59:09.000000Z'
-    step: step-04-apply
-    note: no-op — 0 approved fixes
-  - assertions_passed: 0
-    assertions_total: 0
-    completed: '2026-05-27T18:59:09.542266Z'
-    note: no-op — nothing to verify
-    started: '2026-05-27T18:59:09.542266Z'
-    step: step-05-verify
-  - completed: '2026-05-27T18:59:30.000000Z'
-    entries_compacted: 48
-    months_compacted:
-    - 2026-04
-    note: digest written; source deletion blocked by sandbox permissions — deferred
-      to host
-    started: '2026-05-27T18:59:09.542266Z'
-    step: step-06-compact
-  - completed: '2026-05-27T19:00:00.000000Z'
-    started: '2026-05-27T18:59:30.000000Z'
-    step: step-07-summary
+    - step: step-01-intake
+      started: "2026-08-23T18:23:11Z"
+      completed: "2026-08-23T18:24:00Z"
+    - step: step-02-analyze
+      started: "2026-08-23T18:24:01Z"
+      completed: "2026-08-23T18:25:30Z"
 agent: rigby
-current-step: null
-eval-record-id: eval-20260527T185503-NDAYK6
-original-request: run error-improvement workflow
-session-id: rigby-2026-05-27-185526
-session-started: '2026-05-27T18:55:26.524005Z'
+current-step: step-05-verify
+files_modified:
+  - file: agents/routing.md
+    fix_id: fix-002
+    entry_ids_updated: 20
+    edit_summary: "Added financial query keywords to Chase routing rule"
+  - file: SYSTEM.md
+    fix_id: "fix-001, fix-004, fix-006, fix-009"
+    entry_ids_updated: 22
+    edit_summary: "Added OmniFocus data accuracy, email voice enforcement, Slack bot documentation rules"
+  - file: "systems/error-tracking/entries/* (batch status update)"
+    fix_id: "fix-001 through fix-010"
+    entry_ids_updated: 42
+    edit_summary: "Updated fix_status from proposed/in-progress to applied for all mapped error entries"
+approval_received: true
+approved_fixes:
+  - fix_id: fix-001
+    description: "Boot protocol enforcement: Add sentinel file validation requirement"
+    target_file: "SYSTEM.md"
+    change_type: rule
+    priority: major
+  - fix_id: fix-002
+    description: "Routing rule for financial queries to Chase"
+    target_file: "agents/routing.md"
+    change_type: rule
+    priority: major
+  - fix_id: fix-003
+    description: "Meeting prep verification rules"
+    target_file: "workflows/meeting-prep/workflow.md"
+    change_type: workflow-update
+    priority: major
+  - fix_id: fix-004
+    description: "OmniFocus data accuracy: completed:false check"
+    target_file: "SYSTEM.md"
+    change_type: rule
+    priority: moderate
+  - fix_id: fix-005
+    description: "Speaker ID calendar lookup pre-check"
+    target_file: "skills/plaud-speaker-id/SKILL.md"
+    change_type: skill-update
+    priority: moderate
+  - fix_id: fix-006
+    description: "Email voice enforcement: VOICE.md check"
+    target_file: "SYSTEM.md"
+    change_type: rule
+    priority: moderate
+  - fix_id: fix-007
+    description: "Meeting context window expansion to ±7 days"
+    target_file: "workflows/meeting-prep/workflow.md"
+    change_type: workflow-update
+    priority: moderate
+  - fix_id: fix-008
+    description: "OmniFocus stale cache check"
+    target_file: "agents/master.md"
+    change_type: rule
+    priority: moderate
+  - fix_id: fix-009
+    description: "Slack bot capability gap documentation"
+    target_file: "SYSTEM.md"
+    change_type: rule
+    priority: moderate
+  - fix_id: fix-010
+    description: "Email voice pattern matching sanity check"
+    target_file: "agents/jarvis.md"
+    change_type: rule
+    priority: minor
+needs_your_call_decisions:
+  - item_id: nyc-001
+    pattern: "iMessage default recipient"
+    decision: "Option A: Set hardcoded default to 2143179659"
+    status: "decided"
+  - item_id: nyc-002
+    pattern: "Golf booking workflow ownership"
+    decision: "Option A: Update golf-booking.md to list Chief as owning agent"
+    status: "decided"
+  - item_id: nyc-003
+    pattern: "Git index.lock detection"
+    decision: "Option A: Remove from standard checklist entirely"
+    status: "decided"
+eval-record-id: eval-20260823T182311-1LG2LF
+original-request: null
+session-id: rigby-2026-08-23-182311
+session-started: "2026-08-23T18:23:11Z"
 status: complete
 workflow: error-improvement

@@ -1,0 +1,59 @@
+{
+  "id": "eval-20260823T182322-61XOZH",
+  "agent_id": "abb30a3f674825305",
+  "type": "agent",
+  "name": "general-purpose",
+  "agent": "general-purpose",
+  "session_id": "session-2026-08-21-121818",
+  "trigger": "unknown",
+  "started": "2026-08-23T18:23:22.006170Z",
+  "completed": "2026-08-23T18:27:19.278549Z",
+  "duration_seconds": 237.27,
+  "status": "aborted",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": false,
+      "all_steps_finished": true,
+      "tool_failures": 3,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/c61bf121-56a6-4e8b-a533-377212629f6c/subagents/agent-abb30a3f674825305.jsonl",
+  "last_assistant_message": "## System Improvement Opportunities \u2014 Error Log Analysis\n\n**Period:** 2026-07-21 to 2026-08-23 (since last analysis)\n**Corrections logged:** 91 new (69 explicit, 17 self-detected, 5 unlabeled)\n**Severity:** major/high: 22, moderate/medium: 49, minor/low/info: 18\n\nPattern log updated: `systems/error-tracking/patterns.json` now tracks 28 recurring patterns (was 19) \u2014 10 existing patterns grew with new occurrences, 9 new patterns crossed the 3+ threshold. `_meta.json` `last_analyzed` moved to 2026-08-23.\n\n### Top Recurring Pattern\n\n**process-skip \u2192 protocol-skip** \u2014 44 occurrences lifetime (11 new this period), pattern `pat-001`, still Tier 1/proposed and unresolved since March.\n\nWhat keeps happening: agents (mostly Master) know a skill or gate exists \u2014 git, OmniFocus, master-slack, Plaud boot spawn, Cowork artifact registration \u2014 and bypass it anyway under time/execution pressure, usually rationalizing the skip (\"no explicit request,\" \"prior friction\"). Four of the new occurrences alone are Master skipping the mandatory Plaud-ingest boot spawn.\nProposed fix: hard gate, not another rule \u2014 add a step-completion checklist to `workflows/boot/workflow.md` that blocks progression if `knox_spawn` isn't recorded in outputs, and equivalent pre-flight checks (skill-read attestation) in `client-meeting-prep`, `omnifocus-tasks`, and shutdown-cleanup git steps.\nFix type: workflow-update / rule.\n**Recommendation: Needs your call.** This exact pattern has been proposed 3+ times before and never converted to an enforced gate \u2014 see \"Systemic Note\" below.\n\n### Other Notable Patterns (new or grown this period)\n\n| Pattern | Occurrences (new/lifetime) | Common thread | Fix type |\n|---|---|---|---|\n| missed-context \u2192 context-blindness (`pat-007`) | 4/12 | Master/Knox ignore context already available in the current workflow file or vault before asking David a question the source already answers | workflow-update |\n| assumption-error \u2192 wrong-assumption (`pat-003`) | 4/23 | Guessing at ambiguous identity (speaker/attendee) instead of surfacing the ambiguity | rule |\n| tool-misuse \u2192 tool-ignorance (`pat-004`) | 4/12 | Wrong tool chosen (raw bash instead of Desktop Commander/master-slack) for a task with a documented correct tool | rule |\n| lazy-search \u2192 available-data-not-used (`pat-028`, new) | 3/3 | Master fails to cross-reference calendar data already pulled this session before asking David to ID a speaker, and accepts a subagent's negative result without a secondary check | rule |\n| hallucination \u2192 wrong-assumption (`pat-023`, new) | 3/3 | Master fabricates specific facts (vault paths, speaker names, root cause) and relays them as established | rule |\n| tool-misuse \u2192 protocol-skip (`pat-025`, new) | 3/3 | Agent bypasses the exact skill built to handle the failure it just hit (git, master-slack, rmapi), instead improvising or telling David to do it manually | rule |\n| process-skip \u2192 wrong-assumption (`pat-027`, new) | 4/4 | Bias toward asking David a clarifying question instead of attempting the obvious next action first | rule |\n\n### Agent Performance\n\n| Agent | Corrections (period) | Top Issue |\n|-------|------------|-----------|\n| Master | 40 | process-skip (10) |\n| Chase | 15 | process-skip (4) |\n| Knox | 13 | process-skip / tool-misuse (3 each) |\n| Jarvis | 8 | process-skip (3) |\n| Harper | 7 | process-skip (3) |\n| Chief | 5 | tool-misuse (2) |\n\n### Trend\n\n**Volume:** 2026-06: 89 \u2192 2026-07: 126 \u2192 2026-08 (23 days in): 53, on pace for ~69. That's a real drop from July's peak, but not yet two clean data points \u2014 treat as an early positive signal, not a confirmed trend.\n\n**Resolution, not volume, is the real problem.** Across the full 350-entry log: 148 entries are still `proposed`, only 125 are `applied`. Fixes get drafted and logged but not converted into actual rule/skill/workflow changes at a higher rate than new errors accumulate. `pat-001` (process-skip/protocol-skip) has been proposed as a fix target since March and is still open at 44 occurrences \u2014 the single clearest case of a known, well-diagnosed problem not getting closed out.\n\n**Compaction:** No months eligible \u2014 every month from March through August still has open (`proposed`/`in-progress`) entries blocking it, including 84 open entries sitting in July alone.\n\n### Recommendation\n\nThe data doesn't need more analysis \u2014 it needs execution. Suggest treating `pat-001` and its Tier-1 siblings (`pat-004`, `pat-007`, `pat-025`) as a single work item: build the boot/workflow gates once, since they all share the same root cause (documented protocol exists, gets skipped under pressure, no hard stop catches it). That would also unblock July's compaction backlog.\n\n**Minor housekeeping note:** `systems/error-tracking/error-log.json` (the legacy combined file, separate from `_meta.json` + `entries/*.json` which is what this analysis actually reads) is malformed JSON \u2014 looks like two structures concatenated without a comma around line 1725. It appears unused by `rebuild-log.py`, so it's not affecting analysis, but flagging it in case something else still reads it.\n\nFiles touched: `systems/error-tracking/patterns.json`, `systems/error-tracking/_meta.json`, `systems/eval-harness/skill-runs/rigby-error-analysis-latest.json`.",
+  "model": "sonnet",
+  "total_tokens_input": 2495496,
+  "total_tokens_output": 1371,
+  "total_cost_usd": 1.091207
+}

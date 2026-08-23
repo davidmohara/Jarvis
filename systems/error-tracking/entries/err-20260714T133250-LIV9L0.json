@@ -6,10 +6,12 @@
   "agent": "master",
   "category": "assumption-error",
   "description": "On a scheduled morning-briefing run, questioned whether to proceed and asked David for confirmation before doing the work, instead of treating the current working folder (/Users/davidohara/develop/jarvis) as the correct, complete project root and just running the workflow.",
-  "correction": "The current working folder is always the correct project root and has everything needed. On scheduled/autonomous runs, do not stop to ask for scope confirmation over path or data-handling concerns that are already covered by standing instructions — verify paths directly (e.g. list the directory) instead of assuming a mismatch, and proceed.",
+  "correction": "The current working folder is always the correct project root and has everything needed. On scheduled/autonomous runs, do not stop to ask for scope confirmation over path or data-handling concerns that are already covered by standing instructions \u2014 verify paths directly (e.g. list the directory) instead of assuming a mismatch, and proceed.",
   "failure_mode": "wrong-assumption",
   "systemic_fix": "Before flagging a path/scope concern as blocking, check the actual filesystem first (ls/glob) rather than reasoning from a path string in the task file. Default to executing scheduled tasks in the current folder without a clarifying question unless a real, unresolvable blocker is found after checking.",
-  "fix_status": "proposed",
+  "fix_status": "applied",
   "severity": "moderate",
-  "related_entries": []
+  "related_entries": [],
+  "fix_applied_by": "fix-003",
+  "fix_applied_at": "2026-08-23T18:30:00Z"
 }

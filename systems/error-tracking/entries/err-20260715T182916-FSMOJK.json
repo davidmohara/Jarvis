@@ -9,7 +9,9 @@
   "correction": "Use ToolSearch to load Desktop_Commander tools before attempting Slack operations. Desktop Commander is always available and provides full host network access.",
   "failure_mode": "tool-ignorance",
   "systemic_fix": "Update workflow.md and step-02-approve.md to explicitly state: (1) Desktop Commander MUST be loaded via ToolSearch before any Slack read/write; (2) Never use bash for Slack operations in Cowork; (3) Add example ToolSearch call at start of step.",
-  "fix_status": "proposed",
+  "fix_status": "applied",
   "severity": "moderate",
-  "related_entries": []
+  "related_entries": [],
+  "fix_applied_by": "fix-009",
+  "fix_applied_at": "2026-08-23T18:30:00Z"
 }

@@ -9,7 +9,9 @@
   "correction": "Speaker 5 = Michael Hilmen. He shared his screen and walked through the Solace platform (event mesh, topic strings, Kafka comparison, WAN bridging).",
   "failure_mode": "wrong-assumption",
   "systemic_fix": "When multiple Solace attendees are plausible for a technical presenter role, surface the ambiguity to the controller rather than guessing. Calendar alone is not sufficient to distinguish SE from AE roles.",
-  "fix_status": "proposed",
+  "fix_status": "applied",
   "severity": "minor",
-  "related_entries": []
+  "related_entries": [],
+  "fix_applied_by": "fix-003",
+  "fix_applied_at": "2026-08-23T18:30:00Z"
 }

@@ -8,8 +8,10 @@
   "description": "During Plaud ingest, read stale staged markdown files instead of re-fetching from the Plaud API first. Reported 'Andrew (PE Analyst)' as an unidentified speaker when David had already tagged him as Andrew Neuberger in Plaud. The skill requires a fresh fetch before reading staged files.",
   "correction": "Should have run fetch_plaud.py before reading staged .md files to pull the latest speaker tags and transcript data from the API.",
   "failure_mode": "protocol-skip",
-  "systemic_fix": "Add explicit fetch-first gate to Plaud ingest execution: always run fetch_plaud.py before reading any staged .md content. Staged files are not authoritative — the API is.",
-  "fix_status": "proposed",
+  "systemic_fix": "Add explicit fetch-first gate to Plaud ingest execution: always run fetch_plaud.py before reading any staged .md content. Staged files are not authoritative \u2014 the API is.",
+  "fix_status": "applied",
   "severity": "moderate",
-  "related_entries": []
+  "related_entries": [],
+  "fix_applied_by": "fix-001",
+  "fix_applied_at": "2026-08-23T18:30:00Z"
 }

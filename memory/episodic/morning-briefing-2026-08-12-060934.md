@@ -1,14 +1,22 @@
 ---
-type: working
-task_id: "session"
-session_id: "chief-2026-08-12-060934"
+type: working-archive
+task_id: session
+session_id: chief-2026-08-12-060934
 agent-source: chief
-created: 2026-08-12T06:09:34
-expires: 2026-08-14T06:09:34
-status: active
-context: "Morning briefing — 2026-08-12"
+created: 2026-08-12 06:09:34
+expires: 2026-08-14 06:09:34
+status: archived
+context: "Morning briefing \u2014 2026-08-12"
+date: '2026-08-12'
+source_file: memory/working/morning-briefing-2026-08-12-060934.md
+tags:
+- working-archive
+- briefing
+related_people: []
+salience:
+  score: 0
+  last-promoted-check: 2026-08-23
 ---
-
 # Morning Briefing — Wednesday, August 12, 2026
 
 ## Data Sources

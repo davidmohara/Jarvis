@@ -1,12 +1,12 @@
 {
-  "last_analyzed": "2026-07-21T00:00:00Z",
-  "analysis_run": "on-demand (first full pattern pass — no prior last_analyzed recorded)",
+  "last_analyzed": "2026-08-23T00:00:00Z",
+  "analysis_run": "on-demand full pattern pass (rigby-error-analysis) \u2014 period 2026-07-21 to 2026-08-23",
   "recurring": [
     {
       "pattern_id": "pat-001",
       "category": "process-skip",
       "failure_mode": "protocol-skip",
-      "occurrences": 33,
+      "occurrences": 44,
       "entry_ids": [
         "err-20260321-002",
         "err-20260326-003",
@@ -40,10 +40,21 @@
         "err-20260715T200539-J9SK5Z",
         "err-20260717T141548-H8AR4J",
         "err-20260721T142549-4TGXTI",
-        "err-20260721T142853-4QRH0Z"
+        "err-20260721T142853-4QRH0Z",
+        "err-20260721T152045-AE60ES",
+        "err-20260722T182653-2LCKRB",
+        "err-20260723T215124-7MJCR6",
+        "err-20260730T133316-NQA06L",
+        "err-20260730T143152-S0TRMO",
+        "err-20260730T143442-4OOWTU",
+        "err-20260730T184545-HY385S",
+        "err-20260805T155029-3WI1DA",
+        "err-20260807T160634-EIC1SB",
+        "err-20260810T172632-EBBO1G",
+        "err-20260820T191921-BLD5R9"
       ],
       "first_seen": "",
-      "last_seen": "2026-07-21T14:28:53Z",
+      "last_seen": "2026-08-20T19:19:21Z",
       "proposed_fix": "Add an explicit step-completion checklist to workflows/boot/workflow.md (calendar, OmniFocus, Plaud, correction-logging) so partial/skeletal runs are self-caught before delivery. Several sub-cases already remediated via CLAUDE.md Error Logging and Scheduled Tasks sections.",
       "fix_type": "workflow-update",
       "fix_status": "proposed",
@@ -88,7 +99,7 @@
       ],
       "first_seen": "2026-03-21T00:00:00Z",
       "last_seen": "2026-07-16T22:07:29Z",
-      "proposed_fix": "Persists across 4 months despite the existing 'read agents/routing.md before non-trivial action' rule and Hard Stop list in CLAUDE.md. Written instruction alone is not preventing recurrence — needs executive call on escalating to a structural gate.",
+      "proposed_fix": "Persists across 4 months despite the existing 'read agents/routing.md before non-trivial action' rule and Hard Stop list in CLAUDE.md. Written instruction alone is not preventing recurrence \u2014 needs executive call on escalating to a structural gate.",
       "fix_type": "rule",
       "fix_status": "proposed",
       "tier": 2
@@ -97,7 +108,7 @@
       "pattern_id": "pat-003",
       "category": "assumption-error",
       "failure_mode": "wrong-assumption",
-      "occurrences": 19,
+      "occurrences": 23,
       "entry_ids": [
         "err-20260323-001",
         "err-20260323-008",
@@ -117,10 +128,14 @@
         "err-20260715T134717-TSV3VM",
         "err-20260716T133503-XFSPE2",
         "err-20260716T133618-FUOKLP",
-        "err-20260720T170538-E4R7D4"
+        "err-20260720T170538-E4R7D4",
+        "err-20260729T203936-5PO8WO",
+        "err-20260807T161610-VP90EW",
+        "err-20260807T185209-2MA410",
+        "err-20260813T122205-D64IQ7"
       ],
       "first_seen": "2026-03-23T00:00:00Z",
-      "last_seen": "2026-07-20T17:05:38Z",
+      "last_seen": "2026-08-13T12:22:05Z",
       "proposed_fix": "Diverse scenarios (dates, contact names, meeting framing, autonomous execution during scheduled runs). The autonomous-execution-hesitation sub-cluster is already fixed via the Scheduled Tasks Standing Authorization rule in CLAUDE.md. Remaining cases need a general 'confirm before finalizing on an unverified assumption' rule scoped per agent.",
       "fix_type": "rule",
       "fix_status": "proposed",
@@ -130,7 +145,7 @@
       "pattern_id": "pat-004",
       "category": "tool-misuse",
       "failure_mode": "tool-ignorance",
-      "occurrences": 8,
+      "occurrences": 12,
       "entry_ids": [
         "err-20260324-002",
         "err-20260618T192402-ROAQON",
@@ -139,10 +154,14 @@
         "err-20260715T134820-X2GOL2",
         "err-20260715T134905-DAGK1T",
         "err-20260715T182916-FSMOJK",
-        "err-20260720T201744-WLPTRY"
+        "err-20260720T201744-WLPTRY",
+        "err-20260730T205917-JYU2PC",
+        "err-20260805T040956-WYAT0X",
+        "err-20260807T175305-FA6JXM",
+        "err-20260820T165959-1ASAR2"
       ],
       "first_seen": "2026-03-24T00:00:00Z",
-      "last_seen": "2026-07-20T20:17:44Z",
+      "last_seen": "2026-08-20T16:59:59Z",
       "proposed_fix": "Add explicit tool-binding rules to SYSTEM.md (in the style of the existing OmniFocus/Desktop Commander binding) for master-slack (Desktop Commander only, not general shell) and other repeat tool-ignorance cases.",
       "fix_type": "rule",
       "fix_status": "proposed",
@@ -152,7 +171,7 @@
       "pattern_id": "pat-005",
       "category": "data-accuracy",
       "failure_mode": "sloppy-read",
-      "occurrences": 8,
+      "occurrences": 10,
       "entry_ids": [
         "err-20260508-002",
         "err-20260624T161301-F2IRIA",
@@ -161,10 +180,12 @@
         "err-20260705T132715-AQ387E",
         "err-20260713T185055-WS5FGS",
         "err-20260713T185102-GW93H9",
-        "err-20260714T224848-S9BHFN"
+        "err-20260714T224848-S9BHFN",
+        "err-20260729T205754-7OFU4C",
+        "err-20260821T172416-V33KOT"
       ],
       "first_seen": "2026-05-08T07:14:36-07:00",
-      "last_seen": "2026-07-14T22:48:48Z",
+      "last_seen": "2026-08-21T17:24:16Z",
       "proposed_fix": "Draft a 'verify before reporting' rule: counts and figures must be re-read from the live source at time of report, not from cached/note-field values.",
       "fix_type": "rule",
       "fix_status": "proposed",
@@ -196,7 +217,7 @@
       "pattern_id": "pat-007",
       "category": "missed-context",
       "failure_mode": "context-blindness",
-      "occurrences": 8,
+      "occurrences": 12,
       "entry_ids": [
         "err-20260604T133606-6KQAJA",
         "err-20260610T162144-KJHZ5D",
@@ -205,10 +226,14 @@
         "err-20260713T195632-1MI7W0",
         "err-20260715T153226-PT1ELO",
         "err-20260717T141302-SR0F59",
-        "err-20260717T141307-AFFS0A"
+        "err-20260717T141307-AFFS0A",
+        "err-20260727T170154-FB3D60",
+        "err-20260727T201700-2H2GW4",
+        "err-20260804T150151-MV1SQT",
+        "err-20260810T165952-C3XQCG"
       ],
       "first_seen": "2026-06-04T13:36:06Z",
-      "last_seen": "2026-07-17T14:13:07Z",
+      "last_seen": "2026-08-10T16:59:52Z",
       "proposed_fix": "Add adjacent-context checks (portfolio/ownership relationships, calendar attendee cross-reference, prior resolution status) to the Data Requirements table of the agents most affected (Master's meeting-prep path, Knox's transcript ingestion).",
       "fix_type": "agent-update",
       "fix_status": "proposed",
@@ -218,7 +243,7 @@
       "pattern_id": "pat-008",
       "category": "tool-misuse",
       "failure_mode": "wrong-assumption",
-      "occurrences": 7,
+      "occurrences": 10,
       "entry_ids": [
         "err-20260324-001",
         "err-20260330-002",
@@ -226,10 +251,13 @@
         "err-20260522T101304-OA1QYX",
         "err-20260609T150039-M88XLU",
         "err-20260614T115918-UKOHOA",
-        "err-20260717T141949-0NLVOV"
+        "err-20260717T141949-0NLVOV",
+        "err-20260730T133200-V5IGNY",
+        "err-20260805T021418-317Q4W",
+        "err-20260807T174504-B2UWOM"
       ],
       "first_seen": "2026-03-24T00:00:00Z",
-      "last_seen": "2026-07-17T14:19:49Z",
+      "last_seen": "2026-08-07T17:45:04Z",
       "proposed_fix": "Same tool-ignorance rule-set above should cover parameter-shape assumptions (e.g., OmniFocus MCP argument deserialization) as well as wrong-tool selection.",
       "fix_type": "rule",
       "fix_status": "proposed",
@@ -269,7 +297,7 @@
       ],
       "first_seen": "2026-03-23T00:00:00Z",
       "last_seen": "2026-06-24T19:17:46Z",
-      "proposed_fix": "Same as above — most cases are guessed formatting/naming instead of checking the documented convention file first.",
+      "proposed_fix": "Same as above \u2014 most cases are guessed formatting/naming instead of checking the documented convention file first.",
       "fix_type": "rule",
       "fix_status": "proposed",
       "tier": 1
@@ -278,17 +306,18 @@
       "pattern_id": "pat-011",
       "category": "data-accuracy",
       "failure_mode": "stale-cache",
-      "occurrences": 5,
+      "occurrences": 6,
       "entry_ids": [
         "err-20260508-001",
         "err-20260512-002",
         "err-20260512-004",
         "err-20260526T174548-KEGAK6",
-        "err-20260618T192402-P86J1F"
+        "err-20260618T192402-P86J1F",
+        "err-20260805T155142-RPYWHB"
       ],
       "first_seen": "2026-05-08T07:14:36-07:00",
-      "last_seen": "2026-06-18T19:24:02Z",
-      "proposed_fix": "All 5 entries already fix_status=applied. No further action — pattern is resolved via prior fixes (re-read live source instead of relying on cache).",
+      "last_seen": "2026-08-05T15:51:42Z",
+      "proposed_fix": "All 5 entries already fix_status=applied. No further action \u2014 pattern is resolved via prior fixes (re-read live source instead of relying on cache).",
       "fix_type": "rule",
       "fix_status": "proposed",
       "tier": 1
@@ -297,16 +326,18 @@
       "pattern_id": "pat-012",
       "category": "missed-context",
       "failure_mode": "lazy-search",
-      "occurrences": 4,
+      "occurrences": 6,
       "entry_ids": [
         "err-20260326-002",
         "err-20260714T212600-0GU3EH",
         "err-20260714T223625-A84VC5",
-        "err-20260720T144623-LSBA9A"
+        "err-20260720T144623-LSBA9A",
+        "err-20260807T161507-9AG9IK",
+        "err-20260821T170114-B5H1JS"
       ],
       "first_seen": "2026-03-26T00:00:00Z",
-      "last_seen": "2026-07-20T14:46:23Z",
-      "proposed_fix": "Bundle with missed-context/context-blindness fix above — same root cause (didn't check an available source before answering).",
+      "last_seen": "2026-08-21T17:01:14Z",
+      "proposed_fix": "Bundle with missed-context/context-blindness fix above \u2014 same root cause (didn't check an available source before answering).",
       "fix_type": "agent-update",
       "fix_status": "proposed",
       "tier": 1
@@ -323,7 +354,7 @@
       ],
       "first_seen": "2026-03-23T00:00:00Z",
       "last_seen": "2026-07-12T18:22:18.044302Z",
-      "proposed_fix": "Bundle with assumption-error/wrong-assumption fix — verify-before-assuming applies equally when the failure is under-searching.",
+      "proposed_fix": "Bundle with assumption-error/wrong-assumption fix \u2014 verify-before-assuming applies equally when the failure is under-searching.",
       "fix_type": "rule",
       "fix_status": "proposed",
       "tier": 1
@@ -332,15 +363,16 @@
       "pattern_id": "pat-014",
       "category": "routing-error",
       "failure_mode": "pattern-mismatch",
-      "occurrences": 3,
+      "occurrences": 4,
       "entry_ids": [
         "err-20260503-001",
         "err-20260503-002",
-        "err-20260610T155456-Y0PE75"
+        "err-20260610T155456-Y0PE75",
+        "err-20260727T201106-MOE539"
       ],
       "first_seen": "2026-05-03T00:00:00-05:00",
-      "last_seen": "2026-06-10T15:54:56Z",
-      "proposed_fix": "Bundle with the main routing-error pattern — same Tier 2 question on structural enforcement.",
+      "last_seen": "2026-07-27T20:11:06Z",
+      "proposed_fix": "Bundle with the main routing-error pattern \u2014 same Tier 2 question on structural enforcement.",
       "fix_type": "agent-update",
       "fix_status": "proposed",
       "tier": 2
@@ -357,7 +389,7 @@
       ],
       "first_seen": "2026-05-19T15:34:41Z",
       "last_seen": "2026-05-19T15:34:44Z",
-      "proposed_fix": "Add a 'check if already resolved' step before flagging open issues in daily review — David has repeatedly had to point out an issue was already closed.",
+      "proposed_fix": "Add a 'check if already resolved' step before flagging open issues in daily review \u2014 David has repeatedly had to point out an issue was already closed.",
       "fix_type": "workflow-update",
       "fix_status": "proposed",
       "tier": 1
@@ -374,7 +406,7 @@
       ],
       "first_seen": "2026-05-25T14:25:56Z",
       "last_seen": "2026-07-20T18:44:38Z",
-      "proposed_fix": "Bundle with tool-ignorance fix — applying the wrong tool pattern to a situation despite having the right tool available.",
+      "proposed_fix": "Bundle with tool-ignorance fix \u2014 applying the wrong tool pattern to a situation despite having the right tool available.",
       "fix_type": "rule",
       "fix_status": "proposed",
       "tier": 1
@@ -383,15 +415,16 @@
       "pattern_id": "pat-017",
       "category": "under-delivery",
       "failure_mode": "wrong-assumption",
-      "occurrences": 3,
+      "occurrences": 4,
       "entry_ids": [
         "err-20260529T200913-OZ7D7N",
         "err-20260714T205957-WFFG92",
-        "err-20260716T122422-TG3SJX"
+        "err-20260716T122422-TG3SJX",
+        "err-20260730T160535-OEZGNJ"
       ],
       "first_seen": "2026-05-29T20:09:13Z",
-      "last_seen": "2026-07-16T12:24:22Z",
-      "proposed_fix": "Mixed with over-engineering (scope-creep) entries — needs David's calibration preference on default scope, not a mechanical fix.",
+      "last_seen": "2026-07-30T16:05:35Z",
+      "proposed_fix": "Mixed with over-engineering (scope-creep) entries \u2014 needs David's calibration preference on default scope, not a mechanical fix.",
       "fix_type": "calibration",
       "fix_status": "proposed",
       "tier": 2
@@ -427,6 +460,160 @@
       "last_seen": "2026-07-14T22:42:41Z",
       "proposed_fix": "Bundle with missed-context/context-blindness fix.",
       "fix_type": "agent-update",
+      "fix_status": "proposed",
+      "tier": 1
+    },
+    {
+      "pattern_id": "pat-020",
+      "category": "format-violation",
+      "failure_mode": "pattern-mismatch",
+      "occurrences": 3,
+      "entry_ids": [
+        "err-20260330-005",
+        "err-20260717T122247-RT5F1J",
+        "err-20260723T183108-07NGV1"
+      ],
+      "first_seen": "2026-03-30T15:20:00Z",
+      "last_seen": "2026-07-23T18:31:08Z",
+      "proposed_fix": "Voice/format drift recurs across agents (Jarvis email tone, Master question phrasing, Rigby JSON field names) \u2014 no single root cause; each needs its own template/schema fix at the point of output, not a shared rule.",
+      "fix_type": "agent-update",
+      "fix_status": "proposed",
+      "tier": 2
+    },
+    {
+      "pattern_id": "pat-021",
+      "category": "missed-context",
+      "failure_mode": "stale-cache",
+      "occurrences": 3,
+      "entry_ids": [
+        "err-20260512-007",
+        "err-20260701T163000-QNVX8R",
+        "err-20260813T122308-08TG1R"
+      ],
+      "first_seen": "2026-05-12T14:35:00-05:00",
+      "last_seen": "2026-08-13T12:23:08Z",
+      "proposed_fix": "Agents re-surface facts David already corrected or hardcoded defaults override explicit current instructions (golf player count, Plaud speaker corrections, reconciliation script flags). Add a 'check prior corrections/current instruction before applying a hardcoded default' step to the relevant skills (golf-booking, plaud-transcripts).",
+      "fix_type": "skill-update",
+      "fix_status": "proposed",
+      "tier": 2
+    },
+    {
+      "pattern_id": "pat-022",
+      "category": "process-skip",
+      "failure_mode": "lazy-search",
+      "occurrences": 3,
+      "entry_ids": [
+        "err-20260512-008",
+        "err-20260522T121248-KKK0TN",
+        "err-20260821T170033-IN5GQ4"
+      ],
+      "first_seen": "2026-05-12T14:40:00-05:00",
+      "last_seen": "2026-08-21T17:00:33Z",
+      "proposed_fix": "Before declaring a task complete or a capability missing, agents skip checking an available local inventory/skill first (Plaud recording count, .claude/skills local check). Add an explicit 'check local skill/data inventory before falling back or declaring done' step to the affected workflows.",
+      "fix_type": "workflow-update",
+      "fix_status": "proposed",
+      "tier": 2
+    },
+    {
+      "pattern_id": "pat-023",
+      "category": "hallucination",
+      "failure_mode": "wrong-assumption",
+      "occurrences": 3,
+      "entry_ids": [
+        "err-20260624T171633-YTH6YU",
+        "err-20260729T203906-V2PTIT",
+        "err-20260730T144624-C36DHR"
+      ],
+      "first_seen": "2026-06-24T17:16:33Z",
+      "last_seen": "2026-07-30T14:46:24Z",
+      "proposed_fix": "Master fabricates specific facts (vault paths, speaker names, cause of a subagent block) rather than verifying or flagging uncertainty, then relays them as established fact. Draft a rule: any fact not directly sourced this session (path, name, error cause) must be verified or flagged as unconfirmed before being stated to David.",
+      "fix_type": "rule",
+      "fix_status": "proposed",
+      "tier": 2
+    },
+    {
+      "pattern_id": "pat-024",
+      "category": "format-violation",
+      "failure_mode": "sloppy-read",
+      "occurrences": 3,
+      "entry_ids": [
+        "err-20260626T142721-T01MZL",
+        "err-20260630T225715-POXG37",
+        "err-20260817T171525-Q4XJ2O"
+      ],
+      "first_seen": "2026-06-26T14:27:21Z",
+      "last_seen": "2026-08-17T17:15:25Z",
+      "proposed_fix": "Agents skip checking documented conventions before producing output (image orientation rule, file naming convention, verbatim-post rule) even though the convention already exists in a skill/conventions file. Enforcement gap, not a knowledge gap \u2014 same root cause as the process-skip/protocol-skip mega-pattern.",
+      "fix_type": "workflow-update",
+      "fix_status": "proposed",
+      "tier": 2
+    },
+    {
+      "pattern_id": "pat-025",
+      "category": "tool-misuse",
+      "failure_mode": "protocol-skip",
+      "occurrences": 3,
+      "entry_ids": [
+        "err-20260703T081700-CHAINGIT",
+        "err-20260803T173458-UMS90S",
+        "err-20260820T175611-MR3883"
+      ],
+      "first_seen": "2026-07-03T08:17:00Z",
+      "last_seen": "2026-08-20T17:56:11Z",
+      "proposed_fix": "Agents bypass a skill (git, master-slack, rmapi/remarkable) that exists specifically to handle the failure they hit, defaulting to raw commands or telling David to do it manually instead. Same root cause as pat-001 (process-skip/protocol-skip) \u2014 skills exist and are documented but get skipped under execution pressure or when the direct path errors.",
+      "fix_type": "rule",
+      "fix_status": "proposed",
+      "tier": 2
+    },
+    {
+      "pattern_id": "pat-026",
+      "category": "data-accuracy",
+      "failure_mode": "protocol-skip",
+      "occurrences": 3,
+      "entry_ids": [
+        "err-20260703T141249-U0NC8V",
+        "err-20260703T161813-X93PGM",
+        "err-20260727T143315-NTKXRY"
+      ],
+      "first_seen": "2026-07-03T14:12:49Z",
+      "last_seen": "2026-07-27T14:33:15Z",
+      "proposed_fix": "Booking/reporting workflows skip validating a documented hard constraint before declaring success (8-day booking window, discount time cutoff, filter state) causing wrong or unusable output delivered as if correct. Add a pre-completion validation checklist to each affected skill.",
+      "fix_type": "skill-update",
+      "fix_status": "proposed",
+      "tier": 2
+    },
+    {
+      "pattern_id": "pat-027",
+      "category": "process-skip",
+      "failure_mode": "wrong-assumption",
+      "occurrences": 4,
+      "entry_ids": [
+        "err-20260704T040600-QD402I",
+        "err-20260715T195437-E6MUV6",
+        "err-20260821T134901-B9L0WZ",
+        "err-20260821T165927-ZVCH8E"
+      ],
+      "first_seen": "2026-07-03T16:31:00Z",
+      "last_seen": "2026-08-21T16:59:27Z",
+      "proposed_fix": "Agents ask David a clarifying question or wait for direction instead of first attempting the obvious next action already implied by the request (search for the file, proceed with the booking) \u2014 bias toward asking over doing. Needs a 'try the obvious first, only ask if genuinely blocked' rule for these workflows.",
+      "fix_type": "rule",
+      "fix_status": "proposed",
+      "tier": 2
+    },
+    {
+      "pattern_id": "pat-028",
+      "category": "lazy-search",
+      "failure_mode": "available-data-not-used",
+      "occurrences": 3,
+      "entry_ids": [
+        "err-20260811T151302-2F0XAJ",
+        "err-20260811T154558-XD44J8",
+        "err-20260811T192413-RWIJQS"
+      ],
+      "first_seen": "2026-08-11T15:13:02Z",
+      "last_seen": "2026-08-11T19:24:13Z",
+      "proposed_fix": "Master repeatedly fails to cross-reference calendar data already pulled this session before asking David to resolve an identity, and takes a subagent's negative result as final without a secondary check. Add a 'cross-reference already-pulled calendar/vault data before asking or accepting a subagent's negative result' rule to Master's routing.",
+      "fix_type": "rule",
       "fix_status": "proposed",
       "tier": 1
     }

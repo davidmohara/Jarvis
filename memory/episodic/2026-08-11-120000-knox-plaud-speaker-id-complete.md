@@ -25,9 +25,10 @@ related_people:
   - ayotunde-gibbs
   - alice-mburu
   score: 0
-salience:
-  score: 4
   last-promoted-check: 2026-08-14
+salience:
+  score: 3
+  last-promoted-check: 2026-08-23
 ---
 
 # Plaud Ingest Session Complete: Speaker ID + Fetch

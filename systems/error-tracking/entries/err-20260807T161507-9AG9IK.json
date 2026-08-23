@@ -5,11 +5,16 @@
   "source": "explicit",
   "agent": "master",
   "category": "missed-context",
-  "description": "After the controller confirmed Speaker 5 = 'Paul' during speaker-ID review, I asked him for Paul's last name instead of checking the calendar invite I already had access to (and had already read earlier in this same session — 'Google - Improving - Wendy's conversation', 8 attendees). The invite was sitting right there as a source of truth; I should have cross-referenced it myself before asking the controller anything.",
-  "correction": "Re-pulled the calendar event: attendees are matt.russell@improving.com, psferrat@google.com, alice.mburu@improving.com, ehren.seim@improving.com, tkincaid@google.com, Tonya.Guadiz@Improving.com, John.Woodward@Improving.com, David.OHara@improving.com. No attendee named or emailed as 'Paul' appears on the invite at all — so the invite doesn't resolve the last name either, but I should have checked and reported that finding (or lack thereof) before asking the controller to do the lookup for me.",
+  "description": "After the controller confirmed Speaker 5 = 'Paul' during speaker-ID review, I asked him for Paul's last name instead of checking the calendar invite I already had access to (and had already read earlier in this same session \u2014 'Google - Improving - Wendy's conversation', 8 attendees). The invite was sitting right there as a source of truth; I should have cross-referenced it myself before asking the controller anything.",
+  "correction": "Re-pulled the calendar event: attendees are matt.russell@improving.com, psferrat@google.com, alice.mburu@improving.com, ehren.seim@improving.com, tkincaid@google.com, Tonya.Guadiz@Improving.com, John.Woodward@Improving.com, David.OHara@improving.com. No attendee named or emailed as 'Paul' appears on the invite at all \u2014 so the invite doesn't resolve the last name either, but I should have checked and reported that finding (or lack thereof) before asking the controller to do the lookup for me.",
   "failure_mode": "lazy-search",
-  "systemic_fix": "Before asking the controller for any identifying detail (name, spelling, title) that might be resolvable from already-available data (calendar invite, Clay, prior transcript context), check that source first and report what it does/doesn't show. Only ask the controller once the available data sources are exhausted — same principle as the plaud-speaker-id hard gate ('calendar first, always'), just applied one level down to a follow-up identity question, not only the initial speaker mapping.",
-  "fix_status": "proposed",
+  "systemic_fix": "Before asking the controller for any identifying detail (name, spelling, title) that might be resolvable from already-available data (calendar invite, Clay, prior transcript context), check that source first and report what it does/doesn't show. Only ask the controller once the available data sources are exhausted \u2014 same principle as the plaud-speaker-id hard gate ('calendar first, always'), just applied one level down to a follow-up identity question, not only the initial speaker mapping.",
+  "fix_status": "applied",
   "severity": "minor",
-  "related_entries": ["err-20260522T191304-TO2VXV", "err-20260807T160634-EIC1SB"]
+  "related_entries": [
+    "err-20260522T191304-TO2VXV",
+    "err-20260807T160634-EIC1SB"
+  ],
+  "fix_applied_by": "fix-007",
+  "fix_applied_at": "2026-08-23T18:30:00Z"
 }

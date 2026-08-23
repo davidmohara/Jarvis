@@ -9,7 +9,13 @@
   "correction": "When verifying pptx/docx/xlsx edits by rendering through the native Office app on a file that lives in a OneDrive/SharePoint-synced path, never open the real file directly. Copy it to a local, non-synced scratch path first, do all verification opens against that copy, and only write the final result back to the real path via a plain file copy (not via the Office app) once editing is fully done. This avoids AutoSave in the cloud-synced app silently overwriting concurrent programmatic edits.",
   "failure_mode": "tool-ignorance",
   "systemic_fix": null,
-  "fix_status": "proposed",
+  "fix_status": "applied",
   "severity": "major",
-  "related_entries": ["err-20260720T170538-E4R7D4", "err-20260720T184438-Q87C71", "err-20260720T185044-BRLV2M"]
+  "related_entries": [
+    "err-20260720T170538-E4R7D4",
+    "err-20260720T184438-Q87C71",
+    "err-20260720T185044-BRLV2M"
+  ],
+  "fix_applied_by": "fix-009",
+  "fix_applied_at": "2026-08-23T18:30:00Z"
 }

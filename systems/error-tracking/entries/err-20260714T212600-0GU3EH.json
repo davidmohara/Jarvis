@@ -9,7 +9,9 @@
   "correction": "Harper provides personal presence/performance coaching (what worked, patterns to address, openings missed, overall assessment) via the Podcast Hosting Review pattern. When asked 'which agent does X', search each agent's full skill table (not just the domain I assume is closest) before concluding a capability doesn't exist, and check memory/episodic/ for precedent before ruling something out.",
   "failure_mode": "lazy-search",
   "systemic_fix": "Before answering a 'which agent handles X' question in the negative, grep all agent skill tables plus memory/episodic/ for related terms, not just the domain that seems most obvious. Treat existing-but-narrowly-scoped capabilities as a starting point to generalize, not evidence that nothing exists.",
-  "fix_status": "proposed",
+  "fix_status": "applied",
   "severity": "moderate",
-  "related_entries": []
+  "related_entries": [],
+  "fix_applied_by": "fix-007",
+  "fix_applied_at": "2026-08-23T18:30:00Z"
 }

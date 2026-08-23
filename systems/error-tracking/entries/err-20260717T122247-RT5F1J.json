@@ -9,7 +9,9 @@
   "correction": "counts object must use: total_items (int), by_lean.left/right/center (ints), shared_topics (int), gap_left (int), gap_right (int). Match render.py line 132-133 exactly.",
   "failure_mode": "pattern-mismatch",
   "systemic_fix": "Add a counts-schema validation step in render.py that raises a clear error if required keys are missing, and document the required counts schema in the run JSON spec (specs/political-monitor.md).",
-  "fix_status": "proposed",
+  "fix_status": "applied",
   "severity": "minor",
-  "related_entries": []
+  "related_entries": [],
+  "fix_applied_by": "fix-010",
+  "fix_applied_at": "2026-08-23T18:30:00Z"
 }

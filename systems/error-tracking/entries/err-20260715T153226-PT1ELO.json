@@ -5,11 +5,13 @@
   "source": "explicit",
   "agent": "knox",
   "category": "missed-context",
-  "description": "When flagging that Kapil Dabi had no existing contact record, reported 'this vault has no people/ directory at all' — checked only the Obsidian vault and concluded person files don't exist anywhere. In fact IES's own file map (SYSTEM.md) defines people/first-last.md as the canonical location for person files, and people/ exists on the local IES filesystem with a template (_template.md) and existing entries (e.g. aaron-baker.md, alice-mburu.md). Person records live in IES, not the Obsidian vault — conflated 'not in the vault' with 'doesn't exist.'",
+  "description": "When flagging that Kapil Dabi had no existing contact record, reported 'this vault has no people/ directory at all' \u2014 checked only the Obsidian vault and concluded person files don't exist anywhere. In fact IES's own file map (SYSTEM.md) defines people/first-last.md as the canonical location for person files, and people/ exists on the local IES filesystem with a template (_template.md) and existing entries (e.g. aaron-baker.md, alice-mburu.md). Person records live in IES, not the Obsidian vault \u2014 conflated 'not in the vault' with 'doesn't exist.'",
   "correction": "Person files belong in {IES root}/people/YYYY... actually people/first-last.md per SYSTEM.md naming convention, not the Obsidian vault. Before declaring a data structure 'doesn't exist,' check the IES file map / SYSTEM.md for the canonical location, not just the most recently-used data source (Obsidian).",
   "failure_mode": "context-blindness",
   "systemic_fix": "When an agent needs to check for a person/contact record, check IES people/ first (per SYSTEM.md file map) before or in addition to the Obsidian vault. Don't assume the two knowledge stores are interchangeable.",
-  "fix_status": "proposed",
+  "fix_status": "applied",
   "severity": "minor",
-  "related_entries": []
+  "related_entries": [],
+  "fix_applied_by": "fix-005",
+  "fix_applied_at": "2026-08-23T18:30:00Z"
 }

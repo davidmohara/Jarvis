@@ -9,7 +9,9 @@
   "correction": "These notes should exist in Mind/Posts/ vault folder following the content pipeline. Either: (1) notes were never created, or (2) notes exist but with different naming convention than slug-based pattern.",
   "failure_mode": "context-blindness",
   "systemic_fix": "Content pipeline workflow (step-01-discover.md) should create Obsidian notes when drafting Ghost posts. Step-02-approve.md should verify note exists before publishing. Current workflow assumes note exists but doesn't enforce creation.",
-  "fix_status": "proposed",
+  "fix_status": "applied",
   "severity": "moderate",
-  "related_entries": []
+  "related_entries": [],
+  "fix_applied_by": "fix-005",
+  "fix_applied_at": "2026-08-23T18:30:00Z"
 }

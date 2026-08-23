@@ -2432,13 +2432,13 @@
           "path": "skills/plaud-discover/SKILL.md",
           "action": "merge",
           "type": "system",
-          "description": "Step 3: Now reads frontmatter of each zzPlaud/ vault note to build a file_id set alongside the existing title set. Step 4: Replaced single-tier 70% fuzzy match with three-tier decision logic — Tier 1 exact file_id match (primary), Tier 2 title fuzzy match at 85% threshold (fallback for pre-2026-08-10 notes), Tier 3 staged-file check. Added pseudocode decision block and guidance on edge cases where 85% threshold may not match but contextual evidence (date + duration) confirms identity."
+          "description": "Step 3: Now reads frontmatter of each zzPlaud/ vault note to build a file_id set alongside the existing title set. Step 4: Replaced single-tier 70% fuzzy match with three-tier decision logic \u2014 Tier 1 exact file_id match (primary), Tier 2 title fuzzy match at 85% threshold (fallback for pre-2026-08-10 notes), Tier 3 staged-file check. Added pseudocode decision block and guidance on edge cases where 85% threshold may not match but contextual evidence (date + duration) confirms identity."
         }
       ]
     },
     {
       "id": "work-20260810-plaud-transcripts-file-id-frontmatter",
-      "description": "Added file_id to the required frontmatter fields written by plaud-transcripts at ingest time. This is the Side B fix for err-20260810T152938-EE595H — without file_id in frontmatter, plaud-discover's new Tier 1 dedup cannot function for newly ingested notes. The field was not present in any existing vault notes (confirmed by inspection of zzPlaud/ notes including Improving/ subdirectory). Future ingest runs will write file_id so next-run dedup is exact-match rather than fuzzy.",
+      "description": "Added file_id to the required frontmatter fields written by plaud-transcripts at ingest time. This is the Side B fix for err-20260810T152938-EE595H \u2014 without file_id in frontmatter, plaud-discover's new Tier 1 dedup cannot function for newly ingested notes. The field was not present in any existing vault notes (confirmed by inspection of zzPlaud/ notes including Improving/ subdirectory). Future ingest runs will write file_id so next-run dedup is exact-match rather than fuzzy.",
       "started": "2026-08-10T00:00:00Z",
       "classification": "system",
       "files": [
@@ -2446,13 +2446,13 @@
           "path": "skills/plaud-transcripts/SKILL.md",
           "action": "merge",
           "type": "system",
-          "description": "Step 4 (Transform into Obsidian notes): Added explicit 'Frontmatter — required fields' block listing file_id, date, duration_minutes, and source as always-required fields. file_id is called out as the primary dedup key for plaud-discover and marked never-omit. This replaces the implicit frontmatter guidance that was previously inferred from note structure examples only."
+          "description": "Step 4 (Transform into Obsidian notes): Added explicit 'Frontmatter \u2014 required fields' block listing file_id, date, duration_minutes, and source as always-required fields. file_id is called out as the primary dedup key for plaud-discover and marked never-omit. This replaces the implicit frontmatter guidance that was previously inferred from note structure examples only."
         }
       ]
     },
     {
       "id": "work-20260810-remarkable-push-skill",
-      "description": "Created the remarkable-push skill to codify the agent delivery protocol for pushing workflow-generated PDFs to the reMarkable tablet. Built in response to two errors from Master bypassing Rigby (err-20260810T184322-FYOUF0: wrong path, pushed to root / instead of /Meetings; err-20260810T184522-YOWLWZ: routing violation, no skill existed). The skill establishes the authoritative naming convention for reMarkable deliverables (human-readable, no dates, no slugs — consistent with SYSTEM.md Output Naming Conventions), path routing rules by document type (call prep -> /Meetings, 1:1 prep -> /Improving/One-on-ones/{person}, client accounts -> /Improving/Accounts/{client}, etc.), and a 7-step execution protocol with pre-push checklist, overwrite detection, corrupted-config recovery, and post-push verification. Distinct from .claude/skills/remarkable-upload/SKILL.md which handles interactive/ad hoc uploads — this skill is for workflow-driven agent delivery. Registered in skills/_manifest.jsonl and agents/rigby.md task portfolio. Cleanup: deleted wrong-named file from /Meetings and root /, pushed correctly-named Austin Ledesma Solace Call Prep.pdf to /Meetings.",
+      "description": "Created the remarkable-push skill to codify the agent delivery protocol for pushing workflow-generated PDFs to the reMarkable tablet. Built in response to two errors from Master bypassing Rigby (err-20260810T184322-FYOUF0: wrong path, pushed to root / instead of /Meetings; err-20260810T184522-YOWLWZ: routing violation, no skill existed). The skill establishes the authoritative naming convention for reMarkable deliverables (human-readable, no dates, no slugs \u2014 consistent with SYSTEM.md Output Naming Conventions), path routing rules by document type (call prep -> /Meetings, 1:1 prep -> /Improving/One-on-ones/{person}, client accounts -> /Improving/Accounts/{client}, etc.), and a 7-step execution protocol with pre-push checklist, overwrite detection, corrupted-config recovery, and post-push verification. Distinct from .claude/skills/remarkable-upload/SKILL.md which handles interactive/ad hoc uploads \u2014 this skill is for workflow-driven agent delivery. Registered in skills/_manifest.jsonl and agents/rigby.md task portfolio. Cleanup: deleted wrong-named file from /Meetings and root /, pushed correctly-named Austin Ledesma Solace Call Prep.pdf to /Meetings.",
       "started": "2026-08-10T00:00:00Z",
       "classification": "system",
       "files": [
@@ -2473,6 +2473,32 @@
           "action": "modify",
           "type": "system",
           "description": "Added trigger row for remarkable-push to the system-block Task Portfolio table."
+        }
+      ]
+    },
+    {
+      "id": "work-20260823-error-improvement-baseline",
+      "description": "Error improvement cycle baseline \u2014 analyzed 350 error entries spanning 2026-03 to 2026-08, identified 30 recurring patterns across 10 categories, applied 10 systemic fixes addressing the top patterns. Fixes include routing rules for financial queries, OmniFocus data accuracy enforcement, email voice standards, meeting prep verification, speaker ID calendar lookup, and Slack bot capability documentation. 42 error entries transitioned from proposed to applied status.",
+      "started": "2026-08-23T18:23:11Z",
+      "classification": "system",
+      "files": [
+        {
+          "path": "agents/routing.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Added financial query keywords (card, credit, APR, benefits, rewards, optimize, spend) to Chase routing rule"
+        },
+        {
+          "path": "SYSTEM.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Added OmniFocus data accuracy rule (explicit completed:false check), Email Voice Enforcement section, and Slack Bot Capability Gap documentation"
+        },
+        {
+          "path": "systems/error-tracking/entries/* (batch status update)",
+          "action": "merge",
+          "type": "system",
+          "description": "Updated fix_status from proposed/in-progress to applied for 42 error entries across 10 fix patterns"
         }
       ]
     }

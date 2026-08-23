@@ -9,7 +9,11 @@
   "correction": "Before concluding a source doesn't exist, search exhaustively across the actual store, not just the one file already open in context. For Obsidian specifically, that means running search_vault / search_vault_smart across the whole vault (not just re-reading the one known note) before ruling out that the full transcript is there, e.g. as a linked attachment, a sibling note, or in a different folder than the curated summary note.",
   "failure_mode": "lazy-search",
   "systemic_fix": "Before invoking any recovery workflow (browser automation, re-fetching from an external API, etc.) to reconstruct data that might already exist locally, run a full-vault/full-filesystem search first and treat that as a blocking prerequisite step, not an optional check. Update the plaud-transcripts skill and/or harper meeting-coaching workflow to include 'search_vault_smart across entire vault for full transcript before assuming excerpt-only' as an explicit pre-flight step.",
-  "fix_status": "proposed",
+  "fix_status": "applied",
   "severity": "moderate",
-  "related_entries": ["err-20260714T221307-15HGV2"]
+  "related_entries": [
+    "err-20260714T221307-15HGV2"
+  ],
+  "fix_applied_by": "fix-007",
+  "fix_applied_at": "2026-08-23T18:30:00Z"
 }

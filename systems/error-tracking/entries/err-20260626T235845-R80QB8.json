@@ -9,7 +9,9 @@
   "correction": "Correct state is: 2 pending posts (Consulting Middle, Fulfillment); 3 scheduled posts (Audit already published, Dallas, Governance, Invoice). David corrected the agent verbally. Audit post must be moved to published status and removed from pending-drafts.json. Dallas and Governance must be marked scheduled in the JSON.",
   "failure_mode": "sloppy-read",
   "systemic_fix": "Add a pre-execution validation step to step-02-approve that explicitly counts and logs pending vs scheduled entries before attempting any Slack operations. Categorize each entry by status visually to prevent misreading. Consider adding a dry-run mode that prints the draft list for verification before proceeding.",
-  "fix_status": "proposed",
+  "fix_status": "applied",
   "severity": "major",
-  "related_entries": []
+  "related_entries": [],
+  "fix_applied_by": "fix-004",
+  "fix_applied_at": "2026-08-23T18:30:00Z"
 }

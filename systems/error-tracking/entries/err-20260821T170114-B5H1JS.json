@@ -9,7 +9,12 @@
   "correction": "Always search both the plugin skills path AND the IES .claude/skills/ directory before declaring a skill unavailable. The find command should have targeted the IES tree.",
   "failure_mode": "lazy-search",
   "systemic_fix": "Add .claude/skills/ to the standard skill-lookup search path. Never tell the user a capability doesn't exist without checking both locations.",
-  "fix_status": "proposed",
+  "fix_status": "applied",
   "severity": "moderate",
-  "related_entries": ["err-20260821T165927-ZVCH8E", "err-20260821T134901-B9L0WZ"]
+  "related_entries": [
+    "err-20260821T165927-ZVCH8E",
+    "err-20260821T134901-B9L0WZ"
+  ],
+  "fix_applied_by": "fix-007",
+  "fix_applied_at": "2026-08-23T18:30:00Z"
 }

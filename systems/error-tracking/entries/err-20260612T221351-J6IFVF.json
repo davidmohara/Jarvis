@@ -5,11 +5,13 @@
   "source": "explicit",
   "agent": "master",
   "category": "process-skip",
-  "description": "During session wrap, surfaced Brackney and Cresta follow-ups as open loops without first checking sent items to verify whether David had already sent those emails. Both had been sent. This is a failure of the check-before-surfacing protocol — open loops should be verified against live data before presenting them as outstanding.",
+  "description": "During session wrap, surfaced Brackney and Cresta follow-ups as open loops without first checking sent items to verify whether David had already sent those emails. Both had been sent. This is a failure of the check-before-surfacing protocol \u2014 open loops should be verified against live data before presenting them as outstanding.",
   "correction": "Before flagging any email-related open loop at session close, check sent items via M365 MCP to confirm status. Do not surface as pending what can be verified as done.",
   "failure_mode": "protocol-skip",
   "systemic_fix": "Session wrap open-loop surfacing must include a sent-items check for any email draft flagged as unsent during the session.",
-  "fix_status": "proposed",
+  "fix_status": "applied",
   "severity": "moderate",
-  "related_entries": []
+  "related_entries": [],
+  "fix_applied_by": "fix-001",
+  "fix_applied_at": "2026-08-23T18:30:00Z"
 }

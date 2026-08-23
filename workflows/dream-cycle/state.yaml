@@ -1,10 +1,13 @@
 workflow: dream-cycle
 agent: jarvis
-status: not-started
-session-started: null
-session-id: null
-current-step: null
-original-request: null
+status: aborted
+session-started: 2026-08-23T13:52:51-05:00
+session-id: dream-cycle-2026-08-23-135251-abort
+current-step: initialization
+original-request: "Execute complete dream-cycle with 8 guardrails"
+abort-reason: already-ran-today
+abort-timestamp: 2026-08-23T13:52:51-05:00
+last-successful-run: 2026-08-23T13:39:08-05:00
 accumulated-context: {}
 guardrails:
   archival_history: []

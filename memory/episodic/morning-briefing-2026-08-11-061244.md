@@ -29,9 +29,10 @@ related_people:
   - ayotunde-gibbs
   - stephen-johnson
   score: 0
+  last-promoted-check: 2026-08-14
 salience:
   score: 10
-  last-promoted-check: 2026-08-14
+  last-promoted-check: 2026-08-23
 ---
 
 # Morning Briefing — Tuesday, August 11, 2026

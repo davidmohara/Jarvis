@@ -1,0 +1,85 @@
+{
+  "id": "eval-20260823T185241-3OHTE2",
+  "agent_id": "afb1756d43a772d10",
+  "type": "workflow",
+  "name": "dream-cycle",
+  "agent": "general-purpose",
+  "session_id": "session-2026-08-21-121818",
+  "trigger": "manual",
+  "started": "2026-08-23T18:52:41.893038Z",
+  "completed": "2026-08-23T18:53:10.995427Z",
+  "duration_seconds": 29.1,
+  "status": "success",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": false,
+      "outputs_non_empty": false,
+      "assertions_checked": 5,
+      "assertions_passed": 0,
+      "assertion_results": [
+        {
+          "assertion": "Dream cycle workflow state.yaml shows status: complete",
+          "passed": false,
+          "error": null
+        },
+        {
+          "assertion": "Dream cycle wrote output to working memory",
+          "passed": false,
+          "error": null
+        },
+        {
+          "assertion": "dream-cycle output is substantive (>200 bytes)",
+          "passed": false,
+          "error": null
+        },
+        {
+          "assertion": "dream-cycle output contains expected content",
+          "passed": false,
+          "error": null
+        },
+        {
+          "assertion": "step-03b's guardrail checkpoint recorded a result (pass/flag/escalate) before step-04's irreversible deletion \u2014 read from the eval record's own guardrails array, not self-reported by the workflow",
+          "passed": false,
+          "error": null
+        }
+      ]
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": "2798d95737254b2fb888fa14a7cfe4647e587ebd88c5164e405cf42a042f7afa",
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/c61bf121-56a6-4e8b-a533-377212629f6c/subagents/agent-afb1756d43a772d10.jsonl",
+  "last_assistant_message": "## Abort Report\n\n**Dream-Cycle Status: ABORTED** - Already executed today.\n\n**Pre-flight Verification:**\n- Last successful run: 2026-08-23 at 13:39:08 CDT\n- Today's date: 2026-08-23\n- Per workflow protocol: Pre-flight checks require aborting if dream cycle already ran the same calendar day\n\n**Last Run Summary (13:39:08 today):**\n- Step-01: Archived 11 expired working entries\n- Step-02: Scored 287 episodic files (65 in 30-day window)\n- Step-03: No new promotion candidates evaluated\n- Step-03b: Guardrail checkpoint passed\n- Step-04: Compression candidates: 0 (below threshold)\n- All guardrails: passed\n\n**State Updated:**\n- `workflows/dream-cycle/state.yaml` \u2192 status: aborted, reason: already-ran-today\n- `memory/dream.log` \u2192 abort entry appended with session details\n\n**Next scheduled run:** 2026-08-24 per workflow cadence.\n\nThe workflow's pre-flight safeguard prevents duplicate memory consolidation work within a single day. The cycle will resume on the next calendar day.",
+  "model": "haiku",
+  "total_tokens_input": 315237,
+  "total_tokens_output": 240,
+  "total_cost_usd": 0.073596
+}

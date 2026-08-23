@@ -16,9 +16,10 @@ tags:
   - south-texas
 related_people: []
   score: 0
+  last-promoted-check: 2026-08-14
 salience:
   score: 10
-  last-promoted-check: 2026-08-14
+  last-promoted-check: 2026-08-23
 ---
 
 # Dream Cycle Summary — August 12, 2026

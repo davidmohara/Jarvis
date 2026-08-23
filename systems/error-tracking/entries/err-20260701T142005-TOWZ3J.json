@@ -9,7 +9,9 @@
   "correction": "Never write resolved speaker names into state.yaml from inference. Names must be tagged in Plaud's own system (the source of record) and the recording must be repulled so the ingest pipeline reflects Plaud-side truth, not a locally-inferred value.",
   "failure_mode": "wrong-assumption",
   "systemic_fix": "Update plaud-ingest workflow docs (workflow.md / SKILL.md if one exists) to state explicitly: speaker identity resolution found via transcript/heuristic inference is a proposal only; the write path is (1) tag speaker in Plaud UI/API, (2) repull/resync the recording, (3) let the resync populate state.yaml. Direct state.yaml edits of speaker-mappings from inferred names are prohibited.",
-  "fix_status": "proposed",
+  "fix_status": "applied",
   "severity": "moderate",
-  "related_entries": []
+  "related_entries": [],
+  "fix_applied_by": "fix-003",
+  "fix_applied_at": "2026-08-23T18:30:00Z"
 }

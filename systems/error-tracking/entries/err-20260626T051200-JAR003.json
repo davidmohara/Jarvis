@@ -9,8 +9,13 @@
   "correction": "When the confirmation screen appeared showing 6:15 PM, I should have recognized this was outside the preferred 1:00 PM - 5:00 PM window and found a way to edit/cancel and reselect 4:45 PM before confirming the reservation.",
   "failure_mode": "context-blindness",
   "systemic_fix": "Golf-booking skill Step 4g: Before clicking Confirm Reservation, explicitly verify the displayed time is within the preferred window for the selected option. If not, abort confirmation and go back to Step 4 to try the next ranked option.",
-  "fix_status": "proposed",
+  "fix_status": "applied",
   "severity": "major",
-  "related_entries": ["err-20260626T051200-JAR001", "err-20260626T051200-JAR002"],
-  "failure_summary_doc": "workflows/golf-booking/failure-2026-06-26.md"
+  "related_entries": [
+    "err-20260626T051200-JAR001",
+    "err-20260626T051200-JAR002"
+  ],
+  "failure_summary_doc": "workflows/golf-booking/failure-2026-06-26.md",
+  "fix_applied_by": "fix-005",
+  "fix_applied_at": "2026-08-23T18:30:00Z"
 }

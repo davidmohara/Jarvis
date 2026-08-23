@@ -1,12 +1,20 @@
 ---
-type: working
+type: working-archive
 agent-source: jarvis
 session_id: dream-cycle-2026-08-13-030941
-created: 2026-08-13T03:35:00-05:00
+created: 2026-08-13 03:35:00-05:00
 expires: 2026-08-14
-status: active
+status: archived
+date: '2026-08-13'
+source_file: memory/working/dream-summary-2026-08-13.md
+tags:
+- working-archive
+- dream-summary
+related_people: []
+salience:
+  score: 0
+  last-promoted-check: 2026-08-23
 ---
-
 # Dream Cycle Summary — August 13, 2026
 
 Tonight's cycle ran clean with a solid working-memory flush and four semantic updates.

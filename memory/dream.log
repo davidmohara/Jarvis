@@ -2215,3 +2215,29 @@ errors_detail:
     file: systems/eval-harness/record-step.py
     error: "Script raised unhandled exception — non-fatal, step completed successfully"
 ---
+
+---
+## 2026-08-23T133908 CDT
+session_id: dream-cycle-2026-08-23-133908
+working_archived: 11
+working_deleted: 0
+episodic_scanned: 287
+score_updates: 287
+clusters_found: 0
+semantic_created: 0
+semantic_updated: 0
+promoted_entries: 0
+entries_compressed: 0
+digests_updated: 0
+errors: 0
+summary: "Step-01: Archived 11 expired working entries. Step-02: Scored 287 episodic files (65 in 30d window). Step-03: No new promotion candidates. Step-03b: Guardrail checkpoint passed. Step-04: Compression skipped (0 candidates). Clean cycle — preserving all high-value patterns from prior promotions."
+---
+
+
+---
+## 2026-08-23T135251 CDT
+session_id: dream-cycle-2026-08-23-135251-abort
+status: aborted
+reason: already-ran-today
+last-run: 2026-08-23T133908
+summary: "Pre-flight check: Dream cycle already executed today (2026-08-23 13:39:08). Aborting per workflow protocol to prevent duplicate processing. Next scheduled run: 2026-08-24."

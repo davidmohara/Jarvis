@@ -6,10 +6,12 @@
   "agent": "master",
   "category": "assumption-error",
   "description": "Pushed PDF to reMarkable autonomously without asking David where it should go, and used 'Alice Mburu - 1on1 Call Prep' as the filename (using 'on' instead of a proper separator for the colon, and without confirming naming convention). File landed in /Meetings by assumption.",
-  "correction": "Should have asked David which reMarkable folder to target before pushing, and confirmed the filename convention (e.g. '1-1' vs '1on1'). File push to reMarkable is an action with user-visible side effects — it requires explicit instruction on destination.",
+  "correction": "Should have asked David which reMarkable folder to target before pushing, and confirmed the filename convention (e.g. '1-1' vs '1on1'). File push to reMarkable is an action with user-visible side effects \u2014 it requires explicit instruction on destination.",
   "failure_mode": "wrong-assumption",
   "systemic_fix": "For reMarkable pushes: always confirm target folder and filename with David before executing. Do not infer destination from folder structure.",
-  "fix_status": "proposed",
+  "fix_status": "applied",
   "severity": "minor",
-  "related_entries": []
+  "related_entries": [],
+  "fix_applied_by": "fix-003",
+  "fix_applied_at": "2026-08-23T18:30:00Z"
 }

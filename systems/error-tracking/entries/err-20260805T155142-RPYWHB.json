@@ -6,10 +6,12 @@
   "agent": "Master",
   "category": "data-accuracy",
   "description": "Surfaced 'Ask Dr. Easton about nerve-modulating drugs' as overdue in the morning briefing. David confirmed this task was completed over a month ago. This is the 8th explicit correction for this same task appearing as overdue when it has been done. OmniFocus AppleScript query returns it as incomplete despite it being marked complete.",
-  "correction": "This task is complete. Do not surface it. SYSTEM.md already documents that OmniFocus completion status via osascript is unreliable — the rule states to caveat any completion status and cross-check when disputed. The deeper fix is to either mark it complete via MCP on every boot if it keeps reappearing, or add it to a known-stale suppression list.",
+  "correction": "This task is complete. Do not surface it. SYSTEM.md already documents that OmniFocus completion status via osascript is unreliable \u2014 the rule states to caveat any completion status and cross-check when disputed. The deeper fix is to either mark it complete via MCP on every boot if it keeps reappearing, or add it to a known-stale suppression list.",
   "failure_mode": "stale-cache",
   "systemic_fix": "IMMEDIATE: This specific task must never be surfaced as overdue again. Add a persistent note in the boot briefing synthesis step to suppress it, OR verify completion via mcp__omnifocus__* and force-complete it. PATTERN FIX (8 occurrences): Rigby needs to build a suppression mechanism for tasks David has verbally confirmed complete but OmniFocus keeps returning as incomplete. This is a recurring data integrity failure that no amount of caveating fixes.",
-  "fix_status": "proposed",
+  "fix_status": "applied",
   "severity": "major",
-  "related_entries": []
+  "related_entries": [],
+  "fix_applied_by": "fix-008",
+  "fix_applied_at": "2026-08-23T18:30:00Z"
 }

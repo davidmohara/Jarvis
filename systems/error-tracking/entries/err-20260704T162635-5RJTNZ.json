@@ -9,7 +9,9 @@
   "correction": "The outage was known and already flagged. Should not have presented it as an unresolved mystery or recommended investigation.",
   "failure_mode": "context-blindness",
   "systemic_fix": "Before surfacing eval findings as open issues, check error-tracking entries and any flagged status on the relevant workflow to avoid re-raising already-resolved or already-triaged items.",
-  "fix_status": "proposed",
+  "fix_status": "applied",
   "severity": "minor",
-  "related_entries": []
+  "related_entries": [],
+  "fix_applied_by": "fix-005",
+  "fix_applied_at": "2026-08-23T18:30:00Z"
 }

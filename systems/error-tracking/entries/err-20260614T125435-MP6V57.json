@@ -5,11 +5,13 @@
   "source": "explicit",
   "agent": "Jarvis (Master)",
   "category": "routing-error",
-  "description": "Built a new system-wide skill (add-reminder), updated two boot workflow steps, and registered the skill in the manifest — without routing to Rigby for review. Rigby owns all capability builds, new skills, and workflow changes.",
+  "description": "Built a new system-wide skill (add-reminder), updated two boot workflow steps, and registered the skill in the manifest \u2014 without routing to Rigby for review. Rigby owns all capability builds, new skills, and workflow changes.",
   "correction": "New skills and workflow modifications must be routed to Rigby for review before being considered complete. Knox owns the vault; Rigby owns the platform.",
   "failure_mode": "protocol-skip",
   "systemic_fix": "Add explicit Rigby review step to any session that creates or modifies skills, workflows, or agents. Treat capability build as incomplete until Rigby signs off.",
-  "fix_status": "proposed",
+  "fix_status": "applied",
   "severity": "moderate",
-  "related_entries": []
+  "related_entries": [],
+  "fix_applied_by": "fix-002",
+  "fix_applied_at": "2026-08-23T18:30:00Z"
 }

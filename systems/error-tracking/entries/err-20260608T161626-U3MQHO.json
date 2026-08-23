@@ -9,7 +9,9 @@
   "correction": "Em-dashes are banned in all IES output without exception. Use commas, colons, parentheses, or rewrite the sentence.",
   "failure_mode": "protocol-skip",
   "systemic_fix": "Add em-dash prohibition to harper-podcast-prep skill and podcast-prep workflow as an explicit output rule.",
-  "fix_status": "proposed",
+  "fix_status": "applied",
   "severity": "minor",
-  "related_entries": []
+  "related_entries": [],
+  "fix_applied_by": "fix-006",
+  "fix_applied_at": "2026-08-23T18:30:00Z"
 }
