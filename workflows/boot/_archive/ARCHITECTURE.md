@@ -9,7 +9,7 @@ date: 2026-08-22
 
 ## Overview
 
-Boot has been redesigned to support Stage 4 certification requirements:
+Boot has been redesigned with:
 - **Per-step token extraction** — Real tokens captured at each step boundary
 - **Per-step guardrail validation** — Automated checks at each group boundary
 - **Explicit punch-outs** — Escalation signals halt workflow for controller decisions

@@ -8,7 +8,7 @@ title: Boot Workflow — Complete Stage 4 System
 
 ## System Overview
 
-Boot has been redesigned as a **Stage 4-compliant system** with:
+Boot has been redesigned with:
 - ✅ Per-step token extraction (real tokens captured at each boundary)
 - ✅ Per-step guardrail validation (automated checks after each step)
 - ✅ Explicit punch-out mechanism (escalations halt workflow for controller decisions)
@@ -258,10 +258,10 @@ Run boot 5+ times and measure:
 
 ## System Ready for Testing
 
-All components are in place. Boot is ready to run with the Stage 4 architecture. When launched, the system will automatically:
+All components are in place. Boot is ready to run with the architecture. When launched, the system will automatically:
 - Extract per-step tokens from transcripts
 - Run guardrail validations at step boundaries
 - Record punch-outs with controller decisions
-- Maintain complete audit trail for certification
+- Maintain complete audit trail
 
 **Next step:** Run boot 5+ times to build trend data and finalize Stage 4 submission.

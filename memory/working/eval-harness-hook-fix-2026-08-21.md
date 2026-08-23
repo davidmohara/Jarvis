@@ -6,14 +6,14 @@ agent-source: master
 created: 2026-08-21T20:30:00
 expires: 2026-08-23T20:30:00
 status: active
-context: "Stage 4 certification build + eval-harness PostToolUse hook root-cause fix — 2026-08-21"
+context: "Eval-harness PostToolUse hook root-cause fix — 2026-08-21"
 ---
 
-# Stage 4 Certification + Eval-Harness Hook Fix — August 21, 2026
+# Eval-Harness Hook Fix — August 21, 2026
 
 ## Summary
 
-Built out Stage 4 AI-workflow certification infrastructure (guardrail checkpoints, token/cost tracking, sentinel assertion files) across daily-review, morning-briefing/boot, watchtower, dream-cycle, and system-eval. Packaged a daily-review certification submission zip. While chasing why `boot`/`watchtower` never produce a properly-named eval record, found and fixed the actual root cause.
+Built out AI-workflow infrastructure (guardrail checkpoints, token/cost tracking, sentinel assertion files) across daily-review, morning-briefing/boot, watchtower, dream-cycle, and system-eval. While chasing why `boot`/`watchtower` never produce a properly-named eval record, found and fixed the actual root cause.
 
 ## Critical Finding
 
