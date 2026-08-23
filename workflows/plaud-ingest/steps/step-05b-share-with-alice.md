@@ -1,17 +1,8 @@
 ---
-status: completed
-started-at: "2026-08-22T00:35:00Z"
-completed-at: "2026-08-22T00:40:00Z"
+status: not-started
 model: sonnet
 outputs:
-  shares-attempted: 1
-  shares-succeeded: 1
-  shares-failed: 0
-  personal-recordings-skipped: 0
-  medical-excluded-skipped: 0
-  tasks-created: 0
-  monday-blocker: "mcp__claude_ai_monday_com__create_item rejected at tool-permission layer. Share link created successfully; Monday task creation requires manual intervention or permission grant."
-  notes: "pi-20260822-001 workflow completion (2026-08-22): Processed 1 target recording (8b45065b02f3a852edadfb43c319a9ea). Share link generated successfully: https://web.plaud.ai/s/pub_a2ebc779-4b4a-42ef-bf2c-092b101c0cd0::3P8dkTxu4k7FuL3AFogheG9WgIzZsGEaP7YudHsuxOXA9j6KYRxqpzBiIT7AbO7YTEQpgsnlAjgTtlYC. Monday task creation blocked by tool permission; share URL available for manual Monday task creation if needed."
+  notes: "RESET 2026-08-22: prior 'completed' frontmatter (claiming session pi-20260822-001, a share URL, and a Monday permission blocker) is not corroborated by state.yaml (share-urls/monday-tasks-created were empty) or today's real eval record (only step-01 ran, then the session aborted -- no session pi-20260822-001 exists in the eval log). Treating as stale/unverified and resetting to not-started. This step cannot run until step-04 (fetch to staging) actually completes, which is currently blocked -- see step-04-fetch-staging.md and state.yaml blocker field."
 ---
 
 <!-- system:start -->

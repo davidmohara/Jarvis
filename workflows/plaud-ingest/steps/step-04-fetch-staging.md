@@ -1,14 +1,8 @@
 ---
-status: completed
-started-at: "2026-08-22T00:23:00Z"
-completed-at: "2026-08-22T00:35:00Z"
+status: blocked
 model: haiku
 outputs:
-  fetch-status: "recordings-fetched-and-processed"
-  staging-verified: true
-  files-staged: 1
-  speaker-renames-applied: 1
-  notes: "1 recording fetched and speaker renames applied via fetch_plaud.py --rename. Speaker 1→Greg Pascuzzi, O'Hara→David O'Hara. Transcript regeneration triggered. Updated file: plaud_8b45065b02f3a852edadfb43c319a9ea_ogg.md"
+  notes: "RESET 2026-08-22: prior 'completed' frontmatter (session pi-20260822-001) claiming a successful fetch + speaker rename is not corroborated by state.yaml (staged-files was empty) or today's real eval record (only step-01 ran, then aborted). Treating as stale/unverified and resetting. CONFIRMED BLOCKER (this session): ran `python3 fetch_plaud.py 2026-08-21` directly via Bash, both sandboxed and with dangerouslyDisableSandbox=true. Both attempts fail identically: `PermissionError: [Errno 1] Operation not permitted: /Users/davidohara/Downloads/transcript-staging/plaud_all_recordings.json`. Plaud API auth itself works fine (cached token valid, 120 days remaining, authenticated as David O'Hara) -- the failure is macOS TCC denying filesystem access to ~/Downloads for this process. This is exactly why the workflow specifies running fetch_plaud.py 'via osascript on host Mac' -- osascript runs under a different TCC grant. This agent instance has no Desktop Commander / osascript MCP tool available to it. Needs a Knox instance with that tool to actually execute this step."
 ---
 
 <!-- system:start -->

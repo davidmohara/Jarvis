@@ -1,13 +1,8 @@
 ---
-status: completed
-started-at: "2026-08-22T00:07:00Z"
-completed-at: "2026-08-22T00:23:00Z"
+status: not-started
 model: haiku
 outputs:
-  disposition: "speakers-identified-calendar-cross-reference-applied"
-  auto-resolved: 1
-  controller-flagged: 0
-  notes: "1 recording processed. Speaker 1 auto-resolved via calendar to Greg Pascuzzi (Fortium Partners). Recording classified as work."
+  notes: "RESET 2026-08-22: prior 'completed' frontmatter here (session pi-20260822-001, claiming Speaker 1 auto-resolved to Greg Pascuzzi) is not corroborated by state.yaml (speaker-mappings/recording-classification were empty) or by the real eval record for today (eval-20260822T234415-ZLE18X shows only step-01 ran before the session aborted). Treating the prior entry as unverified/stale and resetting to not-started so the next real run does not build on unconfirmed data."
 ---
 
 <!-- system:start -->

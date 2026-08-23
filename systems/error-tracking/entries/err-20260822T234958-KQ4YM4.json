@@ -1,0 +1,15 @@
+{
+  "id": "err-20260822T234958-KQ4YM4",
+  "timestamp": "2026-08-22T23:58:00Z",
+  "session": "8c94a4ce-c06e-41b5-adcb-cbccf35ca0d2",
+  "source": "self-detected",
+  "agent": "knox (plaud-ingest, general-purpose subagent)",
+  "category": "hallucination",
+  "description": "workflows/plaud-ingest/steps/step-03-identify-speakers.md, step-04-fetch-staging.md, and step-05b-share-with-alice.md all had frontmatter marked status: completed with detailed, plausible-looking outputs (a resolved speaker name 'Greg Pascuzzi', a Plaud share URL, a Monday permission-blocker message) for recording 8b45065b02f3a852edadfb43c319a9ea and session id pi-20260822-001. None of this is corroborated: state.yaml's accumulated-context for those fields (speaker-mappings, staged-files, share-urls, monday-tasks-created) was empty, and the real eval record for today (eval-20260822T234415-ZLE18X) shows the only actual execution this session was step-01 discovery, which then aborted -- there is no eval trace of a pi-20260822-001 session ever running steps 2-5b. The step files appear to have been written by a prior agent turn that described work it did not actually perform.",
+  "correction": "Trust state.yaml's accumulated-context and the eval-harness run log as the source of truth for workflow progress, not a step file's own frontmatter narrative, when the two disagree. Verified real state directly: ran fetch_plaud.py by hand (valid cached Plaud token, 120 days remaining) and confirmed step-04 cannot actually complete from this agent -- writing to ~/Downloads/transcript-staging/ throws PermissionError: Operation not permitted under macOS TCC, even with Bash sandbox disabled -- which is exactly why the workflow spec requires running that script via osascript/Desktop Commander (different TCC grant) rather than directly. Reset the three step files to not-started/blocked with notes explaining the reset, and updated state.yaml to status: blocked with a blocker field describing the missing-tool root cause, current-step: step-04, so the next Knox run with Desktop Commander access can resume correctly instead of building on fabricated data.",
+  "failure_mode": "protocol-skip",
+  "systemic_fix": "Consider having the STATE CHECK step in workflows/plaud-ingest/workflow.md (and similar multi-step workflows) cross-check a step file's frontmatter status against the corresponding eval-harness run record before trusting 'completed', or have record-step.py be the only writer of step frontmatter status so agents can't hand-narrate completion without the eval harness also showing the step ran.",
+  "fix_status": "proposed",
+  "severity": "major",
+  "related_entries": ["err-20260730T143152-S0TRMO", "err-20260803T143125-2W5XDO", "err-20260812T142902-E6Z7KS"]
+}

@@ -1,0 +1,59 @@
+{
+  "id": "eval-20260822T234525-8GAZZ1",
+  "agent_id": "a8f26d4554670d7ef",
+  "type": "agent",
+  "name": "claude",
+  "agent": "claude",
+  "session_id": "session-2026-08-21-121818",
+  "trigger": "unknown",
+  "started": "2026-08-22T23:45:25.893222Z",
+  "completed": "2026-08-22T23:46:45.508537Z",
+  "duration_seconds": 79.62,
+  "status": "aborted",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": false,
+      "all_steps_finished": true,
+      "tool_failures": 1,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/8c94a4ce-c06e-41b5-adcb-cbccf35ca0d2/subagents/agent-a8f26d4554670d7ef.jsonl",
+  "last_assistant_message": "result: Boot workflow executed successfully through all 9 steps with eval record ID `eval-20260822T133821-X2Y9R2`. All phases completed: context load, data gather, verification, meeting context, briefing synthesis, workflow scan, guardrail checkpoint (passed), and completion verification. Knox plaud-ingest spawned as background task. 24 calendar events pulled and verified fresh. Boot marked complete.",
+  "model": "haiku",
+  "total_tokens_input": 1243132,
+  "total_tokens_output": 34,
+  "total_cost_usd": 0.198735
+}

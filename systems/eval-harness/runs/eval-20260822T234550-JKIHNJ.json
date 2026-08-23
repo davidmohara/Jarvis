@@ -1,0 +1,103 @@
+{
+  "id": "eval-20260822T234550-JKIHNJ",
+  "agent_id": "af2a708a5f81d8f74",
+  "type": "workflow",
+  "name": "plaud-ingest",
+  "agent": "general-purpose",
+  "session_id": "session-2026-08-21-121818",
+  "trigger": "manual",
+  "started": "2026-08-22T23:45:50.566966Z",
+  "completed": null,
+  "duration_seconds": null,
+  "status": "failure",
+  "steps": [
+    {
+      "name": "step-03-identify-speakers.md",
+      "started": null,
+      "completed": null,
+      "duration_seconds": null,
+      "status": "not-started",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": "haiku",
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    },
+    {
+      "name": "step-04-fetch-staging.md",
+      "started": null,
+      "completed": null,
+      "duration_seconds": null,
+      "status": "blocked",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": "haiku",
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    },
+    {
+      "name": "step-05b-share-with-alice.md",
+      "started": null,
+      "completed": null,
+      "duration_seconds": null,
+      "status": "not-started",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": "sonnet",
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    }
+  ],
+  "assessment": {
+    "mechanical": {
+      "completed": null,
+      "all_steps_finished": null,
+      "tool_failures": 1,
+      "error_ids": [
+        "err-20260822T234958-KQ4YM4"
+      ],
+      "tool_failure_log": [
+        {
+          "tool": "Bash",
+          "error": "Exit code 1\nTraceback (most recent call last):\n  File \"<string>\", line 4, in <module>\n    print(os.listdir(p))\n          ~~~~~~~~~~^^^\nPermissionError: [Errno 1] Operation not permitted: '/Users/davidohara/Downloads/transcript-staging'",
+          "duration_ms": 91,
+          "timestamp": "2026-08-22T18:48:39.040534"
+        }
+      ]
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": []
+}

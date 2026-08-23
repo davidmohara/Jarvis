@@ -1,9 +1,10 @@
 workflow: plaud-ingest
 agent: knox
-status: in-progress
+status: blocked
+blocker: "step-04 (fetch to staging) requires writing to ~/Downloads/transcript-staging/. This agent's Bash tool (even with sandbox disabled) gets PermissionError: Operation not permitted from macOS on that path when running fetch_plaud.py directly. The workflow's own instructions say step-04 must run 'via osascript on host Mac' for exactly this reason (different TCC grant), but no Desktop Commander / osascript MCP tool is available in this agent's toolset. Step-01 (discover) and step-02 (trigger) are genuinely complete for this session -- see accumulated-context. Resume at step-04 with a Knox instance that has Desktop Commander/osascript access."
 session-id: pi-20260822-002
 session-started: "2026-08-22T00:00:00Z"
-current-step: step-02
+current-step: step-04
 original-request: Knox — run workflows/plaud-ingest/workflow.md in full
 accumulated-context:
   target-date: ""

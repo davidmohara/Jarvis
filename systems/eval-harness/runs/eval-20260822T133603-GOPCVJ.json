@@ -14,7 +14,7 @@
     "mechanical": {
       "completed": null,
       "all_steps_finished": false,
-      "tool_failures": 2,
+      "tool_failures": 3,
       "error_ids": [],
       "tool_failure_log": [
         {
@@ -28,6 +28,12 @@
           "error": "Exit code 1\n(eval):2: read-only variable: status",
           "duration_ms": 35,
           "timestamp": "2026-08-22T18:42:42.259488"
+        },
+        {
+          "tool": "Bash",
+          "error": "Exit code 1\n\u2554\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2557\n\u2551                       BOOT WORKFLOW \u2014 PRODUCTION RUN FINAL METRICS                       \u2551\n\u255a\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u255d\n\n\u2713 Status: in-progress\nTraceback (most recent call last):\n  File \"<stdin>\", line 14, in <module>\nTypeError: unsupported format string passed to NoneType.__format__",
+          "duration_ms": 71,
+          "timestamp": "2026-08-22T18:51:04.950900"
         }
       ]
     },
