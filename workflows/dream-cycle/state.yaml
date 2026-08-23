@@ -1,73 +1,58 @@
 workflow: dream-cycle
 agent: jarvis
-status: complete
-session-started: 2026-08-14T03:09:39-05:00
-session-id: dream-cycle-2026-08-14-030939
+status: not-started
+session-started: null
+session-id: null
 current-step: null
-original-request: Scheduled dream cycle run (automated) - 2026-08-14
-accumulated-context:
-  git_pull_at_boot: success
-  git_pull_note: "Already up to date"
-  working_archived: 6
-  working_deleted: 0
-  working_skipped: 29
-  working_stranded: 0
-  enrichment_method: "heuristic (inline — no LLM subprocess)"
-  archived_files:
-    - 2026-08-11-120000-knox-plaud-speaker-id-complete.md
-    - daily-review-2026-08-11-211149.md
-    - dream-summary-2026-08-12.md
-    - morning-briefing-2026-08-11-061244.md
-    - plaud-ingest-2026-08-11-163500.md
-    - plaud-ingest-2026-08-11-170000.md
-  skipped_unparseable:
-    - 2026-07-08.md
-    - 2026-07-23-215200-session-felix-derek-persona-rebuild.md
-    - 2026-08-05-magline-call-prep.md
-    - 2026-08-12-graph-memory-spec-working.md
-    - golf-booking-2026-07-10-failed.md
-    - golf-booking-2026-07-11-followup.md
-    - golf-booking-COMPLETE-20260801.md
-    - golf-booking-early-run-20260730.md
-    - golf-booking-failure-20260731.md
-    - golf-booking-midnight-retry-20260801.md
-    - golf-booking-scheduling-update-20260801.md
-    - golf-booking-success-20260801.md
-    - golf-override-2026-07-14.md
-    - golf-preview-2026-07-03.md
-    - golf-preview-2026-07-14.md
-    - golf-preview-2026-07-21.md
-    - slack-notification-golf-booking-20260801.txt
-  skipped_no_expires:
-    - 2026-07-30-morning-briefing.md
-    - 2026-08-11-plaud-ingest-correction.md
-    - golf-preview-2026-08-04.md
-    - remarkable-upload-2026-07-23-improve-eval.md
-    - sc-executive-brief-2026-07-13.md
-    - solace-meeting-prep-2026-07-27.md
-  episodic_scanned: 275
-  score_updates: 275
-  window_entries: 92
-  no_date: 27
-  no_tags: 195
-  score_distribution: "0:195,2:3,3:3,4:1,5:2,6:2,7:5,8:2,9:3,10:59"
-  skipped_not_expired:
-    - daily-review-2026-08-12-000000.md
-    - daily-review-2026-08-13-000000.md
-    - dream-summary-2026-08-13.md
-    - morning-briefing-2026-08-12-060934.md
-    - morning-briefing-2026-08-13-061500.md
-    - shutdown-cleanup-2026-08-12-175500.md
-prior-run-context:
-  session_id: dream-cycle-2026-08-13-030941
-  working_archived: 5
-  working_deleted: 0
-  episodic_scanned: 269
-  score_updates: 269
-  clusters_found: 4
-  semantic_created: 0
-  semantic_updated: 4
-  promoted_entries: 5
-  entries_compressed: 0
-  digests_updated: 0
-  errors: 0
+original-request: null
+accumulated-context: {}
+guardrails:
+  archival_history: []
+  promotion_history: []
+  compression_history: []
+  archive_safety:
+    spot_check_passed: null
+    recent_edits_archived: 0
+    recently_modified_files: []
+  archival_balance:
+    archival_rate: 0
+    avg_rate_30d: 0
+    balance_check: "pending"
+  score_distribution:
+    pct_score_0: 0
+    pct_score_10: 0
+    distribution_check: "pending"
+    controller_decision: null
+  metadata_quality:
+    pct_no_date: 0
+    pct_no_tags: 0
+    metadata_check: "pending"
+    audit_notes: null
+  promotion_threshold:
+    threshold: 7
+    candidates_found: 0
+    promoted: 0
+    last_4_cycles_promoted: 0
+    threshold_check: "pending"
+    controller_decision: null
+  semantic_duplication:
+    exact_duplicates_skipped: 0
+    possible_duplicates_flagged: 0
+    consolidation_candidates: 0
+    deduplication_check: "pending"
+  compression_threshold:
+    last_12_cycles_candidates: 0
+    last_12_cycles_compressed: 0
+    avg_per_cycle: 0
+    threshold_check: "pending"
+    controller_decision: null
+  compression_preview:
+    preview_shown: false
+    controller_approved: false
+  git_atomicity:
+    pre_commit_check: "pending"
+    dream_log_valid: false
+    state_file_valid: false
+    commit_status: "pending"
+    push_status: "pending"
+    atomicity_check: "pending"

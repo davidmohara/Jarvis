@@ -32,6 +32,43 @@ outputs:
 5. Error pattern check is mandatory — do not skip even if promotion count is zero.
 6. Update `state.yaml` current-step before moving to the next step — every time, no exceptions.
 
+## GUARDRAIL 5: PROMOTION THRESHOLD
+
+Before and after promotion, monitor threshold health across cycles:
+
+1. **Load history:** Read `state.yaml.guardrails.promotion_history` (last 12 cycles)
+2. **Record this cycle:** `{date, promoted: N, candidates_found: M}`
+3. **Analyze trends:**
+   - If last 4 cycles all have `promoted == 0 AND candidates_found > 0`: ESCALATE — "No promotions but candidates exist. Threshold too high? Consider lowering from 3 to 2."
+   - If last 4 cycles all have `promoted == 0 AND candidates_found == 0`: LOG — "No candidates found (normal equilibrium if semantic memory complete)."
+   - If promoted count > 50 in 4 cycles: LOG — "Active promotion cycle. Semantic memory growing."
+4. **Record result:** `promotion_threshold_check: "pass"` or `"escalated"`, `last_4_cycles_promoted: {sum}`
+
+## GUARDRAIL 6: SEMANTIC DEDUPLICATION
+
+Before promoting any entry to semantic memory, check for duplicates:
+
+1. **ID-based deduplication:**
+   - For each candidate, check if ID already exists in `memory/semantic/*/`
+   - If found: LOG "Duplicate detected: {id} already promoted. Skip."
+   - Remove from promotion queue
+
+2. **Title-similarity deduplication:**
+   - For each candidate, compare title to all existing semantic entries
+   - If similarity >= 80%: LOG "Possible duplicate: candidate vs. existing entry"
+   - Add to review list for manual consolidation
+
+3. **Tag overlap detection:**
+   - If candidate shares 3+ tags with existing semantic entry AND title similarity >= 70%:
+   - LOG "Semantic cluster overlap. Consider consolidating instead of separate promotions."
+   - Add to consolidation queue
+
+4. **Record deduplication results:**
+   - `exact_duplicates_skipped: {count}`
+   - `possible_duplicates_flagged: {count}`
+   - `consolidation_candidates: {count}`
+   - `deduplication_check: "pass"`
+
 ## EXECUTION PROTOCOL
 
 | Field | Value |

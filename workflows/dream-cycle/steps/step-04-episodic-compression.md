@@ -20,6 +20,35 @@ outputs:
 5. Never compress entries with `salience.score >= 2`.
 6. Update `state.yaml` current-step before moving to the next step — every time, no exceptions.
 
+## GUARDRAIL 7: COMPRESSION THRESHOLD & PREVIEW
+
+Before compressing any entries, monitor thresholds and get controller approval:
+
+1. **Load compression history:** Read `state.yaml.guardrails.compression_history` (last 12 cycles)
+2. **Record this cycle:** `{date, candidates_found: N, compressed: 0 (will update after preview)}`
+3. **Analyze for drift:**
+   - If last 12 cycles have `candidates_found > 0 BUT compressed == 0`: ESCALATE — "No compressions in 12 cycles. Threshold too high? Consider lowering age (>60d) or score (<3)."
+   - If candidates_found > 100: LOG — "Large compression batch. Preview before proceeding."
+
+4. **Show preview to controller (if candidates >= 5):**
+   ```
+   About to compress {candidates_found} entries into quarterly digests.
+   Preview (oldest first, first 10 shown):
+   - {date}: {title} [score={score}]
+   - {date}: {title} [score={score}]
+   ...
+   
+   These will be summarized into digests and removed from episodic/.
+   Approve? (y/n)
+   ```
+   Wait for controller approval before proceeding.
+
+5. **Record compression threshold result:**
+   - `compression_threshold_check: "pass"`
+   - `preview_shown: {bool}`
+   - `controller_approved: {bool}`
+   - Update history with final compressed count after compression completes
+
 ## EXECUTION PROTOCOL
 
 | Field | Value |

@@ -21,6 +21,66 @@ outputs:
 4. Commit and push all changes — this is not optional. A dream cycle that does not push has not finished.
 5. If the git push fails, log the failure but do not set `status: not-started` — the run completed. Surface the push failure to the controller.
 
+## GUARDRAIL 8: GIT ATOMICITY
+
+Before and after git operations, verify state consistency to prevent partial commits:
+
+### Pre-Commit Verification
+
+1. **State file integrity:**
+   - Read `memory/dream.log` — verify last entry is parseable and complete
+   - Read `state.yaml` — verify valid YAML with all step results (01-05)
+   - If any file is corrupted: ABORT git operations, set `status: needs-manual-review`, surface error to controller
+
+2. **Dream log entry ready:**
+   - Verify entry string prepared with all fields (counts, summary, errors)
+   - Confirm formatting valid (markdown/YAML)
+   - If malformed: ABORT git, set `status: needs-manual-review`
+
+3. **Accumulated context complete:**
+   - Verify `state.yaml.accumulated-context` has results from all 5 steps
+   - Check guardrail metrics present (from all 8 guardrails)
+   - If incomplete: ABORT git, set `status: needs-manual-review`
+
+If all checks PASS:
+   LOG: "✓ Pre-commit checks passed. State valid. Ready for git."
+
+### Git Operations
+
+4. **Execute session-end commit protocol** (via Desktop Commander, per skills/git/SKILL.md):
+   - `git add -A` (stage all changes)
+   - `git commit -m "chore(memory): dream-cycle {YYYY-MM-DD} — archived {N}, promoted {M}, compressed {P}"`
+   - Verify commit succeeded (no errors)
+   - If commit fails: LOG ERROR, set `status: needs-git-push`, STOP (do not attempt push)
+
+5. **Execute git push:**
+   - `git push origin main` (via Desktop Commander)
+   - Verify push succeeded (fast-forward or up-to-date)
+   - If push fails: LOG ERROR, set `status: needs-git-push`, CONTINUE (commit ok, push pending)
+
+### Post-Commit Verification
+
+6. **Verify consistency:**
+   - Check that dream.log last entry matches state.yaml.session-id (within 5 minutes)
+   - If mismatch: LOG ERROR "dream.log and state.yaml out of sync!"
+   - Confirm no uncommitted changes remain (`git status` shows clean)
+   - If uncommitted files exist: LOG WARNING "Uncommitted changes remain: {list}"
+
+7. **Record atomicity status:**
+   - `git_atomicity.pre_commit_check: "pass"`
+   - `git_atomicity.commit_status: "success"` or `"failed"`
+   - `git_atomicity.push_status: "success"` or `"pending"` or `"failed"`
+   - `git_atomicity.atomicity_check: "pass"` (all succeeded) or `"partial"` (commit ok, push pending) or `"failed"`
+
+### Recovery Paths
+
+| Failure | Status | Recovery |
+|---------|--------|----------|
+| Pre-commit check fails | needs-manual-review | User manually reviews state files |
+| Commit fails | needs-git-push | Retry `git commit` manually |
+| Push fails after commit | needs-git-push | Retry `git push` manually |
+| All succeed | complete | Workflow done |
+
 ## EXECUTION PROTOCOL
 
 | Field | Value |

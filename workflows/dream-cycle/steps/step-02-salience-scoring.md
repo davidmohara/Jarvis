@@ -23,6 +23,40 @@ outputs:
 5. "Last 30 days" is calculated from today's date, inclusive.
 6. **MERGE the salience block — never replace it.** The write must preserve any existing `salience.promoted: true` field. Replacing the block wholesale silently drops `promoted: true` and causes every promoted entry to re-appear as a fresh candidate in step-03 the next cycle. Use `systems/dream-cycle/salience-score.py` — it implements the correct merge-write. Do NOT write an ad-hoc scoring loop inline.
 
+## GUARDRAIL 3: SCORE DISTRIBUTION
+
+After scoring all entries, analyze the distribution for anomalies:
+
+1. **Calculate percentages:**
+   - `pct_score_0 = (count_at_0 / total_scored) * 100`
+   - `pct_score_10 = (count_at_10 / total_scored) * 100`
+
+2. **Check for broken scoring:**
+   - If `pct_score_0 >= 70`: ESCALATE — "Too many zero-score entries. Is scoring broken? Check tagging strategy."
+   - If `pct_score_10 == 0 AND total_scored > 50`: ESCALATE — "No high-salience entries. Unusual pattern."
+
+3. **Log distribution result:**
+   - Record `score_distribution` (example: "0:206,1:2,2:5,...,10:51")
+   - Record `distribution_check: "pass"` or `"escalated"`
+
+## GUARDRAIL 4: METADATA QUALITY
+
+During scoring, audit entry metadata:
+
+1. **Track missing fields:**
+   - Count entries with no `date` field
+   - Count entries with no `tags` field
+
+2. **Check for quality gaps:**
+   - If `pct_no_date > 10`: ESCALATE — "High % of undated entries breaks recency scoring."
+   - If `pct_no_tags >= 70 AND pct_no_tags < 100`: LOG WARNING — "Most entries untagged (expected for recently archived). Monitor for drift."
+   - If `pct_no_tags > 30 AND pct_no_tags < 70`: LOG WARNING — "Unusual tag coverage. Review tagging patterns."
+
+3. **Record audit results:**
+   - `no_date: {count}`, `no_tags: {count}`
+   - `metadata_check: "pass"` or `"warning"` or `"escalated"`
+   - If escalated, include sample of affected entries in log
+
 ## EXECUTION PROTOCOL
 
 | Field | Value |

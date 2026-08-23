@@ -45,6 +45,30 @@ outputs:
 8. Do NOT attempt `rm` on non-trivial files at any point. The only delete target is trivial-body files, and if that delete fails, fall back to leaving the file in place with `status: archived` — do not lose data.
 9. **Enrichment is required for non-trivial archives.** Before mutating to `working-archive`, derive `date`, `tags`, `source_file`, and `related_people` from the file's frontmatter and body. The dream cycle's salience scoring depends on these fields; without them step-02 collapses to zero scores and step-03 finds zero promotion candidates. This was the proximate cause of the 2026-05-08 → 2026-06-09 tag-starvation gap.
 
+## GUARDRAIL 1: ARCHIVE SAFETY
+
+Before archiving any entries, run pre-flight verification:
+
+1. **Evaluate all files** to identify archive candidates (expires < today, status: active)
+2. **Spot-check sample:** Show controller 3 random files from archive list with:
+   - expires date
+   - modified timestamp
+   - Whether recently edited (modified in last 24h)
+3. **Controller approves:** "Archive these? (y/n)" — proceed only on approval
+4. **Flag recently modified:** If modified_date > (now - 24h), note in log: "Recently edited. Archived anyway."
+
+## GUARDRAIL 2: ARCHIVAL BALANCE
+
+After archival completes, monitor rate trends:
+
+1. **Load history:** Read `state.yaml.guardrails.archival_history` (last 30 cycles)
+2. **Calculate rate:** `archival_rate = archived_count / days_since_last_cycle`
+3. **Compare to average:** 30-day average archival rate
+4. **Check for anomalies:**
+   - If rate > (average + 2*stddev): ESCALATE — "High archival rate. Normal?"
+   - If archived_count == 0 AND last 3 cycles all == 0: ESCALATE — "No archival in 3 cycles. Check expires fields."
+5. **Record in state:** `guardrails.archival_balance.archival_rate`, `avg_rate_30d`, `balance_check: "pass"` or `"escalated"`
+
 ## EXECUTION PROTOCOL
 
 | Field | Value |
