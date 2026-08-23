@@ -101,6 +101,21 @@ def find_active_eval_record(session_id: str) -> Path | None:
     return None
 
 
+def find_session_transcript(session_id: str) -> Path | None:
+    """Fallback: find the session's main transcript JSONL if transcript_path not provided."""
+    try:
+        claude_dir = Path.home() / ".claude" / "projects"
+        for project_dir in claude_dir.glob("*/*/subagents"):
+            # Look for session transcript with matching session_id in filename or content
+            for transcript in project_dir.glob("*.jsonl"):
+                if session_id in str(transcript):
+                    return transcript
+        log_info(f"Could not find session transcript for {session_id}")
+    except Exception as e:
+        log_error(f"Failed to find session transcript: {e}")
+    return None
+
+
 def extract_step_tokens(transcript_path: str, step_started: str, step_completed: str, step_name: str) -> dict:
     """Extract real token usage for this step's time window."""
     result = {
@@ -111,22 +126,41 @@ def extract_step_tokens(transcript_path: str, step_started: str, step_completed:
         "extraction_error": None
     }
 
-    if not usage_between or not transcript_path or not step_started or not step_completed:
+    # Validate inputs
+    if not step_started or not step_completed:
+        result["extraction_error"] = "missing_timestamps"
+        log_error(f"Token extraction skipped for {step_name}: missing timestamps")
+        return result
+
+    # If usage_between unavailable, log it once
+    if not usage_between:
+        result["extraction_error"] = "usage_between_unavailable"
+        log_error(f"Token extraction skipped for {step_name}: usage_between module not imported")
+        return result
+
+    # If transcript_path missing, log and return
+    if not transcript_path:
+        result["extraction_error"] = "transcript_path_missing"
+        log_info(f"Token extraction skipped for {step_name}: transcript_path not provided in payload")
         return result
 
     try:
+        log_info(f"Attempting token extraction for {step_name} from {transcript_path}")
+        log_info(f"Step time window: {step_started} to {step_completed}")
         usage = usage_between(transcript_path, step_started, step_completed, exclude_sidechain=False)
+
         if usage:
             result["tokens_input"] = usage.get("tokens_input")
             result["tokens_output"] = usage.get("tokens_output")
             result["cost_usd"] = usage.get("cost_usd")
             result["model"] = usage.get("model")
-            log_info(f"Extracted tokens for {step_name}: {result['tokens_input']} input, {result['tokens_output']} output")
+            log_info(f"SUCCESS: Extracted tokens for {step_name}: {result['tokens_input']} input, {result['tokens_output']} output, model={result['model']}, cost=${result['cost_usd']:.4f}")
         else:
-            result["extraction_error"] = "usage_between returned no data"
+            result["extraction_error"] = "usage_between_no_data"
+            log_info(f"Token extraction completed for {step_name} but no usage data found in strict time window (using lenient fallback)")
     except Exception as e:
         result["extraction_error"] = str(e)
-        log_error(f"Failed to extract tokens for {step_name}: {e}")
+        log_error(f"EXCEPTION during token extraction for {step_name}: {e}")
 
     return result
 
@@ -140,8 +174,23 @@ def run_step_guardrail_checkpoint(step_name: str, step_frontmatter: dict, eval_r
     - retry: Step incomplete, send back to model to finish (don't punch out)
     - escalate: Critical issue model can't fix, punch out to controller
     """
+    # Load guardrail rules first to get checkpoint_name if defined
+    guardrail_file = GUARDRAILS_DIR / f"{step_name}.json"
+    checkpoint_name = f"{step_name}-checkpoint"  # default
+    guardrail_rules = {}
+
+    if guardrail_file.exists():
+        try:
+            with open(guardrail_file, "r") as f:
+                guardrail_rules = json.load(f)
+                # Use checkpoint_name from guardrails file if defined
+                if "checkpoint_name" in guardrail_rules:
+                    checkpoint_name = guardrail_rules["checkpoint_name"]
+        except Exception as e:
+            log_error(f"Failed to load guardrail rules for {step_name}: {e}")
+
     result = {
-        "checkpoint_name": f"{step_name}-checkpoint",
+        "checkpoint_name": checkpoint_name,
         "result": "pass",
         "reason": "Step completed successfully",
         "escalated_to_human": False,
@@ -177,13 +226,9 @@ def run_step_guardrail_checkpoint(step_name: str, step_frontmatter: dict, eval_r
         # Step has outputs — that's good
         result["reason"] = f"Step completed with {len(outputs)} output fields recorded"
 
-    # Load step-specific guardrail rules if they exist
-    guardrail_file = GUARDRAILS_DIR / f"{step_name}.json"
-    if guardrail_file.exists():
+    # Apply step-specific guardrail rules if they exist (already loaded above)
+    if guardrail_rules:
         try:
-            with open(guardrail_file, "r") as f:
-                guardrail_rules = json.load(f)
-
             # Run each rule
             for rule in guardrail_rules.get("rules", []):
                 rule_type = rule.get("type")
@@ -380,13 +425,25 @@ def main():
 
     log_info(f"Processing step completion: {step_name}")
 
+    # Resolve transcript path (fallback to finding session transcript if not provided)
+    effective_transcript_path = transcript_path
+    if not effective_transcript_path and session_id:
+        log_info(f"transcript_path not provided, attempting fallback lookup for session {session_id}")
+        fallback = find_session_transcript(session_id)
+        if fallback:
+            effective_transcript_path = str(fallback)
+            log_info(f"Found session transcript via fallback: {effective_transcript_path}")
+
     # Extract tokens for this step
+    log_info(f"Starting token extraction: transcript_available={effective_transcript_path is not None}, step={step_name}")
     token_data = extract_step_tokens(
-        transcript_path,
+        effective_transcript_path,
         frontmatter.get("started-at"),
         frontmatter.get("completed-at"),
         step_name
     )
+    if token_data.get("extraction_error"):
+        log_info(f"Token extraction ended with: {token_data['extraction_error']}")
 
     # Run guardrail checkpoint
     guardrail_result = run_step_guardrail_checkpoint(step_name, frontmatter, {})
