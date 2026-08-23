@@ -1,0 +1,275 @@
+{
+  "date": "2026-08-23",
+  "generated": "2026-08-23T00:00:00Z",
+  "window_hours": 72,
+  "sources_used": ["msnbc", "cnn", "nbc", "thehill", "axios", "dailybeast", "slate", "newrepublic", "foxnews", "natreview", "examiner", "federalist", "dailywire", "breitbart", "townhall", "rcp", "amconserv", "spectator", "freepress"],
+  "sources_muted": [
+    {"name": "New York Times", "lean": "left", "reason": "paywalled / not crawler-accessible"},
+    {"name": "Washington Post", "lean": "left", "reason": "paywalled / not crawler-accessible"},
+    {"name": "Politico", "lean": "left", "reason": "not crawler-accessible"},
+    {"name": "Vox Politics", "lean": "left", "reason": "not crawler-accessible"},
+    {"name": "Mother Jones", "lean": "left", "reason": "not crawler-accessible"},
+    {"name": "WSJ Opinion", "lean": "right", "reason": "paywalled / not crawler-accessible"},
+    {"name": "New York Post", "lean": "right", "reason": "not crawler-accessible"},
+    {"name": "Reuters Politics", "lean": "center", "reason": "not crawler-accessible"},
+    {"name": "Associated Press", "lean": "center", "reason": "not crawler-accessible"},
+    {"name": "BBC US & Canada", "lean": "center", "reason": "not crawler-accessible"}
+  ],
+  "counts": {
+    "total_items": 60,
+    "by_lean": { "left": 28, "right": 30, "center": 2 },
+    "shared_topics": 5,
+    "gap_left": 5,
+    "gap_right": 5
+  },
+  "shared_topics": [
+    {
+      "title": "2026 Primary Results: DSA Wins and Losses, Florida / Alaska / Wyoming",
+      "topic_key": "2026-primaries-dsa-florida-alaska-wyoming",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "summary": "A mixed primary night reshaped the 2026 midterm map. In Florida, Rep. Byron Donalds (R) won the GOP governor primary and will face Democrat David Jolly; DSA-backed Angie Nixon won the Democratic Senate primary, defeating national-Democrat recruit Alex Vindman 56-44. In Wyoming, Trump-backed Rep. Harriet Hageman won the open Senate seat GOP primary decisively. In Alaska, Democrat Mary Peltola led Sen. Dan Sullivan in the nonpartisan primary, a positive signal for Senate Democrats. In California's CA-14, Democrat Aisha Wahab won the Swalwell special election runoff despite heavy AIPAC spending against her.",
+      "left": {
+        "framing": "Results were a mixed bag for Trump's endorsements, with several preferred candidates losing. Peltola's lead in Alaska is portrayed as an early warning sign for Senate Republicans. Wahab's win over AIPAC-backed opposition is framed as a grassroots victory. Nixon's win is presented as a reflection of working-class energy in the Democratic base.",
+        "sources": [
+          {"name": "CNN Politics", "url": "https://www.cnn.com/2026/08/18/politics/takeaways-florida-alaska-primaries"},
+          {"name": "NBC News", "url": "https://www.nbcnews.com/politics/2026-election/live-blog/elections-florida-governor-house-senate-alaska-primaries-live-updates-rcna593016"},
+          {"name": "The Hill", "url": "https://thehill.com/newsletters/whole-hog-politics/6042216-peltola-leads-alaska-nonpartisan-primary/"}
+        ]
+      },
+      "right": {
+        "framing": "Nixon's win is alarming — she ran on abolishing ICE and amnesty. Donalds' win is a conservative success story. DSA losses (Larkin lost FL-25 by 30 points; Crowley beat Hong in WI) are played up as evidence that socialism can't win general elections. El-Sayed's win in Michigan is framed as a threat requiring aggressive GOP counter-messaging.",
+        "sources": [
+          {"name": "Fox News", "url": "https://www.foxnews.com/politics/socialists-capture-major-florida-victory-hit-miss-night-trump-endorsed-primary-candidates"},
+          {"name": "The Daily Wire", "url": "https://www.dailywire.com/news/byron-donalds-cruises-to-victory-in-fight-to-succeed-desantis-as-florida-governor"},
+          {"name": "Breitbart", "url": "https://www.breitbart.com/politics/2026/08/19/floridas-socialist-senate-candidate-angie-nixon-campaigns-on-abolishing-ice-granting-swift-amnesty/"}
+        ]
+      },
+      "correlation": 55,
+      "correlation_label": "Both sides cover the same elections but diverge sharply on what the results mean: left sees warning signs for Trump, right focuses on socialist threat to the general electorate."
+    },
+    {
+      "title": "Iran War: Trump Economic Warfare Threat, Strait of Hormuz Stalemate",
+      "topic_key": "iran-war-economic-warfare-hormuz-sanctions-aug23",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "summary": "The US-Iran conflict entered an economic warfare phase after Trump announced what he called 'the most crushing economic operation ever taken against any country.' Iran rejected the threat as unlawful, warned of devastating response, and its IRGC threatened more destructive weapons. The Strait of Hormuz remains partially closed; Iran is negotiating a deal through Oman but demands US military withdrawal and compensation as preconditions. Gas prices averaged $4.11 nationally, up nearly $1 from a year ago. Trump said no diplomatic talks are underway or scheduled.",
+      "left": {
+        "framing": "The Iran war is portrayed as a diplomatic failure and political liability. Trump's foreign policy is 'missing' — strained relations with Oman, South Korea, and NATO allies are accumulating. Rising gas prices are directly tied to the administration's inability to negotiate. The human cost of extended conflict is emphasized.",
+        "sources": [
+          {"name": "CNN", "url": "https://www.cnn.com/2026/08/20/world/live-news/iran-war-trump"},
+          {"name": "CNN Politics", "url": "https://www.cnn.com/2026/08/18/politics/trump-iran-war-south-korea-oman-strait-of-hormuz"},
+          {"name": "The American Conservative", "url": "https://www.theamericanconservative.com/the-iran-war-roils-uk-politics/"}
+        ]
+      },
+      "right": {
+        "framing": "Iran is framed as a rogue nuclear threat — Trump's 'crazy Iran' warning is supported. The economic pressure campaign is presented as the correct strategic tool, with Vance's 'delicate dance' framing. Fox focuses on Iran's provocations and nuclear danger rather than US diplomatic failures.",
+        "sources": [
+          {"name": "Fox News", "url": "https://www.foxnews.com/live-news/iran-war-trump-economic-warfare-strait-hormuz-08-20-26"},
+          {"name": "Fox News Live", "url": "https://www.foxnews.com/live-news/iran-war-trump-economic-sanctions-strait-hormuz-oil-08-21-26"}
+        ]
+      },
+      "correlation": 38,
+      "correlation_label": "Sharply divergent narratives: left frames the war as a policy failure driving domestic economic pain; right frames it as necessary deterrence against a nuclear-armed rogue state."
+    },
+    {
+      "title": "Economy: Job Losses, Stubborn Inflation, Real Wage Decline",
+      "topic_key": "economy-jobs-loss-inflation-wage-squeeze-aug23",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "summary": "The July jobs report showed a net loss of 23,000 jobs, and August CPI came in at a 3.4-3.5% annual rate with monthly gains of 0.4%. Real wages fell 0.1% in August after inflation, meaning workers' earnings were effectively eroded. The Fed is expected to cut rates at its upcoming meeting. Gas prices remain elevated above $4 nationally, partly driven by the Iran war's disruption to oil markets. Polls show 53% of voters say they're financially worse off than under Biden.",
+      "left": {
+        "framing": "The economic data is presented as evidence of Trump-era mismanagement. The job losses and real wage decline are highlighted as a political liability. The connection between the Iran war and elevated gas prices is explicitly drawn. Cost of living is framed as voters' top concern driving midterm dynamics.",
+        "sources": [
+          {"name": "CNN Business", "url": "https://www.cnn.com/2026/08/07/economy/us-jobs-report-july"},
+          {"name": "NBC News", "url": "https://www.nbcnews.com/business/economy/inflation-cpi-report-august-rcna230557"},
+          {"name": "The Daily Beast", "url": "https://www.thedailybeast.com/damning-new-poll-finds-voters-worse-off-under-trump/"}
+        ]
+      },
+      "right": {
+        "framing": "Right-leaning outlets acknowledge economic softness but tend to contextualize it: inflation at 3.4% is far below 2022's 9%. The Washington Examiner notes the Fed may still cut rates. Fox frames the economic pain as a political opportunity for Democrats but also notes Trump's own economic approval issues. The debt hitting $40 trillion is highlighted as a structural concern.",
+        "sources": [
+          {"name": "Washington Examiner", "url": "https://www.washingtonexaminer.com/policy/finance-and-economy/4681972/fed-rate-hikes-likely-weakening-jobs-outlook-inflation-unemployment/"},
+          {"name": "Fox News", "url": "https://www.foxnews.com/politics/fox-news-power-rankings-voters-say-theyre-economic-pain-democrats-gain"},
+          {"name": "The Daily Wire", "url": "https://www.dailywire.com/episode/mrn-260821"}
+        ]
+      },
+      "correlation": 62,
+      "correlation_label": "Both sides acknowledge economic softness; they diverge on cause (Iran war / Trump policy vs. structural factors) and severity of the political damage."
+    },
+    {
+      "title": "Trump Approval at Historic Lows: 32-34%",
+      "topic_key": "trump-approval-historic-low-32-34-aug23",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "summary": "Multiple polls — YouGov/Economist (33%), Reuters/Ipsos (33%), Quinnipiac (32%) — converged on Trump approval in the low-30s. His economic approval sits 3 points below Biden's worst marks. Fox's own power rankings show cost of living driving voter defection. Undecided voters in Iowa and Georgia, many of whom voted for Trump in 2024, cite high costs as their primary concern. Democrats lead in prediction markets for House control (83-86%), with the Senate remaining closer.",
+      "left": {
+        "framing": "Historic low approval is framed as voter repudiation of the Iran war, inflation, and Medicaid cuts. The Cook Political Report shifting Texas to toss-up is highlighted. Trump's losing streak in endorsed races is tied to his unpopularity. The theme: voters — including his own — feel worse off.",
+        "sources": [
+          {"name": "The Hill", "url": "https://thehill.com/homenews/administration/6024533-donald-trump-approval-rating-sours-economist-yougov/"},
+          {"name": "The Daily Beast", "url": "https://www.thedailybeast.com/damning-new-poll-finds-voters-worse-off-under-trump/"},
+          {"name": "NBC News", "url": "https://www.nbcnews.com/politics/politics-news/s-animating-undecided-voters-two-key-states-politics-desk-rcna593624"}
+        ]
+      },
+      "right": {
+        "framing": "Fox acknowledges the polling but frames it as a window for Democrats to exploit — not necessarily a permanent shift. The Examiner notes Republicans are getting a 'glimmer of hope' from redistricting gains. RCP presents the approval data neutrally; RCP analyst commentary warns that Democrats swinging left could give Republicans a path back.",
+        "sources": [
+          {"name": "Fox News", "url": "https://www.foxnews.com/politics/fox-news-power-rankings-voters-say-theyre-economic-pain-democrats-gain"},
+          {"name": "Washington Examiner", "url": "https://www.washingtonexaminer.com/news/campaigns/congressional/4673621/midterm-countdown-august-2026/"},
+          {"name": "RealClearPolitics", "url": "https://www.realclearpolitics.com/video/2026/08/08/david_brooks_democrats_swinging_left_is_political_suicide_times_10.html"}
+        ]
+      },
+      "correlation": 68,
+      "correlation_label": "Both sides acknowledge the same polling data; they diverge on whether it reflects a durable political realignment or a midterm headwind that Republicans can overcome."
+    },
+    {
+      "title": "Immigration: Federal Judge Strikes Down 75-Country Visa Ban; ICE Expansion Continues",
+      "topic_key": "immigration-visa-ban-struck-down-ice-tps-aug23",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "summary": "A federal judge struck down the Trump administration's suspension of immigrant visas for nationals of 75 countries, ruling it exceeded the State Department's authority. Separately, the administration faces a 7.5-million-person backlog in legal immigration applications — the highest ever — while ICE expanded its enforcement capacity. Sen. Jim Banks is pushing Congress to codify Trump's immigration priorities before a potential Democratic administration can reverse them. The administration has also accelerated the rerouting of asylum cases into deportation proceedings.",
+      "left": {
+        "framing": "Courts are acting as a check on overreach. The 75-country ban is framed as discriminatory and legally unsound. The asylum-to-deportation pipeline and TPS endings are covered as humanitarian concerns. CNN and Slate emphasize the legal setbacks to the administration's agenda.",
+        "sources": [
+          {"name": "CNN Politics", "url": "https://www.cnn.com/2026/08/22/politics/judge-voids-trumps-75-country-visa-ban-hnk"},
+          {"name": "Slate", "url": "https://slate.com/news-and-politics/2026/07/immigration-asylum-deportation-trump-haiti-tps.html"}
+        ]
+      },
+      "right": {
+        "framing": "The judicial strike-down is covered as an obstacle to legitimate enforcement. The backlog is presented as evidence that legal immigration is also broken, justifying aggressive action. Townhall frames Trump's overall immigration record positively — 'moving the needle.' The focus is on border security and enforcement capacity.",
+        "sources": [
+          {"name": "Townhall", "url": "https://townhall.com/news/josephchalfant/2026/08/18/trump-continues-to-move-the-needle-on-immigration-n2681499"},
+          {"name": "Townhall", "url": "https://townhall.com/news/scott-mcclallen/2026/08/21/federal-judge-strikes-down-trump-administrations-75-country-visa-suspension-n2681712"},
+          {"name": "Washington Examiner", "url": "https://www.washingtonexaminer.com/policy/immigration/4677543/trump-administration-growing-backlog-legal-immigration-applications/"}
+        ]
+      },
+      "correlation": 42,
+      "correlation_label": "Same event covered by both sides but with fundamentally different frames: left emphasizes legal overreach and humanitarian impact; right emphasizes enforcement progress and judicial obstruction."
+    }
+  ],
+  "gap_left": [
+    {
+      "title": "Trump Voter Fraud Claims Unsubstantiated — Mullin/Nevada Data Falls Apart",
+      "topic_key": "trump-voter-fraud-mullin-nevada-unsubstantiated",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "summary": "CNN reported that Trump officials and Sen. Markwayne Mullin touted what they called a voter fraud 'bombshell' in Nevada — but the underlying data has not supported the claims after scrutiny. The story fits a broader left-media pattern of fact-checking administration fraud allegations ahead of November's general elections.",
+      "sources": [
+        {"name": "CNN Politics", "url": "https://www.cnn.com/2026/08/21/politics/markwayne-mullin-voter-fraud-nevada"}
+      ]
+    },
+    {
+      "title": "Aisha Wahab Wins Swalwell Seat Over AIPAC-Backed Opponent in CA-14",
+      "topic_key": "wahab-ca14-aipac-swalwell-special-election",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "summary": "Democrat Aisha Wahab won the special election runoff for Eric Swalwell's CA-14 seat despite millions in spending by AIPAC against her. Left outlets frame this as evidence that progressive candidates can overcome pro-Israel PAC money and as a signal about Democratic primary voters' views on the Middle East.",
+      "sources": [
+        {"name": "CNN Politics", "url": "https://www.cnn.com/2026/08/20/politics/aisha-wahab-california-house-swalwell"}
+      ]
+    },
+    {
+      "title": "Democrats' Post-Resistance Era: Shifting to Affordability as Affirmative Agenda",
+      "topic_key": "democrats-post-resistance-affordability-midterm-pivot",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "summary": "Left-leaning outlets describe a Democratic Party that has moved past the 'resistance' frame of Trump's first term into an affirmative economic message centered on cost of living, healthcare costs, and Medicaid. Axios profiles how candidates like Ossoff and El-Sayed are using social media to drive this message. NBC's 'Politics Desk' frames this as the party's best path to taking back the House.",
+      "sources": [
+        {"name": "NBC News", "url": "https://www.nbcnews.com/politics/politics-news/democrats-are-post-resistance-era-politics-desk-rcna593414"},
+        {"name": "Axios", "url": "https://www.axios.com/2026/08/18/democrats-social-media-ossoff-el-sayed"},
+        {"name": "The New Republic", "url": "https://newrepublic.com/article/211015/permacession-affordability-politics-2028-election"}
+      ]
+    },
+    {
+      "title": "SCOTUS Redistricting Ruling Guts Remaining Voting Rights Act Protections",
+      "topic_key": "scotus-vra-dead-redistricting-black-politics-new-model",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "summary": "The New Republic reports that recent SCOTUS redistricting decisions have effectively gutted what remained of the Voting Rights Act's protections ahead of the 2026 midterms. The piece explores what new models of Black political organizing look like in the absence of VRA enforcement. This story is entirely absent from right-leaning coverage.",
+      "sources": [
+        {"name": "The New Republic", "url": "https://newrepublic.com/article/210669/voting-rights-act-dead-new-model-black-politics"}
+      ]
+    },
+    {
+      "title": "Trump Foreign Policy Failures Accumulating: Oman, South Korea, Allies Alienated",
+      "topic_key": "trump-foreign-policy-failures-oman-south-korea-allies",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "summary": "CNN's analysis piece argues Trump has 'swung hard' at Oman over the Hormuz negotiations and at South Korea over military exercises scaled back to appease Kim Jong Un — and that these moves represent a pattern of alienating allies while failing to achieve strategic goals. This foreign policy critique framing is absent from right outlets, which focus on the strategic rationale for each decision.",
+      "sources": [
+        {"name": "CNN Politics", "url": "https://www.cnn.com/2026/08/18/politics/trump-iran-war-south-korea-oman-strait-of-hormuz"},
+        {"name": "NBC News", "url": "https://www.nbcnews.com/politics/trump-administration/live-blog/trump-alaska-primary-florida-election-2026-congress-iran-live-updates-rcna593214"}
+      ]
+    }
+  ],
+  "gap_right": [
+    {
+      "title": "DSA Candidates Can't Explain Their Own Ideology — NYT Finding Amplified on Right",
+      "topic_key": "dsa-candidates-ideology-basic-facts-nyt-amplified",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "summary": "A New York Times reporter found that multiple DSA-backed candidates repeatedly struggled to answer basic questions about how their socialist policy positions would work in practice. Breitbart, The Daily Wire, and The American Spectator amplified this finding extensively, framing it as evidence that the socialist movement is more ideological slogan than governing platform. Left outlets do not cover this angle.",
+      "sources": [
+        {"name": "Breitbart", "url": "https://www.breitbart.com/politics/2026/08/22/nyts-peters-dsa-candidates-repeatedly-cant-give-basic-facts-about-how-their-beliefs-work/"},
+        {"name": "The American Spectator", "url": "https://spectator.org/why-democratic-socialists-of-america-cannot-win-in-a-democratic-america/"}
+      ]
+    },
+    {
+      "title": "Hasan Piker 'Hamas Moderate' Comment Becomes Weapon Against El-Sayed",
+      "topic_key": "piker-hamas-moderate-el-sayed-michigan-weapon",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "summary": "Streamer Hasan Piker, who has campaigned with Michigan Senate candidate Abdul El-Sayed, called Hamas 'moderate' in a stream, drawing backlash. The Washington Examiner and Breitbart have made the remark a centerpiece of attacks against El-Sayed, linking the two figures. Right outlets frame this as disqualifying. Left coverage of El-Sayed does not engage with the Piker comment.",
+      "sources": [
+        {"name": "Washington Examiner", "url": "https://www.washingtonexaminer.com/news/campaigns/congressional/4696932/hasan-piker-hamas-moderate/"},
+        {"name": "The Daily Wire", "url": "https://www.dailywire.com/news/surprise-a-key-voting-bloc-is-ditching-the-gop-for-a-far-left-candidate"}
+      ]
+    },
+    {
+      "title": "Pete Hegseth on Campaign Trail, Sparking 2028 Presidential Speculation",
+      "topic_key": "hegseth-2028-iowa-campaign-trail-speculation",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "summary": "War Secretary Pete Hegseth's increasing visibility on the 2026 campaign trail — including an Iowa visit — is generating speculation about his 2028 presidential ambitions. The Washington Examiner covers this as an emerging story in conservative politics. Left outlets do not cover Hegseth's political future.",
+      "sources": [
+        {"name": "Washington Examiner", "url": "https://www.washingtonexaminer.com/news/4689701/pete-hegseth-2028-iowa-visit/"}
+      ]
+    },
+    {
+      "title": "NeverVance: Anti-Vance Movement Compared to Discredited NeverTrump",
+      "topic_key": "nevervance-nevertrump-recycled-vance-attacks",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "summary": "The Federalist argues that critics of Vice President J.D. Vance — particularly those from the traditional Republican establishment — are recycling the same bad-faith arguments used against Trump in 2016. The piece frames anti-Vance sentiment as dishonest opportunism by people who were wrong about Trump and are now wrong about Vance. This internal conservative debate is absent from left coverage.",
+      "sources": [
+        {"name": "The Federalist", "url": "https://thefederalist.com/2026/08/19/the-nevertrumpers-are-back-this-time-their-target-is-j-d-vance/"}
+      ]
+    },
+    {
+      "title": "Scalise Warns: Democrats Will Impeach Trump 'Day One' If They Win the House",
+      "topic_key": "scalise-trump-impeachment-day-one-democrat-house",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "summary": "Rep. Steve Scalise said that if Democrats win the House majority in November, they will move to impeach President Trump on the first day. Fox and Breitbart cover this as a key reason for Republican voters to turn out. Left outlets have not covered this claim or offered any rebuttal to it in this cycle.",
+      "sources": [
+        {"name": "Breitbart", "url": "https://www.breitbart.com/politics/2026/08/20/scalise-trump-impeachment-coming-day-one-if-democrats-win-majority/"}
+      ]
+    }
+  ],
+  "suggestions": []
+}
