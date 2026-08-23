@@ -1,11 +1,11 @@
 ---
 status: complete
-started-at: "2026-08-22T07:36:45-05:00"
-completed-at: "2026-08-22T07:38:00-05:00"
+started-at: "2026-08-23T12:16:30-05:00"
+completed-at: "2026-08-23T12:17:15-05:00"
 outputs:
-  morning-briefing-steps-01-02: "completed — today's calendar (1 event Aug 22, from data/calendar-unified.json) pulled. OmniFocus inbox status checked."
-  task-g-72hr-lookahead: "completed — Aug 23-25 events captured (23 events) from data/calendar-unified.json, no additional M365 call."
-  task-h-email-triage: "completed — email triage from data/email-unified.json (reused from prior run)"
+  morning-briefing-steps-01-02: "completed — today's calendar (1 event Aug 23, from data/calendar-unified.json) pulled. OmniFocus inbox status checked."
+  task-g-72hr-lookahead: "completed — Aug 24-26 events captured (24 events total, 23 forward) from data/calendar-unified.json, no additional M365 call."
+  task-h-email-triage: "completed — email triage from data/email-unified.json"
   task-i-jarvis-inbox: "completed — Jarvis folder checked"
   task-j-reminders: "nothing-to-surface — data/reminders.json checked"
   task-f-lead-review: "skipped — not in this boot's scope per workflow.md data sources list"

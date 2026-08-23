@@ -1,13 +1,18 @@
 ---
 status: completed
 model: haiku
-started-at: "2026-08-22T00:00:00Z"
-completed-at: "2026-08-22T00:06:00Z"
+started-at: "2026-08-23T00:05:00Z"
+completed-at: "2026-08-23T00:12:00Z"
 outputs:
   new-recordings-count: 1
   api-total: 120
   confirmed-in-vault: 119
   previous-run-results:
+    - date: "2026-08-22"
+      new-recordings-count: 1
+      api-total: 120
+      confirmed-in-vault: 119
+      note: "That recording (8b45065b02f3a852edadfb43c319a9ea) is now confirmed in vault as of this run — it dropped out of today's diff."
     - date: "2026-08-10"
       new-recordings-count: 88
       api-total: 111

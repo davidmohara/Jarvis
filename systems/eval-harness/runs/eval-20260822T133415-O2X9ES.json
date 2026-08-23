@@ -6,9 +6,9 @@
   "session_id": "session-2026-08-22-083217",
   "trigger": "boot",
   "started": "2026-08-22T13:34:15.985093Z",
-  "completed": null,
+  "completed": "2026-08-23T06:58:17.593026",
   "duration_seconds": null,
-  "status": "in-progress",
+  "status": "aborted",
   "steps": [
     {
       "name": "step-05-synthesize-briefing.md",
@@ -26,10 +26,11 @@
   ],
   "assessment": {
     "mechanical": {
-      "completed": null,
+      "completed": false,
       "all_steps_finished": true,
       "tool_failures": 0,
-      "error_ids": []
+      "error_ids": [],
+      "abort_reason": "session-ended"
     },
     "structural": {
       "expected_outputs_written": null,

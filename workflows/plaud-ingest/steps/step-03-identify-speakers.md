@@ -1,8 +1,10 @@
 ---
-status: not-started
+status: completed
 model: haiku
+started-at: "2026-08-23T00:13:00Z"
+completed-at: "2026-08-23T00:25:00Z"
 outputs:
-  notes: "RESET 2026-08-22: prior 'completed' frontmatter here (session pi-20260822-001, claiming Speaker 1 auto-resolved to Greg Pascuzzi) is not corroborated by state.yaml (speaker-mappings/recording-classification were empty) or by the real eval record for today (eval-20260822T234415-ZLE18X shows only step-01 ran before the session aborted). Treating the prior entry as unverified/stale and resetting to not-started so the next real run does not build on unconfirmed data."
+  notes: "pi-20260823-001: Calendar-first cross-reference attempted for the one new recording (32c80d61ff44bb53825a93cfb0bbfa5a, 2026-08-05 clinical/injection note). No exact calendar overlap; nearest event ('Dr Nathan Walters', same address, immediately following) had no attendee list to confirm identity, so surfaced to controller rather than guessing. Controller confirmed: Speaker 2 = Dr. Nathan Walters. speaker-mappings populated in state.yaml. Classification: personal (medical)."
 ---
 
 <!-- system:start -->

@@ -1,14 +1,14 @@
 ---
 status: complete
-started-at: "2026-08-22T07:35:12-05:00"
-completed-at: "2026-08-22T07:36:45-05:00"
+started-at: "2026-08-23T12:16:00-05:00"
+completed-at: "2026-08-23T12:16:30-05:00"
 outputs:
   calendar_file: "data/calendar-unified.json"
   event_count: 24
-  date_range: "2026-08-22 to 2026-08-25"
-  status: "written"
+  date_range: "2026-08-23 to 2026-08-26"
+  status: "reused"
   file_size_kb: 5.9
-  flags: "none"
+  flags: "file fresh from 07:10 CT (within 12hr window)"
 ---
 
 <!-- system:start -->
