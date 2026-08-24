@@ -22,18 +22,37 @@ if status == aborted: ask controller
 
 ```python
 for group in execution_groups:
-  retry_count = 0
-  while retry_count < 3:
+  while True:
     agent = spawn_step(group.step)
     agent.run()
     
     eval_record = read_eval_record()
     
     if eval_record.get("retry_signal"):
-      retry_count += 1
-      if retry_count >= 3:
-        escalate_to_controller()
-      continue
+      retry_signal = eval_record["retry_signal"]
+      attempt = retry_signal.get("attempt_number", 1)
+      max_attempts = retry_signal.get("max_attempts", 2)
+      
+      if attempt >= max_attempts:
+        # Max retries exceeded, escalate to controller
+        eval_record["punch_out_signal"] = {
+          "step": retry_signal["step"],
+          "checkpoint": retry_signal["checkpoint"],
+          "reason": f"Step failed validation after {attempt} attempts: {retry_signal['reason']}",
+          "awaiting_controller_decision": True,
+          "timestamp": current_timestamp()
+        }
+        write_eval_record(eval_record)
+        notify_controller(eval_record["punch_out_signal"])
+        wait_for_controller_decision(eval_record)
+        
+        if eval_record["punch_out_signal"]["controller_decision"] == "deny":
+          abort_boot()
+          return
+      else:
+        # Retry: Pass instruction back to model and re-execute step
+        inject_retry_instruction(eval_record, group.step)
+        continue
     
     if eval_record.get("punch_out_signal", {}).get("awaiting_controller_decision"):
       notify_controller(eval_record["punch_out_signal"])

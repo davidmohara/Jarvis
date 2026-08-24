@@ -8,7 +8,8 @@
       "field": "briefing_delivered",
       "critical": false,
       "retry_on_missing": true,
-      "reason": "Briefing must be delivered (true). If false or missing, retry step."
+      "reason": "Briefing must be delivered to controller (true). If false or missing, retry step.",
+      "retry_instruction": "The briefing_delivered field is empty. Populate it with a boolean (true/false) indicating whether the briefing was successfully synthesized and delivered to the controller."
     },
     {
       "name": "briefing_not_empty",
@@ -16,7 +17,8 @@
       "field": "briefing_sections",
       "critical": false,
       "retry_on_missing": true,
-      "reason": "Briefing must have content (at least some sections) — retry if empty"
+      "reason": "Briefing must have content (at least some sections) — retry if empty",
+      "retry_instruction": "The briefing_sections field is empty. Re-execute step-05 to synthesize the briefing, populating this field with the main briefing sections (today's schedule, action items, follow-ups, and key decisions)."
     },
     {
       "name": "briefing_covers_today",

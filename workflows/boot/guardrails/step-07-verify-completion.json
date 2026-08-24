@@ -6,36 +6,46 @@
       "name": "all_prior_steps_complete",
       "type": "check_field_exists",
       "field": "steps_verified",
-      "critical": true,
-      "reason": "All 7 prior steps must report complete status"
+      "critical": false,
+      "retry_on_missing": true,
+      "reason": "All 7 prior steps must report complete status",
+      "retry_instruction": "Step-07 output is missing the 'steps_verified' field. Re-execute step-07 to verify that all prior steps have completed, and populate this field with a summary of each step's completion status."
     },
     {
       "name": "no_step_failures",
       "type": "check_field_exists",
       "field": "failed_steps",
-      "critical": true,
-      "reason": "No steps can have failed (hard gate)"
+      "critical": false,
+      "retry_on_missing": true,
+      "reason": "Must track failed steps (empty list if none failed)",
+      "retry_instruction": "The 'failed_steps' field is missing. Re-execute step-07 to check for any failed steps in the boot sequence and populate this field with a list of failed steps (or empty list if all passed)."
     },
     {
       "name": "state_yaml_complete",
       "type": "check_field_exists",
       "field": "state_status",
-      "critical": true,
-      "reason": "state.yaml must be marked status: complete"
+      "critical": false,
+      "retry_on_missing": true,
+      "reason": "state.yaml must be marked status: complete",
+      "retry_instruction": "The 'state_status' field is missing. Re-execute step-07 to mark state.yaml with status: complete and populate this field with confirmation that the state file was updated."
     },
     {
       "name": "session_index_written",
       "type": "check_field_exists",
       "field": "session_index_path",
-      "critical": true,
-      "reason": "Session index must be written for future reference"
+      "critical": false,
+      "retry_on_missing": true,
+      "reason": "Session index must be written for future reference",
+      "retry_instruction": "The 'session_index_path' field is missing. Re-execute step-07 to write or update the session index file and populate this field with the path to the written file."
     },
     {
       "name": "no_guardrail_escalations",
       "type": "check_field_exists",
       "field": "escalation_count",
-      "critical": true,
-      "reason": "No escalations should have occurred in prior steps"
+      "critical": false,
+      "retry_on_missing": true,
+      "reason": "Should report count of escalations from prior steps (0 if none)",
+      "retry_instruction": "The 'escalation_count' field is missing. Re-execute step-07 to count any escalations in the eval record and populate this field with the count (0 if no escalations)."
     }
   ]
 }

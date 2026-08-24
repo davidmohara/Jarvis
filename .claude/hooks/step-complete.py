@@ -185,6 +185,29 @@ def extract_step_tokens(transcript_path: str, step_started: str, step_completed:
     return result
 
 
+def generate_retry_instruction(rule: dict, field: str, step_name: str) -> str:
+    """Generate a detailed retry instruction based on the guardrail rule.
+
+    This instruction guides the model on what needs to be fixed without providing
+    the answer, just the requirement.
+    """
+    rule_type = rule.get("type")
+    reason = rule.get("reason", f"Populate required field '{field}'")
+    retry_instruction = rule.get("retry_instruction")
+
+    # If the rule explicitly defines a retry instruction, use it
+    if retry_instruction:
+        return retry_instruction
+
+    # Otherwise, generate one based on the rule type and reason
+    if rule_type == "check_field_exists":
+        return f"Step-{step_name.split('-')[1]} output is missing required field '{field}'. {reason}. Add this field to the outputs section."
+    elif rule_type == "check_field_not_empty":
+        return f"The {field} field is empty or missing. {reason}. Re-populate this field with appropriate content based on the step's task."
+    else:
+        return f"Re-execute step to complete missing output field '{field}'. {reason}"
+
+
 def run_step_guardrail_checkpoint(step_name: str, step_frontmatter: dict, eval_record: dict, workflow_name: str = None) -> dict:
     """Run guardrail validation for this step.
 
@@ -193,6 +216,9 @@ def run_step_guardrail_checkpoint(step_name: str, step_frontmatter: dict, eval_r
     - flag: Step has warnings but is usable, continue
     - retry: Step incomplete, send back to model to finish (don't punch out)
     - escalate: Critical issue model can't fix, punch out to controller
+
+    Retry behavior: On first failure of a retryable field, generate detailed
+    instruction and send back to model. Only escalate on second failure.
     """
     # Load guardrail rules first to get checkpoint_name if defined
     guardrails_dir = get_guardrails_dir_for_workflow(workflow_name)
@@ -216,7 +242,8 @@ def run_step_guardrail_checkpoint(step_name: str, step_frontmatter: dict, eval_r
         "reason": "Step completed successfully",
         "escalated_to_human": False,
         "validation_errors": [],
-        "retry_feedback": None  # If result=retry, include feedback for model
+        "retry_feedback": None,  # If result=retry, include feedback for model
+        "retry_instruction": None  # Detailed instruction for model to fix the issue
     }
 
     # CRITICAL CHECK: step status must be complete
@@ -240,7 +267,8 @@ def run_step_guardrail_checkpoint(step_name: str, step_frontmatter: dict, eval_r
     if not outputs:
         result["result"] = "retry"
         result["reason"] = "Step incomplete: no outputs recorded"
-        result["retry_feedback"] = "Re-execute step to completion. Outputs must be recorded in frontmatter."
+        result["retry_feedback"] = "Step must produce outputs recorded in frontmatter."
+        result["retry_instruction"] = f"This step has no outputs yet. Re-execute it to completion, recording all required outputs in the 'outputs:' section of the frontmatter. Review the step instructions for what outputs are expected."
         result["validation_errors"].append("no_outputs")
         return result
     else:
@@ -263,10 +291,11 @@ def run_step_guardrail_checkpoint(step_name: str, step_frontmatter: dict, eval_r
                     if field not in outputs:
                         result["validation_errors"].append(f"missing_field: {field}")
                         if is_retry:
-                            # Incomplete field → retry (don't punch out)
+                            # Incomplete field → retry with detailed instruction (don't punch out)
                             result["result"] = "retry"
                             result["reason"] = f"Step incomplete: missing required field '{field}'"
-                            result["retry_feedback"] = f"Re-execute step. Missing output field: {field}"
+                            result["retry_instruction"] = generate_retry_instruction(rule, field, step_name)
+                            result["retry_feedback"] = f"Missing field: {field}. {rule.get('reason', 'Please populate this required field.')}"
                             break
                         elif is_critical:
                             # Critical field missing and NOT retryable → escalate
@@ -284,10 +313,11 @@ def run_step_guardrail_checkpoint(step_name: str, step_frontmatter: dict, eval_r
                     if not value:
                         result["validation_errors"].append(f"empty_field: {field}")
                         if is_retry:
-                            # Empty field → retry (send back to model)
+                            # Empty field → retry with detailed instruction (send back to model)
                             result["result"] = "retry"
                             result["reason"] = f"Step incomplete: empty field '{field}'"
-                            result["retry_feedback"] = f"Re-execute step. Field '{field}' is empty, must be populated."
+                            result["retry_instruction"] = generate_retry_instruction(rule, field, step_name)
+                            result["retry_feedback"] = f"Empty field: {field}. {rule.get('reason', 'Please populate this required field.')}"
                             break
                         elif is_critical:
                             # Critical and empty → escalate
@@ -381,15 +411,19 @@ def update_eval_record_with_step_completion(eval_path: Path, step_name: str, fro
         # Handle different checkpoint outcomes
         if guardrail_result["result"] == "retry":
             # Step is incomplete, queue for retry (don't punch out to controller)
+            attempt_number = eval_record.get("retry_signal", {}).get("attempt_number", 0) + 1
+
             eval_record["retry_signal"] = {
                 "step": step_name,
                 "checkpoint": guardrail_result["checkpoint_name"],
                 "reason": guardrail_result["reason"],
                 "feedback": guardrail_result.get("retry_feedback"),
-                "attempt_number": eval_record.get("retry_signal", {}).get("attempt_number", 0) + 1,
-                "timestamp": datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
+                "instruction": guardrail_result.get("retry_instruction"),  # Detailed guidance for model
+                "attempt_number": attempt_number,
+                "timestamp": datetime.now(timezone.utc).isoformat().replace("+00:00", "Z"),
+                "max_attempts": 2  # Retry once, escalate on second failure
             }
-            log_info(f"RETRY: {step_name} is incomplete. Feedback: {guardrail_result.get('retry_feedback')}")
+            log_info(f"RETRY: {step_name} is incomplete (attempt {attempt_number}/2). Instruction: {guardrail_result.get('retry_instruction')}")
 
         elif guardrail_result["result"] == "escalate":
             # Critical issue, punch out to controller

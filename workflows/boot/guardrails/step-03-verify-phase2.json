@@ -6,21 +6,26 @@
       "name": "phase2_verification_complete",
       "type": "check_field_exists",
       "field": "verification_results",
-      "critical": true,
-      "reason": "Phase 2 verification must complete before synthesis"
+      "critical": false,
+      "retry_on_missing": true,
+      "reason": "Phase 2 verification must complete before synthesis",
+      "retry_instruction": "Step-03 output is missing the 'verification_results' field. Re-execute step-03 to verify Phase 2 data gathering and populate this field with verification results (which data sources succeeded, any warnings, overall integrity status)."
     },
     {
       "name": "no_critical_failures",
       "type": "check_field_exists",
       "field": "critical_failures",
-      "critical": true,
-      "reason": "Cannot have critical data source failures (calendar, inbox)"
+      "critical": false,
+      "retry_on_missing": true,
+      "reason": "Must track critical data source failures (calendar, inbox) to alert controller",
+      "retry_instruction": "The 'critical_failures' field is missing. Re-execute step-03 and populate this field with a list of any critical data source failures (empty list if none), or a description of failures if data sources were unavailable."
     },
     {
       "name": "ralph_verification_passed",
       "type": "check_field_exists",
       "field": "ralph_status",
       "critical": false,
+      "retry_on_missing": false,
       "reason": "Ralph should verify Phase 2 integrity (warn if unavailable)"
     }
   ]

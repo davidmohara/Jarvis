@@ -6,21 +6,26 @@
       "name": "meeting_list_captured",
       "type": "check_field_exists",
       "field": "meetings_found",
-      "critical": true,
-      "reason": "Must identify meetings in next 3 days for prep context"
+      "critical": false,
+      "retry_on_missing": true,
+      "reason": "Must identify meetings in next 3 days for prep context",
+      "retry_instruction": "Step-04 output is missing the 'meetings_found' field. Re-execute step-04 to identify upcoming meetings and populate this field with a count and list of meetings found in the next 3 days."
     },
     {
       "name": "attendee_enrichment_complete",
       "type": "check_field_exists",
       "field": "attendees_enriched",
       "critical": false,
-      "reason": "Should enrich attendee data (warn if unavailable)"
+      "retry_on_missing": true,
+      "reason": "Should enrich attendee data with Clay contacts and relevant context",
+      "retry_instruction": "The 'attendees_enriched' field is missing. Re-execute step-04 to enrich meeting attendees with Clay contact data and populate this field with the enrichment results."
     },
     {
       "name": "prep_context_ready",
       "type": "check_field_exists",
       "field": "prep_materials",
       "critical": false,
+      "retry_on_missing": false,
       "reason": "Meeting prep materials should be compiled (warn if missing)"
     }
   ]

@@ -6,15 +6,19 @@
       "name": "identity_files_loaded",
       "type": "check_field_exists",
       "field": "files_loaded",
-      "critical": true,
-      "reason": "SYSTEM.md and identity files must be loaded"
+      "critical": false,
+      "retry_on_missing": true,
+      "reason": "SYSTEM.md and identity files must be loaded",
+      "retry_instruction": "Step-01 output is missing the 'files_loaded' field. Re-execute step-01 to load SYSTEM.md, CLAUDE.md, and all identity files, then populate this field with a list of successfully loaded files."
     },
     {
       "name": "no_critical_missing_files",
       "type": "check_field_exists",
       "field": "missing_files",
       "critical": false,
-      "reason": "Some identity files may be optional, warn if any missing"
+      "retry_on_missing": true,
+      "reason": "Track which identity files are missing (some may be optional)",
+      "retry_instruction": "The 'missing_files' field is missing. Re-execute step-01 and populate this field with a list of expected files that were not found (or empty list if all critical files loaded)."
     }
   ]
 }

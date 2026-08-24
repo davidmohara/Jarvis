@@ -6,22 +6,28 @@
       "name": "calendar_file_created",
       "type": "check_field_exists",
       "field": "calendar_file",
-      "critical": true,
-      "reason": "Must pull calendar data for downstream steps"
+      "critical": false,
+      "retry_on_missing": true,
+      "reason": "Must pull calendar data for downstream steps",
+      "retry_instruction": "Step-01.5 output is missing the 'calendar_file' field. Re-execute step-01.5 to pull calendar data from M365 (4-day window: today through +3 days) and populate this field with the path to the created calendar file."
     },
     {
       "name": "events_captured",
       "type": "check_field_not_empty",
       "field": "event_count",
       "critical": false,
-      "reason": "Expect some events in 4-day window (warn if zero)"
+      "retry_on_missing": true,
+      "reason": "Should capture event count from 4-day window (0 is acceptable but unexpected)",
+      "retry_instruction": "The 'event_count' field is empty. Re-execute step-01.5 to count calendar events in the 4-day window and populate this field with the event count (even if 0)."
     },
     {
       "name": "correct_date_range",
       "type": "check_field_exists",
       "field": "date_range",
-      "critical": true,
-      "reason": "Date range must cover 4 days (today + 3 days)"
+      "critical": false,
+      "retry_on_missing": true,
+      "reason": "Date range must cover 4 days (today + 3 days)",
+      "retry_instruction": "The 'date_range' field is missing. Re-execute step-01.5 and populate this field with the 4-day date range used for the calendar pull (today through +3 days)."
     }
   ]
 }

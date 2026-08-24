@@ -6,21 +6,26 @@
       "name": "workflow_scan_complete",
       "type": "check_field_exists",
       "field": "workflows_scanned",
-      "critical": true,
-      "reason": "Must scan all workflow state files"
+      "critical": false,
+      "retry_on_missing": true,
+      "reason": "Must scan all workflow state files",
+      "retry_instruction": "Step-06 output is missing the 'workflows_scanned' field. Re-execute step-06 to scan all workflow/*/state.yaml files and populate this field with the count and list of workflows scanned."
     },
     {
       "name": "in_flight_workflows_found",
       "type": "check_field_exists",
       "field": "in_flight_list",
       "critical": false,
-      "reason": "Should identify in-flight workflows (warn if scan incomplete)"
+      "retry_on_missing": true,
+      "reason": "Should identify in-flight workflows (retry if missing)",
+      "retry_instruction": "The 'in_flight_list' field is missing. Re-execute step-06 to identify in-flight workflows (status not 'complete') and populate this field with the list of active workflows."
     },
     {
       "name": "workflow_status_accurate",
       "type": "check_field_exists",
       "field": "status_summary",
       "critical": false,
+      "retry_on_missing": false,
       "reason": "Workflow statuses should be current (warn if stale)"
     }
   ]

@@ -6,29 +6,37 @@
       "name": "all_data_sources_live",
       "type": "check_field_exists",
       "field": "data_freshness_report",
-      "critical": true,
-      "reason": "Must verify data sources are live (not cached from previous run)"
+      "critical": false,
+      "retry_on_missing": true,
+      "reason": "Must verify data sources are live (not cached from previous run)",
+      "retry_instruction": "Step-06.5 output is missing the 'data_freshness_report' field. Re-execute step-06.5 to verify that all data sources (calendar, email, inbox) are fresh (not cached) and populate this field with a freshness report."
     },
     {
       "name": "no_stale_data",
       "type": "check_field_not_empty",
       "field": "stale_sources",
-      "critical": true,
-      "reason": "Cannot have stale data sources — escalate if any detected"
+      "critical": false,
+      "retry_on_missing": true,
+      "reason": "Should report any stale data sources (empty list if all fresh)",
+      "retry_instruction": "The 'stale_sources' field is empty. Re-execute step-06.5 to check for stale data sources and populate this field with a list of any stale sources (or empty list if all data is fresh)."
     },
     {
       "name": "briefing_integrity",
       "type": "check_field_exists",
       "field": "briefing_quality_check",
-      "critical": true,
-      "reason": "Briefing must pass integrity check before completion"
+      "critical": false,
+      "retry_on_missing": true,
+      "reason": "Briefing must pass integrity check before completion",
+      "retry_instruction": "The 'briefing_quality_check' field is missing. Re-execute step-06.5 to verify briefing content quality and integrity, then populate this field with the quality check results."
     },
     {
       "name": "no_data_leakage",
       "type": "check_field_exists",
       "field": "leakage_check",
-      "critical": true,
-      "reason": "Must verify no confidential data leaked into public-facing outputs"
+      "critical": false,
+      "retry_on_missing": true,
+      "reason": "Must verify no confidential data leaked into public-facing outputs",
+      "retry_instruction": "The 'leakage_check' field is missing. Re-execute step-06.5 to check for confidential data leakage in outputs, then populate this field with the leakage check results (clear/no-leakage status)."
     }
   ]
 }
