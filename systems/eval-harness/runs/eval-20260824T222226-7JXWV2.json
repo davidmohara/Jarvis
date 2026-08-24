@@ -1,0 +1,329 @@
+{
+  "id": "eval-20260824T222226-7JXWV2",
+  "agent_id": "a60e443cf80d7186d",
+  "type": "workflow",
+  "name": "boot",
+  "agent": "general-purpose",
+  "session_id": "session-2026-08-24-060000",
+  "trigger": "manual",
+  "started": "2026-08-24T22:22:26.869275Z",
+  "completed": null,
+  "duration_seconds": null,
+  "status": "partial",
+  "steps": [
+    {
+      "name": "step-01-load-context",
+      "started": "2026-08-23T14:30:00Z",
+      "completed": "2026-08-23T14:31:15Z",
+      "status": "complete",
+      "tokens_input": 434148,
+      "tokens_output": 147,
+      "cost_usd": 0.091365,
+      "model": "haiku",
+      "duration_seconds": 75.0
+    },
+    {
+      "name": "step-01.5-unified-calendar-pull",
+      "started": "2026-08-23T14:31:30Z",
+      "completed": "2026-08-23T14:32:45Z",
+      "status": "complete",
+      "tokens_input": 434148,
+      "tokens_output": 147,
+      "cost_usd": 0.091365,
+      "model": "haiku",
+      "duration_seconds": 75.0
+    },
+    {
+      "name": "step-02-gather-data",
+      "started": "2026-08-23T14:32:45Z",
+      "completed": "2026-08-23T14:33:20Z",
+      "status": "complete",
+      "tokens_input": 434148,
+      "tokens_output": 147,
+      "cost_usd": 0.091365,
+      "model": "haiku",
+      "duration_seconds": 35.0
+    },
+    {
+      "name": "step-02.5-measure-phase2",
+      "started": "2026-08-21T12:39:00-05:00",
+      "completed": "2026-08-21T12:40:00-05:00",
+      "status": "complete",
+      "tokens_input": 434148,
+      "tokens_output": 147,
+      "cost_usd": 0.091365,
+      "model": "haiku",
+      "duration_seconds": 60.0
+    },
+    {
+      "name": "step-03-verify-phase2",
+      "started": "2026-08-23T12:17:15-05:00",
+      "completed": "2026-08-23T12:17:45-05:00",
+      "status": "complete",
+      "tokens_input": 434148,
+      "tokens_output": 147,
+      "cost_usd": 0.091365,
+      "model": "haiku",
+      "duration_seconds": 30.0
+    },
+    {
+      "name": "step-04-gather-meeting-context",
+      "started": "2026-08-23T14:33:20Z",
+      "completed": "2026-08-23T14:34:05Z",
+      "status": "complete",
+      "tokens_input": 434148,
+      "tokens_output": 147,
+      "cost_usd": 0.091365,
+      "model": "haiku",
+      "duration_seconds": 45.0
+    },
+    {
+      "name": "step-05-synthesize-briefing",
+      "started": "2026-08-23T14:34:05Z",
+      "completed": "2026-08-23T14:35:30Z",
+      "status": "complete",
+      "tokens_input": 434148,
+      "tokens_output": 147,
+      "cost_usd": 0.091365,
+      "model": "haiku",
+      "duration_seconds": 85.0
+    },
+    {
+      "name": "step-06-scan-workflows",
+      "started": "2026-08-23T14:35:30Z",
+      "completed": "2026-08-23T14:35:45Z",
+      "status": "complete",
+      "tokens_input": 434148,
+      "tokens_output": 147,
+      "cost_usd": 0.091365,
+      "model": "haiku",
+      "duration_seconds": 15.0
+    },
+    {
+      "name": "step-06.5-guardrail-checkpoint",
+      "started": "2026-08-23T14:35:45Z",
+      "completed": "2026-08-23T14:36:05Z",
+      "status": "complete",
+      "tokens_input": 434148,
+      "tokens_output": 147,
+      "cost_usd": 0.091365,
+      "model": "haiku",
+      "duration_seconds": 20.0
+    },
+    {
+      "name": "step-07-verify-completion",
+      "started": "2026-08-23T14:36:05Z",
+      "completed": "2026-08-23T14:36:20Z",
+      "status": "complete",
+      "tokens_input": 434148,
+      "tokens_output": 147,
+      "cost_usd": 0.091365,
+      "model": "haiku",
+      "duration_seconds": 15.0
+    },
+    {
+      "name": "step-08-knox-completion-check",
+      "started": "2026-08-23T15:03:50-05:00",
+      "completed": "2026-08-23T15:03:55-05:00",
+      "status": "complete",
+      "tokens_input": 434148,
+      "tokens_output": 147,
+      "cost_usd": 0.091365,
+      "model": "haiku",
+      "duration_seconds": 5.0
+    }
+  ],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 1,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": true,
+      "outputs_non_empty": true,
+      "assertions_checked": 4,
+      "assertions_passed": 4,
+      "assertion_results": [
+        {
+          "assertion": "Boot workflow state.yaml shows status: complete",
+          "passed": true,
+          "error": null
+        },
+        {
+          "assertion": "Session index file exists \u2014 boot's Session Index Boot step must have created/appended it",
+          "passed": true,
+          "error": null
+        },
+        {
+          "assertion": "Session index is a real record, not an empty stub",
+          "passed": true,
+          "error": null
+        },
+        {
+          "assertion": "step-06.5's guardrail checkpoint recorded a result (pass/flag/escalate) on this run \u2014 read from the eval record's own guardrails array, not self-reported by the workflow",
+          "passed": true,
+          "error": null
+        }
+      ]
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": "positive",
+      "comment": null,
+      "timestamp": "2026-08-24T22:51:48.730748Z"
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": "3892c0a20468385762f2bab79075c3adc4000c809cbbfb36bc93072d7f12afea",
+  "prior_baseline_id": null,
+  "tags": [],
+  "guardrails": [
+    {
+      "name": "step-01-checkpoint",
+      "after_step": "step-01-load-context",
+      "result": "pass",
+      "reason": "Step completed with 3 output fields recorded",
+      "escalated_to_human": false,
+      "timestamp": "2026-08-24T22:23:01.342402Z",
+      "validation_errors": []
+    },
+    {
+      "name": "step-01.5-checkpoint",
+      "after_step": "step-01.5-unified-calendar-pull",
+      "result": "pass",
+      "reason": "Step completed with 6 output fields recorded",
+      "escalated_to_human": false,
+      "timestamp": "2026-08-24T22:23:01.434726Z",
+      "validation_errors": []
+    },
+    {
+      "name": "step-02-checkpoint",
+      "after_step": "step-02-gather-data",
+      "result": "escalate",
+      "reason": "CRITICAL: Missing required field 'phase2_status' (not retryable)",
+      "escalated_to_human": true,
+      "timestamp": "2026-08-24T22:23:01.522497Z",
+      "validation_errors": [
+        "missing_field: phase2_status"
+      ]
+    },
+    {
+      "name": "step-02.5-measure-phase2-checkpoint",
+      "after_step": "step-02.5-measure-phase2",
+      "result": "pass",
+      "reason": "Step completed with 4 output fields recorded",
+      "escalated_to_human": false,
+      "timestamp": "2026-08-24T22:23:01.612060Z",
+      "validation_errors": []
+    },
+    {
+      "name": "step-03-checkpoint",
+      "after_step": "step-03-verify-phase2",
+      "result": "escalate",
+      "reason": "CRITICAL: Missing required field 'verification_results' (not retryable)",
+      "escalated_to_human": true,
+      "timestamp": "2026-08-24T22:23:01.698800Z",
+      "validation_errors": [
+        "missing_field: verification_results"
+      ]
+    },
+    {
+      "name": "step-04-checkpoint",
+      "after_step": "step-04-gather-meeting-context",
+      "result": "escalate",
+      "reason": "CRITICAL: Missing required field 'meetings_found' (not retryable)",
+      "escalated_to_human": true,
+      "timestamp": "2026-08-24T22:23:01.794510Z",
+      "validation_errors": [
+        "missing_field: meetings_found"
+      ]
+    },
+    {
+      "name": "step-05-checkpoint",
+      "after_step": "step-05-synthesize-briefing",
+      "result": "retry",
+      "reason": "Step incomplete: empty field 'briefing_delivered'",
+      "escalated_to_human": false,
+      "timestamp": "2026-08-24T22:23:01.880053Z",
+      "validation_errors": [
+        "empty_field: briefing_delivered"
+      ]
+    },
+    {
+      "name": "step-06-checkpoint",
+      "after_step": "step-06-scan-workflows",
+      "result": "escalate",
+      "reason": "CRITICAL: Missing required field 'workflows_scanned' (not retryable)",
+      "escalated_to_human": true,
+      "timestamp": "2026-08-24T22:23:01.968278Z",
+      "validation_errors": [
+        "missing_field: workflows_scanned"
+      ]
+    },
+    {
+      "name": "pre-completion-review",
+      "after_step": "step-06.5-guardrail-checkpoint",
+      "result": "escalate",
+      "reason": "CRITICAL: Missing required field 'data_freshness_report' (not retryable)",
+      "escalated_to_human": true,
+      "timestamp": "2026-08-24T22:23:02.055714Z",
+      "validation_errors": [
+        "missing_field: data_freshness_report"
+      ]
+    },
+    {
+      "name": "step-07-checkpoint",
+      "after_step": "step-07-verify-completion",
+      "result": "escalate",
+      "reason": "CRITICAL: Missing required field 'state_status' (not retryable)",
+      "escalated_to_human": true,
+      "timestamp": "2026-08-24T22:23:02.146971Z",
+      "validation_errors": [
+        "missing_field: state_status"
+      ]
+    },
+    {
+      "name": "step-08-knox-completion-check-checkpoint",
+      "after_step": "step-08-knox-completion-check",
+      "result": "pass",
+      "reason": "Step completed with 6 output fields recorded",
+      "escalated_to_human": false,
+      "timestamp": "2026-08-24T22:23:02.233895Z",
+      "validation_errors": []
+    }
+  ],
+  "punch_out_signal": {
+    "step": "step-07-verify-completion",
+    "checkpoint": "step-07-checkpoint",
+    "reason": "CRITICAL: Missing required field 'state_status' (not retryable)",
+    "awaiting_controller_decision": true,
+    "timestamp": "2026-08-24T22:23:02.147215Z"
+  },
+  "retry_signal": {
+    "step": "step-05-synthesize-briefing",
+    "checkpoint": "step-05-checkpoint",
+    "reason": "Step incomplete: empty field 'briefing_delivered'",
+    "feedback": "Re-execute step. Field 'briefing_delivered' is empty, must be populated.",
+    "attempt_number": 1,
+    "timestamp": "2026-08-24T22:23:01.880313Z"
+  },
+  "total_cost_usd": 0.0555,
+  "cost_estimation_note": "estimated based on boot workflow type",
+  "model": "sonnet"
+}
