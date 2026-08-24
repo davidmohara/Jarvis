@@ -98,12 +98,15 @@ def extract_assistant_turns(transcript_path: str, exclude_sidechain: bool = True
 
 
 def usage_between(transcript_path: str, start_iso: str | None, end_iso: str | None,
-                   exclude_sidechain: bool = True) -> dict | None:
+                   exclude_sidechain: bool = True, lenient_fallback: bool = True) -> dict | None:
     """Aggregate real token usage for assistant turns whose timestamp falls in
     [start_iso, end_iso]. Returns None if the transcript can't be read or no
     turns fall in the window. Cost uses documented cache multipliers (cache
     read ~0.1x input rate, cache write 1.25x/2x for 5m/1h TTL) rather than a
-    flat rate, since a real turn is mostly cache reads/writes, not fresh input."""
+    flat rate, since a real turn is mostly cache reads/writes, not fresh input.
+
+    If lenient_fallback is True and strict time matching finds zero matches,
+    returns all turns as a fallback (timestamps may not overlap step time)."""
     if not transcript_path or not Path(transcript_path).exists():
         return None
 
@@ -125,8 +128,9 @@ def usage_between(transcript_path: str, start_iso: str | None, end_iso: str | No
             continue
         matched.append(t)
 
-    if not matched:
-        return None
+    # Lenient fallback: if strict time matching found nothing, use all turns
+    if not matched and lenient_fallback:
+        matched = turns
 
     tokens_input = sum(t["input_tokens"] + t["cache_read_input_tokens"] + t["cache_creation_5m"] + t["cache_creation_1h"] for t in matched)
     tokens_output = sum(t["output_tokens"] for t in matched)
@@ -141,6 +145,7 @@ def usage_between(transcript_path: str, start_iso: str | None, end_iso: str | No
     model_short = MODEL_ALIASES.get(model_raw, model_raw)
 
     cost_usd = _compute_accurate_cost(model_short, matched)
+    used_lenient_fallback = len(matched) == len(turns)
 
     return {
         "model": model_short,
@@ -149,6 +154,7 @@ def usage_between(transcript_path: str, start_iso: str | None, end_iso: str | No
         "tokens_output": tokens_output,
         "cost_usd": cost_usd,
         "turns_matched": len(matched),
+        "used_lenient_fallback": used_lenient_fallback,
     }
 
 

@@ -1,4 +1,5 @@
 ---
+workflow: content-pipeline
 status: complete
 started-at: 2026-08-24T06:07:00Z
 completed-at: 2026-08-24T06:08:00Z
@@ -13,3 +14,4 @@ outputs:
   outcome: "No new URLs or digests in last 24h. 1 message in channel (bot no-content notification from yesterday — skipped). 13 pending draft threads scanned — no editorial feedback. Posted no-content notification to #content (ts: 1787569679.667549)."
 model: sonnet
 ---
+current-step: null

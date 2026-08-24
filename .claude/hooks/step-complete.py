@@ -147,17 +147,19 @@ def extract_step_tokens(transcript_path: str, step_started: str, step_completed:
     try:
         log_info(f"Attempting token extraction for {step_name} from {transcript_path}")
         log_info(f"Step time window: {step_started} to {step_completed}")
-        usage = usage_between(transcript_path, step_started, step_completed, exclude_sidechain=False)
+        usage = usage_between(transcript_path, step_started, step_completed, exclude_sidechain=False, lenient_fallback=True)
 
         if usage:
             result["tokens_input"] = usage.get("tokens_input")
             result["tokens_output"] = usage.get("tokens_output")
             result["cost_usd"] = usage.get("cost_usd")
             result["model"] = usage.get("model")
-            log_info(f"SUCCESS: Extracted tokens for {step_name}: {result['tokens_input']} input, {result['tokens_output']} output, model={result['model']}, cost=${result['cost_usd']:.4f}")
+            used_lenient = usage.get("used_lenient_fallback", False)
+            fallback_note = " (lenient fallback)" if used_lenient else " (strict time window)"
+            log_info(f"SUCCESS: Extracted tokens for {step_name}: {result['tokens_input']} input, {result['tokens_output']} output, model={result['model']}, cost=${result['cost_usd']:.4f}{fallback_note}")
         else:
             result["extraction_error"] = "usage_between_no_data"
-            log_info(f"Token extraction completed for {step_name} but no usage data found in strict time window (using lenient fallback)")
+            log_info(f"Token extraction completed for {step_name} but no usage data found (no transcript or empty)")
     except Exception as e:
         result["extraction_error"] = str(e)
         log_error(f"EXCEPTION during token extraction for {step_name}: {e}")

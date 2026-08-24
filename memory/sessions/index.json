@@ -1135,8 +1135,54 @@
           "workflows/dream-cycle/steps/step-02-salience-scoring.md",
           "workflows/dream-cycle/steps/step-03-semantic-promotion.md",
           "workflows/dream-cycle/steps/step-04-episodic-compression.md",
-          "workflows/dream-cycle/steps/step-05-logging.md"
+          "workflows/dream-cycle/steps/step-05-logging.md",
+          "meetings/2026-08-24-robyn-fuentes-1on1.md",
+          "memory/working/2026-08-24-shep-robyn-fuentes-1on1-prep.md",
+          "systems/eval-harness/skill-runs/shep-1on1-prep-latest.json",
+          "systems/error-tracking/entries/err-20260824T141523-QTOQ46.json",
+          "workflows/client-meeting-prep/state.yaml",
+          "meetings/Russell Frees \u2014 Henricksen \u2014 2026-08-24.md",
+          "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/234ee66b-049a-430e-abf2-46dd63c4158f/scratchpad/render_prep_sheet.py",
+          "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/234ee66b-049a-430e-abf2-46dd63c4158f/scratchpad/gen_pdf.py",
+          "systems/eval-harness/skill-runs/remarkable-upload-latest.json",
+          "meetings/2026-08-25-remington-hotels-workshop-context.md",
+          "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/234ee66b-049a-430e-abf2-46dd63c4158f/scratchpad/extract_pptx.py",
+          "meetings/2026-08-25-remington-hotels-workshop-plan.md",
+          "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/af5a0d28-04c8-4e52-bce3-03cce94e0c65/scratchpad/build_remington_deck.py",
+          "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/af5a0d28-04c8-4e52-bce3-03cce94e0c65/scratchpad/build_remington_deck_v2.py",
+          "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/af5a0d28-04c8-4e52-bce3-03cce94e0c65/scratchpad/build_remington_deck_v3.py",
+          "systems/eval-harness/token_usage.py",
+          "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/af5a0d28-04c8-4e52-bce3-03cce94e0c65/scratchpad/backfill_boot_tokens.py"
         ]
+      }
+    ]
+  },
+  {
+    "id": "session-2026-08-24-060000",
+    "started": "2026-08-24T06:00:00Z",
+    "closed": "2026-08-24T06:05:00Z",
+    "current_topic": null,
+    "topics": [
+      {
+        "name": "morning-boot",
+        "loops": [
+          {
+            "task": "boot-sequence \u2014 full workflow completed, now retroactively evaluated",
+            "resolved": true
+          }
+        ]
+      },
+      {
+        "topic": "unattributed",
+        "files": [
+          ".claude/hooks/eval-agent-start.py",
+          "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/af5a0d28-04c8-4e52-bce3-03cce94e0c65/scratchpad/validate_workflow_eval_coverage.py",
+          "workflows/content-pipeline/state.yaml",
+          "workflows/political-monitor/state.yaml",
+          "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/af5a0d28-04c8-4e52-bce3-03cce94e0c65/scratchpad/ensure_workflow_state_yaml.py"
+        ],
+        "loops": [],
+        "flag": true
       }
     ]
   }
