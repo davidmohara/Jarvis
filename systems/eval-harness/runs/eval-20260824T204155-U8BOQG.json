@@ -1,0 +1,80 @@
+{
+  "id": "eval-20260824T204155-U8BOQG",
+  "agent_id": "a1325872568d5b6d8",
+  "type": "workflow",
+  "name": "plaud-ingest",
+  "agent": "general-purpose",
+  "session_id": "session-2026-08-24-060000",
+  "trigger": "manual",
+  "started": "2026-08-24T20:41:55.989126Z",
+  "completed": "2026-08-24T20:45:56.183707Z",
+  "duration_seconds": 240.19,
+  "status": "aborted",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": false,
+      "all_steps_finished": true,
+      "tool_failures": 2,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": true,
+      "outputs_non_empty": false,
+      "assertions_checked": 4,
+      "assertions_passed": 3,
+      "assertion_results": [
+        {
+          "assertion": "Plaud ingest workflow state.yaml shows status: complete",
+          "passed": false,
+          "error": null
+        },
+        {
+          "assertion": "Plaud ingest working memory file was written to memory/working/",
+          "passed": true,
+          "error": null
+        },
+        {
+          "assertion": "Plaud ingest working memory file is substantive (>200 bytes)",
+          "passed": true,
+          "error": null
+        },
+        {
+          "assertion": "Plaud ingest working memory contains expected content",
+          "passed": true,
+          "error": null
+        }
+      ]
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": "c833f73f72ccddf98cc2dcf3c7ac1f7bd828de64e5daa680528a36a73df9b3f3",
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/c0c94618-aad9-4cb8-9a23-9709b3637814/subagents/agent-a1325872568d5b6d8.jsonl",
+  "last_assistant_message": "## Knox \u2014 Plaud Trigger Status Check: 2026-08-23\n\n**Status:** Complete\n\n**Finding:** No recordings on Plaud for 2026-08-23. Zero actions required for target date.\n\n**Pending queue activity:**\n- 2 items in flight from 2026-08-24\n- 1 now ready: `589340220e4c13350a731ea9ba8770d2` \u2014 transcript fetched, staged, 1 speaker untagged\n- 1 still pending: `7de82b6f5889e1e8e5feb107520491c9` \u2014 ~38 min recording, triggered < 1 hour ago, not yet ready\n\n**Staging backlog:** 157 unstaged recordings across all 2026 dates (most recent from 08-24, oldest from 01-13). Represents operational debt for vault ingestion.\n\n**Next actions:**\n1. Run `knox-transcripts-plaud` to ingest the now-ready transcript\n2. Spawn background watcher for pending item if multi-hour wait is unacceptable\n3. Schedule full staging cleanup (157 recordings waiting)\n\n**Signal file written:** `systems/eval-harness/skill-runs/plaud-trigger-latest.json`",
+  "model": "haiku",
+  "total_tokens_input": 1699442,
+  "total_tokens_output": 1051,
+  "total_cost_usd": 0.228681
+}

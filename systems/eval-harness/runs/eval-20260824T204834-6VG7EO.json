@@ -1,0 +1,67 @@
+{
+  "id": "eval-20260824T204834-6VG7EO",
+  "type": "skill",
+  "name": "plaud-speaker-id",
+  "agent": "knox",
+  "session_id": "session-2026-08-24-060000",
+  "trigger": "manual",
+  "started": "2026-08-24T20:00:00Z",
+  "completed": "2026-08-24T20:48:34.701281Z",
+  "duration_seconds": 2914.7,
+  "status": "partial",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": false,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": true,
+      "outputs_non_empty": false,
+      "assertions_checked": 3,
+      "assertions_passed": 1,
+      "assertion_results": [
+        {
+          "assertion": "plaud-speaker-id-signal-written",
+          "description": "plaud-speaker-id skill-run signal file was written",
+          "passed": true
+        },
+        {
+          "assertion": "plaud-speaker-id-signal-status",
+          "description": "plaud-speaker-id skill-run did not end in failure",
+          "passed": null,
+          "skipped": true,
+          "reason": "unknown check type: json_field_not_equals"
+        },
+        {
+          "assertion": "plaud-sp-002-substantive",
+          "description": "plaud-speaker-id output is substantive (>200 bytes)",
+          "passed": false
+        },
+        {
+          "assertion": "plaud-sp-003-content",
+          "description": "plaud-speaker-id output contains expected content",
+          "passed": false
+        }
+      ]
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    }
+  },
+  "version_hash": "4af1336e8961d95d",
+  "prior_baseline_id": null,
+  "tags": [
+    "cowork-hook",
+    "skill"
+  ]
+}

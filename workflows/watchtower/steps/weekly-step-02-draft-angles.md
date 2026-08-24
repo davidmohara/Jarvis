@@ -1,15 +1,16 @@
 ---
 status: complete
-started-at: "2026-08-20T07:25:00Z"
-completed-at: "2026-08-20T07:40:00Z"
+started-at: "2026-08-24T07:25:00Z"
+completed-at: "2026-08-24T07:45:00Z"
 outputs:
-  themes_processed: 3
-  drafts_created: 3
+  themes_processed: 4
+  drafts_created: 4
   draft_paths:
-    - "Mind/Posts/_fde-table-stakes-now-what.md"
-    - "Mind/Posts/_texas-has-a-state-problem-and-a-city-problem.md"
-    - "Mind/Posts/_the-market-valued-the-agent-security-gap.md"
-  blog_ideas_appended: 3
+    - "Mind/Posts/_the-rollout-worked-the-people-didnt.md"
+    - "Mind/Posts/_the-amplifier-paradox.md"
+    - "Mind/Posts/_the-agent-governance-moment-just-became-infrastructure.md"
+    - "Mind/Posts/_dfw-is-building-the-other-kind-of-ai-economy.md"
+  blog_ideas_appended: 4
   obsidian_unavailable: false
   fallback_used: null
 ---

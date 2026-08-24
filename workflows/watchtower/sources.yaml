@@ -295,3 +295,25 @@ sources:
     added: 2026-08-10
     status: active
     notes: "Primary source on non-human identity lifecycle management for AI agents. Published 'AI Agents and Identity Risks: How Security Will Shift in 2026'. Market standard for PAM/NHI guidance. Feed URL unverified — confirm on first run."
+
+  # ── Batch 10 (partial) — Approved 2026-08-24 ───────────────────────────────
+
+  - name: CEOWORLD Magazine
+    url: https://ceoworld.biz
+    rss: https://ceoworld.biz/feed
+    gather_method: rss
+    topic: leadership
+    trust: med
+    added: 2026-08-24
+    status: active
+    notes: "Leadership and org design coverage including AI-enhanced organizational strategy. Proposed W35 Batch 10 — approved 2026-08-24."
+
+  - name: Prosci Blog
+    url: https://www.prosci.com/blog
+    rss: null
+    gather_method: search
+    topic: leadership
+    trust: high
+    added: 2026-08-24
+    status: active
+    notes: "Change management practitioner resource for AI adoption. Published 2026 State of AI Adoption study (1,107 professionals) and 'Why AI Transformation Fails'. Primary source for W35 Theme 1 leadership trust gap data. No RSS; step-01 uses site:prosci.com/blog search. Proposed W35 Batch 10 — approved 2026-08-24."

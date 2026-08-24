@@ -1,724 +1,1450 @@
 workflow: plaud-ingest
 agent: knox
-status: blocked
-session-id: pi-20260823-003
-session-started: "2026-08-23T14:30:00Z"
-current-step: step-04
-blocker: "osascript/Desktop Commander unavailable; all 116 new recordings still pending transcription"
-original-request: Knox — run workflows/plaud-ingest/workflow.md in full
+status: awaiting-input
+session-id: pi-20260824-001
+session-started: '2026-08-24T00:00:00Z'
+current-step: step-03
+original-request: "Knox \u2014 run workflows/plaud-ingest/workflow.md in full"
 accumulated-context:
-  target-date: "2026-08-23"
-  discovery-run: "2026-08-23T13:07:32Z"
+  target-date: '2026-08-23'
+  discovery-run: '2026-08-23T13:07:32Z'
   api-total-recordings: 120
   vault-ingested-count: 4
+  ready-for-fetch-count: 121
+  ready-for-fetch: []
   new-recordings:
-    - file_id: 8b45065b02f3a852edadfb43c319a9ea
-      name: "08-21 Strategy Note: XTI CIO Replacement and AI Roadmap for Regulated Aerospace Integration"
-      date: 2026-08-21
-      duration_seconds: 1080000
-      has_transcript: true
-      transcript_status: pending
-    - file_id: 92f3f834cbbf4ced893d70f2e27f6bd0
-      name: "08-20 Western Region Board Meeting and Strategic Initiative Review"
-      date: 2026-08-20
-      duration_seconds: 3230000
-      has_transcript: true
-      transcript_status: pending
-    - file_id: 7170e0d9bf493a87042a31b0ebf76870
-      name: "08-14 Consultation: Health and Safety Council - AI for Training Workflow"
-      date: 2026-08-14
-      duration_seconds: 2276000
-      has_transcript: true
-      transcript_status: pending
-    - file_id: 3b94e13fb0f4e4282091b3ea063b1bef
-      name: "08-11 Plan for Executive Networking Breakfast to Promote Conscious Capitalism and Code Launch"
-      date: 2026-08-11
-      duration_seconds: 809000
-      has_transcript: true
-      transcript_status: pending
-    - file_id: af32b8ce0bb2021328f4755f8696e9fd
-      name: "08-11 Professional and Personal Catch-Up on Business Integration, AI Strategy, and Life Updates"
-      date: 2026-08-11
-      duration_seconds: 3975000
-      has_transcript: true
-      transcript_status: pending
-    - file_id: c2dc08f2c63c01a98785dfb4b762b533
-      name: "08-07 Consultation: Podcast Monetization Strategy"
-      date: 2026-08-07
-      duration_seconds: 1980000
-      has_transcript: true
-      transcript_status: pending
-    - file_id: 0b814663529a2cd65f0c6031877f44ad
-      name: "08-07 Consultation: Mash AI Platform for Content Creation"
-      date: 2026-08-07
-      duration_seconds: 3392000
-      has_transcript: true
-      transcript_status: pending
-    - file_id: baeee0303990cfe9996df518fa71f1e3
-      name: "08-06 Architecting \"SC IMS\" as the Intelligent Core of the \"Orb\" Platform"
-      date: 2026-08-06
-      duration_seconds: 5061000
-      has_transcript: true
-      transcript_status: pending
-    - file_id: f5416a4750e1f41e2624a9403a8b279a
-      name: "08-06 Area Officer Kickoff and Resource Training"
-      date: 2026-08-06
-      duration_seconds: 3377000
-      has_transcript: true
-      transcript_status: pending
-    - file_id: 5016299034d41433611d84057ee6e1bd
-      name: "08-05 Improving and Google Partnership Alignment for the Wendy's Account"
-      date: 2026-08-05
-      duration_seconds: 2917000
-      has_transcript: true
-      transcript_status: pending
-    - file_id: a5eaf54083c006c73742f0c31e142f7a
-      name: "08-05 Strategic AI Implementation and Adoption at Magline"
-      date: 2026-08-05
-      duration_seconds: 2196000
-      has_transcript: true
-      transcript_status: pending
-    - file_id: 32c80d61ff44bb53825a93cfb0bbfa5a
-      name: "08-05 Clinical Reasoning Note — Diagnostic Confirmation and Repeat Anti-Inflammatory Injection Plan"
-      date: 2026-08-05
-      duration_seconds: 213000
-      has_transcript: true
-      transcript_status: pending
-    - file_id: fb489c18186a3013eb4989cb6c5402be
-      name: "08-03 Partnership to Support Moto’s Chevron Deal with Operational and Engineering Services"
-      date: 2026-08-03
-      duration_seconds: 1743000
-      has_transcript: true
-      transcript_status: pending
-    - file_id: 65f997c62d7d8cd56ea2ccb2a8725296
-      name: "08-03 Interview: David O'Hara (Improving) and Luke (GearVox) — Global Boutique Strategy, Conscious Capitalism, and AI Customer Engagement"
-      date: 2026-08-03
-      duration_seconds: 2801000
-      has_transcript: true
-      transcript_status: pending
-    - file_id: 731cd191d0b84ada286d4589675023e8
-      name: "07-30 Meeting: Personal Retreat Planning, YPO Board Scheduling, Expenses and Tools Access, External Outreach"
-      date: 2026-07-30
-      duration_seconds: 2139000
-      has_transcript: true
-      transcript_status: pending
-    - file_id: 87e93b20349620b2ccd2dcb1d13a5dd2
-      name: "07-30 Weekly Meeting: McKesson Project, Texas Performance, and Partner Strategy"
-      date: 2026-07-30
-      duration_seconds: 2046000
-      has_transcript: true
-      transcript_status: pending
-    - file_id: 5e13f844b2c1c916ee4538c9abd960fa
-      name: "07-30 Mid-Year Strategic Review and Personal Updates"
-      date: 2026-07-30
-      duration_seconds: 2226000
-      has_transcript: true
-      transcript_status: pending
-    - file_id: 5286f4065f7a0ed08ae0f043a4233111
-      name: "07-30 Discussion on Church Leadership, Personal Health, and Theological Differences"
-      date: 2026-07-30
-      duration_seconds: 3994000
-      has_transcript: true
-      transcript_status: pending
-    - file_id: 46862b5ef46e5867280603f9d5a843a2
-      name: "07-30 EA Performance Alignment and Growth Plan: Elevating Alice from Task Execution to Strategic Partner for David O’Hara"
-      date: 2026-07-30
-      duration_seconds: 736000
-      has_transcript: true
-      transcript_status: pending
-    - file_id: ed2a74d60ee7baba6b94a153d5b7415d
-      name: "07-29 Investment Portfolio Review and Strategic Financial Planning"
-      date: 2026-07-29
-      duration_seconds: 5641000
-      has_transcript: true
-      transcript_status: pending
-    - file_id: 235c1f402e3bdd98d8e0fb322ca7f4f8
-      name: "07-29 Professional and Personal Updates: Navigating Family Life and Business Challenges"
-      date: 2026-07-29
-      duration_seconds: 4694000
-      has_transcript: true
-      transcript_status: pending
-    - file_id: ff16ada3c73bf564272bf95719f2f9bb
-      name: "07-29 Consultation: AI-Driven Pricing and Purchase Tools for Used Car Retailer"
-      date: 2026-07-29
-      duration_seconds: 1908000
-      has_transcript: true
-      transcript_status: pending
-    - file_id: f824cc96ed478cbb55a5e7c43f0945c7
-      name: "07-29 Strategic Evaluation of AI Gateway Platforms for Enterprise Use"
-      date: 2026-07-29
-      duration_seconds: 1742000
-      has_transcript: true
-      transcript_status: pending
-    - file_id: eca8ed49aa564a16c263ba5e3fb77642
-      name: "07-28 Concentrate AI Platform Demonstration for Improving"
-      date: 2026-07-28
-      duration_seconds: 1919000
-      has_transcript: true
-      transcript_status: pending
-    - file_id: 9293d2cca5e19da9dcd793598ea33415
-      name: "07-28 Meeting: Solace Partnership Strategy, Sales Structure, and Event Mesh/Agent Mesh Enablement"
-      date: 2026-07-28
-      duration_seconds: 7104000
-      has_transcript: true
-      transcript_status: pending
-    - file_id: 05c0b9347899d1c470b2216dc364d58d
-      name: "07-28 Chevron Payments Failover to Takeover: Moto NOC Build, Multi‑Region AWS Ops, and Acquirer Certifications Plan"
-      date: 2026-07-28
-      duration_seconds: 832000
-      has_transcript: true
-      transcript_status: pending
-    - file_id: 3ed7f0655a766531189d692f2c76b72c
-      name: "07-22 Proposal Meeting: Santa's Wonderland Digital Transformation with Improving"
-      date: 2026-07-22
-      duration_seconds: 2093000
-      has_transcript: true
-      transcript_status: pending
-    - file_id: 2ce34789fc1141fae02008bfd4e070ec
-      name: "07-21 Personal and Professional Catch-Up"
-      date: 2026-07-21
-      duration_seconds: 1571000
-      has_transcript: true
-      transcript_status: pending
-    - file_id: 77d513f9cbc84f639ea7bda30dff1874
-      name: "07-16 Strategic Review of AI Adoption and Organizational Readiness"
-      date: 2026-07-16
-      duration_seconds: 2325000
-      has_transcript: true
-      transcript_status: pending
-    - file_id: db14a3ce68a47c27c1ac11933e5d87d2
-      name: "07-16 Strategic Framework for Integrating AI in Professional Services"
-      date: 2026-07-16
-      duration_seconds: 4842000
-      has_transcript: true
-      transcript_status: pending
-    - file_id: 58103264971320b752c7ba0586cab4f6
-      name: "07-16 Casual Conversation: YPO Networking, Assisted Intelligence in Business, and Personal Life Insights"
-      date: 2026-07-16
-      duration_seconds: 2716000
-      has_transcript: true
-      transcript_status: pending
-    - file_id: d38e5313615f22a6d73d19640d678384
-      name: "07-16 Consultation: Founding Membership and Club Opening"
-      date: 2026-07-16
-      duration_seconds: 626000
-      has_transcript: true
-      transcript_status: pending
-    - file_id: 824a4e5c19079e84df52dc8585a10836
-      name: "07-16 FEI/UMB September Event Plan: Practical AI for Finance Keynote by O’Hara—Content, Positioning, and Approval Timeline"
-      date: 2026-07-16
-      duration_seconds: 488000
-      has_transcript: true
-      transcript_status: pending
-    - file_id: e71526d7131bd7471384b151f6cf09c6
-      name: "07-14 SOAP Note: O'Hara - L5 Radiculopathy"
-      date: 2026-07-14
-      duration_seconds: 1087000
-      has_transcript: true
-      transcript_status: pending
-    - file_id: 6ee376513b6f393111f8195a8b8e7ca4
-      name: "07-14 Strategic Discussion on AI Implementation in Automotive and Personal Health"
-      date: 2026-07-14
-      duration_seconds: 2752000
-      has_transcript: true
-      transcript_status: pending
-    - file_id: e5a04131ee46970ac1c70a15cb4ae7ef
-      name: "07-10 Strategic Alignment on an Enterprise AI Agent Landing Zone"
-      date: 2026-07-10
-      duration_seconds: 2173000
-      has_transcript: true
-      transcript_status: pending
-    - file_id: d375ec4381759ec97cb596a94b9c8387
-      name: "07-09 Medical SOAP Note: O'Hara - Tarlov Cysts"
-      date: 2026-07-09
-      duration_seconds: 390000
-      has_transcript: true
-      transcript_status: pending
-    - file_id: b1dc9a09e8fbc5b99c521d693462c345
-      name: "07-09 Meeting: Orb Platform Demo, Multi-Tenant Architecture, OQ Module, SCIMS Integration, and MVP Compliance Features"
-      date: 2026-07-09
-      duration_seconds: 4316000
-      has_transcript: true
-      transcript_status: pending
-    - file_id: 62c94442ce95e081df059f560d323a23
-      name: "07-08 Remote Work Is Easy, Not Simple: Strategic Risks, Trade-offs, and Operational Discipline"
-      date: 2026-07-08
-      duration_seconds: 785000
-      has_transcript: true
-      transcript_status: pending
-    - file_id: c5b8e23e96c2cd065eb4adb1bbb5726e
-      name: "07-08 Strategic Deep-Dive on SC's AI-Powered Compliance Platform"
-      date: 2026-07-08
-      duration_seconds: 7142000
-      has_transcript: true
-      transcript_status: pending
-    - file_id: a28f5f0fb1b870336efdeb69e41e5496
-      name: "07-07 Professional Catch-up and Startup Pitch"
-      date: 2026-07-07
-      duration_seconds: 1774000
-      has_transcript: true
-      transcript_status: pending
-    - file_id: 27be4febbc851f77807558ae1281c728
-      name: "07-07 AI Advisory GTM Consolidation and Delivery Readiness: Packaging Nonprofit Three-Track Opportunity, Fractional AI Governance Playbook, and Speaking-Driven Pipeline"
-      date: 2026-07-07
-      duration_seconds: 1293000
-      has_transcript: true
-      transcript_status: pending
-    - file_id: e39770b133f2e1b902bc59c138e5c35b
-      name: "07-07 Strategic Meeting: Upskilling Sales and Targeting Large Deals"
-      date: 2026-07-07
-      duration_seconds: 1577000
-      has_transcript: true
-      transcript_status: pending
-    - file_id: 8426683e366cd3dafc90de22e28557ab
-      name: "07-07 Professional and Personal Catch-up on Business Ventures, Family Life, and Investment Philosophies"
-      date: 2026-07-07
-      duration_seconds: 4178000
-      has_transcript: true
-      transcript_status: pending
-    - file_id: c75b84b5cb133be2f48ff24a461b1d1e
-      name: "07-02 Medical Consultation for Low Back and Leg Pain"
-      date: 2026-07-02
-      duration_seconds: 1871000
-      has_transcript: true
-      transcript_status: pending
-    - file_id: f1d25c2cec03b9e3351643f8b9fa7c57
-      name: "07-02 Professional Catch-up on Business, Technology, and Personal Life"
-      date: 2026-07-02
-      duration_seconds: 5013000
-      has_transcript: true
-      transcript_status: pending
-    - file_id: 3b9cf232426f19fdbd42ef1ef5f35d4b
-      name: "07-02 Partnership Exploration Between Improving and Microsoft's Houston Innovation Hub"
-      date: 2026-07-02
-      duration_seconds: 1732000
-      has_transcript: true
-      transcript_status: pending
-    - file_id: a9f20e60aa498635dee686174c95a5fa
-      name: "07-01 Technology Partnership Exploration for Platform Modernization"
-      date: 2026-07-01
-      duration_seconds: 1752000
-      has_transcript: true
-      transcript_status: pending
-    - file_id: 05fcc73c56f6556531a53575c6d70bd3
-      name: "07-01 Microsoft and Improving Partnership Exploration for Responsible AI Governance"
-      date: 2026-07-01
-      duration_seconds: 1698000
-      has_transcript: true
-      transcript_status: pending
-    - file_id: ae88bdbb37c2f7b0d29933fdbc036686
-      name: "06-30 Proposal Review: Large-Scale AI Training Workshop for Zero’s Leadership"
-      date: 2026-06-30
-      duration_seconds: 1961000
-      has_transcript: true
-      transcript_status: pending
-    - file_id: af25aad40b86546fad1a74ff3608235d
-      name: "06-30 Strategic AI Advisory for Systemic Compliance"
-      date: 2026-06-30
-      duration_seconds: 3472000
-      has_transcript: true
-      transcript_status: pending
-    - file_id: 74637ca13f2bb04cd8a23e6459cae199
-      name: "06-30 Product Demo and Strategic Partnership Proposal for an AI Model Management Platform"
-      date: 2026-06-30
-      duration_seconds: 1876000
-      has_transcript: true
-      transcript_status: pending
-    - file_id: 81ff9b6a467037b188fa10a8360350b3
-      name: "06-26 Kazakhstan's Digital and AI Ecosystem Overview for Potential U.S. Collaboration"
-      date: 2026-06-26
-      duration_seconds: 2267000
-      has_transcript: true
-      transcript_status: pending
-    - file_id: 13f671600541c5ae68bff2a2b8b5baaa
-      name: "06-23 Sales Team Performance and Strategy Review"
-      date: 2026-06-23
-      duration_seconds: 2089000
-      has_transcript: true
-      transcript_status: pending
-    - file_id: 501f25606d43ffa2b4ee675923475cd4
-      name: "06-23 Strategic Dialogue on Corporate Structure, Leadership, and Growth"
-      date: 2026-06-23
-      duration_seconds: 1931000
-      has_transcript: true
-      transcript_status: pending
-    - file_id: bebfb9e0734bc8b241e2cec9ce233c05
-      name: "06-22 Strategic Partnership Exploration between xAI and Improving"
-      date: 2026-06-22
-      duration_seconds: 1958000
-      has_transcript: true
-      transcript_status: pending
-    - file_id: fd49dbb1f51f51e94a95de225cce8b24
-      name: "06-16 Consultation: AI Strategy & Governance"
-      date: 2026-06-16
-      duration_seconds: 1890000
-      has_transcript: true
-      transcript_status: pending
-    - file_id: ffe94bdbece8b80b1943f49828ef77b1
-      name: "06-15 Leveraging AI for Business Operations and Competitive Advantage"
-      date: 2026-06-15
-      duration_seconds: 2543000
-      has_transcript: true
-      transcript_status: pending
-    - file_id: fa0a7767b7a35a44db0d848f1619541b
-      name: "06-12 Lecture: AI Adoption, Governance, and Scaling"
-      date: 2026-06-12
-      duration_seconds: 7077000
-      has_transcript: true
-      transcript_status: pending
-    - file_id: f2bd65b3fce61b674b85dde54a6a4a0b
-      name: "06-12 Meeting: AI Discussion on Practical Frameworks and Adoption"
-      date: 2026-06-12
-      duration_seconds: 2729000
-      has_transcript: true
-      transcript_status: pending
-    - file_id: b5d584a706e6711f2eb26c08c80fda55
-      name: "2026-06-12 TopGolf Executive AI Briefing"
-      date: 2026-06-12
-      duration_seconds: 9807000
-      has_transcript: true
-      transcript_status: pending
-    - file_id: 3558ce2d000323572ccbd94c63ec5195
-      name: "06-09 Consultation on AI Implementation and Data Strategy"
-      date: 2026-06-09
-      duration_seconds: 1955000
-      has_transcript: true
-      transcript_status: pending
-    - file_id: 8a61f1edf8adceea9ae91581020b2ba6
-      name: "06-09 Mentorship and Career Development Discussion"
-      date: 2026-06-09
-      duration_seconds: 1665000
-      has_transcript: true
-      transcript_status: pending
-    - file_id: a0c8a0eec98e33c0db0255b7f05f57bf
-      name: "06-09 SMU and Improving Explore Partnership for New MS in AI for Business Program, Focusing on Guest Lecturing and Curriculum Advising"
-      date: 2026-06-09
-      duration_seconds: 1169000
-      has_transcript: true
-      transcript_status: pending
-    - file_id: 65c3a1de465028eda14a3c4b00a6446f
-      name: "06-08 Consultation: Cognition, Improving, and Wendy's AI Strategy"
-      date: 2026-06-08
-      duration_seconds: 1697000
-      has_transcript: true
-      transcript_status: pending
-    - file_id: f874585c54f2aadc1b601418d4a73535
-      name: "06-08 Mentoring Session on Professional Development and Self-Improvement"
-      date: 2026-06-08
-      duration_seconds: 1548000
-      has_transcript: true
-      transcript_status: pending
-    - file_id: 759c5846c93b37c5f2c52aa034222121
-      name: "06-08 Introductory Meeting: Partnership Exploration with Improving for Data Engineering & AI"
-      date: 2026-06-08
-      duration_seconds: 1335000
-      has_transcript: true
-      transcript_status: pending
-    - file_id: c520ac7225be4406317916692dbf547c
-      name: "05-28 Consultation: 3‑Month AI Build Program for Remote Leadership Offsite (Windsor, Oct 2026)"
-      date: 2026-05-28
-      duration_seconds: 1400000
-      has_transcript: true
-      transcript_status: pending
-    - file_id: eab4fe18acbded848fcb11f33f71d26d
-      name: "05-26 Interview: Head of IT/Technology Role"
-      date: 2026-05-26
-      duration_seconds: 471000
-      has_transcript: true
-      transcript_status: pending
-    - file_id: 781325f63bad4d8d76edea7144f1c38e
-      name: "05-22 Meeting: Partner-Led AI Engagement Model for Mid-Market and Sales Alignment Challenges"
-      date: 2026-05-22
-      duration_seconds: 386000
-      has_transcript: true
-      transcript_status: pending
-    - file_id: 0ccc186e295be5298e1abf2ab46f8d3a
-      name: "05-22 Meeting: Austin Summit Planning, Speakers, Sponsorships, YPO Outreach, and Ethical AI Talk"
-      date: 2026-05-22
-      duration_seconds: 1215000
-      has_transcript: true
-      transcript_status: pending
-    - file_id: e2651d9388d120eb4c25087ec51bb070
-      name: "05-22 Consultation: THL & Odessa - Service Margin Erosion"
-      date: 2026-05-22
-      duration_seconds: 1523000
-      has_transcript: true
-      transcript_status: pending
-    - file_id: 66f9851da4eae9f6889f9bb90d9fb94b
-      name: "05-18 Meeting: AI Workshop Planning"
-      date: 2026-05-18
-      duration_seconds: 1552000
-      has_transcript: true
-      transcript_status: pending
-    - file_id: 636cb5a93564b4acbc8c5bbecfd888da
-      name: "05-14 Workshop: AI Hands-On Build Session for Synexus Leaders – RFP Automation, Copilot 365, Notebook LM, SharePoint"
-      date: 2026-05-14
-      duration_seconds: 1528000
-      has_transcript: true
-      transcript_status: pending
-    - file_id: 4cfaba43239fdec48b1952564caf46d6
-      name: "05-13 Consultation: Enterprise Claude Governance, Fraud Mitigation, and Upskilling at Exeter Finance"
-      date: 2026-05-13
-      duration_seconds: 1517000
-      has_transcript: true
-      transcript_status: pending
-    - file_id: 39a6065ed599841cad0c403ba1ecef1a
-      name: "05-13 Consultation: Fractional CTO/CIO & Business Strategy"
-      date: 2026-05-13
-      duration_seconds: 718000
-      has_transcript: true
-      transcript_status: pending
-    - file_id: f3318b024aeadbb2e149b460e661ea71
-      name: "05-13 Consultation: Bob (Private Equity Firm) - Odessa Underperformance"
-      date: 2026-05-13
-      duration_seconds: 1141000
-      has_transcript: true
-      transcript_status: pending
-    - file_id: 377d41b97ab9d60c30a30cd87ceeec54
-      name: "05-12 Meeting Note: AI Workshop, Economic Impact & Data Sourcing"
-      date: 2026-05-12
-      duration_seconds: 5088000
-      has_transcript: true
-      transcript_status: pending
-    - file_id: d78ff55e9668cba156d300e635883202
-      name: "05-12 Workshop: Executive AI Strategy and Departmental Use-Case Prioritization"
-      date: 2026-05-12
-      duration_seconds: 1685000
-      has_transcript: true
-      transcript_status: pending
-    - file_id: d4e20c86509bab3eb86e7f371945d798
-      name: "05-12 Lunch Meeting: DSO Access Strategy, Cosm Immersive MVP, Corporate Underwriting, and Wealth Platform Transition"
-      date: 2026-05-12
-      duration_seconds: 4843000
-      has_transcript: true
-      transcript_status: pending
-    - file_id: 11e71b2eab48d8eba632f40d3b89a580
-      name: "05-05 AI Development Tooling Strategy for Client Engagement"
-      date: 2026-05-05
-      duration_seconds: 1685000
-      has_transcript: true
-      transcript_status: pending
-    - file_id: 4dcb73fac31085d9258e31b110967163
-      name: "04-21 Strategic Advisory on Scaling an AI Startup"
-      date: 2026-04-21
-      duration_seconds: 3791000
-      has_transcript: true
-      transcript_status: pending
-    - file_id: 2c9971feff1e18241d98f76560afb568
-      name: "04-20 Consultation: AI Enablement and Agent Governance for SAP & Digital Teams at Maxon/McKesson"
-      date: 2026-04-20
-      duration_seconds: 1527000
-      has_transcript: true
-      transcript_status: pending
-    - file_id: cb309555e0bb3162a433e439eb20d046
-      name: "04-17 Meeting: SMU–Improving Collaboration on AI Strategy, Education, and Hackathon Planning"
-      date: 2026-04-17
-      duration_seconds: 2534000
-      has_transcript: true
-      transcript_status: pending
-    - file_id: fbf223550f0b06fee0d9ba1d37087669
-      name: "04-17 Weekly Meeting: Onboarding and Management Training"
-      date: 2026-04-17
-      duration_seconds: 2239000
-      has_transcript: true
-      transcript_status: pending
-    - file_id: f306fb7074e95b9702cf768618390c39
-      name: "04-14 Strategic Perspective on AI Growth and Business Adoption"
-      date: 2026-04-14
-      duration_seconds: 2708000
-      has_transcript: true
-      transcript_status: pending
-    - file_id: ddb571e94fb49f233b72bb85597539b2
-      name: "04-13 Executive Partner Kickoff Call: Aligning Goals, Access, and Operating Rhythm"
-      date: 2026-04-13
-      duration_seconds: 2344000
-      has_transcript: true
-      transcript_status: pending
-    - file_id: 30573086ed95fedbaf674ce123145ad4
-      name: "04-07 Consultation: Meredith - Conference Speaker Search"
-      date: 2026-04-07
-      duration_seconds: 1325000
-      has_transcript: true
-      transcript_status: pending
-    - file_id: a8590d37eb001b62b0d25fc9fb40bf45
-      name: "04-06 Exploratory Meeting on Vistage Membership for a New President"
-      date: 2026-04-06
-      duration_seconds: 2750000
-      has_transcript: true
-      transcript_status: pending
-    - file_id: 12a03ccf6fc46ab4de81103247ae925c
-      name: "04-06 Consultation: AI Solutions for Property Management Efficiency"
-      date: 2026-04-06
-      duration_seconds: 1909000
-      has_transcript: true
-      transcript_status: pending
-    - file_id: 01e3c670592808203e4439bcfc258aaa
-      name: "04-02 Weekly Meeting: McLane Account Strategy, AI Engagement, and GTM Performance"
-      date: 2026-04-02
-      duration_seconds: 6745000
-      has_transcript: true
-      transcript_status: pending
-    - file_id: e712a21ab3fa48c672e32d17739b6366
-      name: "04-02 Strategy Meeting: Key Accounts (Intuit, Oxy, Live Nation)"
-      date: 2026-04-02
-      duration_seconds: 5913000
-      has_transcript: true
-      transcript_status: pending
-    - file_id: 3bcb04ee36b555a6a1121aca81c50d85
-      name: "04-02 Consultation: Specialty Capital - SaaS System Replacement"
-      date: 2026-04-02
-      duration_seconds: 1943000
-      has_transcript: true
-      transcript_status: pending
-    - file_id: 3102121505df2825fc29efa82ef2f746
-      name: "04-01 Meeting: Account Plan Strategy & Key Accounts (Simpson, Entergy, AT&T)"
-      date: 2026-04-01
-      duration_seconds: 12916000
-      has_transcript: true
-      transcript_status: pending
-    - file_id: cacb9dcf986e787637fed97dd8ce2004
-      name: "03-26 DRC's Talent Labs Repositions as Senior HR Leadership Incubator with AI Focus"
-      date: 2026-03-26
-      duration_seconds: 831000
-      has_transcript: true
-      transcript_status: pending
-    - file_id: e904efdd592eac537da3be493fe6d860
-      name: "03-25 Vendor Partnership Failure and Strategic Reset Due to Guatemala Team's Capability Gap"
-      date: 2026-03-25
-      duration_seconds: 1235000
-      has_transcript: true
-      transcript_status: pending
-    - file_id: d2d390a2de3afa7ecd4a61c408355806
-      name: "03-24 Texas's Strategy to Become a Global Financial Hub (\"Y'all Street\")"
-      date: 2026-03-24
-      duration_seconds: 5255000
-      has_transcript: true
-      transcript_status: pending
-    - file_id: 14d0f41b5dcb80d32ffab947fa94c982
-      name: "03-23 Disciplined AI Adoption and Secure Agent Operations Enabled by Executive Peer Networks"
-      date: 2026-03-23
-      duration_seconds: 662000
-      has_transcript: true
-      transcript_status: pending
-    - file_id: 175530b523269bd010932699539ee578
-      name: "03-23 Strategic AI Implementation: From Cultural Adoption to Technical Execution"
-      date: 2026-03-23
-      duration_seconds: 5736000
-      has_transcript: true
-      transcript_status: pending
-    - file_id: 2d630f14f59b06f32fe004da42a11042
-      name: "03-20 Consultation: Athena EA Month-to-Month Trial, Proactivity, Microsoft 365 Integration, and Security"
-      date: 2026-03-20
-      duration_seconds: 1430000
-      has_transcript: true
-      transcript_status: pending
-    - file_id: f36afb2dfa407af96c8e1a39a8e666fd
-      name: "03-12 Consultation: NextBen ICHRA Pre-Sales Analysis Tool—Scalability, Integration, and Broker Enablement"
-      date: 2026-03-12
-      duration_seconds: 1758000
-      has_transcript: true
-      transcript_status: pending
-    - file_id: 2381dbde9e0e2882bebf564387e49b18
-      name: "03-10 Meeting: Executive Assistant AI System Integration, Calendar/Storage Mapping, and Onboarding Plan"
-      date: 2026-03-10
-      duration_seconds: 4716000
-      has_transcript: true
-      transcript_status: pending
-    - file_id: eb95605742e593b185c6d1d2c2d429eb
-      name: "03-06 Meeting: Azure Go-Live, Event-Driven POC, and Legacy Code Analysis Strategy"
-      date: 2026-03-06
-      duration_seconds: 1004000
-      has_transcript: true
-      transcript_status: pending
-    - file_id: 374ebaa23c57bae55e94fd74fff219d8
-      name: "03-05 Strategic Discussion on AI Integration in Professional Services"
-      date: 2026-03-05
-      duration_seconds: 1625000
-      has_transcript: true
-      transcript_status: pending
-    - file_id: 69679aaa94a5fd286f686f68444f3999
-      name: "02-24 Meeting: DRC Event Strategy, AI Workshop Promotion, and Outreach Plan"
-      date: 2026-02-24
-      duration_seconds: 2301000
-      has_transcript: true
-      transcript_status: pending
-    - file_id: 1cd79c74dec9ecb46910c4147479ebc2
-      name: "02-23 Meeting: AI Training Program for DevOps and IT Infrastructure — Adoption Levels, Compliance, Structure, Pricing"
-      date: 2026-02-23
-      duration_seconds: 1859000
-      has_transcript: true
-      transcript_status: pending
-    - file_id: 881d636f55e44809f4b5bf8f6bd4c1ba
-      name: "02-20 Expanding McKesson Account via Databricks Partnership and Snowflake Migration Strategy"
-      date: 2026-02-20
-      duration_seconds: 1000000
-      has_transcript: true
-      transcript_status: pending
-    - file_id: ca0c3c14157607cb11d5b71c9a1da0b9
-      name: "02-20 Meeting: Vistage Speaker Opportunity"
-      date: 2026-02-20
-      duration_seconds: 1894000
-      has_transcript: true
-      transcript_status: pending
-    - file_id: 67ed8bff5f64e9543a24c07b08acd715
-      name: "02-13 Meeting: Cardinal IT Solutions & Improving Partnership"
-      date: 2026-02-13
-      duration_seconds: 1422000
-      has_transcript: true
-      transcript_status: pending
-    - file_id: 9dd04a9eb939ab74849d7f04a8b93e43
-      name: "02-12 Confluent Meeting"
-      date: 2026-02-12
-      duration_seconds: 2845000
-      has_transcript: true
-      transcript_status: pending
-    - file_id: e2ba228f669ec2ecae9bfb7c7ef3e45b
-      name: "01-14 Weekly Meeting: Enterprise Presidents' Roles, Sales Leadership, and Microsoft Partnership"
-      date: 2026-01-14
-      duration_seconds: 823000
-      has_transcript: true
-      transcript_status: pending
-    - file_id: d59606e21d3be9d20372c27da65281f1
-      name: "01-13 Panel Discussion: Capitalism, Venture Capital, and Angel Investing"
-      date: 2026-01-13
-      duration_seconds: 3309000
-      has_transcript: true
-      transcript_status: pending
-    - file_id: 969d0704a3f926b055cddb3de3d0762d
-      name: "01-13 Interview: Chrissy and Mark - Angel Investing Strategies"
-      date: 2026-01-13
-      duration_seconds: 2959000
-      has_transcript: true
-      transcript_status: pending
-    - file_id: 0fe28170fa4dd5e90084022dff733586
-      name: "01-13 Investor Summit: Liberty Ventures, Capitalism, and Angel Investing"
-      date: 2026-01-13
-      duration_seconds: 2359000
-      has_transcript: true
-      transcript_status: pending
-    - file_id: 45ec10f866bf2477af642d2805b347b7
-      name: "12-22 Partnership Meeting: AI Strategy and Data Infrastructure"
-      date: 2025-12-22
-      duration_seconds: 3461000
-      has_transcript: true
-      transcript_status: pending
-    - file_id: 61be69f4955ba9121bf4ff3e54587230
-      name: "12-08 Meeting: SAP S/4HANA Migration Strategy"
-      date: 2025-12-08
-      duration_seconds: 1640000
-      has_transcript: true
-      transcript_status: pending
+  - file_id: 8b45065b02f3a852edadfb43c319a9ea
+    name: '08-21 Strategy Note: XTI CIO Replacement and AI Roadmap for Regulated Aerospace
+      Integration'
+    date: 2026-08-21
+    duration_seconds: 1080000
+    has_transcript: true
+    transcript_status: pending
+  - file_id: 92f3f834cbbf4ced893d70f2e27f6bd0
+    name: 08-20 Western Region Board Meeting and Strategic Initiative Review
+    date: 2026-08-20
+    duration_seconds: 3230000
+    has_transcript: true
+    transcript_status: pending
+  - file_id: 7170e0d9bf493a87042a31b0ebf76870
+    name: '08-14 Consultation: Health and Safety Council - AI for Training Workflow'
+    date: 2026-08-14
+    duration_seconds: 2276000
+    has_transcript: true
+    transcript_status: pending
+  - file_id: 3b94e13fb0f4e4282091b3ea063b1bef
+    name: 08-11 Plan for Executive Networking Breakfast to Promote Conscious Capitalism
+      and Code Launch
+    date: 2026-08-11
+    duration_seconds: 809000
+    has_transcript: true
+    transcript_status: pending
+  - file_id: af32b8ce0bb2021328f4755f8696e9fd
+    name: 08-11 Professional and Personal Catch-Up on Business Integration, AI Strategy,
+      and Life Updates
+    date: 2026-08-11
+    duration_seconds: 3975000
+    has_transcript: true
+    transcript_status: pending
+  - file_id: c2dc08f2c63c01a98785dfb4b762b533
+    name: '08-07 Consultation: Podcast Monetization Strategy'
+    date: 2026-08-07
+    duration_seconds: 1980000
+    has_transcript: true
+    transcript_status: pending
+  - file_id: 0b814663529a2cd65f0c6031877f44ad
+    name: '08-07 Consultation: Mash AI Platform for Content Creation'
+    date: 2026-08-07
+    duration_seconds: 3392000
+    has_transcript: true
+    transcript_status: pending
+  - file_id: baeee0303990cfe9996df518fa71f1e3
+    name: 08-06 Architecting "SC IMS" as the Intelligent Core of the "Orb" Platform
+    date: 2026-08-06
+    duration_seconds: 5061000
+    has_transcript: true
+    transcript_status: pending
+  - file_id: f5416a4750e1f41e2624a9403a8b279a
+    name: 08-06 Area Officer Kickoff and Resource Training
+    date: 2026-08-06
+    duration_seconds: 3377000
+    has_transcript: true
+    transcript_status: pending
+  - file_id: 5016299034d41433611d84057ee6e1bd
+    name: 08-05 Improving and Google Partnership Alignment for the Wendy's Account
+    date: 2026-08-05
+    duration_seconds: 2917000
+    has_transcript: true
+    transcript_status: pending
+  - file_id: a5eaf54083c006c73742f0c31e142f7a
+    name: 08-05 Strategic AI Implementation and Adoption at Magline
+    date: 2026-08-05
+    duration_seconds: 2196000
+    has_transcript: true
+    transcript_status: pending
+  - file_id: 32c80d61ff44bb53825a93cfb0bbfa5a
+    name: "08-05 Clinical Reasoning Note \u2014 Diagnostic Confirmation and Repeat\
+      \ Anti-Inflammatory Injection Plan"
+    date: 2026-08-05
+    duration_seconds: 213000
+    has_transcript: true
+    transcript_status: pending
+  - file_id: fb489c18186a3013eb4989cb6c5402be
+    name: "08-03 Partnership to Support Moto\u2019s Chevron Deal with Operational\
+      \ and Engineering Services"
+    date: 2026-08-03
+    duration_seconds: 1743000
+    has_transcript: true
+    transcript_status: pending
+  - file_id: 65f997c62d7d8cd56ea2ccb2a8725296
+    name: "08-03 Interview: David O'Hara (Improving) and Luke (GearVox) \u2014 Global\
+      \ Boutique Strategy, Conscious Capitalism, and AI Customer Engagement"
+    date: 2026-08-03
+    duration_seconds: 2801000
+    has_transcript: true
+    transcript_status: pending
+  - file_id: 731cd191d0b84ada286d4589675023e8
+    name: '07-30 Meeting: Personal Retreat Planning, YPO Board Scheduling, Expenses
+      and Tools Access, External Outreach'
+    date: 2026-07-30
+    duration_seconds: 2139000
+    has_transcript: true
+    transcript_status: pending
+  - file_id: 87e93b20349620b2ccd2dcb1d13a5dd2
+    name: '07-30 Weekly Meeting: McKesson Project, Texas Performance, and Partner
+      Strategy'
+    date: 2026-07-30
+    duration_seconds: 2046000
+    has_transcript: true
+    transcript_status: pending
+  - file_id: 5e13f844b2c1c916ee4538c9abd960fa
+    name: 07-30 Mid-Year Strategic Review and Personal Updates
+    date: 2026-07-30
+    duration_seconds: 2226000
+    has_transcript: true
+    transcript_status: pending
+  - file_id: 5286f4065f7a0ed08ae0f043a4233111
+    name: 07-30 Discussion on Church Leadership, Personal Health, and Theological
+      Differences
+    date: 2026-07-30
+    duration_seconds: 3994000
+    has_transcript: true
+    transcript_status: pending
+  - file_id: 46862b5ef46e5867280603f9d5a843a2
+    name: "07-30 EA Performance Alignment and Growth Plan: Elevating Alice from Task\
+      \ Execution to Strategic Partner for David O\u2019Hara"
+    date: 2026-07-30
+    duration_seconds: 736000
+    has_transcript: true
+    transcript_status: pending
+  - file_id: ed2a74d60ee7baba6b94a153d5b7415d
+    name: 07-29 Investment Portfolio Review and Strategic Financial Planning
+    date: 2026-07-29
+    duration_seconds: 5641000
+    has_transcript: true
+    transcript_status: pending
+  - file_id: 235c1f402e3bdd98d8e0fb322ca7f4f8
+    name: '07-29 Professional and Personal Updates: Navigating Family Life and Business
+      Challenges'
+    date: 2026-07-29
+    duration_seconds: 4694000
+    has_transcript: true
+    transcript_status: pending
+  - file_id: ff16ada3c73bf564272bf95719f2f9bb
+    name: '07-29 Consultation: AI-Driven Pricing and Purchase Tools for Used Car Retailer'
+    date: 2026-07-29
+    duration_seconds: 1908000
+    has_transcript: true
+    transcript_status: pending
+  - file_id: f824cc96ed478cbb55a5e7c43f0945c7
+    name: 07-29 Strategic Evaluation of AI Gateway Platforms for Enterprise Use
+    date: 2026-07-29
+    duration_seconds: 1742000
+    has_transcript: true
+    transcript_status: pending
+  - file_id: eca8ed49aa564a16c263ba5e3fb77642
+    name: 07-28 Concentrate AI Platform Demonstration for Improving
+    date: 2026-07-28
+    duration_seconds: 1919000
+    has_transcript: true
+    transcript_status: pending
+  - file_id: 9293d2cca5e19da9dcd793598ea33415
+    name: '07-28 Meeting: Solace Partnership Strategy, Sales Structure, and Event
+      Mesh/Agent Mesh Enablement'
+    date: 2026-07-28
+    duration_seconds: 7104000
+    has_transcript: true
+    transcript_status: pending
+  - file_id: 05c0b9347899d1c470b2216dc364d58d
+    name: "07-28 Chevron Payments Failover to Takeover: Moto NOC Build, Multi\u2011\
+      Region AWS Ops, and Acquirer Certifications Plan"
+    date: 2026-07-28
+    duration_seconds: 832000
+    has_transcript: true
+    transcript_status: pending
+  - file_id: 3ed7f0655a766531189d692f2c76b72c
+    name: '07-22 Proposal Meeting: Santa''s Wonderland Digital Transformation with
+      Improving'
+    date: 2026-07-22
+    duration_seconds: 2093000
+    has_transcript: true
+    transcript_status: pending
+  - file_id: 2ce34789fc1141fae02008bfd4e070ec
+    name: 07-21 Personal and Professional Catch-Up
+    date: 2026-07-21
+    duration_seconds: 1571000
+    has_transcript: true
+    transcript_status: pending
+  - file_id: 77d513f9cbc84f639ea7bda30dff1874
+    name: 07-16 Strategic Review of AI Adoption and Organizational Readiness
+    date: 2026-07-16
+    duration_seconds: 2325000
+    has_transcript: true
+    transcript_status: pending
+  - file_id: db14a3ce68a47c27c1ac11933e5d87d2
+    name: 07-16 Strategic Framework for Integrating AI in Professional Services
+    date: 2026-07-16
+    duration_seconds: 4842000
+    has_transcript: true
+    transcript_status: pending
+  - file_id: 58103264971320b752c7ba0586cab4f6
+    name: '07-16 Casual Conversation: YPO Networking, Assisted Intelligence in Business,
+      and Personal Life Insights'
+    date: 2026-07-16
+    duration_seconds: 2716000
+    has_transcript: true
+    transcript_status: pending
+  - file_id: d38e5313615f22a6d73d19640d678384
+    name: '07-16 Consultation: Founding Membership and Club Opening'
+    date: 2026-07-16
+    duration_seconds: 626000
+    has_transcript: true
+    transcript_status: pending
+  - file_id: 824a4e5c19079e84df52dc8585a10836
+    name: "07-16 FEI/UMB September Event Plan: Practical AI for Finance Keynote by\
+      \ O\u2019Hara\u2014Content, Positioning, and Approval Timeline"
+    date: 2026-07-16
+    duration_seconds: 488000
+    has_transcript: true
+    transcript_status: pending
+  - file_id: e71526d7131bd7471384b151f6cf09c6
+    name: '07-14 SOAP Note: O''Hara - L5 Radiculopathy'
+    date: 2026-07-14
+    duration_seconds: 1087000
+    has_transcript: true
+    transcript_status: pending
+  - file_id: 6ee376513b6f393111f8195a8b8e7ca4
+    name: 07-14 Strategic Discussion on AI Implementation in Automotive and Personal
+      Health
+    date: 2026-07-14
+    duration_seconds: 2752000
+    has_transcript: true
+    transcript_status: pending
+  - file_id: e5a04131ee46970ac1c70a15cb4ae7ef
+    name: 07-10 Strategic Alignment on an Enterprise AI Agent Landing Zone
+    date: 2026-07-10
+    duration_seconds: 2173000
+    has_transcript: true
+    transcript_status: pending
+  - file_id: d375ec4381759ec97cb596a94b9c8387
+    name: '07-09 Medical SOAP Note: O''Hara - Tarlov Cysts'
+    date: 2026-07-09
+    duration_seconds: 390000
+    has_transcript: true
+    transcript_status: pending
+  - file_id: b1dc9a09e8fbc5b99c521d693462c345
+    name: '07-09 Meeting: Orb Platform Demo, Multi-Tenant Architecture, OQ Module,
+      SCIMS Integration, and MVP Compliance Features'
+    date: 2026-07-09
+    duration_seconds: 4316000
+    has_transcript: true
+    transcript_status: pending
+  - file_id: 62c94442ce95e081df059f560d323a23
+    name: '07-08 Remote Work Is Easy, Not Simple: Strategic Risks, Trade-offs, and
+      Operational Discipline'
+    date: 2026-07-08
+    duration_seconds: 785000
+    has_transcript: true
+    transcript_status: pending
+  - file_id: c5b8e23e96c2cd065eb4adb1bbb5726e
+    name: 07-08 Strategic Deep-Dive on SC's AI-Powered Compliance Platform
+    date: 2026-07-08
+    duration_seconds: 7142000
+    has_transcript: true
+    transcript_status: pending
+  - file_id: a28f5f0fb1b870336efdeb69e41e5496
+    name: 07-07 Professional Catch-up and Startup Pitch
+    date: 2026-07-07
+    duration_seconds: 1774000
+    has_transcript: true
+    transcript_status: pending
+  - file_id: 27be4febbc851f77807558ae1281c728
+    name: '07-07 AI Advisory GTM Consolidation and Delivery Readiness: Packaging Nonprofit
+      Three-Track Opportunity, Fractional AI Governance Playbook, and Speaking-Driven
+      Pipeline'
+    date: 2026-07-07
+    duration_seconds: 1293000
+    has_transcript: true
+    transcript_status: pending
+  - file_id: e39770b133f2e1b902bc59c138e5c35b
+    name: '07-07 Strategic Meeting: Upskilling Sales and Targeting Large Deals'
+    date: 2026-07-07
+    duration_seconds: 1577000
+    has_transcript: true
+    transcript_status: pending
+  - file_id: 8426683e366cd3dafc90de22e28557ab
+    name: 07-07 Professional and Personal Catch-up on Business Ventures, Family Life,
+      and Investment Philosophies
+    date: 2026-07-07
+    duration_seconds: 4178000
+    has_transcript: true
+    transcript_status: pending
+  - file_id: c75b84b5cb133be2f48ff24a461b1d1e
+    name: 07-02 Medical Consultation for Low Back and Leg Pain
+    date: 2026-07-02
+    duration_seconds: 1871000
+    has_transcript: true
+    transcript_status: pending
+  - file_id: f1d25c2cec03b9e3351643f8b9fa7c57
+    name: 07-02 Professional Catch-up on Business, Technology, and Personal Life
+    date: 2026-07-02
+    duration_seconds: 5013000
+    has_transcript: true
+    transcript_status: pending
+  - file_id: 3b9cf232426f19fdbd42ef1ef5f35d4b
+    name: 07-02 Partnership Exploration Between Improving and Microsoft's Houston
+      Innovation Hub
+    date: 2026-07-02
+    duration_seconds: 1732000
+    has_transcript: true
+    transcript_status: pending
+  - file_id: a9f20e60aa498635dee686174c95a5fa
+    name: 07-01 Technology Partnership Exploration for Platform Modernization
+    date: 2026-07-01
+    duration_seconds: 1752000
+    has_transcript: true
+    transcript_status: pending
+  - file_id: 05fcc73c56f6556531a53575c6d70bd3
+    name: 07-01 Microsoft and Improving Partnership Exploration for Responsible AI
+      Governance
+    date: 2026-07-01
+    duration_seconds: 1698000
+    has_transcript: true
+    transcript_status: pending
+  - file_id: ae88bdbb37c2f7b0d29933fdbc036686
+    name: "06-30 Proposal Review: Large-Scale AI Training Workshop for Zero\u2019\
+      s Leadership"
+    date: 2026-06-30
+    duration_seconds: 1961000
+    has_transcript: true
+    transcript_status: pending
+  - file_id: af25aad40b86546fad1a74ff3608235d
+    name: 06-30 Strategic AI Advisory for Systemic Compliance
+    date: 2026-06-30
+    duration_seconds: 3472000
+    has_transcript: true
+    transcript_status: pending
+  - file_id: 74637ca13f2bb04cd8a23e6459cae199
+    name: 06-30 Product Demo and Strategic Partnership Proposal for an AI Model Management
+      Platform
+    date: 2026-06-30
+    duration_seconds: 1876000
+    has_transcript: true
+    transcript_status: pending
+  - file_id: 81ff9b6a467037b188fa10a8360350b3
+    name: 06-26 Kazakhstan's Digital and AI Ecosystem Overview for Potential U.S.
+      Collaboration
+    date: 2026-06-26
+    duration_seconds: 2267000
+    has_transcript: true
+    transcript_status: pending
+  - file_id: 13f671600541c5ae68bff2a2b8b5baaa
+    name: 06-23 Sales Team Performance and Strategy Review
+    date: 2026-06-23
+    duration_seconds: 2089000
+    has_transcript: true
+    transcript_status: pending
+  - file_id: 501f25606d43ffa2b4ee675923475cd4
+    name: 06-23 Strategic Dialogue on Corporate Structure, Leadership, and Growth
+    date: 2026-06-23
+    duration_seconds: 1931000
+    has_transcript: true
+    transcript_status: pending
+  - file_id: bebfb9e0734bc8b241e2cec9ce233c05
+    name: 06-22 Strategic Partnership Exploration between xAI and Improving
+    date: 2026-06-22
+    duration_seconds: 1958000
+    has_transcript: true
+    transcript_status: pending
+  - file_id: fd49dbb1f51f51e94a95de225cce8b24
+    name: '06-16 Consultation: AI Strategy & Governance'
+    date: 2026-06-16
+    duration_seconds: 1890000
+    has_transcript: true
+    transcript_status: pending
+  - file_id: ffe94bdbece8b80b1943f49828ef77b1
+    name: 06-15 Leveraging AI for Business Operations and Competitive Advantage
+    date: 2026-06-15
+    duration_seconds: 2543000
+    has_transcript: true
+    transcript_status: pending
+  - file_id: fa0a7767b7a35a44db0d848f1619541b
+    name: '06-12 Lecture: AI Adoption, Governance, and Scaling'
+    date: 2026-06-12
+    duration_seconds: 7077000
+    has_transcript: true
+    transcript_status: pending
+  - file_id: f2bd65b3fce61b674b85dde54a6a4a0b
+    name: '06-12 Meeting: AI Discussion on Practical Frameworks and Adoption'
+    date: 2026-06-12
+    duration_seconds: 2729000
+    has_transcript: true
+    transcript_status: pending
+  - file_id: b5d584a706e6711f2eb26c08c80fda55
+    name: 2026-06-12 TopGolf Executive AI Briefing
+    date: 2026-06-12
+    duration_seconds: 9807000
+    has_transcript: true
+    transcript_status: pending
+  - file_id: 3558ce2d000323572ccbd94c63ec5195
+    name: 06-09 Consultation on AI Implementation and Data Strategy
+    date: 2026-06-09
+    duration_seconds: 1955000
+    has_transcript: true
+    transcript_status: pending
+  - file_id: 8a61f1edf8adceea9ae91581020b2ba6
+    name: 06-09 Mentorship and Career Development Discussion
+    date: 2026-06-09
+    duration_seconds: 1665000
+    has_transcript: true
+    transcript_status: pending
+  - file_id: a0c8a0eec98e33c0db0255b7f05f57bf
+    name: 06-09 SMU and Improving Explore Partnership for New MS in AI for Business
+      Program, Focusing on Guest Lecturing and Curriculum Advising
+    date: 2026-06-09
+    duration_seconds: 1169000
+    has_transcript: true
+    transcript_status: pending
+  - file_id: 65c3a1de465028eda14a3c4b00a6446f
+    name: '06-08 Consultation: Cognition, Improving, and Wendy''s AI Strategy'
+    date: 2026-06-08
+    duration_seconds: 1697000
+    has_transcript: true
+    transcript_status: pending
+  - file_id: f874585c54f2aadc1b601418d4a73535
+    name: 06-08 Mentoring Session on Professional Development and Self-Improvement
+    date: 2026-06-08
+    duration_seconds: 1548000
+    has_transcript: true
+    transcript_status: pending
+  - file_id: 759c5846c93b37c5f2c52aa034222121
+    name: '06-08 Introductory Meeting: Partnership Exploration with Improving for
+      Data Engineering & AI'
+    date: 2026-06-08
+    duration_seconds: 1335000
+    has_transcript: true
+    transcript_status: pending
+  - file_id: c520ac7225be4406317916692dbf547c
+    name: "05-28 Consultation: 3\u2011Month AI Build Program for Remote Leadership\
+      \ Offsite (Windsor, Oct 2026)"
+    date: 2026-05-28
+    duration_seconds: 1400000
+    has_transcript: true
+    transcript_status: pending
+  - file_id: eab4fe18acbded848fcb11f33f71d26d
+    name: '05-26 Interview: Head of IT/Technology Role'
+    date: 2026-05-26
+    duration_seconds: 471000
+    has_transcript: true
+    transcript_status: pending
+  - file_id: 781325f63bad4d8d76edea7144f1c38e
+    name: '05-22 Meeting: Partner-Led AI Engagement Model for Mid-Market and Sales
+      Alignment Challenges'
+    date: 2026-05-22
+    duration_seconds: 386000
+    has_transcript: true
+    transcript_status: pending
+  - file_id: 0ccc186e295be5298e1abf2ab46f8d3a
+    name: '05-22 Meeting: Austin Summit Planning, Speakers, Sponsorships, YPO Outreach,
+      and Ethical AI Talk'
+    date: 2026-05-22
+    duration_seconds: 1215000
+    has_transcript: true
+    transcript_status: pending
+  - file_id: e2651d9388d120eb4c25087ec51bb070
+    name: '05-22 Consultation: THL & Odessa - Service Margin Erosion'
+    date: 2026-05-22
+    duration_seconds: 1523000
+    has_transcript: true
+    transcript_status: pending
+  - file_id: 66f9851da4eae9f6889f9bb90d9fb94b
+    name: '05-18 Meeting: AI Workshop Planning'
+    date: 2026-05-18
+    duration_seconds: 1552000
+    has_transcript: true
+    transcript_status: pending
+  - file_id: 636cb5a93564b4acbc8c5bbecfd888da
+    name: "05-14 Workshop: AI Hands-On Build Session for Synexus Leaders \u2013 RFP\
+      \ Automation, Copilot 365, Notebook LM, SharePoint"
+    date: 2026-05-14
+    duration_seconds: 1528000
+    has_transcript: true
+    transcript_status: pending
+  - file_id: 4cfaba43239fdec48b1952564caf46d6
+    name: '05-13 Consultation: Enterprise Claude Governance, Fraud Mitigation, and
+      Upskilling at Exeter Finance'
+    date: 2026-05-13
+    duration_seconds: 1517000
+    has_transcript: true
+    transcript_status: pending
+  - file_id: 39a6065ed599841cad0c403ba1ecef1a
+    name: '05-13 Consultation: Fractional CTO/CIO & Business Strategy'
+    date: 2026-05-13
+    duration_seconds: 718000
+    has_transcript: true
+    transcript_status: pending
+  - file_id: f3318b024aeadbb2e149b460e661ea71
+    name: '05-13 Consultation: Bob (Private Equity Firm) - Odessa Underperformance'
+    date: 2026-05-13
+    duration_seconds: 1141000
+    has_transcript: true
+    transcript_status: pending
+  - file_id: 377d41b97ab9d60c30a30cd87ceeec54
+    name: '05-12 Meeting Note: AI Workshop, Economic Impact & Data Sourcing'
+    date: 2026-05-12
+    duration_seconds: 5088000
+    has_transcript: true
+    transcript_status: pending
+  - file_id: d78ff55e9668cba156d300e635883202
+    name: '05-12 Workshop: Executive AI Strategy and Departmental Use-Case Prioritization'
+    date: 2026-05-12
+    duration_seconds: 1685000
+    has_transcript: true
+    transcript_status: pending
+  - file_id: d4e20c86509bab3eb86e7f371945d798
+    name: '05-12 Lunch Meeting: DSO Access Strategy, Cosm Immersive MVP, Corporate
+      Underwriting, and Wealth Platform Transition'
+    date: 2026-05-12
+    duration_seconds: 4843000
+    has_transcript: true
+    transcript_status: pending
+  - file_id: 11e71b2eab48d8eba632f40d3b89a580
+    name: 05-05 AI Development Tooling Strategy for Client Engagement
+    date: 2026-05-05
+    duration_seconds: 1685000
+    has_transcript: true
+    transcript_status: pending
+  - file_id: 4dcb73fac31085d9258e31b110967163
+    name: 04-21 Strategic Advisory on Scaling an AI Startup
+    date: 2026-04-21
+    duration_seconds: 3791000
+    has_transcript: true
+    transcript_status: pending
+  - file_id: 2c9971feff1e18241d98f76560afb568
+    name: '04-20 Consultation: AI Enablement and Agent Governance for SAP & Digital
+      Teams at Maxon/McKesson'
+    date: 2026-04-20
+    duration_seconds: 1527000
+    has_transcript: true
+    transcript_status: pending
+  - file_id: cb309555e0bb3162a433e439eb20d046
+    name: "04-17 Meeting: SMU\u2013Improving Collaboration on AI Strategy, Education,\
+      \ and Hackathon Planning"
+    date: 2026-04-17
+    duration_seconds: 2534000
+    has_transcript: true
+    transcript_status: pending
+  - file_id: fbf223550f0b06fee0d9ba1d37087669
+    name: '04-17 Weekly Meeting: Onboarding and Management Training'
+    date: 2026-04-17
+    duration_seconds: 2239000
+    has_transcript: true
+    transcript_status: pending
+  - file_id: f306fb7074e95b9702cf768618390c39
+    name: 04-14 Strategic Perspective on AI Growth and Business Adoption
+    date: 2026-04-14
+    duration_seconds: 2708000
+    has_transcript: true
+    transcript_status: pending
+  - file_id: ddb571e94fb49f233b72bb85597539b2
+    name: '04-13 Executive Partner Kickoff Call: Aligning Goals, Access, and Operating
+      Rhythm'
+    date: 2026-04-13
+    duration_seconds: 2344000
+    has_transcript: true
+    transcript_status: pending
+  - file_id: 30573086ed95fedbaf674ce123145ad4
+    name: '04-07 Consultation: Meredith - Conference Speaker Search'
+    date: 2026-04-07
+    duration_seconds: 1325000
+    has_transcript: true
+    transcript_status: pending
+  - file_id: a8590d37eb001b62b0d25fc9fb40bf45
+    name: 04-06 Exploratory Meeting on Vistage Membership for a New President
+    date: 2026-04-06
+    duration_seconds: 2750000
+    has_transcript: true
+    transcript_status: pending
+  - file_id: 12a03ccf6fc46ab4de81103247ae925c
+    name: '04-06 Consultation: AI Solutions for Property Management Efficiency'
+    date: 2026-04-06
+    duration_seconds: 1909000
+    has_transcript: true
+    transcript_status: pending
+  - file_id: 01e3c670592808203e4439bcfc258aaa
+    name: '04-02 Weekly Meeting: McLane Account Strategy, AI Engagement, and GTM Performance'
+    date: 2026-04-02
+    duration_seconds: 6745000
+    has_transcript: true
+    transcript_status: pending
+  - file_id: e712a21ab3fa48c672e32d17739b6366
+    name: '04-02 Strategy Meeting: Key Accounts (Intuit, Oxy, Live Nation)'
+    date: 2026-04-02
+    duration_seconds: 5913000
+    has_transcript: true
+    transcript_status: pending
+  - file_id: 3bcb04ee36b555a6a1121aca81c50d85
+    name: '04-02 Consultation: Specialty Capital - SaaS System Replacement'
+    date: 2026-04-02
+    duration_seconds: 1943000
+    has_transcript: true
+    transcript_status: pending
+  - file_id: 3102121505df2825fc29efa82ef2f746
+    name: '04-01 Meeting: Account Plan Strategy & Key Accounts (Simpson, Entergy,
+      AT&T)'
+    date: 2026-04-01
+    duration_seconds: 12916000
+    has_transcript: true
+    transcript_status: pending
+  - file_id: cacb9dcf986e787637fed97dd8ce2004
+    name: 03-26 DRC's Talent Labs Repositions as Senior HR Leadership Incubator with
+      AI Focus
+    date: 2026-03-26
+    duration_seconds: 831000
+    has_transcript: true
+    transcript_status: pending
+  - file_id: e904efdd592eac537da3be493fe6d860
+    name: 03-25 Vendor Partnership Failure and Strategic Reset Due to Guatemala Team's
+      Capability Gap
+    date: 2026-03-25
+    duration_seconds: 1235000
+    has_transcript: true
+    transcript_status: pending
+  - file_id: d2d390a2de3afa7ecd4a61c408355806
+    name: 03-24 Texas's Strategy to Become a Global Financial Hub ("Y'all Street")
+    date: 2026-03-24
+    duration_seconds: 5255000
+    has_transcript: true
+    transcript_status: pending
+  - file_id: 14d0f41b5dcb80d32ffab947fa94c982
+    name: 03-23 Disciplined AI Adoption and Secure Agent Operations Enabled by Executive
+      Peer Networks
+    date: 2026-03-23
+    duration_seconds: 662000
+    has_transcript: true
+    transcript_status: pending
+  - file_id: 175530b523269bd010932699539ee578
+    name: '03-23 Strategic AI Implementation: From Cultural Adoption to Technical
+      Execution'
+    date: 2026-03-23
+    duration_seconds: 5736000
+    has_transcript: true
+    transcript_status: pending
+  - file_id: 2d630f14f59b06f32fe004da42a11042
+    name: '03-20 Consultation: Athena EA Month-to-Month Trial, Proactivity, Microsoft
+      365 Integration, and Security'
+    date: 2026-03-20
+    duration_seconds: 1430000
+    has_transcript: true
+    transcript_status: pending
+  - file_id: f36afb2dfa407af96c8e1a39a8e666fd
+    name: "03-12 Consultation: NextBen ICHRA Pre-Sales Analysis Tool\u2014Scalability,\
+      \ Integration, and Broker Enablement"
+    date: 2026-03-12
+    duration_seconds: 1758000
+    has_transcript: true
+    transcript_status: pending
+  - file_id: 2381dbde9e0e2882bebf564387e49b18
+    name: '03-10 Meeting: Executive Assistant AI System Integration, Calendar/Storage
+      Mapping, and Onboarding Plan'
+    date: 2026-03-10
+    duration_seconds: 4716000
+    has_transcript: true
+    transcript_status: pending
+  - file_id: eb95605742e593b185c6d1d2c2d429eb
+    name: '03-06 Meeting: Azure Go-Live, Event-Driven POC, and Legacy Code Analysis
+      Strategy'
+    date: 2026-03-06
+    duration_seconds: 1004000
+    has_transcript: true
+    transcript_status: pending
+  - file_id: 374ebaa23c57bae55e94fd74fff219d8
+    name: 03-05 Strategic Discussion on AI Integration in Professional Services
+    date: 2026-03-05
+    duration_seconds: 1625000
+    has_transcript: true
+    transcript_status: pending
+  - file_id: 69679aaa94a5fd286f686f68444f3999
+    name: '02-24 Meeting: DRC Event Strategy, AI Workshop Promotion, and Outreach
+      Plan'
+    date: 2026-02-24
+    duration_seconds: 2301000
+    has_transcript: true
+    transcript_status: pending
+  - file_id: 1cd79c74dec9ecb46910c4147479ebc2
+    name: "02-23 Meeting: AI Training Program for DevOps and IT Infrastructure \u2014\
+      \ Adoption Levels, Compliance, Structure, Pricing"
+    date: 2026-02-23
+    duration_seconds: 1859000
+    has_transcript: true
+    transcript_status: pending
+  - file_id: 881d636f55e44809f4b5bf8f6bd4c1ba
+    name: 02-20 Expanding McKesson Account via Databricks Partnership and Snowflake
+      Migration Strategy
+    date: 2026-02-20
+    duration_seconds: 1000000
+    has_transcript: true
+    transcript_status: pending
+  - file_id: ca0c3c14157607cb11d5b71c9a1da0b9
+    name: '02-20 Meeting: Vistage Speaker Opportunity'
+    date: 2026-02-20
+    duration_seconds: 1894000
+    has_transcript: true
+    transcript_status: pending
+  - file_id: 67ed8bff5f64e9543a24c07b08acd715
+    name: '02-13 Meeting: Cardinal IT Solutions & Improving Partnership'
+    date: 2026-02-13
+    duration_seconds: 1422000
+    has_transcript: true
+    transcript_status: pending
+  - file_id: 9dd04a9eb939ab74849d7f04a8b93e43
+    name: 02-12 Confluent Meeting
+    date: 2026-02-12
+    duration_seconds: 2845000
+    has_transcript: true
+    transcript_status: pending
+  - file_id: e2ba228f669ec2ecae9bfb7c7ef3e45b
+    name: '01-14 Weekly Meeting: Enterprise Presidents'' Roles, Sales Leadership,
+      and Microsoft Partnership'
+    date: 2026-01-14
+    duration_seconds: 823000
+    has_transcript: true
+    transcript_status: pending
+  - file_id: d59606e21d3be9d20372c27da65281f1
+    name: '01-13 Panel Discussion: Capitalism, Venture Capital, and Angel Investing'
+    date: 2026-01-13
+    duration_seconds: 3309000
+    has_transcript: true
+    transcript_status: pending
+  - file_id: 969d0704a3f926b055cddb3de3d0762d
+    name: '01-13 Interview: Chrissy and Mark - Angel Investing Strategies'
+    date: 2026-01-13
+    duration_seconds: 2959000
+    has_transcript: true
+    transcript_status: pending
+  - file_id: 0fe28170fa4dd5e90084022dff733586
+    name: '01-13 Investor Summit: Liberty Ventures, Capitalism, and Angel Investing'
+    date: 2026-01-13
+    duration_seconds: 2359000
+    has_transcript: true
+    transcript_status: pending
+  - file_id: 45ec10f866bf2477af642d2805b347b7
+    name: '12-22 Partnership Meeting: AI Strategy and Data Infrastructure'
+    date: 2025-12-22
+    duration_seconds: 3461000
+    has_transcript: true
+    transcript_status: pending
+  - file_id: 61be69f4955ba9121bf4ff3e54587230
+    name: '12-08 Meeting: SAP S/4HANA Migration Strategy'
+    date: 2025-12-08
+    duration_seconds: 1640000
+    has_transcript: true
+    transcript_status: pending
   transcription-triggered: []
   pending-recordings: []
   speaker-mappings: {}
   step-02-summary:
     status: completed
-    reason: "All 116 new recordings already have transcription in progress (pending status). No trigger needed."
+    reason: All 116 new recordings already have transcription in progress (pending
+      status). No trigger needed.
     already-ready: 0
     triggered: 0
     pending: 116
-  pending-speaker-mappings: []
+  pending-speaker-mappings:
+  - file_id: 969d0704a3f926b055cddb3de3d0762d
+    recording_name: '01-13 Interview: Chrissy and Mark - Angel Investing Strategies'
+    untagged_count: 4
+    untagged_speakers:
+    - name: Speaker 4
+      segments_count: 6
+      sample_text: yeah alex first off i'll say if anyone's having breakfast anywhere
+        other than the original pancake house you're doing it
+    - name: Speaker 5
+      segments_count: 3
+      sample_text: All right. We have a question here.
+    - name: Speaker 7
+      segments_count: 2
+      sample_text: Folks, thank you so much for doing this. I have a question for
+        each of Chrissy and Mark. Chrissy, how much longer do you
+    - name: Speaker 6
+      segments_count: 1
+      sample_text: Yeah. Yeah, just, so it's a setting time in the economy. Obviously,
+        you know, rates are going down. A lot of stuff, IPOs
+  - file_id: 0fe28170fa4dd5e90084022dff733586
+    recording_name: '01-13 Investor Summit: Liberty Ventures, Capitalism, and Angel
+      Investing'
+    untagged_count: 29
+    untagged_speakers:
+    - name: Speaker 26
+      segments_count: 4
+      sample_text: Good morning. My name is Jim Tolbert, and I'm the founder and managing
+        director of an investment bank based here in Dall
+    - name: Speaker 2
+      segments_count: 3
+      sample_text: 'Well thank you everyone for coming here. As many of you know,
+        I''m originally from Venezuela, and when I grew up, I only '
+    - name: Speaker 13
+      segments_count: 3
+      sample_text: One disadvantage in giving the seats this comfy is it's hard to
+        get on the phone. Oksana Malysheva from Austin, Texas. I
+    - name: Speaker 3
+      segments_count: 2
+      sample_text: 'hi everybody i''m thrilled to be here with you looking forward
+        to meeting everyone san francisco, uh serial entrepreneur '
+    - name: Speaker 8
+      segments_count: 2
+      sample_text: 'Good morning. I''m Peter Taylor. I grew up in the UK and dreamed
+        of coming to America for the positivity that it brings. '
+    - name: Speaker 9
+      segments_count: 2
+      sample_text: I'm Eric Taussig. I'm here on a personal basis as a member of Liberty
+        Ventures, but professionally, and I'm based in Por
+    - name: Speaker 14
+      segments_count: 2
+      sample_text: world that we know will be active during coffee and dinners i agree
+        these chairs are really comfortable um i'm carrie br
+    - name: Speaker 15
+      segments_count: 2
+      sample_text: all of you. Thank you. Good morning, everybody. My name is Greg
+        Denharder. I am a serial entrepreneur. I'm in the hospit
+    - name: Speaker 16
+      segments_count: 2
+      sample_text: Hi, welcome. I'm Matt Johns. I'm actually from Houston and I run
+        an investment banking firm. This is awkward. An investm
+    - name: Speaker 18
+      segments_count: 2
+      sample_text: I'm Anil Malgarapu. I run a venture fund that's focused on AI and
+        science for human health. I run it with my partner who
+    - name: Speaker 25
+      segments_count: 2
+      sample_text: Howdy. I'm Gage. I guess I represent Frisco now. So, up deep in
+        the suburbs, if you don't want to come check out good ol
+    - name: Speaker 29
+      segments_count: 2
+      sample_text: Hi, my name is Hindeto Nishitani. I live in Dallas. I'm a mentor
+        and investor at the Conscious Capitalism-Based Accelera
+    - name: Speaker 30
+      segments_count: 2
+      sample_text: and go ahead and introduce yourself okay hi i'm brian schultz i'm
+        here from dallas i started off, campus activists to u.
+    - name: Speaker 4
+      segments_count: 1
+      sample_text: So I'm David Tice, glad to be here as well. I'm a movie producer,
+        a documentary about the power grid with Dennis Quaid n
+    - name: Speaker 5
+      segments_count: 1
+      sample_text: To follow in the heels of gold. I'm Lee Tucker. I'm in from Miami,
+        but I work with Adam Trexler, who's the CEO of Valoru
+    - name: Speaker 6
+      segments_count: 1
+      sample_text: David O'Hara. I'm with Improving. We're a modern digital services
+        company. So, kind of the spectrum of IT consulting alo
+    - name: Speaker 7
+      segments_count: 1
+      sample_text: Jason W. Taylor, president and founder of CodeLaunch, was acquired
+        by Improving thanks to my friend David O'Hara in 2019
+    - name: Speaker 10
+      segments_count: 1
+      sample_text: Hi, I'm Isabella Hollingshead. I'm here with Eric. I do business
+        development for Priyelto. We also help executives as th
+    - name: Speaker 11
+      segments_count: 1
+      sample_text: Hey there, I'm Dylan Schroeder. I live in Dallas. I'm with New
+        Founding, and we are a venture firm that's building and b
+    - name: Speaker 12
+      segments_count: 1
+      sample_text: 'Hi, I''m Carter Stewart. I also work for New Founding. I''m an
+        associate. I just graduated from Harvard in the spring, so '
+    - name: Speaker 17
+      segments_count: 1
+      sample_text: Randy Tate. I'm the CEO of a company called iFlip. We are a true
+        deterministic, AI-driven investment platform. Think Rob
+    - name: Speaker 19
+      segments_count: 1
+      sample_text: 'Davis Bailey. I have the original Pancake House Restaurant in
+        the Dallas forward. I''ve been with Liberty Ventures since '
+    - name: Speaker 20
+      segments_count: 1
+      sample_text: Good morning, Nate George. Very similar. I work at Scott Ventures
+        out of Austin, Texas. We're critical tech focused. You
+    - name: Speaker 21
+      segments_count: 1
+      sample_text: Thanks, Cordia. from here in Dallas. My background's in energy
+        and venture capital, predominantly in the family office a
+    - name: Speaker 22
+      segments_count: 1
+      sample_text: Yeah, I'm Cody Huggins, a partner in Scout Ventures, work with
+        Nate. Nate and I both just moved up here from Austin. It'
+    - name: Speaker 23
+      segments_count: 1
+      sample_text: 'Hey everyone, my name''s William Steele. I currently serve as
+        the CEO, of a seed-safe startup called Supply Pay. We help '
+    - name: Speaker 24
+      segments_count: 1
+      sample_text: Hi there. I'm Sean Lane Kimmon from Atlanta, Georgia. I'm the founding
+        CEO of a company called LivTech in the process of
+    - name: Speaker 27
+      segments_count: 1
+      sample_text: 'Chrissy Edwards. I do angel investing, venture capital investing,
+        and then I also tend to embed myself within startups. '
+    - name: Speaker 28
+      segments_count: 1
+      sample_text: Nice to meet y'all. Vipperman. Based here in North Texas, like
+        McKinney, Frisco area. And work with Eagle Venture Funds,
+  - file_id: d59606e21d3be9d20372c27da65281f1
+    recording_name: '01-13 Panel Discussion: Capitalism, Venture Capital, and Angel
+      Investing'
+    untagged_count: 3
+    untagged_speakers:
+    - name: Speaker 2
+      segments_count: 41
+      sample_text: Centered in Texas. Yeah, well, I invest in science and health tech
+        and a lot of that biotech came out of academia, which
+    - name: Speaker 1
+      segments_count: 32
+      sample_text: to a lot of really amazing companies and at my part we love working
+        with you so let's catch up for a coffee we'd love to
+    - name: Speaker 5
+      segments_count: 2
+      sample_text: 'More of a hypothetical, if you guys had a new principal that was
+        hired on a free budget, and they''re very sophisticated '
+  - file_id: 9dd04a9eb939ab74849d7f04a8b93e43
+    recording_name: 02-12 Confluent Meeting
+    untagged_count: 5
+    untagged_speakers:
+    - name: Speaker 5
+      segments_count: 17
+      sample_text: I only have a conference room take that. Oh, I'll send that to
+        you.
+    - name: Speaker 7
+      segments_count: 11
+      sample_text: Oh, I was just saying, it looks like true hunting and gathering.
+        Yeah, yeah. I think we're just on the wrong Zoom. Okay,
+    - name: Speaker 6
+      segments_count: 10
+      sample_text: Yeah, Go ahead while they join.
+    - name: Speaker 4
+      segments_count: 8
+      sample_text: For you guys, all who started right? I'm sorry, Rocco, that was
+        I don't know. I was just letting another people on the Z
+    - name: Speaker 8
+      segments_count: 5
+      sample_text: Is Diana still on American? Yes.
+  - file_id: 67ed8bff5f64e9543a24c07b08acd715
+    recording_name: '02-13 Meeting: Cardinal IT Solutions & Improving Partnership'
+    untagged_count: 2
+    untagged_speakers:
+    - name: Speaker 3
+      segments_count: 21
+      sample_text: 'Technically David. All we do with the assessment is we know the
+        target areas that we go in and look for right? It''s the '
+    - name: Speaker 2
+      segments_count: 15
+      sample_text: Okay. So it's a very simple four- step process that we are doing
+        with different clients. And as Scott can tell you about
+  - file_id: 881d636f55e44809f4b5bf8f6bd4c1ba
+    recording_name: 02-20 Expanding McKesson Account via Databricks Partnership and
+      Snowflake Migration Strategy
+    untagged_count: 1
+    untagged_speakers:
+    - name: Speaker 2
+      segments_count: 38
+      sample_text: Doing well.
+  - file_id: ca0c3c14157607cb11d5b71c9a1da0b9
+    recording_name: '02-20 Meeting: Vistage Speaker Opportunity'
+    untagged_count: 2
+    untagged_speakers:
+    - name: Speaker 1
+      segments_count: 34
+      sample_text: 'About how well you know Vistage on today''s call. So we will cover
+        briefly what Vistage is and what this opportunity is, '
+    - name: Speaker 2
+      segments_count: 21
+      sample_text: That's a great point you just touched on. We had a question about
+        someone being an executive and leadership coach and wh
+  - file_id: 2381dbde9e0e2882bebf564387e49b18
+    recording_name: '03-10 Meeting: Executive Assistant AI System Integration, Calendar/Storage
+      Mapping, and Onboarding Plan'
+    untagged_count: 1
+    untagged_speakers:
+    - name: Speaker 4
+      segments_count: 10
+      sample_text: Yep. With the exclamation point. All.
+  - file_id: 2d630f14f59b06f32fe004da42a11042
+    recording_name: '03-20 Consultation: Athena EA Month-to-Month Trial, Proactivity,
+      Microsoft 365 Integration, and Security'
+    untagged_count: 1
+    untagged_speakers:
+    - name: Speaker 3
+      segments_count: 30
+      sample_text: They Should be guiding you to get them into your email, into your
+        calendar. We wouldn't expect you to be the one to kind
+  - file_id: d2d390a2de3afa7ecd4a61c408355806
+    recording_name: 03-24 Texas's Strategy to Become a Global Financial Hub ("Y'all
+      Street")
+    untagged_count: 10
+    untagged_speakers:
+    - name: Speaker 3
+      segments_count: 37
+      sample_text: Thank you, Sarah. Thanks, Sarah. Uh and thank you Senator and Representative
+        for being here. I'm uh very excited to have
+    - name: Speaker 5
+      segments_count: 33
+      sample_text: 'Thank you so much. It''s good to be in Dallas. I grew up over
+        in East Texas. And when I was a kid, we had cable TV. But. '
+    - name: Speaker 4
+      segments_count: 20
+      sample_text: 'I know myself and Chairman Hughes are honored to be here today
+        to talk about. What is the continuing Texas miracle? And '
+    - name: Speaker 7
+      segments_count: 17
+      sample_text: Yeah, I'm happy to do so. And uh of course I'll be first to figure
+        out how the microphone works, But so in twenty four w
+    - name: Speaker 8
+      segments_count: 12
+      sample_text: Well, I think historically. People looked to Delaware as a place
+        that had a well - built - up body of law developed over
+    - name: Speaker 9
+      segments_count: 12
+      sample_text: "So, The business courts\u2014 for those of you who may not know\u2014\
+        \ they split the state into eleven regions, into eleven judici"
+    - name: Speaker 10
+      segments_count: 10
+      sample_text: 'Yeah, great question. And I''ll talk a lot about what I know,
+        right? This is JP Morgan and kind of what we''re focused in '
+    - name: Speaker 2
+      segments_count: 6
+      sample_text: Well, What a privilege to have you in these beautiful offices here
+        at the Dallas Regional Chamber. And I am honored to b
+    - name: Speaker 1
+      segments_count: 5
+      sample_text: Wall Street is Texas the next financial hub? We're looking at the
+        new laws and state initiatives aimed at positioning Te
+    - name: Speaker 6
+      segments_count: 2
+      sample_text: Folks, we're going to transition right into our next program. So,
+        don't be that guy who stands up and leaves. We already
+  - file_id: a8590d37eb001b62b0d25fc9fb40bf45
+    recording_name: 04-06 Exploratory Meeting on Vistage Membership for a New President
+    untagged_count: 2
+    untagged_speakers:
+    - name: Speaker 3
+      segments_count: 91
+      sample_text: Yeah So gentlemen, nice to meet both of you Um. So typically, what
+        I like to do with a potential member I really like to
+    - name: Speaker 1
+      segments_count: 68
+      sample_text: Uh, two thousand seven. Uh, hey there. Check shopping in there
+        with you, Dave?
+  - file_id: 30573086ed95fedbaf674ce123145ad4
+    recording_name: '04-07 Consultation: Meredith - Conference Speaker Search'
+    untagged_count: 1
+    untagged_speakers:
+    - name: Speaker 1
+      segments_count: 30
+      sample_text: A really great conversation, and it just triggered how my brain
+        kind of works that way. Like, I have a good conversation
+  - file_id: 2c9971feff1e18241d98f76560afb568
+    recording_name: '04-20 Consultation: AI Enablement and Agent Governance for SAP
+      & Digital Teams at Maxon/McKesson'
+    untagged_count: 1
+    untagged_speakers:
+    - name: Unknown
+      segments_count: 1
+      sample_text: It needs to be realistic to their world and their environment.
+        And the thing that they're experts in, and then they take
+  - file_id: 377d41b97ab9d60c30a30cd87ceeec54
+    recording_name: '05-12 Meeting Note: AI Workshop, Economic Impact & Data Sourcing'
+    untagged_count: 2
+    untagged_speakers:
+    - name: Speaker 5
+      segments_count: 20
+      sample_text: 'Just to be clear, we will agree that if you did have identities
+        for those frontier models, Which they''re probably doing '
+    - name: Speaker 4
+      segments_count: 11
+      sample_text: So, yeah, is like the product for like. Yeah,
+  - file_id: 759c5846c93b37c5f2c52aa034222121
+    recording_name: '06-08 Introductory Meeting: Partnership Exploration with Improving
+      for Data Engineering & AI'
+    untagged_count: 1
+    untagged_speakers:
+    - name: Unknown (brief)
+      segments_count: 1
+      sample_text: Okay okay okay yes.
+  - file_id: fd49dbb1f51f51e94a95de225cce8b24
+    recording_name: '06-16 Consultation: AI Strategy & Governance'
+    untagged_count: 2
+    untagged_speakers:
+    - name: Speaker 3
+      segments_count: 25
+      sample_text: Got it, got it, got it.
+    - name: Speaker 2
+      segments_count: 8
+      sample_text: Uh doing well, doing well. You're based in Texas?
+  - file_id: 81ff9b6a467037b188fa10a8360350b3
+    recording_name: 06-26 Kazakhstan's Digital and AI Ecosystem Overview for Potential
+      U.S. Collaboration
+    untagged_count: 5
+    untagged_speakers:
+    - name: Speaker 5
+      segments_count: 28
+      sample_text: Yes, Very good. Again, My name is and the deputy chairman of digital
+        assets and technologies in the Ministry of Digital,
+    - name: Speaker 1
+      segments_count: 13
+      sample_text: Partnership with the Ministry of Finance, especially the State
+        Revenue Committee, to implement tax monitoring system for
+    - name: Speaker 7
+      segments_count: 10
+      sample_text: The World Bank runs this ranking; it's called Business Rating,
+        used to be doing business kind of worldwide. Countries. O
+    - name: Speaker 6
+      segments_count: 6
+      sample_text: So my name is Daulet. I am a counselor at research institution,
+        which is located at this scope Nazarbayev University. So
+    - name: Speaker 3
+      segments_count: 4
+      sample_text: Everyone, thank you for your hospitality and spending time with
+        us for this meeting. My name is Amaldik Muratov. Okay, G
+  - file_id: c75b84b5cb133be2f48ff24a461b1d1e
+    recording_name: 07-02 Medical Consultation for Low Back and Leg Pain
+    untagged_count: 1
+    untagged_speakers:
+    - name: Speaker 1
+      segments_count: 13
+      sample_text: Okay. Yes. Uh, what's your birthday?
+  - file_id: 8426683e366cd3dafc90de22e28557ab
+    recording_name: 07-07 Professional and Personal Catch-up on Business Ventures,
+      Family Life, and Investment Philosophies
+    untagged_count: 1
+    untagged_speakers:
+    - name: Speaker 2
+      segments_count: 11
+      sample_text: Regional director is that the title?
+  - file_id: e39770b133f2e1b902bc59c138e5c35b
+    recording_name: '07-07 Strategic Meeting: Upskilling Sales and Targeting Large
+      Deals'
+    untagged_count: 1
+    untagged_speakers:
+    - name: Speaker 2
+      segments_count: 3
+      sample_text: Okay, so.
+  - file_id: c5b8e23e96c2cd065eb4adb1bbb5726e
+    recording_name: 07-08 Strategic Deep-Dive on SC's AI-Powered Compliance Platform
+    untagged_count: 1
+    untagged_speakers:
+    - name: Speaker 8
+      segments_count: 10
+      sample_text: That's yeah,
+  - file_id: e71526d7131bd7471384b151f6cf09c6
+    recording_name: '07-14 SOAP Note: O''Hara - L5 Radiculopathy'
+    untagged_count: 1
+    untagged_speakers:
+    - name: Speaker 2
+      segments_count: 36
+      sample_text: Let me see if we can get through it. All right. Yeah, it's onum
+        if we don't get it, we'll bring you back next week or ge
+  - file_id: 58103264971320b752c7ba0586cab4f6
+    recording_name: '07-16 Casual Conversation: YPO Networking, Assisted Intelligence
+      in Business, and Personal Life Insights'
+    untagged_count: 1
+    untagged_speakers:
+    - name: Speaker 3
+      segments_count: 63
+      sample_text: I am good, thank you. Yourself?
+  - file_id: d38e5313615f22a6d73d19640d678384
+    recording_name: '07-16 Consultation: Founding Membership and Club Opening'
+    untagged_count: 1
+    untagged_speakers:
+    - name: Speaker 2
+      segments_count: 18
+      sample_text: How's it going? Sorry, I tried to give you a call on the regular
+        phone, and then I realized there is a Teams. Oh,
+  - file_id: db14a3ce68a47c27c1ac11933e5d87d2
+    recording_name: 07-16 Strategic Framework for Integrating AI in Professional Services
+    untagged_count: 2
+    untagged_speakers:
+    - name: Speaker 2
+      segments_count: 70
+      sample_text: It's doing fine. Yeah, I'm uh I'm an eternal procrastinator for
+        things that uh that I should do and instead. Focus on th
+    - name: Speaker 3
+      segments_count: 13
+      sample_text: Mary, can you get something to drink? Uh just some water. Some
+        water? UhNot for me. We got a redfish, we have mahi- mahi
+  - file_id: 77d513f9cbc84f639ea7bda30dff1874
+    recording_name: 07-16 Strategic Review of AI Adoption and Organizational Readiness
+    untagged_count: 3
+    untagged_speakers:
+    - name: Speaker 3
+      segments_count: 22
+      sample_text: But Dave, do you prefer to drive your own slides or not? Like you
+        just pass the.
+    - name: Speaker 5
+      segments_count: 11
+      sample_text: Where would you say y'all are at?
+    - name: Speaker 4
+      segments_count: 8
+      sample_text: Look at there he is. Oh, how are you doing?
+  - file_id: 05c0b9347899d1c470b2216dc364d58d
+    recording_name: "07-28 Chevron Payments Failover to Takeover: Moto NOC Build,\
+      \ Multi\u2011Region AWS Ops, and Acquirer Certifications Plan"
+    untagged_count: 1
+    untagged_speakers:
+    - name: Speaker 1
+      segments_count: 24
+      sample_text: I Am doing well.
+  - file_id: 9293d2cca5e19da9dcd793598ea33415
+    recording_name: '07-28 Meeting: Solace Partnership Strategy, Sales Structure,
+      and Event Mesh/Agent Mesh Enablement'
+    untagged_count: 4
+    untagged_speakers:
+    - name: Speaker 4
+      segments_count: 97
+      sample_text: Yeah yeah But you have some is is the person in Mexico? City do
+        you know or are they're in Guadalajara? In Guadalajara o
+    - name: Speaker 3
+      segments_count: 65
+      sample_text: And the guac and just so. Yeah, it's it's a little much but it's
+        awesome. Right. Well.
+    - name: Speaker 5
+      segments_count: 64
+      sample_text: I'll walk you through some stuff. We don't have to spend too long
+        on it as you as you have questions. Anybody, we can di
+    - name: Speaker 6
+      segments_count: 1
+      sample_text: There you go. Please just went to a I went to a Houston training
+        to train 90 allies, and you could see the room, Fifty p
+  - file_id: ff16ada3c73bf564272bf95719f2f9bb
+    recording_name: '07-29 Consultation: AI-Driven Pricing and Purchase Tools for
+      Used Car Retailer'
+    untagged_count: 3
+    untagged_speakers:
+    - name: Speaker 1
+      segments_count: 16
+      sample_text: Boy, after her. So yeah, we had to uh had to go with our backup
+        Drake.
+    - name: Speaker 6
+      segments_count: 10
+      sample_text: Yeah, we're here. I am sorry, we're cameras ish too.
+    - name: Speaker 3
+      segments_count: 5
+      sample_text: It's right there. It's evened out way more comfortable.
+  - file_id: 235c1f402e3bdd98d8e0fb322ca7f4f8
+    recording_name: '07-29 Professional and Personal Updates: Navigating Family Life
+      and Business Challenges'
+    untagged_count: 1
+    untagged_speakers:
+    - name: Speaker 2
+      segments_count: 85
+      sample_text: I'm trying to start that journey. It's a hard journey to start.
+  - file_id: f824cc96ed478cbb55a5e7c43f0945c7
+    recording_name: 07-29 Strategic Evaluation of AI Gateway Platforms for Enterprise
+      Use
+    untagged_count: 1
+    untagged_speakers:
+    - name: Speaker 7
+      segments_count: 9
+      sample_text: Does It log in context or anything that's sent?
+  - file_id: 5286f4065f7a0ed08ae0f043a4233111
+    recording_name: 07-30 Discussion on Church Leadership, Personal Health, and Theological
+      Differences
+    untagged_count: 2
+    untagged_speakers:
+    - name: Speaker 3
+      segments_count: 79
+      sample_text: It's uh, it's it has been a week of putting out fires. Okay. Did
+        you hear, see the stuff on TikTok? Oh yeah. So,
+    - name: Speaker 2
+      segments_count: 7
+      sample_text: Hey there Kurt. How are you? Welcome in. Happy Thursday. Happy
+        Thursday to you too! Can you get me a side of water while
+  - file_id: 46862b5ef46e5867280603f9d5a843a2
+    recording_name: "07-30 EA Performance Alignment and Growth Plan: Elevating Alice\
+      \ from Task Execution to Strategic Partner for David O\u2019Hara"
+    untagged_count: 1
+    untagged_speakers:
+    - name: Speaker 2
+      segments_count: 15
+      sample_text: Hello. Hi, David. Hello.
+  - file_id: 731cd191d0b84ada286d4589675023e8
+    recording_name: '07-30 Meeting: Personal Retreat Planning, YPO Board Scheduling,
+      Expenses and Tools Access, External Outreach'
+    untagged_count: 1
+    untagged_speakers:
+    - name: Speaker 3
+      segments_count: 4
+      sample_text: Get nervous.
+  - file_id: 87e93b20349620b2ccd2dcb1d13a5dd2
+    recording_name: '07-30 Weekly Meeting: McKesson Project, Texas Performance, and
+      Partner Strategy'
+    untagged_count: 2
+    untagged_speakers:
+    - name: Speaker 2
+      segments_count: 29
+      sample_text: I was surprised when you know I think,
+    - name: Speaker 1
+      segments_count: 25
+      sample_text: And they were just waiting to hire someone, so they finally hired
+        someone. But he doesn't think they should be rolling h
+  - file_id: 65f997c62d7d8cd56ea2ccb2a8725296
+    recording_name: "08-03 Interview: David O'Hara (Improving) and Luke (GearVox)\
+      \ \u2014 Global Boutique Strategy, Conscious Capitalism, and AI Customer Engagement"
+    untagged_count: 2
+    untagged_speakers:
+    - name: Speaker 2
+      segments_count: 63
+      sample_text: Hey, David. How are you doing? I am very well, thank you. I am
+        just coming off of a all weekend project where I worked w
+    - name: Speaker 1
+      segments_count: 2
+      sample_text: Hey, Luke.
+  - file_id: fb489c18186a3013eb4989cb6c5402be
+    recording_name: "08-03 Partnership to Support Moto\u2019s Chevron Deal with Operational\
+      \ and Engineering Services"
+    untagged_count: 3
+    untagged_speakers:
+    - name: Speaker 5
+      segments_count: 38
+      sample_text: But he had said he would be able to join calls, so we can give
+        him a minute. Yeah, We could kick off, and I can give a b
+    - name: Speaker 6
+      segments_count: 8
+      sample_text: Be able to speak in there? Yes, on my internet. Internet's kind
+        of unstable so we'll see how long it lasts. Um Ed Ireson
+    - name: Speaker 4
+      segments_count: 6
+      sample_text: Hey, how are you?
+  - file_id: baeee0303990cfe9996df518fa71f1e3
+    recording_name: 08-06 Architecting "SC IMS" as the Intelligent Core of the "Orb"
+      Platform
+    untagged_count: 1
+    untagged_speakers:
+    - name: Speaker 1
+      segments_count: 16
+      sample_text: Where did it go? So, this is this little picture I'm going to put
+        up on the screen.
+  - file_id: f5416a4750e1f41e2624a9403a8b279a
+    recording_name: 08-06 Area Officer Kickoff and Resource Training
+    untagged_count: 6
+    untagged_speakers:
+    - name: Speaker 1
+      segments_count: 45
+      sample_text: 'Thank you for being here. Oh my god. If you want to come off camera
+        for one minute, I wouldn''t hate it to see the baby. '
+    - name: Speaker 5
+      segments_count: 26
+      sample_text: Yeah, I mean I think Benjamin's the only one really new to this
+        that's on the call. Butum I mean for me the main thing w
+    - name: Speaker 3
+      segments_count: 25
+      sample_text: Oh look at your smile.
+    - name: Speaker 4
+      segments_count: 20
+      sample_text: That's exciting. Myniece just had a baby last week too, so I'm
+        a great aunt now So.
+    - name: Speaker 2
+      segments_count: 15
+      sample_text: Uh probably I want to show you me, she's in the middle of something.
+        Uh hang on, although I don't know how much good thi
+    - name: Speaker 7
+      segments_count: 12
+      sample_text: All right, I'll unmute. All right, everyone. I am going to start
+        here with the Western US Area Officer Toolkit, and this
+  - file_id: 0b814663529a2cd65f0c6031877f44ad
+    recording_name: '08-07 Consultation: Mash AI Platform for Content Creation'
+    untagged_count: 2
+    untagged_speakers:
+    - name: Speaker 3
+      segments_count: 47
+      sample_text: I do what Taylor said. Um, I think one of the things that we realized
+        is everybody jumps in and starts using AI tools. A
+    - name: Speaker 1
+      segments_count: 26
+      sample_text: Hey David. Good morning. How are you? I am doing well. How are
+        you? We're good, man. We're very doing doing very well. E
+  - file_id: 21d97ae3d7373465864ea41cdf188535
+    recording_name: 08-10 AI Workshop Strategy for Remington's Executive Team
+    untagged_count: 1
+    untagged_speakers:
+    - name: Speaker 1
+      segments_count: 16
+      sample_text: And just so you know, David, she sent me a text of it. Yeah. Sorry.
+        What, they not probably what she sent me an email th
+  - file_id: af32b8ce0bb2021328f4755f8696e9fd
+    recording_name: 08-11 Professional and Personal Catch-Up on Business Integration,
+      AI Strategy, and Life Updates
+    untagged_count: 1
+    untagged_speakers:
+    - name: Speaker 2
+      segments_count: 75
+      sample_text: Yeah. So what's uh traveling in the summer at all?
+  - file_id: 7170e0d9bf493a87042a31b0ebf76870
+    recording_name: '08-14 Consultation: Health and Safety Council - AI for Training
+      Workflow'
+    untagged_count: 2
+    untagged_speakers:
+    - name: Speaker 4
+      segments_count: 39
+      sample_text: Man. Yep, thank you. You all too?
+    - name: Speaker 1
+      segments_count: 1
+      sample_text: Hey man. I am.
+  - file_id: 92f3f834cbbf4ced893d70f2e27f6bd0
+    recording_name: 08-20 Western Region Board Meeting and Strategic Initiative Review
+    untagged_count: 6
+    untagged_speakers:
+    - name: Speaker 1
+      segments_count: 56
+      sample_text: Okay. David, oh Harry, you are not in your box this time, so I
+        am not as worried about you.
+    - name: Speaker 9
+      segments_count: 6
+      sample_text: As were you something else,
+    - name: Speaker 13
+      segments_count: 6
+      sample_text: Absolutely, I know that I was not on the last call, But I know
+        that from conversations with Shelby and the rest of the m
+    - name: Speaker 14
+      segments_count: 4
+      sample_text: 'Right? Correct? It''s, not the money is not going to do it. Um
+        the the fact that you''re giving them some money. And they '
+    - name: Speaker 3
+      segments_count: 3
+      sample_text: I was thinking the same thing;. One of you needs to be in a box
+        at all times. That's right.
+    - name: Speaker 12
+      segments_count: 2
+      sample_text: I can say one thing, Dave. So the invite email went out to every
+        member in Austin Gold and San Antonio Gold, and then th
+  - file_id: 45ec10f866bf2477af642d2805b347b7
+    recording_name: '12-22 Partnership Meeting: AI Strategy and Data Infrastructure'
+    untagged_count: 1
+    untagged_speakers:
+    - name: Speaker 4
+      segments_count: 24
+      sample_text: Yeah.
   recording-classification: {}
-  ready-for-fetch: []
   staged-files: []
   ingested-notes: []

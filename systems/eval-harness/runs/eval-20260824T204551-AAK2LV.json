@@ -1,0 +1,67 @@
+{
+  "id": "eval-20260824T204551-AAK2LV",
+  "type": "skill",
+  "name": "plaud-trigger",
+  "agent": "knox",
+  "session_id": "session-2026-08-24-060000",
+  "trigger": "manual",
+  "started": "2026-08-24T15:30:00Z",
+  "completed": "2026-08-24T20:45:51.465959Z",
+  "duration_seconds": 18951.5,
+  "status": "success",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": true,
+      "outputs_non_empty": false,
+      "assertions_checked": 3,
+      "assertions_passed": 1,
+      "assertion_results": [
+        {
+          "assertion": "plaud-trigger-signal-written",
+          "description": "plaud-trigger skill-run signal file was written",
+          "passed": true
+        },
+        {
+          "assertion": "plaud-trigger-signal-status",
+          "description": "plaud-trigger skill-run did not end in failure",
+          "passed": null,
+          "skipped": true,
+          "reason": "unknown check type: json_field_not_equals"
+        },
+        {
+          "assertion": "plaud-tr-002-substantive",
+          "description": "plaud-trigger output is substantive (>200 bytes)",
+          "passed": false
+        },
+        {
+          "assertion": "plaud-tr-003-content",
+          "description": "plaud-trigger output contains expected content",
+          "passed": false
+        }
+      ]
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    }
+  },
+  "version_hash": "7d6daccc65882d8a",
+  "prior_baseline_id": null,
+  "tags": [
+    "cowork-hook",
+    "skill"
+  ]
+}

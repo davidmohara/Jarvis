@@ -1,0 +1,16 @@
+{
+  "id": "err-20260824T214238-VGAVWC",
+  "timestamp": "2026-08-24T21:42:38Z",
+  "category": "system-design",
+  "failure_mode": "non-deterministic-solution-architecture",
+  "severity": "critical",
+  "context": "Rigby's boot workflow instrumentation fix relied on model-called Python scripts rather than hook system. This is architecturally wrong.",
+  "what_happened": "Rigby updated boot step files to call record-step.py and close-eval-record.py. But step files are model-interpreted — the model may or may not call these scripts reliably.",
+  "expected": "Boot eval harness integration should be deterministic via hook system: post-tool-use.py hook fires on EVERY tool use (captures tokens from transcript), eval-agent-stop.py hook fires on agent completion (generates final eval record). No reliance on model behavior.",
+  "actual": "Rigby's solution requires the model to call Python scripts explicitly from step files. This is non-deterministic and will fail unreliably.",
+  "root_cause": "Rigby's solution bypassed the hook system and tried to solve the problem by having the model call recording functions. This is fundamentally wrong because it makes eval generation dependent on model behavior rather than system infrastructure.",
+  "correct_fix": "Boot workflow instrumentation must be integrated via .claude/hooks/post-tool-use.py and .claude/hooks/eval-agent-stop.py. These hooks fire deterministically: (1) post-tool-use fires on every Write/Edit to step files, (2) eval-agent-stop fires when boot agent completes. Hooks read the session transcript to get real token counts and generate proper eval records. No model-driven script calls.",
+  "action_needed": "Rigby must revert the step file changes and instead configure the hook system to properly instrument the boot workflow.",
+  "source": "explicit",
+  "session_id": "jarvis-20260824-194500"
+}

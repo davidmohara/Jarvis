@@ -1,0 +1,107 @@
+{
+  "id": "eval-20260824T141611-AXJ1WU",
+  "agent_id": "a319cc3bcd7624d6e",
+  "type": "workflow",
+  "name": "client-meeting-prep",
+  "agent": "general-purpose",
+  "session_id": "session-2026-08-21-121818",
+  "trigger": "manual",
+  "started": "2026-08-24T14:16:11.532680Z",
+  "completed": "2026-08-24T14:20:39.258406Z",
+  "duration_seconds": 267.73,
+  "status": "partial",
+  "steps": [
+    {
+      "name": "step-04-build-prep-sheet",
+      "started": "2026-08-24T09:30:00-05:00",
+      "completed": "2026-08-24T09:40:00-05:00",
+      "duration_seconds": 600.0,
+      "status": "complete",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": null,
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    },
+    {
+      "name": "step-05-remarkable-delivery",
+      "started": "2026-08-24T09:40:00-05:00",
+      "completed": "2026-08-24T09:50:00-05:00",
+      "duration_seconds": 600.0,
+      "status": "complete",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": null,
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    }
+  ],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 1,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": true,
+      "outputs_non_empty": false,
+      "assertions_checked": 4,
+      "assertions_passed": 1,
+      "assertion_results": [
+        {
+          "assertion": "Client meeting prep workflow state.yaml shows status: complete",
+          "passed": true,
+          "error": null
+        },
+        {
+          "assertion": "client-meeting-prep output file was written",
+          "passed": false,
+          "error": null
+        },
+        {
+          "assertion": "client-meeting-prep output is substantive (>200 bytes)",
+          "passed": false,
+          "error": null
+        },
+        {
+          "assertion": "client-meeting-prep output contains expected content",
+          "passed": false,
+          "error": null
+        }
+      ]
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": "72c7d9d5555372c8e4c49060936c2e7f5e220dc5ec6f5f8d1bf0f6c5f9484c70",
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/234ee66b-049a-430e-abf2-46dd63c4158f/subagents/agent-a319cc3bcd7624d6e.jsonl",
+  "last_assistant_message": "Workflow complete. Summary for David:\n\nPrep sheet ready for Russell Frees at Henricksen, 2:00\u20132:30 PM CDT (19:00 UTC) today, Teams.\n\n**Classification:** Peer/relationship introduction (via Rex Miller), not a sales-sourced lead. Do not pitch a service today.\n\n**Key finding worth knowing before the call:** This is effectively the *first* live occurrence of this intro \u2014 there was an earlier attempt to schedule it for 2026-07-21 (a prep sheet exists from that date), but no calendar event or reschedule email confirms that call ever happened. Treat this as a fresh first conversation, not a follow-up, unless Russell references a prior call.\n\n**What's new since the last prep pass:** Henricksen has been in active growth mode \u2014 acquired Synergy Business Environments, rebranded COFCO fully into Henricksen, completed a new HQ/showroom in Oak Brook, and made several leadership promotions (Batley to Managing Director/Architectural Products, Knoeppel to Chief Growth Officer) pointing at expansion into architectural products and healthcare verticals.\n\n**Open item:** LinkedIn mutual connections weren't re-checked this run (carried forward as \"unavailable\" from the prior pass).\n\nDeliverables:\n- Markdown: `/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/meetings/Russell Frees \u2014 Henricksen \u2014 2026-08-24.md`\n- PDF: `/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/meetings/Russell Frees - Henricksen.pdf`\n- Status: Uploaded successfully to reMarkable `/Meetings` as \"Russell Frees - Henricksen\"",
+  "model": "sonnet",
+  "total_tokens_input": 3457802,
+  "total_tokens_output": 1992,
+  "total_cost_usd": 1.428875
+}

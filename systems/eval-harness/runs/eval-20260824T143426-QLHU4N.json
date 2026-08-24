@@ -1,0 +1,59 @@
+{
+  "id": "eval-20260824T143426-QLHU4N",
+  "agent_id": "a17f8aac876a4d58b",
+  "type": "agent",
+  "name": "general-purpose",
+  "agent": "general-purpose",
+  "session_id": "session-2026-08-21-121818",
+  "trigger": "unknown",
+  "started": "2026-08-24T14:34:26.755683Z",
+  "completed": "2026-08-24T14:36:52.572591Z",
+  "duration_seconds": 145.82,
+  "status": "aborted",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": false,
+      "all_steps_finished": true,
+      "tool_failures": 5,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/234ee66b-049a-430e-abf2-46dd63c4158f/subagents/agent-a17f8aac876a4d58b.jsonl",
+  "last_assistant_message": "Research is compiled and saved to Obsidian at `meetings/2026-08-25-remington-hotels-workshop-context.md`.\n\n**Summary of what I found and where:**\n\n- **Key source**: A 20-minute Aug 10, 2026 planning call transcript (David, Diana Stevens, Ayotunde Gibbs) \u2014 `zzPlaud/Client/2026-08-10 AI Executive Workshop Planning for Remington.md` in Obsidian. This is by far the richest source and covers agenda scope, audience composition/maturity levels, cost governance angle, and Ayotunde's personal governance concerns.\n- **Email**: Found the \"Discuss Agenda for 2 Hour AI Executive Workshop on 8/25\" thread (Outlook), which gave me the meeting address (14185 Dallas Parkway, Dallas, TX 75254, 11th floor) and confirmed Ayotunde as the coordinating contact. Also found a separate Aug 4 thread with the standard 4-hour Executive AI Workshop agenda outline (used as the base David condensed for Remington), sourced from an unrelated deal (Populus Financial) but useful as the template structure.\n- **Calendar**: Confirmed the single event, attendees, and time.\n- **Teams chat**: Searched \u2014 no results found. Noted explicitly as \"no threads found\" in the doc, not guessed.\n- **Comparable precedent**: Pulled the TopGolf Executive AI Workshop scoping call (May 2026) as a pattern-match for handling mixed AI-maturity rooms and pitching a department-level follow-on.\n- **Excluded intentionally**: A found file, `Mind/People/2019/Diana Stevens.md`, was a 360-review/personnel evaluation of Diana Stevens. Per org policy (no personnel records without a confirmed DPA) and because it's not relevant to workshop content, I did not read it into the brief or reference its content.\n\n**Key gaps flagged in the doc** (not invented): no company-level Remington Hotels background beyond what Ayotunde described verbally, no confirmation the use-case catalog/CEO pitch deck were actually sent, no info on Nicole Shanks at all, and no dedicated CRM/account-plan file for Remington.",
+  "model": "sonnet",
+  "total_tokens_input": 860054,
+  "total_tokens_output": 828,
+  "total_cost_usd": 0.802204
+}

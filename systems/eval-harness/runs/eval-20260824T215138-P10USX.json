@@ -1,0 +1,75 @@
+{
+  "id": "eval-20260824T215138-P10USX",
+  "agent_id": "a8944d775d233ba6f",
+  "type": "agent",
+  "name": "general-purpose",
+  "agent": "general-purpose",
+  "session_id": "session-2026-08-24-060000",
+  "trigger": "unknown",
+  "started": "2026-08-24T21:51:38.156362Z",
+  "completed": null,
+  "duration_seconds": null,
+  "status": "failure",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": null,
+      "all_steps_finished": null,
+      "tool_failures": 3,
+      "error_ids": [
+        "err-20260824T221402-AUDIT1"
+      ],
+      "tool_failure_log": [
+        {
+          "tool": "Read",
+          "error": "EISDIR: illegal operation on a directory, read '/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/.claude/hooks'",
+          "duration_ms": 5,
+          "timestamp": "2026-08-24T16:51:46.269114"
+        },
+        {
+          "tool": "Bash",
+          "error": "Exit code 1\n================================================================================\nTOKEN AUDIT TRAIL VALIDATION\nTimestamp: 2026-08-24T21:54:27.659834+00:00\n================================================================================\nTraceback (most recent call last):\n  File \"/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/systems/eval-harness/validate-token-audit-trail.py\", line 212, in <module>\n    exit(main())\n         ~~~~^^\n  File \"/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/systems/eval-harness/validate-token-audit-trail.py\", line 144, in main\n    result = validate_eval_record(record_path)\n  File \"/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/systems/eval-harness/validate-token-audit-trail.py\", line 89, in validate_eval_record\n    step_name = step.get(\"name\", \"unknown\")\n                ^^^^^^^^\nAttributeError: 'str' object has no attribute 'get'",
+          "duration_ms": 184,
+          "timestamp": "2026-08-24T16:54:27.824683"
+        },
+        {
+          "tool": "Bash",
+          "error": "Exit code 1\n================================================================================\nTOKEN AUDIT TRAIL VALIDATION\nTimestamp: 2026-08-24T21:54:31.554906+00:00\n================================================================================\n\nBREAKDOWN BY EVAL TYPE:\n--------------------------------------------------------------------------------\n  agent            78/158 ( 49.4%) [FAIL]\n  skill             0/ 13 (  0.0%) [FAIL]\n  unknown           0/  1 (  0.0%) [FAIL]\n  workflow         10/136 (  7.4%) [FAIL]\n--------------------------------------------------------------------------------\n  OVERALL          88/308 ( 28.6%)\n\nGAPS FOUND:\n--------------------------------------------------------------------------------\n\nAGENT (80 failures):\n  eval-20260529T222024-2Y8GSF (general-purpose)\n    - missing_model\n    - missing_total_tokens_input\n    - missing_total_tokens_output\n  eval-20260529T222602-BQEM4B (general-purpose)\n    - missing_model\n    - missing_total_tokens_input\n    - missing_total_tokens_output\n  eval-20260629T152135-WVFASP (general-purpose)\n    - missing_model\n    - missing_total_tokens_input\n    - missing_total_tokens_output\n  eval-20260717T141642-SSSC8G (general-purpose)\n    - missing_model\n    - missing_total_tokens_input\n    - missing_total_tokens_output\n  eval-20260717T142253-PQ9DPZ (claude-code-guide)\n    - missing_model\n    - missing_total_tokens_input\n    - missing_total_tokens_output\n  ... and 75 more agent records with gaps\n\nSKILL (13 failures):\n  eval-20260529T224500-ypo001 (obsidian-source-note)\n    - missing_model\n    - missing_total_tokens_input\n    - missing_total_tokens_output\n  eval-20260630T203949-E747AF (remarkable-upload)\n    - missing_model\n    - missing_total_tokens_input\n    - missing_total_tokens_output\n  eval-20260723T155130-2N7J2L (remarkable-upload)\n    - missing_model\n    - missing_total_tokens_input\n    - missing_total_tokens_output\n  eval-20260822T141907-ZML5GR (plaud-discover)\n    - missing_model\n    - missing_total_tokens_input\n    - missing_total_tokens_output\n    ... and 1 more gaps\n  eval-20260822T145919-8SQ9GZ (plaud-transcripts)\n    - missing_model\n    - missing_total_tokens_input\n    - missing_total_tokens_output\n    ... and 1 more gaps\n  ... and 8 more skill records with gaps\n\nUNKNOWN (1 failures):\n  eval-20260822T132426-OFX3FP (unknown)\n    - unknown_type: None\n\nWORKFLOW (126 failures):\n  eval-20260524T194258-HBF752 (morning-briefing)\n    - step_step-01-gather-calendar:model,tokens_input,tokens_output,cost_usd\n    - step_step-02-gather-tasks:model,tokens_input,tokens_output,cost_usd\n    - step_step-03-meeting-context:model,tokens_input,tokens_output,cost_usd\n    ... and 1 more gaps\n  eval-20260526T125258-Q3KWG7 (content-approval)\n    - step_step-02-approve:model,tokens_input,tokens_output,cost_usd\n  eval-20260526T215647-T3Q5PX (daily-review)\n    - step_step-auto:model,tokens_input,tokens_output,cost_usd\n  eval-20260527T021153-F0GRE1 (daily-review)\n    - step_step-auto:model,tokens_input,tokens_output,cost_usd\n  eval-20260527T185503-NDAYK6 (error-improvement)\n    - no_steps_recorded\n  ... and 121 more workflow records with gaps\n\n================================================================================\nSTATUS: FAIL - 28.6% token audit trail coverage (need 100%)\n================================================================================",
+          "duration_ms": 103,
+          "timestamp": "2026-08-24T16:54:31.652426"
+        }
+      ]
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": []
+}

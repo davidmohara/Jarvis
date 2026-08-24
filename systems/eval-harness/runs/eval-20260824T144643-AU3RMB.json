@@ -1,0 +1,59 @@
+{
+  "id": "eval-20260824T144643-AU3RMB",
+  "agent_id": "ac574363cb4da6282",
+  "type": "agent",
+  "name": "general-purpose",
+  "agent": "general-purpose",
+  "session_id": "session-2026-08-21-121818",
+  "trigger": "unknown",
+  "started": "2026-08-24T14:46:43.252663Z",
+  "completed": "2026-08-24T14:52:11.061341Z",
+  "duration_seconds": 327.81,
+  "status": "success",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/234ee66b-049a-430e-abf2-46dd63c4158f/subagents/agent-ac574363cb4da6282.jsonl",
+  "last_assistant_message": "The presentation plan is complete and written to `/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/meetings/2026-08-25-remington-hotels-workshop-plan.md`.\n\n**What I did:**\n1. Read the full CEO AI Workshop v6 and The Enterprise Shift decks completely (extracted via python-pptx, including speaker notes).\n2. Scanned Practical AI - Finance & Treasury, AI in Accounting, AI Advantage Workshop, Culture over Code, AI Workshop - LSD, Tactical AI Planning, Executive Prompt Engineering, Topgolf Executive Briefing, and Wendy's QBR to identify reusable content and confirm overlaps (Topgolf and Wendy's decks are recombinations of CEO+Shift, not separate sources).\n3. Found and incorporated the existing Remington prep brief (`meetings/2026-08-25-remington-hotels-workshop-context.md`) for attendee details, cost-governance context, and the standard 4-hour agenda structure it was condensed from.\n\n**Key design decisions:**\n- Built the arc around one anchor framework (the 8-stage maturity model from The Enterprise Shift) applied three times to HR, FP&A/accounting, and development, rather than three disconnected topic dumps.\n- FP&A/Accounting section leans heavily on the Practical AI - Finance & Treasury deck (AP, cash forecasting, month-end close) \u2014 the strongest, most concrete material in the library.\n- Cost governance section stitches together \"Common SMB Mistakes\" (tool proliferation/shadow AI), the Investment Rules of Thumb, and the Agentic Landing Zone's Tool Registry concept.\n\n**Two flagged narrative gaps (explicitly called out, not papered over):**\n1. No dedicated HR practical-use-case deck exists (unlike FP&A which has a full purpose-built deck) \u2014 Section 7 is designed as live facilitation using the demand-limit framework rather than a slide walkthrough, with a recommendation to build a proper HR deck if this becomes recurring.\n2. No dedicated AI cost-governance/FinOps deck exists \u2014 the plan assembles one from adjacent material.\n\nThe document includes full timing (120 min across 11 sections), slide-by-slide source citations (deck + slide number), read-vs-ad-lib guidance per section, talking points tied to Remington's specific attendees (Ben, Jason Pool, Randy, Nick Clark), a skip list with reasoning, and setup notes for Diana's Innovation Labs handoff.",
+  "model": "sonnet",
+  "total_tokens_input": 1706927,
+  "total_tokens_output": 1331,
+  "total_cost_usd": 1.018223
+}

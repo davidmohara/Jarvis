@@ -1,28 +1,93 @@
 workflow: client-meeting-prep
 agent: chase
 status: complete
-session-started: "2026-07-21T10:26:08-05:00"
-session-id: prep-russell-frees-2026-07-21-1026
+session-started: "2026-08-24T09:16:35-05:00"
+session-id: prep-russell-frees-2026-08-24-0916
 current-step: complete
-original-request: "Russell Frees meeting at 16:00-16:30 UTC on 2026-07-21"
+original-request: "Introductory call with Russell Frees, r.frees@henricksen.com, today 19:00 UTC / 2:00 PM CDT, Teams"
 accumulated-context:
   meeting_details:
     attendees_external:
       - name: Russell Frees
         company: Henricksen
-    meeting_date: 2026-07-21
-    meeting_time_verified: "10:00–10:30 CDT (verified against Mac local time, equals 16:00–16:30 UTC)"
+    meeting_date: 2026-08-24
+    meeting_time_verified: "2:00–2:30 PM CDT (19:00–19:30 UTC, verified against Mac local time Mon Aug 24 2026 09:16 CDT)"
     duration_minutes: 30
-    format_confirmed: false
-    format_notes: "Not explicitly specified on calendar invite — appears to be a call based on title 'Introductory Call'"
-    organizer: "david.ohara@improving.com"
+    format_confirmed: true
+    format_notes: "Microsoft Teams Meeting — link, meeting ID, and passcode present on invite"
+    organizer: "David.OHara@improving.com"
     russell_frees_email: "r.frees@henricksen.com"
-    prior_relationship: "new contact — no prior 1:1 history found"
+    prior_relationship: "No 1:1 meeting has actually occurred yet. A prep sheet exists from an earlier scheduling attempt (meetings/Russell Frees — Henricksen — 2026-07-21.md) for a 2026-07-21 slot, but no calendar event for that date is found anymore and no email confirms it happened. This Aug 24 invite (sent Aug 18, same subject line) is the only live meeting artifact — treat this as the actual first occurrence of the originally-planned intro call, not a second/repeat meeting."
   meeting_classification: "peer-relationship-referral"
   contact_depth: "first-touch"
-  reason_for_call: "Introduced by Rex Miller to discuss AI adoption across industries. Russell interested in learning how Improving's clients navigate AI in their space."
+  contact_depth_basis: "No 1:1 meeting has occurred; the July 21 slot appears to have lapsed/rescheduled without ever happening (no calendar entry, no reschedule email found). This Aug 24 call is the first real touchpoint."
+  reason_for_call: "Russell Frees (President + CEO, Henricksen) was introduced to David by Rex Miller (rex@gomindshift.com) via email dated 2026-07-03, subject 'Connecting you with David O'Hara.' Russell replied 2026-07-09 expressing interest to 'connect more and learn about how you are seeing your clients navigate AI in their space... certainly been pushing into our space.' David replied same day welcoming the conversation. This Aug 24 Teams call (invite sent 2026-08-18, subject 'Introductory call | Russell Frees and David O'Hara') is that intro call finally landing on the calendar."
+  evidence_cited:
+    - source: "email"
+      sender: "rex@gomindshift.com"
+      subject: "Connecting you with David O'Hara"
+      date: "2026-07-03"
+      key_quote_or_paraphrase: "I want to introduce you to David O'Hara, one of the more thoughtful leaders I know on putting AI to work the right way. With everything you're driving at Henricksen..."
+    - source: "email"
+      sender: "R.Frees@Henricksen.com"
+      subject: "RE: Connecting you with David O'Hara"
+      date: "2026-07-09"
+      key_quote_or_paraphrase: "I would love a chance to connect more and learn about how you are seeing your clients navigate the AI in their space. Certainly been pushing into our space."
+    - source: "calendar"
+      sender: "David.OHara@improving.com"
+      subject: "Introductory call | Russell Frees and David O'Hara"
+      date: "2026-08-18 (invite sent) for 2026-08-24 meeting"
+      key_quote_or_paraphrase: "Teams meeting invite, 19:00-19:30 UTC, attendee r.frees@henricksen.com"
+  do_not_assume:
+    - "Do not assume this is a sales opportunity or pipeline activity — no CRM/sales touch found in email; this is a peer/relationship referral."
+    - "Do not assume urgency or a defined business problem — Russell is exploring/learning, not responding to a crisis."
+    - "Do not assume this is a second meeting or a repeat conversation — no evidence the July 21 slot ever occurred; treat as the first live touchpoint."
+    - "Do not pitch a specific Improving service in the opening."
+  company_disambiguation:
+    ambiguous: false
+    resolution_method: "email domain match (henricksen.com) plus company website"
+    note: "Henricksen confirmed as the Oak Brook, IL contract furniture dealership via r.frees@henricksen.com domain and henricksen.com — no ambiguity."
+  company_profile:
+    company: "Henricksen"
+    industry: "Contract furniture dealership / commercial workplace solutions"
+    hq: "Oak Brook, Illinois (new HQ/showroom at 1301 W. 22nd Street, Floor 11, completed 2026)"
+    founded: "Not found"
+    size: "13 offices nationwide; represents 400+ manufacturers (up from a previously-noted 200+, reflecting recent growth). Third-party revenue estimates (ZoomInfo/LeadIQ-style) are unreliable for a company this size and are not repeated here as fact."
+    email_domain: "henricksen.com"
+  company_overview:
+    depth: "full"
+    narrative: "Henricksen is a leading full-service contract furniture dealership now spanning 13 offices and 400+ manufacturer relationships. The company is in active growth/consolidation mode: it recently acquired Synergy Business Environments, rebranded its COFCO subsidiary under the Henricksen name, and just completed a new flagship HQ and showroom in Oak Brook, IL. Leadership bench is being built out to support that growth — several promotions in the past few months point to deliberate expansion into new practice areas (architectural products, healthcare) and a push to unify service delivery across a growing office footprint."
+    recent_news:
+      - "Henricksen promoted Bob Batley to Managing Director, Architectural Products — Frees quoted on Batley's role bringing the 13 nationwide offices closer together and deepening the Allsteel partnership (CCR-Mag / officeinsight, 2026)"
+      - "Chris Knoeppel elevated to Chief Growth Officer (henricksen.com newsroom)"
+      - "Gina Parker appointed Director of Healthcare Strategy; Brian Homiak promoted to Manager of Architectural Solutions Operations — both point to vertical expansion"
+      - "COFCO, a Henricksen Company, opened a new Experience Center and rebranded fully to Henricksen (henricksen.com newsroom)"
+      - "New Henricksen HQ (1301 W. 22nd St, Oak Brook, IL) completed 2026 — dual-purpose office and showroom"
+    strategic_initiatives:
+      - "Growth by acquisition (Synergy Business Environments) and brand consolidation (COFCO → Henricksen)"
+      - "Vertical build-out: architectural products practice, healthcare strategy"
+      - "Unifying 13-office footprint under consistent leadership and service model — explicitly named by Frees in the Batley promotion announcement"
+    competitive_or_market_pressures:
+      - "Industry consolidation — Henricksen itself is the consolidator here (acquiring and rebranding), which is worth noting as a growth signal, not a defensive move"
+      - "Scaling service consistency across a rapidly growing multi-office footprint is the challenge Frees is actively speaking to in leadership comms"
+    sources_used: "Company website (henricksen.com newsroom) + web search (CCR-Mag, officeinsight, Crunchbase, LeadIQ) — no CRM history, no prior Improving engagement found"
+    crm_history: "No prior CRM history found for Henricksen"
+  attendee_bio:
+    name: "Russell Frees"
+    title: "President and CEO, Henricksen (confirmed via email signature and henricksen.com/about-us/russell-frees)"
+    education: "Miami University"
+    location: "Illinois (Oak Brook HQ base)"
+    affiliations: "None newly found beyond industry visibility"
+    public_facing_work: "Active on LinkedIn; quoted directly in Henricksen's own leadership-promotion press releases (e.g., Batley promotion), signaling he's a hands-on, visible communicator about company direction"
+    linkedin: "https://www.linkedin.com/in/russellfrees/"
+    read_on_them: "Strategy-focused CEO actively driving growth and consolidation at Henricksen — not a technology buyer. Calibrate as a peer exploring how other leaders are thinking about AI, not a prospect for a specific Improving service."
+  common_connections:
+    status: "unavailable"
+    total_count: null
+    displayed: []
+    note: "LinkedIn mutual connections were not re-checked for this run (no browser session invoked). A prior check (2026-07-21 prep) found a 500+ connection profile with 2nd-degree mutuals present but could not extract specific names at that time."
   deliverables:
-    markdown_file: "/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/Russell Frees — Henricksen — 2026-07-21.md"
-    pdf_file: "/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/Russell Frees - Henricksen.pdf"
+    markdown_file: "/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/meetings/Russell Frees — Henricksen — 2026-08-24.md"
+    pdf_file: "/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/meetings/Russell Frees - Henricksen.pdf"
     remarkable_display_name: "Russell Frees - Henricksen"
     remarkable_destination: "/Meetings"

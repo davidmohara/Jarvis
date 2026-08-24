@@ -2,10 +2,21 @@
   "skill": "plaud-trigger",
   "agent": "knox",
   "trigger": "manual",
-  "started": "2026-07-01T09:00:00-05:00",
-  "completed": "2026-07-01T09:34:00-05:00",
+  "started": "2026-08-24T15:30:00Z",
+  "completed": "2026-08-24T15:45:00Z",
   "status": "success",
   "tool_failures": 0,
-  "error_ids": ["err-20260701T142449-HKCA7U"],
-  "notes": "All 3 recordings for 2026-06-30 were already transcript-ready at discovery — no new transcription trigger required this run. One watch-item verified: af25aad4... had regressed to transcript_status missing after a prior failed --rename attempt; --check at start of this run confirmed it had already rebuilt server-side to ready before any regeneration was attempted. No blind retry, no unilateral re-trigger — per correction from err-20260701T142449-HKCA7U."
+  "error_ids": [],
+  "summary": {
+    "command": "check-status 2026-08-23",
+    "recordings_for_target_date": 0,
+    "pending_items_checked": 2,
+    "ready_count": 1,
+    "still_pending_count": 1,
+    "recommendations": [
+      "Ingest newly ready transcript 589340220e4c13350a731ea9ba8770d2",
+      "Spawn watcher for still-pending 7de82b6f5889e1e8e5feb107520491c9",
+      "Address 157-recording staging backlog"
+    ]
+  }
 }

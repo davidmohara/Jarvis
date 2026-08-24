@@ -19,10 +19,10 @@
       "status": "complete",
       "data_sources_used": [],
       "data_source_failures": [],
-      "model": null,
-      "tokens_input": null,
-      "tokens_output": null,
-      "cost_usd": null
+      "model": "haiku",
+      "tokens_input": 4435206,
+      "tokens_output": 241,
+      "cost_usd": 0.714317
     },
     {
       "name": "step-02-gather-data.md",
@@ -32,10 +32,10 @@
       "status": "complete",
       "data_sources_used": [],
       "data_source_failures": [],
-      "model": null,
-      "tokens_input": null,
-      "tokens_output": null,
-      "cost_usd": null
+      "model": "haiku",
+      "tokens_input": 4435206,
+      "tokens_output": 241,
+      "cost_usd": 0.714317
     }
   ],
   "assessment": {
@@ -98,7 +98,7 @@
   "version_hash": "3892c0a20468385762f2bab79075c3adc4000c809cbbfb36bc93072d7f12afea",
   "prior_baseline_id": null,
   "tags": [],
-  "total_cost_usd": 0.0555,
+  "total_cost_usd": 1.428634,
   "cost_estimation_note": "estimated based on boot workflow type",
   "model": "sonnet"
 }

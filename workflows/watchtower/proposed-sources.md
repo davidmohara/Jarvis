@@ -20,13 +20,23 @@ This file is the only path to `sources.yaml`. Watchtower's weekly run appends ne
 |------|-----|-----|-------|-------|--------------|--------|
 -->
 
+### Batch 10 — Weekly Run (2026-08-24)
+
+| Name | URL | RSS | Topic | Trust | Why Relevant | Status |
+|------|-----|-----|-------|-------|--------------|--------|
+| CEOWORLD Magazine | https://ceoworld.biz | https://ceoworld.biz/feed | leadership | med | Published "Designing organizations differently — shaping the workplace to unlock potential in an AI-enhanced world" (Aug 2, 2026) directly tied to W35's org design / human-centered AI theme. Covers AI leadership, org design, and CEO-level transformation at a practitioner-accessible level. No comparable leadership-focused publication in current registry beyond EOS Worldwide Blog. | approved 2026-08-24 |
+| Josh Bersin | https://joshbersin.com | https://joshbersin.com/feed | leadership | high | Primary independent analyst on AI, HR, workforce transformation, and learning. Published "The Superworker Organization" (2026 HR Imperatives) and "How AI Transforms $400B of Corporate Learning." Directly relevant to W35's skill atrophy / expertise erosion theme and the human side of AI transformation. High editorial bar, practitioner-trusted, no vendor affiliation. | rejected 2026-08-24 |
+| Prosci Blog | https://www.prosci.com/blog | null | leadership | high | Published "Why AI Transformation Fails" (Jun 2026) and 2026 State of AI Adoption study (1,107 professionals, user proficiency as primary failure mode at 38%). Primary practitioner source on change management for AI adoption — directly sourced W35 Theme 1 data on leadership trust gap and adoption failure modes. No RSS confirmed; gather_method: search via site:prosci.com/blog. | approved 2026-08-24 |
+| DDI (Development Dimensions International) | https://www.ddi.com/blog | https://www.ddi.com/blog/rss | leadership | high | Published "Leadership Trends 2026" covering AI leadership capability, the trust gap between frontline workers and executives, and the 3.15-point leadership support spread as the primary adoption predictor. Primary data source for W35 Theme 1. Covers leadership research at the rigor level of a consulting firm but publishes free. RSS URL unverified — confirm on first run. | rejected 2026-08-24 |
+| Dallas Innovates (AI 75 / Vertical AI coverage) | https://dallasinnovates.com | https://dallasinnovates.com/feed | texas-regional | high | Already active in registry for DFW innovation coverage — but W35 surfaced the 2026 AI 75 innovators list and Brookings AI Star Hub coverage as distinct, higher-signal content than the feed currently surfaces. NOTE: If the main dallasinnovates.com feed is already active, this row should be skipped — only add if a separate AI-scoped feed exists. Flagging for David's awareness rather than as a new source addition. | already active — no action needed |
+
 ### Batch 9 — Weekly Run (2026-08-20)
 
 | Name | URL | RSS | Topic | Trust | Why Relevant | Status |
 |------|-----|-----|-------|-------|--------------|--------|
-| The EU AI Act Newsletter | https://artificialintelligenceact.substack.com | https://artificialintelligenceact.substack.com/feed | ai-agentic | high | Biweekly newsletter by the Future of Life Institute tracking EU AI Act enforcement, compliance developments, and regulatory interpretations. Published issue #108 on "Enforcement Begins" covering the Aug 2 high-risk AI deadline. The EU AI Act compliance gap is now an active near-term consulting revenue story for US enterprises with EU operations. No regulatory-tracking source currently in registry. | skipped |
-| Texas Impact | https://texasimpact.substack.com | https://texasimpact.substack.com/feed | texas-regional | med | Municipal-level Texas infrastructure and policy advocacy newsletter. Published "Data Center Deluge" covering city council opposition to data center development. Fills the city-level Texas policy gap that Texas Tribune covers only at the state level. Directly relevant to this week's San Marcos ban and Austin-area municipal resistance story. | skipped |
-| Responsible AI Labs | https://responsibleailabs.ai | https://responsibleailabs.ai/feed | ai-agentic | high | Published the EU AI Act August 2026 compliance countdown and maintains a knowledge hub on AI governance frameworks. Practitioner-focused, not vendor-affiliated. Covers the intersection of regulatory compliance and enterprise AI deployment at a level of specificity no current registry source matches for governance-adjacent consulting. RSS feed unverified -- confirm on first run. | skipped |
+| The EU AI Act Newsletter | https://artificialintelligenceact.substack.com | https://artificialintelligenceact.substack.com/feed | ai-agentic | high | Biweekly newsletter by the Future of Life Institute tracking EU AI Act enforcement, compliance developments, and regulatory interpretations. Published issue #108 on "Enforcement Begins" covering the Aug 2 high-risk AI deadline. The EU AI Act compliance gap is now an active near-term consulting revenue story for US enterprises with EU operations. No regulatory-tracking source currently in registry. | rejected 2026-08-24 |
+| Texas Impact | https://texasimpact.substack.com | https://texasimpact.substack.com/feed | texas-regional | med | Municipal-level Texas infrastructure and policy advocacy newsletter. Published "Data Center Deluge" covering city council opposition to data center development. Fills the city-level Texas policy gap that Texas Tribune covers only at the state level. Directly relevant to this week's San Marcos ban and Austin-area municipal resistance story. | rejected 2026-08-24 |
+| Responsible AI Labs | https://responsibleailabs.ai | https://responsibleailabs.ai/feed | ai-agentic | high | Published the EU AI Act August 2026 compliance countdown and maintains a knowledge hub on AI governance frameworks. Practitioner-focused, not vendor-affiliated. Covers the intersection of regulatory compliance and enterprise AI deployment at a level of specificity no current registry source matches for governance-adjacent consulting. RSS feed unverified -- confirm on first run. | rejected 2026-08-24 |
 
 ### Batch 8 — Weekly Run (2026-08-17)
 
@@ -107,6 +117,13 @@ This file is the only path to `sources.yaml`. Watchtower's weekly run appends ne
 
 ## Approved — Moved to sources.yaml
 
+### Batch 10 (partial) — Approved 2026-08-24
+
+| Name | URL | Topic | Trust | Approved |
+|------|-----|-------|-------|---------|
+| CEOWORLD Magazine | https://ceoworld.biz | leadership | med | 2026-08-24 |
+| Prosci Blog | https://www.prosci.com/blog | leadership | high | 2026-08-24 |
+
 ### Batch 5 — Approved 2026-07-20
 
 | Name | URL | Topic | Trust | Approved |
@@ -163,6 +180,21 @@ Also added by David as named sources (approved same session, 2026-06-19):
 ---
 
 ## Rejected
+
+### Batch 10 (partial) — 2026-08-24
+
+| Name | URL | Topic | Reason |
+|------|-----|-------|--------|
+| Josh Bersin | https://joshbersin.com | leadership | Rejected by David 2026-08-24 |
+| DDI (Development Dimensions International) | https://www.ddi.com/blog | leadership | Rejected by David 2026-08-24 |
+
+### Batch 9 — 2026-08-24
+
+| Name | URL | Topic | Reason |
+|------|-----|-------|--------|
+| The EU AI Act Newsletter | https://artificialintelligenceact.substack.com | ai-agentic | Rejected by David 2026-08-24 |
+| Texas Impact | https://texasimpact.substack.com | texas-regional | Rejected by David 2026-08-24 |
+| Responsible AI Labs | https://responsibleailabs.ai | ai-agentic | Rejected by David 2026-08-24 |
 
 ### Batch 8 — 2026-08-17
 

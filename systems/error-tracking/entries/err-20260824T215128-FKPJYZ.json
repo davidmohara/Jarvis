@@ -1,0 +1,17 @@
+{
+  "id": "err-20260824T215128-FKPJYZ",
+  "timestamp": "2026-08-24T21:51:28Z",
+  "category": "system-infrastructure",
+  "failure_mode": "hook-system-instrumentation-gap",
+  "severity": "critical",
+  "context": "Eval records across multiple workflows (morning-briefing, and others) are missing required token audit-trail fields. Problem is NOT step behavior — problem is hooks aren't firing or capturing tokens properly.",
+  "what_happened": "Examined eval records from morning-briefing and other workflows. Steps consistently have null/missing: model, tokens_input, tokens_output, cost_usd, and data_sources_used.",
+  "expected": "Hooks should fire deterministically on: (1) agent START (create eval stub), (2) every tool write (capture tokens from transcript), (3) agent STOP (finalize record). Result: every eval record has complete token audit data, populated from session transcript.",
+  "actual": "Eval records across workflows are missing token data. This indicates hooks are not firing reliably or not querying transcript tokens properly.",
+  "root_cause": "Hook system infrastructure issue: eval-agent-start, post-tool-use, or eval-agent-stop hooks either (1) not firing reliably across all workflows, (2) not configured to capture tokens from transcript, or (3) failing silently when token queries fail.",
+  "required_fix": "Audit and fix hook system: (1) Verify eval-agent-start fires on every agent spawn, (2) Verify post-tool-use fires on every tool write and queries transcript for tokens using usage_between(), (3) Verify eval-agent-stop fires on every agent completion and finalizes record. Fix must ensure 100% of eval records have complete token audit trail.",
+  "scope": "System-wide — affects all workflows, not just boot or morning-briefing",
+  "route_to": "Rigby",
+  "source": "explicit",
+  "session_id": "jarvis-20260824-194500"
+}

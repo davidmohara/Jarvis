@@ -1,0 +1,15 @@
+{
+  "id": "err-20260824T141523-QTOQ46",
+  "timestamp": "2026-08-24T14:15:23Z",
+  "session": "2026-08-24",
+  "source": "explicit",
+  "agent": "Master",
+  "category": "routing-error",
+  "description": "Spawned generic agents with custom prompts instead of following proper skill-based routing. Robyn 1:1 prep should have been routed to Shep via one-on-one-prep workflow. Russell Frees call prep should have been routed to Chase or handled via formal client-meeting-prep workflow.",
+  "correction": "Load skill files (skills/shep-one-on-one/SKILL.md, skills/chase-client-meeting-prep/SKILL.md) and follow spawning protocol from agents/master.md. Use established workflows rather than improvising custom prompts.",
+  "failure_mode": "protocol-skip",
+  "systemic_fix": "Enforce routing table and skill loading on every agent spawn. Do not circumvent workflow protocols with generic-agent shortcuts, even when time-pressured.",
+  "fix_status": "applied",
+  "severity": "moderate",
+  "related_entries": []
+}

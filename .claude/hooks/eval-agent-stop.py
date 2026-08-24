@@ -65,11 +65,30 @@ def atomic_write_json(path: Path, data: dict):
             tmp_path.unlink(missing_ok=True)
 
 
-def invoke_step_complete_hooks(eval_record: dict, transcript_path: str, ies_root: Path):
+def invoke_step_complete_hooks(eval_record: dict, transcript_path: str, ies_root: Path, workflow_name: str = None):
     import subprocess
-    steps_dir = ies_root / "workflows" / "boot" / "steps"
+
+    # Determine which workflow's steps to process
+    workflow_to_process = workflow_name or eval_record.get("name") or "boot"
+    steps_dir = ies_root / "workflows" / workflow_to_process / "steps"
+
     if not steps_dir.exists():
+        log_info(f"No steps directory found for workflow '{workflow_to_process}', skipping step-complete hooks")
         return
+
+    log_info(f"invoke_step_complete_hooks: processing steps for workflow '{workflow_to_process}' from {steps_dir}")
+
+    # Validate and resolve transcript path
+    # The agent_transcript_path from SubagentStop hook might point to a non-existent subagent transcript.
+    # Instead, we use the agent's full transcript which was passed to us.
+    effective_transcript_path = transcript_path if transcript_path and Path(transcript_path).exists() else None
+
+    if effective_transcript_path:
+        log_info(f"invoke_step_complete_hooks: using provided transcript_path: {effective_transcript_path}")
+    else:
+        if transcript_path:
+            log_info(f"invoke_step_complete_hooks: provided path doesn't exist: {transcript_path}")
+        log_info(f"invoke_step_complete_hooks: step-complete.py will attempt fallback transcript resolution")
 
     for step_file in sorted(steps_dir.glob("step-*.md")):
         try:
@@ -83,8 +102,9 @@ def invoke_step_complete_hooks(eval_record: dict, transcript_path: str, ies_root
             payload = {
                 "step_file_path": str(step_file),
                 "step_content": content,
-                "transcript_path": transcript_path,
-                "session_id": eval_record.get("session_id", "")
+                "transcript_path": effective_transcript_path,
+                "session_id": eval_record.get("session_id", ""),
+                "workflow_name": workflow_to_process
             }
             subprocess.run(
                 ["python3", str(ies_root / ".claude" / "hooks" / "step-complete.py")],
@@ -470,14 +490,21 @@ def main():
         except Exception as e:
             log_error(f"Failed to compute agent token usage: {e}")
 
-    if eval_record.get("name") == "boot" and agent_transcript_path:
-        try:
-            invoke_step_complete_hooks(eval_record, agent_transcript_path, IES_ROOT)
-            # Re-read eval record to get step data updated by hooks
-            with open(eval_record_path, "r") as f:
-                eval_record = json.load(f)
-        except Exception as e:
-            log_error(f"step-complete hooks failed: {e}")
+    # Invoke step-complete hooks for all workflows/agents that have steps
+    # This populates per-step token data from the agent transcript
+    try:
+        workflow_name = eval_record.get("name")
+        if workflow_name:
+            # Check if this workflow has a steps directory
+            workflow_steps_dir = IES_ROOT / "workflows" / workflow_name / "steps"
+            if workflow_steps_dir.exists():
+                log_info(f"Found step directory for workflow '{workflow_name}', invoking step-complete hooks")
+                invoke_step_complete_hooks(eval_record, agent_transcript_path, IES_ROOT)
+                # Re-read eval record to get step data updated by hooks
+                with open(eval_record_path, "r") as f:
+                    eval_record = json.load(f)
+    except Exception as e:
+        log_error(f"step-complete hooks failed: {e}")
 
     # Fallback: Estimate cost if no real transcript data available (ensures all evals have cost)
     if eval_record.get("total_cost_usd") is None:

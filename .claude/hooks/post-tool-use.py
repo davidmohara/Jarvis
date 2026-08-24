@@ -729,12 +729,10 @@ def update_eval_record_state_yaml(eval_path: Path, file_path: str, content: str)
 def update_eval_record_step_frontmatter(eval_path: Path, file_path: str, content: str, transcript_path: str = None):
     """Update eval record with step timing from step frontmatter.
 
-    When a real session transcript_path is available and the step carries
-    started-at/completed-at timestamps, pulls actual token usage for that
-    window straight from the transcript (see token_usage.py) instead of
-    leaving tokens_input/tokens_output/cost_usd null. This is the automatic
-    path — no step file has to call record-step.py with manually estimated
-    token counts for this to populate.
+    NOTE: Token extraction happens in .claude/hooks/step-complete.py, NOT here.
+    This hook runs during step execution when transcripts may not be complete.
+    We only create the step skeleton with timing/status; step-complete.py
+    populates tokens after the step fully completes.
     """
     try:
         with open(eval_path, "r") as f:
@@ -763,15 +761,15 @@ def update_eval_record_step_frontmatter(eval_path: Path, file_path: str, content
         # Extract step name from file path
         step_name = Path(file_path).name
 
-        # Create or update step entry
+        # Create or update step entry (tokens left null for step-complete.py to populate)
         step_entry = {
             "name": step_name,
             "started": frontmatter.get("started-at"),
             "completed": frontmatter.get("completed-at"),
             "duration_seconds": None,
             "status": frontmatter.get("status"),
-            "data_sources_used": [],
-            "data_source_failures": [],
+            "data_sources_used": frontmatter.get("data_sources_used", []),
+            "data_source_failures": frontmatter.get("data_source_failures", []),
             "model": frontmatter.get("model"),
             "tokens_input": None,
             "tokens_output": None,
@@ -787,19 +785,7 @@ def update_eval_record_step_frontmatter(eval_path: Path, file_path: str, content
             except Exception:
                 pass
 
-        # Pull real token usage from the session transcript for this step's window
-        if usage_between and transcript_path and step_entry["started"] and step_entry["completed"]:
-            try:
-                usage = usage_between(transcript_path, step_entry["started"], step_entry["completed"])
-                if usage:
-                    step_entry["model"] = usage["model"] or step_entry["model"]
-                    step_entry["tokens_input"] = usage["tokens_input"]
-                    step_entry["tokens_output"] = usage["tokens_output"]
-                    step_entry["cost_usd"] = usage["cost_usd"]
-            except Exception as e:
-                log_error(f"Failed to compute token usage for step {step_name}: {e}")
-
-        # Add or update step in eval record
+        # Add or update step in eval record (no token extraction here)
         eval_record["steps"] = [s for s in eval_record.get("steps", []) if s["name"] != step_name]
         eval_record["steps"].append(step_entry)
 

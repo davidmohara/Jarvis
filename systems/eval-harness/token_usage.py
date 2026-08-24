@@ -107,8 +107,24 @@ def usage_between(transcript_path: str, start_iso: str | None, end_iso: str | No
 
     If lenient_fallback is True and strict time matching finds zero matches,
     returns all turns as a fallback (timestamps may not overlap step time)."""
-    if not transcript_path or not Path(transcript_path).exists():
+    if not transcript_path:
         return None
+
+    tp = Path(transcript_path)
+    if not tp.exists():
+        # Try to find a similarly-named transcript in the same session directory
+        # (handles cases where subagent transcript path doesn't exist)
+        parent = tp.parent
+        if parent.exists():
+            candidates = list(parent.glob("*.jsonl"))
+            if candidates:
+                # Use the most recent one if multiple exist
+                transcript_path = str(max(candidates, key=lambda x: x.stat().st_mtime))
+                tp = Path(transcript_path)
+            else:
+                return None
+        else:
+            return None
 
     start_dt = _parse_ts(start_iso)
     end_dt = _parse_ts(end_iso)

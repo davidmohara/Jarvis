@@ -1,72 +1,85 @@
 workflow: watchtower
 agent: knox
 status: complete
-session-started: "2026-08-20T07:05:00Z"
-session-completed: "2026-08-20T08:15:00Z"
-session-id: "wt-weekly-2026-W34b"
+session-started: "2026-08-24T07:05:00Z"
+session-completed: "2026-08-24T08:30:00Z"
+session-id: "wt-weekly-2026-W35"
 current-step: complete
-original-request: "watchtower-weekly scheduled run (Knox) — supplemental W34 run, Aug 20"
+original-request: "watchtower-weekly scheduled run (Knox) — W35, Aug 24"
 accumulated-context:
   content_queue: []
   used_fallback: true
   obsidian_unavailable: false
   delta_check_applied: true
-  dropped_as_continuing: 2
+  dropped_as_continuing: 0
   weekly_themes:
     - theme_id: 1
-      theme_title: "The FDE Model Has Become Table Stakes. Now What?"
-      synthesis: "TCS announced plans for up to 8,900 forward-deployed AI engineers. The largest cost-delivery firm in the world adopted FDE as a defensive posture. When TCS can field that many embedded engineers, the model is no longer differentiated by its presence. Differentiation shifts to who delivers it and whether the team drives outcomes. FDE has crossed from strategic move to industry standard."
+      theme_title: "The Rollout Worked. The People Didn't."
+      synthesis: "29% of employees admit to sabotaging their company's AI strategy — rising to 44% among Gen Z. Employee confidence in company AI strategy fell from 47% in 2025 to 31% in 2026. The critical finding: leadership trust has a 3.15-point spread as the single strongest predictor of adoption success vs. abandonment. This is not a technology story. Organizations that led with AI mandates before leading with trust are now in cleanup mode. The argument is new this week: prior coverage of adoption challenges focused on technical gaps and governance; this week the data names the human variable as the dominant one."
       source_items:
-        - "TCS Plans Up to 8,900 Forward-Deployed AI Engineers (TECHi, Aug 2026)"
-        - "TCS bets on 8,900 AI deployment engineers to defend India's IT services model (The Next Web)"
+        - "Enterprise AI adoption in 2026: Why 79% face challenges despite high investment (WRITER, 2026)"
+        - "Nearly a third of workers admit to sabotaging their company's AI — and smaller paychecks may explain why (Fortune, Jul 30 2026)"
+        - "Why 29% of Workers Are Quietly Killing Your AI Rollout (ProcedureFlow, 2026)"
+        - "Sabotage, silence and strategy 'built for show': 5 AI adoption myths (HR Executive, 2026)"
       content_angles:
-        - "The FDE Model Has Become Table Stakes. Now What?"
+        - "The Rollout Worked. The People Didn't."
     - theme_id: 2
-      theme_title: "Texas Has a State Problem and a City Problem Now"
-      synthesis: "San Marcos became the first Texas city to ban data centers citywide. Austin-area residents organized the Data Center Action Coalition. A state senator threatened to challenge the ban. Abbott's compliance regime generated a second-order effect: local governments going further. The locus of the fight shifted from state capitol to city councils. Clients need municipal-level site risk assessment, not just state compliance review."
+      theme_title: "The AI-as-Amplifier Paradox: You're Getting Better Results and Worse Judgment"
+      synthesis: "A 2026 CHI conference paper documented a year-long study on cancer specialists: initial operational gains hid 'intuition rust,' the gradual dulling of expert judgment, which evolved into skill atrophy and identity commoditization. A coding study found individuals using AI tools scored 17% lower on manual mastery tasks. More than 11 million entry-level gateway jobs disappeared in 18 months, eliminating the primary training environment where tacit knowledge is built. The argument is new: prior coverage (W32's 'The Premium You Charged Was for Knowing Things') touched information asymmetry; this week the research makes the erosion mechanism precise and longitudinal."
       source_items:
-        - "Austin-area residents are pushing for data center bans. State leaders are divided (KERA News, Aug 19 2026)"
-        - "San Marcos council votes to prohibit data centers citywide (CBS Austin)"
-        - "State senator says San Marcos' data center ban will likely be challenged (KXAN)"
+        - "From Future of Work to Future of Workers: Addressing Asymptomatic AI Harms (CHI 2026 / Microsoft Research)"
+        - "The Great Atrophy: How AI Efficiency Is Quietly Killing Human Expertise (VKTR, 2026)"
+        - "AI Competency Erosion: Understanding Expertise Decay (Springer Nature, 2026)"
       content_angles:
-        - "Texas Has a State Problem and a City Problem Now"
+        - "The AI-as-Amplifier Paradox: You're Getting Better Results and Worse Judgment"
     - theme_id: 3
-      theme_title: "The Market Just Valued the Agent Security Gap at $1.1 Billion"
-      synthesis: "Obsidian Security raised $85M Series D at a $1.1B valuation (Aug 4). 92% of enterprises lack visibility into AI identities. 88% confirmed or suspected a security incident. The VC market priced the agent security problem at unicorn scale. The client conversation shifts from risk management to dollar-denominated business consequence."
+      theme_title: "The Agent Governance Moment Just Became Infrastructure"
+      synthesis: "On Aug 20, Google's A2A protocol joined the Linux Foundation-backed Agentic AI Foundation alongside Anthropic's MCP, consolidating the agentic standards layer under neutral governance with 250+ members. Simultaneously, SAP published findings that 98% of companies have deployed or plan to deploy AI agents, but fewer than half have an agent inventory. Gartner projects 150,000+ agents per Fortune 500 firm by 2028 and only 13% believe they have adequate governance. The argument is structurally different from prior weeks' agent security coverage: this week is about protocol governance infrastructure locking in — the standards moment that changes what governance even means technically."
       source_items:
-        - "Obsidian Raises $85 Million Series D to Scale AI Agent Security Growth (Obsidian Security, Aug 4 2026)"
-        - "Obsidian Security raises $85M as AI agents create cybersecurity's next major attack surface (SiliconANGLE)"
-        - "AI Agents at Work 2026: Securing the agentic enterprise (Okta, 2026)"
+        - "Google's A2A Protocol Joins AAIF, Consolidating the Agent Economy's Protocol Layer (Forkast News, Aug 20 2026)"
+        - "Linux Foundation Announces the Formation of the Agentic AI Foundation (Linux Foundation press release)"
+        - "AI Agent Sprawl: Why AI Governance Is Now a Board-Level Issue (SAP News Center, Aug 2026)"
+        - "The Agent Sprawl Crisis: How CIOs Should Register, Consolidate, and Retire Digital Workers (Digital Thought Disruption, Aug 20 2026)"
       content_angles:
-        - "The Market Just Valued the Agent Security Gap at $1.1 Billion"
+        - "The Agent Governance Moment Just Became Infrastructure"
+    - theme_id: 4
+      theme_title: "DFW Is Building the Other Kind of AI Economy"
+      synthesis: "Brookings named DFW an 'AI Star Hub' with generative AI touching 36% of local jobs. Celestica announced a $876M Fort Worth AI manufacturing campus. Dallas Innovates published its 2026 AI 75 innovators list. The regional story this week is not data center count — it's vertical AI in logistics, healthcare, and advanced manufacturing: the gritty, sector-specific applications that distinguish DFW from coastal AI hubs. This diverges materially from prior Texas coverage (infrastructure/regulation) into talent, sector application, and what DFW's AI economy actually produces."
+      source_items:
+        - "Dallas-Fort Worth Metro Named 'AI Star Hub' in Brookings Report (Dallas Innovates, 2026)"
+        - "Celestica Plans $876M Fort Worth AI Manufacturing Hub (CRE Daily, 2026)"
+        - "Meet the 2026 AI 75 Innovators: From the C-Suite to the Lab Bench in DFW (Dallas Innovates)"
+        - "From Emerging to Leading: Dallas-Fort Worth's AI Potential (Inclusion Cloud, 2026)"
+      content_angles:
+        - "DFW Is Building the Other Kind of AI Economy"
   weekly_tweets:
-    - text: "TCS is converting up to 8,900 engineers into forward-deployed roles. India's largest IT firm built its model on offshore cost-delivery. When that firm bets on embedded delivery at scale, it's not a trend. It's a floor."
-      supporting_url: "https://thenextweb.com/news/tcs-forward-deployed-ai-engineers-acquisitions"
+    - text: "29% of employees admit to sabotaging their company's AI rollout. 44% among Gen Z. That's not a technology problem. That's what happens when you lead with the mandate before you lead with the reason."
+      supporting_url: "https://fortune.com/2026/07/30/nearly-a-third-of-workers-admit-to-sabotaging-their-companys-aiand-smaller-paychecks-may-explain-why/"
       angle_type: "data"
-    - text: "FDE job postings grew 729% in one year. Every major firm now has a program. The delivery model isn't differentiating anymore by existing. The only question left is whether your team can actually drive outcomes once they're on-site."
+    - text: "Employee confidence in company AI strategy fell from 47% to 31% in one year. The organizations that moved fast on the technology and slow on the people are now paying twice: once for the rollout, and again for the cleanup."
+      supporting_url: "https://writer.com/blog/enterprise-ai-adoption-2026/"
+      angle_type: "data"
+    - text: "Leadership trust has a 3.15-point spread as the single biggest predictor of AI adoption success. Not tool selection. Not training budget. Not vendor. The person at the top of the org who can explain what this is actually for."
       supporting_url: null
       angle_type: "provocative"
-    - text: "San Marcos is the first Texas city to ban data centers. Austin-area residents have an organized coalition pushing for more. The Abbott audit created state compliance clarity. It also gave local governments a reason to go further. That second part wasn't in the playbook."
-      supporting_url: "https://www.keranews.org/texas-news/2026-08-19/austin-tx-texas-data-centers-regulations-greg-abbott"
+    - text: "Researchers studied cancer specialists using AI for a year. Output metrics went up. Judgment quietly eroded. They called it intuition rust. It's the thing nobody measures until the stakes are high enough to expose it."
+      supporting_url: "https://dl.acm.org/doi/10.1145/3772318.3791081"
       angle_type: "data"
-    - text: "A state senator is already threatening to challenge San Marcos' data center ban on legal authority grounds. So the answer to 'can we build here?' in Texas is now: state says comply, city says no, courts TBD. That's a new kind of infrastructure risk."
-      supporting_url: null
-      angle_type: "practitioner"
-    - text: "88% of organizations confirmed or suspected a security incident involving AI agents this year. 86% don't enforce access policies for AI identities. A $1.1B company now exists specifically to close that gap. How is that not your board's next agenda item?"
-      supporting_url: "https://www.obsidiansecurity.com/news/unlocking-ai-potential-securely"
+    - text: "11 million entry-level gateway jobs disappeared in 18 months. Those weren't just easy jobs. They were the training environments where pattern recognition gets built. When AI handles the doing, tacit knowledge acquisition slows or stops."
+      supporting_url: "https://www.vktr.com/digital-workplace/the-great-atrophy-how-ai-efficiency-is-quietly-killing-human-expertise/"
       angle_type: "provocative"
-    - text: "The EU AI Act's high-risk enforcement kicked in August 2. 78% of organizations haven't taken meaningful compliance steps. First-year compliance costs run $8M to $15M for large enterprises. The clients who waited are now paying a premium for urgency."
+    - text: "AI tools scored 17% lower on manual mastery tasks in a 2026 coding study. Not catastrophic. Just slow drift. The kind you don't notice until you need the skill and it isn't there."
       supporting_url: null
       angle_type: "data"
-    - text: "What does it mean when the world's largest cost-delivery IT firm decides client-embedded engineers are how it defends revenue? It means the FDE model isn't a boutique differentiator anymore. It's the table stakes answer to the question 'what do you actually do?'"
+    - text: "Google's A2A protocol joined Anthropic's MCP under one neutral governance body on August 20. 250+ members. Every major cloud provider and AI lab. The agent standards moment happened. Your governance program either built toward this or against it."
+      supporting_url: "https://forkast.news/googles-a2a-protocol-joins-aaif-consolidating-the-agent-economys-protocol-layer-under-one-roof/"
+      angle_type: "data"
+    - text: "98% of companies have deployed or plan to deploy AI agents. Fewer than half have an agent inventory. Gartner projects 150,000+ agents per Fortune 500 firm by 2028. The board conversation about AI has shifted from ambition to accountability."
+      supporting_url: "https://news.sap.com/2026/08/agent-sprawl-why-ai-governance-is-now-board-level-issue/"
+      angle_type: "provocative"
+    - text: "DFW was named an AI Star Hub by Brookings. Celestica just committed $876M to a Fort Worth AI manufacturing campus. 36% of local jobs have meaningful AI exposure. The DFW AI story is not about data centers anymore. It's about vertical AI in the industries that actually run this economy."
+      supporting_url: "https://dallasinnovates.com/dallas-fort-worth-metro-named-ai-star-hub-in-new-brookings-report-mapping-americas-ai-economy/"
+      angle_type: "data"
+    - text: "The question I keep asking clients: what are the judgment calls you've stopped making because the tool makes them adequately? Adequate and good aren't the same thing. The gap between them is exactly what you're getting paid to close."
       supporting_url: null
       angle_type: "question"
-    - text: "I'm talking to clients every week who still think AI agent governance is a future-state problem. Obsidian Security just raised $85M because it isn't. The market priced the gap. The clients who ignore it are running open positions in their risk register right now."
-      supporting_url: null
-      angle_type: "practitioner"
-    - text: "San Marcos banned data centers. Austin residents want bans. The state may preempt both. In six months, Texas went from 'epicenter of AI development' to a three-way jurisdictional fight over who controls the land. What's your site selection process accounting for?"
-      supporting_url: null
-      angle_type: "question"
-    - text: "The EU AI Act compliance gap is a near-term consulting revenue story that most firms are underselling. 78% of enterprises aren't compliant. The deadline passed. The fines go up to 7% of global revenue. This isn't a risk advisory conversation -- it's a fire drill."
-      supporting_url: null
-      angle_type: "provocative"

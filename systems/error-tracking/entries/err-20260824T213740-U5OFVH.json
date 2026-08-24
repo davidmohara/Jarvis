@@ -1,0 +1,16 @@
+{
+  "id": "err-20260824T213740-U5OFVH",
+  "timestamp": "2026-08-24T21:37:40Z",
+  "category": "system-infrastructure",
+  "failure_mode": "unintegrated-workflow-instrumentation",
+  "severity": "critical",
+  "context": "Boot workflow executed but produced no eval record. Workflow is not properly integrated with hook system for eval harness instrumentation.",
+  "what_happened": "User ran boot workflow. No eval record was generated in systems/eval-harness/runs/. Boot workflow appears to rely on manual/unreliable eval generation rather than being integrated into the hook system.",
+  "expected": "Boot workflow should be integrated with .claude/hooks/post-tool-use.py and .claude/hooks/eval-agent-stop.py to automatically capture step-level token data, generate proper eval records with required fields (type, trigger, model per-step, tokens_input, tokens_output, cost_usd, assessment blocks).",
+  "actual": "Boot workflow completes without generating eval record. No hook-based instrumentation firing. Workflow relies on manual/implicit eval generation which is unreliable.",
+  "root_cause": "Boot workflow (workflows/boot/workflow.md and its steps) are not integrated into the eval harness hook system. Hook integration is the mechanism that captures real token audit data and generates compliant eval records.",
+  "required_fix": "Refactor boot workflow to be hook-integrated: (1) Add started/completed timestamps to all step frontmatter, (2) Ensure post-tool-use hook fires on step completions, (3) Integrate eval-agent-stop hook to generate final eval record with real token counts and required assessment blocks.",
+  "route_to": "Rigby",
+  "source": "explicit",
+  "session_id": "jarvis-20260824-194500"
+}

@@ -1,0 +1,15 @@
+{
+  "id": "err-20260824T214840-QRGASF",
+  "timestamp": "2026-08-24T21:48:40Z",
+  "category": "system-architecture",
+  "failure_mode": "eval-initialization-timing",
+  "severity": "medium",
+  "context": "Boot eval record initialization should be tied to agent START, not step-01 state.yaml write. Current approach relies on model behavior (step-01 writing state.yaml), which is non-deterministic.",
+  "what_happened": "Rigby configured eval record to be created when step-01 writes state.yaml. But state.yaml writes are model-driven — not deterministic.",
+  "expected": "Eval record should be created when boot agent STARTS (deterministic event). Eval record should be finalized when boot agent STOPS (deterministic event). No reliance on step-01 or any step writing state.yaml.",
+  "actual": "Current solution uses step-01 state.yaml write to initialize eval record. This is still model-dependent.",
+  "root_cause": "Eval record initialization should be triggered by agent lifecycle events (start/stop), not step execution events.",
+  "correct_fix": "Configure eval-agent-stop.py hook to: (1) Create eval record stub on agent START, (2) Capture step token data as steps execute, (3) Finalize eval record on agent STOP. All three are deterministic hook events, independent of model behavior.",
+  "source": "explicit",
+  "session_id": "jarvis-20260824-194500"
+}

@@ -2,10 +2,10 @@
   "skill": "revenue-tracker",
   "agent": "chase",
   "trigger": "scheduled",
-  "started": "2026-08-20T00:00:00Z",
-  "completed": "2026-08-20T00:15:32Z",
+  "started": "2026-08-24T00:00:00Z",
+  "completed": "2026-08-24T00:20:00Z",
   "status": "partial",
   "tool_failures": 1,
-  "error_ids": [],
-  "notes": "PowerBI Financial Outlook URL returned redirect to Partner Pipeline report; cache used instead. August 10 snapshot within 30-day freshness window. July 2026 actuals reported. Recommend PowerBI URL validation and manual August verification when accessible."
+  "error_ids": ["powerbi-url-stale"],
+  "notes": "PowerBI Financial Outlook URL inaccessible (redirects to ImprovingAffiliateReportv2). Reverted to cached snapshot from 2026-08-10 (July 2026 actuals). August now closed but fresh data unavailable. Cache within 30-day freshness window but does not reflect current-month actuals. BI team escalation recommended."
 }

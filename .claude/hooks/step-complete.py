@@ -19,8 +19,17 @@ from datetime import datetime, timezone
 
 IES_ROOT = Path(__file__).resolve().parents[2]
 EVAL_RUNS_DIR = IES_ROOT / "systems" / "eval-harness" / "runs"
-GUARDRAILS_DIR = IES_ROOT / "workflows" / "boot" / "guardrails"
 ERROR_LOG = Path("/tmp/ies-hook-errors.log")
+
+def get_guardrails_dir_for_workflow(workflow_name: str) -> Path:
+    """Find the guardrails directory for a given workflow."""
+    if not workflow_name:
+        return IES_ROOT / "workflows" / "boot" / "guardrails"
+    candidate = IES_ROOT / "workflows" / workflow_name / "guardrails"
+    if candidate.exists():
+        return candidate
+    # Fallback to boot guardrails if workflow doesn't have its own
+    return IES_ROOT / "workflows" / "boot" / "guardrails"
 
 sys.path.insert(0, str(IES_ROOT / "systems" / "eval-harness" / "vendor"))
 sys.path.insert(0, str(IES_ROOT / "systems" / "eval-harness"))
@@ -105,11 +114,20 @@ def find_session_transcript(session_id: str) -> Path | None:
     """Fallback: find the session's main transcript JSONL if transcript_path not provided."""
     try:
         claude_dir = Path.home() / ".claude" / "projects"
-        for project_dir in claude_dir.glob("*/*/subagents"):
-            # Look for session transcript with matching session_id in filename or content
-            for transcript in project_dir.glob("*.jsonl"):
-                if session_id in str(transcript):
-                    return transcript
+
+        # First, try to find transcripts in IES project directories
+        ies_pattern = "*OneDrive-Improving-IES*"
+        candidates = []
+
+        for project_dir in claude_dir.glob(ies_pattern):
+            # Look for *.jsonl files directly in project directory (main session transcript)
+            for transcript in sorted(project_dir.glob("*.jsonl"), key=lambda x: x.stat().st_mtime, reverse=True):
+                candidates.append(transcript)
+
+        if candidates:
+            # Return most recent transcript
+            return candidates[0]
+
         log_info(f"Could not find session transcript for {session_id}")
     except Exception as e:
         log_error(f"Failed to find session transcript: {e}")
@@ -167,7 +185,7 @@ def extract_step_tokens(transcript_path: str, step_started: str, step_completed:
     return result
 
 
-def run_step_guardrail_checkpoint(step_name: str, step_frontmatter: dict, eval_record: dict) -> dict:
+def run_step_guardrail_checkpoint(step_name: str, step_frontmatter: dict, eval_record: dict, workflow_name: str = None) -> dict:
     """Run guardrail validation for this step.
 
     Four possible outcomes:
@@ -177,7 +195,8 @@ def run_step_guardrail_checkpoint(step_name: str, step_frontmatter: dict, eval_r
     - escalate: Critical issue model can't fix, punch out to controller
     """
     # Load guardrail rules first to get checkpoint_name if defined
-    guardrail_file = GUARDRAILS_DIR / f"{step_name}.json"
+    guardrails_dir = get_guardrails_dir_for_workflow(workflow_name)
+    guardrail_file = guardrails_dir / f"{step_name}.json"
     checkpoint_name = f"{step_name}-checkpoint"  # default
     guardrail_rules = {}
 
@@ -301,11 +320,17 @@ def update_eval_record_with_step_completion(eval_path: Path, step_name: str, fro
         with open(eval_path, "r") as f:
             eval_record = json.load(f)
 
-        # Find or create step entry
+        # Find or create step entry (deduplicate by name)
         step_entry = None
-        for step in eval_record.get("steps", []):
+        steps = eval_record.get("steps", [])
+        for i, step in enumerate(steps):
             if step.get("name") == step_name:
                 step_entry = step
+                # Ensure this is the last occurrence (remove earlier duplicates)
+                if i < len(steps) - 1:
+                    # Move this entry to the end
+                    steps.pop(i)
+                    steps.append(step_entry)
                 break
 
         if not step_entry:
@@ -405,6 +430,7 @@ def main():
     step_content = payload.get("step_content")
     transcript_path = payload.get("transcript_path")
     session_id = payload.get("session_id")
+    workflow_name = payload.get("workflow_name")  # Optional: for guardrails lookup
 
     if not step_file_path or not step_content:
         log_error("Missing step_file_path or step_content in payload")
@@ -427,6 +453,15 @@ def main():
 
     log_info(f"Processing step completion: {step_name}")
 
+    # Infer workflow_name from eval record if not provided
+    if not workflow_name and eval_path:
+        try:
+            with open(eval_path, "r") as f:
+                eval_rec = json.load(f)
+            workflow_name = eval_rec.get("name")
+        except Exception:
+            pass
+
     # Resolve transcript path (fallback to finding session transcript if not provided)
     effective_transcript_path = transcript_path
     if not effective_transcript_path and session_id:
@@ -448,7 +483,7 @@ def main():
         log_info(f"Token extraction ended with: {token_data['extraction_error']}")
 
     # Run guardrail checkpoint
-    guardrail_result = run_step_guardrail_checkpoint(step_name, frontmatter, {})
+    guardrail_result = run_step_guardrail_checkpoint(step_name, frontmatter, {}, workflow_name)
 
     # Update eval record
     update_eval_record_with_step_completion(eval_path, step_name, frontmatter, token_data, guardrail_result)

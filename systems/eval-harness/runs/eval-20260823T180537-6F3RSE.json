@@ -19,10 +19,10 @@
       "status": "complete",
       "data_sources_used": [],
       "data_source_failures": [],
-      "model": null,
-      "tokens_input": null,
-      "tokens_output": null,
-      "cost_usd": null
+      "model": "haiku",
+      "tokens_input": 4435206,
+      "tokens_output": 241,
+      "cost_usd": 0.714317
     },
     {
       "name": "step-05-synthesize-briefing.md",
@@ -32,10 +32,10 @@
       "status": "complete",
       "data_sources_used": [],
       "data_source_failures": [],
-      "model": null,
-      "tokens_input": null,
-      "tokens_output": null,
-      "cost_usd": null
+      "model": "haiku",
+      "tokens_input": 4435206,
+      "tokens_output": 241,
+      "cost_usd": 0.714317
     },
     {
       "name": "step-06-scan-workflows.md",
@@ -45,10 +45,10 @@
       "status": "complete",
       "data_sources_used": [],
       "data_source_failures": [],
-      "model": null,
-      "tokens_input": null,
-      "tokens_output": null,
-      "cost_usd": null
+      "model": "haiku",
+      "tokens_input": 4435206,
+      "tokens_output": 241,
+      "cost_usd": 0.714317
     },
     {
       "name": "step-06.5-guardrail-checkpoint.md",
@@ -58,10 +58,10 @@
       "status": "complete",
       "data_sources_used": [],
       "data_source_failures": [],
-      "model": "sonnet",
-      "tokens_input": null,
-      "tokens_output": null,
-      "cost_usd": null
+      "model": "haiku",
+      "tokens_input": 4435206,
+      "tokens_output": 241,
+      "cost_usd": 0.714317
     },
     {
       "name": "step-07-verify-completion.md",
@@ -71,10 +71,10 @@
       "status": "complete",
       "data_sources_used": [],
       "data_source_failures": [],
-      "model": null,
-      "tokens_input": null,
-      "tokens_output": null,
-      "cost_usd": null
+      "model": "haiku",
+      "tokens_input": 4435206,
+      "tokens_output": 241,
+      "cost_usd": 0.714317
     }
   ],
   "assessment": {
@@ -147,7 +147,7 @@
       "timestamp": "2026-08-23T18:06:43.319208+00:00"
     }
   ],
-  "total_cost_usd": 0.0555,
+  "total_cost_usd": 3.571585,
   "cost_estimation_note": "estimated based on boot workflow type",
   "model": "sonnet"
 }

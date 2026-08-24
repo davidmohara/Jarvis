@@ -1,0 +1,22 @@
+{
+  "id": "err-20260824T202814-WYVG7F",
+  "timestamp": "2026-08-24T20:28:14Z",
+  "source": "explicit",
+  "category": "protocol-skip",
+  "failure_mode": "missing-automation-gate",
+  "severity": "major",
+  "description": "Boot workflow runs daily (auto-triggered at 6am) but eval harness is not auto-capturing runs. Aug 22 eval exists because it was manually triggered. Today's boot (Aug 24, 06:05 AM complete) has zero harness wrapping. Root cause: boot workflow frontmatter lacks eval harness configuration. Jarvis claimed 'all future runs would be auto-captured' but no scheduled eval task or harness wrapper was ever built.",
+  "what_happened": "Boot completed successfully but eval record was not created",
+  "what_should_have_happened": "Boot completion should trigger eval harness wrapper that auto-creates an eval record with per-step metrics, guardrail outcomes, and completion status",
+  "context": {
+    "workflow": "workflows/boot/workflow.md",
+    "affected_run": "2026-08-24T06:05:00Z",
+    "affected_run_status": "complete",
+    "expected_output": "eval record in systems/eval-harness/runs/",
+    "actual_output": "none"
+  },
+  "proposed_fix": "Route to Rigby to configure WorkflowStart hook in .claude/settings.json. Hook should fire when any workflow (boot specifically) starts and create eval record at that moment, capturing workflow name, agent, model, start timestamp. Boot workflow is daily automated — eval record must be created at START, not after completion.",
+  "fix_type": "hooks-configuration",
+  "status": "applied",
+  "solution": "Configured PostToolUse hook with `if: Write(workflows/*/state.yaml)` matcher to fire when workflow state.yaml is written. Hook script (workflow-start.py) checks status=in-progress and creates eval record at workflow start. Uses existing hook system without infrastructure changes."
+}

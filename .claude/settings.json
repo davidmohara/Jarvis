@@ -94,6 +94,11 @@
           {
             "type": "command",
             "command": "python3 '.claude/hooks/post-tool-use.py'"
+          },
+          {
+            "type": "command",
+            "command": "python3 '.claude/hooks/workflow-start.py'",
+            "if": "Write(workflows/*/state.yaml)"
           }
         ]
       }

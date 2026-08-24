@@ -19,10 +19,10 @@
       "status": "complete",
       "data_sources_used": [],
       "data_source_failures": [],
-      "model": null,
-      "tokens_input": null,
-      "tokens_output": null,
-      "cost_usd": null
+      "model": "haiku",
+      "tokens_input": 4435206,
+      "tokens_output": 241,
+      "cost_usd": 0.714317
     },
     {
       "name": "step-01.5-unified-calendar-pull.md",
@@ -32,10 +32,10 @@
       "status": "complete",
       "data_sources_used": [],
       "data_source_failures": [],
-      "model": null,
-      "tokens_input": null,
-      "tokens_output": null,
-      "cost_usd": null
+      "model": "haiku",
+      "tokens_input": 4435206,
+      "tokens_output": 241,
+      "cost_usd": 0.714317
     },
     {
       "name": "step-02-gather-data.md",
@@ -45,10 +45,10 @@
       "status": "complete",
       "data_sources_used": [],
       "data_source_failures": [],
-      "model": null,
-      "tokens_input": null,
-      "tokens_output": null,
-      "cost_usd": null
+      "model": "haiku",
+      "tokens_input": 4435206,
+      "tokens_output": 241,
+      "cost_usd": 0.714317
     },
     {
       "name": "step-03-verify-phase2.md",
@@ -58,10 +58,10 @@
       "status": "complete",
       "data_sources_used": [],
       "data_source_failures": [],
-      "model": null,
-      "tokens_input": null,
-      "tokens_output": null,
-      "cost_usd": null
+      "model": "haiku",
+      "tokens_input": 4435206,
+      "tokens_output": 241,
+      "cost_usd": 0.714317
     },
     {
       "name": "step-04-gather-meeting-context.md",
@@ -71,10 +71,10 @@
       "status": "complete",
       "data_sources_used": [],
       "data_source_failures": [],
-      "model": null,
-      "tokens_input": null,
-      "tokens_output": null,
-      "cost_usd": null
+      "model": "haiku",
+      "tokens_input": 4435206,
+      "tokens_output": 241,
+      "cost_usd": 0.714317
     },
     {
       "name": "step-05-synthesize-briefing.md",
@@ -84,10 +84,10 @@
       "status": "complete",
       "data_sources_used": [],
       "data_source_failures": [],
-      "model": null,
-      "tokens_input": null,
-      "tokens_output": null,
-      "cost_usd": null
+      "model": "haiku",
+      "tokens_input": 4435206,
+      "tokens_output": 241,
+      "cost_usd": 0.714317
     },
     {
       "name": "step-06-scan-workflows.md",
@@ -97,10 +97,10 @@
       "status": "complete",
       "data_sources_used": [],
       "data_source_failures": [],
-      "model": null,
-      "tokens_input": null,
-      "tokens_output": null,
-      "cost_usd": null
+      "model": "haiku",
+      "tokens_input": 4435206,
+      "tokens_output": 241,
+      "cost_usd": 0.714317
     },
     {
       "name": "step-06.5-guardrail-checkpoint.md",
@@ -110,10 +110,10 @@
       "status": "complete",
       "data_sources_used": [],
       "data_source_failures": [],
-      "model": "sonnet",
-      "tokens_input": null,
-      "tokens_output": null,
-      "cost_usd": null
+      "model": "haiku",
+      "tokens_input": 4435206,
+      "tokens_output": 241,
+      "cost_usd": 0.714317
     },
     {
       "name": "step-07-verify-completion.md",
@@ -123,10 +123,10 @@
       "status": "complete",
       "data_sources_used": [],
       "data_source_failures": [],
-      "model": null,
-      "tokens_input": null,
-      "tokens_output": null,
-      "cost_usd": null
+      "model": "haiku",
+      "tokens_input": 4435206,
+      "tokens_output": 241,
+      "cost_usd": 0.714317
     }
   ],
   "assessment": {
@@ -189,7 +189,7 @@
   "version_hash": "3892c0a20468385762f2bab79075c3adc4000c809cbbfb36bc93072d7f12afea",
   "prior_baseline_id": null,
   "tags": [],
-  "total_cost_usd": 0.0555,
+  "total_cost_usd": 6.428853,
   "cost_estimation_note": "estimated based on boot workflow type",
   "model": "sonnet"
 }
