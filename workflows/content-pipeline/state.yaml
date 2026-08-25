@@ -1,4 +1,3 @@
----
 workflow: content-pipeline
 status: complete
 started-at: 2026-08-25T06:07:00Z
@@ -13,5 +12,4 @@ outputs:
   pending_threads_checked: 13
   outcome: "No new URLs or digests in last 24h. 1 message in channel (bot no-content notification from yesterday — skipped). 13 pending draft threads scanned — no replies. Posted no-content notification to #content (ts: 1787656076.782939)."
 model: sonnet
----
 current-step: null
