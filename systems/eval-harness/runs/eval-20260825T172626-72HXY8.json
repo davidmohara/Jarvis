@@ -1,0 +1,59 @@
+{
+  "id": "eval-20260825T172626-72HXY8",
+  "agent_id": "a0784a3001275b393",
+  "type": "agent",
+  "name": "general-purpose",
+  "agent": "general-purpose",
+  "session_id": "",
+  "trigger": "unknown",
+  "started": "2026-08-25T17:26:26.630768Z",
+  "completed": "2026-08-25T17:28:00.713682Z",
+  "duration_seconds": 94.08,
+  "status": "success",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/c79b18a8-173b-4bb1-812b-6786938c47de/subagents/agent-a0784a3001275b393.jsonl",
+  "last_assistant_message": "All four paths (pass/retry for each script) work correctly and produce valid JSON matching the dispatcher's contract.\n\n## Summary\n\n**Files created:**\n- `/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/workflows/golf-booking/verify/phase-1-preview.py`\n- `/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/workflows/golf-booking/verify/phase-2-booking.py`\n\n**Naming note:** golf-booking has no per-step files (unlike boot's `steps/` directory), so there's no literal `current-step` string ever written for phase 1 \u2014 the workflow only writes `current-step: phase-2-booking` once phase 1 finishes. I inferred `phase-1-preview` by symmetry with that existing string and the \"Phase 1 \u2014 Preview\" / \"Phase 2 \u2014 Booking\" headers in `workflow.md`. I checked eval records for golf-booking runs and found none with populated `steps[].name` to confirm the exact string the dispatcher will see \u2014 if the actual step-file naming convention differs when this workflow starts emitting step-complete events, the filenames will need to be renamed to match.\n\n**phase-1-preview.py**: Verifies `preview-output.json` exists and parses, checks non-empty `top_options`, complete `target_weekend` (fri/sat/sun dates), and `day_status` for all three days. Derives `candidate_windows_found` (count) and `go_no_go_summary` (available/unavailable day counts) from real file content. Flags `generated_at` staleness past 10 days (loose, weekly-cadence-aware) as a validation error without blocking pass/fail on its own for structural issues \u2014 missing/empty required fields trigger `retry`.\n\n**phase-2-booking.py**: Reads `state.yaml` via `yaml.safe_load()` (confirmed it now parses cleanly post-fix). Computes `booking_outcome`: `\"booked\"` when `booking-id`/`booking-date`/`booking-time` are all populated (pass); `\"documented-failure\"` when no booking but `resolution-note` or `accumulated-context` contains a substantive explanation \u226540 chars (pass \u2014 failures are a legitimate terminal state per the workflow's Failure Modes table); `\"undocumented-failure\"` only when neither exists (retry \u2014 this is the actual quality bar, silent failures).\n\n**Dry-run results against live repo state:**\n- phase-1-preview.py against the real `preview-output.json`: `pass`, 3 candidate windows, 2 available/1 unavailable days, fresh timestamp.\n- phase-2-booking.py against the real `state.yaml` (documented Chrome-unavailable failure): `pass`, `booking_outcome: \"documented-failure\"`, resolution note 1671 chars.\n- Also tested missing-file and synthetic undocumented-failure cases \u2014 both correctly return `retry` with actionable `retry_instruction`.\n\nNo crashes on any real or synthetic input; all output is single-line valid JSON matching the `step-complete.py` dispatcher contract (`result`/`reason`/`fields`/`validation_errors`).",
+  "model": "sonnet",
+  "total_tokens_input": 831643,
+  "total_tokens_output": 3250,
+  "total_cost_usd": 0.551767
+}

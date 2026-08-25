@@ -1,0 +1,94 @@
+{
+  "id": "eval-20260825T171843-FA6SUZ",
+  "type": "workflow",
+  "name": "content-pipeline",
+  "agent": "unknown",
+  "session_id": "",
+  "trigger": "manual",
+  "started": "2026-08-25T17:17:43.619452Z",
+  "completed": "2026-08-25T17:18:43.619452Z",
+  "duration_seconds": 60.0,
+  "status": "success",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": false,
+      "outputs_non_empty": false,
+      "assertions_checked": 7,
+      "assertions_passed": 4,
+      "assertion_results": [
+        {
+          "assertion": "state-complete",
+          "description": "Content pipeline workflow state.yaml shows status: complete",
+          "passed": true
+        },
+        {
+          "assertion": "messages-scanned",
+          "description": "Workflow recorded how many Slack messages were scanned (not null)",
+          "passed": null,
+          "skipped": true,
+          "reason": "unknown check type: yaml_field_not_equals"
+        },
+        {
+          "assertion": "routing-outcome-recorded",
+          "description": "accumulated-context.result records the routing outcome (draft created / obsidian note / flagged)",
+          "passed": null,
+          "skipped": true,
+          "reason": "unknown check type: yaml_field_not_equals"
+        },
+        {
+          "assertion": "pending-drafts-valid-json",
+          "description": "pending-drafts.json file exists (workflow maintains it)",
+          "passed": true
+        },
+        {
+          "assertion": "blog-route-has-ghost-id",
+          "description": "Any blog-routed message in pending-drafts has a ghost_post_id field",
+          "passed": true
+        },
+        {
+          "assertion": "no-missing-status",
+          "description": "No pending-draft entry has a null status",
+          "passed": true
+        },
+        {
+          "assertion": "content--001-exists",
+          "description": "content-pipeline output file was written",
+          "passed": false
+        },
+        {
+          "assertion": "content--002-substantive",
+          "description": "content-pipeline output is substantive (>200 bytes)",
+          "passed": false
+        },
+        {
+          "assertion": "content--003-content",
+          "description": "content-pipeline output contains expected content",
+          "passed": false
+        }
+      ]
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    }
+  },
+  "version_hash": "c5698e688dfe2c5d",
+  "prior_baseline_id": null,
+  "tags": [
+    "cowork-hook",
+    "phantom-candidate"
+  ]
+}

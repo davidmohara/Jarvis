@@ -1,0 +1,59 @@
+{
+  "id": "eval-20260825T173632-1DUZPI",
+  "agent_id": "a82857bf75e0f7a94",
+  "type": "agent",
+  "name": "general-purpose",
+  "agent": "general-purpose",
+  "session_id": "",
+  "trigger": "unknown",
+  "started": "2026-08-25T17:36:32.432552Z",
+  "completed": "2026-08-25T17:42:30.837949Z",
+  "duration_seconds": 358.41,
+  "status": "aborted",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": false,
+      "all_steps_finished": true,
+      "tool_failures": 1,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/c79b18a8-173b-4bb1-812b-6786938c47de/subagents/agent-a82857bf75e0f7a94.jsonl",
+  "last_assistant_message": "All 14 verifier scripts ran cleanly and produced valid JSON with computed fields \u2014 no crashes. Dry-run results reflect genuine repo state (all three workflows are currently idle/reset, so early steps correctly `retry`; podcast-prep steps 4-5 `pass` because real `Episode 11.md`/PDF files exist in `meetings/podcast-prep/`; partner-meeting-prep step-04 correctly `retry`s because it discovered the historical xAI run's self-reported `outputs/xAI - 2026-06-24.md` output file does not actually exist anywhere in the repo).\n\nAll three workflows' `state.yaml` files were already valid YAML (confirmed via `yaml.safe_load`) \u2014 no fixes needed.\n\n## Files created\n\n**`workflows/one-on-one-prep/verify/`**\n- `step-01-identify-meeting.py` \u2014 confirms `meeting_details.person` was actually captured (date optional per workflow rules)\n- `step-02-gather-communications.py` \u2014 checks `communication_data` has all required structural keys; empty lists are valid\n- `step-03-gather-tasks.py` \u2014 checks `task_data` structure and independently recomputes overdue-delegation count from due dates (not from self-reported flags)\n- `step-04-assemble-brief.py` \u2014 verifies all upstream data (steps 01-03) is still intact in `accumulated-context` before assembly\n- `step-05-quality-check-and-save.py` \u2014 globs `meetings/` for the actual saved brief file by person slug, validates required section headers and counts talking points via regex (must be \u22655)\n\n**`workflows/podcast-prep/verify/`**\n- `step-01-identify-episode.py` \u2014 checks `episode` context has number/title/guest name\n- `step-02-gather-data.py` \u2014 checks `gathered_data` structural keys present\n- `step-03-build-prep-sheet.py` \u2014 finds the dated guest-slug prep sheet in `meetings/podcast-prep/`, validates required sections and word count (\u2265300)\n- `step-04-build-pdf-sheet.py` \u2014 finds `Episode {N}.md`, counts questions via regex (must equal exactly 6: 5 + wrap-up), checks required HTML markers (banner/intro-script/remember)\n- `step-05-generate-pdf.py` \u2014 finds `Episode {N}.pdf`, validates PDF magic bytes and minimum size (\u22655KB)\n\n**`workflows/partner-meeting-prep/verify/`**\n- `step-01-identify-partner.py` \u2014 confirms `partner_details.company` captured\n- `step-02-account-overlap.py` \u2014 checks all three account groups present, cross-validates self-reported `summary.total_accounts` against actual computed list lengths (catches self-report drift)\n- `step-03-events-and-context.py` \u2014 checks `events_and_context` structural keys present\n- `step-04-build-document.py` \u2014 checks `accumulated-context.output_file` first, falls back to globbing `outputs/`, `meetings/`, `accounts/`, repo root by partner slug; validates required sections and counts intentional `TBD - partner to fill` blanks; accepts a documented inline-delivery fallback as a valid pass state\n\n## Key finding\n\nThe `step-04-build-document.py` dry run surfaced a real, pre-existing gap: the partner-meeting-prep workflow's last completed run (xAI, 2026-06-24) self-reported the output saved to `outputs/xAI - 2026-06-24.md`, but that file does not exist anywhere in the repo (confirmed via `find`) \u2014 only an episodic memory note references it. This is exactly the kind of self-report-vs-ground-truth mismatch these verifiers are meant to catch; the new verifier correctly flags it as `retry` rather than trusting the historical claim.\n\nAlso worth noting: the historical xAI `state.yaml` accumulated-context uses a flat shape (`partner`, `contact`, `previous_prep`, `output_file`) rather than the nested `partner_details`/`account_overlap`/`events_and_context` structure the step files themselves define \u2014 the verifiers correctly flag steps 01-03 against that older run since the documented structure isn't present, which is accurate given the workflow spec.",
+  "model": "sonnet",
+  "total_tokens_input": 3785971,
+  "total_tokens_output": 15073,
+  "total_cost_usd": 1.814314
+}

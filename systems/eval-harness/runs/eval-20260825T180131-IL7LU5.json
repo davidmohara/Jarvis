@@ -1,0 +1,77 @@
+{
+  "id": "eval-20260825T180131-IL7LU5",
+  "agent_id": "a28f1e3f699b3be82",
+  "type": "workflow",
+  "name": "plaud-ingest",
+  "agent": "general-purpose",
+  "session_id": "",
+  "trigger": "manual",
+  "started": "2026-08-25T18:01:31.009887Z",
+  "completed": null,
+  "duration_seconds": null,
+  "status": "success",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": true,
+      "outputs_non_empty": false,
+      "assertions_checked": 4,
+      "assertions_passed": 3,
+      "assertion_results": [
+        {
+          "assertion": "Plaud ingest workflow state.yaml shows status: complete",
+          "passed": false,
+          "error": null
+        },
+        {
+          "assertion": "Plaud ingest working memory file was written to memory/working/",
+          "passed": true,
+          "error": null
+        },
+        {
+          "assertion": "Plaud ingest working memory file is substantive (>200 bytes)",
+          "passed": true,
+          "error": null
+        },
+        {
+          "assertion": "Plaud ingest working memory contains expected content",
+          "passed": true,
+          "error": null
+        }
+      ]
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": "c833f73f72ccddf98cc2dcf3c7ac1f7bd828de64e5daa680528a36a73df9b3f3",
+  "prior_baseline_id": null,
+  "tags": [],
+  "total_cost_usd": 0.066,
+  "cost_estimation_note": "estimated based on plaud-ingest workflow type",
+  "model": "sonnet"
+}

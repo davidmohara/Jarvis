@@ -1,0 +1,59 @@
+{
+  "id": "eval-20260825T154725-M1OTV3",
+  "agent_id": "a536ea42fa8df744c",
+  "type": "agent",
+  "name": "general-purpose",
+  "agent": "general-purpose",
+  "session_id": "session-2026-08-24-060000",
+  "trigger": "unknown",
+  "started": "2026-08-25T15:47:25.108150Z",
+  "completed": "2026-08-25T15:48:54.920479Z",
+  "duration_seconds": 89.81,
+  "status": "success",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/c79b18a8-173b-4bb1-812b-6786938c47de/subagents/agent-a536ea42fa8df744c.jsonl",
+  "last_assistant_message": "## Boot Verification \u2014 Phase 2 Verdict\n\n| Task | Status | Notes |\n|------|--------|-------|\n| Morning-briefing steps 01-02 | \u26a0\ufe0f Unverified | `workflows/morning-briefing/state.yaml` last-run is 2026-08-14 (11 days stale) \u2014 no execution record for today. The claimed \"12 inbox, 7 overdue\" matches `data/omnifocus-unified.json` numbers exactly, but that file is `pulled_at: 2026-07-17` (39 days old) \u2014 the match looks like a stale cache readout, not a fresh pull. `data/calendar-unified.json` is fresh (pulled today 10:35Z) but that's shared with Task G, not proof of a standalone morning-briefing run. |\n| E \u2014 Plaud ingest via Knox | \u2796 Fire-and-forget | `workflows/plaud-ingest/state.yaml` confirms `status: awaiting-input`, session `pi-20260824-001` genuinely open. Caveat: I searched the state file for \"policy issues\" and found none \u2014 the actual awaiting-input reason is untagged speaker identification across several recordings, not a policy flag. The spawn itself checks out; the specific characterization does not. |\n| G \u2014 72-hour look-ahead | \u2705 Verified | `data/calendar-unified.json` pulled today at 2026-08-25T10:35:00Z, 38 events, date range 2026-08-25 to 2026-08-28. Real event detail present (Drive to Office, Conscious Capitalism Breakfast, S&R Meeting, etc.). Minor note: claimed range was \"Aug 26-28,\" actual file range is \"Aug 25-28\" \u2014 data is genuine and fresh regardless. |\n| H \u2014 Email triage | \u26a0\ufe0f Unverified | `data/email-unified.json` has `pulled_at: 2026-08-21` and file mtime Aug 23 \u2014 4 days stale relative to today. No source data exists to back \"5 actionable items identified\" as a today result. |\n| I \u2014 Jarvis inbox | \u26a0\ufe0f Unverified | Both `data/jarvis-inbox-unified.json` and `systems/eval-harness/skill-runs/jarvis-inbox-latest.json` are dated 2026-08-21, showing a normal empty-result search \u2014 not an API-limitation error. No log entry corroborates today's \"API limitations, awaiting Desktop Commander\" claim. |\n| J \u2014 Boot reminders | \u2705 Verified | `data/reminders.json` reminders array is genuinely empty. Claim matches evidence exactly. |\n\n**Summary:** 2 Verified, 1 Fire-and-forget, 3 Unverified, 0 Failed/Skipped.\n\n**Re-run required before Phase 3:** Morning-briefing Steps 01-02, Task H (Email Triage), Task I (Jarvis Inbox) \u2014 all three rest on data sources 4+ days to 5+ weeks stale, so today's claimed results can't be substantiated.\n\nFiles checked: `workflows/morning-briefing/state.yaml`, `workflows/plaud-ingest/state.yaml`, `data/calendar-unified.json`, `data/email-unified.json`, `data/omnifocus-unified.json`, `data/jarvis-inbox-unified.json`, `systems/eval-harness/skill-runs/jarvis-inbox-latest.json`, `data/reminders.json`, `memory/working/` (no today-dated entries found), `systems/eval-harness/runs/` (three today-dated agent evals, none tagged to these six tasks by name).",
+  "model": "sonnet",
+  "total_tokens_input": 527300,
+  "total_tokens_output": 246,
+  "total_cost_usd": 0.311264
+}

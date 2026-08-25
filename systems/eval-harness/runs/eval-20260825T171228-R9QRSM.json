@@ -1,0 +1,463 @@
+{
+  "id": "eval-20260825T171228-R9QRSM",
+  "agent_id": "a55393a857e34a019",
+  "type": "workflow",
+  "name": "morning-briefing",
+  "agent": "general-purpose",
+  "session_id": "",
+  "trigger": "manual",
+  "started": "2026-08-25T17:12:28.189378Z",
+  "completed": null,
+  "duration_seconds": null,
+  "status": "success",
+  "steps": [
+    {
+      "name": "step-01-load-context",
+      "started": "2026-08-25T16:11:15Z",
+      "completed": "2026-08-25T16:12:30Z",
+      "status": "complete",
+      "tokens_input": 4312718,
+      "tokens_output": 1023,
+      "cost_usd": 1.74227,
+      "model": "sonnet",
+      "duration_seconds": 75.0
+    },
+    {
+      "name": "step-01.2-unified-data-pull",
+      "started": "2026-08-25T10:40:00Z",
+      "completed": "2026-08-25T10:48:00Z",
+      "status": "complete",
+      "tokens_input": 4312718,
+      "tokens_output": 1023,
+      "cost_usd": 1.74227,
+      "model": "sonnet",
+      "duration_seconds": 480.0
+    },
+    {
+      "name": "step-01.5-unified-calendar-pull",
+      "started": "2026-08-25T16:12:30Z",
+      "completed": "2026-08-25T16:12:45Z",
+      "status": "complete",
+      "tokens_input": 4312718,
+      "tokens_output": 1023,
+      "cost_usd": 1.74227,
+      "model": "sonnet",
+      "duration_seconds": 15.0
+    },
+    {
+      "name": "step-02-gather-data",
+      "started": "2026-08-25T16:12:45Z",
+      "completed": "2026-08-25T16:14:00Z",
+      "status": "complete",
+      "tokens_input": 4312718,
+      "tokens_output": 1023,
+      "cost_usd": 1.74227,
+      "model": "sonnet",
+      "duration_seconds": 75.0
+    },
+    {
+      "name": "step-02.5-measure-phase2",
+      "started": "2026-08-21T12:39:00-05:00",
+      "completed": "2026-08-21T12:40:00-05:00",
+      "status": "complete",
+      "tokens_input": 4312718,
+      "tokens_output": 1023,
+      "cost_usd": 1.74227,
+      "model": "sonnet",
+      "duration_seconds": 60.0
+    },
+    {
+      "name": "step-03-verify-phase2",
+      "started": "2026-08-25T16:14:00Z",
+      "completed": "2026-08-25T16:14:15Z",
+      "status": "complete",
+      "tokens_input": 4312718,
+      "tokens_output": 1023,
+      "cost_usd": 1.74227,
+      "model": "sonnet",
+      "duration_seconds": 15.0
+    },
+    {
+      "name": "step-04-gather-meeting-context",
+      "started": "2026-08-25T16:14:15Z",
+      "completed": "2026-08-25T16:14:30Z",
+      "status": "complete",
+      "tokens_input": 4312718,
+      "tokens_output": 1023,
+      "cost_usd": 1.74227,
+      "model": "sonnet",
+      "duration_seconds": 15.0
+    },
+    {
+      "name": "step-05-synthesize-briefing",
+      "started": "2026-08-25T16:14:30Z",
+      "completed": "2026-08-25T16:15:00Z",
+      "status": "complete",
+      "tokens_input": 4312718,
+      "tokens_output": 1023,
+      "cost_usd": 1.74227,
+      "model": "sonnet",
+      "duration_seconds": 30.0
+    },
+    {
+      "name": "step-06-scan-workflows",
+      "started": "2026-08-25T16:15:00Z",
+      "completed": "2026-08-25T16:15:10Z",
+      "status": "complete",
+      "tokens_input": 4312718,
+      "tokens_output": 1023,
+      "cost_usd": 1.74227,
+      "model": "sonnet",
+      "duration_seconds": 10.0
+    },
+    {
+      "name": "step-06.5-guardrail-checkpoint",
+      "started": "2026-08-25T17:12:35Z",
+      "completed": "2026-08-25T17:15:00Z",
+      "status": "complete",
+      "tokens_input": 3580926,
+      "tokens_output": 997,
+      "cost_usd": 1.262785,
+      "model": "sonnet",
+      "duration_seconds": 145.0
+    },
+    {
+      "name": "step-07-verify-completion",
+      "started": "2026-08-25T17:15:00Z",
+      "completed": "2026-08-25T17:15:30Z",
+      "status": "complete",
+      "tokens_input": 287203,
+      "tokens_output": 7,
+      "cost_usd": 0.089019,
+      "model": "sonnet",
+      "duration_seconds": 30.0
+    },
+    {
+      "name": "step-08-knox-completion-check",
+      "started": "2026-08-23T15:03:50-05:00",
+      "completed": "2026-08-23T15:03:55-05:00",
+      "status": "complete",
+      "tokens_input": 4312718,
+      "tokens_output": 1023,
+      "cost_usd": 1.74227,
+      "model": "sonnet",
+      "duration_seconds": 5.0
+    }
+  ],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": true,
+      "outputs_non_empty": false,
+      "assertions_checked": 6,
+      "assertions_passed": 1,
+      "assertion_results": [
+        {
+          "assertion": "Morning briefing workflow state.yaml shows status: complete",
+          "passed": true,
+          "error": null
+        },
+        {
+          "assertion": "Morning briefing output file was written to memory/working/",
+          "passed": false,
+          "error": null
+        },
+        {
+          "assertion": "Morning briefing output is substantive (>500 bytes)",
+          "passed": false,
+          "error": null
+        },
+        {
+          "assertion": "Morning briefing contains calendar/schedule section",
+          "passed": false,
+          "error": null
+        },
+        {
+          "assertion": "Morning briefing contains priorities/tasks section",
+          "passed": false,
+          "error": null
+        },
+        {
+          "assertion": "step-03b's guardrail checkpoint recorded a result (pass/flag/escalate) on this run \u2014 read from the eval record's own guardrails array, not self-reported by the workflow",
+          "passed": false,
+          "error": null
+        }
+      ]
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": "79ac421dc2ee8f6fbd7abd3ede58a4601a87597012f3f6181e10a635875ff060",
+  "prior_baseline_id": null,
+  "tags": [],
+  "total_cost_usd": 0.069,
+  "cost_estimation_note": "estimated based on morning-briefing workflow type",
+  "model": "sonnet",
+  "guardrails": [
+    {
+      "name": "step-01-checkpoint",
+      "after_step": "step-01-load-context",
+      "result": "pass",
+      "reason": "All 9 context files present (no Knox spawn evidence found yet \u2014 informational only)",
+      "escalated_to_human": false,
+      "timestamp": "2026-08-25T17:15:18.972858Z",
+      "validation_errors": [],
+      "computed_fields": {
+        "files_loaded": 9,
+        "missing_files": [],
+        "knox_spawn_evidence": false
+      }
+    },
+    {
+      "name": "step-01.2-unified-data-pull-checkpoint",
+      "after_step": "step-01.2-unified-data-pull",
+      "result": "pass",
+      "reason": "All files present; 3 older than 24h and likely reused from a prior run: data/email-unified.json, data/clay-reminders-unified.json, data/jarvis-inbox-unified.json",
+      "escalated_to_human": false,
+      "timestamp": "2026-08-25T17:15:19.108463Z",
+      "validation_errors": [],
+      "computed_fields": {
+        "files_created": [
+          "data/email-unified.json",
+          "data/omnifocus-unified.json",
+          "data/clay-reminders-unified.json",
+          "data/jarvis-inbox-unified.json"
+        ],
+        "files_missing": [],
+        "files_stale": [
+          "data/email-unified.json",
+          "data/clay-reminders-unified.json",
+          "data/jarvis-inbox-unified.json"
+        ],
+        "file_status": {
+          "data/email-unified.json": "stale (40.8h old)",
+          "data/omnifocus-unified.json": "fresh (-5.1h old)",
+          "data/clay-reminders-unified.json": "stale (40.8h old)",
+          "data/jarvis-inbox-unified.json": "stale (40.8h old)"
+        }
+      }
+    },
+    {
+      "name": "step-01.5-checkpoint",
+      "after_step": "step-01.5-unified-calendar-pull",
+      "result": "pass",
+      "reason": "calendar-unified.json exists with 38 events",
+      "escalated_to_human": false,
+      "timestamp": "2026-08-25T17:15:19.246452Z",
+      "validation_errors": [],
+      "computed_fields": {
+        "calendar_file": "/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/data/calendar-unified.json",
+        "event_count": 38,
+        "date_range": {
+          "start": "2026-08-25",
+          "end": "2026-08-28"
+        },
+        "pulled_at": "2026-08-25T14:00:00Z"
+      }
+    },
+    {
+      "name": "step-02-checkpoint",
+      "after_step": "step-02-gather-data",
+      "result": "pass",
+      "reason": "4/4 Phase 2 tasks have real backing data on disk",
+      "escalated_to_human": false,
+      "timestamp": "2026-08-25T17:15:19.393670Z",
+      "validation_errors": [],
+      "computed_fields": {
+        "completed_tasks": [
+          "task-g-72hr-lookahead",
+          "task-h-email-triage",
+          "task-i-jarvis-inbox",
+          "task-j-reminders"
+        ],
+        "completed_count": 4,
+        "missing_tasks": [],
+        "phase2_status": "complete"
+      }
+    },
+    {
+      "name": "step-02.5-measure-phase2-checkpoint",
+      "after_step": "step-02.5-measure-phase2",
+      "result": "pass",
+      "reason": "Measurement snapshot found: measurement-state-20260821T172223.json (0.97 KB, -3.3h old)",
+      "escalated_to_human": false,
+      "timestamp": "2026-08-25T17:15:19.543427Z",
+      "validation_errors": [],
+      "computed_fields": {
+        "phase2_measurement_file": "systems/boot-instrumentation/measurements/measurement-state-20260821T172223.json",
+        "total_kb": 0.97,
+        "snapshot_age_hours": -3.28
+      }
+    },
+    {
+      "name": "step-03-checkpoint",
+      "after_step": "step-03-verify-phase2",
+      "result": "pass",
+      "reason": "0 critical data source failures",
+      "escalated_to_human": false,
+      "timestamp": "2026-08-25T17:15:19.699640Z",
+      "validation_errors": [],
+      "computed_fields": {
+        "critical_failures": [],
+        "critical_failure_count": 0,
+        "verification_results": "pass"
+      }
+    },
+    {
+      "name": "step-04-checkpoint",
+      "after_step": "step-04-gather-meeting-context",
+      "result": "pass",
+      "reason": "38 meetings found, 179 unique attendees identified for enrichment",
+      "escalated_to_human": false,
+      "timestamp": "2026-08-25T17:15:19.860039Z",
+      "validation_errors": [],
+      "computed_fields": {
+        "meetings_found": 38,
+        "attendees_enriched": 179,
+        "clay_cross_reference_available": true,
+        "clay_items_checked": 3
+      }
+    },
+    {
+      "name": "step-05-checkpoint",
+      "after_step": "step-05-synthesize-briefing",
+      "result": "pass",
+      "reason": "Briefing delivered with 4 sections (1215 chars)",
+      "escalated_to_human": false,
+      "timestamp": "2026-08-25T17:15:20.053167Z",
+      "validation_errors": [],
+      "computed_fields": {
+        "briefing_delivered": true,
+        "briefing_sections": 4,
+        "briefing_section_labels": [
+          "OmniFocus",
+          "Jarvis inbox",
+          "Reminders due",
+          "Clay"
+        ],
+        "briefing_content_length": 1215,
+        "last_run_status": "success"
+      }
+    },
+    {
+      "name": "step-06-checkpoint",
+      "after_step": "step-06-scan-workflows",
+      "result": "pass",
+      "reason": "Scanned 54 workflow state files, found 0 genuinely in-progress",
+      "escalated_to_human": false,
+      "timestamp": "2026-08-25T17:15:20.395390Z",
+      "validation_errors": [
+        "unreadable_state_file: workflows/golf-booking/state.yaml"
+      ],
+      "computed_fields": {
+        "in_flight_list": [],
+        "in_flight_count": 0,
+        "workflows_scanned": 54,
+        "unreadable_state_files": [
+          "workflows/golf-booking/state.yaml"
+        ],
+        "active_yaml_count": 0
+      }
+    },
+    {
+      "name": "pre-completion-review",
+      "after_step": "step-06.5-guardrail-checkpoint",
+      "result": "pass",
+      "reason": "5 stale source(s): clay-reminders-unified.json, email-unified.json, golf-outing-attendees.json, jarvis-inbox-unified.json, reminders.json",
+      "escalated_to_human": false,
+      "timestamp": "2026-08-25T17:15:20.555657Z",
+      "validation_errors": [],
+      "computed_fields": {
+        "stale_sources": [
+          {
+            "file": "clay-reminders-unified.json",
+            "age_hours": 47.2
+          },
+          {
+            "file": "email-unified.json",
+            "age_hours": 47.2
+          },
+          {
+            "file": "golf-outing-attendees.json",
+            "age_hours": 835.5
+          },
+          {
+            "file": "jarvis-inbox-unified.json",
+            "age_hours": 47.2
+          },
+          {
+            "file": "reminders.json",
+            "age_hours": 1417.8
+          }
+        ],
+        "fresh_sources": [
+          {
+            "file": "calendar-unified.json",
+            "age_hours": 1.1
+          },
+          {
+            "file": "omnifocus-unified.json",
+            "age_hours": 1.3
+          }
+        ],
+        "stale_threshold_hours": 24,
+        "data_freshness_report": "5 stale source(s) found"
+      }
+    },
+    {
+      "name": "step-07-checkpoint",
+      "after_step": "step-07-verify-completion",
+      "result": "pass",
+      "reason": "All 10 prior steps complete, state.yaml status=complete, session index present",
+      "escalated_to_human": false,
+      "timestamp": "2026-08-25T17:15:20.727257Z",
+      "validation_errors": [],
+      "computed_fields": {
+        "state_status": "complete",
+        "steps_verified": 10,
+        "failed_steps": [],
+        "session_index_path": "memory/sessions/index.json",
+        "session_index_exists": true
+      }
+    },
+    {
+      "name": "step-08-knox-completion-check-checkpoint",
+      "after_step": "step-08-knox-completion-check",
+      "result": "pass",
+      "reason": "Knox eval record found (eval-20260824T204155-U8BOQG): status=aborted",
+      "escalated_to_human": false,
+      "timestamp": "2026-08-25T17:15:20.889612Z",
+      "validation_errors": [],
+      "computed_fields": {
+        "knox_status": "aborted",
+        "knox_eval_id": "eval-20260824T204155-U8BOQG",
+        "knox_raw_status": "aborted",
+        "knox_duration_seconds": 240.19
+      }
+    }
+  ]
+}

@@ -1,0 +1,80 @@
+{
+  "id": "eval-20260825T171750-4QDBN4",
+  "agent_id": "add9001c000cfa0ef",
+  "type": "workflow",
+  "name": "golf-booking",
+  "agent": "general-purpose",
+  "session_id": "",
+  "trigger": "scheduled",
+  "started": "2026-08-25T17:17:50.438130Z",
+  "completed": "2026-08-25T17:19:21.042696Z",
+  "duration_seconds": 90.6,
+  "status": "aborted",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": false,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": true,
+      "outputs_non_empty": false,
+      "assertions_checked": 4,
+      "assertions_passed": 3,
+      "assertion_results": [
+        {
+          "assertion": "Golf booking workflow state.yaml shows status: complete",
+          "passed": false,
+          "error": null
+        },
+        {
+          "assertion": "golf-booking output file was written",
+          "passed": true,
+          "error": null
+        },
+        {
+          "assertion": "golf-booking output is substantive (>200 bytes)",
+          "passed": true,
+          "error": null
+        },
+        {
+          "assertion": "golf-booking output contains expected content",
+          "passed": true,
+          "error": null
+        }
+      ]
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": "dcb771abd3ec71c0361d50d990067c05dab39a63ba6f05a614d93111b02fda99",
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/c79b18a8-173b-4bb1-812b-6786938c47de/subagents/agent-add9001c000cfa0ef.jsonl",
+  "last_assistant_message": "Diffs are clean and minimal, purely structural. The `boot/` and `morning-briefing` state.yaml changes plus the untracked `workflows/boot/verify/` are pre-existing from other work (the verifier scripts mentioned in the task background) and were not touched by me.\n\nSummary:\n\n**golf-booking/state.yaml** \u2014 fixed. The free-form narrative block (lines 14-49) that broke the parser had no YAML key; it directly followed `resolution-note: null`, so I converted it into a literal block scalar (`resolution-note: |`) preserving all the original text verbatim (execution summary, blockers, root cause, resolution options, action log). Verified with plain `yaml.safe_load()` \u2014 parses cleanly, all 14 top-level keys intact including `accumulated-context`.\n\n**Trailing `---` issue** \u2014 audited all 54 `workflows/*/state.yaml` files. 39 had a stray trailing `---` creating a bogus empty second document; removed the trailing marker (and any trailing blank lines) from each:\n\naccount-pursuit-map, account-strategy, audience-target-outreach, calendar-prep, card-review, card-walkthrough, card-which, comp-tracker, content-calendar, delegation-tracker, email-drafting, episode-campaign-brief, evolution-deployment, evolution-training-sync, follow-up-nudges, galen-monthly-health-review, goal-alignment, inbox-processing, initiative-tracker, knowledge-ingest, lead-log, lead-review, leadership-prep, one-on-one-prep, partner-meeting-prep, pipeline-review, podcast-prep, presentation-builder, rock-review, rock1-revenue-monthly, rock4-pipeline-weekly, shutdown-cleanup, talking-points, training-module-runner, training-onboarding, training-status, weekly-knowledge-review, weekly-review, win-loss-analysis.\n\n**One additional genuine multi-document file found**: `content-pipeline/state.yaml` had a leading `---`, a full first document, a middle `---` separator, and a second non-empty document (`current-step: null`) \u2014 not the empty-trailing-doc pattern. I merged both documents' keys into one single mapping (no key collisions existed) and removed both `---` markers.\n\n**Untouched**: 14 files were already valid single-document YAML \u2014 left alone.\n\n**Final verification**: ran `yaml.safe_load()` (plain, no `_all`) against all 54 `workflows/*/state.yaml` files \u2014 all 54 now parse successfully with zero errors. No state values (status, timestamps, IDs, etc.) were altered anywhere, only YAML structure/syntax.\n\nFiles touched (all under `/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/workflows/`): the 39 listed above, plus `golf-booking/state.yaml` and `content-pipeline/state.yaml` \u2014 41 files total.",
+  "model": "sonnet",
+  "total_tokens_input": 677674,
+  "total_tokens_output": 1278,
+  "total_cost_usd": 0.349301
+}

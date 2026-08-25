@@ -1,0 +1,59 @@
+{
+  "id": "eval-20260825T173358-78HFOD",
+  "agent_id": "a268d92aecb529328",
+  "type": "agent",
+  "name": "general-purpose",
+  "agent": "general-purpose",
+  "session_id": "",
+  "trigger": "unknown",
+  "started": "2026-08-25T17:33:58.305079Z",
+  "completed": "2026-08-25T17:40:55.788761Z",
+  "duration_seconds": 417.48,
+  "status": "success",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/c79b18a8-173b-4bb1-812b-6786938c47de/subagents/agent-a268d92aecb529328.jsonl",
+  "last_assistant_message": "All 15 verifiers produce valid JSON with no crashes. Both state.yaml files were already clean (confirmed via `yaml.safe_load` \u2014 no malformed YAML fix needed, per the constraint). Both workflows are fully covered.\n\n## Report\n\n**daily-review/verify/** (7 files, all pass `yaml.safe_load` on the workflow's own `state.yaml` \u2014 no repair needed):\n\n| File | Ground-truth check | Key computed field |\n|---|---|---|\n| `step-01-capture.py` | Parses step-01's own frontmatter `outputs` for real capture data (completed/not_completed/blockers/inbox_count) | `items_captured` |\n| `step-02-set-tomorrow.py` | Checks `tomorrow_data.top_3` was actually recorded (mandate: 3 confirmed priorities) | `top_3_count` |\n| `step-03-update-system.py` | Confirms `reviews/daily/YYYY-MM-DD.md` exists, is substantive, has required sections (tolerant of real heading variants like \"Done Today\" vs \"What Got Done\") | `sections_found_count` |\n| `step-03b-guardrail-checkpoint.py` | Reads the real eval record's `guardrails` list for an entry after `step-03-update-system`; escalate maps to `fail` | `checkpoint_result` |\n| `step-04-root-audit.py` | Scans actual IES root for stray files matching the step's own flag patterns | `stray_file_count` |\n| `step-05-session-close.py` | Checks `memory/sessions/index.json` for a real closed timestamp and `git log` for a matching commit | `session_closed`, `commit_found` |\n| `step-auto.py` | Verifies `narrative-path` and `working-memory-path` from `state.yaml` actually exist on disk with real byte sizes \u2014 directly targets the documented silent-output-failure history (`eval-20260613T021205-CFZ2ZA`) | `narrative_size_bytes` |\n\n**weekly-review/verify/** (8 files, `state.yaml` also clean, `not-started` at rest):\n\n| File | Ground-truth check | Key computed field |\n|---|---|---|\n| `step-01-wins-and-misses.py` | Cross-checks recorded outputs against actual `reviews/daily/*.md` files for the review week | `daily_reviews_found_count` |\n| `step-02-rocks-review.py` | Parses real `### Rock N:` headings from `quarterly-objectives.md`, cross-references against outputs | `rocks_in_file` |\n| `step-03-delegation-review.py` | Parses `delegations/tracker.md` table directly for active/overdue counts | `active_delegations`, `overdue_delegations` |\n| `step-04-inbox-and-calendar.py` | Requires a real numeric inbox count in recorded outputs (step's own mandate: exact count, no estimates) | `inbox_count` |\n| `step-05-people-check.py` | Cross-references people named in outputs against real names parsed from the tracker | `tracker_people_count` |\n| `step-06-set-priorities.py` | Confirms `reviews/weekly/YYYY-Wxx.md` exists, substantive, counts real numbered priorities under the priorities heading | `priorities_found` |\n| `step-07-social-tracker.py` | Checks the weekly review (or working-memory fallback) for a social-tracker section or a documented unavailable-site note | `social_section_found` |\n| `step-08-eval-summary.py` | Confirms `state.yaml` status is genuinely `complete`, review file has an `## Eval Health` section, working memory file exists | `eval_health_section_found` |\n\nDry-run results against live repo state: all 15 returned valid JSON with `result` in `{pass, retry, fail}`. Most returned `retry` as expected, since the on-disk step `.md` files are in their template `not-started`/empty-outputs state (not from a real run) \u2014 this correctly demonstrates the verifiers detecting missing data rather than rubber-stamping. Confirmed `pass` paths work correctly against real historical artifacts: `daily-review/step-03-update-system` passes against `reviews/daily/2026-07-10.md` (3/3 sections after loosening heading patterns to tolerate real-world variants like \"Done Today\"), and `weekly-review/step-06-set-priorities` passes against `reviews/weekly/2026-W33.md` (3 priorities found).\n\nOne design note: I found and fixed a bug during testing where `step-05-people-check.py` picked up a markdown table separator row (`-------------`) as a \"person\" \u2014 filtered with a dash-only regex before finalizing.",
+  "model": "sonnet",
+  "total_tokens_input": 5425795,
+  "total_tokens_output": 6451,
+  "total_cost_usd": 2.226003
+}

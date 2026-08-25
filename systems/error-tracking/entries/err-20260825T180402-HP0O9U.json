@@ -1,0 +1,15 @@
+{
+  "id": "err-20260825T180402-HP0O9U",
+  "timestamp": "2026-08-25T18:04:02Z",
+  "session": "2026-08-25",
+  "source": "explicit",
+  "agent": "Knox",
+  "category": "missed-context",
+  "description": "When asked to use the master-slack skill, searched .claude/skills/ in the Cowork plugin path and IES/skills/ directory. Did not check IES/.claude/skills/ — the correct location for IES-local skills. Incorrectly reported the skill did not exist.",
+  "correction": "IES-local skills live at /Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/.claude/skills/<skill-name>/SKILL.md. Always check this path before reporting a skill missing.",
+  "failure_mode": "lazy-search",
+  "systemic_fix": "When a skill is referenced and not found in the Cowork plugin path, check IES/.claude/skills/ before reporting it missing.",
+  "fix_status": "proposed",
+  "severity": "moderate",
+  "related_entries": []
+}

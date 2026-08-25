@@ -1,0 +1,59 @@
+{
+  "id": "eval-20260825T174904-IAX46K",
+  "agent_id": "a16a1940ca6d3ddba",
+  "type": "agent",
+  "name": "general-purpose",
+  "agent": "general-purpose",
+  "session_id": "",
+  "trigger": "unknown",
+  "started": "2026-08-25T17:49:04.237431Z",
+  "completed": "2026-08-25T17:51:42.117268Z",
+  "duration_seconds": 157.88,
+  "status": "success",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/c79b18a8-173b-4bb1-812b-6786938c47de/subagents/agent-a16a1940ca6d3ddba.jsonl",
+  "last_assistant_message": "That's fine \u2014 those were just scratch test files in `/tmp` outside the repo, harmless to leave behind. No further cleanup needed.\n\n## Summary\n\nUpgraded both verifiers to do real vault-file verification instead of trusting `state.yaml` alone.\n\n**`/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/workflows/rock1-revenue-monthly/verify/step-02-save.py`**\n- Added `VAULT_FILE` constant pointing at `Mind/One Texas/Rock 1 - Revenue Snapshots.md` on the iCloud-synced filesystem path.\n- Parses `## <Month> [Day,] <Year> \u2014 Revenue Snapshot` headers (handles `CORRECTED \u2014` prefixes and `(Cached)`/other suffixes seen in the real file), reads the `*Pulled: YYYY-MM-DD*` line under each, and checks the `Monthly Revenue` table row for real dollar figures (rejecting `N/A`/`TBD`/`null`-style placeholders).\n- Derives `latest_snapshot_date` (max date found anywhere in the file) and `snapshot_confirmed_in_vault` (true only if an entry matching the run's expected month, per `session-started`, has real figures).\n- `documented-skip` and `fresh-write` pass cases now additionally require `snapshot_confirmed_in_vault: true`. If state.yaml claims either but the vault shows no matching entry, result becomes `retry` (or `fail` if the latest vault entry is >62 days stale).\n- If `VAULT_FILE` doesn't exist / isn't readable, `Path.exists()` gates a clean fallback to the original state.yaml-only logic, with `vault_unreachable` added to `validation_errors`.\n\n**`/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/workflows/rock4-pipeline-weekly/verify/step-03-save.py`**\n- Added `VAULT_FILE` constant pointing at `Mind/One Texas/Rock 4 - Pipeline Snapshots.md`.\n- Parses `## Week of <YYYY-MM-DD> \u2014 Pipeline Snapshot` headers (handles `(CORRECTED)`/`(FINAL CORRECTED)` suffixes seen in the real file) and checks the `Rock 4 Gap` table for real dollar figures.\n- Derives `latest_snapshot_date` and `snapshot_confirmed_in_vault` (true if a `Week of` entry within a \u00b17-day window of `last-completed` has real gap figures).\n- Both the `dates_match` (fresh-write) and `documented_skip` pass branches now require vault confirmation; unconfirmed claims become `retry`/`fail` (>14 days stale \u2192 `fail`).\n- Same graceful `Path.exists()` fallback to the original state.yaml-only (`last-completed` vs `last-written-obsidian`) logic if the vault is unreachable.\n\n**Dry-run results against live repo + vault:**\n- rock1: `pass`, `save_outcome: documented-skip`, `latest_snapshot_date: 2026-08-10`, `snapshot_confirmed_in_vault: true`, `matching_entries_found: 1`.\n- rock4: `pass`, `save_outcome: documented-skip`, `latest_snapshot_date: 2026-07-30`, `snapshot_confirmed_in_vault: true`, `matching_entries_found: 2`.\n- Confirmed the bug-catching upgrade actually works: fed each verifier a synthetic `state.yaml` claiming a legitimate skip for a month/week with no corresponding vault entry \u2014 both correctly returned `result: fail` with `snapshot_confirmed_in_vault: false`, exactly the silent-failure case previously undetectable.\n\nNo changes were made to `workflow.md` files, `state.yaml`, or the vault content itself \u2014 only the two verifier scripts.",
+  "model": "sonnet",
+  "total_tokens_input": 631834,
+  "total_tokens_output": 1367,
+  "total_cost_usd": 0.522986
+}

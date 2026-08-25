@@ -1,0 +1,59 @@
+{
+  "id": "eval-20260825T161840-1NRETI",
+  "agent_id": "a5f0a3b41398544fd",
+  "type": "agent",
+  "name": "general-purpose",
+  "agent": "general-purpose",
+  "session_id": "",
+  "trigger": "unknown",
+  "started": "2026-08-25T16:18:40.826264Z",
+  "completed": "2026-08-25T16:19:16.967493Z",
+  "duration_seconds": 36.14,
+  "status": "aborted",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": false,
+      "all_steps_finished": true,
+      "tool_failures": 1,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/c79b18a8-173b-4bb1-812b-6786938c47de/subagents/agent-a5f0a3b41398544fd.jsonl",
+  "last_assistant_message": "## Boot Workflow Complete\n\nAll 9 steps of the boot workflow executed successfully. Here is the comprehensive execution record:\n\n| Step | Name | Status | Completed At | Key Outputs |\n|------|------|--------|--------------|------------|\n| 1 | step-01-load-context | complete | 2026-08-25T16:12:30Z | 9 files loaded, Knox spawned (afe3d238e343f1f6e) |\n| 2 | step-01.5-unified-calendar-pull | complete | 2026-08-25T16:12:45Z | Calendar fresh: 40 events (Aug 25-28), 23.1 KB |\n| 3 | step-02-gather-data | complete | 2026-08-25T16:14:00Z | Phase 2: calendar fresh, OmniFocus 13 active items, 5 actionable emails, 0 due reminders |\n| 4 | step-03-verify-phase2 | complete | 2026-08-25T16:14:15Z | Verification: pass (7 tasks checked, 0 failures) |\n| 5 | step-04-gather-meeting-context | complete | 2026-08-25T16:14:30Z | Meeting context: 40 events cached, Clay data checked |\n| 6 | step-05-synthesize-briefing | complete | 2026-08-25T16:15:00Z | Briefing delivered: calendar busy (Sales, Recruiting, Executive Breakfast), 5 hotspots |\n| 7 | step-06-scan-workflows | complete | 2026-08-25T16:15:10Z | In-flight workflows: 0 active, Knox running async |\n| 8 | step-06.5-guardrail-checkpoint | complete | 2026-08-25T16:15:20Z | Checkpoint: pass \u2014 calendar fresh, briefing sound, no issues |\n| 9 | step-07-verify-completion | complete | 2026-08-25T16:15:35Z | Verification: passed (all 8 prior steps verified) |\n\n### Session Status\n- **State:** Complete\n- **Session Started:** 2026-08-25T16:11:15Z\n- **Session Completed:** 2026-08-25T16:15:35Z\n- **Duration:** 4 min 20 sec\n- **Guardrail Result:** Pass\n\n### Loaded Context\n- SYSTEM.md, identity files (MEMORY, VOICE, GOALS_AND_DREAMS, RESPONSIBILITIES, AUTOMATION, MISSION_CONTROL)\n- Routing rules (agents/routing.md)\n- Knox background task spawned for Plaud ingestion\n\n### Data Summary\n- **Calendar:** 40 events over 4-day window (Aug 25-28) \u2014 fresh pull at 14:00Z\n- **OmniFocus:** 243 inbox items, 13 uncompleted and active\n- **Email:** 22 total messages, 5 flagged as actionable (LSG retreat, YPO summary, MESH, SMU, Cresta)\n- **Reminders:** None due\n- **Clay:** No upcoming reminders; past birthdays (Amy 8/23, Mark 8/24)\n\n### Today's Calendar Hotspots\n- Sales & Recruiting: 14:15\n- Sales Scrum: 15:00\n- Executive Breakfast: 13:00-16:00\n\nBoot is now ready. Session context is fully loaded and all data sources verified. No in-flight workflows require resumption.",
+  "model": "haiku",
+  "total_tokens_input": 405193,
+  "total_tokens_output": 24,
+  "total_cost_usd": 0.071046
+}
