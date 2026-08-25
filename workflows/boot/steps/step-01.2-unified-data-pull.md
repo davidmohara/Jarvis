@@ -1,12 +1,17 @@
 ---
-status: in-progress
-started-at: "2026-08-22T09:15:30-05:00"
-completed-at: null
+status: complete
+started-at: "2026-08-25T10:40:00Z"
+completed-at: "2026-08-25T10:48:00Z"
 outputs:
-  email_pull: "completed — 4 messages from last 24 hours (M365 API)"
-  omnifocus_pull: "failed — Desktop Commander tool unavailable in session (Haiku model, background job context)"
-  clay_pull: "failed — Clay MCP tools not loaded in session"
-  jarvis_inbox_pull: "not-attempted — OmniFocus/Mac filesystem access required"
+  email_pull: "completed — 25 messages from Aug 24-26 (M365 API)"
+  omnifocus_pull: "completed — 243 total tasks (13 uncompleted, fresh via osascript)"
+  clay_pull: "completed — 0 reminders, 3 birthdays (next 7 days)"
+  jarvis_inbox_pull: "nothing-to-surface — folder empty"
+  files_created:
+    - "data/email-unified.json"
+    - "data/omnifocus-unified.json"
+    - "data/clay-reminders-unified.json"
+    - "data/jarvis-inbox-unified.json"
 ---
 
 <!-- system:start -->
