@@ -1,12 +1,13 @@
 ---
 status: complete
-started-at: "2026-08-23T14:33:20Z"
-completed-at: "2026-08-23T14:34:05Z"
+started-at: "2026-08-25T16:14:15Z"
+completed-at: "2026-08-25T16:14:30Z"
 outputs:
-  meeting-context: "cached from calendar-unified.json (38 events, Aug 23-26, all attendees/locations available)"
-  clay-reminders: "nothing-to-surface — 0 upcoming reminders"
-  clay-birthdays: "2 upcoming: Amy O'Hara (Aug 23, today), Mark Watson (Aug 24)"
-  context-status: "ready — sufficient data for briefing synthesis"
+  meetings_found: "40 events (Aug 25-28) with full context — calendar-unified.json provides all attendees, locations, times"
+  meeting-context: "cached from calendar-unified.json (40 events, Aug 25-28, all attendees/locations/organizers available)"
+  clay-reminders: "nothing-to-surface — 0 upcoming reminders (data from Aug 21)"
+  clay-birthdays: "past birthdays in data: Amy O'Hara (Aug 23), Mark Watson (Aug 24). Fresh pull would check Aug 25-Sep 1."
+  context-status: "ready — sufficient calendar data for briefing synthesis. Clay data stale but no blocking items."
 ---
 
 <!-- system:start -->
@@ -55,7 +56,7 @@ outputs:
        clay-birthdays: [list or "none"]
    ```
 
-4. **Update step frontmatter:** Set `status: complete` and `completed-at` with current timestamp.
+4. **Update step frontmatter:** Set `status: complete`, `completed-at` with current timestamp, and `outputs.meetings_found` with a summary (e.g. "N events with full context — morning briefing step-03 completed, Clay data pulled").
 
 5. **Update state.yaml:** Set `current-step: step-05-synthesize-briefing.md`.
 

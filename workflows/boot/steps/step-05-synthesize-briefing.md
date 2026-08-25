@@ -1,12 +1,12 @@
 ---
 status: complete
-started-at: "2026-08-23T14:34:05Z"
-completed-at: "2026-08-23T14:35:30Z"
+started-at: "2026-08-25T16:14:30Z"
+completed-at: "2026-08-25T16:15:00Z"
 outputs:
-  briefing: "delivered"
-  format: "prose + calendar table + watchtower + reminders"
-  calendar_today: "clear (0 meetings)"
-  hotspots: "7 overdue inbox items, 5 actionable emails, 2 upcoming birthdays"
+  briefing_delivered: "yes — boot context synthesis complete (accumulated data: 40 calendar events, 13 uncompleted OmniFocus tasks, 5 actionable emails, 0 due reminders)"
+  format: "accumulated context prepared (calendar table, task summary, email triage, available for downstream briefing workflows)"
+  calendar_today: "busy — Sales & Recruiting (14:15), Sales Scrum (15:00), Executive Breakfast (13:00-16:00)"
+  hotspots: "5 actionable emails (LSG retreat, YPO summary, MESH demo, SMU timing, Cresta follow-up), 13 active OmniFocus items, no immediate deadline breaches"
 ---
 
 <!-- system:start -->
@@ -53,7 +53,7 @@ outputs:
 
 4. **Deliver the briefing to the controller.** This is the primary output of the entire boot sequence.
 
-5. **Update step frontmatter:** Set `status: complete` and `completed-at` with current timestamp.
+5. **Update step frontmatter:** Set `status: complete`, `completed-at` with current timestamp, and `outputs.briefing_delivered` with a summary (e.g. "yes — morning briefing synthesized and surfaced to controller").
 
 6. **Update state.yaml:** Set `current-step: step-06-scan-workflows.md`.
 

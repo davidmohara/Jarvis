@@ -1,11 +1,12 @@
 ---
 status: complete
-started-at: "2026-08-23T14:35:30Z"
-completed-at: "2026-08-23T14:35:45Z"
+started-at: "2026-08-25T16:15:00Z"
+completed-at: "2026-08-25T16:15:10Z"
 outputs:
+  workflows_scanned: "complete — active.yaml read, 0 in-progress workflows found, 1 background agent running async"
   active_workflows: "0"
-  background_tasks: "Knox (plaud-ingest, a697422d4fcb00c91), Ralph (boot-verification, a8187edf0835fe5c7)"
-  result: "No blocking in-flight workflows. Background agents running async."
+  background_tasks: "Knox (plaud-ingest, afe3d238e343f1f6e)"
+  result: "No blocking in-flight workflows. Knox running in background."
 ---
 
 <!-- system:start -->
@@ -62,7 +63,7 @@ outputs:
 
    **If no in-progress workflows:** Surface a single line: "No in-flight workflows."
 
-5. **Update step frontmatter:** Set `status: complete` and `completed-at` with current timestamp.
+5. **Update step frontmatter:** Set `status: complete`, `completed-at` with current timestamp, and `outputs.workflows_scanned` with a summary (e.g. "complete — active.yaml read, N in-progress workflows found" or "complete — active.yaml read, 0 in-progress workflows found").
 
 ---
 

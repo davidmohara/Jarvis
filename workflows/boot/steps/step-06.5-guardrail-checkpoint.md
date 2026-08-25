@@ -1,13 +1,14 @@
 ---
 status: complete
-started-at: "2026-08-23T14:35:45Z"
-completed-at: "2026-08-23T14:36:05Z"
+started-at: "2026-08-25T17:12:35Z"
+completed-at: "2026-08-25T17:15:00Z"
 outputs:
+  data_freshness_report: "flag — calendar (1.1h) and OmniFocus (1.3h) fresh; email, Clay reminders/birthdays, and Jarvis inbox stale (~47h); reminders.json and golf-outing-attendees.json much older. Briefing in morning-briefing/state.yaml correctly reflects live calendar/OmniFocus data and explicitly flags the stale email/Clay pulls rather than presenting them as current."
   checkpoint_name: "pre-completion-review"
   checkpoint_result: "pass"
-  reason: "Calendar fresh (14:35Z), briefing reflects current data, no in-flight conflicts, session sound"
+  reason: "Briefing reflects live data with stale sources explicitly flagged; workflow scan (54 files) correctly found 0 genuinely in-progress; no credential/sensitive leakage; session index record appended cleanly. golf-booking/state.yaml has pre-existing malformed YAML (unrelated to this boot run) — flagged for Rigby, not an escalation."
   recorded: true
-model: sonnet
+model: haiku
 ---
 
 <!-- system:start -->
@@ -45,6 +46,8 @@ model: sonnet
 - **A synthesized briefing that misrepresents the gathered data, or a workflow scan that is clearly broken** → `escalate`. Boot should not be marked complete on top of a broken foundation — surface it and let David decide whether to proceed or restart data gathering.
 
 ### Record the result
+
+Record the checkpoint result and update step frontmatter with `outputs.data_freshness_report` (e.g. "pass — calendar fresh, briefing reflects current data, no stale context detected" or "flag — [minor issue noted]" or "escalate — [critical issue]").
 
 ```bash
 python3 systems/eval-harness/guardrail-checkpoint.py boot pre-completion-review step-06-scan-workflows <pass|flag|escalate> "<one-line reason>"

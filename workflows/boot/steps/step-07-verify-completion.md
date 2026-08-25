@@ -1,13 +1,14 @@
 ---
 status: complete
-started-at: "2026-08-23T14:36:05Z"
-completed-at: "2026-08-23T14:36:20Z"
+started-at: "2026-08-25T17:15:00Z"
+completed-at: "2026-08-25T17:15:30Z"
 outputs:
+  state_status: "complete — all 10 prior step files verified status:complete, boot state.yaml updated with completion timestamp, session index present"
   verification: passed
-  steps_verified: 7
+  steps_verified: 10
   failed_steps: []
   guardrail_checkpoint: "pre-completion-review: pass"
-  note: "All 7 steps completed successfully. Boot workflow complete."
+  note: "All prior steps completed successfully. Boot workflow complete. Knox spawned for plaud-ingest; returned mid-run and awaiting David's input on speaker ID for ~44 recordings — surfaced separately, not a boot blocker."
 ---
 
 <!-- system:start -->
@@ -82,6 +83,7 @@ outputs:
 
 5. **If PASS (including the escalated-but-complete case):** Update step frontmatter and boot state:
    - Set this step's `status: complete` and `completed-at` with current timestamp
+   - Set `outputs.state_status` with a summary (e.g. "complete — all 7 prior steps verified, boot state.yaml updated with completion timestamp")
    - Set `outputs: { verification: passed, steps_verified: 7, failed_steps: [] }`
    - **Update `workflows/boot/state.yaml`: `status: complete`, `current-step: null`, record `completed-at`. This write is mandatory — it's the only event that closes out boot's eval-harness record. Do not defer it, do not skip it because the session is ending anyway.**
 
