@@ -12,9 +12,10 @@ source_file: memory/working/shutdown-cleanup-2026-08-12-175500.md
 tags:
 - working-archive
 related_people: []
+  last-promoted-check: 2026-08-23
 salience:
   score: 0
-  last-promoted-check: 2026-08-23
+  last-promoted-check: 2026-08-25
 ---
 - Purged 1 temp artifact: `workflows/plaud-ingest/run-fetch.sh` (one-off session script)
 - Root check clean: no non-canonical entries; `proposals/`, `tasks/`, `Remarkable/` absent from disk (expected)

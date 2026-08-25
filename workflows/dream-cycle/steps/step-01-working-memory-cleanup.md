@@ -1,35 +1,45 @@
 ---
 status: complete
-started-at: 2026-07-23T03:09:00-05:00
-completed-at: 2026-07-23T03:18:00-05:00
+started-at: 2026-08-25T03:04:48-05:00
+completed-at: 2026-08-25T03:07:00-05:00
 outputs:
-  working_archived: 7
+  working_archived: 2
   working_deleted: 0
-  working_skipped: 12
+  working_skipped: 27
   working_stranded: 0
-  enrichment_method: "manual derivation from established corpus vocabulary — no LLM subprocess call"
+  enrichment_method: "manual derivation from file content — no LLM subprocess call"
   archived_files:
-    - co-sell-pipeline-2026-07-13-140800.md
-    - daily-review-2026-07-13-060000.md
-    - dream-summary-2026-07-14.md
-    - dream-summary-2026-07-15.md
-    - one-texas-scorecard-2026-07-14-000000.md
-    - plaud-ingest-2026-07-13-153500.md
-    - revenue-tracker-2026-07-13-000000.md
+    - eval-harness-hook-fix-2026-08-21.md
+    - plaud-ingest-2026-08-22-003000.md
   skipped_not_expired:
-    - 2026-07-14-180707-master-boot-daily.md
-    - 2026-07-15-morning-briefing-scheduled.md
-    - daily-review-2026-07-14-211206.md
-    - daily-review-2026-07-15-060000.md
-    - morning-briefing-2026-07-14-083505.md
+    - co-sell-pipeline-2026-08-24-001532.md
+    - revenue-tracker-2026-08-24-002000.md
   skipped_unparseable:
     - 2026-07-08.md
+    - 2026-07-23-215200-session-felix-derek-persona-rebuild.md
+    - 2026-07-30-morning-briefing.md
+    - 2026-08-05-magline-call-prep.md
+    - 2026-08-11-plaud-ingest-correction.md
+    - 2026-08-12-graph-memory-spec-working.md
+    - 2026-08-24-shep-robyn-fuentes-1on1-prep.md
     - golf-booking-2026-07-10-failed.md
     - golf-booking-2026-07-11-followup.md
+    - golf-booking-COMPLETE-20260801.md
+    - golf-booking-blocker-20260820.md
+    - golf-booking-early-run-20260730.md
+    - golf-booking-failure-20260731.md
+    - golf-booking-midnight-retry-20260801.md
+    - golf-booking-scheduling-update-20260801.md
+    - golf-booking-success-20260801.md
+    - golf-override-2026-07-14.md
     - golf-preview-2026-07-03.md
     - golf-preview-2026-07-14.md
-    - golf-override-2026-07-14.md
+    - golf-preview-2026-07-21.md
+    - golf-preview-2026-08-04.md
+    - remarkable-upload-2026-07-23-improve-eval.md
     - sc-executive-brief-2026-07-13.md
+    - slack-notification-golf-booking-20260801.txt
+    - solace-meeting-prep-2026-07-27.md
 ---
 
 <!-- system:start -->

@@ -1,16 +1,15 @@
 ---
 status: complete
-started-at: 2026-07-23T03:18:00-05:00
-completed-at: 2026-07-23T03:25:00-05:00
+started-at: 2026-08-25T03:07:00-05:00
+completed-at: 2026-08-25T03:09:00-05:00
 outputs:
-  episodic_scanned: 205
-  score_updates: 205
-  no_tags: 13
-  no_date: 1
-  score_distribution: "0:23, 1:1, 2:2, 3:2, 5:5, 7:2, 8:2, 9:1, 10:167"
-  window_start: 2026-06-16
-  window_end: 2026-07-16
-  note: "Ran via script (systems/dream-cycle ad hoc, not committed) that merges into any existing salience: block rather than replacing it wholesale — this is the structural fix for the 'promoted:true silently dropped every night' bug traced in the 07-15 cycle log. Verified zero stray promoted lines and 100% YAML-parseable frontmatter across all 205 files post-write, including the previously corrupted 2026-04-20-afternoon-boot.md (promoted:true now correctly nested and preserved). memory/episodic/README.md was correctly excluded from scoring (docs file, not a data entry) but itself carries a stray malformed frontmatter block from old corruption — left untouched per scope (out of bounds for this step), flagged for cleanup."
+  episodic_scanned: 289
+  score_updates: 289
+  no_tags: 206
+  no_date: 38
+  score_distribution: "0:207,1:4,2:3,3:4,4:4,5:4,6:4,7:4,8:3,9:1,10:51"
+  window_entries: 63
+  note: "Ran systems/dream-cycle/salience-score.py (committed version). read_errors:0, write_errors:0. pct_score_0=71.6% and pct_no_date=13.2% crossed guardrail thresholds — flagged in state.yaml as escalated but consistent with established baseline, not a fresh regression. IMPORTANT FINDING: while doing step-03 promotion work on this cycle's own step-01 output, discovered this script's merge-write regex can leave an orphaned indented 'promoted: false' line outside the salience: block instead of fully removing it — same signature found in 289/291 episodic files corpus-wide, meaning this bug has been running for many prior cycles, not introduced tonight. Logged as err-20260825T081039-APAWBB for Rigby. Script itself was NOT patched (systems/ is Rigby-gated); only the one file touched by step-03 was manually cleaned."
 ---
 
 <!-- system:start -->

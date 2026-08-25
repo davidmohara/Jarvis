@@ -30,9 +30,10 @@ related_people:
   - stephen-johnson
   score: 0
   last-promoted-check: 2026-08-14
+  last-promoted-check: 2026-08-23
 salience:
   score: 10
-  last-promoted-check: 2026-08-23
+  last-promoted-check: 2026-08-25
 ---
 
 # Morning Briefing — Tuesday, August 11, 2026

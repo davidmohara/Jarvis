@@ -1,25 +1,20 @@
 ---
 status: complete
-started-at: 2026-07-23T03:25:00-05:00
-completed-at: 2026-07-23T03:35:00-05:00
+started-at: 2026-08-25T03:09:00-05:00
+completed-at: 2026-08-25T03:10:39-05:00
 outputs:
-  candidates_count: 7
-  clusters_found: 6
+  candidates_count: 1
+  clusters_found: 1
   semantic_created: 0
-  semantic_updated: 5
-  promoted_entries: 7
-  promotion_note: "First cycle with zero backlog re-flags — all 7 candidates were this cycle's fresh step-01 archives, confirming the step-02 merge-write fix resolved the promoted:true drop bug. Clustered into 6 tag-clusters across 5 semantic files (one-texas-scorecard entry touched 3 clusters: co-sell, revenue, scorecard). Zero new semantic files."
+  semantic_updated: 1
+  promoted_entries: 1
+  promotion_note: "Single candidate this cycle: plaud-ingest-2026-08-22-003000.md (score 3), this cycle's own step-01 archive. Matched existing memory/semantic/operational/2026-07-04-plaud-pattern.md by tag overlap — appended 2026-08-25 evidence entry, escalated confidence low->medium (evidence now spans 07-04 through 08-25, past the 15-entry threshold noted in the file's own Pattern Summary). Discovered and logged (err-20260825T081039-APAWBB) a live corruption bug in systems/dream-cycle/salience-score.py's merge-write regex; fixed only the touched file, did not patch the gated systems/ script or the other 288 affected files."
   cluster_actions:
-    - {tag: dream-summary, domain: pattern, size: 2, action: update, target: memory/semantic/pattern/2026-07-06-dream-summary-pattern.md}
-    - {tag: daily-review, domain: operational, size: 1, action: update, target: memory/semantic/operational/2026-07-04-daily-review-pattern.md}
-    - {tag: plaud, domain: operational, size: 1, action: update, target: memory/semantic/operational/2026-07-04-plaud-pattern.md}
-    - {tag: co-sell, domain: operational, size: 2, action: update, target: memory/semantic/operational/2026-06-24-co-sell-pattern.md}
-    - {tag: revenue, domain: operational, size: 2, action: update, target: memory/semantic/operational/2026-06-24-revenue-pattern.md}
-    - {tag: scorecard, domain: operational, size: 1, action: update, target: memory/semantic/operational/2026-06-24-scorecard-pattern.md}
-  error_categories_30d: "process-skip/protocol-skip:9, routing-error/protocol-skip:8, data-accuracy/sloppy-read:7, assumption-error/wrong-assumption:7, tool-misuse/tool-ignorance:6, data-accuracy/wrong-assumption:5"
-  error_total_30d: 116
+    - {tag: plaud-ingest, domain: operational, size: 1, action: update, target: memory/semantic/operational/2026-07-04-plaud-pattern.md}
+  error_categories_30d: "process-skip/protocol-skip:8, missed-context/context-blindness:4, assumption-error/wrong-assumption:4, tool-misuse/tool-ignorance:4, tool-misuse/wrong-assumption:3, lazy-search/available-data-not-used:3"
+  error_total_30d: 86
   lessons_appended: 0
-  lessons_note: "All 6 qualifying categories (3+ occurrences in 30d) already documented and active in LESSONS.md. No new lesson appended."
+  lessons_note: "All 6 qualifying categories (3+ occurrences in 30d) already documented and active in LESSONS.md. No new lesson appended. 3 error entries with null category/failure_mode flagged for Rigby as malformed records."
 ---
 
 <!-- system:start -->

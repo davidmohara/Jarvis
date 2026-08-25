@@ -1,12 +1,28 @@
 ---
-type: working
+type: working-archive
 task_id: "session"
 session_id: "5dcfee22-ff31-47ff-a35c-90ecbfbf17fb"
 agent-source: master
 created: 2026-08-21T20:30:00
 expires: 2026-08-23T20:30:00
-status: active
+status: archived
 context: "Eval-harness PostToolUse hook root-cause fix — 2026-08-21"
+date: 2026-08-21
+source_file: memory/working/eval-harness-hook-fix-2026-08-21.md
+tags:
+  - eval-harness
+  - master
+  - bug-fix
+  - hook
+  - dream-cycle
+  - boot
+  - watchtower
+  - cost-tracking
+related_people: []
+  promoted: false
+salience:
+  score: 0
+  last-promoted-check: 2026-08-25
 ---
 
 # Eval-Harness Hook Fix — August 21, 2026

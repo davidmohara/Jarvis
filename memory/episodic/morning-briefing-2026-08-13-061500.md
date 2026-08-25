@@ -13,9 +13,10 @@ tags:
 - working-archive
 - briefing
 related_people: []
+  last-promoted-check: 2026-08-23
 salience:
   score: 0
-  last-promoted-check: 2026-08-23
+  last-promoted-check: 2026-08-25
 ---
 # Morning Briefing — Thursday, August 13, 2026
 

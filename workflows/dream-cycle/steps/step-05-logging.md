@@ -1,15 +1,14 @@
 ---
 status: complete
-started-at: 2026-07-23T03:40:00-05:00
-completed-at: 2026-07-23T03:48:00-05:00
+started-at: 2026-08-25T03:11:00-05:00
+completed-at: 2026-08-25T03:12:07-05:00
 outputs:
   dream_log_appended: true
   working_summary_written: true
-  working_summary_reason: "semantic_updated=5, promoted_entries=7 — confirmed bug-fix result and cross-validated Rock 4/South Texas findings are significant enough to surface for Chief at boot."
-  git_commit: success
-  git_push: success
-  git_commit_sha: bc2a523
-  git_sync_note: "CORRECTED: Desktop Commander is always available for scheduled dream-cycle runs (David confirmed) — initial 'unavailable' claim was a wrong assumption, logged as err-20260716T133618-FUOKLP. Re-ran the full git sync via Desktop Commander per skills/git/SKILL.md: excluded two unrelated in-flight files (content-pipeline, daily-review state.yaml — other agents' active work), committed dream-cycle scope, resolved a non-fast-forward push via stash/rebase/pop with zero conflicts, pushed to bc2a523. Also carried forward the 07-14 and 07-15 cycles' previously-uncommitted work in the same commit."
+  working_summary_reason: "semantic_updated=1 — Plaud/Monday permission regression and the salience-score.py corruption finding are both significant enough to surface for Chief at boot."
+  git_commit: pending
+  git_push: pending
+  git_sync_note: "This run executed in a Claude Code on the web / remote cloud session (managed container, not David's Mac), not the historical Cowork sandbox this workflow's git guidance describes. mcp__Desktop_Commander__* is not present in this environment (confirmed via ToolSearch) — there is no Mac-FUSE-mount mismatch here since this session's git checkout IS the real repo. Used plain git via Bash per skills/git/SKILL.md's atomic-command rule (one command per call, no chaining, no git status)."
 ---
 
 <!-- system:start -->

@@ -1,13 +1,13 @@
 ---
 status: complete
-started-at: 2026-07-23T03:35:00-05:00
-completed-at: 2026-07-23T03:40:00-05:00
+started-at: 2026-08-25T03:10:45-05:00
+completed-at: 2026-08-25T03:11:00-05:00
 outputs:
-  candidates_count: 5
-  entries_compressed: 5
-  digests_updated: 1
-  compression_skipped: false
-  digest_created: memory/episodic/digests/2026-Q2-digest.md
+  candidates_count: 4
+  entries_compressed: 0
+  digests_updated: 0
+  compression_skipped: true
+  compression_skip_reason: "4 candidates (below 5-entry safety threshold): 2026-04-30-dream-cycle-summary.md, 2026-05-04-dream-cycle-summary.md, 2026-05-08-session-index-build.md, 2026-05-15-dream-cycle-summary.md — all score 0, all promoted:false, all >90 days old, but under threshold. No files modified."
 ---
 
 <!-- system:start -->

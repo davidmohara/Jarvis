@@ -10,9 +10,10 @@ related-entities:
   meetings: []
 agent-source: rigby
   promoted: false
+  last-promoted-check: 2026-08-23
 salience:
   score: 1
-  last-promoted-check: 2026-08-23
+  last-promoted-check: 2026-08-25
 ---
 
 ## Error Improvement Cycle — March to August 2026 Baseline

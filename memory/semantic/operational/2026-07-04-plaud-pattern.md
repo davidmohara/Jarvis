@@ -5,10 +5,10 @@ subject: plaud pattern
 synthesized-from:
   - memory/episodic/plaud-ingest-2026-07-02-011500.md
   - memory/episodic/morning-briefing-2026-07-01-085000.md
-last-updated: 2026-08-10
+last-updated: 2026-08-25
 tags: [plaud]
 agent-source: dream-cycle
-confidence: low
+confidence: medium
 
 ---
 # Plaud Pattern
@@ -72,6 +72,12 @@ Sources this cycle:
 - `memory/episodic/plaud-ingest-2026-08-04-152100.md` (score 4) — tags: plaud-ingest, chief, obsidian, monday, delegations, personal. Aug 4 ingest: 4 recordings ingested (AI Leaders Weekly, Athena/Anne Mwelu check-in, Ronald Besonen financial/trust review, Michael Tapp lunch). 8 Monday tasks routed (2 to Alice, 6 personal to David). Plaud skill's staging-reconciliation `--all` flag mis-documented — accidentally launched 3 concurrent re-fetches; no damage but skill doc needs correction.
 
 New signal: SKILL.md reconciliation command documentation error — the documented command doesn't exist; the real equivalent (`--all`) runs an account-wide re-fetch. This is a workflow-documentation accuracy gap worth flagging for Rigby to correct before next ingest. Personal/family recordings (Ronald Besonen, Michael Tapp) routed correctly per skill rules — no Monday tasks for personal content, no sharing. The Athena/Anne Mwelu pattern (EA check-in) is new — first time an Athena session appears in the plaud-ingest cluster.
+
+### 2026-08-25 — Nightly promotion
+Sources this cycle:
+- `memory/episodic/plaud-ingest-2026-08-22-003000.md` (score 3) — tags: plaud-ingest, chief, monday-com, blocker, vault, share-links; related people: alice-mburu. Resumed a stalled pi-20260821-001 run (stuck at step-05); verified vault ingestion for all 18 discovered recordings was already complete (17 work notes filed, 1 medical recording correctly excluded per standing instruction). Generated share links for all 17 work recordings (17/17 succeeded). BLOCKER: Monday task creation (`create_item`/`create_items`) was rejected by the tool-permission layer on every attempt, single and batch — 0 of 17 "Review Plaud recording" tasks created for Alice Mburu. Workflow still marked `status: complete` per its own failure-mode protocol (Monday failures don't block completion).
+
+Escalating confidence to medium: this cluster now has evidence spanning 07-04 through 08-25 (11+ nightly promotions, well past the 15-entry threshold noted in the original Pattern Summary). New signal is a regression, not a variant of a known issue: prior cycles (07-16, 07-29, 08-04, 08-07) show Monday task creation working normally (5-8 items routed per cycle). This cycle shows a hard 0-for-17 rejection at the tool-permission layer — a different failure mode than the earlier documentation/flag-typo issues (`--list-all` vs `--all`). If this permission gap persists across the next 1-2 plaud-ingest runs, it should be escalated to Rigby as a capability-gap ticket rather than logged as a recurring one-off.
 
 ### 2026-08-10 — Nightly promotion
 Sources this cycle (both Aug 7, 2026 — two-part pi-20260807-002 session):

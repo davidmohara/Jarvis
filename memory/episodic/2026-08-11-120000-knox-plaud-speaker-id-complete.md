@@ -26,9 +26,10 @@ related_people:
   - alice-mburu
   score: 0
   last-promoted-check: 2026-08-14
+  last-promoted-check: 2026-08-23
 salience:
   score: 3
-  last-promoted-check: 2026-08-23
+  last-promoted-check: 2026-08-25
 ---
 
 # Plaud Ingest Session Complete: Speaker ID + Fetch

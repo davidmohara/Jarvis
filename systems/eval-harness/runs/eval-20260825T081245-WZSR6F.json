@@ -1,0 +1,123 @@
+{
+  "id": "eval-20260825T081245-WZSR6F",
+  "type": "workflow",
+  "name": "dream-cycle",
+  "agent": "jarvis",
+  "session_id": "session-2026-08-24-060000",
+  "trigger": "manual",
+  "started": "2026-08-25T03:04:48-05:00",
+  "completed": "2026-08-25T08:12:45.380073Z",
+  "duration_seconds": 477.4,
+  "status": "success",
+  "steps": [
+    {
+      "name": "step-01-working-memory-cleanup",
+      "started": "2026-08-25T03:04:48-05:00",
+      "completed": "2026-08-25T03:07:00-05:00",
+      "duration_seconds": 132.0,
+      "status": "complete",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": null,
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    },
+    {
+      "name": "step-02-salience-scoring",
+      "started": "2026-08-25T03:07:00-05:00",
+      "completed": "2026-08-25T03:09:00-05:00",
+      "duration_seconds": 120.0,
+      "status": "complete",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": null,
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    },
+    {
+      "name": "step-03-semantic-promotion",
+      "started": "2026-08-25T03:09:00-05:00",
+      "completed": "2026-08-25T03:10:39-05:00",
+      "duration_seconds": 99.0,
+      "status": "complete",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": null,
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    },
+    {
+      "name": "step-04-episodic-compression",
+      "started": "2026-08-25T03:10:45-05:00",
+      "completed": "2026-08-25T03:11:00-05:00",
+      "duration_seconds": 15.0,
+      "status": "complete",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": null,
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    }
+  ],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": true,
+      "outputs_non_empty": false,
+      "assertions_checked": 5,
+      "assertions_passed": 2,
+      "assertion_results": [
+        {
+          "assertion": "dream-001-state-complete",
+          "description": "Dream cycle workflow state.yaml shows status: complete",
+          "passed": true
+        },
+        {
+          "assertion": "dream-002-working-memory-written",
+          "description": "Dream cycle wrote output to working memory",
+          "passed": true
+        },
+        {
+          "assertion": "dream-cy-002-substantive",
+          "description": "dream-cycle output is substantive (>200 bytes)",
+          "passed": false
+        },
+        {
+          "assertion": "dream-cy-003-content",
+          "description": "dream-cycle output contains expected content",
+          "passed": false
+        },
+        {
+          "assertion": "dream-004-guardrail-checkpoint-ran",
+          "description": "step-03b's guardrail checkpoint recorded a result (pass/flag/escalate) before step-04's irreversible deletion \u2014 read from the eval record's own guardrails array, not self-reported by the workflow",
+          "passed": false
+        }
+      ]
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    }
+  },
+  "version_hash": "2798d95737254b2f",
+  "prior_baseline_id": null,
+  "tags": [
+    "phantom-candidate",
+    "cowork-hook"
+  ]
+}

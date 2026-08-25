@@ -81,5 +81,15 @@
   "model": "haiku",
   "total_tokens_input": 315237,
   "total_tokens_output": 240,
-  "total_cost_usd": 0.073596
+  "total_cost_usd": 0.073596,
+  "guardrails": [
+    {
+      "name": "pre-deletion-review",
+      "after_step": "step-03-semantic-promotion",
+      "result": "pass",
+      "reason": "4 compression candidates (below 5-entry safety threshold, step-04 will skip); zero promoted/high-salience entries in candidate set; semantic promotion this cycle wrote substantive evidence, not a stub",
+      "escalated_to_human": false,
+      "timestamp": "2026-08-25T08:11:44.831646+00:00"
+    }
+  ]
 }
