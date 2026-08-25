@@ -14,12 +14,85 @@ Responsibilities:
 import json
 import sys
 import re
+import subprocess
 from pathlib import Path
 from datetime import datetime, timezone
 
 IES_ROOT = Path(__file__).resolve().parents[2]
 EVAL_RUNS_DIR = IES_ROOT / "systems" / "eval-harness" / "runs"
 ERROR_LOG = Path("/tmp/ies-hook-errors.log")
+
+VALID_VERIFIER_RESULTS = {"pass", "retry", "fail"}
+
+
+def find_workflow_verifier(ies_root: Path, workflow_name: str, step_name: str) -> Path | None:
+    """Layer 1 dispatcher: look for a workflow-specific ground-truth verifier.
+
+    Convention: workflows/<workflow_name>/verify/<step_name>.py
+    This function has zero knowledge of what any workflow or step does — it
+    only knows the conventional path. Everything else is handled by the
+    verifier script itself.
+    """
+    if not workflow_name:
+        return None
+    candidate = ies_root / "workflows" / workflow_name / "verify" / f"{step_name}.py"
+    return candidate if candidate.is_file() else None
+
+
+def run_workflow_verifier(verifier_path: Path, workflow_name: str, step_name: str,
+                           ies_root: Path, step_started: str, step_completed: str) -> dict | None:
+    """Invoke a workflow-specific verifier script via the stdin/stdout JSON contract.
+
+    stdin:  {"workflow", "step", "ies_root", "step_started", "step_completed"}
+    stdout: {"result": "pass"|"retry"|"fail", "reason", "fields", "validation_errors",
+             "retry_instruction" (optional)}
+
+    Returns None (triggering fallback to legacy field-check logic) if the
+    verifier can't be run or returns something that doesn't match the contract.
+    """
+    payload = {
+        "workflow": workflow_name,
+        "step": step_name,
+        "ies_root": str(ies_root),
+        "step_started": step_started,
+        "step_completed": step_completed,
+    }
+    try:
+        proc = subprocess.run(
+            ["python3", str(verifier_path)],
+            input=json.dumps(payload),
+            capture_output=True,
+            text=True,
+            timeout=30,
+        )
+    except Exception as e:
+        log_error(f"Verifier {verifier_path} failed to execute for {step_name}: {e}")
+        return None
+
+    if proc.returncode != 0:
+        log_error(f"Verifier {verifier_path} exited {proc.returncode} for {step_name}: {proc.stderr.strip()[:500]}")
+        return None
+
+    stdout = (proc.stdout or "").strip()
+    if not stdout:
+        log_error(f"Verifier {verifier_path} produced no stdout for {step_name}")
+        return None
+
+    try:
+        # Verifier may log to stdout too; be lenient and parse the last JSON line.
+        last_line = stdout.splitlines()[-1]
+        verdict = json.loads(last_line)
+    except Exception as e:
+        log_error(f"Verifier {verifier_path} produced invalid JSON for {step_name}: {e}")
+        return None
+
+    if verdict.get("result") not in VALID_VERIFIER_RESULTS:
+        log_error(f"Verifier {verifier_path} returned invalid result '{verdict.get('result')}' for {step_name}")
+        return None
+
+    log_info(f"Verifier {verifier_path} verdict for {step_name}: {verdict.get('result')} — {verdict.get('reason')}")
+    return verdict
+
 
 def get_guardrails_dir_for_workflow(workflow_name: str) -> Path:
     """Find the guardrails directory for a given workflow."""
@@ -243,7 +316,8 @@ def run_step_guardrail_checkpoint(step_name: str, step_frontmatter: dict, eval_r
         "escalated_to_human": False,
         "validation_errors": [],
         "retry_feedback": None,  # If result=retry, include feedback for model
-        "retry_instruction": None  # Detailed instruction for model to fix the issue
+        "retry_instruction": None,  # Detailed instruction for model to fix the issue
+        "computed_fields": None  # Ground-truth field values, when a verifier ran
     }
 
     # CRITICAL CHECK: step status must be complete
@@ -261,6 +335,33 @@ def run_step_guardrail_checkpoint(step_name: str, step_frontmatter: dict, eval_r
         result["reason"] = "CRITICAL: Step missing started-at or completed-at timestamp"
         result["validation_errors"].append("missing_timestamps")
         return result
+
+    # LAYER 1 DISPATCHER: a workflow-specific ground-truth verifier, if one
+    # exists at workflows/<workflow>/verify/<step>.py, takes precedence over
+    # the model-self-report field checks below. This block has no knowledge
+    # of what any specific workflow/step does — it only dispatches.
+    verifier_path = find_workflow_verifier(IES_ROOT, workflow_name, step_name)
+    if verifier_path:
+        verdict = run_workflow_verifier(
+            verifier_path, workflow_name, step_name, IES_ROOT,
+            step_frontmatter.get("started-at"), step_frontmatter.get("completed-at")
+        )
+        if verdict is not None:
+            raw_result = verdict.get("result")
+            mapped_result = "escalate" if raw_result == "fail" else raw_result  # pass/retry pass through
+            result["result"] = mapped_result
+            result["reason"] = verdict.get("reason", f"Verifier {verifier_path.name} returned {raw_result}")
+            result["validation_errors"] = verdict.get("validation_errors", [])
+            result["computed_fields"] = verdict.get("fields", {})
+            if mapped_result == "retry":
+                result["retry_feedback"] = verdict.get("reason")
+                result["retry_instruction"] = verdict.get("retry_instruction") or verdict.get("reason")
+            elif mapped_result == "escalate":
+                result["escalated_to_human"] = True
+            return result
+        else:
+            log_info(f"Verifier {verifier_path} unusable for {step_name}, falling back to legacy field-check logic")
+    # else: no verifier for this workflow/step — fall back to legacy behavior below, unchanged.
 
     # Check for outputs (incomplete step → retry, don't escalate)
     outputs = step_frontmatter.get("outputs", {})
@@ -406,6 +507,8 @@ def update_eval_record_with_step_completion(eval_path: Path, step_name: str, fro
             "timestamp": datetime.now(timezone.utc).isoformat().replace("+00:00", "Z"),
             "validation_errors": guardrail_result.get("validation_errors", [])
         }
+        if guardrail_result.get("computed_fields"):
+            guardrail_entry["computed_fields"] = guardrail_result["computed_fields"]
         eval_record["guardrails"].append(guardrail_entry)
 
         # Handle different checkpoint outcomes
