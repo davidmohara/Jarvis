@@ -117,6 +117,7 @@ guardrails:
     pre_commit_check: "pass"
     dream_log_valid: true
     state_file_valid: true
-    commit_status: "pending"
-    push_status: "pending"
-    atomicity_check: "pending"
+    commit_status: "success"
+    commit_sha: "e9ab245"
+    push_status: "success"
+    atomicity_check: "pass"
