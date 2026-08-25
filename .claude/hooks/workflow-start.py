@@ -14,8 +14,13 @@ from pathlib import Path
 from datetime import datetime, timezone
 import re
 
-# Configuration
+# Vendored PyYAML (same as post-tool-use.py)
 IES_ROOT = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(IES_ROOT / "systems" / "eval-harness" / "vendor"))
+sys.path.insert(0, str(IES_ROOT / "systems" / "eval-harness"))
+import yaml
+
+# Configuration
 EVAL_RUNS_DIR = IES_ROOT / "systems" / "eval-harness" / "runs"
 WORKFLOWS_DIR = IES_ROOT / "workflows"
 ERROR_LOG = Path("/tmp/ies-hook-errors.log")
@@ -125,7 +130,9 @@ def main():
     payload = read_stdin()
 
     # Extract file path from PostToolUse payload
-    file_path = payload.get("file_path") or payload.get("path", "")
+    # PostToolUse hooks provide tool_input with file_path inside it
+    tool_input = payload.get("tool_input", {})
+    file_path = tool_input.get("file_path", "")
     if not file_path or "state.yaml" not in file_path:
         # Not a state.yaml file, skip
         return
@@ -141,18 +148,26 @@ def main():
     try:
         state_path = IES_ROOT / "workflows" / workflow_name / "state.yaml"
         if not state_path.exists():
+            log_info(f"state.yaml not found for {workflow_name}")
             return
 
-        with open(state_path, "r") as f:
-            import yaml
-            try:
-                state = yaml.safe_load(f)
-            except:
-                # YAML parse failed, skip
-                return
+        try:
+            with open(state_path, "r") as f:
+                content = f.read()
+            state = yaml.safe_load(content)
+        except Exception as yaml_err:
+            # YAML parse failed, skip
+            log_error(f"YAML parse failed for {workflow_name}: {yaml_err}")
+            return
+
+        # Handle None/empty state
+        if not state or not isinstance(state, dict):
+            log_info(f"state.yaml is empty or invalid for {workflow_name}")
+            return
 
         # Only create eval if status is 'in-progress' (workflow is starting)
         if state.get("status") != "in-progress":
+            log_info(f"state.yaml status is {state.get('status')} (not 'in-progress') for {workflow_name}")
             return
 
     except Exception as e:

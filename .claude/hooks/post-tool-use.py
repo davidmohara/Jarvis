@@ -224,7 +224,8 @@ def infer_trigger(state_data: dict) -> str:
     if trigger in ("scheduled", "manual", "boot"):
         return trigger
     # Infer from original_request or session context
-    original_request = state_data.get("original-request", "").lower()
+    # Use (... or "") to handle None values in the state_data
+    original_request = (state_data.get("original-request") or "").lower()
     if "scheduled" in original_request or "auto" in original_request:
         return "scheduled"
     if "boot" in original_request:
@@ -839,6 +840,15 @@ def process_eval_harness(rel_path: str, file_path: str, session_id: str, transcr
             content = None
 
         if content:
+            # Extract workflow name and status for logging
+            try:
+                state_data = yaml.safe_load(extract_frontmatter_block(content)) or {}
+                workflow_name = state_data.get("workflow", "unknown")
+                status = state_data.get("status", "unknown")
+                log_error(f"[EVAL-HARNESS] Processing state.yaml write: workflow={workflow_name}, status={status}, session_id={session_id}")
+            except Exception:
+                pass
+
             eval_path = find_active_eval_record(session_id)
             updated = False
             if eval_path:
@@ -846,12 +856,15 @@ def process_eval_harness(rel_path: str, file_path: str, session_id: str, transcr
                 # belongs to a different, already-named workflow (stale/shared
                 # session_id), in which case fall through to the Cowork path
                 # below rather than overwriting an unrelated record.
+                log_error(f"[EVAL-HARNESS] Found active eval record: {eval_path.name}")
                 updated = update_eval_record_state_yaml(eval_path, rel_path, content)
+                log_error(f"[EVAL-HARNESS] Update result: {updated}")
             if not eval_path or not updated:
                 # Cowork path: no SubagentStart hook fired — create record on complete
                 try:
                     state_data = yaml.safe_load(extract_frontmatter_block(content)) or {}
                     if state_data.get("status") == "complete":
+                        log_error(f"[EVAL-HARNESS] Creating new eval record (cowork path) for {workflow_name}")
                         create_eval_record_from_state(state_data, session_id)
                 except Exception as e:
                     log_error(f"Failed to parse state.yaml for eval creation: {e}")
