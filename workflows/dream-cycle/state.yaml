@@ -203,10 +203,11 @@ guardrails:
     controller_approved: null
     note: "Preview recorded in accumulated-context.step-04-2026-08-26.compression_preview and in memory/working/dream-summary-2026-08-26.md for David to review at next session. Nothing deleted pending his decision."
   git_atomicity:
-    pre_commit_check: "pending"
+    pre_commit_check: "pass"
     dream_log_valid: true
     state_file_valid: true
-    commit_status: "pending"
-    commit_sha: null
-    push_status: "pending"
-    atomicity_check: "pending"
+    commit_status: "success"
+    commit_sha: "ec2b3e6"
+    push_status: "success"
+    atomicity_check: "pass"
+    note: "Local main branch ref was stale (cached at an older commit, pre-dating this session's fetch); detached-HEAD checkout was correctly based on the true origin/main tip. Verified origin/main after fetch matched the commit's parent before fast-forwarding local main and pushing -- clean fast-forward, no rebase or force needed."
