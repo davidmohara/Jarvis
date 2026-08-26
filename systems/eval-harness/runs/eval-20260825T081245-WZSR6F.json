@@ -119,5 +119,15 @@
   "tags": [
     "phantom-candidate",
     "cowork-hook"
+  ],
+  "guardrails": [
+    {
+      "name": "pre-deletion-review",
+      "after_step": "step-03-semantic-promotion",
+      "result": "pass",
+      "reason": "14 promotion candidates all had clean promoted:false trails (score>=3 threshold crossings from 30-day window drift, none re-flagged already-promoted entries); all 14 correctly set to promoted:true and excluded from step-04's candidate set. Step-04 preview shows 5 compression candidates (>=5 threshold, up from 4 last cycle with one new decision-rationale file aging past 90 days) -- volume normal (1.7% of 291 episodic files), no promoted/high-salience entries present. Semantic promotion wrote substantive, source-content-grounded evidence to 6 existing files, no stubs; zero new files created despite pre-existing semantic-memory duplication (flagged separately, not blocking).",
+      "escalated_to_human": false,
+      "timestamp": "2026-08-26T08:13:54.868625+00:00"
+    }
   ]
 }

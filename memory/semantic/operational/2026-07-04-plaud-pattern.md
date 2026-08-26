@@ -5,10 +5,10 @@ subject: plaud pattern
 synthesized-from:
   - memory/episodic/plaud-ingest-2026-07-02-011500.md
   - memory/episodic/morning-briefing-2026-07-01-085000.md
-last-updated: 2026-08-25
+last-updated: 2026-08-26
 tags: [plaud]
 agent-source: dream-cycle
-confidence: medium
+confidence: high
 
 ---
 # Plaud Pattern
@@ -85,3 +85,12 @@ Sources this cycle (both Aug 7, 2026 — two-part pi-20260807-002 session):
 - `memory/episodic/2026-08-07-124429-session-plaud-ingest-pi-20260807-002.md` (score 4) — tags: plaud-ingest, knox, vault-write, obsidian, monday, recording, session-summary, alice-mburu. Step-05 vault write completed post-MCP-recovery. Both recordings from Aug 5 now in vault at `zzPlaud/Client/`. Daily note `Calendar/2026/08-August/2026-08-05.md` created. 5 Monday action items + 2 share links already confirmed complete. Self-caused error: passed invalid `--list-all` flag to fetch_plaud.py; `--all` ran instead, triggering full reprocess — 5 duplicate staging files created and deleted (15 total removed). Staging folder has ~285-file backlog (Dec 2025 origin) flagged for vault-health pass.
 
 Two-part ingest: the speaker-rename work (chief, step 1) and vault-write completion (knox, step 5) now appear as a known split-session pattern for pi-20260807-002. The --list-all/--all documentation error recurs across multiple sessions (also flagged in Aug 4 cycle) — this is becoming a repeat pattern worth escalating to Rigby for SKILL.md correction. The ~285-file staging backlog is a new structural signal not previously surfaced in this cluster. Paul Sferratore identification in the Wendy's recording is the most complex speaker-merge seen in this cluster to date (3-way merge).
+
+### 2026-08-26 — Nightly promotion
+Sources this cycle:
+- `memory/episodic/2026-07-22-164500-knox-plaud-ingest.md` (score 7) — David corrected boot for reporting plaud-ingest as aborted on a stale 07-15 state file instead of retrying (err-20260722T164142-KOFUWY, under-delivery/stale-cache); Knox re-run live, token auth resolved itself, 2 recordings ingested cleanly (AI Strategy/Be The Bison call with Andrew Rauch shared to Alice via Monday task 12601401650; FEI Financial Executives note classified Personal, vault-only).
+- `memory/episodic/2026-08-11-120000-knox-plaud-speaker-id-complete.md` (score 3) — Aug 10 Sales Scrum + Remington workshop-planning recordings, speaker ID and fetch completed clean.
+- `memory/episodic/plaud-ingest-2026-08-11-163500.md` (score 6) — 2 Aug 10 work recordings (Strategic Partnership/Co-selling call with Stephen Johnson/Robyn Fuentes/Jenn Massey; Remington AI Executive Workshop planning with Diana Stevens/Ayotunde Gibbs) — 2 Monday tasks created (#12773966601, #12773976956), Monday task creation working normally here.
+- `memory/episodic/plaud-ingest-2026-08-11-170000.md` (score 6) — UTB/YPO hospitality planning call, speakers fully auto-resolved (Alice Mburu, Robyn Fuentes), 3 Monday action items created + 1 Alice review task with share link — Monday task creation again working normally.
+
+Escalating confidence medium → high: evidence now spans 07-04 through 08-26 across 15+ nightly promotions with consistent, substantive findings each cycle (not stub entries). Notably, all four sources this cycle show Monday task/action-item creation succeeding normally (07-22, and three Aug-11 entries) — this pre-dates the 08-22 hard 0-for-17 Monday permission rejection flagged last cycle (08-25 entry above) chronologically in source-file date but is being processed now due to salience window timing. Net read: the 08-22 permission rejection looks like an isolated regression bounded to that one session, not a sustained platform-wide break — Monday task creation was working normally in the picture both before (07-22, 08-11) and the underlying capability hasn't shown a second failure yet. Still worth the 1-2 cycle watch flagged previously before downgrading the Rigby ticket.

@@ -3,7 +3,7 @@ type: semantic
 domain: operational
 primary-tag: daily-review
 created: 2026-06-12
-last-updated: 2026-07-03
+last-updated: 2026-08-26
 confidence: high
 synthesized-from: 19
   - daily-review-2026-06-08-212450.md
@@ -117,3 +117,10 @@ _2026-06-17 run:_
 Cluster of 9 entries sharing tag `daily-review`. Recurrence indicates this is a stable operational pattern in the Jarvis system.
 
 - 2026-06-13: confidence escalated low → medium based on 19 total evidence entries.
+
+### 2026-08-26 — Nightly promotion
+Sources this cycle:
+- `memory/episodic/daily-review-2026-07-31-050000.md` (score 10) — Cole Estrate (xAI) follow-up overdue for a second consecutive daily review despite being elevated to an active partner track two days earlier; Forgiveness Letter now on its third missed deadline.
+- `memory/episodic/daily-review-2026-08-11-211149.md` (score 10) — 27 OmniFocus tasks completed in 24h (heavy Sales — Nexben, Solace, AT&T, CBRE) vs. 2 overdue, both Lifebook (Career, Health); flags a recurring split where the professional execution engine runs strong while personal Lifebook planning is persistently deferred.
+
+The Lifebook-deferred-while-work-executes split (08-11) is a new, sharper framing of a signal this cluster has carried in weaker form before (Forgiveness Letter repeatedly deferred, 07-31). Both entries this cycle reinforce that personal/relationship commitments (Cole Estrate outreach, Forgiveness Letter, Lifebook) are the category that consistently slips in daily reviews, not operational execution.

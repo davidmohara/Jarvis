@@ -5,7 +5,7 @@ tags:
 - morning-briefing
 confidence: high
 created: '2026-06-18'
-last-updated: 2026-08-01
+last-updated: 2026-08-26
 synthesized-from:
   - memory/episodic/2026-05-04-morning-briefing-automated.md
   - memory/episodic/2026-05-04-morning-briefing.md
@@ -140,3 +140,9 @@ Sources this cycle:
 - `memory/episodic/morning-briefing-2026-07-29-060924.md` (score 10) — tags: briefing, chief, calendar, omnifocus, leads, solace, concentrate-ai, financial-meeting, utb. Wed Jul 29: 10 calendar events including 2:00–4:00 PM financial meeting (Ronald + Susie, Plano), Whiskey Cake lunch (Tapp Holdings), BCA Ferrari Gallery (tentative). 9:30 AM concurrent conflict (AI Leaders Weekly vs. Houston Sales Scrum). 3 unassigned leads (160+ days). UTB board vote time-sensitive. Solace/Curtis intro request from Kyle Scott. People: alice-mburu, ronald-seim, kyle-scott, mike-hilmen, derek-nwamadi, teresa-saffold.
 
 Solace and Concentrate.ai now confirmed in back-to-back briefings (Jul 28 + Jul 29) — both are active Rock 4 co-sell plays now surfacing at the daily operational briefing level, not just account research. The financial meeting with Ronald/Susie on Jul 29 is the first personal-financial item to appear in the briefing cluster; this is distinct from the usual sales/operational content. UTB board approval continues as a time-sensitive recurring item (appeared in multiple recent briefings). Three unassigned leads (IFS, Cardinal IT, Paragon Brokerage) at 160+ days remain structurally unresolved — the pattern has now appeared in at least 5 consecutive briefing entries without AM assignment occurring.
+
+### 2026-08-26 — Nightly promotion
+Sources this cycle:
+- `memory/episodic/morning-briefing-2026-08-11-061244.md` (score 10) — yesterday's daily review (08-10) not found for a 3rd consecutive miss; a genuine same-day scheduling conflict surfaced (11:00 AM travel block vs. SAP Group Meeting, with a KKR lunch immediately after at 11:30) requiring an immediate decision; Clay unavailable (MCP not authenticated).
+
+The "yesterday's daily review not found" flag reaching a 3rd consecutive occurrence is a new reliability thread for this cluster, distinct from the previously-tracked OmniFocus AppleScript-timeout failure mode — worth watching whether this is a daily-review write-path issue or a briefing-side read-path issue before it's attributed to either cluster.

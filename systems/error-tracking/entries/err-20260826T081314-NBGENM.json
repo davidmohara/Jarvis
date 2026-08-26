@@ -1,0 +1,15 @@
+{
+  "id": "err-20260826T081314-NBGENM",
+  "timestamp": "2026-08-26T08:13:14Z",
+  "session": "dream-cycle-2026-08-26-030247",
+  "source": "self-detected",
+  "agent": "jarvis",
+  "category": "tool-misuse",
+  "description": "Follow-up to err-20260825T081039-APAWBB, which described the salience-score.py frontmatter corruption as a single orphaned 'promoted: false' line. Reading the 14 step-03 promotion-candidate source files directly this cycle (yaml.safe_load fails on most of the corpus, so raw content had to be inspected) showed the corruption is far more severe: affected files carry 17-24+ DUPLICATE orphaned 'last-promoted-check:'/'promoted:' lines, one accumulated per night over many past cycles, sitting between the tags/related_people lists and frontmatter close -- not a single stray line. Example: memory/episodic/2026-07-22-114500-master-session-wrap.md has 24 duplicate 'last-promoted-check:' lines plus the file's tags/related_people YAML lists are broken by the interleaved junk (breaks any standard YAML parser, though the file's own most-recent trailing salience: block, written by the current script version, remains clean and authoritative). Confirmed via code review that the CURRENT salience-score.py does not add new orphaned lines going forward (its regex only strips a well-formed trailing 'salience:' block and top-level unindented 'promoted:' lines) -- this volume of corruption is legacy, frozen from an older, already-replaced script version, not an active regression. No promotion data was lost this cycle: used regex extraction reading the LAST (rightmost) salience: block in each file to correctly identify candidates and set promoted:true.",
+  "correction": "No corpus-wide repair attempted (systems/ is Rigby-gated per SYSTEM.md's Pre-Write Gate; a ~289-file repair is a capability-level fix beyond nightly dream-cycle scope). Worked around the corruption by extracting only the rightmost/most-recent salience: block per file for both candidate identification (step-03) and the promoted:true write, rather than relying on yaml.safe_load or the first regex match, which would pick up stale junk.",
+  "failure_mode": "pattern-mismatch",
+  "systemic_fix": "Widen Rigby's fix scope from err-20260825T081039-APAWBB's original single-line description to a real corpus-wide cleanup: strip every indented 'last-promoted-check:'/'promoted:' line that falls outside a proper 'salience:' parent key across memory/episodic/**/*.md (expected to touch the large majority of the ~289-file corpus, not a handful of files), folding each file's most recent value into its real salience: block before removing the junk. Also add a post-write self-check to salience-score.py that re-parses each file after writing and asserts exactly one salience: block with exactly one of each subfield, failing loudly instead of allowing silent accumulation to resume.",
+  "fix_status": "proposed",
+  "severity": "moderate",
+  "related_entries": ["err-20260825T081039-APAWBB"]
+}

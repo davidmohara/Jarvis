@@ -3,7 +3,7 @@ type: semantic
 domain: operational
 primary-tag: dream-summary
 created: 2026-06-12
-last-updated: 2026-07-03
+last-updated: 2026-08-26
 confidence: high
 synthesized-from: 23
   - dream-summary-2026-05-25.md
@@ -282,3 +282,11 @@ Cluster of 3 entries sharing tag `dream-summary`. Recurrence indicates this is a
 
 - 2026-06-13: confidence escalated low → medium based on 23 total evidence entries.
 - 2026-06-30: 34 new episodic entries reinforce this pattern (cluster anchor: dream-summary).
+
+### 2026-08-26 — Nightly promotion
+Sources this cycle:
+- `memory/episodic/dream-summary-2026-08-01.md` (score 10) — largest single-night working-memory archive in recent cycles (7 files); carry-forward triad (Q3 rocks, nerve block, delegation tracker) now documented 8+ consecutive cycles with zero resolution; Solace/Concentrate.ai confirmed as active Rock 4 plays; first visible Rock 4 gap compression ($12.1M → $8.68M).
+- `memory/episodic/dream-summary-2026-08-02.md` (score 10) — Cole Estrate (xAI) overdue flag confirmed across two consecutive daily reviews with no outreach in 3+ days; session-wrap cluster hit highest error count in recent memory (7), including a fabricated Plaud API blocker.
+- `memory/episodic/dream-summary-2026-08-12.md` (score 10) — single-candidate cycle; South Texas revenue snapshot promoted showing sharpest single-cycle deterioration recorded in the revenue-tracker-pattern cluster to date (-24% vs. target CQ).
+
+Pattern remains stable: the dream-summary cluster continues to double as the system's own meta-record of which other clusters (session-wrap, daily-review, revenue-tracker) are showing the most significant movement each cycle. The unresolved carry-forward triad (Q3 rocks, nerve block scheduling, delegation tracker) is now the longest-running unaddressed thread visible across this pattern's evidence — approaching 4 weeks with no change recorded anywhere in this cluster's history.

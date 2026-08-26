@@ -1,0 +1,15 @@
+{
+  "id": "err-20260826T081453-664W53",
+  "timestamp": "2026-08-26T08:14:53Z",
+  "session": "dream-cycle-2026-08-26-030247",
+  "source": "self-detected",
+  "agent": "jarvis",
+  "category": "tool-misuse",
+  "description": "systems/dream-cycle/salience-score.py scans episodic files via `os.listdir(EPISODIC_DIR)`, which only lists memory/episodic/'s top-level entries -- it does not recurse into subdirectories (meetings/, people/, projects/, decisions/, coaching/). This contradicts step-02's own stated CONTEXT BOUNDARIES ('Scope: memory/episodic/ and all subdirectories, excluding memory/episodic/digests/'). Discovered while building step-04's compression-candidate preview: memory/episodic/decisions/2026-05-27-185930-decision-rationale-error-improvement-2026-03-21-to-2026-05-27.md has salience.last-promoted-check frozen at 2026-07-25 -- today's salience-score.py run (episodic_scanned: 289) never touched it, even though a manual os.walk-based scan finds 291 total episodic files (excluding digests). 289 = 290 top-level .md files minus README.md, confirming subdirectories are silently skipped. Current real-world impact is limited to this one file: meetings/, people/, projects/, and coaching/ are all currently empty, so no entries there are affected yet, but any future episodic entry filed into one of those subdirectories (per the schema in reference/knowledge-layer.md, which explicitly routes meeting-notes, contact-context, project-history, coaching-observation, and decision-rationale types into those subdirectories) would have its salience score permanently frozen at whatever value it started with, never re-scored, and never eligible for legitimate re-promotion.",
+  "correction": "None applied to the script (systems/ is Rigby-gated). This cycle's step-03/step-04 candidate identification used a custom os.walk-based scan (not salience-score.py's output) specifically so subdirectory files aren't silently missed, so promotion/compression decisions this cycle are correct despite the underlying script's blind spot.",
+  "failure_mode": "protocol-skip",
+  "systemic_fix": "Rigby should change systems/dream-cycle/salience-score.py's file discovery from `os.listdir(EPISODIC_DIR)` to `os.walk(EPISODIC_DIR)` (skipping the digests/ subtree, same exclusion it already applies), matching step-02's documented CONTEXT BOUNDARIES. Add a regression check comparing episodic_scanned against an independent recursive file count so a future scope mismatch surfaces immediately instead of silently.",
+  "fix_status": "proposed",
+  "severity": "moderate",
+  "related_entries": []
+}

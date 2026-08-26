@@ -2257,3 +2257,20 @@ entries_compressed: 0
 digests_updated: 0
 errors: 0
 summary: "Step-01 archived 2 expired working entries (eval-harness-hook-fix-08-21, plaud-ingest-08-22 Monday-blocker summary); 27 skipped (25 unparseable, 2 not yet expired). Step-02 scored 289 episodic files via salience-score.py; dist 0:207,1:4,2:3,3:4,4:4,5:4,6:4,7:4,8:3,9:1,10:51 -- pct_score_0=71.6% and pct_no_date=13.2% both crossed guardrail escalation thresholds, but both are consistent with the established baseline (not a fresh regression) and are driven by a large untagged/undated older-file population. Step-03: 1 promotion candidate (the newly-archived plaud-ingest Monday-blocker entry, score 3) appended to existing semantic/operational plaud-pattern.md as new evidence; confidence escalated low->medium. While writing that promotion, found systems/dream-cycle/salience-score.py has a live merge-write bug -- its regex sometimes leaves an orphaned 'promoted: false' line dangling outside the salience: block instead of fully replacing it. The same corruption signature (duplicate/orphaned promoted:/last-promoted-check: lines with no salience: parent) is present in 289 of 291 episodic files corpus-wide, consistent with this bug firing incrementally over many past nightly runs. Fixed the one touched file in place; logged err-20260825T081039-APAWBB for Rigby to fix the script and run a corpus-wide repair -- did not attempt the 289-file fix myself (systems/ is Rigby-gated, out of scope for a nightly run). Step-03b guardrail checkpoint: pass (4 compression candidates, all score 0/not promoted, well below the 5-entry threshold; semantic write was substantive). Step-04: compression skipped, 4 candidates < 5-entry safety threshold. Carry-forward from prior cycles: Q3 rocks unwritten, nerve block unscheduled, delegation tracker empty, South Texas revenue gap -- unchanged this cycle, no new episodic evidence surfaced on any of them."
+
+---
+## 2026-08-26T03:15:24 CDT
+session_id: dream-cycle-2026-08-26-030247
+working_archived: 0
+working_deleted: 0
+episodic_scanned: 289
+score_updates: 289
+clusters_found: 6
+semantic_created: 0
+semantic_updated: 6
+promoted_entries: 14
+entries_compressed: 0
+digests_updated: 0
+errors: 0
+summary: "Step-01: 0 archived (all 3 not-yet-expired), 25 unparseable, unchanged. Step-02: scored 289 episodic files via salience-score.py, distribution nearly identical to 08-25 baseline (no regression). Step-03: 14 promotion candidates (up from 1 last cycle, genuine 30-day window drift) clustered by direct tag match into 6 groups, all appended to existing semantic files (plaud-ingest -> high confidence, session-wrap -> medium confidence, dream-summary/daily-review/morning-briefing unchanged at high, system-health unchanged at low); zero new semantic files created. Step-03b guardrail: pass. Step-04: 5 compression candidates reached the safety threshold for the first time (prior cycles: 4) but GUARDRAIL 7's controller-approval preview gate can't be satisfied in this unattended scheduled run -- compression withheld pending David's decision at next session, preview recorded in state.yaml. Two new findings logged for Rigby: (1) err-20260826T081314-NBGENM escalates the known salience-score.py frontmatter corruption (err-20260825T081039-APAWBB) -- affected files carry 17-24+ duplicate orphaned lines each, not one stray line, though the bug is legacy/frozen, not still actively growing under the current script version; (2) err-20260826T081453-664W53, a new finding -- salience-score.py never scans memory/episodic/ subdirectories (meetings/, people/, projects/, decisions/, coaching/), currently affecting 1 file, freezing its score indefinitely."
+errors_detail: []

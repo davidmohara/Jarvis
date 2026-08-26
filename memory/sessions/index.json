@@ -1329,7 +1329,17 @@
           "workflows/partner-meeting-prep/verify/step-03-events-and-context.py",
           "workflows/partner-meeting-prep/verify/step-04-build-document.py",
           "workflows/content-pipeline/pending-drafts.json",
-          "workflows/plaud-ingest/state.yaml"
+          "workflows/plaud-ingest/state.yaml",
+          "workflows/dream-cycle/state.yaml",
+          "memory/semantic/operational/2026-07-04-plaud-pattern.md",
+          "memory/semantic/operational/2026-06-12-dream-summary-pattern.md",
+          "memory/semantic/operational/2026-06-12-daily-review-pattern.md",
+          "memory/semantic/operational/2026-06-18-morning-briefing-pattern.md",
+          "memory/semantic/operational/2026-06-30-session-wrap-pattern.md",
+          "memory/semantic/operational/2026-06-25-system-health-pattern.md",
+          "systems/error-tracking/entries/err-20260826T081314-NBGENM.json",
+          "systems/error-tracking/entries/err-20260826T081453-664W53.json",
+          "memory/working/dream-summary-2026-08-26.md"
         ],
         "loops": [],
         "flag": true

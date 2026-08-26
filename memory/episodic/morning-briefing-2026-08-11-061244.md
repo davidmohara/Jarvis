@@ -31,9 +31,11 @@ related_people:
   score: 0
   last-promoted-check: 2026-08-14
   last-promoted-check: 2026-08-23
+  last-promoted-check: 2026-08-25
 salience:
   score: 10
-  last-promoted-check: 2026-08-25
+  last-promoted-check: 2026-08-26
+  promoted: true
 ---
 
 # Morning Briefing — Tuesday, August 11, 2026

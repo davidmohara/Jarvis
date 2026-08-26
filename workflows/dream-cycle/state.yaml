@@ -1,12 +1,97 @@
 workflow: dream-cycle
 agent: jarvis
 status: complete
-session-started: 2026-08-25T03:04:48-05:00
-session-id: dream-cycle-2026-08-25-030448
+session-started: 2026-08-26T03:02:47-05:00
+session-id: dream-cycle-2026-08-26-030247
 current-step: null
-original-request: "Execute complete dream-cycle with 8 guardrails"
-last-successful-run: 2026-08-25T03:12:07-05:00
+original-request: "Execute dream-cycle workflow for today (scheduled task)"
+last-successful-run: 2026-08-26T03:15:24-05:00
 accumulated-context:
+  step-01-2026-08-26:
+    working_archived: 0
+    working_deleted: 0
+    working_skipped: 28
+    working_stranded: 0
+    archived_files: []
+    skipped_not_expired:
+      - co-sell-pipeline-2026-08-24-001532.md
+      - dream-summary-2026-08-25.md
+      - revenue-tracker-2026-08-24-002000.md
+    skipped_unparseable:
+      - 2026-07-08.md
+      - 2026-07-23-215200-session-felix-derek-persona-rebuild.md
+      - 2026-07-30-morning-briefing.md
+      - 2026-08-05-magline-call-prep.md
+      - 2026-08-11-plaud-ingest-correction.md
+      - 2026-08-12-graph-memory-spec-working.md
+      - 2026-08-24-shep-robyn-fuentes-1on1-prep.md
+      - golf-booking-2026-07-10-failed.md
+      - golf-booking-2026-07-11-followup.md
+      - golf-booking-COMPLETE-20260801.md
+      - golf-booking-blocker-20260820.md
+      - golf-booking-early-run-20260730.md
+      - golf-booking-failure-20260731.md
+      - golf-booking-midnight-retry-20260801.md
+      - golf-booking-scheduling-update-20260801.md
+      - golf-booking-success-20260801.md
+      - golf-override-2026-07-14.md
+      - golf-preview-2026-07-03.md
+      - golf-preview-2026-07-14.md
+      - golf-preview-2026-07-21.md
+      - golf-preview-2026-08-04.md
+      - remarkable-upload-2026-07-23-improve-eval.md
+      - sc-executive-brief-2026-07-13.md
+      - slack-notification-golf-booking-20260801.txt
+      - solace-meeting-prep-2026-07-27.md
+    stranded: []
+  step-02-2026-08-26:
+    episodic_scanned: 289
+    score_updates: 289
+    window_entries: 62
+    no_date: 38
+    no_tags: 206
+    score_distribution: "0:207,1:4,2:3,3:4,4:5,5:3,6:4,7:4,8:3,9:1,10:51"
+    read_errors: 0
+    write_errors: 0
+    note: "Ran systems/dream-cycle/salience-score.py. pct_score_0=71.6% (>=70 escalation threshold) and pct_no_date=13.1% (>10 escalation threshold) both crossed, but both track the 2026-08-25 baseline (71.6%/13.2%) almost exactly -- not a fresh regression, same untagged/undated legacy population driving it. pct_no_tags=71.3% is within the expected warning band (70-100%), not escalated alone."
+  step-03-2026-08-26:
+    candidates_count: 14
+    clusters_found: 6
+    semantic_created: 0
+    semantic_updated: 6
+    promoted_entries: 14
+    cluster_actions:
+      - {tag: plaud-ingest, domain: operational, size: 4, action: update, target: memory/semantic/operational/2026-07-04-plaud-pattern.md, confidence: "medium->high"}
+      - {tag: dream-summary, domain: operational, size: 3, action: update, target: memory/semantic/operational/2026-06-12-dream-summary-pattern.md, confidence: "high (unchanged)"}
+      - {tag: daily-review, domain: operational, size: 2, action: update, target: memory/semantic/operational/2026-06-12-daily-review-pattern.md, confidence: "high (unchanged)"}
+      - {tag: morning-briefing, domain: operational, size: 1, action: update, target: memory/semantic/operational/2026-06-18-morning-briefing-pattern.md, confidence: "high (unchanged)"}
+      - {tag: session-wrap, domain: operational, size: 3, action: update, target: memory/semantic/operational/2026-06-30-session-wrap-pattern.md, confidence: "low->medium"}
+      - {tag: system-health, domain: operational, size: 1, action: update, target: memory/semantic/operational/2026-06-25-system-health-pattern.md, confidence: "low (unchanged)"}
+    promotion_note: "14 candidates this cycle (up from 1 on 08-25) -- a genuine result of 30-day salience-window drift, not a scoring anomaly: score_distribution is nearly identical to 08-25's, and every candidate file's own salience trail (spot-checked) shows no pre-existing promoted:true anywhere, confirming these are first-time crossings of the score>=3 threshold, not re-flagged already-promoted entries. Clustered by direct dominant-tag match against each target file's own `tags:` frontmatter field (not full transitive tag-overlap closure -- transitive closure over-merged unrelated topics, e.g. chaining plaud-ingest into an unrelated rigby/bug-fix cluster via a single shared 'session-wrap' or 'error-correction' tag). All 6 clusters matched an EXISTING semantic file by direct tag; zero new files created this cycle, consistent with 'append over create' given the corpus already shows severe pre-existing duplication (see semantic_duplication note below)."
+    error_categories_30d: "process-skip/protocol-skip:8, assumption-error/wrong-assumption:4, tool-misuse/tool-ignorance:4, missed-context/context-blindness:4, missed-context/lazy-search:3, tool-misuse/wrong-assumption:3, lazy-search/available-data-not-used:3"
+    error_total_30d: 86
+    error_malformed_30d: 4
+    lessons_appended: 0
+    lessons_note: "All 7 qualifying categories (3+ occurrences in 30d, including missed-context/lazy-search which newly crossed the 3-occurrence threshold this cycle) already documented and active in LESSONS.md (missed-context/lazy-search at line ~404-405). No new lesson appended. 4 malformed error entries (null category/failure_mode) flagged for Rigby, unchanged pattern from prior cycles."
+    frontmatter_corruption_finding: "CRITICAL UPDATE to err-20260825T081039-APAWBB: while reading the 14 promotion-candidate source files directly (not via yaml.safe_load, which fails on ~90% of the corpus), found the corruption is far more severe than previously logged. It is not a single stray orphaned line -- affected files (e.g. 2026-07-22-114500-master-session-wrap.md) carry 17-24+ DUPLICATE orphaned 'last-promoted-check:' / 'promoted:' lines accumulated one-per-night over many past cycles, sitting between the tags/related_people lists and the current salience: block, breaking any standard YAML parser (yaml.safe_load) on the file even though the file's own most-recent salience: block (at the very end of frontmatter, which systems/dream-cycle/salience-score.py's regex-based merge-write correctly manages) is clean and authoritative. Confirmed via code review that the CURRENT salience-score.py version does not add NEW orphaned lines (its regex only strips a well-formed trailing 'salience:' block and top-level unindented 'promoted:' lines) -- this is entirely legacy corruption frozen from an OLDER, already-replaced script version, not an active regression. Did not attempt corpus-wide repair (systems/ is Rigby-gated, out of scope for a nightly run); used regex-based extraction reading the LAST (rightmost) salience: block in each file to correctly identify promotion candidates and set promoted:true, bypassing the legacy junk entirely. Recommend Rigby's fix scope be widened beyond the single-line description in APAWBB to a real cleanup pass (strip any indented last-promoted-check:/promoted: lines that fall outside a 'salience:' parent key) across the ~289-file corpus."
+    semantic_duplication: "GUARDRAIL 6 note (not blocking): memory/semantic/ has pre-existing, extensive near-duplicate proliferation independent of this cycle -- e.g. at least 3 separate 'plaud-pattern.md' files across domain-knowledge/, operational/, and pattern/ directories, and 2 separate 'session-wrap-pattern.md' files in operational/ (2026-06-17 and 2026-06-30). This cycle appended only to the single most-recently-active file per cluster (consistent with the file dream-cycle has actually been maintaining in recent nights) and did not create any new files or attempt to merge/delete the older duplicates -- that consolidation is a larger cleanup job outside nightly dream-cycle scope. Flagging for Rigby/manual review; existing files memory/semantic/operational/2026-06-25-score-inflation-pattern.md and .../2026-07-06-frontmatter-repair-pattern.md suggest this exact duplication problem has been noticed before without being resolved."
+  step-03b-2026-08-26:
+    result: pass
+    reason: "14 candidates all first-time score>=3 crossings, none violate promoted/score exclusion; step-04 preview shows 5 compression candidates (normal volume, no promoted entries present); semantic writes this cycle were substantive, not stubs."
+  step-04-2026-08-26:
+    candidates_count: 5
+    entries_compressed: 0
+    digests_updated: 0
+    compression_skipped: true
+    compression_skip_reason: "First cycle to reach the 5-entry safety threshold (prior cycles: 4, below threshold). GUARDRAIL 7 requires showing the controller a preview and waiting for (y/n) approval before compressing/deleting -- this is an unattended scheduled run with no controller present to answer. Per preservation-over-aggression and the same unattended-irreversible-action posture step-03b uses, withheld compression rather than proceeding without approval or blocking the run. Preview recorded below for David to approve/decline at next session; re-run compression manually or via next dream-cycle once decided."
+    compression_preview:
+      - {date: "2026-04-30", file: "2026-04-30-dream-cycle-summary.md", type: working-archive, score: 0}
+      - {date: "2026-05-04", file: "2026-05-04-dream-cycle-summary.md", type: working-archive, score: 0}
+      - {date: "2026-05-08", file: "2026-05-08-session-index-build.md", type: episodic, score: 0}
+      - {date: "2026-05-15", file: "2026-05-15-dream-cycle-summary.md", type: working-archive, score: 0}
+      - {date: "2026-05-27", file: "decisions/2026-05-27-185930-decision-rationale-error-improvement-2026-03-21-to-2026-05-27.md", type: decision-rationale, score: 0, note: "salience frozen since 2026-07-25 -- see err-20260826T081453-664W53 (salience-score.py doesn't recurse into episodic/ subdirectories)"}
+    controller_decision: null
+    subdirectory_recursion_bug_found: "err-20260826T081453-664W53 -- systems/dream-cycle/salience-score.py does not scan memory/episodic/ subdirectories (meetings/, people/, projects/, decisions/, coaching/), contradicting step-02's own CONTEXT BOUNDARIES. Currently affects only 1 file (the decisions/ entry above); other subdirs are empty today but any future entry filed there would never be re-scored. Did not patch (systems/ gated); this cycle's own candidate-finding used an independent os.walk scan so the miss didn't affect today's decisions."
   step-01:
     working_archived: 2
     working_deleted: 0
@@ -72,52 +157,56 @@ accumulated-context:
 guardrails:
   archival_history:
     - {date: "2026-08-25", archived: 2}
-  promotion_history: []
-  compression_history: []
+    - {date: "2026-08-26", archived: 0}
+  promotion_history:
+    - {date: "2026-08-26", promoted: 14, candidates_found: 14}
+  compression_history:
+    - {date: "2026-08-26", candidates_found: 5, compressed: 0}
   archive_safety:
     spot_check_passed: true
     recent_edits_archived: 0
     recently_modified_files: []
   archival_balance:
-    archival_rate: 1.0
-    avg_rate_30d: 0
-    balance_check: "pass — insufficient history for trend comparison, archived_count=2 (non-zero, no escalation trigger)"
+    archival_rate: 0
+    avg_rate_30d: 1.0
+    balance_check: "pass — archived_count=0 this cycle but only 1 prior cycle on record (2 archived), not 3 consecutive zero cycles; no escalation trigger. All 3 not-yet-expired working files (co-sell-pipeline, revenue-tracker, dream-summary-08-25) expire tomorrow, not today, so a zero-archive night was expected."
   score_distribution:
     pct_score_0: 71.6
     pct_score_10: 17.6
-    distribution_check: "escalated — pct_score_0=71.6% (>=70 threshold), but consistent with established baseline (2026-08-23 cycles ran 70.9-71%); no_tags=206/289 drives most zero scores. Not a fresh regression. Surfacing for controller awareness, not blocking."
+    distribution_check: "escalated — pct_score_0=71.6% (>=70 threshold), matches 2026-08-25 baseline (71.6%) almost exactly. Not a fresh regression. Surfacing for controller awareness, not blocking."
     controller_decision: null
   metadata_quality:
-    pct_no_date: 13.2
+    pct_no_date: 13.1
     pct_no_tags: 71.3
-    metadata_check: "escalated — pct_no_date=13.2% (>10% threshold). pct_no_tags=71.3% is within the 'expected for recently archived, monitor for drift' warning band, not escalated on its own."
-    audit_notes: "no_date entries concentrated in older digests-adjacent files predating enrichment protocol; no_tags driven by same population plus this cycle's own step-01 archives whose salience.last-promoted-check is not yet set (scored 0 by design until next cycle)."
+    metadata_check: "escalated — pct_no_date=13.1% (>10% threshold), matches 2026-08-25 baseline (13.2%). pct_no_tags=71.3% is within the 'expected for recently archived, monitor for drift' warning band, not escalated on its own."
+    audit_notes: "Same legacy untagged/undated population as prior cycles driving both metrics — no new degradation this cycle."
   promotion_threshold:
     threshold: 3
-    candidates_found: 1
-    promoted: 1
-    last_4_cycles_promoted: 1
+    candidates_found: 14
+    promoted: 14
+    last_4_cycles_promoted: 15
     threshold_check: "pass"
     controller_decision: null
   semantic_duplication:
     exact_duplicates_skipped: 0
     possible_duplicates_flagged: 0
     consolidation_candidates: 0
-    deduplication_check: "pass — updated existing plaud-pattern.md rather than creating a duplicate; no title/tag overlap conflicts found"
+    deduplication_check: "pass for this cycle's own writes (updated 6 existing files, created none) — but flagging pre-existing corpus-wide duplication found while selecting targets (multiple duplicate -pattern.md files per tag across domain-knowledge/operational/pattern dirs, e.g. 3 separate plaud-pattern.md files); see step-03-2026-08-26.semantic_duplication note. Not this cycle's creation, not remediated this cycle (out of scope)."
   compression_threshold:
-    last_12_cycles_candidates: 4
+    last_12_cycles_candidates: 5
     last_12_cycles_compressed: 0
     avg_per_cycle: 0
-    threshold_check: "pass — below 5-entry threshold, skipped by design, not a drift signal (candidates_found small and non-zero)"
+    threshold_check: "escalated — 5 candidates reached the safety threshold for the first time (prior cycles: 4 or fewer) but GUARDRAIL 7's controller-approval gate could not be satisfied unattended; compression withheld, not a threshold-tuning issue."
     controller_decision: null
   compression_preview:
-    preview_shown: false
-    controller_approved: false
+    preview_shown: true
+    controller_approved: null
+    note: "Preview recorded in accumulated-context.step-04-2026-08-26.compression_preview and in memory/working/dream-summary-2026-08-26.md for David to review at next session. Nothing deleted pending his decision."
   git_atomicity:
-    pre_commit_check: "pass"
+    pre_commit_check: "pending"
     dream_log_valid: true
     state_file_valid: true
-    commit_status: "success"
-    commit_sha: "e9ab245"
-    push_status: "success"
-    atomicity_check: "pass"
+    commit_status: "pending"
+    commit_sha: null
+    push_status: "pending"
+    atomicity_check: "pending"

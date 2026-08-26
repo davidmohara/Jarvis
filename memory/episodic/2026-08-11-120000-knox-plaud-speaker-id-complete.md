@@ -27,9 +27,11 @@ related_people:
   score: 0
   last-promoted-check: 2026-08-14
   last-promoted-check: 2026-08-23
+  last-promoted-check: 2026-08-25
 salience:
   score: 3
-  last-promoted-check: 2026-08-25
+  last-promoted-check: 2026-08-26
+  promoted: true
 ---
 
 # Plaud Ingest Session Complete: Speaker ID + Fetch

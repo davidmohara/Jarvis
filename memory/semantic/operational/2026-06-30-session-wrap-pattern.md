@@ -4,7 +4,7 @@ domain: operational
 subject: "Pattern around session-wrap"
 synthesized-from:
   - memory/episodic/shutdown-cleanup-2026-06-16-071444.md
-last-updated: 2026-08-13
+last-updated: 2026-08-26
 tags:
   - calendar
   - co-sell
@@ -16,7 +16,7 @@ tags:
   - session-wrap
   - shutdown
 agent-source: dream-cycle
-confidence: low
+confidence: medium
 ---
 ## Pattern Summary
 
@@ -58,3 +58,11 @@ Sources this cycle:
 - `memory/episodic/shutdown-cleanup-2026-08-10-184800.md` (score 10) — tags: session-wrap, chief, rigby, plaud, remarkable, solace, error-tracking. Aug 10 session: Plaud dedup bug fixed by Rigby (three-tier dedup with exact file_id as primary key; Knox backfilled 92 vault notes); Solace/Austin Ledesma call prep pushed to reMarkable `/Meetings` as PDF (first use of new remarkable-push skill); Rigby added `skills/remarkable-push/SKILL.md` with naming convention (human-readable, no dates) and path routing by doc type; 2 error logs filed (wrong rmapi path + routing violation/Master bypassed Rigby); root cleanup (call-prep/ moved to meetings/, spending analysis report moved to reports/); 9 files committed.
 
 Aug 10 shutdown-cleanup is notable for two infrastructure additions landing together: the three-tier Plaud dedup fix (file_id as primary key, closing a persistent duplicate-detection gap) and the reMarkable push skill (Rigby, enabling one-command PDF delivery to the tablet). The routing violation error (Master bypassed Rigby for the skill addition) confirms the pattern of Master occasionally shortcutting agent routing under time pressure — this is now a documented recurring error category. The solace/plaud co-occurrence in this session-wrap matches the Jul 30 session-wrap pattern: complex sessions in the Aug-10 timeframe consistently touch multiple operational systems simultaneously.
+
+### 2026-08-26 — Nightly promotion
+Sources this cycle:
+- `memory/episodic/2026-07-22-114500-master-session-wrap.md` (score 3) — resumed a boot that had stalled since 07-21; corrected plaud-ingest being reported stale instead of retried (err-20260722T164142-KOFUWY); verified golf-booking and shutdown-cleanup fixes directly rather than taking David's report on faith (both confirmed resolved).
+- `memory/episodic/2026-07-22-193100-session-bfs-contacts-and-reddit-monitor-fix.md` (score 4) — Builders FirstSource CRM contact-list health check found a 50% departure rate in a 6-contact sample (stale CRM data flag); fixed a major Reddit-monitor bug where the skill instructed publishing a Claude Artifact to fetch reddit.com directly, which fails 100% of the time under Artifact CSP — rewritten to use the existing local Node proxy instead.
+- `memory/episodic/shutdown-cleanup-2026-07-23-134114.md` (score 3) — routine session-wrap; git/shutdown-cleanup verification, remarkable-upload housekeeping.
+
+Two of three sources this cycle (07-22 pair) surfaced genuine infrastructure corrections during otherwise routine session-wrap — a stale-cache reporting bug and a systemic Artifact-CSP bug affecting an entire skill, not just one account. This continues the pattern already noted in the 08-02 and 08-13 entries: session-wrap entries in this cluster disproportionately double as the discovery point for cross-system bugs, not just end-of-session bookkeeping. Escalating confidence low → medium: the cluster now has 6 dated evidence entries across 07-14 through 08-26 with a consistent substantive-finding rate, not sporadic or thin.
