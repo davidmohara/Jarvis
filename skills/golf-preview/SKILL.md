@@ -234,9 +234,9 @@ NWS provides 7-day hourly JSON — sufficient if the target weekend is within 7 
 Do NOT use calendar month as a proxy for heat. Use the actual forecast data.
 
 1. Pull the daily high temperature for each of the 5 days immediately preceding the target Friday (i.e., the 5 days ending on Thursday before the weekend). For each day, find the max `temperature_2m` value across all hours in `hourly.time` for that date.
-2. Count how many of those 5 days had a daily high ≥ 95°F.
-3. If all 5 days were ≥ 95°F → `heat_streak: true` → default preferred start is **4:00 PM** ($15/player)
-4. If fewer than 5 days were ≥ 95°F → `heat_streak: false` → default preferred start is **1:00 PM** ($21/player)
+2. Count how many of those 5 days had a daily high ≥ 99°F.
+3. If all 5 days were ≥ 99°F → `heat_streak: true` → default preferred start is **4:00 PM** ($15/player)
+4. If fewer than 5 days were ≥ 99°F → `heat_streak: false` → default preferred start is **1:00 PM** ($21/player)
 
 When `heat_streak: false`, still check the forecast for the candidate tee time window itself. If the average temperature during a 1:00 PM window on the target day exceeds 95°F, apply a +8 scoring penalty to push toward later windows — but do not change the default start.
 

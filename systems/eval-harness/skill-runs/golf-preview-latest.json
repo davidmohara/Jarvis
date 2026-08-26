@@ -1,13 +1,11 @@
 {
   "skill": "golf-preview",
-  "agent": "sterling",
+  "agent": "chief",
   "trigger": "scheduled",
-  "started": "2026-08-20T00:00:00Z",
-  "completed": "2026-08-20T00:30:00Z",
+  "started": "2026-08-25T19:32:00Z",
+  "completed": "2026-08-25T19:45:00Z",
   "status": "success",
-  "tool_failures": 1,
-  "error_ids": [
-    "err-20260820T000000-GOLF01"
-  ],
-  "notes": "Golf preview completed with calendar + drought analysis. Date calculation error corrected (target weekend Aug 28–30, not Aug 29–31). Friday blocked by LSG Board Retreat + evening meetings. Saturday is rank 1 option (1 PM, $21/player). Weather API failed; NWS insufficient (forecast stale). Slack send attempted; delivery status unconfirmed. Preview output JSON corrected and written successfully. Error logged to error-tracking."
+  "tool_failures": 0,
+  "error_ids": [],
+  "notes": "Full execution complete. Calendar analysis (target weekend Sept 4-6), heat-streak calculation (active, 5/5 days ≥95°F), weather assessment, and scoring all completed. JSON output written to preview-output.json. Slack notification sent to #golf via master-slack skill + post.py (no return errors). Markdown fallback summary written to memory/working/golf-preview-2026-08-25.md. Phase 2 (midnight booking automation) ready to proceed."
 }

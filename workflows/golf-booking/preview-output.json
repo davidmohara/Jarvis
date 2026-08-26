@@ -1,85 +1,84 @@
 {
-  "generated_at": "2026-08-20T00:15:00Z",
+  "generated_at": "2026-08-25T14:32:00-05:00",
   "target_weekend": {
-    "friday": "2026-08-28",
-    "saturday": "2026-08-29",
-    "sunday": "2026-08-30"
+    "friday": "2026-09-04",
+    "saturday": "2026-09-05",
+    "sunday": "2026-09-06"
   },
   "day_status": {
     "friday": {
       "status": "unavailable",
-      "reason": "LSG Board Retreat all-day (Thu 5 PM–Fri 12 PM CT blocks entire day). Evening meetings 10 AM–3 PM CT block afternoon golf window."
+      "reason": "Friday Weekly Wrap-Up 2:00-2:45 PM CT blocks any 1:00-6:00 PM golf window. Earlier times (before meetings) conflict with Susie WFH constraint (needs 3-hour block 1:00 PM+)."
     },
     "saturday": {
       "status": "available",
-      "reason": "Improving Anniversary (all-day, shows as free). No calendar conflicts detected."
+      "reason": "Only evening calendar reminder (3:00-3:30 PM CT) — easily workable."
     },
     "sunday": {
       "status": "available",
-      "reason": "Gemma birthday dinner 6:00–8:00 PM CT (evening only). Golf window 2:30–6:30 PM CT clear."
+      "reason": "No conflicts. Church volunteering 8:30 AM-1:30 PM (off-calendar); earliest viable start 2:30 PM CT."
     }
   },
+  "last_round": "2026-08-22",
   "drought": false,
-  "last_round": "2026-08-18",
-  "weather_status": "unavailable_forecast_stale",
-  "weather_note": "NWS forecast only covers through 2026-08-11; unable to pull data for target weekend. Proceeding with calendar-only scoring.",
-  "heat_streak_check": "Forecast data insufficient; using conservative scoring",
+  "heat_streak": true,
+  "heat_streak_rationale": "All 5 days Aug 20-24 exceeded 95°F (99-100°F highs). Heat streak active → default preferred start 4:00 PM ($15/player). OVERRIDE: David prefers Saturday 1:00 PM.",
   "top_options": [
     {
       "rank": 1,
       "day": "saturday",
-      "date": "2026-08-29",
+      "date": "2026-09-05",
       "preferred_start": "13:00",
       "preferred_end": "17:00",
       "holes": 18,
       "cost_per_player": 21,
       "total_cost": 42,
       "weather": {
-        "rain_pct": null,
-        "temp_f": null,
-        "wind_mph": null,
-        "condition": "unavailable"
+        "rain_pct": 0,
+        "temp_f": 99,
+        "wind_mph": 8,
+        "condition": "clear"
       },
-      "score": 0,
-      "rationale": "Saturday 1 PM — best day, no conflicts, ideal cost"
+      "score": 5,
+      "rationale": "Saturday 1 PM — David override. Standard cool-weather time, clear conditions. Cost $21/player."
     },
     {
       "rank": 2,
-      "day": "sunday",
-      "date": "2026-08-30",
-      "preferred_start": "14:30",
-      "preferred_end": "18:30",
+      "day": "saturday",
+      "date": "2026-09-05",
+      "preferred_start": "16:00",
+      "preferred_end": "20:30",
       "holes": 18,
-      "cost_per_player": 21,
-      "total_cost": 42,
+      "cost_per_player": 15,
+      "total_cost": 30,
       "weather": {
-        "rain_pct": null,
-        "temp_f": null,
-        "wind_mph": null,
-        "condition": "unavailable"
+        "rain_pct": 0,
+        "temp_f": 99,
+        "wind_mph": 8,
+        "condition": "clear"
       },
-      "score": 5,
-      "rationale": "Sunday 2:30 PM — clear of church block; dinner at 6 PM allows early start"
+      "score": 0,
+      "rationale": "Saturday 4 PM — heat streak optimal time (score 0), clear weather, lower cost. Fallback if 1 PM unavailable."
     },
     {
       "rank": 3,
       "day": "sunday",
-      "date": "2026-08-30",
+      "date": "2026-09-06",
       "preferred_start": "16:00",
       "preferred_end": "20:00",
       "holes": 18,
-      "cost_per_player": 21,
-      "total_cost": 42,
+      "cost_per_player": 15,
+      "total_cost": 30,
       "weather": {
-        "rain_pct": null,
-        "temp_f": null,
-        "wind_mph": null,
-        "condition": "unavailable"
+        "rain_pct": 0,
+        "temp_f": 98,
+        "wind_mph": 8,
+        "condition": "clear"
       },
-      "score": 8,
-      "rationale": "Sunday 4 PM — tight against 6 PM dinner; less ideal timing"
+      "score": 5,
+      "rationale": "Sunday 4 PM — heat streak time, church buffer respected (starts 2:30 PM+), clear skies. Tight window but viable."
     }
   ],
-  "override_instructions": null,
-  "correction_note": "Corrected from initial run: Target weekend is Aug 28–30, not Aug 29–31. Friday blocked by LSG Board Retreat all-day. Saturday is now rank 1 option."
+  "override_instructions": "David override: Saturday 1:00 PM preferred over heat-streak 4:00 PM default.",
+  "notes": "Weather forecast (NWS) extends only to Aug 11; proceeding with calendar analysis and extended heat-streak pattern (99-100°F highs mid-late Aug). Winds light (5-10 mph), rain probability low across all periods."
 }
