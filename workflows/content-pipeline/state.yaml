@@ -1,15 +1,15 @@
 workflow: content-pipeline
 status: complete
-started-at: 2026-08-25T14:07:00Z
-completed-at: 2026-08-25T14:13:00Z
+started-at: 2026-08-26T06:01:00Z
+completed-at: 2026-08-26T06:06:00Z
 outputs:
-  messages_scanned: 4
+  messages_scanned: 6
   new_urls: 0
-  new_digests: 3
-  posts_drafted: 3
+  new_digests: 0
+  posts_drafted: 0
   improving_blog_drafts: 0
-  editorial_feedback: 0
-  pending_threads_checked: 13
-  outcome: "3 Watchtower W35 digests processed: 'The Rollout Worked. The People Didn't.' (6a8de92bc0a498028c7e8b5d), 'The Amplifier Paradox' (6a8de957c0a498028c7e8b65), 'DFW Is Building the Other Kind of AI Economy' (6a8de957c0a498028c7e8b6d). All created as Ghost drafts, verified, notified in #content. 13 pending threads scanned, no new editorial feedback. Image CDN upload failed, using direct Unsplash URLs."
+  editorial_feedback: 2
+  pending_threads_checked: 16
+  outcome: "No new URLs or digests (all 6 channel messages were yesterday's bot output). 2 editorial edits applied: (1) Amplifier Paradox (6a8de8d2c0a498028c7e8b4d) — added CHI 2026 study link; (2) DFW Is Building the Other Kind of AI Economy (6a8de8d2c0a498028c7e8b55) — swapped image to Dallas skyline CDN, added links to Brookings report and AI 75 list. Corrected Ghost post IDs for W35 batch in pending-drafts.json. Updated status for 4 published posts."
 model: sonnet
 current-step: null

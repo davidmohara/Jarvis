@@ -72,7 +72,7 @@
     "title": "The Rate Case Decides Your AI Bill",
     "source_url": "https://open.spotify.com/episode/5uFfXefDAgOOwta5uGMLVf",
     "created_at": "2026-08-13T11:12:13Z",
-    "status": "pending",
+    "status": "published",
     "source_type": "url",
     "content_type": "post"
   },
@@ -83,7 +83,7 @@
     "title": "The Line at the Hedge",
     "source_url": "https://x.com/samahoole/status/2087485131971875190",
     "created_at": "2026-08-14T11:12:37Z",
-    "status": "pending",
+    "status": "published",
     "source_type": "url",
     "content_type": "post"
   },
@@ -94,7 +94,7 @@
     "title": "You Can't Govern an Inventory You Don't Know You Have",
     "source_url": null,
     "created_at": "2026-08-20T06:43:00Z",
-    "status": "pending",
+    "status": "published",
     "source_type": "digest",
     "content_type": "post"
   },
@@ -105,7 +105,7 @@
     "title": "IBM Just Showed What Delivery Restructuring Actually Looks Like",
     "source_url": null,
     "created_at": "2026-08-20T06:43:13Z",
-    "status": "pending",
+    "status": "published",
     "source_type": "digest",
     "content_type": "post"
   },
@@ -127,11 +127,11 @@
     "title": "The Market Just Valued the Agent Security Gap at $1.1 Billion",
     "source_url": null,
     "created_at": "2026-08-20T19:11:19Z",
-    "status": "pending",
+    "status": "published",
     "source_type": "digest",
     "content_type": "post"
-  }
-  ,{
+  },
+  {
     "ghost_post_id": "6a88a2b1c0a498028c7e8b2c",
     "slack_thread_ts": "1787339465.566859",
     "slack_channel": "C0B160MA3EK",
@@ -143,7 +143,7 @@
     "content_type": "post"
   },
   {
-    "ghost_post_id": "6a8de92bc0a498028c7e8b5d",
+    "ghost_post_id": "6a8de8d2c0a498028c7e8b45",
     "slack_thread_ts": "1787685234.296889",
     "slack_channel": "C0B160MA3EK",
     "title": "The Rollout Worked. The People Didn't.",
@@ -154,7 +154,7 @@
     "content_type": "post"
   },
   {
-    "ghost_post_id": "6a8de957c0a498028c7e8b65",
+    "ghost_post_id": "6a8de8d2c0a498028c7e8b4d",
     "slack_thread_ts": "1787685242.154729",
     "slack_channel": "C0B160MA3EK",
     "title": "The Amplifier Paradox",
@@ -162,10 +162,18 @@
     "created_at": "2026-08-25T14:07:22Z",
     "status": "pending",
     "source_type": "digest",
-    "content_type": "post"
+    "content_type": "post",
+    "editorial_edits": [
+      {
+        "reply_ts": "1787695714.241789",
+        "instruction": "Put the link to the study in the post",
+        "applied_at": "2026-08-26T06:05:00Z",
+        "summary": "Added link to CHI 2026 study (dl.acm.org) on 'A 2026 coding study' text in paragraph 4"
+      }
+    ]
   },
   {
-    "ghost_post_id": "6a8de957c0a498028c7e8b6d",
+    "ghost_post_id": "6a8de8d2c0a498028c7e8b55",
     "slack_thread_ts": "1787685245.798419",
     "slack_channel": "C0B160MA3EK",
     "title": "DFW Is Building the Other Kind of AI Economy",
@@ -173,6 +181,14 @@
     "created_at": "2026-08-25T14:07:25Z",
     "status": "pending",
     "source_type": "digest",
-    "content_type": "post"
+    "content_type": "post",
+    "editorial_edits": [
+      {
+        "reply_ts": "1787695435.221929",
+        "instruction": "Swap image for something that better represents DFW; add links to Brookings report and Dallas Innovates AI 75 list",
+        "applied_at": "2026-08-26T06:05:08Z",
+        "summary": "Swapped feature image to Dallas skyline (Trinity River, photo-1625950019503-cae6a7825762); added links to Brookings/Dallas Innovates report and 2026 AI 75 list in post body"
+      }
+    ]
   }
 ]
