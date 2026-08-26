@@ -1,15 +1,15 @@
 workflow: content-pipeline
 status: complete
-started-at: 2026-08-26T06:01:00Z
-completed-at: 2026-08-26T06:06:00Z
+started-at: 2026-08-26T19:07:58Z
+completed-at: 2026-08-26T19:10:00Z
 outputs:
-  messages_scanned: 6
+  messages_scanned: 3
   new_urls: 0
   new_digests: 0
   posts_drafted: 0
   improving_blog_drafts: 0
-  editorial_feedback: 2
-  pending_threads_checked: 16
-  outcome: "No new URLs or digests (all 6 channel messages were yesterday's bot output). 2 editorial edits applied: (1) Amplifier Paradox (6a8de8d2c0a498028c7e8b4d) — added CHI 2026 study link; (2) DFW Is Building the Other Kind of AI Economy (6a8de8d2c0a498028c7e8b55) — swapped image to Dallas skyline CDN, added links to Brookings report and AI 75 list. Corrected Ghost post IDs for W35 batch in pending-drafts.json. Updated status for 4 published posts."
+  editorial_feedback: 1
+  pending_threads_checked: 7
+  outcome: "No new URLs or digests (3 channel messages were all Jarvis bot draft notifications). 1 editorial edit applied: The Amplifier Paradox (6a8de8d2c0a498028c7e8b4d) — added VKTR 'The Great Atrophy' link on 'More than 11 million gateway jobs disappeared' in paragraph 3."
 model: sonnet
 current-step: null
