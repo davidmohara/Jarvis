@@ -1400,7 +1400,9 @@
           "workflows/shutdown-cleanup/steps/step-01-purge-artifacts.md",
           "workflows/content-pipeline/steps/step-01-discover.md",
           "workflows/shutdown-cleanup/steps/step-02-organize-deliverables.md",
-          "workflows/shutdown-cleanup/steps/step-03-gitignore-check.md"
+          "workflows/shutdown-cleanup/steps/step-03-gitignore-check.md",
+          "workflows/shutdown-cleanup/steps/step-04-commit.md",
+          "memory/working/shutdown-cleanup-2026-08-27-202000.md"
         ],
         "loops": [],
         "flag": true

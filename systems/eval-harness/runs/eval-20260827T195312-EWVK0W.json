@@ -1,0 +1,65 @@
+{
+  "id": "eval-20260827T195312-EWVK0W",
+  "type": "workflow",
+  "name": "shutdown-cleanup",
+  "agent": "master",
+  "session_id": "",
+  "trigger": "manual",
+  "started": "2026-08-27T19:00:00Z",
+  "completed": "2026-08-27T19:53:12.740004Z",
+  "duration_seconds": 3192.7,
+  "status": "success",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": false,
+      "outputs_non_empty": false,
+      "assertions_checked": 4,
+      "assertions_passed": 1,
+      "assertion_results": [
+        {
+          "assertion": "shutdown-001-state-complete",
+          "description": "Shutdown cleanup workflow state.yaml shows status: complete",
+          "passed": true
+        },
+        {
+          "assertion": "shutdown_cle-wm-written",
+          "description": "Shutdown cleanup working memory file was written to memory/working/",
+          "passed": false
+        },
+        {
+          "assertion": "shutdown_cle-wm-size",
+          "description": "Shutdown cleanup working memory file is substantive (>200 bytes)",
+          "passed": false
+        },
+        {
+          "assertion": "shutdown_cle-wm-content",
+          "description": "Shutdown cleanup working memory contains expected content",
+          "passed": false
+        }
+      ]
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    }
+  },
+  "version_hash": "6078bb1e04b598f3",
+  "prior_baseline_id": null,
+  "tags": [
+    "phantom-candidate",
+    "cowork-hook"
+  ]
+}

@@ -1,11 +1,11 @@
 ---
 workflow: shutdown-cleanup
 agent: master
-status: in-progress
+status: complete
 session-started: "2026-08-27T19:00:00Z"
-session-completed: null
+session-completed: "2026-08-27T20:20:00Z"
 session-id: session-2026-08-27-190000
-current-step: step-01
+current-step: step-04
 original-request: "Run the cleanup workflow"
 accumulated-context:
   purge_results:
