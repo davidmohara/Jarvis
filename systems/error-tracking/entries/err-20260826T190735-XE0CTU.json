@@ -1,0 +1,15 @@
+{
+  "id": "err-20260826T190735-XE0CTU",
+  "timestamp": "2026-08-26T19:07:35Z",
+  "session": "2026-08-26-boot",
+  "source": "explicit",
+  "agent": "master",
+  "category": "tool-misuse",
+  "description": "During boot, Master searched for Desktop Commander (mcp__Control_your_Mac__osascript) and OmniFocus MCP tools via ToolSearch, got no results, and concluded they were unavailable in this session/environment ('Claude Code environment, not Cowork'). David corrected: Desktop Commander is always available, and OmniFocus is now online and accessible. Master reported a false data gap in the boot briefing instead of exhausting search strategies or asking.",
+  "correction": "Desktop Commander is always available for Mac filesystem/OmniFocus operations regardless of apparent session type. OmniFocus is now online. Do not declare a tool unavailable from a single ToolSearch miss.",
+  "failure_mode": "lazy-search",
+  "systemic_fix": "Before declaring any standing tool (Desktop Commander, OmniFocus MCP) unavailable, run multiple ToolSearch query variants and/or attempt a direct call before concluding absence. SYSTEM.md already warns against conflating 'not in my current bash mount' with 'not reachable at all' (err-20260715T134820-X2GOL2) — this is the same failure pattern applied to MCP/tool discovery instead of filesystem paths.",
+  "fix_status": "proposed",
+  "severity": "moderate",
+  "related_entries": ["err-20260715T134820-X2GOL2"]
+}

@@ -1349,7 +1349,17 @@
           "workflows/dream-cycle/steps/step-03b-guardrail-checkpoint.md",
           "workflows/dream-cycle/steps/step-04-episodic-compression.md",
           "workflows/dream-cycle/steps/step-05-logging.md",
-          "systems/error-tracking/entries/err-20260827T081312-8HOA70.json"
+          "systems/error-tracking/entries/err-20260827T081312-8HOA70.json",
+          "systems/error-tracking/entries/err-20260826T193944-LZA3KU.json",
+          "data/calendar-unified.json",
+          "systems/eval-harness/hook_utils.py",
+          ".claude/hooks/eval-agent-start.py",
+          ".claude/hooks/eval-turn-start.py",
+          ".claude/settings.json",
+          ".claude/hooks/workflow-start.py",
+          "workflows/shutdown-cleanup/workflow.md",
+          "workflows/weekly-review/workflow.md",
+          "memory/sessions/index.json"
         ],
         "loops": [],
         "flag": true

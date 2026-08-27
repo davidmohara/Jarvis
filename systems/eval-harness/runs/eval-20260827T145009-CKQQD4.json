@@ -1,0 +1,84 @@
+{
+  "id": "eval-20260827T145009-CKQQD4",
+  "type": "workflow",
+  "name": "shutdown-cleanup",
+  "agent": "master",
+  "session_id": "2026-08-25T17:14:37.010916Z",
+  "trigger": "manual",
+  "started": "2026-08-27T14:50:09.560423Z",
+  "completed": "2026-08-27T14:50:36.373785Z",
+  "duration_seconds": 26.81,
+  "status": "success",
+  "steps": [],
+  "subagents": [],
+  "monitoring": {
+    "active": false,
+    "state_yaml_path": "workflows/shutdown-cleanup/state.yaml",
+    "opened_by": "eval-turn-start.py"
+  },
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 4,
+      "assertions_passed": 1,
+      "assertion_results": [
+        {
+          "assertion": "shutdown-001-state-complete",
+          "description": "Shutdown cleanup workflow state.yaml shows status: complete",
+          "passed": true
+        },
+        {
+          "assertion": "shutdown_cle-wm-written",
+          "description": "Shutdown cleanup working memory file was written to memory/working/",
+          "passed": false
+        },
+        {
+          "assertion": "shutdown_cle-wm-size",
+          "description": "Shutdown cleanup working memory file is substantive (>200 bytes)",
+          "passed": false
+        },
+        {
+          "assertion": "shutdown_cle-wm-content",
+          "description": "Shutdown cleanup working memory contains expected content",
+          "passed": false
+        }
+      ]
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": "6078bb1e04b598f3f2a1f47346a1ecbedab1c698cf690e3db2e67bb43655dc7c",
+  "prior_baseline_id": null,
+  "tags": [
+    "turn-level"
+  ],
+  "total_tokens_input": null,
+  "total_tokens_output": null,
+  "total_cost_usd": null
+}

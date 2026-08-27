@@ -1,0 +1,15 @@
+{
+  "id": "err-20260826T193350-RJK2JY",
+  "timestamp": "2026-08-26T19:33:50Z",
+  "session": "2026-08-26-rigby-eval-hook-lifecycle-build",
+  "source": "explicit",
+  "agent": "rigby",
+  "category": "assumption-error",
+  "description": "The original build spec for the new eval-hook lifecycle (relayed by Master from David) specified UserPromptExpansion as the hook that detects workflow-run intent and opens the eval record. Before Rigby had written any code against it, David corrected via Master mid-task: use UserPromptSubmit instead, because it fires on the raw submitted prompt before any expansion, so it also catches natural-language workflow triggers that never go through a slash-command expansion step — UserPromptExpansion would miss those.",
+  "correction": "Use UserPromptSubmit, not UserPromptExpansion, for detecting workflow-run intent and opening the turn-level eval record. Everything else in the spec (PreToolUse/PostToolUse and SubagentStart/SubagentStop writing into the open record, Stop closing it only if one was actually opened) is unaffected.",
+  "failure_mode": "wrong-assumption",
+  "systemic_fix": "When a build spec names a specific Claude Code hook event for a detection/trigger purpose, verify against current hook-event semantics (raw vs. expanded prompt, pre- vs. post-processing) before implementing, rather than treating the spec's named event as necessarily correct — hook event naming is easy to pick wrong without checking exactly what each one fires on and in what order. Implemented against UserPromptSubmit in .claude/hooks/eval-turn-start.py from the start once this correction landed, so no rework was needed.",
+  "fix_status": "applied",
+  "severity": "minor",
+  "related_entries": []
+}

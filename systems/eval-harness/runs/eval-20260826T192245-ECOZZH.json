@@ -1,0 +1,96 @@
+{
+  "id": "eval-20260826T192245-ECOZZH",
+  "agent_id": "af30b237d7ee7b89b",
+  "type": "agent",
+  "name": "fork",
+  "agent": "fork",
+  "session_id": "",
+  "trigger": "unknown",
+  "started": "2026-08-26T19:22:45.669346Z",
+  "completed": null,
+  "duration_seconds": null,
+  "status": "failure",
+  "steps": [
+    {
+      "name": "step-01-load-context.md",
+      "started": "2026-08-25T16:11:15Z",
+      "completed": "2026-08-25T16:12:30Z",
+      "duration_seconds": 75.0,
+      "status": "complete",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": null,
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    },
+    {
+      "name": "step-05-synthesize-briefing.md",
+      "started": "2026-08-25T16:14:30Z",
+      "completed": "2026-08-25T16:15:00Z",
+      "duration_seconds": 30.0,
+      "status": "complete",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": null,
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    }
+  ],
+  "assessment": {
+    "mechanical": {
+      "completed": null,
+      "all_steps_finished": true,
+      "tool_failures": 2,
+      "error_ids": [
+        "err-20260826T193350-RJK2JY"
+      ],
+      "tool_failure_log": [
+        {
+          "tool": "Bash",
+          "error": "Exit code 1\nmaster_workflows: []\ndetected: None\nalready_open before: False\nTraceback (most recent call last):\n  File \"<stdin>\", line 25, in <module>\nKeyError: 'boot'",
+          "duration_ms": 103,
+          "timestamp": "2026-08-26T14:29:34.286511"
+        },
+        {
+          "tool": "Bash",
+          "error": "Exit code 1\nIES_ROOT /Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/systems\nWORKFLOWS_DIR /Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/systems/workflows False\nTraceback (most recent call last):\n  File \"<stdin>\", line 14, in <module>\n  File \"/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/pathlib/__init__.py\", line 836, in iterdir\n    with os.scandir(root_dir) as scandir_it:\n         ~~~~~~~~~~^^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: '/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/systems/workflows'",
+          "duration_ms": 126,
+          "timestamp": "2026-08-26T14:30:56.499518"
+        }
+      ]
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": []
+}

@@ -1,0 +1,59 @@
+{
+  "id": "eval-20260827T141248-N4RYFM",
+  "agent_id": "ac40f2ffdbe8a2390",
+  "type": "agent",
+  "name": "general-purpose",
+  "agent": "general-purpose",
+  "session_id": "2026-08-25T17:14:37.010916Z",
+  "trigger": "unknown",
+  "started": "2026-08-27T14:12:48.676005Z",
+  "completed": "2026-08-27T14:13:32.497737Z",
+  "duration_seconds": 43.82,
+  "status": "success",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/0faf1016-2bec-49b8-9498-6d25e54e7bbb/subagents/agent-ac40f2ffdbe8a2390.jsonl",
+  "last_assistant_message": "**[Rigby]: Understood \u2014 leaving all four files alone, and closing this out.**\n\nAcknowledged. The `boot`/`plaud-ingest`/`calendar-unified` writes were real, legitimate work from your and Knox's side of this same live session, not a recurrence of the original contamination \u2014 makes sense given I only had visibility into the working tree, not who else was acting on it concurrently. Not touching those four files again. Also noted on `QQMBTP` \u2014 your firsthand corroboration of Knox's vault cross-reference is a different evidence bar than what I could verify from a fresh subagent's seat, so I'm treating that one as closed too.\n\n**Final state of the build, end to end:**\n\n- Eval-hook lifecycle: `eval-turn-start.py` (UserPromptSubmit, run-intent detection now unit-tested against 11 cases), `eval-turn-stop.py` (Stop, closes only on terminal `state.yaml` status), `eval-agent-start/stop.py` extended to roll subagents into an open turn record, `hook_utils.py` holding shared helpers, `session-id` bug fixed in both copies against the real `{started, closed, current_topic, topics}` schema, `schema.md` updated to document the new fields.\n- Boot dispatch model: steps 2-12 run as one blocking spawned subagent; step-01 stays inline as a documented, permanent exception (loads Master's own identity into Master's live session \u2014 can't be delegated without breaking that).\n- `workflow-start.py` retired (unregistered from `settings.json`, deprecation header left in place) \u2014 its orphan-stub failure mode is fully superseded by the turn-level and agent-level lifecycles.\n- Contaminated eval records cleaned: `LE19LT` (spurious, empty session_id + over-broad match) and the two orphaned `plaud-ingest` stubs from the retired hook \u2014 all deleted, each confirmed before removal.\n- `shutdown-cleanup` and `weekly-review` still carry the identical `agent: master` gap \u2014 flagged, not fixed, tracked in `evolutions/.pending-changes.json` under `work-20260826-193329-eval-hook-lifecycle` for whenever you want it.\n\nEverything compiles, `settings.json` is valid JSON, nothing is committed. Snapshot's at `evolutions/snapshots/20260826T192546Z-eval-hook-lifecycle/`. Say the word if you want this committed and packaged as an evolution.",
+  "model": "sonnet",
+  "total_tokens_input": 352926,
+  "total_tokens_output": 4,
+  "total_cost_usd": 0.658725
+}

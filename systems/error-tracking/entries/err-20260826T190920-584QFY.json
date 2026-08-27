@@ -1,0 +1,15 @@
+{
+  "id": "err-20260826T190920-584QFY",
+  "timestamp": "2026-08-26T19:09:20Z",
+  "session": "2026-08-26-boot",
+  "source": "explicit",
+  "agent": "master",
+  "category": "assumption-error",
+  "description": "After being corrected that Desktop Commander is always available, Master treated 'Desktop Commander' and 'osascript' as an MCP tool it needed to locate via ToolSearch, ran several more ToolSearch queries, found nothing, and told David it might be a connector/MCP wiring issue. David corrected again: osascript is a native macOS CLI available directly via the Bash tool in this Claude Code session — not an MCP server dependency at all. Running `osascript -e '...'` via Bash worked immediately and returned OmniFocus data.",
+  "correction": "In a Claude Code (non-Cowork) session on this Mac, osascript is invoked directly via the Bash tool, not through an MCP server. Do not assume every named capability requires a matching MCP tool — check whether it's a plain CLI reachable via Bash first, especially for host OS automation (AppleScript/osascript) which is inherently a shell command.",
+  "failure_mode": "wrong-assumption",
+  "systemic_fix": "When a capability described in project docs (SYSTEM.md/CLAUDE.md) as 'always available' doesn't surface via ToolSearch, check whether it's actually a CLI/shell capability reachable via Bash before concluding it's an MCP connectivity problem. Pattern-mismatch: applied the MCP-tool mental model to a shell-native capability.",
+  "fix_status": "proposed",
+  "severity": "moderate",
+  "related_entries": ["err-20260826T190735-XE0CTU", "err-20260715T134820-X2GOL2"]
+}

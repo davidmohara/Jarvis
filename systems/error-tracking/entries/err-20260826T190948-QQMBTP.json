@@ -1,0 +1,15 @@
+{
+  "id": "err-20260826T190948-QQMBTP",
+  "timestamp": "2026-08-26T19:09:48Z",
+  "session": "pi-20260824-001 (surfaced 2026-08-26)",
+  "source": "explicit",
+  "agent": "knox",
+  "category": "data-accuracy",
+  "description": "plaud-ingest session pi-20260824-001 step-01 discovery reported vault-ingested-count: 4 out of api-total-recordings: 120, flagging 116 already-ingested recordings as 'new-recordings' and carrying 45 of them into step-03 as needing speaker identification. Verified directly against the Obsidian vault: all 117 file_ids referenced in state.yaml's new-recordings + pending-speaker-mappings (116 + 1 orphaned entry) already exist as ingested notes under zzPlaud/, matched via the authoritative file_id frontmatter field the plaud-discover skill itself documents as the Tier-1 dedup key. Those existing notes already have real speaker names resolved (e.g. 'Diana Stevens, Robyn Fuentes, Mark Remington, O'Hara'), not generic Speaker N labels. The vault actually contains 174 Plaud notes, not the 4 the session recorded. So the '44 recordings need speaker ID' figure reported to the controller was fabricated by an upstream discovery failure, not a real backlog.",
+  "correction": "Zero of the 116 flagged recordings are actually new. The true new-recordings count for that period is 0 (the one prior legitimately-new recording, 8b45065b02f3a852edadfb43c319a9ea, was also already confirmed in vault per the immediately preceding session pi-20260823-001's own step-01 output). Root cause is step-01's vault cross-reference silently failing or short-circuiting (Obsidian MCP list_vault_files call likely errored, timed out, or returned a partial/wrong-path result) during session pi-20260824-001, and the step-01 failure-mode fallback ('Vault unreachable -> proceed without dedup, risk of duplicate processing is acceptable') masked the failure instead of surfacing it, so the entire discovery output for that session was built on a broken dedup and should never have been trusted downstream into step-03.",
+  "failure_mode": "stale-cache",
+  "systemic_fix": "step-01-discover.md's failure mode for 'Vault unreachable' should not silently proceed and mark everything as new -- it should abort the workflow run and report the vault-read failure to the controller instead, since silent fallback produces exactly this outcome (100% false-positive new-recordings). Also worth adding a sanity check to step-01: if vault-ingested-count is dramatically lower than the previous run's confirmed-in-vault count for the same/overlapping recording set, treat that as a signal the vault read failed rather than that 100+ recordings vanished from the vault, and abort/retry instead of trusting the result.",
+  "fix_status": "proposed",
+  "severity": "major",
+  "related_entries": []
+}

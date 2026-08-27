@@ -1,391 +1,42 @@
 {
-  "pulled_at": "2026-08-25T14:00:00Z",
+  "pulled_at": "2026-08-26T19:00:15Z",
   "date_range": {
-    "start": "2026-08-25",
-    "end": "2026-08-28"
+    "start": "2026-08-26",
+    "end": "2026-08-29"
   },
-  "event_count": 40,
+  "event_count": 32,
   "events": [
-    {
-      "subject": "Drive To Office for CC Breakfast",
-      "organizer": "David.OHara@improving.com",
-      "attendees": null,
-      "start": "2026-08-25T12:30:00Z",
-      "end": "2026-08-25T12:50:00Z",
-      "location": null,
-      "showAs": "busy",
-      "isOrganizer": true
-    },
-    {
-      "subject": "Conscious Capitalism Executive Breakfast",
-      "organizer": "David.OHara@improving.com",
-      "attendees": null,
-      "start": "2026-08-25T13:00:00Z",
-      "end": "2026-08-25T16:00:00Z",
-      "location": null,
-      "showAs": "busy",
-      "isOrganizer": true
-    },
-    {
-      "subject": "Sales & Recruiting Meeting",
-      "organizer": "DallasSales@improving.com",
-      "attendees": ["DallasSales@improving.com", "Alexander.Powell@improving.com", "Bryan.Crawford@improving.com", "Dallas-LonghornCavern@improving.com", "Don.McGreal@Improving.com", "Kevin.Baker@Improving.com", "Gabriela.Garza-Ramos@Improving.com", "Diana.Stevens@Improving.com", "mark.miesner@improving.com", "Tim.Rayburn@Improving.com", "jenn.massey@improving.com", "derek.nwamadi@improving.com", "roderic.patane@improving.com", "Steve.Pfiffner@Improving.com", "David.Belcher@Improving.com", "David.O'Hara@improving.com", "Blake.McMillan@Improving.com", "Ben.Kennedy@Improving.com"],
-      "start": "2026-08-25T14:15:00Z",
-      "end": "2026-08-25T14:30:00Z",
-      "location": "Microsoft Teams Meeting; Dallas - Longhorn Cavern",
-      "showAs": "tentative",
-      "isOrganizer": false
-    },
-    {
-      "subject": "Sales Scrum",
-      "organizer": "stephen.johnson@improving.com",
-      "attendees": ["stephen.johnson@improving.com", "houston-conferenceroomtrust@improving.com", "Oscar.Velazquez@improving.com", "Shalini.Arora@improving.com", "devlin.liles@Improving.com", "mark.remington@improving.com", "Minu.Mohan@improving.com", "Juan.Bernal@improving.com", "Emmanuel.Bernal@improving.com", "Robyn.Fuentes@Improving.com", "David.O'Hara@improving.com", "scott.mai@improving.com", "jenn.massey@improving.com", "victoria.ochoa@improving.com", "Jake.Stevenson@Improving.com"],
-      "start": "2026-08-25T15:00:00Z",
-      "end": "2026-08-25T15:30:00Z",
-      "location": "Microsoft Teams Meeting; Houston - Conference Room Trust",
-      "showAs": "tentative",
-      "isOrganizer": false
-    },
-    {
-      "subject": "SAP Group Meeting",
-      "organizer": "derek.nwamadi@improving.com",
-      "attendees": ["derek.nwamadi@improving.com", "Kevin.Baker@Improving.com", "Don.McGreal@Improving.com", "Gabriela.Garza-Ramos@Improving.com", "David.OHara@improving.com", "David.Schwartz@improving.com", "Alexander.Powell@improving.com", "Sean.Antonello@improving.com", "jordan.vukanovich@improving.com", "Dallas-ConferenceRoomTrust@improving.com"],
-      "start": "2026-08-25T16:30:00Z",
-      "end": "2026-08-25T17:00:00Z",
-      "location": "Dallas - Conference Room Trust",
-      "showAs": "tentative",
-      "isOrganizer": false
-    },
-    {
-      "subject": "Lunch Break",
-      "organizer": "David.OHara@improving.com",
-      "attendees": null,
-      "start": "2026-08-25T17:00:00Z",
-      "end": "2026-08-25T18:30:00Z",
-      "location": null,
-      "showAs": "busy",
-      "isOrganizer": true
-    },
-    {
-      "subject": "Drive To",
-      "organizer": "David.OHara@improving.com",
-      "attendees": null,
-      "start": "2026-08-25T18:30:00Z",
-      "end": "2026-08-25T19:00:00Z",
-      "location": "14185 Dallas Parkway, Suite 1150 Dallas TX 75254",
-      "showAs": "busy",
-      "isOrganizer": true
-    },
-    {
-      "subject": "AI Executive Workshop",
-      "organizer": "ayotundegibbs@remingtonhotels.com",
-      "attendees": ["ayotundegibbs@remingtonhotels.com", "David.OHara@improving.com", "diana.stevens@improving.com", "BenPerelmuter@remingtonhotels.com", "corychambers@remingtonhotels.com", "RJones@ashfordinc.com", "jasonkreul@remingtonhotels.com", "keitholtchick@remingtonhotels.com", "NicoleShanks@remingtonhotels.com", "11thCEOBoardroom@remingtonhotels.com"],
-      "start": "2026-08-25T19:00:00Z",
-      "end": "2026-08-25T21:00:00Z",
-      "location": "Microsoft Teams Meeting; 11th CEO Boardroom",
-      "showAs": "busy",
-      "isOrganizer": false
-    },
-    {
-      "subject": "Drive From",
-      "organizer": "David.OHara@improving.com",
-      "attendees": null,
-      "start": "2026-08-25T21:30:00Z",
-      "end": "2026-08-25T22:00:00Z",
-      "location": null,
-      "showAs": "busy",
-      "isOrganizer": true
-    },
-    {
-      "subject": "SIM - Enclave | DFW - North Dallas",
-      "organizer": "enclave@simnet.org",
-      "attendees": ["enclave@simnet.org", "david.ohara@improving.com"],
-      "start": "2026-08-25T23:00:00Z",
-      "end": "2026-08-26T02:00:00Z",
-      "location": "Table 13, 4812 Belt Line Rd, Dallas, TX 75254, USA",
-      "showAs": "busy",
-      "isOrganizer": false
-    },
-    {
-      "subject": "Drive To",
-      "organizer": "David.OHara@improving.com",
-      "attendees": null,
-      "start": "2026-08-26T13:00:00Z",
-      "end": "2026-08-26T13:30:00Z",
-      "location": null,
-      "showAs": "busy",
-      "isOrganizer": true
-    },
-    {
-      "subject": "Breakfast Catch Up With Duane & David at Ida Claire",
-      "organizer": "David.OHara@improving.com",
-      "attendees": ["ddankesreiter@dallaschamber.org"],
-      "start": "2026-08-26T13:30:00Z",
-      "end": "2026-08-26T14:30:00Z",
-      "location": "5001 Belt Line Road, Addison, TX 75254",
-      "showAs": "busy",
-      "isOrganizer": true
-    },
-    {
-      "subject": "Dallas Executive Huddle",
-      "organizer": "Dallas-Leadership@improving.com",
-      "attendees": ["Dallas-Leadership@improving.com", "Kevin.Baker@improving.com", "Diana.Stevens@improving.com", "Ralph.Nicosia@improving.com", "Ben.Kennedy@improving.com", "tonya.guadiz@Improving.com", "Michael.Perry@improving.com", "Tim.Rayburn@Improving.com", "Gabriela.Garza-Ramos@Improving.com", "David.Belcher@improving.com", "Lyn.Barrett@improving.com", "Dallas-ConferenceRoomTrust@improving.com", "Tony.Brown@improving.com", "David.Vibbert@Improving.com", "Don.McGreal@improving.com", "randall.dunigan@improving.com", "David.Schwartz@improving.com", "eric.sowell@improving.com", "peter.karaganis@improving.com", "Blake.McMillan@Improving.com"],
-      "start": "2026-08-26T13:30:00Z",
-      "end": "2026-08-26T14:00:00Z",
-      "location": "Dallas - Conference Room Trust",
-      "showAs": "tentative",
-      "isOrganizer": false
-    },
-    {
-      "subject": "AI Leaders Weekly",
-      "organizer": "Devlin.Liles@Improving.com",
-      "attendees": ["Devlin.Liles@Improving.com", "scott.poulin@improving.com", "michael.slater@improving.com", "Bill.Curry@improving.com", "michael.ell@improving.com", "Tim.Rayburn@Improving.com", "David.OHara@improving.com", "Keylor.Arroyo@improving.com", "federico.german@improving.com", "luis.guzman@improving.com", "Kyle.Porter@improving.com", "hernan.berroja@improving.com"],
-      "start": "2026-08-26T14:30:00Z",
-      "end": "2026-08-26T15:00:00Z",
-      "location": "Microsoft Teams Meeting",
-      "showAs": "tentative",
-      "isOrganizer": false
-    },
-    {
-      "subject": "Drive To",
-      "organizer": "David.OHara@improving.com",
-      "attendees": null,
-      "start": "2026-08-26T14:40:00Z",
-      "end": "2026-08-26T15:00:00Z",
-      "location": null,
-      "showAs": "busy",
-      "isOrganizer": true
-    },
-    {
-      "subject": "SOW review for Dickason Honda of Paris",
-      "organizer": "derek.nwamadi@improving.com",
-      "attendees": ["derek.nwamadi@improving.com", "David.OHara@improving.com", "Anthony.Marrical@Improving.com", "stevehall11565@gmail.com"],
-      "start": "2026-08-26T15:00:00Z",
-      "end": "2026-08-26T15:30:00Z",
-      "location": "Microsoft Teams Meeting",
-      "showAs": "tentative",
-      "isOrganizer": false
-    },
-    {
-      "subject": "Haircut",
-      "organizer": "David.OHara@improving.com",
-      "attendees": null,
-      "start": "2026-08-26T15:00:00Z",
-      "end": "2026-08-26T16:00:00Z",
-      "location": "Boardroom Salon for Men - Plano Lakeside Market, 4001 Preston Rd #506, Plano, TX 75093, United States",
-      "showAs": "free",
-      "isOrganizer": true
-    },
-    {
-      "subject": "Drive From",
-      "organizer": "David.OHara@improving.com",
-      "attendees": null,
-      "start": "2026-08-26T16:00:00Z",
-      "end": "2026-08-26T16:20:00Z",
-      "location": null,
-      "showAs": "busy",
-      "isOrganizer": true
-    },
-    {
-      "subject": "AP Farewell Lunch",
-      "organizer": "Don.McGreal@Improving.com",
-      "attendees": ["Don.McGreal@Improving.com", "Alexander.Powell@improving.com", "Diana.Stevens@Improving.com", "Gabriela.Garza-Ramos@Improving.com", "Kevin.Baker@Improving.com", "Steve.Pfiffner@Improving.com", "David.Belcher@Improving.com", "Tim.Rayburn@Improving.com", "Blake.McMillan@Improving.com", "derek.nwamadi@improving.com", "David.OHara@improving.com", "Bethany.Hilton@Improving.com", "Lyn.Barrett@improving.com", "Bryan.Crawford@improving.com", "Dawn.Dearstone@Improving.com", "ralph.nicosia@improving.com"],
-      "start": "2026-08-26T17:00:00Z",
-      "end": "2026-08-26T18:00:00Z",
-      "location": null,
-      "showAs": "tentative",
-      "isOrganizer": false
-    },
-    {
-      "subject": "[YPO Only] yDeep Dive",
-      "organizer": "mia.ywhales@gmail.com",
-      "attendees": ["mia.ywhales@gmail.com", "David.O'Hara@improving.com"],
-      "start": "2026-08-26T17:30:00Z",
-      "end": "2026-08-26T18:30:00Z",
-      "location": "https://event.ypo.org/ggPZwZ?RefId=NT",
-      "showAs": "tentative",
-      "isOrganizer": false
-    },
-    {
-      "subject": "David O'Hara and Robbie Gongwer: Stagen 30 Minute Check-In",
-      "organizer": "robbie.gongwer@stagen.com",
-      "attendees": ["robbie.gongwer@stagen.com", "david.ohara@improving.com"],
-      "start": "2026-08-26T19:30:00Z",
-      "end": "2026-08-26T20:00:00Z",
-      "location": "https://us02web.zoom.us/j/86435668688?pwd=wx1DPhLrGV43eYsEJ5EjN1fGmliOTl.1",
-      "showAs": "busy",
-      "isOrganizer": false
-    },
-    {
-      "subject": "Invitation to app.jinaga.com",
-      "organizer": "Michael.Perry@Improving.com",
-      "attendees": ["Michael.Perry@Improving.com", "David.OHara@improving.com", "Dallas-ConferenceRoomTrust@improving.com"],
-      "start": "2026-08-26T20:00:00Z",
-      "end": "2026-08-26T20:30:00Z",
-      "location": "Dallas - Conference Room Trust",
-      "showAs": "tentative",
-      "isOrganizer": false
-    },
-    {
-      "subject": "Golf Lesson",
-      "organizer": "David.OHara@improving.com",
-      "attendees": null,
-      "start": "2026-08-26T21:00:00Z",
-      "end": "2026-08-26T22:00:00Z",
-      "location": "Integrity Golf Performance",
-      "showAs": "busy",
-      "isOrganizer": true
-    },
-    {
-      "subject": "LSG Board Retreat",
-      "organizer": "David.OHara@improving.com",
-      "attendees": null,
-      "start": "2026-08-27T00:00:00Z",
-      "end": "2026-08-29T00:00:00Z",
-      "location": "13701 North Shore Way\nMalakoff, TX 75148",
-      "showAs": "busy",
-      "isAllDay": true,
-      "isOrganizer": true
-    },
-    {
-      "subject": "Sales & Recruiting Meeting",
-      "organizer": "DallasSales@improving.com",
-      "attendees": ["DallasSales@improving.com", "Alexander.Powell@improving.com", "Bryan.Crawford@improving.com", "Dallas-LonghornCavern@improving.com", "Don.McGreal@Improving.com", "Kevin.Baker@Improving.com", "Gabriela.Garza-Ramos@Improving.com", "Diana.Stevens@Improving.com", "mark.miesner@improving.com", "Tim.Rayburn@Improving.com", "jenn.massey@improving.com", "derek.nwamadi@improving.com", "roderic.patane@improving.com", "Steve.Pfiffner@Improving.com", "David.Belcher@Improving.com", "David.O'Hara@improving.com", "Blake.McMillan@Improving.com", "Ben.Kennedy@Improving.com"],
-      "start": "2026-08-27T14:15:00Z",
-      "end": "2026-08-27T14:30:00Z",
-      "location": "Microsoft Teams Meeting; Dallas - Longhorn Cavern",
-      "showAs": "tentative",
-      "isOrganizer": false
-    },
-    {
-      "subject": "Sales Scrum",
-      "organizer": "stephen.johnson@improving.com",
-      "attendees": ["stephen.johnson@improving.com", "houston-conferenceroomtrust@improving.com", "Oscar.Velazquez@improving.com", "Shalini.Arora@improving.com", "devlin.liles@Improving.com", "mark.remington@improving.com", "Minu.Mohan@improving.com", "Juan.Bernal@improving.com", "Emmanuel.Bernal@improving.com", "Robyn.Fuentes@Improving.com", "David.O'Hara@improving.com", "scott.mai@improving.com", "jenn.massey@improving.com", "victoria.ochoa@improving.com", "Jake.Stevenson@Improving.com"],
-      "start": "2026-08-27T15:00:00Z",
-      "end": "2026-08-27T15:30:00Z",
-      "location": "Microsoft Teams Meeting; Houston - Conference Room Trust",
-      "showAs": "tentative",
-      "isOrganizer": false
-    },
-    {
-      "subject": "Dallas Town Hall - August",
-      "organizer": "Don.McGreal@Improving.com",
-      "attendees": ["Don.McGreal@Improving.com", "Dallas-ClassroomDedication@improving.com", "Dallas-ClassroomInvolvement@improvingenterprises.com", "Enterprise-Dallas@improving.com", "casey.holland@improving.com", "Gabriela.Garza-Ramos@Improving.com", "randall.dunigan@improving.com", "richard.gyger@improving.com", "Dushyant.Sheoran@improving.com", "David.Schwartz@improving.com", "Ric.DeAnda@Improving.com", "eric.sowell@improving.com", "tim.dickey@improving.com", "Blake.McMillan@Improving.com", "Steve.Pfiffner@Improving.com", "Harold.Pulcher@Improving.com", "josh.rizzo@improving.com", "mark.miesner@improving.com", "eric.young@improving.com", "joshua.fryer@improving.com", "David.Belcher@Improving.com", "sai.teja@improving.com", "Tony.Brown@Improving.com", "james.lovell@improving.com", "Brian.Mackey@improving.com", "hugh.obrien@improving.com", "Kevin.Berry@Improving.com", "ralph.nicosia@improving.com", "John.Woodward@Improving.com", "Kevin.Baker@Improving.com", "matthew.mcmaster@improving.com", "Suren.Bafna@Improving.com", "derek.nwamadi@improving.com", "jake.stevens@improving.com", "emmett.oreilly@improving.com", "mason.steeger@improving.com", "Tim.Rayburn@Improving.com", "peter.karaganis@improving.com", "Richard.Kang@Improving.com", "michael.rousey@Improving.com", "Bethany.Hilton@Improving.com", "josue.aguilar@improving.com", "jorge.pliego@improving.com", "ashok.Iyengar@improving.com", "Tonya.Guadiz@Improving.com", "Cozetta.Owens@Improving.com", "tanner.morris@improving.com", "Nik.Clarkson@Improving.com", "Anthony.Marrical@Improving.com", "Michael.Dudley@Improving.com", "jennifer.eckert@improving.com", "Curtis.Hite@Improving.com", "mark.cooke@improving.com", "nathan.mynarcik@improving.com", "stephen.hunt@improving.com", "shelby.stephens@improving.com", "Ben.Kennedy@Improving.com", "Kris.McGinnes@Improving.com", "roderic.patane@improving.com", "Ken.Byrd@Improving.com", "ed.grannan@improving.com", "Craig.Neuwirt@Improving.com", "seth.faerber@improving.com", "Ken.Howard@Improving.com", "Amber.Robinson@improving.com", "Amber.Leese@improving.com", "adina.nedelcu@improving.com", "Diana.Stevens@Improving.com", "jennifer.spaulding@improving.com", "Dawn.Dearstone@Improving.com", "Michael.Perry@Improving.com", "Andrew.Jones@improving.com"],
-      "start": "2026-08-27T16:30:00Z",
-      "end": "2026-08-27T17:15:00Z",
-      "location": "Dallas - Classroom Dedication; Dallas - Classroom Involvement",
-      "showAs": "tentative",
-      "isOrganizer": false
-    },
-    {
-      "subject": "The Science of Curiosity: Why We Love Mystery (and How It Boosts Learning), with Esteban Cortes",
-      "organizer": "sandy.hermosillo@improving.com",
-      "attendees": ["sandy.hermosillo@improving.com", "AllImprovers@improving.com"],
-      "start": "2026-08-27T17:00:00Z",
-      "end": "2026-08-27T18:00:00Z",
-      "location": "Microsoft Teams Meeting",
-      "showAs": "tentative",
-      "isOrganizer": false
-    },
-    {
-      "subject": "Lone Star Gold 2026 Board Retreat",
-      "organizer": "tiffany@lonestargold.org",
-      "attendees": ["tiffany@lonestargold.org", "mdbela@covalentcapital.com", "chaitanf@gmail.com", "geoffbrenner@me.com", "mark@tatumbrown.com", "huddy9370@gmail.com", "matt@allata.com", "ryan@evolvecapital.com", "ckelsey@dartinterests.com", "David.O'Hara@improving.com", "alowrance@glsc.com", "beau.wehrle@berchcapital.com", "megan.wehrle@berchcapital.com", "Josh.White@cbre.com"],
-      "start": "2026-08-27T17:00:00Z",
-      "end": "2026-08-28T17:00:00Z",
-      "location": "Chaitan's Lake House: 13701 North Shore Way, Malakoff, TX 75148",
-      "showAs": "busy",
-      "isOrganizer": false
-    },
-    {
-      "subject": "one-on-one Scott McMichael",
-      "organizer": "David.OHara@improving.com",
-      "attendees": ["scott.mcmichael@improving.com"],
-      "start": "2026-08-27T19:00:00Z",
-      "end": "2026-08-27T19:30:00Z",
-      "location": "Microsoft Teams Meeting",
-      "showAs": "busy",
-      "isOrganizer": true
-    },
-    {
-      "subject": "New Location for Cigars with the Stars! Industrial Cigar and Co. in Frisco",
-      "organizer": "Steve.Pfiffner@improving.com",
-      "attendees": ["Steve.Pfiffner@Improving.com", "devlin.liles@Improving.com", "Michael.Dudley@Improving.com", "tim.dickey@improving.com", "Ric.DeAnda@improving.com", "jorge.pliego@improving.com", "Lyn.Barrett@improving.com", "Tony.Brown@improving.com", "Bryan.Crawford@improving.com", "randall.dunigan@improving.com", "Skyler.Tweedie@improving.com", "David.Belcher@improving.com", "Richard.Kang@improving.com", "latish.sehgal@gmail.com", "utleyservices@gmail.com", "Don.McGreal@Improving.com", "David.OHara@improving.com", "Blake.McMillan@Improving.com"],
-      "start": "2026-08-27T22:00:00Z",
-      "end": "2026-08-28T00:30:00Z",
-      "location": "Industrial Cigar Co. at 9500 Dallas Pkwy #400, Frisco, TX 75033",
-      "showAs": "tentative",
-      "isOrganizer": false
-    },
-    {
-      "subject": "Dallas Virtual Coffee Chat",
-      "organizer": "Anthony.Marrical@Improving.com",
-      "attendees": ["Anthony.Marrical@Improving.com", "vaughn.jackson@improving.com", "Enterprise-Dallas@improving.com", "nathan.mynarcik@improving.com", "jake.stevens@improving.com", "Richard.Gyger@improving.com", "Craig.Neuwirt@Improving.com", "tanner.morris@improving.com", "Blake.McMillan@improving.com", "joshua.fryer@improving.com", "hugh.obrien@improving.com", "Ralph.Nicosia@improving.com", "Tim.Rayburn@Improving.com", "Brian.Mackey@improving.com", "Matthew.McMaster@improving.com", "david.hardin@improving.com", "Steve.Carse@improving.com", "eric.sowell@improving.com", "Mark.Cooke@improving.com", "tim.dickey@improving.com", "Ed.Grannan@Improving.com", "Shelby.Stephens@improving.com", "jennifer.spaulding@improving.com", "Kevin.Baker@improving.com", "David.Schwartz@improving.com", "Harold.Pulcher@Improving.com", "kris.mcginnes@Improving.com", "Ric.DeAnda@Improving.com", "casey.holland@improving.com", "Marcos.Lopez@improving.com", "eric.young@improving.com", "Cozetta.Owens@Improving.com", "david.nelson@improving.com", "Don.McGreal@improving.com", "David.O'Hara@improving.com", "Amber.Leese@improving.com", "Dawn.Dearstone@improving.com", "Scooter.Mebarek@improving.com", "Ken.Howard@Improving.com", "stephen.hunt@improving.com", "roderic.patane@improving.com", "Ken.Byrd@Improving.com", "Curtis.Hite@Improving.com", "rene.larrave@improving.com", "Tony.Brown@Improving.com", "ashlyn.udden@improving.com", "josh.rizzo@improving.com", "mason.steeger@improving.com", "thomas.distefano@improving.com", "peter.karaganis@improving.com", "bennett.valentine@improving.com", "josue.aguilar@improving.com", "memis.cetinkaya@improving.com", "james.lovell@improving.com", "David.Vibbert@Improving.com", "martin.capeletto@improving.com", "Amber.Robinson@improving.com", "Michael.Wallace@Improving.com", "ashok.Iyengar@improving.com"],
-      "start": "2026-08-28T13:00:00Z",
-      "end": "2026-08-28T14:00:00Z",
-      "location": "Microsoft Teams Meeting",
-      "showAs": "tentative",
-      "isOrganizer": false
-    },
-    {
-      "subject": "Sales & Recruiting Meeting",
-      "organizer": "DallasSales@improving.com",
-      "attendees": ["DallasSales@improving.com", "Alexander.Powell@improving.com", "Bryan.Crawford@improving.com", "Dallas-LonghornCavern@improving.com", "Don.McGreal@Improving.com", "Kevin.Baker@Improving.com", "Gabriela.Garza-Ramos@Improving.com", "Diana.Stevens@Improving.com", "mark.miesner@improving.com", "Tim.Rayburn@Improving.com", "jenn.massey@improving.com", "derek.nwamadi@improving.com", "roderic.patane@improving.com", "Steve.Pfiffner@Improving.com", "David.Belcher@Improving.com", "David.O'Hara@improving.com", "Blake.McMillan@Improving.com", "Ben.Kennedy@Improving.com"],
-      "start": "2026-08-28T14:15:00Z",
-      "end": "2026-08-28T14:30:00Z",
-      "location": "Microsoft Teams Meeting; Dallas - Longhorn Cavern",
-      "showAs": "tentative",
-      "isOrganizer": false
-    },
-    {
-      "subject": "4th Friday Executive Meeting",
-      "organizer": "Mark.Kovacevich@Improving.com",
-      "attendees": ["Mark.Kovacevich@Improving.com", "executivemeeting@improving.com", "David.O'Hara@improving.com"],
-      "start": "2026-08-28T14:30:00Z",
-      "end": "2026-08-28T15:00:00Z",
-      "location": "Microsoft Teams Meeting",
-      "showAs": "busy",
-      "isOrganizer": false
-    },
-    {
-      "subject": "Presidents Pipeline Roundtable 2026 (4th Fridays)",
-      "organizer": "scott.mcmichael@improving.com",
-      "attendees": ["scott.mcmichael@improving.com", "David.O'Hara@improving.com"],
-      "start": "2026-08-28T15:00:00Z",
-      "end": "2026-08-28T16:00:00Z",
-      "location": "Microsoft Teams Meeting",
-      "showAs": "busy",
-      "isOrganizer": false
-    },
-    {
-      "subject": "Executive AI Training Program: Session 7, Session 8, Wrap-Up",
-      "organizer": "scott.poulin@improving.com",
-      "attendees": ["scott.poulin@improving.com", "Susan.Fojtasek@Improving.com", "scott.greenlay@improving.com", "scott.mcmichael@improving.com", "ralph.keipert@improving.com", "Devlin.Liles@Improving.com", "Dallas-ConferenceRoomTrust@improving.com", "Curtis.Hite@Improving.com", "jorge.pliego@improving.com", "Ric.DeAnda@Improving.com", "Bethany.Hilton@Improving.com", "David.O'Hara@improving.com"],
-      "start": "2026-08-28T18:00:00Z",
-      "end": "2026-08-28T20:00:00Z",
-      "location": "Dallas - Conference Room Trust; Microsoft Teams Meeting",
-      "showAs": "tentative",
-      "isOrganizer": false
-    },
-    {
-      "subject": "Meet Susie",
-      "organizer": "David.OHara@improving.com",
-      "attendees": null,
-      "start": "2026-08-28T21:00:00Z",
-      "end": "2026-08-28T22:00:00Z",
-      "location": "NorthPark Center, 8687 N Central Expy, Dallas, TX 75225, United States",
-      "showAs": "busy",
-      "isOrganizer": true
-    },
-    {
-      "subject": "DEXA scan",
-      "organizer": "David.OHara@improving.com",
-      "attendees": null,
-      "start": "2026-08-27T13:45:00Z",
-      "end": "2026-08-27T14:45:00Z",
-      "location": "3333 Preston Rd",
-      "showAs": "busy",
-      "isOrganizer": true
-    }
+    {"subject":"SIM - Enclave | DFW - North Dallas","organizer":"enclave@simnet.org","attendees":["enclave@simnet.org","david.ohara@improving.com"],"start":"2026-08-25T23:00:00Z","end":"2026-08-26T02:00:00Z","location":"Table 13, 4812 Belt Line Rd, Dallas, TX 75254, USA","showAs":"busy","isOrganizer":false},
+    {"subject":"Drive To","organizer":"David.OHara@improving.com","attendees":null,"start":"2026-08-26T13:00:00Z","end":"2026-08-26T13:30:00Z","location":null,"showAs":"busy","isOrganizer":true,"categories":["Travel"]},
+    {"subject":"Breakfast Catch Up With Duane & David at Ida Claire","organizer":"David.OHara@improving.com","attendees":["ddankesreiter@dallaschamber.org"],"start":"2026-08-26T13:30:00Z","end":"2026-08-26T14:30:00Z","location":"5001 Belt Line Road, Addison, TX 75254","showAs":"busy","isOrganizer":true,"categories":["Sales","Tracked To Dynamics 365"]},
+    {"subject":"Dallas Executive Huddle","organizer":"Dallas-Leadership@improving.com","attendees":["Dallas-Leadership@improving.com","Kevin.Baker@improving.com","Diana.Stevens@improving.com","Ralph.Nicosia@improving.com","Ben.Kennedy@improving.com","tonya.guadiz@Improving.com","Michael.Perry@improving.com","Tim.Rayburn@Improving.com","Gabriela.Garza-Ramos@Improving.com","David.Belcher@improving.com","Lyn.Barrett@improving.com","Tony.Brown@improving.com","David.Vibbert@Improving.com","Don.McGreal@improving.com","randall.dunigan@improving.com","David.Schwartz@improving.com","eric.sowell@improving.com","peter.karaganis@improving.com","Blake.McMillan@Improving.com"],"start":"2026-08-26T13:30:00Z","end":"2026-08-26T14:00:00Z","location":"Dallas - Conference Room Trust","showAs":"tentative","isOrganizer":false},
+    {"subject":"AI Leaders Weekly","organizer":"Devlin.Liles@Improving.com","attendees":["Devlin.Liles@Improving.com","scott.poulin@improving.com","michael.slater@improving.com","Bill.Curry@improving.com","michael.ell@improving.com","Tim.Rayburn@Improving.com","David.OHara@improving.com","Keylor.Arroyo@improving.com","federico.german@improving.com","luis.guzman@improving.com","Kyle.Porter@improving.com","hernan.berroja@improving.com"],"start":"2026-08-26T14:30:00Z","end":"2026-08-26T15:00:00Z","location":"Microsoft Teams Meeting","showAs":"tentative","isOrganizer":false},
+    {"subject":"Drive To","organizer":"David.OHara@improving.com","attendees":null,"start":"2026-08-26T14:40:00Z","end":"2026-08-26T15:00:00Z","location":null,"showAs":"busy","isOrganizer":true,"categories":["Travel"]},
+    {"subject":"Haircut","organizer":"David.OHara@improving.com","attendees":null,"start":"2026-08-26T15:00:00Z","end":"2026-08-26T16:00:00Z","location":"Boardroom Salon for Men - Plano Lakeside Market, 4001 Preston Rd #506, Plano, TX 75093, United States","showAs":"free","isOrganizer":true,"categories":["Personal"]},
+    {"subject":"Drive From","organizer":"David.OHara@improving.com","attendees":null,"start":"2026-08-26T16:00:00Z","end":"2026-08-26T16:20:00Z","location":null,"showAs":"busy","isOrganizer":true,"categories":["Travel"]},
+    {"subject":"AP Farewell Lunch","organizer":"Don.McGreal@Improving.com","attendees":["Don.McGreal@Improving.com","Alexander.Powell@improving.com","Diana.Stevens@Improving.com","Gabriela.Garza-Ramos@Improving.com","Kevin.Baker@Improving.com","Steve.Pfiffner@Improving.com","David.Belcher@Improving.com","Tim.Rayburn@Improving.com","Blake.McMillan@Improving.com","derek.nwamadi@improving.com","David.OHara@improving.com","Bethany.Hilton@Improving.com","Lyn.Barrett@improving.com","Bryan.Crawford@improving.com","Dawn.Dearstone@Improving.com","ralph.nicosia@improving.com","tim.dickey@improving.com","lybarrett@strongtie.com"],"start":"2026-08-26T17:15:00Z","end":"2026-08-26T18:15:00Z","location":"Lazy Dog Restaurant & Bar","showAs":"tentative","isOrganizer":false},
+    {"subject":"[YPO Only] yDeep Dive","organizer":"mia.ywhales@gmail.com","attendees":["mia.ywhales@gmail.com","David.O'Hara@improving.com"],"start":"2026-08-26T17:30:00Z","end":"2026-08-26T18:30:00Z","location":"https://event.ypo.org/ggPZwZ?RefId=NT","showAs":"tentative","isOrganizer":false},
+    {"subject":"David O'Hara and Robbie Gongwer: Stagen 30 Minute Check-In","organizer":"robbie.gongwer@stagen.com","attendees":["robbie.gongwer@stagen.com","david.ohara@improving.com"],"start":"2026-08-26T19:30:00Z","end":"2026-08-26T20:00:00Z","location":"https://us02web.zoom.us/j/86435668688","showAs":"busy","isOrganizer":false,"categories":["Tracked To Dynamics 365"]},
+    {"subject":"Invitation to app.jinaga.com","organizer":"Michael.Perry@Improving.com","attendees":["Michael.Perry@Improving.com","David.OHara@improving.com","Dallas-ConferenceRoomTrust@improving.com"],"start":"2026-08-26T20:00:00Z","end":"2026-08-26T20:30:00Z","location":"Dallas - Conference Room Trust","showAs":"busy","isOrganizer":false},
+    {"subject":"Golf Lesson","organizer":"David.OHara@improving.com","attendees":null,"start":"2026-08-26T21:00:00Z","end":"2026-08-26T22:00:00Z","location":"Integrity Golf Performance","showAs":"busy","isOrganizer":true},
+    {"subject":"LSG Board Retreat","organizer":"David.OHara@improving.com","attendees":null,"start":"2026-08-27T00:00:00Z","end":"2026-08-29T00:00:00Z","location":"13701 North Shore Way, Malakoff, TX 75148","showAs":"busy","isOrganizer":true,"isAllDay":true},
+    {"subject":"DEXA scan","organizer":"David.OHara@improving.com","attendees":null,"start":"2026-08-27T13:45:00Z","end":"2026-08-27T14:45:00Z","location":"3333 Preston Rd","showAs":"busy","isOrganizer":true},
+    {"subject":"Sales & Recruiting Meeting","organizer":"DallasSales@improving.com","attendees":["DallasSales@improving.com","Alexander.Powell@improving.com","Bryan.Crawford@improving.com","Don.McGreal@Improving.com","Kevin.Baker@Improving.com","Gabriela.Garza-Ramos@Improving.com","Diana.Stevens@Improving.com","mark.miesner@improving.com","Tim.Rayburn@Improving.com","jenn.massey@improving.com","derek.nwamadi@improving.com","roderic.patane@improving.com","Steve.Pfiffner@Improving.com","David.Belcher@Improving.com","David.O'Hara@improving.com","Blake.McMillan@Improving.com","Ben.Kennedy@Improving.com"],"start":"2026-08-27T14:15:00Z","end":"2026-08-27T14:30:00Z","location":"Microsoft Teams Meeting; Dallas - Longhorn Cavern","showAs":"tentative","isOrganizer":false},
+    {"subject":"Sales Scrum","organizer":"stephen.johnson@improving.com","attendees":["stephen.johnson@improving.com","houston-conferenceroomtrust@improving.com","Oscar.Velazquez@improving.com","Shalini.Arora@improving.com","devlin.liles@Improving.com","mark.remington@improving.com","Minu.Mohan@improving.com","Juan.Bernal@improving.com","Emmanuel.Bernal@improving.com","Robyn.Fuentes@Improving.com","David.O'Hara@improving.com","scott.mai@improving.com","jenn.massey@improving.com","victoria.ochoa@improving.com","Jake.Stevenson@Improving.com"],"start":"2026-08-27T15:00:00Z","end":"2026-08-27T15:30:00Z","location":"Microsoft Teams Meeting; Houston - Conference Room Trust","showAs":"tentative","isOrganizer":false},
+    {"subject":"Dallas Town Hall - August","organizer":"Don.McGreal@Improving.com","attendees":["Don.McGreal@Improving.com","Curtis.Hite@Improving.com","David.Belcher@Improving.com","Diana.Stevens@Improving.com","Michael.Perry@Improving.com","Tim.Rayburn@Improving.com"],"start":"2026-08-27T16:30:00Z","end":"2026-08-27T17:15:00Z","location":"Dallas - Classroom Dedication; Dallas - Classroom Involvement","showAs":"tentative","isOrganizer":false},
+    {"subject":"The Science of Curiosity: Why We Love Mystery (and How It Boosts Learning), with Esteban Cortes | Come Together English Virtual Talk","organizer":"sandy.hermosillo@improving.com","attendees":["sandy.hermosillo@improving.com","AllImprovers@improving.com"],"start":"2026-08-27T17:00:00Z","end":"2026-08-27T18:00:00Z","location":"Microsoft Teams Meeting","showAs":"tentative","isOrganizer":false},
+    {"subject":"Lone Star Gold 2026 Board Retreat","organizer":"tiffany@lonestargold.org","attendees":["tiffany@lonestargold.org","mdbela@covalentcapital.com","chaitanf@gmail.com","geoffbrenner@me.com","mark@tatumbrown.com","huddy9370@gmail.com","matt@allata.com","ryan@evolvecapital.com","ckelsey@dartinterests.com","David.O'Hara@improving.com","alowrance@glsc.com","beau.wehrle@berchcapital.com","megan.wehrle@berchcapital.com","Josh.White@cbre.com"],"start":"2026-08-27T17:00:00Z","end":"2026-08-28T17:00:00Z","location":"Chaitan's Lake House: 13701 North Shore Way, Malakoff, TX 75148","showAs":"busy","isOrganizer":false,"categories":["Tracked To Dynamics 365"]},
+    {"subject":"Confidential Investigation: August Bday Case Files","organizer":"Gabriela.Garza-Ramos@Improving.com","attendees":["Gabriela.Garza-Ramos@Improving.com","Enterprise-Dallas@improving.com"],"start":"2026-08-27T17:15:00Z","end":"2026-08-27T18:15:00Z","location":"Dallas Breakroom","showAs":"tentative","isOrganizer":false},
+    {"subject":"one-on-one Scott McMichael","organizer":"David.O'Hara@improving.com","attendees":["scott.mcmichael@improving.com"],"start":"2026-08-27T19:00:00Z","end":"2026-08-27T19:30:00Z","location":"Microsoft Teams Meeting","showAs":"busy","isOrganizer":true},
+    {"subject":"Dallas Virtual Coffee Chat","organizer":"Anthony.Marrical@Improving.com","attendees":["Anthony.Marrical@Improving.com","Enterprise-Dallas@improving.com","David.O'Hara@improving.com"],"start":"2026-08-28T13:00:00Z","end":"2026-08-28T14:00:00Z","location":"Microsoft Teams Meeting","showAs":"tentative","isOrganizer":false},
+    {"subject":"Sales & Recruiting Meeting","organizer":"DallasSales@improving.com","attendees":["DallasSales@improving.com","Alexander.Powell@improving.com","Bryan.Crawford@improving.com","Don.McGreal@Improving.com","Kevin.Baker@Improving.com","Gabriela.Garza-Ramos@Improving.com","Diana.Stevens@Improving.com","mark.miesner@improving.com","Tim.Rayburn@Improving.com","jenn.massey@improving.com","derek.nwamadi@improving.com","roderic.patane@improving.com","Steve.Pfiffner@Improving.com","David.Belcher@Improving.com","David.O'Hara@improving.com","Blake.McMillan@Improving.com","Ben.Kennedy@Improving.com"],"start":"2026-08-28T14:15:00Z","end":"2026-08-28T14:30:00Z","location":"Microsoft Teams Meeting; Dallas - Longhorn Cavern","showAs":"tentative","isOrganizer":false},
+    {"subject":"4th Friday Executive Meeting","organizer":"Mark.Kovacevich@Improving.com","attendees":["scott.mcmichael@improving.com","Robyn.Fuentes@Improving.com","Curtis.Hite@Improving.com","David.OHara@improving.com","Don.McGreal@Improving.com","Diana.Stevens@Improving.com","Susan.Fojtasek@Improving.com","Lowell.Messner@improving.com","ehren.seim@improving.com"],"start":"2026-08-28T14:30:00Z","end":"2026-08-28T15:00:00Z","location":"Microsoft Teams Meeting","showAs":"busy","isOrganizer":false},
+    {"subject":"Presidents Pipeline Roundtable 2026 (4th Fridays)","organizer":"scott.mcmichael@improving.com","attendees":["scott.mcmichael@improving.com","Robyn.Fuentes@Improving.com","Don.McGreal@Improving.com","David.O'Hara@improving.com","Devlin.Liles@Improving.com","Bryan.Crawford@improving.com","Mark.Kovacevich@Improving.com","Susan.Fojtasek@Improving.com","jenn.massey@improving.com"],"start":"2026-08-28T15:00:00Z","end":"2026-08-28T16:00:00Z","location":"Microsoft Teams Meeting","showAs":"busy","isOrganizer":false},
+    {"subject":"SOW review for Dickason Honda of Paris","organizer":"derek.nwamadi@improving.com","attendees":["derek.nwamadi@improving.com","David.OHara@improving.com","Anthony.Marrical@Improving.com","stevehall11565@gmail.com"],"start":"2026-08-28T15:30:00Z","end":"2026-08-28T16:00:00Z","location":"Microsoft Teams Meeting","showAs":"tentative","isOrganizer":false},
+    {"subject":"Sync: David / Matt / Robin","organizer":"David.OHara@improving.com","attendees":["rgraham@systemic-compliance.com","myasar@Systemic-Compliance.com","ben.kennedy@improving.com"],"start":"2026-08-28T17:30:00Z","end":"2026-08-28T18:00:00Z","location":"Microsoft Teams Meeting","showAs":"busy","isOrganizer":true},
+    {"subject":"Executive AI Training Program: Session 7, Session 8, Wrap-Up","organizer":"scott.poulin@improving.com","attendees":["scott.poulin@improving.com","Susan.Fojtasek@Improving.com","scott.greenlay@improving.com","scott.mcmichael@improving.com","Curtis.Hite@Improving.com","David.O'Hara@improving.com"],"start":"2026-08-28T18:00:00Z","end":"2026-08-28T20:00:00Z","location":"Dallas - Conference Room Trust; Microsoft Teams Meeting","showAs":"tentative","isOrganizer":false},
+    {"subject":"Meet Susie","organizer":"David.OHara@improving.com","attendees":null,"start":"2026-08-28T21:00:00Z","end":"2026-08-28T22:00:00Z","location":"NorthPark Center, 8687 N Central Expy, Dallas, TX 75225, United States","showAs":"busy","isOrganizer":true},
+    {"subject":"Improving Anniversary (2007)","organizer":"David.OHara@improvingenterprises.com","attendees":null,"start":"2026-08-29T00:00:00Z","end":"2026-08-30T00:00:00Z","location":null,"showAs":"free","isOrganizer":true,"isAllDay":true},
+    {"subject":"Golf","organizer":"David.OHara@improving.com","attendees":null,"start":"2026-08-29T20:20:00Z","end":"2026-08-30T00:50:00Z","location":null,"showAs":"busy","isOrganizer":true}
   ]
 }
