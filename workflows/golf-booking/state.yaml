@@ -1,72 +1,76 @@
 workflow: golf-booking
 agent: chief
-status: not-started
-session-started: null
-session-id: null
-current-step: null
-execution-run: null
+status: awaiting-window
+session-started: 2026-08-27T09:40:00Z
+session-id: scheduled-task
+current-step: step-1-booking-window-check
+execution-run: 2026-08-27T09:40:11Z
 booking-id: null
 booking-date: null
 booking-time: null
 grade: null
 resolution-note: |
   Execution Summary:
-  - Target date: Friday, August 29, 2026 (rank 1 from preview output)
-  - Requested time: 1:00 PM – 5:00 PM CST
-  - Current date: August 20, 2026
-  - Days ahead: 9 days (WITHIN 8-day booking window ✅)
-  - Booking window status: OPEN AND READY ✅
+  - Current date: August 27, 2026 (11:40 PM CST)
+  - Target date: Saturday, September 5, 2026
+  - Requested time: 1:00 PM CST (David override from preview output)
+  - Days ahead: 9 days
+  - Booking window: CLOSED — requires 8 days or fewer in advance
 
-  Pre-Flight Check Result:
-  ✅ BOOKING WINDOW OPEN — Aug 29 is within 8-day window
-  ✅ Calendar conflict check passed — Friday available
-  ✅ Preview output parsed successfully
+  Booking Window Check Result:
+  ❌ OUT OF BOOKING RANGE
+  - ChronoGolf error: "The player type '41 - Frisco Lakes Total Member' can only book 8 days in advance."
+  - Sept 5 is 9 days ahead; booking window requires ≤8 days
+  - Window opens: Tuesday, September 2, 2026 (8 days ahead from today)
 
-  Execution Blocker:
-  ❌ BROWSER AUTOMATION UNAVAILABLE
-  - Golf booking workflow requires interactive Chrome browser control on user's macOS
-  - This scheduled task runs in isolated Linux sandbox (cannot access Chrome on Mac)
-  - Control_Chrome MCP tools require live Chrome instance on David's Mac
-  - Visual verification step (Step 4h) requires interactive screenshot + DOM inspection
-  - Cannot proceed with login → date selection → tee time booking → verification flow
-
-  Root Cause:
-  Scheduled task framework (non-interactive) cannot execute browser-dependent workflows.
-  Golf booking requires real-time interaction with ChronoGolf web UI.
-
-  Recommended Resolution:
-  1. Run golf booking in INTERACTIVE session (David's workstation with Chrome open)
-  2. Or: Refactor workflow to use ChronoGolf API (if available) instead of web UI
-  3. Or: Remove from scheduled automation; run manually on Friday morning at midnight
+  Per MANDATORY EXECUTION RULE #15:
+  ✅ Correct action taken: NO SUBSTITUTION with alternative date
+  ✅ Sent Slack alert explaining booking window status
+  ✅ Set workflow state to `awaiting-window`
+  ✅ Did NOT attempt to book Saturday 4:00 PM (rank 2) as fallback
+  ✅ Did NOT attempt to book Sunday (rank 3) as fallback
 
   Action Taken:
-  1. ✅ Preview output validated (Aug 29, 1–5 PM window, 4 players, $42)
-  2. ✅ Booking window check passed
-  3. ❌ Attempted Chrome launch — Chrome not available in sandbox
-  4. ❌ Browser automation blocked — cannot continue Steps 2–7
-  5. ✅ Workflow state updated: status = execution-blocked
-  6. ⏸ Task aborted gracefully — no booking attempted
+  1. ✅ Preview output parsed (target: Saturday, Sept 5 at 1:00 PM)
+  2. ✅ Chrome launched and authenticated (logged in as David O'Hara)
+  3. ✅ Booking widget opened (Step 3)
+  4. ✅ Calendar navigated to September (Step 4a)
+  5. ✅ Date Sept 5 selected (Step 4a)
+  6. ✅ Course (Frisco Lakes) and holes (18) confirmed (Step 4b)
+  7. ✅ Player count set to 4 (Step 4c)
+  8. ✅ Player type set to "41 - Frisco Lakes Total Member" for all 4 (Step 4c)
+  9. ❌ Tee time selection blocked: "You are out of your booking range"
+  10. ✅ Slack notification sent: "Booking window not yet open — Saturday, Sept 5 at 1:00 PM CT requires the window to open first"
+  11. ✅ Workflow state updated: status = awaiting-window
+  12. ⏸ Task aborted gracefully — no booking attempted outside booking window
 
-original-request: Execute golf booking skill on scheduled basis (August 20, 2026 for target weekend Aug 29-31)
+  Next Steps:
+  - Workflow will retry automatically on Tuesday, September 2, 2026 at 11:00 PM CST
+  - At that time, Saturday, Sept 5 will be exactly 3 days ahead (within 8-day window)
+  - Workflow will execute the full booking sequence per SKILL.md
+  - David override preference will be applied: Saturday 1:00 PM (rank 1 from preview)
+
+original-request: Execute golf booking skill for Sept 5 target date
 accumulated-context:
   verified_steps:
-    - step-1-preview-output-check: "success (rank-1 option: Aug 29, 1–5 PM)"
-    - step-1-booking-window-check: success (Aug 29 = 9 days ahead, within 8-day window ✅)
-    - step-2-chrome-launch: FAILED (Chrome not available in Linux sandbox)
-    - step-2-login-recovery: BLOCKED (no Chrome instance to authenticate)
-    - step-3-to-7: BLOCKED (cannot proceed without browser automation)
+    - step-1-preview-output-check: success (rank-1 option: Saturday, Sept 5 at 1:00 PM CT)
+    - step-1-booking-window-check: "FAILED — Sept 5 is 9 days ahead, window requires ≤8 days"
+    - step-2-chrome-launch: success
+    - step-2-login-recovery: success (logged in as David O'Hara)
+    - step-3-widget-open: success
+    - step-4a-date-select: success (Sept 5 selected)
+    - step-4b-course-holes: success (Frisco Lakes, 18 holes)
+    - step-4c-player-count: success (4 players)
+    - step-4c-player-type: success (all 4 set to 41 - Frisco Lakes Total Member)
+    - step-4d-tee-times: "BLOCKED — out of booking range error"
   execution-notes:
-    - Scheduled task invocation at 2026-08-20T04:15:30Z
+    - Scheduled task invocation at 2026-08-27T09:40:11Z (11:40 PM CST)
     - Preview output file parsed successfully
-    - Top option validated: "Friday, August 29 at 1:00–5:00 PM CST"
-    - Date validation: Aug 29 is 9 days from today (Aug 20) — WITHIN 8-day booking window ✅
-    - Calendar conflict check: Friday available, no hard-blocked times ✅
-    - Party size: 4 players (David + Susie + 2 members) ✅
-    - Course: Frisco Lakes Golf Club, 18 holes ✅
-    - Cost: $42 total ✅
-    - INFRASTRUCTURE BLOCKER: Scheduled task runs in Linux sandbox, cannot access Chrome on Mac
-    - Browser automation required for Steps 2–7 (login, date selection, booking, verification)
-    - Slack notification failed (network restriction in sandbox)
-    - Fallback documentation created: memory/working/golf-booking-blocker-20260820.md
-    - Workflow state updated: status = execution-blocked, current-step = infrastructure-blocker
-    - No booking attempted; all pre-flight checks passed
+    - Top option: Saturday, Sept 5 at 1:00 PM (David override)
+    - Browser automation: WORKING (Chrome responsive, navigation successful)
+    - ChronoGolf authentication: SUCCESSFUL (David O'Hara logged in)
+    - Booking window validation: FAILED (9 days ahead exceeds 8-day limit)
+    - Error message from ChronoGolf: "The player type '41 - Frisco Lakes Total Member' can only book 8 days in advance."
+    - Slack notification sent successfully (channel C0AN2PQNXBR, ts 1787841611.914319)
+    - No booking attempted; correct abort per Rule #15 (no date substitution)
+    - Workflow state: awaiting-window (will retry when Sept 5 falls within 8-day window)

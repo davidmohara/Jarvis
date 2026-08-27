@@ -2,26 +2,10 @@
   "skill": "golf-booking",
   "agent": "chief",
   "trigger": "scheduled",
-  "started": "2026-08-20T04:15:30Z",
-  "completed": "2026-08-20T04:16:45Z",
+  "started": "2026-08-27T09:40:11Z",
+  "completed": "2026-08-27T09:41:00Z",
   "status": "partial",
-  "outcome": "infrastructure-blocker",
-  "details": "Pre-flight checks passed (Aug 29 is within 8-day booking window; calendar clear; preview output valid). Booking window is OPEN and READY. However, workflow execution blocked by infrastructure limitation: Chrome browser automation unavailable in Linux sandbox environment. Scheduled tasks cannot access Chrome on user's Mac. Browser-dependent workflow (Steps 2–7: login, date selection, booking, visual verification) cannot proceed. No booking attempted. Fallback documentation created in memory/working/. Recommend: run in interactive session on Mac, or implement API-based booking.",
-  "tool_failures": 1,
-  "failure_details": "Chrome launch failed — mcp__Control_Chrome__open_url requires live Chrome instance on macOS; sandbox environment cannot access user's Mac Chrome",
+  "tool_failures": 0,
   "error_ids": [],
-  "execution_summary": {
-    "pre_flight_status": "PASSED",
-    "booking_window": "OPEN",
-    "target_date": "2026-08-29",
-    "target_window": "13:00-17:00 CST",
-    "party_size": 4,
-    "course": "Frisco Lakes Golf Club, 18 holes",
-    "cost_total": "$42",
-    "steps_completed": 1,
-    "steps_blocked": 6,
-    "blocker": "browser-automation-unavailable",
-    "reason": "scheduled-task-sandbox-no-chrome-access"
-  },
-  "remediation": "Run booking in interactive Cowork session on David's Mac with Chrome open, or refactor workflow to use ChronoGolf API instead of web UI"
+  "notes": "Booking window not yet open. Target date (Sept 5) is 9 days ahead; ChronoGolf requires ≤8 days in advance. Workflow correctly aborted per RULE #15 (no date substitution). Slack notification sent. Workflow state set to awaiting-window. Will retry automatically on Sept 2 when booking window opens."
 }
