@@ -91,28 +91,7 @@ Example: `eval-20260523T133045-a1b2c3.json`
   },
   "version_hash": "sha256 of workflow.md or SKILL.md at execution time",
   "prior_baseline_id": "eval-... for version comparison",
-  "tags": [],
-  "monitoring": {
-    "active": true,
-    "state_yaml_path": "workflows/boot/state.yaml",
-    "opened_by": "eval-turn-start.py"
-  },
-  "subagents": [
-    {
-      "agent_id": "agent-...",
-      "agent_type": "knox",
-      "started": "2026-05-23T13:30:50Z",
-      "completed": "2026-05-23T13:31:40Z",
-      "model": "sonnet",
-      "tokens_input": 4200,
-      "tokens_output": 1100,
-      "cost_usd": 0.0294,
-      "duration_seconds": 50
-    }
-  ],
-  "total_tokens_input": 12000,
-  "total_tokens_output": 4300,
-  "total_cost_usd": 0.081
+  "tags": []
 }
 ```
 
@@ -261,23 +240,6 @@ Tier definitions:
 | `unattended` | morning-briefing, daily-review, rock1-revenue-monthly, rock4-pipeline-weekly, follow-up-nudges, inbox-processing | 3 | 1.0 (all 3 must pass) |
 | `high-stakes` | client-meeting-prep, pipeline-review, presentation-builder | 3 | 0.70 |
 | `standard` | all others | 1 | none |
-
-### Turn-Level Lifecycle Fields (`monitoring`, `subagents`, `total_tokens_*`, `total_cost_usd`)
-
-Present only on records opened by `.claude/hooks/eval-turn-start.py` on `UserPromptSubmit` — this is the path for workflows whose frontmatter names `agent: master` (boot, shutdown-cleanup, weekly-review), which execute inline in the main session and therefore never get a `SubagentStart`/`SubagentStop` pair of their own to hang a record on. Records opened by `eval-agent-start.py` (a real spawned subagent, e.g. Knox running plaud-ingest) do not carry these fields.
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `monitoring.active` | boolean | True while `eval-turn-stop.py` is still waiting on this workflow's `state.yaml` to reach a terminal status. Set false once finalized. |
-| `monitoring.state_yaml_path` | string | Path (relative to IES root) of the `state.yaml` this record tracks. |
-| `monitoring.opened_by` | string | Always `"eval-turn-start.py"` for turn-level records — distinguishes them from subagent-opened ones for tooling that needs to filter. |
-| `subagents` | array | Any subagent spawned by Master while this record was open (e.g. Knox fired during boot's step-01). Each entry: `agent_id`, `agent_type`, `started`, `completed`, `model`, `tokens_input`, `tokens_output`, `cost_usd`, `duration_seconds`. Populated by `eval-agent-start.py` (on spawn) and completed by `eval-agent-stop.py` (on return) — both check for an open turn-level record for the same `session_id` and link into it in addition to writing that subagent's own standalone record. |
-| `total_tokens_input` / `total_tokens_output` | number\|null | Sum across this record's `steps[]` and `subagents[]`, written once at finalization. |
-| `total_cost_usd` | number\|null | Sum across `steps[]` and `subagents[]` cost, written once at finalization. |
-
-**Lifecycle:** `eval-turn-start.py` opens the record when a `UserPromptSubmit` prompt matches a master-owned workflow (by slash command, an explicit `workflows/<name>/workflow.md` reference, the workflow's name/slug appearing in the prompt, or — for boot specifically, since CLAUDE.md mandates it unconditionally on session start — simply being the first prompt of a new session while `workflows/boot/state.yaml` isn't already `in-progress`). The existing `.claude/hooks/post-tool-use.py` state.yaml/step-frontmatter handling (unchanged) then populates `steps[]` as it always has, because it finds this record via the same `find_active_eval_record(session_id)` lookup it already used. `eval-turn-stop.py` fires on every `Stop` event, checks `monitoring.state_yaml_path` for a terminal status (`complete`/`aborted`/`blocked`), and only then finalizes — a multi-turn workflow (e.g. one paused on a controller question) is left `in-progress` and re-checked on the next turn's `Stop`. If no turn-level record was ever opened for the session, `eval-turn-stop.py` does nothing — no stub, no partial record.
-
-**Scope note:** this path is deliberately restricted to workflows, not skills. A skill's own `SKILL COMPLETE` write already creates its eval record via `create_eval_record_from_skill_run` in `post-tool-use.py`; opening a stub on `UserPromptSubmit` for a skill invocation as well would create a duplicate record.
 
 ### Version Fields
 

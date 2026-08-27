@@ -17,13 +17,7 @@ from datetime import datetime, timezone
 IES_ROOT = Path(__file__).resolve().parents[2]
 EVAL_RUNS_DIR = IES_ROOT / "systems" / "eval-harness" / "runs"
 ERROR_LOG = Path("/tmp/ies-hook-errors.log")
-ALPHABET = string.ascii_uppercase + string.digits
-
-sys.path.insert(0, str(IES_ROOT / "systems" / "eval-harness"))
-try:
-    from hook_utils import find_open_turn_record
-except Exception:
-    find_open_turn_record = None  # 36 chars, ~2.1B combos
+ALPHABET = string.ascii_uppercase + string.digits  # 36 chars, ~2.1B combos
 
 def log_error(msg: str):
     """Log error to /tmp/ies-hook-errors.log without blocking."""
@@ -84,21 +78,16 @@ def infer_session_id() -> str:
             with open(index_path, "r") as f:
                 index = json.load(f)
 
-        # If we have sessions, return the last one. Real schema is
-        # {started, closed, current_topic, topics} — there has never been an
-        # "id" field (confirmed against all real records on disk). "started"
-        # is already unique enough per session; don't add a field to work
-        # around this.
+        # If we have sessions, return the last one
         if index:
-            last = index[-1].get("started", "")
-            if last:
-                return last
+            return index[-1].get("id", "")
 
         # If no sessions exist, create one now to ensure eval records have a session_id
         now = datetime.now(timezone.utc)
-        session_id = now.isoformat().replace("+00:00", "Z")
+        session_id = f"session-{now.strftime('%Y-%m-%dT%H%M%S')}"
         new_session = {
-            "started": session_id,
+            "id": session_id,
+            "started": now.isoformat().replace("+00:00", "Z"),
             "closed": None,
             "current_topic": None,
             "topics": []
@@ -215,31 +204,6 @@ def main():
     atomic_write_json(eval_path, stub)
     if not eval_path.exists():
         log_error(f"Failed to write eval record stub for {agent_type} ({agent_id})")
-
-    # If a turn-level workflow eval is open for this session (opened by
-    # eval-turn-start.py on UserPromptSubmit), also record this subagent as
-    # a child of it so eval-turn-stop.py can roll its tokens/cost/model into
-    # the parent's totals. This subagent's own standalone record above is
-    # unaffected — existing skill-eval consumers keep working unchanged.
-    if find_open_turn_record:
-        try:
-            parent_path = find_open_turn_record(session_id)
-            if parent_path and parent_path != eval_path:
-                with open(parent_path, "r") as f:
-                    parent = json.load(f)
-                parent.setdefault("subagents", []).append({
-                    "agent_id": agent_id,
-                    "agent_type": agent_type,
-                    "started": stub["started"],
-                    "completed": None,
-                    "model": None,
-                    "tokens_input": None,
-                    "tokens_output": None,
-                    "cost_usd": None,
-                })
-                atomic_write_json(parent_path, parent)
-        except Exception as e:
-            log_error(f"Failed to link subagent {agent_id} to open turn record: {e}")
 
 if __name__ == "__main__":
     main()

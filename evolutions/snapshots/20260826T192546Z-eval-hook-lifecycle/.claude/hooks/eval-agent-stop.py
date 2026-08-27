@@ -31,10 +31,6 @@ try:
     from token_usage import usage_between
 except Exception:
     usage_between = None
-try:
-    from hook_utils import find_open_turn_record
-except Exception:
-    find_open_turn_record = None
 
 def log_error(msg: str):
     """Log error to /tmp/ies-hook-errors.log without blocking."""
@@ -629,28 +625,6 @@ def main():
 
     # Write updated eval record atomically
     atomic_write_json(eval_record_path, eval_record)
-
-    # Roll this subagent's model/tokens/cost/timing into the parent turn-level
-    # eval record's subagents[] entry, if eval-turn-start.py opened one for
-    # this session and eval-agent-start.py linked this agent_id into it.
-    if find_open_turn_record:
-        try:
-            parent_path = find_open_turn_record(eval_record.get("session_id", ""))
-            if parent_path and parent_path != eval_record_path:
-                with open(parent_path, "r") as f:
-                    parent = json.load(f)
-                for entry in parent.get("subagents", []):
-                    if entry.get("agent_id") == agent_id:
-                        entry["completed"] = eval_record.get("completed")
-                        entry["model"] = eval_record.get("model")
-                        entry["tokens_input"] = eval_record.get("total_tokens_input")
-                        entry["tokens_output"] = eval_record.get("total_tokens_output")
-                        entry["cost_usd"] = eval_record.get("total_cost_usd")
-                        entry["duration_seconds"] = eval_record.get("duration_seconds")
-                        break
-                atomic_write_json(parent_path, parent)
-        except Exception as e:
-            log_error(f"Failed to roll up subagent {agent_id} into open turn record: {e}")
 
 if __name__ == "__main__":
     main()

@@ -2501,6 +2501,102 @@
           "description": "Updated fix_status from proposed/in-progress to applied for 42 error entries across 10 fix patterns"
         }
       ]
+    },
+    {
+      "id": "work-20260826-193329-eval-hook-lifecycle",
+      "description": "Fixed boot's eval-harness blind spot: workflows with agent: master (boot, shutdown-cleanup, weekly-review) execute inline in Master's main session and never fire SubagentStart/SubagentStop, so no eval record was ever created for a real interactive boot. Built a new turn-level eval lifecycle: eval-turn-start.py opens an eval record on UserPromptSubmit when the prompt matches a master-owned workflow (slash command, explicit workflows/<name>/workflow.md reference, name/slug in the prompt, or - for boot specifically, since CLAUDE.md mandates it unconditionally - being the first prompt of a new session with boot's state.yaml not already in-progress); eval-turn-stop.py closes it on Stop once state.yaml reaches a terminal status (complete/aborted/blocked), aggregating tokens/cost from steps[] and the new subagents[] array, leaving it open across turns for multi-turn/paused workflows otherwise. Extended eval-agent-start.py/eval-agent-stop.py to also link any subagent spawned while a turn-level record is open into that record's subagents[] (with model/tokens/cost/duration), without changing their existing standalone-record behavior. Extracted shared helpers into systems/eval-harness/hook_utils.py for the new hooks to reuse rather than re-copying atomic_write_json/session-id inference/record-lookup. Also corrected workflows/boot/workflow.md's dispatch model per the architecture-wide rule that workflow steps run as spawned subagents, not inline in Master's session (the same pattern already used for Knox/plaud-ingest) - with one documented, permanent exception: step-01 (context load) must stay inline because it loads Master's own operating identity into Master's live session, which a subagent cannot deposit into a session it isn't part of. Flagged shutdown-cleanup and weekly-review as needing the identical dispatch-model fix (same agent: master architecture, not yet applied - deferred, out of the 'at minimum boot' scope). Chose step-level (not per-tool-call) token/cost granularity for the new hooks, matching the existing schema-documented mechanism in post-tool-use.py, rather than building a parallel per-tool-call tracking system - flagged for David's review if finer granularity is actually wanted. UPDATE (2026-08-27): shutdown-cleanup and weekly-review dispatch-model fix now applied, closing this item out. shutdown-cleanup mirrors boot/no exception needed (step-01 does temp-file purge, not identity loading -- Master's identity is already loaded once per session at boot) -- spawns one blocking subagent for all 4 steps. Added natural-language trigger-phrase detection to eval-turn-start.py (WORKFLOW_TRIGGER_PHRASES / _ANCHORED) since shutdown-cleanup's real invocation is 'exit'/'log off'/'end session' per agents/master.md's routing table, never the words 'shutdown' or 'cleanup' -- without this the name-based matching would never have fired for it in practice. weekly-review is structurally different from boot and shutdown-cleanup: it already names a distinct owning agent per step (Quinn, Shep, Chief, Sterling, Master) in its own frontmatter/routing table and is interactive throughout, not just at a guardrail-escalation point. Collapsing it into one generic master-persona subagent would have been worse than the original bug, not a fix, so each step now spawns its own designated agent (up to 6 SubagentStart/Stop pairs per run instead of boot's one), with Master relaying each step's controller-facing question and resuming the same subagent via SendMessage per answer -- generalizing boot's single escalation-resume pattern into continuous per-step interaction. eval-agent-start.py/eval-agent-stop.py's existing 'link into open turn record' logic required no changes to support this -- it already keys off session_id + monitoring.active regardless of how many distinct agent_types get spawned. Verified eval-turn-start.py's load_master_workflows()/detect_workflow() pick up both workflows automatically (no code change needed for weekly-review's detection; the new trigger-phrase mechanism was needed for shutdown-cleanup specifically) via a 21-case unit test covering both workflows' real and adjacent-but-wrong trigger phrasings.",
+      "started": "2026-08-26T19:33:29.965680Z",
+      "files": [
+        {
+          "path": "systems/eval-harness/hook_utils.py",
+          "action": "add",
+          "type": "system",
+          "description": "Shared helpers (atomic_write_json, session-id inference, eval-record lookup) for new turn-level eval hooks"
+        },
+        {
+          "path": ".claude/hooks/eval-turn-start.py",
+          "action": "add",
+          "type": "system",
+          "description": "UserPromptSubmit hook: opens an eval record + state.yaml monitoring for master-owned workflow runs"
+        },
+        {
+          "path": ".claude/hooks/eval-turn-stop.py",
+          "action": "add",
+          "type": "system",
+          "description": "Stop hook: finalizes the turn-level eval record once its workflow's state.yaml reaches a terminal status"
+        },
+        {
+          "path": ".claude/hooks/eval-agent-start.py",
+          "action": "merge",
+          "type": "system",
+          "description": "Link spawned subagents into an open turn-level eval record's subagents[] array"
+        },
+        {
+          "path": ".claude/hooks/eval-agent-stop.py",
+          "action": "merge",
+          "type": "system",
+          "description": "Roll up subagent model/tokens/cost/duration into the parent turn-level record on completion"
+        },
+        {
+          "path": ".claude/settings.json",
+          "action": "merge",
+          "type": "system",
+          "description": "Registered UserPromptSubmit -> eval-turn-start.py and Stop -> eval-turn-stop.py hooks"
+        },
+        {
+          "path": "systems/eval-harness/schema.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Documented monitoring/subagents/total_tokens_*/total_cost_usd fields and the turn-level lifecycle"
+        },
+        {
+          "path": "workflows/boot/workflow.md",
+          "action": "merge",
+          "type": "mixed",
+          "description": "Corrected EXECUTION section to spawn a subagent for steps 2-12, with step-01 documented as the sole inline exception; fixed stale step list to match files on disk"
+        },
+        {
+          "path": "workflows/boot/steps/step-01-load-context.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Documented step-01's inline-execution exception"
+        },
+        {
+          "path": "workflows/boot/steps/step-05-synthesize-briefing.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Clarified 'deliver to controller' now means surfacing the briefing in the spawned subagent's final report for Master to relay"
+        },
+        {
+          "path": "workflows/boot/MASTER-ORCHESTRATION.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Clarified the pseudocode's real dispatch mechanics (single spawned subagent + SendMessage resume, not per-step spawns)"
+        },
+        {
+          "path": "workflows/shutdown-cleanup/workflow.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Corrected EXECUTION section to spawn one blocking subagent for all 4 steps; documented why no inline exception applies here (unlike boot)."
+        },
+        {
+          "path": "workflows/weekly-review/workflow.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Corrected EXECUTION section to spawn each step's already-designated owning agent (Quinn/Shep/Chief/Sterling/Master) individually, with Master relaying and resuming per-step controller interaction via SendMessage; documented why this deviates from boot/shutdown-cleanup's single-subagent shape."
+        },
+        {
+          "path": ".claude/hooks/eval-turn-start.py",
+          "action": "merge",
+          "type": "system",
+          "description": "Added WORKFLOW_TRIGGER_PHRASES / WORKFLOW_TRIGGER_PHRASES_ANCHORED so shutdown-cleanup's real natural-language trigger ('exit'/'log off'/'end session') is detected, not just its name/slug. Also fixed infer_session_id's schema mismatch and tightened detect_workflow's over-broad bare-name matching in the prior round of this same work item."
+        }
+      ],
+      "validation": {
+        "evals_run": false,
+        "note": "Manually exercised eval-turn-start.py/eval-turn-stop.py detection + open/finalize logic end-to-end against real boot state.yaml (both the 'still in-progress, leave open' and 'terminal, finalize' branches); test artifacts cleaned up. Did not run the full rigby-capability-build eval-authoring loop (evals.json/benchmark/description-tuning) - this is an infrastructure/hook fix, not a phrase-triggered skill, so that process doesn't apply cleanly. Flagged to David in summary. ROUND 3 (2026-08-27): unit-tested detect_workflow against 21 cases spanning boot, shutdown-cleanup, and weekly-review -- explicit path references, slash commands, run-verb-adjacent name matches, shutdown-cleanup's natural-language aliases (including two false-positive traps caught and fixed during testing: 'did you exit the meeting early' and 'the client wants to exit their contract early'), and negative controls ('good morning', 'what does boot even do'). All hook files re-verified with py_compile after every edit; .claude/settings.json re-validated as JSON. Did not execute a live end-to-end run of either workflow's new dispatch model (no controller session available to drive the interactive steps) -- static/logical review only for the workflow.md dispatch-model changes themselves.",
+        "eval_artifacts_path": null
+      }
     }
   ]
 }

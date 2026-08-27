@@ -5,7 +5,7 @@ component: master-orchestration
 
 # Master Orchestration
 
-State machine for boot workflow execution.
+State machine for boot workflow execution. This is pseudocode describing the retry/escalate/punch-out *logic* — the literal dispatch mechanics are: Master executes step-01 inline, then spawns one subagent (blocking) to run the `spawn_step` loop below for every remaining step, per `workflow.md`'s EXECUTION section. `notify_controller`/`wait_for_controller_decision` in that loop means the subagent reports the blocker in its response and Master surfaces it to the controller; `spawn_step` resuming after a controller decision means Master resumes the same subagent via SendMessage rather than starting a new one, so `state.yaml`'s `current-step` and `accumulated-context` stay intact.
 
 ## State Check
 

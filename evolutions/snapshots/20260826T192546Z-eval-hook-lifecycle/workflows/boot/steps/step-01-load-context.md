@@ -10,8 +10,6 @@ outputs:
 
 # Step 01: Load Context
 
-**Executed inline by Master, not as a spawned subagent** — this is the one deliberate exception in boot's dispatch model (see `workflow.md` EXECUTION section). This step's job is loading Master's own operating identity into Master's live session; a subagent can't deposit context into a session it isn't part of. Every step after this one runs as a spawned subagent.
-
 Read in order:
 1. agents/master.md
 2. SYSTEM.md

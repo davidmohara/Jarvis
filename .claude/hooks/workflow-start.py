@@ -1,5 +1,29 @@
 #!/usr/bin/env python3
 """
+RETIRED — no longer registered in .claude/settings.json as of the
+eval-turn-lifecycle build (2026-08-26/27).
+
+Why: this hook fired on every Write to workflows/*/state.yaml and created
+its own older-schema eval stub, independent of and competing with two other
+mechanisms that now cover the same ground: eval-agent-start.py/eval-agent-
+stop.py (workflows spawned as a real subagent, e.g. Knox running
+plaud-ingest) and eval-turn-start.py/eval-turn-stop.py (the three
+`agent: master` workflows — boot, shutdown-cleanup, weekly-review — that
+execute inline and have no subagent lifecycle of their own). Because this
+hook had no close-out mechanism, any state.yaml write that didn't reach a
+clean finish left a permanently `status: in-progress` orphan stub behind
+(confirmed casualties: eval-20260826T191055-75A708.json and
+eval-20260826T194142-QZAPOH.json, both plaud-ingest, removed). It also
+carried the same infer_session_id() bug the other two hooks had (keyed off
+a nonexistent "id" field in memory/sessions/index.json) — not patched here
+since the file is dead code, not because the bug doesn't apply to it.
+
+Left in place (not deleted) only so history/blame stays intact. Do not
+re-register this hook without giving it a real close-out path first, and
+without fixing infer_session_id() to key off "started" instead of "id".
+
+Original docstring follows.
+---
 WorkflowStart Hook: Eval Record Creation for All Workflows
 Triggered when any workflow begins execution.
 Creates an eval record with workflow name, agent, model, and started timestamp.
