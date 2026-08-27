@@ -1,0 +1,15 @@
+{
+  "id": "err-20260827T175738-FI83PH",
+  "timestamp": "2026-08-27T17:57:38Z",
+  "session": "2026-08-27-boot-plaud-ingest",
+  "source": "explicit",
+  "agent": "knox",
+  "category": "assumption-error",
+  "description": "During plaud-ingest step-05 (per skills/plaud-transcripts/SKILL.md and the workflow step file), Knox extracted 17 action items across 5 of today's ingested meeting recordings (Sallie Mae consultation, David/Robyn 1:1, RTP/Jack Claeys call, podcast-to-pipeline touch base, Remington workshop) and created a Monday.com task for each, assigned to Alice. David rejected the batch directly, asking whether the tasks were fabricated. The items were not fabricated (Knox traced them to genuine stated commitments/next-steps in the transcripts), but most were other people's action items from meetings David attended, not David's own to-dos, and were dumped into David's Work board unfiltered.",
+  "correction": "Extracting action items from a transcript and mechanically creating a Monday task for every one, regardless of who owns the next step, is the wrong default. Action items belonging to other attendees are not automatically David's tasks just because he was in the meeting and the item appeared in his recording.",
+  "failure_mode": "wrong-assumption",
+  "systemic_fix": "skills/plaud-transcripts/SKILL.md (and/or the plaud-ingest workflow step-05 file) needs an explicit ownership filter before Monday task creation: only create a task where David personally owns the next step, or hold all extracted action items as documented text in the vault note without auto-creating tasks, pending David's decision on the right default (options presented to David: skip Monday task creation entirely this batch, filter to David-owned items only, or an alternative approach). Knox correctly stopped and asked rather than retrying blindly after the rejection.",
+  "fix_status": "proposed",
+  "severity": "moderate",
+  "related_entries": []
+}

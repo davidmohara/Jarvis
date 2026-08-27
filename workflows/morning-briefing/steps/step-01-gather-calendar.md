@@ -1,8 +1,11 @@
 ---
-status: not-started
-started-at: ~
-completed-at: ~
-outputs: {}
+status: complete
+started-at: "2026-08-27T16:28:00Z"
+completed-at: "2026-08-27T16:30:00Z"
+outputs:
+  date: "2026-08-27"
+  meeting_count: 9
+  summary: "Board retreat day (Lone Star Gold, Malakoff TX, lake house) overlapping 5 internal calls David is still booked into (Sales Scrum, Town Hall, Bday reveal event, 1:1 w/ Scott McMichael). DEXA scan 8:45am. Flag: heavy double-booking risk against the retreat block."
 model: sonnet
 ---
 

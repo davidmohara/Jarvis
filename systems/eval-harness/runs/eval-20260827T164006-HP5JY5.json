@@ -1,0 +1,59 @@
+{
+  "id": "eval-20260827T164006-HP5JY5",
+  "agent_id": "ac40f2ffdbe8a2390",
+  "type": "agent",
+  "name": "general-purpose",
+  "agent": "general-purpose",
+  "session_id": "2026-08-25T17:14:37.010916Z",
+  "trigger": "unknown",
+  "started": "2026-08-27T16:40:06.806539Z",
+  "completed": "2026-08-27T16:44:41.543942Z",
+  "duration_seconds": 274.74,
+  "status": "success",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/0faf1016-2bec-49b8-9498-6d25e54e7bbb/subagents/agent-ac40f2ffdbe8a2390.jsonl",
+  "last_assistant_message": "**[Rigby]: Root-caused and fixed. Two distinct bugs were compounding, not one.**\n\n**Bug A \u2014 the exception-fallback path.** `boot/workflow.md`'s Session Index step (a personal block \u2014 I did not touch it) appends to `memory/sessions/index.json` via a plain read-modify-write, not an atomic temp+rename. A hook read landing mid-write can transiently see a partial file, `json.load()` raises `JSONDecodeError`, and `infer_session_id()` fell straight into its exception-handler fallback, minting a disconnected `session-<timestamp>` id \u2014 exactly the format on the orphaned record. Fixed with `hook_utils._read_session_index()`: a 3-attempt/80ms retry on `JSONDecodeError`/`OSError` before giving up. `eval-agent-start.py`'s mirrored copy now calls the same shared helper instead of its own single-shot read.\n\n**Bug B \u2014 a real (non-error) race, separate from A.** Even with zero exceptions, `infer_session_id()` reads `index[-1]`, and boot's Session Index step appends a *new* entry partway through step-01. Two `UserPromptSubmit` firings for the same logical boot run \u2014 one before that append, one after \u2014 can each resolve a genuinely valid but *different* `session_id`, and the old `already_open_for_workflow()` was scoped to `session_id`, so it would miss the earlier record and open a second one. Fixed by rekeying that dedup check to workflow name across all open turn-level records instead of session_id \u2014 `workflows/{name}/state.yaml` is singular, so two simultaneously in-progress turn-level records for the same workflow name are never legitimate regardless of what session_id each resolved to.\n\n**Verified, not assumed:** built a sandboxed reproduction of the exact race \u2014 two calls to `already_open_for_workflow` with two different, both-valid `session_id` values for the same workflow \u2014 confirmed only one record gets created after the fix (ran it, pasted the output above: `total records created: 1`).\n\n**Added one more thing beyond what was asked**, flagging it as a deliberate addition: a self-heal sweep in `eval-turn-stop.py`'s `Stop` handler that closes out any *other* in-progress/`monitoring.active` turn-level record whose `state.yaml` has independently gone terminal, regardless of session_id \u2014 belt-and-suspenders in case a future duplicate slips past the open-time fix anyway. It only closes pre-existing genuinely-terminal records and never creates one, so the \"no eval opened \u2192 no-op\" rule stays intact for sessions that never opened one.\n\n**Cleanup:** confirmed field-by-field before deleting \u2014 `eval-20260827T161845-1TYTWV.json` had 0 subagents, `status: in-progress`, and the fabricated `session-<timestamp>` id; `eval-20260827T162201-YWMW6Z.json` (untouched) has 2 subagents, `status: success`, and the real `2026-08-25T17:14:37.010916Z` session id. Deleted only the orphan.\n\nAlso noticed a large set of other files now showing modified (`data/*-unified.json`, `workflows/boot/steps/*`, `workflows/morning-briefing/*`, `memory/working/morning-briefing-*.md`, `systems/boot-instrumentation/*`) \u2014 consistent with the real concurrent boot/morning-briefing session you described. Not touching any of those.\n\nAll hook files compile; `settings.json` untouched this round (still valid). `evolutions/.pending-changes.json` updated with this round's findings under the same `work-20260826-193329-eval-hook-lifecycle` item.",
+  "model": "sonnet",
+  "total_tokens_input": 4757011,
+  "total_tokens_output": 3314,
+  "total_cost_usd": 2.332335
+}

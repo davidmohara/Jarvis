@@ -1,0 +1,101 @@
+{
+  "id": "eval-20260827T173100-AZ4CQR",
+  "type": "workflow",
+  "name": "one-on-one-prep",
+  "agent": "shep",
+  "session_id": "",
+  "trigger": "manual",
+  "started": "2026-08-27T17:27:08Z",
+  "completed": "2026-08-27T17:30:59.873313Z",
+  "duration_seconds": 231.9,
+  "status": "success",
+  "steps": [
+    {
+      "name": "step-01-identify-meeting",
+      "started": "2026-08-27T17:27:08Z",
+      "completed": "2026-08-27T17:27:54.374663Z",
+      "duration_seconds": 46.4,
+      "status": "success",
+      "data_sources_used": [],
+      "data_source_failures": []
+    },
+    {
+      "name": "step-02-gather-communications",
+      "started": "2026-08-27T17:27:54.374663Z",
+      "completed": "2026-08-27T17:28:40.749325Z",
+      "duration_seconds": 46.4,
+      "status": "success",
+      "data_sources_used": [],
+      "data_source_failures": []
+    },
+    {
+      "name": "step-03-gather-tasks",
+      "started": "2026-08-27T17:28:40.749325Z",
+      "completed": "2026-08-27T17:29:27.123988Z",
+      "duration_seconds": 46.4,
+      "status": "success",
+      "data_sources_used": [],
+      "data_source_failures": []
+    },
+    {
+      "name": "step-04-assemble-brief",
+      "started": "2026-08-27T17:29:27.123988Z",
+      "completed": "2026-08-27T17:30:13.498650Z",
+      "duration_seconds": 46.4,
+      "status": "success",
+      "data_sources_used": [],
+      "data_source_failures": []
+    },
+    {
+      "name": "step-05-quality-check-and-save",
+      "started": "2026-08-27T17:30:13.498650Z",
+      "completed": "2026-08-27T17:30:59.873313Z",
+      "duration_seconds": 46.4,
+      "status": "success",
+      "data_sources_used": [],
+      "data_source_failures": []
+    }
+  ],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": [],
+      "abort_reason": null
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": "94703a68124db1d7",
+  "prior_baseline_id": null,
+  "tags": [
+    "cowork-instrumented"
+  ]
+}

@@ -1,9 +1,18 @@
 ---
-status: not-started
-started-at: ~
-completed-at: ~
-outputs: {}
-model: sonnet
+status: complete
+started-at: "2026-08-27T16:36:00Z"
+completed-at: "2026-08-27T16:38:00Z"
+outputs:
+  meeting_context:
+    - meeting: "one-on-one Scott McMichael (2:00pm CDT)"
+      prep_status: "ready — standing 1:1, no client/deal-specific prep required beyond usual cadence"
+    - meeting: "Lone Star Gold 2026 Board Retreat (all-day, Malakoff TX)"
+      prep_status: "ready — personal board commitment, context already known"
+    - meeting: "Sales & Recruiting Meeting, Sales Scrum, Dallas Town Hall, Confidential Bday Reveal"
+      prep_status: "recurring-skip — standing/social meetings, no prep needed; flagged only for the scheduling conflict against the board retreat block"
+  system_status:
+    yesterday_review: "missing — no reviews/daily/2026-08-26.md found (last dated review on file predates this; only auto-*.md entries through 2026-08-12)"
+    yesterday_top_3: null
 ---
 
 <!-- system:start -->

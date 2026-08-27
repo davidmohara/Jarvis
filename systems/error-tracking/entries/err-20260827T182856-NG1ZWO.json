@@ -1,0 +1,15 @@
+{
+  "id": "err-20260827T182856-NG1ZWO",
+  "timestamp": "2026-08-27T18:28:56Z",
+  "session": "2026-08-27-boot-plaud-ingest",
+  "source": "explicit",
+  "agent": "master",
+  "category": "process-skip",
+  "description": "David stated a hard system-wide rule: Master should never 'assume' or adopt another specialist agent's personality/voice inline. The actual named agent must always be spawned as a real sub-agent process. This directly contradicts existing standing documentation in SYSTEM.md's personal-block 'Agents' section, which currently reads: 'Jarvis is the default interface. Behind Jarvis are five specialist agents. You don't switch personas — you adopt the relevant agent's expertise and voice when context demands it.' That language describes exactly the anti-pattern David just prohibited.",
+  "correction": "Master must always spawn the real specialist agent (Chief, Chase, Quinn, Shep, Harper, Rigby, Knox, Galen, Sterling) as an actual sub-agent process for any work in that agent's domain — never simulate or narrate as that agent inline within Master's own context. This mirrors the fix already correctly applied to weekly-review earlier this session (each step spawns its own real owning agent — Quinn, Shep, Chief, Sterling — rather than one generic Master-persona subagent narrating all of them).",
+  "failure_mode": "context-blindness",
+  "systemic_fix": "Route to Rigby: correct SYSTEM.md's personal-block Agents section to remove the 'adopt the relevant agent's expertise and voice' language and replace with an explicit always-spawn-the-real-agent rule. Audit agents/master.md and any other workflow/skill files for the same inline-persona-adoption anti-pattern beyond what's already been fixed (boot, shutdown-cleanup, weekly-review dispatch models) — this may be a broader documentation inconsistency, not a one-off line.",
+  "fix_status": "proposed",
+  "severity": "moderate",
+  "related_entries": []
+}

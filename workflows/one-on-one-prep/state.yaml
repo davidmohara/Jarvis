@@ -1,9 +1,25 @@
 ---
 workflow: one-on-one-prep
 agent: shep
-status: not-started
-session-started: ~
-session-id: ~
-current-step: ~
-original-request: ~
-accumulated-context: {}
+status: complete
+session-started: "2026-08-27T17:27:08Z"
+session-id: "19B015F6"
+current-step: step-05
+original-request: "Build 1:1 prep brief for David O'Hara / Scott McMichael — August 27, 2026"
+accumulated-context:
+  person: Scott McMichael
+  date: "2026-08-27"
+  time: "14:00 CT"
+  location: Microsoft Teams
+  meeting_name: "one-on-one Scott McMichael"
+  brief_saved: "meetings/2026-08-27-scott-mcmichael-1on1.md"
+  pdf_saved: "meetings/Scott McMichael 1on1 - August 27.pdf"
+  people_file_created: "people/scott-mcmichael.md"
+  previous_brief: "meetings/2026-07-14-mcmichael-prep.md"
+  delegations: none
+  steps_completed:
+    - step-01-identify-meeting
+    - step-02-gather-communications
+    - step-03-gather-tasks
+    - step-04-assemble-brief
+    - step-05-quality-check-and-save

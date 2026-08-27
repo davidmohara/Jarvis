@@ -1,25 +1,19 @@
 {
-  "pulled_at": "2026-08-25T10:45:00Z",
-  "source": "osascript OmniFocus AppleScript (live query)",
-  "inbox": {
-    "total": 243,
-    "completed": 230,
-    "uncompleted": 13
-  },
-  "uncompleted_tasks": [
-    "Higgsfield - video",
-    "Movies",
-    "Exec AI Workshop",
-    "CC Breakfast",
-    "Can cannon",
-    "Find church for Sunday",
-    "Shane Parrish style questions",
-    "Vistage referrals for Alise",
-    "Take hanger for jacket to work",
-    "Review appendix and planning for SC offerings",
-    "Video",
-    "Send Paul book notes",
-    "Schedule time with Ben & Matt for SCORB"
+  "pulled_at": "2026-08-27T16:23:28Z",
+  "task_count": 12,
+  "tasks": [
+    {"name": "Higgsfield - video", "due_date": null, "project": "inbox", "flagged": false},
+    {"name": "Movies", "due_date": null, "project": "inbox", "flagged": false},
+    {"name": "Exec AI Workshop", "due_date": null, "project": "inbox", "flagged": false},
+    {"name": "CC Breakfast", "due_date": null, "project": "inbox", "flagged": false},
+    {"name": "Can cannon", "due_date": null, "project": "inbox", "flagged": false},
+    {"name": "Find church for Sunday", "due_date": null, "project": "inbox", "flagged": false},
+    {"name": "Shane Parrish style questions", "due_date": null, "project": "inbox", "flagged": false},
+    {"name": "Vistage referrals for Alise", "due_date": null, "project": "inbox", "flagged": false},
+    {"name": "Take hanger for jacket to work", "due_date": null, "project": "inbox", "flagged": false},
+    {"name": "Review appendix and planning for SC offerings", "due_date": null, "project": "inbox", "flagged": false},
+    {"name": "Video", "due_date": null, "project": "inbox", "flagged": false},
+    {"name": "4minds.ai", "due_date": null, "project": "inbox", "flagged": false}
   ],
-  "note": "Fresh pull (Aug 25, 10:45 AM) replaces stale July 17 pull. 243 total inbox items with 13 uncompleted and actionable."
+  "note": "All 12 are unassigned OmniFocus inbox items, no project/tag, no due dates, none flagged."
 }

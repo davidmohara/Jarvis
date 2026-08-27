@@ -1,8 +1,10 @@
 ---
-status: not-started
-started-at: ~
-completed-at: ~
-outputs: {}
+status: complete
+started-at: "2026-08-27T16:38:30Z"
+completed-at: "2026-08-27T16:39:00Z"
+outputs:
+  checkpoint_result: "flag"
+  reason: "Clay birthday data not parsed (getUpcomingEvents payload exceeded tool output limit); all other data (calendar, tasks, meeting context) fresh and dated correctly for 2026-08-27, no wrong-day data, no attendee mismatches"
 model: sonnet
 ---
 

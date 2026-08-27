@@ -1,0 +1,15 @@
+{
+  "id": "err-20260827T183203-RSVL2A",
+  "timestamp": "2026-08-27T18:32:03Z",
+  "session": "2026-08-27-boot-plaud-ingest",
+  "source": "self-detected",
+  "agent": "master",
+  "category": "data-accuracy",
+  "description": "Reviewing all boot eval records to select up to 5 valid ones for potential packaging/certification. Of the 4 records carrying the new eval-turn-start.py instrumentation (the only ones worth considering, since everything pre-dating today is synthetic/test-fixture data from the Aug 21-25 verifier-testing session), only 1 (eval-20260827T162201-YWMW6Z, 554.86s, 2 real linked subagents: Knox + boot-dispatch subagent, real guardrail record) represents a genuine full boot execution. The other 3 (SYJXKR 47.28s, SDJRUV 5.02s, EXE32D 11.09s) are false-positive turn-level eval records opened and closed spuriously, all created AFTER Rigby's detect_workflow() tightening fix (the one validated against 11 unit-test cases earlier this session). SYJXKR even misattributed an unrelated Rigby capability-build subagent (agent_id ac40f2ffdbe8a2390) as a 'subagent' of a boot eval, purely from conversational proximity, not an actual boot run. This means detect_workflow()'s run-verb-adjacent matching still has false-positive gaps in live conversational use that the unit tests didn't catch, contradicting Rigby's earlier confidence that the fix was solid.",
+  "correction": "Do not treat unit-test coverage as proof a detection heuristic is fixed in live use — confirm against actual conversation logs/session activity, not just a curated test set. Only 1 of 4 new-instrumentation boot records is trustworthy; packaging/certifying the boot fix on this evidence would be premature.",
+  "failure_mode": "pattern-mismatch",
+  "systemic_fix": "Send back to Rigby: detect_workflow() in eval-turn-start.py is still producing false-positive turn-level eval opens from conversational mentions of workflow names during unrelated dispatch/discussion (e.g. Master relaying findings about boot's own eval records, or dispatching Rigby for unrelated fixes, both of which happened to use the word \"boot\"). Needs a tighter run-intent signal than run-verb-within-3-words, or an explicit check that the current turn's actual tool activity/dispatch target matches the detected workflow before opening a record. Also clean up (delete) the 3 spurious records once root-caused, same as the LE19LT precedent.",
+  "fix_status": "proposed",
+  "severity": "moderate",
+  "related_entries": ["err-20260826T193944-LZA3KU"]
+}

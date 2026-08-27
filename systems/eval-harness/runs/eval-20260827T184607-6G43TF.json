@@ -1,0 +1,59 @@
+{
+  "id": "eval-20260827T184607-6G43TF",
+  "agent_id": "ac40f2ffdbe8a2390",
+  "type": "agent",
+  "name": "general-purpose",
+  "agent": "general-purpose",
+  "session_id": "2026-08-25T17:14:37.010916Z",
+  "trigger": "unknown",
+  "started": "2026-08-27T18:46:07.998861Z",
+  "completed": "2026-08-27T18:50:04.895414Z",
+  "duration_seconds": 236.9,
+  "status": "success",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/0faf1016-2bec-49b8-9498-6d25e54e7bbb/subagents/agent-ac40f2ffdbe8a2390.jsonl",
+  "last_assistant_message": "**[Rigby]: Structural gap closed \u2014 extended to `eval-agent-start.py`, not just plaud-ingest specifically.**\n\n**What changed:**\n\n- **`systems/eval-harness/hook_utils.py`** \u2014 extracted the `workflows/{name}/workflow.md` path-matching regex that `eval-turn-start.py`'s `detect_workflow()` already had into a shared `extract_workflow_path_reference()` (validates the match against a real file on disk, not just regex-shape). Both hooks now call this one implementation instead of two copies.\n- **`eval-agent-start.py`** \u2014 new `detect_spawn_workflow()` checks the `SubagentStart` payload for a spawn-prompt-shaped field (tried `prompt`/`task`/`description`/`message`/`initial_prompt`, since this repo has no documented payload schema for that field name) and, if it names an explicit workflow.md path, writes it into a **new, additive `workflow` field** on the stub \u2014 `type`/`name` keep their existing, established meaning (`type: \"agent\"`, `name: \"general-purpose\"`) unchanged. I checked the field-naming question you flagged directly: `name` already means different things on `type: \"workflow\"` records (the workflow's name) vs `type: \"agent\"` records (the CC subagent type) \u2014 overloading it further would have been the third-inconsistent-field problem. `workflow` was already reserved-but-unused across every existing record I checked, so it's clean to introduce. `trigger` also flips to `\"workflow-dispatch\"` when this fires, instead of staying `\"unknown\"`.\n- **`schema.md`** updated to document the new field and the `type: \"agent\"` case, which wasn't previously documented at all.\n\n**Verified against real data, with one honest limitation:**\n\n- Tested `detect_spawn_workflow()` against the *actual, real* dispatch instruction text from `workflows/boot/steps/step-01-load-context.md` (\"Agent: Knox \u2014 run workflows/plaud-ingest/workflow.md. Background, don't wait.\") \u2014 correctly resolves to `plaud-ingest`.\n- Tested against my own two real capability-build dispatch prompts from earlier this session (the literal text I used to spawn the audit and hook-research forks) \u2014 both correctly stay untagged, confirming no false-match on genuinely ad-hoc, workflow-less dispatches.\n- Also tested a missing-field payload and an alternate field-name variant \u2014 all pass, 6/6.\n- **What I could not do**: literally replay the raw `SubagentStart` payloads for the 6 real Knox plaud-ingest records from today. That payload's prompt/task text was never persisted anywhere prior to this fix \u2014 there's no way to retroactively reconstruct exactly what was sent for those specific 6 records. I verified against the actual authored dispatch instruction that produces that text instead, which is the real source, but I want to be precise that this is not a byte-for-byte replay of those 6 records' original payloads.\n\nRe-ran the 26-case `detect_workflow` regression suite after refactoring its path-check to the shared helper \u2014 no regressions. All hook files compile. `evolutions/.pending-changes.json` updated under the same `work-20260826-193329-eval-hook-lifecycle` item.",
+  "model": "sonnet",
+  "total_tokens_input": 12426464,
+  "total_tokens_output": 5155,
+  "total_cost_usd": 5.226076
+}

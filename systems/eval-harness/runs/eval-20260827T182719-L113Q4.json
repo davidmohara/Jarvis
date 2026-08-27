@@ -1,0 +1,61 @@
+{
+  "id": "eval-20260827T182719-L113Q4",
+  "agent_id": "a574875944e9402dd",
+  "type": "agent",
+  "name": "general-purpose",
+  "agent": "general-purpose",
+  "session_id": "2026-08-25T17:14:37.010916Z",
+  "trigger": "unknown",
+  "started": "2026-08-27T18:27:19.696452Z",
+  "completed": "2026-08-27T18:29:59.370822Z",
+  "duration_seconds": 159.67,
+  "status": "failure",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": false,
+      "all_steps_finished": true,
+      "tool_failures": 2,
+      "error_ids": [
+        "err-20260827T182856-NG1ZWO"
+      ]
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": "negative",
+      "comment": "error-log-correlated: err-20260827T182856-NG1ZWO",
+      "timestamp": "2026-08-27T18:29:59.370822Z"
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/0faf1016-2bec-49b8-9498-6d25e54e7bbb/subagents/agent-a574875944e9402dd.jsonl",
+  "last_assistant_message": "The plaud-ingest workflow is now complete. Final summary:\n\n**Ingested (6 recordings, 2026-08-24/25):**\n- Sallie Mae AI Training Workshop Consultation \u2192 `zzPlaud/Client/`\n- David-Robyn 1-on-1 (Sales Strategy/Account Management) \u2192 `zzPlaud/Improving/`\n- RTP Plastics Manufacturer AI Workshop Scoping with Jack Claeys \u2192 `zzPlaud/Client/`\n- Podcast-to-Pipeline Touch Base with Keylor Arroyo and Alice Mburu \u2192 `zzPlaud/Improving/`\n- Remington Hotels AI Executive Workshop \u2192 `zzPlaud/Client/`\n- SIM Enclave DFW Dinner (CIO Role Evolution) \u2192 `zzPlaud/Other/`\n\nAll 6 have full transcripts, summaries, and are linked from their daily calendar notes (`Calendar/2026/08-August/2026-08-24.md` and `2026-08-25.md`). All 6 were shared via Plaud and the links emailed to Alice Mburu directly (Superhuman Mail, since the M365 send tools weren't available this session).\n\n**Held back:** the 2026-08-24 15:31 recording (Bethany Hilton disclosing a family member's psychiatric hospitalization) \u2014 flagged as third-party PHI, never ingested, vaulted, or shared, per your approval to leave it exactly as staged.\n\n**Monday.com:** zero tasks created this run. The extracted-action-item batch and the review-notification batch were both declined; the two items you personally owned (Texans outreach message, Janine follow-up) you'd already done yourself, and are marked completed in their respective vault notes rather than left open.\n\n**Worth knowing:** I caught two of my own speaker-misattribution errors mid-session on the David/Robyn 1:1 recording (had them swapped) and corrected before publishing \u2014 logged for future reference in working memory.",
+  "model": "sonnet",
+  "total_tokens_input": 6582416,
+  "total_tokens_output": 1446,
+  "total_cost_usd": 3.847001
+}

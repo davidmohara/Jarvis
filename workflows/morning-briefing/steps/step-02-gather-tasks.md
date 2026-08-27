@@ -1,8 +1,15 @@
 ---
-status: not-started
-started-at: ~
-completed-at: ~
-outputs: {}
+status: complete
+started-at: "2026-08-27T16:30:00Z"
+completed-at: "2026-08-27T16:31:00Z"
+outputs:
+  inbox_count: 12
+  due_today: []
+  overdue: []
+  flagged: []
+  delegations_active: 0
+  rocks_source: "memory/personal/quarterly-objectives.md (Q3 2026 draft, unsigned)"
+  summary: "12 unassigned OmniFocus inbox items, none dated/flagged/projected. No active delegations on tracker. Q3 rocks still in draft awaiting David's sign-off."
 model: sonnet
 ---
 

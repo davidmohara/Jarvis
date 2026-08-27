@@ -21,7 +21,9 @@
       "mcp__Control_your_Mac__osascript",
       "WebFetch(domain:api.invintory.com)",
       "WebFetch(domain:invintory.com)",
-      "Artifact"
+      "Artifact",
+      "mcp__claude_ai_monday_com__get_board_info",
+      "mcp__claude_ai_monday_com__get_column_type_info"
     ],
     "additionalDirectories": [
       "/Users/davidohara/develop/improving/ies"

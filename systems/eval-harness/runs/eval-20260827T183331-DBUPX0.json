@@ -1,0 +1,59 @@
+{
+  "id": "eval-20260827T183331-DBUPX0",
+  "agent_id": "ac40f2ffdbe8a2390",
+  "type": "agent",
+  "name": "general-purpose",
+  "agent": "general-purpose",
+  "session_id": "2026-08-25T17:14:37.010916Z",
+  "trigger": "unknown",
+  "started": "2026-08-27T18:33:31.194747Z",
+  "completed": "2026-08-27T18:41:00.692812Z",
+  "duration_seconds": 449.5,
+  "status": "aborted",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": false,
+      "all_steps_finished": true,
+      "tool_failures": 1,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/0faf1016-2bec-49b8-9498-6d25e54e7bbb/subagents/agent-ac40f2ffdbe8a2390.jsonl",
+  "last_assistant_message": "All three confirmed-bad records are gone (`EXE32D` was untracked so it just vanishes cleanly; `SYJXKR`/`SDJRUV` show as tracked deletions since they'd been committed in an earlier session). `YWMW6Z` untouched throughout.\n\n**[Rigby]: Found three distinct, compounding bugs \u2014 not just one. Fixed all three, verified each in isolation, zero regressions.**\n\n**Bug 1 \u2014 `detect_workflow()`'s run-verb-adjacency check fired on later, unrelated clauses of a longer message.** My 11-case suite only tested short prompts; it never covered a long dispatch/discussion message where a workflow name and an unrelated run-verb both happen to appear, just in different clauses. Fixed by restricting all non-path/non-slash matching to the prompt's **first clause only** (split on sentence-enders) \u2014 exactly the fix direction you suggested. I could not recover the literal historical prompt text for SYJXKR/SDJRUV/EXE32D (the hook never logged prompt text \u2014 see below), so I reconstructed the failure *class* from your timing account and verified against that directly. Added 5 new real-incident-shaped cases to a permanent 26-case regression suite now saved at `.claude/hooks/tests/test_detect_workflow.py` \u2014 all pass, no regressions on the prior 21.\n\n**Bug 2 \u2014 stale state.yaml completion falsely finalized fresh spurious records as instant \"success.\"** Checked the live data: `workflows/shutdown-cleanup/state.yaml` has sat at `status: complete` since **2026-08-12** \u2014 15 days stale. `eval-turn-stop.py` only checked \"is status currently terminal,\" never *when* it became terminal, so a spurious record opened weeks later closed as a fake \"success\" in 26.8s off nothing but leftover state. This is a second, independent bug from #1 \u2014 it explains SDJRUV (5.02s) and EXE32D (11.09s) closing so fast with 0 subagents, regardless of what triggered them. Fixed: `try_finalize()` now requires state.yaml's own completion timestamp to be at/after the eval record's own `started` time. Added a bounded 2-hour stale-abort path so a genuinely spurious record doesn't sit open forever. Verified all three branches (stale\u2192stays open, stale-and-old\u2192aborts, genuinely-fresh\u2192succeeds) in a sandboxed reproduction of the exact CKQQD4 shape.\n\n**Bug 3 \u2014 subagent misattribution.** SYJXKR's linked subagent `ac40f2ffdbe8a2390` was mine (capability-build work), not a real boot subagent. Root cause: the linking logic picked \"the most recent open turn-level record for this session_id\" with no check for whether it was the *only* candidate. Fixed with `find_unambiguous_open_turn_record()` \u2014 skips linking entirely when more than one turn-level record is open for the session, rather than guessing. Verified: 1 open record links, 2+ refuses.\n\n**Also added, since I couldn't diagnose the original incident from logs at all:** `trigger_evidence` (truncated matched-clause text, capped at 200 chars) now gets written into every opened record, and `TURN-START` log lines include it too. This is fixed going forward only \u2014 I want to be upfront that I did not literally recover what text opened SYJXKR/SDJRUV/EXE32D; I inferred the failure class from your account and the code path, and closed that class, not that specific transcript.\n\nAlso noticed (not part of this ask, not touched): more real concurrent activity landed again \u2014 a Scott McMichael 1:1 note/person file, morning-briefing and one-on-one-prep state changes, new error entries. Left alone.\n\n`evolutions/.pending-changes.json` updated under the same `work-20260826-193329-eval-hook-lifecycle` item. All hook files compile; `settings.json` untouched this round.",
+  "model": "sonnet",
+  "total_tokens_input": 15094511,
+  "total_tokens_output": 6708,
+  "total_cost_usd": 4.89434
+}
