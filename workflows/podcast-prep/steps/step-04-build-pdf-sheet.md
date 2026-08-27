@@ -95,6 +95,16 @@ Welcome to **The Improving Edge**. This is where we talk about how AI and techno
 Sportcoat: _______________________________
 ```
 
+### Format Consistency Rules — Read First
+
+**Do not reinvent the format.** This document has a locked structure. Reference `meetings/podcast-prep/Episode 2.md` as the canonical example before writing a single line. The layout, tag choices, section order, and visual style must match it. If something looks different from the example, fix it — do not decide a variation is acceptable.
+
+**One page is a hard constraint.** If the content does not fit on one page at readable size, cut content — do not shrink the font, reduce margins, or split onto a second page. Tighten the table focus descriptions first, then shorten questions. Every word must earn its place.
+
+**Readable font size.** The CSS controls sizing, but your content length determines whether it fits. Keep table focus descriptions to 1-2 sentences max. Keep questions to 1-2 sentences max. If you're writing more than that, you're writing too much.
+
+---
+
 ### Critical Formatting Rules
 
 These rules ensure the PDF renders correctly with the CSS stylesheet:
@@ -121,6 +131,8 @@ The key skill here is **condensation**. The detailed prep sheet has 8-10+ questi
 
 4. **Order for flow.** Start broad (define the topic, set context), go deep in the middle (challenges, real examples, contrarian takes), end forward-looking (future, advice), then wrap up.
 
+4a. **Add follow-up prompts sparingly.** For 2-3 questions, add a single follow-up line beneath the question in italics — either a mechanism prompt ("*→ How does that actually show up?*") or a devil's advocate ("*→ What would someone say who disagrees?*"). One follow-up per question max. Skip them if they push the document past one page.
+
 5. **The wrap-up is always the same:** "What are a couple of takeaways you'd like the listeners to walk away with?"
 
 6. **Topic labels are 2-4 words.** Not sentences. "On Adoption Barriers" not "On The Challenges Organizations Face When Adopting AI."
@@ -137,6 +149,8 @@ The key skill here is **condensation**. The detailed prep sheet has 8-10+ questi
 | Questions sound too scripted | Rewrite them more casually. Read them aloud mentally — would David say this in a real conversation? |
 | Document runs long (won't fit one page) | Tighten focus descriptions in the table. Shorten questions. Cut any word that isn't pulling its weight. |
 | Template format unclear | Reference the existing example at `meetings/podcast-prep/Episode 2.md` for a real output. |
+| Format looks different from prior episodes | Stop. Re-read `Episode 2.md` and align. Do not submit a variation — the format is locked. |
+| Font too small or content overflows one page | Cut content. Shorten table descriptions and questions. Do not adjust font size or margins. |
 
 ---
 

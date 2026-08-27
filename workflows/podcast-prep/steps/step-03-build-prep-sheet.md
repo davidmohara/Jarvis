@@ -83,7 +83,10 @@ Core themes:
 
 ## Questions from SharePoint
 
-{If SharePoint doc found: reproduce all questions with their topic groupings}
+{If SharePoint doc found: reproduce all questions with their topic groupings. For each question block, add follow-up prompts in italics:
+- A **mechanism follow-up** for at least 2-3 questions: "How does that actually show up?" or "What does that look like in practice?"
+- A **devil's advocate challenge** for at least 1-2 questions: "Let me push back on that..." or "What would someone say who disagrees with you?"
+These are optional prompts for David — not scripted questions — to use if the guest's answer stays too abstract or too safe.}
 
 {If NOT found:}
 **No question doc exists on SharePoint for this episode yet.**
@@ -94,10 +97,17 @@ Action: Confirm with Janine whether she's building one or if you're going freefo
 
 ## Suggested Questions (if no Janine doc arrives)
 
+> **Question format:** Each block = primary question + optional follow-ups in italics.
+> *Mechanism follow-up:* "How does that actually show up?" / "What does that look like in practice?"
+> *Devil's advocate:* "Let me push back on that..." / "What would someone say who disagrees with you?"
+> At least 2-3 questions should have a mechanism follow-up. At least 1-2 should have a devil's advocate challenge.
+
 {Generate 8-10 questions if no SharePoint doc. Each should:}
 {- Be numbered with a bold topic label}
 {- Be phrased the way David would actually ask them — conversational, direct}
 {- Cover the episode's core themes}
+{- Include a **mechanism follow-up** for at least 2-3 questions — after the guest answers, David presses on the "how": "How does that actually show up?" or "What does that look like in practice?". Write the follow-up in italics beneath the primary question.}
+{- Include a **devil's advocate challenge** for at least 1-2 questions — explicitly name the counter-position: "Let me push back on that for a second..." or "What would someone say who disagrees with you?". Write it in italics beneath the primary question.}
 {- End with the standard closer: "What are a couple of takeaways you'd like the listeners to walk away with?"}
 
 ---
@@ -135,7 +145,7 @@ Action: Confirm with Janine whether she's building one or if you're going freefo
 
 ### Writing Rules
 
-1. **Questions sound like David.** Not academic. Not scripted. The way you'd ask over coffee. Direct, curious, with an edge.
+1. **Questions sound like David.** Not academic. Not scripted. The way you'd ask over coffee. Direct, curious, with an edge. Every topic block should have at least one mechanism follow-up ("How does that actually show up?") and at least one devil's advocate challenge ("What would someone say who disagrees with you?"). These go in italics beneath the primary question — they're not separate questions, they're prompts David can use if the guest's answer stays too abstract or too safe.
 2. **Talking points are specific.** Not "talk about AI" — instead "reference your experience building the Jarvis multi-agent system." Concrete, personal, usable.
 3. **Flag everything uncertain.** Missing SharePoint doc? Flag it. Guest background thin? Flag it. Date unconfirmed? Flag it. Better to over-flag than to let David walk in unprepared.
 4. **Keep it scannable.** Tables, bullets, bold headers. David reads this quickly before filming — it's not a novel.

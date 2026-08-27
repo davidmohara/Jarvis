@@ -1,0 +1,15 @@
+{
+  "id": "err-20260827T182727-CX37LI",
+  "timestamp": "2026-08-27T18:27:27Z",
+  "session": "2026-08-27",
+  "source": "explicit",
+  "agent": "Chief",
+  "category": "routing-error",
+  "description": "Chief delivered presentation feedback attributed to 'Harper' without spawning a Harper agent. Assumed the Harper persona and wrote in Harper's voice directly, rather than spawning Harper as a subagent with the transcript context and letting Harper do the work.",
+  "correction": "Agent personas must always be spawned as actual subagents given the necessary context. Chief should never assume or impersonate another agent's voice. The correct action was to spawn a Harper agent via the Agent tool, pass the transcript and feedback brief, and relay Harper's output.",
+  "failure_mode": "protocol-skip",
+  "systemic_fix": "Add explicit rule to CLAUDE.md or agents/routing.md: 'Never assume an agent persona. If work belongs to a named agent, spawn that agent via the Agent tool with full context. Chief does not write in another agent's voice.'",
+  "fix_status": "proposed",
+  "severity": "moderate",
+  "related_entries": []
+}
