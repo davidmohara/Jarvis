@@ -1,8 +1,32 @@
 ---
-status: not-started
-started-at: ~
-completed-at: ~
-outputs: {}
+status: complete
+started-at: "2026-08-27T19:05:00Z"
+completed-at: "2026-08-27T20:05:00Z"
+outputs:
+  deleted:
+    - path: "./.DS_Store"
+      reason: "macOS metadata"
+    - path: "./meetings/.DS_Store"
+      reason: "macOS metadata"
+    - path: "./.claude/hooks/__pycache__"
+      reason: "Python bytecode cache"
+    - path: "./.claude/hooks/tests/__pycache__"
+      reason: "Python bytecode cache"
+    - path: "./workflows/dream-cycle/__pycache__"
+      reason: "Python bytecode cache"
+    - path: "./systems/eval-harness/__pycache__"
+      reason: "Python bytecode cache"
+    - path: "./systems/eval-harness/vendor/yaml/__pycache__"
+      reason: "Python bytecode cache"
+    - path: "./skills/plaud-transcripts/scripts/__pycache__"
+      reason: "Python bytecode cache"
+  total_deleted: 8
+  root_check:
+    resolved:
+      - name: "drafts/"
+        disposition: "Moved per David's decision (relayed by controller). git mv drafts/improving-blog/2026-08-22-the-twenty-percent-nobody-budgeted.md -> content/improving-blog/2026-08-22-the-twenty-percent-nobody-budgeted.md. Updated stale reference in workflows/content-pipeline/steps/step-01-discover.md (fallback path pointed at a nonexistent /Users/davidohara/develop/jarvis/drafts/improving-blog/ root; removed the fallback, canonical path is content/improving-blog/). Removed now-empty drafts/improving-blog/ and drafts/ directories."
+      - name: ".playwright-mcp/"
+        disposition: "No action — gitignored, untracked tool cache."
 model: sonnet
 ---
 

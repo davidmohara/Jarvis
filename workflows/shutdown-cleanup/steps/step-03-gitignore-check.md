@@ -1,8 +1,11 @@
 ---
-status: not-started
-started-at: ~
-completed-at: ~
-outputs: {}
+status: complete
+started-at: "2026-08-27T20:10:00Z"
+completed-at: "2026-08-27T20:12:00Z"
+outputs:
+  patterns_added: []
+  already_covered: 6
+  no_changes_needed: true
 model: sonnet
 ---
 

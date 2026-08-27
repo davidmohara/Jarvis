@@ -1395,7 +1395,12 @@
           "agents/master.md",
           "systems/error-tracking/entries/err-20260827T183203-RSVL2A.json",
           ".claude/hooks/tests/test_detect_workflow.py",
-          "systems/eval-harness/schema.md"
+          "systems/eval-harness/schema.md",
+          "workflows/shutdown-cleanup/state.yaml",
+          "workflows/shutdown-cleanup/steps/step-01-purge-artifacts.md",
+          "workflows/content-pipeline/steps/step-01-discover.md",
+          "workflows/shutdown-cleanup/steps/step-02-organize-deliverables.md",
+          "workflows/shutdown-cleanup/steps/step-03-gitignore-check.md"
         ],
         "loops": [],
         "flag": true

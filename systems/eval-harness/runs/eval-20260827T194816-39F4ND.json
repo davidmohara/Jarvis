@@ -1,0 +1,62 @@
+{
+  "id": "eval-20260827T194816-39F4ND",
+  "agent_id": "a0d169b6d2f5cd16f",
+  "type": "agent",
+  "name": "general-purpose",
+  "workflow": null,
+  "agent": "general-purpose",
+  "session_id": "2026-08-25T17:14:37.010916Z",
+  "trigger": "unknown",
+  "started": "2026-08-27T19:48:16.665788Z",
+  "completed": null,
+  "duration_seconds": null,
+  "status": "in-progress",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": null,
+      "all_steps_finished": null,
+      "tool_failures": 1,
+      "error_ids": [],
+      "tool_failure_log": [
+        {
+          "tool": "Bash",
+          "error": "Exit code 1\ntotal 0\ndrwxr-xr-x@  3 davidohara  staff    96 Jun 19 14:59 .\ndrwxr-xr-x@ 45 davidohara  staff  1440 Aug 27 13:31 ..\ndrwxr-xr-x@  5 davidohara  staff   160 Jun 23 12:02 forbes\nls: content/improving-blog: No such file or directory",
+          "duration_ms": 29,
+          "timestamp": "2026-08-27T14:49:02.585204"
+        }
+      ]
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": []
+}

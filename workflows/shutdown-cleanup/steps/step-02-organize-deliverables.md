@@ -1,8 +1,16 @@
 ---
-status: not-started
-started-at: ~
-completed-at: ~
-outputs: {}
+status: complete
+started-at: "2026-08-27T20:05:00Z"
+completed-at: "2026-08-27T20:10:00Z"
+outputs:
+  deliverables_checked: 0
+  renamed: []
+  moved:
+    - from: "drafts/improving-blog/2026-08-22-the-twenty-percent-nobody-budgeted.md"
+      to: "content/improving-blog/2026-08-22-the-twenty-percent-nobody-budgeted.md"
+      reason: "David's decision (relayed by controller) to retire the non-canonical drafts/ root directory; content/improving-blog/ is the canonical location per workflows/content-pipeline/steps/step-01-discover.md. Filename already followed YYYY-MM-DD-slug.md convention, no rename needed."
+  verified_clean: 1
+  no_pdf_docx_pptx_epub_in_diff: true
 model: sonnet
 ---
 

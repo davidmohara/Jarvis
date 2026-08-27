@@ -1,37 +1,33 @@
 ---
 workflow: shutdown-cleanup
 agent: master
-status: complete
-session-started: "2026-08-12T17:45:00-05:00"
-session-completed: "2026-08-12T17:55:00-05:00"
-session-id: session-2026-08-12-174500
-current-step: null
-original-request: "Run the end of day clean up workflow"
+status: in-progress
+session-started: "2026-08-27T19:00:00Z"
+session-completed: null
+session-id: session-2026-08-27-190000
+current-step: step-01
+original-request: "Run the cleanup workflow"
 accumulated-context:
-  purge: >
-    step-01 complete. Deleted 4 stray .DS_Store files (root, memory/,
-    archive/, accounts/) via Desktop Commander host process — sandbox bash
-    lacked delete permission on the OneDrive-synced copies. No __pycache__,
-    *.tmp, .fuse_hidden*, meetings HTML, or root scripts found. IES
-    root-check: no non-canonical entries. .claude/ and .playwright-mcp/ are
-    expected hidden tool caches (latter already gitignored).
-  organize: >
-    step-02 complete. No PDF build artifacts found (build-artifact rule
-    N/A this session). Verified Everbridge proposal files correctly
-    relocated from proposals/ to accounts/Everbridge/ (git recorded as
-    renames, no duplication). New account-pursuit dashboards and account
-    plans (7-Eleven, Expedia Group, Marriott, McKesson, ORIX Corporation,
-    PriceSmart, Texas Instruments) follow naming convention, no action
-    needed.
-  gitignore: >
-    step-03 complete. Read .gitignore — all discovered patterns already
-    covered. No changes needed.
-  git-commit: >
-    step-04 complete. Checked diff for gated-directory content (workflows/
-    plaud-ingest step files and state.yaml changes were execution-output
-    frontmatter only, not skill/workflow authoring — no Rigby gate
-    triggered). Checked for secrets — none found (only env-var name
-    references in docs). Staged and committed 134 files via Desktop
-    Commander host process (git skill atomic-command rule). Not pushed
-    (not requested). Working memory written:
-    memory/working/shutdown-cleanup-2026-08-07-162834.md.
+  purge_results:
+    ds_store_found:
+      - ./.DS_Store
+      - ./meetings/.DS_Store
+    pycache_found:
+      - ./.claude/hooks/__pycache__
+      - ./workflows/dream-cycle/__pycache__
+      - ./systems/eval-harness/__pycache__
+      - ./skills/plaud-transcripts/scripts/__pycache__
+      - ./.claude/hooks/tests/__pycache__
+      - ./systems/eval-harness/vendor/yaml/__pycache__
+    fuse_hidden_found: []
+    tmp_found: []
+    meetings_html_found: []
+    root_scripts_found: []
+  root_check:
+    non_canonical_entries:
+      - name: "drafts/"
+        note: "Contains drafts/improving-blog/2026-08-22-the-twenty-percent-nobody-budgeted.md, tracked in git (added by commit 163fba69, 'feat(harper): content-discovery 2026-08-22 — Improving blog draft on OpenAI 20% monitoring overhead'). Not in canonical root allowlist. content-pipeline workflow already tracks blog drafts via workflows/content-pipeline/pending-drafts.json and published content lives under content/forbes/. Unclear whether drafts/improving-blog/ is an intentional separate holding area for unpublished Improving-blog posts (as opposed to Forbes) or a misplaced/leftover directory that should be merged into content/ or removed. PAUSED per workflow instructions pending controller disposition."
+        status: "flagged-for-controller"
+      - name: ".playwright-mcp/"
+        note: "Dot-prefixed Playwright MCP cache/log directory (180 console-*.log files), already covered by .gitignore line 36 (.playwright-mcp/) and not git-tracked. Treated as standard tool infrastructure, not a session mistake — not flagging as an alert, consistent with other dot-prefixed infra dirs (.git, .claude, .mcp.json) that are absent from the canonical allowlist but clearly legitimate."
+        status: "no-action-needed"
