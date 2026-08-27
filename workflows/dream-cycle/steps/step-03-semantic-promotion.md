@@ -1,20 +1,23 @@
 ---
 status: complete
-started-at: 2026-08-25T03:09:00-05:00
-completed-at: 2026-08-25T03:10:39-05:00
+started-at: 2026-08-27T03:13:00-05:00
+completed-at: 2026-08-27T03:22:00-05:00
 outputs:
-  candidates_count: 1
-  clusters_found: 1
+  candidates_count: 4
+  clusters_found: 3
   semantic_created: 0
-  semantic_updated: 1
-  promoted_entries: 1
-  promotion_note: "Single candidate this cycle: plaud-ingest-2026-08-22-003000.md (score 3), this cycle's own step-01 archive. Matched existing memory/semantic/operational/2026-07-04-plaud-pattern.md by tag overlap — appended 2026-08-25 evidence entry, escalated confidence low->medium (evidence now spans 07-04 through 08-25, past the 15-entry threshold noted in the file's own Pattern Summary). Discovered and logged (err-20260825T081039-APAWBB) a live corruption bug in systems/dream-cycle/salience-score.py's merge-write regex; fixed only the touched file, did not patch the gated systems/ script or the other 288 affected files."
+  semantic_updated: 3
+  promoted_entries: 4
+  promotion_note: "4 candidates: co-sell-pipeline-2026-08-24-001532.md (score 10), dream-summary-2026-08-25.md (score 10), revenue-tracker-2026-08-24-002000.md (score 10) — all this cycle's own step-01 archives — plus revenue-tracker-2026-07-27-001532.md (score 3, first-time threshold crossing via 30-day window drift, not a new archive this cycle). Clustered by dominant/deliverable tag against each target file's own tags field (consistent with 08-26's direct-match approach, avoiding the transitive-closure over-merge risk noted that cycle): pipeline-review -> operational/2026-06-18-pipeline-review-pattern.md (chose this file over domain-knowledge/2026-06-30-pipeline-review-pattern.md as the more recently-active of the two duplicates, last-updated 07-02 vs 06-30); dream-summary -> operational/2026-06-12-dream-summary-pattern.md (same file the 08-26 cycle used, confidence held at high/unchanged); revenue-tracker (both revenue-tracker candidates) -> operational/2026-06-24-revenue-tracker-pattern.md (the file already receiving nightly revenue-tracker promotions since 08-05/08-12, confidence held at medium/unchanged). Zero new semantic files created — appended to existing files per the established 'append to the actively-maintained duplicate, don't create a new one' practice. Set salience.promoted:true on all 4 source episodic files via direct write to each file's rightmost/authoritative salience: block (same corruption-avoidance approach as 08-26, since the legacy orphaned-line corruption in older files is unrelated to today's 4 freshly-archived/rescored files, which have clean single salience: blocks)."
   cluster_actions:
-    - {tag: plaud-ingest, domain: operational, size: 1, action: update, target: memory/semantic/operational/2026-07-04-plaud-pattern.md}
-  error_categories_30d: "process-skip/protocol-skip:8, missed-context/context-blindness:4, assumption-error/wrong-assumption:4, tool-misuse/tool-ignorance:4, tool-misuse/wrong-assumption:3, lazy-search/available-data-not-used:3"
-  error_total_30d: 86
-  lessons_appended: 0
-  lessons_note: "All 6 qualifying categories (3+ occurrences in 30d) already documented and active in LESSONS.md. No new lesson appended. 3 error entries with null category/failure_mode flagged for Rigby as malformed records."
+    - {tag: pipeline-review, domain: operational, size: 1, action: update, target: memory/semantic/operational/2026-06-18-pipeline-review-pattern.md, confidence: "medium (unchanged)"}
+    - {tag: dream-summary, domain: operational, size: 1, action: update, target: memory/semantic/operational/2026-06-12-dream-summary-pattern.md, confidence: "high (unchanged)"}
+    - {tag: revenue-tracker, domain: operational, size: 2, action: update, target: memory/semantic/operational/2026-06-24-revenue-tracker-pattern.md, confidence: "medium (unchanged)"}
+  error_categories_30d: "process-skip/protocol-skip:8, assumption-error/wrong-assumption:4, tool-misuse/tool-ignorance:4, tool-misuse/wrong-assumption:3, tool-misuse/protocol-skip:3, missed-context/lazy-search:3, lazy-search/available-data-not-used:3"
+  error_total_30d: 81
+  error_malformed_30d: 4
+  lessons_appended: 1
+  lessons_note: "6 of 7 qualifying categories (3+ occurrences in 30d) already documented and active in LESSONS.md. One new pattern crossed the threshold this cycle and was not yet covered: tool-misuse/protocol-skip (3 occurrences — refusing to use master-slack for a Slack post, giving manual rmapi re-registration instructions instead of following remarkable-upload's documented recovery path, and the salience-score.py subdirectory-scan gap). Appended a new entry to LESSONS.md (2026-08-27 — Tool Misuse / Protocol Skip). 4 error entries with null category/failure_mode remain flagged for Rigby as malformed records (unchanged pattern from prior cycles)."
 ---
 
 <!-- system:start -->

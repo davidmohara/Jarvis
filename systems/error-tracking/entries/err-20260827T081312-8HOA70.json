@@ -1,0 +1,15 @@
+{
+  "id": "err-20260827T081312-8HOA70",
+  "timestamp": "2026-08-27T08:13:12Z",
+  "session": "dream-cycle-2026-08-27-030307",
+  "source": "self-detected",
+  "agent": "jarvis",
+  "category": "tool-misuse",
+  "description": "Step-03b's guardrail-checkpoint.py call ('python3 systems/eval-harness/guardrail-checkpoint.py dream-cycle pre-deletion-review step-03-semantic-promotion pass ...') appended this cycle's checkpoint result to systems/eval-harness/runs/eval-20260826T081600-6E7FXX.json -- a stale record from yesterday's session tagged ['cowork-hook','phantom-candidate'] with session_id empty and task null -- instead of a record belonging to today's dream-cycle-2026-08-27-030307 session. The script appears to pick 'the most recent eval run record' without filtering by session_id or date, so it silently attached today's guardrail result to an unrelated orphaned record from a prior cowork-hook run.",
+  "correction": "Did not attempt to fix or repoint the write (systems/ is Rigby-gated; guardrail-checkpoint.py is out of scope for a nightly dream-cycle run to patch). The checkpoint result is still correctly recorded verbatim in workflows/dream-cycle/state.yaml and steps/step-03b-guardrail-checkpoint.md, so no data was lost -- this is a misfiled duplicate, not a missing record.",
+  "failure_mode": "pattern-mismatch",
+  "systemic_fix": "Rigby should update guardrail-checkpoint.py to require an explicit session_id (or today's date) when selecting the target eval run record, and fail loudly (or create a new record) rather than falling back to 'most recent record found' when no exact match exists. Also worth checking whether other eval-harness scripts share this same fallback pattern and would misattribute writes the same way.",
+  "fix_status": "proposed",
+  "severity": "minor",
+  "related_entries": []
+}

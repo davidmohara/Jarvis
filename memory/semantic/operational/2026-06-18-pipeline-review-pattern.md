@@ -5,8 +5,9 @@ tags:
 - pipeline-review
 confidence: medium
 created: '2026-06-18'
-last-updated: 2026-07-02
+last-updated: 2026-08-27
 synthesized-from:
+  - memory/episodic/co-sell-pipeline-2026-08-24-001532.md
 - co-sell-pipeline-2026-06-15-143245.md
   - memory/episodic/co-sell-pipeline-20260629-001245.md
 synthesized-from:
@@ -19,6 +20,7 @@ Recurring `pipeline-review` activity observed in episodic memory.
 
 ## Evidence
 
+- 2026-08-27 | co-sell-pipeline-2026-08-24-001532.md | tags: pipeline-review, chase, omnifocus, rock4, quarterly-rocks, one-texas, revenue, pipeline, co-sell | score: 10
 
 - 2026-07-02 | co-sell-pipeline-20260629-001245.md | tags: pipeline-review, chase, omnifocus, one-texas, pipeline, co-sell | score: 10
 ### 2026-06-18 run
@@ -31,7 +33,7 @@ Recurring `pipeline-review` activity observed in episodic memory.
 
 ## Implications
 
-
+- 2026-08-27: 1 entries reinforce relevance of `pipeline-review` cluster (Rock 4 co-sell snapshot, $8.49M gap, 56.6% uncovered). Confidence held at medium (unchanged) — one new entry doesn't clear the bar for escalation.
 - 2026-07-02: 1 entries reinforce relevance of `pipeline-review` cluster. Watch for further co-occurrence.
 - 2026-06-24: New episodic cluster (pipeline-review, 2 entries) reinforces pattern.
 _TBD — pattern just emerged. Watch for stability over the next 2-3 dream cycles before drawing conclusions._

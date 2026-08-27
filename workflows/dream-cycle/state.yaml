@@ -1,12 +1,70 @@
 workflow: dream-cycle
 agent: jarvis
 status: complete
-session-started: 2026-08-26T03:02:47-05:00
-session-id: dream-cycle-2026-08-26-030247
+session-started: 2026-08-27T03:03:07-05:00
+session-id: dream-cycle-2026-08-27-030307
 current-step: null
 original-request: "Execute dream-cycle workflow for today (scheduled task)"
-last-successful-run: 2026-08-26T03:15:24-05:00
+last-successful-run: 2026-08-27T03:30:00-05:00
 accumulated-context:
+  step-01-2026-08-27:
+    working_archived: 3
+    working_deleted: 0
+    working_skipped: 27
+    working_stranded: 0
+    archived_files:
+      - co-sell-pipeline-2026-08-24-001532.md
+      - dream-summary-2026-08-25.md
+      - revenue-tracker-2026-08-24-002000.md
+    skipped_not_expired:
+      - dream-summary-2026-08-26.md
+    skipped_unparseable_count: 26
+    new_unparseable_this_cycle:
+      - golf-preview-2026-08-25.md
+    stranded: []
+    note: "Environment note: this run executes inside a fresh cloud container (Claude Code on the web), not David's local Mac. mcp__Desktop_Commander__* is not configured in this session (confirmed via ToolSearch — no matching tools, not merely deferred). Per CLAUDE.md's Scheduled Tasks standing authorization ('resolve a stale path/tool assumption against reality and proceed'), used the Bash tool directly against the cloned repo for all file and git operations instead of Desktop Commander/osascript. No FUSE-mount dual-user split exists in this container, so the index.lock failure mode the git skill warns about does not apply here; git commands were still issued as separate atomic calls per the skill's convention. Enrichment used the heuristic path (systems/dream-cycle/backfill-episodic-tags.py's derive_date/derive_tags/derive_people helpers, imported directly) rather than the LLM subprocess extractor — no interactive `claude -p` auth session exists in this container."
+  step-02-2026-08-27:
+    episodic_scanned: 292
+    score_updates: 292
+    window_entries: 61
+    no_date: 38
+    no_tags: 206
+    score_distribution: "0:207,1:4,2:2,3:5,4:5,5:3,6:4,7:4,8:3,9:1,10:54"
+    read_errors: 0
+    write_errors: 0
+    note: "pct_score_0=70.9% and pct_no_date=13.0% both crossed escalation thresholds again but match the 08-25/08-26 baseline almost exactly -- legacy population, not a new regression. pct_no_tags=70.5% within expected warning band. Subdirectory-recursion bug (err-20260826T081453-664W53) unchanged: still only the 1 decisions/ file affected, no new subdirectory entries this cycle."
+  step-03-2026-08-27:
+    candidates_count: 4
+    clusters_found: 3
+    semantic_created: 0
+    semantic_updated: 3
+    promoted_entries: 4
+    cluster_actions:
+      - {tag: pipeline-review, domain: operational, size: 1, action: update, target: memory/semantic/operational/2026-06-18-pipeline-review-pattern.md, confidence: "medium (unchanged)"}
+      - {tag: dream-summary, domain: operational, size: 1, action: update, target: memory/semantic/operational/2026-06-12-dream-summary-pattern.md, confidence: "high (unchanged)"}
+      - {tag: revenue-tracker, domain: operational, size: 2, action: update, target: memory/semantic/operational/2026-06-24-revenue-tracker-pattern.md, confidence: "medium (unchanged)"}
+    error_categories_30d: "process-skip/protocol-skip:8, assumption-error/wrong-assumption:4, tool-misuse/tool-ignorance:4, tool-misuse/wrong-assumption:3, tool-misuse/protocol-skip:3, missed-context/lazy-search:3, lazy-search/available-data-not-used:3"
+    error_total_30d: 81
+    error_malformed_30d: 4
+    lessons_appended: 1
+    lessons_note: "New pattern tool-misuse/protocol-skip crossed the 3-occurrence threshold and was not yet in LESSONS.md; appended. All other 6 qualifying categories already documented."
+    semantic_duplication_note: "Continued the established 'append to the actively-maintained duplicate' practice rather than creating new files or consolidating the pre-existing duplicate -pattern.md files (still flagged for Rigby/manual review, unchanged from 08-26)."
+  step-03b-2026-08-27:
+    result: pass
+    reason: "5 compression candidates, identical to 08-26's preview set; all 4 promoted entries correctly excluded; step-03 writes substantive, not stubs."
+  step-04-2026-08-27:
+    candidates_count: 5
+    entries_compressed: 0
+    digests_updated: 0
+    compression_skipped: true
+    compression_skip_reason: "Second consecutive cycle at the identical 5-candidate set as 08-26; GUARDRAIL 7's controller-approval gate can't be satisfied unattended. Withheld again; escalated to David as a real decision point rather than a routine skip (see guardrails.compression_threshold)."
+    compression_preview:
+      - {date: "2026-04-30", file: "2026-04-30-dream-cycle-summary.md", type: working-archive, score: 0}
+      - {date: "2026-05-04", file: "2026-05-04-dream-cycle-summary.md", type: working-archive, score: 0}
+      - {date: "2026-05-08", file: "2026-05-08-session-index-build.md", type: episodic, score: 0}
+      - {date: "2026-05-15", file: "2026-05-15-dream-cycle-summary.md", type: working-archive, score: 0}
+      - {date: "2026-05-27", file: "decisions/2026-05-27-185930-decision-rationale-error-improvement-2026-03-21-to-2026-05-27.md", type: decision-rationale, score: 0, note: "salience frozen since 2026-07-25 -- subdirectory-recursion bug err-20260826T081453-664W53, unchanged"}
+    controller_decision: null
   step-01-2026-08-26:
     working_archived: 0
     working_deleted: 0
@@ -158,56 +216,59 @@ guardrails:
   archival_history:
     - {date: "2026-08-25", archived: 2}
     - {date: "2026-08-26", archived: 0}
+    - {date: "2026-08-27", archived: 3}
   promotion_history:
     - {date: "2026-08-26", promoted: 14, candidates_found: 14}
+    - {date: "2026-08-27", promoted: 4, candidates_found: 4}
   compression_history:
     - {date: "2026-08-26", candidates_found: 5, compressed: 0}
+    - {date: "2026-08-27", candidates_found: 5, compressed: 0}
   archive_safety:
     spot_check_passed: true
     recent_edits_archived: 0
     recently_modified_files: []
   archival_balance:
-    archival_rate: 0
-    avg_rate_30d: 1.0
-    balance_check: "pass — archived_count=0 this cycle but only 1 prior cycle on record (2 archived), not 3 consecutive zero cycles; no escalation trigger. All 3 not-yet-expired working files (co-sell-pipeline, revenue-tracker, dream-summary-08-25) expire tomorrow, not today, so a zero-archive night was expected."
+    archival_rate: 3
+    avg_rate_30d: 1.67
+    balance_check: "pass — 3 archived this cycle, no anomaly (not >average+2stddev with only 2 prior cycles of history; well within normal range)."
   score_distribution:
-    pct_score_0: 71.6
-    pct_score_10: 17.6
-    distribution_check: "escalated — pct_score_0=71.6% (>=70 threshold), matches 2026-08-25 baseline (71.6%) almost exactly. Not a fresh regression. Surfacing for controller awareness, not blocking."
+    pct_score_0: 70.9
+    pct_score_10: 18.5
+    distribution_check: "escalated — pct_score_0=70.9% (>=70 threshold), matches 08-25/08-26 baseline (71.6%) almost exactly. Not a fresh regression. Surfacing for controller awareness, not blocking."
     controller_decision: null
   metadata_quality:
-    pct_no_date: 13.1
-    pct_no_tags: 71.3
-    metadata_check: "escalated — pct_no_date=13.1% (>10% threshold), matches 2026-08-25 baseline (13.2%). pct_no_tags=71.3% is within the 'expected for recently archived, monitor for drift' warning band, not escalated on its own."
+    pct_no_date: 13.0
+    pct_no_tags: 70.5
+    metadata_check: "escalated — pct_no_date=13.0% (>10% threshold), matches 08-25/08-26 baseline. pct_no_tags=70.5% within the 'expected for recently archived, monitor for drift' warning band, not escalated alone."
     audit_notes: "Same legacy untagged/undated population as prior cycles driving both metrics — no new degradation this cycle."
   promotion_threshold:
     threshold: 3
-    candidates_found: 14
-    promoted: 14
-    last_4_cycles_promoted: 15
+    candidates_found: 4
+    promoted: 4
+    last_4_cycles_promoted: 19
     threshold_check: "pass"
     controller_decision: null
   semantic_duplication:
     exact_duplicates_skipped: 0
     possible_duplicates_flagged: 0
     consolidation_candidates: 0
-    deduplication_check: "pass for this cycle's own writes (updated 6 existing files, created none) — but flagging pre-existing corpus-wide duplication found while selecting targets (multiple duplicate -pattern.md files per tag across domain-knowledge/operational/pattern dirs, e.g. 3 separate plaud-pattern.md files); see step-03-2026-08-26.semantic_duplication note. Not this cycle's creation, not remediated this cycle (out of scope)."
+    deduplication_check: "pass for this cycle's own writes (updated 3 existing files, created none) — pre-existing corpus-wide duplication (multiple duplicate -pattern.md files per tag) remains flagged for Rigby/manual review, unchanged and not remediated this cycle (out of scope)."
   compression_threshold:
     last_12_cycles_candidates: 5
     last_12_cycles_compressed: 0
     avg_per_cycle: 0
-    threshold_check: "escalated — 5 candidates reached the safety threshold for the first time (prior cycles: 4 or fewer) but GUARDRAIL 7's controller-approval gate could not be satisfied unattended; compression withheld, not a threshold-tuning issue."
+    threshold_check: "escalated — SECOND consecutive cycle at the 5-candidate safety threshold (08-26 and 08-27, identical candidate set both times) with GUARDRAIL 7's controller-approval gate unable to be satisfied in an unattended run. This is now a structural tension worth David's explicit decision, not just evidence-gathering: either approve this exact 5-entry batch once (unblocking it and future batches that clear the threshold), or tell Jarvis to lower the safety threshold, or accept that compression will never fire under the current unattended-approval design. Surfacing explicitly rather than repeating the same withhold a third time silently."
     controller_decision: null
   compression_preview:
     preview_shown: true
     controller_approved: null
-    note: "Preview recorded in accumulated-context.step-04-2026-08-26.compression_preview and in memory/working/dream-summary-2026-08-26.md for David to review at next session. Nothing deleted pending his decision."
+    note: "Same 5-entry preview as 08-26 (accumulated-context.step-04-2026-08-26.compression_preview), unchanged: 2026-04-30/05-04/05-15 dream-cycle-summary entries, 2026-05-08 session-index-build, and the 2026-05-27 decisions/ entry (frozen score due to the known subdirectory-recursion bug). Recorded again in memory/working/dream-summary-2026-08-27.md for David to review. Nothing deleted pending his decision."
   git_atomicity:
-    pre_commit_check: "pass"
-    dream_log_valid: true
-    state_file_valid: true
-    commit_status: "success"
-    commit_sha: "ec2b3e6"
-    push_status: "success"
-    atomicity_check: "pass"
-    note: "Local main branch ref was stale (cached at an older commit, pre-dating this session's fetch); detached-HEAD checkout was correctly based on the true origin/main tip. Verified origin/main after fetch matched the commit's parent before fast-forwarding local main and pushing -- clean fast-forward, no rebase or force needed."
+    pre_commit_check: "pending"
+    dream_log_valid: null
+    state_file_valid: null
+    commit_status: "pending"
+    commit_sha: null
+    push_status: "pending"
+    atomicity_check: "pending"
+    note: "To be filled in by step-05 after the commit/push."

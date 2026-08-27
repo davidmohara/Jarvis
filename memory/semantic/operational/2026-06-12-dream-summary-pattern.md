@@ -3,7 +3,7 @@ type: semantic
 domain: operational
 primary-tag: dream-summary
 created: 2026-06-12
-last-updated: 2026-08-26
+last-updated: 2026-08-27
 confidence: high
 synthesized-from: 23
   - dream-summary-2026-05-25.md
@@ -290,3 +290,9 @@ Sources this cycle:
 - `memory/episodic/dream-summary-2026-08-12.md` (score 10) — single-candidate cycle; South Texas revenue snapshot promoted showing sharpest single-cycle deterioration recorded in the revenue-tracker-pattern cluster to date (-24% vs. target CQ).
 
 Pattern remains stable: the dream-summary cluster continues to double as the system's own meta-record of which other clusters (session-wrap, daily-review, revenue-tracker) are showing the most significant movement each cycle. The unresolved carry-forward triad (Q3 rocks, nerve block scheduling, delegation tracker) is now the longest-running unaddressed thread visible across this pattern's evidence — approaching 4 weeks with no change recorded anywhere in this cluster's history.
+
+### 2026-08-27 — Nightly promotion
+Sources this cycle:
+- `memory/episodic/dream-summary-2026-08-25.md` (score 10) — clean overnight run; surfaced the Alice Mburu Plaud task-creation rejection pattern (0-for-17 at the tool-permission layer) as worth a real Rigby ticket if it recurs, and escalated the known salience-score.py frontmatter-corruption bug (289/291 episodic files) from a single stray line to a widespread, legacy-frozen pattern.
+
+Carry-forward triad (Q3 rocks, nerve block, delegation tracker, South Texas revenue gap) remains unresolved across this cluster's evidence — now spanning the 2026-08-25 through 2026-08-27 window with zero movement recorded on any of the four items.

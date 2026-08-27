@@ -132,5 +132,15 @@
   "tags": [
     "cowork-hook",
     "phantom-candidate"
+  ],
+  "guardrails": [
+    {
+      "name": "pre-deletion-review",
+      "after_step": "step-03-semantic-promotion",
+      "result": "pass",
+      "reason": "5 compression candidates identical to 08-26's set (same 4 dream-cycle-summary/session-index entries + 1 decisions/ file, none newly aged in); all 4 of this cycle's promoted entries (score 10/10/3/10) correctly excluded from the candidate set; step-03 writes were substantive evidence appends, not stubs",
+      "escalated_to_human": false,
+      "timestamp": "2026-08-27T08:09:53.021611+00:00"
+    }
   ]
 }

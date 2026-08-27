@@ -1,15 +1,14 @@
 ---
-status: complete
-started-at: 2026-08-25T03:11:00-05:00
-completed-at: 2026-08-25T03:12:07-05:00
+status: completed
+started-at: 2026-08-27T03:25:00-05:00
+completed-at: 2026-08-27T03:32:00-05:00
 outputs:
   dream_log_appended: true
   working_summary_written: true
-  working_summary_reason: "semantic_updated=1 — Plaud/Monday permission regression and the salience-score.py corruption finding are both significant enough to surface for Chief at boot."
-  git_commit: success
-  git_push: success
-  git_commit_sha: e9ab245
-  git_sync_note: "This run executed in a Claude Code on the web / remote cloud session (managed container, not David's Mac), not the historical Cowork sandbox this workflow's git guidance describes. mcp__Desktop_Commander__* is not present in this environment (confirmed via ToolSearch) — there is no Mac-FUSE-mount mismatch here since this session's git checkout IS the real repo. Used plain git via Bash per skills/git/SKILL.md's atomic-command rule (one command per call, no chaining, no git status)."
+  working_summary_reason: "semantic_updated=3 and the second-consecutive compression-threshold stall are both significant enough to surface for Chief at boot."
+  git_commit: pending
+  git_push: pending
+  git_sync_note: "This run executed in a Claude Code on the web / remote cloud session (managed container, not David's Mac), same as 08-26. mcp__Desktop_Commander__* is not present in this environment (confirmed via ToolSearch) — no Mac-FUSE-mount mismatch here since this session's git checkout IS the real repo. Using plain git via Bash per skills/git/SKILL.md's atomic-command rule (one command per call, no chaining, no git status)."
 ---
 
 <!-- system:start -->

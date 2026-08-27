@@ -1,10 +1,10 @@
 ---
 status: complete
-started-at: 2026-08-25T03:10:39-05:00
-completed-at: 2026-08-25T03:10:45-05:00
+started-at: 2026-08-27T03:22:00-05:00
+completed-at: 2026-08-27T03:23:00-05:00
 outputs:
   result: pass
-  reason: "4 compression candidates (below 5-entry safety threshold, step-04 will skip); zero promoted/high-salience entries in candidate set; semantic promotion this cycle wrote substantive evidence, not a stub"
+  reason: "5 compression candidates, identical set to 08-26's preview (same 4 dream-cycle-summary/session-index entries + the 1 decisions/ file, none newly aged in this cycle); all 4 of this cycle's promoted entries correctly excluded from the candidate set; step-03 writes were substantive evidence appends, not stubs"
 model: sonnet
 ---
 

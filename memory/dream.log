@@ -2274,3 +2274,20 @@ digests_updated: 0
 errors: 0
 summary: "Step-01: 0 archived (all 3 not-yet-expired), 25 unparseable, unchanged. Step-02: scored 289 episodic files via salience-score.py, distribution nearly identical to 08-25 baseline (no regression). Step-03: 14 promotion candidates (up from 1 last cycle, genuine 30-day window drift) clustered by direct tag match into 6 groups, all appended to existing semantic files (plaud-ingest -> high confidence, session-wrap -> medium confidence, dream-summary/daily-review/morning-briefing unchanged at high, system-health unchanged at low); zero new semantic files created. Step-03b guardrail: pass. Step-04: 5 compression candidates reached the safety threshold for the first time (prior cycles: 4) but GUARDRAIL 7's controller-approval preview gate can't be satisfied in this unattended scheduled run -- compression withheld pending David's decision at next session, preview recorded in state.yaml. Two new findings logged for Rigby: (1) err-20260826T081314-NBGENM escalates the known salience-score.py frontmatter corruption (err-20260825T081039-APAWBB) -- affected files carry 17-24+ duplicate orphaned lines each, not one stray line, though the bug is legacy/frozen, not still actively growing under the current script version; (2) err-20260826T081453-664W53, a new finding -- salience-score.py never scans memory/episodic/ subdirectories (meetings/, people/, projects/, decisions/, coaching/), currently affecting 1 file, freezing its score indefinitely."
 errors_detail: []
+
+---
+## 2026-08-27T03:30:00 CDT
+session_id: dream-cycle-2026-08-27-030307
+working_archived: 3
+working_deleted: 0
+episodic_scanned: 292
+score_updates: 292
+clusters_found: 3
+semantic_created: 0
+semantic_updated: 3
+promoted_entries: 4
+entries_compressed: 0
+digests_updated: 0
+errors: 0
+summary: "Step-01: 3 archived (co-sell-pipeline, dream-summary-08-25, revenue-tracker-08-24 -- all expired active working entries), 1 not-yet-expired (dream-summary-08-26), 26 unparseable (1 new this cycle: golf-preview-08-25, no frontmatter). Step-02: scored 292 episodic files via salience-score.py; distribution nearly identical to 08-25/08-26 baseline, no regression; known subdirectory-recursion bug (err-20260826T081453-664W53) still limited to the 1 decisions/ file. Step-03: 4 promotion candidates (the 3 fresh archives plus revenue-tracker-2026-07-27 crossing threshold via window drift) clustered into 3 groups, all appended to existing semantic files (pipeline-review, dream-summary, revenue-tracker), zero new files created; error-pattern check found one new qualifying pattern not yet in LESSONS.md (tool-misuse/protocol-skip, 3 occurrences) and appended it. Step-03b guardrail: pass. Step-04: 5 compression candidates -- identical set to 08-26's preview, second consecutive cycle stuck at the unattended-approval gate; withheld again and escalated to David as a real decision point (approve this batch, lower the threshold, or accept compression never fires unattended) rather than a routine skip. Environment note: this run executed in a fresh cloud container (Claude Code on the web), not David's Mac -- Desktop Commander is not configured here, so file and git operations used the Bash tool directly per CLAUDE.md's standing authorization to resolve stale tool/path assumptions against reality."
+errors_detail: []

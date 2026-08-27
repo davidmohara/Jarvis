@@ -1,19 +1,19 @@
 ---
 status: complete
-started-at: 2026-08-25T03:04:48-05:00
-completed-at: 2026-08-25T03:07:00-05:00
+started-at: 2026-08-27T03:03:07-05:00
+completed-at: 2026-08-27T03:10:00-05:00
 outputs:
-  working_archived: 2
+  working_archived: 3
   working_deleted: 0
   working_skipped: 27
   working_stranded: 0
-  enrichment_method: "manual derivation from file content — no LLM subprocess call"
+  enrichment_method: "heuristic (systems/dream-cycle/backfill-episodic-tags.py helpers) — no LLM subprocess call"
   archived_files:
-    - eval-harness-hook-fix-2026-08-21.md
-    - plaud-ingest-2026-08-22-003000.md
-  skipped_not_expired:
     - co-sell-pipeline-2026-08-24-001532.md
+    - dream-summary-2026-08-25.md
     - revenue-tracker-2026-08-24-002000.md
+  skipped_not_expired:
+    - dream-summary-2026-08-26.md
   skipped_unparseable:
     - 2026-07-08.md
     - 2026-07-23-215200-session-felix-derek-persona-rebuild.md
@@ -36,6 +36,7 @@ outputs:
     - golf-preview-2026-07-14.md
     - golf-preview-2026-07-21.md
     - golf-preview-2026-08-04.md
+    - golf-preview-2026-08-25.md
     - remarkable-upload-2026-07-23-improve-eval.md
     - sc-executive-brief-2026-07-13.md
     - slack-notification-golf-booking-20260801.txt

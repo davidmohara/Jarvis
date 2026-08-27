@@ -1,12 +1,29 @@
 ---
-type: working
+type: working-archive
 task_id: "session"
 session_id: "jarvis-2026-08-25-031207"
 agent-source: jarvis
 created: 2026-08-25T03:12:07-05:00
 expires: 2026-08-26T03:12:07-05:00
-status: active
+status: archived
 context: "Dream cycle summary — 2026-08-25"
+date: 2026-08-25
+source_file: memory/working/dream-summary-2026-08-25.md
+tags:
+  - dream-summary
+  - jarvis
+  - omnifocus
+  - revenue
+  - plaud
+  - dream-cycle
+  - rigby
+related_people:
+  - alice-mburu
+  promoted: false
+salience:
+  score: 10
+  last-promoted-check: 2026-08-27
+  promoted: true
 ---
 
 Dream cycle ran clean overnight. Two working-memory items aged out and moved into permanent memory: the eval-harness hook fix writeup from Aug 21, and the Aug 22 Plaud ingest summary. That Plaud entry also fed a new insight into the Plaud pattern file: Monday task creation went from working fine in recent cycles to a hard 0-for-17 rejection at the tool-permission layer — every "review this recording" task for Alice Mburu failed to create. Worth watching the next plaud-ingest run; if it happens again, this needs a real ticket for Rigby rather than another log line.

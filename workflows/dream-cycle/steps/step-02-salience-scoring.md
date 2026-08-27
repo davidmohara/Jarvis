@@ -1,15 +1,15 @@
 ---
 status: complete
-started-at: 2026-08-25T03:07:00-05:00
-completed-at: 2026-08-25T03:09:00-05:00
+started-at: 2026-08-27T03:10:00-05:00
+completed-at: 2026-08-27T03:13:00-05:00
 outputs:
-  episodic_scanned: 289
-  score_updates: 289
+  episodic_scanned: 292
+  score_updates: 292
   no_tags: 206
   no_date: 38
-  score_distribution: "0:207,1:4,2:3,3:4,4:4,5:4,6:4,7:4,8:3,9:1,10:51"
-  window_entries: 63
-  note: "Ran systems/dream-cycle/salience-score.py (committed version). read_errors:0, write_errors:0. pct_score_0=71.6% and pct_no_date=13.2% crossed guardrail thresholds — flagged in state.yaml as escalated but consistent with established baseline, not a fresh regression. IMPORTANT FINDING: while doing step-03 promotion work on this cycle's own step-01 output, discovered this script's merge-write regex can leave an orphaned indented 'promoted: false' line outside the salience: block instead of fully removing it — same signature found in 289/291 episodic files corpus-wide, meaning this bug has been running for many prior cycles, not introduced tonight. Logged as err-20260825T081039-APAWBB for Rigby. Script itself was NOT patched (systems/ is Rigby-gated); only the one file touched by step-03 was manually cleaned."
+  score_distribution: "0:207,1:4,2:2,3:5,4:5,5:3,6:4,7:4,8:3,9:1,10:54"
+  window_entries: 61
+  note: "Ran systems/dream-cycle/salience-score.py --date 2026-08-27. read_errors:0, write_errors:0. episodic_scanned rose from 289 to 292, matching the 3 files step-01 archived this cycle. pct_score_0=70.9% and pct_no_date=13.0% both crossed guardrail thresholds again, essentially matching the 08-25/08-26 baseline (71.6%/13.1-13.2%) — not a fresh regression, same untagged/undated legacy population. pct_no_tags=70.5%, within the expected 70-100% warning band. Checked the known subdirectory-recursion bug (err-20260826T081453-664W53, script uses os.listdir not os.walk so memory/episodic/{meetings,people,projects,decisions,coaching}/ are never scanned): still only 1 file affected (the same decisions/2026-05-27 entry), no new files landed in those subdirs this cycle, so no fresh scoring gap opened. Not patched (systems/ is Rigby-gated)."
 ---
 
 <!-- system:start -->
