@@ -213,11 +213,7 @@ Evaluate each message against the following rules in sequence. Stop at the first
 
 Do NOT treat non-blog messages as failed pipeline items. Route them correctly or flag them.
 
-If no messages route to URL PATH or DIGEST PATH after evaluating all messages: post to #content via post.py:
-```
-"_Content pipeline: no new URLs or digests in the last 24 hours._"
-```
-Then exit cleanly.
+If no messages route to URL PATH or DIGEST PATH after evaluating all messages: exit cleanly. Do NOT post anything to #content.
 
 ---
 
