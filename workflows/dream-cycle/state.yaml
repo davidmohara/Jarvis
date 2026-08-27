@@ -264,11 +264,11 @@ guardrails:
     controller_approved: null
     note: "Same 5-entry preview as 08-26 (accumulated-context.step-04-2026-08-26.compression_preview), unchanged: 2026-04-30/05-04/05-15 dream-cycle-summary entries, 2026-05-08 session-index-build, and the 2026-05-27 decisions/ entry (frozen score due to the known subdirectory-recursion bug). Recorded again in memory/working/dream-summary-2026-08-27.md for David to review. Nothing deleted pending his decision."
   git_atomicity:
-    pre_commit_check: "pending"
-    dream_log_valid: null
-    state_file_valid: null
-    commit_status: "pending"
-    commit_sha: null
-    push_status: "pending"
-    atomicity_check: "pending"
-    note: "To be filled in by step-05 after the commit/push."
+    pre_commit_check: "pass"
+    dream_log_valid: true
+    state_file_valid: true
+    commit_status: "success"
+    commit_sha: "30cb03e"
+    push_status: "success"
+    atomicity_check: "pass"
+    note: "Repo checkout started in detached HEAD (same as 08-26). Committed on detached HEAD first, then fetched origin/main (6e9bf33, matched our commit's parent exactly), fast-forwarded local main to origin/main and then to our new commit via two verified git update-ref calls (each with an old-value safety check), reattached HEAD to refs/heads/main, and pushed -- clean fast-forward, no rebase or force needed."
