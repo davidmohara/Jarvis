@@ -1,13 +1,13 @@
 ---
 status: complete
-started-at: "2026-08-25T16:14:15Z"
-completed-at: "2026-08-25T16:14:30Z"
+started-at: "2026-08-27T16:35:30Z"
+completed-at: "2026-08-27T16:38:30Z"
 outputs:
-  meetings_found: "40 events (Aug 25-28) with full context — calendar-unified.json provides all attendees, locations, times"
-  meeting-context: "cached from calendar-unified.json (40 events, Aug 25-28, all attendees/locations/organizers available)"
-  clay-reminders: "nothing-to-surface — 0 upcoming reminders (data from Aug 21)"
-  clay-birthdays: "past birthdays in data: Amy O'Hara (Aug 23), Mark Watson (Aug 24). Fresh pull would check Aug 25-Sep 1."
-  context-status: "ready — sufficient calendar data for briefing synthesis. Clay data stale but no blocking items."
+  meetings_found: "20 events (Aug 27-30) with full context — calendar-unified.json provides all attendees, locations, times"
+  meeting-context: "morning-briefing step-03 completed. Only real prep item today: 1:1 w/ Scott McMichael (ready, standing cadence). Board retreat and internal standing meetings need no additional prep. Flag: David is booked into 5 internal calls during the LSG board retreat block (Aug 27 noon - Aug 28 noon) — scheduling conflict to surface."
+  clay-reminders: "nothing-to-surface — 0 upcoming reminders (fresh pull this session)"
+  clay-birthdays: "not parsed this run — getUpcomingEvents payload exceeded tool output size limit; birthday data not confirmed for the next 7 days"
+  context-status: "ready — sufficient calendar and meeting-prep data for briefing synthesis. Clay birthday data incomplete but non-blocking."
 ---
 
 <!-- system:start -->

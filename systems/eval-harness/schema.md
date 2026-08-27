@@ -123,8 +123,9 @@ Example: `eval-20260523T133045-a1b2c3.json`
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
 | `id` | string | Yes | Unique identifier for this eval run |
-| `type` | enum | Yes | "workflow" or "skill" |
-| `name` | string | Yes | Name of the workflow or skill |
+| `type` | enum | Yes | "workflow" or "skill" — also, in practice, "agent" for a raw SubagentStart/SubagentStop stub (`eval-agent-start.py`) that isn't (yet, or ever) resolved to a specific workflow/skill; `name` on those is the Claude Code subagent type (e.g. "general-purpose"), not a workflow name |
+| `name` | string | Yes | Name of the workflow or skill — for `type: "agent"` records, this is the subagent type, not a workflow name (see `workflow` below for that) |
+| `workflow` | string\|null | No | Additive, `type: "agent"`-only field. Set by `eval-agent-start.py` when the subagent's spawn prompt named an explicit `workflows/{name}/workflow.md` path (the dominant dispatch pattern — a raw `Agent()` call with the workflow instructions embedded in the prompt, e.g. Master spawning Knox with "run workflows/plaud-ingest/workflow.md in full"). `null`/absent for genuinely ad-hoc subagent work with no workflow attached (e.g. Rigby's own research-fork dispatches). Lets a `type: "agent"` record still be found by workflow name even though `name`/`type` keep their unrelated, pre-existing meaning. |
 | `agent` | string | Yes | Agent that executed this (chief, chase, quinn, etc.) |
 | `session_id` | string | Yes | Correlates with `memory/sessions/index.json` |
 | `trigger` | enum | Yes | "scheduled", "manual", or "boot" |

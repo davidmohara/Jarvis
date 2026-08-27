@@ -1,14 +1,14 @@
 ---
 status: complete
-started-at: "2026-08-23T15:03:50-05:00"
-completed-at: "2026-08-23T15:03:55-05:00"
+started-at: "2026-08-27T16:48:00Z"
+completed-at: "2026-08-27T16:49:00Z"
 outputs:
-  knox_status: "success"
-  knox_reason: "Plaud-ingest workflow completed successfully. 0 new recordings found (120 total, 119 already ingested)."
-  knox_duration_seconds: "73"
-  knox_eval_id: "ad2f7fe19d5a09047"
-  knox_background_task: "Completed without blocking boot"
-  note: "Knox background task initiated in step-01 completed before step-08 checkpoint. No new Plaud recordings to ingest."
+  knox_status: "success (awaiting-input)"
+  knox_reason: "plaud-ingest resumed from step-03, completed transcription trigger/fetch and speaker-ID for 3 of 4 ready recordings via calendar cross-reference. 1 recording (\"08-25 Meeting: AI Strategy, Governance, Agentic Workflows, and Cost Management\") has 4 generic speakers with no deterministic match (3+ unresolved against 6 unmatched attendees) — correctly routed to David per protocol rather than guessed. plaud-ingest/state.yaml status: awaiting-input."
+  knox_duration_seconds: "250"
+  knox_eval_id: "eval-20260827T162236-C1QQII"
+  knox_background_task: "Completed without blocking boot — awaiting David's speaker-ID input, surfaced separately by Knox, not a boot blocker"
+  note: "Knox background task (spawned separately by parent session) ran to completion for this run's scope. One follow-up question for David is pending outside of boot."
 ---
 
 <!-- system:start -->

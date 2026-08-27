@@ -32,9 +32,9 @@ try:
 except Exception:
     usage_between = None
 try:
-    from hook_utils import find_open_turn_record
+    from hook_utils import find_unambiguous_open_turn_record
 except Exception:
-    find_open_turn_record = None
+    find_unambiguous_open_turn_record = None
 
 def log_error(msg: str):
     """Log error to /tmp/ies-hook-errors.log without blocking."""
@@ -633,9 +633,9 @@ def main():
     # Roll this subagent's model/tokens/cost/timing into the parent turn-level
     # eval record's subagents[] entry, if eval-turn-start.py opened one for
     # this session and eval-agent-start.py linked this agent_id into it.
-    if find_open_turn_record:
+    if find_unambiguous_open_turn_record:
         try:
-            parent_path = find_open_turn_record(eval_record.get("session_id", ""))
+            parent_path = find_unambiguous_open_turn_record(eval_record.get("session_id", ""))
             if parent_path and parent_path != eval_record_path:
                 with open(parent_path, "r") as f:
                     parent = json.load(f)

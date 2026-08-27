@@ -1,14 +1,14 @@
 ---
 status: complete
-started-at: "2026-08-25T16:12:30Z"
-completed-at: "2026-08-25T16:12:45Z"
+started-at: "2026-08-27T16:24:00Z"
+completed-at: "2026-08-27T16:26:00Z"
 outputs:
   calendar_file: "data/calendar-unified.json"
-  event_count: 40
-  date_range: "2026-08-25 to 2026-08-28"
-  status: "reused (fresh, pulled 2026-08-25T14:00Z)"
-  file_size_kb: 23.1
-  m365_calls: 0
+  event_count: 20
+  date_range: "2026-08-27 to 2026-08-30"
+  status: "written"
+  file_size_kb: 4.2
+  m365_calls: 1
 ---
 
 <!-- system:start -->

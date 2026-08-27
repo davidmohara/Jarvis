@@ -1,12 +1,12 @@
 ---
 status: complete
-started-at: "2026-08-25T17:12:35Z"
-completed-at: "2026-08-25T17:15:00Z"
+started-at: "2026-08-27T16:46:30Z"
+completed-at: "2026-08-27T16:47:00Z"
 outputs:
-  data_freshness_report: "flag — calendar (1.1h) and OmniFocus (1.3h) fresh; email, Clay reminders/birthdays, and Jarvis inbox stale (~47h); reminders.json and golf-outing-attendees.json much older. Briefing in morning-briefing/state.yaml correctly reflects live calendar/OmniFocus data and explicitly flags the stale email/Clay pulls rather than presenting them as current."
+  data_freshness_report: "pass — calendar, email, OmniFocus all pulled live this session (~16:20-16:33Z), briefing reflects current data. Only gap: Clay birthday data not parsed (payload too large), explicitly flagged in briefing rather than presented as current/complete."
   checkpoint_name: "pre-completion-review"
   checkpoint_result: "pass"
-  reason: "Briefing reflects live data with stale sources explicitly flagged; workflow scan (54 files) correctly found 0 genuinely in-progress; no credential/sensitive leakage; session index record appended cleanly. golf-booking/state.yaml has pre-existing malformed YAML (unrelated to this boot run) — flagged for Rigby, not an escalation."
+  reason: "Briefing accurately reflects fresh gathered data including the surfaced retreat/meeting scheduling conflict; workflow scan correctly found 0 in-progress (active.yaml empty); no credential/sensitive leakage; session index untouched by this checkpoint."
   recorded: true
 model: haiku
 ---

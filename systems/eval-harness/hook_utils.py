@@ -11,6 +11,7 @@ here.
 """
 
 import json
+import re
 import sys
 import secrets
 import string
@@ -22,8 +23,41 @@ from datetime import datetime, timezone
 IES_ROOT = Path(__file__).resolve().parents[2]
 EVAL_RUNS_DIR = IES_ROOT / "systems" / "eval-harness" / "runs"
 SESSION_INDEX_PATH = IES_ROOT / "memory" / "sessions" / "index.json"
+WORKFLOWS_DIR = IES_ROOT / "workflows"
 ERROR_LOG = Path("/tmp/ies-hook-errors.log")
 ALPHABET = string.ascii_uppercase + string.digits
+
+_WORKFLOW_PATH_RE = re.compile(r"workflows/([a-z0-9_-]+)/workflow\.md", re.IGNORECASE)
+
+
+def extract_workflow_path_reference(text: str, must_exist: bool = True) -> str | None:
+    """Find an explicit `workflows/{name}/workflow.md` reference in `text`
+    and return `{name}`, or None. Shared by eval-turn-start.py's
+    detect_workflow() (matching against `agent: master` workflows a
+    controller prompt might invoke) and eval-agent-start.py (matching
+    against ANY workflow a subagent's spawn prompt names, e.g. Master
+    dispatching Knox with "run workflows/plaud-ingest/workflow.md in
+    full" — plaud-ingest is Knox-owned, not master-owned, so this can't
+    reuse detect_workflow()'s master-only filtering, just the underlying
+    path-extraction it also needs). Deliberately just the path-reference
+    check — the run-verb/trigger-phrase/first-clause heuristics in
+    detect_workflow() are about inferring intent from a short controller
+    message and don't apply to a spawn prompt, which either names an
+    explicit workflow.md path or it doesn't.
+
+    `must_exist=True` (default) validates the matched name against a real
+    directory under workflows/ so a typo or a reference to some other
+    repo's `workflows/x/workflow.md` in quoted text doesn't false-match.
+    """
+    if not text:
+        return None
+    m = _WORKFLOW_PATH_RE.search(text.lower())
+    if not m:
+        return None
+    name = m.group(1)
+    if must_exist and not (WORKFLOWS_DIR / name / "workflow.md").is_file():
+        return None
+    return name
 
 
 def log_error(msg: str, tag: str = "HOOK"):
@@ -72,16 +106,44 @@ def new_eval_id() -> str:
     return f"eval-{ts}-{suffix}"
 
 
+def _read_session_index() -> list:
+    """Read memory/sessions/index.json with a short retry-on-parse-failure
+    window. boot's own Session Index step (workflow.md's personal block —
+    not something this module can change) appends a new record via a plain
+    read-modify-write on the whole file, not the atomic temp+rename pattern
+    this module uses for its own writes. A hook read landing mid-write can
+    briefly see a truncated/partial file and raise JSONDecodeError even
+    though the file is not really missing or corrupt — retrying a couple
+    times a few dozen ms apart is enough to ride out that window rather
+    than falling through to infer_session_id()'s exception-handler fallback,
+    which mints a brand-new, disconnected session id (root cause of
+    eval-20260827T161845-1TYTWV: an orphaned turn-level record whose
+    session_id never matched the real session's because this exact race
+    was hit once)."""
+    import time
+    last_err = None
+    for attempt in range(3):
+        try:
+            if not SESSION_INDEX_PATH.exists():
+                return []
+            with open(SESSION_INDEX_PATH, "r") as f:
+                return json.load(f)
+        except (json.JSONDecodeError, OSError) as e:
+            last_err = e
+            if attempt < 2:
+                time.sleep(0.08)
+    if last_err:
+        raise last_err
+    return []
+
+
 def infer_session_id() -> str:
     """Read current session ID from memory/sessions/index.json, creating a
     session record if none exists yet so no eval record is ever orphaned.
     Mirrors eval-agent-start.py's infer_session_id — kept in sync by hand
     since that hook predates this module."""
     try:
-        index = []
-        if SESSION_INDEX_PATH.exists():
-            with open(SESSION_INDEX_PATH, "r") as f:
-                index = json.load(f)
+        index = _read_session_index()
 
         if index:
             # memory/sessions/index.json's real schema is
@@ -129,17 +191,50 @@ def find_records_for_session(session_id: str) -> list[Path]:
     return [r[0] for r in records]
 
 
-def find_open_turn_record(session_id: str) -> Path | None:
-    """Find the in-progress eval record opened by eval-turn-start.py for this
+def find_open_turn_records(session_id: str) -> list:
+    """All in-progress, monitoring.active turn-level records for this
     session — identified by monitoring.active being true, not just by
     session_id + status (a subagent-level stub from eval-agent-start.py can
     also be in-progress under the same session_id)."""
+    out = []
     for f in find_records_for_session(session_id):
         try:
             with open(f, "r") as file:
                 data = json.load(file)
             if data.get("status") == "in-progress" and data.get("monitoring", {}).get("active"):
-                return f
+                out.append(f)
         except Exception:
             continue
-    return None
+    return out
+
+
+def find_open_turn_record(session_id: str) -> Path | None:
+    """Most-recent single open turn-level record for this session, or None.
+    Used by eval-turn-stop.py, where checking every open record it can find
+    (via the sweep in that hook) makes ambiguity harmless. NOT used for
+    subagent linking — see find_unambiguous_open_turn_record for why."""
+    records = find_open_turn_records(session_id)
+    return records[0] if records else None
+
+
+def find_unambiguous_open_turn_record(session_id: str) -> Path | None:
+    """Like find_open_turn_record, but returns None if there is more than
+    one candidate. Used specifically for linking a freshly-spawned subagent
+    into an open turn-level record (eval-agent-start.py/eval-agent-stop.py).
+
+    Root cause of a real incident: a Rigby capability-build subagent
+    (unrelated to boot) got linked into a spurious, coincidentally-open
+    'boot' turn-level record (itself caused by a detect_workflow
+    false-positive, fixed separately in eval-turn-start.py) purely because
+    find_open_turn_record returned *a* match for the session_id, without
+    checking whether that match was the ONLY plausible workflow the
+    subagent could belong to. There's no reliable way from a bare
+    SubagentStart payload to know which specific workflow a spawn belongs
+    to when more than one turn-level record is open in the same session —
+    guessing (picking the most recent) is exactly what produced the
+    misattribution. When ambiguous, skip linking rather than guess: the
+    subagent's own standalone eval-agent record is unaffected either way,
+    this only controls whether it ALSO gets rolled into a workflow's
+    subagents[] array."""
+    records = find_open_turn_records(session_id)
+    return records[0] if len(records) == 1 else None

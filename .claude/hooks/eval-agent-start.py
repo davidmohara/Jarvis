@@ -21,9 +21,11 @@ ALPHABET = string.ascii_uppercase + string.digits
 
 sys.path.insert(0, str(IES_ROOT / "systems" / "eval-harness"))
 try:
-    from hook_utils import find_open_turn_record
+    from hook_utils import find_unambiguous_open_turn_record, _read_session_index, extract_workflow_path_reference
 except Exception:
-    find_open_turn_record = None  # 36 chars, ~2.1B combos
+    find_unambiguous_open_turn_record = None
+    _read_session_index = None
+    extract_workflow_path_reference = None  # 36 chars, ~2.1B combos
 
 def log_error(msg: str):
     """Log error to /tmp/ies-hook-errors.log without blocking."""
@@ -78,11 +80,22 @@ def infer_session_id() -> str:
     If no session exists, create one automatically so eval records are never orphaned."""
     try:
         index_path = IES_ROOT / "memory" / "sessions" / "index.json"
-        index = []
-
-        if index_path.exists():
-            with open(index_path, "r") as f:
-                index = json.load(f)
+        # _read_session_index (hook_utils.py) retries a couple times on
+        # JSONDecodeError/OSError before giving up — boot's own Session
+        # Index step (workflow.md's personal block) appends to this file
+        # with a plain read-modify-write, not an atomic temp+rename, so a
+        # hook read landing mid-write can transiently see a partial file.
+        # Falling straight to the except-handler fallback below on the
+        # first such glitch is what produced eval-20260827T161845-1TYTWV —
+        # an orphaned turn-level record with a freshly-minted, disconnected
+        # session id instead of the real session's.
+        if _read_session_index:
+            index = _read_session_index()
+        else:
+            index = []
+            if index_path.exists():
+                with open(index_path, "r") as f:
+                    index = json.load(f)
 
         # If we have sessions, return the last one. Real schema is
         # {started, closed, current_topic, topics} — there has never been an
@@ -128,6 +141,46 @@ def infer_workflow_or_skill_name(agent_type: str) -> tuple:
     """
     return "agent", agent_type
 
+def detect_spawn_workflow(payload: dict) -> str | None:
+    """If this subagent was spawned with a raw Agent() call whose prompt
+    names an explicit `workflows/{name}/workflow.md` path (e.g. Master
+    dispatching Knox with "run workflows/plaud-ingest/workflow.md in
+    full"), return that workflow's name. Reuses hook_utils.py's shared
+    path-extraction — the same one eval-turn-start.py's detect_workflow()
+    uses — rather than a second copy of the regex.
+
+    Why this matters: plaud-ingest (and anything else dispatched this way,
+    which per this session's audit is most workflows) currently produces
+    real SubagentStart/SubagentStop eval records tagged only
+    `type: "agent", name: "general-purpose"` — the Claude Code subagent
+    type, not the workflow it's actually running. There is no query path
+    from "show me plaud-ingest's evals" back to these real records. Fixed
+    by writing a `workflow` field alongside the existing `name`/`type`
+    (which keep their established agent-type meaning — "general-purpose" —
+    unchanged; `workflow` is a new, additive field, not a replacement).
+
+    Does not attempt to resolve intent from natural language the way
+    detect_workflow() does for controller prompts (run-verbs, first-clause
+    restriction, trigger phrases) — a spawn prompt either names an explicit
+    workflow.md path or it doesn't; there is no ambiguity to disambiguate
+    the way there is for a short conversational message, and guessing here
+    would risk mistagging a genuinely ad-hoc/non-workflow subagent (e.g.
+    Rigby's own capability-build dispatches, which describe work in prose
+    with no workflow.md reference at all and must stay untagged)."""
+    if not extract_workflow_path_reference:
+        return None
+    # Try the plausible field names for "the text this subagent was spawned
+    # with" — Claude Code's SubagentStart payload shape for this isn't
+    # documented in this repo, so check several rather than assume one.
+    for key in ("prompt", "task", "description", "message", "initial_prompt"):
+        text = payload.get(key)
+        if isinstance(text, str) and text:
+            found = extract_workflow_path_reference(text)
+            if found:
+                return found
+    return None
+
+
 def main():
     """Main hook logic."""
     payload = read_stdin()
@@ -135,6 +188,7 @@ def main():
     # Extract agent info from SubagentStart hook
     agent_id = payload.get("agent_id")
     agent_type = payload.get("agent_type")
+    spawn_workflow = detect_spawn_workflow(payload)
 
     # Auto-generate if missing (fallback for workflows)
     if not agent_id:
@@ -161,9 +215,12 @@ def main():
         "agent_id": agent_id,  # stored for reliable stop-to-start correlation
         "type": eval_type,
         "name": eval_name,
+        "workflow": spawn_workflow,  # additive; None unless the spawn prompt named an
+                                      # explicit workflows/{name}/workflow.md path. Does
+                                      # not change the meaning of type/name above.
         "agent": agent_type,
         "session_id": session_id,
-        "trigger": "unknown",  # refined by post-tool-use.py when state.yaml written
+        "trigger": "workflow-dispatch" if spawn_workflow else "unknown",  # refined by post-tool-use.py when state.yaml written
         "started": now.isoformat().replace("+00:00", "Z"),
         "completed": None,
         "duration_seconds": None,
@@ -215,15 +272,17 @@ def main():
     atomic_write_json(eval_path, stub)
     if not eval_path.exists():
         log_error(f"Failed to write eval record stub for {agent_type} ({agent_id})")
+    elif spawn_workflow:
+        log_info(f"Tagged subagent {agent_id} ({agent_type}) with workflow={spawn_workflow!r} from spawn prompt")
 
     # If a turn-level workflow eval is open for this session (opened by
     # eval-turn-start.py on UserPromptSubmit), also record this subagent as
     # a child of it so eval-turn-stop.py can roll its tokens/cost/model into
     # the parent's totals. This subagent's own standalone record above is
     # unaffected — existing skill-eval consumers keep working unchanged.
-    if find_open_turn_record:
+    if find_unambiguous_open_turn_record:
         try:
-            parent_path = find_open_turn_record(session_id)
+            parent_path = find_unambiguous_open_turn_record(session_id)
             if parent_path and parent_path != eval_path:
                 with open(parent_path, "r") as f:
                     parent = json.load(f)

@@ -467,7 +467,7 @@ Load `reference/permission-authority-protocol.md` for: standing-permissions boot
 
 ### Cross-Domain Synthesis
 
-Cross-domain synthesis is Master's unique capability — what elevates IES from five separate agents to a chief of staff. Master handles synthesis directly in its own context, without spawning sub-agents. It reads across all relevant domains itself, drawing from the knowledge layer, task management data, and recent agent outputs to produce a holistic view.
+Cross-domain synthesis is Master's unique capability — what elevates IES from nine separate agents to a chief of staff. Master handles synthesis directly in its own context, without spawning sub-agents, because the request spans multiple domains and no single named agent owns the answer. This is distinct from — and not an exception to — the rule that Master always spawns the real named agent for work that does belong to one agent's domain (see `SYSTEM.md`'s "Agents" section): synthesis is Master answering as Master, not Master answering as Chase or Shep. It reads across all relevant domains itself, drawing from the knowledge layer, task management data, and recent agent outputs to produce a holistic view.
 
 **When synthesis activates:** Synthesis activates instead of routing to a single agent when:
 

@@ -27,7 +27,7 @@ sys.path.insert(0, str(_IES_ROOT / "systems" / "eval-harness" / "vendor"))
 sys.path.insert(0, str(_IES_ROOT / "systems" / "eval-harness"))
 import yaml
 from hook_utils import (
-    IES_ROOT, log_error, log_info, atomic_write_json, read_stdin,
+    IES_ROOT, EVAL_RUNS_DIR, log_error, log_info, atomic_write_json, read_stdin,
     infer_session_id, find_open_turn_record,
 )
 try:
@@ -129,7 +129,7 @@ def run_assertions(name: str, eval_record: dict) -> dict:
     return structural
 
 
-def finalize(eval_path: Path, eval_record: dict, state_data: dict):
+def finalize(eval_path: Path, eval_record: dict, state_data: dict, force_status: str | None = None, reason: str | None = None):
     now = datetime.now(timezone.utc)
     started = datetime.fromisoformat(eval_record["started"].replace("Z", "+00:00"))
     duration = round((now - started).total_seconds(), 2)
@@ -157,7 +157,11 @@ def finalize(eval_path: Path, eval_record: dict, state_data: dict):
     completed_ok = state_status == "complete"
     all_steps_finished = completed_ok
 
-    if error_ids:
+    if force_status:
+        status = force_status
+        completed_ok = False
+        all_steps_finished = False
+    elif error_ids:
         status = "failure"
     elif state_status in ("aborted", "blocked"):
         status = "aborted"
@@ -174,9 +178,134 @@ def finalize(eval_path: Path, eval_record: dict, state_data: dict):
     eval_record["assessment"]["structural"] = run_assertions(eval_record["name"], eval_record)
     eval_record["version_hash"] = compute_version_hash(eval_record["name"])
     eval_record["monitoring"]["active"] = False
+    if reason:
+        eval_record["monitoring"]["close_reason"] = reason
 
     atomic_write_json(eval_path, eval_record)
-    log_info(f"Closed turn-level eval record {eval_record['id']} for '{eval_record['name']}' — status={status}", TAG)
+    log_info(f"Closed turn-level eval record {eval_record['id']} for '{eval_record['name']}' — status={status}" + (f" ({reason})" if reason else ""), TAG)
+
+
+STATE_COMPLETION_FIELDS = ("completed-at", "session-completed", "completed_at", "session_completed")
+STALE_RECORD_ABORT_AFTER_HOURS = 2
+
+
+def _parse_ts(value) -> "datetime | None":
+    if not value or not isinstance(value, str):
+        return None
+    try:
+        v = value.replace("Z", "+00:00")
+        dt = datetime.fromisoformat(v)
+        if dt.tzinfo is None:
+            dt = dt.replace(tzinfo=timezone.utc)
+        return dt
+    except Exception:
+        return None
+
+
+def _state_genuinely_completed_after(state_data: dict, opened_at: "datetime | None") -> bool:
+    """Is there a completion timestamp on state.yaml that is at/after this
+    eval record's own `started` time?
+
+    Root cause of a real incident: shutdown-cleanup's state.yaml has sat at
+    `status: complete` since 2026-08-12 (completed-at that same date) —
+    nearly two weeks stale. A spurious turn-level record opened on
+    2026-08-27 (from a detect_workflow false-positive, see that fix in
+    eval-turn-start.py) was checking ONLY `status in TERMINAL_STATUSES` with
+    no regard for *when* that status was set, so it finalized as a fake
+    "success" in 26.8 seconds — the very next Stop event after it opened,
+    because the file just happened to already say "complete" from two weeks
+    ago. `status: complete` is necessary but not sufficient evidence that
+    THIS monitoring window's workflow run actually completed; the
+    completion timestamp must fall inside the window this record opened."""
+    if opened_at is None:
+        return True  # can't compare — don't block finalization on this alone
+    for field in STATE_COMPLETION_FIELDS:
+        completed = _parse_ts(state_data.get(field))
+        if completed is not None:
+            return completed >= opened_at
+    # No completion timestamp field at all on this workflow's state.yaml
+    # schema — nothing to compare against, so don't manufacture a false
+    # block. This only matters for workflows that do stamp a completion
+    # time, which boot and shutdown-cleanup both do.
+    return True
+
+
+def try_finalize(eval_path: Path) -> bool:
+    """Read one turn-level record, finalize it if its monitored state.yaml
+    is terminal AND that terminal status was actually reached during this
+    record's own open window (see _state_genuinely_completed_after).
+    Returns True if it finalized (success or stale-abort), False if it's
+    genuinely still in-progress and should stay open."""
+    import json
+    try:
+        with open(eval_path, "r") as f:
+            eval_record = json.load(f)
+    except Exception as e:
+        log_error(f"Failed to read {eval_path}: {e}", TAG)
+        return False
+
+    state_yaml_path = eval_record.get("monitoring", {}).get("state_yaml_path")
+    if not state_yaml_path:
+        return False
+
+    state_data = read_state_yaml(state_yaml_path)
+    opened_at = _parse_ts(eval_record.get("started"))
+
+    if state_data.get("status") not in TERMINAL_STATUSES:
+        log_info(f"'{eval_record['name']}' state.yaml still {state_data.get('status')!r} — leaving eval record open", TAG)
+        return False
+
+    if not _state_genuinely_completed_after(state_data, opened_at):
+        # state.yaml says terminal, but from before this record even opened —
+        # stale evidence, not proof this record's own run finished. Leave it
+        # open unless it's been sitting long enough that it's clearly never
+        # going to get real evidence (e.g. a false-trigger record that will
+        # never see genuine new activity) — then close it as aborted, never
+        # as a fabricated "success".
+        age_hours = (datetime.now(timezone.utc) - opened_at).total_seconds() / 3600 if opened_at else 0
+        if age_hours >= STALE_RECORD_ABORT_AFTER_HOURS:
+            finalize(eval_path, eval_record, state_data, force_status="aborted",
+                     reason=f"state.yaml's own completion timestamp predates this record's open time by {age_hours:.1f}h — likely a spurious open, not a real run")
+            return True
+        log_info(f"'{eval_record['name']}' state.yaml is terminal but its completion timestamp predates this record's open — treating as stale, leaving open (age={age_hours:.1f}h)", TAG)
+        return False
+
+    finalize(eval_path, eval_record, state_data)
+    return True
+
+
+def sweep_orphaned_records(exclude: Path | None):
+    """Self-heal pass: close out any OTHER open turn-level record whose
+    monitored workflow has already reached a terminal state, regardless of
+    session_id. Exists because session_id can legitimately (not just via
+    the read-race fixed in hook_utils._read_session_index) resolve to two
+    different values within one logical run — boot's own Session Index
+    step appends a new memory/sessions/index.json entry partway through
+    step-01, so a record opened before that append and a Stop event
+    checked after it can disagree on session_id even with no bug involved.
+    already_open_for_workflow() in eval-turn-start.py now dedupes by
+    workflow name (not session_id) to stop this at open-time; this sweep is
+    the belt-and-suspenders for anything that slips through anyway —
+    without it, an orphan sits at status: in-progress forever, since no
+    future Stop event's session_id would ever match it either."""
+    if not EVAL_RUNS_DIR.exists():
+        return
+    import json
+    for f in EVAL_RUNS_DIR.glob("eval-*.json"):
+        if exclude is not None and f == exclude:
+            continue
+        try:
+            with open(f, "r") as file:
+                data = json.load(file)
+        except Exception:
+            continue
+        if (
+            data.get("type") == "workflow"
+            and data.get("status") == "in-progress"
+            and data.get("monitoring", {}).get("active")
+        ):
+            if try_finalize(f):
+                log_info(f"Swept orphaned turn-level record {f.name} for '{data.get('name')}'", TAG)
 
 
 def main():
@@ -184,27 +313,15 @@ def main():
     session_id = infer_session_id()
 
     eval_path = find_open_turn_record(session_id)
+    if eval_path:
+        try_finalize(eval_path)
+
+    sweep_orphaned_records(exclude=eval_path)
+
     if not eval_path:
-        return  # no eval was opened this session — no-op, per spec
-
-    import json
-    try:
-        with open(eval_path, "r") as f:
-            eval_record = json.load(f)
-    except Exception as e:
-        log_error(f"Failed to read {eval_path}: {e}", TAG)
-        return
-
-    state_yaml_path = eval_record.get("monitoring", {}).get("state_yaml_path")
-    if not state_yaml_path:
-        return
-
-    state_data = read_state_yaml(state_yaml_path)
-    if state_data.get("status") not in TERMINAL_STATUSES:
-        log_info(f"'{eval_record['name']}' state.yaml still {state_data.get('status')!r} — leaving eval record open", TAG)
-        return
-
-    finalize(eval_path, eval_record, state_data)
+        return  # no eval was opened under this Stop's session_id — no-op
+                # for THIS session, per spec. The sweep above still ran, so
+                # any other workflow's now-terminal orphan still gets closed.
 
 
 if __name__ == "__main__":

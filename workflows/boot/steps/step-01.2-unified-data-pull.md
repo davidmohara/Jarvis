@@ -1,11 +1,11 @@
 ---
 status: complete
-started-at: "2026-08-25T10:40:00Z"
-completed-at: "2026-08-25T10:48:00Z"
+started-at: "2026-08-27T16:20:00Z"
+completed-at: "2026-08-27T16:23:28Z"
 outputs:
-  email_pull: "completed — 25 messages from Aug 24-26 (M365 API)"
-  omnifocus_pull: "completed — 243 total tasks (13 uncompleted, fresh via osascript)"
-  clay_pull: "completed — 0 reminders, 3 birthdays (next 7 days)"
+  email_pull: "completed — 14 messages from Aug 26-27 (M365 API)"
+  omnifocus_pull: "completed — 12 uncompleted inbox tasks (fresh via osascript)"
+  clay_pull: "completed — 0 reminders; birthday data not parsed (getUpcomingEvents payload exceeded tool output limit)"
   jarvis_inbox_pull: "nothing-to-surface — folder empty"
   files_created:
     - "data/email-unified.json"
