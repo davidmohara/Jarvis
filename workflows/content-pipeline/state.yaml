@@ -1,15 +1,15 @@
 workflow: content-pipeline
 status: complete
-started-at: 2026-08-26T19:07:58Z
-completed-at: 2026-08-26T19:10:00Z
+started-at: 2026-08-27T09:38:55Z
+completed-at: 2026-08-27T09:39:25Z
 outputs:
-  messages_scanned: 3
+  messages_scanned: 6
   new_urls: 0
   new_digests: 0
   posts_drafted: 0
   improving_blog_drafts: 0
-  editorial_feedback: 1
-  pending_threads_checked: 7
-  outcome: "No new URLs or digests (3 channel messages were all Jarvis bot draft notifications). 1 editorial edit applied: The Amplifier Paradox (6a8de8d2c0a498028c7e8b4d) — added VKTR 'The Great Atrophy' link on 'More than 11 million gateway jobs disappeared' in paragraph 3."
+  editorial_feedback: 0
+  pending_threads_checked: 9
+  outcome: "No new URLs or digests (48h fallback triggered; 6 channel messages were all Jarvis bot draft notifications from Aug 25). All 9 pending draft threads scanned — no new editorial feedback. All prior edits already logged."
 model: sonnet
 current-step: null
