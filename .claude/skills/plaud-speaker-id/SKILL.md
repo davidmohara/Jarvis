@@ -8,6 +8,7 @@ allowed-tools:
   - "Glob"
   - "Grep"
   - "Write"
+  - "WebSearch"
   - "mcp__obsidian-mcp-tools__*"
   - "mcp__b8c41a14-7a9b-4ea5-ab12-933ee04bc52f__*"
   - "Bash(*)"
