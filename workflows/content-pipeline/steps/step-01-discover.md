@@ -436,6 +436,7 @@ For each new URL:
 - Call `mcp__ghost-blog__get_posts(limit=50)` and scan titles/slugs
 - **Normalize URLs before dedup:** Strip tracking parameters before comparing. Spotify URLs include `?si=…` tokens; WSJ/NYT/others append `?mod=`, `?ref=`, `?campaign=`, etc. Compare base URLs only (scheme + host + path). Example: `https://open.spotify.com/episode/51IawJ6m9JcByFjLlzOwfV?si=xLu7qQ7g…` → `https://open.spotify.com/episode/51IawJ6m9JcByFjLlzOwfV`.
 - Check `pending-drafts.json` — if the normalized URL is already present in the `source_url` field (any status), skip it with note: "Skipped {url} — already in pipeline (status: {status})."
+- **Digest title dedup:** For digest messages, also check `pending-drafts.json` by title. Extract the H1 from the digest and compare (case-insensitive) against all existing `title` fields. If a match exists (any status), skip with note: "Skipped digest '{title}' — already in pipeline (status: {status})." This prevents the 48h fallback from re-processing Watchtower digests that were already drafted in a prior run.
 - If the source URL topic is already covered: skip with a note, don't draft.
 
 ### 4. Draft the post

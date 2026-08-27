@@ -1,0 +1,15 @@
+{
+  "id": "err-20260827T150229-0DFDBK",
+  "timestamp": "2026-08-27T15:02:29Z",
+  "session": "2026-08-27",
+  "source": "explicit",
+  "agent": "harper",
+  "category": "process-skip",
+  "description": "Content pipeline created duplicate Ghost draft posts for digest-sourced content (The Amplifier Paradox, DFW Is Building the Other Kind of AI Economy, The Rollout Worked. The People Didn't.). The 48h fallback in read.py — triggered when the 24h window returns 0 messages — pulled Watchtower digest bot messages from the prior day back into scope. Dedup logic checked source_url only; digest entries have source_url: null, so no URL match was possible. The title was not checked against pending-drafts.json, so the same digest was drafted and posted to Ghost a second time.",
+  "correction": "Dedup must also compare the extracted H1 title from a digest message against all existing title fields in pending-drafts.json (case-insensitive). A title match on any status entry should skip the message with a logged note.",
+  "failure_mode": "pattern-mismatch",
+  "systemic_fix": "Added digest title dedup rule to step-01-discover.md Section 3 (Check deduplication): for digest messages, extract H1 and compare case-insensitively against all pending-drafts.json title fields before drafting. Skip with note if match found.",
+  "fix_status": "applied",
+  "severity": "major",
+  "related_entries": []
+}
