@@ -1,19 +1,16 @@
 {
-  "pulled_at": "2026-08-27T16:23:28Z",
-  "task_count": 12,
+  "pulled_at": "2026-08-28T14:00:34Z",
+  "task_count": 10,
   "tasks": [
-    {"name": "Higgsfield - video", "due_date": null, "project": "inbox", "flagged": false},
-    {"name": "Movies", "due_date": null, "project": "inbox", "flagged": false},
-    {"name": "Exec AI Workshop", "due_date": null, "project": "inbox", "flagged": false},
-    {"name": "CC Breakfast", "due_date": null, "project": "inbox", "flagged": false},
-    {"name": "Can cannon", "due_date": null, "project": "inbox", "flagged": false},
-    {"name": "Find church for Sunday", "due_date": null, "project": "inbox", "flagged": false},
-    {"name": "Shane Parrish style questions", "due_date": null, "project": "inbox", "flagged": false},
-    {"name": "Vistage referrals for Alise", "due_date": null, "project": "inbox", "flagged": false},
-    {"name": "Take hanger for jacket to work", "due_date": null, "project": "inbox", "flagged": false},
-    {"name": "Review appendix and planning for SC offerings", "due_date": null, "project": "inbox", "flagged": false},
-    {"name": "Video", "due_date": null, "project": "inbox", "flagged": false},
-    {"name": "4minds.ai", "due_date": null, "project": "inbox", "flagged": false}
-  ],
-  "note": "All 12 are unassigned OmniFocus inbox items, no project/tag, no due dates, none flagged."
+    {"name": "Higgsfield - video", "due_date": null, "is_flagged": false},
+    {"name": "Movies", "due_date": null, "is_flagged": false},
+    {"name": "Exec AI Workshop", "due_date": null, "is_flagged": false},
+    {"name": "CC Breakfast", "due_date": null, "is_flagged": false},
+    {"name": "Can cannon", "due_date": null, "is_flagged": false},
+    {"name": "Find church for Sunday", "due_date": null, "is_flagged": false},
+    {"name": "Vistage referrals for Alise", "due_date": null, "is_flagged": false},
+    {"name": "Take hanger for jacket to work", "due_date": null, "is_flagged": false},
+    {"name": "Review appendix and planning for SC offerings", "due_date": null, "is_flagged": false},
+    {"name": "4minds.ai", "due_date": null, "is_flagged": false}
+  ]
 }

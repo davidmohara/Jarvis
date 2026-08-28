@@ -1,9 +1,9 @@
 ---
 status: complete
-started-at: "2026-08-27T16:25:40-05:00"
-completed-at: "2026-08-27T16:25:50-05:00"
+started-at: "2026-08-28T14:01:53Z"
+completed-at: "2026-08-28T14:02:00Z"
 outputs:
-  phase2_measurement_file: "systems/boot-instrumentation/measurements/measurement-state-20260827T162550.json"
+  phase2_measurement_file: "systems/boot-instrumentation/measurements/measurement-state-20260828T140153.json"
   total_kb: 0.0
   total_tokens: 0
   measurement_method: "measure.py run successfully — accumulated-context field empty (outcomes recorded in step frontmatter instead), no bloat sources"

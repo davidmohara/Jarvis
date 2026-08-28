@@ -1,11 +1,11 @@
 ---
 status: complete
-started-at: "2026-08-27T16:20:00Z"
-completed-at: "2026-08-27T16:23:28Z"
+started-at: "2026-08-28T14:00:00Z"
+completed-at: "2026-08-28T14:00:40Z"
 outputs:
-  email_pull: "completed — 14 messages from Aug 26-27 (M365 API)"
-  omnifocus_pull: "completed — 12 uncompleted inbox tasks (fresh via osascript)"
-  clay_pull: "completed — 0 reminders; birthday data not parsed (getUpcomingEvents payload exceeded tool output limit)"
+  email_pull: "completed — 20 messages from Aug 27-28 (M365 API); 4 actionable (SPARC CRM bug thread, Inertia Labs GCC pitch, Robert Hendricks intro, YPO commitment reminder)"
+  omnifocus_pull: "completed — 10 uncompleted inbox tasks (fresh via osascript)"
+  clay_pull: "failed — Clay MCP unauthenticated, OAuth flow requires interactive browser approval not available unattended. Attempted per mandatory-always-attempt rule."
   jarvis_inbox_pull: "nothing-to-surface — folder empty"
   files_created:
     - "data/email-unified.json"

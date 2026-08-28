@@ -1,20 +1,31 @@
 {
-  "pulled_at": "2026-08-27T16:23:28Z",
-  "message_count": 14,
-  "messages": [
-    {"id": "AAMk...9p4-cYAAA", "subject": "Confirming interest: Quality CIOs over crowd for Improving American CIO & Cybersecurity Summit", "from": "cwong@techmansummit.com", "received_at": "2026-08-27T16:12:17Z", "is_flagged": false, "importance": "normal", "snippet": "Have Improving showcase its solutions and find new business at CIO 2027"},
-    {"id": "AAMk...9p4-cXAAA", "subject": "NBW: How Havas turns marketing into growth", "from": "christian@christianbanach.com", "received_at": "2026-08-27T16:10:32Z", "is_flagged": false, "importance": "normal", "snippet": "Newsletter digest"},
-    {"id": "AAMk...9p4-cWAAA", "subject": "Tonight @ RW Dallas", "from": "sales@rootsandwater.wine", "received_at": "2026-08-27T16:07:27Z", "is_flagged": false, "importance": "normal", "snippet": "6-8pm MTGA Wines tasting event"},
-    {"id": "AAMk...9p4-cSAAA", "subject": "Bergin Update", "from": "cpjb04@gmail.com", "received_at": "2026-08-27T15:20:59Z", "is_flagged": false, "importance": "normal", "snippet": "Wrapped Modo engagement, taking full-time CTO role at TransWorld Systems"},
-    {"id": "AAMk...9p4-cRAAA", "subject": "Re: Robert Hendricks Introduction", "from": "Robert.Hendricks@valuzzia.com", "received_at": "2026-08-27T15:11:44Z", "is_flagged": false, "importance": "normal", "snippet": "Resume attached per discussion, available next week for questions"},
-    {"id": "AAMk...9p4-cQAAA", "subject": "Re: Intro and discussion of GCC AI paths", "from": "pdrew@inertialabs.io", "received_at": "2026-08-27T14:47:39Z", "is_flagged": false, "importance": "normal", "snippet": "Checking in on partnership opportunity, pitch with customer later today"},
-    {"id": "AAMk...9p4-b7AAA", "subject": "Action Required: Update Your Opportunities by 8/31/2026", "from": "SPARC@improving.com", "received_at": "2026-08-26T23:20:29Z", "is_flagged": false, "importance": "normal", "snippet": "5 open opportunities in SPARC view with close date on/before 8/31, need CRM update by 8/31 — deadline"},
-    {"id": "AAMk...9lOBAyAAA", "subject": "Re: An early copy of My Client Is the Devil: And Other Myths, Revisited", "from": "solarcurve@gmail.com", "received_at": "2026-08-26T21:21:29Z", "is_flagged": false, "importance": "normal", "snippet": "Follow-up on manuscript review notes"},
-    {"id": "AAMk...9lOBAxAAA", "subject": "Checking In on Your YPO GMS Registration", "from": "askevents@ypo.org", "received_at": "2026-08-26T21:05:32Z", "is_flagged": false, "importance": "normal", "snippet": "Incomplete registration for YPO Global Marketing Summit"},
-    {"id": "AAMk...9lOBAwAAA", "subject": "Re: Intro and discussion of GCC AI paths", "from": "pdrew@inertialabs.io", "received_at": "2026-08-26T20:34:39Z", "is_flagged": false, "importance": "normal", "snippet": "Partnership strategy follow-up"},
-    {"id": "AAMk...9lOBAuAAA", "subject": "Re: An early copy of My Client Is the Devil: And Other Myths, Revisited", "from": "solarcurve@gmail.com", "received_at": "2026-08-26T20:33:47Z", "is_flagged": false, "importance": "normal", "snippet": "Thanks for manuscript notes"},
-    {"id": "AAMk...9lOBApAAA", "subject": "ACTION NEEDED: Whitefish Presidents Retreat Fly Fishing", "from": "tiffany@lonestargold.org", "received_at": "2026-08-26T20:02:06Z", "is_flagged": false, "importance": "normal", "snippet": "Four items needed before Monday for retreat"},
-    {"id": "AAMk...9lOBAkAAA", "subject": "Re: Lunch", "from": "hugh.breland@goosehead.com", "received_at": "2026-08-26T18:22:11Z", "is_flagged": false, "importance": "normal", "snippet": "Confirmed lunch Sept 15, 11:30am, David to send invite"},
-    {"id": "AAMk...9lOBAaAAA", "subject": "PLEASE RSVP: Lone Star Gold September 2026 Board Meeting", "from": "tiffany@lonestargold.org", "received_at": "2026-08-26T16:36:13Z", "is_flagged": false, "importance": "normal", "snippet": "RSVP needed for Sept 28 board meeting 1:30-3pm"}
+  "pulled_at": "2026-08-28T14:00:34Z",
+  "message_count": 20,
+  "note": "M365 email_search does not expose an isFlagged field in this connector's response; triage below is by content (explicit deadline / time-sensitive / active thread requiring reply), not the Outlook flag bit.",
+  "actionable_messages": [
+    {
+      "subject": "Re: Action Required: Update Your Opportunities by 8/31/2026",
+      "from": "amy.widicus@improving.com",
+      "received_at": "2026-08-27T21:19:12Z",
+      "note": "Ongoing thread re: CRM opportunity display bug ahead of the 8/31 SPARC disposition deadline. Amy asked to screen-share to debug. Still open as of yesterday evening."
+    },
+    {
+      "subject": "Re: Intro and discussion of GCC AI paths",
+      "from": "pdrew@inertialabs.io",
+      "received_at": "2026-08-27T14:47:39Z",
+      "note": "Inertia Labs GCC AI partnership pitch - follow-up asking for time, mentioned same-day customer pitch. Still awaiting response."
+    },
+    {
+      "subject": "Re: Robert Hendricks Introduction",
+      "from": "Robert.Hendricks@valuzzia.com",
+      "received_at": "2026-08-27T15:11:44Z",
+      "note": "Sent resume per prior discussion, available for questions next week. Unread."
+    },
+    {
+      "subject": "FW: INFO & ACTION: YPO GOLD REX executive summary",
+      "from": "smeyer@ypo.org",
+      "received_at": "2026-08-27T17:43:15Z",
+      "note": "Reminder to submit YPO commitment form. Soft deadline, unread."
+    }
   ]
 }

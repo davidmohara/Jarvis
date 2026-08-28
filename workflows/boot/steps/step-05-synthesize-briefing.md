@@ -1,12 +1,12 @@
 ---
 status: complete
-started-at: "2026-08-27T16:39:30Z"
-completed-at: "2026-08-27T16:45:30Z"
+started-at: "2026-08-28T14:04:00Z"
+completed-at: "2026-08-28T14:08:00Z"
 outputs:
   briefing_delivered: "yes — morning briefing synthesized and carried forward through steps 06-08 for verbatim delivery to controller"
-  format: "3-paragraph narrative + calendar table (accumulated data: 20 calendar events Aug 27-30, 12 uncompleted OmniFocus inbox items, 3 actionable emails, 0 due reminders, 0 active delegations)"
-  calendar_today: "conflicted — board retreat (Malakoff, TX) overlapping 5 internal Improving meetings, 3 of which overlap each other (11:30am-1:15pm CDT block)"
-  hotspots: "SPARC CRM deadline 8/31 (5 opportunities), Inertia Labs partnership pitch awaiting response, scheduling conflict between LSG board retreat and internal calls, missing yesterday's daily review"
+  format: "3-paragraph narrative + calendar table (accumulated data: 20 calendar events Aug 28-31, 10 uncompleted OmniFocus inbox items, 4 actionable emails, 0 due reminders, Clay unavailable)"
+  calendar_today: "conflicted — tail end of LSG Board Retreat (Malakoff, TX) overlapping 6 internal/client Improving meetings, several back-to-back or overlapping, 8am-3pm CDT"
+  hotspots: "SPARC CRM opportunity-display bug still open ahead of 8/31 deadline, Inertia Labs GCC partnership pitch awaiting reply, Dickason Honda SOW review this afternoon, board-retreat/meeting-schedule overlap, Clay unavailable (auth gap)"
 ---
 
 <!-- system:start -->

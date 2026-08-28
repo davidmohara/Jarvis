@@ -1,0 +1,65 @@
+{
+  "id": "eval-20260828T140308-WL89IY",
+  "type": "workflow",
+  "name": "boot",
+  "agent": "master",
+  "session_id": "session-2026-08-28T085856",
+  "trigger": "manual",
+  "started": "2026-08-28T14:00:00Z",
+  "completed": "2026-08-28T14:03:08.188809Z",
+  "duration_seconds": 188.2,
+  "status": "success",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": true,
+      "outputs_non_empty": true,
+      "assertions_checked": 4,
+      "assertions_passed": 3,
+      "assertion_results": [
+        {
+          "assertion": "boot-001-state-complete",
+          "description": "Boot workflow state.yaml shows status: complete",
+          "passed": true
+        },
+        {
+          "assertion": "boot-002-session-index-exists",
+          "description": "Session index file exists \u2014 boot's Session Index Boot step must have created/appended it",
+          "passed": true
+        },
+        {
+          "assertion": "boot-003-session-index-substantive",
+          "description": "Session index is a real record, not an empty stub",
+          "passed": true
+        },
+        {
+          "assertion": "boot-004-guardrail-checkpoint-ran",
+          "description": "step-06.5's guardrail checkpoint recorded a result (pass/flag/escalate) on this run \u2014 read from the eval record's own guardrails array, not self-reported by the workflow",
+          "passed": false
+        }
+      ]
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    }
+  },
+  "version_hash": "f1a31609ac6be8a1",
+  "prior_baseline_id": null,
+  "tags": [
+    "phantom-candidate",
+    "cowork-hook"
+  ]
+}

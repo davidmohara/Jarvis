@@ -1,13 +1,13 @@
 ---
 status: complete
-started-at: "2026-08-27T16:24:00Z"
-completed-at: "2026-08-27T16:26:00Z"
+started-at: "2026-08-28T14:00:40Z"
+completed-at: "2026-08-28T14:01:00Z"
 outputs:
   calendar_file: "data/calendar-unified.json"
   event_count: 20
-  date_range: "2026-08-27 to 2026-08-30"
+  date_range: "2026-08-28 to 2026-08-31"
   status: "written"
-  file_size_kb: 4.2
+  file_size_kb: 3.8
   m365_calls: 1
 ---
 

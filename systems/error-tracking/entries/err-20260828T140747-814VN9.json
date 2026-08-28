@@ -1,0 +1,16 @@
+{
+  "id": "err-20260828T140747-814VN9",
+  "timestamp": "2026-08-28T14:07:47Z",
+  "session": "session-2026-08-28T085856",
+  "source": "self-detected",
+  "agent": "Knox",
+  "category": "data-accuracy",
+  "description": "plaud-discover skill reported 127 of 128 Plaud recordings as 'ready for vault ingestion' (i.e. new), contradicting the last verified run (pi-20260826-003, independently re-verified twice) which found only 7 of 127 genuinely new, and contradicting a direct vault check showing 163 files under zzPlaud/ already carrying file_id frontmatter. The skill also never wrote accumulated-context.new-recordings into state.yaml as step-01 requires.",
+  "correction": "Knox did not trust the discover output, cross-checked the vault directly, found the contradiction, and set workflows/plaud-ingest/state.yaml to status: blocked rather than re-ingesting 127 already-processed recordings, duplicating Plaud share links, or sending Alice a duplicate summary email.",
+  "failure_mode": "stale-cache",
+  "systemic_fix": "Likely cause: plaud-discover is miscounting stale leftover files in ~/Downloads/transcript-staging (a _not_new_archive with ~279 old files, plus stale top-level .md/_raw.json/_speakers.json files from January) as new/stale-staged recordings to re-queue, per step-01 rule 2. Fix should have the discover skill explicitly exclude _not_new_archive and stale staging files before diffing against the vault, rather than relying on a raw file count.",
+  "fix_status": "applied",
+  "fix_details": "Confirmed root cause against live filesystem (not just theory): ~/Downloads/transcript-staging had 121 top-level .md files, 120 of them older than 24h, all duplicates of files already triaged into _not_new_archive/ (277 files) -- matches the 127-of-128 false-positive magnitude. skills/plaud-discover/SKILL.md step 3's staleness rule was unconditionally re-queuing any stale top-level staging file as 'new' with no vault-dedup check first. Fixed in skills/plaud-discover/SKILL.md (2026-08-28, Rigby): staging scan now excludes _not_new_archive/ and any subfolder (top-level only); staged files must clear Tier 1 (file_id) and Tier 2 (title fuzzy match) dedup against the vault before the staleness rule applies -- already-ingested staged leftovers are flagged for manual cleanup instead of silently re-queued; Tier 3's broken plaud_<file_id>*.md filename-pattern assumption corrected (real files are plaud_<title>.md); vault-unreadable failure mode changed from silent proceed-without-dedup to abort-and-report (closing the loop on err-20260826T190948-QQMBTP's still-open systemic_fix); step 5 now requires the full per-recording list (not a summary count) be written to state.yaml accumulated-context.new-recordings before advancing past step-01. Tracked in evolutions/.pending-changes.json as work-20260828-plaud-discover-false-positive-fix. Not yet verified via a live end-to-end re-run -- Master should confirm with a fresh plaud-discover run before clearing workflows/plaud-ingest/state.yaml's blocked status.",
+  "severity": "moderate",
+  "related_entries": ["err-20260826T190948-QQMBTP"]
+}

@@ -1,16 +1,16 @@
 ---
 status: complete
-started-at: "2026-08-27T16:31:00Z"
-completed-at: "2026-08-27T16:33:00Z"
+started-at: "2026-08-28T14:01:00Z"
+completed-at: "2026-08-28T14:03:00Z"
 outputs:
-  phase2_status: "complete — all Phase 2 tasks executed. Calendar fresh (Aug 27, 20 events), OmniFocus fresh (Aug 27, 12 uncompleted), email fresh (Aug 27). No blocking failures."
-  morning-briefing-steps-01-02: "completed — see workflows/morning-briefing/steps/step-01 and step-02"
-  task-g-72hr-lookahead: "completed — Aug 28-30 from calendar-unified.json: 4th Friday Executive Meeting, Presidents Pipeline Roundtable, SOW review (Dickason Honda of Paris), Sync David/Matt/Robin, Executive AI Training Program wrap-up, Meet Susie, Improving Anniversary (2007), Golf, Gemma birthday dinner. Aug 28 is a heavy sales/exec meeting day (5 back-to-back blocks 8am-3pm CDT)."
-  task-h-email-triage: "completed — 14 messages Aug 26-27, 3 actionable: SPARC action required — 5 open opportunities need CRM disposition by 8/31 (deadline); Inertia Labs GCC AI partnership pitch (time-sensitive, same-day ask); YPO GMS registration incomplete (soft nudge, no hard deadline)"
+  phase2_status: "complete — all Phase 2 tasks executed. Calendar fresh (Aug 28, 20 events), OmniFocus fresh (Aug 28, 10 uncompleted), email fresh (Aug 28). No blocking failures; Clay unavailable (auth)."
+  morning-briefing-steps-01-02: "completed — calendar and task data read from unified files"
+  task-g-72hr-lookahead: "completed — Aug 29-31 from calendar-unified.json: Improving Anniversary (2007), Golf, Gemma birthday dinner, Improving Prayer Call, Timesheet, Sales & Recruiting Meeting, Sales Scrum, Monday Week Overview, AI Exec Planning, Dallas Come Together Escape Rooms. Aug 28 itself is the heavy day: LSG Board Retreat tail + 6 internal/client meetings 8am-4pm CDT."
+  task-h-email-triage: "completed — 20 messages Aug 27-28, 4 actionable: SPARC CRM opportunity-display bug thread still open with Amy Widicus (deadline 8/31, 5 opportunities need disposition); Inertia Labs GCC AI partnership pitch follow-up (time-sensitive, awaiting reply); Robert Hendricks intro/resume follow-up; YPO GOLD REX commitment form reminder (soft deadline)"
   task-i-jarvis-inbox: "nothing-to-surface — Jarvis folder empty"
   task-j-reminders: "nothing-to-surface — reminders.json empty (0 due items)"
-  omnifocus-status: "12 inbox items, all uncompleted/unassigned, none dated or flagged. Fresh pull from Aug 27."
-  data-freshness: "Calendar fresh (Aug 27 16:26Z), OmniFocus fresh (Aug 27 16:23Z), Email fresh (Aug 27 16:23Z), Clay reminders fresh/0, Clay birthdays not parsed (payload size). No data gaps blocking brief."
+  omnifocus-status: "10 inbox items, all uncompleted/unassigned, none dated or flagged. Fresh pull from Aug 28."
+  data-freshness: "Calendar fresh (Aug 28 14:01Z), OmniFocus fresh (Aug 28 14:00Z), Email fresh (Aug 28 14:00Z), Clay unavailable (OAuth required, not completable unattended). No data gaps blocking brief other than Clay."
 ---
 
 <!-- system:start -->

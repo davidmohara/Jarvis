@@ -1,9 +1,9 @@
 ---
 status: complete
-started-at: "2026-08-27T16:46:30Z"
-completed-at: "2026-08-27T16:47:00Z"
+started-at: "2026-08-28T14:08:15Z"
+completed-at: "2026-08-28T14:08:30Z"
 outputs:
-  data_freshness_report: "pass — calendar, email, OmniFocus all pulled live this session (~16:20-16:33Z), briefing reflects current data. Only gap: Clay birthday data not parsed (payload too large), explicitly flagged in briefing rather than presented as current/complete."
+  data_freshness_report: "pass — calendar, email, OmniFocus all pulled live this session (~14:00-14:04Z), briefing reflects current data. Gap: Clay unavailable this run (OAuth required, not completable unattended), explicitly flagged in briefing rather than presented as current/complete."
   checkpoint_name: "pre-completion-review"
   checkpoint_result: "pass"
   reason: "Briefing accurately reflects fresh gathered data including the surfaced retreat/meeting scheduling conflict; workflow scan correctly found 0 in-progress (active.yaml empty); no credential/sensitive leakage; session index untouched by this checkpoint."

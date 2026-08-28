@@ -1,0 +1,110 @@
+{
+  "id": "eval-20260828T135817-P00Y9T",
+  "type": "workflow",
+  "name": "boot",
+  "agent": "master",
+  "session_id": "2026-08-25T17:14:37.010916Z",
+  "trigger": "boot",
+  "started": "2026-08-28T13:58:17.544664Z",
+  "completed": "2026-08-28T14:04:10.371705Z",
+  "duration_seconds": 352.83,
+  "status": "partial",
+  "steps": [],
+  "subagents": [
+    {
+      "agent_id": "af85867f9aad85f38",
+      "agent_type": "general-purpose",
+      "started": "2026-08-28T13:58:51.120178Z",
+      "completed": "2026-08-28T13:59:28.520384Z",
+      "model": "sonnet",
+      "tokens_input": 360388,
+      "tokens_output": 121,
+      "cost_usd": 0.309731,
+      "duration_seconds": 37.4
+    }
+  ],
+  "monitoring": {
+    "active": false,
+    "state_yaml_path": "workflows/boot/state.yaml",
+    "opened_by": "eval-turn-start.py",
+    "trigger_evidence": "run the morning boot workflow"
+  },
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 1,
+      "error_ids": [],
+      "tool_failure_log": [
+        {
+          "tool": "Read",
+          "error": "File does not exist. Note: your current working directory is /Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES.",
+          "duration_ms": 7,
+          "timestamp": "2026-08-28T08:58:24.500729"
+        }
+      ]
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 3,
+      "assertions_passed": 3,
+      "assertion_results": [
+        {
+          "assertion": "boot-001-state-complete",
+          "description": "Boot workflow state.yaml shows status: complete",
+          "passed": true
+        },
+        {
+          "assertion": "boot-002-session-index-exists",
+          "description": "Session index file exists \u2014 boot's Session Index Boot step must have created/appended it",
+          "passed": true
+        },
+        {
+          "assertion": "boot-003-session-index-substantive",
+          "description": "Session index is a real record, not an empty stub",
+          "passed": true
+        }
+      ]
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": "f1a31609ac6be8a11b48a3c6267957f76a4e86e971cd143315c77472e90af0d0",
+  "prior_baseline_id": null,
+  "tags": [
+    "turn-level"
+  ],
+  "guardrails": [
+    {
+      "name": "pre-completion-review",
+      "after_step": "step-06-scan-workflows",
+      "result": "pass",
+      "reason": "Briefing reflects freshly gathered live data (calendar/email/omnifocus pulled this session); Clay unavailable due to auth gap, correctly flagged rather than presented as current; workflow scan correct (active.yaml empty, 0 in-progress); no credential/sensitive leakage; session index untouched by this checkpoint.",
+      "escalated_to_human": false,
+      "timestamp": "2026-08-28T14:02:49.146045+00:00"
+    }
+  ],
+  "total_tokens_input": 360388,
+  "total_tokens_output": 121,
+  "total_cost_usd": 0.309731
+}

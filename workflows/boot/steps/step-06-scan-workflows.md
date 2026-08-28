@@ -1,7 +1,7 @@
 ---
 status: complete
-started-at: "2026-08-27T16:46:00Z"
-completed-at: "2026-08-27T16:46:15Z"
+started-at: "2026-08-28T14:08:00Z"
+completed-at: "2026-08-28T14:08:15Z"
 outputs:
   workflows_scanned: "complete — _active.yaml read (active: []), 0 in-progress workflows found, 1 background agent running async"
   active_workflows: "0"

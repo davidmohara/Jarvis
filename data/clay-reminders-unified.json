@@ -1,8 +1,9 @@
 {
-  "pulled_at": "2026-08-27T16:23:28Z",
-  "status": "available",
+  "pulled_at": "2026-08-28T14:00:34Z",
+  "status": "unavailable",
+  "reason": "Clay MCP requires an OAuth authentication flow that cannot be completed unattended in this session (mcp__clay__authenticate returns an authorization URL requiring interactive browser approval). Attempted per mandatory-always-attempt rule; recording unavailable rather than skipping.",
   "reminders": [],
   "reminder_count": 0,
   "birthday_count": 0,
-  "note": "getUpcomingReminders returned 0. getUpcomingEvents payload exceeded tool output limit (67KB) and was not parsed for birthdays given token budget; no reminder-type items surfaced from the reminders endpoint."
+  "attempted": true
 }

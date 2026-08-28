@@ -1,13 +1,13 @@
 ---
 status: complete
-started-at: "2026-08-27T16:35:30Z"
-completed-at: "2026-08-27T16:38:30Z"
+started-at: "2026-08-28T14:02:30Z"
+completed-at: "2026-08-28T14:04:00Z"
 outputs:
-  meetings_found: "20 events (Aug 27-30) with full context — calendar-unified.json provides all attendees, locations, times"
-  meeting-context: "morning-briefing step-03 completed. Only real prep item today: 1:1 w/ Scott McMichael (ready, standing cadence). Board retreat and internal standing meetings need no additional prep. Flag: David is booked into 5 internal calls during the LSG board retreat block (Aug 27 noon - Aug 28 noon) — scheduling conflict to surface."
-  clay-reminders: "nothing-to-surface — 0 upcoming reminders (fresh pull this session)"
-  clay-birthdays: "not parsed this run — getUpcomingEvents payload exceeded tool output size limit; birthday data not confirmed for the next 7 days"
-  context-status: "ready — sufficient calendar and meeting-prep data for briefing synthesis. Clay birthday data incomplete but non-blocking."
+  meetings_found: "20 events (Aug 28-31) with full context — calendar-unified.json provides all attendees, locations, times"
+  meeting-context: "Real prep items today: (1) SOW review for Dickason Honda of Paris (15:30-16:00 CDT w/ Derek Nwamadi, Anthony Marrical, client contact stevehall11565@gmail.com) — client SOW discussion, have the draft SOW ready; (2) Sync: David/Matt/Robin (17:30-18:00 CDT w/ Systemic Compliance contacts rgraham/myasar/kgraham + Ben Kennedy) — recurring external sync, no new prep flagged; (3) Executive AI Training Program Session 7/8 Wrap-Up (18:00-20:00 CDT, in-person Dallas Conference Room Trust) — final session, may warrant a close-out note. Standing internal meetings (Coffee Chat, Sales & Recruiting, 4th Friday Exec, Presidents Pipeline Roundtable) need no additional prep. Flag: David is on the tail end of the LSG Board Retreat (Malakoff, TX, ends ~12pm CDT) while also double-booked into 6 internal/client Improving meetings between 8am-3pm CDT today — same overlap pattern flagged yesterday, now compounding with a drive back from Malakoff. 'Meet Susie' at 4-5pm CDT (NorthPark Center) has no attendee record — personal, unclear who Susie is; flagging for awareness only."
+  clay-reminders: "unavailable — Clay MCP requires interactive OAuth, could not be completed this session"
+  clay-birthdays: "unavailable — same Clay auth gap; birthday data not confirmed for the next 7 days"
+  context-status: "ready — sufficient calendar and meeting-prep data for briefing synthesis. Clay data unavailable this run (auth), flagged rather than presented as current."
 ---
 
 <!-- system:start -->

@@ -1,27 +1,30 @@
 {
-  "pulled_at": "2026-08-27T16:26:00Z",
-  "date_range": {"start": "2026-08-27", "end": "2026-08-30"},
+  "pulled_at": "2026-08-28T14:00:00Z",
+  "date_range": {"start": "2026-08-28", "end": "2026-08-31"},
   "event_count": 20,
-  "events": [
-    {"subject": "LSG Board Retreat", "start": "2026-08-27T00:00:00Z", "end": "2026-08-29T00:00:00Z", "isAllDay": true, "location": "13701 North Shore Way, Malakoff, TX 75148", "organizer": "David.OHara@improving.com", "showAs": "busy"},
-    {"subject": "DEXA scan", "start": "2026-08-27T13:45:00Z", "end": "2026-08-27T14:45:00Z", "location": "3333 Preston Rd", "organizer": "David.OHara@improving.com", "showAs": "busy"},
-    {"subject": "Sales & Recruiting Meeting", "start": "2026-08-27T14:15:00Z", "end": "2026-08-27T14:30:00Z", "organizer": "DallasSales@improving.com", "showAs": "tentative"},
-    {"subject": "Sales Scrum", "start": "2026-08-27T15:00:00Z", "end": "2026-08-27T15:30:00Z", "organizer": "stephen.johnson@improving.com", "showAs": "tentative"},
-    {"subject": "Dallas Town Hall - August", "start": "2026-08-27T16:30:00Z", "end": "2026-08-27T17:15:00Z", "organizer": "Don.McGreal@Improving.com", "showAs": "tentative"},
-    {"subject": "The Science of Curiosity (Come Together English Virtual Talk)", "start": "2026-08-27T17:00:00Z", "end": "2026-08-27T18:00:00Z", "organizer": "sandy.hermosillo@improving.com", "showAs": "tentative"},
-    {"subject": "Lone Star Gold 2026 Board Retreat", "start": "2026-08-27T17:00:00Z", "end": "2026-08-28T17:00:00Z", "location": "Chaitan's Lake House, Malakoff, TX", "organizer": "tiffany@lonestargold.org", "showAs": "busy"},
-    {"subject": "Confidential Investigation: August Bday Case Files", "start": "2026-08-27T17:15:00Z", "end": "2026-08-27T18:15:00Z", "organizer": "Gabriela.Garza-Ramos@Improving.com", "showAs": "tentative"},
-    {"subject": "one-on-one Scott McMichael", "start": "2026-08-27T19:00:00Z", "end": "2026-08-27T19:30:00Z", "organizer": "David.O'Hara@improving.com", "attendee": "scott.mcmichael@improving.com", "showAs": "busy"},
-    {"subject": "Dallas Virtual Coffee Chat", "start": "2026-08-28T13:00:00Z", "end": "2026-08-28T14:00:00Z", "organizer": "Anthony.Marrical@Improving.com", "showAs": "tentative"},
-    {"subject": "Sales & Recruiting Meeting", "start": "2026-08-28T14:15:00Z", "end": "2026-08-28T14:30:00Z", "organizer": "DallasSales@improving.com", "showAs": "tentative"},
-    {"subject": "4th Friday Executive Meeting", "start": "2026-08-28T14:30:00Z", "end": "2026-08-28T15:00:00Z", "organizer": "Mark.Kovacevich@Improving.com", "showAs": "busy"},
-    {"subject": "Presidents Pipeline Roundtable 2026 (4th Fridays)", "start": "2026-08-28T15:00:00Z", "end": "2026-08-28T16:00:00Z", "organizer": "scott.mcmichael@improving.com", "showAs": "busy"},
-    {"subject": "SOW review for Dickason Honda of Paris", "start": "2026-08-28T15:30:00Z", "end": "2026-08-28T16:00:00Z", "organizer": "derek.nwamadi@improving.com", "showAs": "tentative"},
-    {"subject": "Sync: David / Matt / Robin", "start": "2026-08-28T17:30:00Z", "end": "2026-08-28T18:00:00Z", "organizer": "David.OHara@improving.com", "attendees": ["rgraham@systemic-compliance.com", "myasar@Systemic-Compliance.com", "ben.kennedy@improving.com"], "showAs": "busy"},
-    {"subject": "Executive AI Training Program: Session 7, Session 8, Wrap-Up", "start": "2026-08-28T18:00:00Z", "end": "2026-08-28T20:00:00Z", "organizer": "scott.poulin@improving.com", "showAs": "tentative"},
-    {"subject": "Meet Susie", "start": "2026-08-28T21:00:00Z", "end": "2026-08-28T22:00:00Z", "location": "NorthPark Center, Dallas, TX", "organizer": "David.OHara@improving.com", "showAs": "busy"},
-    {"subject": "Improving Anniversary (2007)", "start": "2026-08-29T00:00:00Z", "end": "2026-08-30T00:00:00Z", "isAllDay": true, "showAs": "free"},
-    {"subject": "Golf", "start": "2026-08-29T20:20:00Z", "end": "2026-08-30T00:50:00Z", "organizer": "David.OHara@improving.com", "showAs": "busy"},
-    {"subject": "Gemma birthday dinner", "start": "2026-08-30T23:00:00Z", "end": "2026-08-31T01:00:00Z", "location": "Benihana", "organizer": "David.OHara@improving.com", "showAs": "busy"}
+  "note": "20 events returned by M365 for the Aug 28-31 window (includes tail end of LSG Board Retreat spanning into Aug 28, plus Aug 29-31 look-ahead).",
+  "events_today_aug28": [
+    {"subject": "LSG Board Retreat (all-day, ends Aug 29 00:00 UTC = Aug 28 evening CDT)", "start": "2026-08-27T00:00Z", "end": "2026-08-29T00:00Z", "location": "Malakoff, TX"},
+    {"subject": "Lone Star Gold 2026 Board Retreat", "start": "2026-08-27T17:00Z", "end": "2026-08-28T17:00Z", "location": "Chaitan's Lake House, Malakoff TX"},
+    {"subject": "Dallas Virtual Coffee Chat", "start": "2026-08-28T13:00Z", "end": "2026-08-28T14:00Z", "showAs": "tentative"},
+    {"subject": "Sales & Recruiting Meeting", "start": "2026-08-28T14:15Z", "end": "2026-08-28T14:30Z", "showAs": "tentative"},
+    {"subject": "4th Friday Executive Meeting", "start": "2026-08-28T14:30Z", "end": "2026-08-28T15:00Z", "showAs": "busy"},
+    {"subject": "Presidents Pipeline Roundtable 2026 (4th Fridays)", "start": "2026-08-28T15:00Z", "end": "2026-08-28T16:00Z", "showAs": "busy"},
+    {"subject": "SOW review for Dickason Honda of Paris", "start": "2026-08-28T15:30Z", "end": "2026-08-28T16:00Z", "showAs": "tentative"},
+    {"subject": "Sync: David / Matt / Robin", "start": "2026-08-28T17:30Z", "end": "2026-08-28T18:00Z", "showAs": "busy"},
+    {"subject": "Executive AI Training Program: Session 7, Session 8, Wrap-Up", "start": "2026-08-28T18:00Z", "end": "2026-08-28T20:00Z", "showAs": "tentative", "location": "Dallas - Conference Room Trust"},
+    {"subject": "Meet Susie", "start": "2026-08-28T21:00Z", "end": "2026-08-28T22:00Z", "location": "NorthPark Center, Dallas"}
+  ],
+  "look_ahead_aug29_31": [
+    {"subject": "Improving Anniversary (2007)", "date": "2026-08-29", "note": "all-day reminder, 19 years"},
+    {"subject": "Golf", "start": "2026-08-29T20:20Z", "end": "2026-08-30T00:50Z"},
+    {"subject": "Gemma birthday dinner", "start": "2026-08-30T23:00Z", "end": "2026-08-31T01:00Z", "location": "Benihana"},
+    {"subject": "Improving Prayer Call", "start": "2026-08-31T13:00Z", "end": "2026-08-31T13:15Z"},
+    {"subject": "Timesheet", "start": "2026-08-31T13:30Z", "end": "2026-08-31T13:35Z"},
+    {"subject": "Sales & Recruiting Meeting", "start": "2026-08-31T14:15Z", "end": "2026-08-31T14:30Z"},
+    {"subject": "Sales Scrum", "start": "2026-08-31T14:30Z", "end": "2026-08-31T15:00Z"},
+    {"subject": "Monday Week Overview (w/ alice.mburu)", "start": "2026-08-31T19:00Z", "end": "2026-08-31T19:45Z"},
+    {"subject": "AI Exec Planning (w/ Devlin Liles, Susan Fojtasek)", "start": "2026-08-31T20:00Z", "end": "2026-08-31T21:00Z"},
+    {"subject": "Dallas Come Together - Escape Rooms", "start": "2026-08-31T22:15Z", "end": "2026-09-01T01:00Z", "location": "Red Door Escape Room, Plano TX"}
   ]
 }

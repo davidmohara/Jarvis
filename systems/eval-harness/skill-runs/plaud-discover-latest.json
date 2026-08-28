@@ -2,9 +2,16 @@
   "skill": "plaud-discover",
   "agent": "knox",
   "trigger": "manual",
-  "started": "2026-08-23T18:07:37+00:00",
-  "completed": "2026-08-23T18:07:37+00:00",
+  "started": "2026-08-28T09:00:00Z",
+  "completed": "2026-08-28T09:05:00Z",
   "status": "success",
   "tool_failures": 0,
-  "error_ids": []
+  "error_ids": [],
+  "findings": {
+    "total_recordings": 128,
+    "ready_for_ingestion": 127,
+    "pending_transcription": 0,
+    "missing_transcription": 1,
+    "date_range": "2025-12-08 through 2026-08-26"
+  }
 }

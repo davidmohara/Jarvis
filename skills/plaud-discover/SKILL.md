@@ -105,15 +105,42 @@ Reading frontmatter: use `mcp__obsidian-local__get_vault_file` for each note, th
 YAML block between the `---` delimiters. If a note has `file_id: <value>`, add it to the
 file_id set. Always add the normalized title to the title set regardless.
 
-Also check staging: list `~/Downloads/transcript-staging/plaud_*.md`. Apply the following
-staleness rule before treating any staged file as "in progress":
+Also check staging: list `~/Downloads/transcript-staging/plaud_*.md` at the **top level only**.
 
-- If the file's modification time is **within the last 24 hours**: treat as in progress — it will be picked up by step-04 without re-fetching.
-- If the file's modification time is **older than 24 hours**: treat as **stale**. Re-queue the associated recording as new so it gets reprocessed. Do not skip it.
+**Exclude `_not_new_archive/` and any other subfolder entirely.** Files under
+`_not_new_archive/` (or any archive/excluded subfolder) have already been triaged as not-new
+by a prior run. Never scan them, never count them, never let them influence the diff. If you
+are enumerating with `find` or a recursive glob, explicitly prune `_not_new_archive` (e.g.
+`find ~/Downloads/transcript-staging -maxdepth 1 -name 'plaud_*.md'`) — a recursive scan that
+picks up the archive is the single most common cause of massive false-positive "new" counts,
+since that folder alone can hold hundreds of old files.
 
-Check mtime using `stat -f "%m" <file>` (macOS) or `stat -c "%Y" <file>` (Linux) and compare against current epoch time minus 86400 seconds.
+For each remaining top-level staged file, extract its title (strip the `plaud_` prefix and
+extension) and **run it through the same Tier 1 / Tier 2 dedup checks used for API recordings
+in step 4 before doing anything else with it.** A staged file is never automatically "new" —
+staging is a work-in-progress area, not a source of truth about what's ingested. Concretely:
 
-If stale files are found, add their file IDs to `state.yaml accumulated-context.stale-staged-files` so the next run has an explicit list of files that need reprocessing.
+1. Try to resolve the staged file's `file_id` (check for a sibling `_raw.json` with a `file_id`
+   field, or frontmatter if the `.md` has any). If resolved and it's in the vault's file_id set
+   → this recording is **already ingested**. Skip it, and flag it for cleanup (it's a leftover
+   that should have been moved to `_not_new_archive/` or deleted after ingestion — note this in
+   your report, do not silently re-queue it).
+2. If no file_id is resolvable, fuzzy-match the staged title against vault titles (same 85%
+   threshold as Tier 2). A match → already ingested. Skip it and flag for cleanup as above.
+3. Only if neither check matches does the staleness rule apply:
+   - Modification time **within the last 24 hours**: treat as in progress — it will be picked
+     up by step-04 without re-fetching.
+   - Modification time **older than 24 hours**: treat as genuinely stale/orphaned. Re-queue the
+     associated recording as new so it gets reprocessed.
+
+Check mtime using `stat -f "%m" <file>` (macOS) or `stat -c "%Y" <file>` (Linux) and compare
+against current epoch time minus 86400 seconds.
+
+If genuinely stale/orphaned files are found (i.e. they passed both dedup checks above), add
+their file IDs to `state.yaml accumulated-context.stale-staged-files` so the next run has an
+explicit list of files that need reprocessing. Do not add a file to this list until it has
+cleared the file_id and title dedup checks — an unresolved-but-already-ingested staged file is
+a cleanup problem, not a reprocessing problem.
 
 ### 4. Compute the diff
 
@@ -131,7 +158,12 @@ A match at this tier means already ingested — skip it.
 
 **Tier 3 — staged file check:**
 If neither tier 1 nor tier 2 matched, check whether a staged file already exists for this
-recording's file_id (filename pattern `plaud_<file_id>*.md`). If found and not stale, skip it.
+recording. **Staged filenames are title-based (`plaud_<title>.md`), not file_id-based** —
+do not assume a `plaud_<file_id>*.md` pattern, it will never match real files. Resolve the
+staged file's `file_id` via its sibling `_raw.json` if present, or fuzzy-match its title
+(strip `plaud_` prefix and extension) against the recording's `name` at the same 85% threshold
+used in Tier 2. If a match is found and the file is not stale (see step 3's staging rules),
+skip it — it's in progress.
 
 If no tier matched: this recording is **new**.
 
@@ -171,6 +203,20 @@ new_recordings:
     transcript_status: missing
 ```
 
+**This full per-recording list is the required output of this skill — not a summary count.**
+When this skill is run as part of `workflows/plaud-ingest/workflow.md` step-01, the calling
+step MUST write this exact list into `state.yaml accumulated-context.new-recordings` before
+proceeding. A count-only report (e.g. "127 ready for vault ingestion") with no list behind it
+is an incomplete run — do not let it be treated as satisfying step-01's requirement, and do not
+advance `current-step` past `step-01` until the list is actually written to state. If for any
+reason only a summary can be produced (e.g. truncated output), that is a failure, not a
+shortcut — report it as such rather than writing a count into a field that expects a list.
+
+Also do not invent ad hoc output shapes (e.g. a `findings` block with just totals) for the
+skill-run signal file below — the schema in "SKILL COMPLETE" is the only one that's tracked by
+the eval harness; deviating from it hides exactly the kind of incomplete-run problem this fix
+addresses.
+
 ## Running via the fetch script
 
 As an alternative to direct API calls, you can invoke `fetch_plaud.py` with discovery
@@ -189,7 +235,15 @@ detection automatically.
 - **API returns 401**: Token expired. Run Chrome login flow. Retry once.
 - **API returns 429**: Rate limited. Wait 5 seconds and retry.
 - **Empty result set**: Either no recordings for the date, or wrong date/timezone. Try ±1 day.
-- **Vault enumeration fails**: Proceed without dedup. Log: "Vault unavailable — may produce duplicates."
+- **Vault enumeration fails** (Obsidian MCP `list_vault_files` errors, times out, or returns an
+  empty/partial result): Do **not** proceed without dedup — a silent fallback here has already
+  caused two false-positive incidents (`err-20260826T190948-QQMBTP`, `err-20260828T140747-814VN9`)
+  where 100+ already-ingested recordings were reported as "new." Instead: retry the vault
+  enumeration once. If it still fails or returns a file_id count that is dramatically lower than
+  the previous run's confirmed-in-vault count for an overlapping recording set, **abort this
+  skill run** and report the vault-read failure explicitly (do not write a `new_recordings` list,
+  do not let the caller treat a partial/empty vault read as "vault is actually empty"). Surfacing
+  a blocked run is always better than fabricating a new-recordings count on broken dedup data.
 
 ## SKILL COMPLETE
 
