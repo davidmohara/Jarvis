@@ -1,76 +1,25 @@
 workflow: golf-booking
 agent: chief
-status: awaiting-window
-session-started: 2026-08-27T09:40:00Z
-session-id: scheduled-task
-current-step: step-1-booking-window-check
-execution-run: 2026-08-27T09:40:11Z
+status: complete
+session-started: 2026-08-27T22:45:00Z
+session-id: manual-correction
+current-step: complete
+execution-run: 2026-08-27T22:45:00Z
 booking-id: null
 booking-date: null
 booking-time: null
 grade: null
 resolution-note: |
-  Execution Summary:
-  - Current date: August 27, 2026 (11:40 PM CST)
-  - Target date: Saturday, September 5, 2026
-  - Requested time: 1:00 PM CST (David override from preview output)
-  - Days ahead: 9 days
-  - Booking window: CLOSED — requires 8 days or fewer in advance
+  Manual correction applied by user.
+  Previous invalid booking (6W9E-3W2D) cancelled and corrected.
+  Workflow state reset for next scheduled run.
 
-  Booking Window Check Result:
-  ❌ OUT OF BOOKING RANGE
-  - ChronoGolf error: "The player type '41 - Frisco Lakes Total Member' can only book 8 days in advance."
-  - Sept 5 is 9 days ahead; booking window requires ≤8 days
-  - Window opens: Tuesday, September 2, 2026 (8 days ahead from today)
+  Next booking window: Tuesday, September 2, 2026 at 11:00 PM CST
+  (for Sept 5, 2026 Saturday tee time)
 
-  Per MANDATORY EXECUTION RULE #15:
-  ✅ Correct action taken: NO SUBSTITUTION with alternative date
-  ✅ Sent Slack alert explaining booking window status
-  ✅ Set workflow state to `awaiting-window`
-  ✅ Did NOT attempt to book Saturday 4:00 PM (rank 2) as fallback
-  ✅ Did NOT attempt to book Sunday (rank 3) as fallback
-
-  Action Taken:
-  1. ✅ Preview output parsed (target: Saturday, Sept 5 at 1:00 PM)
-  2. ✅ Chrome launched and authenticated (logged in as David O'Hara)
-  3. ✅ Booking widget opened (Step 3)
-  4. ✅ Calendar navigated to September (Step 4a)
-  5. ✅ Date Sept 5 selected (Step 4a)
-  6. ✅ Course (Frisco Lakes) and holes (18) confirmed (Step 4b)
-  7. ✅ Player count set to 4 (Step 4c)
-  8. ✅ Player type set to "41 - Frisco Lakes Total Member" for all 4 (Step 4c)
-  9. ❌ Tee time selection blocked: "You are out of your booking range"
-  10. ✅ Slack notification sent: "Booking window not yet open — Saturday, Sept 5 at 1:00 PM CT requires the window to open first"
-  11. ✅ Workflow state updated: status = awaiting-window
-  12. ⏸ Task aborted gracefully — no booking attempted outside booking window
-
-  Next Steps:
-  - Workflow will retry automatically on Tuesday, September 2, 2026 at 11:00 PM CST
-  - At that time, Saturday, Sept 5 will be exactly 3 days ahead (within 8-day window)
-  - Workflow will execute the full booking sequence per SKILL.md
-  - David override preference will be applied: Saturday 1:00 PM (rank 1 from preview)
-
-original-request: Execute golf booking skill for Sept 5 target date
+original-request: Reset workflow state after manual correction
 accumulated-context:
-  verified_steps:
-    - step-1-preview-output-check: success (rank-1 option: Saturday, Sept 5 at 1:00 PM CT)
-    - step-1-booking-window-check: "FAILED — Sept 5 is 9 days ahead, window requires ≤8 days"
-    - step-2-chrome-launch: success
-    - step-2-login-recovery: success (logged in as David O'Hara)
-    - step-3-widget-open: success
-    - step-4a-date-select: success (Sept 5 selected)
-    - step-4b-course-holes: success (Frisco Lakes, 18 holes)
-    - step-4c-player-count: success (4 players)
-    - step-4c-player-type: success (all 4 set to 41 - Frisco Lakes Total Member)
-    - step-4d-tee-times: "BLOCKED — out of booking range error"
-  execution-notes:
-    - Scheduled task invocation at 2026-08-27T09:40:11Z (11:40 PM CST)
-    - Preview output file parsed successfully
-    - Top option: Saturday, Sept 5 at 1:00 PM (David override)
-    - Browser automation: WORKING (Chrome responsive, navigation successful)
-    - ChronoGolf authentication: SUCCESSFUL (David O'Hara logged in)
-    - Booking window validation: FAILED (9 days ahead exceeds 8-day limit)
-    - Error message from ChronoGolf: "The player type '41 - Frisco Lakes Total Member' can only book 8 days in advance."
-    - Slack notification sent successfully (channel C0AN2PQNXBR, ts 1787841611.914319)
-    - No booking attempted; correct abort per Rule #15 (no date substitution)
-    - Workflow state: awaiting-window (will retry when Sept 5 falls within 8-day window)
+  - Previous booking 6W9E-3W2D: CANCELLED (invalid parameters)
+  - Manual correction: Applied by user
+  - Correct booking: Created with valid parameters (2 players, 1:00 PM+)
+  - Workflow ready for next scheduled run
