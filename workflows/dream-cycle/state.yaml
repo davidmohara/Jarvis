@@ -328,7 +328,7 @@ guardrails:
     dream_log_valid: true
     state_file_valid: true
     commit_status: "success"
-    commit_sha: null
+    commit_sha: "8874d45"
     push_status: "success"
     atomicity_check: "pass"
     note: "Ran in this cloud container via Bash directly (no Desktop Commander in this session, confirmed unavailable). Already on main branch (moved off an initial detached HEAD earlier this session, fast-forwarded 38 commits behind origin/main before starting the workflow). Commands issued one per call per skills/git/SKILL.md's atomic-command rule; commit_sha filled in after the actual commit below."

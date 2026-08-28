@@ -8,7 +8,7 @@ outputs:
   working_summary_reason: "semantic_updated=1 and the THIRD-consecutive compression-threshold stall are both significant enough to surface for Chief at boot."
   git_commit: success
   git_push: success
-  git_commit_sha: TBD
+  git_commit_sha: 8874d45
   git_sync_note: "This run executed in a Claude Code on the web / remote cloud session (managed container, not David's Mac), same as 08-26/08-27. mcp__Desktop_Commander__* is not present in this environment. Used plain git via Bash per skills/git/SKILL.md's atomic-command rule (one command per call, no chaining, no git status). Session started in detached HEAD; moved to main branch and fast-forwarded 38 commits behind origin/main before starting the workflow (see step-01 environment handling), so this step's commit is a normal fast-forward push, no detached-HEAD reattachment needed this time."
 ---
 
