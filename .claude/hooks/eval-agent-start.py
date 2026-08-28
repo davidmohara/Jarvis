@@ -297,6 +297,43 @@ def main():
     if find_unambiguous_open_turn_record:
         try:
             parent_path = find_unambiguous_open_turn_record(session_id)
+            # Guard against merging a sibling fire-and-forget spawn into an
+            # unrelated open workflow's subagents[] just because it's the
+            # only turn record open right now. Root cause of
+            # eval-20260827T162201-YWMW6Z and eval-20260828T154249-UQX5N6
+            # both wrongly absorbing Knox's plaud-ingest agent into boot's
+            # subagents[]: Master dispatches Knox's plaud-ingest retry (or
+            # speaker-ID follow-up) as its own separate spawn *during*
+            # boot's turn window, so boot's turn record is "the" (only)
+            # open turn record at the moment Knox's subagent starts, even
+            # though Knox's spawn has nothing to do with boot's own
+            # execution. When the spawn prompt names an explicit
+            # workflows/{name}/workflow.md path (detect_spawn_workflow
+            # above) that differs from the open parent's own workflow name,
+            # this is exactly that case — a named sibling workflow spawned
+            # inside another workflow's turn, not a child of it — so skip
+            # linking. A boot-internal dispatch (e.g. steps 2-8 run via a
+            # plain Agent() call with no workflows/*/workflow.md reference
+            # in its prompt) has spawn_workflow=None and still links
+            # normally; this only excludes spawns that self-identify as a
+            # *different* named workflow.
+            if (
+                parent_path
+                and spawn_workflow
+                and parent_path != eval_path
+            ):
+                try:
+                    with open(parent_path, "r") as f:
+                        parent_name = json.load(f).get("name")
+                except Exception:
+                    parent_name = None
+                if parent_name and parent_name != spawn_workflow:
+                    log_info(
+                        f"Not linking subagent {agent_id} into parent "
+                        f"{parent_path.name} (parent workflow={parent_name!r}, "
+                        f"spawn workflow={spawn_workflow!r}) — sibling spawn, not a child"
+                    )
+                    parent_path = None
             if parent_path and parent_path != eval_path:
                 with open(parent_path, "r") as f:
                     parent = json.load(f)

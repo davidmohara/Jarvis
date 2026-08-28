@@ -12,17 +12,6 @@
   "steps": [],
   "subagents": [
     {
-      "agent_id": "a574875944e9402dd",
-      "agent_type": "general-purpose",
-      "started": "2026-08-27T16:22:36.717964Z",
-      "completed": "2026-08-27T16:26:46.417080Z",
-      "model": "sonnet",
-      "tokens_input": 2379348,
-      "tokens_output": 4029,
-      "cost_usd": 1.192566,
-      "duration_seconds": 249.7
-    },
-    {
       "agent_id": "afcc425476ccb8344",
       "agent_type": "general-purpose",
       "started": "2026-08-27T16:22:48.712953Z",
@@ -106,7 +95,17 @@
       "timestamp": "2026-08-27T16:29:00.092715+00:00"
     }
   ],
-  "total_tokens_input": 10284045,
-  "total_tokens_output": 7501,
-  "total_cost_usd": 4.146245
+  "total_tokens_input": 7904697,
+  "total_tokens_output": 3472,
+  "total_cost_usd": 2.953679,
+  "related_records": {
+    "note": "This record's session_id ('2026-08-25T17:14:37.010916Z') is the same stale, pre-fix inferred session_id documented in hook_utils.py's harness_session_id() docstring -- this run predates the 2026-08-28 session_id-inference fix. Its subagents[] originally contained a574875944e9402dd, Knox's plaud-ingest speaker-ID follow-up agent (standalone record eval-20260827T162236-C1QQII), wrongly merged in by the same SubagentStart-time linking bug fixed 2026-08-28 in eval-agent-start.py (a spawn naming a different workflows/{name}/workflow.md path than the currently-open parent was linked anyway, purely because it was the only open turn record at that moment). Removed here; the record now reflects only the real boot-execution subagent (afcc425476ccb8344, standalone record eval-20260827T162248-S7GYVA, 'Boot sequence complete (steps 2-12)'), whose own total_tokens/cost already matched this corrected entry exactly.",
+    "noted_not_merged": [
+      {
+        "eval_id": "eval-20260827T162236-C1QQII",
+        "workflow": "plaud-ingest",
+        "reason": "Knox's plaud-ingest speaker-ID follow-up agent (agent_id a574875944e9402dd), a separate sibling spawn from this session, not part of boot's own execution. Was misattributed into this record's subagents[] before the 2026-08-28 fix; removed during Task 1/2 cleanup."
+      }
+    ]
+  }
 }

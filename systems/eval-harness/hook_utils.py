@@ -274,3 +274,38 @@ def find_unambiguous_open_turn_record(session_id: str) -> Path | None:
     subagents[] array."""
     records = find_open_turn_records(session_id)
     return records[0] if len(records) == 1 else None
+
+
+def find_parent_record_with_subagent(session_id: str, agent_id: str) -> Path | None:
+    """Find the turn-level record (open OR already closed) whose subagents[]
+    array contains an entry for this agent_id, searched across every eval
+    record for the session — not just the currently-open ones.
+
+    Used by eval-agent-stop.py's rollup write, instead of re-deriving "the"
+    open turn record at Stop time. eval-agent-start.py already decided which
+    parent (if any) this specific agent_id belongs to, at link time, by
+    writing a subagents[] entry keyed on agent_id into exactly one parent
+    record. Re-deriving "the open turn record" at Stop time is a second,
+    independent guess that can disagree with the first: if the parent's own
+    Stop hook (eval-turn-stop.py) fires and closes the parent (flips
+    monitoring.active to false / status away from in-progress) before this
+    subagent's own SubagentStop hook runs — a real race, since hooks are
+    separate async processes with no ordering guarantee across agents that
+    finish close together — find_unambiguous_open_turn_record would find
+    zero open records and silently drop the rollup, permanently losing that
+    subagent's token/cost data (root cause of eval-20260828T154249-UQX5N6's
+    a2d85012d16ba3d83 entry landing with tokens_input/output/cost_usd/model
+    all null). Looking up the parent by "does its subagents[] already name
+    this agent_id" instead of by "is a turn record open right now" removes
+    that race entirely — the parent's open/closed status no longer matters."""
+    if not agent_id:
+        return None
+    for f in find_records_for_session(session_id):
+        try:
+            with open(f, "r") as file:
+                data = json.load(file)
+            if any(s.get("agent_id") == agent_id for s in data.get("subagents", [])):
+                return f
+        except Exception:
+            continue
+    return None
