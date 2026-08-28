@@ -84,24 +84,36 @@ def main():
         log_error("PostToolUseFailure hook missing tool_name or error")
         return
 
-    # Try to infer session ID - this hook doesn't provide it directly
-    # We'll scan for the most recent in-progress record
+    # PostToolUseFailure carries `session_id` on its payload just like every
+    # other Claude Code hook event does — this used to be assumed absent
+    # ("this hook doesn't provide it directly") and fell straight to a
+    # global "most recent in-progress record" scan, which can misattribute
+    # a tool failure to an unrelated in-progress record (e.g. another
+    # session's still-open turn-level record) when more than one is open
+    # at once. Scope to this session first; only fall back to the old
+    # global scan if the payload has no session_id for some reason.
+    session_id = payload.get("session_id")
+
     eval_path = None
     try:
         if EVAL_RUNS_DIR.exists():
             records = []
+            session_records = []
             for f in EVAL_RUNS_DIR.glob("eval-*.json"):
                 try:
                     with open(f, "r") as file:
                         data = json.load(file)
                     if data.get("status") == "in-progress":
                         records.append((f, data.get("started", "")))
+                        if session_id and data.get("session_id") == session_id:
+                            session_records.append((f, data.get("started", "")))
                 except Exception:
                     continue
 
-            if records:
-                records.sort(key=lambda x: x[1], reverse=True)
-                eval_path = records[0][0]
+            preferred = session_records if session_records else records
+            if preferred:
+                preferred.sort(key=lambda x: x[1], reverse=True)
+                eval_path = preferred[0][0]
     except Exception as e:
         log_error(f"Failed to find eval record: {e}")
         return

@@ -137,21 +137,57 @@ def _read_session_index() -> list:
     return []
 
 
-def infer_session_id() -> str:
-    """Read current session ID from memory/sessions/index.json, creating a
-    session record if none exists yet so no eval record is ever orphaned.
-    Mirrors eval-agent-start.py's infer_session_id — kept in sync by hand
-    since that hook predates this module."""
+def harness_session_id(payload: dict | None) -> str | None:
+    """The real Claude Code session_id, straight from the hook's own stdin
+    payload. Every hook event (UserPromptSubmit, PreToolUse, PostToolUse,
+    SubagentStart, SubagentStop, SessionStart, SessionEnd, Stop) carries
+    `session_id` as a documented, guaranteed-present, stable-for-the-
+    session field — it's assigned once at session start and never
+    regenerated; `transcript_path` on the same payload points at
+    `<session_id>.jsonl`, confirming it's the same value all session long.
+    This is the authoritative source — prefer it over anything inferred
+    from memory/sessions/index.json, which is IES's own bookkeeping file,
+    written asynchronously by boot's Session Index step mid-run, and is
+    exactly the race that produced eval-20260828T135817-P00Y9T's stale
+    session_id (opened before that step had appended today's entry) and
+    the P00Y9T/WL89IY split (two hooks reading two different fields of
+    that file — see below)."""
+    if payload:
+        sid = payload.get("session_id")
+        if sid:
+            return sid
+    return None
+
+
+def infer_session_id(payload: dict | None = None) -> str:
+    """Return the current session's id. Pass the hook's own parsed stdin
+    `payload` whenever the calling hook has one (every hook triggered by a
+    Claude Code event does) — this returns the harness-native session_id
+    directly, with no file I/O and no race.
+
+    Falls back to memory/sessions/index.json only for callers with no
+    payload at all (standalone CLI scripts invoked directly by a workflow
+    step, e.g. close-eval-record.py — not a hook). That fallback prefers
+    the `id` field (the same field post-tool-use.py's get_session_id() and
+    close-eval-record.py's current_session_id() already read) over
+    `started`. Historical note: an earlier version of this function
+    claimed memory/sessions/index.json's entries "never" carry an `id`
+    field — false as of this fix; recent entries (e.g.
+    session-2026-08-28T085856) do have one. Reading `started` instead of
+    `id` here, while post-tool-use.py read `id`, is exactly what made
+    P00Y9T (this function's old behavior) and WL89IY (post-tool-use.py's
+    create_eval_record_from_state path) disagree on session_id for the
+    same real session and end up as two unlinked records instead of one."""
+    sid = harness_session_id(payload)
+    if sid:
+        return sid
+
     try:
         index = _read_session_index()
 
         if index:
-            # memory/sessions/index.json's real schema is
-            # {started, closed, current_topic, topics} — there has never
-            # been an "id" field (42 real records on disk, none have one).
-            # "started" is already a unique-enough key per session record;
-            # do not add an "id" field just to work around this.
-            last = index[-1].get("started", "")
+            last_entry = index[-1]
+            last = last_entry.get("id") or last_entry.get("started", "")
             if last:
                 return last
 

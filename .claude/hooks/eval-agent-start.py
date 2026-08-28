@@ -21,11 +21,15 @@ ALPHABET = string.ascii_uppercase + string.digits
 
 sys.path.insert(0, str(IES_ROOT / "systems" / "eval-harness"))
 try:
-    from hook_utils import find_unambiguous_open_turn_record, _read_session_index, extract_workflow_path_reference
+    from hook_utils import (
+        find_unambiguous_open_turn_record, _read_session_index,
+        extract_workflow_path_reference, infer_session_id as _shared_infer_session_id,
+    )
 except Exception:
     find_unambiguous_open_turn_record = None
     _read_session_index = None
     extract_workflow_path_reference = None  # 36 chars, ~2.1B combos
+    _shared_infer_session_id = None
 
 def log_error(msg: str):
     """Log error to /tmp/ies-hook-errors.log without blocking."""
@@ -75,20 +79,37 @@ def new_eval_id() -> str:
     suffix = "".join(secrets.choice(ALPHABET) for _ in range(6))
     return f"eval-{ts}-{suffix}"
 
-def infer_session_id() -> str:
-    """Attempt to read current session ID from memory/sessions/index.json.
-    If no session exists, create one automatically so eval records are never orphaned."""
+def infer_session_id(payload: dict | None = None) -> str:
+    """Prefer the harness-native `session_id` straight off this hook's own
+    stdin payload (SubagentStart carries it, per Claude Code's documented
+    hook schema — guaranteed present, stable for the whole session, no
+    file I/O, no race). Delegates to hook_utils.infer_session_id, which
+    also holds the memory/sessions/index.json fallback for the case this
+    module's import failed.
+
+    This used to be a local, hand-maintained copy of the memory-index
+    inference (kept "in sync by hand" with hook_utils.py's version per the
+    old docstring) that read the `started` field. hook_utils.py's fallback
+    reads `id` instead (to agree with post-tool-use.py's get_session_id())
+    — the two disagreeing was the direct cause of eval-20260828T135817-
+    P00Y9T and eval-20260828T140308-WL89IY (both "boot" workflow records
+    for the same real session, opened by two different hooks that
+    inferred two different session_id strings for it). Now there's one
+    implementation, and — for any hook with a payload — no inference at
+    all, just the value Claude Code already gave us."""
+    if _shared_infer_session_id:
+        try:
+            return _shared_infer_session_id(payload)
+        except Exception as e:
+            log_error(f"shared infer_session_id failed, falling back: {e}")
+
+    if payload:
+        sid = payload.get("session_id")
+        if sid:
+            return sid
+
     try:
         index_path = IES_ROOT / "memory" / "sessions" / "index.json"
-        # _read_session_index (hook_utils.py) retries a couple times on
-        # JSONDecodeError/OSError before giving up — boot's own Session
-        # Index step (workflow.md's personal block) appends to this file
-        # with a plain read-modify-write, not an atomic temp+rename, so a
-        # hook read landing mid-write can transiently see a partial file.
-        # Falling straight to the except-handler fallback below on the
-        # first such glitch is what produced eval-20260827T161845-1TYTWV —
-        # an orphaned turn-level record with a freshly-minted, disconnected
-        # session id instead of the real session's.
         if _read_session_index:
             index = _read_session_index()
         else:
@@ -97,17 +118,12 @@ def infer_session_id() -> str:
                 with open(index_path, "r") as f:
                     index = json.load(f)
 
-        # If we have sessions, return the last one. Real schema is
-        # {started, closed, current_topic, topics} — there has never been an
-        # "id" field (confirmed against all real records on disk). "started"
-        # is already unique enough per session; don't add a field to work
-        # around this.
         if index:
-            last = index[-1].get("started", "")
+            last_entry = index[-1]
+            last = last_entry.get("id") or last_entry.get("started", "")
             if last:
                 return last
 
-        # If no sessions exist, create one now to ensure eval records have a session_id
         now = datetime.now(timezone.utc)
         session_id = now.isoformat().replace("+00:00", "Z")
         new_session = {
@@ -118,7 +134,6 @@ def infer_session_id() -> str:
         }
         index.append(new_session)
 
-        # Write back atomically
         index_path.parent.mkdir(parents=True, exist_ok=True)
         tmp_path = index_path.with_suffix(".tmp")
         with open(tmp_path, "w") as f:
@@ -130,7 +145,6 @@ def infer_session_id() -> str:
 
     except Exception as e:
         log_error(f"Failed to infer or create session ID: {e}")
-        # Last resort: generate a session ID based on current time
         now = datetime.now(timezone.utc)
         return f"session-{now.strftime('%Y-%m-%dT%H%M%S')}"
 
@@ -203,7 +217,7 @@ def main():
     eval_id = new_eval_id()
 
     # Infer session ID
-    session_id = infer_session_id()
+    session_id = infer_session_id(payload)
 
     # Infer type and name (will be refined by eval-agent-stop)
     eval_type, eval_name = infer_workflow_or_skill_name(agent_type)

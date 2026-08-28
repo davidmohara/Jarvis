@@ -1,0 +1,60 @@
+{
+  "id": "eval-20260828T150112-2L5MZP",
+  "agent_id": "aa8af8a1f448471fe",
+  "type": "agent",
+  "name": "general-purpose",
+  "workflow": null,
+  "agent": "general-purpose",
+  "session_id": "2026-08-28T08:58:56.392400-05:00",
+  "trigger": "unknown",
+  "started": "2026-08-28T15:01:12.812119Z",
+  "completed": "2026-08-28T15:42:47.275455Z",
+  "duration_seconds": 2494.46,
+  "status": "success",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/4378bed7-1972-4c0f-8361-48ef8b8f8d8b/subagents/agent-aa8af8a1f448471fe.jsonl",
+  "last_assistant_message": "Everything checks out. Here's the report for Master.\n\n## Root cause\n\nTwo independent, disagreeing session_id-inference implementations in the eval-harness hooks:\n\n- `hook_utils.infer_session_id()` (used by `eval-turn-start.py`, `eval-turn-stop.py`, and `eval-agent-start.py`'s own hand-copy) read `memory/sessions/index.json`'s **`started`** field.\n- `post-tool-use.py`'s `get_session_id()` (and `close-eval-record.py`) read the same file's **`id`** field instead.\n\nSame session, two different string formats depending on which hook asked. Compounding it: `eval-turn-start.py` fires on `UserPromptSubmit`, before boot's own Session Index step appends today's entry \u2014 so it can (and did) read a stale, never-closed prior session (Aug 25 17:14:37, `closed: null` to this day). That produced the P00Y9T (stale session_id, Knox's fork misattributed as a boot step), MWOCUW (real boot execution, orphaned as a standalone agent record because it couldn't link back), and WL89IY (a near-empty duplicate created by post-tool-use.py's fallback path when it couldn't find P00Y9T under its own session_id format).\n\nI verified via a claude-code-guide lookup \u2014 not assumption \u2014 that Claude Code's hook payload carries a guaranteed, session-stable `session_id` on every relevant event. `eval-tool-failure.py`'s own comment claiming otherwise was wrong.\n\n## Fix\n\nEvery hook-triggered call site now reads `payload[\"session_id\"]` directly instead of inferring from `memory/sessions/index.json` \u2014 no more race, no more format disagreement. The memory-index path survives only as a fallback for payload-less CLI scripts, and now consistently prefers `id` over `started`. Also hardened `post-tool-use.py`'s overwrite guard to refuse touching a `type:\"agent\"` stub (previously it only guarded against a disagreeing `type:\"workflow\"` name) \u2014 a risk that gets *more* likely now that every hook-opened record in a session shares one true session_id. Files touched: `systems/eval-harness/hook_utils.py`, `.claude/hooks/{eval-turn-start,eval-turn-stop,eval-agent-start,post-tool-use,eval-tool-failure}.py`, `systems/eval-harness/schema.md`. All re-verified with `py_compile`; `infer_session_id()` smoke-tested directly.\n\n## Consolidation\n\nCanonical record: `eval-20260828T140308-WL89IY.json` \u2014 status success, started 13:58:56Z, completed 14:03:53.14Z (MWOCUW's real completion), duration 296.75s. Real subagent data (3,976,036 in / 1,158 out tokens, $1.697209) merged in as `subagents[]`; the guardrail pass and the one tool failure merged from P00Y9T; the guardrail-checkpoint assertion now correctly passes. Knox's plaud-ingest fork and the 3 other plaud-discover-fix records are noted by reference in a `related_records` field, **not** merged into boot's cost \u2014 that's a genuinely separate workflow's own eval trail.\n\nArchived (not deleted) to `systems/eval-harness/runs/_archived/2026-08-28-boot-consolidation/`: P00Y9T, 0LKM88, MWOCUW, RW2RNP, 8SKFKO, 68E9WF. Confirmed Aug 25 and Aug 27 records untouched.\n\nTracked in `evolutions/.pending-changes.json` as `work-20260828-boot-eval-session-id-consolidation`; full write-up in `memory/working/rigby-boot-eval-consolidation-2026-08-28.md`.\n\nNot done: didn't run a live end-to-end boot to observe one clean record land in practice (visible tomorrow), didn't touch the still-open Aug 25 session entry in memory/sessions/index.json (moot now, but flagging), and didn't commit \u2014 per `skills/git/SKILL.md`, that's a separate step someone runs next covering all files listed above.",
+  "model": "sonnet",
+  "total_tokens_input": 8336164,
+  "total_tokens_output": 6564,
+  "total_cost_usd": 3.793936
+}

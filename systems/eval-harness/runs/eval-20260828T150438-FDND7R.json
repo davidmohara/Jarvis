@@ -1,0 +1,60 @@
+{
+  "id": "eval-20260828T150438-FDND7R",
+  "agent_id": "af5f4c7de0de7a67e",
+  "type": "agent",
+  "name": "claude-code-guide",
+  "workflow": null,
+  "agent": "claude-code-guide",
+  "session_id": "2026-08-28T08:58:56.392400-05:00",
+  "trigger": "unknown",
+  "started": "2026-08-28T15:04:38.164033Z",
+  "completed": "2026-08-28T15:05:34.046651Z",
+  "duration_seconds": 55.88,
+  "status": "success",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/4378bed7-1972-4c0f-8361-48ef8b8f8d8b/subagents/agent-af5f4c7de0de7a67e.jsonl",
+  "last_assistant_message": "Based on the official Claude Code hooks documentation at https://code.claude.com/docs/en/hooks.md:\n\n## Hook Event JSON Payloads \u2014 Session ID and Transcript Path\n\n**Session ID:** Present in all 8 events (UserPromptSubmit, PreToolUse, PostToolUse, SubagentStart, SubagentStop, SessionStart, SessionEnd, Stop). Listed as a guaranteed common field across all hook events.\n\n**Transcript Path:** Present in all 8 events. Also listed as a guaranteed common field.\n\n**Consistency across session:** The documentation does not explicitly confirm whether `session_id` is identical across all events within a single Claude Code session, though its classification as a \"common field\" and naming as a \"session\" identifier strongly implies this. The docs do not provide detail on format (UUID vs. alphanumeric string).\n\n**Transcript_path format:** The documentation does not specify the path structure or confirm whether the parent directory name equals the `session_id`. Described only as \"path to conversation JSON\" stored in Claude Code's project state directory.\n\n**Source:** https://code.claude.com/docs/en/hooks.md \u2014 Common input fields section and full event schema.\n\nThe official documentation guarantees both fields' presence but leaves session_id consistency and transcript_path structure details unstated. If you need verification of session_id stability within a session or exact path naming, I'd recommend logging a hook to stdout to inspect the actual payloads, or check `/feedback` with Anthropic to request clarification on these specifics in the documentation.",
+  "model": "haiku",
+  "total_tokens_input": 214492,
+  "total_tokens_output": 14,
+  "total_cost_usd": 0.066605
+}

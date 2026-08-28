@@ -1,0 +1,15 @@
+{
+  "id": "err-20260828T144849-I60TAU",
+  "timestamp": "2026-08-28T14:48:49Z",
+  "session": "session-2026-08-28T085856",
+  "source": "self-detected",
+  "agent": "Master",
+  "category": "tool-misuse",
+  "description": "While reviewing boot eval records, ran a Bash command that began with `cd systems/eval-harness/runs/` and never cd'd back to the IES root. Because the Bash tool's shell persists across calls (and the CLI's own hook execution appears to run in that same shell context), the next UserPromptSubmit fired `.claude/hooks/eval-turn-start.py` (a relative path) from the wrong cwd, and the hook failed with 'No such file or directory', blocking the user's next prompt.",
+  "correction": "Diagnosed the root cause for the user instead of guessing, and adopted a going-forward rule: never `cd` in a standalone Bash call for one-off lookups in this repo; use `git -C <path>`, absolute paths, or a subshell `(cd X && cmd)` so a stray cd can't leak into hook execution.",
+  "failure_mode": "protocol-skip",
+  "systemic_fix": "Prefer absolute paths or subshelled cd for any exploratory Bash command; never leave a bare `cd` as the last state of the shared shell session.",
+  "fix_status": "not-applicable",
+  "severity": "minor",
+  "related_entries": []
+}

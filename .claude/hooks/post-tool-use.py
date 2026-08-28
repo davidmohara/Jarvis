@@ -39,6 +39,10 @@ try:
     from token_usage import usage_between
 except Exception:
     usage_between = None
+try:
+    from hook_utils import infer_session_id as _shared_infer_session_id
+except Exception:
+    _shared_infer_session_id = None
 
 # ============================================================================
 # SHARED UTILITIES
@@ -699,12 +703,33 @@ def update_eval_record_state_yaml(eval_path: Path, file_path: str, content: str)
         # has an established name that disagrees with this state.yaml's
         # workflow, decline and let the caller create a fresh record.
         existing_name = eval_record.get("name")
-        if existing_name and existing_name not in (None, "unknown", workflow_name) and eval_record.get("type") == "workflow":
+        existing_type = eval_record.get("type")
+        name_disagrees = existing_name and existing_name not in (None, "unknown", workflow_name)
+        # Decline whenever the found record is a `type: "agent"` stub too —
+        # not just when it's a `type: "workflow"` record with a disagreeing
+        # name. find_active_eval_record() picks the single most-recently-
+        # started in-progress record for this session_id with no type
+        # filter, so a subagent's own agent-type stub (e.g. Knox's
+        # plaud-ingest fork, opened by eval-agent-start.py under the SAME
+        # session_id as boot's turn-level record — now guaranteed true
+        # session-wide since the session_id fix) can be "the most recent"
+        # candidate at the moment boot's state.yaml write fires. Without
+        # this, the block below would silently relabel that unrelated
+        # agent's stub as `type: "workflow", name: "boot"`, corrupting it.
+        if name_disagrees and existing_type == "workflow":
             log_error(
                 f"[GUARD] update_eval_record_state_yaml declined to overwrite "
                 f"{eval_path.name} — existing name={existing_name!r} disagrees with "
                 f"state.yaml workflow={workflow_name!r}. Likely a stale/shared session_id. "
                 f"Falling through to a fresh record for {workflow_name!r}."
+            )
+            return False
+        if existing_type == "agent":
+            log_error(
+                f"[GUARD] update_eval_record_state_yaml declined to overwrite "
+                f"{eval_path.name} — existing type='agent' (a subagent's own stub, "
+                f"name={existing_name!r}), not a workflow turn-level record. "
+                f"Falling through to a fresh/cowork record for {workflow_name!r}."
             )
             return False
 
@@ -892,8 +917,32 @@ def process_eval_harness(rel_path: str, file_path: str, session_id: str, transcr
     # Check if this is an error-tracking write
     check_error_tracking_write(rel_path, session_id)
 
-def get_session_id() -> str:
-    """Extract session_id from the current session index."""
+def get_session_id(payload: dict | None = None) -> str:
+    """Prefer the harness-native `session_id` off this hook's own stdin
+    payload (PostToolUse carries it per Claude Code's documented hook
+    schema — guaranteed present, stable for the whole session). Falls back
+    to memory/sessions/index.json's `id` field only if the payload has none.
+
+    Root-cause note: this function previously always read
+    memory/sessions/index.json's `id` field, while eval-turn-start.py /
+    eval-agent-start.py (via hook_utils.infer_session_id) read the
+    `started` field instead — two independent implementations disagreeing
+    on which field means "the session id" for the exact same session
+    record. That's what produced eval-20260828T140308-WL89IY (opened here,
+    via create_eval_record_from_state, under the `id`-format session_id)
+    as an unlinked duplicate of eval-20260828T135817-P00Y9T (opened by
+    eval-turn-start.py under the `started`-format session_id) for the same
+    real boot run. Delegating to the same shared helper as the other hooks
+    closes that gap."""
+    if _shared_infer_session_id:
+        try:
+            return _shared_infer_session_id(payload)
+        except Exception as e:
+            log_error(f"shared infer_session_id failed in get_session_id: {e}")
+    if payload:
+        sid = payload.get("session_id")
+        if sid:
+            return sid
     index = read_index()
     if not index:
         log_error("Session index is empty or missing")
@@ -925,7 +974,7 @@ def main():
     update_session_index(rel_path)
 
     # Block 2: Eval Harness Integration (independent of session index)
-    session_id = get_session_id()
+    session_id = get_session_id(payload)
     process_eval_harness(rel_path, file_path, session_id, transcript_path)
 
 if __name__ == "__main__":

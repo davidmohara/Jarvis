@@ -1443,7 +1443,17 @@
           "workflows/boot/steps/step-08-knox-completion-check.md",
           "systems/error-tracking/entries/err-20260828T140747-814VN9.json",
           "skills/plaud-discover/SKILL.md",
-          "systems/error-tracking/entries/err-20260826T190948-QQMBTP.json"
+          "systems/error-tracking/entries/err-20260826T190948-QQMBTP.json",
+          "systems/error-tracking/entries/err-20260828T144849-I60TAU.json",
+          "systems/eval-harness/hook_utils.py",
+          ".claude/hooks/eval-turn-start.py",
+          ".claude/hooks/eval-turn-stop.py",
+          ".claude/hooks/eval-agent-start.py",
+          ".claude/hooks/post-tool-use.py",
+          ".claude/hooks/eval-tool-failure.py",
+          "systems/eval-harness/schema.md",
+          "systems/eval-harness/runs/eval-20260828T140308-WL89IY.json",
+          "memory/working/rigby-boot-eval-consolidation-2026-08-28.md"
         ],
         "loops": [],
         "flag": true

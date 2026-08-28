@@ -318,7 +318,7 @@ def main():
     if not master_workflows:
         return
 
-    session_id = infer_session_id()
+    session_id = infer_session_id(payload)
 
     workflow_name = detect_workflow(prompt, master_workflows)
     evidence = _first_clause(prompt.lower()) if workflow_name else ""

@@ -310,7 +310,7 @@ def sweep_orphaned_records(exclude: Path | None):
 
 def main():
     payload = read_stdin()
-    session_id = infer_session_id()
+    session_id = infer_session_id(payload)
 
     eval_path = find_open_turn_record(session_id)
     if eval_path:
