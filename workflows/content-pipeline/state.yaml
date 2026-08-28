@@ -1,15 +1,15 @@
 workflow: content-pipeline
 status: complete
-started-at: 2026-08-27T14:07:52Z
-completed-at: 2026-08-27T14:08:30Z
+started-at: 2026-08-28T06:07:52Z
+completed-at: 2026-08-28T06:08:30Z
 outputs:
-  messages_scanned: 2
+  messages_scanned: 3
   new_urls: 0
   new_digests: 0
   posts_drafted: 0
   improving_blog_drafts: 0
   editorial_feedback: 0
-  pending_threads_checked: 12
-  outcome: "No new URLs or digests in channel (2 bot messages only). All 12 pending draft threads scanned — no new editorial feedback. Prior edits on Amplifier Paradox and DFW posts already logged."
+  pending_threads_checked: 9
+  outcome: "No new URLs or digests in channel (3 bot messages only, all operational noise). All 9 pending draft threads scanned — no new editorial feedback. All prior edits on Amplifier Paradox and DFW posts already logged."
 model: sonnet
 current-step: null
