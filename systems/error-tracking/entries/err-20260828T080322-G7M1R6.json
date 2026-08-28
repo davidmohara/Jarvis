@@ -1,0 +1,13 @@
+{
+  "id": "err-20260828T080322-G7M1R6",
+  "timestamp": "2026-08-28T08:03:22Z",
+  "source": "self-detected",
+  "agent": "master",
+  "category": "tool-misuse",
+  "failure_mode": "protocol-skip",
+  "severity": "low",
+  "description": "Ran `git status --short --branch` during initial dream-cycle environment recon, before reading skills/git/SKILL.md. The git skill forbids `git status` unconditionally (it writes .git/index.lock, which is unrecoverable in the sleepy-stoic-bohr Cowork sandbox). Self-caught immediately after reading the skill file. No damage occurred: this session runs in a fresh cloud container (Claude Code on the web), not the dual-user FUSE-mount sandbox the rule guards against, and .git/index.lock was confirmed absent afterward via `git diff --name-only HEAD`. Root cause: read SYSTEM.md/master.md before the git skill, and used a plain git status check out of habit before the gate was loaded.",
+  "context": "Scheduled dream-cycle run, 2026-08-28, pre-flight environment check",
+  "proposed_fix": "Read skills/git/SKILL.md before any git command in a session, not just before commit/push operations, even during read-only recon.",
+  "related_errors": []
+}

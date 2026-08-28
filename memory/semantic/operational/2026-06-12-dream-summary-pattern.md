@@ -3,7 +3,7 @@ type: semantic
 domain: operational
 primary-tag: dream-summary
 created: 2026-06-12
-last-updated: 2026-08-27
+last-updated: 2026-08-28
 confidence: high
 synthesized-from: 23
   - dream-summary-2026-05-25.md
@@ -101,6 +101,7 @@ synthesized-from:
   - memory/episodic/dream-summary-2026-06-28.md
   - memory/episodic/dream-summary-2026-06-30.md
   - memory/episodic/dream-summary-2026-06-29.md
+  - memory/episodic/dream-summary-2026-08-26.md
 ---
 # Pattern: Dream Summary
 
@@ -296,3 +297,9 @@ Sources this cycle:
 - `memory/episodic/dream-summary-2026-08-25.md` (score 10) — clean overnight run; surfaced the Alice Mburu Plaud task-creation rejection pattern (0-for-17 at the tool-permission layer) as worth a real Rigby ticket if it recurs, and escalated the known salience-score.py frontmatter-corruption bug (289/291 episodic files) from a single stray line to a widespread, legacy-frozen pattern.
 
 Carry-forward triad (Q3 rocks, nerve block, delegation tracker, South Texas revenue gap) remains unresolved across this cluster's evidence — now spanning the 2026-08-25 through 2026-08-27 window with zero movement recorded on any of the four items.
+
+### 2026-08-28 — Nightly promotion
+Sources this cycle:
+- `memory/episodic/dream-summary-2026-08-26.md` (score 10) — second consecutive cycle at the 5-entry compression safety threshold with an identical candidate set to 08-27, escalated to David as a real unattended-approval decision point rather than a routine skip; pinpointed the exact root cause of the salience-score.py frontmatter-corruption bug this cluster has been tracking since 08-25 (a trailing-newline slicing bug in the frontmatter-boundary detection that strands the last line of every salience: block, every night, on every file it touches — not legacy/frozen as previously assessed, confirmed by reproducing it live on a file archived minutes earlier in the same run).
+
+Carry-forward triad (Q3 rocks, nerve block, delegation tracker, South Texas revenue gap) remains unresolved across this cluster's evidence — now spanning the 2026-08-25 through 2026-08-28 window with zero movement recorded on any of the four items.

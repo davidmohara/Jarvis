@@ -2291,3 +2291,19 @@ digests_updated: 0
 errors: 0
 summary: "Step-01: 3 archived (co-sell-pipeline, dream-summary-08-25, revenue-tracker-08-24 -- all expired active working entries), 1 not-yet-expired (dream-summary-08-26), 26 unparseable (1 new this cycle: golf-preview-08-25, no frontmatter). Step-02: scored 292 episodic files via salience-score.py; distribution nearly identical to 08-25/08-26 baseline, no regression; known subdirectory-recursion bug (err-20260826T081453-664W53) still limited to the 1 decisions/ file. Step-03: 4 promotion candidates (the 3 fresh archives plus revenue-tracker-2026-07-27 crossing threshold via window drift) clustered into 3 groups, all appended to existing semantic files (pipeline-review, dream-summary, revenue-tracker), zero new files created; error-pattern check found one new qualifying pattern not yet in LESSONS.md (tool-misuse/protocol-skip, 3 occurrences) and appended it. Step-03b guardrail: pass. Step-04: 5 compression candidates -- identical set to 08-26's preview, second consecutive cycle stuck at the unattended-approval gate; withheld again and escalated to David as a real decision point (approve this batch, lower the threshold, or accept compression never fires unattended) rather than a routine skip. Environment note: this run executed in a fresh cloud container (Claude Code on the web), not David's Mac -- Desktop Commander is not configured here, so file and git operations used the Bash tool directly per CLAUDE.md's standing authorization to resolve stale tool/path assumptions against reality."
 errors_detail: []
+---
+## 2026-08-28T03:20:00 CDT
+session_id: dream-cycle-2026-08-28-080307
+working_archived: 1
+working_deleted: 0
+episodic_scanned: 293
+score_updates: 293
+clusters_found: 1
+semantic_created: 0
+semantic_updated: 1
+promoted_entries: 1
+entries_compressed: 0
+digests_updated: 0
+errors: 0
+summary: "Step-01: 1 archived (dream-summary-2026-08-26, the only expired active working entry -- 2 other recently-written files and today's own dream-summary all have future expires timestamps), 29 skipped (26 unparseable, 1 new this cycle: morning-briefing-2026-08-27-163900, no frontmatter), claude -p auth worked in this container this cycle so LLM tag extraction ran instead of the heuristic fallback. Step-02: scored 293 episodic files via salience-score.py, distribution nearly identical to 08-25 through 08-27 baseline (no regression); known subdirectory-recursion bug (err-20260826T081453-664W53) still limited to the 1 decisions/ file. Step-03: 1 promotion candidate (this cycle's own fresh archive) appended to the existing dream-summary semantic pattern file; while checking candidates, pinpointed the EXACT root cause of the salience-score.py frontmatter-corruption bug tracked since 08-25 -- a trailing-newline slicing bug that strands the last line of every salience: block, every single night, on every file it touches. This overturns the prior assessment that the damage was legacy/frozen: it is active and firing every cycle, and it silently dropped the promoted:true flag from 3 files promoted just last cycle. Worked around it this cycle by checking the entire frontmatter for any promoted:true occurrence rather than trusting only the last salience block. New qualifying 30-day error pattern (tool-misuse/pattern-mismatch, 4 occurrences) appended to LESSONS.md. Step-03b guardrail: pass. Step-04: 5 compression candidates -- identical set for the THIRD consecutive cycle (08-26, 08-27, 08-28). GUARDRAIL 7's unattended-approval gate still can't be satisfied; withheld again. This is the third time this exact decision has been surfaced with no response yet -- flagging to David as the one that most needs an actual answer rather than another silent repeat."
+---

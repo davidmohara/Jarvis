@@ -1,0 +1,70 @@
+{
+  "id": "eval-20260828T080243-VFTSSA",
+  "type": "workflow",
+  "name": "boot",
+  "agent": "master",
+  "session_id": "2026-08-25T17:14:37.010916Z",
+  "trigger": "boot",
+  "started": "2026-08-28T08:02:43.471953Z",
+  "completed": "2026-08-28T08:05:21.889390",
+  "duration_seconds": null,
+  "status": "aborted",
+  "steps": [],
+  "subagents": [],
+  "monitoring": {
+    "active": true,
+    "state_yaml_path": "workflows/boot/state.yaml",
+    "opened_by": "eval-turn-start.py",
+    "trigger_evidence": "boot-first-prompt-of-session"
+  },
+  "assessment": {
+    "mechanical": {
+      "completed": false,
+      "all_steps_finished": null,
+      "tool_failures": 1,
+      "error_ids": [],
+      "tool_failure_log": [
+        {
+          "tool": "Bash",
+          "error": "Exit code 1\nerror: Your local changes to the following files would be overwritten by checkout:\n\tmemory/sessions/index.json\nPlease commit your changes or stash them before you switch branches.\nAborting",
+          "duration_ms": 44,
+          "timestamp": "2026-08-28T08:03:42.580936"
+        }
+      ],
+      "abort_reason": "session-ended"
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [
+    "turn-level"
+  ]
+}

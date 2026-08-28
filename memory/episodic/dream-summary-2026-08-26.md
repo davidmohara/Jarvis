@@ -1,12 +1,30 @@
 ---
-type: working
+type: working-archive
 task_id: "session"
 session_id: "jarvis-2026-08-26-031524"
 agent-source: jarvis
 created: 2026-08-26T03:15:24-05:00
 expires: 2026-08-27T03:15:24-05:00
-status: active
+status: archived
 context: "Dream cycle summary — 2026-08-26"
+date: 2026-08-26
+source_file: memory/working/dream-summary-2026-08-26.md
+tags:
+  - dream-summary
+  - jarvis
+  - dream-cycle
+  - semantic-promotion
+  - system-maintenance
+  - memory-pipeline
+  - plaud
+  - knox
+  - rigby
+  - quarterly-rocks
+related_people: []
+salience:
+  score: 10
+  last-promoted-check: 2026-08-28
+  promoted: true
 ---
 
 Dream cycle ran clean overnight, but had more to do than usual. Working memory: nothing new expired (the three pending items — co-sell pipeline, revenue tracker, yesterday's dream summary — all expire tomorrow, not today).

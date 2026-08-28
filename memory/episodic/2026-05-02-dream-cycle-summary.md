@@ -35,9 +35,10 @@ tags:
   promoted: true
   promoted: true
   promoted: true
+  promoted: true
 salience:
   score: 0
-  last-promoted-check: 2026-08-27
+  last-promoted-check: 2026-08-28
   promoted: true
 ---
 

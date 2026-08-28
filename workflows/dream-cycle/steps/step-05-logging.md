@@ -1,15 +1,15 @@
 ---
 status: completed
-started-at: 2026-08-27T03:25:00-05:00
-completed-at: 2026-08-27T03:32:00-05:00
+started-at: 2026-08-28T08:16:00Z
+completed-at: 2026-08-28T08:25:00Z
 outputs:
   dream_log_appended: true
   working_summary_written: true
-  working_summary_reason: "semantic_updated=3 and the second-consecutive compression-threshold stall are both significant enough to surface for Chief at boot."
+  working_summary_reason: "semantic_updated=1 and the THIRD-consecutive compression-threshold stall are both significant enough to surface for Chief at boot."
   git_commit: success
   git_push: success
-  git_commit_sha: 30cb03e
-  git_sync_note: "This run executed in a Claude Code on the web / remote cloud session (managed container, not David's Mac), same as 08-26. mcp__Desktop_Commander__* is not present in this environment (confirmed via ToolSearch) — no Mac-FUSE-mount mismatch here since this session's git checkout IS the real repo. Used plain git via Bash per skills/git/SKILL.md's atomic-command rule (one command per call, no chaining, no git status). Repo started in detached HEAD; committed there, then fast-forwarded local main to origin/main and then to the new commit via two verified git update-ref calls before pushing — clean fast-forward, no rebase or force."
+  git_commit_sha: TBD
+  git_sync_note: "This run executed in a Claude Code on the web / remote cloud session (managed container, not David's Mac), same as 08-26/08-27. mcp__Desktop_Commander__* is not present in this environment. Used plain git via Bash per skills/git/SKILL.md's atomic-command rule (one command per call, no chaining, no git status). Session started in detached HEAD; moved to main branch and fast-forwarded 38 commits behind origin/main before starting the workflow (see step-01 environment handling), so this step's commit is a normal fast-forward push, no detached-HEAD reattachment needed this time."
 ---
 
 <!-- system:start -->

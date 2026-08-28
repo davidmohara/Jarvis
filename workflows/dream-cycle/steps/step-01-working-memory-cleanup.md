@@ -1,19 +1,19 @@
 ---
 status: complete
-started-at: 2026-08-27T03:03:07-05:00
-completed-at: 2026-08-27T03:10:00-05:00
+started-at: 2026-08-28T08:03:07Z
+completed-at: 2026-08-28T08:20:00Z
 outputs:
-  working_archived: 3
+  working_archived: 1
   working_deleted: 0
-  working_skipped: 27
+  working_skipped: 29
   working_stranded: 0
-  enrichment_method: "heuristic (systems/dream-cycle/backfill-episodic-tags.py helpers) — no LLM subprocess call"
+  enrichment_method: "LLM (systems/dream-cycle/llm_tag_extractor.py via claude -p haiku) — claude CLI auth confirmed working in this container this cycle, unlike prior cloud-container runs"
   archived_files:
-    - co-sell-pipeline-2026-08-24-001532.md
-    - dream-summary-2026-08-25.md
-    - revenue-tracker-2026-08-24-002000.md
-  skipped_not_expired:
     - dream-summary-2026-08-26.md
+  skipped_not_expired:
+    - dream-summary-2026-08-27.md
+    - plaud-ingest-2026-08-27-183100.md
+    - shutdown-cleanup-2026-08-27-202000.md
   skipped_unparseable:
     - 2026-07-08.md
     - 2026-07-23-215200-session-felix-derek-persona-rebuild.md
@@ -37,10 +37,13 @@ outputs:
     - golf-preview-2026-07-21.md
     - golf-preview-2026-08-04.md
     - golf-preview-2026-08-25.md
+    - morning-briefing-2026-08-27-163900.md
     - remarkable-upload-2026-07-23-improve-eval.md
     - sc-executive-brief-2026-07-13.md
     - slack-notification-golf-booking-20260801.txt
     - solace-meeting-prep-2026-07-27.md
+  new_unparseable_this_cycle:
+    - morning-briefing-2026-08-27-163900.md
 ---
 
 <!-- system:start -->

@@ -1,10 +1,10 @@
 ---
 status: complete
-started-at: 2026-08-27T03:22:00-05:00
-completed-at: 2026-08-27T03:23:00-05:00
+started-at: 2026-08-28T08:35:00Z
+completed-at: 2026-08-28T08:37:00Z
 outputs:
   result: pass
-  reason: "5 compression candidates, identical set to 08-26's preview (same 4 dream-cycle-summary/session-index entries + the 1 decisions/ file, none newly aged in this cycle); all 4 of this cycle's promoted entries correctly excluded from the candidate set; step-03 writes were substantive evidence appends, not stubs"
+  reason: "5 compression candidates, identical set to 08-26/08-27 -- third consecutive cycle at this exact set (2026-04-30/05-04/05-15 dream-cycle-summary entries, 2026-05-08 session-index-build, 2026-05-27 decisions/ entry); the 1 entry promoted this cycle correctly excluded from the candidate set; step-03's write was a substantive evidence append, not a stub"
 model: sonnet
 ---
 
