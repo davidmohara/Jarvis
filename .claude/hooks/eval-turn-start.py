@@ -31,6 +31,7 @@ import yaml
 from hook_utils import (
     IES_ROOT, EVAL_RUNS_DIR, log_error, log_info, atomic_write_json,
     read_stdin, new_eval_id, infer_session_id, extract_workflow_path_reference,
+    open_turn_level_record_exists,
 )
 
 WORKFLOWS_DIR = IES_ROOT / "workflows"
@@ -61,43 +62,13 @@ def load_master_workflows() -> dict:
     return out
 
 
+# already_open_for_workflow moved to hook_utils.open_turn_level_record_exists
+# (shared with post-tool-use.py's create_eval_record_from_state, which needs
+# the identical check — see that function's docstring for why). Kept as a
+# thin local alias so this file's existing call sites/tests don't need to
+# change.
 def already_open_for_workflow(session_id: str, workflow_name: str) -> bool:
-    """Is there already an open turn-level record for this workflow?
-
-    Deliberately NOT scoped to session_id. infer_session_id() reads
-    memory/sessions/index.json's last entry, but boot's own Session Index
-    step (workflow.md's personal block) appends a *new* entry partway
-    through step-01 — meaning the "current session" that infer_session_id()
-    reports can legitimately change between one UserPromptSubmit firing and
-    the next within the same logical boot run, with no error involved at
-    all (this is a separate failure mode from the read-race fixed in
-    hook_utils._read_session_index — that one produces a fabricated
-    fallback id via an exception, this one produces two *genuinely valid*
-    but different session_id values). Scoping this check to session_id
-    would miss that case and open a second record anyway.
-
-    workflow_name is the right dedup key regardless: workflows/{name}/
-    state.yaml is a single file, so there is never a legitimate reason for
-    two simultaneously in-progress turn-level records against the same
-    workflow name — check every open turn-level record in the runs
-    directory, not just the ones matching this call's session_id."""
-    if not EVAL_RUNS_DIR.exists():
-        return False
-    import json
-    for f in EVAL_RUNS_DIR.glob("eval-*.json"):
-        try:
-            with open(f, "r") as file:
-                data = json.load(file)
-            if (
-                data.get("type") == "workflow"
-                and data.get("name") == workflow_name
-                and data.get("status") == "in-progress"
-                and data.get("monitoring", {}).get("active")
-            ):
-                return True
-        except Exception:
-            continue
-    return False
+    return open_turn_level_record_exists(workflow_name)
 
 
 RUN_VERBS = r"(?:run|start|kick off|kick-off|execute|launch|invoke|fire off|fire up|begin)"

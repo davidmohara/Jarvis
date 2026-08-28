@@ -1,0 +1,60 @@
+{
+  "id": "eval-20260828T165532-BG4QP2",
+  "agent_id": "ae26f85890cc52e88",
+  "type": "agent",
+  "name": "general-purpose",
+  "workflow": null,
+  "agent": "general-purpose",
+  "session_id": "4378bed7-1972-4c0f-8361-48ef8b8f8d8b",
+  "trigger": "unknown",
+  "started": "2026-08-28T16:55:32.430771Z",
+  "completed": "2026-08-28T17:00:43.784933Z",
+  "duration_seconds": 311.35,
+  "status": "success",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/4378bed7-1972-4c0f-8361-48ef8b8f8d8b/subagents/agent-ae26f85890cc52e88.jsonl",
+  "last_assistant_message": "My changes are in place. Not committing since I'm outside my domain to make that call unrequested \u2014 reporting back to the caller for review.\n\n## Report\n\n**Root cause of the third gap:** a completely different code path than rounds 1\u20132 touched. `.claude/hooks/post-tool-use.py`'s `create_eval_record_from_state()` \u2014 the \"Cowork path,\" which fires on any `PostToolUse` write to a workflow's `state.yaml` when no active in-progress eval stub is found \u2014 only guarded against duplicating an already-**completed** record (`find_completed_eval_record`). It had no check for a real turn-level record still **in-progress**.\n\nConcretely: `eval-turn-start.py` opened the genuine `boot` record `eval-20260828T154249-UQX5N6` at 15:42:49Z. At 16:03:00Z a `state.yaml` write fired `post-tool-use.py`; `find_active_eval_record()` (no type filter) picked a newer `type:agent` subagent stub instead of UQX5N6, got correctly declined by the overwrite guard, and fell through to the Cowork path. That path's duplicate check found nothing (UQX5N6 wasn't \"completed\" yet) and wrote a phantom `boot` record \u2014 `FE6XZW` \u2014 with `steps:[]` and all-null tokens. UQX5N6 itself didn't finalize until 16:07:10.70Z, 14 seconds later. It's a genuine race between two independent async hooks (`PostToolUse` vs. `Stop`), not the session_id or subagent-linking bugs from rounds 1\u20132. Tellingly, the code already self-tagged the record `phantom-candidate` when it saw empty steps \u2014 it just wrote it anyway instead of skipping.\n\n**Fix applied:**\n- `systems/eval-harness/hook_utils.py` \u2014 new shared `open_turn_level_record_exists(workflow_name)`.\n- `.claude/hooks/eval-turn-start.py` \u2014 `already_open_for_workflow()` now delegates to it (single source of truth).\n- `.claude/hooks/post-tool-use.py` \u2014 `create_eval_record_from_state()` now backs off and skips writing if a real turn-level record for the workflow is still open, letting `eval-turn-stop.py` finalize it properly.\n\n**FE6XZW disposition:** archived (genuine duplicate, not recoverable \u2014 UQX5N6 is the complete, correct record) to `systems/eval-harness/runs/_archived/2026-08-28-boot-cowork-phantom/eval-20260828T160656-FE6XZW.json`.\n\n**Broader sweep:** checked every `eval-*.json` with today's `started` date for `subagents:null` or all-null token/cost fields. Found 10 hits; 9 are normal `type:agent` subagent stubs with real non-null token data (or the one still-live in-progress record from this session) \u2014 `subagents:null` is expected schema there, not a bug. FE6XZW was the only record with the actual bug signature. No other workflow was affected today.\n\n**Tracked:** `evolutions/.pending-changes.json` entry `work-20260828-boot-eval-cowork-phantom-duplicate`, and write-up at `memory/working/rigby-boot-eval-cowork-phantom-2026-08-28.md`, explicitly linked back to round 1 (`memory/working/rigby-boot-eval-consolidation-2026-08-28.md`) and round 2 (`work-20260828-boot-eval-subagent-misattribution` in pending-changes).",
+  "model": "sonnet",
+  "total_tokens_input": 3454315,
+  "total_tokens_output": 2933,
+  "total_cost_usd": 1.525649
+}

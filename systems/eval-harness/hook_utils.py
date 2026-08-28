@@ -276,6 +276,55 @@ def find_unambiguous_open_turn_record(session_id: str) -> Path | None:
     return records[0] if len(records) == 1 else None
 
 
+def open_turn_level_record_exists(workflow_name: str) -> bool:
+    """Is there already an open (in-progress, monitoring.active) turn-level
+    'workflow' record for this workflow name, anywhere in the runs dir?
+
+    Deliberately NOT scoped to session_id — see eval-turn-start.py's
+    already_open_for_workflow (this function's original home) for the full
+    rationale: session_id can legitimately take on two different, both-valid
+    values within one logical run (boot's own Session Index step appends a
+    new entry partway through step-01), so scoping to session_id can miss a
+    real duplicate. workflow_name + monitoring.active is the reliable dedup
+    key: workflows/{name}/state.yaml is a single file, so there is never a
+    legitimate reason for two simultaneously in-progress turn-level records
+    against the same workflow name.
+
+    Shared by two call sites that both need this same check:
+    - eval-turn-start.py, before opening a new turn-level record on
+      UserPromptSubmit (the original use).
+    - post-tool-use.py's create_eval_record_from_state(), before writing a
+      completed "cowork path" record on a state.yaml PostToolUse write. Root
+      cause of eval-20260828T160656-FE6XZW: that function's own guard
+      (find_completed_eval_record) only checked for an already-*completed*
+      duplicate, not a still-open real turn-level record for the same
+      workflow — so when eval-turn-start.py's genuine in-progress record
+      (eval-20260828T154249-UQX5N6) hadn't finalized yet (its Stop hook fired
+      14 seconds *after* this Cowork path ran), the guard saw nothing to
+      dedupe against and wrote a duplicate. Checking this function too closes
+      that gap: if a real turn-level record for this workflow is still open,
+      the Cowork path backs off and lets eval-turn-stop.py finalize it
+      properly instead of racing it with a second, phantom "completed"
+      record.
+    """
+    if not EVAL_RUNS_DIR.exists():
+        return False
+    for f in EVAL_RUNS_DIR.glob("eval-*.json"):
+        try:
+            with open(f, "r") as file:
+                data = json.load(file)
+            if (
+                data.get("type") == "workflow"
+                and data.get("name") == workflow_name
+                and data.get("status") == "in-progress"
+                and data.get("monitoring", {}).get("active")
+            ):
+                return True
+        except Exception:
+            continue
+    return False
+
+
 def find_parent_record_with_subagent(session_id: str, agent_id: str) -> Path | None:
     """Find the turn-level record (open OR already closed) whose subagents[]
     array contains an entry for this agent_id, searched across every eval

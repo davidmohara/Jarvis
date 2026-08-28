@@ -1,12 +1,12 @@
 ---
 status: complete
-started-at: "2026-08-28T14:08:15Z"
-completed-at: "2026-08-28T14:08:30Z"
+started-at: "2026-08-28T16:10:10Z"
+completed-at: "2026-08-28T16:06:00Z"
 outputs:
-  data_freshness_report: "pass — calendar, email, OmniFocus all pulled live this session (~14:00-14:04Z), briefing reflects current data. Gap: Clay unavailable this run (OAuth required, not completable unattended), explicitly flagged in briefing rather than presented as current/complete."
+  data_freshness_report: "pass — calendar reused (fresh, within 12h window), email/OmniFocus/Clay all pulled live this session (~16:03-16:04Z), briefing reflects current mid-day data. No gaps this run: Clay's earlier OAuth failure did not recur."
   checkpoint_name: "pre-completion-review"
   checkpoint_result: "pass"
-  reason: "Briefing accurately reflects fresh gathered data including the surfaced retreat/meeting scheduling conflict; workflow scan correctly found 0 in-progress (active.yaml empty); no credential/sensitive leakage; session index untouched by this checkpoint."
+  reason: "Briefing accurately reflects fresh gathered data including the mid-day recalibration of today's remaining schedule; workflow scan correctly found 0 in-progress (active.yaml empty); no credential/sensitive leakage; recorded via guardrail-checkpoint.py against eval-20260828T154249-UQX5N6."
   recorded: true
 model: haiku
 ---

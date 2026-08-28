@@ -1,0 +1,33 @@
+{
+  "name": "boot",
+  "type": "workflow",
+  "assertions": [
+    {
+      "id": "boot-001-state-complete",
+      "check": "yaml_field_equals",
+      "path": "workflows/boot/state.yaml",
+      "field": "status",
+      "value": "complete",
+      "description": "Boot workflow state.yaml shows status: complete"
+    },
+    {
+      "id": "boot-002-session-index-exists",
+      "check": "file_exists",
+      "path": "memory/sessions/index.json",
+      "description": "Session index file exists — boot's Session Index Boot step must have created/appended it"
+    },
+    {
+      "id": "boot-003-session-index-substantive",
+      "check": "file_min_bytes",
+      "path": "memory/sessions/index.json",
+      "min_bytes": 20,
+      "description": "Session index is a real record, not an empty stub"
+    },
+    {
+      "id": "boot-004-guardrail-checkpoint-ran",
+      "check": "guardrail_checkpoint_ran",
+      "checkpoint_name": "pre-completion-review",
+      "description": "step-06.5's guardrail checkpoint recorded a result (pass/flag/escalate) on this run — read from the eval record's own guardrails array, not self-reported by the workflow"
+    }
+  ]
+}

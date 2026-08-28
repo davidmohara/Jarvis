@@ -1,14 +1,14 @@
 ---
 status: complete
-started-at: "2026-08-28T14:08:30Z"
-completed-at: "2026-08-28T14:09:00Z"
+started-at: "2026-08-28T16:11:00Z"
+completed-at: "2026-08-28T16:12:00Z"
 outputs:
-  state_status: "complete — all 7 prior step files verified status:complete, boot state.yaml updated with completion timestamp"
+  state_status: "complete — all 7 prior step files verified status:complete for this second run today, boot state.yaml updated with completion timestamp"
   verification: passed
   steps_verified: 7
   failed_steps: []
-  guardrail_checkpoint: "pre-completion-review: pass"
-  note: "All prior steps completed successfully with fresh live data pulled this session. Boot workflow complete. Knox spawned separately by parent session for plaud-ingest — checked in step-08, not a boot blocker."
+  guardrail_checkpoint: "pre-completion-review: pass (eval-20260828T154249-UQX5N6)"
+  note: "All prior steps completed successfully with fresh/live-repulled data this session (calendar reused fresh, email/OmniFocus/Clay live re-pulls). Boot workflow complete. Knox (plaud-ingest retry verifying Rigby's fix) shows no forward progress in ~2h — checked in step-08, informational, not a boot blocker."
 ---
 
 <!-- system:start -->

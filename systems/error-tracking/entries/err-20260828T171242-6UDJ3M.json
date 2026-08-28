@@ -1,0 +1,15 @@
+{
+  "id": "err-20260828T171242-6UDJ3M",
+  "timestamp": "2026-08-28T17:12:42Z",
+  "session": "session-2026-08-28T085856",
+  "source": "explicit",
+  "agent": "Master",
+  "category": "assumption-error",
+  "description": "When updating the Matt Yasar call prep sheet with Robin's Aug 24 email and Matt's Aug 25 reply, incorrectly framed today's call as a venue for defending/resolving Robin's working-session asks (ranked recommendation, cost split, Vendor Dependency sizing) and told David to be ready to defend the Lovable vendor-dependency conclusion 'today.' David corrected: today's conversation is purely exploratory of Matt's platform plans/architecture; Robin's questions are explicitly for a separate working session next week, not this call.",
+  "correction": "Rewrite the call prep sheet so section 0 (and any spillover into sections 2/4 and the walk-away list) presents Robin's asks and Matt's pushback strictly as background context/FYI for awareness, with no language implying David needs to defend, resolve, or decide anything about Vendor Dependency or Robin's requested deliverables during today's call.",
+  "failure_mode": "wrong-assumption",
+  "systemic_fix": "When incorporating a related-but-separate thread into meeting prep, keep the scope note explicit and check every downstream section (not just the one it was originally added to) for language that implies the current meeting must resolve the other thread's asks.",
+  "fix_status": "applied",
+  "severity": "moderate",
+  "related_entries": []
+}

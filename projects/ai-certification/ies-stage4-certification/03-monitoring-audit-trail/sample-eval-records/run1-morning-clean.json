@@ -1,0 +1,152 @@
+{
+  "id": "eval-20260828T140308-WL89IY",
+  "type": "workflow",
+  "name": "boot",
+  "agent": "master",
+  "session_id": "session-2026-08-28T085856",
+  "trigger": "boot",
+  "started": "2026-08-28T13:58:56.392400Z",
+  "completed": "2026-08-28T14:03:53.139820Z",
+  "duration_seconds": 296.75,
+  "status": "success",
+  "steps": [],
+  "subagents": [
+    {
+      "agent_id": "a1fe36b3241840cf5",
+      "agent_type": "general-purpose",
+      "role": "boot-steps-01.2-through-08 (unified data pull, calendar pull, briefing synthesis, workflow scan, completion verification)",
+      "started": "2026-08-28T13:59:08.317374Z",
+      "completed": "2026-08-28T14:03:53.139820Z",
+      "model": "sonnet",
+      "tokens_input": 3976036,
+      "tokens_output": 1158,
+      "cost_usd": 1.697209,
+      "duration_seconds": 284.82
+    }
+  ],
+  "monitoring": {
+    "active": false,
+    "state_yaml_path": "workflows/boot/state.yaml",
+    "opened_by": "eval-turn-start.py",
+    "trigger_evidence": "boot-first-prompt-of-session"
+  },
+  "guardrails": [
+    {
+      "name": "pre-completion-review",
+      "after_step": "step-06-scan-workflows",
+      "result": "pass",
+      "reason": "Briefing reflects freshly gathered live data (calendar/email/omnifocus pulled this session); Clay unavailable due to auth gap, correctly flagged rather than presented as current; workflow scan correct (active.yaml empty, 0 in-progress); no credential/sensitive leakage; session index untouched by this checkpoint.",
+      "escalated_to_human": false,
+      "timestamp": "2026-08-28T14:02:49.146045+00:00"
+    }
+  ],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 1,
+      "error_ids": [],
+      "tool_failure_log": [
+        {
+          "tool": "Read",
+          "error": "File does not exist. Note: your current working directory is /Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES.",
+          "duration_ms": 7,
+          "timestamp": "2026-08-28T08:58:24.500729"
+        }
+      ]
+    },
+    "structural": {
+      "expected_outputs_written": true,
+      "outputs_non_empty": true,
+      "assertions_checked": 4,
+      "assertions_passed": 4,
+      "assertion_results": [
+        {
+          "assertion": "boot-001-state-complete",
+          "description": "Boot workflow state.yaml shows status: complete",
+          "passed": true
+        },
+        {
+          "assertion": "boot-002-session-index-exists",
+          "description": "Session index file exists — boot's Session Index Boot step must have created/appended it",
+          "passed": true
+        },
+        {
+          "assertion": "boot-003-session-index-substantive",
+          "description": "Session index is a real record, not an empty stub",
+          "passed": true
+        },
+        {
+          "assertion": "boot-004-guardrail-checkpoint-ran",
+          "description": "step-06.5's guardrail checkpoint recorded a result (pass/flag/escalate) on this run — read from the eval record's own guardrails array, not self-reported by the workflow",
+          "passed": true
+        }
+      ]
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": "f1a31609ac6be8a11b48a3c6267957f76a4e86e971cd143315c77472e90af0d0",
+  "prior_baseline_id": null,
+  "tags": [
+    "turn-level",
+    "consolidated-2026-08-28"
+  ],
+  "related_records": {
+    "note": "Today's boot run (session-2026-08-28T085856) originally scattered across 7 eval records due to a hook session_id-inference bug (fixed 2026-08-28 in hook_utils.py/eval-agent-start.py/post-tool-use.py). This record is the single canonical result of consolidating that run. Archived source records are at systems/eval-harness/runs/_archived/2026-08-28-boot-consolidation/.",
+    "merged_from": [
+      {
+        "eval_id": "eval-20260828T135817-P00Y9T",
+        "reason": "Original turn-level 'boot' record opened by eval-turn-start.py. Had a stale session_id (2026-08-25T17:14:37.010916Z) from the memory/sessions/index.json read-race, and its subagents[] entry was actually Knox's plaud-ingest background fork misattributed as a boot step. Its real guardrail entry and tool_failure_log were merged into this record."
+      },
+      {
+        "eval_id": "eval-20260828T135908-MWOCUW",
+        "reason": "The real boot-execution subagent (agent_id a1fe36b3241840cf5, steps 01.2-08: unified data pull, calendar pull, briefing synthesis, workflow scan, completion verification) — orphaned as a standalone type:agent/name:general-purpose record because the session_id bug prevented it from linking to P00Y9T. Its full token/cost data is now this record's subagents[] entry and total_tokens_*/total_cost_usd."
+      }
+    ],
+    "noted_not_merged": [
+      {
+        "eval_id": "eval-20260828T135851-0LKM88",
+        "workflow": "plaud-ingest",
+        "reason": "Knox's plaud-discover fire-and-forget background spawn, kicked off from boot step-01 (agent_id af85867f9aad85f38). Genuinely a separate workflow with its own eval trail — not boot's own execution, so its cost is NOT included in this record's totals."
+      },
+      {
+        "eval_id": "eval-20260828T135922-RW2RNP",
+        "workflow": "plaud-ingest",
+        "reason": "The plaud-discover skill run itself (agent_id af97f32b7201eae94, model haiku), part of the same background plaud-ingest chain — not boot's own execution."
+      },
+      {
+        "eval_id": "eval-20260828T140547-8SKFKO",
+        "workflow": "plaud-ingest",
+        "reason": "Knox's continuation (agent_id af85867f9aad85f38) evaluating plaud-discover's output and blocking the plaud-ingest pipeline on a suspected false-positive — not boot's own execution."
+      },
+      {
+        "eval_id": "eval-20260828T142027-68E9WF",
+        "workflow": "plaud-discover-false-positive-fix",
+        "reason": "Post-boot dispatch (agent_id a2043f931e0677ea5) fixing the plaud-discover false-positive bug (err-20260826T190948-QQMBTP / err-20260828T140747-814VN9) — unrelated to boot's own execution, started ~17 minutes after boot's own work was already done."
+      }
+    ]
+  },
+  "total_tokens_input": 3976036,
+  "total_tokens_output": 1158,
+  "total_cost_usd": 1.697209
+}

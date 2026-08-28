@@ -1,0 +1,15 @@
+{
+  "id": "err-20260828T165054-KKO771",
+  "timestamp": "2026-08-28T16:50:54Z",
+  "session": "session-2026-08-28T085856",
+  "source": "self-detected",
+  "agent": "Master",
+  "category": "assumption-error",
+  "description": "err-20260828T144849-I60TAU incorrectly concluded the shared-shell cwd had self-healed back to the IES root after a stray `cd systems/eval-harness/runs/` broke a hook invocation. It had not: `pwd` just now (after a Write tool call) showed the shell was STILL in systems/eval-harness/runs, roughly two hours and many Bash calls later, and the same hook-blocking failure recurred on the next PostToolUse hook invocation.",
+  "correction": "Ran `cd` explicitly back to the IES root and verified with `pwd` before continuing. Retracting the prior entry's claim that the issue was transient/self-resolving — it was not; the cwd only appears stable between incidents because hook failures only surface when a hook actually fires, not continuously.",
+  "failure_mode": "wrong-assumption",
+  "systemic_fix": "Never assume a shared-shell cwd issue has resolved just because the next command happened to succeed. Verify with an explicit `pwd` check, and treat any stray `cd` in this session as a standing risk until root is explicitly confirmed.",
+  "fix_status": "applied",
+  "severity": "minor",
+  "related_entries": ["err-20260828T144849-I60TAU"]
+}

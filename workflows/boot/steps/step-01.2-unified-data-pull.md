@@ -1,11 +1,11 @@
 ---
 status: complete
-started-at: "2026-08-28T14:00:00Z"
-completed-at: "2026-08-28T14:00:40Z"
+started-at: "2026-08-28T16:03:00Z"
+completed-at: "2026-08-28T16:04:30Z"
 outputs:
-  email_pull: "completed — 20 messages from Aug 27-28 (M365 API); 4 actionable (SPARC CRM bug thread, Inertia Labs GCC pitch, Robert Hendricks intro, YPO commitment reminder)"
-  omnifocus_pull: "completed — 10 uncompleted inbox tasks (fresh via osascript)"
-  clay_pull: "failed — Clay MCP unauthenticated, OAuth flow requires interactive browser approval not available unattended. Attempted per mandatory-always-attempt rule."
+  email_pull: "completed — 2 messages (YPO GOLD REX commitment reminder, Inertia Labs GCC AI partnership follow-up), live M365 search"
+  omnifocus_pull: "completed — 10 uncompleted inbox tasks (fresh via osascript, identical set to prior run this morning)"
+  clay_pull: "completed — 0 reminders, 0 birthdays. Clay MCP authenticated and responsive this run (regression from first run's OAuth failure did not recur)."
   jarvis_inbox_pull: "nothing-to-surface — folder empty"
   files_created:
     - "data/email-unified.json"

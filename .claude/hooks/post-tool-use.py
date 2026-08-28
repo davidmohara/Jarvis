@@ -43,6 +43,10 @@ try:
     from hook_utils import infer_session_id as _shared_infer_session_id
 except Exception:
     _shared_infer_session_id = None
+try:
+    from hook_utils import open_turn_level_record_exists
+except Exception:
+    open_turn_level_record_exists = None
 
 # ============================================================================
 # SHARED UTILITIES
@@ -568,7 +572,7 @@ def create_eval_record_from_state(state_data: dict, session_id: str):
         agent = state_data.get("agent", "unknown")
         trigger = infer_trigger(state_data)
 
-        # GUARD: Check for an existing completed record for this workflow + session.
+        # GUARD 1: Check for an existing completed record for this workflow + session.
         # close-eval-record.py (invoked by workflow final steps) writes a proper record
         # with steps populated. If that already exists, this cowork-hook path would
         # produce a duplicate phantom with steps: [] — skip it.
@@ -578,6 +582,29 @@ def create_eval_record_from_state(state_data: dict, session_id: str):
                 f"[GUARD] Skipped phantom workflow eval creation for '{workflow_name}' "
                 f"session='{session_id}': completed record already exists at {existing.name}. "
                 f"This was a cowork-hook state.yaml trigger that would have produced steps: []."
+            )
+            return
+
+        # GUARD 2: Check for a still-open (in-progress) turn-level record for
+        # this workflow, regardless of session_id. GUARD 1 alone missed
+        # exactly this case in a real incident (eval-20260828T160656-FE6XZW):
+        # eval-turn-start.py had already opened a genuine turn-level record
+        # for this workflow (eval-20260828T154249-UQX5N6), but it was still
+        # in-progress at the moment this PostToolUse fired — its own Stop
+        # hook (eval-turn-stop.py) didn't finalize it until 14 seconds later.
+        # find_completed_eval_record only matches non-in-progress records, so
+        # it saw nothing to dedupe against and this path went ahead and wrote
+        # a second, phantom "completed" record for the same workflow run.
+        # This is a genuine race between two independent hook triggers
+        # (PostToolUse here vs. the Stop hook that owns finalization) — the
+        # fix is to back off and let the real record finalize on its own
+        # rather than racing it, not to guess/estimate anything here.
+        if open_turn_level_record_exists and open_turn_level_record_exists(workflow_name):
+            log_error(
+                f"[GUARD] Skipped phantom workflow eval creation for '{workflow_name}' "
+                f"session='{session_id}': a turn-level record for this workflow is still "
+                f"in-progress (opened by eval-turn-start.py). Backing off so eval-turn-stop.py "
+                f"can finalize the real record instead of racing it with a duplicate."
             )
             return
 

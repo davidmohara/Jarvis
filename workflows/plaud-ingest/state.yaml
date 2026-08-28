@@ -1,33 +1,58 @@
 workflow: plaud-ingest
 agent: knox
-status: ready
+status: blocked
 session-id: pi-20260828-001
 session-started: '2026-08-28T13:59:10Z'
-current-step: step-01
-blocker: null
-unblocked-note: >
-  Block cleared 2026-08-28 by Rigby, on David's explicit instruction, after
-  fixing the root cause in skills/plaud-discover/SKILL.md (see
-  err-20260828T140747-814VN9 and err-20260826T190948-QQMBTP for full detail).
-  Root cause confirmed against live filesystem state: the staging staleness
-  rule was unconditionally re-queuing 120 stale top-level files in
-  ~/Downloads/transcript-staging as "new" without checking them against the
-  vault first — those files are leftover duplicates of content already
-  triaged into _not_new_archive/. Fix adds vault-dedup checks before the
-  staleness rule can fire, excludes _not_new_archive/ and subfolders from the
-  staging scan, fixes a broken Tier 3 filename-pattern assumption, and
-  changes the vault-unreadable fallback from silent proceed to abort-and-report.
-  This fix has NOT been verified via a live end-to-end discovery run yet —
-  this re-run IS that verification. Sanity check before trusting the output:
-  new-recordings count should land near the last verified baseline (7 new
-  out of 127 API total as of pi-20260826-003), not near-total re-flagging. If
-  it comes back anywhere close to 127/128 again, STOP — do not proceed past
-  step-01 — and re-block with a fresh error-tracking entry instead of
-  re-ingesting.
+current-step: step-02
+blocker: >
+  Transcription trigger for the one genuinely-new recording
+  (2206973163d38abccd15da29b0ec7b60, 2026-08-26) returned
+  {"status": -12, "msg": "start trans task error"} from POST
+  /ai/transsumm/{file_id} — per skills/plaud-trigger/SKILL.md this code means
+  likely out of Plaud transcription minutes. Per skill protocol: did not
+  retry variations, surfaced the question instead. This blocker is UNRELATED
+  to the plaud-discover fix being verified this run — discovery itself
+  succeeded cleanly (see verification-result below). Question for David: are
+  you out of Plaud transcription minutes? If yes, this recording waits until
+  minutes reset/top-up; nothing else in the pipeline is affected since no
+  other recordings were found new.
+verification-result: >
+  plaud-discover fix VERIFIED on live run 2026-08-28. API total 128 recordings.
+  Tier-1 file_id dedup matched 126/128 against vault (126 unique file_ids
+  across 180 vault notes, some duplicate notes pre-existing/unrelated to this
+  fix). Remaining 2 candidates: (1) file_id 2206973163d38abccd15da29b0ec7b60,
+  2026-08-26, transcript missing — genuinely new, no vault or staging match.
+  (2) file_id 15aceb2d6b9b2c1b89ca4bf0be9667ea — the known Bethany Hilton PHI
+  recording already on compliance-hold per David's 2026-08-27 decision;
+  correctly excluded from new-recordings, not re-flagged.
+  Staging re-check (the actual root cause of the prior false-positive): 121
+  top-level plaud_*.md files in ~/Downloads/transcript-staging. After fixing
+  the raw.json parsing (file_id lives under raw.json's nested "recording.id",
+  not top-level "id"/"file_id" — this was a bug in my own verification script,
+  not the skill) — 120 of 121 resolved via file_id or title match to vault
+  notes already ingested (leftover duplicates, flagged for cleanup below, NOT
+  re-queued as new). 1 remaining staged file is the Bethany Hilton recording,
+  22.8h old (<24h) = correctly treated as in-progress, not stale. 0 files
+  landed in the genuinely-stale/orphaned bucket. This is exactly the outcome
+  the fix predicted: small plausible new-recording count (1), not a
+  near-total re-flag. Fix HOLDS UP under live verification.
+cleanup-flagged: >
+  120 top-level files in ~/Downloads/transcript-staging/plaud_*.md (plus their
+  sibling _raw.json/_speakers.json) are confirmed already-ingested duplicates
+  of vault notes under zzPlaud/. Recommend a housekeeping pass to move them to
+  _not_new_archive/ or delete — not done as part of this run per skill
+  guidance (dedup + flag, don't silently act). Full filename list available in
+  session output if needed.
 original-request: "Knox — run workflows/plaud-ingest/workflow.md in full"
 accumulated-context:
   target-date: null
-  new-recordings: []
+  new-recordings:
+    - file_id: 2206973163d38abccd15da29b0ec7b60
+      name: "2026-08-26 14:30:39"
+      date: "2026-08-26"
+      duration_seconds: 2090
+      has_transcript: false
+      transcript_status: missing
   transcription-triggered: []
   pending-recordings: []
   speaker-mappings: {}
@@ -37,8 +62,16 @@ accumulated-context:
   staged-files: []
   ingested-notes: []
 note: >
-  Fresh run initialized 2026-08-28. Previous session pi-20260826-003 completed
-  in full (6 recordings ingested + shared with Alice). One recording,
-  15aceb2d6b9b2c1b89ca4bf0be9667ea (Bethany Hilton PHI), remains on
-  compliance-hold per David's 2026-08-27 decision — held unprocessed, not
-  re-attempted by this or future runs unless David says otherwise.
+  Step-01 complete 2026-08-28. Discovery fix VERIFIED live — see
+  verification-result above; this is the primary goal of this run and it
+  passed. Step-02 (trigger transcription) attempted for the single
+  genuinely-new recording and hit a real Plaud API blocker (status -12,
+  likely transcription minutes exhausted) — see blocker above. Workflow set
+  to blocked pending David's answer, NOT because of the discover fix (which
+  worked correctly) but because of this separate, legitimate API condition.
+  Resume from step-02 once minutes question is answered — do not re-run
+  step-01. The compliance-held recording (15aceb2d6b9b2c1b89ca4bf0be9667ea,
+  Bethany Hilton PHI) remains untouched per David's 2026-08-27 decision — not
+  re-attempted by this or future runs unless David says otherwise. Previous
+  session pi-20260826-003 completed in full (6 recordings ingested + shared
+  with Alice).

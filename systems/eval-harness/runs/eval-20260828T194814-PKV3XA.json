@@ -1,0 +1,74 @@
+{
+  "id": "eval-20260828T194814-PKV3XA",
+  "type": "workflow",
+  "name": "boot",
+  "agent": "master",
+  "session_id": "de79add2-5519-43e9-9b4d-85b221bb5dbc",
+  "trigger": "boot",
+  "started": "2026-08-28T19:48:14.003667Z",
+  "completed": "2026-08-28T19:51:48.225723+00:00",
+  "duration_seconds": null,
+  "status": "incomplete",
+  "steps": [],
+  "subagents": [
+    {
+      "agent_id": "ab6a239de488db9ee",
+      "agent_type": "general-purpose",
+      "started": "2026-08-28T19:48:18.423957Z",
+      "completed": "2026-08-28T19:49:40.139712Z",
+      "model": "sonnet",
+      "tokens_input": 1009249,
+      "tokens_output": 432,
+      "cost_usd": 0.592136,
+      "duration_seconds": 81.72
+    }
+  ],
+  "monitoring": {
+    "active": true,
+    "state_yaml_path": "workflows/boot/state.yaml",
+    "opened_by": "eval-turn-start.py",
+    "trigger_evidence": "boot-first-prompt-of-session"
+  },
+  "assessment": {
+    "mechanical": {
+      "completed": false,
+      "all_steps_finished": null,
+      "tool_failures": 0,
+      "error_ids": [],
+      "abort_reason": "session-exit-normal"
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [
+    "turn-level"
+  ]
+}

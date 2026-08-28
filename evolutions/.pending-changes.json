@@ -2805,6 +2805,37 @@
         "evals_run": false,
         "manual_verification": "Traced each affected boot record's subagent agent_ids to their own standalone eval-agent records (found via grep across systems/eval-harness/runs/) to confirm which workflow each subagent actually belonged to, and cross-checked timestamps against /tmp/ies-hook-errors.log's TURN-START/TURN-STOP entries to confirm the Stop-hook-ordering race theory for UQX5N6."
       }
+    },
+    {
+      "id": "work-20260828-boot-eval-cowork-phantom-duplicate",
+      "description": "Fixed a THIRD, distinct boot-eval bug found the same day after the session_id fix (round 1) and the subagent-misattribution/lost-completion-race fix (round 2). post-tool-use.py's create_eval_record_from_state() (the 'cowork path', which fires on any PostToolUse write to a workflow's state.yaml when no active in-progress eval stub is found for the session) only guarded against duplicating an already-COMPLETED record for the same workflow (find_completed_eval_record). It never checked whether a genuine turn-level record for that same workflow was still in-progress -- opened moments earlier by eval-turn-start.py and not yet finalized by eval-turn-stop.py's Stop hook. Confirmed in eval-20260828T160656-FE6XZW: eval-turn-start.py had already opened eval-20260828T154249-UQX5N6 for boot (session 4378bed7-1972-4c0f-8361-48ef8b8f8d8b), but UQX5N6 didn't finalize until 16:07:10.70Z -- 14 seconds AFTER FE6XZW's Cowork path wrote its own duplicate 'completed' record at 16:06:56.30Z. find_active_eval_record() had picked a more-recently-started type:agent subagent stub instead of UQX5N6 (no type filter), update_eval_record_state_yaml() correctly declined to overwrite that unrelated stub, and the fallback Cowork path's own duplicate guard wasn't broad enough to catch the still-open real record. The code already suspected this class of record (it self-tagged phantom-candidate when steps came out empty) but still wrote it instead of skipping creation outright.",
+      "started": "2026-08-28T17:00:00Z",
+      "files": [
+        {
+          "path": "systems/eval-harness/hook_utils.py",
+          "action": "merge",
+          "type": "system",
+          "description": "Added open_turn_level_record_exists(workflow_name): the same in-progress/monitoring.active turn-level dedup check eval-turn-start.py already had (moved here so it has one shared implementation), now also used by post-tool-use.py."
+        },
+        {
+          "path": ".claude/hooks/eval-turn-start.py",
+          "action": "merge",
+          "type": "system",
+          "description": "already_open_for_workflow() is now a thin alias delegating to hook_utils.open_turn_level_record_exists() instead of carrying its own copy of the logic."
+        },
+        {
+          "path": ".claude/hooks/post-tool-use.py",
+          "action": "merge",
+          "type": "system",
+          "description": "create_eval_record_from_state() now has a second guard: before writing a Cowork-path completed record, checks open_turn_level_record_exists(workflow_name) and backs off (logs a [GUARD] message, returns without writing) if a real turn-level record for this workflow is still in-progress, instead of racing it with a duplicate."
+        },
+        {
+          "path": "systems/eval-harness/runs/_archived/2026-08-28-boot-cowork-phantom/eval-20260828T160656-FE6XZW.json",
+          "action": "move",
+          "type": "system",
+          "description": "Archived duplicate 'boot' eval record (steps:[], all-null tokens/cost, self-tagged phantom-candidate/cowork-hook) produced by the race above. Superseded by the genuine eval-20260828T154249-UQX5N6, which finalized correctly with real assessment/assertion data 14 seconds later."
+        }
+      ]
     }
   ]
 }

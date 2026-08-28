@@ -1,0 +1,119 @@
+{
+  "id": "eval-20260828T154249-UQX5N6",
+  "type": "workflow",
+  "name": "boot",
+  "agent": "master",
+  "session_id": "4378bed7-1972-4c0f-8361-48ef8b8f8d8b",
+  "trigger": "boot",
+  "started": "2026-08-28T15:42:49.536332Z",
+  "completed": "2026-08-28T16:07:10.701375Z",
+  "duration_seconds": 1461.17,
+  "status": "success",
+  "steps": [],
+  "subagents": [
+    {
+      "agent_id": "a2d85012d16ba3d83",
+      "agent_type": "general-purpose",
+      "role": "boot-steps-01.2-through-08 (unified data pull, calendar pull, briefing synthesis, workflow scan, completion verification)",
+      "started": "2026-08-28T16:02:50.778505Z",
+      "completed": "2026-08-28T16:07:48.606895Z",
+      "model": "sonnet",
+      "tokens_input": 2737846,
+      "tokens_output": 619,
+      "cost_usd": 1.149239,
+      "duration_seconds": 297.83
+    }
+  ],
+  "monitoring": {
+    "active": false,
+    "state_yaml_path": "workflows/boot/state.yaml",
+    "opened_by": "eval-turn-start.py",
+    "trigger_evidence": "boot-first-prompt-of-session"
+  },
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 3,
+      "assertions_passed": 3,
+      "assertion_results": [
+        {
+          "assertion": "boot-001-state-complete",
+          "description": "Boot workflow state.yaml shows status: complete",
+          "passed": true
+        },
+        {
+          "assertion": "boot-002-session-index-exists",
+          "description": "Session index file exists \u2014 boot's Session Index Boot step must have created/appended it",
+          "passed": true
+        },
+        {
+          "assertion": "boot-003-session-index-substantive",
+          "description": "Session index is a real record, not an empty stub",
+          "passed": true
+        }
+      ]
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": "f1a31609ac6be8a11b48a3c6267957f76a4e86e971cd143315c77472e90af0d0",
+  "prior_baseline_id": null,
+  "tags": [
+    "turn-level"
+  ],
+  "guardrails": [
+    {
+      "name": "pre-completion-review",
+      "after_step": "step-06-scan-workflows",
+      "result": "pass",
+      "reason": "Briefing reflects freshly re-pulled live data (email, omnifocus, clay) plus reused fresh calendar; workflow scan correctly found 0 in-progress with active.yaml empty; no credential/sensitive leakage; Clay gap from first run resolved this run.",
+      "escalated_to_human": false,
+      "timestamp": "2026-08-28T16:06:00.333735+00:00"
+    }
+  ],
+  "total_tokens_input": 2737846,
+  "total_tokens_output": 619,
+  "total_cost_usd": 1.149239,
+  "related_records": {
+    "note": "af09289d8bc5930e1 (Knox's plaud-discover fix-verification agent, standalone record eval-20260828T160235-V6V1Q1) was wrongly merged into this record's subagents[] by the SubagentStart-time linking bug fixed 2026-08-28 (eval-agent-start.py now skips linking a spawn that names a different workflows/{name}/workflow.md path than the open parent). Removed here. The real boot-execution subagent (a2d85012d16ba3d83) never got its completion data written into this record at all, due to a second, separate bug: eval-agent-stop.py derived 'the parent' by re-checking which turn record was still open at Stop time, and this record's own Stop hook (eval-turn-stop.py) closed it at 16:07:10.701Z, a few seconds before a2d85012d16ba3d83's own SubagentStop hook ran (it completed at 16:07:48.606Z) -- so the rollup silently no-opped. Fixed by hook_utils.find_parent_record_with_subagent, which looks up the parent by 'does its subagents[] already name this agent_id' instead of 'is a turn record open right now'.",
+    "recovered_from": [
+      {
+        "eval_id": "eval-20260828T160250-IBQVDT",
+        "reason": "a2d85012d16ba3d83's own standalone type:agent record, written normally by eval-agent-start.py/eval-agent-stop.py regardless of the parent-linking bug. Its full token/cost/model data (recovered here) was never lost -- only the rollup into this record's subagents[]/totals failed."
+      }
+    ],
+    "noted_not_merged": [
+      {
+        "eval_id": "eval-20260828T160235-V6V1Q1",
+        "workflow": "plaud-ingest",
+        "reason": "Knox's plaud-discover fix-verification agent (agent_id af09289d8bc5930e1), a separate sibling spawn from this session, not part of boot's own execution. Was misattributed into this record's subagents[] before the 2026-08-28 fix; removed during Task 2 cleanup."
+      }
+    ]
+  }
+}

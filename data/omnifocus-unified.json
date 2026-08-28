@@ -1,5 +1,5 @@
 {
-  "pulled_at": "2026-08-28T14:00:34Z",
+  "pulled_at": "2026-08-28T16:03:00Z",
   "task_count": 10,
   "tasks": [
     {"name": "Higgsfield - video", "due_date": null, "is_flagged": false},
@@ -12,5 +12,6 @@
     {"name": "Take hanger for jacket to work", "due_date": null, "is_flagged": false},
     {"name": "Review appendix and planning for SC offerings", "due_date": null, "is_flagged": false},
     {"name": "4minds.ai", "due_date": null, "is_flagged": false}
-  ]
+  ],
+  "note": "Live re-pull via osascript for second boot run. Identical 10 inbox items to the first run's pull — none dated, none flagged, none completed in between."
 }

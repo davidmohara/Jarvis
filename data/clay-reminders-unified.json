@@ -1,9 +1,8 @@
 {
-  "pulled_at": "2026-08-28T14:00:34Z",
-  "status": "unavailable",
-  "reason": "Clay MCP requires an OAuth authentication flow that cannot be completed unattended in this session (mcp__clay__authenticate returns an authorization URL requiring interactive browser approval). Attempted per mandatory-always-attempt rule; recording unavailable rather than skipping.",
+  "pulled_at": "2026-08-28T16:04:00Z",
+  "status": "available",
   "reminders": [],
   "reminder_count": 0,
   "birthday_count": 0,
-  "attempted": true
+  "note": "Clay MCP authenticated and responsive this run (unlike the first boot run today, which failed on OAuth). getUpcomingReminders returned 0 results. getUpcomingEvents returned Clay's own synced calendar entries (Sync David/Matt/Robin, Exec AI Training wrap-up, Exec AI Cohort Planning, Prayer Call, Sales & Recruiting) — no separate birthday entries surfaced in that call. Notable improvement vs. first run: Clay gap from earlier this morning appears resolved."
 }

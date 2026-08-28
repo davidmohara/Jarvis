@@ -1,12 +1,12 @@
 ---
 status: complete
-started-at: "2026-08-28T14:04:00Z"
-completed-at: "2026-08-28T14:08:00Z"
+started-at: "2026-08-28T16:08:30Z"
+completed-at: "2026-08-28T16:10:00Z"
 outputs:
-  briefing_delivered: "yes — morning briefing synthesized and carried forward through steps 06-08 for verbatim delivery to controller"
-  format: "3-paragraph narrative + calendar table (accumulated data: 20 calendar events Aug 28-31, 10 uncompleted OmniFocus inbox items, 4 actionable emails, 0 due reminders, Clay unavailable)"
-  calendar_today: "conflicted — tail end of LSG Board Retreat (Malakoff, TX) overlapping 6 internal/client Improving meetings, several back-to-back or overlapping, 8am-3pm CDT"
-  hotspots: "SPARC CRM opportunity-display bug still open ahead of 8/31 deadline, Inertia Labs GCC partnership pitch awaiting reply, Dickason Honda SOW review this afternoon, board-retreat/meeting-schedule overlap, Clay unavailable (auth gap)"
+  briefing_delivered: "yes — second boot run today, morning briefing re-synthesized against live re-pulled data and carried forward through steps 06-08 for verbatim delivery to controller"
+  format: "3-paragraph narrative + calendar table (accumulated data: 20 calendar events Aug 28-31 reused, 10 uncompleted OmniFocus inbox items live re-pull, 2 actionable emails live re-pull, 0 due reminders, Clay now available with 0 reminders/birthdays)"
+  calendar_today: "conflicted, now mid-day — LSG Board Retreat tail and morning internal meetings behind David; Sync David/Matt/Robin coming up shortly, then the Exec AI Training wrap-up session, then Dickason Honda SOW review this afternoon"
+  hotspots: "Inertia Labs GCC partnership pitch still awaiting reply, YPO GOLD REX commitment form still pending, Dickason Honda SOW review this afternoon, Exec AI Training Program wrap-up session today may warrant a close-out note, Clay gap from this morning's first run resolved (now available)"
 ---
 
 <!-- system:start -->

@@ -1,31 +1,27 @@
 {
-  "pulled_at": "2026-08-28T14:00:34Z",
-  "message_count": 20,
-  "note": "M365 email_search does not expose an isFlagged field in this connector's response; triage below is by content (explicit deadline / time-sensitive / active thread requiring reply), not the Outlook flag bit.",
-  "actionable_messages": [
+  "pulled_at": "2026-08-28T16:04:00Z",
+  "message_count": 2,
+  "messages": [
     {
-      "subject": "Re: Action Required: Update Your Opportunities by 8/31/2026",
-      "from": "amy.widicus@improving.com",
-      "received_at": "2026-08-27T21:19:12Z",
-      "note": "Ongoing thread re: CRM opportunity display bug ahead of the 8/31 SPARC disposition deadline. Amy asked to screen-share to debug. Still open as of yesterday evening."
+      "id": "AAMkADAyYWJiNDQxLTM3MzAtNDVlNy04ODZjLTgwMmZiYjBhNTMxYwBGAAAAAADOXXceVmu0R4GF6i2BkUXOBwBiFVZC-8sdQaJWt-ZWvgEcAAAAilcFAABAtd68aKbhTanh4UbLkkAvAA5p4-ciAAA=",
+      "subject": "FW: INFO & ACTION:YPO GOLD REX executive summary",
+      "from": "smeyer@ypo.org",
+      "received_at": "2026-08-27T17:43:15.000Z",
+      "is_flagged": false,
+      "importance": "normal",
+      "is_read": false,
+      "snippet": "Reminder to send in your commitment form if you haven't already."
     },
     {
+      "id": "AAMkADAyYWJiNDQxLTM3MzAtNDVlNy04ODZjLTgwMmZiYjBhNTMxYwBGAAAAAADOXXceVmu0R4GF6i2BkUXOBwBiFVZC-8sdQaJWt-ZWvgEcAAAAilcFAABAtd68aKbhTanh4UbLkkAvAA5p4-cQAAA=",
       "subject": "Re: Intro and discussion of GCC AI paths",
       "from": "pdrew@inertialabs.io",
-      "received_at": "2026-08-27T14:47:39Z",
-      "note": "Inertia Labs GCC AI partnership pitch - follow-up asking for time, mentioned same-day customer pitch. Still awaiting response."
-    },
-    {
-      "subject": "Re: Robert Hendricks Introduction",
-      "from": "Robert.Hendricks@valuzzia.com",
-      "received_at": "2026-08-27T15:11:44Z",
-      "note": "Sent resume per prior discussion, available for questions next week. Unread."
-    },
-    {
-      "subject": "FW: INFO & ACTION: YPO GOLD REX executive summary",
-      "from": "smeyer@ypo.org",
-      "received_at": "2026-08-27T17:43:15Z",
-      "note": "Reminder to submit YPO commitment form. Soft deadline, unread."
+      "received_at": "2026-08-27T14:47:39.000Z",
+      "is_flagged": false,
+      "importance": "normal",
+      "is_read": true,
+      "snippet": "Checking in on this partnership opportunity, time-sensitive given a pitch with the customer."
     }
-  ]
+  ],
+  "note": "Live re-pull for second boot run today (16:04Z). Query scoped to afterDateTime=yesterday, order=newest — same two actionable items surfaced in the first run's broader 20-message pull (YPO REX reminder, Inertia Labs GCC follow-up). SPARC CRM bug thread and Robert Hendricks intro noted in the first run were outside this narrower yesterday-forward window; not re-verified this pull."
 }
