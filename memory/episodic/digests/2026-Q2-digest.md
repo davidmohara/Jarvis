@@ -78,3 +78,18 @@ GLC Chicago Day 2. 4 events: Devlin 1:1, Google Next follow-up sync, Tim Rayburn
 
 ### 2026-04-29 — Morning Briefing — GLC Day 4 Final (working-archive)
 Automated briefing, final GLC Chicago day. 4 meetings: Sales Scrum (tentative), US Town Hall (tentative), David/Robyn 1:1, and one other. Return to Dallas context.
+
+### 2026-04-30 — Dream Cycle Summary (working-archive)
+Archived 4 expired working memory entries (Apr 27-28 briefings, Apr 26-27 dream summaries) and scored 21 episodic entries with 13 updates. Two promotion clusters: the dream-cycle meta-pattern reinforced (6 evidence sources) and GLC Chicago briefings merged into the briefing-travel-calendar pattern, surfacing recurring OmniFocus timeouts and calendar conflicts during travel.
+
+### 2026-05-04 — Dream Cycle Summary (working-archive)
+Archived 2 working memory entries and scored 29 episodic entries, flagging severe score inflation (17+ of 29 entries at 9-10). Two promotions strengthened the briefing-travel-calendar and dream-cycle-system-maturation patterns; git sync remained blocked for a 12th consecutive run on diverged commits.
+
+### 2026-05-08 — Session Index Build (episodic)
+Reviewed the OpenWork framework and adopted a JSON session index — an append-only array with a topic-keyed structure, current_topic pointer, and three-layer enforcement (hook, SYSTEM.md rule, exit audit). Rejected a workspace-as-package approach and a separate permission-layer build; the index carries permanent history with no TTL or dream-cycle promotion.
+
+### 2026-05-15 — Dream Cycle Summary (working-archive)
+Archived 2 working entries and scored 44 episodic entries with the score-inflation distribution unchanged across 19 consecutive runs (31 entries pinned at the score-10 ceiling). Flagged three compounding structural issues needing a live session: the score-inflation algorithm (8 runs deferred), git sync blocked for a 19th consecutive run, and 39 orphaned working-memory files never migrated to episodic.
+
+### 2026-05-27 — Error Improvement Cycle Decision Rationale (decision-rationale)
+Rigby's inaugural error-improvement workflow run processed 127 active log entries (2026-03-21 to 2026-05-27) across 8 patterns; top patterns were process-skip/protocol-skip (19x, chief) and routing-error/protocol-skip (18x, jarvis), the latter blocked on a Master routing-enforcement policy call still pending from David. Trend was degrading (39→48+ entries/month, ~7% self-detection rate); 48 April entries were compacted to a monthly digest but source deletion was blocked by sandbox permissions at the time.

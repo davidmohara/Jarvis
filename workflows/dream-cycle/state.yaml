@@ -40,6 +40,20 @@ accumulated-context:
       - {date: "2026-05-15", file: "2026-05-15-dream-cycle-summary.md", type: working-archive, score: 0}
       - {date: "2026-05-27", file: "decisions/2026-05-27-185930-decision-rationale-error-improvement-2026-03-21-to-2026-05-27.md", type: decision-rationale, score: 0, note: "salience frozen since 2026-07-25 -- subdirectory-recursion bug err-20260826T081453-664W53, unchanged"}
     controller_decision: null
+  step-04-2026-08-29-approved-followup:
+    trigger: "David explicitly approved this specific 5-entry batch in live conversation (option 1 of 3 offered: approve this batch once / lower the threshold / leave permanently manual) shortly after the scheduled run's push notification, not part of the unattended cycle itself."
+    candidates_count: 5
+    entries_compressed: 5
+    digests_updated: 1
+    digest_file: memory/episodic/digests/2026-Q2-digest.md
+    compressed_files:
+      - {date: "2026-04-30", file: "2026-04-30-dream-cycle-summary.md", type: working-archive}
+      - {date: "2026-05-04", file: "2026-05-04-dream-cycle-summary.md", type: working-archive}
+      - {date: "2026-05-08", file: "2026-05-08-session-index-build.md", type: episodic}
+      - {date: "2026-05-15", file: "2026-05-15-dream-cycle-summary.md", type: working-archive}
+      - {date: "2026-05-27", file: "decisions/2026-05-27-185930-decision-rationale-error-improvement-2026-03-21-to-2026-05-27.md", type: decision-rationale}
+    controller_decision: "approved — this batch only, one-time"
+    note: "Digest entries appended to the existing 2026-Q2-digest.md (append-only, no prior content altered) before any deletion, per step-04's ordering rule. All 5 source files deleted after digest write confirmed. decisions/ subdirectory now empty (only .gitkeep remains). This approval covers only this 5-entry batch, not a standing authorization -- a future batch crossing the 5-entry threshold still requires a fresh approval under GUARDRAIL 7 unless David separately changes the threshold or approval policy."
   step-03b-2026-08-29:
     result: pass
     reason: "5 compression candidates, identical set for the FOURTH consecutive cycle (08-26 through 08-29); the 1 entry promoted this cycle correctly excluded; step-03's write was substantive, not a stub."
@@ -346,7 +360,7 @@ guardrails:
     - {date: "2026-08-26", candidates_found: 5, compressed: 0}
     - {date: "2026-08-27", candidates_found: 5, compressed: 0}
     - {date: "2026-08-28", candidates_found: 5, compressed: 0}
-    - {date: "2026-08-29", candidates_found: 5, compressed: 0}
+    - {date: "2026-08-29", candidates_found: 5, compressed: 5, note: "compressed same-day via David's live approval, not the unattended cycle itself — see accumulated-context.step-04-2026-08-29-approved-followup"}
   archive_safety:
     spot_check_passed: true
     recent_edits_archived: 0
@@ -379,14 +393,14 @@ guardrails:
     deduplication_check: "pass for this cycle's own writes (updated 1 existing file, created none) — pre-existing corpus-wide duplication (multiple duplicate -pattern.md files per tag) remains flagged for Rigby/manual review, unchanged and not remediated this cycle (out of scope)."
   compression_threshold:
     last_12_cycles_candidates: 5
-    last_12_cycles_compressed: 0
-    avg_per_cycle: 0
-    threshold_check: "escalated — FOURTH consecutive cycle at the 5-candidate safety threshold (08-26 through 08-29, identical candidate set all four times) with GUARDRAIL 7's controller-approval gate unable to be satisfied in an unattended run. Three prior cycles already surfaced this once each in state.yaml/dream-summary notes with zero controller response recorded (all controller_decision fields still null). This cycle escalates via a direct push notification rather than a fourth silent write-only surface, per the standing instruction that a repeated unanswered escalation risks becoming background noise."
-    controller_decision: null
+    last_12_cycles_compressed: 5
+    avg_per_cycle: 0.42
+    threshold_check: "resolved — David approved the exact 5-entry batch (option 1 of the 3 offered) shortly after the push notification, same day as the 08-29 cycle. All 5 candidates compressed into memory/episodic/digests/2026-Q2-digest.md and source files deleted. This approval is scoped to this batch only, not a standing rule -- the next batch to cross the 5-entry threshold will surface the same y/n gate under GUARDRAIL 7 unless David separately changes the threshold or approval policy."
+    controller_decision: "approved this batch, one-time"
   compression_preview:
     preview_shown: true
-    controller_approved: null
-    note: "Same 5-entry preview as 08-26/08-27/08-28 (accumulated-context.step-04-2026-08-26.compression_preview), unchanged: 2026-04-30/05-04/05-15 dream-cycle-summary entries, 2026-05-08 session-index-build, and the 2026-05-27 decisions/ entry (frozen score due to the known subdirectory-recursion bug). Recorded again in memory/working/dream-summary-2026-08-29.md for David to review. Nothing deleted pending his decision. Push notification sent this cycle given the fourth-consecutive unanswered escalation."
+    controller_approved: true
+    note: "Same 5-entry preview as 08-26/08-27/08-28 (accumulated-context.step-04-2026-08-26.compression_preview): 2026-04-30/05-04/05-15 dream-cycle-summary entries, 2026-05-08 session-index-build, and the 2026-05-27 decisions/ entry (frozen score due to the known subdirectory-recursion bug). David approved this exact batch in live conversation after the push notification. Compressed and deleted same day -- see accumulated-context.step-04-2026-08-29-approved-followup for the full record."
   git_atomicity:
     pre_commit_check: "pass"
     dream_log_valid: true

@@ -8,6 +8,20 @@ outputs:
   digests_updated: 0
   compression_skipped: true
   compression_skip_reason: "Same 5 candidates as 08-26, 08-27, and 08-28 (2026-04-30/05-04/05-15 dream-cycle-summary entries, 2026-05-08 session-index-build, 2026-05-27 decisions/ entry) -- all score 0, all promoted:false, all >90 days old, at/above the 5-entry safety threshold. GUARDRAIL 7 requires a live controller (y/n) approval before this irreversible step-04 deletion; this is an unattended scheduled run with nobody present to answer, so compression is withheld again rather than proceeding without approval. This is the FOURTH consecutive cycle stuck at this exact gate with an identical candidate set and zero controller response across three prior escalations -- flagged for a direct push notification this cycle rather than another silent state.yaml note, per the pattern of repeated-unanswered-escalation becoming background noise. No files modified."
+approved-followup:
+  approved-at: 2026-08-29T11:58:00Z
+  approved-by: david
+  scope: "this 5-entry batch only, one-time — not a standing change to GUARDRAIL 7's approval requirement or the 5-entry threshold"
+  entries_compressed: 5
+  digests_updated: 1
+  digest_file: memory/episodic/digests/2026-Q2-digest.md
+  files_deleted:
+    - memory/episodic/2026-04-30-dream-cycle-summary.md
+    - memory/episodic/2026-05-04-dream-cycle-summary.md
+    - memory/episodic/2026-05-08-session-index-build.md
+    - memory/episodic/2026-05-15-dream-cycle-summary.md
+    - memory/episodic/decisions/2026-05-27-185930-decision-rationale-error-improvement-2026-03-21-to-2026-05-27.md
+  note: "David answered '1' to the three options offered in-conversation (approve this batch / lower the threshold / leave permanently manual). Digest entries appended to the existing 2026-Q2-digest.md before any deletion, per this step's ordering rule; all 5 source files deleted only after the digest write was confirmed. memory/episodic/decisions/ is now empty (only .gitkeep). See workflows/dream-cycle/state.yaml accumulated-context.step-04-2026-08-29-approved-followup for the full record."
 ---
 
 <!-- system:start -->
