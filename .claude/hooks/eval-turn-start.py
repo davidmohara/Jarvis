@@ -205,9 +205,22 @@ def is_first_prompt_this_session(session_id: str) -> bool:
         return False
 
 
+BOOT_STALE_COMPLETION_AFTER_HOURS = 12
+
+
 def boot_is_fresh() -> bool:
     """True if workflows/boot/state.yaml shows a boot is about to start
-    fresh (not already in-progress from a prior, still-live turn)."""
+    fresh (not already in-progress from a prior, still-live turn).
+
+    A terminal status (complete/aborted) is necessary but not sufficient:
+    a `status: complete` left over from a PRIOR session — days old — used
+    to count as "fresh" here, which is exactly what let eval-turn-start.py
+    open a speculative 'boot' eval record for a session that never actually
+    ran boot at all (the phantom record incident, err-20260829T161711-3IPMKR).
+    Requiring the completion timestamp to be recent doesn't make this check
+    perfect (it can't prove THIS session will run boot), but it stops the
+    common case: a stale multi-day-old 'complete' status being read as
+    permission to open a new record every single session thereafter."""
     state_path = WORKFLOWS_DIR / "boot" / "state.yaml"
     if not state_path.exists():
         return True
@@ -221,7 +234,25 @@ def boot_is_fresh() -> bool:
                     body = "\n".join(lines[1:i])
                     break
         data = yaml.safe_load(body) or {}
-        return data.get("status") in (None, "not-started", "complete", "aborted")
+        status = data.get("status")
+        if status in (None, "not-started"):
+            return True
+        if status not in ("complete", "aborted"):
+            return False
+
+        completed_at = data.get("completed-at")
+        if not completed_at:
+            return True  # no timestamp to judge staleness by — don't block on it
+        try:
+            ts = str(completed_at).replace("Z", "+00:00")
+            completed_dt = datetime.fromisoformat(ts)
+            if completed_dt.tzinfo is None:
+                completed_dt = completed_dt.replace(tzinfo=timezone.utc)
+        except Exception:
+            return True  # unparseable — don't block on it either
+
+        age_hours = (datetime.now(timezone.utc) - completed_dt).total_seconds() / 3600
+        return age_hours < BOOT_STALE_COMPLETION_AFTER_HOURS
     except Exception as e:
         log_error(f"boot_is_fresh check failed: {e}", TAG)
         return True

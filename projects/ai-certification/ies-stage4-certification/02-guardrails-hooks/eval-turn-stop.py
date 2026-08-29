@@ -264,6 +264,23 @@ def try_finalize(eval_path: Path) -> bool:
         # as a fabricated "success".
         age_hours = (datetime.now(timezone.utc) - opened_at).total_seconds() / 3600 if opened_at else 0
         if age_hours >= STALE_RECORD_ABORT_AFTER_HOURS:
+            if not eval_record.get("steps") and not eval_record.get("subagents"):
+                # Never accrued a single step or subagent — the workflow this
+                # record guessed at (typically eval-turn-start.py's
+                # 'boot-first-prompt-of-session' heuristic) never actually
+                # ran this session. There is no real run here to record as
+                # aborted, success, or failure — the record itself shouldn't
+                # exist. Delete rather than finalize. Root cause: David
+                # caught a live instance of this (a phantom 'boot' record
+                # with zero activity, wrongly reported as a failed boot run)
+                # and rejected even archiving it — see err-20260829T161711-3IPMKR.
+                try:
+                    eval_path.unlink()
+                    log_info(f"Deleted phantom eval record {eval_record.get('id')} for '{eval_record['name']}' — "
+                             f"no steps/subagents ever recorded, state.yaml completion predates open by {age_hours:.1f}h", TAG)
+                except Exception as e:
+                    log_error(f"Failed to delete phantom eval record {eval_path}: {e}", TAG)
+                return True
             finalize(eval_path, eval_record, state_data, force_status="aborted",
                      reason=f"state.yaml's own completion timestamp predates this record's open time by {age_hours:.1f}h — likely a spurious open, not a real run")
             return True

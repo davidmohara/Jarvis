@@ -853,7 +853,19 @@ def update_eval_record_step_frontmatter(eval_path: Path, file_path: str, content
         log_error(f"Failed to update eval record from step frontmatter: {e}")
 
 def check_error_tracking_write(file_path: str, session_id: str):
-    """Check if this write is to error-tracking and update eval record."""
+    """Check if this write is to error-tracking and update eval record.
+
+    Only correlates the error onto a record that shows genuine evidence of
+    that workflow actually executing this session (non-empty steps[] or
+    subagents[], or a Tier-1 mechanical assessment already recorded). A
+    bare record with none of that — e.g. one opened speculatively by
+    eval-turn-start.py's 'boot-first-prompt-of-session' heuristic, where
+    the workflow it guessed at never actually ran — is not evidence the
+    error has anything to do with that workflow. Blindly stamping
+    status: failure onto whatever in-progress record happens to share this
+    session_id previously turned an unrelated error (from a completely
+    different task running in the same session) into a fabricated boot
+    failure. See err-20260829T161711-3IPMKR."""
     try:
         if "error-tracking/entries" not in file_path:
             return
@@ -867,6 +879,20 @@ def check_error_tracking_write(file_path: str, session_id: str):
 
         with open(eval_path, "r") as f:
             eval_record = json.load(f)
+
+        mechanical = eval_record.get("assessment", {}).get("mechanical", {})
+        has_real_activity = (
+            bool(eval_record.get("steps"))
+            or bool(eval_record.get("subagents"))
+            or mechanical.get("completed") is not None
+        )
+        if not has_real_activity:
+            log_error(
+                f"[INFO] Skipping error correlation of {error_id} onto {eval_record.get('id')} "
+                f"('{eval_record.get('name')}') — record has no steps/subagents/mechanical "
+                "assessment yet, so this error can't be attributed to that workflow"
+            )
+            return
 
         # Add error ID to mechanical assessment
         if error_id not in eval_record["assessment"]["mechanical"]["error_ids"]:

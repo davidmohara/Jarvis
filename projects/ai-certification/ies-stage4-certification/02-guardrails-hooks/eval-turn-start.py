@@ -31,6 +31,7 @@ import yaml
 from hook_utils import (
     IES_ROOT, EVAL_RUNS_DIR, log_error, log_info, atomic_write_json,
     read_stdin, new_eval_id, infer_session_id, extract_workflow_path_reference,
+    open_turn_level_record_exists,
 )
 
 WORKFLOWS_DIR = IES_ROOT / "workflows"
@@ -61,43 +62,13 @@ def load_master_workflows() -> dict:
     return out
 
 
+# already_open_for_workflow moved to hook_utils.open_turn_level_record_exists
+# (shared with post-tool-use.py's create_eval_record_from_state, which needs
+# the identical check — see that function's docstring for why). Kept as a
+# thin local alias so this file's existing call sites/tests don't need to
+# change.
 def already_open_for_workflow(session_id: str, workflow_name: str) -> bool:
-    """Is there already an open turn-level record for this workflow?
-
-    Deliberately NOT scoped to session_id. infer_session_id() reads
-    memory/sessions/index.json's last entry, but boot's own Session Index
-    step (workflow.md's personal block) appends a *new* entry partway
-    through step-01 — meaning the "current session" that infer_session_id()
-    reports can legitimately change between one UserPromptSubmit firing and
-    the next within the same logical boot run, with no error involved at
-    all (this is a separate failure mode from the read-race fixed in
-    hook_utils._read_session_index — that one produces a fabricated
-    fallback id via an exception, this one produces two *genuinely valid*
-    but different session_id values). Scoping this check to session_id
-    would miss that case and open a second record anyway.
-
-    workflow_name is the right dedup key regardless: workflows/{name}/
-    state.yaml is a single file, so there is never a legitimate reason for
-    two simultaneously in-progress turn-level records against the same
-    workflow name — check every open turn-level record in the runs
-    directory, not just the ones matching this call's session_id."""
-    if not EVAL_RUNS_DIR.exists():
-        return False
-    import json
-    for f in EVAL_RUNS_DIR.glob("eval-*.json"):
-        try:
-            with open(f, "r") as file:
-                data = json.load(file)
-            if (
-                data.get("type") == "workflow"
-                and data.get("name") == workflow_name
-                and data.get("status") == "in-progress"
-                and data.get("monitoring", {}).get("active")
-            ):
-                return True
-        except Exception:
-            continue
-    return False
+    return open_turn_level_record_exists(workflow_name)
 
 
 RUN_VERBS = r"(?:run|start|kick off|kick-off|execute|launch|invoke|fire off|fire up|begin)"
@@ -234,9 +205,22 @@ def is_first_prompt_this_session(session_id: str) -> bool:
         return False
 
 
+BOOT_STALE_COMPLETION_AFTER_HOURS = 12
+
+
 def boot_is_fresh() -> bool:
     """True if workflows/boot/state.yaml shows a boot is about to start
-    fresh (not already in-progress from a prior, still-live turn)."""
+    fresh (not already in-progress from a prior, still-live turn).
+
+    A terminal status (complete/aborted) is necessary but not sufficient:
+    a `status: complete` left over from a PRIOR session — days old — used
+    to count as "fresh" here, which is exactly what let eval-turn-start.py
+    open a speculative 'boot' eval record for a session that never actually
+    ran boot at all (the phantom record incident, err-20260829T161711-3IPMKR).
+    Requiring the completion timestamp to be recent doesn't make this check
+    perfect (it can't prove THIS session will run boot), but it stops the
+    common case: a stale multi-day-old 'complete' status being read as
+    permission to open a new record every single session thereafter."""
     state_path = WORKFLOWS_DIR / "boot" / "state.yaml"
     if not state_path.exists():
         return True
@@ -250,7 +234,25 @@ def boot_is_fresh() -> bool:
                     body = "\n".join(lines[1:i])
                     break
         data = yaml.safe_load(body) or {}
-        return data.get("status") in (None, "not-started", "complete", "aborted")
+        status = data.get("status")
+        if status in (None, "not-started"):
+            return True
+        if status not in ("complete", "aborted"):
+            return False
+
+        completed_at = data.get("completed-at")
+        if not completed_at:
+            return True  # no timestamp to judge staleness by — don't block on it
+        try:
+            ts = str(completed_at).replace("Z", "+00:00")
+            completed_dt = datetime.fromisoformat(ts)
+            if completed_dt.tzinfo is None:
+                completed_dt = completed_dt.replace(tzinfo=timezone.utc)
+        except Exception:
+            return True  # unparseable — don't block on it either
+
+        age_hours = (datetime.now(timezone.utc) - completed_dt).total_seconds() / 3600
+        return age_hours < BOOT_STALE_COMPLETION_AFTER_HOURS
     except Exception as e:
         log_error(f"boot_is_fresh check failed: {e}", TAG)
         return True

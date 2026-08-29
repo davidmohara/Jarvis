@@ -1509,7 +1509,14 @@
           "workflows/dream-cycle/steps/step-04-episodic-compression.md",
           "memory/working/dream-summary-2026-08-29.md",
           "workflows/dream-cycle/steps/step-05-logging.md",
-          "memory/episodic/digests/2026-Q2-digest.md"
+          "memory/episodic/digests/2026-Q2-digest.md",
+          "projects/ai-certification/ies-stage4-certification/06-success-rate-report/e2e-success-rate-report.md",
+          "projects/ai-certification/ies-stage4-certification/README.md",
+          "systems/error-tracking/entries/err-20260829T161002-X7JBHO.json",
+          "systems/error-tracking/entries/err-20260829T161711-3IPMKR.json",
+          ".claude/hooks/eval-turn-stop.py",
+          "systems/eval-harness/close-open-evals.py",
+          ".claude/hooks/tests/test_phantom_boot_record.py"
         ],
         "loops": [],
         "flag": true

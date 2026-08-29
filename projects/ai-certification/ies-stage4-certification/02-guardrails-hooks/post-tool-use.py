@@ -43,6 +43,10 @@ try:
     from hook_utils import infer_session_id as _shared_infer_session_id
 except Exception:
     _shared_infer_session_id = None
+try:
+    from hook_utils import open_turn_level_record_exists
+except Exception:
+    open_turn_level_record_exists = None
 
 # ============================================================================
 # SHARED UTILITIES
@@ -568,7 +572,7 @@ def create_eval_record_from_state(state_data: dict, session_id: str):
         agent = state_data.get("agent", "unknown")
         trigger = infer_trigger(state_data)
 
-        # GUARD: Check for an existing completed record for this workflow + session.
+        # GUARD 1: Check for an existing completed record for this workflow + session.
         # close-eval-record.py (invoked by workflow final steps) writes a proper record
         # with steps populated. If that already exists, this cowork-hook path would
         # produce a duplicate phantom with steps: [] — skip it.
@@ -578,6 +582,29 @@ def create_eval_record_from_state(state_data: dict, session_id: str):
                 f"[GUARD] Skipped phantom workflow eval creation for '{workflow_name}' "
                 f"session='{session_id}': completed record already exists at {existing.name}. "
                 f"This was a cowork-hook state.yaml trigger that would have produced steps: []."
+            )
+            return
+
+        # GUARD 2: Check for a still-open (in-progress) turn-level record for
+        # this workflow, regardless of session_id. GUARD 1 alone missed
+        # exactly this case in a real incident (eval-20260828T160656-FE6XZW):
+        # eval-turn-start.py had already opened a genuine turn-level record
+        # for this workflow (eval-20260828T154249-UQX5N6), but it was still
+        # in-progress at the moment this PostToolUse fired — its own Stop
+        # hook (eval-turn-stop.py) didn't finalize it until 14 seconds later.
+        # find_completed_eval_record only matches non-in-progress records, so
+        # it saw nothing to dedupe against and this path went ahead and wrote
+        # a second, phantom "completed" record for the same workflow run.
+        # This is a genuine race between two independent hook triggers
+        # (PostToolUse here vs. the Stop hook that owns finalization) — the
+        # fix is to back off and let the real record finalize on its own
+        # rather than racing it, not to guess/estimate anything here.
+        if open_turn_level_record_exists and open_turn_level_record_exists(workflow_name):
+            log_error(
+                f"[GUARD] Skipped phantom workflow eval creation for '{workflow_name}' "
+                f"session='{session_id}': a turn-level record for this workflow is still "
+                f"in-progress (opened by eval-turn-start.py). Backing off so eval-turn-stop.py "
+                f"can finalize the real record instead of racing it with a duplicate."
             )
             return
 
@@ -826,7 +853,19 @@ def update_eval_record_step_frontmatter(eval_path: Path, file_path: str, content
         log_error(f"Failed to update eval record from step frontmatter: {e}")
 
 def check_error_tracking_write(file_path: str, session_id: str):
-    """Check if this write is to error-tracking and update eval record."""
+    """Check if this write is to error-tracking and update eval record.
+
+    Only correlates the error onto a record that shows genuine evidence of
+    that workflow actually executing this session (non-empty steps[] or
+    subagents[], or a Tier-1 mechanical assessment already recorded). A
+    bare record with none of that — e.g. one opened speculatively by
+    eval-turn-start.py's 'boot-first-prompt-of-session' heuristic, where
+    the workflow it guessed at never actually ran — is not evidence the
+    error has anything to do with that workflow. Blindly stamping
+    status: failure onto whatever in-progress record happens to share this
+    session_id previously turned an unrelated error (from a completely
+    different task running in the same session) into a fabricated boot
+    failure. See err-20260829T161711-3IPMKR."""
     try:
         if "error-tracking/entries" not in file_path:
             return
@@ -840,6 +879,20 @@ def check_error_tracking_write(file_path: str, session_id: str):
 
         with open(eval_path, "r") as f:
             eval_record = json.load(f)
+
+        mechanical = eval_record.get("assessment", {}).get("mechanical", {})
+        has_real_activity = (
+            bool(eval_record.get("steps"))
+            or bool(eval_record.get("subagents"))
+            or mechanical.get("completed") is not None
+        )
+        if not has_real_activity:
+            log_error(
+                f"[INFO] Skipping error correlation of {error_id} onto {eval_record.get('id')} "
+                f"('{eval_record.get('name')}') — record has no steps/subagents/mechanical "
+                "assessment yet, so this error can't be attributed to that workflow"
+            )
+            return
 
         # Add error ID to mechanical assessment
         if error_id not in eval_record["assessment"]["mechanical"]["error_ids"]:
