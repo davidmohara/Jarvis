@@ -1,17 +1,18 @@
 ---
 status: complete
-started-at: 2026-08-28T08:03:07Z
-completed-at: 2026-08-28T08:20:00Z
+started-at: 2026-08-29T08:04:25Z
+completed-at: 2026-08-29T08:20:00Z
 outputs:
   working_archived: 1
   working_deleted: 0
-  working_skipped: 29
+  working_skipped: 34
   working_stranded: 0
-  enrichment_method: "LLM (systems/dream-cycle/llm_tag_extractor.py via claude -p haiku) — claude CLI auth confirmed working in this container this cycle, unlike prior cloud-container runs"
+  enrichment_method: "LLM (systems/dream-cycle/llm_tag_extractor.py via claude -p haiku) — claude CLI auth functional in this container this cycle"
   archived_files:
-    - dream-summary-2026-08-26.md
-  skipped_not_expired:
     - dream-summary-2026-08-27.md
+  skipped_not_expired:
+    - dream-summary-2026-08-28.md
+    - end-of-day-review-2026-08-28-145136.md
     - plaud-ingest-2026-08-27-183100.md
     - shutdown-cleanup-2026-08-27-202000.md
   skipped_unparseable:
@@ -39,11 +40,16 @@ outputs:
     - golf-preview-2026-08-25.md
     - morning-briefing-2026-08-27-163900.md
     - remarkable-upload-2026-07-23-improve-eval.md
+    - rigby-boot-eval-consolidation-2026-08-28.md
+    - rigby-boot-eval-cowork-phantom-2026-08-28.md
+    - rigby-plaud-discover-fix-2026-08-28.md
     - sc-executive-brief-2026-07-13.md
     - slack-notification-golf-booking-20260801.txt
     - solace-meeting-prep-2026-07-27.md
   new_unparseable_this_cycle:
-    - morning-briefing-2026-08-27-163900.md
+    - rigby-boot-eval-consolidation-2026-08-28.md
+    - rigby-boot-eval-cowork-phantom-2026-08-28.md
+    - rigby-plaud-discover-fix-2026-08-28.md
 ---
 
 <!-- system:start -->

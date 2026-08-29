@@ -3,9 +3,9 @@ type: semantic
 domain: operational
 primary-tag: dream-summary
 created: 2026-06-12
-last-updated: 2026-08-28
+last-updated: 2026-08-29
 confidence: high
-synthesized-from: 23
+synthesized-from: 24
   - dream-summary-2026-05-25.md
   - dream-summary-2026-05-31.md
   - dream-summary-2026-05-20.md
@@ -102,6 +102,7 @@ synthesized-from:
   - memory/episodic/dream-summary-2026-06-30.md
   - memory/episodic/dream-summary-2026-06-29.md
   - memory/episodic/dream-summary-2026-08-26.md
+  - memory/episodic/dream-summary-2026-08-27.md
 ---
 # Pattern: Dream Summary
 
@@ -303,3 +304,9 @@ Sources this cycle:
 - `memory/episodic/dream-summary-2026-08-26.md` (score 10) — second consecutive cycle at the 5-entry compression safety threshold with an identical candidate set to 08-27, escalated to David as a real unattended-approval decision point rather than a routine skip; pinpointed the exact root cause of the salience-score.py frontmatter-corruption bug this cluster has been tracking since 08-25 (a trailing-newline slicing bug in the frontmatter-boundary detection that strands the last line of every salience: block, every night, on every file it touches — not legacy/frozen as previously assessed, confirmed by reproducing it live on a file archived minutes earlier in the same run).
 
 Carry-forward triad (Q3 rocks, nerve block, delegation tracker, South Texas revenue gap) remains unresolved across this cluster's evidence — now spanning the 2026-08-25 through 2026-08-28 window with zero movement recorded on any of the four items.
+
+### 2026-08-29 — Nightly promotion
+Sources this cycle:
+- `memory/episodic/dream-summary-2026-08-27.md` (score 10) — clean overnight run; surfaced a new documented-protocol-bypass lesson (Slack/remarkable recovery paths skipped in favor of manual workarounds); FOURTH consecutive cycle at the identical 5-entry compression safety threshold, still unresolved.
+
+Carry-forward triad (Q3 rocks, nerve block, delegation tracker, South Texas revenue gap) remains unresolved across this cluster's evidence — now spanning the 2026-08-25 through 2026-08-29 window with zero movement recorded on any of the four items. The compression-threshold decision point (first surfaced 08-26) has now repeated on four consecutive nights with the same 5-entry candidate set and no controller response — see this cycle's step-04 note.

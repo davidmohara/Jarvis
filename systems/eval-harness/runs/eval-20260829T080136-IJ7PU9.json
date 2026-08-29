@@ -1,0 +1,70 @@
+{
+  "id": "eval-20260829T080136-IJ7PU9",
+  "type": "workflow",
+  "name": "boot",
+  "agent": "master",
+  "session_id": "a2ada446-b2cf-500c-9acd-f255b197f378",
+  "trigger": "boot",
+  "started": "2026-08-29T08:01:36.095152Z",
+  "completed": "2026-08-29T08:04:03.765625",
+  "duration_seconds": null,
+  "status": "aborted",
+  "steps": [],
+  "subagents": [],
+  "monitoring": {
+    "active": true,
+    "state_yaml_path": "workflows/boot/state.yaml",
+    "opened_by": "eval-turn-start.py",
+    "trigger_evidence": "boot-first-prompt-of-session"
+  },
+  "assessment": {
+    "mechanical": {
+      "completed": false,
+      "all_steps_finished": null,
+      "tool_failures": 1,
+      "error_ids": [],
+      "tool_failure_log": [
+        {
+          "tool": "Bash",
+          "error": "Exit code 1\nTraceback (most recent call last):\n  File \"<stdin>\", line 3, in <module>\nModuleNotFoundError: No module named 'systems.dream_cycle'",
+          "duration_ms": 70,
+          "timestamp": "2026-08-29T08:03:27.880059"
+        }
+      ],
+      "abort_reason": "session-ended"
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [
+    "turn-level"
+  ]
+}

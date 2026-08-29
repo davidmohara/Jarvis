@@ -1,15 +1,15 @@
 ---
 status: complete
-started-at: 2026-08-28T08:20:00Z
-completed-at: 2026-08-28T08:23:00Z
+started-at: 2026-08-29T08:20:00Z
+completed-at: 2026-08-29T08:23:00Z
 outputs:
-  episodic_scanned: 293
-  score_updates: 293
+  episodic_scanned: 294
+  score_updates: 294
   no_tags: 206
   no_date: 38
-  score_distribution: "0:207,1:4,2:2,3:6,4:4,5:3,6:4,7:6,8:1,9:1,10:55"
-  window_entries: 59
-  note: "Ran systems/dream-cycle/salience-score.py. read_errors:0, write_errors:0. episodic_scanned rose from 292 to 293, matching the 1 file step-01 archived this cycle. pct_score_0=70.65% and pct_no_date=12.97% both crossed guardrail thresholds again, matching the 08-25 through 08-27 baseline (~70-71%/~13%) — not a fresh regression, same untagged/undated legacy population. pct_no_tags=70.31%, within the expected 70-100% warning band. Checked the known subdirectory-recursion bug (err-20260826T081453-664W53, script uses os.listdir not os.walk so memory/episodic/{meetings,people,projects,decisions,coaching}/ are never scanned): still only 1 file affected (the same decisions/2026-05-27 entry), no new files landed in those subdirs this cycle. Not patched (systems/ is Rigby-gated)."
+  score_distribution: "0:207,1:5,2:3,3:6,4:2,5:7,6:2,7:3,8:3,9:1,10:55"
+  window_entries: 55
+  note: "Ran systems/dream-cycle/salience-score.py. read_errors:0, write_errors:0. episodic_scanned rose from 293 to 294, matching the 1 file step-01 archived this cycle. pct_score_0=70.41% and pct_no_date=12.93% both crossed guardrail thresholds again, matching the 08-25 through 08-28 baseline (~70-71%/~13%) — not a fresh regression, same untagged/undated legacy population. pct_no_tags=70.07%, within the expected 70-100% warning band. Checked the known subdirectory-recursion bug (err-20260826T081453-664W53, script uses os.listdir not os.walk so memory/episodic/{meetings,people,projects,decisions,coaching}/ are never scanned): still only 1 file affected (the same decisions/2026-05-27 entry), no new files landed in those subdirs this cycle. Not patched (systems/ is Rigby-gated)."
 ---
 
 <!-- system:start -->

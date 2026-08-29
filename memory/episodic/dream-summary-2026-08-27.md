@@ -1,12 +1,30 @@
 ---
-type: working
+type: working-archive
 task_id: "session"
 session_id: "jarvis-2026-08-27-030307"
 agent-source: jarvis
 created: 2026-08-27T03:30:00-05:00
 expires: 2026-08-28T03:30:00-05:00
-status: active
+status: archived
 context: "Dream cycle summary — 2026-08-27"
+date: 2026-08-27
+source_file: memory/working/dream-summary-2026-08-27.md
+tags:
+  - dream-summary
+  - jarvis
+  - pipeline
+  - co-sell
+  - revenue
+  - dream-cycle
+  - memory-system
+  - error-patterns
+  - lessons
+  - semantic-promotion
+related_people: []
+salience:
+  score: 10
+  last-promoted-check: 2026-08-29
+  promoted: true
 ---
 
 Dream cycle ran clean overnight. Three working-memory items aged out and moved into permanent memory: the Aug 24 co-sell pipeline snapshot, the Aug 25 dream-cycle summary itself, and the Aug 24 revenue tracker snapshot. All three, plus an older revenue-tracker entry from July 27 that just crossed the promotion threshold, got folded into existing semantic patterns (pipeline-review, dream-summary, revenue-tracker) — nothing new created, just reinforced.

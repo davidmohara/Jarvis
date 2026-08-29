@@ -2307,3 +2307,18 @@ digests_updated: 0
 errors: 0
 summary: "Step-01: 1 archived (dream-summary-2026-08-26, the only expired active working entry -- 2 other recently-written files and today's own dream-summary all have future expires timestamps), 29 skipped (26 unparseable, 1 new this cycle: morning-briefing-2026-08-27-163900, no frontmatter), claude -p auth worked in this container this cycle so LLM tag extraction ran instead of the heuristic fallback. Step-02: scored 293 episodic files via salience-score.py, distribution nearly identical to 08-25 through 08-27 baseline (no regression); known subdirectory-recursion bug (err-20260826T081453-664W53) still limited to the 1 decisions/ file. Step-03: 1 promotion candidate (this cycle's own fresh archive) appended to the existing dream-summary semantic pattern file; while checking candidates, pinpointed the EXACT root cause of the salience-score.py frontmatter-corruption bug tracked since 08-25 -- a trailing-newline slicing bug that strands the last line of every salience: block, every single night, on every file it touches. This overturns the prior assessment that the damage was legacy/frozen: it is active and firing every cycle, and it silently dropped the promoted:true flag from 3 files promoted just last cycle. Worked around it this cycle by checking the entire frontmatter for any promoted:true occurrence rather than trusting only the last salience block. New qualifying 30-day error pattern (tool-misuse/pattern-mismatch, 4 occurrences) appended to LESSONS.md. Step-03b guardrail: pass. Step-04: 5 compression candidates -- identical set for the THIRD consecutive cycle (08-26, 08-27, 08-28). GUARDRAIL 7's unattended-approval gate still can't be satisfied; withheld again. This is the third time this exact decision has been surfaced with no response yet -- flagging to David as the one that most needs an actual answer rather than another silent repeat."
 ---
+## 2026-08-29T03:04:25 CDT
+session_id: dream-cycle-2026-08-29-080425
+working_archived: 1
+working_deleted: 0
+episodic_scanned: 294
+score_updates: 294
+clusters_found: 1
+semantic_created: 0
+semantic_updated: 1
+promoted_entries: 1
+entries_compressed: 0
+digests_updated: 0
+errors: 0
+summary: "Step-01: 1 archived (dream-summary-2026-08-27, the only expired active working entry -- 4 other dated working files and 3 new unparseable rigby-* files from an 08-28 interactive session were held/skipped). Step-02: scored 294 episodic files via salience-score.py, distribution nearly identical to 08-25 through 08-28 baseline (no regression); known subdirectory-recursion bug (err-20260826T081453-664W53) still limited to the 1 decisions/ file. Step-03: 1 promotion candidate (this cycle's own fresh archive) appended to the existing dream-summary semantic pattern file; candidate detection continued scanning full frontmatter for promoted:true given the still-unpatched salience-score.py corruption bug (found and hand-repaired a fresh instance of it on the one file touched this cycle). New qualifying 30-day error pattern (data-accuracy/stale-cache, 3 occurrences -- the recurring 8x OmniFocus false-overdue task plus two plaud-discover false-positive incidents) appended to LESSONS.md. Step-03b guardrail: pass. Step-04: 5 compression candidates -- identical set for the FOURTH consecutive cycle (08-26 through 08-29). GUARDRAIL 7's unattended-approval gate still can't be satisfied; withheld again. This is the fourth consecutive occurrence of this exact unresolved decision with zero controller response recorded across the prior three -- escalated via direct push notification this cycle rather than another silent state.yaml-only surface."
+---

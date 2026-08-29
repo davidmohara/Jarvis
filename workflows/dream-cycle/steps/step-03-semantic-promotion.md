@@ -1,21 +1,21 @@
 ---
 status: complete
-started-at: 2026-08-28T08:23:00Z
-completed-at: 2026-08-28T08:35:00Z
+started-at: 2026-08-29T08:23:00Z
+completed-at: 2026-08-29T08:35:00Z
 outputs:
   candidates_count: 1
   clusters_found: 1
   semantic_created: 0
   semantic_updated: 1
   promoted_entries: 1
-  promotion_note: "1 candidate: dream-summary-2026-08-26.md (score 10), this cycle's own step-01 archive. Candidate detection required scanning the ENTIRE frontmatter for any 'promoted: true' occurrence rather than trusting only the rightmost salience: block (the method prior cycles documented) -- discovered mid-cycle that the rightmost-block-only method would have been fooled by an active bug (see err-20260828T081109-J571BH) and wrongly re-flagged 3 already-promoted 08-27 files (co-sell-pipeline-2026-08-24-001532.md, dream-summary-2026-08-25.md, revenue-tracker-2026-08-24-002000.md) as fresh candidates. Clustered by dominant tag 'dream-summary' -> memory/semantic/operational/2026-06-12-dream-summary-pattern.md (same file used every prior cycle, confidence held at high/unchanged). Zero new semantic files created. Set salience.promoted:true on the 1 source episodic file via a direct, hand-verified string replace (not the buggy script) to avoid contributing a fresh instance of the corruption documented in J571BH."
+  promotion_note: "1 candidate: dream-summary-2026-08-27.md (score 10), this cycle's own step-01 archive. Continued the post-J571BH candidate-detection workaround: scanned the ENTIRE frontmatter of every episodic file for any 'promoted: true' occurrence (232 of 296 files with a salience block already carry it) rather than trusting only the rightmost salience: block. Clustered by dominant tag 'dream-summary' -> memory/semantic/operational/2026-06-12-dream-summary-pattern.md (same file used every prior cycle, confidence held at high/unchanged). Zero new semantic files created. Found this file's own fresh instance of the J571BH trailing-newline corruption (an orphaned '  score: 0' line) and hand-repaired it while setting salience.promoted:true via direct edit, not the buggy script."
   cluster_actions:
     - {tag: dream-summary, domain: operational, size: 1, action: update, target: memory/semantic/operational/2026-06-12-dream-summary-pattern.md, confidence: "high (unchanged)"}
-  error_categories_30d: "process-skip/protocol-skip:8, assumption-error/wrong-assumption:7, tool-misuse/tool-ignorance:4, tool-misuse/protocol-skip:4, tool-misuse/pattern-mismatch:4, missed-context/lazy-search:3, tool-misuse/wrong-assumption:3, lazy-search/available-data-not-used:3"
+  error_categories_30d: "process-skip/protocol-skip:8, assumption-error/wrong-assumption:8, tool-misuse/protocol-skip:5, tool-misuse/tool-ignorance:4, tool-misuse/pattern-mismatch:4, data-accuracy/stale-cache:3, missed-context/lazy-search:3, tool-misuse/wrong-assumption:3, lazy-search/available-data-not-used:3"
   error_total_30d: 93
   error_malformed_30d: 4
   lessons_appended: 1
-  lessons_note: "7 of 8 qualifying categories (3+ occurrences in 30d) already documented and active in LESSONS.md. One new pattern crossed the threshold this cycle: tool-misuse/pattern-mismatch (4 occurrences -- the 3-cycle salience-score.py corruption investigation chain APAWBB/NBGENM/J571BH, plus 08-27's guardrail-checkpoint.py mismatch 8HOA70). Appended a new entry to LESSONS.md (2026-08-28 — Tool Misuse / Pattern Mismatch). 4 error entries with null category/failure_mode remain flagged for Rigby as malformed records (unchanged pattern from prior cycles)."
+  lessons_note: "8 of 9 qualifying categories (3+ occurrences in 30d) already documented and active in LESSONS.md. One new pattern crossed the threshold this cycle: data-accuracy/stale-cache (3 occurrences -- the recurring 8x OmniFocus false-overdue task RPYWHB, plus the two plaud-discover false-positive new-recording-count incidents QQMBTP/814VN9). Appended a new entry to LESSONS.md (2026-08-29 — Data Accuracy / Stale Cache). 4 error entries with null category/failure_mode remain flagged for Rigby as malformed records (unchanged pattern from prior cycles)."
 ---
 
 <!-- system:start -->

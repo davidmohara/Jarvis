@@ -14,9 +14,10 @@ agent-source: rigby
   last-promoted-check: 2026-08-25
   last-promoted-check: 2026-08-26
   last-promoted-check: 2026-08-27
+  last-promoted-check: 2026-08-28
 salience:
   score: 1
-  last-promoted-check: 2026-08-28
+  last-promoted-check: 2026-08-29
 ---
 
 ## Error Improvement Cycle — March to August 2026 Baseline

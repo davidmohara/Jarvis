@@ -1,12 +1,73 @@
 workflow: dream-cycle
 agent: jarvis
 status: complete
-session-started: 2026-08-28T08:03:07Z
-session-id: dream-cycle-2026-08-28-080307
+session-started: 2026-08-29T08:04:25Z
+session-id: dream-cycle-2026-08-29-080425
 current-step: null
 original-request: "Execute dream-cycle workflow for today (scheduled task)"
-last-successful-run: 2026-08-28T08:20:00Z
+last-successful-run: 2026-08-29T08:40:00Z
 accumulated-context:
+  step-01-2026-08-29:
+    working_archived: 1
+    working_deleted: 0
+    working_skipped: 34
+    working_stranded: 0
+    enrichment_method: "LLM (systems/dream-cycle/llm_tag_extractor.py via claude -p haiku) — claude CLI auth functional in this container this cycle"
+    archived_files:
+      - dream-summary-2026-08-27.md
+    skipped_not_expired:
+      - dream-summary-2026-08-28.md
+      - end-of-day-review-2026-08-28-145136.md
+      - plaud-ingest-2026-08-27-183100.md
+      - shutdown-cleanup-2026-08-27-202000.md
+    skipped_unparseable_count: 30
+    new_unparseable_this_cycle:
+      - rigby-boot-eval-consolidation-2026-08-28.md
+      - rigby-boot-eval-cowork-phantom-2026-08-28.md
+      - rigby-plaud-discover-fix-2026-08-28.md
+    stranded: []
+    note: "5 new working files landed since the 08-28 cycle from an interactive session on 08-28 (dream-summary-2026-08-28, end-of-day-review-2026-08-28-145136, rigby-boot-eval-consolidation-2026-08-28, rigby-boot-eval-cowork-phantom-2026-08-28, rigby-plaud-discover-fix-2026-08-28). The 3 rigby-* files carry no expires/status frontmatter at all and joined the unparseable pool; direct recount of every file currently in memory/working/ (not carried forward from the prior cycle's own count, which undercounted by 1 -- 08-28's entry logged skipped_unparseable_count:26 despite adding a new file to a 26-strong 08-27 baseline, which should have summed to 27) puts the true unparseable total at 30 (25 baseline through 08-26 + golf-preview-2026-08-25 + morning-briefing-2026-08-27-163900 + these 3 new). Only 1 genuine archive candidate this cycle (dream-summary-2026-08-27.md, expires 2026-08-28 < today 2026-08-29); the other 4 dated files (dream-summary-2026-08-28, end-of-day-review-2026-08-28, plaud-ingest-2026-08-27, shutdown-cleanup-2026-08-27) all carry expires dated today-2026-08-29 or later and were correctly held back another cycle."
+  step-04-2026-08-29:
+    candidates_count: 5
+    entries_compressed: 0
+    digests_updated: 0
+    compression_skipped: true
+    compression_skip_reason: "FOURTH consecutive cycle (08-26, 08-27, 08-28, 08-29) at the identical 5-candidate set. GUARDRAIL 7's controller-approval gate still can't be satisfied unattended. Withheld again. Zero response across three prior escalations (08-26, 08-27, 08-28) -- pushing a direct notification this cycle instead of a fourth silent state.yaml-only escalation."
+    compression_preview:
+      - {date: "2026-04-30", file: "2026-04-30-dream-cycle-summary.md", type: working-archive, score: 0}
+      - {date: "2026-05-04", file: "2026-05-04-dream-cycle-summary.md", type: working-archive, score: 0}
+      - {date: "2026-05-08", file: "2026-05-08-session-index-build.md", type: episodic, score: 0}
+      - {date: "2026-05-15", file: "2026-05-15-dream-cycle-summary.md", type: working-archive, score: 0}
+      - {date: "2026-05-27", file: "decisions/2026-05-27-185930-decision-rationale-error-improvement-2026-03-21-to-2026-05-27.md", type: decision-rationale, score: 0, note: "salience frozen since 2026-07-25 -- subdirectory-recursion bug err-20260826T081453-664W53, unchanged"}
+    controller_decision: null
+  step-03b-2026-08-29:
+    result: pass
+    reason: "5 compression candidates, identical set for the FOURTH consecutive cycle (08-26 through 08-29); the 1 entry promoted this cycle correctly excluded; step-03's write was substantive, not a stub."
+  step-03-2026-08-29:
+    candidates_count: 1
+    clusters_found: 1
+    semantic_created: 0
+    semantic_updated: 1
+    promoted_entries: 1
+    cluster_actions:
+      - {tag: dream-summary, domain: operational, size: 1, action: update, target: memory/semantic/operational/2026-06-12-dream-summary-pattern.md, confidence: "high (unchanged)"}
+    candidate_detection_note: "Continued the post-J571BH workaround: scanned the ENTIRE frontmatter of every episodic file (not just the rightmost salience: block) for any 'promoted: true' occurrence before treating a score>=3 file as a fresh candidate. 232 of 296 files with a salience block already carry a promoted:true marker somewhere in frontmatter; this correctly excluded all of them, leaving 1 genuine new candidate (this cycle's own step-01 archive, dream-summary-2026-08-27.md, score 10). Also found and hand-repaired this one file's own instance of the trailing-newline corruption (an orphaned '  score: 0' line stranded between related_people and the fresh salience: block, matching J571BH's mechanism exactly) while setting promoted:true directly via edit rather than re-running the buggy script -- same approach 08-28 used. Script itself still not patched (systems/ is Rigby-gated)."
+    error_categories_30d: "process-skip/protocol-skip:8, assumption-error/wrong-assumption:8, tool-misuse/protocol-skip:5, tool-misuse/tool-ignorance:4, tool-misuse/pattern-mismatch:4, data-accuracy/stale-cache:3, missed-context/lazy-search:3, tool-misuse/wrong-assumption:3, lazy-search/available-data-not-used:3"
+    error_total_30d: 93
+    error_malformed_30d: 4
+    lessons_appended: 1
+    lessons_note: "New pattern data-accuracy/stale-cache crossed the 3-occurrence threshold this cycle (RPYWHB's recurring OmniFocus 'nerve-modulating drugs' false-overdue -- 8th occurrence -- plus the two plaud-discover false-positive incidents QQMBTP/814VN9) and was not yet in LESSONS.md; appended. All other 8 qualifying categories already documented from prior cycles."
+    semantic_duplication_note: "Appended to the single existing dream-summary-pattern.md file, consistent with established practice. Did not attempt to fix that file's own pre-existing frontmatter corruption (duplicate 'synthesized-from:' keys), out of scope."
+  step-02-2026-08-29:
+    episodic_scanned: 294
+    score_updates: 294
+    window_entries: 55
+    no_date: 38
+    no_tags: 206
+    score_distribution: "0:207,1:5,2:3,3:6,4:2,5:7,6:2,7:3,8:3,9:1,10:55"
+    read_errors: 0
+    write_errors: 0
+    note: "pct_score_0=70.41% and pct_no_date=12.93% both crossed escalation thresholds again but match the 08-25/08-28 baseline almost exactly -- legacy population, not a new regression. pct_no_tags=70.07% within expected warning band. Subdirectory-recursion bug (err-20260826T081453-664W53) unchanged: still only the 1 decisions/ file affected, no new subdirectory entries this cycle."
   step-01-2026-08-28:
     working_archived: 1
     working_deleted: 0
@@ -275,37 +336,40 @@ guardrails:
     - {date: "2026-08-26", archived: 0}
     - {date: "2026-08-27", archived: 3}
     - {date: "2026-08-28", archived: 1}
+    - {date: "2026-08-29", archived: 1}
   promotion_history:
     - {date: "2026-08-26", promoted: 14, candidates_found: 14}
     - {date: "2026-08-27", promoted: 4, candidates_found: 4}
     - {date: "2026-08-28", promoted: 1, candidates_found: 1}
+    - {date: "2026-08-29", promoted: 1, candidates_found: 1}
   compression_history:
     - {date: "2026-08-26", candidates_found: 5, compressed: 0}
     - {date: "2026-08-27", candidates_found: 5, compressed: 0}
     - {date: "2026-08-28", candidates_found: 5, compressed: 0}
+    - {date: "2026-08-29", candidates_found: 5, compressed: 0}
   archive_safety:
     spot_check_passed: true
     recent_edits_archived: 0
     recently_modified_files: []
   archival_balance:
     archival_rate: 1
-    avg_rate_30d: 1.5
-    balance_check: "pass — 1 archived this cycle (2,0,3,1 across last 4 cycles, avg 1.5), well within normal range, no anomaly."
+    avg_rate_30d: 1.4
+    balance_check: "pass — 1 archived this cycle (0,3,1,1 across last 4 cycles, avg 1.4), well within normal range, no anomaly."
   score_distribution:
-    pct_score_0: 70.65
-    pct_score_10: 18.77
-    distribution_check: "escalated — pct_score_0=70.65% (>=70 threshold), matches 08-25 through 08-27 baseline (~70-71.6%) almost exactly. Not a fresh regression. Surfacing for controller awareness, not blocking."
+    pct_score_0: 70.41
+    pct_score_10: 18.71
+    distribution_check: "escalated — pct_score_0=70.41% (>=70 threshold), matches 08-25 through 08-28 baseline (~70-71.6%) almost exactly. Not a fresh regression. Surfacing for controller awareness, not blocking."
     controller_decision: null
   metadata_quality:
-    pct_no_date: 12.97
-    pct_no_tags: 70.31
-    metadata_check: "escalated — pct_no_date=12.97% (>10% threshold), matches 08-25 through 08-27 baseline. pct_no_tags=70.31% within the 'expected for recently archived, monitor for drift' warning band, not escalated alone."
+    pct_no_date: 12.93
+    pct_no_tags: 70.07
+    metadata_check: "escalated — pct_no_date=12.93% (>10% threshold), matches 08-25 through 08-28 baseline. pct_no_tags=70.07% within the 'expected for recently archived, monitor for drift' warning band, not escalated alone."
     audit_notes: "Same legacy untagged/undated population as prior cycles driving both metrics — no new degradation this cycle."
   promotion_threshold:
     threshold: 3
     candidates_found: 1
     promoted: 1
-    last_4_cycles_promoted: 19
+    last_4_cycles_promoted: 20
     threshold_check: "pass"
     controller_decision: null
   semantic_duplication:
@@ -317,18 +381,18 @@ guardrails:
     last_12_cycles_candidates: 5
     last_12_cycles_compressed: 0
     avg_per_cycle: 0
-    threshold_check: "escalated — THIRD consecutive cycle at the 5-candidate safety threshold (08-26, 08-27, and 08-28, identical candidate set all three times) with GUARDRAIL 7's controller-approval gate unable to be satisfied in an unattended run. This has now gone from a structural tension worth flagging to a design gap that needs David's explicit call: either approve this exact 5-entry batch once (unblocking it and future batches that clear the threshold), tell Jarvis to lower the safety threshold, or accept that compression will never fire under the current unattended-approval design. Two prior cycles already surfaced this once each; repeating a third time without an answer risks this becoming background noise David tunes out — recommend treating this cycle's notification as the one that needs an actual response."
+    threshold_check: "escalated — FOURTH consecutive cycle at the 5-candidate safety threshold (08-26 through 08-29, identical candidate set all four times) with GUARDRAIL 7's controller-approval gate unable to be satisfied in an unattended run. Three prior cycles already surfaced this once each in state.yaml/dream-summary notes with zero controller response recorded (all controller_decision fields still null). This cycle escalates via a direct push notification rather than a fourth silent write-only surface, per the standing instruction that a repeated unanswered escalation risks becoming background noise."
     controller_decision: null
   compression_preview:
     preview_shown: true
     controller_approved: null
-    note: "Same 5-entry preview as 08-26/08-27 (accumulated-context.step-04-2026-08-26.compression_preview), unchanged: 2026-04-30/05-04/05-15 dream-cycle-summary entries, 2026-05-08 session-index-build, and the 2026-05-27 decisions/ entry (frozen score due to the known subdirectory-recursion bug). Recorded again in memory/working/dream-summary-2026-08-28.md for David to review. Nothing deleted pending his decision."
+    note: "Same 5-entry preview as 08-26/08-27/08-28 (accumulated-context.step-04-2026-08-26.compression_preview), unchanged: 2026-04-30/05-04/05-15 dream-cycle-summary entries, 2026-05-08 session-index-build, and the 2026-05-27 decisions/ entry (frozen score due to the known subdirectory-recursion bug). Recorded again in memory/working/dream-summary-2026-08-29.md for David to review. Nothing deleted pending his decision. Push notification sent this cycle given the fourth-consecutive unanswered escalation."
   git_atomicity:
     pre_commit_check: "pass"
     dream_log_valid: true
     state_file_valid: true
     commit_status: "success"
-    commit_sha: "8874d45"
-    push_status: "success"
+    commit_sha: "PENDING"
+    push_status: "pending"
     atomicity_check: "pass"
-    note: "Ran in this cloud container via Bash directly (no Desktop Commander in this session, confirmed unavailable). Already on main branch (moved off an initial detached HEAD earlier this session, fast-forwarded 38 commits behind origin/main before starting the workflow). Commands issued one per call per skills/git/SKILL.md's atomic-command rule; commit_sha filled in after the actual commit below."
+    note: "Ran in this cloud container via Bash directly (no Desktop Commander in this session, confirmed unavailable via ToolSearch). Already on main branch (moved off an initial detached HEAD earlier this session, fast-forwarded 46 commits behind origin/main before starting the workflow). Commands issued one per call per skills/git/SKILL.md's atomic-command rule; commit_sha filled in after the actual commit below."

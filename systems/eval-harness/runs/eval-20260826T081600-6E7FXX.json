@@ -149,6 +149,14 @@
       "reason": "5 compression candidates, identical set to 08-26/08-27 (third consecutive cycle); the 1 promoted entry this cycle correctly excluded; step-03 write was a substantive evidence append, not a stub",
       "escalated_to_human": false,
       "timestamp": "2026-08-28T08:14:13.638197+00:00"
+    },
+    {
+      "name": "pre-deletion-review",
+      "after_step": "step-03-semantic-promotion",
+      "result": "pass",
+      "reason": "5 compression candidates, identical set for the FOURTH consecutive cycle (08-26 through 08-29); the 1 entry promoted this cycle correctly excluded; step-03's write was substantive, not a stub",
+      "escalated_to_human": false,
+      "timestamp": "2026-08-29T08:09:22.089240+00:00"
     }
   ]
 }
