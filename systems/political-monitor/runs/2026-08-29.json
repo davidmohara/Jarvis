@@ -1,0 +1,329 @@
+{
+  "date": "2026-08-29",
+  "generated": "2026-08-29T06:00:00Z",
+  "window_hours": 72,
+  "counts": {
+    "total_items": 57,
+    "by_lean": { "left": 30, "right": 22, "center": 2 },
+    "shared_topics": 6,
+    "gap_left": 6,
+    "gap_right": 6
+  },
+  "sources_used": [
+    "msnbc", "cnn", "nbc", "thehill", "axios", "thedailybeast", "slate", "newrepublic",
+    "foxnews", "natreview", "examiner", "federalist", "dailywire", "breitbart", "townhall",
+    "rcp", "amconserv", "spectator", "freepress"
+  ],
+  "sources_muted": [
+    { "id": "nyt", "name": "New York Times", "reason": "accessible: false (paywalled)" },
+    { "id": "wapo", "name": "Washington Post", "reason": "accessible: false (paywalled)" },
+    { "id": "politico", "name": "Politico", "reason": "accessible: false" },
+    { "id": "vox", "name": "Vox Politics", "reason": "accessible: false" },
+    { "id": "motherjones", "name": "Mother Jones", "reason": "accessible: false (blocked)" },
+    { "id": "reuters", "name": "Reuters Politics", "reason": "accessible: false (blocked)" },
+    { "id": "ap", "name": "Associated Press", "reason": "accessible: false" },
+    { "id": "bbc", "name": "BBC US & Canada", "reason": "accessible: false" },
+    { "id": "wsj_opinion", "name": "WSJ Opinion", "reason": "accessible: false (paywalled)" },
+    { "id": "nypost", "name": "New York Post", "reason": "accessible: false" }
+  ],
+  "shared_topics": [
+    {
+      "topic_key": "trump-canada-tariffs-trade-war-midterms",
+      "title": "US-Canada Trade War Escalates: 50% Tariffs, Collapsed Talks, Political Fallout",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "summary": "Trade talks between the US and Canada collapsed on August 21 after PM Mark Carney said the US demanded too much and offered too little, triggering 50% US tariffs on ~$20 billion in Canadian goods and retaliatory Canadian duties on US steel, dairy, electronics and other products set to begin September 8. Trump subsequently threatened to double tariffs on Canadian autos to 50% starting January. The escalation has rattled Republican Senate incumbents in border states like Maine and Michigan with just 10 weeks to Election Day.",
+      "left": {
+        "framing": "Left outlets frame the trade war as a self-inflicted political wound and economic harm for American consumers. CNN, Slate, and The Hill emphasize the damage to Republican Senate prospects in border states, with Slate arguing the tariffs could hand Democrats the Senate. Axios notes Republican consumer sentiment fell 9.5 points in August — one of the largest monthly drops on record. The Hill and NBC cover Canada's retaliatory tariffs as inevitable blowback from an impulsive policy.",
+        "sources": [
+          { "name": "CNN: Republicans furious Trump revived tariff drama", "url": "https://www.cnn.com/2026/08/26/politics/republicans-trump-tariffs-midterms" },
+          { "name": "Slate: Trade war could hand Democrats the Senate", "url": "https://slate.com/news-and-politics/2026/08/trump-collins-rogers-senate-canada-ontario.html" },
+          { "name": "NBC: Canada suspends trade talks, 50% tariffs in motion", "url": "https://www.nbcnews.com/business/economy/trump-canada-tariffs-carney-rcna593510" }
+        ]
+      },
+      "right": {
+        "framing": "National Review's editorial board broke with Trump, calling the Canada tariffs 'absurd' and economically self-defeating. The Washington Examiner notes the political complications for GOP Senate candidates without endorsing the tariff policy. Most right outlets, however, focus less on the economic merits and more on framing Canada as an uncooperative trading partner or shifting attention to Democratic vulnerabilities.",
+        "sources": [
+          { "name": "National Review: Trump's Absurd Trade War", "url": "https://www.nationalreview.com/2026/08/the-week-trumps-absurd-trade-war/" },
+          { "name": "Washington Examiner: Midterm countdown, Republicans get glimmer of hope", "url": "https://www.washingtonexaminer.com/news/campaigns/congressional/4673621/midterm-countdown-august-2026/" },
+          { "name": "RealClearPolitics: Polling Minute — Democrats Surge", "url": "https://www.realclearpolitics.com/video/2026/08/16/rcp_polling_minute_2026_midterms-_democrats_surge_senate_battle_tightens.html" }
+        ]
+      },
+      "correlation": 42,
+      "correlation_label": "Both acknowledge economic and political damage; diverge sharply on who bears responsibility and how severe the harm is."
+    },
+    {
+      "topic_key": "2026-midterms-dsa-insurgency-primaries",
+      "title": "2026 Midterm Primaries: DSA Wave vs. Democratic Establishment",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "summary": "The 2026 primary season concluded its major contests with a series of DSA-aligned candidates defeating establishment Democrats. Abdul El-Sayed won Michigan's Democratic Senate primary by ~1 point over Rep. Haley Stevens despite AIPAC spending $30M against him; Darializa Avila Chevalier ousted the Congressional Hispanic Caucus chair in New York; Melat Kiros beat Rep. Diana DeGette in Colorado; Angie Nixon defeated Alexander Vindman in Florida's Democratic Senate primary. The Democratic establishment scored one key win: David Crowley defeated DSA-backed Francesca Hong in Wisconsin's gubernatorial primary. On the Republican side, Trump-endorsed Darline Graham won the South Carolina Senate runoff.",
+      "left": {
+        "framing": "Left outlets treat the DSA wave as a sign of genuine democratic energy and voter rejection of the status quo. CNN and NBC cover El-Sayed's win as a historic milestone for progressive politics, noting that grassroots organizing overcame massive institutional spending. The Hill and Axios frame the tension between establishment and insurgent as a natural party evolution with uncertain November implications.",
+        "sources": [
+          { "name": "CNN: Darializa Avila Chevalier's strategy for Congress", "url": "https://www.cnn.com/2026/08/24/politics/darializa-avila-chevalier-democrats-congress" },
+          { "name": "NBC: Progressives score primary wins", "url": "https://www.nbcnews.com/politics/trump-administration/live-blog/trump-michigan-el-sayed-2026-election-congress-iran-live-updates-rcna590889" },
+          { "name": "The Free Press: Why Abdul El-Sayed Won", "url": "https://www.thefp.com/p/why-abdul-el-sayed-won" }
+        ]
+      },
+      "right": {
+        "framing": "Right outlets frame the DSA wave as dangerous radicalization that could help Republicans despite the unfavorable environment. Fox News emphasizes the establishment's partial resistance (Crowley over Hong in Wisconsin) as evidence Democratic voters have limits. Breitbart and Daily Wire focus on DSA ties to socialism and foreign influence, arguing the party is being captured by an extreme fringe. RealClearPolitics argues if Republicans can frame November as 'capitalism vs. socialism,' they can overcome Trump's unpopularity.",
+        "sources": [
+          { "name": "Fox News: Dem establishment scores win as Crowley defeats socialist Hong", "url": "https://www.foxnews.com/live-news/primary-elections-2026-minnesota-connecticut-vermont-wisconsin-south-carolina-alabama" },
+          { "name": "Breitbart: AOC back in DSA, socialist wave looks ahead to 2028", "url": "https://www.breitbart.com/politics/2026/08/27/aoc-back-dsa-democratic-socialists-look-ahead-2028/" },
+          { "name": "RCP: If Election is 'Capitalism vs. Socialism', GOP Wins", "url": "https://www.realclearpolitics.com/2026/08/28/if_election_is_capitalism_vs_socialism_gop_wins_709342.html" }
+        ]
+      },
+      "correlation": 38,
+      "correlation_label": "Both report the same primary results; framing diverges sharply — left sees democratic renewal, right sees dangerous radicalization."
+    },
+    {
+      "topic_key": "aoc-dsa-rejoins-2028-presidential-speculation",
+      "title": "AOC Rejoins DSA, Fueling 2028 Presidential Speculation",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "summary": "Rep. Alexandria Ocasio-Cortez formally rejoined the Democratic Socialists of America on August 27, ending a 7-year lapse in membership. The move coincides with new polling showing her leading the 2028 Democratic presidential field at 19%, ahead of Georgia Sen. Jon Ossoff at 17% and California Gov. Gavin Newsom at 13%. AOC has left open the possibility of a 2028 presidential run or a primary challenge to Senate Minority Leader Chuck Schumer. The DSA's internal debate over whether to endorse her has triggered infighting within the organization.",
+      "left": {
+        "framing": "Left outlets treat AOC's DSA return as a savvy political move that consolidates her base ahead of a 2028 decision. The Daily Beast frames her 2028 poll lead as a 'surprise' that reflects a genuine leftward shift in the party. Axios covers her re-branding of democratic socialism — distancing from 'Woke 1' cultural positions toward populist economics — as a sophisticated political evolution. The Hill focuses on the DSA's internal divisions over endorsing her.",
+        "sources": [
+          { "name": "Daily Beast: Surprise Dem Rockets Into 2028 Presidential Lead", "url": "https://www.thedailybeast.com/surprise-dem-rockets-into-2028-presidential-lead/" },
+          { "name": "Axios: AOC seeks do-over on 2020-era rhetoric", "url": "https://www.axios.com/2026/08/12/aoc-democratic-socialists-2028" },
+          { "name": "The Hill: AOC may face balancing act with democratic socialists", "url": "https://thehill.com/homenews/campaign/6009035-aoc-democratic-socialist-endorsement/" }
+        ]
+      },
+      "right": {
+        "framing": "Right outlets treat AOC's DSA return as confirmation that the Democratic Party is being taken over by socialists, with Breitbart and Fox framing it as a direct threat to American values. The Washington Examiner scrutinizes her 7-year lapse, calling the timing 'very convenient.' National Review sees it as a soft-launch for a 2028 presidential bid. The Federalist links her return to a broader Marxist-Islamist alliance it claims the DSA enables.",
+        "sources": [
+          { "name": "Breitbart: Alexandria Ocasio-Cortez Formally Resumes Membership in DSA", "url": "https://www.breitbart.com/politics/2026/08/27/aoc-back-dsa-democratic-socialists-look-ahead-2028/" },
+          { "name": "Fox News: Democratic socialists erupt over 2028 endorsement as AOC speculation grows", "url": "https://www.foxnews.com/politics/democratic-socialist-party-infighting-erupts-pick-president-aoc-rumors-loom-dangerous-path" },
+          { "name": "Washington Examiner: AOC rejoins DSA as 2028 speculation grows", "url": "https://www.washingtonexaminer.com/news/campaigns/presidential/4701610/aoc-rejoins-democratic-socialists-2028-after-lapsed-membership-since-2019/" }
+        ]
+      },
+      "correlation": 30,
+      "correlation_label": "Agreement on the fact of her DSA return; sharply divergent narratives on whether this signals democratic vitality or dangerous radicalism."
+    },
+    {
+      "topic_key": "iran-war-six-months-hormuz-economic-outcast",
+      "title": "Iran War at 6 Months: Hormuz Corridor Talks, 'Operation Economic Outcast' Sanctions",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "summary": "President Trump's military campaign against Iran passed its six-month mark with original war goals — complete Iranian surrender, regime change, nuclear abandonment — largely unmet. The administration relaunched diplomatic pressure via 'Operation Economic Outcast,' with Treasury Secretary Bessent warning all nations to sever economic ties with Iran or face US sanctions. Separately, Iran and Oman outlined a proposal for a temporary shipping corridor through the Strait of Hormuz. VP Vance relayed an Iranian signal that they have 'no plans to toll' the strait. Saudi Arabia, Turkey, and Pakistan signed a mutual defense pact in the region.",
+      "left": {
+        "framing": "CNN frames the six-month anniversary as a moment of reckoning, with Trump's shifting goalposts and regional instability risking crises far beyond the Middle East. The American Conservative, while right-leaning, joins in skepticism about whether 'Economic D-Day' sanctions will work. Left outlets emphasize the political cost — with Ossoff and Senate Democrats framing the war as Trump's most significant failure.",
+        "sources": [
+          { "name": "CNN: Six months on, Trump's Iran excursion risks igniting crises far beyond the Middle East", "url": "https://www.cnn.com/2026/08/28/world/donald-trump-iran-ukraine-korea" },
+          { "name": "CNN: US threatens sanctions on countries that don't cut ties to Tehran", "url": "https://www.cnn.com/2026/08/24/world/live-news/iran-war-trump" },
+          { "name": "Washington Examiner: Trump lets six-month anniversary pass with little fanfare", "url": "https://www.washingtonexaminer.com/news/white-house/4704269/trump-six-months-iran-war-little-fanfare/" }
+        ]
+      },
+      "right": {
+        "framing": "Fox News frames the Hormuz corridor talks and Iranian signals as diplomatic progress, highlighting the Vance communication and oil price dips as evidence of effective pressure. Right outlets largely support the 'Operation Economic Outcast' sanctions campaign as the correct strategic escalation. The American Conservative is a notable exception, questioning whether the strategy can succeed. Breitbart and the Washington Examiner largely defer to the administration's framing of slow but steady progress.",
+        "sources": [
+          { "name": "Fox News: Strait of Hormuz deal inches closer as oil prices dip", "url": "https://www.foxnews.com/live-news/iran-war-us-strait-hormuz-china-economic-tensions-08-26-26" },
+          { "name": "Fox News: Vance says Iran has told US it has no plans to toll Strait of Hormuz", "url": "https://www.foxnews.com/live-news/iran-war-us-trump-strait-of-hormuz-08-08-2026" },
+          { "name": "TAC: Why Economic D-Day Probably Won't Work", "url": "https://www.theamericanconservative.com/tac-right-now-why-economic-d-day-probably-wont-work/" }
+        ]
+      },
+      "correlation": 35,
+      "correlation_label": "Both acknowledge the six-month mark and ongoing sanctions pressure; diverge sharply on whether the war strategy is succeeding or failing."
+    },
+    {
+      "topic_key": "economy-jobs-inflation-stagflation-tariffs-fed",
+      "title": "Economy: Weak Jobs, Stubborn Inflation, and Fed at Jackson Hole",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "summary": "August economic data painted a stagflationary picture: CPI rose 2.9% year-over-year (highest since January), core inflation hit 3.1%, and the US added only 22,000 jobs — well below expectations. BLS data also indicated payroll jobs will be revised down by 79,000 for the April 2025–March 2026 period. At the Jackson Hole conference, Fed Chair Kevin Warsh declined to signal rate cuts while calling inflation 'concerning.' Republican consumer sentiment fell 9.5 points in a single month. Economists attribute the pressure to tariffs, the ongoing Iran war, and AI infrastructure spending.",
+      "left": {
+        "framing": "CNN and NBC frame the economic data as evidence that Trump's tariff and war policies are producing genuine stagflation risk, not just headline noise. CNN's Jackson Hole coverage emphasizes Warsh's inability to reassure markets. Left outlets tie the economic deterioration directly to midterm consequences, noting that the Democratic advantage on cost-of-living issues has widened by 8 points in August polling.",
+        "sources": [
+          { "name": "CNN: How the weak jobs report could make inflation harder to manage", "url": "https://www.cnn.com/2026/08/08/business/jobs-report-fed-warsh-inflation" },
+          { "name": "NBC: July 2026 CPI report — Inflation remained stubborn", "url": "https://www.nbcnews.com/business/economy/cpi-inflation-july-2026-rcna591698" },
+          { "name": "CNN: Fed Chairman Warsh calls inflation concerning at Jackson Hole", "url": "https://www.cnn.com/2026/08/28/business/fed-chairman-kevin-warsh-jackson-hole" }
+        ]
+      },
+      "right": {
+        "framing": "The Washington Examiner acknowledges the payroll revision downward and notes the Fed's difficult position, but frames the data as a challenge requiring supply-side solutions rather than evidence of policy failure. The American Spectator highlights Trump administration wins (Artemis, Space Academy) as economic bright spots that counter the narrative. Right outlets generally attribute inflation to structural post-pandemic forces and war spending rather than tariffs.",
+        "sources": [
+          { "name": "Washington Examiner: Payroll jobs estimate likely revised down 79,000", "url": "https://www.washingtonexaminer.com/news/4703969/payroll-jobs-revised-down-79000-bureau-labor-statistics/" },
+          { "name": "Washington Examiner: Fed rate hikes likely even with weakening jobs outlook", "url": "https://www.washingtonexaminer.com/policy/finance-and-economy/4681972/fed-rate-hikes-likely-weakening-jobs-outlook-inflation-unemployment/" },
+          { "name": "The American Spectator: Team Trump Is Touting Its Wins", "url": "https://spectator.org/team-trump-is-touting-its-wins-as-it-should/" }
+        ]
+      },
+      "correlation": 48,
+      "correlation_label": "Both acknowledge the same weak data points; diverge on whether tariffs and the Iran war are the primary cause versus structural economic forces."
+    },
+    {
+      "topic_key": "trump-mail-ballot-usps-rule-election-integrity",
+      "title": "Trump's Mail-Ballot USPS Rule: Election Integrity Fight or Voter Suppression?",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "summary": "The Trump administration's proposed rule requiring USPS to review outgoing mail-ballot envelopes for compliance with federal standards before accepting them advanced after a federal judge allowed it to proceed temporarily. Over 20 Democratic-led states filed suit to block the rule. Justice Ketanji Brown Jackson issued a solo dissent when the Supreme Court declined to immediately halt it. Separately, the DOJ announced it will deploy approximately 1,000 election monitors nationwide for November, nearly quadrupling the 2022 count. A Honduran national was charged with illegally registering to vote in California, an example right outlets cited in context of election integrity concerns.",
+      "left": {
+        "framing": "Left outlets unanimously frame the USPS mail-ballot rule as an unprecedented and unconstitutional federal takeover of state election administration designed to suppress Democratic-leaning mail voters. The New Republic calls it 'dangerous' and applauds the multi-state lawsuit. Slate highlights Justice Jackson's dissent as a clarifying document on what the Court is permitting. Axios frames Trump as 'pulling every lever' to reshape elections, linking the USPS rule to the SAVE Act and voter-roll purges as a coordinated suppression effort.",
+        "sources": [
+          { "name": "New Republic: Half the Country Sues to Stop Trump's USPS Mail Ballot Rule", "url": "https://newrepublic.com/post/214775/democratic-states-sue-stop-trump-usps-mail-ballot-rule" },
+          { "name": "Slate: KBJ's Clear-Eyed Dissent Explains the Supreme Court's Voting Assault", "url": "https://slate.com/news-and-politics/2026/08/ketanji-brown-jackson-dissent-supreme-court-mail-voting.html" },
+          { "name": "Axios: Trump is pulling every lever to reshape US elections", "url": "https://www.axios.com/2026/08/27/trump-voting-agenda-mail-ballots-save-act-voter-rolls" }
+        ]
+      },
+      "right": {
+        "framing": "Right outlets frame the USPS rule and DOJ election monitors as overdue election integrity measures, not voter suppression. Townhall treats the noncitizen voter arrest in California as evidence that the system needs federal oversight. The Federalist emphasizes instances of apparent voter fraud and gerrymandering as justification for aggressive federal action. The election integrity framing is consistent: the rules protect votes, not restrict them.",
+        "sources": [
+          { "name": "Townhall: Trump Administration Announces Huge Election Integrity Move", "url": "https://townhall.com/news/josephchalfant/2026/08/23/the-trump-administration-just-announced-a-huge-election-integrity-move-ahead-of-the-midterms-n2681726" },
+          { "name": "Townhall: The Thing Democrats Say Never Happens Just Happened Again", "url": "https://townhall.com/news/josephchalfant/2026/08/28/the-thing-that-never-happens-just-happened-again-n2682084" },
+          { "name": "NBC: Trump mail-in ballot requirements can proceed for now, judge rules", "url": "https://www.nbcnews.com/politics/trump-administration/live-blog/trump-graham-south-carolina-primary-2026-congress-iran-live-updates-rcna594433" }
+        ]
+      },
+      "correlation": 22,
+      "correlation_label": "Both sides cover the same rule and legal proceedings; narratives are effectively mirror images — election integrity versus voter suppression — with no factual common ground."
+    }
+  ],
+  "gap_left": [
+    {
+      "topic_key": "scotus-vra-redistricting-louisiana-gerrymandering",
+      "title": "SCOTUS Louisiana Case Threatens to Gut Remaining Voting Rights Act",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "summary": "The Supreme Court reset a Louisiana redistricting case for October oral argument, transforming it into a potential vehicle to eliminate the remaining operative section of the Voting Rights Act. The Trump DOJ was granted permission to argue against the VRA at oral argument — the first time the US government has taken a position against the Act. A ruling in time for states to redistrict could allow pre-election gerrymandering that eliminates minority-opportunity congressional districts before the November midterms, affecting control of Congress. MSNBC and left outlets covered this as a major democratic backsliding story.",
+      "sources": [
+        { "name": "MSNBC: How the Supreme Court could aid the GOP's redistricting games", "url": "https://www.msnbc.com/opinion/msnbc-opinion/supreme-court-voting-rights-redistricting-roberts-rcna235949" }
+      ]
+    },
+    {
+      "topic_key": "ice-raids-chicago-immigration-trauma-pritzker",
+      "title": "ICE Raids Expanding; Illinois Gov. Pritzker: 'People Are Traumatized'",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "summary": "Illinois Gov. JB Pritzker described communities in Chicago as 'traumatized' by expanding ICE enforcement operations targeting immigrant neighborhoods. Left outlets covered the human cost of immigration enforcement, including individual stories of DACA recipients detained while driving to the hospital and later released after media pressure. Slate documented the administration's move to route asylum cases directly into deportation proceedings, affecting hundreds of thousands. Right outlets covered these same enforcement actions as successful immigration policy wins rather than humanitarian concerns.",
+      "sources": [
+        { "name": "MSNBC: JB Pritzker on ICE Raids in Chicago: 'People Are Traumatized'", "url": "https://www.msnbc.com/msnbc-podcast/the-best-people-with-nicolle-wallace/jb-pritzker-ice-raids-chicago-people-are-traumatized-rcna240022" },
+        { "name": "Slate: Immigration news — Trump makes it easier to move asylum seekers into deportation proceedings", "url": "https://slate.com/news-and-politics/2026/07/immigration-asylum-deportation-trump-haiti-tps.html" }
+      ]
+    },
+    {
+      "topic_key": "trump-75-country-visa-ban-struck-down-judge",
+      "title": "Federal Judge Voids Trump's 75-Country Visa Ban as Exceeding Legal Authority",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "summary": "A federal judge struck down the Trump administration's sweeping ban on visas for immigrants from 75 countries, ruling it was 'contrary to law' and outside the statutory authority granted to Secretary of State Marco Rubio. The ruling was covered prominently by left outlets as a significant check on executive overreach in immigration policy. Right outlets largely did not feature the ruling prominently, treating it as a temporary judicial setback rather than a policy rebuke.",
+      "sources": [
+        { "name": "CNN: Trump's 75-country immigrant visa ban struck down by judge", "url": "https://www.cnn.com/2026/08/22/politics/judge-voids-trumps-75-country-visa-ban-hnk" }
+      ]
+    },
+    {
+      "topic_key": "jeffries-kushner-meeting-backlash-democratic-left",
+      "title": "Jeffries-Kushner Private Meeting Triggers Left-Wing Backlash",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "summary": "House Minority Leader Hakeem Jeffries faced sharp criticism from progressive Democrats after a private meeting with Jared Kushner became public. Left outlets covered the incident as a flashpoint over the limits of Democratic opposition to the Trump administration, with some on the left questioning Jeffries' commitment to resistance. The story was almost entirely absent from right-wing coverage, which had little interest in amplifying internal Democratic conflict on this axis.",
+      "sources": [
+        { "name": "Axios: Inside the backlash over the Jeffries-Kushner meeting", "url": "https://www.axios.com/2026/08/26/jeffries-kushner-meeting-reaction-democrats-left" }
+      ]
+    },
+    {
+      "topic_key": "democrats-senate-expanding-map-arkansas-iowa-texas",
+      "title": "Democrats Expanding Senate Map: Competitive Races in Arkansas, Iowa, and Texas",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "summary": "Left outlets are tracking a dramatically expanding Senate battleground, with polls showing Democrat Hallie Shoffner narrowly leading Sen. Tom Cotton in Arkansas (47.4% to 44%), Rob Sand favored at 77% in Iowa's governor race, and the Texas Senate race now rated a toss-up. Axios reports that six GOP-held Senate seats are now toss-ups or lean Democratic. Left media frames this as evidence of a historic wave; right outlets largely downplay the expanding map or frame it as liberal wishful thinking.",
+      "sources": [
+        { "name": "New Republic: Wait, Are Dems Ahead in Arkansas?", "url": "https://newrepublic.com/post/214604/tom-cotton-arkansas-poll-hallie-shoffner" },
+        { "name": "Axios: Democrats are putting more Republican Senate seats in play", "url": "https://www.axios.com/2026/08/23/senate-ohio-alaska-iowa-texas-kansas-mississippi-nebraska" }
+      ]
+    },
+    {
+      "topic_key": "harris-endorsement-debate-democratic-candidates-2026",
+      "title": "Democratic Candidates Split Over Kamala Harris Endorsements",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "summary": "The Hill reports Democratic candidates are divided over whether to seek Kamala Harris's endorsement ahead of November, with some viewing her as a valuable validator with key Democratic constituencies and others quietly distancing themselves given her mixed political brand. The story reflects ongoing uncertainty within the Democratic Party about who constitutes an asset versus a liability in swing districts. This internal calculus was covered only on the left; right outlets had no coverage of the Harris endorsement question as a strategic issue.",
+      "sources": [
+        { "name": "The Hill: Kamala Harris influence sparks debate among Democratic candidates", "url": "https://thehill.com/homenews/campaign/6058417-harris-political-viability-concerns/" }
+      ]
+    }
+  ],
+  "gap_right": [
+    {
+      "topic_key": "dsa-nominees-uruguay-donroe-doctrine-international",
+      "title": "DSA Congressional Nominees Travel to Uruguay for Anti-Trump International Conference",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "summary": "Several DSA-backed congressional nominees, including New York Assemblywoman Claire Valdez, Darializa Avila Chevalier, and Pennsylvania state Rep. Chris Rabb, traveled to Uruguay to attend a left-wing international conference organized to oppose Trump's 'Donroe Doctrine' — the administration's foreign policy framework for the Western Hemisphere. The Daily Wire frames this as evidence of socialist coordination with foreign actors against US policy. Left outlets did not cover the Uruguay trip in the harvested window.",
+      "sources": [
+        { "name": "Daily Wire: Socialist Congressional Nominees Join International Leftist Push Against Trump's Donroe Doctrine", "url": "https://www.dailywire.com/news/socialist-congressional-nominees-join-international-leftist-push-against-trumps-donroe-doctrine" }
+      ]
+    },
+    {
+      "topic_key": "noncitizen-voter-fraud-doj-election-monitors-deployed",
+      "title": "Noncitizen Voter Fraud Cases; DOJ to Deploy 1,000 Election Monitors",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "summary": "A Honduran national was charged in California with illegally registering to vote and falsely claiming US citizenship. Separately, New Jersey disclosed that roughly 6,600 people who identified as non-citizens were registered to vote, with nearly 400 casting ballots. The DOJ announced plans to deploy approximately 1,000 election monitors for November's midterms, nearly quadrupling the 2022 deployment. Right outlets treat these developments as evidence justifying aggressive election integrity enforcement; left outlets covered the DOJ monitor announcement primarily as a voter intimidation concern.",
+      "sources": [
+        { "name": "Townhall: The Thing Democrats Say Never Happens Just Happened Again", "url": "https://townhall.com/news/josephchalfant/2026/08/28/the-thing-that-never-happens-just-happened-again-n2682084" },
+        { "name": "Townhall: Trump Administration Announces Huge Election Integrity Move", "url": "https://townhall.com/news/josephchalfant/2026/08/23/the-trump-administration-just-announced-a-huge-election-integrity-move-ahead-of-the-midterms-n2681726" }
+      ]
+    },
+    {
+      "topic_key": "virginia-court-blocks-dem-gerrymander-congressional-maps",
+      "title": "Virginia Court Halts Democratic Gerrymandering Scheme",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "summary": "Virginia's Supreme Court struck down a Democratic gerrymandering scheme that the Federalist described as designed to create a 10-to-1 House advantage for Democrats. Right outlets covered the ruling as a judicial check on partisan map-rigging by Democrats, framing it as a win for election fairness. Left outlets did not cover this ruling in the harvested window, though they covered SCOTUS redistricting developments that favor Republicans.",
+      "sources": [
+        { "name": "The Federalist: Judge Stops Blue State From Rigging Congressional Maps", "url": "https://thefederalist.com/2026/08/27/judge-halts-another-democrat-scheme-to-rig-state-congressional-maps/" }
+      ]
+    },
+    {
+      "topic_key": "hasan-piker-israel-radioactive-democrats-michigan",
+      "title": "Hasan Piker's Israel Comments Draw Democratic Distancing as Liability Grows",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "summary": "Right outlets are tracking streamer and progressive influencer Hasan Piker's controversial statements about Jewish Americans and Hamas as a growing liability for Democratic candidates. Townhall asks whether Piker is 'becoming radioactive' for Democrats; Breitbart notes that even Democratic Rep. Scholten publicly condemned Piker's targeting of a Jewish lawmaker. Right outlets frame this as evidence of antisemitism embedded in the progressive coalition. Left-leaning El-Sayed's ties to Piker were covered in Slate as a Michigan general election vulnerability, but right outlets amplified the story more broadly.",
+      "sources": [
+        { "name": "Townhall: Is Hasan Piker Starting to Become Radioactive for Dems?", "url": "https://townhall.com/news/mattvespa/2026/08/25/are-we-shocked-hasan-piker-did-this-to-mock-charlie-kirk-n2681831" },
+        { "name": "Breitbart: Dem Rep. Scholten Shreds Hasan Piker for Targeting Jewish Lawmaker", "url": "https://www.breitbart.com/politics/2026/08/24/dem-rep-scholten-shreds-hasan-piker-targeting-jewish-lawmaker/" }
+      ]
+    },
+    {
+      "topic_key": "rnc-midterm-convention-dallas-public-ticket-lottery",
+      "title": "RNC Opens Historic Midterm Convention in Dallas to Public via Ticket Lottery",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "summary": "The Republican National Committee announced a public ticket lottery for its September midterm convention in Dallas — described by Breitbart as the first time a major party convention has been opened to the American public in this way. The convention, expected to draw 20,000+ attendees, is framed by right outlets as a show of force and enthusiasm for the GOP base heading into November. Left outlets did not cover the convention announcement in the harvested window.",
+      "sources": [
+        { "name": "Breitbart: RNC Opens Historic Midterm Convention to Americans with Ticket Lottery", "url": "https://www.breitbart.com/politics/2026/08/15/rnc-opens-historic-midterm-convention-americans-ticket-lottery-vip-front-row-access/" }
+      ]
+    },
+    {
+      "topic_key": "dsa-funding-foreign-money-who-is-behind-dsa-rise",
+      "title": "Daily Wire Investigation: Who Is Behind the Rapid Rise of the DSA?",
+      "days_seen": 1,
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "summary": "The Daily Wire published an investigation questioning the funding and organizational infrastructure behind the DSA's rapid electoral growth, suggesting foreign money and activist networks are driving the socialist insurgency. The Spectator extended this argument by claiming a 'Marxist-Islamist alliance' is exploiting DSA naïveté. Right outlets collectively frame the DSA's rise not as organic political energy but as a coordinated, externally supported effort. Left outlets have not engaged with this framing in this window.",
+      "sources": [
+        { "name": "Daily Wire: Who Is Behind The Rapid Rise Of The DSA?", "url": "https://www.dailywire.com/news/who-is-behind-the-rapid-rise-of-the-dsa" },
+        { "name": "The American Spectator: The Marxist-Islamist Alliance Feeds On DSA Naïveté", "url": "https://spectator.org/the-marxist-islamist-alliance-feeds-on-dsa-naivete/" }
+      ]
+    }
+  ],
+  "suggestions": []
+}
