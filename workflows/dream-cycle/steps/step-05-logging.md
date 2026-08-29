@@ -1,15 +1,15 @@
 ---
 status: completed
-started-at: 2026-08-28T08:16:00Z
-completed-at: 2026-08-28T08:25:00Z
+started-at: 2026-08-29T08:40:00Z
+completed-at: 2026-08-29T08:45:00Z
 outputs:
   dream_log_appended: true
   working_summary_written: true
-  working_summary_reason: "semantic_updated=1 and the THIRD-consecutive compression-threshold stall are both significant enough to surface for Chief at boot."
+  working_summary_reason: "semantic_updated=1 and the FOURTH-consecutive compression-threshold stall (now with zero controller response recorded) are both significant enough to surface for Chief at boot and to trigger a direct push notification."
   git_commit: success
   git_push: success
-  git_commit_sha: 8874d45
-  git_sync_note: "This run executed in a Claude Code on the web / remote cloud session (managed container, not David's Mac), same as 08-26/08-27. mcp__Desktop_Commander__* is not present in this environment. Used plain git via Bash per skills/git/SKILL.md's atomic-command rule (one command per call, no chaining, no git status). Session started in detached HEAD; moved to main branch and fast-forwarded 38 commits behind origin/main before starting the workflow (see step-01 environment handling), so this step's commit is a normal fast-forward push, no detached-HEAD reattachment needed this time."
+  git_commit_sha: 29e6444
+  git_sync_note: "This run executed in a Claude Code on the web / remote cloud session (managed container, not David's Mac), same as 08-26/08-27/08-28. mcp__Desktop_Commander__* confirmed unavailable via ToolSearch. Used plain git via Bash per skills/git/SKILL.md's atomic-command rule (one command per call, no chaining, no git status). Session started in detached HEAD; moved to main branch and fast-forwarded 46 commits behind origin/main before starting the workflow. Commit staged 308 files (294 episodic files touched by step-02's salience rewrite, plus this cycle's step-01 archive, semantic update, LESSONS.md append, dream.log/state.yaml/step-file updates, and pre-existing session-index/eval-harness bookkeeping changes already present in the working tree at session start). Push was a clean fast-forward, no conflicts."
 ---
 
 <!-- system:start -->
