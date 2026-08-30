@@ -6,10 +6,10 @@ outputs:
   dream_log_appended: true
   working_summary_written: true
   working_summary_reason: "semantic_updated=3 > 0 triggers the mandatory working-summary write per Phase B. Content is a clean, quiet-night report -- the compression-threshold stall that drove the last several nights' notifications is resolved, no new escalations, no errors."
-  git_commit: pending
-  git_push: pending
-  git_commit_sha: null
-  git_sync_note: "This run executes in a Claude Code on the web / remote cloud session (managed container, not David's Mac), same as 08-27 through 08-29. mcp__Desktop_Commander__* confirmed unavailable via ToolSearch. Using plain git via Bash, one command per call, no chaining, no git status --long (per skills/git/SKILL.md's atomic-command rule, adapted since Desktop Commander itself is unavailable in this container)."
+  git_commit: success
+  git_push: success
+  git_commit_sha: b7163e9
+  git_sync_note: "This run executed in a Claude Code on the web / remote cloud session (managed container, not David's Mac), same as 08-27 through 08-29. mcp__Desktop_Commander__* confirmed unavailable via ToolSearch. Used plain git via Bash, one command per call, no chaining, no git status (used git diff --name-only/--staged --name-only instead per the skill's safe-alternatives list). Session started in detached HEAD at the same commit origin/main already pointed to; moved to a real main branch via git checkout -B main origin/main. Commit staged 308 files (294 episodic files touched by step-02's salience rewrite, plus this cycle's 3 step-01 archives, 3 semantic updates, dream.log/state.yaml/step-file updates, and pre-existing session-index/eval-harness bookkeeping changes already present in the working tree at session start). Push was a clean fast-forward, no conflicts."
 ---
 
 <!-- system:start -->
