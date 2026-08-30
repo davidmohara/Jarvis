@@ -1516,7 +1516,13 @@
           "systems/error-tracking/entries/err-20260829T161711-3IPMKR.json",
           ".claude/hooks/eval-turn-stop.py",
           "systems/eval-harness/close-open-evals.py",
-          ".claude/hooks/tests/test_phantom_boot_record.py"
+          ".claude/hooks/tests/test_phantom_boot_record.py",
+          "memory/semantic/operational/2026-07-04-plaud-pattern.md",
+          "memory/semantic/operational/2026-06-30-session-wrap-pattern.md",
+          "memory/episodic/dream-summary-2026-08-28.md",
+          "memory/episodic/plaud-ingest-2026-08-27-183100.md",
+          "memory/episodic/shutdown-cleanup-2026-08-27-202000.md",
+          "memory/working/dream-summary-2026-08-30.md"
         ],
         "loops": [],
         "flag": true

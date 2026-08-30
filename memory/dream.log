@@ -2337,3 +2337,19 @@ digests_updated: 1
 errors: 0
 summary: "Out-of-band follow-up to the 08-29 03:04 CDT cycle: David reviewed the compression-approval ask (stalled 4 consecutive nights) and approved this exact 5-entry batch live in conversation. Compressed all 5 candidates (2026-04-30/05-04/05-15 dream-cycle summaries, 2026-05-08 session-index-build, 2026-05-27 decisions/ error-improvement rationale) into memory/episodic/digests/2026-Q2-digest.md and deleted the source files -- decisions/ subdirectory is now empty apart from .gitkeep. Approval is scoped to this batch only, not a standing change to GUARDRAIL 7 or the 5-entry safety threshold; the next qualifying batch will surface the same y/n gate."
 ---
+---
+## 2026-08-30T03:11:11 CDT
+session_id: dream-cycle-2026-08-30-080532
+working_archived: 3
+working_deleted: 0
+episodic_scanned: 293
+score_updates: 293
+clusters_found: 3
+semantic_created: 0
+semantic_updated: 3
+promoted_entries: 3
+entries_compressed: 0
+digests_updated: 0
+errors: 0
+summary: "Step-01: 3 working-memory files archived (dream-summary-2026-08-28, plaud-ingest-2026-08-27-183100, shutdown-cleanup-2026-08-27-202000), 32 skipped (2 not-yet-expired, 30 unparseable, no new no-frontmatter files this cycle); claude -p auth worked so LLM tag extraction ran on all 3. Step-02: scored 293 episodic files; pct_score_0 dropped below the 70% escalation threshold for the first time in 5 cycles (69.28%), driven by the 08-29 approved compression clearing 4 zero-score legacy entries plus 3 fresh non-zero archives; pct_no_date still escalated (12.97%, same legacy population as every prior cycle). Step-03: 3 promotion candidates (all today's own archives) appended to the existing dream-summary, plaud, and session-wrap semantic pattern files — all clean salience blocks, no corruption found. Error-pattern check: 8 qualifying 30-day categories, all already documented in LESSONS.md, none appended. Step-03b guardrail: pass. Step-04: 0 compression candidates — the 4-cycle backlog (08-26 through 08-29) was fully cleared same-day on 08-29 by David's live approval into the 2026-Q2 digest, and nothing new has accumulated in the single day since. Clean, quiet night: no errors, no new escalations, the one open decision point from the past week (compression threshold) is resolved."
+---

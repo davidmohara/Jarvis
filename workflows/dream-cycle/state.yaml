@@ -1,12 +1,65 @@
 workflow: dream-cycle
 agent: jarvis
 status: complete
-session-started: 2026-08-29T08:04:25Z
-session-id: dream-cycle-2026-08-29-080425
+session-started: 2026-08-30T08:05:32Z
+session-id: dream-cycle-2026-08-30-080532
 current-step: null
 original-request: "Execute dream-cycle workflow for today (scheduled task)"
-last-successful-run: 2026-08-29T08:40:00Z
+last-successful-run: 2026-08-30T08:22:00Z
 accumulated-context:
+  step-04-2026-08-30:
+    candidates_count: 0
+    entries_compressed: 0
+    digests_updated: 0
+    compression_skipped: true
+    compression_skip_reason: "0 candidates -- below the 5-entry threshold, not even reaching GUARDRAIL 7's approval gate. The 08-26 through 08-29 backlog was cleared same-day on 08-29 via David's live approval (see step-04-2026-08-29-approved-followup below). No new low-score/old-date entries accumulated in the single day since."
+    controller_decision: null
+  step-03b-2026-08-30:
+    result: pass
+    reason: "0 compression candidates this cycle -- the 08-29 approved batch cleared the prior 4-cycle backlog; all 3 of today's promotion candidates correctly excluded from any future candidate set (promoted:true); step-03 writes were substantive evidence appends, not stubs."
+  step-03-2026-08-30:
+    candidates_count: 3
+    clusters_found: 3
+    semantic_created: 0
+    semantic_updated: 3
+    promoted_entries: 3
+    cluster_actions:
+      - {tag: dream-summary, domain: operational, size: 1, action: update, target: memory/semantic/operational/2026-06-12-dream-summary-pattern.md, confidence: "high (unchanged)"}
+      - {tag: plaud, domain: operational, size: 1, action: update, target: memory/semantic/operational/2026-07-04-plaud-pattern.md, confidence: "high (unchanged)"}
+      - {tag: session-wrap, domain: operational, size: 1, action: update, target: memory/semantic/operational/2026-06-30-session-wrap-pattern.md, confidence: "medium (unchanged)"}
+    candidate_detection_note: "3 candidates, all today's own step-01 archives (dream-summary-2026-08-28, plaud-ingest-2026-08-27-183100, shutdown-cleanup-2026-08-27-202000). Continued the post-J571BH full-frontmatter promoted:true scan. All 3 had clean single salience blocks -- no corruption found on any of them."
+    error_categories_30d: "assumption-error/wrong-assumption:8, tool-misuse/protocol-skip:5, process-skip/protocol-skip:4, tool-misuse/pattern-mismatch:4, tool-misuse/tool-ignorance:3, data-accuracy/stale-cache:3, missed-context/lazy-search:3, lazy-search/available-data-not-used:3"
+    error_total_30d: 82
+    error_malformed_30d: 4
+    lessons_appended: 0
+    lessons_note: "All 8 qualifying 30-day categories already documented and active in LESSONS.md. No new entry appended. error_total_30d dropped from 93 to 82 as the rolling window aged past a heavier late-July period."
+  step-02-2026-08-30:
+    episodic_scanned: 293
+    score_updates: 293
+    window_entries: 53
+    no_date: 38
+    no_tags: 202
+    score_distribution: "0:203,1:5,2:4,3:3,4:5,5:7,6:5,7:1,8:3,9:2,10:55"
+    read_errors: 0
+    write_errors: 0
+    note: "pct_score_0=69.28% is BELOW the 70% escalation threshold for the first time in 5 cycles (08-25 through 08-29 ran 70-71.6%) -- driven by the 08-29 approved compression batch removing 4 zero-score legacy entries plus 3 fresh non-zero archives this cycle. pct_no_date=12.93->12.97% still crosses the >10% threshold, same legacy undated population. pct_no_tags=68.94% dipped just under 70% into the 30-70% band per GUARDRAIL 4 (was in the 70-100% 'expected' band prior 5 cycles) -- same underlying shift as pct_score_0, not a new problem. Subdirectory-recursion bug (err-20260826T081453-664W53) unchanged in the script, but its only known affected file (decisions/2026-05-27 entry) was deleted in the 08-29 compression, so 0 files currently affected."
+  step-01-2026-08-30:
+    working_archived: 3
+    working_deleted: 0
+    working_skipped: 32
+    working_stranded: 0
+    enrichment_method: "LLM (systems/dream-cycle/llm_tag_extractor.py via claude -p haiku) — claude CLI auth functional in this container this cycle"
+    archived_files:
+      - dream-summary-2026-08-28.md
+      - plaud-ingest-2026-08-27-183100.md
+      - shutdown-cleanup-2026-08-27-202000.md
+    skipped_not_expired:
+      - dream-summary-2026-08-29.md
+      - end-of-day-review-2026-08-28-145136.md
+    skipped_unparseable_count: 30
+    new_unparseable_this_cycle: []
+    stranded: []
+    note: "3 archive candidates this cycle (dream-summary-2026-08-28, plaud-ingest-2026-08-27-183100, shutdown-cleanup-2026-08-27-202000), all expires < today 2026-08-30 and status:active. The other 2 dated working files (dream-summary-2026-08-29, end-of-day-review-2026-08-28) both carry expires timestamps equal to today (2026-08-30) or later and were correctly held back another cycle. Unparseable count holds at 30 (same set as 08-29's post-cycle total; no new no-frontmatter files landed since). All 3 archives were non-trivial and enriched via the LLM path (claude -p haiku, functional in this container this cycle) before mv to episodic/."
   step-01-2026-08-29:
     working_archived: 1
     working_deleted: 0
@@ -351,62 +404,65 @@ guardrails:
     - {date: "2026-08-27", archived: 3}
     - {date: "2026-08-28", archived: 1}
     - {date: "2026-08-29", archived: 1}
+    - {date: "2026-08-30", archived: 3}
   promotion_history:
     - {date: "2026-08-26", promoted: 14, candidates_found: 14}
     - {date: "2026-08-27", promoted: 4, candidates_found: 4}
     - {date: "2026-08-28", promoted: 1, candidates_found: 1}
     - {date: "2026-08-29", promoted: 1, candidates_found: 1}
+    - {date: "2026-08-30", promoted: 3, candidates_found: 3}
   compression_history:
     - {date: "2026-08-26", candidates_found: 5, compressed: 0}
     - {date: "2026-08-27", candidates_found: 5, compressed: 0}
     - {date: "2026-08-28", candidates_found: 5, compressed: 0}
     - {date: "2026-08-29", candidates_found: 5, compressed: 5, note: "compressed same-day via David's live approval, not the unattended cycle itself — see accumulated-context.step-04-2026-08-29-approved-followup"}
+    - {date: "2026-08-30", candidates_found: 0, compressed: 0, note: "backlog cleared by the 08-29 approval; nothing new accumulated in one day"}
   archive_safety:
     spot_check_passed: true
     recent_edits_archived: 0
     recently_modified_files: []
   archival_balance:
-    archival_rate: 1
-    avg_rate_30d: 1.4
-    balance_check: "pass — 1 archived this cycle (0,3,1,1 across last 4 cycles, avg 1.4), well within normal range, no anomaly."
+    archival_rate: 3
+    avg_rate_30d: 1.67
+    balance_check: "pass — 3 archived this cycle (2,0,3,1,1 across prior 5 cycles, avg 1.67 including today), within normal range, no anomaly."
   score_distribution:
-    pct_score_0: 70.41
-    pct_score_10: 18.71
-    distribution_check: "escalated — pct_score_0=70.41% (>=70 threshold), matches 08-25 through 08-28 baseline (~70-71.6%) almost exactly. Not a fresh regression. Surfacing for controller awareness, not blocking."
+    pct_score_0: 69.28
+    pct_score_10: 18.77
+    distribution_check: "pass — pct_score_0=69.28% is BELOW the 70% escalation threshold for the first time in 5 cycles (08-25 through 08-29 all ran 70-71.6%). Effect of the 08-29 approved compression removing 4 zero-score legacy entries plus this cycle's 3 fresh non-zero archives. Not escalated."
     controller_decision: null
   metadata_quality:
-    pct_no_date: 12.93
-    pct_no_tags: 70.07
-    metadata_check: "escalated — pct_no_date=12.93% (>10% threshold), matches 08-25 through 08-28 baseline. pct_no_tags=70.07% within the 'expected for recently archived, monitor for drift' warning band, not escalated alone."
-    audit_notes: "Same legacy untagged/undated population as prior cycles driving both metrics — no new degradation this cycle."
+    pct_no_date: 12.97
+    pct_no_tags: 68.94
+    metadata_check: "escalated (pct_no_date only) — pct_no_date=12.97% (>10% threshold), matches 08-25 through 08-29 baseline. pct_no_tags=68.94% dipped just under 70% into the 30-70% 'unusual tag coverage' band (was in the 70-100% 'expected' band all 5 prior cycles) -- same underlying shift as the score_distribution change, not a new problem."
+    audit_notes: "Same legacy untagged/undated population as prior cycles driving pct_no_date. pct_no_tags shift tracks the compression/archival changes this cycle, not fresh degradation."
   promotion_threshold:
     threshold: 3
-    candidates_found: 1
-    promoted: 1
-    last_4_cycles_promoted: 20
+    candidates_found: 3
+    promoted: 3
+    last_4_cycles_promoted: 9
     threshold_check: "pass"
     controller_decision: null
   semantic_duplication:
     exact_duplicates_skipped: 0
     possible_duplicates_flagged: 0
     consolidation_candidates: 0
-    deduplication_check: "pass for this cycle's own writes (updated 1 existing file, created none) — pre-existing corpus-wide duplication (multiple duplicate -pattern.md files per tag) remains flagged for Rigby/manual review, unchanged and not remediated this cycle (out of scope)."
+    deduplication_check: "pass for this cycle's own writes (updated 3 existing files, created none) — pre-existing corpus-wide duplication (multiple duplicate -pattern.md files per tag) remains flagged for Rigby/manual review, unchanged and not remediated this cycle (out of scope)."
   compression_threshold:
-    last_12_cycles_candidates: 5
-    last_12_cycles_compressed: 5
-    avg_per_cycle: 0.42
-    threshold_check: "resolved — David approved the exact 5-entry batch (option 1 of the 3 offered) shortly after the push notification, same day as the 08-29 cycle. All 5 candidates compressed into memory/episodic/digests/2026-Q2-digest.md and source files deleted. This approval is scoped to this batch only, not a standing rule -- the next batch to cross the 5-entry threshold will surface the same y/n gate under GUARDRAIL 7 unless David separately changes the threshold or approval policy."
-    controller_decision: "approved this batch, one-time"
+    last_12_cycles_candidates: 0
+    last_12_cycles_compressed: 0
+    avg_per_cycle: 0
+    threshold_check: "pass — 0 candidates this cycle, well below the 5-entry threshold; GUARDRAIL 7's approval gate not reached. The prior 4-cycle backlog (08-26 through 08-29) was fully resolved by David's 08-29 approval."
+    controller_decision: null
   compression_preview:
-    preview_shown: true
-    controller_approved: true
-    note: "Same 5-entry preview as 08-26/08-27/08-28 (accumulated-context.step-04-2026-08-26.compression_preview): 2026-04-30/05-04/05-15 dream-cycle-summary entries, 2026-05-08 session-index-build, and the 2026-05-27 decisions/ entry (frozen score due to the known subdirectory-recursion bug). David approved this exact batch in live conversation after the push notification. Compressed and deleted same day -- see accumulated-context.step-04-2026-08-29-approved-followup for the full record."
+    preview_shown: false
+    controller_approved: null
+    note: "No preview shown this cycle -- 0 compression candidates, below the threshold that triggers a preview."
   git_atomicity:
     pre_commit_check: "pass"
     dream_log_valid: true
     state_file_valid: true
-    commit_status: "success"
-    commit_sha: "29e6444"
-    push_status: "success"
-    atomicity_check: "pass"
+    commit_status: "pending"
+    commit_sha: null
+    push_status: "pending"
+    atomicity_check: "pending"
     note: "Ran in this cloud container via Bash directly (no Desktop Commander in this session, confirmed unavailable via ToolSearch). Already on main branch (moved off an initial detached HEAD earlier this session, fast-forwarded 46 commits behind origin/main before starting the workflow). Commands issued one per call per skills/git/SKILL.md's atomic-command rule; commit_sha filled in after the actual commit below."

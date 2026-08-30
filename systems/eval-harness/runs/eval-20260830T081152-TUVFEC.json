@@ -1,13 +1,13 @@
 {
-  "id": "eval-20260829T081019-3LBCP8",
+  "id": "eval-20260830T081152-TUVFEC",
   "type": "workflow",
   "name": "dream-cycle",
   "agent": "jarvis",
-  "session_id": "a2ada446-b2cf-500c-9acd-f255b197f378",
+  "session_id": "1c291e54-a6e7-5a10-8319-b1e1d2a03cf1",
   "trigger": "scheduled",
-  "started": "2026-08-29T08:04:25Z",
-  "completed": "2026-08-29T08:10:19.649965Z",
-  "duration_seconds": 354.6,
+  "started": "2026-08-30T08:05:32Z",
+  "completed": "2026-08-30T08:11:52.051543Z",
+  "duration_seconds": 380.1,
   "status": "success",
   "steps": [],
   "assessment": {
@@ -66,15 +66,5 @@
   "tags": [
     "phantom-candidate",
     "cowork-hook"
-  ],
-  "guardrails": [
-    {
-      "name": "pre-deletion-review",
-      "after_step": "step-03-semantic-promotion",
-      "result": "pass",
-      "reason": "0 compression candidates this cycle -- 08-29 approved batch cleared the backlog; no promoted/high-salience entries in scope; step-03 writes substantive.",
-      "escalated_to_human": false,
-      "timestamp": "2026-08-30T08:09:52.713207+00:00"
-    }
   ]
 }

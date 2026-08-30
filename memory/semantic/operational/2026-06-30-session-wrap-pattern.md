@@ -4,7 +4,7 @@ domain: operational
 subject: "Pattern around session-wrap"
 synthesized-from:
   - memory/episodic/shutdown-cleanup-2026-06-16-071444.md
-last-updated: 2026-08-26
+last-updated: 2026-08-30
 tags:
   - calendar
   - co-sell
@@ -66,3 +66,9 @@ Sources this cycle:
 - `memory/episodic/shutdown-cleanup-2026-07-23-134114.md` (score 3) — routine session-wrap; git/shutdown-cleanup verification, remarkable-upload housekeeping.
 
 Two of three sources this cycle (07-22 pair) surfaced genuine infrastructure corrections during otherwise routine session-wrap — a stale-cache reporting bug and a systemic Artifact-CSP bug affecting an entire skill, not just one account. This continues the pattern already noted in the 08-02 and 08-13 entries: session-wrap entries in this cluster disproportionately double as the discovery point for cross-system bugs, not just end-of-session bookkeeping. Escalating confidence low → medium: the cluster now has 6 dated evidence entries across 07-14 through 08-26 with a consistent substantive-finding rate, not sporadic or thin.
+
+### 2026-08-30 — Nightly promotion
+Sources this cycle:
+- `memory/episodic/shutdown-cleanup-2026-08-27-202000.md` (score 3) — tags: session-wrap, chief, system-maintenance, git-sync, system-health. Routine shutdown: a root-check flagged a non-canonical `drafts/` directory, escalated to David rather than resolved unilaterally, and moved per his decision to the documented canonical path in `content/improving-blog/`; a stale fallback path in `workflows/content-pipeline/steps/step-01-discover.md` pointing outside the repo was fixed in the same pass; 8 temp artifacts purged; clean commit verified.
+
+Consistent with this cluster's established pattern: session-wrap entries keep surfacing small infrastructure/routing corrections (here, a misplaced directory and a stale hardcoded path) as a byproduct of routine end-of-session bookkeeping rather than dedicated audits. Confidence held at medium (7th dated evidence entry, same rate as prior cycles — no basis yet for a further escalation to high).

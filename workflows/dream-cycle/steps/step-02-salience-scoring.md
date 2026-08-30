@@ -1,15 +1,15 @@
 ---
 status: complete
-started-at: 2026-08-29T08:20:00Z
-completed-at: 2026-08-29T08:23:00Z
+started-at: 2026-08-30T08:07:00Z
+completed-at: 2026-08-30T08:09:00Z
 outputs:
-  episodic_scanned: 294
-  score_updates: 294
-  no_tags: 206
+  episodic_scanned: 293
+  score_updates: 293
+  no_tags: 202
   no_date: 38
-  score_distribution: "0:207,1:5,2:3,3:6,4:2,5:7,6:2,7:3,8:3,9:1,10:55"
-  window_entries: 55
-  note: "Ran systems/dream-cycle/salience-score.py. read_errors:0, write_errors:0. episodic_scanned rose from 293 to 294, matching the 1 file step-01 archived this cycle. pct_score_0=70.41% and pct_no_date=12.93% both crossed guardrail thresholds again, matching the 08-25 through 08-28 baseline (~70-71%/~13%) — not a fresh regression, same untagged/undated legacy population. pct_no_tags=70.07%, within the expected 70-100% warning band. Checked the known subdirectory-recursion bug (err-20260826T081453-664W53, script uses os.listdir not os.walk so memory/episodic/{meetings,people,projects,decisions,coaching}/ are never scanned): still only 1 file affected (the same decisions/2026-05-27 entry), no new files landed in those subdirs this cycle. Not patched (systems/ is Rigby-gated)."
+  score_distribution: "0:203,1:5,2:4,3:3,4:5,5:7,6:5,7:1,8:3,9:2,10:55"
+  window_entries: 53
+  note: "Ran systems/dream-cycle/salience-score.py. read_errors:0, write_errors:0. episodic_scanned dropped from 294 to 293: +3 from today's step-01 archives, -4 from the 08-29 David-approved compression batch (4 of the 5 compressed files were top-level episodic/, the 5th was the decisions/ subdirectory entry this script never scanned anyway) — net -1, consistent. pct_score_0=69.28% is BELOW the 70% escalation threshold for the first time in 5 cycles (08-25 through 08-29 all ran 70-71.6%) — not escalated this cycle; likely effect of the compression batch removing 4 zero-score legacy entries plus this cycle's 3 new archives landing with real co-occurring tags rather than zero scores. pct_no_date=12.97% still crossed the >10% threshold, same legacy undated population as every prior cycle. pct_no_tags=68.94% dipped just under 70% into the 30-70% 'unusual tag coverage' band rather than the expected 70-100% band — same underlying shift as pct_score_0, not a new problem, flagging per GUARDRAIL 4's literal threshold rule. Known subdirectory-recursion bug (err-20260826T081453-664W53) unchanged: script still uses os.listdir not os.walk, so memory/episodic/{meetings,people,projects,decisions,coaching}/ are never scanned — the one previously-affected decisions/ file was deleted in the 08-29 compression, so 0 files are currently affected by this bug. Not patched (systems/ is Rigby-gated)."
 ---
 
 <!-- system:start -->

@@ -21,9 +21,10 @@ tags:
   - lessons
   - semantic-promotion
 related_people: []
+  promoted: true
 salience:
   score: 10
-  last-promoted-check: 2026-08-29
+  last-promoted-check: 2026-08-30
   promoted: true
 ---
 

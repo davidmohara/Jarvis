@@ -5,8 +5,22 @@ session_id: "chief-2026-08-27-202000"
 agent-source: chief
 created: 2026-08-27T20:20:00
 expires: 2026-08-29T20:20:00
-status: active
+status: archived
 context: "Shutdown cleanup — 2026-08-27"
+type: working-archive
+date: 2026-08-27
+source_file: memory/working/shutdown-cleanup-2026-08-27-202000.md
+tags:
+  - session-wrap
+  - chief
+  - system-maintenance
+  - git-sync
+  - system-health
+related_people: []
+salience:
+  score: 3
+  last-promoted-check: 2026-08-30
+  promoted: true
 ---
 
 - Root-check flagged non-canonical `drafts/` directory; paused and surfaced to David via controller. David decided: move `drafts/improving-blog/2026-08-22-the-twenty-percent-nobody-budgeted.md` under `content/improving-blog/` (its documented canonical location per `workflows/content-pipeline/steps/step-01-discover.md`), preserved as a git rename, then removed the now-empty `drafts/` directory.

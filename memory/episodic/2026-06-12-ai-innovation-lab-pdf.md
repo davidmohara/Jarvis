@@ -37,9 +37,10 @@ tags:
   last-promoted-check: 2026-08-26
   last-promoted-check: 2026-08-27
   last-promoted-check: 2026-08-28
+  last-promoted-check: 2026-08-29
 salience:
   score: 0
-  last-promoted-check: 2026-08-29
+  last-promoted-check: 2026-08-30
 ---
 
 # Session: AI Innovation Lab PDF

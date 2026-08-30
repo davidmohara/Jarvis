@@ -5,7 +5,7 @@ subject: plaud pattern
 synthesized-from:
   - memory/episodic/plaud-ingest-2026-07-02-011500.md
   - memory/episodic/morning-briefing-2026-07-01-085000.md
-last-updated: 2026-08-26
+last-updated: 2026-08-30
 tags: [plaud]
 agent-source: dream-cycle
 confidence: high
@@ -94,3 +94,9 @@ Sources this cycle:
 - `memory/episodic/plaud-ingest-2026-08-11-170000.md` (score 6) — UTB/YPO hospitality planning call, speakers fully auto-resolved (Alice Mburu, Robyn Fuentes), 3 Monday action items created + 1 Alice review task with share link — Monday task creation again working normally.
 
 Escalating confidence medium → high: evidence now spans 07-04 through 08-26 across 15+ nightly promotions with consistent, substantive findings each cycle (not stub entries). Notably, all four sources this cycle show Monday task/action-item creation succeeding normally (07-22, and three Aug-11 entries) — this pre-dates the 08-22 hard 0-for-17 Monday permission rejection flagged last cycle (08-25 entry above) chronologically in source-file date but is being processed now due to salience window timing. Net read: the 08-22 permission rejection looks like an isolated regression bounded to that one session, not a sustained platform-wide break — Monday task creation was working normally in the picture both before (07-22, 08-11) and the underlying capability hasn't shown a second failure yet. Still worth the 1-2 cycle watch flagged previously before downgrading the Rigby ticket.
+
+### 2026-08-30 — Nightly promotion
+Sources this cycle:
+- `memory/episodic/plaud-ingest-2026-08-27-183100.md` (score 10) — tags: session-wrap, chief, plaud, calendar, email, memory-pipeline; related people: robyn, bethany-hilton, alice-mburu. Resumed and completed a prior-session plaud-ingest (pi-20260826-003) for 7 recordings; 1 third-party PHI recording (Bethany Hilton) correctly flagged and held back per standing approval — never ingested or shared. Two of the agent's own speaker misattributions (David/Robyn swapped) caught and corrected mid-session before publishing. Monday.com task creation again hit friction (a 17-item batch rejected as fabricated-looking, narrowed to 2 already-done candidates, a later 6-item batch declined outright in favor of emailing Alice directly) — this reads as a workflow/judgment friction pattern distinct from the 08-22 hard tool-permission rejection already tracked above, not a repeat of that specific failure mode. Outlook M365 send_mail/create_draft both returned permission_error this session; Superhuman Mail used successfully as the fallback channel.
+
+This cycle adds a self-correction data point (speaker misattribution caught before publish) not previously represented in this cluster's evidence, plus a second, different flavor of Monday friction (batch-quality rejection and manual decline, vs. the 08-22 hard 0-for-17 permission error) — worth distinguishing as two separate risk threads under the same "Monday task creation" heading rather than merging them into one incident count.

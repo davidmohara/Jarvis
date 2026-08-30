@@ -5,8 +5,26 @@ session_id: "jarvis-2026-08-28-080307"
 agent-source: jarvis
 created: 2026-08-28T08:03:07Z
 expires: 2026-08-29T08:03:07Z
-status: active
+status: archived
 context: "Dream cycle summary — 2026-08-28"
+type: working-archive
+date: 2026-08-28
+source_file: memory/working/dream-summary-2026-08-28.md
+tags:
+  - dream-summary
+  - jarvis
+  - dream-cycle
+  - memory-system
+  - system-maintenance
+  - semantic-promotion
+  - error-patterns
+  - quarterly-rocks
+  - revenue
+related_people: []
+salience:
+  score: 10
+  last-promoted-check: 2026-08-30
+  promoted: true
 ---
 
 Quiet night on volume, but two things worth your attention.

@@ -3,7 +3,7 @@ type: semantic
 domain: operational
 primary-tag: dream-summary
 created: 2026-06-12
-last-updated: 2026-08-29
+last-updated: 2026-08-30
 confidence: high
 synthesized-from: 24
   - dream-summary-2026-05-25.md
@@ -103,6 +103,7 @@ synthesized-from:
   - memory/episodic/dream-summary-2026-06-29.md
   - memory/episodic/dream-summary-2026-08-26.md
   - memory/episodic/dream-summary-2026-08-27.md
+  - memory/episodic/dream-summary-2026-08-28.md
 ---
 # Pattern: Dream Summary
 
@@ -310,3 +311,9 @@ Sources this cycle:
 - `memory/episodic/dream-summary-2026-08-27.md` (score 10) — clean overnight run; surfaced a new documented-protocol-bypass lesson (Slack/remarkable recovery paths skipped in favor of manual workarounds); FOURTH consecutive cycle at the identical 5-entry compression safety threshold, still unresolved.
 
 Carry-forward triad (Q3 rocks, nerve block, delegation tracker, South Texas revenue gap) remains unresolved across this cluster's evidence — now spanning the 2026-08-25 through 2026-08-29 window with zero movement recorded on any of the four items. The compression-threshold decision point (first surfaced 08-26) has now repeated on four consecutive nights with the same 5-entry candidate set and no controller response — see this cycle's step-04 note.
+
+### 2026-08-30 — Nightly promotion
+Sources this cycle:
+- `memory/episodic/dream-summary-2026-08-28.md` (score 10) — flagged the FOURTH consecutive night at the identical 5-entry compression threshold as the loudest unresolved item, and pinned down the exact salience-score.py trailing-newline corruption mechanism (active every night, not legacy/frozen as earlier cycles assumed).
+
+The compression-threshold ask this file has tracked since 08-26 was resolved same-day on 08-29: David approved that exact 5-entry batch live in conversation shortly after the push notification, and it was compressed into `memory/episodic/digests/2026-Q2-digest.md` (see step-04-2026-08-29-approved-followup in workflow state). This closes the longest-running open thread visible in this cluster's own evidence — the four-night streak this file itself flagged ended in a real decision rather than a fifth silent repeat. Approval was scoped to that one batch, not a standing change to the 5-entry threshold, so a future batch crossing it will surface the same gate again. Carry-forward triad (Q3 rocks, nerve block, delegation tracker, South Texas revenue gap) remains unresolved, now spanning 2026-08-25 through 2026-08-30 with zero movement.
