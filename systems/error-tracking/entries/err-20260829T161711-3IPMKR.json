@@ -1,0 +1,17 @@
+{
+  "id": "err-20260829T161711-3IPMKR",
+  "timestamp": "2026-08-29T16:17:11Z",
+  "session": "session-2026-08-29",
+  "source": "explicit",
+  "agent": "master",
+  "category": "tool-misuse",
+  "description": "eval-turn-start.py opened a type:workflow name:boot eval record (eval-20260829T160409-2C4L4R) for today's session under its 'boot-first-prompt-of-session' trigger heuristic, even though boot was never actually invoked this session (workflows/boot/state.yaml still shows completed-at: 2026-08-28, no steps ran, mechanical.completed stayed null). Because an unrelated error (err-20260829T161002-X7JBHO, a stray cd during zip rebuild work) was later logged in the same session, the error-log-correlation rule in schema.md ('error entries written ... overrides any positive mechanical status') stamped the phantom record status:failure. Initially reported to David as if it were 'today's boot run failing' in the stage-4 success-rate report before he corrected me: no boot run happened today, so there should be no record at all.",
+  "correction": "Do not present a 'boot-first-prompt-of-session' auto-opened eval record as evidence of a real boot execution without first checking workflows/boot/state.yaml for a fresh completed-at timestamp and confirming steps[] / mechanical fields are non-null. When a record turns out to be a trigger false-positive (heuristic opened it but the workflow never ran), delete it outright rather than archiving it or including it in success-rate math as either a success or a failure. David explicitly rejected archiving this one, on the grounds that a record for something that never happened shouldn't persist in any form; this supersedes the 2026-08-28-boot-cowork-phantom precedent of archiving instead of deleting.",
+  "failure_mode": "wrong-assumption",
+  "systemic_fix": "Fixed at the hook level, not just cleanup after the fact: (1) eval-turn-start.py's boot_is_fresh() previously treated ANY 'complete'/'aborted' status as fresh regardless of age; it now requires the state.yaml completed-at timestamp to be under 12 hours old (BOOT_STALE_COMPLETION_AFTER_HOURS), so a days-old completion no longer licenses opening a new record. (2) post-tool-use.py's check_error_tracking_write() previously stamped status:failure onto whatever in-progress record shared the session_id, with no check the error was related; it now requires the record to already show real activity (non-empty steps[]/subagents[] or a set mechanical.completed) before correlating an error onto it, and logs+skips otherwise. (3) eval-turn-stop.py's stale-abort path and close-open-evals.py's session-exit sweep both previously finalized a zero-activity record as aborted/incomplete; both now delete the record file outright when it never accrued any steps or subagents, since David rejected even archiving a record for something that never happened. Verified: boot_is_fresh() now returns False against the current (2026-08-28) stale state.yaml, and the existing 26-case eval-turn-start.py regression suite (.claude/hooks/tests/test_detect_workflow.py) still passes in full.",
+  "fix_status": "applied",
+  "severity": "moderate",
+  "fix_applied_by": "session-2026-08-29 (direct hook edits, no PR)",
+  "fix_applied_at": "2026-08-29T16:30:00Z",
+  "related_entries": ["err-20260829T161002-X7JBHO"]
+}
