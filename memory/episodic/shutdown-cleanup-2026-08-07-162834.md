@@ -17,20 +17,10 @@ tags:
   - account-pursuit
   - purge
 related_people: []
-  last-promoted-check: 2026-08-10
-  last-promoted-check: 2026-08-11
-  last-promoted-check: 2026-08-12
-  last-promoted-check: 2026-08-13
-  last-promoted-check: 2026-08-14
-  last-promoted-check: 2026-08-23
-  last-promoted-check: 2026-08-25
-  last-promoted-check: 2026-08-26
-  last-promoted-check: 2026-08-27
-  last-promoted-check: 2026-08-28
-  last-promoted-check: 2026-08-29
 salience:
   score: 3
-  last-promoted-check: 2026-08-30
+  last-promoted-check: 2026-08-31
+  promoted: true
 ---
 
 - Purged 4 stray `.DS_Store` files (root, memory/, archive/, accounts/) via host process — sandbox bash lacked delete permission on OneDrive-synced copies.

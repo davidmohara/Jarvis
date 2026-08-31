@@ -17,9 +17,10 @@ tags:
   - git-sync
   - system-health
 related_people: []
+  promoted: true
 salience:
   score: 3
-  last-promoted-check: 2026-08-30
+  last-promoted-check: 2026-08-31
   promoted: true
 ---
 

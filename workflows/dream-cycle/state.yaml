@@ -1,12 +1,59 @@
 workflow: dream-cycle
 agent: jarvis
 status: complete
-session-started: 2026-08-30T08:05:32Z
-session-id: dream-cycle-2026-08-30-080532
+session-started: 2026-08-31T08:02:58Z
+session-id: dream-cycle-2026-08-31-080258
 current-step: null
 original-request: "Execute dream-cycle workflow for today (scheduled task)"
-last-successful-run: 2026-08-30T08:22:00Z
+last-successful-run: 2026-08-31T08:09:22Z
 accumulated-context:
+  step-04-2026-08-31:
+    candidates_count: 0
+    entries_compressed: 0
+    digests_updated: 0
+    compression_skipped: true
+    compression_skip_reason: "0 candidates -- nothing has accumulated since the 08-29 approved batch cleared the prior backlog."
+  step-03b-2026-08-31:
+    result: pass
+    reason: "0 compression candidates this cycle; all 3 promotion writes substantive; no promoted/high-salience entries at risk."
+  step-03-2026-08-31:
+    candidates_count: 3
+    clusters_found: 3
+    semantic_created: 0
+    semantic_updated: 3
+    promoted_entries: 3
+    cluster_actions:
+      - {tag: dream-summary, domain: operational, size: 1, action: update, target: memory/semantic/operational/2026-06-12-dream-summary-pattern.md, confidence: "high (unchanged)"}
+      - {tag: daily-review, domain: operational, size: 1, action: update, target: memory/semantic/operational/2026-06-12-daily-review-pattern.md, confidence: "high (unchanged)"}
+      - {tag: session-wrap, domain: operational, size: 1, action: update, target: memory/semantic/operational/2026-06-30-session-wrap-pattern.md, confidence: "medium (unchanged)"}
+    candidate_detection_note: "3 candidates: 2 today's own step-01 archives (dream-summary-2026-08-29, end-of-day-review-2026-08-28-145136), plus shutdown-cleanup-2026-08-07-162834.md crossing the threshold via 30-day window drift. Continued the post-J571BH full-frontmatter promoted:true scan."
+    error_categories_30d: "assumption-error/wrong-assumption:8, tool-misuse/protocol-skip:6, process-skip/protocol-skip:5, tool-misuse/pattern-mismatch:4, tool-misuse/wrong-assumption:3, tool-misuse/tool-ignorance:3, data-accuracy/stale-cache:3, missed-context/lazy-search:3, lazy-search/available-data-not-used:3"
+    error_total_30d: 85
+    lessons_appended: 0
+    lessons_note: "All 9 qualifying 30-day categories (including tool-misuse/wrong-assumption, newly crossing 3 via window drift) already documented and active in LESSONS.md. No new entry appended."
+    corruption_finding: "salience-score.py's stranding bug (APAWBB/NBGENM/J571BH) fired again on both fresh step-01 archives this cycle, and a corpus spot-check found shutdown-cleanup-2026-08-07-162834.md carrying 12 stacked duplicate orphan lines (one per night since 08-10) -- proof the damage compounds on the existing corpus nightly, not only on fresh writes. Hand-repaired all 3 affected files. Logged err-20260831T080618-284VH8. J571BH's one-line fix remains unapplied 3 cycles after being fully specified."
+  step-02-2026-08-31:
+    episodic_scanned: 295
+    score_updates: 295
+    window_entries: 52
+    no_date: 38
+    no_tags: 202
+    score_distribution: "0:204,1:4,2:4,3:4,4:4,5:7,6:5,7:1,8:3,9:2,10:57"
+    read_errors: 0
+    write_errors: 0
+    note: "pct_score_0=69.15% below 70% threshold, consistent with post-08-29-compression baseline. pct_no_date=12.88% still crosses >10% (same legacy undated population). pct_no_tags=68.47% in the 30-70% warning band, consistent with 08-30. episodic_scanned rose 293->295 from today's 2 step-01 archives."
+  step-01-2026-08-31:
+    working_archived: 2
+    working_deleted: 0
+    working_skipped: 30
+    working_stranded: 0
+    enrichment_method: "LLM (systems/dream-cycle/llm_tag_extractor.py via claude -p haiku) -- claude CLI auth functional in this container this cycle"
+    archived_files:
+      - dream-summary-2026-08-29.md
+      - end-of-day-review-2026-08-28-145136.md
+    skipped_not_expired:
+      - dream-summary-2026-08-30.md
+    new_unparseable_this_cycle: []
   step-04-2026-08-30:
     candidates_count: 0
     entries_compressed: 0

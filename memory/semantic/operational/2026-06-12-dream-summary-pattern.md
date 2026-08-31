@@ -3,7 +3,7 @@ type: semantic
 domain: operational
 primary-tag: dream-summary
 created: 2026-06-12
-last-updated: 2026-08-30
+last-updated: 2026-08-31
 confidence: high
 synthesized-from: 24
   - dream-summary-2026-05-25.md
@@ -104,6 +104,7 @@ synthesized-from:
   - memory/episodic/dream-summary-2026-08-26.md
   - memory/episodic/dream-summary-2026-08-27.md
   - memory/episodic/dream-summary-2026-08-28.md
+  - memory/episodic/dream-summary-2026-08-29.md
 ---
 # Pattern: Dream Summary
 
@@ -317,3 +318,9 @@ Sources this cycle:
 - `memory/episodic/dream-summary-2026-08-28.md` (score 10) — flagged the FOURTH consecutive night at the identical 5-entry compression threshold as the loudest unresolved item, and pinned down the exact salience-score.py trailing-newline corruption mechanism (active every night, not legacy/frozen as earlier cycles assumed).
 
 The compression-threshold ask this file has tracked since 08-26 was resolved same-day on 08-29: David approved that exact 5-entry batch live in conversation shortly after the push notification, and it was compressed into `memory/episodic/digests/2026-Q2-digest.md` (see step-04-2026-08-29-approved-followup in workflow state). This closes the longest-running open thread visible in this cluster's own evidence — the four-night streak this file itself flagged ended in a real decision rather than a fifth silent repeat. Approval was scoped to that one batch, not a standing change to the 5-entry threshold, so a future batch crossing it will surface the same gate again. Carry-forward triad (Q3 rocks, nerve block, delegation tracker, South Texas revenue gap) remains unresolved, now spanning 2026-08-25 through 2026-08-30 with zero movement.
+
+### 2026-08-31 — Nightly promotion
+Sources this cycle:
+- `memory/episodic/dream-summary-2026-08-29.md` (score 10) — the compression-threshold thread this cluster tracked 08-26 through 08-29 stayed resolved (zero new compression candidates the night after David's approval); the cycle's one substantive item was a new error-tracking lesson on trusting cache-backed tool status without cross-checking the source (OmniFocus false-overdue recurrence, Plaud-discover false-positive counts).
+
+This cycle also confirmed the salience-score.py frontmatter-corruption bug this cluster has tracked since 08-25 (APAWBB → NBGENM → J571BH) is still unpatched: it fired again on both of today's own step-01 archives immediately after they were written clean, and a corpus spot-check turned up a legacy file (shutdown-cleanup-2026-08-07-162834.md) with 12 stacked duplicate orphan lines — one added per night since 08-10 — proving the damage is actively compounding on the existing corpus, not just newly-touched files (see err-20260831T080618-284VH8). Hand-repaired all three files this cycle; the script itself remains untouched three cycles after J571BH specified the exact one-line fix. Carry-forward triad (Q3 rocks, nerve block, delegation tracker, South Texas revenue gap) remains unresolved, now spanning 2026-08-25 through 2026-08-31 with zero movement.

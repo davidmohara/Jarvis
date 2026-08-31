@@ -1,12 +1,30 @@
 ---
-type: working
+type: working-archive
 task_id: "session"
 session_id: "jarvis-2026-08-29-030425"
 agent-source: jarvis
 created: 2026-08-29T03:04:25-05:00
 expires: 2026-08-30T03:04:25-05:00
-status: active
+status: archived
 context: "Dream cycle summary — 2026-08-29"
+date: 2026-08-29
+source_file: memory/working/dream-summary-2026-08-29.md
+tags:
+  - dream-summary
+  - jarvis
+  - dream-cycle
+  - error-patterns
+  - omnifocus
+  - plaud
+  - memory-pipeline
+  - lessons
+  - system-maintenance
+related_people:
+  - dr-easton
+salience:
+  score: 10
+  last-promoted-check: 2026-08-31
+  promoted: true
 ---
 
 Dream cycle ran clean overnight. One working-memory item aged out and moved into permanent memory — this past Thursday's own dream-cycle summary — and got folded into the existing dream-summary semantic pattern. Nothing new created, just reinforced.

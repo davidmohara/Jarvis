@@ -23,9 +23,10 @@ related_people:
   promoted: true
   last-promoted-check: 2026-08-28
   last-promoted-check: 2026-08-29
+  last-promoted-check: 2026-08-30
 salience:
   score: 10
-  last-promoted-check: 2026-08-30
+  last-promoted-check: 2026-08-31
 ---
 
 Dream cycle ran clean overnight. Two working-memory items aged out and moved into permanent memory: the eval-harness hook fix writeup from Aug 21, and the Aug 22 Plaud ingest summary. That Plaud entry also fed a new insight into the Plaud pattern file: Monday task creation went from working fine in recent cycles to a hard 0-for-17 rejection at the tool-permission layer — every "review this recording" task for Alice Mburu failed to create. Worth watching the next plaud-ingest run; if it happens again, this needs a real ticket for Rigby rather than another log line.

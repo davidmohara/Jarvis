@@ -4,7 +4,7 @@ domain: operational
 subject: "Pattern around session-wrap"
 synthesized-from:
   - memory/episodic/shutdown-cleanup-2026-06-16-071444.md
-last-updated: 2026-08-30
+last-updated: 2026-08-31
 tags:
   - calendar
   - co-sell
@@ -72,3 +72,9 @@ Sources this cycle:
 - `memory/episodic/shutdown-cleanup-2026-08-27-202000.md` (score 3) — tags: session-wrap, chief, system-maintenance, git-sync, system-health. Routine shutdown: a root-check flagged a non-canonical `drafts/` directory, escalated to David rather than resolved unilaterally, and moved per his decision to the documented canonical path in `content/improving-blog/`; a stale fallback path in `workflows/content-pipeline/steps/step-01-discover.md` pointing outside the repo was fixed in the same pass; 8 temp artifacts purged; clean commit verified.
 
 Consistent with this cluster's established pattern: session-wrap entries keep surfacing small infrastructure/routing corrections (here, a misplaced directory and a stale hardcoded path) as a byproduct of routine end-of-session bookkeeping rather than dedicated audits. Confidence held at medium (7th dated evidence entry, same rate as prior cycles — no basis yet for a further escalation to high).
+
+### 2026-08-31 — Nightly promotion
+Sources this cycle:
+- `memory/episodic/shutdown-cleanup-2026-08-07-162834.md` (score 3) — routine cleanup: purged stray .DS_Store files, verified Everbridge proposal relocation, committed 134 files including 7 new account-pursuit dashboards (7-Eleven, Expedia, Marriott, McKesson, ORIX, PriceSmart, Texas Instruments) and removal of a long-overdue stale archive batch (43 files). Correctly recognized execution-output frontmatter changes in workflows/plaud-ingest/ as not triggering the Rigby skill/workflow-authoring gate.
+
+This source crossed the promotion threshold via 30-day window drift rather than being freshly archived this cycle — the file itself was also found carrying 12 stacked duplicate orphaned `last-promoted-check:` lines (one added per nightly run from 08-10 through 08-30), the worst live instance yet of the salience-score.py corruption bug this system has tracked since 08-25 (see dream-summary-pattern.md and err-20260831T080618-284VH8). Hand-repaired before promotion. Confidence held at medium (8th dated evidence entry, same rate as prior cycles — no basis yet for escalation to high).

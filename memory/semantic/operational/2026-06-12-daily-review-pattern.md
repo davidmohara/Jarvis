@@ -3,7 +3,7 @@ type: semantic
 domain: operational
 primary-tag: daily-review
 created: 2026-06-12
-last-updated: 2026-08-26
+last-updated: 2026-08-31
 confidence: high
 synthesized-from: 19
   - daily-review-2026-06-08-212450.md
@@ -124,3 +124,9 @@ Sources this cycle:
 - `memory/episodic/daily-review-2026-08-11-211149.md` (score 10) — 27 OmniFocus tasks completed in 24h (heavy Sales — Nexben, Solace, AT&T, CBRE) vs. 2 overdue, both Lifebook (Career, Health); flags a recurring split where the professional execution engine runs strong while personal Lifebook planning is persistently deferred.
 
 The Lifebook-deferred-while-work-executes split (08-11) is a new, sharper framing of a signal this cluster has carried in weaker form before (Forgiveness Letter repeatedly deferred, 07-31). Both entries this cycle reinforce that personal/relationship commitments (Cole Estrate outreach, Forgiveness Letter, Lifebook) are the category that consistently slips in daily reviews, not operational execution.
+
+### 2026-08-31 — Nightly promotion
+Sources this cycle:
+- `memory/episodic/end-of-day-review-2026-08-28-145136.md` (score 10) — David skipped most of that day's meetings to prioritize a Lone Star Gold board meeting (learning year planned and locked); all four Lifebook categories reviewed with 5-Year/1-Year goals set, a rare full-set completion for this cluster; Dickason Honda SOW review cancellation intentionally not picked up (correctly left as Derek's, not David's); eval health flagged a lower-than-usual success rate that day (10/15 clean) as worth a look but not yet investigated.
+
+The full Lifebook review completion here is a positive counter-example to this cluster's usual finding (personal/Lifebook items being the category that slips) — worth watching whether board-meeting-driven schedule compression is what makes room for it, or whether this is a one-off.
