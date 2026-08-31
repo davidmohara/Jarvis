@@ -1,0 +1,65 @@
+{
+  "id": "eval-20260831T145824-AQY0RW",
+  "agent_id": "a870b70492cd6331f",
+  "type": "agent",
+  "name": "general-purpose",
+  "workflow": null,
+  "agent": "general-purpose",
+  "session_id": "42e7a4be-f83a-42ce-b1f7-a28842ff1cf6",
+  "trigger": "unknown",
+  "started": "2026-08-31T14:58:24.409321Z",
+  "completed": "2026-08-31T14:58:31.210124Z",
+  "duration_seconds": 6.8,
+  "status": "failure",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": false,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": [
+        "err-20260831T145747-LDPD1Q",
+        "err-20260831T145748-3SVX4A",
+        "err-20260831T145746-29X2M7",
+        "err-20260831T145745-P4UXXX"
+      ]
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": "negative",
+      "comment": "error-log-correlated: err-20260831T145747-LDPD1Q, err-20260831T145748-3SVX4A, err-20260831T145746-29X2M7, err-20260831T145745-P4UXXX",
+      "timestamp": "2026-08-31T14:58:31.210124Z"
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/42e7a4be-f83a-42ce-b1f7-a28842ff1cf6/subagents/agent-a870b70492cd6331f.jsonl",
+  "last_assistant_message": "The co-sell-pipeline skill is running in the background to pull the live PowerBI figure. I'll report back with the corrected number, source, filter/view, timestamp, and the likely root cause of the $20.43M discrepancy as soon as it completes.",
+  "model": "sonnet",
+  "total_tokens_input": 84505,
+  "total_tokens_output": 88,
+  "total_cost_usd": 0.17526
+}

@@ -1,10 +1,10 @@
 {
   "skill": "co-sell-pipeline",
   "agent": "chase",
-  "trigger": "scheduled",
-  "started": "2026-08-31T00:00:00Z",
-  "completed": "2026-08-31T00:15:00Z",
+  "trigger": "manual",
+  "started": "2026-08-31T14:58:00Z",
+  "completed": "2026-08-31T15:02:00Z",
   "status": "success",
-  "tool_failures": 0,
-  "error_ids": []
+  "tool_failures": 1,
+  "error_ids": ["err-20260831T145745-P4UXXX"]
 }

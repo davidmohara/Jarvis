@@ -1,17 +1,18 @@
 {
-  "pulled_at": "2026-08-28T16:03:00Z",
-  "task_count": 10,
+  "pulled_at": "2026-08-31T14:41:00Z",
+  "task_count": 11,
   "tasks": [
-    {"name": "Higgsfield - video", "due_date": null, "is_flagged": false},
-    {"name": "Movies", "due_date": null, "is_flagged": false},
-    {"name": "Exec AI Workshop", "due_date": null, "is_flagged": false},
-    {"name": "CC Breakfast", "due_date": null, "is_flagged": false},
-    {"name": "Can cannon", "due_date": null, "is_flagged": false},
-    {"name": "Find church for Sunday", "due_date": null, "is_flagged": false},
-    {"name": "Vistage referrals for Alise", "due_date": null, "is_flagged": false},
-    {"name": "Take hanger for jacket to work", "due_date": null, "is_flagged": false},
-    {"name": "Review appendix and planning for SC offerings", "due_date": null, "is_flagged": false},
-    {"name": "4minds.ai", "due_date": null, "is_flagged": false}
+    {"id": "of-1", "name": "Higgsfield - video", "due_date": null, "project": "Inbox", "context": null, "is_flagged": false},
+    {"id": "of-2", "name": "Movies", "due_date": null, "project": "Inbox", "context": null, "is_flagged": false},
+    {"id": "of-3", "name": "Exec AI Workshop", "due_date": null, "project": "Inbox", "context": null, "is_flagged": false},
+    {"id": "of-4", "name": "CC Breakfast", "due_date": null, "project": "Inbox", "context": null, "is_flagged": false},
+    {"id": "of-5", "name": "Can cannon", "due_date": null, "project": "Inbox", "context": null, "is_flagged": false},
+    {"id": "of-6", "name": "Find church for Sunday", "due_date": null, "project": "Inbox", "context": null, "is_flagged": false},
+    {"id": "of-7", "name": "Vistage referrals for Alise", "due_date": null, "project": "Inbox", "context": null, "is_flagged": false},
+    {"id": "of-8", "name": "Take hanger for jacket to work", "due_date": null, "project": "Inbox", "context": null, "is_flagged": false},
+    {"id": "of-9", "name": "4minds.ai", "due_date": null, "project": "Inbox", "context": null, "is_flagged": false},
+    {"id": "of-10", "name": "Weekly peptide protocol", "due_date": null, "project": "Inbox", "context": null, "is_flagged": false},
+    {"id": "of-11", "name": "Hair product purchase", "due_date": null, "project": "Inbox", "context": null, "is_flagged": false}
   ],
-  "note": "Live re-pull via osascript for second boot run. Identical 10 inbox items to the first run's pull — none dated, none flagged, none completed in between."
+  "note": "All 11 items are uncompleted inbox tasks with no due date and no flags set. No overdue or due-today items."
 }

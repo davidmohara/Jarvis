@@ -1,0 +1,15 @@
+{
+  "id": "err-20260831T144849-LDEIJS",
+  "timestamp": "2026-08-31T14:48:49Z",
+  "session": "pi-20260831-001",
+  "source": "self-detected",
+  "agent": "knox",
+  "category": "skill-execution",
+  "description": "During plaud-ingest step-01, invoking the plaud-discover skill via a background fork (Skill tool) produced an incorrect discovery result: it reported all 129 files in ~/Downloads/transcript-staging as 'unprocessed' and recommended ingesting all 129, writing this to systems/eval-harness/skill-runs/plaud-discover-latest.json. This contradicted the previously verified state (only 1-2 genuinely new recordings; ~120+ staging files are pre-existing already-ingested duplicates flagged for cleanup in an earlier session). The fork appears to have listed the local staging folder and treated file presence there as 'unprocessed', skipping the documented API-vs-vault file_id dedup step in skills/plaud-discover/SKILL.md (Plaud API enumeration via /file/simple/web + Obsidian vault frontmatter file_id scan under zzPlaud/).",
+  "correction": "Manually re-ran discovery correctly: called fetch_plaud.py's list_recordings() directly against the live Plaud API (129 total recordings) and cross-referenced against a live Obsidian dataview scan of zzPlaud/**/*.md frontmatter file_id fields (128 unique ids). True diff = exactly 2 new recordings (9655c434b58437e56c3c80e441d541d9 and 2206973163d38abccd15da29b0ec7b60), both already ready for fetch. Did not act on the fork's false 129-file recommendation.",
+  "failure_mode": "Background/forked skill execution deviated from the skill's documented procedure (skipped vault dedup, used staging-folder listing as a proxy for 'new'), producing a plausible-looking but incorrect result that would have caused mass re-ingestion of ~127 already-ingested duplicate notes if trusted without verification.",
+  "systemic_fix": "Consider flagging plaud-discover for rigby-skill-audit / rigby-skill-reflect: the skill's fork-execution path needs stronger enforcement that vault dedup (step 3 of skills/plaud-discover/SKILL.md) actually runs, not just staging-folder enumeration. Also consider having the skill write its dedup method into its completion artifact (skill-runs/*.json) so downstream consumers can sanity-check whether the vault cross-reference actually occurred.",
+  "fix_status": "proposed",
+  "severity": "major",
+  "related_entries": ["err-20260730T143152-S0TRMO", "err-20260803T143125-2W5XDO", "err-20260812T142902-E6Z7KS", "err-20260826T190948-QQMBTP", "err-20260828T140747-814VN9"]
+}

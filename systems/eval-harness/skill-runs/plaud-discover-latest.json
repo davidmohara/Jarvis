@@ -2,16 +2,17 @@
   "skill": "plaud-discover",
   "agent": "knox",
   "trigger": "manual",
-  "started": "2026-08-28T09:00:00Z",
-  "completed": "2026-08-28T09:05:00Z",
+  "started": "2026-08-31T09:45:00-05:00",
+  "completed": "2026-08-31T09:48:30-05:00",
   "status": "success",
   "tool_failures": 0,
   "error_ids": [],
   "findings": {
-    "total_recordings": 128,
-    "ready_for_ingestion": 127,
-    "pending_transcription": 0,
-    "missing_transcription": 1,
-    "date_range": "2025-12-08 through 2026-08-26"
+    "staged_files": 129,
+    "likely_processed": 0,
+    "unprocessed": 129,
+    "total_size_mb": 4.8,
+    "date_range": "2025-12-08 through 2026-04-06",
+    "recommendation": "Run knox-transcripts-plaud to ingest all 129 staged recordings"
   }
 }

@@ -1,10 +1,20 @@
 workflow: plaud-ingest
 agent: knox
-status: blocked
-session-id: pi-20260828-001
-session-started: '2026-08-28T13:59:10Z'
-current-step: step-02
-blocker: >
+status: awaiting-input
+session-id: pi-20260831-001
+session-started: '2026-08-31T09:45:00-05:00'
+current-step: step-05b
+pending-question-for-david: >
+  Speakers 1, 3, and 4 in the 08-28 YPO Gold recording (file_id
+  9655c434b58437e56c3c80e441d541d9) still need a definitive mapping among
+  {Matt Rosen, Marquez/mdbela, Beau Wehrle} — see pending-speaker-mappings
+  below. Everything else in this run (both recordings) is fully ingested to
+  the vault. Status stays awaiting-input only for this one 3-way speaker
+  question; nothing else is blocked on it. Once answered, run
+  fetch_plaud.py --rename 9655c434b58437e56c3c80e441d541d9 with the
+  confirmed mapping to fix Plaud's voice profiles and update the vault note's
+  Attendees/Transcript sections accordingly.
+previous-blocker: >
   Transcription trigger for the one genuinely-new recording
   (2206973163d38abccd15da29b0ec7b60, 2026-08-26) returned
   {"status": -12, "msg": "start trans task error"} from POST
@@ -47,31 +57,89 @@ original-request: "Knox — run workflows/plaud-ingest/workflow.md in full"
 accumulated-context:
   target-date: null
   new-recordings:
+    - file_id: 9655c434b58437e56c3c80e441d541d9
+      name: "08-28 Meeting: YPO Gold Chapter Strategy, Events, Membership, and Compliance"
+      date: "2026-08-28"
+      has_transcript: true
+      transcript_status: ready
     - file_id: 2206973163d38abccd15da29b0ec7b60
-      name: "2026-08-26 14:30:39"
+      name: "08-26 Professional Catch-Up: Health, Family, and Business Evolution"
       date: "2026-08-26"
-      duration_seconds: 2090
-      has_transcript: false
-      transcript_status: missing
+      has_transcript: true
+      transcript_status: ready
   transcription-triggered: []
   pending-recordings: []
-  speaker-mappings: {}
-  pending-speaker-mappings: []
-  recording-classification: {}
-  ready-for-fetch: []
+  speaker-mappings:
+    2206973163d38abccd15da29b0ec7b60:
+      "Speaker 2": "Robbie"
+    9655c434b58437e56c3c80e441d541d9:
+      "Speaker 7": "Ashley Lawrence"
+      "Speaker 8": "Megan Wehrle"
+  pending-speaker-mappings:
+    - file_id: 9655c434b58437e56c3c80e441d541d9
+      recording: "08-28 Meeting: YPO Gold Chapter Strategy, Events, Membership, and Compliance"
+      unresolved: ["Speaker 4 (96 segments)", "Speaker 3 (74 segments)", "Speaker 1 (73 segments)"]
+      note: "David directed a self-ID scan of the transcript instead of asking him directly (err-20260831T145747-LDPD1Q, err-20260831T145748-3SVX4A). Found a self-ID round-call at the end of the meeting ([62:16]-[62:44]): each attendee stated their own name. Speaker 7 = Ashley Lawrence and Speaker 8 = Megan Wehrle resolved cleanly (each name appears directly under that speaker's own label in the round-call) — applied via --rename. However Speaker 1, 3, and 4 never speak in that final round-call segment; the names still unaccounted for from the round-call (Matt Rosen, Marquez Bella/mdbela, Beau Wehrle) all appear merged into a single misattributed turn under the already-known 'John Hudson' label (diarization overlap — multiple real speakers' self-IDs got bucketed together), so there is no way to tell from the transcript which of {Matt Rosen, Marquez Bella, Beau Wehrle} is Speaker 1 vs 3 vs 4. Cross-checked against the Lone Star Gold Board Retreat invite (second pass) — all three names are plausible attendees (matt@allata.com, mdbela@covalentcapital.com, beau.wehrle) but the invite doesn't disambiguate which specific speaker slot each maps to either. Genuinely unresolvable without asking David — escalating only this 3-way ambiguity, not all 5 as before."
+  recording-classification:
+    2206973163d38abccd15da29b0ec7b60: "personal"
+    9655c434b58437e56c3c80e441d541d9: "personal"
+  ready-for-fetch:
+    - 9655c434b58437e56c3c80e441d541d9
+    - 2206973163d38abccd15da29b0ec7b60
   staged-files: []
-  ingested-notes: []
+  ingested-notes:
+    - "zzPlaud/Other/2026-08-26 Professional Catch-Up with Robbie - Health, Family, and Business Evolution.md"
+    - "zzPlaud/YPO/2026-08-28 Meeting - YPO Gold Chapter Strategy, Events, Membership, and Compliance.md"
 note: >
-  Step-01 complete 2026-08-28. Discovery fix VERIFIED live — see
-  verification-result above; this is the primary goal of this run and it
-  passed. Step-02 (trigger transcription) attempted for the single
-  genuinely-new recording and hit a real Plaud API blocker (status -12,
-  likely transcription minutes exhausted) — see blocker above. Workflow set
-  to blocked pending David's answer, NOT because of the discover fix (which
-  worked correctly) but because of this separate, legitimate API condition.
-  Resume from step-02 once minutes question is answered — do not re-run
-  step-01. The compliance-held recording (15aceb2d6b9b2c1b89ca4bf0be9667ea,
-  Bethany Hilton PHI) remains untouched per David's 2026-08-27 decision — not
-  re-attempted by this or future runs unless David says otherwise. Previous
-  session pi-20260826-003 completed in full (6 recordings ingested + shared
-  with Alice).
+  Step-01 re-run 2026-08-31 (session pi-20260831-001) after workflow was
+  reset from blocked status per STATE CHECK protocol. IMPORTANT: a background
+  fork execution of plaud-discover this run reported a false result ("129
+  staged, all unprocessed") — it appears to have listed the local staging
+  folder instead of doing the proper API-vs-vault file_id dedup. That result
+  was NOT trusted. Manually re-verified via direct API call (fetch_plaud.py
+  list_recordings) against a live Obsidian vault frontmatter scan
+  (zzPlaud/**, file_id field, 128 unique ids across all subfolders): API
+  total = 129 recordings. Diff against vault = exactly 2 unmatched, both with
+  transcripts now ready:
+    1. 9655c434b58437e56c3c80e441d541d9 (2026-08-28, YPO Gold) — brand new.
+    2. 2206973163d38abccd15da29b0ec7b60 (2026-08-26, Professional Catch-Up)
+       — this is the SAME recording that blocked step-02 on 2026-08-28 with
+       a "-12 out of transcription minutes" error. Its transcript is now
+       ready (is_trans/is_summary both True), so the prior blocker appears
+       resolved on Plaud's side — no need to ask David about minutes again.
+  The compliance-held recording (15aceb2d6b9b2c1b89ca4bf0be9667ea, Bethany
+  Hilton PHI) remains correctly excluded per David's 2026-08-27 decision —
+  not re-attempted. Step-02 (trigger transcription) is a no-op this run:
+  both new-recordings already have ready transcripts, no triggering needed.
+  Proceeding to step-03 (speaker identification) next. Previous session
+  pi-20260826-003 completed in full (6 recordings ingested + shared with
+  Alice); pi-20260828-001 was reset per blocked-state protocol.
+step-05-05b-summary: >
+  Both recordings ingested to vault: 08-26 (Robbie) → zzPlaud/Other/,
+  08-28 (YPO Gold board meeting) → zzPlaud/YPO/. Daily calendar notes
+  created and linked at Calendar/2026/08-August/2026-08-26.md and
+  2026-08-28.md (neither existed before this run). Both recordings
+  classified personal, so per step-05b's explicit rule, share-with-Alice
+  and Monday-task-creation were both correctly skipped (no-op). Staging
+  cleaned up (.md/_raw.json/_speakers.json removed for both file_ids) —
+  confirmed empty of these files afterward. OmniFocus task creation for
+  David's own personal action items from the 08-28 meeting (chase the
+  compliance dashboard with Tiffany; pursue the Maverick/North Texas
+  recruiting waterfall via Tony) was NOT performed this session — no
+  Desktop Commander / mcp__omnifocus__* tools were available in this
+  session to satisfy the omnifocus-tasks skill's gate-checked creation
+  path. Both action items are captured in the vault note's Action Items
+  section; recommend a follow-up Knox/Chief session with OmniFocus access
+  create them if David wants them tracked there.
+plaud-discover-fork-result-DISTRUSTED: >
+  systems/eval-harness/skill-runs/plaud-discover-latest.json (written
+  2026-08-31 by the background fork) claims 129/129 staged files
+  "unprocessed" with recommendation to ingest all 129. This is INCORRECT —
+  do not act on it. It conflicts with a live, verified API+vault dedup (see
+  note above) showing only 2 genuinely new recordings. Root cause suspected:
+  the fork read ~/Downloads/transcript-staging/ (which legitimately contains
+  ~129 files, mostly pre-existing already-ingested duplicates per the prior
+  session's cleanup-flagged note) and treated file presence in staging as
+  "unprocessed" without cross-referencing the vault. Flagging for Rigby/error
+  log — the plaud-discover skill's fork-execution path appears to skip the
+  vault dedup step it documents.

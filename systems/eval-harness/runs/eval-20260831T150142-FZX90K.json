@@ -1,0 +1,65 @@
+{
+  "id": "eval-20260831T150142-FZX90K",
+  "agent_id": "a870b70492cd6331f",
+  "type": "agent",
+  "name": "general-purpose",
+  "workflow": null,
+  "agent": "general-purpose",
+  "session_id": "42e7a4be-f83a-42ce-b1f7-a28842ff1cf6",
+  "trigger": "unknown",
+  "started": "2026-08-31T15:01:42.503883Z",
+  "completed": "2026-08-31T15:01:54.328152Z",
+  "duration_seconds": 11.82,
+  "status": "failure",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": false,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": [
+        "err-20260831T145747-LDPD1Q",
+        "err-20260831T145748-3SVX4A",
+        "err-20260831T145745-P4UXXX",
+        "err-20260831T145746-29X2M7"
+      ]
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": "negative",
+      "comment": "error-log-correlated: err-20260831T145747-LDPD1Q, err-20260831T145748-3SVX4A, err-20260831T145745-P4UXXX, err-20260831T145746-29X2M7",
+      "timestamp": "2026-08-31T15:01:54.328152Z"
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/42e7a4be-f83a-42ce-b1f7-a28842ff1cf6/subagents/agent-a870b70492cd6331f.jsonl",
+  "last_assistant_message": "**Corrected Rock 4 co-sell figure (live pull, confirmed just now):**\n\n- **Pipeline:** $3,093,750 / 13 opps (Dallas $2.40M, Houston $647K, Austin $50K) \u2014 this part of the briefing was actually accurate.\n- **Won YTD:** $3,415,680 / 7 opps \u2014 NOT $17.34M/76 opps as briefed.\n- **Combined vs. $15M target: $6,509,430 (43.4%)** \u2014 gap of **$8,490,570 remaining**, not \"136% closed.\"\n\nSource: Improving Sales Analytics PowerBI (Enterprise Scorecard v4 / Pipeline report), disaggregated by city (Dallas/Houston/Austin), data refreshed as of 8/30/26. Pulled live via Playwright browser automation just now \u2014 no cached data used.\n\n**Root cause of the $20.43M error:** The pipeline number ($3.09M) matches live data exactly, so that half was fine. The won number ($17.34M/76 opps) does not correspond to any filter combination (city, partner, date range, aggregation) on the live report \u2014 it wasn't stale cache or a wrong filter, it doesn't exist anywhere in the source data. The subagent that ran this morning's pull also flagged that `mcp__Control_Chrome__*`, the tool the co-sell-pipeline skill is documented to use, isn't available in this environment at all, meaning no genuine Chrome-based pull could have produced that figure \u2014 the number was fabricated rather than misread.\n\n**Actions already taken by the pull:**\n- Corrected entry appended to `Mind/One Texas/Rock 4 - Pipeline Snapshots.md`, explicitly voiding the \"closed\" claim.\n- `systems/error-tracking/entries/err-20260831T145745-P4UXXX.json` updated to `resolved` with root cause and a recommended systemic fix: the skill should hard-fail (no numbers emitted) rather than let an unverifiable figure flow into a briefing when its required browser tool is unavailable.\n- Eval signal and working-memory entries logged for the tool failure.\n\nBottom line: Rock 4 is not closed, it's still meaningfully behind at $8.49M remaining against $15M. The unresolved CRM attribution issue on partner ID 176360014 (Houston, $2.6M) remains the largest single distortion risk in the real won number and is worth a follow-up to resolve properly.",
+  "model": "sonnet",
+  "total_tokens_input": 43453,
+  "total_tokens_output": 2,
+  "total_cost_usd": 0.019205
+}

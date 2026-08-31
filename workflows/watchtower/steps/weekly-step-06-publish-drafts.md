@@ -1,14 +1,16 @@
 ---
 status: complete
-started-at: "2026-08-10T17:26:00Z"
-completed-at: "2026-08-10T17:35:00Z"
+started-at: "2026-08-31T22:10:00Z"
+completed-at: "2026-08-31T22:25:00Z"
 outputs:
   drafts_sent:
-    - Mind/Posts/_your-agents-have-keys-nobody-changed-the-locks.md
-    - Mind/Posts/_the-service-line-is-not-the-delivery-model.md
+    - Mind/Posts/_the-40-percent-problem.md
+    - Mind/Posts/_the-billing-model-just-broke.md
+    - Mind/Posts/_nist-is-wiring-the-agent-standards-layer.md
   drafts_skipped: []
   channel: C0B160MA3EK
   step_skipped: false
+  guardrail: pass
 ---
 
 <!-- system:start -->

@@ -1,0 +1,207 @@
+{
+  "id": "eval-20260831T070500-WTW36A",
+  "type": "workflow",
+  "name": "watchtower-weekly",
+  "agent": "knox",
+  "session_id": "wt-weekly-2026-W36",
+  "trigger": "scheduled",
+  "started": "2026-08-31T07:05:00Z",
+  "completed": "2026-08-31T08:20:00Z",
+  "duration_seconds": 4500,
+  "status": "partial",
+  "steps": [
+    {
+      "name": "weekly-step-01-synthesize",
+      "started": "2026-08-31T07:05:00Z",
+      "completed": "2026-08-31T07:25:00Z",
+      "duration_seconds": 1200,
+      "status": "success",
+      "data_sources_used": [
+        "web-search",
+        "watchtower-state-yaml",
+        "watchtower-config-yaml",
+        "sources-yaml"
+      ],
+      "data_source_failures": [
+        "seen-jsonl-missing"
+      ],
+      "model": "sonnet",
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    },
+    {
+      "name": "weekly-step-02-drafts",
+      "started": "2026-08-31T07:25:00Z",
+      "completed": "2026-08-31T07:40:00Z",
+      "duration_seconds": 900,
+      "status": "success",
+      "data_sources_used": [
+        "obsidian-mcp",
+        "identity-voice-md",
+        "blog-ideas-md"
+      ],
+      "data_source_failures": [],
+      "model": "sonnet",
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    },
+    {
+      "name": "weekly-step-02b-tweets",
+      "started": "2026-08-31T07:30:00Z",
+      "completed": "2026-08-31T07:40:00Z",
+      "duration_seconds": 600,
+      "status": "success",
+      "data_sources_used": [
+        "accumulated-context"
+      ],
+      "data_source_failures": [],
+      "model": "sonnet",
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    },
+    {
+      "name": "weekly-step-03-suggest-sources",
+      "started": "2026-08-31T07:40:00Z",
+      "completed": "2026-08-31T07:50:00Z",
+      "duration_seconds": 600,
+      "status": "success",
+      "data_sources_used": [
+        "web-search",
+        "sources-yaml",
+        "proposed-sources-md"
+      ],
+      "data_source_failures": [],
+      "model": "sonnet",
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    },
+    {
+      "name": "weekly-step-04-weekly-note",
+      "started": "2026-08-31T07:50:00Z",
+      "completed": "2026-08-31T08:00:00Z",
+      "duration_seconds": 600,
+      "status": "success",
+      "data_sources_used": [
+        "obsidian-mcp",
+        "accumulated-context"
+      ],
+      "data_source_failures": [],
+      "model": "haiku",
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    },
+    {
+      "name": "weekly-step-05-report",
+      "started": "2026-08-31T08:00:00Z",
+      "completed": "2026-08-31T08:20:00Z",
+      "duration_seconds": 1200,
+      "status": "success",
+      "data_sources_used": [
+        "cowork-artifact-update",
+        "state-yaml"
+      ],
+      "data_source_failures": [
+        "artifact-update-skipped-w35",
+        "artifact-update-skipped-w36-initial"
+      ],
+      "model": "sonnet",
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null,
+      "notes": "Artifact update completed after session resumption following context compaction. Error logged as err-20260831T215941-S03HMB. Gate block added to step-05 to prevent future skips."
+    }
+  ],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": [
+        "err-20260831T215941-S03HMB"
+      ]
+    },
+    "structural": {
+      "expected_outputs_written": true,
+      "outputs_non_empty": true,
+      "assertions_checked": 9,
+      "assertions_passed": 8,
+      "assertion_results": [
+        {
+          "assertion": "ww-state-complete: state.yaml status == complete",
+          "passed": true
+        },
+        {
+          "assertion": "ww-weekly-note-exists: step-04 file written",
+          "passed": true
+        },
+        {
+          "assertion": "ww-step05-artifact-updated-true: artifact_updated: true in step-05 frontmatter",
+          "passed": false,
+          "note": "W36 initial run logged artifact_updated: false \u2014 corrected after session resumption; frontmatter not retroactively updated to true because the fix happened post-compaction and updating would obscure the failure record. Error logged: err-20260831T215941-S03HMB."
+        },
+        {
+          "assertion": "ww-step01-delta-check: delta_check_applied: true in step-01",
+          "passed": true
+        },
+        {
+          "assertion": "ww-step02-drafts-created: at least 1 draft in step-02 frontmatter",
+          "passed": true
+        },
+        {
+          "assertion": "ww-step03-proposed-count present",
+          "passed": true
+        },
+        {
+          "assertion": "ww-state-session-id-w-prefix: wt-weekly-YYYY-Www pattern",
+          "passed": true
+        },
+        {
+          "assertion": "ww-step05-themes-surfaced: >= 1 theme",
+          "passed": true
+        },
+        {
+          "assertion": "ww-sources-yaml-has-active: at least one active source",
+          "passed": true
+        }
+      ]
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": "negative",
+      "comment": "Dashboard artifact skipped again \u2014 same failure as W35. Error logged (err-20260831T215941-S03HMB), workflow gate block added to weekly-step-05. User also requested eval harness assertions be added so the model cannot silently skip the artifact update without the eval catching it.",
+      "timestamp": "2026-08-31T22:00:00Z"
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [
+    "watchtower",
+    "weekly",
+    "knox",
+    "W36",
+    "artifact-update-failure"
+  ],
+  "total_tokens_input": null,
+  "total_tokens_output": null,
+  "total_cost_usd": null
+}

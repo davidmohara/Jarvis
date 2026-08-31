@@ -20,46 +20,41 @@ PowerBI report. Report both regions side-by-side using Playwright browser automa
 Note: South Texas = Austin + Houston combined in PowerBI slicer terminology. Output is
 intentionally side-by-side only — bookings are not aggregated into a One Texas combined total.
 
+This skill delegates navigation to the shared `powerbi-navigate-slicer` skill using the
+`playwright` connector (not `chrome` — this is the one report in the collection driven by
+Playwright rather than Chrome MCP; the slicer DOM shape is identical `text-click`, only the
+underlying browser tool differs). There is no cache-check phase — bookings are reviewed
+live every time this skill runs, no Obsidian snapshot file backs it.
+
 ---
 
 ## Execution
 
 ### Step 1 — Navigate Directly to Wins By Enterprise
 
+Call `skills/powerbi-navigate-slicer/SKILL.md` with:
 ```
-mcp__playwright__browser_navigate
-url: https://app.powerbi.com/groups/me/apps/bda222e8-2ca5-4f79-8713-c15ea283f95d/reports/61775932-91be-43e4-bb21-fd3354978687/ReportSection7e20c80e361d6cc45eed?ctid=f2267c2e-5a54-49f4-84fa-e4f2f4038a2e&experience=power-bi
+report_url: "https://app.powerbi.com/groups/me/apps/bda222e8-2ca5-4f79-8713-c15ea283f95d/reports/61775932-91be-43e4-bb21-fd3354978687/ReportSection7e20c80e361d6cc45eed?ctid=f2267c2e-5a54-49f4-84fa-e4f2f4038a2e&experience=power-bi"
+connector: "playwright"
+slicer_pattern: "text-click"
+select: []
 ```
-
 SSO auto-authenticates. No manual login needed. Navigate directly to this URL — do NOT use
 the mcas.ms variant or click through the nav, both cause unnecessary redirects or wrong-page
-landings. The report loads in 3-5 seconds. Take a screenshot to confirm the enterprise slicer
-is visible before proceeding.
-
-```
-mcp__playwright__browser_take_screenshot
-```
+landings. The report loads in 3-5 seconds. Take a screenshot (`mcp__playwright__browser_take_screenshot`)
+to confirm the enterprise slicer is visible before proceeding.
 
 ### Step 2 — Read Dallas, TX
 
-Click the Dallas, TX slicer item by text — more reliable than coordinates:
-
-```js
-mcp__playwright__browser_evaluate
-function: () => {
-  const spans = document.querySelectorAll('span.slicerText');
-  for (const span of spans) {
-    if (span.textContent.trim() === 'Dallas, TX') { span.click(); return 'clicked'; }
-  }
-  return 'not found';
-}
+Call `skills/powerbi-navigate-slicer/SKILL.md` with:
+```
+report_url: (same page — already loaded)
+connector: "playwright"
+slicer_pattern: "text-click"
+select: [{label: "Dallas, TX"}]
 ```
 
-Then take a screenshot to capture the KPI tiles:
-
-```
-mcp__playwright__browser_take_screenshot
-```
+Then take a screenshot (`mcp__playwright__browser_take_screenshot`) to capture the KPI tiles.
 
 Read the following values from the screenshot:
 - Bookings YTD
@@ -72,17 +67,12 @@ Read the following values from the screenshot:
 
 ### Step 3 — Read South Texas
 
-Click South Texas the same way:
-
-```js
-mcp__playwright__browser_evaluate
-function: () => {
-  const spans = document.querySelectorAll('span.slicerText');
-  for (const span of spans) {
-    if (span.textContent.trim() === 'South Texas') { span.click(); return 'clicked'; }
-  }
-  return 'not found';
-}
+Call `skills/powerbi-navigate-slicer/SKILL.md` with:
+```
+report_url: (same page)
+connector: "playwright"
+slicer_pattern: "text-click"
+select: [{label: "South Texas"}]
 ```
 
 Take a screenshot and read the same KPI values.
@@ -103,7 +93,7 @@ Report results as a side-by-side comparison table:
 | Bookings (Extension) YTD        | $X.XM        | $X.XM        |
 | Annual Bookings Target          | $X.XM        | $X.XM        |
 | Sales Needed to Hit Target      | $X.XM        | $X.XM        |
-| Opportunities Won               | XX           | XX           |
+| Opportunities Won                | XX           | XX           |
 | On Target %                     | XX%          | XX%          |
 ```
 
@@ -114,20 +104,11 @@ significantly off-pace. If one region is at risk, say so directly.
 
 ## Notes
 
-- The slicer is single-select — clicking one deselects the other. Slicer items are real DOM
-  elements (`span.slicerText`) — do NOT use coordinate injection, which breaks when the
-  slicer tree renders differently. Text-based selection is reliable across sessions.
-- If `span.slicerText` returns `'not found'`, fall back to a text-content search:
-  ```js
-  mcp__playwright__browser_evaluate
-  function: () => {
-    const els = document.querySelectorAll('*');
-    for (const el of els) {
-      if (el.textContent.trim() === 'Dallas, TX') { el.click(); return 'clicked'; }
-    }
-    return 'not found';
-  }
-  ```
+- The slicer is single-select — clicking one deselects the other. This is
+  `powerbi-navigate-slicer`'s `text-click` pattern: real DOM elements (`span.slicerText`)
+  clicked by exact text match, with a fallback broader text-content scan built in if the
+  primary selector returns not-found. Do NOT use coordinate injection, which breaks when
+  the slicer tree renders differently.
 - Output is side-by-side only. Bookings are dollar amounts that could be summed, but the
   report format intentionally keeps them separate for regional clarity.
 
@@ -136,34 +117,27 @@ significantly off-pace. If one region is at risk, say so directly.
 ## Source
 
 PowerBI report: Improving Sales Analytics — Sales Wins / Wins By Enterprise
+Mechanics: `skills/powerbi-navigate-slicer/SKILL.md` (`connector: "playwright"`),
+`skills/eval-signal-write/SKILL.md`
 Connector: Playwright MCP (`mcp__playwright__*`)
 Auth: SSO (auto)
 
 ## SKILL COMPLETE
 
-After the skill's final output is delivered, write the skill-run signal file so the eval harness captures this execution:
-
+After the skill's final output is delivered, call `skills/eval-signal-write/SKILL.md` with:
 ```
-systems/eval-harness/skill-runs/bookings-review-latest.json
+skill_name: "bookings-review"
+agent: "chase"
+trigger: "manual"   (or "boot"/"scheduled" per the calling context)
+started: <actual start time of this run>
+completed: <actual completion time>
+status: "success"   (or "partial"/"failure" as appropriate)
+tool_failures: 0
+error_ids: []
 ```
+This call is always the final action.
 
-Content:
-```json
-{
-  "skill": "bookings-review",
-  "agent": "chase",
-  "trigger": "manual",
-  "started": "<ISO-8601 timestamp when this skill began>",
-  "completed": "<ISO-8601 timestamp when this skill finished>",
-  "status": "success",
-  "tool_failures": 0,
-  "error_ids": []
-}
-```
-
-Set `trigger` to `"boot"` if called from the morning briefing or a boot workflow, `"scheduled"` if called from a scheduled task, `"manual"` otherwise. Set `status` to `"partial"` if the skill completed with degraded output, `"failure"` if it could not run at all. Use the actual start time of this skill execution for `started`. This write is always the final action.
-
-After writing the signal file, also write a working memory file to `memory/working/` using this filename pattern:
+After that, also write a working memory file to `memory/working/` using this filename pattern:
 
 ```
 bookings-review-YYYY-MM-DD-HHmmss.md
@@ -185,4 +159,3 @@ context: "Bookings review — {YYYY-MM-DD}"
 ```
 
 Body: 3-5 bullet points summarizing key outputs, decisions, and any flags from this run. Keep it under 200 words.
-

@@ -27,6 +27,13 @@ Key metrics:
 
 Note: South Texas = Austin + Houston. One Texas = Dallas + South Texas combined.
 
+This skill delegates dropdown navigation and cache-check to shared skills. **The bar-color
+(actual vs. forecast) and tooltip-hover value read is NOT delegated to `powerbi-extract-kpis`**
+— inspecting SVG `rect` `fill` attributes to distinguish actual/backlog/pipeline bars, then
+dispatching a mouse-hover at a computed coordinate to read the tooltip, is a materially
+different and more fragile mechanic than a plain innerText/regex read. That logic stays
+inline below, same as in `new-clients` for its chart-hover step.
+
 ### Bar Chart Color Encoding — Critical
 
 The Monthly Revenue bar chart uses color to distinguish revenue type:
@@ -34,34 +41,29 @@ The Monthly Revenue bar chart uses color to distinguish revenue type:
 - **Blue bars** = Backlog (contracted but not yet recognized)
 - **Gold/yellow bars** = Pipeline (not yet contracted)
 
-A month with blue or gold bars — even if it has a visible bar height — is **forecast, not actual**. Do not report it as revenue. The most recent closed month is the last month whose bar is entirely black (no blue/gold component). Months with mixed or blue/gold-only bars are in-progress or future — ignore them for the Monthly Revenue figure.
+A month with blue or gold bars — even if it has a visible bar height — is **forecast, not
+actual**. Do not report it as revenue. The most recent closed month is the last month whose
+bar is entirely black (no blue/gold component). Months with mixed or blue/gold-only bars
+are in-progress or future — ignore them for the Monthly Revenue figure.
 
 ---
 
 ## Phase 0 — Cache Check (Run First)
 
-Before touching PowerBI, check if a fresh snapshot already exists in Obsidian.
+Call `skills/vault-freshness-check/SKILL.md` with:
+```
+vault_file: "Mind/One Texas/Rock 1 - Revenue Snapshots.md"
+entry_heading_pattern: "^## \[?(\w+ \d{4})\]? — Revenue Snapshot"
+date_field_pattern: "\*Pulled: (\d{4}-\d{2}-\d{2})"
+freshness_threshold_days: 30
+extra_staleness_rule: "if today is past the 10th of a new calendar month, treat any snapshot whose 'Most Recent Closed Month' field doesn't match the most recently closed calendar month as stale regardless of age — the prior month has likely closed since the snapshot was taken"
+caller_label: "Chase/Revenue"
+```
 
-**Freshness threshold: 30 days** (revenue data updates monthly when a new month closes).
-Additionally: if today is past the 10th of a new month, the prior month has likely closed
-and any snapshot from the prior month or earlier is stale regardless of age.
+If `cache_status: "hit"` — output `extracted_text` in the standard format below, noting
+the snapshot date, report the message the skill returns, and **stop here**.
 
-1. Read the Obsidian file via `mcp__obsidian-local__get_vault_file`:
-   - filename: `Mind/One Texas/Rock 1 - Revenue Snapshots.md`
-
-2. Find the most recent `## [Month] [Year] — Revenue Snapshot` entry. Parse its
-   `*Pulled: YYYY-MM-DD*` date.
-
-3. Determine if the cached data is current:
-   - If `pulled_date` >= today minus 30 days AND the `Most Recent Closed Month` in the
-     snapshot matches the most recently closed calendar month: **use cache**.
-   - Otherwise: **refresh from PowerBI** (proceed to Phase 1).
-
-4. **If using cache:**
-   - Extract the revenue tables from the most recent snapshot entry.
-   - Output the data in the standard Output Format below, noting the snapshot date.
-   - Report: `[Chase/Revenue]: Using cached data from {pulled_date} (within freshness window). Skipping PowerBI pull.`
-   - **Stop here. Do not proceed to Phase 1.**
+If `"stale"` or `"not_found"` — proceed to Phase 1.
 
 ---
 
@@ -89,8 +91,9 @@ attempts, abort and report the failure.
 
 ## Phase 2 — Filter to Dallas, Read Data
 
-Run this single evaluate to open the dropdown, expand United States if needed, and
-select Dallas. It handles all timing internally — no multi-step open/expand/reopen.
+This is `skills/powerbi-navigate-slicer/SKILL.md`'s `dropdown-nested` pattern
+(`select: [{label: "Dallas", parent: "United States"}]`) — reproduced here as the raw
+script since a validation step immediately follows it:
 
 ```js
 mcp__Control_Chrome__execute_javascript
@@ -143,7 +146,6 @@ code: document.dispatchEvent(new KeyboardEvent('keydown', {key: 'Escape', bubble
 ```js
 mcp__Control_Chrome__execute_javascript
 code: (() => {
-  // Read the Business Unit label to confirm filter state
   const allText = document.body.innerText;
   const lines = allText.split('\n');
   const buLine = lines.find(l => l.includes('Business Unit') || l.includes('Dallas'));
@@ -151,10 +153,19 @@ code: (() => {
 })()
 ```
 
-Verify the returned text contains "Dallas" explicitly (should show "Dallas (Enterprise)" or similar). If it shows "Multiple selections" or any city other than Dallas, **abort and retry Phase 2**. Do not proceed to KPI extraction if the filter is not Dallas-only.
+Verify the returned text contains "Dallas" explicitly (should show "Dallas (Enterprise)" or
+similar). If it shows "Multiple selections" or any city other than Dallas, **abort and retry
+Phase 2**. Do not proceed to KPI extraction if the filter is not Dallas-only. (This is the
+same filter-verification discipline `powerbi-navigate-slicer`'s `verify_after` option
+provides generically — reproduced here inline because this report's specific validation
+text — "Business Unit" — is report-specific.)
 
-Wait 2 seconds, then read KPI tile values from the DOM:
-
+Wait 2 seconds, then read KPI tile values from the DOM. This part **can** use
+`skills/powerbi-extract-kpis/SKILL.md` with `mode: "tile-scan"`:
+```
+mode: "tile-scan"
+```
+which returns the same shape as:
 ```js
 mcp__Control_Chrome__execute_javascript
 code: (() => {
@@ -163,7 +174,6 @@ code: (() => {
     const text = el.innerText?.trim();
     if (text) tiles.push(text);
   });
-  // Also grab all visible numeric text that looks like % or $
   const allText = document.body.innerText;
   return { tiles, allText: allText.substring(0, 3000) };
 })()
@@ -181,8 +191,6 @@ Now identify the most recent **actual** (black bar) month and get its revenue fi
 ```js
 mcp__Control_Chrome__execute_javascript
 code: (() => {
-  // Find the Monthly Revenue bar chart SVG and inspect rect fill colors
-  // Black bars = actual revenue. Blue/gold bars = backlog/pipeline (forecast). Ignore forecast bars.
   const svgs = document.querySelectorAll('svg');
   for (const svg of svgs) {
     if (!(svg.textContent || '').includes('Jan')) continue;
@@ -212,11 +220,13 @@ Inspect the `fill` values returned:
 - Bars with blue fill (e.g. `rgb(0,112,192)`, `#0070c0`, or similar) = backlog — **skip**
 - Bars with gold/yellow fill (e.g. `rgb(255,192,0)`, `#ffc000`, or similar) = pipeline — **skip**
 
-The last month (rightmost x position) whose bar is black is the most recently closed month. Record that month and its bar height for value calculation.
+The last month (rightmost x position) whose bar is black is the most recently closed month.
+Record that month and its bar height for value calculation.
 
 **Step 2 — Get the dollar value via tooltip hover on the black bar:**
 
-Move mouse to the x-center of the most recent black bar (use its `x + w/2` and a y-coordinate in the middle of the chart, approximately y≈265 in screen space):
+Move mouse to the x-center of the most recent black bar (use its `x + w/2` and a
+y-coordinate in the middle of the chart, approximately y≈265 in screen space):
 
 ```js
 mcp__Control_Chrome__execute_javascript
@@ -287,13 +297,14 @@ code: new Promise((resolve) => {
   attempt(5);
 })
 ```
+(This is `powerbi-navigate-slicer`'s `dropdown-nested` multi-leaf variant, reproduced here
+inline alongside the report-specific validation step that follows.)
 
 **VALIDATION STEP — Verify South Texas filter is applied before proceeding:**
 
 ```js
 mcp__Control_Chrome__execute_javascript
 code: (() => {
-  // Read the Business Unit label to confirm filter state
   const allText = document.body.innerText;
   const lines = allText.split('\n');
   const buLine = lines.find(l => l.includes('Business Unit') || l.includes('Austin') || l.includes('Houston'));
@@ -301,10 +312,14 @@ code: (() => {
 })()
 ```
 
-Verify the returned text contains both "Austin" and "Houston" or shows a state like "Texas" or similar (should indicate both cities are selected, not Dallas or "Multiple selections"). If it shows Dallas, "All", or "Multiple selections", **abort and retry Phase 3**. Do not proceed to KPI extraction if the filter is not Austin + Houston only.
+Verify the returned text contains both "Austin" and "Houston" or shows a state like "Texas"
+or similar (should indicate both cities are selected, not Dallas or "Multiple selections").
+If it shows Dallas, "All", or "Multiple selections", **abort and retry Phase 3**. Do not
+proceed to KPI extraction if the filter is not Austin + Houston only.
 
-Close, wait 2 seconds, read KPI tiles and identify the most recent black bar for monthly revenue
-the same way as Phase 2. Apply the same color rule: black = actual, blue/gold = forecast, skip forecast.
+Close, wait 2 seconds, read KPI tiles and identify the most recent black bar for monthly
+revenue the same way as Phase 2. Apply the same color rule: black = actual, blue/gold =
+forecast, skip forecast.
 
 Record:
 - South Texas Revenue vs. Target: CQ %, LQ %, YTD %
@@ -399,6 +414,10 @@ Do not soften misses.
 PowerBI report: Improving Enterprise Scorecard v4
 Page: Financial Outlook (`3c7c59c7edecc090aa27`)
 Report ID: `ff2db561-1548-4c6f-ae43-a3a927bd73e3`
+Mechanics: `skills/powerbi-navigate-slicer/SKILL.md` (dropdown-nested navigation),
+`skills/powerbi-extract-kpis/SKILL.md` (tile-scan mode for KPI %s),
+`skills/vault-freshness-check/SKILL.md`, `skills/eval-signal-write/SKILL.md`.
+Bar-color inspection and tooltip-hover value read stay inline in this skill (see scope note in Purpose).
 Connector: Chrome MCP (`mcp__Control_Chrome__*`) — primary
 Obsidian cache: `Mind/One Texas/Rock 1 - Revenue Snapshots.md`
 Freshness threshold: 30 days (or new month closed since last pull)
@@ -406,29 +425,20 @@ Auth: SSO (auto via Chrome session)
 
 ## SKILL COMPLETE
 
-After the skill's final output is delivered, write the skill-run signal file so the eval harness captures this execution:
-
+After the skill's final output is delivered, call `skills/eval-signal-write/SKILL.md` with:
 ```
-systems/eval-harness/skill-runs/revenue-tracker-latest.json
+skill_name: "revenue-tracker"
+agent: "chase"
+trigger: "manual"   (or "boot"/"scheduled" per the calling context)
+started: <actual start time of this run>
+completed: <actual completion time>
+status: "success"   (or "partial"/"failure" as appropriate)
+tool_failures: 0
+error_ids: []
 ```
+This call is always the final action.
 
-Content:
-```json
-{
-  "skill": "revenue-tracker",
-  "agent": "chase",
-  "trigger": "manual",
-  "started": "<ISO-8601 timestamp when this skill began>",
-  "completed": "<ISO-8601 timestamp when this skill finished>",
-  "status": "success",
-  "tool_failures": 0,
-  "error_ids": []
-}
-```
-
-Set `trigger` to `"boot"` if called from the morning briefing or a boot workflow, `"scheduled"` if called from a scheduled task, `"manual"` otherwise. Set `status` to `"partial"` if the skill completed with degraded output, `"failure"` if it could not run at all. Use the actual start time of this skill execution for `started`. This write is always the final action.
-
-After writing the signal file, also write a working memory file to `memory/working/` using this filename pattern:
+After that, also write a working memory file to `memory/working/` using this filename pattern:
 
 ```
 revenue-tracker-YYYY-MM-DD-HHmmss.md
@@ -450,4 +460,3 @@ context: "Revenue tracker snapshot — {YYYY-MM-DD}"
 ```
 
 Body: 3-5 bullet points summarizing key outputs, decisions, and any flags from this run. Keep it under 200 words.
-

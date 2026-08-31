@@ -1,0 +1,93 @@
+{
+  "id": "eval-20260831T200133-8ZBJEB",
+  "type": "workflow",
+  "name": "boot",
+  "agent": "master",
+  "session_id": "2bc137e5-1f67-449d-93b8-bea7af829ebe",
+  "trigger": "boot",
+  "started": "2026-08-31T20:01:33.034513Z",
+  "completed": "2026-08-31T22:01:49.930395Z",
+  "duration_seconds": 7216.9,
+  "status": "aborted",
+  "steps": [],
+  "subagents": [
+    {
+      "agent_id": "abccebf14495e3e1b",
+      "agent_type": "general-purpose",
+      "started": "2026-08-31T21:09:54.243379Z",
+      "completed": "2026-08-31T21:17:27.948761Z",
+      "model": "sonnet",
+      "tokens_input": 3201644,
+      "tokens_output": 15411,
+      "cost_usd": 1.7577,
+      "duration_seconds": 453.71
+    }
+  ],
+  "monitoring": {
+    "active": false,
+    "state_yaml_path": "workflows/boot/state.yaml",
+    "opened_by": "eval-turn-start.py",
+    "trigger_evidence": "boot-first-prompt-of-session",
+    "close_reason": "state.yaml's own completion timestamp predates this record's open time by 2.0h \u2014 likely a spurious open, not a real run"
+  },
+  "assessment": {
+    "mechanical": {
+      "completed": false,
+      "all_steps_finished": false,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 3,
+      "assertions_passed": 3,
+      "assertion_results": [
+        {
+          "assertion": "boot-001-state-complete",
+          "description": "Boot workflow state.yaml shows status: complete",
+          "passed": true
+        },
+        {
+          "assertion": "boot-002-session-index-exists",
+          "description": "Session index file exists \u2014 boot's Session Index Boot step must have created/appended it",
+          "passed": true
+        },
+        {
+          "assertion": "boot-003-session-index-substantive",
+          "description": "Session index is a real record, not an empty stub",
+          "passed": true
+        }
+      ]
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": "f1a31609ac6be8a11b48a3c6267957f76a4e86e971cd143315c77472e90af0d0",
+  "prior_baseline_id": null,
+  "tags": [
+    "turn-level"
+  ],
+  "total_tokens_input": 3201644,
+  "total_tokens_output": 15411,
+  "total_cost_usd": 1.7577
+}

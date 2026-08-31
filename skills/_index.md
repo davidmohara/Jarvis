@@ -1,9 +1,13 @@
 # IES Skill Index
 
-Last updated: 2026-08-07 | Total skills: 57
+Last updated: 2026-08-31 | Total skills: 61
 
 | ID | Name | Owner | Model | Trigger Keywords (sample) |
 |----|------|-------|-------|---------------------------|
+| powerbi-navigate-slicer | PowerBI Navigate & Slicer Filter | rigby | sonnet | powerbi navigate, powerbi slicer, filter report |
+| powerbi-extract-kpis | PowerBI KPI & Table Extraction | rigby | sonnet | powerbi kpi, read kpi tile, extract report values |
+| vault-freshness-check | Vault Freshness Check | rigby | haiku | cache check, freshness check, stale cache |
+| eval-signal-write | Eval Signal Write | rigby | haiku | skill run signal, eval harness signal, skill complete |
 | add-reminder | Boot Reminder Registry | master | haiku | remind, reminder, boot reminder, add reminder, set reminder |
 | omnifocus-tasks | OmniFocus Task Creation | chief | haiku | create task, new task, omnifocus |
 | plaud-transcripts | Plaud Transcript Ingest | knox | haiku | plaud, transcript, recording |

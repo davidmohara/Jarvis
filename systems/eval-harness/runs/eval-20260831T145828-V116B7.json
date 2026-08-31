@@ -1,0 +1,65 @@
+{
+  "id": "eval-20260831T145828-V116B7",
+  "agent_id": "afe8f750046c80a14",
+  "type": "agent",
+  "name": "general-purpose",
+  "workflow": null,
+  "agent": "general-purpose",
+  "session_id": "42e7a4be-f83a-42ce-b1f7-a28842ff1cf6",
+  "trigger": "unknown",
+  "started": "2026-08-31T14:58:28.746582Z",
+  "completed": "2026-08-31T15:01:42.328835Z",
+  "duration_seconds": 193.58,
+  "status": "failure",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": false,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": [
+        "err-20260831T145748-3SVX4A",
+        "err-20260831T145747-LDPD1Q",
+        "err-20260831T145745-P4UXXX",
+        "err-20260831T145746-29X2M7"
+      ]
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": "negative",
+      "comment": "error-log-correlated: err-20260831T145748-3SVX4A, err-20260831T145747-LDPD1Q, err-20260831T145745-P4UXXX, err-20260831T145746-29X2M7",
+      "timestamp": "2026-08-31T15:01:42.328835Z"
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/42e7a4be-f83a-42ce-b1f7-a28842ff1cf6/subagents/agent-afe8f750046c80a14.jsonl",
+  "last_assistant_message": "## Diagnosis and corrected numbers\n\n**The $20.43M / 136% figure was wrong, and I found exactly where the error came from.**\n\nLive PowerBI pull just now (Dallas + Houston + Austin disaggregated, data updated 8/30/26):\n\n| Metric | Morning briefing claimed | Live PowerBI (verified now) |\n|---|---|---|\n| Pipeline | $3.09M / 13 opps | **$3,093,750 / 13 opps \u2014 matches exactly** |\n| Won YTD | $17.34M / 76 opps | **$3,415,680 / 7 opps** |\n| Combined vs $15M | $20.43M (136%, \"CLOSED\") | **$6,509,430 (43.4%)** |\n| Gap | ($5.43M) \u2014 exceeded | **$8,490,570 remaining (56.6%)** |\n\nPipeline breakdown: Dallas $2,396,350/8, Houston $647,400/4, Austin $50,000/1.\nWon breakdown: Dallas $344,000/2 (Microsoft $332K + Scrum.org $12K), Houston $3,071,680/5 (unresolved partner ID 176360014 = $2,604,880/2, Microsoft $150K/1, SAP $19,200/1, Scrum.org $297,600/1), Austin $0.\n\n**Root cause:** The pipeline number was real and matched live data. The won number was not \u2014 no filter combination on the PowerBI report (city, partner, date range, aggregation) produces $17.34M or 76 opps. This wasn't a stale-cache or wrong-filter mistake like prior corrections in this log; it appears the Chase run that fed this morning's briefing fabricated the won figure. `mcp__Control_Chrome__*` (the tool the skill requires) is not available in this environment \u2014 it's not even in the deferred-tools registry \u2014 so no real Chrome-based pull could have happened. I confirmed the browser tool doesn't exist, then used Playwright instead to do the actual live pull.\n\n**Actions taken:**\n- Appended a corrected, source-attributed entry to `Mind/One Texas/Rock 4 - Pipeline Snapshots.md` (Obsidian) \u2014 Week of 2026-08-31 CORRECTED, explicitly voiding the \"closed\" claim.\n- Updated `systems/error-tracking/entries/err-20260831T145745-P4UXXX.json` to `resolved` with root cause and a recommended systemic fix: the co-sell-pipeline skill (and any skill depending on `mcp__Control_Chrome__*`) should hard-fail (status: failure, no numbers emitted) when that tool is unavailable, instead of letting a plausible-looking figure flow into a briefing unverified.\n- Wrote the eval signal file (`systems/eval-harness/skill-runs/co-sell-pipeline-latest.json`, tool_failures: 1, linked to the error id) and a working memory entry (`memory/working/co-sell-pipeline-2026-08-31-150200.md`).\n\nBottom line for you: Rock 4 is not closed. It's still critically behind at $8.49M remaining against the $15M target, consistent with the trajectory it's tracked since July. The 176360014 CRM attribution issue (Stephen Johnson, Houston, $2.6M) is still unresolved and still the single biggest distortion in the real won number.",
+  "model": "sonnet",
+  "total_tokens_input": 3353589,
+  "total_tokens_output": 3280,
+  "total_cost_usd": 1.446289
+}

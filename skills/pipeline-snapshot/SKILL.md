@@ -28,60 +28,43 @@ Two pages pulled on every run:
 
 Note: South Texas = Austin + Houston combined in PowerBI slicer terminology.
 
+This skill delegates its mechanics to three shared skills — it owns only the report URLs,
+which KPI labels matter, the cache location, and the output voice/format.
+
 ---
 
 ## Phase 0 — Cache Check (Run First)
 
-**Freshness threshold: 7 days** (pipeline changes daily; weekly cadence is the intended pull frequency).
+Call `skills/vault-freshness-check/SKILL.md` with:
+```
+vault_file: "Mind/One Texas/Rock 4 - Pipeline Snapshots.md"
+entry_heading_pattern: "^## Week of (\d{4}-\d{2}-\d{2}) — Pipeline Snapshot"
+date_field_pattern: "\*Pulled: (\d{4}-\d{2}-\d{2})"
+freshness_threshold_days: 7
+extract_section_heading: "### Pipeline Health (Rock 1)"
+caller_label: "Chase/Pipeline"
+```
 
-1. Read `Mind/One Texas/Rock 4 - Pipeline Snapshots.md` via `mcp__obsidian-local__get_vault_file`.
-   (Pipeline health data is stored here alongside co-sell — see the `### Pipeline Health (Rock 1)` section.)
+If `cache_status: "hit"` — output `extracted_text` in the standard format below, noting
+the snapshot date, report the message the skill returns, and **stop here**.
 
-2. Find the most recent `## Week of YYYY-MM-DD — Pipeline Snapshot` entry. Parse its
-   `*Pulled: YYYY-MM-DD*` date.
-
-3. If `pulled_date` >= today minus 7 days: **use cache**.
-   - Extract the Pipeline Health (Rock 1) section from the most recent snapshot.
-   - Output in standard format below, noting the snapshot date.
-   - Report: `[Chase/Pipeline]: Using cached data from {pulled_date} (within 7-day window). Skipping PowerBI pull.`
-   - **Stop here.**
-
-4. If stale: proceed to Phase 1.
+If `"stale"` or `"not_found"` — proceed to Phase 1.
 
 ---
 
 ## Phase 1 — Navigate to Pipeline Analytics, Filter to Dallas, TX
 
+Call `skills/powerbi-navigate-slicer/SKILL.md` with:
 ```
-mcp__Control_Chrome__open_url
-url: https://app.powerbi.com/groups/me/apps/bda222e8-2ca5-4f79-8713-c15ea283f95d/reports/84f84d9e-1283-4aad-8feb-b301bb819881/ReportSection7e20c80e361d6cc45eed?ctid=f2267c2e-5a54-49f4-84fa-e4f2f4038a2e&experience=power-bi
-```
-
-Wait 5 seconds. Confirm page title contains "Power BI".
-
-Click the Dallas, TX slicer item:
-
-```js
-mcp__Control_Chrome__execute_javascript
-code: (() => {
-  const spans = document.querySelectorAll('span.slicerText');
-  for (const span of spans) {
-    if (span.textContent.trim() === 'Dallas, TX') { span.click(); return 'clicked Dallas'; }
-  }
-  return 'not found';
-})()
+report_url: "https://app.powerbi.com/groups/me/apps/bda222e8-2ca5-4f79-8713-c15ea283f95d/reports/84f84d9e-1283-4aad-8feb-b301bb819881/ReportSection7e20c80e361d6cc45eed?ctid=f2267c2e-5a54-49f4-84fa-e4f2f4038a2e&experience=power-bi"
+connector: "chrome"
+slicer_pattern: "text-click"
+select: [{label: "Dallas, TX"}]
 ```
 
-Wait 2 seconds. Read KPI tiles and stage breakdown from DOM:
+Then call `skills/powerbi-extract-kpis/SKILL.md` with `connector: "chrome"`, `mode: "raw"`, `char_limit: 5000`.
 
-```js
-mcp__Control_Chrome__execute_javascript
-code: (() => {
-  return document.body.innerText.substring(0, 5000);
-})()
-```
-
-Read:
+Read from the returned text:
 - **Total Pipeline Revenue** (KPI tile)
 - **Pipeline Opp Count** (KPI tile)
 - **Weighted Pipeline Value** (KPI tile)
@@ -93,75 +76,36 @@ Read:
 ## Phase 2 — Filter to South Texas (same page)
 
 South Texas = Austin, TX + Houston, TX. No "South Texas" slicer label exists — select both
-cities. Deselect Dallas first, then select Houston, then Austin.
-
-```js
-mcp__Control_Chrome__execute_javascript
-code: (function() {
-  return new Promise((resolve) => {
-    const items = document.querySelectorAll('.slicerItemContainer');
-    for (const item of items) {
-      if (item.getAttribute('title') === 'Dallas, TX' && item.getAttribute('aria-selected') === 'true') {
-        item.querySelector('.slicerCheckbox')?.click();
-      }
-    }
-    setTimeout(() => {
-      const items2 = document.querySelectorAll('.slicerItemContainer');
-      for (const item of items2) {
-        if (item.getAttribute('title') === 'Houston, TX') item.querySelector('.slicerCheckbox')?.click();
-      }
-      setTimeout(() => {
-        const items3 = document.querySelectorAll('.slicerItemContainer');
-        for (const item of items3) {
-          if (item.getAttribute('title') === 'Austin, TX') item.querySelector('.slicerCheckbox')?.click();
-        }
-        setTimeout(() => {
-          const sel = Array.from(document.querySelectorAll('.slicerItemContainer'))
-            .filter(i => i.getAttribute('aria-selected') === 'true')
-            .map(i => i.getAttribute('title'));
-          resolve('Selected: ' + sel.join(', '));
-        }, 500);
-      }, 400);
-    }, 600);
-  });
-})()
+cities. Call `skills/powerbi-navigate-slicer/SKILL.md` with:
+```
+report_url: (same as Phase 1 — already on the page, but safe to re-pass)
+connector: "chrome"
+slicer_pattern: "checkbox-flat"
+deselect: ["Dallas, TX"]
+select: ["Houston, TX", "Austin, TX"]
+wait_ms: {between_deselect_select: 600, between_selects: 400, verify: 500}
+verify_after: true
 ```
 
-Verify response shows Austin, TX + Houston, TX selected. Wait 2 seconds. Read same KPI values.
+Confirm the returned `selected` list shows Austin, TX + Houston, TX. Then call
+`skills/powerbi-extract-kpis/SKILL.md` the same way as Phase 1 and read the same KPI values.
 
-Note: Read Austin and Houston separately if the slicer supports single-select — navigate
-to each city, read, then combine for South Texas total.
+Note: if the slicer instead behaves as single-select on a given report, read Austin and
+Houston separately (two `text-click` calls) and combine for the South Texas total.
 
 ---
 
 ## Phase 3 — Navigate to 90 Day Weighted Pipeline, Filter to Dallas, TX
 
+Call `skills/powerbi-navigate-slicer/SKILL.md` with:
 ```
-mcp__Control_Chrome__open_url
-url: https://app.powerbi.com/groups/me/apps/bda222e8-2ca5-4f79-8713-c15ea283f95d/reports/84f84d9e-1283-4aad-8feb-b301bb819881/9f4623c483c060b75480?ctid=f2267c2e-5a54-49f4-84fa-e4f2f4038a2e&experience=power-bi
-```
-
-Wait 5 seconds. Click Dallas, TX slicer:
-
-```js
-mcp__Control_Chrome__execute_javascript
-code: (() => {
-  const spans = document.querySelectorAll('span.slicerText');
-  for (const span of spans) {
-    if (span.textContent.trim() === 'Dallas, TX') { span.click(); return 'clicked Dallas'; }
-  }
-  return 'not found';
-})()
+report_url: "https://app.powerbi.com/groups/me/apps/bda222e8-2ca5-4f79-8713-c15ea283f95d/reports/84f84d9e-1283-4aad-8feb-b301bb819881/9f4623c483c060b75480?ctid=f2267c2e-5a54-49f4-84fa-e4f2f4038a2e&experience=power-bi"
+connector: "chrome"
+slicer_pattern: "text-click"
+select: [{label: "Dallas, TX"}]
 ```
 
-Wait 2 seconds. Read from DOM:
-
-```js
-mcp__Control_Chrome__execute_javascript
-code: (() => {
-  return document.body.innerText.substring(0, 5000);
-})()
-```
+Then call `skills/powerbi-extract-kpis/SKILL.md` with `connector: "chrome"`, `mode: "raw"`, `char_limit: 5000`.
 
 Read:
 - **Weighted Pipeline Value** (90-day KPI tile)
@@ -173,8 +117,8 @@ Read:
 
 ## Phase 4 — Filter to South Texas (90-day page)
 
-Same pattern as Phase 2 — deselect Dallas (600ms), select Houston (400ms), select Austin
-(400ms). Verify selection. Read same 90-day values for South Texas.
+Same `powerbi-navigate-slicer` call as Phase 2 (`checkbox-flat`, deselect Dallas, select
+Houston then Austin). Read the same 90-day values via `powerbi-extract-kpis`.
 
 For Austin and Houston separately: if the slicer is single-select, read each city
 individually and combine for South Texas total.
@@ -237,10 +181,11 @@ Do not soften numbers.
 - **One Texas only** — never report all-Improving numbers.
 - **South Texas = Austin, TX + Houston, TX** — no "South Texas" slicer label. Select both cities.
   Deselect Dallas first (600ms), then Houston (400ms), then Austin (400ms). Verify selection.
-- Use `.slicerCheckbox` clicks — clicking the container directly hits the expand toggle.
-- If KPI text not visible in body text after 2s, wait 3 more seconds and re-read.
+- Use `.slicerCheckbox` clicks — clicking the container directly hits the expand toggle
+  (this is `powerbi-navigate-slicer`'s `checkbox-flat` pattern; it handles this already).
+- If KPI text not visible in body text after 2s, `powerbi-extract-kpis`'s retry handles a
+  3-second re-read automatically.
 - The 90-Day Weighted Pipeline is the Rock 1 metric. Lead with it. Total pipeline is context.
-- **Escape key simulation**: `document.dispatchEvent(new KeyboardEvent('keydown', {key: 'Escape', bubbles: true}))`
 
 ---
 
@@ -248,6 +193,8 @@ Do not soften numbers.
 
 PowerBI report: Improving Sales Analytics — Pipeline Analytics
 Pages: Pipeline Analytics, 90 Day Weighted Pipeline
+Mechanics: `skills/powerbi-navigate-slicer/SKILL.md`, `skills/powerbi-extract-kpis/SKILL.md`,
+`skills/vault-freshness-check/SKILL.md`, `skills/eval-signal-write/SKILL.md`
 Connector: Chrome MCP (`mcp__Control_Chrome__*`) — primary
 Obsidian cache: `Mind/One Texas/Rock 4 - Pipeline Snapshots.md`
 Freshness threshold: 7 days
@@ -258,23 +205,17 @@ Rock 1 context: Revenue Visibility — "graded on actuals, not feel." One Texas 
 
 ## SKILL COMPLETE
 
-After the output is delivered (Phase 5), write the skill-run signal file so the eval harness captures this execution:
-
+After the output is delivered (Phase 5), call `skills/eval-signal-write/SKILL.md` with:
 ```
-systems/eval-harness/skill-runs/pipeline-snapshot-latest.json
+skill_name: "pipeline-snapshot"
+agent: "chase"
+trigger: "manual"   (or "boot"/"scheduled" per the calling context)
+started: <actual start time of this run>
+completed: <actual completion time>
+status: "success"   (or "partial" if only one region's data was captured or cache was
+                      used due to staleness detection; a clean cache hit is still "success".
+                      "failure" if PowerBI could not be reached and no cache existed.)
+tool_failures: 0
+error_ids: []
 ```
-
-Content:
-```json
-{
-  "skill": "pipeline-snapshot",
-  "agent": "chase",
-  "trigger": "manual",
-  "started": "<ISO-8601 timestamp when this skill began>",
-  "status": "success",
-  "tool_failures": 0,
-  "error_ids": []
-}
-```
-
-Set `trigger` to `"scheduled"` if called from a scheduled task, `"manual"` otherwise. Set `status` to `"partial"` if only one region's data was captured or cache was used due to staleness detection, `"failure"` if PowerBI could not be reached. A cache hit (Phase 0 early exit) is still `"success"`. Use the actual start time of this skill execution for `started`. This write is always the final action.
+This call is always the final action.

@@ -3,7 +3,7 @@ status: complete
 started-at: "2026-08-31T08:00:00Z"
 completed-at: "2026-08-31T08:20:00Z"
 outputs:
-  artifact_updated: false
+  artifact_updated: true
   artifact_id: watchtower-weekly
   themes_surfaced: 3
   candidates_surfaced: 3
@@ -51,15 +51,33 @@ outputs:
 
 ---
 
+## ⛔ ARTIFACT UPDATE GATE — DO NOT PROCEED PAST THIS LINE UNTIL COMPLETE
+
+This step has skipped the dashboard artifact update twice (err-20260831T215941-S03HMB, see also err-20260716T133503-XFSPE2). Both times Knox wrote the terminal report first and logged `artifact_updated: false` without attempting the update. That is not acceptable.
+
+**You may not write the terminal report. You may not update `state.yaml`. You may not write `status: complete` to this file. Until the following three tool calls have been made in sequence:**
+
+1. `ToolSearch` with query `"select:mcp__cowork__list_artifacts,mcp__cowork__update_artifact"` — load the tools.
+2. `mcp__cowork__list_artifacts` — find the `watchtower-weekly` artifact id and HTML path.
+3. Read the HTML, update it with this week's block, write to temp file, call `mcp__cowork__update_artifact`.
+
+Only after step 3 completes (success or confirmed failure after genuine attempt) do you proceed to `## YOUR TASK`.
+
+If the artifact tools are unavailable after ToolSearch (deferred and not resolvable): log `artifact_updated: false`, note `artifact_tools_unavailable: true` in outputs, and surface the failure message explicitly to David. Do not silently proceed.
+
+---
+
 ## YOUR TASK
 
-1. Collect from accumulated-context:
+1. Collect from accumulated-context AND live file reads:
    - `weekly_themes` → theme titles
    - Step-02 `drafts_created`, `draft_paths`
    - Step-02b `weekly_tweets` → array of `{text, supporting_url, intent_url}` objects
    - Step-03 `proposed_count`, `batch_number`
    - Step-04 `weekly_note_path`
    - Read `dormant-sources.yaml` — collect any sources with `retired` date in the past 7 days.
+   - **Read `workflows/watchtower/proposed-sources.md` now.** Scan every batch under `## Approval Queue`. A batch is "pending" only if at least one row in that batch has `Status` = `pending`. Do NOT trust prior context or dashboard banners — derive the pending batch list from the live file. This is the source of truth. If all rows in every batch are `approved` or `rejected`, there are no pending batches. Log the result as `pending_batches: [N, N, ...]` or `pending_batches: []` before proceeding.
+   - **Read `workflows/watchtower/sources.yaml` now.** For every batch where `proposed-sources.md` shows an `approved` row, verify the approved source is present in `sources.yaml` with `status: active`. If any approved source is missing from `sources.yaml`, add it before writing the report and note `sources_added_to_registry: [name, ...]` in outputs.
 
 2. Write the terminal report to surface to David. Format:
 
@@ -74,6 +92,7 @@ outputs:
 
    Source proposals awaiting your yes/no:
    - Batch [N] in workflows/watchtower/proposed-sources.md
+   (List only batches derived from the live proposed-sources.md read in step 1. If pending_batches is empty, write: "All source batches resolved.")
 
    Weekly note: Watchtower/Weekly/[YYYY-Www].md
 

@@ -318,6 +318,18 @@ sources:
     status: active
     notes: "Change management practitioner resource for AI adoption. Published 2026 State of AI Adoption study (1,107 professionals) and 'Why AI Transformation Fails'. Primary source for W35 Theme 1 leadership trust gap data. No RSS; step-01 uses site:prosci.com/blog search. Proposed W35 Batch 10 — approved 2026-08-24."
 
+  # ── Batch 7 (partial) — Approved (date unrecorded, resolved W33) ────────────
+
+  - name: CyberArk Blog
+    url: https://www.cyberark.com/resources/blog/
+    rss: https://www.cyberark.com/resources/blog/feed/
+    gather_method: rss
+    topic: ai-agentic
+    trust: high
+    added: 2026-08-10
+    status: active
+    notes: "Agent identity and non-human identity lifecycle management. Published 'AI Agents and Identity Risks: How Security Will Shift in 2026'. Primary source for W33 agent identity theme. PAM/NHI practitioner depth. Proposed W33 Batch 7 — approved."
+
   # ── Batch 11 (partial) — Approved 2026-08-31 ───────────────────────────────
 
   - name: The AI Optimist

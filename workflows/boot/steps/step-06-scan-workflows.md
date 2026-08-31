@@ -1,11 +1,11 @@
 ---
 status: complete
-started-at: "2026-08-28T16:10:00Z"
-completed-at: "2026-08-28T16:10:10Z"
+started-at: "2026-08-31T15:02:00Z"
+completed-at: "2026-08-31T15:03:00Z"
 outputs:
   workflows_scanned: "complete — _active.yaml read (active: []), 0 in-progress workflows found, 1 background agent running async"
   active_workflows: "0"
-  background_tasks: "Knox (plaud-ingest) spawned separately by parent session before this run started, fire-and-forget per instructions — checked in step-08. Note: plaud-ingest/state.yaml shows status: ready (not in-progress/complete), consistent with a retry that has been unblocked but whose end-to-end verification run has not yet been confirmed complete by Knox."
+  background_tasks: "Knox (plaud-ingest) spawned separately by parent Master session before this run started, fire-and-forget per instructions — checked in step-08."
   result: "No in-flight workflows per _active.yaml. Knox running in background, not blocking."
 ---
 

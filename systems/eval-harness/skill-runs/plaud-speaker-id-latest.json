@@ -1,11 +1,10 @@
 {
   "skill": "plaud-speaker-id",
   "agent": "knox",
-  "trigger": "workflow",
-  "started": "2026-08-25T16:13:17.830573+00:00",
-  "completed": "2026-08-25T16:13:17.830769+00:00",
-  "status": "awaiting-input",
+  "trigger": "manual",
+  "started": "2026-08-31T00:00:00-05:00",
+  "completed": "2026-08-31T00:05:00-05:00",
+  "status": "success",
   "tool_failures": 0,
-  "error_ids": [],
-  "summary": "Auto-resolution phase complete. 45 recordings with 125 untagged speakers unable to resolve without calendar event attendee data. Consolidated speaker identification request prepared for controller input."
+  "error_ids": []
 }

@@ -1534,5 +1534,78 @@
         "flag": true
       }
     ]
+  },
+  {
+    "id": "session-2026-08-31-000000",
+    "started": "2026-08-31T00:00:00-05:00",
+    "closed": null,
+    "current_topic": "morning-boot",
+    "topics": [
+      {
+        "name": "morning-boot",
+        "loops": [
+          {
+            "task": "boot-sequence",
+            "resolved": false
+          }
+        ],
+        "files": [
+          "memory/sessions/index.json",
+          "workflows/boot/state.yaml",
+          "workflows/plaud-ingest/state.yaml",
+          "data/email-unified.json",
+          "data/omnifocus-unified.json",
+          "data/clay-reminders-unified.json",
+          "data/jarvis-inbox-unified.json",
+          "workflows/boot/steps/step-01.2-unified-data-pull.md",
+          "data/calendar-unified.json",
+          "workflows/boot/steps/step-01.5-unified-calendar-pull.md",
+          "workflows/boot/steps/step-02-gather-data.md",
+          "workflows/boot/steps/step-02.5-measure-phase2.md",
+          "workflows/boot/steps/step-03-verify-phase2.md",
+          "workflows/boot/steps/step-04-gather-meeting-context.md",
+          "systems/eval-harness/skill-runs/plaud-discover-latest.json",
+          "workflows/boot/steps/step-05-synthesize-briefing.md",
+          "workflows/morning-briefing/state.yaml",
+          "workflows/boot/steps/step-06-scan-workflows.md",
+          "workflows/boot/steps/step-06.5-guardrail-checkpoint.md",
+          "workflows/boot/steps/step-01-load-context.md",
+          "workflows/boot/steps/step-07-verify-completion.md",
+          "systems/error-tracking/entries/err-20260831T144849-LDEIJS.json",
+          "workflows/boot/steps/step-08-knox-completion-check.md",
+          "memory/working/knox-plaud-ingest-2026-08-31.md",
+          "systems/error-tracking/entries/err-20260831T145745-P4UXXX.json",
+          "systems/error-tracking/entries/err-20260831T145746-29X2M7.json",
+          "systems/error-tracking/entries/err-20260831T145747-LDPD1Q.json",
+          "systems/error-tracking/entries/err-20260831T145748-3SVX4A.json",
+          "skills/plaud-discover/SKILL.md",
+          ".claude/skills/plaud-discover/SKILL.md",
+          "workflows/plaud-ingest/steps/step-01-discover.md",
+          "skills/plaud-speaker-id/SKILL.md",
+          "systems/eval-harness/skill-runs/co-sell-pipeline-latest.json",
+          "memory/working/co-sell-pipeline-2026-08-31-150200.md",
+          ".claude/skills/plaud-speaker-id/SKILL.md",
+          "workflows/plaud-ingest/steps/step-03-identify-speakers.md",
+          "/Users/davidohara/Downloads/transcript-staging/plaud_08-26 Professional Catch-Up_ Health_ Family_ and Business Evolution.md",
+          "/Users/davidohara/Downloads/transcript-staging/plaud_08-28 Meeting_ YPO Gold Chapter Strategy_ Events_ Membership_ and Compliance.md",
+          "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/42e7a4be-f83a-42ce-b1f7-a28842ff1cf6/scratchpad/plaud-0826-note.md",
+          "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/YPO/2026-08-28 Meeting - YPO Gold Chapter Strategy, Events, Membership, and Compliance.md",
+          "systems/eval-harness/skill-runs/plaud-speaker-id-latest.json",
+          "/Users/davidohara/develop/improving/scorb/docs/2026-09-02-planning-workshop-stories.md",
+          "skills/vault-freshness-check/SKILL.md",
+          "skills/eval-signal-write/SKILL.md",
+          "skills/powerbi-navigate-slicer/SKILL.md",
+          "skills/powerbi-extract-kpis/SKILL.md",
+          "skills/pipeline-snapshot/SKILL.md",
+          "skills/co-sell-pipeline/SKILL.md",
+          "skills/new-clients/SKILL.md",
+          "skills/revenue-tracker/SKILL.md",
+          "skills/bookings-review/SKILL.md",
+          "skills/_index.md",
+          "content/forbes/2026-06-19-ai-roi-measurements-wrong.md",
+          "workflows/shutdown-cleanup/state.yaml"
+        ]
+      }
+    ]
   }
 ]

@@ -23,34 +23,44 @@ and compare against Q1 targets.
 - **New Anchor**: a new strategic/anchor engagement
 - South Texas = Austin + Houston
 
+This skill delegates navigation and cache-check to shared skills. **KPI extraction is
+NOT delegated to `powerbi-extract-kpis`** — this report requires hovering a chart data
+point to trigger a tooltip and reading its rendered text, which is a materially different
+mechanic (synthetic mouse-event dispatch at coordinates, not a plain innerText/regex read)
+from the KPI-tile extraction that skill covers. That logic stays inline below.
+
 ---
 
 ## Phase 0 — Cache Check (Run First)
 
-**Freshness threshold: 30 days** (new logos/anchors update monthly with closed periods;
-within a quarter the cumulative count only increases when a new logo/anchor closes).
+Call `skills/vault-freshness-check/SKILL.md` with:
+```
+vault_file: "Mind/One Texas/One Texas Scorecard Tracking.md"
+entry_heading_pattern: "^## (\d{4}-\d{2}-\d{2})"
+freshness_threshold_days: 30
+extract_section_heading: "### New Clients"
+caller_label: "Chase/NewClients"
+```
 
-1. Read `Mind/One Texas/One Texas Scorecard Tracking.md` via `mcp__obsidian-local__get_vault_file`.
+If `cache_status: "hit"` — output `extracted_text` in the standard format below, noting
+the snapshot date, report the message the skill returns, and **stop here**.
 
-2. Find the most recent dated entry (format: `## YYYY-MM-DD`). Look for the
-   `### New Clients` section within it. Parse the entry date.
-
-3. If `entry_date` >= today minus 30 days: **use cache**.
-   - Extract the New Logos & Anchors data from that entry.
-   - Output in standard format below, noting the snapshot date.
-   - Report: `[Chase/NewClients]: Using cached data from {entry_date} (within 30-day window). Skipping PowerBI pull.`
-   - **Stop here.**
-
-4. If stale: proceed to Phase 1.
+If `"stale"` or `"not_found"` — proceed to Phase 1.
 
 ---
 
 ## Phase 1 — Navigate to Sales Momentum Page
 
+Call `skills/powerbi-navigate-slicer/SKILL.md` with:
 ```
-mcp__Control_Chrome__open_url
-url: https://app.powerbi.com/groups/me/reports/ff2db561-1548-4c6f-ae43-a3a927bd73e3/3c72372fd0de36d82124?experience=power-bi
+report_url: "https://app.powerbi.com/groups/me/reports/ff2db561-1548-4c6f-ae43-a3a927bd73e3/3c72372fd0de36d82124?experience=power-bi"
+connector: "chrome"
+slicer_pattern: "dropdown-nested"
+select: [{label: "Dallas", parent: "United States"}]
 ```
+This performs the open-dropdown, expand-United-States-if-needed, select-Dallas sequence
+in one call (see Phase 2 for the raw script this wraps, kept here for reference since the
+chart-hover step immediately after needs the dropdown fully closed).
 
 Wait 5 seconds. Confirm page title contains "Power BI" or "Scorecard".
 
@@ -58,7 +68,7 @@ Wait 5 seconds. Confirm page title contains "Power BI" or "Scorecard".
 
 ## Phase 2 — Filter to Dallas, Read Data
 
-Run the dropdown selector to choose Dallas:
+`powerbi-navigate-slicer`'s `dropdown-nested` pattern handles the underlying script:
 
 ```js
 mcp__Control_Chrome__execute_javascript
@@ -100,7 +110,6 @@ code: new Promise((resolve) => {
 ```
 
 Close the dropdown:
-
 ```js
 mcp__Control_Chrome__execute_javascript
 code: document.dispatchEvent(new KeyboardEvent('keydown', {key: 'Escape', bubbles: true}))
@@ -137,12 +146,13 @@ The tooltip text contains:
 If tooltip returns null, try February (x≈380, y≈515) or January (x≈340, y≈525).
 The chart is cumulative — most recent month with data = YTD total.
 
-If mouse dispatch doesn't trigger tooltips, fall back to reading all visible body text:
+If mouse dispatch doesn't trigger tooltips, fall back to reading all visible body text
+(this fallback *is* the shape `powerbi-extract-kpis`'s `tile-scan` mode covers, so you may
+call that skill with `mode: "tile-scan"` here instead of hand-rolling the query):
 
 ```js
 mcp__Control_Chrome__execute_javascript
 code: (() => {
-  // Look for tooltip-like divs with logo/anchor data
   const candidates = [];
   document.querySelectorAll('div').forEach(div => {
     const text = (div.innerText || '').trim();
@@ -192,6 +202,8 @@ code: new Promise((resolve) => {
   attempt(5);
 })
 ```
+(This is `powerbi-navigate-slicer`'s `dropdown-nested` multi-leaf variant — see that
+skill's SKILL.md for the parameterized template if driving a different report's dropdown.)
 
 Close and hover March again the same way. Record South Texas Logos, Anchors, and targets.
 
@@ -264,6 +276,9 @@ Do not soften the numbers.
 PowerBI report: Improving Enterprise Scorecard v4
 Page: Sales Momentum (`3c72372fd0de36d82124`)
 Report ID: `ff2db561-1548-4c6f-ae43-a3a927bd73e3`
+Mechanics: `skills/powerbi-navigate-slicer/SKILL.md` (dropdown-nested navigation),
+`skills/vault-freshness-check/SKILL.md`, `skills/eval-signal-write/SKILL.md`.
+Chart-tooltip hover extraction stays inline in this skill (see scope note in Purpose).
 Connector: Chrome MCP (`mcp__Control_Chrome__*`) — primary
 Obsidian cache: `Mind/One Texas/One Texas Scorecard Tracking.md`
 Freshness threshold: 30 days
@@ -271,29 +286,20 @@ Auth: SSO (auto via Chrome session)
 
 ## SKILL COMPLETE
 
-After the skill's final output is delivered, write the skill-run signal file so the eval harness captures this execution:
-
+After the skill's final output is delivered, call `skills/eval-signal-write/SKILL.md` with:
 ```
-systems/eval-harness/skill-runs/new-clients-latest.json
+skill_name: "new-clients"
+agent: "chase"
+trigger: "manual"   (or "boot"/"scheduled" per the calling context)
+started: <actual start time of this run>
+completed: <actual completion time>
+status: "success"   (or "partial"/"failure" as appropriate)
+tool_failures: 0
+error_ids: []
 ```
+This call is always the final action.
 
-Content:
-```json
-{
-  "skill": "new-clients",
-  "agent": "chase",
-  "trigger": "manual",
-  "started": "<ISO-8601 timestamp when this skill began>",
-  "completed": "<ISO-8601 timestamp when this skill finished>",
-  "status": "success",
-  "tool_failures": 0,
-  "error_ids": []
-}
-```
-
-Set `trigger` to `"boot"` if called from the morning briefing or a boot workflow, `"scheduled"` if called from a scheduled task, `"manual"` otherwise. Set `status` to `"partial"` if the skill completed with degraded output, `"failure"` if it could not run at all. Use the actual start time of this skill execution for `started`. This write is always the final action.
-
-After writing the signal file, also write a working memory file to `memory/working/` using this filename pattern:
+After that, also write a working memory file to `memory/working/` using this filename pattern:
 
 ```
 new-clients-YYYY-MM-DD-HHmmss.md
@@ -315,4 +321,3 @@ context: "New clients snapshot — {YYYY-MM-DD}"
 ```
 
 Body: 3-5 bullet points summarizing key outputs, decisions, and any flags from this run. Keep it under 200 words.
-

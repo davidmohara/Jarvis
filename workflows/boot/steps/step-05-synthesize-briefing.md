@@ -1,12 +1,12 @@
 ---
 status: complete
-started-at: "2026-08-28T16:08:30Z"
-completed-at: "2026-08-28T16:10:00Z"
+started-at: "2026-08-31T14:56:00Z"
+completed-at: "2026-08-31T15:02:00Z"
 outputs:
-  briefing_delivered: "yes — second boot run today, morning briefing re-synthesized against live re-pulled data and carried forward through steps 06-08 for verbatim delivery to controller"
-  format: "3-paragraph narrative + calendar table (accumulated data: 20 calendar events Aug 28-31 reused, 10 uncompleted OmniFocus inbox items live re-pull, 2 actionable emails live re-pull, 0 due reminders, Clay now available with 0 reminders/birthdays)"
-  calendar_today: "conflicted, now mid-day — LSG Board Retreat tail and morning internal meetings behind David; Sync David/Matt/Robin coming up shortly, then the Exec AI Training wrap-up session, then Dickason Honda SOW review this afternoon"
-  hotspots: "Inertia Labs GCC partnership pitch still awaiting reply, YPO GOLD REX commitment form still pending, Dickason Honda SOW review this afternoon, Exec AI Training Program wrap-up session today may warrant a close-out note, Clay gap from this morning's first run resolved (now available)"
+  briefing_delivered: "yes — morning briefing synthesized against live re-pulled data and carried forward through steps 06-08 for verbatim delivery to controller"
+  format: "3-paragraph narrative + calendar table (accumulated data: 45 calendar events Aug 31-Sep 3 fresh live pull, 11 uncompleted OmniFocus inbox items live re-pull, 5 actionable emails live re-pull, 0 due reminders, Clay available with 0 reminders/birthdays, delegation tracker clean, Rock 1 revenue and Rock 4 co-sell snapshots from today's earlier Chase runs woven in)"
+  calendar_today: "mid-morning, in the middle of the recurring Sales Scrum block; Monday Week Overview with Alice and Exec AI Cohort Planning this afternoon, Dallas Come Together escape-room social this evening"
+  hotspots: "Rock 1 (revenue) South Texas is a double miss (-24% vs target, -22% vs prior year) while Rock 4 (co-sell) is closed and exceeded ($20.43M vs $15M target) — a split scorecard; Systemic Compliance scoping call Sep 2 needs prep given Matt joining in person; Venky Shankar LinkedIn message still awaiting reply; UTB Director's Loan Committee Wed noon; no Watchtower daily output found for today (weekly run completed this morning instead) — section omitted"
 ---
 
 <!-- system:start -->

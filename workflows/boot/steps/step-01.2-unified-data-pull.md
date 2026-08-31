@@ -1,11 +1,11 @@
 ---
 status: complete
-started-at: "2026-08-28T16:03:00Z"
-completed-at: "2026-08-28T16:04:30Z"
+started-at: "2026-08-31T14:40:00Z"
+completed-at: "2026-08-31T14:41:30Z"
 outputs:
-  email_pull: "completed — 2 messages (YPO GOLD REX commitment reminder, Inertia Labs GCC AI partnership follow-up), live M365 search"
-  omnifocus_pull: "completed — 10 uncompleted inbox tasks (fresh via osascript, identical set to prior run this morning)"
-  clay_pull: "completed — 0 reminders, 0 birthdays. Clay MCP authenticated and responsive this run (regression from first run's OAuth failure did not recur)."
+  email_pull: "completed — 5 actionable messages filtered from 24 inbox messages (last 24h), live M365 search"
+  omnifocus_pull: "completed — 11 uncompleted inbox tasks (fresh via osascript, none flagged or due)"
+  clay_pull: "completed — 0 reminders, 0 birthdays. Clay MCP responsive."
   jarvis_inbox_pull: "nothing-to-surface — folder empty"
   files_created:
     - "data/email-unified.json"

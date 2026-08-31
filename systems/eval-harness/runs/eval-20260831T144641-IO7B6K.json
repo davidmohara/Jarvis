@@ -1,0 +1,75 @@
+{
+  "id": "eval-20260831T144641-IO7B6K",
+  "type": "workflow",
+  "name": "morning-briefing",
+  "agent": "chief",
+  "session_id": "42e7a4be-f83a-42ce-b1f7-a28842ff1cf6",
+  "trigger": "manual",
+  "started": "2026-08-31T14:45:41.405452Z",
+  "completed": "2026-08-31T14:46:41.405452Z",
+  "duration_seconds": 60.0,
+  "status": "success",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": true,
+      "outputs_non_empty": true,
+      "assertions_checked": 6,
+      "assertions_passed": 5,
+      "assertion_results": [
+        {
+          "assertion": "morning-001-state-complete",
+          "description": "Morning briefing workflow state.yaml shows status: complete",
+          "passed": true
+        },
+        {
+          "assertion": "morning-002-briefing-written",
+          "description": "Morning briefing output file was written to memory/working/",
+          "passed": true
+        },
+        {
+          "assertion": "morning-003-briefing-substantive",
+          "description": "Morning briefing output is substantive (>500 bytes)",
+          "passed": true
+        },
+        {
+          "assertion": "morning-004-calendar-section",
+          "description": "Morning briefing contains calendar/schedule section",
+          "passed": true
+        },
+        {
+          "assertion": "morning-005-priorities-section",
+          "description": "Morning briefing contains priorities/tasks section",
+          "passed": true
+        },
+        {
+          "assertion": "morning-006-guardrail-checkpoint-ran",
+          "description": "step-03b's guardrail checkpoint recorded a result (pass/flag/escalate) on this run \u2014 read from the eval record's own guardrails array, not self-reported by the workflow",
+          "passed": false
+        }
+      ]
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    }
+  },
+  "version_hash": "79ac421dc2ee8f6f",
+  "prior_baseline_id": null,
+  "tags": [
+    "cowork-hook",
+    "phantom-candidate"
+  ]
+}

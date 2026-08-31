@@ -1,14 +1,14 @@
 ---
 status: complete
-started-at: "2026-08-28T16:04:30Z"
-completed-at: "2026-08-28T16:04:35Z"
+started-at: "2026-08-31T14:44:00Z"
+completed-at: "2026-08-31T14:46:00Z"
 outputs:
   calendar_file: "data/calendar-unified.json"
-  event_count: 20
-  date_range: "2026-08-28 to 2026-08-31"
-  status: "reused — file was ~2h old (pulled 14:00Z first run today), within the 12-hour freshness window, no new M365 call made"
-  file_size_kb: 2.9
-  m365_calls: 0
+  event_count: 45
+  date_range: "2026-08-31 to 2026-09-03"
+  status: "written — prior file was 3 days stale (pulled 2026-08-28), well beyond the 12-hour freshness window, fresh M365 pull made"
+  file_size_kb: 8.1
+  m365_calls: 2
 ---
 
 <!-- system:start -->

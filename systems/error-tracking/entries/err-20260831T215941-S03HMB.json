@@ -1,0 +1,15 @@
+{
+  "id": "err-20260831T215941-S03HMB",
+  "timestamp": "2026-08-31T21:59:41Z",
+  "session": "wt-weekly-2026-W36",
+  "source": "explicit",
+  "agent": "knox",
+  "category": "process-skip",
+  "description": "Watchtower weekly-step-05 requires updating the watchtower-weekly dashboard artifact as its first action (pre-flight ToolSearch, list_artifacts, read HTML, update with new week block). Knox skipped this step entirely in both W35 and W36 runs, logging artifact_updated: false without making a genuine attempt. The step file marks this as non-negotiable.",
+  "correction": "Knox must load mcp__cowork__list_artifacts and mcp__cowork__update_artifact via ToolSearch at the start of weekly-step-05, before writing any report content. If the artifact update fails after a genuine attempt, log artifact_updated: false and surface the error. Skipping the attempt is not the same as failing it.",
+  "failure_mode": "protocol-skip",
+  "systemic_fix": "Added explicit enforcement language to weekly-step-05 frontmatter and body: (1) a STOP block before the terminal report section requiring artifact update completion first; (2) a cross-reference to this error entry as the precedent. The no-skip rule already existed — the fix makes the consequence of skipping concrete and traceable.",
+  "fix_status": "applied",
+  "severity": "moderate",
+  "related_entries": ["err-20260716T133503-XFSPE2"]
+}

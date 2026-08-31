@@ -1,0 +1,78 @@
+{
+  "id": "eval-20260831T145846-INJAZ0",
+  "agent_id": "aa11f59f05830b945",
+  "type": "agent",
+  "name": "general-purpose",
+  "workflow": null,
+  "agent": "general-purpose",
+  "session_id": "42e7a4be-f83a-42ce-b1f7-a28842ff1cf6",
+  "trigger": "unknown",
+  "started": "2026-08-31T14:58:46.834770Z",
+  "completed": null,
+  "duration_seconds": null,
+  "status": "failure",
+  "steps": [
+    {
+      "name": "step-01-discover.md",
+      "started": "2026-08-23T00:05:00Z",
+      "completed": "2026-08-23T00:12:00Z",
+      "duration_seconds": 420.0,
+      "status": "completed",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": "haiku",
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    }
+  ],
+  "assessment": {
+    "mechanical": {
+      "completed": null,
+      "all_steps_finished": null,
+      "tool_failures": 1,
+      "error_ids": [
+        "err-20260831T145745-P4UXXX"
+      ],
+      "tool_failure_log": [
+        {
+          "tool": "mcp__playwright__browser_click",
+          "error": "### Error\nInvalid arguments for tool \"browser_click\":\n\u2716 Invalid input: expected string, received undefined\n  \u2192 at target",
+          "duration_ms": 11,
+          "timestamp": "2026-08-31T09:59:44.338845"
+        }
+      ]
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": []
+}

@@ -1,0 +1,134 @@
+{
+  "id": "eval-20260831T143854-1LXUFE",
+  "type": "workflow",
+  "name": "boot",
+  "agent": "master",
+  "session_id": "42e7a4be-f83a-42ce-b1f7-a28842ff1cf6",
+  "trigger": "manual",
+  "started": "2026-08-31T14:38:54.582592Z",
+  "completed": "2026-08-31T14:50:18.188999Z",
+  "duration_seconds": 683.61,
+  "status": "success",
+  "steps": [],
+  "subagents": [
+    {
+      "agent_id": "aa11f59f05830b945",
+      "agent_type": "general-purpose",
+      "started": "2026-08-31T14:39:40.983151Z",
+      "completed": "2026-08-31T14:40:07.884079Z",
+      "model": "sonnet",
+      "tokens_input": 335781,
+      "tokens_output": 167,
+      "cost_usd": 0.279179,
+      "duration_seconds": 26.9
+    },
+    {
+      "agent_id": "abcdf6de68f797477",
+      "agent_type": "general-purpose",
+      "started": "2026-08-31T14:39:49.366986Z",
+      "completed": "2026-08-31T14:50:02.538822Z",
+      "model": "sonnet",
+      "tokens_input": 15446730,
+      "tokens_output": 9611,
+      "cost_usd": 5.435375,
+      "duration_seconds": 613.17
+    },
+    {
+      "agent_id": "a75d02e9598f571c3",
+      "agent_type": "general-purpose",
+      "started": "2026-08-31T14:40:01.678814Z",
+      "completed": "2026-08-31T14:45:11.617032Z",
+      "model": "haiku",
+      "tokens_input": 2171420,
+      "tokens_output": 1477,
+      "cost_usd": 0.309635,
+      "duration_seconds": 309.94
+    },
+    {
+      "agent_id": "aa11f59f05830b945",
+      "agent_type": "general-purpose",
+      "started": "2026-08-31T14:45:11.887989Z",
+      "completed": null,
+      "model": null,
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    }
+  ],
+  "monitoring": {
+    "active": false,
+    "state_yaml_path": "workflows/boot/state.yaml",
+    "opened_by": "eval-turn-start.py",
+    "trigger_evidence": "run the boot workflow"
+  },
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 3,
+      "assertions_passed": 3,
+      "assertion_results": [
+        {
+          "assertion": "boot-001-state-complete",
+          "description": "Boot workflow state.yaml shows status: complete",
+          "passed": true
+        },
+        {
+          "assertion": "boot-002-session-index-exists",
+          "description": "Session index file exists \u2014 boot's Session Index Boot step must have created/appended it",
+          "passed": true
+        },
+        {
+          "assertion": "boot-003-session-index-substantive",
+          "description": "Session index is a real record, not an empty stub",
+          "passed": true
+        }
+      ]
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": "f1a31609ac6be8a11b48a3c6267957f76a4e86e971cd143315c77472e90af0d0",
+  "prior_baseline_id": null,
+  "tags": [
+    "turn-level"
+  ],
+  "guardrails": [
+    {
+      "name": "pre-completion-review",
+      "after_step": "step-06-scan-workflows",
+      "result": "pass",
+      "reason": "Briefing reflects fresh live-pulled data (calendar/email/omnifocus/clay all pulled this session), workflow scan correctly found only the boot run itself in-flight, no credential/sensitive leakage detected",
+      "escalated_to_human": false,
+      "timestamp": "2026-08-31T14:47:28.651975+00:00"
+    }
+  ],
+  "total_tokens_input": 17953931,
+  "total_tokens_output": 11255,
+  "total_cost_usd": 6.024189
+}

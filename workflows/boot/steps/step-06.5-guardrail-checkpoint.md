@@ -1,12 +1,12 @@
 ---
 status: complete
-started-at: "2026-08-28T16:10:10Z"
-completed-at: "2026-08-28T16:06:00Z"
+started-at: "2026-08-31T15:03:00Z"
+completed-at: "2026-08-31T15:04:00Z"
 outputs:
-  data_freshness_report: "pass — calendar reused (fresh, within 12h window), email/OmniFocus/Clay all pulled live this session (~16:03-16:04Z), briefing reflects current mid-day data. No gaps this run: Clay's earlier OAuth failure did not recur."
+  data_freshness_report: "pass — calendar, email, OmniFocus, and Clay all pulled live this session (~14:40-14:56Z), briefing reflects current data including today's Rock 1/Rock 4 snapshots. No gaps this run."
   checkpoint_name: "pre-completion-review"
   checkpoint_result: "pass"
-  reason: "Briefing accurately reflects fresh gathered data including the mid-day recalibration of today's remaining schedule; workflow scan correctly found 0 in-progress (active.yaml empty); no credential/sensitive leakage; recorded via guardrail-checkpoint.py against eval-20260828T154249-UQX5N6."
+  reason: "Briefing accurately reflects fresh gathered data; workflow scan correctly found only the boot run itself in-progress (_active.yaml empty, ground-truth scan confirms); no credential/sensitive leakage; recorded via guardrail-checkpoint.py."
   recorded: true
 model: haiku
 ---

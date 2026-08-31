@@ -1,12 +1,37 @@
 ---
 workflow: shutdown-cleanup
 agent: master
-status: complete
-session-started: "2026-08-27T19:00:00Z"
-session-completed: "2026-08-27T20:20:00Z"
-session-id: session-2026-08-27-190000
-current-step: step-04
-original-request: "Run the cleanup workflow"
+status: in-progress
+session-started: "2026-08-31T22:29:24Z"
+session-id: session-2026-08-31-222924
+current-step: step-01
+original-request: "Run the end of day cleanup workflow"
+accumulated-context:
+  purge_results:
+    deleted:
+      - path: "./.DS_Store"
+        reason: "macOS metadata"
+      - path: "./projects/.DS_Store"
+        reason: "macOS metadata"
+      - path: "./content/.DS_Store"
+        reason: "macOS metadata"
+      - path: "./.claude/hooks/__pycache__"
+        reason: "Python bytecode cache"
+      - path: "./systems/eval-harness/__pycache__"
+        reason: "Python bytecode cache"
+      - path: "./skills/plaud-transcripts/scripts/__pycache__"
+        reason: "Python bytecode cache"
+      - path: "./systems/eval-harness/vendor/yaml/__pycache__"
+        reason: "Python bytecode cache"
+    total_deleted: 7
+  root_check:
+    non_canonical_entries:
+      - name: "2026-08 - One Texas Update.pptx"
+        note: "New untracked pptx at IES root, not covered by any prior disposition recorded in this workflow's state.yaml history. Git history shows a prior instance of the same pattern (commit b1fbdb74, 2026-07-23: 'move One-Texas pptx to OneDrive' — a root-level One-Texas-H1-Performance pptx was removed from the git-tracked repo folder entirely, with no corresponding add elsewhere in-repo, implying it was relocated to a non-repo OneDrive location by the controller rather than filed under presentations/). That precedent is informative but is git history, not a documented state.yaml disposition, so per instructions this counts as a genuinely uncertain/novel entry requiring a pause rather than a silent repeat of that pattern.
+        status: "flagged-for-controller"
+      - name: ".playwright-mcp/"
+        note: "Recurring dot-prefixed Playwright MCP cache/log directory, gitignored and untracked. Same disposition as prior runs: no action needed."
+        status: "no-action-needed"
 accumulated-context:
   purge_results:
     ds_store_found:

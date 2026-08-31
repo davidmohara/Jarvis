@@ -1,0 +1,74 @@
+{
+  "id": "eval-20260831T150120-LBC9T0",
+  "type": "skill",
+  "name": "co-sell-pipeline",
+  "agent": "chase",
+  "session_id": "42e7a4be-f83a-42ce-b1f7-a28842ff1cf6",
+  "trigger": "manual",
+  "started": "2026-08-31T14:58:00Z",
+  "completed": "2026-08-31T15:01:20.941253Z",
+  "duration_seconds": 200.9,
+  "status": "success",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 1,
+      "error_ids": [
+        "err-20260831T145745-P4UXXX"
+      ]
+    },
+    "structural": {
+      "expected_outputs_written": true,
+      "outputs_non_empty": true,
+      "assertions_checked": 4,
+      "assertions_passed": 4,
+      "assertion_results": [
+        {
+          "assertion": "co-sell-pipeline-signal-written",
+          "description": "co-sell-pipeline skill-run signal file was written",
+          "passed": true
+        },
+        {
+          "assertion": "co-sell-pipeline-signal-status",
+          "description": "co-sell-pipeline skill-run did not end in failure",
+          "passed": null,
+          "skipped": true,
+          "reason": "unknown check type: json_field_not_equals"
+        },
+        {
+          "assertion": "co-sell-pipeline-wm-written",
+          "description": "co-sell-pipeline working memory file written to memory/working/",
+          "passed": true
+        },
+        {
+          "assertion": "co-sell-pipeline-wm-size",
+          "description": "co-sell-pipeline working memory file is substantive (>200 bytes)",
+          "passed": true
+        },
+        {
+          "assertion": "co-sell-pipeline-wm-content",
+          "description": "co-sell-pipeline working memory contains expected content",
+          "passed": true
+        }
+      ]
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    }
+  },
+  "version_hash": "db968ad88b0a839a",
+  "prior_baseline_id": null,
+  "tags": [
+    "cowork-hook",
+    "skill"
+  ]
+}

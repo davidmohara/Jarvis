@@ -1,13 +1,13 @@
 ---
 status: complete
-started-at: "2026-08-28T16:07:00Z"
-completed-at: "2026-08-28T16:08:30Z"
+started-at: "2026-08-31T14:52:00Z"
+completed-at: "2026-08-31T14:56:00Z"
 outputs:
-  meetings_found: "20 events (Aug 28-31) with full context — calendar-unified.json provides all attendees, locations, times; cross-checked against live Clay getUpcomingEvents this run"
-  meeting-context: "This is now ~11am CDT, mid-day: the morning's LSG Board Retreat tail, Dallas Virtual Coffee Chat, Sales & Recruiting Meeting, 4th Friday Executive Meeting, and Presidents Pipeline Roundtable are behind David. Remaining today: (1) SOW review for Dickason Honda of Paris (15:30-16:00 CDT w/ Derek Nwamadi, Anthony Marrical, client contact stevehall11565@gmail.com) — client SOW discussion, have the draft SOW ready; (2) Sync: David/Matt/Robin (12:30-13:00 CDT per Clay, w/ Ben Kennedy, Kevin Graham, Robin Graham, Matt Yasar) — recurring external sync, no new prep flagged, coming up shortly; (3) Executive AI Training Program Session 7/8 Wrap-Up (13:00-15:00 CDT per Clay / 18:00-20:00Z, in-person Dallas Conference Room Trust, large attendee list incl. Curtis Hite, Jorge Pliego, Susan Fojtasek, Ric DeAnda) — final session, may warrant a close-out note. 'Meet Susie' at 4-5pm CDT (NorthPark Center) still has no attendee record — personal, flagging for awareness only. Flag carried from first run: heavy day with retreat tail plus 6 internal/client meetings."
-  clay-reminders: "available this run — 0 reminders returned (live pull succeeded, unlike first run's OAuth failure)"
-  clay-birthdays: "available this run — no birthday-specific entries surfaced via getUpcomingEvents; 0 to report for the next 7 days"
-  context-status: "ready — sufficient calendar and meeting-prep data for briefing synthesis. Clay now available and cross-verified against calendar-unified.json; no data gaps this run."
+  meetings_found: "45 events (Aug 31-Sep 3) with full context — calendar-unified.json provides all attendees, locations, times; cross-checked against live Clay getEvents this run"
+  meeting-context: "Today (Mon Aug 31): Hot 26 yoga this morning (done), Improving Prayer Call, Timesheet, Sales & Recruiting Meeting, Sales Scrum back-to-back at 9:15-10am CDT, Build plan for SC block 10am-11am CDT, Monday Week Overview with Alice at 2pm CDT (weekly recap), Exec AI Cohort Planning with Susan/Devlin at 3:30pm CDT (redesigning exec AI training, next cohort Ashok/Amber/Asrai), and Dallas Come Together Escape Rooms this evening (5:15-8pm CDT, large company social). Notable upcoming this week: Sep 2 is the heaviest day — external breakfast with Luke Rutledge (HCHB) at Ida Claire, Dallas Executive Huddle, AI Leaders Weekly, personal Dr Nathan Walters appointment, Improving Edge podcast topic discussion, YPO yDeep Dive, haircut, Scoping the Next Phase call with Systemic Compliance (Matt joining in person per rgraham's email — ties directly to the inbox item), and evening Cigars with the Stars social. Sep 1 and Sep 3 both have Podcast Filming sessions at MarketScale plus the recurring Sales & Recruiting/Sales Scrum meetings and 1:1s (Tim on Sep 1, Robyn on Sep 3)."
+  clay-reminders: "available this run — 0 reminders returned (getUpcomingReminders)"
+  clay-birthdays: "available this run — no birthday-specific entries found in Clay getEvents for the next 7 days; 0 to report"
+  context-status: "ready — sufficient calendar and meeting-prep data for briefing synthesis. Clay available and cross-verified against calendar-unified.json; no data gaps this run."
 ---
 
 <!-- system:start -->

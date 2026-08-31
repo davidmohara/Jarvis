@@ -2836,6 +2836,77 @@
           "description": "Archived duplicate 'boot' eval record (steps:[], all-null tokens/cost, self-tagged phantom-candidate/cowork-hook) produced by the race above. Superseded by the genuine eval-20260828T154249-UQX5N6, which finalized correctly with real assessment/assertion data 14 seconds later."
         }
       ]
+    },
+    {
+      "id": "work-20260831-211652",
+      "description": "Built a shared PowerBI-automation skill collection (powerbi-navigate-slicer, powerbi-extract-kpis, vault-freshness-check, eval-signal-write) to replace copy-pasted Chrome/Playwright-MCP DOM logic across 5 existing Chase report skills (bookings-review, co-sell-pipeline, new-clients, pipeline-snapshot, revenue-tracker). All 4 new skills are single-file agent-agnostic utility skills (owning_agent: rigby, no .claude/skills stub, matching the git/one-password pattern) parameterized entirely by the caller: report_url, connector (chrome|playwright), slicer_pattern (text-click|checkbox-flat|dropdown-nested), select/deselect label lists, wait timings, KPI label/regex lists, vault cache file path/heading pattern/freshness threshold, and skill-run signal metadata are all documented Inputs, none hardcoded. The 5 existing skills' content files (skills/{name}/SKILL.md) were rewritten to call into the new collection for navigation, KPI/table read (where the mechanic is a plain innerText/regex read), cache-check, and signal-write, while two genuinely different mechanics \u2014 new-clients' chart-tooltip-hover read and revenue-tracker's SVG-bar-color-plus-tooltip-hover read \u2014 were deliberately kept inline in those two skills rather than forced into the generic KPI-extraction skill, since they use synthetic mouse-event dispatch and SVG fill inspection rather than a text read. Frontmatter (name, description, trigger_keywords, owning_agent) and output formats/voice were left unchanged on all 5 skills, so nothing else in the system that references them by path or trigger phrase (agents/chase.md Task Portfolio, workflows/rock1-revenue-monthly, workflows/rock4-pipeline-weekly, workflows/one-texas-scorecard, eval-harness assertions) needed to change. The .claude/skills/{name}/SKILL.md stubs for the 5 report skills were left untouched \u2014 they already just dispatch to skills/{name}/SKILL.md and carry their own SKILL COMPLETE block. Eval authoring/iteration (rigby-capability-build steps 6-9: writing evals.json, running paired executor evals, description-tuning) was deferred \u2014 flagged to the executive as a follow-up, not executed in this pass.",
+      "started": "2026-08-31T21:16:52Z",
+      "classification": "system",
+      "files": [
+        {
+          "path": "skills/powerbi-navigate-slicer/SKILL.md",
+          "action": "add",
+          "type": "system",
+          "description": "New shared skill: navigate to a PowerBI URL and drive its slicer (3 DOM-pattern variants) into a caller-specified selection state"
+        },
+        {
+          "path": "skills/powerbi-extract-kpis/SKILL.md",
+          "action": "add",
+          "type": "system",
+          "description": "New shared skill: read named KPI tile/table values off the current PowerBI page via innerText, raw or regex-extracted"
+        },
+        {
+          "path": "skills/vault-freshness-check/SKILL.md",
+          "action": "add",
+          "type": "system",
+          "description": "New shared skill: generic Obsidian vault-file cache-freshness check used by any skill that pulls live data on a cadence"
+        },
+        {
+          "path": "skills/eval-signal-write/SKILL.md",
+          "action": "add",
+          "type": "system",
+          "description": "New shared skill: writes the systems/eval-harness/skill-runs/{skill}-latest.json signal file from caller-supplied run metadata"
+        },
+        {
+          "path": "skills/pipeline-snapshot/SKILL.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Rewrote body to delegate nav/KPI-read/cache-check/signal-write to the new shared skills; frontmatter and output format unchanged"
+        },
+        {
+          "path": "skills/co-sell-pipeline/SKILL.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Rewrote body to delegate nav/KPI-read/cache-check/signal-write to the new shared skills; frontmatter and output format unchanged"
+        },
+        {
+          "path": "skills/new-clients/SKILL.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Rewrote body to delegate dropdown-nav/cache-check/signal-write to the new shared skills; kept chart-tooltip-hover extraction inline (documented exception); frontmatter and output format unchanged"
+        },
+        {
+          "path": "skills/revenue-tracker/SKILL.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Rewrote body to delegate dropdown-nav/cache-check/signal-write to the new shared skills; kept SVG-bar-color + tooltip-hover extraction inline (documented exception); frontmatter and output format unchanged"
+        },
+        {
+          "path": "skills/bookings-review/SKILL.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Rewrote body to delegate Playwright-connector nav and signal-write to the new shared skills; no cache-check phase (unchanged, none existed before); frontmatter and output format unchanged"
+        }
+      ],
+      "validation": {
+        "evals_run": false,
+        "eval_count": 0,
+        "iterations": 0,
+        "stopped_at_cap": false,
+        "final_pass_rate": null,
+        "description_optimized": false,
+        "note": "Frontmatter/trigger phrases unchanged on all 5 rewritten skills, so description-tuning (Step 9) is not applicable. Eval authoring/execution (Steps 6-8) deferred pending executive sign-off on invocation prompts \u2014 recommend running before packaging this evolution."
+      }
     }
   ]
 }

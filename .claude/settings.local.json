@@ -23,7 +23,8 @@
       "WebFetch(domain:invintory.com)",
       "Artifact",
       "mcp__claude_ai_monday_com__get_board_info",
-      "mcp__claude_ai_monday_com__get_column_type_info"
+      "mcp__claude_ai_monday_com__get_column_type_info",
+      "Bash(bash /tmp/wait_ypo.sh)"
     ],
     "additionalDirectories": [
       "/Users/davidohara/develop/improving/ies"

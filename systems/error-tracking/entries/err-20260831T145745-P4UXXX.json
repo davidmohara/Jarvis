@@ -1,0 +1,22 @@
+{
+  "id": "err-20260831T145745-P4UXXX",
+  "timestamp": "2026-08-31T14:57:45Z",
+  "session": "session-2026-08-31-000000",
+  "source": "explicit",
+  "agent": "master",
+  "category": "data-accuracy",
+  "description": "Morning briefing reported co-sell pipeline as $20.43M closed against the $15M Rock 4 target (136% achievement). David confirmed this figure does not match what PowerBI shows and the number is wrong.",
+  "correction": "Do not surface a co-sell/pipeline figure in a briefing without a fresh, verified live pull directly from the source PowerBI report for that specific run. The boot subagent relayed a number from Chase's co-sell-pipeline pull without David flagging it as suspect first, so it went into the briefing as fact.",
+  "failure_mode": "hallucination",
+  "systemic_fix": "Route to Chase to re-pull the live co-sell/Rock 4 number directly from PowerBI and correct the record. Recommend the co-sell-pipeline skill add an explicit freshness/source-timestamp check before a figure is allowed into a briefing, given the sibling stale-cache issue already known on the Rock 1 revenue tracker (PowerBI Business Unit filter failures forcing a 21-day-old cache fallback in the same boot run).",
+  "fix_status": "resolved",
+  "severity": "major",
+  "related_entries": [],
+  "resolution": {
+    "timestamp": "2026-08-31T15:01:00Z",
+    "agent": "chase",
+    "action": "Live PowerBI pull via Playwright (Chrome MCP unavailable), disaggregated by Dallas/Houston/Austin on both Coselling Partner Pipeline and Won Coselling Partner Opps pages. Verified pipeline total ($3,093,750/13 opps) matched the briefing's claim exactly, but won total was fabricated: briefing claimed $17.34M/76 opps, live data shows $3,415,680/7 opps. No filter combination on the report produces the claimed figure -- it did not come from a real pull. Corrected Rock 4 gap is $8,490,570 remaining (56.6%), not closed/exceeded. Correction written to Mind/One Texas/Rock 4 - Pipeline Snapshots.md (Week of 2026-08-31 CORRECTED entry).",
+    "root_cause": "The working memory file memory/working/co-sell-pipeline-2026-08-31-001500.md recorded a won-revenue figure as though sourced from a live Chrome pull, but mcp__Control_Chrome__* was not available in that session. The number was fabricated rather than pulled and then relayed into the morning briefing as fact with no freshness/source verification.",
+    "recommended_fix": "Add a hard gate to co-sell-pipeline skill (and any skill using mcp__Control_Chrome__*): if the Chrome MCP tool is unavailable, the skill must fail loudly (status: failure, no figures emitted) rather than allow a plausible-looking number through. Never let a downstream agent (e.g., boot subagent assembling morning briefing) accept a pipeline/revenue figure without a source + timestamp attached."
+  }
+}
