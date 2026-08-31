@@ -1,0 +1,15 @@
+{
+  "id": "err-20260831T145747-LDPD1Q",
+  "timestamp": "2026-08-31T14:57:47Z",
+  "session": "session-2026-08-31-000000",
+  "source": "explicit",
+  "agent": "knox",
+  "category": "missed-context",
+  "description": "Knox asked David to identify Speaker 2 in the Aug 26 recording ('Professional Catch-Up: Health, Family, and Business Evolution') instead of resolving it independently. Speaker 2 is Robbie. David confirmed this should have been resolvable from calendar context without asking.",
+  "correction": "Knox noted the calendar showed 'AI Leaders Weekly' as the overlapping event and treated the mismatch between that label and the content as a dead end, when it should have searched further (attendee list, nearby/adjacent calendar entries, recurring 1:1 patterns) before escalating to David per the Search Discipline rule (minimum 3 strategies before reporting not-found).",
+  "failure_mode": "lazy-search",
+  "systemic_fix": "Applied by Rigby. Updated skills/plaud-speaker-id/SKILL.md step 2a: added an explicit callout stating a matched calendar event's subject-line mismatch with the transcript's apparent topic is never, by itself, sufficient grounds to give up on the calendar — per SYSTEM.md's Search Discipline rule (minimum 3 strategies before reporting not-found), the skill must now check (1) the matched event's attendees anyway, (2) adjacent events (±30-60 min), and (3) recurring 1:1 patterns with any name mentioned in the transcript, before falling through to controller escalation. Tightened the confidence-threshold/escalation criteria in step 2d and the HARD GATE preamble to require all three checks be exhausted before 'calendar had no matching event' is a valid escalation reason. Also duplicated this into workflows/plaud-ingest/steps/step-03-identify-speakers.md (the workflow step Knox actually runs) since it previously carried its own condensed, out-of-sync heuristics that didn't mention the 3-strategy requirement at all. Reinforced in the fork entry point .claude/skills/plaud-speaker-id/SKILL.md as well.",
+  "fix_status": "applied",
+  "severity": "minor",
+  "related_entries": ["err-20260831T145748-3SVX4A"]
+}

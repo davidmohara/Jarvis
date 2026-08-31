@@ -1,0 +1,15 @@
+{
+  "id": "err-20260831T145748-3SVX4A",
+  "timestamp": "2026-08-31T14:57:48Z",
+  "session": "session-2026-08-31-000000",
+  "source": "explicit",
+  "agent": "knox",
+  "category": "process-skip",
+  "description": "Knox asked David to manually map 5 speakers (Speakers 1, 3, 4, 7, 8) on the Aug 28 YPO Gold recording. David confirmed each speaker states their own name aloud at the end of the recording, so the mapping should be derivable directly from the transcript/audio content without asking him.",
+  "correction": "Before escalating unmapped speakers to David, Knox must check the end of the transcript (and any other point in the recording) for self-identification ('this is X', name sign-offs) and only escalate speakers who remain genuinely unidentifiable after that check.",
+  "failure_mode": "protocol-skip",
+  "systemic_fix": "Applied by Rigby. Added a new mandatory 'step 0' self-identification scan to skills/plaud-speaker-id/SKILL.md, sequenced ahead of the calendar-based heuristics (formerly step 2's heuristics 1-7). It requires reading each unresolved speaker's full transcript segments (not just the sample_text snippet) and checking, in priority order, the end of the recording (sign-offs), the beginning (introductions), and anywhere else for first-person self-naming. A self-identified name is treated as a stronger signal than calendar inference and resolves the speaker without needing calendar confirmation, though it still passes through the step-3 attendee validation gate (informational flag, not blocking, given self-ID is direct evidence). Updated the HARD GATE preamble, confidence-threshold section, resolution_method output example, and error-handling table to reflect self-ID as a first-class resolution method. Also updated workflows/plaud-ingest/steps/step-03-identify-speakers.md (its own HARD GATE, Sequence, AUTO-RESOLUTION HEURISTICS as new heuristic 0, and FAILURE MODES) since that file previously had condensed heuristics that omitted self-ID entirely and would have kept producing the same failure even with the skill fixed. Reinforced in the fork entry point .claude/skills/plaud-speaker-id/SKILL.md.",
+  "fix_status": "applied",
+  "severity": "moderate",
+  "related_entries": ["err-20260831T145747-LDPD1Q"]
+}

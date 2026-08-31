@@ -40,6 +40,17 @@ Auth failure is only a valid abort reason if the skill's own Chrome login flow h
 4. Do NOT begin downloading or processing transcripts in this step — discovery only.
 5. Do NOT proceed to step-02 until the new-recordings list is populated in state.
 6. Do NOT use `target-date` as a filter unless it was explicitly passed for a reprocess of a specific date.
+7. You MUST NOT accept `plaud-discover`'s output as-is — whether it ran inline or as a
+   background/forked subagent — without confirming the skill's dedup ledger
+   (`systems/eval-harness/skill-runs/plaud-discover-ledger-latest.json`) exists and every
+   `new_recordings` entry traces to a ledger entry with a checked tier. This is the same
+   HARD GATE defined in `skills/plaud-discover/SKILL.md`; it is restated here because this
+   is the step that has actually accepted an unverified fork result before
+   (`err-20260826T190948-QQMBTP`, `err-20260828T140747-814VN9`, `err-20260831T145746-29X2M7`).
+   If the ledger is missing, or the new-recordings count is more than double the last
+   confirmed baseline below AND more than 10% of total candidates, do not write it to state
+   — re-run discovery once with explicit re-enumeration, and if the anomaly persists, mark
+   this step blocked and report the discrepancy rather than advancing.
 
 ---
 

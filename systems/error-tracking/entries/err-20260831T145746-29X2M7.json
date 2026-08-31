@@ -1,0 +1,15 @@
+{
+  "id": "err-20260831T145746-29X2M7",
+  "timestamp": "2026-08-31T14:57:46Z",
+  "session": "session-2026-08-31-000000",
+  "source": "explicit",
+  "agent": "knox",
+  "category": "tool-misuse",
+  "description": "plaud-discover skill (run as a background fork during plaud-ingest) again reported all 129 staging files as unprocessed, contradicting the verified vault baseline. Knox caught this in-session by re-verifying manually against the live Plaud API and Obsidian vault frontmatter, but David confirmed this exact failure has now happened repeatedly and the workflow itself needs to be fixed, not just caught after the fact each time.",
+  "correction": "The plaud-discover skill's vault-dedup step must actually run and be trusted when the skill executes as a background/forked subagent — manual re-verification by Knox every run is a workaround, not a fix.",
+  "failure_mode": "protocol-skip",
+  "systemic_fix": "Applied by Rigby. Root cause: the 2026-08-28 fix (commit c8d2e9b8) corrected the dedup *logic* (archive exclusion, Tier 3 filename assumption, silent proceed-without-dedup) but nothing forced that logic to actually execute — under forked/background execution (.claude/skills/plaud-discover/SKILL.md, context: fork, model: haiku) the agent could still skip the per-candidate vault checks and emit a guessed list. Added a hard evidence-based gate to skills/plaud-discover/SKILL.md: (1) every candidate (API recording + every top-level staged file) must get a dedup-ledger entry written to systems/eval-harness/skill-runs/plaud-discover-ledger-latest.json recording which tier was checked and the decision before it can appear in new_recordings; a candidate with no ledger entry cannot be reported as new/unprocessed; (2) a circuit breaker comparing the new_recordings count against the previous confirmed baseline in step-01-discover.md frontmatter — if the new count is >2x baseline AND >10% of total candidates, treat it as the known false-positive signature, re-run vault enumeration once, and abort/report rather than pass through an unverified large count; (3) explicit statement that fork execution is not an exemption from any of this. Reinforced the same requirement directly in the fork entry point (.claude/skills/plaud-discover/SKILL.md) so a haiku-model fork sees it without having to fully digest the long parent skill file, and restated the gate as a MANDATORY EXECUTION RULE (#7) in workflows/plaud-ingest/steps/step-01-discover.md so the workflow step itself refuses to write an unverified new-recordings list to state.yaml. Not yet re-verified via a live forked discovery run — recommend Knox re-run plaud-discover as a background fork once and confirm the ledger file is produced and the count matches the last confirmed baseline (~1-2 new, not 100+).",
+  "fix_status": "applied",
+  "severity": "moderate",
+  "related_entries": []
+}

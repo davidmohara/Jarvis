@@ -12,19 +12,38 @@ outputs:
 
 ## ⛔ HARD GATE
 
-**CALENDAR FIRST. ALWAYS. DO NOT ASK THE CONTROLLER UNTIL THE CALENDAR HAS BEEN QUERIED.**
+**SELF-ID SCAN FIRST. CALENDAR SECOND. DO NOT ASK THE CONTROLLER UNTIL BOTH HAVE BEEN
+EXHAUSTED.**
 
-This rule was violated on 2026-05-22 (err-20260522T191304-TO2VXV). The calendar resolved
-both speakers without any controller input. Asking the controller first is never acceptable.
+This is a two-part gate:
+
+1. **Self-identification scan first.** Before any calendar lookup, scan the full
+   transcript (not just the `sample_text` snippet) for every unresolved speaker for
+   self-identification — most speakers state their own name aloud, typically near the
+   end of the recording ("this is X", name sign-offs). Skipping this and going straight
+   to calendar guessing or controller escalation was the cause of
+   `err-20260831T145748-3SVX4A` (5 speakers escalated on the 08-28 YPO Gold recording
+   when each stated their own name at the end).
+2. **Calendar before controller.** This rule was violated on 2026-05-22
+   (err-20260522T191304-TO2VXV) — the calendar resolved both speakers without any
+   controller input, and asking first is never acceptable. It was violated again on
+   2026-08-31 (`err-20260831T145747-LDPD1Q`) in a subtler way: the calendar WAS
+   queried, but a subject-line mismatch ("AI Leaders Weekly" on a personal-sounding
+   recording) was treated as a dead end without checking that event's attendees or
+   adjacent events first. **A subject-line mismatch alone is never sufficient grounds
+   to give up on the calendar** — see `skills/plaud-speaker-id/SKILL.md` step 2a for
+   the required 3-strategy search (matched event attendees, adjacent events, recurring
+   1:1 pattern) before falling through to controller escalation.
 
 ## MANDATORY EXECUTION RULES
 
 1. You MUST check for `_speakers.json` files in `~/Downloads/transcript-staging/` for every recording in `ready-for-fetch`.
-2. You MUST attempt calendar cross-reference BEFORE asking the controller. This is non-negotiable.
-3. You MUST batch all unresolved speakers into a single consolidated question — never ask one recording at a time.
-4. If ALL speakers resolve via calendar, proceed silently — no user interaction needed.
-5. Do NOT rename speakers in Plaud during this step — that happens in step-04 via `--rename`.
-6. Do NOT proceed to step-04 until `speaker-mappings` is fully populated for all recordings that have `_speakers.json` files.
+2. You MUST run the self-identification transcript scan for every unresolved speaker BEFORE calendar cross-reference. This is non-negotiable — see `skills/plaud-speaker-id/SKILL.md` step 0.
+3. You MUST attempt calendar cross-reference (including attendees and adjacent events, not just the single matched event's subject line) BEFORE asking the controller. This is non-negotiable.
+4. You MUST batch all unresolved speakers into a single consolidated question — never ask one recording at a time.
+5. If ALL speakers resolve via self-ID and/or calendar, proceed silently — no user interaction needed.
+6. Do NOT rename speakers in Plaud during this step — that happens in step-04 via `--rename`.
+7. Do NOT proceed to step-04 until `speaker-mappings` is fully populated for all recordings that have `_speakers.json` files.
 
 ---
 
@@ -45,15 +64,24 @@ both speakers without any controller input. Asking the controller first is never
    - Check for `plaud_{name}_speakers.json` in `~/Downloads/transcript-staging/`
    - If no speaker file: no generic speakers — this recording needs no mapping. Mark as resolved.
 
-2. **For each `_speakers.json` found:** attempt calendar auto-resolution per `skills/plaud-speaker-id/SKILL.md`:
-   - Pull the recording's date and approximate time from the JSON metadata
-   - Search calendar via M365 MCP for events overlapping that time window (+/- 15 minutes)
-   - Get attendee list from the matching calendar event
-   - Cross-reference attendee names against generic speaker labels using segment count heuristics:
-     - Highest segment count is typically David (he talks most in his own meetings)
-     - Match remaining attendees to remaining speakers using sample text as context clues
-   - If all speakers resolve with high confidence: auto-map them. Log the mapping.
-   - If one or more speakers cannot be confidently resolved: add to `pending-speaker-mappings`.
+2. **For each `_speakers.json` found:** resolve per `skills/plaud-speaker-id/SKILL.md`, in this order:
+   - **Self-ID scan first (step 0):** read the full transcript (not just `sample_text`) for
+     every unresolved speaker and check for self-identification — check the end of the
+     recording first (sign-offs), then the beginning (introductions), then anywhere else.
+     A speaker who names themselves is resolved directly, no calendar needed.
+   - **Calendar auto-resolution (step 2a) for whatever's left:**
+     - Pull the recording's date and approximate time from the JSON metadata
+     - Search calendar via M365 MCP for events overlapping that time window (+/- 15 minutes)
+     - Get attendee list from the matching calendar event
+     - **If the matched event's subject line doesn't obviously fit the transcript's
+       topic, that is not a reason to stop** — still check that event's attendees, then
+       check adjacent events (±30-60 min), then check for a recurring 1:1 pattern with
+       any name mentioned in the transcript, before treating the calendar as unhelpful.
+     - Cross-reference attendee names against generic speaker labels using segment count heuristics:
+       - Highest segment count is typically David (he talks most in his own meetings)
+       - Match remaining attendees to remaining speakers using sample text as context clues
+   - If all speakers resolve with high confidence (via self-ID or calendar): auto-map them. Log the mapping and method (self-id / calendar).
+   - Only after self-ID and the full calendar search discipline above are exhausted: add remaining unresolved speakers to `pending-speaker-mappings`.
 
 3. **If `pending-speaker-mappings` is non-empty:** pause and ask the controller.
    - Update `state.yaml status: awaiting-input`
@@ -103,12 +131,19 @@ both speakers without any controller input. Asking the controller first is never
 
 Use these in order. Stop as soon as you reach high confidence (>85%):
 
+0. **Self-identification in transcript**: the speaker states their own name aloud
+   anywhere in their segments (most commonly a sign-off near the end). This is checked
+   BEFORE calendar heuristics 1-4 and does not require calendar confirmation to resolve
+   — see `skills/plaud-speaker-id/SKILL.md` step 0.
 1. **Calendar attendees match speaker count exactly** and David O'Hara is an attendee: assign David to highest segment count speaker.
 2. **Sample text contains a name** ("...as Todd mentioned..." → that speaker knows Todd → likely David speaking about Todd).
 3. **Segment count pattern**: in a 2-person meeting, the host (David) typically has 55-70% of segments.
 4. **Known speakers list from Plaud**: if Plaud already has a registered voice profile matching a speaker, use it.
 
-If none of these produce high confidence, put the recording in `pending-speaker-mappings`.
+If none of these produce high confidence, before falling back to `pending-speaker-mappings`
+confirm the calendar search discipline was actually exhausted (matched event attendees +
+adjacent events + recurring 1:1 pattern check, per the HARD GATE) — do not put a recording
+into `pending-speaker-mappings` on a subject-line mismatch alone.
 
 ## EDGE CASE CHECKS — run before surfacing mappings to controller
 
@@ -178,9 +213,10 @@ Present those instead.
 
 | Failure | Action |
 |---------|--------|
-| Calendar unavailable | Skip auto-resolution. Add all recordings with speaker files to `pending-speaker-mappings`. |
+| Calendar unavailable | Self-ID scan still runs and resolves what it can. Skip calendar auto-resolution for the rest. Add remaining recordings with speaker files to `pending-speaker-mappings`. |
 | Controller does not respond (async context) | Leave `status: awaiting-input` in state. Workflow will resume when controller next interacts. |
-| Recording has no calendar event match | Expand to ±45 min window. Read Plaud-generated title from `.md`. Try Clay. If still unresolved, ask controller with CDT timestamp + duration. |
+| Matched calendar event's subject line doesn't fit the transcript topic | Not a stop condition by itself. Check that event's attendees anyway, then adjacent events, then recurring 1:1 patterns, before treating as unresolved. |
+| Recording has no calendar event match after full search (matched event, adjacent events, recurring pattern) | Expand to ±45 min window. Read Plaud-generated title from `.md`. Try Clay. If still unresolved, ask controller with CDT timestamp + duration. |
 | Controller provides partial answer | Apply what was given. Re-surface remaining unresolved speakers in the next interaction. |
 | David appears under two speaker labels | Map the generic label to "David O'Hara" in `--rename`. Do not surface as unknown. See Edge Case A above. |
 | Named speaker appears but wasn't on the call (voice mis-tag) | Flag to controller. Apply correction via `--rename` — the script handles renaming existing named labels, not only generic ones. |

@@ -19,6 +19,58 @@ Identify Plaud recordings that exist in the API but have not yet been ingested i
 the Obsidian vault. Output is a structured list of new recordings with transcription
 status for each.
 
+## ⛔ HARD GATE — DEDUP IS MANDATORY, NOT ADVISORY, IN ANY EXECUTION CONTEXT
+
+**No file or recording may be reported as "unprocessed"/"new" without evidence that it
+was actually checked against the vault.** This applies identically whether this skill
+runs inline or as a background/forked subagent (see `.claude/skills/plaud-discover/SKILL.md`,
+which launches this skill with `context: fork`, `model: haiku`) — fork execution is
+**not** an exemption from steps 3-4 below, and a shorter/cheaper run is never an
+acceptable reason to skip them.
+
+This gate exists because the same failure has now recurred three times under forked
+execution specifically — `err-20260826T190948-QQMBTP`, `err-20260828T140747-814VN9`,
+and again on 2026-08-31 (`err-20260831T144849-LDEIJS`, `err-20260831T145746-29X2M7`) —
+each time reporting 120-129 already-ingested staging files as "unprocessed" when a
+manual re-check (calling `fetch_plaud.py` directly and cross-referencing live vault
+frontmatter) found only 1-2 genuinely new recordings. The 2026-08-28 fix (see
+`memory/working/rigby-plaud-discover-fix-2026-08-28.md`) corrected real bugs in the
+dedup *logic* (archive-folder exclusion, Tier 3's filename assumption, silent
+proceed-without-dedup) but did not stop the recurrence — the logic was fine, there was
+just nothing forcing a fork to actually execute it instead of guessing. The following
+is that enforcement:
+
+1. **Build and persist a dedup ledger before writing any output.** For every candidate
+   — every API recording AND every top-level staged file — write one entry to
+   `systems/eval-harness/skill-runs/plaud-discover-ledger-latest.json`:
+   ```json
+   {"id_or_title": "...", "tiers_checked": [1, 2, 3], "vault_match": true, "decision": "skip"}
+   ```
+   A candidate with no ledger entry, or an entry whose `tiers_checked` is empty, must
+   not appear in `new_recordings`. The ledger is what distinguishes "checked and found
+   no match" from "didn't check" — a final list with no ledger behind it is exactly the
+   failure this gate closes off. Overwrite this file each run (it's a per-run artifact,
+   not history).
+2. **Circuit breaker against the known false-positive signature.** Before finalizing,
+   compare your `new_recordings` count against the most recent confirmed baseline in
+   `workflows/plaud-ingest/steps/step-01-discover.md` frontmatter
+   (`outputs.previous-run-results`). If your count is more than double the last
+   confirmed count **and** more than 10% of total candidates scanned, do not report it
+   as a real finding — that ratio is the known signature of a skipped dedup pass.
+   Instead: re-run vault enumeration
+   (`mcp__obsidian-mcp-tools__list_vault_files(path="zzPlaud")`) once, confirm the
+   returned count is at or above the previous run's `confirmed-in-vault`, and redo the
+   diff. If the anomaly persists after a clean re-enumeration, treat it as a genuine
+   vault-read problem and follow the "Vault enumeration fails" path under Error
+   Handling below — abort and report the discrepancy explicitly rather than letting a
+   large "new" count pass through unexamined.
+3. **No volume-based shortcut.** "There are too many staged files to check
+   individually" is never a valid reason to default them all to `new`. If tool-call
+   budget is a real constraint under fork execution, batch the checks (parallel
+   `get_vault_file` calls, or one `list_vault_files` pass plus bulk frontmatter
+   parsing) rather than skipping candidates — but every candidate must resolve to an
+   explicit ledger entry with at least one tier actually checked.
+
 ## How this works
 
 The Plaud API's `/file/simple/web` endpoint returns a paginated list of all recordings.
@@ -211,6 +263,11 @@ is an incomplete run — do not let it be treated as satisfying step-01's requir
 advance `current-step` past `step-01` until the list is actually written to state. If for any
 reason only a summary can be produced (e.g. truncated output), that is a failure, not a
 shortcut — report it as such rather than writing a count into a field that expects a list.
+
+**Every entry in `new_recordings` must trace back to a ledger entry from the HARD GATE above**
+with at least one tier checked and `decision: new`. If you cannot produce the ledger file, you
+cannot produce this list — that is the failure mode to report, not a reason to fall back to an
+unchecked guess.
 
 Also do not invent ad hoc output shapes (e.g. a `findings` block with just totals) for the
 skill-run signal file below — the schema in "SKILL COMPLETE" is the only one that's tracked by

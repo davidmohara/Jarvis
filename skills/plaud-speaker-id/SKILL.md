@@ -20,17 +20,36 @@ data as the primary signal and controller input as the fallback.
 
 ## ⛔ HARD GATE — READ BEFORE ANYTHING ELSE
 
-**You MUST query the calendar before asking the controller. No exceptions.**
+**You MUST scan the transcript for self-identification, then query the calendar, before
+asking the controller. No exceptions, and in that order.**
 
-The calendar resolves most speakers automatically. Asking the controller before checking
-the calendar is a protocol violation (logged as err-20260522T191304-TO2VXV).
+This is a two-part gate, both parts confirmed failing independently on 2026-08-31
+(`err-20260831T145747-LDPD1Q`, `err-20260831T145748-3SVX4A`):
+
+1. **Self-ID scan first.** Most speakers in Plaud recordings state their own name aloud,
+   typically near the end of the recording (sign-offs, "this is X", introductions).
+   Section "0" below runs a full-transcript self-identification scan for every
+   unresolved speaker *before* calendar-attendee matching is even attempted. Skipping
+   straight to calendar heuristics when the transcript itself already answers the
+   question is a protocol violation.
+2. **Calendar before controller.** The calendar resolves most of what self-ID doesn't.
+   Asking the controller before checking the calendar is a protocol violation (logged
+   as err-20260522T191304-TO2VXV). A calendar subject-line not matching the transcript's
+   apparent topic is **not**, by itself, grounds to give up on the calendar — see the
+   Search Discipline requirement in section 2a below (minimum 3 strategies: matched
+   event, attendees on that event, adjacent/nearby events) before treating the calendar
+   as unhelpful for a given recording.
 
 Do not surface any speaker question to the controller until:
-1. The M365 calendar has been searched for every recording with unresolved speakers
-2. All auto-resolution heuristics have been applied
-3. One or more speakers genuinely cannot be resolved from calendar + heuristics
+1. The full transcript has been scanned for self-identification for every recording
+   with unresolved speakers (section 0)
+2. The M365 calendar has been searched for every recording with speakers still
+   unresolved after the self-ID scan — including attendees and adjacent events, not
+   just the single best-matching event by subject line (section 2a)
+3. All auto-resolution heuristics have been applied
+4. One or more speakers genuinely cannot be resolved from self-ID + calendar + heuristics
 
-If the calendar resolves all speakers: proceed silently. No user interaction at all —
+If self-ID and/or the calendar resolve all speakers: proceed silently. No user interaction at all —
 **unless step 3's off-invite validation gate flags something.** A resolved name that
 isn't on the attendee list, or a name mentioned/addressed in the transcript that was
 never assigned to any speaker, breaks silence even on an otherwise fully auto-resolved
@@ -84,7 +103,34 @@ it's a validation gate on the *output* of resolution, run every time.
 Enumerate `~/Downloads/transcript-staging/plaud_*_speakers.json`. Load each.
 Group by recording (one JSON file per recording that has generic speakers).
 
-### 2. For each recording: attempt calendar auto-resolution
+### 2. For each recording: scan for self-identification, then attempt calendar auto-resolution
+
+**0. Self-identification scan (MANDATORY, runs before any calendar lookup)**
+
+For every speaker still labeled generically (`Speaker N`), scan that speaker's **full**
+set of transcript segments — not just the `sample_text` snippet in `_speakers.json` — for
+self-identification. If the staged markdown/full transcript isn't already loaded, fetch
+it before skipping this step; a truncated sample is not a substitute for the real scan.
+
+Look specifically at:
+- **The end of the recording** — most people sign off by name ("Alright, this is Todd,
+  talk soon", "Thanks everyone, Robbie out"). Check the last several segments for each
+  unresolved speaker first, since this is the highest-yield location.
+- **The beginning of the recording** — round-the-table introductions ("Hey, it's Sarah
+  here").
+- **Anywhere else in the transcript** — direct self-reference ("As I mentioned, this is
+  [Name] from [Company]...", "[Name] here, I think...").
+
+If a speaker's own segments contain a first-person self-identification that names them,
+resolve that speaker directly from the transcript. This is independent of and does not
+require calendar confirmation — a person naming themselves is a stronger signal than a
+calendar attendee-count inference. Still run this resolution through the step 3
+attendee-list validation gate below (a self-identified name should also be a plausible
+attendee, but the validation gate is informational/flagging here, not blocking, since
+self-ID is direct evidence — see step 3a's exemption note).
+
+Only speakers who produce no self-identification anywhere in their segments proceed to
+the calendar-based heuristics in steps 1-7 below.
 
 **a. Extract recording time window**
 
@@ -101,6 +147,29 @@ mcp__b8c41a14-7a9b-4ea5-ab12-933ee04bc52f__outlook_calendar_search(
 > **TIMESTAMP MATCHING — MANDATORY:** Match the recording to the calendar event whose time window **contains or closely overlaps the recording's start timestamp** (converted to local time). Do NOT pick the largest or most prominent event on the day. A recording at 14:32 CDT must match against the event scheduled for that time window — not a morning standup or an unrelated afternoon block. Recordings start when David presses record, which may be a few minutes before or after the scheduled start. Use a ±15 minute window for the start time match, expanding to ±45 minutes only when no event is found in the tighter window (see edge case 3 below).
 
 Find calendar events that overlap the recording's time window with the precision rules above.
+
+> **SUBJECT-LINE MISMATCH IS NOT GROUNDS TO GIVE UP ON THE CALENDAR.** A matched event's
+> subject/title not obviously fitting the transcript's apparent topic (e.g. a business
+> meeting title on a recording that sounds personal/casual) is common — meeting titles are
+> often stale, generic ("AI Leaders Weekly"), or set up for a different original purpose
+> than how the time slot actually got used. This happened concretely on 2026-08-31
+> (`err-20260831T145747-LDPD1Q`): a "AI Leaders Weekly" event was matched to a recording
+> that sounded like a personal catch-up, and that mismatch alone was treated as a dead end
+> instead of being investigated further. Per the Search Discipline rule in SYSTEM.md
+> (minimum 3 search strategies before reporting not-found), a subject-line mismatch
+> requires you to try, in order, before concluding the calendar can't help:
+> 1. **Check the matched event's attendee list anyway** — the topic discussed on a call
+>    frequently drifts from the meeting's original title; the attendee list is still valid
+>    signal even if the subject reads oddly.
+> 2. **Check adjacent events** — the 30-60 minutes before/after the matched event on
+>    David's calendar, in case the recording actually spans a different (possibly
+>    untitled, personal, or informally-added) block than the one that technically overlaps.
+> 3. **Check for recurring 1:1 patterns** — if a first-name-only or partial match appears
+>    in the transcript (e.g. "Robbie"), search calendar history for recurring meetings with
+>    an attendee matching that name, even outside the exact recording date, to confirm the
+>    relationship and correct spelling.
+> Only after all three come up empty does "calendar had no matching event" become a valid
+> basis to fall through to controller escalation for that speaker.
 
 **b. Get attendee list from matching calendar event**
 
@@ -164,15 +233,28 @@ registered as `speaker_type: 1` in the known_speakers list.
 **d. Confidence threshold**
 
 Mark a resolution as auto-confirmed if:
-- It satisfies heuristic 1, 2, or 3 (deterministic)
+- It came from the step 0 self-identification scan (highest confidence — the person
+  named themselves)
+- OR it satisfies heuristic 1, 2, or 3 (deterministic)
 - OR it satisfies heuristic 4, 5 (title self-identification), or 6 with calendar
   confirmation (attendee in list)
 
-Mark as needing controller input if:
+Mark as needing controller input only if, after the step 0 self-ID scan AND the full
+3-strategy calendar search in step 2a (matched event attendees, adjacent events,
+recurring 1:1 pattern check) have all been exhausted:
 - 3+ unresolved speakers remain after all heuristics
-- Calendar had no matching event
+- Calendar had no matching event **and** adjacent-event and recurring-pattern checks
+  (step 2a) also came up empty — a subject-line mismatch alone is never sufficient, see
+  step 2a
 - Attendee count doesn't match speaker count
 - Heuristics produce conflicting signals
+
+A speaker is only escalated to the controller if self-ID (step 0), the full calendar
+search discipline (step 2a), and the heuristics above all failed to produce a resolution.
+Escalating because a plausible name existed but wasn't checked against the transcript's
+own self-identification or the calendar's attendees/adjacent events first is the exact
+failure pattern from `err-20260831T145747-LDPD1Q` and `err-20260831T145748-3SVX4A` — do
+not repeat it.
 
 ### 3. Validate every resolution against the attendee list
 
@@ -200,12 +282,21 @@ attendee list from step 2b — by display name or email, with reasonable fuzzy m
 (e.g. "Robyn Fuentes" vs. an invite entry of "Robyn M. Fuentes" or an email-derived
 "rfuentes" should still count as a match; don't demand exact string equality). Known
 speakers already registered in Plaud (heuristic 1) and David himself are exempt — they
-aren't expected to be a fresh invite match every time.
+aren't expected to be a fresh invite match every time. Speakers resolved via the step 0
+self-identification scan are not exempt from this check, but a mismatch there is
+downgraded to the informational ⚠️ flag (not a block) — the transcript naming itself is
+strong direct evidence, so a resolved self-ID name absent from the invite most likely
+means an uninvited/late-added attendee, not a mis-tag; still surface it so the controller
+can confirm.
 
 If `Name` is **not** found among attendees (even fuzzily): do not silently accept the
 resolution, regardless of which heuristic produced it or how high its confidence was.
 Flag it for the controller prompt in step 4 — see the message format addition below.
-This overrides "proceed silently" per the HARD GATE note above.
+This overrides "proceed silently" per the HARD GATE note above. Exception: if the
+resolution came from the step 0 self-identification scan, still include the ⚠️
+informational flag in the prompt, but do not hold `speaker-mappings` as pending for it —
+the transcript is direct first-person evidence and the mapping can be finalized while
+the flag is surfaced for awareness.
 
 **b. Check for off-invite names mentioned but never assigned**
 
@@ -309,8 +400,9 @@ speaker_mappings:
     Speaker 2: "Sarah Chen"
 
 resolution_method:
-  abc123: auto (calendar + segment count)
-  def456: controller-confirmed
+  abc123: auto (self-identification)
+  def456: auto (calendar + segment count)
+  ghi789: controller-confirmed
 ```
 
 ## Standalone invocation
@@ -326,7 +418,8 @@ controller asks about speaker identification for a specific recording. In that c
 
 | Error | Action |
 |-------|--------|
-| Calendar unavailable | Skip auto-resolution for all. Put all recordings in `pending-speaker-mappings`. |
+| Calendar unavailable | Self-ID scan (step 0) still runs and resolves what it can. For everything else, skip calendar auto-resolution and put remaining recordings in `pending-speaker-mappings`. |
+| Self-ID scan finds no self-identification for a speaker | Not an error — fall through to calendar-based heuristics (steps 1-7) per the normal order. |
 | No `_speakers.json` found | No generic speakers in this recording — mark all speakers as resolved. |
 | Controller response is ambiguous | Ask for clarification on only the ambiguous recording, not the whole set. |
 | More speakers in transcript than attendees | Include all unknown speakers in the prompt with a note: "There are more speakers than calendar attendees — this may have been a group call." |
