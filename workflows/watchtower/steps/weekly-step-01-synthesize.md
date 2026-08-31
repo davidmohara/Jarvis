@@ -1,11 +1,11 @@
 ---
 status: complete
-started-at: "2026-08-24T07:05:00Z"
-completed-at: "2026-08-24T07:25:00Z"
+started-at: "2026-08-31T07:05:00Z"
+completed-at: "2026-08-31T07:20:00Z"
 outputs:
   items_in_queue: 0
-  themes_identified: 4
-  dropped_as_continuing: 0
+  themes_identified: 3
+  dropped_as_continuing: 2
   used_fallback: true
 ---
 

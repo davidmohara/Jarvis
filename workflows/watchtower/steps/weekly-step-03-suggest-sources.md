@@ -1,11 +1,11 @@
 ---
 status: complete
-started-at: "2026-08-24T07:52:00Z"
-completed-at: "2026-08-24T08:00:00Z"
+started-at: "2026-08-31T07:40:00Z"
+completed-at: "2026-08-31T07:50:00Z"
 outputs:
   proposed_count: 5
   excluded_count: 0
-  batch_number: 10
+  batch_number: 11
 ---
 
 <!-- system:start -->

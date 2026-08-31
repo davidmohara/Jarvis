@@ -1,11 +1,11 @@
 ---
 status: complete
-started-at: "2026-08-24T08:00:00Z"
-completed-at: "2026-08-24T08:10:00Z"
+started-at: "2026-08-31T07:50:00Z"
+completed-at: "2026-08-31T08:00:00Z"
 outputs:
-  weekly_note_path: "Watchtower/Weekly/2026-W35.md"
-  themes_in_note: 4
-  candidates_listed: 4
+  weekly_note_path: "Watchtower/Weekly/2026-W36.md"
+  themes_in_note: 3
+  candidates_listed: 3
   tweets_in_note: 10
   obsidian_unavailable: false
   fallback_migrated: false

@@ -20,6 +20,16 @@ This file is the only path to `sources.yaml`. Watchtower's weekly run appends ne
 |------|-----|-----|-------|-------|--------------|--------|
 -->
 
+### Batch 11 — Weekly Run (2026-08-31)
+
+| Name | URL | RSS | Topic | Trust | Why Relevant | Status |
+|------|-----|-----|-------|-------|--------------|--------|
+| The AI Optimist | https://www.aioptimist.org | https://www.aioptimist.org/feed (unverified) | leadership | med | Weekly newsletter on AI strategy for leaders — pragmatic adoption framing, change management, and team upskilling. Directly relevant to David's leadership/human-side-of-AI lenses. No comparable leader-focused adoption strategy publication in current registry beyond CEOWORLD. Free tier available. | approved 2026-08-31 |
+| AI Leadership Weekly | https://aileadershipweekly.com | null | leadership | med | C-suite-structured weekly newsletter on turning AI awareness into organizational action. Published strategic frameworks for AI adoption decisions — directly tied to W36's theme on project viability and governance gaps. No RSS confirmed; gather_method: search. | rejected 2026-08-31 |
+| The Crossing Report | https://crossing.one | https://crossing.one/feed (unverified) | it-consulting | high | Published "Consulting Firm Pricing: The AI-Era Shift" directly sourcing W36's billing model theme — outcome-based pricing transition, McKinsey Acorn Plan framing, client value squeeze. Practitioner-level consulting business intelligence. No comparable pricing/business-model-focused source in current registry. | rejected 2026-08-31 |
+| Chief Reinvention Officer | https://chiefreinventionofficer.com/blog-page | null | it-consulting | med | Published "9 Trends Reshaping the Consulting Industry in 2026" covering outcome-based pricing, AI agent delivery, and the consulting business model inflection. Practitioner-adjacent thought leadership on firm-level strategy. No RSS confirmed; gather_method: search via site:chiefreinventionofficer.com. | rejected 2026-08-31 |
+| Consultancy.uk | https://www.consultancy.uk | https://www.consultancy.uk/feed (unverified) | it-consulting | high | Published "What it takes to make outcome-based pricing work in consulting" (Aug 2026). UK-headquartered but covers global consulting industry — M&A, pricing models, delivery restructuring, and AI consulting trends. High editorial bar, consistent publication cadence. Fills a consulting-industry-news gap between Stratechery (strategic) and Gartner (analyst). | rejected 2026-08-31 |
+
 ### Batch 10 — Weekly Run (2026-08-24)
 
 | Name | URL | RSS | Topic | Trust | Why Relevant | Status |
@@ -117,6 +127,12 @@ This file is the only path to `sources.yaml`. Watchtower's weekly run appends ne
 
 ## Approved — Moved to sources.yaml
 
+### Batch 11 (partial) — Approved 2026-08-31
+
+| Name | URL | Topic | Trust | Approved |
+|------|-----|-------|-------|---------|
+| The AI Optimist | https://www.aioptimist.org | leadership | med | 2026-08-31 |
+
 ### Batch 10 (partial) — Approved 2026-08-24
 
 | Name | URL | Topic | Trust | Approved |
@@ -180,6 +196,15 @@ Also added by David as named sources (approved same session, 2026-06-19):
 ---
 
 ## Rejected
+
+### Batch 11 (partial) — 2026-08-31
+
+| Name | URL | Topic | Reason |
+|------|-----|-------|--------|
+| AI Leadership Weekly | https://aileadershipweekly.com | leadership | Rejected by David 2026-08-31 |
+| The Crossing Report | https://crossing.one | it-consulting | Rejected by David 2026-08-31 |
+| Chief Reinvention Officer | https://chiefreinventionofficer.com/blog-page | it-consulting | Rejected by David 2026-08-31 |
+| Consultancy.uk | https://www.consultancy.uk | it-consulting | Rejected by David 2026-08-31 |
 
 ### Batch 10 (partial) — 2026-08-24
 

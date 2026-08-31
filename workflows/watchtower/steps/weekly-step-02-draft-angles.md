@@ -1,18 +1,17 @@
 ---
 status: complete
-started-at: "2026-08-24T07:25:00Z"
-completed-at: "2026-08-24T07:45:00Z"
+started-at: "2026-08-31T07:20:00Z"
+completed-at: "2026-08-31T07:40:00Z"
 outputs:
-  themes_processed: 4
-  drafts_created: 4
+  themes_processed: 3
+  drafts_created: 3
   draft_paths:
-    - "Mind/Posts/_the-rollout-worked-the-people-didnt.md"
-    - "Mind/Posts/_the-amplifier-paradox.md"
-    - "Mind/Posts/_the-agent-governance-moment-just-became-infrastructure.md"
-    - "Mind/Posts/_dfw-is-building-the-other-kind-of-ai-economy.md"
-  blog_ideas_appended: 4
+    - "Mind/Posts/_the-40-percent-problem.md"
+    - "Mind/Posts/_the-billing-model-just-broke.md"
+    - "Mind/Posts/_nist-is-wiring-the-agent-standards-layer.md"
+  blog_ideas_appended: 3
   obsidian_unavailable: false
-  fallback_used: null
+  fallback_used: false
 ---
 
 <!-- system:start -->

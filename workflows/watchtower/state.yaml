@@ -1,85 +1,73 @@
 workflow: watchtower
 agent: knox
 status: complete
-session-started: "2026-08-24T07:05:00Z"
-session-completed: "2026-08-24T08:30:00Z"
-session-id: "wt-weekly-2026-W35"
+session-started: "2026-08-31T07:05:00Z"
+session-completed: "2026-08-31T08:20:00Z"
+session-id: "wt-weekly-2026-W36"
 current-step: complete
-original-request: "watchtower-weekly scheduled run (Knox) — W35, Aug 24"
+original-request: "watchtower-weekly scheduled run (Knox) — W36, Aug 31"
 accumulated-context:
   content_queue: []
   used_fallback: true
   obsidian_unavailable: false
   delta_check_applied: true
-  dropped_as_continuing: 0
+  dropped_as_continuing: 2
   weekly_themes:
     - theme_id: 1
-      theme_title: "The Rollout Worked. The People Didn't."
-      synthesis: "29% of employees admit to sabotaging their company's AI strategy — rising to 44% among Gen Z. Employee confidence in company AI strategy fell from 47% in 2025 to 31% in 2026. The critical finding: leadership trust has a 3.15-point spread as the single strongest predictor of adoption success vs. abandonment. This is not a technology story. Organizations that led with AI mandates before leading with trust are now in cleanup mode. The argument is new this week: prior coverage of adoption challenges focused on technical gaps and governance; this week the data names the human variable as the dominant one."
+      theme_title: "The 40 Percent Problem"
+      synthesis: "Gartner predicts 40%+ of agentic AI projects will be canceled by end of 2027 due to escalating costs, unclear business value, and governance gaps discovered only after production incidents. A follow-up Gartner finding (May 2026) named uniform governance as a standalone failure mode. This is a new argument vs. W35's adoption difficulty theme: the story has moved from 'adoption is hard' to 'projects are being actively killed.' The consulting opportunity is pre-project viability review and structured go/kill criteria — work Improving already does."
       source_items:
-        - "Enterprise AI adoption in 2026: Why 79% face challenges despite high investment (WRITER, 2026)"
-        - "Nearly a third of workers admit to sabotaging their company's AI — and smaller paychecks may explain why (Fortune, Jul 30 2026)"
-        - "Why 29% of Workers Are Quietly Killing Your AI Rollout (ProcedureFlow, 2026)"
-        - "Sabotage, silence and strategy 'built for show': 5 AI adoption myths (HR Executive, 2026)"
+        - "Gartner Predicts Over 40% of Agentic AI Projects Will Be Canceled by End of 2027"
+        - "Gartner Says Applying Uniform Governance Across AI Agents Will Lead to Enterprise AI Agent Failure (May 2026)"
       content_angles:
-        - "The Rollout Worked. The People Didn't."
+        - "The 40 Percent Problem"
     - theme_id: 2
-      theme_title: "The AI-as-Amplifier Paradox: You're Getting Better Results and Worse Judgment"
-      synthesis: "A 2026 CHI conference paper documented a year-long study on cancer specialists: initial operational gains hid 'intuition rust,' the gradual dulling of expert judgment, which evolved into skill atrophy and identity commoditization. A coding study found individuals using AI tools scored 17% lower on manual mastery tasks. More than 11 million entry-level gateway jobs disappeared in 18 months, eliminating the primary training environment where tacit knowledge is built. The argument is new: prior coverage (W32's 'The Premium You Charged Was for Knowing Things') touched information asymmetry; this week the research makes the erosion mechanism precise and longitudinal."
+      theme_title: "The Billing Model Just Broke"
+      synthesis: "McKinsey launched the Acorn Plan (May 2026), committing 25% of global consulting fees to outcome-based pricing. Bain is at 30% AI-enabled work heading toward 50%, almost entirely outcome-structured. 73% of consulting clients now prefer value-based pricing. AI compresses 40-hour analyses into 15 minutes and clients are refusing to pay for saved hours. This is a new argument vs. W27-W34b delivery model coverage: the pricing structure itself — the mechanism by which consulting value is contracted — is breaking, not just the delivery methodology."
       source_items:
-        - "From Future of Work to Future of Workers: Addressing Asymptomatic AI Harms (CHI 2026 / Microsoft Research)"
-        - "The Great Atrophy: How AI Efficiency Is Quietly Killing Human Expertise (VKTR, 2026)"
-        - "AI Competency Erosion: Understanding Expertise Decay (Springer Nature, 2026)"
+        - "McKinsey Ties 25% of Fees to Outcomes as AI Erodes Billable Hours (AI Weekly)"
+        - "AI is pushing consulting away from billable hours and toward productized, learning operating models (MarketScale)"
+        - "Q1 2026 Consulting Trends: Outcome-Based Pricing & AI Agents Reach Production (F1GMAT)"
+        - "Consulting Firm Pricing: The AI-Era Shift (The Crossing Report)"
       content_angles:
-        - "The AI-as-Amplifier Paradox: You're Getting Better Results and Worse Judgment"
+        - "The Billing Model Just Broke"
     - theme_id: 3
-      theme_title: "The Agent Governance Moment Just Became Infrastructure"
-      synthesis: "On Aug 20, Google's A2A protocol joined the Linux Foundation-backed Agentic AI Foundation alongside Anthropic's MCP, consolidating the agentic standards layer under neutral governance with 250+ members. Simultaneously, SAP published findings that 98% of companies have deployed or plan to deploy AI agents, but fewer than half have an agent inventory. Gartner projects 150,000+ agents per Fortune 500 firm by 2028 and only 13% believe they have adequate governance. The argument is structurally different from prior weeks' agent security coverage: this week is about protocol governance infrastructure locking in — the standards moment that changes what governance even means technically."
+      theme_title: "NIST Is Wiring the Agent Standards Layer"
+      synthesis: "NIST's AI Agent Standards Initiative (announced Feb 2026) is operationalizing with MCP and A2A named as baseline interoperability protocols. Agent identity frameworks anchored to OAuth 2.0/OIDC are the companion standard. Singapore's IMDA Model AI Governance Framework for Agentic AI requires each agent to carry a verifiable digital identity and audit trail. This is a new argument vs. W35's 'standards moment happened' theme: now specific technical standards are being defined with named protocol baselines, giving organizations a concrete build-toward target. The waiting is over."
       source_items:
-        - "Google's A2A Protocol Joins AAIF, Consolidating the Agent Economy's Protocol Layer (Forkast News, Aug 20 2026)"
-        - "Linux Foundation Announces the Formation of the Agentic AI Foundation (Linux Foundation press release)"
-        - "AI Agent Sprawl: Why AI Governance Is Now a Board-Level Issue (SAP News Center, Aug 2026)"
-        - "The Agent Sprawl Crisis: How CIOs Should Register, Consolidate, and Retire Digital Workers (Digital Thought Disruption, Aug 20 2026)"
+        - "AI Agent Standards Initiative — NIST (nist.gov)"
+        - "Agentic AI Governance: NIST Standards for Autonomous Systems (CSA Labs)"
+        - "NCCoE concept paper on AI Agent Identity and Authorization"
       content_angles:
-        - "The Agent Governance Moment Just Became Infrastructure"
-    - theme_id: 4
-      theme_title: "DFW Is Building the Other Kind of AI Economy"
-      synthesis: "Brookings named DFW an 'AI Star Hub' with generative AI touching 36% of local jobs. Celestica announced a $876M Fort Worth AI manufacturing campus. Dallas Innovates published its 2026 AI 75 innovators list. The regional story this week is not data center count — it's vertical AI in logistics, healthcare, and advanced manufacturing: the gritty, sector-specific applications that distinguish DFW from coastal AI hubs. This diverges materially from prior Texas coverage (infrastructure/regulation) into talent, sector application, and what DFW's AI economy actually produces."
-      source_items:
-        - "Dallas-Fort Worth Metro Named 'AI Star Hub' in Brookings Report (Dallas Innovates, 2026)"
-        - "Celestica Plans $876M Fort Worth AI Manufacturing Hub (CRE Daily, 2026)"
-        - "Meet the 2026 AI 75 Innovators: From the C-Suite to the Lab Bench in DFW (Dallas Innovates)"
-        - "From Emerging to Leading: Dallas-Fort Worth's AI Potential (Inclusion Cloud, 2026)"
-      content_angles:
-        - "DFW Is Building the Other Kind of AI Economy"
+        - "NIST Is Wiring the Agent Standards Layer"
   weekly_tweets:
-    - text: "29% of employees admit to sabotaging their company's AI rollout. 44% among Gen Z. That's not a technology problem. That's what happens when you lead with the mandate before you lead with the reason."
-      supporting_url: "https://fortune.com/2026/07/30/nearly-a-third-of-workers-admit-to-sabotaging-their-companys-aiand-smaller-paychecks-may-explain-why/"
+    - text: "Gartner says 40% of agentic AI projects will be canceled by 2027. Not paused. Canceled. Escalating costs, unclear business value, and governance gaps discovered only after something goes wrong in production. The failure mode is identifiable before the project starts."
+      supporting_url: "https://www.gartner.com/en/newsroom/press-releases/2025-06-25-gartner-predicts-over-40-percent-of-agentic-ai-projects-will-be-canceled-by-end-of-2027"
       angle_type: "data"
-    - text: "Employee confidence in company AI strategy fell from 47% to 31% in one year. The organizations that moved fast on the technology and slow on the people are now paying twice: once for the rollout, and again for the cleanup."
-      supporting_url: "https://writer.com/blog/enterprise-ai-adoption-2026/"
-      angle_type: "data"
-    - text: "Leadership trust has a 3.15-point spread as the single biggest predictor of AI adoption success. Not tool selection. Not training budget. Not vendor. The person at the top of the org who can explain what this is actually for."
+    - text: "The most important question before you approve an AI agent initiative: who owns the kill criteria? If nobody can answer that in a sentence, you don't have a governance problem. You have a project design problem."
       supporting_url: null
       angle_type: "provocative"
-    - text: "Researchers studied cancer specialists using AI for a year. Output metrics went up. Judgment quietly eroded. They called it intuition rust. It's the thing nobody measures until the stakes are high enough to expose it."
-      supporting_url: "https://dl.acm.org/doi/10.1145/3772318.3791081"
+    - text: "Gartner's second finding this year: applying uniform governance across AI agents will cause enterprise AI agent failure. Not might cause. Will. The risk isn't too little governance — it's the wrong kind applied everywhere the same way."
+      supporting_url: "https://www.gartner.com/en/newsroom/press-releases/2026-05-26-gartner-says-applying-uniform-governance-across-ai-agents-will-lead-to-enterprise-ai-agent-failure"
       angle_type: "data"
-    - text: "11 million entry-level gateway jobs disappeared in 18 months. Those weren't just easy jobs. They were the training environments where pattern recognition gets built. When AI handles the doing, tacit knowledge acquisition slows or stops."
-      supporting_url: "https://www.vktr.com/digital-workplace/the-great-atrophy-how-ai-efficiency-is-quietly-killing-human-expertise/"
-      angle_type: "provocative"
-    - text: "AI tools scored 17% lower on manual mastery tasks in a 2026 coding study. Not catastrophic. Just slow drift. The kind you don't notice until you need the skill and it isn't there."
+    - text: "McKinsey just committed to moving 25% of its global consulting fees to outcome-based pricing. AI compresses 40-hour analyses to 15 minutes and clients have stopped paying for the saved hours. The billing model that built this industry is breaking."
       supporting_url: null
       angle_type: "data"
-    - text: "Google's A2A protocol joined Anthropic's MCP under one neutral governance body on August 20. 250+ members. Every major cloud provider and AI lab. The agent standards moment happened. Your governance program either built toward this or against it."
-      supporting_url: "https://forkast.news/googles-a2a-protocol-joins-aaif-consolidating-the-agent-economys-protocol-layer-under-one-roof/"
+    - text: "73% of consulting clients now prefer value-based pricing over hourly rates. Bain says 30% of its work is AI-enabled and heading toward 50%, almost entirely outcome-structured. The firms moving fastest aren't doing it out of generosity. They're doing it because it's defensible."
+      supporting_url: null
       angle_type: "data"
-    - text: "98% of companies have deployed or plan to deploy AI agents. Fewer than half have an agent inventory. Gartner projects 150,000+ agents per Fortune 500 firm by 2028. The board conversation about AI has shifted from ambition to accountability."
-      supporting_url: "https://news.sap.com/2026/08/agent-sprawl-why-ai-governance-is-now-board-level-issue/"
-      angle_type: "provocative"
-    - text: "DFW was named an AI Star Hub by Brookings. Celestica just committed $876M to a Fort Worth AI manufacturing campus. 36% of local jobs have meaningful AI exposure. The DFW AI story is not about data centers anymore. It's about vertical AI in the industries that actually run this economy."
-      supporting_url: "https://dallasinnovates.com/dallas-fort-worth-metro-named-ai-star-hub-in-new-brookings-report-mapping-americas-ai-economy/"
-      angle_type: "data"
-    - text: "The question I keep asking clients: what are the judgment calls you've stopped making because the tool makes them adequately? Adequate and good aren't the same thing. The gap between them is exactly what you're getting paid to close."
+    - text: "If AI handles the production, the billable thing is the decision about what to produce and how to use the result. That judgment doesn't compress. It may actually become more valuable as production becomes cheap."
       supporting_url: null
       angle_type: "question"
+    - text: "NIST just named MCP and A2A as baseline interoperability protocols for AI agents. The standards moment happened two weeks ago. The standards layer is being wired now. If you're building agent infrastructure that doesn't speak these protocols, you're building toward integration debt."
+      supporting_url: "https://www.nist.gov/artificial-intelligence/ai-agent-standards-initiative"
+      angle_type: "data"
+    - text: "\"We're waiting to see how standards shake out before we commit to an architecture.\" I keep hearing this. The standards are shaking out. NIST named the baselines. The organizations that waited to start are already behind."
+      supporting_url: null
+      angle_type: "provocative"
+    - text: "Singapore's AI governance framework for agents now requires each one to carry a verifiable digital identity and an audit trail of which agent acted under whose authorization. The US is heading the same direction. Is your agent inventory ready for that question?"
+      supporting_url: null
+      angle_type: "question"
+    - text: "80% of Gen Z say they trust AI more than their manager for certain work decisions. 58% of executives admit many leaders lack fundamental knowledge to make strategic AI decisions. The gap between those two numbers is where leadership credibility lives right now."
+      supporting_url: null
+      angle_type: "data"
