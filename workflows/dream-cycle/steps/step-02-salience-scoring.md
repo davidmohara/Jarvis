@@ -1,15 +1,15 @@
 ---
 status: complete
-started-at: 2026-08-30T08:07:00Z
-completed-at: 2026-08-30T08:09:00Z
+started-at: 2026-08-31T08:04:30Z
+completed-at: 2026-08-31T08:05:30Z
 outputs:
-  episodic_scanned: 293
-  score_updates: 293
+  episodic_scanned: 295
+  score_updates: 295
   no_tags: 202
   no_date: 38
-  score_distribution: "0:203,1:5,2:4,3:3,4:5,5:7,6:5,7:1,8:3,9:2,10:55"
-  window_entries: 53
-  note: "Ran systems/dream-cycle/salience-score.py. read_errors:0, write_errors:0. episodic_scanned dropped from 294 to 293: +3 from today's step-01 archives, -4 from the 08-29 David-approved compression batch (4 of the 5 compressed files were top-level episodic/, the 5th was the decisions/ subdirectory entry this script never scanned anyway) — net -1, consistent. pct_score_0=69.28% is BELOW the 70% escalation threshold for the first time in 5 cycles (08-25 through 08-29 all ran 70-71.6%) — not escalated this cycle; likely effect of the compression batch removing 4 zero-score legacy entries plus this cycle's 3 new archives landing with real co-occurring tags rather than zero scores. pct_no_date=12.97% still crossed the >10% threshold, same legacy undated population as every prior cycle. pct_no_tags=68.94% dipped just under 70% into the 30-70% 'unusual tag coverage' band rather than the expected 70-100% band — same underlying shift as pct_score_0, not a new problem, flagging per GUARDRAIL 4's literal threshold rule. Known subdirectory-recursion bug (err-20260826T081453-664W53) unchanged: script still uses os.listdir not os.walk, so memory/episodic/{meetings,people,projects,decisions,coaching}/ are never scanned — the one previously-affected decisions/ file was deleted in the 08-29 compression, so 0 files are currently affected by this bug. Not patched (systems/ is Rigby-gated)."
+  score_distribution: "0:204,1:4,2:4,3:4,4:4,5:7,6:5,7:1,8:3,9:2,10:57"
+  window_entries: 52
+  note: "Ran systems/dream-cycle/salience-score.py. read_errors:0, write_errors:0. episodic_scanned rose 293->295 from today's 2 step-01 archives. pct_score_0=69.15% stays BELOW the 70% escalation threshold (consistent with 08-30's baseline). pct_no_date=12.88% still crosses the >10% threshold, same legacy undated population as every prior cycle. pct_no_tags=68.47% stays in the 30-70% 'unusual tag coverage' band, same underlying population as 08-30, not a new problem. Known subdirectory-recursion bug (err-20260826T081453-664W53) unchanged, 0 files currently affected. Separately, the frontmatter-stranding bug (APAWBB/NBGENM/J571BH) fired again on both of today's fresh step-01 archives and was found compounding on a legacy file (shutdown-cleanup-2026-08-07-162834.md, 12 stacked orphan lines) during step-03 candidate review — see err-20260831T080618-284VH8. Not patched (systems/ is Rigby-gated)."
 ---
 
 <!-- system:start -->

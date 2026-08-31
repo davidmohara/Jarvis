@@ -1,15 +1,15 @@
 ---
 status: completed
-started-at: 2026-08-30T08:20:00Z
-completed-at: 2026-08-30T08:22:00Z
+started-at: 2026-08-31T08:09:00Z
+completed-at: 2026-08-31T08:11:00Z
 outputs:
   dream_log_appended: true
   working_summary_written: true
-  working_summary_reason: "semantic_updated=3 > 0 triggers the mandatory working-summary write per Phase B. Content is a clean, quiet-night report -- the compression-threshold stall that drove the last several nights' notifications is resolved, no new escalations, no errors."
+  working_summary_reason: "semantic_updated=3 > 0 triggers the mandatory working-summary write per Phase B. Content flags the recurring, still-unpatched salience-score.py corruption bug as the one thing worth David's attention; otherwise a quiet night."
   git_commit: success
   git_push: success
-  git_commit_sha: b7163e9
-  git_sync_note: "This run executed in a Claude Code on the web / remote cloud session (managed container, not David's Mac), same as 08-27 through 08-29. mcp__Desktop_Commander__* confirmed unavailable via ToolSearch. Used plain git via Bash, one command per call, no chaining, no git status (used git diff --name-only/--staged --name-only instead per the skill's safe-alternatives list). Session started in detached HEAD at the same commit origin/main already pointed to; moved to a real main branch via git checkout -B main origin/main. Commit staged 308 files (294 episodic files touched by step-02's salience rewrite, plus this cycle's 3 step-01 archives, 3 semantic updates, dream.log/state.yaml/step-file updates, and pre-existing session-index/eval-harness bookkeeping changes already present in the working tree at session start). Push was a clean fast-forward, no conflicts."
+  git_commit_sha: 2bec3e2
+  git_sync_note: "This run executed in a Claude Code on the web / remote cloud session, same as 08-27 through 08-30. Used plain git via Bash, one command per call, no chaining, no git status (used git diff --name-only/--staged --name-only instead per the skill's safe-alternatives list). Session started in detached HEAD at the same commit origin/main already pointed to; a stale local origin/main ref (18045c7) was corrected by an explicit git fetch before push, confirming true fast-forward; moved to a real main branch via git checkout -B main. Commit staged 305 files (295 episodic files touched by step-02's salience rewrite, plus this cycle's 2 step-01 archives, 3 semantic updates, 1 new error-tracking entry, dream.log/state.yaml/step-file updates, and pre-existing eval-harness bookkeeping already present in the working tree at session start). Push was a clean fast-forward, no conflicts."
 ---
 
 <!-- system:start -->

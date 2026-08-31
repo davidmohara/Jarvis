@@ -1,23 +1,22 @@
 ---
 status: complete
-started-at: 2026-08-30T08:09:00Z
-completed-at: 2026-08-30T08:18:00Z
+started-at: 2026-08-31T08:05:30Z
+completed-at: 2026-08-31T08:08:00Z
 outputs:
   candidates_count: 3
   clusters_found: 3
   semantic_created: 0
   semantic_updated: 3
   promoted_entries: 3
-  promotion_note: "3 candidates this cycle, all from today's own step-01 archives: dream-summary-2026-08-28.md (score 10), plaud-ingest-2026-08-27-183100.md (score 10), shutdown-cleanup-2026-08-27-202000.md (score 3). Detected via last-promoted-check==today AND score>=3 AND no 'promoted: true' anywhere in frontmatter (continuing the post-J571BH full-frontmatter-scan workaround). Clustered by dominant tag against each target's own tags: field -- dream-summary -> memory/semantic/operational/2026-06-12-dream-summary-pattern.md, plaud -> memory/semantic/operational/2026-07-04-plaud-pattern.md, session-wrap -> memory/semantic/operational/2026-06-30-session-wrap-pattern.md (all 3 are the same files this cluster has used every prior cycle -- the pre-existing duplicate -pattern.md files in domain-knowledge/ and pattern/ were left untouched, consistent with established practice). Zero new semantic files created. Set salience.promoted:true directly on all 3 source episodic files (clean salience blocks this cycle -- no J571BH-style corruption found on any of the 3, consistent with 08-29's finding that the current salience-score.py version manages its own block correctly)."
+  promotion_note: "3 candidates this cycle: dream-summary-2026-08-29.md (score 10, today's own archive), end-of-day-review-2026-08-28-145136.md (score 10, today's own archive), shutdown-cleanup-2026-08-07-162834.md (score 3, an existing file crossing via 30-day window drift). Detected via last-promoted-check==today AND score>=3 AND no 'promoted: true' anywhere in frontmatter (continuing the post-J571BH full-frontmatter-scan workaround). Clustered by dominant tag: dream-summary -> memory/semantic/operational/2026-06-12-dream-summary-pattern.md, daily-review -> memory/semantic/operational/2026-06-12-daily-review-pattern.md, session-wrap -> memory/semantic/operational/2026-06-30-session-wrap-pattern.md (the actively-maintained duplicate of each was used; a stale duplicate -pattern.md exists for daily-review at 2026-07-04 and was left untouched, consistent with established practice). Zero new semantic files created. The frontmatter-stranding bug fired on all 3 candidates this cycle (2 fresh, plus a severe 12-orphan-line case on the legacy file) -- hand-repaired all 3 before setting salience.promoted:true; see err-20260831T080618-284VH8."
   cluster_actions:
     - {tag: dream-summary, domain: operational, size: 1, action: update, target: memory/semantic/operational/2026-06-12-dream-summary-pattern.md, confidence: "high (unchanged)"}
-    - {tag: plaud, domain: operational, size: 1, action: update, target: memory/semantic/operational/2026-07-04-plaud-pattern.md, confidence: "high (unchanged)"}
+    - {tag: daily-review, domain: operational, size: 1, action: update, target: memory/semantic/operational/2026-06-12-daily-review-pattern.md, confidence: "high (unchanged)"}
     - {tag: session-wrap, domain: operational, size: 1, action: update, target: memory/semantic/operational/2026-06-30-session-wrap-pattern.md, confidence: "medium (unchanged)"}
-  error_categories_30d: "assumption-error/wrong-assumption:8, tool-misuse/protocol-skip:5, process-skip/protocol-skip:4, tool-misuse/pattern-mismatch:4, tool-misuse/tool-ignorance:3, data-accuracy/stale-cache:3, missed-context/lazy-search:3, lazy-search/available-data-not-used:3"
-  error_total_30d: 82
-  error_malformed_30d: 4
+  error_categories_30d: "assumption-error/wrong-assumption:8, tool-misuse/protocol-skip:6, process-skip/protocol-skip:5, tool-misuse/pattern-mismatch:4, tool-misuse/wrong-assumption:3, tool-misuse/tool-ignorance:3, data-accuracy/stale-cache:3, missed-context/lazy-search:3, lazy-search/available-data-not-used:3"
+  error_total_30d: 85
   lessons_appended: 0
-  lessons_note: "All 8 qualifying categories (3+ occurrences in the 07-31 through 08-30 window) are already documented and active in LESSONS.md: assumption-error/wrong-assumption, tool-misuse/protocol-skip, process-skip/protocol-skip, tool-misuse/pattern-mismatch, tool-misuse/tool-ignorance, data-accuracy/stale-cache, missed-context/lazy-search, lazy-search/available-data-not-used. No new entry appended. error_total_30d dropped from 93 (08-29) to 82 as the rolling 30-day window advanced past a heavier late-July period; process-skip/protocol-skip fell from the top spot (8) to 4th (4) as a result -- a window-aging effect, not a sign the pattern resolved. 4 malformed entries (null category/failure_mode) remain flagged for Rigby, unchanged from prior cycles."
+  lessons_note: "All 9 qualifying categories (3+ occurrences in the 30-day window) are already documented and active in LESSONS.md (tool-misuse/wrong-assumption newly crossed 3 via window drift but is already covered by existing entries). No new entry appended."
 ---
 
 <!-- system:start -->

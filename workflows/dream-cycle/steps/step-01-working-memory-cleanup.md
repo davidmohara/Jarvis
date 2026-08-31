@@ -1,20 +1,18 @@
 ---
 status: complete
-started-at: 2026-08-30T08:05:32Z
-completed-at: 2026-08-30T08:07:00Z
+started-at: 2026-08-31T08:02:58Z
+completed-at: 2026-08-31T08:04:30Z
 outputs:
-  working_archived: 3
+  working_archived: 2
   working_deleted: 0
-  working_skipped: 32
+  working_skipped: 30
   working_stranded: 0
   enrichment_method: "LLM (systems/dream-cycle/llm_tag_extractor.py via claude -p haiku) — claude CLI auth functional in this container this cycle"
   archived_files:
-    - dream-summary-2026-08-28.md
-    - plaud-ingest-2026-08-27-183100.md
-    - shutdown-cleanup-2026-08-27-202000.md
-  skipped_not_expired:
     - dream-summary-2026-08-29.md
     - end-of-day-review-2026-08-28-145136.md
+  skipped_not_expired:
+    - dream-summary-2026-08-30.md
   skipped_unparseable:
     - 2026-07-08.md
     - 2026-07-23-215200-session-felix-derek-persona-rebuild.md
