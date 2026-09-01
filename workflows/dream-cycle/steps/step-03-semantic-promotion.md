@@ -1,22 +1,21 @@
 ---
 status: complete
-started-at: 2026-08-31T08:05:30Z
-completed-at: 2026-08-31T08:08:00Z
+started-at: 2026-09-01T08:15:00Z
+completed-at: 2026-09-01T08:22:00Z
 outputs:
-  candidates_count: 3
-  clusters_found: 3
+  candidates_count: 1
+  clusters_found: 1
   semantic_created: 0
-  semantic_updated: 3
-  promoted_entries: 3
-  promotion_note: "3 candidates this cycle: dream-summary-2026-08-29.md (score 10, today's own archive), end-of-day-review-2026-08-28-145136.md (score 10, today's own archive), shutdown-cleanup-2026-08-07-162834.md (score 3, an existing file crossing via 30-day window drift). Detected via last-promoted-check==today AND score>=3 AND no 'promoted: true' anywhere in frontmatter (continuing the post-J571BH full-frontmatter-scan workaround). Clustered by dominant tag: dream-summary -> memory/semantic/operational/2026-06-12-dream-summary-pattern.md, daily-review -> memory/semantic/operational/2026-06-12-daily-review-pattern.md, session-wrap -> memory/semantic/operational/2026-06-30-session-wrap-pattern.md (the actively-maintained duplicate of each was used; a stale duplicate -pattern.md exists for daily-review at 2026-07-04 and was left untouched, consistent with established practice). Zero new semantic files created. The frontmatter-stranding bug fired on all 3 candidates this cycle (2 fresh, plus a severe 12-orphan-line case on the legacy file) -- hand-repaired all 3 before setting salience.promoted:true; see err-20260831T080618-284VH8."
+  semantic_updated: 1
+  promoted_entries: 1
+  promotion_note: "1 candidate this cycle: dream-summary-2026-08-30.md (score 10, today's own step-01 archive). Detected post-repair via score>=3 AND no 'promoted: true' in the (now clean) salience: block -- the corpus-wide repair earlier this cycle means the full-frontmatter-scan workaround is no longer strictly necessary, but the check still only looked at the trailing salience: block per the repair's own guarantee. Clustered by dominant tag: dream-summary -> memory/semantic/operational/2026-06-12-dream-summary-pattern.md (existing file, appended). Zero new semantic files created. No frontmatter-stranding bug on this write since the corpus repair ran before this step."
   cluster_actions:
     - {tag: dream-summary, domain: operational, size: 1, action: update, target: memory/semantic/operational/2026-06-12-dream-summary-pattern.md, confidence: "high (unchanged)"}
-    - {tag: daily-review, domain: operational, size: 1, action: update, target: memory/semantic/operational/2026-06-12-daily-review-pattern.md, confidence: "high (unchanged)"}
-    - {tag: session-wrap, domain: operational, size: 1, action: update, target: memory/semantic/operational/2026-06-30-session-wrap-pattern.md, confidence: "medium (unchanged)"}
-  error_categories_30d: "assumption-error/wrong-assumption:8, tool-misuse/protocol-skip:6, process-skip/protocol-skip:5, tool-misuse/pattern-mismatch:4, tool-misuse/wrong-assumption:3, tool-misuse/tool-ignorance:3, data-accuracy/stale-cache:3, missed-context/lazy-search:3, lazy-search/available-data-not-used:3"
-  error_total_30d: 85
+  error_categories_30d: "assumption-error/wrong-assumption:8, tool-misuse/protocol-skip:7, process-skip/protocol-skip:7, missed-context/lazy-search:4, tool-misuse/pattern-mismatch:4, tool-misuse/wrong-assumption:3, tool-misuse/tool-ignorance:3, data-accuracy/stale-cache:3, lazy-search/available-data-not-used:3, data-accuracy/pattern-mismatch:3"
+  error_total_30d: 88
+  error_malformed_30d: 4
   lessons_appended: 0
-  lessons_note: "All 9 qualifying categories (3+ occurrences in the 30-day window) are already documented and active in LESSONS.md (tool-misuse/wrong-assumption newly crossed 3 via window drift but is already covered by existing entries). No new entry appended."
+  lessons_note: "All 9 distinct qualifying categories already documented and active in LESSONS.md. data-accuracy/pattern-mismatch (3, this cycle's own err-20260901T081243-R58BYW plus 2 prior) is a mis-categorized recurrence of the already-documented tool-misuse/pattern-mismatch entry (2026-08-28, same salience-score.py bug family) -- treated as covered, not a new pattern, no separate entry appended."
 ---
 
 <!-- system:start -->

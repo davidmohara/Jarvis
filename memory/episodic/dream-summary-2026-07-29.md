@@ -17,33 +17,9 @@ tags:
   - carry-forward
   - q3-rocks
 related_people: []
-  score: 0
-  last-promoted-check: 2026-07-30
-  promoted: true
-  promoted: true
-  promoted: true
-  promoted: true
-  promoted: true
-  promoted: true
-  promoted: true
-  promoted: true
-  promoted: true
-  promoted: true
-  promoted: true
-  promoted: true
-  promoted: true
-  promoted: true
-  promoted: true
-  promoted: true
-  promoted: true
-  promoted: true
-  promoted: true
-  promoted: true
-  promoted: true
-  promoted: true
 salience:
   score: 10
-  last-promoted-check: 2026-08-31
+  last-promoted-check: 2026-09-01
   promoted: true
 ---
 

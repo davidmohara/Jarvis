@@ -23,21 +23,9 @@ related_people:
   - brian-thill
   - brian-schmidt
   - ellery-fisher
-  promoted: true
-  promoted: true
-  promoted: true
-  promoted: true
-  promoted: true
-  promoted: true
-  promoted: true
-  promoted: true
-  promoted: true
-  promoted: true
-  promoted: true
-  promoted: true
 salience:
   score: 6
-  last-promoted-check: 2026-08-31
+  last-promoted-check: 2026-09-01
   promoted: true
 ---
 

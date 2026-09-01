@@ -1,15 +1,15 @@
 ---
 status: complete
-started-at: 2026-08-31T08:04:30Z
-completed-at: 2026-08-31T08:05:30Z
+started-at: 2026-09-01T08:08:10Z
+completed-at: 2026-09-01T08:15:00Z
 outputs:
-  episodic_scanned: 295
-  score_updates: 295
+  episodic_scanned: 296
+  score_updates: 296
   no_tags: 202
   no_date: 38
-  score_distribution: "0:204,1:4,2:4,3:4,4:4,5:7,6:5,7:1,8:3,9:2,10:57"
+  score_distribution: "0:204,1:4,2:4,3:4,4:4,5:7,6:5,7:1,8:3,9:2,10:58"
   window_entries: 52
-  note: "Ran systems/dream-cycle/salience-score.py. read_errors:0, write_errors:0. episodic_scanned rose 293->295 from today's 2 step-01 archives. pct_score_0=69.15% stays BELOW the 70% escalation threshold (consistent with 08-30's baseline). pct_no_date=12.88% still crosses the >10% threshold, same legacy undated population as every prior cycle. pct_no_tags=68.47% stays in the 30-70% 'unusual tag coverage' band, same underlying population as 08-30, not a new problem. Known subdirectory-recursion bug (err-20260826T081453-664W53) unchanged, 0 files currently affected. Separately, the frontmatter-stranding bug (APAWBB/NBGENM/J571BH) fired again on both of today's fresh step-01 archives and was found compounding on a legacy file (shutdown-cleanup-2026-08-07-162834.md, 12 stacked orphan lines) during step-03 candidate review — see err-20260831T080618-284VH8. Not patched (systems/ is Rigby-gated)."
+  note: "Ran systems/dream-cycle/salience-score.py. read_errors:0, write_errors:0. episodic_scanned rose 295->296 from today's 1 step-01 archive. pct_score_0=68.92% stays BELOW the 70% escalation threshold. pct_no_date=12.84% still crosses the >10% threshold, same legacy undated population as every prior cycle. pct_no_tags=68.24% stays in the 30-70% 'unusual tag coverage' band, same underlying population as prior cycles, not a new problem. MAJOR FINDING this cycle: confirmed via git diff that the frontmatter-stranding bug (APAWBB/NBGENM/J571BH/284VH8) fires on EVERY salience-score.py write, and a full corpus scan found orphaned lines in ALL 296 episodic files (7,842 total), not just the 1-3 files per cycle previously tracked -- prior spot-checks had undercounted scope by only inspecting files touched that specific night. Ran a corpus-wide data repair (not a systems/ script change) stripping all 7,842 orphan lines, healing 3 files where an orphan promoted:true would otherwise have been lost (co-sell-pipeline-2026-08-24, dream-summary-2026-08-25, revenue-tracker-2026-08-24 -- the same 3 already known from J571BH). Post-repair: yaml.safe_load() parses all 296 files' frontmatter cleanly. Logged err-20260901T081243-R58BYW with the exact one-line regex fix still needed in the script itself (unpatched, systems/ remains Rigby-gated for the script change). Known subdirectory-recursion bug (err-20260826T081453-664W53) unchanged, 0 files currently affected."
 ---
 
 <!-- system:start -->

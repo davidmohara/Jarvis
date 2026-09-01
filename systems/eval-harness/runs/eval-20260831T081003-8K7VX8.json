@@ -66,5 +66,15 @@
   "tags": [
     "phantom-candidate",
     "cowork-hook"
+  ],
+  "guardrails": [
+    {
+      "name": "pre-deletion-review",
+      "after_step": "step-03-semantic-promotion",
+      "result": "pass",
+      "reason": "0 compression candidates this cycle (consistent with 08-29 through 08-31); the 1 promoted entry (dream-summary-2026-08-30.md) correctly excluded going forward via promoted:true; step-03's write to dream-summary-pattern.md was a substantive dated evidence/implications append, not a stub.",
+      "escalated_to_human": false,
+      "timestamp": "2026-09-01T08:16:22.062079+00:00"
+    }
   ]
 }

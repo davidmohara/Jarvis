@@ -1,18 +1,22 @@
 ---
 status: complete
-started-at: 2026-08-31T08:02:58Z
-completed-at: 2026-08-31T08:04:30Z
+started-at: 2026-09-01T08:03:26Z
+completed-at: 2026-09-01T08:08:10Z
 outputs:
-  working_archived: 2
+  working_archived: 1
   working_deleted: 0
-  working_skipped: 30
+  working_skipped: 36
   working_stranded: 0
-  enrichment_method: "LLM (systems/dream-cycle/llm_tag_extractor.py via claude -p haiku) — claude CLI auth functional in this container this cycle"
+  enrichment_method: "heuristic (systems/dream-cycle/backfill-episodic-tags.py derive_date/derive_tags/derive_people) — claude -p hung/unusable in this container this cycle (backgrounded test call did not return within 120s, killed); fell back to heuristic per FAILURE MODES precedent"
   archived_files:
-    - dream-summary-2026-08-29.md
-    - end-of-day-review-2026-08-28-145136.md
-  skipped_not_expired:
     - dream-summary-2026-08-30.md
+  skipped_not_expired:
+    - co-sell-pipeline-2026-08-31-001500.md
+    - co-sell-pipeline-2026-08-31-150200.md
+    - dream-summary-2026-08-31.md
+    - knox-plaud-ingest-2026-08-31.md
+    - revenue-tracker-2026-08-31-090524.md
+    - shutdown-cleanup-2026-08-31-222924.md
   skipped_unparseable:
     - 2026-07-08.md
     - 2026-07-23-215200-session-felix-derek-persona-rebuild.md

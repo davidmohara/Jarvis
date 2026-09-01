@@ -1,0 +1,63 @@
+{
+  "id": "eval-20260901T080152-COVMW4",
+  "agent_id": "a8e5403a5b3a5ebe8",
+  "type": "agent",
+  "name": "general-purpose",
+  "workflow": null,
+  "agent": "general-purpose",
+  "session_id": "73cb4d36-8f86-5e91-9a2f-03ca4bee110f",
+  "trigger": "unknown",
+  "started": "2026-09-01T08:01:52.747540Z",
+  "completed": "2026-09-01T08:06:15.536745",
+  "duration_seconds": null,
+  "status": "aborted",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": false,
+      "all_steps_finished": null,
+      "tool_failures": 1,
+      "error_ids": [],
+      "tool_failure_log": [
+        {
+          "tool": "Read",
+          "error": "File does not exist. Note: your current working directory is /home/user/Jarvis.",
+          "duration_ms": 6,
+          "timestamp": "2026-09-01T08:04:23.159710"
+        }
+      ],
+      "abort_reason": "session-ended"
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": []
+}

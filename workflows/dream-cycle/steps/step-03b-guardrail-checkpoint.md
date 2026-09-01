@@ -1,10 +1,10 @@
 ---
 status: complete
-started-at: 2026-08-31T08:08:00Z
-completed-at: 2026-08-31T08:08:30Z
+started-at: 2026-09-01T08:22:00Z
+completed-at: 2026-09-01T08:23:00Z
 outputs:
   result: pass
-  reason: "0 compression candidates this cycle -- nothing has accumulated since the 08-29 approved batch cleared the prior backlog. All 3 of this cycle's promotion candidates correctly excluded (they now carry promoted:true and would be excluded from any future candidate set regardless). Step-03's writes were substantive evidence appends across all 3 target files, not stubs."
+  reason: "0 compression candidates this cycle -- consistent with 08-29 through 08-31 (nothing has re-accumulated since the 08-29 approved batch). The 1 promoted entry (dream-summary-2026-08-30.md) correctly excluded via promoted:true. Step-03's write to dream-summary-pattern.md was a substantive dated evidence/implications append, not a stub."
 model: sonnet
 ---
 

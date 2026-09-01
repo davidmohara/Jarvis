@@ -30,19 +30,9 @@ related_people:
   - bethany-hilton
   - laurel-norman
   - william-floyd
-  score: 0
-  promoted: true
-  promoted: true
-  promoted: true
-  promoted: true
-  promoted: true
-  promoted: true
-  promoted: true
-  promoted: true
-  promoted: true
 salience:
   score: 10
-  last-promoted-check: 2026-08-31
+  last-promoted-check: 2026-09-01
   promoted: true
 ---
 

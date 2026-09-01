@@ -15,40 +15,9 @@ tags:
 - git-issues
 - git-sync
 related_people: null
-  last-promoted-check: 2026-07-26
-  promoted: true
-  promoted: true
-  last-promoted-check: 2026-07-27
-  last-promoted-check: 2026-07-27
-  promoted: true
-  promoted: true
-  promoted: true
-  promoted: true
-  promoted: true
-  promoted: true
-  promoted: true
-  promoted: true
-  promoted: true
-  promoted: true
-  promoted: true
-  promoted: true
-  promoted: true
-  promoted: true
-  promoted: true
-  promoted: true
-  promoted: true
-  promoted: true
-  promoted: true
-  promoted: true
-  promoted: true
-  promoted: true
-  promoted: true
-  promoted: true
-  promoted: true
-  promoted: true
 salience:
   score: 0
-  last-promoted-check: 2026-08-31
+  last-promoted-check: 2026-09-01
   promoted: true
 ---
 

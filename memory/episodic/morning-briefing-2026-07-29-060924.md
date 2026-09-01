@@ -26,30 +26,9 @@ related_people:
   - mike-hilmen
   - derek-nwamadi
   - teresa-saffold
-  last-promoted-check: 2026-08-01
-  promoted: true
-  promoted: true
-  promoted: true
-  promoted: true
-  promoted: true
-  promoted: true
-  promoted: true
-  promoted: true
-  promoted: true
-  promoted: true
-  promoted: true
-  promoted: true
-  promoted: true
-  promoted: true
-  promoted: true
-  promoted: true
-  promoted: true
-  promoted: true
-  promoted: true
-  promoted: true
 salience:
   score: 10
-  last-promoted-check: 2026-08-31
+  last-promoted-check: 2026-09-01
   promoted: true
 ---
 

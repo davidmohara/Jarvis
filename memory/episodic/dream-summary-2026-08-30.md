@@ -1,12 +1,26 @@
 ---
-type: working
+type: working-archive
 task_id: "session"
 session_id: "jarvis-2026-08-30-080532"
 agent-source: jarvis
 created: 2026-08-30T03:11:11-05:00
 expires: 2026-08-31T03:11:11-05:00
-status: active
+status: archived
 context: "Dream cycle summary — 2026-08-30"
+date: 2026-08-30
+source_file: memory/working/dream-summary-2026-08-30.md
+tags:
+  - dream-summary
+  - jarvis
+  - omnifocus
+  - revenue
+  - plaud
+  - dream-cycle
+related_people: []
+salience:
+  score: 10
+  last-promoted-check: 2026-09-01
+  promoted: true
 ---
 
 Quiet, clean night — and the one open thread from the past week is closed.

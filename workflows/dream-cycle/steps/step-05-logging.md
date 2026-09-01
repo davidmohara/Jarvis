@@ -1,15 +1,14 @@
 ---
 status: completed
-started-at: 2026-08-31T08:09:00Z
-completed-at: 2026-08-31T08:11:00Z
+started-at: 2026-09-01T08:24:00Z
+completed-at: 2026-09-01T08:35:00Z
 outputs:
   dream_log_appended: true
   working_summary_written: true
-  working_summary_reason: "semantic_updated=3 > 0 triggers the mandatory working-summary write per Phase B. Content flags the recurring, still-unpatched salience-score.py corruption bug as the one thing worth David's attention; otherwise a quiet night."
-  git_commit: success
-  git_push: success
-  git_commit_sha: 2bec3e2
-  git_sync_note: "This run executed in a Claude Code on the web / remote cloud session, same as 08-27 through 08-30. Used plain git via Bash, one command per call, no chaining, no git status (used git diff --name-only/--staged --name-only instead per the skill's safe-alternatives list). Session started in detached HEAD at the same commit origin/main already pointed to; a stale local origin/main ref (18045c7) was corrected by an explicit git fetch before push, confirming true fast-forward; moved to a real main branch via git checkout -B main. Commit staged 305 files (295 episodic files touched by step-02's salience rewrite, plus this cycle's 2 step-01 archives, 3 semantic updates, 1 new error-tracking entry, dream.log/state.yaml/step-file updates, and pre-existing eval-harness bookkeeping already present in the working tree at session start). Push was a clean fast-forward, no conflicts."
+  working_summary_reason: "semantic_updated=1 > 0 triggers the mandatory working-summary write per Phase B. Content leads with the corpus-wide frontmatter-corruption finding and repair as the one thing worth David's attention; otherwise a quiet night."
+  git_commit: pending
+  git_push: pending
+  git_sync_note: "Same environment class as 08-27 through 08-31 (Linux sandbox container, Desktop Commander confirmed unavailable via ToolSearch). Used plain git via Bash, one command per call, no chaining, no git status (used git diff --name-only/--staged --name-only instead per the skill's safe-alternatives list). Moved off detached HEAD to a real main branch via git checkout -B main before starting the workflow; git fetch confirmed no divergence. This cycle's commit is unusually large: 296 episodic files touched by the corpus-wide orphan-line repair (in addition to step-02's normal salience rewrite), plus 1 new/moved episodic archive, 1 semantic update, 1 new error-tracking entry, dream.log/state.yaml/step-file updates, and the new working-memory summary."
 ---
 
 <!-- system:start -->
