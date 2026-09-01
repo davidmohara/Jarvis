@@ -9,7 +9,12 @@
   "correction": "No corpus-wide repair or script edit attempted -- systems/ is Rigby-gated per SYSTEM.md's Pre-Write Gate, consistent with how APAWBB and NBGENM were handled. For this cycle's own step-03 write (setting salience.promoted:true on the single new candidate), will hand-edit the file's salience: block directly with an exact string replace rather than relying on the buggy script or an ad-hoc regex, to avoid contributing a fresh instance of this exact corruption.",
   "failure_mode": "pattern-mismatch",
   "systemic_fix": "The fix is now precisely scoped, not a guess: in systems/dream-cycle/salience-score.py, either (a) append the frontmatter's own trailing newline back before slicing (`fm_section = content[3:end] + '\\n'`, adjusting `rest` to compensate) so the last line of any block always ends in '\\n' before the removal regex runs, or (b) change the removal regex's trailing element to `[ \\t]+[^\\n]*\\n?` (optional trailing newline) so it can consume a final line lacking one. Also fix parse_frontmatter()'s promoted-detection to use `list(re.finditer(...))[-1]` (last match) instead of `re.search()` (first match), so a stray earlier orphan can never shadow the authoritative current value. Finally, run a ONE-TIME corpus repair (out of nightly scope, a capability-level fix for Rigby) that, for every episodic file, collects all 'promoted:'/'last-promoted-check:'/'score:' lines regardless of position, keeps only the correct current values, and rewrites a single well-formed trailing salience: block -- this closes out both APAWBB and NBGENM as well as this entry in one pass.",
-  "fix_status": "proposed",
+  "fix_status": "resolved",
   "severity": "moderate",
-  "related_entries": ["err-20260825T081039-APAWBB", "err-20260826T081314-NBGENM"]
+  "related_entries": ["err-20260825T081039-APAWBB", "err-20260826T081314-NBGENM"],
+  "resolution": {
+    "timestamp": "2026-09-01T00:00:00Z",
+    "agent": "rigby",
+    "action": "The two fixes this entry specified -- making update_salience_block()'s removal regex trailing newline optional, and switching parse_frontmatter()'s promoted-detection to the last regex match -- were applied verbatim to systems/dream-cycle/salience-score.py as part of resolving err-20260901T081243-R58BYW, which also carried out the one-time corpus repair this entry called for. Full verification detail is recorded on R58BYW's resolution."
+  }
 }

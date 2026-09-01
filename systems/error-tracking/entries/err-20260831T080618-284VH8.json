@@ -9,7 +9,12 @@
   "correction": "Hand-repaired both affected files in place this cycle (removed the stranded 'score: 0' line from each, leaving the clean trailing salience: block as authoritative) before proceeding to step-03 candidate detection. Also found and hand-repaired a third, worse case while evaluating this cycle's promotion candidates: memory/episodic/shutdown-cleanup-2026-08-07-162834.md (an existing legacy file, not one archived this cycle) carried 12 stacked duplicate 'last-promoted-check:' lines between related_people and its trailing salience: block -- one new orphan added per nightly run from 2026-08-10 through 2026-08-30 -- proving the bug is actively compounding on the pre-existing corpus every night, not only on freshly-archived files. Stripped all 12 orphaned lines, leaving one clean trailing salience: block, before setting promoted:true on it. No corpus-wide repair attempted -- systems/ remains Rigby-gated and this is a capability-level script fix, not a nightly dream-cycle task.",
   "failure_mode": "protocol-skip",
   "systemic_fix": "Same fix J571BH already specified in full detail: patch systems/dream-cycle/salience-score.py's frontmatter slicing to preserve the trailing newline before the removal regex runs (or make the regex's trailing newline optional), and switch parse_frontmatter()'s promoted-detection to the last regex match rather than the first. This entry exists to confirm the bug is still live and unpatched after 3 nightly cycles of the fix sitting proposed, and that it is actively growing on the existing corpus (12-deep on one file found this cycle alone) -- recommend Rigby treat this as due, not merely proposed, given the recurrence count and compounding severity.",
-  "fix_status": "proposed",
+  "fix_status": "resolved",
   "severity": "moderate",
-  "related_entries": ["err-20260825T081039-APAWBB", "err-20260826T081314-NBGENM", "err-20260828T081109-J571BH"]
+  "related_entries": ["err-20260825T081039-APAWBB", "err-20260826T081314-NBGENM", "err-20260828T081109-J571BH"],
+  "resolution": {
+    "timestamp": "2026-09-01T00:00:00Z",
+    "agent": "rigby",
+    "action": "This entry's recurrence report was the last confirmation that J571BH's fix remained unapplied. The fix (optional trailing newline in update_salience_block()'s removal regex; last-match instead of first-match in parse_frontmatter()'s promoted detection) was applied to systems/dream-cycle/salience-score.py while resolving err-20260901T081243-R58BYW, closing this out. Full verification detail is recorded on R58BYW's resolution."
+  }
 }

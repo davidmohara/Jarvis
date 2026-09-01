@@ -9,7 +9,12 @@
   "correction": "No corpus-wide repair attempted (systems/ is Rigby-gated per SYSTEM.md's Pre-Write Gate; a ~289-file repair is a capability-level fix beyond nightly dream-cycle scope). Worked around the corruption by extracting only the rightmost/most-recent salience: block per file for both candidate identification (step-03) and the promoted:true write, rather than relying on yaml.safe_load or the first regex match, which would pick up stale junk.",
   "failure_mode": "pattern-mismatch",
   "systemic_fix": "Widen Rigby's fix scope from err-20260825T081039-APAWBB's original single-line description to a real corpus-wide cleanup: strip every indented 'last-promoted-check:'/'promoted:' line that falls outside a proper 'salience:' parent key across memory/episodic/**/*.md (expected to touch the large majority of the ~289-file corpus, not a handful of files), folding each file's most recent value into its real salience: block before removing the junk. Also add a post-write self-check to salience-score.py that re-parses each file after writing and asserts exactly one salience: block with exactly one of each subfield, failing loudly instead of allowing silent accumulation to resume.",
-  "fix_status": "proposed",
+  "fix_status": "applied",
   "severity": "moderate",
-  "related_entries": ["err-20260825T081039-APAWBB"]
+  "related_entries": ["err-20260825T081039-APAWBB", "err-20260828T081109-J571BH", "err-20260901T081243-R58BYW"],
+  "resolution": {
+    "timestamp": "2026-09-01T00:00:00Z",
+    "agent": "rigby",
+    "note": "This entry's claim that the then-current script 'does not add new orphaned lines going forward' was corrected by err-20260828T081109-J571BH's direct reproduction (it does, every write) -- superseded on that point. The corpus-wide cleanup this entry called for, and the post-write self-check idea, were addressed by the fix and repair carried out while resolving err-20260901T081243-R58BYW: the removal regex and promoted-detection bugs are now patched, and a second consecutive scorer run produced 0 new orphan lines, confirming no self-check is needed to catch ongoing accumulation because the accumulation itself is fixed."
+  }
 }

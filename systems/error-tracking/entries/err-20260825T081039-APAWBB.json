@@ -9,7 +9,12 @@
   "correction": "The one file this cycle's step-03 touched (plaud-ingest-2026-08-22-003000.md) was manually cleaned in place (orphan line removed, promoted: true folded into the proper salience: block) before promotion. The underlying regex bug in systems/dream-cycle/salience-score.py was NOT patched — systems/ is a Rigby-gated directory per SYSTEM.md's Pre-Write Gate, and a corpus-wide repair of 289 files is a capability-level fix beyond this cycle's scope (preservation over aggression).",
   "failure_mode": "pattern-mismatch",
   "systemic_fix": "Rigby should: (1) fix update_salience_block()'s regex in systems/dream-cycle/salience-score.py so it fully consumes every line of the prior salience: block regardless of ordering/content (a probable bug is that the block-matching regex is not anchored to actually match a specific number of expected keys, so a run where the block wrote a differently-ordered or partial set of lines leaves a remainder); (2) write a one-time repair script to strip orphaned indented promoted:/last-promoted-check: lines that have no salience: parent across memory/episodic/**/*.md, folding their last value into the real salience: block; (3) add a post-write self-check to salience-score.py that re-parses each file after writing and asserts exactly one salience: block with exactly one of each subfield, erroring loudly instead of silently corrupting.",
-  "fix_status": "proposed",
+  "fix_status": "applied",
   "severity": "moderate",
-  "related_entries": []
+  "related_entries": ["err-20260828T081109-J571BH", "err-20260901T081243-R58BYW"],
+  "resolution": {
+    "timestamp": "2026-09-01T00:00:00Z",
+    "agent": "rigby",
+    "note": "Superseded by err-20260828T081109-J571BH's precise root-cause diagnosis (this entry's proposed mechanism -- 'not anchored to a specific number of expected keys' -- was a guess; the actual cause was the trailing-newline slicing bug J571BH isolated). The same underlying bug this entry first flagged is fixed by the patch applied in systems/dream-cycle/salience-score.py while resolving err-20260901T081243-R58BYW, and the corpus-wide repair this entry called for (item 2 of its systemic_fix) was carried out there as well."
+  }
 }

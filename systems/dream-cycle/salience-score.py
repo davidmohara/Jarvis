@@ -63,7 +63,12 @@ def parse_frontmatter(content):
         fm["date"] = None
 
     # existing salience fields (preserve across rewrite)
-    promoted_m = re.search(r"^\s*promoted:\s*(true|false)", fm_text, re.MULTILINE)
+    # Scan for the LAST match, not the first: orphaned stray "promoted:" lines
+    # from the historical stranding bug (see update_salience_block) can sit
+    # above the authoritative trailing salience: block, and a first-match scan
+    # would pick up stale junk instead of the current value.
+    promoted_matches = list(re.finditer(r"^\s*promoted:\s*(true|false)", fm_text, re.MULTILINE))
+    promoted_m = promoted_matches[-1] if promoted_matches else None
     fm["promoted"] = (promoted_m.group(1) == "true") if promoted_m else None  # None = not set
 
     return fm, fm_text, body
@@ -95,9 +100,16 @@ def update_salience_block(content, new_score, today_str, preserve_promoted):
 
     salience_block = "\nsalience:\n" + "\n".join(salience_lines)
 
-    # Remove any existing salience block (multiline or inline)
+    # Remove any existing salience block (multiline or inline).
+    # Trailing newline on the repeated group is optional: fm_section is sliced
+    # as content[3:end], which excludes the newline immediately before the
+    # closing '---' delimiter, so the salience block's last line (it is always
+    # the final block in frontmatter) never ends in '\n' here. A mandatory
+    # trailing '\n' left that last line stranded outside any parent key on
+    # every write (see err-20260828T081109-J571BH). Making it optional lets
+    # the removal regex consume that final line too.
     fm_section = re.sub(
-        r"\nsalience:\s*\n(?:[ \t]+[^\n]*\n)*", "\n", fm_section
+        r"\nsalience:\s*\n(?:[ \t]+[^\n]*\n?)*", "\n", fm_section
     )
     fm_section = re.sub(r"\nsalience:\s*\{[^\}]*\}", "", fm_section)
     # Also remove any stray top-level promoted: lines (old corruption pattern)
