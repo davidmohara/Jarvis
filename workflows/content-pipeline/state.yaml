@@ -1,15 +1,15 @@
 workflow: content-pipeline
 status: complete
-started-at: 2026-08-30T14:08:00Z
-completed-at: 2026-08-30T14:09:00Z
+started-at: 2026-09-01T10:19:00Z
+completed-at: 2026-09-01T10:24:00Z
 outputs:
-  messages_scanned: 0
+  messages_scanned: 4
   new_urls: 0
-  new_digests: 0
-  posts_drafted: 0
+  new_digests: 3
+  posts_drafted: 3
   improving_blog_drafts: 0
   editorial_feedback: 0
-  pending_threads_checked: 12
-  outcome: "No messages in #content in the last 24 hours (48h fallback also empty). All 12 pending draft threads scanned — no new editorial feedback since the 06:00 run. All prior edits (Amplifier Paradox, DFW posts) already logged and confirmed handled."
+  pending_threads_checked: 4
+  outcome: "Drafted 3 Watchtower digests from #content: 'The 40 Percent Problem' (6a96edd2b1d0f5028ac9b0b0), 'The Billing Model Just Broke' (6a96edd3b1d0f5028ac9b0b7), 'NIST Is Wiring the Agent Standards Layer' (6a96edd4b1d0f5028ac9b0be). All verified in Ghost (draft, lexical OK, image set, real tags). Slack notifications posted to #content. Pending draft threads scanned — no new editorial feedback."
 model: sonnet
 current-step: null

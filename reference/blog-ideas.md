@@ -82,9 +82,9 @@ Running list of potential blog topics. Jarvis captures these proactively from co
 | "The Agent Governance Moment Just Became Infrastructure" | Watchtower W35 (2026-08-24) [watchtower] | AI, agentic, governance, standards, leadership, technology | Draft at `Mind/Posts/_the-agent-governance-moment-just-became-infrastructure.md` |
 | "DFW Is Building the Other Kind of AI Economy" | Content pipeline (2026-08-25) | AI, business, leadership | Ghost draft — pending approval. Ghost ID: 6a8de957c0a498028c7e8b6d |
 
-| "The 40 Percent Problem" | Watchtower W36 (2026-08-31) [watchtower] | AI, agentic, governance, consulting, leadership | Draft at `Mind/Posts/_the-40-percent-problem.md` |
-| "The Billing Model Just Broke" | Watchtower W36 (2026-08-31) [watchtower] | consulting, AI, business, pricing, leadership | Draft at `Mind/Posts/_the-billing-model-just-broke.md` |
-| "NIST Is Wiring the Agent Standards Layer" | Watchtower W36 (2026-08-31) [watchtower] | AI, agentic, governance, standards, NIST, technology | Draft at `Mind/Posts/_nist-is-wiring-the-agent-standards-layer.md` |
+| "The 40 Percent Problem" | Content pipeline (2026-09-01) | AI, business | Ghost draft — pending approval. Ghost ID: 6a96edd2b1d0f5028ac9b0b0 |
+| "The Billing Model Just Broke" | Content pipeline (2026-09-01) | business, leadership | Ghost draft — pending approval. Ghost ID: 6a96edd3b1d0f5028ac9b0b7 |
+| "NIST Is Wiring the Agent Standards Layer" | Content pipeline (2026-09-01) | AI, technology | Ghost draft — pending approval. Ghost ID: 6a96edd4b1d0f5028ac9b0be |
 
 ## Published (for reference / avoid repeats)
 
