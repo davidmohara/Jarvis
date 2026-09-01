@@ -39,7 +39,7 @@ outputs: {}
 - Target course: Frisco Lakes Golf Club, Frisco TX (zip: 75034)
 - Members: David O'Hara + Susie O'Hara (both "41 - Frisco Lakes Total Member")
 - Membership: Frisco Lakes Total Member — 8-day advance booking window
-- Booking opens: midnight, 8 days before the target date
+- Booking opens: 11pm CST, 8 days before the target date
 - Preview window: Friday, Saturday, Sunday of the target weekend
 - Goal: one round per weekend, 18 holes preferred
 

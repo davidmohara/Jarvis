@@ -1,25 +1,15 @@
 workflow: golf-booking
 agent: chief
-status: complete
-session-started: 2026-08-27T22:45:00Z
-session-id: manual-correction
-current-step: complete
-execution-run: 2026-08-27T22:45:00Z
+status: not-started
+session-started: ~
+session-id: ~
+current-step: not-started
+execution-run: ~
 booking-id: null
 booking-date: null
 booking-time: null
 grade: null
-resolution-note: |
-  Manual correction applied by user.
-  Previous invalid booking (6W9E-3W2D) cancelled and corrected.
-  Workflow state reset for next scheduled run.
+resolution-note: null
 
-  Next booking window: Tuesday, September 2, 2026 at 11:00 PM CST
-  (for Sept 5, 2026 Saturday tee time)
-
-original-request: Reset workflow state after manual correction
-accumulated-context:
-  - Previous booking 6W9E-3W2D: CANCELLED (invalid parameters)
-  - Manual correction: Applied by user
-  - Correct booking: Created with valid parameters (2 players, 1:00 PM+)
-  - Workflow ready for next scheduled run
+original-request: ~
+accumulated-context: []

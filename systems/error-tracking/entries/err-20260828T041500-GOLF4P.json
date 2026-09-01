@@ -1,0 +1,17 @@
+{
+  "id": "err-20260828T041500-GOLF4P",
+  "timestamp": "2026-08-28T04:15:00Z",
+  "session": "2026-08-28-golf-booking-scheduled-run",
+  "source": "user-correction",
+  "agent": "chief",
+  "category": "conflict-with-existing-booking",
+  "description": "Golf booking automation executed and created booking 6O9S-0U0U (Saturday, September 5, 2026 at 5:15 PM) for 4 players. User correction: This booking overlaps with an existing tee time and is for the wrong party size. The correct booking should be for 2 players (David + Susie O'Hara), not 4. The automated booking (6O9S-0U0U) will be cancelled manually by David.",
+  "what_happened": "Skill executed with party-size logic that selected 4 players. Per MANDATORY EXECUTION RULE #6 (revised in err-20260813T122308-08TG1R), the default is now 4 players 'unless preview-output.json explicitly specifies a different party size'. The preview-output.json for this run did not contain a party_size override field, so the automation defaulted to 4. However, David's actual intent for this booking was 2 players (David + Susie), and there was already a booking in place for that date/time.",
+  "correction_required": "1. Booking 6O9S-0U0U (4 players, 5:15 PM) will be cancelled by David manually. 2. Revert the SKILL.md logic: the automation should default to 2 players (David + Susie) for Saturday bookings unless preview-output.json explicitly includes a 'party_size' field specifying otherwise. 3. Add a 'party_size' field to preview-output.json template to make overrides explicit.",
+  "failure_mode": "incorrect-default-assumption",
+  "systemic_fix_needed": "1. SKILL.md MANDATORY EXECUTION RULE #6: Change back to 'Always book 2 players (David + Susie O'Hara)' unless preview-output.json.party_size specifies a different size. 2. Add schema validation to preview-output.json to include optional party_size field (default: 2). 3. Update Step 4c player-selection logic to read preview-output.json.party_size and default to 2 if not specified.",
+  "fix_status": "pending",
+  "severity": "major",
+  "related_entries": ["err-20260813T122308-08TG1R", "err-20260813T122205-D64IQ7"],
+  "notes": "This is a regression of err-20260813T122308-08TG1R. The rule was changed to default to 4 players, but this is incorrect for the typical golf booking workflow. The correct logic is: default to 2 players (David + Susie), and override to larger party only if preview-output.json explicitly specifies party_size. The August 13 error entry misunderstood the correction and applied the wrong default."
+}

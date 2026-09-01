@@ -1,6 +1,6 @@
 ---
 name: golf-booking
-description: Phase 2 of the golf booking workflow. Runs at midnight, 8 days before the target date. Reads preview-output.json for preference order, opens ChronoGolf via Chrome as the Susie O'Hara Total Member account, evaluates real-time availability, and books the best available slot. Creates a calendar block and sends Slack confirmation.
+description: Phase 2 of the golf booking workflow. Runs overnight, 8 days before the target date. Reads preview-output.json for preference order, opens ChronoGolf via Chrome as the David O'Hara Total Member account, evaluates real-time availability, and books the best available slot. Creates a calendar block and sends Slack confirmation.
 agent: sterling
 model: haiku
 trigger_keywords: ["golf booking", "book tee time", "book golf"]
@@ -19,7 +19,7 @@ outputs: {}
 3. **Read preview-output.json first.** Never book blind — use the pre-scored preference order.
 4. **Check for override instructions** in `preview-output.json` before selecting a slot.
 5. **Always book as David O'Hara** (the logged-in Total Member account on ChronoGolf).
-6. **Always book 4 players (a foursome)**, all as "41 - Frisco Lakes Total Member", unless `preview-output.json` explicitly specifies a different party size. See `err-20260813T122308-08TG1R` — this was previously miswritten as "2 players" and produced a wrong booking.
+6. **Always book 2 players (David + Susie O'Hara)**, both as "41 - Frisco Lakes Total Member", unless `preview-output.json` explicitly specifies a different party size via a `party_size` field.
 7. **Always book 18 holes** on Frisco Lakes Golf Club unless falling back due to drought/late time.
 8. **Confirm immediately** — you have a 5-minute window once you reach the confirmation screen.
 9. **Never book on a hard-blocked day** from the calendar check.
@@ -48,9 +48,9 @@ outputs: {}
 - Logged in as: David O'Hara — 41 Frisco Lakes Total Member
 - David's email: `david@davidohara.net` (from 1Password)
 - 1Password ChronoGolf item ID: `5xjnwumckxbpiuokidflufwtpi` (retrieve credentials from this)
-- Party size: 4 players (a foursome) by default — all as "41 - Frisco Lakes Total Member"
+- Party size: 2 players (a twosome) by default — both as "41 - Frisco Lakes Total Member". Override via preview-output.json `party_size` field only.
 - Player 1: David O'Hara (pre-populated)
-- Players 2-4: select "41 - Frisco Lakes Total Member" for each unless preview-output.json names specific other players/rates
+- Player 2: Susie O'Hara (select "41 - Frisco Lakes Total Member" unless preview-output.json specifies otherwise)
 - Course: Frisco Lakes Golf Club (18-hole course)
 - Fallback course: PLP / Total - 9 Hole (only for drought/late rounds)
 - Confirmation timer: 5 minutes — move fast
@@ -326,21 +326,21 @@ if (cont) { cont.click(); \"clicked-continue\" } else { \"continue-not-found\" }
 "'
 ```
 
-#### 4c — Select 4 Players + Member Rate
+#### 4c — Select 2 Players + Member Rate
 
-First, select "4" players (foursome default — see MANDATORY EXECUTION RULE #6):
+First, select "2" players (twosome default — see MANDATORY EXECUTION RULE #6):
 
 ```bash
 osascript -e 'tell application "Google Chrome" to tell active tab of front window to execute javascript "
 var labels = Array.from(document.querySelectorAll(\"label\"));
-var four = labels.find(el => el.innerText && el.innerText.trim() === \"4\");
-if (four) { four.click(); \"clicked-4-players\" } else { \"4-not-found\" }
+var two = labels.find(el => el.innerText && el.innerText.trim() === \"2\");
+if (two) { two.click(); \"clicked-2-players\" } else { \"2-not-found\" }
 "'
 ```
 
 Wait 1 second for player type dropdowns to appear.
 
-Then set all four player dropdowns to "41 - Frisco Lakes Total Member":
+Then set both player dropdowns to "41 - Frisco Lakes Total Member":
 
 ```bash
 osascript << 'EOF'
@@ -349,7 +349,8 @@ tell application "Google Chrome"
     execute javascript "
     var selects = Array.from(document.querySelectorAll('select'));
     var updated = 0;
-    for (var i = 0; i < selects.length; i++) {
+    // Set first two selects (Player 1 = David, Player 2 = Susie)
+    for (var i = 0; i < Math.min(2, selects.length); i++) {
       var opts = Array.from(selects[i].options);
       var memberOpt = opts.find(o => o.text.includes('41 - Frisco Lakes Total Member'));
       if (memberOpt) {
