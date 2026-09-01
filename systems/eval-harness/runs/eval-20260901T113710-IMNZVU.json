@@ -1,0 +1,67 @@
+{
+  "id": "eval-20260901T113710-IMNZVU",
+  "type": "skill",
+  "name": "rigby-error-analysis",
+  "agent": "rigby",
+  "session_id": "73cb4d36-8f86-5e91-9a2f-03ca4bee110f",
+  "trigger": "manual",
+  "started": "2026-09-01T11:20:00Z",
+  "completed": "2026-09-01T11:37:10.789032Z",
+  "duration_seconds": 1030.8,
+  "status": "success",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": true,
+      "outputs_non_empty": false,
+      "assertions_checked": 3,
+      "assertions_passed": 1,
+      "assertion_results": [
+        {
+          "assertion": "rigby-error-analysis-signal-written",
+          "description": "rigby-error-analysis skill-run signal file was written",
+          "passed": true
+        },
+        {
+          "assertion": "rigby-error-analysis-signal-status",
+          "description": "rigby-error-analysis skill-run did not end in failure",
+          "passed": null,
+          "skipped": true,
+          "reason": "unknown check type: json_field_not_equals"
+        },
+        {
+          "assertion": "rigby-er-002-substantive",
+          "description": "rigby-error-analysis output is substantive (>200 bytes)",
+          "passed": false
+        },
+        {
+          "assertion": "rigby-er-003-content",
+          "description": "rigby-error-analysis output contains expected content",
+          "passed": false
+        }
+      ]
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    }
+  },
+  "version_hash": "11b5c8b896ef7ee7",
+  "prior_baseline_id": null,
+  "tags": [
+    "cowork-hook",
+    "skill"
+  ]
+}
