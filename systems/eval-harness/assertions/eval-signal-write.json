@@ -1,0 +1,22 @@
+{
+  "name": "eval-signal-write",
+  "type": "skill",
+  "assertions": [
+    {
+      "id": "eval-signal-write-signal-written",
+      "check": "file_exists",
+      "category": "structure",
+      "path": "systems/eval-harness/skill-runs/eval-signal-write-latest.json",
+      "description": "eval-signal-write skill-run signal file was written"
+    },
+    {
+      "id": "eval-signal-write-signal-status",
+      "check": "json_field_not_equals",
+      "category": "structure",
+      "path": "systems/eval-harness/skill-runs/eval-signal-write-latest.json",
+      "field": "status",
+      "value": "failure",
+      "description": "eval-signal-write skill-run did not end in failure"
+    }
+  ]
+}

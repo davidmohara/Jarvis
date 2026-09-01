@@ -1,0 +1,22 @@
+{
+  "name": "jarvis-inbox",
+  "type": "skill",
+  "assertions": [
+    {
+      "id": "jarvis-inbox-signal-written",
+      "check": "file_exists",
+      "category": "structure",
+      "path": "systems/eval-harness/skill-runs/jarvis-inbox-latest.json",
+      "description": "jarvis-inbox skill-run signal file was written"
+    },
+    {
+      "id": "jarvis-inbox-signal-status",
+      "check": "json_field_not_equals",
+      "category": "structure",
+      "path": "systems/eval-harness/skill-runs/jarvis-inbox-latest.json",
+      "field": "status",
+      "value": "failure",
+      "description": "jarvis-inbox skill-run did not end in failure"
+    }
+  ]
+}

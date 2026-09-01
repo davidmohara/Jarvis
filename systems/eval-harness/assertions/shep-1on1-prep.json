@@ -1,0 +1,22 @@
+{
+  "name": "shep-1on1-prep",
+  "type": "skill",
+  "assertions": [
+    {
+      "id": "shep-1on1-prep-signal-written",
+      "check": "file_exists",
+      "category": "structure",
+      "path": "systems/eval-harness/skill-runs/shep-1on1-prep-latest.json",
+      "description": "shep-1on1-prep skill-run signal file was written"
+    },
+    {
+      "id": "shep-1on1-prep-signal-status",
+      "check": "json_field_not_equals",
+      "category": "structure",
+      "path": "systems/eval-harness/skill-runs/shep-1on1-prep-latest.json",
+      "field": "status",
+      "value": "failure",
+      "description": "shep-1on1-prep skill-run did not end in failure"
+    }
+  ]
+}

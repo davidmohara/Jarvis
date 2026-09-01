@@ -1,0 +1,22 @@
+{
+  "name": "harper-blog-linkedin-post",
+  "type": "skill",
+  "assertions": [
+    {
+      "id": "harper-blog-linkedin-post-signal-written",
+      "check": "file_exists",
+      "category": "structure",
+      "path": "systems/eval-harness/skill-runs/harper-blog-linkedin-post-latest.json",
+      "description": "harper-blog-linkedin-post skill-run signal file was written"
+    },
+    {
+      "id": "harper-blog-linkedin-post-signal-status",
+      "check": "json_field_not_equals",
+      "category": "structure",
+      "path": "systems/eval-harness/skill-runs/harper-blog-linkedin-post-latest.json",
+      "field": "status",
+      "value": "failure",
+      "description": "harper-blog-linkedin-post skill-run did not end in failure"
+    }
+  ]
+}

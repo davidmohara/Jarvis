@@ -1,0 +1,22 @@
+{
+  "name": "harper-email",
+  "type": "skill",
+  "assertions": [
+    {
+      "id": "harper-email-signal-written",
+      "check": "file_exists",
+      "category": "structure",
+      "path": "systems/eval-harness/skill-runs/harper-email-latest.json",
+      "description": "harper-email skill-run signal file was written"
+    },
+    {
+      "id": "harper-email-signal-status",
+      "check": "json_field_not_equals",
+      "category": "structure",
+      "path": "systems/eval-harness/skill-runs/harper-email-latest.json",
+      "field": "status",
+      "value": "failure",
+      "description": "harper-email skill-run did not end in failure"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "name": "harper-presentation",
+  "type": "skill",
+  "assertions": [
+    {
+      "id": "harper-presentation-signal-written",
+      "check": "file_exists",
+      "category": "structure",
+      "path": "systems/eval-harness/skill-runs/harper-presentation-latest.json",
+      "description": "harper-presentation skill-run signal file was written"
+    },
+    {
+      "id": "harper-presentation-signal-status",
+      "check": "json_field_not_equals",
+      "category": "structure",
+      "path": "systems/eval-harness/skill-runs/harper-presentation-latest.json",
+      "field": "status",
+      "value": "failure",
+      "description": "harper-presentation skill-run did not end in failure"
+    }
+  ]
+}

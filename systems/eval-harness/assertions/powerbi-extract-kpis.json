@@ -1,0 +1,22 @@
+{
+  "name": "powerbi-extract-kpis",
+  "type": "skill",
+  "assertions": [
+    {
+      "id": "powerbi-extract-kpis-signal-written",
+      "check": "file_exists",
+      "category": "structure",
+      "path": "systems/eval-harness/skill-runs/powerbi-extract-kpis-latest.json",
+      "description": "powerbi-extract-kpis skill-run signal file was written"
+    },
+    {
+      "id": "powerbi-extract-kpis-signal-status",
+      "check": "json_field_not_equals",
+      "category": "structure",
+      "path": "systems/eval-harness/skill-runs/powerbi-extract-kpis-latest.json",
+      "field": "status",
+      "value": "failure",
+      "description": "powerbi-extract-kpis skill-run did not end in failure"
+    }
+  ]
+}

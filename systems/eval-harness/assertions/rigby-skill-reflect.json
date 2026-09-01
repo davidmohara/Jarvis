@@ -1,0 +1,22 @@
+{
+  "name": "rigby-skill-reflect",
+  "type": "skill",
+  "assertions": [
+    {
+      "id": "rigby-skill-reflect-signal-written",
+      "check": "file_exists",
+      "category": "structure",
+      "path": "systems/eval-harness/skill-runs/rigby-skill-reflect-latest.json",
+      "description": "rigby-skill-reflect skill-run signal file was written"
+    },
+    {
+      "id": "rigby-skill-reflect-signal-status",
+      "check": "json_field_not_equals",
+      "category": "structure",
+      "path": "systems/eval-harness/skill-runs/rigby-skill-reflect-latest.json",
+      "field": "status",
+      "value": "failure",
+      "description": "rigby-skill-reflect skill-run did not end in failure"
+    }
+  ]
+}

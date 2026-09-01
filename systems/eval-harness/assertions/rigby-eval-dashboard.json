@@ -1,0 +1,22 @@
+{
+  "name": "rigby-eval-dashboard",
+  "type": "skill",
+  "assertions": [
+    {
+      "id": "rigby-eval-dashboard-signal-written",
+      "check": "file_exists",
+      "category": "structure",
+      "path": "systems/eval-harness/skill-runs/rigby-eval-dashboard-latest.json",
+      "description": "rigby-eval-dashboard skill-run signal file was written"
+    },
+    {
+      "id": "rigby-eval-dashboard-signal-status",
+      "check": "json_field_not_equals",
+      "category": "structure",
+      "path": "systems/eval-harness/skill-runs/rigby-eval-dashboard-latest.json",
+      "field": "status",
+      "value": "failure",
+      "description": "rigby-eval-dashboard skill-run did not end in failure"
+    }
+  ]
+}

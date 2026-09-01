@@ -1,0 +1,22 @@
+{
+  "name": "rigby-error-compact",
+  "type": "skill",
+  "assertions": [
+    {
+      "id": "rigby-error-compact-signal-written",
+      "check": "file_exists",
+      "category": "structure",
+      "path": "systems/eval-harness/skill-runs/rigby-error-compact-latest.json",
+      "description": "rigby-error-compact skill-run signal file was written"
+    },
+    {
+      "id": "rigby-error-compact-signal-status",
+      "check": "json_field_not_equals",
+      "category": "structure",
+      "path": "systems/eval-harness/skill-runs/rigby-error-compact-latest.json",
+      "field": "status",
+      "value": "failure",
+      "description": "rigby-error-compact skill-run did not end in failure"
+    }
+  ]
+}

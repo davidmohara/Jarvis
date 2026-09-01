@@ -1,0 +1,22 @@
+{
+  "name": "sterling-wine-monitor",
+  "type": "skill",
+  "assertions": [
+    {
+      "id": "sterling-wine-monitor-signal-written",
+      "check": "file_exists",
+      "category": "structure",
+      "path": "systems/eval-harness/skill-runs/sterling-wine-monitor-latest.json",
+      "description": "sterling-wine-monitor skill-run signal file was written"
+    },
+    {
+      "id": "sterling-wine-monitor-signal-status",
+      "check": "json_field_not_equals",
+      "category": "structure",
+      "path": "systems/eval-harness/skill-runs/sterling-wine-monitor-latest.json",
+      "field": "status",
+      "value": "failure",
+      "description": "sterling-wine-monitor skill-run did not end in failure"
+    }
+  ]
+}

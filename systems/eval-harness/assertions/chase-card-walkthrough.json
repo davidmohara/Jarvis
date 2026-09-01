@@ -1,0 +1,22 @@
+{
+  "name": "chase-card-walkthrough",
+  "type": "skill",
+  "assertions": [
+    {
+      "id": "chase-card-walkthrough-signal-written",
+      "check": "file_exists",
+      "category": "structure",
+      "path": "systems/eval-harness/skill-runs/chase-card-walkthrough-latest.json",
+      "description": "chase-card-walkthrough skill-run signal file was written"
+    },
+    {
+      "id": "chase-card-walkthrough-signal-status",
+      "check": "json_field_not_equals",
+      "category": "structure",
+      "path": "systems/eval-harness/skill-runs/chase-card-walkthrough-latest.json",
+      "field": "status",
+      "value": "failure",
+      "description": "chase-card-walkthrough skill-run did not end in failure"
+    }
+  ]
+}

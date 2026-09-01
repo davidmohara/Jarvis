@@ -1,0 +1,22 @@
+{
+  "name": "powerbi-navigate-slicer",
+  "type": "skill",
+  "assertions": [
+    {
+      "id": "powerbi-navigate-slicer-signal-written",
+      "check": "file_exists",
+      "category": "structure",
+      "path": "systems/eval-harness/skill-runs/powerbi-navigate-slicer-latest.json",
+      "description": "powerbi-navigate-slicer skill-run signal file was written"
+    },
+    {
+      "id": "powerbi-navigate-slicer-signal-status",
+      "check": "json_field_not_equals",
+      "category": "structure",
+      "path": "systems/eval-harness/skill-runs/powerbi-navigate-slicer-latest.json",
+      "field": "status",
+      "value": "failure",
+      "description": "powerbi-navigate-slicer skill-run did not end in failure"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "name": "chase-card-which",
+  "type": "skill",
+  "assertions": [
+    {
+      "id": "chase-card-which-signal-written",
+      "check": "file_exists",
+      "category": "structure",
+      "path": "systems/eval-harness/skill-runs/chase-card-which-latest.json",
+      "description": "chase-card-which skill-run signal file was written"
+    },
+    {
+      "id": "chase-card-which-signal-status",
+      "check": "json_field_not_equals",
+      "category": "structure",
+      "path": "systems/eval-harness/skill-runs/chase-card-which-latest.json",
+      "field": "status",
+      "value": "failure",
+      "description": "chase-card-which skill-run did not end in failure"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "name": "remarkable-push",
+  "type": "skill",
+  "assertions": [
+    {
+      "id": "remarkable-push-signal-written",
+      "check": "file_exists",
+      "category": "structure",
+      "path": "systems/eval-harness/skill-runs/remarkable-push-latest.json",
+      "description": "remarkable-push skill-run signal file was written"
+    },
+    {
+      "id": "remarkable-push-signal-status",
+      "check": "json_field_not_equals",
+      "category": "structure",
+      "path": "systems/eval-harness/skill-runs/remarkable-push-latest.json",
+      "field": "status",
+      "value": "failure",
+      "description": "remarkable-push skill-run did not end in failure"
+    }
+  ]
+}

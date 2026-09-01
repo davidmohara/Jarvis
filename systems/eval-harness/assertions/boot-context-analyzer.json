@@ -1,0 +1,22 @@
+{
+  "name": "boot-context-analyzer",
+  "type": "skill",
+  "assertions": [
+    {
+      "id": "boot-context-analyzer-signal-written",
+      "check": "file_exists",
+      "category": "structure",
+      "path": "systems/eval-harness/skill-runs/boot-context-analyzer-latest.json",
+      "description": "boot-context-analyzer skill-run signal file was written"
+    },
+    {
+      "id": "boot-context-analyzer-signal-status",
+      "check": "json_field_not_equals",
+      "category": "structure",
+      "path": "systems/eval-harness/skill-runs/boot-context-analyzer-latest.json",
+      "field": "status",
+      "value": "failure",
+      "description": "boot-context-analyzer skill-run did not end in failure"
+    }
+  ]
+}

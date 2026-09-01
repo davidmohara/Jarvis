@@ -1,0 +1,55 @@
+{
+  "name": "harper-podcast-prep",
+  "type": "skill",
+  "assertions": [
+    {
+      "id": "harper-podcast-prep-signal-written",
+      "check": "file_exists",
+      "category": "structure",
+      "path": "systems/eval-harness/skill-runs/harper-podcast-prep-latest.json",
+      "description": "harper-podcast-prep skill-run signal file was written"
+    },
+    {
+      "id": "harper-podcast-prep-signal-status",
+      "check": "json_field_not_equals",
+      "category": "structure",
+      "path": "systems/eval-harness/skill-runs/harper-podcast-prep-latest.json",
+      "field": "status",
+      "value": "failure",
+      "description": "harper-podcast-prep skill-run did not end in failure"
+    },
+    {
+      "id": "harper-podcast-prep-pdf-exists",
+      "check": "file_exists",
+      "category": "structure",
+      "path": "meetings/podcast-prep/Episode *.pdf",
+      "description": "studio one-pager PDF was generated"
+    },
+    {
+      "id": "harper-podcast-prep-pdf-substantive",
+      "check": "file_min_bytes",
+      "category": "quality",
+      "path": "meetings/podcast-prep/Episode *.pdf",
+      "newest_only": true,
+      "min_bytes": 15000,
+      "description": "studio PDF is a real rendered document, not a near-empty/broken render (most recently written Episode *.pdf)"
+    },
+    {
+      "id": "harper-podcast-prep-detail-sheet-substantive",
+      "check": "file_min_bytes",
+      "category": "content",
+      "path": "meetings/podcast-prep/*.md",
+      "newest_only": true,
+      "min_bytes": 2000,
+      "description": "detailed prep sheet has real substance (most recently written .md; content-depth check pending a local cache of Janine's SharePoint source doc for a direct count_matches_source comparison)"
+    },
+    {
+      "id": "harper-podcast-prep-no-banned-phrases",
+      "check": "banned_phrases_absent",
+      "category": "quality",
+      "path": "meetings/podcast-prep/*.md",
+      "newest_only": true,
+      "description": "no em-dashes or placeholder text in podcast prep markdown (most recently written .md; org style rule, previously corrected: err-20260901T135033-NVNABQ)"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "name": "weather",
+  "type": "skill",
+  "assertions": [
+    {
+      "id": "weather-signal-written",
+      "check": "file_exists",
+      "category": "structure",
+      "path": "systems/eval-harness/skill-runs/weather-latest.json",
+      "description": "weather skill-run signal file was written"
+    },
+    {
+      "id": "weather-signal-status",
+      "check": "json_field_not_equals",
+      "category": "structure",
+      "path": "systems/eval-harness/skill-runs/weather-latest.json",
+      "field": "status",
+      "value": "failure",
+      "description": "weather skill-run did not end in failure"
+    }
+  ]
+}

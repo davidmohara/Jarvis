@@ -1,0 +1,22 @@
+{
+  "name": "harper-content-calendar",
+  "type": "skill",
+  "assertions": [
+    {
+      "id": "harper-content-calendar-signal-written",
+      "check": "file_exists",
+      "category": "structure",
+      "path": "systems/eval-harness/skill-runs/harper-content-calendar-latest.json",
+      "description": "harper-content-calendar skill-run signal file was written"
+    },
+    {
+      "id": "harper-content-calendar-signal-status",
+      "check": "json_field_not_equals",
+      "category": "structure",
+      "path": "systems/eval-harness/skill-runs/harper-content-calendar-latest.json",
+      "field": "status",
+      "value": "failure",
+      "description": "harper-content-calendar skill-run did not end in failure"
+    }
+  ]
+}

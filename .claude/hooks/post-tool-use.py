@@ -47,6 +47,10 @@ try:
     from hook_utils import open_turn_level_record_exists
 except Exception:
     open_turn_level_record_exists = None
+try:
+    import assertion_checks as _assertion_checks
+except Exception:
+    _assertion_checks = None
 
 # ============================================================================
 # SHARED UTILITIES
@@ -272,10 +276,13 @@ ASSERTIONS_DIR = IES_ROOT / "systems" / "eval-harness" / "assertions"
 
 
 def run_assertions(name: str, eval_record: dict) -> dict:
-    """Load and evaluate structural assertions for a workflow or skill.
+    """Load and evaluate assertions for a workflow or skill.
 
-    Returns an updated assessment.structural dict. Returns the original dict
-    unchanged if no assertion file exists for the given name.
+    Thin delegator to the canonical implementation in assertion_checks.py,
+    shared with eval-agent-stop.py and grade_skill_run.py so all three
+    callers evaluate identically. Returns the original structural dict
+    unchanged if the shared module failed to import or no assertion file
+    exists for the given name.
     """
     structural = eval_record.get("assessment", {}).get("structural", {
         "expected_outputs_written": None,
@@ -285,190 +292,20 @@ def run_assertions(name: str, eval_record: dict) -> dict:
         "assertion_results": []
     })
 
-    assertion_file = ASSERTIONS_DIR / f"{name}.json"
-    if not assertion_file.exists():
+    if _assertion_checks is None:
+        log_error("run_assertions: assertion_checks module unavailable, skipping")
         return structural
 
-    try:
-        with open(assertion_file, "r") as f:
-            assertion_data = json.load(f)
-    except Exception as e:
-        log_error(f"run_assertions: failed to load {assertion_file}: {e}")
-        return structural
-
-    assertions = assertion_data.get("assertions", [])
-    results = []
-
-    for a in assertions:
-        check = a.get("check")
-        a_id = a.get("id", "unknown")
-        description = a.get("description", "")
-
-        # tool_was_called cannot be evaluated at hook time — skip it
-        if check == "tool_was_called":
-            results.append({
-                "assertion": a_id,
-                "description": description,
-                "passed": None,
-                "skipped": True,
-                "reason": "tool_was_called not available at hook time"
-            })
-            continue
-
-        try:
-            if check == "file_exists":
-                pattern = a.get("path", "")
-                matches = list(IES_ROOT.glob(pattern))
-                passed = len(matches) > 0
-                results.append({"assertion": a_id, "description": description, "passed": passed})
-
-            elif check == "file_min_bytes":
-                pattern = a.get("path", "")
-                min_bytes = a.get("min_bytes", 0)
-                matches = list(IES_ROOT.glob(pattern))
-                if not matches:
-                    passed = False
-                else:
-                    passed = all(m.stat().st_size >= min_bytes for m in matches)
-                results.append({"assertion": a_id, "description": description, "passed": passed})
-
-            elif check == "file_contains":
-                pattern = a.get("path", "")
-                regex = a.get("pattern", "")
-                matches = list(IES_ROOT.glob(pattern))
-                if not matches:
-                    passed = False
-                else:
-                    found = False
-                    for m in matches:
-                        try:
-                            content = m.read_text(encoding="utf-8", errors="replace")
-                            if re.search(regex, content, re.IGNORECASE):
-                                found = True
-                                break
-                        except Exception:
-                            pass
-                    passed = found
-                results.append({"assertion": a_id, "description": description, "passed": passed})
-
-            elif check == "file_not_contains":
-                pattern = a.get("path", "")
-                regex = a.get("pattern", "")
-                matches = list(IES_ROOT.glob(pattern))
-                if not matches:
-                    # No file = no forbidden content = passes
-                    passed = True
-                else:
-                    found_forbidden = False
-                    for m in matches:
-                        try:
-                            content = m.read_text(encoding="utf-8", errors="replace")
-                            if re.search(regex, content, re.IGNORECASE):
-                                found_forbidden = True
-                                break
-                        except Exception:
-                            pass
-                    passed = not found_forbidden
-                results.append({"assertion": a_id, "description": description, "passed": passed})
-
-            elif check == "yaml_field_equals":
-                path = a.get("path", "")
-                field = a.get("field", "")
-                value = a.get("value")
-                yaml_path = IES_ROOT / path
-                if not yaml_path.exists():
-                    passed = False
-                else:
-                    try:
-                        data = yaml.safe_load(extract_frontmatter_block(yaml_path.read_text())) or {}
-                        passed = data.get(field) == value
-                    except Exception:
-                        passed = False
-                results.append({"assertion": a_id, "description": description, "passed": passed})
-
-            elif check == "step_count_gte":
-                # Accept either key — eval-agent-stop.py's implementation uses
-                # min_count; keep both readable so an assertion file written
-                # against either hook's convention works under both.
-                min_steps = a.get("min_count", a.get("min_steps", 0))
-                passed = len(eval_record.get("steps", [])) >= min_steps
-                results.append({"assertion": a_id, "description": description, "passed": passed})
-
-            elif check == "guardrail_checkpoint_ran":
-                # Mechanical check that a guardrail checkpoint actually
-                # recorded a result on this run — read from the eval
-                # record's own guardrails array, not self-reported.
-                checkpoint_name = a.get("checkpoint_name")
-                guardrails = eval_record.get("guardrails", [])
-                if checkpoint_name:
-                    passed = any(g.get("name") == checkpoint_name for g in guardrails)
-                else:
-                    passed = len(guardrails) >= 1
-                results.append({"assertion": a_id, "description": description, "passed": passed})
-
-            elif check == "duration_lte":
-                max_duration = a.get("max_duration_seconds", float("inf"))
-                actual = eval_record.get("duration_seconds", 0)
-                passed = actual <= max_duration
-                results.append({"assertion": a_id, "description": description, "passed": passed})
-
-            else:
-                # Unknown check type — skip it
-                results.append({
-                    "assertion": a_id,
-                    "description": description,
-                    "passed": None,
-                    "skipped": True,
-                    "reason": f"unknown check type: {check}"
-                })
-
-        except Exception as e:
-            log_error(f"run_assertions: error evaluating {a_id}: {e}")
-            results.append({
-                "assertion": a_id,
-                "description": description,
-                "passed": None,
-                "skipped": True,
-                "reason": f"evaluation error: {e}"
-            })
-
-    # Compute summary counts (exclude skipped assertions)
-    non_skipped = [r for r in results if not r.get("skipped")]
-    checked = len(non_skipped)
-    passed_count = sum(1 for r in non_skipped if r.get("passed") is True)
-
-    # Derive aggregate flags from specific check types
-    file_exists_results = [
-        r for r in non_skipped
-        if any(
-            a.get("id") == r["assertion"] and a.get("check") == "file_exists"
-            for a in assertions
-        )
-    ]
-    file_min_bytes_results = [
-        r for r in non_skipped
-        if any(
-            a.get("id") == r["assertion"] and a.get("check") == "file_min_bytes"
-            for a in assertions
-        )
-    ]
-
-    expected_outputs_written = (
-        all(r.get("passed") for r in file_exists_results)
-        if file_exists_results else None
+    return _assertion_checks.run_assertions(
+        assertions_dir=ASSERTIONS_DIR,
+        name=name,
+        eval_record=eval_record,
+        ies_root=IES_ROOT,
+        agent=eval_record.get("agent"),
+        transcript_path=None,  # not available at PostToolUse hook time
+        yaml_module=yaml,
+        log_error=log_error,
     )
-    outputs_non_empty = (
-        all(r.get("passed") for r in file_min_bytes_results)
-        if file_min_bytes_results else None
-    )
-
-    structural["assertion_results"] = results
-    structural["assertions_checked"] = checked
-    structural["assertions_passed"] = passed_count
-    structural["expected_outputs_written"] = expected_outputs_written
-    structural["outputs_non_empty"] = outputs_non_empty
-
-    return structural
 
 
 def create_eval_record_from_skill_run(skill_run_data: dict, session_id: str):

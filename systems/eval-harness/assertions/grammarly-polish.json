@@ -1,0 +1,22 @@
+{
+  "name": "grammarly-polish",
+  "type": "skill",
+  "assertions": [
+    {
+      "id": "grammarly-polish-signal-written",
+      "check": "file_exists",
+      "category": "structure",
+      "path": "systems/eval-harness/skill-runs/grammarly-polish-latest.json",
+      "description": "grammarly-polish skill-run signal file was written"
+    },
+    {
+      "id": "grammarly-polish-signal-status",
+      "check": "json_field_not_equals",
+      "category": "structure",
+      "path": "systems/eval-harness/skill-runs/grammarly-polish-latest.json",
+      "field": "status",
+      "value": "failure",
+      "description": "grammarly-polish skill-run did not end in failure"
+    }
+  ]
+}

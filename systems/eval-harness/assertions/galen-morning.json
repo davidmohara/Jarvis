@@ -1,0 +1,22 @@
+{
+  "name": "galen-morning",
+  "type": "skill",
+  "assertions": [
+    {
+      "id": "galen-morning-signal-written",
+      "check": "file_exists",
+      "category": "structure",
+      "path": "systems/eval-harness/skill-runs/galen-morning-latest.json",
+      "description": "galen-morning skill-run signal file was written"
+    },
+    {
+      "id": "galen-morning-signal-status",
+      "check": "json_field_not_equals",
+      "category": "structure",
+      "path": "systems/eval-harness/skill-runs/galen-morning-latest.json",
+      "field": "status",
+      "value": "failure",
+      "description": "galen-morning skill-run did not end in failure"
+    }
+  ]
+}

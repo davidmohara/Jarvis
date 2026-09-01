@@ -1,0 +1,22 @@
+{
+  "name": "peekaboo",
+  "type": "skill",
+  "assertions": [
+    {
+      "id": "peekaboo-signal-written",
+      "check": "file_exists",
+      "category": "structure",
+      "path": "systems/eval-harness/skill-runs/peekaboo-latest.json",
+      "description": "peekaboo skill-run signal file was written"
+    },
+    {
+      "id": "peekaboo-signal-status",
+      "check": "json_field_not_equals",
+      "category": "structure",
+      "path": "systems/eval-harness/skill-runs/peekaboo-latest.json",
+      "field": "status",
+      "value": "failure",
+      "description": "peekaboo skill-run did not end in failure"
+    }
+  ]
+}

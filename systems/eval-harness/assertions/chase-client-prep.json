@@ -1,0 +1,55 @@
+{
+  "name": "chase-client-prep",
+  "type": "skill",
+  "assertions": [
+    {
+      "id": "chase-client-prep-signal-written",
+      "check": "file_exists",
+      "category": "structure",
+      "path": "systems/eval-harness/skill-runs/chase-client-prep-latest.json",
+      "description": "chase-client-prep skill-run signal file was written"
+    },
+    {
+      "id": "chase-client-prep-signal-status",
+      "check": "json_field_not_equals",
+      "category": "structure",
+      "path": "systems/eval-harness/skill-runs/chase-client-prep-latest.json",
+      "field": "status",
+      "value": "failure",
+      "description": "chase-client-prep skill-run did not end in failure"
+    },
+    {
+      "id": "chase-client-prep-pdf-exists",
+      "check": "file_exists",
+      "category": "structure",
+      "path": "meetings/*.pdf",
+      "description": "prep sheet PDF was generated in meetings/ (naming convention: {Attendee Name} - {Company}.pdf, no dates/underscores)"
+    },
+    {
+      "id": "chase-client-prep-pdf-substantive",
+      "check": "file_min_bytes",
+      "category": "quality",
+      "path": "meetings/*.pdf",
+      "newest_only": true,
+      "min_bytes": 10000,
+      "description": "prep sheet PDF is a real rendered document (checked against the most recently written PDF in meetings/, since this skill's naming convention has no skill/date prefix to glob-scope by)"
+    },
+    {
+      "id": "chase-client-prep-md-substantive",
+      "check": "file_min_bytes",
+      "category": "content",
+      "path": "meetings/*.md",
+      "newest_only": true,
+      "min_bytes": 3000,
+      "description": "prep sheet markdown has real research depth, not a thin stub (most recently written .md in meetings/)"
+    },
+    {
+      "id": "chase-client-prep-no-banned-phrases",
+      "check": "banned_phrases_absent",
+      "category": "quality",
+      "path": "meetings/*.md",
+      "newest_only": true,
+      "description": "no em-dashes or placeholder text in the prep sheet markdown (most recently written .md in meetings/)"
+    }
+  ]
+}

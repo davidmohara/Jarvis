@@ -1,0 +1,22 @@
+{
+  "name": "rigby-capability-build",
+  "type": "skill",
+  "assertions": [
+    {
+      "id": "rigby-capability-build-signal-written",
+      "check": "file_exists",
+      "category": "structure",
+      "path": "systems/eval-harness/skill-runs/rigby-capability-build-latest.json",
+      "description": "rigby-capability-build skill-run signal file was written"
+    },
+    {
+      "id": "rigby-capability-build-signal-status",
+      "check": "json_field_not_equals",
+      "category": "structure",
+      "path": "systems/eval-harness/skill-runs/rigby-capability-build-latest.json",
+      "field": "status",
+      "value": "failure",
+      "description": "rigby-capability-build skill-run did not end in failure"
+    }
+  ]
+}

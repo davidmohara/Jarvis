@@ -57,4 +57,5 @@ When the user says they want to exit, log off, or end the session:
    1. {name} ({eval_id}) — score {score}, grade {grade}
    ```
    Write any ratings received back to the eval record's `controller_feedback.rating` and `timestamp` fields immediately. If the controller skips or there are no records to rate, proceed without delay.
-4. **Commit all files.** Stage and commit all untracked and modified files before ending the session.
+4. **Tier 3 grading sweep.** Invoke `rigby-eval-grade --since {today}` to assign qualitative (model-judged) grades to every eval record created today that doesn't have one yet. This is the batched alternative to grading every skill invocation live — each skill invocation already prints a deterministic Tier 1+2 score (structure/content/quality assertions, `systems/eval-harness/assertion_checks.py`) in its own closing output; this step adds the Tier 3 qualitative layer once per day instead of spawning a model-graded pass on every single call. Skip silently if there are no ungraded records for today.
+5. **Commit all files.** Stage and commit all untracked and modified files before ending the session.

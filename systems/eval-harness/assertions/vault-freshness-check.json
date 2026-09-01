@@ -1,0 +1,22 @@
+{
+  "name": "vault-freshness-check",
+  "type": "skill",
+  "assertions": [
+    {
+      "id": "vault-freshness-check-signal-written",
+      "check": "file_exists",
+      "category": "structure",
+      "path": "systems/eval-harness/skill-runs/vault-freshness-check-latest.json",
+      "description": "vault-freshness-check skill-run signal file was written"
+    },
+    {
+      "id": "vault-freshness-check-signal-status",
+      "check": "json_field_not_equals",
+      "category": "structure",
+      "path": "systems/eval-harness/skill-runs/vault-freshness-check-latest.json",
+      "field": "status",
+      "value": "failure",
+      "description": "vault-freshness-check skill-run did not end in failure"
+    }
+  ]
+}
