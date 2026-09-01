@@ -71,6 +71,20 @@ David films "The Improving Edge" at MarketScale in Dallas. Each episode requires
      "[Agent]: [workflow-name] was previously aborted at [current-step]. Resume or start fresh?"
    - Wait for instruction.
 
+## CORRECTION MODE
+
+If `state.yaml` shows `status: complete` for this episode AND the user's request is a targeted fix (e.g., "fix Don's title", "adjust PDF margins") rather than a full re-run, apply corrections without re-running the full pipeline:
+
+1. Load the existing output files (`meetings/podcast-prep/*.md` and `.pdf`).
+2. Identify which step(s) need to change:
+   - **Guest data errors** (title, company, background) → fix in step-02 output, regenerate step-03/04/05.
+   - **Prep sheet content** (talking points, questions) → fix in step-03 output, regenerate step-04/05.
+   - **PDF formatting/layout** (single-page PDF only) → fix in step-04/05 output only.
+3. Skip `step-02-gather-data.md` (the expensive SharePoint/Clay/Outlook/WebSearch pass) and instead use the cached data already in `accumulated-context` from the previous run. Start directly at the affected downstream step.
+4. Regenerate only the affected outputs and downstream steps, then upload to reMarkable.
+
+This avoids re-running the expensive multi-connector data-gather step for single-field corrections, reducing token waste.
+
 ## EXECUTION
 
 Read fully and follow: `steps/step-01-identify-episode.md` to begin the workflow.

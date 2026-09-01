@@ -443,10 +443,11 @@ def main():
                 "timestamp": now.isoformat().replace("+00:00", "Z")
             })
 
-    # If completed is still None (no state.yaml written — skill run, not workflow)
-    # treat as completed=True unless there were failures
+    # If completed is still None (no state.yaml written — skill run, not workflow),
+    # treat as completed=True if the subagent produced a final message (returned a result).
+    # Tool failures mid-run are normal retries and shouldn't indicate non-completion.
     if completed is None:
-        completed = (tool_failures == 0 and len(all_error_ids) == 0)
+        completed = bool(eval_record.get("last_assistant_message"))
     if all_steps_finished is None:
         all_steps_finished = True  # skills have no steps
 
