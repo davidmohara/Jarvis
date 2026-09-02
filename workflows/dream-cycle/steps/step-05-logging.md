@@ -6,10 +6,10 @@ outputs:
   dream_log_appended: true
   working_summary_written: true
   working_summary_reason: "semantic_updated=1 > 0 triggers the mandatory working-summary write per Phase B. Content leads with the frontmatter-corruption fix holding clean corpus-wide as the one thing worth David's attention; otherwise a quiet night."
-  git_commit: pending
-  git_push: pending
-  git_commit_sha: null
-  git_sync_note: "Same environment class as 08-27 through 09-01 (Linux sandbox container, Desktop Commander confirmed unavailable via ToolSearch). Using plain git via Bash, one command per call, no chaining, no git status (git diff --name-only/--staged --name-only instead per the skill's safe-alternatives list). commit/push fields filled in after the actual git operations."
+  git_commit: success
+  git_push: success
+  git_commit_sha: 52f1ee8
+  git_sync_note: "Same environment class as 08-27 through 09-01 (Linux sandbox container, Desktop Commander confirmed unavailable via ToolSearch). Used plain git via Bash, one command per call, no chaining, no git status. Session started in detached HEAD at origin/main's own tip (3f85b64); fetched origin/main (no divergence), committed there, then moved to a real 'main' branch via 'git checkout -B main' before pushing. Push was a clean fast-forward (3f85b64..52f1ee8, 311 files changed). Verified no uncommitted changes remain post-push."
 ---
 
 <!-- system:start -->
