@@ -1,14 +1,14 @@
 ---
 status: complete
-started-at: "2026-08-31T15:03:00Z"
-completed-at: "2026-08-31T15:04:00Z"
+started-at: "2026-09-02T16:14:30Z"
+completed-at: "2026-09-02T16:15:00Z"
 outputs:
-  data_freshness_report: "pass — calendar, email, OmniFocus, and Clay all pulled live this session (~14:40-14:56Z), briefing reflects current data including today's Rock 1/Rock 4 snapshots. No gaps this run."
+  data_freshness_report: "pass — calendar, email, OmniFocus, and Clay all pulled live this session (~16:00-16:12Z), briefing reflects current data. No gaps this run."
   checkpoint_name: "pre-completion-review"
   checkpoint_result: "pass"
-  reason: "Briefing accurately reflects fresh gathered data; workflow scan correctly found only the boot run itself in-progress (_active.yaml empty, ground-truth scan confirms); no credential/sensitive leakage; recorded via guardrail-checkpoint.py."
+  reason: "Briefing accurately reflects fresh gathered data; workflow scan correctly found _active.yaml empty; Knox's parked prior session correctly distinguished from a genuinely in-progress boot workflow; no credential/sensitive leakage; recorded via guardrail-checkpoint.py."
   recorded: true
-model: haiku
+model: sonnet
 ---
 
 <!-- system:start -->

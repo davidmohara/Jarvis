@@ -1,12 +1,12 @@
 ---
 status: complete
-started-at: "2026-08-31T15:02:00Z"
-completed-at: "2026-08-31T15:03:00Z"
+started-at: "2026-09-02T16:14:00Z"
+completed-at: "2026-09-02T16:14:30Z"
 outputs:
-  workflows_scanned: "complete — _active.yaml read (active: []), 0 in-progress workflows found, 1 background agent running async"
+  workflows_scanned: "complete — _active.yaml read (active: []), 0 in-progress workflows found per index"
   active_workflows: "0"
-  background_tasks: "Knox (plaud-ingest) spawned separately by parent Master session before this run started, fire-and-forget per instructions — checked in step-08."
-  result: "No in-flight workflows per _active.yaml. Knox running in background, not blocking."
+  background_tasks: "workflows/plaud-ingest/state.yaml shows status: awaiting-input (not in-progress, not in _active.yaml index) from a 2026-08-31 Knox session, blocked on an unanswered speaker-ID question — not spawned or touched this run, checked informationally in step-08."
+  result: "No in-flight workflows per _active.yaml. Knox's prior session remains parked awaiting David's answer; not a boot blocker."
 ---
 
 <!-- system:start -->

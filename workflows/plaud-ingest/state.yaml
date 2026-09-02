@@ -1,19 +1,28 @@
 workflow: plaud-ingest
 agent: knox
-status: awaiting-input
+status: complete
 session-id: pi-20260831-001
 session-started: '2026-08-31T09:45:00-05:00'
 current-step: step-05b
-pending-question-for-david: >
-  Speakers 1, 3, and 4 in the 08-28 YPO Gold recording (file_id
-  9655c434b58437e56c3c80e441d541d9) still need a definitive mapping among
-  {Matt Rosen, Marquez/mdbela, Beau Wehrle} — see pending-speaker-mappings
-  below. Everything else in this run (both recordings) is fully ingested to
-  the vault. Status stays awaiting-input only for this one 3-way speaker
-  question; nothing else is blocked on it. Once answered, run
-  fetch_plaud.py --rename 9655c434b58437e56c3c80e441d541d9 with the
-  confirmed mapping to fix Plaud's voice profiles and update the vault note's
-  Attendees/Transcript sections accordingly.
+resolution-2026-09-02: >
+  Coordinator correction: speakers are already identified in Plaud — resolve
+  via Plaud's own diarization/speaker-profile data, not by asking David.
+  Pulled per-speaker voice embeddings for file_id
+  9655c434b58437e56c3c80e441d541d9 via get_speaker_embeddings() and compared
+  (cosine similarity) against all 146 registered profiles from
+  list_speakers(). Every speaker in the recording matched an existing
+  profile at ~1.0 (exact match): Speaker 1 = Chaitain Fahnstock, Speaker 2 =
+  Beau Wehrle, Speaker 3 = Matt Rosen, Speaker 4 = Marquez Bela, Speaker 5 =
+  O'Hara (0.94), Speaker 6 = John Hudson, Speaker 7 = Ashley Lawrence,
+  Speaker 8 = Megan Wehrle. Confirmed via get_recording_speakers() that
+  Plaud's current trans_result already carries these real names (no
+  generic "Speaker N" labels remain) — no further --rename call was needed,
+  the recording was already fully resolved on Plaud's side (also already
+  reflected in the vault note, which carries a 2026-08-31 "Speaker
+  correction" section matching these exact names). Workflow closed complete;
+  no outstanding speaker question. See err-20260902T160425-E9B7YR for the
+  process-skip this corrects (escalated to David instead of checking Plaud's
+  own speaker-profile data first).
 previous-blocker: >
   Transcription trigger for the one genuinely-new recording
   (2206973163d38abccd15da29b0ec7b60, 2026-08-26) returned

@@ -1,0 +1,14 @@
+{
+  "id": "err-20260902T160414-JDHWVX",
+  "timestamp": "2026-09-02T16:04:14Z",
+  "source": "explicit",
+  "category": "data-access",
+  "failure_mode": "incomplete-source-check",
+  "severity": "medium",
+  "description": "Knox surfaced speaker identification as unresolved and asked David to manually identify 3 speakers from YPO Gold 08-28 meeting. Speakers had already been identified in Plaud app — Knox should have pulled speaker data directly from Plaud before surfacing as unresolved.",
+  "what_happened": "Knox asked David: 'Who is Speaker 1, Speaker 3, and Speaker 4?' when the answer was already available in the Plaud app.",
+  "what_should_have_happened": "Knox should have checked Plaud app speaker profiles/diarization output for existing speaker-to-name mappings before escalating to David.",
+  "correction": "Instructed Knox to fetch speaker IDs directly from Plaud and apply them without manual input.",
+  "proposed_fix": "In plaud-ingest workflow, step-05b (speaker ID resolution): Always check Plaud app's diarization/speaker output first before surfacing as unresolved. Only escalate if genuinely unresolvable from app data.",
+  "next_action": "Resume Knox with corrected instructions to fetch speaker data from Plaud directly."
+}

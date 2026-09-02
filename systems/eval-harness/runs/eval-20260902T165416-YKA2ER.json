@@ -1,0 +1,88 @@
+{
+  "id": "eval-20260902T165416-YKA2ER",
+  "type": "skill",
+  "name": "omnifocus-tasks",
+  "agent": "master",
+  "session_id": "e9125881-739c-4141-ba2f-aa11b0bf2409",
+  "trigger": "manual",
+  "started": "2026-09-02T16:16:00Z",
+  "completed": "2026-09-02T16:54:16.529236Z",
+  "duration_seconds": 2296.5,
+  "status": "success",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": true,
+      "outputs_non_empty": false,
+      "assertions_checked": 4,
+      "assertions_passed": 2,
+      "assertion_results": [
+        {
+          "assertion": "omnifocus-tasks-signal-written",
+          "description": "omnifocus-tasks skill-run signal file was written",
+          "category": "structure",
+          "passed": true
+        },
+        {
+          "assertion": "omnifocus-tasks-signal-status",
+          "description": "omnifocus-tasks skill-run did not end in failure",
+          "category": "structure",
+          "passed": true
+        },
+        {
+          "assertion": "omnifocu-002-substantive",
+          "description": "omnifocus-tasks output is substantive (>200 bytes)",
+          "category": "structure",
+          "passed": false
+        },
+        {
+          "assertion": "omnifocu-003-content",
+          "description": "omnifocus-tasks output contains expected content",
+          "category": "structure",
+          "passed": false
+        }
+      ],
+      "category_breakdown": {
+        "structure": {
+          "passed": 2,
+          "checked": 4
+        },
+        "content": {
+          "passed": 0,
+          "checked": 0
+        },
+        "quality": {
+          "passed": 0,
+          "checked": 0
+        }
+      }
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "deterministic_gate": {
+      "score": 0.7917,
+      "gate_status": "pass",
+      "computed_at": "2026-09-02T16:54:20.055124Z"
+    }
+  },
+  "version_hash": "5ebd1a6a59152c03",
+  "prior_baseline_id": null,
+  "tags": [
+    "cowork-hook",
+    "skill"
+  ]
+}

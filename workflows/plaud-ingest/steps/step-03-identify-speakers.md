@@ -12,12 +12,26 @@ outputs:
 
 ## ⛔ HARD GATE
 
-**SELF-ID SCAN FIRST. CALENDAR SECOND. DO NOT ASK THE CONTROLLER UNTIL BOTH HAVE BEEN
-EXHAUSTED.**
+**REGISTERED-SPEAKER EMBEDDING MATCH FIRST. SELF-ID SCAN SECOND. CALENDAR THIRD. DO NOT
+ASK THE CONTROLLER UNTIL ALL THREE HAVE BEEN EXHAUSTED.**
 
-This is a two-part gate:
+This is a three-part gate:
 
-1. **Self-identification scan first.** Before any calendar lookup, scan the full
+0. **Registered-speaker embedding match first.** Before self-ID scanning or calendar
+   lookup, check whether Plaud itself already knows who this speaker is: call
+   `get_speaker_embeddings(token, file_id)` for the recording and `list_speakers(token)`
+   for every registered profile, and compare via cosine similarity. A near-1.0 match is
+   a direct identification from Plaud's own voice recognition — resolve immediately, no
+   further checks needed. Also check `get_recording_speakers(token, file_id)` — the
+   live `trans_result` may already carry real names even though a stale `_speakers.json`
+   in staging still shows generic labels. Skipping this and escalating straight to the
+   controller when Plaud had already resolved the speaker via voice recognition caused
+   `err-20260902T160425-E9B7YR` (a 3-way speaker ambiguity re-escalated to David when
+   all three speakers matched existing registered profiles at ~1.0 similarity, and the
+   recording's own transcript already had the real names). See
+   `skills/plaud-speaker-id/SKILL.md` step -1 for the full procedure.
+1. **Self-identification scan next.** For anything the embedding match didn't resolve,
+   scan the full
    transcript (not just the `sample_text` snippet) for every unresolved speaker for
    self-identification — most speakers state their own name aloud, typically near the
    end of the recording ("this is X", name sign-offs). Skipping this and going straight

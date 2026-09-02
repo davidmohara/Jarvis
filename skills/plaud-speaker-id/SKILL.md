@@ -20,13 +20,33 @@ data as the primary signal and controller input as the fallback.
 
 ## ⛔ HARD GATE — READ BEFORE ANYTHING ELSE
 
-**You MUST scan the transcript for self-identification, then query the calendar, before
-asking the controller. No exceptions, and in that order.**
+**You MUST check Plaud's own registered speaker profiles (voice embeddings) first, then
+scan the transcript for self-identification, then query the calendar, before asking the
+controller. No exceptions, and in that order.**
 
-This is a two-part gate, both parts confirmed failing independently on 2026-08-31
-(`err-20260831T145747-LDPD1Q`, `err-20260831T145748-3SVX4A`):
+This is a three-part gate. The embedding-match part was added 2026-09-02
+(`err-20260902T160425-E9B7YR`) after Knox escalated a 3-way speaker ambiguity to the
+controller without first checking whether Plaud itself already had the answer: every
+unresolved speaker in that recording matched an existing registered profile at ~1.0
+cosine similarity (exact match) via `get_speaker_embeddings()` compared against
+`list_speakers()` — Plaud had already identified them, and in fact the recording's
+`trans_result` already carried the real names. No controller input was needed at all.
 
-1. **Self-ID scan first.** Most speakers in Plaud recordings state their own name aloud,
+0. **Voice-embedding match against registered speakers, first, always.** Before scanning
+   the transcript or touching the calendar, call `get_speaker_embeddings(token, file_id)`
+   to get the 256-dim voice embedding for every generic-labeled speaker in the recording,
+   and `list_speakers(token)` to get every registered profile (name + embeddings) in the
+   account. Compute cosine similarity between each unresolved speaker's embedding and
+   every registered profile's embedding(s). A match at or near 1.0 is a direct
+   identification — Plaud has already recognized this voice from a prior recording where
+   it was named. Treat this as the highest-confidence resolution available, higher than
+   self-ID or calendar, because it is Plaud's own ground truth, not an inference. Also
+   re-check `get_recording_speakers(token, file_id)` — the recording's live `trans_result`
+   may already carry real names Plaud auto-assigned, making generic labels stale in your
+   local view even before you compute anything. Only speakers with no strong embedding
+   match (well below ~0.85, or no registered profile stands out) proceed to step 1's
+   self-ID scan.
+1. **Self-ID scan next.** Most speakers in Plaud recordings state their own name aloud,
    typically near the end of the recording (sign-offs, "this is X", introductions).
    Section "0" below runs a full-transcript self-identification scan for every
    unresolved speaker *before* calendar-attendee matching is even attempted. Skipping
@@ -41,13 +61,16 @@ This is a two-part gate, both parts confirmed failing independently on 2026-08-3
    as unhelpful for a given recording.
 
 Do not surface any speaker question to the controller until:
+0. Plaud's own registered speaker profiles have been checked via voice-embedding
+   similarity for every recording with generic-labeled speakers (section 0)
 1. The full transcript has been scanned for self-identification for every recording
-   with unresolved speakers (section 0)
+   with speakers still unresolved after the embedding check (section 0)
 2. The M365 calendar has been searched for every recording with speakers still
    unresolved after the self-ID scan — including attendees and adjacent events, not
    just the single best-matching event by subject line (section 2a)
 3. All auto-resolution heuristics have been applied
-4. One or more speakers genuinely cannot be resolved from self-ID + calendar + heuristics
+4. One or more speakers genuinely cannot be resolved from embeddings + self-ID +
+   calendar + heuristics
 
 If self-ID and/or the calendar resolve all speakers: proceed silently. No user interaction at all —
 **unless step 3's off-invite validation gate flags something.** A resolved name that
@@ -103,9 +126,30 @@ it's a validation gate on the *output* of resolution, run every time.
 Enumerate `~/Downloads/transcript-staging/plaud_*_speakers.json`. Load each.
 Group by recording (one JSON file per recording that has generic speakers).
 
-### 2. For each recording: scan for self-identification, then attempt calendar auto-resolution
+### 2. For each recording: match against Plaud's registered speakers, then scan for self-identification, then attempt calendar auto-resolution
 
-**0. Self-identification scan (MANDATORY, runs before any calendar lookup)**
+**-1. Registered-speaker embedding match (MANDATORY, runs before self-ID or calendar)**
+
+For every speaker still labeled generically (`Speaker N`) in a recording:
+
+1. Call `get_speaker_embeddings(token, file_id)` (in `skills/plaud-transcripts/scripts/fetch_plaud.py`)
+   to get that recording's per-speaker voice embeddings.
+2. Call `list_speakers(token)` to get every registered speaker profile in the account
+   (name + embeddings, keyed e.g. `"mark"`/`"auto"`).
+3. For each unresolved speaker, compute cosine similarity against every registered
+   profile's embedding(s) and take the best match.
+4. A match at or above ~0.95 is a direct identification — resolve it immediately, no
+   further checks needed for that speaker. This is Plaud's own recognition of a
+   previously-named voice, not an inference, so it outranks self-ID and calendar.
+5. Also call `get_recording_speakers(token, file_id)` and check whether the live
+   `trans_result` already carries real names instead of generic labels — Plaud may have
+   auto-resolved a speaker between when `_speakers.json` was staged and now. If so, no
+   embedding computation is even needed for that speaker; use the current live name.
+
+Only speakers with no strong match (below ~0.85, or multiple registered profiles
+scoring closely with no clear winner) proceed to the self-ID scan below.
+
+**0. Self-identification scan (MANDATORY, runs for speakers embeddings didn't resolve)**
 
 For every speaker still labeled generically (`Speaker N`), scan that speaker's **full**
 set of transcript segments — not just the `sample_text` snippet in `_speakers.json` — for
@@ -233,8 +277,9 @@ registered as `speaker_type: 1` in the known_speakers list.
 **d. Confidence threshold**
 
 Mark a resolution as auto-confirmed if:
-- It came from the step 0 self-identification scan (highest confidence — the person
-  named themselves)
+- It came from the step -1 registered-speaker embedding match (highest confidence —
+  Plaud's own voice recognition against a previously-named profile)
+- OR it came from the step 0 self-identification scan (the person named themselves)
 - OR it satisfies heuristic 1, 2, or 3 (deterministic)
 - OR it satisfies heuristic 4, 5 (title self-identification), or 6 with calendar
   confirmation (attendee in list)

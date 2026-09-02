@@ -1,14 +1,14 @@
 ---
 status: complete
-started-at: "2026-08-31T15:06:00Z"
-completed-at: "2026-08-31T15:07:00Z"
+started-at: "2026-09-02T16:15:30Z"
+completed-at: "2026-09-02T16:16:00Z"
 outputs:
   knox_status: "still_running"
-  knox_reason: "Eval record eval-20260831T144505-6H9DVD found for the plaud-discover sub-step (status: success, 5.7s) — discovery itself completed cleanly. However the full plaud-ingest workflow state.yaml shows status: in-progress, current-step: step-03, session-started 2026-08-31T09:45:00-05:00, session-id pi-20260831-001. Knox is blocked on a genuine question for David, not a crash: the one new recording (2026-08-26, id 2206973163d38abccd15da29b0ec7b60) failed transcription trigger with status -12 'start trans task error', which per skills/plaud-trigger/SKILL.md likely means Plaud transcription minutes are exhausted. Per skill protocol, Knox surfaced the question rather than retrying blindly."
-  knox_duration_seconds: 5.7
-  knox_eval_id: "eval-20260831T144505-6H9DVD"
-  knox_background_task: "In-progress, awaiting David's answer on Plaud transcription minutes before Knox can proceed past step-03. Not a boot blocker (fire-and-forget)."
-  note: "Knox (plaud-ingest) was spawned separately by the parent Master session before step-01 of this run. Recommend David confirm/top-up Plaud transcription minutes so Knox can complete the one pending recording."
+  knox_reason: "No plaud-ingest eval record found for today (2026-09-02) in systems/eval-harness/runs/ — Knox was not spawned this boot run. workflows/plaud-ingest/state.yaml still shows status: awaiting-input, current-step: step-05b, session-id pi-20260831-001 (unchanged since 2026-08-31). Both recordings from that session are fully ingested to the vault; the only open item is a 3-way speaker mapping question (Matt Rosen / Marquez/mdbela / Beau Wehrle) for the 08-28 YPO Gold recording, plus an unresolved transcription-trigger failure (status -12) for one 2026-08-26 recording, likely exhausted Plaud transcription minutes."
+  knox_duration_seconds: null
+  knox_eval_id: null
+  knox_background_task: "Parked awaiting David's input since 2026-08-31 — not touched this run. Not a boot blocker."
+  note: "Recommend David either answer the speaker-mapping question or explicitly deprioritize it, and confirm/top-up Plaud transcription minutes so this stale Knox session can close out."
 ---
 
 <!-- system:start -->

@@ -1,16 +1,13 @@
-workflow: golf-booking
-agent: chief
+workflow: golf-preview
+agent: sterling
 status: not-started
 session-started: ~
 session-id: ~
 current-step: not-started
 execution-run: ~
 gate-failures: []
-booking-id: null
-booking-date: null
-booking-time: null
 grade: null
 resolution-note: null
 
 original-request: ~
-accumulated-context: []
+accumulated-context: {}

@@ -1,0 +1,15 @@
+{
+  "id": "err-20260902T160425-E9B7YR",
+  "timestamp": "2026-09-02T16:04:25Z",
+  "session": "pi-20260831-001 (resumed 2026-09-02)",
+  "source": "explicit",
+  "agent": "knox",
+  "category": "process-skip",
+  "description": "On resuming plaud-ingest at the awaiting-input pause for the 08-28 YPO Gold recording (3-way speaker ambiguity: Speaker 1/3/4 among Matt Rosen, Marquez/mdbela, Beau Wehrle), Knox re-surfaced the question directly to David for manual input instead of first checking whether Plaud itself already has the speaker identities resolved via diarization output / speaker voice profiles. The coordinator corrected: speakers are already identified in Plaud — fetch speaker IDs directly from the Plaud app/API (diarization output and speaker profiles) and apply with fetch_plaud.py --rename using Plaud's own data, not manual David input.",
+  "correction": "Before escalating an unresolved speaker mapping to David, query Plaud's own speaker profile / diarization data (via fetch_plaud.py or the underlying Plaud API) for that recording first. Only escalate to David if Plaud's own data is genuinely insufficient to resolve the mapping.",
+  "failure_mode": "protocol-skip",
+  "systemic_fix": "Applied: added a new step -1/step 0 'registered-speaker embedding match' to skills/plaud-speaker-id/SKILL.md (get_speaker_embeddings + list_speakers cosine similarity, checked before self-ID scan and calendar) and mirrored the same hard-gate change into workflows/plaud-ingest/steps/step-03-identify-speakers.md. Also re-resolved the live case: all three previously-escalated speakers (Speaker 1/3/4 on file_id 9655c434b58437e56c3c80e441d541d9) matched registered Plaud profiles at ~1.0 cosine similarity (Chaitain Fahnstock, Matt Rosen, Marquez Bela), confirmed already reflected in the recording's live trans_result and in the vault note. plaud-ingest state.yaml session pi-20260831-001 closed as complete.",
+  "fix_status": "applied",
+  "severity": "moderate",
+  "related_entries": ["err-20260831T145747-LDPD1Q", "err-20260831T145748-3SVX4A"]
+}

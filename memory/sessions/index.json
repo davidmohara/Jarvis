@@ -1629,7 +1629,73 @@
           "systems/eval-harness/skill-runs/rigby-error-analysis-latest.json",
           "memory/working/dream-summary-2026-08-31.md",
           "memory/working/dream-summary-2026-09-02.md",
-          "systems/eval-harness/skill-runs/git-latest.json"
+          "systems/eval-harness/skill-runs/git-latest.json",
+          "systems/error-tracking/entries/err-20260902T160414-JDHWVX.json",
+          "systems/error-tracking/entries/err-20260902T160425-E9B7YR.json"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "session-2026-09-02-160000",
+    "started": "2026-09-02T16:00:00-05:00",
+    "closed": "2026-09-02T16:16:00-05:00",
+    "current_topic": "morning-boot",
+    "topics": [
+      {
+        "name": "morning-boot",
+        "loops": [
+          {
+            "task": "boot-sequence-steps-2-12",
+            "resolved": true
+          }
+        ],
+        "files": [
+          "workflows/boot/state.yaml",
+          "data/calendar-unified.json",
+          "data/email-unified.json",
+          "data/omnifocus-unified.json",
+          "data/clay-reminders-unified.json",
+          "data/jarvis-inbox-unified.json",
+          "workflows/boot/steps/step-01.2-unified-data-pull.md",
+          "workflows/boot/steps/step-01.5-unified-calendar-pull.md",
+          "workflows/boot/steps/step-02-gather-data.md",
+          "workflows/boot/steps/step-02.5-measure-phase2.md",
+          "workflows/boot/steps/step-03-verify-phase2.md",
+          "workflows/boot/steps/step-04-gather-meeting-context.md",
+          "workflows/boot/steps/step-05-synthesize-briefing.md",
+          "workflows/boot/steps/step-06-scan-workflows.md",
+          "workflows/boot/steps/step-06.5-guardrail-checkpoint.md",
+          "workflows/boot/steps/step-07-verify-completion.md",
+          "workflows/boot/steps/step-08-knox-completion-check.md",
+          "memory/sessions/index.json",
+          "workflows/plaud-ingest/state.yaml",
+          "skills/plaud-speaker-id/SKILL.md",
+          "workflows/plaud-ingest/steps/step-03-identify-speakers.md",
+          "systems/error-tracking/entries/err-20260902T160425-E9B7YR.json",
+          "systems/eval-harness/skill-runs/omnifocus-tasks-latest.json",
+          "workflows/golf-preview/workflow.md",
+          "workflows/golf-preview/state.yaml",
+          "workflows/golf-preview/steps/step-01-calculate-target-weekend.md",
+          "workflows/golf-preview/steps/step-02-calendar-conflict-check.md",
+          "workflows/golf-preview/steps/step-03-drought-and-weather.md",
+          "workflows/golf-preview/steps/step-04-score-and-write-output.md",
+          "workflows/golf-preview/verify/step-04-output-schema.py",
+          "workflows/golf-preview/steps/step-05-notify-slack.md",
+          "workflows/golf-preview/verify/step-05-slack-delivery.py",
+          "workflows/golf-booking/workflow.md",
+          "workflows/golf-booking/state.yaml",
+          "workflows/golf-booking/steps/step-01-read-preview-and-window-precheck.md",
+          "workflows/golf-booking/verify/step-01-window-precheck.py",
+          "workflows/golf-booking/steps/step-02-login-recovery.md",
+          "workflows/golf-booking/steps/step-03-navigate-select-players.md",
+          "workflows/golf-booking/steps/step-04-select-time-and-confirm.md",
+          "workflows/golf-booking/steps/step-05-visual-verification.md",
+          "workflows/golf-booking/steps/step-06-calendar-block.md",
+          "workflows/golf-booking/steps/step-07-slack-confirmation.md",
+          "workflows/golf-booking/verify/step-07-terminal-outcome.py",
+          "config/scheduled-tasks.json",
+          "agents/sterling.md"
         ]
       }
     ]

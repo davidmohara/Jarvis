@@ -1,10 +1,17 @@
 #!/usr/bin/env python3
-"""Ground-truth verifier for golf-booking/phase-1-preview.
+"""Ground-truth verifier for golf-preview/step-04 (Gate 4 — Output Schema).
 
 Confirms preview-output.json exists, is valid JSON, and has substantive
-content: a non-empty top_options list, a target_weekend with real dates,
-and day_status for all three target days. Derives candidate_windows_found
-and go_no_go_summary from the actual file rather than trusting self-report.
+content: a non-empty top_options list (or a documented no_viable_reason),
+a target_weekend with real dates, and day_status for all three target days.
+Derives candidate_windows_found and go_no_go_summary from the actual file
+rather than trusting self-report.
+
+Note: preview-output.json physically lives under workflows/golf-booking/
+(not workflows/golf-preview/) — it is the shared handoff artifact between
+the golf-preview and golf-booking workflows, and golf-booking's scheduled
+task already reads it from that path. Moving it would require updating
+config/scheduled-tasks.json; this verifier reads it in place instead.
 """
 
 import json
@@ -13,6 +20,7 @@ from pathlib import Path
 from datetime import datetime, timezone
 
 STALE_DAYS = 10  # weekly cadence — flag if generated_at is way older than one cycle
+MIN_NO_VIABLE_REASON_LENGTH = 20  # chars — enough to be a real explanation, not a stub
 
 
 def main():
@@ -28,7 +36,7 @@ def main():
             "reason": "workflows/golf-booking/preview-output.json does not exist",
             "fields": {"candidate_windows_found": 0, "go_no_go_summary": None},
             "validation_errors": ["file_missing"],
-            "retry_instruction": "Re-execute skills/golf-preview/SKILL.md and write preview-output.json with top_options, target_weekend, and day_status.",
+            "retry_instruction": "Re-execute step-04-score-and-write-output.md and write preview-output.json with top_options, target_weekend, and day_status.",
         }))
         return
 
@@ -40,15 +48,20 @@ def main():
             "reason": f"preview-output.json is not valid JSON: {e}",
             "fields": {"candidate_windows_found": 0, "go_no_go_summary": None},
             "validation_errors": ["invalid_json"],
-            "retry_instruction": "Re-execute the preview phase — preview-output.json is corrupted or malformed.",
+            "retry_instruction": "Re-execute step-04 — preview-output.json is corrupted or malformed.",
         }))
         return
 
     validation_errors = []
 
     top_options = data.get("top_options") or []
-    if not isinstance(top_options, list) or len(top_options) == 0:
-        validation_errors.append("empty_top_options")
+    no_viable_reason = (data.get("no_viable_reason") or "").strip()
+    empty_options_undocumented = (
+        (not isinstance(top_options, list) or len(top_options) == 0)
+        and len(no_viable_reason) < MIN_NO_VIABLE_REASON_LENGTH
+    )
+    if empty_options_undocumented:
+        validation_errors.append("empty_top_options_undocumented")
 
     target_weekend = data.get("target_weekend") or {}
     expected_days = ["friday", "saturday", "sunday"]
@@ -90,13 +103,21 @@ def main():
 
     fields = {
         "candidate_windows_found": len(top_options),
+        "no_viable_reason": no_viable_reason or None,
         "go_no_go_summary": go_no_go_summary,
         "target_weekend": target_weekend,
         "generated_at": generated_at,
         "freshness": freshness_note,
+        "weather_data_missing": data.get("weather_data_missing"),
+        "ct_conversion_flag": data.get("ct_conversion_flag"),
     }
 
-    blocking_errors = [e for e in validation_errors if e in ("empty_top_options",) or e.startswith("target_weekend_missing_dates") or e.startswith("day_status_missing_days")]
+    blocking_errors = [
+        e for e in validation_errors
+        if e == "empty_top_options_undocumented"
+        or e.startswith("target_weekend_missing_dates")
+        or e.startswith("day_status_missing_days")
+    ]
 
     if blocking_errors:
         print(json.dumps({
@@ -104,7 +125,7 @@ def main():
             "reason": f"preview-output.json missing required content: {blocking_errors}",
             "fields": fields,
             "validation_errors": validation_errors,
-            "retry_instruction": "Re-run skills/golf-preview/SKILL.md to fully populate top_options, target_weekend, and day_status for all three days.",
+            "retry_instruction": "Re-run step-04-score-and-write-output.md to fully populate top_options (or a documented no_viable_reason), target_weekend, and day_status for all three days.",
         }))
         return
 

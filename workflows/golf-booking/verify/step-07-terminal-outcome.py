@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
-"""Ground-truth verifier for golf-booking/phase-2-booking.
+"""Ground-truth verifier for golf-booking (Gate 7 — Terminal Outcome Honesty).
 
-This phase can legitimately fail (no Chrome access, no viable windows,
-ChronoGolf down, session expired) — that is a valid terminal state per
+Run after step-07 claims the workflow complete. This workflow can
+legitimately fail (no Chrome access, no viable windows, ChronoGolf down,
+session expired, Gate 1/4 blocking) — that is a valid terminal state per
 the workflow's Failure Modes table, not something to punish. The bar
 this verifier enforces is honest reporting: either a real booking was
 made (booking-id/date/time populated) or the failure is documented with
