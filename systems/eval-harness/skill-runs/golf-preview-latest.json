@@ -1,11 +1,10 @@
 {
   "skill": "golf-preview",
-  "agent": "chief",
-  "trigger": "scheduled",
-  "started": "2026-08-25T19:32:00Z",
-  "completed": "2026-08-25T19:45:00Z",
+  "agent": "sterling",
+  "trigger": "manual",
+  "started": "2026-09-02T00:00:00-05:00",
+  "completed": "2026-09-02T00:27:00-05:00",
   "status": "success",
   "tool_failures": 0,
-  "error_ids": [],
-  "notes": "Full execution complete. Calendar analysis (target weekend Sept 4-6), heat-streak calculation (active, 5/5 days ≥95°F), weather assessment, and scoring all completed. JSON output written to preview-output.json. Slack notification sent to #golf via master-slack skill + post.py (no return errors). Markdown fallback summary written to memory/working/golf-preview-2026-08-25.md. Phase 2 (midnight booking automation) ready to proceed."
+  "error_ids": []
 }

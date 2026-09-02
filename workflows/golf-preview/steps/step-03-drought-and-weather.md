@@ -1,8 +1,19 @@
 ---
-status: not-started
-started-at: ~
-completed-at: ~
-outputs: {}
+status: complete
+started-at: "2026-09-02T00:12:00-05:00"
+completed-at: "2026-09-02T00:20:00-05:00"
+outputs:
+  drought: false
+  last_round: "2026-08-29"
+  weather_source: "open-meteo"
+  weather_data_missing: false
+  heat_streak: false
+  heat_streak_days_at_or_above_99: 4
+  heat_streak_calc_failed: false
+  windows:
+    saturday_1pm: { avg_temp_f: 96.2, max_rain_pct: 17, max_wind_mph: 18.5, condition: "clear", temp_penalty_applied: true }
+    saturday_4pm: { avg_temp_f: 95.6, max_rain_pct: 17, max_wind_mph: 18.5, condition: "clear", temp_penalty_applied: true }
+    sunday_230pm: { avg_temp_f: 96.4, max_rain_pct: 17, max_wind_mph: 15.7, condition: "clear", temp_penalty_applied: true }
 model: haiku
 ---
 

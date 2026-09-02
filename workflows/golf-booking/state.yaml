@@ -1,16 +1,23 @@
 workflow: golf-booking
-agent: chief
-status: not-started
-session-started: ~
-session-id: ~
-current-step: not-started
-execution-run: ~
-gate-failures: []
+agent: sterling
+status: awaiting-window
+session-started: 2026-09-02T00:00:00-05:00
+session-id: manual-run-20260902
+current-step: step-01
+execution-run: 1
+gate-failures:
+  - gate: "Gate 1 — Booking Window Pre-Check"
+    reason: "Target date 2026-09-12 (top_options[0], Saturday 13:00) is 10 day(s) out — outside the 8-day booking window. 8-day window opens 2026-09-04."
+    timestamp: 2026-09-02T00:00:00-05:00
 booking-id: null
 booking-date: null
 booking-time: null
 grade: null
-resolution-note: null
+resolution-note: "Aborted cleanly at Gate 1 per no-substitution rule (err-20260813T122205-D64IQ7). No login, no Chrome navigation, no booking attempted. Slack alert sent to #jarvis. Retry on next scheduled run (Wed/Thu/Fri 11PM CST) once the window opens 2026-09-04."
 
-original-request: ~
-accumulated-context: []
+original-request: "Sterling — run the golf-booking workflow end-to-end using preview-output.json."
+accumulated-context:
+  - target_date: "2026-09-12"
+  - target_time: "13:00"
+  - days_out: 10
+  - source: "top_options[0]"

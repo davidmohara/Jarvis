@@ -1,8 +1,11 @@
 ---
-status: not-started
-started-at: ~
-completed-at: ~
-outputs: {}
+status: complete
+started-at: "2026-09-02T00:20:00-05:00"
+completed-at: "2026-09-02T00:25:00-05:00"
+outputs:
+  gate_4_result: "pass"
+  candidate_windows_found: 3
+  output_file: "workflows/golf-booking/preview-output.json"
 model: haiku
 ---
 

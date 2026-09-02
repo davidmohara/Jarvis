@@ -1,52 +1,48 @@
 {
-  "pulled_at": "2026-08-31T14:40:00Z",
-  "message_count": 5,
-  "messages": [
+  "pulled_at": "2026-09-02T16:00:00Z",
+  "message_count": 10,
+  "source": "live M365 outlook_email_search, Inbox, afterDateTime=yesterday",
+  "actionable_messages": [
     {
-      "id": "meeting-wednesday-systemic-compliance",
-      "subject": "Meeting Wednesday",
-      "from": "rgraham@Systemic-Compliance.com",
-      "received_at": "2026-08-30T22:12:19Z",
-      "is_flagged": false,
-      "importance": "normal",
-      "snippet": "Matt is going to join us for the in-person meeting on Wednesday at your office. We are all looking forward to a productive session."
+      "subject": "Tomorrow's meeting",
+      "from": "kgraham@Systemic-Compliance.com",
+      "received_at": "2026-09-01T21:23:55Z",
+      "is_read": true,
+      "note": "Matt scored the document, ties directly to today's 3:30pm Scoping the Next Phase call"
     },
     {
-      "id": "board-of-advisors-meeting-request",
-      "subject": "RE: Board of Advisors Meeting Request",
-      "from": "David.OHara@improving.com",
-      "received_at": "2026-08-31T13:00:19Z",
-      "is_flagged": false,
-      "importance": "normal",
-      "snippet": "Board call scheduling thread — Christian proposed Tuesday 8/18 2:30pm CST, asking for conflicts."
+      "subject": "Interviews in Dallas - Curtis availability?",
+      "from": "matt.russell@improving.com",
+      "received_at": "2026-09-01T20:12:05Z",
+      "is_read": false,
+      "note": "Lee Carlson (potential Partner leader, Austin) resume attached, awaiting go/no-go on meeting"
     },
     {
-      "id": "utb-meeting-schedule-week",
-      "subject": "UTB Meeting Schedule – Week of 08/31/2026–09/04/2026",
-      "from": "alerts@boardvantage.com",
-      "received_at": "2026-08-31T12:50:28Z",
-      "is_flagged": false,
-      "importance": "normal",
-      "snippet": "Wednesday 9/2 12:00pm - Director's Loan Committee (Zoom). United Texas Bank board schedule for the week."
+      "subject": "Re: YPO Request",
+      "from": "JJonesJr@DallasCowboys.net",
+      "received_at": "2026-09-01T20:01:23Z",
+      "is_read": false,
+      "note": "Jerry Jones Jr declined YPO speaker request"
     },
     {
-      "id": "linkedin-venky-shankar-waiting",
-      "subject": "David, I'm still waiting for your response",
-      "from": "messages-noreply@linkedin.com",
-      "received_at": "2026-08-31T13:53:31Z",
-      "is_flagged": false,
-      "importance": "normal",
-      "snippet": "Venkatesh (Venky) Shankar, Chair, Marketing Department, is waiting for a LinkedIn message response."
+      "subject": "RE: INFO & ACTION: YPO GOLD REX executive summary",
+      "from": "smeyer@ypo.org",
+      "received_at": "2026-09-01T15:42:53Z",
+      "is_read": false,
+      "note": "Reminder to submit YPO commitment form"
     },
     {
-      "id": "accounting-manager-candidate",
-      "subject": "Confidential Accounting Manager candidate",
-      "from": "innesa@btqtalent.com",
-      "received_at": "2026-08-31T14:02:16Z",
-      "is_flagged": false,
-      "importance": "normal",
-      "snippet": "Recruiter pitching an Accounting Manager candidate given Improving's hiring needs."
+      "subject": "Fwd: You're Registered - YPO Vision & Values | Naples",
+      "from": "susie@everydayentries.com",
+      "received_at": "2026-09-02T00:11:15Z",
+      "is_read": false
     }
   ],
-  "note": "Filtered from 24 inbox messages received in the last 24h to actionable/time-sensitive items; newsletters, marketing, and automated notifications excluded."
+  "low_priority_noise": [
+    "Southwest Airlines lounge news (bizjournals)",
+    "Roots & Water wine tasting invite",
+    "Marketplace Mission Trip volunteer follow-up (kris@followerofone.org) - awaiting phone call re: Trip Ambassador/Moderator role",
+    "Dallas Chamber newsletter",
+    "Salesforce+ event promo"
+  ]
 }

@@ -1,13 +1,31 @@
 workflow: golf-preview
 agent: sterling
-status: not-started
-session-started: ~
+status: complete
+session-started: "2026-09-02T00:00:00-05:00"
 session-id: ~
-current-step: not-started
-execution-run: ~
+current-step: step-05
+execution-run: "2026-09-02T00:27:00-05:00"
 gate-failures: []
 grade: null
 resolution-note: null
 
-original-request: ~
-accumulated-context: {}
+original-request: "Verify golf-preview workflow works end-to-end with new calendar-handler and visual-verification skills"
+accumulated-context:
+  target_friday: "2026-09-11"
+  target_saturday: "2026-09-12"
+  target_sunday: "2026-09-13"
+  day_status:
+    friday: { status: "unavailable", reason: "Travel day — Presidents Retreat Whitefish MT, flight lands 5:33 PM CT" }
+    saturday: { status: "available" }
+    sunday: { status: "available" }
+  drought: false
+  weather_data_missing: false
+  heat_streak: false
+  ct_conversion_flag: false
+  candidate_windows_found: 3
+  gate_1_result: "pass"
+  gate_2_result: "pass"
+  gate_3_result: "pass"
+  gate_4_result: "pass"
+  gate_5_result: "pass"
+  slack_delivery: { ok: true, ts: "1788375123.330539", channel: "C0B15SW9FB5" }

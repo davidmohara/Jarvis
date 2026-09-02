@@ -1,0 +1,49 @@
+{
+  "id": "eval-20260902T185232-LXGJA9",
+  "type": "skill",
+  "name": "calendar-handler",
+  "agent": "sterling",
+  "session_id": "e9125881-739c-4141-ba2f-aa11b0bf2409",
+  "trigger": "manual",
+  "started": "2026-09-02T00:00:00-05:00",
+  "completed": "2026-09-02T18:52:32.168986Z",
+  "duration_seconds": 49952.2,
+  "status": "success",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "deterministic_gate": {
+      "score": 0.7917,
+      "gate_status": "pass",
+      "computed_at": "2026-09-02T18:52:35.091870Z"
+    }
+  },
+  "version_hash": "bab76b54156cf79e",
+  "prior_baseline_id": null,
+  "tags": [
+    "cowork-hook",
+    "skill"
+  ]
+}

@@ -1,8 +1,13 @@
 ---
-status: not-started
-started-at: ~
-completed-at: ~
-outputs: {}
+status: complete
+started-at: "2026-09-02T00:00:00-05:00"
+completed-at: "2026-09-02T00:05:00-05:00"
+outputs:
+  target_friday: "2026-09-11"
+  target_saturday: "2026-09-12"
+  target_sunday: "2026-09-13"
+  gate_1_result: "pass"
+  recalculation_count: 0
 model: haiku
 ---
 

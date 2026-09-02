@@ -1,0 +1,83 @@
+{
+  "id": "eval-20260902T185220-MMAAR2",
+  "type": "workflow",
+  "name": "golf-preview",
+  "agent": "sterling",
+  "session_id": "e9125881-739c-4141-ba2f-aa11b0bf2409",
+  "trigger": "manual",
+  "started": "2026-09-02T00:00:00-05:00",
+  "completed": "2026-09-02T18:52:20.274413Z",
+  "duration_seconds": 49940.3,
+  "status": "success",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": true,
+      "outputs_non_empty": true,
+      "assertions_checked": 4,
+      "assertions_passed": 4,
+      "assertion_results": [
+        {
+          "assertion": "golf-preview-signal-written",
+          "description": "golf-preview skill-run signal file was written",
+          "category": "structure",
+          "passed": true
+        },
+        {
+          "assertion": "golf-preview-signal-status",
+          "description": "golf-preview skill-run did not end in failure",
+          "category": "structure",
+          "passed": true
+        },
+        {
+          "assertion": "golf-pre-002-substantive",
+          "description": "golf-preview output is substantive (>200 bytes)",
+          "category": "structure",
+          "passed": true
+        },
+        {
+          "assertion": "golf-pre-003-content",
+          "description": "golf-preview output contains expected content",
+          "category": "structure",
+          "passed": true
+        }
+      ],
+      "category_breakdown": {
+        "structure": {
+          "passed": 4,
+          "checked": 4
+        },
+        "content": {
+          "passed": 0,
+          "checked": 0
+        },
+        "quality": {
+          "passed": 0,
+          "checked": 0
+        }
+      }
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    }
+  },
+  "version_hash": "650abbc562a4843e",
+  "prior_baseline_id": null,
+  "tags": [
+    "cowork-hook",
+    "phantom-candidate"
+  ]
+}

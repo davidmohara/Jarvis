@@ -1,8 +1,12 @@
 ---
-status: not-started
-started-at: ~
-completed-at: ~
-outputs: {}
+status: complete
+started-at: "2026-09-02T00:25:00-05:00"
+completed-at: "2026-09-02T00:27:00-05:00"
+outputs:
+  gate_5_result: "pass"
+  delivery_path: "slack"
+  slack_ts: "1788375123.330539"
+  channel: "C0B15SW9FB5"
 model: haiku
 ---
 
