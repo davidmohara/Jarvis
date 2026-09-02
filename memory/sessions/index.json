@@ -1695,7 +1695,12 @@
           "workflows/golf-booking/steps/step-07-slack-confirmation.md",
           "workflows/golf-booking/verify/step-07-terminal-outcome.py",
           "config/scheduled-tasks.json",
-          "agents/sterling.md"
+          "agents/sterling.md",
+          "skills/visual-verification/SKILL.md",
+          "skills/calendar-handler/SKILL.md",
+          "skills/_index.md",
+          "evolutions/.pending-changes.json",
+          "systems/eval-harness/skill-runs/rigby-capability-build-latest.json"
         ]
       }
     ]

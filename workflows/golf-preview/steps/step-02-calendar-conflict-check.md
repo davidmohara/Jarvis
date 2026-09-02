@@ -13,7 +13,9 @@ model: haiku
 
 1. Treat calendar conflicts as hard blocks. Treat weather as a soft block (handled in step-03).
 2. **⚠️ UTC→CT conversion is mandatory and applies everywhere.** Never compare raw UTC event
-   times against CT window boundaries.
+   times against CT window boundaries. This conversion now lives inside the `calendar-handler`
+   skill's `conflict-check` operation — call it rather than pulling the calendar and converting
+   inline, so this rule can't quietly regress in a future edit to this step.
 3. Do not proceed to step-03 until **QUALITY GATE 2** below is logged, even if it only logs a
    pass.
 
@@ -29,32 +31,37 @@ model: haiku
 
 ## YOUR TASK
 
-### Pull Calendar
+### Pull the CT Timeline via calendar-handler
 
+Call `skills/calendar-handler/SKILL.md`:
+
+```yaml
+operation: conflict-check
+calendar_backend: M365   # explicit — this workflow reads conflicts from David's M365/Outlook
+                         # calendar, not Calendar.app; see calendar-handler's backend note if
+                         # this ever needs to change
+date_range:
+  start: "{{target_friday}}T00:00:00"
+  end: "{{target_sunday}}T23:59:59"
 ```
-mcp__b8c41a14__outlook_calendar_search
-query: ""
-start_datetime: [target_friday]T00:00:00
-end_datetime: [target_sunday]T23:59:59
-```
 
-### Convert UTC → CT
+On the `M365` backend, the skill pulls the calendar via
+`mcp__claude_ai_Microsoft_365__outlook_calendar_search`, converts every event's UTC timestamp
+to CT (subtract 5h for CDT / 6h for CST, rolling back to the previous calendar day if the
+conversion crosses midnight), and returns `conflicts_found` plus an `events` list already in
+CT with `{title, start_ct, end_ct}`. This step no longer does the UTC→CT math itself — that
+logic is centralized in the skill precisely because it's the failure mode this gate exists to
+catch (see Quality Gate 2 below).
 
-All event times returned by the calendar API are in UTC. David is in CT (CDT = UTC-5 in
-summer, CST = UTC-6 in winter). Convert every `start` and `end` timestamp to CT before:
-- Assigning an event to a calendar day
-- Calculating when a busy block starts and ends
-- Identifying free windows between events
-- Checking whether a 3-hour gap exists within a target time range
+Example of what the skill is guarding against: `2026-05-22T23:30:00.000Z` naively read as
+23:30 local would misclassify a late-evening event as the next calendar day; correctly
+converted it's 6:30 PM CT on May 22.
 
-**Conversion rule:** Subtract 5 hours from UTC timestamps (CDT, roughly April–October). If the
-resulting time crosses midnight backward, the event belongs to the previous calendar day.
-
-Example: `2026-05-22T23:30:00.000Z` → subtract 5h → 6:30 PM CT on May 22 (not May 23).
-
-**Build a CT timeline for each day before analysis.** For each of Friday, Saturday, and Sunday:
-1. Collect all events whose CT start or end falls within that calendar day (midnight–11:59 PM CT)
-2. Sort by CT start time
+**Build a per-day CT timeline from the skill's `events` output.** For each of Friday, Saturday,
+and Sunday:
+1. Filter the returned `events` to those whose `start_ct`/`end_ct` fall within that calendar
+   day (midnight–11:59 PM CT)
+2. Sort by `start_ct`
 3. Map out busy blocks as CT time ranges: e.g., `[13:00–14:30, 16:00–17:00]`
 4. Identify free gaps between busy blocks within the target golf window (see per-day rules below)
 

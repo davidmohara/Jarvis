@@ -1,0 +1,113 @@
+{
+  "id": "eval-20260902T173435-WRD8EI",
+  "agent_id": "a7e28c24e232b3929",
+  "type": "agent",
+  "name": "general-purpose",
+  "workflow": null,
+  "agent": "general-purpose",
+  "session_id": "e9125881-739c-4141-ba2f-aa11b0bf2409",
+  "trigger": "unknown",
+  "started": "2026-09-02T17:34:35.074961Z",
+  "completed": "2026-09-02T17:40:17.414623Z",
+  "duration_seconds": 342.34,
+  "status": "success",
+  "steps": [
+    {
+      "name": "step-01-calculate-target-weekend.md",
+      "started": null,
+      "completed": null,
+      "duration_seconds": null,
+      "status": "not-started",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": "haiku",
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    },
+    {
+      "name": "step-02-calendar-conflict-check.md",
+      "started": null,
+      "completed": null,
+      "duration_seconds": null,
+      "status": "not-started",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": "haiku",
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    },
+    {
+      "name": "step-05-visual-verification.md",
+      "started": null,
+      "completed": null,
+      "duration_seconds": null,
+      "status": "not-started",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": "sonnet",
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    },
+    {
+      "name": "step-06-calendar-block.md",
+      "started": null,
+      "completed": null,
+      "duration_seconds": null,
+      "status": "not-started",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": "sonnet",
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    }
+  ],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/e9125881-739c-4141-ba2f-aa11b0bf2409/subagents/agent-a7e28c24e232b3929.jsonl",
+  "last_assistant_message": "Build complete. Files created and updated, held for review as requested (nothing committed or pushed).\n\n**New skills (agent-agnostic, no `.claude/skills/` stub needed \u2014 same pattern as `git`/`one-password`):**\n- `skills/visual-verification/SKILL.md` \u2014 HARD gate for screenshot sign-off: displays the image, requires an explicit approve/escalate decision (never silent pass-through on timeout), logs every decision to a JSONL record.\n- `skills/calendar-handler/SKILL.md` \u2014 single skill, `operation` param selects `conflict-check` / `date-calculate` / `event-create`, all against M365/Outlook. Centralizes the UTC\u2192CT conversion and event-create verification logic that used to live inline. `event-create` carries a `Plan-Only Mode` section since it's the one real side effect (still uses AppleScript/Calendar.app for the actual write, since the M365 MCP connector doesn't support create \u2014 noted explicitly in the skill so it isn't mistaken for a standards deviation).\n\n**Workflow steps updated (inline logic replaced with skill calls, workflow-specific detail preserved):**\n- `workflows/golf-preview/steps/step-01-calculate-target-weekend.md` \u2014 Friday calc now calls `calendar-handler` (`date-calculate`, `specific-day`, `min_days_out: 8`); Saturday/Sunday derivation and Quality Gate 1 kept inline as the workflow's own re-validation layer.\n- `workflows/golf-preview/steps/step-02-calendar-conflict-check.md` \u2014 calendar pull + UTC\u2192CT math now via `calendar-handler` (`conflict-check`); per-day rules and Quality Gate 2 unchanged.\n- `workflows/golf-booking/steps/step-05-visual-verification.md` \u2014 Gate 4 now driven by `visual-verification`'s approval/escalation decision; the old DOM check is kept as a supporting signal fed into `reference_context` rather than the sole judge.\n- `workflows/golf-booking/steps/step-06-calendar-block.md` \u2014 Gate 5 create+verify now via `calendar-handler` (`event-create`); fallback Slack text preserved, deduped against the skill's own `fallback_notified` flag.\n\n**Dependent files updated:** `skills/_manifest.jsonl`, `skills/_manifest-rigby.jsonl`, `skills/_index.md` (both skills registered, count bumped to 63). Tracked as `work-20260902-golf-calendar-visual-skills` in `evolutions/.pending-changes.json`.\n\n**Skipped per your explicit scope:** Steps 6-9 of the normal build process (eval authoring, paired test runs, iteration, description-tuning) \u2014 you asked to hold for review, not run the full pipeline. Flagged in the pending-changes `validation.note` as still outstanding before packaging.\n\nDeterministic grade for this build run:\n```\nStructure 2/2 passed\nDeterministic score: 100% -> PASS (gate >= 70%)\nTier 3 qualitative grade: pending (tonight's end-of-day sweep)\n```\n\nNothing was committed or pushed. Fairness check: not applicable (personal scheduling/infrastructure utilities, no differential treatment of people) \u2014 `fairness: {applicable: false}` is on both skills.",
+  "model": "sonnet",
+  "total_tokens_input": 3154807,
+  "total_tokens_output": 8819,
+  "total_cost_usd": 1.444075
+}

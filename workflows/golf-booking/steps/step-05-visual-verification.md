@@ -12,10 +12,12 @@ model: sonnet
 ## MANDATORY EXECUTION RULES
 
 1. **This step is non-negotiable.** Do not claim success until you navigate to the Bookings
-   page and visually confirm the booking is listed. Confirmation page appearance (Gate 3) is
-   not enough — the booking must be visible in the Bookings list.
-2. If verification fails, abort and send a critical alert to David. Do not proceed to
-   step-06 or step-07.
+   page and get an explicit, recorded approval or escalation decision through the
+   `visual-verification` skill. Confirmation page appearance (Gate 3) is not enough — the
+   booking must be visible in the Bookings list AND that visibility must go through the
+   skill's HARD gate, not an inline "looks fine" judgment.
+2. If verification fails or is escalated, abort and send a critical alert to David. Do not
+   proceed to step-06 or step-07.
 
 ---
 
@@ -40,13 +42,9 @@ window.location.href = \"https://www.chronogolf.com/dashboard/#/bookings\";
 
 Wait 3 seconds for the page to load.
 
-**Visually inspect the Bookings list** on screen. Look for:
-- The booked date (e.g., "Saturday, June 13")
-- The booked time (e.g., "1:00 PM")
-- Frisco Lakes Golf Club listed
-- 2 players shown (David + Susie O'Hara)
-
-Read the DOM to confirm the booking is present:
+Capture a screenshot of the Bookings list (Peekaboo skill or
+`mcp__Control_your_Mac__osascript`) and also read the DOM as a machine-checkable cross-signal
+before handing off to the verification skill:
 
 ```javascript
 osascript -e 'tell application "Google Chrome" to tell active tab of front window to execute javascript "
@@ -58,19 +56,43 @@ hasBooking ? \"BOOKING-VISIBLE-ON-PAGE\" : \"BOOKING-NOT-FOUND-ON-PAGE: \" + bod
 
 (Substitute `[booked_date]` / `[booked_month]` with the actual values captured in step-04.)
 
+### Call the visual-verification skill
+
+This is the HARD gate. Call `skills/visual-verification/SKILL.md` with:
+
+```yaml
+screenshot_path: "{{path to the Bookings-page screenshot just captured}}"
+reference_context: >
+  Confirm this booking matches: {{booked_date}} at {{booked_time}}, Frisco Lakes Golf Club,
+  2 players (David + Susie O'Hara). DOM cross-check returned: {{BOOKING-VISIBLE-ON-PAGE or
+  BOOKING-NOT-FOUND-ON-PAGE result from above}}.
+escalation_option: |
+  Send the "BOOKING VERIFICATION FAILED" Slack alert below via master-slack, then abort —
+  do not proceed to step-06 or step-07.
+caller: "golf-booking / step-05-visual-verification"
+```
+
+Do not substitute your own visual read of the screenshot for the skill's approval/escalation
+decision — the DOM check above is a supporting signal you feed into `reference_context`, not a
+replacement for running the skill.
+
 ---
 
 ## QUALITY GATE 4 — Visual Verification (HARD, BLOCKING, CRITICAL ESCALATION)
 
-**If result is `BOOKING-VISIBLE-ON-PAGE`:**
+**If the skill returns `approval: true`:**
 → Log `[Gate 4] PASS`. Booking confirmed. Proceed to step-06.
 
-**If result is `BOOKING-NOT-FOUND-ON-PAGE`:**
-→ **CRITICAL FAILURE.** The booking confirmation page appeared (Gate 3 passed), but the
-booking is NOT in the Bookings list. This indicates a UI state inconsistency, a session/network
-issue, or a ChronoGolf platform error.
+**If the skill returns `approval: false`:**
+→ **CRITICAL FAILURE.** Either the DOM cross-check came back `BOOKING-NOT-FOUND-ON-PAGE`, or
+the human reviewer rejected the screenshot, or no one was available to answer and the skill
+escalated by default (it never silently approves on a timeout). This indicates a UI state
+inconsistency, a session/network issue, or a ChronoGolf platform error.
 
-**Action:** Send Slack alert to David immediately:
+**Action:** The skill's `escalation_option` already ran the Slack alert below as part of its
+own process — confirm it went out, then treat this as a hard stop regardless. Do not send a
+second, different alert; if for some reason the skill's escalation path didn't fire (e.g. the
+skill itself failed rather than returning a decision), send it directly:
 ```
 *⛳ BOOKING VERIFICATION FAILED*
 
@@ -90,21 +112,21 @@ Do NOT assume the booking succeeded.
 
 Abort. Do not proceed to step-06 or step-07. Set `state.yaml` `status: verification-failed`.
 This is why Gate 3 and Gate 4 are separate gates rather than one: ChronoGolf's own UI can lie
-at the confirmation step, and only a second, independent check on the Bookings page catches
-that.
+at the confirmation step, and only a second, independent check — now enforced as a HARD gate
+by the `visual-verification` skill rather than an inline DOM check alone — catches that.
 
 ---
 
 ## SUCCESS METRICS
 
-- Gate 4 passes with an explicit `BOOKING-VISIBLE-ON-PAGE` result — never inferred from Gate 3
-  alone
+- Gate 4 passes with an explicit `approval: true` decision from `visual-verification` — never
+  inferred from Gate 3 or the DOM check alone
 
 ## FAILURE MODES
 
 | Failure | Action |
 |---------|--------|
-| `BOOKING-NOT-FOUND-ON-PAGE` | Critical Slack alert (above). Abort. `status: verification-failed`. Do not send a success notification anywhere else in the workflow. |
+| `visual-verification` returns `approval: false` (rejected or escalated) | Critical Slack alert (above, or confirm the skill's own escalation already sent it). Abort. `status: verification-failed`. Do not send a success notification anywhere else in the workflow. |
 
 ## NEXT STEP
 

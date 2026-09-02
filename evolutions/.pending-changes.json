@@ -2907,6 +2907,77 @@
         "description_optimized": false,
         "note": "Frontmatter/trigger phrases unchanged on all 5 rewritten skills, so description-tuning (Step 9) is not applicable. Eval authoring/execution (Steps 6-8) deferred pending executive sign-off on invocation prompts \u2014 recommend running before packaging this evolution."
       }
+    },
+    {
+      "id": "work-20260902-golf-calendar-visual-skills",
+      "description": "Built two new agent-agnostic, reusable skills and rewired the golf workflows to call them instead of inline logic. visual-verification (skills/visual-verification/SKILL.md): a HARD gate for critical human sign-off on a screenshot \u2014 displays it, requires an explicit approval or escalation decision (never a silent pass-through on timeout/no-answer), records the decision to a JSONL log. calendar-handler (skills/calendar-handler/SKILL.md): single skill, three operations selected via `operation` \u2014 conflict-check (M365 calendar pull + centralized UTC\u2192CT conversion + per-day CT timeline), date-calculate (next-weekend/current-weekend/specific-day offset math with min-days-out enforcement and self-validation), event-create (AppleScript against Calendar.app with mandatory post-create verification and a documented fallback-notify path; carries a Plan-Only Mode section since it's the one operation with a real side effect). Both are agent-agnostic (owning_agent: rigby, no .claude/skills stub) per the git/one-password/eval-signal-write pattern, since they're explicitly flagged reusable beyond golf. Updated 4 existing workflow step files to call the skills instead of the inline logic they used to carry, preserving all workflow-specific values (8-day booking-window min-days-out, Sunday/Friday-specific calendar rules, Frisco Lakes event details, the golf-booking Gate 4/Gate 5 escalation and fallback text) rather than dropping detail: workflows/golf-preview/steps/step-01-calculate-target-weekend.md (date math now via calendar-handler date-calculate, Saturday/Sunday derivation and Quality Gate 1 kept inline as the workflow's own re-validation layer), workflows/golf-preview/steps/step-02-calendar-conflict-check.md (calendar pull + UTC\u2192CT now via calendar-handler conflict-check, per-day rules and Quality Gate 2 kept inline), workflows/golf-booking/steps/step-05-visual-verification.md (DOM check kept as a supporting signal fed into visual-verification's reference_context, skill's approval/escalation decision now drives Gate 4), workflows/golf-booking/steps/step-06-calendar-block.md (AppleScript create+verify now via calendar-handler event-create, Gate 5 fallback-notify logic kept inline, deferring to the skill's own fallback_notified flag to avoid duplicate Slack alerts). Both skills registered in skills/_manifest.jsonl, skills/_manifest-rigby.jsonl, and skills/_index.md. Fairness: applicable: false on both (infrastructure/scheduling utilities against one user's own calendar, no differential treatment of people). Not committed or pushed per explicit instruction \u2014 held for review.",
+      "started": "2026-09-02T00:00:00Z",
+      "classification": "system",
+      "files": [
+        {
+          "path": "skills/visual-verification/SKILL.md",
+          "action": "add",
+          "type": "system",
+          "description": "New agent-agnostic HARD-gate skill for critical human sign-off on a screenshot"
+        },
+        {
+          "path": "skills/calendar-handler/SKILL.md",
+          "action": "add",
+          "type": "system",
+          "description": "New agent-agnostic skill: conflict-check, date-calculate, event-create against M365/Outlook (event-create via verified AppleScript/Calendar.app), with Plan-Only Mode for event-create"
+        },
+        {
+          "path": "workflows/golf-preview/steps/step-01-calculate-target-weekend.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Target-Friday date math now calls calendar-handler (operation: date-calculate) instead of inline weekday/min-days-out arithmetic"
+        },
+        {
+          "path": "workflows/golf-preview/steps/step-02-calendar-conflict-check.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Calendar pull and UTC\u2192CT conversion now call calendar-handler (operation: conflict-check) instead of inline mcp__b8c41a14__outlook_calendar_search call and manual conversion"
+        },
+        {
+          "path": "workflows/golf-booking/steps/step-05-visual-verification.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Gate 4 now calls the visual-verification skill for the approval/escalation decision instead of relying on the inline DOM check alone"
+        },
+        {
+          "path": "workflows/golf-booking/steps/step-06-calendar-block.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Gate 5 event creation and verification now call calendar-handler (operation: event-create) instead of inline AppleScript create/verify"
+        },
+        {
+          "path": "skills/_manifest.jsonl",
+          "action": "merge",
+          "type": "system",
+          "description": "Registered visual-verification and calendar-handler"
+        },
+        {
+          "path": "skills/_manifest-rigby.jsonl",
+          "action": "merge",
+          "type": "system",
+          "description": "Registered visual-verification and calendar-handler under rigby's owning-agent manifest"
+        },
+        {
+          "path": "skills/_index.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Added index rows for visual-verification and calendar-handler; bumped total skill count"
+        }
+      ],
+      "validation": {
+        "evals_run": false,
+        "eval_count": 0,
+        "iterations": 0,
+        "stopped_at_cap": false,
+        "final_pass_rate": null,
+        "description_optimized": false,
+        "note": "Build request explicitly asked to hold everything for review without committing or running the full validation pipeline. Steps 6-9 (eval authoring, test runs, description-tuning) deferred pending executive sign-off on invocation prompts and priorities \u2014 recommend running before packaging this evolution."
+      }
     }
   ]
 }

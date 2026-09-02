@@ -1,9 +1,11 @@
 # IES Skill Index
 
-Last updated: 2026-08-31 | Total skills: 61
+Last updated: 2026-09-02 | Total skills: 63
 
 | ID | Name | Owner | Model | Trigger Keywords (sample) |
 |----|------|-------|-------|---------------------------|
+| visual-verification | Visual Verification | rigby | sonnet | visual verification, manual approval, human sign-off |
+| calendar-handler | Calendar Handler | rigby | sonnet | conflict check, date calculate, calendar block, create event |
 | powerbi-navigate-slicer | PowerBI Navigate & Slicer Filter | rigby | sonnet | powerbi navigate, powerbi slicer, filter report |
 | powerbi-extract-kpis | PowerBI KPI & Table Extraction | rigby | sonnet | powerbi kpi, read kpi tile, extract report values |
 | vault-freshness-check | Vault Freshness Check | rigby | haiku | cache check, freshness check, stale cache |

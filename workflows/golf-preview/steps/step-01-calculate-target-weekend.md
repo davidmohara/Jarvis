@@ -14,6 +14,10 @@ model: haiku
 1. Never hardcode dates — always calculate the target weekend dynamically from the current date.
 2. Do not proceed to step-02 until every check in **QUALITY GATE 1** below has passed.
 3. Before executing, write `status: in-progress` and `started-at` to this file's frontmatter.
+4. Date math for the target Friday goes through the `calendar-handler` skill
+   (`skills/calendar-handler/SKILL.md`, `operation: date-calculate`) — do not re-derive the
+   weekday/min-days-out arithmetic inline. That skill is now the single source of this logic
+   across every workflow that needs "next occurrence of a weekday, at least N days out."
 
 ---
 
@@ -38,33 +42,40 @@ mcp__Desktop_Commander__start_process
 command: osascript -e 'do shell script "date \"+%Y-%m-%d %A\""'
 ```
 
-### Calculate the Target Friday
+### Calculate the Target Friday via calendar-handler
 
-The first Friday that is at least 8 days from today — this ensures the booking window (which
-opens at midnight 8 days before the target date) has not already passed.
+Call `skills/calendar-handler/SKILL.md`:
 
+```yaml
+operation: date-calculate
+calendar_backend: M365   # explicit per this workflow's convention; date-calculate does no
+                         # calendar lookup itself, so this has no behavioral effect today —
+                         # see calendar-handler's date-calculate backend note
+base_date: "{{today, from currentDate}}"
+offset_type: specific-day
+specific_day: "Friday"
+min_days_out: 8   # membership requires 8-day advance booking — the window opens at
+                  # midnight 8 days before the target date, so anything closer isn't
+                  # bookable yet
 ```
-days_until_friday = (4 - current_day_of_week) % 7
-if days_until_friday == 0:
-    days_until_friday = 7   # If today IS Friday, start from next Friday
-candidate_friday = today + days_until_friday
 
-# Enforce 8-day minimum — booking window must still be openable
-if candidate_friday < today + 8:
-    candidate_friday = candidate_friday + 7  # Skip to the following Friday
-```
+The skill returns `target_date`, `day_of_week`, and `days_from_base` — assign
+`target_date` to `target_friday`. The skill enforces the "at least 8 days out, skip to the
+following Friday if not" rule internally (see calendar-handler's `date-calculate` process,
+step 2, `next-weekend`/`specific-day` branch) and validates the result before returning it, so
+this step does not need to re-implement or re-check that arithmetic — Quality Gate 1 below
+still re-validates the *returned* dates as this workflow's own independent safety net, since a
+wrong date here is expensive downstream.
 
-Where day_of_week: Monday=0, Tuesday=1, Wednesday=2, Thursday=3, Friday=4, Saturday=5, Sunday=6.
+Worked examples of the min-days-out behavior (for reference, not re-implementation):
+- Run on Wednesday May 13: next Friday May 15 is 2 days away → too soon (< 8), skill returns May 22
+- Run on Saturday May 17: next Friday May 22 is 5 days away → too soon, skill returns May 29
+- Run on Thursday May 14: next Friday May 15 is 1 day away → too soon, skill returns May 22 (8 days out)
 
-Examples (membership requires 8-day advance booking):
-- Run on Wednesday May 13 (2): next Friday is May 15 = 2 days away → too soon (< 8), skip to May 22 ✓
-- Run on Tuesday May 12 (1): next Friday is May 15 = 3 days away → too soon, skip to May 22 ✓
-- Run on Saturday May 16 (5): next Friday is May 22 = 6 days away → too soon, skip to May 29 ✓
-- Run on Saturday May 17 (6): (4-6)%7=5, May 22 is 5 days away → too soon, skip to May 29 ✓
-- Run on Friday May 15 (4): days_until=7, candidate=May 22 = 7 days away → too soon (< 8), skip to May 29 ✓
-- Run on Thursday May 14 (3): next Friday May 15 = 1 day away → too soon, skip to May 22 = 8 days away ✓
+### Derive Saturday and Sunday
 
-Then:
+This is plain date arithmetic on the skill's returned `target_friday`, not calendar logic, so
+it stays inline:
 - **Target Saturday** = target_friday + 1
 - **Target Sunday** = target_friday + 2
 

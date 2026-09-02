@@ -11,13 +11,20 @@ model: sonnet
 
 ## MANDATORY EXECUTION RULES
 
-1. **CALENDAR EVENT CREATION MUST BE VERIFIED.** After executing the AppleScript to create a
-   calendar event on the Family calendar, ALWAYS verify the event actually exists before
-   proceeding. If verification fails, invoke the fallback protocol immediately — send Slack
-   notification to David with manual add instructions. Do NOT proceed to step-07 assuming the
-   calendar event was created if verification fails.
+1. **CALENDAR EVENT CREATION MUST BE VERIFIED.** This step now goes through the
+   `calendar-handler` skill's `event-create` operation, which creates the event and verifies
+   it before returning. If the skill reports the event as unverified or failed, invoke the
+   fallback protocol immediately — send Slack notification to David with manual add
+   instructions. Do NOT proceed to step-07 assuming the calendar event was created if
+   verification failed.
 2. Only execute this step after step-05 (Gate 4) confirms the booking is visible on the
    Bookings page.
+3. This step uses `calendar_backend: Calendar.app` (AppleScript against macOS Calendar.app),
+   not M365. As of 2026-09-02, live testing showed
+   `mcp__claude_ai_Microsoft_365__outlook_create_event` returns a `permission_error` ("This
+   tool is not available") in this environment, so the M365 write path in `calendar-handler` is
+   currently unverified here. Do not switch this step's `calendar_backend` to `M365` without
+   re-testing that the create tool is actually reachable first.
 
 ---
 
@@ -32,60 +39,67 @@ model: sonnet
 
 ## YOUR TASK
 
-### 6a — Create Event via AppleScript
+### 6a — Create Event via calendar-handler
 
-Do NOT use Outlook or the MS365 MCP — they do not support event creation.
+Call `skills/calendar-handler/SKILL.md`:
 
-```applescript
-tell application "Calendar"
-  tell calendar "Family"
-    set startDate to date "[booked_date_words] [booked_time - 30min]"
-    set endDate to date "[booked_date_words] [booked_time + 4.5hrs for 18 holes | + 2.5hrs for 9 holes]"
-    set newEvent to make new event with properties {summary:"⛳ Golf — Frisco Lakes", start date:startDate, end date:endDate, location:"Frisco Lakes Golf Club, 7170 Anthem Drive, Frisco TX 75034", description:"Tee time: [booked_time] · [booked_holes] holes · $[booked_cost] due at course · 2 players (David + Susie O'Hara) · Booking #[booking_number] · Arrive by [booked_time - 30min] for range warm-up."}
-  end tell
-end tell
+```yaml
+operation: event-create
+calendar_backend: Calendar.app   # explicit — known-working AppleScript path against macOS
+                                 # Calendar.app. The M365 write path exists in calendar-handler
+                                 # for future use, but as of 2026-09-02 the M365 create tool
+                                 # (mcp__claude_ai_Microsoft_365__outlook_create_event) returned
+                                 # a permission_error ("This tool is not available") in testing,
+                                 # so this step stays on Calendar.app until that's resolved.
+calendar_name: "Family"
+title: "⛳ Golf — Frisco Lakes"
+time:
+  start: "[booked_date_words] [booked_time - 30min]"
+  end: "[booked_date_words] [booked_time + 4.5hrs for 18 holes | + 2.5hrs for 9 holes]"
+participants: ["David O'Hara", "Susie O'Hara"]
+description: >
+  Tee time: [booked_time] · [booked_holes] holes · $[booked_cost] due at course ·
+  2 players (David + Susie O'Hara) · Booking #[booking_number] · Arrive by
+  [booked_time - 30min] for range warm-up.
 ```
 
-Run via `mcp__Desktop_Commander__start_process` with `osascript << 'EOF' ... EOF`.
+Location (`Frisco Lakes Golf Club, 7170 Anthem Drive, Frisco TX 75034`) is fixed for this
+workflow — pass it as part of `description`/`time` context if the skill's `event-create` input
+doesn't carry a separate `location` field by the time this runs, so it isn't dropped from the
+calendar entry.
 
-**Range time:** Calendar block starts 30 minutes BEFORE the tee time to cover warm-up.
+**Range time:** Calendar block starts 30 minutes BEFORE the tee time to cover warm-up — this is
+encoded in the `time.start` value above, not left to the skill to infer.
+
+With `calendar_backend: Calendar.app`, the skill creates the event via AppleScript against
+macOS Calendar.app and re-queries that calendar to verify it before returning `confirmation`.
+This path does not send M365 invites to `participants` — they're folded into the description
+text only (see calendar-handler's `event-create` process notes). If M365 write access is
+confirmed working later, switch this step to `calendar_backend: M365` to get real Outlook
+invites and re-test before changing the default.
 
 ---
 
 ## QUALITY GATE 5 — Calendar Event Verification (SOFT, FALLBACK-NOTIFIED)
 
-### 6b — Verify
+### 6b — Check the skill's result
 
-```applescript
-tell application "Calendar"
-  tell calendar "Family"
-    set eventCount to count of events
-    set lastEvent to the last event
-    set lastEventSummary to summary of lastEvent
-    set lastEventDate to start date of lastEvent
-    if lastEventSummary contains "⛳" and lastEventSummary contains "Frisco Lakes" then
-      "calendar-event-verified"
-    else
-      "calendar-event-not-found"
-    end if
-  end tell
-end tell
-```
+**If `confirmation: "created-and-verified"`:** Log `[Gate 5] PASS`. Proceed to step-07.
 
-Run this immediately after 6a.
-
-**If `"calendar-event-verified"`:** Log `[Gate 5] PASS`. Proceed to step-07.
-
-**If `"calendar-event-not-found"` OR AppleScript execution errors/times out:** Proceed to 6c.
-Do NOT assume success on an AppleScript timeout — that is not the same as a confirmed pass.
+**If `confirmation: "created-unverified"` or `"failed"`:** Proceed to 6c. Do NOT assume success
+on an AppleScript timeout inside the skill — that is not the same as a confirmed pass, and the
+skill itself does not treat it as one (`fallback_notified` will be `true` if the skill already
+attempted its own fallback notice — see 6c).
 
 ### 6c — Fallback
 
 This is a soft gate: the booking itself is already confirmed (Gate 4 passed), so a calendar
 failure does not undo that. But it must never be silently swallowed.
 
-1. Log the failure — record the osascript error details.
-2. Send Slack notification to David:
+1. Log the failure — record the error detail the skill returned.
+2. If the skill's `fallback_notified` came back `false` (it expects the caller to supply and
+   run the fallback path — see calendar-handler's error handling table), send Slack
+   notification to David directly:
    ```
    *⛳ Golf Booking Confirmed — Calendar Event Failed*
 
@@ -98,6 +112,8 @@ failure does not undo that. But it must never be silently swallowed.
    🏌️ Tee time: [booked_time] · [booked_holes] holes · $[booked_cost]
    👥 David + Susie O'Hara · Booking #[booking_number]
    ```
+   If `fallback_notified` is already `true`, confirm the notice went out rather than sending a
+   duplicate.
 3. Continue to step-07 — booking is still confirmed; just missing the calendar block.
 4. Note in `state.yaml`'s `accumulated-context`: `calendar_event_failed: true`.
 
@@ -105,15 +121,16 @@ failure does not undo that. But it must never be silently swallowed.
 
 ## SUCCESS METRICS
 
-- Either Gate 5 passes with a verified calendar event, or the fallback notification was sent
-  and `calendar_event_failed: true` is recorded — never a silent gap
+- Either Gate 5 passes with `confirmation: "created-and-verified"` from `calendar-handler`, or
+  the fallback notification was sent and `calendar_event_failed: true` is recorded — never a
+  silent gap
 
 ## FAILURE MODES
 
 | Failure | Action |
 |---------|--------|
-| AppleScript osascript timeout | Do NOT assume success. Proceed immediately to the 6b verification query. If verification still fails, invoke 6c fallback. |
-| Family calendar not available | Log error. Invoke 6c fallback. Do not try Outlook/MS365 — they do not support event creation. |
+| `calendar-handler` returns `confirmation: "created-unverified"` or times out internally | Do NOT assume success. Treat as 6b failure and proceed to 6c fallback. |
+| `calendar-handler` returns `confirmation: "failed"` (e.g. Family calendar not available in Calendar.app) | Log error. Invoke 6c fallback. Do not silently retry with `calendar_backend: M365` mid-run without a human decision — M365 create is currently unverified in this environment (see MANDATORY EXECUTION RULES note above) and a backend switch changes where the event lands and whether invites go out, so treat it as a deliberate choice, not an automatic retry. |
 
 ## NEXT STEP
 
