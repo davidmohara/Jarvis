@@ -21,7 +21,7 @@ tags:
 related_people: []
 salience:
   score: 0
-  last-promoted-check: 2026-09-01
+  last-promoted-check: 2026-09-02
 ---
 
 # Eval-Harness Hook Fix — August 21, 2026

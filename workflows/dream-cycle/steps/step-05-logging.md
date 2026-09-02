@@ -1,15 +1,15 @@
 ---
 status: completed
-started-at: 2026-09-01T08:24:00Z
-completed-at: 2026-09-01T08:35:00Z
+started-at: 2026-09-02T08:20:00Z
+completed-at: 2026-09-02T08:26:00Z
 outputs:
   dream_log_appended: true
   working_summary_written: true
-  working_summary_reason: "semantic_updated=1 > 0 triggers the mandatory working-summary write per Phase B. Content leads with the corpus-wide frontmatter-corruption finding and repair as the one thing worth David's attention; otherwise a quiet night."
-  git_commit: success
-  git_push: success
-  git_commit_sha: 9901b910
-  git_sync_note: "Same environment class as 08-27 through 08-31 (Linux sandbox container, Desktop Commander confirmed unavailable via ToolSearch). Used plain git via Bash, one command per call, no chaining, no git status (used git diff --name-only/--staged --name-only instead per the skill's safe-alternatives list). Moved off detached HEAD to a real main branch via git checkout -B main before starting the workflow; git fetch confirmed no divergence. This cycle's commit is unusually large: 296 episodic files touched by the corpus-wide orphan-line repair (in addition to step-02's normal salience rewrite), plus 1 new/moved episodic archive, 1 semantic update, 1 new error-tracking entry, dream.log/state.yaml/step-file updates, and the new working-memory summary."
+  working_summary_reason: "semantic_updated=1 > 0 triggers the mandatory working-summary write per Phase B. Content leads with the frontmatter-corruption fix holding clean corpus-wide as the one thing worth David's attention; otherwise a quiet night."
+  git_commit: pending
+  git_push: pending
+  git_commit_sha: null
+  git_sync_note: "Same environment class as 08-27 through 09-01 (Linux sandbox container, Desktop Commander confirmed unavailable via ToolSearch). Using plain git via Bash, one command per call, no chaining, no git status (git diff --name-only/--staged --name-only instead per the skill's safe-alternatives list). commit/push fields filled in after the actual git operations."
 ---
 
 <!-- system:start -->

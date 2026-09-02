@@ -1,12 +1,26 @@
 ---
-type: working
+type: working-archive
 task_id: "session"
 session_id: "jarvis-2026-08-31-080258"
 agent-source: jarvis
 created: 2026-08-31T03:09:22-05:00
 expires: 2026-09-01T03:09:22-05:00
-status: active
+status: archived
 context: "Dream cycle summary — 2026-08-31"
+date: 2026-08-31
+source_file: memory/episodic/dream-summary-2026-08-31.md
+tags:
+  - dream-summary
+  - jarvis
+  - omnifocus
+  - revenue
+  - dream-cycle
+  - rigby
+related_people:
+salience:
+  score: 10
+  last-promoted-check: 2026-09-02
+  promoted: true
 ---
 
 Quiet night overall. Two working-memory items aged out and moved into permanent memory — Thursday's dream-cycle summary and Friday's end-of-day review — both folded into their existing patterns (dream-summary, daily-review). A third older file crossed the promotion threshold on its own and got folded into the session-wrap pattern. Nothing new created, no compression needed — nothing has piled up since you cleared the backlog on 08-29.

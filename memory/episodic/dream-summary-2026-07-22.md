@@ -17,7 +17,7 @@ source_file: memory/working/dream-summary-2026-07-22.md
 related_people: []
 salience:
   score: 10
-  last-promoted-check: 2026-09-01
+  last-promoted-check: 2026-09-02
   promoted: true
 ---
 

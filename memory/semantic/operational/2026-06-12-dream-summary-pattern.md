@@ -3,9 +3,9 @@ type: semantic
 domain: operational
 primary-tag: dream-summary
 created: 2026-06-12
-last-updated: 2026-09-01
+last-updated: 2026-09-02
 confidence: high
-synthesized-from: 24
+synthesized-from: 25
   - dream-summary-2026-05-25.md
   - dream-summary-2026-05-31.md
   - dream-summary-2026-05-20.md
@@ -106,6 +106,7 @@ synthesized-from:
   - memory/episodic/dream-summary-2026-08-28.md
   - memory/episodic/dream-summary-2026-08-29.md
   - memory/episodic/dream-summary-2026-08-30.md
+  - memory/episodic/dream-summary-2026-08-31.md
 ---
 # Pattern: Dream Summary
 
@@ -331,3 +332,9 @@ Sources this cycle:
 - `memory/episodic/dream-summary-2026-08-30.md` (score 10) — clean overnight run, one working-memory archive, zero compression candidates.
 
 This cycle's real news lives in the scoring step, not this cluster: a full corpus scan of all 296 episodic files (triggered by re-checking the 08-31 corruption note) found the salience-score.py stranding bug (APAWBB → NBGENM → J571BH → 284VH8) had actually corrupted 100% of the corpus — 7,842 orphan lines total, not the 1-3 files/cycle this cluster had been tracking. Every file that has ever been scored carries at least one stranded line, growing by one per file per night. Ran a corpus-wide data repair this cycle (memory/ files only, not the script) that stripped all 7,842 orphan lines and healed 3 files where an orphan `promoted: true` would otherwise have been lost. yaml.safe_load() now parses all 296 files cleanly for the first time since the bug began. Logged err-20260901T081243-R58BYW with the exact regex fix, still unapplied to systems/dream-cycle/salience-score.py itself. Carry-forward triad (Q3 rocks, nerve block, delegation tracker, South Texas revenue gap) remains unresolved, now spanning 2026-08-25 through 2026-09-01 with zero movement.
+
+### 2026-09-02 — Nightly promotion
+Sources this cycle:
+- `memory/episodic/dream-summary-2026-08-31.md` (score 10) — clean overnight run, one working-memory archive, zero compression candidates.
+
+Closing the thread this cluster has tracked every night since 08-25: Rigby applied err-20260901T081243-R58BYW's fix to `systems/dream-cycle/salience-score.py` on 2026-09-01 (commit bb2de90) — both the trailing-newline slicing bug in `update_salience_block()` and the first-match-instead-of-last-match bug in `parse_frontmatter()`'s promoted-detection. Verified independently this cycle: a corpus-wide scan for the corruption signature (duplicate `salience:` keys or stray top-level `promoted:` lines) across all 298 episodic files found zero, and tonight's own step-02 write to this file (and all 296 others) produced a clean single `salience:` block with no hand-repair needed. This is the first dream-cycle run since 08-25 with nothing to report on this bug family — a real fix landed, not another workaround. Carry-forward triad (Q3 rocks, nerve block, delegation tracker, South Texas revenue gap) remains unresolved, now spanning 2026-08-25 through 2026-09-02 with zero movement — the longest-running open thread in this cluster's evidence is now the triad itself, not the scoring-script bug.

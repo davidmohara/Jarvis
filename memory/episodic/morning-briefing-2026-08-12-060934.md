@@ -15,7 +15,7 @@ tags:
 related_people: []
 salience:
   score: 0
-  last-promoted-check: 2026-09-01
+  last-promoted-check: 2026-09-02
 ---
 # Morning Briefing — Wednesday, August 12, 2026
 

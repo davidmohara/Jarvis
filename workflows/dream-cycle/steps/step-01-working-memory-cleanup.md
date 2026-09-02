@@ -1,19 +1,19 @@
 ---
 status: complete
-started-at: 2026-09-01T08:03:26Z
-completed-at: 2026-09-01T08:08:10Z
+started-at: 2026-09-02T08:03:23Z
+completed-at: 2026-09-02T08:08:00Z
 outputs:
   working_archived: 1
   working_deleted: 0
-  working_skipped: 36
+  working_skipped: 38
   working_stranded: 0
-  enrichment_method: "heuristic (systems/dream-cycle/backfill-episodic-tags.py derive_date/derive_tags/derive_people) — claude -p hung/unusable in this container this cycle (backgrounded test call did not return within 120s, killed); fell back to heuristic per FAILURE MODES precedent"
+  enrichment_method: "heuristic (systems/dream-cycle/backfill-episodic-tags.py derive_date/derive_tags/derive_people) — claude -p timed out/unresponsive in this container (15s test call did not return); fell back to heuristic per FAILURE MODES precedent"
   archived_files:
-    - dream-summary-2026-08-30.md
+    - dream-summary-2026-08-31.md
   skipped_not_expired:
     - co-sell-pipeline-2026-08-31-001500.md
     - co-sell-pipeline-2026-08-31-150200.md
-    - dream-summary-2026-08-31.md
+    - dream-summary-2026-09-01.md
     - knox-plaud-ingest-2026-08-31.md
     - revenue-tracker-2026-08-31-090524.md
     - shutdown-cleanup-2026-08-31-222924.md
@@ -25,8 +25,10 @@ outputs:
     - 2026-08-11-plaud-ingest-correction.md
     - 2026-08-12-graph-memory-spec-working.md
     - 2026-08-24-shep-robyn-fuentes-1on1-prep.md
+    - CORRECTION-20260828-GOLF-BOOKING-ERR.md
     - golf-booking-2026-07-10-failed.md
     - golf-booking-2026-07-11-followup.md
+    - golf-booking-20260828-5oc5m.md
     - golf-booking-COMPLETE-20260801.md
     - golf-booking-blocker-20260820.md
     - golf-booking-early-run-20260730.md
@@ -48,7 +50,10 @@ outputs:
     - sc-executive-brief-2026-07-13.md
     - slack-notification-golf-booking-20260801.txt
     - solace-meeting-prep-2026-07-27.md
-  new_unparseable_this_cycle: []
+  new_unparseable_this_cycle:
+    - CORRECTION-20260828-GOLF-BOOKING-ERR.md
+    - golf-booking-20260828-5oc5m.md
+  self_caught_bug_note: "Enriching dream-summary-2026-08-31.md by appending 'type: working-archive' after the existing 'type: working' line would have created a duplicate top-level 'type:' key -- the same corruption class (a second value for one key stranded in frontmatter) this system spent 8 cycles fighting on the salience: block. Caught before the mv and fixed by replacing the original line instead of appending a second one."
 ---
 
 <!-- system:start -->

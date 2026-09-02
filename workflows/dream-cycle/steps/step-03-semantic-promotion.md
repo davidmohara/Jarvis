@@ -1,21 +1,22 @@
 ---
 status: complete
-started-at: 2026-09-01T08:15:00Z
-completed-at: 2026-09-01T08:22:00Z
+started-at: 2026-09-02T08:12:00Z
+completed-at: 2026-09-02T08:18:00Z
 outputs:
   candidates_count: 1
   clusters_found: 1
   semantic_created: 0
   semantic_updated: 1
   promoted_entries: 1
-  promotion_note: "1 candidate this cycle: dream-summary-2026-08-30.md (score 10, today's own step-01 archive). Detected post-repair via score>=3 AND no 'promoted: true' in the (now clean) salience: block -- the corpus-wide repair earlier this cycle means the full-frontmatter-scan workaround is no longer strictly necessary, but the check still only looked at the trailing salience: block per the repair's own guarantee. Clustered by dominant tag: dream-summary -> memory/semantic/operational/2026-06-12-dream-summary-pattern.md (existing file, appended). Zero new semantic files created. No frontmatter-stranding bug on this write since the corpus repair ran before this step."
+  promotion_note: "1 candidate this cycle: dream-summary-2026-08-31.md (score 10, today's own step-01 archive). Clustered by dominant tag: dream-summary -> memory/semantic/operational/2026-06-12-dream-summary-pattern.md (existing file, appended). Zero new semantic files created. No frontmatter corruption on this write -- the fix from err-20260901T081243-R58BYW (commit bb2de90) held."
   cluster_actions:
     - {tag: dream-summary, domain: operational, size: 1, action: update, target: memory/semantic/operational/2026-06-12-dream-summary-pattern.md, confidence: "high (unchanged)"}
-  error_categories_30d: "assumption-error/wrong-assumption:8, tool-misuse/protocol-skip:7, process-skip/protocol-skip:7, missed-context/lazy-search:4, tool-misuse/pattern-mismatch:4, tool-misuse/wrong-assumption:3, tool-misuse/tool-ignorance:3, data-accuracy/stale-cache:3, lazy-search/available-data-not-used:3, data-accuracy/pattern-mismatch:3"
-  error_total_30d: 88
+  error_categories_30d: "assumption-error/wrong-assumption:8, tool-misuse/protocol-skip:7, process-skip/protocol-skip:7, missed-context/lazy-search:4, tool-misuse/pattern-mismatch:4, data-accuracy/stale-cache:3, data-accuracy/pattern-mismatch:3, tool-misuse/tool-ignorance:3, lazy-search/available-data-not-used:3, tool-misuse/wrong-assumption:3"
+  error_total_30d: 93
   error_malformed_30d: 4
   lessons_appended: 0
-  lessons_note: "All 9 distinct qualifying categories already documented and active in LESSONS.md. data-accuracy/pattern-mismatch (3, this cycle's own err-20260901T081243-R58BYW plus 2 prior) is a mis-categorized recurrence of the already-documented tool-misuse/pattern-mismatch entry (2026-08-28, same salience-score.py bug family) -- treated as covered, not a new pattern, no separate entry appended."
+  lessons_note: "All 10 distinct qualifying categories already documented and active in LESSONS.md. data-accuracy/pattern-mismatch is a mis-categorized recurrence of the already-documented tool-misuse/pattern-mismatch entry (2026-08-28, same salience-score.py bug family, now resolved) -- treated as covered, not a new pattern, no separate entry appended."
+  resolution_note: "err-20260901T081243-R58BYW's fix_status was already 'resolved' in the error log (Rigby applied it 2026-09-01, commit bb2de90) -- confirmed rather than re-flagged. No new error entry needed."
 ---
 
 <!-- system:start -->

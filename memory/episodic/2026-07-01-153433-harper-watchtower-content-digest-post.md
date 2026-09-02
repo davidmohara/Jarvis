@@ -23,7 +23,7 @@ related_people:
 - david-ohara
 salience:
   score: 0
-  last-promoted-check: 2026-09-01
+  last-promoted-check: 2026-09-02
   promoted: true
 ---
 
