@@ -1,0 +1,70 @@
+{
+  "id": "eval-20260902T081250-YO72MI",
+  "type": "skill",
+  "name": "dream-cycle",
+  "agent": "knox",
+  "session_id": "b4c686d2-0a6c-5258-8b97-0035aba83486",
+  "trigger": "manual",
+  "started": "2026-09-02T08:03:23Z",
+  "completed": "2026-09-02T08:12:50.568579Z",
+  "duration_seconds": 567.6,
+  "status": "success",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": true,
+      "outputs_non_empty": false,
+      "assertions_checked": 5,
+      "assertions_passed": 2,
+      "assertion_results": [
+        {
+          "assertion": "dream-001-state-complete",
+          "description": "Dream cycle workflow state.yaml shows status: complete",
+          "passed": true
+        },
+        {
+          "assertion": "dream-002-working-memory-written",
+          "description": "Dream cycle wrote output to working memory",
+          "passed": true
+        },
+        {
+          "assertion": "dream-cy-002-substantive",
+          "description": "dream-cycle output is substantive (>200 bytes)",
+          "passed": false
+        },
+        {
+          "assertion": "dream-cy-003-content",
+          "description": "dream-cycle output contains expected content",
+          "passed": false
+        },
+        {
+          "assertion": "dream-004-guardrail-checkpoint-ran",
+          "description": "step-03b's guardrail checkpoint recorded a result (pass/flag/escalate) before step-04's irreversible deletion \u2014 read from the eval record's own guardrails array, not self-reported by the workflow",
+          "passed": false
+        }
+      ]
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    }
+  },
+  "version_hash": "51c97a32351fa10a",
+  "prior_baseline_id": null,
+  "tags": [
+    "cowork-hook",
+    "skill"
+  ]
+}
