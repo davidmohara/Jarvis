@@ -1,7 +1,7 @@
 workflow: content-pipeline
 status: complete
-started-at: 2026-09-02T06:07:00Z
-completed-at: 2026-09-02T06:08:00Z
+started-at: 2026-09-02T21:46:00Z
+completed-at: 2026-09-02T21:47:00Z
 outputs:
   messages_scanned: 3
   new_urls: 0
@@ -9,7 +9,7 @@ outputs:
   posts_drafted: 0
   improving_blog_drafts: 0
   editorial_feedback: 0
-  pending_threads_checked: 15
-  outcome: "No new content in #content in last 24 hours. All 3 messages were bot notifications from yesterday's run (SKIPped). 15 pending draft threads scanned — no new editorial feedback. Pipeline idle."
+  pending_threads_checked: 19
+  outcome: "No new content in #content in last 24h (extended to 48h — 3 messages were bot notifications from prior run, all SKIPped). 19 pending draft threads scanned — no new editorial feedback. Pipeline idle."
 model: sonnet
 current-step: null
