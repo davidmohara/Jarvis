@@ -704,3 +704,12 @@ guardrails:
     push_status: "success"
     atomicity_check: "pass"
     note: "Same environment class as 08-27 through 09-01: Linux sandbox container (Claude Code / Agent SDK), Desktop Commander not a matching tool via ToolSearch. Used Bash directly for all git operations, one atomic command per call, no chaining, no 'git status'. Session started in detached HEAD at origin/main's tip (3f85b64) -- fetched origin/main (confirmed no divergence, it had just been updated to the same commit), committed there, then moved to a real 'main' branch via 'git checkout -B main' before pushing. Push was a clean fast-forward (3f85b64..52f1ee8). Post-push git diff --name-only HEAD confirmed no uncommitted changes remain."
+  git_atomicity_2026_09_03:
+    pre_commit_check: "pass"
+    dream_log_valid: true
+    state_file_valid: true
+    commit_status: "success"
+    commit_sha: "c8a1146"
+    push_status: "success"
+    atomicity_check: "pass"
+    note: "Same environment class as 08-27 through 09-02: Linux sandbox container (Claude Code / Agent SDK), Desktop Commander not a matching tool via ToolSearch. Used Bash directly for all git operations, one atomic command per call, no chaining, no 'git status' (used git diff --name-only / --staged --name-only and git ls-files --others --exclude-standard instead). Session started in detached HEAD at origin/main's tip (002ed29) -- fetched origin/main (confirmed no divergence), moved to a real 'main' branch via 'git checkout -B main' before committing. Push was a clean fast-forward (002ed29..c8a1146, 319 files changed -- git auto-detected all 5 working->episodic moves as renames). Post-push diff and untracked-file checks both confirmed clean."
