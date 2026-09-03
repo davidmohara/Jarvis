@@ -1,7 +1,7 @@
 ---
 status: complete
-started-at: 2026-09-02T08:19:00Z
-completed-at: 2026-09-02T08:20:00Z
+started-at: 2026-09-03T08:25:00Z
+completed-at: 2026-09-03T08:26:00Z
 outputs:
   candidates_count: 0
   entries_compressed: 0

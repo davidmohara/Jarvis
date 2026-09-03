@@ -1,13 +1,13 @@
 {
-  "id": "eval-20260902T081106-760F1H",
+  "id": "eval-20260903T081233-OZES3F",
   "type": "workflow",
   "name": "dream-cycle",
   "agent": "jarvis",
-  "session_id": "b4c686d2-0a6c-5258-8b97-0035aba83486",
-  "trigger": "manual",
-  "started": "2026-09-02T08:03:23Z",
-  "completed": "2026-09-02T08:11:06.524259Z",
-  "duration_seconds": 463.5,
+  "session_id": "133d9283-5a55-56a6-84c1-3077b1a63587",
+  "trigger": "scheduled",
+  "started": "2026-09-03T08:03:11Z",
+  "completed": "2026-09-03T08:12:33.283923Z",
+  "duration_seconds": 562.3,
   "status": "success",
   "steps": [],
   "assessment": {
@@ -26,29 +26,48 @@
         {
           "assertion": "dream-001-state-complete",
           "description": "Dream cycle workflow state.yaml shows status: complete",
+          "category": "structure",
           "passed": true
         },
         {
           "assertion": "dream-002-working-memory-written",
           "description": "Dream cycle wrote output to working memory",
+          "category": "structure",
           "passed": true
         },
         {
           "assertion": "dream-cy-002-substantive",
           "description": "dream-cycle output is substantive (>200 bytes)",
+          "category": "structure",
           "passed": false
         },
         {
           "assertion": "dream-cy-003-content",
           "description": "dream-cycle output contains expected content",
+          "category": "structure",
           "passed": false
         },
         {
           "assertion": "dream-004-guardrail-checkpoint-ran",
           "description": "step-03b's guardrail checkpoint recorded a result (pass/flag/escalate) before step-04's irreversible deletion \u2014 read from the eval record's own guardrails array, not self-reported by the workflow",
+          "category": "structure",
           "passed": false
         }
-      ]
+      ],
+      "category_breakdown": {
+        "structure": {
+          "passed": 2,
+          "checked": 5
+        },
+        "content": {
+          "passed": 0,
+          "checked": 0
+        },
+        "quality": {
+          "passed": 0,
+          "checked": 0
+        }
+      }
     },
     "grading": {
       "last_graded": null,
@@ -66,15 +85,5 @@
   "tags": [
     "phantom-candidate",
     "cowork-hook"
-  ],
-  "guardrails": [
-    {
-      "name": "pre-deletion-review",
-      "after_step": "step-03-semantic-promotion",
-      "result": "pass",
-      "reason": "5 promoted entries all today's own fresh step-01 archives correctly excluded from any future candidate set via promoted:true; volume jump (5 vs usual 1) fully explained by an equal-sized working-memory backlog clear from an unusually busy 08-31 session, not a scoring anomaly; all 5 semantic writes were substantive dated evidence/narrative appends, not stubs.",
-      "escalated_to_human": false,
-      "timestamp": "2026-09-03T08:11:14.727984+00:00"
-    }
   ]
 }

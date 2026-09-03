@@ -1,12 +1,28 @@
 ---
-type: working
+type: working-archive
 task_id: "session"
 session_id: "jarvis-2026-09-01-080326"
 agent-source: jarvis
 created: 2026-09-01T03:17:03-05:00
 expires: 2026-09-02T03:17:03-05:00
-status: active
+status: archived
 context: "Dream cycle summary — 2026-09-01"
+date: 2026-09-01
+source_file: memory/episodic/dream-summary-2026-09-01.md
+tags:
+  - dream-summary
+  - jarvis
+  - dream-cycle
+  - system-maintenance
+  - memory-system
+  - error-patterns
+  - quarterly-rocks
+  - revenue
+related_people:
+salience:
+  score: 10
+  last-promoted-check: 2026-09-03
+  promoted: true
 ---
 
 Quiet on the surface, but tonight's real finding is about the system's own memory, not your day.

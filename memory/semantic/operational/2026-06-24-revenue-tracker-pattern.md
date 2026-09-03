@@ -9,7 +9,7 @@ synthesized-from:
   - memory/episodic/revenue-tracker-2026-08-10-001500.md
   - memory/episodic/revenue-tracker-2026-07-27-001532.md
   - memory/episodic/revenue-tracker-2026-08-24-002000.md
-last-updated: 2026-08-27
+last-updated: 2026-09-03
 tags:
   - revenue-tracker
 agent-source: dream-cycle
@@ -50,3 +50,9 @@ Sources this cycle:
 - `memory/episodic/revenue-tracker-2026-07-27-001532.md` (score 3) — first-time threshold crossing on 30-day salience window drift, not a new episodic entry this cycle.
 
 South Texas's miss has plateaued rather than worsened between Aug 10 and Aug 24 (same -24%/-22%/82% figures both snapshots) — the first sign this pattern has shown of the decline leveling off rather than accelerating. Held confidence at medium (unchanged); a plateau after one sharp drop isn't yet enough evidence to call a trend reversal.
+
+### 2026-09-03 — Nightly promotion
+Sources this cycle:
+- `memory/episodic/revenue-tracker-2026-08-31-090524.md` (score 8) — tags: rock-review, chase, revenue, rock1, one-texas, pipeline, scorecard (LLM enrichment this cycle chose "rock-review" over the corpus's usual "revenue-tracker" tag; filed here by content match — filename and body are an unambiguous Rock 1 revenue-tracker snapshot). Aug 31 run: partial execution, fallback to cached data (live PowerBI filter interface unresponsive). South Texas -24%/-22% vs. target/prior-year (double miss), 90-day forecast 82%. Dallas +3%/+15%, 96% 90-day, cannot offset South Texas. One Texas -10.5%/-3.5%, July monthly $6.07M. Cache from 2026-08-10 (21 days old, 1 day outside freshness window) — same figures as the Aug 10 and Aug 24 snapshots already in this pattern's evidence, confirming the South Texas plateau noted 08-27 held through end of August with no fresh live data to confirm or refute it.
+
+Three consecutive snapshots (Aug 10, Aug 24, Aug 31) now show the identical South Texas figures, but the Aug 31 entry is explicitly cache-derived (PowerBI filter interface failure), not a fresh confirmation — this pattern cannot yet distinguish "genuinely plateaued" from "no live data collected in 3 weeks." Held confidence at medium; the next entry sourced from a live pull (not a fallback) is the meaningful signal to watch for.

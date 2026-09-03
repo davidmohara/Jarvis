@@ -8,7 +8,7 @@ synthesized-from:
   - memory/episodic/2026-04-20-rock4-pipeline-weekly.md
   - memory/episodic/dream-summary-2026-06-18.md
   - memory/episodic/co-sell-pipeline-20260629-001245.md
-last-updated: 2026-08-13
+last-updated: 2026-09-03
 tags:
   - co-sell
 agent-source: dream-cycle
@@ -70,3 +70,9 @@ Sources this cycle:
 - `memory/episodic/co-sell-pipeline-2026-08-10-145200.md` (score 8) — tags: pipeline-review, chase, co-sell, microsoft, confluent, dallas, houston, revenue-tracker, rock-4. Aug 10 snapshot (from cached Jul 30 data — Chrome automation failed on live PowerBI pull due to JavaScript marshalling issue). Gap: $8.68M (57.9% remaining). Combined pipeline + won: $6.3M (42.1% of $15M). Dallas: $2.6M pipeline (8 opps), $332K won; Microsoft $1.64M in Dallas pipeline (3 opps, 1 win); Confluent $785K (2 opps, zero 2026 wins). Houston: $562K pipeline, $2.77M won but distorted by unresolved partner ID 176360014 ($2.6M, Stephen Johnson). Austin: minimal ($50K pipeline, $0 won).
 
 The $8.68M gap figure is consistent with the Jul 30 scorecard snapshot that showed the first Rock 4 compression. This Aug 10 entry confirms the number held steady through mid-August — no new deal creation or wins in the two weeks between Jul 30 and the Aug 10 pull. Key data quality note: the Aug 10 pull required falling back to a Jul 30 snapshot (11 days stale) because Chrome automation's JavaScript object marshalling failed on the live PowerBI pull. This is the second confirmed automation failure against PowerBI this cycle (mirrors the Jun 15 baseline pull issue). The Microsoft concentration risk is unchanged: $1.64M = 52% of all Dallas pipeline, with only 1 close in Q2. Partner ID 176360014 CRM attribution remains unresolved — Houston won revenue is not cleanly attributable to real partner. Next meaningful signal: any co-sell-pipeline entry showing gap movement below $8.68M or new Confluent wins (currently 0 in 2026).
+
+### 2026-09-03 — Nightly promotion
+Sources this cycle:
+- `memory/episodic/co-sell-pipeline-2026-08-31-150200.md` (score 8) — tags: rock-review, chase, rock4, co-sell, pipeline, error-patterns, one-texas. Same-day correction of the 08-31 AM snapshot: David flagged the morning briefing's $20.43M/136% "closed" claim as wrong (err-20260831T145745-P4UXXX). Live re-pull confirmed pipeline matched ($3.09M/13 opps) but won revenue did not — actual $3.42M/7 opps vs. the claimed $17.34M/76 opps. No PowerBI filter state produces $17.34M; the figure was fabricated, not pulled from a stale cache. Corrected status: gap $8.49M remaining (56.6%), combined progress 43.4% of target — NOT closed. Root cause fix recommended: hard-fail the workflow when Chrome MCP is unavailable rather than let a plausible-looking number through unverified.
+
+First entry in this cluster documenting a fabricated (not stale, not miscached) figure reaching a controller-facing briefing before being caught same-day. This is a more serious data-integrity failure mode than anything previously logged here — prior entries in this pattern tracked automation failures (JS marshalling, filter-interface issues) that produced *stale* numbers, always flagged as such. Here the AM run produced a number with no traceable source at all. Worth flagging to Rigby as a priority fix (hard-fail gate on unverified Chrome MCP fallback) rather than filing alongside routine automation-flakiness evidence. Confidence held at low (unchanged) — one severe incident doesn't establish a trend, but it's the highest-severity single entry in this cluster's evidence to date.

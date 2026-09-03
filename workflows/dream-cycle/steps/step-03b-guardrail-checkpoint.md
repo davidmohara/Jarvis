@@ -1,7 +1,7 @@
 ---
 status: complete
-started-at: 2026-09-02T08:18:00Z
-completed-at: 2026-09-02T08:19:00Z
+started-at: 2026-09-03T08:24:00Z
+completed-at: 2026-09-03T08:25:00Z
 outputs:
   result: pass
   reason: "0 compression candidates this cycle -- consistent with 08-29 through 09-01 (nothing has re-accumulated since the 08-29 approved batch). The 1 promoted entry (dream-summary-2026-08-31.md) correctly excluded via promoted:true. Step-03's write to dream-summary-pattern.md was a substantive dated evidence/implications append, not a stub. Recorded via systems/eval-harness/guardrail-checkpoint.py (silent no-op since no in-progress dream-cycle eval record exists to attach to -- not blocking)."

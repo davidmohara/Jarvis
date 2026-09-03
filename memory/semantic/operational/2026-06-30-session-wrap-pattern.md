@@ -4,7 +4,7 @@ domain: operational
 subject: "Pattern around session-wrap"
 synthesized-from:
   - memory/episodic/shutdown-cleanup-2026-06-16-071444.md
-last-updated: 2026-08-31
+last-updated: 2026-09-03
 tags:
   - calendar
   - co-sell
@@ -78,3 +78,9 @@ Sources this cycle:
 - `memory/episodic/shutdown-cleanup-2026-08-07-162834.md` (score 3) — routine cleanup: purged stray .DS_Store files, verified Everbridge proposal relocation, committed 134 files including 7 new account-pursuit dashboards (7-Eleven, Expedia, Marriott, McKesson, ORIX, PriceSmart, Texas Instruments) and removal of a long-overdue stale archive batch (43 files). Correctly recognized execution-output frontmatter changes in workflows/plaud-ingest/ as not triggering the Rigby skill/workflow-authoring gate.
 
 This source crossed the promotion threshold via 30-day window drift rather than being freshly archived this cycle — the file itself was also found carrying 12 stacked duplicate orphaned `last-promoted-check:` lines (one added per nightly run from 08-10 through 08-30), the worst live instance yet of the salience-score.py corruption bug this system has tracked since 08-25 (see dream-summary-pattern.md and err-20260831T080618-284VH8). Hand-repaired before promotion. Confidence held at medium (8th dated evidence entry, same rate as prior cycles — no basis yet for escalation to high).
+
+### 2026-09-03 — Nightly promotion
+Sources this cycle:
+- `memory/episodic/shutdown-cleanup-2026-08-31-222924.md` (score 7) — tags: session-wrap, chief, system-maintenance, git-sync, one-texas, boot. Aug 31 shutdown: purged 7 temp artifacts (3 `.DS_Store`, 4 `__pycache__`); root-check flagged an untracked "2026-08 - One Texas Update.pptx" — genuinely novel, not covered by state.yaml precedent, so paused mid-workflow to surface it rather than guess. David resolved directly (moved to OneDrive, renamed to avoid a same-day filename collision). Committed 77 files (watchtower/standing metrics, Rigby plaud dedup fixes, new skill scaffolds, boot/eval-harness/error-tracking records).
+
+Ninth dated evidence entry, and continues the established pattern most clearly: an ambiguous cleanup decision (an untracked deliverable with no existing routing precedent) escalated to the controller rather than resolved unilaterally, consistent with the 08-27 entry's `drafts/` directory handling. Confidence held at medium — the escalate-when-ambiguous behavior is now well-evidenced but hasn't produced a new *type* of finding since 08-30.

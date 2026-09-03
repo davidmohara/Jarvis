@@ -1,7 +1,7 @@
 ---
 status: complete
-started-at: 2026-09-02T08:12:00Z
-completed-at: 2026-09-02T08:18:00Z
+started-at: 2026-09-03T08:14:00Z
+completed-at: 2026-09-03T08:24:00Z
 outputs:
   candidates_count: 1
   clusters_found: 1

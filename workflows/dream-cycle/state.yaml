@@ -1,12 +1,67 @@
 workflow: dream-cycle
 agent: jarvis
 status: complete
-session-started: 2026-09-02T08:03:23Z
-session-id: dream-cycle-2026-09-02-080323
+session-started: 2026-09-03T08:03:11Z
+session-id: dream-cycle-2026-09-03-030311
 current-step: null
-original-request: "Execute dream-cycle skill for today (manual invocation via Knox dream-cycle skill)"
-last-successful-run: 2026-09-02T08:24:00Z
+original-request: "Execute dream-cycle workflow for today (scheduled task)"
+last-successful-run: 2026-09-03T08:26:00Z
 accumulated-context:
+  step-01-2026-09-03:
+    working_archived: 5
+    working_deleted: 0
+    working_skipped: 32
+    working_stranded: 0
+    enrichment_method: "LLM (systems/dream-cycle/llm_tag_extractor.py via claude -p haiku) -- claude CLI auth functional in this container this cycle, confirmed via a short test call before committing to the LLM path"
+    archived_files:
+      - co-sell-pipeline-2026-08-31-001500.md
+      - co-sell-pipeline-2026-08-31-150200.md
+      - dream-summary-2026-09-01.md
+      - revenue-tracker-2026-08-31-090524.md
+      - shutdown-cleanup-2026-08-31-222924.md
+    skipped_not_expired:
+      - dream-summary-2026-09-02.md
+    skipped_unparseable_count: 33
+    new_unparseable_this_cycle: []
+    stranded: []
+    note: "5 archive candidates this cycle (up from 1/night recently) -- a genuine backlog clear, not an anomaly: the 08-31 session produced an unusually high number of working-memory writes (2 co-sell corrections, a revenue-tracker fallback, and a shutdown-cleanup) that all crossed their 24h expiry together. All 5 verified expires<today AND status:active, non-trivial bodies, enriched via the LLM path and moved cleanly, no self-introduced duplicate-key bug this time. knox-plaud-ingest-2026-08-31.md (expires 2026-09-02, no status field) and golf-preview-2026-08-04.md/sc-executive-brief-2026-07-13.md (no expires field, status present) were left untouched -- missing/non-active status or missing expires means no action per step-01 rule 2b/2d, not archiving. dream-summary-2026-09-02.md carries expires=2026-09-03T03:03:23, same calendar date as today -- held back another cycle per the date-level (not sub-day) comparison this system has used since 08-25."
+  step-02-2026-09-03:
+    episodic_scanned: 302
+    score_updates: 302
+    window_entries: 54
+    no_date: 38
+    no_tags: 202
+    score_distribution: "0:204,1:3,2:3,3:4,4:4,5:10,6:2,7:4,8:2,9:2,10:64"
+    read_errors: 0
+    write_errors: 0
+    note: "Ran systems/dream-cycle/salience-score.py (post-fix version). pct_score_0=67.55% (204/302) below the 70% escalation threshold. pct_no_date=12.58% (38/302) still crosses the >10% threshold, same legacy undated population as every prior cycle. pct_no_tags=66.9% (202/302) stays in the 30-70% warning band, same underlying population, not a new problem. Corpus-wide scan for the frontmatter-stranding corruption signature (duplicate salience: blocks, multiple promoted: keys) found 0 instances across all 303 episodic files -- clean write, consistent with every cycle since the 09-01 fix (commit bb2de90)."
+  step-03-2026-09-03:
+    candidates_count: 5
+    clusters_found: 5
+    semantic_created: 0
+    semantic_updated: 5
+    promoted_entries: 5
+    cluster_actions:
+      - {tag: dream-summary, domain: operational, size: 1, action: update, target: memory/semantic/operational/2026-06-12-dream-summary-pattern.md, confidence: "high (unchanged)"}
+      - {tag: pipeline-review, domain: operational, size: 1, action: update, target: memory/semantic/operational/2026-06-18-pipeline-review-pattern.md, confidence: "medium (unchanged)"}
+      - {tag: co-sell, domain: operational, size: 1, action: update, target: memory/semantic/operational/2026-06-24-co-sell-pattern.md, confidence: "low (unchanged)"}
+      - {tag: revenue-tracker, domain: operational, size: 1, action: update, target: memory/semantic/operational/2026-06-24-revenue-tracker-pattern.md, confidence: "medium (unchanged)"}
+      - {tag: session-wrap, domain: operational, size: 1, action: update, target: memory/semantic/operational/2026-06-30-session-wrap-pattern.md, confidence: "medium (unchanged)"}
+    candidate_detection_note: "5 candidates this cycle (up from the usual 1 -- direct result of step-01's 5-file archive backlog clear, all first-time score>=3 crossings from today's own step-01 archives, none pre-existing promoted:true). Clustered by direct content/tag match against each target semantic file's own subject: co-sell-pipeline-2026-08-31-001500.md -> pipeline-review-pattern.md (tag pipeline-review); co-sell-pipeline-2026-08-31-150200.md -> co-sell-pattern.md (tag co-sell, more specific than its own first LLM tag rock-review, which has no dedicated file); revenue-tracker-2026-08-31-090524.md -> revenue-tracker-pattern.md (by filename/content match -- this cycle's LLM enrichment chose rock-review over the corpus convention revenue-tracker as its first tag, noted in the append); dream-summary-2026-09-01.md -> dream-summary-pattern.md; shutdown-cleanup-2026-08-31-222924.md -> session-wrap-pattern.md (the actively-maintained 2026-06-30 file, not the older 2026-06-17 duplicate). All 5 semantic writes were substantive dated append blocks (Sources + narrative), not stubs. One append (pipeline-review-pattern.md) was caught and corrected mid-edit after an Edit call replaced rather than appended after an existing Implications line -- restored before finalizing; no prior content was lost in the final file."
+    error_categories_30d: "assumption-error/wrong-assumption:8, process-skip/protocol-skip:8, tool-misuse/protocol-skip:6, missed-context/lazy-search:4, tool-misuse/pattern-mismatch:4, data-accuracy/stale-cache:3, data-accuracy/pattern-mismatch:3, tool-misuse/tool-ignorance:3, lazy-search/available-data-not-used:3, tool-misuse/wrong-assumption:3"
+    error_total_30d: 86
+    error_malformed_30d: 4
+    lessons_appended: 0
+    lessons_note: "All 10 qualifying 30-day categories already documented and active in LESSONS.md at the broad category level (assumption-error, process-skip, tool-misuse, missed-context, data-accuracy, lazy-search all appear multiple times). No new entry appended. Two new error entries landed since 09-02 (err-20260902T160414-JDHWVX data-access/incomplete-source-check, err-20260902T160425-E9B7YR process-skip/protocol-skip) -- the latter reinforces an already-qualifying category, the former is a single occurrence, neither crosses a new threshold."
+  step-03b-2026-09-03:
+    result: pass
+    reason: "5 promoted entries all today's own fresh step-01 archives, correctly excluded from any future candidate set via promoted:true; volume jump (5 vs usual 1) fully explained by an equal-sized working-memory backlog clear from an unusually busy 08-31 session, not a scoring anomaly; all 5 semantic writes were substantive dated evidence/narrative appends, not stubs. Recorded via systems/eval-harness/guardrail-checkpoint.py (silent no-op, no in-progress dream-cycle eval record to attach to -- not blocking, consistent with prior cycles)."
+  step-04-2026-09-03:
+    candidates_count: 0
+    entries_compressed: 0
+    digests_updated: 0
+    compression_skipped: true
+    compression_skip_reason: "0 candidates -- below the 5-entry threshold, GUARDRAIL 7 not reached. Consistent with 08-30 through 09-02; nothing has accumulated since the 08-29 approved batch."
   step-04-2026-09-02:
     candidates_count: 0
     entries_compressed: 0
@@ -561,6 +616,7 @@ guardrails:
     - {date: "2026-08-31", archived: 1}
     - {date: "2026-09-01", archived: 1}
     - {date: "2026-09-02", archived: 1}
+    - {date: "2026-09-03", archived: 5}
   promotion_history:
     - {date: "2026-08-26", promoted: 14, candidates_found: 14}
     - {date: "2026-08-27", promoted: 4, candidates_found: 4}
@@ -570,6 +626,7 @@ guardrails:
     - {date: "2026-08-31", promoted: 3, candidates_found: 3}
     - {date: "2026-09-01", promoted: 1, candidates_found: 1}
     - {date: "2026-09-02", promoted: 1, candidates_found: 1}
+    - {date: "2026-09-03", promoted: 5, candidates_found: 5}
   compression_history:
     - {date: "2026-08-26", candidates_found: 5, compressed: 0}
     - {date: "2026-08-27", candidates_found: 5, compressed: 0}
@@ -579,6 +636,7 @@ guardrails:
     - {date: "2026-08-31", candidates_found: 0, compressed: 0}
     - {date: "2026-09-01", candidates_found: 0, compressed: 0}
     - {date: "2026-09-02", candidates_found: 0, compressed: 0}
+    - {date: "2026-09-03", candidates_found: 0, compressed: 0}
   archive_safety:
     spot_check_passed: true
     recent_edits_archived: 0
@@ -588,27 +646,27 @@ guardrails:
     avg_rate_30d: 1.57
     balance_check: "pass — 1 archived this cycle, within normal range, no anomaly."
   score_distribution:
-    pct_score_0: 68.69
-    pct_score_10: 19.87
-    distribution_check: "pass — pct_score_0=68.69% below the 70% escalation threshold, consistent with 09-01 baseline (68.92%)."
+    pct_score_0: 67.55
+    pct_score_10: 21.19
+    distribution_check: "pass — pct_score_0=67.55% (204/302) below the 70% escalation threshold, consistent with 09-02 baseline (68.69%); slight dip driven by 5 fresh non-zero-score archives this cycle."
     controller_decision: null
   metadata_quality:
-    pct_no_date: 12.79
-    pct_no_tags: 68.02
-    metadata_check: "escalated (pct_no_date only) — pct_no_date=12.79% (>10% threshold), same legacy undated population as every prior cycle. pct_no_tags=68.02% stays in the 30-70% 'unusual tag coverage' band, same underlying population as 09-01, not a new problem."
+    pct_no_date: 12.58
+    pct_no_tags: 66.89
+    metadata_check: "escalated (pct_no_date only) — pct_no_date=12.58% (38/302, >10% threshold), same legacy undated population as every prior cycle. pct_no_tags=66.89% (202/302) stays in the 30-70% 'unusual tag coverage' band, same underlying population as 09-02, not a new problem."
     audit_notes: "Same legacy untagged/undated population as prior cycles driving pct_no_date."
   promotion_threshold:
     threshold: 3
-    candidates_found: 1
-    promoted: 1
-    last_4_cycles_promoted: 6
+    candidates_found: 5
+    promoted: 5
+    last_4_cycles_promoted: 9
     threshold_check: "pass"
     controller_decision: null
   semantic_duplication:
     exact_duplicates_skipped: 0
     possible_duplicates_flagged: 0
     consolidation_candidates: 0
-    deduplication_check: "pass for this cycle's own write (appended to the single existing dream-summary-pattern.md, created none) — pre-existing corpus-wide duplication remains flagged for Rigby/manual review, unchanged this cycle (out of scope)."
+    deduplication_check: "pass for this cycle's own writes (appended to 5 existing files across pipeline-review/co-sell/revenue-tracker/dream-summary/session-wrap patterns, created none) — pre-existing corpus-wide duplication remains flagged for Rigby/manual review, unchanged this cycle (out of scope)."
   compression_threshold:
     last_12_cycles_candidates: 0
     last_12_cycles_compressed: 0

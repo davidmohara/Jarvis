@@ -1,12 +1,26 @@
 ---
-type: working
+type: working-archive
 task_id: "session"
 session_id: "chief-2026-08-31-224500"
 agent-source: chief
 created: 2026-08-31T22:45:00
 expires: 2026-09-02T22:45:00
-status: active
+status: archived
 context: "Shutdown cleanup — 2026-08-31"
+date: 2026-08-31
+source_file: memory/episodic/shutdown-cleanup-2026-08-31-222924.md
+tags:
+  - session-wrap
+  - chief
+  - system-maintenance
+  - git-sync
+  - one-texas
+  - boot
+related_people:
+salience:
+  score: 7
+  last-promoted-check: 2026-09-03
+  promoted: true
 ---
 
 - Purged 7 temp artifacts: 3 `.DS_Store` files (root, `projects/`, `content/`) and 4 `__pycache__` dirs.

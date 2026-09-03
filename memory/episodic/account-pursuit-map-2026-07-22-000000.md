@@ -23,8 +23,8 @@ related_people:
   - rose-manjarres
   - chandra-dhandapani
 salience:
-  score: 8
-  last-promoted-check: 2026-09-02
+  score: 10
+  last-promoted-check: 2026-09-03
   promoted: true
 ---
 
