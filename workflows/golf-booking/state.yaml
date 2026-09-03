@@ -2,9 +2,11 @@ workflow: golf-booking
 agent: sterling
 status: awaiting-window
 session-started: 2026-09-02T00:00:00-05:00
-session-id: manual-run-20260902
+session-id: manual-run-20260902-check
 current-step: step-01
-execution-run: 1
+execution-run: 2
+latest-check: 2026-09-02T00:20:00-05:00
+latest-check-result: "window-not-open-as-expected"
 gate-failures:
   - gate: "Gate 1 — Booking Window Pre-Check"
     reason: "Target date 2026-09-12 (top_options[0], Saturday 13:00) is 10 day(s) out — outside the 8-day booking window. 8-day window opens 2026-09-04."
