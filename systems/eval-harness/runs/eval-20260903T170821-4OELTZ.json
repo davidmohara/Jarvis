@@ -1,0 +1,110 @@
+{
+  "id": "eval-20260903T170821-4OELTZ",
+  "type": "workflow",
+  "name": "daily-review",
+  "agent": "chief",
+  "session_id": "session-2026-09-02-160000",
+  "trigger": "manual",
+  "started": "2026-09-03T00:00:00-05:00",
+  "completed": "2026-09-03T17:08:21.105203Z",
+  "duration_seconds": 43701.1,
+  "status": "success",
+  "steps": [
+    {
+      "name": "step-01-capture",
+      "started": "2026-09-03T00:00:00-05:00",
+      "completed": "2026-09-03T02:01:23.517534-05:00",
+      "duration_seconds": 7283.5,
+      "status": "success",
+      "data_sources_used": [],
+      "data_source_failures": []
+    },
+    {
+      "name": "step-02-set-tomorrow",
+      "started": "2026-09-03T02:01:23.517534-05:00",
+      "completed": "2026-09-03T04:02:47.035068-05:00",
+      "duration_seconds": 7283.5,
+      "status": "success",
+      "data_sources_used": [],
+      "data_source_failures": []
+    },
+    {
+      "name": "step-03-update-system",
+      "started": "2026-09-03T04:02:47.035068-05:00",
+      "completed": "2026-09-03T06:04:10.552601-05:00",
+      "duration_seconds": 7283.5,
+      "status": "success",
+      "data_sources_used": [],
+      "data_source_failures": []
+    },
+    {
+      "name": "step-03b-guardrail-checkpoint",
+      "started": "2026-09-03T06:04:10.552601-05:00",
+      "completed": "2026-09-03T08:05:34.070135-05:00",
+      "duration_seconds": 7283.5,
+      "status": "success",
+      "data_sources_used": [],
+      "data_source_failures": []
+    },
+    {
+      "name": "step-04-root-audit",
+      "started": "2026-09-03T08:05:34.070135-05:00",
+      "completed": "2026-09-03T10:06:57.587669-05:00",
+      "duration_seconds": 7283.5,
+      "status": "success",
+      "data_sources_used": [],
+      "data_source_failures": []
+    },
+    {
+      "name": "step-05-session-close",
+      "started": "2026-09-03T10:06:57.587669-05:00",
+      "completed": "2026-09-03T12:08:21.105203-05:00",
+      "duration_seconds": 7283.5,
+      "status": "success",
+      "data_sources_used": [],
+      "data_source_failures": []
+    }
+  ],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": [],
+      "abort_reason": null
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": "3d4257956a914088",
+  "prior_baseline_id": null,
+  "tags": [
+    "cowork-instrumented"
+  ]
+}
