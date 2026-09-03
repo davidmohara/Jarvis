@@ -99,6 +99,12 @@ accumulated-context:
   ingested-notes:
     - "zzPlaud/Other/2026-08-26 Professional Catch-Up with Robbie - Health, Family, and Business Evolution.md"
     - "zzPlaud/YPO/2026-08-28 Meeting - YPO Gold Chapter Strategy, Events, Membership, and Compliance.md"
+  unresolved_speakers:
+    - file_id: 9655c434b58437e56c3c80e441d541d9
+      recording: "08-28 Meeting: YPO Gold Chapter Strategy, Events, Membership, and Compliance"
+      unresolved: ["Speaker 4 (96 segments)", "Speaker 3 (74 segments)", "Speaker 1 (73 segments)"]
+      resolved: true
+      resolution_method: "controller-provided (per resolution-2026-09-02 note above — Plaud speaker-profile embeddings resolved all speakers before this Gate 4 tracking existed; backfilled here for continuity)"
 note: >
   Step-01 re-run 2026-08-31 (session pi-20260831-001) after workflow was
   reset from blocked status per STATE CHECK protocol. IMPORTANT: a background

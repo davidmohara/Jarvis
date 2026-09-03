@@ -328,7 +328,8 @@ This table maps workflow name → assigned agent → trigger context. Master use
 | client-meeting-prep | Chase | Client/prospect meeting prep with attendee research |
 | comp-tracker | Chase | Monthly compensation tracking update from PowerBI |
 | content-calendar | Harper | Content calendar review, deadline management, publishing schedule |
-| content-pipeline | Harper | Automated content generation from #content Slack — discovery (daily 6am) and approval (hourly) |
+| content-discovery | Harper | Content discovery from #content Slack, drafting in David's voice, Ghost draft submission (scheduled daily 6am) |
+| content-approval | Harper | Content approval decisions, publishing to Ghost, delivery verification (scheduled hourly) |
 | daily-review | Chief | End-of-day shutdown, capture completions and tomorrow's priorities |
 | delegation-tracker | Shep | View all delegations, check status, flag overdue items |
 | email-drafting | Harper | Draft a professional email, calibrated for recipient and voice |

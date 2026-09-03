@@ -1,9 +1,11 @@
 # IES Skill Index
 
-Last updated: 2026-09-02 | Total skills: 63
+Last updated: 2026-09-03 | Total skills: 65
 
 | ID | Name | Owner | Model | Trigger Keywords (sample) |
 |----|------|-------|-------|---------------------------|
+| schema-validator | Schema Validator | rigby | haiku | validate schema, schema validation, content validation |
+| delivery-router | Delivery Router | rigby | sonnet | delivery router, route delivery, deliver content |
 | visual-verification | Visual Verification | rigby | sonnet | visual verification, manual approval, human sign-off |
 | calendar-handler | Calendar Handler | rigby | sonnet | conflict check, date calculate, calendar block, create event |
 | powerbi-navigate-slicer | PowerBI Navigate & Slicer Filter | rigby | sonnet | powerbi navigate, powerbi slicer, filter report |

@@ -83,27 +83,27 @@
     },
     {
       "id": "content-discovery",
-      "name": "Content Pipeline \u2014 Discovery",
-      "workflow": "content-pipeline",
+      "name": "Content Discovery",
+      "workflow": "content-discovery",
       "cron": "0 6 * * *",
       "schedule_display": "Daily at 6:00 AM",
       "keep_awake": false,
       "configured": true,
       "agent": "Harper",
-      "description": "Daily content discovery \u2014 reads URLs dropped in #content Slack (last 24 hours), drafts a blog post in David's voice, uploads a landscape Unsplash image, creates a Ghost draft with locked tags, and posts a review notification to #content. David replies in the thread to approve, reject, or give feedback.",
-      "cowork_prompt": "You are Harper, the IES Storyteller agent. Run the daily content discovery step of the content pipeline.\n\n1. Get IES root: mdfind -name 'SYSTEM.md' | grep '/IES/SYSTEM.md' | head -1 | sed 's|/SYSTEM.md||'\n2. Read {IES_ROOT}/workflows/content-pipeline/workflow.md\n3. Read {IES_ROOT}/identity/VOICE.md\n4. Read {IES_ROOT}/workflows/content-pipeline/steps/step-01-discover.md\n5. Execute step-01-discover.md exactly as written."
+      "description": "Daily content discovery \u2014 reads URLs dropped in #content Slack (last 24 hours), drafts a blog post in David's voice, uploads a landscape Unsplash image, creates a Ghost draft with locked tags, and posts a review notification to #content. David replies in the thread to approve, reject, or give feedback. Gated by GATE 1 (source integrity) and GATE 2 (content schema validation). Successor to the retired content-pipeline workflow.",
+      "cowork_prompt": "You are Harper, the IES Storyteller agent. Run the daily content-discovery workflow.\n\n1. Get IES root: mdfind -name 'SYSTEM.md' | grep '/IES/SYSTEM.md' | head -1 | sed 's|/SYSTEM.md||'\n2. Read {IES_ROOT}/workflows/content-discovery/workflow.md\n3. Read {IES_ROOT}/identity/VOICE.md\n4. Read {IES_ROOT}/workflows/content-discovery/steps/step-01-discover.md\n5. Execute step-01-discover.md exactly as written, including GATE 1 and GATE 2.\n6. Run {IES_ROOT}/workflows/content-discovery/steps/step-02-git-finalize.md."
     },
     {
       "id": "content-approval",
-      "name": "Content Pipeline \u2014 Approval",
-      "workflow": "content-pipeline",
+      "name": "Content Approval",
+      "workflow": "content-approval",
       "cron": "0 9,11,13,15 * * *",
       "schedule_display": "4x daily \u2014 9 AM, 11 AM, 1 PM, 3 PM",
       "keep_awake": false,
       "configured": true,
       "agent": "Harper",
-      "description": "Hourly approval sweep \u2014 checks #content thread replies on pending Ghost drafts. Publishes on approval, deletes on rejection, regenerates on feedback. Only acts on replies from David (U0ANHV5UXEW). State tracked in workflows/content-pipeline/pending-drafts.json.",
-      "cowork_prompt": "You are Harper, the IES Storyteller agent. Run the hourly content approval step of the content pipeline.\n\n1. Get IES root: mdfind -name 'SYSTEM.md' | grep '/IES/SYSTEM.md' | head -1 | sed 's|/SYSTEM.md||'\n2. Read {IES_ROOT}/workflows/content-pipeline/workflow.md\n3. Read {IES_ROOT}/workflows/content-pipeline/steps/step-02-approve.md\n4. Read {IES_ROOT}/workflows/content-pipeline/pending-drafts.json\n5. Execute step-02-approve.md exactly as written."
+      "description": "Approval sweep \u2014 checks #content thread replies on pending Ghost drafts. Publishes on approval, deletes on rejection, regenerates or edits on feedback. Only acts on replies from David (U0ANHV5UXEW). State tracked in workflows/content-approval/pending-drafts.json. Gated by GATE 3 (approval decision), GATE 4 (publishing pre-flight), and GATE 5 (delivery verification). Successor to the retired content-pipeline workflow.",
+      "cowork_prompt": "You are Harper, the IES Storyteller agent. Run the content-approval workflow.\n\n1. Get IES root: mdfind -name 'SYSTEM.md' | grep '/IES/SYSTEM.md' | head -1 | sed 's|/SYSTEM.md||'\n2. Read {IES_ROOT}/workflows/content-approval/workflow.md\n3. Read {IES_ROOT}/workflows/content-approval/steps/step-01-approve.md\n4. Read {IES_ROOT}/workflows/content-approval/pending-drafts.json\n5. Execute step-01-approve.md exactly as written, including GATE 3, GATE 4, and GATE 5.\n6. Run {IES_ROOT}/workflows/content-approval/steps/step-02-git-finalize.md."
     },
     {
       "id": "ies-channel",

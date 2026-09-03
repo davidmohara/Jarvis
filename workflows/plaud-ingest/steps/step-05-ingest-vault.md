@@ -11,6 +11,8 @@ outputs:
     - "Calendar/2026/08-August/2026-08-05.md"
   monday-tasks-created: 5
   staging-files-removed: 15
+  gate_5_result: "pass"
+  gate_5_verification_failures: []
   notes: "pi-20260807-002 resume (2026-08-07): obsidian-local MCP confirmed reachable. Both staged, renamed transcripts transformed into vault notes and written to zzPlaud/Client/ (see folder-routing rationale in final report — both routed to Client, including recording 1 which is an Improving+Google partner call about growing the Wendy's account with no Wendy's attendees, on the basis of matching existing precedent for Wendy's-account notes already in that folder). Daily note Calendar/2026/08-August/2026-08-05.md created from template with wikilinks to both notes. Reconciliation run per skill step 7 — during this step an invalid --list-all flag was mistakenly passed to fetch_plaud.py; it does not exist, so --all was used instead, which is a full re-fetch/reprocess (not a passive list) and had two unintended side effects: (1) triggered new transcription jobs for two unrelated recordings (baeee0303990cfe9996df518fa71f1e3, f5416a4750e1f41e2624a9403a8b279a) not in scope for this workflow, and (2) created duplicate staging files for both target recordings under their current auto-generated titles. Both target file_ids were confirmed present and accounted for in the reconciliation output. Cleanup removed all 15 staging artifacts tied to the two target recordings (original ogg-named .md/.raw.json pairs plus 5 duplicate-titled .md/.raw.json/.speakers.json files created by the --all side effect, verified via file_id match before deletion). Left a pre-existing, out-of-scope staging backlog of ~285 files spanning Dec 2025-Aug 2026 untouched — flagged in final report as a vault-health item, not remediated here. Monday action items and Plaud shares were already complete from the prior run (5 tasks: 12748077749, 12748138594, 12748077750, 12748150126, 12748129935) — not recreated."
 ---
 
@@ -53,6 +55,10 @@ outputs:
 2. **Write notes to vault** via Obsidian MCP.
    - Confirm each write succeeds before moving to the next file.
    - On collision with a Teams-sourced note: append ` (Plaud)` suffix.
+
+2a. **Run QUALITY GATE 5 (see below) for each note just written**, before proceeding to the
+    daily-note linking step. Do not treat an Obsidian MCP write returning success as proof the
+    note actually landed correctly — verify it.
 
 3. **Link to daily calendar note** per `skills/plaud-transcripts/SKILL.md` step 6.
    - Find or create the daily note at `Calendar/YYYY/MM-MonthName/YYYY-MM-DD.md`
@@ -114,6 +120,46 @@ outputs:
 
 ---
 
+## QUALITY GATE 5 — Vault Filing Verification (HARD, ESCALATE ON FAILURE)
+
+This is the terminal "did the work actually land" check for the whole pipeline — everything
+upstream (discovery, transcription, speaker ID, staging) exists to produce this one outcome.
+An Obsidian MCP write call returning success is not sufficient proof by itself; this gate
+independently re-reads what was written.
+
+For every note the sequence just wrote in step 2, before moving on to daily-note linking:
+
+| Check | How to verify | On failure |
+|-------|---------------|------------|
+| File exists at the expected vault path | Read it back via Obsidian MCP (`get_vault_file` or equivalent) using the exact path just written | **HARD FAIL for this note.** |
+| Required frontmatter fields present | Confirm the note's frontmatter includes at minimum: title/date, source tag identifying it as Plaud-sourced, and the `file_id` (or equivalent traceability field back to the recording) | **HARD FAIL for this note.** A note with no way to trace back to its source recording is a dead end for any future audit or cleanup. |
+| Expected wikilink connections were actually created, not just attempted | This note's link into the daily calendar note happens in step 3, which runs *after* this gate — so for this gate, check any links this step is itself responsible for (e.g. attendee references, related-project links the transform step adds). Confirm the link target exists and the link syntax is well-formed, not just that the writing step "ran". | **SOFT FAIL for this specific link** — log it, do not block the note's filing on a missing secondary link, but do not silently drop the flag either. |
+
+**On HARD FAIL for a note (missing file or missing required frontmatter):**
+1. Do not count that note as successfully ingested — remove it from the `ingested-notes` list you were about to build, or mark it separately as `verification-failed`.
+2. Move the corresponding staged file to `~/Downloads/transcript-staging/failed/` for manual recovery (this reuses the existing failure-mode behavior for Obsidian MCP write failures — Gate 5 extends the same handling to writes that *appeared* to succeed but didn't actually land correctly).
+3. Log to error tracking.
+4. Escalate: surface in the final report as a flagged failure, e.g. `✗ <Recording Title> → vault filing verification FAILED — see gate_5_verification_failures`. Do not silently continue as if the recording were ingested — the controller needs to know this recording did not land.
+5. Continue processing the remaining notes — one note's verification failure does not block the others (same continue-on-failure pattern as the rest of this step).
+
+Log the result per note:
+```
+[Gate 5] <vault path>: file exists ✓, frontmatter complete ✓, links well-formed ✓ — PASS
+```
+or
+```
+[Gate 5] <vault path>: FILE NOT FOUND at expected path — HARD FAIL. Staged file moved to failed/. Escalating.
+```
+
+Write to this step's frontmatter `outputs`:
+```yaml
+outputs:
+  gate_5_result: "pass" | "pass-with-soft-flags" | "fail"
+  gate_5_verification_failures: [{expected_path, reason}, ...]
+```
+
+---
+
 ## SUCCESS METRICS
 
 - Every file in `accumulated-context.staged-files` has a corresponding vault note
@@ -127,6 +173,7 @@ outputs:
 | Failure | Action |
 |---------|--------|
 | Obsidian MCP write fails | Retry once. If still fails, report the file and skip — do NOT leave staging dirty. Move the staged file to `~/Downloads/transcript-staging/failed/` for manual recovery. |
+| Gate 5 hard fail (write reported success but file/frontmatter verification fails) | Same recovery as an outright write failure — move staged file to `failed/`, exclude from `ingested-notes`, escalate in final report. Continue with remaining notes. |
 | Monday task creation fails | Log the action item text in the report. User can manually create. Do not block vault write. |
 | Daily note path doesn't exist | Create the year/month folder structure and note from template. |
 | Staging cleanup fails | Report the files that couldn't be deleted. Do not re-process them on next run (check vault for duplicates first). |

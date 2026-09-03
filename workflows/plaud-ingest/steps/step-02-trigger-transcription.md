@@ -8,6 +8,9 @@ outputs:
   triggered: 0
   pending: 0
   skipped: 0
+  gate_3_result: "pass"
+  gate_3_retry_counts: {}
+  gate_3_aborted_recordings: []
   note: "1 new recording (32c80d61ff44bb53825a93cfb0bbfa5a) already has transcript ready. No trigger needed. Proceeding to speaker identification."
 ---
 
@@ -79,6 +82,56 @@ When a watcher sub-agent completes and drops a transcript in staging, it should:
 
 ---
 
+## QUALITY GATE 3 — Transcription Success (HARD, PER-RECORDING RETRY, ABORT AFTER 3 TRIES)
+
+This gate applies to the two-step trigger protocol in `skills/plaud-trigger/SKILL.md` (PATCH
+`/file/{file_id}` to save config, then POST `/ai/transsumm/{file_id}` to actually start the
+job — PATCH alone does nothing, per that skill). It does **not** change the `status: -1`/
+`status: -12` handling below — that remains a no-retry, ask-David-about-minutes case, exactly
+as `plaud-trigger`'s own error table specifies. This gate governs everything else that can go
+wrong in the two-step call: non-200 on the PATCH, a timeout on the POST, or a malformed/
+unexpected response.
+
+**Retry protocol per recording:**
+
+1. Attempt the two-step trigger (PATCH then POST).
+2. If it fails with anything other than `status: -1`/`status: -12`: wait 2 seconds, retry.
+3. Track the attempt count for this `file_id` in this step's frontmatter `outputs.gate_3_retry_counts` (e.g. `{"<file_id>": 2}`).
+4. After **3 failed attempts** for the same recording: **HARD STOP for that recording.**
+   - Do not add it to `transcription-triggered` or `pending-recordings`.
+   - Add its `file_id` to `outputs.gate_3_aborted_recordings`.
+   - Log to the error tracking system per `Error Logging` conventions.
+   - Continue processing the remaining recordings in `new-recordings` — one recording's
+     repeated failure does not stop the others, consistent with this step's existing
+     partition-and-continue design.
+5. If **every** `missing` recording this run hits the 3-retry abort (i.e. `gate_3_aborted_recordings` covers the entire `missing` partition and nothing was triggered or already-ready), treat that as a workflow-level signal rather than a per-recording one: set `state.yaml status: blocked`, write a `blocker` describing the pattern (likely a systemic API issue, not per-recording bad luck), and report to the controller before proceeding to step-03.
+
+**Distinguishing from the `-1`/`-12` minutes case:** if the POST ever returns `status: -1` or
+`status: -12`, stop immediately (do not spend retries on it) — surface "Are you out of Plaud
+transcription minutes?" per the existing rule in this step's YOUR TASK section 2, and do not
+count it toward or against the Gate 3 retry budget. Gate 3 retries are for transient/
+unexpected failures only.
+
+Log the outcome per recording:
+```
+[Gate 3] <file_id>: attempt 1 — FAIL (non-200 on PATCH). Retrying.
+[Gate 3] <file_id>: attempt 2 — PASS. Triggered.
+```
+or on exhaustion:
+```
+[Gate 3] <file_id>: attempt 3 — FAIL. Retry budget exhausted. Excluding from this run.
+```
+
+Write final tallies to this step's frontmatter:
+```yaml
+outputs:
+  gate_3_result: "pass" | "pass-with-exclusions" | "blocked"
+  gate_3_retry_counts: {"<file_id>": <int>, ...}
+  gate_3_aborted_recordings: ["<file_id>", ...]
+```
+
+---
+
 ## SUCCESS METRICS
 
 - All `missing` recordings have transcription triggered
@@ -90,9 +143,10 @@ When a watcher sub-agent completes and drops a transcript in staging, it should:
 
 | Failure | Action |
 |---------|--------|
-| Trigger API returns `status=-1` or `status=-12` | Ask David about transcription minutes. Log to error-log. Skip this recording. |
-| Trigger API timeout | Retry once. If still fails, add to `pending-recordings` and spawn watcher anyway (watcher will detect when ready). |
+| Trigger API returns `status=-1` or `status=-12` | Ask David about transcription minutes. Log to error-log. Skip this recording. Not counted against Gate 3's retry budget — see Gate 3 above. |
+| Trigger API timeout or other transient failure | Covered by Gate 3's 3-attempt retry budget above. After 3 failed attempts for the same recording, exclude it (`gate_3_aborted_recordings`) rather than adding it to `pending-recordings` on a guess. |
 | All recordings are pending/triggered, none ready | Proceed to step-03 with empty ready list. Step-03 may still have speaker files to resolve from a prior partial run. |
+| Every `missing` recording exhausts Gate 3's retry budget this run | Treat as systemic, not per-recording. Set `state.yaml status: blocked`, report to controller before proceeding to step-03. |
 
 ---
 

@@ -2978,6 +2978,237 @@
         "description_optimized": false,
         "note": "Build request explicitly asked to hold everything for review without committing or running the full validation pipeline. Steps 6-9 (eval authoring, test runs, description-tuning) deferred pending executive sign-off on invocation prompts and priorities \u2014 recommend running before packaging this evolution."
       }
+    },
+    {
+      "id": "work-20260902-plaud-ingest-deterministic-gates",
+      "description": "Added 6 deterministic quality gates to the existing workflows/plaud-ingest workflow (no skill conversion \u2014 the workflow already existed with step files and state.yaml). Gates: (1) Token/Auth Confirmation \u2014 HARD post-hoc in step-01, fires only if plaud-discover's Chrome-login flow ran and failed, NOT a pre-flight check (preserved TOKEN PRE-CHECK PROHIBITION); (2) Recording Metadata Validation \u2014 SOFT in step-01, flags malformed data, hard-excludes only on missing file_id; (3) Transcription Success \u2014 HARD in step-02, retries per-recording 3x on transient failure; (4) Speaker Identification Completeness \u2014 SOFT in step-03, logs unresolved speakers without altering awaiting-input pause; (5) Vault Filing Verification \u2014 HARD in step-05, re-reads file/frontmatter after write; (6) Delivery Routing Confirmation \u2014 HARD in step-05b, confirms Alice email and Monday task ID. All additive; no existing logic dropped.",
+      "started": "2026-09-02T18:00:00Z",
+      "classification": "system",
+      "files": [
+        {
+          "path": "workflows/plaud-ingest/steps/step-01-discover.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Added Gates 1-2; frontmatter outputs and failure-mode rows"
+        },
+        {
+          "path": "workflows/plaud-ingest/steps/step-02-trigger-transcription.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Added Gate 3 with 3-try retry budget tracking"
+        },
+        {
+          "path": "workflows/plaud-ingest/steps/step-03-identify-speakers.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Added Gate 4 (soft, logs unresolved speakers); preserved awaiting-input logic"
+        },
+        {
+          "path": "workflows/plaud-ingest/steps/step-05-ingest-vault.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Added Gate 5 (re-read file after write)"
+        },
+        {
+          "path": "workflows/plaud-ingest/steps/step-05b-share-with-alice.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Added Gate 6 (delivery routing confirmation)"
+        },
+        {
+          "path": "workflows/plaud-ingest/workflow.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Added unresolved_speakers to state schema; Quality Gates summary table"
+        },
+        {
+          "path": "workflows/plaud-ingest/state.yaml",
+          "action": "merge",
+          "type": "system",
+          "description": "Added accumulated-context.unresolved_speakers array"
+        }
+      ],
+      "validation": {
+        "evals_run": false,
+        "eval_count": 0,
+        "iterations": 0,
+        "stopped_at_cap": false,
+        "final_pass_rate": null,
+        "description_optimized": false,
+        "note": "Gates added; evals deferred. Needs human review: Gate 1 TOKEN PRE-CHECK distinction; Gate 6 email/Monday routing (no Slack in workflow)."
+      }
+    },
+    {
+      "id": "work-20260902-content-pipeline-split-to-discovery-approval",
+      "description": "Split workflows/content-pipeline into workflows/content-discovery (daily 6am) and workflows/content-approval (hourly) with deterministic gates. content-discovery: Gate 1 (HARD source integrity), Gate 2 (HARD schema validation). content-approval: Gate 3 (HARD approval decision: approve/reject/revise), Gate 4 (HARD pre-flight), Gate 5 (HARD delivery verification). Retired old workflow.md with redirect. Preserved all logic: channel/digest/voice rules, state-tracking, pending-drafts.json (moved to approval, shared), scheduled tasks repointed. All additive changes.",
+      "started": "2026-09-02T18:05:00Z",
+      "classification": "system",
+      "files": [
+        {
+          "path": "workflows/content-discovery/workflow.md",
+          "action": "add",
+          "type": "system",
+          "description": "New workflow with Gates 1-2"
+        },
+        {
+          "path": "workflows/content-discovery/steps/step-01-discover.md",
+          "action": "add",
+          "type": "system",
+          "description": "Discovery logic with source/schema validation gates"
+        },
+        {
+          "path": "workflows/content-discovery/steps/step-02-git-finalize.md",
+          "action": "add",
+          "type": "system",
+          "description": "Git finalization for discovery"
+        },
+        {
+          "path": "workflows/content-discovery/state.yaml",
+          "action": "add",
+          "type": "system",
+          "description": "State tracking"
+        },
+        {
+          "path": "workflows/content-discovery/verify/step-01-discover.py",
+          "action": "add",
+          "type": "system",
+          "description": "Discovery verification script"
+        },
+        {
+          "path": "workflows/content-approval/workflow.md",
+          "action": "add",
+          "type": "system",
+          "description": "New workflow with Gates 3-5"
+        },
+        {
+          "path": "workflows/content-approval/steps/step-01-approve.md",
+          "action": "add",
+          "type": "system",
+          "description": "Approval logic with decision/pre-flight/verification gates"
+        },
+        {
+          "path": "workflows/content-approval/steps/step-02-git-finalize.md",
+          "action": "add",
+          "type": "system",
+          "description": "Git finalization for approval"
+        },
+        {
+          "path": "workflows/content-approval/state.yaml",
+          "action": "add",
+          "type": "system",
+          "description": "State tracking"
+        },
+        {
+          "path": "workflows/content-approval/pending-drafts.json",
+          "action": "add",
+          "type": "system",
+          "description": "Shared live data moved from old location"
+        },
+        {
+          "path": "workflows/content-approval/ghost_update_v2.py",
+          "action": "add",
+          "type": "system",
+          "description": "Ghost publishing script (secret redacted here; original at old location for reference)"
+        },
+        {
+          "path": "workflows/content-pipeline/workflow.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Retired with redirect to content-discovery and content-approval"
+        },
+        {
+          "path": "config/scheduled-tasks.json",
+          "action": "merge",
+          "type": "system",
+          "description": "Repointed content-discovery and content-approval task entries"
+        },
+        {
+          "path": "agents/master.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Split content-pipeline routing row into content-discovery and content-approval"
+        }
+      ],
+      "validation": {
+        "evals_run": false,
+        "eval_count": 0,
+        "iterations": 0,
+        "stopped_at_cap": false,
+        "final_pass_rate": null,
+        "description_optimized": false,
+        "note": "Workflow split with gates; evals deferred. Needs human review: retirement of old workflow.md; 'request revisions' framing in Gate 3; Ghost API secret rotation."
+      }
+    },
+    {
+      "id": "work-20260903-schema-validator-delivery-router-skills",
+      "description": "Built two new agent-agnostic, reusable skills and integrated them into the five gate call sites that previously implemented this logic inline: schema-validator (skills/schema-validator/SKILL.md) — pure, deterministic object-shape validation against a schema_spec (required_fields, word_count, format_rules, tags, em_dash_check, custom_checks including must_be_true/false/max_length/min_length/must_equal), returns {valid, errors, warnings}, no side effects, no LLM judgment on content (callers pre-compute any judgment-based booleans before calling); delivery-router (skills/delivery-router/SKILL.md) — routes content to slack/email/monday/ghost backends with per-backend verification (ghost backend calls update_post then re-fetches to confirm status/url/published_at rather than trusting the raw API response), a 3-attempt retry budget, required-vs-optional per-destination semantics, and a delivery_status/all_succeeded contract; carries a Plan-Only Mode section since every backend is a real side effect. Neither skill hardcodes any caller-specific facts (board IDs, person IDs, channel names) — those stay in the calling workflow step's config, per the skill's own Error Handling guidance, so the shared skill can't silently misroute a different caller's delivery. Integrated into: workflows/plaud-ingest/steps/step-01-discover.md (Gate 2 metadata validation now calls schema-validator per recording, same soft/hard severity split as before — only missing file_id excludes a recording), workflows/plaud-ingest/steps/step-05b-share-with-alice.md (Gate 6 Monday task creation now calls delivery-router with backend: monday; corrected the peer request's assumption that this needed slack/email backends — plaud-ingest's only real destination is Monday, per the Gate 6 rename already on record from the prior build), workflows/content-discovery/steps/step-01-discover.md (Gate 2 content schema validation now calls schema-validator, with the two genuinely judgment-based checks — post-arc element presence, source-recap detection — left as caller-supplied booleans since the skill does not interpret free text), workflows/content-approval/steps/step-01-approve.md (Gate 4 publishing pre-flight now calls schema-validator; Gate 5 delivery verification folded into the Step 3 Ghost publish call via delivery-router's ghost backend, since 'call the API' and 'verify it landed' are exactly what that backend already does as one unit — added must_equal to schema-validator's custom_checks set to support Gate 4's status=='draft' check rather than leaving a documented gap). Corrected two stale file-path assumptions in the request (content-discovery/step-02 and content-approval/step-04 and step-05 do not exist under those names post-split; actual gates live in each workflow's single step-01 file) — mapped onto the real files instead of creating phantom step files. Both skills registered in skills/_manifest.jsonl, skills/_manifest-rigby.jsonl, and skills/_index.md. Fairness: applicable: false on both. Staged (git add) but not committed per explicit instruction — held for review.",
+      "started": "2026-09-03T00:00:00Z",
+      "classification": "system",
+      "files": [
+        {
+          "path": "skills/schema-validator/SKILL.md",
+          "action": "add",
+          "type": "system",
+          "description": "New agent-agnostic skill: deterministic object-shape validation, returns {valid, errors, warnings}"
+        },
+        {
+          "path": "skills/delivery-router/SKILL.md",
+          "action": "add",
+          "type": "system",
+          "description": "New agent-agnostic skill: multi-backend (slack/email/monday/ghost) delivery with verification, retry, Plan-Only Mode"
+        },
+        {
+          "path": "workflows/plaud-ingest/steps/step-01-discover.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Gate 2 metadata validation now calls schema-validator per recording"
+        },
+        {
+          "path": "workflows/plaud-ingest/steps/step-05b-share-with-alice.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Gate 6 Monday task creation now calls delivery-router (backend: monday)"
+        },
+        {
+          "path": "workflows/content-discovery/steps/step-01-discover.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Gate 2 content schema validation now calls schema-validator; judgment-based checks (post-arc elements, source-recap) kept as caller-supplied booleans"
+        },
+        {
+          "path": "workflows/content-approval/steps/step-01-approve.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Gate 4 publishing pre-flight now calls schema-validator; Gate 5 delivery verification folded into Step 3's delivery-router (backend: ghost) call"
+        },
+        {
+          "path": "skills/_manifest.jsonl",
+          "action": "merge",
+          "type": "system",
+          "description": "Registered schema-validator and delivery-router"
+        },
+        {
+          "path": "skills/_manifest-rigby.jsonl",
+          "action": "merge",
+          "type": "system",
+          "description": "Registered schema-validator and delivery-router under rigby's owning-agent manifest"
+        },
+        {
+          "path": "skills/_index.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Added index rows for schema-validator and delivery-router; bumped total skill count to 65"
+        }
+      ],
+      "validation": {
+        "evals_run": false,
+        "eval_count": 0,
+        "iterations": 0,
+        "stopped_at_cap": false,
+        "final_pass_rate": null,
+        "description_optimized": false,
+        "note": "Build request explicitly asked to stage (git add) without committing, no full validation pipeline run. Evals deferred pending executive sign-off. Needs human review: confirm schema-validator's must_equal custom_check addition is acceptable as a minimal generic extension rather than scope creep; confirm delivery-router's fold of Gate 5 into Step 3 in content-approval reads clearly (documentation of what Gate 5 checks retained even though the mechanics moved into the skill call)."
+      }
     }
   ]
 }

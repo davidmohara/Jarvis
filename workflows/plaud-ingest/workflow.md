@@ -96,7 +96,25 @@ accumulated-context:
   ready-for-fetch: []               # file_ids confirmed ready after all above
   staged-files: []                  # filenames written to ~/Downloads/transcript-staging/
   ingested-notes: []                # vault paths of notes successfully written
+  unresolved_speakers: []           # Gate 4 (step-03): snapshot of speakers that survived
+                                     # embedding-match, self-ID, and calendar resolution —
+                                     # tracked here even after the awaiting-input pause
+                                     # resolves and pending-speaker-mappings is cleared
 ```
+
+## Quality Gates
+
+Six deterministic gates were added across the steps below (additive hardening — no existing
+rule, edge case, or the awaiting-input pause behavior was changed):
+
+| Gate | Step | Type | Checks |
+|------|------|------|--------|
+| 1 — Token/Auth Confirmation | step-01 | HARD | Post-hoc only — confirms `plaud-discover` actually obtained a usable auth session after it ran; never a pre-check. See step-01 for why that distinction is load-bearing. |
+| 2 — Recording Metadata Validation | step-01 | SOFT (hard exclusion only for missing `file_id`) | Validates `file_id`/`transcript_status`/`date`/`duration_seconds`/`name` on every discovered recording before handoff to step-02. |
+| 3 — Transcription Success | step-02 | HARD, per-recording | Retries the two-step trigger up to 3 times on transient failure; excludes the recording after 3 failures. Does not apply to the `-1`/`-12` minutes-exhausted case, which stays no-retry. |
+| 4 — Speaker Identification Completeness | step-03 | SOFT | Formalizes "unresolved speaker" and logs it to `unresolved_speakers`; does not alter the awaiting-input pause. |
+| 5 — Vault Filing Verification | step-05 | HARD, per-note | Confirms the note actually exists at its path with required frontmatter after an Obsidian MCP write reports success. |
+| 6 — Delivery Routing Confirmation | step-05b | HARD, per-recording | Confirms the correct recipient (Alice Mburu) and channel (Monday task + share link) before the workflow marks itself complete. Renamed from a requested "Slack routing" gate — this workflow has no Slack delivery; see step-05b for the reinterpretation rationale. |
 
 ## User Interaction Protocol
 
