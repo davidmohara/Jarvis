@@ -1,7 +1,7 @@
 workflow: content-pipeline
 status: complete
-started-at: 2026-09-03T06:07:00Z
-completed-at: 2026-09-03T06:08:00Z
+started-at: 2026-09-03T14:08:00Z
+completed-at: 2026-09-03T14:09:00Z
 outputs:
   messages_scanned: 0
   new_urls: 0
@@ -10,6 +10,6 @@ outputs:
   improving_blog_drafts: 0
   editorial_feedback: 0
   pending_threads_checked: 14
-  outcome: "No new content in #content in last 24h (zero messages returned, 48h retry also empty). 14 pending draft threads scanned — no new editorial feedback within last 24h. All existing editorial_edits already recorded. Pipeline idle."
+  outcome: "No new content in #content in last 24h (zero messages returned). 14 pending draft threads scanned — no new editorial feedback within last 24h. All existing editorial_edits already recorded. Pipeline idle."
 model: sonnet
 current-step: null
