@@ -1,0 +1,1162 @@
+{
+  "skill": "plaud-discover",
+  "timestamp": "2026-09-03T15:08:20.420809",
+  "api_total": 130,
+  "vault_ingested": 21,
+  "new_discovered": 109,
+  "dedup_complete": true,
+  "new_recordings": [
+    {
+      "id": "5916294c66c59b109e4aa61d4621bba4",
+      "name": "09-02 Interview: David O'Hara - AI Impact in Legal Tech and Talent Transformation",
+      "start_time": 1788368442878,
+      "duration_ms": 770000,
+      "has_transcript": true,
+      "has_summary": true,
+      "status": "new",
+      "vault_match": false
+    },
+    {
+      "id": "9655c434b58437e56c3c80e441d541d9",
+      "name": "08-28 YPO Gold Chapter Board Meeting: Membership Strategy and Event Planning",
+      "start_time": 1787929445614,
+      "duration_ms": 3768000,
+      "has_transcript": true,
+      "has_summary": true,
+      "status": "new",
+      "vault_match": false
+    },
+    {
+      "id": "2206973163d38abccd15da29b0ec7b60",
+      "name": "08-26 Personal and Professional Catch-up: Navigating Mid-Life Health, Family, and Career Evolution in the Age of AI",
+      "start_time": 1787772639371,
+      "duration_ms": 2090000,
+      "has_transcript": true,
+      "has_summary": true,
+      "status": "new",
+      "vault_match": false
+    },
+    {
+      "id": "b755fbfdf767f85aa4e19b974a109a27",
+      "name": "08-25 The Evolving Role of the CIO: From Technology Operator to Enterprise Orchestrator",
+      "start_time": 1787700429000,
+      "duration_ms": 8677000,
+      "has_transcript": true,
+      "has_summary": true,
+      "status": "new",
+      "vault_match": false
+    },
+    {
+      "id": "c80388591a2c50ad0b7780991e03636d",
+      "name": "08-25 Strategic AI Implementation: From Task Compression to Agentic Operations",
+      "start_time": 1787684443509,
+      "duration_ms": 6536000,
+      "has_transcript": true,
+      "has_summary": true,
+      "status": "new",
+      "vault_match": false
+    },
+    {
+      "id": "dab897933f35a5136a15bdaaa9f2bd5c",
+      "name": "08-24 Strategizing a Lead Generation Framework for the Improving Edge Podcast",
+      "start_time": 1787605220657,
+      "duration_ms": 1850000,
+      "has_transcript": true,
+      "has_summary": true,
+      "status": "new",
+      "vault_match": false
+    },
+    {
+      "id": "15aceb2d6b9b2c1b89ca4bf0be9667ea",
+      "name": "08-24 Event Readiness Under Strain: Leadership Resilience and Logistics for Conscious Capitalism Discussion (Aug 24, 2026)",
+      "start_time": 1787603506695,
+      "duration_ms": 769000,
+      "has_transcript": true,
+      "has_summary": true,
+      "status": "new",
+      "vault_match": false
+    },
+    {
+      "id": "a28c2d48edd5489dd07986539bd25233",
+      "name": "08-24 Consultation: Sally Mae - AI Training Workshop for Executives",
+      "start_time": 1787599874763,
+      "duration_ms": 1141000,
+      "has_transcript": true,
+      "has_summary": true,
+      "status": "new",
+      "vault_match": false
+    },
+    {
+      "id": "7de82b6f5889e1e8e5feb107520491c9",
+      "name": "08-24 Business Operations and Sales Strategy Review",
+      "start_time": 1787596220724,
+      "duration_ms": 2293000,
+      "has_transcript": true,
+      "has_summary": true,
+      "status": "new",
+      "vault_match": false
+    },
+    {
+      "id": "589340220e4c13350a731ea9ba8770d2",
+      "name": "08-24 Reasoning Note: Executive AI Workshop Strategy and Two-Track Engagement for RTP",
+      "start_time": 1787594606770,
+      "duration_ms": 1242000,
+      "has_transcript": true,
+      "has_summary": true,
+      "status": "new",
+      "vault_match": false
+    },
+    {
+      "id": "8b45065b02f3a852edadfb43c319a9ea",
+      "name": "08-21 Strategy Note: XTI CIO Replacement and AI Roadmap for Regulated Aerospace Integration",
+      "start_time": 1787344272971,
+      "duration_ms": 1080000,
+      "has_transcript": true,
+      "has_summary": true,
+      "status": "new",
+      "vault_match": false
+    },
+    {
+      "id": "92f3f834cbbf4ced893d70f2e27f6bd0",
+      "name": "08-20 Western Region Board Meeting and Strategic Initiative Review",
+      "start_time": 1787252540663,
+      "duration_ms": 3230000,
+      "has_transcript": true,
+      "has_summary": true,
+      "status": "new",
+      "vault_match": false
+    },
+    {
+      "id": "af32b8ce0bb2021328f4755f8696e9fd",
+      "name": "08-11 Professional and Personal Catch-Up on Business Integration, AI Strategy, and Life Updates",
+      "start_time": 1786466568000,
+      "duration_ms": 3975000,
+      "has_transcript": true,
+      "has_summary": true,
+      "status": "new",
+      "vault_match": false
+    },
+    {
+      "id": "b41015b6c997f774fc349a5ee9be51fe",
+      "name": "08-10 Hospitality Plan Defined for UTB/YPO Events, Pending Budget Approval",
+      "start_time": 1786396040581,
+      "duration_ms": 981000,
+      "has_transcript": true,
+      "has_summary": true,
+      "status": "new",
+      "vault_match": false
+    },
+    {
+      "id": "2b977c5e42c831ca506e2843289e4f26",
+      "name": "08-10 Strategic Partnership and Account Planning Session",
+      "start_time": 1786393818562,
+      "duration_ms": 2201000,
+      "has_transcript": true,
+      "has_summary": true,
+      "status": "new",
+      "vault_match": false
+    },
+    {
+      "id": "21d97ae3d7373465864ea41cdf188535",
+      "name": "08-10 AI Workshop Strategy for Remington's Executive Team",
+      "start_time": 1786375832465,
+      "duration_ms": 1192000,
+      "has_transcript": true,
+      "has_summary": true,
+      "status": "new",
+      "vault_match": false
+    },
+    {
+      "id": "5016299034d41433611d84057ee6e1bd",
+      "name": "08-05 Improving and Google Partnership Alignment for the Wendy's Account",
+      "start_time": 1785959993023,
+      "duration_ms": 2917000,
+      "has_transcript": true,
+      "has_summary": true,
+      "status": "new",
+      "vault_match": false
+    },
+    {
+      "id": "a5eaf54083c006c73742f0c31e142f7a",
+      "name": "08-05 Strategic AI Implementation and Adoption at Magline",
+      "start_time": 1785952896343,
+      "duration_ms": 2196000,
+      "has_transcript": true,
+      "has_summary": true,
+      "status": "new",
+      "vault_match": false
+    },
+    {
+      "id": "32c80d61ff44bb53825a93cfb0bbfa5a",
+      "name": "08-05 Clinical Reasoning Note \u2014 Diagnostic Confirmation and Repeat Anti-Inflammatory Injection Plan",
+      "start_time": 1785941500000,
+      "duration_ms": 213000,
+      "has_transcript": true,
+      "has_summary": true,
+      "status": "new",
+      "vault_match": false
+    },
+    {
+      "id": "46862b5ef46e5867280603f9d5a843a2",
+      "name": "07-30 EA Performance Alignment and Growth Plan: Elevating Alice from Task Execution to Strategic Partner for David O\u2019Hara",
+      "start_time": 1785421878014,
+      "duration_ms": 736000,
+      "has_transcript": true,
+      "has_summary": true,
+      "status": "new",
+      "vault_match": false
+    },
+    {
+      "id": "ed2a74d60ee7baba6b94a153d5b7415d",
+      "name": "07-29 Investment Portfolio Review and Strategic Financial Planning",
+      "start_time": 1785351515000,
+      "duration_ms": 5641000,
+      "has_transcript": true,
+      "has_summary": true,
+      "status": "new",
+      "vault_match": false
+    },
+    {
+      "id": "235c1f402e3bdd98d8e0fb322ca7f4f8",
+      "name": "07-29 Professional and Personal Updates: Navigating Family Life and Business Challenges",
+      "start_time": 1785343219000,
+      "duration_ms": 4694000,
+      "has_transcript": true,
+      "has_summary": true,
+      "status": "new",
+      "vault_match": false
+    },
+    {
+      "id": "f824cc96ed478cbb55a5e7c43f0945c7",
+      "name": "07-29 Strategic Evaluation of AI Gateway Platforms for Enterprise Use",
+      "start_time": 1785335476852,
+      "duration_ms": 1742000,
+      "has_transcript": true,
+      "has_summary": true,
+      "status": "new",
+      "vault_match": false
+    },
+    {
+      "id": "eca8ed49aa564a16c263ba5e3fb77642",
+      "name": "07-28 Concentrate AI Platform Demonstration for Improving",
+      "start_time": 1785270638362,
+      "duration_ms": 1919000,
+      "has_transcript": true,
+      "has_summary": true,
+      "status": "new",
+      "vault_match": false
+    },
+    {
+      "id": "9293d2cca5e19da9dcd793598ea33415",
+      "name": "07-28 Meeting: Solace Partnership Strategy, Sales Structure, and Event Mesh/Agent Mesh Enablement",
+      "start_time": 1785261653539,
+      "duration_ms": 7104000,
+      "has_transcript": true,
+      "has_summary": true,
+      "status": "new",
+      "vault_match": false
+    },
+    {
+      "id": "3ed7f0655a766531189d692f2c76b72c",
+      "name": "07-22 Proposal Meeting: Santa's Wonderland Digital Transformation with Improving",
+      "start_time": 1784745030711,
+      "duration_ms": 2093000,
+      "has_transcript": true,
+      "has_summary": true,
+      "status": "new",
+      "vault_match": false
+    },
+    {
+      "id": "2ce34789fc1141fae02008bfd4e070ec",
+      "name": "07-21 Personal and Professional Catch-Up",
+      "start_time": 1784665903997,
+      "duration_ms": 1571000,
+      "has_transcript": true,
+      "has_summary": true,
+      "status": "new",
+      "vault_match": false
+    },
+    {
+      "id": "db14a3ce68a47c27c1ac11933e5d87d2",
+      "name": "07-16 Strategic Framework for Integrating AI in Professional Services",
+      "start_time": 1784221144000,
+      "duration_ms": 4842000,
+      "has_transcript": true,
+      "has_summary": true,
+      "status": "new",
+      "vault_match": false
+    },
+    {
+      "id": "824a4e5c19079e84df52dc8585a10836",
+      "name": "07-16 FEI/UMB September Event Plan: Practical AI for Finance Keynote by O\u2019Hara\u2014Content, Positioning, and Approval Timeline",
+      "start_time": 1784212297000,
+      "duration_ms": 488000,
+      "has_transcript": true,
+      "has_summary": true,
+      "status": "new",
+      "vault_match": false
+    },
+    {
+      "id": "e71526d7131bd7471384b151f6cf09c6",
+      "name": "07-14 SOAP Note: O'Hara - L5 Radiculopathy",
+      "start_time": 1784054916000,
+      "duration_ms": 1087000,
+      "has_transcript": true,
+      "has_summary": true,
+      "status": "new",
+      "vault_match": false
+    },
+    {
+      "id": "b9d915bfc311c86b2284df97ba5b7060",
+      "name": "07-13 Strategic Discussion on Personal Legal Challenges and AI Business Development",
+      "start_time": 1783961323000,
+      "duration_ms": 4038000,
+      "has_transcript": true,
+      "has_summary": true,
+      "status": "new",
+      "vault_match": false
+    },
+    {
+      "id": "e5a04131ee46970ac1c70a15cb4ae7ef",
+      "name": "07-10 Strategic Alignment on an Enterprise AI Agent Landing Zone",
+      "start_time": 1783713777854,
+      "duration_ms": 2173000,
+      "has_transcript": true,
+      "has_summary": true,
+      "status": "new",
+      "vault_match": false
+    },
+    {
+      "id": "d375ec4381759ec97cb596a94b9c8387",
+      "name": "07-09 Medical SOAP Note: O'Hara - Tarlov Cysts",
+      "start_time": 1783626171000,
+      "duration_ms": 390000,
+      "has_transcript": true,
+      "has_summary": true,
+      "status": "new",
+      "vault_match": false
+    },
+    {
+      "id": "b1dc9a09e8fbc5b99c521d693462c345",
+      "name": "07-09 Meeting: Orb Platform Demo, Multi-Tenant Architecture, OQ Module, SCIMS Integration, and MVP Compliance Features",
+      "start_time": 1783614634458,
+      "duration_ms": 4316000,
+      "has_transcript": true,
+      "has_summary": true,
+      "status": "new",
+      "vault_match": false
+    },
+    {
+      "id": "62c94442ce95e081df059f560d323a23",
+      "name": "07-08 Remote Work Is Easy, Not Simple: Strategic Risks, Trade-offs, and Operational Discipline",
+      "start_time": 1783539007691,
+      "duration_ms": 785000,
+      "has_transcript": true,
+      "has_summary": true,
+      "status": "new",
+      "vault_match": false
+    },
+    {
+      "id": "c5b8e23e96c2cd065eb4adb1bbb5726e",
+      "name": "07-08 Strategic Deep-Dive on SC's AI-Powered Compliance Platform",
+      "start_time": 1783523138748,
+      "duration_ms": 7142000,
+      "has_transcript": true,
+      "has_summary": true,
+      "status": "new",
+      "vault_match": false
+    },
+    {
+      "id": "a28f5f0fb1b870336efdeb69e41e5496",
+      "name": "07-07 Professional Catch-up and Startup Pitch",
+      "start_time": 1783458001689,
+      "duration_ms": 1774000,
+      "has_transcript": true,
+      "has_summary": true,
+      "status": "new",
+      "vault_match": false
+    },
+    {
+      "id": "27be4febbc851f77807558ae1281c728",
+      "name": "07-07 AI Advisory GTM Consolidation and Delivery Readiness: Packaging Nonprofit Three-Track Opportunity, Fractional AI Governance Playbook, and Speaking-Driven Pipeline",
+      "start_time": 1783453262620,
+      "duration_ms": 1293000,
+      "has_transcript": true,
+      "has_summary": true,
+      "status": "new",
+      "vault_match": false
+    },
+    {
+      "id": "e39770b133f2e1b902bc59c138e5c35b",
+      "name": "07-07 Strategic Meeting: Upskilling Sales and Targeting Large Deals",
+      "start_time": 1783451678596,
+      "duration_ms": 1577000,
+      "has_transcript": true,
+      "has_summary": true,
+      "status": "new",
+      "vault_match": false
+    },
+    {
+      "id": "8426683e366cd3dafc90de22e28557ab",
+      "name": "07-07 Professional and Personal Catch-up on Business Ventures, Family Life, and Investment Philosophies",
+      "start_time": 1783444776000,
+      "duration_ms": 4178000,
+      "has_transcript": true,
+      "has_summary": true,
+      "status": "new",
+      "vault_match": false
+    },
+    {
+      "id": "c75b84b5cb133be2f48ff24a461b1d1e",
+      "name": "07-02 Medical Consultation for Low Back and Leg Pain",
+      "start_time": 1783024211000,
+      "duration_ms": 1871000,
+      "has_transcript": true,
+      "has_summary": true,
+      "status": "new",
+      "vault_match": false
+    },
+    {
+      "id": "f1d25c2cec03b9e3351643f8b9fa7c57",
+      "name": "07-02 Professional Catch-up on Business, Technology, and Personal Life",
+      "start_time": 1783011234000,
+      "duration_ms": 5013000,
+      "has_transcript": true,
+      "has_summary": true,
+      "status": "new",
+      "vault_match": false
+    },
+    {
+      "id": "3b9cf232426f19fdbd42ef1ef5f35d4b",
+      "name": "07-02 Partnership Exploration Between Improving and Microsoft's Houston Innovation Hub",
+      "start_time": 1783006285116,
+      "duration_ms": 1732000,
+      "has_transcript": true,
+      "has_summary": true,
+      "status": "new",
+      "vault_match": false
+    },
+    {
+      "id": "a9f20e60aa498635dee686174c95a5fa",
+      "name": "07-01 Technology Partnership Exploration for Platform Modernization",
+      "start_time": 1782939654433,
+      "duration_ms": 1752000,
+      "has_transcript": true,
+      "has_summary": true,
+      "status": "new",
+      "vault_match": false
+    },
+    {
+      "id": "05fcc73c56f6556531a53575c6d70bd3",
+      "name": "07-01 Microsoft and Improving Partnership Exploration for Responsible AI Governance",
+      "start_time": 1782937802422,
+      "duration_ms": 1698000,
+      "has_transcript": true,
+      "has_summary": true,
+      "status": "new",
+      "vault_match": false
+    },
+    {
+      "id": "ae88bdbb37c2f7b0d29933fdbc036686",
+      "name": "06-30 Proposal Review: Large-Scale AI Training Workshop for Zero\u2019s Leadership",
+      "start_time": 1782862178563,
+      "duration_ms": 1961000,
+      "has_transcript": true,
+      "has_summary": true,
+      "status": "new",
+      "vault_match": false
+    },
+    {
+      "id": "af25aad40b86546fad1a74ff3608235d",
+      "name": "06-30 Strategic AI Advisory for Systemic Compliance",
+      "start_time": 1782853184077,
+      "duration_ms": 3472000,
+      "has_transcript": true,
+      "has_summary": true,
+      "status": "new",
+      "vault_match": false
+    },
+    {
+      "id": "74637ca13f2bb04cd8a23e6459cae199",
+      "name": "06-30 Product Demo and Strategic Partnership Proposal for an AI Model Management Platform",
+      "start_time": 1782833469492,
+      "duration_ms": 1876000,
+      "has_transcript": true,
+      "has_summary": true,
+      "status": "new",
+      "vault_match": false
+    },
+    {
+      "id": "81ff9b6a467037b188fa10a8360350b3",
+      "name": "06-26 Kazakhstan's Digital and AI Ecosystem Overview for Potential U.S. Collaboration",
+      "start_time": 1782505473795,
+      "duration_ms": 2267000,
+      "has_transcript": true,
+      "has_summary": true,
+      "status": "new",
+      "vault_match": false
+    },
+    {
+      "id": "13f671600541c5ae68bff2a2b8b5baaa",
+      "name": "06-23 Sales Team Performance and Strategy Review",
+      "start_time": 1782228855088,
+      "duration_ms": 2089000,
+      "has_transcript": true,
+      "has_summary": true,
+      "status": "new",
+      "vault_match": false
+    },
+    {
+      "id": "501f25606d43ffa2b4ee675923475cd4",
+      "name": "06-23 Strategic Dialogue on Corporate Structure, Leadership, and Growth",
+      "start_time": 1782226876070,
+      "duration_ms": 1931000,
+      "has_transcript": true,
+      "has_summary": true,
+      "status": "new",
+      "vault_match": false
+    },
+    {
+      "id": "bebfb9e0734bc8b241e2cec9ce233c05",
+      "name": "06-22 Strategic Partnership Exploration between xAI and Improving",
+      "start_time": 1782160450026,
+      "duration_ms": 1958000,
+      "has_transcript": true,
+      "has_summary": true,
+      "status": "new",
+      "vault_match": false
+    },
+    {
+      "id": "fd49dbb1f51f51e94a95de225cce8b24",
+      "name": "06-16 Consultation: AI Strategy & Governance",
+      "start_time": 1781639894407,
+      "duration_ms": 1890000,
+      "has_transcript": true,
+      "has_summary": true,
+      "status": "new",
+      "vault_match": false
+    },
+    {
+      "id": "ffe94bdbece8b80b1943f49828ef77b1",
+      "name": "06-15 Leveraging AI for Business Operations and Competitive Advantage",
+      "start_time": 1781548422000,
+      "duration_ms": 2543000,
+      "has_transcript": true,
+      "has_summary": true,
+      "status": "new",
+      "vault_match": false
+    },
+    {
+      "id": "fa0a7767b7a35a44db0d848f1619541b",
+      "name": "06-12 Lecture: AI Adoption, Governance, and Scaling",
+      "start_time": 1781284390425,
+      "duration_ms": 7077000,
+      "has_transcript": true,
+      "has_summary": true,
+      "status": "new",
+      "vault_match": false
+    },
+    {
+      "id": "f2bd65b3fce61b674b85dde54a6a4a0b",
+      "name": "06-12 Meeting: AI Discussion on Practical Frameworks and Adoption",
+      "start_time": 1781279974198,
+      "duration_ms": 2729000,
+      "has_transcript": true,
+      "has_summary": true,
+      "status": "new",
+      "vault_match": false
+    },
+    {
+      "id": "3558ce2d000323572ccbd94c63ec5195",
+      "name": "06-09 Consultation on AI Implementation and Data Strategy",
+      "start_time": 1781039006605,
+      "duration_ms": 1955000,
+      "has_transcript": true,
+      "has_summary": true,
+      "status": "new",
+      "vault_match": false
+    },
+    {
+      "id": "8a61f1edf8adceea9ae91581020b2ba6",
+      "name": "06-09 Mentorship and Career Development Discussion",
+      "start_time": 1781037210672,
+      "duration_ms": 1665000,
+      "has_transcript": true,
+      "has_summary": true,
+      "status": "new",
+      "vault_match": false
+    },
+    {
+      "id": "a0c8a0eec98e33c0db0255b7f05f57bf",
+      "name": "06-09 SMU and Improving Explore Partnership for New MS in AI for Business Program, Focusing on Guest Lecturing and Curriculum Advising",
+      "start_time": 1781013638446,
+      "duration_ms": 1169000,
+      "has_transcript": true,
+      "has_summary": true,
+      "status": "new",
+      "vault_match": false
+    },
+    {
+      "id": "65c3a1de465028eda14a3c4b00a6446f",
+      "name": "06-08 Consultation: Cognition, Improving, and Wendy's AI Strategy",
+      "start_time": 1780945239667,
+      "duration_ms": 1697000,
+      "has_transcript": true,
+      "has_summary": true,
+      "status": "new",
+      "vault_match": false
+    },
+    {
+      "id": "f874585c54f2aadc1b601418d4a73535",
+      "name": "06-08 Mentoring Session on Professional Development and Self-Improvement",
+      "start_time": 1780936404710,
+      "duration_ms": 1548000,
+      "has_transcript": true,
+      "has_summary": true,
+      "status": "new",
+      "vault_match": false
+    },
+    {
+      "id": "759c5846c93b37c5f2c52aa034222121",
+      "name": "06-08 Introductory Meeting: Partnership Exploration with Improving for Data Engineering & AI",
+      "start_time": 1780932673712,
+      "duration_ms": 1335000,
+      "has_transcript": true,
+      "has_summary": true,
+      "status": "new",
+      "vault_match": false
+    },
+    {
+      "id": "c520ac7225be4406317916692dbf547c",
+      "name": "05-28 Consultation: 3\u2011Month AI Build Program for Remote Leadership Offsite (Windsor, Oct 2026)",
+      "start_time": 1779986149264,
+      "duration_ms": 1400000,
+      "has_transcript": true,
+      "has_summary": true,
+      "status": "new",
+      "vault_match": false
+    },
+    {
+      "id": "eab4fe18acbded848fcb11f33f71d26d",
+      "name": "05-26 Interview: Head of IT/Technology Role",
+      "start_time": 1779833655632,
+      "duration_ms": 471000,
+      "has_transcript": true,
+      "has_summary": true,
+      "status": "new",
+      "vault_match": false
+    },
+    {
+      "id": "781325f63bad4d8d76edea7144f1c38e",
+      "name": "05-22 Meeting: Partner-Led AI Engagement Model for Mid-Market and Sales Alignment Challenges",
+      "start_time": 1779479664471,
+      "duration_ms": 386000,
+      "has_transcript": true,
+      "has_summary": true,
+      "status": "new",
+      "vault_match": false
+    },
+    {
+      "id": "0ccc186e295be5298e1abf2ab46f8d3a",
+      "name": "05-22 Meeting: Austin Summit Planning, Speakers, Sponsorships, YPO Outreach, and Ethical AI Talk",
+      "start_time": 1779467384078,
+      "duration_ms": 1215000,
+      "has_transcript": true,
+      "has_summary": true,
+      "status": "new",
+      "vault_match": false
+    },
+    {
+      "id": "e2651d9388d120eb4c25087ec51bb070",
+      "name": "05-22 Consultation: THL & Odessa - Service Margin Erosion",
+      "start_time": 1779464138656,
+      "duration_ms": 1523000,
+      "has_transcript": true,
+      "has_summary": true,
+      "status": "new",
+      "vault_match": false
+    },
+    {
+      "id": "66f9851da4eae9f6889f9bb90d9fb94b",
+      "name": "05-18 Meeting: AI Workshop Planning",
+      "start_time": 1779120004756,
+      "duration_ms": 1552000,
+      "has_transcript": true,
+      "has_summary": true,
+      "status": "new",
+      "vault_match": false
+    },
+    {
+      "id": "636cb5a93564b4acbc8c5bbecfd888da",
+      "name": "05-14 Workshop: AI Hands-On Build Session for Synexus Leaders \u2013 RFP Automation, Copilot 365, Notebook LM, SharePoint",
+      "start_time": 1778772576172,
+      "duration_ms": 1528000,
+      "has_transcript": true,
+      "has_summary": true,
+      "status": "new",
+      "vault_match": false
+    },
+    {
+      "id": "4cfaba43239fdec48b1952564caf46d6",
+      "name": "05-13 Consultation: Enterprise Claude Governance, Fraud Mitigation, and Upskilling at Exeter Finance",
+      "start_time": 1778704350777,
+      "duration_ms": 1517000,
+      "has_transcript": true,
+      "has_summary": true,
+      "status": "new",
+      "vault_match": false
+    },
+    {
+      "id": "39a6065ed599841cad0c403ba1ecef1a",
+      "name": "05-13 Consultation: Fractional CTO/CIO & Business Strategy",
+      "start_time": 1778698884931,
+      "duration_ms": 718000,
+      "has_transcript": true,
+      "has_summary": true,
+      "status": "new",
+      "vault_match": false
+    },
+    {
+      "id": "f3318b024aeadbb2e149b460e661ea71",
+      "name": "05-13 Consultation: Bob (Private Equity Firm) - Odessa Underperformance",
+      "start_time": 1778691733836,
+      "duration_ms": 1141000,
+      "has_transcript": true,
+      "has_summary": true,
+      "status": "new",
+      "vault_match": false
+    },
+    {
+      "id": "377d41b97ab9d60c30a30cd87ceeec54",
+      "name": "05-12 Meeting Note: AI Workshop, Economic Impact & Data Sourcing",
+      "start_time": 1778617997000,
+      "duration_ms": 5088000,
+      "has_transcript": true,
+      "has_summary": true,
+      "status": "new",
+      "vault_match": false
+    },
+    {
+      "id": "d78ff55e9668cba156d300e635883202",
+      "name": "05-12 Workshop: Executive AI Strategy and Departmental Use-Case Prioritization",
+      "start_time": 1778614251000,
+      "duration_ms": 1685000,
+      "has_transcript": true,
+      "has_summary": true,
+      "status": "new",
+      "vault_match": false
+    },
+    {
+      "id": "d4e20c86509bab3eb86e7f371945d798",
+      "name": "05-12 Lunch Meeting: DSO Access Strategy, Cosm Immersive MVP, Corporate Underwriting, and Wealth Platform Transition",
+      "start_time": 1778605220000,
+      "duration_ms": 4843000,
+      "has_transcript": true,
+      "has_summary": true,
+      "status": "new",
+      "vault_match": false
+    },
+    {
+      "id": "11e71b2eab48d8eba632f40d3b89a580",
+      "name": "05-05 AI Development Tooling Strategy for Client Engagement",
+      "start_time": 1778014622000,
+      "duration_ms": 1685000,
+      "has_transcript": true,
+      "has_summary": true,
+      "status": "new",
+      "vault_match": false
+    },
+    {
+      "id": "2c9971feff1e18241d98f76560afb568",
+      "name": "04-20 Consultation: AI Enablement and Agent Governance for SAP & Digital Teams at Maxon/McKesson",
+      "start_time": 1776719172561,
+      "duration_ms": 1527000,
+      "has_transcript": true,
+      "has_summary": true,
+      "status": "new",
+      "vault_match": false
+    },
+    {
+      "id": "cb309555e0bb3162a433e439eb20d046",
+      "name": "04-17 Meeting: SMU\u2013Improving Collaboration on AI Strategy, Education, and Hackathon Planning",
+      "start_time": 1776454260995,
+      "duration_ms": 2534000,
+      "has_transcript": true,
+      "has_summary": true,
+      "status": "new",
+      "vault_match": false
+    },
+    {
+      "id": "fbf223550f0b06fee0d9ba1d37087669",
+      "name": "04-17 Weekly Meeting: Onboarding and Management Training",
+      "start_time": 1776450653008,
+      "duration_ms": 2239000,
+      "has_transcript": true,
+      "has_summary": true,
+      "status": "new",
+      "vault_match": false
+    },
+    {
+      "id": "ddb571e94fb49f233b72bb85597539b2",
+      "name": "04-13 Executive Partner Kickoff Call: Aligning Goals, Access, and Operating Rhythm",
+      "start_time": 1776117661237,
+      "duration_ms": 2344000,
+      "has_transcript": true,
+      "has_summary": true,
+      "status": "new",
+      "vault_match": false
+    },
+    {
+      "id": "30573086ed95fedbaf674ce123145ad4",
+      "name": "04-07 Consultation: Meredith - Conference Speaker Search",
+      "start_time": 1775572358039,
+      "duration_ms": 1325000,
+      "has_transcript": true,
+      "has_summary": true,
+      "status": "new",
+      "vault_match": false
+    },
+    {
+      "id": "a8590d37eb001b62b0d25fc9fb40bf45",
+      "name": "04-06 Exploratory Meeting on Vistage Membership for a New President",
+      "start_time": 1775509253611,
+      "duration_ms": 2750000,
+      "has_transcript": true,
+      "has_summary": true,
+      "status": "new",
+      "vault_match": false
+    },
+    {
+      "id": "12a03ccf6fc46ab4de81103247ae925c",
+      "name": "04-06 Consultation: AI Solutions for Property Management Efficiency",
+      "start_time": 1775498828422,
+      "duration_ms": 1909000,
+      "has_transcript": true,
+      "has_summary": true,
+      "status": "new",
+      "vault_match": false
+    },
+    {
+      "id": "01e3c670592808203e4439bcfc258aaa",
+      "name": "04-02 Weekly Meeting: McLane Account Strategy, AI Engagement, and GTM Performance",
+      "start_time": 1775160202887,
+      "duration_ms": 6745000,
+      "has_transcript": true,
+      "has_summary": true,
+      "status": "new",
+      "vault_match": false
+    },
+    {
+      "id": "e712a21ab3fa48c672e32d17739b6366",
+      "name": "04-02 Strategy Meeting: Key Accounts (Intuit, Oxy, Live Nation)",
+      "start_time": 1775153346895,
+      "duration_ms": 5913000,
+      "has_transcript": true,
+      "has_summary": true,
+      "status": "new",
+      "vault_match": false
+    },
+    {
+      "id": "3bcb04ee36b555a6a1121aca81c50d85",
+      "name": "04-02 Consultation: Specialty Capital - SaaS System Replacement",
+      "start_time": 1775147544141,
+      "duration_ms": 1943000,
+      "has_transcript": true,
+      "has_summary": true,
+      "status": "new",
+      "vault_match": false
+    },
+    {
+      "id": "3102121505df2825fc29efa82ef2f746",
+      "name": "04-01 Meeting: Account Plan Strategy & Key Accounts (Simpson, Entergy, AT&T)",
+      "start_time": 1775065258000,
+      "duration_ms": 12916000,
+      "has_transcript": true,
+      "has_summary": true,
+      "status": "new",
+      "vault_match": false
+    },
+    {
+      "id": "cacb9dcf986e787637fed97dd8ce2004",
+      "name": "03-26 DRC's Talent Labs Repositions as Senior HR Leadership Incubator with AI Focus",
+      "start_time": 1774559023395,
+      "duration_ms": 831000,
+      "has_transcript": true,
+      "has_summary": true,
+      "status": "new",
+      "vault_match": false
+    },
+    {
+      "id": "e904efdd592eac537da3be493fe6d860",
+      "name": "03-25 Vendor Partnership Failure and Strategic Reset Due to Guatemala Team's Capability Gap",
+      "start_time": 1774474649000,
+      "duration_ms": 1235000,
+      "has_transcript": true,
+      "has_summary": true,
+      "status": "new",
+      "vault_match": false
+    },
+    {
+      "id": "d2d390a2de3afa7ecd4a61c408355806",
+      "name": "03-24 Texas's Strategy to Become a Global Financial Hub (\"Y'all Street\")",
+      "start_time": 1774371709000,
+      "duration_ms": 5255000,
+      "has_transcript": true,
+      "has_summary": true,
+      "status": "new",
+      "vault_match": false
+    },
+    {
+      "id": "14d0f41b5dcb80d32ffab947fa94c982",
+      "name": "03-23 Disciplined AI Adoption and Secure Agent Operations Enabled by Executive Peer Networks",
+      "start_time": 1774291493000,
+      "duration_ms": 662000,
+      "has_transcript": true,
+      "has_summary": true,
+      "status": "new",
+      "vault_match": false
+    },
+    {
+      "id": "175530b523269bd010932699539ee578",
+      "name": "03-23 Strategic AI Implementation: From Cultural Adoption to Technical Execution",
+      "start_time": 1774285672000,
+      "duration_ms": 5736000,
+      "has_transcript": true,
+      "has_summary": true,
+      "status": "new",
+      "vault_match": false
+    },
+    {
+      "id": "2d630f14f59b06f32fe004da42a11042",
+      "name": "03-20 Consultation: Athena EA Month-to-Month Trial, Proactivity, Microsoft 365 Integration, and Security",
+      "start_time": 1774031716000,
+      "duration_ms": 1430000,
+      "has_transcript": true,
+      "has_summary": true,
+      "status": "new",
+      "vault_match": false
+    },
+    {
+      "id": "f36afb2dfa407af96c8e1a39a8e666fd",
+      "name": "03-12 Consultation: NextBen ICHRA Pre-Sales Analysis Tool\u2014Scalability, Integration, and Broker Enablement",
+      "start_time": 1773342470257,
+      "duration_ms": 1758000,
+      "has_transcript": true,
+      "has_summary": true,
+      "status": "new",
+      "vault_match": false
+    },
+    {
+      "id": "2381dbde9e0e2882bebf564387e49b18",
+      "name": "03-10 Meeting: Executive Assistant AI System Integration, Calendar/Storage Mapping, and Onboarding Plan",
+      "start_time": 1773155937000,
+      "duration_ms": 4716000,
+      "has_transcript": true,
+      "has_summary": true,
+      "status": "new",
+      "vault_match": false
+    },
+    {
+      "id": "eb95605742e593b185c6d1d2c2d429eb",
+      "name": "03-06 Meeting: Azure Go-Live, Event-Driven POC, and Legacy Code Analysis Strategy",
+      "start_time": 1772827301055,
+      "duration_ms": 1004000,
+      "has_transcript": true,
+      "has_summary": true,
+      "status": "new",
+      "vault_match": false
+    },
+    {
+      "id": "374ebaa23c57bae55e94fd74fff219d8",
+      "name": "03-05 Strategic Discussion on AI Integration in Professional Services",
+      "start_time": 1772724681190,
+      "duration_ms": 1625000,
+      "has_transcript": true,
+      "has_summary": true,
+      "status": "new",
+      "vault_match": false
+    },
+    {
+      "id": "69679aaa94a5fd286f686f68444f3999",
+      "name": "02-24 Meeting: DRC Event Strategy, AI Workshop Promotion, and Outreach Plan",
+      "start_time": 1771945911000,
+      "duration_ms": 2301000,
+      "has_transcript": true,
+      "has_summary": true,
+      "status": "new",
+      "vault_match": false
+    },
+    {
+      "id": "1cd79c74dec9ecb46910c4147479ebc2",
+      "name": "02-23 Meeting: AI Training Program for DevOps and IT Infrastructure \u2014 Adoption Levels, Compliance, Structure, Pricing",
+      "start_time": 1771883993000,
+      "duration_ms": 1859000,
+      "has_transcript": true,
+      "has_summary": true,
+      "status": "new",
+      "vault_match": false
+    },
+    {
+      "id": "881d636f55e44809f4b5bf8f6bd4c1ba",
+      "name": "02-20 Expanding McKesson Account via Databricks Partnership and Snowflake Migration Strategy",
+      "start_time": 1771614058769,
+      "duration_ms": 1000000,
+      "has_transcript": true,
+      "has_summary": true,
+      "status": "new",
+      "vault_match": false
+    },
+    {
+      "id": "ca0c3c14157607cb11d5b71c9a1da0b9",
+      "name": "02-20 Meeting: Vistage Speaker Opportunity",
+      "start_time": 1771610513215,
+      "duration_ms": 1894000,
+      "has_transcript": true,
+      "has_summary": true,
+      "status": "new",
+      "vault_match": false
+    },
+    {
+      "id": "67ed8bff5f64e9543a24c07b08acd715",
+      "name": "02-13 Meeting: Cardinal IT Solutions & Improving Partnership",
+      "start_time": 1771018743647,
+      "duration_ms": 1422000,
+      "has_transcript": true,
+      "has_summary": true,
+      "status": "new",
+      "vault_match": false
+    },
+    {
+      "id": "9dd04a9eb939ab74849d7f04a8b93e43",
+      "name": "02-12 Confluent Meeting",
+      "start_time": 1770920173000,
+      "duration_ms": 2845000,
+      "has_transcript": true,
+      "has_summary": true,
+      "status": "new",
+      "vault_match": false
+    },
+    {
+      "id": "e2ba228f669ec2ecae9bfb7c7ef3e45b",
+      "name": "01-14 Weekly Meeting: Enterprise Presidents' Roles, Sales Leadership, and Microsoft Partnership",
+      "start_time": 1768413405000,
+      "duration_ms": 823000,
+      "has_transcript": true,
+      "has_summary": true,
+      "status": "new",
+      "vault_match": false
+    },
+    {
+      "id": "d59606e21d3be9d20372c27da65281f1",
+      "name": "01-13 Panel Discussion: Capitalism, Venture Capital, and Angel Investing",
+      "start_time": 1768327385000,
+      "duration_ms": 3309000,
+      "has_transcript": true,
+      "has_summary": true,
+      "status": "new",
+      "vault_match": false
+    },
+    {
+      "id": "969d0704a3f926b055cddb3de3d0762d",
+      "name": "01-13 Interview: Chrissy and Mark - Angel Investing Strategies",
+      "start_time": 1768324319000,
+      "duration_ms": 2959000,
+      "has_transcript": true,
+      "has_summary": true,
+      "status": "new",
+      "vault_match": false
+    },
+    {
+      "id": "0fe28170fa4dd5e90084022dff733586",
+      "name": "01-13 Investor Summit: Liberty Ventures, Capitalism, and Angel Investing",
+      "start_time": 1768320703000,
+      "duration_ms": 2359000,
+      "has_transcript": true,
+      "has_summary": true,
+      "status": "new",
+      "vault_match": false
+    },
+    {
+      "id": "45ec10f866bf2477af642d2805b347b7",
+      "name": "12-22 Partnership Meeting: AI Strategy and Data Infrastructure",
+      "start_time": 1766418829000,
+      "duration_ms": 3461000,
+      "has_transcript": true,
+      "has_summary": true,
+      "status": "new",
+      "vault_match": false
+    },
+    {
+      "id": "61be69f4955ba9121bf4ff3e54587230",
+      "name": "12-08 Meeting: SAP S/4HANA Migration Strategy",
+      "start_time": 1765208227000,
+      "duration_ms": 1640000,
+      "has_transcript": true,
+      "has_summary": true,
+      "status": "new",
+      "vault_match": false
+    }
+  ],
+  "existing_recordings_sample": [
+    {
+      "id": "7170e0d9bf493a87042a31b0ebf76870",
+      "name": "08-14 Consultation: Health and Safety Council - AI for Training Workflow",
+      "status": "ingested",
+      "vault_match": true
+    },
+    {
+      "id": "3b94e13fb0f4e4282091b3ea063b1bef",
+      "name": "08-11 Plan for Executive Networking Breakfast to Promote Conscious Capitalism and Code Launch",
+      "status": "ingested",
+      "vault_match": true
+    },
+    {
+      "id": "c2dc08f2c63c01a98785dfb4b762b533",
+      "name": "08-07 Consultation: Podcast Monetization Strategy",
+      "status": "ingested",
+      "vault_match": true
+    },
+    {
+      "id": "0b814663529a2cd65f0c6031877f44ad",
+      "name": "08-07 Consultation: Mash AI Platform for Content Creation",
+      "status": "ingested",
+      "vault_match": true
+    },
+    {
+      "id": "baeee0303990cfe9996df518fa71f1e3",
+      "name": "08-06 Architecting \"SC IMS\" as the Intelligent Core of the \"Orb\" Platform",
+      "status": "ingested",
+      "vault_match": true
+    },
+    {
+      "id": "f5416a4750e1f41e2624a9403a8b279a",
+      "name": "08-06 Area Officer Kickoff and Resource Training",
+      "status": "ingested",
+      "vault_match": true
+    },
+    {
+      "id": "fb489c18186a3013eb4989cb6c5402be",
+      "name": "08-03 Partnership to Support Moto\u2019s Chevron Deal with Operational and Engineering Services",
+      "status": "ingested",
+      "vault_match": true
+    },
+    {
+      "id": "65f997c62d7d8cd56ea2ccb2a8725296",
+      "name": "08-03 Interview: David O'Hara (Improving) and Luke (GearVox) \u2014 Global Boutique Strategy, Conscious Capitalism, and AI Customer Engagement",
+      "status": "ingested",
+      "vault_match": true
+    },
+    {
+      "id": "731cd191d0b84ada286d4589675023e8",
+      "name": "07-30 Meeting: Personal Retreat Planning, YPO Board Scheduling, Expenses and Tools Access, External Outreach",
+      "status": "ingested",
+      "vault_match": true
+    },
+    {
+      "id": "87e93b20349620b2ccd2dcb1d13a5dd2",
+      "name": "07-30 Weekly Meeting: McKesson Project, Texas Performance, and Partner Strategy",
+      "status": "ingested",
+      "vault_match": true
+    }
+  ]
+}

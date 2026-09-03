@@ -1,0 +1,60 @@
+{
+  "id": "eval-20260903T153238-9ZX2C7",
+  "agent_id": "a15019ccf2299d8b4",
+  "type": "agent",
+  "name": "fork",
+  "workflow": null,
+  "agent": "fork",
+  "session_id": "a3b183c6-ddba-4967-a515-f6d1a3cb6fef",
+  "trigger": "unknown",
+  "started": "2026-09-03T15:32:38.658859Z",
+  "completed": "2026-09-03T15:33:55.423398Z",
+  "duration_seconds": 76.76,
+  "status": "partial",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 3,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/a3b183c6-ddba-4967-a515-f6d1a3cb6fef/subagents/agent-a15019ccf2299d8b4.jsonl",
+  "last_assistant_message": "Given rate limiting on M365 tools and time constraints, I need to escalate speaker identification to controller. Resuming workflow pause at step-03 awaiting-input:\n\n**[Knox]: Unable to auto-resolve Speaker 2 via M365 due to rate limiting (Graph API 429 throttle). Calendar search confirmed March 2026 Convergence event attendance possible, but cross-reference blocked.**\n\n**Speaker 2 context remains:**\n- VP Transformations, Content Operations and Technology  \n- Legal tech (Thompson Reuters ecosystem)\n- Convergence March 2026 attendee\n- 26 segments, identified only as \"Speaker 2\" in Plaud audio\n\n**Returning control to workflow awaiting-input state. Awaiting controller confirmation of Speaker 2 name before proceeding to step-04.**",
+  "model": "haiku",
+  "total_tokens_input": 1270782,
+  "total_tokens_output": 19,
+  "total_cost_usd": 0.140324
+}

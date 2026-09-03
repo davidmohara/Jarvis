@@ -1,12 +1,12 @@
 ---
 status: complete
-started-at: "2026-09-02T16:12:00Z"
-completed-at: "2026-09-02T16:14:00Z"
+started-at: "2026-09-03T15:17:00Z"
+completed-at: "2026-09-03T15:22:00Z"
 outputs:
   briefing_delivered: "yes — morning briefing synthesized against live re-pulled data and carried forward through steps 06-08 for verbatim delivery to controller"
-  format: "3-paragraph narrative + calendar table (accumulated data: 33 calendar events Sep 2-5 fresh live pull, 9 uncompleted OmniFocus inbox items live re-pull, 5 actionable emails live re-pull, 0 due reminders, Clay available with 0 reminders/birthdays, delegation tracker clean, Knox/plaud-ingest status carried in from step-08)"
-  calendar_today: "already mid-day (session run at 11am CDT) — HCHB breakfast and Dr Nathan Walters appointment already behind; remaining today: Improving Edge topic discussion with Tosan, YPO yDeep Dive, UTB call, haircut, Systemic Compliance scoping call (3:30pm), and Cigars with the Stars evening social"
-  hotspots: "Systemic Compliance scoping call at 3:30pm needs attention — Matt's document scoring from yesterday's email feeds directly into it; two calendar double-bookings today (Dallas Executive Huddle vs HCHB breakfast, AI Leaders Weekly vs Sales Scrum); Knox/plaud-ingest still sitting on an unanswered speaker-ID question from 8/31; no Watchtower daily output found for today — section omitted; delegation tracker is clean (no active items)"
+  format: "narrative + calendar table (accumulated data: 24 calendar events Sep 2-7 fresh live pull, 11 uncompleted OmniFocus inbox items live re-pull, 5 actionable emails live re-pull, 0 due reminders, Clay available with 0 reminders/birthdays, delegation tracker clean, Knox/plaud-ingest status carried in from step-08)"
+  calendar_today: "Thursday Sep 3 — Sales & Recruiting Meeting/Sales Scrum (recurring, 9:15-10am CDT), David/Robyn 1:1 (10-10:30am), Podcast Filming with guest Michael Slater (1-3pm, MarketScale), Meet with Steve (4:30-5:30pm). Light day, no client meetings."
+  hotspots: "Podcast Filming with Michael Slater this afternoon has no prior prep notes found — flagging as light-context; BoardVantage director approval awaiting response; plaud-ingest workflow shows status:in-progress (session pi-20260903-001) not yet reflected in _active.yaml — flagged in guardrail checkpoint; delegation tracker is clean (no active items); no daily review on file since 2026-08-12 (long-standing gap, not new today)."
 ---
 
 <!-- system:start -->

@@ -1,12 +1,12 @@
 ---
 status: complete
-started-at: "2026-09-02T16:10:00Z"
-completed-at: "2026-09-02T16:12:00Z"
+started-at: "2026-09-03T15:14:00Z"
+completed-at: "2026-09-03T15:17:00Z"
 outputs:
-  meetings_found: "33 events (Sep 2-5) with full context — calendar-unified.json provides all attendees, locations, times; cross-checked against live Clay getEvents this run"
-  meeting-context: "Today (Wed Sep 2, the heaviest day of the window): Breakfast with Luke Rutledge & Jgarcia (HCHB) at Ida Claire 8:30-9:30am CDT; Dallas Executive Huddle 8:30-9am (tentative, overlaps breakfast); Sales & Recruiting Meeting 9:15-9:30am and Sales Scrum 9:30-10am (recurring); AI Leaders Weekly 9:30-10am (overlaps Sales Scrum); Dr Nathan Walters appt 10:15-11:15am; The Improving Edge Topic Discussion with Tosan 12:00-12:30pm; YPO yDeep Dive 12:30-1:30pm (tentative); Call With Teresa UTB 1:00-1:30pm; Haircut 2:00-3:00pm; Scoping the Next Phase - Systemic Compliance & Improving 3:30-4:15pm (Matt/Robin/Kevin Graham — directly follows up on the 'Tomorrow's meeting' email where Matt scored David's document); Cigars with the Stars (new location, Industrial Cigar Co. Frisco) 5:00-7:30pm evening social. Notable double-booking: Dallas Executive Huddle overlaps the HCHB breakfast, and AI Leaders Weekly overlaps Sales Scrum. Sep 3: Sales & Recruiting/Sales Scrum, David/Robyn 1:1, Podcast Filming (MarketScale, Michael Slater guest), Fal.Con keynotes, Golf Lesson evening."
+  meetings_found: "24 events (Sep 2-7) with full context — calendar-unified.json provides all attendees, locations, times; cross-checked against live Clay getEvents this run"
+  meeting-context: "Today (Thu Sep 3): Sales & Recruiting Meeting 9:15-9:30am CDT (recurring, tentative) and Sales Scrum 9:30-10am (recurring, tentative) — recurring-skip, no prep needed; David/Robyn 1:1 10:00-10:30am — standing 1:1, no client/deal-specific prep beyond usual cadence, delegation tracker clean (no open items tied to Robyn); Drive To 12:30-1:00pm; Podcast Filming (MarketScale) 1:00-3:00pm with guest Michael Slater, Janine Jeanson and Kristin Johnson producing — guest-episode prep may be useful given no prior notes found; Drive From 3:00-3:30pm; Meet with Steve 4:30-5:30pm — no attendee list/context on the invite, low-context. No client or partner meetings today. Yesterday's daily review not found (last dated review on file: auto-2026-08-12.md — this gap is long-standing, not new)."
   clay-reminders: "available this run — 0 reminders returned (getUpcomingReminders)"
-  clay-birthdays: "available this run — no birthday-specific entries found in Clay getEvents for the next 7 days; 0 to report"
+  clay-birthdays: "available this run — no birthday-specific entries found in Clay getEvents for the next 7 days (Sep 3-10); 0 to report"
   context-status: "ready — sufficient calendar and meeting-prep data for briefing synthesis. Clay available and cross-verified against calendar-unified.json; no data gaps this run."
 ---
 

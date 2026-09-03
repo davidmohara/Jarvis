@@ -1,14 +1,14 @@
 ---
 status: complete
-started-at: "2026-09-02T16:01:00Z"
-completed-at: "2026-09-02T16:05:00Z"
+started-at: "2026-09-03T15:00:00Z"
+completed-at: "2026-09-03T15:03:00Z"
 outputs:
   calendar_file: "data/calendar-unified.json"
-  event_count: 33
-  date_range: "2026-09-02 to 2026-09-05"
-  status: "written — prior file was stale (2026-08-31 pull), fresh M365 pull made this run"
-  file_size_kb: 1.0
-  m365_calls: 2
+  event_count: 24
+  date_range: "2026-09-02 to 2026-09-07"
+  status: "written — prior file was stale (2026-09-02 pull), fresh M365 pull made this run"
+  file_size_kb: 3.5
+  m365_calls: 1
 ---
 
 <!-- system:start -->

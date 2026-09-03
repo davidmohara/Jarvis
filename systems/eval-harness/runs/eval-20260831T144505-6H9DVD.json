@@ -19,33 +19,49 @@
     },
     "structural": {
       "expected_outputs_written": true,
-      "outputs_non_empty": false,
-      "assertions_checked": 3,
-      "assertions_passed": 1,
+      "outputs_non_empty": true,
+      "assertions_checked": 4,
+      "assertions_passed": 4,
       "assertion_results": [
         {
           "assertion": "plaud-discover-signal-written",
           "description": "plaud-discover skill-run signal file was written",
+          "category": "structure",
           "passed": true
         },
         {
           "assertion": "plaud-discover-signal-status",
           "description": "plaud-discover skill-run did not end in failure",
-          "passed": null,
-          "skipped": true,
-          "reason": "unknown check type: json_field_not_equals"
+          "category": "structure",
+          "passed": true
         },
         {
           "assertion": "plaud-di-002-substantive",
           "description": "plaud-discover output is substantive (>200 bytes)",
-          "passed": false
+          "category": "structure",
+          "passed": true
         },
         {
           "assertion": "plaud-di-003-content",
           "description": "plaud-discover output contains expected content",
-          "passed": false
+          "category": "structure",
+          "passed": true
         }
-      ]
+      ],
+      "category_breakdown": {
+        "structure": {
+          "passed": 4,
+          "checked": 4
+        },
+        "content": {
+          "passed": 0,
+          "checked": 0
+        },
+        "quality": {
+          "passed": 0,
+          "checked": 0
+        }
+      }
     },
     "grading": {
       "last_graded": null,
@@ -56,6 +72,11 @@
       "rating": null,
       "comment": null,
       "timestamp": null
+    },
+    "deterministic_gate": {
+      "score": 0.8333,
+      "gate_status": "pass",
+      "computed_at": "2026-09-03T15:08:49.102207Z"
     }
   },
   "version_hash": "81607653ed61218d",

@@ -1,14 +1,14 @@
 ---
 status: complete
-started-at: "2026-09-02T16:15:00Z"
-completed-at: "2026-09-02T16:15:30Z"
+started-at: "2026-09-03T15:24:00Z"
+completed-at: "2026-09-03T15:25:00Z"
 outputs:
   state_status: "complete — all prior step files verified status:complete this run, boot state.yaml updated with completion timestamp"
   verification: passed
-  steps_verified: 10
+  steps_verified: 7
   failed_steps: []
-  guardrail_checkpoint: "pre-completion-review: pass"
-  note: "All prior steps completed successfully with fresh live-pulled data this session (calendar, email, OmniFocus, Clay all live pulls ~16:00-16:12Z). Boot workflow complete. Knox (plaud-ingest) not spawned this run — an older 2026-08-31 session remains parked awaiting-input, checked in step-08, informational, not a boot blocker."
+  guardrail_checkpoint: "pre-completion-review: flag — _active.yaml/plaud-ingest index mismatch (see step-06.5), does not block completion"
+  note: "All 7 prior steps (step-01 through step-06.5) show status:complete. step-01's frontmatter timestamp is stale (2026-08-31, from an earlier session) but its status field is complete, which is the sole pass criterion per this step's own rules — flagging the stale timestamp as an observation, not a failure. Boot workflow complete with fresh live-pulled data this session (calendar, email, OmniFocus, Clay all live pulls ~15:00-15:17Z)."
 ---
 
 <!-- system:start -->

@@ -1,0 +1,62 @@
+{
+  "id": "eval-20260903T170609-MW2W5C",
+  "agent_id": "a6c3bd6bd2db13778",
+  "type": "agent",
+  "name": "general-purpose",
+  "workflow": null,
+  "agent": "general-purpose",
+  "session_id": "a3b183c6-ddba-4967-a515-f6d1a3cb6fef",
+  "trigger": "unknown",
+  "started": "2026-09-03T17:06:09.003104Z",
+  "completed": null,
+  "duration_seconds": null,
+  "status": "in-progress",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": null,
+      "all_steps_finished": null,
+      "tool_failures": 1,
+      "error_ids": [],
+      "tool_failure_log": [
+        {
+          "tool": "mcp__obsidian-mcp-tools__get_vault_file",
+          "error": "MCP error -32603: GET /vault/Calendar%2F2026%2F09-September%2F2026-09-02.md 404: {\n  \"message\": \"Not Found\",\n  \"errorCode\": 40400\n}",
+          "duration_ms": 30,
+          "timestamp": "2026-09-03T12:07:33.224277"
+        }
+      ]
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": []
+}

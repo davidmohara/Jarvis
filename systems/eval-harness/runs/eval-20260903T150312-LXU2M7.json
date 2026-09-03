@@ -1,0 +1,145 @@
+{
+  "id": "eval-20260903T150312-LXU2M7",
+  "type": "workflow",
+  "name": "boot",
+  "agent": "master",
+  "session_id": "a3b183c6-ddba-4967-a515-f6d1a3cb6fef",
+  "trigger": "boot",
+  "started": "2026-09-03T15:03:12.581772Z",
+  "completed": "2026-09-03T15:09:36.128970Z",
+  "duration_seconds": 383.55,
+  "status": "success",
+  "steps": [],
+  "subagents": [
+    {
+      "agent_id": "ab7b0bf5ddfa8e660",
+      "agent_type": "general-purpose",
+      "started": "2026-09-03T15:03:37.596014Z",
+      "completed": "2026-09-03T15:09:51.899360Z",
+      "model": "haiku",
+      "tokens_input": 838063,
+      "tokens_output": 115,
+      "cost_usd": 0.147797,
+      "duration_seconds": 58.11
+    },
+    {
+      "agent_id": "ae4af0bb99c82a475",
+      "agent_type": "general-purpose",
+      "started": "2026-09-03T15:03:43.086261Z",
+      "completed": "2026-09-03T15:09:24.597073Z",
+      "model": "sonnet",
+      "tokens_input": 4716298,
+      "tokens_output": 2745,
+      "cost_usd": 1.977998,
+      "duration_seconds": 341.51
+    },
+    {
+      "agent_id": "a5842d8f41a77b1b2",
+      "agent_type": "general-purpose",
+      "started": "2026-09-03T15:04:32.980412Z",
+      "completed": "2026-09-03T15:09:01.059772Z",
+      "model": "haiku",
+      "tokens_input": 1847944,
+      "tokens_output": 62,
+      "cost_usd": 0.250665,
+      "duration_seconds": 268.08
+    },
+    {
+      "agent_id": "a15019ccf2299d8b4",
+      "agent_type": "fork",
+      "started": "2026-09-03T15:04:40.356447Z",
+      "completed": "2026-09-03T16:25:45.054951Z",
+      "model": "haiku",
+      "tokens_input": 1419078,
+      "tokens_output": 26,
+      "cost_usd": 0.257309,
+      "duration_seconds": 118.85
+    },
+    {
+      "agent_id": "ab7b0bf5ddfa8e660",
+      "agent_type": "general-purpose",
+      "started": "2026-09-03T15:08:53.789386Z",
+      "completed": null,
+      "model": null,
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    }
+  ],
+  "monitoring": {
+    "active": false,
+    "state_yaml_path": "workflows/boot/state.yaml",
+    "opened_by": "eval-turn-start.py",
+    "trigger_evidence": "run the morning boot workflow"
+  },
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 3,
+      "assertions_passed": 3,
+      "assertion_results": [
+        {
+          "assertion": "boot-001-state-complete",
+          "description": "Boot workflow state.yaml shows status: complete",
+          "passed": true
+        },
+        {
+          "assertion": "boot-002-session-index-exists",
+          "description": "Session index file exists \u2014 boot's Session Index Boot step must have created/appended it",
+          "passed": true
+        },
+        {
+          "assertion": "boot-003-session-index-substantive",
+          "description": "Session index is a real record, not an empty stub",
+          "passed": true
+        }
+      ]
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": "f1a31609ac6be8a11b48a3c6267957f76a4e86e971cd143315c77472e90af0d0",
+  "prior_baseline_id": null,
+  "tags": [
+    "turn-level"
+  ],
+  "guardrails": [
+    {
+      "name": "pre-completion-review",
+      "after_step": "step-06-scan-workflows",
+      "result": "flag",
+      "reason": "Briefing reflects fresh live data with no stale-context signs; however, _active.yaml shows active:[] while workflows/plaud-ingest/state.yaml is genuinely status:in-progress (session pi-20260903-001) \u2014 index/state mismatch noted and surfaced to David, not a data-freshness problem with the briefing itself.",
+      "escalated_to_human": false,
+      "timestamp": "2026-09-03T15:08:09.070853+00:00"
+    }
+  ],
+  "total_tokens_input": 9122294,
+  "total_tokens_output": 2991,
+  "total_cost_usd": 2.656307
+}

@@ -1,18 +1,15 @@
 ---
 workflow: daily-review
 agent: chief
-status: complete
-session-started: "2026-08-13T00:00:00"
-session-id: "chief-2026-08-13-000000"
-current-step: step-auto
-original-request: "auto"
+status: in-progress
+session-started: "2026-09-03T00:00:00"
+session-id: "chief-2026-09-03-000000"
+current-step: step-01-capture
+original-request: "run the daily review for yesterday, 2026-09-02"
 accumulated-context:
-  omnifocus-status: "success — inbox: 11, completed today: 0, overdue: 4 (prayer list, coherence breathing, Lifebook Career, Lifebook Health), flagged: 0"
-  calendar-status: "success — M365 MCP, 12 events Aug 12"
-  knowledge-system-status: "written to local fallback (Obsidian MCP disabled)"
-  narrative-path: "reviews/daily/auto-2026-08-12.md"
-  narrative-title: "2026-08-12 AI on Every Front, YPO at Midday, and a Travel Engine Warming Up"
-  output-guard: passed
-  working-memory-path: "memory/working/daily-review-2026-08-13-000000.md"
-  working-memory-status: written
+  review-date: "2026-09-02"
+  omnifocus-status: "success — inbox: 11, completed 2026-09-02: 0, overdue: 2 (Review prayer list, Coherence breathing), flagged: 0"
+  calendar-status: "success — M365 MCP, 18 events on 2026-09-02"
+  morning-briefing-status: "not found — no reviews/daily/2026-09-02.md and no auto entry for that date"
+  delegation-tracker-status: "no active delegations"
   model: sonnet

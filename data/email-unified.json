@@ -1,48 +1,51 @@
 {
-  "pulled_at": "2026-09-02T16:00:00Z",
-  "message_count": 10,
-  "source": "live M365 outlook_email_search, Inbox, afterDateTime=yesterday",
-  "actionable_messages": [
+  "pulled_at": "2026-09-03T15:05:00Z",
+  "message_count": 5,
+  "messages": [
     {
-      "subject": "Tomorrow's meeting",
-      "from": "kgraham@Systemic-Compliance.com",
-      "received_at": "2026-09-01T21:23:55Z",
-      "is_read": true,
-      "note": "Matt scored the document, ties directly to today's 3:30pm Scoping the Next Phase call"
+      "id": "boardvantage-approval",
+      "subject": "Please respond to the Approval - Approve Director Loan Committee Charter",
+      "from": "alerts@boardvantage.com (Teresa Saffold, United Texas Bank)",
+      "received_at": "2026-09-02T17:59:59Z",
+      "is_flagged": false,
+      "importance": "normal",
+      "snippet": "DLC Committee approved the updated charter (adding Market President). Board approval requested via BoardVantage."
     },
     {
-      "subject": "Interviews in Dallas - Curtis availability?",
-      "from": "matt.russell@improving.com",
-      "received_at": "2026-09-01T20:12:05Z",
-      "is_read": false,
-      "note": "Lee Carlson (potential Partner leader, Austin) resume attached, awaiting go/no-go on meeting"
+      "id": "retreat-attendees",
+      "from": "Dawn.Dearstone@Improving.com",
+      "subject": "Retreat Attendees",
+      "received_at": "2026-09-02T17:40:33Z",
+      "is_flagged": false,
+      "importance": "normal",
+      "snippet": "Amazing Race team list attached — flagged which attendees are confirmed out; offered Mason as a sub if a team needs evening out."
     },
     {
-      "subject": "Re: YPO Request",
-      "from": "JJonesJr@DallasCowboys.net",
-      "received_at": "2026-09-01T20:01:23Z",
-      "is_read": false,
-      "note": "Jerry Jones Jr declined YPO speaker request"
+      "id": "presidents-meeting-topics",
+      "from": "Robyn.Fuentes@Improving.com (thread started by scott.mcmichael@improving.com)",
+      "subject": "Re: Taking Topics... forming agenda for U.S. Presidents Meeting (DAL)",
+      "received_at": "2026-09-03T14:39:16Z",
+      "is_flagged": false,
+      "importance": "normal",
+      "snippet": "Scott is collecting agenda topics/special guests for the year-end Presidents Meeting in Dallas (2027 strategy theme). Robyn already replied with ideas; David has not yet weighed in."
     },
     {
-      "subject": "RE: INFO & ACTION: YPO GOLD REX executive summary",
-      "from": "smeyer@ypo.org",
-      "received_at": "2026-09-01T15:42:53Z",
-      "is_read": false,
-      "note": "Reminder to submit YPO commitment form"
-    },
-    {
-      "subject": "Fwd: You're Registered - YPO Vision & Values | Naples",
-      "from": "susie@everydayentries.com",
+      "id": "ypo-naples-registered",
+      "from": "susie@everydayentries.com (fwd from Emily Kenney, YPO)",
+      "subject": "Fwd: You're Registered – YPO Vision & Values | Naples",
       "received_at": "2026-09-02T00:11:15Z",
-      "is_read": false
+      "is_flagged": false,
+      "importance": "normal",
+      "snippet": "Registration confirmation forwarded for YPO Vision & Values event in Naples."
+    },
+    {
+      "id": "fortium-coffee-suggestion",
+      "from": "greg.pascuzzi@fortiumpartners.com",
+      "subject": "Re: Keeping you updated",
+      "received_at": "2026-09-03T14:56:57Z",
+      "is_flagged": false,
+      "importance": "normal",
+      "snippet": "Greg suggests scheduling a no-strings coffee with Michael to keep the relationship/conversation warm."
     }
-  ],
-  "low_priority_noise": [
-    "Southwest Airlines lounge news (bizjournals)",
-    "Roots & Water wine tasting invite",
-    "Marketplace Mission Trip volunteer follow-up (kris@followerofone.org) - awaiting phone call re: Trip Ambassador/Moderator role",
-    "Dallas Chamber newsletter",
-    "Salesforce+ event promo"
   ]
 }

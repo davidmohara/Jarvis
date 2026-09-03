@@ -63,5 +63,15 @@
     "cowork-instrumented"
   ],
   "total_cost_usd": 0.045,
-  "cost_estimation_note": "estimated \u2014 no transcript available"
+  "cost_estimation_note": "estimated \u2014 no transcript available",
+  "guardrails": [
+    {
+      "name": "pre-commit-review",
+      "after_step": "step-03-update-system",
+      "result": "pass",
+      "reason": "No secrets, no tracker changes made, no fabricated outcomes beyond what coordinator supplied, no quarterly-objectives edits",
+      "escalated_to_human": false,
+      "timestamp": "2026-09-03T17:07:37.117335+00:00"
+    }
+  ]
 }

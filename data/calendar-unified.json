@@ -1,7 +1,31 @@
 {
-  "pulled_at": "2026-09-02T16:05:00Z",
-  "date_range": { "start": "2026-09-02", "end": "2026-09-05" },
-  "event_count": 33,
-  "source": "live M365 outlook_calendar_search, 2 calls (offset 0, offset 25)",
-  "note": "Full raw event objects retrieved in-session; this file records the consolidated summary used by boot steps 02/04/05 rather than re-serializing the full M365 payload."
+  "pulled_at": "2026-09-03T15:00:00Z",
+  "date_range": {"start": "2026-09-02", "end": "2026-09-07"},
+  "event_count": 24,
+  "events": [
+    {"subject": "New Location for Cigars with the Stars! Industrial Cigar and Co. in Frisco.", "start": "2026-09-02T22:00:00Z", "end": "2026-09-03T00:30:00Z", "location": "Industrial Cigar Co., Frisco, TX", "showAs": "busy", "isOrganizer": false, "category": null},
+    {"subject": "Sales & Recruiting Meeting", "start": "2026-09-03T14:15:00Z", "end": "2026-09-03T14:30:00Z", "location": "Teams; Dallas - Longhorn Cavern", "showAs": "tentative", "recurring": true},
+    {"subject": "Sales Scrum", "start": "2026-09-03T15:00:00Z", "end": "2026-09-03T15:30:00Z", "location": "Teams; Houston - Conference Room Trust", "showAs": "tentative", "recurring": true},
+    {"subject": "David/Robyn 1:1", "start": "2026-09-03T15:30:00Z", "end": "2026-09-03T16:00:00Z", "location": "Teams", "showAs": "busy", "type": "1:1"},
+    {"subject": "Drive To", "start": "2026-09-03T17:30:00Z", "end": "2026-09-03T18:00:00Z", "location": null, "showAs": "busy", "category": "Travel"},
+    {"subject": "Podcast Filming", "start": "2026-09-03T18:00:00Z", "end": "2026-09-03T20:00:00Z", "location": "MarketScale", "showAs": "busy", "attendees": ["Janine Jeanson", "Michael Slater (guest)", "Kristin Johnson", "David O'Hara"]},
+    {"subject": "Drive From", "start": "2026-09-03T20:00:00Z", "end": "2026-09-03T20:30:00Z", "location": null, "showAs": "busy", "category": "Travel"},
+    {"subject": "Meet with Steve", "start": "2026-09-03T21:30:00Z", "end": "2026-09-03T22:30:00Z", "location": null, "showAs": "busy"},
+    {"subject": "WFH", "start": "2026-09-04T00:00:00Z", "end": "2026-09-05T00:00:00Z", "allDay": true, "showAs": "free"},
+    {"subject": "Drive To", "start": "2026-09-04T12:30:00Z", "end": "2026-09-04T13:00:00Z", "location": null, "showAs": "busy", "category": "Travel"},
+    {"subject": "MRI at Crown Imaging", "start": "2026-09-04T13:00:00Z", "end": "2026-09-04T14:00:00Z", "location": "7515 Greenville Ave Suite 200, Dallas TX", "showAs": "busy", "category": "Personal", "note": "check-in 8:00am, MRI 8:30am local"},
+    {"subject": "Drive From", "start": "2026-09-04T14:00:00Z", "end": "2026-09-04T14:30:00Z", "location": null, "showAs": "busy", "category": "Travel"},
+    {"subject": "Sales & Recruiting Meeting", "start": "2026-09-04T14:15:00Z", "end": "2026-09-04T14:30:00Z", "location": "Teams; Dallas - Longhorn Cavern", "showAs": "tentative", "recurring": true},
+    {"subject": "1st Friday Executive Meeting", "start": "2026-09-04T14:30:00Z", "end": "2026-09-04T15:00:00Z", "location": "Teams", "showAs": "tentative", "attendeeCount": 130},
+    {"subject": "Friday Weekly Wrap-Up", "start": "2026-09-04T19:00:00Z", "end": "2026-09-04T19:45:00Z", "location": "Teams", "showAs": "busy", "attendees": ["alice.mburu@improving.com", "David O'Hara"]},
+    {"subject": "Hot 26", "start": "2026-09-05T13:30:00Z", "end": "2026-09-05T14:30:00Z", "location": "Horizon Hot Yoga, Frisco TX", "showAs": "busy", "category": "Personal", "note": "With Cheri Clark"},
+    {"subject": "Core Session", "start": "2026-09-05T14:30:00Z", "end": "2026-09-05T15:00:00Z", "location": "2772 Stonebrook Pkwy STE 500", "showAs": "busy"},
+    {"subject": "Golf", "start": "2026-09-05T19:35:00Z", "end": "2026-09-06T00:05:00Z", "location": null, "showAs": "busy"},
+    {"subject": "Monthly Credit Card Reporting Reminder", "start": "2026-09-05T20:00:00Z", "end": "2026-09-05T20:30:00Z", "location": null, "showAs": "free", "note": "Reporting due end of day 5th, approvals due 6th"},
+    {"subject": "Improving Prayer Call", "start": "2026-09-07T13:00:00Z", "end": "2026-09-07T13:15:00Z", "location": "Teams", "showAs": "tentative"},
+    {"subject": "Timesheet", "start": "2026-09-07T13:30:00Z", "end": "2026-09-07T13:35:00Z", "location": null, "showAs": "busy"},
+    {"subject": "Sales & Recruiting Meeting", "start": "2026-09-07T14:15:00Z", "end": "2026-09-07T14:30:00Z", "location": "Teams; Dallas - Longhorn Cavern", "showAs": "tentative", "recurring": true},
+    {"subject": "Sales Scrum", "start": "2026-09-07T14:30:00Z", "end": "2026-09-07T15:00:00Z", "location": "Teams; Houston - Conference Room Trust", "showAs": "tentative", "recurring": true},
+    {"subject": "Waterstone FFL Draft", "start": "2026-09-07T23:00:00Z", "end": "2026-09-08T02:00:00Z", "location": null, "showAs": "busy"}
+  ]
 }

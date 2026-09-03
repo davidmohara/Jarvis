@@ -1,12 +1,12 @@
 ---
 status: complete
-started-at: "2026-09-02T16:14:30Z"
-completed-at: "2026-09-02T16:15:00Z"
+started-at: "2026-09-03T15:23:00Z"
+completed-at: "2026-09-03T15:24:00Z"
 outputs:
-  data_freshness_report: "pass — calendar, email, OmniFocus, and Clay all pulled live this session (~16:00-16:12Z), briefing reflects current data. No gaps this run."
+  data_freshness_report: "flag — calendar, email, OmniFocus, and Clay all pulled live this session (~15:00-15:17Z), briefing reflects current data. One minor issue: _active.yaml index is stale relative to workflows/plaud-ingest/state.yaml (genuinely in-progress, not indexed)."
   checkpoint_name: "pre-completion-review"
-  checkpoint_result: "pass"
-  reason: "Briefing accurately reflects fresh gathered data; workflow scan correctly found _active.yaml empty; Knox's parked prior session correctly distinguished from a genuinely in-progress boot workflow; no credential/sensitive leakage; recorded via guardrail-checkpoint.py."
+  checkpoint_result: "flag"
+  reason: "Briefing accurately reflects fresh gathered data and no leakage found; however _active.yaml shows active:[] while plaud-ingest/state.yaml is genuinely status:in-progress (session pi-20260903-001) — index/state mismatch, surfaced to David as a flag rather than escalate since it does not undermine the briefing's content, only the workflow-index bookkeeping. Recorded via guardrail-checkpoint.py."
   recorded: true
 model: sonnet
 ---

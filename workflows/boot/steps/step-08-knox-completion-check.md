@@ -1,14 +1,14 @@
 ---
 status: complete
-started-at: "2026-09-02T16:15:30Z"
-completed-at: "2026-09-02T16:16:00Z"
+started-at: "2026-09-03T15:25:00Z"
+completed-at: "2026-09-03T15:26:00Z"
 outputs:
   knox_status: "still_running"
-  knox_reason: "No plaud-ingest eval record found for today (2026-09-02) in systems/eval-harness/runs/ — Knox was not spawned this boot run. workflows/plaud-ingest/state.yaml still shows status: awaiting-input, current-step: step-05b, session-id pi-20260831-001 (unchanged since 2026-08-31). Both recordings from that session are fully ingested to the vault; the only open item is a 3-way speaker mapping question (Matt Rosen / Marquez/mdbela / Beau Wehrle) for the 08-28 YPO Gold recording, plus an unresolved transcription-trigger failure (status -12) for one 2026-08-26 recording, likely exhausted Plaud transcription minutes."
+  knox_reason: "No eval record named plaud-ingest (or containing 'knox') found for today in systems/eval-harness/runs/. workflows/plaud-ingest/state.yaml shows status:in-progress, session-id pi-20260903-001, current-step step-01, session-started 2026-09-03T14:30:00-05:00 — a fresh session begun before this boot run. The prior session (pi-20260831-001) closed complete per its own resolution note: speaker mapping was resolved directly via Plaud's own diarization/speaker-profile data (no outstanding question), correcting an earlier process-skip logged at err-20260902T160425-E9B7YR."
   knox_duration_seconds: null
   knox_eval_id: null
-  knox_background_task: "Parked awaiting David's input since 2026-08-31 — not touched this run. Not a boot blocker."
-  note: "Recommend David either answer the speaker-mapping question or explicitly deprioritize it, and confirm/top-up Plaud transcription minutes so this stale Knox session can close out."
+  knox_background_task: "In-progress as of 14:30 today, step-01, not touched by this boot run. Not a boot blocker, but also not reflected in workflows/_active.yaml (flagged in step-06/06.5)."
+  note: "Recommend confirming with Knox/plaud-ingest whether session pi-20260903-001 is still actively running or stalled at step-01, and updating workflows/_active.yaml to reflect it either way."
 ---
 
 <!-- system:start -->

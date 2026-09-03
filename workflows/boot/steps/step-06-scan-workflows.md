@@ -1,12 +1,12 @@
 ---
 status: complete
-started-at: "2026-09-02T16:14:00Z"
-completed-at: "2026-09-02T16:14:30Z"
+started-at: "2026-09-03T15:22:00Z"
+completed-at: "2026-09-03T15:23:00Z"
 outputs:
-  workflows_scanned: "complete — _active.yaml read (active: []), 0 in-progress workflows found per index"
-  active_workflows: "0"
-  background_tasks: "workflows/plaud-ingest/state.yaml shows status: awaiting-input (not in-progress, not in _active.yaml index) from a 2026-08-31 Knox session, blocked on an unanswered speaker-ID question — not spawned or touched this run, checked informationally in step-08."
-  result: "No in-flight workflows per _active.yaml. Knox's prior session remains parked awaiting David's answer; not a boot blocker."
+  workflows_scanned: "complete — _active.yaml read (active: []), but a direct check of workflows/plaud-ingest/state.yaml (per step-08's own check) shows status:in-progress, session pi-20260903-001, current-step step-01, started 2026-09-03T14:30Z — NOT reflected in the index. This is a stale/missing index entry, the inverse of the documented failure mode (workflow genuinely in-progress but absent from _active.yaml)."
+  active_workflows: "1 (plaud-ingest, in-progress per its own state.yaml, missing from index)"
+  background_tasks: "workflows/plaud-ingest/state.yaml: status in-progress, current-step step-01, session pi-20260903-001 (Knox). Prior session (pi-20260831-001) closed complete per its own resolution note — speaker mapping resolved via Plaud's own diarization data, no outstanding question. Today's session appears to be a fresh Knox run not yet indexed in _active.yaml."
+  result: "Surfacing plaud-ingest as in-progress despite empty _active.yaml index, since its own state.yaml is authoritative and unambiguous. Index discrepancy flagged for guardrail checkpoint. Not auto-resumed — awaiting controller instruction per protocol."
 ---
 
 <!-- system:start -->

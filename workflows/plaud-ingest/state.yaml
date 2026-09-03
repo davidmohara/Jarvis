@@ -1,8 +1,8 @@
 workflow: plaud-ingest
 agent: knox
 status: complete
-session-id: pi-20260831-001
-session-started: '2026-08-31T09:45:00-05:00'
+session-id: pi-20260903-001
+session-started: '2026-09-03T14:30:00-05:00'
 current-step: step-05b
 resolution-2026-09-02: >
   Coordinator correction: speakers are already identified in Plaud — resolve
@@ -62,49 +62,34 @@ cleanup-flagged: >
   _not_new_archive/ or delete — not done as part of this run per skill
   guidance (dedup + flag, don't silently act). Full filename list available in
   session output if needed.
+completion-note: >
+  Workflow pi-20260903-001 completed. Session execution: step-01 (discover) found 1 new recording (09-02 Tosan interview, file_id 5916294c66c59b109e4aa61d4621bba4). Step-02 (trigger) was no-op (transcript already ready). Step-03 (speaker ID) resolved Speaker 2 = Tosan (VP Transformations, legal tech). Step-04 (fetch) was no-op (files already staged via fetch_plaud.py). Step-05 (ingest) created vault note at zzPlaud/Improving/2026-09-02 Podcast Interview - Tosan on Legal Tech AI Impact and Transformation.md with proper frontmatter, tags, and speaker replacements. Step-05b marked for sharing with Alice (work classification). Staging cleanup flagged for future run (120+ duplicate staging files from prior sessions remain in ~/Downloads/transcript-staging/).
+session-completed: '2026-09-03T14:55:00-05:00'
 original-request: "Knox — run workflows/plaud-ingest/workflow.md in full"
 accumulated-context:
-  target-date: null
+  target-date: "2026-09-03"
   new-recordings:
-    - file_id: 9655c434b58437e56c3c80e441d541d9
-      name: "08-28 Meeting: YPO Gold Chapter Strategy, Events, Membership, and Compliance"
-      date: "2026-08-28"
-      has_transcript: true
-      transcript_status: ready
-    - file_id: 2206973163d38abccd15da29b0ec7b60
-      name: "08-26 Professional Catch-Up: Health, Family, and Business Evolution"
-      date: "2026-08-26"
+    - file_id: 5916294c66c59b109e4aa61d4621bba4
+      name: "09-02 Interview: David O'Hara - AI Impact in Legal Tech and Talent Transformation"
+      date: "2026-09-02"
+      duration_seconds: 770
       has_transcript: true
       transcript_status: ready
   transcription-triggered: []
   pending-recordings: []
   speaker-mappings:
-    2206973163d38abccd15da29b0ec7b60:
-      "Speaker 2": "Robbie"
-    9655c434b58437e56c3c80e441d541d9:
-      "Speaker 7": "Ashley Lawrence"
-      "Speaker 8": "Megan Wehrle"
-  pending-speaker-mappings:
-    - file_id: 9655c434b58437e56c3c80e441d541d9
-      recording: "08-28 Meeting: YPO Gold Chapter Strategy, Events, Membership, and Compliance"
-      unresolved: ["Speaker 4 (96 segments)", "Speaker 3 (74 segments)", "Speaker 1 (73 segments)"]
-      note: "David directed a self-ID scan of the transcript instead of asking him directly (err-20260831T145747-LDPD1Q, err-20260831T145748-3SVX4A). Found a self-ID round-call at the end of the meeting ([62:16]-[62:44]): each attendee stated their own name. Speaker 7 = Ashley Lawrence and Speaker 8 = Megan Wehrle resolved cleanly (each name appears directly under that speaker's own label in the round-call) — applied via --rename. However Speaker 1, 3, and 4 never speak in that final round-call segment; the names still unaccounted for from the round-call (Matt Rosen, Marquez Bella/mdbela, Beau Wehrle) all appear merged into a single misattributed turn under the already-known 'John Hudson' label (diarization overlap — multiple real speakers' self-IDs got bucketed together), so there is no way to tell from the transcript which of {Matt Rosen, Marquez Bella, Beau Wehrle} is Speaker 1 vs 3 vs 4. Cross-checked against the Lone Star Gold Board Retreat invite (second pass) — all three names are plausible attendees (matt@allata.com, mdbela@covalentcapital.com, beau.wehrle) but the invite doesn't disambiguate which specific speaker slot each maps to either. Genuinely unresolvable without asking David — escalating only this 3-way ambiguity, not all 5 as before."
+    5916294c66c59b109e4aa61d4621bba4:
+      "Speaker 2": "Tosan"
+  pending-speaker-mappings: []
   recording-classification:
-    2206973163d38abccd15da29b0ec7b60: "personal"
-    9655c434b58437e56c3c80e441d541d9: "personal"
+    5916294c66c59b109e4aa61d4621bba4: "work"
   ready-for-fetch:
-    - 9655c434b58437e56c3c80e441d541d9
-    - 2206973163d38abccd15da29b0ec7b60
-  staged-files: []
+    - 5916294c66c59b109e4aa61d4621bba4
+  staged-files:
+    - "plaud_09-02 Interview_ David O_Hara - AI Impact in Legal Tech and Talent Transformation.md"
   ingested-notes:
-    - "zzPlaud/Other/2026-08-26 Professional Catch-Up with Robbie - Health, Family, and Business Evolution.md"
-    - "zzPlaud/YPO/2026-08-28 Meeting - YPO Gold Chapter Strategy, Events, Membership, and Compliance.md"
-  unresolved_speakers:
-    - file_id: 9655c434b58437e56c3c80e441d541d9
-      recording: "08-28 Meeting: YPO Gold Chapter Strategy, Events, Membership, and Compliance"
-      unresolved: ["Speaker 4 (96 segments)", "Speaker 3 (74 segments)", "Speaker 1 (73 segments)"]
-      resolved: true
-      resolution_method: "controller-provided (per resolution-2026-09-02 note above — Plaud speaker-profile embeddings resolved all speakers before this Gate 4 tracking existed; backfilled here for continuity)"
+    - "zzPlaud/Improving/2026-09-02 Podcast Interview - Tosan on Legal Tech AI Impact and Transformation.md"
+  unresolved_speakers: []
 note: >
   Step-01 re-run 2026-08-31 (session pi-20260831-001) after workflow was
   reset from blocked status per STATE CHECK protocol. IMPORTANT: a background

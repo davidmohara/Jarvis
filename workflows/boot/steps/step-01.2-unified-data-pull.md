@@ -1,10 +1,10 @@
 ---
 status: complete
-started-at: "2026-09-02T16:00:00Z"
-completed-at: "2026-09-02T16:07:00Z"
+started-at: "2026-09-03T15:00:00Z"
+completed-at: "2026-09-03T15:07:00Z"
 outputs:
-  email_pull: "completed — 5 actionable messages filtered from 10 inbox messages (last 24h), live M365 search"
-  omnifocus_pull: "completed — 9 uncompleted inbox tasks (fresh via osascript, none flagged or due)"
+  email_pull: "completed — 5 actionable messages filtered from 11 inbox messages (last 24h), live M365 search"
+  omnifocus_pull: "completed — 11 uncompleted inbox tasks (fresh via osascript, none flagged or due)"
   clay_pull: "completed — 0 reminders, 0 birthdays. Clay MCP responsive."
   jarvis_inbox_pull: "nothing-to-surface — folder empty (live search returned 0)"
   files_created:

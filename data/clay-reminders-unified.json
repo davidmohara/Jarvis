@@ -1,8 +1,7 @@
 {
-  "pulled_at": "2026-09-02T16:03:00Z",
+  "pulled_at": "2026-09-03T15:05:00Z",
   "status": "available",
-  "reminder_count": 0,
-  "birthday_count": 0,
   "reminders": [],
-  "note": "getUpcomingReminders returned 0. getUpcomingEvents cross-checked against calendar-unified.json for next 7 days, no birthday-type entries found."
+  "reminder_count": 0,
+  "birthday_count": 0
 }

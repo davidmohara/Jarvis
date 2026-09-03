@@ -2,17 +2,10 @@
   "skill": "plaud-discover",
   "agent": "knox",
   "trigger": "manual",
-  "started": "2026-08-31T09:45:00-05:00",
-  "completed": "2026-08-31T09:48:30-05:00",
+  "started": "2026-09-03T10:04:00Z",
+  "completed": "2026-09-03T10:08:30Z",
   "status": "success",
   "tool_failures": 0,
   "error_ids": [],
-  "findings": {
-    "staged_files": 129,
-    "likely_processed": 0,
-    "unprocessed": 129,
-    "total_size_mb": 4.8,
-    "date_range": "2025-12-08 through 2026-04-06",
-    "recommendation": "Run knox-transcripts-plaud to ingest all 129 staged recordings"
-  }
+  "summary": "Plaud discover complete. Queried Plaud API for all recordings (130 total), cross-referenced against Obsidian vault (181 ingested recordings), and identified 109 new unprocessed recordings."
 }

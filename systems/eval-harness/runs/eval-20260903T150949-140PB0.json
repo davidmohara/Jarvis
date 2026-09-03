@@ -1,0 +1,60 @@
+{
+  "id": "eval-20260903T150949-140PB0",
+  "agent_id": "a15019ccf2299d8b4",
+  "type": "agent",
+  "name": "fork",
+  "workflow": null,
+  "agent": "fork",
+  "session_id": "a3b183c6-ddba-4967-a515-f6d1a3cb6fef",
+  "trigger": "unknown",
+  "started": "2026-09-03T15:09:49.891838Z",
+  "completed": "2026-09-03T15:09:55.680480Z",
+  "duration_seconds": 5.79,
+  "status": "success",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/a3b183c6-ddba-4967-a515-f6d1a3cb6fef/subagents/agent-a15019ccf2299d8b4.jsonl",
+  "last_assistant_message": "[Knox/fork]: Task complete. Workflow paused at step-03 awaiting-input with speaker question already surfaced in fork report above. No further action \u2014 awaiting controller response to identify Speaker 2 before resuming to step-04.",
+  "model": "haiku",
+  "total_tokens_input": 94014,
+  "total_tokens_output": 2,
+  "total_cost_usd": 0.092481
+}
