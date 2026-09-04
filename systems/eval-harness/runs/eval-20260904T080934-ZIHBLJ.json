@@ -1,13 +1,13 @@
 {
-  "id": "eval-20260903T081233-OZES3F",
+  "id": "eval-20260904T080934-ZIHBLJ",
   "type": "workflow",
   "name": "dream-cycle",
   "agent": "jarvis",
-  "session_id": "133d9283-5a55-56a6-84c1-3077b1a63587",
+  "session_id": "941e97eb-d95a-59b1-9505-65dab292dc31",
   "trigger": "scheduled",
-  "started": "2026-09-03T08:03:11Z",
-  "completed": "2026-09-03T08:12:33.283923Z",
-  "duration_seconds": 562.3,
+  "started": "2026-09-04T08:05:11Z",
+  "completed": "2026-09-04T08:09:34.252267Z",
+  "duration_seconds": 263.3,
   "status": "success",
   "steps": [],
   "assessment": {
@@ -85,15 +85,5 @@
   "tags": [
     "phantom-candidate",
     "cowork-hook"
-  ],
-  "guardrails": [
-    {
-      "name": "pre-deletion-review",
-      "after_step": "step-03-semantic-promotion",
-      "result": "pass",
-      "reason": "1 promoted entry (dream-summary-2026-09-02, score 10) correctly excluded from future compression via promoted:true; volume normal; step-03 write substantive",
-      "escalated_to_human": false,
-      "timestamp": "2026-09-04T08:08:19.924867+00:00"
-    }
   ]
 }

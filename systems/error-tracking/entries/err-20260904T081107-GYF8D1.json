@@ -1,0 +1,15 @@
+{
+  "id": "err-20260904T081107-GYF8D1",
+  "timestamp": "2026-09-04T08:11:07Z",
+  "session": "dream-cycle-2026-09-04-080511",
+  "source": "self-detected",
+  "agent": "jarvis",
+  "category": "system-infrastructure",
+  "description": "systems/eval-harness/guardrail-checkpoint.py did not attach step-03b's pass/flag/escalate result to this run's own auto-created dream-cycle eval record (eval-20260904T080934-ZIHBLJ.json). Instead it wrote the guardrails entry into an unrelated, already-completed eval record (eval-20260903T081233-OZES3F.json, tags phantom-candidate/cowork-hook, status already success). Confirmed by inspecting both files' diffs after the fact: the correct target record has an empty guardrails field and fails its own dream-004-guardrail-checkpoint-ran assertion (which reads 'from the eval record's own guardrails array, not self-reported by the workflow') even though the checkpoint genuinely ran and returned pass. Prior dream-cycle runs (08-26 through 09-03) all logged this same call as a 'silent no-op, no in-progress dream-cycle eval record to attach to' -- that assumption was wrong; the script does write somewhere, just not to the right record, and no prior cycle noticed because no one checked the diff of unrelated eval-harness files.",
+  "correction": "guardrail-checkpoint.py's eval-record resolution logic needs to target the eval record matching the current workflow name + session (or the most recently created in-progress record for that workflow name), not whatever it currently resolves as 'the' active record. Until fixed, dream-cycle's own eval record will keep failing dream-004-guardrail-checkpoint-ran even on cycles where the guardrail actually ran and passed.",
+  "failure_mode": "wrong-target-resolution",
+  "systemic_fix": null,
+  "fix_status": "proposed",
+  "severity": "minor",
+  "related_entries": []
+}

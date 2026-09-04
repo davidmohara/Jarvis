@@ -3,7 +3,7 @@ type: semantic
 domain: operational
 primary-tag: dream-summary
 created: 2026-06-12
-last-updated: 2026-09-03
+last-updated: 2026-09-04
 confidence: high
 synthesized-from: 25
   - dream-summary-2026-05-25.md
@@ -108,6 +108,7 @@ synthesized-from:
   - memory/episodic/dream-summary-2026-08-30.md
   - memory/episodic/dream-summary-2026-08-31.md
   - memory/episodic/dream-summary-2026-09-01.md
+  - memory/episodic/dream-summary-2026-09-02.md
 ---
 # Pattern: Dream Summary
 
@@ -345,3 +346,9 @@ Sources this cycle:
 - `memory/episodic/dream-summary-2026-09-01.md` (score 10) — the 09-01 run's own working-memory write, documenting that night's real finding: the salience-score.py frontmatter-corruption bug (tracked since 08-25) had corrupted all 296 episodic files (7,842 orphan lines) rather than the 1-3/cycle previously assumed, followed by a corpus-wide repair and the exact one-line fix logged for Rigby (err-20260901T081243-R58BYW).
 
 This is the delayed archival of the write that first surfaced the full scope of the corruption bug — the fix itself (commit bb2de90) and its verification were already documented in the 09-02 entry above; this entry closes the loop from the source side. Five files aged out of working memory this cycle (up from the usual 1/night) — a one-time backlog clear from an unusually busy 08-31 session (two co-sell corrections, a revenue-tracker fallback, a shutdown-cleanup), not a new accumulation pattern; no corruption on any of the 5 fresh writes this cycle. Carry-forward triad (Q3 rocks, nerve block, delegation tracker, South Texas revenue gap) remains unresolved across this cluster's evidence — now spanning 2026-08-25 through 2026-09-03 with zero movement.
+
+### 2026-09-04 — Nightly promotion
+Sources this cycle:
+- `memory/episodic/dream-summary-2026-09-02.md` (score 10) — quiet night; confirmed the salience-score.py fix (commit bb2de90) held clean through a full 298-file run, the first fully clean cycle since the bug started on 08-25; also a near-miss self-catch during archival (would have written a duplicate `type:` key, fixed before the move).
+
+Only one candidate this cycle, cleanly detected and promoted with no hand-repair needed. Carry-forward triad (Q3 rocks, nerve block, delegation tracker, South Texas revenue gap) remains unresolved across this cluster's evidence — now spanning 2026-08-25 through 2026-09-04, six full weeks with zero recorded movement on any of the four items. This is now the single most persistent unaddressed thread in the entire dream-cycle history and worth surfacing to David directly rather than re-noting silently each night.

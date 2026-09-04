@@ -1,12 +1,29 @@
 ---
-type: working
+type: working-archive
 task_id: "session"
 session_id: "dream-cycle-2026-09-02-080323"
 agent-source: jarvis
 created: 2026-09-02T03:03:23-05:00
 expires: 2026-09-03T03:03:23-05:00
-status: active
+status: archived
 context: "Dream cycle summary — 2026-09-02"
+date: 2026-09-02
+source_file: memory/working/dream-summary-2026-09-02.md
+tags:
+  - dream-summary
+  - jarvis
+  - dream-cycle
+  - error-patterns
+  - system-maintenance
+  - memory-system
+  - quarterly-rocks
+  - health
+  - revenue
+related_people: []
+salience:
+  score: 10
+  last-promoted-check: 2026-09-04
+  promoted: true
 ---
 
 Quiet night. One working-memory item aged out (yesterday's own dream-cycle summary) and folded into the existing dream-summary pattern in semantic memory. Nothing new created, no compression needed — nothing has piled up since the 08-29 backlog clear.

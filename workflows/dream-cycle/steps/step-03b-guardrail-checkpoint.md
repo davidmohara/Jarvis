@@ -1,10 +1,10 @@
 ---
 status: complete
-started-at: 2026-09-03T08:24:00Z
-completed-at: 2026-09-03T08:25:00Z
+started-at: 2026-09-04T08:16:00Z
+completed-at: 2026-09-04T08:17:00Z
 outputs:
   result: pass
-  reason: "0 compression candidates this cycle -- consistent with 08-29 through 09-01 (nothing has re-accumulated since the 08-29 approved batch). The 1 promoted entry (dream-summary-2026-08-31.md) correctly excluded via promoted:true. Step-03's write to dream-summary-pattern.md was a substantive dated evidence/implications append, not a stub. Recorded via systems/eval-harness/guardrail-checkpoint.py (silent no-op since no in-progress dream-cycle eval record exists to attach to -- not blocking)."
+  reason: "1 promoted entry this cycle (dream-summary-2026-09-02.md, score 10) correctly excluded from any future compression candidate set via promoted:true; volume normal; step-03's write to dream-summary-pattern.md was a substantive dated narrative append, not a stub. Recorded via systems/eval-harness/guardrail-checkpoint.py -- NOT a silent no-op this cycle: it wrote the guardrails entry into an unrelated pre-existing eval record (eval-20260903T081233-OZES3F.json) since no in-progress dream-cycle eval exists to attach to. Not blocking; flagged for Rigby as a script-behavior discrepancy from prior cycles' assumption."
 model: sonnet
 ---
 

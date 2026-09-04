@@ -22,7 +22,7 @@ related_people:
   - paola-arbour
 salience:
   score: 9
-  last-promoted-check: 2026-09-03
+  last-promoted-check: 2026-09-04
   promoted: true
 ---
 

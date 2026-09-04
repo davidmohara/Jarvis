@@ -1,12 +1,68 @@
 workflow: dream-cycle
 agent: jarvis
 status: complete
-session-started: 2026-09-03T08:03:11Z
-session-id: dream-cycle-2026-09-03-030311
+session-started: 2026-09-04T08:05:11Z
+session-id: dream-cycle-2026-09-04-080511
 current-step: null
 original-request: "Execute dream-cycle workflow for today (scheduled task)"
-last-successful-run: 2026-09-03T08:26:00Z
+last-successful-run: 2026-09-04T08:20:00Z
 accumulated-context:
+  step-01-2026-09-04:
+    working_archived: 1
+    working_deleted: 0
+    working_skipped: 36
+    working_stranded: 0
+    enrichment_method: "LLM (systems/dream-cycle/llm_tag_extractor.py via claude -p haiku) -- claude CLI auth functional in this container this cycle, confirmed via a short test call before committing to the LLM path"
+    archived_files:
+      - dream-summary-2026-09-02.md
+    skipped_not_expired:
+      - dream-summary-2026-09-03.md
+    skipped_unparseable_count: 34
+    new_unparseable_this_cycle:
+      - plaud-discover-2026-09-03.md
+    stranded: []
+    note: "1 archive candidate this cycle (dream-summary-2026-09-02.md, expires 2026-09-03 < today 2026-09-04, status:active) -- held back last cycle because expires and cycle date matched at the date level (09-03==09-03), now past. dream-summary-2026-09-03.md carries expires=2026-09-04, same calendar date as today, held back another cycle per the standing date-level (not sub-day) comparison rule. knox-plaud-ingest-2026-08-31.md (expires 2026-09-02, no status field) remains untouched per rule 2d (missing/non-active status means no action, not archiving), consistent with the 09-03 note. Only 1 net new unparseable file since 09-03 (34 vs 33): plaud-discover-2026-09-03.md, confirmed via git log to have landed in commit e6463fc on 2026-09-03 12:08 CDT, after the 09-03 dream-cycle run (03:12 CDT) -- eval-harness-cost-visibility-2026-09-01.md was already present before that run (committed 2026-09-02) and was already counted in the prior cycle's total. No self-introduced duplicate-key bug this cycle: replaced the existing 'type: working' and 'status: active' lines in place rather than appending new ones."
+  step-02-2026-09-04:
+    episodic_scanned: 303
+    score_updates: 303
+    window_entries: 51
+    no_date: 38
+    no_tags: 202
+    score_distribution: "0:204,1:4,2:2,3:4,4:8,5:8,6:1,7:4,8:5,9:6,10:57"
+    read_errors: 0
+    write_errors: 0
+    note: "Ran systems/dream-cycle/salience-score.py. episodic_scanned rose 302->303 from today's 1 step-01 archive. pct_score_0=67.33% (204/303) stays below the 70% escalation threshold. pct_no_date=12.54% (38/303) still crosses the >10% threshold, same legacy undated population as every prior cycle. pct_no_tags=66.67% (202/303) stays in the 30-70% warning band, same underlying population, not a new problem. Corpus-wide scan for the frontmatter-stranding corruption signature (duplicate salience: blocks, multiple promoted: keys) found 0 instances across all 303 episodic files -- clean write, consistent with every cycle since the 09-01 fix (commit bb2de90)."
+  step-03-2026-09-04:
+    candidates_count: 1
+    clusters_found: 1
+    semantic_created: 0
+    semantic_updated: 1
+    promoted_entries: 1
+    cluster_actions:
+      - {tag: dream-summary, domain: operational, size: 1, action: update, target: memory/semantic/operational/2026-06-12-dream-summary-pattern.md, confidence: "high (unchanged)"}
+    candidate_detection_note: "1 candidate this cycle: dream-summary-2026-09-02.md (score 10, today's own step-01 archive), detected cleanly via salience.score>=3 AND promoted==false AND last-promoted-check==today. No pre-existing promoted:true found on the source file. Appended a new dated subsection to the existing dream-summary-pattern.md (substantive narrative, not a stub) and set salience.promoted:true on the source. Zero new semantic files created."
+    error_categories_30d: "assumption-error/wrong-assumption:8, process-skip/protocol-skip:8, tool-misuse/protocol-skip:6, missed-context/lazy-search:4, tool-misuse/pattern-mismatch:4, data-accuracy/stale-cache:3, data-accuracy/pattern-mismatch:3, tool-misuse/tool-ignorance:3, lazy-search/available-data-not-used:3, tool-misuse/wrong-assumption:3"
+    error_total_30d: 89
+    error_malformed_30d: 4
+    lessons_appended: 0
+    lessons_note: "All 10 qualifying 30-day categories already documented and active in LESSONS.md at the broad category level. No new entry appended. error_total_30d rose 86->89 as new entries (including err-20260902T160414-JDHWVX and err-20260902T160425-E9B7YR) landed since the 09-03 cycle, none crossing a new threshold."
+  step-03b-2026-09-04:
+    result: pass
+    reason: "1 promoted entry (dream-summary-2026-09-02.md, score 10) correctly excluded from any future compression candidate set via promoted:true; volume normal (1 candidate, typical for a quiet-night cycle); step-03's write to dream-summary-pattern.md was a substantive dated narrative append, not a stub. Recorded via systems/eval-harness/guardrail-checkpoint.py -- NOT a silent no-op this cycle (unlike prior cycles' notes): it attached the guardrails entry to an unrelated pre-existing eval record (eval-20260903T081233-OZES3F.json, tags phantom-candidate/cowork-hook, status already success) rather than a dream-cycle record, since no in-progress dream-cycle eval exists to attach to. Not blocking, and no data was overwritten, but flagging the discrepancy from prior cycles' 'silent no-op' assumption for Rigby -- the script appears to attach to whatever eval record it resolves as current rather than skipping cleanly."
+  step-04-2026-09-04:
+    candidates_count: 0
+    entries_compressed: 0
+    digests_updated: 0
+    compression_skipped: true
+    compression_skip_reason: "0 candidates (date < 2026-06-06 AND salience.score < 2 AND salience.promoted == false) -- below the 5-entry threshold, GUARDRAIL 7 not reached. Consistent with 08-30 through 09-03; nothing has accumulated since the 08-29 approved batch."
+  step-05-2026-09-04:
+    dream_log_appended: true
+    working_summary_written: true
+    working_summary_reason: "semantic_updated=1 > 0 triggers the mandatory working-summary write per Phase B. Content leads with the six-week-unresolved carry-forward triad (Q3 rocks, nerve block, delegation tracker, South Texas revenue) as the one thing worth surfacing directly instead of re-noting silently again."
+    error_logged: "err-20260904T081107-GYF8D1 -- self-detected: systems/eval-harness/guardrail-checkpoint.py attached step-03b's result to an unrelated pre-existing eval record instead of this run's own auto-created dream-cycle eval (eval-20260904T080934-ZIHBLJ.json), which as a result fails its own dream-004-guardrail-checkpoint-ran assertion despite the checkpoint genuinely running and passing. Overturns every prior cycle's 'silent no-op' assumption about this script call."
+    git_commit: pending
+    git_push: pending
+    git_sync_note: "Cloud sandbox container (Claude Code Remote), Desktop Commander confirmed unavailable via ToolSearch (no matching tool). Used plain git via Bash, one command per call, no chaining, no git status (used git diff --name-only HEAD instead). Session started in detached HEAD at origin/main's own tip (55e6492); moved to a real 'main' branch via 'git checkout -B main' before committing."
   step-01-2026-09-03:
     working_archived: 5
     working_deleted: 0

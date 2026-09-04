@@ -1,22 +1,17 @@
 ---
 status: complete
-started-at: 2026-09-03T08:03:11Z
-completed-at: 2026-09-03T08:10:00Z
+started-at: 2026-09-04T08:05:11Z
+completed-at: 2026-09-04T08:10:00Z
 outputs:
   working_archived: 1
   working_deleted: 0
-  working_skipped: 38
+  working_skipped: 36
   working_stranded: 0
-  enrichment_method: "heuristic (systems/dream-cycle/backfill-episodic-tags.py derive_date/derive_tags/derive_people) — claude -p timed out/unresponsive in this container (15s test call did not return); fell back to heuristic per FAILURE MODES precedent"
+  enrichment_method: "LLM (systems/dream-cycle/llm_tag_extractor.py via claude -p haiku) -- claude CLI auth functional in this container this cycle, confirmed via a short test call before committing to the LLM path"
   archived_files:
-    - dream-summary-2026-08-31.md
+    - dream-summary-2026-09-02.md
   skipped_not_expired:
-    - co-sell-pipeline-2026-08-31-001500.md
-    - co-sell-pipeline-2026-08-31-150200.md
-    - dream-summary-2026-09-01.md
-    - knox-plaud-ingest-2026-08-31.md
-    - revenue-tracker-2026-08-31-090524.md
-    - shutdown-cleanup-2026-08-31-222924.md
+    - dream-summary-2026-09-03.md
   skipped_unparseable:
     - 2026-07-08.md
     - 2026-07-23-215200-session-felix-derek-persona-rebuild.md
@@ -26,6 +21,7 @@ outputs:
     - 2026-08-12-graph-memory-spec-working.md
     - 2026-08-24-shep-robyn-fuentes-1on1-prep.md
     - CORRECTION-20260828-GOLF-BOOKING-ERR.md
+    - eval-harness-cost-visibility-2026-09-01.md
     - golf-booking-2026-07-10-failed.md
     - golf-booking-2026-07-11-followup.md
     - golf-booking-20260828-5oc5m.md
@@ -43,6 +39,7 @@ outputs:
     - golf-preview-2026-08-04.md
     - golf-preview-2026-08-25.md
     - morning-briefing-2026-08-27-163900.md
+    - plaud-discover-2026-09-03.md
     - remarkable-upload-2026-07-23-improve-eval.md
     - rigby-boot-eval-consolidation-2026-08-28.md
     - rigby-boot-eval-cowork-phantom-2026-08-28.md
@@ -50,10 +47,11 @@ outputs:
     - sc-executive-brief-2026-07-13.md
     - slack-notification-golf-booking-20260801.txt
     - solace-meeting-prep-2026-07-27.md
+  unparseable_left_untouched_missing_status:
+    - knox-plaud-ingest-2026-08-31.md
   new_unparseable_this_cycle:
-    - CORRECTION-20260828-GOLF-BOOKING-ERR.md
-    - golf-booking-20260828-5oc5m.md
-  self_caught_bug_note: "Enriching dream-summary-2026-08-31.md by appending 'type: working-archive' after the existing 'type: working' line would have created a duplicate top-level 'type:' key -- the same corruption class (a second value for one key stranded in frontmatter) this system spent 8 cycles fighting on the salience: block. Caught before the mv and fixed by replacing the original line instead of appending a second one."
+    - plaud-discover-2026-09-03.md
+  self_caught_bug_note: "None this cycle. Enriched dream-summary-2026-09-02.md by replacing the existing 'type: working' and 'status: active' lines in place (not appending new keys), avoiding the duplicate-key corruption class this system has fought before."
 ---
 
 <!-- system:start -->

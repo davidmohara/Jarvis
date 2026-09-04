@@ -20,8 +20,8 @@ related_people:
   - alice-mburu
   - andrew-rauch
 salience:
-  score: 6
-  last-promoted-check: 2026-09-03
+  score: 5
+  last-promoted-check: 2026-09-04
   promoted: true
 ---
 
