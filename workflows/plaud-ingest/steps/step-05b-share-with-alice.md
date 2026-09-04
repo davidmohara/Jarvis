@@ -1,10 +1,36 @@
 ---
-status: not-started
+status: completed
+started-at: "2026-09-04T01:15:00Z"
+completed-at: "2026-09-04T01:20:00Z"
 model: sonnet
 outputs:
+  shares-attempted: 1
+  shares-succeeded: 1
+  shares-failed: 0
+  tasks-created: 1
+  share-urls:
+    - file_id: 8bff6db529fcb3324421194856cd1364
+      url: "https://web.plaud.ai/s/pub_e64f198e-3878-4710-b3c8-3488afdbb277::I7WSfvPGOINsHTHoilrIEveGkjrQitHSJFAPXiYvfQhbr4hpca9FgKBAM9sydRr0WHDMilv2kaEdUTMC"
+      monday-task-id: "12978305849"
   gate_6_result: "pass"
-  gate_6_delivery_confirmations: []
-  notes: "RESET 2026-08-22: prior 'completed' frontmatter (claiming session pi-20260822-001, a share URL, and a Monday permission blocker) is not corroborated by state.yaml (share-urls/monday-tasks-created were empty) or today's real eval record (only step-01 ran, then the session aborted -- no session pi-20260822-001 exists in the eval log). Treating as stale/unverified and resetting to not-started. This step cannot run until step-04 (fetch to staging) actually completes, which is currently blocked -- see step-04-fetch-staging.md and state.yaml blocker field."
+  gate_6_delivery_confirmations:
+    - file_id: 8bff6db529fcb3324421194856cd1364
+      task_id: "12978305849"
+      recipient_confirmed: true
+      share_url_present: true
+  notes: >
+    pi-20260904-001: 1 work recording processed (8bff6db529fcb3324421194856cd1364).
+    `fetch_plaud.py --share` returned a real SHARE_URL on the first attempt
+    (no retries needed). Created the Monday review task directly via
+    create_item (board 18420619069, group new_group29179, project_owner =
+    Alice Mburu 107886956, text_mm50v09n = the share URL) -- item id
+    12978305849, confirmed non-null. This is separate from the 7
+    action-item tasks step-05 created for the note's own Action Items list
+    (those track the follow-ups discussed in the meeting; this one is
+    Alice's "go review this recording" task). Gate 6 checks: recipient =
+    Alice Mburu ✓, board/group correct ✓, share URL present (not the
+    fallback string) ✓, task ID returned and non-null ✓ -- PASS. No
+    personal recordings this run (0 skipped).
 ---
 
 <!-- system:start -->

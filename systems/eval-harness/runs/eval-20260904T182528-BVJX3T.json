@@ -1,0 +1,60 @@
+{
+  "id": "eval-20260904T182528-BVJX3T",
+  "agent_id": "a3b4f9c19eca8fb58",
+  "type": "agent",
+  "name": "general-purpose",
+  "workflow": null,
+  "agent": "general-purpose",
+  "session_id": "364fe046-27b4-4a10-a084-a06e8c84a636",
+  "trigger": "unknown",
+  "started": "2026-09-04T18:25:28.848423Z",
+  "completed": "2026-09-04T18:25:36.609126Z",
+  "duration_seconds": 7.76,
+  "status": "success",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/364fe046-27b4-4a10-a084-a06e8c84a636/subagents/agent-a3b4f9c19eca8fb58.jsonl",
+  "last_assistant_message": "The episode-prep-generator workflow is built and ready.\n\n**Location:** `/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/workflows/episode-prep-generator/`\n\n**What's there:**\n- `workflow.md` \u2014 the 3-step orchestration: step-01 (guest research) fires fully in parallel with step-02 (prep sheet generation); step-02 only blocks at the point it actually needs guest research to fill the breakdown/icebreaker sections, then step-03 assembles the final doc\n- `state.yaml` \u2014 tracks `prep_status` (not-started/research-in-progress/prep-generating/complete), `step1_research_done`, `step2_prep_sheet_done`, `research_gaps_flagged`\n- `steps/step-01-guest-research.md`, `step-02-generate-prep-sheet.md`, `step-03-assemble-output.md`\n\n**Also updated:**\n- `agents/harper.md` \u2014 added to Harper's task portfolio, explicitly called out as distinct from the existing `podcast-prep` workflow\n- `agents/master.md` \u2014 routing entry added\n- Eval assertions and eval prompts added under `systems/eval-harness/` and `systems/evals/`\n\n**Key finding worth knowing:** `reference/improving-edge-prep-sheet-generator-prompt.md` already existed in the repo \u2014 it wasn't a gap. Its own notes already describe this exact relationship to `workflows/podcast-prep` (this is the deep-research layer, podcast-prep is the studio one-pager), which confirmed keeping these as two separate workflows was the right call rather than merging them.\n\n**One thing outstanding:** the build process normally runs a paired executor/grader validation loop before calling a new capability fully validated. That loop hasn't been run yet on this one. I'd recommend doing a live test run with a real episode's inputs before you rely on it for an actual prep, just to confirm the step handoffs behave as designed end to end.",
+  "model": "sonnet",
+  "total_tokens_input": 47765,
+  "total_tokens_output": 658,
+  "total_cost_usd": 0.033361
+}

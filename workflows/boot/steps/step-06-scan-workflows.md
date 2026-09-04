@@ -1,12 +1,12 @@
 ---
 status: complete
-started-at: "2026-09-03T15:22:00Z"
-completed-at: "2026-09-03T15:23:00Z"
+started-at: "2026-09-04T15:30:00Z"
+completed-at: "2026-09-04T15:31:00Z"
 outputs:
-  workflows_scanned: "complete — _active.yaml read (active: []), but a direct check of workflows/plaud-ingest/state.yaml (per step-08's own check) shows status:in-progress, session pi-20260903-001, current-step step-01, started 2026-09-03T14:30Z — NOT reflected in the index. This is a stale/missing index entry, the inverse of the documented failure mode (workflow genuinely in-progress but absent from _active.yaml)."
-  active_workflows: "1 (plaud-ingest, in-progress per its own state.yaml, missing from index)"
-  background_tasks: "workflows/plaud-ingest/state.yaml: status in-progress, current-step step-01, session pi-20260903-001 (Knox). Prior session (pi-20260831-001) closed complete per its own resolution note — speaker mapping resolved via Plaud's own diarization data, no outstanding question. Today's session appears to be a fresh Knox run not yet indexed in _active.yaml."
-  result: "Surfacing plaud-ingest as in-progress despite empty _active.yaml index, since its own state.yaml is authoritative and unambiguous. Index discrepancy flagged for guardrail checkpoint. Not auto-resumed — awaiting controller instruction per protocol."
+  workflows_scanned: "complete — _active.yaml read (active: []), but a direct check of workflows/plaud-ingest/state.yaml shows status:in-progress, session pi-20260904-001, current-step step-01, started 2026-09-04T00:00:00-05:00 — NOT reflected in the index. Same recurring index/state mismatch pattern as the prior boot session."
+  active_workflows: "1 (plaud-ingest, in-progress per its own state.yaml, missing from _active.yaml index)"
+  background_tasks: "workflows/plaud-ingest/state.yaml: status in-progress, current-step step-01, session pi-20260904-001 (Knox), started 2026-09-04T00:00:00-05:00 — this is the session already spawned by the parent Master session per this task's instructions; not re-spawned here."
+  result: "Surfacing plaud-ingest as in-progress despite empty _active.yaml index, since its own state.yaml is authoritative. Index discrepancy flagged again (recurring issue — same as 2026-09-03 boot). Not auto-resumed — awaiting controller instruction per protocol."
 ---
 
 <!-- system:start -->

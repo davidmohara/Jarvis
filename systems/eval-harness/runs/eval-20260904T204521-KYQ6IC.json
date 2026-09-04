@@ -1,0 +1,112 @@
+{
+  "id": "eval-20260904T204521-KYQ6IC",
+  "type": "skill",
+  "name": "remarkable-upload",
+  "agent": "jarvis",
+  "session_id": "364fe046-27b4-4a10-a084-a06e8c84a636",
+  "trigger": "manual",
+  "started": "2026-09-04T15:35:00Z",
+  "completed": "2026-09-04T20:45:21.072259Z",
+  "duration_seconds": 18621.1,
+  "status": "success",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": true,
+      "outputs_non_empty": true,
+      "assertions_checked": 4,
+      "assertions_passed": 4,
+      "assertion_results": [
+        {
+          "assertion": "remarkable-upload-signal-written",
+          "description": "remarkable-upload skill-run signal file was written",
+          "category": "structure",
+          "passed": true
+        },
+        {
+          "assertion": "remarkable-upload-signal-status",
+          "description": "remarkable-upload skill-run did not end in failure",
+          "category": "structure",
+          "passed": true
+        },
+        {
+          "assertion": "remarkab-002-substantive",
+          "description": "remarkable-upload output is substantive (>200 bytes)",
+          "category": "structure",
+          "passed": true
+        },
+        {
+          "assertion": "remarkab-003-content",
+          "description": "remarkable-upload output contains expected content",
+          "category": "structure",
+          "passed": true
+        },
+        {
+          "assertion": "remarkab-004-visual-check",
+          "description": "PDF rendered via pdftoppm and visually inspected before push. All pages readable, no orphaned rows, no text overflow, font size >= 9pt.",
+          "category": "structure",
+          "passed": null,
+          "skipped": true,
+          "reason": "unknown check type: manual"
+        },
+        {
+          "assertion": "remarkab-005-filename-convention",
+          "description": "File named with human-readable words and spaces, no underscores, no dates (e.g. 'GeniusSpark Meeting Prep.pdf'). Matches agents/conventions.md deliverable naming rule.",
+          "category": "structure",
+          "passed": null,
+          "skipped": true,
+          "reason": "unknown check type: manual"
+        },
+        {
+          "assertion": "remarkab-006-persistent-path",
+          "description": "PDF copied to OneDrive/IES before rmapi call. /tmp does not persist across osascript invocations.",
+          "category": "structure",
+          "passed": null,
+          "skipped": true,
+          "reason": "unknown check type: manual"
+        }
+      ],
+      "category_breakdown": {
+        "structure": {
+          "passed": 4,
+          "checked": 4
+        },
+        "content": {
+          "passed": 0,
+          "checked": 0
+        },
+        "quality": {
+          "passed": 0,
+          "checked": 0
+        }
+      }
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "deterministic_gate": {
+      "score": 1.0,
+      "gate_status": "pass",
+      "computed_at": "2026-09-04T20:45:23.050182Z"
+    }
+  },
+  "version_hash": "1c68e88dad6a6e01",
+  "prior_baseline_id": null,
+  "tags": [
+    "cowork-hook",
+    "skill"
+  ]
+}

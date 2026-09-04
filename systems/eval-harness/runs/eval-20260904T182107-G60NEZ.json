@@ -1,0 +1,100 @@
+{
+  "id": "eval-20260904T182107-G60NEZ",
+  "agent_id": "ae50bf698e59d0419",
+  "type": "agent",
+  "name": "general-purpose",
+  "workflow": null,
+  "agent": "general-purpose",
+  "session_id": "364fe046-27b4-4a10-a084-a06e8c84a636",
+  "trigger": "unknown",
+  "started": "2026-09-04T18:21:07.849398Z",
+  "completed": "2026-09-04T18:25:28.596293Z",
+  "duration_seconds": 260.75,
+  "status": "success",
+  "steps": [
+    {
+      "name": "step-01-guest-research.md",
+      "started": null,
+      "completed": null,
+      "duration_seconds": null,
+      "status": "not-started",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": "sonnet",
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    },
+    {
+      "name": "step-02-generate-prep-sheet.md",
+      "started": null,
+      "completed": null,
+      "duration_seconds": null,
+      "status": "not-started",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": "sonnet",
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    },
+    {
+      "name": "step-03-assemble-output.md",
+      "started": null,
+      "completed": null,
+      "duration_seconds": null,
+      "status": "not-started",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": "sonnet",
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    }
+  ],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/364fe046-27b4-4a10-a084-a06e8c84a636/subagents/agent-ae50bf698e59d0419.jsonl",
+  "last_assistant_message": "## Summary\n\nBuilt the `episode-prep-generator` workflow for Harper at `/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/workflows/episode-prep-generator/`.\n\n**Files created:**\n- `workflow.md` \u2014 3-step workflow with a real parallel fan-out (step-01 guest research is fire-and-forget; step-02 prep-sheet generation starts immediately and only blocks on step-01 at the point it needs the guest-breakdown/icebreaker material), state.yaml, STATE CHECK block\n- `state.yaml` \u2014 standard `status`/`current-step`/`accumulated-context` plus the requested `prep_status` (not-started/research-in-progress/prep-generating/complete), `step1_research_done`, `step2_prep_sheet_done`, `research_gaps_flagged`\n- `steps/step-01-guest-research.md`, `steps/step-02-generate-prep-sheet.md`, `steps/step-03-assemble-output.md` \u2014 each with frontmatter status tracking, explicit outputs, failure modes\n- `systems/eval-harness/assertions/episode-prep-generator.json` \u2014 7 deterministic runtime assertions (output exists/size, research brief present, all 10 sections, post-episode capture section, no em dashes)\n- `systems/evals/work-20260904-episode-prep-generator/evals/evals.json` \u2014 3 realistic eval prompts (well-known guest, thin/obscure guest with flagged research gap, parallel-execution verification)\n\n**Files modified:**\n- `agents/harper.md` \u2014 added Task Portfolio row (personal block), explicitly distinguishing this from the existing `podcast-prep` workflow\n- `agents/master.md` \u2014 added routing table row\n- `evolutions/.pending-changes.json` \u2014 appended `work-20260904-episode-prep-generator`\n\n**Key finding:** `reference/improving-edge-prep-sheet-generator-prompt.md` already existed in the repo (not a gap) \u2014 its own usage notes already describe this exact \"deep research layer, feeds the studio one-pager\" relationship to `workflows/podcast-prep`, which confirmed these should stay separate workflows rather than merge. Fairness check: not applicable (single-guest content generation, no eligibility/ranking decision).\n\n**Not completed \u2014 flagged in pending-changes validation block:** Steps 7-9 of the rigby-capability-build process (spawning paired executor subagents, grading, iteration loop, and description-tuning) were not run in this pass \u2014 this workflow is invoked via explicit workflow name, not phrase-triggered, so description tuning (Step 9) would be skipped anyway, but the executor/grader validation loop (Step 7) is still outstanding and should be run before treating this as fully validated.",
+  "model": "sonnet",
+  "total_tokens_input": 2889751,
+  "total_tokens_output": 10631,
+  "total_cost_usd": 1.339133
+}

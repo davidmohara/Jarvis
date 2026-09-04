@@ -1,17 +1,26 @@
 ---
 status: completed
 model: haiku
-started-at: "2026-08-23T00:05:00Z"
-completed-at: "2026-08-23T00:12:00Z"
+started-at: "2026-09-04T00:00:00Z"
+completed-at: "2026-09-04T00:20:00Z"
 outputs:
   new-recordings-count: 1
-  api-total: 120
-  confirmed-in-vault: 119
+  api-total: 131
+  confirmed-in-vault: 130
   gate_1_result: "pass"
   gate_1_auth_method: "cached-token"
   gate_2_result: "pass"
   gate_2_flagged_recordings: []
   previous-run-results:
+    - date: "2026-09-03"
+      new-recordings-count: 1
+      api-total: 129
+      confirmed-in-vault: 128
+      note: "09-02 Tosan interview (5916294c66c59b109e4aa61d4621bba4) ingested this run — now in vault."
+    - date: "2026-08-23"
+      new-recordings-count: 1
+      api-total: 120
+      confirmed-in-vault: 119
     - date: "2026-08-22"
       new-recordings-count: 1
       api-total: 120

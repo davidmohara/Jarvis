@@ -1,0 +1,237 @@
+{
+  "id": "eval-20260904T152117-YPIY82",
+  "type": "workflow",
+  "name": "boot",
+  "agent": "master",
+  "session_id": "364fe046-27b4-4a10-a084-a06e8c84a636",
+  "trigger": "boot",
+  "started": "2026-09-04T15:21:17.691711Z",
+  "completed": "2026-09-04T15:31:21.951782Z",
+  "duration_seconds": 604.26,
+  "status": "success",
+  "steps": [],
+  "subagents": [
+    {
+      "agent_id": "adc86587132183878",
+      "agent_type": "general-purpose",
+      "started": "2026-09-04T15:21:34.624110Z",
+      "completed": "2026-09-04T15:31:17.768929Z",
+      "model": "sonnet",
+      "tokens_input": 243262,
+      "tokens_output": 862,
+      "cost_usd": 0.231517,
+      "duration_seconds": 42.16
+    },
+    {
+      "agent_id": "adff65610b6ccb779",
+      "agent_type": "general-purpose",
+      "started": "2026-09-04T15:21:42.477148Z",
+      "completed": "2026-09-04T15:48:30.581531Z",
+      "model": "sonnet",
+      "tokens_input": 102103,
+      "tokens_output": 696,
+      "cost_usd": 0.319153,
+      "duration_seconds": 10.86
+    },
+    {
+      "agent_id": "a8702e64c3754c172",
+      "agent_type": "general-purpose",
+      "started": "2026-09-04T15:22:13.336275Z",
+      "completed": "2026-09-04T15:48:19.470154Z",
+      "model": "sonnet",
+      "tokens_input": 20303594,
+      "tokens_output": 7003,
+      "cost_usd": 7.23978,
+      "duration_seconds": 1566.13
+    },
+    {
+      "agent_id": "a8b1b014889efe7f3",
+      "agent_type": "general-purpose",
+      "started": "2026-09-04T15:22:16.082072Z",
+      "completed": "2026-09-04T15:49:41.102600Z",
+      "model": "haiku",
+      "tokens_input": 43684,
+      "tokens_output": 3,
+      "cost_usd": 0.054617,
+      "duration_seconds": 10.18
+    },
+    {
+      "agent_id": "aef2c836bdb25fb6a",
+      "agent_type": "general-purpose",
+      "started": "2026-09-04T15:22:24.142849Z",
+      "completed": "2026-09-04T15:27:05.589548Z",
+      "model": "sonnet",
+      "tokens_input": 3702842,
+      "tokens_output": 3154,
+      "cost_usd": 1.55478,
+      "duration_seconds": 281.45
+    },
+    {
+      "agent_id": "a5872f03b65181c80",
+      "agent_type": "general-purpose",
+      "started": "2026-09-04T15:22:46.713092Z",
+      "completed": "2026-09-04T15:30:25.273681Z",
+      "model": "sonnet",
+      "tokens_input": 3049773,
+      "tokens_output": 646,
+      "cost_usd": 1.302905,
+      "duration_seconds": 458.56
+    },
+    {
+      "agent_id": "adff65610b6ccb779",
+      "agent_type": "general-purpose",
+      "started": "2026-09-04T15:27:05.776434Z",
+      "completed": null,
+      "model": null,
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    },
+    {
+      "agent_id": "a8b1b014889efe7f3",
+      "agent_type": "general-purpose",
+      "started": "2026-09-04T15:30:25.503370Z",
+      "completed": null,
+      "model": null,
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    },
+    {
+      "agent_id": "adc86587132183878",
+      "agent_type": "general-purpose",
+      "started": "2026-09-04T15:30:35.604538Z",
+      "completed": null,
+      "model": null,
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    },
+    {
+      "agent_id": "a8b1b014889efe7f3",
+      "agent_type": "general-purpose",
+      "started": "2026-09-04T15:31:10.765163Z",
+      "completed": null,
+      "model": null,
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    }
+  ],
+  "monitoring": {
+    "active": false,
+    "state_yaml_path": "workflows/boot/state.yaml",
+    "opened_by": "eval-turn-start.py",
+    "trigger_evidence": "run morning boot workflow"
+  },
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 3,
+      "assertions_passed": 3,
+      "assertion_results": [
+        {
+          "assertion": "boot-001-state-complete",
+          "description": "Boot workflow state.yaml shows status: complete",
+          "passed": true
+        },
+        {
+          "assertion": "boot-002-session-index-exists",
+          "description": "Session index file exists \u2014 boot's Session Index Boot step must have created/appended it",
+          "passed": true
+        },
+        {
+          "assertion": "boot-003-session-index-substantive",
+          "description": "Session index is a real record, not an empty stub",
+          "passed": true
+        }
+      ]
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": "f1a31609ac6be8a11b48a3c6267957f76a4e86e971cd143315c77472e90af0d0",
+  "prior_baseline_id": null,
+  "tags": [
+    "turn-level"
+  ],
+  "guardrails": [
+    {
+      "name": "step-02-checkpoint",
+      "after_step": "step-02-gather-data",
+      "result": "flag",
+      "reason": "M365 and Clay MCP both unreachable this session; OmniFocus live, everything else degraded and explicitly flagged rather than fabricated",
+      "escalated_to_human": false,
+      "timestamp": "2026-09-04T15:24:46.969138+00:00"
+    },
+    {
+      "name": "step-03-checkpoint",
+      "after_step": "step-03-verify-phase2",
+      "result": "pass",
+      "reason": "Self-verified; all Phase2 tasks reported definitive status, no silent failures, M365/Clay outage confirmed genuine not assumed",
+      "escalated_to_human": false,
+      "timestamp": "2026-09-04T15:25:26.185133+00:00"
+    },
+    {
+      "name": "step-04-checkpoint",
+      "after_step": "step-04-gather-meeting-context",
+      "result": "flag",
+      "reason": "Meeting context and Clay reminders/birthdays unavailable this run due to confirmed M365/Clay outage; briefing will be degraded but not fabricated",
+      "escalated_to_human": false,
+      "timestamp": "2026-09-04T15:25:26.259313+00:00"
+    },
+    {
+      "name": "step-05-checkpoint",
+      "after_step": "step-05-synthesize-briefing",
+      "result": "flag",
+      "reason": "Briefing accurately reflects severe data-source outage (M365+Clay unreachable); degraded but honest, no fabrication",
+      "escalated_to_human": false,
+      "timestamp": "2026-09-04T15:25:48.059824+00:00"
+    },
+    {
+      "name": "step-06-checkpoint",
+      "after_step": "step-06-scan-workflows",
+      "result": "flag",
+      "reason": "_active.yaml index missing plaud-ingest in-progress entry again (recurring pattern); not a boot blocker",
+      "escalated_to_human": false,
+      "timestamp": "2026-09-04T15:26:01.574252+00:00"
+    },
+    {
+      "name": "pre-completion-review",
+      "after_step": "step-06-scan-workflows",
+      "result": "flag",
+      "reason": "M365+Clay unreachable this session; briefing honestly degraded not fabricated; _active.yaml index mismatch recurring",
+      "escalated_to_human": false,
+      "timestamp": "2026-09-04T15:26:15.334599+00:00"
+    }
+  ],
+  "total_tokens_input": 7131086,
+  "total_tokens_output": 4665,
+  "total_cost_usd": 3.356648
+}

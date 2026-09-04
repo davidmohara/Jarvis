@@ -1,12 +1,12 @@
 ---
 status: complete
-started-at: "2026-09-03T15:17:00Z"
-completed-at: "2026-09-03T15:22:00Z"
+started-at: "2026-09-04T15:27:00Z"
+completed-at: "2026-09-04T15:30:00Z"
 outputs:
-  briefing_delivered: "yes — morning briefing synthesized against live re-pulled data and carried forward through steps 06-08 for verbatim delivery to controller"
-  format: "narrative + calendar table (accumulated data: 24 calendar events Sep 2-7 fresh live pull, 11 uncompleted OmniFocus inbox items live re-pull, 5 actionable emails live re-pull, 0 due reminders, Clay available with 0 reminders/birthdays, delegation tracker clean, Knox/plaud-ingest status carried in from step-08)"
-  calendar_today: "Thursday Sep 3 — Sales & Recruiting Meeting/Sales Scrum (recurring, 9:15-10am CDT), David/Robyn 1:1 (10-10:30am), Podcast Filming with guest Michael Slater (1-3pm, MarketScale), Meet with Steve (4:30-5:30pm). Light day, no client meetings."
-  hotspots: "Podcast Filming with Michael Slater this afternoon has no prior prep notes found — flagging as light-context; BoardVantage director approval awaiting response; plaud-ingest workflow shows status:in-progress (session pi-20260903-001) not yet reflected in _active.yaml — flagged in guardrail checkpoint; delegation tracker is clean (no active items); no daily review on file since 2026-08-12 (long-standing gap, not new today)."
+  briefing_delivered: "yes — degraded morning briefing synthesized (M365 + Clay unreachable this session) and carried forward through steps 06-08 for verbatim delivery to controller"
+  format: "narrative, degraded — no calendar table possible this run (M365 unreachable). OmniFocus inbox (10 items, live), delegation tracker (clean), quarterly objectives (Q3 rocks) surfaced. Calendar, email, Jarvis inbox, Clay reminders/birthdays all flagged unreachable rather than fabricated."
+  calendar_today: "unavailable — M365 MCP unreachable this session, confirmed after retry. No calendar table produced. Recommend David check calendar directly or re-run boot once M365 connector is reachable."
+  hotspots: "M365 MCP (calendar + email) and Clay MCP both unreachable this session — largest gap in today's briefing; plaud-ingest workflow status:in-progress (session pi-20260904-001, step-01) not reflected in workflows/_active.yaml — index/state mismatch, same pattern as prior sessions, flagged in step-06.5; delegation tracker is clean (no active items); OmniFocus inbox has 10 unassigned items, none flagged or dated."
 ---
 
 <!-- system:start -->

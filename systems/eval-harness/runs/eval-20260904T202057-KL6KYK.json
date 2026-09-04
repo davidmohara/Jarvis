@@ -1,0 +1,83 @@
+{
+  "id": "eval-20260904T202057-KL6KYK",
+  "type": "workflow",
+  "name": "podcast-prep",
+  "agent": "harper",
+  "session_id": "364fe046-27b4-4a10-a084-a06e8c84a636",
+  "trigger": "manual",
+  "started": "2026-09-04T00:00:00Z",
+  "completed": "2026-09-04T20:20:57.254720Z",
+  "duration_seconds": 73257.3,
+  "status": "success",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": false,
+      "outputs_non_empty": false,
+      "assertions_checked": 4,
+      "assertions_passed": 1,
+      "assertion_results": [
+        {
+          "assertion": "podcast-001-state-complete",
+          "description": "Podcast prep workflow state.yaml shows status: complete",
+          "category": "structure",
+          "passed": true
+        },
+        {
+          "assertion": "podcast--001-exists",
+          "description": "podcast-prep output file was written",
+          "category": "structure",
+          "passed": false
+        },
+        {
+          "assertion": "podcast--002-substantive",
+          "description": "podcast-prep output is substantive (>200 bytes)",
+          "category": "structure",
+          "passed": false
+        },
+        {
+          "assertion": "podcast--003-content",
+          "description": "podcast-prep output contains expected content",
+          "category": "structure",
+          "passed": false
+        }
+      ],
+      "category_breakdown": {
+        "structure": {
+          "passed": 1,
+          "checked": 4
+        },
+        "content": {
+          "passed": 0,
+          "checked": 0
+        },
+        "quality": {
+          "passed": 0,
+          "checked": 0
+        }
+      }
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    }
+  },
+  "version_hash": "2ea0809c35dbf8b5",
+  "prior_baseline_id": null,
+  "tags": [
+    "cowork-hook",
+    "phantom-candidate"
+  ]
+}

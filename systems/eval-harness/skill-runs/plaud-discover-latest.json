@@ -2,10 +2,9 @@
   "skill": "plaud-discover",
   "agent": "knox",
   "trigger": "manual",
-  "started": "2026-09-03T10:04:00Z",
-  "completed": "2026-09-03T10:08:30Z",
+  "started": "2026-09-04T00:00:00Z",
+  "completed": "2026-09-04T00:20:00Z",
   "status": "success",
   "tool_failures": 0,
-  "error_ids": [],
-  "summary": "Plaud discover complete. Queried Plaud API for all recordings (130 total), cross-referenced against Obsidian vault (181 ingested recordings), and identified 109 new unprocessed recordings."
+  "error_ids": []
 }

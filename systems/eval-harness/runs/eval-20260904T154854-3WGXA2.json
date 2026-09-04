@@ -1,0 +1,88 @@
+{
+  "id": "eval-20260904T154854-3WGXA2",
+  "type": "skill",
+  "name": "plaud-speaker-id",
+  "agent": "knox",
+  "session_id": "364fe046-27b4-4a10-a084-a06e8c84a636",
+  "trigger": "manual",
+  "started": "2026-09-04T15:10:00Z",
+  "completed": "2026-09-04T15:48:54.699248Z",
+  "duration_seconds": 2334.7,
+  "status": "success",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": true,
+      "outputs_non_empty": false,
+      "assertions_checked": 4,
+      "assertions_passed": 2,
+      "assertion_results": [
+        {
+          "assertion": "plaud-speaker-id-signal-written",
+          "description": "plaud-speaker-id skill-run signal file was written",
+          "category": "structure",
+          "passed": true
+        },
+        {
+          "assertion": "plaud-speaker-id-signal-status",
+          "description": "plaud-speaker-id skill-run did not end in failure",
+          "category": "structure",
+          "passed": true
+        },
+        {
+          "assertion": "plaud-sp-002-substantive",
+          "description": "plaud-speaker-id output is substantive (>200 bytes)",
+          "category": "structure",
+          "passed": false
+        },
+        {
+          "assertion": "plaud-sp-003-content",
+          "description": "plaud-speaker-id output contains expected content",
+          "category": "structure",
+          "passed": false
+        }
+      ],
+      "category_breakdown": {
+        "structure": {
+          "passed": 2,
+          "checked": 4
+        },
+        "content": {
+          "passed": 0,
+          "checked": 0
+        },
+        "quality": {
+          "passed": 0,
+          "checked": 0
+        }
+      }
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "deterministic_gate": {
+      "score": 0.7917,
+      "gate_status": "pass",
+      "computed_at": "2026-09-04T15:49:00.547408Z"
+    }
+  },
+  "version_hash": "56bd4a9d21dc826b",
+  "prior_baseline_id": null,
+  "tags": [
+    "cowork-hook",
+    "skill"
+  ]
+}

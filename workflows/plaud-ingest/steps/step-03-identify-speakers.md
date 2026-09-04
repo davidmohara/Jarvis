@@ -1,12 +1,31 @@
 ---
 status: completed
 model: haiku
-started-at: "2026-08-23T00:13:00Z"
-completed-at: "2026-08-23T00:25:00Z"
+started-at: "2026-09-04T00:25:00Z"
+completed-at: "2026-09-04T00:40:00Z"
 outputs:
   gate_4_result: "pass"
   gate_4_unresolved_speakers: []
-  notes: "pi-20260823-001: Calendar-first cross-reference attempted for the one new recording (32c80d61ff44bb53825a93cfb0bbfa5a, 2026-08-05 clinical/injection note). No exact calendar overlap; nearest event ('Dr Nathan Walters', same address, immediately following) had no attendee list to confirm identity, so surfaced to controller rather than guessing. Controller confirmed: Speaker 2 = Dr. Nathan Walters. speaker-mappings populated in state.yaml. Classification: personal (medical)."
+  notes: >
+    pi-20260904-001: 1 new recording (8bff6db529fcb3324421194856cd1364,
+    2026-09-03 10:35). 3 speakers detected: O'Hara (72 seg, embedding match
+    0.93 to registered "O'Hara" profile), Speaker 3 (13 seg, embedding
+    match 0.87 to registered "Robyn Fuentes" profile -- already resolved
+    live by Plaud), and Speaker 2 (91 seg, no strong embedding match --
+    best 0.58 to an unrelated profile). Self-ID scan of Speaker 2's full 91
+    segments found no self-identification. Calendar cross-reference
+    (Superhuman query_email_and_calendar) found exactly one matching event:
+    "David/Robyn 1:1", 10:30-11:00 CT, Microsoft Teams, attendees David
+    O'Hara + Robyn Fuentes only -- heuristic 3 (single external attendee,
+    2-attendee calendar, 2 non-David speaker labels) resolves Speaker 2 =
+    Robyn Fuentes. This is a split-label case: Plaud's diarization split
+    Robyn's voice across two labels ("Robyn Fuentes", 13 low-content
+    segments, and "Speaker 2", 91 substantive segments) rather than a
+    third person. Validation gate (step 3): Robyn Fuentes is on the
+    calendar invite -- passes cleanly, no off-invite flag. No unresolved
+    speakers, no controller escalation needed. Classification: work
+    (internal Improving 1:1, sales/account strategy review -- Autodesk,
+    staffing, AMY tool, CIO transition discussed).
 ---
 
 <!-- system:start -->

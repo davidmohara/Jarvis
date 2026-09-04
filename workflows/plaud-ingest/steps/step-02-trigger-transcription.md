@@ -1,7 +1,7 @@
 ---
 status: completed
-started-at: "2026-08-23T00:12:00Z"
-completed-at: "2026-08-23T00:13:00Z"
+started-at: "2026-09-04T00:20:00Z"
+completed-at: "2026-09-04T00:25:00Z"
 model: haiku
 outputs:
   already-ready: 1
@@ -11,7 +11,15 @@ outputs:
   gate_3_result: "pass"
   gate_3_retry_counts: {}
   gate_3_aborted_recordings: []
-  note: "1 new recording (32c80d61ff44bb53825a93cfb0bbfa5a) already has transcript ready. No trigger needed. Proceeding to speaker identification."
+  note: >
+    1 new recording (8bff6db529fcb3324421194856cd1364, 2026-09-03) was
+    recorded as transcript_status "missing" at discovery time. By the time
+    the trigger call ran (~20 min later), Plaud had already finished
+    transcribing it on its own -- get_recording_detail confirmed status
+    "ready" before the two-step trigger fired, and the trigger call itself
+    returned status=1/msg="success" ("already done" per plaud-trigger's own
+    response table), confirming no duplicate work was started. Moved
+    directly to ready-for-fetch. No watcher needed.
 ---
 
 <!-- system:start -->

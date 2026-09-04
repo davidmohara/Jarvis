@@ -1,14 +1,14 @@
 ---
 status: complete
-started-at: "2026-09-03T15:24:00Z"
-completed-at: "2026-09-03T15:25:00Z"
+started-at: "2026-09-04T15:32:00Z"
+completed-at: "2026-09-04T15:33:00Z"
 outputs:
   state_status: "complete — all prior step files verified status:complete this run, boot state.yaml updated with completion timestamp"
   verification: passed
   steps_verified: 7
   failed_steps: []
-  guardrail_checkpoint: "pre-completion-review: flag — _active.yaml/plaud-ingest index mismatch (see step-06.5), does not block completion"
-  note: "All 7 prior steps (step-01 through step-06.5) show status:complete. step-01's frontmatter timestamp is stale (2026-08-31, from an earlier session) but its status field is complete, which is the sole pass criterion per this step's own rules — flagging the stale timestamp as an observation, not a failure. Boot workflow complete with fresh live-pulled data this session (calendar, email, OmniFocus, Clay all live pulls ~15:00-15:17Z)."
+  guardrail_checkpoint: "pre-completion-review: flag — M365+Clay outage (see step-06.5) and _active.yaml/plaud-ingest index mismatch, neither blocks completion"
+  note: "All 7 prior steps (step-01 through step-06.5) show status:complete. step-01's frontmatter timestamp is stale (from an earlier session) but its status field is complete, which is the sole pass criterion per this step's own rules. Boot workflow complete, but with a materially degraded data set this session: OmniFocus live via osascript; calendar, email, Jarvis inbox, and Clay all confirmed unreachable after retry. This is recorded honestly rather than papered over."
 ---
 
 <!-- system:start -->

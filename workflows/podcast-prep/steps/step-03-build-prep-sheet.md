@@ -12,7 +12,7 @@ model: sonnet
 ## MANDATORY EXECUTION RULES
 
 1. You MUST include all sections: logistics, guest background, episode topic, questions, talking points, podcast guide reminders, and pre-filming checklist.
-2. You MUST use SharePoint questions if available. If not, generate 8-10 suggested questions and clearly flag them as suggestions pending Janine's confirmation.
+2. You MUST check `state.yaml`'s `sources_used` and merge whatever it contains — this is additive, not either/or. If it contains `episode-prep`, pull the questions/clusters from `gathered_data.episode_prep_source` (condense phrasing only, do not alter substance or invent new questions — those are grounded in a real conversation or dedicated research pass and outrank anything generated here). If it contains `sharepoint`, pull SharePoint's questions the same way as before. If it contains both, merge them per the Merge & Dedupe Rules below rather than picking one and discarding the other. If `sources_used` is empty, generate 8-10 suggested questions and clearly flag them as suggestions pending Janine's confirmation.
 3. You MUST save the file to `meetings/podcast-prep/YYYY-MM-DD-guest-name.md` using the filming date.
 4. You MUST personalize talking points to David's perspective — reference his experience, Improving's positioning, and relevant personal stories.
 5. Do NOT skip sections even if data is thin. Use what's available and flag gaps.
@@ -56,7 +56,7 @@ Build the prep sheet with this structure (reference `meetings/podcast-prep/2026-
 
 **{Guest Full Name}** — {Title}, {Company}
 
-{2-4 bullet points from Clay + web research:}
+{2-4 bullet points — if `episode-prep` is in `sources_used`, draw these primarily from `gathered_data.episode_prep_source.guest_research_brief` (already vetted and sourced by episode-prep-generator), backstopped by Clay/web research for anything it doesn't cover. Otherwise, draw from Clay + web research:}
 - Professional background and expertise
 - Current role and responsibilities
 - Relevant experience for this episode's topic
@@ -81,17 +81,22 @@ Core themes:
 
 ---
 
-## Questions from SharePoint
+## Questions{ — merged from Episode Prep and/or SharePoint, per `sources_used`}
 
-{If SharePoint doc found: reproduce all questions with their topic groupings. For each question block, add follow-up prompts in italics:
-- A **mechanism follow-up** for at least 2-3 questions: "How does that actually show up?" or "What does that look like in practice?"
-- A **devil's advocate challenge** for at least 1-2 questions: "Let me push back on that..." or "What would someone say who disagrees with you?"
-These are optional prompts for David — not scripted questions — to use if the guest's answer stays too abstract or too safe.}
+{Build this section by merging whatever `sources_used` contains — both sources feed the same document, they are never either/or:}
 
-{If NOT found:}
-**No question doc exists on SharePoint for this episode yet.**
+- **If `episode-prep` is in `sources_used`:** pull the questions and clusters from `gathered_data.episode_prep_source.questions_block` — condense phrasing only where needed to fit this document's format, do not alter the substance or invent new questions. Carry over follow-ups already present in the source rather than manufacturing new ones on top of transcript-grounded questions — those already reflect a real conversation.
+- **If `sharepoint` is in `sources_used`:** pull SharePoint's questions with their topic groupings. For each question block that doesn't already have an equivalent from episode-prep, add follow-up prompts in italics — a **mechanism follow-up** for at least 2-3 questions ("How does that actually show up?" / "What does that look like in practice?") and a **devil's advocate challenge** for at least 1-2 questions ("Let me push back on that..." / "What would someone say who disagrees with you?"). These are optional prompts for David, not scripted questions.
+- **If both are in `sources_used`:** merge per the Merge & Dedupe Rules below into one combined list — do not present two separate "Questions from Episode Prep" and "Questions from SharePoint" blocks side by side.
+- **If `sources_used` is empty:** state plainly — "No question source exists for this episode yet (no episode-prep-generator output in `meetings/podcast-prep/`, and no SharePoint doc found)." Action: confirm with Janine whether she's building a SharePoint doc, and/or run `workflows/episode-prep-generator/workflow.md` for this guest. If going freeform, suggested questions below.
 
-Action: Confirm with Janine whether she's building one or if you're going freeform on this episode. If freeform, suggested questions below.
+### Merge & Dedupe Rules (when both sources contributed)
+
+1. **Read all questions from both sources before writing anything.** Don't merge incrementally question-by-question — see the full set from each source first so duplicates are caught up front.
+2. **A question counts as a duplicate** if it asks the same underlying thing even when phrased differently (e.g., episode-prep's "walk us through what full trip-booking inside an AI assistant could look like" and a SharePoint question asking "how do you see this expanding into travel" are the same question). When two questions overlap, keep the one grounded in a real conversation or deeper research (episode-prep, when it exists) and drop the SharePoint duplicate — but if SharePoint's phrasing or framing is sharper, use SharePoint's wording with episode-prep's substance.
+3. **Non-duplicate questions from both sources are combined**, organized under whichever thematic clusters make sense across the combined set (episode-prep's clusters if the merge leans heavily on that source, otherwise re-cluster around the episode's core themes).
+4. **Preserve source-appropriate follow-ups.** Don't strip a mechanism/devil's-advocate follow-up that came with a SharePoint question just because it's now sitting next to an episode-prep question; don't invent a new follow-up for an episode-prep question that already has a transcript-grounded one.
+5. **Note the merge in Notes/flags**, not in the Questions section itself — e.g. "3 of these questions came from episode-prep-generator (grounded in a 7/13 conversation), 4 from Janine's SharePoint doc, 1 duplicate dropped." Keep the Questions section itself clean and scannable; the provenance note belongs in the pre-filming checklist or a one-line footer, not interleaved with the questions.
 
 ---
 
@@ -157,7 +162,8 @@ Action: Confirm with Janine whether she's building one or if you're going freefo
 | Failure | Action |
 |---------|--------|
 | Not enough guest background | Do a WebSearch for the guest's name + company. Pull LinkedIn summary, recent talks, articles. Flag: "Guest background from web search — verify accuracy." |
-| No questions from SharePoint AND topic is vague | Generate questions anyway, but flag: "These are broad — you may want to sharpen them based on pre-filming conversation with {guest name}." |
+| Neither episode-prep nor SharePoint has questions, AND topic is vague | Generate questions anyway, but flag: "These are broad — you may want to sharpen them based on pre-filming conversation with {guest name}." |
+| Episode-prep and SharePoint questions conflict in framing (not just duplicate, but contradictory angles) | Keep both if there's room; if not, flag the conflict in Notes and default to the episode-prep framing since it's grounded in a real conversation or deeper research. |
 | Episode topic doesn't align with guest's expertise | Flag the mismatch. Suggest reframing the questions to bridge the guest's experience with the topic. |
 
 ---

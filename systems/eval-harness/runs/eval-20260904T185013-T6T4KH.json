@@ -1,0 +1,113 @@
+{
+  "id": "eval-20260904T185013-T6T4KH",
+  "agent_id": "af47f3e228e0e8dc4",
+  "type": "agent",
+  "name": "general-purpose",
+  "workflow": null,
+  "agent": "general-purpose",
+  "session_id": "364fe046-27b4-4a10-a084-a06e8c84a636",
+  "trigger": "unknown",
+  "started": "2026-09-04T18:50:13.318604Z",
+  "completed": "2026-09-04T18:54:19.155421Z",
+  "duration_seconds": 245.84,
+  "status": "partial",
+  "steps": [
+    {
+      "name": "step-01-transcript-search.md",
+      "started": null,
+      "completed": null,
+      "duration_seconds": null,
+      "status": "not-started",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": "sonnet",
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    },
+    {
+      "name": "step-02-guest-research.md",
+      "started": null,
+      "completed": null,
+      "duration_seconds": null,
+      "status": "not-started",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": "sonnet",
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    },
+    {
+      "name": "step-03-generate-prep.md",
+      "started": null,
+      "completed": null,
+      "duration_seconds": null,
+      "status": "not-started",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": "sonnet",
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    },
+    {
+      "name": "step-04-assemble-output.md",
+      "started": null,
+      "completed": null,
+      "duration_seconds": null,
+      "status": "not-started",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": "sonnet",
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    }
+  ],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 1,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/364fe046-27b4-4a10-a084-a06e8c84a636/subagents/agent-af47f3e228e0e8dc4.jsonl",
+  "last_assistant_message": "Rebuild is complete. Summary of what was done:\n\n**Full structural redesign of `workflows/episode-prep-generator`** (Option 2, not incremental), matching David's actual prep format exemplified by `meetings/podcast-prep/2026-07-14-kapil-dabi.md`.\n\nOld architecture: 3 steps producing a formal 10-section, 8-10 page prep sheet from `reference/improving-edge-prep-sheet-generator-prompt.md`, built entirely from role/domain inference.\n\nNew architecture: 4 steps, transcript-first, 2-3 pages max.\n\n- `workflows/episode-prep-generator/steps/step-01-transcript-search.md` (new) \u2014 searches the Obsidian vault via `mcp__obsidian-mcp-tools__search_vault` for a prior recorded conversation with the guest (Plaud transcriptions, meeting notes, lunch records). Captures it as primary source when found; flags the gap and falls back otherwise.\n- `workflows/episode-prep-generator/steps/step-02-guest-research.md` (renamed/revised from old step-01) \u2014 runs in parallel, now explicitly secondary to a found transcript, trimmed to fit a 1-page brief.\n- `workflows/episode-prep-generator/steps/step-03-generate-prep.md` (renamed, fully rewritten from old step-02) \u2014 now waits on both steps 1+2 before starting (no early partial generation). Builds 7-10 concrete numbered questions with lettered follow-ups grouped into named clusters, directly from the transcript when found (else research inference), plus a Suggested Flow section, optional Internal Context section (new `internal_context` input), closing beat, and Notes documenting the transcript source.\n- `workflows/episode-prep-generator/steps/step-04-assemble-output.md` (renamed/revised from old step-03) \u2014 saves the scannable document to `reviews/episode-prep/[date]-[guest-last-name].md`.\n- `workflows/episode-prep-generator/workflow.md` \u2014 rewritten to describe the new architecture, format bar, and inputs.\n- `workflows/episode-prep-generator/state.yaml` \u2014 reset to `not-started` for the new step numbering.\n- `agents/harper.md` (personal block, line 118) \u2014 Task Portfolio row updated to describe transcript-first behavior instead of the old 10-section/Section-9 description.\n\nTracked in `evolutions/.pending-changes.json` as `work-20260904-episode-prep-generator-rebuild`.\n\nOne gap to flag: I did not run the full rigby-capability-build eval-authoring/iteration loop (steps 6-9 \u2014 evals.json, executor runs, grading, description tuning) since this was a direct structural rebuild of an existing workflow rather than a net-new phrase-triggered skill, and no `--work-id` or eval-scope instruction was given. Recommend a follow-up test run against one guest with a known Obsidian transcript and one with none before relying on it heavily. No `SKILL COMPLETE` / grader block was run either, since this task was a workflow rebuild, not a `rigby-capability-build` skill invocation with its own eval harness signal.",
+  "model": "sonnet",
+  "total_tokens_input": 2457826,
+  "total_tokens_output": 3356,
+  "total_cost_usd": 1.078301
+}

@@ -1,51 +1,6 @@
 {
-  "pulled_at": "2026-09-03T15:05:00Z",
-  "message_count": 5,
-  "messages": [
-    {
-      "id": "boardvantage-approval",
-      "subject": "Please respond to the Approval - Approve Director Loan Committee Charter",
-      "from": "alerts@boardvantage.com (Teresa Saffold, United Texas Bank)",
-      "received_at": "2026-09-02T17:59:59Z",
-      "is_flagged": false,
-      "importance": "normal",
-      "snippet": "DLC Committee approved the updated charter (adding Market President). Board approval requested via BoardVantage."
-    },
-    {
-      "id": "retreat-attendees",
-      "from": "Dawn.Dearstone@Improving.com",
-      "subject": "Retreat Attendees",
-      "received_at": "2026-09-02T17:40:33Z",
-      "is_flagged": false,
-      "importance": "normal",
-      "snippet": "Amazing Race team list attached — flagged which attendees are confirmed out; offered Mason as a sub if a team needs evening out."
-    },
-    {
-      "id": "presidents-meeting-topics",
-      "from": "Robyn.Fuentes@Improving.com (thread started by scott.mcmichael@improving.com)",
-      "subject": "Re: Taking Topics... forming agenda for U.S. Presidents Meeting (DAL)",
-      "received_at": "2026-09-03T14:39:16Z",
-      "is_flagged": false,
-      "importance": "normal",
-      "snippet": "Scott is collecting agenda topics/special guests for the year-end Presidents Meeting in Dallas (2027 strategy theme). Robyn already replied with ideas; David has not yet weighed in."
-    },
-    {
-      "id": "ypo-naples-registered",
-      "from": "susie@everydayentries.com (fwd from Emily Kenney, YPO)",
-      "subject": "Fwd: You're Registered – YPO Vision & Values | Naples",
-      "received_at": "2026-09-02T00:11:15Z",
-      "is_flagged": false,
-      "importance": "normal",
-      "snippet": "Registration confirmation forwarded for YPO Vision & Values event in Naples."
-    },
-    {
-      "id": "fortium-coffee-suggestion",
-      "from": "greg.pascuzzi@fortiumpartners.com",
-      "subject": "Re: Keeping you updated",
-      "received_at": "2026-09-03T14:56:57Z",
-      "is_flagged": false,
-      "importance": "normal",
-      "snippet": "Greg suggests scheduling a no-strings coffee with Michael to keep the relationship/conversation warm."
-    }
-  ]
+  "pulled_at": "2026-09-04T15:23:00Z",
+  "message_count": 0,
+  "messages": [],
+  "status": "failed — M365 MCP unreachable in this session (only OAuth/authenticate tools exposed, no outlook_email_search tool available). Retried once, still unreachable."
 }

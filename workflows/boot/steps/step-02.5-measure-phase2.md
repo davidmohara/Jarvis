@@ -1,12 +1,12 @@
 ---
 status: complete
-started-at: "2026-09-03T15:12:00Z"
-completed-at: "2026-09-03T15:13:00Z"
+started-at: "2026-09-04T15:25:00Z"
+completed-at: "2026-09-04T15:25:00Z"
 outputs:
-  phase2_measurement_file: "systems/boot-instrumentation/measurements/measurement-state-20260903T150645.json"
+  phase2_measurement_file: "systems/boot-instrumentation/measurements/measurement-state-20260904T152445.json"
   total_kb: 0.0
   total_tokens: 0
-  measurement_method: "Outcomes recorded in step frontmatter (accumulated-context field not populated this run); no bloat sources identified."
+  measurement_method: "measure.py run against state.yaml; accumulated-context is minimal (2 bytes) — outcomes recorded in step frontmatter rather than state.yaml accumulated-context this run, matching prior sessions' convention."
 ---
 
 <!-- system:start -->

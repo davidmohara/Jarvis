@@ -1,0 +1,41 @@
+---
+workflow: episode-prep-generator
+agent: harper
+status: complete
+session-started: 2026-09-04
+session-id: suchala-fub-20260904
+current-step: complete
+original-request:
+  topic: "AI Adoption in Banking"
+  guest_name: "Ryan Suchala"
+  guest_title: "TBD - to be researched"
+  guest_company: "First United Bank (FUB)"
+  industry_domain: "Banking / Financial Services"
+  specific_angle: "How banking is adopting AI while navigating compliance and regulatory requirements"
+  internal_context: ~
+accumulated-context:
+  prior_transcript:
+    found: false
+  research_gaps_flagged: false
+  research_gap_note: "No prior conversation transcript found for Ryan Suchala in Obsidian vault after multiple search variants (full name, last name, 'Suchala AI banking', 'Ryan Suchala lunch coffee call'). Only passing mentions found: a referral mention in a 2026-07-16 club membership consultation transcript ('he runs all of First United Bank for Texas'), a YPO board note ('Text Suchala about LSG'), and a Napa trip attendee list. None are recorded conversations with him as a participant. Building questions from research-based inference."
+  step1_transcript_search_done: true
+  guest_research:
+    confirmed_title: "Executive Vice President and Chief Banking Officer, First United Bank & Trust Company (promoted March 24, 2025)"
+    title_sources: ["Bankers Digest promotion announcement", "ZoomInfo profile", "LinkedIn (secondary confirmation, direct fetch 403'd)", "First United Bank bio page (indexed, direct fetch 403'd)"]
+    professional_accomplishments:
+      - "~20 years in banking; oversees strategy, customer engagement, and growth across Texas and Oklahoma as CBO"
+      - "Named to D Magazine/D CEO's Dallas 500 list of most powerful Dallas business leaders, 2022"
+      - "17 years at BOK Financial, most recently Dallas/Bank of Texas market president, before joining First United Bank ~7+ years ago as DFW Regional President"
+      - "BBA and MBA in Finance, University of Oklahoma Price College of Business; Southwestern Graduate School of Banking (SMU); Stagen Leadership Institute Integral Leadership Program"
+    notable_projects: "None found tied specifically to his name"
+    speaking_history: "None found (a Charitybuzz 'Banking Insider Lunch' listing is a philanthropy auction item, not a speaking engagement)"
+    personal_background: "None found beyond professional bio (OK roots via education/BOK start, Dallas-based)"
+    company_context: "No public First United Bank statements on AI strategy, digital transformation, or AI-compliance posture found. CEO's promotion quote mentions 'innovation' generically, no tech/AI specificity."
+    footprint_assessment: "thin"
+  research_gaps_flagged: true
+  research_gap_note: "No public statements from Suchala or First United Bank on AI, technology, automation, or compliance found despite targeted searches; no speaking history. Well-documented career/title but zero public footprint on the episode's actual subject matter. Questions built from research-based inference plus stated topic/angle; flag to producer that pre-interview outreach should establish his specific AI initiatives directly since public sources don't surface them."
+  step2_research_done: true
+  step3_prep_generated: true
+  output_path: reviews/episode-prep/2026-09-04-suchala.md
+  prep_status: complete
+---

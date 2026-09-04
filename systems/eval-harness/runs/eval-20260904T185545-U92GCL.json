@@ -1,0 +1,60 @@
+{
+  "id": "eval-20260904T185545-U92GCL",
+  "agent_id": "aed7f739a07061a74",
+  "type": "agent",
+  "name": "general-purpose",
+  "workflow": null,
+  "agent": "general-purpose",
+  "session_id": "364fe046-27b4-4a10-a084-a06e8c84a636",
+  "trigger": "unknown",
+  "started": "2026-09-04T18:55:45.951719Z",
+  "completed": "2026-09-04T18:59:45.646906Z",
+  "duration_seconds": 239.7,
+  "status": "partial",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 4,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/364fe046-27b4-4a10-a084-a06e8c84a636/subagents/agent-aed7f739a07061a74.jsonl",
+  "last_assistant_message": "I ran both test passes end to end (Obsidian search, guest research, prep sheet generation) and saved outputs to `reviews/episode-prep/2026-09-04-dabi-2.md` (Test 1) and `reviews/episode-prep/2026-09-04-chen.md` (Test 2). Both passed structurally. Two real gaps surfaced worth fixing before this workflow is trusted for production.\n\n**Test 1, Kapil Dabi, with transcript: passed.**\nObsidian search found the transcript correctly at `zzPlaud/Other/2026-07-13 Lunch with Kapil Dabi, Agentic Commerce, Google UCP, and AI in Retail.md`. Output has 9 numbered questions with lettered follow-ups across 5 named clusters (UCP vs MCP/ACP, AEO vs SEO, shopper experience, travel/anticipatory commerce with the Improving Travelport tie-in, wrap-up), a Suggested Flow section with verbatim quotes correctly labeled as pulled from the real conversation, a compressed Guest Research Brief, and a Notes section citing the source path. Length is about 1,170 words, roughly 2 to 2.5 pages, in range. Format closely mirrors David's actual `2026-07-14-kapil-dabi.md`.\n\nOne thing I want to flag explicitly: the source transcript opens with an extended, sensitive personal disclosure from Kapil (an active divorce, a restraining order, a custody dispute, with direct quotes about specific allegations). I excluded all of it from the output, same as David's own reference sheet did. But step-01's instruction to capture `raw_content` into `state.yaml` only says to scope to \"professional/product substance\" when trimming a long file, it doesn't explicitly say to strip sensitive personal content at the capture stage rather than just at the final-document stage. Since state.yaml persists, I'd recommend tightening step-01 to explicitly exclude personal/legal/family/financial disclosures at capture time, not just rely on step-03 to filter them out later.\n\n**Test 2, Sarah Chen, no transcript: passed.**\nObsidian search correctly came back empty across multiple query variants (full name, last name, guest name plus \"TechCorp\"). Web research also came back with no verifiable match, confirming this is effectively a synthetic guest, and the output correctly states \"No prior transcript found; questions built from research-based inference\" plus flags the research gap rather than inventing a bio. 9 questions across 5 clusters, grounded in GC/legal-AI domain reasoning rather than generic filler. Suggested Flow is present and clearly labeled as inference, no fabricated quotes. About 870 words, roughly 1.5 to 2 pages.\n\n**Gaps found, not specific to either test:**\n\n1. **Em-dash rule directly conflicts with the format bar.** Step-03 hard-bans em dashes, but the reference file it tells you to match, `meetings/podcast-prep/2026-07-14-kapil-dabi.md`, uses em dashes 17 times as its actual stylistic convention (title separator, guest metadata line, mid-sentence breaks). A literally compliant run has to deviate from the reference's punctuation to satisfy the no-em-dash rule. My first draft of both test outputs picked up em dashes by naturally mimicking the reference style; I had to substitute colons/commas to comply. Worth resolving one way or the other in the workflow spec.\n\n2. **Stale eval artifacts still target the old format.** `reviews/episode-prep/2026-09-04-dabi.md` (pre-existing, old 10-section format), `systems/eval-harness/assertions/episode-prep-generator.json`, and `systems/evals/work-20260904-episode-prep-generator/evals/evals.json` all check for sections the rebuilt workflow explicitly retired (Post-Episode Intelligence Capture, Guest Expertise Breakdown, Show Flow & Timing, 2000+ byte minimum). Any automated eval run against this workflow right now will fail even though the rebuild is working as intended. These should be updated or retired to match the new 2-3 page format, otherwise the eval harness will misreport a working workflow as broken.\n\n3. **Filename collision handling worked as designed** (noted for completeness, not a gap): since `2026-09-04-dabi.md` already existed, Test 1's output correctly needed the numeric-suffix fallback from step-04, saved as `2026-09-04-dabi-2.md`.\n\nFiles: `/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/reviews/episode-prep/2026-09-04-dabi-2.md`, `/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/reviews/episode-prep/2026-09-04-chen.md`, workflow steps at `/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/workflows/episode-prep-generator/steps/`, reference format at `/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/meetings/podcast-prep/2026-07-14-kapil-dabi.md`, stale eval assertions at `/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/systems/eval-harness/assertions/episode-prep-generator.json`.",
+  "model": "sonnet",
+  "total_tokens_input": 1712494,
+  "total_tokens_output": 307,
+  "total_cost_usd": 0.861353
+}

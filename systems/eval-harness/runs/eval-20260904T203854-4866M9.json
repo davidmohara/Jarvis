@@ -1,0 +1,100 @@
+{
+  "id": "eval-20260904T203854-4866M9",
+  "type": "skill",
+  "name": "harper-podcast-prep",
+  "agent": "harper",
+  "session_id": "364fe046-27b4-4a10-a084-a06e8c84a636",
+  "trigger": "manual",
+  "started": "2026-09-04T20:35:00Z",
+  "completed": "2026-09-04T20:38:54.323160Z",
+  "duration_seconds": 234.3,
+  "status": "success",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": true,
+      "outputs_non_empty": true,
+      "assertions_checked": 6,
+      "assertions_passed": 6,
+      "assertion_results": [
+        {
+          "assertion": "harper-podcast-prep-signal-written",
+          "description": "harper-podcast-prep skill-run signal file was written",
+          "category": "structure",
+          "passed": true
+        },
+        {
+          "assertion": "harper-podcast-prep-signal-status",
+          "description": "harper-podcast-prep skill-run did not end in failure",
+          "category": "structure",
+          "passed": true
+        },
+        {
+          "assertion": "harper-podcast-prep-pdf-exists",
+          "description": "studio one-pager PDF was generated",
+          "category": "structure",
+          "passed": true
+        },
+        {
+          "assertion": "harper-podcast-prep-pdf-substantive",
+          "description": "studio PDF is a real rendered document, not a near-empty/broken render (most recently written Episode *.pdf)",
+          "category": "quality",
+          "passed": true
+        },
+        {
+          "assertion": "harper-podcast-prep-detail-sheet-substantive",
+          "description": "detailed prep sheet has real substance (most recently written .md; content-depth check pending a local cache of Janine's SharePoint source doc for a direct count_matches_source comparison)",
+          "category": "content",
+          "passed": true
+        },
+        {
+          "assertion": "harper-podcast-prep-no-banned-phrases",
+          "description": "no em-dashes or placeholder text in podcast prep markdown (most recently written .md; org style rule, previously corrected: err-20260901T135033-NVNABQ)",
+          "category": "quality",
+          "passed": true
+        }
+      ],
+      "category_breakdown": {
+        "structure": {
+          "passed": 3,
+          "checked": 3
+        },
+        "content": {
+          "passed": 1,
+          "checked": 1
+        },
+        "quality": {
+          "passed": 2,
+          "checked": 2
+        }
+      }
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "deterministic_gate": {
+      "score": 1.0,
+      "gate_status": "pass",
+      "computed_at": "2026-09-04T20:38:57.038630Z"
+    }
+  },
+  "version_hash": "21388f4a40a34632",
+  "prior_baseline_id": null,
+  "tags": [
+    "cowork-hook",
+    "skill"
+  ]
+}

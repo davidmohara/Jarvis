@@ -1,0 +1,77 @@
+{
+  "name": "episode-prep-generator",
+  "type": "workflow",
+  "assertions": [
+    {
+      "id": "epg-001-state-complete",
+      "check": "yaml_field_equals",
+      "path": "workflows/episode-prep-generator/state.yaml",
+      "field": "status",
+      "value": "complete",
+      "description": "episode-prep-generator state.yaml shows status: complete"
+    },
+    {
+      "id": "epg-002-output-exists",
+      "check": "file_exists",
+      "path": "reviews/episode-prep/*.md",
+      "description": "Output file written to reviews/episode-prep/"
+    },
+    {
+      "id": "epg-003-output-min-size",
+      "check": "file_min_bytes",
+      "path": "reviews/episode-prep/*.md",
+      "min_bytes": 1000,
+      "description": "Output file is substantive (>1000 bytes) — a scannable 2-3 page prep document, not a stub"
+    },
+    {
+      "id": "epg-003b-output-length-2-3-pages",
+      "check": "word_count_range",
+      "path": "reviews/episode-prep/*.md",
+      "min_words": 300,
+      "max_words": 1600,
+      "description": "Output word count falls within a 2-3 page scannable range (roughly 300-1600 words) — not the old 8-10 page format"
+    },
+    {
+      "id": "epg-004-research-brief-present",
+      "check": "file_contains",
+      "path": "reviews/episode-prep/*.md",
+      "pattern": "(?i)Guest Research Brief",
+      "description": "Output contains a Guest Research Brief section"
+    },
+    {
+      "id": "epg-005-questions-numbered-min-7",
+      "check": "file_contains",
+      "path": "reviews/episode-prep/*.md",
+      "pattern": "(?m)^7\\.",
+      "description": "Questions are numbered and at least 7 main questions are present"
+    },
+    {
+      "id": "epg-006-questions-capped-at-10",
+      "check": "file_not_contains",
+      "path": "reviews/episode-prep/*.md",
+      "pattern": "(?m)^11\\.",
+      "description": "Main question numbering does not run past 10 (7-10 concrete questions, not an open-ended list)"
+    },
+    {
+      "id": "epg-007-suggested-flow-present",
+      "check": "file_contains",
+      "path": "reviews/episode-prep/*.md",
+      "pattern": "(?i)Suggested Flow",
+      "description": "Output contains a Suggested Flow section capturing what the guest will actually say"
+    },
+    {
+      "id": "epg-008-source-disclosed",
+      "check": "file_contains",
+      "path": "reviews/episode-prep/*.md",
+      "pattern": "(?i)(prior transcript|conversation transcript|research-based inference|no prior transcript found)",
+      "description": "Notes section discloses whether questions came from a real conversation transcript or research-based inference — guards against presenting inferred/fabricated content as verified fact"
+    },
+    {
+      "id": "epg-009-no-em-dashes",
+      "check": "file_not_contains",
+      "path": "reviews/episode-prep/*.md",
+      "pattern": "—",
+      "description": "Output does not contain em dashes"
+    }
+  ]
+}

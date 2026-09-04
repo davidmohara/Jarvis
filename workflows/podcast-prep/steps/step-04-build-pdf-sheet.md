@@ -13,7 +13,7 @@ model: sonnet
 
 1. You MUST reference the template at `reference/podcast-prep-pdf-template.md` for the exact format.
 2. You MUST condense 10+ questions down to exactly 5 focused prompts + 1 wrap-up. Combine related questions. Phrase the way David would actually ask them.
-3. You MUST include all 9 sections in order: header, intro script, season/episode, title, overview, key discussion topics table, prompting questions, remember bar, sportcoat line.
+3. You MUST include all 8 sections in order: header, intro script, season/episode, title, overview, prompting questions, remember bar, sportcoat line.
 4. You MUST save to `meetings/podcast-prep/Episode {N}.md` (plain episode number, no zero-padding, no guest name).
 5. Do NOT add extra sections. This is a single-page document — every word must earn its place.
 
@@ -54,16 +54,6 @@ Welcome to **The Improving Edge**. This is where we talk about how AI and techno
 
 {2-3 sentences summarizing the episode's focus. First-person plural ("We'll discuss...", "We'll dig into..."). Cover key themes without being exhaustive.}
 
-## Key Discussion Topics
-
-| # | TOPIC | FOCUS |
-|---|-------|-------|
-| 1 | **{Topic Name}** | {1-2 sentence description} |
-| 2 | **{Topic Name}** | {1-2 sentence description} |
-| 3 | **{Topic Name}** | {1-2 sentence description} |
-| 4 | **{Topic Name}** | {1-2 sentence description} |
-| 5 | **{Topic Name}** | {1-2 sentence description} |
-
 ## Prompting Questions
 
 **1. On {Topic}**
@@ -99,9 +89,9 @@ Sportcoat: _______________________________
 
 **Do not reinvent the format.** This document has a locked structure. Reference `meetings/podcast-prep/Episode 2.md` as the canonical example before writing a single line. The layout, tag choices, section order, and visual style must match it. If something looks different from the example, fix it — do not decide a variation is acceptable.
 
-**One page is a hard constraint.** If the content does not fit on one page at readable size, cut content — do not shrink the font, reduce margins, or split onto a second page. Tighten the table focus descriptions first, then shorten questions. Every word must earn its place.
+**One page is a hard constraint.** If the content does not fit on one page at readable size, cut content — do not shrink the font, reduce margins, or split onto a second page. Shorten questions and overview paragraph first. Every word must earn its place.
 
-**Readable font size.** The CSS controls sizing, but your content length determines whether it fits. Keep table focus descriptions to 1-2 sentences max. Keep questions to 1-2 sentences max. If you're writing more than that, you're writing too much.
+**Readable font size.** The CSS controls sizing, but your content length determines whether it fits. Keep the overview to 2-3 sentences max. Keep questions to 1-2 sentences max. If you're writing more than that, you're writing too much.
 
 ---
 
@@ -137,7 +127,7 @@ The key skill here is **condensation**. The detailed prep sheet has 8-10+ questi
 
 6. **Topic labels are 2-4 words.** Not sentences. "On Adoption Barriers" not "On The Challenges Organizations Face When Adopting AI."
 
-7. **5 topics in the table should map to the 5 questions.** They're the same themes, just different formats — table gives the overview, questions give the prompts.
+7. **With the table removed, you have more space for questions.** Consider 6-7 questions if they fit on one page, keeping in mind the overview and Remember bar still need room.
 
 ---
 
@@ -145,12 +135,12 @@ The key skill here is **condensation**. The detailed prep sheet has 8-10+ questi
 
 | Failure | Action |
 |---------|--------|
-| Fewer than 5 distinct topics | Broaden the themes. Split a big topic into two angles, or add a "Personal Take" or "Future Outlook" topic. |
+| Fewer than 5 questions | Expand your question set. The table is gone — you have room for 6-7 questions now if they fit. |
 | Questions sound too scripted | Rewrite them more casually. Read them aloud mentally — would David say this in a real conversation? |
-| Document runs long (won't fit one page) | Tighten focus descriptions in the table. Shorten questions. Cut any word that isn't pulling its weight. |
+| Document runs long (won't fit one page) | Shorten the overview. Tighten question phrasing. Cut any word that isn't pulling its weight. |
 | Template format unclear | Reference the existing example at `meetings/podcast-prep/Episode 2.md` for a real output. |
 | Format looks different from prior episodes | Stop. Re-read `Episode 2.md` and align. Do not submit a variation — the format is locked. |
-| Font too small or content overflows one page | Cut content. Shorten table descriptions and questions. Do not adjust font size or margins. |
+| Font too small or content overflows one page | Cut content. Shorten the overview and questions. Do not adjust font size or margins. |
 
 ---
 

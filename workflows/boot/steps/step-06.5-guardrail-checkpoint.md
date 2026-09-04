@@ -1,12 +1,12 @@
 ---
 status: complete
-started-at: "2026-09-03T15:23:00Z"
-completed-at: "2026-09-03T15:24:00Z"
+started-at: "2026-09-04T15:31:00Z"
+completed-at: "2026-09-04T15:32:00Z"
 outputs:
-  data_freshness_report: "flag — calendar, email, OmniFocus, and Clay all pulled live this session (~15:00-15:17Z), briefing reflects current data. One minor issue: _active.yaml index is stale relative to workflows/plaud-ingest/state.yaml (genuinely in-progress, not indexed)."
+  data_freshness_report: "flag — OmniFocus pulled live this session (~15:23Z) via direct osascript; calendar, email, and Clay are genuinely unreachable (M365 MCP exposes only OAuth tools, no outlook_* tools in this session; Clay MCP returned 'Authentication service unavailable' on two attempts). Briefing explicitly flags these as unreachable rather than reusing stale 2026-09-03 cached values or fabricating data — this is the correct failure-mode response, not a defect. Also: _active.yaml index is stale relative to workflows/plaud-ingest/state.yaml (genuinely in-progress, not indexed) — same recurring issue as prior session."
   checkpoint_name: "pre-completion-review"
   checkpoint_result: "flag"
-  reason: "Briefing accurately reflects fresh gathered data and no leakage found; however _active.yaml shows active:[] while plaud-ingest/state.yaml is genuinely status:in-progress (session pi-20260903-001) — index/state mismatch, surfaced to David as a flag rather than escalate since it does not undermine the briefing's content, only the workflow-index bookkeeping. Recorded via guardrail-checkpoint.py."
+  reason: "Briefing honestly reflects a genuine multi-source outage (M365 + Clay) rather than presenting stale/cached data as live — this is the intended degraded-boot behavior, not a content defect, so flag rather than escalate. _active.yaml/plaud-ingest index mismatch also flagged (recurring, non-blocking). No leakage found. Session index sanity confirmed clean."
   recorded: true
 model: sonnet
 ---

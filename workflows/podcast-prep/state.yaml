@@ -1,9 +1,18 @@
 ---
 workflow: podcast-prep
 agent: harper
-status: not-started
-session-started: ~
-session-id: ~
-current-step: ~
-original-request: ~
-accumulated-context: {}
+status: complete
+session-started: 2026-09-04T00:00:00Z
+session-id: harper-podcast-prep-2026-09-04-suchala
+current-step: step-05
+original-request: "Generate podcast prep for Ryan Suchala (Episode TBD/16, filming 2026-09-04) from meetings/podcast-prep/2026-09-04-suchala-updated.md"
+sources_used: [episode-prep] # SharePoint Season 1_Episode {N}_Topics and Questions not found for this guest/episode; proceeded with episode-prep source alone per instructions
+accumulated-context:
+  episode_number: "16 (unconfirmed placeholder — next unused after Episode 15; no SharePoint doc or calendar event confirms this)"
+  guest: "Ryan Suchala, EVP & Chief Banking Officer, First United Bank & Trust Company"
+  filming_date: "2026-09-04"
+  outputs:
+    detailed_sheet: "meetings/podcast-prep/2026-09-04-suchala.md"
+    pdf_markdown: "meetings/podcast-prep/Episode 16.md"
+    pdf_rendered: "meetings/podcast-prep/Episode 16.pdf"
+  remarkable_upload: "skipped per explicit instruction — do not push to reMarkable"

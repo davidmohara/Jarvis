@@ -1,0 +1,100 @@
+{
+  "id": "eval-20260904T193209-EALH09",
+  "agent_id": "af47f3e228e0e8dc4",
+  "type": "agent",
+  "name": "general-purpose",
+  "workflow": null,
+  "agent": "general-purpose",
+  "session_id": "364fe046-27b4-4a10-a084-a06e8c84a636",
+  "trigger": "unknown",
+  "started": "2026-09-04T19:32:09.138429Z",
+  "completed": "2026-09-04T19:36:06.176591Z",
+  "duration_seconds": 237.04,
+  "status": "success",
+  "steps": [
+    {
+      "name": "step-02-gather-data.md",
+      "started": null,
+      "completed": null,
+      "duration_seconds": null,
+      "status": "not-started",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": "sonnet",
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    },
+    {
+      "name": "step-03-build-prep-sheet.md",
+      "started": null,
+      "completed": null,
+      "duration_seconds": null,
+      "status": "not-started",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": "sonnet",
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    },
+    {
+      "name": "step-01-identify-episode.md",
+      "started": null,
+      "completed": null,
+      "duration_seconds": null,
+      "status": "not-started",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": "sonnet",
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    }
+  ],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/364fe046-27b4-4a10-a084-a06e8c84a636/subagents/agent-af47f3e228e0e8dc4.jsonl",
+  "last_assistant_message": "Send failed again (same as last time \u2014 `general-purpose` isn't a resolvable address in this session, and there's no `ListAgents` tool available to find the right reference). Reporting the summary here instead.\n\n## Summary\n\n**Repo path note:** I worked in `/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES` (this session's established root, and where the prior `use_episode_prep` work was done). `/Users/davidohara/develop/improving/ies` is a separate checkout of a different remote with unrelated history \u2014 untouched.\n\n**Fixed the integration model to additive (both sources, always):**\n\n- `workflows/podcast-prep/steps/step-02-gather-data.md` \u2014 pulls both episode-prep-generator output (`reviews/episode-prep/`) and Janine's SharePoint doc unconditionally every run. Writes `sources_used` as a list, not a binary flag. Missing source is not a failure.\n- `workflows/podcast-prep/steps/step-03-build-prep-sheet.md` \u2014 new Merge & Dedupe Rules subsection: combines questions from both sources when both exist, treats same-intent-different-phrasing questions as duplicates, preserves each source's follow-ups, logs provenance in Notes rather than the Questions section. step-04/05 needed no changes (already source-agnostic, no-em-dash/template rules already unconditional).\n- `use_episode_prep` removed entirely \u2014 verified via repo-wide grep; zero references remain in any current-state file. It only survives in immutable historical eval-harness run logs and the earlier pending-changes entry (append-only log, left as-is).\n- `workflows/podcast-prep/state.yaml` \u2014 `prep_source` replaced with `sources_used: []`.\n- `agents/harper.md` and `workflows/podcast-prep/workflow.md` \u2014 rewritten to describe the additive model, no flag/fallback language remains.\n\nNo README existed in that workflow directory. `systems/eval-harness/assertions/podcast-prep.json` was reviewed but left untouched \u2014 it targets an unrelated generic output path and has no stale references. All JSON/YAML validated, block tags balanced. Tracked as `work-20260904-podcast-prep-additive-sources` in `evolutions/.pending-changes.json`. No commits made.",
+  "model": "sonnet",
+  "total_tokens_input": 4871587,
+  "total_tokens_output": 1809,
+  "total_cost_usd": 2.072413
+}

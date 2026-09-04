@@ -20,32 +20,48 @@
     "structural": {
       "expected_outputs_written": true,
       "outputs_non_empty": false,
-      "assertions_checked": 3,
-      "assertions_passed": 1,
+      "assertions_checked": 4,
+      "assertions_passed": 2,
       "assertion_results": [
         {
           "assertion": "plaud-trigger-signal-written",
           "description": "plaud-trigger skill-run signal file was written",
+          "category": "structure",
           "passed": true
         },
         {
           "assertion": "plaud-trigger-signal-status",
           "description": "plaud-trigger skill-run did not end in failure",
-          "passed": null,
-          "skipped": true,
-          "reason": "unknown check type: json_field_not_equals"
+          "category": "structure",
+          "passed": true
         },
         {
           "assertion": "plaud-tr-002-substantive",
           "description": "plaud-trigger output is substantive (>200 bytes)",
+          "category": "structure",
           "passed": false
         },
         {
           "assertion": "plaud-tr-003-content",
           "description": "plaud-trigger output contains expected content",
+          "category": "structure",
           "passed": false
         }
-      ]
+      ],
+      "category_breakdown": {
+        "structure": {
+          "passed": 2,
+          "checked": 4
+        },
+        "content": {
+          "passed": 0,
+          "checked": 0
+        },
+        "quality": {
+          "passed": 0,
+          "checked": 0
+        }
+      }
     },
     "grading": {
       "last_graded": null,
@@ -56,6 +72,11 @@
       "rating": null,
       "comment": null,
       "timestamp": null
+    },
+    "deterministic_gate": {
+      "score": 0.7917,
+      "gate_status": "pass",
+      "computed_at": "2026-09-04T15:29:20.004467Z"
     }
   },
   "version_hash": "7d6daccc65882d8a",

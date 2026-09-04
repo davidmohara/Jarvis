@@ -2,21 +2,9 @@
   "skill": "plaud-trigger",
   "agent": "knox",
   "trigger": "manual",
-  "started": "2026-08-24T15:30:00Z",
-  "completed": "2026-08-24T15:45:00Z",
+  "started": "2026-09-04T00:20:00Z",
+  "completed": "2026-09-04T00:25:00Z",
   "status": "success",
   "tool_failures": 0,
-  "error_ids": [],
-  "summary": {
-    "command": "check-status 2026-08-23",
-    "recordings_for_target_date": 0,
-    "pending_items_checked": 2,
-    "ready_count": 1,
-    "still_pending_count": 1,
-    "recommendations": [
-      "Ingest newly ready transcript 589340220e4c13350a731ea9ba8770d2",
-      "Spawn watcher for still-pending 7de82b6f5889e1e8e5feb107520491c9",
-      "Address 157-recording staging backlog"
-    ]
-  }
+  "error_ids": []
 }

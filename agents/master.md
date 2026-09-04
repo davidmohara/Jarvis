@@ -333,6 +333,7 @@ This table maps workflow name → assigned agent → trigger context. Master use
 | daily-review | Chief | End-of-day shutdown, capture completions and tomorrow's priorities |
 | delegation-tracker | Shep | View all delegations, check status, flag overdue items |
 | email-drafting | Harper | Draft a professional email, calibrated for recipient and voice |
+| episode-prep-generator | Harper | Generate a full Improving Edge episode prep sheet + guest research brief from topic/guest/angle inputs, before a filming date exists |
 | evolution-deployment | Rigby | Deploy evolution packages with personal block preservation |
 | evolution-training-sync | Shep-Training | Sync training curriculum with newly applied evolution components |
 | follow-up-nudges | Shep | Surface overdue delegations, draft calibrated follow-up messages |

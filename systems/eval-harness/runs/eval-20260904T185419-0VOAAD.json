@@ -1,0 +1,60 @@
+{
+  "id": "eval-20260904T185419-0VOAAD",
+  "agent_id": "a708a97955e9f1608",
+  "type": "agent",
+  "name": "general-purpose",
+  "workflow": null,
+  "agent": "general-purpose",
+  "session_id": "364fe046-27b4-4a10-a084-a06e8c84a636",
+  "trigger": "unknown",
+  "started": "2026-09-04T18:54:19.425511Z",
+  "completed": "2026-09-04T18:54:27.082364Z",
+  "duration_seconds": 7.66,
+  "status": "success",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/364fe046-27b4-4a10-a084-a06e8c84a636/subagents/agent-a708a97955e9f1608.jsonl",
+  "last_assistant_message": "The `episode-prep-generator` rebuild is done. Here's what changed:\n\n**Architecture: 3 steps \u2192 4 steps, transcript-first, output capped at 2-3 pages**\n\n- `workflows/episode-prep-generator/steps/step-01-transcript-search.md` (new) \u2014 searches Obsidian via `mcp__obsidian-mcp-tools__search_vault` for a prior recorded conversation with the guest (Plaud transcriptions, meeting notes, lunch records). Uses it as primary source if found; flags the gap and falls through to inference if not.\n- `steps/step-02-guest-research.md` \u2014 runs in parallel with step 1, now explicitly secondary to a found transcript, trimmed to a 1-page brief.\n- `steps/step-03-generate-prep.md` \u2014 waits on both 1+2, builds 7-10 numbered questions with lettered follow-ups pulled directly from the transcript (or research inference if none), plus Suggested Flow, optional Internal Context (new `internal_context` input), and Notes documenting the transcript source.\n- `steps/step-04-assemble-output.md` \u2014 saves to `reviews/episode-prep/[date]-[guest-last-name].md`.\n- `workflow.md` and `state.yaml` updated to match the new structure.\n- `agents/harper.md` (personal block, line 118) \u2014 task portfolio description updated to reflect transcript-first behavior.\n\nChange is tracked in `evolutions/.pending-changes.json` as `work-20260904-episode-prep-generator-rebuild`.\n\n**Gap to flag:** the full eval-authoring/iteration loop (evals.json, executor runs, grading) wasn't run \u2014 this was a structural rebuild of an existing workflow, not a net-new skill invocation, and no eval scope was specified. I'd recommend a real test pass before leaning on this: one guest with a known Obsidian transcript, one with none, and compare output against `meetings/podcast-prep/2026-07-14-kapil-dabi.md` for format fidelity. Want me to run that test now?",
+  "model": "sonnet",
+  "total_tokens_input": 48237,
+  "total_tokens_output": 686,
+  "total_cost_usd": 0.035637
+}

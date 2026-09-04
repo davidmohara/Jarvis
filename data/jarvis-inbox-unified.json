@@ -1,5 +1,6 @@
 {
-  "pulled_at": "2026-09-03T15:05:00Z",
+  "pulled_at": "2026-09-04T15:23:00Z",
   "message_count": 0,
-  "messages": []
+  "messages": [],
+  "status": "failed — depends exclusively on M365 email connector per skills/jarvis-inbox/SKILL.md, which is unreachable in this session."
 }

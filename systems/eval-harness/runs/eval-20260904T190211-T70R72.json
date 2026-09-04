@@ -1,0 +1,100 @@
+{
+  "id": "eval-20260904T190211-T70R72",
+  "agent_id": "af47f3e228e0e8dc4",
+  "type": "agent",
+  "name": "general-purpose",
+  "workflow": null,
+  "agent": "general-purpose",
+  "session_id": "364fe046-27b4-4a10-a084-a06e8c84a636",
+  "trigger": "unknown",
+  "started": "2026-09-04T19:02:11.499877Z",
+  "completed": "2026-09-04T19:06:44.056502Z",
+  "duration_seconds": 272.56,
+  "status": "success",
+  "steps": [
+    {
+      "name": "step-01-identify-episode.md",
+      "started": null,
+      "completed": null,
+      "duration_seconds": null,
+      "status": "not-started",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": "sonnet",
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    },
+    {
+      "name": "step-02-gather-data.md",
+      "started": null,
+      "completed": null,
+      "duration_seconds": null,
+      "status": "not-started",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": "sonnet",
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    },
+    {
+      "name": "step-03-build-prep-sheet.md",
+      "started": null,
+      "completed": null,
+      "duration_seconds": null,
+      "status": "not-started",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": "sonnet",
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    }
+  ],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/364fe046-27b4-4a10-a084-a06e8c84a636/subagents/agent-af47f3e228e0e8dc4.jsonl",
+  "last_assistant_message": "I've completed all three requested fixes. I attempted to reply to the originating session but it isn't reachable by name (`general-purpose` is a generic agent-type label, not a resolvable address, and no `ListAgents` tool is available in this session to look up the correct reference). Reporting the summary here instead:\n\n**1. Integration (Option A \u2014 optional upstream input, not merged):**\n- `workflows/podcast-prep/workflow.md` \u2014 added optional `use_episode_prep` boolean input (default false), updated Data Sources table, STATE CHECK section, and added a relationship note to episode-prep-generator.\n- `workflows/podcast-prep/state.yaml` \u2014 added `prep_source: ~ # episode-prep | sharepoint`.\n- `workflows/podcast-prep/steps/step-01-identify-episode.md` \u2014 parses `use_episode_prep`.\n- `workflows/podcast-prep/steps/step-02-gather-data.md` \u2014 branches: reads matching `reviews/episode-prep/*.md` as authoritative source when true (falls back to SharePoint if no match), else unchanged SharePoint behavior. Writes `prep_source` either way.\n- `workflows/podcast-prep/steps/step-03-build-prep-sheet.md` \u2014 condenses (not regenerates) from the episode-prep source when applicable, labels the Questions section by source, pulls guest background from the episode-prep brief when available.\n- step-04/step-05 needed no changes (already source-agnostic).\n\n**2. Eval artifacts updated:**\n- `systems/eval-harness/assertions/episode-prep-generator.json` \u2014 removed old-format assertions (Post-Episode Intelligence Capture, Guest Expertise Breakdown), added numbered-questions-min-7/capped-at-10, Suggested Flow presence, a `word_count_range` check (300-1600 words, since no `file_max_bytes` check type exists in `assertion_checks.py`) as the page-length proxy, and a source-disclosure check. Lowered `file_min_bytes` from 2000 to 1000.\n- `systems/evals/work-20260904-episode-prep-generator/evals/evals.json` \u2014 rewrote assertions to match; eval 2 replaced with a transcript-found scenario exercising the new step-01 Obsidian search and the `internal_context` input.\n\n**3. Em-dash ban** \u2014 verified already present in `workflows/episode-prep-generator/steps/step-03-generate-prep.md` in three places. No change made.\n\n**`agents/harper.md`** \u2014 updated the Podcast Prep and Episode Prep Generator Task Portfolio rows to describe the new relationship and `use_episode_prep` flag.\n\nAll JSON validated, all system/personal block tags balanced. Tracked in `evolutions/.pending-changes.json` as `work-20260904-episode-prep-podcast-prep-integration`. No commits made \u2014 file edits only, per instructions.",
+  "model": "sonnet",
+  "total_tokens_input": 4654231,
+  "total_tokens_output": 4684,
+  "total_cost_usd": 1.915125
+}

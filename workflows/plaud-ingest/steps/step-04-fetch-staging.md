@@ -1,8 +1,39 @@
 ---
-status: blocked
+status: completed
+started-at: "2026-09-04T00:40:00Z"
+completed-at: "2026-09-04T00:55:00Z"
 model: haiku
 outputs:
-  notes: "RECONFIRMED 2026-08-23 (session pi-20260823-001): steps 01-03 completed fresh this session (1 new recording, 32c80d61ff44bb53825a93cfb0bbfa5a; speaker mapping Speaker 2 = Dr. Nathan Walters confirmed by controller; classification personal). Attempted `python3 fetch_plaud.py 2026-08-05` directly via Bash, both sandboxed and with dangerouslyDisableSandbox=true. Both attempts fail identically: `PermissionError: [Errno 1] Operation not permitted: /Users/davidohara/Downloads/transcript-staging/plaud_all_recordings.json`. Plaud API auth works fine (cached token, 120 days remaining, authenticated as David O'Hara) -- the failure is macOS TCC denying filesystem access to ~/Downloads for this process, exactly as in the prior session (pi-20260822-002). This is why the workflow specifies running fetch_plaud.py 'via osascript on host Mac' -- osascript runs under a different TCC grant. ToolSearch confirmed twice this session that no Desktop Commander / osascript MCP tool is available. Needs a Knox instance with that tool to execute this step, then apply the speaker rename ({\"Speaker 2\": \"Dr. Nathan Walters\"} for file_id 32c80d61ff44bb53825a93cfb0bbfa5a) before proceeding to step-05."
+  notes: >
+    pi-20260904-001: `python3 fetch_plaud.py 2026-09-03` ran fine directly
+    via Bash this session (no TCC/permission issue this time -- the prior
+    blocker was environment-specific, not reproduced here). Applied
+    `--rename 8bff6db529fcb3324421194856cd1364 '{"Speaker 2": "Robyn
+    Fuentes"}'`. Hit a real script bug: the script's own post-rename
+    verification message ("Speaker names verified in transaction_polish
+    layer") is unreliable -- the staged .md kept showing raw "Speaker 2"
+    labels (92 occurrences) even though the live get_recording_speakers()
+    API correctly showed only "O'Hara"/"Robyn Fuentes" after the rename.
+    Manually triggered trigger_transcript_regeneration (is_reload:1) to
+    try to force the polish layer to catch up -- this actually made things
+    temporarily worse (regeneration reset live speaker labels back to raw
+    "Speaker 2" briefly). Re-ran --rename once regeneration settled, which
+    restored clean live labels, then bypassed the buggy transaction_polish
+    .md rendering entirely: rebuilt the staged markdown directly from
+    get_recording_speakers()'s segment list (confirmed clean: only
+    "O'Hara" and "Robyn Fuentes", 176 segments, 0 "Speaker 2" occurrences)
+    using the same _format_segments() logic the script itself uses. Also
+    confirmed independently via the transcript's own content: David signs
+    off with "Thank you, Robin. Appreciate your help" at 42:37 -- direct
+    self-identification matching the calendar/heuristic-3 resolution from
+    step-03. Pulled the "outline" content_list item (36 labeled topic
+    segments, e.g. "Autodesk Revenue Status", "CIO Outreach Strategy",
+    "Riverside Account Challenges") for use in step-05's note structure.
+    Flagging the transaction_polish staleness-after-rename behavior as a
+    real bug in fetch_plaud.py's --rename verification step for a future
+    Rigby fix -- the fix here (rebuild from get_recording_speakers
+    directly) is a one-off workaround, not a permanent patch to the
+    script.
 ---
 
 <!-- system:start -->

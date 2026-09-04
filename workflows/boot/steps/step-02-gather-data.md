@@ -1,16 +1,16 @@
 ---
 status: complete
-started-at: "2026-09-03T15:07:00Z"
-completed-at: "2026-09-03T15:12:00Z"
+started-at: "2026-09-04T15:23:00Z"
+completed-at: "2026-09-04T15:25:00Z"
 outputs:
-  phase2_status: "complete — all Phase 2 tasks executed. Calendar fresh (live re-pull, 24 events across window Sep2-7), OmniFocus fresh (live re-pull, 11 uncompleted), email fresh (live re-pull, 5 actionable). No blocking failures; Clay available (0 reminders/birthdays)."
-  morning-briefing-steps-01-02: "completed — calendar and task data read from unified files (data/calendar-unified.json, data/omnifocus-unified.json)"
-  task-g-72hr-lookahead: "completed — Sep 4-6 from calendar-unified.json: Sep 4 (WFH, MRI at Crown Imaging 8-9am local, Sales & Recruiting Meeting, 1st Friday Executive Meeting, Friday Weekly Wrap-Up with Alice); Sep 5 (Hot 26 yoga w/ Cheri Clark, Core Session, Golf, Monthly Credit Card Reporting reminder due); Sep 6 — no calendar entries found. No client/partner meetings in the window; MRI appointment on Sep 4 is the notable personal item needing awareness (early morning, plan drive time)."
-  task-h-email-triage: "completed — 5 actionable messages from data/email-unified.json: BoardVantage approval request (UTB Director Loan Committee Charter, unread, needs response); Retreat Attendees list from Dawn Dearstone (needs review, sub offer for Amazing Race teams); Presidents Meeting agenda topics request from Scott McMichael (Robyn already replied, David has not weighed in); YPO Vision & Values Naples registration confirmation forward; Fortium's Greg Pascuzzi suggesting a no-strings coffee with Michael."
-  task-i-jarvis-inbox: "nothing-to-surface — Jarvis folder empty (confirmed via live search)"
+  phase2_status: "complete (degraded) — all Phase 2 tasks attempted. OmniFocus fresh (live osascript re-pull, 10 uncompleted). Calendar, email, Clay, and Jarvis inbox all failed — M365 MCP and Clay MCP both unreachable this session (confirmed after retry, see step-01.2/01.5). Boot proceeds per failure-mode tables: degrade gracefully, do not halt, do not fabricate."
+  morning-briefing-steps-01-02: "degraded — task data (OmniFocus) available; calendar data unavailable (M365 unreachable)"
+  task-g-72hr-lookahead: "failed — M365 unavailable. 72-hour look-ahead (Sep 5-7) cannot be produced this run."
+  task-h-email-triage: "failed — M365 unavailable. No flagged/time-sensitive email data this run."
+  task-i-jarvis-inbox: "failed — depends on M365 email connector exclusively; unreachable"
   task-j-reminders: "nothing-to-surface — data/reminders.json present but reminders array empty (0 due items)"
-  omnifocus-status: "11 inbox items, all uncompleted/unassigned, none dated or flagged. Live re-pull via osascript."
-  data-freshness: "Calendar fresh (live re-pull 15:00Z), OmniFocus fresh (live re-pull 15:06Z), Email fresh (live re-pull 15:05Z), Clay available (live re-pull 15:05Z, 0 reminders/birthdays)."
+  omnifocus-status: "10 inbox items, all uncompleted/unassigned, none dated or flagged. Live re-pull via osascript."
+  data-freshness: "OmniFocus fresh (live re-pull 15:23Z). Calendar, email, Clay: unreachable this session — marked explicitly rather than using stale 2026-09-03 cached values."
 ---
 
 <!-- system:start -->

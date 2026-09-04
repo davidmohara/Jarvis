@@ -3141,7 +3141,7 @@
     },
     {
       "id": "work-20260903-schema-validator-delivery-router-skills",
-      "description": "Built two new agent-agnostic, reusable skills and integrated them into the five gate call sites that previously implemented this logic inline: schema-validator (skills/schema-validator/SKILL.md) — pure, deterministic object-shape validation against a schema_spec (required_fields, word_count, format_rules, tags, em_dash_check, custom_checks including must_be_true/false/max_length/min_length/must_equal), returns {valid, errors, warnings}, no side effects, no LLM judgment on content (callers pre-compute any judgment-based booleans before calling); delivery-router (skills/delivery-router/SKILL.md) — routes content to slack/email/monday/ghost backends with per-backend verification (ghost backend calls update_post then re-fetches to confirm status/url/published_at rather than trusting the raw API response), a 3-attempt retry budget, required-vs-optional per-destination semantics, and a delivery_status/all_succeeded contract; carries a Plan-Only Mode section since every backend is a real side effect. Neither skill hardcodes any caller-specific facts (board IDs, person IDs, channel names) — those stay in the calling workflow step's config, per the skill's own Error Handling guidance, so the shared skill can't silently misroute a different caller's delivery. Integrated into: workflows/plaud-ingest/steps/step-01-discover.md (Gate 2 metadata validation now calls schema-validator per recording, same soft/hard severity split as before — only missing file_id excludes a recording), workflows/plaud-ingest/steps/step-05b-share-with-alice.md (Gate 6 Monday task creation now calls delivery-router with backend: monday; corrected the peer request's assumption that this needed slack/email backends — plaud-ingest's only real destination is Monday, per the Gate 6 rename already on record from the prior build), workflows/content-discovery/steps/step-01-discover.md (Gate 2 content schema validation now calls schema-validator, with the two genuinely judgment-based checks — post-arc element presence, source-recap detection — left as caller-supplied booleans since the skill does not interpret free text), workflows/content-approval/steps/step-01-approve.md (Gate 4 publishing pre-flight now calls schema-validator; Gate 5 delivery verification folded into the Step 3 Ghost publish call via delivery-router's ghost backend, since 'call the API' and 'verify it landed' are exactly what that backend already does as one unit — added must_equal to schema-validator's custom_checks set to support Gate 4's status=='draft' check rather than leaving a documented gap). Corrected two stale file-path assumptions in the request (content-discovery/step-02 and content-approval/step-04 and step-05 do not exist under those names post-split; actual gates live in each workflow's single step-01 file) — mapped onto the real files instead of creating phantom step files. Both skills registered in skills/_manifest.jsonl, skills/_manifest-rigby.jsonl, and skills/_index.md. Fairness: applicable: false on both. Staged (git add) but not committed per explicit instruction — held for review.",
+      "description": "Built two new agent-agnostic, reusable skills and integrated them into the five gate call sites that previously implemented this logic inline: schema-validator (skills/schema-validator/SKILL.md) \u2014 pure, deterministic object-shape validation against a schema_spec (required_fields, word_count, format_rules, tags, em_dash_check, custom_checks including must_be_true/false/max_length/min_length/must_equal), returns {valid, errors, warnings}, no side effects, no LLM judgment on content (callers pre-compute any judgment-based booleans before calling); delivery-router (skills/delivery-router/SKILL.md) \u2014 routes content to slack/email/monday/ghost backends with per-backend verification (ghost backend calls update_post then re-fetches to confirm status/url/published_at rather than trusting the raw API response), a 3-attempt retry budget, required-vs-optional per-destination semantics, and a delivery_status/all_succeeded contract; carries a Plan-Only Mode section since every backend is a real side effect. Neither skill hardcodes any caller-specific facts (board IDs, person IDs, channel names) \u2014 those stay in the calling workflow step's config, per the skill's own Error Handling guidance, so the shared skill can't silently misroute a different caller's delivery. Integrated into: workflows/plaud-ingest/steps/step-01-discover.md (Gate 2 metadata validation now calls schema-validator per recording, same soft/hard severity split as before \u2014 only missing file_id excludes a recording), workflows/plaud-ingest/steps/step-05b-share-with-alice.md (Gate 6 Monday task creation now calls delivery-router with backend: monday; corrected the peer request's assumption that this needed slack/email backends \u2014 plaud-ingest's only real destination is Monday, per the Gate 6 rename already on record from the prior build), workflows/content-discovery/steps/step-01-discover.md (Gate 2 content schema validation now calls schema-validator, with the two genuinely judgment-based checks \u2014 post-arc element presence, source-recap detection \u2014 left as caller-supplied booleans since the skill does not interpret free text), workflows/content-approval/steps/step-01-approve.md (Gate 4 publishing pre-flight now calls schema-validator; Gate 5 delivery verification folded into the Step 3 Ghost publish call via delivery-router's ghost backend, since 'call the API' and 'verify it landed' are exactly what that backend already does as one unit \u2014 added must_equal to schema-validator's custom_checks set to support Gate 4's status=='draft' check rather than leaving a documented gap). Corrected two stale file-path assumptions in the request (content-discovery/step-02 and content-approval/step-04 and step-05 do not exist under those names post-split; actual gates live in each workflow's single step-01 file) \u2014 mapped onto the real files instead of creating phantom step files. Both skills registered in skills/_manifest.jsonl, skills/_manifest-rigby.jsonl, and skills/_index.md. Fairness: applicable: false on both. Staged (git add) but not committed per explicit instruction \u2014 held for review.",
       "started": "2026-09-03T00:00:00Z",
       "classification": "system",
       "files": [
@@ -3208,6 +3208,249 @@
         "final_pass_rate": null,
         "description_optimized": false,
         "note": "Build request explicitly asked to stage (git add) without committing, no full validation pipeline run. Evals deferred pending executive sign-off. Needs human review: confirm schema-validator's must_equal custom_check addition is acceptable as a minimal generic extension rather than scope creep; confirm delivery-router's fold of Gate 5 into Step 3 in content-approval reads clearly (documentation of what Gate 5 checks retained even though the mechanics moved into the skill call)."
+      }
+    },
+    {
+      "id": "work-20260904-episode-prep-generator",
+      "description": "Built the episode-prep-generator workflow (workflows/episode-prep-generator/) for Harper: given six inputs (topic, guest_name, guest_title, guest_company, industry_domain, specific_angle), generates a complete Improving Edge episode prep sheet in one shot, before a filming date or studio floor sheet exists. 3-step workflow with a genuine parallel fan-out (step-01 guest-research is fire-and-forget via a spawned research subagent, step-02 generate-prep-sheet starts immediately and only blocks on step-01 at the point it needs guest-breakdown/icebreaker material) then step-03 assembles the guest research brief plus the full 10-section prep sheet (per the existing reference/improving-edge-prep-sheet-generator-prompt.md, which already existed in the repo, not invented) into one markdown file saved to reviews/episode-prep/. Thin/empty guest research is flagged non-blocking via research_gaps_flagged rather than fabricated. Distinct from and explicitly cross-referenced against the existing workflows/podcast-prep (the already-scheduled studio one-pager) so the two are not confused or merged. Section 9 (Post-Episode Intelligence Capture) stays wired to feed workflows/episode-campaign-brief once the episode records, matching that workflow existing convention. Follows full state.yaml / STATE CHECK / per-step frontmatter convention. Routed into agents/harper.md Task Portfolio (personal block) and agents/master.md workflow-routing table. Fairness: not applicable (single-guest content generation, not an eligibility/ranking decision about a population).",
+      "started": "2026-09-04T00:00:00Z",
+      "classification": "mixed",
+      "files": [
+        {
+          "path": "workflows/episode-prep-generator/workflow.md",
+          "action": "add",
+          "type": "system",
+          "description": "Workflow definition: 3-step episode prep generator with parallel research/prep-sheet fan-out"
+        },
+        {
+          "path": "workflows/episode-prep-generator/state.yaml",
+          "action": "add",
+          "type": "system",
+          "description": "Workflow state tracking per convention"
+        },
+        {
+          "path": "workflows/episode-prep-generator/steps/step-01-guest-research.md",
+          "action": "add",
+          "type": "system",
+          "description": "Fire-and-forget guest research subagent spawn step"
+        },
+        {
+          "path": "workflows/episode-prep-generator/steps/step-02-generate-prep-sheet.md",
+          "action": "add",
+          "type": "system",
+          "description": "Generates the 10-section prep sheet from reference/improving-edge-prep-sheet-generator-prompt.md, blocking on step-01 only for section 4/opening"
+        },
+        {
+          "path": "workflows/episode-prep-generator/steps/step-03-assemble-output.md",
+          "action": "add",
+          "type": "system",
+          "description": "Assembles guest research brief + full prep sheet into one saved markdown file"
+        },
+        {
+          "path": "agents/harper.md",
+          "action": "merge",
+          "type": "personal",
+          "description": "Added Episode Prep Generator row to Task Portfolio (personal block)"
+        },
+        {
+          "path": "agents/master.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Added episode-prep-generator row to workflow-routing table"
+        },
+        {
+          "path": "systems/eval-harness/assertions/episode-prep-generator.json",
+          "action": "add",
+          "type": "system",
+          "description": "Runtime deterministic assertions for the eval harness"
+        }
+      ],
+      "validation": {
+        "evals_run": false,
+        "eval_count": 3,
+        "iterations": 0,
+        "stopped_at_cap": false,
+        "final_pass_rate": null,
+        "description_optimized": false,
+        "eval_artifacts_path": "systems/evals/work-20260904-episode-prep-generator/",
+        "note": "Eval prompts and runtime assertions authored (Step 6). Executor/grader runs, iteration loop, and description-tuning (Steps 7-9) were not executed in this build pass and remain outstanding before this workflow should be considered fully validated."
+      }
+    },
+    {
+      "id": "work-20260904-episode-prep-generator-rebuild",
+      "description": "Full structural redesign of the episode-prep-generator workflow (Option 2, not incremental fix). Old workflow: 3 steps producing a formal 10-section, 8-10 page prep sheet from reference/improving-edge-prep-sheet-generator-prompt.md using pure role/domain inference. New workflow: 4 steps. step-01-transcript-search.md (new) searches the Obsidian vault via mcp__obsidian-mcp-tools__search_vault for a prior recorded conversation with the guest (Plaud transcriptions, meeting notes, lunch records) and captures it as the primary source when found. step-02-guest-research.md (renamed/revised from old step-01) runs in parallel, now explicitly secondary to a found transcript, and trims its output to what fits a 1-page brief. step-03-generate-prep.md (renamed/revised from old step-02, fully rewritten) now waits on both steps 1+2 (no more early-start partial generation), builds 7-10 concrete numbered questions with lettered follow-ups grouped into named clusters directly from the transcript when found (or research inference otherwise), plus a Suggested Flow section, an optional Internal Context section (new internal_context input), a closing beat, and a Notes section documenting the transcript source. step-04-assemble-output.md (renamed/revised from old step-03) saves the 2-3 page scannable document to reviews/episode-prep/[date]-[guest-last-name].md. Format bar is meetings/podcast-prep/2026-07-14-kapil-dabi.md, referenced directly in step-03 and workflow.md. Reset state.yaml to not-started for the new step numbering. Updated agents/harper.md Task Portfolio row for Episode Prep Generator to describe the new transcript-first behavior instead of the old 10-section/Section-9-feeds-episode-campaign-brief description.",
+      "started": "2026-09-04T18:53:45Z",
+      "files": [
+        {
+          "path": "workflows/episode-prep-generator/workflow.md",
+          "action": "modify",
+          "type": "mixed",
+          "description": "Rewrote to describe new 4-step transcript-first architecture, new internal_context input, and format bar reference"
+        },
+        {
+          "path": "workflows/episode-prep-generator/state.yaml",
+          "action": "modify",
+          "type": "system",
+          "description": "Reset to not-started for new step numbering"
+        },
+        {
+          "path": "workflows/episode-prep-generator/steps/step-01-transcript-search.md",
+          "action": "add",
+          "type": "system",
+          "description": "New step: Obsidian vault search for prior guest conversation transcript"
+        },
+        {
+          "path": "workflows/episode-prep-generator/steps/step-02-guest-research.md",
+          "action": "add",
+          "type": "system",
+          "description": "Renamed and revised from old step-01-guest-research.md: now explicitly secondary to transcript, trimmed to 1-page brief"
+        },
+        {
+          "path": "workflows/episode-prep-generator/steps/step-03-generate-prep.md",
+          "action": "add",
+          "type": "system",
+          "description": "Renamed and fully rewritten from old step-02-generate-prep-sheet.md: transcript-driven concrete questions, Suggested Flow, Internal Context, 2-3 page cap"
+        },
+        {
+          "path": "workflows/episode-prep-generator/steps/step-04-assemble-output.md",
+          "action": "add",
+          "type": "system",
+          "description": "Renamed and revised from old step-03-assemble-output.md: assembles new document shape, drops old 10-section/Section-9 framing"
+        },
+        {
+          "path": "agents/harper.md",
+          "action": "modify",
+          "type": "personal",
+          "description": "Updated Episode Prep Generator Task Portfolio row to describe transcript-first behavior"
+        }
+      ],
+      "validation": {
+        "evals_run": false,
+        "eval_count": 0,
+        "iterations": 0,
+        "stopped_at_cap": false,
+        "final_pass_rate": null,
+        "description_optimized": false,
+        "eval_artifacts_path": null,
+        "note": "Structural workflow rebuild done directly per explicit user request; full eval-harness authoring/iteration loop (steps 6-9 of rigby-capability-build) was not run in this pass. Recommend a follow-up eval pass against a real guest with a known transcript and one with no transcript before heavy reliance."
+      }
+    },
+    {
+      "id": "work-20260904-episode-prep-podcast-prep-integration",
+      "description": "Three follow-up fixes to episode-prep-generator, requested after the initial rebuild. (1) Integrated episode-prep-generator into podcast-prep as an optional upstream input (Option A: not merged, not replaced) via a new use_episode_prep boolean input on podcast-prep, defaulting to false (current SharePoint-based behavior unchanged). When true, podcast-prep step-02 reads the matching reviews/episode-prep/ output and treats it as the authoritative question/flow source instead of Janine's SharePoint doc, falling back to SharePoint if no matching file exists; step-03 condenses (not regenerates) that content into the existing detailed-sheet format, labeling the Questions section by source; state.yaml now tracks prep_source: episode-prep | sharepoint. step-04/05 (PDF distillation) needed no changes since they already operate generically on step-03's output regardless of source. (2) Updated eval artifacts to match the new 2-3 page format: systems/eval-harness/assertions/episode-prep-generator.json dropped the old-format assertions (Post-Episode Intelligence Capture, Guest Expertise Breakdown sections) and added assertions for 7-10 numbered questions (capped, via a floor-of-7/ceiling-of-10 numbering check), a Suggested Flow section, a word_count_range check (300-1600 words) approximating the 2-3 page constraint, and a source-disclosure check guarding against unflagged fabricated content; min byte threshold dropped from 2000 to 1000. systems/evals/work-20260904-episode-prep-generator/evals/evals.json rewritten to match (eval 2 replaced with a transcript-found case exercising the new step-01 Obsidian search behavior). (3) Verified (no change needed) that workflows/episode-prep-generator/steps/step-03-generate-prep.md still bans em dashes in three places (Mandatory Execution Rules, format enforcement, success metrics).",
+      "started": "2026-09-04T19:06:11Z",
+      "files": [
+        {
+          "path": "workflows/podcast-prep/workflow.md",
+          "action": "modify",
+          "type": "personal",
+          "description": "Added use_episode_prep optional input, updated data sources table and STATE CHECK section for prep_source tracking, noted relationship to episode-prep-generator"
+        },
+        {
+          "path": "workflows/podcast-prep/state.yaml",
+          "action": "modify",
+          "type": "personal",
+          "description": "Added prep_source: ~ field (episode-prep | sharepoint)"
+        },
+        {
+          "path": "workflows/podcast-prep/steps/step-01-identify-episode.md",
+          "action": "modify",
+          "type": "personal",
+          "description": "Added parsing of use_episode_prep input"
+        },
+        {
+          "path": "workflows/podcast-prep/steps/step-02-gather-data.md",
+          "action": "modify",
+          "type": "personal",
+          "description": "Branch on use_episode_prep: read reviews/episode-prep/ output as source when true (with fallback to SharePoint if missing), else current SharePoint behavior; writes prep_source to state.yaml"
+        },
+        {
+          "path": "workflows/podcast-prep/steps/step-03-build-prep-sheet.md",
+          "action": "modify",
+          "type": "personal",
+          "description": "Condenses from episode-prep source when prep_source: episode-prep (labeled Questions section, guest background pulls from episode-prep guest research brief) instead of regenerating; unchanged SharePoint path otherwise"
+        },
+        {
+          "path": "systems/eval-harness/assertions/episode-prep-generator.json",
+          "action": "modify",
+          "type": "system",
+          "description": "Replaced old-format section assertions with new-format checks: 7-10 numbered questions, Suggested Flow present, word_count_range 300-1600, source-disclosure check, min_bytes lowered to 1000"
+        },
+        {
+          "path": "systems/evals/work-20260904-episode-prep-generator/evals/evals.json",
+          "action": "modify",
+          "type": "system",
+          "description": "Rewrote eval assertions to match new 2-3 page format; eval 2 replaced with a transcript-found scenario exercising step-01 Obsidian search"
+        },
+        {
+          "path": "agents/harper.md",
+          "action": "modify",
+          "type": "personal",
+          "description": "Updated Podcast Prep and Episode Prep Generator Task Portfolio rows to describe the optional upstream integration and use_episode_prep flag"
+        }
+      ],
+      "validation": {
+        "evals_run": false,
+        "eval_count": 0,
+        "iterations": 0,
+        "stopped_at_cap": false,
+        "final_pass_rate": null,
+        "description_optimized": false,
+        "eval_artifacts_path": "systems/evals/work-20260904-episode-prep-generator/",
+        "note": "Eval artifacts were updated to match the new format but the executor/grading loop (rigby-capability-build steps 6-9) was not run in this pass \u2014 these are direct fixes to an existing capability set at the requester's explicit direction, not a fresh capability build. Recommend a live run of both podcast-prep paths (use_episode_prep true and false) before heavy reliance."
+      }
+    },
+    {
+      "id": "work-20260904-podcast-prep-additive-sources",
+      "description": "Corrected the podcast-prep/episode-prep-generator integration model per follow-up request: the prior implementation (work-20260904-episode-prep-podcast-prep-integration) treated episode-prep-generator output and Janine's SharePoint questions as either/or via a use_episode_prep flag. That model is wrong per explicit instruction \u2014 both sources must always feed podcast-prep simultaneously. Removed the use_episode_prep flag entirely from workflow.md, state.yaml, and all step files. step-02-gather-data.md now pulls both sources unconditionally every run (episode-prep-generator output from reviews/episode-prep/ if a matching file exists; Janine's SharePoint doc always) and writes sources_used as a list (episode-prep, sharepoint, both, or empty) rather than a binary flag/fallback field. step-03-build-prep-sheet.md now merges questions from both sources when both contributed, with an explicit Merge & Dedupe Rules subsection: read all questions from both sources before writing, treat differently-phrased-but-same-intent questions as duplicates (keep the episode-prep-grounded version's substance, optionally SharePoint's sharper phrasing), combine non-duplicates under merged thematic clusters, preserve source-appropriate follow-ups, and note the provenance/merge counts in Notes rather than interleaving it into the Questions section. step-04/step-05 (PDF distillation) needed no changes since they already operate generically on step-03's merged output. Updated agents/harper.md Task Portfolio rows for both workflows to describe the additive model. Confirmed no use_episode_prep or stale either/or fallback language remains in any current-state doc (workflow.md, state.yaml, step files, agents/harper.md) via repo-wide grep; historical eval-harness run logs and the prior pending-changes entry describing the now-superseded flag were left untouched as historical records, not living documentation.",
+      "started": "2026-09-04T19:35:37Z",
+      "files": [
+        {
+          "path": "workflows/podcast-prep/workflow.md",
+          "action": "modify",
+          "type": "personal",
+          "description": "Removed use_episode_prep input; described additive always-both-sources model in overview, Inputs, Data Sources, and STATE CHECK sections"
+        },
+        {
+          "path": "workflows/podcast-prep/state.yaml",
+          "action": "modify",
+          "type": "personal",
+          "description": "Replaced prep_source: ~ (episode-prep|sharepoint) with sources_used: [] (list, additive)"
+        },
+        {
+          "path": "workflows/podcast-prep/steps/step-01-identify-episode.md",
+          "action": "modify",
+          "type": "personal",
+          "description": "Removed use_episode_prep parsing step (no flag needed)"
+        },
+        {
+          "path": "workflows/podcast-prep/steps/step-02-gather-data.md",
+          "action": "modify",
+          "type": "personal",
+          "description": "Pulls both episode-prep and SharePoint sources unconditionally every run; writes sources_used list instead of a binary prep_source; renumbered sequence steps; updated gathered_data schema and failure modes"
+        },
+        {
+          "path": "workflows/podcast-prep/steps/step-03-build-prep-sheet.md",
+          "action": "modify",
+          "type": "personal",
+          "description": "Added Merge & Dedupe Rules subsection; Questions section now merges both sources when both contributed instead of picking one; guest background and mandatory rules updated to check sources_used list instead of prep_source flag"
+        },
+        {
+          "path": "agents/harper.md",
+          "action": "modify",
+          "type": "personal",
+          "description": "Updated Podcast Prep and Episode Prep Generator Task Portfolio rows to describe the additive always-both-sources model, removed use_episode_prep flag references"
+        }
+      ],
+      "validation": {
+        "evals_run": false,
+        "eval_count": 0,
+        "iterations": 0,
+        "stopped_at_cap": false,
+        "final_pass_rate": null,
+        "description_optimized": false,
+        "eval_artifacts_path": null,
+        "note": "Direct correction of a prior integration model at explicit peer/user direction. No new eval run in this pass. The existing systems/eval-harness/assertions/podcast-prep.json was reviewed and left unchanged (it targets a generic memory/working/ output path unrelated to the meetings/podcast-prep/ actual output path and predates this integration work entirely) since the request did not ask for it and it contains no stale use_episode_prep/fallback references to fix. Recommend a live run exercising a guest with both an episode-prep output and a SharePoint doc to validate the merge/dedupe logic before heavy reliance."
       }
     }
   ]

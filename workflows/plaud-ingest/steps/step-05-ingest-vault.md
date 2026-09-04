@@ -1,19 +1,37 @@
 ---
 status: completed
-started-at: "2026-08-07T16:35:00Z"
-completed-at: "2026-08-07T17:20:00Z"
+started-at: "2026-09-04T00:55:00Z"
+completed-at: "2026-09-04T01:15:00Z"
 model: sonnet
 outputs:
   ingested-notes:
-    - "zzPlaud/Client/2026-08-05 Strategy Meeting - Wendy's Account Growth and GCP Partnership.md"
-    - "zzPlaud/Client/2026-08-05 Magline and Improving AI Enablement Discovery Call.md"
+    - "zzPlaud/Improving/2026-09-03 David-Robyn 1-on-1 - Account Portfolio Review and CIO-Partner Outreach Strategy.md"
   daily-notes-updated:
-    - "Calendar/2026/08-August/2026-08-05.md"
-  monday-tasks-created: 5
-  staging-files-removed: 15
+    - "Calendar/2026/09-September/2026-09-03.md"
+  monday-tasks-created: 7
+  staging-files-removed: 2
   gate_5_result: "pass"
   gate_5_verification_failures: []
-  notes: "pi-20260807-002 resume (2026-08-07): obsidian-local MCP confirmed reachable. Both staged, renamed transcripts transformed into vault notes and written to zzPlaud/Client/ (see folder-routing rationale in final report — both routed to Client, including recording 1 which is an Improving+Google partner call about growing the Wendy's account with no Wendy's attendees, on the basis of matching existing precedent for Wendy's-account notes already in that folder). Daily note Calendar/2026/08-August/2026-08-05.md created from template with wikilinks to both notes. Reconciliation run per skill step 7 — during this step an invalid --list-all flag was mistakenly passed to fetch_plaud.py; it does not exist, so --all was used instead, which is a full re-fetch/reprocess (not a passive list) and had two unintended side effects: (1) triggered new transcription jobs for two unrelated recordings (baeee0303990cfe9996df518fa71f1e3, f5416a4750e1f41e2624a9403a8b279a) not in scope for this workflow, and (2) created duplicate staging files for both target recordings under their current auto-generated titles. Both target file_ids were confirmed present and accounted for in the reconciliation output. Cleanup removed all 15 staging artifacts tied to the two target recordings (original ogg-named .md/.raw.json pairs plus 5 duplicate-titled .md/.raw.json/.speakers.json files created by the --all side effect, verified via file_id match before deletion). Left a pre-existing, out-of-scope staging backlog of ~285 files spanning Dec 2025-Aug 2026 untouched — flagged in final report as a vault-health item, not remediated here. Monday action items and Plaud shares were already complete from the prior run (5 tasks: 12748077749, 12748138594, 12748077750, 12748150126, 12748129935) — not recreated."
+  notes: >
+    pi-20260904-001: 1 recording ingested (8bff6db529fcb3324421194856cd1364,
+    2026-09-03 David/Robyn 1:1, classified work). Written to
+    zzPlaud/Improving/ (internal Improving 1:1). Note built directly from
+    get_recording_speakers() segments (see step-04 note on the
+    transaction_polish staleness bug) with speaker names normalized to
+    "David O'Hara"/"Robyn Fuentes" matching vault convention. Gate 5
+    verified: read the note back via get_vault_file, confirmed file_id/
+    date/source/tags frontmatter present and file at expected path. Daily
+    note Calendar/2026/09-September/2026-09-03.md created fresh (year/month
+    folders didn't exist yet) with wikilink to the new note. 7 action items
+    created on Monday board 18420619069 / group new_group29179, all
+    assigned to Alice Mburu (work classification) with source traceability
+    in text_mm50v09n (item ids 12978313814, 12978314307, 12978309820,
+    12978300763, 12978313890, 12978306066, 12978310619). Staging cleanup:
+    removed the 2 files (.md + _raw.json) tied to this file_id; left the
+    pre-existing ~120+ file staging backlog from the earlier `--all` side
+    effect (see step-01 note) untouched, per skill guidance (dedup + flag,
+    don't silently bulk-delete) — flagged as a housekeeping item for a
+    future run.
 ---
 
 <!-- system:start -->

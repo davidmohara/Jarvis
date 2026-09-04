@@ -1,0 +1,76 @@
+{
+  "id": "eval-20260904T154857-JSXMNT",
+  "type": "skill",
+  "name": "plaud-transcripts",
+  "agent": "knox",
+  "session_id": "364fe046-27b4-4a10-a084-a06e8c84a636",
+  "trigger": "boot",
+  "started": "2026-09-04T15:10:00Z",
+  "completed": "2026-09-04T15:48:57.536928Z",
+  "duration_seconds": 2337.5,
+  "status": "success",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": true,
+      "outputs_non_empty": null,
+      "assertions_checked": 2,
+      "assertions_passed": 2,
+      "assertion_results": [
+        {
+          "assertion": "plaud-transcripts-signal-written",
+          "description": "plaud-transcripts skill-run signal file was written",
+          "category": "structure",
+          "passed": true
+        },
+        {
+          "assertion": "plaud-transcripts-signal-status",
+          "description": "plaud-transcripts skill-run did not end in failure",
+          "category": "structure",
+          "passed": true
+        }
+      ],
+      "category_breakdown": {
+        "structure": {
+          "passed": 2,
+          "checked": 2
+        },
+        "content": {
+          "passed": 0,
+          "checked": 0
+        },
+        "quality": {
+          "passed": 0,
+          "checked": 0
+        }
+      }
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "deterministic_gate": {
+      "score": 1.0,
+      "gate_status": "pass",
+      "computed_at": "2026-09-04T15:49:00.727539Z"
+    }
+  },
+  "version_hash": "7452c44c4c49edb4",
+  "prior_baseline_id": null,
+  "tags": [
+    "cowork-hook",
+    "skill"
+  ]
+}

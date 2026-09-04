@@ -31,21 +31,7 @@ Subheading: **Episode Overview** (orange/gold)
 
 2-3 sentence paragraph summarizing the episode's focus. Written in first-person plural ("We'll discuss..."). Should cover the key themes without being exhaustive.
 
-### 6. Key Discussion Topics
-Subheading: **Key Discussion Topics** (orange/gold)
-
-Table format:
-
-| # | TOPIC | FOCUS |
-|---|-------|-------|
-| 1 | {Topic Name} | {1-2 sentence description of what this topic covers} |
-| 2 | ... | ... |
-
-- Typically 5 rows
-- Topic names are bold, concise (2-4 words)
-- Focus descriptions are brief — one to two sentences max
-
-### 7. Prompting Questions
+### 6. Prompting Questions
 Subheading: **Prompting Questions** (orange/gold)
 
 Numbered list, each with:
@@ -60,13 +46,13 @@ Numbered list, each with:
 "What are a couple of takeaways you'd like the listeners to walk away with?"
 ```
 
-### 8. Remember Bar
+### 7. Remember Bar
 Blue background bar, centered text:
 ```
 REMEMBER: Keep it conversational (60% guest / 40% host) • Share personal stories • Have fun!
 ```
 
-### 9. Sportcoat Line
+### 8. Sportcoat Line
 ```
 Sportcoat: _______________________________
 ```
@@ -78,6 +64,7 @@ Fill-in blank for wardrobe choice before filming.
 
 - **One page.** The entire prep sheet fits on a single page. This is a quick-reference for filming, not a deep-dive document.
 - **Questions are distilled.** Janine's full SharePoint question docs have 10+ questions. The PDF condenses these into 5-6 focused prompts that guide the conversation without scripting it.
+- **Direct to questions.** Overview flows straight to Prompting Questions — no intermediate table. Keeps the page clean and scannable.
 - **Tone matches the podcast.** Casual, direct, no jargon. Questions are phrased the way David would actually ask them.
 - **Printed for studio.** This gets printed and brought to the recording — hence the sportcoat line and clean single-page layout.
 

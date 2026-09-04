@@ -1,0 +1,60 @@
+{
+  "id": "eval-20260904T190150-LJVOJ2",
+  "agent_id": "a7082f3b046dbf707",
+  "type": "agent",
+  "name": "general-purpose",
+  "workflow": null,
+  "agent": "general-purpose",
+  "session_id": "364fe046-27b4-4a10-a084-a06e8c84a636",
+  "trigger": "unknown",
+  "started": "2026-09-04T19:01:50.535129Z",
+  "completed": "2026-09-04T19:02:17.352900Z",
+  "duration_seconds": 26.82,
+  "status": "success",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/364fe046-27b4-4a10-a084-a06e8c84a636/subagents/agent-a7082f3b046dbf707.jsonl",
+  "last_assistant_message": "I've handed the three fixes off to the rigby-capability-build agent (already active in this session), with full implementation details for each:\n\n1. **podcast-prep integration** \u2014 add `use_episode_prep` input, conditional step to source from `reviews/episode-prep/` vs. SharePoint, and a `state.yaml` field tracking which source was used.\n2. **Eval artifact fixes** \u2014 updated assertions for the new 2-3 page format (numbered 7-10 questions, Suggested Flow section, 1000-1200 byte minimum, no fabrication checks) in both `systems/eval-harness/assertions/episode-prep-generator.json` and `systems/evals/work-20260904-episode-prep-generator/evals/evals.json`.\n3. **Em-dash rule** \u2014 confirm it's still enforced in `step-03-generate-prep.md`, no weakening.\n\nPlus the `agents/harper.md` line 118 update clarifying the two-workflow relationship.\n\nIt's working in the background \u2014 I'll report back with the specific files changed once it completes.",
+  "model": "sonnet",
+  "total_tokens_input": 142548,
+  "total_tokens_output": 570,
+  "total_cost_usd": 0.148255
+}

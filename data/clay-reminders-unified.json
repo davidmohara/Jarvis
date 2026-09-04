@@ -1,7 +1,9 @@
 {
-  "pulled_at": "2026-09-03T15:05:00Z",
-  "status": "available",
+  "pulled_at": "2026-09-04T15:23:00Z",
+  "status": "unavailable",
   "reminders": [],
   "reminder_count": 0,
-  "birthday_count": 0
+  "birthday_count": 0,
+  "attempted": true,
+  "note": "Clay MCP returned 'Authentication service unavailable' on two attempts."
 }
