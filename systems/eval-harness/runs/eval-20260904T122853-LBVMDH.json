@@ -1,0 +1,62 @@
+{
+  "id": "eval-20260904T122853-LBVMDH",
+  "agent_id": "a95bb44900c110747",
+  "type": "agent",
+  "name": "general-purpose",
+  "workflow": null,
+  "agent": "general-purpose",
+  "session_id": "941e97eb-d95a-59b1-9505-65dab292dc31",
+  "trigger": "unknown",
+  "started": "2026-09-04T12:28:53.346515Z",
+  "completed": null,
+  "duration_seconds": null,
+  "status": "in-progress",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": null,
+      "all_steps_finished": null,
+      "tool_failures": 1,
+      "error_ids": [],
+      "tool_failure_log": [
+        {
+          "tool": "Bash",
+          "error": "Exit code 2\nls: cannot access '.git/index.lock': No such file or directory",
+          "duration_ms": 45,
+          "timestamp": "2026-09-04T12:29:04.584530"
+        }
+      ]
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": []
+}
