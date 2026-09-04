@@ -1,0 +1,15 @@
+{
+  "id": "err-20260904T192830-HO1PBD",
+  "timestamp": "2026-09-04T19:28:30Z",
+  "session": "2026-09-04",
+  "source": "explicit",
+  "agent": "harper",
+  "category": "routing-error",
+  "description": "Harper skipped a bot message from the Jarvis bot (B0ANBSA9Z1R) containing David's own commentary and two source URLs, routing it to SKIP instead of URL PATH. The message was David's content submitted via the Jarvis bot — not operational noise — and contained a clear drafting prompt with source material.",
+  "correction": "Bot messages from the Jarvis bot that contain David's voice, a drafting prompt, and one or more URLs should route to URL PATH, not SKIP. The 'skip bot messages without digest signal' rule targets operational noise (status updates, confirmations, system messages) — not David's own content relayed through the bot. When the Jarvis bot is the poster and the message reads as David's opinion with source URLs, treat it as a user URL PATH message.",
+  "failure_mode": "pattern-mismatch",
+  "systemic_fix": "Update the MESSAGE ROUTER in step-01-discover.md to add an exception: bot messages from the Jarvis bot (B0ANBSA9Z1R / user U0ANERAN1PX) that contain one or more URLs and read as David's voice should be treated as user URL PATH messages, not noise. Add this as rule 0.5 before the existing rule 1.",
+  "fix_status": "proposed",
+  "severity": "moderate",
+  "related_entries": []
+}

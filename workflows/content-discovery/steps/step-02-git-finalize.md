@@ -1,8 +1,13 @@
 ---
-status: not-started
-started-at: ~
-completed-at: ~
-outputs: {}
+status: complete
+started-at: "2026-09-04T18:15:00Z"
+completed-at: "2026-09-04T18:20:00Z"
+outputs:
+  files_changed: 2
+  files_committed: [workflows/content-discovery/state.yaml, workflows/content-discovery/steps/step-01-discover.md]
+  commit_hash: "216f0fd7"
+  push_status: success
+  outcome: "committed and pushed — no new content this run"
 model: haiku
 ---
 

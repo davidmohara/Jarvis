@@ -85,6 +85,7 @@ Running list of potential blog topics. Jarvis captures these proactively from co
 | "The 40 Percent Problem" | Content pipeline (2026-09-01) | AI, business | Ghost draft — pending approval. Ghost ID: 6a96edd2b1d0f5028ac9b0b0 |
 | "The Billing Model Just Broke" | Content pipeline (2026-09-01) | business, leadership | Ghost draft — pending approval. Ghost ID: 6a96edd3b1d0f5028ac9b0b7 |
 | "NIST Is Wiring the Agent Standards Layer" | Content pipeline (2026-09-01) | AI, technology | Ghost draft — pending approval. Ghost ID: 6a96edd4b1d0f5028ac9b0be |
+| "Passion Is the Reward, Not the Starting Line" | Content pipeline (2026-09-04) | purpose, thoughts, growth | Ghost draft — pending approval. Ghost ID: 6a9b1c6cb1d0f5028ac9b0f4 |
 
 ## Published (for reference / avoid repeats)
 
