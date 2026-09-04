@@ -1,25 +1,30 @@
 workflow: golf-booking
 agent: sterling
-status: awaiting-window
-session-started: 2026-09-02T00:00:00-05:00
-session-id: manual-run-20260902-check
-current-step: step-01
-execution-run: 2
-latest-check: 2026-09-02T00:20:00-05:00
-latest-check-result: "window-not-open-as-expected"
+status: aborted
+session-started: 2026-09-04T04:30:00-05:00
+session-id: scheduled-run-20260904-stripe
+current-step: step-02
+execution-run: 3
+latest-check: 2026-09-04T04:35:00-05:00
+latest-check-result: "gate-2-login-recovery-failed"
 gate-failures:
   - gate: "Gate 1 — Booking Window Pre-Check"
-    reason: "Target date 2026-09-12 (top_options[0], Saturday 13:00) is 10 day(s) out — outside the 8-day booking window. 8-day window opens 2026-09-04."
-    timestamp: 2026-09-02T00:00:00-05:00
+    result: "PASS"
+    timestamp: 2026-09-04T04:30:00-05:00
+  - gate: "Gate 2 — Login Verification"
+    reason: "Session expired. Login recovery attempted but 1Password CLI unavailable in sandbox environment. Cannot retrieve credentials securely. Aborting per protocol."
+    timestamp: 2026-09-04T04:35:00-05:00
 booking-id: null
 booking-date: null
 booking-time: null
-grade: null
-resolution-note: "Aborted cleanly at Gate 1 per no-substitution rule (err-20260813T122205-D64IQ7). No login, no Chrome navigation, no booking attempted. Slack alert sent to #jarvis. Retry on next scheduled run (Wed/Thu/Fri 11PM CST) once the window opens 2026-09-04."
+grade: "failure"
+resolution-note: "Gate 1 passed (target date 2026-09-12 within 8-day window). Gate 2 blocked — 1Password credential retrieval failed due to sandbox CLI limitation. Cannot proceed with automated login recovery. Manual intervention required: David must visit https://www.chronogolf.com/dashboard and manually authenticate, or system administrator must restore 1Password CLI access in execution environment."
 
-original-request: "Sterling — run the golf-booking workflow end-to-end using preview-output.json."
+original-request: "Scheduled task: Golf tee time booking for 8 days ahead (2026-09-12, 13:00 CT)"
 accumulated-context:
   - target_date: "2026-09-12"
   - target_time: "13:00"
-  - days_out: 10
+  - days_out: 8
   - source: "top_options[0]"
+  - login_method: "failed"
+  - login_failure_category: "environment-blocker"
