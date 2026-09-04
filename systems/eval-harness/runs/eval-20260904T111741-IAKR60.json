@@ -8,14 +8,14 @@
   "session_id": "941e97eb-d95a-59b1-9505-65dab292dc31",
   "trigger": "unknown",
   "started": "2026-09-04T11:17:41.892133Z",
-  "completed": null,
-  "duration_seconds": null,
-  "status": "in-progress",
+  "completed": "2026-09-04T11:19:56.999196Z",
+  "duration_seconds": 135.11,
+  "status": "success",
   "steps": [],
   "assessment": {
     "mechanical": {
-      "completed": null,
-      "all_steps_finished": null,
+      "completed": true,
+      "all_steps_finished": true,
       "tool_failures": 0,
       "error_ids": []
     },
@@ -50,5 +50,11 @@
   },
   "version_hash": null,
   "prior_baseline_id": null,
-  "tags": []
+  "tags": [],
+  "agent_transcript_path": "/root/.claude/projects/-home-user-Jarvis/941e97eb-d95a-59b1-9505-65dab292dc31/subagents/agent-a3c1381e884bc0720.jsonl",
+  "last_assistant_message": "Both commits pushed. Final report below.\n\n## Root cause \u2014 confirmed\n\nThe hypothesis was correct. `find_most_recent_eval_record()` in `systems/eval-harness/guardrail-checkpoint.py` matched eval records purely on `data.get(\"name\") == workflow_name`, sorted by `started` descending, with no `status` filter. Confirmed by inspecting both records:\n\n- `systems/eval-harness/runs/eval-20260903T081233-OZES3F.json` \u2014 name=`dream-cycle`, status=`success` (previous night's closed run) \u2014 this is the one that got the guardrail entry appended (timestamp `2026-09-04T08:08:19`).\n- `systems/eval-harness/runs/eval-20260904T080934-ZIHBLJ.json` \u2014 name=`dream-cycle`, status=`success` (tonight's real run, `guardrails: None`) \u2014 this is the correct target but wasn't on disk yet when the checkpoint script ran mid-workflow, so the selector silently fell back to the stale record instead of returning `None`.\n\nSurveyed status values across all 469 eval records: `success`, `aborted`, `partial`, `failure`, `incomplete`, `complete`, and exactly one `in-progress`. Cross-checked `new-eval.py` (sets `status: \"in-progress\"` at creation) and `close-eval-record.py` / `close-open-evals.py` (move it to a terminal status) \u2014 confirming `\"in-progress\"` is the harness's real \"still open\" marker.\n\n## Fix applied\n\nMinimal, single-line-logic change in `find_most_recent_eval_record()`: added `and data.get(\"status\") == \"in-progress\"` to the match condition, so only genuinely open records for the given workflow name are eligible. If none exists, the function returns `None` and the existing silent-skip path (exit 0, no error) fires exactly as designed \u2014 unchanged.\n\n## Testing\n\nSimulated both scenarios in a scratch runs directory:\n1. Stale `status: \"success\"` record with matching name, no open record \u2192 script exits 0, stale record's `guardrails` left untouched (confirmed empty).\n2. Same stale record plus a genuinely open `status: \"in-progress\"` record \u2192 the open record correctly received the new guardrail entry; the stale record remained untouched.\n\nAlso ran `python3 -m py_compile` on the script (clean) and `python3 -m json.tool` on the updated error entry (valid).\n\nLeft `eval-20260903T081233-OZES3F.json`'s misattributed entry as-is (per your note it's not worth reverting \u2014 it's a closed log record, not live state).\n\n## Error-tracking entry\n\nUpdated `systems/error-tracking/entries/err-20260904T081107-GYF8D1.json`: `fix_status` \u2192 `\"applied\"`, `systemic_fix` filled in with the diagnosis, fix, and test summary.\n\n## Commits (pushed to `origin/main`)\n\n- `3655bfe` \u2014 `fix(eval-harness): stop guardrail-checkpoint from attaching to closed eval records` (the actual fix + error-tracking entry, 2 files)\n- `cdbd4d5` \u2014 `chore(eval): record git skill-run signal for guardrail-checkpoint fix` (git skill's own SKILL COMPLETE protocol)\n\nGrader output for the git skill invocation: Structure 2/2 passed, deterministic score 100%, gate PASS. Tier 3 qualitative grade is deferred to tonight's end-of-day sweep per CLAUDE.md.\n\nFiles touched: `/home/user/Jarvis/systems/eval-harness/guardrail-checkpoint.py`, `/home/user/Jarvis/systems/error-tracking/entries/err-20260904T081107-GYF8D1.json`, `/home/user/Jarvis/systems/eval-harness/skill-runs/git-latest.json`. Nothing else was touched (an unrelated pre-existing diff in `memory/sessions/index.json` was left unstaged, not part of this fix).",
+  "model": "sonnet",
+  "total_tokens_input": 2081752,
+  "total_tokens_output": 403,
+  "total_cost_usd": 0.943552
 }

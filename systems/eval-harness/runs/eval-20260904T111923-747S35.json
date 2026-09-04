@@ -1,0 +1,76 @@
+{
+  "id": "eval-20260904T111923-747S35",
+  "type": "skill",
+  "name": "git",
+  "agent": "rigby",
+  "session_id": "941e97eb-d95a-59b1-9505-65dab292dc31",
+  "trigger": "manual",
+  "started": "2026-09-04T11:15:00Z",
+  "completed": "2026-09-04T11:19:23.212670Z",
+  "duration_seconds": 263.2,
+  "status": "success",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": true,
+      "outputs_non_empty": null,
+      "assertions_checked": 2,
+      "assertions_passed": 2,
+      "assertion_results": [
+        {
+          "assertion": "git-signal-written",
+          "description": "git skill-run signal file was written",
+          "category": "structure",
+          "passed": true
+        },
+        {
+          "assertion": "git-signal-status",
+          "description": "git skill-run did not end in failure",
+          "category": "structure",
+          "passed": true
+        }
+      ],
+      "category_breakdown": {
+        "structure": {
+          "passed": 2,
+          "checked": 2
+        },
+        "content": {
+          "passed": 0,
+          "checked": 0
+        },
+        "quality": {
+          "passed": 0,
+          "checked": 0
+        }
+      }
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "deterministic_gate": {
+      "score": 1.0,
+      "gate_status": "pass",
+      "computed_at": "2026-09-04T11:19:30.465214Z"
+    }
+  },
+  "version_hash": "c8c0196b05a7c55d",
+  "prior_baseline_id": null,
+  "tags": [
+    "cowork-hook",
+    "skill"
+  ]
+}
