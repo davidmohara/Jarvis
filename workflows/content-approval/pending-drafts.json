@@ -257,6 +257,12 @@
         "instruction": "Add link to Business Insider article in post body",
         "applied_at": "2026-09-04T19:49:13Z",
         "summary": "Added link to BI article on 'The article that surfaced this gem' in paragraph 3"
+      },
+      {
+        "reply_ts": "user-correction-2",
+        "instruction": "Add links to underlying research on why we're bad at predicting happiness \u2014 not books, actual studies",
+        "applied_at": "2026-09-04T19:54:56Z",
+        "summary": "Linked 'we are remarkably bad at predicting what will make us happy' to Wilson & Gilbert 2005 (affective forecasting, Sage Journals); linked 'we picked the wrong passion' to O'Keefe, Dweck & Walton 2018 (implicit theories of interest, Psychological Science)"
       }
     ]
   }
