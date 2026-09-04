@@ -37,7 +37,10 @@ def find_most_recent_eval_record(workflow_name: str) -> Path | None:
             try:
                 with open(f, "r") as file:
                     data = json.load(file)
-                if data.get("name") == workflow_name:
+                # Only attach to a record that is still open for this workflow.
+                # A stale but already-closed record (status success/aborted/etc.)
+                # must never be matched here — see err-20260904T081107-GYF8D1.
+                if data.get("name") == workflow_name and data.get("status") == "in-progress":
                     records.append((f, data.get("started", "")))
             except Exception:
                 continue
