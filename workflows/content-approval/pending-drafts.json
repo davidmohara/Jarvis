@@ -250,6 +250,14 @@
     "created_at": "2026-09-04T19:30:52Z",
     "status": "pending",
     "source_type": "url",
-    "content_type": "post"
+    "content_type": "post",
+    "editorial_edits": [
+      {
+        "reply_ts": "user-correction",
+        "instruction": "Add link to Business Insider article in post body",
+        "applied_at": "2026-09-04T19:49:13Z",
+        "summary": "Added link to BI article on 'The article that surfaced this gem' in paragraph 3"
+      }
+    ]
   }
 ]
