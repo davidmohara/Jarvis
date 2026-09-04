@@ -1,8 +1,16 @@
 ---
-status: not-started
-started-at: ~
-completed-at: ~
-outputs: {}
+status: complete
+started-at: "2026-09-04T18:00:00Z"
+completed-at: "2026-09-04T18:15:00Z"
+outputs:
+  messages_scanned: 1
+  new_urls: 0
+  new_digests: 0
+  posts_drafted: 0
+  gate_1_result: "PASS"
+  gate_2_result: "N/A"
+  editorial_threads_checked: 13
+  editorial_feedback_found: 0
 model: sonnet
 ---
 

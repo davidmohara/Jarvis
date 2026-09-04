@@ -2,18 +2,18 @@
 workflow: content-discovery
 agent: harper
 status: complete
-session-started: "2026-09-04T06:00:00Z"
-session-id: "harper-20260904-001"
+session-started: "2026-09-04T18:00:00Z"
+session-id: "harper-20260904-002"
 current-step: step-02
-original-request: "Scheduled daily content discovery run"
+original-request: "Scheduled daily content discovery run (second run)"
 accumulated-context:
-  messages_scanned: 0
+  messages_scanned: 1
   new_urls: 0
   new_digests: 0
   posts_drafted: 0
-  gate_1_result: "PASS — ok: true, messages: 0 (empty array, clean exit)"
+  gate_1_result: "PASS — ok: true, messages: 1 (1 bot message, no digest signal, routed to SKIP)"
   gate_2_result: "N/A — no content to validate"
   editorial_threads_checked: 13
   editorial_feedback_found: 0
-  completed-at: "2026-09-04T14:20:00Z"
+  completed-at: "2026-09-04T18:15:00Z"
 ---
