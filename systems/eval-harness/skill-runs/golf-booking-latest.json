@@ -1,10 +1,16 @@
 {
   "skill": "golf-booking",
   "agent": "sterling",
-  "trigger": "manual",
-  "started": "2026-09-02T00:00:00-05:00",
-  "completed": "2026-09-02T00:05:00-05:00",
+  "trigger": "scheduled",
+  "started": "2026-09-04T04:30:00-05:00",
+  "completed": "2026-09-04T04:36:00-05:00",
   "status": "failure",
-  "tool_failures": 0,
-  "error_ids": []
+  "tool_failures": 1,
+  "error_ids": ["err-20260904T142125-JIXIVP"],
+  "gate_results": {
+    "gate_1_booking_window_precheck": "pass",
+    "gate_2_login_verification": "fail"
+  },
+  "failure_reason": "1Password CLI unavailable in sandbox environment — cannot retrieve ChronoGolf credentials for login recovery",
+  "resolution_path": "Manual: David authenticates at ChronoGolf | Systemic: system admin restores 1Password CLI"
 }
