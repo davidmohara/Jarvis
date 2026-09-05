@@ -22,7 +22,7 @@ related_people:
   - mauricio-leyva
 salience:
   score: 4
-  last-promoted-check: 2026-09-04
+  last-promoted-check: 2026-09-05
   promoted: true
 ---
 

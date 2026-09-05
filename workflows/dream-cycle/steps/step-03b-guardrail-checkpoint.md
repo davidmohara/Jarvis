@@ -1,10 +1,10 @@
 ---
 status: complete
-started-at: 2026-09-04T08:16:00Z
-completed-at: 2026-09-04T08:17:00Z
+started-at: 2026-09-05T08:20:00Z
+completed-at: 2026-09-05T08:22:00Z
 outputs:
   result: pass
-  reason: "1 promoted entry this cycle (dream-summary-2026-09-02.md, score 10) correctly excluded from any future compression candidate set via promoted:true; volume normal; step-03's write to dream-summary-pattern.md was a substantive dated narrative append, not a stub. Recorded via systems/eval-harness/guardrail-checkpoint.py -- NOT a silent no-op this cycle: it wrote the guardrails entry into an unrelated pre-existing eval record (eval-20260903T081233-OZES3F.json) since no in-progress dream-cycle eval exists to attach to. Not blocking; flagged for Rigby as a script-behavior discrepancy from prior cycles' assumption."
+  reason: "1 promoted entry this cycle (dream-summary-2026-09-03.md, score 10) correctly excluded from any future compression candidate set via promoted:true; volume normal; step-03's write to dream-summary-pattern.md was a substantive dated narrative append, not a stub. No in-progress dream-cycle eval record existed at run start (this session ran the workflow directly, not via the Cowork scheduled-task hook); created one via new-eval.py, tagged it name:dream-cycle, backfilled steps 01-03 via record-step.py, then recorded this checkpoint -- it attached to the correct record, first clean attachment since this bug family started 08-26."
 model: sonnet
 ---
 

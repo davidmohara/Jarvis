@@ -1,12 +1,30 @@
 ---
-type: working
+type: working-archive
 task_id: "session"
 session_id: "jarvis-2026-09-03-030311"
 agent-source: jarvis
 created: 2026-09-03T03:12:01-05:00
 expires: 2026-09-04T03:12:01-05:00
-status: active
+status: archived
 context: "Dream cycle summary — 2026-09-03"
+date: 2026-09-03
+source_file: memory/working/dream-summary-2026-09-03.md
+tags:
+  - dream-summary
+  - jarvis
+  - dream-cycle
+  - co-sell
+  - revenue
+  - rock4
+  - pipeline
+  - error-patterns
+  - rigby
+  - system-maintenance
+related_people: []
+salience:
+  score: 10
+  last-promoted-check: 2026-09-05
+  promoted: true
 ---
 
 Busier night than usual — five working-memory items aged out at once (both co-sell pipeline snapshots from 08-31, that day's revenue tracker, the shutdown cleanup, and Sunday's dream summary), all folded cleanly into their existing semantic patterns. Not a problem, just a backlog clearing after an unusually active session on 08-31.

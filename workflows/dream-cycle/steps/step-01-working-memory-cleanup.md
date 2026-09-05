@@ -1,17 +1,17 @@
 ---
 status: complete
-started-at: 2026-09-04T08:05:11Z
-completed-at: 2026-09-04T08:10:00Z
+started-at: 2026-09-05T08:02:45Z
+completed-at: 2026-09-05T08:12:00Z
 outputs:
   working_archived: 1
   working_deleted: 0
-  working_skipped: 36
+  working_skipped: 37
   working_stranded: 0
-  enrichment_method: "LLM (systems/dream-cycle/llm_tag_extractor.py via claude -p haiku) -- claude CLI auth functional in this container this cycle, confirmed via a short test call before committing to the LLM path"
+  enrichment_method: "LLM (systems/dream-cycle/llm_tag_extractor.py via claude -p haiku) -- claude CLI auth functional in this container this cycle (nested claude -p call needs ~50-80s, past a naive 25s timeout; used 90s)"
   archived_files:
-    - dream-summary-2026-09-02.md
-  skipped_not_expired:
     - dream-summary-2026-09-03.md
+  skipped_not_expired:
+    - dream-summary-2026-09-04.md
   skipped_unparseable:
     - 2026-07-08.md
     - 2026-07-23-215200-session-felix-derek-persona-rebuild.md
@@ -29,6 +29,7 @@ outputs:
     - golf-booking-blocker-20260820.md
     - golf-booking-early-run-20260730.md
     - golf-booking-failure-20260731.md
+    - golf-booking-gate2-failure-20260904.md
     - golf-booking-midnight-retry-20260801.md
     - golf-booking-scheduling-update-20260801.md
     - golf-booking-success-20260801.md
@@ -50,8 +51,8 @@ outputs:
   unparseable_left_untouched_missing_status:
     - knox-plaud-ingest-2026-08-31.md
   new_unparseable_this_cycle:
-    - plaud-discover-2026-09-03.md
-  self_caught_bug_note: "None this cycle. Enriched dream-summary-2026-09-02.md by replacing the existing 'type: working' and 'status: active' lines in place (not appending new keys), avoiding the duplicate-key corruption class this system has fought before."
+    - golf-booking-gate2-failure-20260904.md
+  self_caught_bug_note: "None this cycle. Enriched dream-summary-2026-09-03.md by replacing the existing 'type'/'status' lines in place and appending new enrichment keys (date, source_file, tags, related_people, salience), avoiding the duplicate-key corruption class this system has fought before."
 ---
 
 <!-- system:start -->

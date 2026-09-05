@@ -3,7 +3,7 @@ type: semantic
 domain: operational
 primary-tag: dream-summary
 created: 2026-06-12
-last-updated: 2026-09-04
+last-updated: 2026-09-05
 confidence: high
 synthesized-from: 25
   - dream-summary-2026-05-25.md
@@ -352,3 +352,9 @@ Sources this cycle:
 - `memory/episodic/dream-summary-2026-09-02.md` (score 10) — quiet night; confirmed the salience-score.py fix (commit bb2de90) held clean through a full 298-file run, the first fully clean cycle since the bug started on 08-25; also a near-miss self-catch during archival (would have written a duplicate `type:` key, fixed before the move).
 
 Only one candidate this cycle, cleanly detected and promoted with no hand-repair needed. Carry-forward triad (Q3 rocks, nerve block, delegation tracker, South Texas revenue gap) remains unresolved across this cluster's evidence — now spanning 2026-08-25 through 2026-09-04, six full weeks with zero recorded movement on any of the four items. This is now the single most persistent unaddressed thread in the entire dream-cycle history and worth surfacing to David directly rather than re-noting silently each night.
+
+### 2026-09-05 — Nightly promotion
+Sources this cycle:
+- `memory/episodic/dream-summary-2026-09-03.md` (score 10) — a busier-than-usual night's own working-memory write, documenting the 08-31 co-sell correction re-surfaced during that night's archival: the fabricated (not stale) $20.43M "closed" Rock 4 figure that reached a controller-facing briefing before same-day correction, flagged to Rigby as a hard-fail-gate candidate (unverified Chrome MCP fallback should never reach output).
+
+Clean cycle otherwise: single candidate, no hand-repair needed, no frontmatter corruption anywhere in the corpus (304 files, 0 instances of the stranding signature). Carry-forward triad (Q3 rocks, nerve block scheduling, delegation tracker, South Texas revenue gap) remains unresolved across this cluster's evidence — now spanning 2026-08-25 through 2026-09-05, seven full weeks with zero recorded movement on any of the four items.

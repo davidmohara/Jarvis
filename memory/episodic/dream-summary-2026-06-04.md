@@ -22,7 +22,7 @@ related_people:
 - alice-mburu
 salience:
   score: 0
-  last-promoted-check: 2026-09-04
+  last-promoted-check: 2026-09-05
   promoted: true
 ---
 

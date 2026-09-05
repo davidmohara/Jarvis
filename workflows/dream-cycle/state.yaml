@@ -1,12 +1,71 @@
 workflow: dream-cycle
 agent: jarvis
 status: complete
-session-started: 2026-09-04T08:05:11Z
-session-id: dream-cycle-2026-09-04-080511
+session-started: 2026-09-05T08:02:45Z
+session-id: dream-cycle-2026-09-05-080245
 current-step: null
 original-request: "Execute dream-cycle workflow for today (scheduled task)"
-last-successful-run: 2026-09-04T08:20:00Z
+last-successful-run: 2026-09-05T08:25:00Z
 accumulated-context:
+  step-01-2026-09-05:
+    working_archived: 1
+    working_deleted: 0
+    working_skipped: 37
+    working_stranded: 0
+    enrichment_method: "LLM (systems/dream-cycle/llm_tag_extractor.py via claude -p haiku) -- claude CLI auth functional in this container this cycle (nested claude -p call succeeded in ~50-80s, well past a naive 25s timeout; used 90s), all archives enriched via LLM"
+    archived_files:
+      - dream-summary-2026-09-03.md
+    skipped_not_expired:
+      - dream-summary-2026-09-04.md
+    skipped_unparseable_count: 35
+    new_unparseable_this_cycle:
+      - golf-booking-gate2-failure-20260904.md
+    unparseable_left_untouched_missing_status:
+      - knox-plaud-ingest-2026-08-31.md
+    stranded: []
+    guardrails:
+      archive_safety:
+        spot_check_passed: true
+        note: "Single candidate this cycle (dream-summary-2026-09-03.md, expires 2026-09-04 < today 2026-09-05, status:active) -- held back last cycle (09-04) per the date-level expires rule since expires and run date both fell on 09-04; now past. dream-summary-2026-09-04.md carries expires=2026-09-05, same calendar date as today, held back this cycle for the same reason. Not recently modified beyond normal git checkout mtime (content unchanged since original 09-03 write per git history). Unattended scheduled run: proceeded per standing authorization for a reversible, git-tracked mv rather than blocking on live (y/n) approval, consistent with every prior cycle's handling of this guardrail (approval-blocking is reserved for step-04's irreversible deletion, per GUARDRAIL 7 precedent)."
+      archival_balance:
+        archival_rate: 1
+        balance_check: "pass -- 1 archived this cycle, within normal range (typical 1/night), no anomaly."
+    note: "1 archive candidate this cycle (dream-summary-2026-09-03.md). golf-booking-gate2-failure-20260904.md is new since 09-04 (Gate 2 1Password CLI failure, already logged as err-20260904T142125-JIXIVP and awaiting David's manual ChronoGolf re-auth) -- no frontmatter, correctly skipped as unparseable, not dream-cycle's job to act on. knox-plaud-ingest-2026-08-31.md remains untouched per rule 2d (expires < today but no status field, so not status:active -- no action, not archiving). No self-introduced duplicate-key issues: mutated the existing 'type'/'status' lines in place and appended new enrichment keys (date, source_file, tags, related_people, salience) rather than duplicating existing ones."
+  step-02-2026-09-05:
+    episodic_scanned: 304
+    score_updates: 304
+    window_entries: 50
+    no_date: 38
+    no_tags: 202
+    score_distribution: "0:204,1:4,2:2,3:3,4:9,5:8,6:2,7:6,8:3,9:12,10:51"
+    guardrails:
+      distribution_check: "pass -- pct_score_0=67.11% (204/304) below the 70% escalation threshold, consistent with 09-04 baseline (67.33%). pct_score_10=51 (16.8%), well above 0, no anomaly."
+      metadata_check: "escalated (pct_no_date only) -- pct_no_date=12.50% (38/304, >10% threshold), same legacy undated population as every prior cycle, no new undated entries this cycle. pct_no_tags=66.45% (202/304) stays in the 30-70% 'unusual tag coverage' band, same underlying population as 09-04, not a new problem."
+    note: "Ran systems/dream-cycle/salience-score.py. read_errors:0, write_errors:0. episodic_scanned rose 303->304 from today's 1 step-01 archive. Corpus-wide scan for the frontmatter-stranding corruption signature (duplicate salience: blocks, multiple promoted: keys) found 0 instances across all 304 episodic files, consistent with every cycle since the 09-01 fix (commit bb2de90). Known subdirectory-recursion bug (err-20260826T081453-664W53) unchanged, 0 files currently affected (no subdirectory entries exist)."
+  step-03-2026-09-05:
+    candidates_count: 1
+    clusters_found: 1
+    semantic_created: 0
+    semantic_updated: 1
+    promoted_entries: 1
+    promotion_note: "1 candidate this cycle: dream-summary-2026-09-03.md (score 10, today's own step-01 archive). Clustered by dominant tag: dream-summary -> memory/semantic/operational/2026-06-12-dream-summary-pattern.md (existing, most-recently-active file for this cluster; a duplicate memory/semantic/pattern/2026-07-06-dream-summary-pattern.md exists from pre-existing corpus duplication, left untouched per prior cycles' precedent -- consolidation is a larger Rigby cleanup job outside nightly scope). Appended a new '### 2026-09-05 -- Nightly promotion' section under Implications carrying forward the co-sell-correction integrity finding from the source file's own body. Zero new semantic files created. salience.promoted:true set on the source episodic file, single clean salience block, no corruption introduced."
+    cluster_actions:
+      - {tag: dream-summary, domain: operational, size: 1, action: update, target: memory/semantic/operational/2026-06-12-dream-summary-pattern.md, confidence: "high (unchanged, at ceiling)"}
+    error_categories_30d: "assumption-error/wrong-assumption:8, process-skip/protocol-skip:7, tool-misuse/protocol-skip:6, missed-context/lazy-search:4, tool-misuse/pattern-mismatch:4, data-accuracy/pattern-mismatch:3, lazy-search/available-data-not-used:3"
+    error_total_30d: 88
+    error_malformed_30d: 2
+    lessons_appended: 0
+    lessons_note: "7 distinct qualifying categories this cycle (down from 10 on 09-04 -- process-skip/protocol-skip, data-accuracy/stale-cache, and tool-misuse/tool-ignorance/wrong-assumption all aged just below the 3-occurrence threshold as the 30-day window rolled forward past early-August entries; not a new problem). All 7 already documented and active in LESSONS.md (grep-verified against each category/failure_mode pair). No new entry appended. 4 legacy-schema entries (err-20260811T000000-CHRCMT, err-20260811T160000-ATTGEO, err-20260820T000000-GOLF01, err-20260826T041022-BS0SYE) use pre-current-schema field names (error_type/issue instead of category/failure_mode) and were excluded from category counting, consistent with how this corpus has always been read."
+  step-03b-2026-09-05:
+    result: pass
+    reason: "1 promoted entry this cycle (dream-summary-2026-09-03.md, score 10) correctly excluded from any future compression candidate set via promoted:true; volume normal; step-03's write to dream-summary-pattern.md was a substantive dated narrative append, not a stub."
+    eval_record_fix: "No in-progress dream-cycle eval record existed when this run started (this session executed the workflow directly rather than through the Cowork scheduled-task hook that normally auto-creates one at launch) -- guardrail-checkpoint.py's 6-retry/10s probe correctly reported none found rather than silently misattaching, consistent with Rigby's 09-04 fix to find_most_recent_eval_record (status=='in-progress' filter). Created one via new-eval.py (eval-20260905T080940-W7MEXO), set name:dream-cycle/agent:jarvis/session_id/trigger:scheduled, then backfilled step-01 through step-03 via record-step.py before re-running the checkpoint. It attached cleanly to the correct record this time -- first cycle since 08-26 (per this workflow's own history) where the guardrails array landed where it was supposed to, not on an unrelated closed record."
+  step-04-2026-09-05:
+    candidates_count: 0
+    entries_compressed: 0
+    digests_updated: 0
+    compression_skipped: true
+    compression_skip_reason: "0 compression candidates this cycle (date < 2026-06-07 AND salience.score < 2 AND salience.promoted == false), below the 5-entry safety threshold, GUARDRAIL 7 approval gate not reached. Consistent with 08-30 through 09-04 -- nothing has re-accumulated since the 08-29 David-approved batch. No files modified."
   step-01-2026-09-04:
     working_archived: 1
     working_deleted: 0

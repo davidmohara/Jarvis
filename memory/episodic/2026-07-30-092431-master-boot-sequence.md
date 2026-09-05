@@ -24,8 +24,8 @@ related_people:
   - tonya-guadiz
   - rebecca-maffei
 salience:
-  score: 9
-  last-promoted-check: 2026-09-04
+  score: 8
+  last-promoted-check: 2026-09-05
   promoted: true
 ---
 
