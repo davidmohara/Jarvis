@@ -66,6 +66,12 @@ accumulated-context:
     digests_updated: 0
     compression_skipped: true
     compression_skip_reason: "0 compression candidates this cycle (date < 2026-06-07 AND salience.score < 2 AND salience.promoted == false), below the 5-entry safety threshold, GUARDRAIL 7 approval gate not reached. Consistent with 08-30 through 09-04 -- nothing has re-accumulated since the 08-29 David-approved batch. No files modified."
+  step-05-2026-09-05:
+    dream_log_appended: true
+    working_summary_written: true
+    eval_record: "eval-20260905T080940-W7MEXO -- closed status:success, all 5 steps recorded, deterministic gate 83% (5/6 assertions... 3/5 structural: pass) PASS. Two failing assertions (dream-cy-002-substantive, dream-cy-003-content) check a stale glob path memory/working/dream-cycle-*.md that has never matched this workflow's actual output filename (memory/working/dream-summary-{date}.md) -- a pre-existing assertion-definition bug in systems/eval-harness/assertions/dream-cycle.json, not a real output gap; out of scope to fix (systems/ is Rigby-gated). A separate auto-created 'phantom-candidate' eval record (RYE1LN, empty guardrails, known cowork-hook behavior) also exists from this run and was left as-is. A bogus third record (Q7ORWG) from close-eval-record.py's CLI defaulting to a fabricated session_id/zero-duration when no matching in-progress stub was found was deleted before it was ever committed."
+    git_commit_sha: 7af2428
+    git_followup_commit_sha: becee38
   step-01-2026-09-04:
     working_archived: 1
     working_deleted: 0
