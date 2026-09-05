@@ -8,9 +8,10 @@ outputs:
   working_summary_reason: "semantic_updated=1 > 0 triggers the mandatory working-summary write per Phase B. Content leads with the golf-booking Gate 2 failure needing David's direct action, then the seven-week-unresolved carry-forward triad (Q3 rocks, nerve block, delegation tracker, South Texas revenue)."
   error_logged: "none this cycle -- the eval-record gap (no in-progress dream-cycle record at run start, see step-03b) was closed cleanly by creating one, not a bug requiring a new error-tracking entry."
   eval_record_note: "This session ran the workflow directly rather than via the Cowork scheduled-task hook, so it manually created and populated eval-20260905T080940-W7MEXO (name:dream-cycle, guardrails recorded correctly). A second, separately auto-created record (eval-20260905T081146-RYE1LN, tags cowork-hook/phantom-candidate) also appeared during this run with an empty guardrails array and 3 failing structural assertions -- this is the same known phantom-candidate hook behavior already documented in memory/semantic/operational/2026-06-17-dream-cycle-alert-pattern.md, not a new issue. Left both records as-is; reconciling duplicate eval records from this hook is a Rigby/systems concern, out of scope for a nightly run."
-  git_commit: pending
-  git_push: pending
-  git_sync_note: "Cloud sandbox container (Claude Code Remote), Desktop Commander confirmed unavailable via ToolSearch (no matching tool). Used plain git via Bash, one command per call, no chaining, no git status (used git diff --name-only HEAD instead). Session started in detached HEAD at origin/main's own tip (3563d9f, 41 commits behind); moved to a real 'main' branch via 'git checkout main && git merge --ff-only origin/main' before any work began."
+  git_commit: success
+  git_push: success
+  git_commit_sha: 7af2428
+  git_sync_note: "Cloud sandbox container (Claude Code Remote), Desktop Commander confirmed unavailable via ToolSearch (no matching tool). Used plain git via Bash, one command per call, no chaining, no git status (used git diff --name-only HEAD instead). Session started in detached HEAD at origin/main's own tip (a093326) with local main stale at 3563d9f (41 commits behind, verified as-ancestor safe); moved to a real 'main' branch via 'git checkout main && git merge --ff-only origin/main' before any work began. Push was a clean fast-forward (a093326..7af2428, 317 files changed -- includes the working->episodic rename git detected automatically and every episodic file's routine last-promoted-check rewrite from step-02). Amended the commit once, pre-push, to add the mandatory Claude attribution footer. Verified no uncommitted or untracked changes remain post-push."
 ---
 
 <!-- system:start -->
