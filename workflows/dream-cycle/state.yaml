@@ -70,7 +70,8 @@ accumulated-context:
     working_summary_written: true
     working_summary_reason: "semantic_updated=1 > 0 triggers the mandatory working-summary write per Phase B. Content leads with the correction to 09-04/09-05's lessons-coverage claim, then the eight-week-unresolved carry-forward triad and the source entry's own direct ask for a decision."
     error_logged: "none this cycle -- the missed LESSONS.md entry from 09-04/09-05 was a gap in those cycles' verification, not a new bug requiring its own error-tracking entry; corrected in-line via this cycle's own step-03 Phase B."
-    git_commit_sha: PENDING
+    git_commit_sha: 1c59b58
+    git_followup_commit_sha: PENDING
   step-01-2026-09-05:
     working_archived: 1
     working_deleted: 0
