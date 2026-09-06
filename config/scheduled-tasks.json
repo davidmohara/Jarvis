@@ -69,19 +69,6 @@
       "cowork_prompt": "Run the Rock 4 weekly pipeline workflow: read and follow workflows/rock4-pipeline-weekly/workflow.md in full. Pull co-sell pipeline and 90-day weighted pipeline for One Texas, append dated weekly snapshot to Obsidian. No user interaction needed."
     },
     {
-      "id": "wine-monitor-power",
-      "name": "Wine Monitor \u2014 Hour of Power",
-      "skill": "chase-wine-monitor",
-      "cron": "0 13 * * *",
-      "schedule_display": "Daily at 1:00 PM CT",
-      "keep_awake": false,
-      "configured": false,
-      "agent": "Chase",
-      "description": "Last Bottle Wine Monitor \u2014 starts daemon at the Hour of Power (highest priority window for cult Napa Cab, collectibles, library vintages). Polls every 2-3 minutes through remaining drop windows and alerts via Slack DM when a match is found.",
-      "cowork_prompt": "Run: python3 /home/user/Jarvis/systems/wine-monitor/monitor.py --daemon. This starts the Last Bottle wine monitor in daemon mode. It will poll lastbottlewines.com every 2-10 minutes depending on the active drop window and send Slack DM alerts when wines matching David's taste profile appear. Let it run \u2014 it auto-adjusts polling frequency and stops at midnight.",
-      "setup_note": "Daemon runs from 1 PM through midnight. For earlier coverage (11 AM Pinot Hour), add a second scheduled task at 10:55 AM or install system cron via: bash /home/user/Jarvis/systems/wine-monitor/install.sh"
-    },
-    {
       "id": "content-discovery",
       "name": "Content Discovery",
       "workflow": "content-discovery",

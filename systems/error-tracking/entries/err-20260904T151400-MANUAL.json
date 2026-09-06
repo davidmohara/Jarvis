@@ -1,0 +1,15 @@
+{
+  "id": "err-20260904T151400-MANUAL",
+  "timestamp": "2026-09-04T15:14:00Z",
+  "session": "scheduled-run-20260904-success-override",
+  "source": "explicit",
+  "agent": "sterling",
+  "category": "process-skip",
+  "description": "Golf booking workflow: After booking Saturday successfully, user requested override to Sunday 1 PM. Workflow was reset to re-run with new target. However, cancellation of Saturday booking (2M0G-8C0F) was NOT performed by the workflow — user had to click Cancel manually.",
+  "correction": "When override_instructions redirect to a different date/time, the workflow should include a cancellation step BEFORE resetting to book the new target. The workflow should: (1) Verify existing booking exists, (2) Navigate to Bookings page, (3) Find and click Cancel, (4) Wait for confirmation, (5) THEN reset state to re-run with new target.",
+  "failure_mode": "process-skip-cancellation-step",
+  "systemic_fix": "Add cancellation protocol to golf-booking workflow: new step or branch in step-06/07 that detects override_instructions pointing to different date and executes cancellation before state reset. Make cancellation idempotent (safe to call even if no prior booking exists).",
+  "fix_status": "proposed",
+  "severity": "major",
+  "related_entries": []
+}

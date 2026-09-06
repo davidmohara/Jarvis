@@ -62,7 +62,19 @@ proceed further.
 Compute whether the target date (from `override_instructions` if present, otherwise the
 top-ranked option) falls within 8 days of today.
 
-**If it does NOT:**
+**Compute "today" correctly:**
+The booking workflow runs at 11:00 PM CST on Wed/Thu/Fri, which is midnight EST (start of the
+next day). Use `date +%Y-%m-%d` to get the actual "today" at runtime (e.g., if you run at 11 PM
+CST on Sept 4, `date` returns Sept 5 because it's already Sept 5 EST). This ensures the math
+is correct: "8 days from Sept 5" = Sept 13 is in range.
+
+```bash
+TODAY=$(date +%Y-%m-%d)
+TARGET_DATE="<from preview-output.json or override_instructions>"
+DAYS_OUT=$(($(date -jf '%Y-%m-%d' "$TARGET_DATE" '+%s') - $(date -jf '%Y-%m-%d' "$TODAY" '+%s') / 86400))
+```
+
+**If DAYS_OUT > 8:**
 → Do not open the date calendar. Do not pick a substitute date. Do not proceed to step-02 or
 beyond.
 → Send Slack: "⛳ Booking window not yet open — [target date] at [target time] requires the
@@ -72,9 +84,9 @@ substitution made."
 → Abort this run cleanly. This rule overrides any other logic anywhere in this workflow that
 could be read as license to pick "the closest available date." There is no such license.
 
-**If it DOES fall within the window:** log the confirmation and proceed:
+**If DAYS_OUT ≤ 8:** log the confirmation and proceed:
 ```
-[Gate 1] Target date: YYYY-MM-DD at HH:MM — N days from today (within 8-day window) ✓
+[Gate 1] Today: YYYY-MM-DD, Target date: YYYY-MM-DD at HH:MM — N days from today (within 8-day window) ✓
 [Gate 1] PASS — proceeding to login.
 ```
 

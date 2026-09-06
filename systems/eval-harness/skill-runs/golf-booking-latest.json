@@ -2,15 +2,16 @@
   "skill": "golf-booking",
   "agent": "sterling",
   "trigger": "scheduled",
-  "started": "2026-09-04T04:30:00-05:00",
-  "completed": "2026-09-04T04:36:00-05:00",
+  "started": "2026-09-05T04:20:00Z",
+  "completed": "2026-09-05T04:25:00Z",
   "status": "failure",
-  "tool_failures": 1,
-  "error_ids": ["err-20260904T142125-JIXIVP"],
-  "gate_results": {
-    "gate_1_booking_window_precheck": "pass",
-    "gate_2_login_verification": "fail"
-  },
-  "failure_reason": "1Password CLI unavailable in sandbox environment — cannot retrieve ChronoGolf credentials for login recovery",
-  "resolution_path": "Manual: David authenticates at ChronoGolf | Systemic: system admin restores 1Password CLI"
+  "gate": "user",
+  "gate_name": "Booking Window Timeout",
+  "gate_type": "execution-timeout",
+  "failure_reason": "5-minute booking window closed before confirmation could complete. Workflow halted per user instruction.",
+  "tool_failures": 0,
+  "error_ids": [],
+  "resolution": "No booking was confirmed. Workflow will retry on next scheduled run with same override instructions.",
+  "workflow_state": "aborted",
+  "notes": "Math correction applied to step-01: Gate 1 precheck now correctly uses runtime 'today' date (date +%Y-%m-%d) instead of hardcoded offset, preventing false window-closed errors."
 }

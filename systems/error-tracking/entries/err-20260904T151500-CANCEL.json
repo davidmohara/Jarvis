@@ -1,0 +1,15 @@
+{
+  "id": "err-20260904T151500-CANCEL",
+  "timestamp": "2026-09-04T15:15:00Z",
+  "session": "scheduled-run-20260904-success-override",
+  "source": "explicit",
+  "agent": "sterling",
+  "category": "major",
+  "description": "SEVERE: After successfully booking Saturday 2026-09-12 at 4:15 PM (2M0G-8C0F), user requested override to Sunday 1 PM. Agent attempted to cancel Saturday booking but clicked the WRONG cancel button and cancelled a DIFFERENT booking (tomorrow's). User had to manually fix by cancelling the correct Saturday booking and restoring tomorrow's.",
+  "correction": "Should NOT have attempted to click cancel button without: (1) visual verification of which booking was being cancelled, (2) screenshot confirmation, (3) explicit DOM inspection to verify booking ID before clicking. When in doubt, ask user to perform irreversible action manually.",
+  "failure_mode": "wrong-element-clicked-irreversible-action",
+  "systemic_fix": "CRITICAL: Before ANY click that results in cancellation, deletion, or irreversible change: (1) Take screenshot, (2) Read all visible text to confirm correct item, (3) DO NOT click unless 100% certain. For ChronoGolf: read booking ID from DOM before clicking cancel. Add explicit confirmation step. Better: ask user to perform irreversible actions manually rather than automating them.",
+  "fix_status": "proposed",
+  "severity": "critical",
+  "related_entries": []
+}
