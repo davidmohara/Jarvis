@@ -17,7 +17,7 @@ status: "Q3 draft — pending David's review, not yet finalized"
 ### Rock 1: Revenue Visibility (carryover)
 - **Owner**: David (with Don, Diana, Stephen, Robyn)
 - **Key Result (proposed)**: One Texas Scorecard current through each month-end; H2 target of ~$42.4M tracked weekly against actuals, not feel
-- **Status**: In Progress — South Texas has been running behind plan (last check: -23% YoY per comp-tracker); needs to close or get explicitly re-forecast this quarter
+- **Status**: In Progress — South Texas has been running behind plan (last check: -23% YoY per comp-tracker). David confirmed 2026-09-06 that South Texas revenue is actively being addressed — no longer a stalled/unattended gap, but still short of plan and worth a real number at the next check-in rather than closing the loop on "addressed" alone.
 - **Carried context**: Active pursuits continue — AT&T, Builders First Source, CBRE, Tenet, Texas Instruments (Dallas); Marriott, Kirby Corp, Expedia, Masimo, Constellation Energy (Houston)
 
 ### Rock 2: Partner & Account Review Execution (proposed replacement for Q2's "establish cadence" rock)

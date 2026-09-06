@@ -3,7 +3,7 @@ type: semantic
 domain: operational
 confidence: medium
 created: 2026-06-25
-last-updated: 2026-07-20
+last-updated: 2026-09-06
 tags:
   - health
   - medical
@@ -59,3 +59,6 @@ Recurring health activity observed across 3 episodic entries within the 30-day s
 - **Avoidance pattern confirmed**: The nerve block / Tarlov cyst medical cluster has been appearing in daily reviews for 10+ days as overdue. Chief has flagged it as an avoidance pattern (not a scheduling failure) — David is deferring this cluster intentionally or unconsciously.
 - **Medical admin is a recurring drag**: Scheduling doctors, pain logs, and follow-ups accumulate in OmniFocus overdue list and don't clear. Agents should surface medical tasks proactively and not let them disappear into the overdue pile.
 - **Health + rocks correlation**: Multiple entries where health cluster overdue AND Q3 rocks unwritten appear in the same review. May indicate a broader avoidance/overwhelm pattern in Q3 transition period.
+
+### 2026-09-06 — Resolved
+David confirmed directly that the nerve block has been handled. This closes out the avoidance-pattern thread this cluster tracked from 2026-07-08 onward — the longest-running instance was the dream-cycle's own nightly carry-forward triad note (memory/semantic/operational/2026-06-12-dream-summary-pattern.md), which had been re-flagging it unresolved since 2026-08-25. No further nightly surfacing needed on this item.
