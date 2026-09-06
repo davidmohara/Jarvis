@@ -1,12 +1,76 @@
 workflow: dream-cycle
 agent: jarvis
 status: complete
-session-started: 2026-09-05T08:02:45Z
-session-id: dream-cycle-2026-09-05-080245
+session-started: 2026-09-06T08:02:11Z
+session-id: dream-cycle-2026-09-06-080211
 current-step: null
 original-request: "Execute dream-cycle workflow for today (scheduled task)"
-last-successful-run: 2026-09-05T08:25:00Z
+last-successful-run: 2026-09-06T08:15:00Z
 accumulated-context:
+  step-01-2026-09-06:
+    working_archived: 1
+    working_deleted: 0
+    working_skipped: 37
+    working_stranded: 0
+    enrichment_method: "LLM (systems/dream-cycle/llm_tag_extractor.py via claude -p haiku) -- claude CLI auth functional in this container this cycle, all archives enriched via LLM, no hand-repair needed"
+    archived_files:
+      - dream-summary-2026-09-04.md
+    skipped_not_expired:
+      - dream-summary-2026-09-05.md
+    skipped_unparseable_count: 35
+    new_unparseable_this_cycle: []
+    unparseable_left_untouched_missing_status:
+      - knox-plaud-ingest-2026-08-31.md
+    stranded: []
+    guardrails:
+      archive_safety:
+        spot_check_passed: true
+        note: "Single candidate this cycle (dream-summary-2026-09-04.md, expires 2026-09-05 < today 2026-09-06, status:active) -- held back last cycle (09-05) per the date-level expires rule since expires and run date both fell on 09-05; now past. dream-summary-2026-09-05.md carries expires=2026-09-06, same calendar date as today, held back this cycle for the same reason. Not recently modified beyond normal git checkout mtime. Unattended scheduled run: proceeded per standing authorization for a reversible, git-tracked mv rather than blocking on live (y/n) approval, consistent with every prior cycle."
+      archival_balance:
+        archival_rate: 1
+        balance_check: "pass -- 1 archived this cycle, within normal range (typical 1/night), no anomaly."
+    note: "1 archive candidate this cycle (dream-summary-2026-09-04.md). No new unparseable files since 09-05 -- golf-booking-gate2-failure-20260904.md remains unparseable (already logged as err-20260904T142125-JIXIVP, awaiting David's manual ChronoGolf re-auth). knox-plaud-ingest-2026-08-31.md remains untouched per rule 2d (expires < today but no status field). No self-introduced duplicate-key issues: mutated the existing 'type'/'status' lines in place and appended new enrichment keys (date, source_file, tags, related_people, salience) rather than duplicating existing ones."
+  step-02-2026-09-06:
+    episodic_scanned: 305
+    score_updates: 305
+    window_entries: 49
+    no_date: 38
+    no_tags: 202
+    score_distribution: "0:204,1:4,2:2,3:3,4:9,5:9,6:3,7:6,8:9,9:8,10:48"
+    guardrails:
+      distribution_check: "pass -- pct_score_0=66.89% (204/305) below the 70% escalation threshold, consistent with 09-05 baseline (67.11%). pct_score_10=48 (15.7%), well above 0, no anomaly."
+      metadata_check: "escalated (pct_no_date only) -- pct_no_date=12.46% (38/305, >10% threshold), same legacy undated population as every prior cycle, no new undated entries this cycle. pct_no_tags=66.23% (202/305) stays in the 30-70% 'unusual tag coverage' band, same underlying population as 09-05, not a new problem."
+    note: "Ran systems/dream-cycle/salience-score.py. read_errors:0, write_errors:0. episodic_scanned rose 304->305 from today's 1 step-01 archive. Corpus-wide scan for the frontmatter-stranding corruption signature found 0 instances across all 305 episodic files, consistent with every cycle since the 09-01 fix (commit bb2de90)."
+  step-03-2026-09-06:
+    candidates_count: 1
+    clusters_found: 1
+    semantic_created: 0
+    semantic_updated: 1
+    promoted_entries: 1
+    promotion_note: "1 candidate this cycle: dream-summary-2026-09-04.md (score 10, today's own step-01 archive). Clustered by dominant tag: dream-summary -> memory/semantic/operational/2026-06-12-dream-summary-pattern.md (existing, most-recently-active file for this cluster). Appended a new '### 2026-09-06 -- Nightly promotion' section carrying forward the source's own explicit ask that the carry-forward triad get a real decision rather than another silent renewal. Zero new semantic files created. salience.promoted:true set on the source episodic file."
+    cluster_actions:
+      - {tag: dream-summary, domain: operational, size: 1, action: update, target: memory/semantic/operational/2026-06-12-dream-summary-pattern.md, confidence: "high (unchanged, at ceiling)"}
+    error_categories_30d: "assumption-error/wrong-assumption:8, process-skip/protocol-skip:7, tool-misuse/protocol-skip:6, missed-context/lazy-search:4, tool-misuse/pattern-mismatch:4, data-accuracy/pattern-mismatch:3, lazy-search/available-data-not-used:3"
+    error_total_30d: 88
+    error_malformed_30d: 2
+    lessons_appended: 1
+    lessons_note: "Same 7 distinct qualifying categories as 09-05. Re-verified each category/failure_mode pair against LESSONS.md directly (not just relying on prior cycles' notes) and found data-accuracy/pattern-mismatch (3 occurrences: err-20260814T154248-OC1SIQ, err-20260827T183203-RSVL2A, err-20260901T081243-R58BYW) had NO existing entry, despite 09-04 and 09-05 both logging 'all documented.' Appended '## 2026-09-06 -- Data Accuracy / Pattern Mismatch' to memory/LESSONS.md. The other 6 categories confirmed already present and active."
+  step-03b-2026-09-06:
+    result: pass
+    reason: "1 promoted entry this cycle (dream-summary-2026-09-04.md, score 10) correctly excluded from any future compression candidate set via promoted:true; volume normal; step-03's write to dream-summary-pattern.md was a substantive dated narrative append, not a stub."
+    eval_record_note: "No in-progress dream-cycle eval record existed when this run started. Created one via new-eval.py (eval-20260906T080603-7DAV5G), set name:dream-cycle/agent:jarvis/session_id/trigger:scheduled, backfilled step-01 through step-03 via record-step.py, then ran guardrail-checkpoint.py -- attached cleanly to the correct record."
+  step-04-2026-09-06:
+    candidates_count: 0
+    entries_compressed: 0
+    digests_updated: 0
+    compression_skipped: true
+    compression_skip_reason: "0 compression candidates this cycle (date < 2026-06-08 AND salience.score < 2 AND salience.promoted == false), below the 5-entry safety threshold, GUARDRAIL 7 approval gate not reached. Consistent with 08-30 through 09-05 -- nothing has re-accumulated since the 08-29 David-approved batch. No files modified."
+  step-05-2026-09-06:
+    dream_log_appended: true
+    working_summary_written: true
+    working_summary_reason: "semantic_updated=1 > 0 triggers the mandatory working-summary write per Phase B. Content leads with the correction to 09-04/09-05's lessons-coverage claim, then the eight-week-unresolved carry-forward triad and the source entry's own direct ask for a decision."
+    error_logged: "none this cycle -- the missed LESSONS.md entry from 09-04/09-05 was a gap in those cycles' verification, not a new bug requiring its own error-tracking entry; corrected in-line via this cycle's own step-03 Phase B."
+    git_commit_sha: PENDING
   step-01-2026-09-05:
     working_archived: 1
     working_deleted: 0

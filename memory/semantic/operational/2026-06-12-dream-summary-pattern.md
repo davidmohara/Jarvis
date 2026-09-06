@@ -3,7 +3,7 @@ type: semantic
 domain: operational
 primary-tag: dream-summary
 created: 2026-06-12
-last-updated: 2026-09-05
+last-updated: 2026-09-06
 confidence: high
 synthesized-from: 25
   - dream-summary-2026-05-25.md
@@ -109,6 +109,7 @@ synthesized-from:
   - memory/episodic/dream-summary-2026-08-31.md
   - memory/episodic/dream-summary-2026-09-01.md
   - memory/episodic/dream-summary-2026-09-02.md
+  - memory/episodic/dream-summary-2026-09-04.md
 ---
 # Pattern: Dream Summary
 
@@ -358,3 +359,9 @@ Sources this cycle:
 - `memory/episodic/dream-summary-2026-09-03.md` (score 10) — a busier-than-usual night's own working-memory write, documenting the 08-31 co-sell correction re-surfaced during that night's archival: the fabricated (not stale) $20.43M "closed" Rock 4 figure that reached a controller-facing briefing before same-day correction, flagged to Rigby as a hard-fail-gate candidate (unverified Chrome MCP fallback should never reach output).
 
 Clean cycle otherwise: single candidate, no hand-repair needed, no frontmatter corruption anywhere in the corpus (304 files, 0 instances of the stranding signature). Carry-forward triad (Q3 rocks, nerve block scheduling, delegation tracker, South Texas revenue gap) remains unresolved across this cluster's evidence — now spanning 2026-08-25 through 2026-09-05, seven full weeks with zero recorded movement on any of the four items.
+
+### 2026-09-06 — Nightly promotion
+Sources this cycle:
+- `memory/episodic/dream-summary-2026-09-04.md` (score 10) — quiet night's own working-memory write; no new incidents, no compression candidates. Reiterated the same carry-forward triad and, for the first time, explicitly flagged that repeating the note nightly instead of forcing a decision was itself the problem — asked directly for one of the four items to move this week or be dropped from the watch list.
+
+Single candidate, no hand-repair needed, no frontmatter corruption anywhere in the corpus (305 files, 0 instances of the stranding signature). Carry-forward triad (Q3 rocks, nerve block scheduling, delegation tracker, South Texas revenue gap) remains unresolved across this cluster's evidence — now spanning 2026-08-25 through 2026-09-06, eight full weeks with zero recorded movement on any of the four items. This is the second consecutive source entry to ask for a direct decision rather than another silent renewal; worth surfacing to David plainly rather than folding into routine cycle notes again.

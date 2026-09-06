@@ -1,10 +1,10 @@
 ---
 status: complete
-started-at: 2026-09-05T08:20:00Z
-completed-at: 2026-09-05T08:22:00Z
+started-at: 2026-09-06T08:12:00Z
+completed-at: 2026-09-06T08:12:30Z
 outputs:
   result: pass
-  reason: "1 promoted entry this cycle (dream-summary-2026-09-03.md, score 10) correctly excluded from any future compression candidate set via promoted:true; volume normal; step-03's write to dream-summary-pattern.md was a substantive dated narrative append, not a stub. No in-progress dream-cycle eval record existed at run start (this session ran the workflow directly, not via the Cowork scheduled-task hook); created one via new-eval.py, tagged it name:dream-cycle, backfilled steps 01-03 via record-step.py, then recorded this checkpoint -- it attached to the correct record, first clean attachment since this bug family started 08-26."
+  reason: "1 promoted entry this cycle (dream-summary-2026-09-04.md, score 10) correctly excluded from any future compression candidate set via promoted:true; volume normal; step-03's write to dream-summary-pattern.md was a substantive dated narrative append, not a stub. No in-progress dream-cycle eval record existed at run start; created one via new-eval.py (eval-20260906T080603-7DAV5G), tagged it name:dream-cycle, backfilled steps 01-03 via record-step.py, then recorded this checkpoint -- attached cleanly to the correct record."
 model: sonnet
 ---
 

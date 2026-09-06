@@ -1,21 +1,21 @@
 ---
 status: complete
-started-at: 2026-09-05T08:15:00Z
-completed-at: 2026-09-05T08:20:00Z
+started-at: 2026-09-06T08:07:00Z
+completed-at: 2026-09-06T08:12:00Z
 outputs:
   candidates_count: 1
   clusters_found: 1
   semantic_created: 0
   semantic_updated: 1
   promoted_entries: 1
-  promotion_note: "1 candidate this cycle: dream-summary-2026-09-03.md (score 10, today's own step-01 archive). Clustered by dominant tag: dream-summary -> memory/semantic/operational/2026-06-12-dream-summary-pattern.md (existing file, appended). Zero new semantic files created. No frontmatter corruption on this write."
+  promotion_note: "1 candidate this cycle: dream-summary-2026-09-04.md (score 10, today's own step-01 archive). Clustered by dominant tag: dream-summary -> memory/semantic/operational/2026-06-12-dream-summary-pattern.md (existing file, appended). Zero new semantic files created. No frontmatter corruption on this write."
   cluster_actions:
     - {tag: dream-summary, domain: operational, size: 1, action: update, target: memory/semantic/operational/2026-06-12-dream-summary-pattern.md, confidence: "high (unchanged)"}
   error_categories_30d: "assumption-error/wrong-assumption:8, process-skip/protocol-skip:7, tool-misuse/protocol-skip:6, missed-context/lazy-search:4, tool-misuse/pattern-mismatch:4, data-accuracy/pattern-mismatch:3, lazy-search/available-data-not-used:3"
   error_total_30d: 88
   error_malformed_30d: 2
-  lessons_appended: 0
-  lessons_note: "All 7 distinct qualifying categories already documented and active in LESSONS.md. No new entry appended. Category count dropped from 10 (09-04) to 7 as the 30-day window rolled forward past early-August entries -- not a new problem."
+  lessons_appended: 1
+  lessons_note: "Re-verified all 7 distinct qualifying categories against LESSONS.md directly this cycle rather than trusting prior cycles' notes -- found data-accuracy/pattern-mismatch was NOT actually documented despite 09-04 and 09-05 both claiming full coverage. Appended the missing entry. The other 6 categories confirmed already present and active."
 ---
 
 <!-- system:start -->

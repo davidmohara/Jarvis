@@ -1,15 +1,15 @@
 ---
 status: complete
-started-at: 2026-09-05T08:12:00Z
-completed-at: 2026-09-05T08:15:00Z
+started-at: 2026-09-06T08:06:00Z
+completed-at: 2026-09-06T08:07:00Z
 outputs:
-  episodic_scanned: 304
-  score_updates: 304
+  episodic_scanned: 305
+  score_updates: 305
   no_tags: 202
   no_date: 38
-  score_distribution: "0:204,1:4,2:2,3:3,4:9,5:8,6:2,7:6,8:3,9:12,10:51"
-  window_entries: 50
-  note: "Ran systems/dream-cycle/salience-score.py. read_errors:0, write_errors:0. episodic_scanned rose 303->304 from today's 1 step-01 archive. pct_score_0=67.11% stays BELOW the 70% escalation threshold. pct_no_date=12.50% still crosses the >10% threshold, same legacy undated population as every prior cycle. pct_no_tags=66.45% stays in the 30-70% 'unusual tag coverage' band, same underlying population as prior cycles, not a new problem. Corpus-wide scan for the frontmatter-stranding corruption signature (duplicate salience: blocks, multiple promoted: keys) found 0 instances across all 304 episodic files, consistent with every cycle since the 09-01 fix (commit bb2de90). Known subdirectory-recursion bug (err-20260826T081453-664W53) unchanged, 0 files currently affected (no subdirectory entries exist)."
+  score_distribution: "0:204,1:4,2:2,3:3,4:9,5:9,6:3,7:6,8:9,9:8,10:48"
+  window_entries: 49
+  note: "Ran systems/dream-cycle/salience-score.py. read_errors:0, write_errors:0. episodic_scanned rose 304->305 from today's 1 step-01 archive. pct_score_0=66.89% stays BELOW the 70% escalation threshold. pct_no_date=12.46% still crosses the >10% threshold, same legacy undated population as every prior cycle. pct_no_tags=66.23% stays in the 30-70% 'unusual tag coverage' band, same underlying population as prior cycles, not a new problem. Corpus-wide scan for the frontmatter-stranding corruption signature (duplicate salience: blocks, multiple promoted: keys) found 0 instances across all 305 episodic files, consistent with every cycle since the 09-01 fix (commit bb2de90). Known subdirectory-recursion bug (err-20260826T081453-664W53) unchanged, 0 files currently affected (no subdirectory entries exist)."
 ---
 
 <!-- system:start -->

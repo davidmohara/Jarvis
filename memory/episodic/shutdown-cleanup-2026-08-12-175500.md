@@ -14,7 +14,7 @@ tags:
 related_people: []
 salience:
   score: 0
-  last-promoted-check: 2026-09-05
+  last-promoted-check: 2026-09-06
 ---
 - Purged 1 temp artifact: `workflows/plaud-ingest/run-fetch.sh` (one-off session script)
 - Root check clean: no non-canonical entries; `proposals/`, `tasks/`, `Remarkable/` absent from disk (expected)

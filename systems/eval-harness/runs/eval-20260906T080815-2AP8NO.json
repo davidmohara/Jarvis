@@ -1,0 +1,89 @@
+{
+  "id": "eval-20260906T080815-2AP8NO",
+  "type": "workflow",
+  "name": "dream-cycle",
+  "agent": "jarvis",
+  "session_id": "50ef42e9-cfa1-5824-818c-698e83b45c06",
+  "trigger": "scheduled",
+  "started": "2026-09-06T08:02:11Z",
+  "completed": "2026-09-06T08:08:15.510031Z",
+  "duration_seconds": 364.5,
+  "status": "success",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": true,
+      "outputs_non_empty": false,
+      "assertions_checked": 5,
+      "assertions_passed": 2,
+      "assertion_results": [
+        {
+          "assertion": "dream-001-state-complete",
+          "description": "Dream cycle workflow state.yaml shows status: complete",
+          "category": "structure",
+          "passed": true
+        },
+        {
+          "assertion": "dream-002-working-memory-written",
+          "description": "Dream cycle wrote output to working memory",
+          "category": "structure",
+          "passed": true
+        },
+        {
+          "assertion": "dream-cy-002-substantive",
+          "description": "dream-cycle output is substantive (>200 bytes)",
+          "category": "structure",
+          "passed": false
+        },
+        {
+          "assertion": "dream-cy-003-content",
+          "description": "dream-cycle output contains expected content",
+          "category": "structure",
+          "passed": false
+        },
+        {
+          "assertion": "dream-004-guardrail-checkpoint-ran",
+          "description": "step-03b's guardrail checkpoint recorded a result (pass/flag/escalate) before step-04's irreversible deletion \u2014 read from the eval record's own guardrails array, not self-reported by the workflow",
+          "category": "structure",
+          "passed": false
+        }
+      ],
+      "category_breakdown": {
+        "structure": {
+          "passed": 2,
+          "checked": 5
+        },
+        "content": {
+          "passed": 0,
+          "checked": 0
+        },
+        "quality": {
+          "passed": 0,
+          "checked": 0
+        }
+      }
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    }
+  },
+  "version_hash": "2798d95737254b2f",
+  "prior_baseline_id": null,
+  "tags": [
+    "cowork-hook",
+    "phantom-candidate"
+  ]
+}

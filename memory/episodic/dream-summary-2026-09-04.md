@@ -1,12 +1,28 @@
 ---
-type: working
+type: working-archive
 task_id: "session"
 session_id: "dream-cycle-2026-09-04-080511"
 agent-source: jarvis
 created: 2026-09-04T03:09:07-05:00
 expires: 2026-09-05T03:09:07-05:00
-status: active
+status: archived
 context: "Dream cycle summary — 2026-09-04"
+date: 2026-09-04
+source_file: memory/working/dream-summary-2026-09-04.md
+tags:
+  - dream-summary
+  - jarvis
+  - memory-system
+  - system-maintenance
+  - quarterly-rocks
+  - health
+  - revenue
+  - omnifocus
+related_people: []
+salience:
+  score: 10
+  last-promoted-check: 2026-09-06
+  promoted: true
 ---
 
 Quiet night. One working-memory item aged out (Tuesday's dream-cycle summary) and folded into the existing dream-summary pattern in semantic memory. Nothing new created, no compression needed — nothing has piled up since the 08-29 backlog clear. The frontmatter-corruption bug that plagued this system through late August stayed fixed: a corpus-wide scan of all 303 episodic files found zero instances again tonight.
