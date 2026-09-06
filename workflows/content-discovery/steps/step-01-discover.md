@@ -1,15 +1,15 @@
 ---
 status: complete
-started-at: "2026-09-04T18:00:00Z"
-completed-at: "2026-09-04T18:15:00Z"
+started-at: "2026-09-06T06:00:00Z"
+completed-at: "2026-09-06T06:09:00Z"
 outputs:
-  messages_scanned: 1
+  messages_scanned: 0
   new_urls: 0
   new_digests: 0
   posts_drafted: 0
-  gate_1_result: "PASS"
-  gate_2_result: "N/A"
-  editorial_threads_checked: 13
+  gate_1_result: "PASS — ok: true, messages: 0 (empty array, legitimate clean exit)"
+  gate_2_result: "N/A — no content to validate"
+  editorial_threads_checked: 16
   editorial_feedback_found: 0
 model: sonnet
 ---
