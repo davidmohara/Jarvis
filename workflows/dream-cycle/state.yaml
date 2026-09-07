@@ -73,6 +73,7 @@ accumulated-context:
     git_commit: success
     git_push: success
     git_commit_sha: a991c72
+    git_followup_commit_sha: 6aff203
     git_sync_note: "Cloud sandbox container (Claude Code Remote), plain git via Bash, one command per call, no chaining, no git status. Already on branch main at start. Push was a clean fast-forward (21f6753..a991c72, 315 files changed -- includes the working->episodic rename git detected automatically, every episodic file's routine last-promoted-check rewrite from step-02, and several auto-created eval-harness tracking-record files from a session-wide instrumentation hook unrelated to dream-cycle itself). Verified no uncommitted or untracked changes remain post-push."
     working_archived: 1
     working_deleted: 0
