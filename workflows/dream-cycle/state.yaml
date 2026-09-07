@@ -70,8 +70,10 @@ accumulated-context:
     working_summary_written: true
     working_summary_reason: "semantic_updated=1 > 0 triggers the mandatory working-summary write per Phase B. Content leads with the promotion's staleness note (source predated David's 09-06 resolution), the independently-confirmed empty delegation tracker, and the eval-harness tracking-record auto-abort hiccup."
     error_logged: "none this cycle -- no new errors, just a benign eval-harness tracking retry (see step-03b note)."
-    git_commit: pending
-    git_push: pending
+    git_commit: success
+    git_push: success
+    git_commit_sha: a991c72
+    git_sync_note: "Cloud sandbox container (Claude Code Remote), plain git via Bash, one command per call, no chaining, no git status. Already on branch main at start. Push was a clean fast-forward (21f6753..a991c72, 315 files changed -- includes the working->episodic rename git detected automatically, every episodic file's routine last-promoted-check rewrite from step-02, and several auto-created eval-harness tracking-record files from a session-wide instrumentation hook unrelated to dream-cycle itself). Verified no uncommitted or untracked changes remain post-push."
     working_archived: 1
     working_deleted: 0
     working_skipped: 37
