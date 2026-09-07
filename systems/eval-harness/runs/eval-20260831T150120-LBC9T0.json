@@ -22,37 +22,54 @@
     "structural": {
       "expected_outputs_written": true,
       "outputs_non_empty": true,
-      "assertions_checked": 4,
-      "assertions_passed": 4,
+      "assertions_checked": 5,
+      "assertions_passed": 5,
       "assertion_results": [
         {
           "assertion": "co-sell-pipeline-signal-written",
           "description": "co-sell-pipeline skill-run signal file was written",
+          "category": "structure",
           "passed": true
         },
         {
           "assertion": "co-sell-pipeline-signal-status",
           "description": "co-sell-pipeline skill-run did not end in failure",
-          "passed": null,
-          "skipped": true,
-          "reason": "unknown check type: json_field_not_equals"
+          "category": "structure",
+          "passed": true
         },
         {
           "assertion": "co-sell-pipeline-wm-written",
           "description": "co-sell-pipeline working memory file written to memory/working/",
+          "category": "structure",
           "passed": true
         },
         {
           "assertion": "co-sell-pipeline-wm-size",
           "description": "co-sell-pipeline working memory file is substantive (>200 bytes)",
+          "category": "structure",
           "passed": true
         },
         {
           "assertion": "co-sell-pipeline-wm-content",
           "description": "co-sell-pipeline working memory contains expected content",
+          "category": "structure",
           "passed": true
         }
-      ]
+      ],
+      "category_breakdown": {
+        "structure": {
+          "passed": 5,
+          "checked": 5
+        },
+        "content": {
+          "passed": 0,
+          "checked": 0
+        },
+        "quality": {
+          "passed": 0,
+          "checked": 0
+        }
+      }
     },
     "grading": {
       "last_graded": null,
@@ -63,6 +80,11 @@
       "rating": null,
       "comment": null,
       "timestamp": null
+    },
+    "deterministic_gate": {
+      "score": 0.8333,
+      "gate_status": "pass",
+      "computed_at": "2026-09-07T14:14:33.438921Z"
     }
   },
   "version_hash": "db968ad88b0a839a",

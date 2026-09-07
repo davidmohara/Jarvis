@@ -2,10 +2,10 @@
   "skill": "revenue-tracker",
   "agent": "chase",
   "trigger": "scheduled",
-  "started": "2026-08-24T00:00:00Z",
-  "completed": "2026-08-24T00:20:00Z",
-  "status": "partial",
-  "tool_failures": 1,
-  "error_ids": ["powerbi-url-stale"],
-  "notes": "PowerBI Financial Outlook URL inaccessible (redirects to ImprovingAffiliateReportv2). Reverted to cached snapshot from 2026-08-10 (July 2026 actuals). August now closed but fresh data unavailable. Cache within 30-day freshness window but does not reflect current-month actuals. BI team escalation recommended."
+  "started": "2026-09-07T00:00:00Z",
+  "completed": "2026-09-07T00:18:00Z",
+  "status": "success",
+  "tool_failures": 0,
+  "error_ids": [],
+  "notes": "PowerBI Financial Outlook accessed successfully. Both Dallas and South Texas filters applied, validated, and KPI/monthly revenue extracted live. Initial filter confusion resolved by inspecting dropdown state directly — 'Multiple selections' label refers to two cities (Austin + Houston) being selected for South Texas, not filter failure. All enterprise-specific data extracted for July 2026 actuals (most recent closed month). Data appended to Obsidian vault."
 }

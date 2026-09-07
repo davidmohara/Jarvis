@@ -1,73 +1,72 @@
 workflow: watchtower
 agent: knox
 status: complete
-session-started: "2026-08-31T07:05:00Z"
-session-completed: "2026-08-31T08:20:00Z"
-session-id: "wt-weekly-2026-W36"
+session-started: "2026-09-07T07:05:00Z"
+session-completed: "2026-09-07T08:15:00Z"
+session-id: "wt-weekly-2026-W37"
 current-step: complete
-original-request: "watchtower-weekly scheduled run (Knox) — W36, Aug 31"
+original-request: "watchtower-weekly scheduled run (Knox) — W37, Sep 7"
 accumulated-context:
   content_queue: []
   used_fallback: true
   obsidian_unavailable: false
   delta_check_applied: true
-  dropped_as_continuing: 2
+  dropped_as_continuing: 1
   weekly_themes:
     - theme_id: 1
-      theme_title: "The 40 Percent Problem"
-      synthesis: "Gartner predicts 40%+ of agentic AI projects will be canceled by end of 2027 due to escalating costs, unclear business value, and governance gaps discovered only after production incidents. A follow-up Gartner finding (May 2026) named uniform governance as a standalone failure mode. This is a new argument vs. W35's adoption difficulty theme: the story has moved from 'adoption is hard' to 'projects are being actively killed.' The consulting opportunity is pre-project viability review and structured go/kill criteria — work Improving already does."
+      theme_title: "The Build Decision Changed the Relationship"
+      synthesis: "McKinsey's State of AI 2026 found 32% of organizations skipped at least one software purchase because they built internally with agentic coding tools — nearly 50% among AI high performers. Despite this building activity, EBIT impact held flat at 37% and 1 in 5 orgs now limits AI use due to operating costs. New argument vs. W36: not project cancellation risk but the restructuring of the client's fundamental procurement relationship with consulting. The judgment layer (what to build, in what order, how to measure) is the remaining moat."
       source_items:
-        - "Gartner Predicts Over 40% of Agentic AI Projects Will Be Canceled by End of 2027"
-        - "Gartner Says Applying Uniform Governance Across AI Agents Will Lead to Enterprise AI Agent Failure (May 2026)"
+        - "The State of AI: Global Survey 2026 — McKinsey"
+        - "The Build-vs-Buy Shift: 32% of Enterprises Bet on Agentic Coding Tools"
+        - "Retool 2026 Build vs. Buy Report"
       content_angles:
-        - "The 40 Percent Problem"
+        - "The Build Decision Changed the Relationship"
     - theme_id: 2
-      theme_title: "The Billing Model Just Broke"
-      synthesis: "McKinsey launched the Acorn Plan (May 2026), committing 25% of global consulting fees to outcome-based pricing. Bain is at 30% AI-enabled work heading toward 50%, almost entirely outcome-structured. 73% of consulting clients now prefer value-based pricing. AI compresses 40-hour analyses into 15 minutes and clients are refusing to pay for saved hours. This is a new argument vs. W27-W34b delivery model coverage: the pricing structure itself — the mechanism by which consulting value is contracted — is breaking, not just the delivery methodology."
+      theme_title: "Your Manager Is the AI Strategy"
+      synthesis: "Gallup's State of the Global Workplace 2026: employees with AI-supportive managers are 8.7x more likely to say AI transformed their work. Manager engagement is declining 3x faster than employee engagement. McKinsey's State of Organizations 2026: 86% of executives say their org isn't ready to embed AI; only 25% of workers use AI regularly despite 86% of CEOs claiming employees already have the skills. New argument vs. W35 (adoption failure broadly): the management layer is the specific 8.7x multiplier, not culture or strategy generally."
       source_items:
-        - "McKinsey Ties 25% of Fees to Outcomes as AI Erodes Billable Hours (AI Weekly)"
-        - "AI is pushing consulting away from billable hours and toward productized, learning operating models (MarketScale)"
-        - "Q1 2026 Consulting Trends: Outcome-Based Pricing & AI Agents Reach Production (F1GMAT)"
-        - "Consulting Firm Pricing: The AI-Era Shift (The Crossing Report)"
+        - "Gallup State of the Global Workplace 2026: AI's Effect on Workplace Culture"
+        - "The State of Organizations 2026 — McKinsey"
       content_angles:
-        - "The Billing Model Just Broke"
+        - "Your Manager Is the AI Strategy"
     - theme_id: 3
-      theme_title: "NIST Is Wiring the Agent Standards Layer"
-      synthesis: "NIST's AI Agent Standards Initiative (announced Feb 2026) is operationalizing with MCP and A2A named as baseline interoperability protocols. Agent identity frameworks anchored to OAuth 2.0/OIDC are the companion standard. Singapore's IMDA Model AI Governance Framework for Agentic AI requires each agent to carry a verifiable digital identity and audit trail. This is a new argument vs. W35's 'standards moment happened' theme: now specific technical standards are being defined with named protocol baselines, giving organizations a concrete build-toward target. The waiting is over."
+      theme_title: "The Incident Rate Is In"
+      synthesis: "Strata's 2026 AI identity research: 88% of enterprises had a confirmed or suspected AI agent security incident in the last year. 92% lack visibility into their AI identities. Root cause: sharing human credentials with agents. New argument vs. W33 (governance gap) and W34b (market valuation): the risk is no longer forward-looking. The incidents have happened at scale. The client conversation shifts from risk preparation to incident attribution and architecture remediation."
       source_items:
-        - "AI Agent Standards Initiative — NIST (nist.gov)"
-        - "Agentic AI Governance: NIST Standards for Autonomous Systems (CSA Labs)"
-        - "NCCoE concept paper on AI Agent Identity and Authorization"
+        - "The AI Agent Identity Crisis: A 2026 Guide — Strata"
+        - "State of Agentic AI Security and Governance 2.01 — OWASP"
+        - "9 Enterprise Identity Trends That Will Define 2026 — Security Boulevard"
       content_angles:
-        - "NIST Is Wiring the Agent Standards Layer"
+        - "The Incident Rate Is In"
   weekly_tweets:
-    - text: "Gartner says 40% of agentic AI projects will be canceled by 2027. Not paused. Canceled. Escalating costs, unclear business value, and governance gaps discovered only after something goes wrong in production. The failure mode is identifiable before the project starts."
-      supporting_url: "https://www.gartner.com/en/newsroom/press-releases/2025-06-25-gartner-predicts-over-40-percent-of-agentic-ai-projects-will-be-canceled-by-end-of-2027"
+    - text: "32% of enterprises skipped their last software purchase because they built it internally with AI coding tools. Among AI high performers, it's nearly 50%. If a third of your clients can build the thing you sell, the relationship just changed."
+      supporting_url: "https://www.mckinsey.com.br/capabilities/quantumblack/our-insights/the-state-of-ai"
       angle_type: "data"
-    - text: "The most important question before you approve an AI agent initiative: who owns the kill criteria? If nobody can answer that in a sentence, you don't have a governance problem. You have a project design problem."
+    - text: "The capability to build didn't produce the judgment to build the right thing. EBIT impact from AI held flat at 37% despite all this building. The gap between 'we can build it' and 'we built something that mattered' is exactly where consulting belongs."
+      supporting_url: null
+      angle_type: "practitioner"
+    - text: "Employees whose managers actively support AI use are 8.7x more likely to say AI transformed their work. Not 8.7% more likely. Eight point seven times. Your AI strategy is a manager development problem."
+      supporting_url: "https://www.gallup.com/workplace/712976/ai-effect-workplace-culture.aspx"
+      angle_type: "data"
+    - text: "Manager engagement is declining at 3x the rate of employee engagement. Meanwhile, 86% of CEOs say employees already have the AI skills they need. One of those numbers is wrong, and I don't think it's the manager data."
       supporting_url: null
       angle_type: "provocative"
-    - text: "Gartner's second finding this year: applying uniform governance across AI agents will cause enterprise AI agent failure. Not might cause. Will. The risk isn't too little governance — it's the wrong kind applied everywhere the same way."
-      supporting_url: "https://www.gartner.com/en/newsroom/press-releases/2026-05-26-gartner-says-applying-uniform-governance-across-ai-agents-will-lead-to-enterprise-ai-agent-failure"
+    - text: "88% of enterprises reported a confirmed or suspected AI agent security incident last year. The 'before something goes wrong' framing is over. Something went wrong."
+      supporting_url: "https://www.strata.io/blog/agentic-identity/the-ai-agent-identity-crisis-new-research-reveals-a-governance-gap/"
       angle_type: "data"
-    - text: "McKinsey just committed to moving 25% of its global consulting fees to outcome-based pricing. AI compresses 40-hour analyses to 15 minutes and clients have stopped paying for the saved hours. The billing model that built this industry is breaking."
+    - text: "92% of enterprises lack full visibility into their AI identities. Teams are sharing human credentials with agents because there's no alternative. This isn't a policy gap. It's an architecture gap."
       supporting_url: null
-      angle_type: "data"
-    - text: "73% of consulting clients now prefer value-based pricing over hourly rates. Bain says 30% of its work is AI-enabled and heading toward 50%, almost entirely outcome-structured. The firms moving fastest aren't doing it out of generosity. They're doing it because it's defensible."
-      supporting_url: null
-      angle_type: "data"
-    - text: "If AI handles the production, the billable thing is the decision about what to produce and how to use the result. That judgment doesn't compress. It may actually become more valuable as production becomes cheap."
-      supporting_url: null
-      angle_type: "question"
-    - text: "NIST just named MCP and A2A as baseline interoperability protocols for AI agents. The standards moment happened two weeks ago. The standards layer is being wired now. If you're building agent infrastructure that doesn't speak these protocols, you're building toward integration debt."
-      supporting_url: "https://www.nist.gov/artificial-intelligence/ai-agent-standards-initiative"
-      angle_type: "data"
-    - text: "\"We're waiting to see how standards shake out before we commit to an architecture.\" I keep hearing this. The standards are shaking out. NIST named the baselines. The organizations that waited to start are already behind."
+      angle_type: "practitioner"
+    - text: "The question used to be: are you prepared for an AI agent security incident? 88% of the data says that question has been answered. The current question: do you know which of your incidents last year involved an agent?"
       supporting_url: null
       angle_type: "provocative"
-    - text: "Singapore's AI governance framework for agents now requires each one to carry a verifiable digital identity and an audit trail of which agent acted under whose authorization. The US is heading the same direction. Is your agent inventory ready for that question?"
+    - text: "50% of CHROs say they're not confident their managers can guide employees on AI use. That's the person responsible for people strategy admitting the execution layer doesn't know what to do."
       supporting_url: null
-      angle_type: "question"
-    - text: "80% of Gen Z say they trust AI more than their manager for certain work decisions. 58% of executives admit many leaders lack fundamental knowledge to make strategic AI decisions. The gap between those two numbers is where leadership credibility lives right now."
+      angle_type: "practitioner"
+    - text: "One in five organizations is now limiting AI use because of operating costs. They built things. The things are expensive to run. Nobody priced the run cost when they approved the build."
       supporting_url: null
       angle_type: "data"
+    - text: "When your team ran that last security incident, was there a field in the ticket for 'agent-initiated action'? If not, you may have had one and not known it."
+      supporting_url: null
+      angle_type: "question"

@@ -20,6 +20,16 @@ This file is the only path to `sources.yaml`. Watchtower's weekly run appends ne
 |------|-----|-----|-------|-------|--------------|--------|
 -->
 
+### Batch 12 — Weekly Run (2026-09-07)
+
+| Name | URL | RSS | Topic | Trust | Why Relevant | Status |
+|------|-----|-----|-------|-------|--------------|--------|
+| HBR — AI & Leadership | https://hbr.org/topic/subject/ai-and-machine-learning | null | leadership | high | Published "The AI Leadership Imperative" (Apr 2026), "What AI Can't Do: The New Job of Leadership" (Apr 2026), and multiple AI management pieces directly tied to W37's manager-as-multiplier theme. Practitioner-level leadership analysis with high editorial bar. No dedicated RSS for AI/leadership subcategory; gather_method: search via site:hbr.org. | pending |
+| Retool Blog | https://retool.com/blog | https://retool.com/blog/rss.xml | it-consulting | high | Published the 2026 Build vs. Buy Report (Feb 2026) — 817 respondents, 35% have already replaced SaaS with custom builds, 78% expect to build more in 2026. Directly sourced W37's build-decision theme with practitioner-level methodology data. No comparable primary-research source on enterprise software procurement shift in current registry. RSS feed unverified — confirm on first run. | pending |
+| CIO (IDG) | https://www.cio.com | https://www.cio.com/feed/ | it-consulting | high | Published "The SaaS reckoning: Why AI is about to reprice enterprise software" directly tied to W37's build-decision theme. CIO is the primary trade publication for enterprise IT leadership — covers procurement decisions, delivery model shifts, and AI adoption at the CIO level. Fills a gap between Gartner (analyst) and Stratechery (strategic) with practitioner-decision-maker focus. RSS feed unverified — confirm on first run. | pending |
+| People Results (Gallup analysis) | https://peopleresults.com | null | leadership | med | Published synthesis of Gallup State of the Global Workplace 2026 including the manager-as-AI-multiplier finding (8.7x adoption rate). Practitioner-focused HR and leadership advisory. Covers the organizational change management layer that W37 Theme 2 centers on. No RSS confirmed; gather_method: search via site:peopleresults.com. | pending |
+| Security Boulevard | https://securityboulevard.com | https://securityboulevard.com/feed/ | ai-agentic | high | Published "9 Enterprise Identity Trends That Will Define 2026" directly sourcing W37's agent identity incident theme. Aggregates practitioner security research from CISOs and enterprise security teams. Fills a gap between CyberArk (vendor) and OWASP (standards) with independent editorial coverage of enterprise identity and agent security. RSS feed unverified — confirm on first run. | pending |
+
 ### Batch 11 — Weekly Run (2026-08-31)
 
 | Name | URL | RSS | Topic | Trust | Why Relevant | Status |
