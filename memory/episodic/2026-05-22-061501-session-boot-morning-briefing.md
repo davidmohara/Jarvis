@@ -1,7 +1,7 @@
 ---
 salience:
   score: 0
-  last-promoted-check: 2026-09-06
+  last-promoted-check: 2026-09-07
 ---
 
 # Boot Summary — Friday, May 22, 2026

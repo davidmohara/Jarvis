@@ -1,7 +1,7 @@
 ---
 salience:
   score: 0
-  last-promoted-check: 2026-09-06
+  last-promoted-check: 2026-09-07
 ---
 
 # Morning Briefing — May 20, 2026

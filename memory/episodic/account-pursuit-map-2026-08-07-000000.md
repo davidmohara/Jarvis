@@ -22,8 +22,8 @@ related_people:
   - krunali-patel
   - mohammad-yunus
 salience:
-  score: 7
-  last-promoted-check: 2026-09-06
+  score: 3
+  last-promoted-check: 2026-09-07
   promoted: true
 ---
 

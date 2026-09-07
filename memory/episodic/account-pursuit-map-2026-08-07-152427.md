@@ -19,8 +19,8 @@ tags:
   - one-texas
 related_people: []
 salience:
-  score: 7
-  last-promoted-check: 2026-09-06
+  score: 3
+  last-promoted-check: 2026-09-07
   promoted: true
 ---
 

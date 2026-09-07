@@ -3,7 +3,7 @@ type: semantic
 domain: operational
 primary-tag: dream-summary
 created: 2026-06-12
-last-updated: 2026-09-06
+last-updated: 2026-09-07
 confidence: high
 synthesized-from: 25
   - dream-summary-2026-05-25.md
@@ -110,6 +110,7 @@ synthesized-from:
   - memory/episodic/dream-summary-2026-09-01.md
   - memory/episodic/dream-summary-2026-09-02.md
   - memory/episodic/dream-summary-2026-09-04.md
+  - memory/episodic/dream-summary-2026-09-05.md
 ---
 # Pattern: Dream Summary
 
@@ -368,3 +369,9 @@ Single candidate, no hand-repair needed, no frontmatter corruption anywhere in t
 
 ### 2026-09-06 — David responded directly
 Asked for a decision, got one same-day: David confirmed the nerve block has been handled (closed out in memory/semantic/operational/2026-06-25-health-pattern.md) and that South Texas revenue is actively being addressed (status updated in memory/personal/quarterly-objectives.md — still short of plan, but no longer an untouched gap). Two of the four watch-list items are cleared. The carry-forward watch list narrows to **Q3 rocks (still an unfinalized draft) and the delegation tracker (still empty)** going forward — this cluster should stop re-flagging nerve block and South Texas revenue in future nightly notes and track only the remaining two.
+
+### 2026-09-07 — Nightly promotion
+Sources this cycle:
+- `memory/episodic/dream-summary-2026-09-05.md` (score 10) — this source file was written on 2026-09-05, before David's same-day response recorded above landed on 2026-09-06; its own body still lists the full four-item triad and "seven weeks" figure, which the 09-06 entry has already superseded. No new information in the source beyond what's already reflected here. One item worth carrying forward from its body: the 08-31 co-sell fabricated-figure correction was flagged as already routed to Rigby for a hard-fail-gate fix — no update this cycle on whether that fix has landed.
+
+Checked both remaining watch-list items directly this cycle rather than relying on the source file's (now-stale) framing: `delegations/tracker.md` still shows zero active delegations (unchanged since at least 2026-09-01) — the delegation tracker remains empty. Q3 rocks status was not independently re-verified this cycle (out of dream-cycle's normal scope; would need `context/quarterly-objectives.md` or a direct check with David). Nothing new to escalate today — the two-item watch list from 09-06 stands unchanged, with the delegation tracker's continued emptiness now confirmed rather than assumed.

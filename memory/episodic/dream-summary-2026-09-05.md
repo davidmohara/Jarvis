@@ -1,12 +1,30 @@
 ---
-type: working
+type: working-archive
 task_id: "session"
 session_id: "dream-cycle-2026-09-05-080245"
 agent-source: jarvis
 created: 2026-09-05T03:02:45-05:00
 expires: 2026-09-06T03:02:45-05:00
-status: active
+status: archived
 context: "Dream cycle summary — 2026-09-05"
+date: 2026-09-05
+source_file: memory/working/dream-summary-2026-09-05.md
+tags:
+  - dream-summary
+  - jarvis
+  - dream-cycle
+  - system-health
+  - memory-system
+  - co-sell
+  - rock4
+  - quarterly-rocks
+  - revenue
+  - one-texas
+related_people: []
+salience:
+  score: 10
+  last-promoted-check: 2026-09-07
+  promoted: true
 ---
 
 Quiet night — one working-memory item aged out (last night's own dream summary), folded cleanly into the existing dream-summary semantic pattern. Carrying it forward was the 08-31 co-sell correction it had flagged: the afternoon run that claimed Rock 4 "closed" at $20.43M turned out to be a fabricated figure, not a stale one, and it's already been routed to Rigby as worth a hard-fail fix rather than another one-off correction.

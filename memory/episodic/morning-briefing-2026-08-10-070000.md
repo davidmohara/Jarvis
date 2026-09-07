@@ -31,8 +31,8 @@ related_people:
   - laurel-norman
   - william-floyd
 salience:
-  score: 8
-  last-promoted-check: 2026-09-06
+  score: 7
+  last-promoted-check: 2026-09-07
   promoted: true
 ---
 
