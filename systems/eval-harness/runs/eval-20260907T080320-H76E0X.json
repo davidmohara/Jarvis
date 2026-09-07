@@ -1,0 +1,62 @@
+{
+  "id": "eval-20260907T080320-H76E0X",
+  "agent_id": "ae84108cc9b595a96",
+  "type": "agent",
+  "name": "general-purpose",
+  "workflow": null,
+  "agent": "general-purpose",
+  "session_id": "6e00cdd0-c942-51d3-b5e9-7f9f87e4038b",
+  "trigger": "unknown",
+  "started": "2026-09-07T08:03:20.507280Z",
+  "completed": null,
+  "duration_seconds": null,
+  "status": "in-progress",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": null,
+      "all_steps_finished": null,
+      "tool_failures": 1,
+      "error_ids": [],
+      "tool_failure_log": [
+        {
+          "tool": "Bash",
+          "error": "Exit code 1\nbc467be Working on golf skill\nef83832 chore(harper): content-discovery run 2026-09-06T14:08:20Z\na90df64 chore(memory): close nerve-block and South Texas revenue watch items\n775822a chore(harper): content-discovery run 2026-09-06T06:00:00Z\n10520a6 chore(memory): dream-cycle 2026-09-06 \u2014 record followup commit sha\n---origin/main---\n3563d9f chore(eval): record dream-cycle skill run and session index update\n4ee0d8a chore(eval): record dream-cycle 2026-09-01 skill-run signal\n4bc0215 chore(memory): record dream-cycle 2026-09-01 commit sha in state.yaml\n9901b91 chore(memory): dream-cycle 2026-09-01 \u2014 archived 1, promoted 1 to semantic, repaired corpus-wide frontmatter corruption\ne5005cf chore: log shutdown-cleanup run completion and eval records\n---merge-base---",
+          "duration_ms": 63,
+          "timestamp": "2026-09-07T08:04:11.380183"
+        }
+      ]
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": []
+}
