@@ -1,0 +1,9 @@
+{
+  "id": "err-20260908T000000-SLACK1",
+  "date": "2026-09-08",
+  "agent": "master",
+  "skill": "master-slack",
+  "description": "master-slack skill uses 'find ~ -name SYSTEM.md' to locate IES_ROOT. On this machine, that search times out when called from Desktop Commander start_process, causing posts to silently fail (process hangs, no output). The direct path /Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES is reliable and should be used instead.",
+  "correction": "In master-slack skill, replace the find ~ path-discovery pattern with the hardcoded direct IES path when operating on this machine. Alternatively, add a timeout to the find command: find ~ -name 'SYSTEM.md' -path '*/jarvis/SYSTEM.md' -maxdepth 10 2>/dev/null | head -1.",
+  "systemic_fix": "Update master-slack SKILL.md Option 2 to include -maxdepth 10 on the find command to prevent full-disk traversal timeout. Add a note that direct path is always preferred over find when IES_ROOT is known."
+}

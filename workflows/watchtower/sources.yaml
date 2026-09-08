@@ -330,6 +330,28 @@ sources:
     status: active
     notes: "Agent identity and non-human identity lifecycle management. Published 'AI Agents and Identity Risks: How Security Will Shift in 2026'. Primary source for W33 agent identity theme. PAM/NHI practitioner depth. Proposed W33 Batch 7 — approved."
 
+  # ── Batch 12 (partial) — Approved 2026-09-08 ───────────────────────────────
+
+  - name: HBR — AI & Leadership
+    url: https://hbr.org/topic/subject/ai-and-machine-learning
+    rss: null
+    gather_method: search
+    topic: leadership
+    trust: high
+    added: 2026-09-08
+    status: active
+    notes: "Primary editorial source for manager-as-multiplier and leadership/AI intersection. Published 'The AI Leadership Imperative' and 'What AI Can't Do: The New Job of Leadership' (Apr 2026). No subcategory RSS; step-01 uses site:hbr.org search scoped to AI and leadership topics. Proposed W37 Batch 12 — approved 2026-09-08."
+
+  - name: People Results
+    url: https://peopleresults.com
+    rss: null
+    gather_method: search
+    topic: leadership
+    trust: med
+    added: 2026-09-08
+    status: active
+    notes: "Practitioner HR/change management advisory. Synthesized Gallup State of the Global Workplace 2026 including the 8.7x manager-as-AI-multiplier finding. Covers organizational change management layer. No RSS confirmed; step-01 uses site:peopleresults.com search. Proposed W37 Batch 12 — approved 2026-09-08."
+
   # ── Batch 11 (partial) — Approved 2026-08-31 ───────────────────────────────
 
   - name: The AI Optimist
