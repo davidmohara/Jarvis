@@ -1,0 +1,15 @@
+{
+  "id": "err-20260908T223218-VPU9BH",
+  "timestamp": "2026-09-08T22:32:18Z",
+  "session": "2026-09-08",
+  "source": "self-detected",
+  "agent": "harper",
+  "category": "process-skip",
+  "description": "content-discovery read.py was called with a 24-hour window, which returned 0 messages. read.py itself warned: 'Zero messages returned for 24h window and 48h retry.' The messages in #content were ~36-48h old and fell outside the 24h window. Harper accepted the 0-message result as a clean no-op and closed the run without retrying with the 48h window, missing 4 actionable messages (3 Watchtower digests + 1 user post request).",
+  "correction": "When read.py returns 0 messages AND includes the warning about the 48h retry, Harper must retry with a 48h window before concluding no new content exists. The warning is an explicit signal that content may have been missed. A 0-message result is only a clean no-op when the warning is absent.",
+  "failure_mode": "protocol-skip",
+  "systemic_fix": "Add a rule to step-01-discover.md: if read.py returns ok:true with 0 messages AND includes the '48h retry' warning string, immediately re-run with a 48h window before exiting. Only exit clean if the 48h call also returns 0 messages (with or without the warning).",
+  "fix_status": "applied",
+  "severity": "major",
+  "related_entries": []
+}

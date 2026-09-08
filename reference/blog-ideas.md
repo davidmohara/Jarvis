@@ -87,6 +87,11 @@ Running list of potential blog topics. Jarvis captures these proactively from co
 | "NIST Is Wiring the Agent Standards Layer" | Content pipeline (2026-09-01) | AI, technology | Ghost draft — pending approval. Ghost ID: 6a96edd4b1d0f5028ac9b0be |
 | "Passion Is the Reward, Not the Starting Line" | Content pipeline (2026-09-04) | purpose, thoughts, growth | Ghost draft — pending approval. Ghost ID: 6a9b1c6cb1d0f5028ac9b0f4 |
 
+| "The Build Decision Changed the Relationship" | Watchtower W37 (2026-09-08) [watchtower] | business, AI, consulting | Ghost draft — pending approval. Ghost ID: 6aa08e12b7c7ae028a63804b |
+| "Your Manager Is the AI Strategy" | Watchtower W37 (2026-09-08) [watchtower] | leadership, AI, culture | Ghost draft — pending approval. Ghost ID: 6aa08e15b7c7ae028a638053 |
+| "The Incident Rate Is In" | Watchtower W37 (2026-09-08) [watchtower] | AI, security, agentic | Ghost draft — pending approval. Ghost ID: 6aa08e16b7c7ae028a63805b |
+| "The Noise Is the Point" | Content pipeline (2026-09-08) | AI, business, texas, infrastructure | Ghost draft — pending approval. Ghost ID: 6aa08e16b7c7ae028a638063 |
+
 ## Published (for reference / avoid repeats)
 
 - Broken Trust Starts a Clock (Jul 2026)

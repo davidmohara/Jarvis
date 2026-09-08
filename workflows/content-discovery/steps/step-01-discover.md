@@ -53,9 +53,15 @@ Use read.py via Desktop Commander to pull #content messages from the last 24 hou
 
 ```
 Tool: mcp__Desktop_Commander__start_process
-Command: python3 "/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/systems/slack-bot/read.py" channel C0B160MA3EK 24 2>&1
+Command: python3 "/Users/davidohara/develop/jarvis/systems/slack-bot/read.py" channel C0B160MA3EK 24 2>&1
 Timeout: 15000
 ```
+
+> **48H RETRY RULE (err-20260908T223218-VPU9BH):** If the 24h call returns `ok: true` with 0 messages AND the response includes the warning string `"Zero messages returned for 24h window and 48h retry"`, immediately retry with a 48h window:
+> ```
+> python3 "/Users/davidohara/develop/jarvis/systems/slack-bot/read.py" channel C0B160MA3EK 48 2>&1
+> ```
+> Only accept a 0-message result as a clean no-op when the warning is absent, OR when the 48h retry also returns 0 messages. Never close the run on the 24h zero alone when the warning is present.
 
 ---
 
