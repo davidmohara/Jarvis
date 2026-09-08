@@ -1,0 +1,15 @@
+{
+  "id": "err-20260908T222842-RH9398",
+  "timestamp": "2026-09-08T22:28:42Z",
+  "session": "2026-09-08",
+  "source": "self-detected",
+  "agent": "harper",
+  "category": "assumption-error",
+  "description": "Harper aborted the content-discovery scheduled run because Desktop Commander was not found via ToolSearch at the start of the session. Harper concluded the tool was unavailable and set state.yaml to 'aborted', then reported a failure. Desktop Commander was in fact available — it was deferred and had not yet appeared in the tool list at the moment of the ToolSearch call. The tool became available moments later when David pointed it out.",
+  "correction": "Desktop Commander is always available in Jarvis sessions. When ToolSearch returns no match for mcp__Desktop_Commander__start_process, the correct response is to wait a moment and retry — or attempt the call directly — rather than aborting the run and flagging a failure to the user.",
+  "failure_mode": "wrong-assumption",
+  "systemic_fix": "Add a note to step-01-discover.md and the SLACK INTEGRATION section of content-discovery/workflow.md: if ToolSearch returns no match for Desktop Commander tools, retry once after a short wait before concluding the tool is unavailable. Deferred tools appear on a delay in Cowork sessions. Do not abort or update state.yaml to 'aborted' on a single failed ToolSearch.",
+  "fix_status": "applied",
+  "severity": "moderate",
+  "related_entries": ["err-20260715T134905-DAGK1T", "err-20260715T182916-FSMOJK"]
+}

@@ -20,6 +20,7 @@ model: sonnet
 ## MANDATORY EXECUTION RULES
 
 0. You MUST use `mcp__Desktop_Commander__start_process` for read.py/post.py, never a sandboxed bash/shell tool (e.g. Cowork's `mcp__workspace__bash`). The sandbox has no general outbound network access and will fail Slack calls with a connection/tunnel error. If that happens, do not conclude Slack or the network is down, retry via Desktop Commander first. See err-20260715T134905-DAGK1T.
+   **DEFERRED TOOL DELAY (err-20260908T222842-RH9398):** In Cowork sessions, Desktop Commander tools are deferred — they may not appear in ToolSearch results at the very start of a session. If ToolSearch returns no match for `mcp__Desktop_Commander__start_process`, do NOT abort the run or set state.yaml to 'aborted'. Wait a moment and retry ToolSearch, or attempt the tool call directly. Desktop Commander is always available in Jarvis sessions — a single failed ToolSearch is not evidence it is missing.
 1. You MUST read the full workflow.md before executing — it contains Ghost conventions, tag IDs, voice rules, and channel IDs.
 2. You MUST check pending-drafts.json (at `workflows/content-approval/pending-drafts.json` — see STATE TRACKING in workflow.md) and dedup against existing posts before drafting anything.
 3. You MUST NOT create new Ghost tags. Only use tags from the locked list in workflow.md.
