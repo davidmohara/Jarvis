@@ -65,9 +65,12 @@ accumulated-context:
     working_summary_written: true
     working_summary_reason: "semantic_updated=1 > 0 triggers the mandatory working-summary write per Phase B. Content leads with the quiet-mechanics summary, the 3 non-standard-schema error entries flagged for Rigby, and the unchanged two-item carry-forward watch list."
     error_logged: "none this cycle -- no new bugs, just a benign schema-consistency observation on 3 recent error entries (see step-03 note)."
-    eval_record: "eval-20260908T080733-VLWVWI -- created fresh at run start (no in-progress dream-cycle record existed), backfilled all 5 steps via record-step.py, guardrail checkpoint attached cleanly on first attempt, closed manually (status:success, completed/duration_seconds set) rather than via close-eval-record.py's CLI -- per 09-05/09-06 precedent, that CLI fabricates a bogus new record with a fake session_id when it can't find a matching in-progress stub by its own lookup logic; manual close avoided repeating that."
-    git_commit: pending
-    git_push: pending
+    eval_record: "eval-20260908T080733-VLWVWI -- created fresh at run start (no in-progress dream-cycle record existed), backfilled all 5 steps via record-step.py, guardrail checkpoint attached cleanly on first attempt, closed manually (status:success, completed/duration_seconds set) rather than via close-eval-record.py's CLI -- per 09-05/09-06 precedent, that CLI fabricates a bogus new record with a fake session_id when it can't find a matching in-progress stub by its own lookup logic; manual close avoided repeating that. A separate auto-created 'phantom-candidate' eval record (70J9XG, empty steps, known cowork/session-wide hook behavior) also appeared, left as-is per every prior cycle's precedent. Yesterday's own in-progress record (ZF09EX) was auto-aborted (abort_reason:session-ended) by the same hook when today's session started -- also consistent with precedent, not a new bug."
+    git_commit: success
+    git_push: success
+    git_commit_sha: 2d96c93
+    git_followup_commit_sha: 7310e64
+    git_sync_note: "Cloud sandbox container (Claude Code Remote), plain git via Bash, one command per call, no chaining, no git status (used git diff --name-only HEAD instead). Session started in detached HEAD at origin/main's own tip (5bbb939); moved to a real 'main' branch via 'git checkout -B main' before committing. Push was a clean fast-forward (5bbb939..2d96c93, 315 files changed -- includes the working->episodic rename git detected automatically, every episodic file's routine last-promoted-check rewrite from step-02, and 2 auto-created eval-harness tracking records from a session-wide instrumentation hook unrelated to dream-cycle itself). Follow-up commit (7310e64) captured the git/dream-cycle skill-run signal files and the deterministic grader's own eval record. Verified no uncommitted or untracked changes remain post-push."
     working_archived: 1
     working_deleted: 0
     working_skipped: 40
