@@ -1,12 +1,87 @@
 workflow: dream-cycle
 agent: jarvis
 status: complete
-session-started: 2026-09-07T08:03:32Z
-session-id: dream-cycle-2026-09-07-080332
+session-started: 2026-09-08T08:03:03Z
+session-id: dream-cycle-2026-09-08-080303
 current-step: null
 original-request: "Execute dream-cycle workflow for today (scheduled task)"
-last-successful-run: 2026-09-07T08:10:03Z
+last-successful-run: 2026-09-08T08:12:00Z
 accumulated-context:
+  step-01-2026-09-08:
+    working_archived: 1
+    working_deleted: 0
+    working_skipped: 40
+    working_stranded: 0
+    enrichment_method: "LLM (systems/dream-cycle/llm_tag_extractor.py via claude -p haiku) -- claude CLI auth functional in this container this cycle (~7s test call), archive enriched via LLM"
+    archived_files:
+      - dream-summary-2026-09-06.md
+    skipped_not_expired:
+      - dream-summary-2026-09-07.md
+    skipped_unparseable_count: 39
+    new_unparseable_this_cycle: []
+    unparseable_left_untouched_missing_status:
+      - knox-plaud-ingest-2026-08-31.md
+    stranded: []
+    note: "41 total files evaluated in memory/working/ (down from 42 on 09-07 -- one dream-summary archived, no new arrivals). Only 1 archive candidate this cycle (dream-summary-2026-09-06.md, expires 2026-09-07 < today 2026-09-08, status:active). dream-summary-2026-09-07.md carries expires=2026-09-08, same calendar date as today -- held back per the established date-level (not sub-day) comparison rule. knox-plaud-ingest-2026-08-31.md remains untouched per rule 2d (expires<today but no status field, so not status:active). Unparseable set identical to 09-07's (same 39 files, verified via direct frontmatter scan of every remaining file -- no drift). No self-introduced duplicate-key issues: replaced the existing type/status lines in place and appended the enrichment fields fresh before mv."
+  step-02-2026-09-08:
+    episodic_scanned: 307
+    score_updates: 307
+    window_entries: 39
+    no_date: 38
+    no_tags: 202
+    score_distribution: "0:211,1:2,2:5,3:10,4:7,5:5,6:3,7:12,8:3,9:7,10:42"
+    read_errors: 0
+    write_errors: 0
+    guardrails:
+      distribution_check: "pass -- pct_score_0=68.73% (211/307) below the 70% escalation threshold, consistent with 09-07 baseline (68.63%). pct_score_10=42 (13.7%), well above 0, no anomaly."
+      metadata_check: "escalated (pct_no_date only) -- pct_no_date=12.38% (38/307, >10% threshold), same legacy undated population as every prior cycle, no new undated entries this cycle. pct_no_tags=65.80% (202/307) stays in the 30-70% 'unusual tag coverage' band, same underlying population as 09-07, not a new problem."
+    note: "Ran systems/dream-cycle/salience-score.py. read_errors:0, write_errors:0. episodic_scanned rose 306->307 from today's 1 step-01 archive. Corpus-wide scan for the frontmatter-stranding corruption signature (duplicate salience: blocks, multiple promoted: keys) found 0 instances across all 307 scanned episodic files, consistent with every cycle since the 09-01 fix (commit bb2de90). A separate glob count (308) includes memory/episodic/README.md, which the scoring script correctly excludes as non-content (same treatment as working/README.md) -- not the subdirectory-recursion bug, confirmed by checking which file lacked today's last-promoted-check stamp."
+  step-03-2026-09-08:
+    candidates_count: 1
+    clusters_found: 1
+    semantic_created: 0
+    semantic_updated: 1
+    promoted_entries: 1
+    promotion_note: "1 candidate this cycle: dream-summary-2026-09-06.md (score 10, today's own step-01 archive). Clustered by dominant tag: dream-summary -> memory/semantic/operational/2026-06-12-dream-summary-pattern.md (existing file, appended). The source was written 09-06, the same day David resolved the nerve block and South Texas revenue items, so its body already reflects the narrowed two-item watch list -- no stale-framing correction needed this time (unlike 09-07's promotion of a pre-resolution source). Re-checked delegations/tracker.md directly: still zero active delegations, now confirmed empty across 8+ consecutive cycles. Zero new semantic files created. salience.promoted:true set on the source."
+    cluster_actions:
+      - {tag: dream-summary, domain: operational, size: 1, action: update, target: memory/semantic/operational/2026-06-12-dream-summary-pattern.md, confidence: "high (unchanged, at ceiling)"}
+    error_categories_30d: "process-skip/protocol-skip:6, assumption-error/wrong-assumption:6, tool-misuse/protocol-skip:6, tool-misuse/pattern-mismatch:4, lazy-search/available-data-not-used:3, data-accuracy/pattern-mismatch:3, missed-context/lazy-search:3"
+    error_total_30d: 77
+    error_malformed_30d: 4
+    lessons_appended: 0
+    lessons_note: "Same 7 distinct qualifying categories as 09-07 (30-day window essentially unchanged, error_total_30d still 77). Verified each category/failure_mode pair directly against memory/LESSONS.md via grep (Category:/Failure mode: line pairs), not trusting prior cycles' notes: all 7 (process-skip/protocol-skip, assumption-error/wrong-assumption, tool-misuse/protocol-skip, tool-misuse/pattern-mismatch, lazy-search/available-data-not-used, data-accuracy/pattern-mismatch, missed-context/lazy-search) confirmed present and active. No new entry appended. 4 legacy-schema entries (err-20260811T000000-CHRCMT, err-20260811T160000-ATTGEO, err-20260820T000000-GOLF01, err-20260826T041022-BS0SYE) excluded from counting as in every prior cycle. Noted 3 new non-standard-schema entries landed since 09-04 (err-20260904T151400-MANUAL, err-20260904T151500-CANCEL, err-20260904T192830-HO1PBD -- golf-booking cancellation incidents and a Harper routing-error) with category values like 'major'/'critical' instead of a real category taxonomy value; excluded from category counting for the same reason as the 4 legacy entries, but worth flagging for Rigby as a schema-consistency gap worth fixing at the source (error-entry creation), not dream-cycle's job to repair."
+  step-03b-2026-09-08:
+    result: pass
+    reason: "1 promoted entry this cycle (dream-summary-2026-09-06.md, score 10) correctly excluded from any future compression candidate set via promoted:true; volume normal; step-03's write to dream-summary-pattern.md was a substantive dated narrative append, not a stub."
+    eval_record_note: "No in-progress dream-cycle eval record existed at run start. Created eval-20260908T080733-VLWVWI via new-eval.py, set name:dream-cycle/agent:jarvis/session_id/trigger:scheduled, backfilled steps 01-03 via record-step.py, then ran guardrail-checkpoint.py -- attached cleanly to the correct record (verified by reading the guardrails array back), no auto-abort or misattachment issue this cycle."
+  step-04-2026-09-08:
+    candidates_count: 1
+    entries_compressed: 0
+    digests_updated: 0
+    compression_skipped: true
+    compression_skip_reason: "1 compression candidate this cycle (date < 2026-06-10 AND salience.score < 2 AND salience.promoted == false: session-work-2026-06-08-162353.md), below the 5-entry safety threshold, GUARDRAIL 7 approval gate not reached. Consistent with 08-30 through 09-07 -- nothing has re-accumulated in volume since the 08-29 David-approved batch. No files modified."
+  step-05-2026-09-08:
+    dream_log_appended: true
+    working_summary_written: true
+    working_summary_reason: "semantic_updated=1 > 0 triggers the mandatory working-summary write per Phase B. Content leads with the quiet-mechanics summary, the 3 non-standard-schema error entries flagged for Rigby, and the unchanged two-item carry-forward watch list."
+    error_logged: "none this cycle -- no new bugs, just a benign schema-consistency observation on 3 recent error entries (see step-03 note)."
+    eval_record: "eval-20260908T080733-VLWVWI -- created fresh at run start (no in-progress dream-cycle record existed), backfilled all 5 steps via record-step.py, guardrail checkpoint attached cleanly on first attempt, closed manually (status:success, completed/duration_seconds set) rather than via close-eval-record.py's CLI -- per 09-05/09-06 precedent, that CLI fabricates a bogus new record with a fake session_id when it can't find a matching in-progress stub by its own lookup logic; manual close avoided repeating that."
+    git_commit: pending
+    git_push: pending
+    working_archived: 1
+    working_deleted: 0
+    working_skipped: 40
+    working_stranded: 0
+    enrichment_method: "LLM (systems/dream-cycle/llm_tag_extractor.py via claude -p haiku) -- claude CLI auth functional in this container this cycle, archive enriched via LLM"
+    archived_files:
+      - dream-summary-2026-09-06.md
+    skipped_not_expired:
+      - dream-summary-2026-09-07.md
+    skipped_unparseable_count: 39
+    new_unparseable_this_cycle: []
+    unparseable_left_untouched_missing_status:
+      - knox-plaud-ingest-2026-08-31.md
+    stranded: []
   step-01-2026-09-07:
     working_archived: 1
     working_deleted: 0

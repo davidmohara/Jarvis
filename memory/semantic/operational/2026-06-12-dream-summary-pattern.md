@@ -3,7 +3,7 @@ type: semantic
 domain: operational
 primary-tag: dream-summary
 created: 2026-06-12
-last-updated: 2026-09-07
+last-updated: 2026-09-08
 confidence: high
 synthesized-from: 25
   - dream-summary-2026-05-25.md
@@ -111,6 +111,7 @@ synthesized-from:
   - memory/episodic/dream-summary-2026-09-02.md
   - memory/episodic/dream-summary-2026-09-04.md
   - memory/episodic/dream-summary-2026-09-05.md
+  - memory/episodic/dream-summary-2026-09-06.md
 ---
 # Pattern: Dream Summary
 
@@ -375,3 +376,9 @@ Sources this cycle:
 - `memory/episodic/dream-summary-2026-09-05.md` (score 10) — this source file was written on 2026-09-05, before David's same-day response recorded above landed on 2026-09-06; its own body still lists the full four-item triad and "seven weeks" figure, which the 09-06 entry has already superseded. No new information in the source beyond what's already reflected here. One item worth carrying forward from its body: the 08-31 co-sell fabricated-figure correction was flagged as already routed to Rigby for a hard-fail-gate fix — no update this cycle on whether that fix has landed.
 
 Checked both remaining watch-list items directly this cycle rather than relying on the source file's (now-stale) framing: `delegations/tracker.md` still shows zero active delegations (unchanged since at least 2026-09-01) — the delegation tracker remains empty. Q3 rocks status was not independently re-verified this cycle (out of dream-cycle's normal scope; would need `context/quarterly-objectives.md` or a direct check with David). Nothing new to escalate today — the two-item watch list from 09-06 stands unchanged, with the delegation tracker's continued emptiness now confirmed rather than assumed.
+
+### 2026-09-08 — Nightly promotion
+Sources this cycle:
+- `memory/episodic/dream-summary-2026-09-06.md` (score 10) — this source file was written on 2026-09-06, the same day David resolved the nerve block and South Texas revenue items; its body already reflects that update and the narrowed two-item watch list (Q3 rocks, delegation tracker), so no stale-framing correction was needed this time, unlike the 09-07 promotion.
+
+Re-checked the delegation tracker directly again this cycle: `delegations/tracker.md` still shows zero active delegations, same as every check since 2026-09-01 — now confirmed empty across at least 8 consecutive cycles. Q3 rocks status remains outside dream-cycle's normal scope and was not independently re-verified. No new movement to report on either watch-list item.

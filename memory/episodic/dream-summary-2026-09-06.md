@@ -1,12 +1,27 @@
 ---
-type: working
+type: working-archive
 task_id: "session"
 session_id: "dream-cycle-2026-09-06-080211"
 agent-source: jarvis
 created: 2026-09-06T03:02:11-05:00
 expires: 2026-09-07T03:02:11-05:00
-status: active
+status: archived
 context: "Dream cycle summary — 2026-09-06"
+date: 2026-09-06
+source_file: memory/working/dream-summary-2026-09-06.md
+tags:
+  - dream-summary
+  - jarvis
+  - dream-cycle
+  - error-patterns
+  - system-maintenance
+  - memory-system
+  - quarterly-rocks
+related_people: []
+salience:
+  score: 10
+  last-promoted-check: 2026-09-08
+  promoted: true
 ---
 
 Quiet night on the mechanics — one working-memory item aged out (yesterday's own dream summary) and folded cleanly into the existing dream-summary pattern in semantic memory. No compression needed, no frontmatter corruption anywhere in the corpus (305 files checked).

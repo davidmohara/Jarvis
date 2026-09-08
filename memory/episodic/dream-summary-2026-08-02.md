@@ -21,7 +21,7 @@ related_people:
   - cole-estrate
 salience:
   score: 10
-  last-promoted-check: 2026-09-07
+  last-promoted-check: 2026-09-08
   promoted: true
 ---
 

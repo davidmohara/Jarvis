@@ -24,7 +24,7 @@ related_people:
 - robyn
 salience:
   score: 0
-  last-promoted-check: 2026-09-07
+  last-promoted-check: 2026-09-08
   promoted: true
 ---
 
