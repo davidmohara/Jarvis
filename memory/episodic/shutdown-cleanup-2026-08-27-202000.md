@@ -18,8 +18,8 @@ tags:
   - system-health
 related_people: []
 salience:
-  score: 3
-  last-promoted-check: 2026-09-08
+  score: 6
+  last-promoted-check: 2026-09-09
   promoted: true
 ---
 

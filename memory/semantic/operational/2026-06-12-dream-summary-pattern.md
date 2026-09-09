@@ -3,9 +3,9 @@ type: semantic
 domain: operational
 primary-tag: dream-summary
 created: 2026-06-12
-last-updated: 2026-09-08
+last-updated: 2026-09-09
 confidence: high
-synthesized-from: 25
+synthesized-from: 26
   - dream-summary-2026-05-25.md
   - dream-summary-2026-05-31.md
   - dream-summary-2026-05-20.md
@@ -382,3 +382,9 @@ Sources this cycle:
 - `memory/episodic/dream-summary-2026-09-06.md` (score 10) — this source file was written on 2026-09-06, the same day David resolved the nerve block and South Texas revenue items; its body already reflects that update and the narrowed two-item watch list (Q3 rocks, delegation tracker), so no stale-framing correction was needed this time, unlike the 09-07 promotion.
 
 Re-checked the delegation tracker directly again this cycle: `delegations/tracker.md` still shows zero active delegations, same as every check since 2026-09-01 — now confirmed empty across at least 8 consecutive cycles. Q3 rocks status remains outside dream-cycle's normal scope and was not independently re-verified. No new movement to report on either watch-list item.
+
+### 2026-09-09 — Nightly promotion
+Sources this cycle:
+- `memory/episodic/dream-summary-2026-09-07.md` (score 10) — quiet night's own working-memory write: one archive (dream-summary-2026-09-06), zero compression candidates, error-pattern check reconfirmed all 7 recurring 30-day categories already in LESSONS.md. Also named a process hiccup: the eval-harness tracking record for that run kept auto-closing mid-cycle (a background hook issue, not a dream-cycle defect) and had to be recreated a third time before it stuck — no workflow impact, just extra retries.
+
+Re-checked the delegation tracker directly again this cycle: `delegations/tracker.md` still shows zero active delegations — now confirmed empty across at least 9 consecutive cycles. Q3 rocks status remains outside dream-cycle's normal scope and was not independently re-verified. No new movement to report on either watch-list item.

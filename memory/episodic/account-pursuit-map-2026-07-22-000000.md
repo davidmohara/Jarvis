@@ -24,7 +24,7 @@ related_people:
   - chandra-dhandapani
 salience:
   score: 5
-  last-promoted-check: 2026-09-08
+  last-promoted-check: 2026-09-09
   promoted: true
 ---
 

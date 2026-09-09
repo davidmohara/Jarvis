@@ -1,12 +1,29 @@
 ---
-type: working
+type: working-archive
 task_id: "session"
 session_id: "dream-cycle-2026-09-07-080332"
 agent-source: jarvis
 created: 2026-09-07T03:10:03-05:00
 expires: 2026-09-08T03:10:03-05:00
-status: active
+status: archived
 context: "Dream cycle summary — 2026-09-07"
+date: 2026-09-07
+source_file: memory/working/dream-summary-2026-09-07.md
+tags:
+  - dream-summary
+  - jarvis
+  - memory-system
+  - system-maintenance
+  - dream-cycle
+  - semantic-promotion
+  - error-patterns
+  - quarterly-rocks
+  - system-health
+related_people: []
+salience:
+  score: 10
+  last-promoted-check: 2026-09-09
+  promoted: true
 ---
 
 Quiet night on the mechanics — one working-memory item aged out (yesterday's own dream summary) and folded into the existing dream-summary pattern in semantic memory. No compression needed (only 1 candidate, well under the 5-entry threshold), no frontmatter corruption anywhere in the corpus (306 files checked), and the error-pattern check re-confirmed all 7 recurring 30-day categories are already documented in LESSONS.md — nothing new to add there.

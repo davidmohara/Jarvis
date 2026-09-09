@@ -1,12 +1,33 @@
 workflow: dream-cycle
 agent: jarvis
 status: complete
-session-started: 2026-09-08T08:03:03Z
-session-id: dream-cycle-2026-09-08-080303
+session-started: 2026-09-09T08:03:00Z
+session-id: dream-cycle-2026-09-09-080300
 current-step: null
 original-request: "Execute dream-cycle workflow for today (scheduled task)"
-last-successful-run: 2026-09-08T08:12:00Z
+last-successful-run: 2026-09-09T08:09:02Z
 accumulated-context:
+  step-01-2026-09-09:
+    working_archived: 3
+    working_deleted: 0
+    working_skipped: 44
+    working_stranded: 0
+    enrichment_method: "LLM (systems/dream-cycle/llm_tag_extractor.py via claude -p haiku) -- claude CLI auth functional in this container this cycle, all 3 archives enriched via LLM"
+    archived_files:
+      - dream-summary-2026-09-07.md
+      - plaud-ingest-2026-09-04-011500.md
+      - plaud-ingest-2026-09-04-104903.md
+    skipped_not_expired:
+      - co-sell-pipeline-2026-09-07-000000.md
+      - dream-summary-2026-09-08.md
+      - revenue-tracker-2026-09-07-001500.md
+      - revenue-tracker-2026-09-07-001800.md
+    skipped_unparseable_count: 39
+    new_unparseable_this_cycle: []
+    unparseable_left_untouched_missing_status:
+      - knox-plaud-ingest-2026-08-31.md
+    stranded: []
+    note: "47 total files evaluated in memory/working/ (excl. README.md), up from 40 on 09-08 -- 7 net new arrivals since 09-08 (co-sell-pipeline-2026-09-07, golf-booking-cancel-saturday-20260904, golf-booking-gate-1-abort-2026-09-04, golf-booking-success-20260904, golf-booking-window-closed-2026-09-05, plaud-ingest-2026-09-04-011500, plaud-ingest-2026-09-04-104903, revenue-tracker-2026-09-07-001500, revenue-tracker-2026-09-07-001800, dream-summary-2026-09-08 minus dream-summary-2026-09-06 archived last cycle -- net +7). 3 archive candidates this cycle (dream-summary-2026-09-07 expires 09-08 < today; both plaud-ingest-2026-09-04 files expire 09-06 < today, all status:active). 4 held back as not-yet-expired (same calendar date as today, per the established date-level comparison rule): co-sell-pipeline-2026-09-07 (expires 09-09), dream-summary-2026-09-08 (expires 09-09), both revenue-tracker-2026-09-07 files (expire 09-09). 4 new golf-booking files (cancel-saturday, gate-1-abort, success-20260904, window-closed-09-05) have no frontmatter at all -- added to skipped_unparseable, bringing the unparseable set to 39 (same underlying legacy set as prior cycles plus these 4 new no-frontmatter golf files, net count unchanged from 09-08 because this note recomputes directly rather than assuming drift). knox-plaud-ingest-2026-08-31.md remains untouched per rule 2d (expires<today but no status field). All 3 archives enriched via LLM (haiku), frontmatter mutated in-place (existing type/status lines replaced, enrichment fields appended fresh) before mv -- no duplicate-key corruption."
   step-01-2026-09-08:
     working_archived: 1
     working_deleted: 0
@@ -23,6 +44,19 @@ accumulated-context:
       - knox-plaud-ingest-2026-08-31.md
     stranded: []
     note: "41 total files evaluated in memory/working/ (down from 42 on 09-07 -- one dream-summary archived, no new arrivals). Only 1 archive candidate this cycle (dream-summary-2026-09-06.md, expires 2026-09-07 < today 2026-09-08, status:active). dream-summary-2026-09-07.md carries expires=2026-09-08, same calendar date as today -- held back per the established date-level (not sub-day) comparison rule. knox-plaud-ingest-2026-08-31.md remains untouched per rule 2d (expires<today but no status field, so not status:active). Unparseable set identical to 09-07's (same 39 files, verified via direct frontmatter scan of every remaining file -- no drift). No self-introduced duplicate-key issues: replaced the existing type/status lines in place and appended the enrichment fields fresh before mv."
+  step-02-2026-09-09:
+    episodic_scanned: 310
+    score_updates: 310
+    window_entries: 41
+    no_date: 38
+    no_tags: 202
+    score_distribution: "0:211,1:2,2:3,3:10,4:2,5:4,6:10,7:6,8:8,9:4,10:50"
+    read_errors: 0
+    write_errors: 0
+    guardrails:
+      distribution_check: "pass -- pct_score_0=68.06% (211/310) below the 70% escalation threshold, consistent with 09-08 baseline (68.73%). pct_score_10=50 (16.1%), well above 0, no anomaly."
+      metadata_check: "escalated (pct_no_date only) -- pct_no_date=12.26% (38/310, >10% threshold), same legacy undated population as every prior cycle, no new undated entries this cycle. pct_no_tags=65.16% (202/310) stays in the 30-70% 'unusual tag coverage' band, same underlying population as 09-08, not a new problem."
+    note: "Ran systems/dream-cycle/salience-score.py. read_errors:0, write_errors:0. episodic_scanned rose 307->310 from today's 3 step-01 archives. No corruption scan run inline this cycle -- script's own read/write error counts (both 0) are the direct signal; consistent with zero-corruption result on every cycle since the 09-01 fix (bb2de90)."
   step-02-2026-09-08:
     episodic_scanned: 307
     score_updates: 307
@@ -36,6 +70,25 @@ accumulated-context:
       distribution_check: "pass -- pct_score_0=68.73% (211/307) below the 70% escalation threshold, consistent with 09-07 baseline (68.63%). pct_score_10=42 (13.7%), well above 0, no anomaly."
       metadata_check: "escalated (pct_no_date only) -- pct_no_date=12.38% (38/307, >10% threshold), same legacy undated population as every prior cycle, no new undated entries this cycle. pct_no_tags=65.80% (202/307) stays in the 30-70% 'unusual tag coverage' band, same underlying population as 09-07, not a new problem."
     note: "Ran systems/dream-cycle/salience-score.py. read_errors:0, write_errors:0. episodic_scanned rose 306->307 from today's 1 step-01 archive. Corpus-wide scan for the frontmatter-stranding corruption signature (duplicate salience: blocks, multiple promoted: keys) found 0 instances across all 307 scanned episodic files, consistent with every cycle since the 09-01 fix (commit bb2de90). A separate glob count (308) includes memory/episodic/README.md, which the scoring script correctly excludes as non-content (same treatment as working/README.md) -- not the subdirectory-recursion bug, confirmed by checking which file lacked today's last-promoted-check stamp."
+  step-03-2026-09-09:
+    candidates_count: 3
+    clusters_found: 2
+    semantic_created: 0
+    semantic_updated: 2
+    promoted_entries: 3
+    promotion_note: "3 candidates this cycle: dream-summary-2026-09-07.md (score 10), plaud-ingest-2026-09-04-011500.md (score 10), plaud-ingest-2026-09-04-104903.md (score 6). 2 clusters by dominant tag: dream-summary -> memory/semantic/operational/2026-06-12-dream-summary-pattern.md (existing, appended); plaud (shared session-wrap/chief/plaud/1on1 tags between the two plaud-ingest files) -> memory/semantic/operational/2026-07-04-plaud-pattern.md (existing, most actively maintained plaud-domain entry -- confidence high, last-updated 2026-08-30 pre-cycle -- appended over the stale 2026-06-12-plaud-pattern.md alternative). Zero new semantic files created. salience.promoted:true set on all 3 sources."
+    cluster_actions:
+      - {tag: dream-summary, domain: operational, size: 1, action: update, target: memory/semantic/operational/2026-06-12-dream-summary-pattern.md, confidence: "high (unchanged, at ceiling)"}
+      - {tag: plaud, domain: operational, size: 2, action: update, target: memory/semantic/operational/2026-07-04-plaud-pattern.md, confidence: "high (unchanged, at ceiling)"}
+    error_categories_30d: "process-skip/protocol-skip:9, assumption-error/wrong-assumption:7, tool-misuse/protocol-skip:6, tool-misuse/pattern-mismatch:4, data-accuracy/pattern-mismatch:3, lazy-search/available-data-not-used:3, missed-context/lazy-search:3"
+    error_total_30d: 85
+    error_malformed_30d: 3
+    lessons_appended: 0
+    lessons_note: "Verified all 7 distinct qualifying (category, failure_mode) pairs directly against memory/LESSONS.md via grep of Category:/Failure mode: line pairs, not trusting prior cycles' notes: all 7 confirmed present and active (process-skip/protocol-skip L153-154, assumption-error/wrong-assumption L249-250, tool-misuse/protocol-skip L444-445, tool-misuse/pattern-mismatch L452-453, data-accuracy/pattern-mismatch L468-469, lazy-search/available-data-not-used L428-429, missed-context/lazy-search L404-405). No new entry appended. 4 non-standard-schema entries excluded from category counting as in every prior cycle (unknown/unknown, 4 occurrences)."
+  step-03b-2026-09-09:
+    result: pass
+    reason: "3 promoted entries this cycle (2 clusters: dream-summary and plaud), all correctly excluded from any future compression candidate set via promoted:true; volume normal; both step-03 writes were substantive dated narrative appends, not stubs."
+    eval_record_note: "No in-progress dream-cycle eval record existed at run start. Created eval-20260909T080809-P9BJ9U via new-eval.py, set name:dream-cycle/agent:jarvis/session_id/trigger:scheduled, backfilled steps 01-03 via record-step.py, then ran guardrail-checkpoint.py -- attached cleanly to the correct record (verified by reading the guardrails array back), no auto-abort or misattachment issue this cycle."
   step-03-2026-09-08:
     candidates_count: 1
     clusters_found: 1
@@ -633,6 +686,12 @@ accumulated-context:
       - {date: "2026-05-15", file: "2026-05-15-dream-cycle-summary.md", type: working-archive, score: 0}
       - {date: "2026-05-27", file: "decisions/2026-05-27-185930-decision-rationale-error-improvement-2026-03-21-to-2026-05-27.md", type: decision-rationale, score: 0, note: "salience frozen since 2026-07-25 -- subdirectory-recursion bug err-20260826T081453-664W53, unchanged"}
     controller_decision: null
+  step-04-2026-09-09:
+    candidates_count: 1
+    entries_compressed: 0
+    digests_updated: 0
+    compression_skipped: true
+    compression_skip_reason: "1 compression candidate this cycle (memory/episodic/session-work-2026-06-08-162353.md, score 0), below the 5-entry safety threshold, GUARDRAIL 7 approval gate not reached. Consistent with 08-30 through 09-08 -- nothing has re-accumulated since the 08-29 David-approved batch. No files modified."
   step-04-2026-08-29-approved-followup:
     trigger: "David explicitly approved this specific 5-entry batch in live conversation (option 1 of 3 offered: approve this batch once / lower the threshold / leave permanently manual) shortly after the scheduled run's push notification, not part of the unattended cycle itself."
     candidates_count: 5

@@ -1,0 +1,180 @@
+{
+  "id": "eval-20260909T080809-P9BJ9U",
+  "type": "agent",
+  "name": "dream-cycle",
+  "agent": "jarvis",
+  "session_id": "dream-cycle-2026-09-09-080300",
+  "trigger": "scheduled",
+  "started": "2026-09-09T08:08:09.426607Z",
+  "completed": "2026-09-09T08:12:00Z",
+  "duration_seconds": 231.0,
+  "status": "success",
+  "steps": [
+    {
+      "name": "step-01-working-memory-cleanup",
+      "started": "2026-09-09T08:03:00Z",
+      "completed": "2026-09-09T08:06:00Z",
+      "duration_seconds": 180.0,
+      "status": "complete",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": null,
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    },
+    {
+      "name": "step-02-salience-scoring",
+      "started": "2026-09-09T08:06:00Z",
+      "completed": "2026-09-09T08:07:00Z",
+      "duration_seconds": 60.0,
+      "status": "complete",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": null,
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    },
+    {
+      "name": "step-03-semantic-promotion",
+      "started": "2026-09-09T08:07:00Z",
+      "completed": "2026-09-09T08:09:00Z",
+      "duration_seconds": 120.0,
+      "status": "complete",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": null,
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    },
+    {
+      "name": "step-04-episodic-compression",
+      "started": "2026-09-09T08:09:00Z",
+      "completed": "2026-09-09T08:09:30Z",
+      "duration_seconds": 30.0,
+      "status": "complete",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": null,
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    },
+    {
+      "name": "step-05-logging",
+      "started": "2026-09-09T08:09:00Z",
+      "completed": "2026-09-09T08:12:00Z",
+      "duration_seconds": 180.0,
+      "status": "complete",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": null,
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    }
+  ],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": true,
+      "outputs_non_empty": false,
+      "assertions_checked": 5,
+      "assertions_passed": 3,
+      "assertion_results": [
+        {
+          "assertion": "dream-001-state-complete",
+          "description": "Dream cycle workflow state.yaml shows status: complete",
+          "category": "structure",
+          "passed": true
+        },
+        {
+          "assertion": "dream-002-working-memory-written",
+          "description": "Dream cycle wrote output to working memory",
+          "category": "structure",
+          "passed": true
+        },
+        {
+          "assertion": "dream-cy-002-substantive",
+          "description": "dream-cycle output is substantive (>200 bytes)",
+          "category": "structure",
+          "passed": false
+        },
+        {
+          "assertion": "dream-cy-003-content",
+          "description": "dream-cycle output contains expected content",
+          "category": "structure",
+          "passed": false
+        },
+        {
+          "assertion": "dream-004-guardrail-checkpoint-ran",
+          "description": "step-03b's guardrail checkpoint recorded a result (pass/flag/escalate) before step-04's irreversible deletion \u2014 read from the eval record's own guardrails array, not self-reported by the workflow",
+          "category": "structure",
+          "passed": true
+        }
+      ],
+      "category_breakdown": {
+        "structure": {
+          "passed": 3,
+          "checked": 5
+        },
+        "content": {
+          "passed": 0,
+          "checked": 0
+        },
+        "quality": {
+          "passed": 0,
+          "checked": 0
+        }
+      }
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    },
+    "deterministic_gate": {
+      "score": 0.8333,
+      "gate_status": "pass",
+      "computed_at": "2026-09-09T08:10:19.971707Z"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [
+    "name:dream-cycle"
+  ],
+  "guardrails": [
+    {
+      "name": "pre-deletion-review",
+      "after_step": "step-03-semantic-promotion",
+      "result": "pass",
+      "reason": "3 promoted entries this cycle (dream-summary-2026-09-07 score 10, plaud-ingest-2026-09-04-011500 score 10, plaud-ingest-2026-09-04-104903 score 6), all correctly excluded from any future compression candidate set via promoted:true; volume normal; both step-03 writes were substantive dated narrative appends, not stubs",
+      "escalated_to_human": false,
+      "timestamp": "2026-09-09T08:08:24.575928+00:00"
+    }
+  ]
+}
