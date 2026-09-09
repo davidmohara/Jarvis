@@ -1095,6 +1095,15 @@ guardrails:
     push_status: "success"
     atomicity_check: "pass"
     note: "Same environment class as 08-27 through 09-01: Linux sandbox container (Claude Code / Agent SDK), Desktop Commander not a matching tool via ToolSearch. Used Bash directly for all git operations, one atomic command per call, no chaining, no 'git status'. Session started in detached HEAD at origin/main's tip (3f85b64) -- fetched origin/main (confirmed no divergence, it had just been updated to the same commit), committed there, then moved to a real 'main' branch via 'git checkout -B main' before pushing. Push was a clean fast-forward (3f85b64..52f1ee8). Post-push git diff --name-only HEAD confirmed no uncommitted changes remain."
+  git_atomicity_2026_09_09:
+    pre_commit_check: "pass"
+    dream_log_valid: true
+    state_file_valid: true
+    commit_status: "success"
+    commit_sha: "75e8ce0"
+    push_status: "success"
+    atomicity_check: "pass"
+    note: "Cloud sandbox container (Claude Code Remote), Desktop Commander confirmed unavailable via ToolSearch (no matching tool). Used plain git via Bash, one command per call, no chaining, no git status (git diff --name-only HEAD / --staged --name-only, git ls-files --others --exclude-standard instead). Already on a real 'main' branch tracking origin/main at session start (962b46f, no divergence). Push was a clean fast-forward (962b46f..75e8ce0, 320 files changed -- 3 working->episodic renames auto-detected plus the routine last-promoted-check rewrite from step-02 across the corpus). Post-push diff and untracked-file checks both confirmed clean. Also cleaned up one bogus eval record (eval-20260909T080947-K7WR3C, created by grade_skill_run.py's default session_id lookup before an explicit --eval-id retry against the real record) before committing -- deleted, never staged. A second auto-created record (eval-20260909T080928-LIHL47, tagged phantom-candidate/cowork-hook, empty guardrails array) appeared during this run same as every prior cycle since 08-26 -- left as-is per established practice."
   git_atomicity_2026_09_03:
     pre_commit_check: "pass"
     dream_log_valid: true
