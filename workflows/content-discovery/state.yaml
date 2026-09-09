@@ -2,34 +2,30 @@
 workflow: content-discovery
 agent: harper
 status: complete
-session-started: "2026-09-08T22:29:00Z"
-session-id: "harper-20260908-002"
-completed-at: "2026-09-08T23:10:00Z"
-current-step: null
+session-started: "2026-09-09T06:00:00Z"
+session-id: "harper-20260909-001"
+completed-at: "2026-09-09T06:18:00Z"
+current-step: step-02
 original-request: "Scheduled daily content discovery run (Cowork session)"
 accumulated-context:
-  messages_scanned: 5
+  messages_scanned: 10
   new_urls: 1
-  new_digests: 3
-  posts_drafted: 4
-  gate_1_result: "PASS — 5 messages found in 48h window"
-  gate_2_result: "PASS — 4 posts drafted and validated"
-  editorial_threads_checked: 16
+  new_digests: 0
+  posts_drafted: 1
+  gate_1_result: "PASS — ok: true, 10 messages returned (24h window)"
+  gate_2_result: "PASS — word count 365, all arc elements present, no em-dashes, landscape image confirmed"
+  editorial_threads_checked: 4
   editorial_feedback_found: 0
   posts_created:
-    - id: "6aa08e12b7c7ae028a63804b"
-      title: "The Build Decision Changed the Relationship"
-      slack_ts: "1788907188.721709"
-    - id: "6aa08e15b7c7ae028a638053"
-      title: "Your Manager Is the AI Strategy"
-      slack_ts: "1788907206.395599"
-    - id: "6aa08e16b7c7ae028a63805b"
-      title: "The Incident Rate Is In"
-      slack_ts: "1788907206.799989"
-    - id: "6aa08e16b7c7ae028a638063"
-      title: "The Noise Is the Point"
-      slack_ts: "1788907207.144959"
-  errors_logged:
-    - "err-20260908T222842-RH9398"
-    - "err-20260908T223218-VPU9BH"
+    - id: "6aa13eb8b7c7ae028a63806b"
+      title: "The Opposition Got Here First"
+      slack_ts: "1788952280.706879"
+  skipped:
+    - reason: "Already in pending-drafts.json"
+      titles:
+        - "The Build Decision Changed the Relationship"
+        - "Your Manager Is the AI Strategy"
+        - "The Incident Rate Is In"
+    - reason: "Bot operational noise (no digest signal)"
+      count: 5
 ---

@@ -91,6 +91,7 @@ Running list of potential blog topics. Jarvis captures these proactively from co
 | "Your Manager Is the AI Strategy" | Watchtower W37 (2026-09-08) [watchtower] | leadership, AI, culture | Ghost draft — pending approval. Ghost ID: 6aa08e15b7c7ae028a638053 |
 | "The Incident Rate Is In" | Watchtower W37 (2026-09-08) [watchtower] | AI, security, agentic | Ghost draft — pending approval. Ghost ID: 6aa08e16b7c7ae028a63805b |
 | "The Noise Is the Point" | Content pipeline (2026-09-08) | AI, business, texas, infrastructure | Ghost draft — pending approval. Ghost ID: 6aa08e16b7c7ae028a638063 |
+| "The Opposition Got Here First" | Content pipeline (2026-09-09) | AI, technology, business | Ghost draft — pending approval. Ghost ID: 6aa13eb8b7c7ae028a63806b |
 
 ## Published (for reference / avoid repeats)
 
