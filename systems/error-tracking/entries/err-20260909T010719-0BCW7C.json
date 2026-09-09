@@ -1,0 +1,15 @@
+{
+  "id": "err-20260909T010719-0BCW7C",
+  "timestamp": "2026-09-09T01:07:19Z",
+  "source": "self-detected",
+  "category": "operating-protocol",
+  "failure_mode": "ask-instead-of-solve",
+  "severity": "medium",
+  "agent": "Master",
+  "task": "boot-briefing",
+  "description": "After delivering morning briefing, asked David to identify Speaker 2 from plaud-ingest recording instead of using available data sources (calendar, Obsidian MCP) to solve it. Violated 'don't ask unnecessary questions' principle.",
+  "what_was_wrong": "Had sufficient context from briefing: calendar entry for podcast filming, description mentioning 'Saxon', 'Renzi', YPO connections. Should have searched calendar and Obsidian vault instead of requesting input.",
+  "what_should_have_happened": "Use calendar to find podcast recording details, search Obsidian MCP for 'Saxon', 'Renzi', YPO member profiles. Cross-reference with Frank Murphy/Rain Stegen connections to identify Speaker 2.",
+  "proposed_fix": "Before asking controller for factual information, exhaust available data sources: calendar, Obsidian (MCP only), delegation tracker, people files. Only ask if data sources return nothing.",
+  "impact": "Interrupted controller's flow, created friction in boot workflow completion."
+}

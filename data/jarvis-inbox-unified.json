@@ -1,6 +1,6 @@
 {
-  "pulled_at": "2026-09-04T15:23:00Z",
+  "pulled_at": "2026-09-08T00:00:00Z",
   "message_count": 0,
   "messages": [],
-  "status": "failed — depends exclusively on M365 email connector per skills/jarvis-inbox/SKILL.md, which is unreachable in this session."
+  "note": "outlook_email_search on folderName 'Jarvis' returned no output — treated as nothing-to-surface (empty folder)."
 }

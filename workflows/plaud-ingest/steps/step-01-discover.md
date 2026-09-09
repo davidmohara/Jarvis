@@ -1,17 +1,23 @@
 ---
 status: completed
 model: haiku
-started-at: "2026-09-04T00:00:00Z"
-completed-at: "2026-09-04T00:20:00Z"
+started-at: "2026-09-09T00:40:00Z"
+completed-at: "2026-09-09T01:05:00Z"
 outputs:
   new-recordings-count: 1
-  api-total: 131
-  confirmed-in-vault: 130
+  api-total: 132
+  confirmed-in-vault: 131
   gate_1_result: "pass"
   gate_1_auth_method: "cached-token"
   gate_2_result: "pass"
   gate_2_flagged_recordings: []
+  note: "Initial run mistakenly invoked fetch_plaud.py --all (full transcript re-fetch), which re-staged 133 already-ingested recordings into transcript-staging. Caught before ingest via file_id cross-reference against the vault (Tier 1 dedup); all 133 false-positive staged files moved to _not_new_archive/. Correct discovery re-run via direct GET /file/simple/web call confirmed exactly 1 genuinely new recording (file_id e0aa6343b58756669d5bb0eddc80c5a4, 09-08 recording), consistent with the circuit breaker (1 new vs. 132 total, well under the 2x-baseline-and-10% anomaly threshold)."
   previous-run-results:
+    - date: "2026-09-08"
+      new-recordings-count: 1
+      api-total: 132
+      confirmed-in-vault: 131
+      note: "09-08 Working Session Plan: Elevating a Manual AI Workflow to a Trusted, Integrated Executive Assistant (e0aa6343b58756669d5bb0eddc80c5a4) — new, transcript+summary already ready, 1 untagged speaker (Speaker 2) unresolved against calendar."
     - date: "2026-09-03"
       new-recordings-count: 1
       api-total: 129

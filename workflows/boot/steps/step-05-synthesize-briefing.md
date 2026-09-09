@@ -1,12 +1,12 @@
 ---
 status: complete
-started-at: "2026-09-04T15:27:00Z"
-completed-at: "2026-09-04T15:30:00Z"
+started-at: "2026-09-08T00:45:00Z"
+completed-at: "2026-09-08T01:00:00Z"
 outputs:
-  briefing_delivered: "yes — degraded morning briefing synthesized (M365 + Clay unreachable this session) and carried forward through steps 06-08 for verbatim delivery to controller"
-  format: "narrative, degraded — no calendar table possible this run (M365 unreachable). OmniFocus inbox (10 items, live), delegation tracker (clean), quarterly objectives (Q3 rocks) surfaced. Calendar, email, Jarvis inbox, Clay reminders/birthdays all flagged unreachable rather than fabricated."
-  calendar_today: "unavailable — M365 MCP unreachable this session, confirmed after retry. No calendar table produced. Recommend David check calendar directly or re-run boot once M365 connector is reachable."
-  hotspots: "M365 MCP (calendar + email) and Clay MCP both unreachable this session — largest gap in today's briefing; plaud-ingest workflow status:in-progress (session pi-20260904-001, step-01) not reflected in workflows/_active.yaml — index/state mismatch, same pattern as prior sessions, flagged in step-06.5; delegation tracker is clean (no active items); OmniFocus inbox has 10 unassigned items, none flagged or dated."
+  briefing_delivered: "yes — full live morning briefing synthesized (all data sources live this run) and carried forward through steps 06-08 for verbatim delivery to controller"
+  format: "3-paragraph narrative + calendar table + Watchtower top-5 + no Reminders section (0 due, omitted per format rule)"
+  calendar_today: "9 events, live from data/calendar-unified.json. Heavy morning block (9am-12:30pm) with overlapping meetings, YPO Forum in-person afternoon, two tight back-to-back evening calls."
+  hotspots: "TTUHSC RFP decision needed (Lowell Messner handoff, out of country); UTB board session 9/9 conflicts with Whitefish MT flight; yesterday's daily review missing; Plaud speaker-ID question pending (non-blocking); South Texas revenue behind plan (Rock 1)."
 ---
 
 <!-- system:start -->

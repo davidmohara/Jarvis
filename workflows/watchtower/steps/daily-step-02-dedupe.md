@@ -1,8 +1,11 @@
 ---
-status: not-started
-started-at: ~
-completed-at: ~
-outputs: {}
+status: complete
+started-at: "2026-09-09T00:05:00Z"
+completed-at: "2026-09-09T00:07:00Z"
+outputs:
+  raw_count: 15
+  dropped_count: 0
+  kept_count: 15
 ---
 
 <!-- system:start -->

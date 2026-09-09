@@ -1,19 +1,19 @@
 ---
 status: complete
-started-at: "2026-09-04T15:20:00Z"
-completed-at: "2026-09-04T15:23:00Z"
+started-at: "2026-09-08T00:00:00Z"
+completed-at: "2026-09-08T00:05:00Z"
 outputs:
-  email_pull: "failed — M365 MCP unreachable this session (only OAuth authenticate/complete_authentication tools exposed for the Microsoft 365 connector; no outlook_email_search tool available). Retried once, same result."
+  email_pull: "completed — 6 messages (last 24h+, no explicit flags set on any)"
   omnifocus_pull: "completed — 10 uncompleted inbox tasks (fresh via direct osascript, none flagged or due)"
-  clay_pull: "failed — Clay MCP returned 'Authentication service unavailable' on two attempts, but attempted anyway per mandatory rule."
-  jarvis_inbox_pull: "failed — depends exclusively on M365 email connector per skill file; M365 unreachable"
+  clay_pull: "completed — 0 reminders, 0 birthdays (Clay MCP live, getUpcomingReminders returned empty)"
+  jarvis_inbox_pull: "nothing-to-surface — Jarvis folder search returned no messages"
   files_created:
     - "data/email-unified.json"
     - "data/omnifocus-unified.json"
     - "data/clay-reminders-unified.json"
     - "data/jarvis-inbox-unified.json"
-  degraded: true
-  degraded_reason: "M365 MCP and Clay MCP both genuinely unreachable in this subagent session (confirmed via ToolSearch — only auth-flow tools exposed for M365; Clay tools present but returned 'Authentication service unavailable' twice). OmniFocus (direct osascript) is the only live external source this run."
+  degraded: false
+  degraded_reason: null
 ---
 
 <!-- system:start -->

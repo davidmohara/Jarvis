@@ -1,7 +1,7 @@
 ---
 status: completed
-started-at: "2026-09-04T00:20:00Z"
-completed-at: "2026-09-04T00:25:00Z"
+started-at: "2026-09-09T01:05:00Z"
+completed-at: "2026-09-09T01:06:00Z"
 model: haiku
 outputs:
   already-ready: 1
@@ -12,6 +12,10 @@ outputs:
   gate_3_retry_counts: {}
   gate_3_aborted_recordings: []
   note: >
+    1 new recording (e0aa6343b58756669d5bb0eddc80c5a4, 2026-09-08) already had
+    transcript + summary ready (is_trans:true, is_summary:true) at discovery time
+    — no transcription trigger needed.
+  note_prior_run: >
     1 new recording (8bff6db529fcb3324421194856cd1364, 2026-09-03) was
     recorded as transcript_status "missing" at discovery time. By the time
     the trigger call ran (~20 min later), Plaud had already finished

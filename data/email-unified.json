@@ -1,6 +1,60 @@
 {
-  "pulled_at": "2026-09-04T15:23:00Z",
-  "message_count": 0,
-  "messages": [],
-  "status": "failed — M365 MCP unreachable in this session (only OAuth/authenticate tools exposed, no outlook_email_search tool available). Retried once, still unreachable."
+  "pulled_at": "2026-09-08T00:00:00Z",
+  "message_count": 6,
+  "messages": [
+    {
+      "id": "AAMkADAyYWJiNDQxLTM3MzAtNDVlNy04ODZjLTgwMmZiYjBhNTMxYwBGAAAAAADOXXceVmu0R4GF6i2BkUXOBwBiFVZC-8sdQaJWt-ZWvgEcAAAAilcFAABAtd68aKbhTanh4UbLkkAvAA6YfEn9AAA=",
+      "subject": "SMU MSAIB Panelist Invitation",
+      "from": "ioneil@smu.edu",
+      "received_at": "2026-09-08T21:25:57.000Z",
+      "is_flagged": false,
+      "importance": "normal",
+      "snippet": "Employer Panel for MS in AI for Business students, Monday 9/28 5-6:15pm."
+    },
+    {
+      "id": "AAMkADAyYWJiNDQxLTM3MzAtNDVlNy04ODZjLTgwMmZiYjBhNTMxYwBGAAAAAADOXXceVmu0R4GF6i2BkUXOBwBiFVZC-8sdQaJWt-ZWvgEcAAAAilcFAABAtd68aKbhTanh4UbLkkAvAA6YfEn0AAA=",
+      "subject": "Info: September OnPoint and Western Region Updates",
+      "from": "smeyer@ypo.org",
+      "received_at": "2026-09-08T19:48:46.000Z",
+      "is_flagged": false,
+      "importance": "normal",
+      "snippet": "YPO/YPO-Gold Western Chapter update, informational."
+    },
+    {
+      "id": "AAMkADAyYWJiNDQxLTM3MzAtNDVlNy04ODZjLTgwMmZiYjBhNTMxYwBGAAAAAADOXXceVmu0R4GF6i2BkUXOBwBiFVZC-8sdQaJWt-ZWvgEcAAAAilcFAABAtd68aKbhTanh4UbLkkAvAA6YfEnsAAA=",
+      "subject": "FW: Sept 3rd GoTogether Webinar Updates",
+      "from": "Don.McGreal@Improving.com",
+      "received_at": "2026-09-08T17:15:38.000Z",
+      "is_flagged": false,
+      "importance": "normal",
+      "snippet": "GoTogether webinar recap forwarded to TexasLeaders."
+    },
+    {
+      "id": "AAMkADAyYWJiNDQxLTM3MzAtNDVlNy04ODZjLTgwMmZiYjBhNTMxYwBGAAAAAADOXXceVmu0R4GF6i2BkUXOBwBiFVZC-8sdQaJWt-ZWvgEcAAAAilcFAABAtd68aKbhTanh4UbLkkAvAA6YfEnrAAA=",
+      "subject": "Re: Sept 3rd GoTogether Webinar Updates",
+      "from": "SPARC@improving.com",
+      "received_at": "2026-09-08T17:15:15.000Z",
+      "is_flagged": false,
+      "importance": "normal",
+      "snippet": "Webinar video link shared for those who missed it."
+    },
+    {
+      "id": "AAMkADAyYWJiNDQxLTM3MzAtNDVlNy04ODZjLTgwMmZiYjBhNTMxYwBGAAAAAADOXXceVmu0R4GF6i2BkUXOBwBiFVZC-8sdQaJWt-ZWvgEcAAAAilcFAABAtd68aKbhTanh4UbLkkAvAA6YfEnFAAA=",
+      "subject": "RE: TTUHSC RFP 739-SL3821039 — teaming, AI engineering half",
+      "from": "Lowell.Messner@improving.com",
+      "received_at": "2026-09-08T11:19:27.000Z",
+      "is_flagged": false,
+      "importance": "normal",
+      "snippet": "Lowell engaging David directly on TTUHSC RFP teaming while out of country — needs decision on pursuit and outreach to James Tolman."
+    },
+    {
+      "id": "AAMkADAyYWJiNDQxLTM3MzAtNDVlNy04ODZjLTgwMmZiYjBhNTMxYwBGAAAAAADOXXceVmu0R4GF6i2BkUXOBwBiFVZC-8sdQaJWt-ZWvgEcAAAAilcFAABAtd68aKbhTanh4UbLkkAvAA6THXWJAAA=",
+      "subject": "Whitefish Presidents Retreat Presentation - Board Review",
+      "from": "tiffany@lonestargold.org",
+      "received_at": "2026-09-07T14:20:21.000Z",
+      "is_flagged": false,
+      "importance": "normal",
+      "snippet": "Lone Star Gold Board presentation for Presidents Retreat, agenda attached."
+    }
+  ]
 }

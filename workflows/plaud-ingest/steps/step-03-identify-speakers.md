@@ -1,12 +1,34 @@
 ---
-status: completed
+status: awaiting-input
 model: haiku
-started-at: "2026-09-04T00:25:00Z"
-completed-at: "2026-09-04T00:40:00Z"
+started-at: "2026-09-09T01:06:00Z"
+completed-at: ~
 outputs:
-  gate_4_result: "pass"
-  gate_4_unresolved_speakers: []
+  gate_4_result: "escalated"
+  gate_4_unresolved_speakers:
+    - file_id: "e0aa6343b58756669d5bb0eddc80c5a4"
+      speaker_label: "Speaker 2"
   notes: >
+    pi-20260909-001: 1 new recording (e0aa6343b58756669d5bb0eddc80c5a4,
+    2026-09-08 17:30 CT), "Working Session Plan: Elevating a Manual AI
+    Workflow to a Trusted, Integrated Executive Assistant." 3 speakers
+    detected: O'Hara (32 seg, tagged), Alex Wilcox (2 seg, tagged/known),
+    and Speaker 2 (28 seg, no strong embedding match against registered
+    profiles including "Matt Rosen" -- Plaud itself left this one
+    untagged). Self-ID scan of Speaker 2's full transcript found no name
+    self-identification, but rich context: YPO member connected to David
+    through Curtis and Steve (met Curtis in London at the Arc Conference),
+    owns a professional-services firm referred to in-call as "Saxon" with
+    a management team, based in/near Oklahoma City, met Frank Murphy and
+    Rain Stegen through YPO. Calendar cross-reference (Superhuman
+    query_email_and_calendar equivalent via MS365 calendar search,
+    2026-09-08 15:00-20:00 UTC window) found no event matching this
+    meeting's time slot (22:30-22:57 UTC / 17:30 CT) or title -- appears
+    to be an unscheduled/ad hoc call. All three resolution tiers
+    (embedding, self-ID, calendar) exhausted with no match. Escalating to
+    controller per the User Interaction Protocol. Workflow paused at
+    step-03; step-04/05/05b not yet run for this recording.
+  notes_prior_run: >
     pi-20260904-001: 1 new recording (8bff6db529fcb3324421194856cd1364,
     2026-09-03 10:35). 3 speakers detected: O'Hara (72 seg, embedding match
     0.93 to registered "O'Hara" profile), Speaker 3 (13 seg, embedding
@@ -31,44 +53,34 @@ outputs:
 <!-- system:start -->
 # Step 03: Identify Speakers
 
-## ⛔ HARD GATE
+## ⛔ HARD GATE — PRIMARY SOURCE HIERARCHY
 
-**REGISTERED-SPEAKER EMBEDDING MATCH FIRST. SELF-ID SCAN SECOND. CALENDAR THIRD. DO NOT
-ASK THE CONTROLLER UNTIL ALL THREE HAVE BEEN EXHAUSTED.**
+**CALENDAR FIRST (REQUIRED). TRANSCRIPT SELF-ID SECOND (REQUIRED). REGISTERED EMBEDDING THIRD (OPTIONAL). DO NOT ASK CONTROLLER UNTIL CALENDAR + TRANSCRIPT BOTH EXHAUSTED.**
 
-This is a three-part gate:
+This is a hierarchy, not alternatives. Controller escalation only after 1 AND 2 have been fully attempted:
 
-0. **Registered-speaker embedding match first.** Before self-ID scanning or calendar
-   lookup, check whether Plaud itself already knows who this speaker is: call
-   `get_speaker_embeddings(token, file_id)` for the recording and `list_speakers(token)`
-   for every registered profile, and compare via cosine similarity. A near-1.0 match is
-   a direct identification from Plaud's own voice recognition — resolve immediately, no
-   further checks needed. Also check `get_recording_speakers(token, file_id)` — the
-   live `trans_result` may already carry real names even though a stale `_speakers.json`
-   in staging still shows generic labels. Skipping this and escalating straight to the
-   controller when Plaud had already resolved the speaker via voice recognition caused
-   `err-20260902T160425-E9B7YR` (a 3-way speaker ambiguity re-escalated to David when
-   all three speakers matched existing registered profiles at ~1.0 similarity, and the
-   recording's own transcript already had the real names). See
-   `skills/plaud-speaker-id/SKILL.md` step -1 for the full procedure.
-1. **Self-identification scan next.** For anything the embedding match didn't resolve,
-   scan the full
-   transcript (not just the `sample_text` snippet) for every unresolved speaker for
-   self-identification — most speakers state their own name aloud, typically near the
-   end of the recording ("this is X", name sign-offs). Skipping this and going straight
-   to calendar guessing or controller escalation was the cause of
-   `err-20260831T145748-3SVX4A` (5 speakers escalated on the 08-28 YPO Gold recording
-   when each stated their own name at the end).
-2. **Calendar before controller.** This rule was violated on 2026-05-22
-   (err-20260522T191304-TO2VXV) — the calendar resolved both speakers without any
-   controller input, and asking first is never acceptable. It was violated again on
-   2026-08-31 (`err-20260831T145747-LDPD1Q`) in a subtler way: the calendar WAS
-   queried, but a subject-line mismatch ("AI Leaders Weekly" on a personal-sounding
-   recording) was treated as a dead end without checking that event's attendees or
-   adjacent events first. **A subject-line mismatch alone is never sufficient grounds
-   to give up on the calendar** — see `skills/plaud-speaker-id/SKILL.md` step 2a for
-   the required 3-strategy search (matched event attendees, adjacent events, recurring
-   1:1 pattern) before falling through to controller escalation.
+1. **Calendar attendees (PRIMARY SOURCE — MANDATORY FIRST)** — Before any other check:
+   - Find the calendar event matching the recording timestamp (±15 min window, converted to CDT)
+   - Extract the attendee list from the calendar event
+   - Match attendees to speaker labels using segment counts + sample text
+   - RULE: If calendar has attendee data for the time window, Speaker ID is RESOLVED. Calendar attendees are the authority.
+   - If no event matches after ±15 min search: expand to ±45 min, check adjacent events, check recurring 1:1 patterns with names in transcript
+   - Only after this full 3-strategy discipline fails: move to step 2 below
+   - **FAILURE MODE PREVENTED**: err-20260909T000829-0JTVV6 (spent 30+ minutes searching calendar via MCP, got null attendees, asked controller instead of reading calendar file directly)
+
+2. **Transcript self-identification (REQUIRED SECOND)** — For speakers calendar didn't resolve:
+   - Read the FULL transcript (not just `sample_text`). Check END OF CALL FIRST (sign-offs), then beginning (introductions), then entire body.
+   - Look for explicit self-introduction: "I'm [Name]", "[Name] here", "this is [Name]", or indirect: "my firm is called [Name]", "I work at [Company]"
+   - A speaker who self-identifies in the transcript is resolved. No calendar confirmation needed. This step is mandatory.
+   - Check for transcription errors that garble names ("even considering me having not known me" → likely "even considering you having not known [Name]")
+   - **FAILURE MODE PREVENTED**: err-20260909T010719-0BCW7C (skipped reading full transcript, asked controller for "Renzi Stone" when "Renzi" was mentioned in transcript)
+
+3. **Registered-speaker embedding match (OPTIONAL THIRD)** — Only for speakers still unresolved after steps 1 and 2:
+   - Check whether Plaud itself already knows this voice via `get_speaker_embeddings()` vs registered profiles
+   - A near-1.0 match provides confidence but is not a replacement for calendar or transcript
+   - Use this to disambiguate when transcript self-ID is weak or calendar has multiple matches
+
+**Only if all three are exhausted with no confident match: add to `pending-speaker-mappings` for controller escalation.**
 
 ## MANDATORY EXECUTION RULES
 
@@ -118,9 +130,19 @@ This is a three-part gate:
    - If all speakers resolve with high confidence (via self-ID or calendar): auto-map them. Log the mapping and method (self-id / calendar).
    - Only after self-ID and the full calendar search discipline above are exhausted: add remaining unresolved speakers to `pending-speaker-mappings`.
 
-3. **If `pending-speaker-mappings` is non-empty:** pause and ask the controller.
+3. **If `pending-speaker-mappings` is non-empty:** GUARDRAIL CHECKPOINT BEFORE escalating to controller.
+   - **GATE**: Run this check before asking the controller:
+     ```
+     python3 systems/eval-harness/guardrail-checkpoint.py plaud-ingest step-03-pre-escalation step-03 <result> "<reason>"
+     ```
+     - If calendar search is incomplete (no calendar query attempt, or subject-line mismatch treated as final): `result=escalate reason="Calendar search was not fully attempted before escalation — re-run with full 3-strategy discipline (event attendees + adjacent events + recurring 1:1 pattern)"`
+     - If transcript self-ID scan shows no evidence of end-of-call or name search: `result=escalate reason="Transcript self-ID scan incomplete — check end of recording and full text for speaker names before escalating"`
+     - If both calendar and transcript were exhausted: `result=pass reason="Calendar and transcript fully exhausted; controller escalation is appropriate"`
+   - If checkpoint returns `escalate`: **re-execute step-02/03 with full discipline**, do not ask controller yet
+   - If checkpoint returns `pass`: proceed below to ask controller
+   
    - Update `state.yaml status: awaiting-input`
-   - Compile a single consolidated message (see User Interaction Protocol in workflow.md)
+   - Compile a single consolidated message (see User Interaction Protocol in workflow.md) that includes evidence of calendar search (event times, attendees checked, adjacent events) and transcript scan (end of call checked, names looked for)
    - Surface it to the controller and stop. Do not proceed until the controller responds.
 
 4. **Classify recordings as personal or work:**

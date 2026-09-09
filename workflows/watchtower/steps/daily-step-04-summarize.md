@@ -1,8 +1,10 @@
 ---
-status: not-started
-started-at: ~
-completed-at: ~
-outputs: {}
+status: complete
+started-at: "2026-09-09T00:12:00Z"
+completed-at: "2026-09-09T00:20:00Z"
+outputs:
+  items_summarized: 14
+  avg_word_count: 78.5
 ---
 
 <!-- system:start -->

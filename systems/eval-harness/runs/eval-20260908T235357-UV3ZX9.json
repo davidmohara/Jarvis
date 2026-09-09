@@ -1,0 +1,180 @@
+{
+  "id": "eval-20260908T235357-UV3ZX9",
+  "type": "workflow",
+  "name": "boot",
+  "agent": "master",
+  "session_id": "33177a22-638d-498e-924f-4743be1346ed",
+  "trigger": "boot",
+  "started": "2026-09-08T23:53:57.716832Z",
+  "completed": null,
+  "duration_seconds": null,
+  "status": "failure",
+  "steps": [],
+  "subagents": [
+    {
+      "agent_id": "a0d042013364409b5",
+      "agent_type": "general-purpose",
+      "started": "2026-09-08T23:54:20.126263Z",
+      "completed": null,
+      "model": null,
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    },
+    {
+      "agent_id": "a6fa0a57c243fbe7a",
+      "agent_type": "general-purpose",
+      "started": "2026-09-08T23:54:28.863408Z",
+      "completed": "2026-09-09T00:11:39.188998Z",
+      "model": "sonnet",
+      "tokens_input": 7290515,
+      "tokens_output": 3839,
+      "cost_usd": 4.057013,
+      "duration_seconds": 1039.06
+    },
+    {
+      "agent_id": "a0711a9de572c3719",
+      "agent_type": "general-purpose",
+      "started": "2026-09-08T23:55:36.030681Z",
+      "completed": "2026-09-09T00:05:42.698305Z",
+      "model": "sonnet",
+      "tokens_input": 504954,
+      "tokens_output": 20,
+      "cost_usd": 0.307345,
+      "duration_seconds": 64.68
+    },
+    {
+      "agent_id": "a19706881a762301a",
+      "agent_type": "general-purpose",
+      "started": "2026-09-08T23:56:10.916927Z",
+      "completed": "2026-09-08T23:56:36.668257Z",
+      "model": "sonnet",
+      "tokens_input": 288675,
+      "tokens_output": 96,
+      "cost_usd": 0.243064,
+      "duration_seconds": 25.75
+    },
+    {
+      "agent_id": "aece728779e3d43f6",
+      "agent_type": "general-purpose",
+      "started": "2026-09-08T23:56:20.885475Z",
+      "completed": "2026-09-09T00:01:22.396300Z",
+      "model": "haiku",
+      "tokens_input": 2013897,
+      "tokens_output": 69,
+      "cost_usd": 0.280432,
+      "duration_seconds": 301.51
+    },
+    {
+      "agent_id": "a959e69abbddf78aa",
+      "agent_type": "general-purpose",
+      "started": "2026-09-08T23:57:40.639468Z",
+      "completed": "2026-09-09T00:09:10.538108Z",
+      "model": "sonnet",
+      "tokens_input": 6899152,
+      "tokens_output": 6939,
+      "cost_usd": 2.732992,
+      "duration_seconds": 689.9
+    },
+    {
+      "agent_id": "a1680db551b619b11",
+      "agent_type": "general-purpose",
+      "started": "2026-09-08T23:58:29.301760Z",
+      "completed": "2026-09-08T23:59:01.249710Z",
+      "model": "sonnet",
+      "tokens_input": 327339,
+      "tokens_output": 38,
+      "cost_usd": 0.237228,
+      "duration_seconds": 31.95
+    },
+    {
+      "agent_id": "a6fa0a57c243fbe7a",
+      "agent_type": "general-purpose",
+      "started": "2026-09-08T23:59:01.427553Z",
+      "completed": null,
+      "model": null,
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    },
+    {
+      "agent_id": "a19706881a762301a",
+      "agent_type": "general-purpose",
+      "started": "2026-09-09T00:01:22.581238Z",
+      "completed": null,
+      "model": null,
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    },
+    {
+      "agent_id": "a0711a9de572c3719",
+      "agent_type": "general-purpose",
+      "started": "2026-09-09T00:04:38.021297Z",
+      "completed": null,
+      "model": null,
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    },
+    {
+      "agent_id": "a6fa0a57c243fbe7a",
+      "agent_type": "general-purpose",
+      "started": "2026-09-09T00:09:10.761025Z",
+      "completed": null,
+      "model": null,
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    }
+  ],
+  "monitoring": {
+    "active": true,
+    "state_yaml_path": "workflows/boot/state.yaml",
+    "opened_by": "eval-turn-start.py",
+    "trigger_evidence": "run the morning boot up workflow"
+  },
+  "assessment": {
+    "mechanical": {
+      "completed": null,
+      "all_steps_finished": null,
+      "tool_failures": 0,
+      "error_ids": [
+        "err-20260909T010719-0BCW7C"
+      ]
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [
+    "turn-level"
+  ]
+}

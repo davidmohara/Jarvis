@@ -1,8 +1,11 @@
 ---
-status: not-started
-started-at: ~
-completed-at: ~
-outputs: {}
+status: complete
+started-at: "2026-09-08T23:58:05Z"
+completed-at: "2026-09-09T00:05:00Z"
+outputs:
+  item_count: 15
+  sources_fetched: 2
+  failed_sources: []
 ---
 
 <!-- system:start -->

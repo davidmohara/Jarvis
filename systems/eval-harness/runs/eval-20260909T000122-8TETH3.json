@@ -1,0 +1,130 @@
+{
+  "id": "eval-20260909T000122-8TETH3",
+  "agent_id": "a19706881a762301a",
+  "type": "agent",
+  "name": "general-purpose",
+  "workflow": null,
+  "agent": "general-purpose",
+  "session_id": "33177a22-638d-498e-924f-4743be1346ed",
+  "trigger": "unknown",
+  "started": "2026-09-09T00:01:22.581238Z",
+  "completed": null,
+  "duration_seconds": null,
+  "status": "failure",
+  "steps": [
+    {
+      "name": "daily-step-05-capture.md",
+      "started": "2026-09-09T00:24:00Z",
+      "completed": "2026-09-09T00:30:00Z",
+      "duration_seconds": 360.0,
+      "status": "complete",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": null,
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    },
+    {
+      "name": "daily-step-07-prune.md",
+      "started": "2026-09-09T00:30:00Z",
+      "completed": "2026-09-09T00:33:00Z",
+      "duration_seconds": 180.0,
+      "status": "complete",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": null,
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    },
+    {
+      "name": "daily-step-06-report.md",
+      "started": "2026-09-09T00:33:00Z",
+      "completed": "2026-09-09T00:38:00Z",
+      "duration_seconds": 300.0,
+      "status": "complete",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": null,
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    },
+    {
+      "name": "step-01-discover.md",
+      "started": "2026-09-09T00:40:00Z",
+      "completed": "2026-09-09T01:05:00Z",
+      "duration_seconds": 1500.0,
+      "status": "completed",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": "haiku",
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    },
+    {
+      "name": "step-02-trigger-transcription.md",
+      "started": "2026-09-09T01:05:00Z",
+      "completed": "2026-09-09T01:06:00Z",
+      "duration_seconds": 60.0,
+      "status": "completed",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": "haiku",
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    }
+  ],
+  "assessment": {
+    "mechanical": {
+      "completed": null,
+      "all_steps_finished": true,
+      "tool_failures": 1,
+      "error_ids": [
+        "err-20260909T000829-0JTVV6"
+      ],
+      "tool_failure_log": [
+        {
+          "tool": "Bash",
+          "error": "Exit code 1\nls: zzPlaud/Improving/2026-09-03 David-Robyn 1-on-1 - Account Portfolio Review and CIO-Partner Outreach Strategy.md: No such file or directory",
+          "duration_ms": 26,
+          "timestamp": "2026-09-08T19:02:07.080743"
+        }
+      ]
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": []
+}

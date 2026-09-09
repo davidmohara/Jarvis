@@ -29,6 +29,26 @@
       "path": "memory/working/plaud-speaker-id-*.md",
       "pattern": "(?i)(complete|done|finished|output|result)",
       "description": "plaud-speaker-id output contains expected content"
+    },
+    {
+      "id": "plaud-sp-004-calendar-required",
+      "check": "yaml_field_pattern",
+      "path": "workflows/plaud-ingest/steps/step-03-identify-speakers.md",
+      "field": "outputs.notes",
+      "pattern": "(?i)(calendar|attendee|event)",
+      "rule": "If output indicates controller was asked (notes mention 'escalat' OR 'pending'), then notes MUST also contain evidence of calendar search (attendee lookup, event time match, adjacent events). If no controller escalation: assertion passes.",
+      "severity": "high",
+      "description": "Step-03 speaker identification: if controller was escalated, evidence shows calendar was checked before asking"
+    },
+    {
+      "id": "plaud-sp-005-transcript-required",
+      "check": "yaml_field_pattern",
+      "path": "workflows/plaud-ingest/steps/step-03-identify-speakers.md",
+      "field": "outputs.notes",
+      "pattern": "(?i)(transcript|self-id|self-identification|name.*end|sign-off)",
+      "rule": "If output indicates controller was asked, notes MUST contain evidence of transcript self-ID scan (checked end of recording, looked for name mentions, etc). If no controller escalation: assertion passes.",
+      "severity": "high",
+      "description": "Step-03 speaker identification: if controller was escalated, evidence shows transcript self-ID was checked before asking"
     }
   ]
 }

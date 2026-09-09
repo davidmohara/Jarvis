@@ -1,12 +1,12 @@
 ---
 status: complete
-started-at: "2026-09-04T15:25:00Z"
-completed-at: "2026-09-04T15:25:00Z"
+started-at: "2026-09-08T00:20:00Z"
+completed-at: "2026-09-08T00:21:00Z"
 outputs:
-  phase2_measurement_file: "systems/boot-instrumentation/measurements/measurement-state-20260904T152445.json"
-  total_kb: 0.0
-  total_tokens: 0
-  measurement_method: "measure.py run against state.yaml; accumulated-context is minimal (2 bytes) — outcomes recorded in step frontmatter rather than state.yaml accumulated-context this run, matching prior sessions' convention."
+  phase2_measurement_file: "systems/boot-instrumentation/measurements/measurement-state-20260908T235806.json"
+  total_kb: 0.96
+  total_tokens: 245
+  measurement_method: "measure.py run against state.yaml; top bloat sources: phase2.knox-handoff (30 tok), phase2.task-h-email-triage (23 tok), phase1-point5.key-finding (21 tok). Well within normal range, no action needed."
 ---
 
 <!-- system:start -->

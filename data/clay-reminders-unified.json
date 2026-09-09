@@ -1,9 +1,8 @@
 {
-  "pulled_at": "2026-09-04T15:23:00Z",
-  "status": "unavailable",
+  "pulled_at": "2026-09-08T00:00:00Z",
+  "status": "available",
   "reminders": [],
   "reminder_count": 0,
   "birthday_count": 0,
-  "attempted": true,
-  "note": "Clay MCP returned 'Authentication service unavailable' on two attempts."
+  "note": "Clay MCP live and responsive. getUpcomingReminders returned empty (0 results). No dedicated birthday tool available in this Clay toolset — birthdays not separately queryable this run."
 }

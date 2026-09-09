@@ -1,8 +1,11 @@
 ---
-status: not-started
-started-at: ~
-completed-at: ~
-outputs: {}
+status: complete
+started-at: "2026-09-09T00:20:00Z"
+completed-at: "2026-09-09T00:24:00Z"
+outputs:
+  through_line: "Today's signals all point the same direction: capability is outrunning ownership. CIOs take the blame for AI failures nobody clearly assigned, agentic AI adoption is mostly announcement not production, and the leadership research says the fix is org redesign, not another tool."
+  consulting_read: "The client conversation this week isn't 'should we adopt agentic AI', it's 'who owns the decision when it goes wrong, and did we actually redesign the org around it or just buy the license.' Deloitte packaging a hybrid-model practice and Kyndryl/Broadcom repositioning on VMware both say the same thing from the vendor side: delivery model is the new battleground, not raw capability. Improving's angle is the judgment and governance layer, closing the gap between 'we deployed agents' and 'someone owns what they do', which is exactly where CIOs are getting blamed for decisions they didn't fully control."
+  items_synthesized: 14
 ---
 
 <!-- system:start -->

@@ -1754,7 +1754,23 @@
           "systems/eval-harness/runs/eval-20260909T080809-P9BJ9U.json",
           "memory/working/dream-summary-2026-09-09.md",
           "systems/eval-harness/runs/eval-20260910T080853-46O0ZP.json",
-          "memory/working/dream-summary-2026-09-10.md"
+          "memory/working/dream-summary-2026-09-10.md",
+          "workflows/watchtower/state.yaml",
+          "workflows/watchtower/steps/daily-step-01-gather.md",
+          "systems/eval-harness/skill-runs/jarvis-inbox-latest.json",
+          "workflows/watchtower/steps/daily-step-02-dedupe.md",
+          "workflows/watchtower/steps/daily-step-03-score.md",
+          "workflows/watchtower/steps/daily-step-04-summarize.md",
+          "workflows/watchtower/steps/daily-step-04b-synthesize.md",
+          "workflows/watchtower/steps/daily-step-05-capture.md",
+          "workflows/watchtower/steps/daily-step-07-prune.md",
+          "workflows/watchtower/steps/daily-step-06-report.md",
+          "workflows/plaud-ingest/steps/step-01-discover.md",
+          "workflows/plaud-ingest/steps/step-02-trigger-transcription.md",
+          "systems/error-tracking/entries/err-20260909T000829-0JTVV6.json",
+          "systems/error-tracking/entries/err-20260909T010719-0BCW7C.json",
+          "systems/error-tracking/entries/err-20260909T011658-7M2K4W.json",
+          "systems/eval-harness/assertions/plaud-speaker-id.json"
         ]
       }
     ]

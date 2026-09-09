@@ -1,0 +1,104 @@
+{
+  "workflow": "boot",
+  "total_size_bytes": 980,
+  "accumulated_context": {
+    "name": "accumulated-context",
+    "size_bytes": 980,
+    "size_kb": 0.96,
+    "estimated_tokens": 245,
+    "type": "dict"
+  },
+  "field_breakdown": [
+    {
+      "name": "phase2.knox-handoff",
+      "size_bytes": 124,
+      "size_kb": 0,
+      "estimated_tokens": 30,
+      "type": "str"
+    },
+    {
+      "name": "phase2.task-h-email-triage",
+      "size_bytes": 97,
+      "size_kb": 0,
+      "estimated_tokens": 23,
+      "type": "str"
+    },
+    {
+      "name": "phase1-point5.key-finding",
+      "size_bytes": 86,
+      "size_kb": 0,
+      "estimated_tokens": 21,
+      "type": "str"
+    },
+    {
+      "name": "phase2.task-g-72hr-lookahead",
+      "size_bytes": 79,
+      "size_kb": 0,
+      "estimated_tokens": 19,
+      "type": "str"
+    },
+    {
+      "name": "phase1-point5.calendar",
+      "size_bytes": 49,
+      "size_kb": 0,
+      "estimated_tokens": 11,
+      "type": "str"
+    },
+    {
+      "name": "phase1-point5.unified-data-pulls.omnifocus",
+      "size_bytes": 46,
+      "size_kb": 0,
+      "estimated_tokens": 11,
+      "type": "str"
+    },
+    {
+      "name": "phase1-point5.unified-data-pulls.clay",
+      "size_bytes": 38,
+      "size_kb": 0,
+      "estimated_tokens": 9,
+      "type": "str"
+    },
+    {
+      "name": "note",
+      "size_bytes": 26,
+      "size_kb": 0,
+      "estimated_tokens": 6,
+      "type": "str"
+    },
+    {
+      "name": "phase1-point5.unified-data-pulls.email",
+      "size_bytes": 24,
+      "size_kb": 0,
+      "estimated_tokens": 5,
+      "type": "str"
+    },
+    {
+      "name": "phase1-point5.unified-data-pulls.jarvis-inbox",
+      "size_bytes": 18,
+      "size_kb": 0,
+      "estimated_tokens": 4,
+      "type": "str"
+    },
+    {
+      "name": "phase2.task-i-jarvis-inbox",
+      "size_bytes": 18,
+      "size_kb": 0,
+      "estimated_tokens": 4,
+      "type": "str"
+    },
+    {
+      "name": "phase2.task-j-reminders",
+      "size_bytes": 18,
+      "size_kb": 0,
+      "estimated_tokens": 4,
+      "type": "str"
+    },
+    {
+      "name": "phase2.morning-briefing-steps-01-02",
+      "size_bytes": 9,
+      "size_kb": 0,
+      "estimated_tokens": 2,
+      "type": "str"
+    }
+  ]
+}

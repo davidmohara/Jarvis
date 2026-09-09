@@ -1,8 +1,12 @@
 ---
-status: not-started
-started-at: ~
-completed-at: ~
-outputs: {}
+status: complete
+started-at: "2026-09-09T00:07:00Z"
+completed-at: "2026-09-09T00:12:00Z"
+outputs:
+  deduped_count: 15
+  dropped_below_floor: 1
+  awareness_items: 14
+  content_worthy_items: 4
 ---
 
 <!-- system:start -->

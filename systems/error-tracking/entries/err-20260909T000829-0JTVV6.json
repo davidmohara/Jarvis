@@ -1,0 +1,15 @@
+{
+  "id": "err-20260909T000829-0JTVV6",
+  "timestamp": "2026-09-09T00:08:29Z",
+  "source": "explicit",
+  "category": "data-verification",
+  "failure_mode": "wrong-tool-for-obsidian-verification",
+  "severity": "high",
+  "agent": "Knox",
+  "task": "plaud-ingest-retry",
+  "description": "Knox reported vault data loss (zzPlaud: 1 file, Calendar: missing) based on filesystem checks. David confirmed vault is fine. Root cause: Knox used filesystem tools to verify Obsidian vault state when it MUST use Obsidian MCP exclusively. The vault's location on disk is irrelevant; only mcp__obsidian-mcp-tools__* can be trusted for vault verification.",
+  "what_was_wrong": "Knox used filesystem-based tools (bash, file checks) to assess Obsidian vault state. This is protocol violation — Obsidian vault state can only be verified via Obsidian MCP. Filesystem view is not authoritative.",
+  "what_should_have_happened": "Knox should use mcp__obsidian-mcp-tools__list_vault_files or similar to verify vault contents before any data-loss claims. Filesystem checks for Obsidian are forbidden.",
+  "proposed_fix": "Add hard rule: For any Obsidian vault verification, ONLY use mcp__obsidian-mcp-tools__*. Never use filesystem checks, bash, or Desktop Commander for vault state. Document in SYSTEM.md: 'Obsidian verification: MCP only, never filesystem.'",
+  "impact": "False data-loss alarm halted boot on entirely spurious claims. Wasted time. Core protocol violation — using wrong tool category for vault verification."
+}

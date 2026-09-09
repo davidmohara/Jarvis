@@ -1,16 +1,17 @@
 {
-  "pulled_at": "2026-09-04T15:23:00Z",
+  "pulled_at": "2026-09-08T00:00:00Z",
   "task_count": 10,
   "tasks": [
-    {"name": "Higgsfield - video", "flagged": false, "due_date": null, "project": "inbox", "completed": false},
-    {"name": "Movies", "flagged": false, "due_date": null, "project": "inbox", "completed": false},
-    {"name": "Exec AI Workshop", "flagged": false, "due_date": null, "project": "inbox", "completed": false},
-    {"name": "CC Breakfast", "flagged": false, "due_date": null, "project": "inbox", "completed": false},
-    {"name": "Can cannon", "flagged": false, "due_date": null, "project": "inbox", "completed": false},
-    {"name": "Find church for Sunday", "flagged": false, "due_date": null, "project": "inbox", "completed": false},
-    {"name": "Vistage referrals for Alise", "flagged": false, "due_date": null, "project": "inbox", "completed": false},
-    {"name": "Take hanger for jacket to work", "flagged": false, "due_date": null, "project": "inbox", "completed": false},
-    {"name": "Buy", "flagged": false, "due_date": null, "project": "inbox", "completed": false},
-    {"name": "Blog: Passion is stupid", "flagged": false, "due_date": null, "project": "inbox", "completed": false}
-  ]
+    {"id": null, "name": "Higgsfield - video", "due_date": null, "project": "Inbox", "context": null, "is_flagged": false},
+    {"id": null, "name": "Movies", "due_date": null, "project": "Inbox", "context": null, "is_flagged": false},
+    {"id": null, "name": "Exec AI Workshop", "due_date": null, "project": "Inbox", "context": null, "is_flagged": false},
+    {"id": null, "name": "CC Breakfast", "due_date": null, "project": "Inbox", "context": null, "is_flagged": false},
+    {"id": null, "name": "Can cannon", "due_date": null, "project": "Inbox", "context": null, "is_flagged": false},
+    {"id": null, "name": "Find church for Sunday", "due_date": null, "project": "Inbox", "context": null, "is_flagged": false},
+    {"id": null, "name": "Vistage referrals for Alise", "due_date": null, "project": "Inbox", "context": null, "is_flagged": false},
+    {"id": null, "name": "Take hanger for jacket to work", "due_date": null, "project": "Inbox", "context": null, "is_flagged": false},
+    {"id": null, "name": "Blog: What does equality mean?", "due_date": null, "project": "Inbox", "context": null, "is_flagged": false},
+    {"id": null, "name": "Mike Chaffin intro for Rozzell", "due_date": null, "project": "Inbox", "context": null, "is_flagged": false}
+  ],
+  "note": "Fresh pull via direct osascript (Bash), 2026-09-08. All 10 tasks in Inbox, none flagged, none with due dates. Verify completion status if disputed (OmniFocus MCP note doesn't apply here since this was direct osascript, but same caveat convention applied)."
 }

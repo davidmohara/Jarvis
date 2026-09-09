@@ -1,14 +1,15 @@
 ---
 status: complete
-started-at: "2026-09-04T15:23:00Z"
-completed-at: "2026-09-04T15:23:00Z"
+started-at: "2026-09-08T00:05:00Z"
+completed-at: "2026-09-08T00:12:00Z"
 outputs:
   calendar_file: "data/calendar-unified.json"
-  event_count: 0
-  date_range: "2026-09-04 to 2026-09-07"
-  status: "failed — M365 unreachable this session (no outlook_calendar_search tool exposed). Wrote empty events file with explicit unreachable status per failure-mode table."
-  file_size_kb: 0.3
-  m365_calls: 0
+  event_count: 29
+  date_range: "2026-09-08 to 2026-09-11"
+  status: "written"
+  file_size_kb: 8
+  m365_calls: 2
+  note: "2 calls needed due to 25-event page limit (29 total). Key finding: David travels to Whitefish MT 9/9-9/11 for Lone Star Gold Presidents Retreat (mandatory), returning flight lands DFW ~5:33pm CT on 9/11."
 ---
 
 <!-- system:start -->

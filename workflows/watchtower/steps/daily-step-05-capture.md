@@ -1,8 +1,13 @@
 ---
-status: not-started
-started-at: ~
-completed-at: ~
-outputs: {}
+status: complete
+started-at: "2026-09-09T00:24:00Z"
+completed-at: "2026-09-09T00:30:00Z"
+outputs:
+  obsidian_note_path: "Watchtower/Daily/2026-09-08.md"
+  items_captured: 14
+  dashboard_built: false
+  through_line_rendered: true
+  consulting_read_rendered: true
 ---
 
 <!-- system:start -->

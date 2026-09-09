@@ -1,13 +1,367 @@
 workflow: watchtower
 agent: knox
 status: complete
-session-started: "2026-09-07T07:05:00Z"
-session-completed: "2026-09-07T08:15:00Z"
-session-id: "wt-weekly-2026-W37"
+session-started: "2026-09-08T23:58:05Z"
+session-completed: "2026-09-09T00:38:00Z"
+session-id: "wt-daily-2026-09-08"
 current-step: complete
-original-request: "watchtower-weekly scheduled run (Knox) — W37, Sep 7"
+original-request: "watchtower-daily run (Knox) — invoked by morning-briefing, Sep 8"
+retirements_today: []
 accumulated-context:
-  content_queue: []
+  through_line: "Today's signals all point the same direction: capability is outrunning ownership. CIOs take the blame for AI failures nobody clearly assigned, agentic AI adoption is mostly announcement not production, and the leadership research says the fix is org redesign, not another tool."
+  consulting_read: "The client conversation this week isn't 'should we adopt agentic AI', it's 'who owns the decision when it goes wrong, and did we actually redesign the org around it or just buy the license.' Deloitte packaging a hybrid-model practice and Kyndryl/Broadcom repositioning on VMware both say the same thing from the vendor side: delivery model is the new battleground, not raw capability. Improving's angle is the judgment and governance layer, closing the gap between 'we deployed agents' and 'someone owns what they do', which is exactly where CIOs are getting blamed for decisions they didn't fully control."
+  summarized_items:
+    - title: "CIOs bear the brunt of blame over AI mistakes"
+      url: "https://www.ciodive.com/news/CIOs-take-blame-AI-mistakes/829841/"
+      source_name: "CIO Dive"
+      published_date: "2026-09-08"
+      topic: "it-consulting"
+      score: 88
+      content_worthy: true
+      summary: "CIOs are absorbing the blame when enterprise AI initiatives misfire, even when the root cause sits in unclear governance or business-side decisions made above their pay grade. This is the accountability gap David's clients are living in right now: someone owns the AI outcome on paper, but the decision rights are diffuse. Worth raising directly in engagement conversations — who actually owns the AI decision at this client, and does the org chart match reality?"
+    - title: "The State Of Agentic AI In 2026: Companies Are Chasing, Few Are Catching"
+      url: "https://www.forrester.com/blogs/the-state-of-agentic-ai-in-2026-companies-are-chasing-few-are-catching/"
+      source_name: "Forrester"
+      published_date: "2026-09-01"
+      topic: "ai-agentic"
+      score: 84
+      content_worthy: true
+      summary: "Forrester's read is blunt: most enterprises are pursuing agentic AI, but almost none have scaled multi-agent systems running in production beyond glorified chatbots. The gap between the agentic AI announcement and the agentic AI actually doing work is the live sales argument right now. It reinforces that the judgment layer, what to build, in what sequence, how to govern it, is the part clients still can't do alone."
+    - title: "Deloitte aims to help enterprises with hybrid AI model strategy"
+      url: "https://www.ciodive.com/news/Deloitte-open-source-models-practice-engineering/829722/"
+      source_name: "CIO Dive"
+      published_date: "2026-09-04"
+      topic: "it-consulting"
+      score: 80
+      content_worthy: true
+      summary: "Deloitte is standing up a practice around hybrid proprietary-plus-open-source model strategy, another signal of how the Big Four are packaging AI delivery into productized offerings. It matters because it shows where the largest competitors are placing their bets on delivery model, not just capability. Worth watching whether this shifts client expectations toward a menu of model-strategy options rather than a single vendor recommendation."
+    - title: "AI Adoption in 2026: How Leaders Must Redesign Their Org Now"
+      url: "https://barryoreilly.com/explore/blog/ai-adoption-2026-leadership-organizational-redesign/"
+      source_name: "Barry O'Reilly"
+      published_date: "2026-08-20"
+      topic: "leadership"
+      score: 78
+      content_worthy: true
+      summary: "AI transformation fails when leadership treats it as a tooling rollout instead of a capability and operating-model change, and succeeds when leaders redesign roles, decision rights, and workflows around it. This lands squarely on the leadership/EOS lens: the org design work is the actual transformation, the software is just the trigger. A clean angle for a leadership piece on what separates firms that run well with AI from firms that just bought licenses."
+    - title: "CNBC bringing second annual AI Forum to Dallas"
+      url: "https://dallasinnovates.com/calendar/"
+      source_name: "Dallas Innovates"
+      published_date: "2026-09-05"
+      topic: "texas-regional"
+      score: 71
+      content_worthy: false
+      summary: "CNBC is returning to Dallas with its second annual AI Forum, convening executives and researchers on how AI is reshaping work and workforces. It's a visible marker of DFW's continued positioning as a national AI business hub, and a concrete networking or attendance opportunity. Worth a look at the speaker list and agenda once published."
+    - title: "Agentic AI Enterprise Adoption 2026: 72% Production Proven, governance gap widens"
+      url: "https://agenticaiinstitute.org/agentic-ai-enterprise-adoption-2026-governance-gap/"
+      source_name: "Agentic AI Institute"
+      published_date: "2026-09-01"
+      topic: "ai-agentic"
+      score: 70
+      content_worthy: false
+      summary: "New data puts 72% of firms with agents in production, but 60% still lack formal governance around those deployments. It's the same shape of gap as the Forrester finding above, technical capability outrunning organizational readiness, just quantified from a different angle. Useful as a supporting stat rather than a standalone argument."
+    - title: "Samsung moving U.S. headquarters to Plano; Lite-On picks McKinney for ~$1B campus"
+      url: "https://dallasinnovates.com/business/"
+      source_name: "Dallas Innovates"
+      published_date: "2026-09-05"
+      topic: "texas-regional"
+      score: 70
+      content_worthy: false
+      summary: "Samsung is relocating its U.S. headquarters to Plano while Lite-On commits to a nearly $1 billion campus in McKinney, both landing in the northern DFW suburbs. This continues the region's run of major corporate HQ and manufacturing investment, which keeps feeding the broader talent and vendor ecosystem David operates in. Worth tracking which of these companies become client-relevant over the next two quarters."
+    - title: "Kyndryl, Broadcom bet on VMware skills as private cloud demand returns"
+      url: "https://www.ciodive.com/news/kyndryl-broadcom-bet-on-vmware-skills-private-cloud/829723/"
+      source_name: "CIO Dive"
+      published_date: "2026-09-04"
+      topic: "it-consulting"
+      score: 72
+      content_worthy: false
+      summary: "Kyndryl and Broadcom are repositioning around VMware skills as enterprise demand swings back toward private cloud after a period of public-cloud-first assumptions. It's a delivery-model signal worth noting for anyone running infrastructure-services practices, the market didn't fully abandon private cloud, it paused. Worth checking whether Improving's infra practice needs a similar skills recalibration."
+    - title: "MIT/Wharton/BCG research: AI transformation fails as automation, succeeds as capability change"
+      url: "https://eonetwork.org/blog/how-ai-is-reshaping-talent-teams-and-leadership-and-what-employers-must-do-next/"
+      source_name: "EOS Worldwide Blog"
+      published_date: "2026-08-15"
+      topic: "leadership"
+      score: 68
+      content_worthy: false
+      summary: "Cross-institution research from MIT, Wharton, and BCG backs up the same finding as the Barry O'Reilly piece: AI success correlates with leaders reframing rollouts as workflow and mindset redesign rather than tool deployment. It's academic validation of a theme David is already tracking, useful as supporting citation for a leadership argument rather than a fresh angle on its own."
+    - title: "Tech sector continues to shed workers amid AI shift"
+      url: "https://www.ciodive.com/news/IT-sector-hires-comptia-august/829851/"
+      source_name: "CIO Dive"
+      published_date: "2026-09-08"
+      topic: "it-consulting"
+      score: 67
+      content_worthy: false
+      summary: "CompTIA's August data shows the IT sector still shedding headcount as AI reshapes hiring, with services and consulting roles caught in the contraction. This is useful labor-market backdrop for client conversations about workforce planning, though it's more context than a specific action item today. Worth a periodic check on whether the contraction is broad-based or concentrated in specific service lines."
+    - title: "Meta Muse: Meta's personal AI agent, features and capabilities"
+      url: "https://ai.meta.com/muse/"
+      source_name: "Hacker News (top stories)"
+      published_date: "2026-09-08"
+      topic: "ai-agentic"
+      score: 54
+      content_worthy: false
+      summary: "Meta launched Muse, a personal AI agent product, putting it in direct competition with OpenAI and Google in the consumer and prosumer assistant space. It's a notable competitive move but sits one step removed from David's enterprise-delivery lens, more a signal of where the frontier labs are racing than something with immediate client relevance."
+    - title: "Dallas-Fort Worth Passes L.A. to Take 5th in Tech Jobs in U.S."
+      url: "https://www.cpapracticeadvisor.com/2026/08/25/dallas-fort-worth-passes-l-a-to-take-5th-in-tech-jobs-in-u-s/189106/"
+      source_name: "Dallas Innovates"
+      published_date: "2026-08-25"
+      topic: "texas-regional"
+      score: 52
+      content_worthy: false
+      summary: "DFW has passed Los Angeles to rank 5th nationally in tech jobs, ahead of both Seattle and Boston. It's a useful regional talking point for client and community conversations about why DFW is where it is, though the stat itself is background rather than a fresh development to act on today."
+    - title: "Nvidia's $12.9B Hugging Face deal could benefit enterprises"
+      url: "https://www.ciodive.com/news/Nvidia-acquires-hugging-face-enterprises/829615/"
+      source_name: "CIO Dive"
+      published_date: "2026-09-03"
+      topic: "ai-agentic"
+      score: 52
+      content_worthy: false
+      summary: "Nvidia's acquisition of Hugging Face is being framed as an enterprise enablement play, consolidating model distribution and tooling under one roof. It's infrastructure-layer consolidation news, relevant to watch for vendor concentration risk, but not something that changes a client conversation this week."
+    - title: "AI Governance Weekly: enterprise agent security incidents at scale"
+      url: "https://www.strata.io/blog/agentic-identity/"
+      source_name: "CyberArk Blog / Strata"
+      published_date: "2026-09-02"
+      topic: "ai-agentic"
+      score: 43
+      content_worthy: false
+      summary: "Continued reporting on agent identity and security incident rates extends a theme already synthesized extensively in last week's run. Included here for awareness only, no new argument beyond what was already covered; not worth a fresh content angle."
+  scored_items:
+    - title: "CIOs bear the brunt of blame over AI mistakes"
+      url: "https://www.ciodive.com/news/CIOs-take-blame-AI-mistakes/829841/"
+      source_name: "CIO Dive"
+      published_date: "2026-09-08"
+      topic: "it-consulting"
+      raw_snippet: "CIOs are absorbing organizational blame when AI initiatives go wrong, even when the failure traces to unclear governance or business-side decisions."
+      score: 88
+      content_worthy: true
+      score_rationale: "Directly hits the accountability/governance gap David's clients live in, actionable for client conversations, same-day and from a high-trust practitioner source."
+    - title: "The State Of Agentic AI In 2026: Companies Are Chasing, Few Are Catching"
+      url: "https://www.forrester.com/blogs/the-state-of-agentic-ai-in-2026-companies-are-chasing-few-are-catching/"
+      source_name: "Forrester (web search)"
+      published_date: "2026-09-01"
+      topic: "ai-agentic"
+      raw_snippet: "Forrester finds most enterprises pursuing agentic AI but few running true scaled multi-agent systems beyond chatbots; adoption theater vs. real production."
+      score: 84
+      content_worthy: true
+      score_rationale: "Names the gap between agentic AI announcement and real production scale, a live consulting-sales argument; strong analyst-tier source."
+    - title: "Deloitte aims to help enterprises with hybrid AI model strategy"
+      url: "https://www.ciodive.com/news/Deloitte-open-source-models-practice-engineering/829722/"
+      source_name: "CIO Dive"
+      published_date: "2026-09-04"
+      topic: "it-consulting"
+      raw_snippet: "Deloitte is building a practice around hybrid (proprietary + open-source) model strategy for enterprise clients, signaling how Big Four firms are packaging AI delivery."
+      score: 80
+      content_worthy: true
+      score_rationale: "Direct competitive-move signal from a Big Four peer on delivery-model packaging, actionable for Improving's own positioning."
+    - title: "AI Adoption in 2026: How Leaders Must Redesign Their Org Now"
+      url: "https://barryoreilly.com/explore/blog/ai-adoption-2026-leadership-organizational-redesign/"
+      source_name: "Barry O'Reilly (web search)"
+      published_date: "2026-08-20"
+      topic: "leadership"
+      raw_snippet: "Argues AI transformation fails when leaders treat it as a tooling rollout instead of a capability and operating-model change; the org design layer is the real blocker."
+      score: 78
+      content_worthy: true
+      score_rationale: "Squarely in the leadership/EOS lens with a clear content and client-conversation angle, though slightly dated at 19 days old."
+    - title: "CNBC bringing second annual AI Forum to Dallas"
+      url: "https://dallasinnovates.com/calendar/"
+      source_name: "Dallas Innovates"
+      published_date: "2026-09-05"
+      topic: "texas-regional"
+      raw_snippet: "CNBC's AI Forum returns to Dallas, convening executives and researchers on AI's effect on work and workforce — a visible signal of DFW's positioning as an AI business hub."
+      score: 71
+      content_worthy: false
+      score_rationale: "Concrete, actionable regional event David could attend or reference; fresh but limited depth beyond a calendar listing."
+    - title: "Agentic AI Enterprise Adoption 2026: 72% Production Proven, governance gap widens"
+      url: "https://agenticaiinstitute.org/agentic-ai-enterprise-adoption-2026-governance-gap/"
+      source_name: "Agentic AI Institute (web search)"
+      published_date: "2026-09-01"
+      topic: "ai-agentic"
+      raw_snippet: "72% of firms report agents in production, yet 60% still lack formal governance frameworks around those deployments."
+      score: 70
+      content_worthy: false
+      score_rationale: "Overlaps with the Forrester item's theme and comes from a lower-trust source; still a usable data point but not standalone content-worthy."
+    - title: "Samsung moving U.S. headquarters to Plano; Lite-On picks McKinney for ~$1B campus"
+      url: "https://dallasinnovates.com/business/"
+      source_name: "Dallas Innovates"
+      published_date: "2026-09-05"
+      topic: "texas-regional"
+      raw_snippet: "Two major corporate relocations/investments land in the northern DFW suburbs, continuing the region's corporate-HQ and manufacturing-campus momentum."
+      score: 70
+      content_worthy: false
+      score_rationale: "Solid regional business signal with relationship/networking value, though not directly actionable for David's day-to-day."
+    - title: "Kyndryl, Broadcom bet on VMware skills as private cloud demand returns"
+      url: "https://www.ciodive.com/news/kyndryl-broadcom-bet-on-vmware-skills-private-cloud/829723/"
+      source_name: "CIO Dive"
+      published_date: "2026-09-04"
+      topic: "it-consulting"
+      raw_snippet: "Kyndryl and Broadcom are repositioning around VMware skills as enterprises swing back toward private cloud, a delivery-model signal for infra-services consulting."
+      score: 72
+      content_worthy: false
+      score_rationale: "Relevant delivery-model/competitive signal for infra-services consulting, moderate actionability for Improving's own service lines."
+    - title: "MIT/Wharton/BCG research: AI transformation fails as automation, succeeds as capability change"
+      url: "https://eonetwork.org/blog/how-ai-is-reshaping-talent-teams-and-leadership-and-what-employers-must-do-next/"
+      source_name: "EOS Worldwide Blog (web search)"
+      published_date: "2026-08-15"
+      topic: "leadership"
+      raw_snippet: "Cross-institution research finds AI success correlates with leaders reframing rollouts as mindset and workflow redesign, not tool deployment."
+      score: 68
+      content_worthy: false
+      score_rationale: "Reinforces the same theme as the Barry O'Reilly piece with academic backing, useful supporting data but not a fresh standalone angle."
+    - title: "Tech sector continues to shed workers amid AI shift"
+      url: "https://www.ciodive.com/news/IT-sector-hires-comptia-august/829851/"
+      source_name: "CIO Dive"
+      published_date: "2026-09-08"
+      topic: "it-consulting"
+      raw_snippet: "CompTIA's August data shows continued IT sector headcount contraction as AI reshapes hiring, with consulting/services roles part of the shift."
+      score: 67
+      content_worthy: false
+      score_rationale: "Relevant labor-market backdrop for the consulting business, fresh, but mostly background awareness rather than an immediate action."
+    - title: "Meta Muse: Meta's personal AI agent, features and capabilities"
+      url: "https://ai.meta.com/muse/"
+      source_name: "Hacker News (top stories)"
+      published_date: "2026-09-08"
+      topic: "ai-agentic"
+      raw_snippet: "Meta launched Muse, a personal AI agent product, entering the consumer/prosumer agentic assistant space directly against OpenAI and Google."
+      score: 54
+      content_worthy: false
+      score_rationale: "Fresh and notable competitive move in agentic AI, but consumer-facing and one step removed from David's enterprise-delivery lens."
+    - title: "Dallas-Fort Worth Passes L.A. to Take 5th in Tech Jobs in U.S."
+      url: "https://www.cpapracticeadvisor.com/2026/08/25/dallas-fort-worth-passes-l-a-to-take-5th-in-tech-jobs-in-u-s/189106/"
+      source_name: "Dallas Innovates (web search)"
+      published_date: "2026-08-25"
+      topic: "texas-regional"
+      raw_snippet: "DFW passed Los Angeles to rank 5th nationally in tech jobs, ahead of Seattle and Boston, reinforcing the region's talent-market position."
+      score: 52
+      content_worthy: false
+      score_rationale: "Useful regional talking-point stat but evergreen/background rather than timely or directly actionable."
+    - title: "Nvidia's $12.9B Hugging Face deal could benefit enterprises"
+      url: "https://www.ciodive.com/news/Nvidia-acquires-hugging-face-enterprises/829615/"
+      source_name: "CIO Dive"
+      published_date: "2026-09-03"
+      topic: "ai-agentic"
+      raw_snippet: "Nvidia's acquisition of Hugging Face is framed as an enterprise enablement play, consolidating model distribution and tooling."
+      score: 52
+      content_worthy: false
+      score_rationale: "Infrastructure/vendor consolidation news with indirect relevance; not something David acts on directly."
+    - title: "AI Governance Weekly: enterprise agent security incidents at scale"
+      url: "https://www.strata.io/blog/agentic-identity/"
+      source_name: "CyberArk Blog / Strata (web search)"
+      published_date: "2026-09-02"
+      topic: "ai-agentic"
+      raw_snippet: "Continued reporting on agent identity/security incident rates in enterprises, extending the theme already covered heavily in the prior weekly run."
+      score: 43
+      content_worthy: false
+      score_rationale: "Same theme already synthesized extensively in the prior weekly run (W37 Theme 3); scores just above the floor for awareness only, no new argument."
+  raw_items:
+    - title: "CIOs bear the brunt of blame over AI mistakes"
+      url: "https://www.ciodive.com/news/CIOs-take-blame-AI-mistakes/829841/"
+      source_name: "CIO Dive"
+      published_date: "2026-09-08"
+      topic: "it-consulting"
+      raw_snippet: "CIOs are absorbing organizational blame when AI initiatives go wrong, even when the failure traces to unclear governance or business-side decisions."
+    - title: "Deloitte aims to help enterprises with hybrid AI model strategy"
+      url: "https://www.ciodive.com/news/Deloitte-open-source-models-practice-engineering/829722/"
+      source_name: "CIO Dive"
+      published_date: "2026-09-04"
+      topic: "it-consulting"
+      raw_snippet: "Deloitte is building a practice around hybrid (proprietary + open-source) model strategy for enterprise clients, signaling how Big Four firms are packaging AI delivery."
+    - title: "Kyndryl, Broadcom bet on VMware skills as private cloud demand returns"
+      url: "https://www.ciodive.com/news/kyndryl-broadcom-bet-on-vmware-skills-private-cloud/829723/"
+      source_name: "CIO Dive"
+      published_date: "2026-09-04"
+      topic: "it-consulting"
+      raw_snippet: "Kyndryl and Broadcom are repositioning around VMware skills as enterprises swing back toward private cloud, a delivery-model signal for infra-services consulting."
+    - title: "Tech sector continues to shed workers amid AI shift"
+      url: "https://www.ciodive.com/news/IT-sector-hires-comptia-august/829851/"
+      source_name: "CIO Dive"
+      published_date: "2026-09-08"
+      topic: "it-consulting"
+      raw_snippet: "CompTIA's August data shows continued IT sector headcount contraction as AI reshapes hiring, with consulting/services roles part of the shift."
+    - title: "Nvidia's $12.9B Hugging Face deal could benefit enterprises"
+      url: "https://www.ciodive.com/news/Nvidia-acquires-hugging-face-enterprises/829615/"
+      source_name: "CIO Dive"
+      published_date: "2026-09-03"
+      topic: "ai-agentic"
+      raw_snippet: "Nvidia's acquisition of Hugging Face is framed as an enterprise enablement play, consolidating model distribution and tooling."
+    - title: "Meta Muse: Meta's personal AI agent, features and capabilities"
+      url: "https://ai.meta.com/muse/"
+      source_name: "Hacker News (top stories)"
+      published_date: "2026-09-08"
+      topic: "ai-agentic"
+      raw_snippet: "Meta launched Muse, a personal AI agent product, entering the consumer/prosumer agentic assistant space directly against OpenAI and Google."
+    - title: "The State Of Agentic AI In 2026: Companies Are Chasing, Few Are Catching"
+      url: "https://www.forrester.com/blogs/the-state-of-agentic-ai-in-2026-companies-are-chasing-few-are-catching/"
+      source_name: "Forrester (web search)"
+      published_date: "2026-09-01"
+      topic: "ai-agentic"
+      raw_snippet: "Forrester finds most enterprises pursuing agentic AI but few running true scaled multi-agent systems beyond chatbots; adoption theater vs. real production."
+    - title: "Agentic AI Enterprise Adoption 2026: 72% Production Proven, governance gap widens"
+      url: "https://agenticaiinstitute.org/agentic-ai-enterprise-adoption-2026-governance-gap/"
+      source_name: "Agentic AI Institute (web search)"
+      published_date: "2026-09-01"
+      topic: "ai-agentic"
+      raw_snippet: "72% of firms report agents in production, yet 60% still lack formal governance frameworks around those deployments."
+    - title: "Dallas-Fort Worth Passes L.A. to Take 5th in Tech Jobs in U.S."
+      url: "https://www.cpapracticeadvisor.com/2026/08/25/dallas-fort-worth-passes-l-a-to-take-5th-in-tech-jobs-in-u-s/189106/"
+      source_name: "Dallas Innovates (web search)"
+      published_date: "2026-08-25"
+      topic: "texas-regional"
+      raw_snippet: "DFW passed Los Angeles to rank 5th nationally in tech jobs, ahead of Seattle and Boston, reinforcing the region's talent-market position."
+    - title: "Samsung moving U.S. headquarters to Plano; Lite-On picks McKinney for ~$1B campus"
+      url: "https://dallasinnovates.com/business/"
+      source_name: "Dallas Innovates"
+      published_date: "2026-09-05"
+      topic: "texas-regional"
+      raw_snippet: "Two major corporate relocations/investments land in the northern DFW suburbs, continuing the region's corporate-HQ and manufacturing-campus momentum."
+    - title: "CNBC bringing second annual AI Forum to Dallas"
+      url: "https://dallasinnovates.com/calendar/"
+      source_name: "Dallas Innovates"
+      published_date: "2026-09-05"
+      topic: "texas-regional"
+      raw_snippet: "CNBC's AI Forum returns to Dallas, convening executives and researchers on AI's effect on work and workforce — a visible signal of DFW's positioning as an AI business hub."
+    - title: "AI Adoption in 2026: How Leaders Must Redesign Their Org Now"
+      url: "https://barryoreilly.com/explore/blog/ai-adoption-2026-leadership-organizational-redesign/"
+      source_name: "Barry O'Reilly (web search)"
+      published_date: "2026-08-20"
+      topic: "leadership"
+      raw_snippet: "Argues AI transformation fails when leaders treat it as a tooling rollout instead of a capability and operating-model change; the org design layer is the real blocker."
+    - title: "MIT/Wharton/BCG research: AI transformation fails as automation, succeeds as capability change"
+      url: "https://eonetwork.org/blog/how-ai-is-reshaping-talent-teams-and-leadership-and-what-employers-must-do-next/"
+      source_name: "EOS Worldwide Blog (web search)"
+      published_date: "2026-08-15"
+      topic: "leadership"
+      raw_snippet: "Cross-institution research finds AI success correlates with leaders reframing rollouts as mindset and workflow redesign, not tool deployment."
+    - title: "Kimi K3 (2.8T) running at 1 token/s on a MacBook Pro streamed from four SSDs"
+      url: "https://github.com/argonautlabsai/deltafin"
+      source_name: "Hacker News (top stories)"
+      published_date: "2026-09-08"
+      topic: "ai-agentic"
+      raw_snippet: "A hobbyist project demonstrates running a 2.8-trillion-parameter model locally via SSD streaming — a technical curiosity, not an enterprise-relevant signal."
+    - title: "AI Governance Weekly: enterprise agent security incidents at scale"
+      url: "https://www.strata.io/blog/agentic-identity/"
+      source_name: "CyberArk Blog / Strata (web search)"
+      published_date: "2026-09-02"
+      topic: "ai-agentic"
+      raw_snippet: "Continued reporting on agent identity/security incident rates in enterprises, extending the theme already covered heavily in the prior weekly run."
+  content_queue:
+    - title: "CIOs bear the brunt of blame over AI mistakes"
+      url: "https://www.ciodive.com/news/CIOs-take-blame-AI-mistakes/829841/"
+      topic: "it-consulting"
+      score: 88
+      date_added: "2026-09-08"
+    - title: "The State Of Agentic AI In 2026: Companies Are Chasing, Few Are Catching"
+      url: "https://www.forrester.com/blogs/the-state-of-agentic-ai-in-2026-companies-are-chasing-few-are-catching/"
+      topic: "ai-agentic"
+      score: 84
+      date_added: "2026-09-08"
+    - title: "Deloitte aims to help enterprises with hybrid AI model strategy"
+      url: "https://www.ciodive.com/news/Deloitte-open-source-models-practice-engineering/829722/"
+      topic: "it-consulting"
+      score: 80
+      date_added: "2026-09-08"
+    - title: "AI Adoption in 2026: How Leaders Must Redesign Their Org Now"
+      url: "https://barryoreilly.com/explore/blog/ai-adoption-2026-leadership-organizational-redesign/"
+      topic: "leadership"
+      score: 78
+      date_added: "2026-09-08"
   used_fallback: true
   obsidian_unavailable: false
   delta_check_applied: true

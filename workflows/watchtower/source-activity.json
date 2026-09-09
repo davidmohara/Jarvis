@@ -1,7 +1,7 @@
 {
   "_meta": {
     "purpose": "Per-source activity ledger for dormancy tracking. Updated by daily step-01 (gather) and step-03 (score) whenever a source contributes an item that clears awareness_floor. Pruned by daily-step-07-prune.",
-    "dormancy_rule": "Source is retired after 21 consecutive days with no item clearing awareness_floor. Trigger is surfaced items only — not feed activity. Retired sources move to dormant-sources.yaml.",
+    "dormancy_rule": "Source is retired after 21 consecutive days with no item clearing awareness_floor. Trigger is surfaced items only \u2014 not feed activity. Retired sources move to dormant-sources.yaml.",
     "schema": {
       "source_name": "Matches name field in sources.yaml",
       "added": "Date source was added to sources.yaml (YYYY-MM-DD)",
@@ -30,7 +30,7 @@
       "last_surfaced": null
     },
     {
-      "source_name": "Dallas Morning News — Business",
+      "source_name": "Dallas Morning News \u2014 Business",
       "added": "2026-06-19",
       "last_surfaced": null
     },
@@ -47,10 +47,10 @@
     {
       "source_name": "Hacker News (top stories)",
       "added": "2026-06-19",
-      "last_surfaced": null
+      "last_surfaced": "2026-09-08"
     },
     {
-      "source_name": "Axios Pro — Tech",
+      "source_name": "Axios Pro \u2014 Tech",
       "added": "2026-06-19",
       "last_surfaced": null
     },
@@ -105,12 +105,12 @@
       "last_surfaced": null
     },
     {
-      "source_name": "MIT Technology Review — Making AI Work",
+      "source_name": "MIT Technology Review \u2014 Making AI Work",
       "added": "2026-06-29",
       "last_surfaced": null
     },
     {
-      "source_name": "BCG Insights — AI & Tech Services",
+      "source_name": "BCG Insights \u2014 AI & Tech Services",
       "added": "2026-06-29",
       "last_surfaced": null
     },
@@ -118,6 +118,16 @@
       "source_name": "Stratechery",
       "added": "2026-06-29",
       "last_surfaced": null
+    },
+    {
+      "source_name": "CIO Dive",
+      "added": "2026-07-20",
+      "last_surfaced": "2026-09-08"
+    },
+    {
+      "source_name": "Dallas Innovates",
+      "added": "2026-06-20",
+      "last_surfaced": "2026-09-08"
     }
   ]
 }

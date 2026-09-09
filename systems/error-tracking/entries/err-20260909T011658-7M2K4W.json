@@ -1,0 +1,15 @@
+{
+  "id": "err-20260909T011658-7M2K4W",
+  "timestamp": "2026-09-09T01:16:58Z",
+  "source": "explicit",
+  "category": "data-extraction",
+  "failure_mode": "failed-to-extract-name-from-available-data",
+  "severity": "medium",
+  "agent": "Master",
+  "task": "plaud-speaker-identification",
+  "description": "Failed to identify Speaker 2 (Renzi Stone) despite having complete information in transcript and Plaud speakers.json. The transcript clearly shows Speaker 2 is called 'Renzi', owns Saxon professional services firm, is YPO member connected through Curtis/Steve/Frank Murphy/Rain Stegen, was at Arc Conference in London with Curtis, based near Oklahoma City, and associated with Just Capital. Last name was not in transcript or metadata, required direct request to David.",
+  "what_was_wrong": "Did not systematically cross-reference the clues in the transcript with people files, YPO connections, or other data sources. Relied too heavily on MCP tools (calendar attendees returning null, Obsidian search failing) instead of working from the concrete clues in the transcript itself.",
+  "what_should_have_happened": "Extract all identifying details from transcript: 'Renzi', 'Saxon', 'professional services', 'YPO', 'Curtis', 'Arc Conference', 'Oklahoma City', 'Frank Murphy', 'Rain Stegen', 'Just Capital'. Search people files and projects for anyone matching this profile. Or, recognize that 'Renzi' is likely a first or given name, and search for 'Renzi' + any of the context keywords.",
+  "proposed_fix": "For speaker identification: (1) Extract all speaker identifiers from transcript (name, company, location, connections, affiliations), (2) search vault and people files for matches using extracted details, (3) only ask controller after exhausting all searchable data.",
+  "impact": "Blocked plaud-ingest completion and wasted 30+ minutes on failed tool searches when the answer was in the transcript the whole time."
+}

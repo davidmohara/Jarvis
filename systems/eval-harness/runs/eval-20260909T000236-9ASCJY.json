@@ -1,13 +1,13 @@
 {
-  "id": "eval-20260831T144505-6H9DVD",
-  "type": "skill",
-  "name": "plaud-discover",
+  "id": "eval-20260909T000236-9ASCJY",
+  "type": "workflow",
+  "name": "watchtower",
   "agent": "knox",
-  "session_id": "42e7a4be-f83a-42ce-b1f7-a28842ff1cf6",
+  "session_id": "33177a22-638d-498e-924f-4743be1346ed",
   "trigger": "manual",
-  "started": "2026-08-31T09:45:00-05:00",
-  "completed": "2026-08-31T14:45:05.664430Z",
-  "duration_seconds": 5.7,
+  "started": "2026-09-08T23:58:05Z",
+  "completed": "2026-09-09T00:02:36.064313Z",
+  "duration_seconds": 271.1,
   "status": "success",
   "steps": [],
   "assessment": {
@@ -24,26 +24,26 @@
       "assertions_passed": 4,
       "assertion_results": [
         {
-          "assertion": "plaud-discover-signal-written",
-          "description": "plaud-discover skill-run signal file was written",
+          "assertion": "watch-001-state-complete",
+          "description": "Watchtower workflow state.yaml shows status: complete",
           "category": "structure",
           "passed": true
         },
         {
-          "assertion": "plaud-discover-signal-status",
-          "description": "plaud-discover skill-run did not end in failure",
+          "assertion": "watch-002-source-activity-exists",
+          "description": "Per-source activity ledger exists \u2014 updated by daily-step-03-score.md and read by daily-step-07-prune.md",
           "category": "structure",
           "passed": true
         },
         {
-          "assertion": "plaud-di-002-substantive",
-          "description": "plaud-discover output is substantive (>200 bytes)",
+          "assertion": "watch-003-source-activity-substantive",
+          "description": "Source activity ledger is a real record, not an empty stub",
           "category": "structure",
           "passed": true
         },
         {
-          "assertion": "plaud-di-003-content",
-          "description": "plaud-discover output contains expected content",
+          "assertion": "watch-004-sources-registry-exists",
+          "description": "Active source registry exists",
           "category": "structure",
           "passed": true
         }
@@ -72,17 +72,12 @@
       "rating": null,
       "comment": null,
       "timestamp": null
-    },
-    "deterministic_gate": {
-      "score": 0.8333,
-      "gate_status": "pass",
-      "computed_at": "2026-09-09T00:01:07.954919Z"
     }
   },
-  "version_hash": "81607653ed61218d",
+  "version_hash": "8292c02aa702b898",
   "prior_baseline_id": null,
   "tags": [
-    "cowork-hook",
-    "skill"
+    "phantom-candidate",
+    "cowork-hook"
   ]
 }

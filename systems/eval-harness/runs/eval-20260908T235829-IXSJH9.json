@@ -1,0 +1,74 @@
+{
+  "id": "eval-20260908T235829-IXSJH9",
+  "agent_id": "a1680db551b619b11",
+  "type": "agent",
+  "name": "general-purpose",
+  "workflow": null,
+  "agent": "general-purpose",
+  "session_id": "33177a22-638d-498e-924f-4743be1346ed",
+  "trigger": "unknown",
+  "started": "2026-09-08T23:58:29.301760Z",
+  "completed": "2026-09-08T23:59:01.249710Z",
+  "duration_seconds": 31.95,
+  "status": "partial",
+  "steps": [
+    {
+      "name": "daily-step-01-gather.md",
+      "started": "2026-09-08T23:58:05Z",
+      "completed": "2026-09-09T00:05:00Z",
+      "duration_seconds": 415.0,
+      "status": "complete",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": null,
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    }
+  ],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 1,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/33177a22-638d-498e-924f-4743be1346ed/subagents/agent-a1680db551b619b11.jsonl",
+  "last_assistant_message": "Confirmed: Task F (Lead Review) is not part of today's step-02 task list \u2014 it's not mentioned at all, consistent with \"Not applicable.\"\n\nAll evidence checked. Here is my verdict.\n\n| Task | Status | Notes |\n|---|---|---|\n| Morning Briefing Steps 01-02 | \u2705 Verified | `data/calendar-unified.json`: 29 events, pulled_at 2026-09-08, range 09-08 to 09-11. `data/omnifocus-unified.json`: 10 inbox tasks, pulled_at 2026-09-08. Both match claim. (Note: `workflows/morning-briefing/state.yaml` itself is stale, last-run 2026-08-31 \u2014 but the underlying data files are correctly fresh, which is the authoritative evidence per protocol.) |\n| E \u2014 Plaud Ingest | \u2796 Fire-and-forget | `workflows/plaud-ingest/state.yaml` shows `status: in-progress`, `agent: knox`, `session-id: pi-20260908-001`, `session-started: 2026-09-08T00:00:00-05:00`. Spawn is real and state reflects an active attempt started today. Cannot verify completion, per instructions not required. |\n| F \u2014 Lead Review | \u2796 Not applicable | Confirmed via `workflows/boot/steps/step-02-gather-data.md`: today's Phase 2 task list is Morning Briefing 01-02, G, H, I, J only. No Lead Review task exists in step-02's scope. |\n| G \u2014 72-Hour Look-Ahead | \u2705 Verified | `data/calendar-unified.json` contains both named events in the 9/9-9/11 window: \"FINAL - Lone Star Gold Annual Presidents Retreat\" (Whitefish, Montana, 9/9-9/11) and \"UTB - Strategic Planning Board Session\" (9/9). |\n| H \u2014 Email Triage | \u2705 Verified | `data/email-unified.json`: 6 messages, pulled_at 2026-09-08, none flagged (`is_flagged: false` on all). Both cited time-sensitive items present: TTUHSC RFP teaming email (Lowell.Messner) and Lone Star Gold board presentation email (tiffany@lonestargold.org). |\n| I \u2014 Jarvis Inbox | \u26a0\ufe0f Unverified | Claimed nothing-to-surface, but `systems/eval-harness/skill-runs/jarvis-inbox-latest.json` shows `started: 2026-08-21` \u2014 stale, not today's run. No log evidence confirms the Jarvis folder was actually checked on 2026-09-08. |\n| J \u2014 Boot Reminders | \u2705 Verified | `data/reminders.json` confirmed directly: `\"reminders\": []`, matching nothing-to-surface claim. |\n\n**Summary:** 4 Verified, 1 Fire-and-forget, 1 Not applicable, 1 Unverified.\n\nRe-run required before Phase 3: **Task I \u2014 Jarvis Inbox** (no fresh log evidence for today's run; the skill-run record is 18 days stale). Recommend Master either re-run `skills/jarvis-inbox/SKILL.md` or confirm via another live check before treating the \"nothing to surface\" claim as trustworthy.",
+  "model": "sonnet",
+  "total_tokens_input": 327339,
+  "total_tokens_output": 38,
+  "total_cost_usd": 0.237228
+}
