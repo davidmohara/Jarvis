@@ -22,8 +22,8 @@ related_people:
   - josh-white
   - parsa-sreenivasulu
 salience:
-  score: 1
-  last-promoted-check: 2026-09-09
+  score: 0
+  last-promoted-check: 2026-09-10
   promoted: true
 ---
 

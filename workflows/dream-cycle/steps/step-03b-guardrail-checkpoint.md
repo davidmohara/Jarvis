@@ -1,10 +1,10 @@
 ---
 status: complete
-started-at: 2026-09-06T08:12:00Z
-completed-at: 2026-09-06T08:12:30Z
+started-at: 2026-09-10T08:07:30Z
+completed-at: 2026-09-10T08:09:06Z
 outputs:
   result: pass
-  reason: "1 promoted entry this cycle (dream-summary-2026-09-04.md, score 10) correctly excluded from any future compression candidate set via promoted:true; volume normal; step-03's write to dream-summary-pattern.md was a substantive dated narrative append, not a stub. No in-progress dream-cycle eval record existed at run start; created one via new-eval.py (eval-20260906T080603-7DAV5G), tagged it name:dream-cycle, backfilled steps 01-03 via record-step.py, then recorded this checkpoint -- attached cleanly to the correct record."
+  reason: "4 promoted entries this cycle (today's own step-01 catch-up archives), all correctly excluded from any future compression candidate set via promoted:true; volume (4 vs typical 1) fully explained by the 09-09 date-level held-back batch landing together, not a scoring anomaly; all 3 semantic writes were substantive dated narrative appends, not stubs. No in-progress dream-cycle eval record existed at run start; created one via new-eval.py (eval-20260910T080853-46O0ZP), tagged it name:dream-cycle, backfilled steps 01-03 via record-step.py, then recorded this checkpoint -- attached cleanly to the correct record."
 model: sonnet
 ---
 

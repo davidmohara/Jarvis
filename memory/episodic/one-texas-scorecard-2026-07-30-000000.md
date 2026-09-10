@@ -20,8 +20,8 @@ tags:
   - powerbi
 related_people: []
 salience:
-  score: 9
-  last-promoted-check: 2026-09-09
+  score: 10
+  last-promoted-check: 2026-09-10
   promoted: true
 ---
 

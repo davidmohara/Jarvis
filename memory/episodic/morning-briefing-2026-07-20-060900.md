@@ -28,8 +28,8 @@ related_people:
   - ryan-menke
   - scott-mai
 salience:
-  score: 10
-  last-promoted-check: 2026-09-09
+  score: 8
+  last-promoted-check: 2026-09-10
   promoted: true
 ---
 

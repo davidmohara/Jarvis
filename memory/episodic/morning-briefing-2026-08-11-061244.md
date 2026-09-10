@@ -29,8 +29,8 @@ related_people:
   - ayotunde-gibbs
   - stephen-johnson
 salience:
-  score: 9
-  last-promoted-check: 2026-09-09
+  score: 6
+  last-promoted-check: 2026-09-10
   promoted: true
 ---
 

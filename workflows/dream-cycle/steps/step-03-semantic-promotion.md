@@ -1,21 +1,23 @@
 ---
 status: complete
-started-at: 2026-09-06T08:07:00Z
-completed-at: 2026-09-06T08:12:00Z
+started-at: 2026-09-10T08:05:30Z
+completed-at: 2026-09-10T08:07:30Z
 outputs:
-  candidates_count: 1
-  clusters_found: 1
+  candidates_count: 4
+  clusters_found: 3
   semantic_created: 0
-  semantic_updated: 1
-  promoted_entries: 1
-  promotion_note: "1 candidate this cycle: dream-summary-2026-09-04.md (score 10, today's own step-01 archive). Clustered by dominant tag: dream-summary -> memory/semantic/operational/2026-06-12-dream-summary-pattern.md (existing file, appended). Zero new semantic files created. No frontmatter corruption on this write."
+  semantic_updated: 3
+  promoted_entries: 4
+  promotion_note: "4 candidates this cycle (today's own step-01 archives), 3 clusters: dream-summary-2026-09-08.md -> dream-summary-pattern.md; co-sell-pipeline-2026-09-07-000000.md -> pipeline-review-pattern.md; both revenue-tracker-2026-09-07 files (fallback + live-correction same-morning pair) -> revenue-tracker-pattern.md as one combined entry, surfacing that South Texas's 90-Day forecast broke its 82% plateau, now at 74%. Zero new semantic files created."
   cluster_actions:
     - {tag: dream-summary, domain: operational, size: 1, action: update, target: memory/semantic/operational/2026-06-12-dream-summary-pattern.md, confidence: "high (unchanged)"}
-  error_categories_30d: "assumption-error/wrong-assumption:8, process-skip/protocol-skip:7, tool-misuse/protocol-skip:6, missed-context/lazy-search:4, tool-misuse/pattern-mismatch:4, data-accuracy/pattern-mismatch:3, lazy-search/available-data-not-used:3"
-  error_total_30d: 88
-  error_malformed_30d: 2
-  lessons_appended: 1
-  lessons_note: "Re-verified all 7 distinct qualifying categories against LESSONS.md directly this cycle rather than trusting prior cycles' notes -- found data-accuracy/pattern-mismatch was NOT actually documented despite 09-04 and 09-05 both claiming full coverage. Appended the missing entry. The other 6 categories confirmed already present and active."
+    - {tag: pipeline-review, domain: operational, size: 1, action: update, target: memory/semantic/operational/2026-06-18-pipeline-review-pattern.md, confidence: "medium (unchanged)"}
+    - {tag: revenue-tracker, domain: operational, size: 2, action: update, target: memory/semantic/operational/2026-06-24-revenue-tracker-pattern.md, confidence: "medium (unchanged)"}
+  error_categories_30d: "process-skip/protocol-skip:8, assumption-error/wrong-assumption:7, tool-misuse/protocol-skip:6, tool-misuse/pattern-mismatch:4, lazy-search/available-data-not-used:3, data-accuracy/pattern-mismatch:3, missed-context/lazy-search:3"
+  error_total_30d: 81
+  error_malformed_30d: 5
+  lessons_appended: 0
+  lessons_note: "Same 7 distinct qualifying categories as 09-09. Re-verified all 7 directly against LESSONS.md via grep of Category:/Failure mode: line pairs -- all confirmed present and active at the same line numbers as 09-09's verification, no drift. No new entry appended."
 ---
 
 <!-- system:start -->
