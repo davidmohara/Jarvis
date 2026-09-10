@@ -72,6 +72,34 @@ accumulated-context:
     digests_updated: 0
     compression_skipped: true
     compression_skip_reason: "1 compression candidate this cycle (date < 2026-06-12 AND salience.score < 2 AND salience.promoted == false: session-work-2026-06-08-162353.md), below the 5-entry safety threshold, GUARDRAIL 7 approval gate not reached. Consistent with 08-30 through 09-09 -- nothing has re-accumulated since the 08-29 David-approved batch. No files modified."
+  step-05-2026-09-10:
+    dream_log_appended: true
+    working_summary_written: true
+    working_summary_reason: "semantic_updated=3 > 0 triggers the mandatory working-summary write per Phase B. Content leads with the 4-file catch-up archival, then the South Texas 90-Day forecast breaking its month-long 82% plateau (now 74%) as the one item worth surfacing directly."
+    error_logged: "none this cycle -- clean run, no self-detected bugs."
+    eval_record: "eval-20260910T080853-46O0ZP -- created fresh at run start (no in-progress dream-cycle record existed), backfilled all 3 promotion-relevant steps via record-step.py, guardrail checkpoint attached cleanly on first attempt, closed manually (status:success, completed/duration_seconds set) rather than via close-eval-record.py's CLI -- per 09-05 through 09-09 precedent, that CLI fabricates a bogus new record with a fake session_id when it can't find a matching in-progress stub by its own lookup logic; manual close avoided repeating that. A separate auto-created 'phantom-candidate' eval record (9EIEWY, empty steps, known cowork/session-wide hook behavior) also appeared, left as-is per every prior cycle's precedent. grade_skill_run.py --skill dream-cycle also auto-created its own record (VC42D5) rather than grading 46O0ZP directly -- same pre-existing assertion-path bug noted since 09-05 (stale glob path memory/working/dream-cycle-*.md never matches this workflow's actual output filename memory/working/dream-summary-{date}.md); deterministic score 75% (2/5 structural) PASS (gate >=70%), left as-is, systems/ is Rigby-gated."
+    git_commit: success
+    git_push: success
+    git_commit_sha: 51122f4
+    git_followup_commit_sha: 1e02f48
+    git_sync_note: "Cloud sandbox container (Claude Code Remote), Desktop Commander confirmed unavailable via ToolSearch (no matching tool). Used plain git via Bash, one command per call, no chaining, no git status (used git diff --name-only HEAD / git branch --show-current instead). Session started in detached HEAD at origin/main's own tip (649822c, matching local HEAD exactly after a fetch, no divergence); moved to a real 'main' branch via 'git checkout -B main origin/main' before committing. Push was a clean fast-forward (649822c..51122f4, 328 files changed -- includes the working->episodic rename git detected automatically and every episodic file's routine last-promoted-check rewrite from step-02). Follow-up commit (1e02f48) captured the eval-record close, the dream-cycle skill-run signal file, and the grader's own auto-created record. Verified no uncommitted or untracked changes remain post-push."
+    working_archived: 4
+    working_deleted: 0
+    working_skipped: 40
+    working_stranded: 0
+    enrichment_method: "LLM (systems/dream-cycle/llm_tag_extractor.py via claude -p haiku) -- claude CLI auth functional in this container this cycle, all 4 archives enriched via LLM"
+    archived_files:
+      - co-sell-pipeline-2026-09-07-000000.md
+      - dream-summary-2026-09-08.md
+      - revenue-tracker-2026-09-07-001500.md
+      - revenue-tracker-2026-09-07-001800.md
+    skipped_not_expired:
+      - dream-summary-2026-09-09.md
+    skipped_unparseable_count: 39
+    new_unparseable_this_cycle: []
+    unparseable_left_untouched_missing_status:
+      - knox-plaud-ingest-2026-08-31.md
+    stranded: []
   step-01-2026-09-09:
     working_archived: 3
     working_deleted: 0
