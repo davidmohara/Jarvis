@@ -1,23 +1,21 @@
 ---
 status: complete
-started-at: 2026-09-10T08:05:30Z
-completed-at: 2026-09-10T08:07:30Z
+started-at: 2026-09-11T08:05:30Z
+completed-at: 2026-09-11T08:06:30Z
 outputs:
-  candidates_count: 4
-  clusters_found: 3
+  candidates_count: 1
+  clusters_found: 1
   semantic_created: 0
-  semantic_updated: 3
-  promoted_entries: 4
-  promotion_note: "4 candidates this cycle (today's own step-01 archives), 3 clusters: dream-summary-2026-09-08.md -> dream-summary-pattern.md; co-sell-pipeline-2026-09-07-000000.md -> pipeline-review-pattern.md; both revenue-tracker-2026-09-07 files (fallback + live-correction same-morning pair) -> revenue-tracker-pattern.md as one combined entry, surfacing that South Texas's 90-Day forecast broke its 82% plateau, now at 74%. Zero new semantic files created."
+  semantic_updated: 1
+  promoted_entries: 1
+  promotion_note: "1 candidate this cycle (today's own step-01 archive, dream-summary-2026-09-09.md, score 10) appended to dream-summary-pattern.md (operational/2026-06-12). Independently re-confirmed delegations/tracker.md still empty, now 11+ consecutive cycles."
   cluster_actions:
     - {tag: dream-summary, domain: operational, size: 1, action: update, target: memory/semantic/operational/2026-06-12-dream-summary-pattern.md, confidence: "high (unchanged)"}
-    - {tag: pipeline-review, domain: operational, size: 1, action: update, target: memory/semantic/operational/2026-06-18-pipeline-review-pattern.md, confidence: "medium (unchanged)"}
-    - {tag: revenue-tracker, domain: operational, size: 2, action: update, target: memory/semantic/operational/2026-06-24-revenue-tracker-pattern.md, confidence: "medium (unchanged)"}
-  error_categories_30d: "process-skip/protocol-skip:8, assumption-error/wrong-assumption:7, tool-misuse/protocol-skip:6, tool-misuse/pattern-mismatch:4, lazy-search/available-data-not-used:3, data-accuracy/pattern-mismatch:3, missed-context/lazy-search:3"
-  error_total_30d: 81
-  error_malformed_30d: 5
+  error_categories_30d: "process-skip/protocol-skip:8, assumption-error/wrong-assumption:7, tool-misuse/protocol-skip:6, tool-misuse/pattern-mismatch:4, data-accuracy/pattern-mismatch:3, missed-context/lazy-search:3"
+  error_total_30d: 74
+  error_malformed_30d: 14
   lessons_appended: 0
-  lessons_note: "Same 7 distinct qualifying categories as 09-09. Re-verified all 7 directly against LESSONS.md via grep of Category:/Failure mode: line pairs -- all confirmed present and active at the same line numbers as 09-09's verification, no drift. No new entry appended."
+  lessons_note: "6 distinct qualifying categories, down from 7 on 09-10 -- lazy-search/available-data-not-used aged out of the 30-day window (all 3 occurrences dated 08-11, window_start now 08-12). Re-verified all 6 remaining categories directly against LESSONS.md via grep of Category:/Failure mode: line pairs -- all confirmed present and active. No new entry appended."
 ---
 
 <!-- system:start -->

@@ -3,7 +3,7 @@ type: semantic
 domain: operational
 primary-tag: dream-summary
 created: 2026-06-12
-last-updated: 2026-09-09
+last-updated: 2026-09-11
 confidence: high
 synthesized-from: 26
   - dream-summary-2026-05-25.md
@@ -112,6 +112,7 @@ synthesized-from:
   - memory/episodic/dream-summary-2026-09-04.md
   - memory/episodic/dream-summary-2026-09-05.md
   - memory/episodic/dream-summary-2026-09-06.md
+  - memory/episodic/dream-summary-2026-09-09.md
 ---
 # Pattern: Dream Summary
 
@@ -394,3 +395,9 @@ Sources this cycle:
 - `memory/episodic/dream-summary-2026-09-08.md` (score 10) — quiet-mechanics night's own working-memory write: one item aged out (the 09-07 dream summary), no compression needed, no frontmatter corruption across 307 files checked, all 7 recurring 30-day error categories reconfirmed already in LESSONS.md. Also flagged a schema-consistency gap: 3 error-tracking entries since 09-04 use non-standard category values ("major"/"critical") instead of a real taxonomy value, worth a Rigby fix at the source.
 
 This was a 4-file catch-up cycle overall — this source plus two revenue-tracker snapshots and one co-sell-pipeline snapshot all held back on 09-09 by the same-calendar-date rule landed together tonight (see revenue-tracker-pattern.md and pipeline-review-pattern.md for those). Re-checked the delegation tracker directly again: `delegations/tracker.md` still shows zero active delegations — now confirmed empty across at least 10 consecutive cycles. Q3 rocks status remains outside dream-cycle's normal scope and was not independently re-verified. No new movement to report on either watch-list item.
+
+### 2026-09-11 — Nightly promotion
+Sources this cycle:
+- `memory/episodic/dream-summary-2026-09-09.md` (score 10) — the lone archive candidate this cycle (dream-summary-2026-09-10.md was held back by the same-calendar-date rule, expected next cycle). This source was written before David's 09-06 resolution of the nerve block and South Texas revenue items, so its body still lists the old four-item framing rather than the current two-item watch list — the framing is superseded by the 09-06 entry above and needs no fresh correction, same handling as the 09-07 promotion. Its substantive content: the two-part 09-04 Plaud ingest overlap (independent chief + Knox sessions completing the same recording) sharpened the diagnosis of `fetch_plaud.py`'s `transaction_polish` bug to a 3-incident recurring signal (08-10 and both 09-04 sessions).
+
+Re-checked the delegation tracker directly again this cycle: `delegations/tracker.md` still shows zero active delegations — now confirmed empty across at least 11 consecutive cycles. Q3 rocks status remains outside dream-cycle's normal scope and was not independently re-verified. No new movement to report on either watch-list item. Corpus-wide frontmatter-corruption scan (315 episodic files) found 0 instances, consistent with every cycle since the 09-01 fix.

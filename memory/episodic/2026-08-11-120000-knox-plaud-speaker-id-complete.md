@@ -25,8 +25,8 @@ related_people:
   - ayotunde-gibbs
   - alice-mburu
 salience:
-  score: 2
-  last-promoted-check: 2026-09-10
+  score: 0
+  last-promoted-check: 2026-09-11
   promoted: true
 ---
 

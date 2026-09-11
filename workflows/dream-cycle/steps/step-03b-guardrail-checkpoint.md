@@ -1,10 +1,10 @@
 ---
 status: complete
-started-at: 2026-09-10T08:07:30Z
-completed-at: 2026-09-10T08:09:06Z
+started-at: 2026-09-11T08:06:30Z
+completed-at: 2026-09-11T08:08:33Z
 outputs:
   result: pass
-  reason: "4 promoted entries this cycle (today's own step-01 catch-up archives), all correctly excluded from any future compression candidate set via promoted:true; volume (4 vs typical 1) fully explained by the 09-09 date-level held-back batch landing together, not a scoring anomaly; all 3 semantic writes were substantive dated narrative appends, not stubs. No in-progress dream-cycle eval record existed at run start; created one via new-eval.py (eval-20260910T080853-46O0ZP), tagged it name:dream-cycle, backfilled steps 01-03 via record-step.py, then recorded this checkpoint -- attached cleanly to the correct record."
+  reason: "1 promoted entry this cycle (today's own step-01 archive), correctly excluded from any future compression candidate set via promoted:true; volume (1) is normal, no anomaly; the 1 semantic write was a substantive dated narrative append, not a stub. No in-progress dream-cycle eval record existed at run start; created one via new-eval.py (eval-20260911T080732-2RJ1NJ). First record-step.py calls were issued before the record's name field was set to dream-cycle, so they silently matched and overwrote yesterday's closed record's steps instead (eval-20260910T080853-46O0ZP) -- caught immediately via post-write verification, restored the historical record from git (git checkout HEAD --), then set name/agent/session_id/tags on today's record before re-issuing the record-step calls correctly. Checkpoint then attached cleanly to the correct (today's) record."
 model: sonnet
 ---
 

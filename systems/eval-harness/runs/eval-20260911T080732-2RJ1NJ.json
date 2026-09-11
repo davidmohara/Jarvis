@@ -1,0 +1,131 @@
+{
+  "id": "eval-20260911T080732-2RJ1NJ",
+  "type": "agent",
+  "name": "dream-cycle",
+  "agent": "jarvis",
+  "session_id": "dream-cycle-2026-09-11-080404",
+  "trigger": "manual",
+  "started": "2026-09-11T08:07:32.017874Z",
+  "completed": null,
+  "duration_seconds": null,
+  "status": "in-progress",
+  "steps": [
+    {
+      "name": "step-01-working-memory-cleanup",
+      "started": "2026-09-11T08:04:04Z",
+      "completed": "2026-09-11T08:05:00Z",
+      "duration_seconds": 56.0,
+      "status": "complete",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": null,
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    },
+    {
+      "name": "step-02-salience-scoring",
+      "started": "2026-09-11T08:05:00Z",
+      "completed": "2026-09-11T08:05:30Z",
+      "duration_seconds": 30.0,
+      "status": "complete",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": null,
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    },
+    {
+      "name": "step-03-semantic-promotion",
+      "started": "2026-09-11T08:05:30Z",
+      "completed": "2026-09-11T08:06:30Z",
+      "duration_seconds": 60.0,
+      "status": "complete",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": null,
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    },
+    {
+      "name": "step-04-episodic-compression",
+      "started": "2026-09-11T08:08:33Z",
+      "completed": "2026-09-11T08:09:00Z",
+      "duration_seconds": 27.0,
+      "status": "complete",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": null,
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    }
+  ],
+  "assessment": {
+    "mechanical": {
+      "completed": null,
+      "all_steps_finished": true,
+      "tool_failures": 2,
+      "error_ids": [],
+      "tool_failure_log": [
+        {
+          "tool": "Bash",
+          "error": "Exit code 1\nUsage: record-step.py <workflow_name> <step_name> <status> [started_at] [completed_at] [--tokens-in N] [--tokens-out N] [--model sonnet|haiku]\n---\nUsage: guardrail-checkpoint.py <workflow_name> <checkpoint_name> <after_step> <result:pass|flag|escalate> <reason>",
+          "duration_ms": 122,
+          "timestamp": "2026-09-11T08:07:36.180807"
+        },
+        {
+          "tool": "Bash",
+          "error": "Exit code 123\n=== systems/eval-harness/runs/eval-20260820T191759-4LTRTD.json ===\nclaude-code-guide [] 0 2026-08-20T19:17:59.973295Z\n=== systems/eval-harness/runs/eval-20260820T220505-FINGK8.json ===\ngeneral-purpose [] 0 2026-08-20T22:05:05.807831Z\n=== systems/eval-harness/runs/eval-20260823T183854-HVMGY1.json ===\ndream-cycle [] 0 2026-08-23T18:38:54.654015Z\n=== systems/eval-harness/runs/eval-20260823T185241-3OHTE2.json ===\ndream-cycle [] 0 2026-08-23T18:52:41.893038Z\n=== systems/eval-harness/runs/eval-20260825T081245-WZSR6F.json ===\ndream-cycle ['phantom-candidate', 'cowork-hook'] 4 2026-08-25T03:04:48-05:00\n=== systems/eval-harness/runs/eval-20260826T081600-6E7FXX.json ===\ndream-cycle ['cowork-hook', 'phantom-candidate'] 5 2026-08-26T03:02:47-05:00\n=== systems/eval-harness/runs/eval-20260827T194531-ZAFO7O.json ===\ngeneral-purpose [] 0 2026-08-27T19:45:31.837725Z\n=== systems/eval-harness/runs/eval-20260829T081019-3LBCP8.json ===\ndream-cycle ['phantom-candidate', 'cowork-hook'] 0 2026-08-29T08:04:25Z\n=== systems/eval-harness/runs/eval-20260830T081152-TUVFEC.json ===\ndream-cycle ['phantom-candidate', 'cowork-hook'] 0 2026-08-30T08:05:32Z\n=== systems/eval-harness/runs/eval-20260831T081003-8K7VX8.json ===\ndream-cycle ['phantom-candidate', 'cowork-hook'] 0 2026-08-31T08:02:58Z\n=== systems/eval-harness/runs/eval-20260901T081753-JZ11KS.json ===\ndream-cycle ['phantom-candidate', 'cowork-hook'] 0 2026-09-01T08:03:26Z\n=== systems/eval-harness/runs/eval-20260901T082038-GEJXBG.json ===\ndream-cycle ['cowork-hook', 'skill'] 4 2026-09-01T08:03:26Z\n=== systems/eval-harness/runs/eval-20260901T113310-NZBX23.json ===\ngeneral-purpose [] 0 2026-09-01T11:33:10.204331Z\n=== systems/eval-harness/runs/eval-20260902T081106-760F1H.json ===\ndream-cycle ['phantom-candidate', 'cowork-hook'] 0 2026-09-02T08:03:23Z\n=== systems/eval-harness/runs/eval-20260902T081250-YO72MI.json ===\ndream-cycle ['cowork-hook', 'skill'] 0 2026-09-02T08:03:23Z\n=== systems/eval-harness/runs/eval-20260903T081233-OZES3F.json ===\ndream-cycle ['phantom-candidate', 'cowork-hook'] 0 2026-09-03T08:03:11Z\n=== systems/eval-harness/runs/eval-20260904T080934-ZIHBLJ.json ===\ndream-cycle ['phantom-candidate', 'cowork-hook'] 0 2026-09-04T08:05:11Z\n=== systems/eval-harness/runs/eval-20260904T111741-IAKR60.json ===\ngeneral-purpose [] 0 2026-09-04T11:17:41.892133Z\n=== systems/eval-harness/runs/eval-20260904T122853-LBVMDH.json ===\ngeneral-purpose [] 0 2026-09-04T12:28:53.346515Z\n=== systems/eval-harness/runs/eval-20260905T080940-W7MEXO.json ===\ndream-cycle [] 5 2026-09-05T08:09:40.250254Z\n=== systems/eval-harness/runs/eval-20260905T081146-RYE1LN.json ===\ndream-cycle ['cowork-hook', 'phantom-candidate'] 0 2026-09-05T08:02:45Z\n=== systems/eval-harness/runs/eval-20260906T080603-7DAV5G.json ===\ndream-cycle ['name:dream-cycle'] 5 2026-09-06T08:06:03.094484Z\n=== systems/eval-harness/runs/eval-20260906T080815-2AP8NO.json ===\ndream-cycle ['cowork-hook', 'phantom-candidate'] 0 2026-09-06T08:02:11Z\n=== systems/eval-harness/runs/eval-20260907T080320-H76E0X.json ===\ngeneral-purpose [] 0 2026-09-07T08:03:20.507280Z\n=== systems/eval-harness/runs/eval-20260907T080518-HJJE2C.json ===\ndream-cycle [] 0 2026-09-07T08:05:18.111142Z\n=== systems/eval-harness/runs/eval-20260907T080916-ZF09EX.json ===\nTraceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n  File \"/usr/lib/python3.11/json/__init__.py\", line 293, in load\n    return loads(fp.read(),\n           ^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.11/json/__init__.py\", line 346, in loads\n    return _default_decoder.decode(s)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.11/json/decoder.py\", line 337, in decode\n    obj, end = self.raw_decode(s, idx=_w(s, 0).end())\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.11/json/decoder.py\", line 353, in raw_decode\n    obj, end = self.scan_once(s, idx)\n               ^^^^^^^^^^^^^^^^^^^^^^\njson.decoder.JSONDecodeError: Expecting property name enclosed in double quotes: line 9 column 1 (char 225)\n=== systems/eval-harness/runs/eval-20260907T081034-AYDUPK.json ===\ndream-cycle ['phantom-candidate', 'cowork-hook'] 0 2026-09-07T08:03:32Z\n=== systems/eval-harness/runs/eval-20260907T081144-X7096Z.json ===\ndream-cycle ['cowork-hook', 'skill'] 0 2026-09-07T08:03:32Z\n=== systems/eval-harness/runs/eval-20260908T080733-VLWVWI.json ===\ndream-cycle [] 5 2026-09-08T08:07:33.994268Z\n=== systems/eval-harness/runs/eval-20260908T081022-70J9XG.json ===\ndream-cycle ['cowork-hook', 'phantom-candidate'] 0 2026-09-08T08:03:03Z\n=== systems/eval-harness/runs/eval-20260908T081148-9B18M1.json ===\ndream-cycle ['cowork-hook', 'skill'] 0 2026-09-08T08:03:03Z\n=== systems/eval-harness/runs/eval-20260909T080809-P9BJ9U.json ===\ndream-cycle ['name:dream-cycle'] 5 2026-09-09T08:08:09.426607Z\n=== systems/eval-harness/runs/eval-20260909T080928-LIHL47.json ===\ndream-cycle ['phantom-candidate', 'cowork-hook'] 0 2026-09-09T08:03:00Z\n=== systems/eval-harness/runs/eval-20260910T080853-46O0ZP.json ===\ndream-cycle [] 3 2026-09-10T08:08:53.454286Z\n=== systems/eval-harness/runs/eval-20260910T081043-9EIEWY.json ===\ndream-cycle ['phantom-candidate', 'cowork-hook'] 0 2026-09-10T08:03:01Z\n=== systems/eval-harness/runs/eval-20260910T081205-VC42D5.json ===\ndream-cycle ['cowork-hook', 'skill'] 0 2026-09-10T08:03:01Z",
+          "duration_ms": 863,
+          "timestamp": "2026-09-11T08:07:46.395214"
+        }
+      ]
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [
+    "name:dream-cycle"
+  ],
+  "guardrails": [
+    {
+      "name": "pre-deletion-review",
+      "after_step": "step-03-semantic-promotion",
+      "result": "pass",
+      "reason": "1 candidate this cycle (today's own step-01 archive), correctly excluded from any future compression candidate set via promoted:true; volume is normal (1 archive, 1 promotion, no catch-up batch); the semantic write was a substantive dated narrative append, not a stub.",
+      "escalated_to_human": false,
+      "timestamp": "2026-09-11T08:08:33.212711+00:00"
+    }
+  ]
+}

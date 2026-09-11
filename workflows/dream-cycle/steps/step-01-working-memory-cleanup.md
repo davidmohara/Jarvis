@@ -1,21 +1,19 @@
 ---
 status: complete
-started-at: 2026-09-10T08:03:01Z
-completed-at: 2026-09-10T08:04:30Z
+started-at: 2026-09-11T08:04:04Z
+completed-at: 2026-09-11T08:05:00Z
 outputs:
-  working_archived: 4
+  working_archived: 1
   working_deleted: 0
-  working_skipped: 40
+  working_skipped: 41
   working_stranded: 0
-  enrichment_method: "LLM (systems/dream-cycle/llm_tag_extractor.py via claude -p haiku) -- claude CLI auth functional in this container this cycle, all 4 archives enriched via LLM"
+  enrichment_method: "manual enrichment by the executing session (no subprocess claude -p call needed -- the session itself is the LLM)"
   archived_files:
-    - co-sell-pipeline-2026-09-07-000000.md
-    - dream-summary-2026-09-08.md
-    - revenue-tracker-2026-09-07-001500.md
-    - revenue-tracker-2026-09-07-001800.md
-  skipped_not_expired:
     - dream-summary-2026-09-09.md
+  skipped_not_expired:
+    - dream-summary-2026-09-10.md
   skipped_unparseable:
+    - plaud-discover-2026-09-08.md
     - 2026-07-08.md
     - 2026-07-23-215200-session-felix-derek-persona-rebuild.md
     - 2026-07-30-morning-briefing.md
@@ -57,8 +55,9 @@ outputs:
     - solace-meeting-prep-2026-07-27.md
   unparseable_left_untouched_missing_status:
     - knox-plaud-ingest-2026-08-31.md
-  new_unparseable_this_cycle: []
-  self_caught_bug_note: "None this cycle. Enriched all 4 candidates by replacing the existing 'type'/'status' lines in place and appending new enrichment keys (date, source_file, tags, related_people, salience), avoiding the duplicate-key corruption class this system has fought before. Revenue-tracker LLM enrichment chose 'rock-review' as its first tag over the corpus convention 'revenue-tracker' (same discrepancy as 09-03) -- left as-is, not force-corrected."
+  new_unparseable_this_cycle:
+    - plaud-discover-2026-09-08.md
+  self_caught_bug_note: "None this cycle. Enriched the 1 candidate by replacing the existing 'type'/'status' lines in place and appending new enrichment keys (date, source_file, tags, related_people, salience), avoiding the duplicate-key corruption class this system has fought before."
 ---
 
 <!-- system:start -->

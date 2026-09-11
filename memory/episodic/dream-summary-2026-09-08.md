@@ -22,9 +22,8 @@ related_people:
   - rigby
 salience:
   score: 10
-  last-promoted-check: 2026-09-10
+  last-promoted-check: 2026-09-11
   promoted: true
-
 ---
 
 Quiet night on the mechanics — one working-memory item aged out (yesterday's own dream summary) and folded cleanly into the existing dream-summary pattern in semantic memory. No compression needed (1 candidate, well under the 5-entry threshold), no frontmatter corruption anywhere in the corpus (307 files checked), and the error-pattern check re-confirmed all 7 recurring 30-day categories are already documented in LESSONS.md — nothing new to add there.

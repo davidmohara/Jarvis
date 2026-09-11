@@ -1,15 +1,15 @@
 ---
 status: complete
-started-at: 2026-09-10T08:04:30Z
-completed-at: 2026-09-10T08:05:30Z
+started-at: 2026-09-11T08:05:00Z
+completed-at: 2026-09-11T08:05:30Z
 outputs:
-  episodic_scanned: 314
-  score_updates: 314
+  episodic_scanned: 315
+  score_updates: 315
   no_tags: 202
   no_date: 38
-  score_distribution: "0:213,2:4,3:5,4:6,5:12,6:14,7:1,8:6,9:5,10:48"
-  window_entries: 39
-  note: "Ran systems/dream-cycle/salience-score.py. read_errors:0, write_errors:0. episodic_scanned rose 310->314 from today's 4 step-01 archives. pct_score_0=67.83% stays BELOW the 70% escalation threshold, consistent with 09-09 baseline (68.06%). pct_no_date=12.10% still crosses the >10% threshold, same legacy undated population as every prior cycle. pct_no_tags=64.33% stays in the 30-70% 'unusual tag coverage' band, same underlying population as prior cycles, not a new problem. Corpus-wide scan for the frontmatter-stranding corruption signature (duplicate salience: blocks, multiple promoted: keys) found 0 instances across all 314 episodic files, consistent with every cycle since the 09-01 fix (commit bb2de90)."
+  score_distribution: "0:218,1:3,2:5,3:2,4:12,5:11,6:9,7:2,8:4,9:3,10:46"
+  window_entries: 34
+  note: "Ran systems/dream-cycle/salience-score.py. read_errors:0, write_errors:0. episodic_scanned rose 314->315 from today's 1 step-01 archive. pct_score_0=69.21% stays BELOW the 70% escalation threshold, consistent with 09-10 baseline (67.83%). pct_no_date=12.06% still crosses the >10% threshold, same legacy undated population as every prior cycle. pct_no_tags=64.13% stays in the 30-70% 'unusual tag coverage' band, same underlying population as prior cycles, not a new problem. Corpus-wide scan for the frontmatter-stranding corruption signature (duplicate salience: blocks, multiple promoted: keys) found 0 instances across all 315 episodic files, consistent with every cycle since the 09-01 fix (commit bb2de90)."
 ---
 
 <!-- system:start -->

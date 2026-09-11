@@ -1,0 +1,15 @@
+{
+  "id": "err-20260911T080849-3TCTQW",
+  "timestamp": "2026-09-11T08:08:49Z",
+  "session": "dream-cycle-2026-09-11-080404",
+  "source": "self-detected",
+  "agent": "jarvis",
+  "category": "tool-misuse",
+  "description": "During dream-cycle step-03b, called systems/eval-harness/record-step.py against today's newly-created eval record (eval-20260911T080732-2RJ1NJ.json) before setting its `name` field to \"dream-cycle\". record-step.py selects its target by matching `name == workflow_name` across all records and picking the most recent by `started`, so with today's record still named \"unknown\" the three record-step calls silently matched and overwrote the `steps` array on yesterday's closed, successful eval record (eval-20260910T080853-46O0ZP.json) instead, replacing its historical 2026-09-10 step timestamps with today's.",
+  "correction": "Caught immediately on post-write verification (diffed the target record's steps against expectation, noticed the wrong file had changed). Restored the historical record via `git checkout HEAD -- systems/eval-harness/runs/eval-20260910T080853-46O0ZP.json`, then set `name`/`agent`/`session_id`/`tags` on today's record before re-issuing the three record-step.py calls, which then correctly targeted today's record.",
+  "failure_mode": "protocol-skip",
+  "systemic_fix": "record-step.py's name-based lookup silently targets the wrong record when a fresh new-eval.py record hasn't had its name field set yet, with no safeguard against overwriting a closed/success record. Proposed: (1) new-eval.py should accept a --name argument so callers set it at creation time rather than as a separate follow-up step; (2) record-step.py should refuse (or at least warn) when the matched target record has status:success/complete, since a step should never be recorded against an already-closed run. Flagging for Rigby.",
+  "fix_status": "proposed",
+  "severity": "moderate",
+  "related_entries": []
+}
