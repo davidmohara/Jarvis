@@ -64,6 +64,15 @@ accumulated-context:
     digests_updated: 0
     compression_skipped: true
     compression_skip_reason: "4 compression candidates this cycle (session-work-2026-06-08-162353.md carried forward from 09-10, plus 3 newly eligible as the 90-day cutoff advanced from 2026-06-12 to 2026-06-13: 2026-06-12-session-wrap.md, 2026-06-12-ai-innovation-lab-pdf.md, 2026-06-12-spring-line-advisory.md), below the 5-entry safety threshold. GUARDRAIL 7 approval gate not reached. Consistent with 08-30 through 09-10 -- nothing has re-accumulated past threshold since the 08-29 David-approved batch. No files modified."
+  git_atomicity_2026_09_11:
+    pre_commit_check: "pass"
+    dream_log_valid: true
+    state_file_valid: true
+    commit_status: "success"
+    commit_sha: "4cba425"
+    push_status: "success"
+    atomicity_check: "pass"
+    note: "Cloud sandbox container (Claude Code Remote), Desktop Commander confirmed unavailable via ToolSearch (no matching tool). Used plain git via Bash, one command per call, no chaining, no git status (git diff --name-only HEAD / git ls-files --others --exclude-standard instead). Local HEAD already matched origin/main's tip (77c0223, no divergence) after a fetch; moved off detached HEAD to a real 'main' branch via 'git checkout -B main origin/main' before starting. Push was a clean fast-forward (77c0223..4cba425, 328 files changed). Post-push diff and untracked-file checks confirmed clean. Self-detected and logged one process error this cycle (err-20260911T080849-3TCTQW, record-step.py mistargeting a closed record before today's had its name field set) -- caught and corrected before the commit, so it never reached the pushed history in corrupted form."
   step-01-2026-09-10:
     working_archived: 4
     working_deleted: 0

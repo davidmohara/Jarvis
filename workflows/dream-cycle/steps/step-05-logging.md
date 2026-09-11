@@ -1,18 +1,17 @@
 ---
 status: completed
-started-at: 2026-09-10T08:09:30Z
-completed-at: 2026-09-10T08:12:05Z
+started-at: 2026-09-11T08:09:32Z
+completed-at: 2026-09-11T08:12:00Z
 outputs:
   dream_log_appended: true
   working_summary_written: true
-  working_summary_reason: "semantic_updated=3 > 0 triggers the mandatory working-summary write per Phase B. Content leads with the 4-file catch-up archival, then the South Texas 90-Day forecast breaking its month-long 82% plateau (now 74%) as the one item worth surfacing directly."
-  error_logged: "none this cycle -- clean run, no self-detected bugs."
-  eval_record_note: "No in-progress dream-cycle eval record existed at run start; created and populated eval-20260910T080853-46O0ZP (name:dream-cycle, guardrails recorded correctly, closed status:success). A second, separately auto-created record (eval-20260910T081043-9EIEWY, tags cowork-hook/phantom-candidate) also appeared during this run with an empty guardrails array and failing structural assertions -- same known phantom-candidate hook behavior as every prior cycle, left as-is. grade_skill_run.py also auto-created its own record (eval-20260910T081205-VC42D5) rather than grading 46O0ZP directly -- same pre-existing assertion-path bug as 09-05 (stale glob path never matches this workflow's actual output filename); deterministic score 75% PASS, left as-is."
+  working_summary_reason: "semantic_updated=1 > 0 triggers the mandatory working-summary write per Phase B. Content leads with the single dream-summary-2026-09-09 archival and the plaud transaction_polish bug it sharpened, then the one process hiccup (eval-record mistarget) caught and fixed this cycle."
+  error_logged: "err-20260911T080849-3TCTQW -- self-detected: record-step.py briefly mistargeted yesterday's closed eval record before today's record had its name field set. Caught immediately, restored from git, corrected."
+  eval_record_note: "No in-progress dream-cycle eval record existed at run start; created eval-20260911T080732-2RJ1NJ via new-eval.py. Set name/agent/session_id/tags on it before backfilling steps 01-04 via record-step.py (the fix for the err-20260911T080849-3TCTQW mistargeting). Guardrail checkpoint recorded correctly on it. A second, separately auto-created record (eval-20260911T080959-ZNOF5V, tags cowork-hook/phantom-candidate, empty guardrails array) also appeared during this run -- same known phantom-candidate hook behavior as every prior cycle, left as-is. close-eval-record.py also created a stray new record (eval-20260911T081059-S2MJOX) rather than closing 2RJ1NJ directly -- same pre-existing lookup-by-name-and-status gap noted in the 09-05/09-10 grade_skill_run.py notes; deleted the stray before it was staged (consistent with the 09-09 precedent) and closed 2RJ1NJ's status/completed fields directly."
   git_commit: success
   git_push: success
-  git_commit_sha: 51122f4
-  git_followup_commit_sha: 1e02f48
-  git_sync_note: "Cloud sandbox container (Claude Code Remote), Desktop Commander confirmed unavailable via ToolSearch (no matching tool). Used plain git via Bash, one command per call, no chaining, no git status (used git diff --name-only HEAD / git branch --show-current instead). Session started in detached HEAD at origin/main's own tip (649822c, matching local HEAD exactly after a fetch, no divergence); moved to a real 'main' branch via 'git checkout -B main origin/main' before committing. Push was a clean fast-forward (649822c..51122f4, 328 files changed -- includes the working->episodic rename git detected automatically and every episodic file's routine last-promoted-check rewrite from step-02). Follow-up commit (1e02f48) captured the eval-record close, the dream-cycle skill-run signal file, and the grader's own auto-created record. Verified no uncommitted or untracked changes remain post-push."
+  git_commit_sha: 4cba425
+  git_sync_note: "Cloud sandbox container (Claude Code Remote), Desktop Commander confirmed unavailable via ToolSearch (no matching tool). Used plain git via Bash, one command per call, no chaining, no git status (used git diff --name-only HEAD / git ls-files --others --exclude-standard instead). Local HEAD already matched origin/main's tip (77c0223, no divergence) after a fetch; moved off detached HEAD to a real 'main' branch via 'git checkout -B main origin/main' before starting. Push was a clean fast-forward (77c0223..4cba425, 328 files changed -- includes the working->episodic rename git detected automatically and every episodic file's routine last-promoted-check rewrite from step-02). Post-push diff and untracked-file checks both confirmed clean."
 ---
 
 <!-- system:start -->
