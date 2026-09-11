@@ -285,6 +285,16 @@ Also added by David as named sources (approved same session, 2026-06-19):
 | AI Business Weekly | https://aibusinessweekly.net | ai-agentic | Rejected by David 2026-06-29 |
 | Fort Worth Report | https://fortworthreport.org | texas-regional | Rejected by David 2026-06-29 |
 
+### Batch 13 — 2026-09-11
+
+| Name | URL | Topic | Reason |
+|------|-----|-------|--------|
+| ISACA Now Blog | https://www.isaca.org/resources/news-and-trends/isaca-now-blog | ai-agentic | Rejected by David 2026-09-11 |
+| Harvard Business Review — CIO section | https://hbr.org/topic/subject/it-management | it-consulting | Rejected by David 2026-09-11 |
+| Constellation Research Blog | https://www.constellationr.com/blog-news | it-consulting | Rejected by David 2026-09-11 |
+| SiliconAngle (theCUBE) | https://siliconangle.com | ai-agentic | Rejected by David 2026-09-11 |
+| Andreessen Horowitz (a16z) — Enterprise AI | https://a16z.com/tag/enterprise/ | ai-agentic | Rejected by David 2026-09-11 |
+
 ### Batch 1 — 2026-06-20
 
 | Name | URL | Topic | Reason |
@@ -295,3 +305,13 @@ Also added by David as named sources (approved same session, 2026-06-19):
 
 <!-- personal:start -->
 <!-- personal:end -->
+
+### Batch 13 — Weekly Run (2026-09-11)
+
+| Name | URL | RSS | Topic | Trust | Why Relevant | Status |
+|------|-----|-----|-------|-------|--------------|--------|
+| ISACA Now Blog | https://www.isaca.org/resources/news-and-trends/isaca-now-blog | null | ai-agentic | high | Primary practitioner resource for IT audit, risk, and governance professionals. Directly covers the CIO accountability and AI governance gap themes surfaced this week — published frameworks on AI accountability assignment and governance ownership. Fills a gap between HBR (leadership lens) and CyberArk (security lens) with the governance-professional practitioner view. No public RSS; gather_method: search via site:isaca.org. | rejected 2026-09-11 |
+| Harvard Business Review — CIO section | https://hbr.org/topic/subject/it-management | null | it-consulting | high | HBR's IT management coverage captures the CIO career-risk and accountability gap stories at the intersection of business strategy and technology leadership. Distinct from the AI/ML section already tracked — this covers the organizational dynamics around technology leadership decisions. No subcategory RSS; gather_method: search via site:hbr.org/topic/subject/it-management. | rejected 2026-09-11 |
+| Constellation Research Blog | https://www.constellationr.com/blog-news | null | it-consulting | high | Independent technology research and advisory firm. Covers enterprise AI strategy, the adoption-vs-production gap, and consulting delivery model shifts at a practitioner depth comparable to Gartner but with faster publication cadence. Published analysis of enterprise agentic AI deployment patterns in 2026. No confirmed RSS; gather_method: search via site:constellationr.com. | rejected 2026-09-11 |
+| SiliconAngle (theCUBE) | https://siliconangle.com | https://siliconangle.com/feed/ | ai-agentic | med | Breaking enterprise technology news with strong AI and cloud coverage. Published real-time analysis of the Nvidia/Hugging Face acquisition and Deloitte AI practice announcements this week. Fills the fast-news gap between CIO Dive (editorial) and Hacker News (community aggregation) with vendor-announcement depth. RSS feed unverified — confirm on first run. | rejected 2026-09-11 |
+| Andreessen Horowitz (a16z) — Enterprise AI | https://a16z.com/tag/enterprise/ | null | ai-agentic | high | Published the 2026 enterprise AI adoption benchmarks that underpin the Forrester and Agentic AI Institute findings on adoption theater vs. real production. Primary VC-lens source on what enterprise AI maturity actually looks like across portfolio companies at scale. No dedicated RSS for enterprise tag; gather_method: search via site:a16z.com/tag/enterprise. | rejected 2026-09-11 |

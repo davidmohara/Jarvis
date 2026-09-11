@@ -1,0 +1,15 @@
+{
+  "id": "err-20260911T141503-K4M2N7",
+  "timestamp": "2026-09-11T14:15:03Z",
+  "source": "explicit",
+  "category": "workflow-persistence",
+  "failure_mode": "state-not-persisted",
+  "severity": "high",
+  "description": "Plaud speaker ID for Renzi Stone (2026-09-08 recording) was resolved in prior session but not persisted to workflow state. Knox re-asked for speaker ID on boot.",
+  "what_happened": "Prior session resolved Speaker 2 (Renzi Stone) for plaud-ingest. On boot, Knox reported same speaker as unresolved blocker, indicating workflow state wasn't updated correctly.",
+  "root_cause": "Plaud-ingest workflow did not persist speaker identification result to state.yaml or workflow context.",
+  "correction": "Speaker 2 is Renzi Stone. Workflow state should reflect this resolution.",
+  "proposed_fix": "Review plaud-ingest workflow steps to ensure speaker ID is written to workflow state/context after resolution, not just noted in conversation.",
+  "session_id": "boot-2026-09-11",
+  "agent_involved": "Knox"
+}

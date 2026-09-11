@@ -1,12 +1,12 @@
 ---
 status: complete
-started-at: "2026-09-08T00:20:00Z"
-completed-at: "2026-09-08T00:21:00Z"
+started-at: "2026-09-11T15:45:00Z"
+completed-at: "2026-09-11T15:46:00Z"
 outputs:
-  phase2_measurement_file: "systems/boot-instrumentation/measurements/measurement-state-20260908T235806.json"
-  total_kb: 0.96
-  total_tokens: 245
-  measurement_method: "measure.py run against state.yaml; top bloat sources: phase2.knox-handoff (30 tok), phase2.task-h-email-triage (23 tok), phase1-point5.key-finding (21 tok). Well within normal range, no action needed."
+  phase2_measurement_file: "systems/boot-instrumentation/measurements/measurement-state-20260911T141350.json"
+  total_kb: 1.63
+  total_tokens: 417
+  measurement_method: "measure.py run against state.yaml; top bloat sources: phase2.task-g-72hr-lookahead (75 tok), phase2.task-h-email-triage (49 tok), phase1-point5.unified-data-pulls.omnifocus (37 tok). Well within normal range, no action needed."
 ---
 
 <!-- system:start -->

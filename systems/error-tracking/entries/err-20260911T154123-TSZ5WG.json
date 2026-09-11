@@ -1,0 +1,15 @@
+{
+  "id": "err-20260911T154123-TSZ5WG",
+  "timestamp": "2026-09-11T15:41:23Z",
+  "session": "2026-09-11",
+  "source": "explicit",
+  "agent": "chase",
+  "category": "tool-misuse",
+  "description": "PowerBI report navigation failed. Built-in browser (mcp__Claude_Browser__navigate) returned 'navigation denied or failed' after access was granted. Chrome MCP returned limited/missing JavaScript execution results. Skill phase 1 blocked, co-sell pipeline data pull incomplete.",
+  "correction": "PowerBI should be accessible via Chrome extension or built-in browser. Neither browser rendered the report successfully. Alternative: verify PowerBI session is active, check network connectivity, or route through alternative data connector (e.g., MS365 Power BI APIs if available).",
+  "failure_mode": "tool-unavailable",
+  "systemic_fix": "Add fallback path to co-sell-pipeline skill: if browser-based PowerBI fails, attempt to query Improving Sales Analytics via MS365 Graph API or cached data source. Also document PowerBI SSO requirements in skill file.",
+  "fix_status": "proposed",
+  "severity": "major",
+  "related_entries": []
+}

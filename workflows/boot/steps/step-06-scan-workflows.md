@@ -1,11 +1,11 @@
 ---
 status: complete
-started-at: "2026-09-08T01:00:00Z"
-completed-at: "2026-09-08T01:05:00Z"
+started-at: "2026-09-11T15:58:00Z"
+completed-at: "2026-09-11T16:00:00Z"
 outputs:
-  workflows_scanned: "complete — _active.yaml read (active: []), but direct checks of workflows/plaud-ingest/state.yaml and workflows/watchtower/state.yaml (both run by Knox this boot) show real state NOT reflected in the index. Same recurring index/state mismatch pattern as prior boots (2026-09-03, 2026-09-04)."
-  active_workflows: "1 actionable (plaud-ingest: status awaiting-input, needs David's speaker ID before it can finish). Watchtower: status complete, no action needed."
-  background_tasks: "workflows/plaud-ingest/state.yaml: status awaiting-input, session pi-20260909-001, current-step step-03. 1 new recording staged, blocked only on identifying 'Speaker 2' on one call. workflows/watchtower/state.yaml: status complete, session wt-daily-2026-09-08 — daily run finished cleanly, no action needed."
+  workflows_scanned: "complete — _active.yaml read (active: []), but direct check of workflows/plaud-ingest/state.yaml shows real state NOT reflected in the index. Same recurring index/state mismatch pattern as prior boots (2026-09-03, 04, 08)."
+  active_workflows: "1 actionable (plaud-ingest: status awaiting-input, session pi-20260909-001, needs David's speaker ID). Watchtower: status complete (from 2026-09-08 run), no new run today yet."
+  background_tasks: "workflows/plaud-ingest/state.yaml: status awaiting-input, current-step step-03. 1 new recording staged, blocked on identifying an unresolved speaker label."
   result: "Surfacing plaud-ingest as awaiting-input despite empty _active.yaml index, since its own state.yaml is authoritative. Index discrepancy flagged again (recurring, non-blocking — Rigby should reconcile). Not auto-resumed — awaiting David's answer on the speaker ID."
 ---
 

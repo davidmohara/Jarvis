@@ -1,12 +1,13 @@
 workflow: plaud-ingest
 agent: knox
-status: awaiting-input
+status: complete
 session-id: pi-20260909-001
 session-started: '2026-09-09T00:40:00Z'
-current-step: step-03
+current-step: step-05b
+session-completed: '2026-09-11T08:22:00Z'
 original-request: "Knox — run workflows/plaud-ingest/workflow.md in full (boot invocation)"
 accumulated-context:
-  target-date: null
+  target-date: "2026-09-08"
   new-recordings:
     - file_id: "e0aa6343b58756669d5bb0eddc80c5a4"
       name: "09-08 Working Session Plan: Elevating a Manual AI Workflow to a Trusted, Integrated Executive Assistant"
@@ -16,20 +17,23 @@ accumulated-context:
       transcript_status: ready
   transcription-triggered: []
   pending-recordings: []
-  speaker-mappings: {}
-  pending-speaker-mappings:
+  speaker-mappings:
+    e0aa6343b58756669d5bb0eddc80c5a4:
+      Speaker 1: "David O'Hara"
+      Speaker 2: "Renzi Stone"
+  pending-speaker-mappings: []
+  recording-classification:
+    e0aa6343b58756669d5bb0eddc80c5a4: "work"
+  ready-for-fetch:
     - file_id: "e0aa6343b58756669d5bb0eddc80c5a4"
-      title: "Working Session Plan: Elevating a Manual AI Workflow to a Trusted, Integrated Executive Assistant"
+      name: "09-08 Working Session Plan: Elevating a Manual AI Workflow to a Trusted, Integrated Executive Assistant"
       date: "2026-09-08"
-      question: "Who is Speaker 2? (28 segments, no calendar match, no embedding match, no self-ID; context: YPO member, connected via Curtis and Steve, runs a professional-services firm referred to in-call as 'Saxon', based near Oklahoma City)"
-  recording-classification: {}
-  ready-for-fetch: []
   staged-files:
     - "plaud_09-08 Working Session Plan_ Elevating a Manual AI Workflow to a Trusted_ Integrated Executive Assistant.md"
     - "plaud_09-08 Working Session Plan_ Elevating a Manual AI Workflow to a Trusted_ Integrated Executive Assistant_raw.json"
     - "plaud_09-08 Working Session Plan_ Elevating a Manual AI Workflow to a Trusted_ Integrated Executive Assistant_speakers.json"
-  ingested-notes: []
-  unresolved_speakers:
+  ingested-notes:
     - file_id: "e0aa6343b58756669d5bb0eddc80c5a4"
-      speaker_label: "Speaker 2"
+      path: "zzPlaud/YPO/2026-09-08 Renzi Stone AI Workflow Working Session.md"
+  unresolved_speakers: []
   cleanup_note: "Initial run incorrectly invoked fetch_plaud.py --all, re-staging 133 already-ingested recordings. All 133 confirmed against vault via file_id match and moved to ~/Downloads/transcript-staging/_not_new_archive/. Only the 1 genuinely new recording remains in top-level staging."

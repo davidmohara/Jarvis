@@ -1,0 +1,60 @@
+{
+  "id": "eval-20260911T142001-VR5UMV",
+  "agent_id": "aa145e77a1586e1ae",
+  "type": "agent",
+  "name": "general-purpose",
+  "workflow": null,
+  "agent": "general-purpose",
+  "session_id": "f4e3c001-7555-4469-b406-0e8285b9079a",
+  "trigger": "unknown",
+  "started": "2026-09-11T14:20:01.571685Z",
+  "completed": "2026-09-11T14:26:34.852967Z",
+  "duration_seconds": 393.28,
+  "status": "partial",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 3,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/f4e3c001-7555-4469-b406-0e8285b9079a/subagents/agent-aa145e77a1586e1ae.jsonl",
+  "last_assistant_message": "Processed 1 Plaud recording:\n\n\u2713 Renzi Stone AI Workflow Working Session \u2192 `zzPlaud/YPO/2026-09-08 Renzi Stone AI Workflow Working Session.md` (personal/ypo)\n\nStaging cleanup: removed 5 files (2 markdown transcripts \u2014 the pre-rename generic version and the resolved re-fetch \u2014 plus the raw JSON, speakers JSON, and all_recordings snapshot).\n\nKey notes on this run:\n\n- **Speaker ID confirmed, not guessed.** The staged files included a \"Speaker 2\" version and an already-renamed \"Renzi Stone\" version (the fetch script's rename pipeline had already run). I cross-checked against `workflows/plaud-ingest/state.yaml`, which recorded the same mapping (Speaker 2 = Renzi Stone, Speaker 1 = David O'Hara), and against the calendar \u2014 a 9/8 event titled \"Regarding: Steve Hall Agent Strategy\" with attendee rstone@saxum.com confirms Renzi Stone, CEO of Saxum (Oklahoma City), matching the transcript's YPO/Just Capital/professional-services details.\n- **Reconciliation done before cleanup** per the mandatory gate in SKILL.md step 7: checked `plaud_all_recordings.json` (132 recordings) and confirmed the target file_id was the only one needing processing, matching state.yaml's note that 133 others were already archived in a prior run.\n- **Routed to `zzPlaud/YPO/`** rather than `Client/` or `Improving/` \u2014 this was a personal favor to a YPO-network connection, not an Improving client or internal meeting.\n- **Daily note created**: `Calendar/2026/09-September/2026-09-08.md` didn't exist (no `Calendar/` folder exists anywhere in this vault yet, including for prior ingests) \u2014 created it from the template and linked the meeting note, per vault-conventions.md.\n- Updated `workflows/plaud-ingest/state.yaml` to record the ingested note path.\n\nGrader output:\n```\n--- Eval: plaud-transcripts (eval-20260911T142621-EXNCI3) ---\nStructure 2/2 passed\nDeterministic score: 100%  ->  PASS (gate >= 70%)\nTier 3 qualitative grade: pending (runs in tonight's end-of-day sweep)\n```",
+  "model": "sonnet",
+  "total_tokens_input": 3366890,
+  "total_tokens_output": 10158,
+  "total_cost_usd": 1.553832
+}

@@ -110,3 +110,5 @@ Running list of potential blog topics. Jarvis captures these proactively from co
 - Find What You Seek (May 2025)
 - Health Journey: Augment (May 2025)
 - Digging Deep (Apr 2025)
+| "The CIO Is Holding the Bag" | Watchtower W37 (2026-09-11) [watchtower] | consulting, leadership, AI, governance | Draft at `Mind/Posts/_the-cio-is-holding-the-bag.md` |
+| "Adoption Is Real. Scale Is Theater." | Watchtower W37 (2026-09-11) [watchtower] | AI, agentic, consulting, business | Draft at `Mind/Posts/_adoption-is-real-scale-is-theater.md` |

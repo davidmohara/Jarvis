@@ -1,0 +1,15 @@
+{
+  "id": "err-20260911T141437-W87S4E",
+  "timestamp": "2026-09-11T14:14:37Z",
+  "source": "explicit",
+  "category": "information-retrieval",
+  "failure_mode": "lazy-verification",
+  "severity": "medium",
+  "description": "Knox reported plaud-ingest speaker ID blocker without checking resolved context. Master accepted blocker without verification against calendar or prior resolution notes.",
+  "what_happened": "Knox said Speaker 2 from 2026-09-08 recording needed identification. Master relayed this as active blocker instead of checking calendar to find matching event and speaker name.",
+  "root_cause": "Did not verify Knox's statement against calendar data or check if this was previously resolved context. Accepted incomplete information as terminal.",
+  "correction": "Calendar item matching 2026-09-08 timing contains correct speaker name. Check calendar, not Knox's blocker.",
+  "proposed_fix": "When Knox surfaces a blocker, verify against calendar/prior context before surfacing to controller. Don't relay unverified blockers as if terminal.",
+  "session_id": "boot-2026-09-11",
+  "agent_involved": "Knox"
+}

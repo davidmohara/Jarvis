@@ -1,17 +1,8 @@
 {
-  "pulled_at": "2026-09-08T00:00:00Z",
-  "task_count": 10,
-  "tasks": [
-    {"id": null, "name": "Higgsfield - video", "due_date": null, "project": "Inbox", "context": null, "is_flagged": false},
-    {"id": null, "name": "Movies", "due_date": null, "project": "Inbox", "context": null, "is_flagged": false},
-    {"id": null, "name": "Exec AI Workshop", "due_date": null, "project": "Inbox", "context": null, "is_flagged": false},
-    {"id": null, "name": "CC Breakfast", "due_date": null, "project": "Inbox", "context": null, "is_flagged": false},
-    {"id": null, "name": "Can cannon", "due_date": null, "project": "Inbox", "context": null, "is_flagged": false},
-    {"id": null, "name": "Find church for Sunday", "due_date": null, "project": "Inbox", "context": null, "is_flagged": false},
-    {"id": null, "name": "Vistage referrals for Alise", "due_date": null, "project": "Inbox", "context": null, "is_flagged": false},
-    {"id": null, "name": "Take hanger for jacket to work", "due_date": null, "project": "Inbox", "context": null, "is_flagged": false},
-    {"id": null, "name": "Blog: What does equality mean?", "due_date": null, "project": "Inbox", "context": null, "is_flagged": false},
-    {"id": null, "name": "Mike Chaffin intro for Rozzell", "due_date": null, "project": "Inbox", "context": null, "is_flagged": false}
-  ],
-  "note": "Fresh pull via direct osascript (Bash), 2026-09-08. All 10 tasks in Inbox, none flagged, none with due dates. Verify completion status if disputed (OmniFocus MCP note doesn't apply here since this was direct osascript, but same caveat convention applied)."
+  "pulled_at": "2026-09-11T15:30:00Z",
+  "status": "unreachable",
+  "task_count": 0,
+  "tasks": [],
+  "degraded": true,
+  "degraded_reason": "Desktop Commander / mcp__Control_your_Mac__osascript tool not present in this session's tool set (confirmed via ToolSearch, no match found for 'Control_your_Mac', 'osascript', or 'Desktop Commander'). Per SYSTEM.md this is the only authorized read path for OmniFocus; no fallback read path exists. Genuine data-source-unreachable condition, not a stale-mount misread. Prior run (2026-09-08) reported 10 uncompleted inbox tasks via direct osascript, so this is a session-specific tool availability gap, not a persistent OmniFocus outage."
 }

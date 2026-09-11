@@ -1,8 +1,8 @@
 {
-  "pulled_at": "2026-09-08T00:00:00Z",
+  "pulled_at": "2026-09-11T15:30:00Z",
   "status": "available",
   "reminders": [],
   "reminder_count": 0,
   "birthday_count": 0,
-  "note": "Clay MCP live and responsive. getUpcomingReminders returned empty (0 results). No dedicated birthday tool available in this Clay toolset — birthdays not separately queryable this run."
+  "note": "Clay MCP live. getUpcomingReminders returned empty (0 results). getUpcomingEvents returned Clay's own calendar-derived event list (redundant with M365 calendar pull, not reminders/birthdays) - no reminder or birthday items present."
 }

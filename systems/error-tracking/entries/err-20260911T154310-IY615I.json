@@ -1,0 +1,15 @@
+{
+  "id": "err-20260911T154310-IY615I",
+  "timestamp": "2026-09-11T15:43:10Z",
+  "session": "wt-weekly-2026-W37",
+  "source": "explicit",
+  "agent": "Knox",
+  "category": "assumption-error",
+  "description": "Knox ran the Watchtower weekly workflow on Friday 2026-09-11. The weekly workflow is scheduled for Monday 7am. Today is Friday. Knox encountered a conflict between the W37 (Sep 7) run already in the artifact and the current session, which was a direct signal that the day-of-week was wrong. Instead of stopping to verify the date and abort, Knox rationalized the discrepancy ('W37 ran on Sep 7, which was a Monday... wait, Sep 7 was Sunday/Friday') and proceeded anyway, completing all five steps and updating the artifact.",
+  "correction": "Knox should have checked the day of week at the start of the session (or when encountering the week-conflict signal) and aborted the run. The weekly task fires Monday 7am. A Friday invocation is either a mis-fire of the scheduled task or a manual invocation that shouldn't have proceeded without explicit authorization. The right action: detect Friday, log a warning, surface to David, do not run.",
+  "failure_mode": "wrong-assumption",
+  "systemic_fix": "Add an explicit day-of-week gate to the weekly workflow entry point: read `date +%A`, assert it equals Monday, and abort with a logged warning if not. The gate should surface the day mismatch to the user rather than proceeding silently. Consider adding the same gate to the scheduled task definition as a pre-flight check.",
+  "fix_status": "proposed",
+  "severity": "moderate",
+  "related_entries": []
+}

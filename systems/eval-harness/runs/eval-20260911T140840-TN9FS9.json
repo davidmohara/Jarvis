@@ -1,0 +1,187 @@
+{
+  "id": "eval-20260911T140840-TN9FS9",
+  "type": "workflow",
+  "name": "boot",
+  "agent": "master",
+  "session_id": "f4e3c001-7555-4469-b406-0e8285b9079a",
+  "trigger": "boot",
+  "started": "2026-09-11T14:08:40.727869Z",
+  "completed": "2026-09-11T14:20:44.177026Z",
+  "duration_seconds": 723.45,
+  "status": "success",
+  "steps": [],
+  "subagents": [
+    {
+      "agent_id": "a8580e2ff13d09980",
+      "agent_type": "general-purpose",
+      "started": "2026-09-11T14:09:03.535319Z",
+      "completed": "2026-09-11T14:27:30.063431Z",
+      "model": "haiku",
+      "tokens_input": 2518488,
+      "tokens_output": 67,
+      "cost_usd": 0.378702,
+      "duration_seconds": 655.84
+    },
+    {
+      "agent_id": "a5cc436d3f7ab0841",
+      "agent_type": "general-purpose",
+      "started": "2026-09-11T14:09:07.695586Z",
+      "completed": "2026-09-11T14:20:30.095824Z",
+      "model": "sonnet",
+      "tokens_input": 57383,
+      "tokens_output": 2022,
+      "cost_usd": 0.17115,
+      "duration_seconds": 18.58
+    },
+    {
+      "agent_id": "a65037a1d228e4a2d",
+      "agent_type": "general-purpose",
+      "started": "2026-09-11T14:10:03.274716Z",
+      "completed": "2026-09-11T14:20:11.335318Z",
+      "model": "haiku",
+      "tokens_input": 74445,
+      "tokens_output": 1,
+      "cost_usd": 0.074467,
+      "duration_seconds": 26.05
+    },
+    {
+      "agent_id": "a73098f72ec96d179",
+      "agent_type": "general-purpose",
+      "started": "2026-09-11T14:10:49.121615Z",
+      "completed": "2026-09-11T14:19:44.852410Z",
+      "model": "sonnet",
+      "tokens_input": 8169355,
+      "tokens_output": 3422,
+      "cost_usd": 3.147742,
+      "duration_seconds": 535.73
+    },
+    {
+      "agent_id": "af67b43eca56782a2",
+      "agent_type": "general-purpose",
+      "started": "2026-09-11T14:12:58.260444Z",
+      "completed": "2026-09-11T14:13:33.367161Z",
+      "model": "sonnet",
+      "tokens_input": 478056,
+      "tokens_output": 687,
+      "cost_usd": 0.268864,
+      "duration_seconds": 35.11
+    },
+    {
+      "agent_id": "a8580e2ff13d09980",
+      "agent_type": "general-purpose",
+      "started": "2026-09-11T14:16:34.222760Z",
+      "completed": null,
+      "model": null,
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    },
+    {
+      "agent_id": "a65037a1d228e4a2d",
+      "agent_type": "general-purpose",
+      "started": "2026-09-11T14:19:45.289285Z",
+      "completed": null,
+      "model": null,
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    },
+    {
+      "agent_id": "aa145e77a1586e1ae",
+      "agent_type": "general-purpose",
+      "started": "2026-09-11T14:20:01.571685Z",
+      "completed": "2026-09-11T14:26:34.852967Z",
+      "model": "sonnet",
+      "tokens_input": 3366890,
+      "tokens_output": 10158,
+      "cost_usd": 1.553832,
+      "duration_seconds": 393.28
+    },
+    {
+      "agent_id": "a5cc436d3f7ab0841",
+      "agent_type": "general-purpose",
+      "started": "2026-09-11T14:20:11.517922Z",
+      "completed": null,
+      "model": null,
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    }
+  ],
+  "monitoring": {
+    "active": false,
+    "state_yaml_path": "workflows/boot/state.yaml",
+    "opened_by": "eval-turn-start.py",
+    "trigger_evidence": "run the morning boot workflow"
+  },
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 3,
+      "assertions_passed": 3,
+      "assertion_results": [
+        {
+          "assertion": "boot-001-state-complete",
+          "description": "Boot workflow state.yaml shows status: complete",
+          "passed": true
+        },
+        {
+          "assertion": "boot-002-session-index-exists",
+          "description": "Session index file exists \u2014 boot's Session Index Boot step must have created/appended it",
+          "passed": true
+        },
+        {
+          "assertion": "boot-003-session-index-substantive",
+          "description": "Session index is a real record, not an empty stub",
+          "passed": true
+        }
+      ]
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": "f1a31609ac6be8a11b48a3c6267957f76a4e86e971cd143315c77472e90af0d0",
+  "prior_baseline_id": null,
+  "tags": [
+    "turn-level"
+  ],
+  "guardrails": [
+    {
+      "name": "pre-completion-review",
+      "after_step": "step-06-scan-workflows",
+      "result": "flag",
+      "reason": "Briefing accurately reflects live data gathered in steps 01-04. Three flags, none blocking: (1) OmniFocus MCP/osascript tool unreachable this session (degraded, task data omitted with clear flag); (2) Obsidian MCP unreachable during step-04 meeting-context gather (degraded, knowledge-layer lookups skipped); (3) recurring _active.yaml/plaud-ingest index mismatch (same as prior boots, Rigby to reconcile). No stale-as-fresh presentation, no leakage, session index clean.",
+      "escalated_to_human": false,
+      "timestamp": "2026-09-11T14:16:38.489813+00:00"
+    }
+  ],
+  "total_tokens_input": 8870510,
+  "total_tokens_output": 6142,
+  "total_cost_usd": 3.708644
+}

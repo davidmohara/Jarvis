@@ -1,0 +1,60 @@
+{
+  "id": "eval-20260911T140903-TQVBV3",
+  "agent_id": "a8580e2ff13d09980",
+  "type": "agent",
+  "name": "general-purpose",
+  "workflow": null,
+  "agent": "general-purpose",
+  "session_id": "f4e3c001-7555-4469-b406-0e8285b9079a",
+  "trigger": "unknown",
+  "started": "2026-09-11T14:09:03.535319Z",
+  "completed": "2026-09-11T14:09:15.067686Z",
+  "duration_seconds": 11.53,
+  "status": "success",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/f4e3c001-7555-4469-b406-0e8285b9079a/subagents/agent-a8580e2ff13d09980.jsonl",
+  "last_assistant_message": "[Knox]: Resuming plaud-ingest from step-03.\n\nWorkflow is paused waiting for speaker identification. One recording needs your help:\n\n**\"Working Session Plan: Elevating a Manual AI Workflow to a Trusted, Integrated Executive Assistant\" (2026-09-08)**\n\nSpeaker 2 (28 segments): Unable to resolve via calendar, embedding match, or self-ID.\nContext from recording: YPO member, connected via Curtis and Steve, runs a professional-services firm referred to in-call as \"Saxon\", based near Oklahoma City.\n\nWho is Speaker 2? (Reply with the name and I'll proceed to fetch and ingest.)",
+  "model": "haiku",
+  "total_tokens_input": 91271,
+  "total_tokens_output": 10,
+  "total_cost_usd": 0.046421
+}

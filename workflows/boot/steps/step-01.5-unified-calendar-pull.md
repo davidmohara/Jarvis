@@ -1,15 +1,15 @@
 ---
 status: complete
-started-at: "2026-09-08T00:05:00Z"
-completed-at: "2026-09-08T00:12:00Z"
+started-at: "2026-09-11T15:30:00Z"
+completed-at: "2026-09-11T15:35:00Z"
 outputs:
   calendar_file: "data/calendar-unified.json"
-  event_count: 29
-  date_range: "2026-09-08 to 2026-09-11"
+  event_count: 22
+  date_range: "2026-09-11 to 2026-09-14"
   status: "written"
-  file_size_kb: 8
-  m365_calls: 2
-  note: "2 calls needed due to 25-event page limit (29 total). Key finding: David travels to Whitefish MT 9/9-9/11 for Lone Star Gold Presidents Retreat (mandatory), returning flight lands DFW ~5:33pm CT on 9/11."
+  file_size_kb: 5
+  m365_calls: 1
+  note: "Single call, 22 events. Key finding: today is the return-travel day from the Lone Star Gold Presidents Retreat in Whitefish MT — Drive to Airport 10:30-11am CT overlaps the Presidents Pipeline Roundtable (10-11am CT), flight AA2939 FCA->DFW departs 2:02pm CT lands 5:33pm CT."
 ---
 
 <!-- system:start -->

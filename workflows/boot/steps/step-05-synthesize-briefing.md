@@ -1,12 +1,12 @@
 ---
 status: complete
-started-at: "2026-09-08T00:45:00Z"
-completed-at: "2026-09-08T01:00:00Z"
+started-at: "2026-09-11T15:52:00Z"
+completed-at: "2026-09-11T15:58:00Z"
 outputs:
-  briefing_delivered: "yes — full live morning briefing synthesized (all data sources live this run) and carried forward through steps 06-08 for verbatim delivery to controller"
-  format: "3-paragraph narrative + calendar table + Watchtower top-5 + no Reminders section (0 due, omitted per format rule)"
-  calendar_today: "9 events, live from data/calendar-unified.json. Heavy morning block (9am-12:30pm) with overlapping meetings, YPO Forum in-person afternoon, two tight back-to-back evening calls."
-  hotspots: "TTUHSC RFP decision needed (Lowell Messner handoff, out of country); UTB board session 9/9 conflicts with Whitefish MT flight; yesterday's daily review missing; Plaud speaker-ID question pending (non-blocking); South Texas revenue behind plan (Rock 1)."
+  briefing_delivered: "yes — full morning briefing synthesized (degraded on 2 sources: OmniFocus, Obsidian) and carried forward through steps 06-08 for verbatim delivery to controller"
+  format: "3-paragraph narrative + calendar table, no Watchtower section (no new run today, Knox not yet invoked), no Reminders section (0 due, omitted per format rule)"
+  calendar_today: "9 events, live from data/calendar-unified.json. Dense recurring-meeting block overlapping the airport-drive travel window, then a full travel afternoon."
+  hotspots: "Drive-to-Airport/Presidents-Pipeline-Roundtable overlap; Lisa Kimbrel GE 1:1 thin context (Obsidian unreachable); yesterday's daily review missing; OmniFocus unreachable (task priorities degraded); YPO urgent-subject board-session email awaiting reply; plaud-ingest awaiting David's speaker ID (non-blocking)."
 ---
 
 <!-- system:start -->

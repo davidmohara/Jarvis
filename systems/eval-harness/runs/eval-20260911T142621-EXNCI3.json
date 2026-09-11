@@ -1,13 +1,13 @@
 {
-  "id": "eval-20260908T235917-Z407O0",
+  "id": "eval-20260911T142621-EXNCI3",
   "type": "skill",
-  "name": "jarvis-inbox",
-  "agent": "chief",
-  "session_id": "33177a22-638d-498e-924f-4743be1346ed",
-  "trigger": "boot",
-  "started": "2026-09-08T00:00:00-05:00",
-  "completed": "2026-09-08T23:59:17.395022Z",
-  "duration_seconds": 68357.4,
+  "name": "plaud-transcripts",
+  "agent": "knox",
+  "session_id": "f4e3c001-7555-4469-b406-0e8285b9079a",
+  "trigger": "manual",
+  "started": "2026-09-11T14:17:00Z",
+  "completed": "2026-09-11T14:26:21.444140Z",
+  "duration_seconds": 561.4,
   "status": "success",
   "steps": [],
   "assessment": {
@@ -24,14 +24,14 @@
       "assertions_passed": 2,
       "assertion_results": [
         {
-          "assertion": "jarvis-inbox-signal-written",
-          "description": "jarvis-inbox skill-run signal file was written",
+          "assertion": "plaud-transcripts-signal-written",
+          "description": "plaud-transcripts skill-run signal file was written",
           "category": "structure",
           "passed": true
         },
         {
-          "assertion": "jarvis-inbox-signal-status",
-          "description": "jarvis-inbox skill-run did not end in failure",
+          "assertion": "plaud-transcripts-signal-status",
+          "description": "plaud-transcripts skill-run did not end in failure",
           "category": "structure",
           "passed": true
         }
@@ -64,10 +64,10 @@
     "deterministic_gate": {
       "score": 1.0,
       "gate_status": "pass",
-      "computed_at": "2026-09-11T14:13:29.492203Z"
+      "computed_at": "2026-09-11T14:26:24.324066Z"
     }
   },
-  "version_hash": "365cb1f1b6f72be0",
+  "version_hash": "7452c44c4c49edb4",
   "prior_baseline_id": null,
   "tags": [
     "cowork-hook",
