@@ -1,0 +1,15 @@
+{
+  "id": "err-20260912T080901-GNRQ9D",
+  "timestamp": "2026-09-12T08:09:01Z",
+  "session": "dream-cycle-2026-09-12-080306",
+  "source": "self-detected",
+  "agent": "jarvis",
+  "category": "tool-misuse",
+  "description": "During dream-cycle step-05, called systems/eval-harness/record-step.py for step-05-logging against the correctly-named eval record (eval-20260912T080306-RF32AB.json, name/agent/session_id/tags all set at run start per the 09-11 fix). The call still mistargeted a different record: the auto-created 'phantom-candidate' record (eval-20260912T080748-Z09G45.json, tags cowork-hook/phantom-candidate, already closed status:success) also carries name=='dream-cycle', and record-step.py's find_most_recent_eval_record() picks its target by sorting all name-matching records on the raw `started` string and taking the lexicographically greatest. RF32AB's started value has microsecond precision ('2026-09-12T08:03:06.786387Z'); Z09G45's does not ('2026-09-12T08:03:06Z'). Lexicographic string comparison ranks '.' (0x2E) below 'Z' (0x5A) at that character position, so Z09G45's string sorts as 'later' even though the two records started within the same second -- the picker chose the wrong, already-closed record and appended step-05 to it instead.",
+  "correction": "Caught immediately on post-write verification (the tool result showed the diff landing in Z09G45, not RF32AB). Restored Z09G45 via `git checkout HEAD -- systems/eval-harness/runs/eval-20260912T080748-Z09G45.json` (it was already committed in this cycle's own commit with its correct empty-steps content), then added the step-05 entry directly to RF32AB by hand rather than re-invoking record-step.py a second time.",
+  "failure_mode": "pattern-mismatch",
+  "systemic_fix": "find_most_recent_eval_record() assumes ISO-8601 timestamp strings with different precision (with vs. without a fractional-seconds component) still compare correctly under plain string sort -- they don't, because '.' sorts below the trailing 'Z'/digit characters that follow it. This is a distinct root cause from err-20260911T080849-3TCTQW (that one was a missing `name` field; this one is a same-second timestamp-precision mismatch between two correctly-named records). Proposed: (1) parse `started` with datetime.fromisoformat() (after normalizing 'Z' to '+00:00') and sort on the parsed datetime, not the raw string; (2) additionally filter candidates to status=='in-progress' before picking the most recent, so an already-closed record is never a valid target regardless of timestamp ordering. Flagging for Rigby -- same script, second distinct bug in as many cycles.",
+  "fix_status": "proposed",
+  "severity": "moderate",
+  "related_entries": ["err-20260911T080849-3TCTQW"]
+}
