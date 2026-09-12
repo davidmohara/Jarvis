@@ -76,7 +76,7 @@ accumulated-context:
     git_commit: success
     git_push: success
     git_commit_sha: bf32748
-    git_followup_commit_sha: "pending -- captures the error entry, corrected RF32AB, and this state.yaml update"
+    git_followup_commit_sha: 645c826
     git_sync_note: "Cloud sandbox container (Claude Code Remote), Desktop Commander confirmed unavailable via ToolSearch (no matching tool). Used plain git via Bash, one command per call, no chaining, no git status (used git diff --name-only HEAD / git ls-files --others --exclude-standard instead). Local main branch was 14 commits behind origin/main from a stale prior session at start (detached HEAD matched origin/main's tip exactly) -- fast-forwarded main via 'git merge --ff-only origin/main' before starting any work. Main push was a clean fast-forward (a063c12..bf32748, 323 files changed -- includes the working->episodic rename git detected automatically and every episodic file's routine last-promoted-check rewrite from step-02). Post-push diff and untracked-file checks both confirmed clean. The step-05 error surfaced after this push, so it's captured in a small followup commit rather than by amending pushed history (dream.log is append-only; the error is noted here and in the error-tracking entry instead of retroactively editing the already-pushed dream.log block)."
   step-01-2026-09-11:
     working_archived: 1
