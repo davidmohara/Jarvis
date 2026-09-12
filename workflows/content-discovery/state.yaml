@@ -2,34 +2,22 @@
 workflow: content-discovery
 agent: harper
 status: complete
-session-started: "2026-09-12T06:00:00Z"
-session-id: "harper-20260912-001"
-started-at: "2026-09-12T06:00:00Z"
-completed-at: "2026-09-12T06:10:00Z"
+session-started: "2026-09-12T14:00:00Z"
+session-id: "harper-20260912-002"
+started-at: "2026-09-12T14:00:00Z"
+completed-at: "2026-09-12T14:05:00Z"
 current-step: step-02
 original-request: "Scheduled daily content discovery run (Cowork session)"
 accumulated-context:
-  messages_scanned: 12
+  messages_scanned: 5
   new_urls: 0
   new_digests: 0
   posts_drafted: 0
-  gate_1_result: "PASS — ok: true, 12 messages returned (96h window — 24h and 48h returned 0 with retry warning), channel C0B160MA3EK confirmed"
+  gate_1_result: "PASS — ok: true, 5 messages returned (96h window — 24h and 48h returned 0 with retry warning, 96h returned 5), channel C0B160MA3EK confirmed"
   gate_2_result: "N/A — no content to validate"
-  editorial_threads_checked: 9
+  editorial_threads_checked: 17
   editorial_feedback_found: 0
   skipped:
     - reason: "Bot operational noise — Jarvis draft-ready notifications (no digest signal)"
-      count: 6
-    - reason: "Bot test message from Knox"
-      count: 1
-    - reason: "Dedup — already in pipeline (pending): user URL Axios/data center opposition matches 'The Opposition Got Here First'"
-      count: 1
-    - reason: "Dedup — already in pipeline (pending): Watchtower W37 digest 'The Incident Rate Is In'"
-      count: 1
-    - reason: "Dedup — already in pipeline (pending): Watchtower W37 digest 'Your Manager Is the AI Strategy'"
-      count: 1
-    - reason: "Dedup — already in pipeline (pending): Watchtower W37 digest 'The Build Decision Changed the Relationship'"
-      count: 1
-    - reason: "Bot message with paywall-caveat note (older, bot user, no digest signal)"
-      count: 1
+      count: 5
 ---
