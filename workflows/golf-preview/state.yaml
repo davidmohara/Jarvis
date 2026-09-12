@@ -1,31 +1,31 @@
 workflow: golf-preview
 agent: sterling
 status: complete
-session-started: "2026-09-02T00:00:00-05:00"
-session-id: ~
+session-started: "2026-09-09T10:34:00-05:00"
+session-id: scheduled-task-golf-tee-time-preview
 current-step: step-05
-execution-run: "2026-09-02T00:27:00-05:00"
+execution-run: "2026-09-09T10:34:00-05:00"
 gate-failures: []
 grade: null
 resolution-note: null
 
-original-request: "Verify golf-preview workflow works end-to-end with new calendar-handler and visual-verification skills"
+original-request: "Weekly golf tee time preview — automated scheduled task"
 accumulated-context:
-  target_friday: "2026-09-11"
-  target_saturday: "2026-09-12"
-  target_sunday: "2026-09-13"
+  target_friday: "2026-09-19"
+  target_saturday: "2026-09-20"
+  target_sunday: "2026-09-21"
   day_status:
-    friday: { status: "unavailable", reason: "Travel day — Presidents Retreat Whitefish MT, flight lands 5:33 PM CT" }
-    saturday: { status: "available" }
-    sunday: { status: "available" }
+    friday: { status: "unavailable", reason: "Personal retreat (all-day, Fri-Mon) — multi-day retreat blocks entire weekend" }
+    saturday: { status: "unavailable", reason: "Houston Texans Game (all-day event)" }
+    sunday: { status: "unavailable", reason: "Eagles Challenge golf tournament 10:30 AM-4:00 PM CT at Bear Creek Golf Club (already booked)" }
   drought: false
   weather_data_missing: false
   heat_streak: false
   ct_conversion_flag: false
-  candidate_windows_found: 3
+  candidate_windows_found: 0
   gate_1_result: "pass"
-  gate_2_result: "pass"
-  gate_3_result: "pass"
-  gate_4_result: "pass"
-  gate_5_result: "pass"
-  slack_delivery: { ok: true, ts: "1788375123.330539", channel: "C0B15SW9FB5" }
+  gate_2_result: "pass-no-viable-windows"
+  gate_3_result: "skipped-no-viable-days"
+  gate_4_result: "pass-no-viable-reason-documented"
+  gate_5_result: "pass-fallback-delivered"
+  slack_delivery: { path: "fallback", file: "memory/working/golf-preview-2026-09-09.md", error_entry: "err-20260909T103655-G7R40Y" }

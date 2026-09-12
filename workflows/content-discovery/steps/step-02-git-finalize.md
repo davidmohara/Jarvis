@@ -1,16 +1,16 @@
 ---
 status: complete
-started-at: "2026-09-11T06:08:00Z"
-completed-at: "2026-09-11T06:12:00Z"
+started-at: "2026-09-12T06:08:00Z"
+completed-at: "2026-09-12T06:12:00Z"
 outputs:
   files_changed: 3
   files_committed:
     - workflows/content-discovery/state.yaml
     - workflows/content-discovery/steps/step-01-discover.md
     - workflows/content-discovery/steps/step-02-git-finalize.md
-  commit_hash: "dcd5c360"
+  commit_hash: "c7a6e1d2"
   push_status: success
-  outcome: "committed and pushed — clean no-op run, 10 messages scanned (96h window), 0 new posts drafted, 3 deduped"
+  outcome: "committed and pushed — clean no-op run, 12 messages scanned (96h window), 0 new posts drafted, 9 editorial threads checked, 0 feedback"
 model: sonnet
 ---
 

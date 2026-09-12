@@ -1,0 +1,15 @@
+{
+  "id": "err-20260909T103406-8XHZUT",
+  "timestamp": "2026-09-09T10:34:06Z",
+  "session": "scheduled-task: golf-tee-time-preview",
+  "source": "self-detected",
+  "agent": "jarvis",
+  "category": "process-skip",
+  "description": "Scheduled task 'golf-tee-time-preview' references workflow ./workflows/golf-preview/SKILL.md which does not exist. Task executed autonomously with no user present to clarify, but the workflow file is missing.",
+  "correction": "The workflow 'golf-preview' has not been implemented. Task should either be deferred until the workflow exists, or the task definition should be updated to reference an existing workflow.",
+  "failure_mode": "context-blindness",
+  "systemic_fix": "Add validation step to scheduled-task execution: before executing any workflow-based automated task, verify the referenced workflow file exists and is valid. If missing, abort the task and log the error with guidance on whether to implement the workflow or update the task definition.",
+  "fix_status": "proposed",
+  "severity": "moderate",
+  "related_entries": []
+}

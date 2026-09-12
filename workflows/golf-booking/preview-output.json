@@ -1,87 +1,28 @@
 {
-  "generated_at": "2026-09-02T00:20:00-05:00",
+  "generated_at": "2026-09-09T10:35:00-05:00",
   "target_weekend": {
-    "friday": "2026-09-11",
-    "saturday": "2026-09-12",
-    "sunday": "2026-09-13"
+    "friday": "2026-09-19",
+    "saturday": "2026-09-20",
+    "sunday": "2026-09-21"
   },
   "day_status": {
     "friday": {
       "status": "unavailable",
-      "reason": "Travel day — Lone Star Gold Presidents Retreat in Whitefish, MT runs through noon CT, Drive to Airport 10:30 AM CT, flight AA2939 FCA->DFW lands 5:33 PM CT."
+      "reason": "Personal retreat (all-day, Fri-Mon) — multi-day retreat blocks entire weekend"
     },
     "saturday": {
-      "status": "available",
-      "reason": "No calendar conflicts found. Available 1:00 PM-6:30 PM CT window."
+      "status": "unavailable",
+      "reason": "Houston Texans Game (all-day event)"
     },
     "sunday": {
-      "status": "available",
-      "reason": "No calendar conflicts found. Church volunteering 8:30 AM-1:30 PM (off-calendar, hard rule); earliest viable start 2:30 PM CT."
+      "status": "unavailable",
+      "reason": "Eagles Challenge golf tournament 10:30 AM-4:00 PM CT at Bear Creek Golf Club (already booked)"
     }
   },
   "drought": false,
-  "last_round": "2026-08-29",
   "weather_data_missing": false,
-  "weather_source": "open-meteo",
   "ct_conversion_flag": false,
-  "heat_streak": false,
-  "heat_streak_rationale": "4 of 5 days Sept 6-10 hit >=99°F (97.4, 100.3, 99.9, 100.3, 101.5) — not all 5, so heat_streak: false. Default preferred start 1:00 PM ($21/player). Note: forecast avg temp for all candidate windows this weekend still exceeds 95°F, so a +8 late-push penalty is applied to every option per the step-03 rule.",
-  "top_options": [
-    {
-      "rank": 1,
-      "day": "saturday",
-      "date": "2026-09-12",
-      "preferred_start": "13:00",
-      "preferred_end": "17:30",
-      "holes": 18,
-      "cost_per_player": 21,
-      "total_cost": 42,
-      "weather": {
-        "rain_pct": 17,
-        "temp_f": 96.2,
-        "wind_mph": 18.5,
-        "condition": "clear"
-      },
-      "score": 8,
-      "rationale": "Saturday 1 PM — no calendar conflicts, standard cost bracket. +8 penalty applied for avg temp 96.2°F (>95°F) during the window."
-    },
-    {
-      "rank": 2,
-      "day": "sunday",
-      "date": "2026-09-13",
-      "preferred_start": "14:30",
-      "preferred_end": "19:00",
-      "holes": 18,
-      "cost_per_player": 21,
-      "total_cost": 42,
-      "weather": {
-        "rain_pct": 17,
-        "temp_f": 96.4,
-        "wind_mph": 15.7,
-        "condition": "clear"
-      },
-      "score": 13,
-      "rationale": "Sunday 2:30 PM — earliest viable start after church buffer. +5 Sunday penalty, +8 temp penalty (avg 96.4°F)."
-    },
-    {
-      "rank": 3,
-      "day": "saturday",
-      "date": "2026-09-12",
-      "preferred_start": "16:00",
-      "preferred_end": "20:30",
-      "holes": 18,
-      "cost_per_player": 15,
-      "total_cost": 30,
-      "weather": {
-        "rain_pct": 17,
-        "temp_f": 95.6,
-        "wind_mph": 18.5,
-        "condition": "clear"
-      },
-      "score": 13,
-      "rationale": "Saturday 4 PM — lower cost bracket ($15/player) but heat_streak is false so +5 off-peak penalty applies, plus +8 temp penalty (avg 95.6°F)."
-    }
-  ],
+  "top_options": [],
   "override_instructions": null,
-  "no_viable_reason": null
+  "no_viable_reason": "All three days hard-blocked: Friday has multi-day personal retreat (Fri-Mon), Saturday is blocked by Houston Texans Game all-day event, Sunday has Eagles Challenge golf tournament already booked (10:30 AM-4:00 PM CT). No viable golf windows available this weekend."
 }

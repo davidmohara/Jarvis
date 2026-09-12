@@ -1,10 +1,11 @@
 {
   "skill": "golf-preview",
   "agent": "sterling",
-  "trigger": "manual",
-  "started": "2026-09-02T00:00:00-05:00",
-  "completed": "2026-09-02T00:27:00-05:00",
+  "trigger": "scheduled",
+  "started": "2026-09-09T10:34:00-05:00",
+  "completed": "2026-09-09T10:36:55-05:00",
   "status": "success",
   "tool_failures": 0,
-  "error_ids": []
+  "error_ids": ["err-20260909T103655-G7R40Y"],
+  "notes": "No viable golf windows this weekend (all three days hard-blocked: Friday multi-day retreat, Saturday Texans game, Sunday Eagles Challenge tournament). Workflow completed all gates successfully with documented no_viable_reason. Slack delivery via fallback file due to non-interactive execution context."
 }

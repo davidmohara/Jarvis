@@ -1,18 +1,18 @@
 workflow: golf-booking
 agent: sterling
-status: not-started
-session-started: ~
-session-id: ~
-current-step: step-01
-execution-run: ~
-latest-check: ~
-latest-check-result: ~
+status: complete
+session-started: 2026-09-11T00:00:00Z
+session-id: scheduled-golf-tee-time-booking
+current-step: complete
+execution-run: 2026-09-11
+latest-check: 2026-09-11T04:30:00Z
+latest-check-result: "All weekend days blocked: Fri multi-day retreat, Sat Texans game, Sun Eagles Challenge tournament"
 gate-failures: []
 booking-id: null
 booking-date: null
 booking-time: null
 grade: null
-resolution-note: null
+resolution-note: "No viable 18-hole tee time available for target weekend 9/19-9/21. All days hard-blocked: Friday has multi-day personal retreat (Fri-Mon), Saturday is blocked by Houston Texans Game all-day event, Sunday has Eagles Challenge golf tournament already booked (10:30 AM-4:00 PM CT)."
 
 original-request: ~
 accumulated-context: []

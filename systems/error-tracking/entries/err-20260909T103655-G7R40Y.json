@@ -1,0 +1,15 @@
+{
+  "id": "err-20260909T103655-G7R40Y",
+  "timestamp": "2026-09-09T10:36:55Z",
+  "session": "scheduled-task: golf-tee-time-preview",
+  "source": "self-detected",
+  "agent": "sterling",
+  "category": "tool-misuse",
+  "description": "Slack delivery for golf-preview workflow skipped during non-interactive scheduled-task execution. master-slack skill not available in .claude/skills/ and Slack MCP connector requires authentication (deferred in non-interactive session).",
+  "correction": "Fallback path activated: wrote summary to memory/working/golf-preview-2026-09-09.md. This satisfies Gate 5's mandatory fallback protocol. Slack delivery will complete in next interactive session or when Slack MCP is properly authenticated.",
+  "failure_mode": "tool-ignorance",
+  "systemic_fix": "For non-interactive scheduled tasks: (1) check if master-slack skill exists before the workflow runs, (2) if unavailable, automatically activate the fallback-write path to memory/working/ (already implemented by this workflow's Gate 5 protocol), (3) surface via error log (done).",
+  "fix_status": "applied",
+  "severity": "minor",
+  "related_entries": []
+}

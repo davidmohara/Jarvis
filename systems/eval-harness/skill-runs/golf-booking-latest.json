@@ -2,16 +2,13 @@
   "skill": "golf-booking",
   "agent": "sterling",
   "trigger": "scheduled",
-  "started": "2026-09-05T04:20:00Z",
-  "completed": "2026-09-05T04:25:00Z",
-  "status": "failure",
-  "gate": "user",
-  "gate_name": "Booking Window Timeout",
-  "gate_type": "execution-timeout",
-  "failure_reason": "5-minute booking window closed before confirmation could complete. Workflow halted per user instruction.",
+  "started": "2026-09-11T04:30:00Z",
+  "completed": "2026-09-11T04:31:00Z",
+  "status": "success",
+  "outcome": "no_viable_window",
   "tool_failures": 0,
   "error_ids": [],
-  "resolution": "No booking was confirmed. Workflow will retry on next scheduled run with same override instructions.",
-  "workflow_state": "aborted",
-  "notes": "Math correction applied to step-01: Gate 1 precheck now correctly uses runtime 'today' date (date +%Y-%m-%d) instead of hardcoded offset, preventing false window-closed errors."
+  "resolution_note": "No viable 18-hole tee time available for target weekend 9/19-9/21. All days hard-blocked: Friday has multi-day personal retreat (Fri-Mon), Saturday is blocked by Houston Texans Game all-day event, Sunday has Eagles Challenge golf tournament already booked (10:30 AM-4:00 PM CT).",
+  "workflow_state": "complete",
+  "notes": "Golf preview identified zero viable tee times for target weekend. Per protocol, workflow exited cleanly without attempting booking."
 }
