@@ -3,9 +3,9 @@ type: semantic
 domain: operational
 primary-tag: dream-summary
 created: 2026-06-12
-last-updated: 2026-09-11
+last-updated: 2026-09-12
 confidence: high
-synthesized-from: 26
+synthesized-from: 27
   - dream-summary-2026-05-25.md
   - dream-summary-2026-05-31.md
   - dream-summary-2026-05-20.md
@@ -113,6 +113,7 @@ synthesized-from:
   - memory/episodic/dream-summary-2026-09-05.md
   - memory/episodic/dream-summary-2026-09-06.md
   - memory/episodic/dream-summary-2026-09-09.md
+  - memory/episodic/dream-summary-2026-09-10.md
 ---
 # Pattern: Dream Summary
 
@@ -401,3 +402,9 @@ Sources this cycle:
 - `memory/episodic/dream-summary-2026-09-09.md` (score 10) — the lone archive candidate this cycle (dream-summary-2026-09-10.md was held back by the same-calendar-date rule, expected next cycle). This source was written before David's 09-06 resolution of the nerve block and South Texas revenue items, so its body still lists the old four-item framing rather than the current two-item watch list — the framing is superseded by the 09-06 entry above and needs no fresh correction, same handling as the 09-07 promotion. Its substantive content: the two-part 09-04 Plaud ingest overlap (independent chief + Knox sessions completing the same recording) sharpened the diagnosis of `fetch_plaud.py`'s `transaction_polish` bug to a 3-incident recurring signal (08-10 and both 09-04 sessions).
 
 Re-checked the delegation tracker directly again this cycle: `delegations/tracker.md` still shows zero active delegations — now confirmed empty across at least 11 consecutive cycles. Q3 rocks status remains outside dream-cycle's normal scope and was not independently re-verified. No new movement to report on either watch-list item. Corpus-wide frontmatter-corruption scan (315 episodic files) found 0 instances, consistent with every cycle since the 09-01 fix.
+
+### 2026-09-12 — Nightly promotion
+Sources this cycle:
+- `memory/episodic/dream-summary-2026-09-10.md` (score 10) — the lone archive candidate this cycle (dream-summary-2026-09-11.md was held back by the same-calendar-date rule, expected next cycle). This was a 4-file catch-up night (09-10's own run), folding in yesterday's own dream summary plus a Rock 4 co-sell pipeline snapshot and a same-morning revenue-tracker pair. The one item worth carrying forward: South Texas's 90-Day forecast broke its month-long 82% plateau (flat since Aug 10), landing at 74% on the live-pull correction — a real deterioration, not another cache repeat. Dallas holding at 101% 90-Day can't offset it alone.
+
+Re-checked the delegation tracker directly again this cycle: `delegations/tracker.md` still shows zero active delegations — now confirmed empty across at least 12 consecutive cycles. Q3 rocks status remains outside dream-cycle's normal scope and was not independently re-verified. No new movement to report on either watch-list item. Corpus-wide frontmatter-corruption scan (316 episodic files) found 0 instances, consistent with every cycle since the 09-01 fix.

@@ -1,12 +1,27 @@
 ---
-type: working
+type: working-archive
 task_id: "session"
 session_id: "dream-cycle-2026-09-10-080301"
 agent-source: jarvis
 created: 2026-09-10T03:10:12-05:00
 expires: 2026-09-11T03:10:12-05:00
-status: active
+status: archived
 context: "Dream cycle summary — 2026-09-10"
+date: 2026-09-10
+source_file: memory/working/dream-summary-2026-09-10.md
+tags:
+  - dream-summary
+  - jarvis
+  - revenue-tracker
+  - pipeline-review
+  - south-texas
+  - rock4
+  - dallas
+related_people: []
+salience:
+  score: 10
+  last-promoted-check: 2026-09-12
+  promoted: true
 ---
 
 Four working-memory items aged out overnight — all four held back on 09-09 because their expiry fell on the same calendar day as that run, so they landed together tonight as a natural catch-up rather than a new backlog. Three folded cleanly into existing semantic patterns: yesterday's own dream summary, a Rock 4 co-sell pipeline snapshot ($8.57M gap remaining of $15M target — Dallas stalled, Austin still at zero won revenue on 8 opps), and a pair of same-morning revenue-tracker snapshots (an aborted PowerBI filter attempt followed by a live-pull correction within the hour).

@@ -29,7 +29,7 @@ related_people:
   - scott-mai
 salience:
   score: 6
-  last-promoted-check: 2026-09-11
+  last-promoted-check: 2026-09-12
   promoted: true
 ---
 
