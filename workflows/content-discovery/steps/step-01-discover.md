@@ -1,15 +1,15 @@
 ---
 status: complete
-started-at: "2026-09-11T06:00:00Z"
-completed-at: "2026-09-11T06:10:00Z"
+started-at: "2026-09-12T06:00:00Z"
+completed-at: "2026-09-12T06:10:00Z"
 outputs:
-  messages_scanned: 10
+  messages_scanned: 12
   new_urls: 0
   new_digests: 0
   posts_drafted: 0
-  gate_1_result: "PASS — ok: true, 10 messages returned (96h window — 24h and 48h returned 0 with retry warning), channel C0B160MA3EK confirmed"
+  gate_1_result: "PASS — ok: true, 12 messages returned (96h window — 24h and 48h returned 0 with retry warning), channel C0B160MA3EK confirmed"
   gate_2_result: "N/A — no content to validate"
-  editorial_threads_checked: 0
+  editorial_threads_checked: 9
   editorial_feedback_found: 0
 model: sonnet
 ---
