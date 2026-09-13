@@ -20,7 +20,7 @@ related_people:
 - dream-cycle
 salience:
   score: 0
-  last-promoted-check: 2026-09-12
+  last-promoted-check: 2026-09-13
   promoted: true
 ---
 

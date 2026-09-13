@@ -1,15 +1,15 @@
 ---
 status: complete
-started-at: 2026-09-11T08:05:00Z
-completed-at: 2026-09-11T08:05:30Z
+started-at: 2026-09-13T08:05:00Z
+completed-at: 2026-09-13T08:05:30Z
 outputs:
-  episodic_scanned: 315
-  score_updates: 315
+  episodic_scanned: 317
+  score_updates: 317
   no_tags: 202
   no_date: 38
-  score_distribution: "0:218,1:3,2:5,3:2,4:12,5:11,6:9,7:2,8:4,9:3,10:46"
-  window_entries: 34
-  note: "Ran systems/dream-cycle/salience-score.py. read_errors:0, write_errors:0. episodic_scanned rose 314->315 from today's 1 step-01 archive. pct_score_0=69.21% stays BELOW the 70% escalation threshold, consistent with 09-10 baseline (67.83%). pct_no_date=12.06% still crosses the >10% threshold, same legacy undated population as every prior cycle. pct_no_tags=64.13% stays in the 30-70% 'unusual tag coverage' band, same underlying population as prior cycles, not a new problem. Corpus-wide scan for the frontmatter-stranding corruption signature (duplicate salience: blocks, multiple promoted: keys) found 0 instances across all 315 episodic files, consistent with every cycle since the 09-01 fix (commit bb2de90)."
+  score_distribution: "0:218,1:3,2:5,3:2,4:11,5:12,6:9,7:2,8:4,9:3,10:48"
+  window_entries: 35
+  note: "Ran systems/dream-cycle/salience-score.py. read_errors:0, write_errors:0. episodic_scanned rose 316->317 from today's 1 step-01 archive. pct_score_0=68.77% stays BELOW the 70% escalation threshold, consistent with 09-12 baseline (68.99%). pct_no_date=11.99% still crosses the >10% threshold, same legacy undated population as every prior cycle. pct_no_tags=63.72% stays in the 30-70% 'unusual tag coverage' band, same underlying population as prior cycles, not a new problem. Corpus-wide scan for the frontmatter-stranding corruption signature (duplicate salience: blocks, multiple promoted: keys) found 0 instances across all 317 scanned episodic files (318 via raw glob, +1 for README.md which the script correctly excludes), consistent with every cycle since the 09-01 fix (commit bb2de90)."
 ---
 
 <!-- system:start -->

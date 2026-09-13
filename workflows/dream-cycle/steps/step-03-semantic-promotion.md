@@ -1,21 +1,21 @@
 ---
 status: complete
-started-at: 2026-09-11T08:05:30Z
-completed-at: 2026-09-11T08:06:30Z
+started-at: 2026-09-13T08:05:30Z
+completed-at: 2026-09-13T08:06:30Z
 outputs:
   candidates_count: 1
   clusters_found: 1
   semantic_created: 0
   semantic_updated: 1
   promoted_entries: 1
-  promotion_note: "1 candidate this cycle (today's own step-01 archive, dream-summary-2026-09-09.md, score 10) appended to dream-summary-pattern.md (operational/2026-06-12). Independently re-confirmed delegations/tracker.md still empty, now 11+ consecutive cycles."
+  promotion_note: "1 candidate this cycle (today's own step-01 archive, dream-summary-2026-09-11.md, score 10) appended to dream-summary-pattern.md (operational/2026-06-12). Independently re-confirmed delegations/tracker.md still empty, now 13+ consecutive cycles."
   cluster_actions:
     - {tag: dream-summary, domain: operational, size: 1, action: update, target: memory/semantic/operational/2026-06-12-dream-summary-pattern.md, confidence: "high (unchanged)"}
-  error_categories_30d: "process-skip/protocol-skip:8, assumption-error/wrong-assumption:7, tool-misuse/protocol-skip:6, tool-misuse/pattern-mismatch:4, data-accuracy/pattern-mismatch:3, missed-context/lazy-search:3"
+  error_categories_30d: "process-skip/protocol-skip:8, tool-misuse/protocol-skip:7, assumption-error/wrong-assumption:7, tool-misuse/pattern-mismatch:5, data-accuracy/pattern-mismatch:3, missed-context/lazy-search:3"
   error_total_30d: 74
-  error_malformed_30d: 14
+  error_malformed_30d: 5
   lessons_appended: 0
-  lessons_note: "6 distinct qualifying categories, down from 7 on 09-10 -- lazy-search/available-data-not-used aged out of the 30-day window (all 3 occurrences dated 08-11, window_start now 08-12). Re-verified all 6 remaining categories directly against LESSONS.md via grep of Category:/Failure mode: line pairs -- all confirmed present and active. No new entry appended."
+  lessons_note: "Same 6 distinct qualifying categories as 09-12 (window aged forward, error_total_30d 77->74; tool-misuse/pattern-mismatch gained 1 occurrence from the 09-12 self-detected err-20260912T080901-GNRQ9D, assumption-error/wrong-assumption lost 1 as an older occurrence aged out). Re-verified all 6 directly against LESSONS.md via grep of Category:/Failure mode: line pairs at the same line numbers as every prior cycle's check (L153/L249/L404/L444/L452/L468) -- all confirmed present and active. No new entry appended."
 ---
 
 <!-- system:start -->

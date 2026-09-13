@@ -1815,7 +1815,17 @@
           "memory/episodic/dream-summary-2026-09-10.md",
           "memory/dream.log",
           "memory/working/dream-summary-2026-09-12.md",
-          "systems/error-tracking/entries/err-20260912T080901-GNRQ9D.json"
+          "systems/error-tracking/entries/err-20260912T080901-GNRQ9D.json",
+          "memory/working/dream-summary-2026-09-11.md",
+          "workflows/dream-cycle/steps/step-01-working-memory-cleanup.md",
+          "workflows/dream-cycle/steps/step-02-salience-scoring.md",
+          "memory/episodic/dream-summary-2026-09-11.md",
+          "workflows/dream-cycle/steps/step-03-semantic-promotion.md",
+          "systems/eval-harness/runs/eval-20260913T080520-P0BUKD.json",
+          "workflows/dream-cycle/steps/step-03b-guardrail-checkpoint.md",
+          "workflows/dream-cycle/steps/step-04-episodic-compression.md",
+          "memory/working/dream-summary-2026-09-13.md",
+          "workflows/dream-cycle/steps/step-05-logging.md"
         ],
         "loops": [],
         "flag": true

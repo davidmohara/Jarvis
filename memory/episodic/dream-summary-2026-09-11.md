@@ -1,12 +1,28 @@
 ---
-type: working
+type: working-archive
 task_id: "session"
 session_id: "dream-cycle-2026-09-11-080404"
 agent-source: jarvis
 created: 2026-09-11T03:09:32-05:00
 expires: 2026-09-12T03:09:32-05:00
-status: active
+status: archived
 context: "Dream cycle summary — 2026-09-11"
+date: 2026-09-11
+source_file: memory/working/dream-summary-2026-09-11.md
+tags:
+  - dream-summary
+  - jarvis
+  - dream-cycle
+  - plaud
+  - fetch-plaud
+  - error-pattern
+  - lessons
+  - semantic-memory
+related_people: []
+salience:
+  score: 10
+  last-promoted-check: 2026-09-13
+  promoted: true
 ---
 
 One working-memory item aged out overnight — yesterday's own dream summary (2026-09-09) — and folded cleanly into the existing dream-summary pattern in semantic memory. That entry sharpened the diagnosis of a recurring bug: `fetch_plaud.py`'s `transaction_polish` layer has now misbehaved three separate times (08-10, and both 09-04 sessions), worth a real fix rather than continued per-session recovery.

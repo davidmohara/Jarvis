@@ -3,7 +3,7 @@ type: semantic
 domain: operational
 primary-tag: dream-summary
 created: 2026-06-12
-last-updated: 2026-09-12
+last-updated: 2026-09-13
 confidence: high
 synthesized-from: 27
   - dream-summary-2026-05-25.md
@@ -114,6 +114,7 @@ synthesized-from:
   - memory/episodic/dream-summary-2026-09-06.md
   - memory/episodic/dream-summary-2026-09-09.md
   - memory/episodic/dream-summary-2026-09-10.md
+  - memory/episodic/dream-summary-2026-09-11.md
 ---
 # Pattern: Dream Summary
 
@@ -408,3 +409,9 @@ Sources this cycle:
 - `memory/episodic/dream-summary-2026-09-10.md` (score 10) — the lone archive candidate this cycle (dream-summary-2026-09-11.md was held back by the same-calendar-date rule, expected next cycle). This was a 4-file catch-up night (09-10's own run), folding in yesterday's own dream summary plus a Rock 4 co-sell pipeline snapshot and a same-morning revenue-tracker pair. The one item worth carrying forward: South Texas's 90-Day forecast broke its month-long 82% plateau (flat since Aug 10), landing at 74% on the live-pull correction — a real deterioration, not another cache repeat. Dallas holding at 101% 90-Day can't offset it alone.
 
 Re-checked the delegation tracker directly again this cycle: `delegations/tracker.md` still shows zero active delegations — now confirmed empty across at least 12 consecutive cycles. Q3 rocks status remains outside dream-cycle's normal scope and was not independently re-verified. No new movement to report on either watch-list item. Corpus-wide frontmatter-corruption scan (316 episodic files) found 0 instances, consistent with every cycle since the 09-01 fix.
+
+### 2026-09-13 — Nightly promotion
+Sources this cycle:
+- `memory/episodic/dream-summary-2026-09-11.md` (score 10) — the lone archive candidate this cycle (dream-summary-2026-09-12.md was held back by the same-calendar-date rule, expected next cycle). Quiet-mechanics night's own working-memory write: no compression this cycle (4 stale entries, still under the 5-entry threshold), zero corpus corruption, error-pattern check re-confirmed 6 of 7 recurring 30-day categories already documented in LESSONS.md (the 7th aged out of the window on its own). Its one substantive finding: the `fetch_plaud.py` `transaction_polish` bug diagnosis sharpened to a confirmed 3-incident recurring signal (08-10, and both 09-04 sessions) — still no fix landed as of this source's own writing.
+
+Re-checked the delegation tracker directly again this cycle: `delegations/tracker.md` still shows zero active delegations — now confirmed empty across at least 13 consecutive cycles. Q3 rocks status remains outside dream-cycle's normal scope and was not independently re-verified. Corpus-wide frontmatter-corruption scan (317 scanned episodic files, 318 via raw glob including README.md) found 0 instances, consistent with every cycle since the 09-01 fix. South Texas's 90-Day forecast deterioration (flagged 09-11/09-12) was not independently re-pulled this cycle — outside dream-cycle's normal scope; worth a live check next revenue-tracker run rather than another silent carry-forward here.

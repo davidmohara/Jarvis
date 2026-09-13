@@ -1,17 +1,17 @@
 ---
 status: complete
-started-at: 2026-09-11T08:04:04Z
-completed-at: 2026-09-11T08:05:00Z
+started-at: 2026-09-13T08:02:09Z
+completed-at: 2026-09-13T08:05:00Z
 outputs:
   working_archived: 1
   working_deleted: 0
-  working_skipped: 41
+  working_skipped: 43
   working_stranded: 0
   enrichment_method: "manual enrichment by the executing session (no subprocess claude -p call needed -- the session itself is the LLM)"
   archived_files:
-    - dream-summary-2026-09-09.md
+    - dream-summary-2026-09-11.md
   skipped_not_expired:
-    - dream-summary-2026-09-10.md
+    - dream-summary-2026-09-12.md
   skipped_unparseable:
     - plaud-discover-2026-09-08.md
     - 2026-07-08.md
@@ -44,6 +44,7 @@ outputs:
     - golf-preview-2026-07-21.md
     - golf-preview-2026-08-04.md
     - golf-preview-2026-08-25.md
+    - golf-preview-2026-09-09.md
     - morning-briefing-2026-08-27-163900.md
     - plaud-discover-2026-09-03.md
     - remarkable-upload-2026-07-23-improve-eval.md
@@ -56,7 +57,7 @@ outputs:
   unparseable_left_untouched_missing_status:
     - knox-plaud-ingest-2026-08-31.md
   new_unparseable_this_cycle:
-    - plaud-discover-2026-09-08.md
+    - golf-preview-2026-09-09.md
   self_caught_bug_note: "None this cycle. Enriched the 1 candidate by replacing the existing 'type'/'status' lines in place and appending new enrichment keys (date, source_file, tags, related_people, salience), avoiding the duplicate-key corruption class this system has fought before."
 ---
 
