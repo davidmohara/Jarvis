@@ -1825,7 +1825,9 @@
           "workflows/dream-cycle/steps/step-03b-guardrail-checkpoint.md",
           "workflows/dream-cycle/steps/step-04-episodic-compression.md",
           "memory/working/dream-summary-2026-09-13.md",
-          "workflows/dream-cycle/steps/step-05-logging.md"
+          "workflows/dream-cycle/steps/step-05-logging.md",
+          "systems/eval-harness/skill-runs/git-latest.json",
+          "systems/eval-harness/skill-runs/dream-cycle-latest.json"
         ],
         "loops": [],
         "flag": true
