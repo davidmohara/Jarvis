@@ -10,7 +10,8 @@ outputs:
   eval_record_note: "No in-progress dream-cycle eval record existed at run start. Created eval-20260914T080837-AR4ZGA via new-eval.py, set name/agent/session_id/trigger/tags on it before any record-step.py calls, backfilled steps 01-04 cleanly, guardrail checkpoint attached correctly on first attempt, closed manually (status:success, completed/duration_seconds set) per prior-cycle precedent. Two separate auto-created records also appeared during this run (eval-20260914T080307-Y09WUM, name:general-purpose, empty steps, likely tracking this executing session itself; eval-20260914T081011-8JZ35T, tags cowork-hook/phantom-candidate, empty steps) -- same known cowork/session-wide hook behavior as every prior cycle, left as-is."
   git_commit: success
   git_push: success
-  git_sync_note: "Cloud sandbox container (Claude Code Remote), no Desktop Commander tool available in this session (confirmed via ToolSearch -- no matching tool). Used plain git via Bash, one command per call, no chaining, no git status (used git diff --name-only HEAD / git ls-files --others --exclude-standard instead). See state.yaml for final commit/push SHAs."
+  git_commit_sha: cb9f6f9
+  git_sync_note: "Cloud sandbox container (Claude Code Remote), no Desktop Commander tool available in this session (confirmed via ToolSearch -- no matching tool). Used plain git via Bash, one command per call, no chaining, no git status (used git diff --name-only HEAD / git ls-files --others --exclude-standard instead). Push was a clean fast-forward (a75502d..cb9f6f9). See state.yaml for full note."
 ---
 
 <!-- system:start -->
