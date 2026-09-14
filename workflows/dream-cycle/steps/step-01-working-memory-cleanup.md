@@ -1,7 +1,7 @@
 ---
 status: complete
-started-at: 2026-09-13T08:02:09Z
-completed-at: 2026-09-13T08:05:00Z
+started-at: 2026-09-14T08:05:22Z
+completed-at: 2026-09-14T08:07:00Z
 outputs:
   working_archived: 1
   working_deleted: 0
@@ -9,9 +9,9 @@ outputs:
   working_stranded: 0
   enrichment_method: "manual enrichment by the executing session (no subprocess claude -p call needed -- the session itself is the LLM)"
   archived_files:
-    - dream-summary-2026-09-11.md
-  skipped_not_expired:
     - dream-summary-2026-09-12.md
+  skipped_not_expired:
+    - dream-summary-2026-09-13.md
   skipped_unparseable:
     - plaud-discover-2026-09-08.md
     - 2026-07-08.md

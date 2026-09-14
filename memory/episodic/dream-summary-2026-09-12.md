@@ -1,12 +1,28 @@
 ---
-type: working
+type: working-archive
 task_id: "session"
 session_id: "dream-cycle-2026-09-12-080306"
 agent-source: jarvis
 created: 2026-09-12T03:17:00-05:00
 expires: 2026-09-13T03:17:00-05:00
-status: active
+status: archived
 context: "Dream cycle summary — 2026-09-12"
+date: 2026-09-12
+source_file: memory/working/dream-summary-2026-09-12.md
+tags:
+  - dream-summary
+  - jarvis
+  - dream-cycle
+  - revenue-tracker
+  - south-texas
+  - error-pattern
+  - lessons
+  - delegation-tracker
+related_people: []
+salience:
+  score: 10
+  last-promoted-check: 2026-09-14
+  promoted: true
 ---
 
 One working-memory item aged out overnight: yesterday's own dream summary (2026-09-10 cycle), held back one cycle because its expiry fell on the same calendar day as that run. It folded cleanly into the existing dream-summary pattern in semantic memory — nothing new to add on top of what it already carried forward.

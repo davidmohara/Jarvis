@@ -1,13 +1,13 @@
 ---
 status: complete
-started-at: 2026-09-13T08:07:00Z
-completed-at: 2026-09-13T08:07:30Z
+started-at: 2026-09-14T08:09:00Z
+completed-at: 2026-09-14T08:09:30Z
 outputs:
   candidates_count: 4
   entries_compressed: 0
   digests_updated: 0
   compression_skipped: true
-  compression_skip_reason: "4 compression candidates this cycle (date < 2026-06-15 AND salience.score < 2 AND salience.promoted == false: session-work-2026-06-08-162353.md, 2026-06-12-session-wrap.md, 2026-06-12-ai-innovation-lab-pdf.md, 2026-06-12-spring-line-advisory.md -- same set as every cycle since 08-30, cutoff has not advanced past these 4 files' dates), below the 5-entry safety threshold, GUARDRAIL 7 approval gate not reached. Consistent with 08-30 through 09-12 -- nothing has re-accumulated past threshold since the 08-29 David-approved batch. No files modified."
+  compression_skip_reason: "4 compression candidates this cycle (date < 2026-06-16 AND salience.score < 2 AND salience.promoted == false: session-work-2026-06-08-162353.md, 2026-06-12-session-wrap.md, 2026-06-12-ai-innovation-lab-pdf.md, 2026-06-12-spring-line-advisory.md -- same set as every cycle since 08-30, cutoff has not advanced past these 4 files' dates), below the 5-entry safety threshold, GUARDRAIL 7 approval gate not reached. Consistent with 08-30 through 09-13 -- nothing has re-accumulated past threshold since the 08-29 David-approved batch. No files modified."
 prior-cycle-approved-followup:
   approved-at: 2026-08-29T11:58:00Z
   approved-by: david
