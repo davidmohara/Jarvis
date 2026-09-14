@@ -2,7 +2,7 @@
 status: in-progress
 started-at: "2026-09-14T06:05:00Z"
 completed-at: null
-outputs: null
+outputs: {}
 model: sonnet
 ---
 
