@@ -92,6 +92,9 @@ Running list of potential blog topics. Jarvis captures these proactively from co
 | "The Incident Rate Is In" | Watchtower W37 (2026-09-08) [watchtower] | AI, security, agentic | Ghost draft — pending approval. Ghost ID: 6aa08e16b7c7ae028a63805b |
 | "The Noise Is the Point" | Content pipeline (2026-09-08) | AI, business, texas, infrastructure | Ghost draft — pending approval. Ghost ID: 6aa08e16b7c7ae028a638063 |
 | "The Opposition Got Here First" | Content pipeline (2026-09-09) | AI, technology, business | Ghost draft — pending approval. Ghost ID: 6aa13eb8b7c7ae028a63806b |
+| "The Activity Trap" | Watchtower W38 (2026-09-14) [watchtower] | AI, business, leadership, consulting | Draft at `Mind/Posts/_the-activity-trap.md` |
+| "What Happens to an Expert When AI Knows Everything They Know" | Watchtower W38 (2026-09-14) [watchtower] | AI, consulting, leadership, professional-identity | Draft at `Mind/Posts/_intuition-rust.md` |
+| "DFW Is Now the AI Talent Market" | Watchtower W38 (2026-09-14) [watchtower] | texas, AI, business, talent, DFW | Draft at `Mind/Posts/_dfw-is-now-the-ai-talent-market.md` |
 
 ## Published (for reference / avoid repeats)
 

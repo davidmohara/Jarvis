@@ -306,6 +306,16 @@ Also added by David as named sources (approved same session, 2026-06-19):
 <!-- personal:start -->
 <!-- personal:end -->
 
+### Batch 14 — Weekly Run (2026-09-14)
+
+| Name | URL | RSS | Topic | Trust | Why Relevant | Status |
+|------|-----|-----|-------|-------|--------------|--------|
+| Kyndryl Insights | https://www.kyndryl.com/us/en/insights | null | it-consulting | high | Primary publisher of enterprise AI value realization and workforce readiness research in 2026. Directly sourced W38 Theme 1: published "Why Value Realization Is Key to Achieving ROI in 2026" and the Kyndryl People Readiness Report (only 23% of workforces AI-ready). Practitioner-level, consistent publication cadence, no vendor-product bias in editorial framing. No confirmed RSS; gather_method: search via site:kyndryl.com/us/en/insights. | pending |
+| AIIM | https://info.aiim.org | null | leadership | high | Published the 2026 AIIM Industry Watch — work, skills, and identity of the information professional — generating the highest participation in the organization's research history. Directly sourced W38 Theme 2 on professional identity compression and intuition rust. Primary practitioner research org for information management and AI adoption. Distinct from Prosci (change management lens) and CEOWORLD (exec generalist). No confirmed RSS; gather_method: search via site:aiim.org. | pending |
+| CBRE Tech Talent Research | https://www.cbre.com/insights/reports/scoring-tech-talent | null | texas-regional | high | Annual "Scoring Tech Talent" report is the authoritative market-level data on tech hiring by metro. Directly sourced W38 Theme 3: DFW's 37,230 net new tech workers (2022-2025) and #8 ranking in North America. No RSS; single annual report but cited by every DFW talent story. Gather_method: search via site:cbre.com/insights. | pending |
+| Employer Branding News | https://employerbranding.news | null | leadership | med | Published "The Real AI Threat at Work May Be Identity, Not Redundancy" — directly tied to W38 Theme 2 professional identity angle. Covers the intersection of AI, workforce identity, and employer strategy from a practitioner/HR leadership perspective. Distinct from academic research (ScienceDirect) and change management (Prosci). No confirmed RSS; gather_method: search via site:employerbranding.news. | pending |
+| Kyndryl Wire (news) | https://www.kyndryl.com/us/en/about-us/news | null | it-consulting | high | Separate from Kyndryl Insights — the Wire covers enterprise IT partnership announcements, delivery model moves (AWS, Microsoft, SAP partnerships), and infrastructure strategy. Published "Kyndryl launches AI orchestration capability for enterprises" and the AWS enterprise modernization story. Fills the delivery-model intelligence gap between Kyndryl's editorial (Insights) and trade press. Propose only if Kyndryl Insights above is rejected — these are distinct feeds covering different content types. No confirmed RSS; gather_method: search. | pending |
+
 ### Batch 13 — Weekly Run (2026-09-11)
 
 | Name | URL | RSS | Topic | Trust | Why Relevant | Status |

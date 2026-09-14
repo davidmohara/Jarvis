@@ -2,10 +2,9 @@
   "skill": "revenue-tracker",
   "agent": "chase",
   "trigger": "scheduled",
-  "started": "2026-09-07T00:00:00Z",
-  "completed": "2026-09-07T00:18:00Z",
-  "status": "success",
-  "tool_failures": 0,
-  "error_ids": [],
-  "notes": "PowerBI Financial Outlook accessed successfully. Both Dallas and South Texas filters applied, validated, and KPI/monthly revenue extracted live. Initial filter confusion resolved by inspecting dropdown state directly — 'Multiple selections' label refers to two cities (Austin + Houston) being selected for South Texas, not filter failure. All enterprise-specific data extracted for July 2026 actuals (most recent closed month). Data appended to Obsidian vault."
+  "started": "2026-09-14T00:00:00Z",
+  "completed": "2026-09-14T00:15:00Z",
+  "status": "partial",
+  "tool_failures": 1,
+  "error_ids": ["filter-validation-south-texas-20260914"]
 }
