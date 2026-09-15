@@ -1,8 +1,19 @@
 ---
-status: in-progress
+status: complete
 started-at: "2026-09-15T21:27:00Z"
-completed-at: null
-outputs: null
+completed-at: "2026-09-15T21:30:00Z"
+outputs:
+  files_changed: 6
+  files_committed:
+    - systems/eval-harness/runs/eval-20260913T080822-PL7YWL.json
+    - systems/eval-harness/skill-runs/git-latest.json
+    - workflows/content-approval/pending-drafts.json
+    - workflows/content-discovery/state.yaml
+    - workflows/content-discovery/steps/step-01-discover.md
+    - workflows/content-discovery/steps/step-02-git-finalize.md
+  commit_hash: "860f9ef8"
+  push_status: success
+  outcome: "committed and pushed — 2 image swaps applied, no new drafts this run"
 model: sonnet
 ---
 
