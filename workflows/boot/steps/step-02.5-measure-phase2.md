@@ -1,12 +1,12 @@
 ---
 status: complete
-started-at: "2026-09-11T15:45:00Z"
-completed-at: "2026-09-11T15:46:00Z"
+started-at: "2026-09-14T16:20:00Z"
+completed-at: "2026-09-14T16:21:00Z"
 outputs:
-  phase2_measurement_file: "systems/boot-instrumentation/measurements/measurement-state-20260911T141350.json"
-  total_kb: 1.63
-  total_tokens: 417
-  measurement_method: "measure.py run against state.yaml; top bloat sources: phase2.task-g-72hr-lookahead (75 tok), phase2.task-h-email-triage (49 tok), phase1-point5.unified-data-pulls.omnifocus (37 tok). Well within normal range, no action needed."
+  phase2_measurement_file: "systems/boot-instrumentation/measurements/measurement-state-20260914T161411.json"
+  total_kb: 6.19
+  total_tokens: 1584
+  measurement_method: "measure.py run against state.yaml; top bloat sources: phase2.calendar-today-classification (184 tok), phase3.morning-briefing-step-03 (143 tok), phase2.task-g-72hr-lookahead (130 tok). Well within normal range, no action needed."
 ---
 
 <!-- system:start -->

@@ -1,0 +1,104 @@
+{
+  "id": "eval-20260914T200017-WUMQG0",
+  "type": "skill",
+  "name": "plaud-speaker-id",
+  "agent": "knox",
+  "session_id": "b1f49c32-bc03-4f66-b943-9cc7f432d45f",
+  "trigger": "manual",
+  "started": "2026-09-14T15:00:00Z",
+  "completed": "2026-09-14T20:00:17.659581Z",
+  "duration_seconds": 18017.7,
+  "status": "success",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": true,
+      "outputs_non_empty": false,
+      "assertions_checked": 4,
+      "assertions_passed": 2,
+      "assertion_results": [
+        {
+          "assertion": "plaud-speaker-id-signal-written",
+          "description": "plaud-speaker-id skill-run signal file was written",
+          "category": "structure",
+          "passed": true
+        },
+        {
+          "assertion": "plaud-speaker-id-signal-status",
+          "description": "plaud-speaker-id skill-run did not end in failure",
+          "category": "structure",
+          "passed": true
+        },
+        {
+          "assertion": "plaud-sp-002-substantive",
+          "description": "plaud-speaker-id output is substantive (>200 bytes)",
+          "category": "structure",
+          "passed": false
+        },
+        {
+          "assertion": "plaud-sp-003-content",
+          "description": "plaud-speaker-id output contains expected content",
+          "category": "structure",
+          "passed": false
+        },
+        {
+          "assertion": "plaud-sp-004-calendar-required",
+          "description": "Step-03 speaker identification: if controller was escalated, evidence shows calendar was checked before asking",
+          "category": "structure",
+          "passed": null,
+          "skipped": true,
+          "reason": "unknown check type: yaml_field_pattern"
+        },
+        {
+          "assertion": "plaud-sp-005-transcript-required",
+          "description": "Step-03 speaker identification: if controller was escalated, evidence shows transcript self-ID was checked before asking",
+          "category": "structure",
+          "passed": null,
+          "skipped": true,
+          "reason": "unknown check type: yaml_field_pattern"
+        }
+      ],
+      "category_breakdown": {
+        "structure": {
+          "passed": 2,
+          "checked": 4
+        },
+        "content": {
+          "passed": 0,
+          "checked": 0
+        },
+        "quality": {
+          "passed": 0,
+          "checked": 0
+        }
+      }
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "deterministic_gate": {
+      "score": 0.7917,
+      "gate_status": "pass",
+      "computed_at": "2026-09-14T20:00:19.911033Z"
+    }
+  },
+  "version_hash": "56bd4a9d21dc826b",
+  "prior_baseline_id": null,
+  "tags": [
+    "cowork-hook",
+    "skill"
+  ]
+}

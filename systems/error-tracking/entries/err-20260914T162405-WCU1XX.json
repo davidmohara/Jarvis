@@ -1,0 +1,14 @@
+{
+  "id": "err-20260914T162405-WCU1XX",
+  "timestamp": "2026-09-14T16:24:05Z",
+  "source": "explicit",
+  "category": "data-accuracy",
+  "failure_mode": "false-unavailability-report",
+  "severity": "medium",
+  "agent": "boot-subagent-steps-2-8",
+  "context": "Morning briefing step-02 (gather-data) reported OmniFocus as unreachable. David corrected: OmniFocus is reachable.",
+  "what_went_wrong": "Boot subagent reported 'OmniFocus is still unreachable this session (third consecutive boot)' when OmniFocus is actually available. Data pull either failed silently or made incorrect availability assessment.",
+  "impact": "Briefing caveat about task visibility blind spot was false, created unnecessary concern about missing due/overdue/flagged tasks.",
+  "proposed_fix": "In step-02-gather-data.md, add explicit error handling for OmniFocus MCP pull failures. If MCP call returns error or timeout, log the error and retry once before reporting unavailability. Do not report 'unreachable' without explicit retry.",
+  "notes": "Third consecutive boot reporting this same unavailability (09-03, 04, 08, 11 noted). Pattern suggests either recurring MCP connectivity issue or subagent not retrying on transient failures."
+}

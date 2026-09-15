@@ -14,6 +14,8 @@ Standing intelligence system. Monitors AI/agentic systems, IT consulting, and Te
 
 **Harper is consulted during the weekly content-flagging step (step-02 of weekly run) for voice alignment. Tweet generation (step-02b) reads `identity/VOICE.md` directly and is executed by Knox.**
 
+**SLACK RULE — NO EXCEPTIONS:** All Slack operations (posting drafts, sending to `#content`, any channel message) use the **master-slack skill**. Do NOT look for a Slack MCP connector. Do NOT suggest authentication for a connector. Do NOT use any other path. The master-slack skill is the only authorized method. (err-20260914T194742-2DFSK0)
+
 ---
 
 ## Entry Modes

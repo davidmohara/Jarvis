@@ -1,0 +1,14 @@
+{
+  "id": "err-20260915T120414-IFPD8I",
+  "timestamp": "2026-09-15T12:04:14Z",
+  "source": "explicit",
+  "category": "file-organization",
+  "failure_mode": "orphaned-files-at-root",
+  "severity": "medium",
+  "agent": "system",
+  "context": "During shutdown cleanup, two root-level directories found: Calendar/ and zzPlaud/. David clarified both are mistakes that need cleanup.",
+  "what_went_wrong": "Calendar/ was created but never properly filed or used (contains single 2026-09-08.md note). zzPlaud/ was used as a staging area for transcript files that should have gone directly to Obsidian, then left orphaned without cleanup.",
+  "impact": "Root directory cluttered with non-canonical entries. zzPlaud/ in particular represents incomplete workflow (files in wrong place, no cleanup on completion).",
+  "proposed_fix": "Delete both Calendar/ and zzPlaud/ directories entirely. Update canonical file-map and gitignore to prevent root-level exceptions like this in future. Review workflows that create intermediate staging areas to ensure they have explicit cleanup steps.",
+  "notes": "zzPlaud error represents a broader pattern: incomplete workflows that leave intermediate artifacts behind without cleanup. Should add cleanup validation to workflow completion gates."
+}

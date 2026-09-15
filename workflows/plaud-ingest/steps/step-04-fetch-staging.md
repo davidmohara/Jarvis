@@ -1,39 +1,40 @@
 ---
 status: completed
-started-at: "2026-09-04T00:40:00Z"
-completed-at: "2026-09-04T00:55:00Z"
+started-at: "2026-09-14T15:01:00Z"
+completed-at: "2026-09-14T15:03:00Z"
 model: haiku
 outputs:
+  session-id: pi-20260914-001
+  files-ready: 3
+  speaker-renames-applied: 1
+  gaps: 0
   notes: >
-    pi-20260904-001: `python3 fetch_plaud.py 2026-09-03` ran fine directly
-    via Bash this session (no TCC/permission issue this time -- the prior
-    blocker was environment-specific, not reproduced here). Applied
-    `--rename 8bff6db529fcb3324421194856cd1364 '{"Speaker 2": "Robyn
-    Fuentes"}'`. Hit a real script bug: the script's own post-rename
-    verification message ("Speaker names verified in transaction_polish
-    layer") is unreliable -- the staged .md kept showing raw "Speaker 2"
-    labels (92 occurrences) even though the live get_recording_speakers()
-    API correctly showed only "O'Hara"/"Robyn Fuentes" after the rename.
-    Manually triggered trigger_transcript_regeneration (is_reload:1) to
-    try to force the polish layer to catch up -- this actually made things
-    temporarily worse (regeneration reset live speaker labels back to raw
-    "Speaker 2" briefly). Re-ran --rename once regeneration settled, which
-    restored clean live labels, then bypassed the buggy transaction_polish
-    .md rendering entirely: rebuilt the staged markdown directly from
-    get_recording_speakers()'s segment list (confirmed clean: only
-    "O'Hara" and "Robyn Fuentes", 176 segments, 0 "Speaker 2" occurrences)
-    using the same _format_segments() logic the script itself uses. Also
-    confirmed independently via the transcript's own content: David signs
-    off with "Thank you, Robin. Appreciate your help" at 42:37 -- direct
-    self-identification matching the calendar/heuristic-3 resolution from
-    step-03. Pulled the "outline" content_list item (36 labeled topic
-    segments, e.g. "Autodesk Revenue Status", "CIO Outreach Strategy",
-    "Riverside Account Challenges") for use in step-05's note structure.
-    Flagging the transaction_polish staleness-after-rename behavior as a
-    real bug in fetch_plaud.py's --rename verification step for a future
-    Rigby fix -- the fix here (rebuild from get_recording_speakers
-    directly) is a one-off workaround, not a permanent patch to the
-    script.
+    Ran `fetch_plaud.py 2026-09-14` directly via Bash (no osascript needed,
+    no TCC issue). All 3 recordings in ready-for-fetch produced staged .md
+    files: the ACG Houston recording (9bb5788628b16838019203e248399df3,
+    saved under its resolved meeting name, plus a harmless duplicate under
+    a generic "2026-09-14 14_03_46" filename from the script's own
+    pending-recheck pass -- same file_id, left in place, not referenced
+    by state.yaml), the Executive AI Workshop Planning recording
+    (66df23aef3712ab857d5a656c67ba763), and the Production Hosting
+    Strategy recording (97b419ebfe3fd7ed84ac820a3343fef7).
+    Applied `--rename 66df23aef3712ab857d5a656c67ba763 '{"Speaker 1":
+    "Ashok Iyengar"}'`. Script correctly detected the rename hadn't
+    propagated to the transaction_polish layer, triggered regeneration
+    (is_reload:1), and after 4 poll attempts (~80s) confirmed speaker
+    names present. Hit a related but distinct filename bug this run: the
+    regenerated/corrected transcript was saved under a new file named
+    `plaud_66df23aef3712ab857d5a656c67ba763_ogg.md` instead of overwriting
+    the original `plaud_09-14 Meeting_ Executive AI Workshop Planning.md`
+    (which was left stale, still showing raw "Speaker 1", 16 occurrences).
+    Manually reconciled: copied the corrected content over the
+    properly-named file and removed the duplicate `_ogg` file. Verified
+    post-fix: 16 occurrences of "Ashok Iyengar", 0 occurrences of
+    "Speaker 1" in the final staged file. Flagging this as a second
+    manifestation of the known transaction_polish/--rename staleness bug
+    (see step-04's 2026-09-04 run) for a future Rigby fix -- this time the
+    symptom is a wrong output filename rather than stale content in the
+    original filename.
 ---
 
 <!-- system:start -->

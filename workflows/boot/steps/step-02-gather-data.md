@@ -1,13 +1,13 @@
 ---
 status: complete
-started-at: "2026-09-11T15:35:00Z"
-completed-at: "2026-09-11T15:45:00Z"
+started-at: "2026-09-14T16:12:30Z"
+completed-at: "2026-09-14T16:20:00Z"
 outputs:
-  phase2_status: "complete — 4/4 tasks executed (G, H, I, J), 0 failures. Knox/Plaud-ingest spawn not part of this step's current task list (deferred to step-08)."
-  morning-briefing-steps-01-02: "completed — calendar (data/calendar-unified.json, 22 events) live; task data unavailable (omnifocus pull failed upstream, degraded)"
-  task-g-72hr-lookahead: "completed — 09-12 to 09-14 from data/calendar-unified.json. Key: 9/12 Sat light (yoga only); 9/14 Mon full normal Dallas day."
-  task-h-email-triage: "completed — 0 flagged/high-importance; 1 time-sensitive by subject (Re: URGENT ACTION: Western regional board meeting ask, skaiser@ypo.org)"
-  task-i-jarvis-inbox: "nothing-to-surface — jarvis-inbox skill confirms folder empty"
+  phase2_status: "complete — 4/4 tasks executed (G, H, I, J), 0 failures."
+  morning-briefing-steps-01-02: "completed — calendar (data/calendar-unified.json, today=12 events) live; task data unavailable (omnifocus pull failed upstream, degraded)"
+  task-g-72hr-lookahead: "completed — 09-15 to 09-17 from data/calendar-unified.json. Key: 9/15 normal Dallas day; 9/16-9/17 AR YPO trip to Little Rock."
+  task-h-email-triage: "completed — 2 messages last 24h, 1 time-sensitive/actionable (Saxum scheduling reply owed)"
+  task-i-jarvis-inbox: "nothing-to-surface — jarvis-inbox skill confirms folder empty (eval-20260914T161351-1A9BRF)"
   task-j-reminders: "nothing-to-surface — data/reminders.json empty"
 ---
 

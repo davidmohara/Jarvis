@@ -1,0 +1,14 @@
+{
+  "id": "err-20260914T195128-EHFST5",
+  "timestamp": "2026-09-14T19:51:28Z",
+  "source": "explicit",
+  "category": "data-accuracy",
+  "failure_mode": "missing-data-in-discovery",
+  "severity": "high",
+  "agent": "knox-plaud-ingest-step-01",
+  "context": "Knox plaud-discover step-01 reported latest recording from Sept 8, zero new recordings today. David corrected: there are 3 recordings from today (Sept 14) alone.",
+  "what_went_wrong": "Knox discovery either (1) API query did not enumerate today's recordings, (2) dedup logic incorrectly skipped today's recordings as duplicates, or (3) API has latency showing today's recordings. Discovery missed all content from today.",
+  "impact": "Briefing stated vault was up-to-date when 3+ recordings from today were not ingested. Vault is incomplete.",
+  "proposed_fix": "Re-run discovery with explicit date filter to pull recordings from today forward. Verify API query includes current date. If API shows latency on new recordings, add retry logic with date-based window expansion.",
+  "notes": "This is the second data-accuracy error in this boot session (OmniFocus false unavailability was first). Pattern emerging around data pull reliability."
+}

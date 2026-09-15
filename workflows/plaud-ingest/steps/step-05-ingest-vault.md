@@ -1,37 +1,63 @@
 ---
 status: completed
-started-at: "2026-09-04T00:55:00Z"
-completed-at: "2026-09-04T01:15:00Z"
+started-at: "2026-09-14T00:00:00Z"
+completed-at: "2026-09-14T00:00:00Z"
 model: sonnet
 outputs:
   ingested-notes:
-    - "zzPlaud/Improving/2026-09-03 David-Robyn 1-on-1 - Account Portfolio Review and CIO-Partner Outreach Strategy.md"
+    - "zzPlaud/Improving/2026-09-14 Summer Craig Call - ACG Houston Speaking Engagement Planning.md"
+    - "zzPlaud/Improving/2026-09-14 Sync AI Executive Workshop in California (Ashok Iyengar).md"
+    - "zzPlaud/Improving/2026-09-14 Syncing Up Devlin and O'Hara - Production Hosting Handoff, Capacity Risk, and October Boot Camp Planning.md"
   daily-notes-updated:
-    - "Calendar/2026/09-September/2026-09-03.md"
-  monday-tasks-created: 7
-  staging-files-removed: 2
+    - "Calendar/2026/09-September/2026-09-14.md"
+  monday-tasks-created: 0
+  monday-tasks-logged-manual: 12
+  staging-files-removed: 11
   gate_5_result: "pass"
   gate_5_verification_failures: []
   notes: >
-    pi-20260904-001: 1 recording ingested (8bff6db529fcb3324421194856cd1364,
-    2026-09-03 David/Robyn 1:1, classified work). Written to
-    zzPlaud/Improving/ (internal Improving 1:1). Note built directly from
-    get_recording_speakers() segments (see step-04 note on the
-    transaction_polish staleness bug) with speaker names normalized to
-    "David O'Hara"/"Robyn Fuentes" matching vault convention. Gate 5
-    verified: read the note back via get_vault_file, confirmed file_id/
-    date/source/tags frontmatter present and file at expected path. Daily
-    note Calendar/2026/09-September/2026-09-03.md created fresh (year/month
-    folders didn't exist yet) with wikilink to the new note. 7 action items
-    created on Monday board 18420619069 / group new_group29179, all
-    assigned to Alice Mburu (work classification) with source traceability
-    in text_mm50v09n (item ids 12978313814, 12978314307, 12978309820,
-    12978300763, 12978313890, 12978306066, 12978310619). Staging cleanup:
-    removed the 2 files (.md + _raw.json) tied to this file_id; left the
-    pre-existing ~120+ file staging backlog from the earlier `--all` side
-    effect (see step-01 note) untouched, per skill guidance (dedup + flag,
-    don't silently bulk-delete) — flagged as a housekeeping item for a
-    future run.
+    pi-20260914-001: 3 recordings ingested, all classified work, all filed
+    to zzPlaud/Improving/ (internal Improving meetings/BD, no client or
+    personal recordings in this batch). (1) 9bb5788628b16838019203e248399df3
+    — ACG Houston speaking-engagement planning call with Summer Craig
+    (ACG Houston board member); speakers left as "David O'Hara"/"Summer
+    Craig" per plan (no mapping needed, "Speaker 2" identified from context
+    and calendar match). (2) 66df23aef3712ab857d5a656c67ba763 — Executive AI
+    Workshop planning sync with Ashok Iyengar; speaker labels normalized
+    from staged "O'Hara"/"Ashok Iyengar" to full names per vault convention.
+    (3) 97b419ebfe3fd7ed84ac820a3343fef7 — Production hosting handoff/
+    capacity-risk/October boot camp planning with Devlin Liles; Robyn
+    Fuentes also appears mid-call with brief interjections despite not
+    being on the calendar invite (edge case #4 — caller set differs from
+    invite). All 3 matched to real calendar events (Summer Craig call,
+    "Sync: AI Executive Workshop in California", "Syncing Up: Devlin &
+    O'Hara") for real titles/attendees/times. Duration fields in the staged
+    .md files are mislabeled — the numeric value is milliseconds, not
+    seconds as the "s" suffix implies; duration_minutes computed as
+    raw_value / 1000 / 60 for all 3 notes (confirmed against transcript
+    timestamp ranges). Gate 5 verified for all 3: read back via
+    get_vault_file (markdown format — json format threw a pre-existing
+    tool-side type-validation error on tags/duration_minutes, same as seen
+    on the 2026-09-03 note; not a data issue), confirmed file_id/date/
+    source/tags frontmatter and correct path for each. Daily note
+    Calendar/2026/09-September/2026-09-14.md created fresh (didn't exist)
+    with wikilinks to all 3 notes. Monday task creation was NOT possible
+    this run — the create_item tool for board 18420619069 was not
+    reachable in this session (only the unauthenticated claude_ai
+    monday_com OAuth tools were available); per the standard Monday-
+    failure-mode handling, all 12 action items across the 3 notes were
+    logged in the final report for manual creation instead of blocking the
+    vault write. Staging cleanup: removed 11 files — the 8 files (3×.md,
+    3×_raw.json, 2×_speakers.json) explicitly listed in
+    accumulated-context.staged-files, plus 3 more (plaud_2026-09-14
+    14_03_46.md/_raw.json/_speakers.json) discovered to be an untracked
+    duplicate of recording (1) under its pre-rename auto-generated
+    timestamp filename (identical file_id, duration, and transcript
+    content) — confirmed as part of this session's output, not the
+    unrelated pre-existing backlog, before deleting. Follow-up
+    intelligence: Sunday Texans-game commitment to Summer Craig + husband,
+    and Wednesday Simpson Strong-Tie leadership-sync coverage commitment to
+    Devlin, both surfaced in the final report as this-week action items.
 ---
 
 <!-- system:start -->

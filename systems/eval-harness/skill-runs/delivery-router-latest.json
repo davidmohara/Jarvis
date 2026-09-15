@@ -2,9 +2,9 @@
   "skill": "delivery-router",
   "agent": "knox",
   "trigger": "manual",
-  "started": "2026-09-04T01:15:00Z",
-  "completed": "2026-09-04T01:20:00Z",
-  "status": "success",
-  "tool_failures": 0,
+  "started": "2026-09-14T20:15:00Z",
+  "completed": "2026-09-14T20:18:00Z",
+  "status": "partial",
+  "tool_failures": 3,
   "error_ids": []
 }

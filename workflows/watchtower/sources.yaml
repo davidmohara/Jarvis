@@ -352,6 +352,28 @@ sources:
     status: active
     notes: "Practitioner HR/change management advisory. Synthesized Gallup State of the Global Workplace 2026 including the 8.7x manager-as-AI-multiplier finding. Covers organizational change management layer. No RSS confirmed; step-01 uses site:peopleresults.com search. Proposed W37 Batch 12 — approved 2026-09-08."
 
+  # ── Batch 14 (partial) — Approved 2026-09-14 ───────────────────────────────
+
+  - name: Kyndryl Insights
+    url: https://www.kyndryl.com/us/en/insights
+    rss: null
+    gather_method: search
+    topic: it-consulting
+    trust: high
+    added: 2026-09-14
+    status: active
+    notes: "Published 'Why Value Realization Is Key to Achieving ROI in 2026' and the Kyndryl People Readiness Report. Primary source for W38 Theme 1 (The Activity Trap / ROI accountability squeeze). Practitioner-level editorial, no vendor-product bias in framing. No RSS; step-01 uses site:kyndryl.com/us/en/insights search. Proposed W38 Batch 14 — approved 2026-09-14."
+
+  - name: Kyndryl Wire
+    url: https://www.kyndryl.com/us/en/about-us/news
+    rss: null
+    gather_method: search
+    topic: it-consulting
+    trust: high
+    added: 2026-09-14
+    status: active
+    notes: "Covers enterprise IT partnership announcements and delivery model moves (AWS, Microsoft, SAP). Fills delivery-model intelligence gap distinct from Kyndryl Insights editorial. No RSS; step-01 uses site:kyndryl.com/us/en/about-us/news search. Proposed W38 Batch 14 — approved 2026-09-14."
+
   # ── Batch 11 (partial) — Approved 2026-08-31 ───────────────────────────────
 
   - name: The AI Optimist

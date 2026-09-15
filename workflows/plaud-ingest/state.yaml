@@ -1,39 +1,79 @@
 workflow: plaud-ingest
 agent: knox
 status: complete
-session-id: pi-20260909-001
-session-started: '2026-09-09T00:40:00Z'
+session-id: pi-20260914-001
+session-started: '2026-09-14T00:00:00Z'
 current-step: step-05b
-session-completed: '2026-09-11T08:22:00Z'
-original-request: "Knox — run workflows/plaud-ingest/workflow.md in full (boot invocation)"
+session-completed: '2026-09-14T20:18:00Z'
+original-request: "Knox — run workflows/plaud-ingest/workflow.md in full (background invocation)"
 accumulated-context:
-  target-date: "2026-09-08"
+  target-date: "2026-09-14"
   new-recordings:
-    - file_id: "e0aa6343b58756669d5bb0eddc80c5a4"
-      name: "09-08 Working Session Plan: Elevating a Manual AI Workflow to a Trusted, Integrated Executive Assistant"
-      date: "2026-09-08"
-      duration_seconds: 1644
+    - file_id: 9bb5788628b16838019203e248399df3
+      name: "2026-09-14 14:03:46"
+      date: 2026-09-14
+      duration_seconds: 1811000
+      has_transcript: false
+      transcript_status: missing
+    - file_id: 66df23aef3712ab857d5a656c67ba763
+      name: "09-14 Meeting: Executive AI Workshop Planning"
+      date: 2026-09-14
+      duration_seconds: 821000
+      has_transcript: true
+      transcript_status: ready
+    - file_id: 97b419ebfe3fd7ed84ac820a3343fef7
+      name: "09-14 Meeting: Production Hosting Strategy, Capacity Risks, and October Boot Camp Planning for ML/DLP Programs"
+      date: 2026-09-14
+      duration_seconds: 1901000
       has_transcript: true
       transcript_status: ready
   transcription-triggered: []
   pending-recordings: []
   speaker-mappings:
-    e0aa6343b58756669d5bb0eddc80c5a4:
-      Speaker 1: "David O'Hara"
-      Speaker 2: "Renzi Stone"
+    66df23aef3712ab857d5a656c67ba763:
+      "O'Hara": "David O'Hara"
+      "Speaker 1": "Ashok Iyengar"
   pending-speaker-mappings: []
   recording-classification:
-    e0aa6343b58756669d5bb0eddc80c5a4: "work"
+    9bb5788628b16838019203e248399df3: "work"
+    66df23aef3712ab857d5a656c67ba763: "work"
+    97b419ebfe3fd7ed84ac820a3343fef7: "work"
   ready-for-fetch:
-    - file_id: "e0aa6343b58756669d5bb0eddc80c5a4"
-      name: "09-08 Working Session Plan: Elevating a Manual AI Workflow to a Trusted, Integrated Executive Assistant"
-      date: "2026-09-08"
+    - 9bb5788628b16838019203e248399df3
+    - 66df23aef3712ab857d5a656c67ba763
+    - 97b419ebfe3fd7ed84ac820a3343fef7
   staged-files:
-    - "plaud_09-08 Working Session Plan_ Elevating a Manual AI Workflow to a Trusted_ Integrated Executive Assistant.md"
-    - "plaud_09-08 Working Session Plan_ Elevating a Manual AI Workflow to a Trusted_ Integrated Executive Assistant_raw.json"
-    - "plaud_09-08 Working Session Plan_ Elevating a Manual AI Workflow to a Trusted_ Integrated Executive Assistant_speakers.json"
+    - "plaud_09-14 Meeting_ O_Hara_s ACG Houston Speaking Engagement on AI Adoption.md"
+    - "plaud_09-14 Meeting_ O_Hara_s ACG Houston Speaking Engagement on AI Adoption_raw.json"
+    - "plaud_09-14 Meeting_ O_Hara_s ACG Houston Speaking Engagement on AI Adoption_speakers.json"
+    - "plaud_09-14 Meeting_ Executive AI Workshop Planning.md"
+    - "plaud_09-14 Meeting_ Executive AI Workshop Planning_raw.json"
+    - "plaud_09-14 Meeting_ Executive AI Workshop Planning_speakers.json"
+    - "plaud_09-14 Meeting_ Production Hosting Strategy_ Capacity Risks_ and October Boot Camp Planning for ML_DLP Programs.md"
+    - "plaud_09-14 Meeting_ Production Hosting Strategy_ Capacity Risks_ and October Boot Camp Planning for ML_DLP Programs_raw.json"
   ingested-notes:
-    - file_id: "e0aa6343b58756669d5bb0eddc80c5a4"
-      path: "zzPlaud/YPO/2026-09-08 Renzi Stone AI Workflow Working Session.md"
+    - "zzPlaud/Improving/2026-09-14 Summer Craig Call - ACG Houston Speaking Engagement Planning.md"
+    - "zzPlaud/Improving/2026-09-14 Sync AI Executive Workshop in California (Ashok Iyengar).md"
+    - "zzPlaud/Improving/2026-09-14 Syncing Up Devlin and O'Hara - Production Hosting Handoff, Capacity Risk, and October Boot Camp Planning.md"
   unresolved_speakers: []
-  cleanup_note: "Initial run incorrectly invoked fetch_plaud.py --all, re-staging 133 already-ingested recordings. All 133 confirmed against vault via file_id match and moved to ~/Downloads/transcript-staging/_not_new_archive/. Only the 1 genuinely new recording remains in top-level staging."
+  discovery-session: "2026-09-14 full enumeration"
+  discovery-summary: "Plaud API enumerated 132 total recordings spanning 2025-12 through 2026-09-08. All 132 confirmed as already-ingested via vault cross-reference or from previous discovery run (2026-09-09 session). Latest new recording timestamp: 2026-09-08 17:30 UTC (file_id e0aa6343b58756669d5bb0eddc80c5a4, already ingested to vault on 2026-09-09). No recordings created after 2026-09-08. All 132 staged files are duplicates of already-processed recordings."
+  share-results:
+    - file_id: 9bb5788628b16838019203e248399df3
+      share_url: "https://web.plaud.ai/s/pub_63a704d7-a348-4c51-8f9f-78604be47367::oZpP-7eFNOrbQOzCBzWSQY5tjsSR5iW1M1p6Of3DBV86T07iOGPJTBCrJ9srPoA9TPnmfqyo-nz469IC"
+      share_status: success
+      monday_task_id: null
+      monday_status: failed
+      monday_error: "create_item tool unavailable this session (only unauthenticated OAuth connector present)"
+    - file_id: 66df23aef3712ab857d5a656c67ba763
+      share_url: "https://web.plaud.ai/s/pub_b1c67845-0d75-4063-b37f-5aa4a0c51701::qmpgjuIVrAE8oPV8HQUF0alIHExgU0sRnPZqMkt5lgk_QOfsqv-OKsSnHtbx5ie1hvNpcI_W2OsDG74C"
+      share_status: success
+      monday_task_id: null
+      monday_status: failed
+      monday_error: "create_item tool unavailable this session (only unauthenticated OAuth connector present)"
+    - file_id: 97b419ebfe3fd7ed84ac820a3343fef7
+      share_url: "https://web.plaud.ai/s/pub_037425a6-bee8-4fe6-8e7e-1959da9246c0::KxnhOcLasWE096TpKQkz6oszNL9Bb7ab3qybfs7bjQqwXcEhoK7Lf9HiQ3vqGPLbm6UPtTT19at00YQC"
+      share_status: success
+      monday_task_id: null
+      monday_status: failed
+      monday_error: "create_item tool unavailable this session (only unauthenticated OAuth connector present)"

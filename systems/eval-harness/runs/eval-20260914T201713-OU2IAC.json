@@ -1,0 +1,74 @@
+{
+  "id": "eval-20260914T201713-OU2IAC",
+  "agent_id": "aae79d5cb4d71341b",
+  "type": "agent",
+  "name": "general-purpose",
+  "workflow": null,
+  "agent": "general-purpose",
+  "session_id": "b1f49c32-bc03-4f66-b943-9cc7f432d45f",
+  "trigger": "unknown",
+  "started": "2026-09-14T20:17:13.591837Z",
+  "completed": "2026-09-14T20:19:20.623208Z",
+  "duration_seconds": 127.03,
+  "status": "partial",
+  "steps": [
+    {
+      "name": "step-05b-share-with-alice.md",
+      "started": "2026-09-14T20:10:00Z",
+      "completed": "2026-09-14T20:18:00Z",
+      "duration_seconds": 480.0,
+      "status": "completed",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": "sonnet",
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    }
+  ],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 12,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/b1f49c32-bc03-4f66-b943-9cc7f432d45f/subagents/agent-aae79d5cb4d71341b.jsonl",
+  "last_assistant_message": "## [Knox/Share]: Recording share complete.\n\nWork recordings shared with Alice: 3\nPersonal recordings (skipped sharing): 0\n\nShares: 3 succeeded, 0 failed\nMonday tasks created for alice.mburu: 0 (Monday delivery unreachable \u2014 see below)\n\n\u2713 Summer Craig Call - ACG Houston Speaking Engagement Planning \u2192 https://web.plaud.ai/s/pub_63a704d7-a348-4c51-8f9f-78604be47367::oZpP-7eFNOrbQOzCBzWSQY5tjsSR5iW1M1p6Of3DBV86T07iOGPJTBCrJ9srPoA9TPnmfqyo-nz469IC (Monday task: failed, no ID \u2014 controller must create manually)\n\n\u2713 Sync AI Executive Workshop in California (Ashok Iyengar) \u2192 https://web.plaud.ai/s/pub_b1c67845-0d75-4063-b37f-5aa4a0c51701::qmpgjuIVrAE8oPV8HQUF0alIHExgU0sRnPZqMkt5lgk_QOfsqv-OKsSnHtbx5ie1hvNpcI_W2OsDG74C (Monday task: failed, no ID \u2014 controller must create manually)\n\n\u2713 Syncing Up Devlin and O'Hara - Production Hosting Handoff, Capacity Risk, and October Boot Camp Planning \u2192 https://web.plaud.ai/s/pub_037425a6-bee8-4fe6-8e7e-1959da9246c0::KxnhOcLasWE096TpKQkz6oszNL9Bb7ab3qybfs7bjQqwXcEhoK7Lf9HiQ3vqGPLbm6UPtTT19at00YQC (Monday task: failed, no ID \u2014 controller must create manually)\n\n**Why Monday failed:** the only Monday tool surfaced this session was the unauthenticated `mcp__claude_ai_monday_com` OAuth connector (`authenticate`/`complete_authentication`) \u2014 no working `create_item` tool. This matches step-05's earlier report in this same session that the Monday board tool was unreachable. I did not attempt an interactive OAuth login (inappropriate for this unattended background task) and did not fabricate task IDs.\n\n**Gate 6:** FAIL for all 3 recordings \u2014 share URL present \u2713 and recipient config was correctly built for Alice Mburu (107886956), but task creation never succeeded (no task ID returned), which is a hard-fail condition per the gate. Logged to `gate_6_delivery_confirmations` with `error` per recording. Escalating: David/controller needs to create these 3 Monday tasks manually using the share URLs above, board `18420619069`, group `new_group29179` (To-Do), owner Alice Mburu.\n\nPer the step's own failure-mode table (\"Monday task creation fails \u2192 log the error and the share URL, controller can create the task manually, continue\"), this does not block workflow completion. `state.yaml` is set to `status: complete` \u2014 this was the final step of the plaud-ingest pipeline.\n\n**Grading blocks:**\n\n```\n--- Eval: delivery-router (eval-20260914T201800-IGWLI9) ---\nNo acceptance criteria defined for this skill yet \u2014 grading is a neutral placeholder.\nDeterministic score: 42%  ->  FAIL (gate >= 70%)\nTier 3 qualitative grade: pending (runs in tonight's end-of-day sweep)\nNo assertions/delivery-router.json exists yet \u2014 this run is ungraded.\n```\n\n```\n--- Eval: plaud-transcripts (eval-20260914T201858-39HCME) ---\nStructure 2/2 passed\nDeterministic score: 62%  ->  FAIL (gate >= 70%)\nTier 3 qualitative grade: pending (runs in tonight's end-of-day sweep)\n```\n\nFiles touched:\n- `/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/workflows/plaud-ingest/steps/step-05b-share-with-alice.md` (frontmatter replaced, Gate 6 = fail logged)\n- `/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/workflows/plaud-ingest/state.yaml` (status: complete, share-results added)\n- `/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/systems/eval-harness/skill-runs/delivery-router-latest.json`\n- `/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/systems/eval-harness/skill-runs/plaud-transcripts-latest.json`",
+  "model": "sonnet",
+  "total_tokens_input": 1166964,
+  "total_tokens_output": 1996,
+  "total_cost_usd": 0.566006
+}

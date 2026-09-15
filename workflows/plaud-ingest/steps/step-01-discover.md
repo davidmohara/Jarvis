@@ -1,17 +1,17 @@
 ---
 status: completed
 model: haiku
-started-at: "2026-09-09T00:40:00Z"
-completed-at: "2026-09-09T01:05:00Z"
+started-at: "2026-09-14T12:10:00Z"
+completed-at: "2026-09-14T12:20:00Z"
 outputs:
-  new-recordings-count: 1
-  api-total: 132
-  confirmed-in-vault: 131
+  new-recordings-count: 3
+  api-total: 3
+  confirmed-in-vault: 2
   gate_1_result: "pass"
   gate_1_auth_method: "cached-token"
   gate_2_result: "pass"
   gate_2_flagged_recordings: []
-  note: "Initial run mistakenly invoked fetch_plaud.py --all (full transcript re-fetch), which re-staged 133 already-ingested recordings into transcript-staging. Caught before ingest via file_id cross-reference against the vault (Tier 1 dedup); all 133 false-positive staged files moved to _not_new_archive/. Correct discovery re-run via direct GET /file/simple/web call confirmed exactly 1 genuinely new recording (file_id e0aa6343b58756669d5bb0eddc80c5a4, 09-08 recording), consistent with the circuit breaker (1 new vs. 132 total, well under the 2x-baseline-and-10% anomaly threshold)."
+  note: "Targeted reprocess for 2026-09-14. Plaud API enumerated 3 recordings created on 2026-09-14 (09:14 14:03:46 UTC, 09-14 Meeting Executive AI Workshop Planning, 09-14 Meeting Production Hosting Strategy). Vault cross-reference confirmed all 3 as genuinely new (none match vault file_ids 5916294c66c59b109e4aa61d4621bba4 or e0aa6343b58756669d5bb0eddc80c5a4 from prior ingestions). Mandatory dedup ledger created with all 3 API candidates marked as new after Tier 1, Tier 2, Tier 3 checks. Result: THREE genuinely new recordings ready for step-02 (transcription trigger)."
   previous-run-results:
     - date: "2026-09-08"
       new-recordings-count: 1

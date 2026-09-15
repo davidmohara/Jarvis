@@ -1,14 +1,14 @@
 ---
 agent: master
-completed-at: "2026-09-11T16:05:00Z"
+completed-at: "2026-09-14T16:38:00Z"
 current-step: null
-session-started: "2026-09-11T15:25:00Z"
+session-started: "2026-09-14T16:11:57Z"
 status: complete
 accumulated-context:
   phase1-point5:
     unified-data-pulls:
-      email: "completed — 1 actionable message (urgent-subject flagged; 12 total scanned, none flagged/high-importance)"
-      omnifocus: "failed — Desktop Commander/osascript MCP tool unavailable this session (ToolSearch confirmed no match). Degraded, continuing per failure-mode table."
+      email: "completed — 2 messages last 24h (1 time-sensitive/actionable: Re: Steve Hall agent strategy from rstone@saxum.com, scheduling ask; 1 marketing/non-actionable AGX tickets email)"
+      omnifocus: "failed — Desktop Commander/osascript MCP tool unavailable this session (ToolSearch confirmed no match, same as 2026-09-11 boot). Degraded, continuing per failure-mode table."
       clay: "completed — 0 reminders, 0 birthdays"
       jarvis-inbox: "nothing-to-surface — folder search returned 0 messages"
     files-created:
@@ -18,28 +18,34 @@ accumulated-context:
       - "data/jarvis-inbox-unified.json"
     degraded: true
     degraded_reason: "omnifocus pull unreachable (tool not present this session)"
+  phase1-point5-calendar:
+    calendar_file: "data/calendar-unified.json"
+    event_count: 51
+    date_range: "2026-09-14 to 2026-09-17"
+    note: "Today 09/14 is a normal full Dallas day (Prayer Call, Sales & Recruiting, Sales Scrum, Devlin sync, AI Exec Workshop CA sync, FEI Monthly evening event at The Clubs of Prestonwood). 09/16-09/17 is AR YPO trip to Little Rock (AA3850 DFW->LIT 9/16 7:10am, AA3589 LIT->DFW 9/17 7:18am, Capital Hotel, YPO dinner 9/16 evening)."
   phase2:
-    morning-briefing-steps-01-02: "completed — calendar (data/calendar-unified.json, 22 events) live; task data unavailable (omnifocus pull failed upstream, degraded)"
-    task-g-72hr-lookahead: "completed — 09-12 to 09-14 from data/calendar-unified.json. Key: 9/12 Sat has only Strength Flow (yoga); 9/14 Mon is a full normal day back in Dallas (Prayer Call, Sales & Recruiting, Sales Scrum, Remington Hotels AI discussion, Devlin sync, AI Executive Workshop CA sync, FEI Monthly evening event)."
-    task-h-email-triage: "completed — 0 flagged/high-importance; 1 time-sensitive by subject line (Re: URGENT ACTION: Western regional board meeting ask, from skaiser@ypo.org, awaiting David's direction on slide review/call)"
-    task-i-jarvis-inbox: "nothing-to-surface — jarvis-inbox skill run confirms folder empty (0 items)"
+    morning-briefing-steps-01-02: "completed — calendar (data/calendar-unified.json, today=12 events) live; task data unavailable (omnifocus pull failed upstream, degraded). Delegation tracker: 0 active delegations. Q3 rocks: 4 rocks still in draft, pending David's sign-off (Revenue Visibility, Partner & Account Review Execution, Thought Leadership, Partner Co-Sell Pipeline)."
+    calendar-today-classification: "Today 09-14: 12 events. Hot 26/yoga w/ Quinn Ray 6-7am CT (personal); Prayer Call 8-8:15am (recurring-skip); Timesheet 8:30am (admin); Sales & Recruiting 9:15-9:30am (team, recurring-skip); Sales Scrum 9:30-10am (team, recurring-skip); Devlin sync 11:30am-12pm (1:1); Overflow 12-12:30pm (personal); AI Executive Workshop CA sync 12:30-1pm (partner/team, w/ alice.mburu, ashok.Iyengar); Lunch 1-2pm; Summer/craiggroup.io call 2-2:45pm (external); GEHC Twice Weekly Internal Check-In 3:30-4pm (client-adjacent, GE Healthcare); FEI Monthly Meeting evening 4-8pm at The Clubs of Prestonwood (external/networking, guest of Nathan Jacks UMB). FLAG: Devlin sync -> Overflow -> AI Workshop CA sync run 11:30am-1pm back-to-back with zero buffer."
+    task-g-72hr-lookahead: "completed — 09-15 to 09-17 from data/calendar-unified.json. Key: 9/15 normal Dallas day (Sales & Recruiting, Sales Scrum, Build SC proposal, haircut, YPO Western Chapter Chairs office hours evening, Don/David sync). 9/16-9/17 is the AR YPO trip to Little Rock — AA3850 DFW->LIT departs 7:10am CT 9/16, Capital Hotel, YPO dinner evening 9/16, AA3589 LIT->DFW departs 7:18am CT 9/17 (early return flight, tight with Sales & Recruiting/Sales Scrum same morning at 9:15/10am CT — arrives DFW 8:50am CT, workable but no buffer)."
+    task-h-email-triage: "completed — 2 messages last 24h via data/email-unified.json. 1 time-sensitive/actionable: 'Re: Steve Hall agent strategy' from rstone@saxum.com (scheduling ask, offering 10/2 PM or 10/6 AM-2p, needs David's pick). 1 non-actionable marketing email (AGX tickets)."
+    task-i-jarvis-inbox: "nothing-to-surface — jarvis-inbox skill confirms folder empty (eval-20260914T161351-1A9BRF, 100% pass)"
     task-j-reminders: "nothing-to-surface — data/reminders.json present, reminders array empty"
   phase2-verification:
-    method: "self-verified — Ralph/boot-verification subagent not spawnable this session (no Agent-spawning tool in toolset). Fallback per step-03 failure-mode table."
-    result: "PASS — all 4 Phase 2 tasks confirmed against file evidence: calendar-unified.json (22 events, pulled_at fresh), email-unified.json (1 msg), jarvis-inbox-latest.json (status success, 0 tool_failures), reminders.json (empty array confirmed)."
+    method: "self-verified — no dedicated boot-verification/Ralph agent type available in this session's Agent tool roster. Fallback per step-03 failure-mode table."
+    result: "PASS — all Phase 2 tasks confirmed against file evidence: calendar-unified.json (51 events across 4-day window, pulled_at 2026-09-14T16:12), email-unified.json (2 msgs), jarvis-inbox skill run (eval-20260914T161351-1A9BRF, 100% pass, 0 items), reminders.json (empty array confirmed), delegation tracker (0 active), quarterly-objectives.md (4 Q3 rocks read)."
     reruns: 0
   phase3:
-    morning-briefing-step-03: "completed (degraded) — Obsidian MCP unreachable this session (connection error), so knowledge-base/person-note lookups skipped per failure-mode fallback. Delegation tracker checked directly (file read): 0 active delegations. Today's non-recurring meetings: Lisa & David quick chat on GE (Lisa Kimbrel, GE/GEHC account context — thin, no notes found, classify low-context) — all other meetings today are recurring/standing internal cadences, ready. Yesterday's daily review (2026-09-10) missing — last dated review on file is auto-2026-08-12, flagged as accountability gap."
+    morning-briefing-step-03: "completed (degraded) — identity/MEMORY.md checked directly for attendee context (no relevant hits for Summer/craiggroup.io, Saxum/rstone/Steve Hall). Meetings needing prep today: Devlin sync (standing 1:1, ready), AI Executive Workshop CA sync w/ alice.mburu + ashok.Iyengar (standing, ready), Summer (craiggroup.io) call 2pm CT (low-context, no prior notes found — unclear purpose), GEHC Twice Weekly Internal Check-In (client-adjacent, GE Healthcare — recurring, ready per standing cadence), FEI Monthly evening event (external/networking, ready — known standing commitment). Yesterday's daily review (2026-09-13) missing — last dated review on file remains auto-2026-08-12 (over a month gap), flagged again as a recurring accountability gap."
     clay-reminders: "none — 0 due in next 7 days (data/clay-reminders-unified.json)"
     clay-birthdays: "none — no dedicated birthday field returned by Clay MCP this run"
   phase4:
-    briefing_delivered: "yes — synthesized directly (morning-briefing step-04 template applied) covering travel day back from Lone Star Gold retreat, recurring-meeting/airport-drive overlap, thin-context Lisa Kimbrel GE 1:1, missing daily review, and two degraded sources (OmniFocus, Obsidian)."
+    briefing_delivered: "yes — synthesized directly (morning-briefing step-04 template applied) covering a full Dallas day with a back-to-back midday stretch (Devlin sync/Overflow/AI Workshop CA sync, zero buffer), a low-context Summer/craiggroup.io call, the Saxum scheduling reply owed, the recurring missing-daily-review accountability gap (now >1 month), and OmniFocus degraded (unreachable this session, 3rd consecutive boot)."
   phase5:
-    active_index: "workflows/_active.yaml reads active: [] — but direct state.yaml checks show this is stale, same recurring mismatch flagged in prior boots (2026-09-03, 04, 08)."
-    plaud_ingest: "status: awaiting-input, session pi-20260909-001, current-step step-03. 1 new recording (09-08 Working Session Plan transcript), blocked on David's speaker ID for an unresolved speaker label. Not auto-resumed — surfaced for David."
-    watchtower: "status: complete, session wt-daily-2026-09-08. No action needed. No new watchtower run yet today — Knox has not been invoked this session (deferred to step-08)."
-    result: "1 actionable in-flight workflow (plaud-ingest, awaiting-input). Index mismatch flagged again as recurring/non-blocking, Rigby to reconcile."
+    active_index: "workflows/_active.yaml reads active: [] — but direct state.yaml checks show this is stale, same recurring mismatch flagged in prior boots (2026-09-03, 04, 08, 11)."
+    plaud_ingest: "status: in-progress, session pi-20260914-001, current-step step-01, started 2026-09-14T00:00:00Z (overnight/scheduled invocation, not this session). Speaker mapping now resolved (David O'Hara, Renzi Stone) for the 09-08 Working Session Plan recording — 1 item in ready-for-fetch. Not auto-resumed this session — surfaced for David per step-06 rule."
+    watchtower: "status: complete, session wt-weekly-2026-W38, completed 2026-09-14T13:05:00Z (today, prior to this boot session). 1 weekly theme synthesized ('The Activity Trap' — AI ROI accountability squeeze), content_queue empty. No action needed."
+    result: "1 actionable in-flight workflow (plaud-ingest, in-progress at step-01, not resumed). Watchtower already fresh today. Index mismatch flagged again as recurring/non-blocking, Rigby to reconcile."
   guardrail-checkpoint:
     checkpoint_name: "pre-completion-review"
     checkpoint_result: "flag"
-    reason: "Briefing accurately reflects live data gathered in steps 01-04. Three flags, none blocking: OmniFocus tool unreachable (degraded), Obsidian MCP unreachable during step-04 (degraded), recurring _active.yaml/plaud-ingest index mismatch. No stale-as-fresh presentation, no leakage, session index clean."
+    reason: "Briefing reflects live 2026-09-14 data (calendar 51 events, email 2 msgs, jarvis-inbox empty, clay empty). Flags, none blocking: OmniFocus tool unreachable (3rd consecutive boot, degraded); no dedicated Ralph/boot-verification agent available (self-verified with file evidence); recurring _active.yaml/plaud-ingest index mismatch; plaud-ingest in-progress (step-01) surfaced, not auto-resumed. Watchtower already fresh today (weekly W38). No stale-as-fresh presentation, no leakage, session index clean."

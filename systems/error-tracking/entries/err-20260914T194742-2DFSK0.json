@@ -1,0 +1,15 @@
+{
+  "id": "err-20260914T194742-2DFSK0",
+  "timestamp": "2026-09-14T19:47:42Z",
+  "session": "2026-09-14",
+  "source": "explicit",
+  "agent": "Jarvis",
+  "category": "tool-misuse",
+  "description": "David asked to post the three W38 content drafts to #content channel in Slack. Jarvis responded by looking for a Slack MCP connector and saying it was unavailable / needed authentication. The correct path is the master-slack skill, not a connector.",
+  "correction": "Use the master-slack skill for all Slack operations. Do not look for or suggest a Slack MCP connector. The skill is the only authorized path.",
+  "failure_mode": "tool-ignorance",
+  "systemic_fix": "Add a hard rule to the Watchtower workflow (and any workflow that surfaces content for posting) directing Slack operations to the master-slack skill. Applied to workflows/watchtower/workflow.md.",
+  "fix_status": "applied",
+  "severity": "moderate",
+  "related_entries": []
+}

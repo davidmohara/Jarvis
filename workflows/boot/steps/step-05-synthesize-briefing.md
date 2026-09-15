@@ -1,12 +1,12 @@
 ---
 status: complete
-started-at: "2026-09-11T15:52:00Z"
-completed-at: "2026-09-11T15:58:00Z"
+started-at: "2026-09-14T16:26:00Z"
+completed-at: "2026-09-14T16:30:00Z"
 outputs:
-  briefing_delivered: "yes — full morning briefing synthesized (degraded on 2 sources: OmniFocus, Obsidian) and carried forward through steps 06-08 for verbatim delivery to controller"
-  format: "3-paragraph narrative + calendar table, no Watchtower section (no new run today, Knox not yet invoked), no Reminders section (0 due, omitted per format rule)"
-  calendar_today: "9 events, live from data/calendar-unified.json. Dense recurring-meeting block overlapping the airport-drive travel window, then a full travel afternoon."
-  hotspots: "Drive-to-Airport/Presidents-Pipeline-Roundtable overlap; Lisa Kimbrel GE 1:1 thin context (Obsidian unreachable); yesterday's daily review missing; OmniFocus unreachable (task priorities degraded); YPO urgent-subject board-session email awaiting reply; plaud-ingest awaiting David's speaker ID (non-blocking)."
+  briefing_delivered: "yes — full morning briefing synthesized (degraded on 1 source: OmniFocus) and carried forward through steps 06-08 for verbatim delivery to controller"
+  format: "3-paragraph narrative + calendar table, no Watchtower section (ran earlier today outside this synthesis step, surfaced separately in phase5), no Reminders section (0 due, omitted per format rule)"
+  calendar_today: "12 events, live from data/calendar-unified.json. Full Dallas day with a zero-buffer back-to-back midday stretch."
+  hotspots: "Devlin sync/Overflow/AI Workshop CA sync back-to-back zero buffer 11:30am-1pm; Summer/craiggroup.io call thin context; Saxum scheduling reply owed; yesterday's daily review missing (>1 month gap); OmniFocus unreachable (3rd consecutive boot); plaud-ingest in-progress at step-01 (non-blocking, surfaced)."
 ---
 
 <!-- system:start -->

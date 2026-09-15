@@ -1,13 +1,13 @@
 ---
 status: complete
-started-at: "2026-09-11T15:48:00Z"
-completed-at: "2026-09-11T15:52:00Z"
+started-at: "2026-09-14T16:22:00Z"
+completed-at: "2026-09-14T16:26:00Z"
 outputs:
-  meetings_found: "Today (Fri Sep 11): dense recurring Improving leadership block (Coffee Chat, Sales & Recruiting, 2nd Friday Exec, Presidents Pipeline Roundtable) 8-11am CT, overlapping the Drive to Airport block; Lisa & David quick chat on GE (1:1, low-context — no notes found); Flight AA2939 FCA->DFW 2:02-5:33pm CT."
-  meeting-context: "Delegation tracker clean (0 active delegations, checked via direct file read). Q3 rocks status unchanged from last known state: still in draft (Revenue Visibility, Partner/Account Review Cadence, Thought Leadership, Partner Co-Sell Pipeline). Yesterday's daily review missing (last dated review on file: auto-2026-08-12) — flagged as accountability gap. Real scheduling conflict: Drive to Airport (10:30-11am CT) overlaps the Presidents Pipeline Roundtable (10-11am CT)."
+  meetings_found: "Today (Mon Sep 14): full Dallas day — Prayer Call, Sales & Recruiting, Sales Scrum (recurring-skip), Devlin sync/Overflow/AI Executive Workshop CA sync back-to-back 11:30am-1pm CT (zero buffer), Summer/craiggroup.io call 2pm CT (low-context), GEHC Twice Weekly Internal Check-In 3:30pm CT, FEI Monthly evening event at The Clubs of Prestonwood."
+  meeting-context: "Delegation tracker clean (0 active delegations). Q3 rocks status unchanged: still in draft (Revenue Visibility, Partner/Account Review Execution, Thought Leadership, Partner Co-Sell Pipeline). Yesterday's (09-13) daily review missing — last dated review on file remains auto-2026-08-12, flagged again as accountability gap (>1 month). Back-to-back flag: Devlin sync -> Overflow -> AI Workshop CA sync, zero buffer 11:30am-1pm."
   clay-reminders: "none — 0 due in next 7 days (data/clay-reminders-unified.json)"
   clay-birthdays: "none surfaced — no dedicated birthday tool in current Clay toolset"
-  context-status: "degraded — calendar and Clay fresh; Obsidian MCP unreachable (connection error) so knowledge-base/person-note lookups for the Lisa Kimbrel GE meeting were skipped."
+  context-status: "degraded — calendar and Clay fresh; identity/MEMORY.md checked directly for attendee context, no relevant hits found for Summer/craiggroup.io or Saxum/rstone."
 ---
 
 <!-- system:start -->

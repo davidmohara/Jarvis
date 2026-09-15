@@ -1,15 +1,15 @@
 ---
 status: complete
-started-at: "2026-09-11T15:30:00Z"
-completed-at: "2026-09-11T15:35:00Z"
+started-at: "2026-09-14T16:11:57Z"
+completed-at: "2026-09-14T16:12:30Z"
 outputs:
   calendar_file: "data/calendar-unified.json"
-  event_count: 22
-  date_range: "2026-09-11 to 2026-09-14"
+  event_count: 51
+  date_range: "2026-09-14 to 2026-09-17"
   status: "written"
-  file_size_kb: 5
-  m365_calls: 1
-  note: "Single call, 22 events. Key finding: today is the return-travel day from the Lone Star Gold Presidents Retreat in Whitefish MT — Drive to Airport 10:30-11am CT overlaps the Presidents Pipeline Roundtable (10-11am CT), flight AA2939 FCA->DFW departs 2:02pm CT lands 5:33pm CT."
+  file_size_kb: 6
+  m365_calls: 3
+  note: "3 paginated calls (25/25/1), 51 events. Today is a full Dallas day; 09-16/09-17 is the AR YPO trip to Little Rock (AA3850 DFW->LIT, AA3589 LIT->DFW, Capital Hotel)."
 ---
 
 <!-- system:start -->

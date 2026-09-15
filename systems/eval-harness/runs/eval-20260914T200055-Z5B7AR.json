@@ -1,0 +1,74 @@
+{
+  "id": "eval-20260914T200055-Z5B7AR",
+  "agent_id": "ad69305d1851c940c",
+  "type": "agent",
+  "name": "general-purpose",
+  "workflow": null,
+  "agent": "general-purpose",
+  "session_id": "b1f49c32-bc03-4f66-b943-9cc7f432d45f",
+  "trigger": "unknown",
+  "started": "2026-09-14T20:00:55.333494Z",
+  "completed": "2026-09-14T20:03:44.900982Z",
+  "duration_seconds": 169.57,
+  "status": "success",
+  "steps": [
+    {
+      "name": "step-04-fetch-staging.md",
+      "started": "2026-09-14T15:01:00Z",
+      "completed": "2026-09-14T15:03:00Z",
+      "duration_seconds": 120.0,
+      "status": "completed",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": "haiku",
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    }
+  ],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/b1f49c32-bc03-4f66-b943-9cc7f432d45f/subagents/agent-ad69305d1851c940c.jsonl",
+  "last_assistant_message": "Staging complete for session pi-20260914-001. Report:\n\n**[Knox/Fetch]: Staging complete.**\n- Files ready: 3\n- Speaker renames applied: 1\n- Gaps (expected but missing): 0\n\nDetails:\n- All 3 recordings from `ready-for-fetch` now have staged markdown files in `~/Downloads/transcript-staging/`: ACG Houston Speaking Engagement, Executive AI Workshop Planning, and Production Hosting Strategy/Capacity Risks/Boot Camp Planning.\n- Applied the rename for `66df23aef3712ab857d5a656c67ba763` (\"Speaker 1\" \u2192 \"Ashok Iyengar\"). Plaud's transaction_polish layer needed regeneration (auto-triggered, ~80s to settle), which the script handled correctly, but it saved the corrected transcript under a mis-derived filename (`plaud_66df23aef3712ab857d5a656c67ba763_ogg.md`) instead of overwriting the original meeting-named file. I manually reconciled this by copying the corrected content into the properly-named file and removing the duplicate. Verified: 16 \"Ashok Iyengar\" occurrences, 0 \"Speaker 1\" occurrences.\n- Noted a harmless duplicate staged file for the ACG Houston recording (same file_id, saved twice under different names during the script's pending-recheck pass) \u2014 not referenced in state.yaml, no action needed.\n- Updated `workflows/plaud-ingest/state.yaml`: `staged-files` populated with the 3 recordings' files (.md + sibling _raw.json/_speakers.json where present), `current-step: step-05`.\n- Replaced the stale 2026-09-04 frontmatter in `workflows/plaud-ingest/steps/step-04-fetch-staging.md` with this run's outputs, including a flag for the filename bug (a new variant of the previously-logged transaction_polish staleness bug) for a future Rigby fix.\n\nFiles touched (absolute paths):\n- `/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/workflows/plaud-ingest/state.yaml`\n- `/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/workflows/plaud-ingest/steps/step-04-fetch-staging.md`\n- `/Users/davidohara/Downloads/transcript-staging/plaud_09-14 Meeting_ Executive AI Workshop Planning.md` (and its `_raw.json`/`_speakers.json`)\n- `/Users/davidohara/Downloads/transcript-staging/plaud_09-14 Meeting_ O_Hara_s ACG Houston Speaking Engagement on AI Adoption.md` (and siblings)\n- `/Users/davidohara/Downloads/transcript-staging/plaud_09-14 Meeting_ Production Hosting Strategy_ Capacity Risks_ and October Boot Camp Planning for ML_DLP Programs.md` (and its `_raw.json`)\n\nNot proceeding to step-05 (ingest) per the scoped instruction \u2014 that's handled separately.",
+  "model": "sonnet",
+  "total_tokens_input": 551593,
+  "total_tokens_output": 1100,
+  "total_cost_usd": 0.316741
+}

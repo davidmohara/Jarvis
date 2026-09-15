@@ -1,14 +1,14 @@
 ---
 status: complete
-started-at: "2026-09-11T16:05:00Z"
-completed-at: "2026-09-11T16:07:00Z"
+started-at: "2026-09-14T16:36:00Z"
+completed-at: "2026-09-14T16:38:00Z"
 outputs:
   knox_status: "no_record"
-  knox_reason: "No Knox eval record dated today (2026-09-11) found in systems/eval-harness/runs/ — Knox was not spawned this session (no Agent-spawning tool available in this subagent's toolset, unlike the 2026-09-08 run which used a background agent spawn). Checked workflows/plaud-ingest/state.yaml directly instead: it still shows status:awaiting-input from session pi-20260909-001 (2026-09-09), unchanged since that prior run — 1 new recording still blocked on David's speaker ID. Watchtower still shows status:complete from session wt-daily-2026-09-08, no new daily run today."
+  knox_reason: "No plaud-ingest or watchtower eval record dated today (2026-09-14) found in systems/eval-harness/runs/. Checked state.yaml files directly instead: workflows/plaud-ingest/state.yaml shows status:in-progress, session pi-20260914-001, current-step step-01, started 2026-09-14T00:00:00Z (overnight/scheduled invocation prior to this session) — speaker mapping now resolved (David O'Hara, Renzi Stone), 1 recording ready-for-fetch. workflows/watchtower/state.yaml shows status:complete, session wt-weekly-2026-W38, completed 2026-09-14T13:05:00Z (today, prior to this session) — 1 weekly theme synthesized, content_queue empty."
   knox_duration_seconds: null
   knox_eval_id: null
-  knox_background_task: "Plaud-ingest: awaiting-input, unchanged, not reflected in workflows/_active.yaml (same recurring index pattern flagged in step-06/06.5). Watchtower: complete (stale — last ran 09-08, no fresh run today since Knox was not invoked)."
-  note: "Boot completion is not blocked by this — Knox fire-and-forget spawn genuinely could not be attempted this session due to tooling gap, not a Knox failure. Flagging the missing Agent-spawn capability as a session-level gap worth investigating, separate from plaud-ingest's own (unchanged) awaiting-input state."
+  knox_background_task: "Plaud-ingest: in-progress at step-01, not reflected in workflows/_active.yaml (same recurring index pattern flagged in step-06/06.5), surfaced not resumed. Watchtower: complete and fresh as of today, no action needed."
+  note: "Boot completion is not blocked by this. No new Knox spawn was needed this session — watchtower already ran today and plaud-ingest is mid-flight from an earlier invocation. Both surfaced in the briefing; plaud-ingest awaits David's decision on whether to resume."
 ---
 
 <!-- system:start -->

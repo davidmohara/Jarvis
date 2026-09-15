@@ -1,12 +1,12 @@
 ---
 status: complete
-started-at: "2026-08-31T22:10:00Z"
-completed-at: "2026-08-31T22:25:00Z"
+started-at: "2026-09-14T20:00:00Z"
+completed-at: "2026-09-14T20:15:00Z"
 outputs:
   drafts_sent:
-    - Mind/Posts/_the-40-percent-problem.md
-    - Mind/Posts/_the-billing-model-just-broke.md
-    - Mind/Posts/_nist-is-wiring-the-agent-standards-layer.md
+    - Mind/Posts/_the-activity-trap.md
+    - Mind/Posts/_intuition-rust.md
+    - Mind/Posts/_dfw-is-now-the-ai-talent-market.md
   drafts_skipped: []
   channel: C0B160MA3EK
   step_skipped: false

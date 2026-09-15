@@ -1,0 +1,155 @@
+{
+  "id": "eval-20260914T161104-5FV1C1",
+  "type": "workflow",
+  "name": "boot",
+  "agent": "master",
+  "session_id": "b1f49c32-bc03-4f66-b943-9cc7f432d45f",
+  "trigger": "boot",
+  "started": "2026-09-14T16:11:04.755262Z",
+  "completed": "2026-09-14T16:18:30.322743Z",
+  "duration_seconds": 445.57,
+  "status": "success",
+  "steps": [],
+  "subagents": [
+    {
+      "agent_id": "adba24725a3fe937d",
+      "agent_type": "general-purpose",
+      "started": "2026-09-14T16:11:35.495475Z",
+      "completed": "2026-09-14T20:20:05.641543Z",
+      "model": "sonnet",
+      "tokens_input": 590268,
+      "tokens_output": 140,
+      "cost_usd": 0.221948,
+      "duration_seconds": 16.86
+    },
+    {
+      "agent_id": "a1fd52f6f2405c56b",
+      "agent_type": "general-purpose",
+      "started": "2026-09-14T16:11:45.102019Z",
+      "completed": "2026-09-14T16:18:13.973653Z",
+      "model": "sonnet",
+      "tokens_input": 6492942,
+      "tokens_output": 717,
+      "cost_usd": 2.585317,
+      "duration_seconds": 388.87
+    },
+    {
+      "agent_id": "a5d1c89fc1d85895e",
+      "agent_type": "general-purpose",
+      "started": "2026-09-14T16:11:52.355366Z",
+      "completed": null,
+      "model": null,
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    },
+    {
+      "agent_id": "adba24725a3fe937d",
+      "agent_type": "general-purpose",
+      "started": "2026-09-14T16:12:04.413913Z",
+      "completed": null,
+      "model": null,
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    },
+    {
+      "agent_id": "a4c4ccc23bdf6f0ce",
+      "agent_type": "general-purpose",
+      "started": "2026-09-14T16:12:13.612220Z",
+      "completed": "2026-09-14T19:44:05.855110Z",
+      "model": "haiku",
+      "tokens_input": 973916,
+      "tokens_output": 16,
+      "cost_usd": 0.213721,
+      "duration_seconds": 58.54
+    },
+    {
+      "agent_id": "a901f8764bc39c91d",
+      "agent_type": "general-purpose",
+      "started": "2026-09-14T16:13:25.060625Z",
+      "completed": "2026-09-14T16:13:59.631288Z",
+      "model": "sonnet",
+      "tokens_input": 562623,
+      "tokens_output": 865,
+      "cost_usd": 0.291545,
+      "duration_seconds": 34.57
+    }
+  ],
+  "monitoring": {
+    "active": false,
+    "state_yaml_path": "workflows/boot/state.yaml",
+    "opened_by": "eval-turn-start.py",
+    "trigger_evidence": "run the morning boot"
+  },
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 3,
+      "assertions_passed": 3,
+      "assertion_results": [
+        {
+          "assertion": "boot-001-state-complete",
+          "description": "Boot workflow state.yaml shows status: complete",
+          "passed": true
+        },
+        {
+          "assertion": "boot-002-session-index-exists",
+          "description": "Session index file exists \u2014 boot's Session Index Boot step must have created/appended it",
+          "passed": true
+        },
+        {
+          "assertion": "boot-003-session-index-substantive",
+          "description": "Session index is a real record, not an empty stub",
+          "passed": true
+        }
+      ]
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": "f1a31609ac6be8a11b48a3c6267957f76a4e86e971cd143315c77472e90af0d0",
+  "prior_baseline_id": null,
+  "tags": [
+    "turn-level"
+  ],
+  "guardrails": [
+    {
+      "name": "pre-completion-review",
+      "after_step": "step-06-scan-workflows",
+      "result": "flag",
+      "reason": "Briefing reflects live 2026-09-14 data (calendar 51 events, email 2 msgs, jarvis-inbox empty, clay empty). Flags: OmniFocus tool unreachable this session (3rd consecutive boot, degraded); no dedicated Ralph/boot-verification agent available (self-verified with file evidence instead); _active.yaml/plaud-ingest index mismatch recurring (non-blocking); plaud-ingest in-progress (step-01, speaker mapping resolved) surfaced not auto-resumed; watchtower already fresh today (weekly W38). No leakage, no stale-as-fresh presentation.",
+      "escalated_to_human": false,
+      "timestamp": "2026-09-14T16:16:09.248066+00:00"
+    }
+  ],
+  "total_tokens_input": 7172234,
+  "total_tokens_output": 1778,
+  "total_cost_usd": 2.970224
+}

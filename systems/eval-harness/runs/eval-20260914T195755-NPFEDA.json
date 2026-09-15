@@ -1,0 +1,74 @@
+{
+  "id": "eval-20260914T195755-NPFEDA",
+  "agent_id": "ad185ae33807bca5b",
+  "type": "agent",
+  "name": "general-purpose",
+  "workflow": null,
+  "agent": "general-purpose",
+  "session_id": "b1f49c32-bc03-4f66-b943-9cc7f432d45f",
+  "trigger": "unknown",
+  "started": "2026-09-14T19:57:55.229904Z",
+  "completed": "2026-09-14T20:00:32.476509Z",
+  "duration_seconds": 157.25,
+  "status": "success",
+  "steps": [
+    {
+      "name": "step-03-identify-speakers.md",
+      "started": "2026-09-14T15:00:00Z",
+      "completed": "2026-09-14T15:30:00Z",
+      "duration_seconds": 1800.0,
+      "status": "completed",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": "haiku",
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    }
+  ],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/b1f49c32-bc03-4f66-b943-9cc7f432d45f/subagents/agent-ad185ae33807bca5b.jsonl",
+  "last_assistant_message": "Step-03 for session **pi-20260914-001** is complete. Summary:\n\n**Auto-resolved:** 1 recording\n**Controller-resolved:** 0 recordings\n**Clean (no speaker file):** 2 recordings\n\n**Personal recordings:** 0\n**Work recordings:** 3\n\nDetail:\n\n1. **9bb5788628b16838019203e248399df3** (\"2026-09-14 14:03:46\") \u2014 no transcript content yet, no `_speakers.json` in staging. Clean, no mapping needed. Calendar cross-reference matched a \"Summer to call David\" event (19:03:46\u201319:33:57 UTC), no personal keyword hit \u2192 classified work.\n2. **66df23aef3712ab857d5a656c67ba763** (\"Executive AI Workshop Planning\") \u2014 `_speakers.json` present with one untagged label: \"Speaker 1\" (16 segments). Self-ID scan found no explicit name self-ID but rich context (new hire ~10 weeks in, SF Bay Area, not YPO, mentions Robin's clients Intuit/Autodesk). Calendar cross-reference matched \"Sync: AI Executive Workshop in California\" (17:30\u201318:00 UTC, attendees alice.mburu@improving.com, ashok.Iyengar@improving.com) within 17 seconds of the recording's actual start \u2014 Alice is addressed directly in-transcript but has no distinct speaker segment, resolving **Speaker 1 = Ashok Iyengar** by elimination. High-confidence calendar resolution, auto-mapped. Classified work.\n3. **97b419ebfe3fd7ed84ac820a3343fef7** (\"Production Hosting Strategy...\") \u2014 speakers already natively named \"Devlin\" and \"O'Hara\" by Plaud, no `_speakers.json`, no mapping needed. Classified work.\n\n**Gate 4 result: pass** \u2014 no unresolved speakers, no controller escalation needed. `state.yaml` updated (`speaker-mappings`, `recording-classification`, `current-step: step-04`); step-03 frontmatter replaced (stale 2026-09-09 entry moved to `notes_prior_run`, current run logged in `notes`, `gate_4_result: pass`).\n\nDeterministic grade:\n```\n--- Eval: plaud-speaker-id (eval-20260914T200017-WUMQG0) ---\nStructure 2/4 passed\nFailing: plaud-speaker-id output is substantive (>200 bytes), plaud-speaker-id output contains expected content\nDeterministic score: 79% -> PASS (gate >= 70%)\nTier 3 qualitative grade: pending (runs in tonight's end-of-day sweep \u2014 CLAUDE.md Exit Behavior)\n```\n\nFiles touched: `/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/workflows/plaud-ingest/state.yaml`, `/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/workflows/plaud-ingest/steps/step-03-identify-speakers.md`, `/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/systems/eval-harness/skill-runs/plaud-speaker-id-latest.json`.\n\nReady to proceed to step-04 (fetch staging) whenever you want that run kicked off.",
+  "model": "sonnet",
+  "total_tokens_input": 1446298,
+  "total_tokens_output": 356,
+  "total_cost_usd": 0.66525
+}

@@ -1,0 +1,63 @@
+{
+  "id": "eval-20260914T195138-NMPWLP",
+  "agent_id": "adba24725a3fe937d",
+  "type": "agent",
+  "name": "general-purpose",
+  "workflow": null,
+  "agent": "general-purpose",
+  "session_id": "b1f49c32-bc03-4f66-b943-9cc7f432d45f",
+  "trigger": "unknown",
+  "started": "2026-09-14T19:51:38.555944Z",
+  "completed": "2026-09-14T19:52:29.592804Z",
+  "duration_seconds": 51.04,
+  "status": "failure",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": [
+        "err-20260914T194742-2DFSK0",
+        "err-20260914T195128-EHFST5"
+      ]
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": "negative",
+      "comment": "error-log-correlated: err-20260914T194742-2DFSK0, err-20260914T195128-EHFST5",
+      "timestamp": "2026-09-14T19:52:29.592804Z"
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/b1f49c32-bc03-4f66-b943-9cc7f432d45f/subagents/agent-adba24725a3fe937d.jsonl",
+  "last_assistant_message": "I've launched the scoped re-check (`@plaud-discover`) for the 2026-09-14+ window with dedup and ledger verification kept intact \u2014 no further action needed right now. I'll act on the completion notification when it lands and report actual findings rather than the unverified \"3 recordings\" figure claimed in the request.",
+  "model": "sonnet",
+  "total_tokens_input": 129448,
+  "total_tokens_output": 104,
+  "total_cost_usd": 0.273156
+}

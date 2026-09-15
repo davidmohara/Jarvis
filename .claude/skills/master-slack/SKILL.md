@@ -31,20 +31,27 @@ The IES folder may live at different paths across David's machines. Use this pri
 python3 "$(mdfind -name 'post.py' | grep 'systems/slack-bot/post.py' | head -1)" <channel_id> "<message>"
 ```
 
-**Option 2: Find via SYSTEM.md (reliable fallback for scripted/non-interactive environments)**
+**Option 2: Direct path — USE THIS. Always. (err-20260908T000000-SLACK1, err-20260914T194742-2DFSK0)**
 
 ```bash
-IES_ROOT="$(find ~ -name 'SYSTEM.md' -path '*/jarvis/SYSTEM.md' 2>/dev/null | head -1 | sed 's|/SYSTEM.md||')"
-python3 "$IES_ROOT/systems/slack-bot/post.py" <channel_id> "<message>"
+python3 - <<'PYEOF'
+import subprocess
+IES = "/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES"
+msg = """your message here"""
+r = subprocess.run(["python3", f"{IES}/systems/slack-bot/post.py", "<channel_id>", msg], capture_output=True, text=True)
+print(r.stdout.strip() or r.stderr.strip())
+PYEOF
 ```
 
-**Option 3: Direct path (if IES_ROOT is known)**
+**WARNING — `find ~` HANGS on this machine.** The `find ~ -name 'SYSTEM.md'` path-discovery pattern causes Desktop Commander processes to block indefinitely on David's machine (logged twice: err-20260908T000000-SLACK1, err-20260914T194742-2DFSK0). Never use it. The hardcoded direct path is always correct and always faster.
+
+**Option 3: mdfind (macOS interactive shells only)**
 
 ```bash
-python3 "$IES_ROOT/systems/slack-bot/post.py" <channel_id> "<message>"
+python3 "$(mdfind -name 'post.py' | grep 'systems/slack-bot/post.py' | head -1)" <channel_id> "<message>"
 ```
 
-Use Option 2 or 3 when executing from scheduled tasks, agents, or non-interactive environments where `mdfind` is unavailable.
+Use Option 2 (heredoc + direct path) for all Desktop Commander calls. Use Option 3 only in truly interactive terminal sessions.
 
 ## Channels
 

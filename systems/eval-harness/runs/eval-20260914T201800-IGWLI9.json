@@ -1,0 +1,49 @@
+{
+  "id": "eval-20260914T201800-IGWLI9",
+  "type": "skill",
+  "name": "delivery-router",
+  "agent": "knox",
+  "session_id": "b1f49c32-bc03-4f66-b943-9cc7f432d45f",
+  "trigger": "manual",
+  "started": "2026-09-14T20:15:00Z",
+  "completed": "2026-09-14T20:18:00.554134Z",
+  "duration_seconds": 180.6,
+  "status": "partial",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": false,
+      "tool_failures": 3,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "deterministic_gate": {
+      "score": 0.4167,
+      "gate_status": "fail",
+      "computed_at": "2026-09-14T20:18:02.353746Z"
+    }
+  },
+  "version_hash": "55ffa21ef7a6b683",
+  "prior_baseline_id": null,
+  "tags": [
+    "cowork-hook",
+    "skill"
+  ]
+}

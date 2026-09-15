@@ -1,0 +1,60 @@
+{
+  "id": "eval-20260914T201920-CTVQMR",
+  "agent_id": "adba24725a3fe937d",
+  "type": "agent",
+  "name": "general-purpose",
+  "workflow": null,
+  "agent": "general-purpose",
+  "session_id": "b1f49c32-bc03-4f66-b943-9cc7f432d45f",
+  "trigger": "unknown",
+  "started": "2026-09-14T20:19:20.878527Z",
+  "completed": "2026-09-14T20:19:48.016209Z",
+  "duration_seconds": 27.14,
+  "status": "success",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/b1f49c32-bc03-4f66-b943-9cc7f432d45f/subagents/agent-adba24725a3fe937d.jsonl",
+  "last_assistant_message": "Verified \u2014 `state.yaml` confirms `status: complete`, and `step-05b`'s frontmatter matches the report exactly (3 shares succeeded, 0 Monday tasks due to the unreachable board tool, `monday-task-id: null` for all three, honestly reported rather than faked).\n\n**Plaud-ingest (session pi-20260914-001) is complete.** Summary:\n\n**3 new recordings ingested** (all work, all filed to `zzPlaud/Improving/`):\n1. Summer Craig call \u2014 ACG Houston speaking engagement planning\n2. Executive AI Workshop planning (Ashok Iyengar)\n3. Devlin/O'Hara \u2014 production hosting handoff, capacity risk, October boot camp planning\n\n**Speaker ID:** Ashok Iyengar resolved via calendar cross-reference (no controller escalation needed). Gate 4 passed clean.\n\n**Gate 5 (vault filing):** pass for all 3 notes, daily note created at `Calendar/2026/09-September/2026-09-14.md`.\n\n**Gate 6 (delivery to Alice):** share links succeeded for all 3 (real Plaud URLs, verified), but Monday task creation failed for all 3 \u2014 the Monday MCP tool only exposed an unauthenticated OAuth connector this session, no working `create_item`. This needs your attention:\n\nYou'll need to manually create 3 Monday tasks (board `18420619069`, group `new_group29179`, owner Alice Mburu) using these share links:\n- ACG Houston: https://web.plaud.ai/s/pub_63a704d7-a348-4c51-8f9f-78604be47367::oZpP-7eFNOrbQOzCBzWSQY5tjsSR5iW1M1p6Of3DBV86T07iOGPJTBCrJ9srPoA9TPnmfqyo-nz469IC\n- Executive AI Workshop: https://web.plaud.ai/s/pub_b1c67845-0d75-4063-b37f-5aa4a0c51701::qmpgjuIVrAE8oPV8HQUF0alIHExgU0sRnPZqMkt5lgk_QOfsqv-OKsSnHtbx5ie1hvNpcI_W2OsDG74C\n- Devlin/Production Hosting: https://web.plaud.ai/s/pub_037425a6-bee8-4fe6-8e7e-1959da9246c0::KxnhOcLasWE096TpKQkz6oszNL9Bb7ab3qybfs7bjQqwXcEhoK7Lf9HiQ3vqGPLbm6UPtTT19at00YQC\n\nThe 12 in-meeting action items from step-05 also couldn't reach Monday for the same reason \u2014 logged in my earlier message. I already created an OmniFocus fallback for the most time-critical one (Devlin/DLP capacity conflict, ~$1M+ at risk, EOD decision owed) \u2014 waiting on that fork to confirm.\n\n**Top follow-up intelligence:**\n- You committed to hosting Summer Craig + husband at a Texans suite this Sunday.\n- You committed to covering Devlin's Wednesday Simpson Strong-Tie sync while he travels.\n- The October DLP boot camp / regional board meeting conflict is unresolved and time-sensitive.\n\nRelevant files: `/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/workflows/plaud-ingest/state.yaml`, `steps/step-05-ingest-vault.md`, `steps/step-05b-share-with-alice.md`, and the 3 vault notes under `zzPlaud/Improving/`.",
+  "model": "sonnet",
+  "total_tokens_input": 277480,
+  "total_tokens_output": 12,
+  "total_cost_usd": 0.13081
+}

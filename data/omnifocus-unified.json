@@ -1,8 +1,7 @@
 {
-  "pulled_at": "2026-09-11T15:30:00Z",
-  "status": "unreachable",
+  "pulled_at": "2026-09-14T16:12:00Z",
+  "status": "failed",
+  "reason": "Desktop Commander/osascript MCP tool unavailable this session (ToolSearch confirmed no match, consistent with prior boot 2026-09-11)",
   "task_count": 0,
-  "tasks": [],
-  "degraded": true,
-  "degraded_reason": "Desktop Commander / mcp__Control_your_Mac__osascript tool not present in this session's tool set (confirmed via ToolSearch, no match found for 'Control_your_Mac', 'osascript', or 'Desktop Commander'). Per SYSTEM.md this is the only authorized read path for OmniFocus; no fallback read path exists. Genuine data-source-unreachable condition, not a stale-mount misread. Prior run (2026-09-08) reported 10 uncompleted inbox tasks via direct osascript, so this is a session-specific tool availability gap, not a persistent OmniFocus outage."
+  "tasks": []
 }

@@ -1,9 +1,9 @@
 ---
 status: complete
-started-at: "2026-09-11T15:25:00Z"
-completed-at: "2026-09-11T15:30:00Z"
+started-at: "2026-09-14T16:11:57Z"
+completed-at: "2026-09-14T16:15:00Z"
 outputs:
-  email_pull: "completed — 1 actionable message (12 scanned, none flagged/high-importance, 1 explicit-urgency subject line)"
+  email_pull: "completed — 2 messages last 24h (1 time-sensitive/actionable, 1 marketing)"
   omnifocus_pull: "failed — Desktop Commander/osascript MCP tool unavailable this session (ToolSearch confirmed no match)"
   clay_pull: "completed — 0 reminders, 0 birthdays (Clay MCP live)"
   jarvis_inbox_pull: "nothing-to-surface — Jarvis folder search returned no messages"

@@ -1,10 +1,10 @@
 ---
 status: completed
-started-at: "2026-09-09T01:05:00Z"
-completed-at: "2026-09-09T01:06:00Z"
+started-at: "2026-09-14T00:00:00Z"
+completed-at: "2026-09-14T23:14:00Z"
 model: haiku
 outputs:
-  already-ready: 1
+  already-ready: 3
   triggered: 0
   pending: 0
   skipped: 0
@@ -12,18 +12,14 @@ outputs:
   gate_3_retry_counts: {}
   gate_3_aborted_recordings: []
   note: >
-    1 new recording (e0aa6343b58756669d5bb0eddc80c5a4, 2026-09-08) already had
-    transcript + summary ready (is_trans:true, is_summary:true) at discovery time
-    — no transcription trigger needed.
-  note_prior_run: >
-    1 new recording (8bff6db529fcb3324421194856cd1364, 2026-09-03) was
-    recorded as transcript_status "missing" at discovery time. By the time
-    the trigger call ran (~20 min later), Plaud had already finished
-    transcribing it on its own -- get_recording_detail confirmed status
-    "ready" before the two-step trigger fired, and the trigger call itself
-    returned status=1/msg="success" ("already done" per plaud-trigger's own
-    response table), confirming no duplicate work was started. Moved
-    directly to ready-for-fetch. No watcher needed.
+    3 new recordings from 2026-09-14: 2 were already transcript_status:ready
+    at discovery time (66df23aef3712ab857d5a656c67ba763 "09-14 Meeting: Executive AI
+    Workshop Planning", 97b419ebfe3fd7ed84ac820a3343fef7 "Production Hosting Strategy...").
+    1 was marked transcript_status:missing (9bb5788628b16838019203e248399df3 "2026-09-14 14:03:46").
+    When trigger was executed for the missing recording, Plaud's /ai/transsumm endpoint
+    returned status=1/msg="success" ("already done"), indicating the transcription had been
+    completed asynchronously between discovery and trigger execution. All 3 recordings moved
+    directly to ready-for-fetch. No watcher needed. Gate 3: pass (no retries required).
 ---
 
 <!-- system:start -->

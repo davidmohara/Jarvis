@@ -1,0 +1,230 @@
+{
+  "workflow": "boot",
+  "total_size_bytes": 6339,
+  "accumulated_context": {
+    "name": "accumulated-context",
+    "size_bytes": 6339,
+    "size_kb": 6.19,
+    "estimated_tokens": 1584,
+    "type": "dict"
+  },
+  "field_breakdown": [
+    {
+      "name": "phase2.calendar-today-classification",
+      "size_bytes": 737,
+      "size_kb": 0,
+      "estimated_tokens": 184,
+      "type": "str"
+    },
+    {
+      "name": "phase3.morning-briefing-step-03",
+      "size_bytes": 580,
+      "size_kb": 0,
+      "estimated_tokens": 143,
+      "type": "str"
+    },
+    {
+      "name": "phase2.task-g-72hr-lookahead",
+      "size_bytes": 529,
+      "size_kb": 0,
+      "estimated_tokens": 130,
+      "type": "str"
+    },
+    {
+      "name": "phase2.morning-briefing-steps-01-02",
+      "size_bytes": 345,
+      "size_kb": 0,
+      "estimated_tokens": 85,
+      "type": "str"
+    },
+    {
+      "name": "phase1-point5-calendar.note",
+      "size_bytes": 323,
+      "size_kb": 0,
+      "estimated_tokens": 80,
+      "type": "str"
+    },
+    {
+      "name": "guardrail-checkpoint.reason",
+      "size_bytes": 299,
+      "size_kb": 0,
+      "estimated_tokens": 74,
+      "type": "str"
+    },
+    {
+      "name": "phase4.briefing_delivered",
+      "size_bytes": 271,
+      "size_kb": 0,
+      "estimated_tokens": 67,
+      "type": "str"
+    },
+    {
+      "name": "phase2.task-h-email-triage",
+      "size_bytes": 263,
+      "size_kb": 0,
+      "estimated_tokens": 65,
+      "type": "str"
+    },
+    {
+      "name": "phase2-verification.result",
+      "size_bytes": 241,
+      "size_kb": 0,
+      "estimated_tokens": 59,
+      "type": "str"
+    },
+    {
+      "name": "phase5.plaud_ingest",
+      "size_bytes": 231,
+      "size_kb": 0,
+      "estimated_tokens": 57,
+      "type": "str"
+    },
+    {
+      "name": "phase1-point5.unified-data-pulls.email",
+      "size_bytes": 178,
+      "size_kb": 0,
+      "estimated_tokens": 44,
+      "type": "str"
+    },
+    {
+      "name": "phase1-point5.unified-data-pulls.omnifocus",
+      "size_bytes": 175,
+      "size_kb": 0,
+      "estimated_tokens": 43,
+      "type": "str"
+    },
+    {
+      "name": "phase5.watchtower",
+      "size_bytes": 162,
+      "size_kb": 0,
+      "estimated_tokens": 40,
+      "type": "str"
+    },
+    {
+      "name": "phase5.active_index",
+      "size_bytes": 161,
+      "size_kb": 0,
+      "estimated_tokens": 39,
+      "type": "str"
+    },
+    {
+      "name": "phase2-verification.method",
+      "size_bytes": 155,
+      "size_kb": 0,
+      "estimated_tokens": 38,
+      "type": "str"
+    },
+    {
+      "name": "phase5.result",
+      "size_bytes": 139,
+      "size_kb": 0,
+      "estimated_tokens": 34,
+      "type": "str"
+    },
+    {
+      "name": "phase1-point5.files-created",
+      "size_bytes": 128,
+      "size_kb": 0.12,
+      "estimated_tokens": 32,
+      "type": "list"
+    },
+    {
+      "name": "phase2.task-i-jarvis-inbox",
+      "size_bytes": 104,
+      "size_kb": 0,
+      "estimated_tokens": 25,
+      "type": "str"
+    },
+    {
+      "name": "phase2.task-j-reminders",
+      "size_bytes": 73,
+      "size_kb": 0,
+      "estimated_tokens": 17,
+      "type": "str"
+    },
+    {
+      "name": "phase3.clay-birthdays",
+      "size_bytes": 66,
+      "size_kb": 0,
+      "estimated_tokens": 16,
+      "type": "str"
+    },
+    {
+      "name": "phase3.clay-reminders",
+      "size_bytes": 64,
+      "size_kb": 0,
+      "estimated_tokens": 15,
+      "type": "str"
+    },
+    {
+      "name": "phase1-point5.degraded_reason",
+      "size_bytes": 58,
+      "size_kb": 0,
+      "estimated_tokens": 14,
+      "type": "str"
+    },
+    {
+      "name": "phase1-point5.unified-data-pulls.jarvis-inbox",
+      "size_bytes": 56,
+      "size_kb": 0,
+      "estimated_tokens": 13,
+      "type": "str"
+    },
+    {
+      "name": "phase1-point5.unified-data-pulls.clay",
+      "size_bytes": 38,
+      "size_kb": 0,
+      "estimated_tokens": 9,
+      "type": "str"
+    },
+    {
+      "name": "phase1-point5-calendar.calendar_file",
+      "size_bytes": 26,
+      "size_kb": 0,
+      "estimated_tokens": 6,
+      "type": "str"
+    },
+    {
+      "name": "phase1-point5-calendar.date_range",
+      "size_bytes": 24,
+      "size_kb": 0,
+      "estimated_tokens": 6,
+      "type": "str"
+    },
+    {
+      "name": "guardrail-checkpoint.checkpoint_name",
+      "size_bytes": 21,
+      "size_kb": 0,
+      "estimated_tokens": 5,
+      "type": "str"
+    },
+    {
+      "name": "phase1-point5.degraded",
+      "size_bytes": 4,
+      "size_kb": 0,
+      "estimated_tokens": 1,
+      "type": "bool"
+    },
+    {
+      "name": "guardrail-checkpoint.checkpoint_result",
+      "size_bytes": 4,
+      "size_kb": 0,
+      "estimated_tokens": 1,
+      "type": "str"
+    },
+    {
+      "name": "phase1-point5-calendar.event_count",
+      "size_bytes": 2,
+      "size_kb": 0,
+      "estimated_tokens": 0,
+      "type": "int"
+    },
+    {
+      "name": "phase2-verification.reruns",
+      "size_bytes": 1,
+      "size_kb": 0,
+      "estimated_tokens": 0,
+      "type": "int"
+    }
+  ]
+}
