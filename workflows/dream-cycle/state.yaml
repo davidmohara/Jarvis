@@ -7,6 +7,20 @@ current-step: null
 original-request: "Execute dream-cycle workflow for today (scheduled task)"
 last-successful-run: 2026-09-15T08:12:29Z
 accumulated-context:
+  step-04-2026-09-15-approved-followup:
+    approved-at: 2026-09-15T08:25:00Z
+    approved-by: david
+    scope: "this 5-entry batch only, one-time -- not a standing change to GUARDRAIL 7's approval requirement or the 5-entry threshold"
+    entries_compressed: 5
+    digests_updated: 1
+    digest_file: memory/episodic/digests/2026-Q2-digest.md
+    files_deleted:
+      - memory/episodic/session-work-2026-06-08-162353.md
+      - memory/episodic/2026-06-12-session-wrap.md
+      - memory/episodic/2026-06-12-ai-innovation-lab-pdf.md
+      - memory/episodic/2026-06-12-spring-line-advisory.md
+      - memory/episodic/co-sell-pipeline-2026-06-15-143245.md
+    note: "David replied 'Go ahead with compression' directly to the push notification flagging this cycle's threshold crossing. Digest entries appended to the existing 2026-Q2-digest.md (chronological, 2-sentence summaries) before any deletion, per the step's ordering rule; all 5 source files deleted only after the digest write was confirmed. Mirrors the 08-29 precedent (see step-04-2026-08-29-approved-followup below / workflows/dream-cycle/steps/step-04-episodic-compression.md)."
   step-05-2026-09-15:
     dream_log_appended: true
     working_summary_written: true
@@ -1504,6 +1518,7 @@ guardrails:
     - {date: "2026-09-01", candidates_found: 0, compressed: 0}
     - {date: "2026-09-02", candidates_found: 0, compressed: 0}
     - {date: "2026-09-03", candidates_found: 0, compressed: 0}
+    - {date: "2026-09-15", candidates_found: 5, compressed: 5, note: "compressed same-day via David's live approval (reply to push notification), not the unattended cycle itself -- see accumulated-context.step-04-2026-09-15-approved-followup. compression_history/promotion_history/archival_history arrays were not maintained by any cycle between 09-04 and 09-14; not backfilled here, only today's entry added."}
   archive_safety:
     spot_check_passed: true
     recent_edits_archived: 0

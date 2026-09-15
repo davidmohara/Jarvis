@@ -8,6 +8,20 @@ outputs:
   digests_updated: 0
   compression_skipped: true
   compression_skip_reason: "5 compression candidates this cycle (date < 2026-06-17 AND salience.score < 2 AND salience.promoted == false): session-work-2026-06-08-162353.md, 2026-06-12-session-wrap.md, 2026-06-12-ai-innovation-lab-pdf.md, 2026-06-12-spring-line-advisory.md (same 4 as every cycle since 08-30) PLUS co-sell-pipeline-2026-06-15-143245.md, which newly fell inside the 90-day window today as the cutoff advanced from 2026-06-16 to 2026-06-17. This is the FIRST cycle since the 08-29 David-approved batch to reach the 5-entry GUARDRAIL 7 threshold. Per GUARDRAIL 7 this requires a controller preview-and-approve gate ('Approve? (y/n)') before any deletion -- an irreversible action -- and per step-03b's own precedent ('dream-cycle runs unattended, so there is no controller to ask in the moment'), that approval cannot be obtained live during this scheduled, unattended run. Preservation-over-aggression: skipped compression this cycle rather than auto-approving an irreversible deletion on my own judgment. Surfacing to David directly (push notification + next boot) for a decision: approve this 5-entry batch, or leave permanently manual, mirroring the 08-29 precedent. No files modified."
+approved-followup-2026-09-15:
+  approved-at: 2026-09-15T08:25:00Z
+  approved-by: david
+  scope: "this 5-entry batch only, one-time — not a standing change to GUARDRAIL 7's approval requirement or the 5-entry threshold"
+  entries_compressed: 5
+  digests_updated: 1
+  digest_file: memory/episodic/digests/2026-Q2-digest.md
+  files_deleted:
+    - memory/episodic/session-work-2026-06-08-162353.md
+    - memory/episodic/2026-06-12-session-wrap.md
+    - memory/episodic/2026-06-12-ai-innovation-lab-pdf.md
+    - memory/episodic/2026-06-12-spring-line-advisory.md
+    - memory/episodic/co-sell-pipeline-2026-06-15-143245.md
+  note: "David replied 'Go ahead with compression' directly to the push notification flagging this cycle's threshold crossing. Digest entries appended to the existing 2026-Q2-digest.md (all 5, chronological, 2-sentence summaries) before any deletion, per this step's ordering rule; all 5 source files deleted only after the digest write was confirmed. Mirrors the 08-29 precedent below exactly."
 prior-cycle-approved-followup:
   approved-at: 2026-08-29T11:58:00Z
   approved-by: david

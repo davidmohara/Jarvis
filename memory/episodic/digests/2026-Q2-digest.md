@@ -93,3 +93,18 @@ Archived 2 working entries and scored 44 episodic entries with the score-inflati
 
 ### 2026-05-27 — Error Improvement Cycle Decision Rationale (decision-rationale)
 Rigby's inaugural error-improvement workflow run processed 127 active log entries (2026-03-21 to 2026-05-27) across 8 patterns; top patterns were process-skip/protocol-skip (19x, chief) and routing-error/protocol-skip (18x, jarvis), the latter blocked on a Master routing-enforcement policy call still pending from David. Trend was degrading (39→48+ entries/month, ~7% self-detection rate); 48 April entries were compacted to a monthly digest but source deletion was blocked by sandbox permissions at the time.
+
+### 2026-06-08 — Session Work Log, Afternoon (working-archive)
+Call prep for Kate Bugakova (Techbar) and Wendy's x Cognition regenerated with the new canonical 5-section template; Episode 9 and 10 podcast prep PDFs completed and pushed to reMarkable ahead of June 9 filming. Session logged 8 error entries (routing violations, format violations, broken PDF rebuilds) and carried forward CHL renewal, expense report, and the Forbes article as still-overdue items.
+
+### 2026-06-12 — Session Wrap (working-archive)
+Plaud ingest processed 3 transcripts (Cresta PE Fund AI Consultation, IBP Coaching Call, SMU MS in AI for Business) after a protocol-skip error was caught and corrected; the Tim Brackney/Spring Line Advisory email draft was revised for voice and readied but not yet sent. Carried forward the Rock 3 Forbes article (18 days left in Q2, still unwritten) and a 7-item OmniFocus inbox backlog.
+
+### 2026-06-12 — AI Innovation Lab PDF (working-archive)
+Branded one-pager built for the AI Innovation Lab offering, matching the visual style of the Fractional AI Officer and AI Deep Learning Program sheets (dark navy header, 3-stat row, two-column body). Title and stat-block content were revised during the session (dropped the duration qualifier, removed a stat, broadened to "ALL AREAS OF BUSINESS"); saved to IES/AI-Innovation-Lab.pdf.
+
+### 2026-06-12 — Spring Line Advisory (working-archive)
+Account working notes for Spring Line Advisory (Fractional CAIO, $20K/quarter retainer proposal via the Devlin Liles/Trinity Hunt intro) — Tim Brackney confirmed COO Anthony Laria would join the June 16 Teams call, framed as a proposal-review close meeting rather than discovery. Lead logged to My Leads.xlsx and contact/account files filed.
+
+### 2026-06-15 — Rock 4 Co-Sell Pipeline Snapshot (working-archive)
+Q2 closed with the Rock 4 co-sell gap at CRITICAL status — $2.5M pipeline plus $3.1M won against a $15M target (37.4% combined), Microsoft the only active partner and Confluent stalled with zero 2026 wins. Flagged the 176360014 CRM misattribution ($2.6M won) for resolution before the next reliable snapshot.
