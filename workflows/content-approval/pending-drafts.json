@@ -330,7 +330,15 @@
     "created_at": "2026-09-15T11:13:04Z",
     "status": "pending",
     "source_type": "digest",
-    "content_type": "post"
+    "content_type": "post",
+    "editorial_edits": [
+      {
+        "reply_ts": "1789486774.366709",
+        "instruction": "Image is not DFW skyline. Fix image and add CBRE/CompTIA links as referenced in digest.",
+        "applied_at": "2026-09-15T19:11:32Z",
+        "summary": "Swapped image to confirmed Dallas skyline (Trinity River, photo-1631660975301-b2b65e80c98a). Added lexical links to CBRE Scoring Tech Talent 2026 report and CompTIA CyberStates. Added link to prior post 'DFW Is Building the Other Kind of AI Economy'."
+      }
+    ]
   },
   {
     "ghost_post_id": "6aa92840b7c7ae028a6380b1",
@@ -341,7 +349,15 @@
     "created_at": "2026-09-15T11:13:04Z",
     "status": "pending",
     "source_type": "digest",
-    "content_type": "post"
+    "content_type": "post",
+    "editorial_edits": [
+      {
+        "reply_ts": "1789486883.894579",
+        "instruction": "Post copied the feed structure instead of writing in David's voice. Add links. Full rewrite.",
+        "applied_at": "2026-09-15T19:11:32Z",
+        "summary": "Full rewrite from David's consulting vantage point. Story now opens with personal observation of a consultant on his team. Step-one/two/three structure removed. Added link to The Amplifier Paradox post. CHI 2026 attribution retained as prose reference."
+      }
+    ]
   },
   {
     "ghost_post_id": "6aa92841b7c7ae028a6380b9",
@@ -352,6 +368,14 @@
     "created_at": "2026-09-15T11:13:05Z",
     "status": "pending",
     "source_type": "digest",
-    "content_type": "post"
+    "content_type": "post",
+    "editorial_edits": [
+      {
+        "reply_ts": "1789486832.307379",
+        "instruction": "Post plagiarized the feed structure (step-one/two/three). Full rewrite needed.",
+        "applied_at": "2026-09-15T19:11:32Z",
+        "summary": "Full rewrite. Removed step-one/two/three framework lifted from digest. Rebuilt from David's client-room experience: what he observes in the room, why outcome accountability fails, what the successful orgs do differently. Prose only, no numbered structure."
+      }
+    ]
   }
 ]

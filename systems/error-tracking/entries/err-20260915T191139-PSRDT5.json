@@ -1,0 +1,15 @@
+{
+  "id": "err-20260915T191139-PSRDT5",
+  "timestamp": "2026-09-15T19:11:39Z",
+  "session": "2026-09-15",
+  "source": "explicit",
+  "agent": "harper",
+  "category": "data-accuracy",
+  "description": "Content-discovery run used a non-DFW skyline photo for the post 'DFW Is Now the AI Talent Market'. The image (photo-1531479366421-2a6a8635277b) was not verified to depict Dallas before use. The post is geographically specific (names DFW in the title and hook), triggering the geo-confirmation rule added in err-20260915T154324-4DLWA4, which was not applied.",
+  "correction": "Image swapped to confirmed Dallas skyline: photo-1631660975301-b2b65e80c98a (Evening sunset view of Downtown Dallas from the Trinity River, by Max Fray, confirmed location tag Dallas, TX). Orientation verified landscape 2000x1390.",
+  "failure_mode": "protocol-skip",
+  "systemic_fix": "The geo-confirmation rule already exists in step-01-discover.md Step 6 (err-20260915T154324-4DLWA4) and Gate 2. The earlier run did not apply it despite the post title containing 'DFW'. Rule is in place — this is a protocol-skip failure, not a missing rule. No additional systemic fix needed beyond this log entry reinforcing the pattern.",
+  "fix_status": "applied",
+  "severity": "moderate",
+  "related_entries": ["err-20260915T154324-4DLWA4"]
+}
