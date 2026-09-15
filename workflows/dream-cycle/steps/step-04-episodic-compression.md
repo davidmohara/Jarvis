@@ -1,13 +1,13 @@
 ---
-status: complete
-started-at: 2026-09-14T08:09:00Z
-completed-at: 2026-09-14T08:09:30Z
+status: completed
+started-at: 2026-09-15T08:14:00Z
+completed-at: 2026-09-15T08:16:00Z
 outputs:
-  candidates_count: 4
+  candidates_count: 5
   entries_compressed: 0
   digests_updated: 0
   compression_skipped: true
-  compression_skip_reason: "4 compression candidates this cycle (date < 2026-06-16 AND salience.score < 2 AND salience.promoted == false: session-work-2026-06-08-162353.md, 2026-06-12-session-wrap.md, 2026-06-12-ai-innovation-lab-pdf.md, 2026-06-12-spring-line-advisory.md -- same set as every cycle since 08-30, cutoff has not advanced past these 4 files' dates), below the 5-entry safety threshold, GUARDRAIL 7 approval gate not reached. Consistent with 08-30 through 09-13 -- nothing has re-accumulated past threshold since the 08-29 David-approved batch. No files modified."
+  compression_skip_reason: "5 compression candidates this cycle (date < 2026-06-17 AND salience.score < 2 AND salience.promoted == false): session-work-2026-06-08-162353.md, 2026-06-12-session-wrap.md, 2026-06-12-ai-innovation-lab-pdf.md, 2026-06-12-spring-line-advisory.md (same 4 as every cycle since 08-30) PLUS co-sell-pipeline-2026-06-15-143245.md, which newly fell inside the 90-day window today as the cutoff advanced from 2026-06-16 to 2026-06-17. This is the FIRST cycle since the 08-29 David-approved batch to reach the 5-entry GUARDRAIL 7 threshold. Per GUARDRAIL 7 this requires a controller preview-and-approve gate ('Approve? (y/n)') before any deletion -- an irreversible action -- and per step-03b's own precedent ('dream-cycle runs unattended, so there is no controller to ask in the moment'), that approval cannot be obtained live during this scheduled, unattended run. Preservation-over-aggression: skipped compression this cycle rather than auto-approving an irreversible deletion on my own judgment. Surfacing to David directly (push notification + next boot) for a decision: approve this 5-entry batch, or leave permanently manual, mirroring the 08-29 precedent. No files modified."
 prior-cycle-approved-followup:
   approved-at: 2026-08-29T11:58:00Z
   approved-by: david

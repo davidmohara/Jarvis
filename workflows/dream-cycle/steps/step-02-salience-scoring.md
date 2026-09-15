@@ -1,15 +1,15 @@
 ---
-status: complete
-started-at: 2026-09-14T08:07:00Z
-completed-at: 2026-09-14T08:07:30Z
+status: completed
+started-at: 2026-09-15T08:10:00Z
+completed-at: 2026-09-15T08:11:00Z
 outputs:
-  episodic_scanned: 318
-  score_updates: 318
+  episodic_scanned: 319
+  score_updates: 319
   no_tags: 202
   no_date: 38
-  score_distribution: "0:218,1:3,2:5,3:2,4:11,5:12,6:9,7:2,8:4,9:3,10:49"
-  window_entries: 36
-  note: "Ran systems/dream-cycle/salience-score.py. read_errors:0, write_errors:0. episodic_scanned rose 317->318 from today's 1 step-01 archive. pct_score_0=68.55% (218/318) stays BELOW the 70% escalation threshold, consistent with 09-13 baseline (68.77%). pct_no_date=11.95% (38/318) still crosses the >10% threshold, same legacy undated population as every prior cycle, no new undated entries. pct_no_tags=63.52% (202/318) stays in the 30-70% 'unusual tag coverage' band, same underlying population as prior cycles, not a new problem. Corpus-wide scan for the frontmatter-stranding corruption signature (duplicate salience: blocks, multiple promoted: keys), scanned within the frontmatter block only, found 0 instances across all 318 scanned episodic files, consistent with every cycle since the 09-01 fix (commit bb2de90)."
+  score_distribution: "0:218,1:3,2:5,3:2,4:11,5:12,6:9,7:2,8:4,9:3,10:50"
+  window_entries: 37
+  note: "Ran systems/dream-cycle/salience-score.py. read_errors:0, write_errors:0. episodic_scanned rose 318->319 from today's 1 step-01 archive (dream-summary-2026-09-13.md). pct_score_0=68.34% (218/319) stays BELOW the 70% escalation threshold, consistent with 09-14 baseline (68.55%). pct_no_date=11.91% (38/319) still crosses the >10% threshold, same legacy undated population as every prior cycle, no new undated entries. pct_no_tags=63.32% (202/319) stays in the 30-70% 'unusual tag coverage' band, same underlying population as prior cycles, not a new problem. Corpus-wide scan for the frontmatter-stranding corruption signature (duplicate salience: blocks, multiple promoted: keys), scanned within the frontmatter block only, found 0 instances across all 320 scanned episodic files, consistent with every cycle since the 09-01 fix (commit bb2de90)."
 ---
 
 <!-- system:start -->

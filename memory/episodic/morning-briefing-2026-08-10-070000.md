@@ -32,7 +32,7 @@ related_people:
   - william-floyd
 salience:
   score: 4
-  last-promoted-check: 2026-09-14
+  last-promoted-check: 2026-09-15
   promoted: true
 ---
 
