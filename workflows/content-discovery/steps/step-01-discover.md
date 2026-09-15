@@ -251,6 +251,23 @@ Evaluate each message against the following rules in sequence. Stop at the first
 
 > **CRITICAL — err-20260820T191921-BLD5R9:** Never strip or drop links. If a referenced post is published, resolve it to a real URL using the Ghost post list (url field, not tag URLs) and build a proper lexical link node. Only skip linking if the referenced post is still in draft status. Dropping a link and leaving plain text is always wrong. Use the `url` field from `get_posts` results — not the slug — as the canonical URL.
 
+> **CRITICAL — err-20260915T154324-VTPMUJ:** Internal links are a required output, not optional. If the post references or clearly relates to a published post, the link MUST be inserted as a lexical link node — not deferred to a later step. After building the lexical body in Step 7, scan for any named prior posts. For each match, resolve its URL via `mcp__ghost-blog__get_posts` and insert a lexical link node wrapping the anchor text. Use this node structure:
+> ```json
+> {
+>   "type": "link",
+>   "url": "{resolved_url}",
+>   "rel": null,
+>   "target": null,
+>   "title": null,
+>   "children": [{"detail": 0, "format": 0, "mode": "normal", "style": "", "text": "{anchor text}", "type": "text", "version": 1}],
+>   "direction": "ltr",
+>   "format": "",
+>   "indent": 0,
+>   "version": 1
+> }
+> ```
+> The parent paragraph node's `children` array contains this link node in place of the text node that would have held the anchor text. Build this into the lexical before the Step 7 POST call — do not POST first and patch later. Gate 2 checks for this (see `has_internal_link_if_required`). Only omit if the referenced post is still in draft status (not published).
+
 **For EDITORIAL EDIT PATH:** Execute the edit inline. Do not defer to Jarvis Master. Do not flag to #content. Handle it directly:
 
 1. **Identify the target post.** Match the post name from the message to a Ghost draft or published post. Use `mcp__ghost-blog__get_posts` or search by slug if needed.
@@ -535,9 +552,10 @@ Use the ixid from the meta tag URL if available; omit the ixid parameter if not 
 **Image selection rules:**
 - Must be landscape-oriented (wider than tall). No portrait-oriented images. Ever.
 - Must be thematically aligned with the post's core concept — not just generically "professional." A post about auditing should show paperwork, spreadsheets, or financial review. A post about purpose/fulfillment should show open space, horizon, or journey imagery. A post about AI governance should show systems/infrastructure. Match the metaphor, not just the industry.
+- **If the post is geographically specific (names a city, region, or country in the title or hook), the image search query MUST include that location name.** A generic city skyline is not acceptable for a post about Dallas or DFW — search for "unsplash dallas skyline landscape photo site:unsplash.com/photos" or equivalent. After selecting a candidate, inspect the photo's title and description on the fetched Unsplash page to confirm the location matches before accepting. (err-20260915T154324-4DLWA4)
 - Avoid portraits of people as the primary subject
 - Must be free (no Unsplash+ license required)
-- If the first candidate is premium (Unsplash+) or portrait, discard it and try the next search result — do not settle
+- If the first candidate is premium (Unsplash+), portrait, or geographically wrong, discard it and try the next search result — do not settle
 
 > **MANDATORY — verify orientation from the actual pixels, never from the title, alt text, or search category.** Unsplash titles like "a long road with a mountain in the background" or category tags do not reliably indicate orientation — the same photo can be a portrait crop. (See err-20260715T195437-E6MUV6: a "long road / mountain" photo was used and turned out to be 2000x3000, portrait, because the title was trusted instead of the image.)
 >
@@ -592,6 +610,9 @@ data:
   meta_description: "<...>"
   feature_image_landscape: <bool>  # from Step 6's w > h check
   feature_image_set: <bool>
+  feature_image_geo_confirmed: <bool>  # true if post is not geo-specific, OR if geo-specific and image location verified
+  has_internal_link_if_required: <bool>  # true if no published related post exists, OR if one exists and a lexical link node was inserted
+  is_voice_original: <bool>  # your own read — true means the post makes a distinct argument in David's voice, not a paraphrase of the digest
 schema_spec:
   word_count: { min: 300, max: 500 }   # or {min: 1500, max: 2000} for IMPROVING BLOG PATH only
   tags: { field: "tags", allowed_list: [<locked-list tag ids from workflow.md>], format: "object_with_id" }
@@ -602,10 +623,13 @@ schema_spec:
     - { field: "has_insight", rule: "must_be_true" }
     - { field: "has_challenge", rule: "must_be_true" }
     - { field: "is_source_recap", rule: "must_be_false" }
+    - { field: "is_voice_original", rule: "must_be_true" }
     - { field: "meta_title", rule: "max_length", value: 70 }
     - { field: "meta_description", rule: "max_length", value: 155 }
     - { field: "feature_image_landscape", rule: "must_be_true" }
     - { field: "feature_image_set", rule: "must_be_true" }
+    - { field: "feature_image_geo_confirmed", rule: "must_be_true" }
+    - { field: "has_internal_link_if_required", rule: "must_be_true" }
 ```
 
 The "no bullet points / no headers in body" check for sub-500-word posts is a structural scan
@@ -619,19 +643,24 @@ into `errors` manually if it fails, same STOP treatment as any other Gate 2 fail
 | Four post-arc elements present | Hook, Story/Observation, Insight, Challenge/Takeaway all identifiable in the draft | **STOP.** If any is missing, write it now per DIGEST FORMAT's "Missing sections" rule (using CONTENT-VOICE.md), then re-check. |
 | No em-dashes | Zero occurrences of `—`, `–` used as a dash, or `--` | **STOP.** Replace with commas, periods, or parentheses. Re-scan the full draft, not just the flagged sentence. |
 | No bullet points / no headers in body (post under 500 words) | Prose only | **STOP.** Convert to prose. |
-| Not a source recap | Draft reads as David's reaction/angle, not "According to [source]..." | **STOP.** Rewrite the offending passage from David's vantage point. |
+| Not a source recap / not a paraphrase | Draft reads as David's reaction/angle, not "According to [source]..." AND does not simply restate the digest's argument in different words. Put the post and the digest side by side — if they make the same points in the same order with the same framing, `is_voice_original` is false. (`is_source_recap` false + `is_voice_original` true both required.) (err-20260915T154324-LFMX48) | **STOP.** Rewrite from David's own angle. The digest is the stimulus, not the script. Change the framing, not just the words. |
 | Tags are from the locked list | Every tag id in the draft's tag selection appears in workflow.md's LOCKED LIST table | **STOP.** Do not proceed with an off-list tag. Re-select from the locked list. |
 | Tag format is object-with-id | Selected tags represented as `[{"id": "..."}]`, never bare strings | **STOP.** Fix format before the Ghost API call — bare strings create junk tags (see workflow.md's CRITICAL note). |
 | meta_title ≤ 70 chars, meta_description ≤ 155 chars | Character counts checked | **STOP.** Trim before proceeding. |
 | Feature image is landscape and CDN-uploaded (or verified fallback per FAILURE MODES) | `w > h` confirmed in Step 6; `feature_image` is set | **STOP.** Do not create the Ghost post without a validated image or an explicit, logged fallback. |
+| Feature image geography matches post (if geo-specific) | If the post names a city/region, the image is confirmed to depict that location (checked via photo title/description on the Unsplash page). If the post is not geo-specific, this check auto-passes. | **STOP.** Discard the candidate and re-run Step 6 with a location-specific search query. (err-20260915T154324-4DLWA4) |
+| Internal links present (if related published post exists) | If the post references or clearly relates to a published Ghost post, a lexical link node is built into the lexical body before this gate. If no related published post exists, this check auto-passes. | **STOP.** Resolve the referenced post URL from `get_posts` and insert the lexical link node now, before calling the Ghost API. Plain-text references are not acceptable. (err-20260915T154324-VTPMUJ) |
 
 Log the result (reading `errors`/`warnings` back from the skill's response):
 ```
 [Gate 2] Word count: N (limit: 300-500 or 1500-2000)
 [Gate 2] Post-arc elements present: Hook ✓ Story ✓ Insight ✓ Challenge ✓
 [Gate 2] Em-dash scan: clean
+[Gate 2] Voice original (not source paraphrase): ✓
 [Gate 2] Tags: {tag names} — all on locked list, object format confirmed
 [Gate 2] Image: landscape confirmed, CDN url set
+[Gate 2] Image geography: {confirmed match to {city} | n/a — post not geo-specific}
+[Gate 2] Internal links: {lexical link node inserted for "{prior post title}" | n/a — no related published post}
 [Gate 2] PASS — proceeding to Ghost draft creation.
 ```
 
