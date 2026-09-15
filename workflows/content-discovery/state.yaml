@@ -1,12 +1,12 @@
 ---
 workflow: content-discovery
 agent: harper
-status: in-progress
+status: complete
 session-started: "2026-09-15T06:00:00Z"
 session-id: "harper-20260915-002"
 started-at: "2026-09-15T19:11:39Z"
-completed-at: null
-current-step: step-02
+completed-at: "2026-09-15T19:25:00Z"
+current-step: null
 original-request: "Scheduled daily content discovery run (Cowork session) — editorial feedback sub-run"
 accumulated-context:
   messages_scanned: 3
