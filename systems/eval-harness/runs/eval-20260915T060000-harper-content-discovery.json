@@ -1,0 +1,104 @@
+{
+  "id": "eval-20260915T060000-harper-content-discovery",
+  "type": "workflow",
+  "name": "content-discovery",
+  "agent": "harper",
+  "session_id": "harper-20260915-001",
+  "trigger": "scheduled",
+  "started": "2026-09-15T06:00:00Z",
+  "completed": "2026-09-15T11:18:00Z",
+  "duration_seconds": 19080,
+  "status": "success",
+  "steps": [
+    {
+      "name": "step-01-discover",
+      "started": "2026-09-15T06:00:00Z",
+      "completed": "2026-09-15T11:15:00Z",
+      "status": "complete"
+    },
+    {
+      "name": "step-02-git-finalize",
+      "started": "2026-09-15T11:15:00Z",
+      "completed": "2026-09-15T11:18:00Z",
+      "status": "complete"
+    }
+  ],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 2,
+      "error_ids": [
+        "err-20260915T154324-LFMX48",
+        "err-20260915T154324-4DLWA4",
+        "err-20260915T154324-VTPMUJ"
+      ]
+    },
+    "structural": {
+      "expected_outputs_written": true,
+      "outputs_non_empty": true,
+      "assertions_checked": 5,
+      "assertions_passed": 2,
+      "assertion_results": [
+        {
+          "assertion": "gate-1-pass",
+          "description": "Gate 1 source integrity check passed",
+          "category": "structure",
+          "passed": true
+        },
+        {
+          "assertion": "gate-2-pass",
+          "description": "Gate 2 content schema validation passed",
+          "category": "structure",
+          "passed": true,
+          "note": "Gate 2 as written did not catch voice/proximity issues or missing links — gate is insufficient"
+        },
+        {
+          "assertion": "posts-in-davids-voice",
+          "description": "Posts are original writing in David's voice using the digest as basis, not paraphrases",
+          "category": "quality",
+          "passed": false
+        },
+        {
+          "assertion": "images-match-post-geography",
+          "description": "Feature images match geographic specificity of post content",
+          "category": "content",
+          "passed": false
+        },
+        {
+          "assertion": "internal-links-present",
+          "description": "All posts with known related published posts include lexical hyperlinks",
+          "category": "content",
+          "passed": false
+        }
+      ],
+      "category_breakdown": {
+        "structure": { "passed": 2, "checked": 2 },
+        "content": { "passed": 0, "checked": 2 },
+        "quality": { "passed": 0, "checked": 1 }
+      }
+    },
+    "grading": {
+      "last_graded": "2026-09-15T15:43:24Z",
+      "grade": "F",
+      "safety_grade": null,
+      "grader_notes": "Mechanical completion but 3 major quality failures: (1) 2 of 3 posts are paraphrases of feeder content rather than original writing in David's voice; (2) DFW post used a non-DFW city skyline image; (3) no posts contained required internal links. Gate 2 passed because it did not assert on these dimensions — the gate itself needs to be updated."
+    },
+    "controller_feedback": {
+      "rating": "negative",
+      "comment": "2 posts were copies of the feeder content. DFW image was not DFW. None of the posts had the links they were supposed to have.",
+      "timestamp": "2026-09-15T15:43:00Z"
+    }
+  },
+  "tags": ["content-discovery", "harper", "scheduled"],
+  "outputs": {
+    "messages_scanned": 3,
+    "new_urls": 0,
+    "new_digests": 3,
+    "posts_drafted": 3,
+    "ghost_drafts_created": 3,
+    "slack_notifications_sent": 3,
+    "git_commits": ["404bb282", "882c3798"],
+    "push_status": "success"
+  }
+}

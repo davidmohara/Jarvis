@@ -1,0 +1,18 @@
+{
+  "id": "err-20260915T154324-LFMX48",
+  "timestamp": "2026-09-15T15:43:24Z",
+  "session": "harper-20260915-001",
+  "source": "explicit",
+  "agent": "harper",
+  "category": "format-violation",
+  "description": "2 of 3 blog posts drafted for the 2026-09-15 content-discovery run were too close to paraphrases of the Watchtower feeder content rather than original writing using the feed as a basis. Posts should use the digest as a launching point to write in David's voice with his perspective, framing, and narrative arc — not restate the digest's argument in slightly different words.",
+  "correction": "Posts that nearly copy the feeder content structure and argument are not acceptable. The voice must be David's own take — the digest supplies the stimulus, not the script.",
+  "systemic_fix": "Add explicit rule to step-01-discover.md: after drafting, perform a closeness check — read the source digest and the draft side by side and confirm the post makes a distinct argument in David's voice, not a rephrasing. Gate 2 should include this as an assertion. Consider adding a sample 'too close / acceptable' pair to CONTENT-VOICE.md.",
+  "fix_type": "workflow-update",
+  "fix_status": "proposed",
+  "severity": "major",
+  "failure_mode": "protocol-skip",
+  "related_entries": ["err-20260915T154324-4DLWA4", "err-20260915T154324-VTPMUJ"],
+  "workflow": "content-discovery",
+  "run_date": "2026-09-15"
+}

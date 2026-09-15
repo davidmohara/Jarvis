@@ -1,0 +1,18 @@
+{
+  "id": "err-20260915T154324-VTPMUJ",
+  "timestamp": "2026-09-15T15:43:24Z",
+  "session": "harper-20260915-001",
+  "source": "explicit",
+  "agent": "harper",
+  "category": "under-delivery",
+  "description": "None of the 3 posts published to Ghost contained the prior-post hyperlinks they were supposed to include. The workflow requires linking to related published posts as part of internal linking. The 'What Happens to an Expert' post explicitly referenced 'The Amplifier Paradox' in prose but did not include a lexical hyperlink node — this was noted as deferred but should not have been deferred for all 3 posts.",
+  "correction": "Internal links are a required output, not optional. The workflow note said the lexical link required a PATCH but that is exactly what was needed — skipping it entirely is not an acceptable fallback. At minimum, all 3 posts needed internal links; the 'Amplifier Paradox' reference was the most clear-cut failure.",
+  "systemic_fix": "Update step-01-discover.md: internal linking is mandatory, not best-effort. If the Ghost API requires a PATCH for lexical links, that PATCH must be performed before the draft is considered complete. Add to Gate 2 assertions: each post must have at least one verified lexical internal link if a related post exists in Ghost. Document the PATCH pattern in the step file so it is not treated as optional complexity.",
+  "fix_type": "workflow-update",
+  "fix_status": "proposed",
+  "severity": "major",
+  "failure_mode": "protocol-skip",
+  "related_entries": ["err-20260915T154324-LFMX48", "err-20260915T154324-4DLWA4"],
+  "workflow": "content-discovery",
+  "run_date": "2026-09-15"
+}
