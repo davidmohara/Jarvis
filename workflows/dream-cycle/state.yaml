@@ -5,7 +5,7 @@ session-started: 2026-09-15T08:02:35Z
 session-id: dream-cycle-2026-09-15-080235
 current-step: null
 original-request: "Execute dream-cycle workflow for today (scheduled task)"
-last-successful-run: 2026-09-15T08:20:00Z
+last-successful-run: 2026-09-15T08:12:29Z
 accumulated-context:
   step-05-2026-09-15:
     dream_log_appended: true
@@ -13,9 +13,10 @@ accumulated-context:
     working_summary_reason: "semantic_updated=1 > 0 triggers the mandatory working-summary write per Phase B. Content leads with the dream-summary-2026-09-13 archival, then flags two real decision points directly rather than folding them into routine notes: the error-log.json rebuild bug found this cycle, and the compression candidate set crossing the 5-entry GUARDRAIL 7 threshold for the first time since 08-29."
     error_logged: "err-20260915T080707-UDZNMO -- aggregated error-log.json rebuild output is not valid JSON (pre-existing, unrelated to this cycle's own work); worked around via per-file entries."
     eval_record: "eval-20260915T080747-CQ5J4C -- created fresh at run start (no in-progress dream-cycle record existed), set name/agent/session_id/trigger/tags on it before any record-step.py calls, backfilled steps 01-04 cleanly, guardrail checkpoint attached correctly on first attempt (verified by reading the guardrails array back)."
-    git_commit: pending
-    git_push: pending
-    git_sync_note: "Cloud sandbox container (Claude Code Remote). No Desktop Commander tool available in this session (confirmed via ToolSearch -- no matching tool), consistent with every dream-cycle run since 09-08. Using plain git via Bash, one command per call, no chaining, no git status (git diff --name-only HEAD / git ls-files --others --exclude-standard instead)."
+    git_commit: success
+    git_push: success
+    git_commit_sha: 799f59e
+    git_sync_note: "Cloud sandbox container (Claude Code Remote). No Desktop Commander tool available in this session (confirmed via ToolSearch -- no matching tool), consistent with every dream-cycle run since 09-08. Used plain git via Bash, one command per call, no chaining, no git status (git diff --name-only HEAD / git ls-files --others --exclude-standard instead). Local HEAD matched origin/main's tip (0207238) before starting, no divergence. `git commit` landed in a detached HEAD state (repo started this session detached, not on branch main); recovered via `git checkout -B main` (a pure fast-forward move of the branch pointer onto the new commit, not destructive -- verified no divergence first) before pushing. Push was a clean fast-forward (0207238..799f59e, 334 files changed -- includes the working->episodic rename, every episodic file's routine last-promoted-check rewrite from step-02, plus 2 eval-harness records and 1 error-tracking entry from this cycle's own work). Post-push diff and untracked-file checks both confirmed clean."
   step-04-2026-09-15:
     candidates_count: 5
     entries_compressed: 0
