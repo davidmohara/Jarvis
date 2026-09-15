@@ -1,16 +1,14 @@
 ---
 status: complete
-started-at: "2026-08-27T20:05:00Z"
-completed-at: "2026-08-27T20:10:00Z"
+started-at: "2026-09-15T12:04:38Z"
+completed-at: "2026-09-15T12:05:45Z"
 outputs:
   deliverables_checked: 0
   renamed: []
-  moved:
-    - from: "drafts/improving-blog/2026-08-22-the-twenty-percent-nobody-budgeted.md"
-      to: "content/improving-blog/2026-08-22-the-twenty-percent-nobody-budgeted.md"
-      reason: "David's decision (relayed by controller) to retire the non-canonical drafts/ root directory; content/improving-blog/ is the canonical location per workflows/content-pipeline/steps/step-01-discover.md. Filename already followed YYYY-MM-DD-slug.md convention, no rename needed."
-  verified_clean: 1
+  moved: []
+  verified_clean: true
   no_pdf_docx_pptx_epub_in_diff: true
+  note: "git status unavailable this session (system git broken — see step-04 blocker). Verified via `find ... -newermt 2026-09-14` that no PDF/DOCX/PPTX/EPUB files were created or modified since yesterday, so nothing new to organize. Also spot-checked the personal One Texas routing rule against 3 existing One Texas PPTX files in meetings/ (Q1 2026 Scorecard, SKO Pre-Work, one-texas/2026-02 template) — all last modified Mar-May 2026, predate this session, not touched now. Left in place rather than retroactively relocating untouched legacy files; flagging for controller awareness only."
 model: sonnet
 ---
 

@@ -1,30 +1,32 @@
 ---
 status: complete
-started-at: "2026-08-27T19:05:00Z"
-completed-at: "2026-08-27T20:05:00Z"
+started-at: "2026-09-15T02:53:13Z"
+completed-at: "2026-09-15T12:04:38Z"
 outputs:
   deleted:
-    - path: "./.DS_Store"
-      reason: "macOS metadata"
     - path: "./meetings/.DS_Store"
       reason: "macOS metadata"
     - path: "./.claude/hooks/__pycache__"
       reason: "Python bytecode cache"
-    - path: "./.claude/hooks/tests/__pycache__"
-      reason: "Python bytecode cache"
-    - path: "./workflows/dream-cycle/__pycache__"
-      reason: "Python bytecode cache"
     - path: "./systems/eval-harness/__pycache__"
-      reason: "Python bytecode cache"
-    - path: "./systems/eval-harness/vendor/yaml/__pycache__"
       reason: "Python bytecode cache"
     - path: "./skills/plaud-transcripts/scripts/__pycache__"
       reason: "Python bytecode cache"
+    - path: "./systems/eval-harness/scoring/__pycache__"
+      reason: "Python bytecode cache"
+    - path: "./systems/eval-harness/vendor/yaml/__pycache__"
+      reason: "Python bytecode cache"
+    - path: "./Calendar/"
+      reason: "Non-canonical root entry, orphaned note, controller-approved full delete"
+    - path: "./zzPlaud/"
+      reason: "Non-canonical root entry, Plaud staging area never routed to Obsidian, controller-approved full delete"
   total_deleted: 8
   root_check:
     resolved:
-      - name: "drafts/"
-        disposition: "Moved per David's decision (relayed by controller). git mv drafts/improving-blog/2026-08-22-the-twenty-percent-nobody-budgeted.md -> content/improving-blog/2026-08-22-the-twenty-percent-nobody-budgeted.md. Updated stale reference in workflows/content-pipeline/steps/step-01-discover.md (fallback path pointed at a nonexistent /Users/davidohara/develop/jarvis/drafts/improving-blog/ root; removed the fallback, canonical path is content/improving-blog/). Removed now-empty drafts/improving-blog/ and drafts/ directories."
+      - name: "Calendar/"
+        disposition: "Deleted entirely per controller instruction — no canonical use, orphaned note."
+      - name: "zzPlaud/"
+        disposition: "Deleted entirely per controller instruction — staging area mistake, files should have gone to Obsidian and never got cleaned up."
       - name: ".playwright-mcp/"
         disposition: "No action — gitignored, untracked tool cache."
 model: sonnet
