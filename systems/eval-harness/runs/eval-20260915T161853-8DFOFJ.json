@@ -1,0 +1,131 @@
+{
+  "id": "eval-20260915T161853-8DFOFJ",
+  "type": "workflow",
+  "name": "boot",
+  "agent": "master",
+  "session_id": "162a9d48-ebc2-4efc-bc27-45d5a9d97978",
+  "trigger": "boot",
+  "started": "2026-09-15T16:18:53.286394Z",
+  "completed": "2026-09-15T16:24:24.088071Z",
+  "duration_seconds": 330.8,
+  "status": "partial",
+  "steps": [],
+  "subagents": [
+    {
+      "agent_id": "a184ae45879ef8858",
+      "agent_type": "general-purpose",
+      "started": "2026-09-15T16:19:20.648793Z",
+      "completed": "2026-09-15T16:24:32.465560Z",
+      "model": "sonnet",
+      "tokens_input": 2035983,
+      "tokens_output": 122,
+      "cost_usd": 1.02204,
+      "duration_seconds": 311.82
+    },
+    {
+      "agent_id": "aad0e7491dbe5e6c2",
+      "agent_type": "general-purpose",
+      "started": "2026-09-15T16:19:30.408503Z",
+      "completed": "2026-09-15T16:24:01.440414Z",
+      "model": "sonnet",
+      "tokens_input": 3905357,
+      "tokens_output": 219,
+      "cost_usd": 2.275799,
+      "duration_seconds": 271.03
+    },
+    {
+      "agent_id": "aad0e7491dbe5e6c2",
+      "agent_type": "general-purpose",
+      "started": "2026-09-15T16:22:50.630484Z",
+      "completed": null,
+      "model": null,
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    }
+  ],
+  "monitoring": {
+    "active": false,
+    "state_yaml_path": "workflows/boot/state.yaml",
+    "opened_by": "eval-turn-start.py",
+    "trigger_evidence": "run morning boot"
+  },
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 1,
+      "error_ids": [],
+      "tool_failure_log": [
+        {
+          "tool": "Agent",
+          "error": "Failed to create worktree: Preparing worktree (new branch 'worktree-agent-ab589e15064137677')\nfatal: mmap failed: Operation canceled",
+          "duration_ms": 5647,
+          "timestamp": "2026-09-15T11:19:17.973580"
+        }
+      ]
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 3,
+      "assertions_passed": 3,
+      "assertion_results": [
+        {
+          "assertion": "boot-001-state-complete",
+          "description": "Boot workflow state.yaml shows status: complete",
+          "passed": true
+        },
+        {
+          "assertion": "boot-002-session-index-exists",
+          "description": "Session index file exists \u2014 boot's Session Index Boot step must have created/appended it",
+          "passed": true
+        },
+        {
+          "assertion": "boot-003-session-index-substantive",
+          "description": "Session index is a real record, not an empty stub",
+          "passed": true
+        }
+      ]
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": "f1a31609ac6be8a11b48a3c6267957f76a4e86e971cd143315c77472e90af0d0",
+  "prior_baseline_id": null,
+  "tags": [
+    "turn-level"
+  ],
+  "guardrails": [
+    {
+      "name": "pre-completion-review",
+      "after_step": "step-06-scan-workflows",
+      "result": "pass",
+      "reason": "All data live and fresh (calendar 50 events, email 21 msgs, Clay 0, jarvis-inbox 0); no in-progress workflows found (full scan of all 56 workflows/*/state.yaml confirms _active.yaml's empty index is accurate this run \u2014 prior recurring mismatch resolved since plaud-ingest completed); OmniFocus still unreachable (4th+ consecutive boot, degraded not blocking); no leakage; session index clean.",
+      "escalated_to_human": false,
+      "timestamp": "2026-09-15T16:22:21.950419+00:00"
+    }
+  ],
+  "total_tokens_input": 3905357,
+  "total_tokens_output": 219,
+  "total_cost_usd": 2.275799
+}

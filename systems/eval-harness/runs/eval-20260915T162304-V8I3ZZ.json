@@ -1,0 +1,44 @@
+{
+  "id": "eval-20260915T162304-V8I3ZZ",
+  "type": "workflow",
+  "name": "unknown",
+  "agent": "master",
+  "session_id": "162a9d48-ebc2-4efc-bc27-45d5a9d97978",
+  "trigger": "manual",
+  "started": "2026-09-15T16:15:00Z",
+  "completed": "2026-09-15T16:23:04.469679Z",
+  "duration_seconds": 484.5,
+  "status": "success",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [
+    "cowork-hook",
+    "phantom-candidate"
+  ]
+}

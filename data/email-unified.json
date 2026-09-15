@@ -1,26 +1,102 @@
 {
-  "pulled_at": "2026-09-14T16:12:00Z",
-  "message_count": 2,
+  "pulled_at": "2026-09-15T16:20:00Z",
+  "message_count": 21,
   "messages": [
     {
-      "id": "AAMkADAyYWJiNDQxLTM3MzAtNDVlNy04ODZjLTgwMmZiYjBhNTMxYwBGAAAAAADOXXceVmu0R4GF6i2BkUXOBwBiFVZC-8sdQaJWt-ZWvgEcAAAAilcFAABAtd68aKbhTanh4UbLkkAvAA63G8RpAAA=",
-      "subject": "Re: Steve Hall agent strategy",
-      "from": "rstone@saxum.com",
-      "received_at": "2026-09-14T14:51:15Z",
+      "id": "boardvantage-trust-audit",
+      "subject": "Please respond to the Approval - Trust Audit Committee Charter - Request for Review and Approval",
+      "from": "alerts@boardvantage.com (Teresa Saffold, United Texas Bank)",
+      "received_at": "2026-09-15T14:02:40Z",
       "is_flagged": false,
       "importance": "normal",
-      "is_read": true,
-      "snippet": "I was trying to make these work but I have several conflicts. Options: 10/2 in the afternoon, 10/6 morning until maybe 2p window, or feel free to suggest others."
+      "actionable": true,
+      "snippet": "UTB board approval request - Trust Audit Committee Charter requires David's review and approval in BoardVantage."
     },
     {
-      "id": "AAMkADAyYWJiNDQxLTM3MzAtNDVlNy04ODZjLTgwMmZiYjBhNTMxYwBGAAAAAADOXXceVmu0R4GF6i2BkUXOBwBiFVZC-8sdQaJWt-ZWvgEcAAAAilcFAABAtd68aKbhTanh4UbLkkAvAA63G8RxAAA=",
-      "subject": "Just released 5 more AGX tickets at $249",
-      "from": "christian@christianbanach.com",
-      "received_at": "2026-09-14T16:06:57Z",
+      "id": "boardvantage-succession-plan",
+      "subject": "Succession Plan Update - Approval Requested",
+      "from": "alerts@boardvantage.com (Teresa Saffold, United Texas Bank)",
+      "received_at": "2026-09-15T12:55:56Z",
       "is_flagged": false,
       "importance": "normal",
-      "is_read": false,
-      "snippet": "Five final tickets available at $249 through Wednesday, marketing email, not actionable."
+      "actionable": true,
+      "snippet": "UTB board approval request - Management Succession Plan updated after Marco Prado's departure, requires David's review/approval."
+    },
+    {
+      "id": "saxum-steve-hall-scheduling",
+      "subject": "Re: Steve Hall agent strategy",
+      "from": "rstone@saxum.com",
+      "received_at": "2026-09-14T20:53:27Z",
+      "is_flagged": false,
+      "importance": "normal",
+      "actionable": true,
+      "snippet": "Renzi Stone confirms the 12th works for him - asking David what time and to send the invite with address. David owes a reply."
+    },
+    {
+      "id": "devlin-todays-meeting",
+      "subject": "Today's meeting",
+      "from": "Devlin.Liles@Improving.com",
+      "received_at": "2026-09-15T12:51:41Z",
+      "is_flagged": false,
+      "importance": "normal",
+      "actionable": false,
+      "snippet": "Update to Chris Miller (StrongTie) on architecture/data labeling review, first model results >95% on dev set. FYI/informational."
+    },
+    {
+      "id": "curtis-ai-office-hours",
+      "subject": "AI Office Hours - DRC",
+      "from": "Curtis.Hite@Improving.com",
+      "received_at": "2026-09-15T14:48:23Z",
+      "is_flagged": false,
+      "importance": "normal",
+      "actionable": false,
+      "snippet": "Curtis floats reviving Scott's AI Office Hours support for the Dallas Regional Chamber (2-3x/month) as a lead-gen channel - discussion thread, no immediate ask of David."
+    },
+    {
+      "id": "alice-acg-luncheon",
+      "subject": "FW: October 13th ACG Luncheon",
+      "from": "alice.mburu@improving.com",
+      "received_at": "2026-09-14T21:46:33Z",
+      "is_flagged": false,
+      "importance": "normal",
+      "actionable": false,
+      "snippet": "Alice surfacing ACG Luncheon logistics for David's awareness (he's CC'd on original)."
+    },
+    {
+      "id": "box-invite-idp",
+      "subject": "Justin Holder has invited you to collaborate on Box (IDP Improving collaboration)",
+      "from": "noreply@box.com (Justin Holder / GE HealthCare)",
+      "received_at": "2026-09-14T20:59:43Z",
+      "is_flagged": false,
+      "importance": "normal",
+      "actionable": true,
+      "snippet": "GEHC folder-share invite, low priority - can be delegated to the GEHC account team (Lisa Barnes/Vladimir Avila) to accept."
+    },
+    {
+      "id": "box-invite-routing",
+      "subject": "Justin Holder has invited you to collaborate on Box (AI Driven Routing)",
+      "from": "noreply@box.com (Justin Holder / GE HealthCare)",
+      "received_at": "2026-09-14T20:59:03Z",
+      "is_flagged": false,
+      "importance": "normal",
+      "actionable": true,
+      "snippet": "Second GEHC folder-share invite, same handling as above."
     }
+  ],
+  "non_actionable_marketing_count": 13,
+  "non_actionable_examples": [
+    "Critical Infrastructure Forum invite (James Sackey Marketing)",
+    "The Woodlands business address ad (bizjournals)",
+    "TribFest ticket discount",
+    "ECS Jets empty legs",
+    "YPO Turkiye GBS event promo",
+    "Advanced Commercial Loan Underwriting webinar",
+    "Impact Generosity Symposium reminder",
+    "Texans Bucks contest",
+    "AI in Professional Services survey (SPi Research, closing tomorrow)",
+    "Fal.Con recap (CrowdStrike)",
+    "Texans vs Bengals gameday logistics (already handled by Alice)",
+    "YPO Elections candidate intake reminder",
+    "David's own sent reply re: YPO NTX (self-copy, no action)"
   ]
 }

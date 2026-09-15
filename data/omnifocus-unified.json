@@ -1,7 +1,7 @@
 {
-  "pulled_at": "2026-09-14T16:12:00Z",
+  "pulled_at": "2026-09-15T16:20:00Z",
   "status": "failed",
-  "reason": "Desktop Commander/osascript MCP tool unavailable this session (ToolSearch confirmed no match, consistent with prior boot 2026-09-11)",
-  "task_count": 0,
-  "tasks": []
+  "reason": "Desktop Commander/osascript MCP tool unavailable this session (ToolSearch confirmed no match — same degraded condition as 2026-09-11 and 2026-09-14 boots, now 3+ consecutive sessions).",
+  "tasks": [],
+  "task_count": 0
 }
