@@ -45,17 +45,11 @@ For each rock in `memory/personal/quarterly-objectives.md`:
 
 ### 3. OmniFocus Health
 
-Via osascript (Bash tool), pull:
-
-```applescript
-tell application "OmniFocus"
-  tell default document
-    set inboxCount to count of (inbox tasks whose completed is false)
-    set overdueItems to every flattened task whose due date < (current date) and completed is false
-    set flaggedItems to every flattened task whose flagged is true and completed is false
-  end tell
-end tell
+```bash
+python3 skills/omnifocus-data/scripts/omnifocus_data.py counts --json
 ```
+
+Returns `inbox_uncompleted`, `flagged_uncompleted`, `overdue_uncompleted`, `completed_today`, `total_uncompleted`, `due_within_7`. For task-level detail use `list --kind due`. Do NOT hand-write OmniFocus AppleScript here: the query logic, including the mandatory completed filter, lives in `skills/omnifocus-data/SKILL.md`.
 
 Gather:
 - Inbox count (unprocessed items)

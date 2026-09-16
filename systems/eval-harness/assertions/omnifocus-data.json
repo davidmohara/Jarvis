@@ -1,0 +1,62 @@
+{
+  "name": "omnifocus-data",
+  "type": "skill",
+  "assertions": [
+    {
+      "id": "omnifocus-data-001-signal-written",
+      "check": "file_exists",
+      "path": "systems/eval-harness/skill-runs/omnifocus-data-latest.json",
+      "description": "omnifocus-data skill-run signal file was written"
+    },
+    {
+      "id": "omnifocus-data-002-signal-status",
+      "check": "json_field_not_equals",
+      "path": "systems/eval-harness/skill-runs/omnifocus-data-latest.json",
+      "field": "status",
+      "value": "failure",
+      "description": "omnifocus-data skill-run did not end in failure"
+    },
+    {
+      "id": "omnifocus-data-003-canonical-file-exists",
+      "check": "file_exists",
+      "path": "data/omnifocus-unified.json",
+      "description": "The canonical OmniFocus data file exists after the skill ran"
+    },
+    {
+      "id": "omnifocus-data-004-pull-not-failed",
+      "check": "json_field_not_equals",
+      "path": "data/omnifocus-unified.json",
+      "field": "status",
+      "value": "failed",
+      "description": "The pull reported status:available rather than failed. This is the assertion that surfaces the five consecutive degraded boots of September 2026, where OmniFocus silently contributed zero data."
+    },
+    {
+      "id": "omnifocus-data-005-completed-field-present",
+      "check": "file_contains",
+      "path": "data/omnifocus-unified.json",
+      "pattern": "\"completed\"\\s*:\\s*false",
+      "description": "Every task carries an explicit completed field. This guard exists so that assertion 006 cannot pass vacuously: if the field is dropped from the output shape, the leak check would have nothing to match against and would silently pass."
+    },
+    {
+      "id": "omnifocus-data-006-no-completed-tasks-leaked",
+      "check": "file_not_contains",
+      "path": "data/omnifocus-unified.json",
+      "pattern": "\"completed\"\\s*:\\s*true",
+      "description": "No completed task leaked into the pull. The inbox permanently holds roughly 247 completed tasks alongside ~8 incomplete ones, and OmniFocus Clean Up does NOT remove them, so the completed is false filter must live in the query itself. Any completed:true here means the filter was dropped."
+    },
+    {
+      "id": "omnifocus-data-007-task-count-numeric",
+      "check": "numeric_field_in_range",
+      "path": "data/omnifocus-unified.json",
+      "field": "task_count",
+      "min": 0,
+      "description": "The pull wrote a numeric task_count, so downstream consumers can distinguish an empty pull from a missing one"
+    },
+    {
+      "id": "omnifocus-data-008-script-present",
+      "check": "file_exists",
+      "path": "skills/omnifocus-data/scripts/omnifocus_data.py",
+      "description": "The extraction script is present. Regression guard: the script, not prose, is what enforces the completed filter and the status contract."
+    }
+  ]
+}

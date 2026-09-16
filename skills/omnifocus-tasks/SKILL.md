@@ -38,12 +38,14 @@ Do NOT use static/hardcoded lists. Always query OmniFocus for current data.
 - **Active projects:** `query_omnifocus` with `entity: "projects"` and `filters: { status: ["Active"] }`. The `status` filter is what makes this a valid gate: an unfiltered project listing also returns on-hold and dropped projects.
 - **Tags:** `list_tags`.
 
-**Fallback, via `osascript` in the Bash tool** (works without the MCP and without Desktop Commander):
+**Fallback, via the `omnifocus-data` skill** (works without the MCP and without Desktop Commander):
 
 ```bash
-osascript -e 'tell application "OmniFocus" to tell default document to get name of every flattened project whose status is active status'
-osascript -e 'tell application "OmniFocus" to tell default document to get name of every flattened tag'
+python3 skills/omnifocus-data/scripts/omnifocus_data.py projects --json
+python3 skills/omnifocus-data/scripts/omnifocus_data.py tags --json
 ```
+
+Do not hand-write OmniFocus AppleScript here. Read logic lives in one place, `skills/omnifocus-data/SKILL.md`; duplicating it is what let the query logic drift across five files before 2026-09-16.
 
 Either path is acceptable. The MCP is preferred because it returns IDs alongside names, which removes ambiguity. Match on exact name, and where you have an ID prefer passing `projectId` over `projectName`. Project and tag namespaces are separate and names can repeat, so if a name matches more than one item, ask David rather than guessing.
 
@@ -199,54 +201,22 @@ Include that printed block verbatim (or lightly reformatted to match your closin
 <!-- personal:start -->
 ## OmniFocus Read Patterns
 
-**Preferred:** the OmniFocus MCP server. Use `query_omnifocus` for targeted lookups (entity, filters, fields, limit, includeCompleted, summary) and `dump_database` only for whole-database reads. `list_tags` and `list_perspectives` cover the rest. The `omnifocus://today` and `omnifocus://flagged` resources are handy when you want the same views David sees.
+**Reads do not belong in this skill.** This skill is the gated write path. For any OmniFocus read, use the `omnifocus-data` skill (`skills/omnifocus-data/SKILL.md`), which owns the query logic, the mandatory completed filter, and the canonical data file.
 
-**Fallback:** AppleScript via the **Bash** tool (`osascript -e '...'`), used when the MCP is unavailable. Desktop Commander is not required for AppleScript and is usually absent from the tool roster, so do not wait on it.
+Quick pointers so you do not need to leave this skill for the common cases:
 
-Critical for both paths: the inbox permanently holds completed tasks that OmniFocus "Clean Up" does not remove, so always filter. With the MCP use `includeCompleted: false`; in AppleScript add `where completed is false` to the query itself.
+| Need | Command |
+|------|---------|
+| Tags (for the Step 1 gate) | `python3 skills/omnifocus-data/scripts/omnifocus_data.py tags --json` |
+| Active projects (for the Step 1 gate) | `python3 skills/omnifocus-data/scripts/omnifocus_data.py projects --json` |
+| Whether a task already exists | `query_omnifocus` via the MCP, or `list --kind inbox` |
 
-Common AppleScript patterns:
-
-```applescript
--- Inbox tasks
-tell application "OmniFocus"
-  tell default document
-    set inboxTasks to every inbox task where completed is false
-    set output to {}
-    repeat with t in inboxTasks
-      set end of output to name of t
-    end repeat
-    return output
-  end tell
-end tell
-
--- Due soon (today + next N days)
-tell application "OmniFocus"
-  tell default document
-    set theTasks to every flattened task where (due date is not missing value) and (due date ≤ (current date) + (7 * days)) and (completed is false)
-    -- iterate and return name, due date, project
-  end tell
-end tell
-
--- Overdue tasks
-tell application "OmniFocus"
-  tell default document
-    set theTasks to every flattened task where (due date is not missing value) and (due date < current date) and (completed is false)
-  end tell
-end tell
-
--- Flagged tasks
-tell application "OmniFocus"
-  tell default document
-    set theTasks to every flattened task where flagged is true and completed is false
-  end tell
-end tell
-```
+The OmniFocus MCP is preferred for ad-hoc reads when its tools are present: `query_omnifocus` (filters by project, folder, tags, status, dates), `list_tags`, `list_perspectives`. Desktop Commander is not required for any of this and is usually absent, so do not wait on it.
 
 **Failure handling:**
-If an osascript call fails, retry once with a simpler query scope. If it fails again, report clearly what was unavailable and proceed with what you have. Never silently skip OmniFocus data — if it fails, say so and flag what was missed.
+If a read fails, report clearly what was unavailable and proceed with what you have. Never silently skip OmniFocus data — if it fails, say so and flag what was missed. Never proceed past the Step 3 gate because a lookup failed.
 
-**Critical read rules:**
+**Critical rules:**
 - Always filter for active/uncompleted tasks unless David asks for completed ones
 - Inbox tasks can't be completed directly — assign to a project first
 - Never delete inbox tasks to clear them — assign and mark complete for history

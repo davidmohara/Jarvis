@@ -95,52 +95,17 @@ outputs:
 
 **Source:** OmniFocus.
 
-**Preferred: the OmniFocus MCP server** (`mcp__omnifocus__*`). Use `query_omnifocus` for each group, which is far lighter than `dump_database`:
-
-```
-# Inbox
-query_omnifocus: entity="tasks", filters={ projectName: "inbox" }, includeCompleted=false,
-                 fields=["id","name","dueDate","projectName","tagNames","flagged","note"]
-
-# Due within the next 7 days (also catches overdue: until N days from now, inclusive)
-query_omnifocus: entity="tasks", filters={ dueWithin: 7 }, includeCompleted=false, fields=[...]
-
-# Flagged
-query_omnifocus: entity="tasks", filters={ flagged: true }, includeCompleted=false, fields=[...]
-```
-
-Filter reference (from `QUERY_TOOL_REFERENCE.md` in the server repo): `projectName` (case-insensitive substring; the special value `"inbox"` selects inbox tasks), `dueWithin` (integer days, inclusive from now), `plannedWithin`, `tags` (exact match, case-sensitive, OR logic), `status`, `hasNote`, `flagged`. All filters combine with AND.
-
-**Trap:** `deferredUntil` is accepted by the schema but is **not implemented** and is silently ignored. Do not rely on it.
-
-**Fallback: `osascript` through the Bash tool**, used when the MCP is unavailable. AppleScript runs natively and does NOT require Desktop Commander, so do NOT report OmniFocus unreachable merely because Desktop Commander is missing: that misdiagnosis degraded this source for five consecutive boots.
+**Run the `omnifocus-data` skill.** Do NOT hand-write OmniFocus queries in this step:
 
 ```bash
-# Inbox tasks. The completed is false filter is MANDATORY: as of 2026-09-16 the
-# inbox holds 255 tasks of which only 8 are incomplete, so the unfiltered form
-# returns 247 completed items and will pollute the briefing. With the MCP, the
-# equivalent guarantee is includeCompleted: false.
-osascript -e 'tell application "OmniFocus" to tell default document to get name of every inbox task where completed is false'
-
-# Due within the next 7 days, incomplete, with project
-osascript <<'EOF'
-set cutoff to (current date) + (7 * days)
-tell application "OmniFocus"
-  tell default document
-    set out to {}
-    repeat with t in (every flattened task where completed is false and (due date is not missing value) and (due date < cutoff))
-      set end of out to (name of t) & " | due=" & (due date of t as string) & " | proj=" & ((name of containing project of t) as string)
-    end repeat
-    return out
-  end tell
-end tell
-EOF
-
-# Flagged, incomplete
-osascript -e 'tell application "OmniFocus" to tell default document to get name of every flattened task where flagged is true and completed is false'
+python3 skills/omnifocus-data/scripts/omnifocus_data.py pull
 ```
 
-**Gotcha:** build any date objects OUTSIDE the `tell application "OmniFocus"` block. Inside it, `set year of d` is sent to OmniFocus and fails with `Can't get year. Access not allowed. (-1723)`.
+That command writes `data/omnifocus-unified.json` and is the single writer for it. Read the file back and report `status` and `task_count`. A `status: failed` pull is a degraded source to surface, never something to pass over as an empty day.
+
+For ad-hoc reads inside this step, the OmniFocus MCP is available when its tools are present: `query_omnifocus` with `filters={ projectName: "inbox" }` or `filters={ dueWithin: 7 }`, always with `includeCompleted: false`. Note that `deferredUntil` is accepted by the schema but silently ignored. Prefer the script for the pull itself, because it does not depend on MCP session state and boot runs unattended.
+
+Why this is delegated rather than inlined here: OmniFocus query logic previously lived in five separate places and drifted, producing a 247-completed-task query and invented filter keys on 2026-09-16. The filter and the `status` contract now live in code. See `skills/omnifocus-data/SKILL.md`.
 
 **Output file:** `data/omnifocus-unified.json`
 **What to pull:**
@@ -159,26 +124,31 @@ osascript -e 'tell application "OmniFocus" to tell default document to get name 
       "id": "...",
       "name": "...",
       "completed": false,
-      "due_date": "...",
-      "project": "...",
-      "context": "...",
-      "is_flagged": true
+      "due_date": "local date string or null",
+      "project": "project name or null",
+      "tags": "comma-joined tag names or null",
+      "is_flagged": true,
+      "note": "..."
     }
   ],
   "error": "reason, only when status is failed"
 }
 ```
 
+This shape is produced by `skills/omnifocus-data/scripts/omnifocus_data.py`; treat that script as the definition of record if the two ever disagree.
+
 **`completed` MUST be present and false on every task.** The inbox holds roughly 247 completed tasks alongside the ~8 incomplete ones, and OmniFocus "Clean Up" does NOT remove them. Filtering is part of the query, never a cleanup step. Recording the field is what lets the eval harness assert that no completed task leaked into the pull.
 
 **Status reporting:**
 ```yaml
 outputs:
-  omnifocus_pull: "completed" | "nothing-to-surface" | "failed — [reason]"
+  omnifocus_pull: "completed — N tasks" | "nothing-to-surface" | "failed — [reason]"
   omnifocus_file: "data/omnifocus-unified.json"
   task_count: N
   file_size_kb: N
 ```
+
+`status: available` with `task_count: 0` is a real empty result (nothing in the inbox, nothing due, nothing flagged). Report it as `nothing-to-surface`, not as a failure. `status: failed` is a degraded source and must be surfaced as such.
 
 ---
 

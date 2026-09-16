@@ -1,6 +1,6 @@
 # IES Skill Index
 
-Last updated: 2026-09-03 | Total skills: 65
+Last updated: 2026-09-16 | Total skills: 66
 
 | ID | Name | Owner | Model | Trigger Keywords (sample) |
 |----|------|-------|-------|---------------------------|
@@ -14,6 +14,7 @@ Last updated: 2026-09-03 | Total skills: 65
 | eval-signal-write | Eval Signal Write | rigby | haiku | skill run signal, eval harness signal, skill complete |
 | add-reminder | Boot Reminder Registry | master | haiku | remind, reminder, boot reminder, add reminder, set reminder |
 | omnifocus-tasks | OmniFocus Task Creation | chief | haiku | create task, new task, omnifocus |
+| omnifocus-data | OmniFocus Data | master | sonnet | omnifocus, tasks, inbox, flagged, due, counts |
 | plaud-transcripts | Plaud Transcript Ingest | knox | haiku | plaud, transcript, recording |
 | plaud-discover | Plaud Discovery | knox | haiku | plaud discover, find recordings |
 | plaud-speaker-id | Plaud Speaker ID | knox | sonnet | speaker id, who was on the call |

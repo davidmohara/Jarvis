@@ -1,0 +1,113 @@
+{
+  "id": "eval-20260916T213104-20ATKZ",
+  "type": "skill",
+  "name": "omnifocus-data",
+  "agent": "master",
+  "session_id": "9d319e64-e988-4168-a916-f7a608c2259d",
+  "trigger": "manual",
+  "started": "2026-09-16T21:30:25Z",
+  "completed": "2026-09-16T21:31:04.406298Z",
+  "duration_seconds": 39.4,
+  "status": "success",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": true,
+      "outputs_non_empty": null,
+      "assertions_checked": 8,
+      "assertions_passed": 8,
+      "assertion_results": [
+        {
+          "assertion": "omnifocus-data-001-signal-written",
+          "description": "omnifocus-data skill-run signal file was written",
+          "category": "structure",
+          "passed": true
+        },
+        {
+          "assertion": "omnifocus-data-002-signal-status",
+          "description": "omnifocus-data skill-run did not end in failure",
+          "category": "structure",
+          "passed": true
+        },
+        {
+          "assertion": "omnifocus-data-003-canonical-file-exists",
+          "description": "The canonical OmniFocus data file exists after the skill ran",
+          "category": "structure",
+          "passed": true
+        },
+        {
+          "assertion": "omnifocus-data-004-pull-not-failed",
+          "description": "The pull reported status:available rather than failed. This is the assertion that surfaces the five consecutive degraded boots of September 2026, where OmniFocus silently contributed zero data.",
+          "category": "structure",
+          "passed": true
+        },
+        {
+          "assertion": "omnifocus-data-005-completed-field-present",
+          "description": "Every task carries an explicit completed field. This guard exists so that assertion 006 cannot pass vacuously: if the field is dropped from the output shape, the leak check would have nothing to match against and would silently pass.",
+          "category": "structure",
+          "passed": true
+        },
+        {
+          "assertion": "omnifocus-data-006-no-completed-tasks-leaked",
+          "description": "No completed task leaked into the pull. The inbox permanently holds roughly 247 completed tasks alongside ~8 incomplete ones, and OmniFocus Clean Up does NOT remove them, so the completed is false filter must live in the query itself. Any completed:true here means the filter was dropped.",
+          "category": "structure",
+          "passed": true
+        },
+        {
+          "assertion": "omnifocus-data-007-task-count-numeric",
+          "description": "The pull wrote a numeric task_count, so downstream consumers can distinguish an empty pull from a missing one",
+          "category": "structure",
+          "passed": true,
+          "value": 34.0
+        },
+        {
+          "assertion": "omnifocus-data-008-script-present",
+          "description": "The extraction script is present. Regression guard: the script, not prose, is what enforces the completed filter and the status contract.",
+          "category": "structure",
+          "passed": true
+        }
+      ],
+      "category_breakdown": {
+        "structure": {
+          "passed": 8,
+          "checked": 8
+        },
+        "content": {
+          "passed": 0,
+          "checked": 0
+        },
+        "quality": {
+          "passed": 0,
+          "checked": 0
+        }
+      }
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "deterministic_gate": {
+      "score": 0.8333,
+      "gate_status": "pass",
+      "computed_at": "2026-09-16T21:31:09.484325Z"
+    }
+  },
+  "version_hash": "e42d2f9b1e2f0f14",
+  "prior_baseline_id": null,
+  "tags": [
+    "cowork-hook",
+    "skill"
+  ]
+}

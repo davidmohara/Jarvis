@@ -40,22 +40,15 @@ model: sonnet
 
 1. **Pull OmniFocus data** via osascript (Bash tool):
 
-   ```applescript
-   tell application "OmniFocus"
-     tell default document
-       -- Tasks completed today
-       set completedToday to every flattened task whose completion date >= (current date - 86400) and completed is true
-       -- Overdue tasks
-       set overdueItems to every flattened task whose due date < (current date) and completed is false
-       -- Flagged incomplete
-       set flaggedItems to every flattened task whose flagged is true and completed is false
-       -- Inbox count
-       set inboxCount to count of (inbox tasks whose completed is false)
-     end tell
-   end tell
+   ```bash
+   python3 skills/omnifocus-data/scripts/omnifocus_data.py counts --json
    ```
 
-   Capture: task names and projects for completions, overdue count and names, flagged count, inbox count.
+   Returns `inbox_uncompleted`, `flagged_uncompleted`, `overdue_uncompleted`, `completed_today`, `total_uncompleted`, `due_within_7`.
+
+   For task-level detail (names and projects of overdue items), use `list --kind due`. Do NOT hand-write OmniFocus AppleScript in this step: the query logic, including the mandatory completed filter, lives in `skills/omnifocus-data/SKILL.md`.
+
+   Capture: overdue count, flagged count, inbox count, tasks completed today.
 
 2. **Pull yesterday's calendar** — attempt in sequence, stop at first success:
 
