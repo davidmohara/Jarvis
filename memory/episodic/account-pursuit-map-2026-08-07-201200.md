@@ -25,7 +25,7 @@ related_people:
   - ellery-fisher
 salience:
   score: 5
-  last-promoted-check: 2026-09-15
+  last-promoted-check: 2026-09-16
   promoted: true
 ---
 

@@ -1,21 +1,21 @@
 ---
 status: completed
-started-at: 2026-09-15T08:11:00Z
-completed-at: 2026-09-15T08:13:00Z
+started-at: 2026-09-16T08:14:00Z
+completed-at: 2026-09-16T08:20:00Z
 outputs:
   candidates_count: 1
   clusters_found: 1
   semantic_created: 0
   semantic_updated: 1
   promoted_entries: 1
-  promotion_note: "1 candidate this cycle (today's own step-01 archive, dream-summary-2026-09-13.md, score 10) appended to dream-summary-pattern.md (operational/2026-06-12). Independently re-confirmed delegations/tracker.md still empty, now 15+ consecutive cycles."
+  promotion_note: "1 candidate this cycle (today's own step-01 archive, dream-summary-2026-09-14.md, score 10) appended to dream-summary-pattern.md (operational/2026-06-12). Independently re-confirmed delegations/tracker.md still empty, now 16+ consecutive cycles."
   cluster_actions:
     - {tag: dream-summary, domain: operational, size: 1, action: update, target: memory/semantic/operational/2026-06-12-dream-summary-pattern.md, confidence: "high (unchanged)"}
-  error_categories_30d: "process-skip/protocol-skip:8, tool-misuse/protocol-skip:7, assumption-error/wrong-assumption:7, tool-misuse/pattern-mismatch:5, missed-context/lazy-search:3"
-  error_total_30d: 73
-  error_malformed_30d: 14
+  error_categories_30d: "process-skip/protocol-skip:8, tool-misuse/protocol-skip:7, assumption-error/wrong-assumption:7, tool-misuse/pattern-mismatch:5, tool-misuse/tool-ignorance:3, missed-context/lazy-search:3"
+  error_total_30d: 82
+  error_malformed_30d: 10
   lessons_appended: 0
-  lessons_note: "5 distinct qualifying categories this cycle, same set as 09-14 (window shifted forward one day with no boundary entries crossing in or out, error_total_30d unchanged at 73). Re-verified all 5 directly against LESSONS.md via grep of Category:/Failure mode: line pairs at the same line numbers as every prior cycle's check (L153-154/L444-445/L249-250/L452-453/L404-405) -- all confirmed present and active. No new entry appended. Computed from the 417 per-file entries under systems/error-tracking/entries/ directly (the aggregated systems/error-tracking/error-log.json rebuild output has a pre-existing JSON syntax error around line 1725 unrelated to this cycle's work -- systems/ is Rigby-gated, so this was worked around rather than fixed). error_malformed_30d here is legacy/malformed entries missing timestamp, category, or failure_mode across the whole corpus (14), not scoped to the 30-day window specifically."
+  lessons_note: "6 distinct qualifying categories this cycle, up from 5 on 09-15 -- tool-misuse/tool-ignorance re-entered the 30-day window at exactly 3 occurrences (already documented in LESSONS.md L353-358). Re-verified all 6 directly against LESSONS.md -- all confirmed present and active. No new entry appended. The error-log.json rebuild that produced invalid JSON on 09-15 (err-20260915T080707-UDZNMO) parsed cleanly this cycle -- appears resolved, not just worked around."
 ---
 
 <!-- system:start -->

@@ -1,15 +1,15 @@
 ---
 status: completed
-started-at: 2026-09-15T08:10:00Z
-completed-at: 2026-09-15T08:11:00Z
+started-at: 2026-09-16T08:10:00Z
+completed-at: 2026-09-16T08:14:00Z
 outputs:
-  episodic_scanned: 319
-  score_updates: 319
-  no_tags: 202
-  no_date: 38
-  score_distribution: "0:218,1:3,2:5,3:2,4:11,5:12,6:9,7:2,8:4,9:3,10:50"
-  window_entries: 37
-  note: "Ran systems/dream-cycle/salience-score.py. read_errors:0, write_errors:0. episodic_scanned rose 318->319 from today's 1 step-01 archive (dream-summary-2026-09-13.md). pct_score_0=68.34% (218/319) stays BELOW the 70% escalation threshold, consistent with 09-14 baseline (68.55%). pct_no_date=11.91% (38/319) still crosses the >10% threshold, same legacy undated population as every prior cycle, no new undated entries. pct_no_tags=63.32% (202/319) stays in the 30-70% 'unusual tag coverage' band, same underlying population as prior cycles, not a new problem. Corpus-wide scan for the frontmatter-stranding corruption signature (duplicate salience: blocks, multiple promoted: keys), scanned within the frontmatter block only, found 0 instances across all 320 scanned episodic files, consistent with every cycle since the 09-01 fix (commit bb2de90)."
+  episodic_scanned: 315
+  score_updates: 315
+  no_tags: 197
+  no_date: 37
+  score_distribution: "0:213,1:3,2:5,3:2,4:11,5:12,6:9,7:2,8:4,9:3,10:51"
+  window_entries: 38
+  note: "Ran systems/dream-cycle/salience-score.py. read_errors:0, write_errors:0. episodic_scanned fell 319->315 net: the 09-15 David-approved compression batch (5 files deleted after that day's log was written) minus today's 1 step-01 archive nets to 319-5+1=315 -- fully explained by the approved-followup, not an anomaly. pct_score_0=67.62% (213/315) stays BELOW the 70% escalation threshold, consistent with 09-15 baseline (68.34%). pct_no_date=11.75% (37/315) still crosses the >10% threshold, same legacy undated population as every prior cycle, no new undated entries. pct_no_tags=62.54% (197/315) stays in the 30-70% 'unusual tag coverage' band, same underlying population as prior cycles, not a new problem. Corpus-wide scan for the frontmatter-stranding corruption signature (duplicate salience: blocks, multiple promoted: keys), scanned within the frontmatter block only, found 0 instances across all 316 scanned episodic files, consistent with every cycle since the 09-01 fix (commit bb2de90)."
 ---
 
 <!-- system:start -->

@@ -1,12 +1,27 @@
 ---
-type: working
+type: working-archive
 task_id: "session"
 session_id: "dream-cycle-2026-09-14-080522"
 agent-source: jarvis
 created: 2026-09-14T03:09:41-05:00
 expires: 2026-09-15T03:09:41-05:00
-status: active
+status: archived
 context: "Dream cycle summary — 2026-09-14"
+date: 2026-09-14
+source_file: memory/working/dream-summary-2026-09-14.md
+tags:
+  - dream-summary
+  - jarvis
+  - dream-cycle
+  - south-texas
+  - error-pattern
+  - lessons
+  - delegation-tracker
+related_people: []
+salience:
+  score: 10
+  last-promoted-check: 2026-09-16
+  promoted: true
 ---
 
 One working-memory item aged out overnight: yesterday's own dream summary (2026-09-12 cycle), held back one cycle because its expiry fell on the same calendar day as that run. It folded cleanly into the existing dream-summary pattern in semantic memory — its content just repeated the South Texas 90-Day forecast break (82% plateau, now 74%) with no fresh numbers of its own.

@@ -23,7 +23,7 @@ related_people:
   - parsa-sreenivasulu
 salience:
   score: 0
-  last-promoted-check: 2026-09-15
+  last-promoted-check: 2026-09-16
   promoted: true
 ---
 

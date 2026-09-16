@@ -1,18 +1,20 @@
 ---
 status: completed
-started-at: 2026-09-15T08:02:35Z
-completed-at: 2026-09-15T08:10:00Z
+started-at: 2026-09-16T08:02:59Z
+completed-at: 2026-09-16T08:10:00Z
 outputs:
   working_archived: 1
   working_deleted: 0
-  working_skipped: 44
+  working_skipped: 46
   working_stranded: 0
   enrichment_method: "manual enrichment by the executing session (no nested claude -p subprocess call -- consistent with every prior cloud-sandbox cycle)"
   archived_files:
-    - dream-summary-2026-09-13.md
-  skipped_not_expired:
     - dream-summary-2026-09-14.md
+  skipped_not_expired:
+    - dream-summary-2026-09-15.md
     - revenue-tracker-2026-09-14-001500.md
+    - plaud-ingest-2026-09-14-150300.md
+    - shutdown-cleanup-2026-09-15-025313.md
   skipped_unparseable:
     - plaud-discover-2026-09-08.md
     - 2026-07-08.md
@@ -58,7 +60,7 @@ outputs:
   unparseable_left_untouched_missing_status:
     - knox-plaud-ingest-2026-08-31.md
   new_unparseable_this_cycle: []
-  self_caught_bug_note: "None this cycle. Enriched the 1 candidate by replacing the existing 'type'/'status' lines in place and appending new enrichment keys (date, source_file, tags, related_people, salience), avoiding the duplicate-key corruption class this system has fought before."
+  self_caught_bug_note: "One near-miss, caught and fixed: setting salience.promoted:true in step-03 initially duplicated the last-promoted-check key since salience-score.py had already written it in step-02. Caught on read-back, corrected before proceeding. See state.yaml step-01-2026-09-16 for full detail."
 ---
 
 <!-- system:start -->
