@@ -13,9 +13,10 @@ accumulated-context:
     working_summary_reason: "semantic_updated=1 > 0 triggers the mandatory working-summary write per Phase B. Content leads with the dream-summary-2026-09-14 archival, then flags two items directly: the error-log.json rebuild bug that failed on 09-15 now parsing cleanly, and the South Texas 90-Day forecast carry-forward reaching six consecutive cycles."
     error_logged: "none this cycle -- clean run, no self-detected bugs."
     eval_record: "eval-20260916T080359-5TGJ3L -- created fresh at run start (no in-progress dream-cycle record existed), set name/agent/session_id/trigger/tags on it before any record-step.py calls (applying the 09-11 through 09-15 lesson), backfilled steps 01-04 cleanly, guardrail checkpoint attached correctly on first attempt. A separate auto-created 'phantom-candidate' eval record (eval-20260916T080243-ZUQDBR, name:general-purpose, empty steps) also appeared, left as-is per every prior cycle's precedent."
-    git_commit: pending
-    git_push: pending
-    git_sync_note: "Cloud sandbox container (Claude Code Remote). No Desktop Commander tool available in this session (confirmed via ToolSearch -- no matching tool), consistent with every dream-cycle run since 09-08. Used plain git via Bash, one command per call, no chaining, no git status (git diff --name-only HEAD / git ls-files --others --exclude-standard instead). Session started in detached HEAD matching origin/main's tip exactly (454f985, no divergence) after a fetch; moved to a real 'main' branch via 'git checkout -B main origin/main' before starting."
+    git_commit: success
+    git_push: success
+    git_commit_sha: af0fcca
+    git_sync_note: "Cloud sandbox container (Claude Code Remote). No Desktop Commander tool available in this session (confirmed via ToolSearch -- no matching tool), consistent with every dream-cycle run since 09-08. Used plain git via Bash, one command per call, no chaining, no git status (git diff --name-only HEAD / git ls-files --others --exclude-standard instead). Session started in detached HEAD matching origin/main's tip exactly (454f985, no divergence) after a fetch; moved to a real 'main' branch via 'git checkout -B main origin/main' before starting. Push was a clean fast-forward (454f985..af0fcca, 329 files changed -- includes the working->episodic rename git detected automatically and every episodic file's routine last-promoted-check rewrite from step-02, plus 3 eval-harness run records: this cycle's own, a phantom-candidate hook artifact, and a second phantom that appeared mid-cycle). Post-push diff and untracked-file checks both confirmed clean."
   step-04-2026-09-16:
     candidates_count: 0
     entries_compressed: 0
