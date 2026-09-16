@@ -1,14 +1,14 @@
 ---
 status: complete
-started-at: "2026-09-14T16:36:00Z"
-completed-at: "2026-09-14T16:38:00Z"
+started-at: "2026-09-16T14:34:00Z"
+completed-at: "2026-09-16T14:35:00Z"
 outputs:
-  knox_status: "no_record"
-  knox_reason: "No plaud-ingest or watchtower eval record dated today (2026-09-14) found in systems/eval-harness/runs/. Checked state.yaml files directly instead: workflows/plaud-ingest/state.yaml shows status:in-progress, session pi-20260914-001, current-step step-01, started 2026-09-14T00:00:00Z (overnight/scheduled invocation prior to this session) — speaker mapping now resolved (David O'Hara, Renzi Stone), 1 recording ready-for-fetch. workflows/watchtower/state.yaml shows status:complete, session wt-weekly-2026-W38, completed 2026-09-14T13:05:00Z (today, prior to this session) — 1 weekly theme synthesized, content_queue empty."
-  knox_duration_seconds: null
-  knox_eval_id: null
-  knox_background_task: "Plaud-ingest: in-progress at step-01, not reflected in workflows/_active.yaml (same recurring index pattern flagged in step-06/06.5), surfaced not resumed. Watchtower: complete and fresh as of today, no action needed."
-  note: "Boot completion is not blocked by this. No new Knox spawn was needed this session — watchtower already ran today and plaud-ingest is mid-flight from an earlier invocation. Both surfaced in the briefing; plaud-ingest awaits David's decision on whether to resume."
+  knox_status: "success"
+  knox_reason: "plaud-ingest eval record found in systems/eval-harness/runs/ (eval-20260916T142429-MUKP5C, name 'plaud-ingest', agent knox, started 2026-09-16T14:10:00Z, completed 2026-09-16T14:24:29Z, no punch_out_signal). Outcome: no-new-recordings — Plaud API enumerated to exhaustion (137 recordings) vs 191 vault .md files (137 unique file_ids), an exact bijection; 132 staged files all resolved by Tier 1 file_id match; circuit breaker clear (0 new vs. baseline 5). workflows/plaud-ingest/state.yaml now reads status:complete, session pi-20260916-001."
+  knox_duration_seconds: 869.7
+  knox_eval_id: "eval-20260916T142429-MUKP5C"
+  knox_background_task: "Plaud-ingest: COMPLETE, no new recordings to ingest. plaud-discover also complete/success (eval-20260916T142432-XHY410). Separately the Teams-transcript ingest sub-agent ended PARTIAL (eval-20260916T142205-XK4PVA) on a Microsoft Graph FORBIDDEN for OnlineMeetingTranscript — worth flagging to David as a connector-permission issue, not a Knox failure. Watchtower already complete (wt-weekly-2026-W38)."
+  note: "Boot completion is not blocked by this. Knox's fire-and-forget background work finished cleanly this run, so step-08 is informational only."
 ---
 
 <!-- system:start -->

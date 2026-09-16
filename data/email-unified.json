@@ -1,102 +1,150 @@
 {
-  "pulled_at": "2026-09-15T16:20:00Z",
-  "message_count": 21,
+  "pulled_at": "2026-09-16T14:22:24Z",
+  "message_count": 16,
   "messages": [
     {
-      "id": "boardvantage-trust-audit",
+      "id": "AAMk...G8UGAAA=",
+      "subject": "New Speakers Announced and Spots Filling Fast: YPO Vision and Values 2027",
+      "from": "emily@ypocfg.org",
+      "received_at": "2026-09-16T13:25:38Z",
+      "is_read": false,
+      "importance": "normal",
+      "snippet": "Register for Vision & Values 2027. Watch the 1-minute invitation."
+    },
+    {
+      "id": "AAMk...G8UCAAA=",
+      "subject": "RE: Invite to Texans Game - Sept 20th",
+      "from": "David.OHara@improving.com",
+      "received_at": "2026-09-16T13:00:15Z",
+      "is_read": true,
+      "importance": "normal",
+      "snippet": "David's own outbound reply to Joe inviting him to the Texans suite Sept 20."
+    },
+    {
+      "id": "AAMk...G8UBAAA=",
+      "subject": "RE: Invite to Texans Game - Sept 20",
+      "from": "David.OHara@improving.com",
+      "received_at": "2026-09-16T13:00:02Z",
+      "is_read": true,
+      "importance": "normal",
+      "snippet": "David's own outbound reply to Sam inviting him to the Texans suite Sept 20."
+    },
+    {
+      "id": "AAMk...G8T_AAA=",
+      "subject": "Please respond to the Approval - Interim Policy Approvals - Information Security and Incident Response Policy",
+      "from": "alerts@boardvantage.com",
+      "received_at": "2026-09-16T12:52:07Z",
+      "is_read": false,
+      "importance": "normal",
+      "snippet": "UTB (Teresa Saffold): approval action required - Information Security and Incident Response Policy."
+    },
+    {
+      "id": "AAMk...G8T3AAA=",
+      "subject": "Your BMW Performance Center Experience Awaits - Complete Your Waiver for 7:45am PC DRIVE 09-23-2026",
+      "from": "BMW.PerformanceCenterEast@bmwna.com",
+      "received_at": "2026-09-16T11:33:37Z",
+      "is_read": true,
+      "importance": "normal",
+      "snippet": "Waiver must be completed before the 09-23 7:45am BMW Performance Center drive."
+    },
+    {
+      "id": "AAMk...G8TdAAA=",
+      "subject": "Re: Transforming Healthcare | An Important Update",
+      "from": "manastasio@opalgroup.net",
+      "received_at": "2026-09-15T20:01:33Z",
+      "is_read": false,
+      "importance": "normal",
+      "snippet": "Opal Group: 'Your timing is perfect... glad Improving remains interested... significant change to THWET' - substantive partner follow-up, cc alice.mburu + carboleda."
+    },
+    {
+      "id": "AAMk...G8TQAAA=",
+      "subject": "Please respond to the Approval - Interim Policy Approvals - Information Security and Incident Response Policy",
+      "from": "alerts@boardvantage.com",
+      "received_at": "2026-09-15T18:49:43Z",
+      "is_read": false,
+      "importance": "normal",
+      "snippet": "UTB approval reminder (earlier instance of the same action)."
+    },
+    {
+      "id": "AAMk...G8TPAAA=",
+      "subject": "Revised - Management Succession Plan - Approval Requested",
+      "from": "alerts@boardvantage.com",
+      "received_at": "2026-09-15T18:44:08Z",
+      "is_read": false,
+      "importance": "normal",
+      "snippet": "UTB (Teresa Saffold): revised Management Succession Plan approval requested."
+    },
+    {
+      "id": "AAMk...G8S1AAA=",
       "subject": "Please respond to the Approval - Trust Audit Committee Charter - Request for Review and Approval",
-      "from": "alerts@boardvantage.com (Teresa Saffold, United Texas Bank)",
+      "from": "alerts@boardvantage.com",
       "received_at": "2026-09-15T14:02:40Z",
-      "is_flagged": false,
+      "is_read": false,
       "importance": "normal",
-      "actionable": true,
-      "snippet": "UTB board approval request - Trust Audit Committee Charter requires David's review and approval in BoardVantage."
+      "snippet": "UTB approval action required - Trust Audit Committee Charter."
     },
     {
-      "id": "boardvantage-succession-plan",
+      "id": "AAMk...G8SnAAA=",
       "subject": "Succession Plan Update - Approval Requested",
-      "from": "alerts@boardvantage.com (Teresa Saffold, United Texas Bank)",
+      "from": "alerts@boardvantage.com",
       "received_at": "2026-09-15T12:55:56Z",
-      "is_flagged": false,
+      "is_read": true,
       "importance": "normal",
-      "actionable": true,
-      "snippet": "UTB board approval request - Management Succession Plan updated after Marco Prado's departure, requires David's review/approval."
+      "snippet": "UTB: succession plan updated following Marco Prado's departure."
     },
     {
-      "id": "saxum-steve-hall-scheduling",
-      "subject": "Re: Steve Hall agent strategy",
-      "from": "rstone@saxum.com",
-      "received_at": "2026-09-14T20:53:27Z",
-      "is_flagged": false,
-      "importance": "normal",
-      "actionable": true,
-      "snippet": "Renzi Stone confirms the 12th works for him - asking David what time and to send the invite with address. David owes a reply."
-    },
-    {
-      "id": "devlin-todays-meeting",
+      "id": "AAMk...G8SmAAA=",
       "subject": "Today's meeting",
       "from": "Devlin.Liles@Improving.com",
       "received_at": "2026-09-15T12:51:41Z",
-      "is_flagged": false,
+      "is_read": true,
       "importance": "normal",
-      "actionable": false,
-      "snippet": "Update to Chris Miller (StrongTie) on architecture/data labeling review, first model results >95% on dev set. FYI/informational."
+      "snippet": "Devlin to Chris Miller/StrongTie team + David: architecture review, first model results north of 95%."
     },
     {
-      "id": "curtis-ai-office-hours",
-      "subject": "AI Office Hours - DRC",
-      "from": "Curtis.Hite@Improving.com",
-      "received_at": "2026-09-15T14:48:23Z",
-      "is_flagged": false,
+      "id": "AAMk...G8SZAAA=",
+      "subject": "YPO Elections - Complete Candidate Intake Form",
+      "from": "pschanbacher@ypo.org",
+      "received_at": "2026-09-15T03:08:41Z",
+      "is_read": true,
       "importance": "normal",
-      "actionable": false,
-      "snippet": "Curtis floats reviving Scott's AI Office Hours support for the Dallas Regional Chamber (2-3x/month) as a lead-gen channel - discussion thread, no immediate ask of David."
+      "snippet": "Regional Officer candidates: intake form access restored, action needed."
     },
     {
-      "id": "alice-acg-luncheon",
+      "id": "AAMk...G8STAAA=",
+      "subject": "First Gameday Texans Bucks Contest of the regular season!",
+      "from": "newsletter@houstontexans.com",
+      "received_at": "2026-09-14T23:00:30Z",
+      "is_read": true,
+      "importance": "normal",
+      "snippet": "Marketing newsletter."
+    },
+    {
+      "id": "AAMk...G8SRAAA=",
       "subject": "FW: October 13th ACG Luncheon",
       "from": "alice.mburu@improving.com",
       "received_at": "2026-09-14T21:46:33Z",
-      "is_flagged": false,
+      "is_read": false,
       "importance": "normal",
-      "actionable": false,
-      "snippet": "Alice surfacing ACG Luncheon logistics for David's awareness (he's CC'd on original)."
+      "snippet": "Alice surfacing ACG Luncheon details for David's review (he is CC'd)."
     },
     {
-      "id": "box-invite-idp",
-      "subject": "Justin Holder has invited you to collaborate on Box (IDP Improving collaboration)",
-      "from": "noreply@box.com (Justin Holder / GE HealthCare)",
-      "received_at": "2026-09-14T20:59:43Z",
-      "is_flagged": false,
+      "id": "AAMk...G8SFAAA=",
+      "subject": "Re: Texans vs Bengals | Know Before You Go",
+      "from": "alice.mburu@improving.com",
+      "received_at": "2026-09-14T19:41:34Z",
+      "is_read": true,
       "importance": "normal",
-      "actionable": true,
-      "snippet": "GEHC folder-share invite, low priority - can be delegated to the GEHC account team (Lisa Barnes/Vladimir Avila) to accept."
+      "snippet": "Alice to Texans Drayton McMichael: confirming gameday logistics shared with guests."
     },
     {
-      "id": "box-invite-routing",
-      "subject": "Justin Holder has invited you to collaborate on Box (AI Driven Routing)",
-      "from": "noreply@box.com (Justin Holder / GE HealthCare)",
-      "received_at": "2026-09-14T20:59:03Z",
-      "is_flagged": false,
+      "id": "AAMk...G8R-AAA=",
+      "subject": "Key Fal.Con takeaways",
+      "from": "briley.weatherford@crowdstrike.com",
+      "received_at": "2026-09-14T18:23:09Z",
+      "is_read": true,
       "importance": "normal",
-      "actionable": true,
-      "snippet": "Second GEHC folder-share invite, same handling as above."
+      "snippet": "CrowdStrike recap of Fal.Con announcements (aptitude/informational)."
     }
-  ],
-  "non_actionable_marketing_count": 13,
-  "non_actionable_examples": [
-    "Critical Infrastructure Forum invite (James Sackey Marketing)",
-    "The Woodlands business address ad (bizjournals)",
-    "TribFest ticket discount",
-    "ECS Jets empty legs",
-    "YPO Turkiye GBS event promo",
-    "Advanced Commercial Loan Underwriting webinar",
-    "Impact Generosity Symposium reminder",
-    "Texans Bucks contest",
-    "AI in Professional Services survey (SPi Research, closing tomorrow)",
-    "Fal.Con recap (CrowdStrike)",
-    "Texans vs Bengals gameday logistics (already handled by Alice)",
-    "YPO Elections candidate intake reminder",
-    "David's own sent reply re: YPO NTX (self-copy, no action)"
   ]
 }

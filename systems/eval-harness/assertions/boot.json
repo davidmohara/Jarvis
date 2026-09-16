@@ -28,6 +28,34 @@
       "check": "guardrail_checkpoint_ran",
       "checkpoint_name": "pre-completion-review",
       "description": "step-06.5's guardrail checkpoint recorded a result (pass/flag/escalate) on this run — read from the eval record's own guardrails array, not self-reported by the workflow"
+    },
+    {
+      "id": "boot-005-omnifocus-data-file-exists",
+      "check": "file_exists",
+      "path": "data/omnifocus-unified.json",
+      "description": "OmniFocus pull (step-01.2 Pull B) wrote its consolidated data file"
+    },
+    {
+      "id": "boot-006-omnifocus-pull-not-failed",
+      "check": "json_field_not_equals",
+      "path": "data/omnifocus-unified.json",
+      "field": "status",
+      "value": "failed",
+      "description": "OmniFocus pull did not report status:failed. This is the assertion that surfaces the five consecutive degraded boots of September 2026, which were caused by treating the absent Desktop Commander tool as OmniFocus being unreachable. AppleScript runs via the Bash tool and does not need Desktop Commander."
+    },
+    {
+      "id": "boot-007-omnifocus-no-completed-tasks-leaked",
+      "check": "file_not_contains",
+      "path": "data/omnifocus-unified.json",
+      "pattern": "\"completed\"\\s*:\\s*true",
+      "description": "No completed task leaked into the OmniFocus pull. The inbox permanently holds ~247 completed tasks alongside ~8 incomplete ones, and Clean Up does NOT remove them, so the query itself must carry `completed is false`. Any `completed: true` in the output means the filter was dropped from the call."
+    },
+    {
+      "id": "boot-008-omnifocus-filter-documented",
+      "check": "file_contains",
+      "path": "workflows/boot/steps/step-01.2-unified-data-pull.md",
+      "pattern": "completed is false",
+      "description": "Regression guard: the boot pull instructions still mandate the `completed is false` filter on the inbox query. If someone strips that filter from the instructions, this trips before the leak reaches a briefing."
     }
   ]
 }

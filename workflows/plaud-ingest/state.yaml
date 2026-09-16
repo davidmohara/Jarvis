@@ -1,188 +1,50 @@
 workflow: plaud-ingest
 agent: knox
 status: complete
-session-id: pi-20260915-002
-session-started: '2026-09-15T00:00:00Z'
-current-step: step-05b
-original-request: "Knox — run workflows/plaud-ingest/workflow.md in full (priority task)"
+session-id: pi-20260916-001
+session-started: '2026-09-16T14:10:00Z'
+current-step: step-01
+original-request: "Knox — run workflows/plaud-ingest/workflow.md in full. Read the workflow file, run the STATE CHECK, and execute all steps as written. Run as background task."
 blocker: null
-resolved-blocker-note: >
-  Prior session (pi-20260915-001) reported "blocked" because it believed Obsidian MCP and
-  Monday MCP tools were required and unavailable. That was a false blocker: this environment
-  runs directly on David's Mac with Bash/Read/Write access, and the Obsidian vault is a plain
-  folder on disk at
-  "~/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian" — fully readable/writable
-  without any MCP server. Vault dedup, note writing, and daily-note linking were all done
-  directly against that folder. Monday.com IS reachable this session via
-  mcp__claude_ai_monday_com__* tools (verified board 18420619069 schema, read succeeded), but
-  create_items was denied by the harness permission system on TWO separate attempts this run
-  (once for 2 recordings, once retried for all 4) — a persistent block, not a transient one.
-  Logged as a genuine Gate 6 failure below, with all 4 share URLs captured for manual routing.
-  OmniFocus tooling (mcp__Control_your_Mac__osascript) is NOT available in this session —
-  action-item routing normally destined for OmniFocus could not be executed and is flagged
-  for David instead of being fabricated.
+outcome: no-new-recordings
 accumulated-context:
   target-date: null
-  new-recordings:
-    - file_id: dfb7cb98f01c514c5619dc81feb2af2f
-      name: "09-14 Strategic Implementation of AI in Finance"
-      date: 2026-09-14
-      duration_seconds: 4392
-      has_transcript: true
-      transcript_status: ready
-    - file_id: 804dddd47f182021ee0ffd572846ea91
-      name: "09-14 Meeting: Project Status on AI Routing for DICOM Images"
-      date: 2026-09-14
-      duration_seconds: 516
-      has_transcript: true
-      transcript_status: ready
-    - file_id: e0aa6343b58756669d5bb0eddc80c5a4
-      name: "09-08 Architecting a Personalized AI Executive Assistant"
-      date: 2026-09-08
-      duration_seconds: 1644
-      has_transcript: true
-      transcript_status: ready
-    - file_id: 5916294c66c59b109e4aa61d4621bba4
-      name: "09-02 Interview: David O'Hara - AI Impact in Legal Tech and Talent Transformation"
-      date: 2026-09-02
-      duration_seconds: 770
-      has_transcript: true
-      transcript_status: ready
-    - file_id: 15aceb2d6b9b2c1b89ca4bf0be9667ea
-      name: "08-24 Event Readiness Under Strain: Leadership Resilience and Logistics for Conscious Capitalism Discussion (Aug 24, 2026)"
-      date: 2026-08-24
-      duration_seconds: 769
-      has_transcript: true
-      transcript_status: ready
+  new-recordings: []
   dedup-method: >
-    Full enumeration (137 total recordings on Plaud API) diffed against a live scan of
-    186 vault .md files under zzPlaud/ (132 with file_id frontmatter, 184 unique normalized
-    titles) via Tier-1 file_id exact match + Tier-2 85% title fuzzy match. Ledger written to
-    /tmp/plaud_ledger.json this run (all 137 candidates have tiers_checked and a decision).
-    5 new / 137 = 3.6%, well under the 10%/2x circuit-breaker threshold. Gate 1 (auth) and
-    Gate 2 (metadata) both passed.
+    Full enumeration mode (no target-date). Plaud API /file/simple/web paginated to
+    exhaustion: 137 recordings. Live vault scan of zzPlaud/ (191 .md files) extracted
+    137 unique file_ids. API file_id set and vault file_id set are an exact bijection --
+    api-minus-vault empty, vault-minus-api empty. Tier-2 85% title fuzzy match not
+    reached for any API candidate. Most recent API recording: 2026-09-14T16:04:18.
+    Staging scan: 132 top-level plaud_*.md files (_not_new_archive/ with 152 files
+    explicitly pruned); all 132 resolved by Tier 1 file_id exact match via sibling
+    _raw.json -- already-ingested leftovers, zero stale-requeue. Ledger:
+    systems/eval-harness/skill-runs/plaud-discover-ledger-latest.json (269 entries:
+    137 API + 132 staged, each with tiers_checked and a decision).
+  gates:
+    gate_1_result: "pass"
+    gate_1_auth_method: "cached-token"
+    gate_2_result: "pass"
+    gate_2_flagged_recordings: []
+    gate_2_exclusions: []
+  circuit-breaker: "clear — 0 new vs. last confirmed count 5 (2026-09-15); 0 is not >2x baseline and not >10% of 269 candidates"
   transcription-triggered: []
   pending-recordings: []
-  speaker-mappings:
-    5916294c66c59b109e4aa61d4621bba4:
-      "Speaker 2": "Tosan Ojeahere"
-    e0aa6343b58756669d5bb0eddc80c5a4:
-      "O'Hara": "David O'Hara"
-      "Renzi Stone": "Renzi Stone"
-      "Alex Wilcox": "Alex Wilcox"
-    15aceb2d6b9b2c1b89ca4bf0be9667ea:
-      "Bethany": "Bethany Hilton"
-      "O'Hara": "David O'Hara"
-    804dddd47f182021ee0ffd572846ea91:
-      "O'Hara": "David O'Hara"
-      "Speaker 3": "Lisa Barnes"
-      "Speaker 1": "Vladimir Avila"
+  speaker-mappings: {}
   pending-speaker-mappings: []
-  recording-classification:
-    dfb7cb98f01c514c5619dc81feb2af2f: "work-no-speaker-tagging"
-    804dddd47f182021ee0ffd572846ea91: "work"
-    e0aa6343b58756669d5bb0eddc80c5a4: "personal"
-    5916294c66c59b109e4aa61d4621bba4: "work"
-    15aceb2d6b9b2c1b89ca4bf0be9667ea: "sensitive-excluded-from-share"
-  sensitive-content-flag:
-    file_id: 15aceb2d6b9b2c1b89ca4bf0be9667ea
-    reason: >
-      Transcript opens with Bethany Hilton disclosing a family psychiatric emergency
-      (brother's acute psychosis episode, hospitalization) and later references two other
-      third parties' mental-health crises (a suicide attempt, a contested bipolar diagnosis)
-      in personal-catch-up asides unrelated to the event-planning business content. This is
-      third-party PHI-adjacent information. Ingested to the vault (David's private
-      knowledge base, existing precedent for personal/family content) with the personal
-      middle section summarized rather than transcribed verbatim, but deliberately EXCLUDED
-      from step-05b sharing/Monday routing regardless of its work/personal split — flagged
-      for David's explicit review rather than silently distributed.
+  recording-classification: {}
   ready-for-fetch: []
-  staged-files-remaining: []
-  ingested-notes:
-    - "zzPlaud/YPO/2026-09-08 Architecting a Personalized AI Executive Assistant with Renzi Stone.md"
-    - "zzPlaud/Improving/2026-09-02 Podcast Prep Interview with Tosan Ojeahere (Thomson Reuters) - AI in Legal Tech and Talent Transformation.md"
-    - "zzPlaud/Improving/2026-08-24 CC Breakfast Alignment with Bethany Hilton - Conscious Capitalism Event Logistics.md"
-    - "zzPlaud/Other/2026-09-14 FEI Monthly Meeting - KPMG AI in Finance Transformation Presentation.md"
-    - "zzPlaud/Improving/2026-09-14 GEHC AI Routing for DICOM Images - Project Status and Team Intro.md"
-  daily-notes-updated:
-    - "Calendar/2026/08-August/2026-08-24.md (appended link)"
-    - "Calendar/2026/09-September/2026-09-02.md (created)"
-    - "Calendar/2026/09-September/2026-09-08.md (created)"
-    - "Calendar/2026/09-September/2026-09-14.md (appended 2 links)"
-  omnifocus-routing:
-    status: "not-attempted"
-    reason: "No OmniFocus tool (mcp__Control_your_Mac__osascript) available this session. Action items exist for: (1) David — email Renzi Stone to schedule a working session, (2) Lisa Barnes — get David repo/VPN access via Justin and SAP FieldGlass, add him to GE's Tue/Wed calls. None created in OmniFocus — logged only in each vault note's Action Items section."
-  speaker-tagging-skipped:
-    - file_id: dfb7cb98f01c514c5619dc81feb2af2f
-      reason: "Per David's explicit direction 2026-09-15: presentation format, not a round-table — skip individual speaker tagging. Original generic Speaker N labels retained verbatim in transcript; no Plaud speaker-registry renames attempted."
-  gehc-speaker-resolution: "Per David 2026-09-15: Speaker 3 = Lisa Barnes, Speaker 1 = Vladimir Avila. Both applied to the vault note's transcript and Attendees section. (Note: transcript context showed Lisa addressing 'Vlad' separately later in the same call in a way that read as a first status ask, which is why this wasn't auto-resolved — flagged, then confirmed by David directly.)"
-  outputs:
-    shares-attempted: 4
-    shares-succeeded: 4
-    shares-failed: 0
-    personal-recordings-skipped-from-share: 1
-    tasks-created: 0
-    gate_6_result: "fail"
-    gate_6_delivery_confirmations:
-      - file_id: e0aa6343b58756669d5bb0eddc80c5a4
-        task_id: null
-        recipient_confirmed: false
-        share_url_present: true
-        error: "create_items denied by harness permission system (attempt 1 of 2 this session)."
-      - file_id: 5916294c66c59b109e4aa61d4621bba4
-        task_id: null
-        recipient_confirmed: false
-        share_url_present: true
-        error: "create_items denied by harness permission system (attempt 1 of 2 this session)."
-      - file_id: dfb7cb98f01c514c5619dc81feb2af2f
-        task_id: null
-        recipient_confirmed: false
-        share_url_present: true
-        error: "create_items denied by harness permission system (attempt 2 of 2 this session)."
-      - file_id: 804dddd47f182021ee0ffd572846ea91
-        task_id: null
-        recipient_confirmed: false
-        share_url_present: true
-        error: "create_items denied by harness permission system (attempt 2 of 2 this session)."
-    notes: >
-      pi-20260915-002: 5 new recordings discovered and fully accounted for. 4 ingested to
-      vault with proper frontmatter/tags/daily-note links (Gate 5 passed on all 4). 1
-      (Bethany Hilton / Conscious Capitalism breakfast) ingested but deliberately excluded
-      from sharing due to third-party sensitive health content disclosed in the recording.
-      Share-link generation succeeded for all 4 non-sensitive recordings on first attempt.
-      Monday task creation via mcp__claude_ai_monday_com__create_items was denied by the
-      harness permission system on both attempts this session (once for 2 recordings, once
-      retried for all 4 after David asked to complete steps 04-05) — this is a genuine,
-      reproducible block, not a missing tool or a fabricated failure. Per this step's
-      documented failure mode, this does not block marking the workflow complete; all 4
-      share URLs plus vault note paths are captured in share-results below so David can
-      route them to Alice manually (or grant Monday write permission for a future run).
-  share-results:
-    - file_id: e0aa6343b58756669d5bb0eddc80c5a4
-      title: "Architecting a Personalized AI Executive Assistant with Renzi Stone"
-      share_url: "https://web.plaud.ai/s/pub_7944eb20-91dd-4d8c-8f2b-c5cee57ba7cc::GzcVCvV1BfpCyNgKadi5x2orEImfbB-XNxfkkxgNjH8b8aR6FX4SW_59Bj-qevdBXPyDD8ur1mWI-MIC"
-      share_status: success
-      monday_task_id: null
-      monday_status: failed
-    - file_id: 5916294c66c59b109e4aa61d4621bba4
-      title: "Podcast Prep Interview with Tosan Ojeahere (Thomson Reuters)"
-      share_url: "https://web.plaud.ai/s/pub_6315c72c-b2e9-493f-9318-fe12bb8b3f0c::rnW-EjHFsOAAXvlQn7brDwgIOLS-SljHBhNoPq0EqTfaBgnBQCR5HXT0mxIJhcoya8Ed5q7AIkCsODwC"
-      share_status: success
-      monday_task_id: null
-      monday_status: failed
-    - file_id: dfb7cb98f01c514c5619dc81feb2af2f
-      title: "FEI Monthly Meeting - KPMG AI in Finance Transformation Presentation"
-      share_url: "https://web.plaud.ai/s/pub_4c63dd0a-b99d-42de-83bc-b7a8c57ee2bc::SLst3sTNef6Efxi_aXxybat_lQYwCjo3QVjSeBCL68hjcyr9eZSJDXSxmOmxvcfH2ARIhJixAEDRM9cC"
-      share_status: success
-      monday_task_id: null
-      monday_status: failed
-    - file_id: 804dddd47f182021ee0ffd572846ea91
-      title: "GEHC AI Routing for DICOM Images - Project Status and Team Intro"
-      share_url: "https://web.plaud.ai/s/pub_c2982b31-c0c1-4f65-b6d5-dde47e5050c5::8gZZh8Y-KKt-BDFv-vel8_ntuhMshIBycuZPabkySS6hatwNOwYOPysH3mAs5If1DVWVtBkYdn25WJsC"
-      share_status: success
-      monday_task_id: null
-      monday_status: failed
-    - file_id: 15aceb2d6b9b2c1b89ca4bf0be9667ea
-      title: "CC Breakfast Alignment with Bethany Hilton"
-      share_status: "deliberately-skipped"
-      reason: "sensitive-content-flag — see above. Not shared, no Monday task."
+  staged-files: []
+  ingested-notes: []
+  unresolved_speakers: []
+  stale-staged-files: []
+  steps-executed:
+    - "step-01 (discover) — complete, 0 new recordings"
+  steps-skipped:
+    - "step-02 through step-05b — not entered, per step-01 'No new recordings found' failure mode (do not proceed to step-02)"
+  vault-hygiene-flags:
+    - issue: "30 file_ids each map to two vault notes (stale root-level zzPlaud/*.md duplicates of notes later correctly re-filed into Client//Improving//Other/ subfolders). 174 file_id-bearing notes for 137 recordings."
+      impact: "Pre-existing; does not affect dedup correctness (dedup still resolved every recording). Not acted on this run."
+  staging-cleanup-backlog:
+    - issue: "132 top-level plaud_*.md files (plus their _raw.json/_speakers.json siblings) remain in ~/Downloads/transcript-staging/ despite all being already ingested."
+      impact: "Cosmetic/hygiene; no effect on this run's result since discovery resolved them all as skips. Flagged for a cleanup pass, not deleted (workflow only cleans up files it processes)."

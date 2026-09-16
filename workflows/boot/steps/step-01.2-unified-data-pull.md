@@ -1,12 +1,12 @@
 ---
 status: complete
-started-at: "2026-09-14T16:11:57Z"
-completed-at: "2026-09-14T16:15:00Z"
+started-at: "2026-09-16T14:22:24Z"
+completed-at: "2026-09-16T14:24:00Z"
 outputs:
-  email_pull: "completed — 2 messages last 24h (1 time-sensitive/actionable, 1 marketing)"
-  omnifocus_pull: "failed — Desktop Commander/osascript MCP tool unavailable this session (ToolSearch confirmed no match)"
-  clay_pull: "completed — 0 reminders, 0 birthdays (Clay MCP live)"
-  jarvis_inbox_pull: "nothing-to-surface — Jarvis folder search returned no messages"
+  email_pull: "completed — 16 messages in window (2026-09-14 → 2026-09-16), 8 actionable (5 UTB board approvals via Boardvantage, 1 YPO candidate intake form, 1 BMW waiver for 09-23, 1 Opal Group partner follow-up), 8 marketing/internal/FYI"
+  omnifocus_pull: "failed — Desktop Commander/osascript MCP tool unavailable this session (ToolSearch confirmed no match; 5th+ consecutive boot)"
+  clay_pull: "completed — 0 reminders, 3 birthdays (COURT WESTCOTT 09-16, Kevin Gardner 09-20, Justin Etheredge 09-22) via Clay MCP"
+  jarvis_inbox_pull: "nothing-to-surface — Jarvis folder search returned 0 messages"
   files_created:
     - "data/email-unified.json"
     - "data/omnifocus-unified.json"
@@ -93,30 +93,64 @@ outputs:
 
 ### Pull B: OmniFocus Inbox
 
-**Source:** OmniFocus (via AppleScript or API)
+**Source:** OmniFocus, via `osascript` through the **Bash** tool. This is the working path as of 2026-09-16. `mcp__Control_your_Mac__osascript` (Desktop Commander) is frequently absent from the session tool roster, and AppleScript does NOT require it. Do NOT report OmniFocus unreachable merely because Desktop Commander is missing: that misdiagnosis is what degraded this source for five consecutive boots.
+
+Working commands (all verified against live OmniFocus):
+
+```bash
+# Inbox tasks. The completed is false filter is MANDATORY: as of 2026-09-16 the
+# inbox holds 255 tasks of which only 8 are incomplete, so the unfiltered form
+# returns 247 completed items and will pollute the briefing.
+osascript -e 'tell application "OmniFocus" to tell default document to get name of every inbox task where completed is false'
+
+# Due within the next 7 days, incomplete, with project
+osascript <<'EOF'
+set cutoff to (current date) + (7 * days)
+tell application "OmniFocus"
+  tell default document
+    set out to {}
+    repeat with t in (every flattened task where completed is false and (due date is not missing value) and (due date < cutoff))
+      set end of out to (name of t) & " | due=" & (due date of t as string) & " | proj=" & ((name of containing project of t) as string)
+    end repeat
+    return out
+  end tell
+end tell
+EOF
+
+# Flagged, incomplete
+osascript -e 'tell application "OmniFocus" to tell default document to get name of every flattened task where flagged is true and completed is false'
+```
+
+**Gotcha:** build any date objects OUTSIDE the `tell application "OmniFocus"` block. Inside it, `set year of d` is sent to OmniFocus and fails with `Can't get year. Access not allowed. (-1723)`.
+
 **Output file:** `data/omnifocus-unified.json`
 **What to pull:**
 - All active (non-completed) tasks in inbox
 - Due today, overdue, or flagged
-- Include: task name, due date, project, context, flags
+- Include: task name, due date, project, tags, flags
 
 **File format:**
 ```json
 {
   "pulled_at": "ISO-8601",
+  "status": "available" | "failed",
   "task_count": N,
   "tasks": [
     {
       "id": "...",
       "name": "...",
+      "completed": false,
       "due_date": "...",
       "project": "...",
       "context": "...",
       "is_flagged": true
     }
-  ]
+  ],
+  "error": "reason, only when status is failed"
 }
 ```
+
+**`completed` MUST be present and false on every task.** The inbox holds roughly 247 completed tasks alongside the ~8 incomplete ones, and OmniFocus "Clean Up" does NOT remove them. Filtering is part of the query, never a cleanup step. Recording the field is what lets the eval harness assert that no completed task leaked into the pull.
 
 **Status reporting:**
 ```yaml

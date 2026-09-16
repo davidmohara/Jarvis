@@ -1,12 +1,12 @@
 ---
 status: complete
-started-at: "2026-09-14T16:30:00Z"
-completed-at: "2026-09-14T16:32:00Z"
+started-at: "2026-09-16T14:31:00Z"
+completed-at: "2026-09-16T14:32:00Z"
 outputs:
-  workflows_scanned: "complete — _active.yaml read (active: []), but direct check of workflows/plaud-ingest/state.yaml shows real state NOT reflected in the index. Same recurring index/state mismatch pattern as prior boots (2026-09-03, 04, 08, 11)."
-  active_workflows: "1 actionable (plaud-ingest: status in-progress, session pi-20260914-001, current-step step-01, speaker mapping resolved). Watchtower: status complete (wt-weekly-2026-W38, completed today 13:05 UTC)."
-  background_tasks: "workflows/plaud-ingest/state.yaml: status in-progress, current-step step-01. 1 recording ready-for-fetch (09-08 Working Session Plan, speakers now identified as David O'Hara / Renzi Stone)."
-  result: "Surfacing plaud-ingest as in-progress despite empty _active.yaml index, since its own state.yaml is authoritative. Index discrepancy flagged again (recurring, non-blocking — Rigby should reconcile). Not auto-resumed."
+  workflows_scanned: "complete — workflows/_active.yaml read (active: []). Fast path skipped the per-directory scan per the step rule, but a full manual re-scan of all workflows/*/state.yaml was run anyway to confirm: the empty index is ACCURATE this run. Only non-complete entry is boot itself (in-progress, this run)."
+  active_workflows: "0 in-progress workflows. plaud-ingest is now status:complete (session pi-20260916-001, outcome: no-new-recordings, 137 API vs 191 vault files, exact bijection). watchtower status:complete (wt-weekly-2026-W38)."
+  background_tasks: "Spawned by the parent Master this session and already finished: plaud-ingest (knox, eval-20260916T142429-MUKP5C, success) and plaud-discover (knox, eval-20260916T142432-XHY410, success). Separately, a Teams-transcript ingest sub-agent ran and ended PARTIAL (eval-20260916T142205-XK4PVA) — Microsoft Graph denied OnlineMeetingTranscript read (FORBIDDEN) despite Entra granting the scope."
+  result: "No in-flight workflows to surface. The recurring _active.yaml/state.yaml index mismatch flagged across prior boots is NOT present this run (verified by full scan). Teams transcript ingest partial-failure noted for David's awareness."
 ---
 
 <!-- system:start -->

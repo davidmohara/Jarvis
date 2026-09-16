@@ -1,70 +1,63 @@
----
 agent: master
-completed-at: "2026-09-15T16:35:00Z"
+completed-at: "2026-09-16T14:34:00Z"
 current-step: null
-session-started: "2026-09-15T16:15:00Z"
+session-started: "2026-09-16T14:22:24Z"
 status: complete
 accumulated-context:
   phase1-point5:
     unified-data-pulls:
-      email: "completed — 2 messages last 24h (1 time-sensitive/actionable: Re: Steve Hall agent strategy from rstone@saxum.com, scheduling ask; 1 marketing/non-actionable AGX tickets email)"
-      omnifocus: "failed — Desktop Commander/osascript MCP tool unavailable this session (ToolSearch confirmed no match, same as 2026-09-11 boot). Degraded, continuing per failure-mode table."
-      clay: "completed — 0 reminders, 0 birthdays"
-      jarvis-inbox: "nothing-to-surface — folder search returned 0 messages"
+      email: "completed — 16 messages in window (2026-09-14 to 2026-09-16). 8 actionable: 5 UTB board approvals (Boardvantage, Teresa Saffold: InfoSec/Incident Response policy x2, Management Succession Plan revised, Trust Audit Committee Charter, Succession Plan update), 1 YPO Regional Officer candidate intake form, 1 BMW Performance Center waiver due before 09-23 7:45am drive, 1 Opal Group partner follow-up (manastasio, 'significant change to THWET', cc alice.mburu). 8 marketing/internal/FYI (Texans newsletter, YPO Vision & Values promo, CrowdStrike Fal.Con recap, Alice ACG luncheon FW, Texans gameday logistics, Devlin StrongTie model-status note)."
+      omnifocus: "failed — Desktop Commander/osascript MCP tool unavailable this session (ToolSearch confirmed no match; same degraded condition as prior 4+ boots)"
+      clay: "completed — 0 reminders, 3 birthdays (COURT WESTCOTT 09-16, Kevin Gardner 09-20, Justin Etheredge 09-22)"
+      jarvis-inbox: "nothing-to-surface — Jarvis folder search returned 0 messages"
     files-created:
       - "data/email-unified.json"
       - "data/omnifocus-unified.json"
       - "data/clay-reminders-unified.json"
       - "data/jarvis-inbox-unified.json"
     degraded: true
-    degraded_reason: "omnifocus pull unreachable (tool not present this session)"
+    degraded_reason: "omnifocus pull unreachable (tool not present this session) — 5th+ consecutive boot with this source degraded"
   phase1-point5-calendar:
     calendar_file: "data/calendar-unified.json"
-    event_count: 51
-    date_range: "2026-09-14 to 2026-09-17"
-    note: "Today 09/14 is a normal full Dallas day (Prayer Call, Sales & Recruiting, Sales Scrum, Devlin sync, AI Exec Workshop CA sync, FEI Monthly evening event at The Clubs of Prestonwood). 09/16-09/17 is AR YPO trip to Little Rock (AA3850 DFW->LIT 9/16 7:10am, AA3589 LIT->DFW 9/17 7:18am, Capital Hotel, YPO dinner 9/16 evening)."
+    event_count: 40
+    date_range: "2026-09-16 to 2026-09-19 (response spills to 2026-09-21)"
+    note: "Prior file was >12h stale so re-pulled (2 M365 calls, 25+15). Today 09-16 is an AR YPO travel day: AA3850 DFW->LIT dep 7:10am CT / arr 8:34am CT, Capital Hotel check-in, Regus Little Rock day office booked 9am-12pm CT, AR YPO Dinner 6-9pm CT. 09-17 is the return: AA3589 LIT->DFW dep 7:18am CT / arr 8:50am CT, then Finish Vegas prep, Retreat prep, Employee AI Usage policy sync, golf lesson, YPO Spouse Kickoff Party evening. 09-18 -> 09-20 is Personal retreat + Houston (SpringHill Suites; AA1407 DFW->IAH 8:20am CT 09-18; Texans vs Bengals Suite 870 09-20)."
   phase2:
-    morning-briefing-steps-01-02: "completed — calendar (data/calendar-unified.json, today=12 events) live; task data unavailable (omnifocus pull failed upstream, degraded). Delegation tracker: 0 active delegations. Q3 rocks: 4 rocks still in draft, pending David's sign-off (Revenue Visibility, Partner & Account Review Execution, Thought Leadership, Partner Co-Sell Pipeline)."
-    calendar-today-classification: "Today 09-14: 12 events. Hot 26/yoga w/ Quinn Ray 6-7am CT (personal); Prayer Call 8-8:15am (recurring-skip); Timesheet 8:30am (admin); Sales & Recruiting 9:15-9:30am (team, recurring-skip); Sales Scrum 9:30-10am (team, recurring-skip); Devlin sync 11:30am-12pm (1:1); Overflow 12-12:30pm (personal); AI Executive Workshop CA sync 12:30-1pm (partner/team, w/ alice.mburu, ashok.Iyengar); Lunch 1-2pm; Summer/craiggroup.io call 2-2:45pm (external); GEHC Twice Weekly Internal Check-In 3:30-4pm (client-adjacent, GE Healthcare); FEI Monthly Meeting evening 4-8pm at The Clubs of Prestonwood (external/networking, guest of Nathan Jacks UMB). FLAG: Devlin sync -> Overflow -> AI Workshop CA sync run 11:30am-1pm back-to-back with zero buffer."
-    task-g-72hr-lookahead: "completed — 09-15 to 09-17 from data/calendar-unified.json. Key: 9/15 normal Dallas day (Sales & Recruiting, Sales Scrum, Build SC proposal, haircut, YPO Western Chapter Chairs office hours evening, Don/David sync). 9/16-9/17 is the AR YPO trip to Little Rock — AA3850 DFW->LIT departs 7:10am CT 9/16, Capital Hotel, YPO dinner evening 9/16, AA3589 LIT->DFW departs 7:18am CT 9/17 (early return flight, tight with Sales & Recruiting/Sales Scrum same morning at 9:15/10am CT — arrives DFW 8:50am CT, workable but no buffer)."
-    task-h-email-triage: "completed — 2 messages last 24h via data/email-unified.json. 1 time-sensitive/actionable: 'Re: Steve Hall agent strategy' from rstone@saxum.com (scheduling ask, offering 10/2 PM or 10/6 AM-2p, needs David's pick). 1 non-actionable marketing email (AGX tickets)."
-    task-i-jarvis-inbox: "nothing-to-surface — jarvis-inbox skill confirms folder empty (eval-20260914T161351-1A9BRF, 100% pass)"
+    morning-briefing-steps-01-02: "completed — calendar live (data/calendar-unified.json, today 09-16 = AR YPO travel day). Task data unavailable (omnifocus pull failed upstream, degraded). Delegation tracker: 0 active delegations. Q3 rocks (memory/personal/quarterly-objectives.md) still status 'Q3 draft — pending David's review', last-updated 2026-07-30 (~7 weeks unsigned)."
+    task-g-72hr-lookahead: "completed — 09-17, 09-18, 09-19 from data/calendar-unified.json. 09-17: return flight LIT->DFW 7:18am CT, Sales & Recruiting 9:15am, Sales Scrum 10am, GEHC AI Routing (2) 10am, Finish Vegas prep 10:30am, Retreat prep 12pm, Employee AI Usage policy sync 1:30pm, Golf lesson 3pm, YPO Spouse Kickoff 6pm. 09-18: DFW->IAH 8:20am CT, Personal retreat begins, Dallas Virtual Coffee Chat 8am, Sales & Recruiting 9:15am, SpringHill Suites check-in. 09-19: Personal retreat (Houston), no work meetings. 09-20: Texans vs Bengals, Suite 870, KRG Stadium 12pm kickoff."
+    task-h-email-triage: "completed — 16 messages in window from data/email-unified.json. 8 flagged/actionable (5 UTB Boardvantage approvals, 1 YPO candidate intake form, 1 BMW waiver deadline 09-23, 1 Opal Group partner follow-up needing response). No Saxum scheduling thread present in this window (was surfaced 09-15, appears already actioned or out of window)."
+    task-i-jarvis-inbox: "nothing-to-surface — M365 Jarvis folder search returned 0 messages"
     task-j-reminders: "nothing-to-surface — data/reminders.json present, reminders array empty"
   phase2-verification:
-    method: "self-verified — no dedicated boot-verification/Ralph agent type available in this session's Agent tool roster. Fallback per step-03 failure-mode table."
-    result: "PASS — all Phase 2 tasks confirmed against file evidence: calendar-unified.json (51 events across 4-day window, pulled_at 2026-09-14T16:12), email-unified.json (2 msgs), jarvis-inbox skill run (eval-20260914T161351-1A9BRF, 100% pass, 0 items), reminders.json (empty array confirmed), delegation tracker (0 active), quarterly-objectives.md (4 Q3 rocks read)."
+    method: "self-verified — no dedicated boot-verification/Ralph agent type in this session's Agent roster"
+    result: "PASS — all Phase 2 tasks confirmed by direct file evidence (calendar-unified.json 40 events valid JSON, email-unified.json 16 msgs, jarvis-inbox 0, omnifocus status:failed as declared, reminders.json empty array, delegation tracker 0 active, quarterly-objectives.md read)"
     reruns: 0
   phase3:
-    morning-briefing-step-03: "completed (degraded) — identity/MEMORY.md checked directly for attendee context (no relevant hits for Summer/craiggroup.io, Saxum/rstone/Steve Hall). Meetings needing prep today: Devlin sync (standing 1:1, ready), AI Executive Workshop CA sync w/ alice.mburu + ashok.Iyengar (standing, ready), Summer (craiggroup.io) call 2pm CT (low-context, no prior notes found — unclear purpose), GEHC Twice Weekly Internal Check-In (client-adjacent, GE Healthcare — recurring, ready per standing cadence), FEI Monthly evening event (external/networking, ready — known standing commitment). Yesterday's daily review (2026-09-13) missing — last dated review on file remains auto-2026-08-12 (over a month gap), flagged again as a recurring accountability gap."
-    clay-reminders: "none — 0 due in next 7 days (data/clay-reminders-unified.json)"
-    clay-birthdays: "none — no dedicated birthday field returned by Clay MCP this run"
+    morning-briefing-step-03: "completed (degraded) — identity/MEMORY.md read directly for attendee context (Robyn Fuentes = President Houston on the 10:30 1:1; Devlin Liles across AI Leaders/StrongTie threads; YPO = standing personal commitment). Meetings needing prep today: none client-critical given the travel day. Yesterday's daily review missing — last on file 2026-08-13, gap now >1 month."
+    clay-reminders: "none — 0 due in next 7 days"
+    clay-birthdays: "3 — COURT WESTCOTT today 2026-09-16 (Dallas family office, tech/RE/subscription, angel AR focus), Kevin Gardner 2026-09-20, Justin Etheredge 2026-09-22"
   phase4:
-    briefing_delivered: "yes — synthesized directly (morning-briefing step-04 template applied) covering a full Dallas day with a back-to-back midday stretch (Devlin sync/Overflow/AI Workshop CA sync, zero buffer), a low-context Summer/craiggroup.io call, the Saxum scheduling reply owed, the recurring missing-daily-review accountability gap (now >1 month), and OmniFocus degraded (unreachable this session, 3rd consecutive boot)."
+    briefing_delivered: "yes — synthesized (morning-briefing step-04 format: 3-paragraph narrative + calendar table, no em-dashes). Carried verbatim into the boot subagent's final message."
   phase5:
-    active_index: "workflows/_active.yaml reads active: [] — but direct state.yaml checks show this is stale, same recurring mismatch flagged in prior boots (2026-09-03, 04, 08, 11)."
-    plaud_ingest: "status: in-progress, session pi-20260914-001, current-step step-01, started 2026-09-14T00:00:00Z (overnight/scheduled invocation, not this session). Speaker mapping now resolved (David O'Hara, Renzi Stone) for the 09-08 Working Session Plan recording — 1 item in ready-for-fetch. Not auto-resumed this session — surfaced for David per step-06 rule."
-    watchtower: "status: complete, session wt-weekly-2026-W38, completed 2026-09-14T13:05:00Z (today, prior to this boot session). 1 weekly theme synthesized ('The Activity Trap' — AI ROI accountability squeeze), content_queue empty. No action needed."
-    result: "1 actionable in-flight workflow (plaud-ingest, in-progress at step-01, not resumed). Watchtower already fresh today. Index mismatch flagged again as recurring/non-blocking, Rigby to reconcile."
+    active_index: "workflows/_active.yaml reads active: [] — verified accurate this run by a full per-directory scan of every workflows/*/state.yaml. The recurring index/state mismatch from prior boots is NOT present today."
+    plaud_ingest: "status: complete, session pi-20260916-001, started 2026-09-16T14:10Z, outcome: no-new-recordings. Spawned by the parent Master this session; eval-20260916T142429-MUKP5C (success). plaud-discover also success (eval-20260916T142432-XHY410)."
+    teams_transcript_ingest: "PARTIAL — a Teams-transcript ingest sub-agent spawned this session ended status:partial (eval-20260916T142205-XK4PVA). Microsoft Graph denied OnlineMeetingTranscript read (FORBIDDEN) despite Entra having granted the scope. Non-blocking; surfaced to David."
+    result: "0 in-progress workflows. Nothing to resume. Watchtower already complete (wt-weekly-2026-W38)."
   guardrail-checkpoint:
     checkpoint_name: "pre-completion-review"
-    checkpoint_result: "pass"
-    reason: "Briefing reflects live 2026-09-15 data (calendar 50 events across 4-day window, email 21 msgs/8 actionable, jarvis-inbox empty, Clay empty). Full scan of all 56 workflows/*/state.yaml confirms _active.yaml's empty index is accurate this run (plaud-ingest completed 2026-09-14T20:18Z, watchtower complete) — prior recurring index/state mismatch resolved. OmniFocus still unreachable (4th+ consecutive boot, degraded, non-blocking). No dedicated Ralph/boot-verification agent available (self-verified with file evidence). No stale-as-fresh presentation, no leakage, session index clean."
-  boot-2026-09-15:
-    session-note: "Fresh run per STATE CHECK (prior status was complete from 2026-09-14). Session interrupted mid-execution by a connection drop after step-06.5; resumed in place from the same subagent context (state.yaml current-step and accumulated-context preserved) rather than restarting from step-01."
+    checkpoint_result: "flag"
+    reason: "Briefing reflects live 2026-09-16 data; OmniFocus outage flagged openly; step-06 index verification sound; no leakage; no escalate condition. Recorded via guardrail-checkpoint.py onto eval-20260916T142132-0AUI7E."
+  boot-2026-09-16:
+    session-note: "Fresh run per STATE CHECK (prior status complete from 2026-09-15). Executed as the spawned boot subagent, steps 01.2 through 08."
     unified-data-pulls:
-      email: "completed — 21 messages last 24h via live M365 outlook_email_search, 8 flagged actionable (2 UTB board approvals, 1 Saxum scheduling reply owed, 2 GEHC Box invites, 3 informational/FYI); 13 marketing/non-actionable"
-      omnifocus: "failed — Desktop Commander/osascript MCP tool unavailable this session (ToolSearch confirmed no match), same degraded condition as prior 3+ boots"
-      clay: "completed — 0 reminders, 0 birthdays (live check via getUpcomingReminders)"
-      jarvis-inbox: "nothing-to-surface — folder search returned 0 messages"
-      calendar: "completed — 50 events, 4-day window 2026-09-15 to 2026-09-18, 2 M365 paginated calls"
-    files-created:
-      - "data/email-unified.json"
-      - "data/omnifocus-unified.json"
-      - "data/clay-reminders-unified.json"
-      - "data/jarvis-inbox-unified.json"
-      - "data/calendar-unified.json"
-    workflow-scan: "0 in-progress workflows found — full manual scan of all 56 workflows/*/state.yaml confirms _active.yaml (active: []) is accurate. plaud-ingest and watchtower both status:complete. Recurring index-mismatch flag from prior boots is resolved."
-    quarterly-objectives-flag: "Q3 2026 rocks (memory/personal/quarterly-objectives.md) still marked DRAFT, last updated 2026-07-30 — 7 weeks with no sign-off from David. Recurring accountability gap."
-    daily-review-flag: "Last daily review on file is memory/episodic/daily-review-2026-08-13-000000.md — over a month gap, recurring accountability gap flagged again."
-    delegation-tracker: "idle, 0 active delegations (workflows/delegation-tracker/state.yaml)"
-    result: "Boot complete. Briefing delivered covering a Dallas day with a genuine double-booking (Build SC proposal vs. GEHC AI Routing deep dive, both 11am-12pm CT) and a tight AR YPO Little Rock turnaround (9/16-9/17), two UTB board approvals pending, and the Saxum scheduling reply still owed."
+      email: "completed — 16 messages, 8 actionable (5 UTB Boardvantage approvals, YPO intake form, BMW waiver 09-23, Opal Group partner reply owed)"
+      omnifocus: "failed — Desktop Commander/osascript MCP tool unavailable (5th+ consecutive boot)"
+      clay: "completed — 0 reminders, 3 birthdays"
+      jarvis-inbox: "nothing-to-surface"
+      calendar: "completed — 40 events across 2026-09-16 to 2026-09-19 (spill to 09-21), 2 M365 calls"
+    workflow-scan: "0 in-progress workflows — index verified accurate by full scan"
+    quarterly-objectives-flag: "Q3 2026 rocks still 'Q3 draft, pending David's review', last-updated 2026-07-30 (~7 weeks unsigned). Recurring accountability gap."
+    daily-review-flag: "Last daily review on file 2026-08-13 — >1 month gap. Recurring accountability gap."
+    delegation-tracker: "idle, 0 active delegations"
+    result: "Boot complete. Briefing delivered: AR YPO travel day to Little Rock, 5 pending UTB board approvals, Opal Group partner reply owed, Court Westcott birthday today, OmniFocus degraded, no in-flight workflows."
+

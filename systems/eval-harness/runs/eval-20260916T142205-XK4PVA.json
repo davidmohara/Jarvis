@@ -1,0 +1,61 @@
+{
+  "id": "eval-20260916T142205-XK4PVA",
+  "agent_id": "a663c33678b77baf1",
+  "type": "agent",
+  "name": "general-purpose",
+  "workflow": null,
+  "agent": "general-purpose",
+  "session_id": "ef27cc33-3dba-4b27-b1b6-879ec1630957",
+  "trigger": "unknown",
+  "started": "2026-09-16T14:22:05.357334Z",
+  "completed": "2026-09-16T14:25:08.283839Z",
+  "duration_seconds": 182.93,
+  "status": "partial",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 1,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/ef27cc33-3dba-4b27-b1b6-879ec1630957/subagents/agent-a663c33678b77baf1.jsonl",
+  "last_assistant_message": "## plaud-ingest \u2014 run complete (session pi-20260916-001)\n\n**Result: zero new recordings. The workflow terminated correctly at step-01 and did not enter steps 02\u201305b.**\n\n### STATE CHECK\n`state.yaml` was `status: complete` (prior session pi-20260915-002) \u2192 fresh run. Initialized to `in-progress`, session `pi-20260916-001`, `current-step: step-01`. The token pre-check prohibition was honored: nothing was inspected before `plaud-discover` ran, and no token-gating influenced the outcome.\n\n### Step 01 \u2014 Discover\n- **Plaud API** (`/file/simple/web`, paginated to exhaustion): **137 recordings**. Newest is `2026-09-14T16:04:18` \u2014 nothing recorded 09-15 or 09-16.\n- **Vault**: live scan of `zzPlaud/` \u2192 191 `.md` files, **137 unique `file_id`s**.\n- **Diff: 0 new.** The API file_id set and the vault file_id set are an **exact bijection** \u2014 both set differences are empty. Tier-2's 85% title fuzzy match was never reached for any API candidate.\n- Per step-01's documented \"No new recordings found\" failure mode: `new-recordings: []`, workflow marked complete, step-02 not entered.\n\n### Gates\n- **Gate 1 PASS** \u2014 cached token, authenticated as David O'Hara.\n- **Gate 2 PASS** \u2014 vacuous, no recordings to validate.\n- **Circuit breaker clear** \u2014 0 new vs. last confirmed count of 5 (2026-09-15) is neither >2\u00d7 baseline nor >10% of the 269 candidates scanned.\n- **Dedup HARD GATE satisfied** \u2014 ledger written to `systems/eval-harness/skill-runs/plaud-discover-ledger-latest.json` with **269 entries** (137 API + 132 staged), every one carrying non-empty `tiers_checked` and a decision.\n\n### Staging scan\n132 top-level `plaud_*.md` files; `_not_new_archive/` (a further 152 files) was explicitly pruned, not scanned. **All 132 resolved by Tier 1 `file_id` exact match** via their sibling `_raw.json` \u2014 leftovers of already-ingested recordings, **zero stale-requeue**. No junk transcription was triggered and nothing was fetched.\n\n### Two pre-existing hygiene flags (not caused by this run, not acted on)\n1. **Duplicate vault notes**: 30 `file_id`s each map to two notes \u2014 174 file_id-bearing notes for 137 recordings. Stale root-level `zzPlaud/*.md` copies coexist with notes later correctly re-filed into `Client/`, `Improving/`, `Other/`. Dedup correctness is unaffected (still an exact bijection), but it's an orphan/dupe cleanup job.\n2. **Staging backlog**: the 132 already-ingested staged files should be archived or deleted. The workflow only cleans up files it processes, so it deliberately left them in place \u2014 this is why every future staging scan starts at 132 instead of 0.\n\n### Deterministic grade (verbatim)\n```\n--- Eval: plaud-discover (eval-20260916T142432-XHY410) ---\nStructure 4/4 passed\nDeterministic score: 100%  ->  PASS (gate >= 70%)\nTier 3 qualitative grade: pending (runs in tonight's end-of-day sweep \u2014 CLAUDE.md Exit Behavior)\n```\n\n### Files written\n- `workflows/plaud-ingest/state.yaml` \u2014 `status: complete`, `outcome: no-new-recordings`, full dedup method + gate results + hygiene flags\n- `workflows/plaud-ingest/steps/step-01-discover.md` \u2014 frontmatter updated, this run prepended to `previous-run-results`\n- `systems/eval-harness/skill-runs/plaud-discover-ledger-latest.json`\n- `systems/eval-harness/skill-runs/plaud-discover-latest.json` \u2014 `status: success`\n- `memory/working/plaud-discover-2026-09-16.md`, `memory/working/plaud-ingest-2026-09-16-092409.md`\n\nNothing was written to the vault, Monday, OmniFocus, or email this run because no new transcript existed to ingest. No commits were made \u2014 the workflow doesn't call for one.",
+  "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+  "total_tokens_input": 594581,
+  "total_tokens_output": 3516,
+  "total_cost_usd": 0.09,
+  "cost_estimation_note": "estimated based on general-purpose workflow type"
+}

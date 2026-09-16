@@ -1,44 +1,673 @@
 {
-  "pulled_at": "2026-09-15T16:20:00Z",
-  "date_range": {"start": "2026-09-15", "end": "2026-09-18"},
-  "event_count": 50,
-  "note": "Today 09-15 is a normal Dallas day with morning personal appt, Sales & Recruiting, Sales Scrum, Build SC proposal, GEHC AI Routing deep dive, Haircut, AI for Execs review, Build plan for Vegas games, David/Don sync. 09-16 through 09-17 is the AR YPO trip to Little Rock (AA3850 DFW->LIT 7:10am 9/16, Capital Hotel, YPO dinner evening, AA3589 LIT->DFW 7:18am 9/17, arriving back into a full slate of standing Dallas meetings same morning). 09-18 begins a personal retreat (9/18-9/20) with a flight to Houston 8:20am and hotel in Houston Medical Center/NRG Park area.",
-  "events_summary": [
-    {"date": "2026-09-15", "subject": "Dr Nathan Walters", "start": "08:15", "end": "09:15", "category": "Personal"},
-    {"date": "2026-09-15", "subject": "Sales & Recruiting Meeting", "start": "09:15", "end": "09:30"},
-    {"date": "2026-09-15", "subject": "Sales Scrum", "start": "10:00", "end": "10:30"},
-    {"date": "2026-09-15", "subject": "Build SC proposal", "start": "11:00", "end": "12:00"},
-    {"date": "2026-09-15", "subject": "GEHC Improving - AI Routing technical deeper dive (weekly)", "start": "11:00", "end": "12:00"},
-    {"date": "2026-09-15", "subject": "Haircut", "start": "13:15", "end": "14:15"},
-    {"date": "2026-09-15", "subject": "Review AI for Execs current state", "start": "14:15", "end": "15:15"},
-    {"date": "2026-09-15", "subject": "Build plan for Vegas games", "start": "15:00", "end": "16:00"},
-    {"date": "2026-09-15", "subject": "David/Don Sync", "start": "16:00", "end": "16:30"},
-    {"date": "2026-09-16", "subject": "American Airlines flight 3850 DFW->LIT", "start": "07:10", "end": "08:34"},
-    {"date": "2026-09-16", "subject": "Dallas Executive Huddle", "start": "08:30", "end": "09:00", "note": "will miss, traveling"},
-    {"date": "2026-09-16", "subject": "Sales & Recruiting Meeting", "start": "09:15", "end": "09:30", "note": "will miss, traveling"},
-    {"date": "2026-09-16", "subject": "AI Leaders Weekly (x2 duplicate invites)", "start": "09:30", "end": "10:00"},
-    {"date": "2026-09-16", "subject": "Sales Scrum", "start": "09:30", "end": "10:00"},
-    {"date": "2026-09-16", "subject": "Microsoft Partner GTM Check In", "start": "10:00", "end": "10:30"},
-    {"date": "2026-09-16", "subject": "AI Takeoff Weekly Touch - Improving & SST", "start": "10:00", "end": "10:45"},
-    {"date": "2026-09-16", "subject": "David/Robyn 1:1", "start": "10:30", "end": "11:00"},
-    {"date": "2026-09-16", "subject": "GEHC Improving - AI Routing weekly sync (dup x2)", "start": "10:30", "end": "11:00"},
-    {"date": "2026-09-16", "subject": "US Town Hall", "start": "12:00", "end": "13:00"},
-    {"date": "2026-09-16", "subject": "Athena Monthly Check-in - Anne/David", "start": "12:00", "end": "12:30"},
-    {"date": "2026-09-16", "subject": "GEHC Twice Weekly Internal Check-In", "start": "15:30", "end": "16:00"},
-    {"date": "2026-09-16", "subject": "Chapter 1 Review", "start": "16:00", "end": "17:00"},
-    {"date": "2026-09-16", "subject": "Overflow", "start": "17:00", "end": "18:00"},
-    {"date": "2026-09-16", "subject": "AR YPO Dinner, Little Rock", "start": "18:00", "end": "21:00"},
-    {"date": "2026-09-17", "subject": "American Airlines flight 3589 LIT->DFW", "start": "07:18", "end": "08:50"},
-    {"date": "2026-09-17", "subject": "Sales & Recruiting Meeting", "start": "09:15", "end": "09:30", "note": "tight after early return flight"},
-    {"date": "2026-09-17", "subject": "Sales Scrum", "start": "10:00", "end": "10:30"},
-    {"date": "2026-09-17", "subject": "Dallas In-Person Come Together (Destination Guatemala)", "start": "12:00", "end": "13:00"},
-    {"date": "2026-09-17", "subject": "Guatemalan Tales and Folklore Virtual Talk", "start": "12:00", "end": "13:00"},
-    {"date": "2026-09-17", "subject": "Golf lesson", "start": "15:00", "end": "16:00"},
-    {"date": "2026-09-17", "subject": "Spouse Kickoff Party [YPO]", "start": "18:00", "end": "21:00"},
-    {"date": "2026-09-18", "subject": "Personal retreat begins (9/18-9/20)", "start": "00:00", "end": "00:00"},
-    {"date": "2026-09-18", "subject": "American Airlines flight 1407 DFW->Houston", "start": "08:20", "end": "09:29"},
-    {"date": "2026-09-18", "subject": "Dallas Virtual Coffee Chat", "start": "08:00", "end": "09:00"},
-    {"date": "2026-09-18", "subject": "Sales & Recruiting Meeting", "start": "09:15", "end": "09:30"}
-  ],
-  "raw_call_note": "Full raw event objects retrieved via 2 paginated M365 outlook_calendar_search calls (25+25), all times UTC in source, converted to CT (UTC-5) for summary above."
+  "pulled_at": "2026-09-16T14:22:30Z",
+  "date_range": {
+    "start": "2026-09-16",
+    "end": "2026-09-19"
+  },
+  "note": "Window pulled 2026-09-16..2026-09-19; response includes spillover events through 2026-09-21. All times UTC; subtract 5h for Central Time (CDT).",
+  "event_count": 40,
+  "events": [
+    {
+      "subject": "AR YPO Dinner, Little Rock",
+      "start_utc": "2026-09-16T00:00",
+      "end_utc": "2026-09-18T00:00",
+      "isAllDay": true,
+      "showAs": "busy",
+      "location": null,
+      "organizer": "David.OHara@improving.com",
+      "attendees": null,
+      "notes": [
+        "Tracked To Dynamics 365"
+      ]
+    },
+    {
+      "subject": "Capital Hotel",
+      "start_utc": "2026-09-16T00:00",
+      "end_utc": "2026-09-18T00:00",
+      "isAllDay": true,
+      "showAs": "free",
+      "location": "111 W Markham Street Little Rock, AR 72201",
+      "organizer": "David.OHara@improving.com",
+      "attendees": null,
+      "notes": []
+    },
+    {
+      "subject": "2018 Cowboys Ask",
+      "start_utc": "2026-09-16T00:00",
+      "end_utc": "2026-09-17T00:00",
+      "isAllDay": true,
+      "showAs": "free",
+      "location": null,
+      "organizer": "David.Ohara@improving.com",
+      "attendees": null,
+      "notes": []
+    },
+    {
+      "subject": "Flight: AA 3850 from DFW to LIT",
+      "start_utc": "2026-09-16T12:10",
+      "end_utc": "2026-09-16T13:25",
+      "isAllDay": false,
+      "showAs": "busy",
+      "location": "Dallas/Fort Worth International Airport",
+      "organizer": "David.OHara@improving.com",
+      "attendees": null,
+      "notes": [
+        "conf GZCLNF, seat First, dep 7:10am CT"
+      ]
+    },
+    {
+      "subject": "American Airlines flight 3850 to Little Rock (GZCLNF)",
+      "start_utc": "2026-09-16T12:10",
+      "end_utc": "2026-09-16T13:34",
+      "isAllDay": false,
+      "showAs": "busy",
+      "location": "Dallas/Fort Worth",
+      "organizer": "David.OHara@improving.com",
+      "attendees": null,
+      "notes": [
+        "dep 7:10am CT arr 8:34am CT"
+      ]
+    },
+    {
+      "subject": "SST - Improving deadlines discussion",
+      "start_utc": "2026-09-16T12:30",
+      "end_utc": "2026-09-16T13:00",
+      "isAllDay": false,
+      "showAs": "tentative",
+      "location": "Microsoft Teams Meeting",
+      "organizer": "fernando.pereira@improving.com",
+      "attendees": [
+        "fernando.pereira",
+        "jose.maureira",
+        "Devlin.Liles",
+        "cesar.contreras",
+        "miguel.granados",
+        "alejandro.macias",
+        "lauren.clack",
+        "Lyn.Barrett",
+        "David.OHara"
+      ],
+      "notes": []
+    },
+    {
+      "subject": "Dallas Executive Huddle",
+      "start_utc": "2026-09-16T13:30",
+      "end_utc": "2026-09-16T14:00",
+      "isAllDay": false,
+      "showAs": "tentative",
+      "location": "Dallas - Conference Room Trust",
+      "organizer": "Dallas-Leadership@improving.com",
+      "attendees": [
+        "Dallas-Leadership",
+        "Kevin.Baker",
+        "Diana.Stevens",
+        "Ralph.Nicosia",
+        "Ben.Kennedy",
+        "Tonya.Guadiz",
+        "Michael.Perry",
+        "Tim.Rayburn",
+        "Gabriela.Garza-Ramos",
+        "David.Belcher",
+        "Lyn.Barrett",
+        "Don.McGreal",
+        "Randall.Dunigan",
+        "David.Schwartz",
+        "Blake.McMillan",
+        "eric.sowell",
+        "peter.karaganis"
+      ],
+      "notes": []
+    },
+    {
+      "subject": "Regus Day office Confirmed Booking 173379792",
+      "start_utc": "2026-09-16T14:00",
+      "end_utc": "2026-09-16T17:00",
+      "isAllDay": false,
+      "showAs": "busy",
+      "location": "400 West Capitol Avenue, Suite 1700, Little Rock, AR 72201",
+      "organizer": "donotreply@regus.com",
+      "attendees": [
+        "david.ohara@improving.com"
+      ],
+      "notes": []
+    },
+    {
+      "subject": "Sales & Recruiting Meeting",
+      "start_utc": "2026-09-16T14:15",
+      "end_utc": "2026-09-16T14:30",
+      "isAllDay": false,
+      "showAs": "tentative",
+      "location": "Microsoft Teams; Dallas - Longhorn Cavern",
+      "organizer": "DallasSales@improving.com",
+      "attendees": [
+        "DallasSales",
+        "Bryan.Crawford",
+        "Don.McGreal",
+        "Kevin.Baker",
+        "Gabriela.Garza-Ramos",
+        "Diana.Stevens",
+        "mark.miesner",
+        "Tim.Rayburn",
+        "jenn.massey",
+        "derek.nwamadi",
+        "roderic.patane",
+        "Steve.Pfiffner",
+        "David.Belcher",
+        "David.O'Hara",
+        "Blake.McMillan",
+        "brielle.dave-turner"
+      ],
+      "notes": []
+    },
+    {
+      "subject": "AI Leaders Weekly",
+      "start_utc": "2026-09-16T14:30",
+      "end_utc": "2026-09-16T15:00",
+      "isAllDay": false,
+      "showAs": "tentative",
+      "location": "Microsoft Teams Meeting",
+      "organizer": "Kevin.Jourdain@improving.com",
+      "attendees": [
+        "kevin.jourdain",
+        "scott.poulin",
+        "Michael.Slater",
+        "Michael.Ell",
+        "devlin.liles",
+        "Rich.McCraw",
+        "hernan.berroja",
+        "Bill.Curry",
+        "Kyle.Porter",
+        "Tim.Rayburn",
+        "federico.german",
+        "David.OHara",
+        "Keylor.Arroyo"
+      ],
+      "notes": []
+    },
+    {
+      "subject": "Sales Scrum",
+      "start_utc": "2026-09-16T14:30",
+      "end_utc": "2026-09-16T15:00",
+      "isAllDay": false,
+      "showAs": "tentative",
+      "location": "Microsoft Teams; Houston - Conference Room Trust",
+      "organizer": "stephen.johnson@improving.com",
+      "attendees": [
+        "stephen.johnson",
+        "houston-conferenceroomtrust",
+        "Bryan.Crawford",
+        "Guillermo.Ortega",
+        "Oscar.Velazquez",
+        "Juan.Bernal",
+        "erik.waldo",
+        "Shalini.Arora",
+        "devlin.liles",
+        "Robyn.Fuentes",
+        "scott.mai",
+        "David.O'Hara",
+        "jenn.massey"
+      ],
+      "notes": []
+    },
+    {
+      "subject": "AI Leaders Weekly ",
+      "start_utc": "2026-09-16T14:30",
+      "end_utc": "2026-09-16T15:00",
+      "isAllDay": false,
+      "showAs": "busy",
+      "location": "Microsoft Teams Meeting",
+      "organizer": "Devlin.Liles@Improving.com",
+      "attendees": [
+        "Devlin.Liles",
+        "scott.poulin",
+        "michael.slater",
+        "Bill.Curry",
+        "michael.ell",
+        "Tim.Rayburn",
+        "David.OHara",
+        "Keylor.Arroyo",
+        "federico.german",
+        "luis.guzman",
+        "hernan.berroja",
+        "Kyle.Porter",
+        "Nicolas.Celico"
+      ],
+      "notes": []
+    },
+    {
+      "subject": "Microsoft Partner GTM Check In",
+      "start_utc": "2026-09-16T15:00",
+      "end_utc": "2026-09-16T15:30",
+      "isAllDay": false,
+      "showAs": "tentative",
+      "location": "Microsoft Teams Meeting",
+      "organizer": "Ben.Kennedy@Improving.com",
+      "attendees": [
+        "Ben.Kennedy",
+        "Tim.Rayburn",
+        "David.Vibbert",
+        "Don.McGreal",
+        "David.O'Hara",
+        "David.Belcher",
+        "Skyler.Tweedie",
+        "derek.nwamadi",
+        "nada.ungvarsky",
+        "Lowell.Messner",
+        "Bill.Curry"
+      ],
+      "notes": []
+    },
+    {
+      "subject": "AI Takeoff Weekly Touch - Improving & SST",
+      "start_utc": "2026-09-16T15:00",
+      "end_utc": "2026-09-16T15:45",
+      "isAllDay": false,
+      "showAs": "busy",
+      "location": "Microsoft Teams Meeting",
+      "organizer": "givelasquez@strongtie.com",
+      "attendees": [
+        "givelasquez@strongtie",
+        "David.OHara",
+        "devlin.liles",
+        "jtsiros@strongtie",
+        "mshacklett@strongtie",
+        "chmiller@strongtie",
+        "avo@strongtie",
+        "jholtz@strongtie",
+        "lybarrett@strongtie",
+        "lclack@strongtie",
+        "lyn.barrett",
+        "lauren.clack",
+        "joshua.holtz",
+        "sreddy@strongtie",
+        "gkoutsouros@strongtie",
+        "slambert@strongtie"
+      ],
+      "notes": []
+    },
+    {
+      "subject": "yWhales: yDeep Dive",
+      "start_utc": "2026-09-16T15:30",
+      "end_utc": "2026-09-16T17:00",
+      "isAllDay": false,
+      "showAs": "busy",
+      "location": "Zoom",
+      "organizer": "mia.ywhales@gmail.com",
+      "attendees": [
+        "David.O'Hara"
+      ],
+      "notes": []
+    },
+    {
+      "subject": "David/Robyn 1:1",
+      "start_utc": "2026-09-16T15:30",
+      "end_utc": "2026-09-16T16:00",
+      "isAllDay": false,
+      "showAs": "tentative",
+      "location": "Microsoft Teams Meeting",
+      "organizer": "Robyn.Fuentes@Improving.com",
+      "attendees": [
+        "Robyn.Fuentes",
+        "David.O'Hara"
+      ],
+      "notes": [
+        "Work"
+      ]
+    },
+    {
+      "subject": "GEHC Improving - AI Routing weekly sync",
+      "start_utc": "2026-09-16T15:30",
+      "end_utc": "2026-09-16T16:00",
+      "isAllDay": false,
+      "showAs": "tentative",
+      "location": "Microsoft Teams Meeting",
+      "organizer": "justin.holder@gehealthcare.com",
+      "attendees": [
+        "justin.holder@gehealthcare",
+        "David.OHara",
+        "lisa.barnes",
+        "Vladimir.Avila@gehealthcare",
+        "Tim.Rayburn@gehealthcare",
+        "Sandeep.Kaushik@gehealthcare",
+        "Michael.Braunstein@gehealthcare",
+        "Anthony.PEZET@gehealthcare",
+        "lisa.kimbrel",
+        "vladimir.avila",
+        "tim.rayburn"
+      ],
+      "notes": []
+    },
+    {
+      "subject": "US Town Hall",
+      "start_utc": "2026-09-16T17:00",
+      "end_utc": "2026-09-16T18:00",
+      "isAllDay": false,
+      "showAs": "tentative",
+      "location": "Microsoft Teams Meeting",
+      "organizer": "teams-events@Improving.com",
+      "attendees": [
+        "Employees-US",
+        "Tim.Rayburn",
+        "Devlin.Liles",
+        "Bryan.Crawford",
+        "ashok.Iyengar",
+        "michael.slater",
+        "+~130 others"
+      ],
+      "notes": []
+    },
+    {
+      "subject": "[YPO Only] yDeep Dive",
+      "start_utc": "2026-09-16T17:30",
+      "end_utc": "2026-09-16T18:30",
+      "isAllDay": false,
+      "showAs": "tentative",
+      "location": "event.ypo.org",
+      "organizer": "mia.ywhales@gmail.com",
+      "attendees": [
+        "David.O'Hara"
+      ],
+      "notes": []
+    },
+    {
+      "subject": "GEHC Twice Weekly Internal Check-In",
+      "start_utc": "2026-09-16T20:30",
+      "end_utc": "2026-09-16T21:00",
+      "isAllDay": false,
+      "showAs": "busy",
+      "location": "Microsoft Teams Meeting",
+      "organizer": "lisa.barnes@improving.com",
+      "attendees": [
+        "lisa.barnes",
+        "vladimir.avila",
+        "Tim.Rayburn",
+        "Lisa.Kimbrel",
+        "David.OHara"
+      ],
+      "notes": []
+    },
+    {
+      "subject": "Overflow",
+      "start_utc": "2026-09-16T22:00",
+      "end_utc": "2026-09-16T23:00",
+      "isAllDay": false,
+      "showAs": "busy",
+      "location": null,
+      "organizer": "David.OHara@improving.com",
+      "attendees": null,
+      "notes": [
+        "UTB Board"
+      ]
+    },
+    {
+      "subject": "Wednesday Sept 16 AR YPO Dinner, Little Rock",
+      "start_utc": "2026-09-16T23:00",
+      "end_utc": "2026-09-17T02:00",
+      "isAllDay": false,
+      "showAs": "busy",
+      "location": null,
+      "organizer": "David.OHara@improving.com",
+      "attendees": null,
+      "notes": [
+        "YPO",
+        "Tracked To Dynamics 365"
+      ]
+    },
+    {
+      "subject": "American Airlines flight 3589 to Dallas (GZCLNF)",
+      "start_utc": "2026-09-17T12:18",
+      "end_utc": "2026-09-17T13:50",
+      "isAllDay": false,
+      "showAs": "busy",
+      "location": "Little Rock",
+      "organizer": "David.OHara@improving.com",
+      "attendees": null,
+      "notes": [
+        "dep 7:18am CT arr 8:50am CT"
+      ]
+    },
+    {
+      "subject": "Flight: AA 3589 from LIT to DFW",
+      "start_utc": "2026-09-17T12:18",
+      "end_utc": "2026-09-17T13:50",
+      "isAllDay": false,
+      "showAs": "busy",
+      "location": "Clinton National Airport",
+      "organizer": "David.OHara@improving.com",
+      "attendees": null,
+      "notes": [
+        "conf GZCLNF, Economy"
+      ]
+    },
+    {
+      "subject": "Sales & Recruiting Meeting",
+      "start_utc": "2026-09-17T14:15",
+      "end_utc": "2026-09-17T14:30",
+      "isAllDay": false,
+      "showAs": "tentative",
+      "location": "Microsoft Teams; Dallas - Longhorn Cavern",
+      "organizer": "DallasSales@improving.com",
+      "attendees": [
+        "DallasSales",
+        "Bryan.Crawford",
+        "Don.McGreal",
+        "Kevin.Baker",
+        "Tim.Rayburn",
+        "David.O'Hara",
+        "Blake.McMillan",
+        "+8"
+      ],
+      "notes": []
+    },
+    {
+      "subject": "Sales Scrum",
+      "start_utc": "2026-09-17T15:00",
+      "end_utc": "2026-09-17T15:30",
+      "isAllDay": false,
+      "showAs": "tentative",
+      "location": "Microsoft Teams; Houston - Conference Room Trust",
+      "organizer": "stephen.johnson@improving.com",
+      "attendees": [
+        "stephen.johnson",
+        "devlin.liles",
+        "jenn.massey",
+        "David.O'Hara",
+        "Robyn.Fuentes",
+        "+7"
+      ],
+      "notes": []
+    },
+    {
+      "subject": "GEHC Improving - AI Routing weekly sync (2)",
+      "start_utc": "2026-09-17T15:00",
+      "end_utc": "2026-09-17T15:30",
+      "isAllDay": false,
+      "showAs": "tentative",
+      "location": "Microsoft Teams Meeting",
+      "organizer": "justin.holder@gehealthcare.com",
+      "attendees": [
+        "justin.holder@gehealthcare",
+        "lisa.barnes",
+        "Vladimir.Avila@gehealthcare",
+        "Sandeep.Kaushik@gehealthcare",
+        "Michael.Braunstein@gehealthcare",
+        "Anthony.PEZET@gehealthcare",
+        "lisa.kimbrel",
+        "vladimir.avila",
+        "David.Ohara"
+      ],
+      "notes": [
+        "Box: gehealthcare.ent.box.com/folder/409725693470"
+      ]
+    },
+    {
+      "subject": "Finish Vegas prep",
+      "start_utc": "2026-09-17T15:30",
+      "end_utc": "2026-09-17T16:30",
+      "isAllDay": false,
+      "showAs": "busy",
+      "location": null,
+      "organizer": "David.OHara@improving.com",
+      "attendees": null,
+      "notes": []
+    },
+    {
+      "subject": "Retreat prep",
+      "start_utc": "2026-09-17T17:00",
+      "end_utc": "2026-09-17T18:00",
+      "isAllDay": false,
+      "showAs": "busy",
+      "location": null,
+      "organizer": "David.OHara@improving.com",
+      "attendees": null,
+      "notes": []
+    },
+    {
+      "subject": "Sync: Employee AI Usage policy",
+      "start_utc": "2026-09-17T18:30",
+      "end_utc": "2026-09-17T19:00",
+      "isAllDay": false,
+      "showAs": "busy",
+      "location": "Microsoft Teams Meeting",
+      "organizer": "David.OHara@improving.com",
+      "attendees": [
+        "Amber.Robinson"
+      ],
+      "notes": []
+    },
+    {
+      "subject": "Golf lesson",
+      "start_utc": "2026-09-17T20:00",
+      "end_utc": "2026-09-17T21:00",
+      "isAllDay": false,
+      "showAs": "busy",
+      "location": "Integrity Golf Performance, 6363 Dallas Pkwy Unit 115, Frisco TX 75034",
+      "organizer": "David.OHara@improving.com",
+      "attendees": null,
+      "notes": []
+    },
+    {
+      "subject": "Spouse Kickoff Party [YPO]",
+      "start_utc": "2026-09-17T23:00",
+      "end_utc": "2026-09-18T02:00",
+      "isAllDay": false,
+      "showAs": "busy",
+      "location": null,
+      "organizer": "David.O'Hara@improving.com",
+      "attendees": null,
+      "notes": [
+        "Tracked To Dynamics 365"
+      ]
+    },
+    {
+      "subject": "Personal retreat ",
+      "start_utc": "2026-09-18T00:00",
+      "end_utc": "2026-09-21T00:00",
+      "isAllDay": true,
+      "showAs": "busy",
+      "location": null,
+      "organizer": "David.OHara@improving.com",
+      "attendees": null,
+      "notes": [
+        "Personal"
+      ]
+    },
+    {
+      "subject": "SpringHill Suites by Marriott Houston Medical Center/NRG Park",
+      "start_utc": "2026-09-18T00:00",
+      "end_utc": "2026-09-21T00:00",
+      "isAllDay": true,
+      "showAs": "free",
+      "location": null,
+      "organizer": "David.OHara@improving.com",
+      "attendees": null,
+      "notes": [
+        "Conf 2GV7Y3Y60R, check-in 9/18, check-out 9/20"
+      ]
+    },
+    {
+      "subject": "Dallas Virtual Coffee Chat",
+      "start_utc": "2026-09-18T13:00",
+      "end_utc": "2026-09-18T14:00",
+      "isAllDay": false,
+      "showAs": "tentative",
+      "location": "Microsoft Teams Meeting",
+      "organizer": "Anthony.Marrical@Improving.com",
+      "attendees": [
+        "Enterprise-Dallas",
+        "Tim.Rayburn",
+        "David.O'Hara",
+        "+55"
+      ],
+      "notes": []
+    },
+    {
+      "subject": "American Airlines flight 1407 to Houston (FURIJD)",
+      "start_utc": "2026-09-18T13:20",
+      "end_utc": "2026-09-18T14:29",
+      "isAllDay": false,
+      "showAs": "busy",
+      "location": "Dallas/Fort Worth",
+      "organizer": "David.OHara@improving.com",
+      "attendees": null,
+      "notes": [
+        "dep 8:20am CT arr 9:29am CT"
+      ]
+    },
+    {
+      "subject": "Sales & Recruiting Meeting",
+      "start_utc": "2026-09-18T14:15",
+      "end_utc": "2026-09-18T14:30",
+      "isAllDay": false,
+      "showAs": "tentative",
+      "location": "Microsoft Teams; Dallas - Longhorn Cavern",
+      "organizer": "DallasSales@improving.com",
+      "attendees": [
+        "DallasSales",
+        "Bryan.Crawford",
+        "Don.McGreal",
+        "David.O'Hara",
+        "+8"
+      ],
+      "notes": []
+    },
+    {
+      "subject": "Houston Texans Game",
+      "start_utc": "2026-09-20T00:00",
+      "end_utc": "2026-09-21T00:00",
+      "isAllDay": true,
+      "showAs": "busy",
+      "location": null,
+      "organizer": "David.OHara@improving.com",
+      "attendees": null,
+      "notes": [
+        "Tracked To Dynamics 365"
+      ]
+    },
+    {
+      "subject": "Texans Game: Premium doors and Suite 870 open for guests",
+      "start_utc": "2026-09-20T15:00",
+      "end_utc": "2026-09-20T15:30",
+      "isAllDay": false,
+      "showAs": "busy",
+      "location": null,
+      "organizer": "David.OHara@improving.com",
+      "attendees": null,
+      "notes": []
+    },
+    {
+      "subject": "Kick-Off: Houston Texans vs. Cincinnati Bengals @ NRG Stadium, Suite 870",
+      "start_utc": "2026-09-20T17:00",
+      "end_utc": "2026-09-20T19:30",
+      "isAllDay": false,
+      "showAs": "busy",
+      "location": "1 NRG Pkwy, Houston, TX 77054",
+      "organizer": "David.OHara@improving.com",
+      "attendees": null,
+      "notes": [
+        "Work",
+        "Tracked To Dynamics 365"
+      ]
+    }
+  ]
 }

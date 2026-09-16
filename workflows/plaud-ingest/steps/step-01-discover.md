@@ -1,18 +1,46 @@
 ---
 status: completed
 model: haiku
-started-at: "2026-09-14T12:10:00Z"
-completed-at: "2026-09-14T12:20:00Z"
+started-at: "2026-09-16T14:10:00Z"
+completed-at: "2026-09-16T14:24:00Z"
 outputs:
-  new-recordings-count: 3
-  api-total: 3
-  confirmed-in-vault: 2
+  new-recordings-count: 0
+  api-total: 137
+  confirmed-in-vault: 137
   gate_1_result: "pass"
   gate_1_auth_method: "cached-token"
   gate_2_result: "pass"
   gate_2_flagged_recordings: []
-  note: "Targeted reprocess for 2026-09-14. Plaud API enumerated 3 recordings created on 2026-09-14 (09:14 14:03:46 UTC, 09-14 Meeting Executive AI Workshop Planning, 09-14 Meeting Production Hosting Strategy). Vault cross-reference confirmed all 3 as genuinely new (none match vault file_ids 5916294c66c59b109e4aa61d4621bba4 or e0aa6343b58756669d5bb0eddc80c5a4 from prior ingestions). Mandatory dedup ledger created with all 3 API candidates marked as new after Tier 1, Tier 2, Tier 3 checks. Result: THREE genuinely new recordings ready for step-02 (transcription trigger)."
+  note: >
+    pi-20260916-001: FULL ENUMERATION (catch-up mode, no target-date). Plaud API returned
+    137 recordings (paginated /file/simple/web, all pages). Live vault scan of zzPlaud/
+    found 191 .md notes, 137 unique file_ids. The API file_id set and the vault file_id set
+    are an EXACT bijection (api-minus-vault = empty, vault-minus-api = empty) -- every
+    recording on Plaud already has a vault note. Tier-2 85% title fuzzy match was not needed
+    for any API candidate. NEW COUNT: 0. Circuit breaker clear (0 new vs. last confirmed
+    count of 5 from 2026-09-15; 0 is not >2x and not >10% of 269 candidates). Most recent
+    recording on the API is 2026-09-14T16:04:18 -- nothing recorded 09-15 or 09-16.
+    Staging scan: 132 top-level plaud_*.md files (excluding _not_new_archive/, which holds a
+    further 152 and was explicitly pruned). All 132 resolved by Tier 1 file_id exact match via
+    their sibling _raw.json -- leftovers of already-ingested recordings, zero stale-requeue.
+    Ledger written with 269 entries (137 API + 132 staged), every one with tiers_checked and a
+    decision. Incidentally surfaced a pre-existing vault hygiene issue: 30 file_ids map to two
+    vault notes each (stale root-level zzPlaud/*.md duplicates of notes later re-filed into
+    the Client//Improving//Other/ subfolders) -- 174 file_id-bearing notes for 137 recordings.
+    Not caused by this run; flagged for a future cleanup pass, not acted on here.
+    Per this step's "No new recordings found" failure mode: new-recordings: [], workflow
+    marked complete, step-02 not entered.
   previous-run-results:
+    - date: "2026-09-15"
+      new-recordings-count: 5
+      api-total: 137
+      confirmed-in-vault: 132
+      note: "pi-20260915-002: 5 new recordings (dfb7cb98f01c514c5619dc81feb2af2f, 804dddd47f182021ee0ffd572846ea91, e0aa6343b58756669d5bb0eddc80c5a4, 5916294c66c59b109e4aa61d4621bba4, 15aceb2d6b9b2c1b89ca4bf0be9667ea) ingested; all now confirmed in vault."
+    - date: "2026-09-14"
+      new-recordings-count: 3
+      api-total: 3
+      confirmed-in-vault: 2
+      note: "Targeted reprocess for 2026-09-14; 3 recordings triggered/ready."
     - date: "2026-09-08"
       new-recordings-count: 1
       api-total: 132

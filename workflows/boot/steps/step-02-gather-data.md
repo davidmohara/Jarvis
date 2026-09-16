@@ -1,14 +1,14 @@
 ---
 status: complete
-started-at: "2026-09-14T16:12:30Z"
-completed-at: "2026-09-14T16:20:00Z"
+started-at: "2026-09-16T14:24:30Z"
+completed-at: "2026-09-16T14:26:00Z"
 outputs:
-  phase2_status: "complete — 4/4 tasks executed (G, H, I, J), 0 failures."
-  morning-briefing-steps-01-02: "completed — calendar (data/calendar-unified.json, today=12 events) live; task data unavailable (omnifocus pull failed upstream, degraded)"
-  task-g-72hr-lookahead: "completed — 09-15 to 09-17 from data/calendar-unified.json. Key: 9/15 normal Dallas day; 9/16-9/17 AR YPO trip to Little Rock."
-  task-h-email-triage: "completed — 2 messages last 24h, 1 time-sensitive/actionable (Saxum scheduling reply owed)"
-  task-i-jarvis-inbox: "nothing-to-surface — jarvis-inbox skill confirms folder empty (eval-20260914T161351-1A9BRF)"
-  task-j-reminders: "nothing-to-surface — data/reminders.json empty"
+  phase2_status: "complete — 5/5 tasks executed (morning-briefing 01-02, G, H, I, J), 1 degraded source (OmniFocus)."
+  morning-briefing-steps-01-02: "completed — calendar live (data/calendar-unified.json, today 09-16 = AR YPO travel day to Little Rock); task data unavailable (omnifocus pull failed upstream, degraded)"
+  task-g-72hr-lookahead: "completed — 09-17 to 09-19 from data/calendar-unified.json. 09-17 return travel + YPO Spouse Kickoff; 09-18 Personal retreat begins / DFW->Houston; 09-19 retreat; 09-20 Texans Suite 870 game."
+  task-h-email-triage: "completed — 16 messages in window, 8 actionable (5 UTB board approvals, YPO intake form, BMW waiver 09-23, Opal Group reply owed)"
+  task-i-jarvis-inbox: "nothing-to-surface — M365 Jarvis folder search returned 0 messages"
+  task-j-reminders: "nothing-to-surface — data/reminders.json empty (reminders array [])"
 ---
 
 <!-- system:start -->

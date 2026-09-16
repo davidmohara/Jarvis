@@ -1,0 +1,97 @@
+{
+  "id": "eval-20260916T200831-5K8EH5",
+  "type": "workflow",
+  "name": "boot",
+  "agent": "master",
+  "session_id": "9d319e64-e988-4168-a916-f7a608c2259d",
+  "trigger": "boot",
+  "started": "2026-09-16T20:08:31.516691Z",
+  "completed": null,
+  "duration_seconds": null,
+  "status": "failure",
+  "steps": [
+    {
+      "name": "step-01.2-unified-data-pull.md",
+      "started": "2026-09-16T14:22:24Z",
+      "completed": "2026-09-16T14:24:00Z",
+      "duration_seconds": 96.0,
+      "status": "complete",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": null,
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    }
+  ],
+  "subagents": [],
+  "monitoring": {
+    "active": true,
+    "state_yaml_path": "workflows/boot/state.yaml",
+    "opened_by": "eval-turn-start.py",
+    "trigger_evidence": "boot-first-prompt-of-session"
+  },
+  "assessment": {
+    "mechanical": {
+      "completed": null,
+      "all_steps_finished": true,
+      "tool_failures": 3,
+      "error_ids": [
+        "err-20260916T204629-6MFV68"
+      ],
+      "tool_failure_log": [
+        {
+          "tool": "Bash",
+          "error": "Exit code 1\n=== is .claude/skills a symlink? ===\ndrwxr-xr-x  112 davidohara  staff  3584 Aug  8 17:18 skills\n\n=== omnifocus-tasks in each location ===\ntotal 24\ndrwxr-xr-x@  3 davidohara  staff     96 Sep  4 11:30 .\ndrwxr-xr-x  77 davidohara  staff   2464 Sep 15 10:42 ..\n-rw-r--r--@  1 davidohara  staff  10382 Sep  2 11:00 SKILL.md\n---\ntotal 8\ndrwxr-xr-x@   3 davidohara  staff    96 Sep  2 11:00 .\ndrwxr-xr-x  112 davidohara  staff  3584 Aug  8 17:18 ..\n-rw-r--r--@   1 davidohara  staff  2697 Sep  2 11:00 SKILL.md\n\n=== diff the two SKILL.md files ===\n3,5c3,12\n< owning_agent: chief\n< description: Gate-enforced OmniFocus task creation. Every task MUST have a project and tag before creation executes. No exceptions. No bare inbox drops. This skill is the ONLY path for creating tasks \u2014 do not call mcp__omnifocus__create_task or write raw OmniFocus AppleScript outside this skill.\n< evolution: system\n---\n> description: \"Gate-enforced OmniFocus task creation. Every task MUST have a project and tag before creation executes. This skill is the ONLY authorized path for creating OmniFocus tasks. Trigger on 'create task', 'add task', 'new task'.\"\n> context: fork\n> agent: general-purpose\n> allowed-tools:\n>   - \"Read\"\n>   - \"Glob\"\n>   - \"Grep\"\n>   - \"Write\"\n>   - \"mcp__Control_your_Mac__osascript\"\n>   - \"mcp__omnifocus__*\"\n7,8d13\n< trigger_keywords: [create task, add task, omnifocus, new task, task for]\n< trigger_agents: [chief, chase, shep, quinn, harper]\n12c17\n< ## Purpose\n---\n> # Chief \u2014 OmniFocus Tasks\n14c19\n< This skill exists because Jarvis repeatedly creates OmniFocus tasks without assigning a project or tag, violating SYSTEM.md Task Creation Rules. The rules were clear but lived in a document that gets skimmed under pressure. This skill makes the rules un-skippable by embedding them in the execution path itself.\n---\n> You are **Chief**, David's Chief of Staff. Read your full persona from `agents/chief.md`.\n16c21\n< **Error history:** err-20260330-006 (and prior implicit violations). Pattern: `process-skip` / `protocol-skip`.\n---\n> ## Workflow\n18c23,24\n< ## When This Skill Fires\n---\n> Read and execute `skills/omnifocus-tasks/SKILL.md`.\n> <!-- system:end -->\n20c26,27\n< Any time Jarvis creates a task in OmniFocus. Every time. Including:\n---\n> <!-- personal:start -->\n> <!-- personal:end -->\n22,26c29,30\n< - Explicit task creation (\"create a task\", \"remind me to\", \"add to OmniFocus\")\n< - Action items extracted from transcripts, emails, or meetings\n< - Follow-ups from calendar prep or call debriefs\n< - Delegation tracking items that need OmniFocus mirrors\n< - Quick captures that David says \"add to inbox\" (capture goes to inbox, but STILL gets project + tag)\n---\n> <!-- system:start -->\n> ## Input\n28c32,33\n< ## Pre-Flight Checklist (MANDATORY)\n---\n> $ARGUMENTS\n> <!-- system:end -->\n30,134c35\n< Before executing ANY task creation call, complete these steps in order:\n< \n< ### Step 1: Pull Live Project and Tag Lists\n< \n< Do NOT use static/hardcoded lists. Always query OmniFocus for current data:\n< \n< **Projects:** Call `mcp__omnifocus__list_projects` with `status: active` via MCP. This returns only active projects \u2014 on-hold and completed projects are automatically excluded. The result is your valid project list for this task.\n< \n< **Tags:** Call `mcp__omnifocus__list_tags` via MCP. The result is your valid tag list for this task.\n< \n< ### Step 2: Populate All Fields\n< \n< | # | Field | Required? | Default | Resolution if missing |\n< |---|-------|-----------|---------|-----------------------|\n< | 1 | **Task name** | YES | \u2014 | Cannot proceed without it |\n< | 2 | **Project** | YES | \u2014 | Pick from the live project list (Step 1). If unclear, ask David with a recommendation. |\n< | 3 | **Tag** | YES | \u2014 | Pick from the live tag list (Step 1). If unclear, ask David with a recommendation. |\n< | 4 | **Due date** | YES | Coming Friday at 5:00 PM | Use default unless context dictates otherwise |\n< | 5 | **Defer date** | No | None | Set if the task shouldn't appear until a future date |\n< | 6 | **Notes** | YES | \u2014 | Include context: who, why, source link. Minimum one sentence. |\n< | 7 | **Flagged** | No | false | Flag only if David explicitly says it's urgent/priority |\n< \n< ### Step 3: Gate Check\n< \n< **Gate rule:** If Project is missing \u2192 DO NOT EXECUTE. If Tag is missing \u2192 DO NOT EXECUTE. Ask David first.\n< \n< Do NOT create new projects or tags without David's explicit approval. If the correct project or tag isn't in the live list, ask David with a recommendation.\n< \n< ### Tag Selection Logic\n< \n< - If the task involves a specific person \u2192 use their name tag\n< - If the task is a call/email \u2192 Phone or Email\n< - If the task is delegated and you're waiting \u2192 Delegated or Waiting\n< - If the task is Improving work context \u2192 Improving\n< - If the task is a personal errand \u2192 Errands\n< - If none of the above clearly fit \u2192 ask David\n< \n< ## Task Creation \u2014 MCP (Primary)\n< \n< Use `mcp__omnifocus__create_task`. All fields must be resolved before calling\n\n... [923 characters truncated] ...\n\n -- GATE CHECK: All variables must be populated. If any is empty string, STOP.\n<         set taskName to \"{{TASK_NAME}}\"\n<         set projectName to \"{{PROJECT}}\"\n<         set tagName to \"{{TAG}}\"\n<         set taskNotes to \"{{NOTES}}\"\n<         set dueDate to date \"{{DUE_DATE}}\"\n< \n<         set targetProject to first flattened project whose name is projectName\n<         set targetTag to first flattened tag whose name is tagName\n< \n<         tell targetProject\n<             set newTask to make new task with properties {name:taskName, note:taskNotes, due date:dueDate}\n<             add targetTag to tags of newTask\n<         end tell\n< \n<         return \"Created: \" & taskName & \" | Project: \" & projectName & \" | Tag: \" & tagName\n<     end tell\n< end tell\n< ```\n< \n< Optional additions: `set defer date of newTask to date \"{{DEFER_DATE}}\"` / `set flagged of newTask to true`\n< \n< ## Quick Capture Exception\n< \n< When David says \"capture [text]\" or \"add to inbox\", this is the ONE case where speed matters more than full classification. But even then:\n< \n< 1. Create the task in inbox \u2014 call `mcp__omnifocus__create_task` with no `project` field\n< 2. **Still add a tag** \u2014 best guess based on context\n< 3. **Note it needs project assignment:** set note to \"Needs project assignment\"\n< 4. Tell David: \"Captured to inbox with [tag] tag. Needs project assignment during next inbox triage.\"\n< \n< This is the ONLY exception to the project requirement. Tag is still mandatory even for captures.\n< \n< ## Error Handling\n< \n< | Failure | Action |\n< |---------|--------|\n< | Project not found in OmniFocus | Check spelling against the list. If genuinely missing, ask David \u2014 do not create a new project. |\n< | Tag not found in OmniFocus | Check spelling against the list. If genuinely missing, ask David \u2014 do not create a new tag. |\n< | `create_task` MCP error | Fall back to AppleScript template above via Desktop Commander. |\n< | OmniFocus unreachable entirely | Capture the task details in a note to David and process when OmniFocus is back. |\n< | Ambiguous project/tag | Ask David with a specific recommendation: \"I'd put this in [Project] with tag [Tag] \u2014 good?\" |\n< \n---\n> <!-- system:start -->\n147c48\n<   \"agent\": \"master\",\n---\n>   \"agent\": \"chief\",\n157c58\n< Set `trigger` to `\"boot\"` if called from the morning briefing or a boot workflow, `\"scheduled\"` if called from a scheduled task, `\"manual\"` otherwise. Set `status` to `\"partial\"` if the skill completed with degraded output, `\"failure\"` if it could not run at all. Use the actual start time of this skill execution for `started`. This write is always the final action.\n---\n> Set `trigger` to `\"boot\"` if called from a boot workflow, `\"scheduled\"` if called from a scheduled task, `\"manual\"` otherwise. Set `status` to `\"partial\"` if the skill completed with degraded output, `\"failure\"` if it could not run at all. Use the actual start time of this skill execution for `started`. This write is always the final action.\n173,224d73\n< \n< <!-- personal:start -->\n< ## OmniFocus Read Patterns (osascript)\n< \n< All OmniFocus reads go through AppleScript via `mcp__Control_your_Mac__osascript`. Common patterns:\n< \n< ```applescript\n< -- Inbox tasks\n< tell application \"OmniFocus\"\n<   tell default document\n<     set inboxTasks to every inbox task where completed is false\n<     set output to {}\n<     repeat with t in inboxTasks\n<       set end of output to name of t\n<     end repeat\n<     return output\n<   end tell\n< end tell\n< \n< -- Due soon (today + next N days)\n< tell application \"OmniFocus\"\n<   tell default document\n<     set theTasks to every flattened task where (due date is not missing value) and (due date \u2264 (current date) + (7 * days)) and (completed is false)\n<     -- iterate and return name, due date, project\n<   end tell\n< end tell\n< \n< -- Overdue tasks\n< tell application \"OmniFocus\"\n<   tell default document\n<     set theTasks to every flattened task where (due date is not missing value) and (due date < current date) and (completed is false)\n<   end tell\n< end tell\n< \n< -- Flagged tasks\n< tell application \"OmniFocus\"\n<   tell default document\n<     set theTasks to every flattened task where flagged is true and completed is false\n<   end tell\n< end tell\n< ```\n< \n< **Failure handling:**\n< If an osascript call fails, retry once with a simpler query scope. If it fails again, report clearly what was unavailable and proceed with what you have. Never silently skip OmniFocus data \u2014 if it fails, say so and flag what was missed.\n< \n< **Critical read rules:**\n< - Always filter for active/uncompleted tasks unless David asks for completed ones\n< - Inbox tasks can't be completed directly \u2014 assign to a project first\n< - Never delete inbox tasks to clear them \u2014 assign and mark complete for history\n< - Always mirror changes in OmniFocus when updating delegation tracker or internal tracking\n< - If `osascript` is needed for write operations not supported by MCP, use the Desktop Commander bridge\n< <!-- personal:end -->",
+          "duration_ms": 57,
+          "timestamp": "2026-09-16T15:27:10.380526"
+        },
+        {
+          "tool": "Bash",
+          "error": "Exit code 1\n805:807: syntax error: Expected expression but found \u201crd\u201d. (-2741)",
+          "duration_ms": 80,
+          "timestamp": "2026-09-16T15:27:39.636501"
+        },
+        {
+          "tool": "Bash",
+          "error": "Exit code 1\n98:102: syntax error: Can\u2019t get year. Access not allowed. (-1723)",
+          "duration_ms": 81,
+          "timestamp": "2026-09-16T15:27:51.274469"
+        }
+      ]
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [
+    "turn-level"
+  ]
+}

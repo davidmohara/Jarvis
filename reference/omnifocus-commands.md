@@ -4,28 +4,26 @@
 
 | Situation | Use |
 |-----------|-----|
-| Reading inbox, tasks, projects, forecast from Cowork | **OmniFocus MCP** (`mcp__omnifocus__*`) — sub-second, filtered, structured JSON |
-| Writing tasks (create, complete, update) from Cowork | **`skills/omnifocus-tasks/SKILL.md`** — gated skill using osascript via Desktop Commander |
-| Reading/writing from scheduled tasks or Desktop Commander context | **osascript** via `mcp__Desktop_Commander__start_process` using commands below |
-| Fallback if MCP is unavailable during a Cowork session | osascript via Desktop Commander (retry MCP once first) |
+| Reading inbox, tasks, projects from a Cowork session | **OmniFocus MCP** (`mcp__omnifocus__*`) — fast, structured JSON |
+| Reading tags | **osascript via Bash** — the installed MCP has no tag tool |
+| Writing tasks (create, complete, update) | **`skills/omnifocus-tasks/SKILL.md`** — gated skill using osascript via Bash |
+| Reading/writing from scheduled tasks | **osascript** via the Bash tool, using the commands below |
+| Fallback for any of the above | osascript via Bash. AppleScript runs natively on this Mac and does **not** need Desktop Commander |
 
 ## MCP Tool Quick Reference
 
-The OmniFocus MCP server (`mcp__omnifocus__*`) is the primary read path. Key tools:
+The installed OmniFocus MCP server exposes **four tools, all reads** (verified 2026-09-16):
 
 | Tool | When to Use |
 |------|-------------|
-| `get_inbox` | Pull inbox items for briefing or triage |
-| `list_tasks` | Filter tasks by status (available/overdue/due_soon/all), project, tag, date, flagged |
-| `search_tasks` | Find tasks by name/note text |
-| `get_task` | Full detail on one task by ID or exact name |
-| `list_projects` | List projects; use `status: active` for active-only |
-| `get_project` | Full project detail including task counts |
-| `get_forecast` | Tasks + calendar for today and upcoming days |
-| `get_task_counts` | Fast counts by status — use when you only need numbers |
-| `list_tags` | All tags — use for pre-flight validation in task creation |
+| `get_active_tasks` | Active (uncompleted) tasks |
+| `get_all_tasks` | All tasks including completed |
+| `get_active_projects` | Projects. Caveat: also returns on-hold and archived projects, so filter on status yourself |
+| `get_all_projects` | All projects including completed and dropped |
 
-See `SYSTEM.md` → OmniFocus Integration for full parameter reference and query patterns.
+**Do not reach for anything not on that list.** An earlier generation of this server exposed a much larger surface (`get_inbox`, `list_tasks`, `search_tasks`, `get_task`, `list_projects`, `get_project`, `get_forecast`, `get_task_counts`, `list_tags`, `create_task`, and more). As of 2026-09-16 none of those exist on the installed server. For tags, for correctly filtered active projects, or for any write, use osascript via Bash.
+
+See `SYSTEM.md` → OmniFocus Integration for query patterns.
 
 ---
 
@@ -197,13 +195,12 @@ end tell'
 
 ---
 
-## Historical Note: osascript-as-Primary Recommendation (Superseded)
+## Historical Note: The MCP Tool Surface Has Changed More Than Once
 
 `systems/error-tracking/rigby-omnifocus-mcp-fix-2026-04-01.md` recommended making osascript the **primary** path for task reads, with MCP as fallback. That recommendation was correct for the old `mcp-server-omnifocus` npm package, which had a hard-coded 60-second timeout and consistently failed on large databases.
 
-The OmniFocus MCP server was replaced in May 2026 with a new server that:
-- Returns inbox data in <1 second
-- Supports filtered queries (by status, project, tag, date, flagged) without fetching the full database
-- Has a richer API surface (40+ tools vs. 4)
+A May 2026 replacement server had a far richer surface (40+ tools including writes, tags, and filtered queries), and this file was updated to call it the preferred read path on that basis.
 
-**The osascript-as-primary recommendation is now superseded.** MCP is the preferred read path for Cowork sessions. osascript via Desktop Commander remains valid for scheduled tasks and write operations not covered by MCP.
+**As of 2026-09-16 the installed server is back down to four read-only tools.** The write, tag, and filtered-query tools are gone. Do not treat either the old "MCP times out" rule or the later "MCP has 40+ tools" description as current. Verify the live tool list before relying on any OmniFocus MCP capability.
+
+What has been stable across all of these changes: **osascript via Bash works, and does not require Desktop Commander.** Use it for tags, writes, and correctly filtered active projects. The five consecutive degraded boots in September 2026 came from assuming otherwise.

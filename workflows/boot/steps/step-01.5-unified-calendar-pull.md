@@ -1,15 +1,15 @@
 ---
 status: complete
-started-at: "2026-09-14T16:11:57Z"
-completed-at: "2026-09-14T16:12:30Z"
+started-at: "2026-09-16T14:22:30Z"
+completed-at: "2026-09-16T14:24:30Z"
 outputs:
   calendar_file: "data/calendar-unified.json"
-  event_count: 51
-  date_range: "2026-09-14 to 2026-09-17"
+  event_count: 40
+  date_range: "2026-09-16 to 2026-09-19 (response spills to 2026-09-21)"
   status: "written"
-  file_size_kb: 6
-  m365_calls: 3
-  note: "3 paginated calls (25/25/1), 51 events. Today is a full Dallas day; 09-16/09-17 is the AR YPO trip to Little Rock (AA3850 DFW->LIT, AA3589 LIT->DFW, Capital Hotel)."
+  file_size_kb: 18
+  m365_calls: 2
+  note: "2 paginated calls (25/15), 40 events. Prior file was >12h stale so re-pulled. Today (09-16) is an AR YPO travel day to Little Rock; 09-17 is the return travel day plus a YPO Spouse Kickoff; 09-18 → 09-20 is Personal retreat / Houston (Texans Suite 870 game 09-20)."
 ---
 
 <!-- system:start -->

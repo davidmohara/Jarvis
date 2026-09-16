@@ -1,0 +1,15 @@
+{
+  "id": "err-20260916T204629-6MFV68",
+  "timestamp": "2026-09-16T20:46:29Z",
+  "session": "2026-09-16",
+  "source": "explicit",
+  "agent": "master",
+  "category": "assumption-error",
+  "description": "While fixing the OmniFocus read path, I found that `every inbox task` returns 255 items of which only 8 are incomplete (247 completed tasks sit in the inbox), and recommended running OmniFocus 'Clean Up' to retire the 247 completed items, framing that as the remediation for the unfiltered-query trap. David had already run Clean Up and it does not remove them. Completed tasks persist in the inbox indefinitely, so the 247 are a permanent condition of the database, not a transient backlog.",
+  "correction": "Do not offer Clean Up as a fix for completed tasks in the inbox. The `completed is false` filter must always be embedded in the query itself, because the unfiltered form will always return the completed items. Filtering is part of the call, not a cleanup step to be performed separately.",
+  "failure_mode": "wrong-assumption",
+  "systemic_fix": "Applied 2026-09-16: (1) `workflows/boot/steps/step-01.2-unified-data-pull.md` Pull B now mandates `where completed is false` on the inbox query with the counts documented inline as the reason; (2) `skills/omnifocus-tasks/SKILL.md` read patterns already carried the filter and now state it as mandatory; (3) `reference/omnifocus-commands.md` retains its existing 'Critical' rule. Eval assertions added under `systems/eval-harness/assertions/` so the eval framework has visibility into OmniFocus data quality at boot rather than only into the pull succeeding.",
+  "fix_status": "applied",
+  "severity": "minor",
+  "related_entries": ["err-20260715T134820-X2GOL2"]
+}

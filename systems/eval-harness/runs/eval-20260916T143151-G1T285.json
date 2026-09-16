@@ -1,0 +1,88 @@
+{
+  "id": "eval-20260916T143151-G1T285",
+  "type": "skill",
+  "name": "teams-transcripts",
+  "agent": "knox",
+  "session_id": "ef27cc33-3dba-4b27-b1b6-879ec1630957",
+  "trigger": "manual",
+  "started": "2026-09-16T14:20:00Z",
+  "completed": "2026-09-16T14:31:51.384711Z",
+  "duration_seconds": 711.4,
+  "status": "success",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 4,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": true,
+      "outputs_non_empty": true,
+      "assertions_checked": 4,
+      "assertions_passed": 4,
+      "assertion_results": [
+        {
+          "assertion": "teams-transcripts-signal-written",
+          "description": "teams-transcripts skill-run signal file was written",
+          "category": "structure",
+          "passed": true
+        },
+        {
+          "assertion": "teams-transcripts-signal-status",
+          "description": "teams-transcripts skill-run did not end in failure",
+          "category": "structure",
+          "passed": true
+        },
+        {
+          "assertion": "teams-tr-002-substantive",
+          "description": "teams-transcripts output is substantive (>200 bytes)",
+          "category": "structure",
+          "passed": true
+        },
+        {
+          "assertion": "teams-tr-003-content",
+          "description": "teams-transcripts output contains expected content",
+          "category": "structure",
+          "passed": true
+        }
+      ],
+      "category_breakdown": {
+        "structure": {
+          "passed": 4,
+          "checked": 4
+        },
+        "content": {
+          "passed": 0,
+          "checked": 0
+        },
+        "quality": {
+          "passed": 0,
+          "checked": 0
+        }
+      }
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "deterministic_gate": {
+      "score": 0.8333,
+      "gate_status": "pass",
+      "computed_at": "2026-09-16T14:31:53.625447Z"
+    }
+  },
+  "version_hash": "984397e3a61bfd43",
+  "prior_baseline_id": null,
+  "tags": [
+    "cowork-hook",
+    "skill"
+  ]
+}

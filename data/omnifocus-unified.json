@@ -1,7 +1,7 @@
 {
-  "pulled_at": "2026-09-15T16:20:00Z",
+  "pulled_at": "2026-09-16T14:22:24Z",
   "status": "failed",
-  "reason": "Desktop Commander/osascript MCP tool unavailable this session (ToolSearch confirmed no match — same degraded condition as 2026-09-11 and 2026-09-14 boots, now 3+ consecutive sessions).",
+  "task_count": 0,
   "tasks": [],
-  "task_count": 0
+  "error": "Control_your_Mac__osascript (Desktop Commander) MCP tool not present in this session (ToolSearch no match) - same degraded condition as prior 3+ boots"
 }

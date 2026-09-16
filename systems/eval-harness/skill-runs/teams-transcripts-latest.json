@@ -1,11 +1,11 @@
 {
   "skill": "teams-transcripts",
   "agent": "knox",
-  "trigger": "boot",
-  "started": "2026-05-27T11:42:00-05:00",
-  "completed": "2026-05-27T11:58:00-05:00",
+  "trigger": "manual",
+  "started": "2026-09-16T14:20:00Z",
+  "completed": "2026-09-16T14:46:00Z",
   "status": "success",
-  "tool_failures": 1,
+  "tool_failures": 4,
   "error_ids": [],
-  "notes": "1 transcript fetched and filed (SST FP&A AI Workshop). Obsidian MCP unavailable — note written via osascript filesystem write. Other May 26 meetings (Sales Scrum, Sales & Recruiting, SAP Group, Devlin AI Talk) checked — no transcript access (external org or transcription not enabled)."
+  "notes": "5 meeting notes filed (2 with full Teams transcripts, 3 skeletons). SST deadlines call captured in full; GEHC + SST external-tenant transcripts blocked with HTTP 403; 1 on 1 had no transcript. 3 OmniFocus tasks created via osascript fallback (MCP unavailable). Daily notes for 2026-09-15 and 2026-09-16 created."
 }

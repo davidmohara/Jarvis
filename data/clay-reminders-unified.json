@@ -1,8 +1,29 @@
 {
-  "pulled_at": "2026-09-15T16:20:00Z",
+  "pulled_at": "2026-09-16T14:22:24Z",
   "status": "available",
-  "reminders": [],
+  "reminders": [
+    {
+      "type": "birthday",
+      "date": "2026-09-16",
+      "description": "Birthday",
+      "contact_name": "COURT WESTCOTT",
+      "relationship": "Family office, Dallas (tech/RE/subscription; angel AR focus); Clay score 7217"
+    },
+    {
+      "type": "birthday",
+      "date": "2026-09-20",
+      "description": "Birthday",
+      "contact_name": "Kevin Gardner",
+      "relationship": "Clay contact; score 3714"
+    },
+    {
+      "type": "birthday",
+      "date": "2026-09-22",
+      "description": "Birthday",
+      "contact_name": "Justin Etheredge",
+      "relationship": "Energy/electric utility digital products; score 10"
+    }
+  ],
   "reminder_count": 0,
-  "birthday_count": 0,
-  "note": "Clay MCP getUpcomingReminders returned 0 results (live check, not stale cache)."
+  "birthday_count": 3
 }

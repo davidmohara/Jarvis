@@ -1,9 +1,13 @@
 ---
 workflow: talking-points
 agent: harper
-status: idle
-session-started: null
-session-id: null
-current-step: null
-original-request: null
-accumulated-context: {}
+status: complete
+session-started: 2026-09-16
+session-id: ar-ypo-dinner-2026-09-16
+current-step: step-03
+original-request: "Build talking points for the AR YPO Dinner, Little Rock, 2026-09-16"
+accumulated-context:
+  event_type: panel
+  event_name: "The YPO You Don't Know Yet (AR YPO chapter kickoff dinner)"
+  output: meetings/2026-09-16-ar-ypo-dinner-talking-points.md
+---

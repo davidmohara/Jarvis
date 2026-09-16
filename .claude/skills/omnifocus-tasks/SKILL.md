@@ -8,7 +8,7 @@ allowed-tools:
   - "Glob"
   - "Grep"
   - "Write"
-  - "mcp__Control_your_Mac__osascript"
+  - "Bash"
   - "mcp__omnifocus__*"
 model: haiku
 ---

@@ -16,7 +16,15 @@ Read and follow `workflows/boot/workflow.md` in full.
 
 ## OmniFocus
 
-Use **`mcp__Control_your_Mac__osascript`** (Desktop Commander) for all OmniFocus READ operations. Do not use the `mcp__omnifocus__*` MCP server for reads — it times out on this machine. Refer to the OmniFocus section in SYSTEM.md for AppleScript patterns. Always filter for active/uncompleted tasks unless David asks for completed ones.
+Two working paths, both verified 2026-09-16.
+
+**Reads: `mcp__omnifocus__*` MCP server.** Four tools exist, all reads: `get_active_tasks`, `get_all_tasks`, `get_active_projects`, `get_all_projects`. Always filter for active/uncompleted tasks unless David asks for completed ones.
+
+**Tags and writes: `osascript` via the Bash tool.** The current MCP version exposes no tag tool and no write tool at all, so `list_tags`, `list_projects`, and `create_task` are gone. AppleScript covers both, runs natively on this Mac, and does **not** require Desktop Commander.
+
+Caveat on `get_active_projects`: it also returns on-hold and archived projects, so filter on status yourself when you need genuinely active ones. The AppleScript form filters correctly: `osascript -e 'tell application "OmniFocus" to tell default document to get name of every flattened project whose status is active status'`.
+
+Do **not** route OmniFocus through `mcp__Control_your_Mac__osascript` (Desktop Commander). That server is frequently absent from the session tool roster, and treating it as the only OmniFocus path silently degraded the source to zero data for five consecutive boots (see `memory/working/morning-briefing-2026-09-16-093000.md`). Desktop Commander remains fine for non-OmniFocus host-Mac work when it is connected.
 
 **For task creation: ALWAYS read `skills/omnifocus-tasks/SKILL.md` first.** That skill is the only authorized path for creating OmniFocus tasks. It contains a pre-flight checklist that gates on project and tag assignment. Do not write raw OmniFocus AppleScript for task creation outside that skill. No exceptions.
 

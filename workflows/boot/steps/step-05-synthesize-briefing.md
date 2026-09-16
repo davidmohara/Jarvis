@@ -1,12 +1,12 @@
 ---
 status: complete
-started-at: "2026-09-14T16:26:00Z"
-completed-at: "2026-09-14T16:30:00Z"
+started-at: "2026-09-16T14:29:00Z"
+completed-at: "2026-09-16T14:31:00Z"
 outputs:
   briefing_delivered: "yes — full morning briefing synthesized (degraded on 1 source: OmniFocus) and carried forward through steps 06-08 for verbatim delivery to controller"
-  format: "3-paragraph narrative + calendar table, no Watchtower section (ran earlier today outside this synthesis step, surfaced separately in phase5), no Reminders section (0 due, omitted per format rule)"
-  calendar_today: "12 events, live from data/calendar-unified.json. Full Dallas day with a zero-buffer back-to-back midday stretch."
-  hotspots: "Devlin sync/Overflow/AI Workshop CA sync back-to-back zero buffer 11:30am-1pm; Summer/craiggroup.io call thin context; Saxum scheduling reply owed; yesterday's daily review missing (>1 month gap); OmniFocus unreachable (3rd consecutive boot); plaud-ingest in-progress at step-01 (non-blocking, surfaced)."
+  format: "3-paragraph prose narrative (no em-dashes) + calendar table. Watchtower section omitted (no daily watchtower run today; last was the W38 weekly run on 2026-09-14). Reminders section omitted (0 due, per format rule). Clay birthdays surfaced inside paragraph 3 rather than a separate section."
+  calendar_today: "18 distinct today-events, live from data/calendar-unified.json. AR YPO travel day to Little Rock; Dallas recurring cadence sits on the calendar as tentative and will be missed in person."
+  hotspots: "5 UTB board approvals pending in Boardvantage (fiduciary queue, rolled a day); Opal Group partner reply owed; Court Westcott birthday today; 7:10am DFW departure already past as of 9:22am boot; 5:00pm Overflow (UTB Board) stacks against 6:00pm YPO Dinner; Q3 rocks unsigned ~7 weeks; daily review gap >1 month; OmniFocus unreachable (5th+ consecutive boot)."
 ---
 
 <!-- system:start -->

@@ -1,13 +1,13 @@
 ---
 status: complete
-started-at: "2026-09-14T16:22:00Z"
-completed-at: "2026-09-14T16:26:00Z"
+started-at: "2026-09-16T14:27:30Z"
+completed-at: "2026-09-16T14:29:00Z"
 outputs:
-  meetings_found: "Today (Mon Sep 14): full Dallas day — Prayer Call, Sales & Recruiting, Sales Scrum (recurring-skip), Devlin sync/Overflow/AI Executive Workshop CA sync back-to-back 11:30am-1pm CT (zero buffer), Summer/craiggroup.io call 2pm CT (low-context), GEHC Twice Weekly Internal Check-In 3:30pm CT, FEI Monthly evening event at The Clubs of Prestonwood."
-  meeting-context: "Delegation tracker clean (0 active delegations). Q3 rocks status unchanged: still in draft (Revenue Visibility, Partner/Account Review Execution, Thought Leadership, Partner Co-Sell Pipeline). Yesterday's (09-13) daily review missing — last dated review on file remains auto-2026-08-12, flagged again as accountability gap (>1 month). Back-to-back flag: Devlin sync -> Overflow -> AI Workshop CA sync, zero buffer 11:30am-1pm."
+  meetings_found: "Today (Wed Sep 16): AR YPO travel day to Little Rock. Flight AA3850 DFW->LIT dep 7:10am CT / arr 8:34am CT (conf GZCLNF, First). Capital Hotel check-in. Regus day office Little Rock booked 9:00am-12:00pm CT. AR YPO Dinner, Little Rock 6:00-9:00pm CT. Dallas recurring meetings still on the calendar as 'tentative' and will be missed in person: Dallas Executive Huddle 8:30am, Sales & Recruiting 9:15am, AI Leaders Weekly 9:30am, Sales Scrum 9:30am, Microsoft Partner GTM 10:00am, AI Takeoff Weekly Touch 10:00am, David/Robyn 1:1 10:30am, GEHC AI Routing weekly sync 10:30am, US Town Hall 12:00pm, GEHC Twice Weekly Internal 3:30pm, Overflow 5:00pm."
+  meeting-context: "Delegation tracker clean (0 active delegations). Q3 rocks (memory/personal/quarterly-objectives.md) still status 'Q3 draft — pending David's review', last-updated 2026-07-30 (~7 weeks unsigned; 4 rocks: Revenue Visibility, Partner & Account Review Execution, Thought Leadership, Partner Co-Sell Pipeline). Daily review gap: last daily review on file is memory/episodic/daily-review-2026-08-13-000000.md; reviews/daily/ holds only auto-*.md through 2026-08-12 — over a month with no daily review, recurring accountability gap. Identity/MEMORY.md checked: Robyn Fuentes (President Houston, key focus) on the 10:30 1:1; Devlin Liles across AI Leaders/StrongTie threads; YPO is a standing personal commitment. No identity-level notes for Court Westcott / Kevin Gardner / Justin Etheredge beyond Clay records."
   clay-reminders: "none — 0 due in next 7 days (data/clay-reminders-unified.json)"
-  clay-birthdays: "none surfaced — no dedicated birthday tool in current Clay toolset"
-  context-status: "degraded — calendar and Clay fresh; identity/MEMORY.md checked directly for attendee context, no relevant hits found for Summer/craiggroup.io or Saxum/rstone."
+  clay-birthdays: "3 in next 7 days (data/clay-reminders-unified.json): COURT WESTCOTT today 09-16 (Dallas family office, tech/RE/subscription, angel AR focus), Kevin Gardner 09-20, Justin Etheredge 09-22."
+  context-status: "degraded — calendar and Clay fresh; OmniFocus unavailable (no task-level context this run); identity/MEMORY.md read directly for attendee context."
 ---
 
 <!-- system:start -->

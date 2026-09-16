@@ -1,0 +1,15 @@
+{
+  "id": "err-20260916T200418-CRJ2R2",
+  "timestamp": "2026-09-16T20:04:18Z",
+  "session": "2026-09-16 morning boot",
+  "source": "explicit",
+  "agent": "master",
+  "category": "assumption-error",
+  "description": "While diagnosing the repeated 'OmniFocus unreachable' boot failures, Master correctly found that the omnifocus MCP server is registered in Claude Desktop's config rather than Claude Code's, but then wrongly concluded that mcp__Control_your_Mac__osascript (Desktop Commander) was a 'documented dead path' because it appears in zero config files. That inference treated absence-from-config as absence-of-tool. David corrected this: Desktop Commander is a platform-provided tool that is always available and does not need a config entry. The config-absence finding was accurate; the conclusion drawn from it was not.",
+  "correction": "Desktop Commander (mcp__Control_your_Mac__*) is always available and requires no config registration. Do not infer that a tool is unavailable or that a documented path is dead merely because it is absent from .mcp.json, ~/.claude.json, or claude_desktop_config.json. Confirm availability by attempting the tool call or checking the live tool roster before declaring a path dead.",
+  "failure_mode": "wrong-assumption",
+  "systemic_fix": null,
+  "fix_status": "proposed",
+  "severity": "minor",
+  "related_entries": []
+}

@@ -1,0 +1,132 @@
+{
+  "id": "eval-20260916T142132-0AUI7E",
+  "type": "workflow",
+  "name": "boot",
+  "agent": "master",
+  "session_id": "ef27cc33-3dba-4b27-b1b6-879ec1630957",
+  "trigger": "boot",
+  "started": "2026-09-16T14:21:32.353782Z",
+  "completed": "2026-09-16T14:29:23.969166Z",
+  "duration_seconds": 471.62,
+  "status": "success",
+  "steps": [],
+  "subagents": [
+    {
+      "agent_id": "a13b03cbace7c255b",
+      "agent_type": "general-purpose",
+      "started": "2026-09-16T14:21:40.284557Z",
+      "completed": "2026-09-16T14:32:31.897462Z",
+      "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+      "tokens_input": 1052894,
+      "tokens_output": 2488,
+      "cost_usd": 0.09,
+      "duration_seconds": 651.61
+    },
+    {
+      "agent_id": "a663c33678b77baf1",
+      "agent_type": "general-purpose",
+      "started": "2026-09-16T14:22:05.357334Z",
+      "completed": "2026-09-16T14:25:08.283839Z",
+      "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+      "tokens_input": 594581,
+      "tokens_output": 3516,
+      "cost_usd": 0.09,
+      "duration_seconds": 182.93
+    },
+    {
+      "agent_id": "ae9c79bcdf0de0d6f",
+      "agent_type": "general-purpose",
+      "started": "2026-09-16T14:22:13.686131Z",
+      "completed": "2026-09-16T14:29:06.037033Z",
+      "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+      "tokens_input": 576124,
+      "tokens_output": 3496,
+      "cost_usd": 0.09,
+      "duration_seconds": 412.35
+    }
+  ],
+  "monitoring": {
+    "active": false,
+    "state_yaml_path": "workflows/boot/state.yaml",
+    "opened_by": "eval-turn-start.py",
+    "trigger_evidence": "run the morning boot and spawn an agent to run the teams transcript ingest - i'm looking specifically for the sst and ge healthcare related calls"
+  },
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 3,
+      "assertions_passed": 3,
+      "assertion_results": [
+        {
+          "assertion": "boot-001-state-complete",
+          "description": "Boot workflow state.yaml shows status: complete",
+          "passed": true
+        },
+        {
+          "assertion": "boot-002-session-index-exists",
+          "description": "Session index file exists \u2014 boot's Session Index Boot step must have created/appended it",
+          "passed": true
+        },
+        {
+          "assertion": "boot-003-session-index-substantive",
+          "description": "Session index is a real record, not an empty stub",
+          "passed": true
+        }
+      ]
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": "f1a31609ac6be8a11b48a3c6267957f76a4e86e971cd143315c77472e90af0d0",
+  "prior_baseline_id": null,
+  "tags": [
+    "turn-level"
+  ],
+  "guardrails": [
+    {
+      "name": "pre-completion-review",
+      "after_step": "step-06-scan-workflows",
+      "result": "flag",
+      "reason": "Briefing reflects live 2026-09-16 data (calendar 40 events pulled fresh, email 16 msgs, Clay 3 birthdays, jarvis-inbox empty). OmniFocus unreachable (5th+ consecutive boot, declared degraded). No dedicated Ralph/boot-verification agent available, self-verified with file evidence. plaud-ingest + plaud-discover now complete; Teams transcript ingest partial (Graph FORBIDDEN on OnlineMeetingTranscript). _active.yaml empty index is accurate this run.",
+      "escalated_to_human": false,
+      "timestamp": "2026-09-16T14:27:11.081169+00:00"
+    },
+    {
+      "name": "pre-completion-review",
+      "after_step": "step-06-scan-workflows",
+      "result": "flag",
+      "reason": "Briefing reflects live 2026-09-16 data; OmniFocus unreachable (declared degraded); no Ralph/boot-verification agent, self-verified; plaud-ingest complete; Teams transcript ingest partial (Graph FORBIDDEN).",
+      "escalated_to_human": false,
+      "timestamp": "2026-09-16T14:27:26.900855+00:00"
+    }
+  ],
+  "total_tokens_input": 1170705,
+  "total_tokens_output": 7012,
+  "total_cost_usd": 0.18
+}

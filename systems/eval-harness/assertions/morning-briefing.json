@@ -42,6 +42,13 @@
       "check": "guardrail_checkpoint_ran",
       "checkpoint_name": "pre-synthesis-review",
       "description": "step-03b's guardrail checkpoint recorded a result (pass/flag/escalate) on this run — read from the eval record's own guardrails array, not self-reported by the workflow"
+    },
+    {
+      "id": "morning-007-omnifocus-addressed",
+      "check": "file_contains",
+      "path": "memory/working/morning-briefing-*.md",
+      "pattern": "(?i)omnifocus",
+      "description": "Briefing addresses OmniFocus either way round: task data when the pull succeeded, or an explicit disclosure when it was degraded. Silence is the failure this catches, since a briefing that quietly omits task data reads as a clean day."
     }
   ]
 }
