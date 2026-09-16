@@ -95,6 +95,7 @@ Running list of potential blog topics. Jarvis captures these proactively from co
 | "The Activity Trap" | Content pipeline (2026-09-15) | AI, business, productivity | Ghost draft — pending approval |
 | "What Happens to an Expert When AI Knows Everything They Know" | Content pipeline (2026-09-15) | AI, thinking, leadership | Ghost draft — pending approval |
 | "DFW Is Now the AI Talent Market" | Content pipeline (2026-09-15) | business, AI, growth | Ghost draft — pending approval |
+| "You're Modeling Contentment or You're Modeling Desire" | Content pipeline (2026-09-16) | life, thoughts, family | Ghost draft — pending approval. Ghost ID: 6aaae9da57f821028a9e9542 |
 
 ## Published (for reference / avoid repeats)
 

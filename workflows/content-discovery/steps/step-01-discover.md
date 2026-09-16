@@ -1,17 +1,17 @@
 ---
 status: complete
-started-at: "2026-09-15T19:30:00Z"
-completed-at: "2026-09-15T21:27:00Z"
+started-at: "2026-09-16T12:00:00Z"
+completed-at: "2026-09-16T19:12:00Z"
 outputs:
-  messages_scanned: 3
-  new_urls: 0
+  messages_scanned: 8
+  new_urls: 1
   new_digests: 0
-  posts_drafted: 0
-  gate_1_result: "PASS — ok: true, 3 messages returned (all bot notification posts, no digest signal, all SKIP)"
-  gate_2_result: "N/A — no new drafts this run"
+  posts_drafted: 1
+  gate_1_result: "PASS — ok: true, 8 messages returned via 48h window (24h returned 0, 48h retry triggered), channel C0B160MA3EK confirmed"
+  gate_2_result: "PASS — word count 335, all arc elements present, no em-dashes, tags on locked list, image landscape 2000x1333, internal link to Let Them Climb the Tree inserted"
   editorial_threads_checked: 3
-  editorial_feedback_found: 2
-  editorial_edits_applied: 2
+  editorial_feedback_found: 0
+  editorial_edits_applied: 0
 model: sonnet
 ---
 
