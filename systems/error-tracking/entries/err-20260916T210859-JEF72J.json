@@ -1,0 +1,15 @@
+{
+  "id": "err-20260916T210859-JEF72J",
+  "timestamp": "2026-09-16T21:08:59Z",
+  "session": "2026-09-16",
+  "source": "explicit",
+  "agent": "master",
+  "category": "assumption-error",
+  "description": "I asserted repeatedly that the installed OmniFocus MCP exposes only four read-only tools (get_active_tasks, get_all_tasks, get_active_projects, get_all_projects) with no tag tool and no write tool, and built an entire fix on that premise: rewrote the gated task-creation skill to use osascript instead of MCP writes, documented that list_tags and create_task 'no longer exist', and raised doubt that the wrong MCP build was installed. David corrected this: the MCP has more than four tools. The source at ~/develop/omnifocus-mcp/src/buildServer.ts registers 13 tools (including list_tags, create_tag, query_omnifocus with tag/status/date filters, add_omnifocus_task, edit_item, batch_add_items) and six resources. The session was talking to a stale in-memory process started 3:08PM from a pre-update build (dist/index.js, reported version 1.0.0), while the repo source was updated at 15:58 to v1.15.0 and dist was never rebuilt.",
+  "correction": "To determine what an MCP server can do, do not rely on the ToolSearch index alone. It reflects the currently connected process, which can be a stale build that no longer matches the installed source. Check the server's own source or config (buildServer.ts, package.json, the entrypoint), and check the running process with ps, before concluding a capability is absent. Absence from the tool index means 'not connected', not 'does not exist'.",
+  "failure_mode": "lazy-search",
+  "systemic_fix": "Applied 2026-09-16. Rebuilt ~/develop/omnifocus-mcp (npm install, npm run build) and wrote the missing run-server.sh launcher, which validates each node candidate by executing it because /usr/local/bin/node is an Intel binary that fails with 'bad CPU type in executable'. Verified the server by direct MCP handshake: v1.15.0, 12 tools, 46 resources. Killed the stale process (pid 93789, old dist/index.js build). Corrected every doc written on the false premise: CLAUDE.md OmniFocus section, skills/omnifocus-tasks/SKILL.md (Step 1, creation, quick capture, error handling, read patterns), reference/omnifocus-commands.md (tool table plus a cautionary note), agents/master.md routing row, workflows/boot/steps/step-01.2-unified-data-pull.md Pull B, workflows/morning-briefing/workflow.md, and the boot-006 assertion description. MCP is now documented as primary with osascript via Bash as fallback. Remaining: a Claude Code restart is required before the 12 tools appear in a session, since MCP connections are established at session start.",
+  "fix_status": "applied",
+  "severity": "moderate",
+  "related_entries": []
+}

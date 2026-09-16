@@ -16,15 +16,17 @@ Read and follow `workflows/boot/workflow.md` in full.
 
 ## OmniFocus
 
-Two working paths, both verified 2026-09-16.
+**Primary path: the `mcp__omnifocus__*` MCP server.** A local server at `~/develop/omnifocus-mcp`, launched by `run-server.sh` (referenced from `~/.claude.json`). Verified 2026-09-16 at v1.15.0: **12 tools and 46 resources**.
 
-**Reads: `mcp__omnifocus__*` MCP server.** Four tools exist, all reads: `get_active_tasks`, `get_all_tasks`, `get_active_projects`, `get_all_projects`. Always filter for active/uncompleted tasks unless David asks for completed ones.
+- **Read:** `query_omnifocus` (filters by project, folder, tags, status, dates; supports `includeCompleted`, `fields`, `limit`, `sortBy`, `summary`), `dump_database`, `list_tags`, `list_perspectives`, `get_perspective_view`
+- **Write:** `add_omnifocus_task`, `add_project`, `edit_item` (this is also how you MOVE a task: set `newProjectName`, or `""`/`inbox`), `remove_item`, `batch_add_items`, `batch_remove_items`, `create_tag`
+- **Resources:** `omnifocus://inbox`, `omnifocus://today`, `omnifocus://flagged`, `omnifocus://stats`, plus one URI per project and per perspective
 
-**Tags and writes: `osascript` via the Bash tool.** The current MCP version exposes no tag tool and no write tool at all, so `list_tags`, `list_projects`, and `create_task` are gone. AppleScript covers both, runs natively on this Mac, and does **not** require Desktop Commander.
+Prefer `query_omnifocus` over `dump_database` for targeted lookups; it is much lighter. Always filter for active work unless David asks for completed items, using `includeCompleted: false` together with `filters.status`. See `QUERY_TOOL_REFERENCE.md` in the server repo for the full filter and field reference.
 
-Caveat on `get_active_projects`: it also returns on-hold and archived projects, so filter on status yourself when you need genuinely active ones. The AppleScript form filters correctly: `osascript -e 'tell application "OmniFocus" to tell default document to get name of every flattened project whose status is active status'`.
+**Fallback: `osascript` via the Bash tool.** AppleScript runs natively on this Mac and does **not** require Desktop Commander. Use it when the MCP is unavailable. `mcp__Control_your_Mac__osascript` is not needed for OmniFocus and must not be treated as the access path; assuming it was the only route silently degraded OmniFocus to zero data for five consecutive boots (see `memory/working/morning-briefing-2026-09-16-093000.md`).
 
-Do **not** route OmniFocus through `mcp__Control_your_Mac__osascript` (Desktop Commander). That server is frequently absent from the session tool roster, and treating it as the only OmniFocus path silently degraded the source to zero data for five consecutive boots (see `memory/working/morning-briefing-2026-09-16-093000.md`). Desktop Commander remains fine for non-OmniFocus host-Mac work when it is connected.
+Two operational notes. MCP connections are established at session start, so a rebuilt server needs a Claude Code restart before its tools appear; the tool index describes the **connected process**, which can be a stale build. And `dist/` is gitignored in that repo, so a fresh clone needs `npm install && npm run build` before `run-server.sh` will work.
 
 **For task creation: ALWAYS read `skills/omnifocus-tasks/SKILL.md` first.** That skill is the only authorized path for creating OmniFocus tasks. It contains a pre-flight checklist that gates on project and tag assignment. Do not write raw OmniFocus AppleScript for task creation outside that skill. No exceptions.
 

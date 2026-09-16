@@ -41,7 +41,7 @@
       "path": "data/omnifocus-unified.json",
       "field": "status",
       "value": "failed",
-      "description": "OmniFocus pull did not report status:failed. This is the assertion that surfaces the five consecutive degraded boots of September 2026, which were caused by treating the absent Desktop Commander tool as OmniFocus being unreachable. AppleScript runs via the Bash tool and does not need Desktop Commander."
+      "description": "OmniFocus pull did not report status:failed. This assertion surfaces the five consecutive degraded boots of September 2026, which were caused by treating the absent Desktop Commander tool as OmniFocus being unreachable. Both the OmniFocus MCP and osascript via the Bash tool work, and neither requires Desktop Commander."
     },
     {
       "id": "boot-007-omnifocus-no-completed-tasks-leaked",

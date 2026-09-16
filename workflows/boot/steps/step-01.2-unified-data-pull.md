@@ -93,14 +93,30 @@ outputs:
 
 ### Pull B: OmniFocus Inbox
 
-**Source:** OmniFocus, via `osascript` through the **Bash** tool. This is the working path as of 2026-09-16. `mcp__Control_your_Mac__osascript` (Desktop Commander) is frequently absent from the session tool roster, and AppleScript does NOT require it. Do NOT report OmniFocus unreachable merely because Desktop Commander is missing: that misdiagnosis is what degraded this source for five consecutive boots.
+**Source:** OmniFocus.
 
-Working commands (all verified against live OmniFocus):
+**Preferred: the OmniFocus MCP server** (`mcp__omnifocus__*`). Use `query_omnifocus` for each group, which is far lighter than `dump_database`:
+
+```
+# Inbox
+query_omnifocus: entity="tasks", filters={ inInbox: true }, includeCompleted=false,
+                 fields=["id","name","dueDate","projectName","tagNames","flagged","note"]
+
+# Due/overdue within 7 days
+query_omnifocus: entity="tasks", filters={ dueBefore: "<ISO>", dueAfter: "<ISO>" },
+                 includeCompleted=false, fields=[...]
+
+# Flagged
+query_omnifocus: entity="tasks", filters={ flagged: true }, includeCompleted=false, fields=[...]
+```
+
+**Fallback: `osascript` through the Bash tool**, used when the MCP is unavailable. AppleScript runs natively and does NOT require Desktop Commander, so do NOT report OmniFocus unreachable merely because Desktop Commander is missing: that misdiagnosis degraded this source for five consecutive boots.
 
 ```bash
 # Inbox tasks. The completed is false filter is MANDATORY: as of 2026-09-16 the
 # inbox holds 255 tasks of which only 8 are incomplete, so the unfiltered form
-# returns 247 completed items and will pollute the briefing.
+# returns 247 completed items and will pollute the briefing. With the MCP, the
+# equivalent guarantee is includeCompleted: false.
 osascript -e 'tell application "OmniFocus" to tell default document to get name of every inbox task where completed is false'
 
 # Due within the next 7 days, incomplete, with project

@@ -90,7 +90,7 @@ This workflow and any sub-workflow/agent it invokes (Chase's lead-review, Knox's
 
 1. Run `ToolSearch` for `mcp__Desktop_Commander__*` and `mcp__Control_your_Mac__osascript` — these are frequently deferred and absent from the initial tool list, which is not evidence they're unavailable.
 2. Only after confirming those tools are genuinely unavailable (or the path doesn't exist even via them) is it valid to report the source as unreachable.
-3. **OmniFocus is a special case: it does not need Desktop Commander at all.** Run `osascript` directly via the Bash tool (verified working 2026-09-16; commands in `workflows/boot/steps/step-01.2-unified-data-pull.md`, Pull B). Only report OmniFocus unreachable if `osascript` itself fails. Checking for Desktop Commander, not finding it, and stopping there is what degraded this source for five consecutive boots.
+3. **OmniFocus is a special case.** Prefer the OmniFocus MCP (`mcp__omnifocus__*`); if its tools are absent, run `osascript` directly via the Bash tool. AppleScript does not need Desktop Commander, so do NOT report OmniFocus unreachable merely because Desktop Commander is missing. Only report it unreachable if both the MCP and `osascript` fail. Checking for Desktop Commander, not finding it, and stopping there is what degraded this source for five consecutive boots.
 4. See `err-20260715T134820-X2GOL2` for the specific failure this guards against — Master previously declared these sources unreachable without checking for Desktop Commander first.
 
 ## EXECUTION

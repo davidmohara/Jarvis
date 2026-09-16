@@ -33,20 +33,19 @@ Before executing ANY task creation call, complete these steps in order:
 
 Do NOT use static/hardcoded lists. Always query OmniFocus for current data.
 
-Both reads run through `osascript` via the **Bash** tool. This is the working path as of 2026-09-16: `mcp__omnifocus__list_projects` and `mcp__omnifocus__list_tags` no longer exist in the current MCP version, and Desktop Commander is NOT required, because AppleScript runs natively on this Mac.
+**Preferred, via the OmniFocus MCP:**
 
-**Active projects:**
+- **Active projects:** `query_omnifocus` with `entity: "projects"` and `filters: { status: ["Active"] }`. The `status` filter is what makes this a valid gate: an unfiltered project listing also returns on-hold and dropped projects.
+- **Tags:** `list_tags`.
+
+**Fallback, via `osascript` in the Bash tool** (works without the MCP and without Desktop Commander):
+
 ```bash
 osascript -e 'tell application "OmniFocus" to tell default document to get name of every flattened project whose status is active status'
-```
-The `status is active status` filter is what excludes on-hold and dropped projects. Do NOT substitute the MCP tool `get_active_projects` here: it also returns on-hold and archived projects, which defeats this gate.
-
-**Tags:**
-```bash
 osascript -e 'tell application "OmniFocus" to tell default document to get name of every flattened tag'
 ```
 
-Both commands return a comma-separated list. Match on the exact name. Project and tag namespaces are separate, and names can repeat within the project list, so if a target name is ambiguous, ask David rather than guessing which one to use.
+Either path is acceptable. The MCP is preferred because it returns IDs alongside names, which removes ambiguity. Match on exact name, and where you have an ID prefer passing `projectId` over `projectName`. Project and tag namespaces are separate and names can repeat, so if a name matches more than one item, ask David rather than guessing.
 
 ### Step 2: Populate All Fields
 
@@ -75,9 +74,28 @@ Do NOT create new projects or tags without David's explicit approval. If the cor
 - If the task is a personal errand → Errands
 - If none of the above clearly fit → ask David
 
-## Task Creation (osascript via Bash)
+## Task Creation (MCP primary)
 
-`mcp__omnifocus__create_task` no longer exists. Run the template below through the **Bash** tool. Verified end-to-end 2026-09-16: project assignment, tag assignment, and due date all confirmed against live OmniFocus.
+Use `add_omnifocus_task`. Only `name` is required by the schema; the gate above governs everything else.
+
+```
+add_omnifocus_task:
+  name:        "{{TASK_NAME}}"      # required
+  projectName: "{{PROJECT}}"        # or projectId; prefer the ID when you have it
+  tags:        ["{{TAG}}"]          # array of tag names
+  note:        "{{NOTES}}"          # who, why, source. Minimum one sentence.
+  dueDate:     "{{ISO_8601}}"       # default: coming Friday at 17:00 local
+  deferDate:   "{{ISO_8601}}"       # only if it should not surface yet
+  flagged:     false                # true only if David explicitly says urgent
+```
+
+Note the description's warning: if a matching task already exists (often sitting in the Inbox), do NOT create a duplicate. Move the existing one instead with `edit_item` and `newProjectName`. When unsure, check first with `query_omnifocus`.
+
+Confirm to David: `Created: [task name] | Project: [project] | Tag: [tag]`
+
+## Task Creation (osascript fallback)
+
+Use only when the MCP is unavailable. Template verified end-to-end 2026-09-16: project assignment, tag assignment, and due date all confirmed against live OmniFocus.
 
 **Gotcha:** build the due date OUTSIDE the `tell application "OmniFocus"` block. Inside it, `set year of d` gets sent to OmniFocus instead of to the date object and fails with `Can't get year. Access not allowed. (-1723)`.
 
@@ -121,7 +139,7 @@ Confirm to David: `Created: [task name] | Project: [project] | Tag: [tag]`
 
 When David says "capture [text]" or "add to inbox", this is the ONE case where speed matters more than full classification. But even then:
 
-1. Create the task in the inbox instead of a project. Swap the project-scoped line for `make new inbox task with properties {...}` and drop the project lookup entirely. Verified 2026-09-16: this lands with `containingProject` as `missing value`, which is the inbox.
+1. Create the task **without** a project: call `add_omnifocus_task` and omit `projectName`/`projectId`, which lands it in the inbox. (osascript fallback: use `make new inbox task with properties {...}` in place of the project-scoped `make new task` line and drop the project lookup. Verified 2026-09-16: it lands with `containingProject` as `missing value`.)
 2. **Still add a tag** — best guess based on context
 3. **Note it needs project assignment:** set note to "Needs project assignment"
 4. Tell David: "Captured to inbox with [tag] tag. Needs project assignment during next inbox triage."
@@ -134,7 +152,8 @@ This is the ONLY exception to the project requirement. Tag is still mandatory ev
 |---------|--------|
 | Project not found in OmniFocus | Check spelling against the list. If genuinely missing, ask David — do not create a new project. |
 | Tag not found in OmniFocus | Check spelling against the list. If genuinely missing, ask David — do not create a new tag. |
-| osascript error | Read the error text. `Can't get year. Access not allowed. (-1723)` means the due date was built inside the tell block; move that construction outside it and retry. Otherwise retry once, then report the failure rather than improvising. |
+| MCP tool missing or unavailable | Fall back to the osascript template above. The MCP tool index reflects the connected process, which can be a stale build, so a missing tool means "not connected", never "does not exist". |
+| osascript error (fallback path) | Read the error text. `Can't get year. Access not allowed. (-1723)` means the due date was built inside the tell block; move that construction outside it and retry. Otherwise retry once, then report the failure rather than improvising. |
 | OmniFocus unreachable entirely | Capture the task details in a note to David and process when OmniFocus is back. |
 | Ambiguous project/tag | Ask David with a specific recommendation: "I'd put this in [Project] with tag [Tag] — good?" |
 
@@ -178,9 +197,15 @@ Include that printed block verbatim (or lightly reformatted to match your closin
 <!-- system:end -->
 
 <!-- personal:start -->
-## OmniFocus Read Patterns (osascript)
+## OmniFocus Read Patterns
 
-Reads run through AppleScript via the **Bash** tool (`osascript -e '...'`). Desktop Commander is not required for AppleScript and is usually absent from the tool roster, so do not wait on it. Common patterns:
+**Preferred:** the OmniFocus MCP server. Use `query_omnifocus` for targeted lookups (entity, filters, fields, limit, includeCompleted, summary) and `dump_database` only for whole-database reads. `list_tags` and `list_perspectives` cover the rest. The `omnifocus://today` and `omnifocus://flagged` resources are handy when you want the same views David sees.
+
+**Fallback:** AppleScript via the **Bash** tool (`osascript -e '...'`), used when the MCP is unavailable. Desktop Commander is not required for AppleScript and is usually absent from the tool roster, so do not wait on it.
+
+Critical for both paths: the inbox permanently holds completed tasks that OmniFocus "Clean Up" does not remove, so always filter. With the MCP use `includeCompleted: false`; in AppleScript add `where completed is false` to the query itself.
+
+Common AppleScript patterns:
 
 ```applescript
 -- Inbox tasks
@@ -226,5 +251,5 @@ If an osascript call fails, retry once with a simpler query scope. If it fails a
 - Inbox tasks can't be completed directly — assign to a project first
 - Never delete inbox tasks to clear them — assign and mark complete for history
 - Always mirror changes in OmniFocus when updating delegation tracker or internal tracking
-- Writes run through the same AppleScript path via Bash. There is no MCP write tool anymore, so do not go looking for `mcp__omnifocus__create_task`
+- Writes go through the MCP (`add_omnifocus_task` to create, `edit_item` to edit or move), falling back to the AppleScript path via Bash only when the MCP is unavailable
 <!-- personal:end -->
