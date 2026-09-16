@@ -2,34 +2,27 @@
 workflow: content-discovery
 agent: harper
 status: complete
-session-started: "2026-09-15T06:00:00Z"
-session-id: "harper-20260915-003"
-started-at: "2026-09-15T19:30:00Z"
-completed-at: "2026-09-15T21:30:00Z"
+session-started: "2026-09-16T06:00:00Z"
+session-id: "harper-20260916-001"
+started-at: "2026-09-16T06:00:00Z"
+completed-at: "2026-09-16T06:05:00Z"
 current-step: null
-original-request: "Scheduled daily content discovery run (Cowork session) — editorial feedback sub-run"
+original-request: "Scheduled daily content discovery run"
 accumulated-context:
-  messages_scanned: 3
+  messages_scanned: 4
   new_urls: 0
-  new_digests: 3
-  posts_drafted: 3
-  gate_1_result: "PASS — ok: true, 3 messages returned for 24h window, channel C0B160MA3EK confirmed"
-  gate_2_result: "PASS — all 3 drafts cleared word count, arc elements, em-dash scan, tags, image orientation"
-  editorial_threads_checked: 3
-  editorial_feedback_found: 3
-  editorial_edits_applied: 3
+  new_digests: 0
+  posts_drafted: 0
+  gate_1_result: "PASS — ok: true, 4 messages returned, channel C0B160MA3EK confirmed"
+  gate_2_result: "N/A — no new drafts this run"
+  editorial_threads_checked: 4
+  editorial_feedback_found: 0
+  editorial_edits_applied: 0
   notes: |
-    Step 1b editorial feedback scan: 3 editorial replies found, all routed as DRAFT EDIT PATH.
-    Post 1 (DFW Is Now the AI Talent Market, ghost_post_id: 6aa92840b7c7ae028a6380a9): image swapped to confirmed
-    Dallas skyline (photo-1631660975301-b2b65e80c98a, Max Fray, Trinity River, location-tagged Dallas TX,
-    2000x1390 landscape verified). CBRE Scoring Tech Talent 2026 and CompTIA CyberStates links added as
-    lexical link nodes. Internal link to prior post "DFW Is Building the Other Kind of AI Economy" added.
-    Post 2 (What Happens to an Expert, ghost_post_id: 6aa92840b7c7ae028a6380b1): full rewrite from David's
-    consulting vantage point. Opened with personal observation of consultant on his team. Step-one/two/three
-    digest structure removed entirely. Amplifier Paradox lexical link added.
-    Post 3 (The Activity Trap, ghost_post_id: 6aa92841b7c7ae028a6380b9): full rewrite removing step-one/
-    two/three framework lifted verbatim from digest. Rebuilt from David's client-room experience.
-    Error logged: err-20260915T191139-PSRDT5 (geo-confirmation protocol-skip — DFW skyline not verified in
-    6am run despite geo-confirmation rule being in place from err-20260915T154324-4DLWA4).
-    All 3 Ghost posts confirmed updated (HTTP 200). All 3 Slack thread replies confirmed (ok: true).
+    All 4 messages in the 24h window are Jarvis bot notification posts from prior runs.
+    No digest signal. No user messages. No new URLs.
+    Step 1b: all pending draft threads checked (DFW talent, Expert post, Activity Trap,
+    Interface Moved Inside). All editorial feedback from 2026-09-15 sub-run already
+    processed and confirmed. No new unprocessed human replies found.
+    Clean exit - no new content to draft.
 ---
