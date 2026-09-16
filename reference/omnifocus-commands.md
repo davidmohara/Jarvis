@@ -17,7 +17,7 @@ The OmniFocus MCP server (`~/develop/omnifocus-mcp`, launched by `run-server.sh`
 
 | Tool | When to Use |
 |------|-------------|
-| `query_omnifocus` | Preferred. Filters by project, folder, tags, status, dates. Supports `fields`, `limit`, `sortBy`, `includeCompleted`, `summary` |
+| `query_omnifocus` | Preferred. Filters: `projectName` (substring; the special value `"inbox"` selects inbox tasks), `dueWithin`, `plannedWithin`, `tags`, `status`, `hasNote`, `flagged`. Top-level: `entity`, `fields`, `limit`, `sortBy`, `sortOrder`, `includeCompleted`, `summary`. All filters AND together. **Trap:** `deferredUntil` is accepted by the schema but silently ignored |
 | `dump_database` | Whole-database reads only; heavy, prefer `query_omnifocus` |
 | `list_tags` | All tags with hierarchy (`includeDropped` to include retired ones) |
 | `list_perspectives` | Built-in and custom perspectives |

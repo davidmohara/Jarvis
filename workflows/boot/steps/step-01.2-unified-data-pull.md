@@ -99,16 +99,19 @@ outputs:
 
 ```
 # Inbox
-query_omnifocus: entity="tasks", filters={ inInbox: true }, includeCompleted=false,
+query_omnifocus: entity="tasks", filters={ projectName: "inbox" }, includeCompleted=false,
                  fields=["id","name","dueDate","projectName","tagNames","flagged","note"]
 
-# Due/overdue within 7 days
-query_omnifocus: entity="tasks", filters={ dueBefore: "<ISO>", dueAfter: "<ISO>" },
-                 includeCompleted=false, fields=[...]
+# Due within the next 7 days (also catches overdue: until N days from now, inclusive)
+query_omnifocus: entity="tasks", filters={ dueWithin: 7 }, includeCompleted=false, fields=[...]
 
 # Flagged
 query_omnifocus: entity="tasks", filters={ flagged: true }, includeCompleted=false, fields=[...]
 ```
+
+Filter reference (from `QUERY_TOOL_REFERENCE.md` in the server repo): `projectName` (case-insensitive substring; the special value `"inbox"` selects inbox tasks), `dueWithin` (integer days, inclusive from now), `plannedWithin`, `tags` (exact match, case-sensitive, OR logic), `status`, `hasNote`, `flagged`. All filters combine with AND.
+
+**Trap:** `deferredUntil` is accepted by the schema but is **not implemented** and is silently ignored. Do not rely on it.
 
 **Fallback: `osascript` through the Bash tool**, used when the MCP is unavailable. AppleScript runs natively and does NOT require Desktop Commander, so do NOT report OmniFocus unreachable merely because Desktop Commander is missing: that misdiagnosis degraded this source for five consecutive boots.
 
