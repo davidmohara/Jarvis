@@ -1,19 +1,22 @@
 ---
 status: completed
-started-at: 2026-09-16T08:02:59Z
-completed-at: 2026-09-16T08:10:00Z
+started-at: 2026-09-17T08:02:00Z
+completed-at: 2026-09-17T08:10:00Z
 outputs:
-  working_archived: 1
+  working_archived: 3
   working_deleted: 0
-  working_skipped: 46
+  working_skipped: 49
   working_stranded: 0
   enrichment_method: "manual enrichment by the executing session (no nested claude -p subprocess call -- consistent with every prior cloud-sandbox cycle)"
   archived_files:
-    - dream-summary-2026-09-14.md
-  skipped_not_expired:
     - dream-summary-2026-09-15.md
-    - revenue-tracker-2026-09-14-001500.md
     - plaud-ingest-2026-09-14-150300.md
+    - revenue-tracker-2026-09-14-001500.md
+  skipped_not_expired:
+    - dream-summary-2026-09-16.md
+    - morning-briefing-2026-09-16-093000.md
+    - plaud-discover-2026-09-16.md
+    - plaud-ingest-2026-09-16-092409.md
     - shutdown-cleanup-2026-09-15-025313.md
   skipped_unparseable:
     - plaud-discover-2026-09-08.md
@@ -57,10 +60,14 @@ outputs:
     - sc-executive-brief-2026-07-13.md
     - slack-notification-golf-booking-20260801.txt
     - solace-meeting-prep-2026-07-27.md
+    - omnifocus-tasks-2026-09-16.md
+    - teams-transcripts-2026-09-16.md
   unparseable_left_untouched_missing_status:
     - knox-plaud-ingest-2026-08-31.md
-  new_unparseable_this_cycle: []
-  self_caught_bug_note: "One near-miss, caught and fixed: setting salience.promoted:true in step-03 initially duplicated the last-promoted-check key since salience-score.py had already written it in step-02. Caught on read-back, corrected before proceeding. See state.yaml step-01-2026-09-16 for full detail."
+  new_unparseable_this_cycle:
+    - omnifocus-tasks-2026-09-16.md
+    - teams-transcripts-2026-09-16.md
+  self_caught_bug_note: "Own mutation bug caught and fixed this cycle: the initial frontmatter-append approach for the 3 archive candidates left a duplicate `type:` key (original `type: working` plus the new `type: working-archive` appended below it) since the merge appended new fields instead of replacing the existing key. Caught on read-back before the mv to episodic; fixed by editing the original `type: working` line in place for all 3 files rather than appending a second key."
 ---
 
 <!-- system:start -->

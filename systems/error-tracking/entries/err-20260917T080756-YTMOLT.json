@@ -1,0 +1,15 @@
+{
+  "id": "err-20260917T080756-YTMOLT",
+  "timestamp": "2026-09-17T08:07:56Z",
+  "session": "dream-cycle-2026-09-17-080200",
+  "source": "self-detected",
+  "agent": "jarvis",
+  "category": "system-infrastructure",
+  "description": "The committed file systems/error-tracking/error-log.json (last touched by an unrelated commit a07a533, not by rebuild-log.py) is invalid JSON -- JSONDecodeError: Expecting ',' delimiter at line 1725, where the entries array closes and a second unwrapped \"metadata\": {...}, \"entries\": [ block begins right after with no enclosing object or comma. This is the same symptom reported as err-20260915T080707-UDZNMO and marked resolved on 2026-09-16 -- but that assessment was wrong: rebuild-log.py itself is not broken. Verified this cycle by running `python3 systems/error-tracking/rebuild-log.py --out /tmp/rebuild-test.json`, which produced valid JSON with 426 correctly-parsed entries on the first try. The actual problem is that the stale, already-corrupted error-log.json sitting in the repo is being read directly (via a bare json.load on the committed file) instead of being regenerated fresh via the script's --out flag before each read -- so the corrupted static artifact keeps reappearing as a 'broken parse' regardless of the script's own health.",
+  "correction": "Anything that needs the aggregated error log should invoke `python3 systems/error-tracking/rebuild-log.py --out <path>` fresh rather than reading the committed systems/error-tracking/error-log.json directly -- that file is a stale, already-corrupted leftover, not a live regeneration target. Whoever owns this file next should either delete it from the repo (rebuild-log.py's stdout/--out output is the real source of truth and needs no committed cache) or regenerate and commit a clean copy.",
+  "failure_mode": "stale-cache",
+  "systemic_fix": "Not applied by this session -- systems/ is a gated directory per SYSTEM.md's Capability Creation Boundary; deleting or regenerating the committed error-log.json is a systems/ change that needs Rigby, not Master/Jarvis. Flagging for Rigby rather than editing directly. Worked around this cycle by reading all 429 individual systems/error-tracking/entries/*.json files directly for the 30-day category tally.",
+  "fix_status": "proposed",
+  "severity": "minor",
+  "related_entries": ["err-20260915T080707-UDZNMO"]
+}

@@ -1,11 +1,11 @@
 ---
 status: completed
-started-at: 2026-09-16T08:20:00Z
-completed-at: 2026-09-16T08:21:00Z
+started-at: 2026-09-17T08:20:00Z
+completed-at: 2026-09-17T08:21:00Z
 outputs:
   result: pass
-  reason: "1 promoted entry this cycle (dream-summary-2026-09-14.md, score 10), correctly excluded from any future compression candidate set via promoted:true; volume (1) normal; the semantic write was a substantive dated narrative append, not a stub."
-  eval_record_note: "No in-progress dream-cycle eval record existed at run start. Created eval-20260916T080359-5TGJ3L via new-eval.py, set name/agent/session_id/trigger/tags on it before any record-step.py calls (applying the 09-11 through 09-15 lesson), backfilled steps 01-03 cleanly, checkpoint attached correctly on first attempt."
+  reason: "3 promoted entries this cycle (dream-summary-2026-09-15.md score 10, revenue-tracker-2026-09-14-001500.md score 6, plaud-ingest-2026-09-14-150300.md score 4), all correctly excluded from any future compression candidate set via promoted:true and score>=2; volume (3) normal; all 3 semantic writes were substantive dated narrative appends, not stubs."
+  eval_record_note: "Created eval-20260917T080428-8JHRCU via new-eval.py, set name/agent/session_id/trigger/tags on it before any record-step.py calls, backfilled steps 01-03 cleanly, checkpoint attached correctly on first attempt."
 model: sonnet
 ---
 

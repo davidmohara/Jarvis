@@ -1,12 +1,27 @@
 ---
-type: working
+type: working-archive
 task_id: "session"
 session_id: "dream-cycle-2026-09-15-080235"
 agent-source: jarvis
 created: 2026-09-15T03:17:00-05:00
 expires: 2026-09-16T03:17:00-05:00
-status: active
+status: archived
 context: "Dream cycle summary — 2026-09-15"
+date: 2026-09-15
+source_file: memory/working/dream-summary-2026-09-15.md
+tags:
+  - dream-summary
+  - jarvis
+  - dream-cycle
+  - south-texas
+  - error-pattern
+  - compression-guardrail
+  - delegation-tracker
+related_people: []
+salience:
+  score: 10
+  last-promoted-check: 2026-09-17
+  promoted: true
 ---
 
 One working-memory item aged out overnight — yesterday's own dream summary (2026-09-13) — and folded cleanly into the existing dream-summary pattern in semantic memory. That entry still carries the `fetch_plaud.py` `transaction_polish` bug's confirmed 3-incident recurring status (08-10, and both 09-04 sessions) — still no fix landed — and the un-re-pulled South Texas 90-Day forecast.

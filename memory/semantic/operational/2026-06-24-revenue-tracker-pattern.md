@@ -9,7 +9,8 @@ synthesized-from:
   - memory/episodic/revenue-tracker-2026-08-10-001500.md
   - memory/episodic/revenue-tracker-2026-07-27-001532.md
   - memory/episodic/revenue-tracker-2026-08-24-002000.md
-last-updated: 2026-09-03
+  - memory/episodic/revenue-tracker-2026-09-14-001500.md
+last-updated: 2026-09-17
 tags:
   - revenue-tracker
 agent-source: dream-cycle
@@ -63,3 +64,9 @@ Sources this cycle:
 - `memory/episodic/revenue-tracker-2026-09-07-001800.md` (score 10) — tags: rock-review, chase, rock1, revenue, pipeline, one-texas, scorecard. Same-day follow-up run: the "Multiple selections" label was re-diagnosed as a UI display artifact, not an actual filter failure — direct dropdown inspection confirmed Austin + Houston were correctly selected all along. Live pull succeeded: South Texas -24% vs. target, -20% vs. prior-year, **90-Day forecast down to 74%** — the plateau this pattern has tracked at 82% since Aug 10 (three prior snapshots: Aug 10, Aug 24, Aug 31) has broken, and not in the recovering direction. Dallas holding +3%/+16% CQ, 101% 90-Day (at target). July monthly revenue $5.55M, sequential growth but structurally capped by South Texas.
 
 This pair resolves the ambiguity the Aug 31 entry flagged: the first same-day run this cycle repeated the "filter failure" pattern seen before, but a second same-day run within the hour caught that it was a misread UI label, not a real block, and got a live number. That live number is the more consequential finding — 74% is the first move off the 82% plateau in a month, and it's a deterioration, not the stabilization the plateau reading had suggested. Escalating confidence consideration: this is the sharpest confirmed live-data movement in this cluster since the Aug 10 entry's initial -24%/-22% reading. Held at medium pending one more live-sourced snapshot to confirm the trend rather than a single-point drop.
+
+### 2026-09-17 — Nightly promotion
+Sources this cycle:
+- `memory/episodic/revenue-tracker-2026-09-14-001500.md` (score 6) — tags: revenue-tracker, chase, south-texas, dallas, one-texas, rock1, powerbi, forecast. Sept 14 run: South Texas filter failed validation twice ("Multiple selections" persisted through retry, same failure mode as the 09-07 first-attempt run above), reverted to cached data from Sept 7 (July 2026 actuals; August unavailable). Reported figures are an unchanged repeat of the 09-07 live-pull reading already in this pattern's evidence: South Texas -24%/-20% vs. target/prior-year CQ, -21%/-21% YTD, 90-Day forecast still 74% (16 points below the 90% threshold). Dallas holding +3%/+16% CQ, 101% 90-Day. One Texas -10.5% vs. target, -2% vs. prior year (revenue-weighted). July monthly revenue $5.55M ($2.85M Dallas + $2.70M South Texas). Recommendation logged: PowerBI support escalation for the Business Unit slicer, which has now failed validation on at least two separate runs (09-07 first attempt, 09-14).
+
+This is a cache-fallback repeat, not a fresh data point — the underlying South Texas PowerBI filter instability first surfaced in the 09-07 entry above has recurred rather than resolved. Held confidence at medium; no new trend signal here, just confirmation that the 74% reading has not been superseded by any newer live pull and that the filter reliability issue is recurring rather than one-off.

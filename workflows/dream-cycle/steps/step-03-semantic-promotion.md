@@ -1,21 +1,23 @@
 ---
 status: completed
-started-at: 2026-09-16T08:14:00Z
-completed-at: 2026-09-16T08:20:00Z
+started-at: 2026-09-17T08:14:00Z
+completed-at: 2026-09-17T08:20:00Z
 outputs:
-  candidates_count: 1
-  clusters_found: 1
+  candidates_count: 3
+  clusters_found: 3
   semantic_created: 0
-  semantic_updated: 1
-  promoted_entries: 1
-  promotion_note: "1 candidate this cycle (today's own step-01 archive, dream-summary-2026-09-14.md, score 10) appended to dream-summary-pattern.md (operational/2026-06-12). Independently re-confirmed delegations/tracker.md still empty, now 16+ consecutive cycles."
+  semantic_updated: 3
+  promoted_entries: 3
+  promotion_note: "3 candidates this cycle (all today's own step-01 archives): dream-summary-2026-09-15.md, revenue-tracker-2026-09-14-001500.md, plaud-ingest-2026-09-14-150300.md -- appended to their respective existing operational/ semantic entries. Independently re-confirmed delegations/tracker.md still empty, now 17+ consecutive cycles."
   cluster_actions:
     - {tag: dream-summary, domain: operational, size: 1, action: update, target: memory/semantic/operational/2026-06-12-dream-summary-pattern.md, confidence: "high (unchanged)"}
-  error_categories_30d: "process-skip/protocol-skip:8, tool-misuse/protocol-skip:7, assumption-error/wrong-assumption:7, tool-misuse/pattern-mismatch:5, tool-misuse/tool-ignorance:3, missed-context/lazy-search:3"
-  error_total_30d: 82
-  error_malformed_30d: 10
+    - {tag: revenue-tracker, domain: operational, size: 1, action: update, target: memory/semantic/operational/2026-06-24-revenue-tracker-pattern.md, confidence: "medium (unchanged)"}
+    - {tag: plaud-ingest, domain: operational, size: 1, action: update, target: memory/semantic/operational/2026-07-04-plaud-pattern.md, confidence: "high (unchanged)"}
+  error_categories_30d: "assumption-error/wrong-assumption:9, process-skip/protocol-skip:8, tool-misuse/protocol-skip:7, tool-misuse/pattern-mismatch:5, tool-misuse/tool-ignorance:3, missed-context/lazy-search:3"
+  error_total_30d: 429
+  error_malformed_30d: 14
   lessons_appended: 0
-  lessons_note: "6 distinct qualifying categories this cycle, up from 5 on 09-15 -- tool-misuse/tool-ignorance re-entered the 30-day window at exactly 3 occurrences (already documented in LESSONS.md L353-358). Re-verified all 6 directly against LESSONS.md -- all confirmed present and active. No new entry appended. The error-log.json rebuild that produced invalid JSON on 09-15 (err-20260915T080707-UDZNMO) parsed cleanly this cycle -- appears resolved, not just worked around."
+  lessons_note: "Same 6 qualifying categories as 09-16, all re-verified present and active in LESSONS.md at the same line numbers as every prior cycle's check. No new entry appended. Self-detected err-20260917T080756-YTMOLT: proved rebuild-log.py is NOT broken (valid JSON via --out); the committed error-log.json is a stale corrupted artifact being read directly -- the 09-16 'resolved' assessment was itself wrong. Worked around via the 429 per-file entries directly, per the established fallback."
 ---
 
 <!-- system:start -->

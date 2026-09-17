@@ -3,7 +3,7 @@ type: semantic
 domain: operational
 primary-tag: dream-summary
 created: 2026-06-12
-last-updated: 2026-09-16
+last-updated: 2026-09-17
 confidence: high
 synthesized-from: 28
   - dream-summary-2026-09-13.md
@@ -118,6 +118,7 @@ synthesized-from:
   - memory/episodic/dream-summary-2026-09-11.md
   - memory/episodic/dream-summary-2026-09-12.md
   - memory/episodic/dream-summary-2026-09-13.md
+  - memory/episodic/dream-summary-2026-09-15.md
 ---
 # Pattern: Dream Summary
 
@@ -436,3 +437,9 @@ Sources this cycle:
 - `memory/episodic/dream-summary-2026-09-14.md` (score 10) — the lone archive candidate this cycle (dream-summary-2026-09-15.md was held back by the same-calendar-date rule, expected next cycle). Its body repeats the South Texas 90-Day forecast break (82% plateau → 74%) with no fresh numbers of its own, and explicitly names the four-consecutive-cycle carry-forward (09-11 through 09-14) without dream-cycle re-pulling live numbers as worth a direct check outside this workflow's scope. No compression that cycle (same 4-entry stale set, still under the 5-entry threshold), no frontmatter corruption anywhere in its 318-file corpus.
 
 Re-checked the delegation tracker directly again this cycle: `delegations/tracker.md` still shows zero active delegations — now confirmed empty across at least 16 consecutive cycles. Q3 rocks status remains outside dream-cycle's normal scope and was not independently re-verified. Error-pattern check: 6 distinct qualifying 30-day categories this cycle, up from 5 on 09-15 — `tool-misuse/tool-ignorance` re-entered the window at exactly 3 occurrences (LESSONS.md L353-358 already documents it, so no new entry needed). The other 5 (process-skip/protocol-skip, tool-misuse/protocol-skip, assumption-error/wrong-assumption, tool-misuse/pattern-mismatch, missed-context/lazy-search) were re-verified directly against LESSONS.md via grep of Category:/Failure mode: line pairs at the same line numbers as every prior cycle's check (L153-154/L444-445/L249-250/L452-453/L404-405) — all 6 confirmed present and active, none appended. The rebuilt `error-log.json` parsed as valid JSON this cycle for the first time since the 09-15 self-detected corruption (err-20260915T080707-UDZNMO) — that bug appears resolved, not worked around. South Texas's 90-Day forecast deterioration remains un-re-pulled by dream-cycle itself, now flagged across six consecutive source entries (09-11 through 09-15) — still worth a direct decision rather than another silent carry-forward.
+
+### 2026-09-17 — Nightly promotion
+Sources this cycle:
+- `memory/episodic/dream-summary-2026-09-15.md` (score 10) — held back one cycle by the same-calendar-date rule (expires fell on 09-16, this run's own date). Its body's substantive content: a real pre-existing bug found and logged (`systems/error-tracking/error-log.json` rebuild output invalid JSON, worked around via per-file reads, err-20260915T080707-UDZNMO — since resolved per the 09-16 entry above), and the compression-guardrail decision point that crossed the 5-entry threshold on 09-15 for the first time since the 08-29 approved batch.
+
+Re-checked the delegation tracker directly again this cycle: `delegations/tracker.md` still shows zero active delegations — now confirmed empty across at least 17 consecutive cycles. Q3 rocks status remains outside dream-cycle's normal scope and was not independently re-verified. Corpus-wide frontmatter-corruption scan (318 episodic files) found 0 instances, consistent with every cycle since the 09-01 fix. South Texas's 90-Day forecast deterioration remains un-re-pulled by dream-cycle itself — this cluster's own source entries no longer carry fresh commentary on it (09-15's source predates it going stale further), so no new count is added this cycle; still worth a direct live pull whenever revenue-tracker next runs.

@@ -1,0 +1,127 @@
+{
+  "id": "eval-20260917T080428-8JHRCU",
+  "type": "agent",
+  "name": "dream-cycle",
+  "agent": "jarvis",
+  "session_id": "dream-cycle-2026-09-17-080200",
+  "trigger": "scheduled",
+  "started": "2026-09-17T08:04:28.794052Z",
+  "completed": null,
+  "duration_seconds": null,
+  "status": "in-progress",
+  "steps": [
+    {
+      "name": "step-01-working-memory-cleanup",
+      "started": "2026-09-17T08:02:00Z",
+      "completed": "2026-09-17T08:10:00Z",
+      "duration_seconds": 480.0,
+      "status": "complete",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": "sonnet",
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    },
+    {
+      "name": "step-02-salience-scoring",
+      "started": "2026-09-17T08:10:00Z",
+      "completed": "2026-09-17T08:14:00Z",
+      "duration_seconds": 240.0,
+      "status": "complete",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": "sonnet",
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    },
+    {
+      "name": "step-03-semantic-promotion",
+      "started": "2026-09-17T08:14:00Z",
+      "completed": "2026-09-17T08:20:00Z",
+      "duration_seconds": 360.0,
+      "status": "complete",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": "sonnet",
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    },
+    {
+      "name": "step-04-episodic-compression",
+      "started": "2026-09-17T08:20:00Z",
+      "completed": "2026-09-17T08:21:00Z",
+      "duration_seconds": 60.0,
+      "status": "complete",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": "sonnet",
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    }
+  ],
+  "assessment": {
+    "mechanical": {
+      "completed": null,
+      "all_steps_finished": true,
+      "tool_failures": 1,
+      "error_ids": [],
+      "tool_failure_log": [
+        {
+          "tool": "Bash",
+          "error": "Exit code 1\nTraceback (most recent call last):\n  File \"<stdin>\", line 5, in <module>\n  File \"/usr/lib/python3.11/json/__init__.py\", line 293, in load\n    return loads(fp.read(),\n           ^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.11/json/__init__.py\", line 346, in loads\n    return _default_decoder.decode(s)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.11/json/decoder.py\", line 337, in decode\n    obj, end = self.raw_decode(s, idx=_w(s, 0).end())\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.11/json/decoder.py\", line 353, in raw_decode\n    obj, end = self.scan_once(s, idx)\n               ^^^^^^^^^^^^^^^^^^^^^^\njson.decoder.JSONDecodeError: Expecting ',' delimiter: line 1725 column 5 (char 115681)",
+          "duration_ms": 61,
+          "timestamp": "2026-09-17T08:07:31.258827"
+        }
+      ]
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [
+    "dream-cycle",
+    "workflow",
+    "memory-consolidation"
+  ],
+  "guardrails": [
+    {
+      "name": "pre-deletion-review",
+      "after_step": "step-03-semantic-promotion",
+      "result": "pass",
+      "reason": "3 promoted entries this cycle (dream-summary-2026-09-15 score 10, revenue-tracker-2026-09-14-001500 score 6, plaud-ingest-2026-09-14-150300 score 4), all correctly set promoted:true and score>=2, none will appear in step-04's candidate set; volume (3) normal; all 3 semantic writes were substantive narrative appends to existing entries, not stubs",
+      "escalated_to_human": false,
+      "timestamp": "2026-09-17T08:09:35.744241+00:00"
+    }
+  ]
+}
