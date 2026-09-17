@@ -1,23 +1,23 @@
 ---
 status: complete
-started-at: "2026-09-15T12:06:15Z"
-completed-at: "2026-09-15T15:14:38Z"
-resolved-note: "Controller cleared the Xcode CLT license block (sudo xcodebuild -license accept) and instructed resume. git diff --name-only HEAD then showed a large set of files modified by other concurrently-running agent sessions (boot, plaud-ingest, watchtower, master-slack skill, data/*-unified.json, eval-harness run/skill-run files) in addition to this session's shutdown-cleanup scope. Per the git skill's staging rules and gated-directory gate, only this session's own changes were staged and committed — the concurrent-agent files were left untouched for their own sessions to commit."
+started-at: "2026-09-17T03:49:10Z"
+completed-at: "2026-09-17T03:50:30Z"
 outputs:
-  commit_sha: "f083d001"
-  files_committed: 9
+  commit_sha: "0a8209f1"
+  files_committed: 34
   files_committed_list:
-    - "Calendar/2026/09-September/2026-09-08.md (deleted)"
-    - "zzPlaud/Improving/2026-09-02 Podcast Interview - Tosan on Legal Tech AI Impact and Transformation.md (deleted)"
-    - "zzPlaud/YPO/2026-09-08 Renzi Stone AI Workflow Working Session.md (deleted)"
+    - "memory/working/omnifocus-data-2026-09-16-223600.md (new)"
+    - "systems/eval-harness/runs/*.json (27 files — grading-sweep updates + 2 new 2026-09-17 records)"
+    - "systems/eval-harness/skill-runs/git-latest.json"
+    - "systems/eval-harness/skill-runs/rigby-eval-grade-latest.json"
     - "workflows/shutdown-cleanup/state.yaml"
     - "workflows/shutdown-cleanup/steps/step-01-purge-artifacts.md"
     - "workflows/shutdown-cleanup/steps/step-02-organize-deliverables.md"
     - "workflows/shutdown-cleanup/steps/step-03-gitignore-check.md"
-    - "workflows/shutdown-cleanup/steps/step-04-commit.md"
-    - "memory/working/shutdown-cleanup-2026-09-15-025313.md (new)"
+  bookkeeping_commit_sha: "recorded in the follow-up state commit"
   temp_artifacts_staged: false
   pushed: false
+  note: "Dirty set matched the expected scope exactly (eval-harness runs/skill-runs, the new working-memory entry, and this workflow's own state/step files). No out-of-scope changes present. Prior session work (36a4f137 OmniFocus consolidation) left untouched; step-04's own frontmatter is finalized in a small follow-up state commit."
 model: sonnet
 ---
 
