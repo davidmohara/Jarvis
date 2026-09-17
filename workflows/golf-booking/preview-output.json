@@ -1,28 +1,32 @@
 {
-  "generated_at": "2026-09-09T10:35:00-05:00",
+  "generated_at": "2026-09-15T00:03:00-05:00",
   "target_weekend": {
-    "friday": "2026-09-19",
-    "saturday": "2026-09-20",
-    "sunday": "2026-09-21"
+    "friday": "2026-09-25",
+    "saturday": "2026-09-26",
+    "sunday": "2026-09-27"
   },
   "day_status": {
     "friday": {
-      "status": "unavailable",
-      "reason": "Personal retreat (all-day, Fri-Mon) — multi-day retreat blocks entire weekend"
+      "status": "conditional",
+      "reason": "Calendar unavailable — assuming available pending verification"
     },
     "saturday": {
-      "status": "unavailable",
-      "reason": "Houston Texans Game (all-day event)"
+      "status": "conditional",
+      "reason": "Calendar unavailable — assuming available pending verification"
     },
     "sunday": {
-      "status": "unavailable",
-      "reason": "Eagles Challenge golf tournament 10:30 AM-4:00 PM CT at Bear Creek Golf Club (already booked)"
+      "status": "conditional",
+      "reason": "Calendar unavailable — assuming available pending verification"
     }
   },
   "drought": false,
-  "weather_data_missing": false,
+  "weather_data_missing": true,
   "ct_conversion_flag": false,
   "top_options": [],
   "override_instructions": null,
-  "no_viable_reason": "All three days hard-blocked: Friday has multi-day personal retreat (Fri-Mon), Saturday is blocked by Houston Texans Game all-day event, Sunday has Eagles Challenge golf tournament already booked (10:30 AM-4:00 PM CT). No viable golf windows available this weekend."
+  "no_viable_reason": "Golf preview degraded: Calendar data unavailable (M365 connector offline) and weather data unavailable (API unreachable). Insufficient data for confident window scoring. Manual review recommended before booking.",
+  "data_sources": {
+    "calendar": "unavailable",
+    "weather": "unavailable"
+  }
 }

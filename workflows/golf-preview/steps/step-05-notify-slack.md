@@ -1,12 +1,13 @@
 ---
 status: complete
-started-at: "2026-09-02T00:25:00-05:00"
-completed-at: "2026-09-02T00:27:00-05:00"
+started-at: "2026-09-15T00:03:30-05:00"
+completed-at: "2026-09-15T00:04:00-05:00"
 outputs:
   gate_5_result: "pass"
-  delivery_path: "slack"
-  slack_ts: "1788375123.330539"
-  channel: "C0B15SW9FB5"
+  delivery_path: "fallback"
+  fallback_file: "memory/working/golf-preview-2026-09-15.md"
+  error_entry: "err-20260915T000400-GOLF1"
+  reason: "Slack unavailable; fallback written and error logged"
 model: haiku
 ---
 

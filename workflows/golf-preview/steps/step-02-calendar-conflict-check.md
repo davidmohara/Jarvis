@@ -1,15 +1,16 @@
 ---
 status: complete
-started-at: "2026-09-02T00:05:00-05:00"
-completed-at: "2026-09-02T00:12:00-05:00"
+started-at: "2026-09-15T00:01:00-05:00"
+completed-at: "2026-09-15T00:02:00-05:00"
 outputs:
   calendar_backend: "M365"
+  calendar_unavailable: true
+  calendar_unavailable_reason: "M365 connector unavailable in this session"
   day_status:
-    friday: { status: "unavailable", reason: "Travel day — Lone Star Gold Presidents Retreat in Whitefish MT runs through noon CT, Drive to Airport 10:30 AM CT, flight AA2939 FCA->DFW lands 5:33 PM CT." }
-    saturday: { status: "available", earliest_start: "13:00", latest_start: "18:30" }
-    sunday: { status: "available", earliest_start: "14:30", latest_start: "18:00", note: "Church volunteering 8:30 AM-1:30 PM CT, 1hr buffer applied" }
+    friday: { status: "conditional", reason: "Calendar unavailable — assuming available pending verification" }
+    saturday: { status: "conditional", reason: "Calendar unavailable — assuming available pending verification" }
+    sunday: { status: "conditional", reason: "Calendar unavailable — assuming available pending verification" }
   ct_conversion_flag: false
-  calendar_unavailable: false
 model: haiku
 ---
 

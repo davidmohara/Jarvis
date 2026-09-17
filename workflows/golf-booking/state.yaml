@@ -1,18 +1,21 @@
 workflow: golf-booking
 agent: sterling
-status: complete
-session-started: 2026-09-11T00:00:00Z
+status: deferred
+session-started: 2026-09-16T00:00:00Z
 session-id: scheduled-golf-tee-time-booking
-current-step: complete
-execution-run: 2026-09-11
-latest-check: 2026-09-11T04:30:00Z
-latest-check-result: "All weekend days blocked: Fri multi-day retreat, Sat Texans game, Sun Eagles Challenge tournament"
-gate-failures: []
+current-step: preview-degraded
+execution-run: 2026-09-16
+latest-check: 2026-09-16T05:00:00Z
+latest-check-result: "Preview degraded: calendar data unavailable (M365 connector offline), weather data unavailable. No viable tee times in top_options. Manual review required before booking window opens."
+gate-failures:
+  - reason: "Insufficient data for confident booking"
+    data_sources_unavailable: ["calendar", "weather"]
+    top_options_empty: true
 booking-id: null
 booking-date: null
 booking-time: null
 grade: null
-resolution-note: "No viable 18-hole tee time available for target weekend 9/19-9/21. All days hard-blocked: Friday has multi-day personal retreat (Fri-Mon), Saturday is blocked by Houston Texans Game all-day event, Sunday has Eagles Challenge golf tournament already booked (10:30 AM-4:00 PM CT)."
+resolution-note: "Target weekend 9/25-9/27 has degraded preview data. Calendar and weather APIs unreachable. No tee time options generated. Awaiting data source recovery or manual override instruction from David."
 
 original-request: ~
 accumulated-context: []

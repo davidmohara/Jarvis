@@ -1,11 +1,11 @@
 ---
 status: complete
-started-at: "2026-09-02T00:00:00-05:00"
-completed-at: "2026-09-02T00:05:00-05:00"
+started-at: "2026-09-15T00:00:00-05:00"
+completed-at: "2026-09-15T00:01:00-05:00"
 outputs:
-  target_friday: "2026-09-11"
-  target_saturday: "2026-09-12"
-  target_sunday: "2026-09-13"
+  target_friday: "2026-09-25"
+  target_saturday: "2026-09-26"
+  target_sunday: "2026-09-27"
   gate_1_result: "pass"
   recalculation_count: 0
 model: haiku

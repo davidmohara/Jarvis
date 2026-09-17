@@ -1,0 +1,24 @@
+{
+  "id": "err-20260915T000400-GOLF1",
+  "timestamp": "2026-09-15T00:04:00-05:00",
+  "severity": "soft-gate-degradation",
+  "context": {
+    "workflow": "golf-preview",
+    "step": "step-05",
+    "gate": "5",
+    "trigger": "scheduled-task"
+  },
+  "issue": "Both calendar and weather data sources unavailable; Slack delivery deferred to fallback",
+  "details": {
+    "calendar_unavailable": true,
+    "calendar_reason": "M365 connector unreachable in this session",
+    "weather_unavailable": true,
+    "weather_reason": "Open-Meteo and NWS APIs unreachable",
+    "slack_unavailable": true,
+    "slack_reason": "plugin:productivity:slack connector failed to connect",
+    "fallback_used": true,
+    "fallback_path": "memory/working/golf-preview-2026-09-15.md"
+  },
+  "resolution": "Scheduled task degraded gracefully; fallback summary written. Golf preview completed with documented data source limitations. Manual review recommended before golf-booking runs at midnight.",
+  "status": "handled"
+}

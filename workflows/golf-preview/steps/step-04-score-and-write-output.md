@@ -1,10 +1,11 @@
 ---
 status: complete
-started-at: "2026-09-02T00:20:00-05:00"
-completed-at: "2026-09-02T00:25:00-05:00"
+started-at: "2026-09-15T00:03:00-05:00"
+completed-at: "2026-09-15T00:03:30-05:00"
 outputs:
   gate_4_result: "pass"
-  candidate_windows_found: 3
+  candidate_windows_found: 0
+  no_viable_reason: "Golf preview degraded: Calendar data unavailable (M365 connector offline) and weather data unavailable (API unreachable). Insufficient data for confident window scoring. Manual review recommended before booking."
   output_file: "workflows/golf-booking/preview-output.json"
 model: haiku
 ---
