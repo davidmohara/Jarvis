@@ -3452,6 +3452,47 @@
         "eval_artifacts_path": null,
         "note": "Direct correction of a prior integration model at explicit peer/user direction. No new eval run in this pass. The existing systems/eval-harness/assertions/podcast-prep.json was reviewed and left unchanged (it targets a generic memory/working/ output path unrelated to the meetings/podcast-prep/ actual output path and predates this integration work entirely) since the request did not ask for it and it contains no stale use_episode_prep/fallback references to fix. Recommend a live run exercising a guest with both an episode-prep output and a SharePoint doc to validate the merge/dedupe logic before heavy reliance."
       }
+    },
+    {
+      "id": "work-20260917-plaud-monday-owner-filter-no-assignee",
+      "description": "Corrected plaud-ingest Monday routing per David's two rules (error err-20260917T191754-FGBF80): (1) only action items owned by David O'Hara reach Monday, non-David items stay in vault notes and surface in the run report as informational; (2) the system never sets an assignee, project_owner is omitted entirely from every Monday write and Alice Mburu triages/assigns in Monday. step-05-ingest-vault.md: MANDATORY EXECUTION RULE 2 rewritten as a hard owner-filter gate; task 4 routing rewritten (owner filter for WORK and PERSONAL alike, no project_owner, kept boardId 18420619069 / groupId new_group29179 / project_status / priority / date / text_mm50v09n source traceability incl. PERSONAL marker); final report template now counts David-owned routed vs non-David left-in-note; SUCCESS METRICS Monday line updated. step-05b-share-with-alice.md: removed project_owner (Alice ID 107886956) from the delivery-router config block; QUALITY GATE 6 'correct recipient' row replaced with a 'no assignee set' check (project_owner must be absent, still HARD on wrong board/group and missing task ID, SOFT on missing share note); gate log line and gate_6_delivery_confirmations shape changed (recipient_confirmed -> assignee_omitted); SUCCESS METRICS and FAILURE MODES updated. workflow.md: goal statement and Gate 6 summary table row updated for consistency. skills/delivery-router/SKILL.md: removed the stale Alice Mburu 107886956 example from the do-not-hardcode note (board/group example retained). Share-with-Alice purpose and share-link logic unchanged. Historical run frontmatter, eval records, and episodic memory left untouched.",
+      "started": "2026-09-17T19:30:00Z",
+      "files": [
+        {
+          "path": "workflows/plaud-ingest/steps/step-05-ingest-vault.md",
+          "action": "modify",
+          "type": "system",
+          "description": "Owner filter hard gate (rule 2, task 4), no-assignee Monday writes, report template and SUCCESS METRICS updated"
+        },
+        {
+          "path": "workflows/plaud-ingest/steps/step-05b-share-with-alice.md",
+          "action": "modify",
+          "type": "system",
+          "description": "Removed project_owner from config; Gate 6 reworked to verify assignee omitted; metrics/failure modes/report line updated"
+        },
+        {
+          "path": "workflows/plaud-ingest/workflow.md",
+          "action": "modify",
+          "type": "system",
+          "description": "Goal statement and Gate 6 summary row aligned with owner-filter/no-assignee rules"
+        },
+        {
+          "path": "skills/delivery-router/SKILL.md",
+          "action": "modify",
+          "type": "system",
+          "description": "Removed stale Alice Mburu 107886956 person-ID example from the do-not-hardcode note"
+        }
+      ],
+      "validation": {
+        "evals_run": false,
+        "eval_count": 0,
+        "iterations": 0,
+        "stopped_at_cap": false,
+        "final_pass_rate": null,
+        "description_optimized": false,
+        "eval_artifacts_path": null,
+        "note": "Spec-driven correction from explicit user direction (two rules stated verbatim). Verified by repo-wide grep: no live workflow/skill/agent/reference file still hardcodes assignee ID 107886956; remaining hits are historical records (run frontmatter, eval-harness logs, error entries, episodic memory). Recommend one live plaud-ingest run with a mixed-owner recording to confirm the owner filter and unassigned task creation behave as specified."
+      }
     }
   ]
 }

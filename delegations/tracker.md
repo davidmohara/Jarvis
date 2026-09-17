@@ -6,7 +6,7 @@ Single view of everything you've handed off. Review weekly.
 
 | Task | Delegated To | Date Assigned | Due Date | Status | Notes |
 |------|-------------|---------------|----------|--------|-------|
-| *(none)* | | | | | |
+| Steve Hall follow up (scheduled 2026-09-17, never happened) | Derek Nwamadi | 2026-09-17 | 2026-09-25 | Waiting | David's call 2026-09-17: Derek needs to own this, not David. Originally on David's calendar at 3:00 PM 09-17. OmniFocus mirror created during the daily review, then removed on David's instruction 2026-09-17 (id oAf8DvRd0_v). This tracker is the sole record. |
 
 ## Completed (move here when done, archive monthly)
 

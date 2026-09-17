@@ -1,12 +1,12 @@
 ---
 status: complete
-started-at: "2026-09-16T14:31:00Z"
-completed-at: "2026-09-16T14:32:00Z"
+started-at: "2026-09-17T16:17:00Z"
+completed-at: "2026-09-17T16:18:00Z"
 outputs:
-  workflows_scanned: "complete — workflows/_active.yaml read (active: []). Fast path skipped the per-directory scan per the step rule, but a full manual re-scan of all workflows/*/state.yaml was run anyway to confirm: the empty index is ACCURATE this run. Only non-complete entry is boot itself (in-progress, this run)."
-  active_workflows: "0 in-progress workflows. plaud-ingest is now status:complete (session pi-20260916-001, outcome: no-new-recordings, 137 API vs 191 vault files, exact bijection). watchtower status:complete (wt-weekly-2026-W38)."
-  background_tasks: "Spawned by the parent Master this session and already finished: plaud-ingest (knox, eval-20260916T142429-MUKP5C, success) and plaud-discover (knox, eval-20260916T142432-XHY410, success). Separately, a Teams-transcript ingest sub-agent ran and ended PARTIAL (eval-20260916T142205-XK4PVA) — Microsoft Graph denied OnlineMeetingTranscript read (FORBIDDEN) despite Entra granting the scope."
-  result: "No in-flight workflows to surface. The recurring _active.yaml/state.yaml index mismatch flagged across prior boots is NOT present this run (verified by full scan). Teams transcript ingest partial-failure noted for David's awareness."
+  workflows_scanned: "complete — workflows/_active.yaml read (active: []). Full per-directory scan of 58 workflows/*/state.yaml run anyway to verify: the empty index is accurate. 1 genuine in-flight workflow: plaud-ingest (Knox fire-and-forget)."
+  in_flight_list: ["plaud-ingest (knox, step-03, session pi-20260917-001, started 2026-09-17T16:07:00Z)"]
+  status_summary: "plaud-ingest is in-flight at step-03 (parent-spawned Knox background job, 2 new recordings found). boot is in-progress as this run itself. golf-booking is status:deferred (preview-degraded), noted but not treated as in-flight. All others idle/complete."
+  result: "1 in-flight workflow (plaud-ingest, Knox) — NOT auto-resumed, background job expected. Index verified accurate this run (no stale mismatch)."
 ---
 
 <!-- system:start -->

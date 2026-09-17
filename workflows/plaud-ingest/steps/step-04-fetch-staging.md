@@ -1,40 +1,37 @@
 ---
 status: completed
-started-at: "2026-09-14T15:01:00Z"
-completed-at: "2026-09-14T15:03:00Z"
+started-at: "2026-09-17T16:22:00Z"
+completed-at: "2026-09-17T16:40:00Z"
 model: haiku
 outputs:
-  session-id: pi-20260914-001
-  files-ready: 3
+  session-id: pi-20260917-001
+  files-ready: 1
   speaker-renames-applied: 1
   gaps: 0
   notes: >
-    Ran `fetch_plaud.py 2026-09-14` directly via Bash (no osascript needed,
-    no TCC issue). All 3 recordings in ready-for-fetch produced staged .md
-    files: the ACG Houston recording (9bb5788628b16838019203e248399df3,
-    saved under its resolved meeting name, plus a harmless duplicate under
-    a generic "2026-09-14 14_03_46" filename from the script's own
-    pending-recheck pass -- same file_id, left in place, not referenced
-    by state.yaml), the Executive AI Workshop Planning recording
-    (66df23aef3712ab857d5a656c67ba763), and the Production Hosting
-    Strategy recording (97b419ebfe3fd7ed84ac820a3343fef7).
-    Applied `--rename 66df23aef3712ab857d5a656c67ba763 '{"Speaker 1":
-    "Ashok Iyengar"}'`. Script correctly detected the rename hadn't
-    propagated to the transaction_polish layer, triggered regeneration
-    (is_reload:1), and after 4 poll attempts (~80s) confirmed speaker
-    names present. Hit a related but distinct filename bug this run: the
-    regenerated/corrected transcript was saved under a new file named
-    `plaud_66df23aef3712ab857d5a656c67ba763_ogg.md` instead of overwriting
-    the original `plaud_09-14 Meeting_ Executive AI Workshop Planning.md`
-    (which was left stale, still showing raw "Speaker 1", 16 occurrences).
-    Manually reconciled: copied the corrected content over the
-    properly-named file and removed the duplicate `_ogg` file. Verified
-    post-fix: 16 occurrences of "Ashok Iyengar", 0 occurrences of
-    "Speaker 1" in the final staged file. Flagging this as a second
-    manifestation of the known transaction_polish/--rename staleness bug
-    (see step-04's 2026-09-04 run) for a future Rigby fix -- this time the
-    symptom is a wrong output filename rather than stale content in the
-    original filename.
+    pi-20260917-001: 1 recording in ready-for-fetch
+    (e2d6f3c0cfe76328329cd273da8d55cb, "09-16 Weekly Meeting: P2 AI Project Plan,
+    Model Testing, and Scope Risks", 2026-09-16 15:00-15:45 UTC). Applied
+    `--rename e2d6f3c0cfe76328329cd273da8d55cb` with 7 generic-to-real mappings
+    (Speaker 1=Chris Miller, Speaker 2=Gilbert Velasquez, Speaker 4=Lyn Barrett,
+    Speaker 6=John Tsiros, Speaker 7=Ai, Speaker 8=Fernando, Speaker 9=Lauren
+    Clack). Script PATCHed renames to trans_result, registered 7 new voice-embedding
+    profiles via /speaker/sync, and triggered transaction_polish regeneration
+    (is_reload:1) when names were missing from the polished layer. Regeneration
+    had not completed within the script's 6x20s poll (content_list stayed at
+    ['outline']), so the script saved a stale URL-named file
+    `plaud_e2d6f3c0cfe76328329cd273da8d55cb_ogg.md` still holding Speaker N labels
+    (same --rename filename/transaction_polish staleness bug flagged in the
+    2026-09-14 run). Manually reconciled once regeneration finished: re-fetched
+    detail, confirmed transaction_polish present with all 9 real speaker labels
+    (0 occurrences of "Speaker N" remain), and rewrote the correctly-named staged
+    markdown `plaud_09-16 Weekly Meeting_ P2 AI Project Plan_ Model Testing_ and
+    Scope Risks.md` plus its _raw.json, then removed the stale _ogg file. The
+    auto_sum_note (AI summary) was cleared by regeneration and had not returned
+    at staging time; ingested note's summary written from transcript content.
+    Verified: content_list = transaction + outline + transaction_polish (all ready),
+    speaker labels = Chris Miller, Gilbert Velasquez, Lyn Barrett, John Tsiros, Ai,
+    Fernando, Lauren Clack, Devlin, O'Hara. No gaps.
 ---
 
 <!-- system:start -->

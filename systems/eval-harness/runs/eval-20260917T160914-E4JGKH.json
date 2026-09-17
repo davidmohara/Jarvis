@@ -1,0 +1,88 @@
+{
+  "id": "eval-20260917T160914-E4JGKH",
+  "type": "skill",
+  "name": "plaud-discover",
+  "agent": "knox",
+  "session_id": "61be22c5-c8cc-49b7-888a-b106ddd74eb7",
+  "trigger": "manual",
+  "started": "2026-09-17T16:00:00Z",
+  "completed": "2026-09-17T16:09:14.539529Z",
+  "duration_seconds": 554.5,
+  "status": "success",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": true,
+      "outputs_non_empty": true,
+      "assertions_checked": 4,
+      "assertions_passed": 4,
+      "assertion_results": [
+        {
+          "assertion": "plaud-discover-signal-written",
+          "description": "plaud-discover skill-run signal file was written",
+          "category": "structure",
+          "passed": true
+        },
+        {
+          "assertion": "plaud-discover-signal-status",
+          "description": "plaud-discover skill-run did not end in failure",
+          "category": "structure",
+          "passed": true
+        },
+        {
+          "assertion": "plaud-di-002-substantive",
+          "description": "plaud-discover output is substantive (>200 bytes)",
+          "category": "structure",
+          "passed": true
+        },
+        {
+          "assertion": "plaud-di-003-content",
+          "description": "plaud-discover output contains expected content",
+          "category": "structure",
+          "passed": true
+        }
+      ],
+      "category_breakdown": {
+        "structure": {
+          "passed": 4,
+          "checked": 4
+        },
+        "content": {
+          "passed": 0,
+          "checked": 0
+        },
+        "quality": {
+          "passed": 0,
+          "checked": 0
+        }
+      }
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "deterministic_gate": {
+      "score": 1.0,
+      "gate_status": "pass",
+      "computed_at": "2026-09-17T16:09:19.776817Z"
+    }
+  },
+  "version_hash": "2072af8f1084ec76",
+  "prior_baseline_id": null,
+  "tags": [
+    "cowork-hook",
+    "skill"
+  ]
+}

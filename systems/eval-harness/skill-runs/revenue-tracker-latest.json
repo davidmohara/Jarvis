@@ -1,10 +1,10 @@
 {
   "skill": "revenue-tracker",
   "agent": "chase",
-  "trigger": "scheduled",
-  "started": "2026-09-14T00:00:00Z",
-  "completed": "2026-09-14T00:15:00Z",
-  "status": "partial",
-  "tool_failures": 1,
-  "error_ids": ["filter-validation-south-texas-20260914"]
+  "trigger": "manual",
+  "started": "2026-09-17T18:30:00Z",
+  "completed": "2026-09-17T18:45:00Z",
+  "status": "success",
+  "tool_failures": 0,
+  "error_ids": []
 }

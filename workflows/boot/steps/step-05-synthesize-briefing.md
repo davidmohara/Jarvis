@@ -1,12 +1,15 @@
 ---
 status: complete
-started-at: "2026-09-16T14:29:00Z"
-completed-at: "2026-09-16T14:31:00Z"
+started-at: "2026-09-17T16:15:00Z"
+completed-at: "2026-09-17T16:17:00Z"
 outputs:
-  briefing_delivered: "yes — full morning briefing synthesized (degraded on 1 source: OmniFocus) and carried forward through steps 06-08 for verbatim delivery to controller"
-  format: "3-paragraph prose narrative (no em-dashes) + calendar table. Watchtower section omitted (no daily watchtower run today; last was the W38 weekly run on 2026-09-14). Reminders section omitted (0 due, per format rule). Clay birthdays surfaced inside paragraph 3 rather than a separate section."
-  calendar_today: "18 distinct today-events, live from data/calendar-unified.json. AR YPO travel day to Little Rock; Dallas recurring cadence sits on the calendar as tentative and will be missed in person."
-  hotspots: "5 UTB board approvals pending in Boardvantage (fiduciary queue, rolled a day); Opal Group partner reply owed; Court Westcott birthday today; 7:10am DFW departure already past as of 9:22am boot; 5:00pm Overflow (UTB Board) stacks against 6:00pm YPO Dinner; Q3 rocks unsigned ~7 weeks; daily review gap >1 month; OmniFocus unreachable (5th+ consecutive boot)."
+  briefing_delivered: "yes — full morning briefing synthesized (0 degraded sources) and carried forward through steps 06-08 for verbatim delivery to controller"
+  briefing_sections: "narrative (3 paragraphs), Today's Calendar table, double-book warning line, closing prompt"
+  today_summary: "Thursday, September 17, 2026 — return travel day from Little Rock; GEHC AI Routing sync is the only client meeting; personal retreat prep for tomorrow"
+  action_items: "Attend GEHC AI Routing sync (10am); clear AI for Execs handoff to Blake McMillan (due tomorrow); reply to Opal Group THWET; complete YPO nominee intake forms; decide GEHC vs Sales Scrum 10am overlap and Steve Hall vs golf 3pm overlap"
+  format: "3-paragraph prose narrative (no em-dashes) + Today's Calendar table. Watchtower section omitted (no daily watchtower run today). Reminders section omitted (0 due). Clay birthdays folded into paragraph 3."
+  calendar_today: "9 distinct today-events, live from data/calendar-unified.json. Return travel LIT->DFW; two double-books (10am GEHC/Sales Scrum, 3pm Steve Hall/golf); YPO Spouse Kickoff 6pm."
+  hotspots: "0 degraded data sources this run (OmniFocus recovered, 42 tasks); 5 tasks due tomorrow incl. AI for Execs handoff; Opal Group reply owed; YPO Western US nominee intake forms deadline; Q3 rocks unsigned ~7 weeks; daily review 15 days stale (last 09-02); two double-books today."
 ---
 
 <!-- system:start -->

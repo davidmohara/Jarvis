@@ -1,13 +1,15 @@
 ---
 status: complete
-started-at: "2026-09-16T14:27:30Z"
-completed-at: "2026-09-16T14:29:00Z"
+started-at: "2026-09-17T16:13:00Z"
+completed-at: "2026-09-17T16:15:00Z"
 outputs:
-  meetings_found: "Today (Wed Sep 16): AR YPO travel day to Little Rock. Flight AA3850 DFW->LIT dep 7:10am CT / arr 8:34am CT (conf GZCLNF, First). Capital Hotel check-in. Regus day office Little Rock booked 9:00am-12:00pm CT. AR YPO Dinner, Little Rock 6:00-9:00pm CT. Dallas recurring meetings still on the calendar as 'tentative' and will be missed in person: Dallas Executive Huddle 8:30am, Sales & Recruiting 9:15am, AI Leaders Weekly 9:30am, Sales Scrum 9:30am, Microsoft Partner GTM 10:00am, AI Takeoff Weekly Touch 10:00am, David/Robyn 1:1 10:30am, GEHC AI Routing weekly sync 10:30am, US Town Hall 12:00pm, GEHC Twice Weekly Internal 3:30pm, Overflow 5:00pm."
-  meeting-context: "Delegation tracker clean (0 active delegations). Q3 rocks (memory/personal/quarterly-objectives.md) still status 'Q3 draft — pending David's review', last-updated 2026-07-30 (~7 weeks unsigned; 4 rocks: Revenue Visibility, Partner & Account Review Execution, Thought Leadership, Partner Co-Sell Pipeline). Daily review gap: last daily review on file is memory/episodic/daily-review-2026-08-13-000000.md; reviews/daily/ holds only auto-*.md through 2026-08-12 — over a month with no daily review, recurring accountability gap. Identity/MEMORY.md checked: Robyn Fuentes (President Houston, key focus) on the 10:30 1:1; Devlin Liles across AI Leaders/StrongTie threads; YPO is a standing personal commitment. No identity-level notes for Court Westcott / Kevin Gardner / Justin Etheredge beyond Clay records."
+  meetings_found: "Today (Thu Sep 17): return travel day from Little Rock. Flight AA3589 LIT->DFW dep 7:18am CT / arr ~8:50am CT (conf GZCLNF). Sales & Recruiting 9:15-9:30am CT (tentative). Sales Scrum 10:00-10:30am CT (tentative) overlapping GEHC AI Routing weekly sync 10:00-10:30am CT (busy). Finish Vegas prep 10:30-11:30am CT. Retreat prep 1:00-2:00pm CT. Steve Hall follow up 3:00-3:30pm CT (tentative) overlapping Golf lesson 3:00-4:00pm CT. YPO Spouse Kickoff Party 6:00-9:00pm CT."
+  attendees_enriched: "GEHC AI Routing sync: Justin Holder (GEHC), Lisa Barnes / Lisa Kimbrel (Improving). Sales Scrum: Stephen Johnson, Devlin Liles, Robyn Fuentes (President Houston), Juan Bernal. Sales & Recruiting: Don McGreal, Diana Stevens, Tim Rayburn, Blake McMillan. Steve Hall follow up: Derek Nwamadi + Anthony Marrical. 25 total unique attendees across the 4-day window."
+  prep_materials: "none required — GEHC AI Routing sync is a standing weekly client touch, not a new-prep meeting; rest of the day is internal cadence or personal blocks on a return-travel day."
+  meeting-context: "GEHC AI Routing weekly sync is the only client/partner meeting today (GE Healthcare engagement). Delegation tracker clean (0 active delegations). Q3 rocks (memory/personal/quarterly-objectives.md) still 'Q3 draft — pending David's review', last-updated 2026-07-30 (~7 weeks unsigned; 4 rocks: Revenue Visibility, Partner & Account Review Execution, Thought Leadership, Partner Co-Sell Pipeline). Daily review gap: latest review on file is reviews/daily/2026-09-02.md (15 days ago); episodic daily-review entries stop at 2026-08-13 — recurring accountability gap. Identity/MEMORY.md: Robyn Fuentes (President Houston, key focus) on Sales Scrum; Devlin Liles across AI threads; YPO is a standing personal commitment."
   clay-reminders: "none — 0 due in next 7 days (data/clay-reminders-unified.json)"
-  clay-birthdays: "3 in next 7 days (data/clay-reminders-unified.json): COURT WESTCOTT today 09-16 (Dallas family office, tech/RE/subscription, angel AR focus), Kevin Gardner 09-20, Justin Etheredge 09-22."
-  context-status: "degraded — calendar and Clay fresh; OmniFocus unavailable (no task-level context this run); identity/MEMORY.md read directly for attendee context."
+  clay-birthdays: "2 in next 7 days (data/clay-reminders-unified.json): Kevin Gardner 2026-09-20, Justin Etheredge 2026-09-22."
+  context-status: "healthy — calendar, OmniFocus, email, and Clay all live this run; 0 degraded sources."
 ---
 
 <!-- system:start -->

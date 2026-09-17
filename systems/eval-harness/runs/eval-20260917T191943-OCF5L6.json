@@ -1,0 +1,88 @@
+{
+  "id": "eval-20260917T191943-OCF5L6",
+  "agent_id": "a248cffb31a3c66b5",
+  "type": "agent",
+  "name": "general-purpose",
+  "workflow": null,
+  "agent": "general-purpose",
+  "session_id": "61be22c5-c8cc-49b7-888a-b106ddd74eb7",
+  "trigger": "unknown",
+  "started": "2026-09-17T19:19:43.788939Z",
+  "completed": "2026-09-17T19:26:25.324549Z",
+  "duration_seconds": 401.54,
+  "status": "partial",
+  "steps": [
+    {
+      "name": "step-05-ingest-vault.md",
+      "started": "2026-09-17T16:40:00Z",
+      "completed": "2026-09-17T16:58:00Z",
+      "duration_seconds": 1080.0,
+      "status": "completed",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": "sonnet",
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    },
+    {
+      "name": "step-05b-share-with-alice.md",
+      "started": "2026-09-17T16:58:00Z",
+      "completed": "2026-09-17T17:02:00Z",
+      "duration_seconds": 240.0,
+      "status": "completed",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": "sonnet",
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    }
+  ],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 1,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/61be22c5-c8cc-49b7-888a-b106ddd74eb7/subagents/agent-a248cffb31a3c66b5.jsonl",
+  "last_assistant_message": "Done. Everything applied clean, verified by grep.\n\n## Files changed\n\n**1. `/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/workflows/plaud-ingest/steps/step-05-ingest-vault.md`**\n- Line 51 (MANDATORY EXECUTION RULE 2): rewritten as a hard gate. Only David O'Hara-owned action items reach Monday; non-David items stay in the vault note and surface in the run report as informational.\n- Task 4 (was lines 93-110): routing rule replaced. Owner filter (HARD GATE) applies to WORK and PERSONAL alike; non-David items explicitly never routed; `project_owner` omitted entirely with the \"Alice triages and assigns\" rationale; kept boardId `18420619069`, groupId `new_group29179`, `project_status`, `priority`, `date`, and `text_mm50v09n` traceability including the PERSONAL marker; personal recordings keep the actionable-only qualifier.\n- Report template (was 137-140): now \"Action items routed to Monday (David-owned, unassigned): N\" / \"Non-David action items (left in vault notes, informational): N\".\n- SUCCESS METRICS (was 193): Monday line now requires David-owned, unassigned creation plus non-David surfacing.\n\n**2. `/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/workflows/plaud-ingest/steps/step-05b-share-with-alice.md`**\n- Task 4 config block (was ~107): `project_owner: { personsAndTeams: [{ id: 107886956 ... }] }` removed; added explicit \"do NOT set project_owner\" bullet. The \"Alice's user ID is this workflow's own fact\" note rewritten to board/group only.\n- Gate 6 rework: the \"Correct recipient\" row is now \"**No assignee set**\" \u2014 verifies `project_owner` is absent from `config.column_values` (HARD FAIL if present). Board `18420619069` / group `new_group29179` check stays HARD, share-URL-or-fallback stays SOFT, `delivery_status[0].success == true` with real task ID stays HARD. Log line is now `assignee omitted \u2713, board/group correct \u2713, ...`. `gate_6_delivery_confirmations` shape: `recipient_confirmed` renamed to `assignee_omitted`. Naming-note paragraphs updated (task is \"unassigned Monday review task that Alice triages,\" and \"task assignment\" corrected to \"review-task creation\").\n- SUCCESS METRICS: \"Alice Mburu assigned as project_owner\" replaced with the no-assignee rule; \"no Alice task\" clarified to \"no review task.\"\n- FAILURE MODES Gate 6 row: \"wrong recipient\" changed to \"assignee set.\"\n- Final report line: \"Monday tasks created for alice.mburu: N\" changed to \"Monday review tasks created (unassigned \u2014 Alice triages): N\" \u2014 small judgment call since the old line implied assignment; flagged in case you want different wording.\n\n**3. `/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/workflows/plaud-ingest/workflow.md`** (consistency, same change class)\n- Line 11 goal statement: now \"David-owned action items routed to Monday (unassigned \u2014 Alice Mburu triages).\"\n- Line 117 Gate 6 summary row: now describes the no-assignee check instead of \"correct recipient (Alice Mburu).\"\n\n**4. `/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/skills/delivery-router/SKILL.md`** (line 94)\n- The do-not-hardcode note used \"Alice Mburu `107886956`\" as its example of a caller-specific person ID. Removed the person ID from the example (board/group example retained) so the shared skill no longer references an assignee the pipeline no longer uses.\n\n**5. `/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/evolutions/.pending-changes.json`**\n- Appended `work-20260917-plaud-monday-owner-filter-no-assignee` with all four files, full description, and a validation note recommending one live mixed-owner run before heavy reliance. Pending count now 63.\n\n## Other `107886956` hits found (all historical, left untouched)\n- `memory/episodic/plaud-ingest-2026-08-11-163500.md` \u2014 episodic record.\n- Three eval-harness run JSONs and two error-tracking entries (including FGBF80 itself) \u2014 historical logs.\n- step-05b's own YAML frontmatter `outputs.notes` (line 37) \u2014 today's run record. Per convention I don't rewrite run history.\n- The `~/develop/improving/ies` repo has zero hits.\n\n## Notes for David\n- The error entry's open decision (1) \u2014 assignee for David-owned items \u2014 is settled by your second rule: no assignee at all, applied everywhere. Decision (2) \u2014 disposition of non-David items \u2014 is note-only + informational in the report, per this spec. No OmniFocus delegation was added.\n- Pre-existing ambiguity, not introduced by this change: workflow.md's goal still says \"share... via email\" but no email send exists in the pipeline. Gate 6's naming note already flags this as a product decision for you. I left it alone.\n- Housekeeping flag: `rigby-capability-build` is registered in the skill listing but has no SKILL.md on disk in either root. I followed the Capability Building Protocol in `agents/rigby.md` directly, which covers the same tracking requirements. You may want the skill file restored or the registry entry cleaned up.",
+  "model": "accounts/fireworks/models/kimi-k3",
+  "total_tokens_input": 291839,
+  "total_tokens_output": 4116,
+  "total_cost_usd": 0.09,
+  "cost_estimation_note": "estimated based on general-purpose workflow type"
+}

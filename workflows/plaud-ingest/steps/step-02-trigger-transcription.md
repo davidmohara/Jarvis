@@ -1,25 +1,23 @@
 ---
 status: completed
-started-at: "2026-09-14T00:00:00Z"
-completed-at: "2026-09-14T23:14:00Z"
+started-at: "2026-09-17T16:07:00Z"
+completed-at: "2026-09-17T16:10:00Z"
 model: haiku
 outputs:
-  already-ready: 3
-  triggered: 0
-  pending: 0
+  already-ready: 1
+  triggered: 1
+  pending: 1
   skipped: 0
   gate_3_result: "pass"
   gate_3_retry_counts: {}
   gate_3_aborted_recordings: []
   note: >
-    3 new recordings from 2026-09-14: 2 were already transcript_status:ready
-    at discovery time (66df23aef3712ab857d5a656c67ba763 "09-14 Meeting: Executive AI
-    Workshop Planning", 97b419ebfe3fd7ed84ac820a3343fef7 "Production Hosting Strategy...").
-    1 was marked transcript_status:missing (9bb5788628b16838019203e248399df3 "2026-09-14 14:03:46").
-    When trigger was executed for the missing recording, Plaud's /ai/transsumm endpoint
-    returned status=1/msg="success" ("already done"), indicating the transcription had been
-    completed asynchronously between discovery and trigger execution. All 3 recordings moved
-    directly to ready-for-fetch. No watcher needed. Gate 3: pass (no retries required).
+    pi-20260917-001: 2 new recordings. 1 already ready at discovery time
+    (e2d6f3c0cfe76328329cd273da8d55cb "09-16 Weekly Meeting: P2 AI Project Plan, Model
+    Testing, and Scope Risks") moved to ready-for-fetch. 1 missing
+    (468619c94a7b254df711c693d8e561a4 "2026-09-17 10:00:23") triggered via two-step
+    PATCH + POST; POST returned status=0 msg="task processing" (now pending). Gate 3:
+    pass, no retries. Watcher handoff recorded in plaud_pending.json.
 ---
 
 <!-- system:start -->

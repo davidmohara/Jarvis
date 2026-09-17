@@ -1,14 +1,14 @@
 ---
 status: complete
-started-at: "2026-09-16T14:34:00Z"
-completed-at: "2026-09-16T14:35:00Z"
+started-at: "2026-09-17T16:20:00Z"
+completed-at: "2026-09-17T16:21:00Z"
 outputs:
-  knox_status: "success"
-  knox_reason: "plaud-ingest eval record found in systems/eval-harness/runs/ (eval-20260916T142429-MUKP5C, name 'plaud-ingest', agent knox, started 2026-09-16T14:10:00Z, completed 2026-09-16T14:24:29Z, no punch_out_signal). Outcome: no-new-recordings — Plaud API enumerated to exhaustion (137 recordings) vs 191 vault .md files (137 unique file_ids), an exact bijection; 132 staged files all resolved by Tier 1 file_id match; circuit breaker clear (0 new vs. baseline 5). workflows/plaud-ingest/state.yaml now reads status:complete, session pi-20260916-001."
-  knox_duration_seconds: 869.7
-  knox_eval_id: "eval-20260916T142429-MUKP5C"
-  knox_background_task: "Plaud-ingest: COMPLETE, no new recordings to ingest. plaud-discover also complete/success (eval-20260916T142432-XHY410). Separately the Teams-transcript ingest sub-agent ended PARTIAL (eval-20260916T142205-XK4PVA) on a Microsoft Graph FORBIDDEN for OnlineMeetingTranscript — worth flagging to David as a connector-permission issue, not a Knox failure. Watchtower already complete (wt-weekly-2026-W38)."
-  note: "Boot completion is not blocked by this. Knox's fire-and-forget background work finished cleanly this run, so step-08 is informational only."
+  knox_status: "still_running"
+  knox_reason: "plaud-ingest workflow (Knox fire-and-forget, session pi-20260917-001, spawned 2026-09-17T16:07:00Z) still in-progress at step-03. 2 new recordings found: 468619c94a7b254df711c693d8e561a4 (2026-09-17, transcript triggered) and e2d6f3c0cfe76328329cd273da8d55cb (09-16 Weekly Meeting, transcript ready-for-fetch). Component Knox sub-skills all succeeded this session: plaud-discover (eval-20260917T160914-E4JGKH), plaud-trigger (eval-20260917T161049-8MBL25), plaud-speaker-id (eval-20260917T161704-RA9I49)."
+  knox_duration_seconds: 424.6
+  knox_eval_id: "eval-20260917T161704-RA9I49 (plaud-speaker-id; plaud-ingest workflow record not yet written)"
+  knox_background_task: "Knox healthy and mid-pipeline (discover -> trigger -> speaker-id all success). No punch_out_signal. plaud-ingest workflow itself still running at step-03; 2 new recordings in flight."
+  note: "Boot completion is not blocked by this. Knox's fire-and-forget background work is progressing normally; step-08 is informational only."
 ---
 
 <!-- system:start -->

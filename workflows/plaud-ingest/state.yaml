@@ -1,50 +1,95 @@
 workflow: plaud-ingest
 agent: knox
 status: complete
-session-id: pi-20260916-001
-session-started: '2026-09-16T14:10:00Z'
-current-step: step-01
-original-request: "Knox — run workflows/plaud-ingest/workflow.md in full. Read the workflow file, run the STATE CHECK, and execute all steps as written. Run as background task."
+session-id: pi-20260917-001
+session-started: '2026-09-17T16:07:00Z'
+current-step: step-05b
+original-request: "Knox — run workflows/plaud-ingest/workflow.md in full. Read the workflow file, run the STATE CHECK, and execute all steps as written. Background fire-and-forget run."
 blocker: null
-outcome: no-new-recordings
+outcome: complete-both-ingested
 accumulated-context:
   target-date: null
-  new-recordings: []
+  new-recordings:
+    - file_id: 468619c94a7b254df711c693d8e561a4
+      name: "2026-09-17 10:00:23"
+      date: 2026-09-17
+      duration_seconds: 1764
+      has_transcript: false
+      transcript_status: missing
+    - file_id: e2d6f3c0cfe76328329cd273da8d55cb
+      name: "09-16 Weekly Meeting: P2 AI Project Plan, Model Testing, and Scope Risks"
+      date: 2026-09-16
+      duration_seconds: 2683
+      has_transcript: true
+      transcript_status: ready
   dedup-method: >
     Full enumeration mode (no target-date). Plaud API /file/simple/web paginated to
-    exhaustion: 137 recordings. Live vault scan of zzPlaud/ (191 .md files) extracted
-    137 unique file_ids. API file_id set and vault file_id set are an exact bijection --
-    api-minus-vault empty, vault-minus-api empty. Tier-2 85% title fuzzy match not
-    reached for any API candidate. Most recent API recording: 2026-09-14T16:04:18.
-    Staging scan: 132 top-level plaud_*.md files (_not_new_archive/ with 152 files
-    explicitly pruned); all 132 resolved by Tier 1 file_id exact match via sibling
-    _raw.json -- already-ingested leftovers, zero stale-requeue. Ledger:
-    systems/eval-harness/skill-runs/plaud-discover-ledger-latest.json (269 entries:
-    137 API + 132 staged, each with tiers_checked and a decision).
+    exhaustion: 139 recordings. Live vault scan of zzPlaud/ (196 .md files) extracted
+    137 unique file_ids. api-minus-vault: 2 new, vault-minus-api: 0. Tier-2 85% title
+    fuzzy match reached for no new candidate. New recordings: 468619c94a7b254df711c693d8e561a4
+    (2026-09-17, missing transcript) and e2d6f3c0cfe76328329cd273da8d55cb (2026-09-16 Weekly
+    Meeting, transcript ready). Staging scan: 132 top-level plaud_*.md files, all 132
+    resolved by Tier 1 file_id exact match via sibling _raw.json (already-ingested
+    leftovers, zero stale-requeue). Ledger:
+    systems/eval-harness/skill-runs/plaud-discover-ledger-latest.json (271 entries:
+    137 API skip + 132 staged skip + 2 new, each with tiers_checked and a decision).
   gates:
     gate_1_result: "pass"
     gate_1_auth_method: "cached-token"
     gate_2_result: "pass"
     gate_2_flagged_recordings: []
     gate_2_exclusions: []
-  circuit-breaker: "clear — 0 new vs. last confirmed count 5 (2026-09-15); 0 is not >2x baseline and not >10% of 269 candidates"
-  transcription-triggered: []
+  circuit-breaker: "clear — 2 new vs last confirmed count 0 (2026-09-16); 2 is not >2x baseline and not >10% of 271 candidates"
+  transcription-triggered:
+    - 468619c94a7b254df711c693d8e561a4
   pending-recordings: []
-  speaker-mappings: {}
+  speaker-mappings:
+    e2d6f3c0cfe76328329cd273da8d55cb:
+      "Speaker 1": "Chris Miller"
+      "Speaker 2": "Gilbert Velasquez"
+      "Speaker 4": "Lyn Barrett"
+      "Speaker 6": "John Tsiros"
+      "Speaker 7": "Ai"
+      "Speaker 8": "Fernando"
+      "Speaker 9": "Lauren Clack"
+    468619c94a7b254df711c693d8e561a4:
+      "Speaker 2": "Justin Holder"
+      "Speaker 4": "Anthony Pezet"
+      "Speaker 5": "Michael Braunstein"
+      "Speaker 6": "Sandeep Kaushik"
+      "Speaker 7": "Vladimir Avila"
   pending-speaker-mappings: []
-  recording-classification: {}
-  ready-for-fetch: []
-  staged-files: []
-  ingested-notes: []
+  recording-classification:
+    e2d6f3c0cfe76328329cd273da8d55cb: "work"
+    468619c94a7b254df711c693d8e561a4: "work"
+  ready-for-fetch:
+    - e2d6f3c0cfe76328329cd273da8d55cb
+  staged-files:
+    - "plaud_09-16 Weekly Meeting_ P2 AI Project Plan_ Model Testing_ and Scope Risks.md"
+    - "plaud_09-16 Weekly Meeting_ P2 AI Project Plan_ Model Testing_ and Scope Risks_raw.json"
+    - "plaud_GEHC Improving - AI Routing weekly sync.md"
+    - "plaud_GEHC Improving - AI Routing weekly sync_raw.json"
+  ingested-notes:
+    - "zzPlaud/Client/2026-09-16 SST AI Takeoff Weekly - P2 AI Project Plan, Model Testing, and Scope Risks.md"
+    - "zzPlaud/Client/2026-09-17 GEHC Improving - AI Routing weekly sync.md"
   unresolved_speakers: []
+  monday-review-tasks:
+    - file_id: e2d6f3c0cfe76328329cd273da8d55cb
+      task_id: 13071539496
+    - file_id: 468619c94a7b254df711c693d8e561a4
+      task_id: 13071504312
   stale-staged-files: []
   steps-executed:
-    - "step-01 (discover) — complete, 0 new recordings"
-  steps-skipped:
-    - "step-02 through step-05b — not entered, per step-01 'No new recordings found' failure mode (do not proceed to step-02)"
+    - "step-01 (discover) complete, 2 new recordings"
+    - "step-02 (trigger-transcription) complete, 1 triggered, 1 ready"
+    - "step-03 (identify-speakers) complete, all speakers auto-resolved via self-ID + calendar across 2 recordings (7 + 5 generic labels), both classified work"
+    - "step-04 (fetch-staging) complete, 2 fetched, 12 speaker renames applied total, correct labels verified on both"
+    - "step-05 (ingest-vault) complete, 2 notes filed to zzPlaud/Client, Gate 5 pass on both, Monday logged-manual"
+    - "step-05b (share-with-alice) complete, 2 share URLs generated, 2 Monday review tasks created for Alice Mburu (13071539496, 13071504312)"
+  steps-skipped: []
   vault-hygiene-flags:
-    - issue: "30 file_ids each map to two vault notes (stale root-level zzPlaud/*.md duplicates of notes later correctly re-filed into Client//Improving//Other/ subfolders). 174 file_id-bearing notes for 137 recordings."
-      impact: "Pre-existing; does not affect dedup correctness (dedup still resolved every recording). Not acted on this run."
+    - issue: "30 file_ids each map to two vault notes (stale root-level zzPlaud/*.md duplicates of notes later re-filed into Client//Improving//Other/ subfolders). 174 file_id-bearing notes for 137 recordings."
+      impact: "Pre-existing; does not affect dedup correctness. Not acted on this run."
   staging-cleanup-backlog:
     - issue: "132 top-level plaud_*.md files (plus their _raw.json/_speakers.json siblings) remain in ~/Downloads/transcript-staging/ despite all being already ingested."
-      impact: "Cosmetic/hygiene; no effect on this run's result since discovery resolved them all as skips. Flagged for a cleanup pass, not deleted (workflow only cleans up files it processes)."
+      impact: "Cosmetic/hygiene; flagged for a cleanup pass, not deleted this run."

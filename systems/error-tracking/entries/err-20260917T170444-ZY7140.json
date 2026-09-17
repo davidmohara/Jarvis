@@ -1,0 +1,15 @@
+{
+  "id": "err-20260917T170444-ZY7140",
+  "timestamp": "2026-09-17T17:04:44Z",
+  "session": "boot-2026-09-17",
+  "source": "explicit",
+  "agent": "knox",
+  "category": "tool-misuse",
+  "description": "Knox's plaud-ingest step-05b declared the Monday MCP unavailable ('no authenticated Monday MCP server is configured; only the unauthenticated claude.ai OAuth connector is present') and skipped creating the Monday tasks for both ingested recordings, setting gate_6_result: fail. David checked and confirmed the Monday MCP is connected. Verified directly: mcp__claude_ai_monday_com__list_workspaces returned the 'improving-ohara.monday.com' Main workspace (id 16333467), so the server is authenticated and fully functional. Knox inferred unavailability from inspecting ~/.claude.json rather than probing the actual tool surface. 9 action items stalled, 2 Monday review tasks never created.",
+  "correction": "The Monday MCP is connected and authenticated. The two 'Review Plaud recording' tasks should have been created on board 18420619069 / group new_group29179, project_owner Alice Mburu (107886956), gate 6 should have passed. Remediation: re-run step-05b task creation now.",
+  "failure_mode": "lazy-search",
+  "systemic_fix": "Before declaring any MCP/connector unavailable, probe the tool surface directly (ToolSearch select:mcp__<server>__<tool> or an actual call) rather than inferring from config-file inspection. Absence from ~/.claude.json is not evidence of absence. Same class as err-20260715T134820-X2GOL2 (config file inspected instead of the live port) and the 2026-09-14 plaud-ingest run that reported the identical false-negative. Candidate rule addition to SYSTEM.md 'Data Source Unreachable' protocol: a connector may only be reported unreachable after a direct tool probe fails WITH its actual error, never after a config read.",
+  "fix_status": "proposed",
+  "severity": "moderate",
+  "related_entries": ["err-20260715T134820-X2GOL2"]
+}

@@ -90,8 +90,8 @@ for its board's schema; this skill does not know any one board's schema and must
 hardcode one). Success = the call returns a task ID. `id` = that task ID.
 
 **Do not hardcode a specific board ID, group ID, or person ID inside this skill.** Those are
-workflow-specific facts (e.g. plaud-ingest's board `18420619069` / group `new_group29179` /
-Alice Mburu `107886956`) that belong in the caller's `config`, not in this shared skill —
+workflow-specific facts (e.g. plaud-ingest's board `18420619069` / group `new_group29179`)
+that belong in the caller's `config`, not in this shared skill —
 hardcoding them here would silently misroute a different caller's Monday delivery.
 
 ### Backend: `ghost`

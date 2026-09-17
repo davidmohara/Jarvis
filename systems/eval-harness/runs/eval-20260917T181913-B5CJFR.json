@@ -1,0 +1,63 @@
+{
+  "id": "eval-20260917T181913-B5CJFR",
+  "agent_id": "a2b379cffbd69badc",
+  "type": "agent",
+  "name": "general-purpose",
+  "workflow": null,
+  "agent": "general-purpose",
+  "session_id": "61be22c5-c8cc-49b7-888a-b106ddd74eb7",
+  "trigger": "unknown",
+  "started": "2026-09-17T18:19:13.293401Z",
+  "completed": "2026-09-17T14:06:40.190907",
+  "duration_seconds": null,
+  "status": "aborted",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": false,
+      "all_steps_finished": null,
+      "tool_failures": 1,
+      "error_ids": [],
+      "tool_failure_log": [
+        {
+          "tool": "Read",
+          "error": "File does not exist. Note: your current working directory is /Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES.",
+          "duration_ms": 32,
+          "timestamp": "2026-09-17T13:19:23.820760"
+        }
+      ],
+      "abort_reason": "session-ended"
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": []
+}

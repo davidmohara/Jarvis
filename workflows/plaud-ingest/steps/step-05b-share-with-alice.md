@@ -1,62 +1,45 @@
 ---
 status: completed
-started-at: "2026-09-14T20:10:00Z"
-completed-at: "2026-09-14T20:18:00Z"
+started-at: "2026-09-17T16:58:00Z"
+completed-at: "2026-09-17T17:02:00Z"
 model: sonnet
 outputs:
-  shares-attempted: 3
-  shares-succeeded: 3
+  shares-attempted: 2
+  shares-succeeded: 2
   shares-failed: 0
-  tasks-created: 0
+  tasks-created: 2
   share-urls:
-    - file_id: 9bb5788628b16838019203e248399df3
-      url: "https://web.plaud.ai/s/pub_63a704d7-a348-4c51-8f9f-78604be47367::oZpP-7eFNOrbQOzCBzWSQY5tjsSR5iW1M1p6Of3DBV86T07iOGPJTBCrJ9srPoA9TPnmfqyo-nz469IC"
-      monday-task-id: null
-    - file_id: 66df23aef3712ab857d5a656c67ba763
-      url: "https://web.plaud.ai/s/pub_b1c67845-0d75-4063-b37f-5aa4a0c51701::qmpgjuIVrAE8oPV8HQUF0alIHExgU0sRnPZqMkt5lgk_QOfsqv-OKsSnHtbx5ie1hvNpcI_W2OsDG74C"
-      monday-task-id: null
-    - file_id: 97b419ebfe3fd7ed84ac820a3343fef7
-      url: "https://web.plaud.ai/s/pub_037425a6-bee8-4fe6-8e7e-1959da9246c0::KxnhOcLasWE096TpKQkz6oszNL9Bb7ab3qybfs7bjQqwXcEhoK7Lf9HiQ3vqGPLbm6UPtTT19at00YQC"
-      monday-task-id: null
-  gate_6_result: "fail"
+    - file_id: e2d6f3c0cfe76328329cd273da8d55cb
+      url: "https://web.plaud.ai/s/pub_588dd5d2-47e5-4b17-a6ca-200603be5666::7cZCOzWOHs8TYUqiD3pSBc3YxSVMtxQSXYhjIRCmriyDWqnr2obmS_Uvyfzg51B6WrauRQs68tHDjhUC"
+      monday-task-id: 13071539496
+    - file_id: 468619c94a7b254df711c693d8e561a4
+      url: "https://web.plaud.ai/s/pub_707b16d2-dca2-4153-ba5c-f30881b6de94::YamQp04fJtqxIaaWjsGwL0AA0GcQFilGgdFd7Zpz47gF0PmebQ8S9UBhRNCPw_NxhNPcGE-p5jdymZ8C"
+      monday-task-id: 13071504312
+  gate_6_result: "pass"
   gate_6_delivery_confirmations:
-    - file_id: 9bb5788628b16838019203e248399df3
-      task_id: null
-      recipient_confirmed: false
+    - file_id: e2d6f3c0cfe76328329cd273da8d55cb
+      task_id: 13071539496
+      recipient_confirmed: true
       share_url_present: true
-      error: "Monday MCP create_item tool unavailable this session -- only the unauthenticated claude.ai monday.com OAuth connector (mcp__claude_ai_monday_com__authenticate) was present, same failure step-05 reported earlier this run. Did not attempt interactive OAuth login (background/unattended task)."
-    - file_id: 66df23aef3712ab857d5a656c67ba763
-      task_id: null
-      recipient_confirmed: false
+      error: null
+    - file_id: 468619c94a7b254df711c693d8e561a4
+      task_id: 13071504312
+      recipient_confirmed: true
       share_url_present: true
-      error: "Monday MCP create_item tool unavailable this session -- same as above."
-    - file_id: 97b419ebfe3fd7ed84ac820a3343fef7
-      task_id: null
-      recipient_confirmed: false
-      share_url_present: true
-      error: "Monday MCP create_item tool unavailable this session -- same as above."
+      error: null
   notes: >
-    pi-20260914-001: 3 work recordings processed (9bb5788628b16838019203e248399df3,
-    66df23aef3712ab857d5a656c67ba763, 97b419ebfe3fd7ed84ac820a3343fef7). No personal
-    recordings this run (0 skipped). `fetch_plaud.py --share` returned a real
-    SHARE_URL for all 3 on the first attempt -- no retries needed, no NO_TOKEN/
-    SHARE_FAILED encountered. Monday task creation via delivery-router failed for
-    all 3: the only Monday tool surfaced this session was the unauthenticated
-    claude.ai monday.com OAuth connector (authenticate/complete_authentication) --
-    no working create_item tool, matching step-05's earlier report in this same
-    session that the Monday board tool was unreachable. Per this step's documented
-    failure mode ("Monday task creation fails -> log the error and the share URL,
-    controller can create the task manually, continue") and the standing
-    instruction not to treat this as a blocker, did not attempt an interactive
-    OAuth login (inappropriate for an unattended background task) and did not
-    fabricate success. Gate 6 result: FAIL for all 3 (task creation did not
-    succeed -- no task ID returned). tasks-created = 0. Share links are captured
-    above so David/Alice can be routed manually. This is the final step;
-    state.yaml is being set to status: complete regardless, per the "no file_ids
-    resolvable / Monday fails -> mark complete, don't abort" failure-mode guidance
-    -- share generation (the recoverable, retryable half of this step) fully
-    succeeded; only Monday delivery, which has its own documented manual-fallback
-    path, did not.
+    pi-20260917-001: 2 work recordings processed (e2d6f3c0cfe76328329cd273da8d55cb
+    "09-16 Weekly Meeting: P2 AI Project Plan, Model Testing, and Scope Risks";
+    468619c94a7b254df711c693d8e561a4 "09-17 GEHC AI Routing weekly sync"). No personal
+    recordings (0 skipped). `fetch_plaud.py --share` returned real SHARE_URLs for both
+    on the first attempt. Monday task creation via mcp__claude_ai_monday_com__create_item
+    on board 18420619069 group new_group29179 succeeded for both: task 13071539496 (SST)
+    and 13071504312 (GEHC), both assigned Owner = Alice Mburu (107886956), Status Not
+    Started, Notes = share URL. Gate 6 result: PASS for both. Note: an earlier interim
+    conclusion in this run (Monday MCP unavailable, inferred from ~/.claude.json) was
+    wrong; the Monday MCP is connected and authenticated this session. The 9 step-05
+    action items remain logged for manual creation (step-05 routes those separately from
+    these two review tasks).
 ---
 
 <!-- system:start -->
@@ -121,11 +104,12 @@ outputs:
            board_id: "18420619069"
            group_id: "new_group29179"          # To-Do
            column_values:
-             project_owner: { personsAndTeams: [{ id: 107886956, kind: "person" }] }
              project_status: { label: "Not Started" }
              text_mm50v09n: "<share_url_or_fallback_message>"
      ```
-   - Alice Mburu's user ID (`107886956`) and the board/group IDs are this workflow's own facts
+   - **Do NOT set `project_owner` — omit the field entirely.** Review tasks are created
+     unassigned; Alice Mburu triages and assigns in Monday. The system never sets an assignee.
+   - The board/group IDs are this workflow's own facts
      — they live in this step's `config`, not inside `delivery-router` itself (the skill is
      shared across workflows and must not hardcode any one caller's board/person).
    - The skill's own retry budget (up to 3 attempts) applies before it reports a failure — do
@@ -160,7 +144,7 @@ outputs:
    Personal recordings (skipped sharing): N
 
    Shares: N succeeded, N failed
-   Monday tasks created for alice.mburu: N
+   Monday review tasks created (unassigned — Alice triages): N
 
    ✓ <Recording Title> → <share_url> (task ID: <id>)
    ✗ <Recording Title> → SHARE_FAILED — task created with fallback note
@@ -175,11 +159,11 @@ outputs:
 decision" gate. That does not match this workflow — there is no Slack delivery anywhere in
 plaud-ingest today (confirmed by grep across `workflow.md` and every step file; the only
 Slack usage in this repo is `master-slack` and other workflows entirely). The actual terminal
-delivery in this step is a Plaud public share link plus a Monday task assigning the recording
-to Alice Mburu for review — not an email send either, despite the workflow's own goal
+delivery in this step is a Plaud public share link plus an unassigned Monday review task that
+Alice Mburu triages and assigns in Monday — not an email send either, despite the workflow's own goal
 statement in `workflow.md` describing it as "share... via email." Rather than inventing new
 Slack (or email) behavior that doesn't exist, this gate confirms the delivery path that
-**actually runs**: the share-link generation and the Monday task assignment. If David wants a
+**actually runs**: the share-link generation and the Monday review-task creation. If David wants a
 real email notification or a Slack alert added on top of this, that is new functionality and
 a product decision for him, not something to add silently under a gate.
 
@@ -189,7 +173,7 @@ re-deriving these checks against a raw API response:
 
 | Check | Expected | On failure |
 |-------|----------|------------|
-| Correct recipient | The `config.column_values.project_owner` passed to the skill was Alice Mburu's hardcoded ID `107886956` — not David, not blank, not a different person (verify the config you built in step 4, since the skill just passes it through) | **HARD FAIL.** Do not mark this recording's delivery complete. Log and escalate — a misrouted task defeats the point of this step. |
+| No assignee set | The `config.column_values` passed to the skill OMITS `project_owner` entirely — no person ID, no blank value, no `personsAndTeams` payload. Assignees are set by Alice Mburu in Monday, never by this workflow (verify the config you built in step 4, since the skill just passes it through) | **HARD FAIL.** Do not mark this recording's delivery complete. Log and escalate — the system setting an assignee defeats the triage rule for this step. |
 | Correct destination used | `delivery_status[0].backend == "monday"` and the `config` sent was board `18420619069` / group `new_group29179`, per the existing spec — not some other board or a skipped call | **HARD FAIL** if the skill was never actually called for this recording (e.g. skipped due to an earlier error but not logged as such). |
 | Share URL or fallback note present in the task | `config.column_values.text_mm50v09n` contains either a real `SHARE_URL=` value or the documented fallback string `"Share link unavailable — check Plaud web app"` — never blank | **SOFT FAIL** — log it, but the task can still stand (a blank note is a lesser problem than a missing/misrouted task; still flag it since Alice needs *something* to act on). |
 | Task creation actually succeeded | `delivery_status[0].success == true` and `.id` is a real task ID, not null | **HARD FAIL** if `success` is `false` or `.error` is set — this is the "did it actually send" check the gate exists for. `delivery-router` has already retried up to 3 times internally by the time it reports this, so a failure here means those retries were exhausted. |
@@ -203,7 +187,7 @@ would just be re-running a call the skill already confirmed fails.
 
 Log per recording:
 ```
-[Gate 6] <file_id>: recipient=Alice Mburu (107886956) ✓, board/group correct ✓, share note present ✓, task ID <id> confirmed — PASS
+[Gate 6] <file_id>: assignee omitted ✓, board/group correct ✓, share note present ✓, task ID <id> confirmed — PASS
 ```
 or
 ```
@@ -214,7 +198,7 @@ Write to this step's frontmatter `outputs`:
 ```yaml
 outputs:
   gate_6_result: "pass" | "pass-with-soft-flags" | "fail"
-  gate_6_delivery_confirmations: [{file_id, task_id, recipient_confirmed, share_url_present}, ...]
+  gate_6_delivery_confirmations: [{file_id, task_id, assignee_omitted, share_url_present}, ...]
 ```
 
 Do not set `state.yaml status: complete` (this step's terminal action) while any recording
@@ -225,9 +209,9 @@ has an unresolved Gate 6 HARD FAIL still pending retry.
 ## SUCCESS METRICS
 
 - Share script ran for every WORK file_id derived from this session's recordings
-- Personal recordings correctly identified and skipped (no share, no Alice task)
+- Personal recordings correctly identified and skipped (no share, no review task)
 - One Monday task created per WORK recording (regardless of share success/failure)
-- Alice Mburu (`107886956`) assigned as `project_owner` only on WORK recordings
+- Monday review tasks created with NO assignee (`project_owner` omitted entirely) — Alice Mburu triages and assigns in Monday
 - Personal recordings were already handled in step-05 (vault ingestion + personal task routing if needed)
 - state.yaml updated to `status: complete`
 - All failures logged in step outputs
@@ -240,7 +224,7 @@ has an unresolved Gate 6 HARD FAIL still pending retry.
 | `NO_TOKEN` on share | Run Chrome login flow, retry once. If still failing, use fallback note in Monday task. |
 | `SHARE_FAILED` (API error) | Log file_id and API response snippet. Create Monday task with fallback note. Continue. |
 | Monday task creation fails | Log the error and the share URL. Controller can create the task manually. Continue. |
-| Gate 6 hard fail (wrong recipient, wrong board, or no task ID returned) | `delivery-router` already retried internally (up to 3 attempts) before reporting `success: false` — do not retry again at this layer. Log `delivery_status[0].error` to `gate_6_delivery_confirmations` and escalate in the final report — do not count as delivered. |
+| Gate 6 hard fail (assignee set, wrong board/group, or no task ID returned) | `delivery-router` already retried internally (up to 3 attempts) before reporting `success: false` — do not retry again at this layer. Log `delivery_status[0].error` to `gate_6_delivery_confirmations` and escalate in the final report — do not count as delivered. |
 | No file_ids resolvable | Log the issue, mark step complete with 0 tasks — do not abort the workflow. |
 
 ---

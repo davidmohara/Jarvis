@@ -1,29 +1,11 @@
 {
-  "pulled_at": "2026-09-16T14:22:24Z",
+  "pulled_at": "2026-09-17T16:08:00Z",
   "status": "available",
-  "reminders": [
-    {
-      "type": "birthday",
-      "date": "2026-09-16",
-      "description": "Birthday",
-      "contact_name": "COURT WESTCOTT",
-      "relationship": "Family office, Dallas (tech/RE/subscription; angel AR focus); Clay score 7217"
-    },
-    {
-      "type": "birthday",
-      "date": "2026-09-20",
-      "description": "Birthday",
-      "contact_name": "Kevin Gardner",
-      "relationship": "Clay contact; score 3714"
-    },
-    {
-      "type": "birthday",
-      "date": "2026-09-22",
-      "description": "Birthday",
-      "contact_name": "Justin Etheredge",
-      "relationship": "Energy/electric utility digital products; score 10"
-    }
-  ],
+  "reminders": [],
   "reminder_count": 0,
-  "birthday_count": 3
+  "birthdays": [
+    {"type": "birthday", "date": "2026-09-20", "contact_name": "Kevin Gardner", "birthday": "9/20/1965", "relationship": "Improving (engineering leadership)"},
+    {"type": "birthday", "date": "2026-09-22", "contact_name": "Justin Etheredge", "birthday": "9/22/1977", "relationship": "Improving (energy/utility digital products)"}
+  ],
+  "birthday_count": 2
 }

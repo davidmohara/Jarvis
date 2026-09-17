@@ -1,0 +1,136 @@
+{
+  "id": "eval-20260917T160126-R0H0P2",
+  "type": "workflow",
+  "name": "boot",
+  "agent": "master",
+  "session_id": "61be22c5-c8cc-49b7-888a-b106ddd74eb7",
+  "trigger": "boot",
+  "started": "2026-09-17T16:01:26.705384Z",
+  "completed": "2026-09-17T16:20:53.203539Z",
+  "duration_seconds": 1166.5,
+  "status": "partial",
+  "steps": [],
+  "subagents": [
+    {
+      "agent_id": "ae41164b7f5af94df",
+      "agent_type": "general-purpose",
+      "started": "2026-09-17T16:01:51.963703Z",
+      "completed": "2026-09-17T17:07:00.296213Z",
+      "model": "accounts/fireworks/models/deepseek-v4-pro-0813",
+      "tokens_input": 0,
+      "tokens_output": 0,
+      "cost_usd": 0.09,
+      "duration_seconds": 113.49
+    },
+    {
+      "agent_id": "a87148f800f4f8eed",
+      "agent_type": "general-purpose",
+      "started": "2026-09-17T16:02:19.195076Z",
+      "completed": "2026-09-17T16:20:35.384709Z",
+      "model": "accounts/fireworks/models/deepseek-v4-pro-0813",
+      "tokens_input": 0,
+      "tokens_output": 0,
+      "cost_usd": 0.09,
+      "duration_seconds": 1096.19
+    }
+  ],
+  "monitoring": {
+    "active": false,
+    "state_yaml_path": "workflows/boot/state.yaml",
+    "opened_by": "eval-turn-start.py",
+    "trigger_evidence": "run morning boot workflow"
+  },
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 1,
+      "error_ids": [],
+      "tool_failure_log": [
+        {
+          "tool": "Read",
+          "error": "File does not exist. Note: your current working directory is /Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES.",
+          "duration_ms": 15,
+          "timestamp": "2026-09-17T11:01:31.247116"
+        }
+      ]
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 6,
+      "assertions_passed": 5,
+      "assertion_results": [
+        {
+          "assertion": "boot-001-state-complete",
+          "description": "Boot workflow state.yaml shows status: complete",
+          "passed": true
+        },
+        {
+          "assertion": "boot-002-session-index-exists",
+          "description": "Session index file exists \u2014 boot's Session Index Boot step must have created/appended it",
+          "passed": true
+        },
+        {
+          "assertion": "boot-003-session-index-substantive",
+          "description": "Session index is a real record, not an empty stub",
+          "passed": true
+        },
+        {
+          "assertion": "boot-005-omnifocus-data-file-exists",
+          "description": "OmniFocus pull (step-01.2 Pull B) wrote its consolidated data file",
+          "passed": true
+        },
+        {
+          "assertion": "boot-007-omnifocus-no-completed-tasks-leaked",
+          "description": "No completed task leaked into the OmniFocus pull. The inbox permanently holds ~247 completed tasks alongside ~8 incomplete ones, and Clean Up does NOT remove them, so the query itself must carry `completed is false`. Any `completed: true` in the output means the filter was dropped from the call.",
+          "passed": true
+        },
+        {
+          "assertion": "boot-008-omnifocus-filter-documented",
+          "description": "Regression guard: the boot pull instructions still mandate the `completed is false` filter on the inbox query. If someone strips that filter from the instructions, this trips before the leak reaches a briefing.",
+          "passed": false
+        }
+      ]
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": "31aa5f2d2dc54e7d15d86c24d9a92b349facc0c6ea25918795ffa980e3e37490",
+  "prior_baseline_id": null,
+  "tags": [
+    "turn-level"
+  ],
+  "guardrails": [
+    {
+      "name": "pre-completion-review",
+      "after_step": "step-06-scan-workflows",
+      "result": "flag",
+      "reason": "Briefing reflects live 2026-09-17 data, degraded-source-free; plaud-ingest (Knox) is the only in-flight workflow; index accurate; no leakage. Two auxiliary registry files stale but do not feed the briefing.",
+      "escalated_to_human": false,
+      "timestamp": "2026-09-17T16:16:32.503426+00:00"
+    }
+  ],
+  "total_tokens_input": null,
+  "total_tokens_output": null,
+  "total_cost_usd": 0.09
+}

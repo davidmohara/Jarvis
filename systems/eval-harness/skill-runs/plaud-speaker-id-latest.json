@@ -2,9 +2,15 @@
   "skill": "plaud-speaker-id",
   "agent": "knox",
   "trigger": "manual",
-  "started": "2026-09-14T15:00:00Z",
-  "completed": "2026-09-14T15:30:00Z",
+  "started": "2026-09-17T16:10:00Z",
+  "completed": "2026-09-17T16:22:00Z",
   "status": "success",
   "tool_failures": 0,
-  "error_ids": []
+  "error_ids": [],
+  "recordings_processed": ["e2d6f3c0cfe76328329cd273da8d55cb"],
+  "resolved": 7,
+  "method": "self-id + calendar",
+  "controller_escalations": 0,
+  "recording_classification": {"e2d6f3c0cfe76328329cd273da8d55cb": "work"},
+  "note": "7 generic speakers resolved via transcript self-ID and calendar attendee match (AI Takeoff Weekly Touch - Improving & SST). No controller escalation needed."
 }

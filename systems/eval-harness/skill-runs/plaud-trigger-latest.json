@@ -2,9 +2,14 @@
   "skill": "plaud-trigger",
   "agent": "knox",
   "trigger": "manual",
-  "started": "2026-09-14T23:12:00Z",
-  "completed": "2026-09-14T23:14:00Z",
+  "started": "2026-09-17T16:07:00Z",
+  "completed": "2026-09-17T16:10:00Z",
   "status": "success",
   "tool_failures": 0,
-  "error_ids": []
+  "error_ids": [],
+  "triggered": ["468619c94a7b254df711c693d8e561a4"],
+  "ready_passthrough": ["e2d6f3c0cfe76328329cd273da8d55cb"],
+  "pending_with_watcher": ["468619c94a7b254df711c693d8e561a4"],
+  "skipped_minutes_exhausted": [],
+  "note": "1 missing recording triggered (status=0 task processing); 1 already ready passed through."
 }

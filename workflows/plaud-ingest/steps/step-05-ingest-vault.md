@@ -1,63 +1,45 @@
 ---
 status: completed
-started-at: "2026-09-14T00:00:00Z"
-completed-at: "2026-09-14T00:00:00Z"
+started-at: "2026-09-17T16:40:00Z"
+completed-at: "2026-09-17T16:58:00Z"
 model: sonnet
 outputs:
   ingested-notes:
-    - "zzPlaud/Improving/2026-09-14 Summer Craig Call - ACG Houston Speaking Engagement Planning.md"
-    - "zzPlaud/Improving/2026-09-14 Sync AI Executive Workshop in California (Ashok Iyengar).md"
-    - "zzPlaud/Improving/2026-09-14 Syncing Up Devlin and O'Hara - Production Hosting Handoff, Capacity Risk, and October Boot Camp Planning.md"
+    - "zzPlaud/Client/2026-09-16 SST AI Takeoff Weekly - P2 AI Project Plan, Model Testing, and Scope Risks.md"
+    - "zzPlaud/Client/2026-09-17 GEHC Improving - AI Routing weekly sync.md"
   daily-notes-updated:
-    - "Calendar/2026/09-September/2026-09-14.md"
+    - "Calendar/2026/09-September/2026-09-16.md"
+    - "Calendar/2026/09-September/2026-09-17.md"
   monday-tasks-created: 0
-  monday-tasks-logged-manual: 12
-  staging-files-removed: 11
+  monday-tasks-logged-manual: 9
+  staging-files-removed: 4
   gate_5_result: "pass"
   gate_5_verification_failures: []
   notes: >
-    pi-20260914-001: 3 recordings ingested, all classified work, all filed
-    to zzPlaud/Improving/ (internal Improving meetings/BD, no client or
-    personal recordings in this batch). (1) 9bb5788628b16838019203e248399df3
-    — ACG Houston speaking-engagement planning call with Summer Craig
-    (ACG Houston board member); speakers left as "David O'Hara"/"Summer
-    Craig" per plan (no mapping needed, "Speaker 2" identified from context
-    and calendar match). (2) 66df23aef3712ab857d5a656c67ba763 — Executive AI
-    Workshop planning sync with Ashok Iyengar; speaker labels normalized
-    from staged "O'Hara"/"Ashok Iyengar" to full names per vault convention.
-    (3) 97b419ebfe3fd7ed84ac820a3343fef7 — Production hosting handoff/
-    capacity-risk/October boot camp planning with Devlin Liles; Robyn
-    Fuentes also appears mid-call with brief interjections despite not
-    being on the calendar invite (edge case #4 — caller set differs from
-    invite). All 3 matched to real calendar events (Summer Craig call,
-    "Sync: AI Executive Workshop in California", "Syncing Up: Devlin &
-    O'Hara") for real titles/attendees/times. Duration fields in the staged
-    .md files are mislabeled — the numeric value is milliseconds, not
-    seconds as the "s" suffix implies; duration_minutes computed as
-    raw_value / 1000 / 60 for all 3 notes (confirmed against transcript
-    timestamp ranges). Gate 5 verified for all 3: read back via
-    get_vault_file (markdown format — json format threw a pre-existing
-    tool-side type-validation error on tags/duration_minutes, same as seen
-    on the 2026-09-03 note; not a data issue), confirmed file_id/date/
-    source/tags frontmatter and correct path for each. Daily note
-    Calendar/2026/09-September/2026-09-14.md created fresh (didn't exist)
-    with wikilinks to all 3 notes. Monday task creation was NOT possible
-    this run — the create_item tool for board 18420619069 was not
-    reachable in this session (only the unauthenticated claude_ai
-    monday_com OAuth tools were available); per the standard Monday-
-    failure-mode handling, all 12 action items across the 3 notes were
-    logged in the final report for manual creation instead of blocking the
-    vault write. Staging cleanup: removed 11 files — the 8 files (3×.md,
-    3×_raw.json, 2×_speakers.json) explicitly listed in
-    accumulated-context.staged-files, plus 3 more (plaud_2026-09-14
-    14_03_46.md/_raw.json/_speakers.json) discovered to be an untracked
-    duplicate of recording (1) under its pre-rename auto-generated
-    timestamp filename (identical file_id, duration, and transcript
-    content) — confirmed as part of this session's output, not the
-    unrelated pre-existing backlog, before deleting. Follow-up
-    intelligence: Sunday Texans-game commitment to Summer Craig + husband,
-    and Wednesday Simpson Strong-Tie leadership-sync coverage commitment to
-    Devlin, both surfaced in the final report as this-week action items.
+    pi-20260917-001: 1 recording ingested (e2d6f3c0cfe76328329cd273da8d55cb,
+    "09-16 Weekly Meeting: P2 AI Project Plan, Model Testing, and Scope Risks"),
+    classified work (Simpson Strong-Tie client weekly), filed to
+    zzPlaud/Client/2026-09-16 SST AI Takeoff Weekly - P2 AI Project Plan, Model
+    Testing, and Scope Risks.md. All 7 generic speaker labels resolved to real
+    names in step-03 and step-04; final transcript has 0 generic labels. Matched
+    to calendar event "AI Takeoff Weekly Touch - Improving & SST" (organizer
+    givelasquez@strongtie.com, 15:00-15:45 UTC) for real title/attendees/time.
+    duration_minutes computed as 2683s / 60 = 44.7. Gate 5 verified: read back
+    the note, confirmed file exists with file_id/date/duration_minutes/source/tags
+    frontmatter and full transcript under a details block. Daily note
+    Calendar/2026/09-September/2026-09-16.md already existed; appended wikilink.
+    Monday task creation NOT possible this run: the create_item tool for board
+    18420619069 is not reachable in this session (no authenticated Monday MCP; only
+    the unauthenticated claude_ai monday_com OAuth connector is present, same
+    failure as the 2026-09-14 run). Per the documented Monday failure mode, 5 action
+    items logged in the final report for manual creation rather than blocking the
+    vault write. Staging cleanup: removed the 2 files I staged this run (.md and
+    _raw.json); the stale _ogg file from --rename was already removed in step-04;
+    plaud_pending.json left intact (holds the pending 09-17 recording queue entry).
+    The pre-existing 132-file staging backlog was not touched (already-ingested
+    leftovers, separate cleanup backlog). Follow-up intelligence: Friday 2026-09-18
+    acceptance-testing deadline and Tuesday 2026-09-22 architecture/implied-beam
+    answer deadline surfaced as lead follow-ups.
 ---
 
 <!-- system:start -->
@@ -66,7 +48,7 @@ outputs:
 ## MANDATORY EXECUTION RULES
 
 1. You MUST follow `skills/plaud-transcripts/SKILL.md` exactly for every staged file — no shortcuts.
-2. You MUST cross-reference each note against today's calendar for action items before routing to Monday.
+2. You MUST filter action items by owner before any Monday routing — this is a HARD GATE. Only action items owned by David O'Hara reach Monday. Action items owned by clients, colleagues, or anyone else are NEVER routed to Monday; they remain in the vault note and are surfaced in the run report as informational. Cross-reference each note against today's calendar for action items before routing.
 3. You MUST link every meeting note to the daily calendar note in the vault.
 4. You MUST clean up staging after all notes are successfully written.
 5. Do NOT mark this step complete until staging is clean and all notes are confirmed written to vault.
@@ -110,22 +92,24 @@ outputs:
 
 4. **Route action items to Monday** via `mcp__ae67c963-c9a1-4a47-9243-3f91556e1532__create_item`.
    - Extract action items from each note's transcript and summary
-   - **Handle based on recording classification:**
-     - **For WORK recordings:** Create Monday task, assign to Alice Mburu (`107886956`)
-     - **For PERSONAL recordings:** Only create Monday task if the action item is actionable (not just notes). Assign to David O'Hara instead (`<user_id>` — do not assign to Alice)
+   - **OWNER FILTER (HARD GATE): route only action items whose owner is David O'Hara.**
+     - Applies to WORK and PERSONAL recordings alike.
+     - **Non-David action items are NOT routed to Monday.** They remain in the vault note and are surfaced in the run report as informational (owner + item text). Never create Monday tasks for client-side or colleague-owned items.
+   - **Do NOT set `project_owner` on any Monday task — omit the field entirely.** Alice Mburu triages and assigns in Monday; the system does not set assignees.
+   - **For PERSONAL recordings:** only create a Monday task if the action item is David-owned AND actionable (not just notes).
    - Cross-reference with today's calendar — items that hit today go to the top
-   - For each action item, call `mcp__ae67c963-c9a1-4a47-9243-3f91556e1532__create_item` with:
+   - For each David-owned action item, call `mcp__ae67c963-c9a1-4a47-9243-3f91556e1532__create_item` with:
      - `boardId`: `18420619069`
      - `groupId`: `new_group29179`
      - `name`: the action item text (concise, imperative phrasing)
-     - `columnValues`: 
+     - `columnValues`:
        - `project_status`: "Not Started"
        - `priority`: "Medium" by default (use "High" if the transcript flags the item as urgent)
        - `date`: due date if mentioned in transcript (otherwise omit)
        - `text_mm50v09n`: source recording title and date (e.g., "From: 2026-07-01 Nexben Discussion — PERSONAL" for personal recordings)
-       - `project_owner`: for WORK items, assign to Alice (`107886956`); for PERSONAL items, assign to David
+       - **no `project_owner`** — omit entirely
    - No project/tag gate required — Monday does not enforce that prerequisite
-   - Log count of WORK and PERSONAL tasks created separately in the final report
+   - Log count of David-owned items routed and non-David items left in notes separately in the final report
 
 5. **Cross-reference recent transcripts with today's calendar** (this is the intelligence payoff):
    - Scan all notes ingested today AND the last 7 days of `zzPlaud/` notes
@@ -152,9 +136,8 @@ outputs:
    ✓ (PERSONAL) Doctor Appointment → zzPlaud/Personal/2026-04-15 Doctor Appointment.md
    ✓ Another Recording → zzPlaud/Client/2026-04-15 Another Recording.md
 
-   Action items routed to Monday:
-     - Work items (assigned to Alice): N
-     - Personal items (assigned to you): N
+   Action items routed to Monday (David-owned, unassigned): N
+   Non-David action items (left in vault notes, informational): N
 
    Staging cleanup: X transcript files removed
 
@@ -208,7 +191,7 @@ outputs:
 
 - Every file in `accumulated-context.staged-files` has a corresponding vault note
 - Daily calendar notes updated with wikilinks
-- Action items created in Monday (board: Work, group: To-Do) with status, priority, and source traceability
+- David-owned action items created in Monday (board: Work, group: To-Do) with NO assignee set (project_owner omitted), plus status, priority, and source traceability; non-David items left in vault notes and surfaced in the report
 - Staging folder clean
 - Calendar cross-reference surfaced any date-relevant commitments
 

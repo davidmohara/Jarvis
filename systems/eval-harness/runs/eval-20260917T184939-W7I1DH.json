@@ -1,0 +1,88 @@
+{
+  "id": "eval-20260917T184939-W7I1DH",
+  "type": "skill",
+  "name": "quinn-strategy",
+  "agent": "quinn",
+  "session_id": "61be22c5-c8cc-49b7-888a-b106ddd74eb7",
+  "trigger": "manual",
+  "started": "2026-09-17T13:47:59-05:00",
+  "completed": "2026-09-17T18:49:39.119890Z",
+  "duration_seconds": 100.1,
+  "status": "success",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": true,
+      "outputs_non_empty": true,
+      "assertions_checked": 4,
+      "assertions_passed": 4,
+      "assertion_results": [
+        {
+          "assertion": "quinn-strategy-signal-written",
+          "description": "quinn-strategy skill-run signal file was written",
+          "category": "structure",
+          "passed": true
+        },
+        {
+          "assertion": "quinn-strategy-signal-status",
+          "description": "quinn-strategy skill-run did not end in failure",
+          "category": "structure",
+          "passed": true
+        },
+        {
+          "assertion": "quinn-st-002-substantive",
+          "description": "quinn-strategy output is substantive (>200 bytes)",
+          "category": "structure",
+          "passed": true
+        },
+        {
+          "assertion": "quinn-st-003-content",
+          "description": "quinn-strategy output contains expected content",
+          "category": "structure",
+          "passed": true
+        }
+      ],
+      "category_breakdown": {
+        "structure": {
+          "passed": 4,
+          "checked": 4
+        },
+        "content": {
+          "passed": 0,
+          "checked": 0
+        },
+        "quality": {
+          "passed": 0,
+          "checked": 0
+        }
+      }
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "deterministic_gate": {
+      "score": 1.0,
+      "gate_status": "pass",
+      "computed_at": "2026-09-17T18:49:44.743285Z"
+    }
+  },
+  "version_hash": "85d4a7e674deb0c2",
+  "prior_baseline_id": null,
+  "tags": [
+    "cowork-hook",
+    "skill"
+  ]
+}

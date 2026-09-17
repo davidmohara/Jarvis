@@ -1,22 +1,23 @@
 ---
 workflow: daily-review
 agent: chief
-status: complete
-session-started: "2026-09-03T00:00:00"
-session-id: "chief-2026-09-03-000000"
-current-step: step-05
-session-closed: true
-original-request: "run the daily review for yesterday, 2026-09-02"
+status: in-progress
+session-started: "2026-09-17T17:30:00"
+session-id: "chief-2026-09-17-173000"
+current-step: step-01
+session-closed: false
+original-request: "Run the daily wrap up workflow."
 accumulated-context:
-  review-date: "2026-09-02"
-  omnifocus-status: "success — inbox: 11, completed 2026-09-02: 0, overdue: 2 (Review prayer list, Coherence breathing), flagged: 0"
-  calendar-status: "success — M365 MCP, 18 events on 2026-09-02"
-  morning-briefing-status: "not found — no reviews/daily/2026-09-02.md and no auto entry for that date"
-  delegation-tracker-status: "no active delegations, no changes needed"
-  review-file: "reviews/daily/2026-09-02.md"
-  narrative-path: "Daily Reviews/2026-09-02 A Warm Introduction and Two Loose Threads.md (Obsidian vault)"
-  guardrail-checkpoint: "pass"
-  root-audit: "clean — nothing to move or delete"
-  git-commit: "e6463fc3"
-  git-push: "success"
+  review-date: "2026-09-17"
+  mode: "sub-agent interactive — capture questions Q1-Q3 and tomorrow top-3 deferred to controller via Master"
+  omnifocus-status: "MCP connector failed to connect; used data/omnifocus-unified.json (pulled 2026-09-17T16:07Z, status available). 42 tasks, inbox 11, completed today 0, created today 0, overdue 0, flagged 0"
+  calendar-status: "data/calendar-unified.json (pulled 2026-09-17T16:05Z). Today: AA3589 LIT->DFW 7:18a, Sales & Recruiting 9:15, Sales Scrum 10:00 vs GEHC AI Routing 10:00 (double-book), Vegas prep 10:30, Retreat prep 1:00p, Steve Hall follow up 3:00p vs Golf lesson 3:00p (double-book), YPO Spouse Kickoff 6:00p"
+  morning-briefing-status: "found — memory/working/morning-briefing-2026-09-17-111500.md; implicit priorities: protect GEHC, clear AI for Execs handoff, retreat prep / get out clean"
+  delegation-tracker-status: "0 active delegations, 0 overdue"
+  due-2026-09-18: "Coherence breathing 10a, Review prayer list 11a, Send Blake McMillan AI for Execs content 5p, Confirm GitHub location of AI curriculum 5p, Answer Q&A (Forbes) 5p"
+  eval-health: "29 runs today — 20 success, 4 partial, 3 aborted, 1 failure, 1 in-progress (this run)"
+  corrections-today: "3 error entries: system-infrastructure (minor), tool-misuse (moderate), routing-error (moderate)"
+  system-visible-work: "2 Plaud recordings ingested; projects/one-texas-strategy.md produced (Quinn); OmniFocus 5-boot outage resolved; boot completed; revenue/bookings/pipeline/co-sell snapshots run 18:45"
+  root-audit: "scanned — 1 flag: revenue-dallas.png (generated today 13:18, move to reports/?); SETUP.md borderline-keep; evolution.manifest.json permitted"
+  awaiting: "controller answers to step-01 Q1-Q3, step-02 top-3 for 2026-09-18, energy level, root-audit confirmation"
   model: sonnet

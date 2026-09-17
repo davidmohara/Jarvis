@@ -8,7 +8,7 @@ model: haiku
 <!-- system:start -->
 # Plaud Ingest Workflow
 
-**Goal:** Discover all new Plaud recordings, get them transcribed, identify who was in them, land them as properly tagged Obsidian notes with action items routed to Monday, and share each recording (transcript + summary) with Alice Mburu via email.
+**Goal:** Discover all new Plaud recordings, get them transcribed, identify who was in them, land them as properly tagged Obsidian notes with David-owned action items routed to Monday (unassigned — Alice Mburu triages), and share each recording (transcript + summary) with Alice Mburu via email.
 
 **Agent:** Knox — Knowledge Manager
 
@@ -114,7 +114,7 @@ rule, edge case, or the awaiting-input pause behavior was changed):
 | 3 — Transcription Success | step-02 | HARD, per-recording | Retries the two-step trigger up to 3 times on transient failure; excludes the recording after 3 failures. Does not apply to the `-1`/`-12` minutes-exhausted case, which stays no-retry. |
 | 4 — Speaker Identification Completeness | step-03 | SOFT | Formalizes "unresolved speaker" and logs it to `unresolved_speakers`; does not alter the awaiting-input pause. |
 | 5 — Vault Filing Verification | step-05 | HARD, per-note | Confirms the note actually exists at its path with required frontmatter after an Obsidian MCP write reports success. |
-| 6 — Delivery Routing Confirmation | step-05b | HARD, per-recording | Confirms the correct recipient (Alice Mburu) and channel (Monday task + share link) before the workflow marks itself complete. Renamed from a requested "Slack routing" gate — this workflow has no Slack delivery; see step-05b for the reinterpretation rationale. |
+| 6 — Delivery Routing Confirmation | step-05b | HARD, per-recording | Confirms no assignee is set (Alice Mburu triages and assigns in Monday) and the correct channel (board/group + share link) before the workflow marks itself complete. Renamed from a requested "Slack routing" gate — this workflow has no Slack delivery; see step-05b for the reinterpretation rationale. |
 
 ## User Interaction Protocol
 

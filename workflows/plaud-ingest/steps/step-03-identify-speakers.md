@@ -1,64 +1,39 @@
 ---
 status: completed
 model: haiku
-started-at: "2026-09-14T15:00:00Z"
-completed-at: "2026-09-14T15:30:00Z"
+started-at: "2026-09-17T16:10:00Z"
+completed-at: "2026-09-17T16:22:00Z"
 outputs:
   gate_4_result: "pass"
   gate_4_unresolved_speakers: []
   notes: >
-    pi-20260914-001: 3 recordings in ready-for-fetch, all dated 2026-09-14.
-    (1) file_id 9bb5788628b16838019203e248399df3, "2026-09-14 14:03:46":
-    no transcript content yet (is_trans: false, empty content_list), no
-    _speakers.json in staging -- clean, no mapping needed. Calendar
-    cross-reference (19:03:46-19:33:57 UTC window) matched "Summer to call
-    David at 214.317.9659" event, attendee summer@craiggroup.io -- used
-    for classification only, no personal keyword match, classified work.
-    (2) file_id 66df23aef3712ab857d5a656c67ba763, "09-14 Meeting: Executive
-    AI Workshop Planning": _speakers.json present, 2 speakers -- O'Hara (21
-    seg, tagged) and Speaker 1 (16 seg, untagged, sample text "Hello, Alice
-    and Dave..."). Self-ID scan of full transcript found no explicit name
-    self-identification for Speaker 1, but rich context (started at new
-    role ~10 weeks ago, San Francisco Bay Area based, not a YPO member,
-    references "Robin"'s clients Intuit/Autodesk, meeting Pure
-    Storage/Everpure contacts, traveling to India mid-November on PTO).
-    Calendar cross-reference: recording start_time 17:29:43 UTC matched
-    (within 17 sec) to calendar event "Sync: AI Executive Workshop in
-    California", 17:30-18:00 UTC, attendees alice.mburu@improving.com and
-    ashok.Iyengar@improving.com -- exact time+subject match. Transcript
-    speaker addresses "Alice" directly (setting up the call) and is
-    addressed as talking to "Dave" -- Alice Mburu's voice was not captured
-    as a distinct diarized segment (she is on the invite but has no
-    speaker label of her own in this recording), leaving Speaker 1 =
-    Ashok Iyengar by elimination against the 2-attendee (non-David) invite.
-    High-confidence calendar resolution, no controller escalation needed.
-    Classified work (Improving business development planning). (3) file_id
-    97b419ebfe3fd7ed84ac820a3343fef7, "09-14 Meeting: Production Hosting
-    Strategy...": speakers already natively named "Devlin" and "O'Hara" in
-    the transcript -- no _speakers.json in staging, no generic labels, no
-    mapping needed. Classified work (Improving/Simpson Strong Tie
-    production infrastructure planning). No unresolved speakers across all
-    3 recordings -- Gate 4 result: pass. No controller escalation.
+    pi-20260917-001: 1 recording in ready-for-fetch (e2d6f3c0cfe76328329cd273da8d55cb,
+    "09-16 Weekly Meeting: P2 AI Project Plan, Model Testing, and Scope Risks",
+    2026-09-16 15:00-15:45 UTC). 9 speakers detected: 2 already natively named
+    (O'Hara = David, Devlin) and 7 generic labels (Speaker 1,2,4,6,7,8,9). None of
+    the 7 generic voices matched a registered Plaud profile (checked list_speakers;
+    all 7 are first-time voices for this account). Full-transcript self-ID scan with
+    introductions resolved every label directly: Speaker 1 self-identified "I'm Chris
+    Miller... Dev Manager here at Simpson"; Speaker 2 "my name's Gilbert"; Speaker 4
+    addressed as "Lynn" throughout (Lyn Barrett, improving.com); Speaker 6 "John"
+    (Simpson side); Speaker 7 "my name AI... working with the team in Vietnam side";
+    Speaker 8 addressed as "Fernando" (Improving delivery, brought in by Lynn with
+    Jose); Speaker 9 addressed as "Lauren" (John: "Lauren's gonna own it"). Calendar
+    cross-reference matched event "AI Takeoff Weekly Touch - Improving & SST"
+    (organizer givelasquez@strongtie.com), 15:00-15:45 UTC, exact window match.
+    Attendee emails map Speaker 1 = Chris Miller (chmiller@strongtie.com), Speaker 2 =
+    Gilbert Velasquez (givelasquez@strongtie.com), Speaker 4 = Lyn Barrett
+    (lyn.barrett@improving.com), Speaker 6 = John Tsiros (jtsiros@strongtie.com),
+    Speaker 9 = Lauren Clack (lauren.clack@improving.com). Speaker 7 (Ai) and Speaker 8
+    (Fernando) are Improving Vietnam/Mexico delivery team members not on the top-line
+    invite; both self-identified or were directly named on-call, resolved without
+    controller escalation (off-invite note only). No unresolved speakers across the
+    recording -- Gate 4 result: pass. Classified work (Simpson Strong-Tie P2 AI
+    project weekly).
   notes_prior_run: >
-    pi-20260909-001: 1 new recording (e0aa6343b58756669d5bb0eddc80c5a4,
-    2026-09-08 17:30 CT), "Working Session Plan: Elevating a Manual AI
-    Workflow to a Trusted, Integrated Executive Assistant." 3 speakers
-    detected: O'Hara (32 seg, tagged), Alex Wilcox (2 seg, tagged/known),
-    and Speaker 2 (28 seg, no strong embedding match against registered
-    profiles including "Matt Rosen" -- Plaud itself left this one
-    untagged). Self-ID scan of Speaker 2's full transcript found no name
-    self-identification, but rich context: YPO member connected to David
-    through Curtis and Steve (met Curtis in London at the Arc Conference),
-    owns a professional-services firm referred to in-call as "Saxon" with
-    a management team, based in/near Oklahoma City, met Frank Murphy and
-    Rain Stegen through YPO. Calendar cross-reference (Superhuman
-    query_email_and_calendar equivalent via MS365 calendar search,
-    2026-09-08 15:00-20:00 UTC window) found no event matching this
-    meeting's time slot (22:30-22:57 UTC / 17:30 CT) or title -- appears
-    to be an unscheduled/ad hoc call. All three resolution tiers
-    (embedding, self-ID, calendar) exhausted with no match. Escalated to
-    controller per the User Interaction Protocol; resolved separately from
-    this run.
+    pi-20260914-001: 3 recordings, all resolved via calendar/self-ID, Gate 4 pass.
+    pi-20260909-001: 1 recording (Speaker 2) escalated to controller, resolved
+    separately from that run.
 ---
 
 <!-- system:start -->

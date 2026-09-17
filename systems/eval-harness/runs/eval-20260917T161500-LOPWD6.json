@@ -1,0 +1,101 @@
+{
+  "id": "eval-20260917T161500-LOPWD6",
+  "type": "workflow",
+  "name": "morning-briefing",
+  "agent": "chief",
+  "session_id": "61be22c5-c8cc-49b7-888a-b106ddd74eb7",
+  "trigger": "manual",
+  "started": "2026-09-17T16:14:00.213428Z",
+  "completed": "2026-09-17T16:15:00.213428Z",
+  "duration_seconds": 60.0,
+  "status": "success",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": true,
+      "outputs_non_empty": true,
+      "assertions_checked": 7,
+      "assertions_passed": 6,
+      "assertion_results": [
+        {
+          "assertion": "morning-001-state-complete",
+          "description": "Morning briefing workflow state.yaml shows status: complete",
+          "category": "structure",
+          "passed": true
+        },
+        {
+          "assertion": "morning-002-briefing-written",
+          "description": "Morning briefing output file was written to memory/working/",
+          "category": "structure",
+          "passed": true
+        },
+        {
+          "assertion": "morning-003-briefing-substantive",
+          "description": "Morning briefing output is substantive (>500 bytes)",
+          "category": "structure",
+          "passed": true
+        },
+        {
+          "assertion": "morning-004-calendar-section",
+          "description": "Morning briefing contains calendar/schedule section",
+          "category": "structure",
+          "passed": true
+        },
+        {
+          "assertion": "morning-005-priorities-section",
+          "description": "Morning briefing contains priorities/tasks section",
+          "category": "structure",
+          "passed": true
+        },
+        {
+          "assertion": "morning-006-guardrail-checkpoint-ran",
+          "description": "step-03b's guardrail checkpoint recorded a result (pass/flag/escalate) on this run \u2014 read from the eval record's own guardrails array, not self-reported by the workflow",
+          "category": "structure",
+          "passed": false
+        },
+        {
+          "assertion": "morning-007-omnifocus-addressed",
+          "description": "Briefing addresses OmniFocus either way round: task data when the pull succeeded, or an explicit disclosure when it was degraded. Silence is the failure this catches, since a briefing that quietly omits task data reads as a clean day.",
+          "category": "structure",
+          "passed": true
+        }
+      ],
+      "category_breakdown": {
+        "structure": {
+          "passed": 6,
+          "checked": 7
+        },
+        "content": {
+          "passed": 0,
+          "checked": 0
+        },
+        "quality": {
+          "passed": 0,
+          "checked": 0
+        }
+      }
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    }
+  },
+  "version_hash": "e2b3af8dff4495ac",
+  "prior_baseline_id": null,
+  "tags": [
+    "cowork-hook",
+    "phantom-candidate"
+  ]
+}

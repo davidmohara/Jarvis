@@ -1,0 +1,15 @@
+{
+  "id": "err-20260917T191754-FGBF80",
+  "timestamp": "2026-09-17T19:17:54Z",
+  "session": "boot-2026-09-17",
+  "source": "explicit",
+  "agent": "master",
+  "category": "routing-error",
+  "description": "Master offered to push all 9 Plaud action items to Monday under Alice Mburu's queue. David corrected: only action items with David's name attached should reach Monday; pushing everything is an error. Investigation confirmed the underlying workflow spec has the same defect: workflows/plaud-ingest/steps/step-05-ingest-vault.md task 4 instructs 'For WORK recordings: Create Monday task, assign to Alice Mburu (107886956)' with no ownership filter, so every action item from a work recording (including items owned by SST/GE client staff and Improving colleagues) is routed to Alice. Of today's 9 items, only 1 (the GEHC architecture document, David + Vladimir Avila) is David's. The other 8 belong to Fernando Pereira, Chris Miller, Lauren Clack, Lyn Barrett, Gilbert Velasquez, Justin Holder, Michael Braunstein, and Anthony Pezet.",
+  "correction": "Monday receives only action items where David O'Hara is the owner. Non-David action items stay in the vault note and are not pushed to the Monday/Alice queue. Master should not have proposed pushing all nine.",
+  "failure_mode": "wrong-assumption",
+  "systemic_fix": "Update workflows/plaud-ingest/steps/step-05-ingest-vault.md task 4 (and its MANDATORY EXECUTION RULE 2, SUCCESS METRICS line, and final-report template) to filter action items by owner before routing to Monday. Gated directory, so the edit routes to Rigby. Open decisions for David before the edit: (1) assignee for David-owned items, David or Alice; (2) disposition of non-David items, note-only vs OmniFocus delegation vs handoff. Also confirm step-05b's per-recording 'Review Plaud recording' tasks are unaffected (they are review tasks, not action items).",
+  "fix_status": "applied",
+  "severity": "moderate",
+  "related_entries": []
+}

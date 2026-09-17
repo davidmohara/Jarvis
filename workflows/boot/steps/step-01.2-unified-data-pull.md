@@ -1,19 +1,19 @@
 ---
 status: complete
-started-at: "2026-09-16T14:22:24Z"
-completed-at: "2026-09-16T14:24:00Z"
+started-at: "2026-09-17T16:05:00Z"
+completed-at: "2026-09-17T16:08:00Z"
 outputs:
-  email_pull: "completed — 16 messages in window (2026-09-14 → 2026-09-16), 8 actionable (5 UTB board approvals via Boardvantage, 1 YPO candidate intake form, 1 BMW waiver for 09-23, 1 Opal Group partner follow-up), 8 marketing/internal/FYI"
-  omnifocus_pull: "failed — Desktop Commander/osascript MCP tool unavailable this session (ToolSearch confirmed no match; 5th+ consecutive boot)"
-  clay_pull: "completed — 0 reminders, 3 birthdays (COURT WESTCOTT 09-16, Kevin Gardner 09-20, Justin Etheredge 09-22) via Clay MCP"
+  email_pull: "completed — 25 messages in window (2026-09-15 to 2026-09-17, Inbox newest-first), 6 actionable (YPO Western US regional officer nominee intake forms, Opal Group THWET reply owed, Legacy Club 4-member connect, ActivePure happy-hour invite, YPO Arkansas visit survey, UTB Board Training)"
+  omnifocus_pull: "completed — 42 tasks (status: available via omnifocus-data skill), 11 unassigned inbox, 0 due today, 0 overdue, 0 flagged. OmniFocus outage from prior 5+ boots is RESOLVED."
+  clay_pull: "completed — 0 reminders, 2 birthdays (Kevin Gardner 09-20, Justin Etheredge 09-22) via Clay MCP"
   jarvis_inbox_pull: "nothing-to-surface — Jarvis folder search returned 0 messages"
   files_created:
     - "data/email-unified.json"
     - "data/omnifocus-unified.json"
     - "data/clay-reminders-unified.json"
     - "data/jarvis-inbox-unified.json"
-  degraded: true
-  degraded_reason: "omnifocus_pull unreachable — tool not present this session"
+  degraded: false
+  degraded_reason: null
 ---
 
 <!-- system:start -->
