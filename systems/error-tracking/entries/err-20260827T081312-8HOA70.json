@@ -9,7 +9,7 @@
   "correction": "Did not attempt to fix or repoint the write (systems/ is Rigby-gated; guardrail-checkpoint.py is out of scope for a nightly dream-cycle run to patch). The checkpoint result is still correctly recorded verbatim in workflows/dream-cycle/state.yaml and steps/step-03b-guardrail-checkpoint.md, so no data was lost -- this is a misfiled duplicate, not a missing record.",
   "failure_mode": "pattern-mismatch",
   "systemic_fix": "Rigby should update guardrail-checkpoint.py to require an explicit session_id (or today's date) when selecting the target eval run record, and fail loudly (or create a new record) rather than falling back to 'most recent record found' when no exact match exists. Also worth checking whether other eval-harness scripts share this same fallback pattern and would misattribute writes the same way.",
-  "fix_status": "proposed",
+  "fix_status": "applied",
   "severity": "minor",
   "related_entries": []
 }

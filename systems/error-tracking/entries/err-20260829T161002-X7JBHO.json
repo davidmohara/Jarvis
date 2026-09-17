@@ -9,7 +9,7 @@
   "correction": "Never use a bare `cd` when the only reason to change directory is to build a zip file. Always use `(cd subdir && zip ...)` in a subshell so the persistent Bash working directory never leaves the project root, regardless of how the zip command succeeds or fails. This applies specifically and permanently to any zip-building command, not just as a one-off preference.",
   "failure_mode": "protocol-skip",
   "systemic_fix": "Treat 'bare cd before a zip command' as a hard rule violation going forward: zip operations must always be wrapped in a `(cd dir && zip ...)` subshell. This is now a confirmed recurring failure (3rd occurrence), not an isolated slip — should be added as a standing rule/checklist item (e.g. a CLAUDE.md note or git/skill-level guardrail) rather than relying on in-context memory alone.",
-  "fix_status": "proposed",
+  "fix_status": "applied",
   "severity": "major",
   "related_entries": []
 }

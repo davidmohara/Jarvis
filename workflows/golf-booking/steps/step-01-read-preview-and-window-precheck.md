@@ -43,6 +43,10 @@ Extract:
 - `day_status` (to avoid hard-blocked days)
 
 If `override_instructions` is not null, re-rank options accordingly before proceeding.
+If the override (or top-ranked target) differs from a booking still recorded in
+`state.yaml`, step-00's Gate 0 cancellation protocol must already have completed or
+explicitly deferred before this step runs — never proceed to re-booking while a
+prior booking is still live.
 
 If the file doesn't exist or `top_options` is empty (and there is no `no_viable_reason`
 explaining a legitimate zero-option week):

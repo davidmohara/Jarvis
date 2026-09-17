@@ -54,28 +54,52 @@ def parse_flag_args(argv: list[str]) -> dict:
             i += 1
     return flags
 
-def find_most_recent_eval_record(workflow_name: str) -> Path | None:
-    """Find the most recent eval record for this workflow (by name, not session_id)."""
+def parse_started(ts) -> "datetime | None":
+    """Parse an ISO-8601 `started` value into a datetime (trailing Z normalized
+    to +00:00). Returns None on unparseable/missing input so a bad timestamp
+    degrades to deterministic fallback ordering instead of crashing the sort."""
+    if not ts:
+        return None
     try:
-        if not EVAL_RUNS_DIR.exists():
-            return None
-
-        records = []
-        for f in EVAL_RUNS_DIR.glob("eval-*.json"):
-            try:
-                with open(f, "r") as file:
-                    data = json.load(file)
-                if data.get("name") == workflow_name:
-                    records.append((f, data.get("started", "")))
-            except Exception:
-                continue
-
-        if records:
-            records.sort(key=lambda x: x[1], reverse=True)
-            return records[0][0]
+        return datetime.fromisoformat(str(ts).replace("Z", "+00:00"))
     except Exception:
-        pass
-    return None
+        return None
+
+def find_most_recent_eval_record(workflow_name: str) -> Path | None:
+    """Find the most recent IN-PROGRESS eval record for this workflow.
+
+    Only records with status == "in-progress" are eligible — a closed/success
+    record must never be a step-recording target (err-20260911T080849-3TCTQW:
+    record-step overwrote yesterday's closed record when today's fresh record
+    was still named "unknown").
+
+    Ordering is on the parsed `started` datetime, not the raw string, because
+    records with differing fractional-second precision invert under plain
+    lexicographic sort ('.' sorts below 'Z', so '...06.786387Z' ranks as
+    EARLIER than '...06Z' even within the same second) — see
+    err-20260912T080901-GNRQ9D.
+    """
+    if not EVAL_RUNS_DIR.exists():
+        return None
+
+    records = []
+    for f in EVAL_RUNS_DIR.glob("eval-*.json"):
+        try:
+            with open(f, "r") as file:
+                data = json.load(file)
+            if data.get("name") == workflow_name and data.get("status") == "in-progress":
+                parsed = parse_started(data.get("started", ""))
+                if parsed is None:
+                    parsed = datetime.min.replace(tzinfo=timezone.utc)
+                records.append((parsed, f.name, f))
+        except Exception:
+            continue
+
+    if not records:
+        return None
+    # Sort on (parsed datetime, filename) so ties break deterministically.
+    records.sort(key=lambda x: (x[0], x[1]), reverse=True)
+    return records[0][2]
 
 def main():
     if len(sys.argv) < 4:
@@ -107,11 +131,18 @@ def main():
     model = flags["model"]
     cost_usd = compute_cost(model, tokens_in, tokens_out)
 
-    # Find the most recent eval record for this workflow
+    # Find the most recent in-progress eval record for this workflow.
+    # If there is no exact in-progress match, FAIL LOUDLY rather than silently
+    # picking (and overwriting) a fallback record — the silent fallback is the
+    # failure mode behind err-20260911T080849-3TCTQW and err-20260912T080901-GNRQ9D.
     eval_path = find_most_recent_eval_record(workflow_name)
     if not eval_path:
-        # No eval record exists yet - skip silently (workflow may not have eval harness enabled)
-        sys.exit(0)
+        print(f"Error: no in-progress eval record found for workflow '{workflow_name}' — "
+              f"step '{step_name}' NOT recorded. Create one first with "
+              f"`python3 systems/eval-harness/new-eval.py --name {workflow_name}` "
+              f"(and set --agent/--session-id), or verify the existing record's "
+              f"name and status fields.", file=sys.stderr)
+        sys.exit(1)
 
     # Read and update the eval record
     try:

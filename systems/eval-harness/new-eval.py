@@ -10,6 +10,13 @@ single error-log.json file.
 Usage:
     python3 new-eval.py            # print id + write skeleton file
     python3 new-eval.py --id-only  # print id only, do not create file
+    python3 new-eval.py --name <name> [--agent <agent>] [--session-id <id>]
+                                   # populate identity fields at creation time
+
+Setting --name/--agent/--session-id at creation avoids the follow-up edit step
+that left fresh records named "unknown" — the root cause of
+err-20260911T080849-3TCTQW, where record-step.py matched a fresh "unknown"
+record against yesterday's closed record and overwrote it.
 """
 import argparse
 import json
@@ -30,13 +37,14 @@ def new_id(now: datetime | None = None) -> str:
     return f"eval-{ts}-{suffix}"
 
 
-def skeleton(entry_id: str) -> dict:
+def skeleton(entry_id: str, name: str | None = None, agent: str | None = None,
+             session_id: str | None = None) -> dict:
     return {
         "id": entry_id,
         "type": "agent",
-        "name": "unknown",
-        "agent": "unknown",
-        "session_id": "",
+        "name": name or "unknown",
+        "agent": agent or "unknown",
+        "session_id": session_id or "",
         "trigger": "manual",
         "started": datetime.now(timezone.utc).isoformat().replace("+00:00", "Z"),
         "completed": None,
@@ -88,6 +96,10 @@ def skeleton(entry_id: str) -> dict:
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--id-only", action="store_true", help="Print id only; do not create file")
+    ap.add_argument("--name", default=None, help="Set the record's name field at creation time")
+    ap.add_argument("--agent", default=None, help="Set the record's agent field at creation time")
+    ap.add_argument("--session-id", dest="session_id", default=None,
+                    help="Set the record's session_id field at creation time")
     args = ap.parse_args()
 
     entry_id = new_id()
@@ -99,7 +111,8 @@ def main():
     if path.exists():
         print(f"Collision: {path} already exists", file=sys.stderr)
         sys.exit(1)
-    path.write_text(json.dumps(skeleton(entry_id), indent=2) + "\n")
+    path.write_text(json.dumps(skeleton(entry_id, name=args.name, agent=args.agent,
+                                        session_id=args.session_id), indent=2) + "\n")
     print(str(path))
 
 

@@ -1,0 +1,61 @@
+{
+  "id": "eval-20260917T233013-WJROEK",
+  "agent_id": "ae54b22be86a80d07",
+  "type": "agent",
+  "name": "general-purpose",
+  "workflow": null,
+  "agent": "general-purpose",
+  "session_id": "c34d60ce-c8cf-4273-9f24-65f124040ae0",
+  "trigger": "unknown",
+  "started": "2026-09-17T23:30:13.939669Z",
+  "completed": "2026-09-17T23:32:49.954416Z",
+  "duration_seconds": 156.01,
+  "status": "success",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/c34d60ce-c8cf-4273-9f24-65f124040ae0/subagents/agent-ae54b22be86a80d07.jsonl",
+  "last_assistant_message": "## System Improvement Opportunities\n\n**Period:** 2026-08-23 to 2026-09-17\n**Corrections logged:** 79 (49 explicit, 27 self-detected, 3 unlabeled)\n**Severity:** 5 critical, 16 major, 4 high, 33 moderate, 11 minor, 7 medium, 3 other (severity taxonomy is drifting \u2014 see Data Hygiene below)\n\n### Recurring Patterns\n\n**assumption-error \u2192 wrong-assumption** \u2014 9 occurrences this period (32 all-time, pat-003)\n- What keeps happening: agents conclude a capability is unavailable when a lookup fails, instead of verifying through an alternate path. Three distinct sub-cases this period: Master treated `osascript`/Desktop Commander as a missing MCP connector (err-20260826T190920-584QFY, err-20260916T200418-CRJ2R2); Harper aborted a scheduled content-discovery run because ToolSearch returned nothing for a deferred tool (err-20260908T222842-RH9398); Knox ran a Monday-only workflow on a Friday despite a date-conflict signal (err-20260911T154310-IY615I).\n- Proposed fix: add a standing rule to SYSTEM.md: *\"If a documented capability doesn't surface via ToolSearch, retry once, then check whether it is a Bash/CLI capability before declaring it unavailable. Never abort a scheduled run on a single negative lookup.\"* Plus a day-of-week gate on day-bound workflows (`date +%A` assertion at entry).\n- Fix type: rule + workflow-update. **Recommendation: Apply now** (Tier 1 \u2014 the Harper abort fix is already drafted in err-20260908T222842-RH9398's systemic_fix).\n\n**process-skip \u2192 protocol-skip** \u2014 7 occurrences (51 all-time, pat-001)\n- What keeps happening: two hot sub-threads. (1) The bare-`cd`-before-zip shell-cwd bug bit again (err-20260829T161002-X7JBHO, **major** \u2014 this is the 3rd confirmed repeat and already in memory feedback; the fix keeps getting documented but not enforced at the point of execution). (2) Vault-resident files written with the Write tool instead of Obsidian MCP (err-20260907T145247-OMFYBX, major, chase).\n- Proposed fix: (1) Move the zip-subshell rule from memory into `skills/git/SKILL.md` / a shell-conventions section of SYSTEM.md so every agent loads it, not just sessions where I recall it. (2) Add to Chase's protocols: any path under `Mind/`, `systems/`, or vault-synced folders must go through Obsidian MCP write tools.\n- Fix type: rule + agent-update. **Recommendation: Apply now.**\n\n**tool-misuse \u2192 protocol-skip** \u2014 6 occurrences (9 all-time, pat-025)\n- What keeps happening: three of the six are the same root cause \u2014 eval-harness scripts (`record-step.py`, `guardrail-checkpoint.py`, `new-eval.py`) mistarget eval records because record selection uses name-matching or string-sorted timestamps, silently writing to the wrong run (err-20260911T080849-3TCTQW, err-20260912T080901-GNRQ9D, err-20260827T081312-8HOA70).\n- Proposed fix: Rigby capability-build ticket: (1) `new-eval.py` accepts `--name` at creation; (2) record lookup requires explicit `session_id` and fails loudly on no exact match; (3) normalize timestamp precision before sorting. Also patch `systems/dream-cycle/salience-score.py` (os.listdir \u2192 os.walk; frontmatter trailing-newline slicing \u2014 this bug has now fired 4 times across APAWBB/NBGENM/J571BH/284VH8 and is still unpatched).\n- Fix type: skill-update (infrastructure). **Recommendation: Apply now \u2014 the salience-score.py patch is fully scoped in err-20260828T081109-J571BH and is overdue.**\n\n**tool-misuse \u2192 pattern-mismatch** \u2014 5 occurrences (8 all-time, pat-016)\n- Largely the same eval-targeting and salience-score family above. Merged into that fix.\n\n### Agent Performance (this period, normalized casing)\n\n| Agent | Corrections | Top Issue |\n|-------|------------|-----------|\n| Master | 20 | assumption-error (tool-availability misdiagnosis, cwd assumptions) |\n| Jarvis | 13 | tool-misuse (dream-cycle/eval-harness script behavior) |\n| Knox | 16 | process-skip (plaud discovery dedup, speaker-ID, artifact updates) |\n| Harper | 8 | process-skip (content-discovery abort, duplicate Ghost drafts, missing internal links) |\n| Sterling | 4 | data-accuracy (golf booking: wrong cancel button \u2014 critical, near-irreversible) |\n| Chase | 3 | process-skip (Write tool on vault files) |\n| Rigby | 2 | process-skip (research fork exceeded scope and implemented) |\n\n### Tier 2 \u2014 Needs Your Call\n\n1. **Sterling golf-booking incident cluster (Sep 4):** a wrong-element click canceled the wrong booking (err-20260914T151500-CANCEL, critical). Browser automation on irreversible actions has no confirmation gate. Do you want a hard rule \u2014 *no cancel/delete/refund clicks without a verbal confirm from you* \u2014 or a pre-click screenshot-and-verify step in the booking workflow?\n2. **Harper content quality cluster (Sep 15):** 3 majors in one run \u2014 paraphrase-too-close, missing internal links, wrong-city feature image. This is calibration, not mechanics. Tighten the originality bar in the content skill, or add a pre-publish checklist step?\n3. **Severity/category taxonomy drift:** entries are arriving with `medium`/`high`/`critical`/`low` instead of minor/moderate/major, agent names in mixed case (`Master`/`master`), one `failure_mode` containing a 300-char description, and 2 entries with no category at all. Recommend I enforce the schema in `new-entry.py` (reject non-canonical values, lowercase-normalize agent). **Your call** \u2014 it's a validator change, zero risk, but it will reject sloppy future writes rather than repair them.\n\n### Trend\n\nStable-to-improving \u2014 monthly volume: Jun 88, Jul 126, Aug 92, Sep 39 (17 days in, pacing ~68). The Aug spike was eval-harness build-out pain; Sep entries skew toward content-pipeline and booking automation, newer surfaces.\n\n### Compaction\n\nNo month is currently eligible \u2014 every month has open (`proposed`/`in-progress`) entries. 133 proposed fixes are sitting unapplied; that's the bottleneck, not logging.\n\n---\n\n```\n--- Eval: rigby-error-analysis (eval-20260901T113710-IMNZVU) ---\nStructure 2/4 passed\nFailing: rigby-error-analysis output is substantive (>200 bytes), rigby-error-analysis output contains expected content\nDeterministic score: 79%  ->  PASS (gate >= 70%)\nTier 3 qualitative grade: pending (runs in tonight's end-of-day sweep)\n```\n\nNote on that grade: it ran against a stale Sept 1 eval record, not this run \u2014 worth a look at how `grade_skill_run.py` picks its target, given today's pattern findings about record mistargeting are apparently not limited to the dream-cycle.\n\n**Files touched:** `systems/error-tracking/patterns.json` (14 patterns updated, last_analyzed \u2192 2026-09-17), `systems/eval-harness/skill-runs/rigby-error-analysis-latest.json`.\n\nThe three Tier 1 fixes are ready to apply on your word: the tool-availability rule, the vault-write rule for Chase, and the salience-score.py/eval-targeting patches.",
+  "model": "accounts/fireworks/models/kimi-k3",
+  "total_tokens_input": 18290,
+  "total_tokens_output": 233,
+  "total_cost_usd": 0.09,
+  "cost_estimation_note": "estimated based on general-purpose workflow type"
+}

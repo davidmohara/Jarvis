@@ -9,7 +9,13 @@
   "correction": "Should NOT have attempted to click cancel button without: (1) visual verification of which booking was being cancelled, (2) screenshot confirmation, (3) explicit DOM inspection to verify booking ID before clicking. When in doubt, ask user to perform irreversible action manually.",
   "failure_mode": "wrong-element-clicked-irreversible-action",
   "systemic_fix": "CRITICAL: Before ANY click that results in cancellation, deletion, or irreversible change: (1) Take screenshot, (2) Read all visible text to confirm correct item, (3) DO NOT click unless 100% certain. For ChronoGolf: read booking ID from DOM before clicking cancel. Add explicit confirmation step. Better: ask user to perform irreversible actions manually rather than automating them.",
-  "fix_status": "proposed",
+  "fix_status": "applied",
   "severity": "critical",
-  "related_entries": []
+  "related_entries": ["err-20260904T151400-MANUAL"],
+  "resolution": {
+    "timestamp": "2026-09-17T23:45:00Z",
+    "agent": "rigby",
+    "action": "Applied in build work-20260917-234104: new step workflows/golf-booking/steps/step-00-cancel-prior-booking.md wraps every cancel click in the destructive-action gate now codified in SYSTEM.md ('Destructive action gate') — screenshot the Bookings page, read each booking's OWN booking ID from the DOM (not visual position), require an exact single ID match whose displayed date equals the stored booking-date, click the cancel control scoped to that matched booking's own container element, then re-read the DOM to verify the ID is gone. Any ambiguity (duplicate IDs, date mismatch, cancel control not inside the matched container, ID still present after the click) is a hard STOP: Slack alert + status: aborted + surface to David for manual cancellation. Wired into workflow.md as Gate 0 (Prior-Booking Cancellation / Destructive Action Gate) in the step table, QUALITY GATE SUMMARY, and FAILURE MODES.",
+    "acceptance_test_result": "Protocol-level fix (browser automation gate), not executable code — validated by structural wiring review: Gate 0 listed in all three workflow.md tables, step-00 runs before step-01 on every fresh run, and step-01 now refuses to proceed to re-booking while a prior booking is still live."
+  }
 }

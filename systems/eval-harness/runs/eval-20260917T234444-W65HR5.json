@@ -1,0 +1,76 @@
+{
+  "id": "eval-20260917T234444-W65HR5",
+  "type": "skill",
+  "name": "rigby-capability-build",
+  "agent": "rigby",
+  "session_id": "c34d60ce-c8cf-4273-9f24-65f124040ae0",
+  "trigger": "manual",
+  "started": "2026-09-17T23:15:00Z",
+  "completed": "2026-09-17T23:44:44.207549Z",
+  "duration_seconds": 1784.2,
+  "status": "success",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": true,
+      "outputs_non_empty": null,
+      "assertions_checked": 2,
+      "assertions_passed": 2,
+      "assertion_results": [
+        {
+          "assertion": "rigby-capability-build-signal-written",
+          "description": "rigby-capability-build skill-run signal file was written",
+          "category": "structure",
+          "passed": true
+        },
+        {
+          "assertion": "rigby-capability-build-signal-status",
+          "description": "rigby-capability-build skill-run did not end in failure",
+          "category": "structure",
+          "passed": true
+        }
+      ],
+      "category_breakdown": {
+        "structure": {
+          "passed": 2,
+          "checked": 2
+        },
+        "content": {
+          "passed": 0,
+          "checked": 0
+        },
+        "quality": {
+          "passed": 0,
+          "checked": 0
+        }
+      }
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "deterministic_gate": {
+      "score": 1.0,
+      "gate_status": "pass",
+      "computed_at": "2026-09-17T23:44:46.843766Z"
+    }
+  },
+  "version_hash": "826379ed4643ad18",
+  "prior_baseline_id": null,
+  "tags": [
+    "cowork-hook",
+    "skill"
+  ]
+}

@@ -39,27 +39,44 @@ RETRY_INTERVAL_SECONDS = 2
 # Worst-case total wait: (RETRY_MAX_ATTEMPTS - 1) * RETRY_INTERVAL_SECONDS = 10s
 
 
-def find_most_recent_eval_record(workflow_name: str) -> Path | None:
+def parse_started(ts) -> "datetime | None":
+    """Parse an ISO-8601 `started` value into a datetime (trailing Z normalized
+    to +00:00). Returns None on unparseable/missing input so a bad timestamp
+    degrades to deterministic fallback ordering instead of crashing the sort."""
+    if not ts:
+        return None
     try:
-        if not EVAL_RUNS_DIR.exists():
-            return None
-        records = []
-        for f in EVAL_RUNS_DIR.glob("eval-*.json"):
-            try:
-                with open(f, "r") as file:
-                    data = json.load(file)
-                # Only attach to a record that is still open for this workflow.
-                # A stale but already-closed record (status success/aborted/etc.)
-                # must never be matched here — see err-20260904T081107-GYF8D1.
-                if data.get("name") == workflow_name and data.get("status") == "in-progress":
-                    records.append((f, data.get("started", "")))
-            except Exception:
-                continue
-        if records:
-            records.sort(key=lambda x: x[1], reverse=True)
-            return records[0][0]
+        return datetime.fromisoformat(str(ts).replace("Z", "+00:00"))
     except Exception:
-        pass
+        return None
+
+def find_most_recent_eval_record(workflow_name: str) -> Path | None:
+    if not EVAL_RUNS_DIR.exists():
+        return None
+    records = []
+    for f in EVAL_RUNS_DIR.glob("eval-*.json"):
+        try:
+            with open(f, "r") as file:
+                data = json.load(file)
+            # Only attach to a record that is still open for this workflow.
+            # A stale but already-closed record (status success/aborted/etc.)
+            # must never be matched here — see err-20260904T081107-GYF8D1 and
+            # err-20260827T081312-8HOA70.
+            if data.get("name") == workflow_name and data.get("status") == "in-progress":
+                # Sort on the parsed datetime, not the raw string: records with
+                # differing fractional-second precision invert under plain
+                # lexicographic sort ('.' sorts below 'Z'), which can rank an
+                # earlier same-second record as the most recent.
+                parsed = parse_started(data.get("started", ""))
+                if parsed is None:
+                    parsed = datetime.min.replace(tzinfo=timezone.utc)
+                records.append((parsed, f.name, f))
+        except Exception:
+            continue
+    if records:
+        # Sort on (parsed datetime, filename) so ties break deterministically.
+        records.sort(key=lambda x: (x[0], x[1]), reverse=True)
+        return records[0][2]
     return None
 
 

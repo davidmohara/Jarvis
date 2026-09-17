@@ -9,7 +9,13 @@
   "correction": "When override_instructions redirect to a different date/time, the workflow should include a cancellation step BEFORE resetting to book the new target. The workflow should: (1) Verify existing booking exists, (2) Navigate to Bookings page, (3) Find and click Cancel, (4) Wait for confirmation, (5) THEN reset state to re-run with new target.",
   "failure_mode": "process-skip-cancellation-step",
   "systemic_fix": "Add cancellation protocol to golf-booking workflow: new step or branch in step-06/07 that detects override_instructions pointing to different date and executes cancellation before state reset. Make cancellation idempotent (safe to call even if no prior booking exists).",
-  "fix_status": "proposed",
+  "fix_status": "applied",
   "severity": "major",
-  "related_entries": []
+  "related_entries": ["err-20260904T151500-CANCEL"],
+  "resolution": {
+    "timestamp": "2026-09-17T23:45:00Z",
+    "agent": "rigby",
+    "action": "Applied in build work-20260917-234104: new step workflows/golf-booking/steps/step-00-cancel-prior-booking.md detects when override_instructions (or the top-ranked target) point to a date/time different from the booking recorded in state.yaml, and executes the cancellation BEFORE state is reset to book the new target. Cancellation is idempotent: no booking-id in state, or the prior booking already absent from the Bookings page, is a logged no-op. Safety ordering: if the new target is outside the 8-day booking window, cancellation is deferred (pending-cancellation recorded in accumulated-context, prior booking retained) so David is never left without a booking while the replacement is unbookable. Wired into workflow.md as Gate 0 in the step table, QUALITY GATE SUMMARY, and FAILURE MODES; STATE CHECK now mandates step-00 runs first on every fresh run.",
+    "acceptance_test_result": "Protocol-level fix (workflow step), not executable code — validated by structural wiring review: Gate 0 present in all three workflow.md tables, step-00 executes before step-01, state reset happens only after a DOM-verified cancellation."
+  }
 }

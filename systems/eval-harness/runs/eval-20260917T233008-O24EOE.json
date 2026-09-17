@@ -1,0 +1,96 @@
+{
+  "id": "eval-20260917T233008-O24EOE",
+  "type": "workflow",
+  "name": "boot",
+  "agent": "master",
+  "session_id": "c34d60ce-c8cf-4273-9f24-65f124040ae0",
+  "trigger": "boot",
+  "started": "2026-09-17T23:30:08.982690Z",
+  "completed": null,
+  "duration_seconds": null,
+  "status": "failure",
+  "steps": [],
+  "subagents": [
+    {
+      "agent_id": "ae54b22be86a80d07",
+      "agent_type": "general-purpose",
+      "started": "2026-09-17T23:30:13.939669Z",
+      "completed": "2026-09-17T23:32:49.954416Z",
+      "model": "accounts/fireworks/models/kimi-k3",
+      "tokens_input": 18290,
+      "tokens_output": 233,
+      "cost_usd": 0.09,
+      "duration_seconds": 156.01
+    },
+    {
+      "agent_id": "aecb132ce7ef46005",
+      "agent_type": "general-purpose",
+      "started": "2026-09-17T23:38:11.149867Z",
+      "completed": "2026-09-17T23:41:39.544806Z",
+      "model": "accounts/fireworks/models/glm-5p3",
+      "tokens_input": 866409,
+      "tokens_output": 6410,
+      "cost_usd": 0.09,
+      "duration_seconds": 208.39
+    },
+    {
+      "agent_id": "aecb132ce7ef46005",
+      "agent_type": "general-purpose",
+      "started": "2026-09-17T23:41:53.513771Z",
+      "completed": null,
+      "model": null,
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    }
+  ],
+  "monitoring": {
+    "active": true,
+    "state_yaml_path": "workflows/boot/state.yaml",
+    "opened_by": "eval-turn-start.py",
+    "trigger_evidence": "boot-first-prompt-of-session"
+  },
+  "assessment": {
+    "mechanical": {
+      "completed": null,
+      "all_steps_finished": null,
+      "tool_failures": 0,
+      "error_ids": [
+        "err-20260904T151400-MANUAL"
+      ]
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [
+    "turn-level"
+  ]
+}

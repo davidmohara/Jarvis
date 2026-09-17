@@ -20,32 +20,48 @@
     "structural": {
       "expected_outputs_written": true,
       "outputs_non_empty": false,
-      "assertions_checked": 3,
-      "assertions_passed": 1,
+      "assertions_checked": 4,
+      "assertions_passed": 2,
       "assertion_results": [
         {
           "assertion": "rigby-error-analysis-signal-written",
           "description": "rigby-error-analysis skill-run signal file was written",
+          "category": "structure",
           "passed": true
         },
         {
           "assertion": "rigby-error-analysis-signal-status",
           "description": "rigby-error-analysis skill-run did not end in failure",
-          "passed": null,
-          "skipped": true,
-          "reason": "unknown check type: json_field_not_equals"
+          "category": "structure",
+          "passed": true
         },
         {
           "assertion": "rigby-er-002-substantive",
           "description": "rigby-error-analysis output is substantive (>200 bytes)",
+          "category": "structure",
           "passed": false
         },
         {
           "assertion": "rigby-er-003-content",
           "description": "rigby-error-analysis output contains expected content",
+          "category": "structure",
           "passed": false
         }
-      ]
+      ],
+      "category_breakdown": {
+        "structure": {
+          "passed": 2,
+          "checked": 4
+        },
+        "content": {
+          "passed": 0,
+          "checked": 0
+        },
+        "quality": {
+          "passed": 0,
+          "checked": 0
+        }
+      }
     },
     "grading": {
       "last_graded": null,
@@ -56,6 +72,11 @@
       "rating": null,
       "comment": null,
       "timestamp": null
+    },
+    "deterministic_gate": {
+      "score": 0.7917,
+      "gate_status": "pass",
+      "computed_at": "2026-09-17T23:32:09.299157Z"
     }
   },
   "version_hash": "11b5c8b896ef7ee7",

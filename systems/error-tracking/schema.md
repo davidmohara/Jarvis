@@ -71,8 +71,8 @@ The filename must match the `id` field exactly: `entries/<id>.json`.
 
 ## Writing a New Entry
 
-1. Generate the id and skeleton: `python3 systems/error-tracking/new-entry.py` prints the new file path.
-2. Fill in the fields.
+1. Generate the id and validated skeleton: `python3 systems/error-tracking/new-entry.py --category <category>` prints the new file path. The category is required and must be one of the canonical categories below; severity must be one of the Severity Levels (`--severity`, default `minor`); `--agent` is lowercase-normalized; `--failure-mode` is validated against the Failure Modes list (unknown labels warn to stderr but are kept); `--session` and `--source` are optional (`explicit` is the default source). Non-canonical severity/category/source fail loudly with the allowed set — they are never silently coerced.
+2. Fill in the remaining fields (description, correction, systemic_fix, related_entries).
 3. Commit only the new file. No other file in `systems/error-tracking/` needs to change for a new entry.
 
 Agents writing entries programmatically should follow the same id format and write to `entries/<id>.json` directly. Never edit other entries or `_meta.json` when recording a new correction.

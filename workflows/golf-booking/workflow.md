@@ -85,6 +85,10 @@ of an ambiguous "something went wrong."
 6. **Check for already-booked round this weekend**: search calendar for a golf block on the
    target Saturday/Sunday. Unless otherwise directed by David, if found, skip booking and
    output: `[Sterling]: Golf already booked for this weekend ([date] [time]). No action needed.`
+7. **On every fresh run, step-00 runs first.** If a prior booking exists in `state.yaml`
+   and the new target (override or top-ranked) differs from it, Gate 0's cancellation
+   protocol must complete — or explicitly defer — before any re-booking begins. Never
+   reset state to book a new target while the prior booking is still live.
 
 ---
 
@@ -96,6 +100,7 @@ there is no room for "proceed and fix it later."
 
 | Step | File | Produces | Gate |
 |------|------|----------|------|
+| 0 | `steps/step-00-cancel-prior-booking.md` | Prior booking cancelled (DOM-verified) or explicitly not required / deferred | **Gate 0 — Prior-Booking Cancellation / Destructive Action Gate** (hard, blocking, idempotent) |
 | 1 | `steps/step-01-read-preview-and-window-precheck.md` | Validated target date within booking window | **Gate 1 — Booking Window Pre-Check** (hard, blocking, no-substitution) |
 | 2 | `steps/step-02-login-recovery.md` | Authenticated ChronoGolf session | **Gate 2 — Login Verification** (hard, blocking) |
 | 3 | `steps/step-03-navigate-select-players.md` | Date, course, holes, and player selections made | (procedural checks inline, no standalone gate — feeds Gate 3) |
@@ -111,6 +116,7 @@ there is no room for "proceed and fix it later."
 
 | Gate | Type | Enforced by | On failure |
 |------|------|-------------|------------|
+| 0. Prior-Booking Cancellation (Destructive Action) | Hard, idempotent | Inline DOM booking-ID match in step-00, per SYSTEM.md's "Destructive action gate" (screenshot + read the target's own booking ID from the DOM + exact-match before any cancel click) | **Stop — never click cancel on an ambiguous or mismatched ID.** Slack alert, `status: aborted`, surface to David for manual cancellation (see err-20260904T151500-CANCEL, err-20260904T151400-MANUAL). No-op when no prior booking exists; deferred (not failed) when the new target is outside the booking window. |
 | 1. Booking Window Pre-Check | Hard | Inline date-arithmetic check in step-01 + `verify/step-01-window-precheck.py` | Abort. `status: awaiting-window`. Never substitute a different date (see incident err-20260813T122205-D64IQ7). |
 | 2. Login Verification | Hard | Inline DOM-text check in step-02 | Retry recovery once via 1Password. If still failed, Slack alert + abort. |
 | 3. Confirmation Success | Hard | Inline exact-string match (`BOOKING-SUCCESS`) in step-04 | Do not treat confirmation-page appearance as success. Move to next ranked option or abort. |
@@ -125,6 +131,8 @@ there is no room for "proceed and fix it later."
 
 | Failure | Action |
 |---------|--------|
+| Override/new target differs from an existing booking | **Gate 0 cancellation protocol (step-00).** Cancel the prior booking — DOM booking-ID verified — BEFORE resetting state to re-book. Idempotent when no prior booking exists; deferred when the new target is outside the booking window (see err-20260904T151400-MANUAL). |
+| Prior booking ID ambiguous, mismatched, or cancel control not found in the matched booking's own container | **Stop — never click cancel by visual position.** Slack alert with the DOM evidence, `status: aborted`, surface to David for manual cancellation (see err-20260904T151500-CANCEL). |
 | Session expired on load | **Automatic recovery (Gate 2 / step-02).** Retrieve credentials from 1Password, re-authenticate, continue. |
 | Target date outside 8-day booking window | **Gate 1 blocks.** Set `status: awaiting-window`. Retry on next scheduled run. Never substitute a nearer date. |
 | 1Password credential lookup fails | Slack alert. Abort. Never invent credentials. |

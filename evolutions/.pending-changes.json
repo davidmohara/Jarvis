@@ -3493,6 +3493,136 @@
         "eval_artifacts_path": null,
         "note": "Spec-driven correction from explicit user direction (two rules stated verbatim). Verified by repo-wide grep: no live workflow/skill/agent/reference file still hardcodes assignee ID 107886956; remaining hits are historical records (run frontmatter, eval-harness logs, error entries, episodic memory). Recommend one live plaud-ingest run with a mixed-owner recording to confirm the owner filter and unassigned task creation behave as specified."
       }
+    },
+    {
+      "id": "work-20260917-234104",
+      "description": "Tier 1 error-log fixes: git-skill shell working directory rule, Chase vault-write rule, new-eval.py identity args, and eval-harness record-selection fixes (in-progress filter, parsed-datetime sort, loud failure, stale-record warning); golf-booking cancellation protocol with destructive-action gate (Gate 0) and error-tracking new-entry.py schema enforcement at write time",
+      "started": "2026-09-17T23:41:04Z",
+      "files": [
+        {
+          "path": "skills/git/SKILL.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Added standing Shell Working Directory rule: never bare cd for zip/subdirectory ops, always (cd dir && zip ...) \u2014 mirrors SYSTEM.md execution guard (err-20260829T161002-X7JBHO)"
+        },
+        {
+          "path": "agents/chase.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Data Requirements rule: vault-resident files (Mind/, systems/, vault-synced) must use Obsidian MCP write tools, never the Write tool (err-20260907T145247-OMFYBX)"
+        },
+        {
+          "path": "systems/eval-harness/new-eval.py",
+          "action": "merge",
+          "type": "system",
+          "description": "Added --name/--agent/--session-id CLI args populating skeleton identity fields at creation time (err-20260911T080849-3TCTQW)"
+        },
+        {
+          "path": "systems/eval-harness/record-step.py",
+          "action": "merge",
+          "type": "system",
+          "description": "find_most_recent_eval_record: in-progress-only matching, parsed-datetime sort, loud stderr failure with exit 1 when no exact match (err-20260911T080849-3TCTQW, err-20260912T080901-GNRQ9D)"
+        },
+        {
+          "path": "systems/eval-harness/guardrail-checkpoint.py",
+          "action": "merge",
+          "type": "system",
+          "description": "find_most_recent_eval_record: parsed-datetime sort replacing raw-string sort (err-20260827T081312-8HOA70)"
+        },
+        {
+          "path": "systems/eval-harness/grade_skill_run.py",
+          "action": "merge",
+          "type": "system",
+          "description": "find_latest_record: parsed-datetime sort, in-progress preference, stderr warning when chosen record is not today's (stale-Sept-1-record symptom 2026-09-17)"
+        },
+        {
+          "path": "systems/error-tracking/entries/err-20260911T080849-3TCTQW.json",
+          "action": "merge",
+          "type": "system",
+          "description": "fix_status proposed -> applied"
+        },
+        {
+          "path": "systems/error-tracking/entries/err-20260912T080901-GNRQ9D.json",
+          "action": "merge",
+          "type": "system",
+          "description": "fix_status proposed -> applied"
+        },
+        {
+          "path": "systems/error-tracking/entries/err-20260827T081312-8HOA70.json",
+          "action": "merge",
+          "type": "system",
+          "description": "fix_status proposed -> applied"
+        },
+        {
+          "path": "systems/error-tracking/entries/err-20260829T161002-X7JBHO.json",
+          "action": "merge",
+          "type": "system",
+          "description": "fix_status proposed -> applied (git SKILL.md rule mirrors SYSTEM.md guard)"
+        },
+        {
+          "path": "systems/error-tracking/entries/err-20260907T145247-OMFYBX.json",
+          "action": "merge",
+          "type": "system",
+          "description": "fix_status proposed -> applied"
+        },
+        {
+          "path": "systems/error-tracking/entries/err-20260911T154310-IY615I.json",
+          "action": "merge",
+          "type": "system",
+          "description": "fix_status proposed -> applied (covered by SYSTEM.md day-of-week gate rule)"
+        },
+        {
+          "path": "workflows/golf-booking/steps/step-00-cancel-prior-booking.md",
+          "action": "add",
+          "type": "system",
+          "description": "New Gate 0 step: detects override redirect away from an existing booking, cancels the prior booking via SYSTEM.md destructive-action gate (screenshot + DOM booking-ID exact-match before any cancel click), idempotent no-op when no prior booking, deferred when new target outside booking window (err-20260904T151500-CANCEL, err-20260904T151400-MANUAL)"
+        },
+        {
+          "path": "workflows/golf-booking/workflow.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Wired step-00/Gate 0 into step table, STATE CHECK, QUALITY GATE SUMMARY, and FAILURE MODES"
+        },
+        {
+          "path": "workflows/golf-booking/steps/step-01-read-preview-and-window-precheck.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Override path now requires Gate 0 completion or deferral before re-booking"
+        },
+        {
+          "path": "systems/error-tracking/new-entry.py",
+          "action": "merge",
+          "type": "system",
+          "description": "Schema enforcement at write time: canonical severity/category/source validation (fail loudly with allowed set), required non-empty category, lowercase-normalized agent, failure_mode validated against known labels with warn-on-unknown; new --category/--severity/--agent/--failure-mode/--session/--source CLI args; --id-only unchanged"
+        },
+        {
+          "path": "systems/error-tracking/schema.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Writing a New Entry section updated to document the validated creation invocation"
+        },
+        {
+          "path": "systems/error-tracking/entries/err-20260904T151500-CANCEL.json",
+          "action": "merge",
+          "type": "system",
+          "description": "fix_status proposed -> applied with resolution block citing work-20260917-234104"
+        },
+        {
+          "path": "systems/error-tracking/entries/err-20260904T151400-MANUAL.json",
+          "action": "merge",
+          "type": "system",
+          "description": "fix_status proposed -> applied with resolution block citing work-20260917-234104"
+        }
+      ],
+      "validation": {
+        "evals_run": false,
+        "eval_count": 0,
+        "iterations": 0,
+        "stopped_at_cap": false,
+        "final_pass_rate": null,
+        "description_optimized": false,
+        "note": "Directed Tier 1 fix application scoped by existing error entries; verified with behavioral tests of all three record-selection functions (in-progress preference, fractional-second timestamp ordering, loud-failure exit path, stale-date warning) plus CLI arg surface checks. No executor eval loop run \u2014 fixes are deterministic script/guard changes, not a new capability. Second batch: new-entry.py validated end-to-end (valid creation, agent normalization, non-canonical severity/category/source rejection with allowed sets, empty-category rejection, unknown failure_mode warn-but-pass, --id-only unchanged); golf-booking Gate 0 validated by structural wiring review across workflow.md's three tables plus step-00/step-01 files."
+      }
     }
   ]
 }

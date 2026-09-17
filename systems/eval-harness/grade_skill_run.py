@@ -54,12 +54,25 @@ import assertion_checks
 from score_eval import compute_score, PASSING_THRESHOLD
 
 
+def parse_started(ts) -> "datetime | None":
+    """Parse an ISO-8601 `started` value into a datetime (trailing Z normalized
+    to +00:00). Returns None on unparseable/missing input so a bad timestamp
+    degrades to deterministic fallback ordering instead of crashing the sort."""
+    if not ts:
+        return None
+    try:
+        return datetime.fromisoformat(str(ts).replace("Z", "+00:00"))
+    except Exception:
+        return None
+
+
 def find_latest_record(skill_name: str, eval_id: str = None) -> "Path | None":
     if eval_id:
         candidate = EVAL_RUNS_DIR / f"{eval_id}.json"
         return candidate if candidate.exists() else None
 
-    candidates = []
+    in_progress = []
+    closed = []
     for path in EVAL_RUNS_DIR.glob("eval-*.json"):
         try:
             with open(path) as f:
@@ -67,13 +80,36 @@ def find_latest_record(skill_name: str, eval_id: str = None) -> "Path | None":
         except Exception:
             continue
         if r.get("name") == skill_name and r.get("type") == "skill":
-            candidates.append(path)
+            # Sort on the parsed `started` datetime, not the raw string (and
+            # not the filename): differing fractional-second precision inverts
+            # under lexicographic sort, and filename order can silently select
+            # a stale record from an earlier day (symptom reported 2026-09-17).
+            parsed = parse_started(r.get("started", ""))
+            if parsed is None:
+                parsed = datetime.min.replace(tzinfo=timezone.utc)
+            entry = (parsed, path.name, path, r)
+            (in_progress if r.get("status") == "in-progress" else closed).append(entry)
 
+    # Prefer the most recent in-progress record (the one this run just
+    # created via the signal-file hook); fall back to the most recent closed
+    # record only when no record is still open.
+    candidates = in_progress or closed
     if not candidates:
         return None
-    # eval-YYYYMMDDTHHMMSS-XXXXXX filenames sort lexicographically by time
-    candidates.sort(key=lambda p: p.name, reverse=True)
-    return candidates[0]
+    candidates.sort(key=lambda x: (x[0], x[1]), reverse=True)
+    chosen = candidates[0]
+
+    # Stale-record guard: warn loudly when the chosen record was not started
+    # today, so a grading run against an old record is visible instead of
+    # silently succeeding (stale-Sept-1-record symptom reported 2026-09-17).
+    started = parse_started(chosen[3].get("started", ""))
+    if started is not None and started.date() != datetime.now(timezone.utc).date():
+        print(f"Warning: grading skill '{skill_name}' against record "
+              f"{chosen[2].stem} whose started ({chosen[3].get('started')}) is not "
+              f"today's date — this may be a stale record. Check whether the "
+              f"skill-run signal file was picked up by the hook.", file=sys.stderr)
+
+    return chosen[2]
 
 
 def atomic_write_json(path: Path, data: dict):

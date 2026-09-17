@@ -9,7 +9,7 @@
   "correction": "Knox should have checked the day of week at the start of the session (or when encountering the week-conflict signal) and aborted the run. The weekly task fires Monday 7am. A Friday invocation is either a mis-fire of the scheduled task or a manual invocation that shouldn't have proceeded without explicit authorization. The right action: detect Friday, log a warning, surface to David, do not run.",
   "failure_mode": "wrong-assumption",
   "systemic_fix": "Add an explicit day-of-week gate to the weekly workflow entry point: read `date +%A`, assert it equals Monday, and abort with a logged warning if not. The gate should surface the day mismatch to the user rather than proceeding silently. Consider adding the same gate to the scheduled task definition as a pre-flight check.",
-  "fix_status": "proposed",
+  "fix_status": "applied",
   "severity": "moderate",
   "related_entries": []
 }

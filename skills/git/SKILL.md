@@ -99,6 +99,29 @@ Wait for each call to return a result before issuing the next.
 
 ---
 
+## Shell Working Directory
+
+**Never use a bare `cd` to build a zip or run a command in a subdirectory. Always isolate the directory change in a subshell: `(cd dir && zip ...)`.**
+
+The Bash tool's working directory persists across calls, so a bare `cd` leaves every later call resolving paths against the wrong directory — hooks fail with `No such file or directory`, and subsequent commands silently target the wrong files. This exact pattern has recurred three times (err-20260829T161002-X7JBHO and prior).
+
+✅ Correct — directory change contained in a subshell:
+```bash
+(cd projects/ai-certification && zip -r ../stage-4-certification.zip .)
+```
+
+❌ Wrong — bare `cd`, persistent working directory now stuck in the subfolder:
+```bash
+cd projects/ai-certification
+zip -r ../stage-4-certification.zip .
+```
+
+Note the subshell exception to the Atomic Command Rule: `(cd dir && zip ...)` chains `cd` and `zip` with `&&`, which is allowed here because it is not a git command and the subshell's directory change never leaks into the persistent shell. Git commands themselves remain one-per-call, never chained.
+
+This mirrors the standing "Shell working directory" rule in SYSTEM.md's Capability Verification and Execution Guards.
+
+---
+
 ## Commit Convention: Conventional Commits
 
 All commits use the [Conventional Commits](https://www.conventionalcommits.org/) specification.

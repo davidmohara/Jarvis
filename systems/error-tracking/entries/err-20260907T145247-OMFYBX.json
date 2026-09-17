@@ -9,7 +9,7 @@
   "correction": "Should have used mcp__obsidian-local__* tools (create_vault_file or append_to_vault_file) to write the cache entry into Obsidian, ensuring proper vault integration, sync, and metadata handling.",
   "failure_mode": "protocol-skip",
   "systemic_fix": "For any vault-resident file (anything under Mind/, systems/, or vault-synced paths), ALWAYS use Obsidian MCP tools, never Write tool. Write tool is for workspace folder deliverables only, not vault content.",
-  "fix_status": "proposed",
+  "fix_status": "applied",
   "severity": "major",
   "related_entries": ["err-20260907T145228-7EM98M"]
 }
